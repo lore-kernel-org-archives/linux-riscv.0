@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4A56C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 20:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 673ABC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 21:15:18 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5B38E64EF9
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 20:29:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5B38E64EF9
+	by mail.kernel.org (Postfix) with ESMTPS id F2FEF64EF8
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 21:15:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F2FEF64EF8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,37 +23,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
 	Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Jix9+3vfdVBA3J3tXXSEtywM2LNc2Gv5/4EtJcwZbxQ=; b=okoswCeFBkEZQG68Jv5GsDkjD
-	r/ggDcGjc4kHB3lWni23X/NnK3Q4U0VdYlHn7IEiGQEnV2amGvGGuhFoeVsMCj32dgxgddSUeroiK
-	QB722RARFf2YecCSZwNTlp+gjymXspZELAD9eSlU/sYzhT1Ldo221VRYSDoVfThrhNvCYuHV2/0zj
-	B1ZVVP8l9qHzxmTJqGH4VTSmHUXLqsMs32TgbfpAkQeamZ6+9+o8XPc0sp32/TJHnfJNZyQkrYIXt
-	MW4q3/TTwtIT1kh78lyrxYNYaJxozfnF4RFd2aqPDBy4SBNtxBI2MoDklPsXPYlW2mMil37UgSe18
-	SZM84HyBQ==;
+	 bh=tDvDklRJSh+EO5yXLSvl7dMS5dH4mu/nbj5GFESfDis=; b=qfBuAgsKOaABhS4yllzOIUe2G
+	6IsiKg1k4BQRe/q+CPzY77jxqbaP5sjhoNsGljHvTfeeNBcj1TvbO2ZHkJMweH9ViW+4AJXK3uSgA
+	8394dvn/MMI8MYYpK0VDayoUxEiyrWdqyZQaCRlgjxbdZ7Qkt8EH2dFxcTTP0FAItx0W7it8Kq9iD
+	eaqoIcc3aP/V0yteqbc/Fh/j6KyNoL4dOJyKLUZ35eLOxmVtCMe0hgrKShOGc5eU0T40/BY2jGVpc
+	46DKHNYJ4IAPfEjtq4jfTqPOto36sCJQd8HXFKTg1d+BdG1jKU093HfAj3KWPWl4hKVryqnJQQPgA
+	/Olgt31jA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lHY7K-006Q1e-Fy; Wed, 03 Mar 2021 20:29:10 +0000
+	id 1lHYpZ-006YrM-9x; Wed, 03 Mar 2021 21:14:53 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHT5b-005IoA-C9; Wed, 03 Mar 2021 15:07:03 +0000
+ id 1lHT7u-005Jb6-56; Wed, 03 Mar 2021 15:09:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
  MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
  :Reply-To:Content-ID:Content-Description;
- bh=lwG8rNchQ7g+iAJHSOjXlAevdi8/PajULSmg4+o0Ork=; b=WkMCwkdTnTJ2+6XpF0sXYwWkkf
- B8Qe/mLm3E6jVbDqpAFFGPZ5Mov/7zdWQ5E5MSlLpoms5FMRkXlwzwZr5S5GyUYwtTMFiFI90E0fz
- +D2PcWutdP5oblQ6oS2fhZRc3emTSLV+5wK999Ay4c4SDWxoSH72F80QdvlbZ1K9SnJBlCkXr4GRP
- KGNulm1211mVN5xd57+BN5qFkN3hV8oU5LMh7bci9jgP3rgMQpTGxQsWIZniW20+6oT2c9km16dbM
- ok/iVNPdoR6+GYvHihECiT+dEIeP29+yiW4Ce/rMW5EGFyh7KCyCQgGOHXXR7H+mfb6re0JkC2MVg
- gBJhVc4Q==;
+ bh=VMpnL25cUEI8izcW0KPJXRc8cMVJmCNujLvzFfDPdiI=; b=JTuNShPJfmZwTxANPt5yXiizLI
+ aWLOp6CiZqxohddbNPIQCjyEUOWG+55RrB6ABGDyPHwRdWRyVDbsstb+pMCiSHj51Ulg6gZFbf4Gk
+ TUzrFj81ZrFaKW1rLbocskrrRW/0jwyLNeiBNVf7sYLOsUwMpIKl75NtbVz4AnXz4CFBIHGldgKpr
+ FgK7vZTRH5iLMK0H/k1QEgNUHK5C1YfIENYMhr51lTioTHIj6PXKQKlF8hlTmodct+oXd2u8/kPz8
+ GEKSICqXZnDijENaRxuMstrxZRcIAN3NhKZQqTjKJcAHNvBu7tLi9wDHuoGt9sJcgSNa3o3z5533g
+ +Zu5znHQ==;
 Received: from szxga06-in.huawei.com ([45.249.212.32])
  by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHLoL-001eZF-G4; Wed, 03 Mar 2021 07:20:46 +0000
-Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Dr5361dK8zjTJM;
+ id 1lHLoL-001eZE-Vq; Wed, 03 Mar 2021 07:20:47 +0000
+Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Dr5360CqdzjT8c;
  Wed,  3 Mar 2021 15:19:14 +0800 (CST)
 Received: from ubuntu-82.huawei.com (10.175.104.82) by
  DGGEMS408-HUB.china.huawei.com (10.3.19.208) with Microsoft SMTP Server id
- 14.3.498.0; Wed, 3 Mar 2021 15:20:27 +0800
+ 14.3.498.0; Wed, 3 Mar 2021 15:20:26 +0800
 From: Jing Xiangfeng <jingxiangfeng@huawei.com>
 To: <gregkh@linuxfoundation.org>, <catalin.marinas@arm.com>,
  <will@kernel.org>, <akpm@linux-foundation.org>, <nsaenzjulienne@suse.de>,
@@ -66,11 +66,12 @@ CC: <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
  <frowand.list@gmail.com>, <devicetree@vger.kernel.org>,
  <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
  <linux-riscv@lists.infradead.org>, <jingxiangfeng@huawei.com>,
- <wangkefeng.wang@huawei.com>, Christoph Hellwig <hch@lst.de>
-Subject: [PATCH stable v5.10 7/7] mm: Remove examples from enum zone_type
- comment
-Date: Wed, 3 Mar 2021 15:33:19 +0800
-Message-ID: <20210303073319.2215839-8-jingxiangfeng@huawei.com>
+ <wangkefeng.wang@huawei.com>, Jeremy Linton <jeremy.linton@arm.com>,
+ Christoph Hellwig <hch@lst.de>, Robin Murphy <robin.murphy@arm.com>
+Subject: [PATCH stable v5.10 6/7] arm64: mm: Set ZONE_DMA size based on early
+ IORT scan
+Date: Wed, 3 Mar 2021 15:33:18 +0800
+Message-ID: <20210303073319.2215839-7-jingxiangfeng@huawei.com>
 X-Mailer: git-send-email 2.22.0
 In-Reply-To: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
 References: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
@@ -78,9 +79,8 @@ MIME-Version: 1.0
 X-Originating-IP: [10.175.104.82]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210303_072046_339681_FF420375 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210303_072047_477788_BBEB0D5B 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,56 +97,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+From: Ard Biesheuvel <ardb@kernel.org>
 
-commit 04435217f96869ac3a8f055ff68c5237a60bcd7e upstream
+commit 2b8652936f0ca9ca2e6c984ae76c7bfcda1b3f22 upstream
 
-We can't really list every setup in common code. On top of that they are
-unlikely to stay true for long as things change in the arch trees
-independently of this comment.
+We recently introduced a 1 GB sized ZONE_DMA to cater for platforms
+incorporating masters that can address less than 32 bits of DMA, in
+particular the Raspberry Pi 4, which has 4 or 8 GB of DRAM, but has
+peripherals that can only address up to 1 GB (and its PCIe host
+bridge can only access the bottom 3 GB)
 
-Suggested-by: Christoph Hellwig <hch@lst.de>
+Instructing the DMA layer about these limitations is straight-forward,
+even though we had to fix some issues regarding memory limits set in
+the IORT for named components, and regarding the handling of ACPI _DMA
+methods. However, the DMA layer also needs to be able to allocate
+memory that is guaranteed to meet those DMA constraints, for bounce
+buffering as well as allocating the backing for consistent mappings.
+
+This is why the 1 GB ZONE_DMA was introduced recently. Unfortunately,
+it turns out the having a 1 GB ZONE_DMA as well as a ZONE_DMA32 causes
+problems with kdump, and potentially in other places where allocations
+cannot cross zone boundaries. Therefore, we should avoid having two
+separate DMA zones when possible.
+
+So let's do an early scan of the IORT, and only create the ZONE_DMA
+if we encounter any devices that need it. This puts the burden on
+the firmware to describe such limitations in the IORT, which may be
+redundant (and less precise) if _DMA methods are also being provided.
+However, it should be noted that this situation is highly unusual for
+arm64 ACPI machines. Also, the DMA subsystem still gives precedence to
+the _DMA method if implemented, and so we will not lose the ability to
+perform streaming DMA outside the ZONE_DMA if the _DMA method permits
+it.
+
+[nsaenz: unified implementation with DT's counterpart]
+
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Link: https://lore.kernel.org/r/20201119175400.9995-8-nsaenzjulienne@suse.de
+Tested-by: Jeremy Linton <jeremy.linton@arm.com>
+Acked-by: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
+Acked-by: Hanjun Guo <guohanjun@huawei.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
+Cc: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Cc: Rob Herring <robh+dt@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Hanjun Guo <guohanjun@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Link: https://lore.kernel.org/r/20201119175400.9995-7-nsaenzjulienne@suse.de
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Cc: <stable@vger.kernel.org>
 Signed-off-by: Jing Xiangfeng <jingxiangfeng@huawei.com>
 ---
- include/linux/mmzone.h | 20 --------------------
- 1 file changed, 20 deletions(-)
+ arch/arm64/mm/init.c      |  5 +++-
+ drivers/acpi/arm64/iort.c | 55 +++++++++++++++++++++++++++++++++++++++
+ include/linux/acpi_iort.h |  4 +++
+ 3 files changed, 63 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index fb3bf696c05e..9d0c454d23cd 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -354,26 +354,6 @@ enum zone_type {
- 	 * DMA mask is assumed when ZONE_DMA32 is defined. Some 64-bit
- 	 * platforms may need both zones as they support peripherals with
- 	 * different DMA addressing limitations.
--	 *
--	 * Some examples:
--	 *
--	 *  - i386 and x86_64 have a fixed 16M ZONE_DMA and ZONE_DMA32 for the
--	 *    rest of the lower 4G.
--	 *
--	 *  - arm only uses ZONE_DMA, the size, up to 4G, may vary depending on
--	 *    the specific device.
--	 *
--	 *  - arm64 has a fixed 1G ZONE_DMA and ZONE_DMA32 for the rest of the
--	 *    lower 4G.
--	 *
--	 *  - powerpc only uses ZONE_DMA, the size, up to 2G, may vary
--	 *    depending on the specific device.
--	 *
--	 *  - s390 uses ZONE_DMA fixed to the lower 2G.
--	 *
--	 *  - ia64 and riscv only use ZONE_DMA32.
--	 *
--	 *  - parisc uses neither.
- 	 */
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 05a1c2773629..b913844ab740 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -29,6 +29,7 @@
+ #include <linux/kexec.h>
+ #include <linux/crash_dump.h>
+ #include <linux/hugetlb.h>
++#include <linux/acpi_iort.h>
+ 
+ #include <asm/boot.h>
+ #include <asm/fixmap.h>
+@@ -186,11 +187,13 @@ static phys_addr_t __init max_zone_phys(unsigned int zone_bits)
+ static void __init zone_sizes_init(unsigned long min, unsigned long max)
+ {
+ 	unsigned long max_zone_pfns[MAX_NR_ZONES]  = {0};
++	unsigned int __maybe_unused acpi_zone_dma_bits;
+ 	unsigned int __maybe_unused dt_zone_dma_bits;
+ 
  #ifdef CONFIG_ZONE_DMA
- 	ZONE_DMA,
++	acpi_zone_dma_bits = fls64(acpi_iort_dma_get_max_cpu_address());
+ 	dt_zone_dma_bits = fls64(of_dma_get_max_cpu_address(NULL));
+-	zone_dma_bits = min(32U, dt_zone_dma_bits);
++	zone_dma_bits = min3(32U, dt_zone_dma_bits, acpi_zone_dma_bits);
+ 	arm64_dma_phys_limit = max_zone_phys(zone_dma_bits);
+ 	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
+ #endif
+diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
+index 94f34109695c..2494138a6905 100644
+--- a/drivers/acpi/arm64/iort.c
++++ b/drivers/acpi/arm64/iort.c
+@@ -1730,3 +1730,58 @@ void __init acpi_iort_init(void)
+ 
+ 	iort_init_platform_devices();
+ }
++
++#ifdef CONFIG_ZONE_DMA
++/*
++ * Extract the highest CPU physical address accessible to all DMA masters in
++ * the system. PHYS_ADDR_MAX is returned when no constrained device is found.
++ */
++phys_addr_t __init acpi_iort_dma_get_max_cpu_address(void)
++{
++	phys_addr_t limit = PHYS_ADDR_MAX;
++	struct acpi_iort_node *node, *end;
++	struct acpi_table_iort *iort;
++	acpi_status status;
++	int i;
++
++	if (acpi_disabled)
++		return limit;
++
++	status = acpi_get_table(ACPI_SIG_IORT, 0,
++				(struct acpi_table_header **)&iort);
++	if (ACPI_FAILURE(status))
++		return limit;
++
++	node = ACPI_ADD_PTR(struct acpi_iort_node, iort, iort->node_offset);
++	end = ACPI_ADD_PTR(struct acpi_iort_node, iort, iort->header.length);
++
++	for (i = 0; i < iort->node_count; i++) {
++		if (node >= end)
++			break;
++
++		switch (node->type) {
++			struct acpi_iort_named_component *ncomp;
++			struct acpi_iort_root_complex *rc;
++			phys_addr_t local_limit;
++
++		case ACPI_IORT_NODE_NAMED_COMPONENT:
++			ncomp = (struct acpi_iort_named_component *)node->node_data;
++			local_limit = DMA_BIT_MASK(ncomp->memory_address_limit);
++			limit = min_not_zero(limit, local_limit);
++			break;
++
++		case ACPI_IORT_NODE_PCI_ROOT_COMPLEX:
++			if (node->revision < 1)
++				break;
++
++			rc = (struct acpi_iort_root_complex *)node->node_data;
++			local_limit = DMA_BIT_MASK(rc->memory_address_limit);
++			limit = min_not_zero(limit, local_limit);
++			break;
++		}
++		node = ACPI_ADD_PTR(struct acpi_iort_node, node, node->length);
++	}
++	acpi_put_table(&iort->header);
++	return limit;
++}
++#endif
+diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
+index 20a32120bb88..1a12baa58e40 100644
+--- a/include/linux/acpi_iort.h
++++ b/include/linux/acpi_iort.h
+@@ -38,6 +38,7 @@ void iort_dma_setup(struct device *dev, u64 *dma_addr, u64 *size);
+ const struct iommu_ops *iort_iommu_configure_id(struct device *dev,
+ 						const u32 *id_in);
+ int iort_iommu_msi_get_resv_regions(struct device *dev, struct list_head *head);
++phys_addr_t acpi_iort_dma_get_max_cpu_address(void);
+ #else
+ static inline void acpi_iort_init(void) { }
+ static inline u32 iort_msi_map_id(struct device *dev, u32 id)
+@@ -55,6 +56,9 @@ static inline const struct iommu_ops *iort_iommu_configure_id(
+ static inline
+ int iort_iommu_msi_get_resv_regions(struct device *dev, struct list_head *head)
+ { return 0; }
++
++static inline phys_addr_t acpi_iort_dma_get_max_cpu_address(void)
++{ return PHYS_ADDR_MAX; }
+ #endif
+ 
+ #endif /* __ACPI_IORT_H__ */
 -- 
 2.25.1
 
