@@ -3,94 +3,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7EC8C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 00:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E534CC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 00:53:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6105564F0D
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 00:53:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6105564F0D
+	by mail.kernel.org (Postfix) with ESMTPS id 5509D64EFE
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 00:53:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5509D64EFE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xHYJv3n0zUTTnb2V7Tj3yIx+uPsE0bdUyR3QKJvqPTc=; b=TAZkvIwaOmlvOmvVhhZ+7Pv9J
-	EFmTjKKwSXjskGQGEqns/bHZiVoxNS1ZaX/23MgfyoR0+0VZsGu6fHWQvtjn7XPSg3vCCXxnqilua
-	GnP21dhkPPtVhateQxtYhNElL4i68dwIoEXLyyJY8jhua9H1n3VDDzfOAsnRgwXXIrDV3KLgmCacy
-	S+ECGpbGMxkZiL08ScVRKaioJ0GrT9BUs73fWpoE773/x3BZoY/SETwWq49hhsMQI8UQhT4h07Hmm
-	CU2555C0iBrIR9hBOcllLKAmvLN5mRTGcUl+Uk+L/U6+YXO/1GDW07LOcedEcTzib8HHOrv/3drfz
-	8SdehYBbg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=02b8tTrbQd6+Z0OKdC/OmKiZ8fqJPMNnCZXjbLzPlV4=; b=Dd+jqnDFP1HYfYxfqkIiXqSqZz
+	yIZpqHp6cjHo5BqkRmaz4m1qtaEDy6diWpcSpLO5zI/27YuunQPRh31Ms1NVJ/x5IzgpBb20OlJZx
+	Id5hdjIdh8s32XHPMaOvTJLiUst7t1ytFNPX+xgKtV3L6UfweSHc+LivNgX9aUZQEmWHRghFkTkAd
+	cef75Ra70onKcOJ8eRGUttKrgOaLqICdVaRpk5mS/4hbq4cNHF83gAg2oc88g4Y2xJObj8BiwHKWq
+	Mb8td1gHJiveczCAG/FQOA46lBIgZySVwKOfuMxXrcDGAXKNtS2FkSq0vAaEMN9Xek2rrKObR0gzd
+	ZuDR9+xA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lHcEQ-007F8M-3T; Thu, 04 Mar 2021 00:52:46 +0000
+	id 1lHcEN-007F72-3l; Thu, 04 Mar 2021 00:52:43 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHXma-006MEW-7S
- for linux-riscv@desiato.infradead.org; Wed, 03 Mar 2021 20:07:44 +0000
+ id 1lHXmY-006MDS-Kf
+ for linux-riscv@desiato.infradead.org; Wed, 03 Mar 2021 20:07:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
- References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description;
- bh=vpdayutkx0rMuzdjAIPmoAiTQH0eKslfAmCx/+vyKMg=; b=J9HuUwXFhTBD37EDUdT3t5EZBS
- yLYG5T8HMYWBtb7XpMOugChka4Pl/ByhQiEqzuX6JTeZumNGrMXelmUHfFDYVHvtXZSGD1DBeqmBu
- kBx6fcqeJ8EQqevC0vRuKZsjcfBoQvYvtbvofwaEoBSsipZ0RWDWGI2xxamPL39fEILB0ulEMXjv7
- +3GHES7hi3hlpr3cSNoSf0vWstexiWrkqRUee4c52YAHK01DRFcNb7bGmwH93Kq/TZws8OtSoVWyQ
- qtcZwgmbqB1mHah4MFXe8tSXCABFRX7qSAz4oo93apPNtQXsdO/0L6GfvLvsgwQPK1UHb8cf7irJ0
- +sc2VeRw==;
+ Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=xKd60XH69xvbTC0UNLkUnlWKHowahfQpZUklLMe3JDk=; b=drCDlZOBzRj+EUxz37cZp/CmXh
+ Z1nsAHZUtiqrxra2wg8zLfvseDdhvWUKLLBp3sh7O8xkt2HDHJVSHpN9B7z9rAD2zQLnbyL37MXAw
+ eevLe0HwU/FUevz6muEfZPF+v7vGhJ52kLw1l9Lzfc4Ox3h0BkYbmdcNPqBHKvFNrXL1sCQce+sbV
+ BElusBk3zUaryzBw7CvN2xu4vUluInoHxWMGjvRnt5nwcvUH2k2rTQuL7aIIaIdC4G8uWLKSho9sM
+ 3xcWSpIV96ECNUKz3QVrHHYiQtwawNPzgcsR+Mh/U4pWDSxDyYMxNzNSVUPgLO666ElYCTCWEki1m
+ uMYLMOvQ==;
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHXmY-0041Eb-A5
- for linux-riscv@lists.infradead.org; Wed, 03 Mar 2021 20:07:43 +0000
+ id 1lHXmG-0041Eb-Tb
+ for linux-riscv@lists.infradead.org; Wed, 03 Mar 2021 20:07:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1614802062; x=1646338062;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=cq6Qiw/Z67SYWe44YS0p0slZ5t+6fb9uqLYw/KGGbCY=;
- b=UaLyfZct9HwenbY/fAh9zt6h/a2p9AZ0TnCKffG5Y9ZO7zz+PdrQsYwW
- ka3laA+vK3yKupSxahFuVHyA5eReIErGFYcUiHkzClyd8dH/i9H8btgCF
- l3mbj/RQNA1KzcY5FL7tU8OaZNQf3zYp4juRgXcGjeqTyYe61LO2Wesh7
- i/2vRvVgOv6XL2dNNEj2Na5gcFJ9nJttizGjKUepbNRWnnG5m+s0benCp
- GWhEAaEqoVnAWxUmcJjBb1Pq5X6O3rvybXCY0k/rPmjRvtIMgjooIc+xb
- UwT6bsXQoHw5c+7O2ahy+7SMb2G2XrXSBG7ulBGGkAUU7rbuerpOMILy5 A==;
-IronPort-SDR: va3vuQNj6mCZpYmHjMAN4i3MR5LHJf6/ZuyADe9G2xGqu99QmdUAP5rU5WZggUGvl0FyUOor/X
- ZVPaKFvGv9ImAdRiBOJ7aVu0pws7Sw7eEyiaRqyxO0Aer68IATO51h3ZNoYo0xtVBYb/1XGyzJ
- 6F4KLQap7okXC+nrawim8hAWEJOcf955cY7Sp6kJf1YLqlON7uxbETCzwSAeEmy2jW614BuooK
- aA1q+ovrGe4AwmgCn8/Ek6885uLWHVzMbwboHy/ZJOlpCyj8qsE8JjN23x2YMlB7AfJrX/GKHF
- snA=
-X-IronPort-AV: E=Sophos;i="5.81,220,1610380800"; d="scan'208";a="271907145"
+ t=1614802044; x=1646338044;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=cjT47Y+Foav4IUdFGeBZNjaxykl7ywcHlPHQ263WpSI=;
+ b=I0hBaU5hAlr5WHfGupGenNq3psFw7mrsyWs7ZE4M6kHzdd3/nvnIcVMl
+ SN8NG4Hcd0ilouiKMIiQ6cFJNl1DAOqe0EJl2hAJ1UA7E5t7N3Z0NlsSu
+ 4hGSrFVhU5ilhHtPAZBHdgJtFy8tqMZYo4vQDmwswq6hz1dZ1EYoTDqlv
+ qsdkJvsixuY16myIolvVxuOmLavwrzzD5+D8U+1NC4W4gSeWM48V7LWfS
+ u4VTmV6V4pC2yMUvBoUpHhLjCbqaEJWxcYMVkzaROx2TV1TFZcXLSIsqY
+ TZX5wOqhgeEmXI5LUPT4t+om0ylG+DsGthg4jfHXx2pjlfqzrUJVBXHQI Q==;
+IronPort-SDR: ueRBh8Okj0esl8tq3b9TbXBMoHHqF0hXfL3ULKZZVwd1i6MAOpDDGKCxu/HL4cyvxMgXKgsXGx
+ JxDd9oC6cZhOzEDqGFQQ/AQbodPWs1KsBMb0aw8FVzsL+CHi0VuSXczinxgmeCC9BwsrmcpRN7
+ +cywuAsD0V3p5ylgKc+x8qWP8XKh8LMcPIVs76BDe2m19Y+8wZ4MYJN1BayY6Ra2g99NHhGrnl
+ rjK1cu+P2Icqb4FdbTQVgaGwXnD9n95pKZpJgxwyEj3E5F5TJv45e2gYFrp6w+0OB4BqHPcuFK
+ aQk=
+X-IronPort-AV: E=Sophos;i="5.81,220,1610380800"; d="scan'208";a="271907144"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 04 Mar 2021 04:06:57 +0800
-IronPort-SDR: e2LUQUEod69x/tElK0F+HJD9/Q0cEvaw83eP1wOLERoElVQmpgVQZTKVXunHtZ0q8fCFjzzCOH
- 0HwQPe4/p9Go5VCZ/Ic6oeOXvSAkraEY8tNgxmbcNUHevXKXhZblknPA2IX1ONqMP9O4O0G7op
- +D7AgISO1Xlot+ZwO+HZU0LL9ycR6dLKO9M1TzJatu/iABnJtHe46QBe2GXHteqJ1aCC2Zyfw2
- vZmSBq92wnePiApTRjUWjWJ3t7dOB9i3xvITmvvNSt9NPX1+/XM5TSZENslmNiDrvUN3hrN3gP
- PS/W/8Anlpgi3JDLTJ2Elqaa
+IronPort-SDR: PrO7OS3DwJKhawLCchgMNnf6fVwN0hoUsYceaFwhfILNd0GLbZd74I7fOFs29Y8dX4sAmaNtGi
+ 5GXbNnvxzgJQTcutvgydXEha1hMrsvmMa+cMax+xcMR7YmySDEyrzoVHpbv2ZgszyzH92j4sKe
+ 72bZn6OrGSosZB4N5Dlq+UNqPshePEDwVtHNq3Kt9HuctfI4xWpQorCxi5MUCmOsfLXWHKLj9s
+ 0jl7HxSg7VhJtg6+DkmhmCElIJ9K4QggqQnZ3PVAwAr7y0OPUaOilcfmN+9eRqACxy2bXTE9I8
+ /BAVUoamHqj+q3H3oQjeTMow
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 03 Mar 2021 11:48:12 -0800
-IronPort-SDR: UyakJ0SZO7XUdwUi2bQqA9gRsyIoV1MxrFz3ZohZDW3j2KqOBSYY2TacBraXG2n5oQSk6mDxLG
- SeWwZDw6y6/UYK08/r0zovxNgZ8nCTEz6XZUHgAqAqudbhuDqWWB73omgGxxeIHBMoEfUUpf12
- 5497zkXoYEEjSZdx3OiuewEen7iMn+RPkAaIrvEMdZbqUMHQWvDYxJoeWEnbRdKJNPuRiDdn6B
- JpoVU7ITC2917OdiVsmzz5czL1Vz2AD5w6kZatKLSKzq8Vz9iBpW7Ruuq7C0/DolRhTnsHOSgF
- 4rI=
+ 03 Mar 2021 11:48:11 -0800
+IronPort-SDR: lrp34JjvSOAuSzQgVDJ41RlatV5pePGDpkn4S+cKVuDlZtpeAAItGSWrNtG69Fihlf5tw5C0yZ
+ lXPb4beU7vrOdo2k0rpc8bEvI3IPwOZQ+Yh6Mqt5KHpoaNjiayy9VhS8lvSIjLx2ACJ25V5jmE
+ b2a5ueWc5o2sHqoKZ1DjyzXSkQwTf8pTlnZ1Ym/UJsWuIEdtQTxxtG/XHza63jFK/Q4NaEvArx
+ a4SCUCrs9VP78Tbzy2ehWrVPUM2uqpb2zrCCpM8I3K+YIs2VBmOgwZB8dIDTex97SChR63ae46
+ YQg=
 WDCIronportException: Internal
 Received: from ind002560.ad.shared (HELO jedi-01.hgst.com) ([10.86.48.105])
- by uls-op-cesaip01.wdc.com with ESMTP; 03 Mar 2021 12:06:58 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 03 Mar 2021 12:06:57 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atish.patra@wdc.com>, Bin Meng <bin.meng@windriver.com>,
- Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+Cc: Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alistair Francis <alistair.francis@wdc.com>,
  Anup Patel <anup.patel@wdc.com>,
  =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
@@ -99,17 +98,14 @@ Cc: Atish Patra <atish.patra@wdc.com>, Bin Meng <bin.meng@windriver.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Conor.Dooley@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
  Ivan.Griffin@microchip.com, Lewis.Hanly@microchip.com
-Subject: [PATCH v4 1/5] RISC-V: Add Microchip PolarFire SoC kconfig option
-Date: Wed,  3 Mar 2021 12:02:49 -0800
-Message-Id: <20210303200253.1827553-2-atish.patra@wdc.com>
+Subject: [PATCH v4 0/5] Add Microchip PolarFire Soc Support 
+Date: Wed,  3 Mar 2021 12:02:48 -0800
+Message-Id: <20210303200253.1827553-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210303200253.1827553-1-atish.patra@wdc.com>
-References: <20210303200253.1827553-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210303_200743_165152_C8C47A24 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210303_200739_544889_B589F639 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,34 +122,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Microchip PolarFire kconfig option which selects SoC specific
-and common drivers that is required for this SoC.
+This series adds minimal support for Microchip Polar Fire Soc Icicle kit.
+It is rebased on v5.12-rc1 and depends on clock support. 
+Only MMC and ethernet drivers are enabled via this series.
+The idea here is to add the foundational patches so that other drivers
+can be added to on top of this. The device tree may change based on
+feedback on bindings of individual driver support patches.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Bin Meng <bin.meng@windriver.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/Kconfig.socs | 7 +++++++
- 1 file changed, 7 insertions(+)
+This series has been tested on Qemu and Polar Fire Soc Icicle kit.
+It depends on the updated clock-series[2] and macb fix[3].
+The series is also tested by Lewis from Microchip.
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 7efcece8896c..82b298bfd3be 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -1,5 +1,12 @@
- menu "SoC selection"
- 
-+config SOC_MICROCHIP_POLARFIRE
-+	bool "Microchip PolarFire SoCs"
-+	select MCHP_CLK_MPFS
-+	select SIFIVE_PLIC
-+	help
-+	  This enables support for Microchip PolarFire SoC platforms.
-+
- config SOC_SIFIVE
- 	bool "SiFive SoCs"
- 	select SERIAL_SIFIVE if TTY
--- 
+The series can also be found at.
+https://github.com/atishp04/linux/tree/polarfire_support_upstream_v4
+
+[1] https://lists.nongnu.org/archive/html/qemu-devel/2020-10/msg08582.html
+[2] https://www.spinics.net/lists/linux-clk/msg54579.html 
+
+Changes from v3->v4:
+1. Fixed few DT specific issues.
+2. Rebased on top of new clock driver.
+3. SD card functionality is verified.
+
+Changes from v2->v3:
+1. Fixed a typo in dt binding.
+2. Included MAINTAINERS entry for PolarFire SoC.
+3. Improved the dts file by using lowercase clock names and keeping phy
+   details in board specific dts file.
+
+Changes from v1->v2:
+1. Modified the DT to match the device tree in U-Boot.
+2. Added both eMMC & SDcard entries in DT. However, SD card is only enabled
+   as it allows larger storage option for linux distros.
+
+Atish Patra (4):
+RISC-V: Add Microchip PolarFire SoC kconfig option
+dt-bindings: riscv: microchip: Add YAML documentation for the
+PolarFire SoC
+RISC-V: Initial DTS for Microchip ICICLE board
+RISC-V: Enable Microchip PolarFire ICICLE SoC
+
+Conor Dooley (1):
+MAINTAINERS: add microchip polarfire soc support
+
+.../devicetree/bindings/riscv/microchip.yaml  |  27 ++
+MAINTAINERS                                   |   8 +
+arch/riscv/Kconfig.socs                       |   7 +
+arch/riscv/boot/dts/Makefile                  |   1 +
+arch/riscv/boot/dts/microchip/Makefile        |   2 +
+.../microchip/microchip-mpfs-icicle-kit.dts   |  72 ++++
+.../boot/dts/microchip/microchip-mpfs.dtsi    | 329 ++++++++++++++++++
+arch/riscv/configs/defconfig                  |   4 +
+8 files changed, 450 insertions(+)
+create mode 100644 Documentation/devicetree/bindings/riscv/microchip.yaml
+create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+
+--
 2.25.1
 
 
