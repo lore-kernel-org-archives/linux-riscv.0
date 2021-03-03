@@ -2,84 +2,86 @@ Return-Path: <SRS0=olfB=IB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0BC64C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 22:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B4ED8C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 23:13:33 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DB1364EA4
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 22:36:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DB1364EA4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 4129D64EF9
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Mar 2021 23:13:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4129D64EF9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=F/hdXjPRNMf8D0tosZQwLWQMz+hYZENvkodtXNt0HwM=; b=kow/0bM78e2uNkFYmGrMp+yTS
-	3Xsllj81Xepu+7jvkYA2l47Y/EvwWoCHhR9tAFFRwJgmFjNqQ/ZT0y2nMMm8eeQuhBw9sAwYdG8kD
-	D7T/N/Jj0VNIjHfZJnmakIpQtJRqp8JL+4QxTyw2irhbMtBB4SnbBLA6SApJm61MRYNDlxM7EcCK8
-	/K9tyxbqaQtKK7qDEdUtvG304T7KSILJa2mvy3FpbWMeBvvTSzVRt35RSmlEkpitNhbVf8D9L12eK
-	BNyDxi4fSR16KRjstghczjEerYKwG9Mpjw0NJqKZuBIfjY0hBm5Em9bMAaiYAF7U0BNancu/DrkwN
-	LsuIgJ1yg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=udWGErCxJQDK6nkMEsWg0MpASf27MiIYoWQ+4JqDaso=; b=fEAhOpSDeiUxSj9jsKUjPqxPvK
+	OyZaUZtcJIXmDRXqgGe9S4cbyd2eMRplZ58Q59dJwldUmlJkXXo/n3h8U6c4Z7mvjAf2XqqTSB6F6
+	y4kC/lzmnbygYm5afeoYMHxup8ZDVgrTVSLGw7n6OR8bdkRCSzKiNd3QBozUHQ2U4hksx4oRzoS4H
+	ss8rdP5Te/iKW/5jAAliPCE1x3+f09ikeXLynU1WEND9F4gZJFyyZdlLp+fYGAHIAW6Te1yeXNu4o
+	rqs3TvxOFEbHTzu9q2WAd1RUujzaxPmSC30kd0Tc20FM55QcYAKQdR1trKQy5j8B100rjTwiM0wUn
+	PNI+K3Fw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lHa4A-006liD-FH; Wed, 03 Mar 2021 22:34:30 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1lHag5-006tY0-Kp; Wed, 03 Mar 2021 23:13:13 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHTB3-005Koe-IP; Wed, 03 Mar 2021 15:12:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
- MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
- :Reply-To:Content-ID:Content-Description;
- bh=4Zy9OY6fx2/oU4L2eni2q/jcefF37OJjrso/hpuWwQw=; b=f0SBDMnOPuGwU3d630hPDoyVC1
- QITEag+dIIq/J/h4YDdxh/4XN4sNEljbiydkYmJ8HCgydVSe4DFR2Nnmnrjw3DaKQZ5XcDjz2P/a9
- Pzx6DWoRE8EzBO+JQZMwOhavCnZzPAQT1cRR2PPF7XshhlkzF77uoWZk9bEaa+hkaMb5JOH1PLTns
- Am9Oq55RRaZ8JQIILFDGd1OSzWb/78tR9d/5bRQ5f0KHwGW6xyStdklKjxXyF5vJVmCgG1aGIbE4O
- aA8A9mz2YQvcEaXJ+tm0KGSsJETqpLsTu0omXKNZMv1P1cKAzFtzG8zdbAzhj96/YwdxNLgY7WS/7
- U8QhSgfw==;
-Received: from szxga05-in.huawei.com ([45.249.212.191])
- by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHLoI-001eYn-OS; Wed, 03 Mar 2021 07:20:43 +0000
-Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Dr5272kJlzMhPF;
- Wed,  3 Mar 2021 15:18:23 +0800 (CST)
-Received: from ubuntu-82.huawei.com (10.175.104.82) by
- DGGEMS408-HUB.china.huawei.com (10.3.19.208) with Microsoft SMTP Server id
- 14.3.498.0; Wed, 3 Mar 2021 15:20:24 +0800
-From: Jing Xiangfeng <jingxiangfeng@huawei.com>
-To: <gregkh@linuxfoundation.org>, <catalin.marinas@arm.com>,
- <will@kernel.org>, <akpm@linux-foundation.org>, <nsaenzjulienne@suse.de>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <rppt@kernel.org>, <lorenzo.pieralisi@arm.com>, <guohanjun@huawei.com>,
- <sudeep.holla@arm.com>, <rjw@rjwysocki.net>, <lenb@kernel.org>,
- <song.bao.hua@hisilicon.com>, <ardb@kernel.org>, <anshuman.khandual@arm.com>, 
- <bhelgaas@google.com>, <guro@fb.com>, <robh+dt@kernel.org>
-CC: <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <frowand.list@gmail.com>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-riscv@lists.infradead.org>, <jingxiangfeng@huawei.com>,
- <wangkefeng.wang@huawei.com>
-Subject: [PATCH stable v5.10 5/7] arm64: mm: Set ZONE_DMA size based on
- devicetree's dma-ranges
-Date: Wed, 3 Mar 2021 15:33:17 +0800
-Message-ID: <20210303073319.2215839-6-jingxiangfeng@huawei.com>
-X-Mailer: git-send-email 2.22.0
-In-Reply-To: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
-References: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
+ id 1lHUGf-005aCL-FB; Wed, 03 Mar 2021 16:22:38 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E208E64EE9;
+ Wed,  3 Mar 2021 16:22:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1614788549;
+ bh=uF3t0VA9z663jvFfdtPCA44jnfXi5YIRbS8T3G1Nz50=;
+ h=From:To:Cc:Subject:Date:From;
+ b=lct2G1bVCGvORp7GQvonJWJ5LnnyRDqZFbPSzkLaRNro8vSjxYc25I8k2EyePlvMy
+ TtjOEAmbm53x/ICan84OdyBB9WBUxhrB/iQBUOFU18SBb4dGiVhBlj1eKIgcHa3t4p
+ X0IvgIvAnMSTunUIVYuG2wbq2R3kuOzn6EL4uA7/uIULMvjTzbCYVYbdED941WN8O3
+ lc4SHGKOFa+6MX+j9HAcIn+cIAS8UDA201zNevu+p/sHwfUEyBAbNahwjUOAFV/+Li
+ pVvXR6bh4wGUGuN9lsbqfmxNWvD/F7Dl6PEK8OE+e9RDnVqIuy4JtgVcY2Cv5/9dA4
+ 54b9QlEOg2usA==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christopher Lameter <cl@linux.com>,
+ Dan Williams <dan.j.williams@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>,
+ Elena Reshetova <elena.reshetova@intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ James Bottomley <jejb@linux.ibm.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Matthew Wilcox <willy@infradead.org>,
+ Matthew Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Mike Rapoport <rppt@kernel.org>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Shakeel Butt <shakeelb@google.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Tycho Andersen <tycho@tycho.ws>,
+ Will Deacon <will@kernel.org>, linux-api@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: [PATCH v18 0/9] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Wed,  3 Mar 2021 18:22:00 +0200
+Message-Id: <20210303162209.8609-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-X-Originating-IP: [10.175.104.82]
-X-CFilter-Loop: Reflected
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210303_072043_684109_34BA4FA4 
-X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +98,171 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-commit 8424ecdde7df99d5426e1a1fd9f0fb36f4183032 upstream
+Hi,
 
-We recently introduced a 1 GB sized ZONE_DMA to cater for platforms
-incorporating masters that can address less than 32 bits of DMA, in
-particular the Raspberry Pi 4, which has 4 or 8 GB of DRAM, but has
-peripherals that can only address up to 1 GB (and its PCIe host
-bridge can only access the bottom 3 GB)
+@Andrew, this is based on v5.12-rc1, I can rebase whatever way you prefer.
 
-The DMA layer also needs to be able to allocate memory that is
-guaranteed to meet those DMA constraints, for bounce buffering as well
-as allocating the backing for consistent mappings. This is why the 1 GB
-ZONE_DMA was introduced recently. Unfortunately, it turns out the having
-a 1 GB ZONE_DMA as well as a ZONE_DMA32 causes problems with kdump, and
-potentially in other places where allocations cannot cross zone
-boundaries. Therefore, we should avoid having two separate DMA zones
-when possible.
+This is an implementation of "secret" mappings backed by a file descriptor.
 
-So, with the help of of_dma_get_max_cpu_address() get the topmost
-physical address accessible to all DMA masters in system and use that
-information to fine-tune ZONE_DMA's size. In the absence of addressing
-limited masters ZONE_DMA will span the whole 32-bit address space,
-otherwise, in the case of the Raspberry Pi 4 it'll only span the 30-bit
-address space, and have ZONE_DMA32 cover the rest of the 32-bit address
-space.
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will be present only in the page table of the owning mm.
 
-Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Link: https://lore.kernel.org/r/20201119175400.9995-6-nsaenzjulienne@suse.de
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Jing Xiangfeng <jingxiangfeng@huawei.com>
----
- arch/arm64/mm/init.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Although normally Linux userspace mappings are protected from other users,
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 7da912bf4222..05a1c2773629 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -42,8 +42,6 @@
- #include <asm/tlb.h>
- #include <asm/alternative.h>
+Additionally, in the future the secret mappings may be used as a mean to
+protect guest memory in a virtual machine host.
+
+For demonstration of secret memory usage we've created a userspace library
+
+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
+
+that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+Hiding secret memory mappings behind an anonymous file allows usage of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+Removing of the pages from the direct map may cause its fragmentation on
+architectures that use large pages to map the physical memory which affects
+the system performance. However, the original Kconfig text for
+CONFIG_DIRECT_GBPAGES said that gigabyte pages in the direct map "... can
+improve the kernel's performance a tiny bit ..." (commit 00d1c5e05736
+("x86: add gbpages switches")) and the recent report [1] showed that "...
+although 1G mappings are a good default choice, there is no compelling
+evidence that it must be the only choice". Hence, it is sufficient to have
+secretmem disabled by default with the ability of a system administrator to
+enable it at boot time.
+
+In addition, there is also a long term goal to improve management of the
+direct map.
+
+[1] https://lore.kernel.org/linux-mm/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com/
+
+v18:
+* rebase on v5.12-rc1
+* merge kfence fix into the original patch
+* massage commit message of the patch introducing the memfd_secret syscall
+
+v17: https://lore.kernel.org/lkml/20210208084920.2884-1-rppt@kernel.org
+* Remove pool of large pages backing secretmem allocations, per Michal Hocko
+* Add secretmem pages to unevictable LRU, per Michal Hocko
+* Use GFP_HIGHUSER as secretmem mapping mask, per Michal Hocko
+* Make secretmem an opt-in feature that is disabled by default
  
--#define ARM64_ZONE_DMA_BITS	30
--
- /*
-  * We need to be able to catch inadvertent references to memstart_addr
-  * that occur (potentially in generic code) before arm64_memblock_init()
-@@ -188,9 +186,11 @@ static phys_addr_t __init max_zone_phys(unsigned int zone_bits)
- static void __init zone_sizes_init(unsigned long min, unsigned long max)
- {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES]  = {0};
-+	unsigned int __maybe_unused dt_zone_dma_bits;
- 
- #ifdef CONFIG_ZONE_DMA
--	zone_dma_bits = ARM64_ZONE_DMA_BITS;
-+	dt_zone_dma_bits = fls64(of_dma_get_max_cpu_address(NULL));
-+	zone_dma_bits = min(32U, dt_zone_dma_bits);
- 	arm64_dma_phys_limit = max_zone_phys(zone_dma_bits);
- 	max_zone_pfns[ZONE_DMA] = PFN_DOWN(arm64_dma_phys_limit);
- #endif
+v16: https://lore.kernel.org/lkml/20210121122723.3446-1-rppt@kernel.org
+* Fix memory leak intorduced in v15
+* Clean the data left from previous page user before handing the page to
+  the userspace
+
+v15: https://lore.kernel.org/lkml/20210120180612.1058-1-rppt@kernel.org
+* Add riscv/Kconfig update to disable set_memory operations for nommu
+  builds (patch 3)
+* Update the code around add_to_page_cache() per Matthew's comments
+  (patches 6,7)
+* Add fixups for build/checkpatch errors discovered by CI systems
+
+v14: https://lore.kernel.org/lkml/20201203062949.5484-1-rppt@kernel.org
+* Finally s/mod_node_page_state/mod_lruvec_page_state/
+
+v13: https://lore.kernel.org/lkml/20201201074559.27742-1-rppt@kernel.org
+* Added Reviewed-by, thanks Catalin and David
+* s/mod_node_page_state/mod_lruvec_page_state/ as Shakeel suggested
+
+Older history:
+v12: https://lore.kernel.org/lkml/20201125092208.12544-1-rppt@kernel.org
+v11: https://lore.kernel.org/lkml/20201124092556.12009-1-rppt@kernel.org
+v10: https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
+v9: https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
+v8: https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
+v7: https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
+v6: https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
+v5: https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
+v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
+v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
+rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
+rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
+rfc-v0: https://lore.kernel.org/lkml/1572171452-7958-1-git-send-email-rppt@kernel.org/
+
+Mike Rapoport (9):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  riscv/Kconfig: make direct map manipulation options depend on MMU
+  set_memory: allow set_direct_map_*_noflush() for multiple pages
+  set_memory: allow querying whether set_direct_map_*() is actually enabled
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  PM: hibernate: disable when there are active secretmem users
+  arch, mm: wire up memfd_secret system call where relevant
+  secretmem: test: add basic selftest for memfd_secret(2)
+
+ arch/arm64/include/asm/Kbuild             |   1 -
+ arch/arm64/include/asm/cacheflush.h       |   6 -
+ arch/arm64/include/asm/kfence.h           |   2 +-
+ arch/arm64/include/asm/set_memory.h       |  17 ++
+ arch/arm64/include/uapi/asm/unistd.h      |   1 +
+ arch/arm64/kernel/machine_kexec.c         |   1 +
+ arch/arm64/mm/mmu.c                       |   6 +-
+ arch/arm64/mm/pageattr.c                  |  23 +-
+ arch/riscv/Kconfig                        |   4 +-
+ arch/riscv/include/asm/set_memory.h       |   4 +-
+ arch/riscv/include/asm/unistd.h           |   1 +
+ arch/riscv/mm/pageattr.c                  |   8 +-
+ arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
+ arch/x86/include/asm/set_memory.h         |   4 +-
+ arch/x86/mm/pat/set_memory.c              |   8 +-
+ fs/dax.c                                  |  11 +-
+ include/linux/pgtable.h                   |   3 +
+ include/linux/secretmem.h                 |  30 +++
+ include/linux/set_memory.h                |  16 +-
+ include/linux/syscalls.h                  |   1 +
+ include/uapi/asm-generic/unistd.h         |   6 +-
+ include/uapi/linux/magic.h                |   1 +
+ kernel/power/hibernate.c                  |   5 +-
+ kernel/power/snapshot.c                   |   4 +-
+ kernel/sys_ni.c                           |   2 +
+ mm/Kconfig                                |   3 +
+ mm/Makefile                               |   1 +
+ mm/gup.c                                  |  10 +
+ mm/internal.h                             |   3 +
+ mm/mlock.c                                |   3 +-
+ mm/mmap.c                                 |   5 +-
+ mm/secretmem.c                            | 261 +++++++++++++++++++
+ mm/vmalloc.c                              |   5 +-
+ scripts/checksyscalls.sh                  |   4 +
+ tools/testing/selftests/vm/.gitignore     |   1 +
+ tools/testing/selftests/vm/Makefile       |   3 +-
+ tools/testing/selftests/vm/memfd_secret.c | 296 ++++++++++++++++++++++
+ tools/testing/selftests/vm/run_vmtests.sh |  17 ++
+ 39 files changed, 726 insertions(+), 53 deletions(-)
+ create mode 100644 arch/arm64/include/asm/set_memory.h
+ create mode 100644 include/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+ create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+
 -- 
-2.25.1
+2.28.0
 
 
 _______________________________________________
