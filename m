@@ -2,90 +2,61 @@ Return-Path: <SRS0=/aKF=IC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C02ACC433E6
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 03:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A512C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 11:41:28 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 55460601FA
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 03:03:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55460601FA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id CF97E64EC4
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 11:41:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF97E64EC4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=MVD5jFhfAt8TTPV9vOvNwDmL+C9NWrVnytpbgLqe51k=; b=H0AKJ4opLIOE2NHqQ3Xxih8za
-	4hjWjY5T5DsSO0vdh4G+LepV9mqPFwxcAykd97ayKx2nuc9+PFFoOCQmvDARaVs7X8YP/28d67a0z
-	3kmxVhLLM+QYC+wcdMh/JnJNpTEcJ4CbdVGe/vU/56jTuIsBfDzBRA1F7Ct+dcZpRBvrELqrOLwfk
-	yfxabvA6DEZg9wSVrPkmT4qK3YmiCXweUTmE2N0Pv+uF22XoyN/Y2KWC7dq30boHhWjPn03HNI6v8
-	bcFvpXZsDYplXa7+GMfd3wmvzLnpuMtB/d7tNO2fp2qOnOd7tiqr/kxiBz60on6tsBTQFJCsfk+1r
-	IhPWIS5eg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=5y+7d5bFoB6LZ/5t6ODZ0shOW6XbH3CkMpb7wcOf64Y=; b=kkTvFnC7Fflf2YQrMVAn204qU
+	HKqq5i237rJFtyQl1AkxynS/4og3285B21MP75H9OWOMG3ygwZDAg20E21GgxShhXHVW07ag7FRRB
+	7SI//erba9YCSrCwoxFp7bc7Sf09FmY/k66KYGqMIjWpZmB1yfXG+/lrw68iGFeYBKMA0VhKQKl9c
+	SPPjiQvApnO52jeTWqaR8GR0wlMuZvmsiFi5NzR5aAvDjMR3gmDGQft2k9pse5BznrsHPtawtPQ0S
+	8d9T2JLzWkjlmGMRypd9VxdldQbuYLm4yhOomSE8NP6KABgHKdXvOTmgBeN+sdER4E0SU4jS3Ezng
+	GKxLs8nQQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lHeGx-007ZFn-Ll; Thu, 04 Mar 2021 03:03:31 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1lHmLt-008V28-CC; Thu, 04 Mar 2021 11:41:09 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHdhD-007TVY-Pa
- for linux-riscv@lists.infradead.org; Thu, 04 Mar 2021 02:27:11 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d8so4839055plg.10
- for <linux-riscv@lists.infradead.org>; Wed, 03 Mar 2021 18:26:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=jg9i1mPUq1K1Wcc5GInzffq6do0Ck3ej7ZHTvXvymaQ=;
- b=iwyZr437AFeZuoHsMpAywvQ7EexOwWoAL9bPOiX8EFjQymmFy/flAiAB6qSlKVJBLT
- Vpf6odJvr44WSLiAKN2koccO4JbjOxJxByBLRtDFzQAUAaB/rJ/f/sGdi1tpGSzp+965
- kjDbiv4wz5B+v5TF1sn1U+CGegHxTrhTXdko1J19OnjwcUxK6Xj6RLfxfJq61pYV1JSa
- FaxS0vRfQpQ1JgtlOPCOuof5YuWDzBZd1YMZdr5yhFBaHZZ5Ei32FgT1Zg0/c9LCfUo7
- AgnxvRka0D6ll2q2P66NwcESGNBa4CHWDY4IlMXx2PopWK+bU5A5PTA4rVNxBaI1JwUN
- TNNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=jg9i1mPUq1K1Wcc5GInzffq6do0Ck3ej7ZHTvXvymaQ=;
- b=YQ9rdBt8HYdiUvLA0AppG8X3th1Rnt1448K0M2D7bdMiW0YbDgQK85vwHfHXolF34X
- 75vPjUxQWM76qZMFNT56R+aGAmUQO32PMChKMI8YphtYagY/FopiAqaz0yInwuOpuD9F
- Rbt6jJIJbZZN0cSr0x/zFABTr0g/ID8a8KFtslk6mmDb1oAbIlT5Wp9C/o8pDa2nUBD6
- 60COMNMYaYFxV0G7MRKTt/wn4TNReGieAA35YR/7L/+qRXX7aaT58OrHiubt/aK0EWEN
- TrS3CQ5C7UvaxZgPR3Y2YYU+mVrukuprsPgm/qGlXu/ZsFHOpeYtjkA6SmRwIS1Tl4EH
- b2dQ==
-X-Gm-Message-State: AOAM531J57/DPmlLWtl3Ho5kf74k8F3AXFttHj94UuZUdNM0zfUw2jDz
- Ep8dpsRnEuUrtB9eFC6dz0WtFDHTeLaXyDuL
-X-Google-Smtp-Source: ABdhPJxwx9njZKYS6LhVNn0HXdr1kMTRLK9xUdhIxjnFvsH7nM6Grh2Lg7goB5XLHYbemCIyNs6ZNA==
-X-Received: by 2002:a17:902:a714:b029:e3:1cd:a033 with SMTP id
- w20-20020a170902a714b02900e301cda033mr1819123plq.27.1614824793472; 
- Wed, 03 Mar 2021 18:26:33 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 184sm27495857pfc.176.2021.03.03.18.26.32
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 03 Mar 2021 18:26:32 -0800 (PST)
-Date: Wed, 03 Mar 2021 18:26:32 -0800 (PST)
-X-Google-Original-Date: Wed, 03 Mar 2021 18:26:29 PST (-0800)
-Subject: Re: [PATCH] Documentation/admin-guide: kernel-parameters: correct the
- architectures for numa_balancing
-In-Reply-To: <20210302084159.33688-1-song.bao.hua@hisilicon.com>
-CC: corbet@lwn.net, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, song.bao.hua@hisilicon.com, mgorman@suse.de, 
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- paulmck@kernel.org, rdunlap@infradead.org, 
- akpm@linux-foundation.org, tglx@linutronix.de, mchehab+huawei@kernel.org,
- viresh.kumar@linaro.org, mike.kravetz@oracle.com, peterz@infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: song.bao.hua@hisilicon.com
-Message-ID: <mhng-a06d1543-65b7-49fa-87c7-f437ec1d85ea@penguin>
-Mime-Version: 1.0 (MHng)
+ id 1lHmLl-008Uwm-Ee
+ for linux-riscv@lists.infradead.org; Thu, 04 Mar 2021 11:41:05 +0000
+Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4DrpmM0hrCz7sqp;
+ Thu,  4 Mar 2021 19:38:59 +0800 (CST)
+Received: from [10.174.177.244] (10.174.177.244) by
+ DGGEMS405-HUB.china.huawei.com (10.3.19.205) with Microsoft SMTP Server id
+ 14.3.498.0; Thu, 4 Mar 2021 19:40:37 +0800
+Subject: Re: question about RISCV EFI stub support
+To: Palmer Dabbelt <palmer@dabbelt.com>, <atishp@atishpatra.org>
+CC: <ardb@kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
+ <linux-riscv@lists.infradead.org>
+References: <mhng-cb425c13-c9ad-46e7-9b8a-b017be00e098@penguin>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+Message-ID: <f61fbd55-653a-df8a-7dd3-226dbdb65569@huawei.com>
+Date: Thu, 4 Mar 2021 19:40:37 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
+MIME-Version: 1.0
+In-Reply-To: <mhng-cb425c13-c9ad-46e7-9b8a-b017be00e098@penguin>
+Content-Language: en-US
+X-Originating-IP: [10.174.177.244]
+X-CFilter-Loop: Reflected
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,92 +68,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Mar 2021 00:41:59 PST (-0800), song.bao.hua@hisilicon.com wrote:
-> X86 isn't the only architecture supporting NUMA_BALANCING. ARM64, PPC,
-> S390 and RISCV also support it:
->
-> arch$ git grep NUMA_BALANCING
-> arm64/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
-> arm64/configs/defconfig:CONFIG_NUMA_BALANCING=y
-> arm64/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> powerpc/configs/powernv_defconfig:CONFIG_NUMA_BALANCING=y
-> powerpc/configs/ppc64_defconfig:CONFIG_NUMA_BALANCING=y
-> powerpc/configs/pseries_defconfig:CONFIG_NUMA_BALANCING=y
-> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
-> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
-> powerpc/include/asm/nohash/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> powerpc/include/asm/nohash/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
-> powerpc/platforms/Kconfig.cputype:      select ARCH_SUPPORTS_NUMA_BALANCING
-> riscv/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
-> riscv/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> s390/Kconfig:   select ARCH_SUPPORTS_NUMA_BALANCING
-> s390/configs/debug_defconfig:CONFIG_NUMA_BALANCING=y
-> s390/configs/defconfig:CONFIG_NUMA_BALANCING=y
-> s390/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> x86/Kconfig:    select ARCH_SUPPORTS_NUMA_BALANCING     if X86_64
-> x86/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
-> x86/include/asm/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
->
-> On the other hand, setup_numabalancing() is implemented in mm/mempolicy.c
-> which doesn't depend on architectures.
->
-> Cc: Mel Gorman <mgorman@suse.de>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: "Paul E. McKenney" <paulmck@kernel.org>
-> Cc: Randy Dunlap <rdunlap@infradead.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> Cc: Viresh Kumar <viresh.kumar@linaro.org>
-> Cc: Mike Kravetz <mike.kravetz@oracle.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Barry Song <song.bao.hua@hisilicon.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.rst | 1 +
->  Documentation/admin-guide/kernel-parameters.txt | 3 ++-
->  2 files changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.rst b/Documentation/admin-guide/kernel-parameters.rst
-> index 1132796a8d96..24302cad174a 100644
-> --- a/Documentation/admin-guide/kernel-parameters.rst
-> +++ b/Documentation/admin-guide/kernel-parameters.rst
-> @@ -140,6 +140,7 @@ parameter is applicable::
->  	PPT	Parallel port support is enabled.
->  	PS2	Appropriate PS/2 support is enabled.
->  	RAM	RAM disk support is enabled.
-> +	RISCV	RISCV architecture is enabled.
->  	RDT	Intel Resource Director Technology.
->  	S390	S390 architecture is enabled.
->  	SCSI	Appropriate SCSI support is enabled.
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 04545725f187..371a02ae1e21 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -3472,7 +3472,8 @@
->
->  	nr_uarts=	[SERIAL] maximum number of UARTs to be registered.
->
-> -	numa_balancing=	[KNL,X86] Enable or disable automatic NUMA balancing.
-> +	numa_balancing=	[KNL,ARM64,PPC,RISCV,S390,X86] Enable or disable automatic
-> +			NUMA balancing.
->  			Allowed values are enable and disable
->
->  	numa_zonelist_order= [KNL, BOOT] Select zonelist order for NUMA.
-
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjEvMy80IDEwOjI1LCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPiBPbiBUdWUsIDAyIE1h
+ciAyMDIxIDAwOjIwOjEyIFBTVCAoLTA4MDApLCBhdGlzaHBAYXRpc2hwYXRyYS5vcmcgd3JvdGU6
+Cj4+Ci4uLgo+Pj4gPgo+Pj4gPiBBbnkgY29tbWVudCBhYm91dCB0aGUgdG9vIGlzc3VlLAo+Pj4g
+Pgo+Pj4gPiAxKcKgIGRpcmVjdGx5IHVzZSAuc2hvdXQgTVpfTUFHSUMgdG8gZGVjb3VwbGUgRUZJ
+X1NUVUIgYW5kIAo+Pj4gUklTQ1ZfSVNBX0MuCj4+PiA+Cj4+PiA+IDIpwqAgZG9uJ3Qgc2V0IFJJ
+U0NWX0lTQV9DwqAgdG8gZGVmYXVsdCB5Cj4+PiA+Cj4+Pgo+Pj4gQnV0IGRvZXNuJ3QgdGhhdCBi
+cmVhayBub24tRUZJIGJvb3Qgd2l0aCB0aGUgc2FtZSBpbWFnZT8gVGhlIG9wY29kZQo+Pj4gc3Rp
+bGwgbmVlZHMgdG8gYmUgZXhlY3V0YWJsZSwgYW5kIGhhdmUgY2xvc2UtdG8tTk9QIHNlbWFudGlj
+cy4KPj4KPj4gQ29ycmVjdC4gSXQgd2lsbCBicmVhayBub24tRUZJIGJvb3QgZm9yIHRoZSBoYXJk
+d2FyZSBpZiB0aGUgcGxhdGZvcm0KPj4gZG9lc24ndCBzdXBwb3J0IEMgZXh0ZW5zaW9uLgo+PiBU
+aGVvcmV0aWNhbGx5LCB3ZSBjYW4gZGVjb3VwbGUgRUZJX1NUVUIgJiBSSVNDVl9JU0FfQy4gQnV0
+IHRoYXQncwo+PiB1c2VsZXNzIGFzIHRoZSBoYXJkd2FyZSBoYXMgdG8gc3VwcG9ydCBDIGFueXdh
+eXMuCj4+IEFwb2xvZ2llcyBmb3Igbm90IHNlZWluZyB0aGlzIHRocm91Z2guCj4+Cj4+IElmIGEg
+cGxhdGZvcm0gZG9lc24ndCBoYXZlIGEgQyBleHRlbnNpb24sIHRoZXkgY2FuIG5vdCB1c2UgdGhl
+IEVGSQo+PiBib290aW5nIG1ldGhvZC4KPgo+IFNvIHRoZSBkZXBlbmRlbmN5IGhlcmUgaXMgYWN0
+dWFsbHkgYSBiaXQgb2RkOiBwbGF0Zm9ybXMgd2l0aG91dCBDIAo+IF9jYW5fIHVzZSBFRkksIHRo
+ZSBFRkkgaW1hZ2VzIGp1c3QgY2FuJ3QgYmUgYm9vdGVkIG9uIG5vbi1FRkkgc3lzdGVtcyAKPiAo
+YmVjYXVzZSB0aGUgZmxhdCBiaW5hcmllcyBuZWVkIHRvIGV4ZWN1dGUgdGhlIFBFL0NPRkYgaGVh
+ZGVyKS7CoCBUaGUgCj4gaXNzdWUgaXMgcmVhbGx5IHRoYXQgd2UgY2FuJ3Qgc3VwcG9ydCBhbGwg
+dGhyZWUgb2Ygbm9uLUMsIEVGSSwgYW5kIAo+IG5vbi1FRkkgaW4gdGhlIEltYWdlIGZvcm1hdC4K
+Pgo+IFRoZSByZWFzb24gd2UgY291cGxlZCBDIGFuZCBFRkkgaXMgcmVhbGx5IHRvIGF2b2lkIHRo
+ZSBleGlzdGVuY2Ugb2YgCj4gRUZJLW9ubHkga2VybmVscywgd2hpY2ggYXJlIGEgaGVhZGFjaGUg
+dGhlc2UgZGF5cyBiZWNhdXNlIEVGSSBpc24ndCAKPiB3aWRlbHkgc3VwcG9ydGVkIG9yIHVzZWQg
+b24gUklTQy1WLsKgIFRoZSBnZW5lcmFsIGFzc3VtcHRpb24gaXMgdGhhdCwgCj4gc2luY2Ugd2Ug
+cmVjb21tZW5kIHJ2NjRnYyBmb3IgcG9ydGFibGUgc3lzdGVtcyBhbmQgRUZJIGlzIG1vc3RseSBv
+ZiAKPiBpbnRlcmVzdCB0byBwb3J0YWJsZSBzeXN0ZW1zLCB3ZSB3b24ndCBlbmQgdXAgd2l0aCBu
+b24tQyBFRkkgc3lzdGVtcyAKPiBhbmQgdGhlcmVmb3IgZG9uJ3QgbmVlZCB0byB3b3JyeSBhYm91
+dCBoYXZpbmcgaW5jb21wYXRpYmxlIGtlcm5lbHMuwqAgCj4gVGhhdCBzYWlkLCBpZiB0aGVyZSdz
+IG9uZSB0aGluZyBJJ3ZlIGxlYXJuZWQgZnJvbSB0aGUgd2hvbGUgUklTQy1WIAo+IHRoaW5nIGl0
+J3MgdGhhdCB3aGVuZXZlciBJIHNheSAid2UgZG9uJ3QgdGhpbmsgaGFyZHdhcmUgdGhhdCBkb2Vz
+IFggCj4gd2lsbCBzaG93IHVwIiBpdCBkb2VzLsKgIEFzc3VtaW5nIHRoYXQncyB0aGUgY2FzZSBh
+bmQgd2UgZW5kIHVwIHdpdGggCj4gbm9uLUMgc3lzdGVtcyB0aGF0IHBlb3BsZSB3YW50IHRvIHJ1
+biBFRkkgb24sIHdlJ2xsIGZpZ3VyZSBvdXQgYSB3YXkgCj4gdG8gZG8gdGhhdCAtLSBpZiBzb21l
+b25lIGhhcyByZWFsIGhhcmR3YXJlIEknbSBpbmNsaW5lZCB0byBzdXBwb3J0IGl0LCAKPiBvdGhl
+cndpc2Ugd2UganVzdCBlbmQgdXAgd2l0aCBhIG1lc3Mgb2YgdmVuZG9yLXNwZWNpZmljIGZvcmtz
+Lgo+Cj4gT25lIG9wdGlvbiB3b3VsZCBiZSB0byBqdXN0IGxldCBwZW9wbGUgYnVpbGQgRUZJLW9u
+bHkga2VybmVscy4gVGhpcyAKPiB3b3VsZCBiZSBhIHRyaXZpYWwgbWF0dGVyLCBhcyBzdWdnZXN0
+ZWQgc29tZXdoZXJlIGluIHRoaXMgdGhyZWFkIC0tIAo+IEknZCBwcm9iYWJseSBhZGQgc29tZSBL
+Y29uZmlnIGp1Z2dsaW5nIHRvIHRyeSBhbmQgZ2V0IHBvcnRhYmxlIAo+IGJpbmFyaWVzIHdoZXJl
+IHBvc3NpYmxlLCBidXQgdGhhdCdzIHByZXR0eSBzdHJhaWdodC1mb3J3YXJkIHN0dWZmLsKgIAo+
+IFRoZSBpc3N1ZSB0aGVyZSBpcyB0aGF0IHdlJ2xsIGVuZCB1cCB3aXRoIGtlcm5lbHMgdGhhdCBj
+YW4gb25seSBiZSAKPiBib290ZWQgb24gRUZJIHN5c3RlbXMuwqAgVGhhdCBtYXkgYmUgYSByZWFz
+b25hYmxlIHRoaW5nIHRvIGRvIGF0IHNvbWUgCj4gcG9pbnQgaW4gdGhlIGZ1dHVyZSBpZiBFRkkg
+ZW5kcyB1cCB3aWRlbHkgaW1wbGVtZW50ZWQsIGJ1dCBpdCdkIGJlIGEgCj4gaGVhZGFjaGUgdG9k
+YXkgd2l0aCBFRkkgbm90IGJlaW5nIGFsbCB0aGF0IGNvbW1vbi4KPgpUaGlzIG9wdGlvbiBpcyBz
+dHJhaWdodC1mb3J3YXJkLCBpcyBFRkkgYm9vdCB3aWRlbHkgdXNlZCBpbiB4ODYvQVJNIApzZXJ2
+ZXIsIEkgaGF2ZSBubyBzdGF0aXN0aWNzIGFib3V0IGl0LCBidXQgaXQgc2hvdWxkIGJlIHVzZWQg
+d2lkZWx5LMKgIAphbmQgZm9yIFJJU0NWLCBpdCB3aWxsIG9uZSBkYXksIElNTy4KPiBBbm90aGVy
+IG9wdGlvbiB3b3VsZCBiZSB0byBqdXN0IGZvcm1hbGl6ZSB0aGUgZmlyc3QgZm91ciBieXRlcyBv
+ZiB0aGUgCj4gSW1hZ2UgZm9ybWF0IGFzIG5vdCBhY3R1YWxseSBiZWluZyBpbnN0cnVjdGlvbnMs
+IGJ1dCBiZWluZyBhIGhlYWRlciAKPiB0aGF0IGRlc2NyaWJlcyB3aGVyZSB0byBiZWdpbiBleGVj
+dXRpb24gZnJvbS7CoCBUaGF0IHdvdWxkIGJlIGFuIEFCSSAKPiBicmVhayBhbmQgdGhlcmVmb3Ig
+d291bGQgcmVxdWlyZSBjaGFuZ2luZyB0aGUgSW1hZ2UgZm9ybWF0LCBidXQgd2UnZCAKPiBkbyBp
+dCBpbiBhIHdheSB0aGF0J3MgQUJJLWNvbXBhdGlibGUgZm9yIEMgc3lzdGVtcyBhbmQgd2UnZCBt
+YWludGFpbiAKPiB0aGUgb2xkIEltYWdlIGZvcm1hdCBmb3IgdGhlIG9sZCBzeXN0ZW1zLsKgIFRo
+YXQncyBub3QgcmVhbGx5IG11Y2ggCj4gY29kZSwgYnV0IGl0IGlzIGEgYml0IG9mIGEgaGVhZGFj
+aGUgb24gdGhlIHNwZWNpZmljYXRpb24gc2lkZS7CoCAKPiBQcm9iYWJseSB0b28gbXVjaCB0byBi
+ZSB3b3J0aCBpdCwgYXMgaWYgcGVvcGxlIHJlYWxseSB3YW50IEVGSSBvbiAKPiB0aGVzZSBzeXN0
+ZW1zIHRoZW4gRUZJIHdpbGwgcHJvYmFibHkgYmUgY29tbW9uIGVub3VnaCB0aGF0IHdlJ2xsIGFs
+bCAKPiBiZSBydW5uaW5nIGl0Lgo+IEkgZG9uJ3QgcmVhbGx5IHdhbnQgdG8gZG8gYW55IG9mIHRo
+YXQsIHNvIEknbSBnb2luZyB0byBqdXN0IGhvcGUgd2UgCj4gZ2V0IGx1Y2t5IGFuZCBkb24ndCBl
+bmQgdXAgd2l0aCBub24tQyBoYXJkd2FyZSB0aGF0IGFueW9uZSB3YW50cyB0byAKPiBydW4gRUZJ
+IG9uLgoKVGhlIFJJU0NWIGlzIGdyb3dpbmcgdmVyeSBxdWlja2x5LCBhbmQgdmVuZG9yIGNvdWxk
+IGRvIHNvbWUgY3VzdG9taXplLCAKc28gSSB0aGluayBub24tQyBoYXJkd2FyZSBpcyBsaWtlbHkg
+dG8gZXhpc3QgaW4gdGhlIGZ1dHVyZSA6KQoKVGhhbmtzIGFsbCzCoCBnb3QgdGhlIHN0YXR1cyBi
+ZXR3ZWVuIEMgYW5kIEVGSS4KCgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo+IC4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
