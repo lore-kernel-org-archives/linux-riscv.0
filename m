@@ -2,19 +2,19 @@ Return-Path: <SRS0=/aKF=IC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 07B68C433DB
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C02ACC433E6
 	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 03:03:52 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BDC4601FA
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 03:03:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BDC4601FA
+	by mail.kernel.org (Postfix) with ESMTPS id 55460601FA
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Mar 2021 03:03:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55460601FA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=FKDUrnlvPbkAUYLC51ZT49MOM1hzEtEF3hXKxR5jllg=; b=J1JHe28OM8SgC5/swwY7gadho
-	M8CVvSwlzM9IAfOrkOnwjdjpRcD2Zv3hD+dXXJdP8iqteu2jyl9398tQpLROz3GAlukpMA2dgOuSl
-	BOrvUtnMqUnGm9yc4nUyiGlHxgKbHC03S0ZZzfJXf5+xUgsrtJS3mQnNCWKQhq257Mlgtys/eo714
-	YwH5l5M+RQ9gTGYLQG+l2bY7jGU8Z4bcNg6tvkg6vA1kUkCUVDJa+ydFP10rhqtRplQxqcJBf5UiF
-	SyehxGMTHtmxU/CnpJ2WkIdOIpvWeAHXYgQbP3NLrwDGq7zdEVINPgtxKaideoH4vU3tNaLPYp+Zl
-	0uIaAoEfg==;
+	 bh=MVD5jFhfAt8TTPV9vOvNwDmL+C9NWrVnytpbgLqe51k=; b=H0AKJ4opLIOE2NHqQ3Xxih8za
+	4hjWjY5T5DsSO0vdh4G+LepV9mqPFwxcAykd97ayKx2nuc9+PFFoOCQmvDARaVs7X8YP/28d67a0z
+	3kmxVhLLM+QYC+wcdMh/JnJNpTEcJ4CbdVGe/vU/56jTuIsBfDzBRA1F7Ct+dcZpRBvrELqrOLwfk
+	yfxabvA6DEZg9wSVrPkmT4qK3YmiCXweUTmE2N0Pv+uF22XoyN/Y2KWC7dq30boHhWjPn03HNI6v8
+	bcFvpXZsDYplXa7+GMfd3wmvzLnpuMtB/d7tNO2fp2qOnOd7tiqr/kxiBz60on6tsBTQFJCsfk+1r
+	IhPWIS5eg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lHeGu-007ZEt-4X; Thu, 04 Mar 2021 03:03:28 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1lHeGx-007ZFn-Ll; Thu, 04 Mar 2021 03:03:31 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lHdgU-007TTw-BS
- for linux-riscv@lists.infradead.org; Thu, 04 Mar 2021 02:26:49 +0000
-Received: by mail-pg1-x530.google.com with SMTP id x29so9634278pgk.6
- for <linux-riscv@lists.infradead.org>; Wed, 03 Mar 2021 18:25:47 -0800 (PST)
+ id 1lHdhD-007TVY-Pa
+ for linux-riscv@lists.infradead.org; Thu, 04 Mar 2021 02:27:11 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d8so4839055plg.10
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Mar 2021 18:26:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=PZVujV/32+0GlZZ78iy49yNEKlu70CKYwLJHx9qzJn0=;
- b=C1iBt9h3dRgR/LlQrwQATBJDudDlz95jrh334EOKRpmLfAPh09JbJ/WS/Vf5SqCI9g
- jLOuKscB9ettzHjJZj2ECdTI332M/oUTMDmJnz/mEECI9gCXbppFRedhoexfF27+VAy9
- 40GuZ2+Pt9KYekcmb7f+SvRstLHYpjVyZn5xAArDrlKyBsI8XE49kiixrWLFZ5Fvq6bf
- AkyWPNgb69hWM8LLjzIAf792sufY4bqlM2AmxwDlSTTMp8/Dghqn1Rsz5W4ckN+8UUkC
- gqrKsiFXkgHZDuj3ZY6+Ls4k4X11BfiLAR3udGT7WP1T3JNL3f8BQjyqyD/up7V3/Kbw
- u4WA==
+ bh=jg9i1mPUq1K1Wcc5GInzffq6do0Ck3ej7ZHTvXvymaQ=;
+ b=iwyZr437AFeZuoHsMpAywvQ7EexOwWoAL9bPOiX8EFjQymmFy/flAiAB6qSlKVJBLT
+ Vpf6odJvr44WSLiAKN2koccO4JbjOxJxByBLRtDFzQAUAaB/rJ/f/sGdi1tpGSzp+965
+ kjDbiv4wz5B+v5TF1sn1U+CGegHxTrhTXdko1J19OnjwcUxK6Xj6RLfxfJq61pYV1JSa
+ FaxS0vRfQpQ1JgtlOPCOuof5YuWDzBZd1YMZdr5yhFBaHZZ5Ei32FgT1Zg0/c9LCfUo7
+ AgnxvRka0D6ll2q2P66NwcESGNBa4CHWDY4IlMXx2PopWK+bU5A5PTA4rVNxBaI1JwUN
+ TNNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=PZVujV/32+0GlZZ78iy49yNEKlu70CKYwLJHx9qzJn0=;
- b=abmp8VkCS/Ji5Uzde5Geu0PeApLl5NrNk0lu0Wnyio6T+SePuh4951H6/1uanO32l/
- xvc2O2KDBi7UCzhnrJTLVO5UKn4HGjDURK4ySAqy0e37bEaKw2EN8UBM/QAFv1/qeG9b
- XkaA2syXQR9hcz+VrWBKCgIJAKOHS0geZ/mDuUMduDeDwdVw2xO01QE8LYKJE1mK/Q2d
- DEKQi2dB1mmBSGcM/gieRkpY7jJhuUuh+3+pR8UAcv59jlsoUugCYAQDh+5+2MoICp6U
- eCvLbLWrup4bRgdAg6rJxO/9jx2cqWZ5MvlZJrb4xu2MB5eLQS2WNzLdoWxVkTvbt67Z
- wsIA==
-X-Gm-Message-State: AOAM532dDWrA1atvFMZDxK8zq1l3jCNo6NBJ8aVAV1eryFDuzzBA0R/o
- fUMzlk6xHfXW5VpOpRHSo5ix5Q==
-X-Google-Smtp-Source: ABdhPJyeaq/tFlGat+VC5R/svwFIzPPUksHm/C4BptT1nRIAX+UPVLkGbMoOXcX9Ph266QGnZlgTNQ==
-X-Received: by 2002:a62:7954:0:b029:1ee:19bd:ac6b with SMTP id
- u81-20020a6279540000b02901ee19bdac6bmr1949836pfc.56.1614824745981; 
- Wed, 03 Mar 2021 18:25:45 -0800 (PST)
+ bh=jg9i1mPUq1K1Wcc5GInzffq6do0Ck3ej7ZHTvXvymaQ=;
+ b=YQ9rdBt8HYdiUvLA0AppG8X3th1Rnt1448K0M2D7bdMiW0YbDgQK85vwHfHXolF34X
+ 75vPjUxQWM76qZMFNT56R+aGAmUQO32PMChKMI8YphtYagY/FopiAqaz0yInwuOpuD9F
+ Rbt6jJIJbZZN0cSr0x/zFABTr0g/ID8a8KFtslk6mmDb1oAbIlT5Wp9C/o8pDa2nUBD6
+ 60COMNMYaYFxV0G7MRKTt/wn4TNReGieAA35YR/7L/+qRXX7aaT58OrHiubt/aK0EWEN
+ TrS3CQ5C7UvaxZgPR3Y2YYU+mVrukuprsPgm/qGlXu/ZsFHOpeYtjkA6SmRwIS1Tl4EH
+ b2dQ==
+X-Gm-Message-State: AOAM531J57/DPmlLWtl3Ho5kf74k8F3AXFttHj94UuZUdNM0zfUw2jDz
+ Ep8dpsRnEuUrtB9eFC6dz0WtFDHTeLaXyDuL
+X-Google-Smtp-Source: ABdhPJxwx9njZKYS6LhVNn0HXdr1kMTRLK9xUdhIxjnFvsH7nM6Grh2Lg7goB5XLHYbemCIyNs6ZNA==
+X-Received: by 2002:a17:902:a714:b029:e3:1cd:a033 with SMTP id
+ w20-20020a170902a714b02900e301cda033mr1819123plq.27.1614824793472; 
+ Wed, 03 Mar 2021 18:26:33 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id b14sm25178971pfi.74.2021.03.03.18.25.45
+ by smtp.gmail.com with ESMTPSA id 184sm27495857pfc.176.2021.03.03.18.26.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 03 Mar 2021 18:25:45 -0800 (PST)
-Date: Wed, 03 Mar 2021 18:25:45 -0800 (PST)
-X-Google-Original-Date: Wed, 03 Mar 2021 18:25:39 PST (-0800)
-Subject: Re: question about RISCV EFI stub support
-In-Reply-To: <CAOnJCULm4gGxikjN4eArY2n-7i2T30q=08uODP_sFXjzUkRz2Q@mail.gmail.com>
-CC: ardb@kernel.org, wangkefeng.wang@huawei.com,
- Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org
+ Wed, 03 Mar 2021 18:26:32 -0800 (PST)
+Date: Wed, 03 Mar 2021 18:26:32 -0800 (PST)
+X-Google-Original-Date: Wed, 03 Mar 2021 18:26:29 PST (-0800)
+Subject: Re: [PATCH] Documentation/admin-guide: kernel-parameters: correct the
+ architectures for numa_balancing
+In-Reply-To: <20210302084159.33688-1-song.bao.hua@hisilicon.com>
+CC: corbet@lwn.net, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, song.bao.hua@hisilicon.com, mgorman@suse.de, 
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ paulmck@kernel.org, rdunlap@infradead.org, 
+ akpm@linux-foundation.org, tglx@linutronix.de, mchehab+huawei@kernel.org,
+ viresh.kumar@linaro.org, mike.kravetz@oracle.com, peterz@infradead.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-cb425c13-c9ad-46e7-9b8a-b017be00e098@penguin>
+To: song.bao.hua@hisilicon.com
+Message-ID: <mhng-a06d1543-65b7-49fa-87c7-f437ec1d85ea@penguin>
 Mime-Version: 1.0 (MHng)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,104 +102,85 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Mar 2021 00:20:12 PST (-0800), atishp@atishpatra.org wrote:
-> On Mon, Mar 1, 2021 at 10:16 AM Ard Biesheuvel <ardb@kernel.org> wrote:
->>
->> On Mon, 1 Mar 2021 at 15:43, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->> >
->> > + Palmer, sorry forget add to cc list...
->> >
->> > On 2021/2/25 10:00, Atish Patra wrote:
->> > > On Wed, Feb 24, 2021 at 5:29 PM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->> > >>
->> > >> On 2021/2/25 7:35, Atish Patra wrote:
->> > >>> On Wed, Feb 24, 2021 at 3:14 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->> > >>>> Hi Atish and Ard,
->> > >>>>
->> > >>>> The commit "cb7d2dd5612a RISC-V: Add PE/COFF header for EFI stub" use
->> > >>>> c.li to
->> > >>>>
->> > >>>> add Magic "MZ" signature for PE/COFF header, which select RISCV_ISA_C,
->> > >>>> but "C"
->> > >>>>
->> > >>>> to the ISA is optional,  and if "C" is not support ,  EFI boot is not
->> > >>>> supported.
->> > >>>>
->> > >>>> Could we use ".word MZ_MAGIC" like x86 code or some other way to support
->> > >>>> "MZ" signature?
->> > >>>>
->> > >>> .word won't work but .short will. With .word, you end up 0000 in the 2
->> > >>> bytes which can be interpreted as illegal instruction.
->> > >> Yes, should use ".short" in RV.
->> > >>> I guess your larger objective is to make the C extension optional and
->> > >>> not enabled by default for the Linux kernel.
->> > >> "C" extension is optional, and the upstream kernel has the RISCV_ISA_C which
->> > >>
->> > >> could be configurable.  and I think the EFI_STUB should not depend or
->> > >> select it,
->> > >>
->> > >> and maybe we only want to support RV64G in some cases,  what's your option?
->> > >>
->> > > I think RISCV_ISA_C was enabled by default just to generate a smaller
->> > > binary size.
->> > > @palmer : was there any other reason ?
->> >
->> > Any comment about the too issue,
->> >
->> > 1)  directly use .shout MZ_MAGIC to decouple EFI_STUB and RISCV_ISA_C.
->> >
->> > 2)  don't set RISCV_ISA_C  to default y
->> >
->>
->> But doesn't that break non-EFI boot with the same image? The opcode
->> still needs to be executable, and have close-to-NOP semantics.
+On Tue, 02 Mar 2021 00:41:59 PST (-0800), song.bao.hua@hisilicon.com wrote:
+> X86 isn't the only architecture supporting NUMA_BALANCING. ARM64, PPC,
+> S390 and RISCV also support it:
 >
-> Correct. It will break non-EFI boot for the hardware if the platform
-> doesn't support C extension.
-> Theoretically, we can decouple EFI_STUB & RISCV_ISA_C. But that's
-> useless as the hardware has to support C anyways.
-> Apologies for not seeing this through.
+> arch$ git grep NUMA_BALANCING
+> arm64/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
+> arm64/configs/defconfig:CONFIG_NUMA_BALANCING=y
+> arm64/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> powerpc/configs/powernv_defconfig:CONFIG_NUMA_BALANCING=y
+> powerpc/configs/ppc64_defconfig:CONFIG_NUMA_BALANCING=y
+> powerpc/configs/pseries_defconfig:CONFIG_NUMA_BALANCING=y
+> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+> powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+> powerpc/include/asm/nohash/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> powerpc/include/asm/nohash/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+> powerpc/platforms/Kconfig.cputype:      select ARCH_SUPPORTS_NUMA_BALANCING
+> riscv/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
+> riscv/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> s390/Kconfig:   select ARCH_SUPPORTS_NUMA_BALANCING
+> s390/configs/debug_defconfig:CONFIG_NUMA_BALANCING=y
+> s390/configs/defconfig:CONFIG_NUMA_BALANCING=y
+> s390/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> x86/Kconfig:    select ARCH_SUPPORTS_NUMA_BALANCING     if X86_64
+> x86/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+> x86/include/asm/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
 >
-> If a platform doesn't have a C extension, they can not use the EFI
-> booting method.
+> On the other hand, setup_numabalancing() is implemented in mm/mempolicy.c
+> which doesn't depend on architectures.
+>
+> Cc: Mel Gorman <mgorman@suse.de>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: "Paul E. McKenney" <paulmck@kernel.org>
+> Cc: Randy Dunlap <rdunlap@infradead.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> Cc: Viresh Kumar <viresh.kumar@linaro.org>
+> Cc: Mike Kravetz <mike.kravetz@oracle.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: Barry Song <song.bao.hua@hisilicon.com>
+> ---
+>  Documentation/admin-guide/kernel-parameters.rst | 1 +
+>  Documentation/admin-guide/kernel-parameters.txt | 3 ++-
+>  2 files changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/admin-guide/kernel-parameters.rst b/Documentation/admin-guide/kernel-parameters.rst
+> index 1132796a8d96..24302cad174a 100644
+> --- a/Documentation/admin-guide/kernel-parameters.rst
+> +++ b/Documentation/admin-guide/kernel-parameters.rst
+> @@ -140,6 +140,7 @@ parameter is applicable::
+>  	PPT	Parallel port support is enabled.
+>  	PS2	Appropriate PS/2 support is enabled.
+>  	RAM	RAM disk support is enabled.
+> +	RISCV	RISCV architecture is enabled.
+>  	RDT	Intel Resource Director Technology.
+>  	S390	S390 architecture is enabled.
+>  	SCSI	Appropriate SCSI support is enabled.
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 04545725f187..371a02ae1e21 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -3472,7 +3472,8 @@
+>
+>  	nr_uarts=	[SERIAL] maximum number of UARTs to be registered.
+>
+> -	numa_balancing=	[KNL,X86] Enable or disable automatic NUMA balancing.
+> +	numa_balancing=	[KNL,ARM64,PPC,RISCV,S390,X86] Enable or disable automatic
+> +			NUMA balancing.
+>  			Allowed values are enable and disable
+>
+>  	numa_zonelist_order= [KNL, BOOT] Select zonelist order for NUMA.
 
-So the dependency here is actually a bit odd: platforms without C _can_ use 
-EFI, the EFI images just can't be booted on non-EFI systems (because the flat 
-binaries need to execute the PE/COFF header).  The issue is really that we 
-can't support all three of non-C, EFI, and non-EFI in the Image format.
-
-The reason we coupled C and EFI is really to avoid the existence of EFI-only 
-kernels, which are a headache these days because EFI isn't widely supported or 
-used on RISC-V.  The general assumption is that, since we recommend rv64gc for 
-portable systems and EFI is mostly of interest to portable systems, we won't 
-end up with non-C EFI systems and therefor don't need to worry about having 
-incompatible kernels.  That said, if there's one thing I've learned from the 
-whole RISC-V thing it's that whenever I say "we don't think hardware that does 
-X will show up" it does.  Assuming that's the case and we end up with non-C 
-systems that people want to run EFI on, we'll figure out a way to do that -- if 
-someone has real hardware I'm inclined to support it, otherwise we just end up 
-with a mess of vendor-specific forks.
-
-One option would be to just let people build EFI-only kernels.  This would be a 
-trivial matter, as suggested somewhere in this thread -- I'd probably add some 
-Kconfig juggling to try and get portable binaries where possible, but that's 
-pretty straight-forward stuff.  The issue there is that we'll end up with 
-kernels that can only be booted on EFI systems.  That may be a reasonable thing 
-to do at some point in the future if EFI ends up widely implemented, but it'd 
-be a headache today with EFI not being all that common.
-
-Another option would be to just formalize the first four bytes of the Image 
-format as not actually being instructions, but being a header that describes 
-where to begin execution from.  That would be an ABI break and therefor would 
-require changing the Image format, but we'd do it in a way that's 
-ABI-compatible for C systems and we'd maintain the old Image format for the old 
-systems.  That's not really much code, but it is a bit of a headache on the 
-specification side.  Probably too much to be worth it, as if people really want 
-EFI on these systems then EFI will probably be common enough that we'll all be 
-running it.
-
-I don't really want to do any of that, so I'm going to just hope we get lucky 
-and don't end up with non-C hardware that anyone wants to run EFI on.
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
 _______________________________________________
 linux-riscv mailing list
