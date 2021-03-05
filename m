@@ -2,161 +2,89 @@ Return-Path: <SRS0=jthF=ID=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC335C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Mar 2021 12:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FB2FC433DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Mar 2021 23:23:20 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67ABB6501F
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Mar 2021 12:34:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 67ABB6501F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id B22DC65074
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Mar 2021 23:23:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B22DC65074
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o62qFOszTYsIUZwBv7W3I9hMbPoFaiWp6UQqAt3Vi8U=; b=kfdIu/r7yVXdfl/wh0F61Eo0/s
-	Aq5KTARhMD5QH6M88qoOIf9LFE0Rz2dGnkKLsmgEVozUncKi70qWcSENoqEYtprm8wzCl+48Jo7tr
-	U6ZBOw7HqrWgNCf5YR7TngB5t6i8N0Ejm5+qzyE2uRT2PL0/mQ/wkE13jrwzdvb6cLPQxIoCt6z2P
-	BdcJweNs60vg/GT9vm3jO+PM6iysWVpTN80G07vprfdSaFgFSmhCZgbY2GIDNx0k+/JQqSR7fFUvX
-	g/x9/4Ujo9oFchFvRx8Eu5V3Memzu2XdN10QJrJb9ahZ2Sv4ZRtOCcZT7wNkI6BioJxmNoDeBehYi
-	qVqkYvMQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=XJqlGWS+2/mtx50EtZ+m9og+0vfE7TqtGCKC+RGNY24=; b=A5cwaF7qFDIYuE9kArIDnKykM
+	LNTtgXnUUG6P+7iLFdouPfBIzFr3kgTLRyyZ82PKUk39sm7TUNzp8U1BTg/82mqkoGbR0f0h/IWSb
+	Vp8r0zBomO5Q2u+Y0IQV7/SIw+ItUZTrKhhr9n9aTZII9heuGEqB/x4zCBQMkti0a1Rw6/A32Kt9Q
+	t6SykyMn5FEyFDJr8msbjiOR9LC8oNyxXAagR7zC3xtUbeSuleE6GQcHrIwmda978zhWA3jw16rBZ
+	lc6SPZfn4cin5mcnXWV4Y0zz++WrqzHECPU6PF1LfmMWS0woMi0v6b4ONElKaUKSlZQ3MndGrZ2Pg
+	64lqlEpIw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lI9ef-00F08z-S0; Fri, 05 Mar 2021 12:34:05 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1lIJma-00H5Xi-D4; Fri, 05 Mar 2021 23:22:56 +0000
+Received: from mail-oi1-f181.google.com ([209.85.167.181])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lI9eW-00F04S-I6
- for linux-riscv@lists.infradead.org; Fri, 05 Mar 2021 12:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1614947636; x=1646483636;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=o5rSwHjFKop/zmxE7WEuaIKoEQpInnV3S8pgJDjjelg=;
- b=KJX9V3p5eBf2mFh+KFDDteNd8DXhoGLGOQuseAaU5gSTYvs14ZG+VCjx
- KYxvyNPddObOvFiQAa+QFi5gBGQU+IFuzCgnNVEQKlUNk6A4zFjk2VrdT
- jxf8aLwCkL4thE5f5nRCW0d2qpzSUc6haMAeOrsOk9NPXymySbGWvs5WW
- Ktjk+gDNDv3I4DlrXJyDDHMUKF5vuqjSUaZyTtglj/28+hAmHMBoTAPI7
- 8mn3pPktgyiyALQJcp6cKYCt4NBdwdAuCZiYPFcNmsYd4lkO7AQ12n4XY
- fIS91sd7ncbqYYyBa7IpCr0eFUgVyPcgn8Mqnsj0GiC3GPdbuwF/erpfG g==;
-IronPort-SDR: F0Kb4FP3W2C5ae1XyAEAWsfUeCmtmjH7lyK/it7/pjHvXFkJ3L9HBWZLoUxwrPiemlo2+2RBpQ
- c/OnYPkAcZNKSbUbuQlZPNseemjE78eQDdwvAJRnE3VcUT9FB9xX4Akpi4COTzodbRCWBMA0tp
- MAR7a15P0PWumRk8EMNrvmMKrQAcbi2/Mr/eT4K5v8E1c0fVwA5EuOHPqoNMVmAsT/NHzPDwms
- zDXz2gr0+MvBD7tENnLTbwznfiYN/EtIK1chGigmcJ+KUGqn1PgH5E7iY9acSBoRwk8rz6SAZq
- 4iE=
-X-IronPort-AV: E=Sophos;i="5.81,224,1610380800"; d="scan'208";a="272083929"
-Received: from mail-bn8nam12lp2168.outbound.protection.outlook.com (HELO
- NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.168])
- by ob1.hgst.iphmx.com with ESMTP; 05 Mar 2021 20:33:49 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mnBOhElm9ZnA0QrbVCb7bGTtu2xRbSGIlz56FQp3HMp95OpfJbjMd3scz9dXv0cySTX+hTeQiqS7zF5K0ujn8BNds6nM2Vb8ymOAtA8TR5YeHmeIRIGtbEl4IsNROq+Gkt1hw1ur6Ta6ff88nkF7/7M/UfEbZJyTudLkr7StwEp//R8asQRQ5cryLVxDSYM6iNeK+Ip7MOz6qY6yk9F2++uAZCCK4GKOinxb3yN6UPOY1HY5OfS9Rn7KnJS06Is6QnUXhpixHNNzQNQAXyvK2JVvKiuitEeR/5BHAtJGsW4M5nOu/gQpZZMxBDDjrDoD9qouh5ik2C4QEoYI2OIObg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=av1ijqhLSrLbLxC8Krc7tNG9Kd7R7xxJYgSu6G5iOtM=;
- b=i/9zGOvYh1qGbppaACIxbzQooZiQVSZJcSd5OdYAJgVwiYFXbeAEXFKn/h4QdtYtxPkj/FzwdJ0it2rUBCR4fbtyjdnxnTJPEvmWHUwr54YteEdGL7OzSrNXC3oNJrUte34tokmKVJUxksS1A3hQOKBdxBLwXMCvCxANcCKTRAQxQrLr7ep357AWzBta9bmpNsXRn08QzaSA4y+h2PQaC70AdffNjUW0GL2Rkml53X2aZzv4fep3LNzxf/8Qr+F6zOKKFVqmo8UJUll7WrZNZovl7D5QQZ3V+TqxPlpnryDBZFM7VB2d8x7ZfNYyXmEMKP65fP4VilbJvHPtrv+c4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=av1ijqhLSrLbLxC8Krc7tNG9Kd7R7xxJYgSu6G5iOtM=;
- b=bH0mZslWw+DNxd7Ebuw/9uYT/4GfE7hlb4mVa+MLrIz8Yh0XsQEYRiuHUFzX3yAPXC0+Sb5J5iMZ9g32+gcCyxzMwiy5B99WH9foieYcuslBhVQmH2UwReE97KfYLw9SGdJ9pkRSs4f0ji0Eaw1+IHv4tEy0LPMVAxive57bf0M=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB4460.namprd04.prod.outlook.com (2603:10b6:5:26::29) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3890.28; Fri, 5 Mar
- 2021 12:33:47 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3912.022; Fri, 5 Mar 2021
- 12:33:47 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
+ id 1lIJmV-00H5Wc-AQ; Fri, 05 Mar 2021 23:22:53 +0000
+Received: by mail-oi1-f181.google.com with SMTP id w65so4342670oie.7;
+ Fri, 05 Mar 2021 15:22:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=8bDgjusk3v3TEqzMR3iY18WopMlgkTf5ccZF+W6WfEc=;
+ b=axg0zLW7Cc0jEvSHcnRc5C8CazjKAFpEn4SkgVYQGrdQKneiflZophH48Bx2eLkzXV
+ xfbfm4wblZWInd28U552uAiTAvkmNDD1d76Zgo4wMogoNVe2+ZdMctZLE7LZWDejTcjA
+ Gc4Qr9INv9fCuPituJVcTJAhgl5TbcXJCV1YE6fxTlHA0sMtQzI/XATtMh99VFGGfA8J
+ T2CVB4gZPvftXEaSADiIo3pUXWAewYPs9Yln2CM1xM80xuLRZCig4CJ3wGEhKUjc8aIK
+ E34x6cKa29MPrOnGIo1V4UfZIjfqjWiGMI8Dcr1hu1vADtKOt0xi1jeY0Ies9GjuNj6w
+ iaCg==
+X-Gm-Message-State: AOAM530R+0bO4yjuyMvFGjD/OgM4bnpIn/iIqDZzfjAJ9q603OIQ856w
+ KEa6YuDIygZW0U/5aIN3Gg==
+X-Google-Smtp-Source: ABdhPJwnP2ACxLKHwogrpwaQEBPZ44ot+C/dBg82d6j3O7VgN3A+hrtebaQGCd0LIKGxwaRMuGNYrQ==
+X-Received: by 2002:a54:4689:: with SMTP id k9mr9011155oic.149.1614986568593; 
+ Fri, 05 Mar 2021 15:22:48 -0800 (PST)
+Received: from robh.at.kernel.org (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id s21sm870385oos.5.2021.03.05.15.22.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 05 Mar 2021 15:22:47 -0800 (PST)
+Received: (nullmailer pid 830239 invoked by uid 1000);
+ Fri, 05 Mar 2021 23:22:45 -0000
+Date: Fri, 5 Mar 2021 17:22:45 -0600
+From: Rob Herring <robh@kernel.org>
+To: Anup Patel <anup.patel@wdc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>
-Subject: [PATCH v5] RISC-V: Use SBI SRST extension when available
-Date: Fri,  5 Mar 2021 18:03:21 +0530
-Message-Id: <20210305123321.544483-1-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-X-Originating-IP: [122.179.67.166]
-X-ClientProxiedBy: MA1PR01CA0147.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:71::17) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
+ Pavel Machek <pavel@ucw.cz>, Sandeep Tripathy <milun.tripathy@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH 7/8] dt-bindings: Add bindings documentation for
+ RISC-V idle states
+Message-ID: <20210305232245.GA820565@robh.at.kernel.org>
+References: <20210221093758.210981-1-anup.patel@wdc.com>
+ <20210221093758.210981-8-anup.patel@wdc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.179.67.166) by
- MA1PR01CA0147.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3912.17 via Frontend Transport; Fri, 5 Mar 2021 12:33:43 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: a733a61c-93cb-47a9-cebe-08d8dfd2ec27
-X-MS-TrafficTypeDiagnostic: DM6PR04MB4460:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB4460A6C35D9948B969AAFAED8D969@DM6PR04MB4460.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: hPuHyOKZS/EZYZ8jkMkhBVka8R3r8Yd765/yj/+VvtqBazzZTlUTUUfVZEhiM55Jr6CaapmO7xV1lDbu5AEebDdEH3hl7yO/oQDy5aqx8ps7wQO7aOCPh/BIashx5RScyykaNI4ZakB+KAL+d13vHtqPuvg9aO+w+/oztPej1Qtu4J9bvjH8BU4xKPSvfM/4AEwxkGPolTW8gDikErmRpvA42T5B+z/9BwZShv7ShGsS1coxKM9Wp194O7HGZ1VA1E6/t1iW2kN1fjSf59X2jx3ZpT8LlOH40uETSbcAz5WoR0yQcvyrvebRja4ysSLKAzHPwL5yTHFVBsuh50XHe81LZNNkeAIR2Cqxd4+NYSR61rdYVZH8+b8pRojEWmMNvzEuXxLd971vpuXGeRTnEHxxyWytRX8XMURopirHEWCpr27mZs/JwxViZgSJiHTtdOLVRCeCkJoNo8i92hD9StDLKH3/Fz6yLsepWrV0nDgauGtwVY7VFeeCdTOQ2ugOQ8sLHFwpQjh66vEKNEW/oWxpvxvMQQp0n4DpDIktxzoAI4cpa3MWhmAV3s6ummv5ae2DF7H2RefRCb5BAJ+M3l8vN63V5DitPBQhyhvGsOA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(376002)(346002)(366004)(39860400002)(136003)(956004)(8936002)(110136005)(2616005)(316002)(54906003)(44832011)(4326008)(1076003)(26005)(66476007)(186003)(66946007)(66556008)(7696005)(83380400001)(8676002)(478600001)(86362001)(966005)(16526019)(8886007)(6666004)(55016002)(52116002)(2906002)(5660300002)(36756003);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?6SyiZKRRCJdi83YKO1cOT+pdRh4ooyrc+CxdidlKIVJGLRxzk7sWeV6o2kQd?=
- =?us-ascii?Q?mqIDyF7W2irZGoTeK2H2FM3wHJQIn8581oIJjtp0ys13T9zRhjyNz6/2+fwD?=
- =?us-ascii?Q?dBlIVY43ifofp1zOGRXvnNEsB6UqcTKahbVZbGEsyhav+FJCV+h+LLUjO0x+?=
- =?us-ascii?Q?kIE+jc6PYJFp1gI446SrQBOkgjosaG/iaN5/ukMwVSCk9xgLu3Yas/FniiGD?=
- =?us-ascii?Q?RanpXEwp/csc9E1EA8+V8UXZDO/u9DUIU7a9E9TgY8tXdrxv+zeE1ThKFuwj?=
- =?us-ascii?Q?+Lx2pCWhBLxIgZ43vh4ABroYxTLDYG5W4Cs626msC+fH/4CaOr7x12dhtv5Q?=
- =?us-ascii?Q?uNWlBkKieJru5QvoAK9i94K0PqMYib0qUsQIrlx9l67N2bdCHIPJlxXUvjLG?=
- =?us-ascii?Q?Uit4ptaIHcINpep6/g2OKkvU8ZLundEc3pTMHE0WWwg8Acc0NlIiykuHAsCG?=
- =?us-ascii?Q?VMmgfF7sGhRwc7IL0SUtjVlBCvPYgdgEXSrg/5AyNxcUOk6+EHDqCnSPQzJn?=
- =?us-ascii?Q?rC20sS7eUfkBbW7RcghkkaQNgbnS2EMaWAW728H8uuOTYm8B35JR0Fu9l1rp?=
- =?us-ascii?Q?nxec+pLPRWYGENVuXK6aAYF1RyaOPZ5UrYIaNJP/tG27kpvC73tRNfotzj5f?=
- =?us-ascii?Q?uy47UR2wCKNHrqLFZPMnLGU6CSwad1b2m2EfpJN5eekVb5EdYgl2LQNT+X+k?=
- =?us-ascii?Q?ynS+xGSnspSC/QDq+W+B0ejYlp4D/sQoOO9uMFelGlLGdl2CyG3RplQKky/A?=
- =?us-ascii?Q?R+S2CH7INY3xFu75FF4YZrjsrRCgwpzCtR+2MGnT1CoA5+LdxrYUQ/5nzrBE?=
- =?us-ascii?Q?EX+FbN0/yL9Nu44qWsYnSV02LfUCvYcaBvtv07B3d+tgWsEZf9ZFGowrWz0l?=
- =?us-ascii?Q?3WOSot0KM8+9zXI6eBadVyju0WiV717XPI/Z2oX/m1NvttzvLPwxsfmPirAi?=
- =?us-ascii?Q?fh5oUR0O2VoG17+we6DrNjtOY+dFqdeyADan182UuECf9GGD2owjhCSx3Ren?=
- =?us-ascii?Q?L/mwcZ2btq06y7Y18SynClwhTPFoj/n0yqsetBBZlA3yvRHYOn6zWM5H/v2N?=
- =?us-ascii?Q?tf6MAlIn03TsafLWoo5LYQYnCiQTlRFOMJEjXZ+EhHfK4FxPQV3U6YHKHd0Y?=
- =?us-ascii?Q?1roSqdqkdtVbgHoGQw/1f0dZ3YVQ1ln8TnHYgp477+wQWAf5QNCwaMrYW+7e?=
- =?us-ascii?Q?Yc53n2j7R2rfK3VYFa/3nkzUOuMvvf0//FajwlcCSnJbbjZP57muKdUXjcSA?=
- =?us-ascii?Q?7JKxsHlWz8/L3hjPYZ0H+HUPxfc51JCi1+Awk5PHx9RGX1r4d3UCbnhS1sMd?=
- =?us-ascii?Q?bOscQYs2weWt1URq773SDDlM?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a733a61c-93cb-47a9-cebe-08d8dfd2ec27
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2021 12:33:47.6469 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a6aNUfscsmbgPYhY2un52pNXKCZ+9HWlB6BtOZ4fIsyEaQYGJ6jw9a8J/5CZ3FnAOBexvRaT2PJmo8SMgXd0Eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4460
+Content-Disposition: inline
+In-Reply-To: <20210221093758.210981-8-anup.patel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210305_123358_630513_4CB2C4E8 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20210305_232251_523335_3CD4CA90 
+X-CRM114-Status: GOOD (  30.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,168 +101,292 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI SRST extension provides a standard way to poweroff and
-reboot the system irrespective to whether Linux RISC-V S-mode
-is running natively (HS-mode) or inside Guest/VM (VS-mode).
+On Sun, Feb 21, 2021 at 03:07:57PM +0530, Anup Patel wrote:
+> The RISC-V CPU idle states will be described in DT under the
+> /cpus/riscv-idle-states DT node. This patch adds the bindings
+> documentation for riscv-idle-states DT nodes and idle state DT
+> nodes under it.
+> 
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  .../bindings/riscv/idle-states.yaml           | 250 ++++++++++++++++++
+>  1 file changed, 250 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/idle-states.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/idle-states.yaml b/Documentation/devicetree/bindings/riscv/idle-states.yaml
+> new file mode 100644
+> index 000000000000..3eff763fed23
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/idle-states.yaml
+> @@ -0,0 +1,250 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/idle-states.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V idle states binding description
+> +
+> +maintainers:
+> +  - Anup Patel <anup.patel@wdc.com>
+> +
+> +description: |+
+> +  RISC-V systems can manage power consumption dynamically, where HARTs
+> +  (or CPUs) [1] can be put in different platform specific suspend (or
+> +  idle) states (ranging from simple WFI, power gating, etc). The RISC-V
+> +  SBI [2] hart state management extension provides a standard mechanism
+> +  for OSes to request HART state transitions.
+> +
+> +  The platform specific suspend (or idle) states of a hart can be either
+> +  retentive or non-rententive in nature. A retentive suspend state will
+> +  preserve hart register and CSR values for all privilege modes whereas
+> +  a non-retentive suspend state will not preserve hart register and CSR
+> +  values. The suspend (or idle) state entered by executing the WFI
+> +  instruction is considered standard on all RISC-V systems and therefore
+> +  must not be listed in device tree.
+> +
+> +  The device tree binding definition for RISC-V idle states described
+> +  in this document is quite similar to the ARM idle states [3].
+> +
+> +  References
+> +
+> +  [1] RISC-V Linux Kernel documentation - CPUs bindings
+> +      Documentation/devicetree/bindings/riscv/cpus.yaml
+> +
+> +  [2] RISC-V Supervisor Binary Interface (SBI)
+> +      http://github.com/riscv/riscv-sbi-doc/riscv-sbi.adoc
+> +
+> +  [3] ARM idle states binding description - Idle states bindings
+> +      Documentation/devicetree/bindings/arm/idle-states.yaml
 
-The SBI SRST extension is available in latest SBI v0.3-draft
-specification at: https://github.com/riscv/riscv-sbi-doc.
+I'd assume there's common parts we can share.
 
-This patch extends Linux RISC-V SBI implementation to detect
-and use SBI SRST extension.
+> +
+> +properties:
+> +  $nodename:
+> +    const: riscv-idle-states
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
----
-Changes since v4:
- - We should compare both major and minor number to ensure that
-   SBI spec version is 0.3 (or above) for detecting SRST extension.
-Changes since v3:
- - Rebased on Linux-5.12-rc1
- - Check SBI spec version when probing for SRST extension
-Changes since v2:
- - Rebased on Linux-5.10-rc5
- - Updated patch as-per SBI SRST extension available in the latest
-   SBI v0.3-draft specification
-Changes since v1:
- - Updated patch as-per latest SBI SRST extension draft spec where
-   we have only one SBI call with "reset_type" parameter
----
- arch/riscv/include/asm/sbi.h | 24 +++++++++++++++++++++
- arch/riscv/kernel/sbi.c      | 41 +++++++++++++++++++++++++++++++++---
- 2 files changed, 62 insertions(+), 3 deletions(-)
+Just 'idle-states' like Arm.
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 99895d9c3bdd..79fa9f28b786 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -27,6 +27,7 @@ enum sbi_ext_id {
- 	SBI_EXT_IPI = 0x735049,
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
-+	SBI_EXT_SRST = 0x53525354,
- };
- 
- enum sbi_ext_base_fid {
-@@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
- 	SBI_HSM_HART_STATUS_STOP_PENDING,
- };
- 
-+enum sbi_ext_srst_fid {
-+	SBI_EXT_SRST_RESET = 0,
-+};
-+
-+enum sbi_srst_reset_type {
-+	SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
-+	SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+	SBI_SRST_RESET_TYPE_WARM_REBOOT,
-+};
-+
-+enum sbi_srst_reset_reason {
-+	SBI_SRST_RESET_REASON_NONE = 0,
-+	SBI_SRST_RESET_REASON_SYS_FAILURE,
-+};
-+
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-@@ -145,6 +161,14 @@ static inline unsigned long sbi_minor_version(void)
- 	return sbi_spec_version & SBI_SPEC_VERSION_MINOR_MASK;
- }
- 
-+/* Make SBI version */
-+static inline unsigned long sbi_mk_version(unsigned long major,
-+					    unsigned long minor)
-+{
-+	return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
-+		SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
-+}
-+
- int sbi_err_map_linux_errno(int err);
- #else /* CONFIG_RISCV_SBI */
- static inline int sbi_remote_fence_i(const unsigned long *hart_mask) { return -1; }
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index f4a7db3d309e..e94ea8053984 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/init.h>
- #include <linux/pm.h>
-+#include <linux/reboot.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
-@@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
- }
- EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
- 
-+static void sbi_srst_reset(unsigned long type, unsigned long reason)
-+{
-+	sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
-+		  0, 0, 0, 0);
-+	pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
-+		__func__, type, reason);
-+}
-+
-+static int sbi_srst_reboot(struct notifier_block *this,
-+			   unsigned long mode, void *cmd)
-+{
-+	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-+		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
-+		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+		       SBI_SRST_RESET_REASON_NONE);
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block sbi_srst_reboot_nb;
-+
-+static void sbi_srst_power_off(void)
-+{
-+	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
-+		       SBI_SRST_RESET_REASON_NONE);
-+}
-+
- /**
-  * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-  * @extid: The extension ID to be probed.
-@@ -577,22 +604,30 @@ void __init sbi_init(void)
- 			sbi_get_firmware_id(), sbi_get_firmware_version());
- 		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
- 			__sbi_set_timer = __sbi_set_timer_v02;
--			pr_info("SBI v0.2 TIME extension detected\n");
-+			pr_info("SBI TIME extension detected\n");
- 		} else {
- 			__sbi_set_timer = __sbi_set_timer_v01;
- 		}
- 		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
- 			__sbi_send_ipi	= __sbi_send_ipi_v02;
--			pr_info("SBI v0.2 IPI extension detected\n");
-+			pr_info("SBI IPI extension detected\n");
- 		} else {
- 			__sbi_send_ipi	= __sbi_send_ipi_v01;
- 		}
- 		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
- 			__sbi_rfence	= __sbi_rfence_v02;
--			pr_info("SBI v0.2 RFENCE extension detected\n");
-+			pr_info("SBI RFENCE extension detected\n");
- 		} else {
- 			__sbi_rfence	= __sbi_rfence_v01;
- 		}
-+		if ((sbi_spec_version >= sbi_mk_version(0, 3)) &&
-+		    (sbi_probe_extension(SBI_EXT_SRST) > 0)) {
-+			pr_info("SBI SRST extension detected\n");
-+			pm_power_off = sbi_srst_power_off;
-+			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-+			sbi_srst_reboot_nb.priority = 192;
-+			register_restart_handler(&sbi_srst_reboot_nb);
-+		}
- 	} else {
- 		__sbi_set_timer = __sbi_set_timer_v01;
- 		__sbi_send_ipi	= __sbi_send_ipi_v01;
--- 
-2.25.1
+> +
+> +patternProperties:
+> +  "^(cpu|cluster)-":
+> +    type: object
+> +    description: |
+> +      Each state node represents an idle state description and must be
+> +      defined as follows.
+> +
 
+       additionalProperties: false
+
+> +    properties:
+> +      compatible:
+> +        const: riscv,idle-state
+> +
+> +      local-timer-stop:
+> +        description:
+> +          If present the CPU local timer control logic is lost on state
+> +          entry, otherwise it is retained.
+> +        type: boolean
+> +
+> +      entry-latency-us:
+> +        description:
+> +          Worst case latency in microseconds required to enter the idle state.
+> +
+> +      exit-latency-us:
+> +        description:
+> +          Worst case latency in microseconds required to exit the idle state.
+> +          The exit-latency-us duration may be guaranteed only after
+> +          entry-latency-us has passed.
+> +
+> +      min-residency-us:
+> +        description:
+> +          Minimum residency duration in microseconds, inclusive of preparation
+> +          and entry, for this idle state to be considered worthwhile energy
+> +          wise (refer to section 2 of this document for a complete description).
+> +
+> +      wakeup-latency-us:
+> +        description: |
+> +          Maximum delay between the signaling of a wake-up event and the CPU
+> +          being able to execute normal code again. If omitted, this is assumed
+> +          to be equal to:
+> +
+> +            entry-latency-us + exit-latency-us
+> +
+> +          It is important to supply this value on systems where the duration
+> +          of PREP phase (see diagram 1, section 2) is non-neglibigle. In such
+> +          systems entry-latency-us + exit-latency-us will exceed
+> +          wakeup-latency-us by this duration.
+> +
+> +      idle-state-name:
+> +        $ref: /schemas/types.yaml#/definitions/string
+> +        description:
+> +          A string used as a descriptive name for the idle state.
+> +
+> +    required:
+> +      - compatible
+> +      - entry-latency-us
+> +      - exit-latency-us
+> +      - min-residency-us
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +
+> +    cpus {
+> +        #size-cells = <0>;
+> +        #address-cells = <1>;
+> +
+> +        cpu@0 {
+> +            device_type = "cpu";
+> +            compatible = "riscv";
+> +            reg = <0x0>;
+> +            riscv,isa = "rv64imafdc";
+> +            mmu-type = "riscv,sv48";
+> +            cpu-idle-states = <&CPU_RET_0_0 &CPU_NONRET_0_0
+> +                            &CLUSTER_RET_0 &CLUSTER_NONRET_0>;
+
+You should need to add this property to your cpu schema.
+
+> +
+> +            cpu_intc0: interrupt-controller {
+> +                #interrupt-cells = <1>;
+> +                compatible = "riscv,cpu-intc";
+> +                interrupt-controller;
+> +            };
+> +        };
+> +
+> +        cpu@1 {
+> +            device_type = "cpu";
+> +            compatible = "riscv";
+> +            reg = <0x1>;
+> +            riscv,isa = "rv64imafdc";
+> +            mmu-type = "riscv,sv48";
+> +            cpu-idle-states = <&CPU_RET_0_0 &CPU_NONRET_0_0
+> +                            &CLUSTER_RET_0 &CLUSTER_NONRET_0>;
+> +
+> +            cpu_intc1: interrupt-controller {
+> +                #interrupt-cells = <1>;
+> +                compatible = "riscv,cpu-intc";
+> +                interrupt-controller;
+> +            };
+> +        };
+> +
+> +        cpu@10 {
+> +            device_type = "cpu";
+> +            compatible = "riscv";
+> +            reg = <0x10>;
+> +            riscv,isa = "rv64imafdc";
+> +            mmu-type = "riscv,sv48";
+> +            cpu-idle-states = <&CPU_RET_1_0 &CPU_NONRET_1_0
+> +                            &CLUSTER_RET_1 &CLUSTER_NONRET_1>;
+> +
+> +            cpu_intc10: interrupt-controller {
+> +                #interrupt-cells = <1>;
+> +                compatible = "riscv,cpu-intc";
+> +                interrupt-controller;
+> +            };
+> +        };
+> +
+> +        cpu@11 {
+> +            device_type = "cpu";
+> +            compatible = "riscv";
+> +            reg = <0x11>;
+> +            riscv,isa = "rv64imafdc";
+> +            mmu-type = "riscv,sv48";
+> +            cpu-idle-states = <&CPU_RET_1_0 &CPU_NONRET_1_0
+> +                            &CLUSTER_RET_1 &CLUSTER_NONRET_1>;
+> +
+> +            cpu_intc11: interrupt-controller {
+> +                #interrupt-cells = <1>;
+> +                compatible = "riscv,cpu-intc";
+> +                interrupt-controller;
+> +            };
+> +        };
+> +
+> +        riscv-idle-states {
+> +            CPU_RET_0_0: cpu-retentive-0-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x10000000>;
+
+Not documented.
+
+> +                entry-latency-us = <20>;
+> +                exit-latency-us = <40>;
+> +                min-residency-us = <80>;
+> +            };
+> +
+> +            CPU_NONRET_0_0: cpu-nonretentive-0-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x90000000>;
+> +                entry-latency-us = <250>;
+> +                exit-latency-us = <500>;
+> +                min-residency-us = <950>;
+> +            };
+> +
+> +            CLUSTER_RET_0: cluster-retentive-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x11000000>;
+> +                local-timer-stop;
+> +                entry-latency-us = <50>;
+> +                exit-latency-us = <100>;
+> +                min-residency-us = <250>;
+> +                wakeup-latency-us = <130>;
+> +            };
+> +
+> +            CLUSTER_NONRET_0: cluster-nonretentive-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x91000000>;
+> +                local-timer-stop;
+> +                entry-latency-us = <600>;
+> +                exit-latency-us = <1100>;
+> +                min-residency-us = <2700>;
+> +                wakeup-latency-us = <1500>;
+> +            };
+> +
+> +            CPU_RET_1_0: cpu-retentive-1-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x10000010>;
+> +                entry-latency-us = <20>;
+> +                exit-latency-us = <40>;
+> +                min-residency-us = <80>;
+> +            };
+> +
+> +            CPU_NONRET_1_0: cpu-nonretentive-1-0 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x90000010>;
+> +                entry-latency-us = <250>;
+> +                exit-latency-us = <500>;
+> +                min-residency-us = <950>;
+> +            };
+> +
+> +            CLUSTER_RET_1: cluster-retentive-1 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x11000010>;
+> +                local-timer-stop;
+> +                entry-latency-us = <50>;
+> +                exit-latency-us = <100>;
+> +                min-residency-us = <250>;
+> +                wakeup-latency-us = <130>;
+> +            };
+> +
+> +            CLUSTER_NONRET_1: cluster-nonretentive-1 {
+> +                compatible = "riscv,idle-state";
+> +                riscv,sbi-suspend-param = <0x91000010>;
+> +                local-timer-stop;
+> +                entry-latency-us = <600>;
+> +                exit-latency-us = <1100>;
+> +                min-residency-us = <2700>;
+> +                wakeup-latency-us = <1500>;
+> +            };
+> +        };
+> +    };
+> +
+> +...
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
