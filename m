@@ -7,62 +7,68 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 337AFC433E6
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31DA2C433E0
 	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 02:25:46 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7285965056
+	by mail.kernel.org (Postfix) with ESMTPS id 76CF76505D
 	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 02:25:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7285965056
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 76CF76505D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HK8vBWYrmfL0UBYkH/2NGqnvZEz7zevC5esoySF+n7Y=; b=jlFP2UV7Jv78vqD27S69T5a1OT
-	GfwGzG3Hc/GVcYc/aPtaT5rxDMy7JlIIs2KTKrSNe1bnZmkjKZ+vZYEEgsNN28FYwQxeEXZ3g0Cty
-	zNGmXsEuOAAu1rp9EY4UXdizm4g7EH6K9ezdQHeO/70/CEB7zTGcS0WeA23K9vsNni8+Qwe818Gid
-	DQqLHfLwmF5tBR7tNr22EjdcQw6aI1jIzpnCU7VmagRBdmvDWp5wTLC2/1DgHEd563fCispDF/Bh3
-	/41PyCyeuYhKidQabssewcQMQG/iLYhzIDt3On3m2OlAjMcZ5q90GgmnkgmBpu80sp88kFBnTXz9j
-	lTVyCeKw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=YYNWmnNWxp5t/rZYFAX+TfEEKN6UvWoYLSYLIhDh9mQ=; b=n3KC+C5yVGZ+39TLjmhQi0oVx
+	nNiZtzUOjEPWMDn3Jcf+0Ck8gToF9Kw28HsyQbJS7pBVDRKs/y0AXtwib+Ded+RDgdMu0FtQ82Noo
+	3DCed8IAPfUSeepXerGHA7MU+A2/sS2ZJrp9xbBEwZTPkVuhdfKcCeIk4wZUfjz5PbwKYfEzHL8/w
+	wLyASwDzrVj7LHULE91k6z86h9lR+6rtmEIw3IrrvXuEmxITXRqf0u+956gd3r+81T5uOt9+MZVaH
+	WqTem2HObGso7kFQHsQ4ISJ5K17YVvEFTQ4vEdxwvRbLJrMHUlKy9Ewq9dePV010D3oWoxBfyR5ED
+	IuIkJkkLw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lIj6g-0076iY-6O; Sun, 07 Mar 2021 02:25:23 +0000
+	id 1lIj6k-0076kp-VA; Sun, 07 Mar 2021 02:25:27 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lIj6X-0076c2-V4
- for linux-riscv@lists.infradead.org; Sun, 07 Mar 2021 02:25:16 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2295F65056;
- Sun,  7 Mar 2021 02:25:07 +0000 (UTC)
+ id 1lIj6e-0076iN-4z
+ for linux-riscv@lists.infradead.org; Sun, 07 Mar 2021 02:25:25 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8191464FF0;
+ Sun,  7 Mar 2021 02:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1615083910;
- bh=WhlbkUebwc1GJfXvE/1rpEg/Mf21MpRw1uus7X8kdhM=;
- h=From:To:Cc:Subject:Date:From;
- b=P/PmwbHZ6rBXncMvOhHWf1UeeMdm+EzqFTqXWkT46ndkYAfO1qnLQxRFvfotu3sJY
- Kh5z/TnOtYx6WabQsMWEtpP5NJtcFjN9r9dSYGTnJTR8TziqKn0M45t2L73ISLmSSw
- 8DJVqyWu6l4pssJWUlB2uAn4XSept9KW85JTvRzM0joP4Aal2p2RvdOI+Bx2koToGu
- Jkew5iPqShZCoORlTR9AwEYJqPKBz23lIfW6nDs7TrTkx/sL/jfKTIhJjam+DJJb1B
- 6a7qVm1pZEvrAU51xaXZoFodiLSwNiuf5JDqNfxfjo10vqlIz7G5Mx70WXjz4D6Hve
- 5Wtbn7puahsJQ==
+ s=k20201202; t=1615083918;
+ bh=S6WUpjoSEoqdZcEDlaFPSR66FdKOqh3DN9zUenNHBho=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=GPF9ZLKvsA9TElGF5fM9CASwJMPYicM7Gsq5B4QgSfNW2lWZQi5FbhDUsX5WmGbUx
+ KsT8fKazFFUg+grRKSPsjqmn4Y7ydNu73bM7ah6F+rpsh8Lf8X5VYpvFaJO8EmlG8r
+ 5Yyoi+gPaGvB53Uo9/T1cggH/92ybq71+1DlIpSqcF8121vjW2+OHoPKr4YMQj0bQk
+ txRNmTT80i8+hO0DPECc6RTIwu/p79RJJKgCmpn1r+D/ywrsPkwyzALALOB5UiEuc7
+ +mvQLNZrJqDNHbRbWqWh/WJKlfMZHkWfpTwNXBksutBIcBl88sxzcvcgdPucDCqJDK
+ +TWl4ZDT37L/A==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
  Guo Ren <guoren@linux.alibaba.com>, Thomas Gleixner <tglx@linutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH 1/2] csky: Enable generic clockevent broadcast
-Date: Sun,  7 Mar 2021 10:24:45 +0800
-Message-Id: <20210307022446.63732-1-guoren@kernel.org>
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Greentime Hu <greentime.hu@sifive.com>
+Subject: [PATCH 2/2] riscv: Enable generic clockevent broadcast
+Date: Sun,  7 Mar 2021 10:24:46 +0800
+Message-Id: <20210307022446.63732-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20210307022446.63732-1-guoren@kernel.org>
+References: <20210307022446.63732-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210307_022514_609417_93E34E24 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20210307_022523_462096_98AB0044 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,8 +87,8 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-When percpu-timers are stopped by deep power saving mode, we need
-system timer help to broadcast IPI_TIMER.
+When percpu-timers are stopped by deep power saving mode, we
+need system timer help to broadcast IPI_TIMER.
 
 This is first introduced by broken x86 hardware, where the local apic
 timer stops in C3 state. But many other architectures(powerpc, mips,
@@ -93,52 +99,56 @@ Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Cc: Arnd Bergmann <arnd@arndb.de>
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Greentime Hu <greentime.hu@sifive.com>
 ---
- arch/csky/Kconfig      |  2 ++
- arch/csky/kernel/smp.c | 17 +++++++++++++++++
- 2 files changed, 19 insertions(+)
+ arch/riscv/Kconfig      |  2 ++
+ arch/riscv/kernel/smp.c | 16 ++++++++++++++++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
-index 34e91224adc3..4328511ac050 100644
---- a/arch/csky/Kconfig
-+++ b/arch/csky/Kconfig
-@@ -6,6 +6,7 @@ config CSKY
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 85d626b8ce5e..8637e7344abe 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -28,6 +28,7 @@ config RISCV
+ 	select ARCH_HAS_SET_DIRECT_MAP
+ 	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
 +	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_WANT_FRAME_POINTERS if !CPU_CK610
-@@ -19,6 +20,7 @@ config CSKY
- 	select IRQ_DOMAIN
- 	select HANDLE_DOMAIN_IRQ
- 	select DW_APB_TIMER_OF
+ 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+@@ -39,6 +40,7 @@ config RISCV
+ 	select EDAC_SUPPORT
+ 	select GENERIC_ARCH_TOPOLOGY if SMP
+ 	select GENERIC_ATOMIC64 if !64BIT
 +	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+ 	select GENERIC_EARLY_IOREMAP
+ 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
  	select GENERIC_IOREMAP
- 	select GENERIC_LIB_ASHLDI3
- 	select GENERIC_LIB_ASHRDI3
-diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
-index 0f9f5eef9338..76d38d84da70 100644
---- a/arch/csky/kernel/smp.c
-+++ b/arch/csky/kernel/smp.c
-@@ -8,6 +8,7 @@
- #include <linux/kernel_stat.h>
- #include <linux/notifier.h>
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index ea028d9e0d24..8325d33411d8 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -9,6 +9,7 @@
+  */
+ 
  #include <linux/cpu.h>
 +#include <linux/clockchips.h>
- #include <linux/percpu.h>
- #include <linux/delay.h>
- #include <linux/err.h>
-@@ -32,6 +33,7 @@ enum ipi_message_type {
- 	IPI_RESCHEDULE,
+ #include <linux/interrupt.h>
+ #include <linux/module.h>
+ #include <linux/profile.h>
+@@ -27,6 +28,7 @@ enum ipi_message_type {
  	IPI_CALL_FUNC,
+ 	IPI_CPU_STOP,
  	IPI_IRQ_WORK,
 +	IPI_TIMER,
  	IPI_MAX
  };
  
-@@ -67,6 +69,13 @@ static irqreturn_t handle_ipi(int irq, void *dev)
+@@ -176,6 +178,12 @@ void handle_IPI(struct pt_regs *regs)
  			irq_work_run();
  		}
  
@@ -148,32 +158,31 @@ index 0f9f5eef9338..76d38d84da70 100644
 +			tick_receive_broadcast();
 +		}
 +#endif
-+
  		BUG_ON((ops >> IPI_MAX) != 0);
- 	}
  
-@@ -102,6 +111,7 @@ static const char * const ipi_names[] = {
- 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+ 		/* Order data access and bit testing. */
+@@ -192,6 +200,7 @@ static const char * const ipi_names[] = {
  	[IPI_CALL_FUNC]		= "Function call interrupts",
- 	[IPI_IRQ_WORK]		= "Irq work interrupts",
+ 	[IPI_CPU_STOP]		= "CPU stop interrupts",
+ 	[IPI_IRQ_WORK]		= "IRQ work interrupts",
 +	[IPI_TIMER]		= "Timer broadcast interrupts",
  };
  
- int arch_show_interrupts(struct seq_file *p, int prec)
-@@ -130,6 +140,13 @@ void arch_send_call_function_single_ipi(int cpu)
- 	send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
+ void show_ipi_stats(struct seq_file *p, int prec)
+@@ -217,6 +226,13 @@ void arch_send_call_function_single_ipi(int cpu)
+ 	send_ipi_single(cpu, IPI_CALL_FUNC);
  }
  
 +#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
 +void tick_broadcast(const struct cpumask *mask)
 +{
-+	send_ipi_message(mask, IPI_TIMER);
++	send_ipi_mask(mask, IPI_TIMER);
 +}
 +#endif
 +
- static void ipi_stop(void *unused)
+ void smp_send_stop(void)
  {
- 	while (1);
+ 	unsigned long timeout;
 -- 
 2.25.1
 
