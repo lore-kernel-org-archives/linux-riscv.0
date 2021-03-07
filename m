@@ -2,75 +2,71 @@ Return-Path: <SRS0=YBN+=IF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_RED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32B0CC433DB
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 15:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F1299C433E0
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 15:26:15 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CFFF66501E
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 15:25:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CFFF66501E
+	by mail.kernel.org (Postfix) with ESMTPS id 9364065004
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Mar 2021 15:26:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9364065004
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=i5ZSKgTzY+TPIBxdFOXt3QgdvM/ADQRBlmAYktJLH0Q=; b=Ej1IjUILlXUVGn9XXn6QCPVb/
-	a/6JuouJ15Mo2o6iTOVy/HJDLtWlnQELZzr7TX/dhE6DqhJ/McAOYhwNS1AZKi3riEIEC9wbYF/ci
-	YWrBbLH35AfYDDeOfQZ6JBT6RiB51TwvbYYOc+W+eHCiD/TFa7PY0as4yTdY0OisbBco2ITfWTv7w
-	7VmaG9nqix6/wipIruKR0JjApP0fYf2nbmO7BWE4p6JbKnIlywMtyChn7QEgTSmiVxN6zfdCadl7u
-	JAMbd6BpbPlKSIS1EzVdpEa4iggz3Ov10PoN/EWXvkeQ1L2Xwp4nzHz/qFLrIwoBMNcRF+m0hKMH/
-	BEabUdLPA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=ncUDLkn13tybxxrR/A39N51DJVFdU7DL39lYZZJ3LGc=; b=JL1lOmmQsSPcDnXRo4JcPg6+e
+	mIx8o1f9ef74198uYLFP/iPccD+KCEfOeM7Au6eq4uUS5b7G7Y0q+L6nNqqmhf1ug7TJ7JNAOiPY0
+	6hP8oWcWbDWeaqejm9Cjx8J5AyuHdR9IXMYmwfP1UyYuwLje0ydY8Eq1JKifmmzsOdq/serU1fLs4
+	eCTyWTUcWwr7Qqsd8PFLq8SIKefyGreiZhIs52CGn3xf1O2OT+eKZjQN78M5GzFlyelQ1Y0uk33Xg
+	FIB3N83ZXB+zmMBJtEut9Nvz6p+RR/cAbR1v1zbgoEgeSzoEpS4eiRYzKMxky57Gy8OxVlrB3Fj2t
+	2kjJ06D7A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lIvH3-00Afod-Hr; Sun, 07 Mar 2021 15:24:53 +0000
+	id 1lIvIE-00AgBg-DL; Sun, 07 Mar 2021 15:26:06 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lIvGn-00AflQ-Gr; Sun, 07 Mar 2021 15:24:39 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6801765004;
- Sun,  7 Mar 2021 15:24:33 +0000 (UTC)
+ id 1lIvHw-00Ag52-Ss; Sun, 07 Mar 2021 15:25:51 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0B04265004;
+ Sun,  7 Mar 2021 15:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1615130674;
- bh=v6Hpp6iOc56BzTgKF0Lqlq7f36GA6UOn7qkPYeygLDs=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=o6t0vl1XcJjABVvkwrDtqIn65aMIJLWlZ+nmr8ab6DZR/FskYnSQHoMXgM8bYpvjx
- aZzeCCIQLPLclXQ3vkrCVeCGbCdrBobrVFuIXY6mpG4qype9tqbCEHi/HhV8e0kUtz
- Wb1TJoCLJL4EHeel7y0nywBZMkfJV7jxGcYYBULw=
-Date: Sun, 7 Mar 2021 16:24:31 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Cc: Jing Xiangfeng <jingxiangfeng@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- rppt@kernel.org, lorenzo.pieralisi@arm.com, guohanjun@huawei.com,
- sudeep.holla@arm.com, rjw@rjwysocki.net, lenb@kernel.org,
- song.bao.hua@hisilicon.com, ardb@kernel.org,
- anshuman.khandual@arm.com, bhelgaas@google.com, guro@fb.com,
- robh+dt@kernel.org, stable@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, frowand.list@gmail.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- wangkefeng.wang@huawei.com
-Subject: Re: [PATCH stable v5.10 0/7] arm64: Default to 32-bit wide ZONE_DMA
-Message-ID: <YETwL6QGWFyJTAzk@kroah.com>
-References: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
- <YEDkmj6cchMPAq2h@kroah.com>
- <9bc396116372de5b538d71d8f9ae9c3259f1002e.camel@suse.de>
- <YEDr/lYZHew88/Ip@kroah.com>
- <827b317d7f5da6e048806922098291faacdb19f9.camel@suse.de>
+ s=korg; t=1615130746;
+ bh=xTLR0YHYlWD258+GGAntMFnPSX5KDsgOrDSePdGPS6o=;
+ h=Subject:To:Cc:From:Date:In-Reply-To:From;
+ b=P5D5BRDV+OfAoLpXUKPnSgER18+dXo+/U6FRJ/lh90JvOrctF5U+femIpScBM1oho
+ qLMuQnI1+89uEaEDwrQ3sdayd2MDaRkbalVFINFcnvzG3w5QOIXwRELoQ3y26dfnWb
+ dJQAzUgWVwzsmzqMkQgMTHD0oEIPMtg0VEoH4jGY=
+Subject: Patch "arm64: mm: Move reserve_crashkernel() into mem_init()" has
+ been added to the 5.10-stable tree
+To: akpm@linux-foundation.org, anshuman.khandual@arm.com, aou@eecs.berkeley.edu,
+ ardb@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com,
+ frowand.list@gmail.com, gregkh@linuxfoundation.org, guohanjun@huawei.com,
+ guro@fb.com, jeremy.linton@arm.com, jingxiangfeng@huawei.com, lenb@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, lorenzo.pieralisi@arm.com,
+ nsaenzjulienne@suse.de, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ rjw@rjwysocki.net, robh+dt@kernel.org, rppt@kernel.org,
+ song.bao.hua@hisilicon.com, sudeep.holla@arm.com, wangkefeng.wang@huawei.com,
+ will@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Sun, 07 Mar 2021 16:25:44 +0100
+In-Reply-To: <20210303073319.2215839-2-jingxiangfeng@huawei.com>
+Message-ID: <161513074412165@kroah.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <827b317d7f5da6e048806922098291faacdb19f9.camel@suse.de>
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210307_152437_800360_9328DA17 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20210307_152549_356474_99081E36 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +83,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 04, 2021 at 04:09:28PM +0100, Nicolas Saenz Julienne wrote:
-> On Thu, 2021-03-04 at 15:17 +0100, Greg KH wrote:
-> > On Thu, Mar 04, 2021 at 03:05:32PM +0100, Nicolas Saenz Julienne wrote:
-> > > Hi Greg.
-> > > 
-> > > On Thu, 2021-03-04 at 14:46 +0100, Greg KH wrote:
-> > > > On Wed, Mar 03, 2021 at 03:33:12PM +0800, Jing Xiangfeng wrote:
-> > > > > Using two distinct DMA zones turned out to be problematic. Here's an
-> > > > > attempt go back to a saner default.
-> > > > 
-> > > > What problem does this solve?  How does this fit into the stable kernel
-> > > > rules?
-> > > 
-> > > We changed the way we setup memory zones in arm64 in order to cater for
-> > > Raspberry Pi 4's weird DMA constraints: ZONE_DMA spans the lower 1GB of memory
-> > > and ZONE_DMA32 the rest of the 32bit address space. Since you can't allocate
-> > > memory that crosses zone boundaries, this broke crashkernel allocations on big
-> > > machines. This series fixes all this by parsing the HW description and checking
-> > > for DMA constrained buses. When not found, the unnecessary zone creation is
-> > > skipped.
-> > 
-> > What kernel/commit caused this "breakage"?
-> 
-> 1a8e1cef7603 arm64: use both ZONE_DMA and ZONE_DMA32
 
-Thanks for the info, all now queued up.
+This is a note to let you know that I've just added the patch titled
 
-greg k-h
+    arm64: mm: Move reserve_crashkernel() into mem_init()
+
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     arm64-mm-move-reserve_crashkernel-into-mem_init.patch
+and it can be found in the queue-5.10 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From foo@baz Sun Mar  7 04:22:37 PM CET 2021
+From: Jing Xiangfeng <jingxiangfeng@huawei.com>
+Date: Wed, 3 Mar 2021 15:33:13 +0800
+Subject: arm64: mm: Move reserve_crashkernel() into mem_init()
+To: <gregkh@linuxfoundation.org>, <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>, <nsaenzjulienne@suse.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <rppt@kernel.org>, <lorenzo.pieralisi@arm.com>, <guohanjun@huawei.com>, <sudeep.holla@arm.com>, <rjw@rjwysocki.net>, <lenb@kernel.org>, <song.bao.hua@hisilicon.com>, <ardb@kernel.org>, <anshuman.khandual@arm.com>, <bhelgaas@google.com>, <guro@fb.com>, <robh+dt@kernel.org>
+Cc: <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, <frowand.list@gmail.com>, <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>, <jingxiangfeng@huawei.com>, <wangkefeng.wang@huawei.com>, Jeremy Linton <jeremy.linton@arm.com>
+Message-ID: <20210303073319.2215839-2-jingxiangfeng@huawei.com>
+
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+
+commit 0a30c53573b07d5561457e41fb0ab046cd857da5 upstream
+
+crashkernel might reserve memory located in ZONE_DMA. We plan to delay
+ZONE_DMA's initialization after unflattening the devicetree and ACPI's
+boot table initialization, so move it later in the boot process.
+Specifically into bootmem_init() since request_standard_resources()
+depends on it.
+
+Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Tested-by: Jeremy Linton <jeremy.linton@arm.com>
+Link: https://lore.kernel.org/r/20201119175400.9995-2-nsaenzjulienne@suse.de
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jing Xiangfeng <jingxiangfeng@huawei.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/mm/init.c |    8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -386,8 +386,6 @@ void __init arm64_memblock_init(void)
+ 	else
+ 		arm64_dma32_phys_limit = PHYS_MASK + 1;
+ 
+-	reserve_crashkernel();
+-
+ 	reserve_elfcorehdr();
+ 
+ 	high_memory = __va(memblock_end_of_DRAM() - 1) + 1;
+@@ -427,6 +425,12 @@ void __init bootmem_init(void)
+ 	sparse_init();
+ 	zone_sizes_init(min, max);
+ 
++	/*
++	 * request_standard_resources() depends on crashkernel's memory being
++	 * reserved, so do it here.
++	 */
++	reserve_crashkernel();
++
+ 	memblock_dump_all();
+ }
+ 
+
+
+Patches currently in stable-queue which might be from jingxiangfeng@huawei.com are
+
+queue-5.10/of-unittest-add-test-for-of_dma_get_max_cpu_address.patch
+queue-5.10/mm-remove-examples-from-enum-zone_type-comment.patch
+queue-5.10/arm64-mm-set-zone_dma-size-based-on-devicetree-s-dma-ranges.patch
+queue-5.10/of-address-introduce-of_dma_get_max_cpu_address.patch
+queue-5.10/arm64-mm-move-zone_dma_bits-initialization-into-zone_sizes_init.patch
+queue-5.10/arm64-mm-set-zone_dma-size-based-on-early-iort-scan.patch
+queue-5.10/arm64-mm-move-reserve_crashkernel-into-mem_init.patch
 
 _______________________________________________
 linux-riscv mailing list
