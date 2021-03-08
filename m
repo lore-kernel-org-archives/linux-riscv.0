@@ -2,79 +2,87 @@ Return-Path: <SRS0=HQWJ=IG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D2F1C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 19:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4B14C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 20:12:35 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5FC30652AD
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 19:30:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5FC30652AD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 389C365194
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 20:12:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 389C365194
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R2ScmCWgYOs7uYxWcImuty/f1OKI3s7xh7SeLi/A/V8=; b=ms9VrQhuQCGPAa3WnvDGIWgzup
-	rulpw1a5vmYSZR9IvJCLfGl88W42MEDWlpR16cJ/VIe3atJd9W+sRRwra/SgQdvDl5kGp1qxTvfV0
-	k7SF3a1LWYDwaKlSWIxtyfTD+Sn1lqYaQlkL9X4Kr4FEFvSawik5dtADUuvq+E+5Nh0uEyLS8kfZx
-	+NopysjT0SLVOcxXzy3Hys8iysFN+3eClZHsy2roFqMLLJ77EwxGG4sPXduwrSxKcJtBeuMR1I3cZ
-	9fO877FIT/DFtuwCFxNuCoazvka0HnAh7UkKIyIdWeHm/lJBfah6dYNB8HHKidAp70HQsxHZhPyH3
-	PRxpU1Ew==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=w7JLCieD8n31EixZWkVi2Bu4RNQhusLJM6F/CanfOi8=; b=CfGgVoKOMWf2WBaMvFAAFLL+Q
+	2Ea5czACt3qN4jHYpw7W7wlhVmV+1vzuf5aWV3X5IQTXLMKDzqIoyljtWKZ+4VXiFqDoEqnzqex6L
+	p3Bg2JqKVEaC4cP8kg55vEcbgQuaF+rltT16EKmIT8NjDLJZQnYqhufjKiu4T4Yo4RGZ80TUnSyJV
+	xVnjd5tQpji4ij/g/C9WB2MvkKLYZaOe10NnYb80CD7+K26kOXjUezoc4Ovudqw4sfwdYPUPdhGRL
+	GGrrI+O+jQJBEggZCwkSlzvRREFsiFQMpEj0/1kN36r7eI4zO8AooI+M/d5XLIY9QHI1F7Xhn9UYC
+	27CKkZtpg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJLaV-0026ng-8i; Mon, 08 Mar 2021 19:30:43 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1lJMEl-002SOI-Ht; Mon, 08 Mar 2021 20:12:19 +0000
+Received: from mail-il1-f181.google.com ([209.85.166.181])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJLaR-0026mO-5l
- for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 19:30:41 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4DvT2h6nBtz1qs0p;
- Mon,  8 Mar 2021 20:30:36 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4DvT2h1kCGz1r1MM;
- Mon,  8 Mar 2021 20:30:36 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id cl5ab6GjaR9i; Mon,  8 Mar 2021 20:30:35 +0100 (CET)
-X-Auth-Info: PggnRC1U8X6v26ElHBvfHF0XfyNGljdktgHw+hS7EGtM5kU/rPFSXSjx3wo4wT+l
-Received: from igel.home (ppp-46-244-182-153.dynamic.mnet-online.de
- [46.244.182.153])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Mon,  8 Mar 2021 20:30:35 +0100 (CET)
-Received: by igel.home (Postfix, from userid 1000)
- id 6E1FB2C37BA; Mon,  8 Mar 2021 20:30:34 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: linux-riscv@lists.infradead.org
-Subject: macb broken on HiFive Unleashed
-CC: Charles Keepax <ckeepax@opensource.cirrus.com>, Andrew Lunn
- <andrew@lunn.ch>, Willy Tarreau <w@1wt.eu>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Claudiu Beznea
- <claudiu.beznea@microchip.com>, Daniel Palmer <daniel@0x0f.com>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Parshuram Thombare
- <pthombar@cadence.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-X-Yow: Who wants some OYSTERS with SEN-SEN an' COOL WHIP?
-Date: Mon, 08 Mar 2021 20:30:34 +0100
-Message-ID: <87tupl30kl.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1.91 (gnu/linux)
+ id 1lJMEE-002S6V-K1
+ for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 20:12:05 +0000
+Received: by mail-il1-f181.google.com with SMTP id g9so10028971ilc.3
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Mar 2021 12:11:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=QpbDs8aiZXfIsuQ/5DPkHrIH9XnSKt6WGe3vBO4wbZk=;
+ b=DycqAUFswYZ+wCctoZ/cQZQz1H1XllSX0sGFFi4Jp59VWpjpu4SU7iX87VF8eFDARC
+ OE+f42tHFJARpOr+DXp0/isfALVeCZsV9aS39K41iOrfJ/pSbdKogNhSZtY1w41rcxYw
+ aK6ciV6caqE16AS9vsfmP0oOgHkHWU8Z0H0QGUFERy51gAicpef8MDTeyQG2ePxDvhrl
+ s6Sx/fcpQie45iYec/mCDGuHnP0tZwNAKZy+hv5wvaZfhK+qIXjvs9AlpslEGc5EuPGj
+ jBSQyTIR+HETO7+2UObWvaIQ+vfNOJ5dsyEzAdqLGiTQoQ1t4zjqG/6ulb3edxfaT9lS
+ TkzA==
+X-Gm-Message-State: AOAM530+AkFpy1RljBB7SwPexWRTm4ZOQxfC6yRAurcpDGPZQzuuPA3U
+ Y5lN7Kr7UIKeznM4BpXeEg==
+X-Google-Smtp-Source: ABdhPJy1v1gp365lFTBHUVGJNK4dZ9aUhoTBhe/Jx60UxTgiblBfbdL8fUjqlBldQdF55LQH3hKPUw==
+X-Received: by 2002:a92:4a07:: with SMTP id m7mr20291705ilf.51.1615234305373; 
+ Mon, 08 Mar 2021 12:11:45 -0800 (PST)
+Received: from robh.at.kernel.org ([64.188.179.253])
+ by smtp.gmail.com with ESMTPSA id g3sm6429469ile.10.2021.03.08.12.11.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 08 Mar 2021 12:11:44 -0800 (PST)
+Received: (nullmailer pid 2883952 invoked by uid 1000);
+ Mon, 08 Mar 2021 20:11:42 -0000
+Date: Mon, 8 Mar 2021 13:11:42 -0700
+From: Rob Herring <robh@kernel.org>
+To: Atish Patra <atish.patra@wdc.com>
+Cc: Ivan.Griffin@microchip.com, Anup Patel <anup.patel@wdc.com>,
+ Alistair Francis <alistair.francis@wdc.com>, linux-riscv@lists.infradead.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ devicetree@vger.kernel.org,
+ =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Conor.Dooley@microchip.com,
+ linux-kernel@vger.kernel.org, Lewis.Hanly@microchip.com,
+ Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v4 2/5] dt-bindings: riscv: microchip: Add YAML
+ documentation for the PolarFire SoC
+Message-ID: <20210308201142.GA2883896@robh.at.kernel.org>
+References: <20210303200253.1827553-1-atish.patra@wdc.com>
+ <20210303200253.1827553-3-atish.patra@wdc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210303200253.1827553-3-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210308_193039_322388_45EE39F1 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210308_201151_314296_C8BA1F01 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +99,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-One of the changes to the macb driver between 5.10 and 5.11 has broken
-the SiFive HiFive Unleashed.  These are the last messages before the
-system hangs:
+On Wed, 03 Mar 2021 12:02:50 -0800, Atish Patra wrote:
+> Add YAML DT binding documentation for the Microchip PolarFire SoC.
+> It is documented at:
+> 
+> https://www.microsemi.com/products/fpga-soc/polarfire-soc-icicle-quick-start-guide
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  .../devicetree/bindings/riscv/microchip.yaml  | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/microchip.yaml
+> 
 
-[   12.468674] libphy: Fixed MDIO Bus: probed
-[   12.746518] macb 10090000.ethernet: Registered clk switch 'sifive-gemgxl-mgmt'
-[   12.753119] macb 10090000.ethernet: GEM doesn't support hardware ptp.
-[   12.760178] libphy: MACB_mii_bus: probed
-[   12.881792] MACsec IEEE 802.1AE
-[   12.944426] macb 10090000.ethernet eth0: Cadence GEM rev 0x10070109 at 0x10090000 irq 16 (70:b3:d5:92:f1:07)
-
-Andreas.
-
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
