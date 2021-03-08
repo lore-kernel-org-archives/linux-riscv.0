@@ -2,20 +2,20 @@ Return-Path: <SRS0=HQWJ=IG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D24D2C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 05184C433E6
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:32:23 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0775764DF3
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:04:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0775764DF3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 6E2DB65139
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:32:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E2DB65139
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,66 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=jU1bYn/oU7eaDfmDgrNbXtbFc+65ot/iLWLeyy4UmtE=; b=LyaALPmsFP2Uo05OycjZz3MuI
-	7cHLym74O77JdfIU3MoKFgDRJpqQdlFQ0qKDCHeHpgd1Gz096CpVk/6cliMjX27Mnzkkj9DcD3lGz
-	SElPmKaGT8uZqJJ/m5v9nXgPEfh7xwy+xedoFjkNokmQpSzoQROlRyUGcT06V7HSCaPbMChJJlpip
-	64a1r4rfZw0mH8Ztw//KXD7hAR5zq7E9Ejf1hHSeC4hlJ0jzqUfFqowIWhRVFfI8/WyG/n/Poum/X
-	o3bONuqea7H0fpGIAdbLbKZd/TxZeoI90YxlFqiJyZOKGQk2LQs1f0SS67KehU3ulrCyONt583nEp
-	M4qihfeYA==;
+	 bh=z1bQJtMmSTqENP27cYVEQUMWIfUDhxfKk1EY8GMPP5o=; b=ON6WuktAnXWZbgYbz7Sp2swiu
+	rCzFOIr6MH2bKYWy4OXos4IID8RpnQgcsQhmNWPVU0Bw1i8CfF9zFtx3SDjRQKHaiTgRw/WVYByug
+	+Q+3VqayNk6vUDl53XxqmuIJLuzSydeX736uTIB+j85ZgX09idAHQuAdSDt3k3/pwASxvOLfqgev9
+	MW650CceQZpljBekP6A9TsJ+lGXnWHkHfGq1FptHiJtB9W+ed5Pqwa9EWa1lD4m3s4B4DcpKMyiw1
+	HMZPzwRk+h1PZjH/krBmVYsuS+mrv07IGsa3Tqz3Ha22OBP1o4lmN8F88krUj6J+Itgjs4p53JYih
+	FJVCv+Tfw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJAs7-00Frkn-St; Mon, 08 Mar 2021 08:04:12 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1lJBJC-00Fwys-E3; Mon, 08 Mar 2021 08:32:10 +0000
+Received: from mout.kundenserver.de ([217.72.192.75])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJArq-00FrfO-Lb
- for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 08:03:59 +0000
-Received: by mail-il1-x130.google.com with SMTP id e2so8072344ilu.0
- for <linux-riscv@lists.infradead.org>; Mon, 08 Mar 2021 00:03:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=35KjzI8H1oyETbm3EJBElOyyMkIyjKEhTf5PaBQsSuc=;
- b=N440It6ZjtVHQoZ0CL+Skb7nhMpnbFvAXTNuFhabhdfJ6oi6sNGZh1UBsx2X4Lfx/s
- h73OpZMkI74nnbntL7In8jM9f2ba8jGZt3vUiF7ZmwQHyemFf5FIwzI6XWrXq6jvcxSo
- y9UtMF+emMvGtGG246bTOyq+xAIENGVbUmGFA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=35KjzI8H1oyETbm3EJBElOyyMkIyjKEhTf5PaBQsSuc=;
- b=kADB8XvUZYBFutvwDOdY1lJJoO9Ev4h/T7ZvF4DyDNeg3r8i6Gh5mnv3/4QQECcRMx
- PolXrRFGs89gU8dIQ30r/3jahI6llMLYVQt7/KAfdfS4wKSsPkr5dWtyQsClK9+Rcg3M
- jX7Z9STPwsgnxfkDqCgXvFhxkI6LVFYRGSA8pceVc41qXIAlLOGbf4nNM+86aoKZUcuW
- ts2vq3VLhd9opAQYpwt8jnr5EQWiVma1cQ+5sXu20udrZYv3Jz6GDRk0JzzwZb86EWul
- JrdDGq6PnczHnYccM3Lz3TYBhBN3gwLDoeL/6Pgg3QxjMNubimlXsK5UkpfEuTxC/Ddj
- ohLQ==
-X-Gm-Message-State: AOAM532+PIgXRLrOF5dT3KDwGXqb2uxLWttLyeOSAOqoGOC/DJrFjZN9
- dz7rOvQAA2Ae/WhHFVG/cwMn47+0OpnWDVPR6Of0
-X-Google-Smtp-Source: ABdhPJyWpeO8xW7/Io1AOnJjSnmTXn9rSBGoNREMgoCgZXrtTCvVBdNLrTJboM9G2FxkyI6+OfF2FEHsPleeKbk2ySk=
-X-Received: by 2002:a05:6e02:1a68:: with SMTP id
- w8mr18952717ilv.147.1615190633454; 
- Mon, 08 Mar 2021 00:03:53 -0800 (PST)
+ id 1lJBJ8-00Fwxa-H5
+ for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 08:32:08 +0000
+Received: from mail-yb1-f171.google.com ([209.85.219.171]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1Mn1iT-1m0Bhi0qzH-00k7so for <linux-riscv@lists.infradead.org>; Mon, 08
+ Mar 2021 09:32:05 +0100
+Received: by mail-yb1-f171.google.com with SMTP id p193so9316020yba.4
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Mar 2021 00:32:04 -0800 (PST)
+X-Gm-Message-State: AOAM5335QtwlEbjKipBE6Jjbw8eD7G9m/zhlcIyouZ5WNe1Q5QRCGuRO
+ ni3j9IRbXYvMuU6/DS9VpBNyXpD2zm4vLQ1xAps=
+X-Google-Smtp-Source: ABdhPJz7WzRENGkqrJauNt4Eu43tE41OHtOy5Pi18b4rc5onlz+3B0QPZSg6kqLhqT6QwccMllOlz9JudYJqhcYI0w4=
+X-Received: by 2002:a9d:2f24:: with SMTP id h33mr8386599otb.305.1615192013989; 
+ Mon, 08 Mar 2021 00:26:53 -0800 (PST)
 MIME-Version: 1.0
-References: <20210306054801.18263-1-xypron.glpk@gmx.de>
- <CAAhSdy08=ffPe+fYWX9ds4wNSMU3uzT8OENk0o93xpfZOKtYig@mail.gmail.com>
- <CAOnJCUKSf7tyz+56apVOqxNgnR_eYoidYw5=M2si753t4K71UQ@mail.gmail.com>
-In-Reply-To: <CAOnJCUKSf7tyz+56apVOqxNgnR_eYoidYw5=M2si753t4K71UQ@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 8 Mar 2021 00:03:42 -0800
-Message-ID: <CAOnJCU+NKwFdkg3X75opcDK1WHwcaK-MczyJhKCuECf5ydp9rg@mail.gmail.com>
-Subject: Re: [PATCH 1/1] RISC-V: correct enum sbi_ext_rfence_fid
-To: Anup Patel <anup@brainfault.org>
-Cc: Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>, 
- Kefeng Wang <wangkefeng.wang@huawei.com>,
+References: <1615185706-24342-1-git-send-email-anshuman.khandual@arm.com>
+ <1615185706-24342-7-git-send-email-anshuman.khandual@arm.com>
+In-Reply-To: <1615185706-24342-7-git-send-email-anshuman.khandual@arm.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 8 Mar 2021 09:26:37 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3Jp6wgGWJ9UDoiN5joOYSONaoHoH=S--i=3SQpm_f4JQ@mail.gmail.com>
+Message-ID: <CAK8P3a3Jp6wgGWJ9UDoiN5joOYSONaoHoH=S--i=3SQpm_f4JQ@mail.gmail.com>
+Subject: Re: [PATCH 6/6] mm: Drop redundant HAVE_ARCH_TRANSPARENT_HUGEPAGE
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Linux-MM <linux-mm@kvack.org>, linux-s390 <linux-s390@vger.kernel.org>, 
+ linux-ia64@vger.kernel.org, Parisc List <linux-parisc@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>, Vineet Gupta <vgupta@synopsys.com>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
+ Russell King <linux@armlinux.org.uk>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Sean Anderson <seanga2@gmail.com>
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+X-Provags-ID: V03:K1:mQidoYQM8C1ZuKum6pnT+DH+lE+hHJKXsntM9BG3fwbuU2EqlZz
+ 8VrV/7J5FDf/QyiKFvmNayfd2AIb4AfxJ84ViuSYf3e4tfqXctVt34O8wmWnmtLqIJjSCHB
+ 5zcn4/yP3BRWfWb0/jTB7bM/jwdrnPztXvHN6cjmaGn0Z2WcF1a6uEA3TrYsVAHsToRg+u8
+ uAHZC89g942/Ctujx3MoQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:hNk0FTrFp9c=:TsPxO4APVSNEeYjkK1jnyd
+ Zab3KIIDO/1xxhMupmKy/RhwalqQXHmQ5IMOQcJrKizXBCW/6QNsJ1uSOsCbcLSHohhAqg1B1
+ 8o4vJ6FZNmDS7807Z27i0kPCE+bSuDjStg9p3yc9eoUqnxtFZRT1CK4NDyX6k/4YSJn1z5gh3
+ mcSbWMmsXFyWTO+bfsZYLwjoz790fCpFOlT8G9Ewru/19PmU1GCpcZt5UCxZID8QEGYRCnWWr
+ MgO9xtwVrQJhOCG82cH2Ng+WhSHt8Eac55vrlhrItC2i8dSB/PKpGT1bHG150JX2bIiQ5/ZBo
+ cvkTb6jZukzPGhZwVitlVFFT62Gw3Yk0l2dru0IBM7qV4MxKnqmOZp3cWziz5sxpLap4/gyS1
+ TGOS0mnqax00ehZBKcSbooww82loNAK8BIn693gyN1mlowaXgR3zlgVtABXHnpIeMYqJS99No
+ GTJ5BWFvBlbLxyC0ttRpanj+qHuiJuQG8gNiPK7knVkZNPPQD3s6cJaqvEMEk8Wsjhi7NPS3M
+ 1ecvEQmpXSedococEZ+s5ZguwBOreAt6e6dIw7qGtZLtTQ9XjjQAsZ4xMV/MWuwZw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210308_080355_016329_B265097C 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20210308_083206_715412_C1840EE7 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,104 +102,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 7, 2021 at 11:49 PM Atish Patra <atishp@atishpatra.org> wrote:
+On Mon, Mar 8, 2021 at 7:41 AM Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
 >
-> On Sat, Mar 6, 2021 at 4:12 AM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Sat, Mar 6, 2021 at 11:19 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
-> > >
-> > > The constants in enum sbi_ext_rfence_fid should match the SBI
-> > > specification. See
-> > > https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc#78-function-listing
-> > >
-> > > | Function Name               | FID | EID
-> > > | sbi_remote_fence_i          |   0 | 0x52464E43
-> > > | sbi_remote_sfence_vma       |   1 | 0x52464E43
-> > > | sbi_remote_sfence_vma_asid  |   2 | 0x52464E43
-> > > | sbi_remote_hfence_gvma_vmid |   3 | 0x52464E43
-> > > | sbi_remote_hfence_gvma      |   4 | 0x52464E43
-> > > | sbi_remote_hfence_vvma_asid |   5 | 0x52464E43
-> > > | sbi_remote_hfence_vvma      |   6 | 0x52464E43
-> > >
-> > > Fixes: ecbacc2a3efd ("RISC-V: Add SBI v0.2 extension definitions")
-> > > Reported-by: Sean Anderson <seanga2@gmail.com>
-> > > Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
-> >
-> > Good catch.
-> >
-> > I guess we never saw any issues because these calls are only used by
-> > KVM RISC-V which is not merged yet. Further for KVM RISC-V, the HFENCE
-> > instruction is emulated as flush everything on FPGA, QEMU, and Spike so
-> > we did not notice any issue with KVM RISC-V too.
-> >
+> HAVE_ARCH_TRANSPARENT_HUGEPAGE has duplicate definitions on platforms that
+> subscribe it. Drop these reduntant definitions and instead just select it
+> on applicable platforms.
 >
-> OpenSBI & Xvisor also define the same order as Linux kernel. The
-> existing order(in Linux kernel)
-> makes more sense w.r.to Lexicographic order as well.
->
-> Should we just fix the spec instead ?
->
+> Cc: Vineet Gupta <vgupta@synopsys.com>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-We do need to notify RustSBI & Diosix authors about this change in
-case we decide to do so.
-However, RustSBI added rfence support a few weeks back only [1]. I
-could not find any rfence reference in Diosix.
-Thus, the impact should be very minimal if the spec is fixed.
-
-[1] https://github.com/luojia65/rustsbi/commit/6e06b4e8e96e05b69157dd5477d433cc932c8a64
-> > Looks good to me.
-> >
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> >
-> > Regards,
-> > Anup
-> >
-> > > ---
-> > >  arch/riscv/include/asm/sbi.h | 4 ++--
-> > >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > > index 99895d9c3bdd..d7027411dde8 100644
-> > > --- a/arch/riscv/include/asm/sbi.h
-> > > +++ b/arch/riscv/include/asm/sbi.h
-> > > @@ -51,10 +51,10 @@ enum sbi_ext_rfence_fid {
-> > >         SBI_EXT_RFENCE_REMOTE_FENCE_I = 0,
-> > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
-> > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
-> > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
-> > >         SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
-> > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
-> > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
-> > >         SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
-> > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
-> > >  };
-> > >
-> > >  enum sbi_ext_hsm_fid {
-> > > --
-> > > 2.30.1
-> > >
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
->
-> --
-> Regards,
-> Atish
-
-
-
--- 
-Regards,
-Atish
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
 _______________________________________________
 linux-riscv mailing list
