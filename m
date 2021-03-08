@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 66FCCC433DB
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6171AC433E0
 	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 03:59:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D143764FB7
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 03:59:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D143764FB7
+	by mail.kernel.org (Postfix) with ESMTPS id 0900F64DE5
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 03:59:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0900F64DE5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G6B+T0edBKn/UHcI0u2jU+kDeWb5udMMde/t0U0luj4=; b=Sh8IXxnZUSfExCrypBrqQOg9ul
-	x60M+xhHcENcTVHDLd9Dpn1plg18POmrxzDFqzwVTKnlfkTqPhj8TeC9qYmjY3W8d9d48Kbqaa7bM
-	DqxrvlLyiQlLCsV6zWvwtQgkMRkxIfknEJyn9LRk8XdeAKJZjRhuILQBm5sR0hIPS9yxnF5Twrtw6
-	VFdcvrIpcPALKVyCYNxKaAD89ap5V1AaCY2f1/CNchP8FPDl0tJllIU4AGZiFFHnS7GeisYhRpVnV
-	Xe4HBDJMwH9epYQqfuRmXD3CDDVZq0ByeCLKoNy5o9JlOxmcbhQnLx3/qJIsSUCDBx9c+Y6aYeuH8
-	bkJ96QfQ==;
+	bh=BK+XItoPHJ7S3lliqhKEZ/4+wxwk6C7asWEzURgtxjM=; b=ltSoRXtHNte656psWdBfGSOkYT
+	LfCidcIxUE8E25+JWhmogNOEKIfLQIgjARcEk+cPGjoyizDomI7SNErOiI3k9+V8guGQrnHrG4+Sq
+	9vKbH08C73iS/34KRZiJ4ETVNo36HezZiOQUTlJhiZyOrQxY7sC6fKKpyOKx2rXbuHExU/O0qBbU+
+	f16j7j6qSIbrfmo0XcW6J2ubpM+vPbNuzfHxNIaSgF9c8TdOGbo2ijtz3RzXMHlMtXOo7C78WmOJ1
+	hq2ORkVlZZ7hqSo56uZj557R+nx0GKllN50X8YJAZ3wPnxxo9u1uNFVrQ0UudaPkAHYb6QJe+nnTR
+	Jly6WofQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJ72d-00EyjS-7D; Mon, 08 Mar 2021 03:58:47 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1lJ72f-00EykZ-13; Mon, 08 Mar 2021 03:58:49 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJ72P-00EygO-1f
- for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 03:58:35 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id t29so6187535pfg.11
- for <linux-riscv@lists.infradead.org>; Sun, 07 Mar 2021 19:58:32 -0800 (PST)
+ id 1lJ72R-00EyhF-Mi
+ for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 03:58:38 +0000
+Received: by mail-pl1-x636.google.com with SMTP id s16so4208658plr.9
+ for <linux-riscv@lists.infradead.org>; Sun, 07 Mar 2021 19:58:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=99eTKgz/n/sdOZ+gNbbaAvrr/ds56SwMbMyqYHzhBxU=;
- b=PHk76T8egbvDTuUGn1QEQ4qA4U8m7nSC7KwGAo7dxj2QzcDTm/Bx5hXJlcir1vsThg
- nknT0mcLr+TeP21jDTSqGWHX/dyhmQDukwwzG6FHhkDlKcjwuPIbf/7lOd7j1tBwN1+1
- iNkqNN8XJe1luI0jwJtlfkhlLJrCMGkJncnu+pD+eINx5q9Sv3K8mTQ9U3nrt19A7DGa
- LcoA3MfVpzDUj9eUq7tgdmULkGyOP8+YriJUjMLCtnTKg+bOulKptKTgnFTu7vfa0C8y
- J+uqkh6zRN/vaiTYyyMFF7dHWVZ9QvLhHhrTH+Bvz2BGglMnBbW6/S9svZL1PiYH0ruJ
- ygWQ==
+ bh=M+CXesmGtHZ1eKhumKSbvxfxl81Zr+JG3EHivWmwFs0=;
+ b=Ez1QaX+AD2pUIaI/k8osfJ5zTbcFZJY1n1RYcUiQyfs7mznS6iEuO7SE2yN4n2hr60
+ O7WtGIsppFLlLNa4eZVHGrR0/8i93aDuj+Ma+o3qKkNPEDANTVWXyJllDq111qHsCyuI
+ zhryKljbVGKlLKzQ9hO5LSAXLKjNFoCOaKff0eqWJjA1FW0txIJKBPkfS2PZkng5r/ri
+ 4vr31mHG8IUjtoCrOIPHYxNnJ4hhJFGRT8iGoUtZBJ0rdJhk1+4kyALbHiUwNwVMFEgA
+ q02HJJzgrwZi9OyGGwceUucZIN3UgaFdEawUc0pc+H4dZ8GNzitv/JO/PCkRkK+X9VBT
+ gvJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=99eTKgz/n/sdOZ+gNbbaAvrr/ds56SwMbMyqYHzhBxU=;
- b=fYc6Ff1fd7rOBVPAAANiUgHFU7mWHiySP2ExYlvcPZWZ8DXv/7MhbtbDGcwipbxjyr
- aIKauHHZlTBb9KK6XQR0dSxI04dD6MyQieccozSMW0kXMXgowCz9KtoTERI0LlLfe3GR
- VZK4H1uxPT34DgL2bXUKrItOfFlnKI8aNCiLz/HfCrznHbfr5gmcEvctmZD4YHuUA8bk
- LbXmv9lznMevf/ATxjivVXV0Dwum49mzjAp2oYHfB4CQDXJyk5r664vyzh0O7UGX4GNG
- gq9AlBKo50up29OGliQokhwwUfYuJ7C8QbKbMC3r5es1393InV58iaCfZVuDpB5Gptma
- s5nQ==
-X-Gm-Message-State: AOAM533pokHbiB0D8Jg8Yz/WTh7dlEA92zwjtolE/MQZoMFSSD80CW+v
- ABVc7shfPMgLdJDm9TliMP7PGGGOGqxw6eHV
-X-Google-Smtp-Source: ABdhPJxHAID2iZskDJa6ozwmMp5+vVXr9zKpAGq2zASlBdwv2mMOIs9DUZx22hHG7di2h7gWCn5neA==
-X-Received: by 2002:a63:dd15:: with SMTP id t21mr5738567pgg.23.1615175911473; 
- Sun, 07 Mar 2021 19:58:31 -0800 (PST)
+ bh=M+CXesmGtHZ1eKhumKSbvxfxl81Zr+JG3EHivWmwFs0=;
+ b=Ph/BRvTiMvCNm81vgOetOMkJlN4rkLtkUkhq0qmhhjDmnwGp1pyscGv0vNqCrJCmEs
+ SsbnfoX3TX9EqzG4Msn4QMuJcpnkP3UR60PrkFn3s4aKbQe2hfm9MCp0i3zAazwyf2+y
+ FPfjBPnO2zBTzYZjxZvQjZY69P65kOf6+0IS9DCfnNI+VVAXJdsCeF88t7C0xlH7oEbD
+ TAsnc5ftdx9mL6UKnTH8Q1OwR3DixXUCYbj6WNUE2wMPf8NgUitwyPcf7wu5gvCPvhaJ
+ BTE6GtAxyJvHsnH8le9wzohVHdfH0upy5cM07L/MBGrbYmhaWucmBMRrMGW3jozyG3LD
+ fkxA==
+X-Gm-Message-State: AOAM5338xLpIEVEJs4ZLWH5tqybct+d6X/dGkTaUDRqEuc06EDJ8JzBD
+ SsF3s9ddFLe1G9ZrXkDNWYH2MewLlPGDaxyA
+X-Google-Smtp-Source: ABdhPJyjpzwUtCbz7CFDGmsmGBt/40SUevnclE5MuZh7pituLFh4/bu3OQ8VnhwxoXA7KyGVO8Ag6A==
+X-Received: by 2002:a17:90a:a584:: with SMTP id
+ b4mr10263778pjq.186.1615175914073; 
+ Sun, 07 Mar 2021 19:58:34 -0800 (PST)
 Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id v3sm8394307pff.217.2021.03.07.19.58.29
+ by smtp.gmail.com with ESMTPSA id v3sm8394307pff.217.2021.03.07.19.58.32
  (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 07 Mar 2021 19:58:31 -0800 (PST)
+ Sun, 07 Mar 2021 19:58:33 -0800 (PST)
 From: Vincent Chen <vincent.chen@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
 Cc: Frank.Zhao@starfivetech.com, atish.patra@wdc.com, anup.patel@wdc.com,
  guoren@kernel.org, alankao@andestech.com, paul.walmsley@sifive.com,
  Vincent Chen <vincent.chen@sifive.com>
-Subject: [RFC patch 1/4] riscv: Add 3 SBI wrapper functions to get cpu
- manufacturer information
-Date: Mon,  8 Mar 2021 11:58:14 +0800
-Message-Id: <1615175897-23509-2-git-send-email-vincent.chen@sifive.com>
+Subject: [RFC patch 2/4] riscv: Get CPU manufacturer information
+Date: Mon,  8 Mar 2021 11:58:15 +0800
+Message-Id: <1615175897-23509-3-git-send-email-vincent.chen@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1615175897-23509-1-git-send-email-vincent.chen@sifive.com>
 References: <1615175897-23509-1-git-send-email-vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210308_035833_527875_FD32D4E4 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210308_035835_994211_E9A21BD8 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +101,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add 3 wrapper functions to get vendor id, architecture id and implement id
-from M-mode
+Issue 3 SBI calls to get the vendor ID, architecture ID and implementation
+ID early in boot so we only need to take the SBI call overhead once.
 
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/include/asm/sbi.h |  3 +++
- arch/riscv/kernel/sbi.c      | 15 +++++++++++++++
- 2 files changed, 18 insertions(+)
+ arch/riscv/include/asm/csr.h       |  3 +++
+ arch/riscv/include/asm/hwcap.h     |  6 ++++++
+ arch/riscv/include/asm/processor.h |  2 ++
+ arch/riscv/include/asm/soc.h       |  1 +
+ arch/riscv/kernel/cpufeature.c     | 17 +++++++++++++++++
+ arch/riscv/kernel/setup.c          |  2 ++
+ arch/riscv/kernel/soc.c            |  1 +
+ 7 files changed, 32 insertions(+)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 99895d9c3bdd..94a7f664caf4 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -97,6 +97,9 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index caadfc1d7487..87ac65696871 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -115,6 +115,9 @@
+ #define CSR_MIP			0x344
+ #define CSR_PMPCFG0		0x3a0
+ #define CSR_PMPADDR0		0x3b0
++#define CSR_MVENDORID		0xf11
++#define CSR_MARCHID		0xf12
++#define CSR_MIMPID		0xf13
+ #define CSR_MHARTID		0xf14
  
- void sbi_console_putchar(int ch);
- int sbi_console_getchar(void);
-+long sbi_get_vendorid(void);
-+long sbi_get_archid(void);
-+long sbi_get_impid(void);
- void sbi_set_timer(uint64_t stime_value);
- void sbi_shutdown(void);
- void sbi_clear_ipi(void);
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index f4a7db3d309e..33e3a9d6efab 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -547,6 +547,21 @@ static inline long sbi_get_firmware_version(void)
- 	return __sbi_base_ecall(SBI_EXT_BASE_GET_IMP_VERSION);
+ #ifdef CONFIG_RISCV_M_MODE
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 5ce50468aff1..b7409487c9d2 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -44,6 +44,12 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
+ #define riscv_isa_extension_available(isa_bitmap, ext)	\
+ 	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
+ 
++struct cpu_manufacturer_info_t {
++	unsigned long vendor_id;
++	unsigned long arch_id;
++	unsigned long imp_id;
++};
++
+ #endif
+ 
+ #endif /* _ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 3a240037bde2..4e11a9621d14 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -72,6 +72,8 @@ int riscv_of_parent_hartid(struct device_node *node);
+ 
+ extern void riscv_fill_hwcap(void);
+ 
++void riscv_fill_cpu_manufacturer_info(void);
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_PROCESSOR_H */
+diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+index f494066051a2..03dee6db404c 100644
+--- a/arch/riscv/include/asm/soc.h
++++ b/arch/riscv/include/asm/soc.h
+@@ -10,6 +10,7 @@
+ #include <linux/of.h>
+ #include <linux/linkage.h>
+ #include <linux/types.h>
++#include <asm/hwcap.h>
+ 
+ #define SOC_EARLY_INIT_DECLARE(name, compat, fn)			\
+ 	static const struct of_device_id __soc_early_init__##name	\
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index ac202f44a670..389162ee19ea 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -12,6 +12,8 @@
+ #include <asm/hwcap.h>
+ #include <asm/smp.h>
+ #include <asm/switch_to.h>
++#include <asm/sbi.h>
++#include <asm/csr.h>
+ 
+ unsigned long elf_hwcap __read_mostly;
+ 
+@@ -22,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+ bool has_fpu __read_mostly;
+ #endif
+ 
++struct cpu_manufacturer_info_t cpu_mfr_info;
++
+ /**
+  * riscv_isa_extension_base() - Get base extension word
+  *
+@@ -149,3 +153,16 @@ void riscv_fill_hwcap(void)
+ 		has_fpu = true;
+ #endif
+ }
++
++void riscv_fill_cpu_manufacturer_info(void)
++{
++#ifndef CONFIG_RISCV_M_MODE
++	cpu_mfr_info.vendor_id = sbi_get_vendorid();
++	cpu_mfr_info.arch_id = sbi_get_archid();
++	cpu_mfr_info.imp_id = sbi_get_impid();
++#else
++	cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
++	cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
++	cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
++#endif
++}
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index e85bacff1b50..03621ce9092c 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -278,6 +278,8 @@ void __init setup_arch(char **cmdline_p)
+ #endif
+ 
+ 	riscv_fill_hwcap();
++
++	riscv_fill_cpu_manufacturer_info();
  }
  
-+long sbi_get_vendorid(void)
-+{
-+	return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
-+}
-+
-+long sbi_get_archid(void)
-+{
-+	return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
-+}
-+
-+long sbi_get_impid(void)
-+{
-+	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
-+}
-+
- static void sbi_send_cpumask_ipi(const struct cpumask *target)
- {
- 	struct cpumask hartid_mask;
+ static int __init topology_init(void)
+diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+index a0516172a33c..58f6fd91743a 100644
+--- a/arch/riscv/kernel/soc.c
++++ b/arch/riscv/kernel/soc.c
+@@ -6,6 +6,7 @@
+ #include <linux/libfdt.h>
+ #include <linux/pgtable.h>
+ #include <asm/soc.h>
++#include <asm/hwcap.h>
+ 
+ /*
+  * This is called extremly early, before parse_dtb(), to allow initializing
 -- 
 2.7.4
 
