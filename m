@@ -2,90 +2,77 @@ Return-Path: <SRS0=HQWJ=IG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05184C433E6
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4523AC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 09:58:48 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E2DB65139
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 08:32:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E2DB65139
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	by mail.kernel.org (Postfix) with ESMTPS id D0F6964DED
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Mar 2021 09:58:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0F6964DED
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=z1bQJtMmSTqENP27cYVEQUMWIfUDhxfKk1EY8GMPP5o=; b=ON6WuktAnXWZbgYbz7Sp2swiu
-	rCzFOIr6MH2bKYWy4OXos4IID8RpnQgcsQhmNWPVU0Bw1i8CfF9zFtx3SDjRQKHaiTgRw/WVYByug
-	+Q+3VqayNk6vUDl53XxqmuIJLuzSydeX736uTIB+j85ZgX09idAHQuAdSDt3k3/pwASxvOLfqgev9
-	MW650CceQZpljBekP6A9TsJ+lGXnWHkHfGq1FptHiJtB9W+ed5Pqwa9EWa1lD4m3s4B4DcpKMyiw1
-	HMZPzwRk+h1PZjH/krBmVYsuS+mrv07IGsa3Tqz3Ha22OBP1o4lmN8F88krUj6J+Itgjs4p53JYih
-	FJVCv+Tfw==;
+	 bh=DqoHNSLSQzzIgKlwisfqOFY2RVbrx6artaO6Kj6asD0=; b=RBLPZaiKywMKYstZsKpNSZtua
+	QOj5U0zelUq2u2VHaNLtjnFqDQa8oGjj/1ymJjbijZQfxyxp4MmAn5XQ5hSrpxHa9oWaCu5GEypdw
+	iDLcQgfVCPUfpl8hVXrhlehXm2t1GlFowVsrMUf6UEQ5NpgAZ0kifCYFN5z/VSZOh6OsQGEVdmPgJ
+	SAIXRlKc9RfGNGNnI5UIIty+hCFeTtFuPGpsaQMwEU1BXZ+KXvkPXu20K0ZaDUDj0PJN1toJK7XQw
+	KRc/kml4dcgUro63fYX5LWLNPZy4Ifq47MuTL2IQEm3E1MTyIOafXAVBpZaoDJxg6kVeYOV810oB6
+	S6a7DZQaA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJBJC-00Fwys-E3; Mon, 08 Mar 2021 08:32:10 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+	id 1lJCen-00GJAH-7n; Mon, 08 Mar 2021 09:58:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJBJ8-00Fwxa-H5
- for linux-riscv@lists.infradead.org; Mon, 08 Mar 2021 08:32:08 +0000
-Received: from mail-yb1-f171.google.com ([209.85.219.171]) by
- mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1Mn1iT-1m0Bhi0qzH-00k7so for <linux-riscv@lists.infradead.org>; Mon, 08
- Mar 2021 09:32:05 +0100
-Received: by mail-yb1-f171.google.com with SMTP id p193so9316020yba.4
- for <linux-riscv@lists.infradead.org>; Mon, 08 Mar 2021 00:32:04 -0800 (PST)
-X-Gm-Message-State: AOAM5335QtwlEbjKipBE6Jjbw8eD7G9m/zhlcIyouZ5WNe1Q5QRCGuRO
- ni3j9IRbXYvMuU6/DS9VpBNyXpD2zm4vLQ1xAps=
-X-Google-Smtp-Source: ABdhPJz7WzRENGkqrJauNt4Eu43tE41OHtOy5Pi18b4rc5onlz+3B0QPZSg6kqLhqT6QwccMllOlz9JudYJqhcYI0w4=
-X-Received: by 2002:a9d:2f24:: with SMTP id h33mr8386599otb.305.1615192013989; 
- Mon, 08 Mar 2021 00:26:53 -0800 (PST)
+ id 1lJCeb-00GJ6a-Pi; Mon, 08 Mar 2021 09:58:23 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6E6AD64FB8;
+ Mon,  8 Mar 2021 09:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1615197500;
+ bh=9mMrQWCC4a/Rkk+3e/lTR2AobCXN/BgEIQxiR+ziyRs=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=K3c25/mmwJ/W84DEwAUDZ324r/A09CehB7e+yOPs0lidf2x1Ni0IUIiwLymaxfft+
+ ZNFO6sv6so/zfQid8v/8/EvpMaqPBZRyvg/PPzzvtwtv7fwTl2GUG6A+DhMIB9rE2o
+ 5yD2m6xhdpeCv5UeZ3x1xbT6v2ZoXZXNnuPJdvCs=
+Date: Mon, 8 Mar 2021 10:58:17 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Jing Xiangfeng <jingxiangfeng@huawei.com>
+Cc: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ rppt@kernel.org, lorenzo.pieralisi@arm.com, guohanjun@huawei.com,
+ sudeep.holla@arm.com, rjw@rjwysocki.net, lenb@kernel.org,
+ song.bao.hua@hisilicon.com, ardb@kernel.org,
+ anshuman.khandual@arm.com, bhelgaas@google.com, guro@fb.com,
+ robh+dt@kernel.org, stable@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, frowand.list@gmail.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ wangkefeng.wang@huawei.com
+Subject: Re: [PATCH stable v5.10 0/7] arm64: Default to 32-bit wide ZONE_DMA
+Message-ID: <YEX1OcbVNSqwwusF@kroah.com>
+References: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
+ <YEDkmj6cchMPAq2h@kroah.com>
+ <9bc396116372de5b538d71d8f9ae9c3259f1002e.camel@suse.de>
+ <YEDr/lYZHew88/Ip@kroah.com>
+ <827b317d7f5da6e048806922098291faacdb19f9.camel@suse.de>
+ <YETwL6QGWFyJTAzk@kroah.com> <604597E3.5000605@huawei.com>
 MIME-Version: 1.0
-References: <1615185706-24342-1-git-send-email-anshuman.khandual@arm.com>
- <1615185706-24342-7-git-send-email-anshuman.khandual@arm.com>
-In-Reply-To: <1615185706-24342-7-git-send-email-anshuman.khandual@arm.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 8 Mar 2021 09:26:37 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3Jp6wgGWJ9UDoiN5joOYSONaoHoH=S--i=3SQpm_f4JQ@mail.gmail.com>
-Message-ID: <CAK8P3a3Jp6wgGWJ9UDoiN5joOYSONaoHoH=S--i=3SQpm_f4JQ@mail.gmail.com>
-Subject: Re: [PATCH 6/6] mm: Drop redundant HAVE_ARCH_TRANSPARENT_HUGEPAGE
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Linux-MM <linux-mm@kvack.org>, linux-s390 <linux-s390@vger.kernel.org>, 
- linux-ia64@vger.kernel.org, Parisc List <linux-parisc@vger.kernel.org>, 
- Linux-sh list <linux-sh@vger.kernel.org>, Vineet Gupta <vgupta@synopsys.com>, 
- "the arch/x86 maintainers" <x86@kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
- Russell King <linux@armlinux.org.uk>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-X-Provags-ID: V03:K1:mQidoYQM8C1ZuKum6pnT+DH+lE+hHJKXsntM9BG3fwbuU2EqlZz
- 8VrV/7J5FDf/QyiKFvmNayfd2AIb4AfxJ84ViuSYf3e4tfqXctVt34O8wmWnmtLqIJjSCHB
- 5zcn4/yP3BRWfWb0/jTB7bM/jwdrnPztXvHN6cjmaGn0Z2WcF1a6uEA3TrYsVAHsToRg+u8
- uAHZC89g942/Ctujx3MoQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:hNk0FTrFp9c=:TsPxO4APVSNEeYjkK1jnyd
- Zab3KIIDO/1xxhMupmKy/RhwalqQXHmQ5IMOQcJrKizXBCW/6QNsJ1uSOsCbcLSHohhAqg1B1
- 8o4vJ6FZNmDS7807Z27i0kPCE+bSuDjStg9p3yc9eoUqnxtFZRT1CK4NDyX6k/4YSJn1z5gh3
- mcSbWMmsXFyWTO+bfsZYLwjoz790fCpFOlT8G9Ewru/19PmU1GCpcZt5UCxZID8QEGYRCnWWr
- MgO9xtwVrQJhOCG82cH2Ng+WhSHt8Eac55vrlhrItC2i8dSB/PKpGT1bHG150JX2bIiQ5/ZBo
- cvkTb6jZukzPGhZwVitlVFFT62Gw3Yk0l2dru0IBM7qV4MxKnqmOZp3cWziz5sxpLap4/gyS1
- TGOS0mnqax00ehZBKcSbooww82loNAK8BIn693gyN1mlowaXgR3zlgVtABXHnpIeMYqJS99No
- GTJ5BWFvBlbLxyC0ttRpanj+qHuiJuQG8gNiPK7knVkZNPPQD3s6cJaqvEMEk8Wsjhi7NPS3M
- 1ecvEQmpXSedococEZ+s5ZguwBOreAt6e6dIw7qGtZLtTQ9XjjQAsZ4xMV/MWuwZw==
+Content-Disposition: inline
+In-Reply-To: <604597E3.5000605@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210308_083206_715412_C1840EE7 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210308_095822_098041_2F50667B 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +89,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 8, 2021 at 7:41 AM Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
-> HAVE_ARCH_TRANSPARENT_HUGEPAGE has duplicate definitions on platforms that
-> subscribe it. Drop these reduntant definitions and instead just select it
-> on applicable platforms.
->
-> Cc: Vineet Gupta <vgupta@synopsys.com>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On Mon, Mar 08, 2021 at 11:20:03AM +0800, Jing Xiangfeng wrote:
+> 
+> 
+> On 2021/3/7 23:24, Greg KH wrote:
+> > On Thu, Mar 04, 2021 at 04:09:28PM +0100, Nicolas Saenz Julienne wrote:
+> > > On Thu, 2021-03-04 at 15:17 +0100, Greg KH wrote:
+> > > > On Thu, Mar 04, 2021 at 03:05:32PM +0100, Nicolas Saenz Julienne wrote:
+> > > > > Hi Greg.
+> > > > > 
+> > > > > On Thu, 2021-03-04 at 14:46 +0100, Greg KH wrote:
+> > > > > > On Wed, Mar 03, 2021 at 03:33:12PM +0800, Jing Xiangfeng wrote:
+> > > > > > > Using two distinct DMA zones turned out to be problematic. Here's an
+> > > > > > > attempt go back to a saner default.
+> > > > > > What problem does this solve?  How does this fit into the stable kernel
+> > > > > > rules?
+> > > > > We changed the way we setup memory zones in arm64 in order to cater for
+> > > > > Raspberry Pi 4's weird DMA constraints: ZONE_DMA spans the lower 1GB of memory
+> > > > > and ZONE_DMA32 the rest of the 32bit address space. Since you can't allocate
+> > > > > memory that crosses zone boundaries, this broke crashkernel allocations on big
+> > > > > machines. This series fixes all this by parsing the HW description and checking
+> > > > > for DMA constrained buses. When not found, the unnecessary zone creation is
+> > > > > skipped.
+> > > > What kernel/commit caused this "breakage"?
+> > > 1a8e1cef7603 arm64: use both ZONE_DMA and ZONE_DMA32
+> > Thanks for the info, all now queued up.
+> There is a fix in 5.11. Please consider applying the following commit to
+> 5.10.y:
+> 
+> aed5041ef9a3 of: unittest: Fix build on architectures without
+> CONFIG_OF_ADDRES
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+Thanks, now queued up.
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
