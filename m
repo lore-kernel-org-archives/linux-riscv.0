@@ -2,73 +2,176 @@ Return-Path: <SRS0=trcm=IH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D0788C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 08:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 821E4C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 08:55:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8243C6527C
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 08:34:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8243C6527C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id ECFA364F7B
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 08:55:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECFA364F7B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pu1/iOejE2XMYo/K85K/mD+ufCfUIKZ4SNKIzkUMnf4=; b=pBQvJEpFceuxzUG/oTp9VTFkER
-	TvjeWIwn5vcBZ0+qGjLpOQEUKAQmH0RvfvgmiHF1nhS10gFSKUc/SyYdf5p5YsWJZlUjN51vHfvPF
-	1+CfvdUc3k8ReQ9mohBjchqQH+/mFWXPPSlgOyPg3aeVV/XJpemYy5zyhHfK2D5us20LVBSBw5JDS
-	ODwimS3TGDILoUu3WRboI/DCfO+4mq+CIbzSuKBD2K9OxX/9KElyLss5uOuLCaFHRfLwJ2mM0V0uy
-	hngkMzFCaaagrYnMvQkL6QgvZqZSVFESKCeQsgz0GCvm5aCCpiyzyE0Srnmlf5A8n2ReY3u6+FtOG
-	9JhSpoEg==;
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=vuox83nai8Nx0mOUeA6w7eH2USj8QQ+G6385I69ywhQ=; b=SAdt1JqW57fDesO05DqwuiRtv
+	yvNiZtqRVd1sEbCW4UTr8KjmnffcgWpCP3QLT3dCwPP0+uIgi18OmerbL0MuNTCkl1xNyT/4jwRi1
+	VjPAqRqPWV5I+sl/I0QRiqwsbv5wD+gAORTGVpS4w9+4HW2L/i4GcdiEy6J/Tn0SyVKD1+/Rk2DKG
+	Xe0DmNSJW/zzgxiO2i8oOKI7bXGtWW0p+IsgFWny0ca/d2aslVMeP+/zLBIRzvxjwuKxA5hlf2jwE
+	7C9sTvnvFTe1uDMyoeMtJZY3E47LAOnnl36Q346qTddK6KFfs5YC1AVj7R8I0KEVo0QuyPiA4L4N1
+	Axa45Uddg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJXoF-0042ZK-4z; Tue, 09 Mar 2021 08:33:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lJXnb-0042Oi-1e; Tue, 09 Mar 2021 08:33:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DBBED6E;
- Tue,  9 Mar 2021 00:33:02 -0800 (PST)
-Received: from p8cg001049571a15.arm.com (unknown [10.163.66.57])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BBDB63F71B;
- Tue,  9 Mar 2021 00:32:54 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 2/6] mm: Generalize SYS_SUPPORTS_HUGETLBFS (rename as
- ARCH_SUPPORTS_HUGETLBFS)
-Date: Tue,  9 Mar 2021 14:03:06 +0530
-Message-Id: <1615278790-18053-3-git-send-email-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1615278790-18053-1-git-send-email-anshuman.khandual@arm.com>
-References: <1615278790-18053-1-git-send-email-anshuman.khandual@arm.com>
+	id 1lJY9F-0046Di-DC; Tue, 09 Mar 2021 08:55:25 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+ by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lJY97-0046Cn-4U
+ for linux-riscv@lists.infradead.org; Tue, 09 Mar 2021 08:55:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1615280117; x=1646816117;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=vQ2iUk8pdEp/vIy0+/WaJ0bFGLu1V5jN0TBsjzqi4yQ=;
+ b=NC+NpKjsX5lhUscjAWEx2PbXreFKoiv8vQMNddNNv0rrakIyfSmHqOqv
+ TMltZz9KtEBQT/i9fubOwQvcDGB4MOfk1PC2lppRXjxvOsjStTPZTv6vQ
+ K0iGDqJIXNjq5YJu5mSrpO8Z4L9rCaZgXGV1oCmuIetjnMATsSFEWwrXC
+ oTnK263icdWFRarI5d7Po6zFYMj/7qgJQ9zCX+XZGCdsOgFnrLXQNwXE/
+ PdRIbOow2VElHvj59HP6xtyFJJdbRKP94eYo8EYR2t/7NZqkP2+WpR7qG
+ fJUbPckGejMlDHb9YR1vXw5dtdsf6lg7nwgki3hf10bIsdwrHq1v7dzmv g==;
+IronPort-SDR: pEIbPrBD6f2mgv3MA/VubRyh0cuKTxguSBrXLK5c/u3CEp2y48cG0EqfxeMwLHBxYTjwONdoGG
+ eoq+/PmiwdoUwEqV8X2nfBDmglDNnzk5ltRu7Yfzi7G5ErZODBTUJjpe8BhLT2SbPeXgrtfdu5
+ 2Q41QNuietCwKivBRIbFLg5cEF8zUgfsX5WHw/kAMcy75Q3l/aMPbx9yASeYI518g3RBluTnns
+ ntaxQE1ofPw6LidpDkY7U0XQXOKvPClworCGM/cSY6PuJ42KExjYrdJS9jRqc+jB+BgATx1X/O
+ Z9s=
+X-IronPort-AV: E=Sophos;i="5.81,234,1610434800"; d="scan'208";a="46775929"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 09 Mar 2021 01:55:12 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 9 Mar 2021 01:55:12 -0700
+Received: from NAM04-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.71) with Microsoft SMTP Server
+ (version=TLS1_2, 
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2 via Frontend
+ Transport; Tue, 9 Mar 2021 01:55:12 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WrTnLDEUc/r2C3q9YgVRzBBS19c7bS55B+wUtpGq4H82X/SZRqfoIKw5EkJo5hiakuiMgIZmjFNBV/IYV/0PHT653yiIEZb2D0/dXiEseWrvADGsUoXr0zmvcsrve2DdrafLxL3zhUJiUVE44+wD0F4AZF1B+crrBbY46faElx5zAguur+CTFfMWaEcUs0+t59oa7yGTMrz46uNGejtJnNXqN85tnzSigcnPL072Ay6xvS6FUMWJaXlQEaVRKkEDEtUsIbxZn470ZqyGZyP8LL0OZKPWN84eISawhDszCNhVSQ0+xlGYDXZ6bR+vjoXnpt8/hleg0yKCOHhWVy7PEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vQ2iUk8pdEp/vIy0+/WaJ0bFGLu1V5jN0TBsjzqi4yQ=;
+ b=dWRHQAED6zbvNF4qZ0be6ZbkOVlCL0NsBbdZBwJzCyYgYFUV5L2L4ffH+6klDz3U27nbtnywgWKm8SQGap8eeW7cMhXK7b3BEs3b/tflYowz6kb009tcxR3uKKx4lUGOr77kLzfH3IigpDMKn5ygCsqSnziRhbDKDEAEkJRufpXE2oL2pAI4XpuZb8f5QiddAkrLIENnQKQGNVaGd53bFOUmcm3iN4uzdLwOW65bBEGu27wigc8M+v4QPlISeKfzntN/BF/oB+eYgKlNt2AWtOnLWMc6K3BrBuAYSAvV1RT4ewGrcdB9T18mfBTs4x0++saXdAML3ZxO0775exNTxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vQ2iUk8pdEp/vIy0+/WaJ0bFGLu1V5jN0TBsjzqi4yQ=;
+ b=TZgroSBVRpnfEpxh1uhpEQx8eSVUO9yEgWvyKMMadSr1WblBV2O2udY0dQ9L/XSWnHxNvUCUHnVuc+4F+dIyb3hER38ql293mJ9pt27cGfJtkgPpxiAjEuct4hd5gjIK7BAet8zPNCWUK17S43Hh7aOsSQeZRKMdL0foHMxElPA=
+Received: from DM6PR11MB3420.namprd11.prod.outlook.com (2603:10b6:5:69::31) by
+ DM5PR11MB1307.namprd11.prod.outlook.com (2603:10b6:3:15::9) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3912.17; Tue, 9 Mar 2021 08:55:11 +0000
+Received: from DM6PR11MB3420.namprd11.prod.outlook.com
+ ([fe80::d405:a5f2:bb71:38d7]) by DM6PR11MB3420.namprd11.prod.outlook.com
+ ([fe80::d405:a5f2:bb71:38d7%2]) with mapi id 15.20.3890.038; Tue, 9 Mar 2021
+ 08:55:11 +0000
+From: <Claudiu.Beznea@microchip.com>
+To: <schwab@linux-m68k.org>, <linux-riscv@lists.infradead.org>
+CC: <ckeepax@opensource.cirrus.com>, <andrew@lunn.ch>, <w@1wt.eu>,
+ <Nicolas.Ferre@microchip.com>, <daniel@0x0f.com>,
+ <alexandre.belloni@bootlin.com>, <pthombar@cadence.com>,
+ <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: macb broken on HiFive Unleashed
+Thread-Topic: macb broken on HiFive Unleashed
+Thread-Index: AQHXFMHoahDKGMtKyEOMLOHZmc0vJQ==
+Date: Tue, 9 Mar 2021 08:55:10 +0000
+Message-ID: <04a7e801-9a55-c926-34ad-3a7665077a4e@microchip.com>
+References: <87tupl30kl.fsf@igel.home>
+In-Reply-To: <87tupl30kl.fsf@igel.home>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
+authentication-results: linux-m68k.org; dkim=none (message not signed)
+ header.d=none;linux-m68k.org; dmarc=none action=none
+ header.from=microchip.com;
+x-originating-ip: [82.76.227.253]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 0aced231-f9d4-4f3d-928c-08d8e2d90c0e
+x-ms-traffictypediagnostic: DM5PR11MB1307:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <DM5PR11MB1307C3943A6DD10A387CD74587929@DM5PR11MB1307.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:10000;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: kNSIQ9X9UVwQGpODm7M7reAYrEW6VFK55lhJNWCPeWlfiAMnkE2C9bWzWR0baAt1pgx8Mr+j/Gn2ZdCRSyZ/L4/YdSNXkf/nsUaa3iQU7N4wk8VL3ZlM8YoVZkpLNZupRSnz3gxBmy+tWtevLGjXKJBtpricOPrFxUjBDy0oJNkjdZG7af+G5o6QE+WMAPsQjwa3F12qoEM9kjvjv6PzJVEuc1douZtbOrTs8AZJGaanp73lXuNMnOgYvjdf3vTo8n4i+4G88VA3Pg/9C0zo7cUrmSXwOen06cbJRs9VVSlVj7vmhSXTeNH13cTlY1w2P0q51Kk3i1ruE/y/yvL+lENIjy3JmLJcomjtiFw3ucKK5H6Ek2ieVr9g4ms2nDrwuvSDv+x99wsBq9v3oiB/M87Xfmb/BDZoV2kxBlABaI7EaE6cpuaDT4AQQ3aYRWCKt6+AclXDLEhM/pS9lIRQZB8G73O/XrqBg8SAdDgnDxpl86qslE+WU82Fo6nhGlS8F5BV22w/Hf7jQmbePQbuuDTbeEuSR+yvimlWv/mlIHQF1WdUBzqYubLyRlFf6xkoC3VHalCB8N2RbAjVxgHq5XwQT+ZGSSCUnWFidBmayfo=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR11MB3420.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(6029001)(136003)(39860400002)(366004)(396003)(376002)(346002)(36756003)(4326008)(54906003)(83380400001)(6512007)(316002)(7416002)(2906002)(186003)(86362001)(64756008)(66946007)(66446008)(6506007)(66556008)(6486002)(66476007)(110136005)(31696002)(76116006)(8936002)(53546011)(71200400001)(2616005)(8676002)(478600001)(26005)(31686004)(5660300002)(91956017)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: =?utf-8?B?Q0MxdlBwb3ZuZU5vTUwvYU1nYXVlTzRyMDl6b3RKeHlaV29DaHpoYkc5ZVgz?=
+ =?utf-8?B?ZkNTUjRaZlRJb3hIbVR3UW1nSVB6L3A2YWpNektCcWdhOHpHdFdmZVR6YWcw?=
+ =?utf-8?B?d1lJOXhtMEZmc2JsYlNBVTdCYThZQUJoZ3Zhc00yTVNjZ01PNFhLRGtOYmsy?=
+ =?utf-8?B?amZ0MTRIa1J5Z1dFUUdKcmJVL0owK2xETXNvUUdHR2VMdDJ3bWpuSEVBTjNI?=
+ =?utf-8?B?V0txQVUyRVZzUkZwS0VYRnVWWU5GSThBQU9pS3VFS0k4SUZVWkhyb1RMWTBF?=
+ =?utf-8?B?RFVtR1c2WlVOd3Rvb1lTRzVNT2NoYmxhZi81anpvbmNGbC9hOHZSMmxsMmlK?=
+ =?utf-8?B?YVFneUNOSTYrdC8veXVXOW0yY3cxeVcyUWhYdFFlVTdZWWt4THEwUGNIbEhI?=
+ =?utf-8?B?SlhBWnhiRnFidk1UNnlIclNZL3UraDVCNm4rZExoK1g4cFoxaHJoQ0hoaTU0?=
+ =?utf-8?B?UDF5MFg4UGdaYnJ4VzdPTmxjZC9vVTlaTWlqem5RQ1B5MVFTNjBtL1NvN04w?=
+ =?utf-8?B?N3Q2d2J5bXRPUkgrc3Axd1g3cCtPbE1aWXJWSWtrbml6czByUlRXb0lERytm?=
+ =?utf-8?B?bXMvdklERmxZUHJrVWk1bkY1TStjalpkMS9HanVpTjd4ajFFMW45aWFqWlN2?=
+ =?utf-8?B?cThDWm1lVXBYaDE0NmpxR0Via2xOdUpnb2NDTXFaNkpsRFhIVzJ5bDdxeGxU?=
+ =?utf-8?B?Wm15Mi9OSlhmQ2pxUkZlMklYNW9TR2pSNVllRzUrcGtaamFIR1VFZHhnZi9Z?=
+ =?utf-8?B?TzNoUTByZ3F6ZkZRZktHMVUvS1lIZ1EvMFRZeUc2ZjcrM0VKNGRnbUFCVk5I?=
+ =?utf-8?B?Tm1lSGpRaFdrM3IxdzVmdmIvUm05ZDRBam5RRjRaem1tZnVRcHBLNjBESHJh?=
+ =?utf-8?B?aVlvWnNpaUFWbWx0QWp0Znp3a0xFcWx5dkVZQmphRHptTGd5dkFvUzUyN3Fr?=
+ =?utf-8?B?dzMvZ3JibnRzMnNnN0NDNkRiM0VGdzNnSXFOMS9ZQ0J4UmpBU01PRTQ5UWVJ?=
+ =?utf-8?B?ZUlhTUsvZUJyamlBZTBLZFVPRUErcVJBeGxyVStjZHpaZ3krbUlMV29TTlVv?=
+ =?utf-8?B?dVlhZ1orTXRQVHkvTnFOVUMza0dqUXNUZkUxL1N2VWhmU0FxZ2N1Q3Z4d3gx?=
+ =?utf-8?B?NmZySGFIUTdDNUF5QXRpREhsRUlZMkU1dnRXdm1MM2RHMEFEbFZNYmRZUXcy?=
+ =?utf-8?B?SEtlQnViazIrTWRxeFppN1U1WmZyMXZaQlpaR3ppUE9PdTBMOXBHb2J0Vmp6?=
+ =?utf-8?B?NWxFVWc2R2FXMDhjTjc5anFWUnNiWTZQa2xBcVVLdnNOa1FjaUlPalpINUt0?=
+ =?utf-8?B?WmNuVm00Q3BYZlNRTzRuenhuM3Y0VWVFMUZuY2hyak9iVGU4YW9WTFh2d2NU?=
+ =?utf-8?B?bXc3RTB5UlJObW90UVZuck8rTktWTUNDdWUwbnNLU2x6T3QxNUhtZGo3NEpB?=
+ =?utf-8?B?TG9kZHNMeFpMcEU5NzMrZE1wKytaYUZiMEVGOGMxcCtwcnVqSDJkVzFUbStO?=
+ =?utf-8?B?NmhRSklkL1MvY3ptYkNNbUkwY2h6bS9lTlBDUndVZTAremUweXV2WFArSklP?=
+ =?utf-8?B?NTExeFRGRWVEZDh4Z0NrWUQxYnRCYW0wZTdFYVNzaGJrSGNLZ0R1czdEcExI?=
+ =?utf-8?B?R2FTVVR6SnpCWmYyMVNUQjJKWWNWcDhmcUpUUnFiQ2ZYZkRiYmVpS0k2RTFp?=
+ =?utf-8?B?SG5hM1VwY09BbW50QUNHSVNsVW5JZzUybVFWU0VZWWpZYUVabWlnd0RuaDI4?=
+ =?utf-8?Q?ebQydwKS1zLONBxmoE=3D?=
+Content-ID: <21A5A2BFD6DACF4F9D63FBA7E9201545@namprd11.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3420.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0aced231-f9d4-4f3d-928c-08d8e2d90c0e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Mar 2021 08:55:10.8418 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VL2NSpFTffFLUqPxPnIyxtdjQx28N0PWyd99OrM+IyzH8noSDIEFhJiRSdZVCNUXzcaM1hBvG2QlhR+ynUhhdBZ2XKilNULzJ5Rp/q0auBg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR11MB1307
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210309_083303_570806_EE3CC9D4 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20210309_085518_953431_7CA4F3BC 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,268 +183,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SYS_SUPPORTS_HUGETLBFS config has duplicate definitions on platforms that
-subscribe it. Instead, just make it a generic option which can be selected
-on applicable platforms. Also rename it as ARCH_SUPPORTS_HUGETLBFS instead.
-This reduces code duplication and makes it cleaner.
+Hi Andreas,
 
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-Cc: Paul Mackerras <paulus@samba.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Rich Felker <dalias@libc.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mips@vger.kernel.org
-Cc: linux-parisc@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-sh@vger.kernel.org
-Cc: linux-fsdevel@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm/Kconfig                       | 5 +----
- arch/arm64/Kconfig                     | 4 +---
- arch/mips/Kconfig                      | 6 +-----
- arch/parisc/Kconfig                    | 5 +----
- arch/powerpc/Kconfig                   | 3 ---
- arch/powerpc/platforms/Kconfig.cputype | 6 +++---
- arch/riscv/Kconfig                     | 5 +----
- arch/sh/Kconfig                        | 5 +----
- fs/Kconfig                             | 5 ++++-
- 9 files changed, 13 insertions(+), 31 deletions(-)
+On 08.03.2021 21:30, Andreas Schwab wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> One of the changes to the macb driver between 5.10 and 5.11 has broken
+> the SiFive HiFive Unleashed.  These are the last messages before the
+> system hangs:
+> 
+> [   12.468674] libphy: Fixed MDIO Bus: probed
+> [   12.746518] macb 10090000.ethernet: Registered clk switch 'sifive-gemgxl-mgmt'
+> [   12.753119] macb 10090000.ethernet: GEM doesn't support hardware ptp.
+> [   12.760178] libphy: MACB_mii_bus: probed
+> [   12.881792] MACsec IEEE 802.1AE
+> [   12.944426] macb 10090000.ethernet eth0: Cadence GEM rev 0x10070109 at 0x10090000 irq 16 (70:b3:d5:92:f1:07)
+> 
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 853aab5ab327..d612d2be6859 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -31,6 +31,7 @@ config ARM
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT if CPU_V7
- 	select ARCH_SUPPORTS_ATOMIC_RMW
-+	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
-@@ -1503,10 +1504,6 @@ config HW_PERF_EVENTS
- 	def_bool y
- 	depends on ARM_PMU
- 
--config SYS_SUPPORTS_HUGETLBFS
--       def_bool y
--       depends on ARM_LPAE
--
- config HAVE_ARCH_TRANSPARENT_HUGEPAGE
-        def_bool y
-        depends on ARM_LPAE
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 606a2323e002..68fe3b5bf17a 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -72,6 +72,7 @@ config ARM64
- 	select ARCH_USE_QUEUED_SPINLOCKS
- 	select ARCH_USE_SYM_ANNOTATIONS
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
-+	select ARCH_SUPPORTS_HUGETLBFS
- 	select ARCH_SUPPORTS_MEMORY_FAILURE
- 	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
- 	select ARCH_SUPPORTS_LTO_CLANG if CPU_LITTLE_ENDIAN
-@@ -1053,9 +1054,6 @@ config HW_PERF_EVENTS
- 	def_bool y
- 	depends on ARM_PMU
- 
--config SYS_SUPPORTS_HUGETLBFS
--	def_bool y
--
- config ARCH_WANT_HUGE_PMD_SHARE
- 
- config ARCH_ENABLE_SPLIT_PMD_PTLOCK
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index d89efba3d8a4..73ea9b7558c1 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -16,6 +16,7 @@ config MIPS
- 	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_USE_QUEUED_SPINLOCKS
-+	select ARCH_SUPPORTS_HUGETLBFS if CPU_SUPPORTS_HUGEPAGES
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select ARCH_WANT_LD_ORPHAN_WARN
-@@ -1281,11 +1282,6 @@ config SYS_SUPPORTS_BIG_ENDIAN
- config SYS_SUPPORTS_LITTLE_ENDIAN
- 	bool
- 
--config SYS_SUPPORTS_HUGETLBFS
--	bool
--	depends on CPU_SUPPORTS_HUGEPAGES
--	default y
--
- config MIPS_HUGE_TLB_SUPPORT
- 	def_bool HUGETLB_PAGE || TRANSPARENT_HUGEPAGE
- 
-diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-index 4e53ac46e857..4ce68e640474 100644
---- a/arch/parisc/Kconfig
-+++ b/arch/parisc/Kconfig
-@@ -12,6 +12,7 @@ config PARISC
- 	select ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
- 	select ARCH_NO_SG_CHAIN
-+	select ARCH_SUPPORTS_HUGETLBFS if PA20
- 	select ARCH_SUPPORTS_MEMORY_FAILURE
- 	select DMA_OPS
- 	select RTC_CLASS
-@@ -138,10 +139,6 @@ config PGTABLE_LEVELS
- 	default 3 if 64BIT && PARISC_PAGE_SIZE_4KB
- 	default 2
- 
--config SYS_SUPPORTS_HUGETLBFS
--	def_bool y if PA20
--
--
- menu "Processor type and features"
- 
- choice
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 386ae12d8523..a74c211e55b1 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -700,9 +700,6 @@ config ARCH_SPARSEMEM_DEFAULT
- 	def_bool y
- 	depends on PPC_BOOK3S_64
- 
--config SYS_SUPPORTS_HUGETLBFS
--	bool
--
- config ILLEGAL_POINTER_VALUE
- 	hex
- 	# This is roughly half way between the top of user space and the bottom
-diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-index 3ce907523b1e..cec1017813f8 100644
---- a/arch/powerpc/platforms/Kconfig.cputype
-+++ b/arch/powerpc/platforms/Kconfig.cputype
-@@ -40,8 +40,8 @@ config PPC_85xx
- 
- config PPC_8xx
- 	bool "Freescale 8xx"
-+	select ARCH_SUPPORTS_HUGETLBFS
- 	select FSL_SOC
--	select SYS_SUPPORTS_HUGETLBFS
- 	select PPC_HAVE_KUEP
- 	select PPC_HAVE_KUAP
- 	select HAVE_ARCH_VMAP_STACK
-@@ -95,9 +95,9 @@ config PPC_BOOK3S_64
- 	bool "Server processors"
- 	select PPC_FPU
- 	select PPC_HAVE_PMU_SUPPORT
--	select SYS_SUPPORTS_HUGETLBFS
- 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-+	select ARCH_SUPPORTS_HUGETLBFS
- 	select ARCH_SUPPORTS_NUMA_BALANCING
- 	select IRQ_WORK
- 	select PPC_MM_SLICES
-@@ -278,9 +278,9 @@ config FSL_BOOKE
- # this is for common code between PPC32 & PPC64 FSL BOOKE
- config PPC_FSL_BOOK3E
- 	bool
-+	select ARCH_SUPPORTS_HUGETLBFS if PHYS_64BIT || PPC64
- 	select FSL_EMB_PERFMON
- 	select PPC_SMP_MUXED_IPI
--	select SYS_SUPPORTS_HUGETLBFS if PHYS_64BIT || PPC64
- 	select PPC_DOORBELL
- 	default y if FSL_BOOKE
- 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 85d626b8ce5e..69954db3aca9 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -30,6 +30,7 @@ config RISCV
- 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
-+	select ARCH_SUPPORTS_HUGETLBFS if MMU
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_FRAME_POINTERS
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-@@ -165,10 +166,6 @@ config ARCH_WANT_GENERAL_HUGETLB
- config ARCH_SUPPORTS_UPROBES
- 	def_bool y
- 
--config SYS_SUPPORTS_HUGETLBFS
--	depends on MMU
--	def_bool y
--
- config STACKTRACE_SUPPORT
- 	def_bool y
- 
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index e798e55915c2..a54b0c5de37b 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -101,9 +101,6 @@ config SYS_SUPPORTS_APM_EMULATION
- 	bool
- 	select ARCH_SUSPEND_POSSIBLE
- 
--config SYS_SUPPORTS_HUGETLBFS
--	bool
--
- config SYS_SUPPORTS_SMP
- 	bool
- 
-@@ -175,12 +172,12 @@ config CPU_SH3
- 
- config CPU_SH4
- 	bool
-+	select ARCH_SUPPORTS_HUGETLBFS if MMU
- 	select CPU_HAS_INTEVT
- 	select CPU_HAS_SR_RB
- 	select CPU_HAS_FPU if !CPU_SH4AL_DSP
- 	select SH_INTC
- 	select SYS_SUPPORTS_SH_TMU
--	select SYS_SUPPORTS_HUGETLBFS if MMU
- 
- config CPU_SH4A
- 	bool
-diff --git a/fs/Kconfig b/fs/Kconfig
-index 462253ae483a..1b1be98e3b85 100644
---- a/fs/Kconfig
-+++ b/fs/Kconfig
-@@ -222,10 +222,13 @@ config TMPFS_INODE64
- 
- 	  If unsure, say N.
- 
-+config ARCH_SUPPORTS_HUGETLBFS
-+	def_bool n
-+
- config HUGETLBFS
- 	bool "HugeTLB file system support"
- 	depends on X86 || IA64 || SPARC64 || (S390 && 64BIT) || \
--		   SYS_SUPPORTS_HUGETLBFS || BROKEN
-+		   ARCH_SUPPORTS_HUGETLBFS || BROKEN
- 	help
- 	  hugetlbfs is a filesystem backing for HugeTLB pages, based on
- 	  ramfs. For architectures that support it, say Y here and read
--- 
-2.20.1
+I don't have a SiFive HiFive Unleashed to investigate this. Can you check
+if reverting commits on macb driver b/w 5.10 and 5.11 solves your issues:
 
+git log --oneline v5.10..v5.11 -- drivers/net/ethernet/cadence/
+1d0d561ad1d7 net: macb: Correct usage of MACB_CAPS_CLK_HW_CHG flag
+1d608d2e0d51 Revert "macb: support the two tx descriptors on at91rm9200"
+700d566e8171 net: macb: add support for sama7g5 emac interface
+ec771de654e4 net: macb: add support for sama7g5 gem interface
+f4de93f03ed8 net: macb: unprepare clocks in case of failure
+38493da4e6a8 net: macb: add function to disable all macb clocks
+daafa1d33cc9 net: macb: add capability to not set the clock rate
+edac63861db7 net: macb: add userio bits as platform configuration
+9e6cad531c9d net: macb: Fix passing zero to 'PTR_ERR'
+0012eeb370f8 net: macb: fix NULL dereference due to no pcs_config method
+e4e143e26ce8 net: macb: add support for high speed interface
+
+Thank you,
+Claudiu Beznea
+
+> Andreas.
+> 
+> --
+> Andreas Schwab, schwab@linux-m68k.org
+> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> "And now for something completely different."
+> 
 
 _______________________________________________
 linux-riscv mailing list
