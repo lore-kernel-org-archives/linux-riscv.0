@@ -2,107 +2,68 @@ Return-Path: <SRS0=trcm=IH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06BA5C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 10:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A12CAC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 10:57:16 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A46006525D
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 10:13:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A46006525D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 308486523D
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Mar 2021 10:57:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 308486523D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cB8GfT6fgotPDzxtlBZek/v8SEIEdZjbIJgRKQGIm/U=; b=JcgViO9o4z2WhC1oUOqTAxHmE
-	evGEVDELiZQ/KjdqDxb3mehxAcJxuJqDr2rH+kPnoq2KdvCzuG4cB75xBGrTKPKmABWQolJ7eDQKM
-	VGZhmswXrJW+JchhAv779/HCQKKpnmb+LISK/gDufGutaSZa5MdUqrsVNM1qEmBrXZEC5T/9hnv7M
-	/ZSuV8cp2RdJ724Lvoh+UYZ9f6X3/ZZkLbYVzGJb61jkfoTDFhbRsdP9ebo9tA8kU29+zv2Qww6Mp
-	ToGyGA+LP2wF83mWkQsL/ofla9dN1V9+TU6dN95XFIARu1h5egiQw5ugoBqlUcoatAMYKiCAopLXC
-	0eNv1SdVw==;
+	 bh=/DpyGQeAKr9duu1Zt18FIvwkV2yzQ75d8+2S5NgKpMw=; b=pj+Q7z3XE95iUrwnYVVaoV0m9
+	5H6BanDmOUR8pPgHf1QxoPWUGAFItZhNb/NLtz69UezXYXmKMyJ7biDpsCMlqIp8EFfBK3p3o0Hp+
+	u6ZH/TKAt6OCLuBMuRNK8Nn6diS2rDeOrbEz4ceGG3HR9CRwg/eq4bCMMjiyYEHnEMC0sHhO1VCrl
+	R03qZ8Uk5yKzz+lCyBKfgYPQn5TPkbRl+YRM/TzHyhFvingWHo8YPd7U04t0u0Hn5Xr5+7c2L2mn2
+	HQzgpTm3jnwXgvCZCfibaCYvJyjY0lmKjL7NYOiocksZ5rTVFOj4zwNqBGj1EbgDCUwCMxFiZQ539
+	i2SkUIJGQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJZMB-004BIR-S7; Tue, 09 Mar 2021 10:12:52 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1lJa2u-004FJg-4X; Tue, 09 Mar 2021 10:57:00 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJZM5-004BFb-6k; Tue, 09 Mar 2021 10:12:47 +0000
-Received: from pps.filterd (m0098410.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
- 129A3Tn8126439; Tue, 9 Mar 2021 05:12:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=VLXXREKt32lTGhx5VSlCqI/r3ad7QYovQBLESPlSg1g=;
- b=JHoTDLey4dg5DpogyA3aPdDBsgtJ9oQbVxU0yNqHH6AxCs0k/hLqbURN9Pp05W9dCjIV
- oJ3IQOmpnHGG/+L0cyuvbVIVjqYPp4JhtXdlNoJNniwZtAR1tkcz/SbR3hpJUPhzVNjt
- Tvi/cR7xZXoRqWMR9g5Fri5UwreL+QHDXQyvSXCCG4F7b7xcBaUtc9pok+hBvRJumV8O
- O67FUpPgItTWV5Q3smsqawuz2HxZNmYtl9TT3HRmU7KZDIm97OxDHREAp3hOYIQ/zlYQ
- RScq9gC3nQkMxAe2cugXHyC9dedDDRUmoojbo3F3j6rNOgbx4OYe0uxkJEJD5yj1Hj3m AQ== 
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.99])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3762wqy07d-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 09 Mar 2021 05:12:33 -0500
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
- by ppma04ams.nl.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 1299rlpi009357;
- Tue, 9 Mar 2021 10:12:31 GMT
-Received: from b06cxnps3075.portsmouth.uk.ibm.com
- (d06relay10.portsmouth.uk.ibm.com [9.149.109.195])
- by ppma04ams.nl.ibm.com with ESMTP id 3741c8jmw2-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 09 Mar 2021 10:12:31 +0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com
- (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
- by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 129ACSuw48300516
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 9 Mar 2021 10:12:28 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id BADF8A405F;
- Tue,  9 Mar 2021 10:12:28 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 2A6C8A4065;
- Tue,  9 Mar 2021 10:12:28 +0000 (GMT)
-Received: from osiris (unknown [9.171.41.99])
- by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Tue,  9 Mar 2021 10:12:28 +0000 (GMT)
-Date: Tue, 9 Mar 2021 11:12:26 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, x86@kernel.org, linux-ia64@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] mm: some config cleanups
-Message-ID: <YEdKCvxlFQa4noI8@osiris>
-References: <1615278790-18053-1-git-send-email-anshuman.khandual@arm.com>
+ id 1lJa2o-004FJG-RS
+ for linux-riscv@lists.infradead.org; Tue, 09 Mar 2021 10:56:57 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1lJa2g-00066w-9p; Tue, 09 Mar 2021 10:56:46 +0000
+Subject: Re: [PATCH v4 3/5] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <alistair.francis@wdc.com>, Anup Patel
+ <anup.patel@wdc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Conor.Dooley@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
+ Ivan.Griffin@microchip.com, Lewis.Hanly@microchip.com
+References: <20210303200253.1827553-1-atish.patra@wdc.com>
+ <20210303200253.1827553-4-atish.patra@wdc.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <e97e6dd6-fcb5-fac1-41e2-534f524bf5d2@codethink.co.uk>
+Date: Tue, 9 Mar 2021 10:56:45 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1615278790-18053-1-git-send-email-anshuman.khandual@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369, 18.0.761
- definitions=2021-03-09_09:2021-03-08,
- 2021-03-09 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0
- impostorscore=0 bulkscore=0 adultscore=0 spamscore=0 malwarescore=0
- priorityscore=1501 suspectscore=0 phishscore=0 clxscore=1011
- mlxlogscore=465 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2103090048
+In-Reply-To: <20210303200253.1827553-4-atish.patra@wdc.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210309_101246_064959_4BB392B1 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20210309_105654_992406_960FB4B9 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,60 +75,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 09, 2021 at 02:03:04PM +0530, Anshuman Khandual wrote:
-> This series contains config cleanup patches which reduces code duplication
-> across platforms and also improves maintainability. There is no functional
-> change intended with this series. This has been boot tested on arm64 but
-> only build tested on some other platforms.
+On 03/03/2021 20:02, Atish Patra wrote:
+> Add initial DTS for Microchip ICICLE board having only
+> essential devices (clocks, sdhci, ethernet, serial, etc).
+> The device tree is based on the U-Boot patch.
 > 
-> This applies on 5.12-rc2
+> https://patchwork.ozlabs.org/project/uboot/patch/20201110103414.10142-6-padmarao.begari@microchip.com/
 > 
-> Cc: x86@kernel.org
-> Cc: linux-ia64@vger.kernel.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: linux-fsdevel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>   arch/riscv/boot/dts/Makefile                  |   1 +
+>   arch/riscv/boot/dts/microchip/Makefile        |   2 +
+>   .../microchip/microchip-mpfs-icicle-kit.dts   |  72 ++++
+>   .../boot/dts/microchip/microchip-mpfs.dtsi    | 329 ++++++++++++++++++
+>   4 files changed, 404 insertions(+)
+>   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+>   create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+>   create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 > 
-> Anshuman Khandual (6):
->   mm: Generalize ARCH_HAS_CACHE_LINE_SIZE
->   mm: Generalize SYS_SUPPORTS_HUGETLBFS (rename as ARCH_SUPPORTS_HUGETLBFS)
->   mm: Generalize ARCH_ENABLE_MEMORY_[HOTPLUG|HOTREMOVE]
->   mm: Drop redundant ARCH_ENABLE_[HUGEPAGE|THP]_MIGRATION
->   mm: Drop redundant ARCH_ENABLE_SPLIT_PMD_PTLOCK
->   mm: Drop redundant HAVE_ARCH_TRANSPARENT_HUGEPAGE
-> 
->  arch/arc/Kconfig                       |  9 ++------
->  arch/arm/Kconfig                       | 10 ++-------
->  arch/arm64/Kconfig                     | 30 ++++++--------------------
->  arch/ia64/Kconfig                      |  8 ++-----
->  arch/mips/Kconfig                      |  6 +-----
->  arch/parisc/Kconfig                    |  5 +----
->  arch/powerpc/Kconfig                   | 11 ++--------
->  arch/powerpc/platforms/Kconfig.cputype | 16 +++++---------
->  arch/riscv/Kconfig                     |  5 +----
->  arch/s390/Kconfig                      | 12 +++--------
->  arch/sh/Kconfig                        |  7 +++---
->  arch/sh/mm/Kconfig                     |  8 -------
->  arch/x86/Kconfig                       | 29 ++++++-------------------
->  fs/Kconfig                             |  5 ++++-
->  mm/Kconfig                             |  9 ++++++++
->  15 files changed, 48 insertions(+), 122 deletions(-)
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 7ffd502e3e7b..fe996b88319e 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,5 +1,6 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   subdir-y += sifive
+>   subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
+> +subdir-y += microchip
+>   
+>   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
+> new file mode 100644
+> index 000000000000..622b12771fd3
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/microchip/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-mpfs-icicle-kit.dtb
+> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+> new file mode 100644
+> index 000000000000..ec79944065c9
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+> @@ -0,0 +1,72 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/* Copyright (c) 2020 Microchip Technology Inc */
+> +
+> +/dts-v1/;
+> +
+> +#include "microchip-mpfs.dtsi"
+> +
+> +/* Clock frequency (in Hz) of the rtcclk */
+> +#define RTCCLK_FREQ		1000000
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +	model = "Microchip PolarFire-SoC Icicle Kit";
+> +	compatible = "microchip,mpfs-icicle-kit";
+> +
+> +	chosen {
+> +		stdout-path = &serial0;
+> +	};
+> +
+> +	cpus {
+> +		timebase-frequency = <RTCCLK_FREQ>;
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x80000000 0x0 0x40000000>;
+> +		clocks = <&clkcfg 26>;
+> +	};
+> +
 
-for the s390 bits:
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+The latest Microchip releases have two memory nodes to provide the
+full 2GiB of memory space.
+
+> +	soc {
+> +	};
+> +};
+> +
+> +&serial0 {
+> +	status = "okay";
+> +};
+> +
+> +&serial1 {
+> +	status = "okay";
+> +};
+> +
+> +&serial2 {
+> +	status = "okay";
+> +};
+> +
+> +&serial3 {
+> +	status = "okay";
+> +};
+> +
+> +&sdcard {
+> +	status = "okay";
+> +};
+> +
+> +&emac0 {
+> +	phy-mode = "sgmii";
+> +	phy-handle = <&phy0>;
+> +	phy0: ethernet-phy@8 {
+> +		reg = <8>;
+> +		ti,fifo-depth = <0x01>;
+> +	};
+> +};
+> +
+> +&emac1 {
+> +	status = "okay";
+> +	phy-mode = "sgmii";
+> +	phy-handle = <&phy1>;
+> +	phy1: ethernet-phy@9 {
+> +		reg = <9>;
+> +		ti,fifo-depth = <0x01>;
+> +	};
+> +};
+
+
+
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
