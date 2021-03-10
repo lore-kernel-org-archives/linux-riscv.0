@@ -2,80 +2,94 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E12E0C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB8CDC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:56:14 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5E20864FD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:51:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E20864FD2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 62CDF64FE8
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:56:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62CDF64FE8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+vCEiwTHzFZtfK03ESpUETMdPjtkaNcpF+hra1ofxjo=; b=riJyq7G/0ELgxsnNQmBXfT/cg
-	DzSUv5d3H+Lfsf1Bea416NUGPkGMOwjRUNsLUbaK1tP7c7LVFwU3SieX2kK4buoMNAajh2fbOVDaF
-	ZDbWLXf7O9pA2hsFF9GGyimSrkyNIsQbnLouer0PXeS+yQ0c9vZ/5TkmerG4Rjxt6v4CfMX0PqkpB
-	bnR7UQNjNZVY6sgMjYUI6ZzkoQtCsakvve2c8EL/6MpwOR5cb+rGBi2PmfirZ4wqiFduUaz6AyGMt
-	WTSf9JStekcOKxdw7xQqYUPvmTCmQxaV+lZnhfQrW1wowzBhnXCViP9zXJQPs7xIxOVj45NORfK9g
-	j2EhrQEgA==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=6+lramOoT4Rx24oV5v+3TLHaXsNJtQu0i6A30FFAg8A=; b=i+VNKNRq3yE39MTf1Xo0reJQG
+	UBx/BRqkZ9jtXuNqaxt1jY1UnZ9BIGJYyrA1kiefJrFue9jWMJfn8SSmmlxrhXCzeKv1usH4yXD44
+	VzUNVF3/ZSC8vQCr52T6kxRJbgoLft79QPwlOGPx9adhfIXp9TucM/NTTHF4+j1w3AhZfAPzuV5Z5
+	4H/FRZ0BxVwRRB9VuQm2xpoxqX/RYlbVE/FkILvxk7X1sNWutC4CB7t022S59VZ4aNR2W+cX+ce4D
+	zFWK/aYrGfZ/hep+ffXawzpggXZ9vaBZ3uGKyhI7W5FPNnnMS6Imrl/+/N2rAUxxQj1nKZG0ZrMFB
+	bNsVDhNBg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJowS-005pry-19; Wed, 10 Mar 2021 02:51:20 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lJp0X-005qJS-5g; Wed, 10 Mar 2021 02:55:37 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJowK-005ppz-3o
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 02:51:14 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8883D64FD8
- for <linux-riscv@lists.infradead.org>; Wed, 10 Mar 2021 02:51:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1615344668;
- bh=Mv3izmttCIaxZNBg6j5KK8G+uj2RacC7Xfy+14CSweQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=WNxa9n62Du0xP2TsfnU8xpj8Lxr7FTojC+50A95Wh/ydcPjxBEDDXCzKxTaeCSFfc
- Y27u4HQoiNihpIz1DLAuqdKyl2tGKNKauVU31BtoYXuEtB9p7k3Bl7DIpMpYDSyzKr
- oZdaK41+QSIlIzDFKxFCxvA8+BATqrBLqlIapjL6NTZg5R8jcEgevSXKSPnkJfQju3
- TsVubnppcihivMs06sxH+h5EmRBFJwSoy59zVoW1XzNB5iQPafVJvCNXaMHFIeuqUp
- S/+HvwOMtFrjn2QihAcxVt8a3w9y5cR3oCI8wZ5FftSXzXeE6NQdvQBUcY5XQtnBsr
- 2Rz6eFtpdUhCw==
-Received: by mail-lf1-f45.google.com with SMTP id f1so30885557lfu.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 18:51:08 -0800 (PST)
-X-Gm-Message-State: AOAM530T2zonI43Vz0efVdfVOnxU/Kl86L60CGCsMvr4WwEi/92nsWrS
- 94/Dor4Oee7B1YXlOnFQwtA31fdcW9ZHAI0Qhgk=
-X-Google-Smtp-Source: ABdhPJzO/BFxC8uelophGBVWN1zoKWY9IDrxq+wLKRXh5UefdsmELmTMLa6Db5w7YTPtQ9T1I2wxxNOSjvAPL0bWKLg=
-X-Received: by 2002:a05:6512:2288:: with SMTP id
- f8mr696968lfu.346.1615344666746; 
- Tue, 09 Mar 2021 18:51:06 -0800 (PST)
-MIME-Version: 1.0
-References: <1615175897-23509-1-git-send-email-vincent.chen@sifive.com>
- <1615175897-23509-3-git-send-email-vincent.chen@sifive.com>
- <CAJF2gTR6e2=mL3BUt-QDt21RxJdxEPa7b+MMJ7TsDmmnDHCu1w@mail.gmail.com>
- <CAAhSdy1skWAbBJGukg-mu4kFaknn56meVi5PbbW4fCoaKGopKg@mail.gmail.com>
-In-Reply-To: <CAAhSdy1skWAbBJGukg-mu4kFaknn56meVi5PbbW4fCoaKGopKg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 10 Mar 2021 10:50:55 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS1ygz+q-MfmZ-0K6wEg4MnUQTcudqw389f_hRSmzUgbQ@mail.gmail.com>
-Message-ID: <CAJF2gTS1ygz+q-MfmZ-0K6wEg4MnUQTcudqw389f_hRSmzUgbQ@mail.gmail.com>
-Subject: Re: [RFC patch 2/4] riscv: Get CPU manufacturer information
-To: Anup Patel <anup@brainfault.org>
-Cc: Vincent Chen <vincent.chen@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Frank.Zhao@starfivetech.com, 
- Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>, 
- Alan Kao <alankao@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>
+ id 1lJozX-005qDl-Ao
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 02:54:35 +0000
+Received: by mail-pf1-x431.google.com with SMTP id b23so2399032pfo.8
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 18:54:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=YBxARwCSnvP/MPs48fuZLZiuQ0mo/90Nc+1kxldAXvY=;
+ b=mgPjitELPEW/P5qmpcLVfVoA0D6sHZbihRmkHn2T6K9SBG4Ha/LJO/otu10peacMhr
+ LuL0fRZdQLwP7M9wEDrTpBtLj8K8tudZNldX6kZxxwpgoOUxKITkywSl2jzbDDQ+LlzB
+ pAfWpubnARGarXUbdueVAOGEZZwgdwg38kjUrvpm8UlRyhUcHqhOLh/KTMLubon7Kb4n
+ SDBddPEB0kPjpJ49JkLLyjwoA35CMpN5HTgdd0VAg06YzUz21lg3gZ8E6/aU6kC48WxF
+ Iv+Fz7wjENWwmVReUBuT2iyV4vRqfYBaKfQMpvTe0Mkt1040FtnGxaGlyV9nF1Rgq6o4
+ 4rKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=YBxARwCSnvP/MPs48fuZLZiuQ0mo/90Nc+1kxldAXvY=;
+ b=XBQEF7xgqKxHWUkXuoIu9ErPiSbYylbQFImkB6xH6acZKc/nlBjzD8l2on6Iae6FQn
+ NrBO5gNYyK6grcbCXXmOqH01UrsHAplivTLbL1Rk0eX4LGZOpNQ5tUbY6Gmz7IpdfdnU
+ 9DidWzKou5ypo4AmSKYx6p0rSa9GxCGEHYafIjlNp15WqJJz1+ZEQzQmdz2biLT/ZqZy
+ 7ic0WG09BDHJvnziEpwQS4o5kikQEULCZof8HRHqwrNQoKpwuCg6JVnREkhbKsH8G/SQ
+ RB+jSJlKfbGp55r+fGI1GDiT/Mq9KVHqM0Jm3NeIHMBkIXPBheDp9loLfVh490Caf5+W
+ GkGg==
+X-Gm-Message-State: AOAM532N9N7URr6b+bCZ+C73F/OoEaRVxPfHAJvSdxj1DByBHwQfGoPA
+ rh6Ici5yw0FxQdwur28ryqacwg==
+X-Google-Smtp-Source: ABdhPJw9djyUJKGf+CL7k+IvlqXvhXmzFMbBeiDmFCthoAskqXlsDt4pmgMsgrh8nJwik7OuxQCByg==
+X-Received: by 2002:a62:b410:0:b029:1a4:7868:7e4e with SMTP id
+ h16-20020a62b4100000b02901a478687e4emr891769pfn.62.1615344869693; 
+ Tue, 09 Mar 2021 18:54:29 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id v1sm4250210pjt.1.2021.03.09.18.54.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 09 Mar 2021 18:54:28 -0800 (PST)
+Date: Tue, 09 Mar 2021 18:54:28 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 18:54:03 PST (-0800)
+Subject: Re: [PATCH 0/3] Move kernel mapping outside the linear mapping
+In-Reply-To: <20210225080453.1314-1-alex@ghiti.fr>
+CC: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, 
+ Arnd Bergmann <arnd@arndb.de>, aryabinin@virtuozzo.com, glider@google.com,
+ dvyukov@google.com, 
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, 
+ kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ alex@ghiti.fr
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: alex@ghiti.fr
+Message-ID: <mhng-cf5d29ec-e941-4579-8c42-2c11799a8f2f@penguin>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_025112_623936_08B539D4 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20210310_025433_183136_5D3D7B8C 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,189 +101,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Got it. Thx
-
-On Tue, Mar 9, 2021 at 1:11 PM Anup Patel <anup@brainfault.org> wrote:
+On Thu, 25 Feb 2021 00:04:50 PST (-0800), alex@ghiti.fr wrote:
+> I decided to split sv48 support in small series to ease the review.
 >
-> On Tue, Mar 9, 2021 at 6:58 AM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > Hi Vincent,
-> >
-> > On Mon, Mar 8, 2021 at 11:58 AM Vincent Chen <vincent.chen@sifive.com> wrote:
-> > >
-> > > Issue 3 SBI calls to get the vendor ID, architecture ID and implementation
-> > > ID early in boot so we only need to take the SBI call overhead once.
-> > >
-> > > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> > > ---
-> > >  arch/riscv/include/asm/csr.h       |  3 +++
-> > >  arch/riscv/include/asm/hwcap.h     |  6 ++++++
-> > >  arch/riscv/include/asm/processor.h |  2 ++
-> > >  arch/riscv/include/asm/soc.h       |  1 +
-> > >  arch/riscv/kernel/cpufeature.c     | 17 +++++++++++++++++
-> > >  arch/riscv/kernel/setup.c          |  2 ++
-> > >  arch/riscv/kernel/soc.c            |  1 +
-> > >  7 files changed, 32 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> > > index caadfc1d7487..87ac65696871 100644
-> > > --- a/arch/riscv/include/asm/csr.h
-> > > +++ b/arch/riscv/include/asm/csr.h
-> > > @@ -115,6 +115,9 @@
-> > >  #define CSR_MIP                        0x344
-> > >  #define CSR_PMPCFG0            0x3a0
-> > >  #define CSR_PMPADDR0           0x3b0
-> > > +#define CSR_MVENDORID          0xf11
-> > > +#define CSR_MARCHID            0xf12
-> > > +#define CSR_MIMPID             0xf13
-> > >  #define CSR_MHARTID            0xf14
-> > >
-> > >  #ifdef CONFIG_RISCV_M_MODE
-> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > > index 5ce50468aff1..b7409487c9d2 100644
-> > > --- a/arch/riscv/include/asm/hwcap.h
-> > > +++ b/arch/riscv/include/asm/hwcap.h
-> > > @@ -44,6 +44,12 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
-> > >  #define riscv_isa_extension_available(isa_bitmap, ext) \
-> > >         __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
-> > >
-> > > +struct cpu_manufacturer_info_t {
-> > > +       unsigned long vendor_id;
-> > > +       unsigned long arch_id;
-> > > +       unsigned long imp_id;
-> > > +};
-> > > +
-> > >  #endif
-> > >
-> > >  #endif /* _ASM_RISCV_HWCAP_H */
-> > > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> > > index 3a240037bde2..4e11a9621d14 100644
-> > > --- a/arch/riscv/include/asm/processor.h
-> > > +++ b/arch/riscv/include/asm/processor.h
-> > > @@ -72,6 +72,8 @@ int riscv_of_parent_hartid(struct device_node *node);
-> > >
-> > >  extern void riscv_fill_hwcap(void);
-> > >
-> > > +void riscv_fill_cpu_manufacturer_info(void);
-> > > +
-> > >  #endif /* __ASSEMBLY__ */
-> > >
-> > >  #endif /* _ASM_RISCV_PROCESSOR_H */
-> > > diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
-> > > index f494066051a2..03dee6db404c 100644
-> > > --- a/arch/riscv/include/asm/soc.h
-> > > +++ b/arch/riscv/include/asm/soc.h
-> > > @@ -10,6 +10,7 @@
-> > >  #include <linux/of.h>
-> > >  #include <linux/linkage.h>
-> > >  #include <linux/types.h>
-> > > +#include <asm/hwcap.h>
-> > >
-> > >  #define SOC_EARLY_INIT_DECLARE(name, compat, fn)                       \
-> > >         static const struct of_device_id __soc_early_init__##name       \
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > > index ac202f44a670..389162ee19ea 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -12,6 +12,8 @@
-> > >  #include <asm/hwcap.h>
-> > >  #include <asm/smp.h>
-> > >  #include <asm/switch_to.h>
-> > > +#include <asm/sbi.h>
-> > > +#include <asm/csr.h>
-> > >
-> > >  unsigned long elf_hwcap __read_mostly;
-> > >
-> > > @@ -22,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
-> > >  bool has_fpu __read_mostly;
-> > >  #endif
-> > >
-> > > +struct cpu_manufacturer_info_t cpu_mfr_info;
-> > > +
-> > >  /**
-> > >   * riscv_isa_extension_base() - Get base extension word
-> > >   *
-> > > @@ -149,3 +153,16 @@ void riscv_fill_hwcap(void)
-> > >                 has_fpu = true;
-> > >  #endif
-> > >  }
-> > > +
-> > > +void riscv_fill_cpu_manufacturer_info(void)
-> > > +{
-> > > +#ifndef CONFIG_RISCV_M_MODE
-> > > +       cpu_mfr_info.vendor_id = sbi_get_vendorid();
-> > > +       cpu_mfr_info.arch_id = sbi_get_archid();
-> > > +       cpu_mfr_info.imp_id = sbi_get_impid();
-> > > +#else
-> > > +       cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
-> > > +       cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
-> > > +       cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
-> > > +#endif
-> > How about let opensbi emulate csr_read(CSR_MXXX) for S mode, then we
-> > needn't to define new sbi call.
+> This patchset pushes the kernel mapping (modules and BPF too) to the last
+> 4GB of the 64bit address space, this allows to:
+> - implement relocatable kernel (that will come later in another
+>   patchset) that requires to move the kernel mapping out of the linear
+>   mapping to avoid to copy the kernel at a different physical address.
+> - have a single kernel that is not relocatable (and then that avoids the
+>   performance penalty imposed by PIC kernel) for both sv39 and sv48.
 >
-> Accessing M-mode CSRs from the S-mode kernel will only make things
-> complicated for hypervisors because now hypervisors will also end-up
-> emulating M-mode CSRs.
+> The first patch implements this behaviour, the second patch introduces a
+> documentation that describes the virtual address space layout of the 64bit
+> kernel and the last patch is taken from my sv48 series where I simply added
+> the dump of the modules/kernel/BPF mapping.
 >
-> Best would be to only access S-mode CSRs and SBI calls from
-> S-mode kernel.
+> I removed the Reviewed-by on the first patch since it changed enough from
+> last time and deserves a second look.
 >
-> >
-> > > +}
-> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > > index e85bacff1b50..03621ce9092c 100644
-> > > --- a/arch/riscv/kernel/setup.c
-> > > +++ b/arch/riscv/kernel/setup.c
-> > > @@ -278,6 +278,8 @@ void __init setup_arch(char **cmdline_p)
-> > >  #endif
-> > >
-> > >         riscv_fill_hwcap();
-> > > +
-> > > +       riscv_fill_cpu_manufacturer_info();
-> > >  }
-> > >
-> > >  static int __init topology_init(void)
-> > > diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
-> > > index a0516172a33c..58f6fd91743a 100644
-> > > --- a/arch/riscv/kernel/soc.c
-> > > +++ b/arch/riscv/kernel/soc.c
-> > > @@ -6,6 +6,7 @@
-> > >  #include <linux/libfdt.h>
-> > >  #include <linux/pgtable.h>
-> > >  #include <asm/soc.h>
-> > > +#include <asm/hwcap.h>
-> > >
-> > >  /*
-> > >   * This is called extremly early, before parse_dtb(), to allow initializing
-> > > --
-> > > 2.7.4
-> > >
-> > How
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Alexandre Ghiti (3):
+>   riscv: Move kernel mapping outside of linear mapping
+>   Documentation: riscv: Add documentation that describes the VM layout
+>   riscv: Prepare ptdump for vm layout dynamic addresses
+>
+>  Documentation/riscv/index.rst       |  1 +
+>  Documentation/riscv/vm-layout.rst   | 61 ++++++++++++++++++++++
+>  arch/riscv/boot/loader.lds.S        |  3 +-
+>  arch/riscv/include/asm/page.h       | 18 ++++++-
+>  arch/riscv/include/asm/pgtable.h    | 37 +++++++++----
+>  arch/riscv/include/asm/set_memory.h |  1 +
+>  arch/riscv/kernel/head.S            |  3 +-
+>  arch/riscv/kernel/module.c          |  6 +--
+>  arch/riscv/kernel/setup.c           |  3 ++
+>  arch/riscv/kernel/vmlinux.lds.S     |  3 +-
+>  arch/riscv/mm/fault.c               | 13 +++++
+>  arch/riscv/mm/init.c                | 81 +++++++++++++++++++++++------
+>  arch/riscv/mm/kasan_init.c          |  9 ++++
+>  arch/riscv/mm/physaddr.c            |  2 +-
+>  arch/riscv/mm/ptdump.c              | 67 +++++++++++++++++++-----
+>  15 files changed, 258 insertions(+), 50 deletions(-)
+>  create mode 100644 Documentation/riscv/vm-layout.rst
 
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+This generally looks good, but I'm getting a bunch of checkpatch warnings and 
+some conflicts, do you mind fixing those up (and including your other kasan 
+patch, as that's likely to conflict)?
 
 _______________________________________________
 linux-riscv mailing list
