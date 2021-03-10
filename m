@@ -2,81 +2,68 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,FAKE_REPLY_C,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69803C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 19:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97E17C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 21:58:11 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BBB7164FBB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 19:55:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBB7164FBB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id B372964FAB
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 21:58:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B372964FAB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Kh9kGW07dibMxMNa82VBAZROx/IrTi+scXpmpNVbi0M=; b=BiRXBecvUeCptP8/QivXued4Z
-	4krBLF1GD6raMqJVCVQ+F/rCMcFkm3VoHNrO54+WvFM6oSgN5H3+LHdH3IXYv0OxaPO3WbporToQC
-	XdiVgezR4N8ecMRLZqC8qAeXfhO5OK1vcoKiwyZuGv4//utsTilXmKGMWXYCSzEHKyCUAPZu/yp27
-	pS2gZt+bpH94Hh/m92OCkQeWUtqgtDWokHKcpcKBmmvUnGh1/sgxwOa8wWWJQZMsdNYY5oT9fH0Rp
-	NYLstI+F1hItBWJbAcRBXU98Sn38+k1M/87VG9fkD/LI8mmTJIBxCZ5iywCqzZx38S/+GB7XBOG5e
-	Rw+rR1t8A==;
+	:Content-Type:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:CC:To:From:Date:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AMrJrZQ7JuHlD1EnsjJriJqjyf+czGk9lfkI5Z7wdhE=; b=Xncv+YsApOmMeGZR6RZW+UNn+f
+	Dcg1Jhn8jFlkmJO4jUKy0qVcRlyLlml4rDU1zXgaQSEgxuH8eXp7pVBjKnWwcIj95JkcGryayiQQ+
+	/4E96rwNRuuhWHbO2Is4AgbjYPCPm2xtB6ucBw7E7F4BQG0J/ixiNLuWDSmPWfLvzYFA0Zs3PVjwX
+	NuSaYmH6DfXpPKFn3Hr46WyHu2aNlJRfi6akac7Fz3fERd3IjBHW/sArxUvhyeSqzfVc8sOE0yK7i
+	Q6kmZ6ihaiINN4+OixNGcji+kkFwHDXInJYI4fDvder1dRSZgzz/uFZmryQaPh3jiLRhMBHp3gor4
+	k5W2Z+Tg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lK4vO-007dUk-T5; Wed, 10 Mar 2021 19:55:19 +0000
-Received: from mail-out.m-online.net ([212.18.0.10])
+	id 1lK6q8-007rUO-MZ; Wed, 10 Mar 2021 21:58:00 +0000
+Received: from atcsqr.andestech.com ([60.248.187.195])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lK4vK-007dUF-Uc
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 19:55:16 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4DwjV73mSDz1rxLc;
- Wed, 10 Mar 2021 20:55:11 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4DwjV70ntJz1t6pv;
- Wed, 10 Mar 2021 20:55:11 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id p9Tj1_pKEKj4; Wed, 10 Mar 2021 20:55:10 +0100 (CET)
-X-Auth-Info: m9ayv+O76G84j3AzcsOX0vzMJdRHnzApJZPy8u31ICEk+Rpgd5FTh2R3WpcFQzHT
-Received: from igel.home (ppp-46-244-173-168.dynamic.mnet-online.de
- [46.244.173.168])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Wed, 10 Mar 2021 20:55:10 +0100 (CET)
-Received: by igel.home (Postfix, from userid 1000)
- id D7D0D2C3762; Wed, 10 Mar 2021 20:55:08 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: <Claudiu.Beznea@microchip.com>
-Cc: <linux-riscv@lists.infradead.org>,  <ckeepax@opensource.cirrus.com>,
- <andrew@lunn.ch>,  <w@1wt.eu>,  <Nicolas.Ferre@microchip.com>,
- <daniel@0x0f.com>,  <alexandre.belloni@bootlin.com>,
- <pthombar@cadence.com>,  <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: macb broken on HiFive Unleashed
-References: <87tupl30kl.fsf@igel.home>
- <04a7e801-9a55-c926-34ad-3a7665077a4e@microchip.com>
-X-Yow: YOW!!  What should the entire human race DO??  Consume a fifth
- of CHIVAS REGAL, ski NUDE down MT. EVEREST, and have a wild SEX WEEKEND!
-Date: Wed, 10 Mar 2021 20:55:08 +0100
-In-Reply-To: <04a7e801-9a55-c926-34ad-3a7665077a4e@microchip.com> (Claudiu
- Beznea's message of "Tue, 9 Mar 2021 08:55:10 +0000")
-Message-ID: <87y2euu6lf.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1.91 (gnu/linux)
+ id 1lK4g9-007cn5-Jx
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 19:39:36 +0000
+Received: from ATCSQR.andestech.com (localhost [127.0.0.2] (may be forged))
+ by ATCSQR.andestech.com with ESMTP id 12AJ6HZN096465
+ for <linux-riscv@lists.infradead.org>; Thu, 11 Mar 2021 03:06:17 +0800 (GMT-8)
+ (envelope-from ruinland@andestech.com)
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id 12AJ5QoI096340
+ for <linux-riscv@lists.infradead.org>; Thu, 11 Mar 2021 03:05:26 +0800 (GMT-8)
+ (envelope-from ruinland@andestech.com)
+Received: from APC301.andestech.com (10.0.12.128) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0; Thu, 11 Mar 2021
+ 03:05:28 +0800
+Date: Thu, 11 Mar 2021 03:02:34 +0800
+From: Ruinland ChuanTzu Tsai <ruinland@andestech.com>
+To: <linux-riscv@lists.infradead.org>
+CC: <alankao@andestech.com>, <ruinland@andestech.com>
+Subject: Re: [RFC patch 4/4] riscv: sifive: apply errata "cip-453" patch
+Message-ID: <20210310190234.GB25175@APC301.andestech.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Originating-IP: [10.0.12.128]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com 12AJ5QoI096340
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_195515_085166_0979198B 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20210310_193934_272723_4C442988 
+X-CRM114-Status: GOOD (  10.09  )
+X-Mailman-Approved-At: Wed, 10 Mar 2021 21:57:58 +0000
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +75,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: 1615175897-23509-5-git-send-email-vincent.chen@sifive.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTcOkciAwOSAyMDIxLCBDbGF1ZGl1LkJlem5lYUBtaWNyb2NoaXAuY29tIHdyb3RlOgoKPiBJ
-IGRvbid0IGhhdmUgYSBTaUZpdmUgSGlGaXZlIFVubGVhc2hlZCB0byBpbnZlc3RpZ2F0ZSB0aGlz
-LiBDYW4geW91IGNoZWNrCj4gaWYgcmV2ZXJ0aW5nIGNvbW1pdHMgb24gbWFjYiBkcml2ZXIgYi93
-IDUuMTAgYW5kIDUuMTEgc29sdmVzIHlvdXIgaXNzdWVzOgo+Cj4gZ2l0IGxvZyAtLW9uZWxpbmUg
-djUuMTAuLnY1LjExIC0tIGRyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvCj4gMWQwZDU2MWFk
-MWQ3IG5ldDogbWFjYjogQ29ycmVjdCB1c2FnZSBvZiBNQUNCX0NBUFNfQ0xLX0hXX0NIRyBmbGFn
-Cj4gMWQ2MDhkMmUwZDUxIFJldmVydCAibWFjYjogc3VwcG9ydCB0aGUgdHdvIHR4IGRlc2NyaXB0
-b3JzIG9uIGF0OTFybTkyMDAiCj4gNzAwZDU2NmU4MTcxIG5ldDogbWFjYjogYWRkIHN1cHBvcnQg
-Zm9yIHNhbWE3ZzUgZW1hYyBpbnRlcmZhY2UKPiBlYzc3MWRlNjU0ZTQgbmV0OiBtYWNiOiBhZGQg
-c3VwcG9ydCBmb3Igc2FtYTdnNSBnZW0gaW50ZXJmYWNlCj4gZjRkZTkzZjAzZWQ4IG5ldDogbWFj
-YjogdW5wcmVwYXJlIGNsb2NrcyBpbiBjYXNlIG9mIGZhaWx1cmUKPiAzODQ5M2RhNGU2YTggbmV0
-OiBtYWNiOiBhZGQgZnVuY3Rpb24gdG8gZGlzYWJsZSBhbGwgbWFjYiBjbG9ja3MKPiBkYWFmYTFk
-MzNjYzkgbmV0OiBtYWNiOiBhZGQgY2FwYWJpbGl0eSB0byBub3Qgc2V0IHRoZSBjbG9jayByYXRl
-Cj4gZWRhYzYzODYxZGI3IG5ldDogbWFjYjogYWRkIHVzZXJpbyBiaXRzIGFzIHBsYXRmb3JtIGNv
-bmZpZ3VyYXRpb24KPiA5ZTZjYWQ1MzFjOWQgbmV0OiBtYWNiOiBGaXggcGFzc2luZyB6ZXJvIHRv
-ICdQVFJfRVJSJwo+IDAwMTJlZWIzNzBmOCBuZXQ6IG1hY2I6IGZpeCBOVUxMIGRlcmVmZXJlbmNl
-IGR1ZSB0byBubyBwY3NfY29uZmlnIG1ldGhvZAo+IGU0ZTE0M2UyNmNlOCBuZXQ6IG1hY2I6IGFk
-ZCBzdXBwb3J0IGZvciBoaWdoIHNwZWVkIGludGVyZmFjZQoKVW5mb3J0dW5hdGVseSwgdGhhdCBk
-aWRuJ3QgaGVscC4KCkFuZHJlYXMuCgotLSAKQW5kcmVhcyBTY2h3YWIsIHNjaHdhYkBsaW51eC1t
-NjhrLm9yZwpHUEcgS2V5IGZpbmdlcnByaW50ID0gNzU3OCBFQjQ3IEQ0RTUgNEQ2OSAyNTEwICAy
-NTUyIERGNzMgRTc4MCBBOURBIEFFQzEKIkFuZCBub3cgZm9yIHNvbWV0aGluZyBjb21wbGV0ZWx5
-IGRpZmZlcmVudC4iCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Hi Vincent,
+
+Thanks for introducing the alternative mechanism to RISC-V, with which
+vendors could provide fixes for each erratum in a more elegant way.
+
+Somehow, I'm a bit sketchy about these parts of your proposal :
+
+>     /* Exception vector table */
+>  ENTRY(excp_vect_table)
+>     RISCV_PTR do_trap_insn_misaligned
+> -   RISCV_PTR do_trap_insn_fault
+> +   ALTERNATIVE(__stringify(RISCV_PTR do_trap_insn_fault),
+> +           __stringify(RISCV_PTR do_trap_insn_fault_trampoline),
+> +           SIFIVE_VENDOR_ID, ERRATA_CIP_453, CONFIG_ERRATA_SIFIVE_CIP_453)
+>     RISCV_PTR do_trap_insn_illegal
+>     RISCV_PTR do_trap_break
+>     RISCV_PTR do_trap_load_misaligned
+> @@ -461,7 +466,10 @@ ENTRY(excp_vect_table)
+>     RISCV_PTR do_trap_ecall_s
+>     RISCV_PTR do_trap_unknown
+>     RISCV_PTR do_trap_ecall_m
+> -   RISCV_PTR do_page_fault   /* instruction page fault */
+> +   /* instruciton page fault */
+> +   ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),
+> +           __stringify(RISCV_PTR do_page_fault_trampoline),
+> +           SIFIVE_VENDOR_ID, ERRATA_CIP_453, CONFIG_ERRATA_SIFIVE_CIP_453)
+>     RISCV_PTR do_page_fault   /* load page fault */
+
+As far as I can tell, `ALTERNATIVE(...)` seems a bit like a mixture of
+ARM's version of ALTERNATIVE and `alternative_insn`. However, ARM's
+ALTERNATIVE takes a vardatic macro and yours here doesn't, which makes
+me wonder if another vendor needs to patch the same location as yours,
+will they be able to multiplex the same probe ?
+
+
+Secondly, I think it's a bit intrusive to patch directly on exception
+vector table here.
+
+I'm not sure about whether it's possible to introduce your alternative
+probe inside do_trap_insn_fault() & do_page_fault(), do the inspection
+the reason of trap (e.g. instruction/load/store page fault) there and
+then, perform the software workaround.
+
+If that's not feasible, maybe we shall make a new macro with a name
+like "RISCV_TRAP_ENTRY" which encompass the alternative probes ?
+
+Last but not least, is it possible that in the near future,
+`alternative_if` macro family from ARM could be ported to RISC-V ?
+
+Best regards,
+Ruinland
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
