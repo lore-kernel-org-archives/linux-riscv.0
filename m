@@ -2,94 +2,91 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB8CDC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D3E1AC433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:02:17 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 62CDF64FE8
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:56:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62CDF64FE8
+	by mail.kernel.org (Postfix) with ESMTPS id 6E32F64FE8
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:02:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E32F64FE8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	List-Unsubscribe:List-Id:To:From:CC:Mime-Version:Message-ID:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=6+lramOoT4Rx24oV5v+3TLHaXsNJtQu0i6A30FFAg8A=; b=i+VNKNRq3yE39MTf1Xo0reJQG
-	UBx/BRqkZ9jtXuNqaxt1jY1UnZ9BIGJYyrA1kiefJrFue9jWMJfn8SSmmlxrhXCzeKv1usH4yXD44
-	VzUNVF3/ZSC8vQCr52T6kxRJbgoLft79QPwlOGPx9adhfIXp9TucM/NTTHF4+j1w3AhZfAPzuV5Z5
-	4H/FRZ0BxVwRRB9VuQm2xpoxqX/RYlbVE/FkILvxk7X1sNWutC4CB7t022S59VZ4aNR2W+cX+ce4D
-	zFWK/aYrGfZ/hep+ffXawzpggXZ9vaBZ3uGKyhI7W5FPNnnMS6Imrl/+/N2rAUxxQj1nKZG0ZrMFB
-	bNsVDhNBg==;
+	 bh=npapax5nEQxshC+pOhRq5z6+4+aiVEeTlUCjgXUF7fI=; b=oIepuXx/YWcYInrFssr7bHviE
+	h0o+lGyibKzsSrbrjy7EOfHxBAU8Yb6+cAiyqqgbYJjEUz0uGqepVHZTvl81fk40lAF9/FULDITn7
+	Wf6ioAZpqYvoR/Arv93GfHaEeTuBs/PMeo9HQvXWxeDatbnO4YMrOO6RIeHZ6C4U6NuI6Ob/ZQ6nI
+	gyk9iOOV3TpwFDThPieL6STwHJyVCJABLLvMIi0qk35R8dkxReg77j2g9eAvfVAxklO/367COhHdU
+	BtIa+C80IiwPuxZpkK1EFLqJ+aX9Te9VjpPY0inpdtMOPOUoXrKxQ7josqhj4hP92+gpBbixlzwRn
+	46NtTU79A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJp0X-005qJS-5g; Wed, 10 Mar 2021 02:55:37 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1lJp6g-005rM3-Ti; Wed, 10 Mar 2021 03:01:55 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJozX-005qDl-Ao
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 02:54:35 +0000
-Received: by mail-pf1-x431.google.com with SMTP id b23so2399032pfo.8
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 18:54:30 -0800 (PST)
+ id 1lJp64-005rJr-B4
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 03:01:19 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id gb6so751312pjb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 19:01:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=YBxARwCSnvP/MPs48fuZLZiuQ0mo/90Nc+1kxldAXvY=;
- b=mgPjitELPEW/P5qmpcLVfVoA0D6sHZbihRmkHn2T6K9SBG4Ha/LJO/otu10peacMhr
- LuL0fRZdQLwP7M9wEDrTpBtLj8K8tudZNldX6kZxxwpgoOUxKITkywSl2jzbDDQ+LlzB
- pAfWpubnARGarXUbdueVAOGEZZwgdwg38kjUrvpm8UlRyhUcHqhOLh/KTMLubon7Kb4n
- SDBddPEB0kPjpJ49JkLLyjwoA35CMpN5HTgdd0VAg06YzUz21lg3gZ8E6/aU6kC48WxF
- Iv+Fz7wjENWwmVReUBuT2iyV4vRqfYBaKfQMpvTe0Mkt1040FtnGxaGlyV9nF1Rgq6o4
- 4rKA==
+ h=date:subject:in-reply-to:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=8ZP2HVKbYi+Y10nVIbvi77JIzLBHg2GFfYw/jvz9nU4=;
+ b=HWk4x7xaB1lwOzTLjTgKmtPxBB0lsvsoqwBjk1bUnU+2A7Dkm6o6Ffy2lRC28K2zQE
+ PL6RiidPja1TzGHZb7Ss/QZqoOy7qlMF49EfVEJeYFphxJkCd110vBcrioL5q/LmldjE
+ KvxUg5z39Ius5HG3bAxNIvIo4HepVmhJbV8f9f8nh7YBXWr/oWNAJ3M4FN9LOMEYE13I
+ zZGl25rZ6kfianm9C+OKJqltA4Jgaqf9lsxohEhxCy6/pSNEdUgzcu+fBSbb5SGwwcgM
+ umMZfhZYRPmGZF2WCI/4q8SbkCFscBny1+k6Ecag6bUBjXs2+oxQqvJ/whE00Fr1Y4Bq
+ N6QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=YBxARwCSnvP/MPs48fuZLZiuQ0mo/90Nc+1kxldAXvY=;
- b=XBQEF7xgqKxHWUkXuoIu9ErPiSbYylbQFImkB6xH6acZKc/nlBjzD8l2on6Iae6FQn
- NrBO5gNYyK6grcbCXXmOqH01UrsHAplivTLbL1Rk0eX4LGZOpNQ5tUbY6Gmz7IpdfdnU
- 9DidWzKou5ypo4AmSKYx6p0rSa9GxCGEHYafIjlNp15WqJJz1+ZEQzQmdz2biLT/ZqZy
- 7ic0WG09BDHJvnziEpwQS4o5kikQEULCZof8HRHqwrNQoKpwuCg6JVnREkhbKsH8G/SQ
- RB+jSJlKfbGp55r+fGI1GDiT/Mq9KVHqM0Jm3NeIHMBkIXPBheDp9loLfVh490Caf5+W
- GkGg==
-X-Gm-Message-State: AOAM532N9N7URr6b+bCZ+C73F/OoEaRVxPfHAJvSdxj1DByBHwQfGoPA
- rh6Ici5yw0FxQdwur28ryqacwg==
-X-Google-Smtp-Source: ABdhPJw9djyUJKGf+CL7k+IvlqXvhXmzFMbBeiDmFCthoAskqXlsDt4pmgMsgrh8nJwik7OuxQCByg==
-X-Received: by 2002:a62:b410:0:b029:1a4:7868:7e4e with SMTP id
- h16-20020a62b4100000b02901a478687e4emr891769pfn.62.1615344869693; 
- Tue, 09 Mar 2021 18:54:29 -0800 (PST)
+ h=x-gm-message-state:date:subject:in-reply-to:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=8ZP2HVKbYi+Y10nVIbvi77JIzLBHg2GFfYw/jvz9nU4=;
+ b=Hfwe3fHehKi1INt3f9R0S7Zuf8aCsbVQcB1ZivDCn1vZyITuJuRL8Omcp9CaD24Cmr
+ wIfb8pMQSjp5LGhojsnhP/F8rl/hFcLU2ms9RYhhCS4nWhKfKmyH5DBDnU6TQxNhGSzW
+ LvYNj5uOtvw3Vh4dg5Sbrlk4JAxo8cntpmE/tev6U4ekJBq2UbdCA8mrhSHd5BA728Ie
+ 5DCOO5lZA4a9rO+vDkiUZcsEaubhrEt+kt7ehWZgo2uaCCDfwPyETDoDkjpSrB3J2PRG
+ wluU31EEbV5KLV797fjDEVnmSf2kqbP9LdqKTF+4+uAiVKxgZuJC+NAeVZaNJOKFXESZ
+ a/2g==
+X-Gm-Message-State: AOAM533HukCqccqPBtKrymCLxNgHUJuXiK8kzY7vLPRZlIEbOayR8ruD
+ KAJZig/KQa4c3dZdVNcu15tkmA==
+X-Google-Smtp-Source: ABdhPJwlrFUz5y2Ushm3kzAPDAXqhmg/f+CCEg2gDMmR+lBzz/HU1JK7K9CY2eGgr7eU3dV+waoWUw==
+X-Received: by 2002:a17:902:c952:b029:e4:89ad:fae2 with SMTP id
+ i18-20020a170902c952b02900e489adfae2mr901071pla.14.1615345274537; 
+ Tue, 09 Mar 2021 19:01:14 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v1sm4250210pjt.1.2021.03.09.18.54.28
+ by smtp.gmail.com with ESMTPSA id b14sm14327844pfi.74.2021.03.09.19.01.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Mar 2021 18:54:28 -0800 (PST)
-Date: Tue, 09 Mar 2021 18:54:28 -0800 (PST)
-X-Google-Original-Date: Tue, 09 Mar 2021 18:54:03 PST (-0800)
-Subject: Re: [PATCH 0/3] Move kernel mapping outside the linear mapping
-In-Reply-To: <20210225080453.1314-1-alex@ghiti.fr>
-CC: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- Arnd Bergmann <arnd@arndb.de>, aryabinin@virtuozzo.com, glider@google.com,
- dvyukov@google.com, 
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, 
- kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org,
- alex@ghiti.fr
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-cf5d29ec-e941-4579-8c42-2c11799a8f2f@penguin>
+ Tue, 09 Mar 2021 19:01:13 -0800 (PST)
+Date: Tue, 09 Mar 2021 19:01:13 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 19:00:14 PST (-0800)
+Subject: Re: [PATCH v4] RISC-V: Use SBI SRST extension when available
+In-Reply-To: <20210301115833.382364-1-anup.patel@wdc.com>
+Message-ID: <mhng-c42c46e0-4715-4630-9a28-02a1515dbcb0@penguin>
 Mime-Version: 1.0 (MHng)
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ anup@brainfault.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Anup Patel <Anup.Patel@wdc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Anup Patel <Anup.Patel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_025433_183136_5D3D7B8C 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20210310_030116_548606_EE3BC835 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +103,143 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Feb 2021 00:04:50 PST (-0800), alex@ghiti.fr wrote:
-> I decided to split sv48 support in small series to ease the review.
+On Mon, 01 Mar 2021 03:58:33 PST (-0800), Anup Patel wrote:
+> The SBI SRST extension provides a standard way to poweroff and
+> reboot the system irrespective to whether Linux RISC-V S-mode
+> is running natively (HS-mode) or inside Guest/VM (VS-mode).
 >
-> This patchset pushes the kernel mapping (modules and BPF too) to the last
-> 4GB of the 64bit address space, this allows to:
-> - implement relocatable kernel (that will come later in another
->   patchset) that requires to move the kernel mapping out of the linear
->   mapping to avoid to copy the kernel at a different physical address.
-> - have a single kernel that is not relocatable (and then that avoids the
->   performance penalty imposed by PIC kernel) for both sv39 and sv48.
+> The SBI SRST extension is available in latest SBI v0.3-draft
+> specification at: https://github.com/riscv/riscv-sbi-doc.
 >
-> The first patch implements this behaviour, the second patch introduces a
-> documentation that describes the virtual address space layout of the 64bit
-> kernel and the last patch is taken from my sv48 series where I simply added
-> the dump of the modules/kernel/BPF mapping.
+> This patch extends Linux RISC-V SBI implementation to detect
+> and use SBI SRST extension.
 >
-> I removed the Reviewed-by on the first patch since it changed enough from
-> last time and deserves a second look.
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/include/asm/sbi.h | 16 ++++++++++++++
+>  arch/riscv/kernel/sbi.c      | 41 +++++++++++++++++++++++++++++++++---
+>  2 files changed, 54 insertions(+), 3 deletions(-)
 >
-> Alexandre Ghiti (3):
->   riscv: Move kernel mapping outside of linear mapping
->   Documentation: riscv: Add documentation that describes the VM layout
->   riscv: Prepare ptdump for vm layout dynamic addresses
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 99895d9c3bdd..8add0209c9c7 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -27,6 +27,7 @@ enum sbi_ext_id {
+>  	SBI_EXT_IPI = 0x735049,
+>  	SBI_EXT_RFENCE = 0x52464E43,
+>  	SBI_EXT_HSM = 0x48534D,
+> +	SBI_EXT_SRST = 0x53525354,
+>  };
 >
->  Documentation/riscv/index.rst       |  1 +
->  Documentation/riscv/vm-layout.rst   | 61 ++++++++++++++++++++++
->  arch/riscv/boot/loader.lds.S        |  3 +-
->  arch/riscv/include/asm/page.h       | 18 ++++++-
->  arch/riscv/include/asm/pgtable.h    | 37 +++++++++----
->  arch/riscv/include/asm/set_memory.h |  1 +
->  arch/riscv/kernel/head.S            |  3 +-
->  arch/riscv/kernel/module.c          |  6 +--
->  arch/riscv/kernel/setup.c           |  3 ++
->  arch/riscv/kernel/vmlinux.lds.S     |  3 +-
->  arch/riscv/mm/fault.c               | 13 +++++
->  arch/riscv/mm/init.c                | 81 +++++++++++++++++++++++------
->  arch/riscv/mm/kasan_init.c          |  9 ++++
->  arch/riscv/mm/physaddr.c            |  2 +-
->  arch/riscv/mm/ptdump.c              | 67 +++++++++++++++++++-----
->  15 files changed, 258 insertions(+), 50 deletions(-)
->  create mode 100644 Documentation/riscv/vm-layout.rst
+>  enum sbi_ext_base_fid {
+> @@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
+>  	SBI_HSM_HART_STATUS_STOP_PENDING,
+>  };
+>
+> +enum sbi_ext_srst_fid {
+> +	SBI_EXT_SRST_RESET = 0,
+> +};
+> +
+> +enum sbi_srst_reset_type {
+> +	SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
+> +	SBI_SRST_RESET_TYPE_COLD_REBOOT,
+> +	SBI_SRST_RESET_TYPE_WARM_REBOOT,
+> +};
+> +
+> +enum sbi_srst_reset_reason {
+> +	SBI_SRST_RESET_REASON_NONE = 0,
+> +	SBI_SRST_RESET_REASON_SYS_FAILURE,
+> +};
+> +
+>  #define SBI_SPEC_VERSION_DEFAULT	0x1
+>  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+>  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index f4a7db3d309e..49155588e56c 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -7,6 +7,7 @@
+>
+>  #include <linux/init.h>
+>  #include <linux/pm.h>
+> +#include <linux/reboot.h>
+>  #include <asm/sbi.h>
+>  #include <asm/smp.h>
+>
+> @@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
+>  }
+>  EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
+>
+> +static void sbi_srst_reset(unsigned long type, unsigned long reason)
+> +{
+> +	sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
+> +		  0, 0, 0, 0);
+> +	pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
+> +		__func__, type, reason);
+> +}
+> +
+> +static int sbi_srst_reboot(struct notifier_block *this,
+> +			   unsigned long mode, void *cmd)
+> +{
+> +	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
+> +		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
+> +		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
+> +		       SBI_SRST_RESET_REASON_NONE);
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static struct notifier_block sbi_srst_reboot_nb;
+> +
+> +static void sbi_srst_power_off(void)
+> +{
+> +	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
+> +		       SBI_SRST_RESET_REASON_NONE);
+> +}
+> +
+>  /**
+>   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
+>   * @extid: The extension ID to be probed.
+> @@ -577,22 +604,30 @@ void __init sbi_init(void)
+>  			sbi_get_firmware_id(), sbi_get_firmware_version());
+>  		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
+>  			__sbi_set_timer = __sbi_set_timer_v02;
+> -			pr_info("SBI v0.2 TIME extension detected\n");
+> +			pr_info("SBI TIME extension detected\n");
+>  		} else {
+>  			__sbi_set_timer = __sbi_set_timer_v01;
+>  		}
+>  		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
+>  			__sbi_send_ipi	= __sbi_send_ipi_v02;
+> -			pr_info("SBI v0.2 IPI extension detected\n");
+> +			pr_info("SBI IPI extension detected\n");
 
-This generally looks good, but I'm getting a bunch of checkpatch warnings and 
-some conflicts, do you mind fixing those up (and including your other kasan 
-patch, as that's likely to conflict)?
+These aren't really part of the reset stuff and should be split into a separate 
+patch.
+
+>  		} else {
+>  			__sbi_send_ipi	= __sbi_send_ipi_v01;
+>  		}
+>  		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
+>  			__sbi_rfence	= __sbi_rfence_v02;
+> -			pr_info("SBI v0.2 RFENCE extension detected\n");
+> +			pr_info("SBI RFENCE extension detected\n");
+>  		} else {
+>  			__sbi_rfence	= __sbi_rfence_v01;
+>  		}
+> +		if (sbi_probe_extension(SBI_EXT_SRST) > 0 &&
+> +		    sbi_minor_version() >= 3) {
+> +			pr_info("SBI SRST extension detected\n");
+> +			pm_power_off = sbi_srst_power_off;
+> +			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
+> +			sbi_srst_reboot_nb.priority = 192;
+> +			register_restart_handler(&sbi_srst_reboot_nb);
+> +		}
+>  	} else {
+>  		__sbi_set_timer = __sbi_set_timer_v01;
+>  		__sbi_send_ipi	= __sbi_send_ipi_v01;
+
+This is fine, but I don't want to take things for draft SBI versions until 
+they're at least tagged.
 
 _______________________________________________
 linux-riscv mailing list
