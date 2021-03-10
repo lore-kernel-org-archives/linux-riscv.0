@@ -2,90 +2,74 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B0F9C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 18:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7CF2C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 19:13:29 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A377664F25
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 18:54:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A377664F25
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 131F564F9F
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 19:13:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 131F564F9F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=RAgMgcSgEyWLIdqEHVISr3feRuZ1DIxzYCOrnAwusg4=; b=h6PRp4Zt1Tmezm6ya3Rwaztc6
-	sJ39D2x2p49yyi3DFozH5XpVmElXynlMPasC/Vk2M6uaZXjOnTde+PB1+f3uuYuueCvjTV4MiNzx5
-	Bcq8kqAf7NBkJcXlNqTxMju4coErIrcA8VSh/v7wR0fF+weYcRTL+CmsNw5jAz+r08l7xHLeSokfU
-	2IWBWjYI4XQYCqgTbUbvjRWhWmzR0LgEkTewcq6bZs0ukjZGY/Btbh7RmZ6VgNkTC8+tiBz0TvEjt
-	CB1102+smtXpigbdQeANqy2aZCTpZZK2Yp9xc+gZITR+DN7iq8rPAXvLpFn0xSOhvO+f5w88MwL66
-	7vvGg1rsQ==;
+	 bh=BT/e0hrNz2gCkwBgkoCbdh6G4LY3DGjO1n0JBui8HxM=; b=q5PnS/1oiuKFu/P2x9M0lRrux
+	GsnlJxR6zUh2xtuK3PFgEVrnf/iL3vUFCl/HxpFtXEDW+QxSO6rFzYQ5FdvkDgA2z5GVzt2x+GolZ
+	IpQxSQ55WTtJ2QYGSPAbAgME1TuJQTsPRsGB2kwvjVYJpGrUv4VXh+ykrSxSnbOE6PNfgXyJxDHDv
+	MoCETJfAgptsEB7FF0WokhmzdZwv2HYcyurHI0koVBz4AY7KwgrhNWILtfxiOnkKDVpogagZYMruc
+	s5+XOCXMftvm+ULCaCMH+Fujq42U4YtMGWM0D5zxXYoKsze5O4ifAyvhmDn99dxGUgkbXtCmNZSMU
+	9/Q9XoMtw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lK3yG-007YIQ-Ty; Wed, 10 Mar 2021 18:54:13 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1lK4Gg-007ZvB-WF; Wed, 10 Mar 2021 19:13:15 +0000
+Received: from relay11.mail.gandi.net ([217.70.178.231])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lK3yC-007YI1-5Z
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 18:54:10 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d11so13820524qtx.9
- for <linux-riscv@lists.infradead.org>; Wed, 10 Mar 2021 10:54:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=vLXAkAskiQcQ1LGOy8c4iMFazBShIBbsgNpMAGpqQ4c=;
- b=ZuSIP/eNepj/rQzXVsX2ED06gVSKBiUOIYtuJZqyh6bBg/meWNhS3uDaqTxOhhOfp1
- bu0ZN+1Y0NhncPI+mdAV92Z5lxeHf1uXQD4umfdqGUX9RYpKA58TSR+3HZvjjn8dXigB
- B4vSKM1L7AojEUrjbKVX6KL0MBAqQ+uUpw/v1Cj/Nx//AMeFWuBOl7QLr54lmmuOujyd
- qBSaxOUE0W+vcWp3K2qFFaoyn4hZjSNsVMf0x0IVXKUPhklrcUHAUlQdrAIl7Vx8WjRO
- bq3bKqGL18LWzf4ANxQ4VljxaTw2rPzWEGjFgQaIiweVTc/iCHuC+nDSNJayJILLX/NN
- P1TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=vLXAkAskiQcQ1LGOy8c4iMFazBShIBbsgNpMAGpqQ4c=;
- b=IKlUbQdEXzLQhA/VvK1FbRo+xfZTyV/zMJZmMrHhY2a6YFsmCn1p1VUDmtIhn3BARW
- L+uevfVIivifyHBl9KPC8KfgTr+E1u/JOq0VSVAX6/KzQCbvLzSb14Bzzj2PLmjirq8D
- fggV9c9LbyybdOt+7jBOaYi1XgnWg6Xeg2sSlE2Gttav5g5ZVtxvmKfWICOdGImbFnrv
- 9/4sgZzGyEgqYYh1nHvaIHfBQvqUo4LjuTS3tJp2s8tu3yeUz9YLQAlGvDe+CxmiRxmu
- 3npxBFYmaU6brp/tLkwIcXmM0uortPjRW+27Excq36xlBd6ZPUvwVWFNYB+rWuWq1b0U
- +iWw==
-X-Gm-Message-State: AOAM532K+XERl6wdxWC1UbMJ96qBKti6tdcPHwwUBY4dLqnrXczxjvWX
- 9lz9ABdtxdqA/aQgoiZ/OsA7/NZciCcHHt30LHQbYg==
-X-Google-Smtp-Source: ABdhPJyM9qnpbKqhCRB40B0yeUnOBOcSPvPcrAs7e98U0YztJpyjwaEfa6Bmu6KrOPIe04vN06dWWBKZgCJLhO+r/tY=
-X-Received: by 2002:ac8:5847:: with SMTP id h7mr3945605qth.43.1615402446649;
- Wed, 10 Mar 2021 10:54:06 -0800 (PST)
+ id 1lK4GU-007ZsL-Rg
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 19:13:05 +0000
+Received: from [192.168.1.12] (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
+ [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id 9F5FB100006;
+ Wed, 10 Mar 2021 19:12:55 +0000 (UTC)
+Subject: Re: [PATCH 2/3] Documentation: riscv: Add documentation that
+ describes the VM layout
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: David Hildenbrand <david@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>,
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ kasan-dev <kasan-dev@googlegroups.com>,
+ linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <20210225080453.1314-1-alex@ghiti.fr>
+ <20210225080453.1314-3-alex@ghiti.fr>
+ <5279e97c-3841-717c-2a16-c249a61573f9@redhat.com>
+ <7d9036d9-488b-47cc-4673-1b10c11baad0@ghiti.fr>
+ <CAK8P3a3mVDwJG6k7PZEKkteszujP06cJf8Zqhq43F0rNsU=h4g@mail.gmail.com>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <236a9788-8093-9876-a024-b0ad0d672c72@ghiti.fr>
+Date: Wed, 10 Mar 2021 14:12:56 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
-References: <00000000000096cdaa05bd32d46f@google.com>
-In-Reply-To: <00000000000096cdaa05bd32d46f@google.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Wed, 10 Mar 2021 19:53:55 +0100
-Message-ID: <CACT4Y+ZjdOaX_X530p+vPbG4mbtUuFsJ1v-gD24T4DnFUqcudA@mail.gmail.com>
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- sock_ioctl
-To: syzbot <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: andrii@kernel.org, Alexei Starovoitov <ast@kernel.org>,
- bpf <bpf@vger.kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, David Miller <davem@davemloft.net>, 
- John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
- kpsingh@kernel.org, 
- Jakub Kicinski <kuba@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
- netdev <netdev@vger.kernel.org>, Song Liu <songliubraving@fb.com>, 
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Yonghong Song <yhs@fb.com>
+In-Reply-To: <CAK8P3a3mVDwJG6k7PZEKkteszujP06cJf8Zqhq43F0rNsU=h4g@mail.gmail.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_185408_297059_88BE79EC 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20210310_191302_942024_EEB604B1 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +81,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 10, 2021 at 7:28 PM syzbot
-<syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com> wrote:
->
-> Hello,
->
-> syzbot found the following issue on:
->
-> HEAD commit:    0d7588ab riscv: process: Fix no prototype for arch_dup_tas..
-> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> console output: https://syzkaller.appspot.com/x/log.txt?x=122c343ad00000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
-> dashboard link: https://syzkaller.appspot.com/bug?extid=c23c5421600e9b454849
-> userspace arch: riscv64
->
-> Unfortunately, I don't have any reproducer for this issue yet.
->
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com
-
-+riscv maintainers
-
-Another case of put_user crashing.
-
-> Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000020000300
-> Oops [#1]
-> Modules linked in:
-> CPU: 1 PID: 4488 Comm: syz-executor.0 Not tainted 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
-> Hardware name: riscv-virtio,qemu (DT)
-> epc : sock_ioctl+0x424/0x6ac net/socket.c:1124
->  ra : sock_ioctl+0x424/0x6ac net/socket.c:1124
-> epc : ffffffe002aeeb3e ra : ffffffe002aeeb3e sp : ffffffe023867da0
->  gp : ffffffe005d25378 tp : ffffffe007e116c0 t0 : 0000000000000000
->  t1 : 0000000000000001 t2 : 0000003fb8035e44 s0 : ffffffe023867e30
->  s1 : 0000000000040000 a0 : 0000000000000000 a1 : 0000000000000007
->  a2 : 1ffffffc00fc22d8 a3 : ffffffe003bc1d02 a4 : 0000000000000000
->  a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
->  s2 : 0000000000000000 s3 : 0000000000008902 s4 : 0000000020000300
->  s5 : ffffffe005d2b0d0 s6 : ffffffe010facfc0 s7 : ffffffe008e00000
->  s8 : 0000000000008903 s9 : ffffffe010fad080 s10: 0000000000000000
->  s11: 0000000000020000 t3 : 982de389919f6300 t4 : ffffffc401175688
->  t5 : ffffffc401175691 t6 : 0000000000000007
-> status: 0000000000000120 badaddr: 0000000020000300 cause: 000000000000000f
-> Call Trace:
-> [<ffffffe002aeeb3e>] sock_ioctl+0x424/0x6ac net/socket.c:1124
-> [<ffffffe0003fdb6a>] vfs_ioctl fs/ioctl.c:48 [inline]
-> [<ffffffe0003fdb6a>] __do_sys_ioctl fs/ioctl.c:753 [inline]
-> [<ffffffe0003fdb6a>] sys_ioctl+0x5c2/0xd56 fs/ioctl.c:739
-> [<ffffffe000005562>] ret_from_syscall+0x0/0x2
-> Dumping ftrace buffer:
->    (ftrace buffer empty)
-> ---[ end trace a5f91e70f37b907b ]---
->
->
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
->
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
->
-> --
-> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/syzkaller-bugs/00000000000096cdaa05bd32d46f%40google.com.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQXJuZCwKCkxlIDMvMTAvMjEgw6AgNjo0MiBBTSwgQXJuZCBCZXJnbWFubiBhIMOpY3JpdMKg
+Ogo+IE9uIFRodSwgRmViIDI1LCAyMDIxIGF0IDEyOjU2IFBNIEFsZXggR2hpdGkgPGFsZXhAZ2hp
+dGkuZnI+IHdyb3RlOgo+Pgo+PiBMZSAyLzI1LzIxIMOgIDU6MzQgQU0sIERhdmlkIEhpbGRlbmJy
+YW5kIGEgw6ljcml0IDoKPj4+ICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAg
+ICAgICAgICAgICAgIHwgICAgICAgICB8PiArCj4+PiBmZmZmZmZjMDAwMDAwMDAwIHwgLTI1NiAg
+ICBHQiB8IGZmZmZmZmM3ZmZmZmZmZmYgfCAgIDMyIEdCIHwga2FzYW4KPj4+PiArICAgZmZmZmZm
+Y2VmZWUwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZlZmZmZmZmIHwgICAgMiBNQiB8IGZp
+eG1hcAo+Pj4+ICsgICBmZmZmZmZjZWZmMDAwMDAwIHwgLTE5NiAgICBHQiB8IGZmZmZmZmNlZmZm
+ZmZmZmYgfCAgIDE2IE1CIHwgUENJIGlvCj4+Pj4gKyAgIGZmZmZmZmNmMDAwMDAwMDAgfCAtMTk2
+ICAgIEdCIHwgZmZmZmZmY2ZmZmZmZmZmZiB8ICAgIDQgR0IgfCB2bWVtbWFwCj4+Pj4gKyAgIGZm
+ZmZmZmQwMDAwMDAwMDAgfCAtMTkyICAgIEdCIHwgZmZmZmZmZGZmZmZmZmZmZiB8ICAgNjQgR0Ig
+fAo+Pj4+IHZtYWxsb2MvaW9yZW1hcCBzcGFjZQo+Pj4+ICsgICBmZmZmZmZlMDAwMDAwMDAwIHwg
+LTEyOCAgICBHQiB8IGZmZmZmZmZmN2ZmZmZmZmYgfCAgMTI2IEdCIHwKPj4+PiBkaXJlY3QgbWFw
+cGluZyBvZiBhbGwgcGh5c2ljYWwgbWVtb3J5Cj4+Pgo+Pj4gXiBTbyB5b3UgY291bGQgbmV2ZXIg
+ZXZlciBoYXZlIG1vcmUgdGhhbiAxMjYgR0IsIGNvcnJlY3Q/Cj4+Pgo+Pj4gSSBhc3N1bWUgdGhh
+dCdzIG5vdGhpbmcgbmV3Lgo+Pj4KPj4KPj4gQmVmb3JlIHRoaXMgcGF0Y2gsIHRoZSBsaW1pdCB3
+YXMgMTI4R0IsIHNvIGluIG15IHNlbnNlLCB0aGVyZSBpcyBub3RoaW5nCj4+IG5ldy4gSWYgZXZl
+ciB3ZSB3YW50IHRvIGluY3JlYXNlIHRoYXQgbGltaXQsIHdlJ2xsIGp1c3QgaGF2ZSB0byBsb3dl
+cgo+PiBQQUdFX09GRlNFVCwgdGhlcmUgaXMgc3RpbGwgc29tZSB1bnVzZWQgdmlydHVhbCBhZGRy
+ZXNzZXMgYWZ0ZXIga2FzYW4KPj4gZm9yIGV4YW1wbGUuCj4gCj4gTGludXMgV2FsbGVpaiBpcyBs
+b29raW5nIGludG8gY2hhbmdpbmcgdGhlIGFybTMyIGNvZGUgdG8gaGF2ZSB0aGUga2VybmVsCj4g
+ZGlyZWN0IG1hcCBpbnNpZGUgb2YgdGhlIHZtYWxsb2MgYXJlYSwgd2hpY2ggd291bGQgYmUgYW5v
+dGhlciBwbGFjZQo+IHRoYXQgeW91IGNvdWxkIHVzZSBoZXJlLiBJdCB3b3VsZCBiZSBuaWNlIHRv
+IG5vdCBoYXZlIHRvbyBtYW55IGRpZmZlcmVudAo+IHdheXMgb2YgZG9pbmcgdGhpcywgYnV0IEkn
+bSBub3Qgc3VyZSBob3cgaGFyZCBpdCB3b3VsZCBiZSB0byByZXdvcmsgeW91cgo+IGNvZGUsIG9y
+IGlmIHRoZXJlIGFyZSBhbnkgZG93bnNpZGVzIG9mIGRvaW5nIHRoaXMuCgpUaGlzIHdhcyB3aGF0
+IG15IHByZXZpb3VzIHZlcnNpb24gZGlkOiBodHRwczovL2xrbWwub3JnL2xrbWwvMjAyMC82Lzcv
+MjguCgpUaGlzIGFwcHJvYWNoIHdhcyBub3Qgd2VsY29tZWQgdmVyeSB3ZWxsIGFuZCBpdCBmaXhl
+ZCBvbmx5IHRoZSBwcm9ibGVtIApvZiB0aGUgaW1wbGVtZW50YXRpb24gb2YgcmVsb2NhdGFibGUg
+a2VybmVsLiBUaGUgc2Vjb25kIGlzc3VlIEknbSB0cnlpbmcgCnRvIHJlc29sdmUgaGVyZSBpcyB0
+byBzdXBwb3J0IGJvdGggMyBhbmQgNCBsZXZlbCBwYWdlIHRhYmxlcyB1c2luZyB0aGUgCnNhbWUg
+a2VybmVsIHdpdGhvdXQgYmVpbmcgcmVsb2NhdGFibGUgKHdoaWNoIHdvdWxkIGludHJvZHVjZSBw
+ZXJmb3JtYW5jZSAKcGVuYWx0eSkuIEkgY2FuJ3QgZG8gaXQgd2hlbiB0aGUga2VybmVsIG1hcHBp
+bmcgaXMgaW4gdGhlIHZtYWxsb2MgcmVnaW9uIApzaW5jZSB2bWFsbG9jIHJlZ2lvbiByZWxpZXMg
+b24gUEFHRV9PRkZTRVQgd2hpY2ggaXMgZGlmZmVyZW50IG9uIGJvdGggMyAKYW5kIDQgbGV2ZWwg
+cGFnZSB0YWJsZSBhbmQgdGhhdCB3b3VsZCB0aGVuIHJlcXVpcmUgdGhlIGtlcm5lbCB0byBiZSAK
+cmVsb2NhdGFibGUuCgpBbGV4Cgo+IAo+ICAgICAgICAgIEFybmQKPiAKPiBfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
