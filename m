@@ -2,19 +2,19 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E064AC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B56CC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:23:58 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8A00A64F36
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:17:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8A00A64F36
+	by mail.kernel.org (Postfix) with ESMTPS id B954464F77
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:23:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B954464F77
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=tURv/Fa6oqY2kK5c03eCf4jhdnO0k0TVT7q/KMqDO+o=; b=Xd71hZM7bjBdqk3MBx6xxTfZf
-	c1tL36xWlcCqtw/yYymPleg42lFyHe14SJxQKG+1mXlmHuuTByvnI+Rarfx/JEm7T6BMe9/IGDlli
-	lCFMVr3Sz7gLGHtXZrRoaeZxUOHqeNMVoANNdhnADWAjpzAtiMhQ7feigW0Oa30utVQN7QJE10x76
-	09H+/YBEU7qDx4D6nQjH2SlgXUfw0H9azrJHkBgZnP9coG1VBlc+qs6uI/W8PRgC/ZAvEIwUkpxFU
-	tSfdZaNRaqDKsRoUIQRZibq+4z/Oe8JvqIaMYTcwHi4NnDEb7btB6RSsVlNNNnx2ltEyWkOihJu69
-	jpk6jYEgg==;
+	 bh=ANzhiFHk2WDfJl1525otr5S7Db0wx5mIoepvmcfysik=; b=JWoL7MezcNMmGXcPkr/VzSdLl
+	ZvnQ4qRvIFkkeSw1Q9AOCgq1WoWg4ZPhvpTa8wTVOveA4JxchBT/cdtIpCvPVEowp10MUYLEkVkAU
+	Lp13oGPB2hS5GexZ58WdSKhzNloXfCyJJx6K24zWjiaSAqa99cTq0f3/yxYcJQ9hIJatMRIib5jzh
+	xxB3FLzfiyDkkZnAUgKAdk69/Lg8bp3lsUvx59M0GO0Vmki+pOKgpCU7UwtnWDXD4F4piBxBqtzm/
+	7WGU+pVsJIt/uMCciCcbTS55Y+NkxB5sTwKaP6QG3AMnIpHujLHRwEDa7nWZvf73nifE09uQ3kuhk
+	gQ1fRJA8Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJpLO-005tzN-Bk; Wed, 10 Mar 2021 03:17:06 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1lJpRo-005ubZ-3O; Wed, 10 Mar 2021 03:23:44 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJpL5-005twG-Hf
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 03:16:50 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id ha17so9556pjb.2
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 19:16:47 -0800 (PST)
+ id 1lJpRh-005uaK-78
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 03:23:39 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id e2so2514489pld.9
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 19:23:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=g849COPJpVQXUSUGkGGzyJ03IUihWlADowoP4ZsZZjo=;
- b=XTgAcImCQEDi9o/6iMJ0uuQkXXZGO5pQkzSgLuyefIRa81qt5C89nLzwpZbgFfGQZW
- 3LrvsJcvAyyJZ6mAPOKECVW7uj9N4sMH2Hg4oY1FLF40gWk3ibpTlJkjTDu/kPyKJT9n
- CyYjtd0XAYDwkSQ8QTPPjcFYoctA+bakCv1EmYzjFkoOMtzb9nnawc9PvdokiaGkaoOR
- iATAnLFTX/+CPYQMuITrwwApMi57g1lYG4vjCxTC27egQTpWe2fZ5CIdnInUT729gNby
- p8LoBRM14Fnm3ai06RHwRe3RBPDXjLDSrXLXvYMNeGiLP/NyQILd0HXiVDf7w8MtfJc/
- 59Eg==
+ bh=DWyTUhvwk7T3icFRK4BtJnm+zs8Gs2hcwj9A3iJOz3A=;
+ b=0GxaKgJsaTDDVtT034u0SRTqHS4k1CmbhQlB6ba3wW99r8ttLytrR9yDeILChO7yPo
+ C6lCvpOrfsJiKx4QQTce7HO3LHkzgGG8xdFuRzZKoBCT/LVj3A7wP45OyYAEKMCrZjKa
+ ifr5w1AadvudERIFmEnhErWJj66HHhQeIcz1bS7yuFYhDQ1s6Ur1/H23t74pczW1LlqC
+ K4O/66GhTsnDXROeVJQhxO/9uJaOTZaq06CPbHBVelI4oZ4mUf3vyasiyBtNKu59uX1e
+ dTooqNokOUyLLwjTNDHBDj9aJunIGw/V76ydWL+z3AATtgLw0CKvggO7Qkn+odHgxwyX
+ PuIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=g849COPJpVQXUSUGkGGzyJ03IUihWlADowoP4ZsZZjo=;
- b=gbiBLqr6ky/tHj/Py00JecU5k+6pgk/QVF5Gvz8SYgvfP56ngZs5Hj/QhYop9cj3kN
- 2fclkOtm0nn398YmKvcuPD58ZFyzJmsNRXbz/WXMNT0uN54XD3JFXROrZHffo+y8KCw4
- LP18zHSxAuYAQDl6+Rq9vz1aFoXZIZ6i/Ri3UeBhwf+DWdXXutNpkHmgRFtbLpm/N6xn
- ZIThdNUc06EWYxzBUuSWv3Vd0h9MEgm+yYDZaQ28kdwbO7bQZOoxBJp9fPbsmAbBAJqz
- KlPHbSJEr12nrINrL3FAcEXex01JPfxapTJcHAPPJNiUz39XuAB1IBgp3qXnZtsmEjhm
- 7ImA==
-X-Gm-Message-State: AOAM533N7V+FuiXGtTtehcQxfKew3nfoVK+3KCh6SuQiMPbTYG/fPs+V
- CW11HxRjghCvXkiMD8hDYm8YZA==
-X-Google-Smtp-Source: ABdhPJzrGSSjx1UUPNqyEE3R9KG5SsHStFXW4PWc7T2nYdCEDKinfnS5OwydQtCU9RfN38Cn/AdiUw==
-X-Received: by 2002:a17:902:b210:b029:e6:5f:62e with SMTP id
- t16-20020a170902b210b02900e6005f062emr1187005plr.48.1615346205858; 
- Tue, 09 Mar 2021 19:16:45 -0800 (PST)
+ bh=DWyTUhvwk7T3icFRK4BtJnm+zs8Gs2hcwj9A3iJOz3A=;
+ b=Lxwocx7GJ2ao/q92WCPKiFvDarmzzdiuGa4jHXH+RIsFjFvp8aiwnS4NfukhBcwz/d
+ 03k5bgOKmLFqFzEVhb6z72FuhyHRMeqn1eJa7iQkdvab1Zrv0oSRNd73UYZvjL6YNWCm
+ HihX5MDWIlro2DvBqX1WNcsLdkWtz8YldL7aS20b31PGbkMfqqj4RbiLLXWNPSlV3EPC
+ sDfXMeqcToZPXSlcxrw3JiMCizAMd1G2WRyoRNdeS+Xgc2M1FxkknYVG/Wa10bis+Ebt
+ dEoDrD9ufnJiKHxSkJYZKQepBhit5yndATQFWNPpI0TpL6AC2dwUhbCTIn7lDYVM0kes
+ gqaw==
+X-Gm-Message-State: AOAM531c38HEzgTXSI3E7hTe6R9jCbzwI7ubKbeMbY+89cdbbtKyllyN
+ KIoAo0U9HWn/S1sp+bedXlt7ww==
+X-Google-Smtp-Source: ABdhPJy9QLWAguT1HYxJMNMcPIK9TGvBSO8t+XA+FMHO6VEo5lC0BX+oBGKtR9k6KYsLiRnC9WajHA==
+X-Received: by 2002:a17:90b:fce:: with SMTP id
+ gd14mr1246512pjb.64.1615346615567; 
+ Tue, 09 Mar 2021 19:23:35 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id g12sm1556605pfh.153.2021.03.09.19.16.44
+ by smtp.gmail.com with ESMTPSA id k15sm8430751pgt.23.2021.03.09.19.23.34
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Mar 2021 19:16:45 -0800 (PST)
-Date: Tue, 09 Mar 2021 19:16:45 -0800 (PST)
-X-Google-Original-Date: Tue, 09 Mar 2021 19:15:36 PST (-0800)
-Subject: Re: [PATCH v2] riscv: Return -EFAULT if copy_{to,
- from}_user() failed in signal.c
-In-Reply-To: <1615017149-24843-1-git-send-email-yangtiezhu@loongson.cn>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ Tue, 09 Mar 2021 19:23:34 -0800 (PST)
+Date: Tue, 09 Mar 2021 19:23:34 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 19:22:05 PST (-0800)
+Subject: Re: [PATCH 1/1] RISC-V: correct enum sbi_ext_rfence_fid
+In-Reply-To: <CAOnJCULZFHPPXhL5ZyH9qNfb5BgUHos1PU2q6Khb7uT=N-7a3w@mail.gmail.com>
+CC: anup@brainfault.org, xypron.glpk@gmx.de,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ Anup Patel <Anup.Patel@wdc.com>, wangkefeng.wang@huawei.com,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, seanga2@gmail.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yangtiezhu@loongson.cn
-Message-ID: <mhng-33c9663e-90b5-48a8-b089-54f16f6b494a@penguin>
+To: atishp@atishpatra.org
+Message-ID: <mhng-559b7914-90be-4626-9f00-487e35289eac@penguin>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_031647_932467_6DB1F605 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20210310_032337_764553_63A3B43E 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +104,118 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Mar 2021 23:52:29 PST (-0800), yangtiezhu@loongson.cn wrote:
-> copy_{to,from}_user() returns the amount left to copy, it should return
-> -EFAULT error code if copy {to,from} user failed, just like the return
-> value is an error code when {put,get}_user() failed, this is to make the
-> return value consistent, no function change.
+On Tue, 09 Mar 2021 11:28:39 PST (-0800), atishp@atishpatra.org wrote:
+> On Mon, Mar 8, 2021 at 2:55 AM Anup Patel <anup@brainfault.org> wrote:
+>>
+>> On Mon, Mar 8, 2021 at 1:19 PM Atish Patra <atishp@atishpatra.org> wrote:
+>> >
+>> > On Sat, Mar 6, 2021 at 4:12 AM Anup Patel <anup@brainfault.org> wrote:
+>> > >
+>> > > On Sat, Mar 6, 2021 at 11:19 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
+>> > > >
+>> > > > The constants in enum sbi_ext_rfence_fid should match the SBI
+>> > > > specification. See
+>> > > > https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc#78-function-listing
+>> > > >
+>> > > > | Function Name               | FID | EID
+>> > > > | sbi_remote_fence_i          |   0 | 0x52464E43
+>> > > > | sbi_remote_sfence_vma       |   1 | 0x52464E43
+>> > > > | sbi_remote_sfence_vma_asid  |   2 | 0x52464E43
+>> > > > | sbi_remote_hfence_gvma_vmid |   3 | 0x52464E43
+>> > > > | sbi_remote_hfence_gvma      |   4 | 0x52464E43
+>> > > > | sbi_remote_hfence_vvma_asid |   5 | 0x52464E43
+>> > > > | sbi_remote_hfence_vvma      |   6 | 0x52464E43
+>> > > >
+>> > > > Fixes: ecbacc2a3efd ("RISC-V: Add SBI v0.2 extension definitions")
+>> > > > Reported-by: Sean Anderson <seanga2@gmail.com>
+>> > > > Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
+>> > >
 >
-> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
-> ---
->  arch/riscv/kernel/signal.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
+> Reviewed-by: Atish Patra <atish.patra@wdc.com>
 >
-> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> index 65942b3..c76d877 100644
-> --- a/arch/riscv/kernel/signal.c
-> +++ b/arch/riscv/kernel/signal.c
-> @@ -39,7 +39,7 @@ static long restore_fp_state(struct pt_regs *regs,
+>> > > Good catch.
+>> > >
+>> > > I guess we never saw any issues because these calls are only used by
+>> > > KVM RISC-V which is not merged yet. Further for KVM RISC-V, the HFENCE
+>> > > instruction is emulated as flush everything on FPGA, QEMU, and Spike so
+>> > > we did not notice any issue with KVM RISC-V too.
+>> > >
+>> >
+>> > OpenSBI & Xvisor also define the same order as Linux kernel. The
+>> > existing order(in Linux kernel)
+>> > makes more sense w.r.to Lexicographic order as well.
+>> >
+>> > Should we just fix the spec instead ?
+>>
+>> I would not recommend that because RFENCE is part of the released SBI v0.2 spec.
+>>
 >
->  	err = __copy_from_user(&current->thread.fstate, state, sizeof(*state));
->  	if (unlikely(err))
-> -		return err;
-> +		return -EFAULT;
->
->  	fstate_restore(current, regs);
->
-> @@ -67,7 +67,7 @@ static long save_fp_state(struct pt_regs *regs,
->  	fstate_save(current, regs);
->  	err = __copy_to_user(state, &current->thread.fstate, sizeof(*state));
->  	if (unlikely(err))
-> -		return err;
-> +		return -EFAULT;
->
->  	/* We support no other extension state at this time. */
->  	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-> @@ -87,8 +87,12 @@ static long restore_sigcontext(struct pt_regs *regs,
->  	struct sigcontext __user *sc)
->  {
->  	long err;
-> +
->  	/* sc_regs is structured the same as the start of pt_regs */
->  	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
-> +	if (unlikely(err))
-> +		return -EFAULT;
-> +
->  	/* Restore the floating-point state. */
->  	if (has_fpu)
->  		err |= restore_fp_state(regs, &sc->sc_fpregs);
-> @@ -140,8 +144,12 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
->  {
->  	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
->  	long err;
-> +
->  	/* sc_regs is structured the same as the start of pt_regs */
->  	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-> +	if (unlikely(err))
-> +		return -EFAULT;
-> +
->  	/* Save the floating-point state. */
->  	if (has_fpu)
->  		err |= save_fp_state(regs, &sc->sc_fpregs);
+> Fair enough.
 
-I don't really see any benefit to this way of doing it over what's there: these 
-are only used within this file, and the caller is just doing this return 
-conversion already.  If anything I find the current code easier to understand, 
-as error juggling is always one of the trickier things to get right and I 
-always find it easier to reason about code that's just passing through errors.
+Yes, agreed.  It's very important that we don't change the specs we said are 
+frozen, that would be a huge mess.
 
-If you have some new user of this code where it makes more sense to do it this 
-way then I'd be happy to take a look, but this as it stands doesn't really look 
-better.
+This is on fixes.
+
+Thanks!
+
+>
+>> We have to be more careful in software to follow the spec correctly.
+>>
+>
+> Agreed. Apologies for the slip up.
+>
+>> Regards,
+>> Anup
+>>
+>> >
+>> > > Looks good to me.
+>> > >
+>> > > Reviewed-by: Anup Patel <anup@brainfault.org>
+>> > >
+>> > > Regards,
+>> > > Anup
+>> > >
+>> > > > ---
+>> > > >  arch/riscv/include/asm/sbi.h | 4 ++--
+>> > > >  1 file changed, 2 insertions(+), 2 deletions(-)
+>> > > >
+>> > > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+>> > > > index 99895d9c3bdd..d7027411dde8 100644
+>> > > > --- a/arch/riscv/include/asm/sbi.h
+>> > > > +++ b/arch/riscv/include/asm/sbi.h
+>> > > > @@ -51,10 +51,10 @@ enum sbi_ext_rfence_fid {
+>> > > >         SBI_EXT_RFENCE_REMOTE_FENCE_I = 0,
+>> > > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
+>> > > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
+>> > > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
+>> > > >         SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
+>> > > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
+>> > > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
+>> > > >         SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
+>> > > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
+>> > > >  };
+>> > > >
+>> > > >  enum sbi_ext_hsm_fid {
+>> > > > --
+>> > > > 2.30.1
+>> > > >
+>> > > >
+>> > > > _______________________________________________
+>> > > > linux-riscv mailing list
+>> > > > linux-riscv@lists.infradead.org
+>> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>> > >
+>> > > _______________________________________________
+>> > > linux-riscv mailing list
+>> > > linux-riscv@lists.infradead.org
+>> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>> >
+>> >
+>> >
+>> > --
+>> > Regards,
+>> > Atish
 
 _______________________________________________
 linux-riscv mailing list
