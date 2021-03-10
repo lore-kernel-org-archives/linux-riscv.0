@@ -2,19 +2,19 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B56CC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F23DC433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:43:45 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B954464F77
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:23:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B954464F77
+	by mail.kernel.org (Postfix) with ESMTPS id CD9E564F80
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 03:43:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CD9E564F80
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,71 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=ANzhiFHk2WDfJl1525otr5S7Db0wx5mIoepvmcfysik=; b=JWoL7MezcNMmGXcPkr/VzSdLl
-	ZvnQ4qRvIFkkeSw1Q9AOCgq1WoWg4ZPhvpTa8wTVOveA4JxchBT/cdtIpCvPVEowp10MUYLEkVkAU
-	Lp13oGPB2hS5GexZ58WdSKhzNloXfCyJJx6K24zWjiaSAqa99cTq0f3/yxYcJQ9hIJatMRIib5jzh
-	xxB3FLzfiyDkkZnAUgKAdk69/Lg8bp3lsUvx59M0GO0Vmki+pOKgpCU7UwtnWDXD4F4piBxBqtzm/
-	7WGU+pVsJIt/uMCciCcbTS55Y+NkxB5sTwKaP6QG3AMnIpHujLHRwEDa7nWZvf73nifE09uQ3kuhk
-	gQ1fRJA8Q==;
+	 bh=zk5OKBZJNiEOHswfNF6fCJ7skxEB8DrLNNvhJZ8ZT2o=; b=mlZsFd+A2DlG+pNO/+cB+svC8
+	laZEJXfvZrG9WXmb+yYdqHfLGaGzbden1NR9bNi+/BNBmMTYHWdaj1U8AdbxgiabwAq4EwK0ZxEYC
+	GnE5MY3hPUrEn8xDhhJb564A+WxTJc6tdb7XEzYUqYkdbpy//+e7OhRevMijX9+gksrp3PvkwAd7h
+	O4ghvBXM8yvtuIBwbdbdCvnrsU+zxTkMm0lzfpeWwtayglpDOui3voX2trBrqcIBvn2ZI/2oNwqdA
+	nccYmXGHzE5NMAanmfOHU+EN2ztQKUQiS4GSDXDx85wHzHnNxs7TM5M0X9y2s/mg+i3XG08m3iBV1
+	VfBa+N/sQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJpRo-005ubZ-3O; Wed, 10 Mar 2021 03:23:44 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1lJpk7-005wCE-4K; Wed, 10 Mar 2021 03:42:51 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJpRh-005uaK-78
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 03:23:39 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id e2so2514489pld.9
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 19:23:36 -0800 (PST)
+ id 1lJphu-005vrk-93
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 03:40:27 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id z5so7805647plg.3
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 19:40:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=DWyTUhvwk7T3icFRK4BtJnm+zs8Gs2hcwj9A3iJOz3A=;
- b=0GxaKgJsaTDDVtT034u0SRTqHS4k1CmbhQlB6ba3wW99r8ttLytrR9yDeILChO7yPo
- C6lCvpOrfsJiKx4QQTce7HO3LHkzgGG8xdFuRzZKoBCT/LVj3A7wP45OyYAEKMCrZjKa
- ifr5w1AadvudERIFmEnhErWJj66HHhQeIcz1bS7yuFYhDQ1s6Ur1/H23t74pczW1LlqC
- K4O/66GhTsnDXROeVJQhxO/9uJaOTZaq06CPbHBVelI4oZ4mUf3vyasiyBtNKu59uX1e
- dTooqNokOUyLLwjTNDHBDj9aJunIGw/V76ydWL+z3AATtgLw0CKvggO7Qkn+odHgxwyX
- PuIA==
+ bh=3OqJC+cttIyAEj0ZMP1XfOiYvayZbkWQ+7SrOM6TZlk=;
+ b=NAQjVjJzyOyIVm40eqmzNz2hU4rB6TwAP2wLECkJV9VCgfGRAykcPqYTfJktP+nWOa
+ sA0VCafsqItVh792k//2T8Le8TVvHKIc4pkWAaw0N/8gfQMEVBj0Au9Kp94NcjjT4ccz
+ Mbzr1aNZDPYKDVo+L3lndqi9UDYMjms6QlAFfj469sZVabua4uTOlxzX3SpqtuXyI10j
+ rV/XaLauB93JMVF3tDp234cDRBtVra46WYh0LHxAmNfPBEGR37vyRoVQCwO/KzOpdsXh
+ RE4kwF3Iq9VdDpcMalzAl54nYDvTWzDAkQaARbxYpBW1OBmpW8lSbuCpWKl5l/iWM8Kh
+ 4VeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=DWyTUhvwk7T3icFRK4BtJnm+zs8Gs2hcwj9A3iJOz3A=;
- b=Lxwocx7GJ2ao/q92WCPKiFvDarmzzdiuGa4jHXH+RIsFjFvp8aiwnS4NfukhBcwz/d
- 03k5bgOKmLFqFzEVhb6z72FuhyHRMeqn1eJa7iQkdvab1Zrv0oSRNd73UYZvjL6YNWCm
- HihX5MDWIlro2DvBqX1WNcsLdkWtz8YldL7aS20b31PGbkMfqqj4RbiLLXWNPSlV3EPC
- sDfXMeqcToZPXSlcxrw3JiMCizAMd1G2WRyoRNdeS+Xgc2M1FxkknYVG/Wa10bis+Ebt
- dEoDrD9ufnJiKHxSkJYZKQepBhit5yndATQFWNPpI0TpL6AC2dwUhbCTIn7lDYVM0kes
- gqaw==
-X-Gm-Message-State: AOAM531c38HEzgTXSI3E7hTe6R9jCbzwI7ubKbeMbY+89cdbbtKyllyN
- KIoAo0U9HWn/S1sp+bedXlt7ww==
-X-Google-Smtp-Source: ABdhPJy9QLWAguT1HYxJMNMcPIK9TGvBSO8t+XA+FMHO6VEo5lC0BX+oBGKtR9k6KYsLiRnC9WajHA==
-X-Received: by 2002:a17:90b:fce:: with SMTP id
- gd14mr1246512pjb.64.1615346615567; 
- Tue, 09 Mar 2021 19:23:35 -0800 (PST)
+ bh=3OqJC+cttIyAEj0ZMP1XfOiYvayZbkWQ+7SrOM6TZlk=;
+ b=BpiScmPmqQAVoUY4nin0rbo5wHhQIj7Akj7z+24YaXPfjKQhWyb9ulZHZiJnssO8Fd
+ wSUcF3Qz5Sa+3wlwrJF4XxASbBhSEYsdmiz+OKA6BzDY/YV0LEPVORouruiMkBxGiDYg
+ XvfGmLQwkbUNlTQojLcqmPN6oY9KTFZ0rmAo43vrEdEKWNG0hMD1cCjfzeYqcDlT37D9
+ AA9xjB2WHv6GrAFL1A7tIs2zJjKGnzj4QKkKqYQmTnYLrUZAxWfJZ4ZosYMSioqWRWnR
+ /pRxS/0UyewVRMsnKbyNgwKZKYf8xEeKCyriM+1M7rvjOhnSz7uGeZzbiY/1/ZDAPekg
+ 5nqA==
+X-Gm-Message-State: AOAM533XIAGxYrNXJwQl/soNvg4rr5LvIQRkcc87ZYV/j3xK26B+eELT
+ lmOw3FzG7AiOR+/Q3OMfdpxgqQ==
+X-Google-Smtp-Source: ABdhPJwo9TcfZ13g2oYXDQP+g8cUFLl0R6S9AC2oBh3GO19zKgQz/tFHnTsCGvd6VugfCLKZVT9Gow==
+X-Received: by 2002:a17:903:2301:b029:e4:700b:6d91 with SMTP id
+ d1-20020a1709032301b02900e4700b6d91mr1272532plh.19.1615347620670; 
+ Tue, 09 Mar 2021 19:40:20 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id k15sm8430751pgt.23.2021.03.09.19.23.34
+ by smtp.gmail.com with ESMTPSA id x9sm4180264pjp.3.2021.03.09.19.40.19
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Mar 2021 19:23:34 -0800 (PST)
-Date: Tue, 09 Mar 2021 19:23:34 -0800 (PST)
-X-Google-Original-Date: Tue, 09 Mar 2021 19:22:05 PST (-0800)
-Subject: Re: [PATCH 1/1] RISC-V: correct enum sbi_ext_rfence_fid
-In-Reply-To: <CAOnJCULZFHPPXhL5ZyH9qNfb5BgUHos1PU2q6Khb7uT=N-7a3w@mail.gmail.com>
-CC: anup@brainfault.org, xypron.glpk@gmx.de,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- Atish Patra <Atish.Patra@wdc.com>, 
- Anup Patel <Anup.Patel@wdc.com>, wangkefeng.wang@huawei.com,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, seanga2@gmail.com
+ Tue, 09 Mar 2021 19:40:20 -0800 (PST)
+Date: Tue, 09 Mar 2021 19:40:20 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 19:40:12 PST (-0800)
+Subject: Re: [RFC patch 2/4] riscv: Get CPU manufacturer information
+In-Reply-To: <CAAhSdy1skWAbBJGukg-mu4kFaknn56meVi5PbbW4fCoaKGopKg@mail.gmail.com>
+CC: guoren@kernel.org, vincent.chen@sifive.com, linux-riscv@lists.infradead.org,
+ Frank.Zhao@starfivetech.com, Atish Patra <Atish.Patra@wdc.com>,
+ Anup Patel <Anup.Patel@wdc.com>, 
+ alankao@andestech.com, Paul Walmsley <paul.walmsley@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-559b7914-90be-4626-9f00-487e35289eac@penguin>
+To: anup@brainfault.org
+Message-ID: <mhng-0701d3a5-7d35-4a36-9ae3-926db273d665@penguin>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_032337_764553_63A3B43E 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20210310_034022_759643_27104F57 
+X-CRM114-Status: GOOD (  35.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,118 +102,200 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Mar 2021 11:28:39 PST (-0800), atishp@atishpatra.org wrote:
-> On Mon, Mar 8, 2021 at 2:55 AM Anup Patel <anup@brainfault.org> wrote:
+On Mon, 08 Mar 2021 21:11:04 PST (-0800), anup@brainfault.org wrote:
+> On Tue, Mar 9, 2021 at 6:58 AM Guo Ren <guoren@kernel.org> wrote:
 >>
->> On Mon, Mar 8, 2021 at 1:19 PM Atish Patra <atishp@atishpatra.org> wrote:
->> >
->> > On Sat, Mar 6, 2021 at 4:12 AM Anup Patel <anup@brainfault.org> wrote:
->> > >
->> > > On Sat, Mar 6, 2021 at 11:19 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
->> > > >
->> > > > The constants in enum sbi_ext_rfence_fid should match the SBI
->> > > > specification. See
->> > > > https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc#78-function-listing
->> > > >
->> > > > | Function Name               | FID | EID
->> > > > | sbi_remote_fence_i          |   0 | 0x52464E43
->> > > > | sbi_remote_sfence_vma       |   1 | 0x52464E43
->> > > > | sbi_remote_sfence_vma_asid  |   2 | 0x52464E43
->> > > > | sbi_remote_hfence_gvma_vmid |   3 | 0x52464E43
->> > > > | sbi_remote_hfence_gvma      |   4 | 0x52464E43
->> > > > | sbi_remote_hfence_vvma_asid |   5 | 0x52464E43
->> > > > | sbi_remote_hfence_vvma      |   6 | 0x52464E43
->> > > >
->> > > > Fixes: ecbacc2a3efd ("RISC-V: Add SBI v0.2 extension definitions")
->> > > > Reported-by: Sean Anderson <seanga2@gmail.com>
->> > > > Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
->> > >
->
-> Reviewed-by: Atish Patra <atish.patra@wdc.com>
->
->> > > Good catch.
->> > >
->> > > I guess we never saw any issues because these calls are only used by
->> > > KVM RISC-V which is not merged yet. Further for KVM RISC-V, the HFENCE
->> > > instruction is emulated as flush everything on FPGA, QEMU, and Spike so
->> > > we did not notice any issue with KVM RISC-V too.
->> > >
->> >
->> > OpenSBI & Xvisor also define the same order as Linux kernel. The
->> > existing order(in Linux kernel)
->> > makes more sense w.r.to Lexicographic order as well.
->> >
->> > Should we just fix the spec instead ?
+>> Hi Vincent,
 >>
->> I would not recommend that because RFENCE is part of the released SBI v0.2 spec.
->>
+>> On Mon, Mar 8, 2021 at 11:58 AM Vincent Chen <vincent.chen@sifive.com> wrote:
+>> >
+>> > Issue 3 SBI calls to get the vendor ID, architecture ID and implementation
+>> > ID early in boot so we only need to take the SBI call overhead once.
+>> >
+>> > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+>> > ---
+>> >  arch/riscv/include/asm/csr.h       |  3 +++
+>> >  arch/riscv/include/asm/hwcap.h     |  6 ++++++
+>> >  arch/riscv/include/asm/processor.h |  2 ++
+>> >  arch/riscv/include/asm/soc.h       |  1 +
+>> >  arch/riscv/kernel/cpufeature.c     | 17 +++++++++++++++++
+>> >  arch/riscv/kernel/setup.c          |  2 ++
+>> >  arch/riscv/kernel/soc.c            |  1 +
+>> >  7 files changed, 32 insertions(+)
+>> >
+>> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+>> > index caadfc1d7487..87ac65696871 100644
+>> > --- a/arch/riscv/include/asm/csr.h
+>> > +++ b/arch/riscv/include/asm/csr.h
+>> > @@ -115,6 +115,9 @@
+>> >  #define CSR_MIP                        0x344
+>> >  #define CSR_PMPCFG0            0x3a0
+>> >  #define CSR_PMPADDR0           0x3b0
+>> > +#define CSR_MVENDORID          0xf11
+>> > +#define CSR_MARCHID            0xf12
+>> > +#define CSR_MIMPID             0xf13
+>> >  #define CSR_MHARTID            0xf14
+>> >
+>> >  #ifdef CONFIG_RISCV_M_MODE
+>> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>> > index 5ce50468aff1..b7409487c9d2 100644
+>> > --- a/arch/riscv/include/asm/hwcap.h
+>> > +++ b/arch/riscv/include/asm/hwcap.h
+>> > @@ -44,6 +44,12 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
+>> >  #define riscv_isa_extension_available(isa_bitmap, ext) \
+>> >         __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
+>> >
+>> > +struct cpu_manufacturer_info_t {
+>> > +       unsigned long vendor_id;
+>> > +       unsigned long arch_id;
+>> > +       unsigned long imp_id;
+>> > +};
+>> > +
+>> >  #endif
+>> >
+>> >  #endif /* _ASM_RISCV_HWCAP_H */
+>> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+>> > index 3a240037bde2..4e11a9621d14 100644
+>> > --- a/arch/riscv/include/asm/processor.h
+>> > +++ b/arch/riscv/include/asm/processor.h
+>> > @@ -72,6 +72,8 @@ int riscv_of_parent_hartid(struct device_node *node);
+>> >
+>> >  extern void riscv_fill_hwcap(void);
+>> >
+>> > +void riscv_fill_cpu_manufacturer_info(void);
+>> > +
+>> >  #endif /* __ASSEMBLY__ */
+>> >
+>> >  #endif /* _ASM_RISCV_PROCESSOR_H */
+>> > diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+>> > index f494066051a2..03dee6db404c 100644
+>> > --- a/arch/riscv/include/asm/soc.h
+>> > +++ b/arch/riscv/include/asm/soc.h
+>> > @@ -10,6 +10,7 @@
+>> >  #include <linux/of.h>
+>> >  #include <linux/linkage.h>
+>> >  #include <linux/types.h>
+>> > +#include <asm/hwcap.h>
+>> >
+>> >  #define SOC_EARLY_INIT_DECLARE(name, compat, fn)                       \
+>> >         static const struct of_device_id __soc_early_init__##name       \
+>> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> > index ac202f44a670..389162ee19ea 100644
+>> > --- a/arch/riscv/kernel/cpufeature.c
+>> > +++ b/arch/riscv/kernel/cpufeature.c
+>> > @@ -12,6 +12,8 @@
+>> >  #include <asm/hwcap.h>
+>> >  #include <asm/smp.h>
+>> >  #include <asm/switch_to.h>
+>> > +#include <asm/sbi.h>
+>> > +#include <asm/csr.h>
+>> >
+>> >  unsigned long elf_hwcap __read_mostly;
+>> >
+>> > @@ -22,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+>> >  bool has_fpu __read_mostly;
+>> >  #endif
+>> >
+>> > +struct cpu_manufacturer_info_t cpu_mfr_info;
+>> > +
+>> >  /**
+>> >   * riscv_isa_extension_base() - Get base extension word
+>> >   *
+>> > @@ -149,3 +153,16 @@ void riscv_fill_hwcap(void)
+>> >                 has_fpu = true;
+>> >  #endif
+>> >  }
+>> > +
+>> > +void riscv_fill_cpu_manufacturer_info(void)
+>> > +{
+>> > +#ifndef CONFIG_RISCV_M_MODE
+>> > +       cpu_mfr_info.vendor_id = sbi_get_vendorid();
+>> > +       cpu_mfr_info.arch_id = sbi_get_archid();
+>> > +       cpu_mfr_info.imp_id = sbi_get_impid();
+>> > +#else
+>> > +       cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
+>> > +       cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
+>> > +       cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
+>> > +#endif
+>> How about let opensbi emulate csr_read(CSR_MXXX) for S mode, then we
+>> needn't to define new sbi call.
 >
-> Fair enough.
+> Accessing M-mode CSRs from the S-mode kernel will only make things
+> complicated for hypervisors because now hypervisors will also end-up
+> emulating M-mode CSRs.
 
-Yes, agreed.  It's very important that we don't change the specs we said are 
-frozen, that would be a huge mess.
+IMO that's not really the problem: hypervisors are going to have to emulate 
+CSRs anyway, so adding more isn't a big deal.  The problem is having S-mode 
+software depend on M-mode.  More explicitly:
 
-This is on fixes.
+* The RISC-V specs are nominally layered, which means S-mode doesn't include 
+  any of the M-mode bits. M-mode CSR accesses are simply illegal S-mode 
+  instructions.  I know the CSRs are a bit special in that they're chunked out 
+  by privilege mode, but there's nothing preventing the ISA from later 
+  reallocating these M-mode CSR bits in S-mode (aside from then having a modal 
+  ISA, which is a design anti-goal).
+* All behavior in M-mode is implementation defined, including these CSR 
+  accesses.  While they're obviously allocated and a behavior is specified by 
+  the ISA, there's nothing that says M-mode has to actually implement these in 
+  any sane fashion (ie, it can return 0 or shut down or whatever).
 
-Thanks!
+So is essence, adding these M-mode CSR accesses into S-mode kernels introduces 
+an entirely new ISA extension that we're just making up on the spot and 
+assuming will be implemented by firmware.  At a bare minimum we'd need to have 
+that defined by a specification, but even then I don't see it as the right way 
+to go.
+
+> Best would be to only access S-mode CSRs and SBI calls from
+> S-mode kernel.
+
+Agreed.  I'm not opposed to expanding the scope of the M-mode kernels to boot 
+on more systems, but users who want S-mode shouldn't end up with M-mode 
+dependencies sneaking in.  So in this case, I'm very much in favor of the SBI 
+call over accessing an M-mode CSR.
 
 >
->> We have to be more careful in software to follow the spec correctly.
 >>
->
-> Agreed. Apologies for the slip up.
->
->> Regards,
->> Anup
->>
+>> > +}
+>> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> > index e85bacff1b50..03621ce9092c 100644
+>> > --- a/arch/riscv/kernel/setup.c
+>> > +++ b/arch/riscv/kernel/setup.c
+>> > @@ -278,6 +278,8 @@ void __init setup_arch(char **cmdline_p)
+>> >  #endif
 >> >
->> > > Looks good to me.
->> > >
->> > > Reviewed-by: Anup Patel <anup@brainfault.org>
->> > >
->> > > Regards,
->> > > Anup
->> > >
->> > > > ---
->> > > >  arch/riscv/include/asm/sbi.h | 4 ++--
->> > > >  1 file changed, 2 insertions(+), 2 deletions(-)
->> > > >
->> > > > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
->> > > > index 99895d9c3bdd..d7027411dde8 100644
->> > > > --- a/arch/riscv/include/asm/sbi.h
->> > > > +++ b/arch/riscv/include/asm/sbi.h
->> > > > @@ -51,10 +51,10 @@ enum sbi_ext_rfence_fid {
->> > > >         SBI_EXT_RFENCE_REMOTE_FENCE_I = 0,
->> > > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
->> > > >         SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
->> > > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
->> > > >         SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
->> > > > -       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
->> > > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
->> > > >         SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
->> > > > +       SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
->> > > >  };
->> > > >
->> > > >  enum sbi_ext_hsm_fid {
->> > > > --
->> > > > 2.30.1
->> > > >
->> > > >
->> > > > _______________________________________________
->> > > > linux-riscv mailing list
->> > > > linux-riscv@lists.infradead.org
->> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
->> > >
->> > > _______________________________________________
->> > > linux-riscv mailing list
->> > > linux-riscv@lists.infradead.org
->> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>> >         riscv_fill_hwcap();
+>> > +
+>> > +       riscv_fill_cpu_manufacturer_info();
+>> >  }
 >> >
+>> >  static int __init topology_init(void)
+>> > diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+>> > index a0516172a33c..58f6fd91743a 100644
+>> > --- a/arch/riscv/kernel/soc.c
+>> > +++ b/arch/riscv/kernel/soc.c
+>> > @@ -6,6 +6,7 @@
+>> >  #include <linux/libfdt.h>
+>> >  #include <linux/pgtable.h>
+>> >  #include <asm/soc.h>
+>> > +#include <asm/hwcap.h>
 >> >
->> >
+>> >  /*
+>> >   * This is called extremly early, before parse_dtb(), to allow initializing
 >> > --
->> > Regards,
->> > Atish
+>> > 2.7.4
+>> >
+>> How
+>>
+>> --
+>> Best Regards
+>>  Guo Ren
+>>
+>> ML: https://lore.kernel.org/linux-csky/
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
