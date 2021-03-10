@@ -2,19 +2,19 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE57EC4332D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6468CC433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:47:49 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1077964FF4
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:40:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1077964FF4
+	by mail.kernel.org (Postfix) with ESMTPS id 1061864FEE
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:47:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1061864FEE
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=r7CttfLg/tz6t0XoroqupQkRrPG4rCnfd4dKyjfKkw0=; b=qE0h9LOm5tDru+QvyZI5vqJeA
-	Fg0X6+Fe9tkh6ZC45FLKOeCo863bvqQMQA9YPUEgwHr1ldBtwBjxAnx+XhHN7c+mbx0Qvo0F1dZpf
-	aSLVuB/opq2FudJCU6uaFy68ljelr5yjRySVrEoqGsHYLMxh9gZ96m1Sw5vrPothKifBJpy3IawUz
-	u7BnMOySOp/PutvS88usUiEeUuUkxHWmMyRdQQdDpYofny+IgntaX3QV8uyduWCke4u46c2iSGFll
-	qm4QSeLzjZUxsSo5clqbh4GBd9EBEaqq2hHo1SAgI8Y+7owZIz9mzJfsS4YRBgYT79K8cyVLTxgHB
-	0JUS92VXQ==;
+	 bh=Az6h1IzMc35r5Hpp83smE9Y3W9PbPUDJHuyNw579UvE=; b=NxQYIDd7e5Zu5cliXGDrSJeTr
+	XVww7nRqz10xproOY1T4f/oPaYsuEH4q1OXYfWuNNNgldznJ8JvPer0pQvonFZedCVhwFCIBV1Lop
+	y2MP7JC07/Vt3Tu0LbMmXW1gNQOvK2w4WpyuUYiRjUXLG018cHkr6QAC1E40kTJ7+fK47o0Vpbmcp
+	5eBI+4WKu7Op/1KL2znPY7AnNgdREyqXZ+V53dGhDu2oSRH/PGGvrpwQXpiQ+w6wYoazMUPbWABpG
+	3UVPO2FjlOx84cojyZf+oO3+Q8/fryOOTHmeq1A97BxTl312jRcx4LNdKwRPS8rt7ISWyYL5mxOaQ
+	Ks6mA71pw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJqdg-0060hj-SL; Wed, 10 Mar 2021 04:40:05 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1lJql1-0061Lb-6i; Wed, 10 Mar 2021 04:47:39 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJqcy-0060az-Lf
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 04:39:28 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id l7so11225526pfd.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 20:39:20 -0800 (PST)
+ id 1lJqku-0061KZ-TG
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 04:47:36 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id
+ a22-20020a17090aa516b02900c1215e9b33so6530699pjq.5
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 20:47:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ITTAq8qB7GUAYX2Mhi5FzjMq+yFZ01Ayu3/V3mZVrR4=;
- b=OxRF7jTLGeHot1pXkphmgbYk/JenRD/vXaGxyvUV6inrqg4j0Yja+LRRmtugRDQOr3
- 1iUZu3vbZPHFnIj1cMEYYc7ZlozNJC1xXBkQauBp0YXWUgSQ2JO7gYk7ylhFyyRd5HBs
- MGHCbWCANbMZFnA/iJPDYmRhYtJnaqyxGXy1b51gzkovTzlNrugnC1YjR9claenhomnc
- UWFp/kTvjjfDCtlLYCmpDpOFnNEAZKScIWFMAlk31EMYbzNBsOs2pWGfLsBL/4UI4tfv
- 7a9eDpbAOSp+nMdJBFsuFbJddw2MEHFzW4FQa1p9LnaVS8daCKHS3QI6xYghY8cx9vN6
- AdBQ==
+ bh=V8CovqO2r2c3lZFxI+Vlz80bG5YIFGmxCrj/XPBe6Sw=;
+ b=tcRWTtQJwyQCDK5Db+d9WbORhnitIMEgAhGeA8awjiVyQlNhU2iFat9SLNzn0ZYU22
+ 7TN2//+Jr0Q8dWOHFEzlaxej5pcUQoIG+gqUMTjsW6U8eK+2ZBhShZkJZ0wNSNzgQImZ
+ rUBsoqUSJxXKHyURNg054vZ5S4aQizqtRcAf0gL8NoC8DCckCFNM4h/aYJg6CacmumZu
+ Ou5efOjgv5CIfdYvJoC/+joeN4r0ICEt90ROswhSwPnrGULUgXUeJFU5yx0no05QmGd0
+ IvTZ9vYuJlM9lDiCWyLWUtH9dfBdJIwK47bHFyPzn83ouXlUreBso3eA9HZf3IpSf5Z0
+ GqlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ITTAq8qB7GUAYX2Mhi5FzjMq+yFZ01Ayu3/V3mZVrR4=;
- b=PB8nMwKUnzDQqHpTbeYH/dOMZ/NGZ3XxSqI4DeQdOBmXlLfTaaKfym6mkn91XrVXk+
- iQ4wix7D2M1OO8wudHmyAjSUinEI1g3IwC+EA4ML+cMuBs7wTRgDZxo0CDvv5HfHailS
- bj/45CtWItmmLK5NPLsfuRCMnEzLpah/HeFE3DjFvZBQrH7+CD7bd/mxlAKNoGJr34aG
- AH2iD6CV6rEfaJzqPduGJV2x4TCzTkFUyoHo1h59ox56iRhokZXiGXupMFEpkSZUF8Ho
- SKs+Si/wEkjkdOtBM/SFs5TmQ51gwl5Qae3LHXaIpTcBabL/mOajDO+0oUuyMUxjrPfV
- ea3w==
-X-Gm-Message-State: AOAM532mfns/TlOzcsMQm8f6eqOc4Nz0nMkfyE4gqAZZ2jr5Utiz6JM6
- G21q0YA3JJrSzFBa0t4F0rUyzPpk/KIL5w==
-X-Google-Smtp-Source: ABdhPJyGTYvo7TLqpmHH1cBxQQEZa0fXGLm1eqDJ8E8TcoWfQQ7UYiIqq1bUtofOEUJwc7Hk8ErBUQ==
-X-Received: by 2002:a62:78d4:0:b029:1f1:595b:dfdf with SMTP id
- t203-20020a6278d40000b02901f1595bdfdfmr1122840pfc.81.1615351158979; 
- Tue, 09 Mar 2021 20:39:18 -0800 (PST)
+ bh=V8CovqO2r2c3lZFxI+Vlz80bG5YIFGmxCrj/XPBe6Sw=;
+ b=AMqZQQvCT+NG/D+oqd719TRvnWtEbNeKNlWn0Ba2r6BWSXTNTCTV2YTHFg1xnPQJOB
+ E3YqkuoSP+xUwHjjuxiqdWJrXMNtWgwB8H251jKUKLiqvgpy7CqI9+14DT0iuIiBPHNj
+ 3R0zYFzFNS73OIT8JCnBkNavQH0753Ab5KBPrH/GTSgC/NJAGSlI40q5nyDc8lyAthyQ
+ 45OecqeOFykjcXU5sbkpmE8ZBnum7S0PlLtWlofPR/dBQsPBV8fVSarboJs1nAG03sJy
+ GhohdYp7EbnzqRobFv9OYbadBl+Gkkl/2BWSrCLKUHGH0LllV2Ms9YSZtkexS6seSuUy
+ X6Kw==
+X-Gm-Message-State: AOAM5336hQTU5JrFaJ5J768qrckBmqaniH1aJZfqzj4SIZWZUGUFD43b
+ 3PwV5PrI0JwO9euZx9/Yq+ZCuw==
+X-Google-Smtp-Source: ABdhPJzpFUiJudJafEmd5UfrnkjeEeW49aL4mN5nGImsEab1r6oCo1IahjaNCjeP0HQ9zUe/rrs5LA==
+X-Received: by 2002:a17:90a:990a:: with SMTP id
+ b10mr1583598pjp.178.1615351651352; 
+ Tue, 09 Mar 2021 20:47:31 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y15sm16953995pgi.31.2021.03.09.20.39.18
+ by smtp.gmail.com with ESMTPSA id 3sm4428818pjk.26.2021.03.09.20.47.30
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Mar 2021 20:39:18 -0800 (PST)
-Date: Tue, 09 Mar 2021 20:39:18 -0800 (PST)
-X-Google-Original-Date: Tue, 09 Mar 2021 20:33:49 PST (-0800)
-Subject: Re: [RFC patch 0/4] riscv: introduce alternative mechanism to apply
- errata patches
-In-Reply-To: <1615175897-23509-1-git-send-email-vincent.chen@sifive.com>
-CC: linux-riscv@lists.infradead.org, Frank.Zhao@starfivetech.com,
- Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
- guoren@kernel.org, alankao@andestech.com, 
- Paul Walmsley <paul.walmsley@sifive.com>, vincent.chen@sifive.com
+ Tue, 09 Mar 2021 20:47:30 -0800 (PST)
+Date: Tue, 09 Mar 2021 20:47:30 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 20:46:23 PST (-0800)
+Subject: Re: [PATCH 1/9] riscv: traps: Fix no prototype warnings
+In-Reply-To: <20210305113332.428048-2-sunnanyong@huawei.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ wangkefeng.wang@huawei.com, sunnanyong@huawei.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vincent.chen@sifive.com
-Message-ID: <mhng-75c82ab1-f0f5-4738-b020-364d1a1d295f@penguin>
+To: sunnanyong@huawei.com
+Message-ID: <mhng-31d44427-3d4a-4e15-aeae-5bbb8b271349@penguin>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_043926_455500_9578C3A7 
-X-CRM114-Status: GOOD (  32.17  )
+X-CRM114-CacheID: sfid-20210310_044734_908723_A7359D5A 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,102 +98,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 07 Mar 2021 19:58:13 PST (-0800), vincent.chen@sifive.com wrote:
-> With the emergence of more and more RISC-V CPUs, the request for how to
-> upstream the vendor errata patch may gradually appear. In order to resolve
-> this issue, this patch introduces the alternative mechanism from ARM64 and
-> x86 to enable the kernel to patch code at runtime according to the
-> manufacturer information of the running CPU. The main purpose of this patch
-> set is to propose a framework to apply vendor's errata solutions. Based on
-> this framework, it can be ensured that the errata only applies to the
-> specified CPU cores. Other CPU cores do not be affected. Therefore, some
-> complicated scenarios are unsupported in this patch set, such as patching
-> code to the kernel module, doing relocation in patching code, and
-> heterogeneous CPU topology.
->
-> In the "alternative" scheme, Users could use the macro ALTERNATIVE to apply
-> an errata to the existing code flow. In the macro ALTERNATIVE, users need
-> to specify the manufacturer information (vendor id, arch id, and implement
-> id) for this errata. Therefore, kernel will know this errata is suitable
-> for which CPU core. During the booting procedure, kernel will select the
-> errata required by the CPU core and then patch it. It means that the kernel
-> only applies the errata to the specified CPU core. In this case, the
-> vendor's errata does not affect each other at runtime. The above patching
-> procedure only occurs during the booting phase, so we only take the
-> overhead of the "alternative" mechanism once.
->
-> This "alternative" mechanism is enabled by default to ensure that all
-> required errata will be applied. However, users can disable this feature by
-> the Kconfig "CONFIG_RISCV_ERRATA_ALTERNATIVE".
-
-This all generally seems OK to me, though I have a few comments in the actual 
-patches.
-
->
-> The last patch is to apply the SiFive CIP-453 errata by this "alternative"
-> scheme. Therefore, It can be regarded as an example. According to the
-> results of running this image on the QEMU virt platform, kernel does not
-> apply this errata at run-time because the CPU manufacturer information
-> does not match the specified SiFive CPU core. Therefore, this errata does
-> not affect any CPU core except for the specified SiFive cores.
-
-Looking at the documentation for that I also saw CIP-1200.  That one seems way 
-scarier, and also probably a better driver for building an errata framework as 
-it has more than one caller.  Is that in this chip?  It's in a document just 
-titled "Errata_FU740-C000_20210205".
-
->
-> Vincent Chen (4):
->   riscv: Add 3 SBI wrapper functions to get cpu manufacturer information
->   riscv: Get CPU manufacturer information
->   riscv: Introduce alternative mechanism to apply errata solution
->   riscv: sifive: apply errata "cip-453" patch
->
->  arch/riscv/Kconfig                          |   1 +
->  arch/riscv/Kconfig.erratas                  |  32 ++++++++
->  arch/riscv/Kconfig.socs                     |   1 +
->  arch/riscv/Makefile                         |   1 +
->  arch/riscv/errata/Makefile                  |   2 +
->  arch/riscv/errata/alternative.c             |  69 +++++++++++++++++
->  arch/riscv/errata/sifive/Makefile           |   2 +
->  arch/riscv/errata/sifive/errata.c           |  56 ++++++++++++++
->  arch/riscv/errata/sifive/errata_cip_453.S   |  34 +++++++++
->  arch/riscv/include/asm/alternative-macros.h | 110 ++++++++++++++++++++++++++++
->  arch/riscv/include/asm/alternative.h        |  44 +++++++++++
->  arch/riscv/include/asm/asm.h                |   1 +
->  arch/riscv/include/asm/csr.h                |   3 +
->  arch/riscv/include/asm/errata_list.h        |   9 +++
->  arch/riscv/include/asm/hwcap.h              |   6 ++
->  arch/riscv/include/asm/processor.h          |   2 +
->  arch/riscv/include/asm/sbi.h                |   3 +
->  arch/riscv/include/asm/sections.h           |   2 +
->  arch/riscv/include/asm/soc.h                |   1 +
->  arch/riscv/include/asm/vendorid_list.h      |   6 ++
->  arch/riscv/kernel/cpufeature.c              |  17 +++++
->  arch/riscv/kernel/entry.S                   |  12 ++-
->  arch/riscv/kernel/sbi.c                     |  15 ++++
->  arch/riscv/kernel/setup.c                   |   2 +
->  arch/riscv/kernel/smpboot.c                 |   4 +
->  arch/riscv/kernel/soc.c                     |   1 +
->  arch/riscv/kernel/vmlinux.lds.S             |  14 ++++
->  27 files changed, 448 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/Kconfig.erratas
->  create mode 100644 arch/riscv/errata/Makefile
->  create mode 100644 arch/riscv/errata/alternative.c
->  create mode 100644 arch/riscv/errata/sifive/Makefile
->  create mode 100644 arch/riscv/errata/sifive/errata.c
->  create mode 100644 arch/riscv/errata/sifive/errata_cip_453.S
->  create mode 100644 arch/riscv/include/asm/alternative-macros.h
->  create mode 100644 arch/riscv/include/asm/alternative.h
->  create mode 100644 arch/riscv/include/asm/errata_list.h
->  create mode 100644 arch/riscv/include/asm/vendorid_list.h
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAwNSBNYXIgMjAyMSAwMzozMzoyNCBQU1QgKC0wODAwKSwgc3VubmFueW9uZ0BodWF3
+ZWkuY29tIHdyb3RlOgo+IEZpeCBhbGwgVz0xIGNvbXBpbGF0aW9uIHdhcm5pbmdzOidubyBwcmV2
+aW91cyBwcm90b3R5cGUgZm9yJyBpbiBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jOgo+IGFyY2gv
+cmlzY3Yva2VybmVsL3RyYXBzLmM6OTY6MTU6IHdhcm5pbmc6IG5vIHByZXZpb3VzIHByb3RvdHlw
+ZSBmb3Ig4oCYZG9fdHJhcF91bmtub3du4oCZIFstV21pc3NpbmctcHJvdG90eXBlc10KPiAgICA5
+NiB8IERPX0VSUk9SX0lORk8oZG9fdHJhcF91bmtub3duLAo+ICAgICAgIHwgICAgICAgICAgICAg
+ICBefn5+fn5+fn5+fn5+fn4KPiBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jOjkxOjI3OiBub3Rl
+OiBpbiBkZWZpbml0aW9uIG9mIG1hY3JvIOKAmERPX0VSUk9SX0lORk/igJkKPiAgICA5MSB8IGFz
+bWxpbmthZ2UgX192aXNpYmxlIHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykgICBcCj4g
+ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn4KPiBhcmNoL3Jpc2N2L2tlcm5l
+bC90cmFwcy5jOjk4OjE1OiB3YXJuaW5nOiBubyBwcmV2aW91cyBwcm90b3R5cGUgZm9yIOKAmGRv
+X3RyYXBfaW5zbl9taXNhbGlnbmVk4oCZIFstV21pc3NpbmctcHJvdG90eXBlc10KPiAgICA5OCB8
+IERPX0VSUk9SX0lORk8oZG9fdHJhcF9pbnNuX21pc2FsaWduZWQsCj4gICAgICAgfCAgICAgICAg
+ICAgICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMu
+Yzo5MToyNzogbm90ZTogaW4gZGVmaW5pdGlvbiBvZiBtYWNybyDigJhET19FUlJPUl9JTkZP4oCZ
+Cj4gICAgOTEgfCBhc21saW5rYWdlIF9fdmlzaWJsZSB2b2lkIG5hbWUoc3RydWN0IHB0X3JlZ3Mg
+KnJlZ3MpICAgXAo+ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+Cj4gYXJj
+aC9yaXNjdi9rZXJuZWwvdHJhcHMuYzoxMDA6MTU6IHdhcm5pbmc6IG5vIHByZXZpb3VzIHByb3Rv
+dHlwZSBmb3Ig4oCYZG9fdHJhcF9pbnNuX2ZhdWx04oCZIFstV21pc3NpbmctcHJvdG90eXBlc10K
+PiAuLi4KPgo+IFJlcG9ydGVkLWJ5OiBIdWxrIFJvYm90IDxodWxrY2lAaHVhd2VpLmNvbT4KPiBT
+aWduZWQtb2ZmLWJ5OiBOYW55b25nIFN1biA8c3VubmFueW9uZ0BodWF3ZWkuY29tPgo+IC0tLQo+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS1wcm90b3R5cGVzLmggfCAxNiArKysrKysrKysr
+KysrKysrCj4gIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgICAgICAgICAgICB8ICAxICsK
+PiAgMiBmaWxlcyBjaGFuZ2VkLCAxNyBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9hc20tcHJvdG90eXBlcy5oCj4gaW5kZXggMjdlMDA1ZmNhNTg0Li42ZDgxYWJmNWQ5Zjgg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oCj4g
+KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oCj4gQEAgLTksNCAr
+OSwyMCBAQCBsb25nIGxvbmcgX19sc2hydGkzKGxvbmcgbG9uZyBhLCBpbnQgYik7Cj4gIGxvbmcg
+bG9uZyBfX2FzaHJ0aTMobG9uZyBsb25nIGEsIGludCBiKTsKPiAgbG9uZyBsb25nIF9fYXNobHRp
+Myhsb25nIGxvbmcgYSwgaW50IGIpOwo+Cj4gKwo+ICsjZGVmaW5lIERFQ0xBUkVfRE9fRVJST1Jf
+SU5GTyhuYW1lKQlhc21saW5rYWdlIHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncyk7CgpU
+aGlzIHRyaWdnZXJzIGNoZWNrcGF0Y2guCgo+ICsKPiArREVDTEFSRV9ET19FUlJPUl9JTkZPKGRv
+X3RyYXBfdW5rbm93bikKPiArREVDTEFSRV9ET19FUlJPUl9JTkZPKGRvX3RyYXBfaW5zbl9taXNh
+bGlnbmVkKQo+ICtERUNMQVJFX0RPX0VSUk9SX0lORk8oZG9fdHJhcF9pbnNuX2ZhdWx0KQo+ICtE
+RUNMQVJFX0RPX0VSUk9SX0lORk8oZG9fdHJhcF9pbnNuX2lsbGVnYWwpCj4gK0RFQ0xBUkVfRE9f
+RVJST1JfSU5GTyhkb190cmFwX2xvYWRfZmF1bHQpCj4gK0RFQ0xBUkVfRE9fRVJST1JfSU5GTyhk
+b190cmFwX2xvYWRfbWlzYWxpZ25lZCkKPiArREVDTEFSRV9ET19FUlJPUl9JTkZPKGRvX3RyYXBf
+c3RvcmVfbWlzYWxpZ25lZCkKPiArREVDTEFSRV9ET19FUlJPUl9JTkZPKGRvX3RyYXBfc3RvcmVf
+ZmF1bHQpCj4gK0RFQ0xBUkVfRE9fRVJST1JfSU5GTyhkb190cmFwX2VjYWxsX3UpCj4gK0RFQ0xB
+UkVfRE9fRVJST1JfSU5GTyhkb190cmFwX2VjYWxsX3MpCj4gK0RFQ0xBUkVfRE9fRVJST1JfSU5G
+Tyhkb190cmFwX2VjYWxsX20pCj4gK0RFQ0xBUkVfRE9fRVJST1JfSU5GTyhkb190cmFwX2JyZWFr
+KQo+ICsKPiAgI2VuZGlmIC8qIF9BU01fUklTQ1ZfUFJPVE9UWVBFU19IICovCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5j
+Cj4gaW5kZXggM2VkMmMyMzYwMWEwLi4wODc5YjVkZjExYjkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9y
+aXNjdi9rZXJuZWwvdHJhcHMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiBA
+QCAtMTcsNiArMTcsNyBAQAo+ICAjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4gICNpbmNsdWRl
+IDxsaW51eC9pcnEuaD4KPgo+ICsjaW5jbHVkZSA8YXNtL2FzbS1wcm90b3R5cGVzLmg+Cj4gICNp
+bmNsdWRlIDxhc20vYnVnLmg+Cj4gICNpbmNsdWRlIDxhc20vcHJvY2Vzc29yLmg+Cj4gICNpbmNs
+dWRlIDxhc20vcHRyYWNlLmg+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
