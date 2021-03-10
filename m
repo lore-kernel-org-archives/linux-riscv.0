@@ -2,85 +2,90 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 44305C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97E2DC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:40:01 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C272364FE8
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:20:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C272364FE8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id E3DF264FEF
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 04:40:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E3DF264FEF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dXVP6em/ZD6dpNJ4ZYfr3SrmD9H4/w2RWb9BnAxfGe0=; b=kMNlgmoD5gSuy00IeArMwK12X
-	fqQhIoz+0We1qXpwcWSgTDlrvJafGJ6Z+33dUENK6uCnOUETKdXnjIdj+S3Quug3QNj+NFqn7NeZK
-	M2bfbNCtfVSJhyJZG0384QC/lV8A5Ge4YIM9mA/EdEqKg7GkA6iYsSx6gY2RLsLeOn5trGs0GI8n3
-	0hmlonO7L0Nr1R479UBiPmtBUBx/JTjZVj6u/0W17Uz/hvqmBw9Qu759P04hdvxSJL/K1ZQ6OLMxt
-	tm85IP+hZes4RDjm/gNsHkB8hxCF0IfF82/hcltQXoxOgznwZgmdYEJlj71bHYkShsYkCsfRuEG5a
-	KpEDpqnuQ==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=lylIWH8c0xRXF3GZFvRxMAEDbNiX/CwNSyIQAs9WYBc=; b=fiWnk0PNn2gr6KN2C9gYLQnI4
+	AkjkDbV9aUsuEYv2cOfLE+yL0OeMKcYc9OTFZL34DwVXP+xbCWmXdkkMR4FmEeK5BtAr0NQOkEDKH
+	1WxH7EyHaxdHOwOasJiB3A97HOWe8PjweWrCpcFKH/h5KcMudy/N6FTVWUjo5RdH9/HEKL8WFV3iQ
+	hezlv9F59lHD8D3J48Y9h/YKQ2d/TKg0ejxmX+whE0dJWs3QqeH2DDHqnffie+XQB3jxvHjZHvGhO
+	O4swazmr+oZOyIjFozxu1NDEqRNtCXlRK457ESA5sCZ9JnlS5KVpJjtkWo14sTpNqdBWI489roeDH
+	2YR4GMmng==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJqKC-005zn2-SN; Wed, 10 Mar 2021 04:19:56 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1lJqdM-0060do-Q4; Wed, 10 Mar 2021 04:39:44 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJqK1-005zmD-0d
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 04:19:47 +0000
-Received: by mail-wr1-x430.google.com with SMTP id u14so20867987wri.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 20:19:44 -0800 (PST)
+ id 1lJqcs-0060Zy-Lu
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 04:39:19 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id c16so7870202ply.0
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 20:39:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=/p0KuSPe4AewqG1pG39BWFzJEi5DTd/uGT8+3t0pQ4s=;
- b=wzSOWnFqoa+NuVB4+F33FDM9Uy0WyHMqhhjElM7FyAAMNWbxEnRiRlsoY5O7Et2eBL
- CSV5hAf3l0XTGGv8dTwGo/Jk+f78zd0x/7X/X6pWgRHSmg/+zVyBCU+o1T4cq8yhvw0z
- 3YdHIXKOQS6MqSuVZ4Gf/DVGX51+OSlyuETJUkt186kvPJ9xhGRrEeOLHroxnzAPVaKN
- 598UwszJRzw+F16sTqUnW7c21eW/QQe+qjZouLl832JJ8VN5UzApGL/6I71D0kZEOscP
- XDP+6MS+rXaBN9h3vPzdlrWGRWfGAa4MjMTKNhZ95VNobjHRSHn0av4RIF2uXuitE0Vl
- JBhw==
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6pvTeopMKfMzpOHniPqNbn4Xb8JVpmpRQHVDJ/FMFSs=;
+ b=BolWxSsOr9u11lbeuvWSrObCwnH9P/Thh2e7ozTwGAHXuuaUoR5VjWA+i8cBxQD8K6
+ gh8v8G3a9yXR79wnXK/BNT2laLdsZvWGMLfFzLL/eTX61lEvFF1r1KMOlF6LPCd/5ow5
+ 7xvTVOm0rXEnAimnYtkUrBcHLteGs3djFBBuPdPcgik90SqVvRs9/NTb9Il91Y2bIZBc
+ Tqg0aTvljabsl68LNht4j7GLt+g5083HxGLm1Ix6GhgsBuLmH+aeQIxKnqOTE14upMoD
+ m2LvoVWLyvFmEACN0LzK4/m79lIYTxbFkA4j4YBaOFGF/2bZ/4KBCgKYgD/PMYv7G8XD
+ nAFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=/p0KuSPe4AewqG1pG39BWFzJEi5DTd/uGT8+3t0pQ4s=;
- b=Ax3AsMsBwANkeYWRl7Thl0sbC0k6shzhMFlj3NYxXFXL/usZD/8EDijwVWVCCjB3tx
- KrIWYSJiv6o3pCiQ+NqrwOm+5mXjfM/8hyOO20998ExqPyIWzRxuFEyPJczn1vUlYhss
- /bYjx7FtAUqUgvGFA3kTE6yVuksQHTWVKIEJ6lAMbEKN8lMqjqX1v0Fnzs9apowxmLte
- HzwLVbwfVRVQ3wL6JItYojYubR1lLkaG4vsv8k+5cPvm3JRUYpk2r9rBXE+tkyHUV8nx
- KytLG5lGvf2/9g8ubZpb8wvQIUlzV6akcNYsDFZVnc/NuTWpkn7qnW51aNdK4DJrbHpN
- Sx0A==
-X-Gm-Message-State: AOAM533uYUZcHLh5gLBmAQSNeASWxIFaMA+fY3/PU6ca5IzegWOLkJGN
- vwlX/3Y5K1/TJr3uzDqYXPENZ0kpTJMS5Nc+dKC5Lw==
-X-Google-Smtp-Source: ABdhPJwuCSK4f2a+l4f8GIZ/CJCl/ameu8S9lv1R6o/2kFPYQA/m+ZJ9odXGzgKg/6WMvkhYdb53GzUPC2qkrJ+N04k=
-X-Received: by 2002:adf:8545:: with SMTP id 63mr1197067wrh.128.1615349983905; 
- Tue, 09 Mar 2021 20:19:43 -0800 (PST)
-MIME-Version: 1.0
-References: <20210301115833.382364-1-anup.patel@wdc.com>
- <mhng-c42c46e0-4715-4630-9a28-02a1515dbcb0@penguin>
-In-Reply-To: <mhng-c42c46e0-4715-4630-9a28-02a1515dbcb0@penguin>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 10 Mar 2021 09:49:32 +0530
-Message-ID: <CAAhSdy2EHpbXXzA_7C4kvdmkkfX=G2jarARv3eimp3oQ+ywUvg@mail.gmail.com>
-Subject: Re: [PATCH v4] RISC-V: Use SBI SRST extension when available
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <Atish.Patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=6pvTeopMKfMzpOHniPqNbn4Xb8JVpmpRQHVDJ/FMFSs=;
+ b=LZDCBiAaSnMRDIZxpP9Ra8DSaeP9E0m+hvFRY66Bu+0LqL1ughIF6LNm2Ie+IzGGYy
+ 2dTPymufmjCeEBSy1zRLvadCJKNtdXfAs59f6vW64vZLJq/lYC4X2uK6lD4udndcd8of
+ rxrNpcfD6EXvGuZPpoMFBj6WGwxy69Gp9oi4i9TQ2yaTMptrcLihGx+r9hKFiR5xWNGW
+ u385uqcWXzwQYt1iHg6Cj2/LZioO4idfQGiuFeg31YIw9qyWTZbYNZ0IzFtV1JcZ8LN+
+ 8vucHZKa7MHh4aSK5t/seTczxir3EZM5LisQDFzpNu3IrCzv+SFK4rzRGI1T6Ibt3uQn
+ kjYw==
+X-Gm-Message-State: AOAM531H5rBWjap3A3aJ6lvRkMPEgLWNccuGCJIfSEH2UIfucUgct6cQ
+ 83fNx0S9AYQ52Vzs2NV4uJf+gcct5CRUbw==
+X-Google-Smtp-Source: ABdhPJwq5Ufv6gjsH1VHicWNjRY7SmIf0gx4DRNeKgUPS0VrCsbhTIwGl6UnhYDTbTk8DOrZYTpW6Q==
+X-Received: by 2002:a17:903:189:b029:e5:d7c3:a264 with SMTP id
+ z9-20020a1709030189b02900e5d7c3a264mr1184709plg.6.1615351153032; 
+ Tue, 09 Mar 2021 20:39:13 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id j17sm12917517pfn.70.2021.03.09.20.39.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 09 Mar 2021 20:39:12 -0800 (PST)
+Date: Tue, 09 Mar 2021 20:39:12 -0800 (PST)
+X-Google-Original-Date: Tue, 09 Mar 2021 19:42:35 PST (-0800)
+Subject: Re: [RFC patch 2/4] riscv: Get CPU manufacturer information
+In-Reply-To: <1615175897-23509-3-git-send-email-vincent.chen@sifive.com>
+CC: linux-riscv@lists.infradead.org, Frank.Zhao@starfivetech.com,
+ Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
+ guoren@kernel.org, alankao@andestech.com, 
+ Paul Walmsley <paul.walmsley@sifive.com>, vincent.chen@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: vincent.chen@sifive.com
+Message-ID: <mhng-ce914c4e-9a1d-4ea5-b034-38fca5abb8fc@penguin>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_041945_250497_A1F4270F 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20210310_043917_451864_1E5936E9 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,159 +97,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 10, 2021 at 8:31 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Sun, 07 Mar 2021 19:58:15 PST (-0800), vincent.chen@sifive.com wrote:
+> Issue 3 SBI calls to get the vendor ID, architecture ID and implementation
+> ID early in boot so we only need to take the SBI call overhead once.
 >
-> On Mon, 01 Mar 2021 03:58:33 PST (-0800), Anup Patel wrote:
-> > The SBI SRST extension provides a standard way to poweroff and
-> > reboot the system irrespective to whether Linux RISC-V S-mode
-> > is running natively (HS-mode) or inside Guest/VM (VS-mode).
-> >
-> > The SBI SRST extension is available in latest SBI v0.3-draft
-> > specification at: https://github.com/riscv/riscv-sbi-doc.
-> >
-> > This patch extends Linux RISC-V SBI implementation to detect
-> > and use SBI SRST extension.
-> >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> >  arch/riscv/include/asm/sbi.h | 16 ++++++++++++++
-> >  arch/riscv/kernel/sbi.c      | 41 +++++++++++++++++++++++++++++++++---
-> >  2 files changed, 54 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 99895d9c3bdd..8add0209c9c7 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -27,6 +27,7 @@ enum sbi_ext_id {
-> >       SBI_EXT_IPI = 0x735049,
-> >       SBI_EXT_RFENCE = 0x52464E43,
-> >       SBI_EXT_HSM = 0x48534D,
-> > +     SBI_EXT_SRST = 0x53525354,
-> >  };
-> >
-> >  enum sbi_ext_base_fid {
-> > @@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
-> >       SBI_HSM_HART_STATUS_STOP_PENDING,
-> >  };
-> >
-> > +enum sbi_ext_srst_fid {
-> > +     SBI_EXT_SRST_RESET = 0,
-> > +};
-> > +
-> > +enum sbi_srst_reset_type {
-> > +     SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
-> > +     SBI_SRST_RESET_TYPE_COLD_REBOOT,
-> > +     SBI_SRST_RESET_TYPE_WARM_REBOOT,
-> > +};
-> > +
-> > +enum sbi_srst_reset_reason {
-> > +     SBI_SRST_RESET_REASON_NONE = 0,
-> > +     SBI_SRST_RESET_REASON_SYS_FAILURE,
-> > +};
-> > +
-> >  #define SBI_SPEC_VERSION_DEFAULT     0x1
-> >  #define SBI_SPEC_VERSION_MAJOR_SHIFT 24
-> >  #define SBI_SPEC_VERSION_MAJOR_MASK  0x7f
-> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> > index f4a7db3d309e..49155588e56c 100644
-> > --- a/arch/riscv/kernel/sbi.c
-> > +++ b/arch/riscv/kernel/sbi.c
-> > @@ -7,6 +7,7 @@
-> >
-> >  #include <linux/init.h>
-> >  #include <linux/pm.h>
-> > +#include <linux/reboot.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/smp.h>
-> >
-> > @@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
-> >  }
-> >  EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
-> >
-> > +static void sbi_srst_reset(unsigned long type, unsigned long reason)
-> > +{
-> > +     sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
-> > +               0, 0, 0, 0);
-> > +     pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
-> > +             __func__, type, reason);
-> > +}
-> > +
-> > +static int sbi_srst_reboot(struct notifier_block *this,
-> > +                        unsigned long mode, void *cmd)
-> > +{
-> > +     sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-> > +                    SBI_SRST_RESET_TYPE_WARM_REBOOT :
-> > +                    SBI_SRST_RESET_TYPE_COLD_REBOOT,
-> > +                    SBI_SRST_RESET_REASON_NONE);
-> > +     return NOTIFY_DONE;
-> > +}
-> > +
-> > +static struct notifier_block sbi_srst_reboot_nb;
-> > +
-> > +static void sbi_srst_power_off(void)
-> > +{
-> > +     sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
-> > +                    SBI_SRST_RESET_REASON_NONE);
-> > +}
-> > +
-> >  /**
-> >   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-> >   * @extid: The extension ID to be probed.
-> > @@ -577,22 +604,30 @@ void __init sbi_init(void)
-> >                       sbi_get_firmware_id(), sbi_get_firmware_version());
-> >               if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
-> >                       __sbi_set_timer = __sbi_set_timer_v02;
-> > -                     pr_info("SBI v0.2 TIME extension detected\n");
-> > +                     pr_info("SBI TIME extension detected\n");
-> >               } else {
-> >                       __sbi_set_timer = __sbi_set_timer_v01;
-> >               }
-> >               if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
-> >                       __sbi_send_ipi  = __sbi_send_ipi_v02;
-> > -                     pr_info("SBI v0.2 IPI extension detected\n");
-> > +                     pr_info("SBI IPI extension detected\n");
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> ---
+>  arch/riscv/include/asm/csr.h       |  3 +++
+>  arch/riscv/include/asm/hwcap.h     |  6 ++++++
+>  arch/riscv/include/asm/processor.h |  2 ++
+>  arch/riscv/include/asm/soc.h       |  1 +
+>  arch/riscv/kernel/cpufeature.c     | 17 +++++++++++++++++
+>  arch/riscv/kernel/setup.c          |  2 ++
+>  arch/riscv/kernel/soc.c            |  1 +
+>  7 files changed, 32 insertions(+)
 >
-> These aren't really part of the reset stuff and should be split into a separate
-> patch.
-
-Yes, this should be in a separate patch. Thanks for catching.
-
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index caadfc1d7487..87ac65696871 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -115,6 +115,9 @@
+>  #define CSR_MIP			0x344
+>  #define CSR_PMPCFG0		0x3a0
+>  #define CSR_PMPADDR0		0x3b0
+> +#define CSR_MVENDORID		0xf11
+> +#define CSR_MARCHID		0xf12
+> +#define CSR_MIMPID		0xf13
+>  #define CSR_MHARTID		0xf14
 >
-> >               } else {
-> >                       __sbi_send_ipi  = __sbi_send_ipi_v01;
-> >               }
-> >               if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
-> >                       __sbi_rfence    = __sbi_rfence_v02;
-> > -                     pr_info("SBI v0.2 RFENCE extension detected\n");
-> > +                     pr_info("SBI RFENCE extension detected\n");
-> >               } else {
-> >                       __sbi_rfence    = __sbi_rfence_v01;
-> >               }
-> > +             if (sbi_probe_extension(SBI_EXT_SRST) > 0 &&
-> > +                 sbi_minor_version() >= 3) {
-> > +                     pr_info("SBI SRST extension detected\n");
-> > +                     pm_power_off = sbi_srst_power_off;
-> > +                     sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-> > +                     sbi_srst_reboot_nb.priority = 192;
-> > +                     register_restart_handler(&sbi_srst_reboot_nb);
-> > +             }
-> >       } else {
-> >               __sbi_set_timer = __sbi_set_timer_v01;
-> >               __sbi_send_ipi  = __sbi_send_ipi_v01;
+>  #ifdef CONFIG_RISCV_M_MODE
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 5ce50468aff1..b7409487c9d2 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -44,6 +44,12 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
+>  #define riscv_isa_extension_available(isa_bitmap, ext)	\
+>  	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
 >
-> This is fine, but I don't want to take things for draft SBI versions until
-> they're at least tagged.
+> +struct cpu_manufacturer_info_t {
+> +	unsigned long vendor_id;
+> +	unsigned long arch_id;
+> +	unsigned long imp_id;
+> +};
+> +
+>  #endif
+>
+>  #endif /* _ASM_RISCV_HWCAP_H */
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 3a240037bde2..4e11a9621d14 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -72,6 +72,8 @@ int riscv_of_parent_hartid(struct device_node *node);
+>
+>  extern void riscv_fill_hwcap(void);
+>
+> +void riscv_fill_cpu_manufacturer_info(void);
+> +
+>  #endif /* __ASSEMBLY__ */
+>
+>  #endif /* _ASM_RISCV_PROCESSOR_H */
+> diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+> index f494066051a2..03dee6db404c 100644
+> --- a/arch/riscv/include/asm/soc.h
+> +++ b/arch/riscv/include/asm/soc.h
+> @@ -10,6 +10,7 @@
+>  #include <linux/of.h>
+>  #include <linux/linkage.h>
+>  #include <linux/types.h>
+> +#include <asm/hwcap.h>
+>
+>  #define SOC_EARLY_INIT_DECLARE(name, compat, fn)			\
+>  	static const struct of_device_id __soc_early_init__##name	\
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index ac202f44a670..389162ee19ea 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -12,6 +12,8 @@
+>  #include <asm/hwcap.h>
+>  #include <asm/smp.h>
+>  #include <asm/switch_to.h>
+> +#include <asm/sbi.h>
+> +#include <asm/csr.h>
+>
+>  unsigned long elf_hwcap __read_mostly;
+>
+> @@ -22,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+>  bool has_fpu __read_mostly;
+>  #endif
+>
+> +struct cpu_manufacturer_info_t cpu_mfr_info;
+> +
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+>   *
+> @@ -149,3 +153,16 @@ void riscv_fill_hwcap(void)
+>  		has_fpu = true;
+>  #endif
+>  }
+> +
+> +void riscv_fill_cpu_manufacturer_info(void)
+> +{
+> +#ifndef CONFIG_RISCV_M_MODE
+> +	cpu_mfr_info.vendor_id = sbi_get_vendorid();
+> +	cpu_mfr_info.arch_id = sbi_get_archid();
+> +	cpu_mfr_info.imp_id = sbi_get_impid();
+> +#else
+> +	cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
+> +	cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
+> +	cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
+> +#endif
+> +}
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index e85bacff1b50..03621ce9092c 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -278,6 +278,8 @@ void __init setup_arch(char **cmdline_p)
+>  #endif
+>
+>  	riscv_fill_hwcap();
+> +
+> +	riscv_fill_cpu_manufacturer_info();
+>  }
+>
+>  static int __init topology_init(void)
+> diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+> index a0516172a33c..58f6fd91743a 100644
+> --- a/arch/riscv/kernel/soc.c
+> +++ b/arch/riscv/kernel/soc.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/libfdt.h>
+>  #include <linux/pgtable.h>
+>  #include <asm/soc.h>
+> +#include <asm/hwcap.h>
+>
+>  /*
+>   * This is called extremly early, before parse_dtb(), to allow initializing
 
-Sure, no problem. The SBI v0.3-rc1 release is quite close so hopefully
-in next 1-2 months it will be tagged.
-
-Regards,
-Anup
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
 _______________________________________________
 linux-riscv mailing list
