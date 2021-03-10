@@ -2,91 +2,80 @@ Return-Path: <SRS0=/0GP=II=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 859BCC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E12E0C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:51:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 237A364FA0
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:39:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 237A364FA0
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5E20864FD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Mar 2021 02:51:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E20864FD2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=LnWa9NONXOe4o+SquW1yr9HP2dLZ8bU5Ijd8R8uXZMY=; b=DNB3cZfMPjImtSqHgws/1X4Cy
-	xLe/DK8wZESQR6wf7g2gmOz/YIV9OU8H5V3WAsNBkKIHCAvdWyFsEfLLw0pRyYmBtKA0oZMLWeTao
-	GeosWSM4n0yOWVkgx5gA03ZwYEWRRlVy9fL5slmoEP3ALIqduGCoOwOU2BSNKdaq0OvkOTLusu1kV
-	uyHFHrz3uQvifmgs0go+tBGR+MadMhhUlptxq3nm52DNvs556cZp6ZscHilU6K7aIgAsc4U48YV8O
-	P7G8tiBY2noEM3iHDjN3UaJsGG7XjQFFafqm46rZywx2jv8mQk7UlK4AZBj2Lo0sazxGC4sztwQAo
-	lnyUJKzuQ==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=+vCEiwTHzFZtfK03ESpUETMdPjtkaNcpF+hra1ofxjo=; b=riJyq7G/0ELgxsnNQmBXfT/cg
+	DzSUv5d3H+Lfsf1Bea416NUGPkGMOwjRUNsLUbaK1tP7c7LVFwU3SieX2kK4buoMNAajh2fbOVDaF
+	ZDbWLXf7O9pA2hsFF9GGyimSrkyNIsQbnLouer0PXeS+yQ0c9vZ/5TkmerG4Rjxt6v4CfMX0PqkpB
+	bnR7UQNjNZVY6sgMjYUI6ZzkoQtCsakvve2c8EL/6MpwOR5cb+rGBi2PmfirZ4wqiFduUaz6AyGMt
+	WTSf9JStekcOKxdw7xQqYUPvmTCmQxaV+lZnhfQrW1wowzBhnXCViP9zXJQPs7xIxOVj45NORfK9g
+	j2EhrQEgA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lJoke-005osW-Gp; Wed, 10 Mar 2021 02:39:11 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1lJowS-005pry-19; Wed, 10 Mar 2021 02:51:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lJojJ-005opF-Dy
- for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 02:38:12 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id
- q2-20020a17090a2e02b02900bee668844dso6385063pjd.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 18:37:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=UzABH8OfIDY+zUaaqIGMBSk5x3QjktoUn2udOPEAyJA=;
- b=S7p9K2Sy1JxHl14DlBQp08dPZfGedwIVcjfnsSdw6cX2LLEgqbJehT2sj8P2+Vu6h4
- OH4t3QtZMqqc8s2ld63L/KZhdp75/hnq9nuZW95Lq2npqwKVZFoUN9mt3vqKmrLAcbbD
- vRvrWvXtEvTzUAy7/l8z/Ftek6NZIivu7APlEaJ/JaVPAeqyYYsVsF9ZkYW2w8b0bQ/9
- xntuxhijdbCm4s+I/92WE2ob+0w7v9unuJZyPE5kNVt/FrsqI8tcVngntTMsG8TnnePE
- glkHCO1Chq0OvX3IpZnQ2u2W6wfAJXhWhBzeVw8vJYSbXtVBtuRFIqNXOsU2HollS4D1
- REzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=UzABH8OfIDY+zUaaqIGMBSk5x3QjktoUn2udOPEAyJA=;
- b=cGCnaBzDxYpVBgWSbIN1VlFpE/HDIxlP2um1eKDzXos4nQsk3efNTKuv4WW3JZeFKY
- wAGJqVimoTwC36cSRsAMQk8NQR+dGjhEZ+Fm9jxMm5t0KHCwI18DX/msWgJ9gV0wejK3
- UKc+k1rRfN3zGiVOHd2cUwjcTZkDahIcqlLwK/d4EaBjeG/GeiyzJjR62r6fn9BI2oVl
- xmWvYB0Ct7sYUGdwDyWWqPpFbE1jN+QShtfkCC0rAeLCLrIPKAY9oCeiZqCzfktt6ub0
- B78XRELei1cYIfkVBbilMGdbz6g5FXkA5CwFO4WngrljYtQSrgdHW3W9BPVCstP9RX98
- qwiA==
-X-Gm-Message-State: AOAM532PqvSD0GslbTU6u0P0LfpdTMU53ngGFIvG6f1+41Q1r64VmMsy
- KEW8P90STqoDv1tAi+SwfeSdQt5J5369vQ==
-X-Google-Smtp-Source: ABdhPJxuo7XbxYy02Dmd4tSy6hXdRwotPNq7rhbVP4gZ7CcP78+gYq8feEuqDD8nOpRdsuTnU06P0A==
-X-Received: by 2002:a17:902:9001:b029:e6:2e56:8b0d with SMTP id
- a1-20020a1709029001b02900e62e568b0dmr1038347plp.31.1615343863808; 
- Tue, 09 Mar 2021 18:37:43 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id s194sm14383714pfs.57.2021.03.09.18.37.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Mar 2021 18:37:43 -0800 (PST)
-Date: Tue, 09 Mar 2021 18:37:43 -0800 (PST)
-X-Google-Original-Date: Tue, 09 Mar 2021 18:37:24 PST (-0800)
-Subject: Re: [PATCH v2] riscv: Improve KASAN_VMALLOC support
-In-Reply-To: <20210226180154.31533-1-alex@ghiti.fr>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- nylon7@andestech.com, nickhu@andestech.com, aryabinin@virtuozzo.com,
- glider@google.com, dvyukov@google.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, alex@ghiti.fr
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-a1ab9e7a-d992-4432-badc-02cc788b1ace@penguin>
-Mime-Version: 1.0 (MHng)
+ id 1lJowK-005ppz-3o
+ for linux-riscv@lists.infradead.org; Wed, 10 Mar 2021 02:51:14 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8883D64FD8
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Mar 2021 02:51:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1615344668;
+ bh=Mv3izmttCIaxZNBg6j5KK8G+uj2RacC7Xfy+14CSweQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=WNxa9n62Du0xP2TsfnU8xpj8Lxr7FTojC+50A95Wh/ydcPjxBEDDXCzKxTaeCSFfc
+ Y27u4HQoiNihpIz1DLAuqdKyl2tGKNKauVU31BtoYXuEtB9p7k3Bl7DIpMpYDSyzKr
+ oZdaK41+QSIlIzDFKxFCxvA8+BATqrBLqlIapjL6NTZg5R8jcEgevSXKSPnkJfQju3
+ TsVubnppcihivMs06sxH+h5EmRBFJwSoy59zVoW1XzNB5iQPafVJvCNXaMHFIeuqUp
+ S/+HvwOMtFrjn2QihAcxVt8a3w9y5cR3oCI8wZ5FftSXzXeE6NQdvQBUcY5XQtnBsr
+ 2Rz6eFtpdUhCw==
+Received: by mail-lf1-f45.google.com with SMTP id f1so30885557lfu.3
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Mar 2021 18:51:08 -0800 (PST)
+X-Gm-Message-State: AOAM530T2zonI43Vz0efVdfVOnxU/Kl86L60CGCsMvr4WwEi/92nsWrS
+ 94/Dor4Oee7B1YXlOnFQwtA31fdcW9ZHAI0Qhgk=
+X-Google-Smtp-Source: ABdhPJzO/BFxC8uelophGBVWN1zoKWY9IDrxq+wLKRXh5UefdsmELmTMLa6Db5w7YTPtQ9T1I2wxxNOSjvAPL0bWKLg=
+X-Received: by 2002:a05:6512:2288:: with SMTP id
+ f8mr696968lfu.346.1615344666746; 
+ Tue, 09 Mar 2021 18:51:06 -0800 (PST)
+MIME-Version: 1.0
+References: <1615175897-23509-1-git-send-email-vincent.chen@sifive.com>
+ <1615175897-23509-3-git-send-email-vincent.chen@sifive.com>
+ <CAJF2gTR6e2=mL3BUt-QDt21RxJdxEPa7b+MMJ7TsDmmnDHCu1w@mail.gmail.com>
+ <CAAhSdy1skWAbBJGukg-mu4kFaknn56meVi5PbbW4fCoaKGopKg@mail.gmail.com>
+In-Reply-To: <CAAhSdy1skWAbBJGukg-mu4kFaknn56meVi5PbbW4fCoaKGopKg@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 10 Mar 2021 10:50:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTS1ygz+q-MfmZ-0K6wEg4MnUQTcudqw389f_hRSmzUgbQ@mail.gmail.com>
+Message-ID: <CAJF2gTS1ygz+q-MfmZ-0K6wEg4MnUQTcudqw389f_hRSmzUgbQ@mail.gmail.com>
+Subject: Re: [RFC patch 2/4] riscv: Get CPU manufacturer information
+To: Anup Patel <anup@brainfault.org>
+Cc: Vincent Chen <vincent.chen@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Frank.Zhao@starfivetech.com, 
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>, 
+ Alan Kao <alankao@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210310_023758_510668_6AEF481B 
-X-CRM114-Status: GOOD (  31.66  )
+X-CRM114-CacheID: sfid-20210310_025112_623936_08B539D4 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,130 +87,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Feb 2021 10:01:54 PST (-0800), alex@ghiti.fr wrote:
-> When KASAN vmalloc region is populated, there is no userspace process and
-> the page table in use is swapper_pg_dir, so there is no need to read
-> SATP. Then we can use the same scheme used by kasan_populate_p*d
-> functions to go through the page table, which harmonizes the code.
->
-> In addition, make use of set_pgd that goes through all unused page table
-> levels, contrary to p*d_populate functions, which makes this function work
-> whatever the number of page table levels.
->
-> And finally, make sure the writes to swapper_pg_dir are visible using
-> an sfence.vma.
+Got it. Thx
 
-So I think this is actually a bug: without the fence we could get a 
-kasan-related fault at any point (as the mappings might not be visible yet), 
-and if we get one when inside do_page_fault() (or while holding a lock it 
-wants) we'll end up deadlocking against ourselves.  That'll probably never 
-happen in practice, but it'd still be good to get the fence onto fixes.  The 
-rest are cleanups, they're for for-next (and should probably be part of your 
-sv48 series, if you need to re-spin it -- I'll look at that next).
+On Tue, Mar 9, 2021 at 1:11 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Tue, Mar 9, 2021 at 6:58 AM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > Hi Vincent,
+> >
+> > On Mon, Mar 8, 2021 at 11:58 AM Vincent Chen <vincent.chen@sifive.com> wrote:
+> > >
+> > > Issue 3 SBI calls to get the vendor ID, architecture ID and implementation
+> > > ID early in boot so we only need to take the SBI call overhead once.
+> > >
+> > > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> > > ---
+> > >  arch/riscv/include/asm/csr.h       |  3 +++
+> > >  arch/riscv/include/asm/hwcap.h     |  6 ++++++
+> > >  arch/riscv/include/asm/processor.h |  2 ++
+> > >  arch/riscv/include/asm/soc.h       |  1 +
+> > >  arch/riscv/kernel/cpufeature.c     | 17 +++++++++++++++++
+> > >  arch/riscv/kernel/setup.c          |  2 ++
+> > >  arch/riscv/kernel/soc.c            |  1 +
+> > >  7 files changed, 32 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> > > index caadfc1d7487..87ac65696871 100644
+> > > --- a/arch/riscv/include/asm/csr.h
+> > > +++ b/arch/riscv/include/asm/csr.h
+> > > @@ -115,6 +115,9 @@
+> > >  #define CSR_MIP                        0x344
+> > >  #define CSR_PMPCFG0            0x3a0
+> > >  #define CSR_PMPADDR0           0x3b0
+> > > +#define CSR_MVENDORID          0xf11
+> > > +#define CSR_MARCHID            0xf12
+> > > +#define CSR_MIMPID             0xf13
+> > >  #define CSR_MHARTID            0xf14
+> > >
+> > >  #ifdef CONFIG_RISCV_M_MODE
+> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > > index 5ce50468aff1..b7409487c9d2 100644
+> > > --- a/arch/riscv/include/asm/hwcap.h
+> > > +++ b/arch/riscv/include/asm/hwcap.h
+> > > @@ -44,6 +44,12 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
+> > >  #define riscv_isa_extension_available(isa_bitmap, ext) \
+> > >         __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
+> > >
+> > > +struct cpu_manufacturer_info_t {
+> > > +       unsigned long vendor_id;
+> > > +       unsigned long arch_id;
+> > > +       unsigned long imp_id;
+> > > +};
+> > > +
+> > >  #endif
+> > >
+> > >  #endif /* _ASM_RISCV_HWCAP_H */
+> > > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> > > index 3a240037bde2..4e11a9621d14 100644
+> > > --- a/arch/riscv/include/asm/processor.h
+> > > +++ b/arch/riscv/include/asm/processor.h
+> > > @@ -72,6 +72,8 @@ int riscv_of_parent_hartid(struct device_node *node);
+> > >
+> > >  extern void riscv_fill_hwcap(void);
+> > >
+> > > +void riscv_fill_cpu_manufacturer_info(void);
+> > > +
+> > >  #endif /* __ASSEMBLY__ */
+> > >
+> > >  #endif /* _ASM_RISCV_PROCESSOR_H */
+> > > diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+> > > index f494066051a2..03dee6db404c 100644
+> > > --- a/arch/riscv/include/asm/soc.h
+> > > +++ b/arch/riscv/include/asm/soc.h
+> > > @@ -10,6 +10,7 @@
+> > >  #include <linux/of.h>
+> > >  #include <linux/linkage.h>
+> > >  #include <linux/types.h>
+> > > +#include <asm/hwcap.h>
+> > >
+> > >  #define SOC_EARLY_INIT_DECLARE(name, compat, fn)                       \
+> > >         static const struct of_device_id __soc_early_init__##name       \
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > > index ac202f44a670..389162ee19ea 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -12,6 +12,8 @@
+> > >  #include <asm/hwcap.h>
+> > >  #include <asm/smp.h>
+> > >  #include <asm/switch_to.h>
+> > > +#include <asm/sbi.h>
+> > > +#include <asm/csr.h>
+> > >
+> > >  unsigned long elf_hwcap __read_mostly;
+> > >
+> > > @@ -22,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+> > >  bool has_fpu __read_mostly;
+> > >  #endif
+> > >
+> > > +struct cpu_manufacturer_info_t cpu_mfr_info;
+> > > +
+> > >  /**
+> > >   * riscv_isa_extension_base() - Get base extension word
+> > >   *
+> > > @@ -149,3 +153,16 @@ void riscv_fill_hwcap(void)
+> > >                 has_fpu = true;
+> > >  #endif
+> > >  }
+> > > +
+> > > +void riscv_fill_cpu_manufacturer_info(void)
+> > > +{
+> > > +#ifndef CONFIG_RISCV_M_MODE
+> > > +       cpu_mfr_info.vendor_id = sbi_get_vendorid();
+> > > +       cpu_mfr_info.arch_id = sbi_get_archid();
+> > > +       cpu_mfr_info.imp_id = sbi_get_impid();
+> > > +#else
+> > > +       cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
+> > > +       cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
+> > > +       cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
+> > > +#endif
+> > How about let opensbi emulate csr_read(CSR_MXXX) for S mode, then we
+> > needn't to define new sbi call.
+>
+> Accessing M-mode CSRs from the S-mode kernel will only make things
+> complicated for hypervisors because now hypervisors will also end-up
+> emulating M-mode CSRs.
+>
+> Best would be to only access S-mode CSRs and SBI calls from
+> S-mode kernel.
+>
+> >
+> > > +}
+> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > > index e85bacff1b50..03621ce9092c 100644
+> > > --- a/arch/riscv/kernel/setup.c
+> > > +++ b/arch/riscv/kernel/setup.c
+> > > @@ -278,6 +278,8 @@ void __init setup_arch(char **cmdline_p)
+> > >  #endif
+> > >
+> > >         riscv_fill_hwcap();
+> > > +
+> > > +       riscv_fill_cpu_manufacturer_info();
+> > >  }
+> > >
+> > >  static int __init topology_init(void)
+> > > diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+> > > index a0516172a33c..58f6fd91743a 100644
+> > > --- a/arch/riscv/kernel/soc.c
+> > > +++ b/arch/riscv/kernel/soc.c
+> > > @@ -6,6 +6,7 @@
+> > >  #include <linux/libfdt.h>
+> > >  #include <linux/pgtable.h>
+> > >  #include <asm/soc.h>
+> > > +#include <asm/hwcap.h>
+> > >
+> > >  /*
+> > >   * This is called extremly early, before parse_dtb(), to allow initializing
+> > > --
+> > > 2.7.4
+> > >
+> > How
+> >
+> > --
+> > Best Regards
+> >  Guo Ren
+> >
+> > ML: https://lore.kernel.org/linux-csky/
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-LMK if you want to split this up, or if you want me to do it.  Either way,
 
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
-Thanks!
+-- 
+Best Regards
+ Guo Ren
 
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->
-> Changes in v2:
-> - Quiet kernel test robot warnings about missing prototypes by declaring
->   the introduced functions as static.
->
->  arch/riscv/mm/kasan_init.c | 61 +++++++++++++-------------------------
->  1 file changed, 20 insertions(+), 41 deletions(-)
->
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index e3d91f334b57..aaa3bdc0ffc0 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -11,18 +11,6 @@
->  #include <asm/fixmap.h>
->  #include <asm/pgalloc.h>
->
-> -static __init void *early_alloc(size_t size, int node)
-> -{
-> -	void *ptr = memblock_alloc_try_nid(size, size,
-> -		__pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBLE, node);
-> -
-> -	if (!ptr)
-> -		panic("%pS: Failed to allocate %zu bytes align=%zx nid=%d from=%llx\n",
-> -			__func__, size, size, node, (u64)__pa(MAX_DMA_ADDRESS));
-> -
-> -	return ptr;
-> -}
-> -
->  extern pgd_t early_pg_dir[PTRS_PER_PGD];
->  asmlinkage void __init kasan_early_init(void)
->  {
-> @@ -155,38 +143,29 @@ static void __init kasan_populate(void *start, void *end)
->  	memset(start, KASAN_SHADOW_INIT, end - start);
->  }
->
-> -void __init kasan_shallow_populate(void *start, void *end)
-> +static void __init kasan_shallow_populate_pgd(unsigned long vaddr, unsigned long end)
->  {
-> -	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
-> -	unsigned long vend = PAGE_ALIGN((unsigned long)end);
-> -	unsigned long pfn;
-> -	int index;
-> +	unsigned long next;
->  	void *p;
-> -	pud_t *pud_dir, *pud_k;
-> -	pgd_t *pgd_dir, *pgd_k;
-> -	p4d_t *p4d_dir, *p4d_k;
-> -
-> -	while (vaddr < vend) {
-> -		index = pgd_index(vaddr);
-> -		pfn = csr_read(CSR_SATP) & SATP_PPN;
-> -		pgd_dir = (pgd_t *)pfn_to_virt(pfn) + index;
-> -		pgd_k = init_mm.pgd + index;
-> -		pgd_dir = pgd_offset_k(vaddr);
-> -		set_pgd(pgd_dir, *pgd_k);
-> -
-> -		p4d_dir = p4d_offset(pgd_dir, vaddr);
-> -		p4d_k  = p4d_offset(pgd_k, vaddr);
-> -
-> -		vaddr = (vaddr + PUD_SIZE) & PUD_MASK;
-> -		pud_dir = pud_offset(p4d_dir, vaddr);
-> -		pud_k = pud_offset(p4d_k, vaddr);
-> -
-> -		if (pud_present(*pud_dir)) {
-> -			p = early_alloc(PAGE_SIZE, NUMA_NO_NODE);
-> -			pud_populate(&init_mm, pud_dir, p);
-> +	pgd_t *pgd_k = pgd_offset_k(vaddr);
-> +
-> +	do {
-> +		next = pgd_addr_end(vaddr, end);
-> +		if (pgd_page_vaddr(*pgd_k) == (unsigned long)lm_alias(kasan_early_shadow_pmd)) {
-> +			p = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-> +			set_pgd(pgd_k, pfn_pgd(PFN_DOWN(__pa(p)), PAGE_TABLE));
->  		}
-> -		vaddr += PAGE_SIZE;
-> -	}
-> +	} while (pgd_k++, vaddr = next, vaddr != end);
-> +}
-> +
-> +static void __init kasan_shallow_populate(void *start, void *end)
-> +{
-> +	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
-> +	unsigned long vend = PAGE_ALIGN((unsigned long)end);
-> +
-> +	kasan_shallow_populate_pgd(vaddr, vend);
-> +
-> +	local_flush_tlb_all();
->  }
->
->  void __init kasan_init(void)
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
