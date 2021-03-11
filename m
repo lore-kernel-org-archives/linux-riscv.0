@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 652C3C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Mar 2021 16:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A8074C43381
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Mar 2021 16:48:15 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B979564FE2
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Mar 2021 16:48:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B979564FE2
+	by mail.kernel.org (Postfix) with ESMTPS id 0F6D564FF5
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Mar 2021 16:48:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F6D564FF5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,65 +24,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wN6D+o84jaa+H34cS9cCzKGTesP7NBowDngyVEOvI/I=; b=oGcwSSHEOC1x6QmPbixZRTrpS
-	qg6r9f5cZ4fHiQkb3JVY6zRbVeM6EsC+TFp03J+SMRZqFKrXB+nYTgG26PBcdTxW9j1WG+NotMiEQ
-	oCvD9u3GhcH7DavxJlI6CRMYjzyk10G/jIE5TnZDkV4CtWswVsbyPgFAYc2pI1a4QGN28XKfJV2tn
-	e5GbtGzTYMoghzV3rLL6T0rDb0mX/b41Q64jlDgnsNdw8XBu1bXKE4u5aNIj1Nk57ciK88nY2dSpz
-	CSfuFTRof6pogUdXjMyoGTtx3KlyX4zrzakjJQX6C0hpTX0H74fr5FGxQLDiXlM0Rk49urD580ark
-	EAgyDZGzA==;
+	 bh=a0JOpJ+Pk1kcv9iz2Uwin4q/nRiRdIb31+dBZAFmKWY=; b=WOvSVodaJwCKpjCb2gXSygYbu
+	FUtGmDXLZsAargT0LeCk0x+P6OT+uEoK2OZ4wpVFimNJcahqYFc/myQ6ngXu5OW0XBkxlsc1iYS2C
+	pnzb81xmvL7PZXFM4OA4L7JuD05jtIshjzgtJPYcAuFhi99M5KVHCNWHPg87DypwJsXeCl07YfFh2
+	4RrZTbcrwd2qkkNY5zcTD5kHbJdIy04WpIS+qCJgqcm66rSEAqH/tFxEAeD+QfQMuDrx8wwCBBZBB
+	jZzgtQmXneeZhqBkRIJ5smlB8JdiSBQeKLPZaB/dQz3Wjg/Tq7gHTHHh6VZi6LqgZ4mpToeKLHFe6
+	+LvIFFXZg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lKOTb-009bw8-Jw; Thu, 11 Mar 2021 16:47:55 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1lKOTh-009bxY-PI; Thu, 11 Mar 2021 16:48:01 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lKOTX-009buL-Pq
- for linux-riscv@lists.infradead.org; Thu, 11 Mar 2021 16:47:53 +0000
+ id 1lKOTc-009bw9-Gg
+ for linux-riscv@lists.infradead.org; Thu, 11 Mar 2021 16:47:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1615481271; x=1647017271;
+ t=1615481277; x=1647017277;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=jkbKSZvRwwjsXmYu1Ws9MweMMyO4gkhzwEKijSyT1hU=;
- b=SCTa6LEf8pzZy1hx/Tel7aAFGT1WF3Br/6tOEBcfN0oTTZZRQR++/mxC
- Gp6r+I+2aXSF5MUsgvBX6cjOXGQxeP2jat3W1HA9vHHXrOU3Z0OI2wNOH
- jWLE5Cf5Fn2yBmkNS5+61v04iz1jYHesgKMRKr1QV6gvVKMEUB2SdK8qM
- TDsXM1FySgmTEMxLI9A2eU3zXKfzVHAPf3Dn3iIGCAUqkCBOyyb41hnsv
- ZUSoced698YWhCwh4QmNAvE7s1239bA7FIBq7IaLvg+pYhn7FqagUAZF7
- i+Sd++jtjIhURi/+oEGZyMh7LJ7y47y/2x89DCePeB7iG/n64s1Xw8+uY w==;
-IronPort-SDR: p9fueH5b0bRLujo/jyoq7JptPsoqq0ZEu+R6ly66z43JNo6bYli3TZTIXeyxZfYZ+ddE/XmEP5
- l80j6Zgjbi0kET8TlsR0Np3Lrh1aybjpLdi8f8xmoJRE3nmJrHlvz7FwjZ2zGioCvAj2G1bgaB
- 2XnoUlVqzVXHS4buB9IO3MRgwfJGksjDOZ5rkd68hJnd6yFa7AEzvXxnE1wlPz4E4RERHTg6Xe
- t4/tA63nm0mmFwK07nv5i2LLLAR4FzAJ8Hoi9UfdFFiuzcJgpcSSsW+LY5EGOSaFTmzKFj6mG+
- FcQ=
-X-IronPort-AV: E=Sophos;i="5.81,241,1610380800"; d="scan'208";a="166429050"
-Received: from mail-co1nam04lp2050.outbound.protection.outlook.com (HELO
- NAM04-CO1-obe.outbound.protection.outlook.com) ([104.47.45.50])
- by ob1.hgst.iphmx.com with ESMTP; 12 Mar 2021 00:47:49 +0800
+ bh=p49YBvRt77kHU5iHzZps3D5w/Ox7oN4yAw2RiDzYMb0=;
+ b=JgHj5g3tb1hNnRjX1GimgFd5H5LixdpZdiCzjsgWwg+1n9kN6f2COJ42
+ 3W5bDbAVAihaVI15TVo2Nb8gymQeIKHxOOrdHnaZ/0JYKIEekpotLpeTw
+ sujjeJjvnorPxJzd+A7UTzivt5yhO/E/jheBQNZz9o85Go4M0zMx1kpCb
+ 7KODQplXq6a6wk/bM2p1OCGG4uCJEb/P7o1lAKnR5UJEemc6QD6cRT+3R
+ MgerBFtBRpLD3ahxY1qUtpqctzUDm5dOLzQURK1eS7zC07TbkDjyKxuys
+ GKyKeVIK2hyj2CW4SGC9Qfl2gQmooB/oGUFGJlhoz12kWtzLuAaDsfdB4 A==;
+IronPort-SDR: wW4BhPcCTCzCdjX6jnQeSXqhGr5EF5/wRY6CXj1ogy1jRO0+4rfk4x3qStMRLavjkmA0ET8wNx
+ Y/xGfBMJ2k/y9h2eOzhjGVhDPFfpgG0k5ua0eTlyIeZYqm+b47ZevcWC84pWMYTKAs5s3Da7sx
+ jQMYaGkLtMPhzc8KaxnvYemTHSD19vQizFjcUY5wjsOQri5Vgxt29co7zMAWepI5sF9MWnvOOE
+ orfRM6Dua4f3IICfbvYVd5pEey85CSW0ZajVW0PbOaGbI3ZdBEAhIUMEj5KRfMtLBo819MdBVe
+ Kpg=
+X-IronPort-AV: E=Sophos;i="5.81,241,1610380800"; d="scan'208";a="163089387"
+Received: from mail-bn7nam10lp2109.outbound.protection.outlook.com (HELO
+ NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.109])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Mar 2021 00:47:54 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=LVhdYLHx8tox7wiq9Eg8NoOqoFBu62n5EmdK+GParE8duI0Ka/Chr5QQW695Qa/OgMnXLh5mulB4BbU5C5JsnnSlJKvB5Nx8mE/AwFwsWuR1o6cK0MjXv4LwG5NGMcWJD2bPQ3GbE21u+rT2o1YrZWZdlofASB4H+SAiVgrwh27QI3JsB2q7lEIlxrVrgM1fG/mWxG7Yf570DpC51Qmr2ST4Ze3yfRBjeqzo1iz17Oa5LG9yAR/LVATIA0kZ1ddCr22AUsLvDGfSqumh8eoOJWDHyYWUJw47UNODceJ+LrhsJWGEzUf0/tgcdQmRvOxUW+OORLkotksQvOd+NrqfJw==
+ b=Ay4ERxtXFK/KM27k7sLzCjeV4U+X2rld8SHXjSIBMk4UypHqLVLqHzNU2mlh4TsObl0xxoFRLchw1QP/qfYcrM6uuH1LbLD4DGfu5EWQRDibGeVuYHNX11FO1omBHBJa+Bptao8zM3tIkhYucPNjyzCd2qUr+9IOexoCa2s5Fup0lpyMMLkCJ0iEzq42zeDOyG7VOnpWs8vJgk9xAXZKdAaRukMhcikLAAM6SktHkm15qqcU1CBMdd4/BbI1GyLxbldjGN8Nyabos7gAO0xzCjD/Efurnax9CSQBYzBrKERr+brNcE0wlBBk3hO5yH3qNzuIxDDwN44UiPjvebupqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Jtqet2fuPqM7Ms6NUR+wXwwQts7PJjG2T9FblTTEjs=;
- b=jKPS8H5YiiKaVC9musGqN0XpuyT0u+vd9E+l2CjBceRHLFcVXPng7jkHvvtMQ4dE087CyHmRjOphz49ogVbmaMJntOjrb6Yo8TrgkwCCPx3CsLtr1VGrno/uK3xKxsXbUc802OL8l4+yKyctRniQwDOmkbejo07jt3eZsxSCkeXsXXpGEcIKy6Sk16a59uYR1Gshun0nZuvY943ljxLV9iQtfnDjWSoCZxdvCIq4Yk7CTnu3kw8nkVusnYYSz6/o818ZU/rTJTLDtfb7WJXTPQpQE6WsAfUwy+IdF10F6tYV5/DinA1u5dA8/WNwvF28QrLtzlD8Xb5qZYnIoshR4g==
+ bh=+6BEj7b9CYeUOeXqSSGwypzpIN4o95ibgyatJHBiJ9c=;
+ b=Dtdx+HU/ZHDD6V5vROqtJ8aNSaXX0s6hPrworG8AX6CkuWuH6ZvKw+UL+SRQ0b2N6nv/yIqhpSaJdtFucqtsYPUUzuGSSIn0jPBxvgBagSBFg9w5Spus+Wgw/QezgyKNwcjQSoGSd4dU3RbxWxN/9aj1WM8hgykQtJBgUdoKay0iVdRi+CICuSaAsNl1tqlNH6EcEXNHBOwuQlYaAgeDtkMkwm6LF3x1M4yrTeqd/7ZHSMMhJECVvDEgj1wECIwfRswfpZP2HncUOSikUn1Lgc/LBEIJ1oxoFPXpXbE8aTEjHKeZLHEMalJWBbIayj1SF/A1DYJ/8KQgG9JHl2aN+A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Jtqet2fuPqM7Ms6NUR+wXwwQts7PJjG2T9FblTTEjs=;
- b=qVOJaxGvMfqg2DvilyjvoBqz/XHrQHmdlW5Hh4E4nVw4mOkhqbOW63tHFSMlcmFchQFvmQ63VGpkuIsfOsqFl/fLqpvaR7FIiXT5Fvz3lcz3AjmzuA2q8N0/pWNniJshijOqafp46wyeYYG/7+QBkWLu/rypxszgoTWdXUpUSAo=
+ bh=+6BEj7b9CYeUOeXqSSGwypzpIN4o95ibgyatJHBiJ9c=;
+ b=waFX9Sw0PBrUcLesYbwIUfe5nyUusmZsOD8qVVERQeOSw158y1tKz9KsacrYMzC4t+UiZhJTfsnj9sjceKNgMNqAp5OYkL3kaHIQhLcN33y8SPd3FmxMEfkFk6u3Qjc6EtDTuj2wjkJK2mPpjJVu6xVo1XYhAsDNBajrNbLkpRY=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM5PR04MB0218.namprd04.prod.outlook.com (2603:10b6:3:77::8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3912.29; Thu, 11 Mar 2021 16:47:48 +0000
+ 15.20.3912.29; Thu, 11 Mar 2021 16:47:52 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3912.031; Thu, 11 Mar 2021
- 16:47:48 +0000
+ 16:47:52 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -94,9 +94,9 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v1 2/3] RISC-V: Use IPIs for remote TLB flush when possible
-Date: Thu, 11 Mar 2021 22:17:11 +0530
-Message-Id: <20210311164712.652608-3-anup.patel@wdc.com>
+Subject: [RFC PATCH v1 3/3] RISC-V: Add handle_IPI_noregs() for irqchip drivers
+Date: Thu, 11 Mar 2021 22:17:12 +0530
+Message-Id: <20210311164712.652608-4-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210311164712.652608-1-anup.patel@wdc.com>
 References: <20210311164712.652608-1-anup.patel@wdc.com>
@@ -109,58 +109,58 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from wdc.com (171.61.72.64) by
  MAXPR01CA0113.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::31) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3912.17 via Frontend Transport; Thu, 11 Mar 2021 16:47:44 +0000
+ 15.20.3912.17 via Frontend Transport; Thu, 11 Mar 2021 16:47:49 +0000
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 3dbce72d-4a45-4581-878d-08d8e4ad6726
+X-MS-Office365-Filtering-Correlation-Id: 2207b080-c5fb-4cfe-cd92-08d8e4ad69a1
 X-MS-TrafficTypeDiagnostic: DM5PR04MB0218:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM5PR04MB0218905E41F442BDC633E6E18D909@DM5PR04MB0218.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM5PR04MB021834E165515A05F66DD10D8D909@DM5PR04MB0218.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Fl390zB5XANdcx3DVCqVlOgS/jE41muVd0IJVEoa7Riqyy6cDfA0PWVRKuybYFQQ/WZYs02/e7rxGqIofZGORMXFtsGj2jzJRl8XJ3cL2JFy/yLtZVpyaMvcOjCIdffU/Q2tvTxwFB3SHXAl9IzdjiGj88kELXix78pal5MDa/qttZQMFFWvvUcX2au/K2HWRnx1cPzNmWsyQe25UwbRDRjUyu4B85klOVlkIAtdGK+xNzT/MsbIeNOTzytPlfi/Q8ViWFGkF13Rx1o3Ji6jtAWtzTZV5CDs3foKMMX32yQYAM7KiQbAKNIeHogbPSJL8MLuvlF5P0vQifLN+TpMX1WXy9fQNJtmbIKPfbTdK+pTOrjq5O8fXcuBOd+1Q8ijSSOoREgKVOiREQQgm6prFxh39ODTf3zTqTkFiB2P62gle6nhuMSUn4KnpAU/P6fG18U6YQRKM97ZTtdWR2Nd6LIDpSyYqXr77t57a+XFwlmQdLAwhoNqj2O99DuH3BwCexVV255Dn5KY9d7x1Bxa7g==
+X-Microsoft-Antispam-Message-Info: 5dBX0UqOJIykUh6gG4rj3Uv9FK/JU5+vdxhkvvrrcTO+f14RaRcVfUBXhApFzagBkCEQ+3CCf6deGDdPFbsif9CK9Ua8TE22X3NB/qyldDxTO8ieKJAZyJZYUKv9/L47a7UK1sqwR1ZwSumJGv3jxYNpoMBtBhZ1wlJ4Bn9X+Wbec7YhOlXtQplAGjhthX8PcpaTWGihexe+ph6D16rNMaDyH1Yz8+NKiFgMTuCDYm3RfLpKe9IhIx4WRdavnMSpF/nFoa2PjlBV5iAUJkXZfjb1dLq6UHE0WohgUy19IHNytZYAMPc0G9SLMphrs7WGrPSH1ntnN0VJnBa1F0OKlxnympmBj6GkU5nF/6K11TQiSU8IH6Obg42OR4ULbMEP/GyRafW+pEYP+WyVQPRrxq7nL6dpC3uUXS1mkMwOY61BxEYoKDXVT1yDuMq9VC/wt9QsvpZNxjoFRZzsntE5krphcSmLxBxu3KQVHMH4fMIuB2DEh5/o/KhOG0XkAUF6hYtAtaREX7RfEA1eR9kaRw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
  SFS:(4636009)(39860400002)(366004)(396003)(346002)(376002)(136003)(316002)(66476007)(66946007)(44832011)(36756003)(55016002)(8936002)(6666004)(110136005)(66556008)(16526019)(8886007)(2906002)(54906003)(478600001)(5660300002)(86362001)(26005)(1076003)(52116002)(7696005)(8676002)(956004)(2616005)(83380400001)(4326008)(186003);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?FL3qmAYAWaYFpa8SW8w1Szfk8QIkat6milWXTze4aO+mpWYWz2OuIJskLXML?=
- =?us-ascii?Q?Ry7D5vF8EKc+j5Rz3dIJeyK7o34RedBTOcObw+KZgGAEKPj2anIICkjhCWAm?=
- =?us-ascii?Q?5yb5e1U4Mb99JzWvRYsMGmMLtj9LIzpe07gPsXvGit1/Fpl+D0DcoD8UKuKl?=
- =?us-ascii?Q?A/NprlLljPcYvs6MstsnIY2xTNh7t94od0kAtZrn7mT209aNSJBJtQWRmsgr?=
- =?us-ascii?Q?nvR6PuGfrA0aFATFHbiMlv7+CFtxIEn9TO6/tzZoR4YIMtQB0KbIi8NE4JzB?=
- =?us-ascii?Q?ZLNJabT33yLt81J6NeZ8Pa3mZzfqJ1Gq/c7Fp4QiTBMR4ZLCeUYt5xefHjhf?=
- =?us-ascii?Q?TwYBP5Scp+V2u47RncDYEXGmS+EZF9QOzmgTXsK039Df7efVCQZvZaBpVvwS?=
- =?us-ascii?Q?yTWQLD9zfF6FBqgDiDamY/TLUJs/yY5RBEuSHlqdbGaq+HgW5g15eTN27h/1?=
- =?us-ascii?Q?TK51QU0eAfjVeAtKwCA/sr0WlpCMmDv1jJzaeLWeP0Ey/2WlpHkyLJCMqn2Q?=
- =?us-ascii?Q?Arp781+U19usUyKOGkaOE+OqAyOZZw0TlgF3ad7qJE3ypULmwQOjzR3VjOO5?=
- =?us-ascii?Q?jpJPdx3RX8MCiitbvNcplgjekuGJxycpAdNUPgYoKRF58KouDy6ONtVDS8P1?=
- =?us-ascii?Q?EegqJ9BIOaWfD8m0RBmEBP1IhKEh3Gc3B0Scfqm55vuCHEsPRd9/rgFsiXkc?=
- =?us-ascii?Q?TIYgwdPmwpwm2jtcBb4x4IIh7eaWWEwK4jFXwJxMlGcUSuv/rHnm4N00RxPE?=
- =?us-ascii?Q?d3J5C+P0p/PB0yc1sfpS4gzNqfMJ+6V+XEQpFWeJcQE4gxunNUZVdd4Yf3MA?=
- =?us-ascii?Q?yRBMZTu2q0BlCpy26FMs0bvYJMerIim0Dl1GVajeunlnHBe1DFL7scmANQ0a?=
- =?us-ascii?Q?M094ukzJpnw/oezyaoLWYMiyOcynWxp+xKLzzbvMniDb/D6OwXFhOlOiW63c?=
- =?us-ascii?Q?/rY0qYMzolIWT+paA4UBm8fQvuojB4rHrCilZOdjOB2XkXWZuqbl3PnbPS6w?=
- =?us-ascii?Q?fjf0Rs0Zm9VpL0pgYE31IoSaBbxTpirsi2xyrKOfW2cCcGy9puRFtF1ThFc/?=
- =?us-ascii?Q?S2/GaCMwmGnLTmviXuo3PHXzwtvoi1yuBvJ6emAJhq9wHKnd0ukv2ZmBin+7?=
- =?us-ascii?Q?/w7s5PY65MygcZPjhzcQ+0sWHXC4G4H9sovML8uBUz1JSajIWwBqH3oxThGD?=
- =?us-ascii?Q?LMSgKs7DLPVzUmW5duPF2cnI848A3QfQ8SsuWHkuL0iCstxodTxuUnDHQJlY?=
- =?us-ascii?Q?74soaXw6ODlm32zCq1LFWqkKxMa5+dE5BwZoEFxSEAjUMbe9A59dlt0JyU09?=
- =?us-ascii?Q?xga+CvK9YBV6xJjJ8L4dRJov?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?dqM08nYbC38V5e3o4ZA6SPM2R9TKlKcHLJCQZX/z1ESUprCsjaVE4rLYxB7f?=
+ =?us-ascii?Q?hkOh1qxI7+sjqAvgDm0W/gD8FDA43LWq3wjrd/cozIYLNi6wmIOQQaVK9Mnd?=
+ =?us-ascii?Q?DG5ypFMW1KIGeLi2Yd+jeAF/AgjMDV0RmRQAF8x0wQKfdDIrZdsv24itzYOq?=
+ =?us-ascii?Q?oxR/05PSSRWgINmV9nm8YzNDsNmQyPLl7ts1I1J3qz23GZFBzjsB1TNUDirk?=
+ =?us-ascii?Q?VMgdJVrx/uvqGvzKDX3YTLUCvToBgZqv/rX4VJryjkjkh14qJnJM2oesotyt?=
+ =?us-ascii?Q?QptF2MdriEZjxP/hbOwNL23OzpoPxoA2kDzqoKAvjGwbF6fndT+6hmiRxFt4?=
+ =?us-ascii?Q?4WJmONA7wt1HdKiNlzy+BPFxQ8Ym9zpx6nhSPQs6ku2Hxt3bmnQusn3EGG91?=
+ =?us-ascii?Q?QTHbTZoYkLa36IRctDl+Vh0jxhzoVzqtWni4Mfp41bogHUpkQeZVLxv2CAH7?=
+ =?us-ascii?Q?UM6cpT8aJDbdpIHTWA6PL+iH44/YW9oaGMkd+rvbBjHX7T3AmQLft4gReMKO?=
+ =?us-ascii?Q?PHa4ugURS3OqTEU2BLysjRvAfQQFQxXJObfkmc+2uV0pPR4YSvIvar1Bcm6e?=
+ =?us-ascii?Q?iYp7G1BIXA5uyLGiWjxLdclpgOhTu5TWxCI9p5zWzwfKY7IN5Pn28E/rCoTi?=
+ =?us-ascii?Q?BS7/Xfdpv+eIJsdSacHpsy6wpDOxzzEdi6y8Hed8FufYjGQ8RnBQEh9yPBrC?=
+ =?us-ascii?Q?whXXJueDaqyecTZZTdYlFSHcHDyQ1JFJXxhbSar6AOXVmRJRPRE/i30F+VDR?=
+ =?us-ascii?Q?GE80dSH/ypYBX7X0LfFGCDeavBYVRq9Yjg8rpvfYQFf4pd4v0hKxZOFOKXw2?=
+ =?us-ascii?Q?/0dN6u6WzX68fUem1lZr6DeuPoi2A30DJZ87O8SxLWwwwj2y7UH15/QnQjYL?=
+ =?us-ascii?Q?JdCHXy17UxMZqOEoMkwqTH94e39WwgoEAOwR5RmktNZN5mWsHvzXmjLMyqEt?=
+ =?us-ascii?Q?dPZz8p3E5MdNTXR4fG398+MFBL9J+doUjK2huu9lIGa8stfddXhwrC/L0aql?=
+ =?us-ascii?Q?xVgnvCCiAuGtrsWtRyFx//1/cOsizculOt4xMFAXl9sExnBBzCxT3RZE93/7?=
+ =?us-ascii?Q?xaGL4sZk7WzBRH8wlCu6cmDfKXyCHIfEads3SMtJ33IuYZMjncISvibtmm66?=
+ =?us-ascii?Q?OIsTsZmgkKJwQqG9wXnWkDS5hUDMw3sNDooTb+zGNHWIJjsVzUau33JftwTO?=
+ =?us-ascii?Q?/mfTpXwghU6J7JpGwEI8HRwVRGqhuOXBUz6CwGjTIw5vHKQPvyTtjYxqBZJJ?=
+ =?us-ascii?Q?IMnnW0KNk3vkVlP6wjOzef8TidUG7Ub22uit7po6o3VvxqOOPhpTyDu/xwXl?=
+ =?us-ascii?Q?Zx1lRQ8LLvsEAC3oaYaxvwQc?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3dbce72d-4a45-4581-878d-08d8e4ad6726
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2207b080-c5fb-4cfe-cd92-08d8e4ad69a1
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2021 16:47:48.5907 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2021 16:47:52.8000 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O5LXGUckZhTBRD+5IM+aYRbWW/UIBM2nwoXn5cVAE2U7B77fvgrlq8dKbtLHy+4xmKoGru2KTf9eq/7HRsO1gw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: bkVined56BOfL06/7JsMgUHiU1+v5WlJwHbO1G05OAckF+lqBpZM+Qe/gN45pbSaIhN5rffC7TaD6g+ivc2eyQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210311_164752_284751_7BFC81CB 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20210311_164756_969322_D13FFBD2 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,132 +177,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If IPI calls are injected using SBI IPI calls then remote TLB flush
-using SBI RFENCE calls is much faster because using IPIs for remote
-TLB flush would still endup as SBI IPI calls with extra processing
-on kernel side.
+We will be having IPI handled through nested interrupt controllers
+(such as AIA IMSIC). The irqchip driver of such nested interrupt
+controller will not do irq_enter() and save pt_regs because this
+would have been already done by the irqchip driver of the parent
+interrupt controller.
 
-It is now possible to have specialized hardware (such as RISC-V AIA)
-which allows S-mode software to directly inject IPIs without any
-assistance from M-mode runtime firmware.
-
-This patch extends remote TLB flush functions to use IPIs whenever
-underlying IPI operations are suitable for remote FENCEs.
+This patch adds handle_IPI_noregs() for nested irqchip drivers.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/mm/tlbflush.c | 62 +++++++++++++++++++++++++++++++---------
- 1 file changed, 48 insertions(+), 14 deletions(-)
+ arch/riscv/include/asm/smp.h |  6 ++++++
+ arch/riscv/kernel/smp.c      | 20 ++++++++++++++------
+ 2 files changed, 20 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 720b443c4528..009c56fa102d 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -1,39 +1,73 @@
- // SPDX-License-Identifier: GPL-2.0
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 82c23e5f22f6..b31d3ec2f71b 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -33,6 +33,12 @@ void show_ipi_stats(struct seq_file *p, int prec);
+ /* SMP initialization hook for setup_arch */
+ void __init setup_smp(void);
+ 
 +/*
-+ * TLB flush implementation.
-+ *
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
++ * Called from C code, this handles an IPI assuming irq_enter() and
++ * pt_regs already saved by caller.
 + */
++void handle_IPI_noregs(void);
++
+ /* Called from C code, this handles an IPI. */
+ void handle_IPI(struct pt_regs *regs);
  
- #include <linux/mm.h>
- #include <linux/smp.h>
- #include <linux/sched.h>
- #include <asm/sbi.h>
- 
-+static void ipi_flush_tlb_all(void *info)
-+{
-+	local_flush_tlb_all();
-+}
-+
- void flush_tlb_all(void)
- {
--	sbi_remote_sfence_vma(NULL, 0, -1);
-+	if (!riscv_use_ipi_for_rfence())
-+		sbi_remote_sfence_vma(NULL, 0, -1);
-+	else
-+		on_each_cpu(ipi_flush_tlb_all, NULL, 1);
-+}
-+
-+struct flush_range_data {
-+	unsigned long start;
-+	unsigned long size;
-+};
-+
-+static void ipi_flush_range(void *info)
-+{
-+	struct flush_range_data *data = info;
-+
-+	/* local cpu is the only cpu present in cpumask */
-+	if (data->size <= PAGE_SIZE)
-+		local_flush_tlb_page(data->start);
-+	else
-+		local_flush_tlb_all();
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 9258e3eaa8c6..19e102e2d5e6 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -144,14 +144,11 @@ void arch_irq_work_raise(void)
  }
+ #endif
  
- /*
-- * This function must not be called with cmask being null.
-+ * This function must not be called with NULL cpumask.
-  * Kernel may panic if cmask is NULL.
-  */
--static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
--				  unsigned long size)
-+static void flush_range(struct cpumask *cmask, unsigned long start,
-+			unsigned long size)
+-void handle_IPI(struct pt_regs *regs)
++void handle_IPI_noregs(void)
  {
-+	struct flush_range_data info;
- 	struct cpumask hmask;
- 	unsigned int cpuid;
+-	struct pt_regs *old_regs = set_irq_regs(regs);
+ 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+ 	unsigned long *stats = ipi_data[smp_processor_id()].stats;
  
- 	if (cpumask_empty(cmask))
- 		return;
+-	irq_enter();
+-
+ 	riscv_clear_ipi();
  
-+	info.start = start;
-+	info.size = size;
-+
- 	cpuid = get_cpu();
+ 	while (true) {
+@@ -162,7 +159,7 @@ void handle_IPI(struct pt_regs *regs)
  
- 	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
--		/* local cpu is the only cpu present in cpumask */
--		if (size <= PAGE_SIZE)
--			local_flush_tlb_page(start);
--		else
--			local_flush_tlb_all();
-+		ipi_flush_range(&info);
- 	} else {
--		riscv_cpuid_to_hartid_mask(cmask, &hmask);
--		sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
-+		if (!riscv_use_ipi_for_rfence()) {
-+			riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+			sbi_remote_sfence_vma(cpumask_bits(&hmask),
-+					      start, size);
-+		} else {
-+			on_each_cpu_mask(cmask, ipi_flush_range, &info, 1);
-+		}
+ 		ops = xchg(pending_ipis, 0);
+ 		if (ops == 0)
+-			goto done;
++			break;
+ 
+ 		if (ops & (1 << IPI_RESCHEDULE)) {
+ 			stats[IPI_RESCHEDULE]++;
+@@ -189,9 +186,20 @@ void handle_IPI(struct pt_regs *regs)
+ 		/* Order data access and bit testing. */
+ 		mb();
  	}
++}
++
++void handle_IPI(struct pt_regs *regs)
++{
++	struct pt_regs *old_regs = set_irq_regs(regs);
++
++	irq_enter();
++
++	handle_IPI_noregs();
++
++	riscv_clear_ipi();
  
- 	put_cpu();
-@@ -41,16 +75,16 @@ static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
- 
- void flush_tlb_mm(struct mm_struct *mm)
- {
--	__sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
-+	flush_range(mm_cpumask(mm), 0, -1);
+-done:
+ 	irq_exit();
++
+ 	set_irq_regs(old_regs);
  }
  
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
--	__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
-+	flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
- }
- 
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end)
- {
--	__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
-+	flush_range(mm_cpumask(vma->vm_mm), start, end - start);
- }
 -- 
 2.25.1
 
