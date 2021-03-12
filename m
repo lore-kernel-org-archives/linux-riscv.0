@@ -2,81 +2,72 @@ Return-Path: <SRS0=D0Wc=IK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFD76C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 07:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CE4EC433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 13:50:36 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D66364F77
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 07:46:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D66364F77
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id C98E764F9E
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 13:50:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C98E764F9E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=2HQu1fO5c/J1GgPYOfP1rhPS+VSE2u7ABtHfDJSekX0=; b=P3k9bs6GQsPS7X/ExKxzEfdEj
-	H2nwU59qnD0dnzS57DNej+PHl60oSiCZ8YALTREcu0MyVu9uXSSqk2PVboV9QbjzJjXvEXEs+QLYy
-	7NxdZCRrQdF3GOKg9L0oV76LWT4Zc2Qx1ttWLIodKYxFJkRbqZ2Y665++fb11a/fQjZVA6qEwJNAN
-	6DB+ZVSOgm3MVF4O3ekL6P02lAPGldiG+nMwiLoG52Ca9a7skoWpTX9v0WAwJR6BSJnpwD7m2cCja
-	tFwtm5t2pTsYksdgLSrN7dL7KHAF7ZTN2C0/Q//M/zIId1akmtYh1hwVdY9MZZ6i8PNS4CSkhL2ki
-	NTVRTEf2A==;
+	 bh=XXN5MEVVIGzAzOwDcWaPTMqB3VM7BTi9CwDMxsEVQnA=; b=ToppjuKuryHjPSdGhaZMzSVf7
+	vJWq1MXMR//inwrHZCsa+I5+PJuo3DOc+VQKUBmGi9+50moNSFTP59746e6QotcwCvq0vwj+3q7WH
+	EvgZCYA60+h3zZj6b3ZprurIjkCXo1GshMKQWL3MCFQKVe0bB/xZN02xVVlgYWcodrsyKYXDIKP4L
+	TxxX631K+/8tU6ctxVAP0BtmxJaj29Kp0ZqUIiuA6VXIE5rKX2N1wYQ0VHYNgdzljtzbZVuO73Om7
+	vdXsAaOJitPBGTHvYgP/O4DB6x45ySjurKREqZ2BidUJ/CoIjtdGIkmJ91soOM7ddvtgYnraZE9wv
+	kzrxk3yOQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lKcUW-00AoRq-7X; Fri, 12 Mar 2021 07:45:48 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1lKiBJ-00BYnK-Vi; Fri, 12 Mar 2021 13:50:22 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lKcUQ-00AoRD-TD
- for linux-riscv@lists.infradead.org; Fri, 12 Mar 2021 07:45:45 +0000
-Received: by mail-pf1-x430.google.com with SMTP id 16so1283879pfn.5
- for <linux-riscv@lists.infradead.org>; Thu, 11 Mar 2021 23:45:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=EURx11KPpZiWeW4pL5anAmtmLHaTc+frYwy8XtKwDcU=;
- b=NkHnlpR1o+KML90lC4MYyWd1JfKYPBmJRgA+z5e+IQhi8JtGdtWWU9tOO9YVI41wQx
- VfNoYLdkpcUGjOXH8GQw8MLCmtMi0tMrpgyvalAIvcmjsLpg5gCK8bL/pwJY5MDt3T9s
- qQ6PsFZZtfcswzTV/QY+Fmd7y1bSxMNqeCk7ByhkamDe5cC+h+kDbH1ZycobhDVH6wIc
- Zm9BzKAweLWTMT5ZctFJzIHnJo+7RzVApjQkxyrV7uSHt6okbNX5PN34HMzCpqhLMkFJ
- uhTDwOS09f2876OYSntakVGmOyuvAXJFB0HDJ+Wg0P+eR92rJKntchUC0H3fKPZAyQVw
- 82ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=EURx11KPpZiWeW4pL5anAmtmLHaTc+frYwy8XtKwDcU=;
- b=bhy7UX0M213g1CBKbwHIlI/nNQq++6iVfne7R9885Yhcb15HGEXtMtZDYS4CYNtUzm
- EMmnvutSjArzQIgdCXZgxoJ1dFpSdloSgvARSxNeMg8WU4G3oYVfuSNLanhhW4JuIxtQ
- RqIjB4U674oU8vcDXOxKTsumtBuW2myCAm+YTGhD2YH3QKKiEDWJ0e3m+Iyxrd9jS6sp
- my+3OY5zsGM9Z49Sk5kZCQ/wZqsYYlvpinqBooc3+AG1lmEyMbwqMYIWW4j6QZ0BKEz+
- 7TLHhgCt8H+pDW27um15bSdQUbq5QpEDPlwwlrLHA6emSGXnM1DvKe6dDDSpozBd7DYx
- zG+w==
-X-Gm-Message-State: AOAM531yRESoqmvN9QJ+o59hFmAtrN+LnVXwJIr3qGxuwiW7sJ2/kX0b
- qgMBm0xlHVu/Y9gFW/gW6A9LVAsuJLLtvHk1BNELdwaNoijZ358Z
-X-Google-Smtp-Source: ABdhPJyMXzO00V1Qd9HHGIkvwJzccwLJnhisuvWJib4HjtRY8tn2CKcT+vACjpYgWmvfCEY5u0YMUQS7H+Rp7ko9Hgc=
-X-Received: by 2002:a63:f311:: with SMTP id l17mr10839032pgh.349.1615535140605; 
- Thu, 11 Mar 2021 23:45:40 -0800 (PST)
+ id 1lKiBD-00BYmD-BB
+ for linux-riscv@lists.infradead.org; Fri, 12 Mar 2021 13:50:19 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1lKiAt-0008V6-CR; Fri, 12 Mar 2021 13:49:55 +0000
+Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
+ schedule_tail
+To: Dmitry Vyukov <dvyukov@google.com>,
+ syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Daniel Bristot de Oliveira <bristot@redhat.com>,
+ Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
+ Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
+ Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <000000000000b74f1b05bd316729@google.com>
+ <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
+Date: Fri, 12 Mar 2021 13:49:53 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
 MIME-Version: 1.0
-References: <20210310190234.GB25175@APC301.andestech.com>
-In-Reply-To: <20210310190234.GB25175@APC301.andestech.com>
-From: Vincent Chen <vincent.chen@sifive.com>
-Date: Fri, 12 Mar 2021 15:45:29 +0800
-Message-ID: <CABvJ_xhCZ8zT6DHXUwzvAL-Uy1CUOojD90JG_B4GhKhUPe9CGQ@mail.gmail.com>
-Subject: Re: [RFC patch 4/4] riscv: sifive: apply errata "cip-453" patch
-To: 1615175897-23509-5-git-send-email-vincent.chen@sifive.com
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Alan Kao <alankao@andestech.com>, 
- Ruinland ChuanTzu Tsai <ruinland@andestech.com>
+In-Reply-To: <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210312_074543_204145_F3B6273F 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20210312_135017_041276_DE8C4AE7 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,123 +79,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 11, 2021 at 5:58 AM Ruinland ChuanTzu Tsai
-<ruinland@andestech.com> wrote:
->
-> Hi Vincent,
->
-> Thanks for introducing the alternative mechanism to RISC-V, with which
-> vendors could provide fixes for each erratum in a more elegant way.
->
-> Somehow, I'm a bit sketchy about these parts of your proposal :
->
-> >     /* Exception vector table */
-> >  ENTRY(excp_vect_table)
-> >     RISCV_PTR do_trap_insn_misaligned
-> > -   RISCV_PTR do_trap_insn_fault
-> > +   ALTERNATIVE(__stringify(RISCV_PTR do_trap_insn_fault),
-> > +           __stringify(RISCV_PTR do_trap_insn_fault_trampoline),
-> > +           SIFIVE_VENDOR_ID, ERRATA_CIP_453, CONFIG_ERRATA_SIFIVE_CIP_453)
-> >     RISCV_PTR do_trap_insn_illegal
-> >     RISCV_PTR do_trap_break
-> >     RISCV_PTR do_trap_load_misaligned
-> > @@ -461,7 +466,10 @@ ENTRY(excp_vect_table)
-> >     RISCV_PTR do_trap_ecall_s
-> >     RISCV_PTR do_trap_unknown
-> >     RISCV_PTR do_trap_ecall_m
-> > -   RISCV_PTR do_page_fault   /* instruction page fault */
-> > +   /* instruciton page fault */
-> > +   ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),
-> > +           __stringify(RISCV_PTR do_page_fault_trampoline),
-> > +           SIFIVE_VENDOR_ID, ERRATA_CIP_453, CONFIG_ERRATA_SIFIVE_CIP_453)
-> >     RISCV_PTR do_page_fault   /* load page fault */
->
-> As far as I can tell, `ALTERNATIVE(...)` seems a bit like a mixture of
-> ARM's version of ALTERNATIVE and `alternative_insn`. However, ARM's
-> ALTERNATIVE takes a vardatic macro and yours here doesn't, which makes
-> me wonder if another vendor needs to patch the same location as yours,
-> will they be able to multiplex the same probe ?
->
-This is a good question. For this case, I think the current
-ALTERNATIVE(...) can not be used.
-In my thoughts, we need to define a new MACRO like
+On 10/03/2021 17:16, Dmitry Vyukov wrote:
+> On Wed, Mar 10, 2021 at 5:46 PM syzbot
+> <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com> wrote:
+>>
+>> Hello,
+>>
+>> syzbot found the following issue on:
+>>
+>> HEAD commit:    0d7588ab riscv: process: Fix no prototype for arch_dup_tas..
+>> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+>> console output: https://syzkaller.appspot.com/x/log.txt?x=1212c6e6d00000
+>> kernel config:  https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
+>> dashboard link: https://syzkaller.appspot.com/bug?extid=e74b94fe601ab9552d69
+>> userspace arch: riscv64
+>>
+>> Unfortunately, I don't have any reproducer for this issue yet.
+>>
+>> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+>> Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+> 
+> +riscv maintainers
+> 
+> This is riscv64-specific.
+> I've seen similar crashes in put_user in other places. It looks like
+> put_user crashes in the user address is not mapped/protected (?).
 
-#define ALTERNATIVE2("old inst", "vendor-1's new inst","vendor-1
-id","errata_id","CONFIG_ERRATA_vendor-1" , "vendor-2's new
-inst","vendor-2 id","errata_id","CONFIG_ERRATA_vendor-2" ) \
-       "886 :\n"                                                       \
-       oldinsn "\n"                                                    \
-       ALT("vendor-1's new inst", "vendor-1
-id","errata_id","CONFIG_ERRATA_vendor-1") \
-       ALT("vendor-2's new inst", "vendor-2
-id","errata_id","CONFIG_ERRATA_vendor-2")
+I've been having a look, and this seems to be down to access of the
+tsk->set_child_tid variable. I assume the fuzzing here is to pass a
+bad address to clone?
 
-where ALT is defined as below:
-+#define ALT (altinsn, vendor_id, errata_id, enable) \
-+       ".if " __stringify(enable) " == 1\n"                            \
-+       "887 :\n"                                                       \
-+       ".pushsection .alternative, \"a\"\n"                            \
-+       ALT_ENTRY("886b", "888f", __stringify(vendor_id),
-__stringify(errata_id), "889f - 888f") \
-+       ".popsection\n"                                                 \
-+       ".subsection 1\n"                                               \
-+       "888 :\n"                                                       \
-+       altinsn "\n"                                                    \
-+       "889 :\n"                                                       \
-+       ".previous\n"                                                   \
-+       ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
-+       ".org   . - (889b - 888b) + (887b - 886b)\n"                    \,
-+       ".endif\n"
-+
-By using ALTERNATIVE2, vendor-1 and vendor-2 (more precisely, CPU-1
-and CPU-2) can replace the same instruction with different errata
-patches. I will create a sample code in my next version patch for
-vendor reference.
+ From looking at the code, the put_user() code should have set the
+relevant SR_SUM bit (the value for this, which is 1<<18 is in the
+s2 register in the crash report) and from looking at the compiler
+output from my gcc-10, the code looks to be dong the relevant csrs
+and then csrc around the put_user
 
->
-> Secondly, I think it's a bit intrusive to patch directly on exception
-> vector table here.
->
-> I'm not sure about whether it's possible to introduce your alternative
-> probe inside do_trap_insn_fault() & do_page_fault(), do the inspection
-> the reason of trap (e.g. instruction/load/store page fault) there and
-> then, perform the software workaround.
->
-> If that's not feasible, maybe we shall make a new macro with a name
-> like "RISCV_TRAP_ENTRY" which encompass the alternative probes ?
->
-The do_page_fault() will deal with all page fault exceptions such as
-load/store page fault. However, our errata is only for the instruction
-page fault. Therefore, not only we need an additional if condition to
-distinguish the incoming exception type, but also all page fault will
-suffer the performance impact from the if conditions. Therefore, I
-decided to replace the exception handler directly.
+So currently I do not understand how the above could have happened
+over than something re-tried the code seqeunce and ended up retrying
+the faulting instruction without the SR_SUM bit set.
 
-I think your idea is good. I will follow your suggestions to create a
-new macro for them to improve the readability.
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-
-> Last but not least, is it possible that in the near future,
-> `alternative_if` macro family from ARM could be ported to RISC-V ?
->
-No, it is not in my current plan.
-
-
-Thank you for your feedback.
-
-
-> Best regards,
-> Ruinland
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
