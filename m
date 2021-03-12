@@ -2,19 +2,19 @@ Return-Path: <SRS0=D0Wc=IK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67D61C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 15:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D83A9C433E6
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 15:52:40 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC78F64F72
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 15:50:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC78F64F72
+	by mail.kernel.org (Postfix) with ESMTPS id 74CE164FE0
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 15:52:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74CE164FE0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xU56ofUelPH0eexs90qgDmQBuo78xM/GchuswnNysts=; b=GC5MYd/G6mwwcbipJ/JIRoi+r
-	g9UNWTr4GKevayB3jSlcIBglQqjInvFftQW5IuhjxaDwR3N+6p2DiJxrlt2J8Ox9n/yHArT4LGdjI
-	R6S9ZUZvTRAa0o63RKaSVLq8aJQ+eMMxujXs1Qh5p3GhP3pUPjrLSU9+eE2iN//G/fWpYVVG/SjrH
-	C18aa7gKly79+NElCAORdsA2JtzhuBvvIkJmN6mJxPADxHktS2UdlIipohbNArZ4YNGuofd9ay+0j
-	XgAAicCiNyy44VUWH1WD0IzeFJ8syPKwMjJhRMJ1llRcZNHgbd0QP62yEzu4FWkzPY8r3G+nhMnF+
-	Mr25ypfjw==;
+	 bh=Rg9f0IQDFk6U6UeGsVEJJVDx5kzbgWxPAshzUH6yGC4=; b=TDtAz1nHUhidZQasYw89ymh0c
+	W1nvsVzU8/OiHNhIpiMrb8BFB75UoMuvnotv3moABmwc1RTeTmIinr6FCf6KiWL8Nph7a02k2uhXU
+	5PfkZ2U279GSdhjY8EqEv48QEjgyV28vmBgIQAiJCvv5Mi2UezHejcumdQO7mbEZ/pf+PQ3c2z0we
+	lq6YC21y9peUw+hvz4NUlApSnbDWhJYdKQmNUvNtCb0mTe6dHqiL9XmBX5RnEJJCMzqYJLTMf1aHs
+	w17dV8wlSgHE5FZiSwb5ry6ZqRYiQ7ds93BG1aNCvCY5e3nMusiNmh6OUiWL0VPRGBq7XCpBf2sUT
+	1Td+3YtFA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lKk3f-00BruD-4V; Fri, 12 Mar 2021 15:50:35 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1lKk5S-00BsFH-QU; Fri, 12 Mar 2021 15:52:26 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lKk3Z-00Brsv-55; Fri, 12 Mar 2021 15:50:33 +0000
-Received: by mail-vk1-f172.google.com with SMTP id o4so1340528vka.12;
- Fri, 12 Mar 2021 07:50:28 -0800 (PST)
+ id 1lKk5F-00BsBz-UK
+ for linux-riscv@lists.infradead.org; Fri, 12 Mar 2021 15:52:15 +0000
+Received: by mail-ua1-f46.google.com with SMTP id 97so1910304uav.7
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Mar 2021 07:52:13 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=jCfkIhb98hO8prK8G14q0f8cJZYCOLvGnWWBybf+4M4=;
- b=L2p/5PSrhltvRuBZlC1gcJvFRyvVpHmTteKOWY3QAMjjv6YSBFS9uC5MUoKRq+kJ9o
- hRH4cuHP4nK2YLWyUWKc1uVCoA6Xr4HCj7Chfa+NSZpfSaWu7gMDNRCBhZG6FNI9vjMC
- zqDG56K+AgKZqKmkB1Nb5SpfFaoEcmt0c1lAJsoRGYWzjg5qP3iey8NAkix+f2VAgE2h
- t0yCll+vNpA3OocdfH2fpBm4dxWpA29mfWZOYcKpzH9L1vYliHUSsGRy92ICHhhxScsv
- Mt8aPa87NK3D5GdIljaZ0ABisTZP7DKastqE3bJ6hCxQwBd2fF9987mXGIQxFcDRIYGq
- thgg==
-X-Gm-Message-State: AOAM533Bq1b2DzHnKgbW09LCRiO6gdspidT1BPszxQ7lBuL1lwl15g0A
- GtCZnYFnrVivIeIBpL3CiS7dApz+IRg1ER161Qo=
-X-Google-Smtp-Source: ABdhPJwsMcqnQfXHsxIHY91a/cjGAOuKpduZxiaHjuntYgfG+B2bSXLd5roumZI4ThaBStcLstXBt5hqmJwMf4W7HfQ=
-X-Received: by 2002:a1f:e543:: with SMTP id c64mr4486729vkh.2.1615564227436;
- Fri, 12 Mar 2021 07:50:27 -0800 (PST)
+ bh=+ufGY0BpS1FFe+dVBdNB94a4xu++ZlC5MzGN3kgXpLE=;
+ b=GhFpO2qAdbtAV3xzLU2jj2jYMiAlIX3m0m3vaILdX0NrAaIjqhJ7xRENbRCo4C2fp/
+ aVJpeeFqT+gW5L0O9RgXpvHJkwXBnhHaac1Hi8Rl9tob8q/I6ZWELBwYmMRpMVU47DOA
+ XzkhezFwvao+heZ6c5pQoXO590AafTucvHwZJFGq9yz1jDMkvUecuHnex4CVe1HDjsQz
+ 5BJ07RzN84nP7qNwZNw1iyoyON8MEFj/mTZ8z2BXpE80spJSfZjzPH9YOhQFeHDWTuiO
+ b9sOvOZhoMtE2hqqAqNOtijzlEcdUM05QDDwo3ajz2Tua0t/lWhUFmcBAzYu1bs+MB4S
+ WgwQ==
+X-Gm-Message-State: AOAM532KukjQIRRPrfZf9X9K4s1wnPbQTOUtPeQ+gPKoCZt7+anOMEDF
+ w5SG4rnlSEGmYSTeKuHENhZaNQ6aAMiO8GUDQns=
+X-Google-Smtp-Source: ABdhPJxCumYpIHmJF/Vw3mPrBZtFKjQV9FO4fc15rHi2hf+aiIEVAVv0yR+b7rK0YHXckIBF+0u3E8dWXbrbbjQxLo8=
+X-Received: by 2002:ab0:30b3:: with SMTP id b19mr8849816uam.58.1615564332725; 
+ Fri, 12 Mar 2021 07:52:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20201119003829.1282810-1-atish.patra@wdc.com>
- <20201119003829.1282810-4-atish.patra@wdc.com>
- <CAMuHMdUjh9znKTLZ+bST6aDUFdZzvmv2SGVy=sRQ6+D=pYM9cg@mail.gmail.com>
-In-Reply-To: <CAMuHMdUjh9znKTLZ+bST6aDUFdZzvmv2SGVy=sRQ6+D=pYM9cg@mail.gmail.com>
+References: <20210107092652.3438696-4-atish.patra@wdc.com>
+ <mhng-1400a3dd-651b-4a78-bb2d-1f10580add75@palmerdabbelt-glaptop>
+ <CAOnJCU+mCPwbeOQpmHmu3ar_17otmgftiKHLL+Z4_nExpj0=cA@mail.gmail.com>
+In-Reply-To: <CAOnJCU+mCPwbeOQpmHmu3ar_17otmgftiKHLL+Z4_nExpj0=cA@mail.gmail.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 12 Mar 2021 16:50:16 +0100
-Message-ID: <CAMuHMdUfQCSyuHxf+TjuOGDtLMAv30x2LazvO8BQwE1=B1kzVg@mail.gmail.com>
-Subject: Re: [PATCH v5 3/5] riscv: Separate memory init from paging init
-To: Atish Patra <atish.patra@wdc.com>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Greentime Hu <greentime.hu@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
- Anshuman Khandual <anshuman.khandual@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Baoquan He <bhe@redhat.com>, 
- Catalin Marinas <catalin.marinas@arm.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
- Linux-Arch <linux-arch@vger.kernel.org>,
+Date: Fri, 12 Mar 2021 16:52:01 +0100
+Message-ID: <CAMuHMdVOzdy9zA8uk0j4OxFWHQqu_jb7uMXRXqmioY+H-TdtkA@mail.gmail.com>
+Subject: Re: [PATCH 3/4] RISC-V: Fix L1_CACHE_BYTES for RV32
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Anup Patel <Anup.Patel@wdc.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, 
+ Atish Patra <Atish.Patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Nick Kossifidis <mick@ics.forth.gr>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>, 
- Zhengyuan Liu <liuzhengyuan@tj.kylinos.cn>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210312_155031_271398_700DB36C 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20210312_155214_086620_B5819A3D 
+X-CRM114-Status: GOOD (  35.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +91,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-On Wed, Mar 10, 2021 at 5:41 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Thu, Nov 19, 2020 at 1:40 AM Atish Patra <atish.patra@wdc.com> wrote:
-> > Currently, we perform some memory init functions in paging init. But,
-> > that will be an issue for NUMA support where DT needs to be flattened
-> > before numa initialization and memblock_present can only be called
-> > after numa initialization.
+On Thu, Jan 14, 2021 at 7:34 PM Atish Patra <atishp@atishpatra.org> wrote:
+> On Wed, Jan 13, 2021 at 9:10 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > On Thu, 07 Jan 2021 01:26:51 PST (-0800), Atish Patra wrote:
+> > > SMP_CACHE_BYTES/L1_CACHE_BYTES should be defined as 32 instead of
+> > > 64 for RV32. Otherwise, there will be hole of 32 bytes with each memblock
+> > > allocation if it is requested to be aligned with SMP_CACHE_BYTES.
+> > >
+> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > > ---
+> > >  arch/riscv/include/asm/cache.h | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
+> > > index 9b58b104559e..c9c669ea2fe6 100644
+> > > --- a/arch/riscv/include/asm/cache.h
+> > > +++ b/arch/riscv/include/asm/cache.h
+> > > @@ -7,7 +7,11 @@
+> > >  #ifndef _ASM_RISCV_CACHE_H
+> > >  #define _ASM_RISCV_CACHE_H
+> > >
+> > > +#ifdef CONFIG_64BIT
+> > >  #define L1_CACHE_SHIFT               6
+> > > +#else
+> > > +#define L1_CACHE_SHIFT               5
+> > > +#endif
+> > >
+> > >  #define L1_CACHE_BYTES               (1 << L1_CACHE_SHIFT)
 > >
-> > Move memory initialization related functions to a separate function.
+> > Should we not instead just
 > >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> > #define SMP_CACHE_BYTES L1_CACHE_BYTES
+> >
+> > like a handful of architectures do?
+> >
 >
-> This is now commit cbd34f4bb37d62d8 in v5.12-rc1, breaking the boot on
-> Vexriscv:
+> The generic code already defines it that way in include/linux/cache.h
 >
-> [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> [    0.000000] printk: bootconsole [sbi0] enabled
-> [    0.000000] printk: debug: ignoring loglevel setting.
-> [    0.000000] Initial ramdisk at: 0x(ptrval) (8388608 bytes)
-> [    0.000000] Unable to handle kernel paging request at virtual
-> address c8000008
-
-> Note that I have "[PATCH v2 3/4] RISC-V: Fix L1_CACHE_BYTES for RV32"[1]
-> applied, to avoid another crash (7c4fc8e3e982 = v5.11 + [1] +
-> cherry-picked commits from the riscv-for-linus-5.12-mw0 pull request).
+> > The cache size is sort of fake here, as we don't have any non-coherent
+> > mechanisms, but IIRC we wrote somewhere that it's recommended to have 64-byte
+> > cache lines in RISC-V implementations as software may assume that for
+> > performance reasons.  Not really a strong reason, but I'd prefer to just make
+> > these match.
+> >
 >
-> If I revert the L1_CACHE_BYTES change, the boot continues, but I'm back
-> to the old issue fixed by [1]:
+> If it is documented somewhere in the kernel, we should update that. I
+> think SMP_CACHE_BYTES being 64
+> actually degrades the performance as there will be a fragmented memory
+> blocks with 32 bit bytes gap wherever
+> SMP_CACHE_BYTES is used as an alignment requirement.
 >
-> [   22.126687] Freeing initrd memory: 8192K
-> [   22.321811] workingset: timestamp_bits=30 max_order=15 bucket_order=0
-> [   29.001509] Block layer SCSI generic (bsg) driver version 0.4
-> loaded (major 253)
-> [   29.021555] io scheduler mq-deadline registered
-> [   29.033692] io scheduler kyber registered
-> [   29.141294] Unable to handle kernel paging request at virtual
-> address 69726573
+> In addition to that, Geert Uytterhoeven mentioned some panic on vex32
+> without this patch.
+> I didn't see anything in Qemu though.
 
-> Will have a deeper look later...
-
-I found the core issue, and sent a fix: "[PATCH] RISC-V: Fix
-out-of-bounds accesses in init_resources()"
-https://lore.kernel.org/linux-riscv/20210312154634.3541844-1-geert@linux-m68k.org/
-
-It works now with either value of L1_CACHE_SHIFT, so patch "[PATCH v2
-3/4] RISC-V: Fix L1_CACHE_BYTES for RV32" is no longer needed.
+FTR, I no longer need this patch on vexriscv.
+It seems it just masked an issue.
 
 Gr{oetje,eeting}s,
 
