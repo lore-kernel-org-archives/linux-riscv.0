@@ -1,76 +1,98 @@
-Return-Path: <SRS0=D0Wc=IK=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=xwO/=IL=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 106CCC433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 20:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B753BC433E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Mar 2021 07:22:04 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 994C964F52
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Mar 2021 20:50:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 994C964F52
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 04D2F64F13
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Mar 2021 07:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 04D2F64F13
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=MgbuQLQH9fCa36wQIrjfMwsfmsBfV0a6GhubdCWguI4=; b=YVvlrvUlkDSssBJDSe5L3rGNA
-	ABEnbqjXM+qZNV1KGt/6cp0qT+FF4JM63I4tfrr/tJq+bSxpiko2j4MG3ql058L+FJMjU0dAt0qWz
-	NMquGiG8YugHfLH9ZNerjGEmRsC9GyjzrLg9epMvBVDcLTog4607Lq5pvsR7xM1B52cHR5IsK4anK
-	+qNlJLOBc2Bg75lKfVXrp1PHllKBFpKc2wzKLcZ6eRHvPt8edYIaB6csGc9JOgh9xQTjQ467+Lufr
-	CTX+R0i9YlRLLdpCe5rgHoH6mYcpf9gYhSEjrgPc8SVFkSZIzkp39hssQtuZoY3qG+GqD4kmgcRAV
-	41/VTBCIw==;
+	 bh=CR/qiCPvpn024//b6gOPvF9+3rwOJyARgvi/XeugUuM=; b=DtRqzSNIQEpMqBunt3hr113p8
+	tFWzqvxvX6Mhqd++QWW4n/s9CZQpIQiiIhSwq/euT+z/W3tJ09y4X/93gjYWjOTvILJ2fO6f/KtkP
+	weQKYuFhaXnVCGOjXso+wn4+bL/PbItXXSUoh4NenL8KaMmnmJsSNqsSL+k0r7usQXbmq8eermUUP
+	NHAEXJpd+6pXZ+a/amppIVPwEg7iBLdaZIgQRMCk/Tq8EWhVCHdvVTTAo34Dqb9AxCQLIYzL16d9z
+	NSPrBzgrgZ2wQzkwM17msj2OMUmI9jF9tP2N+d39Vq6SpdKBexRvgQngPXAJxBHOWRR/bG5QFLGYD
+	pDmLGAUtA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lKoje-00CNrV-6l; Fri, 12 Mar 2021 20:50:14 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1lKyai-00CxVU-5o; Sat, 13 Mar 2021 07:21:40 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lKojL-00CNoI-Im
- for linux-riscv@lists.infradead.org; Fri, 12 Mar 2021 20:50:11 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=[192.168.0.18])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lKo9S-0008FC-Jt; Fri, 12 Mar 2021 20:12:50 +0000
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- schedule_tail
-To: Alex Ghiti <alex@ghiti.fr>, Dmitry Vyukov <dvyukov@google.com>
-Cc: syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Daniel Bristot de Oliveira <bristot@redhat.com>,
- Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
- Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
- Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
- Vincent Guittot <vincent.guittot@linaro.org>
+ id 1lKyaE-00CxSm-5J
+ for linux-riscv@lists.infradead.org; Sat, 13 Mar 2021 07:21:27 +0000
+Received: by mail-qt1-x836.google.com with SMTP id m7so5670899qtq.11
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Mar 2021 23:21:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=7eYVjh/3MlDURi3LsFeSKFPv9Je6M1V19C4BQQN9epg=;
+ b=d6lL1ejz2bTagyNptYYPmk3n2fghwWx4oGFEGzjpYEYcRIVDuGb4FDJMMRwgEGZOdx
+ wU9n7lFKqiNDiAa3f7DGbJjMXIKDrnMFQbs0/nYPg/aHQ3jN5q8gHfv5K6THjlOW7tdX
+ bwjriZSaZNWlxWqwKSKubzxbZqsAEUczHxg5oj86tc4ixTeoKfR1G1Cj3dRmT4NoAkmt
+ lYZYe9mD2O5sbE1btTDQG5RxGNJQYE6iPIZ0lmTjjgEjI6Va15bGH1NNirZ9Shanl824
+ BCgvi14e1LI0oF0HyDZj43JLbQJyyasOurnFoSjmIpS3piEMGg6+1Hwopn/NHvkcQ0XX
+ WMUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=7eYVjh/3MlDURi3LsFeSKFPv9Je6M1V19C4BQQN9epg=;
+ b=ccY+40CGKU+4rmQywWfKhkwIpzfpAK9kwoErv/MaAQr7T/TuAbK+ABYXYM4FigYx4s
+ Ba9V/f2grN6XDGAF1Xp1wLpkqCWg1lg/98AQfj/uc6WyHF4XI3izp9282II2vIQh+hzM
+ JXQpyBbWYbi9/uIlkNrx0EwalPvXcdE5Veo/SzgeBBpK9NJBkvV8/+0MjrwgM1fhUswI
+ gbwSr8YVgrIw5z6BrQaYrM5x/pU7AJQfMRGJ6eDM4khheYOjpo/+WDJJQI0DAuYdA70V
+ ZBotGxdjRudQnh6M+jGYxGTU70FV4cZ3nyEC+lxb7lvMSCLXXPAlp9nLPxtWpeZfA+e2
+ 8G0Q==
+X-Gm-Message-State: AOAM5302LEtigowXtXWJAeXKLDmFO3VvGV1kDNMedqGA8Ry8hxLZe0T7
+ gD7ejMjS5HmVO/Ou/cr8PXg9KemYO1RgoYkOWty35A==
+X-Google-Smtp-Source: ABdhPJyWza/nfVkxiGdXnuoW8uZ/mso96TR9jx4z2YWEDt9reiLiOYP9QPllR8xzHbdy0FrKhi4FrmysXZEP9RVnaRE=
+X-Received: by 2002:ac8:5212:: with SMTP id r18mr14848480qtn.290.1615620068524; 
+ Fri, 12 Mar 2021 23:21:08 -0800 (PST)
+MIME-Version: 1.0
 References: <000000000000b74f1b05bd316729@google.com>
  <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
  <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
  <CACT4Y+ZsSRdQ5LzYMsgjrBAukgP-Vv8WSQsSoxguYjWvB1QnrA@mail.gmail.com>
  <795597a1-ec87-e09e-d073-3daf10422abb@ghiti.fr>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
-Date: Fri, 12 Mar 2021 20:12:49 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
-MIME-Version: 1.0
-In-Reply-To: <795597a1-ec87-e09e-d073-3daf10422abb@ghiti.fr>
-Content-Language: en-GB
+ <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
+In-Reply-To: <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Sat, 13 Mar 2021 08:20:57 +0100
+Message-ID: <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
+Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
+ schedule_tail
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Alex Ghiti <alex@ghiti.fr>, 
+ syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Daniel Bristot de Oliveira <bristot@redhat.com>,
+ Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com, 
+ Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
+ Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210312_205007_714432_7BD822E1 
-X-CRM114-Status: GOOD (  38.55  )
+X-CRM114-CacheID: sfid-20210313_072125_226688_75F48FCE 
+X-CRM114-Status: GOOD (  52.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,176 +104,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2021 16:25, Alex Ghiti wrote:
-> =
-
-> =
-
-> Le 3/12/21 =E0 10:12 AM, Dmitry Vyukov a =E9crit=A0:
->> On Fri, Mar 12, 2021 at 2:50 PM Ben Dooks <ben.dooks@codethink.co.uk> =
-
->> wrote:
->>>
->>> On 10/03/2021 17:16, Dmitry Vyukov wrote:
->>>> On Wed, Mar 10, 2021 at 5:46 PM syzbot
->>>> <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com> wrote:
->>>>>
->>>>> Hello,
->>>>>
->>>>> syzbot found the following issue on:
->>>>>
->>>>> HEAD commit:=A0=A0=A0 0d7588ab riscv: process: Fix no prototype for =
-
->>>>> arch_dup_tas..
->>>>> git tree:       =
-
->>>>> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
->>>>> console output: =
-
->>>>> https://syzkaller.appspot.com/x/log.txt?x=3D1212c6e6d00000
->>>>> kernel config:  =
-
->>>>> https://syzkaller.appspot.com/x/.config?x=3De3c595255fb2d136
->>>>> dashboard link: =
-
->>>>> https://syzkaller.appspot.com/bug?extid=3De74b94fe601ab9552d69
->>>>> userspace arch: riscv64
->>>>>
->>>>> Unfortunately, I don't have any reproducer for this issue yet.
->>>>>
->>>>> IMPORTANT: if you fix the issue, please add the following tag to =
-
->>>>> the commit:
->>>>> Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
->>>>
->>>> +riscv maintainers
->>>>
->>>> This is riscv64-specific.
->>>> I've seen similar crashes in put_user in other places. It looks like
->>>> put_user crashes in the user address is not mapped/protected (?).
->>>
->>> I've been having a look, and this seems to be down to access of the
->>> tsk->set_child_tid variable. I assume the fuzzing here is to pass a
->>> bad address to clone?
->>>
->>> =A0 From looking at the code, the put_user() code should have set the
->>> relevant SR_SUM bit (the value for this, which is 1<<18 is in the
->>> s2 register in the crash report) and from looking at the compiler
->>> output from my gcc-10, the code looks to be dong the relevant csrs
->>> and then csrc around the put_user
->>>
->>> So currently I do not understand how the above could have happened
->>> over than something re-tried the code seqeunce and ended up retrying
->>> the faulting instruction without the SR_SUM bit set.
->>
->> I would maybe blame qemu for randomly resetting SR_SUM, but it's
->> strange that 99% of these crashes are in schedule_tail. If it would be
->> qemu, then they would be more evenly distributed...
->>
->> Another observation: looking at a dozen of crash logs, in none of
->> these cases fuzzer was actually trying to fuzz clone with some insane
->> arguments. So it looks like completely normal clone's (e..g coming
->> from pthread_create) result in this crash.
->>
->> I also wonder why there is ret_from_exception, is it normal? I see
->> handle_exception disables SR_SUM:
-> =
-
-> csrrc does the right thing: it cleans SR_SUM bit in status but saves the =
-
-> previous value that will get correctly restored.
-> =
-
-> ("The CSRRC (Atomic Read and Clear Bits in CSR) instruction reads the =
-
-> value of the CSR, zero-extends the value to XLEN bits, and writes it to =
-
-> integer registerrd.=A0 The initial value in integerregisterrs1is treated =
-
-> as a bit mask that specifies bit positions to be cleared in the CSR. Any =
-
-> bitthat is high inrs1will cause the corresponding bit to be cleared in =
-
-> the CSR, if that CSR bit iswritable.=A0 Other bits in the CSR are =
-
-> unaffected.")
-
-I think there may also be an understanding issue on what the SR_SUM
-bit does. I thought if it is set, M->U accesses would fault, which is
-why it gets set early on. But from reading the uaccess code it looks
-like the uaccess code sets it on entry and then clears on exit.
-
-I am very confused. Is there a master reference for rv64?
-
-https://people.eecs.berkeley.edu/~krste/papers/riscv-privileged-v1.9.pdf
-seems to state PUM is the SR_SUM bit, and that (if set) disabled
-
-Quote:
-  The PUM (Protect User Memory) bit modifies the privilege with which =
-
-S-mode loads, stores, and instruction fetches access virtual memory. =
-
-When PUM=3D0, translation and protection behave as normal. When PUM=3D1, =
-
-S-mode memory accesses to pages that are accessible by U-mode (U=3D1 in =
-
-Figure 4.19) will fault. PUM has no effect when executing in U-mode
-
-
->> https://elixir.bootlin.com/linux/v5.12-rc2/source/arch/riscv/kernel/entr=
-y.S#L73 =
-
->>
-> =
-
-> Still no luck for the moment, can't reproduce it locally, my test is =
-
-> maybe not that good (I created threads all day long in order to trigger =
-
-> the put_user of schedule_tail).
-
-It may of course depend on memory and other stuff. I did try to see if
-it was possible to clone() with the child_tid address being a valid but
-not mapped page...
-
-> Given that the path you mention works most of the time, and that the =
-
-> status register in the stack trace shows the SUM bit is not set whereas =
-
-> it is set in put_user, I'm leaning toward some race condition (maybe an =
-
-> interrupt that arrives at the "wrong" time) or a qemu issue as you =
-
-> mentioned.
-
-I suppose this is possible. From what I read it should get to the
-point of being there with the SUM flag cleared, so either something
-went wrong in trying to fix the instruction up or there's some other
-error we're missing.
-
-> To eliminate qemu issues, do you have access to some HW ? Or to =
-
-> different qemu versions ?
-
-I do have access to a Microchip Polarfire board. I just need the
-instructions on how to setup the test-code to make it work on the
-hardware.
-
-The config supplied takes /ages/ to boot on qemu even on my ryzen9.
-
--- =
-
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMTIsIDIwMjEgYXQgOToxMiBQTSBCZW4gRG9va3MgPGJlbi5kb29rc0Bjb2Rl
+dGhpbmsuY28udWs+IHdyb3RlOgo+Cj4gT24gMTIvMDMvMjAyMSAxNjoyNSwgQWxleCBHaGl0aSB3
+cm90ZToKPiA+Cj4gPgo+ID4gTGUgMy8xMi8yMSDDoCAxMDoxMiBBTSwgRG1pdHJ5IFZ5dWtvdiBh
+IMOpY3JpdCA6Cj4gPj4gT24gRnJpLCBNYXIgMTIsIDIwMjEgYXQgMjo1MCBQTSBCZW4gRG9va3Mg
+PGJlbi5kb29rc0Bjb2RldGhpbmsuY28udWs+Cj4gPj4gd3JvdGU6Cj4gPj4+Cj4gPj4+IE9uIDEw
+LzAzLzIwMjEgMTc6MTYsIERtaXRyeSBWeXVrb3Ygd3JvdGU6Cj4gPj4+PiBPbiBXZWQsIE1hciAx
+MCwgMjAyMSBhdCA1OjQ2IFBNIHN5emJvdAo+ID4+Pj4gPHN5emJvdCtlNzRiOTRmZTYwMWFiOTU1
+MmQ2OUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29tPiB3cm90ZToKPiA+Pj4+Pgo+ID4+Pj4+IEhl
+bGxvLAo+ID4+Pj4+Cj4gPj4+Pj4gc3l6Ym90IGZvdW5kIHRoZSBmb2xsb3dpbmcgaXNzdWUgb246
+Cj4gPj4+Pj4KPiA+Pj4+PiBIRUFEIGNvbW1pdDogICAgMGQ3NTg4YWIgcmlzY3Y6IHByb2Nlc3M6
+IEZpeCBubyBwcm90b3R5cGUgZm9yCj4gPj4+Pj4gYXJjaF9kdXBfdGFzLi4KPiA+Pj4+PiBnaXQg
+dHJlZToKPiA+Pj4+PiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9n
+aXQvcmlzY3YvbGludXguZ2l0IGZpeGVzCj4gPj4+Pj4gY29uc29sZSBvdXRwdXQ6Cj4gPj4+Pj4g
+aHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20veC9sb2cudHh0P3g9MTIxMmM2ZTZkMDAwMDAK
+PiA+Pj4+PiBrZXJuZWwgY29uZmlnOgo+ID4+Pj4+IGh0dHBzOi8vc3l6a2FsbGVyLmFwcHNwb3Qu
+Y29tL3gvLmNvbmZpZz94PWUzYzU5NTI1NWZiMmQxMzYKPiA+Pj4+PiBkYXNoYm9hcmQgbGluazoK
+PiA+Pj4+PiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS9idWc/ZXh0aWQ9ZTc0Yjk0ZmU2
+MDFhYjk1NTJkNjkKPiA+Pj4+PiB1c2Vyc3BhY2UgYXJjaDogcmlzY3Y2NAo+ID4+Pj4+Cj4gPj4+
+Pj4gVW5mb3J0dW5hdGVseSwgSSBkb24ndCBoYXZlIGFueSByZXByb2R1Y2VyIGZvciB0aGlzIGlz
+c3VlIHlldC4KPiA+Pj4+Pgo+ID4+Pj4+IElNUE9SVEFOVDogaWYgeW91IGZpeCB0aGUgaXNzdWUs
+IHBsZWFzZSBhZGQgdGhlIGZvbGxvd2luZyB0YWcgdG8KPiA+Pj4+PiB0aGUgY29tbWl0Ogo+ID4+
+Pj4+IFJlcG9ydGVkLWJ5OiBzeXpib3QrZTc0Yjk0ZmU2MDFhYjk1NTJkNjlAc3l6a2FsbGVyLmFw
+cHNwb3RtYWlsLmNvbQo+ID4+Pj4KPiA+Pj4+ICtyaXNjdiBtYWludGFpbmVycwo+ID4+Pj4KPiA+
+Pj4+IFRoaXMgaXMgcmlzY3Y2NC1zcGVjaWZpYy4KPiA+Pj4+IEkndmUgc2VlbiBzaW1pbGFyIGNy
+YXNoZXMgaW4gcHV0X3VzZXIgaW4gb3RoZXIgcGxhY2VzLiBJdCBsb29rcyBsaWtlCj4gPj4+PiBw
+dXRfdXNlciBjcmFzaGVzIGluIHRoZSB1c2VyIGFkZHJlc3MgaXMgbm90IG1hcHBlZC9wcm90ZWN0
+ZWQgKD8pLgo+ID4+Pgo+ID4+PiBJJ3ZlIGJlZW4gaGF2aW5nIGEgbG9vaywgYW5kIHRoaXMgc2Vl
+bXMgdG8gYmUgZG93biB0byBhY2Nlc3Mgb2YgdGhlCj4gPj4+IHRzay0+c2V0X2NoaWxkX3RpZCB2
+YXJpYWJsZS4gSSBhc3N1bWUgdGhlIGZ1enppbmcgaGVyZSBpcyB0byBwYXNzIGEKPiA+Pj4gYmFk
+IGFkZHJlc3MgdG8gY2xvbmU/Cj4gPj4+Cj4gPj4+ICAgRnJvbSBsb29raW5nIGF0IHRoZSBjb2Rl
+LCB0aGUgcHV0X3VzZXIoKSBjb2RlIHNob3VsZCBoYXZlIHNldCB0aGUKPiA+Pj4gcmVsZXZhbnQg
+U1JfU1VNIGJpdCAodGhlIHZhbHVlIGZvciB0aGlzLCB3aGljaCBpcyAxPDwxOCBpcyBpbiB0aGUK
+PiA+Pj4gczIgcmVnaXN0ZXIgaW4gdGhlIGNyYXNoIHJlcG9ydCkgYW5kIGZyb20gbG9va2luZyBh
+dCB0aGUgY29tcGlsZXIKPiA+Pj4gb3V0cHV0IGZyb20gbXkgZ2NjLTEwLCB0aGUgY29kZSBsb29r
+cyB0byBiZSBkb25nIHRoZSByZWxldmFudCBjc3JzCj4gPj4+IGFuZCB0aGVuIGNzcmMgYXJvdW5k
+IHRoZSBwdXRfdXNlcgo+ID4+Pgo+ID4+PiBTbyBjdXJyZW50bHkgSSBkbyBub3QgdW5kZXJzdGFu
+ZCBob3cgdGhlIGFib3ZlIGNvdWxkIGhhdmUgaGFwcGVuZWQKPiA+Pj4gb3ZlciB0aGFuIHNvbWV0
+aGluZyByZS10cmllZCB0aGUgY29kZSBzZXFldW5jZSBhbmQgZW5kZWQgdXAgcmV0cnlpbmcKPiA+
+Pj4gdGhlIGZhdWx0aW5nIGluc3RydWN0aW9uIHdpdGhvdXQgdGhlIFNSX1NVTSBiaXQgc2V0Lgo+
+ID4+Cj4gPj4gSSB3b3VsZCBtYXliZSBibGFtZSBxZW11IGZvciByYW5kb21seSByZXNldHRpbmcg
+U1JfU1VNLCBidXQgaXQncwo+ID4+IHN0cmFuZ2UgdGhhdCA5OSUgb2YgdGhlc2UgY3Jhc2hlcyBh
+cmUgaW4gc2NoZWR1bGVfdGFpbC4gSWYgaXQgd291bGQgYmUKPiA+PiBxZW11LCB0aGVuIHRoZXkg
+d291bGQgYmUgbW9yZSBldmVubHkgZGlzdHJpYnV0ZWQuLi4KPiA+Pgo+ID4+IEFub3RoZXIgb2Jz
+ZXJ2YXRpb246IGxvb2tpbmcgYXQgYSBkb3plbiBvZiBjcmFzaCBsb2dzLCBpbiBub25lIG9mCj4g
+Pj4gdGhlc2UgY2FzZXMgZnV6emVyIHdhcyBhY3R1YWxseSB0cnlpbmcgdG8gZnV6eiBjbG9uZSB3
+aXRoIHNvbWUgaW5zYW5lCj4gPj4gYXJndW1lbnRzLiBTbyBpdCBsb29rcyBsaWtlIGNvbXBsZXRl
+bHkgbm9ybWFsIGNsb25lJ3MgKGUuLmcgY29taW5nCj4gPj4gZnJvbSBwdGhyZWFkX2NyZWF0ZSkg
+cmVzdWx0IGluIHRoaXMgY3Jhc2guCj4gPj4KPiA+PiBJIGFsc28gd29uZGVyIHdoeSB0aGVyZSBp
+cyByZXRfZnJvbV9leGNlcHRpb24sIGlzIGl0IG5vcm1hbD8gSSBzZWUKPiA+PiBoYW5kbGVfZXhj
+ZXB0aW9uIGRpc2FibGVzIFNSX1NVTToKPiA+Cj4gPiBjc3JyYyBkb2VzIHRoZSByaWdodCB0aGlu
+ZzogaXQgY2xlYW5zIFNSX1NVTSBiaXQgaW4gc3RhdHVzIGJ1dCBzYXZlcyB0aGUKPiA+IHByZXZp
+b3VzIHZhbHVlIHRoYXQgd2lsbCBnZXQgY29ycmVjdGx5IHJlc3RvcmVkLgo+ID4KPiA+ICgiVGhl
+IENTUlJDIChBdG9taWMgUmVhZCBhbmQgQ2xlYXIgQml0cyBpbiBDU1IpIGluc3RydWN0aW9uIHJl
+YWRzIHRoZQo+ID4gdmFsdWUgb2YgdGhlIENTUiwgemVyby1leHRlbmRzIHRoZSB2YWx1ZSB0byBY
+TEVOIGJpdHMsIGFuZCB3cml0ZXMgaXQgdG8KPiA+IGludGVnZXIgcmVnaXN0ZXJyZC4gIFRoZSBp
+bml0aWFsIHZhbHVlIGluIGludGVnZXJyZWdpc3RlcnJzMWlzIHRyZWF0ZWQKPiA+IGFzIGEgYml0
+IG1hc2sgdGhhdCBzcGVjaWZpZXMgYml0IHBvc2l0aW9ucyB0byBiZSBjbGVhcmVkIGluIHRoZSBD
+U1IuIEFueQo+ID4gYml0dGhhdCBpcyBoaWdoIGlucnMxd2lsbCBjYXVzZSB0aGUgY29ycmVzcG9u
+ZGluZyBiaXQgdG8gYmUgY2xlYXJlZCBpbgo+ID4gdGhlIENTUiwgaWYgdGhhdCBDU1IgYml0IGlz
+d3JpdGFibGUuICBPdGhlciBiaXRzIGluIHRoZSBDU1IgYXJlCj4gPiB1bmFmZmVjdGVkLiIpCj4K
+PiBJIHRoaW5rIHRoZXJlIG1heSBhbHNvIGJlIGFuIHVuZGVyc3RhbmRpbmcgaXNzdWUgb24gd2hh
+dCB0aGUgU1JfU1VNCj4gYml0IGRvZXMuIEkgdGhvdWdodCBpZiBpdCBpcyBzZXQsIE0tPlUgYWNj
+ZXNzZXMgd291bGQgZmF1bHQsIHdoaWNoIGlzCj4gd2h5IGl0IGdldHMgc2V0IGVhcmx5IG9uLiBC
+dXQgZnJvbSByZWFkaW5nIHRoZSB1YWNjZXNzIGNvZGUgaXQgbG9va3MKPiBsaWtlIHRoZSB1YWNj
+ZXNzIGNvZGUgc2V0cyBpdCBvbiBlbnRyeSBhbmQgdGhlbiBjbGVhcnMgb24gZXhpdC4KPgo+IEkg
+YW0gdmVyeSBjb25mdXNlZC4gSXMgdGhlcmUgYSBtYXN0ZXIgcmVmZXJlbmNlIGZvciBydjY0Pwo+
+Cj4gaHR0cHM6Ly9wZW9wbGUuZWVjcy5iZXJrZWxleS5lZHUvfmtyc3RlL3BhcGVycy9yaXNjdi1w
+cml2aWxlZ2VkLXYxLjkucGRmCj4gc2VlbXMgdG8gc3RhdGUgUFVNIGlzIHRoZSBTUl9TVU0gYml0
+LCBhbmQgdGhhdCAoaWYgc2V0KSBkaXNhYmxlZAo+Cj4gUXVvdGU6Cj4gICBUaGUgUFVNIChQcm90
+ZWN0IFVzZXIgTWVtb3J5KSBiaXQgbW9kaWZpZXMgdGhlIHByaXZpbGVnZSB3aXRoIHdoaWNoCj4g
+Uy1tb2RlIGxvYWRzLCBzdG9yZXMsIGFuZCBpbnN0cnVjdGlvbiBmZXRjaGVzIGFjY2VzcyB2aXJ0
+dWFsIG1lbW9yeS4KPiBXaGVuIFBVTT0wLCB0cmFuc2xhdGlvbiBhbmQgcHJvdGVjdGlvbiBiZWhh
+dmUgYXMgbm9ybWFsLiBXaGVuIFBVTT0xLAo+IFMtbW9kZSBtZW1vcnkgYWNjZXNzZXMgdG8gcGFn
+ZXMgdGhhdCBhcmUgYWNjZXNzaWJsZSBieSBVLW1vZGUgKFU9MSBpbgo+IEZpZ3VyZSA0LjE5KSB3
+aWxsIGZhdWx0LiBQVU0gaGFzIG5vIGVmZmVjdCB3aGVuIGV4ZWN1dGluZyBpbiBVLW1vZGUKPgo+
+Cj4gPj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjUuMTItcmMyL3NvdXJjZS9h
+cmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TI0w3Mwo+ID4+Cj4gPgo+ID4gU3RpbGwgbm8gbHVjayBm
+b3IgdGhlIG1vbWVudCwgY2FuJ3QgcmVwcm9kdWNlIGl0IGxvY2FsbHksIG15IHRlc3QgaXMKPiA+
+IG1heWJlIG5vdCB0aGF0IGdvb2QgKEkgY3JlYXRlZCB0aHJlYWRzIGFsbCBkYXkgbG9uZyBpbiBv
+cmRlciB0byB0cmlnZ2VyCj4gPiB0aGUgcHV0X3VzZXIgb2Ygc2NoZWR1bGVfdGFpbCkuCj4KPiBJ
+dCBtYXkgb2YgY291cnNlIGRlcGVuZCBvbiBtZW1vcnkgYW5kIG90aGVyIHN0dWZmLiBJIGRpZCB0
+cnkgdG8gc2VlIGlmCj4gaXQgd2FzIHBvc3NpYmxlIHRvIGNsb25lKCkgd2l0aCB0aGUgY2hpbGRf
+dGlkIGFkZHJlc3MgYmVpbmcgYSB2YWxpZCBidXQKPiBub3QgbWFwcGVkIHBhZ2UuLi4KPgo+ID4g
+R2l2ZW4gdGhhdCB0aGUgcGF0aCB5b3UgbWVudGlvbiB3b3JrcyBtb3N0IG9mIHRoZSB0aW1lLCBh
+bmQgdGhhdCB0aGUKPiA+IHN0YXR1cyByZWdpc3RlciBpbiB0aGUgc3RhY2sgdHJhY2Ugc2hvd3Mg
+dGhlIFNVTSBiaXQgaXMgbm90IHNldCB3aGVyZWFzCj4gPiBpdCBpcyBzZXQgaW4gcHV0X3VzZXIs
+IEknbSBsZWFuaW5nIHRvd2FyZCBzb21lIHJhY2UgY29uZGl0aW9uIChtYXliZSBhbgo+ID4gaW50
+ZXJydXB0IHRoYXQgYXJyaXZlcyBhdCB0aGUgIndyb25nIiB0aW1lKSBvciBhIHFlbXUgaXNzdWUg
+YXMgeW91Cj4gPiBtZW50aW9uZWQuCj4KPiBJIHN1cHBvc2UgdGhpcyBpcyBwb3NzaWJsZS4gRnJv
+bSB3aGF0IEkgcmVhZCBpdCBzaG91bGQgZ2V0IHRvIHRoZQo+IHBvaW50IG9mIGJlaW5nIHRoZXJl
+IHdpdGggdGhlIFNVTSBmbGFnIGNsZWFyZWQsIHNvIGVpdGhlciBzb21ldGhpbmcKPiB3ZW50IHdy
+b25nIGluIHRyeWluZyB0byBmaXggdGhlIGluc3RydWN0aW9uIHVwIG9yIHRoZXJlJ3Mgc29tZSBv
+dGhlcgo+IGVycm9yIHdlJ3JlIG1pc3NpbmcuCj4KPiA+IFRvIGVsaW1pbmF0ZSBxZW11IGlzc3Vl
+cywgZG8geW91IGhhdmUgYWNjZXNzIHRvIHNvbWUgSFcgPyBPciB0bwo+ID4gZGlmZmVyZW50IHFl
+bXUgdmVyc2lvbnMgPwo+Cj4gSSBkbyBoYXZlIGFjY2VzcyB0byBhIE1pY3JvY2hpcCBQb2xhcmZp
+cmUgYm9hcmQuIEkganVzdCBuZWVkIHRoZQo+IGluc3RydWN0aW9ucyBvbiBob3cgdG8gc2V0dXAg
+dGhlIHRlc3QtY29kZSB0byBtYWtlIGl0IHdvcmsgb24gdGhlCj4gaGFyZHdhcmUuCgpGb3IgZnVs
+bCBzeXprYWxsZXIgc3VwcG9ydCwgaXQgd291bGQgbmVlZCB0byBrbm93IGhvdyB0byByZWJvb3Qg
+dGhlc2UKYm9hcmRzIGFuZCBnZXQgYWNjZXNzIHRvIHRoZSBjb25zb2xlLgpzeXprYWxsZXIgaGFz
+IGEgc3RvcC1nYXAgVk0gYmFja2VuZCB3aGljaCBqdXN0IHVzZXMgc3NoIHRvIGEgcGh5c2ljYWwK
+bWFjaGluZSBhbmQgZXhwZWN0cyB0aGUga2VybmVsIHRvIHJlYm9vdCBvbiBpdHMgb3duIGFmdGVy
+IGFueSBjcmFzaGVzLgoKQnV0IEkgYWN0dWFsbHkgbWFuYWdlZCB0byByZXByb2R1Y2UgaXQgaW4g
+YW4gZXZlbiBzaW1wbGVyIHNldHVwLgpBc3N1bWluZyB5b3UgaGF2ZSBHbyAxLjE1IGFuZCByaXNj
+djY0IGNyb3NzLWNvbXBpbGVyIGdjYyBpbnN0YWxsZWQKCiQgZ28gZ2V0IC11IC1kIGdpdGh1Yi5j
+b20vZ29vZ2xlL3N5emthbGxlci8uLi4KJCBjZCAkR09QQVRIL3NyYy9naXRodWIuY29tL2dvb2ds
+ZS9zeXprYWxsZXIKJCBtYWtlIHN0cmVzcyBleGVjdXRvciBUQVJHRVRBUkNIPXJpc2N2NjQKJCBz
+Y3AgYmluL2xpbnV4X3Jpc2N2NjQvc3l6LWV4ZWNwcm9nIGJpbi9saW51eF9yaXNjdjY0L3N5ei1l
+eGVjdXRvcgp5b3VyX21hY2hpbmU6LwoKVGhlbiBydW4gLi9zeXotc3RyZXNzIG9uIHRoZSBtYWNo
+aW5lLgpPbiB0aGUgZmlyc3QgcnVuIGl0IGNyYXNoZWQgaXQgd2l0aCBzb21lIG90aGVyIGJ1Zywg
+b24gdGhlIHNlY29uZCBydW4KSSBnb3QgdGhlIGNyYXNoIGluIHNjaGVkdWxlX3RhaWwuCldpdGgg
+cWVtdSB0Y2cgSSBhbHNvIGFkZGVkIC1zbG93ZG93bj0xMCBmbGFnIHRvIHN5ei1zdHJlc3MgdG8g
+c2NhbGUKYWxsIHRpbWVvdXRzLCBpZiBuYXRpdmUgZXhlY3V0aW9uIGlzIGZhc3RlciwgdGhlbiB5
+b3UgZG9uJ3QgbmVlZCBpdC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
