@@ -2,85 +2,62 @@ Return-Path: <SRS0=fQzb=IM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE466C433DB
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 07:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5DA4BC433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 09:10:59 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E196664E75
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 07:19:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E196664E75
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id E569664EB6
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 09:10:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E569664EB6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FJsevWRyD/XepUqvf9qPHa8xPw7BYiZv29/Xa+CB8Ng=; b=YAmK+D0EDmx+TD9KEx6j9cjAj
-	SA2xBsc+6pJNPXXvugmKuAqn3OB4++ikItYtysvG4rBr1uj1FvnehM9llm/KON+/jjXdUGOpMXnW3
-	FTGndMvh+wwhnaeGXWRwzzm8bBPazy8qQa7e5tdUOtnjbi/UsgG46mqBC8FlqPEHMi7sgURyunJ/H
-	qQdGd7gwZrXAe4MHtzCVF/d+bOUUDg9WwqRXHaAXnKEdtGn/mM/mK0eqAUjZLXwCJ9qF5+HY/HI4E
-	efqxG+TS1BIyDbRcUPs//07DOYFJGGOjcv8vuMQouyF/JNXblJ+rrHFl5R0Nun8hL0dA6Sx1KTSI5
-	n2Fssoirw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZEHlRaL2RUCJytW/igKGG9mlyQhPvYQVfHYlNa9/Y4k=; b=ScJFJk50+ggIOI6+ZuZ0qcVds4
+	C6c2FzhlZcZE1qviUPJmltGjXQ2GMmg4/4IPU0QpG2sDaIWQt6vkf/oh/o2a5aMstSzvDBS6Fx+8z
+	E7O1VIlVJnlQmLr/sVeumH2BCD1VlcpxOZykZW1aoQpWKioq67O3t4GT63DrM3g03qLVQ+dx+YHJg
+	MDXm+0x68RihTxkUYWuX08cyo3eZtPrOLDsCEvJkIEDpq7UGtItzXyOYbshTUXvCVDzZEpQECWNv9
+	WVjuZnrAVLHq4E7xS4XmZhSIb0qD5PinomjoYL9tcplUYGclIwiBvjDv899xTmvPaQzqo0QS4iAYW
+	SL3iIqaQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lLL25-00Dz0a-2r; Sun, 14 Mar 2021 07:19:25 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1lLMll-00E3So-Uf; Sun, 14 Mar 2021 09:10:41 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lLL1y-00Dz03-LT
- for linux-riscv@lists.infradead.org; Sun, 14 Mar 2021 07:19:21 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4DyrX3341cz1qs06;
- Sun, 14 Mar 2021 08:19:15 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4DyrX26Xqsz1qqkQ;
- Sun, 14 Mar 2021 08:19:14 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id kh2w0-FB6Dkc; Sun, 14 Mar 2021 08:19:13 +0100 (CET)
-X-Auth-Info: eWvXQ3Lwpm1P/x9kl5BzLa1V9xuoSZOfCTBLeNF9IB1Mu5PfC0G9B/OAjqWFIdKx
-Received: from hase.home (ppp-46-244-178-11.dynamic.mnet-online.de
- [46.244.178.11])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Sun, 14 Mar 2021 08:19:13 +0100 (CET)
-Received: by hase.home (Postfix, from userid 1000)
- id 60412102A82; Sun, 14 Mar 2021 08:19:12 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Emil Renner Berthing <emil.renner.berthing@gmail.com>
-Cc: Claudiu.Beznea@microchip.com,  linux-riscv
- <linux-riscv@lists.infradead.org>,  ckeepax@opensource.cirrus.com,
- andrew@lunn.ch,  Willy Tarreau <w@1wt.eu>,  Nicolas Ferre
- <Nicolas.Ferre@microchip.com>,  daniel@0x0f.com,  Alexandre Belloni
- <alexandre.belloni@bootlin.com>,  pthombar@cadence.com,  Network
- Development <netdev@vger.kernel.org>,  Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>
-Subject: Re: macb broken on HiFive Unleashed
-References: <87tupl30kl.fsf@igel.home>
- <04a7e801-9a55-c926-34ad-3a7665077a4e@microchip.com>
- <87y2euu6lf.fsf@igel.home>
- <CANBLGcyteTgQ2BgyesrTycpVqpPeYaiUCTEEp=KmPB0TPqK_LQ@mail.gmail.com>
-X-Yow: I'm a GENIUS! I want to dispute sentence structure with SUSAN SONTAG!!
-Date: Sun, 14 Mar 2021 08:19:11 +0100
-In-Reply-To: <CANBLGcyteTgQ2BgyesrTycpVqpPeYaiUCTEEp=KmPB0TPqK_LQ@mail.gmail.com>
- (Emil Renner Berthing's message of "Sat, 13 Mar 2021 22:54:02 +0100")
-Message-ID: <87o8fm42z4.fsf@linux-m68k.org>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1.91 (gnu/linux)
+ id 1lLMlg-00E3RR-Ue
+ for linux-riscv@lists.infradead.org; Sun, 14 Mar 2021 09:10:38 +0000
+X-Originating-IP: 2.7.49.219
+Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
+ [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 7201E20002;
+ Sun, 14 Mar 2021 09:10:29 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, Andrey Ryabinin <aryabinin@virtuozzo.com>,
+ Alexander Potapenko <glider@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH v3 0/3] Move kernel mapping outside the linear mapping 
+Date: Sun, 14 Mar 2021 05:10:24 -0400
+Message-Id: <20210314091027.21592-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210314_071918_999070_95F0DD2A 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210314_091037_067927_2B544F90 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,17 +69,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTcOkciAxMyAyMDIxLCBFbWlsIFJlbm5lciBCZXJ0aGluZyB3cm90ZToKCj4gQXMgeW91IGNh
-biBzZWUgSSBoYXZlbid0IHVwZGF0ZWQgT3BlblNCSSBvciB1LWJvb3QgaW4gYSB3aGlsZQoKRG9l
-cyBpdCBhbHNvIHdvcmsgaWYgeW91IHVzZSB0aGUgdS1ib290IFNQTCBpbnN0ZWFkIG9mIEZTQkw/
-CgpBbmRyZWFzLgoKLS0gCkFuZHJlYXMgU2Nod2FiLCBzY2h3YWJAbGludXgtbTY4ay5vcmcKR1BH
-IEtleSBmaW5nZXJwcmludCA9IDc1NzggRUI0NyBENEU1IDRENjkgMjUxMCAgMjU1MiBERjczIEU3
-ODAgQTlEQSBBRUMxCiJBbmQgbm93IGZvciBzb21ldGhpbmcgY29tcGxldGVseSBkaWZmZXJlbnQu
-IgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+I decided to split sv48 support in small series to ease the review.
+
+This patchset pushes the kernel mapping (modules and BPF too) to the last
+4GB of the 64bit address space, this allows to:
+- implement relocatable kernel (that will come later in another
+  patchset) that requires to move the kernel mapping out of the linear
+  mapping to avoid to copy the kernel at a different physical address.
+- have a single kernel that is not relocatable (and then that avoids the
+  performance penalty imposed by PIC kernel) for both sv39 and sv48.
+
+The first patch implements this behaviour, the second patch introduces a
+documentation that describes the virtual address space layout of the 64bit
+kernel and the last patch is taken from my sv48 series where I simply added
+the dump of the modules/kernel/BPF mapping.
+
+I removed the Reviewed-by on the first patch since it changed enough from
+last time and deserves a second look.
+
+Changes in v3:
+- Fix broken nommu build as reported by kernel test robot by protecting
+  the kernel mapping only in 64BIT and MMU configs, by reverting the
+  introduction of load_sz_pmd and by not exporting load_sz/load_pa anymore
+  since they were not initialized in nommu config. 
+
+Changes in v2:
+- Fix documentation about direct mapping size which is 124GB instead
+  of 126GB.
+- Fix SPDX missing header in documentation.
+- Fix another checkpatch warning about EXPORT_SYMBOL which was not
+  directly below variable declaration.
+
+Alexandre Ghiti (3):
+  riscv: Move kernel mapping outside of linear mapping
+  Documentation: riscv: Add documentation that describes the VM layout
+  riscv: Prepare ptdump for vm layout dynamic addresses
+
+ Documentation/riscv/index.rst       |  1 +
+ Documentation/riscv/vm-layout.rst   | 63 +++++++++++++++++++++++
+ arch/riscv/boot/loader.lds.S        |  3 +-
+ arch/riscv/include/asm/page.h       | 17 ++++++-
+ arch/riscv/include/asm/pgtable.h    | 37 ++++++++++----
+ arch/riscv/include/asm/set_memory.h |  1 +
+ arch/riscv/kernel/head.S            |  3 +-
+ arch/riscv/kernel/module.c          |  6 +--
+ arch/riscv/kernel/setup.c           |  5 ++
+ arch/riscv/kernel/vmlinux.lds.S     |  3 +-
+ arch/riscv/mm/fault.c               | 13 +++++
+ arch/riscv/mm/init.c                | 78 ++++++++++++++++++++++-------
+ arch/riscv/mm/kasan_init.c          |  9 ++++
+ arch/riscv/mm/physaddr.c            |  2 +-
+ arch/riscv/mm/ptdump.c              | 67 ++++++++++++++++++++-----
+ 15 files changed, 258 insertions(+), 50 deletions(-)
+ create mode 100644 Documentation/riscv/vm-layout.rst
+
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
