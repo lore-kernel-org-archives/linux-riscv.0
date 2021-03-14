@@ -2,65 +2,92 @@ Return-Path: <SRS0=fQzb=IM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5ED86C433E0
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 09:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5C02C433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 10:02:11 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 088AA64EB7
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 09:14:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 088AA64EB7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 56FA564EC6
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 10:02:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 56FA564EC6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8ZZK9Os4kMt6sUuuhU1NRoZQRjgpoDXyyCFo65KdQ4o=; b=PwM0elIgWxC6wo5ZEzHgwugLF
-	qZ4rOmW+EqS39ruQCgWiDLY6eYstMLcS49bUp7eKJMqvoQ+RQxBVLwODPBMKCmfLkNFxgZWsSCBf0
-	vqGrTukBwsyjSCO9MCQ9LMAl765N1s0pDN4m3BXX7iGO+2uJGC9WnM6i56D36sKmLTyWIZOUOd5GU
-	9ft5bBHxre8M7x3IbPaRoqzWMPs5H0+RnRm052RVxthGDb9BSvjvGZo1eznrnlp5HIF5a7f5hpBJq
-	p82BZCfef1v+vDo2wnMMK0mz+KVsr2SGDPGk7d30AE0Xv3MkAi6FVeJNhTORMvjaofZbWw0mHgjjA
-	gtQAMSrzA==;
+	 bh=rwf8VD2JWzS9NtfjUzRizy5K70fPTYAFOhNsc1X89Ag=; b=FGU56ERSDBD5lrPCxTz96dpuA
+	o6FhvOtgpNNSTqgf1y92kM1S6IlB5Fq4eNsv7EtOR7cPQCPVZr/EUfVSlQx/c5XVLmU+ciJvRvyih
+	L6MYLKf5ngxKV1oSzVyKebc7izAw62oDw8GdYkPAQ4x/t4E2gV1IhBkEvhtRgh3w8UGO8wdEj8Gg5
+	9SLuemt6otZ0A9Ptft5XnDr+9xseMtLnw6f6q0dToqpPL6BOgLnv49hYktYbYboDjnDvAnjluaT6z
+	WBIXfqxAcbH4DUvE+bMana5yO0k9RN+lxbF0vqRQOTPAcaryX0XseZpuP7Y9czrKeAKKj5ZAo6BcU
+	YqF+fGcNA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lLMos-00E3r8-Pl; Sun, 14 Mar 2021 09:13:54 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1lLNZM-00E64R-Pq; Sun, 14 Mar 2021 10:01:56 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lLMoo-00E3qi-OX
- for linux-riscv@lists.infradead.org; Sun, 14 Mar 2021 09:13:52 +0000
-X-Originating-IP: 2.7.49.219
-Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 89591240006;
- Sun, 14 Mar 2021 09:13:44 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, Andrey Ryabinin <aryabinin@virtuozzo.com>,
- Alexander Potapenko <glider@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH v3 3/3] riscv: Prepare ptdump for vm layout dynamic addresses
-Date: Sun, 14 Mar 2021 05:10:27 -0400
-Message-Id: <20210314091027.21592-4-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20210314091027.21592-1-alex@ghiti.fr>
-References: <20210314091027.21592-1-alex@ghiti.fr>
+ id 1lLNZI-00E63s-Qr
+ for linux-riscv@lists.infradead.org; Sun, 14 Mar 2021 10:01:55 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id cx5so6412640qvb.10
+ for <linux-riscv@lists.infradead.org>; Sun, 14 Mar 2021 03:01:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=V9sT2+1xGWWst4bttpxK8qQ+hu8YuKQN51ohN8OT3c8=;
+ b=V0E9YrVrqNrmHyaGGS2inR5EG2jdyBufEWpDo1J7GHy2CDxubNlpcs2qDjK8muao68
+ vJ/fBpCplKi9jzNcEsBT+NeZ5ZcU6wbjacQMfVTiCoXeodLZFL+3j9O+EmwgDRcgyqku
+ WnLMo7j7BOPADrmvQn5Hf7D/mz9sCpNVKfglfFUsK+aYPBorVNl99DLBSw7mATQJKrm1
+ FViIjGdN5yZe1/RNfm4H6Kd592Q1I6cgrIYSYtiRMbY8NbsZtK6RCbnL1ew3GpJ16idM
+ 8X9VNTXyQeyfLwUac+y1LdoA+rZ/Py48RhmKQL2E/tgLxh7LzN5p/sqB/6qs8KEMFfwp
+ vhHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=V9sT2+1xGWWst4bttpxK8qQ+hu8YuKQN51ohN8OT3c8=;
+ b=gqKTR60QFYANlUcP3EMgEiOt7tnCJfKq57y97MJEEqIGkiwZTKwHb+5UC/AnWUaJRx
+ RCaeaR3wd/d5kY1pRhcfgovHFYwH5peNTk4fYRezsuH4jtzpwasFV9cvKXDcTf7eoWDo
+ JGwpYKN5BMMj7k8eNDQVKEP3EGfIMqMHKHm33ZRGNFzVE6n64bv/sfTTjWlu44K5qVNL
+ OZ3W6Ut7ewL11vaJ1LVIaOk/x0uZtGdGPLPXAlBRqqukm873yqmui7mo/73pueVb0VhF
+ B4gwxoaMEHzqCUop9Fp+0kr0cmYGtlKY8C4UvCBvroLsSsBTSgvXPQol4+PceUjV7cXK
+ aTtA==
+X-Gm-Message-State: AOAM530pAvERVhZgv/wkbwe6nLvCF51yL46r6/1Qg8+D8P8yjYRCwtlt
+ W7pl7qzTzGzWnzNC7A6isqZLeSAIbOQbpuAD8XMsFg==
+X-Google-Smtp-Source: ABdhPJy+VvF0EiHA6nUvKNqWlrBetdvLNPW+AK/wZIPRYlo9k7aSKbqQa7OoPlVK+wlWobmQl0SijN7Ooh4s/FNr5eA=
+X-Received: by 2002:a05:6214:326:: with SMTP id
+ j6mr5856707qvu.13.1615716110661; 
+ Sun, 14 Mar 2021 03:01:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <00000000000096cdaa05bd32d46f@google.com>
+ <CACT4Y+ZjdOaX_X530p+vPbG4mbtUuFsJ1v-gD24T4DnFUqcudA@mail.gmail.com>
+In-Reply-To: <CACT4Y+ZjdOaX_X530p+vPbG4mbtUuFsJ1v-gD24T4DnFUqcudA@mail.gmail.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Sun, 14 Mar 2021 11:01:39 +0100
+Message-ID: <CACT4Y+ZjVS+nOxtEByF5-djuhbCYLSDdZ7V04qJ0edpQR0514A@mail.gmail.com>
+Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
+ sock_ioctl
+To: syzbot <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Cc: andrii@kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ bpf <bpf@vger.kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, David Miller <davem@davemloft.net>, 
+ John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
+ kpsingh@kernel.org, 
+ Jakub Kicinski <kuba@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+ netdev <netdev@vger.kernel.org>, Song Liu <songliubraving@fb.com>, 
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Yonghong Song <yhs@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210314_091350_993071_ECCB03E5 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20210314_100153_006641_BA0E3BDE 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +104,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a preparatory patch for sv48 support that will introduce
-dynamic PAGE_OFFSET.
+On Wed, Mar 10, 2021 at 7:53 PM Dmitry Vyukov <dvyukov@google.com> wrote:
+>
+> On Wed, Mar 10, 2021 at 7:28 PM syzbot
+> <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com> wrote:
+> >
+> > Hello,
+> >
+> > syzbot found the following issue on:
+> >
+> > HEAD commit:    0d7588ab riscv: process: Fix no prototype for arch_dup_tas..
+> > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> > console output: https://syzkaller.appspot.com/x/log.txt?x=122c343ad00000
+> > kernel config:  https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
+> > dashboard link: https://syzkaller.appspot.com/bug?extid=c23c5421600e9b454849
+> > userspace arch: riscv64
+> >
+> > Unfortunately, I don't have any reproducer for this issue yet.
+> >
+> > IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> > Reported-by: syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com
+>
+> +riscv maintainers
+>
+> Another case of put_user crashing.
 
-Dynamic PAGE_OFFSET implies that all zones (vmalloc, vmemmap, fixaddr...)
-whose addresses depend on PAGE_OFFSET become dynamic and can't be used
-to statically initialize the array used by ptdump to identify the
-different zones of the vm layout.
+There are 58 crashes in sock_ioctl already. Somehow there is a very
+significant skew towards crashing with this "user memory without
+uaccess routines" in schedule_tail and sock_ioctl of all places in the
+kernel that use put_user... This looks very strange... Any ideas
+what's special about these 2 locations?
 
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/mm/ptdump.c | 67 ++++++++++++++++++++++++++++++++++--------
- 1 file changed, 55 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index ace74dec7492..aa1b3bce61ab 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -58,29 +58,52 @@ struct ptd_mm_info {
- 	unsigned long end;
- };
- 
-+enum address_markers_idx {
-+#ifdef CONFIG_KASAN
-+	KASAN_SHADOW_START_NR,
-+	KASAN_SHADOW_END_NR,
-+#endif
-+	FIXMAP_START_NR,
-+	FIXMAP_END_NR,
-+	PCI_IO_START_NR,
-+	PCI_IO_END_NR,
-+#ifdef CONFIG_SPARSEMEM_VMEMMAP
-+	VMEMMAP_START_NR,
-+	VMEMMAP_END_NR,
-+#endif
-+	VMALLOC_START_NR,
-+	VMALLOC_END_NR,
-+	PAGE_OFFSET_NR,
-+	MODULES_MAPPING_NR,
-+	KERNEL_MAPPING_NR,
-+	END_OF_SPACE_NR
-+};
-+
- static struct addr_marker address_markers[] = {
- #ifdef CONFIG_KASAN
--	{KASAN_SHADOW_START,	"Kasan shadow start"},
--	{KASAN_SHADOW_END,	"Kasan shadow end"},
-+	{0, "Kasan shadow start"},
-+	{0, "Kasan shadow end"},
- #endif
--	{FIXADDR_START,		"Fixmap start"},
--	{FIXADDR_TOP,		"Fixmap end"},
--	{PCI_IO_START,		"PCI I/O start"},
--	{PCI_IO_END,		"PCI I/O end"},
-+	{0, "Fixmap start"},
-+	{0, "Fixmap end"},
-+	{0, "PCI I/O start"},
-+	{0, "PCI I/O end"},
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--	{VMEMMAP_START,		"vmemmap start"},
--	{VMEMMAP_END,		"vmemmap end"},
-+	{0, "vmemmap start"},
-+	{0, "vmemmap end"},
- #endif
--	{VMALLOC_START,		"vmalloc() area"},
--	{VMALLOC_END,		"vmalloc() end"},
--	{PAGE_OFFSET,		"Linear mapping"},
-+	{0, "vmalloc() area"},
-+	{0, "vmalloc() end"},
-+	{0, "Linear mapping"},
-+	{0, "Modules mapping"},
-+	{0, "Kernel mapping (kernel, BPF)"},
- 	{-1, NULL},
- };
- 
- static struct ptd_mm_info kernel_ptd_info = {
- 	.mm		= &init_mm,
- 	.markers	= address_markers,
--	.base_addr	= KERN_VIRT_START,
-+	.base_addr	= 0,
- 	.end		= ULONG_MAX,
- };
- 
-@@ -335,6 +358,26 @@ static int ptdump_init(void)
- {
- 	unsigned int i, j;
- 
-+#ifdef CONFIG_KASAN
-+	address_markers[KASAN_SHADOW_START_NR].start_address = KASAN_SHADOW_START;
-+	address_markers[KASAN_SHADOW_END_NR].start_address = KASAN_SHADOW_END;
-+#endif
-+	address_markers[FIXMAP_START_NR].start_address = FIXADDR_START;
-+	address_markers[FIXMAP_END_NR].start_address = FIXADDR_TOP;
-+	address_markers[PCI_IO_START_NR].start_address = PCI_IO_START;
-+	address_markers[PCI_IO_END_NR].start_address = PCI_IO_END;
-+#ifdef CONFIG_SPARSEMEM_VMEMMAP
-+	address_markers[VMEMMAP_START_NR].start_address = VMEMMAP_START;
-+	address_markers[VMEMMAP_END_NR].start_address = VMEMMAP_END;
-+#endif
-+	address_markers[VMALLOC_START_NR].start_address = VMALLOC_START;
-+	address_markers[VMALLOC_END_NR].start_address = VMALLOC_END;
-+	address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
-+	address_markers[MODULES_MAPPING_NR].start_address = MODULES_VADDR;
-+	address_markers[KERNEL_MAPPING_NR].start_address = kernel_virt_addr;
-+
-+	kernel_ptd_info.base_addr = KERN_VIRT_START;
-+
- 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
- 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
- 			pg_level[i].mask |= pte_bits[j].mask;
--- 
-2.20.1
-
+> > Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000020000300
+> > Oops [#1]
+> > Modules linked in:
+> > CPU: 1 PID: 4488 Comm: syz-executor.0 Not tainted 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
+> > Hardware name: riscv-virtio,qemu (DT)
+> > epc : sock_ioctl+0x424/0x6ac net/socket.c:1124
+> >  ra : sock_ioctl+0x424/0x6ac net/socket.c:1124
+> > epc : ffffffe002aeeb3e ra : ffffffe002aeeb3e sp : ffffffe023867da0
+> >  gp : ffffffe005d25378 tp : ffffffe007e116c0 t0 : 0000000000000000
+> >  t1 : 0000000000000001 t2 : 0000003fb8035e44 s0 : ffffffe023867e30
+> >  s1 : 0000000000040000 a0 : 0000000000000000 a1 : 0000000000000007
+> >  a2 : 1ffffffc00fc22d8 a3 : ffffffe003bc1d02 a4 : 0000000000000000
+> >  a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
+> >  s2 : 0000000000000000 s3 : 0000000000008902 s4 : 0000000020000300
+> >  s5 : ffffffe005d2b0d0 s6 : ffffffe010facfc0 s7 : ffffffe008e00000
+> >  s8 : 0000000000008903 s9 : ffffffe010fad080 s10: 0000000000000000
+> >  s11: 0000000000020000 t3 : 982de389919f6300 t4 : ffffffc401175688
+> >  t5 : ffffffc401175691 t6 : 0000000000000007
+> > status: 0000000000000120 badaddr: 0000000020000300 cause: 000000000000000f
+> > Call Trace:
+> > [<ffffffe002aeeb3e>] sock_ioctl+0x424/0x6ac net/socket.c:1124
+> > [<ffffffe0003fdb6a>] vfs_ioctl fs/ioctl.c:48 [inline]
+> > [<ffffffe0003fdb6a>] __do_sys_ioctl fs/ioctl.c:753 [inline]
+> > [<ffffffe0003fdb6a>] sys_ioctl+0x5c2/0xd56 fs/ioctl.c:739
+> > [<ffffffe000005562>] ret_from_syscall+0x0/0x2
+> > Dumping ftrace buffer:
+> >    (ftrace buffer empty)
+> > ---[ end trace a5f91e70f37b907b ]---
+> >
+> >
+> > ---
+> > This report is generated by a bot. It may contain errors.
+> > See https://goo.gl/tpsmEJ for more information about syzbot.
+> > syzbot engineers can be reached at syzkaller@googlegroups.com.
+> >
+> > syzbot will keep track of this issue. See:
+> > https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
 _______________________________________________
 linux-riscv mailing list
