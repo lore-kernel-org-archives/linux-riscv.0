@@ -2,85 +2,78 @@ Return-Path: <SRS0=pdFK=IN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD95AC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E1423C433E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:56:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33D5A64F34
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:52:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33D5A64F34
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7436364F36
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:56:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7436364F36
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GJwSOOzV3QRL2Qy6dX+3Uw20XxzahXte/GwKpj/KYOs=; b=Iod1hWu4t92NjES0d3GkfIZNp
-	BNsBT8IgafbarsL8CJhuFtghqLtT2WZd/PapJAZTuwGX/+YAhHFOOptYGMTIJfnVM1RX/FDTJ+Sjc
-	zIeWc0XGNkvfzw5x8OwLTLkRYMRkYm7IELQGjxEYRv3ph9ZbNgtFd6sSF0hqa/I/aoQSmmqqwkAAy
-	X4haMquwcyT9SlCrBSd2Zdp8LfFpzossFY62HNse/pKOzihCVrgCZ1FZnbM4vIqHpsshlo+gr0zUX
-	1sPER5PiDIRSxC0EoA2FnGUzp4d+IB+tqhwhwE8Tn1V2ebDdP8kN4NLgXoO8H8jKuOCPyrD+rnQe5
-	Ijr7IZknw==;
+	 bh=OSOV8qePwZRJt/2pUFq2G3l3gZwyQRZxguacgGerBcI=; b=dSMQTrRKMfr/WaPnDmYUxr9D0
+	kSwWkfvMM81TqpkkXTf2IjhIhAaV04DBC1DZpT4Gqbn6sqFJQYKUo4kPPMBt1G0BQbYMBMEVlWKfC
+	0pT0GTkVr8v0JBqFxO1Ry5Ky0cjuLOIQ5y6fyTHCBi+iHwWrJSD5n+SM5VPFhFOeC8CsE6RJTatJQ
+	9cx+tCXfZrpHegC7VrB+b7eqm7IoumYNo9R8nr0W0pNXwcnYjfFTLlsn+zueihHDLRHxSmjsR4Kjn
+	d2JXiDbD840lwc1plccGwlMdyEji02uqdtWwT90jbLtdxFu2WS5jHl+alUXruEH6dXq1zMWm8Vl+8
+	ASl80Tdqg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lLqSJ-00GOsC-9Y; Mon, 15 Mar 2021 16:52:35 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1lLqVU-00GPKR-Lw; Mon, 15 Mar 2021 16:55:53 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lLqSE-00GOrp-5I
- for linux-riscv@lists.infradead.org; Mon, 15 Mar 2021 16:52:32 +0000
-Received: by mail-il1-x130.google.com with SMTP id p10so9997539ils.9
- for <linux-riscv@lists.infradead.org>; Mon, 15 Mar 2021 09:52:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=I0fio/Xr/Ly6DyTgEWQynoHoUq6FwgIyQD271+C3RNY=;
- b=UQ19CCehLZ660g3s3UPDiQx535TvUiWgMD5fu/qA3K/dzYjT77TFq13R9EOTAezL9q
- ISwnWhv8I/A1AYTKjs3nImttMkCOF8Wrocgf318Wu0nARlPajUeNMhagGDQeKJ/Qfcy8
- 8qhveUh5V9mYbrLh6juQLBttB7iYNlU6XKfrM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=I0fio/Xr/Ly6DyTgEWQynoHoUq6FwgIyQD271+C3RNY=;
- b=lWKsO/Lp4QK0lcs27TjqvalvxVMUCnx8fYqfPegxr+2eX1n66eUQp1iGMeYX42E90W
- 3r/SUqbw7KM7S7pmKiLE6+qHbT+DMBX3R51S40FYpcISpbWCS+vEyKSVns4PmXfr0b7Z
- ToOz3kcWIFazc+dylJknIqqhb7+Q8vaPrekODltdNqi5ReDf1g3RKeYYHDJ7cvxUeXHp
- RCo7bh7VL1kYP4SV5SrTstz0EgSQjZ2UQlXnZqmVs5OZuYuu/ren4PgrshdE+aeC1pU0
- nt41t/4qVliVvinwqeIdNrRO7FKOHjb+hZryBU6D+vyOUcubRbC0Pa7gmYNDo5C5RZuu
- 8uNg==
-X-Gm-Message-State: AOAM532M/NeJqnDUBWVomT3vHgeeAcPScFly1Kro8q3WSEBuit5cKurc
- xYOxMant9BaB81L7b7TAgmvhA5PQw9fWBBzh5IEzQ2olNg==
-X-Google-Smtp-Source: ABdhPJxtAb/xjNeIJFH1q/5hHI/w3CXBjeigYEpLIX9eKpoGGREben0fqn6/MiMpnQWd0Va6CG7RJR/CgkxudOaAjcU=
-X-Received: by 2002:a05:6e02:1524:: with SMTP id
- i4mr395752ilu.147.1615827147940; 
- Mon, 15 Mar 2021 09:52:27 -0700 (PDT)
+ id 1lLqVL-00GPJr-CF
+ for linux-riscv@lists.infradead.org; Mon, 15 Mar 2021 16:55:45 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1lLqV7-0007HK-4n; Mon, 15 Mar 2021 16:55:29 +0000
+Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
+ schedule_tail
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Alex Ghiti <alex@ghiti.fr>,
+ syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Daniel Bristot de Oliveira <bristot@redhat.com>,
+ Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
+ Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
+ Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <000000000000b74f1b05bd316729@google.com>
+ <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
+ <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
+ <CACT4Y+ZsSRdQ5LzYMsgjrBAukgP-Vv8WSQsSoxguYjWvB1QnrA@mail.gmail.com>
+ <795597a1-ec87-e09e-d073-3daf10422abb@ghiti.fr>
+ <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
+ <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <a0449f4a-4d54-6f38-1bc3-7c5170d24b86@codethink.co.uk>
+Date: Mon, 15 Mar 2021 16:55:27 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
 MIME-Version: 1.0
-References: <20210315110500.802897-1-anup.patel@wdc.com>
- <20210315110500.802897-2-anup.patel@wdc.com>
-In-Reply-To: <20210315110500.802897-2-anup.patel@wdc.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 15 Mar 2021 09:52:17 -0700
-Message-ID: <CAOnJCUKnU_dzfT39vnxhwHi9Yea-i7oZ2NmHU4L22rzv8VmW8g@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] RISC-V: Don't print SBI version for all detected
- extensions
-To: Anup Patel <anup.patel@wdc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+In-Reply-To: <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210315_165230_403764_12F9A090 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20210315_165543_590512_7B0529DC 
+X-CRM114-Status: GOOD (  29.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +85,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 15, 2021 at 4:07 AM Anup Patel <anup.patel@wdc.com> wrote:
->
-> The sbi_init() already prints SBI version before detecting
-> various SBI extensions so we don't need to print SBI version
-> for all detected SBI extensions.
->
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/kernel/sbi.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index f4a7db3d309e..c0dcebdd30ec 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -577,19 +577,19 @@ void __init sbi_init(void)
->                         sbi_get_firmware_id(), sbi_get_firmware_version());
->                 if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
->                         __sbi_set_timer = __sbi_set_timer_v02;
-> -                       pr_info("SBI v0.2 TIME extension detected\n");
-> +                       pr_info("SBI TIME extension detected\n");
->                 } else {
->                         __sbi_set_timer = __sbi_set_timer_v01;
->                 }
->                 if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
->                         __sbi_send_ipi  = __sbi_send_ipi_v02;
-> -                       pr_info("SBI v0.2 IPI extension detected\n");
-> +                       pr_info("SBI IPI extension detected\n");
->                 } else {
->                         __sbi_send_ipi  = __sbi_send_ipi_v01;
->                 }
->                 if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
->                         __sbi_rfence    = __sbi_rfence_v02;
-> -                       pr_info("SBI v0.2 RFENCE extension detected\n");
-> +                       pr_info("SBI RFENCE extension detected\n");
->                 } else {
->                         __sbi_rfence    = __sbi_rfence_v01;
->                 }
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On 13/03/2021 07:20, Dmitry Vyukov wrote:
+> On Fri, Mar 12, 2021 at 9:12 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
 
+>>> Still no luck for the moment, can't reproduce it locally, my test is
+>>> maybe not that good (I created threads all day long in order to trigger
+>>> the put_user of schedule_tail).
+>>
+>> It may of course depend on memory and other stuff. I did try to see if
+>> it was possible to clone() with the child_tid address being a valid but
+>> not mapped page...
+>>
+>>> Given that the path you mention works most of the time, and that the
+>>> status register in the stack trace shows the SUM bit is not set whereas
+>>> it is set in put_user, I'm leaning toward some race condition (maybe an
+>>> interrupt that arrives at the "wrong" time) or a qemu issue as you
+>>> mentioned.
+>>
+>> I suppose this is possible. From what I read it should get to the
+>> point of being there with the SUM flag cleared, so either something
+>> went wrong in trying to fix the instruction up or there's some other
+>> error we're missing.
+>>
+>>> To eliminate qemu issues, do you have access to some HW ? Or to
+>>> different qemu versions ?
+>>
+>> I do have access to a Microchip Polarfire board. I just need the
+>> instructions on how to setup the test-code to make it work on the
+>> hardware.
+> 
+> For full syzkaller support, it would need to know how to reboot these
+> boards and get access to the console.
+> syzkaller has a stop-gap VM backend which just uses ssh to a physical
+> machine and expects the kernel to reboot on its own after any crashes.
+> 
+> But I actually managed to reproduce it in an even simpler setup.
+> Assuming you have Go 1.15 and riscv64 cross-compiler gcc installed
+> 
+> $ go get -u -d github.com/google/syzkaller/...
+> $ cd $GOPATH/src/github.com/google/syzkaller
+> $ make stress executor TARGETARCH=riscv64
+> $ scp bin/linux_riscv64/syz-execprog bin/linux_riscv64/syz-executor
+> your_machine:/
+> 
+> Then run ./syz-stress on the machine.
+> On the first run it crashed it with some other bug, on the second run
+> I got the crash in schedule_tail.
+> With qemu tcg I also added -slowdown=10 flag to syz-stress to scale
+> all timeouts, if native execution is faster, then you don't need it.
 
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
+I have built the tools and got it to start.
+
+It would be helpful for the dashboard to give the qemu version and
+how it was launched (memory, cpus etc)
 
 -- 
-Regards,
-Atish
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
