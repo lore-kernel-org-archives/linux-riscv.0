@@ -1,93 +1,69 @@
-Return-Path: <SRS0=fQzb=IM=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=pdFK=IN=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A9480C433DB
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 11:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 40725C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 05:01:26 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 47BFC64E57
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Mar 2021 11:04:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 47BFC64E57
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 88E47601FB
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 05:01:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 88E47601FB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5zndoTZGc4baaDDDGPxidem45RhFg5xhqtDYQe5f1fQ=; b=CKFRVtnrslcMvG22jjznV/wku
-	zefsKFoJIDQWjm0XBL11Ulp3j8mrbdRDC6CWZE0YQahVhR8CiCJkImgtW4sDrbqWGnVdY2oKwK/P9
-	ZPnM1Rh0g94CHJ3dQLlpDRckjqQvDDluv8UN3vKFk8hnUKxXCBbxWBWMqhN8lnkGg//DT8s3UWNwK
-	a26i3mIk/J5Xovh7+tAjy2WwMvdWVk4d0UHjxpX9Uj0qdRRZInT2Cq7DLmzmnAnqRs6l1De77KDRz
-	zX4DSy16cGM3at1TWBmIjmI/mIfCLvMw6kAm+L//mz21KJ8elqelKboJDNhGyR8Z8/7Hem+q+XTG5
-	KmdvLSAhA==;
+	 bh=ImP0YjTpndObySXW41JlJweBQDmio2tBnZHuMDjNkJw=; b=QdttVjWWUDYGjXiyE6BiquIiJ
+	1axlZalO9YKnEZqEBuuhtdknWwJLRk+EJZ87dJ3mJlGhilNw+Udzrr7tgVcscjZs57G7NSxgKaImL
+	WlsasmLKFM4qVH4oFGWSpixb1LusLDvXB6eXDy4I6yqvo7/xToBCdIlQqNFvZr64n6AQf4iE3lWTq
+	DNFNW2Zqy0q9EcjKsZxwMA0wAwoSy9BkVDgQ9umCHnZU2cq+qTHKJHVgiQOpPXr/mL5UyiV1RD3mv
+	RXn/EOKKAKeCNAPOMMFQL/6UrKtaK4BCnPWseko+UeNcEnczV9suxBmAivOr/VTbLbb5C8HWNQi2x
+	OMUfmQk+w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lLOXR-00E91k-I1; Sun, 14 Mar 2021 11:04:01 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1lLfLm-00EuCj-Qp; Mon, 15 Mar 2021 05:01:06 +0000
+Received: from exmail.andestech.com ([60.248.187.195]
+ helo=ATCSQR.andestech.com)
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lLOXM-00E91O-Be
- for linux-riscv@lists.infradead.org; Sun, 14 Mar 2021 11:03:59 +0000
-Received: by mail-qk1-x729.google.com with SMTP id f124so28985405qkj.5
- for <linux-riscv@lists.infradead.org>; Sun, 14 Mar 2021 04:03:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ZLrP4l4H65pb8M2x3DmR+dro99lUOubfCFMxCcIwSs8=;
- b=aqFQ0r0ajDoxAzsNxpA6vK0Zdj3ovoLhw+/jMkUZTnXEBFuxuFhCDIVChyina/YdNL
- TiaChHRMrS2bq6ra3/XwlhKAi448hL+T1ODNfJ9v536uUtYf6IVUoVavpUIjrXILA0aQ
- EXE5As5UjV1qrO0Du4u9rcqqtisZ5WumTKmyt4G85Y7rU3m2iEuTiPwyno8gVaViFGW1
- ohQO7ehjYfrWMXVZwOiQfcUyiy56ZWJ+BV0GlxiMD7RFjQFo0jjnzjra3WZ0yO3WmyCP
- wjcshkgQEmEb2OyJmoUhnxUvF48KQt/9Xg5P6UtdJIksT1m727NGOrsTKH6u9a5ucfWx
- 9WDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ZLrP4l4H65pb8M2x3DmR+dro99lUOubfCFMxCcIwSs8=;
- b=i5xoQLLOiS/LC4rrfPRYvKPe5Krvx+oaM63okKbKyjR7g+UMSkmcPV/OJCjhWxevES
- vBHMl2EQlBtgV+492lKLCXEHdNjKfHXFZi/Rv7mX4aQ/ezb2+lhbtFybssjHlG+Ph1Wl
- Oi6QgWpI7WwRq6vseLl36InXNG2QoL+2bFFj7vKVo9yHfgz5PJZ4v+rEdVodyUmaSvB9
- Abyuap3+rKj0wb0bSQ7S0E2y4uFj9nJmV7TiNOe89/Pkj+yN5DbQe/yMRMHJP71g1/GE
- rDJSPJ6wulLQdHfgHF9zeslOPQodkH4d6sRl5tgehAseC9LIGkO1iWKIItf6Y1c/8zN9
- ieXw==
-X-Gm-Message-State: AOAM530pKwcXz8ynBo7mrUreO/awZiGxnNdGTc/Iic1PkRwAeOYh0CUi
- jGTHXc6rliZBGR3aN69gBlZ10MR+n/+w1ga80vtq4w==
-X-Google-Smtp-Source: ABdhPJwEegFcOLhpznys7nGUJ8jy4+601fJsOcZDpPR+EdJcnLdnSVL+p2u/yEUr6V/fvF+FJ96hAtYrDtqWf6oc7wU=
-X-Received: by 2002:a37:4743:: with SMTP id u64mr20614742qka.350.1615719834825; 
- Sun, 14 Mar 2021 04:03:54 -0700 (PDT)
+ id 1lLf6w-00Esem-RI
+ for linux-riscv@lists.infradead.org; Mon, 15 Mar 2021 04:46:14 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id 12F4jHAt008635;
+ Mon, 15 Mar 2021 12:45:17 +0800 (GMT-8)
+ (envelope-from ruinland@andestech.com)
+Received: from [10.0.12.128] (10.0.12.128) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0; Mon, 15 Mar 2021
+ 12:45:14 +0800
+Subject: Re: [RFC patch 0/4] riscv: introduce alternative mechanism to apply
+ errata patches
+To: Vincent Chen <vincent.chen@sifive.com>
+CC: linux-riscv <linux-riscv@lists.infradead.org>, Alan Kao
+ <alankao@andestech.com>
+References: <20210311034707.GA7334@APC301.andestech.com>
+ <CABvJ_xghwbPJPKnd+ksSzAq5N0PkjhGMKKz88pT5smgqKz6-JA@mail.gmail.com>
+From: Ruinland ChuanTzu Tsai <ruinland@andestech.com>
+Message-ID: <ab1931d5-2a50-4263-fc46-35999f803740@andestech.com>
+Date: Mon, 15 Mar 2021 12:42:18 +0800
+User-Agent: Mutt/1.9.4 (2018-02-28)
 MIME-Version: 1.0
-References: <00000000000096cdaa05bd32d46f@google.com>
- <CACT4Y+ZjdOaX_X530p+vPbG4mbtUuFsJ1v-gD24T4DnFUqcudA@mail.gmail.com>
- <CACT4Y+ZjVS+nOxtEByF5-djuhbCYLSDdZ7V04qJ0edpQR0514A@mail.gmail.com>
-In-Reply-To: <CACT4Y+ZjVS+nOxtEByF5-djuhbCYLSDdZ7V04qJ0edpQR0514A@mail.gmail.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Sun, 14 Mar 2021 12:03:43 +0100
-Message-ID: <CACT4Y+YXifnCtEvLu3ps8JLCK9CBLzEuUAozfNR9v1hsGWspOg@mail.gmail.com>
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- sock_ioctl
-To: syzbot <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: andrii@kernel.org, Alexei Starovoitov <ast@kernel.org>,
- bpf <bpf@vger.kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, David Miller <davem@davemloft.net>, 
- John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
- kpsingh@kernel.org, 
- Jakub Kicinski <kuba@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
- netdev <netdev@vger.kernel.org>, Song Liu <songliubraving@fb.com>, 
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Yonghong Song <yhs@fb.com>
+In-Reply-To: <CABvJ_xghwbPJPKnd+ksSzAq5N0PkjhGMKKz88pT5smgqKz6-JA@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.0.12.128]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com 12F4jHAt008635
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210314_110357_052928_AF87C6C5 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20210315_044551_006242_7BEF9CD2 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,85 +75,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 14, 2021 at 11:01 AM Dmitry Vyukov <dvyukov@google.com> wrote:
-> > On Wed, Mar 10, 2021 at 7:28 PM syzbot
-> > <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com> wrote:
-> > >
-> > > Hello,
-> > >
-> > > syzbot found the following issue on:
-> > >
-> > > HEAD commit:    0d7588ab riscv: process: Fix no prototype for arch_dup_tas..
-> > > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> > > console output: https://syzkaller.appspot.com/x/log.txt?x=122c343ad00000
-> > > kernel config:  https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
-> > > dashboard link: https://syzkaller.appspot.com/bug?extid=c23c5421600e9b454849
-> > > userspace arch: riscv64
-> > >
-> > > Unfortunately, I don't have any reproducer for this issue yet.
-> > >
-> > > IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> > > Reported-by: syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com
-> >
-> > +riscv maintainers
-> >
-> > Another case of put_user crashing.
->
-> There are 58 crashes in sock_ioctl already. Somehow there is a very
-> significant skew towards crashing with this "user memory without
-> uaccess routines" in schedule_tail and sock_ioctl of all places in the
-> kernel that use put_user... This looks very strange... Any ideas
-> what's special about these 2 locations?
+Hi Vincent,
 
-I could imagine if such a crash happens after a previous stack
-overflow and now task data structures are corrupted. But f_getown does
-not look like a function that consumes way more than other kernel
-syscalls...
+> However, if all vendors are willing to suffer the performance impact
+> from other vendor's errata, I can change the framework to "#ifdef"
+> scheme. After all, it may need to take a lot of time to accumulate a
+> lot of errata to make the performance impact obvious.
+I'm not sure if I'm interpreting the alternative framework right, yet I have
+doubts about the performance arguments.
+Just as the example (CONFIG_QCOM_FALKOR_ERRATUM_E1041) I quoted in the 
+previous
+mail, in their final decision, the `#ifdef` simply toggles the code in
+_compile time_ [1].
+
+I don't know why they chose to enable it by default [2], yet ideally, for
+irrelevant processors/SoCs, people should be able to turn the option off
+without issues.
+
+Somehow, to my best acknowledgment and as you mentioned, in ARM's ecosystem
+(more specifically, the distros), alternative-based errata fixes are all 
+enabl-
+ed by default, so all the errata workarounds will be generated and gathered
+into a special section. This will cause the size of Linux image which 
+distros
+shipped to become larger and larger.
+
+For ARM, that might not be a problem since most of the IC vendors 
+nowadays are
+licensing from ARM and few of them are making their microarchitectures.
+So mi errata es su errata. (My errata is your errata.)
+
+Yet for RISC-V, we have plenty of players who make their home-grown cores on
+the field.
+This leads to a dilemma: either to enable all the workarounds by default 
+so the
+distros could just build one general image which will become bloated or
+specially crafted images will be provided lead to a fractured experience for
+end-users.
+
+My 2 cents on this issue is that maybe we need to establish a principle
+(probably not in a written-down manner) on deciding what goes to alternative
+and what shall just be an option disabled by default.
+
+Cordially yours,
+Ruinland
 
 
+[1] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/include/asm/assembler.h#n610
 
-> > > Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000020000300
-> > > Oops [#1]
-> > > Modules linked in:
-> > > CPU: 1 PID: 4488 Comm: syz-executor.0 Not tainted 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
-> > > Hardware name: riscv-virtio,qemu (DT)
-> > > epc : sock_ioctl+0x424/0x6ac net/socket.c:1124
-> > >  ra : sock_ioctl+0x424/0x6ac net/socket.c:1124
-> > > epc : ffffffe002aeeb3e ra : ffffffe002aeeb3e sp : ffffffe023867da0
-> > >  gp : ffffffe005d25378 tp : ffffffe007e116c0 t0 : 0000000000000000
-> > >  t1 : 0000000000000001 t2 : 0000003fb8035e44 s0 : ffffffe023867e30
-> > >  s1 : 0000000000040000 a0 : 0000000000000000 a1 : 0000000000000007
-> > >  a2 : 1ffffffc00fc22d8 a3 : ffffffe003bc1d02 a4 : 0000000000000000
-> > >  a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
-> > >  s2 : 0000000000000000 s3 : 0000000000008902 s4 : 0000000020000300
-> > >  s5 : ffffffe005d2b0d0 s6 : ffffffe010facfc0 s7 : ffffffe008e00000
-> > >  s8 : 0000000000008903 s9 : ffffffe010fad080 s10: 0000000000000000
-> > >  s11: 0000000000020000 t3 : 982de389919f6300 t4 : ffffffc401175688
-> > >  t5 : ffffffc401175691 t6 : 0000000000000007
-> > > status: 0000000000000120 badaddr: 0000000020000300 cause: 000000000000000f
-> > > Call Trace:
-> > > [<ffffffe002aeeb3e>] sock_ioctl+0x424/0x6ac net/socket.c:1124
-> > > [<ffffffe0003fdb6a>] vfs_ioctl fs/ioctl.c:48 [inline]
-> > > [<ffffffe0003fdb6a>] __do_sys_ioctl fs/ioctl.c:753 [inline]
-> > > [<ffffffe0003fdb6a>] sys_ioctl+0x5c2/0xd56 fs/ioctl.c:739
-> > > [<ffffffe000005562>] ret_from_syscall+0x0/0x2
-> > > Dumping ftrace buffer:
-> > >    (ftrace buffer empty)
-> > > ---[ end trace a5f91e70f37b907b ]---
-> > >
-> > >
-> > > ---
-> > > This report is generated by a bot. It may contain errors.
-> > > See https://goo.gl/tpsmEJ for more information about syzbot.
-> > > syzbot engineers can be reached at syzkaller@googlegroups.com.
-> > >
-> > > syzbot will keep track of this issue. See:
-> > > https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+[2] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/Kconfig#n805
+
 
 _______________________________________________
 linux-riscv mailing list
