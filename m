@@ -2,78 +2,82 @@ Return-Path: <SRS0=pdFK=IN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1423C433E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D91F7C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 18:13:10 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7436364F36
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 16:56:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7436364F36
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 6725E64E28
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Mar 2021 18:13:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6725E64E28
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=OSOV8qePwZRJt/2pUFq2G3l3gZwyQRZxguacgGerBcI=; b=dSMQTrRKMfr/WaPnDmYUxr9D0
-	kSwWkfvMM81TqpkkXTf2IjhIhAaV04DBC1DZpT4Gqbn6sqFJQYKUo4kPPMBt1G0BQbYMBMEVlWKfC
-	0pT0GTkVr8v0JBqFxO1Ry5Ky0cjuLOIQ5y6fyTHCBi+iHwWrJSD5n+SM5VPFhFOeC8CsE6RJTatJQ
-	9cx+tCXfZrpHegC7VrB+b7eqm7IoumYNo9R8nr0W0pNXwcnYjfFTLlsn+zueihHDLRHxSmjsR4Kjn
-	d2JXiDbD840lwc1plccGwlMdyEji02uqdtWwT90jbLtdxFu2WS5jHl+alUXruEH6dXq1zMWm8Vl+8
-	ASl80Tdqg==;
+	 bh=6D/zAQ+BeJyGJCFkfO2ouXf0tjOJctU1xCB5TGf4Ag8=; b=pwTREn764ERJkYdoiYk/DRFmN
+	GLuY1pmJoMqrLmJiU3ql+AyGuKWMB3SUklSx3LC5dOzrKe2boRiYg8yU1kNv4hWXDPhbUPuzLE3DD
+	S5E0hjwqvznaUZX+yNfx2fjXt92M/CErrapP6RQOIT62gDHWTc+JWERfOXhViYPfYwafRNLeGoj9J
+	650rBTGNFQl5K0r2Zz6uGSCZr9IKfxE6/+cCmEemJPFyTSSDxu3+Q8RHqe/OSKc8CyHNmaAXomw0j
+	PBpo1Dd7ww5KAcdyGqAtAfiZV3aYCzNPpBZdHMtxSpgSOIK3VdmS3gJ3stgzLY6rUhghprKchiycL
+	ipCRqCX+A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lLqVU-00GPKR-Lw; Mon, 15 Mar 2021 16:55:53 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1lLri8-00GeyZ-9P; Mon, 15 Mar 2021 18:13:00 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lLqVL-00GPJr-CF
- for linux-riscv@lists.infradead.org; Mon, 15 Mar 2021 16:55:45 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=[192.168.0.18])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lLqV7-0007HK-4n; Mon, 15 Mar 2021 16:55:29 +0000
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- schedule_tail
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Alex Ghiti <alex@ghiti.fr>,
- syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Daniel Bristot de Oliveira <bristot@redhat.com>,
- Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
- Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
- Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
- Vincent Guittot <vincent.guittot@linaro.org>
-References: <000000000000b74f1b05bd316729@google.com>
- <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
- <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
- <CACT4Y+ZsSRdQ5LzYMsgjrBAukgP-Vv8WSQsSoxguYjWvB1QnrA@mail.gmail.com>
- <795597a1-ec87-e09e-d073-3daf10422abb@ghiti.fr>
- <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
- <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <a0449f4a-4d54-6f38-1bc3-7c5170d24b86@codethink.co.uk>
-Date: Mon, 15 Mar 2021 16:55:27 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+ id 1lLrhu-00Gew1-NQ
+ for linux-riscv@lists.infradead.org; Mon, 15 Mar 2021 18:12:50 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id n14so34429043iog.3
+ for <linux-riscv@lists.infradead.org>; Mon, 15 Mar 2021 11:12:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=7fKYmnTB6DXaLcQZf4n09mIgyLcDIP+NwqQZDD2xiRY=;
+ b=ce0oxV3QtCW7e5n3oKOkctWUwAZKQevwIxOW/h/kU0WoYIW2/XQ6PCGFS+NG1N34Fi
+ 65SgsTOSg+4qxg6ex8lEBKFsaDq8mbL9+HeJuu6JqPXZCc3ujJFLQXeWgithGkGhoAzZ
+ dNLkgFoEwWfjHdpEzglI+MTmtoG35bSrt9Z4M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=7fKYmnTB6DXaLcQZf4n09mIgyLcDIP+NwqQZDD2xiRY=;
+ b=kiPQ3Y5upovHoQw7frnulvDKJ7mth4spqeflfReOGNzlqVtEDcpvFSF79V7Udxq0vJ
+ k9SRld57j/sNBa3cq2KB5YS182NG6yw0cwGxdS5huvCuTjGtYcg1uN/SjZ4QzeD5TTbd
+ w08Z7o3EFxKKEQeZXRPy1kwt2jyfUuUsB9rtJqlhXsmZseVkVXEKeo/hny003EbvLgY4
+ tj+yFkf8yrGSpk7qrD5w8YhaMgyvLAYKoVMhOUNZoxe24n91HATs33pNxdAE2tLPZMW8
+ 86mwenvzvwJbwMR/OHWR4XPVxelT3XJm/rIEdtKs7pNBXZwddqJ379nz0erFe8P4PMFB
+ nSew==
+X-Gm-Message-State: AOAM533oyecxI6LBzhXFOjIBnKHNUbjK29muy6hIVMRIaPjO5BEW9CD6
+ W7gJQoJYjECuoZ6d9IBfmYp5gmewxoiV7XwxNQvG
+X-Google-Smtp-Source: ABdhPJyRxPbGeTzjInwuEoXj/XmofRze7tZLVAUfwqTGtBYTfRhhRVaJarBzC5WQ1nXSPG4cQupDOuMNrgtMc6LOijA=
+X-Received: by 2002:a05:6638:238c:: with SMTP id
+ q12mr10833915jat.114.1615831965491; 
+ Mon, 15 Mar 2021 11:12:45 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
-Content-Language: en-GB
+References: <20210312154634.3541844-1-geert@linux-m68k.org>
+In-Reply-To: <20210312154634.3541844-1-geert@linux-m68k.org>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 15 Mar 2021 11:12:34 -0700
+Message-ID: <CAOnJCULrkGjQgdUM+XTmSLfXmiioRDmBMb3p7rA06wHNTBcdGg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Fix out-of-bounds accesses in init_resources()
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210315_165543_590512_7B0529DC 
-X-CRM114-Status: GOOD (  29.10  )
+X-CRM114-CacheID: sfid-20210315_181247_751753_1BB0BB2C 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +89,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/03/2021 07:20, Dmitry Vyukov wrote:
-> On Fri, Mar 12, 2021 at 9:12 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+On Fri, Mar 12, 2021 at 7:46 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> init_resources() allocates an array of resources, based on the current
+> total number of memory regions and reserved memory regions.  However,
+> allocating this array using memblock_alloc() might increase the number
+> of reserved memory regions.  If that happens, populating the array later
+> based on the new number of regions will cause out-of-bounds writes
+> beyond the end of the allocated array.
+>
+> Fix this by allocating one more entry, which may or may not be used.
+>
+> Fixes: 797f0375dd2ef5cd ("RISC-V: Do not allocate memblock while iterating reserved memblocks")
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> ---
+> Tested on vexriscv, which works now using L1_CACHE_SHIFT = 6, too.
+>
+> This issue may show up during early boot as:
+>
+>     Unable to handle kernel paging request at virtual address c8000008
+>     Oops [#1]
+>     CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-orangecrab-00023-g7c4fc8e3e982-dirty #137
+>     epc: c04d6660 ra : c04d6560 sp : c05ddf70
+>      gp : c0678bc0 tp : c05e5b40 t0 : c8000000
+>      t1 : 00030000 t2 : ffffffff s0 : c05ddfc0
+>      s1 : c8000000 a0 : 00000000 a1 : c7ffffe0
+>      a2 : 00000005 a3 : 00000001 a4 : 0000000c
+>      a5 : 00000000 a6 : c04fe000 a7 : 0000000c
+>      s2 : c04fe098 s3 : 000000a0 s4 : c7ffff60
+>      s5 : c04fe0dc s6 : 80000200 s7 : c059f1d4
+>      s8 : 81000200 s9 : c059f1f0 s10: 80000200
+>      s11: c059f1d4 t3 : 405dbb60 t4 : c05e6f08
+>      t5 : 81000200 t6 : 40501000
+>     status: 00000100 badaddr: c8000008 cause: 0000000f
+>     random: get_random_bytes called from print_oops_end_marker+0x38/0x7c with crng_init=0
+>     ---[ end trace 0000000000000000 ]---
+>
+> or much later as:
+>
+>     Unable to handle kernel paging request at virtual address 69726573
+> ---
+>  arch/riscv/kernel/setup.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index e85bacff1b5075ee..f8f15332caa20263 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -147,7 +147,8 @@ static void __init init_resources(void)
+>         bss_res.end = __pa_symbol(__bss_stop) - 1;
+>         bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+>
+> -       mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt) * sizeof(*mem_res);
+> +       /* + 1 as memblock_alloc() might increase memblock.reserved.cnt */
+> +       mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt + 1) * sizeof(*mem_res);
+>         mem_res = memblock_alloc(mem_res_sz, SMP_CACHE_BYTES);
+>         if (!mem_res)
+>                 panic("%s: Failed to allocate %zu bytes\n", __func__, mem_res_sz);
+> --
+> 2.25.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
->>> Still no luck for the moment, can't reproduce it locally, my test is
->>> maybe not that good (I created threads all day long in order to trigger
->>> the put_user of schedule_tail).
->>
->> It may of course depend on memory and other stuff. I did try to see if
->> it was possible to clone() with the child_tid address being a valid but
->> not mapped page...
->>
->>> Given that the path you mention works most of the time, and that the
->>> status register in the stack trace shows the SUM bit is not set whereas
->>> it is set in put_user, I'm leaning toward some race condition (maybe an
->>> interrupt that arrives at the "wrong" time) or a qemu issue as you
->>> mentioned.
->>
->> I suppose this is possible. From what I read it should get to the
->> point of being there with the SUM flag cleared, so either something
->> went wrong in trying to fix the instruction up or there's some other
->> error we're missing.
->>
->>> To eliminate qemu issues, do you have access to some HW ? Or to
->>> different qemu versions ?
->>
->> I do have access to a Microchip Polarfire board. I just need the
->> instructions on how to setup the test-code to make it work on the
->> hardware.
-> 
-> For full syzkaller support, it would need to know how to reboot these
-> boards and get access to the console.
-> syzkaller has a stop-gap VM backend which just uses ssh to a physical
-> machine and expects the kernel to reboot on its own after any crashes.
-> 
-> But I actually managed to reproduce it in an even simpler setup.
-> Assuming you have Go 1.15 and riscv64 cross-compiler gcc installed
-> 
-> $ go get -u -d github.com/google/syzkaller/...
-> $ cd $GOPATH/src/github.com/google/syzkaller
-> $ make stress executor TARGETARCH=riscv64
-> $ scp bin/linux_riscv64/syz-execprog bin/linux_riscv64/syz-executor
-> your_machine:/
-> 
-> Then run ./syz-stress on the machine.
-> On the first run it crashed it with some other bug, on the second run
-> I got the crash in schedule_tail.
-> With qemu tcg I also added -slowdown=10 flag to syz-stress to scale
-> all timeouts, if native execution is faster, then you don't need it.
+Thanks for catching the bug & fixing it.
 
-I have built the tools and got it to start.
 
-It would be helpful for the dashboard to give the qemu version and
-how it was launched (memory, cpus etc)
-
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
