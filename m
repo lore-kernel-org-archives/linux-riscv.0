@@ -2,20 +2,20 @@ Return-Path: <SRS0=WRFO=IO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F88BC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 12:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BA07C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 12:05:55 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BBE164FAB
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 12:04:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BBE164FAB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id C2F2E65048
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 12:05:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C2F2E65048
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -23,58 +23,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=g8eDU5IpKOeMrm27TyOaafV+Q56ixaPiWct0JvbVdz8=; b=aZDom4FRzycOPmlGeszCsTmmN
-	j+rsN1JOEJ+gke1yG1zXYbP7B0F+mSBOa65BmahQLrvL8KroVceoflpwYSAh7gSH08VrrROzZTxWX
-	ASDcUWExR4gI7UsGL1g11NUkVX2YiJoNDsQteGY1YT3UaW/pNIY94QdOzU+HqXnaztDqIF2LlsXn4
-	YiUJsyRiC0WdcuoDheDmawow7gvuW6+cE2dBB5IlHWvhEJcS9beeLMnOJ4+lVIqzyWynrzCnD1Ejn
-	o2Rotp3uXYzY/CrUUhwq6hHOA+vnJbciVlWflpOdI7zqd9vxAuJxCjPMPf7craeMKNW5m9up1o876
-	2SH/XzwtA==;
+	 bh=r+LRVFu4nLntiPh4bn1/N2FOwANGgGs2WIKTHEbsZcY=; b=atsk43b1Qh9mTHk3JhgXG6xli
+	XdrpS16EICjsoooPTGaT8cLlTo3uGP9jd6kywypWSOjVVr7w4lufW9eZ2PwdLUebvMA9UUftkfH34
+	ofy29tuKeWvDsjdd1U6P/nrNC16FymnTLL4YuMcA3VbPuUXEqUUO52KAnKzY5K9o9rKbyZmju7EuL
+	nDiusO8arj8sRygWNB6Zm6TILqZBhok1COwumMcJ4BXMU80VooDBBYF1Xc3GxMsfqRGwzc9+QONHj
+	FCuhuwZqd67fYjvDCu8YUdxuXAx0GQrVcqlChlO3NZuA7q451Sgh7ZFTB2KnR26jp/5N+3OB2uEe0
+	lryrrSm+g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lM8QU-000eIn-FI; Tue, 16 Mar 2021 12:03:54 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1lM8SE-000efS-Np; Tue, 16 Mar 2021 12:05:42 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lM8Q2-000eGl-Vp
- for linux-riscv@lists.infradead.org; Tue, 16 Mar 2021 12:03:30 +0000
-Received: from [167.98.27.226] (helo=[10.35.5.170])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lM7zG-0007TI-U9; Tue, 16 Mar 2021 11:35:46 +0000
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- schedule_tail
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Alex Ghiti <alex@ghiti.fr>,
- syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ id 1lM8S8-000eeg-WE
+ for linux-riscv@lists.infradead.org; Tue, 16 Mar 2021 12:05:39 +0000
+X-Originating-IP: 81.185.168.196
+Received: from [192.168.43.237] (196.168.185.81.rev.sfr.net [81.185.168.196])
+ (Authenticated sender: alex@ghiti.fr)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id A5AEBE000C;
+ Tue, 16 Mar 2021 12:05:28 +0000 (UTC)
+Subject: Re: [PATCH] Insert SFENCE.VMA in function set_pte_at for RISCV
+To: Anup Patel <anup@brainfault.org>,
+ Andrew Waterman <waterman@eecs.berkeley.edu>
+Cc: Jiuyang Liu <liu@jiuyang.me>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Zong Li <zong.li@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Daniel Bristot de Oliveira <bristot@redhat.com>,
- Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
- Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
- Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
- Vincent Guittot <vincent.guittot@linaro.org>
-References: <000000000000b74f1b05bd316729@google.com>
- <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
- <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
- <CACT4Y+ZsSRdQ5LzYMsgjrBAukgP-Vv8WSQsSoxguYjWvB1QnrA@mail.gmail.com>
- <795597a1-ec87-e09e-d073-3daf10422abb@ghiti.fr>
- <f9318e58-5d3f-f548-3dbf-a5cb87406a94@codethink.co.uk>
- <CACT4Y+bYDU-4MYotLfqgkGpz487aC8xQ0dqaNLwf76d1yyF-Vw@mail.gmail.com>
- <12d4137e-6c14-bc41-4bbc-955ce46198d2@codethink.co.uk>
- <CACT4Y+ZnPS8e5c7HHMbRCDQSi+y1z0Rm3a89ev7NvLWcRKzu9A@mail.gmail.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <8ebea51d-b03c-e6de-fa1c-d47091c54e45@codethink.co.uk>
-Date: Tue, 16 Mar 2021 11:35:46 +0000
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+References: <20210316015328.13516-1-liu@jiuyang.me>
+ <20210316034638.16276-1-liu@jiuyang.me>
+ <CAAhSdy3eEXtba_ebUnPW_OUHRMKsg+O9sBx_DHAmrkTUCfHXNg@mail.gmail.com>
+ <CAPM7DZc+Ysd=VQdzc4_4Np8VAMESBrzD3mhk0ueh92x11bFFNg@mail.gmail.com>
+ <CAAhSdy1HYJJDig3Mg1eWaO=zok9G6+hQM1LLbDKMzH-=Fi2dKw@mail.gmail.com>
+ <CA++6G0AnGVLbM+1j9K7UU_0p6NfwVAxNkcFr8s1=h+wW4G0z_w@mail.gmail.com>
+ <CAAhSdy0nAUW-Y9gFONVLUPZCG-zT2MXKacu+StKKmSro+58k8w@mail.gmail.com>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <d4f3f2af-345d-b9a9-6ac5-f4262d0b46c5@ghiti.fr>
+Date: Tue, 16 Mar 2021 08:05:27 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <CACT4Y+ZnPS8e5c7HHMbRCDQSi+y1z0Rm3a89ev7NvLWcRKzu9A@mail.gmail.com>
-Content-Language: en-GB
+In-Reply-To: <CAAhSdy0nAUW-Y9gFONVLUPZCG-zT2MXKacu+StKKmSro+58k8w@mail.gmail.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210316_120328_362129_E8DB54FE 
-X-CRM114-Status: GOOD (  47.16  )
+X-CRM114-CacheID: sfid-20210316_120537_144528_7D8BD6DE 
+X-CRM114-Status: GOOD (  33.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,159 +81,350 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTYvMDMvMjAyMSAwODo1MiwgRG1pdHJ5IFZ5dWtvdiB3cm90ZToKPiBPbiBNb24sIE1hciAx
-NSwgMjAyMSBhdCAxMDozOCBQTSBCZW4gRG9va3MgPGJlbi5kb29rc0Bjb2RldGhpbmsuY28udWs+
-IHdyb3RlOgo+Pgo+PiBPbiAxMy8wMy8yMDIxIDA3OjIwLCBEbWl0cnkgVnl1a292IHdyb3RlOgo+
-Pj4gT24gRnJpLCBNYXIgMTIsIDIwMjEgYXQgOToxMiBQTSBCZW4gRG9va3MgPGJlbi5kb29rc0Bj
-b2RldGhpbmsuY28udWs+IHdyb3RlOgo+Pj4+Cj4+Pj4gT24gMTIvMDMvMjAyMSAxNjoyNSwgQWxl
-eCBHaGl0aSB3cm90ZToKPj4+Pj4KPj4+Pj4KPj4+Pj4gTGUgMy8xMi8yMSDDoCAxMDoxMiBBTSwg
-RG1pdHJ5IFZ5dWtvdiBhIMOpY3JpdCA6Cj4+Pj4+PiBPbiBGcmksIE1hciAxMiwgMjAyMSBhdCAy
-OjUwIFBNIEJlbiBEb29rcyA8YmVuLmRvb2tzQGNvZGV0aGluay5jby51az4KPj4+Pj4+IHdyb3Rl
-Ogo+Pj4+Pj4+Cj4+Pj4+Pj4gT24gMTAvMDMvMjAyMSAxNzoxNiwgRG1pdHJ5IFZ5dWtvdiB3cm90
-ZToKPj4+Pj4+Pj4gT24gV2VkLCBNYXIgMTAsIDIwMjEgYXQgNTo0NiBQTSBzeXpib3QKPj4+Pj4+
-Pj4gPHN5emJvdCtlNzRiOTRmZTYwMWFiOTU1MmQ2OUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29t
-PiB3cm90ZToKPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBIZWxsbywKPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBz
-eXpib3QgZm91bmQgdGhlIGZvbGxvd2luZyBpc3N1ZSBvbjoKPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBI
-RUFEIGNvbW1pdDogICAgMGQ3NTg4YWIgcmlzY3Y6IHByb2Nlc3M6IEZpeCBubyBwcm90b3R5cGUg
-Zm9yCj4+Pj4+Pj4+PiBhcmNoX2R1cF90YXMuLgo+Pj4+Pj4+Pj4gZ2l0IHRyZWU6Cj4+Pj4+Pj4+
-PiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGlu
-dXguZ2l0IGZpeGVzCj4+Pj4+Pj4+PiBjb25zb2xlIG91dHB1dDoKPj4+Pj4+Pj4+IGh0dHBzOi8v
-c3l6a2FsbGVyLmFwcHNwb3QuY29tL3gvbG9nLnR4dD94PTEyMTJjNmU2ZDAwMDAwCj4+Pj4+Pj4+
-PiBrZXJuZWwgY29uZmlnOgo+Pj4+Pj4+Pj4gaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20v
-eC8uY29uZmlnP3g9ZTNjNTk1MjU1ZmIyZDEzNgo+Pj4+Pj4+Pj4gZGFzaGJvYXJkIGxpbms6Cj4+
-Pj4+Pj4+PiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS9idWc/ZXh0aWQ9ZTc0Yjk0ZmU2
-MDFhYjk1NTJkNjkKPj4+Pj4+Pj4+IHVzZXJzcGFjZSBhcmNoOiByaXNjdjY0Cj4+Pj4+Pj4+Pgo+
-Pj4+Pj4+Pj4gVW5mb3J0dW5hdGVseSwgSSBkb24ndCBoYXZlIGFueSByZXByb2R1Y2VyIGZvciB0
-aGlzIGlzc3VlIHlldC4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBJTVBPUlRBTlQ6IGlmIHlvdSBmaXgg
-dGhlIGlzc3VlLCBwbGVhc2UgYWRkIHRoZSBmb2xsb3dpbmcgdGFnIHRvCj4+Pj4+Pj4+PiB0aGUg
-Y29tbWl0Ogo+Pj4+Pj4+Pj4gUmVwb3J0ZWQtYnk6IHN5emJvdCtlNzRiOTRmZTYwMWFiOTU1MmQ2
-OUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29tCj4+Pj4+Pj4+Cj4+Pj4+Pj4+ICtyaXNjdiBtYWlu
-dGFpbmVycwo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBUaGlzIGlzIHJpc2N2NjQtc3BlY2lmaWMuCj4+Pj4+
-Pj4+IEkndmUgc2VlbiBzaW1pbGFyIGNyYXNoZXMgaW4gcHV0X3VzZXIgaW4gb3RoZXIgcGxhY2Vz
-LiBJdCBsb29rcyBsaWtlCj4+Pj4+Pj4+IHB1dF91c2VyIGNyYXNoZXMgaW4gdGhlIHVzZXIgYWRk
-cmVzcyBpcyBub3QgbWFwcGVkL3Byb3RlY3RlZCAoPykuCj4+Pj4+Pj4KPj4+Pj4+PiBJJ3ZlIGJl
-ZW4gaGF2aW5nIGEgbG9vaywgYW5kIHRoaXMgc2VlbXMgdG8gYmUgZG93biB0byBhY2Nlc3Mgb2Yg
-dGhlCj4+Pj4+Pj4gdHNrLT5zZXRfY2hpbGRfdGlkIHZhcmlhYmxlLiBJIGFzc3VtZSB0aGUgZnV6
-emluZyBoZXJlIGlzIHRvIHBhc3MgYQo+Pj4+Pj4+IGJhZCBhZGRyZXNzIHRvIGNsb25lPwo+Pj4+
-Pj4+Cj4+Pj4+Pj4gICAgIEZyb20gbG9va2luZyBhdCB0aGUgY29kZSwgdGhlIHB1dF91c2VyKCkg
-Y29kZSBzaG91bGQgaGF2ZSBzZXQgdGhlCj4+Pj4+Pj4gcmVsZXZhbnQgU1JfU1VNIGJpdCAodGhl
-IHZhbHVlIGZvciB0aGlzLCB3aGljaCBpcyAxPDwxOCBpcyBpbiB0aGUKPj4+Pj4+PiBzMiByZWdp
-c3RlciBpbiB0aGUgY3Jhc2ggcmVwb3J0KSBhbmQgZnJvbSBsb29raW5nIGF0IHRoZSBjb21waWxl
-cgo+Pj4+Pj4+IG91dHB1dCBmcm9tIG15IGdjYy0xMCwgdGhlIGNvZGUgbG9va3MgdG8gYmUgZG9u
-ZyB0aGUgcmVsZXZhbnQgY3Nycwo+Pj4+Pj4+IGFuZCB0aGVuIGNzcmMgYXJvdW5kIHRoZSBwdXRf
-dXNlcgo+Pj4+Pj4+Cj4+Pj4+Pj4gU28gY3VycmVudGx5IEkgZG8gbm90IHVuZGVyc3RhbmQgaG93
-IHRoZSBhYm92ZSBjb3VsZCBoYXZlIGhhcHBlbmVkCj4+Pj4+Pj4gb3ZlciB0aGFuIHNvbWV0aGlu
-ZyByZS10cmllZCB0aGUgY29kZSBzZXFldW5jZSBhbmQgZW5kZWQgdXAgcmV0cnlpbmcKPj4+Pj4+
-PiB0aGUgZmF1bHRpbmcgaW5zdHJ1Y3Rpb24gd2l0aG91dCB0aGUgU1JfU1VNIGJpdCBzZXQuCj4+
-Pj4+Pgo+Pj4+Pj4gSSB3b3VsZCBtYXliZSBibGFtZSBxZW11IGZvciByYW5kb21seSByZXNldHRp
-bmcgU1JfU1VNLCBidXQgaXQncwo+Pj4+Pj4gc3RyYW5nZSB0aGF0IDk5JSBvZiB0aGVzZSBjcmFz
-aGVzIGFyZSBpbiBzY2hlZHVsZV90YWlsLiBJZiBpdCB3b3VsZCBiZQo+Pj4+Pj4gcWVtdSwgdGhl
-biB0aGV5IHdvdWxkIGJlIG1vcmUgZXZlbmx5IGRpc3RyaWJ1dGVkLi4uCj4+Pj4+Pgo+Pj4+Pj4g
-QW5vdGhlciBvYnNlcnZhdGlvbjogbG9va2luZyBhdCBhIGRvemVuIG9mIGNyYXNoIGxvZ3MsIGlu
-IG5vbmUgb2YKPj4+Pj4+IHRoZXNlIGNhc2VzIGZ1enplciB3YXMgYWN0dWFsbHkgdHJ5aW5nIHRv
-IGZ1enogY2xvbmUgd2l0aCBzb21lIGluc2FuZQo+Pj4+Pj4gYXJndW1lbnRzLiBTbyBpdCBsb29r
-cyBsaWtlIGNvbXBsZXRlbHkgbm9ybWFsIGNsb25lJ3MgKGUuLmcgY29taW5nCj4+Pj4+PiBmcm9t
-IHB0aHJlYWRfY3JlYXRlKSByZXN1bHQgaW4gdGhpcyBjcmFzaC4KPj4+Pj4+Cj4+Pj4+PiBJIGFs
-c28gd29uZGVyIHdoeSB0aGVyZSBpcyByZXRfZnJvbV9leGNlcHRpb24sIGlzIGl0IG5vcm1hbD8g
-SSBzZWUKPj4+Pj4+IGhhbmRsZV9leGNlcHRpb24gZGlzYWJsZXMgU1JfU1VNOgo+Pj4+Pgo+Pj4+
-PiBjc3JyYyBkb2VzIHRoZSByaWdodCB0aGluZzogaXQgY2xlYW5zIFNSX1NVTSBiaXQgaW4gc3Rh
-dHVzIGJ1dCBzYXZlcyB0aGUKPj4+Pj4gcHJldmlvdXMgdmFsdWUgdGhhdCB3aWxsIGdldCBjb3Jy
-ZWN0bHkgcmVzdG9yZWQuCj4+Pj4+Cj4+Pj4+ICgiVGhlIENTUlJDIChBdG9taWMgUmVhZCBhbmQg
-Q2xlYXIgQml0cyBpbiBDU1IpIGluc3RydWN0aW9uIHJlYWRzIHRoZQo+Pj4+PiB2YWx1ZSBvZiB0
-aGUgQ1NSLCB6ZXJvLWV4dGVuZHMgdGhlIHZhbHVlIHRvIFhMRU4gYml0cywgYW5kIHdyaXRlcyBp
-dCB0bwo+Pj4+PiBpbnRlZ2VyIHJlZ2lzdGVycmQuICBUaGUgaW5pdGlhbCB2YWx1ZSBpbiBpbnRl
-Z2VycmVnaXN0ZXJyczFpcyB0cmVhdGVkCj4+Pj4+IGFzIGEgYml0IG1hc2sgdGhhdCBzcGVjaWZp
-ZXMgYml0IHBvc2l0aW9ucyB0byBiZSBjbGVhcmVkIGluIHRoZSBDU1IuIEFueQo+Pj4+PiBiaXR0
-aGF0IGlzIGhpZ2ggaW5yczF3aWxsIGNhdXNlIHRoZSBjb3JyZXNwb25kaW5nIGJpdCB0byBiZSBj
-bGVhcmVkIGluCj4+Pj4+IHRoZSBDU1IsIGlmIHRoYXQgQ1NSIGJpdCBpc3dyaXRhYmxlLiAgT3Ro
-ZXIgYml0cyBpbiB0aGUgQ1NSIGFyZQo+Pj4+PiB1bmFmZmVjdGVkLiIpCj4+Pj4KPj4+PiBJIHRo
-aW5rIHRoZXJlIG1heSBhbHNvIGJlIGFuIHVuZGVyc3RhbmRpbmcgaXNzdWUgb24gd2hhdCB0aGUg
-U1JfU1VNCj4+Pj4gYml0IGRvZXMuIEkgdGhvdWdodCBpZiBpdCBpcyBzZXQsIE0tPlUgYWNjZXNz
-ZXMgd291bGQgZmF1bHQsIHdoaWNoIGlzCj4+Pj4gd2h5IGl0IGdldHMgc2V0IGVhcmx5IG9uLiBC
-dXQgZnJvbSByZWFkaW5nIHRoZSB1YWNjZXNzIGNvZGUgaXQgbG9va3MKPj4+PiBsaWtlIHRoZSB1
-YWNjZXNzIGNvZGUgc2V0cyBpdCBvbiBlbnRyeSBhbmQgdGhlbiBjbGVhcnMgb24gZXhpdC4KPj4+
-Pgo+Pj4+IEkgYW0gdmVyeSBjb25mdXNlZC4gSXMgdGhlcmUgYSBtYXN0ZXIgcmVmZXJlbmNlIGZv
-ciBydjY0Pwo+Pj4+Cj4+Pj4gaHR0cHM6Ly9wZW9wbGUuZWVjcy5iZXJrZWxleS5lZHUvfmtyc3Rl
-L3BhcGVycy9yaXNjdi1wcml2aWxlZ2VkLXYxLjkucGRmCj4+Pj4gc2VlbXMgdG8gc3RhdGUgUFVN
-IGlzIHRoZSBTUl9TVU0gYml0LCBhbmQgdGhhdCAoaWYgc2V0KSBkaXNhYmxlZAo+Pj4+Cj4+Pj4g
-UXVvdGU6Cj4+Pj4gICAgIFRoZSBQVU0gKFByb3RlY3QgVXNlciBNZW1vcnkpIGJpdCBtb2RpZmll
-cyB0aGUgcHJpdmlsZWdlIHdpdGggd2hpY2gKPj4+PiBTLW1vZGUgbG9hZHMsIHN0b3JlcywgYW5k
-IGluc3RydWN0aW9uIGZldGNoZXMgYWNjZXNzIHZpcnR1YWwgbWVtb3J5Lgo+Pj4+IFdoZW4gUFVN
-PTAsIHRyYW5zbGF0aW9uIGFuZCBwcm90ZWN0aW9uIGJlaGF2ZSBhcyBub3JtYWwuIFdoZW4gUFVN
-PTEsCj4+Pj4gUy1tb2RlIG1lbW9yeSBhY2Nlc3NlcyB0byBwYWdlcyB0aGF0IGFyZSBhY2Nlc3Np
-YmxlIGJ5IFUtbW9kZSAoVT0xIGluCj4+Pj4gRmlndXJlIDQuMTkpIHdpbGwgZmF1bHQuIFBVTSBo
-YXMgbm8gZWZmZWN0IHdoZW4gZXhlY3V0aW5nIGluIFUtbW9kZQo+Pj4+Cj4+Pj4KPj4+Pj4+IGh0
-dHBzOi8vZWxpeGlyLmJvb3RsaW4uY29tL2xpbnV4L3Y1LjEyLXJjMi9zb3VyY2UvYXJjaC9yaXNj
-di9rZXJuZWwvZW50cnkuUyNMNzMKPj4+Pj4+Cj4+Pj4+Cj4+Pj4+IFN0aWxsIG5vIGx1Y2sgZm9y
-IHRoZSBtb21lbnQsIGNhbid0IHJlcHJvZHVjZSBpdCBsb2NhbGx5LCBteSB0ZXN0IGlzCj4+Pj4+
-IG1heWJlIG5vdCB0aGF0IGdvb2QgKEkgY3JlYXRlZCB0aHJlYWRzIGFsbCBkYXkgbG9uZyBpbiBv
-cmRlciB0byB0cmlnZ2VyCj4+Pj4+IHRoZSBwdXRfdXNlciBvZiBzY2hlZHVsZV90YWlsKS4KPj4+
-Pgo+Pj4+IEl0IG1heSBvZiBjb3Vyc2UgZGVwZW5kIG9uIG1lbW9yeSBhbmQgb3RoZXIgc3R1ZmYu
-IEkgZGlkIHRyeSB0byBzZWUgaWYKPj4+PiBpdCB3YXMgcG9zc2libGUgdG8gY2xvbmUoKSB3aXRo
-IHRoZSBjaGlsZF90aWQgYWRkcmVzcyBiZWluZyBhIHZhbGlkIGJ1dAo+Pj4+IG5vdCBtYXBwZWQg
-cGFnZS4uLgo+Pj4+Cj4+Pj4+IEdpdmVuIHRoYXQgdGhlIHBhdGggeW91IG1lbnRpb24gd29ya3Mg
-bW9zdCBvZiB0aGUgdGltZSwgYW5kIHRoYXQgdGhlCj4+Pj4+IHN0YXR1cyByZWdpc3RlciBpbiB0
-aGUgc3RhY2sgdHJhY2Ugc2hvd3MgdGhlIFNVTSBiaXQgaXMgbm90IHNldCB3aGVyZWFzCj4+Pj4+
-IGl0IGlzIHNldCBpbiBwdXRfdXNlciwgSSdtIGxlYW5pbmcgdG93YXJkIHNvbWUgcmFjZSBjb25k
-aXRpb24gKG1heWJlIGFuCj4+Pj4+IGludGVycnVwdCB0aGF0IGFycml2ZXMgYXQgdGhlICJ3cm9u
-ZyIgdGltZSkgb3IgYSBxZW11IGlzc3VlIGFzIHlvdQo+Pj4+PiBtZW50aW9uZWQuCj4+Pj4KPj4+
-PiBJIHN1cHBvc2UgdGhpcyBpcyBwb3NzaWJsZS4gRnJvbSB3aGF0IEkgcmVhZCBpdCBzaG91bGQg
-Z2V0IHRvIHRoZQo+Pj4+IHBvaW50IG9mIGJlaW5nIHRoZXJlIHdpdGggdGhlIFNVTSBmbGFnIGNs
-ZWFyZWQsIHNvIGVpdGhlciBzb21ldGhpbmcKPj4+PiB3ZW50IHdyb25nIGluIHRyeWluZyB0byBm
-aXggdGhlIGluc3RydWN0aW9uIHVwIG9yIHRoZXJlJ3Mgc29tZSBvdGhlcgo+Pj4+IGVycm9yIHdl
-J3JlIG1pc3NpbmcuCj4+Pj4KPj4+Pj4gVG8gZWxpbWluYXRlIHFlbXUgaXNzdWVzLCBkbyB5b3Ug
-aGF2ZSBhY2Nlc3MgdG8gc29tZSBIVyA/IE9yIHRvCj4+Pj4+IGRpZmZlcmVudCBxZW11IHZlcnNp
-b25zID8KPj4+Pgo+Pj4+IEkgZG8gaGF2ZSBhY2Nlc3MgdG8gYSBNaWNyb2NoaXAgUG9sYXJmaXJl
-IGJvYXJkLiBJIGp1c3QgbmVlZCB0aGUKPj4+PiBpbnN0cnVjdGlvbnMgb24gaG93IHRvIHNldHVw
-IHRoZSB0ZXN0LWNvZGUgdG8gbWFrZSBpdCB3b3JrIG9uIHRoZQo+Pj4+IGhhcmR3YXJlLgo+Pj4K
-Pj4+IEZvciBmdWxsIHN5emthbGxlciBzdXBwb3J0LCBpdCB3b3VsZCBuZWVkIHRvIGtub3cgaG93
-IHRvIHJlYm9vdCB0aGVzZQo+Pj4gYm9hcmRzIGFuZCBnZXQgYWNjZXNzIHRvIHRoZSBjb25zb2xl
-Lgo+Pj4gc3l6a2FsbGVyIGhhcyBhIHN0b3AtZ2FwIFZNIGJhY2tlbmQgd2hpY2gganVzdCB1c2Vz
-IHNzaCB0byBhIHBoeXNpY2FsCj4+PiBtYWNoaW5lIGFuZCBleHBlY3RzIHRoZSBrZXJuZWwgdG8g
-cmVib290IG9uIGl0cyBvd24gYWZ0ZXIgYW55IGNyYXNoZXMuCj4+Pgo+Pj4gQnV0IEkgYWN0dWFs
-bHkgbWFuYWdlZCB0byByZXByb2R1Y2UgaXQgaW4gYW4gZXZlbiBzaW1wbGVyIHNldHVwLgo+Pj4g
-QXNzdW1pbmcgeW91IGhhdmUgR28gMS4xNSBhbmQgcmlzY3Y2NCBjcm9zcy1jb21waWxlciBnY2Mg
-aW5zdGFsbGVkCj4+Pgo+Pj4gJCBnbyBnZXQgLXUgLWQgZ2l0aHViLmNvbS9nb29nbGUvc3l6a2Fs
-bGVyLy4uLgo+Pj4gJCBjZCAkR09QQVRIL3NyYy9naXRodWIuY29tL2dvb2dsZS9zeXprYWxsZXIK
-Pj4+ICQgbWFrZSBzdHJlc3MgZXhlY3V0b3IgVEFSR0VUQVJDSD1yaXNjdjY0Cj4+PiAkIHNjcCBi
-aW4vbGludXhfcmlzY3Y2NC9zeXotZXhlY3Byb2cgYmluL2xpbnV4X3Jpc2N2NjQvc3l6LWV4ZWN1
-dG9yCj4+PiB5b3VyX21hY2hpbmU6Lwo+Pj4KPj4+IFRoZW4gcnVuIC4vc3l6LXN0cmVzcyBvbiB0
-aGUgbWFjaGluZS4KPj4+IE9uIHRoZSBmaXJzdCBydW4gaXQgY3Jhc2hlZCBpdCB3aXRoIHNvbWUg
-b3RoZXIgYnVnLCBvbiB0aGUgc2Vjb25kIHJ1bgo+Pj4gSSBnb3QgdGhlIGNyYXNoIGluIHNjaGVk
-dWxlX3RhaWwuCj4+PiBXaXRoIHFlbXUgdGNnIEkgYWxzbyBhZGRlZCAtc2xvd2Rvd249MTAgZmxh
-ZyB0byBzeXotc3RyZXNzIHRvIHNjYWxlCj4+PiBhbGwgdGltZW91dHMsIGlmIG5hdGl2ZSBleGVj
-dXRpb24gaXMgZmFzdGVyLCB0aGVuIHlvdSBkb24ndCBuZWVkIGl0Lgo+Pgo+PiBPaywgbm90IHN1
-cmUgd2hhdCdzIGdvaW5nIG9uLiBJIGdldCBhIGxvdCBvZiBlcnJvcnMgc2ltaWxhciB0bzoKPj4+
-Cj4+PiAyMDIxLzAzLzE1IDIxOjM1OjIwIHRyYW5zaXRpdmVseSB1bnN1cHBvcnRlZDogaW9jdGwk
-U05BUFNIT1RfQ1JFQVRFX0lNQUdFOiBubyBzeXNjYWxscyBjYW4gY3JlYXRlIHJlc291cmNlIGZk
-X3NuYXBzaG90LCBlbmFibGUgc29tZSBzeXNjYWxscyB0aGF0IGNhbiBjcmVhdGUgaXQgW29wZW5h
-dCRzbmFwc2hvdF0KPiAKPiBUaGlzIGlzIG5vdCBhbiBlcnJvciwganVzdCBhIG5vdGlmaWNhdGlv
-biB0aGF0IHNvbWUgc3lzY2FsbHMgYXJlIG5vdAo+IGVuYWJsZWQgaW4gdGhlIGtlcm5lbCBhbmQg
-d29uJ3QgYmUgZnV6emVkLgo+IAo+PiBGb2xsb3dlZCBieToKPj4KPj4+IDIwMjEvMDMvMTUgMjE6
-MzU6NDggZXhlY3V0ZWQgMCBwcm9ncmFtcwo+Pj4gMjAyMS8wMy8xNSAyMTozNTo0OCBmYWlsZWQg
-dG8gY3JlYXRlIGV4ZWN1dGlvbiBlbnZpcm9ubWVudDogZmFpbGVkIHRvIG1tYXAgc2htIGZpbGU6
-IGludmFsaWQgYXJndW1lbnQKPj4KPj4gVGhlIHFlbXUgaXMgNS4yLjAgYW5kIHJvb3QgaXMgRGVi
-aWFuL3Vuc3RhYmxlIHJpc2N2NjQgKHNhbWUgYXMgY2hyb290Cj4+IHVzZWQgdG8gYnVpbGQgdGhl
-IHN5eiB0b29scykKPiAKPiBUaGlzIGlzIGFuIGVycm9yLiBCdXQgSSBzZWUgaXQgdGhlIGZpcnN0
-IHRpbWUgZXZlci4KPiBJdCBjb21lcyBmcm9tIGhlcmU6Cj4gaHR0cHM6Ly9naXRodWIuY29tL2dv
-b2dsZS9zeXprYWxsZXIvYmxvYi9mZGIyYmIyYzIzZWU3MDk4ODA0MDdmNTYzMDdlMjgwMGFkMjdl
-OWFlL3BrZy9vc3V0aWwvb3N1dGlsX3VuaXguZ28jTDExOS1MMTIxCj4gVGhlcmUgc2hvdWxkIGJl
-IHByZXR0eSBzaW1wbGUgbG9naWMgaW5zaWRlIG9mIHN5c2NhbGwuTW1hcC4gUGVyaGFwcwo+IHlv
-dSBhcmUgdXNpbmcgc29tZSBvbGRlciBHbyB0b29sY2hhaW4gd2l0aCBpbmNvbXBsZXRlIHJpc2N2
-IHN1cHBvcnQ/Cj4gSSB0aGluayBJJ3ZlIHVzZWQgMS4xNCBhbmQgMS4xNS4gQnV0IHRoZXJlIGlz
-IGFscmVhZHkgMS4xNi4gWW91IGNhbgo+IGFsd2F5cyBkb3dubG9hZCBhIHRvb2xjaGFpbiBoZXJl
-Ogo+IGh0dHBzOi8vZ29sYW5nLm9yZy9kbC8KCkhtbSBpdCB3b3VsZCBoYXZlIGJlZW4gdXNlZnVs
-IHRvIHByaW50IG91dCB3aGF0IGZpbGUgaXQgZmFpbGVkIHRvIG1hcC4KCkkndmUgZ290IGdvIDEu
-MTUgZnJvbSB0aGUgZGViaWFuL3Vuc3RhYmxlIHJpc2N2NjQgY2hyb290LgpJJ2xsIGhhdmUgYSBs
-b29rIGF0IHRoaXMgaW4gYSBiaXQgdG8gc2VlIGlmIGl0IHRocm93cyB0aGUgc2FtZSBpc3N1ZSBv
-biAKYSByZWFsIHN5c3RlbS4KCgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5r
-LmNvLnVrLwpTZW5pb3IgRW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoK
-aHR0cHM6Ly93d3cuY29kZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Le 3/16/21 =E0 4:40 AM, Anup Patel a =E9crit=A0:
+> On Tue, Mar 16, 2021 at 1:59 PM Andrew Waterman
+> <waterman@eecs.berkeley.edu> wrote:
+>>
+>> On Tue, Mar 16, 2021 at 12:32 AM Anup Patel <anup@brainfault.org> wrote:
+>>>
+>>> On Tue, Mar 16, 2021 at 12:27 PM Jiuyang Liu <liu@jiuyang.me> wrote:
+>>>>
+>>>>> As per my understanding, we don't need to explicitly invalidate local=
+ TLB
+>>>>> in set_pte() or set_pet_at() because generic Linux page table managem=
+ent
+>>>>> (<linux>/mm/*) will call the appropriate flush_tlb_xyz() function aft=
+er page
+>>>>> table updates.
+>>>>
+>>>> I witnessed this bug in our micro-architecture: set_pte instruction is
+>>>> still in the store buffer, no functions are inserting SFENCE.VMA in
+>>>> the stack below, so TLB cannot witness this modification.
+>>>> Here is my call stack:
+>>>> set_pte
+>>>> set_pte_at
+>>>> map_vm_area
+>>>> __vmalloc_area_node
+>>>> __vmalloc_node_range
+>>>> __vmalloc_node
+>>>> __vmalloc_node_flags
+>>>> vzalloc
+>>>> n_tty_open
+>>>>
+
+I don't find this call stack, what I find is (the other way around):
+
+n_tty_open
+vzalloc
+__vmalloc_node
+__vmalloc_node_range
+__vmalloc_area_node
+map_kernel_range
+-> map_kernel_range_noflush
+    flush_cache_vmap
+
+Which leads to the fact that we don't have flush_cache_vmap callback =
+
+implemented: shouldn't we add the sfence.vma here ? Powerpc does =
+
+something similar with "ptesync" (see below) instruction that seems to =
+
+do the same as sfence.vma.
+
+ptesync: "The ptesync instruction after the Store instruction ensures =
+
+that all searches of the Page Table that are performed after the ptesync =
+
+instruction completes will use the value stored"
+
+>>>> I think this is an architecture specific code, so <linux>/mm/* should
+>>>> not be modified.
+>>>> And spec requires SFENCE.VMA to be inserted on each modification to
+>>>> TLB. So I added code here.
+>>>
+>>> The generic linux/mm/* already calls the appropriate tlb_flush_xyz()
+>>> function defined in arch/riscv/include/asm/tlbflush.h
+>>>
+>>> Better to have a write-barrier in set_pte().
+>>>
+>>>>
+>>>>> Also, just local TLB flush is generally not sufficient because
+>>>>> a lot of page tables will be used across on multiple HARTs.
+>>>>
+>>>> Yes, this is the biggest issue, in RISC-V Volume 2, Privileged Spec v.
+>>>> 20190608 page 67 gave a solution:
+>>>
+>>> This is not an issue with RISC-V privilege spec rather it is more about
+>>> placing RISC-V fences at right locations.
+>>>
+>>>> Consequently, other harts must be notified separately when the
+>>>> memory-management data structures have been modified. One approach is
+>>>> to use
+>>>> 1) a local data fence to ensure local writes are visible globally,
+>>>> then 2) an interprocessor interrupt to the other thread,
+>>>> then 3) a local SFENCE.VMA in the interrupt handler of the remote thre=
+ad,
+>>>> and finally 4) signal back to originating thread that operation is
+>>>> complete. This is, of course, the RISC-V analog to a TLB shootdown.
+>>>
+>>> I would suggest trying approach#1.
+>>>
+>>> You can include "asm/barrier.h" here and use wmb() or __smp_wmb()
+>>> in-place of local TLB flush.
+>>
+>> wmb() doesn't suffice to order older stores before younger page-table
+>> walks, so that might hide the problem without actually fixing it.
+> =
+
+> If we assume page-table walks as reads then mb() might be more
+> suitable in this case ??
+> =
+
+> ARM64 also has an explicit barrier in set_pte() implementation. They are
+> doing "dsb(ishst); isb()" which is an inner-shareable store barrier follo=
+wed
+> by an instruction barrier.
+> =
+
+>>
+>> Based upon Jiuyang's description, it does sound plausible that we are
+>> missing an SFENCE.VMA (or TLB shootdown) somewhere.  But I don't
+>> understand the situation well enough to know where that might be, or
+>> what the best fix is.
+> =
+
+> Yes, I agree but set_pte() doesn't seem to be the right place for TLB
+> shootdown based on set_pte() implementations of other architectures.
+
+I agree as "flushing" the TLB after every set_pte() would be very =
+
+costly, it's better to do it once at the end of the all the updates: =
+
+like in flush_cache_vmap :)
+
+Alex
+
+> =
+
+> Regards,
+> Anup
+> =
+
+>>
+>>
+>>>
+>>>>
+>>>> In general, this patch didn't handle the G bit in PTE, kernel trap it
+>>>> to sbi_remote_sfence_vma. do you think I should use flush_tlb_all?
+>>>>
+>>>> Jiuyang
+>>>>
+>>>>
+>>>>
+>>>>
+>>>> arch/arm/mm/mmu.c
+>>>> void set_pte_at(struct mm_struct *mm, unsigned long addr,
+>>>>                                pte_t *ptep, pte_t pteval)
+>>>> {
+>>>>          unsigned long ext =3D 0;
+>>>>
+>>>>          if (addr < TASK_SIZE && pte_valid_user(pteval)) {
+>>>>                  if (!pte_special(pteval))
+>>>>                          __sync_icache_dcache(pteval);
+>>>>                  ext |=3D PTE_EXT_NG;
+>>>>          }
+>>>>
+>>>>          set_pte_ext(ptep, pteval, ext);
+>>>> }
+>>>>
+>>>> arch/mips/include/asm/pgtable.h
+>>>> static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+>>>>                                pte_t *ptep, pte_t pteval)
+>>>> {
+>>>>
+>>>>          if (!pte_present(pteval))
+>>>>                  goto cache_sync_done;
+>>>>
+>>>>          if (pte_present(*ptep) && (pte_pfn(*ptep) =3D=3D pte_pfn(ptev=
+al)))
+>>>>                  goto cache_sync_done;
+>>>>
+>>>>          __update_cache(addr, pteval);
+>>>> cache_sync_done:
+>>>>          set_pte(ptep, pteval);
+>>>> }
+>>>>
+>>>>
+>>>> Also, just local TLB flush is generally not sufficient because
+>>>>> a lot of page tables will be used accross on multiple HARTs.
+>>>>
+>>>>
+>>>> On Tue, Mar 16, 2021 at 5:05 AM Anup Patel <anup@brainfault.org> wrote:
+>>>>>
+>>>>> +Alex
+>>>>>
+>>>>> On Tue, Mar 16, 2021 at 9:20 AM Jiuyang Liu <liu@jiuyang.me> wrote:
+>>>>>>
+>>>>>> This patch inserts SFENCE.VMA after modifying PTE based on RISC-V
+>>>>>> specification.
+>>>>>>
+>>>>>> arch/riscv/include/asm/pgtable.h:
+>>>>>> 1. implement pte_user, pte_global and pte_leaf to check correspond
+>>>>>> attribute of a pte_t.
+>>>>>
+>>>>> Adding pte_user(), pte_global(), and pte_leaf() is fine.
+>>>>>
+>>>>>>
+>>>>>> 2. insert SFENCE.VMA in set_pte_at based on RISC-V Volume 2, Privile=
+ged
+>>>>>> Spec v. 20190608 page 66 and 67:
+>>>>>> If software modifies a non-leaf PTE, it should execute SFENCE.VMA wi=
+th
+>>>>>> rs1=3Dx0. If any PTE along the traversal path had its G bit set, rs2=
+ must
+>>>>>> be x0; otherwise, rs2 should be set to the ASID for which the
+>>>>>> translation is being modified.
+>>>>>> If software modifies a leaf PTE, it should execute SFENCE.VMA with r=
+s1
+>>>>>> set to a virtual address within the page. If any PTE along the trave=
+rsal
+>>>>>> path had its G bit set, rs2 must be x0; otherwise, rs2 should be set=
+ to
+>>>>>> the ASID for which the translation is being modified.
+>>>>>>
+>>>>>> arch/riscv/include/asm/tlbflush.h:
+>>>>>> 1. implement get_current_asid to get current program asid.
+>>>>>> 2. implement local_flush_tlb_asid to flush tlb with asid.
+>>>>>
+>>>>> As per my understanding, we don't need to explicitly invalidate local=
+ TLB
+>>>>> in set_pte() or set_pet_at() because generic Linux page table managem=
+ent
+>>>>> (<linux>/mm/*) will call the appropriate flush_tlb_xyz() function aft=
+er page
+>>>>> table updates. Also, just local TLB flush is generally not sufficient=
+ because
+>>>>> a lot of page tables will be used accross on multiple HARTs.
+>>>>>
+>>>>>>
+>>>>>> Signed-off-by: Jiuyang Liu <liu@jiuyang.me>
+>>>>>> ---
+>>>>>>   arch/riscv/include/asm/pgtable.h  | 27 +++++++++++++++++++++++++++
+>>>>>>   arch/riscv/include/asm/tlbflush.h | 12 ++++++++++++
+>>>>>>   2 files changed, 39 insertions(+)
+>>>>>>
+>>>>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/a=
+sm/pgtable.h
+>>>>>> index ebf817c1bdf4..5a47c60372c1 100644
+>>>>>> --- a/arch/riscv/include/asm/pgtable.h
+>>>>>> +++ b/arch/riscv/include/asm/pgtable.h
+>>>>>> @@ -222,6 +222,16 @@ static inline int pte_write(pte_t pte)
+>>>>>>          return pte_val(pte) & _PAGE_WRITE;
+>>>>>>   }
+>>>>>>
+>>>>>> +static inline int pte_user(pte_t pte)
+>>>>>> +{
+>>>>>> +       return pte_val(pte) & _PAGE_USER;
+>>>>>> +}
+>>>>>> +
+>>>>>> +static inline int pte_global(pte_t pte)
+>>>>>> +{
+>>>>>> +       return pte_val(pte) & _PAGE_GLOBAL;
+>>>>>> +}
+>>>>>> +
+>>>>>>   static inline int pte_exec(pte_t pte)
+>>>>>>   {
+>>>>>>          return pte_val(pte) & _PAGE_EXEC;
+>>>>>> @@ -248,6 +258,11 @@ static inline int pte_special(pte_t pte)
+>>>>>>          return pte_val(pte) & _PAGE_SPECIAL;
+>>>>>>   }
+>>>>>>
+>>>>>> +static inline int pte_leaf(pte_t pte)
+>>>>>> +{
+>>>>>> +       return pte_val(pte) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC=
+);
+>>>>>> +}
+>>>>>> +
+>>>>>>   /* static inline pte_t pte_rdprotect(pte_t pte) */
+>>>>>>
+>>>>>>   static inline pte_t pte_wrprotect(pte_t pte)
+>>>>>> @@ -358,6 +373,18 @@ static inline void set_pte_at(struct mm_struct =
+*mm,
+>>>>>>                  flush_icache_pte(pteval);
+>>>>>>
+>>>>>>          set_pte(ptep, pteval);
+>>>>>> +
+>>>>>> +       if (pte_present(pteval)) {
+>>>>>> +               if (pte_leaf(pteval)) {
+>>>>>> +                       local_flush_tlb_page(addr);
+>>>>>> +               } else {
+>>>>>> +                       if (pte_global(pteval))
+>>>>>> +                               local_flush_tlb_all();
+>>>>>> +                       else
+>>>>>> +                               local_flush_tlb_asid();
+>>>>>> +
+>>>>>> +               }
+>>>>>> +       }
+>>>>>>   }
+>>>>>>
+>>>>>>   static inline void pte_clear(struct mm_struct *mm,
+>>>>>> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/=
+asm/tlbflush.h
+>>>>>> index 394cfbccdcd9..1f9b62b3670b 100644
+>>>>>> --- a/arch/riscv/include/asm/tlbflush.h
+>>>>>> +++ b/arch/riscv/include/asm/tlbflush.h
+>>>>>> @@ -21,6 +21,18 @@ static inline void local_flush_tlb_page(unsigned =
+long addr)
+>>>>>>   {
+>>>>>>          __asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "mem=
+ory");
+>>>>>>   }
+>>>>>> +
+>>>>>> +static inline unsigned long get_current_asid(void)
+>>>>>> +{
+>>>>>> +       return (csr_read(CSR_SATP) >> SATP_ASID_SHIFT) & SATP_ASID_M=
+ASK;
+>>>>>> +}
+>>>>>> +
+>>>>>> +static inline void local_flush_tlb_asid(void)
+>>>>>> +{
+>>>>>> +       unsigned long asid =3D get_current_asid();
+>>>>>> +       __asm__ __volatile__ ("sfence.vma x0, %0" : : "r" (asid) : "=
+memory");
+>>>>>> +}
+>>>>>> +
+>>>>>>   #else /* CONFIG_MMU */
+>>>>>>   #define local_flush_tlb_all()                  do { } while (0)
+>>>>>>   #define local_flush_tlb_page(addr)             do { } while (0)
+>>>>>> --
+>>>>>> 2.30.2
+>>>>>>
+>>>>>>
+>>>>>> _______________________________________________
+>>>>>> linux-riscv mailing list
+>>>>>> linux-riscv@lists.infradead.org
+>>>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>>>>
+>>>>> Regards,
+>>>>> Anup
+>>>
+>>> Regards,
+>>> Anup
+> =
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> =
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
