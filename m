@@ -2,59 +2,81 @@ Return-Path: <SRS0=WRFO=IO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C098C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B4E7AC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:45:33 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D3D2364E07
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3D2364E07
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id F269F64F52
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:45:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F269F64F52
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kdq2Ub+PPy5q56E4XlqeLJExUbdslmPfd01t7pAbEV4=; b=CcnzxUn15XjQqqe+M6rz33ERF6
-	IOiqw0GdA4EnQX7k/+eJgtc9ec5fyoGvIc5DDIr4b70QvZfF97oRDXAMNc/5obL7e80IBPuKzfkgs
-	5aloo+3Hrqz+ZrG8ZlGMnxd3vKic2tY6WwFybf0kCPG89Bt3LjvlFexStYAEkhE+n+T6tZ6Xp8B9D
-	ivhOktpyoqL/wQ7RYDf6PdfpYXQcTsGPtRwrG3qAt2WyTumc0fjbuH8rb2L/q95TFhpjyrEXdjat4
-	g2HH59aLpFYYS2NhtwhW4xW7nt41lKheTrlEt/R4R2XFBw9WDOmUc7MLW3XFaE5piXRMErJhLLY83
-	aH9TiK5w==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=efsHENHewjF0r7lWwMK2iCQDdWf3uIcV6a8uwPqUJPI=; b=KUep1cGQKetCJrTU6NC7vrgC/
+	IAqQmi94KeCQ0iDjO/pCQJxiMKuRiCmKYBZGPN8pXlNcV71zoxEBEON6Qp1rsLpL77xoM8CvTtM8u
+	OL/cRb+C08UencECkNvTqy8i8XG5PGNzhWwC2JuLcnkW02E8dkMc/9ID66627x8h8Nj2pYZxd9Y6x
+	dfothNKQQ5qiFreHkW0op7gB7z5xSJTtb3fFTg2bwL9yLS5QWndyeSqkgJvN9olMm+HlTNQiwyiSF
+	v86fm/91srgG5gqQe0gWJdP4VuFG+EE6m0D6QEdNUQZv5wzNvFjZBuWWcEMimwhBNu5evI3Gj4Hz4
+	rJvs5Fhrw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMFSa-001jJI-5c; Tue, 16 Mar 2021 19:34:32 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1lMFd1-001kCF-Ui; Tue, 16 Mar 2021 19:45:20 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMFSS-001jIZ-9R
- for linux-riscv@lists.infradead.org; Tue, 16 Mar 2021 19:34:27 +0000
-X-Originating-IP: 2.7.49.219
-Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 021611C0004;
- Tue, 16 Mar 2021 19:34:21 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Dmitry Vyukov <dvyukov@google.com>,
- linux-api@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
-Date: Tue, 16 Mar 2021 15:34:20 -0400
-Message-Id: <20210316193420.904-1-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
+ id 1lMFcv-001kBe-6I
+ for linux-riscv@lists.infradead.org; Tue, 16 Mar 2021 19:45:14 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4F0Nzp5fCLz1rxMm;
+ Tue, 16 Mar 2021 20:45:10 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4F0Nzp42vgz1qqlD;
+ Tue, 16 Mar 2021 20:45:10 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id HVprAfGCzxsU; Tue, 16 Mar 2021 20:45:09 +0100 (CET)
+X-Auth-Info: SurgzyzvOEKJPZRKHt6wkP9W5Z0YUNK8ZVcNfo2fRZpxXEba/9GDDNhI7l/OoTV0
+Received: from igel.home (ppp-46-244-163-222.dynamic.mnet-online.de
+ [46.244.163.222])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Tue, 16 Mar 2021 20:45:09 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+ id E3E372C37EC; Tue, 16 Mar 2021 20:45:08 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Zong Li <zong.li@sifive.com>
+Cc: paul.walmsley@sifive.com,  palmer@dabbelt.com,  sboyd@kernel.org,
+ pragnesh.patel@openfive.com,  aou@eecs.berkeley.edu,
+ mturquette@baylibre.com,  yash.shah@sifive.com,
+ linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 0/5] clk: add driver for the SiFive FU740
+References: <20201209094916.17383-1-zong.li@sifive.com>
+X-Yow: When you said ``HEAVILY FORESTED'' it reminded me of an overdue
+ CLEANING BILL..  Don't you SEE?  O'Grogan SWALLOWED a VALUABLE
+ COIN COLLECTION and HAD to murder the ONLY MAN who KNEW!!
+Date: Tue, 16 Mar 2021 20:45:08 +0100
+In-Reply-To: <20201209094916.17383-1-zong.li@sifive.com> (Zong Li's message of
+ "Wed, 9 Dec 2020 17:49:11 +0800")
+Message-ID: <87v99qyjaz.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1.91 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210316_193424_501027_1C45D5F5 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20210316_194513_323641_2DB62A47 
+X-CRM114-Status: UNSURE (   9.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,33 +94,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Increase COMMAND_LINE_SIZE as the current default value is too low
-for syzbot kernel command line.
+On Dez 09 2020, Zong Li wrote:
 
-Reported-by: Dmitry Vyukov <dvyukov@google.com>
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/include/uapi/asm/setup.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
- create mode 100644 arch/riscv/include/uapi/asm/setup.h
+> Add a driver for the SiFive FU740 PRCI IP block, which handles more
+> clocks than FU540. These patches also refactor the original
+> implementation by spliting the dependent-code of fu540 and fu740
+> respectively.
 
-diff --git a/arch/riscv/include/uapi/asm/setup.h b/arch/riscv/include/uapi/asm/setup.h
-new file mode 100644
-index 000000000000..66b13a522880
---- /dev/null
-+++ b/arch/riscv/include/uapi/asm/setup.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
-+
-+#ifndef _UAPI_ASM_RISCV_SETUP_H
-+#define _UAPI_ASM_RISCV_SETUP_H
-+
-+#define COMMAND_LINE_SIZE	1024
-+
-+#endif /* _UAPI_ASM_RISCV_SETUP_H */
+That breaks ethernet on the fu540.
+
+Andreas.
+
 -- 
-2.20.1
-
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
