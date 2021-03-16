@@ -2,87 +2,60 @@ Return-Path: <SRS0=WRFO=IO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40BACC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 17:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C098C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:34:52 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CAAE565101
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 17:56:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CAAE565101
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D3D2364E07
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Mar 2021 19:34:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3D2364E07
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:References:In-Reply-To:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8BPg6QDa6DAsNOSJ4sL3x4efXObTrdOyhCqGMo9icYQ=; b=LKEO66T2I0Yfp1CJUomVV0bv4U
-	DUf1hP4Z8cH9DC/wWahFb5gphr+1P2C+tJdcjoL8PtTnLZYPjN/JxKtCgLLfwWBF0OaZerJkxGg4Y
-	w8rdR+2DCZAIQvt+IGSZA14vV3P2jVoBuL9h4SX5V3aM8crLaDf6CwLWw46g1hx99oY0B+Pockz36
-	2vYaIHNMOwR42aECZl++fOGplxFt0zuUxe5++bkONlkhdy+atAtAmGEk6nd5+HFxavHAgUK/j6wH3
-	fmZ+8wW2/iab8A7Obtzxlz8xNDee3osgk4zDP9V1m9s9onh151W1v1bpGMwzQfnlhFU+uxpNRt/L9
-	H+J8krmA==;
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kdq2Ub+PPy5q56E4XlqeLJExUbdslmPfd01t7pAbEV4=; b=CcnzxUn15XjQqqe+M6rz33ERF6
+	IOiqw0GdA4EnQX7k/+eJgtc9ec5fyoGvIc5DDIr4b70QvZfF97oRDXAMNc/5obL7e80IBPuKzfkgs
+	5aloo+3Hrqz+ZrG8ZlGMnxd3vKic2tY6WwFybf0kCPG89Bt3LjvlFexStYAEkhE+n+T6tZ6Xp8B9D
+	ivhOktpyoqL/wQ7RYDf6PdfpYXQcTsGPtRwrG3qAt2WyTumc0fjbuH8rb2L/q95TFhpjyrEXdjat4
+	g2HH59aLpFYYS2NhtwhW4xW7nt41lKheTrlEt/R4R2XFBw9WDOmUc7MLW3XFaE5piXRMErJhLLY83
+	aH9TiK5w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMDvT-001UEe-ML; Tue, 16 Mar 2021 17:56:16 +0000
-Received: from mail-il1-f174.google.com ([209.85.166.174])
+	id 1lMFSa-001jJI-5c; Tue, 16 Mar 2021 19:34:32 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMDti-001TXN-9n; Tue, 16 Mar 2021 17:54:42 +0000
-Received: by mail-il1-f174.google.com with SMTP id r7so13545399ilb.0;
- Tue, 16 Mar 2021 10:54:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
- :message-id;
- bh=NkQ5GgQFc/YoK/N0gznOcS3i3bnLKgQpSfAaOAQnpB4=;
- b=gyI+a9RSTFpvg/8GUyIsi4QwOByqWhxfEfughABd6SLD0ZWQ6wkyxcYJ3447ux8AKz
- bgKGMraY8mb3jsIvHrWf8zIg2MbfbDjtcGa6kC+90r7QaiHAj7qbnpTtuwSaYuWsYEMP
- t6XS81EdS1fr8IRARsgjUdBzHmXT5C73qJumEuC1gQvlQfAR9vlff7OeQc3z6RmE5PhS
- IG5wriGGrRDJqHpPoC/b0fe6k6EHcjq1aoEEQ2U40xWKvxFYpNCFrXdJk85TIy4R4K/O
- vcaUbUIG/Awz4/YSU9Vg/V2xuLnnoiSItMhkNTBguPtVuRItOVyyk3+bZ6+qgpM1fom9
- FJXw==
-X-Gm-Message-State: AOAM5332obdOCGxifVuwsqsNTh49IYmxNNCmapTWF/QwZ9HAaP+RvCPn
- dRqEbKgDL6Fy5qPTRYDX2Q==
-X-Google-Smtp-Source: ABdhPJxS4LuvnNP7YIuCN0rhDra5QwrIwy0id/fLjLEHv7cot0FBcyYEg1H97tD9x5837opgVLDrPw==
-X-Received: by 2002:a05:6e02:1d98:: with SMTP id
- h24mr5059134ila.88.1615917265039; 
- Tue, 16 Mar 2021 10:54:25 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.253])
- by smtp.gmail.com with ESMTPSA id k12sm9424772ilo.8.2021.03.16.10.54.22
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 10:54:24 -0700 (PDT)
-Received: (nullmailer pid 3326125 invoked by uid 1000);
- Tue, 16 Mar 2021 17:54:09 -0000
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <anup.patel@wdc.com>
-Cc: linux-pm@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Pavel Machek <pavel@ucw.cz>,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Liush <liush@allwinnertech.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- "Rafael J . Wysocki" <rjw@rjwysocki.net>,
- Sandeep Tripathy <milun.tripathy@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20210316104140.878019-8-anup.patel@wdc.com>
-References: <20210316104140.878019-1-anup.patel@wdc.com>
- <20210316104140.878019-8-anup.patel@wdc.com>
-Subject: Re: [RFC PATCH v2 7/8] dt-bindings: Add bindings documentation for
- RISC-V idle states
-Date: Tue, 16 Mar 2021 11:54:09 -0600
-Message-Id: <1615917249.246376.3326124.nullmailer@robh.at.kernel.org>
+ id 1lMFSS-001jIZ-9R
+ for linux-riscv@lists.infradead.org; Tue, 16 Mar 2021 19:34:27 +0000
+X-Originating-IP: 2.7.49.219
+Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
+ [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 021611C0004;
+ Tue, 16 Mar 2021 19:34:21 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Dmitry Vyukov <dvyukov@google.com>,
+ linux-api@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
+Date: Tue, 16 Mar 2021 15:34:20 -0400
+Message-Id: <20210316193420.904-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210316_175427_101423_A62A43F2 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20210316_193424_501027_1C45D5F5 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +67,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Mar 2021 16:11:39 +0530, Anup Patel wrote:
-> The RISC-V CPU idle states will be described in DT under the
-> /cpus/idle-states DT node. This patch adds the bindings documentation
-> for riscv-idle-states DT nodes and idle state DT nodes under it.
-> 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  .../devicetree/bindings/riscv/cpus.yaml       |   6 +
->  .../bindings/riscv/idle-states.yaml           | 256 ++++++++++++++++++
->  2 files changed, 262 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/idle-states.yaml
-> 
+Increase COMMAND_LINE_SIZE as the current default value is too low
+for syzbot kernel command line.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Reported-by: Dmitry Vyukov <dvyukov@google.com>
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+---
+ arch/riscv/include/uapi/asm/setup.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 arch/riscv/include/uapi/asm/setup.h
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cpu-retentive-0-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cpu-nonretentive-0-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cluster-retentive-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cluster-nonretentive-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cpu-retentive-1-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cpu-nonretentive-1-0:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cluster-retentive-1:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.example.dt.yaml: idle-states: cluster-nonretentive-1:compatible:0: 'arm,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-retention-0-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-retention-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-sleep-0-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-sleep-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-retention-1-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-retention-1:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-sleep-1-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-sleep-1:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: 'entry-method' does not match any of the regexes: '^(cpu|cluster)-', 'pinctrl-[0-9]+'
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-sleep-0-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-sleep-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cpu-sleep-1-0:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/idle-states.example.dt.yaml: idle-states: cluster-sleep-1:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/arm/psci.example.dt.yaml: idle-states: cpu-power-down:compatible:0: 'riscv,idle-state' was expected
-	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/idle-states.yaml
-
-See https://patchwork.ozlabs.org/patch/1453810
-
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit.
+diff --git a/arch/riscv/include/uapi/asm/setup.h b/arch/riscv/include/uapi/asm/setup.h
+new file mode 100644
+index 000000000000..66b13a522880
+--- /dev/null
++++ b/arch/riscv/include/uapi/asm/setup.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
++
++#ifndef _UAPI_ASM_RISCV_SETUP_H
++#define _UAPI_ASM_RISCV_SETUP_H
++
++#define COMMAND_LINE_SIZE	1024
++
++#endif /* _UAPI_ASM_RISCV_SETUP_H */
+-- 
+2.20.1
 
 
 _______________________________________________
