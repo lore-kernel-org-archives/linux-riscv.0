@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99C53C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 123B6C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:10:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED63864FA8
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:08:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED63864FA8
+	by mail.kernel.org (Postfix) with ESMTPS id 815EF64F4F
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:10:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 815EF64F4F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,71 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=DNk3UmxjBpItuTMuPcEf2s4DSSUCXvNAm8w/vf1ZTZY=; b=miy9as13hTsdHxhffKdx0LMTv
-	GPr8i0W0yQLDLoT0JGYGCCy3xyX6HbYRcCCZ7JeIlsLbJ1gEzaHxMPSpe1GJAxxil+G8NYAswhAGo
-	R88kBoy1f1gnTNtf4ApD7NBLgiBhJXAk88z+HPMzPbq4FKd/RDctL0foAtlyBS3e8yUvYweoXNVRw
-	m4n9NSCNTof8r8F8TjXLQfbl/pbL9LVX63tWUnV96MBID+8yU9tO8FvGISGVm+uAsN/rKWfFPtCtc
-	pZ+3C02DqoBJvC6nLW6jXo0IbCgitdKI1XCzHCQXJJ4M+m4eSEvxD/fI/n3JAQROmt5rLfduon80+
-	ffXaY4HeA==;
+	 bh=64ZGMXPvaGs088Ptd+BdSdV9LfnTKp+Y0P4mGetI+A0=; b=ZS+KWe1MqDUcA+GMP9PeEoCrz
+	2QSWY3Pc7R9Eqcii1Q6X+/MRviUJj9KbzyZ9Nx6BXW0E+wqLIzs62zV+qJipi7s2dEq+6mkn00q8U
+	jiGRhGV9Rnf63Gjaefld8SF5lyKrAiBuIlPnhkj8otiL5PQbMxNrw6NOFL/eD+rl0Ut6UTgBQXv2f
+	yP4A/2ueAC3BoB3ouNlCHS8lq7RrMJlq3z9+UZo22xXh2/5hY+19KpqAPuU3dc4lCsnO3GkhtLHa7
+	GgOD32Any0IsKxU4DXljFX1Rb2yFzGBW0Y0uNp0u5heLptsKeE9tEhMRNMFCD3S640osTUNzJ9k3z
+	TyJvdBJAg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMOPs-002U64-Ie; Wed, 17 Mar 2021 05:08:20 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1lMORo-002UDa-O8; Wed, 17 Mar 2021 05:10:20 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMOPn-002U5g-Ps
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 05:08:18 +0000
-Received: by mail-pg1-x530.google.com with SMTP id o10so24091728pgg.4
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 22:08:15 -0700 (PDT)
+ id 1lMORk-002UCj-Ni
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 05:10:18 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id n9so23125735pgi.7
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 22:10:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=0skOxIz4xhfCTZ0VNwqsfY6NBbJN3e7Av5/rXN6cj/0=;
- b=dKAlbnzTgqbs9DMRjCdE4no8gsnOj57DaFLf50xhlLPr77tjH2ztzS5KJ2R2PKrIV+
- 4SRXbqqko/0e/TzfSTXWKpU3PxKB/98Z0/cMhWk3b7gfJpYKNLMie4EYWKQRQxQ/E9re
- /xhgOy3MgIb9cOBeOwQdnE09OBEeUgzMQLVi6eqj2rkp3D3jELn4HLsEVxugA/Z+B63B
- AH0nKpVPI0MG2n3qDZEi2jvbEirfsLiLnaRrIxRGfQ2DYUAQajiJiqdwdjQ2IxfA3ZQO
- t3XoGsKL4UwfeeDicgryOAe/r0iXyH6Hvm/722NVKrHtMJ/+D/QGxBSfq5/Qn+6F7uJ8
- CHCA==
+ bh=eaXgrCobu2/aVMN+vm+3fiX+Mb+nHmlXIgWJ0XHtqG0=;
+ b=KFj6kwqQvIqUheboR/EnrJlMVrCpmn3TfuzR4uFZr0pcL8XYjIhvZ62VphrrOXytIS
+ f/DhBMvnngmv/ALpX+RzG1rYaZPU5GpCDDKYz/LR4+cHZq8FdJsJn8soFie6d4Bb/VKD
+ N1R1eE+UPNfdnhzEgCH029hjz1Q656+mam3UJ5BeH+uQulsxnsd6OrxIXQ+112qgtAad
+ R+9yBVyv21KhG086o57bc4MBWny2ntvgYblzR9zbP20L7N07GO3vUYd9AkHC+8TGtCAb
+ wMYw1oOkCaodW/OZdwvY6m0kcIsbEUap2ELVS4uAeb8ItrexKIDaAqPUcvYfRzQPWNAp
+ YY/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=0skOxIz4xhfCTZ0VNwqsfY6NBbJN3e7Av5/rXN6cj/0=;
- b=iQRlSlNwRVU8rLD9LWpn/mA3R21Kqbhy4m738OeU5Dxwsj9iOHhq6yHsE19rqoyZDb
- IeVv+yA1AftMBOZ75YcaxeftC3QZpaVE9mvkKYUSvDcb/0F1zLchbs3XfM+7hyOw95Jl
- gZYGyVllI498EPfczk6mCoF0rr95QW7oNJ3rBy7uxuyadxSL6rHXYufdfzztLR0wS+NB
- ZI9P8pYW5Hpb4se61fD+IWPTA3i96IocpRLHQA17HXPG2ak+0i+PZRRQzjeyZ/cVtkye
- VJU/JaBqsoWmrtyyEiyLK0zkmc+8eLSGLDWqmNlD23S0GntVqPKf9EnVWkxRO4U+mXhd
- 4WcQ==
-X-Gm-Message-State: AOAM530HOiPxbCDY2yKMsahZAhfN7Vs8HysRn0NCuxjfvNfXi6ZAnG01
- 98llL2hQ+9gifRfylx+PDdCVWA==
-X-Google-Smtp-Source: ABdhPJxyF6choZsOEthrs6FkxV0u4DcptNNowEAldsfR7i5nVLXhWCspGoXV1Sy33c0Ua8caUUL7Zg==
-X-Received: by 2002:aa7:8389:0:b029:209:da1c:17b5 with SMTP id
- u9-20020aa783890000b0290209da1c17b5mr2604704pfm.29.1615957694242; 
- Tue, 16 Mar 2021 22:08:14 -0700 (PDT)
+ bh=eaXgrCobu2/aVMN+vm+3fiX+Mb+nHmlXIgWJ0XHtqG0=;
+ b=In2aKtI+ZXkt/UWO0qblKspSRIsn0YA/qv45TcGPHd4e4c79q6lIOexodk1e2CkO/r
+ CmLB2K9em97HTKWa1TuQhxsVeL3vBBkAL3t+wVgkVk4o8djRf8ovwa+wyiWqIUAzWqPR
+ WdweDhv9S9FzgmeuR12baiejugOMz203Nalwxt8XZaouYuCgj8kTxjZJr8d2Bl6BoyN5
+ GifrkAndDtvx7SOCLK/U2w5XafQRYJAm03LNPVlhS3sv1Af64X5a5VTdxfp3hLu0L+TP
+ XTg7D83OfsAuELseNIvg8egUDKIXnS9AsxwmWkdSIK14l7zd7gzGmf14sUDWOVY5nbyg
+ OFXw==
+X-Gm-Message-State: AOAM531YM9D/Z7iso7sDa8xyBrIu4mP8UAorjypArs4w8l6K7bnaqXg2
+ AfPwGHCuQXR1v/4mVfbYfeJuzbg+lDYhkw==
+X-Google-Smtp-Source: ABdhPJynP3eY6Qyx9P8p5PV3Ls1yiUGaDsR69xfqC31jHIdbK1xCWK0bmhO3m4Av8XaJHlw3hJb0yQ==
+X-Received: by 2002:a62:485:0:b029:1ef:2110:d91d with SMTP id
+ 127-20020a6204850000b02901ef2110d91dmr2745225pfe.43.1615957815017; 
+ Tue, 16 Mar 2021 22:10:15 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id h7sm18589926pfo.45.2021.03.16.22.08.13
+ by smtp.gmail.com with ESMTPSA id t6sm17569152pgp.57.2021.03.16.22.10.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 22:08:13 -0700 (PDT)
-Date: Tue, 16 Mar 2021 22:08:13 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 22:07:36 PDT (-0700)
-Subject: Re: [PATCH v6 1/2] RISC-V: Don't print SBI version for all detected
- extensions
-In-Reply-To: <20210315110500.802897-2-anup.patel@wdc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- anup@brainfault.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Anup Patel <Anup.Patel@wdc.com>
+ Tue, 16 Mar 2021 22:10:14 -0700 (PDT)
+Date: Tue, 16 Mar 2021 22:10:14 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 22:09:45 PDT (-0700)
+Subject: Re: [PATCH] riscv: Correct SPARSEMEM configuration
+In-Reply-To: <20210315120307.17142-1-wangkefeng.wang@huawei.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Atish Patra <Atish.Patra@wdc.com>, logang@deltatee.com,
+ wangkefeng.wang@huawei.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-15799b77-832f-49f3-ac18-af2ec08eebf5@palmerdabbelt-glaptop>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-afc9ae5d-ab12-4d65-81ea-1161eae50922@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_050816_000681_F108A6E5 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20210317_051016_911473_2228B76F 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +101,41 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Mar 2021 04:04:59 PDT (-0700), Anup Patel wrote:
-> The sbi_init() already prints SBI version before detecting
-> various SBI extensions so we don't need to print SBI version
-> for all detected SBI extensions.
+On Mon, 15 Mar 2021 05:03:07 PDT (-0700), wangkefeng.wang@huawei.com wrote:
+> There are two issues for RV32,
+> 1) if use FLATMEM, it is useless to enable SPARSEMEM_STATIC.
+> 2) if use SPARSMEM, both SPARSEMEM_VMEMMAP and SPARSEMEM_STATIC is enabled.
 >
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->  arch/riscv/kernel/sbi.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>  arch/riscv/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index f4a7db3d309e..c0dcebdd30ec 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -577,19 +577,19 @@ void __init sbi_init(void)
->  			sbi_get_firmware_id(), sbi_get_firmware_version());
->  		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
->  			__sbi_set_timer = __sbi_set_timer_v02;
-> -			pr_info("SBI v0.2 TIME extension detected\n");
-> +			pr_info("SBI TIME extension detected\n");
->  		} else {
->  			__sbi_set_timer = __sbi_set_timer_v01;
->  		}
->  		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
->  			__sbi_send_ipi	= __sbi_send_ipi_v02;
-> -			pr_info("SBI v0.2 IPI extension detected\n");
-> +			pr_info("SBI IPI extension detected\n");
->  		} else {
->  			__sbi_send_ipi	= __sbi_send_ipi_v01;
->  		}
->  		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
->  			__sbi_rfence	= __sbi_rfence_v02;
-> -			pr_info("SBI v0.2 RFENCE extension detected\n");
-> +			pr_info("SBI RFENCE extension detected\n");
->  		} else {
->  			__sbi_rfence	= __sbi_rfence_v01;
->  		}
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 85d626b8ce5e..87d7b52f278f 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -93,7 +93,6 @@ config RISCV
+>  	select PCI_MSI if PCI
+>  	select RISCV_INTC
+>  	select RISCV_TIMER if RISCV_SBI
+> -	select SPARSEMEM_STATIC if 32BIT
+>  	select SPARSE_IRQ
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+> @@ -154,7 +153,8 @@ config ARCH_FLATMEM_ENABLE
+>  config ARCH_SPARSEMEM_ENABLE
+>  	def_bool y
+>  	depends on MMU
+> -	select SPARSEMEM_VMEMMAP_ENABLE
+> +	select SPARSEMEM_STATIC if 32BIT && SPARSMEM
+> +	select SPARSEMEM_VMEMMAP_ENABLE if 64BIT
+>
+>  config ARCH_SELECT_MEMORY_MODEL
+>  	def_bool ARCH_SPARSEMEM_ENABLE
 
-Thanks.  I'm just putting this one on for-next so you don't have to carry
-around the diff.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
