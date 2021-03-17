@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 289A3C433E6
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 238FEC433E0
 	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:21:38 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B74D764F9F
+	by mail.kernel.org (Postfix) with ESMTPS id B728364F9E
 	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:21:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B74D764F9F
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B728364F9E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,71 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=ZoTH9wlDJvMu3jzybFHc7n2FmQhX17Hrthmk2c/pPh4=; b=EBkAeYKS8P8xkZDNiAiyB9BsL
-	nLn7PKmjwuPOM95FMc0PTFeJaRsJTM7C833vHMztIkk2YlhRuWGxdJNHOcsgwcH+DHapoUyQNSR9+
-	ZOny6+JIiioYizglCGck92DJwpDDtilkr2eTYzifRW93l5cu4es4jL2uZVFjp+/DqJAmpXLzpsqpn
-	NEbeGnhzDBYJfkitdHo8Y38k0m0CE3L7yS6TGcEr0pJtvH8O19c+kwxWOSqovvg5UidB3TaLdkqZQ
-	Kz/9Bl/a/o7IDwJJ/3IdTG/NXeI7gebt1OBSsktuB0icPzo9XS88sHiDWxZjFJRmU9Xkd/f/ehEaW
-	rJGCwl8Mw==;
+	 bh=we/ZNu/x+MNsYAV8HASQRGuj3F/WhHER341/zSpVk6I=; b=f8rSlG5sLb6cQxWSfxmys4wqU
+	TeXG446KYa76FbMgycKzpZiD0YfUOpt9vXxivRUO+5RyUI42hLSd4IQhs7scO1OgOgELyEzc5tPuC
+	BpE6Bf1V3hYmCFYlLGt+srWof6Wbeh1oqnxFOLFWtk8t1sJNLI93tMQcEe7Jcsj1S6imeZI7IOIGG
+	YIEXB3vt98uN0vT2OvLILRdc2N3g07iB7r5kPnGJ64Tg8Ixwmkt8xG8w71PAkUWYZ74SunBnMa8Tj
+	H9koDaHViFBzRI2M+TnMdCBvZ1Khmf1+nMFaQEoOdwee8VHpY9kMxFij/NYxqC5YiRMdK5wusSnRC
+	epfi/PB7Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMNgJ-002RZ6-NI; Wed, 17 Mar 2021 04:21:15 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1lMNgL-002RZL-Fb; Wed, 17 Mar 2021 04:21:17 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMNgE-002RXj-0x
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:21:11 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id 11so228005pfn.9
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
+ id 1lMNgF-002RY0-HM
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:21:13 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id t18so388074pjs.3
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:21:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=tqygHtIF9C1t29D6guUTjM28SV0efTFg8Sgvi9tq11E=;
- b=J0Ymz3qqRL/XDEColeHiskhkUudo7yCDzTrMfSli/8EJ0MyWbKw0dmPrQV15VgoqrN
- z6cmsFBhCAZ1vpXc4gbFeIRLPpmOPNtDesOJwKVKM3JJrPseT+t7CX1mhofT01A/pSW5
- reO1Wd4CHcxUuPrs+fKjk2FvCWrA/Z3oFSdiIkbjAs9QbQ+AXppXNIFTibNw/oWe4ZVo
- 7p/l/nfJEvu4yslpm6sj6CRpHfKaLkIZFQBqxcUzsKfOnw7X4gd/vJtaBHuyyvsfBiOB
- 0VNSZuQtmJl+RMoQ49XacSpRl46sV46eGn4NFy37zXgBTLTR+q6oI9lOIR96CY734DRK
- Mi/w==
+ bh=HXYVxhu43hhLrqEKf+tmf+H4c3fejAv6galOVFdhTig=;
+ b=GeZK/PsNwf2tqInzKNFZ6sQ24nmXXE2FaR9oVjuHWl/B8E1NaS0Z6PSgxVLA9DHSQ5
+ H7WV8U2xSg7RnZcecjnOHSOFR+y7UfizhYkfAE9mYUvtt0+x2mWD2gXDBFmkReoT2Y5V
+ KbiMW3QmEh49zsBnrIWkcWh8Gq+Gmo8wo9dz5UPo5ed7sSyXE13YQORJOb+RamaKZzSP
+ 2woab18A/AwsQUiLlweRBUdiVc7oHQH0MXG/YH0ySY9d80mR4Dfce7Hi+OGnfxHs6fgI
+ WRs6XI5lSVaEk0TbV40AgQPPNsMQufTa46Bij8P86jo4g3w2bjmBdSH9dGL6DrREAtnx
+ oPpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=tqygHtIF9C1t29D6guUTjM28SV0efTFg8Sgvi9tq11E=;
- b=e1hn6DKKa7Iv8+WcDOAMCGvOLtZkwYzwClWk4R5lRvYVm1UnLVFjlMa0cMp55nE/RE
- 41Y/B8E7zNurOdM+nctwUnLuDPFAVcACEbSVpnaeHIdEBUXjQabr7cgeo336x7XgtgZ7
- 878u2kjw4+L3TyVBUnr1vSz5W8L10I4MihT3CHQQyRPk/f5nx65rzj/UEhmhpQ03XT78
- xKFgYJWEfD0R46j9GdjL4KlQaMajg8XIVNfyEUjQr76aMLOSrawkAutLLwg0s422qu+/
- amhXOKUPw2vP1cLbx4ZuDHUtafA9pKnjeV6/p50azZVvNYTi4YhQ3HsI/9s5X26AI/6I
- /NWw==
-X-Gm-Message-State: AOAM533NfGAiDI3QfsYKM2q6qT05qfCjUzpR6bC30rUCnDNCCUrhEMFH
- nbnJY2EpV/5AXBVui4lj5Ff6fQ==
-X-Google-Smtp-Source: ABdhPJyesXfARSvCLvmz8y7QSMQQJ0byeO/pyhC6hJcjwk2HlOZbgELJgKE99SMicIv/QiBfvRGBuA==
-X-Received: by 2002:aa7:9ecf:0:b029:1f4:f737:12d6 with SMTP id
- r15-20020aa79ecf0000b02901f4f73712d6mr2614833pfq.8.1615954868646; 
- Tue, 16 Mar 2021 21:21:08 -0700 (PDT)
+ bh=HXYVxhu43hhLrqEKf+tmf+H4c3fejAv6galOVFdhTig=;
+ b=nmKpMglkdh0uw+Ve6Uxu0oVUrk3FztO51JSibU7wSfsJ9WgrkQWuf4Z+tlFdQpPcw7
+ rUu2k9R8PZnxdzxvjlmW2NBxia/F2RSDmzyJFUg2zDM3wvTDQ8nTqoo/vEyu2Dp7R7c0
+ J2rdAjPETpqx6lvVQ4Ttu1E1QlHoC3Vs7d/jP9CG8x4yGShlA011affDT6CvlqrN48Cd
+ J6m3wnM/rD+CQK4leJiLv/WIT9ynqs1U5Ux9fmCujfkLsPs+52/CNZMbtMxTBn7nkgs8
+ hpyaeWb6zlNNIlZgQ+L7Phzmpvy60BXZ3sujhuBxLJffGxugzIpON1kZEdoMIkv2FIrm
+ e6/A==
+X-Gm-Message-State: AOAM532w9KXIkDX0mknoWJY+Z1Qk35yy0Mnd0Wyq6pEJYyqw+aoWaooc
+ oYV8T+LF3nROj+byxaujzD7ZqfhArKPzzQ==
+X-Google-Smtp-Source: ABdhPJy2GuwRnJ65RVpPMpBxrmy+WvFjUatwD0BuNKxcxwcCy9wDUAJ647Gic1KOxNO0Q8TU8Mor4Q==
+X-Received: by 2002:a17:90a:13c5:: with SMTP id
+ s5mr2376241pjf.31.1615954869889; 
+ Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id s22sm835188pjs.42.2021.03.16.21.21.07
+ by smtp.gmail.com with ESMTPSA id d14sm870413pji.22.2021.03.16.21.21.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 21:21:08 -0700 (PDT)
-Date: Tue, 16 Mar 2021 21:21:08 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 21:19:54 PDT (-0700)
-Subject: Re: [PATCH] ftrace: Fix spelling mistake "disabed" -> "disabled"
-In-Reply-To: <20210311094022.5978-1-colin.king@canonical.com>
-CC: guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- x86@kernel.org, 
- hpa@zytor.com, rostedt@goodmis.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org
+ Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
+Date: Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 21:20:32 PDT (-0700)
+Subject: Re: [PATCH] riscv: Fix compilation error with Canaan SoC
+In-Reply-To: <20210311102424.34743-1-damien.lemoal@wdc.com>
+CC: linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: colin.king@canonical.com
-Message-ID: <mhng-9cd288c7-8f95-4e86-9b2b-bb405e3f74fe@palmerdabbelt-glaptop>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Message-ID: <mhng-cf63c6e5-9054-458e-b3a9-577ccfc6bd52@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_042110_282144_F97DCCA3 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20210317_042111_908412_CBBBA98D 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +99,33 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Mar 2021 01:40:22 PST (-0800), colin.king@canonical.com wrote:
-> From: Colin Ian King <colin.king@canonical.com>
+On Thu, 11 Mar 2021 02:24:24 PST (-0800), Damien Le Moal wrote:
+> When CONFIG_SOC_CANAAN is selected, the K210 sysctl driver is always
+> compiled. Since this driver early init function calls the function
+> k210_clk_early_init() implemented by the K210 clk driver, this driver
+> must also always be selected for compilation ot avoid build failures.
 >
-> There is a spelling mistake in a comment, fix it.
+> Avoid such build failures by always selecting CONFIG_COMMON_CLK and
+> CONFIG_COMMON_CLK_K210 when CONFIG_SOC_CANAAN is enabled.
 >
-> Signed-off-by: Colin Ian King <colin.king@canonical.com>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  arch/csky/kernel/probes/ftrace.c  | 2 +-
->  arch/riscv/kernel/probes/ftrace.c | 2 +-
->  arch/x86/kernel/kprobes/ftrace.c  | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
+>  arch/riscv/Kconfig.socs | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/arch/csky/kernel/probes/ftrace.c b/arch/csky/kernel/probes/ftrace.c
-> index ae2b1c7b3b5c..ef2bb9bd9605 100644
-> --- a/arch/csky/kernel/probes/ftrace.c
-> +++ b/arch/csky/kernel/probes/ftrace.c
-> @@ -9,7 +9,7 @@ int arch_check_ftrace_location(struct kprobe *p)
->  	return 0;
->  }
->
-> -/* Ftrace callback handler for kprobes -- called under preepmt disabed */
-> +/* Ftrace callback handler for kprobes -- called under preepmt disabled */
->  void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  			   struct ftrace_ops *ops, struct ftrace_regs *fregs)
->  {
-> diff --git a/arch/riscv/kernel/probes/ftrace.c b/arch/riscv/kernel/probes/ftrace.c
-> index 2dfb33fdac74..17ca5e923bb0 100644
-> --- a/arch/riscv/kernel/probes/ftrace.c
-> +++ b/arch/riscv/kernel/probes/ftrace.c
-> @@ -2,7 +2,7 @@
->
->  #include <linux/kprobes.h>
->
-> -/* Ftrace callback handler for kprobes -- called under preepmt disabed */
-> +/* Ftrace callback handler for kprobes -- called under preepmt disabled */
->  void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  			   struct ftrace_ops *ops, struct ftrace_regs *fregs)
->  {
-> diff --git a/arch/x86/kernel/kprobes/ftrace.c b/arch/x86/kernel/kprobes/ftrace.c
-> index 373e5fa3ce1f..51c7f5271aee 100644
-> --- a/arch/x86/kernel/kprobes/ftrace.c
-> +++ b/arch/x86/kernel/kprobes/ftrace.c
-> @@ -12,7 +12,7 @@
->
->  #include "common.h"
->
-> -/* Ftrace callback handler for kprobes -- called under preepmt disabed */
-> +/* Ftrace callback handler for kprobes -- called under preepmt disabled */
->  void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
->  			   struct ftrace_ops *ops, struct ftrace_regs *fregs)
->  {
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 7efcece8896c..e1b2690b6e45 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -31,6 +31,8 @@ config SOC_CANAAN
+>  	select SIFIVE_PLIC
+>  	select ARCH_HAS_RESET_CONTROLLER
+>  	select PINCTRL
+> +	select COMMON_CLK
+> +	select COMMON_CLK_K210
+>  	help
+>  	  This enables support for Canaan Kendryte K210 SoC platform hardware.
 
 Thanks, this is on fixes.
 
