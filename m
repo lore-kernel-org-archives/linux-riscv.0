@@ -2,92 +2,87 @@ Return-Path: <SRS0=Ejrw=IP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC7DFC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 602A0C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6556464F18
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:15:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6556464F18
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id DD83A64F3C
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD83A64F3C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TsMo4+E+2u1RC5eLvjjf8GzL9Sv8r78edsu/J9OpFsw=; b=V8utaTezLv+eYOJ4mD+pBuLmv
-	Myziox+a5gXRftumUVVH9+Rt+gjh0GikR8etf8PrhqblPoRJZ5qCperQ3f09N70aZ+cOVDiCxy7tY
-	v0XoNwJBAE1uyUeg/Dq8AVaWa2zYCVgSl093UVYzYxrD+0MIbQmlUmWWxJxPEGCilXOw422YlGof8
-	4Z/bYSoO2hytYsP41Pv/Rr9ZWkt3fuaAgF4beWBe0cJNukbpmVDCDp7ptNRV1/EkLMdxNlfze655S
-	eOYVb0O2cciMwbYaJ5dC0wALTj2YmALOaEirC8SF69Z2VnhBPFNBG6wfTN0grOTm7IUwI7JXvCFnH
-	sN3OdYL3w==;
+	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LvoApNTF3hD6IpfMoEKIqHC/GkcvsE2LRKUH0mavCYA=; b=pOdE6MrOGZ5ooXeYUm6+sBHoIX
+	omP52i1iysLctd+DkykDWPlSzPepQiv+QvmbvwSeXOsYRJFM+so4EnvuO2CCJcudQ4JXfZn4LFemo
+	xv69t0AFrhV6w7y4wKTgWR5Q2p8aKtjfRCnQFSHUMyJRySKzkpBTb0lKiXCMeudR2+oR1bQSDpWvi
+	SMLRpwqY3Lf2NdxK647rrkJH6Lr3LDWiDNpbKzbKnsOjUWx3Lwxqtxc6zpdLMnei4/V4qk0GxJnM0
+	uGdz6dQUlZQU33TrZ1RSGpcd/lYVs6s+7gm8KTAD0HK1XNvH/D2ef56b9aXNrCxSXVY+iWVp7nQkT
+	ehci1cIQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMSGX-002puF-6z; Wed, 17 Mar 2021 09:14:57 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1lMSYn-002rKP-7K; Wed, 17 Mar 2021 09:33:49 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMSGR-002ptV-0t
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 09:14:53 +0000
-Received: by mail-wm1-x334.google.com with SMTP id g20so1021018wmk.3
- for <linux-riscv@lists.infradead.org>; Wed, 17 Mar 2021 02:14:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=3+HI/szBQ5FOTyD8Qug4Foc8OSZhCyYiT6v5FkPNKc8=;
- b=jeHJzjXWMszguZe7MoOivSMUVkwfy3EYx2A2MqbLsl+1PdJgoyYc39we0KfZe9tKxS
- uwGsA6QFEQ7TiQt6NbHQGhxkUUgppZ2JuMnVlI4uCaBRl70txyvrEaCzfhNFgK4TEFiQ
- 4Ccbhy8TcLH41EQrKS8+0/IXvGx3xYDg2X9W7kQ5Cy3J4F235hwbNN3ac6cIEVMD+oKL
- hZGoTZFsvK7FY1tNpOoyBQEY+INJv2SITH6y13iP0cxAIiayHxD4ZJePbKi5AOw1crIw
- /0cz7nCmI1Ldm4OkCutFVGSOqfGnR9TohqECuM6vK2SGyrbuKzKLiQHEmjhaKu4Z6p71
- ADUA==
+ id 1lMSYi-002rJV-KB
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 09:33:47 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id t18so778502pjs.3
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Mar 2021 02:33:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=/5c+8nyXtqQ+267pEWb8YcnqMrtGFm2RxWYqeah68ng=;
+ b=gQx72TzvWfUdrMNWKJI7eaFAdE7p9JEfyZ72OQIksX0vvid3ISK3d43vV3yHgAuGdr
+ JsJypf49rf0Il8qOigBTvI01yX0lDVLrzsfqiHT5xU8uvVa0J4b0VoLlP1Oy5RrcTD0R
+ w8OQh8aIOIxGxztARzY5CLH1YdAMPurSOdBoljwnORwCUX/8P4xSLB6zEgY6ki1M4sUa
+ zVzs54yU4ZalfCZBPMw51y9G4l3A1v6lRwBAv+3jbuwU3mP7MT6glwzbJRz2FL3rM2TW
+ csOF/YOIFQbHyjgM3pmMw8LszLLGw/d/1IoO57TpKW//WyMd8NTEkdYBvUwaponO0B5Z
+ BZew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=3+HI/szBQ5FOTyD8Qug4Foc8OSZhCyYiT6v5FkPNKc8=;
- b=uV6sQVIOfeE3f70vDLtzA+Azxa5EOsEqQYcPfN4U/qJuNVd17N5UkwXdCi9Oy7nTqf
- SLJMib/595AbGMkF7k2w40oHg71CsHNcgt90UFlemSWlTFxShBQs0TEXG0ujc8Acy/Tb
- CwOnQ22bD54Uf/Xgj+OUQjHrt1pk2Kqe93unoiT1cynstWis/rdVFjV0IA4DR5WA7BEh
- H8MlDPNkRq/G3A/Rn8xDB3XK5z/cWKtquJ3qgO+swGWWdsXIjegeF4wyanPMY224DRH4
- DId/d8rT1lpoke8XRB0G8mxy03vPGFVDk58ckkCjm7/OqTfbrcU4YduC4rrwuzVOyXzx
- Gdzg==
-X-Gm-Message-State: AOAM531Uwy4935RD7qGKimbJjSS6V3VUM+YA9rloV0gsoyBw+YwRcfZ2
- emjRTQ0DnAvQoSdwvmKoa1X0zrw5hYr0Vg==
-X-Google-Smtp-Source: ABdhPJwV4NfelpdpRCyF9uOCtCgelxHcUPbS1hKlsP3rXiknagWHrC5091KByav6fHAr2xdUa6cLag==
-X-Received: by 2002:a05:600c:4844:: with SMTP id
- j4mr2685735wmo.179.1615972489089; 
- Wed, 17 Mar 2021 02:14:49 -0700 (PDT)
-Received: from ?IPv6:2a01:e34:ed2f:f020:94c7:f1f0:53fd:90e4?
- ([2a01:e34:ed2f:f020:94c7:f1f0:53fd:90e4])
- by smtp.googlemail.com with ESMTPSA id l4sm24546688wrt.60.2021.03.17.02.14.48
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 17 Mar 2021 02:14:48 -0700 (PDT)
-Subject: Re: [PATCH 1/2] csky: Enable generic clockevent broadcast
-To: guoren@kernel.org, arnd@arndb.de
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- Guo Ren <guoren@linux.alibaba.com>, Thomas Gleixner <tglx@linutronix.de>
-References: <20210307022446.63732-1-guoren@kernel.org>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-Message-ID: <4e57c0f2-c718-01c1-032a-8e4934496b17@linaro.org>
-Date: Wed, 17 Mar 2021 10:14:47 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
-MIME-Version: 1.0
-In-Reply-To: <20210307022446.63732-1-guoren@kernel.org>
-Content-Language: en-US
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=/5c+8nyXtqQ+267pEWb8YcnqMrtGFm2RxWYqeah68ng=;
+ b=SOv7cVGF49C+pRhoeASYtctb2ue0lz08FNy8OkaF5sNtnKx5ntWlaTfJra6tfjCHLw
+ VT+RCKfeU/dBayQNunB31wQifFbeIBdECLNNSvxveALXYo59uXoCDQkmANi6s1fhC9Kn
+ 8yFg6rpV+5C8ng88kfJgjcbbtPfW7nBiudN8bJX77SXianrIbnMBbapbxuJKMLdnhI6E
+ VktiPS5UfTS0mRBymiyDjxCOqLvqV/sYgBFbD8mBLLDdGkm8aLejX9AzLk2gbolKSwCJ
+ U0NNprZiWW9DzIfqBtCnFy7v+QtQ1Qo5z7jnPVjaXhGY3c2Pv7FE7dIdRTF+H1oJif/b
+ KsZQ==
+X-Gm-Message-State: AOAM533Qc5Voc55vetyD5p81f4syMw+b75lV6ybw2MFURhDqirHZFUbj
+ UKtVFsaSIpyndySvGUlJEz0kT5kl6UNRqB/t
+X-Google-Smtp-Source: ABdhPJzviBC3z2/WiLf6NeWbRstzHXshAoTh30bHY3RTq6JgGdySQehMJKcmwATPohVqSlup0LyWLw==
+X-Received: by 2002:a17:90a:7e8b:: with SMTP id
+ j11mr3674155pjl.11.1615973622942; 
+ Wed, 17 Mar 2021 02:33:42 -0700 (PDT)
+Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
+ (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
+ by smtp.gmail.com with ESMTPSA id i14sm2149508pjh.17.2021.03.17.02.33.40
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 17 Mar 2021 02:33:42 -0700 (PDT)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: Frank.Zhao@starfivetech.com, anup.patel@wdc.com, atish.patra@wdc.com,
+ guoren@kernel.org, alankao@andestech.com, paul.walmsley@sifive.com,
+ ruinland@andestech.com, david.abdurachmanov@sifive.com,
+ Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH v2 0/5] riscv: introduce alternative mechanism to apply errata
+ patches
+Date: Wed, 17 Mar 2021 17:33:28 +0800
+Message-Id: <1615973613-22364-1-git-send-email-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_091451_221503_D1611DC3 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20210317_093345_116534_23E87B93 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +94,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDcvMDMvMjAyMSAwMzoyNCwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4gRnJvbTogR3Vv
-IFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IAo+IFdoZW4gcGVyY3B1LXRpbWVycyBh
-cmUgc3RvcHBlZCBieSBkZWVwIHBvd2VyIHNhdmluZyBtb2RlLCB3ZSBuZWVkCj4gc3lzdGVtIHRp
-bWVyIGhlbHAgdG8gYnJvYWRjYXN0IElQSV9USU1FUi4KPiAKPiBUaGlzIGlzIGZpcnN0IGludHJv
-ZHVjZWQgYnkgYnJva2VuIHg4NiBoYXJkd2FyZSwgd2hlcmUgdGhlIGxvY2FsIGFwaWMKPiB0aW1l
-ciBzdG9wcyBpbiBDMyBzdGF0ZS4gQnV0IG1hbnkgb3RoZXIgYXJjaGl0ZWN0dXJlcyhwb3dlcnBj
-LCBtaXBzLAo+IGFybSwgaGV4YWdvbiwgb3BlbnJpc2MsIHNoKSBoYXZlIHN1cHBvcnRlZCB0aGUg
-aW5mcmFzdHJ1Y3R1cmUgdG8KPiBkZWFsIHdpdGggUG93ZXIgTWFuYWdlbWVudCBpc3N1ZXMuCj4g
-Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IENj
-OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+IENjOiBUaG9tYXMgR2xlaXhuZXIgPHRn
-bHhAbGludXRyb25peC5kZT4KPiBDYzogRGFuaWVsIExlemNhbm8gPGRhbmllbC5sZXpjYW5vQGxp
-bmFyby5vcmc+Cj4gLS0tCgpBY2tlZC1ieTogRGFuaWVsIExlemNhbm8gPGRhbmllbC5sZXpjYW5v
-QGxpbmFyby5vcmc+CgoKLS0gCjxodHRwOi8vd3d3LmxpbmFyby5vcmcvPiBMaW5hcm8ub3JnIOKU
-giBPcGVuIHNvdXJjZSBzb2Z0d2FyZSBmb3IgQVJNIFNvQ3MKCkZvbGxvdyBMaW5hcm86ICA8aHR0
-cDovL3d3dy5mYWNlYm9vay5jb20vcGFnZXMvTGluYXJvPiBGYWNlYm9vayB8CjxodHRwOi8vdHdp
-dHRlci5jb20vIyEvbGluYXJvb3JnPiBUd2l0dGVyIHwKPGh0dHA6Ly93d3cubGluYXJvLm9yZy9s
-aW5hcm8tYmxvZy8+IEJsb2cKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+With the emergence of more and more RISC-V CPUs, the request for how to
+upstream the vendor errata patch may gradually appear. In order to resolve
+this issue, this patch introduces the alternative mechanism from ARM64 and
+x86 to enable the kernel to patch code at runtime according to the
+manufacturer information of the running CPU. The main purpose of this patch
+set is to propose a framework to apply vendor's errata solutions. Based on
+this framework, it can be ensured that the errata only applies to the
+specified CPU cores. Other CPU cores do not be affected. Therefore, some
+complicated scenarios are unsupported in this patch set, such as patching
+code to the kernel module, doing relocation in patching code, and
+heterogeneous CPU topology.
+
+In the "alternative" scheme, Users could use the macro ALTERNATIVE to apply
+an errata to the existing code flow. In the macro ALTERNATIVE, users need
+to specify the manufacturer information (vendor id, arch id, and implement
+id) for this errata. Therefore, kernel will know this errata is suitable
+for which CPU core. During the booting procedure, kernel will select the
+errata required by the CPU core and then patch it. It means that the kernel
+only applies the errata to the specified CPU core. In this case, the
+vendor's errata does not affect each other at runtime. The above patching
+procedure only occurs during the booting phase, so we only take the
+overhead of the "alternative" mechanism once.
+
+This "alternative" mechanism is enabled by default to ensure that all
+required errata will be applied. However, users can disable this feature by
+the Kconfig "CONFIG_RISCV_ERRATA_ALTERNATIVE".
+
+The last two patches are to apply the SiFive CIP-453 and CIP-1200 errata by
+this "alternative" scheme. Therefore, they can be regarded as examples.
+According to the results of running this image on the QEMU virt platform,
+kernel does not apply this errata at run-time because the CPU manufacturer
+information does not match the specified SiFive CPU core. Therefore, these
+errata does not affect any CPU core except for the specified SiFive cores.
+
+Changes in v2 patch:
+1. Display a warning message if Kernel finds the required errata is missing
+2. Provide sample code for a vendor who wants to append its errata
+3. Create a new patch to workaound SiFive errata cip-1200
+4. Code refinement
+
+Vincent Chen (5):
+  riscv: Add 3 SBI wrapper functions to get cpu manufacturer information
+  riscv: Introduce alternative mechanism to apply errata solution
+  riscv: sifive: Add SiFive alternative ports
+  riscv: sifive: Apply errata "cip-453" patch
+  riscv: sifive: Apply errata "cip-1200" patch
+
+ arch/riscv/Kconfig                          |   1 +
+ arch/riscv/Kconfig.erratas                  |  45 +++++++++
+ arch/riscv/Kconfig.socs                     |   1 +
+ arch/riscv/Makefile                         |   1 +
+ arch/riscv/errata/Makefile                  |   2 +
+ arch/riscv/errata/alternative.c             |  74 +++++++++++++++
+ arch/riscv/errata/sifive/Makefile           |   2 +
+ arch/riscv/errata/sifive/errata.c           | 105 ++++++++++++++++++++
+ arch/riscv/errata/sifive/errata_cip_453.S   |  38 ++++++++
+ arch/riscv/include/asm/alternative-macros.h | 142 ++++++++++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h        |  39 ++++++++
+ arch/riscv/include/asm/asm.h                |   1 +
+ arch/riscv/include/asm/csr.h                |   3 +
+ arch/riscv/include/asm/errata_list.h        |  39 ++++++++
+ arch/riscv/include/asm/sbi.h                |   3 +
+ arch/riscv/include/asm/sections.h           |   1 +
+ arch/riscv/include/asm/tlbflush.h           |   3 +-
+ arch/riscv/include/asm/vendorid_list.h      |  10 ++
+ arch/riscv/kernel/entry.S                   |   6 +-
+ arch/riscv/kernel/sbi.c                     |  15 +++
+ arch/riscv/kernel/smpboot.c                 |   4 +
+ arch/riscv/kernel/vmlinux.lds.S             |   7 ++
+ 22 files changed, 539 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/Kconfig.erratas
+ create mode 100644 arch/riscv/errata/Makefile
+ create mode 100644 arch/riscv/errata/alternative.c
+ create mode 100644 arch/riscv/errata/sifive/Makefile
+ create mode 100644 arch/riscv/errata/sifive/errata.c
+ create mode 100644 arch/riscv/errata/sifive/errata_cip_453.S
+ create mode 100644 arch/riscv/include/asm/alternative-macros.h
+ create mode 100644 arch/riscv/include/asm/alternative.h
+ create mode 100644 arch/riscv/include/asm/errata_list.h
+ create mode 100644 arch/riscv/include/asm/vendorid_list.h
+
+-- 
+2.7.4
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
