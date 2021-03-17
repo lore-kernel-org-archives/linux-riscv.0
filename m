@@ -3,19 +3,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F195C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D600FC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:53:57 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BAC0164FAC
+	by mail.kernel.org (Postfix) with ESMTPS id 71BD764F9F
 	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:53:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAC0164FAC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71BD764F9F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -23,70 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=M9pJkrQhpl905GBMipG6FJ+2LRUhZ6W8eN9k610OhtQ=; b=MAWXKXK3X+O999AegUoix4YaG
-	uhok92BLINl2+MI8jqB2z5leblNMgmltLyHEi7+J88UCGwYB23UxMuo10roJI0R0CD4prhkjHO9BG
-	NNW1T/0UWh0DUDEr4SRAiEFGjV7CJPW/FtXn0tFugFFrZiBVOgAX1uQPgwRXLLUtBNPKF6xRvc9NK
-	OLOSN8Lp/GchB6CHRrBTFrQIo1vWGLyk3Wy1vgot4d7nMGYGW5mvWWwLho67do2v25iKWXtHVXpE3
-	qoZ8/O+Mh4mJDNyMg1L6XQ0/HtzJRVLzRL2aiCn5cE+Q8c+LzSt6UXwhzaLMljwYFPGRUsBMryg8x
-	QI97IBsfQ==;
+	 bh=wMRAVzQ1otP1gexzHv4QLpoS2htVz7ZKbuzTnwGcGjY=; b=UaxESmjLcX73vsJHgNFo0892e
+	hkquPfRFp1SJmBY3NHkIad+Uw2z2WXTX7iGFzq7u74v1NcNWsv+8Q7e4gJH2Mn/fIYWfK9zHdKuuy
+	gwlKwKJDOnthbmVwK59ks1krIBYFDU5IOoPoVsTtyCz2wkWCVVNSqq7AiFIjfHQshjpTz+1zHA/83
+	uW/zMzm46FysiFDME9kXLZV/yPhg8LGeTRaT913Df7wgCDVxy5vpwJLrkJ3BHax44lBirOM0ftMaW
+	qGImDpd9YRvMMFrNffN4ua95aLmvCVDL8b9D3LDaZHnGVljJL+OmMlwvvs1Nf4nBm/+e/L8NXggfx
+	quvsL9iDA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMOBD-002TFQ-Of; Wed, 17 Mar 2021 04:53:11 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1lMOBF-002TFe-6J; Wed, 17 Mar 2021 04:53:13 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMOB8-002TEl-6N
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:53:08 +0000
-Received: by mail-pf1-x436.google.com with SMTP id x26so269545pfn.0
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:53:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ id 1lMOB9-002TF1-Tv
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:53:09 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id
+ cl21-20020a17090af695b02900c61ac0f0e9so4681650pjb.1
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:53:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=d8dYAktnUBBiQrXZEcua+BNHo2fKNZhUG+0Inwx8kus=;
- b=niXuLSlZqGyMJtNFFYws30ei5jxNF1MxBhVz9FPSaYoEmbFkVgyw4ZkEQHEVf6noNd
- V9H+PU446TPYO7d32QIqeBkc8UXXUYgCry+5/ckOLtRjzilQge6EU6Yc+EzwnGrzSnpi
- rq6lNNpO5ZehsNQNUhtK4w69j6Q87T52YF/1w3kCF3tbOatws1+X/rWCDHJj7x94aktS
- Sxd/NBV4K88tIzvti9/2TH1ZxcjyIsw/WXR2jXdCnLnZqgJK4+kkXiXrPndvSGhiqM2S
- B8caEl4y8conzl1sI2o7EVNClXDwCLhSAZEIwf3B5E51KpFmjRp9wmB/xAQRwquljt01
- qpKQ==
+ bh=bOxl3V+1KY/8zaD5pUmKYcp5UFMxN79rD/BTslHwRVI=;
+ b=U0h7/IfExyTKR9yu6gUha/hKKszbmmte1DU+1SP6d3S/3CIPBb2IssZ6weDVC3axu5
+ Amra2Dib6T7784UdJZrrFYNzoIezcnZVzOIjnL4PkQ8qr3fQEhDs9dIix4TrKLDc8Gcz
+ riNmCzpa5lnqYNWqvrJ0Rkc4TVlN2xY1YtIhFR/AxrKCbWMnCeT2tgrQ+20tIjgI9YyB
+ tV4L8w7PX0HH04D1co8yOP07qrKSgO0mBUN3ZZNpSbR2Twk67rlgg82UkfBVtmgaKWWA
+ kxRXPENGKo/ASSBasO8bVN70EHeUCh1QJiy4UICGyCQt/xueATheoGbliYcKLbbszO/b
+ ss8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=d8dYAktnUBBiQrXZEcua+BNHo2fKNZhUG+0Inwx8kus=;
- b=PofOawTjgQqx0W140fAJ4Vu+J5nm6gyIxJ5hIM+V6Gq2w7+luGrUf9QvQM800HJuvp
- E9NqUbNBe//bONHyk3gzoZ5zETCX48ARsYYvVXpK1Yg1nRUbPqpZ35RGA98/sTtANLZZ
- jSzt6+8SQTt4m1kTRScqrVrhc4VpuwYd5DY6kFt5IhmpmsucUg0xVGGjqZ1Vlix9PHbC
- oBx8MxLlTiOA8b0rqEpqtR4Hjes80wL1Gnxvxd1ald/s/aTHScRzFQgXvIiEFiNs06M5
- mW8W1XE0n3TKBN1FgtVvasTr5zxBbeEfcJHDvMdOzB+gF3D8CICgRkfPAoOuff66QNtk
- 7Kkg==
-X-Gm-Message-State: AOAM532xioHunt/JKoU7FrT84yyBkFRINVgOzMRNApl0BIhOsgFo5c9W
- hh93dfceaXk8l8A/icg39A5QnA==
-X-Google-Smtp-Source: ABdhPJze1AWtbvlK653ib6kGnHhosP0U9QAm2Y6eHCKmfcznfiMba+6v3xcBWJcN5Rw2R9jzVTmc4Q==
-X-Received: by 2002:aa7:9619:0:b029:1fa:ed79:b724 with SMTP id
- q25-20020aa796190000b02901faed79b724mr2509040pfg.38.1615956784475; 
- Tue, 16 Mar 2021 21:53:04 -0700 (PDT)
+ bh=bOxl3V+1KY/8zaD5pUmKYcp5UFMxN79rD/BTslHwRVI=;
+ b=j4402n/saZ2rTX18NmYRGuzjb6rsIgsKAtoj0Uahg5xGT1mMYLuKYdnFGx2JZ72QHZ
+ lfPXYWY1G2KBotlJSWeNbZZLHgZZ1zUY4B+WlhUliE6NL637FX46xOStb2WoGG0GQ/bp
+ c6qtG41npGr2SXCT+UVF5OxvvkZwh+EhMbE2mk2gxaHFd520U+xsJHXsufPsf9XvvnFX
+ 9m9/WSrs1zcPE6iItZXkHlfZ3O8DxSm0PehCY3Ns4icb6KqSqs25Hzfw/8Fc8Pow+XbH
+ 76qVF1psckrpdxwTrpx4Ot7SBU827+ph2McSnr6rQ5mChVwMOhhkDSfgL15EV1VNobZA
+ Iwrw==
+X-Gm-Message-State: AOAM5337w1vxxLuHyrBIER5Kht+I6JBMBXiuOAGH4n1yJybO5uK6womX
+ atrmZ51O+MV7uxVMUH7txw7YhA==
+X-Google-Smtp-Source: ABdhPJxYg8S6BCSDk4G2YF7NIsO7aZiy5c1IxedOg7sM8FHnbI38szc1bKtdAAn91bGNpRHTeGzHvg==
+X-Received: by 2002:a17:90b:2284:: with SMTP id
+ kx4mr2454622pjb.96.1615956786456; 
+ Tue, 16 Mar 2021 21:53:06 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id i1sm17197849pfo.160.2021.03.16.21.53.03
+ by smtp.gmail.com with ESMTPSA id 132sm18050138pfu.158.2021.03.16.21.53.05
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 21:53:03 -0700 (PDT)
-Date: Tue, 16 Mar 2021 21:53:03 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 21:49:52 PDT (-0700)
-Subject: Re: [RFC PATCH v1 0/3] IPI and remote TBL flush improvement
-In-Reply-To: <20210311164712.652608-1-anup.patel@wdc.com>
+ Tue, 16 Mar 2021 21:53:05 -0700 (PDT)
+Date: Tue, 16 Mar 2021 21:53:05 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 21:52:48 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Fix out-of-bounds accesses in init_resources()
+In-Reply-To: <20210312154634.3541844-1-geert@linux-m68k.org>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- daniel.lezcano@linaro.org, tglx@linutronix.de,
- Atish Patra <Atish.Patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>, anup@brainfault.org,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Anup Patel <Anup.Patel@wdc.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-18286acf-f6b8-4793-88a1-f747b818f764@palmerdabbelt-glaptop>
+ Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, geert@linux-m68k.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: geert@linux-m68k.org
+Message-ID: <mhng-3252ea0a-bbbb-4024-ae06-cf2212aaa466@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_045306_464282_2BA0974D 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20210317_045308_085251_3E41DAF4 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +102,64 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Mar 2021 08:47:09 PST (-0800), Anup Patel wrote:
-> This series primarily does two things:
-> 1. Allows RISC-V IPI provider to specificy whether IPI operations are
->    suitable for remote TLB flush (PATCH1)
-> 2. Improve remote TLB flush to use IPIs whenever possible (PATCH2)
-> 3. Allow irqchip drivers to handle IPIs from chained IRQ handlers (PATCH3)
-
-IIUC this last one isn't technically used in both forms, as we don't have any
-drivers that behave that way yet?  I'm OK taking it, under the assumption it
-makes keeping the out-of-tree driver for the draft interrupt controller easier,
-but I was wrong then it's probably out of order so I figured I'd check.
-
-Aside from that this generally LGTM.  We are making quite a bit of mess in
-here, but I don't really see a way around that as we need to support the old
-hardware.  We can always do a cleanup when the specifications settle down.
-
-Oddly enough this did come up in IRC recently and there may be some new bits in
-the CLINT on the FU740 that allow S-mode SW interrupts to show up directly --
-there's at least a "delegate supervisor software interrupt" bit now, but the
-manual only calls out machine mode as being able to set it (though IIUC it's
-memory mapped, so not sure how that would be enforced).  Not saying we need
-that in order to take the last patch, but if it is possible it's probably worth
-giving it a shot when the boards show up.
-
-> This series also a preparatory series for upcoming RISC-V advanced
-> interrupt architecture (AIA) support.
+On Fri, 12 Mar 2021 07:46:34 PST (-0800), geert@linux-m68k.org wrote:
+> init_resources() allocates an array of resources, based on the current
+> total number of memory regions and reserved memory regions.  However,
+> allocating this array using memblock_alloc() might increase the number
+> of reserved memory regions.  If that happens, populating the array later
+> based on the new number of regions will cause out-of-bounds writes
+> beyond the end of the allocated array.
 >
-> These patches can be found in riscv_ipi_imp_v1 branch at
-> https://github.com/avpatel/linux
+> Fix this by allocating one more entry, which may or may not be used.
 >
-> Anup Patel (3):
->   RISC-V: IPI provider should specify if we can use IPI for remote FENCE
->   RISC-V: Use IPIs for remote TLB flush when possible
->   RISC-V: Add handle_IPI_noregs() for irqchip drivers
+> Fixes: 797f0375dd2ef5cd ("RISC-V: Do not allocate memblock while iterating reserved memblocks")
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> ---
+> Tested on vexriscv, which works now using L1_CACHE_SHIFT = 6, too.
 >
->  arch/riscv/include/asm/smp.h      | 19 +++++++++-
->  arch/riscv/kernel/sbi.c           |  2 +-
->  arch/riscv/kernel/smp.c           | 30 +++++++++++----
->  arch/riscv/mm/cacheflush.c        |  2 +-
->  arch/riscv/mm/tlbflush.c          | 62 ++++++++++++++++++++++++-------
->  drivers/clocksource/timer-clint.c |  2 +-
->  6 files changed, 91 insertions(+), 26 deletions(-)
+> This issue may show up during early boot as:
+>
+>     Unable to handle kernel paging request at virtual address c8000008
+>     Oops [#1]
+>     CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-orangecrab-00023-g7c4fc8e3e982-dirty #137
+>     epc: c04d6660 ra : c04d6560 sp : c05ddf70
+>      gp : c0678bc0 tp : c05e5b40 t0 : c8000000
+>      t1 : 00030000 t2 : ffffffff s0 : c05ddfc0
+>      s1 : c8000000 a0 : 00000000 a1 : c7ffffe0
+>      a2 : 00000005 a3 : 00000001 a4 : 0000000c
+>      a5 : 00000000 a6 : c04fe000 a7 : 0000000c
+>      s2 : c04fe098 s3 : 000000a0 s4 : c7ffff60
+>      s5 : c04fe0dc s6 : 80000200 s7 : c059f1d4
+>      s8 : 81000200 s9 : c059f1f0 s10: 80000200
+>      s11: c059f1d4 t3 : 405dbb60 t4 : c05e6f08
+>      t5 : 81000200 t6 : 40501000
+>     status: 00000100 badaddr: c8000008 cause: 0000000f
+>     random: get_random_bytes called from print_oops_end_marker+0x38/0x7c with crng_init=0
+>     ---[ end trace 0000000000000000 ]---
+>
+> or much later as:
+>
+>     Unable to handle kernel paging request at virtual address 69726573
+> ---
+>  arch/riscv/kernel/setup.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index e85bacff1b5075ee..f8f15332caa20263 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -147,7 +147,8 @@ static void __init init_resources(void)
+>  	bss_res.end = __pa_symbol(__bss_stop) - 1;
+>  	bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+>
+> -	mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt) * sizeof(*mem_res);
+> +	/* + 1 as memblock_alloc() might increase memblock.reserved.cnt */
+> +	mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt + 1) * sizeof(*mem_res);
+>  	mem_res = memblock_alloc(mem_res_sz, SMP_CACHE_BYTES);
+>  	if (!mem_res)
+>  		panic("%s: Failed to allocate %zu bytes\n", __func__, mem_res_sz);
+
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
