@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BFAE3C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB61DC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:36 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 153C164F37
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 153C164F37
+	by mail.kernel.org (Postfix) with ESMTPS id 5D72F64F42
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 09:34:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D72F64F42
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,51 +23,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I73F17WatoO/RZGoAfFjt6oUuEhMpVBI7rVWm6VAddI=; b=i0DOyOTaiJc/JoP/GFKSFGgcv5
-	ZsCHKwH/hhKesKJeaNmDWInBYB+C+w1pHNMYRY3sRcuQJkEpuzZEkjdliyd8rbd21MLVGK2bo9xa4
-	gESup2N6MfXaON8DvIKCeKeWXOBhxUvys1KX3Yh+8Z5uAE/ufZERxvGGEL0OK5joFnle50C47wdA+
-	TFg2JD13rcLvR97s8P4ox2Q4E3WhScLmojSiYtoxyI35YwUau/jzj56O2Ua0F6QnYpdyds3X0AHsj
-	qi3sh97rRULwjF7bQ7wS6Q++hZLq0pecruLEbRGUpImJ5NyQzsoCqb/39/gfLLhpfmLlYMSrtttm2
-	NODIDhBQ==;
+	bh=NLl1XNrmObcJsfnWm/U7D5PAwEnr5cm/3gq6x2ZwA4s=; b=DX+/06zw0iZ1IE/jZ5faz+3guT
+	i40vFY4XP0hQPFjYcXMB52Z9uBvPwQvfiX6rBnu53GfkyETeWrN52dbgNZw8L5CXOYBXTsisz2U8N
+	KfztU9By/qC+up+hkJ2/G6mRZh6OY1m+l4qnBhiuHJXqfg1ScDVyKwWhU912HboH3k9n7OE8GIwCb
+	FuGnKC9cYvdI9/WFP+Y0lzARUCGYoPbOoyGicd6XmG2ZDFOcEtuhmpHCDM8lvCIGBIP3pgx16QfTN
+	eNKn20NInqcSqNbXZmXImHebcFPBQ2WvHlC+ZQJUX+s3MDunvPZW1fCbui3XC/7gXSWuxsNvVdzke
+	nKv1Pgig==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMSZ6-002rOM-5j; Wed, 17 Mar 2021 09:34:08 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1lMSZC-002rPw-1Y; Wed, 17 Mar 2021 09:34:14 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMSYz-002rMZ-6O
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 09:34:04 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id o10so24446559pgg.4
- for <linux-riscv@lists.infradead.org>; Wed, 17 Mar 2021 02:34:00 -0700 (PDT)
+ id 1lMSZ4-002rNo-Ji
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 09:34:09 +0000
+Received: by mail-pl1-x631.google.com with SMTP id e2so484726pld.9
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Mar 2021 02:34:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=hCl4WrRqIiHCFl7VyhL+eiaTTBw6x3YIvyOIUMN+O4k=;
- b=j2X5hszHfazkNJe/AK2cnWfBCXZtn+/njTRg6BJHSwdLbqlcHbitv2sKqERFMB4Iqr
- jukyHO5WSbHeogo0F02b2hVz5JO3a8KoDnXx6NV5bqzbxSOqevyo8eMqkLS796p6iDet
- 2xKNtPiN409R2rL4fdlUDQg0eqcSFPqCwTrl7DjzciKz69LNUaheSN7CJJAvQF/+/4Gs
- mLk7m242POorvO5kRXaRELaCZpMTHkwKimPnpcgvEAzU2+H4BccHVQ5+gtl7OZHPUpZy
- 3m0D3vbLeZG0AFbKk00hVuPl/yvcCAVc3BEzB0Ge2V529k4FoyNbcmprsp2kphEWXyeq
- OEQw==
+ bh=OmUYfUuPeA7Gwwie8rUfxXANjXlCeBXJOd3lxUiY8uk=;
+ b=Yo+rrZSta7atbAmJ73gds9SUr/r29KF65VoAHb2ohexNvM5raCCUTLsWInDR/xnYK7
+ m6S9FUoT/cAA03Z7ZxtigTsp4awExAfRJ2IXlBcrV5VXm37jicW62ZKr5RiKbSZfRCfu
+ baee5x2pr2qGTX9MqS6hvdenY+JpHb7iV7NM5t1iR3V9WClIJFHib9ctqlxwBs0yDhDI
+ RQwo0UcnHN0F5TQQcsgLDvCzAqf27V/r7zCvwn1kkEhXLW5YVqTfcnNmEz7ixWVmin4g
+ Kn0LFWlsH1jCfOyAPU8St5XO2BiZop3NJYAEhVUP9JvYlfex9YhkIu843K38CZn+Ud+8
+ s6YQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=hCl4WrRqIiHCFl7VyhL+eiaTTBw6x3YIvyOIUMN+O4k=;
- b=LmFPlTE9MLlXZC89VNGieqPsVu+ZPmwlaFlDvvJn+LpTorCZMu8It6gCt2IMWGUW3o
- xP1/ePFhcbE7gPvAIR08cIntaKYTrCzub5IURLnVIyghnWeeoAR8yEC7u8hFk0H+yvXO
- Od/obBjMf3+K+BRHXD7y//5VKZaUPcs9LCcA6SR9cFdRJovcty+gv6D0IF3rOIAwEX1H
- 7ntDIy2oC3n26ZZTcSadKbYhGhQOaBYb0b7bzOLQYH+Wt3IzmLs6VHaeTwxgr5o0ne8x
- iHPOPKGPM92l1Na3FgvIAnUXTHCoHpRDLxH3W8O+XaO6HSnqd5UlJeXUSyJvIx9WBxZ6
- LoWw==
-X-Gm-Message-State: AOAM530Xq6YsZV6jcM2sovbi0dfqyt6XolJEnlTrnah0tTUlIJO6d0B7
- /9CiQK/5i4AUejBAzeDNkBdcB1/2RKdhalSC
-X-Google-Smtp-Source: ABdhPJywUyfrVrpQZtGVXfgGRHUcA0eyG6XkU/sP3VF8rIi2mGlqP3qp0skSR7SFaEfQyLZIzOat2A==
-X-Received: by 2002:a63:8c0b:: with SMTP id m11mr1895884pgd.306.1615973639332; 
- Wed, 17 Mar 2021 02:33:59 -0700 (PDT)
+ bh=OmUYfUuPeA7Gwwie8rUfxXANjXlCeBXJOd3lxUiY8uk=;
+ b=aRXJfY1YTch8e0lFNYDJi6hsRAwq1E/JifA8p0SQiJzEfBvgvytzE0hZBqI89stsQR
+ cE7+ocE5M2A2x0gy//cz9RDRFaADi4z+tYPUW4Kbgfx8vyPcyVixgIPvRExPD5gBPp8o
+ f/y9czIixBPdJfwc2sI+RL6Qc42IuH7lh3w3M+8xl1yDAduTp1ZPymOMX/WbVV3FQJKx
+ CQCsi0Aeip1AsYmjEsg41WymxIjHDR0GEpD/ovsOd9fK62+Yv+0yQ30yOtTnDZBvFYLh
+ LrTk0BXOTW3piqljnRD14EvDK++bu76iDakk6nwix8umDyWN7ipoTi+pTbUO65sLUx9Q
+ FqLA==
+X-Gm-Message-State: AOAM530DB0ShAjsgXk2fJyEYjh1S0Kv8twrJFcT+wQMtdLfdhe56oEyE
+ npyxRdYXJZmU8MZonnUEjduN3H+hQ/rkRwxR
+X-Google-Smtp-Source: ABdhPJxdFUOHA+zinBZ/zXcfEhqEGtklmCOgXOdaPunYhewD4onrH/25NJGg9HVNse2lAFiq71OWvQ==
+X-Received: by 2002:a17:903:22c1:b029:e6:8800:37c7 with SMTP id
+ y1-20020a17090322c1b02900e6880037c7mr3466638plg.61.1615973644865; 
+ Wed, 17 Mar 2021 02:34:04 -0700 (PDT)
 Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id i14sm2149508pjh.17.2021.03.17.02.33.57
+ by smtp.gmail.com with ESMTPSA id i14sm2149508pjh.17.2021.03.17.02.34.02
  (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 17 Mar 2021 02:33:59 -0700 (PDT)
+ Wed, 17 Mar 2021 02:34:04 -0700 (PDT)
 From: Vincent Chen <vincent.chen@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -75,16 +76,15 @@ Cc: Frank.Zhao@starfivetech.com, anup.patel@wdc.com, atish.patra@wdc.com,
  guoren@kernel.org, alankao@andestech.com, paul.walmsley@sifive.com,
  ruinland@andestech.com, david.abdurachmanov@sifive.com,
  Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v2 2/5] riscv: Introduce alternative mechanism to apply errata
- solution
-Date: Wed, 17 Mar 2021 17:33:30 +0800
-Message-Id: <1615973613-22364-3-git-send-email-vincent.chen@sifive.com>
+Subject: [PATCH v2 4/5] riscv: sifive: Apply errata "cip-453" patch
+Date: Wed, 17 Mar 2021 17:33:32 +0800
+Message-Id: <1615973613-22364-5-git-send-email-vincent.chen@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1615973613-22364-1-git-send-email-vincent.chen@sifive.com>
 References: <1615973613-22364-1-git-send-email-vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_093401_671326_C316691E 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20210317_093406_786412_B97F7658 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,477 +102,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce the "alternative" mechanism from ARM64 and x86 to apply the CPU
-vendors' errata solution at runtime. The main purpose of this patch is
-to provide a framework. Therefore, the implementation is quite basic for
-now so that some scenarios could not use this schemei, such as patching
-code to a module, relocating the patching code and heterogeneous CPU
-topology.
+Add sign extension to the $badaddr before addressing the instruction page
+fault and instruction access fault to workaround the issue "cip-453".
 
-Users could use the macro ALTERNATIVE to apply an errata to the existing
-code flow. In the macro ALTERNATIVE, users need to specify the manufacturer
-information(vendorid, archid, and impid) for this errata. Therefore, kernel
-will know this errata is suitable for which CPU core. During the booting
-procedure, kernel will select the errata required by the CPU core and then
-patch it. It means that the kernel only applies the errata to the specified
-CPU core. In this case, the vendor's errata does not affect each other at
-runtime. The above patching procedure only occurs during the booting phase,
-so we only take the overhead of the "alternative" mechanism once.
-
-This "alternative" mechanism is enabled by default to ensure that all
-required errata will be applied. However, users can disable this feature by
-the Kconfig "CONFIG_RISCV_ERRATA_ALTERNATIVE".
+To avoid affecting the existing code sequence, this patch will creates two
+trampolines to add sign extension to the $badaddr. By the "alternative"
+mechanism, these two trampolines will replace the original exception
+handler of instruction page fault and instruction access fault in the
+excp_vect_table. In this case, only the specific SiFive CPU core jumps to
+the do_page_fault and do_trap_insn_fault through these two trampolines.
+Other CPUs are not affected.
 
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/Kconfig                          |   1 +
- arch/riscv/Kconfig.erratas                  |  12 +++
- arch/riscv/Makefile                         |   1 +
- arch/riscv/errata/Makefile                  |   1 +
- arch/riscv/errata/alternative.c             |  69 ++++++++++++++
- arch/riscv/include/asm/alternative-macros.h | 142 ++++++++++++++++++++++++++++
- arch/riscv/include/asm/alternative.h        |  36 +++++++
- arch/riscv/include/asm/asm.h                |   1 +
- arch/riscv/include/asm/csr.h                |   3 +
- arch/riscv/include/asm/errata_list.h        |  12 +++
- arch/riscv/include/asm/sections.h           |   1 +
- arch/riscv/include/asm/vendorid_list.h      |  10 ++
- arch/riscv/kernel/smpboot.c                 |   4 +
- arch/riscv/kernel/vmlinux.lds.S             |   7 ++
- 14 files changed, 300 insertions(+)
- create mode 100644 arch/riscv/Kconfig.erratas
- create mode 100644 arch/riscv/errata/Makefile
- create mode 100644 arch/riscv/errata/alternative.c
- create mode 100644 arch/riscv/include/asm/alternative-macros.h
- create mode 100644 arch/riscv/include/asm/alternative.h
- create mode 100644 arch/riscv/include/asm/errata_list.h
- create mode 100644 arch/riscv/include/asm/vendorid_list.h
+ arch/riscv/Kconfig.erratas                | 11 +++++++++
+ arch/riscv/errata/sifive/Makefile         |  1 +
+ arch/riscv/errata/sifive/errata.c         | 19 ++++++++++++++++
+ arch/riscv/errata/sifive/errata_cip_453.S | 38 +++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/errata_list.h      | 21 ++++++++++++++++-
+ arch/riscv/kernel/entry.S                 |  6 +++--
+ 6 files changed, 93 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/errata/sifive/errata_cip_453.S
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a998babc1237..2e26251fe1f2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -204,6 +204,7 @@ config LOCKDEP_SUPPORT
- 	def_bool y
- 
- source "arch/riscv/Kconfig.socs"
-+source "arch/riscv/Kconfig.erratas"
- 
- menu "Platform type"
- 
 diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-new file mode 100644
-index 000000000000..4d0bafc536df
---- /dev/null
+index e50ab67f4830..a7f0abff90fb 100644
+--- a/arch/riscv/Kconfig.erratas
 +++ b/arch/riscv/Kconfig.erratas
-@@ -0,0 +1,12 @@
-+menu "CPU errata selection"
-+
-+config RISCV_ERRATA_ALTERNATIVE
-+	bool "RISC-V alternative scheme"
+@@ -20,4 +20,15 @@ config ERRATA_SIFIVE
+ 
+ 	  Otherwise, please say "N" here to avoid unnecessary overhead.
+ 
++config ERRATA_SIFIVE_CIP_453
++	bool "Apply SiFive errata CIP-453"
++	depends on ERRATA_SIFIVE
 +	default y
 +	help
-+	  This Kconfig allows the kernel to automatically patch the
-+	  errata required by the execution platform at run time. The
-+	  code patching is performed once in the boot stages. It means
-+	  that the overhead from this mechanism is just taken once.
++	  This will apply the SiFive CIP-453 errata to add sign extension
++	  to the $badaddr when exception type is instruction page fault
++	  and instruction access fault.
 +
-+endmenu
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 1368d943f1f3..1f5c03082976 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -87,6 +87,7 @@ KBUILD_IMAGE	:= $(boot)/Image.gz
- head-y := arch/riscv/kernel/head.o
++	  If you don't know what to do here, say "Y".
++
+ endmenu
+diff --git a/arch/riscv/errata/sifive/Makefile b/arch/riscv/errata/sifive/Makefile
+index 2d644e19caef..bdd5fc843b8e 100644
+--- a/arch/riscv/errata/sifive/Makefile
++++ b/arch/riscv/errata/sifive/Makefile
+@@ -1 +1,2 @@
++obj-y += errata_cip_453.o
+ obj-y += errata.o
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index 826cd391fc55..6c65cd675e5f 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -16,6 +16,25 @@ struct errata_info_t {
+ 	bool (*check_func)(unsigned long  arch_id, unsigned long impid);
+ };
  
- core-y += arch/riscv/
-+core-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += arch/riscv/errata/
- 
- libs-y += arch/riscv/lib/
- libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-new file mode 100644
-index 000000000000..43e6d5424367
---- /dev/null
-+++ b/arch/riscv/errata/Makefile
-@@ -0,0 +1 @@
-+obj-y	+= alternative.o
-diff --git a/arch/riscv/errata/alternative.c b/arch/riscv/errata/alternative.c
-new file mode 100644
-index 000000000000..8efa60ad69b7
---- /dev/null
-+++ b/arch/riscv/errata/alternative.c
-@@ -0,0 +1,69 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * alternative runtime patching
-+ * inspired by the ARM64 and x86 version
-+ *
-+ * Copyright (C) 2021 Sifive.
-+ */
-+
-+#include <linux/init.h>
-+#include <linux/cpu.h>
-+#include <linux/uaccess.h>
-+#include <asm/alternative.h>
-+#include <asm/sections.h>
-+#include <asm/vendorid_list.h>
-+#include <asm/sbi.h>
-+#include <asm/csr.h>
-+
-+static struct cpu_manufacturer_info_t {
-+	unsigned long vendor_id;
-+	unsigned long arch_id;
-+	unsigned long imp_id;
-+} cpu_mfr_info;
-+
-+static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
-+				 unsigned long archid, unsigned long impid);
-+
-+static inline void __init riscv_fill_cpu_mfr_info(void)
++static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impid)
 +{
-+#ifdef CONFIG_RISCV_M_MODE
-+	cpu_mfr_info.vendor_id = csr_read(CSR_MVENDORID);
-+	cpu_mfr_info.arch_id = csr_read(CSR_MARCHID);
-+	cpu_mfr_info.imp_id = csr_read(CSR_MIMPID);
-+#else
-+	cpu_mfr_info.vendor_id = sbi_get_mvendorid();
-+	cpu_mfr_info.arch_id = sbi_get_marchid();
-+	cpu_mfr_info.imp_id = sbi_get_mimpid();
-+#endif
++	/*
++	 * Affected cores:
++	 * Architecture ID: 0x8000000000000007
++	 * Implement ID: 0x20181004, 0x00200504
++	 */
++	if (arch_id != 0x8000000000000007 || (impid != 0x20181004 && impid != 0x00200504))
++		return false;
++	return true;
 +}
 +
-+static void __init init_alternative(void)
-+{
-+	riscv_fill_cpu_mfr_info();
-+
-+	switch (cpu_mfr_info.vendor_id) {
-+	default:
-+		vendor_patch_func = NULL;
-+	}
-+}
-+
-+/*
-+ * This is called very early in the boot process (directly after we run
-+ * a feature detect on the boot CPU). No need to worry about other CPUs
-+ * here.
-+ */
-+void __init apply_boot_alternatives(void)
-+{
-+	/* If called on non-boot cpu things could go wrong */
-+	WARN_ON(smp_processor_id() != 0);
-+
-+	init_alternative();
-+
-+	if (!vendor_patch_func)
-+		return;
-+
-+	vendor_patch_func((struct alt_entry *)__alt_start,
-+			  (struct alt_entry *)__alt_end,
-+			  cpu_mfr_info.arch_id, cpu_mfr_info.imp_id);
-+}
-+
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-new file mode 100644
-index 000000000000..88c08705f64a
---- /dev/null
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -0,0 +1,142 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_ALTERNATIVE_MACROS_H
-+#define __ASM_ALTERNATIVE_MACROS_H
-+
-+#ifdef CONFIG_RISCV_ERRATA_ALTERNATIVE
-+
-+#ifdef __ASSEMBLY__
-+
-+.macro ALT_ENTRY oldptr newptr vendor_id errata_id new_len
-+	RISCV_PTR \oldptr
-+	RISCV_PTR \newptr
-+	REG_ASM \vendor_id
-+	REG_ASM \new_len
-+	.word	\errata_id
-+.endm
-+
-+.macro ALT_NEW_CONTENT vendor_id, errata_id, enable = 1, new_c : vararg
-+	.if \enable
-+	.pushsection .alternative, "a"
-+	ALT_ENTRY 886b, 888f, \vendor_id, \errata_id, 889f - 888f
-+	.popsection
-+	.subsection 1
-+888 :
-+	\new_c
-+889 :
-+	.previous
-+	.org    . - (889b - 888b) + (887b - 886b)
-+	.org    . - (887b - 886b) + (889b - 888b)
-+	.endif
-+.endm
-+
-+.macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
-+886 :
-+	\old_c
-+887 :
-+	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
-+.endm
-+
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
-+	__ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k)
-+
-+#else /* !__ASSEMBLY__ */
-+
-+#include <asm/asm.h>
-+#include <linux/stringify.h>
-+
-+#define ALT_ENTRY(oldptr, newptr, vendor_id, errata_id, newlen) \
-+	RISCV_PTR " " oldptr "\n" \
-+	RISCV_PTR " " newptr "\n" \
-+	REG_ASM " " vendor_id "\n" \
-+	REG_ASM " " newlen "\n" \
-+	".word " errata_id "\n"
-+
-+#define ALT_NEW_CONSTENT(vendor_id, errata_id, enable, new_c) \
-+	".if " __stringify(enable) " == 1\n"				\
-+	".pushsection .alternative, \"a\"\n"				\
-+	ALT_ENTRY("886b", "888f", __stringify(vendor_id), __stringify(errata_id), "889f - 888f") \
-+	".popsection\n"							\
-+	".subsection 1\n"						\
-+	"888 :\n"							\
-+	new_c "\n"							\
-+	"889 :\n"							\
-+	".previous\n"							\
-+	".org	. - (887b - 886b) + (889b - 888b)\n"			\
-+	".org	. - (889b - 888b) + (887b - 886b)\n"			\
-+	".endif\n"
-+
-+#define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable) \
-+	"886 :\n"	\
-+	old_c "\n"	\
-+	"887 :\n"	\
-+	ALT_NEW_CONSTENT(vendor_id, errata_id, enable, new_c)
-+
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
-+	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
-+
-+#endif /* __ASSEMBLY__ */
-+
-+#else /* !CONFIG_RISCV_ERRATA_ALTERNATIVE*/
-+#ifdef __ASSEMBLY__
-+
-+.macro __ALTERNATIVE_CFG old_c
-+	\old_c
-+.endm
-+
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
-+	__ALTERNATIVE_CFG old_c
-+
-+#else /* !__ASSEMBLY__ */
-+
-+#define __ALTERNATIVE_CFG(old_c)  \
-+	old_c "\n"
-+
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
-+	__ALTERNATIVE_CFG(old_c)
-+
-+#endif /* __ASSEMBLY__ */
-+#endif /* CONFIG_RISCV_ERRATA_ALTERNATIVE */
-+/*
-+ * Usage:
-+ *   ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k)
-+ * in the assembly code. Otherwise,
-+ *   asm(ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k));
-+ *
-+ * old_content: The old content which is probably replaced with new content.
-+ * new_content: The new content.
-+ * vendor_id: The CPU vendor ID.
-+ * errata_id: The errata ID.
-+ * CONFIG_k: The Kconfig of this errata. When Kconfig is disabled, the old
-+ *	     content will alwyas be executed.
-+ */
-+#define ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k) \
-+	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG_k)
-+
-+/*
-+ * A vendor wants to replace an old_content, but another vendor has used
-+ * ALTERNATIVE() to patch its customized content at the same location. In
-+ * this case, this vendor can create a new macro ALTERNATIVE_2() based
-+ * on the following sample code and then replace ALTERNATIVE() with
-+ * ALTERNATIVE_2() to append its customized content.
-+ *
-+ * .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
-+ *                                   new_c_2, vendor_id_2, errata_id_2, enable_2
-+ * 886 :
-+ *      \old_c
-+ * 887 :
-+ *      ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
-+ *      ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-+ * .endm
-+ *
-+ * #define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
-+ *                                   new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
-+ *        __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1), \
-+ *                                   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2) \
-+ *
-+ * #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
-+ *                                    new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
-+ *         _ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
-+ *                                         new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
-+ *
-+ */
-+#endif
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-new file mode 100644
-index 000000000000..430bc4fea133
---- /dev/null
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -0,0 +1,36 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2021 Sifive.
-+ */
-+
-+#ifndef __ASM_ALTERNATIVE_H
-+#define __ASM_ALTERNATIVE_H
-+
-+#define ERRATA_STRING_LENGTH_MAX 32
-+
-+#include <asm/alternative-macros.h>
-+
-+#ifndef __ASSEMBLY__
-+
-+#include <linux/init.h>
-+#include <linux/types.h>
-+#include <linux/stddef.h>
-+#include <asm/hwcap.h>
-+
-+void __init apply_boot_alternatives(void);
-+
-+struct alt_entry {
-+	void *old_ptr;		 /* address of original instruciton or data  */
-+	void *alt_ptr;		 /* address of replacement instruction or data */
-+	unsigned long vendor_id; /* cpu vendor id */
-+	unsigned long alt_len;   /* The replacement size */
-+	unsigned int errata_id;  /* The errata id */
-+} __packed;
-+
-+struct errata_checkfunc_id {
-+	unsigned long vendor_id;
-+	bool (*func)(struct alt_entry *alt);
++static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
++	{
++		.name = "cip-453",
++		.check_func = errata_cip_453_check_func
++	},
 +};
 +
-+#endif
-+#endif
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 9c992a88d858..618d7c5af1a2 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -23,6 +23,7 @@
- #define REG_L		__REG_SEL(ld, lw)
- #define REG_S		__REG_SEL(sd, sw)
- #define REG_SC		__REG_SEL(sc.d, sc.w)
-+#define REG_ASM		__REG_SEL(.dword, .word)
- #define SZREG		__REG_SEL(8, 4)
- #define LGREG		__REG_SEL(3, 2)
- 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index caadfc1d7487..87ac65696871 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -115,6 +115,9 @@
- #define CSR_MIP			0x344
- #define CSR_PMPCFG0		0x3a0
- #define CSR_PMPADDR0		0x3b0
-+#define CSR_MVENDORID		0xf11
-+#define CSR_MARCHID		0xf12
-+#define CSR_MIMPID		0xf13
- #define CSR_MHARTID		0xf14
- 
- #ifdef CONFIG_RISCV_M_MODE
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+ static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
+ {
+ 	int idx;
+diff --git a/arch/riscv/errata/sifive/errata_cip_453.S b/arch/riscv/errata/sifive/errata_cip_453.S
 new file mode 100644
-index 000000000000..1b56131431c9
+index 000000000000..f1b9623fe1de
 --- /dev/null
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2021 Sifive.
-+ */
-+#ifndef ASM_ERRATA_LIST_H
-+#define ASM_ERRATA_LIST_H
-+
-+#ifdef CONFIG_ERRATA_SIFIVE
-+#define	ERRATA_SIFIVE_NUMBER 0
-+#endif
-+
-+#endif
-diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-index 1595c5b60cfd..8a303fb1ee3b 100644
---- a/arch/riscv/include/asm/sections.h
-+++ b/arch/riscv/include/asm/sections.h
-@@ -11,5 +11,6 @@ extern char _start[];
- extern char _start_kernel[];
- extern char __init_data_begin[], __init_data_end[];
- extern char __init_text_begin[], __init_text_end[];
-+extern char __alt_start[], __alt_end[];
- 
- #endif /* __ASM_SECTIONS_H */
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-new file mode 100644
-index 000000000000..9d934215b3c8
---- /dev/null
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -0,0 +1,10 @@
++++ b/arch/riscv/errata/sifive/errata_cip_453.S
+@@ -0,0 +1,38 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2021 SiFive
 + */
-+#ifndef ASM_VENDOR_LIST_H
-+#define ASM_VENDOR_LIST_H
 +
-+#define SIFIVE_VENDOR_ID	0x489
-+
-+#endif
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 5e276c25646f..9a408e2942ac 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -32,6 +32,7 @@
- #include <asm/sections.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/asm-offsets.h>
 +#include <asm/alternative.h>
- 
- #include "head.h"
- 
-@@ -40,6 +41,9 @@ static DECLARE_COMPLETION(cpu_running);
- void __init smp_prepare_boot_cpu(void)
- {
- 	init_cpu_topology();
-+#ifdef CONFIG_RISCV_ERRATA_ALTERNATIVE
-+	apply_boot_alternatives();
-+#endif
- }
- 
- void __init smp_prepare_cpus(unsigned int max_cpus)
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index de03cb22d0e9..7e61bc1dc36e 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -90,6 +90,13 @@ SECTIONS
- 	}
- 
- 	__init_data_end = .;
 +
-+	. = ALIGN(8);
-+	.alternative : {
-+		__alt_start = .;
-+		*(.alternative)
-+		__alt_end = .;
-+	}
- 	__init_end = .;
++.macro ADD_SIGN_EXT pt_reg badaddr tmp_reg
++	REG_L \badaddr, PT_BADADDR(\pt_reg)
++	li \tmp_reg,1
++	slli \tmp_reg,\tmp_reg,0x26
++	and \tmp_reg,\tmp_reg,\badaddr
++	beqz \tmp_reg, 1f
++	li \tmp_reg,-1
++	slli \tmp_reg,\tmp_reg,0x27
++	or \badaddr,\tmp_reg,\badaddr
++	REG_S \badaddr, PT_BADADDR(\pt_reg)
++1:
++.endm
++
++ENTRY(sifive_cip_453_page_fault_trp)
++	ADD_SIGN_EXT a0, t0, t1
++#ifdef CONFIG_MMU
++	la t0, do_page_fault
++#else
++	la t0, do_trap_unknown
++#endif
++	jr t0
++END(sifive_cip_453_page_fault_trp)
++
++ENTRY(sifive_cip_453_insn_fault_trp)
++	ADD_SIGN_EXT a0, t0, t1
++	la t0, do_trap_insn_fault
++	jr t0
++END(sifive_cip_453_insn_fault_trp)
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 1b56131431c9..6148d34d4245 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -5,8 +5,27 @@
+ #ifndef ASM_ERRATA_LIST_H
+ #define ASM_ERRATA_LIST_H
  
- 	/* Start of data section */
++#include <asm/alternative.h>
++#include <asm/vendorid_list.h>
++
+ #ifdef CONFIG_ERRATA_SIFIVE
+-#define	ERRATA_SIFIVE_NUMBER 0
++#define	ERRATA_SIFIVE_CIP_453 0
++#define	ERRATA_SIFIVE_NUMBER 1
+ #endif
+ 
++#ifdef __ASSEMBLY__
++
++#define ALT_INSN_FAULT(x)						\
++ALTERNATIVE(__stringify(RISCV_PTR do_trap_insn_fault),			\
++	    __stringify(RISCV_PTR sifive_cip_453_insn_fault_trp),	\
++	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
++	    CONFIG_ERRATA_SIFIVE_CIP_453)
++
++#define ALT_PAGE_FAULT(x)						\
++ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
++	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
++	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
++	    CONFIG_ERRATA_SIFIVE_CIP_453)
++#endif /* __ASSEMBLY__ */
++
+ #endif
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 744f3209c48d..60d0a2f1cd88 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -12,6 +12,7 @@
+ #include <asm/unistd.h>
+ #include <asm/thread_info.h>
+ #include <asm/asm-offsets.h>
++#include <asm/errata_list.h>
+ 
+ #if !IS_ENABLED(CONFIG_PREEMPTION)
+ .set resume_kernel, restore_all
+@@ -450,7 +451,7 @@ ENDPROC(__switch_to)
+ 	/* Exception vector table */
+ ENTRY(excp_vect_table)
+ 	RISCV_PTR do_trap_insn_misaligned
+-	RISCV_PTR do_trap_insn_fault
++	ALT_INSN_FAULT(RISCV_PTR do_trap_insn_fault)
+ 	RISCV_PTR do_trap_insn_illegal
+ 	RISCV_PTR do_trap_break
+ 	RISCV_PTR do_trap_load_misaligned
+@@ -461,7 +462,8 @@ ENTRY(excp_vect_table)
+ 	RISCV_PTR do_trap_ecall_s
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_trap_ecall_m
+-	RISCV_PTR do_page_fault   /* instruction page fault */
++	/* instruciton page fault */
++	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_page_fault   /* store page fault */
 -- 
 2.7.4
 
