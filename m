@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC530C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 03:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BD60C433E6
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 03:41:01 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 57D3564F38
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 03:36:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57D3564F38
+	by mail.kernel.org (Postfix) with ESMTPS id C3A3C64F99
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 03:41:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C3A3C64F99
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,72 +23,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=AsI0O6pSVpg1lSFU2mK/6kS5EOmDplTE7aSSXTbW/wc=; b=FZt6tPHTUtP+o8bgWPkuo1VJ0
-	BluOEO40+XOgx3hWCfrpzodoiN2IDQdSMNt8ELgB1nLkTcVF/P1GHiGtKzNfvrNPzBIJh+qoHusi4
-	LpuykrHh5ptogeTVVozsZnPAqkoQ9VOWgD14c4EZExcTSGQbr0m1MWWCVxGZ5BPMsSO+SbcLqadFF
-	IS8QQOBVAbKzxSBRYLzNEeixdETbLxKJPbna/OrRTpOnjvCcHleYhXXPkEIGX2BgGfllw5mw8cZjC
-	jDFqEW0FT/D/UQpj6++yvnE+p80kaxYU4gcwjUdWQjAp5elVz6xfjYjF5AjOTAlskFUdr4rXb+VOP
-	7k2Ci7XFQ==;
+	 bh=mRv/XYADrTfG7omwbxe9T2jGaeAAUcZtePFIp+Dvzcg=; b=FX0fxBgijdvAnffAxQZU8dG3q
+	54aB8W/6PKcfXMZzvJNEckiZss7TbYQk5awSM2HXi+Cv6/POEvYrAKUOcvU3pTifhafpJfZsCEztG
+	HDYztny0aNPPOy/g9TkqIm4i0IiOaScbtuIt8BnEUZ2PgXK2b99H9KB7mW+vnRcJh+Nn+KXMENdFs
+	Rb4J7V51Ca2Z6cUzAkCp5b5DhLb+4t8s32iBi/246/hWx6XiP7F+Tevwd/nhPSFeqAIhKcaFybKBZ
+	qBFxwlVN3zrexQvxdopYP5peGx9WVG6LNAwfGsHCPXU6D9q90BAdP6X7/Iof9QvY4rxekL/+gDhpT
+	YW1yvXFJw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMMyr-002M9M-5e; Wed, 17 Mar 2021 03:36:21 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1lMN39-002MRs-B5; Wed, 17 Mar 2021 03:40:47 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMMyh-002M7o-7a
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 03:36:14 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id
- ot17-20020a17090b3b51b0290109c9ac3c34so175451pjb.4
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 20:36:10 -0700 (PDT)
+ id 1lMN32-002MQB-LH
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 03:40:44 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id
+ ga23-20020a17090b0397b02900c0b81bbcd4so2488271pjb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 20:40:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=vgC4Hi1wlvfUamR+lmJh7JgDIUhelSU6Ukx+EhusVr8=;
- b=Gnx8QJNkZubSSIyu4WGdQec8Ajw0vvWuYdvfhDVqP7/7F/Z57lmQ5MThtB12qZYecE
- 4ERfVxOn9an7bDs4FarZsNvAl1HKlaJ6ZwlO6KQTd0o1thIC2T191NBL/f+ZSg5AX8kn
- QLCAn7bmHEql+ZdPe4za5vCUVQacHBJRX4DuA7ybt9GHapatznswao4DWqwjEoE1+Ei3
- r3cayDqbinfJCWfQFAXEYCBsQ6i4i4FfLF77IPJLbsSkSTX4mS9LenT+OwfBn/cqKMoN
- 1UuanW+nOKrqWL8LyoFcXPDO64EhOXQ90gf2lzYZ9bMO5w8zTPVCioRp3wdrhxMUXyJx
- /YIQ==
+ bh=t280vDZQWk0iZZ+xQFR7BI6xACbsATSb7UzAA7K2/a0=;
+ b=Humdt9srb74JTFtTLWQFozZx4MkuAbxcuC0K/hAZ5mVCgDHroQ+B5lp/tFiHSs+1fB
+ 38gITDQeMM6jaALv1oRJIz5cyKYq/Klf5POvfPvYtHVUeU3zrlO27iPji+39hoa5tAfi
+ PWVpnulycTQuCx4y5nsc0oV4FK4GErfmmnFNxAl1GKnhOfAr223cbIpIXY0qcBi/h/q6
+ VgrM8+ttoNi4HncnjFBaJKF04RnkD2OL7B2k/kMDKinkug3q9vebo84Bq4mJ0LaTv/bU
+ 7npOzBfb0uicwUxurpmoO4aR08rauCjmBjyyBiS46a7dVMNmHkq3ANaOSjgqKGnRbTFe
+ 2ZMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=vgC4Hi1wlvfUamR+lmJh7JgDIUhelSU6Ukx+EhusVr8=;
- b=OyiROBnbkwqACDgzEt0Swgtvb5Yd1vTStF8drTGraqkv09AJzucTPQtCK/MrGzJt9Y
- wmLUe0FltqzFVK9XqjldOIhJJYewSlpIV57QPVjecMmZ4o7Gzn6QMsKcpLO6Bl5k8uSi
- ylhLuDU6g76nZ5tiDlwk6Jz3xWwiaWpCChmqujBfhgDOcSxMHBG8Ce+upuTINbpkYKlq
- mv14MoXMdciFaACRknH/DqbQLpLC/C+b3dEXMqxub6LQT/7vCsdQoJT2pAoXbVDcYq7m
- 0l2Vj8vXiUlQbkJWyEk9cCNPvp4CyE+rZwh2frAOvqyE/zKBszqL/g8uVAwiIwt5tpA5
- OYQg==
-X-Gm-Message-State: AOAM531xAoMKOiZB4B0AN8eJuGOLiCkW8dOabQUM1+qvoO6eujUB00QB
- kRIVx2jpT59wvFfwnUell7Ll7YEn2qRGnvsI
-X-Google-Smtp-Source: ABdhPJw4lISaavZJujC21CQLMCa8XgLKbdbcKmBpGRJonPttIAH9wkgW/3AMFz4qmzc6iC1nUozPtQ==
-X-Received: by 2002:a17:90b:1082:: with SMTP id
- gj2mr2223421pjb.155.1615952168886; 
- Tue, 16 Mar 2021 20:36:08 -0700 (PDT)
+ bh=t280vDZQWk0iZZ+xQFR7BI6xACbsATSb7UzAA7K2/a0=;
+ b=GyHvKpmx1wozZyi+JckRvLLYOLtrD7uO0pHJpdnKSYjs+ScXjtm1RCF1hFUyglQB7f
+ ocZsVldeelDdxzwmjqiaCdSQ/Xk3Wlhm+uZ0oH/+jV9RCBTKmf88f4OqIMt+5USuTQV9
+ kccn6q9uCIPxr2iRIkUfNQ7iS+altMyU2n3IQxNIGZ5PsLb0d1L40bKYsNUYCr/IAHrp
+ Vz9IeJ3x/nYF6BgKgkCswfIh60DP2a1qjF24G0HoRAO3W0O9b+hHoU/4/+rPcqIUwRl+
+ AqsFiGBrHjXS92ZynNnYSjq8R5QGsTU4AcBpbebBqz6RSQaP1IA5rqfqMrqbvx6ECY/N
+ MwPg==
+X-Gm-Message-State: AOAM533StIA+UcRQCaVYfrTAjJ7X7uVvjWBQxfg5WgAdInn4ggQYNMbi
+ iKuvIGt+sAZbdwBQzragfwoF08GUkU+yF8P+
+X-Google-Smtp-Source: ABdhPJw+fTIoWjUDX5CUuSKCp+cvthbxVN3kxlUImWClYDjMZlRLuSxvAy55TEc3ABlo9funImT0rQ==
+X-Received: by 2002:a17:902:ed41:b029:e5:c92d:ec24 with SMTP id
+ y1-20020a170902ed41b02900e5c92dec24mr2356365plb.57.1615952439246; 
+ Tue, 16 Mar 2021 20:40:39 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id bj15sm730816pjb.9.2021.03.16.20.36.07
+ by smtp.gmail.com with ESMTPSA id s200sm17957184pfs.53.2021.03.16.20.40.38
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 20:36:08 -0700 (PDT)
-Date: Tue, 16 Mar 2021 20:36:08 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 20:33:59 PDT (-0700)
-Subject: Re: [PATCH 2/4] clocksource: riscv: Using CPUHP_AP_ONLINE_DYN
-In-Reply-To: <1614608902-85038-2-git-send-email-guoren@kernel.org>
-CC: guoren@kernel.org, linux-riscv@lists.infradead.org,
+ Tue, 16 Mar 2021 20:40:38 -0700 (PDT)
+Date: Tue, 16 Mar 2021 20:40:38 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 20:40:31 PDT (-0700)
+Subject: Re: [PATCH 2/2] riscv: Enable generic clockevent broadcast
+In-Reply-To: <20210307022446.63732-2-guoren@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, guoren@kernel.org,
  linux-kernel@vger.kernel.org, 
- linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
- guoren@linux.alibaba.com, peterz@infradead.org, 
- tglx@linutronix.de, Arnd Bergmann <arnd@arndb.de>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Anup Patel <Anup.Patel@wdc.com>, Christoph Hellwig <hch@lst.de>
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 
+ guoren@linux.alibaba.com, tglx@linutronix.de, daniel.lezcano@linaro.org,
+ Anup Patel <Anup.Patel@wdc.com>, 
+ Atish Patra <Atish.Patra@wdc.com>, greentime.hu@sifive.com
 From: Palmer Dabbelt <palmerdabbelt@google.com>
 To: guoren@kernel.org
-Message-ID: <mhng-2d96ba73-2578-4f60-b81b-75da618ff41e@palmerdabbelt-glaptop>
+Message-ID: <mhng-25b45eaf-1d0b-4292-9228-1ac3ac68832b@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_033611_515353_263E85D7 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20210317_034041_335958_E25CB173 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +105,107 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Mar 2021 06:28:20 PST (-0800), guoren@kernel.org wrote:
+On Sat, 06 Mar 2021 18:24:46 PST (-0800), guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Remove RISC-V clocksource custom definitions in hotplug.h:
->  - CPUHP_AP_RISCV_TIMER_STARTING
+> When percpu-timers are stopped by deep power saving mode, we
+> need system timer help to broadcast IPI_TIMER.
 >
-> For coding convention.
+> This is first introduced by broken x86 hardware, where the local apic
+> timer stops in C3 state. But many other architectures(powerpc, mips,
+> arm, hexagon, openrisc, sh) have supported the infrastructure to
+> deal with Power Management issues.
 >
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Linus Torvalds <torvalds@linux-foundation.org>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Tested-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Link: https://lore.kernel.org/lkml/CAHk-=wjM+kCsKqNdb=c0hKsv=J7-3Q1zmM15vp6_=8S5XfGMtA@mail.gmail.com/
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Greentime Hu <greentime.hu@sifive.com>
 > ---
->  drivers/clocksource/timer-riscv.c | 4 ++--
->  include/linux/cpuhotplug.h        | 1 -
->  2 files changed, 2 insertions(+), 3 deletions(-)
+>  arch/riscv/Kconfig      |  2 ++
+>  arch/riscv/kernel/smp.c | 16 ++++++++++++++++
+>  2 files changed, 18 insertions(+)
 >
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index c51c5ed..43aee27 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -150,10 +150,10 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->  		return error;
->  	}
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 85d626b8ce5e..8637e7344abe 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -28,6 +28,7 @@ config RISCV
+>  	select ARCH_HAS_SET_DIRECT_MAP
+>  	select ARCH_HAS_SET_MEMORY
+>  	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
+> +	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+>  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+> @@ -39,6 +40,7 @@ config RISCV
+>  	select EDAC_SUPPORT
+>  	select GENERIC_ARCH_TOPOLOGY if SMP
+>  	select GENERIC_ATOMIC64 if !64BIT
+> +	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+>  	select GENERIC_EARLY_IOREMAP
+>  	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
+>  	select GENERIC_IOREMAP
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index ea028d9e0d24..8325d33411d8 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -9,6 +9,7 @@
+>   */
 >
-> -	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
-> +	error = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
->  			 "clockevents/riscv/timer:starting",
->  			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
-> -	if (error)
-> +	if (error < 0)
->  		pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
->  		       error);
->  	return error;
-> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> index 14f49fd..f60538b 100644
-> --- a/include/linux/cpuhotplug.h
-> +++ b/include/linux/cpuhotplug.h
-> @@ -130,7 +130,6 @@ enum cpuhp_state {
->  	CPUHP_AP_MARCO_TIMER_STARTING,
->  	CPUHP_AP_MIPS_GIC_TIMER_STARTING,
->  	CPUHP_AP_ARC_TIMER_STARTING,
-> -	CPUHP_AP_RISCV_TIMER_STARTING,
->  	CPUHP_AP_CLINT_TIMER_STARTING,
->  	CPUHP_AP_CSKY_TIMER_STARTING,
->  	CPUHP_AP_HYPERV_TIMER_STARTING,
+>  #include <linux/cpu.h>
+> +#include <linux/clockchips.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/module.h>
+>  #include <linux/profile.h>
+> @@ -27,6 +28,7 @@ enum ipi_message_type {
+>  	IPI_CALL_FUNC,
+>  	IPI_CPU_STOP,
+>  	IPI_IRQ_WORK,
+> +	IPI_TIMER,
+>  	IPI_MAX
+>  };
+>
+> @@ -176,6 +178,12 @@ void handle_IPI(struct pt_regs *regs)
+>  			irq_work_run();
+>  		}
+>
+> +#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
+> +		if (ops & (1 << IPI_TIMER)) {
+> +			stats[IPI_TIMER]++;
+> +			tick_receive_broadcast();
+> +		}
+> +#endif
+>  		BUG_ON((ops >> IPI_MAX) != 0);
+>
+>  		/* Order data access and bit testing. */
+> @@ -192,6 +200,7 @@ static const char * const ipi_names[] = {
+>  	[IPI_CALL_FUNC]		= "Function call interrupts",
+>  	[IPI_CPU_STOP]		= "CPU stop interrupts",
+>  	[IPI_IRQ_WORK]		= "IRQ work interrupts",
+> +	[IPI_TIMER]		= "Timer broadcast interrupts",
+>  };
+>
+>  void show_ipi_stats(struct seq_file *p, int prec)
+> @@ -217,6 +226,13 @@ void arch_send_call_function_single_ipi(int cpu)
+>  	send_ipi_single(cpu, IPI_CALL_FUNC);
+>  }
+>
+> +#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
+> +void tick_broadcast(const struct cpumask *mask)
+> +{
+> +	send_ipi_mask(mask, IPI_TIMER);
+> +}
+> +#endif
+> +
+>  void smp_send_stop(void)
+>  {
+>  	unsigned long timeout;
 
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-Just like the previous one.  Presumably CLINT is ours as well?
-
-Thanks!
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
