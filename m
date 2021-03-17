@@ -2,92 +2,92 @@ Return-Path: <SRS0=Ejrw=IP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A3223C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99C53C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:08:38 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 445A564F4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:06:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 445A564F4F
+	by mail.kernel.org (Postfix) with ESMTPS id ED63864FA8
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED63864FA8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m5t3uCmarmuYAX5GGQeliR9425+ho0GBN960CIJh5hg=; b=OUfcNdkQ3I/o+f3/meV7bTqStY
-	vvYsIji8uEbDUSPNmEBIhB+LJjtYRXgD4xrqtEf9rVtzNPoKO8JNt34UeTgFNnqfHpgPHFSHkkeup
-	vTWwkgpUBYdimBN3ZvS94nwxHBswaOJaozZTCFI4cKes1OMTAHrTL5UHieS71csO8J7+W7fdstWg2
-	pssNbJUiT04neDYa0MOApmvGEMalV+U6z2zA5irRjowmLps9mWhxh5JNU5HoeBvh4/Od75lqW6lQ1
-	t0KoSbW3YiOHtq0DPy3rASMJI02DTUGfmM5xFYYvQSKZ9PEfn/wsndz121oSL9eIYpwBzdj1SNeGO
-	kZ+QTM6g==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=DNk3UmxjBpItuTMuPcEf2s4DSSUCXvNAm8w/vf1ZTZY=; b=miy9as13hTsdHxhffKdx0LMTv
+	GPr8i0W0yQLDLoT0JGYGCCy3xyX6HbYRcCCZ7JeIlsLbJ1gEzaHxMPSpe1GJAxxil+G8NYAswhAGo
+	R88kBoy1f1gnTNtf4ApD7NBLgiBhJXAk88z+HPMzPbq4FKd/RDctL0foAtlyBS3e8yUvYweoXNVRw
+	m4n9NSCNTof8r8F8TjXLQfbl/pbL9LVX63tWUnV96MBID+8yU9tO8FvGISGVm+uAsN/rKWfFPtCtc
+	pZ+3C02DqoBJvC6nLW6jXo0IbCgitdKI1XCzHCQXJJ4M+m4eSEvxD/fI/n3JAQROmt5rLfduon80+
+	ffXaY4HeA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMONE-002TxE-2K; Wed, 17 Mar 2021 05:05:36 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1lMOPs-002U64-Ie; Wed, 17 Mar 2021 05:08:20 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMON9-002Tvx-DN
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 05:05:33 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id h3so289591pfr.12
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 22:05:31 -0700 (PDT)
+ id 1lMOPn-002U5g-Ps
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 05:08:18 +0000
+Received: by mail-pg1-x530.google.com with SMTP id o10so24091728pgg.4
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 22:08:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=74MWaAFPWeZRrJY/C5d35d6IGwQth/42igzA+G1JWys=;
- b=MGlPr2zNtZRWeH0WPOublJqa7uHznf2J3FG5zh7XjRx3S/ZeQ0KuQ5NQ3dS3AAqbnT
- /uJmhIvdium6Xrztsyx/YkwvWvPttDavnm8mmA7FBQ3fDtVD6QOFNnqW1uzRt5RoFEwq
- JFkW9Ys2gnzv6EItdJXk0H13KxkjBJLbeWCnQgLImGOw2yoodaX33yRLsWhTjy+1h/JX
- AQC7cWBzHXq0QMAUNTQonFITBCYf6wid1mA1ZfZcRot9q5XDH+s/U7m75NyPvM5lhx7r
- UpE+CDWBtTWQnFkQijdqLyyQIk2JXVmMxBELY9eb3EpV1TALRUP0oUpFjTsh1OYkp+QQ
- ZNcA==
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=0skOxIz4xhfCTZ0VNwqsfY6NBbJN3e7Av5/rXN6cj/0=;
+ b=dKAlbnzTgqbs9DMRjCdE4no8gsnOj57DaFLf50xhlLPr77tjH2ztzS5KJ2R2PKrIV+
+ 4SRXbqqko/0e/TzfSTXWKpU3PxKB/98Z0/cMhWk3b7gfJpYKNLMie4EYWKQRQxQ/E9re
+ /xhgOy3MgIb9cOBeOwQdnE09OBEeUgzMQLVi6eqj2rkp3D3jELn4HLsEVxugA/Z+B63B
+ AH0nKpVPI0MG2n3qDZEi2jvbEirfsLiLnaRrIxRGfQ2DYUAQajiJiqdwdjQ2IxfA3ZQO
+ t3XoGsKL4UwfeeDicgryOAe/r0iXyH6Hvm/722NVKrHtMJ/+D/QGxBSfq5/Qn+6F7uJ8
+ CHCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=74MWaAFPWeZRrJY/C5d35d6IGwQth/42igzA+G1JWys=;
- b=Nvz35z41mJF6c7SQULheN3NwhLIOB6goo1lCdaE6BYazHaYz83ESB0n2te7PenvSy8
- VMoDllV6b/AZ5Swg1EaDz/6MRBmdZ1x3g+8+CDhJt72N4jR9iB/tGW+Hfr289IZCNOme
- diJh9nxjxvU99ofWyu5IGYwC47zPyhAljsjPKorL4qCPpFlX8E3PjIchuEdKD1RB0FrS
- 2x4X0mWgc3in7o+iq8kskSEKikFrztJo68sEFHjPMdt6qJGYi0OsBgAqlSgfBMvWAzub
- 9cLoQZKECAG7sWbc3CUknwB5AIKVeUfAP0gvV2Y35CN761Yh9Qtx+IPWMcReUkFuBuq4
- g8+w==
-X-Gm-Message-State: AOAM532rVFu9Go2gbIE9OzveKlafO/6+JIo0eIXQlzJZTPfL9abFxQEy
- eL5DdIwT1c8GGJNb8gWSuvcwwQ==
-X-Google-Smtp-Source: ABdhPJwyAS37AVZmYTT26BlYGq3rImNXpjkfbo7T3Sset77tFACl1dGuMH197K5UPPZZ6GRFEWR1bw==
-X-Received: by 2002:a05:6a00:b86:b029:207:8ac9:85de with SMTP id
- g6-20020a056a000b86b02902078ac985demr2671100pfj.66.1615957530001; 
- Tue, 16 Mar 2021 22:05:30 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=0skOxIz4xhfCTZ0VNwqsfY6NBbJN3e7Av5/rXN6cj/0=;
+ b=iQRlSlNwRVU8rLD9LWpn/mA3R21Kqbhy4m738OeU5Dxwsj9iOHhq6yHsE19rqoyZDb
+ IeVv+yA1AftMBOZ75YcaxeftC3QZpaVE9mvkKYUSvDcb/0F1zLchbs3XfM+7hyOw95Jl
+ gZYGyVllI498EPfczk6mCoF0rr95QW7oNJ3rBy7uxuyadxSL6rHXYufdfzztLR0wS+NB
+ ZI9P8pYW5Hpb4se61fD+IWPTA3i96IocpRLHQA17HXPG2ak+0i+PZRRQzjeyZ/cVtkye
+ VJU/JaBqsoWmrtyyEiyLK0zkmc+8eLSGLDWqmNlD23S0GntVqPKf9EnVWkxRO4U+mXhd
+ 4WcQ==
+X-Gm-Message-State: AOAM530HOiPxbCDY2yKMsahZAhfN7Vs8HysRn0NCuxjfvNfXi6ZAnG01
+ 98llL2hQ+9gifRfylx+PDdCVWA==
+X-Google-Smtp-Source: ABdhPJxyF6choZsOEthrs6FkxV0u4DcptNNowEAldsfR7i5nVLXhWCspGoXV1Sy33c0Ua8caUUL7Zg==
+X-Received: by 2002:aa7:8389:0:b029:209:da1c:17b5 with SMTP id
+ u9-20020aa783890000b0290209da1c17b5mr2604704pfm.29.1615957694242; 
+ Tue, 16 Mar 2021 22:08:14 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d14sm1031270pji.22.2021.03.16.22.05.29
+ by smtp.gmail.com with ESMTPSA id h7sm18589926pfo.45.2021.03.16.22.08.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 22:05:29 -0700 (PDT)
-Subject: [PATCH] RISC-V: kasan: Declare kasan_shallow_populate() static
-Date: Tue, 16 Mar 2021 22:02:48 -0700
-Message-Id: <20210317050247.411628-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.31.0.rc2.261.g7f71774620-goog
-MIME-Version: 1.0
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
- dvyukov@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- aou@eecs.berkeley.edu, kasan-dev@googlegroups.com,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel-team@android.com,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- kernel test robot <lkp@intel.com>, stable@vger.kernel.org
+ Tue, 16 Mar 2021 22:08:13 -0700 (PDT)
+Date: Tue, 16 Mar 2021 22:08:13 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 22:07:36 PDT (-0700)
+Subject: Re: [PATCH v6 1/2] RISC-V: Don't print SBI version for all detected
+ extensions
+In-Reply-To: <20210315110500.802897-2-anup.patel@wdc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ anup@brainfault.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Anup Patel <Anup.Patel@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux-riscv@lists.infradead.org
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-15799b77-832f-49f3-ac18-af2ec08eebf5@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_050531_813249_694FA2A0 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20210317_050816_000681_F108A6E5 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +99,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmerdabbelt@google.com>
+On Mon, 15 Mar 2021 04:04:59 PDT (-0700), Anup Patel wrote:
+> The sbi_init() already prints SBI version before detecting
+> various SBI extensions so we don't need to print SBI version
+> for all detected SBI extensions.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/kernel/sbi.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index f4a7db3d309e..c0dcebdd30ec 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -577,19 +577,19 @@ void __init sbi_init(void)
+>  			sbi_get_firmware_id(), sbi_get_firmware_version());
+>  		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
+>  			__sbi_set_timer = __sbi_set_timer_v02;
+> -			pr_info("SBI v0.2 TIME extension detected\n");
+> +			pr_info("SBI TIME extension detected\n");
+>  		} else {
+>  			__sbi_set_timer = __sbi_set_timer_v01;
+>  		}
+>  		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
+>  			__sbi_send_ipi	= __sbi_send_ipi_v02;
+> -			pr_info("SBI v0.2 IPI extension detected\n");
+> +			pr_info("SBI IPI extension detected\n");
+>  		} else {
+>  			__sbi_send_ipi	= __sbi_send_ipi_v01;
+>  		}
+>  		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
+>  			__sbi_rfence	= __sbi_rfence_v02;
+> -			pr_info("SBI v0.2 RFENCE extension detected\n");
+> +			pr_info("SBI RFENCE extension detected\n");
+>  		} else {
+>  			__sbi_rfence	= __sbi_rfence_v01;
+>  		}
 
-Without this I get a missing prototype warning.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Fixes: e178d670f251 ("riscv/kasan: add KASAN_VMALLOC support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/mm/kasan_init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 5c35e0f71e88..4f85c6d0ddf8 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -155,7 +155,7 @@ static void __init kasan_populate(void *start, void *end)
- 	memset(start, KASAN_SHADOW_INIT, end - start);
- }
- 
--void __init kasan_shallow_populate(void *start, void *end)
-+static void __init kasan_shallow_populate(void *start, void *end)
- {
- 	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
- 	unsigned long vend = PAGE_ALIGN((unsigned long)end);
--- 
-2.31.0.rc2.261.g7f71774620-goog
-
+Thanks.  I'm just putting this one on for-next so you don't have to carry
+around the diff.
 
 _______________________________________________
 linux-riscv mailing list
