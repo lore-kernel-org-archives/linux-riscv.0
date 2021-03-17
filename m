@@ -3,19 +3,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 238FEC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F195C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:53:58 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B728364F9E
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:21:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B728364F9E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id BAC0164FAC
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 04:53:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BAC0164FAC
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -23,66 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=we/ZNu/x+MNsYAV8HASQRGuj3F/WhHER341/zSpVk6I=; b=f8rSlG5sLb6cQxWSfxmys4wqU
-	TeXG446KYa76FbMgycKzpZiD0YfUOpt9vXxivRUO+5RyUI42hLSd4IQhs7scO1OgOgELyEzc5tPuC
-	BpE6Bf1V3hYmCFYlLGt+srWof6Wbeh1oqnxFOLFWtk8t1sJNLI93tMQcEe7Jcsj1S6imeZI7IOIGG
-	YIEXB3vt98uN0vT2OvLILRdc2N3g07iB7r5kPnGJ64Tg8Ixwmkt8xG8w71PAkUWYZ74SunBnMa8Tj
-	H9koDaHViFBzRI2M+TnMdCBvZ1Khmf1+nMFaQEoOdwee8VHpY9kMxFij/NYxqC5YiRMdK5wusSnRC
-	epfi/PB7Q==;
+	 bh=M9pJkrQhpl905GBMipG6FJ+2LRUhZ6W8eN9k610OhtQ=; b=MAWXKXK3X+O999AegUoix4YaG
+	uhok92BLINl2+MI8jqB2z5leblNMgmltLyHEi7+J88UCGwYB23UxMuo10roJI0R0CD4prhkjHO9BG
+	NNW1T/0UWh0DUDEr4SRAiEFGjV7CJPW/FtXn0tFugFFrZiBVOgAX1uQPgwRXLLUtBNPKF6xRvc9NK
+	OLOSN8Lp/GchB6CHRrBTFrQIo1vWGLyk3Wy1vgot4d7nMGYGW5mvWWwLho67do2v25iKWXtHVXpE3
+	qoZ8/O+Mh4mJDNyMg1L6XQ0/HtzJRVLzRL2aiCn5cE+Q8c+LzSt6UXwhzaLMljwYFPGRUsBMryg8x
+	QI97IBsfQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMNgL-002RZL-Fb; Wed, 17 Mar 2021 04:21:17 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1lMOBD-002TFQ-Of; Wed, 17 Mar 2021 04:53:11 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMNgF-002RY0-HM
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:21:13 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id t18so388074pjs.3
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:21:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1lMOB8-002TEl-6N
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 04:53:08 +0000
+Received: by mail-pf1-x436.google.com with SMTP id x26so269545pfn.0
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 21:53:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=HXYVxhu43hhLrqEKf+tmf+H4c3fejAv6galOVFdhTig=;
- b=GeZK/PsNwf2tqInzKNFZ6sQ24nmXXE2FaR9oVjuHWl/B8E1NaS0Z6PSgxVLA9DHSQ5
- H7WV8U2xSg7RnZcecjnOHSOFR+y7UfizhYkfAE9mYUvtt0+x2mWD2gXDBFmkReoT2Y5V
- KbiMW3QmEh49zsBnrIWkcWh8Gq+Gmo8wo9dz5UPo5ed7sSyXE13YQORJOb+RamaKZzSP
- 2woab18A/AwsQUiLlweRBUdiVc7oHQH0MXG/YH0ySY9d80mR4Dfce7Hi+OGnfxHs6fgI
- WRs6XI5lSVaEk0TbV40AgQPPNsMQufTa46Bij8P86jo4g3w2bjmBdSH9dGL6DrREAtnx
- oPpQ==
+ bh=d8dYAktnUBBiQrXZEcua+BNHo2fKNZhUG+0Inwx8kus=;
+ b=niXuLSlZqGyMJtNFFYws30ei5jxNF1MxBhVz9FPSaYoEmbFkVgyw4ZkEQHEVf6noNd
+ V9H+PU446TPYO7d32QIqeBkc8UXXUYgCry+5/ckOLtRjzilQge6EU6Yc+EzwnGrzSnpi
+ rq6lNNpO5ZehsNQNUhtK4w69j6Q87T52YF/1w3kCF3tbOatws1+X/rWCDHJj7x94aktS
+ Sxd/NBV4K88tIzvti9/2TH1ZxcjyIsw/WXR2jXdCnLnZqgJK4+kkXiXrPndvSGhiqM2S
+ B8caEl4y8conzl1sI2o7EVNClXDwCLhSAZEIwf3B5E51KpFmjRp9wmB/xAQRwquljt01
+ qpKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=HXYVxhu43hhLrqEKf+tmf+H4c3fejAv6galOVFdhTig=;
- b=nmKpMglkdh0uw+Ve6Uxu0oVUrk3FztO51JSibU7wSfsJ9WgrkQWuf4Z+tlFdQpPcw7
- rUu2k9R8PZnxdzxvjlmW2NBxia/F2RSDmzyJFUg2zDM3wvTDQ8nTqoo/vEyu2Dp7R7c0
- J2rdAjPETpqx6lvVQ4Ttu1E1QlHoC3Vs7d/jP9CG8x4yGShlA011affDT6CvlqrN48Cd
- J6m3wnM/rD+CQK4leJiLv/WIT9ynqs1U5Ux9fmCujfkLsPs+52/CNZMbtMxTBn7nkgs8
- hpyaeWb6zlNNIlZgQ+L7Phzmpvy60BXZ3sujhuBxLJffGxugzIpON1kZEdoMIkv2FIrm
- e6/A==
-X-Gm-Message-State: AOAM532w9KXIkDX0mknoWJY+Z1Qk35yy0Mnd0Wyq6pEJYyqw+aoWaooc
- oYV8T+LF3nROj+byxaujzD7ZqfhArKPzzQ==
-X-Google-Smtp-Source: ABdhPJy2GuwRnJ65RVpPMpBxrmy+WvFjUatwD0BuNKxcxwcCy9wDUAJ647Gic1KOxNO0Q8TU8Mor4Q==
-X-Received: by 2002:a17:90a:13c5:: with SMTP id
- s5mr2376241pjf.31.1615954869889; 
- Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
+ bh=d8dYAktnUBBiQrXZEcua+BNHo2fKNZhUG+0Inwx8kus=;
+ b=PofOawTjgQqx0W140fAJ4Vu+J5nm6gyIxJ5hIM+V6Gq2w7+luGrUf9QvQM800HJuvp
+ E9NqUbNBe//bONHyk3gzoZ5zETCX48ARsYYvVXpK1Yg1nRUbPqpZ35RGA98/sTtANLZZ
+ jSzt6+8SQTt4m1kTRScqrVrhc4VpuwYd5DY6kFt5IhmpmsucUg0xVGGjqZ1Vlix9PHbC
+ oBx8MxLlTiOA8b0rqEpqtR4Hjes80wL1Gnxvxd1ald/s/aTHScRzFQgXvIiEFiNs06M5
+ mW8W1XE0n3TKBN1FgtVvasTr5zxBbeEfcJHDvMdOzB+gF3D8CICgRkfPAoOuff66QNtk
+ 7Kkg==
+X-Gm-Message-State: AOAM532xioHunt/JKoU7FrT84yyBkFRINVgOzMRNApl0BIhOsgFo5c9W
+ hh93dfceaXk8l8A/icg39A5QnA==
+X-Google-Smtp-Source: ABdhPJze1AWtbvlK653ib6kGnHhosP0U9QAm2Y6eHCKmfcznfiMba+6v3xcBWJcN5Rw2R9jzVTmc4Q==
+X-Received: by 2002:aa7:9619:0:b029:1fa:ed79:b724 with SMTP id
+ q25-20020aa796190000b02901faed79b724mr2509040pfg.38.1615956784475; 
+ Tue, 16 Mar 2021 21:53:04 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d14sm870413pji.22.2021.03.16.21.21.09
+ by smtp.gmail.com with ESMTPSA id i1sm17197849pfo.160.2021.03.16.21.53.03
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
-Date: Tue, 16 Mar 2021 21:21:09 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 21:20:32 PDT (-0700)
-Subject: Re: [PATCH] riscv: Fix compilation error with Canaan SoC
-In-Reply-To: <20210311102424.34743-1-damien.lemoal@wdc.com>
-CC: linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Message-ID: <mhng-cf63c6e5-9054-458e-b3a9-577ccfc6bd52@palmerdabbelt-glaptop>
+ Tue, 16 Mar 2021 21:53:03 -0700 (PDT)
+Date: Tue, 16 Mar 2021 21:53:03 -0700 (PDT)
+X-Google-Original-Date: Tue, 16 Mar 2021 21:49:52 PDT (-0700)
+Subject: Re: [RFC PATCH v1 0/3] IPI and remote TBL flush improvement
+In-Reply-To: <20210311164712.652608-1-anup.patel@wdc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ daniel.lezcano@linaro.org, tglx@linutronix.de,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ Alistair Francis <Alistair.Francis@wdc.com>, anup@brainfault.org,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Anup Patel <Anup.Patel@wdc.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-18286acf-f6b8-4793-88a1-f747b818f764@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_042111_908412_CBBBA98D 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20210317_045306_464282_2BA0974D 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +103,48 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Mar 2021 02:24:24 PST (-0800), Damien Le Moal wrote:
-> When CONFIG_SOC_CANAAN is selected, the K210 sysctl driver is always
-> compiled. Since this driver early init function calls the function
-> k210_clk_early_init() implemented by the K210 clk driver, this driver
-> must also always be selected for compilation ot avoid build failures.
->
-> Avoid such build failures by always selecting CONFIG_COMMON_CLK and
-> CONFIG_COMMON_CLK_K210 when CONFIG_SOC_CANAAN is enabled.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  arch/riscv/Kconfig.socs | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 7efcece8896c..e1b2690b6e45 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -31,6 +31,8 @@ config SOC_CANAAN
->  	select SIFIVE_PLIC
->  	select ARCH_HAS_RESET_CONTROLLER
->  	select PINCTRL
-> +	select COMMON_CLK
-> +	select COMMON_CLK_K210
->  	help
->  	  This enables support for Canaan Kendryte K210 SoC platform hardware.
+On Thu, 11 Mar 2021 08:47:09 PST (-0800), Anup Patel wrote:
+> This series primarily does two things:
+> 1. Allows RISC-V IPI provider to specificy whether IPI operations are
+>    suitable for remote TLB flush (PATCH1)
+> 2. Improve remote TLB flush to use IPIs whenever possible (PATCH2)
+> 3. Allow irqchip drivers to handle IPIs from chained IRQ handlers (PATCH3)
 
-Thanks, this is on fixes.
+IIUC this last one isn't technically used in both forms, as we don't have any
+drivers that behave that way yet?  I'm OK taking it, under the assumption it
+makes keeping the out-of-tree driver for the draft interrupt controller easier,
+but I was wrong then it's probably out of order so I figured I'd check.
+
+Aside from that this generally LGTM.  We are making quite a bit of mess in
+here, but I don't really see a way around that as we need to support the old
+hardware.  We can always do a cleanup when the specifications settle down.
+
+Oddly enough this did come up in IRC recently and there may be some new bits in
+the CLINT on the FU740 that allow S-mode SW interrupts to show up directly --
+there's at least a "delegate supervisor software interrupt" bit now, but the
+manual only calls out machine mode as being able to set it (though IIUC it's
+memory mapped, so not sure how that would be enforced).  Not saying we need
+that in order to take the last patch, but if it is possible it's probably worth
+giving it a shot when the boards show up.
+
+> This series also a preparatory series for upcoming RISC-V advanced
+> interrupt architecture (AIA) support.
+>
+> These patches can be found in riscv_ipi_imp_v1 branch at
+> https://github.com/avpatel/linux
+>
+> Anup Patel (3):
+>   RISC-V: IPI provider should specify if we can use IPI for remote FENCE
+>   RISC-V: Use IPIs for remote TLB flush when possible
+>   RISC-V: Add handle_IPI_noregs() for irqchip drivers
+>
+>  arch/riscv/include/asm/smp.h      | 19 +++++++++-
+>  arch/riscv/kernel/sbi.c           |  2 +-
+>  arch/riscv/kernel/smp.c           | 30 +++++++++++----
+>  arch/riscv/mm/cacheflush.c        |  2 +-
+>  arch/riscv/mm/tlbflush.c          | 62 ++++++++++++++++++++++++-------
+>  drivers/clocksource/timer-clint.c |  2 +-
+>  6 files changed, 91 insertions(+), 26 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
