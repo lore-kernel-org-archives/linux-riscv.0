@@ -2,89 +2,92 @@ Return-Path: <SRS0=Ejrw=IP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 123B6C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CCC4EC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:49:10 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 815EF64F4F
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:10:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 815EF64F4F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7110664F01
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:49:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7110664F01
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=64ZGMXPvaGs088Ptd+BdSdV9LfnTKp+Y0P4mGetI+A0=; b=ZS+KWe1MqDUcA+GMP9PeEoCrz
-	2QSWY3Pc7R9Eqcii1Q6X+/MRviUJj9KbzyZ9Nx6BXW0E+wqLIzs62zV+qJipi7s2dEq+6mkn00q8U
-	jiGRhGV9Rnf63Gjaefld8SF5lyKrAiBuIlPnhkj8otiL5PQbMxNrw6NOFL/eD+rl0Ut6UTgBQXv2f
-	yP4A/2ueAC3BoB3ouNlCHS8lq7RrMJlq3z9+UZo22xXh2/5hY+19KpqAPuU3dc4lCsnO3GkhtLHa7
-	GgOD32Any0IsKxU4DXljFX1Rb2yFzGBW0Y0uNp0u5heLptsKeE9tEhMRNMFCD3S640osTUNzJ9k3z
-	TyJvdBJAg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=GeuB4m23yWionBX2FhtGhon7vPkPXJolHaQxMLwiN9Q=; b=Ps8EMOGYMrRdcdmWbRCtl4kCO
+	O7dsXHQYXn8Y010F2E829ob2zUMANRqz5kMasEHOKIT78cH4G7Wpz651AXhwHDjWBAj0M0gNe1NZj
+	Wzlq+OLG1PBUcjs+DTtesOsZkywcS/3HMD2qUmGtAXim4lIQeLLPCJ+0PDuWedkZT4nz0gtlGwlxl
+	gejs4f16MpZ5JRhuT/Vr6m0cH9+eKkoxOMU3u+uqevWrfgj2lGO2544hvvVVnBfs4Jx8hm0um1eL0
+	LxLTRvw2ejvV0nqgkcnRgk5gjDP/YFCfEcD678TegAAA7EOd77+RRqbJRi1rp6oyC/2cNZm0stU+t
+	dwhU/efRg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMORo-002UDa-O8; Wed, 17 Mar 2021 05:10:20 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1lMP31-002VK7-OM; Wed, 17 Mar 2021 05:48:47 +0000
+Received: from pegase1.c-s.fr ([93.17.236.30])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMORk-002UCj-Ni
- for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 05:10:18 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id n9so23125735pgi.7
- for <linux-riscv@lists.infradead.org>; Tue, 16 Mar 2021 22:10:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=eaXgrCobu2/aVMN+vm+3fiX+Mb+nHmlXIgWJ0XHtqG0=;
- b=KFj6kwqQvIqUheboR/EnrJlMVrCpmn3TfuzR4uFZr0pcL8XYjIhvZ62VphrrOXytIS
- f/DhBMvnngmv/ALpX+RzG1rYaZPU5GpCDDKYz/LR4+cHZq8FdJsJn8soFie6d4Bb/VKD
- N1R1eE+UPNfdnhzEgCH029hjz1Q656+mam3UJ5BeH+uQulsxnsd6OrxIXQ+112qgtAad
- R+9yBVyv21KhG086o57bc4MBWny2ntvgYblzR9zbP20L7N07GO3vUYd9AkHC+8TGtCAb
- wMYw1oOkCaodW/OZdwvY6m0kcIsbEUap2ELVS4uAeb8ItrexKIDaAqPUcvYfRzQPWNAp
- YY/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=eaXgrCobu2/aVMN+vm+3fiX+Mb+nHmlXIgWJ0XHtqG0=;
- b=In2aKtI+ZXkt/UWO0qblKspSRIsn0YA/qv45TcGPHd4e4c79q6lIOexodk1e2CkO/r
- CmLB2K9em97HTKWa1TuQhxsVeL3vBBkAL3t+wVgkVk4o8djRf8ovwa+wyiWqIUAzWqPR
- WdweDhv9S9FzgmeuR12baiejugOMz203Nalwxt8XZaouYuCgj8kTxjZJr8d2Bl6BoyN5
- GifrkAndDtvx7SOCLK/U2w5XafQRYJAm03LNPVlhS3sv1Af64X5a5VTdxfp3hLu0L+TP
- XTg7D83OfsAuELseNIvg8egUDKIXnS9AsxwmWkdSIK14l7zd7gzGmf14sUDWOVY5nbyg
- OFXw==
-X-Gm-Message-State: AOAM531YM9D/Z7iso7sDa8xyBrIu4mP8UAorjypArs4w8l6K7bnaqXg2
- AfPwGHCuQXR1v/4mVfbYfeJuzbg+lDYhkw==
-X-Google-Smtp-Source: ABdhPJynP3eY6Qyx9P8p5PV3Ls1yiUGaDsR69xfqC31jHIdbK1xCWK0bmhO3m4Av8XaJHlw3hJb0yQ==
-X-Received: by 2002:a62:485:0:b029:1ef:2110:d91d with SMTP id
- 127-20020a6204850000b02901ef2110d91dmr2745225pfe.43.1615957815017; 
- Tue, 16 Mar 2021 22:10:15 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t6sm17569152pgp.57.2021.03.16.22.10.14
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Mar 2021 22:10:14 -0700 (PDT)
-Date: Tue, 16 Mar 2021 22:10:14 -0700 (PDT)
-X-Google-Original-Date: Tue, 16 Mar 2021 22:09:45 PDT (-0700)
-Subject: Re: [PATCH] riscv: Correct SPARSEMEM configuration
-In-Reply-To: <20210315120307.17142-1-wangkefeng.wang@huawei.com>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- Atish Patra <Atish.Patra@wdc.com>, logang@deltatee.com,
- wangkefeng.wang@huawei.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-afc9ae5d-ab12-4d65-81ea-1161eae50922@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1lMP2o-002VID-8X; Wed, 17 Mar 2021 05:48:37 +0000
+Received: from localhost (mailhub1-int [192.168.12.234])
+ by localhost (Postfix) with ESMTP id 4F0fMz3RQ5z9vBLs;
+ Wed, 17 Mar 2021 06:48:31 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+ with ESMTP id 5HAfcpzaS9zh; Wed, 17 Mar 2021 06:48:31 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4F0fMz2JZBz9vBLr;
+ Wed, 17 Mar 2021 06:48:31 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 434728B7F7;
+ Wed, 17 Mar 2021 06:48:31 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id G8uQhGY3jGja; Wed, 17 Mar 2021 06:48:30 +0100 (CET)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 82F468B768;
+ Wed, 17 Mar 2021 06:48:18 +0100 (CET)
+Subject: Re: [PATCH v2] mm: Move mem_init_print_info() into mm_init()
+To: Kefeng Wang <wangkefeng.wang@huawei.com>, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Guo Ren <guoren@kernel.org>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Jonas Bonn <jonas@southpole.se>,
+ linux-s390@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ linux-hexagon@vger.kernel.org, Huacai Chen <chenhuacai@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, linux-csky@vger.kernel.org,
+ Ingo Molnar <mingo@redhat.com>, linux-snps-arc@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, Heiko Carstens <hca@linux.ibm.com>,
+ linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, linux-arm-kernel@lists.infradead.org,
+ Richard Henderson <rth@twiddle.net>, linux-parisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-alpha@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>
+References: <4d488195-7281-9238-b30d-9f89a6100fb9@csgroup.eu>
+ <20210317015210.33641-1-wangkefeng.wang@huawei.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <3f6959d6-1f37-8baf-a12e-3fbda6a17c7d@csgroup.eu>
+Date: Wed, 17 Mar 2021 06:48:15 +0100
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
+MIME-Version: 1.0
+In-Reply-To: <20210317015210.33641-1-wangkefeng.wang@huawei.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_051016_911473_2228B76F 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20210317_054834_625931_7A2C10A6 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +99,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Mar 2021 05:03:07 PDT (-0700), wangkefeng.wang@huawei.com wrote:
-> There are two issues for RV32,
-> 1) if use FLATMEM, it is useless to enable SPARSEMEM_STATIC.
-> 2) if use SPARSMEM, both SPARSEMEM_VMEMMAP and SPARSEMEM_STATIC is enabled.
->
-> Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
->  arch/riscv/Kconfig | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 85d626b8ce5e..87d7b52f278f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -93,7 +93,6 @@ config RISCV
->  	select PCI_MSI if PCI
->  	select RISCV_INTC
->  	select RISCV_TIMER if RISCV_SBI
-> -	select SPARSEMEM_STATIC if 32BIT
->  	select SPARSE_IRQ
->  	select SYSCTL_EXCEPTION_TRACE
->  	select THREAD_INFO_IN_TASK
-> @@ -154,7 +153,8 @@ config ARCH_FLATMEM_ENABLE
->  config ARCH_SPARSEMEM_ENABLE
->  	def_bool y
->  	depends on MMU
-> -	select SPARSEMEM_VMEMMAP_ENABLE
-> +	select SPARSEMEM_STATIC if 32BIT && SPARSMEM
-> +	select SPARSEMEM_VMEMMAP_ENABLE if 64BIT
->
->  config ARCH_SELECT_MEMORY_MODEL
->  	def_bool ARCH_SPARSEMEM_ENABLE
-
-Thanks, this is on fixes.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAxNy8wMy8yMDIxIMOgIDAyOjUyLCBLZWZlbmcgV2FuZyBhIMOpY3JpdMKgOgo+IG1lbV9p
+bml0X3ByaW50X2luZm8oKSBpcyBjYWxsZWQgaW4gbWVtX2luaXQoKSBvbiBlYWNoIGFyY2hpdGVj
+dHVyZSwKPiBhbmQgcGFzcyBOVUxMIGFyZ3VtZW50LCBzbyB1c2luZyB2b2lkIGFyZ3VtZW50IGFu
+ZCBtb3ZlIGl0IGludG8gbW1faW5pdCgpLgo+IAo+IEFja2VkLWJ5OiBEYXZlIEhhbnNlbiA8ZGF2
+ZS5oYW5zZW5AbGludXguaW50ZWwuY29tPgo+IFNpZ25lZC1vZmYtYnk6IEtlZmVuZyBXYW5nIDx3
+YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbT4KPiAtLS0KPiB2MjoKPiAtIENsZWFudXAgJ3N0cicg
+bGluZSBzdWdnZXN0ZWQgYnkgQ2hyaXN0b3BoZSBhbmQgQUNLCj4gCj4gICBhcmNoL2FscGhhL21t
+L2luaXQuYyAgICAgICAgICAgICB8ICAxIC0KPiAgIGFyY2gvYXJjL21tL2luaXQuYyAgICAgICAg
+ICAgICAgIHwgIDEgLQo+ICAgYXJjaC9hcm0vbW0vaW5pdC5jICAgICAgICAgICAgICAgfCAgMiAt
+LQo+ICAgYXJjaC9hcm02NC9tbS9pbml0LmMgICAgICAgICAgICAgfCAgMiAtLQo+ICAgYXJjaC9j
+c2t5L21tL2luaXQuYyAgICAgICAgICAgICAgfCAgMSAtCj4gICBhcmNoL2g4MzAwL21tL2luaXQu
+YyAgICAgICAgICAgICB8ICAyIC0tCj4gICBhcmNoL2hleGFnb24vbW0vaW5pdC5jICAgICAgICAg
+ICB8ICAxIC0KPiAgIGFyY2gvaWE2NC9tbS9pbml0LmMgICAgICAgICAgICAgIHwgIDEgLQo+ICAg
+YXJjaC9tNjhrL21tL2luaXQuYyAgICAgICAgICAgICAgfCAgMSAtCj4gICBhcmNoL21pY3JvYmxh
+emUvbW0vaW5pdC5jICAgICAgICB8ICAxIC0KPiAgIGFyY2gvbWlwcy9sb29uZ3NvbjY0L251bWEu
+YyAgICAgIHwgIDEgLQo+ICAgYXJjaC9taXBzL21tL2luaXQuYyAgICAgICAgICAgICAgfCAgMSAt
+Cj4gICBhcmNoL21pcHMvc2dpLWlwMjcvaXAyNy1tZW1vcnkuYyB8ICAxIC0KPiAgIGFyY2gvbmRz
+MzIvbW0vaW5pdC5jICAgICAgICAgICAgIHwgIDEgLQo+ICAgYXJjaC9uaW9zMi9tbS9pbml0LmMg
+ICAgICAgICAgICAgfCAgMSAtCj4gICBhcmNoL29wZW5yaXNjL21tL2luaXQuYyAgICAgICAgICB8
+ICAyIC0tCj4gICBhcmNoL3BhcmlzYy9tbS9pbml0LmMgICAgICAgICAgICB8ICAyIC0tCj4gICBh
+cmNoL3Bvd2VycGMvbW0vbWVtLmMgICAgICAgICAgICB8ICAxIC0KPiAgIGFyY2gvcmlzY3YvbW0v
+aW5pdC5jICAgICAgICAgICAgIHwgIDEgLQo+ICAgYXJjaC9zMzkwL21tL2luaXQuYyAgICAgICAg
+ICAgICAgfCAgMiAtLQo+ICAgYXJjaC9zaC9tbS9pbml0LmMgICAgICAgICAgICAgICAgfCAgMSAt
+Cj4gICBhcmNoL3NwYXJjL21tL2luaXRfMzIuYyAgICAgICAgICB8ICAyIC0tCj4gICBhcmNoL3Nw
+YXJjL21tL2luaXRfNjQuYyAgICAgICAgICB8ICAxIC0KPiAgIGFyY2gvdW0va2VybmVsL21lbS5j
+ICAgICAgICAgICAgIHwgIDEgLQo+ICAgYXJjaC94ODYvbW0vaW5pdF8zMi5jICAgICAgICAgICAg
+fCAgMiAtLQo+ICAgYXJjaC94ODYvbW0vaW5pdF82NC5jICAgICAgICAgICAgfCAgMiAtLQo+ICAg
+YXJjaC94dGVuc2EvbW0vaW5pdC5jICAgICAgICAgICAgfCAgMSAtCj4gICBpbmNsdWRlL2xpbnV4
+L21tLmggICAgICAgICAgICAgICB8ICAyICstCj4gICBpbml0L21haW4uYyAgICAgICAgICAgICAg
+ICAgICAgICB8ICAxICsKPiAgIG1tL3BhZ2VfYWxsb2MuYyAgICAgICAgICAgICAgICAgIHwgMTAg
+KysrKystLS0tLQo+ICAgMzAgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA0MiBkZWxl
+dGlvbnMoLSkKPiAKCj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbW0uaCBiL2luY2x1ZGUv
+bGludXgvbW0uaAo+IGluZGV4IDg5MzE0NjUxZGQ2Mi4uYzJlMGIzNDk1YzVhIDEwMDY0NAo+IC0t
+LSBhL2luY2x1ZGUvbGludXgvbW0uaAo+ICsrKyBiL2luY2x1ZGUvbGludXgvbW0uaAo+IEBAIC0y
+MzczLDcgKzIzNzMsNyBAQCBleHRlcm4gdW5zaWduZWQgbG9uZyBmcmVlX3Jlc2VydmVkX2FyZWEo
+dm9pZCAqc3RhcnQsIHZvaWQgKmVuZCwKPiAgIAkJCQkJaW50IHBvaXNvbiwgY29uc3QgY2hhciAq
+cyk7Cj4gICAKPiAgIGV4dGVybiB2b2lkIGFkanVzdF9tYW5hZ2VkX3BhZ2VfY291bnQoc3RydWN0
+IHBhZ2UgKnBhZ2UsIGxvbmcgY291bnQpOwo+IC1leHRlcm4gdm9pZCBtZW1faW5pdF9wcmludF9p
+bmZvKGNvbnN0IGNoYXIgKnN0cik7Cj4gK2V4dGVybiB2b2lkIG1lbV9pbml0X3ByaW50X2luZm8o
+dm9pZCk7CgpTb3JyeSBJIGRpZG4ndCBzZWUgdGhhdCBpbiBwcmV2aW91cyBwYXRjaC4KCidleHRl
+cm4nIGtleXdvcmQgaXMgcG9pbnRsZXNzIGZvciBmdW5jdGlvbiBwcm90b3R5cGVzIGFuZCBpcyBk
+ZXByZWNhdGVkLCB5b3Ugc2hvdWxkIHJlbW92ZSBpdC4KClRoYXQgc2FpZCwKClJldmlld2VkLWJ5
+OiBDaHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxlcm95QGMtcy5mcj4gIyBmb2N1c3NlZCBv
+biBwb3dlcnBjCgo+ICAgCj4gICBleHRlcm4gdm9pZCByZXNlcnZlX2Jvb3RtZW1fcmVnaW9uKHBo
+eXNfYWRkcl90IHN0YXJ0LCBwaHlzX2FkZHJfdCBlbmQpOwo+ICAgCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
