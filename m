@@ -2,80 +2,74 @@ Return-Path: <SRS0=Ejrw=IP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7963CC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A37F7C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 08:18:55 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 19DD764F92
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 05:59:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 19DD764F92
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0A58164F89
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Mar 2021 08:18:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A58164F89
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ict.ac.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=teGDGGwjK95Xm8KLzNiU9MFhFAPDt/U/dlCBnoiw6Vg=; b=cNrPX/L/aw94hD1PkAsHfrOnG
-	iZWNQxXR+BU5Q0iu6BQehgHuScNuioWkecDWHHAXqTDJcmtpmpVFGZ4N5sBTxDY6AmWWbz4Eh3FLk
-	xes/tXz0YScIhb/+Qbsqvou4S0i8Irf0kSVZfeNifhFJtxo/xq6sSbTtN6lzndN5FEpdfRIBiQt27
-	fQN0dyLY1dnVuBGj/0dxOrNb9qdZjCQOfIB5URRlneNcUBwz8Gopx8weX06GjQgthTT6LAyMmOFNy
-	6JmYb+NzOdbWiXT/i7C+swcxcDWAOKevDStYBMQh9ILgJf2l1IJpWYmWehwfSfD9kHRzHbCISJOGE
-	pwdV4S93A==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PVC+/RReZ4dqfCp6yKczzY6miE9xiDJHc4a4gDtZPpQ=; b=WS4OV+mqv6uVxt7kj9CsM+1ISn
+	8/LM9Y/LKfmbhC5e7bls1q5LQXoehw3CD6Kjn++U36Qica68d8l9jBkJkBybnftFaS+gGY9KUEddz
+	Wc4N1TpDFHznPoyiYzxSmuF8+mlnM4z2r1CipjyJkYollA1PGSPqEZ1kefCDSv6mqTGv8uWmEomO7
+	mmMbkSJsD7Id7E1/aS8xg2/YxIvu95OvO4xHHekKmHp1yq0h+kgT/0P5Gs6b/hTWFKyefyULbelqq
+	no6tQ1LGahqct8KAbYMJIQ99E2llmH0q6mfBFxPQZ+KdqZVtl2LJjfb/QOg7xjqdfwUKkl44dc8kZ
+	Bi0l7Nqg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMPCM-002WD2-97; Wed, 17 Mar 2021 05:58:26 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
- by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMPCA-002WBD-NU; Wed, 17 Mar 2021 05:58:17 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4F0fXm6M3nz17M4p;
- Wed, 17 Mar 2021 13:56:08 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS410-HUB.china.huawei.com (10.3.19.210) with Microsoft SMTP Server id
- 14.3.498.0; Wed, 17 Mar 2021 13:57:58 +0800
-Subject: Re: [PATCH v2] mm: Move mem_init_print_info() into mm_init()
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- <linux-kernel@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-CC: <linux-ia64@vger.kernel.org>, <linux-sh@vger.kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, "Dave
- Hansen" <dave.hansen@linux.intel.com>, <linux-mm@kvack.org>, Guo Ren
- <guoren@kernel.org>, <sparclinux@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, Jonas Bonn <jonas@southpole.se>,
- <linux-s390@vger.kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- <linux-hexagon@vger.kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- "Russell King" <linux@armlinux.org.uk>, <linux-csky@vger.kernel.org>, Ingo
- Molnar <mingo@redhat.com>, <linux-snps-arc@lists.infradead.org>,
- <linux-xtensa@linux-xtensa.org>, Heiko Carstens <hca@linux.ibm.com>,
- <linux-um@lists.infradead.org>, <linux-m68k@lists.linux-m68k.org>,
- <openrisc@lists.librecores.org>, <linux-arm-kernel@lists.infradead.org>,
- Richard Henderson <rth@twiddle.net>, <linux-parisc@vger.kernel.org>,
- <linux-mips@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- <linux-alpha@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>, "David S.
- Miller" <davem@davemloft.net>
-References: <4d488195-7281-9238-b30d-9f89a6100fb9@csgroup.eu>
- <20210317015210.33641-1-wangkefeng.wang@huawei.com>
- <3f6959d6-1f37-8baf-a12e-3fbda6a17c7d@csgroup.eu>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <fef8ca3b-97ae-5c19-69ea-bb1dfe88cf9c@huawei.com>
-Date: Wed, 17 Mar 2021 13:57:57 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+	id 1lMRNx-002jY7-1q; Wed, 17 Mar 2021 08:18:33 +0000
+Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
+ by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lMRNl-002jTy-WF
+ for linux-riscv@lists.infradead.org; Wed, 17 Mar 2021 08:18:30 +0000
+Received: from localhost.localdomain (unknown [116.6.100.50])
+ by APP-03 (Coremail) with SMTP id rQCowADH6A0pu1Fgwa5oAA--.10281S4;
+ Wed, 17 Mar 2021 16:18:05 +0800 (CST)
+From: Zihao Yu <yuzihao@ict.ac.cn>
+To: paul.walmsley@sifive.com
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, yuzihao@ict.ac.cn,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv,entry: fix misaligned base for excp_vect_table
+Date: Wed, 17 Mar 2021 16:17:25 +0800
+Message-Id: <20210317081725.28412-1-yuzihao@ict.ac.cn>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <3f6959d6-1f37-8baf-a12e-3fbda6a17c7d@csgroup.eu>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+X-CM-TRANSID: rQCowADH6A0pu1Fgwa5oAA--.10281S4
+X-Coremail-Antispam: 1UD129KBjvdXoWrZrWkXFyfZF1Utw13GrWDtwb_yoW3Wwb_uw
+ 1xXan7urW3JF9aqFnFqwsagrsI9ayrtF95Gr1xWr1ak3WUZr1Sk3sxWwn8Zrs5Gw48trZ7
+ AF93JFsxtr429jkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUbzxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+ 6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+ A2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+ Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+ Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+ I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+ 4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCF04k20xvY0x0EwIxG
+ rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
+ vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IY
+ x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26c
+ xKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
+ 67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbd-PUUUUUU==
+X-Originating-IP: [116.6.100.50]
+X-CM-SenderInfo: p1x2xx1dr6xunwoduhdfq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210317_055815_507831_04975B88 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20210317_081822_777831_C09996B2 
+X-CRM114-Status: UNSURE (   5.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +81,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjEvMy8xNyAxMzo0OCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPgo+Cj4gTGUgMTcv
-MDMvMjAyMSDDoCAwMjo1MiwgS2VmZW5nIFdhbmcgYSDDqWNyaXTCoDoKPj4gbWVtX2luaXRfcHJp
-bnRfaW5mbygpIGlzIGNhbGxlZCBpbiBtZW1faW5pdCgpIG9uIGVhY2ggYXJjaGl0ZWN0dXJlLAo+
-PiBhbmQgcGFzcyBOVUxMIGFyZ3VtZW50LCBzbyB1c2luZyB2b2lkIGFyZ3VtZW50IGFuZCBtb3Zl
-IGl0IGludG8gCj4+IG1tX2luaXQoKS4KPj4KPj4gQWNrZWQtYnk6IERhdmUgSGFuc2VuIDxkYXZl
-LmhhbnNlbkBsaW51eC5pbnRlbC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IEtlZmVuZyBXYW5nIDx3
-YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbT4KPj4gLS0tCj4+IHYyOgo+PiAtIENsZWFudXAgJ3N0
-cicgbGluZSBzdWdnZXN0ZWQgYnkgQ2hyaXN0b3BoZSBhbmQgQUNLCj4+Cj4+IMKgIGFyY2gvYWxw
-aGEvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxIC0KPj4gwqAgYXJjaC9h
-cmMvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSAtCj4+IMKgIGFy
-Y2gvYXJtL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIgLS0KPj4g
-wqAgYXJjaC9hcm02NC9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIgLS0K
-Pj4gwqAgYXJjaC9jc2t5L21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAx
-IC0KPj4gwqAgYXJjaC9oODMwMC9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKg
-IDIgLS0KPj4gwqAgYXJjaC9oZXhhZ29uL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgIHzC
-oCAxIC0KPj4gwqAgYXJjaC9pYTY0L21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHzCoCAxIC0KPj4gwqAgYXJjaC9tNjhrL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHzCoCAxIC0KPj4gwqAgYXJjaC9taWNyb2JsYXplL21tL2luaXQuY8KgwqDCoMKgwqDCoMKg
-IHzCoCAxIC0KPj4gwqAgYXJjaC9taXBzL2xvb25nc29uNjQvbnVtYS5jwqDCoMKgwqDCoCB8wqAg
-MSAtCj4+IMKgIGFyY2gvbWlwcy9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8
-wqAgMSAtCj4+IMKgIGFyY2gvbWlwcy9zZ2ktaXAyNy9pcDI3LW1lbW9yeS5jIHzCoCAxIC0KPj4g
-wqAgYXJjaC9uZHMzMi9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEgLQo+
-PiDCoCBhcmNoL25pb3MyL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSAt
-Cj4+IMKgIGFyY2gvb3BlbnJpc2MvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyIC0t
-Cj4+IMKgIGFyY2gvcGFyaXNjL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIg
-LS0KPj4gwqAgYXJjaC9wb3dlcnBjL21tL21lbS5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAg
-MSAtCj4+IMKgIGFyY2gvcmlzY3YvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzC
-oCAxIC0KPj4gwqAgYXJjaC9zMzkwL21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHzCoCAyIC0tCj4+IMKgIGFyY2gvc2gvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIHzCoCAxIC0KPj4gwqAgYXJjaC9zcGFyYy9tbS9pbml0XzMyLmPCoMKgwqDCoMKgwqDC
-oMKgwqAgfMKgIDIgLS0KPj4gwqAgYXJjaC9zcGFyYy9tbS9pbml0XzY0LmPCoMKgwqDCoMKgwqDC
-oMKgwqAgfMKgIDEgLQo+PiDCoCBhcmNoL3VtL2tlcm5lbC9tZW0uY8KgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCB8wqAgMSAtCj4+IMKgIGFyY2gveDg2L21tL2luaXRfMzIuY8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgfMKgIDIgLS0KPj4gwqAgYXJjaC94ODYvbW0vaW5pdF82NC5jwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCB8wqAgMiAtLQo+PiDCoCBhcmNoL3h0ZW5zYS9tbS9pbml0LmPCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIHzCoCAxIC0KPj4gwqAgaW5jbHVkZS9saW51eC9tbS5owqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArLQo+PiDCoCBpbml0L21haW4uY8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgIG1tL3BhZ2VfYWxsb2Mu
-Y8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCArKysrKy0tLS0tCj4+IMKg
-IDMwIGZpbGVzIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgNDIgZGVsZXRpb25zKC0pCj4+Cj4K
-Pj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbW0uaCBiL2luY2x1ZGUvbGludXgvbW0uaAo+
-PiBpbmRleCA4OTMxNDY1MWRkNjIuLmMyZTBiMzQ5NWM1YSAxMDA2NDQKPj4gLS0tIGEvaW5jbHVk
-ZS9saW51eC9tbS5oCj4+ICsrKyBiL2luY2x1ZGUvbGludXgvbW0uaAo+PiBAQCAtMjM3Myw3ICsy
-MzczLDcgQEAgZXh0ZXJuIHVuc2lnbmVkIGxvbmcgZnJlZV9yZXNlcnZlZF9hcmVhKHZvaWQgCj4+
-ICpzdGFydCwgdm9pZCAqZW5kLAo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgaW50IHBvaXNvbiwgY29uc3QgY2hhciAqcyk7Cj4+IMKgIMKgIGV4dGVybiB2b2lk
-IGFkanVzdF9tYW5hZ2VkX3BhZ2VfY291bnQoc3RydWN0IHBhZ2UgKnBhZ2UsIGxvbmcgCj4+IGNv
-dW50KTsKPj4gLWV4dGVybiB2b2lkIG1lbV9pbml0X3ByaW50X2luZm8oY29uc3QgY2hhciAqc3Ry
-KTsKPj4gK2V4dGVybiB2b2lkIG1lbV9pbml0X3ByaW50X2luZm8odm9pZCk7Cj4KPiBTb3JyeSBJ
-IGRpZG4ndCBzZWUgdGhhdCBpbiBwcmV2aW91cyBwYXRjaC4KPgo+ICdleHRlcm4nIGtleXdvcmQg
-aXMgcG9pbnRsZXNzIGZvciBmdW5jdGlvbiBwcm90b3R5cGVzIGFuZCBpcyAKPiBkZXByZWNhdGVk
-LCB5b3Ugc2hvdWxkIHJlbW92ZSBpdC4KPgo+IFRoYXQgc2FpZCwKPgo+IFJldmlld2VkLWJ5OiBD
-aHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxlcm95QGMtcy5mcj4gIyBmb2N1c3NlZCBvbiAK
-PiBwb3dlcnBjClRoYW5rcywgbGV0J3Mgd2FpdCBmb3IgbW9yZSBmZWVkYmFjayBmcm9tIG90aGVy
-IGFyY2hpdGVjdHVyZXMsIGlmIApuZWNlc3NhcnkswqAgd2lsbCBzZW5kIGEgbmV3IG9uZS4KPgo+
-PiDCoCDCoCBleHRlcm4gdm9pZCByZXNlcnZlX2Jvb3RtZW1fcmVnaW9uKHBoeXNfYWRkcl90IHN0
-YXJ0LCBwaHlzX2FkZHJfdCAKPj4gZW5kKTsKPiAuCj4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+* In RV64, the size of each entry in excp_vect_table is 8 bytes. If the
+  base of the table is not 8-byte aligned, loading an entry in the table
+  will raise a misaligned exception. Although such exception will be
+  handled by opensbi/bbl, this still causes performance degradation.
+
+Signed-off-by: Zihao Yu <yuzihao@ict.ac.cn>
+---
+ arch/riscv/kernel/entry.S | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 744f3209c..76274a4a1 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -447,6 +447,7 @@ ENDPROC(__switch_to)
+ #endif
+ 
+ 	.section ".rodata"
++	.align LGREG
+ 	/* Exception vector table */
+ ENTRY(excp_vect_table)
+ 	RISCV_PTR do_trap_insn_misaligned
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
