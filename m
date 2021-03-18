@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2437DC433E6
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 26EFAC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:46 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9055764F53
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9055764F53
+	by mail.kernel.org (Postfix) with ESMTPS id 6955D64E20
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6955D64E20
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,65 +24,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nL4vu871h7+GjYydAWo4YDqeQP9ZXnQzaUxf/c07i18=; b=XiNcYkDyTHBCRs1+leI6HS4CF
-	rYFY8Q2bk88siadEGZnNQT1MihVt864aiXCBOY66RFUb2kD87eEbdum9hMukVCXOmYPV28Vpt5hVM
-	Dm8zP2YBJSQhLeiU1hIHh79O3BjRKfL0H2MjYX67rjcUoLIGbIRFoPc0OBargQCllz07TnF5MN/oL
-	bNrDWvEbeILiqg9AeMjIkT/ZJUvrULLh+5GtsDv5BZl/XXW8KozfzcTnxLlPO5WD+zRk9TY4de0yP
-	V1+h2OQHGIQyWUrTOR04TiqFIbGf81dXw3Gx6ZtMwLoLzc+hKkiUSO43WUP2nVk3vXg7gaBFLtaJV
-	oOeDRWsCw==;
+	 bh=vZT3NodKvWevj/ltyijWUM6c8sKk9FbE/EYOc9APyng=; b=HfUKNpEccYU0ZuyiMMGxdF9Zd
+	x5jvUOMZJwYrAErnM601zirqDs+jJwAq2vvwiq2IL/a0qdH875vlZoTJjOlarOAFc3rjzgonknvF+
+	65XM5S6TB0qZBN+ZwAKiT53p/f2TpMFNkvCalsCwR9jA0IAkTqlP/RyDuEb4qtQ2aOq1mD01OWaKp
+	oDFHClSXcGCkqsR/7qVuOnxfRem8a3QAmRjnM1cY54H3PKNhocIhe5QC8/CJU4MOOSZ/hWOxFY8rD
+	PJI9Dz2Cw+5j1JE3XRz+sT4wAEAmBJX2yopgsFwCTHumhjNx48AntlMLV5C/8E8kwWQDV/bSwvnLa
+	k7uR8PbLQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMsMP-005ItH-TZ; Thu, 18 Mar 2021 13:06:46 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1lMsN7-005JDl-Is; Thu, 18 Mar 2021 13:07:29 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMsLj-005Idh-Tb; Thu, 18 Mar 2021 13:06:09 +0000
+ id 1lMsLy-005Ihm-N5; Thu, 18 Mar 2021 13:06:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1616072763; x=1647608763;
+ t=1616072792; x=1647608792;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=x4KgaKkTuSTDs7W+KwB0YDqVJn55pqqtz7HQEAs74SM=;
- b=JdsIoZ2rYMnrxBtL8HQjppU8T+CXSVBj2kaVxUg4wryklMM0pFP+dPMP
- CJ+bZCws+DHxWY+vAH1WwjEy2Ho1LItXasdgVxlexmc6KpGc/B5hG+w9I
- Lfj4JBQhB2PeUE45xROD/2HikHjt35O/y9a3kf36TsuYqUI8wEVXWePRG
- YFp9TIvPG9w2L49l/uYEYzoZDxtg1iSyfdj2do7pARctzDK1gQh6NjFxg
- MYzILp/KqHxUfk701M8mFBYDUcyE+7qZpFupZIekL56oTWBOPlfuhR91b
- 240QegfU84KnUfu80Kh65vYiXKTvibK3eWy9p6TYiAKJdFGyHyfZYBf5Q g==;
-IronPort-SDR: jZ8dVWhSrlQ/3C/aaWlm+oEg3BR8stwRuomf0mk7loEvftpAc+Y+IbR938sov3MDl1oAmrlS33
- /FVqCrjq73L6P2MnATw5yg7oUcKfEjM5UZ1McN5+LtuF4SgJ7pnjWY8pszOuoC4iyKcNxt8jc8
- /V9UwpvYzDSM73fGsuShtzQLZ6H2jUrRefpjj1v9bA1OO6YsdPJkRJ5xkr2vCcQ0Va8id6uJU3
- gPIYuDG7yMyiYrGVtw/OMGJ0/R52fUIPKW/JgtmNO1kmfdE2dzb4zm/zObeat4DEuSsEnw4uLz
- /UU=
-X-IronPort-AV: E=Sophos;i="5.81,258,1610380800"; d="scan'208";a="273192108"
-Received: from mail-sn1nam02lp2055.outbound.protection.outlook.com (HELO
- NAM02-SN1-obe.outbound.protection.outlook.com) ([104.47.36.55])
- by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2021 21:06:00 +0800
+ bh=h7XIRrb7qnCKO+6OJrZJvs+TZXOJkBQhu0RoEYGRKeM=;
+ b=WbLQcwWVbim1Ovix3v878DnMM2Vq3QPq2FuFpy4MG7zsjyS51djt9LSf
+ /xJWfuaApJzPEmMyX4/t/e0SdrpBSzfNjCiJM355o674oCgFl3+7wV3sg
+ grGfZSdvOcrt98eOyvoC2zLB+FIMFEi0SYvAJa2WdGQlJHrhL3jGV9sht
+ PPwpZMdworAvv33g59vCg8Pdv5CcCGPvGb3dRRtFW8mKflci9ZHZLjJr0
+ 2Pv7LcR45iAcMuscn0TSO2DuOkfKxW8iA3Ztio673jbw3QCsu5AXXpl5R
+ JW9fH3MZAX0E6KL88qrcfAqrWDbdttykHxPZrActl7uJ7w8rbBIRkrihh A==;
+IronPort-SDR: VKHgDXuEWI3KmrzPR38IbHqfvcHVUd4N9vDLEEfzi4+4EH1Ti67+9et3JN/PIv7Dy+9wiSjvT9
+ Aza/Hpiu19WlIwIXvKz6xCu+QUG09gCUR9iPmr7qPZveJCKu2TGSsPGXLXy9Jhq6sCHlZAs5l8
+ 1UJ9pB0+ldaaHhrDDnmMEP3LjdvK+i4pBAUp3xwREsWM2s7/Th3jiWDPymzCm97U1My4XC8KKn
+ tNRHLhIKg29RZ9aNgAJfL9/EAE9D0hCogtahR2S3xTbNkyjLoJQx9+ij0eGgBYnWnee0jG+bPt
+ YH8=
+X-IronPort-AV: E=Sophos;i="5.81,258,1610380800"; d="scan'208";a="266856979"
+Received: from mail-bn8nam11lp2173.outbound.protection.outlook.com (HELO
+ NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.173])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2021 21:06:25 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fXfm1hT/9gqrRCSa+3z0Fo5eMWtV1UtXCGR0tniMWYDUHG2ifSC/HPip3Z/bRlMGuLBXKxYH5CTNSjPY5fneFLTJZA+SpysaA2Ba2zqxZstXyv5VyieSFgAgewWiaZxw/mtPx7jEp6k/mt1tMecFIL6ca8B4mYElImsOP6GVCCB1jl2tXpRofdBlZGkKtYENsk4WCuqw1V+M1mHrHI6oTS83OROA1VsRKBSyXsb9AYp48/xYodn/WvON4+8J5/wn3G5eNw0S66mTeAUjbU+oQSrMqCcZY2++JFvu76LXN+J68T3toZ5LMAFZ904zvvS/neCEDSqyQOpLLI2TpV8yLw==
+ b=GweKxsDCOFqKpxsmZtKK7M/YTSTrLC1vHFOwr0yjY2JQqKoqoqWN09v2W3BckF7XQl6zEtyboUxwSS7LxWJ35SCAScDKR9agbAN4PULwOBQMZ+aMxPhtcyDkHH/WERSN7XELz9vTBmOA2gYQcKFFTNd+GwoDv6diAhRDj5nvhWeKxYa8jd2YDzfxpDjjEIygoEcisvPE7ApW4lf8AkbXmzMmJM2qfZarFXerxQUHvp3kwP3tP/ep0Jx/O24H/AaeqPupR2kJ7gphIS8r3YTBc2M4l4rb1aPiRqb8AR9ZYj98o5EqpduMzv1xQ0JR1/bubmJOX2U66uExoQWHboRY2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LDcvlmi0tjBar+fQD5MnMHG7r/5NNePHjRo4ppQ2rj8=;
- b=CoX3Wy5zsMDV/BY9HncZq3zUq6PEgxkP0CXT/lLf9FhgC7Im6NTBrODZqB96LJiNOg/op/yOafxbzbGyIocrJDk2bVNTsoNVAQ6gSxx5smDt4ZaACCWelTVw/ass4gZovSpH4GHtXsI1qFGefefgRWiZL+H8d1XQdBlqCoYrvMStnJyvh9M+no4TfzOWHryZ3wHRjFAbCB3qBkPNV/JyZ5nPIiCHpI5nY2seR0qT0oI5FdwTeYLdhEzfXFnd3rxdh1LIc23BuyHpuP/0d7TWjqCba6DM2kVGliTCLK5Nhz/iOpQYyFBi3rCpouAhRgQqxkak6OkEoFvmd0pkN9HbcQ==
+ bh=pyxWnb7TFn0LIKLtqJo7m4RwwIbcKe4DHgZC40Yp3lk=;
+ b=SIQfbRz7VwyTqGTiWl7nyTYVEuf9rFcDf9QWbPrmcsAw0T0E55D1oPKoAt7Yb+d4u8j1SDzllF46ILNnUin7jC0B0iNPNLfFljjymxZrCjskUjOuLIiSk9ZQVG3WAFNhbXL6qhp+nRmW0gqWAs/YY/uB3ABgAMv7JaCKfc3gtk2ivoo6MwCTfHXrOJQIGlZiCMiBhomptysh1QodbWB/uan5GQ3ojWuUsO5EKep/Mc3a0E5vFZGXbfQD6Po54qz8bxegyQ4B5thtOeeVjdcfi53M0FRThHh99CiTBleVDZztaV7NDZ9vdE1nF+Fr+Yp5iSPzoDnym2fIO7p+aTjHWQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LDcvlmi0tjBar+fQD5MnMHG7r/5NNePHjRo4ppQ2rj8=;
- b=mDvxpQ4pUT9UqXn643bf2NCmSEH8L3EBGdG2aLHI/gNfk9eObZg3aonaNnmo4Xo6uCEc0PmDpq0IaOwPSS2P+fAzPqhqeLDFMb+9ECdwiZ99yWtY8EwmFJdQqti0HicD+g4bgNXgjPLHnFjMR3MO166UMHoh7lv6rPyvNgIO7ik=
+ bh=pyxWnb7TFn0LIKLtqJo7m4RwwIbcKe4DHgZC40Yp3lk=;
+ b=UiiD2IVFhKjtmws9oFSb6I5GAG9gLJFRb5tJYhw1clPEVxdZCtfxEOH7Jq9EGsot+sh71qNrjoerWl9X8INjVCKIV1UyujBsHjqfn75w460JG3QBN5wptXAeW1LNxl2VD5Adyfk/DvFWtQfUVTxF+434RRHfKedh4HTIV/K39dE=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM5PR04MB0826.namprd04.prod.outlook.com (2603:10b6:3:100::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18; Thu, 18 Mar
- 2021 13:05:59 +0000
+ 2021 13:06:12 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3955.018; Thu, 18 Mar 2021
- 13:05:59 +0000
+ 13:06:12 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -99,10 +99,10 @@ Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v3 3/8] RISC-V: Add arch functions for non-retentive
- suspend entry/exit
-Date: Thu, 18 Mar 2021 18:35:07 +0530
-Message-Id: <20210318130512.1025416-4-anup.patel@wdc.com>
+Subject: [RFC PATCH v3 5/8] cpuidle: Factor-out power domain related code from
+ PSCI domain driver
+Date: Thu, 18 Mar 2021 18:35:09 +0530
+Message-Id: <20210318130512.1025416-6-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210318130512.1025416-1-anup.patel@wdc.com>
 References: <20210318130512.1025416-1-anup.patel@wdc.com>
@@ -115,58 +115,58 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from wdc.com (122.167.155.94) by
  MA1PR01CA0148.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::18) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3955.18 via Frontend Transport; Thu, 18 Mar 2021 13:05:53 +0000
+ 15.20.3955.18 via Frontend Transport; Thu, 18 Mar 2021 13:06:06 +0000
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 7330ed45-ba61-4bc8-a496-08d8ea0e9341
+X-MS-Office365-Filtering-Correlation-Id: ad8028b7-2629-49c6-a36a-08d8ea0e9a98
 X-MS-TrafficTypeDiagnostic: DM5PR04MB0826:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM5PR04MB0826BFBBD0A209FB07545C708D699@DM5PR04MB0826.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM5PR04MB08269B82DC64519B9D62ED628D699@DM5PR04MB0826.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Oob-TLC-OOBClassifiers: OLM:359;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: MnthN84iUQLwXKQN93prhuf4DrhqZVP8tJA4x+03zS/GADTPNvPOO5Y7SMjpLHCknukxvVK2OUOtahGqdm+SI2MwCHKxGYq9k0EXtmXhO5dGrgUE9sBXz2jSXgbhuX8T8AMA/H+bRcFtFxIDOWDN6NjEHI7v281jllFQcyr2ISB70733DQLx7VDh95unQrVGDFH7sjpaEcuxhaTnD1j1eUKSZghuY1llCPgeZisCzw0dzWN5LzbOmBv6BtoOtJTGWpd44lDcZSpYbvFe0xQT8b89lur1s/35zaCEiFNjjAwo3MXnOsbvdh0gBM3t5+uzUuJ0xH0CAErtjVfpZ/iTjR13s+SsKwwY6iEZHMGysgv1RVZzW/uMkjqHt7BgPuLPLdn/WRhAIe7XljRpJvzEo7jIALiE/UYdBC3L0fVifkpo6GgyqhZ3E7rZhRAFAZcSUbFQf3NB8oKcgOoaEdMSr2+6EqyGBsmymCL3ojcsTC7F2KYnLa/EvaKODCcKudrbTjNzclQUHvrmGiXL2NoTiPcDdI0K6OEkYX6aPsG0qofhbtiFXi4qNvnr37bS57eg7XMLo8tHv1C8ZPbKtry/FBX0mYi1+qt2K6zdKsp0+MM=
+X-Microsoft-Antispam-Message-Info: uQO3FMIGv5aNEEALGQmgLoiVriqM2W5AnyrOv/W+ScW51y4qm04Dfykw6mZZIfiYCrGwuxu35Cnpx2rFgQ14QB5+1vZsw4uOsQAy9ZqdPcSFllBNPoYI/LDXd7mNekJ+gZJ6sTcXNclj/scWTxtGES0g+fJNs0B60X/wfoz/Tpv1iujjQJKTEwgYiBhPKxdzogxe4tHSdGG3GUfRt4dm9Dqikbdh7yemPVRVD8ndnQMXR52QrGrPQ/fZIltugtJRG2XCJ+34SX3pNvzM0YwQ6pJQQ2vTPtGzyoqP8EMwqELHhHqPrjEDoaHud8tNppDe+POUdkoEf4TpurxMWuwqeJwj7R52p0JBMUn7L67CDVLwoVZ5OHIH9drxL/dJMvc8QauMWfKeljYjgMVv2SV3FyFbONEVw4r5UUrlkmQPLbD6itjEq06FcnRYmGTszwAcEz++auFxRrzEGj90OCWOGphk29l7Bf5Kr7bA+3J3gKRVwdylzJhD4u5mpjMN51XzW3AMuutO+tetRL+iSzNkGVGlaeBGeJ+JyaWY6ZQIrXualdyNrc9IaypVuThk/o1XNKxyaMIR3BSAkNjf0eYU95zneNVRTiOorPqxE6m8pp7Ll4BeApJVtRt7EaJAfvCG
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(366004)(346002)(396003)(136003)(39860400002)(4326008)(15650500001)(86362001)(44832011)(2906002)(186003)(36756003)(478600001)(110136005)(1076003)(38100700001)(316002)(956004)(55016002)(2616005)(8936002)(8886007)(26005)(7416002)(54906003)(66556008)(5660300002)(16526019)(8676002)(66946007)(6666004)(66476007)(7696005)(83380400001)(52116002);
+ SFS:(4636009)(376002)(366004)(346002)(396003)(136003)(39860400002)(4326008)(86362001)(44832011)(30864003)(2906002)(186003)(36756003)(478600001)(110136005)(1076003)(38100700001)(316002)(956004)(55016002)(2616005)(8936002)(8886007)(26005)(7416002)(54906003)(66556008)(5660300002)(16526019)(8676002)(66946007)(66476007)(7696005)(83380400001)(52116002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?BnvdM+Xsw5uQ5XKweKZaBvkYTnFoiJMIAxLtphJwsquueTT3TxP9/1WaVbrm?=
- =?us-ascii?Q?kpLKYmdAluhPAjVHNCJoYJPzaYEpcpPYxLP6biCAFFtRw0NeQZ6Eg1cR8PSY?=
- =?us-ascii?Q?ac5FLUFxgj2aN800oDFN6P9Fy9wIYVzfkbgh18bwoshI16IzON3pDN9NUJxH?=
- =?us-ascii?Q?SZqa93d7a1/IPRTvf6SAB2ehfajqWXJ63xMokF9+nUGBbgc0MYk74R4wqGYH?=
- =?us-ascii?Q?ChEUJKlHY1FapbCC/Z9ys9jIWYj6sWVOK/2uUAxwDrauHfGDAFN+7QJhXKgx?=
- =?us-ascii?Q?Rfc3bA5C3BrGdJ0xTLMDoUncnGL46YKvOLC/AvJLkrzIohG53yb2cGM5j46S?=
- =?us-ascii?Q?9woNT3MUOhVatFDOa0Ij98GDyKQAn8C0hMgoIQc9lzgUUajIPLc1p971N5bR?=
- =?us-ascii?Q?aQVkZGRj6tDPuvY5HLL9VJlb9qLMfn34D6/vkHwYImyHT/ICMmsxXmj8kiEh?=
- =?us-ascii?Q?jOn9JEf6TB5H1UnT2bvRiu/yGEag38vgHdY/cQ0kvgVuvSoPxB0QqlXaVEko?=
- =?us-ascii?Q?SY5d/6fSIDLoiJZa1BR/ZkK4gnS68vCMCtxiqAuCaoEAFEWLlnrkva8nSgY1?=
- =?us-ascii?Q?R9eRiRwGEY+aJol3oS9l7hD/CAs/fIepxKPIJTuhkOGsCRIXhvDXcGkHMZxI?=
- =?us-ascii?Q?tcNr9JBpTsBCSmxs4CQhG3w7h34RmkCDT3p7QgQVoM3MOaooR7q9/Z/99ICO?=
- =?us-ascii?Q?KzHYFIguAhilB7xqW5V0cxe+5HxzMXQFDd+jkN1dOxPTDb+Z+WJT6og282Qi?=
- =?us-ascii?Q?YVinAEoa6fWn356PC7o0SndJ5F2SygmLgllpM7dXwwmPzGbfSZS9Nt8bm3fr?=
- =?us-ascii?Q?YkLbnUGjjFYJ0INiEccAUqqK0LvUOsSJI6AXP6XpmCZ8RGbVVyMWhB9cPiEf?=
- =?us-ascii?Q?Ci4q4sleYDJTIasHCzpw87rxfTD10UQpDtD7EBKstcwWMV3j/4x6gamNZghe?=
- =?us-ascii?Q?L/BC696EcGIkrqDEzi7zh/10mHraKyVJCEdQNo18Wv3PZLFCiYbOsTtagVfJ?=
- =?us-ascii?Q?R9oQrqr/iEt5xwerZO3xHtv6NC3ZLsFJkyA322ho3MB3YGzY4rswnrBidNAQ?=
- =?us-ascii?Q?ezihnz5w9zEWeGCwg3A1NiJrp4WWmcUqWoz/gypdU5/gHyBRbz87sJiZosrr?=
- =?us-ascii?Q?FJTIkJHCkENtGvtKUZeOmMUsWMOJxwllwNUK6Ffh17410VbFIjqbSfCXO3Ex?=
- =?us-ascii?Q?juLQEHiuoys4K9QJpO5u7KM4tm9JRpg6mB5E41+vDpFItdlswNQ7Z/r/hNx+?=
- =?us-ascii?Q?KYcFWmaaYus8r1v80DJ0hYxU2ef2ofF31exlp5sPM/ATTvEwILMVM1gH1DiR?=
- =?us-ascii?Q?o8GQYTOk/KD5Yyj5ms7/xIMv?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Xj1Z61g5tfrf+ao88PnNJc95Hk1rO/38iXB3iWw0oY0LlToFAQYPlTnKfaLn?=
+ =?us-ascii?Q?84RAD6b1QwXRHh1fWGBdZFrFXeEELlsEXlgkPyzioEnVZN2H8w0jByoUwpNO?=
+ =?us-ascii?Q?op3XtSg2tw5jL49txMJq21r2bZGPFF0UO8h4MiGLLQWNAjRqjRIN78i/ArfX?=
+ =?us-ascii?Q?Q8drWCkUW44Q3LENfvyoLZnJJObGsg+aPJkl2e4XPWS70AzhSseJEU6I2Ye6?=
+ =?us-ascii?Q?yFHk+GLoiWsu8LoPkkWHL3j/FPEKRmUMl17MbQyMXd9nyj61J2oTQ4O6ejAu?=
+ =?us-ascii?Q?iJsyphS93Nrv+mbZfODoOVqt82in0L6608g4wIzWYu1X/IpFwPRNsUVFcEaK?=
+ =?us-ascii?Q?d1UjiqggVIKU3Y88hMDHwaIb6wOnz8DJslEAQqzfCa5a73nN8HYC07sp+j/O?=
+ =?us-ascii?Q?qr7tAR9P1fQzvuSBexxXApdApq0Hf24m3Lbc1xfQ26EY2/5q1c1GNL1uEG2w?=
+ =?us-ascii?Q?PlhX02OITTIOIz9xMUB2exnShZXnaed37JmPfY4vvDIWV+wIJ79t7FVI36Hp?=
+ =?us-ascii?Q?BebjbOPS4VHBUWUNOXL7QntTukNhSjplp60iiS6bV/z7PnidpIK/1C4bgSry?=
+ =?us-ascii?Q?Vysk8l8NI7yTwcW3gIcx9reETQXlSHOhysqUGjFmTGGCS93pucWGSjbwEiEg?=
+ =?us-ascii?Q?W9kaQ4B6zIwUW1YiR6OAOhsvi9EuvhLj2iK2jym4DqbzwtHZGyCXKW1UCzSd?=
+ =?us-ascii?Q?f2RCESNI9heEgrTZvA5Z2N6XXrVbnx7WFSkbAb2Y/C5UlTG15Kl9HCNau714?=
+ =?us-ascii?Q?dBtHhForictctLfFWA5qkflmxSUg+1J+soBjYuuOwSGePYrSQFIjkqF/ZeEe?=
+ =?us-ascii?Q?QCfT5xGN0UwF3hMWE44BBJ9F7Onq2oN6Dtrpv+bLOpFkuoVgxHxVhrxGEqHe?=
+ =?us-ascii?Q?MPfVfWCkPDkuqumQeQlVuRb3K1IU5evMC2OPxVaNvEP7MXxbMEFapLQut2iu?=
+ =?us-ascii?Q?UB7nrn9hFMNIsSZMAmudyzQf7cbA4hJLAZhZy2LE/nrwpchdBagtWn95a9Wc?=
+ =?us-ascii?Q?4lZamx4YViauUMiWv+y+GUWVlxzlWafp3nawiEtFUbOjmjc1SM4pJDXIIIMU?=
+ =?us-ascii?Q?YMwhOcgvWhqa8eFAZdLG3BsJZoeUwQw14iM9iGyS8xB/WCbMk6VwN4/pXUZr?=
+ =?us-ascii?Q?VYnDt/8aBEGHQkwM/5jluAqcVooho6SEoCS7cMZUe9OhyzR2en0XZD9KcyTQ?=
+ =?us-ascii?Q?ZKb3dsHeogHzUFjqxJ4Yb/Xwiwdc1LiC595AWE84IG8B7XbqSOPKDesMS18H?=
+ =?us-ascii?Q?aT8fg+yaC5JQJwOnDlWuHaX12dbcFJ+JlRxQM0A7suiK52GQcBb+ijssWTke?=
+ =?us-ascii?Q?QV83lnHeG20E0IRM+mSDg+0b?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7330ed45-ba61-4bc8-a496-08d8ea0e9341
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad8028b7-2629-49c6-a36a-08d8ea0e9a98
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2021 13:05:59.7837 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2021 13:06:12.1108 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ExSJIQYAhhQF263KzUcsYXy77lOYAU6bYfceyZXBjqawKoe7gsNeYWZTBLakSCI6H0dixlfxJsSKhBLZYPuOEA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: sFiZfpLmhE0ew2UToeS8S9O4SJ2E4xZ5OoSVXmkLt1Pt8G4cWXpFL2wim396gC3DYujoTVyXqFph2GRMsB5PsA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0826
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210318_130607_180811_6EA1B44E 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20210318_130619_570561_0B1E2F54 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,313 +183,769 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The hart registers and CSRs are not preserved in non-retentative
-suspend state so we provide arch specific helper functions which
-will save/restore hart context upon entry/exit to non-retentive
-suspend state. These helper functions can be used by cpuidle
-drivers for non-retentive suspend entry/exit.
+The generic power domain related code in PSCI domain driver is largely
+independent of PSCI and can be shared with RISC-V SBI domain driver
+hence we factor-out this code into dt_idle_genpd.c and dt_idle_genpd.h.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/include/asm/suspend.h  |  35 +++++++++
- arch/riscv/kernel/Makefile        |   2 +
- arch/riscv/kernel/asm-offsets.c   |   3 +
- arch/riscv/kernel/suspend.c       |  86 ++++++++++++++++++++++
- arch/riscv/kernel/suspend_entry.S | 116 ++++++++++++++++++++++++++++++
- 5 files changed, 242 insertions(+)
- create mode 100644 arch/riscv/include/asm/suspend.h
- create mode 100644 arch/riscv/kernel/suspend.c
- create mode 100644 arch/riscv/kernel/suspend_entry.S
+ drivers/cpuidle/Kconfig                       |   4 +
+ drivers/cpuidle/Kconfig.arm                   |   1 +
+ drivers/cpuidle/Makefile                      |   1 +
+ drivers/cpuidle/cpuidle-psci-domain.c         | 244 +-----------------
+ drivers/cpuidle/cpuidle-psci.h                |  15 +-
+ ...{cpuidle-psci-domain.c => dt_idle_genpd.c} | 165 ++++--------
+ drivers/cpuidle/dt_idle_genpd.h               |  42 +++
+ 7 files changed, 121 insertions(+), 351 deletions(-)
+ copy drivers/cpuidle/{cpuidle-psci-domain.c => dt_idle_genpd.c} (52%)
+ create mode 100644 drivers/cpuidle/dt_idle_genpd.h
 
-diff --git a/arch/riscv/include/asm/suspend.h b/arch/riscv/include/asm/suspend.h
-new file mode 100644
-index 000000000000..63e9f434fb89
---- /dev/null
-+++ b/arch/riscv/include/asm/suspend.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ */
+diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
+index c0aeedd66f02..f1afe7ab6b54 100644
+--- a/drivers/cpuidle/Kconfig
++++ b/drivers/cpuidle/Kconfig
+@@ -47,6 +47,10 @@ config CPU_IDLE_GOV_HALTPOLL
+ config DT_IDLE_STATES
+ 	bool
+ 
++config DT_IDLE_GENPD
++	depends on PM_GENERIC_DOMAINS_OF
++	bool
 +
-+#ifndef _ASM_RISCV_SUSPEND_H
-+#define _ASM_RISCV_SUSPEND_H
-+
-+#include <asm/ptrace.h>
-+
-+struct suspend_context {
-+	/* Saved and restored by low-level functions */
-+	struct pt_regs regs;
-+	/* Saved and restored by high-level functions */
-+	unsigned long scratch;
-+	unsigned long tvec;
-+	unsigned long ie;
-+#ifdef CONFIG_MMU
-+	unsigned long satp;
-+#endif
+ menu "ARM CPU Idle Drivers"
+ depends on ARM || ARM64
+ source "drivers/cpuidle/Kconfig.arm"
+diff --git a/drivers/cpuidle/Kconfig.arm b/drivers/cpuidle/Kconfig.arm
+index 0844fadc4be8..1007435ae298 100644
+--- a/drivers/cpuidle/Kconfig.arm
++++ b/drivers/cpuidle/Kconfig.arm
+@@ -27,6 +27,7 @@ config ARM_PSCI_CPUIDLE_DOMAIN
+ 	bool "PSCI CPU idle Domain"
+ 	depends on ARM_PSCI_CPUIDLE
+ 	depends on PM_GENERIC_DOMAINS_OF
++	select DT_IDLE_GENPD
+ 	default y
+ 	help
+ 	  Select this to enable the PSCI based CPUidle driver to use PM domains,
+diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
+index 26bbc5e74123..11a26cef279f 100644
+--- a/drivers/cpuidle/Makefile
++++ b/drivers/cpuidle/Makefile
+@@ -6,6 +6,7 @@
+ obj-y += cpuidle.o driver.o governor.o sysfs.o governors/
+ obj-$(CONFIG_ARCH_NEEDS_CPU_IDLE_COUPLED) += coupled.o
+ obj-$(CONFIG_DT_IDLE_STATES)		  += dt_idle_states.o
++obj-$(CONFIG_DT_IDLE_GENPD)		  += dt_idle_genpd.o
+ obj-$(CONFIG_ARCH_HAS_CPU_RELAX)	  += poll_state.o
+ obj-$(CONFIG_HALTPOLL_CPUIDLE)		  += cpuidle-haltpoll.o
+ 
+diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+index ff2c3f8e4668..b0621d890ab7 100644
+--- a/drivers/cpuidle/cpuidle-psci-domain.c
++++ b/drivers/cpuidle/cpuidle-psci-domain.c
+@@ -16,17 +16,9 @@
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/psci.h>
+-#include <linux/slab.h>
+-#include <linux/string.h>
+ 
+ #include "cpuidle-psci.h"
+ 
+-struct psci_pd_provider {
+-	struct list_head link;
+-	struct device_node *node;
+-};
+-
+-static LIST_HEAD(psci_pd_providers);
+ static bool psci_pd_allow_domain_state;
+ 
+ static int psci_pd_power_off(struct generic_pm_domain *pd)
+@@ -47,178 +39,6 @@ static int psci_pd_power_off(struct generic_pm_domain *pd)
+ 	return 0;
+ }
+ 
+-static int psci_pd_parse_state_nodes(struct genpd_power_state *states,
+-				     int state_count)
+-{
+-	int i, ret;
+-	u32 psci_state, *psci_state_buf;
+-
+-	for (i = 0; i < state_count; i++) {
+-		ret = psci_dt_parse_state_node(to_of_node(states[i].fwnode),
+-					&psci_state);
+-		if (ret)
+-			goto free_state;
+-
+-		psci_state_buf = kmalloc(sizeof(u32), GFP_KERNEL);
+-		if (!psci_state_buf) {
+-			ret = -ENOMEM;
+-			goto free_state;
+-		}
+-		*psci_state_buf = psci_state;
+-		states[i].data = psci_state_buf;
+-	}
+-
+-	return 0;
+-
+-free_state:
+-	i--;
+-	for (; i >= 0; i--)
+-		kfree(states[i].data);
+-	return ret;
+-}
+-
+-static int psci_pd_parse_states(struct device_node *np,
+-			struct genpd_power_state **states, int *state_count)
+-{
+-	int ret;
+-
+-	/* Parse the domain idle states. */
+-	ret = of_genpd_parse_idle_states(np, states, state_count);
+-	if (ret)
+-		return ret;
+-
+-	/* Fill out the PSCI specifics for each found state. */
+-	ret = psci_pd_parse_state_nodes(*states, *state_count);
+-	if (ret)
+-		kfree(*states);
+-
+-	return ret;
+-}
+-
+-static void psci_pd_free_states(struct genpd_power_state *states,
+-				unsigned int state_count)
+-{
+-	int i;
+-
+-	for (i = 0; i < state_count; i++)
+-		kfree(states[i].data);
+-	kfree(states);
+-}
+-
+-static int psci_pd_init(struct device_node *np, bool use_osi)
+-{
+-	struct generic_pm_domain *pd;
+-	struct psci_pd_provider *pd_provider;
+-	struct dev_power_governor *pd_gov;
+-	struct genpd_power_state *states = NULL;
+-	int ret = -ENOMEM, state_count = 0;
+-
+-	pd = kzalloc(sizeof(*pd), GFP_KERNEL);
+-	if (!pd)
+-		goto out;
+-
+-	pd_provider = kzalloc(sizeof(*pd_provider), GFP_KERNEL);
+-	if (!pd_provider)
+-		goto free_pd;
+-
+-	pd->name = kasprintf(GFP_KERNEL, "%pOF", np);
+-	if (!pd->name)
+-		goto free_pd_prov;
+-
+-	/*
+-	 * Parse the domain idle states and let genpd manage the state selection
+-	 * for those being compatible with "domain-idle-state".
+-	 */
+-	ret = psci_pd_parse_states(np, &states, &state_count);
+-	if (ret)
+-		goto free_name;
+-
+-	pd->free_states = psci_pd_free_states;
+-	pd->name = kbasename(pd->name);
+-	pd->states = states;
+-	pd->state_count = state_count;
+-	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
+-
+-	/* Allow power off when OSI has been successfully enabled. */
+-	if (use_osi)
+-		pd->power_off = psci_pd_power_off;
+-	else
+-		pd->flags |= GENPD_FLAG_ALWAYS_ON;
+-
+-	/* Use governor for CPU PM domains if it has some states to manage. */
+-	pd_gov = state_count > 0 ? &pm_domain_cpu_gov : NULL;
+-
+-	ret = pm_genpd_init(pd, pd_gov, false);
+-	if (ret) {
+-		psci_pd_free_states(states, state_count);
+-		goto free_name;
+-	}
+-
+-	ret = of_genpd_add_provider_simple(np, pd);
+-	if (ret)
+-		goto remove_pd;
+-
+-	pd_provider->node = of_node_get(np);
+-	list_add(&pd_provider->link, &psci_pd_providers);
+-
+-	pr_debug("init PM domain %s\n", pd->name);
+-	return 0;
+-
+-remove_pd:
+-	pm_genpd_remove(pd);
+-free_name:
+-	kfree(pd->name);
+-free_pd_prov:
+-	kfree(pd_provider);
+-free_pd:
+-	kfree(pd);
+-out:
+-	pr_err("failed to init PM domain ret=%d %pOF\n", ret, np);
+-	return ret;
+-}
+-
+-static void psci_pd_remove(void)
+-{
+-	struct psci_pd_provider *pd_provider, *it;
+-	struct generic_pm_domain *genpd;
+-
+-	list_for_each_entry_safe(pd_provider, it, &psci_pd_providers, link) {
+-		of_genpd_del_provider(pd_provider->node);
+-
+-		genpd = of_genpd_remove_last(pd_provider->node);
+-		if (!IS_ERR(genpd))
+-			kfree(genpd);
+-
+-		of_node_put(pd_provider->node);
+-		list_del(&pd_provider->link);
+-		kfree(pd_provider);
+-	}
+-}
+-
+-static int psci_pd_init_topology(struct device_node *np)
+-{
+-	struct device_node *node;
+-	struct of_phandle_args child, parent;
+-	int ret;
+-
+-	for_each_child_of_node(np, node) {
+-		if (of_parse_phandle_with_args(node, "power-domains",
+-					"#power-domain-cells", 0, &parent))
+-			continue;
+-
+-		child.np = node;
+-		child.args_count = 0;
+-		ret = of_genpd_add_subdomain(&parent, &child);
+-		of_node_put(parent.np);
+-		if (ret) {
+-			of_node_put(node);
+-			return ret;
+-		}
+-	}
+-
+-	return 0;
+-}
+-
+ static bool psci_pd_try_set_osi_mode(void)
+ {
+ 	int ret;
+@@ -244,6 +64,10 @@ static void psci_cpuidle_domain_sync_state(struct device *dev)
+ 	psci_pd_allow_domain_state = true;
+ }
+ 
++static struct dt_idle_genpd_ops psci_genpd_ops = {
++	.parse_state_node = psci_dt_parse_state_node,
 +};
 +
-+/* Low-level CPU suspend entry function */
-+int __cpu_suspend_enter(struct suspend_context *context);
-+
-+/* High-level CPU suspend which will save context and call finish() */
-+int cpu_suspend(unsigned long arg,
-+		int (*finish)(unsigned long arg,
-+			      unsigned long entry,
-+			      unsigned long context));
-+
-+/* Low-level CPU resume entry function */
-+int __cpu_resume_enter(unsigned long hartid, unsigned long context);
-+
-+#endif
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 3dc0abde988a..b9b1b05ab860 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -42,6 +42,8 @@ obj-$(CONFIG_SMP)		+= cpu_ops_spinwait.o
- obj-$(CONFIG_MODULES)		+= module.o
- obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ static const struct of_device_id psci_of_match[] = {
+ 	{ .compatible = "arm,psci-1.0" },
+ 	{}
+@@ -252,48 +76,25 @@ static const struct of_device_id psci_of_match[] = {
+ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
+-	struct device_node *node;
+ 	bool use_osi;
+-	int ret = 0, pd_count = 0;
++	int ret = 0;
  
-+obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
+ 	if (!np)
+ 		return -ENODEV;
+ 
+ 	/* If OSI mode is supported, let's try to enable it. */
+ 	use_osi = psci_pd_try_set_osi_mode();
++	if (use_osi)
++		psci_genpd_ops.power_off = psci_pd_power_off;
+ 
+-	/*
+-	 * Parse child nodes for the "#power-domain-cells" property and
+-	 * initialize a genpd/genpd-of-provider pair when it's found.
+-	 */
+-	for_each_child_of_node(np, node) {
+-		if (!of_find_property(node, "#power-domain-cells", NULL))
+-			continue;
+-
+-		ret = psci_pd_init(node, use_osi);
+-		if (ret)
+-			goto put_node;
+-
+-		pd_count++;
+-	}
+-
+-	/* Bail out if not using the hierarchical CPU topology. */
+-	if (!pd_count)
+-		goto no_pd;
+-
+-	/* Link genpd masters/subdomains to model the CPU topology. */
+-	ret = psci_pd_init_topology(np);
++	/* Generic power domain probing based on DT node. */
++	ret = dt_idle_genpd_probe(&psci_genpd_ops, np);
+ 	if (ret)
+-		goto remove_pd;
++		goto no_pd;
+ 
+ 	pr_info("Initialized CPU PM domain topology\n");
+ 	return 0;
+ 
+-put_node:
+-	of_node_put(node);
+-remove_pd:
+-	psci_pd_remove();
+-	pr_err("failed to create CPU PM domains ret=%d\n", ret);
+ no_pd:
+ 	if (use_osi)
+ 		psci_set_osi_mode(false);
+@@ -314,28 +115,3 @@ static int __init psci_idle_init_domains(void)
+ 	return platform_driver_register(&psci_cpuidle_domain_driver);
+ }
+ subsys_initcall(psci_idle_init_domains);
+-
+-struct device *psci_dt_attach_cpu(int cpu)
+-{
+-	struct device *dev;
+-
+-	dev = dev_pm_domain_attach_by_name(get_cpu_device(cpu), "psci");
+-	if (IS_ERR_OR_NULL(dev))
+-		return dev;
+-
+-	pm_runtime_irq_safe(dev);
+-	if (cpu_online(cpu))
+-		pm_runtime_get_sync(dev);
+-
+-	dev_pm_syscore_device(dev, true);
+-
+-	return dev;
+-}
+-
+-void psci_dt_detach_cpu(struct device *dev)
+-{
+-	if (IS_ERR_OR_NULL(dev))
+-		return;
+-
+-	dev_pm_domain_detach(dev, false);
+-}
+diff --git a/drivers/cpuidle/cpuidle-psci.h b/drivers/cpuidle/cpuidle-psci.h
+index d8e925e84c27..70de1e3c00af 100644
+--- a/drivers/cpuidle/cpuidle-psci.h
++++ b/drivers/cpuidle/cpuidle-psci.h
+@@ -10,8 +10,19 @@ void psci_set_domain_state(u32 state);
+ int psci_dt_parse_state_node(struct device_node *np, u32 *state);
+ 
+ #ifdef CONFIG_ARM_PSCI_CPUIDLE_DOMAIN
+-struct device *psci_dt_attach_cpu(int cpu);
+-void psci_dt_detach_cpu(struct device *dev);
 +
- obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
- 
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 9ef33346853c..2628dfd0f77d 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -10,6 +10,7 @@
- #include <linux/sched.h>
- #include <asm/thread_info.h>
- #include <asm/ptrace.h>
-+#include <asm/suspend.h>
- 
- void asm_offsets(void);
- 
-@@ -111,6 +112,8 @@ void asm_offsets(void)
- 	OFFSET(PT_BADADDR, pt_regs, badaddr);
- 	OFFSET(PT_CAUSE, pt_regs, cause);
- 
-+	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
++#include "dt_idle_genpd.h"
 +
- 	/*
- 	 * THREAD_{F,X}* might be larger than a S-type offset can handle, but
- 	 * these are used in performance-sensitive assembly so we can't resort
-diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-new file mode 100644
-index 000000000000..49dddec30e99
---- /dev/null
-+++ b/arch/riscv/kernel/suspend.c
-@@ -0,0 +1,86 @@
++static inline struct device *psci_dt_attach_cpu(int cpu)
++{
++	return dt_idle_genpd_attach_cpu(cpu, "psci");
++}
++
++static inline void psci_dt_detach_cpu(struct device *dev)
++{
++	dt_idle_genpd_detach_cpu(dev);
++}
++
+ #else
+ static inline struct device *psci_dt_attach_cpu(int cpu) { return NULL; }
+ static inline void psci_dt_detach_cpu(struct device *dev) { }
+diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/dt_idle_genpd.c
+similarity index 52%
+copy from drivers/cpuidle/cpuidle-psci-domain.c
+copy to drivers/cpuidle/dt_idle_genpd.c
+index ff2c3f8e4668..805c4c81d60f 100644
+--- a/drivers/cpuidle/cpuidle-psci-domain.c
++++ b/drivers/cpuidle/dt_idle_genpd.c
+@@ -1,71 +1,52 @@
+-// SPDX-License-Identifier: GPL-2.0
 +// SPDX-License-Identifier: GPL-2.0-only
-+/*
+ /*
+- * PM domains for CPUs via genpd - managed by cpuidle-psci.
++ * PM domains for CPUs via genpd.
+  *
+  * Copyright (C) 2019 Linaro Ltd.
+  * Author: Ulf Hansson <ulf.hansson@linaro.org>
+  *
 + * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ */
-+
-+#include <linux/ftrace.h>
-+#include <asm/csr.h>
-+#include <asm/suspend.h>
-+
-+static void suspend_save_csrs(struct suspend_context *context)
-+{
-+	context->scratch = csr_read(CSR_SCRATCH);
-+	context->tvec = csr_read(CSR_TVEC);
-+	context->ie = csr_read(CSR_IE);
-+
-+	/*
-+	 * No need to save/restore IP CSR (i.e. MIP or SIP) because:
-+	 *
-+	 * 1. For no-MMU (M-mode) kernel, the bits in MIP are set by
-+	 *    external devices (such as interrupt controller, timer, etc).
-+	 * 2. For MMU (S-mode) kernel, the bits in SIP are set by
-+	 *    M-mode firmware and external devices (such as interrupt
-+	 *    controller, etc).
-+	 */
-+
-+#ifdef CONFIG_MMU
-+	context->satp = csr_read(CSR_SATP);
-+#endif
-+}
-+
-+static void suspend_restore_csrs(struct suspend_context *context)
-+{
-+	csr_write(CSR_SCRATCH, context->scratch);
-+	csr_write(CSR_TVEC, context->tvec);
-+	csr_write(CSR_IE, context->ie);
-+
-+#ifdef CONFIG_MMU
-+	csr_write(CSR_SATP, context->satp);
-+#endif
-+}
-+
-+int cpu_suspend(unsigned long arg,
-+		int (*finish)(unsigned long arg,
-+			      unsigned long entry,
-+			      unsigned long context))
-+{
-+	int rc = 0;
-+	struct suspend_context context = { 0 };
-+
-+	/* Finisher should be non-NULL */
-+	if (!finish)
-+		return -EINVAL;
-+
-+	/* Save additional CSRs*/
-+	suspend_save_csrs(&context);
-+
-+	/*
-+	 * Function graph tracer state gets incosistent when the kernel
-+	 * calls functions that never return (aka finishers) hence disable
-+	 * graph tracing during their execution.
-+	 */
-+	pause_graph_tracing();
-+
-+	/* Save context on stack */
-+	if (__cpu_suspend_enter(&context)) {
-+		/* Call the finisher */
-+		rc = finish(arg, __pa_symbol(__cpu_resume_enter),
-+			    (ulong)&context);
-+
-+		/*
-+		 * Should never reach here, unless the suspend finisher
-+		 * fails. Successful cpu_suspend() should return from
-+		 * __cpu_resume_entry()
-+		 */
-+		if (!rc)
-+			rc = -EOPNOTSUPP;
-+	}
-+
-+	/* Enable function graph tracer */
-+	unpause_graph_tracing();
-+
-+	/* Restore additional CSRs */
-+	suspend_restore_csrs(&context);
-+
-+	return rc;
-+}
-diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
+  */
+ 
+-#define pr_fmt(fmt) "CPUidle PSCI: " fmt
++#define pr_fmt(fmt) "dt-idle-genpd: " fmt
+ 
+ #include <linux/cpu.h>
+ #include <linux/device.h>
+ #include <linux/kernel.h>
+-#include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+-#include <linux/psci.h>
+ #include <linux/slab.h>
+ #include <linux/string.h>
+ 
+-#include "cpuidle-psci.h"
++#include "dt_idle_genpd.h"
+ 
+-struct psci_pd_provider {
++struct dt_pd_provider {
+ 	struct list_head link;
+ 	struct device_node *node;
+ };
+ 
+-static LIST_HEAD(psci_pd_providers);
+-static bool psci_pd_allow_domain_state;
++static LIST_HEAD(dt_pd_providers);
+ 
+-static int psci_pd_power_off(struct generic_pm_domain *pd)
+-{
+-	struct genpd_power_state *state = &pd->states[pd->state_idx];
+-	u32 *pd_state;
+-
+-	if (!state->data)
+-		return 0;
+-
+-	if (!psci_pd_allow_domain_state)
+-		return -EBUSY;
+-
+-	/* OSI mode is enabled, set the corresponding domain state. */
+-	pd_state = state->data;
+-	psci_set_domain_state(*pd_state);
+-
+-	return 0;
+-}
+-
+-static int psci_pd_parse_state_nodes(struct genpd_power_state *states,
+-				     int state_count)
++static int dt_pd_parse_state_nodes(const struct dt_idle_genpd_ops *ops,
++				   struct genpd_power_state *states,
++				   int state_count)
+ {
+ 	int i, ret;
+-	u32 psci_state, *psci_state_buf;
++	u32 state, *state_buf;
+ 
+ 	for (i = 0; i < state_count; i++) {
+-		ret = psci_dt_parse_state_node(to_of_node(states[i].fwnode),
+-					&psci_state);
++		ret = ops->parse_state_node(to_of_node(states[i].fwnode),
++					    &state);
+ 		if (ret)
+ 			goto free_state;
+ 
+-		psci_state_buf = kmalloc(sizeof(u32), GFP_KERNEL);
+-		if (!psci_state_buf) {
++		state_buf = kmalloc(sizeof(u32), GFP_KERNEL);
++		if (!state_buf) {
+ 			ret = -ENOMEM;
+ 			goto free_state;
+ 		}
+-		*psci_state_buf = psci_state;
+-		states[i].data = psci_state_buf;
++		*state_buf = state;
++		states[i].data = state_buf;
+ 	}
+ 
+ 	return 0;
+@@ -77,8 +58,10 @@ static int psci_pd_parse_state_nodes(struct genpd_power_state *states,
+ 	return ret;
+ }
+ 
+-static int psci_pd_parse_states(struct device_node *np,
+-			struct genpd_power_state **states, int *state_count)
++static int dt_pd_parse_states(const struct dt_idle_genpd_ops *ops,
++			      struct device_node *np,
++			      struct genpd_power_state **states,
++			      int *state_count)
+ {
+ 	int ret;
+ 
+@@ -87,15 +70,15 @@ static int psci_pd_parse_states(struct device_node *np,
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Fill out the PSCI specifics for each found state. */
+-	ret = psci_pd_parse_state_nodes(*states, *state_count);
++	/* Fill out the dt specifics for each found state. */
++	ret = dt_pd_parse_state_nodes(ops, *states, *state_count);
+ 	if (ret)
+ 		kfree(*states);
+ 
+ 	return ret;
+ }
+ 
+-static void psci_pd_free_states(struct genpd_power_state *states,
++static void dt_pd_free_states(struct genpd_power_state *states,
+ 				unsigned int state_count)
+ {
+ 	int i;
+@@ -105,10 +88,11 @@ static void psci_pd_free_states(struct genpd_power_state *states,
+ 	kfree(states);
+ }
+ 
+-static int psci_pd_init(struct device_node *np, bool use_osi)
++static int dt_pd_init(const struct dt_idle_genpd_ops *ops,
++		      struct device_node *np)
+ {
+ 	struct generic_pm_domain *pd;
+-	struct psci_pd_provider *pd_provider;
++	struct dt_pd_provider *pd_provider;
+ 	struct dev_power_governor *pd_gov;
+ 	struct genpd_power_state *states = NULL;
+ 	int ret = -ENOMEM, state_count = 0;
+@@ -129,19 +113,19 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+ 	 * Parse the domain idle states and let genpd manage the state selection
+ 	 * for those being compatible with "domain-idle-state".
+ 	 */
+-	ret = psci_pd_parse_states(np, &states, &state_count);
++	ret = dt_pd_parse_states(ops, np, &states, &state_count);
+ 	if (ret)
+ 		goto free_name;
+ 
+-	pd->free_states = psci_pd_free_states;
++	pd->free_states = dt_pd_free_states;
+ 	pd->name = kbasename(pd->name);
+ 	pd->states = states;
+ 	pd->state_count = state_count;
+ 	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
+ 
+-	/* Allow power off when OSI has been successfully enabled. */
+-	if (use_osi)
+-		pd->power_off = psci_pd_power_off;
++	/* Allow power off when available. */
++	if (ops->power_off)
++		pd->power_off = ops->power_off;
+ 	else
+ 		pd->flags |= GENPD_FLAG_ALWAYS_ON;
+ 
+@@ -150,7 +134,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+ 
+ 	ret = pm_genpd_init(pd, pd_gov, false);
+ 	if (ret) {
+-		psci_pd_free_states(states, state_count);
++		dt_pd_free_states(states, state_count);
+ 		goto free_name;
+ 	}
+ 
+@@ -159,7 +143,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+ 		goto remove_pd;
+ 
+ 	pd_provider->node = of_node_get(np);
+-	list_add(&pd_provider->link, &psci_pd_providers);
++	list_add(&pd_provider->link, &dt_pd_providers);
+ 
+ 	pr_debug("init PM domain %s\n", pd->name);
+ 	return 0;
+@@ -177,12 +161,12 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+ 	return ret;
+ }
+ 
+-static void psci_pd_remove(void)
++static void dt_pd_remove(void)
+ {
+-	struct psci_pd_provider *pd_provider, *it;
++	struct dt_pd_provider *pd_provider, *it;
+ 	struct generic_pm_domain *genpd;
+ 
+-	list_for_each_entry_safe(pd_provider, it, &psci_pd_providers, link) {
++	list_for_each_entry_safe(pd_provider, it, &dt_pd_providers, link) {
+ 		of_genpd_del_provider(pd_provider->node);
+ 
+ 		genpd = of_genpd_remove_last(pd_provider->node);
+@@ -195,7 +179,7 @@ static void psci_pd_remove(void)
+ 	}
+ }
+ 
+-static int psci_pd_init_topology(struct device_node *np)
++static int dt_pd_init_topology(struct device_node *np)
+ {
+ 	struct device_node *node;
+ 	struct of_phandle_args child, parent;
+@@ -219,49 +203,15 @@ static int psci_pd_init_topology(struct device_node *np)
+ 	return 0;
+ }
+ 
+-static bool psci_pd_try_set_osi_mode(void)
+-{
+-	int ret;
+-
+-	if (!psci_has_osi_support())
+-		return false;
+-
+-	ret = psci_set_osi_mode(true);
+-	if (ret) {
+-		pr_warn("failed to enable OSI mode: %d\n", ret);
+-		return false;
+-	}
+-
+-	return true;
+-}
+-
+-static void psci_cpuidle_domain_sync_state(struct device *dev)
++int dt_idle_genpd_probe(const struct dt_idle_genpd_ops *ops,
++			struct device_node *np)
+ {
+-	/*
+-	 * All devices have now been attached/probed to the PM domain topology,
+-	 * hence it's fine to allow domain states to be picked.
+-	 */
+-	psci_pd_allow_domain_state = true;
+-}
+-
+-static const struct of_device_id psci_of_match[] = {
+-	{ .compatible = "arm,psci-1.0" },
+-	{}
+-};
+-
+-static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+-{
+-	struct device_node *np = pdev->dev.of_node;
+ 	struct device_node *node;
+-	bool use_osi;
+ 	int ret = 0, pd_count = 0;
+ 
+-	if (!np)
++	if (!np || !ops || !ops->parse_state_node)
+ 		return -ENODEV;
+ 
+-	/* If OSI mode is supported, let's try to enable it. */
+-	use_osi = psci_pd_try_set_osi_mode();
+-
+ 	/*
+ 	 * Parse child nodes for the "#power-domain-cells" property and
+ 	 * initialize a genpd/genpd-of-provider pair when it's found.
+@@ -270,7 +220,7 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+ 		if (!of_find_property(node, "#power-domain-cells", NULL))
+ 			continue;
+ 
+-		ret = psci_pd_init(node, use_osi);
++		ret = dt_pd_init(ops, node);
+ 		if (ret)
+ 			goto put_node;
+ 
+@@ -282,44 +232,27 @@ static int psci_cpuidle_domain_probe(struct platform_device *pdev)
+ 		goto no_pd;
+ 
+ 	/* Link genpd masters/subdomains to model the CPU topology. */
+-	ret = psci_pd_init_topology(np);
++	ret = dt_pd_init_topology(np);
+ 	if (ret)
+ 		goto remove_pd;
+ 
+-	pr_info("Initialized CPU PM domain topology\n");
+ 	return 0;
+ 
+ put_node:
+ 	of_node_put(node);
+ remove_pd:
+-	psci_pd_remove();
++	dt_pd_remove();
+ 	pr_err("failed to create CPU PM domains ret=%d\n", ret);
+ no_pd:
+-	if (use_osi)
+-		psci_set_osi_mode(false);
+ 	return ret;
+ }
++EXPORT_SYMBOL_GPL(dt_idle_genpd_probe);
+ 
+-static struct platform_driver psci_cpuidle_domain_driver = {
+-	.probe  = psci_cpuidle_domain_probe,
+-	.driver = {
+-		.name = "psci-cpuidle-domain",
+-		.of_match_table = psci_of_match,
+-		.sync_state = psci_cpuidle_domain_sync_state,
+-	},
+-};
+-
+-static int __init psci_idle_init_domains(void)
+-{
+-	return platform_driver_register(&psci_cpuidle_domain_driver);
+-}
+-subsys_initcall(psci_idle_init_domains);
+-
+-struct device *psci_dt_attach_cpu(int cpu)
++struct device *dt_idle_genpd_attach_cpu(int cpu, const char *name)
+ {
+ 	struct device *dev;
+ 
+-	dev = dev_pm_domain_attach_by_name(get_cpu_device(cpu), "psci");
++	dev = dev_pm_domain_attach_by_name(get_cpu_device(cpu), name);
+ 	if (IS_ERR_OR_NULL(dev))
+ 		return dev;
+ 
+@@ -331,11 +264,13 @@ struct device *psci_dt_attach_cpu(int cpu)
+ 
+ 	return dev;
+ }
++EXPORT_SYMBOL_GPL(dt_idle_genpd_attach_cpu);
+ 
+-void psci_dt_detach_cpu(struct device *dev)
++void dt_idle_genpd_detach_cpu(struct device *dev)
+ {
+ 	if (IS_ERR_OR_NULL(dev))
+ 		return;
+ 
+ 	dev_pm_domain_detach(dev, false);
+ }
++EXPORT_SYMBOL_GPL(dt_idle_genpd_detach_cpu);
+diff --git a/drivers/cpuidle/dt_idle_genpd.h b/drivers/cpuidle/dt_idle_genpd.h
 new file mode 100644
-index 000000000000..dee85c86e177
+index 000000000000..a3d3d2e85871
 --- /dev/null
-+++ b/arch/riscv/kernel/suspend_entry.S
-@@ -0,0 +1,116 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ */
++++ b/drivers/cpuidle/dt_idle_genpd.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __DT_IDLE_GENPD
++#define __DT_IDLE_GENPD
 +
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+#include <asm/asm-offsets.h>
-+#include <asm/csr.h>
++struct device_node;
++struct generic_pm_domain;
 +
-+	.text
-+	.altmacro
-+	.option norelax
++struct dt_idle_genpd_ops {
++	int (*parse_state_node)(struct device_node *np, u32 *state);
++	int (*power_off)(struct generic_pm_domain *pd);
++};
 +
-+ENTRY(__cpu_suspend_enter)
-+	/* Save registers (except A0 and T0-T6) */
-+	REG_S	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
-+	REG_S	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
-+	REG_S	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
-+	REG_S	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
-+	REG_S	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
-+	REG_S	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
-+	REG_S	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
-+	REG_S	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
-+	REG_S	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
-+	REG_S	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
-+	REG_S	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
-+	REG_S	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
-+	REG_S	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
-+	REG_S	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
-+	REG_S	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
-+	REG_S	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
-+	REG_S	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
-+	REG_S	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
-+	REG_S	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
-+	REG_S	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
-+	REG_S	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
-+	REG_S	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
-+	REG_S	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
++#ifdef CONFIG_DT_IDLE_GENPD
 +
-+	/* Save CSRs */
-+	csrr	t0, CSR_EPC
-+	REG_S	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
-+	csrr	t0, CSR_STATUS
-+	REG_S	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
-+	csrr	t0, CSR_TVAL
-+	REG_S	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
-+	csrr	t0, CSR_CAUSE
-+	REG_S	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
++int dt_idle_genpd_probe(const struct dt_idle_genpd_ops *ops,
++			struct device_node *np);
 +
-+	/* Return non-zero value */
-+	li	a0, 1
++struct device *dt_idle_genpd_attach_cpu(int cpu, const char *name);
 +
-+	/* Return to C code */
-+	ret
-+END(__cpu_suspend_enter)
++void dt_idle_genpd_detach_cpu(struct device *dev);
 +
-+ENTRY(__cpu_resume_enter)
-+#ifdef CONFIG_MMU
-+	/* Save A0 and A1 */
-+	add	t0, a0, zero
-+	add	t1, a1, zero
++#else
 +
-+	/* Enable MMU */
-+	la	a0, swapper_pg_dir
-+	call	relocate_enable_mmu
++int dt_idle_genpd_probe(const struct dt_idle_genpd_ops *ops,
++			struct device_node *np)
++{
++	return 0;
++}
 +
-+	/* Restore A0 and A1 */
-+	add	a0, t0, zero
-+	add	a1, t1, zero
++static inline struct device *dt_idle_genpd_attach_cpu(int cpu,
++						      const char *name)
++{
++	return NULL;
++}
++
++static inline void dt_idle_genpd_detach_cpu(struct device *dev)
++{
++}
++
 +#endif
 +
-+	/* Make A0 point to suspend context */
-+	add	a0, a1, zero
-+
-+	/* Restore CSRs */
-+	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_EPC)(a0)
-+	csrw	CSR_EPC, t0
-+	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_STATUS)(a0)
-+	csrw	CSR_STATUS, t0
-+	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_BADADDR)(a0)
-+	csrw	CSR_TVAL, t0
-+	REG_L	t0, (SUSPEND_CONTEXT_REGS + PT_CAUSE)(a0)
-+	csrw	CSR_CAUSE, t0
-+
-+	/* Restore registers (except A0 and T0-T6) */
-+	REG_L	ra, (SUSPEND_CONTEXT_REGS + PT_RA)(a0)
-+	REG_L	sp, (SUSPEND_CONTEXT_REGS + PT_SP)(a0)
-+	REG_L	gp, (SUSPEND_CONTEXT_REGS + PT_GP)(a0)
-+	REG_L	tp, (SUSPEND_CONTEXT_REGS + PT_TP)(a0)
-+	REG_L	s0, (SUSPEND_CONTEXT_REGS + PT_S0)(a0)
-+	REG_L	s1, (SUSPEND_CONTEXT_REGS + PT_S1)(a0)
-+	REG_L	a1, (SUSPEND_CONTEXT_REGS + PT_A1)(a0)
-+	REG_L	a2, (SUSPEND_CONTEXT_REGS + PT_A2)(a0)
-+	REG_L	a3, (SUSPEND_CONTEXT_REGS + PT_A3)(a0)
-+	REG_L	a4, (SUSPEND_CONTEXT_REGS + PT_A4)(a0)
-+	REG_L	a5, (SUSPEND_CONTEXT_REGS + PT_A5)(a0)
-+	REG_L	a6, (SUSPEND_CONTEXT_REGS + PT_A6)(a0)
-+	REG_L	a7, (SUSPEND_CONTEXT_REGS + PT_A7)(a0)
-+	REG_L	s2, (SUSPEND_CONTEXT_REGS + PT_S2)(a0)
-+	REG_L	s3, (SUSPEND_CONTEXT_REGS + PT_S3)(a0)
-+	REG_L	s4, (SUSPEND_CONTEXT_REGS + PT_S4)(a0)
-+	REG_L	s5, (SUSPEND_CONTEXT_REGS + PT_S5)(a0)
-+	REG_L	s6, (SUSPEND_CONTEXT_REGS + PT_S6)(a0)
-+	REG_L	s7, (SUSPEND_CONTEXT_REGS + PT_S7)(a0)
-+	REG_L	s8, (SUSPEND_CONTEXT_REGS + PT_S8)(a0)
-+	REG_L	s9, (SUSPEND_CONTEXT_REGS + PT_S9)(a0)
-+	REG_L	s10, (SUSPEND_CONTEXT_REGS + PT_S10)(a0)
-+	REG_L	s11, (SUSPEND_CONTEXT_REGS + PT_S11)(a0)
-+
-+	/* Return zero value */
-+	add	a0, zero, zero
-+
-+	/* Return to C code */
-+	ret
-+END(__cpu_resume_enter)
++#endif
 -- 
 2.25.1
 
