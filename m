@@ -2,20 +2,20 @@ Return-Path: <SRS0=IhzG=IQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EFCEC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6035C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:08:20 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AB2EF64E20
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:07:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB2EF64E20
+	by mail.kernel.org (Postfix) with ESMTPS id 1F07264E20
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:08:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F07264E20
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,65 +24,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7ub0HdLoDFGswrYpGL1SaLDuXOrRcr1rKkcUgNmlIog=; b=bn5yu6YPPeDyZKus7TNu5dEd4
-	L1dbdRRjIC5vOE+pzwdZGq+SIi1oWu2MR9xWbq1hiysqoTqapXa2dAiFYC2RtPnnDsNp8hGY4jSMX
-	AaZ3ohskkDiCMT/tA2r5LSZOM3hnUjLH0zPs4BC+JnqqJ2rOh98DXW/vQ25JRcdnYkFTIi5T52qVR
-	XkOXMMCFn18m3+tXZasVPBVWHUB7C+dnrqYMs2uL2zT0crx0Ava+LdzyvSwaH+L8iKlMbH6maLFEO
-	CjPhZFdxa6d+A90w0PnjjNQhW2b3WPa3G/F/toFWcCfOMetCh1mcTZ1Pf9KFxZTXBQrECNQA7fai5
-	0OaKPKt6w==;
+	 bh=YBQeJOiyvCaCsVa1sJTl4SZNOWJKCs3HgiUpjrTeUN4=; b=Pb94GbOBWuEmFdNqvV9LaLg81
+	xIEOu2H/2DeR3ebIMnH5Q9YdR1B++Fk7qikEAVBDyTMCBMWAVz0eAECG3O2X7I5Ji5uOhZlHbJKLr
+	twc8UkwmjRpFMp+nwX99BMHtyOYJXUx8YJwXKhzxeCxWIPRM1ABGTHrCH1kZVu2UCIzW0oHL8kAUA
+	d/si0G2GqJUmnpDZWRDfN4sjRA+L7TLJ2AwrViuPfDLRr54ZJSBcXiL06oeRq/Z/XC16J6vHtiSNO
+	Ki+bhbMjTMM/1yX83s/seqOsvnn+2W3nkQeBT7cS+UFcukUJNE6V/KS8EaAgE+yZ8vGO1gcCohgli
+	yalMwkfhg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMsMo-005J57-QM; Thu, 18 Mar 2021 13:07:10 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1lMsNc-005JRg-R7; Thu, 18 Mar 2021 13:08:01 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMsLp-005Ieo-TK; Thu, 18 Mar 2021 13:06:12 +0000
+ id 1lMsM3-005Ik1-EE; Thu, 18 Mar 2021 13:06:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1616072769; x=1647608769;
+ t=1616072800; x=1647608800;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=y4YFFMKVmlQM+NHGrCbRGUcVF0miD9tt6EelOHDf/Ls=;
- b=VIvkL7mByNW5O0b33ORG6WZcWWUqz3Ns09tykyl89vy8/mmfrYc8gGYL
- RzP7q2Iqlos7m/HpLVxRNlKNVVMo5zPAxb5XxHpem5+YW6uTaOEIHT5jZ
- hVSmpfrd4Qq1c1PYlhk6JkNZ5+k0T6ufZ8dxHhYtvtdKs5eCdZ941zfSx
- Zso3W+FMbbGEODU8WD/+Cx0qVJ9lcurz4Ejh9dtc2SGIvjlV7qHMVr3d9
- Wd+/mXq+dbq7HpPIRf4NLhwK9q6mHPOfs9ZHpRyz3OSyBuCBjFI1ejx74
- um7BbPMVjjyRks+3gfsXYP5FY/gx7rMbpHFfPzGkCTlswqX5qNq0lIXPI g==;
-IronPort-SDR: 2i/4nboKWa9J0JJpvzYGZOxy51uE/LDRMyVD9BdD9jlgHC0qYXxu7xZ2eMjNfRok93jFKKBtXu
- NI6NAfOD7Uv8MTy6DDz3YGNvTFT1LrwD1j9mQicaDndRgjT8MEWqkgVUjcjYVrX1u9Q/X7/dQQ
- Slgf4jdYy6c23+NherKIXO7EECX5uGyTBarbzdmk3UqczabRa0WSe9l682zjA8DmYMXi0s2OOm
- IXgXQTmyELhctmodFK7NggNNU9VlN542zGk9vlbvXQ7Cvj2j4pj+DPqf7HogurdLp/9neMXAAS
- vDU=
-X-IronPort-AV: E=Sophos;i="5.81,258,1610380800"; d="scan'208";a="273192118"
-Received: from mail-sn1nam02lp2057.outbound.protection.outlook.com (HELO
- NAM02-SN1-obe.outbound.protection.outlook.com) ([104.47.36.57])
- by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2021 21:06:06 +0800
+ bh=xRjkSngl6JrbFhQW624YAadKdBN5mGoNhLFzY2zwGK8=;
+ b=fCDUrb18YitnJKvTXGKmhjnt8gG3LV08JmKyU9PDqFm4szAC3RAYH1lX
+ nIA8/DBOzO/ZE+absPjBMFaOu5Omfozllw5vo1O8R6yDLu1jCP2Vt/mIo
+ dZmgXbW6MPXiLP5ADPuuYJh8A50x7LapORDWwIFJittX8vE17xnD8QD4K
+ fzgvL8/ttrbBzk5opjZq2UkBsrDlZ4ZFlbB7blvXCh7t1W+ECBmSmF6MK
+ 51VEF1h27syyqAyzBpxwR0hrDStIzJmxENo2dac4v4ADHANfYI9y7HjSC
+ 2zS4stOuRdWfppKvDH1MGUAEFb9j6VkSQL45DwmdvF4FiyLsItM78T47q w==;
+IronPort-SDR: VNT/A6IO40d374IFJfylZaypKvsQhG7Xg4rFYArU9AcD/LVsIMD16OtYKek8A/E1hbq52YXBGS
+ 6RHcsqtkLbSReL1/n6rVygu8RmKPjh1/e6cruMpdwvi40C9/jrakwrd69W/Ve7Zdgabm/P+GpT
+ tG7Kgv5hE9Aj/QUJu+0PC72KRenVCbDPT77FcNhNYgut6GGcra9/SIA4vvUZ4qTr5svrcWkIV2
+ /b2ZJhcomXSMOPfNwNRSpxr8IYiHnF2sr4rGzmAK4XnpWhOni/LJX8D8rqUcgNm/tkpLl+6+Wc
+ q7s=
+X-IronPort-AV: E=Sophos;i="5.81,258,1610380800"; d="scan'208";a="266856988"
+Received: from mail-bn8nam11lp2173.outbound.protection.outlook.com (HELO
+ NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.173])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2021 21:06:34 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=DHq/st1yBXh4W4yWAqMPs5QQXa1iCIcb9D7d+jW99kcwsFVFARhNkD4Is27HCEVRBCcmEfR/DZTLcxl91UadNRD4rhnk1PxfwtDKy1Ek/APSTkxz389jlqNtJMb1/IgSmkUH3XCcwzI9pHBtW7tLSvUrx17jNy0VFg+NIra+8YsEGAACzGsnuGZteoyEH4WBtCJRxFyZ3oisz9LMoH+ulaUhl0cT+NqblAW+69tFH33l9Dk/VTJkPjR2OKowfKviPkpwiH63uzwFj+aiRrZ5IqhPY0QcQTWSIGQqW++R8KbdlfyS5LIIuh8Z9PEqT8VwI6ySDT3dm2bchv/isZbWZA==
+ b=ngC/7k/hY6b5jaADHBN2sPpz/laeA3667epRGS2e6Tf84shtHY0HJbeUJZP1vYJWKNL50bu9hoqsJ4JITHguVSaZMKBa2XNfNQTAPTTSfCLsDC7KNvTVrG+q2h0PBZVh+P7YpUDmvqsS1PW7tq0yy7t0efG/fJRO7bkzH7KthJWDZ5O/A66BPjyLU45uSVmbtu4aDPqG/uquiAdufNcz8+wMCFp6sCkchlii51jEvCtdaCSs8eWZRTfXyhUdOXB5QGop7y/CAaWbhEdkRwVfyt1lCa/ZAEvvfJxTezGbWrRxe1wkP/K8nsSkwshVElOaFww2Q+rcv6M3x/pooBZeCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sRnYrrQBMmPOciDojSI7+oGNW+nIEqIdYgzr++abP9s=;
- b=ltAH3/WQo4dArJ4B2H0Tfl+X6SUsK0phH6MXOarXUwzJUxDO4XBkBsBmGGZAkunE59IHEq/SZgX60dZYam9B4TyvJ286qbbD9BswsBXXWpzWeRedHzU5G9JQ7sjMEMq/WfLP7uC3Eq89Xax6wXbGRNbTG2u8EDD3rw9UZQcFkxjku94vGpRMko0vGEtBgK06VIi76Vv+3Vw1/RNAkqjJr08f048EK56OuVdF0DHPHTYsUjP4yEaR0txIQOqqBmm+jNURwByWh4waLOZYTlPxWRPVWYWcYfpmj3tkPx3YeuELiv65s74PIfadsvoY7LcdfWnfGBChH8z/AAzppw32+w==
+ bh=czXf1ICfMmkfzxSxs5d9LOjTxH0S62mIndNT9t7IroQ=;
+ b=gGLHz0nw8bcjaDueRI08MLvScX+DQUKWH/fIRDECTO9+544F3aSOHI6VVmMfVJUAG9VpQ7n8opRua9zP/VwTZl1ztkmqo0jkSu8Rce/fsJxUB4T3PucLNUntvXAKz8TgjPjBDuZDRtkvR+YC/biir1jDplRIRnQgUgkzvejufcb4XDT/J1syQP46TuJk0iXJwOgbVShKOHpK/8FerQ2pyVz2zCxTs064b8UTqsr/teSCO9NpI/UnRYJ8J0Af4JA9wmUD2E03i4slGc6GJHi4Y3QBYnn9t6bbXQjRsVWovn8PDHJNPTGsGzMIBQJV0AhUuXBKGWJeaH7zkdNP27tZVg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sRnYrrQBMmPOciDojSI7+oGNW+nIEqIdYgzr++abP9s=;
- b=bz+vwUsuL/BZeG17lLTKiLCftcXyIrtSrk7NXyANzrmYgctgIoZIACUy1xvkWdcNCFbaS4y5x9RyagqDkCtivRD1pI8HbDflQHMclC9b3zbUnoalzegqJS1WqAFuMQHLds5+w/bT2pqycLOya0P8yTtNGwdExe+1j9PtavQi6jY=
+ bh=czXf1ICfMmkfzxSxs5d9LOjTxH0S62mIndNT9t7IroQ=;
+ b=oqtW2JOepN3332uO9IezDP2EaNxJKT0P1k0bHoao/JpAR6t1kRhMG3qPYSP0tfsgcwRUyBwO+cY4fVVo30ONuCI5SSuQjQh3LLlR9y22KKo/20SQ1EVJbmB2O6RM9dbycfA4qrbPE+aSHAIha5XwSv37v8IyAOW7/pvmpeI5sYg=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM5PR04MB0826.namprd04.prod.outlook.com (2603:10b6:3:100::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18; Thu, 18 Mar
- 2021 13:06:06 +0000
+ 2021 13:06:18 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3955.018; Thu, 18 Mar 2021
- 13:06:06 +0000
+ 13:06:18 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -99,9 +99,9 @@ Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v3 4/8] RISC-V: Add SBI HSM suspend related defines
-Date: Thu, 18 Mar 2021 18:35:08 +0530
-Message-Id: <20210318130512.1025416-5-anup.patel@wdc.com>
+Subject: [RFC PATCH v3 6/8] cpuidle: Add RISC-V SBI CPU idle driver
+Date: Thu, 18 Mar 2021 18:35:10 +0530
+Message-Id: <20210318130512.1025416-7-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210318130512.1025416-1-anup.patel@wdc.com>
 References: <20210318130512.1025416-1-anup.patel@wdc.com>
@@ -114,58 +114,58 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from wdc.com (122.167.155.94) by
  MA1PR01CA0148.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::18) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3955.18 via Frontend Transport; Thu, 18 Mar 2021 13:06:00 +0000
+ 15.20.3955.18 via Frontend Transport; Thu, 18 Mar 2021 13:06:12 +0000
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 0eb86908-9e85-4be1-a228-08d8ea0e96e9
+X-MS-Office365-Filtering-Correlation-Id: 74da500f-7461-4e22-c7ea-08d8ea0e9e40
 X-MS-TrafficTypeDiagnostic: DM5PR04MB0826:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM5PR04MB08260F0447F637A6A30AEF4C8D699@DM5PR04MB0826.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM5PR04MB0826C8853946BEF266078C798D699@DM5PR04MB0826.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:220;
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: /5SnMrKD/rlMYBE+8PaxIidfRJIHtmveScoIQyZWerx+8YwgMm/IP0ep/3kWQWN6AAzu2al3M7yjZrN7iYIoshkyP4ImMjxg7lse63RResDR57+oetmu3w48DndJQJjO68Faqnb/i8aM+FaufEdVTsz+vtmLstB0Rkq+6iXgAGypIlQy33W9PXq7uHckjPOTfy4K85w9aZP86f5BfxSBRp7kyl1px3v4C0d9uEOEu4Ke8bjC0I32Yb124yMI+fwTMTNm+PBTVmC37hIBhIpqqMw14emN3Ap5g8eQ01Ce1JVaGl36pzQWSKstfJbf0P1as9aDOLbKN05yYsu/0hL4gdSCdFHBPeKDoIv0DL4oQcjSsUXfDgfsx918H6UTqUZuwVRqMJMEmC16CzEzrxwse2kL59UVUHBZ0hPuElgDvwC6ZU265uZ08epmdSvcB7AmOy2PlxnA/9Tbk4QE3C3zB+W4cbUb34jIRKS2obtyOZAPNCsq7xdqyXsJZVyCPNoFzCeQIhG5k7XY/H8DTSfdn7idRh4UU7PGUwazzDjFK3Q769j61vVafrkgBHl+Sj3HWn3p9/iGzdbJ+ABEirs8hdne9E9DjVcSuD8VjPbt4iM=
+X-Microsoft-Antispam-Message-Info: liVaOLrpiO7tPKAdnTxW84cq+L8uxkGF3Bj+ICvzzPmE4TkIflBw7AJDVmuciAdJlOimaF7TkpUFQ9rcIBrFG41oD/IVLwa6Wo3JoTnZBTZ2cFsu5f0AKZxcpDPTTiSAYXCcygO8XJjXwu3SR0A1H/N1Oizge0tMGGyfj5ZzappNiNeWagVJ5XsM1MgechqNiPlnYiVy52gHoXk664irPbXYaXFByhLf/Zelhact1vO7n5zjiBK77albxF7av4j1rBkTtPPcuqRgquHasDx5llCvl/kULB+kgiLR9FCCP9CxusvmDSd8ZKmd3VMavpngmsdiimxfOkaUR8LR36IZKA8p2OPhA5ggk+CtVSXakGtEqN+Q011YStshWNDM3tgaNsttaWWxGI25S1M/QJNY0fm7z7rdHYFAjboWx9c0bjdTgF30UctOM8WXLS2luDbuEBexjymO66hjb0UnEvZTUTPzn3V/CtxwW18F4p/Z9yhrYMUEv1mLkf4UISm6jSNcfqhm1vpZNF2uqxgqVeH59rCnH7PKfYkK3zRgcCyaKmLiXBGCg7t4M8FcMXJ7oxBjJa1ildvTh1L1vNImD81zF2rOLXi7DYpr82T2D3Jdzb5xX84pZecG4pPdlnZbA5YU
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(366004)(346002)(396003)(136003)(39860400002)(4326008)(15650500001)(86362001)(44832011)(2906002)(186003)(36756003)(478600001)(110136005)(1076003)(38100700001)(316002)(956004)(55016002)(2616005)(8936002)(8886007)(26005)(7416002)(54906003)(66556008)(5660300002)(16526019)(8676002)(66946007)(66476007)(7696005)(83380400001)(52116002);
+ SFS:(4636009)(376002)(366004)(346002)(396003)(136003)(39860400002)(4326008)(86362001)(44832011)(30864003)(2906002)(186003)(36756003)(478600001)(110136005)(1076003)(38100700001)(316002)(956004)(55016002)(2616005)(8936002)(8886007)(26005)(7416002)(54906003)(66556008)(5660300002)(16526019)(8676002)(66946007)(66476007)(7696005)(83380400001)(52116002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Nn+zBHQek2GdmXrIp8pbiuKMv2kh/dexVk3dIvkUaboI3s7sz2DZdiBiRzkH?=
- =?us-ascii?Q?bhhdwRbPDMWT0HYVE66l1z/chkUhpzXD/XT0ijIuhLXkTlF/rgiF3U+lsstK?=
- =?us-ascii?Q?ZNlh/MkM9T1oihJxl9w4WCzKk/NEivJQhEzf8PQ0Zooem5un2YvV77XXZFsf?=
- =?us-ascii?Q?Nbi7VaT8QbwsV8KC+wBDDVlXF1bmZ6ERjxcv5fs+o5pyqRtaB7tPUw1QUp/f?=
- =?us-ascii?Q?SJjxv2c/DEajwja1zbyY4qDp+1N7i+I35KxD/GiPUoU1GfdT0Ou+ku7QBicF?=
- =?us-ascii?Q?HZ5NU9fF4iqyptxjNiAutSsfxtfe/uQjx8x7XDvi2gNvpWXolnMTKVW6F5Li?=
- =?us-ascii?Q?H94g47eJEOD0LPidZafSO5s1f5Eb9omsGbJSp/Ab79uBXUHR0NIyet+vTP2W?=
- =?us-ascii?Q?MifvkW8G2Mewla6SPFJMV/cmaf/p7IoE4HSpxtaiy/0rJ+w68KQFehjKy6y6?=
- =?us-ascii?Q?OHstiZlsR7wCxQrxiWFkyIktxWTMSW+oXicnBdGRmLL+68xhTumM075kDZru?=
- =?us-ascii?Q?INhcBT76yojuHD4YEPvfYZNqHfo/UezkQNcmow5ufdY0hRg904+Q7/SffbZV?=
- =?us-ascii?Q?olS3lEDlqQErgLRogSRTxPBwZU21utX0TbMy03ILQe+hQkt6Rr9/ae4oEonJ?=
- =?us-ascii?Q?gkw5qU42J3CleGiCk0G6yvGcFzwTu433RY/TFEzKuFCsyX/8PiY7Z9C99ztx?=
- =?us-ascii?Q?Tmkm2NCwfVJ8hNn1pzeTXfoSsW9t8O9GaLua231DvMJ0TqrBBlEyHvIT60KS?=
- =?us-ascii?Q?pu4W+oo+WOUemGCCbfOggR5fTMPx1BpQF3NsgxwpeXSTP6xBBgwIj5Hq3JAq?=
- =?us-ascii?Q?XXgWGCJUSBAEAwRlgt0jE0ytYnRs+7sr6OZ4Zus3Fr2dSCPiIa7dw8pnmiCd?=
- =?us-ascii?Q?DJ7b7z2cGmQudTbYpgpANENHCLsIRX0atXf3UeN8xJeVTxCP0N8kqybqTl8o?=
- =?us-ascii?Q?e5z1QU/YyHWLEuanZ6F5m1E9Uau9hN6/9mzhOC9cz88ABu4RvVtlliv/MDV6?=
- =?us-ascii?Q?a9j0cvSJh7gvyG5bsMagFP7k5Nb8zk3LVvHs5+4lH72C7W0WwDpaqWqfRWlZ?=
- =?us-ascii?Q?0mkzMJTnkGUb8y2Uq4nVH5Vh7Hu1SqwuwS0SMa8h/MjcmCctLJ5a/O8WJWZK?=
- =?us-ascii?Q?9IbK9xqguLnPccZTpHzN9/i2QFdCnHL642FyzOsRA2ZbfO6O7UOwSadF2qzV?=
- =?us-ascii?Q?TH+4FcAaNyBLXFGY8+SrYd908kq0160eH2FejoKKR3UuxlfvswKg3+1DEm0B?=
- =?us-ascii?Q?Rc4hBoUGJNMKyOlyfe8TVemNAowz4jDmHdP5g2e3gTliyfV+IXAh6H4eJwtv?=
- =?us-ascii?Q?icV+aFhuD7qgIt3gYxMWWcpx?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?qBQ44aQSG8R2TsM/z453s9TP/P5SyjIWynzln8M/a+xNjT2BWfH3T8Rw25Ef?=
+ =?us-ascii?Q?2/pcEZqC/iaYwejq5H9/X0sxWJvNAOLlfc4vX8Id0y55Npabo9xgCwSyS7Eb?=
+ =?us-ascii?Q?xg4shSkxL7NXNGCkuHOSD2Nptgv7Kf+xlp9OzbfwpOavGgUVzNRxok0Ssgjf?=
+ =?us-ascii?Q?bDijfZCbmB633w6B1xpvB1QeWZUcuAKl0+89NYuek5W4U21/8OMJaVK3pOEM?=
+ =?us-ascii?Q?6pcgIofkMpJ3WmdLJYE4oivNeuE3znOPrZXBb1vOebvxbrJarfKZYD4geHLF?=
+ =?us-ascii?Q?w3SBSbFlRrPh8YsI1Bv4C4nmWrZHWEOGO1OlSszMyshbsC9RYzqTI2RFJI28?=
+ =?us-ascii?Q?C13rETQLLPu3zsP+ajoUVtyRL2F2nUH7yM2d4Nt9E44O7Ihz3Lj5PBoKD/zv?=
+ =?us-ascii?Q?kz2XH/v2OHoOdCmIL+EFvw4HuJKtFFM+U579SoUIwuAh9tIXsEfp8xB78qLt?=
+ =?us-ascii?Q?1wlWgQ+BZVFW+CjysSMh85HorfvFt2WS2ighX/cwgJz0v+kry3fkqnadS4OE?=
+ =?us-ascii?Q?XgWVMnDj73xY1chcGE7htplKHK2r/msTvEWsVfvYnCgq+FeSXLI+GfnPzB7P?=
+ =?us-ascii?Q?cFxptI4XxUH9/tXuqueQlKzbNd+dvWw7YuhMiD5l3wiVJNALTLEc+xK/99Q9?=
+ =?us-ascii?Q?FCE4DBraMyiva9ycHP3CxB2aJbOYq+oz0Ac/2T466Cj0cnUnlewPHMO9f3xZ?=
+ =?us-ascii?Q?caEDh7Fhkzg2HIywDdWFVimaSF+ogPyysO39dUvXzvpLh70HWGu6T8x1f6l1?=
+ =?us-ascii?Q?m6VaLU1UgXiIDYie85CbiES55faVUQVZHcgGXeaX8cg8Vb1tYMyho3nWfpEx?=
+ =?us-ascii?Q?O+SJ0d3s8zzvw00f7X9i/ei0yCgix+cEOoMzu+KrcrTPvfJwC9DKDlHRTW59?=
+ =?us-ascii?Q?FIAgtcLmk1bPq2+pb5um7qNBnYZHFMSJZoxxR/IZ2Wh7eWxU1TymYlU6zH/Z?=
+ =?us-ascii?Q?4wrv0UQ/kL6b/1eUUbivHSUFGQRobtJhcDkRn+S0bO6+QOwbkrqzemJPZcJ1?=
+ =?us-ascii?Q?rgUzK7WWgWsN781ZfCkrCaC0CgcYRNuyERJB38YsYN1Os+3np8JIe56+jRSv?=
+ =?us-ascii?Q?bpEfVRswt3HElSCSYKPB0kQXmqn367dfPSX0HSKAAwIBGrKCTg8c0anOpa8I?=
+ =?us-ascii?Q?J30f6G9N996MgCbb/CholV5hSrnaK3qkrXLsHGv2OEWBoThIw5yPKCPdzol9?=
+ =?us-ascii?Q?iqL5xiW1BK0wE2iom4z7Ce3lnTJF2eNxIn9YoDy4rreOmSGiaOxR1LRbAyBO?=
+ =?us-ascii?Q?guYTN2wO4OenVYvPe42GjcOxA4Pg8HIhiWgHeghyb26mqs8QO2ehFl8mzxXC?=
+ =?us-ascii?Q?a7v4qaYCZzARslFUTExafdQZ?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0eb86908-9e85-4be1-a228-08d8ea0e96e9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74da500f-7461-4e22-c7ea-08d8ea0e9e40
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2021 13:06:05.9637 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2021 13:06:18.0121 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bSustxIbpvPQFHhC3fKY2pK9G7o0fGmfLgQS2FrmKgeXkwLbamzYY1Jv9NPCVepwi/X+v7wdphbdCHzQS7dmsg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: cXxfK6dE30gek8OMwJrcjTrps02diMQ0+HSaSavYSg19YVrsADBFPtdFEOFdsXYALlG3QO7QeXL+e7EmCZ9CGA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0826
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210318_130610_376024_F17175C1 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20210318_130624_127353_EF796DDE 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,70 +182,600 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add defines related to SBI HSM suspend call and also
-update HSM states naming as-per latest SBI specification.
+The RISC-V SBI HSM extension provides HSM suspend call which can
+be used by Linux RISC-V to enter platform specific low-power state.
+
+This patch adds a CPU idle driver based on RISC-V SBI calls which
+will populate idle states from device tree and use SBI calls to
+entry these idle states.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/include/asm/sbi.h    | 27 ++++++++++++++++++++++-----
- arch/riscv/kernel/cpu_ops_sbi.c |  2 +-
- 2 files changed, 23 insertions(+), 6 deletions(-)
+ MAINTAINERS                   |   8 +
+ drivers/cpuidle/Kconfig       |   5 +
+ drivers/cpuidle/Kconfig.riscv |  15 +
+ drivers/cpuidle/Makefile      |   4 +
+ drivers/cpuidle/cpuidle-sbi.c | 502 ++++++++++++++++++++++++++++++++++
+ 5 files changed, 534 insertions(+)
+ create mode 100644 drivers/cpuidle/Kconfig.riscv
+ create mode 100644 drivers/cpuidle/cpuidle-sbi.c
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 79fa9f28b786..4bdccec77a84 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -62,15 +62,32 @@ enum sbi_ext_hsm_fid {
- 	SBI_EXT_HSM_HART_START = 0,
- 	SBI_EXT_HSM_HART_STOP,
- 	SBI_EXT_HSM_HART_STATUS,
-+	SBI_EXT_HSM_HART_SUSPEND,
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index aa84121c5611..4954112efdb4 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4679,6 +4679,14 @@ S:	Supported
+ F:	drivers/cpuidle/cpuidle-psci.h
+ F:	drivers/cpuidle/cpuidle-psci-domain.c
  
--enum sbi_hsm_hart_status {
--	SBI_HSM_HART_STATUS_STARTED = 0,
--	SBI_HSM_HART_STATUS_STOPPED,
--	SBI_HSM_HART_STATUS_START_PENDING,
--	SBI_HSM_HART_STATUS_STOP_PENDING,
-+enum sbi_hsm_hart_state {
-+	SBI_HSM_STATE_STARTED = 0,
-+	SBI_HSM_STATE_STOPPED,
-+	SBI_HSM_STATE_START_PENDING,
-+	SBI_HSM_STATE_STOP_PENDING,
-+	SBI_HSM_STATE_SUSPENDED,
-+	SBI_HSM_STATE_SUSPEND_PENDING,
-+	SBI_HSM_STATE_RESUME_PENDING,
- };
- 
-+#define SBI_HSM_SUSP_BASE_MASK			0x7fffffff
-+#define SBI_HSM_SUSP_NON_RET_BIT		0x80000000
-+#define SBI_HSM_SUSP_PLAT_BASE			0x10000000
++CPUIDLE DRIVER - RISC-V SBI
++M:	Anup Patel <anup.patel@wdc.com>
++R:	Sandeep Tripathy <milun.tripathy@gmail.com>
++L:	linux-pm@vger.kernel.org
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++F:	drivers/cpuidle/cpuidle-sbi.c
 +
-+#define SBI_HSM_SUSPEND_RET_DEFAULT		0x00000000
-+#define SBI_HSM_SUSPEND_RET_PLATFORM		SBI_HSM_SUSP_PLAT_BASE
-+#define SBI_HSM_SUSPEND_RET_LAST		SBI_HSM_SUSP_BASE_MASK
-+#define SBI_HSM_SUSPEND_NON_RET_DEFAULT		SBI_HSM_SUSP_NON_RET_BIT
-+#define SBI_HSM_SUSPEND_NON_RET_PLATFORM	(SBI_HSM_SUSP_NON_RET_BIT | \
-+						 SBI_HSM_SUSP_PLAT_BASE)
-+#define SBI_HSM_SUSPEND_NON_RET_LAST		(SBI_HSM_SUSP_NON_RET_BIT | \
-+						 SBI_HSM_SUSP_BASE_MASK)
+ CRAMFS FILESYSTEM
+ M:	Nicolas Pitre <nico@fluxnic.net>
+ S:	Maintained
+diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
+index f1afe7ab6b54..ff71dd662880 100644
+--- a/drivers/cpuidle/Kconfig
++++ b/drivers/cpuidle/Kconfig
+@@ -66,6 +66,11 @@ depends on PPC
+ source "drivers/cpuidle/Kconfig.powerpc"
+ endmenu
+ 
++menu "RISC-V CPU Idle Drivers"
++depends on RISCV
++source "drivers/cpuidle/Kconfig.riscv"
++endmenu
 +
- enum sbi_ext_srst_fid {
- 	SBI_EXT_SRST_RESET = 0,
- };
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index 685fae72b7f5..5fd90f03a3e9 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -97,7 +97,7 @@ static int sbi_cpu_is_stopped(unsigned int cpuid)
- 
- 	rc = sbi_hsm_hart_get_status(hartid);
- 
--	if (rc == SBI_HSM_HART_STATUS_STOPPED)
-+	if (rc == SBI_HSM_STATE_STOPPED)
- 		return 0;
- 	return rc;
- }
+ config HALTPOLL_CPUIDLE
+ 	tristate "Halt poll cpuidle driver"
+ 	depends on X86 && KVM_GUEST
+diff --git a/drivers/cpuidle/Kconfig.riscv b/drivers/cpuidle/Kconfig.riscv
+new file mode 100644
+index 000000000000..78518c26af74
+--- /dev/null
++++ b/drivers/cpuidle/Kconfig.riscv
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# RISC-V CPU Idle drivers
++#
++
++config RISCV_SBI_CPUIDLE
++	bool "RISC-V SBI CPU idle Driver"
++	depends on RISCV_SBI
++	select DT_IDLE_STATES
++	select CPU_IDLE_MULTIPLE_DRIVERS
++	select DT_IDLE_GENPD if PM_GENERIC_DOMAINS_OF
++	help
++	  Select this option to enable RISC-V SBI firmware based CPU idle
++	  driver for RISC-V systems. This drivers also supports hierarchical
++	  DT based layout of the idle state.
+diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
+index 11a26cef279f..a36922c18510 100644
+--- a/drivers/cpuidle/Makefile
++++ b/drivers/cpuidle/Makefile
+@@ -35,3 +35,7 @@ obj-$(CONFIG_MIPS_CPS_CPUIDLE)		+= cpuidle-cps.o
+ # POWERPC drivers
+ obj-$(CONFIG_PSERIES_CPUIDLE)		+= cpuidle-pseries.o
+ obj-$(CONFIG_POWERNV_CPUIDLE)		+= cpuidle-powernv.o
++
++###############################################################################
++# RISC-V drivers
++obj-$(CONFIG_RISCV_SBI_CPUIDLE)		+= cpuidle-sbi.o
+diff --git a/drivers/cpuidle/cpuidle-sbi.c b/drivers/cpuidle/cpuidle-sbi.c
+new file mode 100644
+index 000000000000..47938fff61e1
+--- /dev/null
++++ b/drivers/cpuidle/cpuidle-sbi.c
+@@ -0,0 +1,502 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * RISC-V SBI CPU idle driver.
++ *
++ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
++ */
++
++#define pr_fmt(fmt) "cpuidle-sbi: " fmt
++
++#include <linux/cpuidle.h>
++#include <linux/cpumask.h>
++#include <linux/cpu_pm.h>
++#include <linux/cpu_cooling.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/slab.h>
++#include <linux/platform_device.h>
++#include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
++#include <asm/cpuidle.h>
++#include <asm/sbi.h>
++#include <asm/suspend.h>
++
++#include "dt_idle_states.h"
++#include "dt_idle_genpd.h"
++
++struct sbi_cpuidle_data {
++	u32 *states;
++	struct device *dev;
++};
++
++struct sbi_domain_state {
++	bool available;
++	u32 state;
++};
++
++static DEFINE_PER_CPU_READ_MOSTLY(struct sbi_cpuidle_data, sbi_cpuidle_data);
++static DEFINE_PER_CPU(struct sbi_domain_state, domain_state);
++static bool sbi_cpuidle_use_osi;
++static bool sbi_cpuidle_use_cpuhp;
++static bool sbi_cpuidle_pd_allow_domain_state;
++
++static inline void sbi_set_domain_state(u32 state)
++{
++	struct sbi_domain_state *data = this_cpu_ptr(&domain_state);
++
++	data->available = true;
++	data->state = state;
++}
++
++static inline u32 sbi_get_domain_state(void)
++{
++	struct sbi_domain_state *data = this_cpu_ptr(&domain_state);
++
++	return data->state;
++}
++
++static inline void sbi_clear_domain_state(void)
++{
++	struct sbi_domain_state *data = this_cpu_ptr(&domain_state);
++
++	data->available = false;
++}
++
++static inline bool sbi_is_domain_state_available(void)
++{
++	struct sbi_domain_state *data = this_cpu_ptr(&domain_state);
++
++	return data->available;
++}
++
++static int sbi_suspend_finisher(unsigned long suspend_type,
++				unsigned long resume_addr,
++				unsigned long opaque)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_HSM, SBI_EXT_HSM_HART_SUSPEND,
++			suspend_type, resume_addr, opaque, 0, 0, 0);
++
++	return (ret.error) ? sbi_err_map_linux_errno(ret.error) : 0;
++}
++
++static int sbi_suspend(u32 state)
++{
++	if (state & SBI_HSM_SUSP_NON_RET_BIT)
++		return cpu_suspend(state, sbi_suspend_finisher);
++	else
++		return sbi_suspend_finisher(state, 0, 0);
++}
++
++static int sbi_cpuidle_enter_state(struct cpuidle_device *dev,
++				   struct cpuidle_driver *drv, int idx)
++{
++	u32 *states = __this_cpu_read(sbi_cpuidle_data.states);
++
++	return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend, idx, states[idx]);
++}
++
++static int __sbi_enter_domain_idle_state(struct cpuidle_device *dev,
++					  struct cpuidle_driver *drv, int idx,
++					  bool s2idle)
++{
++	struct sbi_cpuidle_data *data = this_cpu_ptr(&sbi_cpuidle_data);
++	u32 *states = data->states;
++	struct device *pd_dev = data->dev;
++	u32 state;
++	int ret;
++
++	ret = cpu_pm_enter();
++	if (ret)
++		return -1;
++
++	/* Do runtime PM to manage a hierarchical CPU toplogy. */
++	rcu_irq_enter_irqson();
++	if (s2idle)
++		dev_pm_genpd_suspend(pd_dev);
++	else
++		pm_runtime_put_sync_suspend(pd_dev);
++	rcu_irq_exit_irqson();
++
++	if (sbi_is_domain_state_available())
++		state = sbi_get_domain_state();
++	else
++		state = states[idx];
++
++	ret = sbi_suspend(state) ? -1 : idx;
++
++	rcu_irq_enter_irqson();
++	if (s2idle)
++		dev_pm_genpd_resume(pd_dev);
++	else
++		pm_runtime_get_sync(pd_dev);
++	rcu_irq_exit_irqson();
++
++	cpu_pm_exit();
++
++	/* Clear the domain state to start fresh when back from idle. */
++	sbi_clear_domain_state();
++	return ret;
++}
++
++static int sbi_enter_domain_idle_state(struct cpuidle_device *dev,
++				       struct cpuidle_driver *drv, int idx)
++{
++	return __sbi_enter_domain_idle_state(dev, drv, idx, false);
++}
++
++static int sbi_enter_s2idle_domain_idle_state(struct cpuidle_device *dev,
++					      struct cpuidle_driver *drv,
++					      int idx)
++{
++	return __sbi_enter_domain_idle_state(dev, drv, idx, true);
++}
++
++static int sbi_cpuidle_cpuhp_up(unsigned int cpu)
++{
++	struct device *pd_dev = __this_cpu_read(sbi_cpuidle_data.dev);
++
++	if (pd_dev)
++		pm_runtime_get_sync(pd_dev);
++
++	return 0;
++}
++
++static int sbi_cpuidle_cpuhp_down(unsigned int cpu)
++{
++	struct device *pd_dev = __this_cpu_read(sbi_cpuidle_data.dev);
++
++	if (pd_dev) {
++		pm_runtime_put_sync(pd_dev);
++		/* Clear domain state to start fresh at next online. */
++		sbi_clear_domain_state();
++	}
++
++	return 0;
++}
++
++static void sbi_idle_init_cpuhp(void)
++{
++	int err;
++
++	if (!sbi_cpuidle_use_cpuhp)
++		return;
++
++	err = cpuhp_setup_state_nocalls(CPUHP_AP_CPU_PM_STARTING,
++					"cpuidle/sbi:online",
++					sbi_cpuidle_cpuhp_up,
++					sbi_cpuidle_cpuhp_down);
++	if (err)
++		pr_warn("Failed %d while setup cpuhp state\n", err);
++}
++
++static const struct of_device_id sbi_cpuidle_state_match[] = {
++	{ .compatible = "riscv,idle-state",
++	  .data = sbi_cpuidle_enter_state },
++	{ },
++};
++
++static bool sbi_suspend_state_is_valid(u32 state)
++{
++	if (state > SBI_HSM_SUSPEND_RET_DEFAULT &&
++	    state < SBI_HSM_SUSPEND_RET_PLATFORM)
++		return false;
++	if (state > SBI_HSM_SUSPEND_NON_RET_DEFAULT &&
++	    state < SBI_HSM_SUSPEND_NON_RET_PLATFORM)
++		return false;
++	return true;
++}
++
++static int sbi_dt_parse_state_node(struct device_node *np, u32 *state)
++{
++	int err = of_property_read_u32(np, "riscv,sbi-suspend-param", state);
++
++	if (err) {
++		pr_warn("%pOF missing riscv,sbi-suspend-param property\n", np);
++		return err;
++	}
++
++	if (!sbi_suspend_state_is_valid(*state)) {
++		pr_warn("Invalid SBI suspend state %#x\n", *state);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int sbi_dt_cpu_init_topology(struct cpuidle_driver *drv,
++				     struct sbi_cpuidle_data *data,
++				     unsigned int state_count, int cpu)
++{
++	/* Currently limit the hierarchical topology to be used in OSI mode. */
++	if (!sbi_cpuidle_use_osi)
++		return 0;
++
++	data->dev = dt_idle_genpd_attach_cpu(cpu, "sbi");
++	if (IS_ERR_OR_NULL(data->dev))
++		return PTR_ERR_OR_ZERO(data->dev);
++
++	/*
++	 * Using the deepest state for the CPU to trigger a potential selection
++	 * of a shared state for the domain, assumes the domain states are all
++	 * deeper states.
++	 */
++	drv->states[state_count - 1].enter = sbi_enter_domain_idle_state;
++	drv->states[state_count - 1].enter_s2idle = sbi_enter_s2idle_domain_idle_state;
++	sbi_cpuidle_use_cpuhp = true;
++
++	return 0;
++}
++
++static int sbi_cpuidle_dt_init_states(struct device *dev,
++					struct cpuidle_driver *drv,
++					unsigned int cpu,
++					unsigned int state_count)
++{
++	struct sbi_cpuidle_data *data = per_cpu_ptr(&sbi_cpuidle_data, cpu);
++	struct device_node *state_node;
++	struct device_node *cpu_node;
++	u32 *states;
++	int i, ret;
++
++	cpu_node = of_cpu_device_node_get(cpu);
++	if (!cpu_node)
++		return -ENODEV;
++
++	states = devm_kcalloc(dev, state_count, sizeof(*states), GFP_KERNEL);
++	if (!states) {
++		ret = -ENOMEM;
++		goto fail;
++	}
++
++	/* Parse SBI specific details from state DT nodes */
++	for (i = 1; i < state_count; i++) {
++		state_node = of_get_cpu_state_node(cpu_node, i - 1);
++		if (!state_node)
++			break;
++
++		ret = sbi_dt_parse_state_node(state_node, &states[i]);
++		of_node_put(state_node);
++
++		if (ret)
++			return ret;
++
++		pr_debug("sbi-state %#x index %d\n", states[i], i);
++	}
++	if (i != state_count) {
++		ret = -ENODEV;
++		goto fail;
++	}
++
++	/* Initialize optional data, used for the hierarchical topology. */
++	ret = sbi_dt_cpu_init_topology(drv, data, state_count, cpu);
++	if (ret < 0)
++		return ret;
++
++	/* Store states in the per-cpu struct. */
++	data->states = states;
++
++fail:
++	of_node_put(cpu_node);
++
++	return ret;
++}
++
++static void sbi_cpuidle_deinit_cpu(int cpu)
++{
++	struct sbi_cpuidle_data *data = per_cpu_ptr(&sbi_cpuidle_data, cpu);
++
++	dt_idle_genpd_detach_cpu(data->dev);
++	sbi_cpuidle_use_cpuhp = false;
++}
++
++static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
++{
++	struct cpuidle_driver *drv;
++	unsigned int state_count = 0;
++	int ret = 0;
++
++	drv = devm_kzalloc(dev, sizeof(*drv), GFP_KERNEL);
++	if (!drv)
++		return -ENOMEM;
++
++	drv->name = "sbi_cpuidle";
++	drv->owner = THIS_MODULE;
++	drv->cpumask = (struct cpumask *)cpumask_of(cpu);
++
++	/* RISC-V architectural WFI to be represented as state index 0. */
++	drv->states[0].enter = sbi_cpuidle_enter_state;
++	drv->states[0].exit_latency = 1;
++	drv->states[0].target_residency = 1;
++	drv->states[0].power_usage = UINT_MAX;
++	strcpy(drv->states[0].name, "WFI");
++	strcpy(drv->states[0].desc, "RISC-V WFI");
++
++	/*
++	 * If no DT idle states are detected (ret == 0) let the driver
++	 * initialization fail accordingly since there is no reason to
++	 * initialize the idle driver if only wfi is supported, the
++	 * default archictectural back-end already executes wfi
++	 * on idle entry.
++	 */
++	ret = dt_init_idle_driver(drv, sbi_cpuidle_state_match, 1);
++	if (ret <= 0) {
++		pr_debug("HART%ld: failed to parse DT idle states\n",
++			 cpuid_to_hartid_map(cpu));
++		return ret ? : -ENODEV;
++	}
++	state_count = ret + 1; /* Include WFI state as well */
++
++	/* Initialize idle states from DT. */
++	ret = sbi_cpuidle_dt_init_states(dev, drv, cpu, state_count);
++	if (ret) {
++		pr_err("HART%ld: failed to init idle states\n",
++		       cpuid_to_hartid_map(cpu));
++		return ret;
++	}
++
++	ret = cpuidle_register(drv, NULL);
++	if (ret)
++		goto deinit;
++
++	cpuidle_cooling_register(drv);
++
++	return 0;
++deinit:
++	sbi_cpuidle_deinit_cpu(cpu);
++	return ret;
++}
++
++static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
++{
++	struct genpd_power_state *state = &pd->states[pd->state_idx];
++	u32 *pd_state;
++
++	if (!state->data)
++		return 0;
++
++	if (!sbi_cpuidle_pd_allow_domain_state)
++		return -EBUSY;
++
++	/* OSI mode is enabled, set the corresponding domain state. */
++	pd_state = state->data;
++	sbi_set_domain_state(*pd_state);
++
++	return 0;
++}
++
++static void sbi_cpuidle_domain_sync_state(struct device *dev)
++{
++	/*
++	 * All devices have now been attached/probed to the PM domain
++	 * topology, hence it's fine to allow domain states to be picked.
++	 */
++	sbi_cpuidle_pd_allow_domain_state = true;
++}
++
++static struct dt_idle_genpd_ops sbi_genpd_ops = {
++	.parse_state_node = sbi_dt_parse_state_node,
++};
++
++static int sbi_cpuidle_probe(struct platform_device *pdev)
++{
++	int cpu, ret;
++	struct cpuidle_driver *drv;
++	struct cpuidle_device *dev;
++	struct device_node *np, *pds_node;
++
++	/* Detect OSI support based on CPU DT nodes */
++	sbi_cpuidle_use_osi = true;
++	for_each_possible_cpu(cpu) {
++		np = of_cpu_device_node_get(cpu);
++		if (np &&
++		    of_find_property(np, "power-domains", NULL) &&
++		    of_find_property(np, "power-domain-names", NULL)) {
++			continue;
++		} else {
++			sbi_cpuidle_use_osi = false;
++			break;
++		}
++	}
++
++	if (sbi_cpuidle_use_osi)
++		sbi_genpd_ops.power_off = sbi_cpuidle_pd_power_off;
++
++	/* Populate generic power domains from DT nodes */
++	pds_node = of_find_node_by_path("/cpus/power-domains");
++	if (pds_node) {
++		ret = dt_idle_genpd_probe(&sbi_genpd_ops, pds_node);
++		of_node_put(pds_node);
++		if (ret)
++			return ret;
++	}
++
++	/* Initialize CPU idle driver for each CPU */
++	for_each_possible_cpu(cpu) {
++		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
++		if (ret) {
++			pr_debug("HART%ld: idle driver init failed\n",
++				 cpuid_to_hartid_map(cpu));
++			goto out_fail;
++		}
++	}
++
++	/* Setup CPU hotplut notifiers */
++	sbi_idle_init_cpuhp();
++
++	pr_info("idle driver registered for all CPUs\n");
++
++	return 0;
++
++out_fail:
++	while (--cpu >= 0) {
++		dev = per_cpu(cpuidle_devices, cpu);
++		drv = cpuidle_get_cpu_driver(dev);
++		cpuidle_unregister(drv);
++		sbi_cpuidle_deinit_cpu(cpu);
++	}
++
++	return ret;
++}
++
++static struct platform_driver sbi_cpuidle_driver = {
++	.probe = sbi_cpuidle_probe,
++	.driver = {
++		.name = "sbi-cpuidle",
++		.sync_state = sbi_cpuidle_domain_sync_state,
++	},
++};
++
++static int __init sbi_cpuidle_init(void)
++{
++	int ret;
++	struct platform_device *pdev;
++
++	/*
++	 * The SBI HSM suspend function is only available when:
++	 * 1) SBI version is 0.3 or higher
++	 * 2) SBI HSM extension is available
++	 */
++	if ((sbi_spec_version < sbi_mk_version(0, 3)) ||
++	    sbi_probe_extension(SBI_EXT_HSM) <= 0) {
++		pr_info("HSM suspend not available\n");
++		return 0;
++	}
++
++	ret = platform_driver_register(&sbi_cpuidle_driver);
++	if (ret)
++		return ret;
++
++	pdev = platform_device_register_simple("sbi-cpuidle",
++						-1, NULL, 0);
++	if (IS_ERR(pdev)) {
++		platform_driver_unregister(&sbi_cpuidle_driver);
++		return PTR_ERR(pdev);
++	}
++
++	return 0;
++}
++device_initcall(sbi_cpuidle_init);
 -- 
 2.25.1
 
