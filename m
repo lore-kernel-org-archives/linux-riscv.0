@@ -2,62 +2,97 @@ Return-Path: <SRS0=IhzG=IQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BC73C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 15:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B8611C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 15:18:54 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C5CE364F1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 15:10:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C5CE364F1D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 51C1364E89
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 15:18:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51C1364E89
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fR1QK7VdhCA8IIAbeVRlLbq4b1tCTewTa3nvEVryWvU=; b=HUQkGz56fb7aYkbWvLPPArBNkQ
-	BaqaBXMRT1Ki90/vvRE11ylNVtkvODC8YWfoqg5X0gR3YnRXUuVsS6TJvYg6yrhsHxpu3NV7CYwn6
-	HWW2G3FeaqlaJ6KPC93q85LiJX2xprNHxfweKoBLp0lnc1HkjA2F7mbgz1veIYooAyryY8/DR2Ndi
-	XwnxwDtMJjKLZ52AbK/ebrHTKqZZsAuI+oTe4CshNPdbCDFBb7t/m0zBJt/X94WeLAsRdM7PAqndv
-	OAXSfZScqzznr1OCrn8vQFpULozC9SoOhUvplnhxM9zjQfdNvIuU4aICML3yJ5XsB+/RRory7Gv6q
-	eupPLq0A==;
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=7Fbc1bsTGhHg/6+Oz+pH2L2VaQhFnq3l2x/ZANjil1g=; b=Pi5HfmGFGw9fYPfdQSHJxNik6
+	8QZ/maqm8OZ/uVV1K582vEs/IhWAYXxg54A1+cXTJKkqb/pryUFGFnJlby2zUgB7BWN9CfWcgpTiA
+	PXwHiHPyqWArxOAtpATYCscKs6OIfarSrGKpfqqhABvPRlvdXLAYYIsf+ezrC4cz1qOhFaUg3zriB
+	cevK0hgB/5uCvEsu2U7pX4Ad1YouSUNAW1Udy3rRnn6Ug3UDk9Y+IpDN2kXHnR7frhvVkg+dyzGq7
+	tj48lNSVdIScZtqPBZRmdG1/Z/wYTNj16pUiC5oEP72xC/KjlI7Om5h+gqFOkkmuQGKweec1Pvpyf
+	QZ6m8vAvg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMuI3-005YFj-CF; Thu, 18 Mar 2021 15:10:23 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1lMuPj-005Z8y-IJ; Thu, 18 Mar 2021 15:18:19 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMuHx-005YF2-0l
- for linux-riscv@lists.infradead.org; Thu, 18 Mar 2021 15:10:20 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=rainbowdash)
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lMuHs-00040V-TQ; Thu, 18 Mar 2021 15:10:12 +0000
-Received: from ben by rainbowdash with local (Exim 4.94)
- (envelope-from <ben@rainbowdash>)
- id 1lMuHr-000QHH-G8; Thu, 18 Mar 2021 15:10:11 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: Terry Hu <kejia.hu@codethink.co.uk>,
- syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com,
- Ben Dooks <ben.dooks@codethink.co.uk>, Dmitry Vyukov <dvyukov@google.com>,
- Javier Jardon <javier.jardon@codethink.co.uk>
-Subject: [PATCH] RFC: riscv: save the SR_SUM status over switches
-Date: Thu, 18 Mar 2021 15:10:10 +0000
-Message-Id: <20210318151010.100966-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.30.2
+ id 1lMuPg-005Z8Y-2H
+ for linux-riscv@lists.infradead.org; Thu, 18 Mar 2021 15:18:18 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id g8so3362373qvx.1
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Mar 2021 08:18:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=wOFBEPOr1SLeNR/Um5yDZSZIjOy82REcErjZY7pyKDQ=;
+ b=CGGA9HuO0wmX6avzNQTVJ1nxLiQT7aoA7o7FrVE3h5ceaWoUInIhyTeqemyADCS6SS
+ J1aSW/VAUL1LnUkoNWIaeeSEzosnmOzekeP/Cd/AKRy6XHe9D7fDF40I0pEkVfgkcW04
+ Wueno/T53xBADAnWoqeonhzXD9XNteEmC/vWz3nlkLOJoxqPjJij8jrdxkVtid3qxIiG
+ I0rOFVlJAHwmbMjA/2dQi7Yn2BAdLee9UC8U/FG16CmNV2srxQv8jKGwqOFHX+vGZrEo
+ 6/yLe1Nt7gWUUdg+KAGLwVM8/EjMxf07fwbwGl6wHOYdCUuiAcVwJliH313dDR58H1k5
+ zZzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wOFBEPOr1SLeNR/Um5yDZSZIjOy82REcErjZY7pyKDQ=;
+ b=J5iQnm8x+wHEUCqghRgFVP6MJqux5PLLzvLWeb9wfFR5zD/xgGMPgYH7ptkQOL3C03
+ Sj0K8eJiaBdtqrMNo1WafqrYjtM2v+qDXBWqF6Ha0YYd0PHDSehj9BS2yuS34PjPm4Dp
+ 3Iwm/hxSmFWHVUL6O3SswMcwGFpwAypXRe/ySAcPAea4yQL4WikeyQQ1QuHDzd38YOFo
+ WEpOyM0Eh9Pp8jV06EwkqCuxjPdRmzb3FJ83sqQ4qZhBbSsL6L4VWRvA/VchEpOZFeNJ
+ gvgMF7hEfIvCoVyAToLHx9HkZ8scSLYQjjFc43Ye4j4B4nOG7/d1Ygx+dPSNbgz4CTMB
+ FK5g==
+X-Gm-Message-State: AOAM531WSZTB6XKYuMuJwVJ0SdGZ/jy9xc8PjfcFHSNJ2gUTM4iwilpj
+ WI82TDMwgDtcK4KFfKqatjqw06Sp8J1kxeroM6cTWn/YUJ1L6A==
+X-Google-Smtp-Source: ABdhPJy+OexF6sUgIP9Tj4vBricdu5cz15i4H10NQtNRkmkVuuYT5vaIDniBeQ+tCfWs2JPm3+l6eTr6bCrP19dyYj8=
+X-Received: by 2002:ad4:410d:: with SMTP id i13mr4704593qvp.44.1616080694677; 
+ Thu, 18 Mar 2021 08:18:14 -0700 (PDT)
 MIME-Version: 1.0
+References: <00000000000096cdaa05bd32d46f@google.com>
+ <CACT4Y+ZjdOaX_X530p+vPbG4mbtUuFsJ1v-gD24T4DnFUqcudA@mail.gmail.com>
+ <CACT4Y+ZjVS+nOxtEByF5-djuhbCYLSDdZ7V04qJ0edpQR0514A@mail.gmail.com>
+ <CACT4Y+YXifnCtEvLu3ps8JLCK9CBLzEuUAozfNR9v1hsGWspOg@mail.gmail.com>
+ <ed89390a-91e1-320a-fae5-27b7f3a20424@codethink.co.uk>
+ <CACT4Y+a1pQ96UWEB3pAnbxPZ+6jW2tqSzkTMqJ+XSbZsKLHgAw@mail.gmail.com>
+ <bf2e19a3-3e3a-0eb1-ae37-4cc3b1a7af42@codethink.co.uk>
+In-Reply-To: <bf2e19a3-3e3a-0eb1-ae37-4cc3b1a7af42@codethink.co.uk>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Thu, 18 Mar 2021 16:18:03 +0100
+Message-ID: <CACT4Y+ZVaxQAnpy_bMGwviZMskD-fy1KgY7pbrjcCRXr24eu2Q@mail.gmail.com>
+Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
+ sock_ioctl
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: syzbot <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ andrii@kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ bpf <bpf@vger.kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, David Miller <davem@davemloft.net>, 
+ John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
+ kpsingh@kernel.org, 
+ Jakub Kicinski <kuba@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+ netdev <netdev@vger.kernel.org>, Song Liu <songliubraving@fb.com>, 
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Yonghong Song <yhs@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210318_151017_161274_12A2D375 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20210318_151816_185329_052025F4 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,142 +109,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When threads/tasks are switched we need to ensure the old execution's
-SR_SUM state is saved and the new thread has the old SR_SUM state
-restored.
+On Mon, Mar 15, 2021 at 3:41 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>
+> On 15/03/2021 11:52, Dmitry Vyukov wrote:
+> > On Mon, Mar 15, 2021 at 12:30 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+> >>
+> >> On 14/03/2021 11:03, Dmitry Vyukov wrote:
+> >>> On Sun, Mar 14, 2021 at 11:01 AM Dmitry Vyukov <dvyukov@google.com> wrote:
+> >>>>> On Wed, Mar 10, 2021 at 7:28 PM syzbot
+> >>>>> <syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com> wrote:
+> >>>>>>
+> >>>>>> Hello,
+> >>>>>>
+> >>>>>> syzbot found the following issue on:
+> >>>>>>
+> >>>>>> HEAD commit:    0d7588ab riscv: process: Fix no prototype for arch_dup_tas..
+> >>>>>> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> >>>>>> console output: https://syzkaller.appspot.com/x/log.txt?x=122c343ad00000
+> >>>>>> kernel config:  https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
+> >>>>>> dashboard link: https://syzkaller.appspot.com/bug?extid=c23c5421600e9b454849
+> >>>>>> userspace arch: riscv64
+> >>>>>>
+> >>>>>> Unfortunately, I don't have any reproducer for this issue yet.
+> >>>>>>
+> >>>>>> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> >>>>>> Reported-by: syzbot+c23c5421600e9b454849@syzkaller.appspotmail.com
+> >>>>>
+> >>>>> +riscv maintainers
+> >>>>>
+> >>>>> Another case of put_user crashing.
+> >>>>
+> >>>> There are 58 crashes in sock_ioctl already. Somehow there is a very
+> >>>> significant skew towards crashing with this "user memory without
+> >>>> uaccess routines" in schedule_tail and sock_ioctl of all places in the
+> >>>> kernel that use put_user... This looks very strange... Any ideas
+> >>>> what's special about these 2 locations?
+> >>>
+> >>> I could imagine if such a crash happens after a previous stack
+> >>> overflow and now task data structures are corrupted. But f_getown does
+> >>> not look like a function that consumes way more than other kernel
+> >>> syscalls...
+> >>
+> >> The last crash I looked at suggested somehow put_user got re-entered
+> >> with the user protection turned back on. Either there is a path through
+> >> one of the kernel handlers where this happens or there's something
+> >> weird going on with qemu.
+> >
+> > Is there any kind of tracking/reporting that would help to localize
+> > it? I could re-reproduce with that code.
+>
+> I'm not sure. I will have a go at debugging on qemu today just to make
+> sure I can reproduce here before I have to go into the office and fix
+> my Icicle board for real hardware tests.
+>
+> I think my first plan post reproduction is to stuff some trace points
+> into the fault handlers to see if we can get a idea of faults being
+> processed, etc.
+>
+> Maybe also add a check in the fault handler to see if the fault was
+> in a fixable region and post an error if that happens / maybe retry
+> the instruction with the relevant SR_SUM flag set.
+>
+> Hopefully tomorrow I can get a run on real hardware to confirm.
+> Would have been better if the Unmatched board I ordered last year
+> would turn up.
 
-The issue is seen under heavy load especially with the syz-stress tool
-running, with crashes as follows in schedule_tail:
+In retrospect it's obvious what's common between these 2 locations:
+they both call a function inside of put_user.
 
-Unable to handle kernel access to user memory without uaccess routines at virtual address 000000002749f0d0
-Oops [#1]
-Modules linked in:
-CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
-Hardware name: riscv-virtio,qemu (DT)
-epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
- ra : task_pid_vnr include/linux/sched.h:1421 [inline]
- ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
-epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
- gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
- t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
- s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
- a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
- a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
- s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
- s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
- s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
- s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
- t5 : ffffffc4043cafba t6 : 0000000000040000
-status: 0000000000000120 badaddr: 000000002749f0d0 cause: 000000000000000f
-Call Trace:
-[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
-[<ffffffe000005570>] ret_from_exception+0x0/0x14
-Dumping ftrace buffer:
-   (ftrace buffer empty)
----[ end trace b5f8f9231dc87dda ]---
-
-The issue comes from the put_user() in schedule_tail (kernel/sched/core.c)
-doing the following:
-
-asmlinkage __visible void schedule_tail(struct task_struct *prev)
-{
-...
-        if (current->set_child_tid)
-                put_user(task_pid_vnr(current), current->set_child_tid);
-...
-}
-
-the put_user() macro causes the code sequence to come out as follows:
-
-1:	__enable_user_access()
-2:	reg = task_pid_vnr(current);
-3:	*current->set_child_tid = reg;
-4:	__disable_user_access()
-
-This means the task_pid_vnr() is being called with user-access enabled
-which itself is not a good idea, but that is a seperate issue. Here we
-have a function that /might/ sleep being called with the SR_SUM and if
-it does, then it returns with the SR_SUM flag possibly cleared thus
-causing the above abort.
-
-To try and deal with this, and stop the SR_SUM leaking out into other
-threads (this has also been tested and see under stress. It can rarely
-happen but it /does/ under load) make sure the __switch_to() will save
-and restore the SR_SUM flag, and clear it possibly for the next thread
-if it does not need it.
-
-Note, test code to be supplied once other checks have been finished.
-
-There may be further issues with the mstatus flags with this, this
-can be discussed further once some initial testing has been done.
-
-Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Cc: Javier Jardon <javier.jardon@codethink.co.uk>
----
- arch/riscv/include/asm/processor.h | 1 +
- arch/riscv/kernel/asm-offsets.c    | 5 +++++
- arch/riscv/kernel/entry.S          | 7 +++++++
- 3 files changed, 13 insertions(+)
-
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 021ed64ee608..e2398c6e7af9 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -35,6 +35,7 @@ struct thread_struct {
- 	unsigned long s[12];	/* s[0]: frame pointer */
- 	struct __riscv_d_ext_state fstate;
- 	unsigned long bad_cause;
-+	unsigned long flags;
- };
- 
- #define INIT_THREAD {					\
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 9ef33346853c..0036570752d9 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -29,6 +29,7 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
-+	OFFSET(TASK_THREAD_FLAGS, task_struct, thread.flags);
- 	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
- 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
-@@ -172,6 +173,10 @@ void asm_offsets(void)
- 		  offsetof(struct task_struct, thread.s[11])
- 		- offsetof(struct task_struct, thread.ra)
- 	);
-+	DEFINE(TASK_THREAD_FLAGS_RA,
-+		  offsetof(struct task_struct, thread.flags)
-+		- offsetof(struct task_struct, thread.ra)
-+	);
- 
- 	DEFINE(TASK_THREAD_F0_F0,
- 		  offsetof(struct task_struct, thread.fstate.f[0])
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 744f3209c48d..6137f6c2a2ad 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -417,7 +417,14 @@ ENTRY(__switch_to)
- 	REG_S s9,  TASK_THREAD_S9_RA(a3)
- 	REG_S s10, TASK_THREAD_S10_RA(a3)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
-+	/* save (and disable the user space access flag) */
-+	li    s0, SR_SUM
-+	csrrc s1, CSR_STATUS, s0
-+	REG_S s1,  TASK_THREAD_FLAGS_RA(a3)
-+
- 	/* Restore context from next->thread */
-+	REG_L s0,  TASK_THREAD_FLAGS_RA(a4)
-+	csrs  CSR_STATUS, s0
- 	REG_L ra,  TASK_THREAD_RA_RA(a4)
- 	REG_L sp,  TASK_THREAD_SP_RA(a4)
- 	REG_L s0,  TASK_THREAD_S0_RA(a4)
--- 
-2.30.2
-
+#syz dup:
+BUG: unable to handle kernel access to user memory in schedule_tail
 
 _______________________________________________
 linux-riscv mailing list
