@@ -2,84 +2,168 @@ Return-Path: <SRS0=IhzG=IQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B4C0C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 12:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8290C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:06:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C8C4564EF9
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 12:55:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C8C4564EF9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 4277064DE4
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Mar 2021 13:06:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4277064DE4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C4MQOu/09boI9cVo5eCOe2Y6kecUZwU8SNBjD5vAXWk=; b=NFzl6k132Uww2+hBtwwO6ReF8
-	H1UnNRSCnmbybt6WfQ1qts9a4APIETL7hOJO5Cmx+SaMx3LXPPCcgpggrBqGtFblMk54afwvRgiJn
-	U3Q+deOfsy20ZhkoHPCzcAydd3kfGNGSdCvTjiIFcNWQeiXLSZudQkQ3XxfyK5+nY3v2jWcY9hDRa
-	VurwoUNkBb699kK/98U987oj21fPP9eM+iEFiNYLthcvuX+SyEtA6d4wBVBf81/0uCstkQngXYkig
-	d3CTJqpPLrs1kZqGODYOJIqCRoypt+nqnZP8UwNsjXFw2Y/RcR8IyfX7F+J8cYrNBRk26wA9XKPYP
-	RQOhXrKeQ==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aoQqmhhVi+1r9IsX8K432v7L2oYNA9zHALjjF1p6Cqw=; b=UAqOQX7zJ3STGD8Vw8Z5X/Nwua
+	dzI55/mN/PXg5Ar8g/15vnyoOafldM9bH/nBjn/TqYoC9DO0xMYE3gdZQhlHlDT0ouK7NK188oLJ9
+	+FsrM3U1C6n4hRZw075GeTHTGeoYPNJJOnUZdqlkPZxEwNs0rSqtefqZnCpv6QOOCUjkVeXv8yHbC
+	JD6ZSqGTCRKeUBKVVueAAaE2zdSfvNAr/SuFj1h3+sYb99WFcwvMXQVIz1I9cnqyDIcQnHXLdVtwZ
+	4FpUBR5w0HSaLXE4t1ogKAOVxCaHu1BafcrrSplcaX4+3743cYVKhbQ1JHSm0rQOTnhv8LazgNqSz
+	ip7RynRQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lMsBC-005GzU-1g; Thu, 18 Mar 2021 12:55:10 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1lMsLg-005Id5-Ro; Thu, 18 Mar 2021 13:06:00 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lMs95-005GiL-Cy
- for linux-riscv@lists.infradead.org; Thu, 18 Mar 2021 12:55:06 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=[192.168.0.18])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lMs8S-0007W3-GM; Thu, 18 Mar 2021 12:52:20 +0000
-Subject: Re: [syzbot] BUG: unable to handle kernel access to user memory in
- schedule_tail
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: syzbot <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Daniel Bristot de Oliveira <bristot@redhat.com>,
- Benjamin Segall <bsegall@google.com>, dietmar.eggemann@arm.com,
- Juri Lelli <juri.lelli@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
- Mel Gorman <mgorman@suse.de>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Terry Hu <kejia.hu@codethink.co.uk>,
- =?UTF-8?Q?Javier_Jard=c3=b3n?= <javier.jardon@codethink.co.uk>
-References: <000000000000b74f1b05bd316729@google.com>
- <CACT4Y+ZHMYijYAkeLMX=p9jx6pBivJz06h_1rGt-k9=AgfkWQg@mail.gmail.com>
- <84b0471d-42c1-175f-ae1d-a18c310c7f77@codethink.co.uk>
- <CACT4Y+ZsSRdQ5LzYMsgjrBAukgP-Vv8WSQsSoxguYjWvB1QnrA@mail.gmail.com>
- <aa801bc7-cf6f-b77a-bbb0-28b0ff36e8ba@codethink.co.uk>
- <816870e9-9354-ffbd-936b-40e38e4276a4@codethink.co.uk>
- <4ce57c7e-6e5d-d136-0a81-395a4207ba44@codethink.co.uk>
- <CACT4Y+ZJwJ9vcgCyabDUny0CnYmbHLRqU6m_KccdObS+7bBoGw@mail.gmail.com>
- <CACT4Y+ay21Cw8TtUdyDAzXAJaqpDPyCKNW6XF1GKsHoNeL=qKw@mail.gmail.com>
- <38efd34b-1ac5-f2a5-d090-83f909b3b87f@codethink.co.uk>
- <CACT4Y+aTZZOGbY3r0bobO1+wEt4-r83KXbt1aGnp7xQ+Ji6gZw@mail.gmail.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <23962e55-1533-289b-8544-982e3c5a7199@codethink.co.uk>
-Date: Thu, 18 Mar 2021 12:52:19 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+ id 1lMsLU-005Iaf-HQ; Thu, 18 Mar 2021 13:05:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1616072748; x=1647608748;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=J6cOeikWsNwSYH65b7jvMHsnnToMn8Rl4DvSqkVb02E=;
+ b=Chl+5dFZ6el/5BQpRILzjKn5ZEzEm3QUqRJRRS36ztBRObXS6v8KB5D4
+ 9wAcm57ciUkyDw/Kq6pvk6utjiCVrzkO4ls8QfcJZeQA3agy1A9qGI7d4
+ 2EGqizy402INV7dwJ36KFvCeJ8kNVlGUXAqk3w4hlDjMxBrMUUu2j/71n
+ ldmMtU+GgC8607K/J1oqTc5TGlfhIkmDPtRN4rOrKcwrtdIohUeM2V5a3
+ Mh1skO19Pg+Sv9gEqjW+Y0YhIIHUJI+qZW6CwRhFd/9A76fJPJK711wBd
+ /AnlVoOn75c2PzehTadco1JMTm5OqhK2xh/EBDSJv9EatV8OIAcarq6US g==;
+IronPort-SDR: TEJbsuMm1LVwaQRhhPmjwmKT43TGzGP1K0W9T1qlpQ2hlPEWHpIzmaxE/gFWrOKwqQoj1shn+c
+ 6tutxK5kCoybuqtDiZLH87rpTOGjNmym6v/Y4Bi8dQeHZrxcZPiR6x4qnEdyLCjE5Fyu5xtWpp
+ j2g96xJjpxg52HncMzfIeK+q+E9lfhqx4f0WdbF9R5eoc53Ah1sDiXA0mWl01e1fiY2MDTJkcJ
+ Tj1xsuW2EpJAUrfN/qs7EN3seZoNnAvRa1oeo9Cira5+bDAVaA264zI8P89lPXeKOwH984qHY6
+ wBI=
+X-IronPort-AV: E=Sophos;i="5.81,258,1610380800"; d="scan'208";a="273192060"
+Received: from mail-sn1nam02lp2059.outbound.protection.outlook.com (HELO
+ NAM02-SN1-obe.outbound.protection.outlook.com) ([104.47.36.59])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Mar 2021 21:05:41 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Plgd757sShfvImaRYnKaFyxocKjZXEPnicuX+7D7o/aiDXOJc4h9qgS+2EMz/0lJToGhT3gPa5hNunrUqlLPnJFHtfyrMqFtU3HGPjfcPq2H6mAMijP6tSRAYSCENpoMBAt9nFuSYJAyvGtPq4O6Fso512Enw9vdGSGffzQACtZ5IwkgyzI8jtlnN1KT4mPOFn/L8IPrWjuVFR8/NduV15EU49olfsMPbp37AkHBZkbJs/UxIQLNeA+rJPlenxYUsVBEECccsDO1kPLrMXnP89538VmThRTYFcAv6lHm6qGcQpzCsa9TtfcclonmXQmCGmPqY6fYsWKiHJrVnOtzLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gqzWiQAIB8jdrEwJroxpDhOOuW0HjAu4BlfYVCMZ79Y=;
+ b=an2vkCHiveOoC4EY9b5Z1VNj7PyVGdZOoKRcFK8UpLPqGmLo/RbyHxnIF/ha2DAnpOuStRVVp+Ijy6WCjyygLgF+t6GgP3bE+tX2ZazT54s040kqXZ+YyaMGm+EhxH2/7DPKWeqcqV62Ah0pAil81isWmtfQQyPd5TyU17Fd/7Bs39B6f6ooyU5VUrOXWJ21jeMxUb+EXbAL+a6rS2fMK96IeeXYWXfXgOZw7LD+Mw+HPaifGpiZhS148UJCUShoBBC2aY5k+HDFhrBgDJ5YSWltcpOG5wVqSwvRP5r4KtVPB3sfwSCrsz0a9EaEu/4euHTkPdg6FqdmUWN6TTdwhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gqzWiQAIB8jdrEwJroxpDhOOuW0HjAu4BlfYVCMZ79Y=;
+ b=C6DgEuU5wSn1nJiPd5hqj6jB9XMd64I553oqxWS09s3UvhWhl281075jdK5mJ1Lliww8qFBb5S+z5mCGrBHQSdudkUuJH1cRE5uDxHVz+EFqKf22lLKMIdW41ibGrlpZoTGBpXKzab09TEEIi5WY9JzqikKpFIA8kK0sJoQLUlQ=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
+ by DM5PR04MB0826.namprd04.prod.outlook.com (2603:10b6:3:100::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18; Thu, 18 Mar
+ 2021 13:05:40 +0000
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3955.018; Thu, 18 Mar 2021
+ 13:05:40 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh+dt@kernel.org>
+Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
+Subject: [RFC PATCH v3 0/8] RISC-V CPU Idle Support
+Date: Thu, 18 Mar 2021 18:35:04 +0530
+Message-Id: <20210318130512.1025416-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-Originating-IP: [122.167.155.94]
+X-ClientProxiedBy: MA1PR01CA0148.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:71::18) To DM6PR04MB6201.namprd04.prod.outlook.com
+ (2603:10b6:5:127::32)
 MIME-Version: 1.0
-In-Reply-To: <CACT4Y+aTZZOGbY3r0bobO1+wEt4-r83KXbt1aGnp7xQ+Ji6gZw@mail.gmail.com>
-Content-Language: en-GB
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (122.167.155.94) by
+ MA1PR01CA0148.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3955.18 via Frontend Transport; Thu, 18 Mar 2021 13:05:35 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-HT: Tenant
+X-MS-Office365-Filtering-Correlation-Id: 01c05d98-117e-4626-720c-08d8ea0e87f2
+X-MS-TrafficTypeDiagnostic: DM5PR04MB0826:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM5PR04MB08265C670CEE397D85BC83AB8D699@DM5PR04MB0826.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: +zhthiNp3uZ0YKBk/4Uy7LwdB/yEehynDt/mAFdKfr1+nQsDVjEczbtu2z+VSZRjUL0ZvymVXkRlDYn39yp+76vrUrU4e/+K0TmVzS5Mqom5RGqYkveeqM78/TGhoAkURMTHp/QfhzW8owDIphh7nePBWDp6da2OvBgUEMN76+BoE3K+encaKN/xRCSUyfLijaAVlIjU95XxzJ1dsRfHSlw5zAnFfRE6A8xu+VfBn5vAuqeHyVW8tVJr9LVhuvoqBHOW4/+MI7oqDsSe7meBJlHll+jXqdc75XPevWWhUa41FZezhWt8/u599h+1ku6GCWNqjFU+j19/QPSfvdGTzfxJsMrDDa0S4C9sJL59LdIR70j6y8Ba4nuxpqbi29Zmv91e5Tvoda3uTw7w/bxrp7e9HYKkjDGq6yX0E0SpQPfh3+I/mQaD1TlWO1KP2+PoqrB/Cld0aMJM1Qr6Pen5SWiBJg5O8xRu2kajaqEV9YRq/N6NbnwxSqqNLlLwgsL6WyOz1K1LzmxGhiHthnNwvmaFMG0ggC1IxvuijfVyWdhfu6CZhTx5/cOIUkyDw/jGp2LwwkqHg318GfHmiwx4t+NNN/GPm8NGXbQvmzs5cwZTey3ksNy7yGHLGOnFuVj7WcgbVR+NShKKOSYJclTD1XN0dup+BlFe7nrKr/8PPrxkA8Hfds1tdshusWwu1JNi
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(376002)(366004)(346002)(396003)(136003)(39860400002)(4326008)(86362001)(44832011)(2906002)(186003)(36756003)(478600001)(110136005)(1076003)(38100700001)(316002)(956004)(55016002)(2616005)(8936002)(8886007)(26005)(7416002)(54906003)(66556008)(5660300002)(16526019)(8676002)(66946007)(6666004)(66476007)(7696005)(83380400001)(52116002)(966005);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?kqm9OYDnGF7yXstLMPUIGupQUNLGsnd2+JqVVm1/m5KhejwwgpBxGIDqkNmb?=
+ =?us-ascii?Q?9gAiE8FY8jtr+B8TeZHldklc307rSXS/OepG762ueUONznziUnudq82+erLF?=
+ =?us-ascii?Q?vKddqeJZalM7WmXBJ84s3oGQKdnHTq9pgF/ZoPWqV42mFemAvLoukflR1O3a?=
+ =?us-ascii?Q?nMV5PT37+nKd/1SpBPCMKw7KPiHzzSMdNl5NL2xq6+9qDKrfnhpILsHGWyiJ?=
+ =?us-ascii?Q?9/7R7U/k/xsrG0SQpWrB3kLWzsyrp4KDzq9EBBQjkjhwTaRKUqg3XHu8DRbU?=
+ =?us-ascii?Q?HB6h6WAY5MbNuwmFOH0IPNBp6g4Bjy3RhqNcDuxorF/lvxfAwN+jBbwh70Ot?=
+ =?us-ascii?Q?sIvrbwPg1RdxVxFRIR4lb+9FwRatKA85MQYU8hHFz8VfWZPK9kngRvVhRhYD?=
+ =?us-ascii?Q?upkCNwaFH+sidc4a+/InfUew0bOKtZ7Ak181jMEUwpx74xOj+IOpycGv3rJV?=
+ =?us-ascii?Q?zYzo2LhhUMaTpnvZw0LuVNWoRJa6mog9HP2GfeqcpDaFzfmrCb43uFcB2JoD?=
+ =?us-ascii?Q?AgY4fgEJc+Fc27TKtLhvuLEzXJQb8IHOns1YZed3PB+ddcbqgOCbYdr8451H?=
+ =?us-ascii?Q?SrDYdWgL0DPtDB516yLTgL9+G+b2WfL7iUpZh7v2Ja3GtArROUpdt+xj8V4n?=
+ =?us-ascii?Q?FF9T291NeJP0jG7Vjc9w6aIu+JPunJkljRqHpgN/kSI3tYJ0lcrzpVDO5Co4?=
+ =?us-ascii?Q?c0ld5ljs8OC9jH0ZV6dJNPiwZ1YL966tqaseQGyjmbvQ/F94PjpQ6G3b7P6Y?=
+ =?us-ascii?Q?NfQQYSRVsO6hjwHdqUAlUXO2F9ExTafpaMCjqj7/RvXw4D5ER+p4RxB9RPBT?=
+ =?us-ascii?Q?/MW0HXDqrFIcR2PAe1nijAVy39nltevDPt2S6fChTFJtUD+ZSSMrmbptaKLv?=
+ =?us-ascii?Q?L/LR/8vM47EEbg63ve+jNc4yE+n4OVUEDEn1mXeYrXCQJVHFcAuTCLCcCH2f?=
+ =?us-ascii?Q?qlTTFUL8St3WvdXegzeD1fAhNLsN1017zPyLU0zI2hv1spnFrhfszWWNMLGn?=
+ =?us-ascii?Q?sh7RF6/EJmgdi4JWcirp9ZEfB3byt4XwJdAlTjNy3dOeo9OpTJKp1JeHOkVX?=
+ =?us-ascii?Q?N5qXYKt6I28HZ0GOvm3QPlgrlT4of+FjFJuw2qFZjiV0vc5+X0eSMOCiPufs?=
+ =?us-ascii?Q?8keWHiTSjx20PD7+oL1ehsexHvfm6a3o9/o/YP1eePe0r7cbezd8FQK6fwEa?=
+ =?us-ascii?Q?HDnCGsGnLz7UPALroT7A3AlHj4rnRnGvwSjjowSVbjkXxQAvIb/vKNN5kygC?=
+ =?us-ascii?Q?6uVmqu6tuWfeyIpPA1CKdpu+cKevEEdkE6OJJbOr4vUJOAmjP2q/0lvB9W1W?=
+ =?us-ascii?Q?9U9oUdSPKhr2ntBxgiITMSco?=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01c05d98-117e-4626-720c-08d8ea0e87f2
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2021 13:05:40.8357 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O9IFk8eaonRASVKT1rkyxmzW3t/f3VFWHIaiyu1RMuyOcWiU6yx4JHZan1ZrAWAO8KYrhj7npJZ9uM8Az1p+JA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0826
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210318_125459_821437_0A2794E9 
-X-CRM114-Status: GOOD (  49.33  )
+X-CRM114-CacheID: sfid-20210318_130549_103802_1F0608E5 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,276 +175,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2021 10:05, Dmitry Vyukov wrote:
-> On Thu, Mar 18, 2021 at 10:41 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->>
->> On 12/03/2021 17:38, Dmitry Vyukov wrote:
->>> On Fri, Mar 12, 2021 at 6:34 PM Dmitry Vyukov <dvyukov@google.com> wrote:
->>>>
->>>> On Fri, Mar 12, 2021 at 5:36 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->>>>>
->>>>> On 12/03/2021 16:34, Ben Dooks wrote:
->>>>>> On 12/03/2021 16:30, Ben Dooks wrote:
->>>>>>> On 12/03/2021 15:12, Dmitry Vyukov wrote:
->>>>>>>> On Fri, Mar 12, 2021 at 2:50 PM Ben Dooks <ben.dooks@codethink.co.uk>
->>>>>>>> wrote:
->>>>>>>>>
->>>>>>>>> On 10/03/2021 17:16, Dmitry Vyukov wrote:
->>>>>>>>>> On Wed, Mar 10, 2021 at 5:46 PM syzbot
->>>>>>>>>> <syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com> wrote:
->>>>>>>>>>>
->>>>>>>>>>> Hello,
->>>>>>>>>>>
->>>>>>>>>>> syzbot found the following issue on:
->>>>>>>>>>>
->>>>>>>>>>> HEAD commit:    0d7588ab riscv: process: Fix no prototype for
->>>>>>>>>>> arch_dup_tas..
->>>>>>>>>>> git tree:
->>>>>>>>>>> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
->>>>>>>>>>> console output:
->>>>>>>>>>> https://syzkaller.appspot.com/x/log.txt?x=1212c6e6d00000
->>>>>>>>>>> kernel config:
->>>>>>>>>>> https://syzkaller.appspot.com/x/.config?x=e3c595255fb2d136
->>>>>>>>>>> dashboard link:
->>>>>>>>>>> https://syzkaller.appspot.com/bug?extid=e74b94fe601ab9552d69
->>>>>>>>>>> userspace arch: riscv64
->>>>>>>>>>>
->>>>>>>>>>> Unfortunately, I don't have any reproducer for this issue yet.
->>>>>>>>>>>
->>>>>>>>>>> IMPORTANT: if you fix the issue, please add the following tag to
->>>>>>>>>>> the commit:
->>>>>>>>>>> Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
->>>>>>>>>>
->>>>>>>>>> +riscv maintainers
->>>>>>>>>>
->>>>>>>>>> This is riscv64-specific.
->>>>>>>>>> I've seen similar crashes in put_user in other places. It looks like
->>>>>>>>>> put_user crashes in the user address is not mapped/protected (?).
->>>>>>>>>
->>>>>>>>> I've been having a look, and this seems to be down to access of the
->>>>>>>>> tsk->set_child_tid variable. I assume the fuzzing here is to pass a
->>>>>>>>> bad address to clone?
->>>>>>>>>
->>>>>>>>>     From looking at the code, the put_user() code should have set the
->>>>>>>>> relevant SR_SUM bit (the value for this, which is 1<<18 is in the
->>>>>>>>> s2 register in the crash report) and from looking at the compiler
->>>>>>>>> output from my gcc-10, the code looks to be dong the relevant csrs
->>>>>>>>> and then csrc around the put_user
->>>>>>>>>
->>>>>>>>> So currently I do not understand how the above could have happened
->>>>>>>>> over than something re-tried the code seqeunce and ended up retrying
->>>>>>>>> the faulting instruction without the SR_SUM bit set.
->>>>>>>>
->>>>>>>> I would maybe blame qemu for randomly resetting SR_SUM, but it's
->>>>>>>> strange that 99% of these crashes are in schedule_tail. If it would be
->>>>>>>> qemu, then they would be more evenly distributed...
->>>>>>>>
->>>>>>>> Another observation: looking at a dozen of crash logs, in none of
->>>>>>>> these cases fuzzer was actually trying to fuzz clone with some insane
->>>>>>>> arguments. So it looks like completely normal clone's (e..g coming
->>>>>>>> from pthread_create) result in this crash.
->>>>>>>>
->>>>>>>> I also wonder why there is ret_from_exception, is it normal? I see
->>>>>>>> handle_exception disables SR_SUM:
->>>>>>>> https://elixir.bootlin.com/linux/v5.12-rc2/source/arch/riscv/kernel/entry.S#L73
->>>>>>>>
->>>>>>>
->>>>>>> So I think if SR_SUM is set, then it faults the access to user memory
->>>>>>> which the _user() routines clear to allow them access.
->>>>>>>
->>>>>>> I'm thinking there is at least one issue here:
->>>>>>>
->>>>>>> - the test in fault is the wrong way around for die kernel
->>>>>>> - the handler only catches this if the page has yet to be mapped.
->>>>>>>
->>>>>>> So I think the test should be:
->>>>>>>
->>>>>>>            if (!user_mode(regs) && addr < TASK_SIZE &&
->>>>>>>                            unlikely(regs->status & SR_SUM)
->>>>>>>
->>>>>>> This then should continue on and allow the rest of the handler to
->>>>>>> complete mapping the page if it is not there.
->>>>>>>
->>>>>>> I have been trying to create a very simple clone test, but so far it
->>>>>>> has yet to actually trigger anything.
->>>>>>
->>>>>> I should have added there doesn't seem to be a good way to use mmap()
->>>>>> to allocate memory but not insert a vm-mapping post the mmap().
->>>>>>
->>>>> How difficult is it to try building a branch with the above test
->>>>> modified?
->>>>
->>>> I don't have access to hardware, I don't have other qemu versions ready to use.
->>>> But I can teach you how to run syzkaller locally :)
->>>> I am not sure anybody run it on real riscv hardware at all. When
->>>> Tobias ported syzkaller, Tobias also used qemu I think.
->>>>
->>>> I am now building with an inverted check to test locally.
->>>>
->>>> I don't fully understand but this code, but does handle_exception
->>>> reset SR_SUM around do_page_fault? If so, then looking at SR_SUM in
->>>> do_page_fault won't work with positive nor negative check.
->>>
->>>
->>> The inverted check crashes during boot:
->>>
->>> --- a/arch/riscv/mm/fault.c
->>> +++ b/arch/riscv/mm/fault.c
->>> @@ -249,7 +249,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
->>>                   flags |= FAULT_FLAG_USER;
->>>
->>>           if (!user_mode(regs) && addr < TASK_SIZE &&
->>> -                       unlikely(!(regs->status & SR_SUM)))
->>> +                       unlikely(regs->status & SR_SUM))
->>>                   die_kernel_fault("access to user memory without
->>> uaccess routines",
->>>                                   addr, regs);
->>>
->>>
->>> [   77.349329][    T1] Run /sbin/init as init process
->>> [   77.868371][    T1] Unable to handle kernel access to user memory
->>> without uaccess routines at virtual address 00000000000e8e39
->>> [   77.870355][    T1] Oops [#1]
->>> [   77.870766][    T1] Modules linked in:
->>> [   77.871326][    T1] CPU: 0 PID: 1 Comm: init Not tainted
->>> 5.12.0-rc2-00010-g0d7588ab9ef9-dirty #42
->>> [   77.872057][    T1] Hardware name: riscv-virtio,qemu (DT)
->>> [   77.872620][    T1] epc : __clear_user+0x36/0x4e
->>> [   77.873285][    T1]  ra : padzero+0x9c/0xb0
->>> [   77.873849][    T1] epc : ffffffe000bb7136 ra : ffffffe0004f42a0 sp
->>> : ffffffe006f8fbc0
->>> [   77.874438][    T1]  gp : ffffffe005d25718 tp : ffffffe006f98000 t0
->>> : 00000000000e8e40
->>> [   77.875031][    T1]  t1 : 00000000000e9000 t2 : 000000000001c49c s0
->>> : ffffffe006f8fbf0
->>> [   77.875618][    T1]  s1 : 00000000000001c7 a0 : 00000000000e8e39 a1
->>> : 00000000000001c7
->>> [   77.876204][    T1]  a2 : 0000000000000002 a3 : 00000000000e9000 a4
->>> : ffffffe006f99000
->>> [   77.876787][    T1]  a5 : 0000000000000000 a6 : 0000000000f00000 a7
->>> : ffffffe00031c088
->>> [   77.877367][    T1]  s2 : 00000000000e8e39 s3 : 0000000000001000 s4
->>> : 0000003ffffffe39
->>> [   77.877952][    T1]  s5 : 00000000000e8e39 s6 : 00000000000e9570 s7
->>> : 00000000000e8e39
->>> [   77.878535][    T1]  s8 : 0000000000000001 s9 : 00000000000e8e39
->>> s10: ffffffe00c65f608
->>> [   77.879126][    T1]  s11: ffffffe00816e8d8 t3 : ea3af0fa372b8300 t4
->>> : 0000000000000003
->>> [   77.879711][    T1]  t5 : ffffffc401dc45d8 t6 : 0000000000040000
->>> [   77.880209][    T1] status: 0000000000040120 badaddr:
->>> 00000000000e8e39 cause: 000000000000000f
->>> [   77.880846][    T1] Call Trace:
->>> [   77.881213][    T1] [<ffffffe000bb7136>] __clear_user+0x36/0x4e
->>> [   77.881912][    T1] [<ffffffe0004f523e>] load_elf_binary+0xf8a/0x2400
->>> [   77.882562][    T1] [<ffffffe0003e1802>] bprm_execve+0x5b0/0x1080
->>> [   77.883145][    T1] [<ffffffe0003e38bc>] kernel_execve+0x204/0x288
->>> [   77.883727][    T1] [<ffffffe003b70e94>] run_init_process+0x1fe/0x212
->>> [   77.884337][    T1] [<ffffffe003b70ec6>] try_to_run_init_process+0x1e/0x66
->>> [   77.884956][    T1] [<ffffffe003bc0864>] kernel_init+0x14a/0x200
->>> [   77.885541][    T1] [<ffffffe000005570>] ret_from_exception+0x0/0x14
->>> [   77.886955][    T1] ---[ end trace 1e934d07b8a4bed8 ]---
->>> [   77.887705][    T1] Kernel panic - not syncing: Fatal exception
->>> [   77.888333][    T1] SMP: stopping secondary CPUs
->>> [   77.889357][    T1] Rebooting in 86400 seconds..
->>
->> I have reproduced this on qemu, not managed to get the real hardwre
->> working with this branch yet.
->>
->> I have a working hypothesis now, having added debug to check the
->> sstatus.SR_SUM flag and reviewed the assembly, I think this is
->> what is happening:
->>
->> C code of "put_user(func(), address)" is generating code to do:
->>
->> 1:      __enable_user_access();
->> 2:      cpu_reg = func();
->> 3:      assembly for *address = cpu_reg;
->> 4:      __disable_user_access();
->>
->> I think the call to func() with all the sanitisers enabled allow
->> the func() to possibly schedule out. The __swtich_to() code does
->> not restore the original status registers which means that if
->> there is IO during the sleep SR_SUM may end up being cleared and
->> never re-set. We get back to 3 and fault as 2 cleared the result of 1.
->>
->> It is very possible no-one has seen this before as generally the
->> functions involved in feeding put_user() are fairly small and thus
->> this system is both under load and has some reason to schedule then
->> this bug has probably been rare to unseen.
->>
->> I think the correct solution is to store the SR_SUM bit status in
->> the thread_struct and make __switch_to() save/restore this when
->> changing between tasks/threads. Trying to re-order the code to
->> force swapping of 1 and 2 may reduce the bug's window.
->>
->> Further thinking of the order of 1 and 2 is that we should probably
->> fix that order so that func() is not run with the user-space access
->> protection disabled.
->>
->> I'll try and make some sort of of small test case to avoid having
->> to run syz-stress to provoke this.
-> 
-> Ouch!
-> Can't preempt kernel schedule at almost any instruction where
-> preemption is not disabled explicitly?  But if it's disabled, then the
-> instrumented code won't schedule as well, right? I suspect this may be
-> quite a bad issue for preempt kernels.
-> 
-> Shouldn't __put_user materialize the expression in a local var using
-> __typeof__ magic before __enable_user_access? I suspect it may
-> potentially lead to quite bad security implications.
-> 
-> It can also make sense to add checks to schedule to check that it's
-> not called from unexpected contexts.
+This series adds RISC-V CPU Idle support using SBI HSM suspend function.
+The RISC-V SBI CPU idle driver added by this series is highly inspired
+from the ARM PSCI CPU idle driver.
 
-I wrote a kernel thread that does:
+At high-level, this series includes the following changes:
+1) Preparatory arch/riscv patches (Patches 1 to 3)
+2) Defines for RISC-V SBI HSM suspend (Patch 4)
+3) Preparatory patch to share code between RISC-V SBI CPU idle driver
+   and ARM PSCI CPU idle driver (Patch 5)
+4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
 
-#define rd_sstatus() ({ unsigned long result; asm("  csrr %0, sstatus" : 
-"=r"(result) :: "memory"); result; })
+These patches can be found in riscv_sbi_hsm_suspend_v3 branch at
+https://github.com/avpatel/linux
 
+Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
+support in all above projects (RISC-V SBI specification, OpenSBI, and
+Linux RISC-V).
 
-static int test_thread1(void *data)
-{
-	unsigned int cpu = (unsigned int)data;
-	unsigned long status;
+Changes since v2:
+ - Rebased on Linux-5.12-rc3
+ - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
+   idle states
+ - Added "additionalProperties = false" for both idle-states node and
+   child nodes in PATCH7
 
-	pr_info("%s: thread starting on cpu %d\n", __func__, cpu);
+Changes since v1:
+ - Fixex minor typo in PATCH1
+ - Use just "idle-states" as DT node name for CPU idle states
+ - Added documentation for "cpu-idle-states" DT property in
+   devicetree/bindings/riscv/cpus.yaml
+ - Added documentation for "riscv,sbi-suspend-param" DT property in
+   devicetree/bindings/riscv/idle-states.yaml
 
-	while (!kthread_should_stop()) {
-		status = rd_sstatus();
-		if (status & SR_SUM)
-			printk_ratelimited("%s: found sstaus=0x%08lx\n",
-					   __func__, status);
-		msleep(1);
-	}
+Anup Patel (8):
+  RISC-V: Enable CPU_IDLE drivers
+  RISC-V: Rename relocate() and make it global
+  RISC-V: Add arch functions for non-retentive suspend entry/exit
+  RISC-V: Add SBI HSM suspend related defines
+  cpuidle: Factor-out power domain related code from PSCI domain driver
+  cpuidle: Add RISC-V SBI CPU idle driver
+  dt-bindings: Add common bindings for ARM and RISC-V idle states
+  RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
 
-	pr_info("%s: thread exiting\n", __func__);
-	return 0;
-}
-
-And under the syz-stress I have the following
-
-[ 1192.124018] test_thread1: found sstaus=0x00040022
-
-this thread does not do any IO operations yet during a stress run
-it got entered with SR_SUM set (the 0x00040000) in the sstatus
-field.
-
-I think this is proof that #1 this is /rare/ and #2 we need to
-make __switch_user save at-least the SR_SUM field.
-
+ .../bindings/{arm => cpu}/idle-states.yaml    | 228 +++++++-
+ .../devicetree/bindings/riscv/cpus.yaml       |   6 +
+ MAINTAINERS                                   |   8 +
+ arch/riscv/Kconfig                            |   7 +
+ arch/riscv/Kconfig.socs                       |   3 +
+ arch/riscv/configs/defconfig                  |   8 +-
+ arch/riscv/configs/rv32_defconfig             |   5 +-
+ arch/riscv/include/asm/cpuidle.h              |  24 +
+ arch/riscv/include/asm/sbi.h                  |  27 +-
+ arch/riscv/include/asm/suspend.h              |  35 ++
+ arch/riscv/kernel/Makefile                    |   2 +
+ arch/riscv/kernel/asm-offsets.c               |   3 +
+ arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
+ arch/riscv/kernel/head.S                      |   7 +-
+ arch/riscv/kernel/process.c                   |   3 +-
+ arch/riscv/kernel/suspend.c                   |  86 +++
+ arch/riscv/kernel/suspend_entry.S             | 116 ++++
+ drivers/cpuidle/Kconfig                       |   9 +
+ drivers/cpuidle/Kconfig.arm                   |   1 +
+ drivers/cpuidle/Kconfig.riscv                 |  15 +
+ drivers/cpuidle/Makefile                      |   5 +
+ drivers/cpuidle/cpuidle-psci-domain.c         | 244 +--------
+ drivers/cpuidle/cpuidle-psci.h                |  15 +-
+ drivers/cpuidle/cpuidle-sbi.c                 | 502 ++++++++++++++++++
+ ...{cpuidle-psci-domain.c => dt_idle_genpd.c} | 165 ++----
+ drivers/cpuidle/dt_idle_genpd.h               |  42 ++
+ 26 files changed, 1184 insertions(+), 384 deletions(-)
+ rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
+ create mode 100644 arch/riscv/include/asm/cpuidle.h
+ create mode 100644 arch/riscv/include/asm/suspend.h
+ create mode 100644 arch/riscv/kernel/suspend.c
+ create mode 100644 arch/riscv/kernel/suspend_entry.S
+ create mode 100644 drivers/cpuidle/Kconfig.riscv
+ create mode 100644 drivers/cpuidle/cpuidle-sbi.c
+ copy drivers/cpuidle/{cpuidle-psci-domain.c => dt_idle_genpd.c} (52%)
+ create mode 100644 drivers/cpuidle/dt_idle_genpd.h
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+2.25.1
 
-https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
