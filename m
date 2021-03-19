@@ -2,85 +2,65 @@ Return-Path: <SRS0=wr6O=IR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC01AC433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6686DC433C1
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:57:17 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D48B60232
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:49:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D48B60232
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7FFD86196A
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:57:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7FFD86196A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:References:In-Reply-To:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GE5yeU+zzP3I5/zvGSg8+wB4poN7/Cbe0pXVz+CkxNE=; b=P+Eh+Ghnqty/VUsaJGZ0ROb0bx
-	t1kHm/Dca5/uyNR3/PoKnK2eGNpCicl1JDtPwNkizKfdIv5IpaNyTLZSDx6I5pNdeUqtW8CNVm915
-	EsM9Yna8qvSXDvW93BCaTordOa3AbO/RcoRwffFSUzm8if4jajt6dVKRGj9VcnNOmqOTvlDYYqjy+
-	q1dqHPGZrD167PD7yl4mDT0pynSDa9+yPfAnVblL0kNRlxEPfyBztfe5noorPrC96r8dhzVio2CzP
-	sOBbCLXHPLTdqVWxU/F8zwsDaZcSNc/3EWyj56mp/4Qz5aVS081rd+BLyp1N7Ekapo38Vcqf8uIEP
-	cMgoz6kg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=foi1GR04vCpRz4BOHxHkw34r0pfzsP5aPoBflFXKgJA=; b=rEzHVwfQ9UF0D1D/VieDj9rjq
+	OS6I9OxK37u2dkzZ4/iW0eVV/gpMofcf+UAjC47SH97A+gYic17hdOa2XyFHWfxJWH34x4Jp6Y9ur
+	xcAMmV/2GRSX9pCyaAoYa2v80GYvjCXvywINpgg1N3NCnNcFIqLr61cDKa38k5jh8FOh1BHfzKaHm
+	fhkkOyh0bV3y+G+60pQhsduOUbTeMtl9zdZblxvAeDBhWAEahtqIsctWBs3KPX+/AuEdZqwU1rk7y
+	/BlPnCFEJMR50nn84CiSg+zURhqAEMfIOoa3JGMN1M4IVvvnVAHILeaAYjgTsVq6hQUONNI3sgXrL
+	4u46dLC6g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lNMzv-008DGM-Jl; Fri, 19 Mar 2021 21:49:35 +0000
-Received: from mail-il1-f169.google.com ([209.85.166.169])
+	id 1lNN7A-008DwD-JY; Fri, 19 Mar 2021 21:57:04 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lNMzj-008DDx-Cg
- for linux-riscv@lists.infradead.org; Fri, 19 Mar 2021 21:49:25 +0000
-Received: by mail-il1-f169.google.com with SMTP id v3so9353082ilj.12
- for <linux-riscv@lists.infradead.org>; Fri, 19 Mar 2021 14:49:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
- :message-id;
- bh=TSxYsh/4QZo74CdzAGCwJNDM12S7BjJC925sJJZcFS4=;
- b=ItfMB3iCaY4+e0Gmbkjb10PGvl1+hUQZiffg3+iydBUx6Bqj7ExI5Dr01TYlwHO1SI
- q3wgsmgCWhJD1dA35eCybRdTS5SC94UfoSsrTRgyyQG/G5SFdCoRw6gVbT8wExSJhyIk
- vZHZQpx51IJIxx1Y5yMWijb9j8ZYoepL9T3KhXtFki4BpUGAggAq0Zxu0rjGTVxCAVf7
- dqrKubgj7hM77Vs30Lr3xBshruq501OZEWtdMZORBA6ND6Lf+FRck4CISLrDpBtj0EAQ
- Inz0HtT6f12C26vJglCp5WNIcaiP71DroEpiZY1dc5zGZKmKKjeV+TysemlS9Zsx+n1w
- b/7A==
-X-Gm-Message-State: AOAM5338Gk2XpiA+MAKEiUm6e2viStPjBK+eKgTgQolbRAYq30P01lgE
- g+fCi5X2Q1JLMad1UXiVpA==
-X-Google-Smtp-Source: ABdhPJxZEwHBaki7JZj8S9Wfx9Q661XX+EpH7c18EJM7O2uuvyzAg5xLz15/qRWghrDG07cN0A7Ovg==
-X-Received: by 2002:a05:6e02:174b:: with SMTP id
- y11mr4340361ill.152.1616190562286; 
- Fri, 19 Mar 2021 14:49:22 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.253])
- by smtp.gmail.com with ESMTPSA id j14sm3031599ilu.3.2021.03.19.14.49.19
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Mar 2021 14:49:21 -0700 (PDT)
-Received: (nullmailer pid 1647634 invoked by uid 1000);
- Fri, 19 Mar 2021 21:49:12 -0000
-From: Rob Herring <robh@kernel.org>
-To: Greentime Hu <greentime.hu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, zong.li@sifive.com, robh+dt@kernel.org,
- linux-clk@vger.kernel.org, hes@sifive.com, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, jh80.chung@samsung.com, vidyas@nvidia.com,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org, mturquette@baylibre.com,
- p.zabel@pengutronix.de, lorenzo.pieralisi@arm.com, sboyd@kernel.org,
- bhelgaas@google.com, alex.dewar90@gmail.com, erik.danie@sifive.com,
- helgaas@kernel.org, palmer@dabbelt.com, khilman@baylibre.com,
- paul.walmsley@sifive.com, hayashi.kunihiko@socionext.com
-In-Reply-To: <8008af6d86737b74020d7d8f9c3fbc9b500e9993.1615954046.git.greentime.hu@sifive.com>
-References: <cover.1615954045.git.greentime.hu@sifive.com>
- <8008af6d86737b74020d7d8f9c3fbc9b500e9993.1615954046.git.greentime.hu@sifive.com>
-Subject: Re: [PATCH v2 4/6] dt-bindings: PCI: Add SiFive FU740 PCIe host
- controller
-Date: Fri, 19 Mar 2021 15:49:12 -0600
-Message-Id: <1616190552.561606.1647633.nullmailer@robh.at.kernel.org>
+ id 1lNN75-008DvB-PO
+ for linux-riscv@lists.infradead.org; Fri, 19 Mar 2021 21:57:01 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1lNN70-0006ri-LZ; Fri, 19 Mar 2021 21:56:54 +0000
+Subject: Re: [PATCH] RFC: riscv: evaluate put_user() arg before enabling user
+ access
+To: Alex Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: Terry Hu <kejia.hu@codethink.co.uk>, Arnd Bergman <arnd@arndb.de>
+References: <20210318224135.134344-1-ben.dooks@codethink.co.uk>
+ <8ba86786-ad2b-93e1-c345-6fc45f336dd4@ghiti.fr>
+ <32c328a0-b1ab-397e-18d4-873d7ccfb6f2@codethink.co.uk>
+ <bd16115d-d327-87fd-67ed-a54b9e926472@ghiti.fr>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <773ef297-5d49-0cd4-5ccb-9313c46402b8@codethink.co.uk>
+Date: Fri, 19 Mar 2021 21:56:53 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
+MIME-Version: 1.0
+In-Reply-To: <bd16115d-d327-87fd-67ed-a54b9e926472@ghiti.fr>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210319_214923_577863_05473CBB 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20210319_215659_903254_4FD612CC 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +72,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Mar 2021 14:08:11 +0800, Greentime Hu wrote:
-> Add PCIe host controller DT bindings of SiFive FU740.
-> 
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  .../bindings/pci/sifive,fu740-pcie.yaml       | 119 ++++++++++++++++++
->  1 file changed, 119 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> 
+On 19/03/2021 16:12, Alex Ghiti wrote:
+> Le 3/19/21 =E0 11:09 AM, Ben Dooks a =E9crit=A0:
+>> On 19/03/2021 15:03, Alex Ghiti wrote:
+>>> Le 3/18/21 =E0 6:41 PM, Ben Dooks a =E9crit=A0:
+>>>> The <asm/uaccess.h> header has a problem with
+>>>> put_user(a, ptr) if the 'a' is not a simple
+>>>> variable, such as a function. This can lead
+>>>> to the compiler producing code as so:
+>>>>
+>>>> 1:=A0=A0=A0 enable_user_access()
+>>>> 2:=A0=A0=A0 evaluate 'a'
+>>>> 3:=A0=A0=A0 put 'a' to 'ptr'
+>>>> 4:=A0=A0=A0 disable_user_acess()
+>>>>
+>>>> The issue is that 'a' is now being evaluated
+>>>> with the user memory protections disabled. So
+>>>> we try and force the evaulation by assinging
+>>>> 'x' to __val at the start, and hoping the
+>>>> compiler barriers in enable_user_access()
+>>>> do the job of ordering step 2 before step 1.
+>>>>
+>>>> This has shown up in a bug where 'a' sleeps
+>>>> and thus schedules out and loses the SR_SUM
+>>>> flag. This isn't sufficient to fully fix, but
+>>>> should reduce the window of opportunity.
+>>>
+>>> I would say this patch is enough to fix the issue because it only =
 
-My bot found errors running 'make dt_binding_check' on your patch:
+>>> happens when 'a' *explicitly schedules* when in =
 
-yamllint warnings/errors:
+>>> __enable_user_access()/__disable_user_access(). Otherwise, I see 2 =
 
-dtschema/dtc warnings/errors:
-Error: Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dts:45.29-30 syntax error
-FATAL ERROR: Unable to parse input tree
-make[1]: *** [scripts/Makefile.lib:349: Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dt.yaml] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:1380: dt_binding_check] Error 2
+>>> cases:
+>>>
+>>> - user memory is correctly mapped and nothing stops the current process.
+>>> - an exception (interrupt or trap) is triggered: in those cases, the =
 
-See https://patchwork.ozlabs.org/patch/1455121
+>>> exception path correctly saves and restores SR_SUM.
+>>
+>> This fixes part of the other issue.
+>>
+>> I did point out in the other email there could be longer cases
+>> where the protections are disabled. The saving of the flags over
+>> switch_to() is still necessary.
+> =
 
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
+> I can't find your explanation, could you elaborate a bit more here on =
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+> why this fix is not enough ?
 
-pip3 install dtschema --upgrade
 
-Please check and re-submit.
+I would have to check if this current applies to riscv, but there is
+code that does the following (fs/select.c does this):
 
+                 if (!user_read_access_begin(from, sizeof(*from)))
+                         return -EFAULT;
+                 unsafe_get_user(to->p, &from->p, Efault);
+                 unsafe_get_user(to->size, &from->size, Efault);
+                 user_read_access_end();
+
+My argument for fixing with both is:
+
+- cover more than the put_user() case
+- try and avoid any future bug
+- ensure we do not leak SR_SUM elsewhere
+
+I may also have a quick check to see if we don't also leak other
+flags during these swaps. It might be we should save and restore
+all flags.
+
+I do see that this fix is going to hit a good proportion of the
+cases we've seen so far. I could try and run a stress test with
+just this in over the weekend (so far syz-stress has been running
+for over 24hrs with minimal issues)
+
+
+-- =
+
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
