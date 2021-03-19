@@ -2,65 +2,90 @@ Return-Path: <SRS0=wr6O=IR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6686DC433C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FF77C433E2
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 22:25:58 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7FFD86196A
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 21:57:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7FFD86196A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 391986196E
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Mar 2021 22:25:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 391986196E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=foi1GR04vCpRz4BOHxHkw34r0pfzsP5aPoBflFXKgJA=; b=rEzHVwfQ9UF0D1D/VieDj9rjq
-	OS6I9OxK37u2dkzZ4/iW0eVV/gpMofcf+UAjC47SH97A+gYic17hdOa2XyFHWfxJWH34x4Jp6Y9ur
-	xcAMmV/2GRSX9pCyaAoYa2v80GYvjCXvywINpgg1N3NCnNcFIqLr61cDKa38k5jh8FOh1BHfzKaHm
-	fhkkOyh0bV3y+G+60pQhsduOUbTeMtl9zdZblxvAeDBhWAEahtqIsctWBs3KPX+/AuEdZqwU1rk7y
-	/BlPnCFEJMR50nn84CiSg+zURhqAEMfIOoa3JGMN1M4IVvvnVAHILeaAYjgTsVq6hQUONNI3sgXrL
-	4u46dLC6g==;
+	 bh=+j53uVpmKoevGfgpqhbtItlwEfyriGjgCQjQfhpL/w4=; b=dCevwd1Fp9ZoEsuDjeR2ygFyT
+	Oh8uJcC4SkfwaMAMvgQe8UECPWuQMl+xjeqx5YM7+JjKViH5BnUG/5g7dvJ1eoTdx4QSNKD+wInhG
+	6ZWtRXRMLeiar9+id8FqBXzPxKMc+eI0PqKZBL+bbQg4HyUiTR652cJYjnYk2Ng/ZAb+7AcN/Fz34
+	IKi/f3hUGuZ03CaQI//S/LGNiOMHvEQJQCbVE+yGWhDr23FpE5v85bClq5V31S051Z/AKGwBgo+Xh
+	qFpiwAg3kRtru0H4OpjEE3ZpcuhlGmXowQd8TgkIeFUDhl7PK0GNuYjJezxeK+CkX6Lp/v5S6pMut
+	FP+ntZvOg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lNN7A-008DwD-JY; Fri, 19 Mar 2021 21:57:04 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1lNNYs-008GHP-Jx; Fri, 19 Mar 2021 22:25:42 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lNN75-008DvB-PO
- for linux-riscv@lists.infradead.org; Fri, 19 Mar 2021 21:57:01 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=[192.168.0.18])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lNN70-0006ri-LZ; Fri, 19 Mar 2021 21:56:54 +0000
-Subject: Re: [PATCH] RFC: riscv: evaluate put_user() arg before enabling user
- access
-To: Alex Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: Terry Hu <kejia.hu@codethink.co.uk>, Arnd Bergman <arnd@arndb.de>
-References: <20210318224135.134344-1-ben.dooks@codethink.co.uk>
- <8ba86786-ad2b-93e1-c345-6fc45f336dd4@ghiti.fr>
- <32c328a0-b1ab-397e-18d4-873d7ccfb6f2@codethink.co.uk>
- <bd16115d-d327-87fd-67ed-a54b9e926472@ghiti.fr>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <773ef297-5d49-0cd4-5ccb-9313c46402b8@codethink.co.uk>
-Date: Fri, 19 Mar 2021 21:56:53 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+ id 1lNNYo-008GGn-At
+ for linux-riscv@lists.infradead.org; Fri, 19 Mar 2021 22:25:40 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id a8so6382045oic.11
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Mar 2021 15:25:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=LgipKyceb0j7HbNt9olK50Ew2nFId355eSf3DWbsDmQ=;
+ b=E6/aX0SLolulg/q7LAu0QP1FMSFpvbaBMRIf9T6qOFCEjH+UH9fnjyxj+R9H4ehxd7
+ fnGauzMNsDJ/02/zhevr1MYpgEI733eE6mLgZtqY2Ql/DbPadCcIF0j07YdmeV3P/rZV
+ zTTO4G3AOdSIoXKUfRtV/HElHpo+zojTxAm/xLPctwjTSxqvRJxcjdXwaI38Areqw/cu
+ wm7kTumtERUY6SDOZ0w4EjpxTeSMvxz3soDokNKGAqyv5GW9zGSgktKklujvR2qVtoh3
+ EQR8c5lfU0zVnomy6KrhKUjthIDdi7FE5Y3bNivXflPAWQVT46zouimmBkTbRYsNtwzG
+ Iusg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=LgipKyceb0j7HbNt9olK50Ew2nFId355eSf3DWbsDmQ=;
+ b=ODOOUUiUm6/S4n/kdGtAMT2PU4PbLBgSmFTRB2BBv2udse7W1JkKcwQrL0pcljoNCD
+ B9qEQwc/nHBzON9k2gC2kltPt+6RYzIos9J3XogwJxrN7dTNRGj1xG7YkHHN6DNoeUbD
+ nX6R6/jrNBJjrv2m1rH0bH2MI4rOYMfdIE6eWR/OztNA4IH6p7iJnBOIGC+gHjs8/eZM
+ rF9DhU/d9PgCUDrAUQa98YIvT/f+PXEHE18blO4KnVRyHpiBSkIpnEaseX4a9+JAD+m1
+ wJrgFQoEOOu1muE4Rl4LKwuKilXtp2uFCvFS7kL/jchweKW9dpz07ndKfxlX926OXGzX
+ gM9w==
+X-Gm-Message-State: AOAM5310bGVbNvFA8TJ8REUG+ec1uRpgmB96hb+MGtHssQ0wD2Ufsjha
+ PTFPA6QNn4iWQWn4AwdX8HgGn49scQdZXyMZqdE=
+X-Google-Smtp-Source: ABdhPJx0vrAXgauF/H5vmgAfB1ALItNG5X+bPhGv5vZ7jCmD3Gv2pIN4yWiGQReurrOVrA8yNX8JUV3Y+jlC0y53t48=
+X-Received: by 2002:aca:a9d8:: with SMTP id s207mr2570191oie.18.1616192735280; 
+ Fri, 19 Mar 2021 15:25:35 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <bd16115d-d327-87fd-67ed-a54b9e926472@ghiti.fr>
-Content-Language: en-GB
+References: <87tupl30kl.fsf@igel.home>
+ <04a7e801-9a55-c926-34ad-3a7665077a4e@microchip.com>
+ <87o8fhoieu.fsf@igel.home>
+ <CALecT5gY1GK774TXyM+zA3J9Q8O90UKMs3bvRk13yg9_+cFO3Q@mail.gmail.com>
+ <87h7l77cgn.fsf@igel.home>
+In-Reply-To: <87h7l77cgn.fsf@igel.home>
+From: Yixun Lan <yixun.lan@gmail.com>
+Date: Sat, 20 Mar 2021 06:25:24 +0800
+Message-ID: <CALecT5jFGr+QtEWgD3M5JCH0d7O6N7PokaNbQaisyxgEU6fx=Q@mail.gmail.com>
+Subject: Re: macb broken on HiFive Unleashed
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Claudiu.Beznea@microchip.com, 
+ linux-riscv <linux-riscv@lists.infradead.org>, ckeepax@opensource.cirrus.com, 
+ andrew@lunn.ch, w@1wt.eu, Nicolas.Ferre@microchip.com, 
+ Daniel Palmer <daniel@0x0f.com>, alexandre.belloni@bootlin.com,
+ pthombar@cadence.com, netdev@vger.kernel.org, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210319_215659_903254_4FD612CC 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20210319_222538_508301_D7A9A378 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,95 +97,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2021 16:12, Alex Ghiti wrote:
-> Le 3/19/21 =E0 11:09 AM, Ben Dooks a =E9crit=A0:
->> On 19/03/2021 15:03, Alex Ghiti wrote:
->>> Le 3/18/21 =E0 6:41 PM, Ben Dooks a =E9crit=A0:
->>>> The <asm/uaccess.h> header has a problem with
->>>> put_user(a, ptr) if the 'a' is not a simple
->>>> variable, such as a function. This can lead
->>>> to the compiler producing code as so:
->>>>
->>>> 1:=A0=A0=A0 enable_user_access()
->>>> 2:=A0=A0=A0 evaluate 'a'
->>>> 3:=A0=A0=A0 put 'a' to 'ptr'
->>>> 4:=A0=A0=A0 disable_user_acess()
->>>>
->>>> The issue is that 'a' is now being evaluated
->>>> with the user memory protections disabled. So
->>>> we try and force the evaulation by assinging
->>>> 'x' to __val at the start, and hoping the
->>>> compiler barriers in enable_user_access()
->>>> do the job of ordering step 2 before step 1.
->>>>
->>>> This has shown up in a bug where 'a' sleeps
->>>> and thus schedules out and loses the SR_SUM
->>>> flag. This isn't sufficient to fully fix, but
->>>> should reduce the window of opportunity.
->>>
->>> I would say this patch is enough to fix the issue because it only =
-
->>> happens when 'a' *explicitly schedules* when in =
-
->>> __enable_user_access()/__disable_user_access(). Otherwise, I see 2 =
-
->>> cases:
->>>
->>> - user memory is correctly mapped and nothing stops the current process.
->>> - an exception (interrupt or trap) is triggered: in those cases, the =
-
->>> exception path correctly saves and restores SR_SUM.
->>
->> This fixes part of the other issue.
->>
->> I did point out in the other email there could be longer cases
->> where the protections are disabled. The saving of the flags over
->> switch_to() is still necessary.
-> =
-
-> I can't find your explanation, could you elaborate a bit more here on =
-
-> why this fix is not enough ?
-
-
-I would have to check if this current applies to riscv, but there is
-code that does the following (fs/select.c does this):
-
-                 if (!user_read_access_begin(from, sizeof(*from)))
-                         return -EFAULT;
-                 unsafe_get_user(to->p, &from->p, Efault);
-                 unsafe_get_user(to->size, &from->size, Efault);
-                 user_read_access_end();
-
-My argument for fixing with both is:
-
-- cover more than the put_user() case
-- try and avoid any future bug
-- ensure we do not leak SR_SUM elsewhere
-
-I may also have a quick check to see if we don't also leak other
-flags during these swaps. It might be we should save and restore
-all flags.
-
-I do see that this fix is going to hit a good proportion of the
-cases we've seen so far. I could try and run a stress test with
-just this in over the weekend (so far syz-stress has been running
-for over 24hrs with minimal issues)
-
-
--- =
-
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SEkgQW5kcmVhcywgWm9uZzoKCk9uIEZyaSwgTWFyIDE5LCAyMDIxIGF0IDQ6NTEgUE0gQW5kcmVh
+cyBTY2h3YWIgPHNjaHdhYkBsaW51eC1tNjhrLm9yZz4gd3JvdGU6Cj4KPiBPbiBNw6RyIDE5IDIw
+MjEsIFlpeHVuIExhbiB3cm90ZToKPgo+ID4gd2hhdCdzIHRoZSBleGFjdCByb290IGNhdXNlPyBh
+bmQgYW55IHNvbHV0aW9uPwo+Cj4gVHJ5IHJldmVydGluZyB0aGUgZml2ZSBjb21taXRzIHN0YXJ0
+aW5nIHdpdGgKPiA3MzIzNzRhMGI0NDBkOWE3OWM4NDEyZjMxOGEyNWNkMzdiYTZmNGUyLgo+Ckkg
+Y29uZmlybSByZXZlcnRpbmcgdGhvc2UgZml2ZSBwYXRjaGVzIG1ha2UgdGhlIGV0aGVybmV0IHdv
+cmsgYWdhaW4KdGVzdGVkIHdpdGgga2VybmVsIHZlcnNpb24gNS4xMS43CgpZaXh1biBMYW4KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
