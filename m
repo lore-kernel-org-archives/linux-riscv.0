@@ -2,84 +2,67 @@ Return-Path: <SRS0=7uwl=IU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A9F4C433C1
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 15:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CF8DC433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 16:54:27 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A89BD6146D
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 15:38:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A89BD6146D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 35F6C61990
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 16:54:27 +0000 (UTC)
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/vqY6+4jrEPfltc6vDzkgShuxTQmkOvkcq1ezMaoN4o=; b=fJ92eF8KKlG+tqeMB1eG5rF/N
-	KsF42l/GhtOfFEUlma1ro5fUavOKsln+8yCACS5w1KUuDsCITI+JZC+W57ueW+MgpbnIPaoJJkzqB
-	MHpRggy3TS4K55hxQNorBHsrt8FOifkByGuu7jl663zXdWJ4CR1b0lncercSWChSJuekPMxEdDGdE
-	3KNGo8pNsXxJDh9UXLf3WWdRlebI2V4P0qwIlVGTlE37cik57wctUNomX3z8+qcjqfnZmH2QwHX77
-	LMZQkiSIkxDWznuts6kri2l+nuvYUXhfyFHG10hee3rUp/oEgUrquPmtj3fKvLjnbJ7FwcwPD6pfP
-	vNQE6+5sg==;
+	 bh=0GAfKkCUmaeEWZdofZJLOem8N6qFv/XEBCytMlXwKzg=; b=fr6vCv7H6PUxqHIKu1tjTmaio
+	QVcV3alJEPHZivPuuFS/rDdwiVzWfDWQ6b2C435RPWl8S/Q6hPDYJEa93eTReClEUmnBqHrC+P0iG
+	HyGKC7Jx0CzgWbaIWZLUQ5RNKwGc8MVpAdv8M1Var3OLpdbm0On8HmDvIn0O7H4ya6KwteiqB3UN6
+	SnNqPpnzPC4bG0qmjW0PTrPOJP3KDAroHDMpBbSVWrLMCqvRGVyv0SbzCDT6+wX2n3lfIWFtQNQN9
+	bYHg12mvN/CwcEAwuWEG2/bN55XN7LYWPRgv80P7IPuOq+t/+ZSXNBDqSoOGrqGKM2Kt677LKcPUw
+	r9530Lt6Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lOMdP-00Bugj-9R; Mon, 22 Mar 2021 15:38:27 +0000
-Received: from mail-vs1-f51.google.com ([209.85.217.51])
+	id 1lONoh-00C6Fh-4y; Mon, 22 Mar 2021 16:54:11 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lOMdG-00Bueq-7t
- for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 15:38:20 +0000
-Received: by mail-vs1-f51.google.com with SMTP id l22so7685234vsr.13
- for <linux-riscv@lists.infradead.org>; Mon, 22 Mar 2021 08:38:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=HeaWu7NQhqTg67+28QJCmBXaQRsdudr3ZwUMLAQvMow=;
- b=UMu+Mz8rk/1A1yt/BX5siczFJq37IQOTQHSDgv9y030l3q9wc2p2+AY5hdMHGSQRsY
- 3A1pgHqLDWCK/2dAxm9dNwFfJGRvFqgMKCCuMeLTD5GmlSWufwjU83HtGDqU62yaATbn
- xUf9XqNbG6zBjf6aeAxmH7Bw9AzrOOHHvlCcxgH6K9BiQoTPMlhpaZhk0YfnTNY2ktIH
- 2DF24Entk3su0eec/O1KhZk1bHM/wnxGD2azwvumjMedHzJL4GkQFg60fqwPOEjWx2MD
- BVQ4lVg9Nr7CuVfSl2fxjs+IIuSyn04G9pc3S7BhE5jjPp3ANFkQlfgNNov+o8aThFYc
- a6yQ==
-X-Gm-Message-State: AOAM531WM8BOapEMaY1Sjw+714pyosmvFtFtfE/KFxjmdtCE0uPmLxUb
- uEaUFlku7lMGm7VBem3RUk1O1YOF0thFJG2oEaYqgbSV
-X-Google-Smtp-Source: ABdhPJxNe+DMTZdB2lWgUCE5StB9yp5TTZKT2HloywUXMNLbDmvZ6gW30OxDfaCQ8FunvzXfxRMyQk6bPYmPn8SKULg=
-X-Received: by 2002:a67:8883:: with SMTP id k125mr515895vsd.18.1616427495528; 
- Mon, 22 Mar 2021 08:38:15 -0700 (PDT)
+ id 1lONoa-00C6Do-QB
+ for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 16:54:09 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1lONoP-0007oO-TE; Mon, 22 Mar 2021 16:53:53 +0000
+Subject: Re: [PATCH] riscv: evaluate put_user() argument before enabling user
+ access
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: linux-riscv@lists.infradead.org,
+ Javier Jardon <javier.jardon@codethink.co.uk>,
+ Terry Hu <kejia.hu@codethink.co.uk>,
+ syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com,
+ Arnd Bergman <arnd@arndb.de>, dvyukov@google.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, alex@ghiti.fr, linux-kernel@lists.codethink.co.uk,
+ hch@infradead.org
+References: <20210322120935.391973-1-ben.dooks@codethink.co.uk>
+ <87o8fbmiwo.fsf@igel.home>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <83df5a56-26d9-d013-73b6-4729115535e4@codethink.co.uk>
+Date: Mon, 22 Mar 2021 16:53:52 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
 MIME-Version: 1.0
-References: <1599734644-4791-1-git-send-email-sagar.kadam@sifive.com>
- <1599734644-4791-3-git-send-email-sagar.kadam@sifive.com>
- <20200922203429.GA3188204@bogus>
-In-Reply-To: <20200922203429.GA3188204@bogus>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 22 Mar 2021 16:38:04 +0100
-Message-ID: <CAMuHMdXPG-+EOCrQZi1deKv1yYMBtohprUVYW_-Shdp_gfQs5Q@mail.gmail.com>
-Subject: Re: [PATCH v1 2/3] dt-bindings: riscv: convert plic bindings to
- json-schema
-To: Sagar Kadam <sagar.kadam@sifive.com>, Rob Herring <robh@kernel.org>
-Cc: Linux PWM List <linux-pwm@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
- Marc Zyngier <maz@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
- =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- Lee Jones <lee.jones@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, 
- Yash Shah <yash.shah@sifive.com>
+In-Reply-To: <87o8fbmiwo.fsf@igel.home>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210322_153818_437981_5B86216F 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20210322_165405_560454_9B620FE1 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +74,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sagar, Rob,
-
-(replying to an old email, as this one seems to be the most appropriate)
-
-On Tue, Sep 22, 2020 at 10:34 PM Rob Herring <robh@kernel.org> wrote:
-> On Thu, Sep 10, 2020 at 04:14:03PM +0530, Sagar Kadam wrote:
-> > Convert device tree bindings for SiFive's PLIC to YAML format
-> >
-> > Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
-
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-
-> > +
-> > +  '#address-cells':
-> > +    const: 0
-> > +    description: Should be <0> or more.
->
-> Drop. 'or more' is wrong. If there's a case with more, it will need to
-> be documented.
-
-Why do we have the "'#address-cells': const: 0" at all...
-
-> > +required:
-> > +  - compatible
-> > +  - '#address-cells'
-
-... and why is it required?
-
-> > +  - '#interrupt-cells'
-> > +  - interrupt-controller
-> > +  - reg
-> > +  - interrupts-extended
-> > +  - riscv,ndev
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    plic: interrupt-controller@c000000 {
-> > +      #address-cells = <0>;
-> > +      #interrupt-cells = <1>;
-> > +      compatible = "sifive,plic-1.0.0", "sifive,fu540-c000-plic";
-> > +      interrupt-controller;
-> > +      interrupts-extended = <
-> > +        &cpu0_intc 11
-> > +        &cpu1_intc 11 &cpu1_intc 9
-> > +        &cpu2_intc 11 &cpu2_intc 9
-> > +        &cpu3_intc 11 &cpu3_intc 9
-> > +        &cpu4_intc 11 &cpu4_intc 9>;
-> > +      reg = <0xc000000 0x4000000>;
-> > +      riscv,ndev = <10>;
-> > +    };
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjIvMDMvMjAyMSAxMzoxMiwgQW5kcmVhcyBTY2h3YWIgd3JvdGU6Cj4gT24gTcOkciAyMiAy
+MDIxLCBCZW4gRG9va3Mgd3JvdGU6Cj4gCj4+ICsgKiB0byB0aGUgcmVzdWx0IG9mIGRlcmVmZXJl
+bmNpbmcgQHB0ci4gVGhlIEB4IGlzIGNvcGllZCBpbnNpZGUgdGhlIG1hY3JvCj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBUaGUgdmFsdWUgb2YgQHgKPiAKPj4g
+KyAqIHRvIGF2b2lkIGNvZGUgcmUtb3JkZXJpbmcgd2hlcmUgQHggZ2V0cyBldmF1bGF0ZWQgd2l0
+aGluIHRoZSBibG9jayB0aGF0Cj4+ICsgKiBlbmFibGVzIHVzZXItc3BhY2UgYWNjZXNzICh0aHVz
+IHBvc3NpYmx5IGJ5cGFzc2luZyBzb21lIG9mIHRoZSBwcm90ZWN0aW9uCj4+ICsgKiB0aGlzIGZl
+YXV0cmUgcHJvdmlkZXMpLgo+ICAgICAgICAgICAgIGZlYXR1cmUKVGhhbmtzLCB3aWxsIGZpeCB0
+aGlzIGZvciB0aGUgbmV4dCB2ZXJzaW9uLgoKRG8gcGVvcGxlIHRoaW5rIHdlIHNob3VsZCBnZXQg
+dGhpcyBpbmNsdWRlZCBpbnRvIHN0YWJsZT8KCi0tIApCZW4gRG9va3MJCQkJaHR0cDovL3d3dy5j
+b2RldGhpbmsuY28udWsvClNlbmlvciBFbmdpbmVlcgkJCQlDb2RldGhpbmsgLSBQcm92aWRpbmcg
+R2VuaXVzCgpodHRwczovL3d3dy5jb2RldGhpbmsuY28udWsvcHJpdmFjeS5odG1sCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
