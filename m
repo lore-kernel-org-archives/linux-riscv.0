@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA841C433C1
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FF2AC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3A1656198B
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A1656198B
+	by mail.kernel.org (Postfix) with ESMTPS id AD9536196C
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD9536196C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VwRtyKO4nduf2aHDVwY9jvLrPJjRYUNukFOT7g+ydZ0=; b=a0RDVnIMSMF5SwQZJVGzlkJIed
-	K75blaAl3B52CodspUE4XUNeupawRSmuUBKMVyWHoLLOKu4yqU9y27VgoDudW7xPCrBkIEBlDNUQB
-	m8IBWT6ZtbU9FZCGFeYFhlf1zRoiVrer4vZ0CKTfs8+MiVwdSoeV6Ixj9Mo1oiLYebF9khVqAanzx
-	3DVMP+BgEf7q/fjQUkr7LWoHYIlpXBpkvXEhDQ69RfAToVNBgcOtU0+UzuK7BDXQtPXvmsRUd9prx
-	GauwcvgbE1LpTAYKi4P6cx5M/wjhtoL9FJy51VonBSegNqwV0pqaNDoBb9nsSBGiOGh68RZT2ho0v
-	+/C/W/SQ==;
+	bh=Ka6Zv1TTI6tuoWgZMRySKRG2ctcNjjTBSHOhy8LRpDo=; b=IHrdMs95GURd5hqDtbD9WOB4e/
+	sJV98/aQvurlN8kKjTkT2t4DNoX2Wr93Q9puNLlfuRqwnURM4LALNPxvY1eaRbTbBVEFzAe4pdJSC
+	ST+olJQBKckB8R8ArM9nIIAcY2gRPPLxZU3bX1rWcWnovxpBMTb7jhBXJqBWlxb0t/sMUaMNzG3pr
+	898WatzVuFLjzDanDneP7XZKWJXhO/Jpdgln10QZA0Ksrl4DPsbGID2AylCOE7t49cblTOkvKJAxq
+	M71JzMJJFvutZdyyRrUF+GgN2qv6FIRmwegy6HMVgC7obH79UqAnQSkEyOSugfzK4VRBdemIW1TAQ
+	vrPcAQMw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lOLW6-00BnTU-1c; Mon, 22 Mar 2021 14:26:53 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1lOLWC-00BnUb-F6; Mon, 22 Mar 2021 14:26:56 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lOLVw-00BnR3-Py
- for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 14:26:45 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id f17so6674325plr.0
- for <linux-riscv@lists.infradead.org>; Mon, 22 Mar 2021 07:26:40 -0700 (PDT)
+ id 1lOLW0-00BnRY-Ag
+ for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 14:26:47 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id e14so6671495plj.2
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Mar 2021 07:26:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=6Q3YnNYOfMoerR0kpEtZTgXZplG+guDye657YaTOY98=;
- b=D4uMo2a3MORqrWgoHwqn/CLvljYRTqDepnEzDQlOLj10aC452iV6a2BoJ7BjsVC40C
- s+Qq/ad1eMyMoSRpLuqevAklJoXxH1xPW+Jacbr2jOvPrz15RbSLvKPGhJYC1whMguNh
- bw3SIi+ixArwoq5J90yUkPsmcDsfrSKmUFRzXcrPUoFyTBw4yxoC2NPRg3t19rvZ17yw
- X/be9NSYLC3U13usn3BrQuOEoaddjNxuWuBYVD1ZimGKsw9Z4nUM/BufHvPWA52FIHuM
- H99tKQgY/j3gIbU3zU9P1hv7VB8JJ/AWe98xO7b9+081rIO2RZ1T6S8Yv4Mojgfy/b5O
- ZaKA==
+ bh=OXG2jhc/L266h+eDuNMS7RBvb6hdOralkqAGJvSOmcY=;
+ b=HFHI8alDDdXLXxafy/wDhqzj3nF6OsqZYvrA1D0UX29pJcDNEby2Y8A8sVDCRFHVL7
+ fczxlIge20Ki6wN4Lcrx90tejlqamu1tx4vCYlDAUtL97yVKpGzKi42yv1hIsTZ2edVa
+ m3+cHrCR0q+641xD7kJAm2nQTOtYhyr7BD6V2mh4TviLgSpBJTtEOSrNZcCQPsykc3Oc
+ mnuioKrEX5Q+RsFDx6ssKFqTGNZB/EG+hSih2WMGIrD3gzcAPJBjpP/uCL27X80/m6YU
+ czmC8F96c0Y+tZBUa+4wEoMFTu6IAxRBNK3+EUOUzQ0d1iSqFxUMvxemhpEU5wPrfO1/
+ g98A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=6Q3YnNYOfMoerR0kpEtZTgXZplG+guDye657YaTOY98=;
- b=qAwu/B8cnJbf+T56jLtCfHF/CAIVIDziGVdwa5eixxMm70GmIS1YJHy8xm38r7eGbO
- LcfaR0UdLKbzx38sKyHx6Cypl6ygqOZnxs/sslVYYagbgd9J0zZPLD59D7h5ShHfwksa
- XZucjdYbvzZvLafSrKxhpNG6+6BysTyyYSu3943RxngvuDvilWzaPhbwYAid4jk5ZoRZ
- ifA3PCJC+D/S32T51PZVgkPFdRaSSzpdWtWKkej+NFTuCC19EET+1M8/vwwffewCfhis
- AtEpuSnk82Pt4Gz/SRTZ+i1d2AEOPYaOA7pd4Kne1WVU1ujqrSfKcwISmxAMWglc7S5P
- jYyQ==
-X-Gm-Message-State: AOAM5305+6gMLCu84/KsB0HwQka44wyJO9IMBU0Q8f0c9IwDf/iPfGo6
- +RplbU7JtwN/6L0aiEPGd6VvL1MiYn5JIeqR
-X-Google-Smtp-Source: ABdhPJxOkhROdQ5mgLNoE0hly/pOTuvSVkcb3vCPOnLuGd8awDdnRpi4d6a7fe/0eBHZw5OE/7B4Pg==
-X-Received: by 2002:a17:90a:1502:: with SMTP id
- l2mr13357630pja.149.1616423199160; 
- Mon, 22 Mar 2021 07:26:39 -0700 (PDT)
+ bh=OXG2jhc/L266h+eDuNMS7RBvb6hdOralkqAGJvSOmcY=;
+ b=XDiOXecdIopa0/Ky5dBU4HolzWfTjXWES78Wwuf6IjLhYxL1rUMPTYfcy9Vh4rW3OV
+ 65YRyPSlMiRXk80TVZNH2X4TBheKCuv9CMtuk5mVINfnVrdbjzQDZewW/tNRdwxCZGxb
+ Lv2ZfPYwvQXxlvnVrBIVZbG3wKr5ATp9vpS9Zjge80FfB3oeCfuJQg6OOxz5r/jG5PZ3
+ fUIAKKjDmtX10lOKMMtU86GEGCQPSoBKE7oqZkL2RCRnXKzcE5SM/chkOUmtH3B6mPcu
+ GQbuiR7PawPpYfyAbW5zwr6T8JK7Xbj5T5LSA/0WVTUKY5iImhqk4BaMaNKA3dGGmMr9
+ ALrQ==
+X-Gm-Message-State: AOAM532psu2659OEXEhDsMziLp4qW5zLkftGbK/dYcxJa+Id+TgbJKL/
+ lC6aeYdx3omV9z7bQMwySbNbKwcLzj/sX7k8
+X-Google-Smtp-Source: ABdhPJx03d95CUmUU1yR3nzuLyFA2ZRPQIPq6D/Px5WJdrHp+P6HXSaeAcq9PbBPwHWEAI8UApO9eA==
+X-Received: by 2002:a17:90a:31cc:: with SMTP id
+ j12mr13413385pjf.203.1616423202713; 
+ Mon, 22 Mar 2021 07:26:42 -0700 (PDT)
 Received: from localhost.localdomain (61-230-29-29.dynamic-ip.hinet.net.
  [61.230.29.29])
- by smtp.gmail.com with ESMTPSA id v18sm14261971pfn.117.2021.03.22.07.26.36
+ by smtp.gmail.com with ESMTPSA id v18sm14261971pfn.117.2021.03.22.07.26.40
  (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 22 Mar 2021 07:26:38 -0700 (PDT)
+ Mon, 22 Mar 2021 07:26:42 -0700 (PDT)
 From: Vincent Chen <vincent.chen@sifive.com>
 To: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
  paul.walmsley@sifive.com
 Cc: Frank.Zhao@starfivetech.com, anup.patel@wdc.com, atish.patra@wdc.com,
  guoren@kernel.org, alankao@andestech.com, ruinland@andestech.com,
  david.abdurachmanov@sifive.com, Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v3 4/5] riscv: sifive: Apply errata "cip-453" patch
-Date: Mon, 22 Mar 2021 22:26:05 +0800
-Message-Id: <1616423166-13857-5-git-send-email-vincent.chen@sifive.com>
+Subject: [PATCH v3 5/5] riscv: sifive: Apply errata "cip-1200" patch
+Date: Mon, 22 Mar 2021 22:26:06 +0800
+Message-Id: <1616423166-13857-6-git-send-email-vincent.chen@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1616423166-13857-1-git-send-email-vincent.chen@sifive.com>
 References: <1616423166-13857-1-git-send-email-vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210322_142643_394426_0DB942B3 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20210322_142645_113273_DDA81176 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,194 +101,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sign extension to the $badaddr before addressing the instruction page
-fault and instruction access fault to workaround the issue "cip-453".
-
-To avoid affecting the existing code sequence, this patch will creates two
-trampolines to add sign extension to the $badaddr. By the "alternative"
-mechanism, these two trampolines will replace the original exception
-handler of instruction page fault and instruction access fault in the
-excp_vect_table. In this case, only the specific SiFive CPU core jumps to
-the do_page_fault and do_trap_insn_fault through these two trampolines.
-Other CPUs are not affected.
+For certain SiFive CPUs, "sfence.vma addr" cannot exactly flush addr
+from TLB in the particular cases. The details could be found here:
+https://sifive.cdn.prismic.io/sifive/167a1a56-03f4-4615-a79e-b2a86153148f_FU740_errata_20210205.pdf
+In order to ensure the functionality, this patch uses the Alternative
+scheme to replace all "sfence.vma addr" with "sfence.vma" at runtime.
 
 Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/Kconfig.erratas                | 11 +++++++++
- arch/riscv/errata/sifive/Makefile         |  1 +
- arch/riscv/errata/sifive/errata.c         | 20 ++++++++++++++++
- arch/riscv/errata/sifive/errata_cip_453.S | 38 +++++++++++++++++++++++++++++++
- arch/riscv/include/asm/errata_list.h      | 21 ++++++++++++++++-
- arch/riscv/kernel/entry.S                 |  6 +++--
- 6 files changed, 94 insertions(+), 3 deletions(-)
- create mode 100644 arch/riscv/errata/sifive/errata_cip_453.S
+ arch/riscv/Kconfig.erratas           | 11 +++++++++++
+ arch/riscv/errata/sifive/errata.c    | 18 ++++++++++++++++++
+ arch/riscv/include/asm/errata_list.h | 10 +++++++++-
+ arch/riscv/include/asm/tlbflush.h    |  3 ++-
+ 4 files changed, 40 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index 302e7467f302..b4146dca50fc 100644
+index b4146dca50fc..d5d03ae8d685 100644
 --- a/arch/riscv/Kconfig.erratas
 +++ b/arch/riscv/Kconfig.erratas
-@@ -19,4 +19,15 @@ config ERRATA_SIFIVE
+@@ -30,4 +30,15 @@ config ERRATA_SIFIVE_CIP_453
  
- 	  Otherwise, please say "N" here to avoid unnecessary overhead.
+ 	  If you don't know what to do here, say "Y".
  
-+config ERRATA_SIFIVE_CIP_453
-+	bool "Apply SiFive errata CIP-453"
++config ERRATA_SIFIVE_CIP_1200
++	bool "Apply SiFive errata CIP-1200"
 +	depends on ERRATA_SIFIVE
 +	default y
 +	help
-+	  This will apply the SiFive CIP-453 errata to add sign extension
-+	  to the $badaddr when exception type is instruction page fault
-+	  and instruction access fault.
++	  This will apply the SiFive CIP-1200 errata to repalce all
++	  "sfence.vma addr" with "sfence.vma" to ensure that the addr
++	  has been flushed from TLB.
 +
 +	  If you don't know what to do here, say "Y".
 +
  endmenu
-diff --git a/arch/riscv/errata/sifive/Makefile b/arch/riscv/errata/sifive/Makefile
-index 2d644e19caef..bdd5fc843b8e 100644
---- a/arch/riscv/errata/sifive/Makefile
-+++ b/arch/riscv/errata/sifive/Makefile
-@@ -1 +1,2 @@
-+obj-y += errata_cip_453.o
- obj-y += errata.o
 diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 826cd391fc55..e27391823f0f 100644
+index e27391823f0f..f5e5ae70e829 100644
 --- a/arch/riscv/errata/sifive/errata.c
 +++ b/arch/riscv/errata/sifive/errata.c
-@@ -16,6 +16,26 @@ struct errata_info_t {
- 	bool (*check_func)(unsigned long  arch_id, unsigned long impid);
- };
+@@ -29,11 +29,29 @@ static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impi
+ 	return true;
+ }
  
-+static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impid)
++static bool errata_cip_1200_check_func(unsigned long  arch_id, unsigned long impid)
 +{
 +	/*
 +	 * Affected cores:
-+	 * Architecture ID: 0x8000000000000007
-+	 * Implement ID: 0x20181004 <= impid <= 0x20191105
++	 * Architecture ID: 0x8000000000000007 or 0x1
++	 * Implement ID: mimpid[23:0] <= 0x200630 and mimpid != 0x01200626
 +	 */
-+	if (arch_id != 0x8000000000000007 ||
-+	    (impid < 0x20181004 || impid > 0x20191105))
++	if (arch_id != 0x8000000000000007 && arch_id != 0x1)
++		return false;
++	if ((impid & 0xffffff) > 0x200630 || impid == 0x1200626)
 +		return false;
 +	return true;
 +}
 +
-+static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
+ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
+ 	{
+ 		.name = "cip-453",
+ 		.check_func = errata_cip_453_check_func
+ 	},
 +	{
-+		.name = "cip-453",
-+		.check_func = errata_cip_453_check_func
++		.name = "cip-1200",
++		.check_func = errata_cip_1200_check_func
 +	},
-+};
-+
+ };
+ 
  static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
- {
- 	int idx;
-diff --git a/arch/riscv/errata/sifive/errata_cip_453.S b/arch/riscv/errata/sifive/errata_cip_453.S
-new file mode 100644
-index 000000000000..f1b9623fe1de
---- /dev/null
-+++ b/arch/riscv/errata/sifive/errata_cip_453.S
-@@ -0,0 +1,38 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2021 SiFive
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+#include <asm/asm-offsets.h>
-+#include <asm/alternative.h>
-+
-+.macro ADD_SIGN_EXT pt_reg badaddr tmp_reg
-+	REG_L \badaddr, PT_BADADDR(\pt_reg)
-+	li \tmp_reg,1
-+	slli \tmp_reg,\tmp_reg,0x26
-+	and \tmp_reg,\tmp_reg,\badaddr
-+	beqz \tmp_reg, 1f
-+	li \tmp_reg,-1
-+	slli \tmp_reg,\tmp_reg,0x27
-+	or \badaddr,\tmp_reg,\badaddr
-+	REG_S \badaddr, PT_BADADDR(\pt_reg)
-+1:
-+.endm
-+
-+ENTRY(sifive_cip_453_page_fault_trp)
-+	ADD_SIGN_EXT a0, t0, t1
-+#ifdef CONFIG_MMU
-+	la t0, do_page_fault
-+#else
-+	la t0, do_trap_unknown
-+#endif
-+	jr t0
-+END(sifive_cip_453_page_fault_trp)
-+
-+ENTRY(sifive_cip_453_insn_fault_trp)
-+	ADD_SIGN_EXT a0, t0, t1
-+	la t0, do_trap_insn_fault
-+	jr t0
-+END(sifive_cip_453_insn_fault_trp)
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 1b56131431c9..6148d34d4245 100644
+index 6148d34d4245..5f1046e82d9f 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
-@@ -5,8 +5,27 @@
- #ifndef ASM_ERRATA_LIST_H
- #define ASM_ERRATA_LIST_H
+@@ -10,7 +10,8 @@
  
-+#include <asm/alternative.h>
-+#include <asm/vendorid_list.h>
-+
  #ifdef CONFIG_ERRATA_SIFIVE
--#define	ERRATA_SIFIVE_NUMBER 0
-+#define	ERRATA_SIFIVE_CIP_453 0
-+#define	ERRATA_SIFIVE_NUMBER 1
+ #define	ERRATA_SIFIVE_CIP_453 0
+-#define	ERRATA_SIFIVE_NUMBER 1
++#define	ERRATA_SIFIVE_CIP_1200 1
++#define	ERRATA_SIFIVE_NUMBER 2
  #endif
  
-+#ifdef __ASSEMBLY__
+ #ifdef __ASSEMBLY__
+@@ -26,6 +27,13 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
+ 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
+ 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
+ 	    CONFIG_ERRATA_SIFIVE_CIP_453)
++#else /* !__ASSEMBLY__ */
 +
-+#define ALT_INSN_FAULT(x)						\
-+ALTERNATIVE(__stringify(RISCV_PTR do_trap_insn_fault),			\
-+	    __stringify(RISCV_PTR sifive_cip_453_insn_fault_trp),	\
-+	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
-+	    CONFIG_ERRATA_SIFIVE_CIP_453)
++#define ALT_FLUSH_TLB_PAGE(x)						\
++asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
++		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
++		: : "r" (addr) : "memory")
 +
-+#define ALT_PAGE_FAULT(x)						\
-+ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
-+	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
-+	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
-+	    CONFIG_ERRATA_SIFIVE_CIP_453)
-+#endif /* __ASSEMBLY__ */
-+
+ #endif /* __ASSEMBLY__ */
+ 
  #endif
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 744f3209c48d..60d0a2f1cd88 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -12,6 +12,7 @@
- #include <asm/unistd.h>
- #include <asm/thread_info.h>
- #include <asm/asm-offsets.h>
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 394cfbccdcd9..c84218ad7afc 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -9,6 +9,7 @@
+ 
+ #include <linux/mm_types.h>
+ #include <asm/smp.h>
 +#include <asm/errata_list.h>
  
- #if !IS_ENABLED(CONFIG_PREEMPTION)
- .set resume_kernel, restore_all
-@@ -450,7 +451,7 @@ ENDPROC(__switch_to)
- 	/* Exception vector table */
- ENTRY(excp_vect_table)
- 	RISCV_PTR do_trap_insn_misaligned
--	RISCV_PTR do_trap_insn_fault
-+	ALT_INSN_FAULT(RISCV_PTR do_trap_insn_fault)
- 	RISCV_PTR do_trap_insn_illegal
- 	RISCV_PTR do_trap_break
- 	RISCV_PTR do_trap_load_misaligned
-@@ -461,7 +462,8 @@ ENTRY(excp_vect_table)
- 	RISCV_PTR do_trap_ecall_s
- 	RISCV_PTR do_trap_unknown
- 	RISCV_PTR do_trap_ecall_m
--	RISCV_PTR do_page_fault   /* instruction page fault */
-+	/* instruciton page fault */
-+	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
- 	RISCV_PTR do_page_fault   /* load page fault */
- 	RISCV_PTR do_trap_unknown
- 	RISCV_PTR do_page_fault   /* store page fault */
+ #ifdef CONFIG_MMU
+ static inline void local_flush_tlb_all(void)
+@@ -19,7 +20,7 @@ static inline void local_flush_tlb_all(void)
+ /* Flush one page from local TLB */
+ static inline void local_flush_tlb_page(unsigned long addr)
+ {
+-	__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory");
++	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
+ }
+ #else /* CONFIG_MMU */
+ #define local_flush_tlb_all()			do { } while (0)
 -- 
 2.7.4
 
