@@ -2,88 +2,84 @@ Return-Path: <SRS0=7uwl=IU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FF2AC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A9F4C433C1
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 15:38:47 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD9536196C
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 14:27:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD9536196C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id A89BD6146D
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Mar 2021 15:38:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A89BD6146D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ka6Zv1TTI6tuoWgZMRySKRG2ctcNjjTBSHOhy8LRpDo=; b=IHrdMs95GURd5hqDtbD9WOB4e/
-	sJV98/aQvurlN8kKjTkT2t4DNoX2Wr93Q9puNLlfuRqwnURM4LALNPxvY1eaRbTbBVEFzAe4pdJSC
-	ST+olJQBKckB8R8ArM9nIIAcY2gRPPLxZU3bX1rWcWnovxpBMTb7jhBXJqBWlxb0t/sMUaMNzG3pr
-	898WatzVuFLjzDanDneP7XZKWJXhO/Jpdgln10QZA0Ksrl4DPsbGID2AylCOE7t49cblTOkvKJAxq
-	M71JzMJJFvutZdyyRrUF+GgN2qv6FIRmwegy6HMVgC7obH79UqAnQSkEyOSugfzK4VRBdemIW1TAQ
-	vrPcAQMw==;
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=/vqY6+4jrEPfltc6vDzkgShuxTQmkOvkcq1ezMaoN4o=; b=fJ92eF8KKlG+tqeMB1eG5rF/N
+	KsF42l/GhtOfFEUlma1ro5fUavOKsln+8yCACS5w1KUuDsCITI+JZC+W57ueW+MgpbnIPaoJJkzqB
+	MHpRggy3TS4K55hxQNorBHsrt8FOifkByGuu7jl663zXdWJ4CR1b0lncercSWChSJuekPMxEdDGdE
+	3KNGo8pNsXxJDh9UXLf3WWdRlebI2V4P0qwIlVGTlE37cik57wctUNomX3z8+qcjqfnZmH2QwHX77
+	LMZQkiSIkxDWznuts6kri2l+nuvYUXhfyFHG10hee3rUp/oEgUrquPmtj3fKvLjnbJ7FwcwPD6pfP
+	vNQE6+5sg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lOLWC-00BnUb-F6; Mon, 22 Mar 2021 14:26:56 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1lOMdP-00Bugj-9R; Mon, 22 Mar 2021 15:38:27 +0000
+Received: from mail-vs1-f51.google.com ([209.85.217.51])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lOLW0-00BnRY-Ag
- for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 14:26:47 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id e14so6671495plj.2
- for <linux-riscv@lists.infradead.org>; Mon, 22 Mar 2021 07:26:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=OXG2jhc/L266h+eDuNMS7RBvb6hdOralkqAGJvSOmcY=;
- b=HFHI8alDDdXLXxafy/wDhqzj3nF6OsqZYvrA1D0UX29pJcDNEby2Y8A8sVDCRFHVL7
- fczxlIge20Ki6wN4Lcrx90tejlqamu1tx4vCYlDAUtL97yVKpGzKi42yv1hIsTZ2edVa
- m3+cHrCR0q+641xD7kJAm2nQTOtYhyr7BD6V2mh4TviLgSpBJTtEOSrNZcCQPsykc3Oc
- mnuioKrEX5Q+RsFDx6ssKFqTGNZB/EG+hSih2WMGIrD3gzcAPJBjpP/uCL27X80/m6YU
- czmC8F96c0Y+tZBUa+4wEoMFTu6IAxRBNK3+EUOUzQ0d1iSqFxUMvxemhpEU5wPrfO1/
- g98A==
+ id 1lOMdG-00Bueq-7t
+ for linux-riscv@lists.infradead.org; Mon, 22 Mar 2021 15:38:20 +0000
+Received: by mail-vs1-f51.google.com with SMTP id l22so7685234vsr.13
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Mar 2021 08:38:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=OXG2jhc/L266h+eDuNMS7RBvb6hdOralkqAGJvSOmcY=;
- b=XDiOXecdIopa0/Ky5dBU4HolzWfTjXWES78Wwuf6IjLhYxL1rUMPTYfcy9Vh4rW3OV
- 65YRyPSlMiRXk80TVZNH2X4TBheKCuv9CMtuk5mVINfnVrdbjzQDZewW/tNRdwxCZGxb
- Lv2ZfPYwvQXxlvnVrBIVZbG3wKr5ATp9vpS9Zjge80FfB3oeCfuJQg6OOxz5r/jG5PZ3
- fUIAKKjDmtX10lOKMMtU86GEGCQPSoBKE7oqZkL2RCRnXKzcE5SM/chkOUmtH3B6mPcu
- GQbuiR7PawPpYfyAbW5zwr6T8JK7Xbj5T5LSA/0WVTUKY5iImhqk4BaMaNKA3dGGmMr9
- ALrQ==
-X-Gm-Message-State: AOAM532psu2659OEXEhDsMziLp4qW5zLkftGbK/dYcxJa+Id+TgbJKL/
- lC6aeYdx3omV9z7bQMwySbNbKwcLzj/sX7k8
-X-Google-Smtp-Source: ABdhPJx03d95CUmUU1yR3nzuLyFA2ZRPQIPq6D/Px5WJdrHp+P6HXSaeAcq9PbBPwHWEAI8UApO9eA==
-X-Received: by 2002:a17:90a:31cc:: with SMTP id
- j12mr13413385pjf.203.1616423202713; 
- Mon, 22 Mar 2021 07:26:42 -0700 (PDT)
-Received: from localhost.localdomain (61-230-29-29.dynamic-ip.hinet.net.
- [61.230.29.29])
- by smtp.gmail.com with ESMTPSA id v18sm14261971pfn.117.2021.03.22.07.26.40
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 22 Mar 2021 07:26:42 -0700 (PDT)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com
-Cc: Frank.Zhao@starfivetech.com, anup.patel@wdc.com, atish.patra@wdc.com,
- guoren@kernel.org, alankao@andestech.com, ruinland@andestech.com,
- david.abdurachmanov@sifive.com, Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v3 5/5] riscv: sifive: Apply errata "cip-1200" patch
-Date: Mon, 22 Mar 2021 22:26:06 +0800
-Message-Id: <1616423166-13857-6-git-send-email-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1616423166-13857-1-git-send-email-vincent.chen@sifive.com>
-References: <1616423166-13857-1-git-send-email-vincent.chen@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=HeaWu7NQhqTg67+28QJCmBXaQRsdudr3ZwUMLAQvMow=;
+ b=UMu+Mz8rk/1A1yt/BX5siczFJq37IQOTQHSDgv9y030l3q9wc2p2+AY5hdMHGSQRsY
+ 3A1pgHqLDWCK/2dAxm9dNwFfJGRvFqgMKCCuMeLTD5GmlSWufwjU83HtGDqU62yaATbn
+ xUf9XqNbG6zBjf6aeAxmH7Bw9AzrOOHHvlCcxgH6K9BiQoTPMlhpaZhk0YfnTNY2ktIH
+ 2DF24Entk3su0eec/O1KhZk1bHM/wnxGD2azwvumjMedHzJL4GkQFg60fqwPOEjWx2MD
+ BVQ4lVg9Nr7CuVfSl2fxjs+IIuSyn04G9pc3S7BhE5jjPp3ANFkQlfgNNov+o8aThFYc
+ a6yQ==
+X-Gm-Message-State: AOAM531WM8BOapEMaY1Sjw+714pyosmvFtFtfE/KFxjmdtCE0uPmLxUb
+ uEaUFlku7lMGm7VBem3RUk1O1YOF0thFJG2oEaYqgbSV
+X-Google-Smtp-Source: ABdhPJxNe+DMTZdB2lWgUCE5StB9yp5TTZKT2HloywUXMNLbDmvZ6gW30OxDfaCQ8FunvzXfxRMyQk6bPYmPn8SKULg=
+X-Received: by 2002:a67:8883:: with SMTP id k125mr515895vsd.18.1616427495528; 
+ Mon, 22 Mar 2021 08:38:15 -0700 (PDT)
+MIME-Version: 1.0
+References: <1599734644-4791-1-git-send-email-sagar.kadam@sifive.com>
+ <1599734644-4791-3-git-send-email-sagar.kadam@sifive.com>
+ <20200922203429.GA3188204@bogus>
+In-Reply-To: <20200922203429.GA3188204@bogus>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 22 Mar 2021 16:38:04 +0100
+Message-ID: <CAMuHMdXPG-+EOCrQZi1deKv1yYMBtohprUVYW_-Shdp_gfQs5Q@mail.gmail.com>
+Subject: Re: [PATCH v1 2/3] dt-bindings: riscv: convert plic bindings to
+ json-schema
+To: Sagar Kadam <sagar.kadam@sifive.com>, Rob Herring <robh@kernel.org>
+Cc: Linux PWM List <linux-pwm@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
+ Marc Zyngier <maz@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+ =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+ Lee Jones <lee.jones@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yash Shah <yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210322_142645_113273_DDA81176 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20210322_153818_437981_5B86216F 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,132 +91,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For certain SiFive CPUs, "sfence.vma addr" cannot exactly flush addr
-from TLB in the particular cases. The details could be found here:
-https://sifive.cdn.prismic.io/sifive/167a1a56-03f4-4615-a79e-b2a86153148f_FU740_errata_20210205.pdf
-In order to ensure the functionality, this patch uses the Alternative
-scheme to replace all "sfence.vma addr" with "sfence.vma" at runtime.
+Hi Sagar, Rob,
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
----
- arch/riscv/Kconfig.erratas           | 11 +++++++++++
- arch/riscv/errata/sifive/errata.c    | 18 ++++++++++++++++++
- arch/riscv/include/asm/errata_list.h | 10 +++++++++-
- arch/riscv/include/asm/tlbflush.h    |  3 ++-
- 4 files changed, 40 insertions(+), 2 deletions(-)
+(replying to an old email, as this one seems to be the most appropriate)
 
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index b4146dca50fc..d5d03ae8d685 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -30,4 +30,15 @@ config ERRATA_SIFIVE_CIP_453
- 
- 	  If you don't know what to do here, say "Y".
- 
-+config ERRATA_SIFIVE_CIP_1200
-+	bool "Apply SiFive errata CIP-1200"
-+	depends on ERRATA_SIFIVE
-+	default y
-+	help
-+	  This will apply the SiFive CIP-1200 errata to repalce all
-+	  "sfence.vma addr" with "sfence.vma" to ensure that the addr
-+	  has been flushed from TLB.
-+
-+	  If you don't know what to do here, say "Y".
-+
- endmenu
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index e27391823f0f..f5e5ae70e829 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -29,11 +29,29 @@ static bool errata_cip_453_check_func(unsigned long  arch_id, unsigned long impi
- 	return true;
- }
- 
-+static bool errata_cip_1200_check_func(unsigned long  arch_id, unsigned long impid)
-+{
-+	/*
-+	 * Affected cores:
-+	 * Architecture ID: 0x8000000000000007 or 0x1
-+	 * Implement ID: mimpid[23:0] <= 0x200630 and mimpid != 0x01200626
-+	 */
-+	if (arch_id != 0x8000000000000007 && arch_id != 0x1)
-+		return false;
-+	if ((impid & 0xffffff) > 0x200630 || impid == 0x1200626)
-+		return false;
-+	return true;
-+}
-+
- static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
- 	{
- 		.name = "cip-453",
- 		.check_func = errata_cip_453_check_func
- 	},
-+	{
-+		.name = "cip-1200",
-+		.check_func = errata_cip_1200_check_func
-+	},
- };
- 
- static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6148d34d4245..5f1046e82d9f 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -10,7 +10,8 @@
- 
- #ifdef CONFIG_ERRATA_SIFIVE
- #define	ERRATA_SIFIVE_CIP_453 0
--#define	ERRATA_SIFIVE_NUMBER 1
-+#define	ERRATA_SIFIVE_CIP_1200 1
-+#define	ERRATA_SIFIVE_NUMBER 2
- #endif
- 
- #ifdef __ASSEMBLY__
-@@ -26,6 +27,13 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
- 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
- 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
- 	    CONFIG_ERRATA_SIFIVE_CIP_453)
-+#else /* !__ASSEMBLY__ */
-+
-+#define ALT_FLUSH_TLB_PAGE(x)						\
-+asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
-+		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
-+		: : "r" (addr) : "memory")
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 394cfbccdcd9..c84218ad7afc 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/mm_types.h>
- #include <asm/smp.h>
-+#include <asm/errata_list.h>
- 
- #ifdef CONFIG_MMU
- static inline void local_flush_tlb_all(void)
-@@ -19,7 +20,7 @@ static inline void local_flush_tlb_all(void)
- /* Flush one page from local TLB */
- static inline void local_flush_tlb_page(unsigned long addr)
- {
--	__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory");
-+	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
- }
- #else /* CONFIG_MMU */
- #define local_flush_tlb_all()			do { } while (0)
--- 
-2.7.4
+On Tue, Sep 22, 2020 at 10:34 PM Rob Herring <robh@kernel.org> wrote:
+> On Thu, Sep 10, 2020 at 04:14:03PM +0530, Sagar Kadam wrote:
+> > Convert device tree bindings for SiFive's PLIC to YAML format
+> >
+> > Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
 
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+
+> > +
+> > +  '#address-cells':
+> > +    const: 0
+> > +    description: Should be <0> or more.
+>
+> Drop. 'or more' is wrong. If there's a case with more, it will need to
+> be documented.
+
+Why do we have the "'#address-cells': const: 0" at all...
+
+> > +required:
+> > +  - compatible
+> > +  - '#address-cells'
+
+... and why is it required?
+
+> > +  - '#interrupt-cells'
+> > +  - interrupt-controller
+> > +  - reg
+> > +  - interrupts-extended
+> > +  - riscv,ndev
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    plic: interrupt-controller@c000000 {
+> > +      #address-cells = <0>;
+> > +      #interrupt-cells = <1>;
+> > +      compatible = "sifive,plic-1.0.0", "sifive,fu540-c000-plic";
+> > +      interrupt-controller;
+> > +      interrupts-extended = <
+> > +        &cpu0_intc 11
+> > +        &cpu1_intc 11 &cpu1_intc 9
+> > +        &cpu2_intc 11 &cpu2_intc 9
+> > +        &cpu3_intc 11 &cpu3_intc 9
+> > +        &cpu4_intc 11 &cpu4_intc 9>;
+> > +      reg = <0xc000000 0x4000000>;
+> > +      riscv,ndev = <10>;
+> > +    };
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
