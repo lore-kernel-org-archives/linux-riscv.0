@@ -7,80 +7,73 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27EC3C433C1
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 10:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 742BCC433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 11:10:01 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8767561A0B
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 10:36:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8767561A0B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 14FB7619E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 11:10:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14FB7619E0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=D+PKYOrAUmeOFMH/GYqm/hc/Gnx6jOeFFSt1aIq6eq4=; b=P89ym/z4qaSt+XKlwQr3dyiBz
-	sKZJzJpw82zHtuDTSjIOyGrbqdzghql/MXrr34jJE5U/rMWJM5J227r5tjSwXdpSyvQwS2RQ+H3Er
-	FUrRxJ3e6E+mAVYbTOcVE+/MO3RiQ9w4Hyrju8D5fnsdCpJajZY3o6x8gwW51zy7ZMSfhlgCLx9kh
-	+gYvTzXBmlDR3wns+OheqJKPLEQcRMZi4T1Ify6DDHcnPAuXK5HAibWtzqACoR5S0ex1GMlvI/Rap
-	U+ebRzjNBjhrsx4oDkR9Ia7okJ9eF/QjP24akmFiS60AGn5vqoLpCu2X1YuKND6FBBo5sj+OrsKwi
-	5V4a8s+0A==;
+	 bh=L8N1URze0HoGrOqgqP/maGBKHDD/ACXb/qSziMCw9SM=; b=ph/7NbRmlGtnjhqtWQ092PfKU
+	1fXpzX8u0XqAO8xrVTnwWfEe6dC3zIMq2U6N0jJa41kwB5vq6VRvR92VOguURXrwuj3iW++VFiDa9
+	d2DNWi42+rYOHb7sC9vXA0lVo00DkW1c9W/KagC1FN6B9uUrelN/9uv5FkKON9bF5vjU0f3J7S2aC
+	y3Hpfk9Sx3JCtZAUVatvFVJahk9V48BioGlSRs8fwPZMyGSapLPwV/TpsA73+ZL/sdY5Cpu0BdrcM
+	c0AhrM50OHrk5Kbj8RsKcqgsImKeUX8q890Mdm4S4hz7PQoeQbWzY+NoSFtbFgXhXwxotXS36zJLB
+	Fb7O4gFcw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lP0s8-00Gr52-FA; Wed, 24 Mar 2021 10:36:20 +0000
-Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
+	id 1lP1OT-00GyOX-8h; Wed, 24 Mar 2021 11:09:45 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lP0s5-00Gr4d-2d
- for linux-riscv@lists.infradead.org; Wed, 24 Mar 2021 10:36:18 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4F54Qk6Ntjz1s9R5;
- Wed, 24 Mar 2021 11:36:14 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4F54Qk4zn7z1qsjk;
- Wed, 24 Mar 2021 11:36:14 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id SqtMt3mJbtmw; Wed, 24 Mar 2021 11:36:13 +0100 (CET)
-X-Auth-Info: olVaPxE3Iz+q50j6MfKSb11oZHIp3MyPaMLQ4Rr+sMkFhhkkUaAnHCx5VE8VTEsd
-Received: from igel.home (ppp-46-244-174-113.dynamic.mnet-online.de
- [46.244.174.113])
+ id 1lP1OQ-00GyOS-RR
+ for linux-riscv@desiato.infradead.org; Wed, 24 Mar 2021 11:09:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=3T8iu/qdOkx2N3h+JT3OPgD2ctqodSwNmXaB7wutWzA=; b=lnQQHrIn6MADzhda+f8n/XYl6e
+ ZR3Cyl1TtYeVGMyTw9gmG3b6Z4zz4MQI+pIdHuPq85cl/9zzqG6+Z0MGRDdEMagII+txSiRO7PeWA
+ r0F/HEOkTcnToQ1quMwVezUsvRZyu0yO8FuWUwJKHo2IgZUGZ6wlW5mi9bP7X8f+yRwF9V5ITBY/K
+ levcbfd3jRvy5iItCXZq87VNBi7jbIkbqBeg+h4f/ro1SrF5NQUuNhLGvn88cdNzMAYy0UeZ5zGpS
+ Zeoa6fJ3RamzmkB09WJrJ5WJHK/8XutRPGgSZKfBdmC1VAde5w/v+6/ObAKO09+406yUAN6zyKVm5
+ q8xCtr5A==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
+ id 1lP1OH-00BGwS-AS; Wed, 24 Mar 2021 11:09:37 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Wed, 24 Mar 2021 11:36:13 +0100 (CET)
-Received: by igel.home (Postfix, from userid 1000)
- id 4C29D2C3716; Wed, 24 Mar 2021 11:36:13 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Stephen Boyd <sboyd@kernel.org>,  Pragnesh Patel
- <pragnesh.patel@openfive.com>,  Albert Ou <aou@eecs.berkeley.edu>,
- Michael Turquette <mturquette@baylibre.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-clk@vger.kernel.org,  linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v7 0/5] clk: add driver for the SiFive FU740
-References: <20201209094916.17383-1-zong.li@sifive.com>
- <87v99qyjaz.fsf@igel.home>
- <CANXhq0oLxFK1431WmTj5HRO5k_omYkQZCBTG+HORTk9=W_XyNg@mail.gmail.com>
- <CANXhq0p90Cgha_zLzxamK9mxmVPn3effh_cZq_CTLrcAkKZg2Q@mail.gmail.com>
- <87lfaj7cki.fsf@igel.home>
-X-Yow: I just forgot my whole philosophy of life!!!
-Date: Wed, 24 Mar 2021 11:36:13 +0100
-In-Reply-To: <87lfaj7cki.fsf@igel.home> (Andreas Schwab's message of "Fri, 19
- Mar 2021 09:49:33 +0100")
-Message-ID: <871rc4on36.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 8F6413010C8;
+ Wed, 24 Mar 2021 12:09:32 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 6C17A28B290D3; Wed, 24 Mar 2021 12:09:32 +0100 (CET)
+Date: Wed, 24 Mar 2021 12:09:32 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will.deacon@arm.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
+ implementation
+Message-ID: <YFsd7A6xzrWXi1l5@hirez.programming.kicks-ass.net>
+References: <1616580892-80815-1-git-send-email-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210324_103617_210129_F8C4BC39 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <1616580892-80815-1-git-send-email-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +90,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Were you able to reproduce the problem?
+On Wed, Mar 24, 2021 at 10:14:52AM +0000, guoren@kernel.org wrote:
+> +static inline void arch_spin_lock(arch_spinlock_t *lock)
+> +{
+> +	arch_spinlock_t lockval;
+> +	u32 tmp;
+> +
+> +	asm volatile (
+> +		"1:	lr.w	%0, %2		\n"
+> +		"	mv	%1, %0		\n"
+> +		"	addw	%0, %0, %3	\n"
+> +		"	sc.w	%0, %0, %2	\n"
+> +		"	bnez	%0, 1b		\n"
+> +		: "=&r" (tmp), "=&r" (lockval), "+A" (lock->lock)
+> +		: "r" (1 << TICKET_NEXT)
+> +		: "memory");
+>  
+> +	while (lockval.tickets.next != lockval.tickets.owner) {
+> +		/*
+> +		 * FIXME - we need wfi/wfe here to prevent:
+> +		 *  - cache line bouncing
+> +		 *  - saving cpu pipeline in multi-harts-per-core
+> +		 *    processor
+> +		 */
+> +		lockval.tickets.owner = READ_ONCE(lock->tickets.owner);
+> +	}
+>  
+> +	__atomic_acquire_fence();
+>  }
 
-Andreas.
+> +static inline void arch_spin_unlock(arch_spinlock_t *lock)
+>  {
+> +	smp_store_release(&lock->tickets.owner, lock->tickets.owner + 1);
+> +	/* FIXME - we need ipi/sev here to notify above */
+>  }
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+Urgh, are you saying your WFE requires an explicit SEV like on ARM ? The
+ARM64 model is far superious IMO, and then you can use
+smp_cond_load_acquire() in arch_spin_lock() and call it a day.
 
 _______________________________________________
 linux-riscv mailing list
