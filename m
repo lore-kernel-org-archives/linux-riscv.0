@@ -7,74 +7,82 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57F7FC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 12:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55AC2C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 12:54:23 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E25EC61A09
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 12:38:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E25EC61A09
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id BC21E61A09
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Mar 2021 12:54:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC21E61A09
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sMN5pTwEyKE1p/sg7u5an9hPJhW5GkdcEK1Tn92NEA0=; b=SKhKo/8HhXdkcuUWxc7Cugw0j
-	qV97UAKviArtd1p9hgi5jMlbFAqbu4oG1TzGe03n/EleBX3LVsxNWACn7lk2Mx0xud8BDee4VdNCg
-	WYcG5Ka5fmfSNlz6LOvhwWFv1OYs9wPKXAoYWABKnVBxH74/hwrFqRBdZsFgBmwzK9uxWDHUR5kXp
-	93J/qsN5JCcsBSvOD3+LePEwj5KO754RUNj5b3bsFab3zk1jXBx7XETg2ibnMAsHX2EKAvyN4Mt0J
-	ylAzylffO5io4HEWFFY1WvejKgPge6N/AhTBBiEJ+egfTV4+7iAwtNp5DZnWjkJKZ5TGW3naQUao1
-	FCGDklcMA==;
+	 bh=vjNOljBs4ddSOGx13x/oH26jbjLBtvmOHJXjSR5W1iQ=; b=APgNEidPk8WCAVzgUimYYLfnW
+	NHjZZUEdMgVqSq34UzbT/2fUHn//fieiEnIGFZphjREzcqyEF8pPd9/MgVu9fpyg0M1u0NZke2VMK
+	GVN54Kq82P9nUOhc0ZwocCuNimEMmZnPaI5e9w67L6t2MEWWmod2zqGrUe5RFUo3kkEeYxaxqoIun
+	Ei1B/aM2gVgkdu/y3f3pOeVK9pYpAOO1cbIm2Ycb4y4tXUF4O0/kEmMyStaTgx8/qDYPZ5Fv+Rakd
+	kOQwGNBMJXpMlTT72JakD+4fg+OTrKPffw+Os5mZn639LimGx5y/mw3csFuHnLnaZKWjRUPvu0Xxt
+	nYCvg5c9A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lP2mD-00H6fg-MJ; Wed, 24 Mar 2021 12:38:21 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1lP31V-00H7U2-Lv; Wed, 24 Mar 2021 12:54:09 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lP2mA-00H6fI-ES
- for linux-riscv@desiato.infradead.org; Wed, 24 Mar 2021 12:38:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=RrFr490dFRvD+R99oCaLdve7Nm3IkFIKrRyx/bsnPjw=; b=pCjx6OdE08VvbOSiDs5kXJYRfY
- lb6q5yV7oK21uCsJurgbts409+Y33BBPfIzSDl0cPL44qmR68W42PFq2xBQ0qGwVBugETmOVyaeot
- w1eswJnqfkAWVwstGiKCTAVFlNDVrkleJvnT+XxAU5SsNRpEGhEzIIQ7A4599wb8UzDRMpkgdU1IG
- AvWhv6UX1oD5IfuJZcBJk8R6ygN/zKr6YrqUgE+Uulzlozczzma83KFb7/s7Vi/mO81BfGLItSqux
- DI9uia8RCVxcbJr4sI09MAhA8ZTK1v/saDTRqlhCiK/sSHYl67RXk3MXvixORZZXJ+bQBVH1AedNa
- 67chedKA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
- id 1lP2lY-00BLAE-Vp; Wed, 24 Mar 2021 12:37:45 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 60B6B301A7A;
- Wed, 24 Mar 2021 13:37:40 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 4473E2BF5B73E; Wed, 24 Mar 2021 13:37:40 +0100 (CET)
-Date: Wed, 24 Mar 2021 13:37:40 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Guo Ren <guoren@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
- implementation
-Message-ID: <YFsylL7cJqVtVqBI@hirez.programming.kicks-ass.net>
+ id 1lP31P-00H7Td-VU
+ for linux-riscv@lists.infradead.org; Wed, 24 Mar 2021 12:54:05 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 75so31762619lfa.2
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Mar 2021 05:54:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=0x8/eOR8jBnzEM8stTetLIzcLMcnZLJokgA4zekf+j0=;
+ b=IUsdx7gTHzToc2R8nVOw084aJxUAVpPQdGLRVFk3aSkpDZRQUSJ7a/f9KkLbM81RWy
+ ceXojVRk5jfbOgZI4gNUC5KLnSkNaKvNLPG9EsNqDPkvoSkgbIyfJnCjCaciZyj0b7C8
+ DHGsVCyQPXK+pMNgaJy2znETUe1ALYjz1yzJ+WCyiWjjqCx9tteYZREiYyBVMnLM7wP6
+ HfAJrFlJe2QBlLD9FT+d5es32brgS9c5cY8ZUkfU6St8WIfre30ui1IRi0K1RYdxHBGC
+ xl99QutYbN0T7beWSQ+/NZCv+1oLh9FOfwsokyVxcNNr7p6t54wtrrSB16IRoc8etrbi
+ Ibew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=0x8/eOR8jBnzEM8stTetLIzcLMcnZLJokgA4zekf+j0=;
+ b=HyVQVWQSP951ebv7jCzrsShTpocoI2utmeXt9kCKEwBMiKd/d8JwyrKJdmsbKB1c49
+ fsgS5S4R2Gy6sigb1IvNsKOaXyCJeyF7QyFjRlAIHiO+J6QbIzskiPtXSHyZzCXpvmp4
+ aQ9YqJmCRKmfplK9Wr6GRp/eBR7FPrqs2LOcvPjnMoCAJREQ6Zn8K/UzE6H7K0GI+zlj
+ U2aFbX5XKDpdV8wkwx7w3ybhADZpJJF8UnbC3GIs6ZeKioPY9xtwbPB0fPqUhafceFz3
+ WOoSxbhpCTCC0C+T456ivp8pJojLzB8J+aA8XUTfLrAUOchY7JrBqKhR5PnXc/A1U/l2
+ 1ZDQ==
+X-Gm-Message-State: AOAM532ARkvjEH/mirnaz01u4/4Wm5VZ2Joz6H8eypjmJmZK8BLSlkJz
+ dr3g0BtgHvWEXDz0AH0C6Q+MnqnE6Lm7MgMvmFZnyw==
+X-Google-Smtp-Source: ABdhPJw3zXWj17ytjGUcJXrPBhqSrf/SVUB//Qqzw55UnOxrq3HR3/eH04quGqhpPfVKlJ6pV8HKE+t1UT6KCYmskaE=
+X-Received: by 2002:ac2:50d0:: with SMTP id h16mr1917793lfm.369.1616590443029; 
+ Wed, 24 Mar 2021 05:54:03 -0700 (PDT)
+MIME-Version: 1.0
 References: <1616580892-80815-1-git-send-email-guoren@kernel.org>
  <CAAhSdy2FPHX7Mhg5bRUOTk8SAw+jfWxhKquGZpC6YD0MPLSu0A@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy2FPHX7Mhg5bRUOTk8SAw+jfWxhKquGZpC6YD0MPLSu0A@mail.gmail.com>
+ <YFsylL7cJqVtVqBI@hirez.programming.kicks-ass.net>
+In-Reply-To: <YFsylL7cJqVtVqBI@hirez.programming.kicks-ass.net>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 24 Mar 2021 18:23:51 +0530
+Message-ID: <CAAhSdy1JHLUFwu7RuCaQ+RUWRBks2KsDva7EpRt8--4ZfofSUQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
+ implementation
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Guo Ren <guoren@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will.deacon@arm.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210324_125404_176169_EC99915B 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +99,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 24, 2021 at 05:58:58PM +0530, Anup Patel wrote:
-> On Wed, Mar 24, 2021 at 3:45 PM <guoren@kernel.org> wrote:
+On Wed, Mar 24, 2021 at 6:08 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Wed, Mar 24, 2021 at 05:58:58PM +0530, Anup Patel wrote:
+> > On Wed, Mar 24, 2021 at 3:45 PM <guoren@kernel.org> wrote:
+> > >
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > This patch introduces a ticket lock implementation for riscv, along the
+> > > same lines as the implementation for arch/arm & arch/csky.
+> > >
+> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > Cc: Will Deacon <will.deacon@arm.com>
+> > > Cc: Peter Zijlstra <peterz@infradead.org>
+> > > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> > > Cc: Anup Patel <anup@brainfault.org>
+> > > Cc: Arnd Bergmann <arnd@arndb.de>
+> > > ---
+> > >  arch/riscv/Kconfig                      |   1 +
+> > >  arch/riscv/include/asm/Kbuild           |   1 +
+> > >  arch/riscv/include/asm/spinlock.h       | 158 ++++++++++++--------------------
+> > >  arch/riscv/include/asm/spinlock_types.h |  19 ++--
 > >
-> > From: Guo Ren <guoren@linux.alibaba.com>
+> > NACK from myside.
 > >
-> > This patch introduces a ticket lock implementation for riscv, along the
-> > same lines as the implementation for arch/arm & arch/csky.
+> > Linux ARM64 has moved away from ticket spinlock to qspinlock.
 > >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will.deacon@arm.com>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >  arch/riscv/Kconfig                      |   1 +
-> >  arch/riscv/include/asm/Kbuild           |   1 +
-> >  arch/riscv/include/asm/spinlock.h       | 158 ++++++++++++--------------------
-> >  arch/riscv/include/asm/spinlock_types.h |  19 ++--
-> 
-> NACK from myside.
-> 
-> Linux ARM64 has moved away from ticket spinlock to qspinlock.
-> 
-> We should directly go for qspinlock.
+> > We should directly go for qspinlock.
+>
+> I think it is a sensible intermediate step, even if you want to go
+> qspinlock. Ticket locks are more or less trivial and get you fairness
+> and all that goodness without the mind bending complexity of qspinlock.
+>
+> Once you have the ticket lock implementation solid (and qrwlock) and
+> everything, *then* start to carefully look at qspinlock.
 
-I think it is a sensible intermediate step, even if you want to go
-qspinlock. Ticket locks are more or less trivial and get you fairness
-and all that goodness without the mind bending complexity of qspinlock.
+I do understand qspinlock are relatively complex but the best thing
+about qspinlock is it tries to ensure each CPU spins on it's own location.
 
-Once you have the ticket lock implementation solid (and qrwlock) and
-everything, *then* start to carefully look at qspinlock.
+Instead of adding ticket spinlock now and later replacing it with qspinlock,
+it is better to straight away explore qspinlock hence my NACK.
 
-Now, arguably arm64 did the heavy lifting of making qspinlock good on
-weak architectures, but if you want to do it right, you still have to
-analyze the whole thing for your own architecture.
+>
+> Now, arguably arm64 did the heavy lifting of making qspinlock good on
+> weak architectures, but if you want to do it right, you still have to
+> analyze the whole thing for your own architecture.
 
+Most of the RISC-V implementations are weak memory ordering so it
+makes more sense to explore qspinlock first.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
