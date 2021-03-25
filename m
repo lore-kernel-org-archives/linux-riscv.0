@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2320C433C1
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E3CC2C433C1
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:39:06 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 54E3E61A21
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:37:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54E3E61A21
+	by mail.kernel.org (Postfix) with ESMTPS id 8BCD161A1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:39:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8BCD161A1D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,70 +24,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Sb/Q6r388kjDbgCw1T499Rh93pkiBJFolWwsmNE2HGQ=; b=WQiOK8QUGL0v+IyM6n+EXd941
-	psqMcHvQ5tVFnmnTkoNv5QrDprylscg/Y63iXx01dal41AtmWmgzxvbACzBYye48CqwM2TPm1TzkQ
-	ruQh6j7xr3w1lQOKpWKrU0wWByOemhzIbNbPk9PsjLQwrLHpjTmgmzD5aCGnyzxQ+amX5IgxwbWdR
-	YxAxuZPCm+GL48UbOzF/Zuboz5n80pJO5foBi+T0k8S8E6G8gRu7VlKW/JEYECcu0FAPlNGFbNjjs
-	aWfiUrOyMr5e4ciSiIqvFYQgupNvRJ0nTmQRSmFPhz16Mfg+N58e5h5JbMs86dBVsxDQ6qOo7eUOE
-	iRUTvhxGw==;
+	 bh=bchSGS8DL+dccbusN87HRynm9yOBfO8g53sZjRDSy4Q=; b=PkwtimFxnhjmTFjwcFCNaEzss
+	hwMS3G+/RNCxf7FaSi4hiXI4AxSjdwXZS1GrhzNJy+TkYepkfdS6w7EySqoH8FG+p3CJXtgX4cHCf
+	UT75OWl/VwgmCg2ToME8VM9fvuEq3gm1Q83NUmtRNc6FiytnrCPIElEZuSJB0p2E4r7GPoW6bbyGj
+	YEs0cW1Dg6lBMehNO6rod0FEwLjcmn/ugbSoYcHpuziskJ7KUuOl4l+yjwSuZSnJF9ozODES3eNSm
+	RnMzsSufrFB23sAY2ovADbE0MqAImWRiKRCoNuyye3VLhdXY1Gmx8o8YDNpAxl5q8u0pK0CljqpmQ
+	VV1OP1LeQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lPZX1-002NBX-I9; Thu, 25 Mar 2021 23:36:51 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1lPZYt-002NIY-Tv; Thu, 25 Mar 2021 23:38:48 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lPZWx-002NB5-7D
- for linux-riscv@lists.infradead.org; Thu, 25 Mar 2021 23:36:49 +0000
-Received: by mail-pf1-x429.google.com with SMTP id c204so3655544pfc.4
- for <linux-riscv@lists.infradead.org>; Thu, 25 Mar 2021 16:36:45 -0700 (PDT)
+ id 1lPZYo-002NHq-GQ
+ for linux-riscv@lists.infradead.org; Thu, 25 Mar 2021 23:38:44 +0000
+Received: by mail-pg1-x530.google.com with SMTP id v3so3401391pgq.2
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Mar 2021 16:38:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=8ub3+KaVHR67U2QACzlICSww+btiIMyI8S4cGZM+QbM=;
- b=YNP3csUtke1uWeppGyLz3d/mgtKAW3dwkcruzfL+2fTZ9nCh9raBIGfyKTsPQgdbdd
- RNO3cYBsYF4/4yjZ7h+dF05qxq6/lb7hjDmm1od/dg7dmW9SUazvNNUWdtSarZhh4oMR
- bhf2VaYwkD+R02AHCM41L9lJSqs+Ha24dbFD2A3iTZjx/hNHeYjXQ5vdY5crbT+w8cu9
- N//W8D8jy2WtBCkYL9naqXhCCF+dCQxR/lKsQtMnq4Ml38nim+7M7y8QzDZ5NmgdwDKa
- l+jMnJE3i38tUeQfjk4F7KAMwYzbtIqpLpwqLlCLrkzo1p+9Mlk2SEAZqwbiuok83yQy
- RF3Q==
+ bh=SsGNl6TxEdcsmrF4tAO/a5SQ7vMBXF6HcqOFeBkJZaA=;
+ b=YBLkudSekC9YH98hJgA55FU7IVE5MZyUpALZY2o1J7Ngkh3ltuqb6Q6nznhniFA6Ao
+ XPcnjxjr7qgTEb6B5BKrm4bKQBczRRcN03o9gKVyoQiDHB2dK2CxZclZSUtr6BefjxYd
+ kN+yz4Nb7d/P1Bdsh9TjfgLHmzOKg+FMCyvXIrMTsRFDl5t/1hbtq8B8RhuG1Tn2KM5V
+ /Olo8HuVLcgcDQ7z7Vu/yivH3aLbfP/Ig0Dk4TIy0Cm34zZKS44XPCT8lLWr3WSOlbcR
+ cxyjrcJz88D9/rK3grLohcxlIP/moznFZRwalZT5q7LXlWrBKJgrhcoGGw6E8mgc2oeo
+ vtYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=8ub3+KaVHR67U2QACzlICSww+btiIMyI8S4cGZM+QbM=;
- b=Sy7FGulx9vRhn3vlC19/peT5qzvIfDK90D2t5LUMF/zCjAIj2bKMNKP5OlLc8gzsoo
- ExvrV76qIHKKjxS9z4VU7I9hGkfJgdjm5UlMpFbJm4fQiaGW4cCqSbtJqNa+yAX24jqs
- nkP2/g7RJcnOOanGlhN39eO+HM+qK8zTglzlI6df+FfMo7OWeJnCSqtu7hcC/rspZEho
- sojZERgxu+1P97dRg1BijlU+S11cAryYTP3Ii3ra6pFp8usdI09kUzmg8VNpZQmhG7/b
- IgixgTaJ0RmqYuFJHhxqBoqEtVRCOXxyXgLdz4tazomwZnDlRT7iKWBXb14EsGm9ZQt9
- MhvQ==
-X-Gm-Message-State: AOAM531Meu2dq9sJaxNkeIJT5114FPNFDpxdU8K8n0AUoXTFBqb5JaHW
- 8q7IeQjYM9JmiE9roKHesF5YeA==
-X-Google-Smtp-Source: ABdhPJxeSjRgYZMHzSWbNBum6+QgRSNLMUeyLP99yS84q++2Qmz+Pr18oxx1VuVkVBZwVk53X4csDg==
-X-Received: by 2002:aa7:942d:0:b029:1f2:cbc6:8491 with SMTP id
- y13-20020aa7942d0000b02901f2cbc68491mr10125053pfo.53.1616715404666; 
- Thu, 25 Mar 2021 16:36:44 -0700 (PDT)
+ bh=SsGNl6TxEdcsmrF4tAO/a5SQ7vMBXF6HcqOFeBkJZaA=;
+ b=iTnWyHX01e/FDhzCOTTJGW6dNf0hBlF2LOqKI32l+PPtynJaF02sE5EjmTWs86DawH
+ yrrqKQXpYkRQbUKYUF1Y+LzpWP43rrkHVvZmyOwet1zYuuGn8t2M6kt8rrE0CisDowVK
+ n7Vdm3Lv3uW+nv6bQ3Rs/h0NdEiKFC/BT5aPo2+B72V/YrMSgVXydjQRHqYCYrpjZIwQ
+ hupyreo9VTM9lQcHVHqtJWGFGR6vmdtFG9XSfWA2TXW0n1GsAF6i3OJafR4V031zAkSc
+ hn035p5oUnTQnrH/sDBA9d0e2OTtuJtDNs/U+zZruvVNAf/N8POSbRDBLLo3hDyMw+vm
+ nMEg==
+X-Gm-Message-State: AOAM530qSrUW6OOEckABEXwy6N2B+ZxjJRNpyMQQzY+WBKHzY6rNeSTd
+ mFDicI8iUatul+OaGWOqkW8efQ==
+X-Google-Smtp-Source: ABdhPJxyTNoi8awCicMlBT95i1RKLe5xI0PRp4lZMCjKGQIf+tw1BENbvhG4yY4os4qQO6hZgb7uTQ==
+X-Received: by 2002:a62:2a07:0:b029:214:fd95:7f7 with SMTP id
+ q7-20020a622a070000b0290214fd9507f7mr10221639pfq.60.1616715520895; 
+ Thu, 25 Mar 2021 16:38:40 -0700 (PDT)
 Received: from google.com ([2620:15c:2ce:0:1532:a374:78cc:c35c])
- by smtp.gmail.com with ESMTPSA id j3sm6263561pjf.36.2021.03.25.16.36.43
+ by smtp.gmail.com with ESMTPSA id l25sm7030314pgu.72.2021.03.25.16.38.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 25 Mar 2021 16:36:44 -0700 (PDT)
-Date: Thu, 25 Mar 2021 16:36:40 -0700
+ Thu, 25 Mar 2021 16:38:40 -0700 (PDT)
+Date: Thu, 25 Mar 2021 16:38:35 -0700
 From: Fangrui Song <maskray@google.com>
 To: Nathan Chancellor <nathan@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
- stable@vger.kernel.org
-Subject: Re: [PATCH 1/3] scripts/recordmcount.pl: Fix RISC-V regex for clang
-Message-ID: <20210325233640.jzi7uvaohvqwixiu@google.com>
+ kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH 3/3] riscv: Select HAVE_DYNAMIC_FTRACE when
+ -fpatchable-function-entry is available
+Message-ID: <20210325233835.ytcstqdcwtorzkhw@google.com>
 References: <20210325223807.2423265-1-nathan@kernel.org>
- <20210325223807.2423265-2-nathan@kernel.org>
+ <20210325223807.2423265-4-nathan@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210325223807.2423265-2-nathan@kernel.org>
+In-Reply-To: <20210325223807.2423265-4-nathan@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210325_233647_520885_63A52433 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20210325_233842_707408_88EF12D9 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +106,48 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2021-03-25, Nathan Chancellor wrote:
->Clang can generate R_RISCV_CALL_PLT relocations to _mcount:
+>clang prior to 13.0.0 does not support -fpatchable-function-entry for
+>RISC-V.
 >
->$ llvm-objdump -dr build/riscv/init/main.o | rg mcount
->                000000000000000e:  R_RISCV_CALL_PLT     _mcount
->                000000000000004e:  R_RISCV_CALL_PLT     _mcount
+>clang: error: unsupported option '-fpatchable-function-entry=8' for target 'riscv64-unknown-linux-gnu'
 >
->After this, the __start_mcount_loc section is properly generated and
->function tracing still works.
->
+>To avoid this error, only select HAVE_DYNAMIC_FTRACE when this option is
+>not available.
 
-R_RISCV_CALL_PLT can replace R_RISCV_CALL in all use cases.
-R_RISCV_CALL can/may be deprecated:
-https://github.com/ClangBuiltLinux/linux/issues/1331#issuecomment-802468296
+If clang -fpatchable-function-entry=8 does not error "unsupported
+option" for one target, it means the backend feature is supported on
+this target.
 
 Reviewed-by: Fangrui Song <maskray@google.com>
 
-
->Cc: stable@vger.kernel.org
->Link: https://github.com/ClangBuiltLinux/linux/issues/1331
+>Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
+>Link: https://github.com/ClangBuiltLinux/linux/issues/1268
+>Reported-by: kernel test robot <lkp@intel.com>
 >Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 >---
-> scripts/recordmcount.pl | 2 +-
+> arch/riscv/Kconfig | 2 +-
 > 1 file changed, 1 insertion(+), 1 deletion(-)
 >
->diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
->index 867860ea57da..a36df04cfa09 100755
->--- a/scripts/recordmcount.pl
->+++ b/scripts/recordmcount.pl
->@@ -392,7 +392,7 @@ if ($arch eq "x86_64") {
->     $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
-> } elsif ($arch eq "riscv") {
->     $function_regex = "^([0-9a-fA-F]+)\\s+<([^.0-9][0-9a-zA-Z_\\.]+)>:";
->-    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL\\s_mcount\$";
->+    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL(_PLT)?\\s_mcount\$";
->     $type = ".quad";
->     $alignment = 2;
-> } elsif ($arch eq "nds32") {
+>diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>index 87d7b52f278f..ba1d07640b66 100644
+>--- a/arch/riscv/Kconfig
+>+++ b/arch/riscv/Kconfig
+>@@ -227,7 +227,7 @@ config ARCH_RV64I
+> 	bool "RV64I"
+> 	select 64BIT
+> 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
+>-	select HAVE_DYNAMIC_FTRACE if MMU
+>+	select HAVE_DYNAMIC_FTRACE if MMU && $(cc-option,-fpatchable-function-entry=8)
+> 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> 	select HAVE_FTRACE_MCOUNT_RECORD
+> 	select HAVE_FUNCTION_GRAPH_TRACER
 >-- 
 >2.31.0
 >
 >-- 
 >You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 >To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
->To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210325223807.2423265-2-nathan%40kernel.org.
+>To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210325223807.2423265-4-nathan%40kernel.org.
 
 _______________________________________________
 linux-riscv mailing list
