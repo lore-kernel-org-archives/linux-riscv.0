@@ -2,64 +2,92 @@ Return-Path: <SRS0=pLrx=IX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB08AC433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2320C433C1
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:37:06 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 37DFB61574
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:04:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37DFB61574
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 54E3E61A21
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Mar 2021 23:37:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54E3E61A21
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wofjyDoSgOKVsLYiwn9zYXiMtw7cc8wkynGBhsuz8E4=; b=CdcSPSWkBXdZVNAEnS1ntqycJZ
-	6vX/6VyF+9c2sBuQUHtE6kLutjXSv0yEGDIMD84mls5G8SArm4oCAQN2Z1vjlkaEiIhzf5OKOIqCV
-	ZwphpUoOfcoa5d+v67FOfjxihCQ2tw4hOZ8Xo2kRb05jCjaxHAmP9gs6zv3zepObZav7R+AoPWKkZ
-	0snGCWW0gg27vxpSSlF3lSORENz+qFC7cvqEESLR3AURZpIVZbjrbzfcFGTDJ62Kt+JB9z6GyVKKd
-	O0K1hS4R5+jGDES+vNRi/+K8y8ffUDyt78c4/povoIAL8hpd8tq0sF+DMBJvKnVXYiz/Nu7my6Hvx
-	BpWWQhbg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Sb/Q6r388kjDbgCw1T499Rh93pkiBJFolWwsmNE2HGQ=; b=WQiOK8QUGL0v+IyM6n+EXd941
+	psqMcHvQ5tVFnmnTkoNv5QrDprylscg/Y63iXx01dal41AtmWmgzxvbACzBYye48CqwM2TPm1TzkQ
+	ruQh6j7xr3w1lQOKpWKrU0wWByOemhzIbNbPk9PsjLQwrLHpjTmgmzD5aCGnyzxQ+amX5IgxwbWdR
+	YxAxuZPCm+GL48UbOzF/Zuboz5n80pJO5foBi+T0k8S8E6G8gRu7VlKW/JEYECcu0FAPlNGFbNjjs
+	aWfiUrOyMr5e4ciSiIqvFYQgupNvRJ0nTmQRSmFPhz16Mfg+N58e5h5JbMs86dBVsxDQ6qOo7eUOE
+	iRUTvhxGw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lPZ0y-002Kmz-T6; Thu, 25 Mar 2021 23:03:44 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1lPZX1-002NBX-I9; Thu, 25 Mar 2021 23:36:51 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lPZ0v-002KmP-0R
- for linux-riscv@lists.infradead.org; Thu, 25 Mar 2021 23:03:43 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=rainbowdash)
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1lPZ0m-0002NH-CC; Thu, 25 Mar 2021 23:03:32 +0000
-Received: from ben by rainbowdash with local (Exim 4.94)
- (envelope-from <ben@rainbowdash>)
- id 1lPZ0l-003Dlt-2G; Thu, 25 Mar 2021 23:03:31 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-riscv@lists.infradead.org,
- Javier Jardon <javier.jardon@codethink.co.uk>
-Cc: Terry Hu <kejia.hu@codethink.co.uk>, Ben Dooks <ben.dooks@codethink.co.uk>,
- syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com,
- Arnd Bergman <arnd@arndb.de>, schwab@linux-m68k.org, dvyukov@google.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, alex@ghiti.fr,
- linux-kernel@lists.codethink.co.uk
-Subject: [PATCH v3] RFC: riscv: evaluate put_user() arg before enabling user
- access
-Date: Thu, 25 Mar 2021 23:03:28 +0000
-Message-Id: <20210325230328.767875-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.30.2
+ id 1lPZWx-002NB5-7D
+ for linux-riscv@lists.infradead.org; Thu, 25 Mar 2021 23:36:49 +0000
+Received: by mail-pf1-x429.google.com with SMTP id c204so3655544pfc.4
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Mar 2021 16:36:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=8ub3+KaVHR67U2QACzlICSww+btiIMyI8S4cGZM+QbM=;
+ b=YNP3csUtke1uWeppGyLz3d/mgtKAW3dwkcruzfL+2fTZ9nCh9raBIGfyKTsPQgdbdd
+ RNO3cYBsYF4/4yjZ7h+dF05qxq6/lb7hjDmm1od/dg7dmW9SUazvNNUWdtSarZhh4oMR
+ bhf2VaYwkD+R02AHCM41L9lJSqs+Ha24dbFD2A3iTZjx/hNHeYjXQ5vdY5crbT+w8cu9
+ N//W8D8jy2WtBCkYL9naqXhCCF+dCQxR/lKsQtMnq4Ml38nim+7M7y8QzDZ5NmgdwDKa
+ l+jMnJE3i38tUeQfjk4F7KAMwYzbtIqpLpwqLlCLrkzo1p+9Mlk2SEAZqwbiuok83yQy
+ RF3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=8ub3+KaVHR67U2QACzlICSww+btiIMyI8S4cGZM+QbM=;
+ b=Sy7FGulx9vRhn3vlC19/peT5qzvIfDK90D2t5LUMF/zCjAIj2bKMNKP5OlLc8gzsoo
+ ExvrV76qIHKKjxS9z4VU7I9hGkfJgdjm5UlMpFbJm4fQiaGW4cCqSbtJqNa+yAX24jqs
+ nkP2/g7RJcnOOanGlhN39eO+HM+qK8zTglzlI6df+FfMo7OWeJnCSqtu7hcC/rspZEho
+ sojZERgxu+1P97dRg1BijlU+S11cAryYTP3Ii3ra6pFp8usdI09kUzmg8VNpZQmhG7/b
+ IgixgTaJ0RmqYuFJHhxqBoqEtVRCOXxyXgLdz4tazomwZnDlRT7iKWBXb14EsGm9ZQt9
+ MhvQ==
+X-Gm-Message-State: AOAM531Meu2dq9sJaxNkeIJT5114FPNFDpxdU8K8n0AUoXTFBqb5JaHW
+ 8q7IeQjYM9JmiE9roKHesF5YeA==
+X-Google-Smtp-Source: ABdhPJxeSjRgYZMHzSWbNBum6+QgRSNLMUeyLP99yS84q++2Qmz+Pr18oxx1VuVkVBZwVk53X4csDg==
+X-Received: by 2002:aa7:942d:0:b029:1f2:cbc6:8491 with SMTP id
+ y13-20020aa7942d0000b02901f2cbc68491mr10125053pfo.53.1616715404666; 
+ Thu, 25 Mar 2021 16:36:44 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:0:1532:a374:78cc:c35c])
+ by smtp.gmail.com with ESMTPSA id j3sm6263561pjf.36.2021.03.25.16.36.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 25 Mar 2021 16:36:44 -0700 (PDT)
+Date: Thu, 25 Mar 2021 16:36:40 -0700
+From: Fangrui Song <maskray@google.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+ stable@vger.kernel.org
+Subject: Re: [PATCH 1/3] scripts/recordmcount.pl: Fix RISC-V regex for clang
+Message-ID: <20210325233640.jzi7uvaohvqwixiu@google.com>
+References: <20210325223807.2423265-1-nathan@kernel.org>
+ <20210325223807.2423265-2-nathan@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210325223807.2423265-2-nathan@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210325_230341_189798_5DEADD53 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20210325_233647_520885_63A52433 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,95 +99,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The <asm/uaccess.h> header has a problem with put_user(a, ptr) if
-the 'a' is not a simple variable, such as a function. This can lead
-to the compiler producing code as so:
+On 2021-03-25, Nathan Chancellor wrote:
+>Clang can generate R_RISCV_CALL_PLT relocations to _mcount:
+>
+>$ llvm-objdump -dr build/riscv/init/main.o | rg mcount
+>                000000000000000e:  R_RISCV_CALL_PLT     _mcount
+>                000000000000004e:  R_RISCV_CALL_PLT     _mcount
+>
+>After this, the __start_mcount_loc section is properly generated and
+>function tracing still works.
+>
 
-1:	enable_user_access()
-2:	evaluate 'a' into register 'r'
-3:	put 'r' to 'ptr'
-4:	disable_user_acess()
+R_RISCV_CALL_PLT can replace R_RISCV_CALL in all use cases.
+R_RISCV_CALL can/may be deprecated:
+https://github.com/ClangBuiltLinux/linux/issues/1331#issuecomment-802468296
 
-The issue is that 'a' is now being evaluated with the user memory
-protections disabled. So we try and force the evaulation by assigning
-'x' to __val at the start, and hoping the compiler barriers in
- enable_user_access() do the job of ordering step 2 before step 1.
+Reviewed-by: Fangrui Song <maskray@google.com>
 
-This has shown up in a bug where 'a' sleeps and thus schedules out
-and loses the SR_SUM flag. This isn't sufficient to fully fix, but
-should reduce the window of opportunity. The first instance of this
-we found is in scheudle_tail() where the code does:
 
-$ less -N kernel/sched/core.c
-
-4263  if (current->set_child_tid)
-4264         put_user(task_pid_vnr(current), current->set_child_tid);
-
-Here, the task_pid_vnr(current) is called within the block that has
-enabled the user memory access. This can be made worse with KASAN
-which makes task_pid_vnr() a rather large call with plenty of
-opportunity to sleep.
-
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Suggested-by: Arnd Bergman <arnd@arndb.de>
-
---
-Changes since v1:
-- fixed formatting and updated the patch description with more info
-
-Changes since v2:
-- fixed commenting on __put_user() (schwab@linux-m68k.org)
-
-Cc: schwab@linux-m68k.org
-Cc: dvyukov@google.com
-Cc: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com
-Cc: alex@ghiti.fr
-Cc: linux-kernel@lists.codethink.co.uk
----
- arch/riscv/include/asm/uaccess.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 824b2c9da75b..f944062c9d99 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -306,7 +306,9 @@ do {								\
-  * data types like structures or arrays.
-  *
-  * @ptr must have pointer-to-simple-variable type, and @x must be assignable
-- * to the result of dereferencing @ptr.
-+ * to the result of dereferencing @ptr. The value of @x is copied to avoid
-+ * re-ordering where @x is evaluated inside the block that enables user-space
-+ * access (thus bypassing user space protection if @x is a function).
-  *
-  * Caller must check the pointer with access_ok() before calling this
-  * function.
-@@ -316,12 +318,13 @@ do {								\
- #define __put_user(x, ptr)					\
- ({								\
- 	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
-+	__typeof__(*__gu_ptr) __val = (x);			\
- 	long __pu_err = 0;					\
- 								\
- 	__chk_user_ptr(__gu_ptr);				\
- 								\
- 	__enable_user_access();					\
--	__put_user_nocheck(x, __gu_ptr, __pu_err);		\
-+	__put_user_nocheck(__val, __gu_ptr, __pu_err);		\
- 	__disable_user_access();				\
- 								\
- 	__pu_err;						\
--- 
-2.30.2
-
+>Cc: stable@vger.kernel.org
+>Link: https://github.com/ClangBuiltLinux/linux/issues/1331
+>Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>---
+> scripts/recordmcount.pl | 2 +-
+> 1 file changed, 1 insertion(+), 1 deletion(-)
+>
+>diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
+>index 867860ea57da..a36df04cfa09 100755
+>--- a/scripts/recordmcount.pl
+>+++ b/scripts/recordmcount.pl
+>@@ -392,7 +392,7 @@ if ($arch eq "x86_64") {
+>     $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
+> } elsif ($arch eq "riscv") {
+>     $function_regex = "^([0-9a-fA-F]+)\\s+<([^.0-9][0-9a-zA-Z_\\.]+)>:";
+>-    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL\\s_mcount\$";
+>+    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL(_PLT)?\\s_mcount\$";
+>     $type = ".quad";
+>     $alignment = 2;
+> } elsif ($arch eq "nds32") {
+>-- 
+>2.31.0
+>
+>-- 
+>You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210325223807.2423265-2-nathan%40kernel.org.
 
 _______________________________________________
 linux-riscv mailing list
