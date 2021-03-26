@@ -4,16 +4,16 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46176C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Mar 2021 15:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8B5BC433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Mar 2021 15:27:25 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DF852619CB
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Mar 2021 15:05:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF852619CB
+	by mail.kernel.org (Postfix) with ESMTPS id 8B84761A26
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Mar 2021 15:27:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B84761A26
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,48 +22,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nMZRee1VziH/Lgh0sNKR/j3u9ovEHzRy+0oFeZ5r+pM=; b=pKXc2174l0KWF2yUpK29smFrT
-	nDpXpIrXRVhYyeHZSH/xff4oX9kodaFE2Bw1o2+MJ94MobbaN+Tzq5o8CFmAGMKVNNZ8K8xVKoDtO
-	K6ufP6JXgBPxj+SpNn9/DshXUql2HwEMfW32++/cDea2TmVAJ4naWcd4y7fqm20C80bu4yR7fz2D1
-	Zva+V/VAj0m7yVN1LA1pfSMr6aR7Cu4b7cCgTZaYrWbXz+79DL4Icy15brtBRW0hjAuSP4HojTn8A
-	uWI78DoksKzX8fv3wdw+INWmYM3PAgSDTY8NbUs0rErgF3EVoSJEbnpUfFx0IrbJWJsglvCZxp2ch
-	G8uKr1KeA==;
+	 bh=ZQDOe2zGtFDkCGRLrWC9AxU/5fRTvWU6cC/4rE91/Is=; b=GcT+cxrsP7XR++t/YQMi57YX7
+	lUK+WKpNShtTmlK5yMAclB+JA2PaCpJ0fowzPhFStvBUyUzUnsYqwSKz7jq3GhyvnH+Za7zn2cHwq
+	+wNEbWJ3tNVGRsCd5e8v6HnvdwdOl26jbCFst7A1vtPVa1K4yy3HCufQClKYrMUl8BcxEPLLF3KRs
+	kArsFkpFArQMG/GmCRg1UYRXBqauuGpnpP1y6AUjF2ZpkPx+tpLZj/RcmNhiigp2E0+CjWPfh36NO
+	8+s0dY4MOiW9NglLuQR0aoFtYS5Ix/h0sm5z88PaUcAH2y4s9jBVhifrSTgqPU0Y6wdAt/GH8OfcR
+	4mnewpKEg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lPo17-003qzX-Ud; Fri, 26 Mar 2021 15:04:54 +0000
+	id 1lPoMo-003srW-JA; Fri, 26 Mar 2021 15:27:18 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lPo0x-003qxp-GV; Fri, 26 Mar 2021 15:04:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id AD77361A13;
- Fri, 26 Mar 2021 15:04:39 +0000 (UTC)
+ id 1lPoMe-003spp-HT; Fri, 26 Mar 2021 15:27:10 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 947F861A27;
+ Fri, 26 Mar 2021 15:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1616771080;
- bh=CcDG1SYT+u5oJCFUbtBoRVBdku5chSBF/j8IcwTSwyA=;
+ s=k20201202; t=1616772421;
+ bh=PgZvub/EEgXyOMtj36/Ui5nnRJqFFaiQoQ/VbltMCjA=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=FslLeGi3ttBCpMwtegrgb3z3Jo9maYQuWXpVaJsfbMi0cMLce4xQuBXm6iwbDyBJu
- Wqc+4pQAnP76sDiYBuKQKxkAJshruFOVUM4rted2/fN3Ef93XjjXL5dnmEqUFNAO9e
- hoyR+oYbvgzxSvB/aqrMzDUIZBLKXvK1JT5W2Kr/DA6ua8jhtsHnjx4e8WJTmGsIa2
- e4Fnako4g0tZmhYLhifao8/XBPPKaTP5NVGYKGXCSpJx/WFDJdEHtdZzuqbjGKXZHs
- 5Mn2WuBXZZBRUS/K6Tlirn0e261TPnYR+Zqff0+P437/WKaaCfTmbL6HwTudxdrVdJ
- JCXHPuMsIVGrw==
-Received: by mail-ed1-f54.google.com with SMTP id o19so6692052edc.3;
- Fri, 26 Mar 2021 08:04:39 -0700 (PDT)
-X-Gm-Message-State: AOAM532XeeaoYKI4OfLSlkcNqd65BMSIxsrIzchWPBx5CBwk+fvMrh9q
- No0aW0kgKmpf/6bFrbpHQwwrXByAL0bcLul6uw==
-X-Google-Smtp-Source: ABdhPJysfZUE7pyMmQBkvm0tvpbMLtvvqy297Z/V6TC8r3w35DV43BQKmWP/tZVYr7jDjbifL0QLm4IUfTacC1zCtZ0=
-X-Received: by 2002:a05:6402:2d0:: with SMTP id
- b16mr15924985edx.194.1616771078263; 
- Fri, 26 Mar 2021 08:04:38 -0700 (PDT)
+ b=Eg+BwZGAwSyILfvPcAOTVne302pKV2q+cmm5Ihp4Me5aUHSjUNGW3+nDtB8R91wcm
+ C2DZ9VNhmbn0jETV9GNehbOwe3JTYKhoqjnh/MiS11ee4oxdvW0wRf2ZrWgUDyfJma
+ hWNpN/TDOWiJIBIfJozhEVq7FS6Mk6XBvB49orLZFW6uYQR5hUuZGCCK5sAk8SD5SC
+ UeP3y50GhNpSvcc4yWyh8y4La1rfFodfJDuofdgE1ai4ujHIVkZF7oQxbAyMF7RCJU
+ u626vT1IL6nOSZEgmRmqhiGrDEBDKZfd4AiSGwBgBRCvns974kHSj2o73ajFlbU9P5
+ x5eyEjjSzm5/A==
+Received: by mail-ed1-f54.google.com with SMTP id h13so6760027eds.5;
+ Fri, 26 Mar 2021 08:27:01 -0700 (PDT)
+X-Gm-Message-State: AOAM532QLfaG7IUCxgU661SLOnjT64ihR6vZRie1PkT4i/kNbLmwmKRW
+ 2sB4GC5sHfdAaPHZMxx/XgBJh/tK9ZXEnS4wBg==
+X-Google-Smtp-Source: ABdhPJwqjia+Et0ifS4Qa3YP7BG89nAuXW50XJw7Bv12OLaUbiQxEkJ38eyAu5ZhN7DqGhRVJR72+O39P4k/LsEHPLw=
+X-Received: by 2002:a05:6402:5252:: with SMTP id
+ t18mr16004050edd.258.1616772420155; 
+ Fri, 26 Mar 2021 08:27:00 -0700 (PDT)
 MIME-Version: 1.0
 References: <cover.1616765869.git.christophe.leroy@csgroup.eu>
-In-Reply-To: <cover.1616765869.git.christophe.leroy@csgroup.eu>
+ <46745e07b04139a22b5bd01dc37df97e6981e643.1616765870.git.christophe.leroy@csgroup.eu>
+ <87zgyqdn3d.fsf@igel.home> <81a7e63f-57d4-5c81-acc5-35278fe5bb04@csgroup.eu>
+In-Reply-To: <81a7e63f-57d4-5c81-acc5-35278fe5bb04@csgroup.eu>
 From: Rob Herring <robh@kernel.org>
-Date: Fri, 26 Mar 2021 09:04:25 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLQTM0Xw_skFeysJyYAyW3B=0u0xgePgoUYSpKaWw9SjQ@mail.gmail.com>
-Message-ID: <CAL_JsqLQTM0Xw_skFeysJyYAyW3B=0u0xgePgoUYSpKaWw9SjQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/17] Implement GENERIC_CMDLINE
+Date: Fri, 26 Mar 2021 09:26:47 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqK2TT=j1QjiRgTYQvwHqivE-3HgYo2JzxTJSWO2wvK69Q@mail.gmail.com>
+Message-ID: <CAL_JsqK2TT=j1QjiRgTYQvwHqivE-3HgYo2JzxTJSWO2wvK69Q@mail.gmail.com>
+Subject: Re: [PATCH v3 11/17] riscv: Convert to GENERIC_CMDLINE
 To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Will Deacon <will@kernel.org>, Daniel Walker <danielwa@cisco.com>, 
+Cc: Andreas Schwab <schwab@linux-m68k.org>, Will Deacon <will@kernel.org>, 
+ Daniel Walker <danielwa@cisco.com>, 
  Daniel Gimpelevich <daniel@gimpelevich.san-francisco.ca.us>, 
  "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>,
  devicetree@vger.kernel.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
@@ -76,8 +79,8 @@ Cc: Will Deacon <will@kernel.org>, Daniel Walker <danielwa@cisco.com>,
  linux-xtensa@linux-xtensa.org, SH-Linux <linux-sh@vger.kernel.org>, 
  sparclinux <sparclinux@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210326_150443_983153_94CA5F99 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20210326_152708_956999_59959F24 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,156 +92,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 26, 2021 at 7:44 AM Christophe Leroy
-<christophe.leroy@csgroup.eu> wrote:
->
-> The purpose of this series is to improve and enhance the
-> handling of kernel boot arguments.
->
-> It is first focussed on powerpc but also extends the capability
-> for other arches.
->
-> This is based on suggestion from Daniel Walker <danielwa@cisco.com>
->
-> Main changes in V3:
-> - Also accept destination equal to source in cmdline_build() by setting a tmp buffer in __initdata. Powerpc provides different source and destination and call __cmdline_build() directly.
-> - Taken comments received from Will and Rob
-> - Converted all architectures (Only tested on powerpc)
->
-> Christophe Leroy (17):
->   cmdline: Add generic function to build command line.
->   drivers: of: use cmdline building function
->   cmdline: Gives architectures opportunity to use generically defined
->     boot cmdline manipulation
->   powerpc: Convert to GENERIC_CMDLINE
->   arm: Convert to GENERIC_CMDLINE
->   arm64: Convert to GENERIC_CMDLINE
->   hexagon: Convert to GENERIC_CMDLINE
->   microblaze: Convert to GENERIC_CMDLINE
->   nios2: Convert to GENERIC_CMDLINE
->   openrisc: Convert to GENERIC_CMDLINE
->   riscv: Convert to GENERIC_CMDLINE
->   sh: Convert to GENERIC_CMDLINE
->   sparc: Convert to GENERIC_CMDLINE
->   xtensa: Convert to GENERIC_CMDLINE
->   x86: Convert to GENERIC_CMDLINE
->   mips: Convert to GENERIC_CMDLINE
->   cmdline: Remove CONFIG_CMDLINE_EXTEND
->
->  arch/arm/Kconfig                            | 38 +-------------
->  arch/arm/kernel/atags_parse.c               | 15 ++----
->  arch/arm64/Kconfig                          | 33 +-----------
->  arch/arm64/kernel/idreg-override.c          |  9 ++--
->  arch/hexagon/Kconfig                        | 11 +---
->  arch/hexagon/kernel/setup.c                 | 10 +---
->  arch/microblaze/Kconfig                     | 24 +--------
->  arch/microblaze/configs/mmu_defconfig       |  2 +-
->  arch/microblaze/kernel/head.S               |  4 +-
->  arch/mips/Kconfig                           |  1 +
->  arch/mips/Kconfig.debug                     | 44 ----------------
->  arch/mips/configs/ar7_defconfig             |  1 -
->  arch/mips/configs/bcm47xx_defconfig         |  1 -
->  arch/mips/configs/bcm63xx_defconfig         |  1 -
->  arch/mips/configs/bmips_be_defconfig        |  1 -
->  arch/mips/configs/bmips_stb_defconfig       |  1 -
->  arch/mips/configs/capcella_defconfig        |  1 -
->  arch/mips/configs/ci20_defconfig            |  1 -
->  arch/mips/configs/cu1000-neo_defconfig      |  1 -
->  arch/mips/configs/cu1830-neo_defconfig      |  1 -
->  arch/mips/configs/e55_defconfig             |  1 -
->  arch/mips/configs/generic_defconfig         |  1 -
->  arch/mips/configs/gpr_defconfig             |  1 -
->  arch/mips/configs/loongson3_defconfig       |  1 -
->  arch/mips/configs/mpc30x_defconfig          |  1 -
->  arch/mips/configs/rt305x_defconfig          |  1 -
->  arch/mips/configs/tb0219_defconfig          |  1 -
->  arch/mips/configs/tb0226_defconfig          |  1 -
->  arch/mips/configs/tb0287_defconfig          |  1 -
->  arch/mips/configs/workpad_defconfig         |  1 -
->  arch/mips/configs/xway_defconfig            |  1 -
->  arch/mips/kernel/relocate.c                 |  4 +-
->  arch/mips/kernel/setup.c                    | 40 +--------------
->  arch/mips/pic32/pic32mzda/early_console.c   |  2 +-
->  arch/mips/pic32/pic32mzda/init.c            |  2 -
->  arch/nios2/Kconfig                          | 24 +--------
->  arch/nios2/kernel/setup.c                   | 13 ++---
->  arch/openrisc/Kconfig                       | 10 +---
->  arch/powerpc/Kconfig                        | 37 +------------
->  arch/powerpc/kernel/prom_init.c             | 17 +++---
->  arch/riscv/Kconfig                          | 44 +---------------
->  arch/riscv/kernel/setup.c                   |  5 +-
->  arch/sh/Kconfig                             | 30 +----------
->  arch/sh/configs/ap325rxa_defconfig          |  2 +-
->  arch/sh/configs/dreamcast_defconfig         |  2 +-
->  arch/sh/configs/ecovec24-romimage_defconfig |  2 +-
->  arch/sh/configs/ecovec24_defconfig          |  2 +-
->  arch/sh/configs/edosk7760_defconfig         |  2 +-
->  arch/sh/configs/espt_defconfig              |  2 +-
->  arch/sh/configs/j2_defconfig                |  2 +-
->  arch/sh/configs/kfr2r09-romimage_defconfig  |  2 +-
->  arch/sh/configs/kfr2r09_defconfig           |  2 +-
->  arch/sh/configs/lboxre2_defconfig           |  2 +-
->  arch/sh/configs/microdev_defconfig          |  2 +-
->  arch/sh/configs/migor_defconfig             |  2 +-
->  arch/sh/configs/polaris_defconfig           |  2 +-
->  arch/sh/configs/r7780mp_defconfig           |  2 +-
->  arch/sh/configs/r7785rp_defconfig           |  2 +-
->  arch/sh/configs/rsk7201_defconfig           |  2 +-
->  arch/sh/configs/rsk7203_defconfig           |  2 +-
->  arch/sh/configs/rts7751r2d1_defconfig       |  2 +-
->  arch/sh/configs/rts7751r2dplus_defconfig    |  2 +-
->  arch/sh/configs/sdk7780_defconfig           |  2 +-
->  arch/sh/configs/sdk7786_defconfig           |  2 +-
->  arch/sh/configs/se7206_defconfig            |  2 +-
->  arch/sh/configs/se7343_defconfig            |  2 +-
->  arch/sh/configs/se7712_defconfig            |  2 +-
->  arch/sh/configs/se7721_defconfig            |  2 +-
->  arch/sh/configs/se7724_defconfig            |  2 +-
->  arch/sh/configs/se7751_defconfig            |  2 +-
->  arch/sh/configs/se7780_defconfig            |  2 +-
->  arch/sh/configs/sh03_defconfig              |  2 +-
->  arch/sh/configs/sh2007_defconfig            |  2 +-
->  arch/sh/configs/sh7757lcr_defconfig         |  2 +-
->  arch/sh/configs/sh7763rdp_defconfig         |  2 +-
->  arch/sh/configs/shmin_defconfig             |  2 +-
->  arch/sh/configs/shx3_defconfig              |  2 +-
->  arch/sh/configs/titan_defconfig             |  2 +-
->  arch/sh/configs/ul2_defconfig               |  2 +-
->  arch/sh/kernel/setup.c                      | 11 +---
->  arch/sparc/Kconfig                          | 18 +------
->  arch/sparc/prom/bootstr_64.c                |  2 +-
->  arch/x86/Kconfig                            | 45 +---------------
->  arch/x86/kernel/setup.c                     | 17 +-----
->  arch/xtensa/Kconfig                         | 15 +-----
->  arch/xtensa/configs/audio_kc705_defconfig   |  1 -
->  arch/xtensa/configs/common_defconfig        |  1 -
->  arch/xtensa/configs/generic_kc705_defconfig |  1 -
->  arch/xtensa/configs/iss_defconfig           |  1 -
->  arch/xtensa/configs/nommu_kc705_defconfig   |  1 -
->  arch/xtensa/configs/smp_lx200_defconfig     |  1 -
->  arch/xtensa/configs/virt_defconfig          |  1 -
->  arch/xtensa/configs/xip_kc705_defconfig     |  1 -
->  arch/xtensa/kernel/setup.c                  | 10 +---
->  drivers/firmware/efi/libstub/x86-stub.c     | 26 +++++-----
-
-You missed efi-stub.c which has CMDLINE_EXTEND.
-
->  drivers/of/fdt.c                            | 23 ++-------
->  include/linux/cmdline.h                     | 57 +++++++++++++++++++++
->  init/Kconfig                                | 46 +++++++++++++++++
->  98 files changed, 209 insertions(+), 580 deletions(-)
->  create mode 100644 include/linux/cmdline.h
->
-> --
-> 2.25.0
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMjYsIDIwMjEgYXQgODoyMCBBTSBDaHJpc3RvcGhlIExlcm95CjxjaHJpc3Rv
+cGhlLmxlcm95QGNzZ3JvdXAuZXU+IHdyb3RlOgo+Cj4KPgo+IExlIDI2LzAzLzIwMjEgw6AgMTU6
+MDgsIEFuZHJlYXMgU2Nod2FiIGEgw6ljcml0IDoKPiA+IE9uIE3DpHIgMjYgMjAyMSwgQ2hyaXN0
+b3BoZSBMZXJveSB3cm90ZToKPiA+Cj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L3NldHVwLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gPj4gaW5kZXggZjhmMTUzMzJj
+YWEyLi5lN2M5MWVlNDc4ZDEgMTAwNjQ0Cj4gPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0
+dXAuYwo+ID4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiA+PiBAQCAtMjAsNiAr
+MjAsNyBAQAo+ID4+ICAgI2luY2x1ZGUgPGxpbnV4L3N3aW90bGIuaD4KPiA+PiAgICNpbmNsdWRl
+IDxsaW51eC9zbXAuaD4KPiA+PiAgICNpbmNsdWRlIDxsaW51eC9lZmkuaD4KPiA+PiArI2luY2x1
+ZGUgPGxpbnV4L2NtZGxpbmUuaD4KPiA+Pgo+ID4+ICAgI2luY2x1ZGUgPGFzbS9jcHVfb3BzLmg+
+Cj4gPj4gICAjaW5jbHVkZSA8YXNtL2Vhcmx5X2lvcmVtYXAuaD4KPiA+PiBAQCAtMjI4LDEwICsy
+MjksOCBAQCBzdGF0aWMgdm9pZCBfX2luaXQgcGFyc2VfZHRiKHZvaWQpCj4gPj4gICAgICB9Cj4g
+Pj4KPiA+PiAgICAgIHByX2VycigiTm8gRFRCIHBhc3NlZCB0byB0aGUga2VybmVsXG4iKTsKPiA+
+PiAtI2lmZGVmIENPTkZJR19DTURMSU5FX0ZPUkNFCj4gPj4gLSAgICBzdHJsY3B5KGJvb3RfY29t
+bWFuZF9saW5lLCBDT05GSUdfQ01ETElORSwgQ09NTUFORF9MSU5FX1NJWkUpOwo+ID4+ICsgICAg
+Y21kbGluZV9idWlsZChib290X2NvbW1hbmRfbGluZSwgTlVMTCwgQ09NTUFORF9MSU5FX1NJWkUp
+Owo+ID4+ICAgICAgcHJfaW5mbygiRm9yY2luZyBrZXJuZWwgY29tbWFuZCBsaW5lIHRvOiAlc1xu
+IiwgYm9vdF9jb21tYW5kX2xpbmUpOwo+ID4KPiA+IFNob3VsZG4ndCB0aGF0IG1lc3NhZ2UgYmVj
+b21lIGNvbmRpdGlvbmFsIGluIHNvbWUgd2F5Pwo+ID4KPgo+IFlvdSBhcmUgcmlnaHQsIEkgZGlk
+IHNvbWV0aGluZyBzaW1pbGFyIG9uIEFSTSBidXQgbG9va3MgbGlrZSBJIG1pc3NlZCBpdCBvbiBS
+SVNDVi4KCkhvdyBpcyB0aGlzIGh1bmsgZXZlbiB1c2VmdWw/IFVuZGVyIHdoYXQgY29uZGl0aW9u
+cyBjYW4geW91IGJvb3QKd2l0aG91dCBhIERUQj8gRXZlbiB3aXRoIGEgYnVpbHQtaW4gRFRCLCB0
+aGUgRFQgY21kbGluZSBoYW5kbGluZyB3b3VsZApiZSBjYWxsZWQuCgpSb2IKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
