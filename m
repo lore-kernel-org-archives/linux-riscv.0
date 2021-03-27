@@ -2,88 +2,86 @@ Return-Path: <SRS0=+x6g=IZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35068C433DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 02:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 37045C433C1
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 12:17:57 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A768661A24
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 02:02:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A768661A24
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id C7D80619AE
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 12:17:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C7D80619AE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ICVAiBOSTcy5B5XhQ/LzeisYtVpddnC/H1aFv7bqaB0=; b=WPUHO3fayUFQDPUb6awZElppk
-	M6ZMmU6qS7Z6b8lNfoK7AEut6ROWy37jDSePU7rpLLxhA0i+acKZ7hIPYQ5bKcFtVGdzNlVFqJwA5
-	7UZ6iQwLTXsFk2B3YMdgaKQE2alGKPXibnYbgDpJmZdzsfyd8EL3uL8gBzvhT0A7qEuwRQ0CaoZuI
-	yleSURzGnN9mZIyAIK9QkSH5g85uctqP+HFcFoBn9hlSVkhiovb7LvDyrGwoL0KdySO2uNWWR9f/t
-	eCRODNkkXK5TsS7kB52l6LGMNKgentBmk7IsfLMx5Wdf5m9qQkT38wemZq86+sc4f3Z1IKel7P/lT
-	lTawIbU+A==;
+	 bh=vOgrajTXAdIVVnHNTjrzN7otQi0EOkppH6YosKSSCkQ=; b=PdLUPoqRCezxqG8wfHN51DsVc
+	9YLRzzZBa3gtAbwcT0K5GbjMsTBxOo29n1Dlau/9ZiV+IrgQTrNCqXUSWIhdq97qTeDtJUnkyn2pu
+	O1UzUHQk75rICwBwJVso7rsxraLnlJLgvE7YSi4tHJKtAOl2CuI58vxhBODZ4d+eM2liN6bzZ3jt3
+	XUAkj51uZbhuORGf00F5jtmD6ANzK7OXkJJnJLnB6Mb7jbc1CAxRSDFMHtf+CeFl+0SP+hkhreYVK
+	hmirEkWH+qiL4bWyBDCvZvbm9a8BO1quHRSlIxe3vRs6iVrFfCTUZ0pjat25onI1ifTtyevXgyKCG
+	59xKbuOjg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lPyHY-004cwT-AY; Sat, 27 Mar 2021 02:02:32 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1lQ7ss-00560q-5A; Sat, 27 Mar 2021 12:17:42 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lPyHT-004cvi-TS
- for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 02:02:30 +0000
-Received: by mail-pg1-x531.google.com with SMTP id w10so1450398pgh.5
- for <linux-riscv@lists.infradead.org>; Fri, 26 Mar 2021 19:02:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=Gt3rGVbt95xHgiVZfuo2ZHvuR0GdcJNVGwvzFLdbOmw=;
- b=hXPVNoF8Qa7JlwXjxr68EEkYM3KAND26C94dvTsg/PsVS8BjsEL0BMASYn2Pi17n9n
- /cl0X6unqYYkRYzkTnFp1oK9ou/GGvr4C4hLVvYwMeHgsZGv802MuaXTNBugpcLqcZRU
- g6nV7KR9+v7v7JPkqHLXDfa06eBctIlNi+WNaOHnm+cpLu6RHqvenC29xJStjs7o8ZWx
- 6CVC1VxTF1HA3v4CXeMsYwn5rDrVRe7B12la0st/cn0ODkGXQTbdpRFwIo0npFXTuiW8
- NgiN3ELfc43GrmHoWgEU+A6+McU9ygStAYKZw+FXiGaMiM6jymrqzEm2bNRWwo6Us1mn
- BYHg==
+ id 1lQ7so-00560I-1X
+ for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 12:17:40 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id r193so8107142ior.9
+ for <linux-riscv@lists.infradead.org>; Sat, 27 Mar 2021 05:17:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+ :subject:to:cc;
+ bh=W0OCNJlAmSG63LfDiOFxZzKLOJtCIjR/fUw42G8WAYI=;
+ b=iEWQcmzfe1YXd0pp2Aq7mgJ9QaK2nVkq6mYvXsPmLN7UysMFvRvedIyIVnNd/I3XWL
+ AUw7xSQN55n7TASuf9xxb53665/TolORGTIGNTzMOUgLfSiSF09d4+0YvFxwhYbXpCyn
+ kHZ95SVcqwA7RQ6QiXxbUBhQ4fxlMyjCXf5ImsHu0V60oXJCNuaj8Hnzu/+JDAcVFW3s
+ 2Hkz2Ro5e39ooRKSdV53UiR1jntHvXl3HYPyx1Z+JoTdGHiolNu9vheL3orubZROpsLN
+ bZQZgJVQUjvSejKL7kEcmVwijJkZpjMJbr1AFhIvFe1gVoTrtRsPYoxDtZhpJOpALQmr
+ huRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=Gt3rGVbt95xHgiVZfuo2ZHvuR0GdcJNVGwvzFLdbOmw=;
- b=oNR9wboAiu3fK5T6nSZYr2hH+11ZxOPshOpwKIP23o7h94tercDx09+SkX2kC0wsUK
- 2bokGBPkKn/inMCyaNi0znchSAchX7Ofsru1BJMWM5loB4C9X67CtcPWw65cdF9QhO+T
- YAHbzKSZyJVgU6jhN7O8g3y3NBPLhfm8V4t4cdsmG3BV2pE2c0ttbuE2HeR4tu1nizcP
- 7AyAh2AhP+xqjZmotSrGjD+ysTjPrUchXrZEFwvzT2tuvCFfWIuxjIMJTxu9bN9Tc13h
- 8i3YawnC6ZDkcT3SvoTxAsCuFmSUVi8mpAQ+j+Pj3WHa3YxtB5JrDGG6MjPhfdNHqCeL
- lIfQ==
-X-Gm-Message-State: AOAM532sia+uj7OiZW7dq38+sa1x/o1xnT+kUAO20LwSlmBFnQbJgDgr
- 2frMn/XC8hq/pQ+uxhsD+T9aKQ==
-X-Google-Smtp-Source: ABdhPJyiBjE/yzEeI4dBbEosD2V3cGtPPLV8m1JGUTPk5x8VPYoZgrPu/I4UfwZbh1AB98/uI7oAHg==
-X-Received: by 2002:a65:6a45:: with SMTP id o5mr14575953pgu.89.1616810541856; 
- Fri, 26 Mar 2021 19:02:21 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:0:5dbf:19de:725b:1861])
- by smtp.gmail.com with ESMTPSA id i1sm9550651pfo.160.2021.03.26.19.02.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Mar 2021 19:02:21 -0700 (PDT)
-Date: Fri, 26 Mar 2021 19:02:16 -0700
-From: Fangrui Song <maskray@google.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:reply-to
+ :from:date:message-id:subject:to:cc;
+ bh=W0OCNJlAmSG63LfDiOFxZzKLOJtCIjR/fUw42G8WAYI=;
+ b=B2VAuCTa3Ly8qeg+55nLE/yEgTstf6JA0bazTM4piam0v5bkWDj4fbTMq0nu41J4fD
+ VaAzkLwkZmNHtV9CNZB7dVKX+NOlZFEbG7YKPmrkMt1xLrSeVS3Yn/ewNR7G8PpbrH6o
+ gF6a3FdMjPflT5/Jw5uBq42JqBgE7/JHSImnesdEq9SWQ12BtyemuNqTDDwyRjMWHGK8
+ cQp5xM8hHxHpHeUIN8w6yFFm1cbTgOxyBPorM45iRTGEN53ptu+gsMRjTVQoIZ07Va3R
+ ZAQB21jjbKiEMzwbtdBx+bm5L3GpVK8kEPh2ToxnZMJ2dcaHqWqr9Ts9IC122X2H3Eax
+ BJaQ==
+X-Gm-Message-State: AOAM532wyMSc0GEbum2xwMmDA1sNguuQcAXli5slDG80wx8Nng4SpXxI
+ IG10WjCC9yU1Xv6oB0fKeomdLa1z3c39gpnoRCI=
+X-Google-Smtp-Source: ABdhPJxq0LbjHww3sV5wuK2q4vWZC2pFkSIydOiu6GLexH1m0wSxxKl5Hwo5znh81XK59ms4cf7fbgr7Us4ud3CNyTI=
+X-Received: by 2002:a5d:9d13:: with SMTP id j19mr14040542ioj.110.1616847454985; 
+ Sat, 27 Mar 2021 05:17:34 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210325223807.2423265-1-nathan@kernel.org>
+ <CA+icZUWgxmrtM=oj-aJi1KXxZx0YUZDiUPK42MjHvqS96aazYQ@mail.gmail.com>
+ <20210326130702.3yaz2vqwejnfnlq4@MSI.localdomain>
+In-Reply-To: <20210326130702.3yaz2vqwejnfnlq4@MSI.localdomain>
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Sat, 27 Mar 2021 13:16:58 +0100
+Message-ID: <CA+icZUVHyGSX1R89O-MG-fwfw7BPLGBP8COcpyPCwmhNj88d3Q@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Fix CONFIG_FUNCTION_TRACER with clang
 To: Nathan Chancellor <nathan@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] riscv: Use $(LD) instead of $(CC) to link vDSO
-Message-ID: <20210327020216.63ayp7uul3ymhlor@google.com>
-References: <20210325215156.1986901-1-nathan@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210325215156.1986901-1-nathan@kernel.org>
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210327_020228_129035_90D495C5 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20210327_121738_153972_EC5B089E 
+X-CRM114-Status: GOOD (  29.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,115 +93,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: sedat.dilek@gmail.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 26, 2021 at 2:07 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On Fri, Mar 26, 2021 at 09:37:55AM +0100, Sedat Dilek wrote:
+> > On Thu, Mar 25, 2021 at 11:38 PM Nathan Chancellor <nathan@kernel.org> wrote:
+> > >
+> > > Hi all,
+> > >
+> > > This series fixes function tracing with clang.
+> > >
+> > > Patch 1 adjusts the mcount regex in scripts/recordmcount.pl to handle
+> > > the presence of PLT relocations, which happen with clang. Without this,
+> > > the mcount_loc section will not be created properly.
+> > >
+> > > Patch 2 adds a workaround for clang less than 13.0.0 in relation to the
+> > > mcount symbol name, which was "mcount" rather than "_mcount". This was
+> > > written as a separate patch so that it can be reverted when the minimum
+> > > clang version is bumped to clang 13.0.0.
+> > >
+> > > Patch 3 avoids a build error when -fpatchable-function-entry is not
+> > > available, which is the case with clang less than 13.0.0. This will make
+> > > dynamic ftrace unavailable but all of the other function tracing should
+> > > work due to the prescence of the previous patch.
+> > >
+> > > I am hoping this series can go in as fixes for 5.12, due to patch 3, but
+> > > if not, they can always be backported (patches 1 and 2 are already
+> > > marked for stable).
+> > >
+> > > This series has been build tested with gcc-8 through gcc-10 and clang-11
+> > > through clang-13 with defconfig and nommu_virt_defconfig plus
+> > > CONFIG_FTRACE=y and CONFIG_FUNCTION_TRACER=y then boot tested under
+> > > QEMU.
+> > >
+> > > Cheers,
+> > > Nathan
+> > >
+> > > Nathan Chancellor (3):
+> > >   scripts/recordmcount.pl: Fix RISC-V regex for clang
+> > >   riscv: Workaround mcount name prior to clang-13
+> > >   riscv: Select HAVE_DYNAMIC_FTRACE when -fpatchable-function-entry is
+> > >     available
+> > >
+> >
+> > Does this only fixes stuff for clang + riscv?
+>
+> Yes.
+>
+> > If so, please put a label "riscv" also in the cover-letter.
+>
+> Sure, my apologies for not doing that in the first place, I must have
+> been in a rush with the cover letter.
+>
+> In my defense, I think the titles of my commit messages and the diffstat
+> below make that obvious without the tag :)
+>
 
-On 2021-03-25, Nathan Chancellor wrote:
->Currently, the VDSO is being linked through $(CC). This does not match
->how the rest of the kernel links objects, which is through the $(LD)
->variable.
->
->When linking with clang, there are a couple of warnings about flags that
->will not be used during the link:
->
->clang-12: warning: argument unused during compilation: '-no-pie' [-Wunused-command-line-argument]
->clang-12: warning: argument unused during compilation: '-pg' [-Wunused-command-line-argument]
->
->'-no-pie' was added in commit 85602bea297f ("RISC-V: build vdso-dummy.o
->with -no-pie") to override '-pie' getting added to the ld command from
->distribution versions of GCC that enable PIE by default. It is
->technically no longer needed after commit c2c81bb2f691 ("RISC-V: Fix the
->VDSO symbol generaton for binutils-2.35+"), which removed vdso-dummy.o
->in favor of generating vdso-syms.S from vdso.so with $(NM) but this also
->resolves the issue in case it ever comes back due to having full control
->over the $(LD) command. '-pg' is for function tracing, it is not used
->during linking as clang states.
+No need for any apologies.
+I was fooled as you sent two triple-patchset nearly simultaneously.
+This riscv patchset here was not of interest to me.
 
-Looks good.
+- Sedat -
 
--pg affects the link action: it changes crt1.o to gcrt1.o.
-Since the Makefile uses -nostdlib, crt1.o is suppressed, so -pg
-is entirely unneeded.
-(-nostdlib implies -nostartfiles so the previous usage has a redundant
-option.)
-
->These flags could be removed/filtered to fix the warnings but it is
->easier to just match the rest of the kernel and use $(LD) directly for
->linking. See commits
 >
->  fe00e50b2db8 ("ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO")
->  691efbedc60d ("arm64: vdso: use $(LD) instead of $(CC) to link VDSO")
->  2ff906994b6c ("MIPS: VDSO: Use $(LD) instead of $(CC) to link VDSO")
->  2b2a25845d53 ("s390/vdso: Use $(LD) instead of $(CC) to link vDSO")
->
->for more information.
->
->The flags are converted to linker flags and '--eh-frame-hdr' is added to
->match what is added by GCC implicitly, which can be seen by adding '-v'
->to GCC's invocation.
-
-Another minor change which may be shipped together: --hash-style=both
-can be --hash-style=gnu. We don't need sysv .hash . The glibc/musl
-support for .gnu.hash has been there for years. .gnu.hash is often
-smaller than .hash .
-
-Reviewed-by: Fangrui Song <maskray@google.com>
-
->Additionally, since this area is being modified, use the $(OBJCOPY)
->variable instead of an open coded $(CROSS_COMPILE)objcopy so that the
->user's choice of objcopy binary is respected.
->
->Link: https://github.com/ClangBuiltLinux/linux/issues/803
->Link: https://github.com/ClangBuiltLinux/linux/issues/970
->Signed-off-by: Nathan Chancellor <nathan@kernel.org>
->---
-> arch/riscv/kernel/vdso/Makefile | 12 ++++--------
-> 1 file changed, 4 insertions(+), 8 deletions(-)
->
->diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
->index 71a315e73cbe..ca2b40dfd24b 100644
->--- a/arch/riscv/kernel/vdso/Makefile
->+++ b/arch/riscv/kernel/vdso/Makefile
->@@ -41,11 +41,10 @@ KASAN_SANITIZE := n
-> $(obj)/vdso.o: $(obj)/vdso.so
->
-> # link rule for the .so file, .lds has to be first
->-SYSCFLAGS_vdso.so.dbg = $(c_flags)
-> $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
-> 	$(call if_changed,vdsold)
->-SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
->-	-Wl,--build-id=sha1 -Wl,--hash-style=both
->+LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
->+	--build-id=sha1 --hash-style=both --eh-frame-hdr
->
-> # We also create a special relocatable object that should mirror the symbol
-> # table and layout of the linked DSO. With ld --just-symbols we can then
->@@ -60,13 +59,10 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
->
-> # actual build commands
-> # The DSO images are built using a special linker script
->-# Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
-> # Make sure only to export the intended __vdso_xxx symbol offsets.
-> quiet_cmd_vdsold = VDSOLD  $@
->-      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
->-                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
->-                   $(CROSS_COMPILE)objcopy \
->-                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
->+      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
->+                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
->                    rm $@.tmp
->
-> # Extracts symbol offsets from the VDSO, converting them into an assembly file
->-- 
->2.31.0
->
->-- 
->You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
->To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
->To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210325215156.1986901-1-nathan%40kernel.org.
+> > - Sedat -
+> >
+> > >  arch/riscv/Kconfig              |  2 +-
+> > >  arch/riscv/include/asm/ftrace.h | 14 ++++++++++++--
+> > >  arch/riscv/kernel/mcount.S      | 10 +++++-----
+> > >  scripts/recordmcount.pl         |  2 +-
+> > >  4 files changed, 19 insertions(+), 9 deletions(-)
+> > >
+> > > --
+> > > 2.31.0
+> > >
 
 _______________________________________________
 linux-riscv mailing list
