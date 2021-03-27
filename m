@@ -2,86 +2,83 @@ Return-Path: <SRS0=+x6g=IZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51409C433C1
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 18:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B822EC433C1
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 19:49:59 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E39F861582
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 18:44:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E39F861582
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5F1FA61981
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 19:49:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F1FA61981
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=CF3FyPQA0gGeDuEi8+U6TbIV8s3zK1OmLyG/XorppHk=; b=fvCWglmmYNffTd7YH9GIeBBf6
-	aiYpQE7g3KV3yrvDz+t9jA6wt2IGBr2dDRzZxolBMFKeSk/ZY4Be2YHAkgkw0mc1jWislRhXH7zOc
-	MUrRekQrDYyNXhX9NHYtGLT+MXQ+BMqcLMBU2iPCganybO70w8LkxJnCt9qgs6Fzo0o5MK8wbCyVe
-	/aok4rDS49lEQoaDvksG2pHm7R0CgzZj65rwq922NjjDSPqIo4A25fxPIqSxMjhxt5k9Of6xSrgSN
-	zRSGG/odW5yADJfx+LQNF43cwUrQSXJN4xI8RvpnGseWaGRbfJ08UZMHVbZu1vG2cgUEpkCNZ2u4e
-	OawbX95Gg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7YtnazjoWIP6/zvKDD4kV6ZhjEeoiaVOYlLArYLNOtc=; b=QpPgoL5zhRtW2ZI9Et7N15HM2N
+	G8q7EA5fDvAX15aPscqBdhY2c7qTu4ntD0RkNESVHGqJlyzJYrfPVKdq2mf71m5UiyydmK3RVM9SL
+	PQuIVp9FAg5jBHkoQ9wCiLUVljq8Mu2ulmZBQoE8MkZc+qJ0iUkDCz98aN6FPWS4zDpGl4nLin4Da
+	PiDP3gLfC98JoEuumOomA1OV6Q+sC25rBtnnDxPW3VM/JkK/fBMcA7qVrsXCBSvw2ZH5IfIY+wxTM
+	NvW+L1lCKM06SJNjt9qUP2a+MUoSIBvizPgsKfFTX4Uw0B6dagsROVPLXymVf8fUecty3aILWV1f6
+	hURt1F5g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lQDuk-005QEZ-Us; Sat, 27 Mar 2021 18:44:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1lQEwO-005T6m-NA; Sat, 27 Mar 2021 19:49:48 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lQDuf-005QE5-6J
- for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 18:44:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1616870634;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=hfHNZcjhdGk5rFhqOZayvcQKCZrifZd2giGyChxT48Y=;
- b=ib9wHNFm3mOZE9vyb09GX5LxctH1omqGGzKHGXGGtW7dZjzcA4X165F6WNxL3i+fR73389
- tXXZ3/4dg9q149o4mZrEw92wJeL0MmCtxCsq7PPvghDUQQxQhnF4CdR0IXKJheQnWL1QgS
- iuqSBDQnY7bsM/wPsJ3h73qv4zLeQ5w=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-565-KTtps0L0MseR04IzHmlZFQ-1; Sat, 27 Mar 2021 14:43:50 -0400
-X-MC-Unique: KTtps0L0MseR04IzHmlZFQ-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DF5451084C83;
- Sat, 27 Mar 2021 18:43:47 +0000 (UTC)
-Received: from llong.remote.csb (ovpn-112-10.rdu2.redhat.com [10.10.112.10])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 8471E10013D6;
- Sat, 27 Mar 2021 18:43:46 +0000 (UTC)
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>,
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
-From: Waiman Long <longman@redhat.com>
-Organization: Red Hat
-Message-ID: <b6466a43-6fb3-dc47-e0ef-d493e0930ab2@redhat.com>
-Date: Sat, 27 Mar 2021 14:43:46 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+ id 1lQEwK-005T6M-16
+ for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 19:49:46 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id z2so8866164wrl.5
+ for <linux-riscv@lists.infradead.org>; Sat, 27 Mar 2021 12:49:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=H97BsKqR23hJqrIfD56EXndKt8w/9T/UAs7wjOz5pxo=;
+ b=pcwSshlSPC6XkTRT6YGjiWxwTF5UXe6Au8j4KZp3+sAvhcqqcKNT/qzsjl4w8DwYqO
+ 09EERJr4ohxE6coa3FfH2LDA+fbXA20/kY4F0Zho2kXXsMnWnrjunvO1iFaLeLofPtPB
+ P9/Hz1ZNN9hWoyPy6ctQEey1LjTMnioDHzCr8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=H97BsKqR23hJqrIfD56EXndKt8w/9T/UAs7wjOz5pxo=;
+ b=kKkM778unL0MxtfjeR9SgqZmQbUVC4RHVb9OSgoaDDigexkq7DjKzWIXwVl2m/Rip4
+ ytth24XfUhd/jbZXFN642biGqrE6SR4u1cX+A8xvS6yOgBUTF9J1kWycrNZJ7KB33bEA
+ x9z/4TSBMpUA6hoS3/ewXzyAJtWBCeXqo6TCZd5IWA+CQR0tySdXA4wynUbnyty9/4Uo
+ 65TQMAvosYWOCQ9+EXrwaoSuuABPxanDcwK/bjAoDx2ES37SS3+5dZahores6j93y/s7
+ 6C90UmaeXLdd2D1uEg++i9HMtDuTmsfktD997wPZ3m2cf0m9RHObobidZPr0RDLvwSf8
+ 2HaQ==
+X-Gm-Message-State: AOAM531SK4bbQpdf59gK6Fd0fnm5cHrgib1RWARpnprchY8Tk7FphVvM
+ D1gdysQWE7/jCu93hoWQvMCD6tZPi4xcTg==
+X-Google-Smtp-Source: ABdhPJweHQ6okCQBrxq52NokylJeoCMpMHHUl8ucAl8Olj3qSRGGFdvGNgGsOtm5QERq3r9t1959hw==
+X-Received: by 2002:adf:ee0a:: with SMTP id y10mr19809748wrn.177.1616874582438; 
+ Sat, 27 Mar 2021 12:49:42 -0700 (PDT)
+Received: from lootbox.konsulko.bg (lan.nucleusys.com. [92.247.61.126])
+ by smtp.gmail.com with ESMTPSA id s83sm18410151wms.16.2021.03.27.12.49.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 27 Mar 2021 12:49:42 -0700 (PDT)
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Vitaly Wool <vitaly.wool@konsulko.com>, kernel test robot <lkp@intel.com>
+Subject: [PATCH] riscv: XIP: fix build for rv32
+Date: Sat, 27 Mar 2021 21:48:01 +0200
+Message-Id: <20210327194800.23622-1-vitaly.wool@konsulko.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <1616868399-82848-4-git-send-email-guoren@kernel.org>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210327_184357_412192_48E053DE 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20210327_194944_174561_3BE76167 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,131 +90,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/27/21 2:06 PM, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Some architectures don't have sub-word swap atomic instruction,
-> they only have the full word's one.
->
-> The sub-word swap only improve the performance when:
-> NR_CPUS < 16K
->   *  0- 7: locked byte
->   *     8: pending
->   *  9-15: not used
->   * 16-17: tail index
->   * 18-31: tail cpu (+1)
->
-> The 9-15 bits are wasted to use xchg16 in xchg_tail.
->
-> Please let architecture select xchg16/xchg32 to implement
-> xchg_tail.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Waiman Long <longman@redhat.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Anup Patel <anup@brainfault.org>
-> ---
->   kernel/Kconfig.locks       |  3 +++
->   kernel/locking/qspinlock.c | 44 +++++++++++++++++++++-----------------
->   2 files changed, 27 insertions(+), 20 deletions(-)
->
-> diff --git a/kernel/Kconfig.locks b/kernel/Kconfig.locks
-> index 3de8fd11873b..d02f1261f73f 100644
-> --- a/kernel/Kconfig.locks
-> +++ b/kernel/Kconfig.locks
-> @@ -239,6 +239,9 @@ config LOCK_SPIN_ON_OWNER
->   config ARCH_USE_QUEUED_SPINLOCKS
->   	bool
->   
-> +config ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-> +	bool
-> +
->   config QUEUED_SPINLOCKS
->   	def_bool y if ARCH_USE_QUEUED_SPINLOCKS
->   	depends on SMP
-> diff --git a/kernel/locking/qspinlock.c b/kernel/locking/qspinlock.c
-> index cbff6ba53d56..54de0632c6a8 100644
-> --- a/kernel/locking/qspinlock.c
-> +++ b/kernel/locking/qspinlock.c
-> @@ -163,26 +163,6 @@ static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
->   	WRITE_ONCE(lock->locked_pending, _Q_LOCKED_VAL);
->   }
->   
-> -/*
-> - * xchg_tail - Put in the new queue tail code word & retrieve previous one
-> - * @lock : Pointer to queued spinlock structure
-> - * @tail : The new queue tail code word
-> - * Return: The previous queue tail code word
-> - *
-> - * xchg(lock, tail), which heads an address dependency
-> - *
-> - * p,*,* -> n,*,* ; prev = xchg(lock, node)
-> - */
-> -static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> -{
-> -	/*
-> -	 * We can use relaxed semantics since the caller ensures that the
-> -	 * MCS node is properly initialized before updating the tail.
-> -	 */
-> -	return (u32)xchg_relaxed(&lock->tail,
-> -				 tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-> -}
-> -
->   #else /* _Q_PENDING_BITS == 8 */
->   
->   /**
-> @@ -206,6 +186,30 @@ static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
->   {
->   	atomic_add(-_Q_PENDING_VAL + _Q_LOCKED_VAL, &lock->val);
->   }
-> +#endif
-> +
-> +#if _Q_PENDING_BITS == 8 && !defined(CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32)
-> +/*
-> + * xchg_tail - Put in the new queue tail code word & retrieve previous one
-> + * @lock : Pointer to queued spinlock structure
-> + * @tail : The new queue tail code word
-> + * Return: The previous queue tail code word
-> + *
-> + * xchg(lock, tail), which heads an address dependency
-> + *
-> + * p,*,* -> n,*,* ; prev = xchg(lock, node)
-> + */
-> +static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> +{
-> +	/*
-> +	 * We can use relaxed semantics since the caller ensures that the
-> +	 * MCS node is properly initialized before updating the tail.
-> +	 */
-> +	return (u32)xchg_relaxed(&lock->tail,
-> +				 tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-> +}
-> +
-> +#else
->   
->   /**
->    * xchg_tail - Put in the new queue tail code word & retrieve previous one
+32-bit RISC-V uses folded page tables by default, so we should
+follow that in the XIP-specific part of init too.
 
-I don't have any problem adding a 
-CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32 config option to control that.
+Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
+Reported-by: kernel test robot <lkp@intel.com>
+---
+ arch/riscv/mm/init.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-One minor nit:
-
-#endif /* _Q_PENDING_BITS == 8 */
-
-You should probably remove the comment at the trailing end of the 
-corresponding "#endif" as it is now wrong.
-
-Cheers,
-Longman
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index fe583c2aa5a2..8c0eeaae67a3 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -481,6 +481,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ 
+ #ifdef CONFIG_XIP_KERNEL
++#ifndef __PAGETABLE_PMD_FOLDED
+ 	create_pgd_mapping(trampoline_pg_dir, XIP_VIRT_ADDR_START,
+ 			   (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
+ 	for (va = XIP_VIRT_ADDR_START;
+@@ -493,7 +494,16 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 
+ 	create_pgd_mapping(early_pg_dir, XIP_VIRT_ADDR_START,
+ 			   (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
+-#endif
++#else
++	for (va = XIP_VIRT_ADDR_START;
++	     va < XIP_VIRT_ADDR_START + xiprom_sz;
++	     va += map_size) {
++		create_pgd_mapping(early_pg_dir, va,
++				   xiprom + (va - XIP_VIRT_ADDR_START),
++				   map_size, PAGE_KERNEL_EXEC);
++	}
++#endif /* __PAGETABLE_PMD_FOLDED */
++#endif /* CONFIG_XIP_KERNEL */
+ 
+ 	/*
+ 	 * Setup early PGD covering entire kernel which will allows
+-- 
+2.29.2
 
 
 _______________________________________________
