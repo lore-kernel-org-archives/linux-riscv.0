@@ -2,19 +2,19 @@ Return-Path: <SRS0=+x6g=IZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EE64C433C1
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 01:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 35068C433DB
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 02:02:47 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 042406196C
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 01:56:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 042406196C
+	by mail.kernel.org (Postfix) with ESMTPS id A768661A24
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Mar 2021 02:02:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A768661A24
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,71 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=i/n7BCdfw1Mm3G1+HZDu/nWS79OoCt/Wp0TrLmb5hSg=; b=GtAyfzL96KkxzFYx0JFOKu/Ai
-	yyZ4Q0J9Wo/rGlcuHBp6GAtTyCQcI5EUP+pzRwKSCRVce/rodmhjxihAD1sw7XWM1cprhy/rOquzn
-	o16Y2+lQ8X2RMVXSoaMZB7QYwUzPlMattFbvPZmSRGE/x2meIj9uJmshBRb8YwYZWaXUb8Iv1f4Am
-	VhP18SpxKuIsTcC7b93Dy8mYaKI/vKtUpIrP1GNNrSElp8qvL6a1BNf3UDeYLIgcHuxpRVuxfhg1S
-	bJddcqIPJexIDPgBDbmvPTbdViFNwmV1z+mmOLvAQjS5ERwc28YLH2fjhU2ErTCiZxoS+XVMg8BYa
-	qPWZsbUYg==;
+	 bh=ICVAiBOSTcy5B5XhQ/LzeisYtVpddnC/H1aFv7bqaB0=; b=WPUHO3fayUFQDPUb6awZElppk
+	M6ZMmU6qS7Z6b8lNfoK7AEut6ROWy37jDSePU7rpLLxhA0i+acKZ7hIPYQ5bKcFtVGdzNlVFqJwA5
+	7UZ6iQwLTXsFk2B3YMdgaKQE2alGKPXibnYbgDpJmZdzsfyd8EL3uL8gBzvhT0A7qEuwRQ0CaoZuI
+	yleSURzGnN9mZIyAIK9QkSH5g85uctqP+HFcFoBn9hlSVkhiovb7LvDyrGwoL0KdySO2uNWWR9f/t
+	eCRODNkkXK5TsS7kB52l6LGMNKgentBmk7IsfLMx5Wdf5m9qQkT38wemZq86+sc4f3Z1IKel7P/lT
+	lTawIbU+A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lPyBr-004ced-Kc; Sat, 27 Mar 2021 01:56:39 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1lPyHY-004cwT-AY; Sat, 27 Mar 2021 02:02:32 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lPyBo-004ceK-31
- for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 01:56:38 +0000
-Received: by mail-pg1-x532.google.com with SMTP id l76so5771157pga.6
- for <linux-riscv@lists.infradead.org>; Fri, 26 Mar 2021 18:56:34 -0700 (PDT)
+ id 1lPyHT-004cvi-TS
+ for linux-riscv@lists.infradead.org; Sat, 27 Mar 2021 02:02:30 +0000
+Received: by mail-pg1-x531.google.com with SMTP id w10so1450398pgh.5
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Mar 2021 19:02:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=faYFDe+Adytg87HgOtz6HNNmF/jVigxYTlJk0XlAIQ0=;
- b=DwrU03JJgXDLNXV9CeSQFMYZg9ID2Gwy+ks485GC+5Zp755Y4XJSnYDr1AMi+gQ3f8
- 0nz/Dr9OSBGKntXMhgp/VgCZxEC12QDkH+CJieeYimiH9GmzU8fe8J6cNjl9DJDxmldM
- 7RDlELGLVFRbXag5mjhmYnpFgpfrn8iIJXhAKC2liQdYD+aowGiw/u/sicBfSYR9gtQv
- /sVHiFQ8CQEHTA/7OK8a0VkrEczfpDC+ajlBZCKR8K094T6kZA8quuBaKF4ErrW901oE
- kHq99erSohY37QeM8nwwfK3U/Ag+JEkArjZO+lTNFzNiG2Ap3ms1bQEu2LLote727LYi
- zWWw==
+ bh=Gt3rGVbt95xHgiVZfuo2ZHvuR0GdcJNVGwvzFLdbOmw=;
+ b=hXPVNoF8Qa7JlwXjxr68EEkYM3KAND26C94dvTsg/PsVS8BjsEL0BMASYn2Pi17n9n
+ /cl0X6unqYYkRYzkTnFp1oK9ou/GGvr4C4hLVvYwMeHgsZGv802MuaXTNBugpcLqcZRU
+ g6nV7KR9+v7v7JPkqHLXDfa06eBctIlNi+WNaOHnm+cpLu6RHqvenC29xJStjs7o8ZWx
+ 6CVC1VxTF1HA3v4CXeMsYwn5rDrVRe7B12la0st/cn0ODkGXQTbdpRFwIo0npFXTuiW8
+ NgiN3ELfc43GrmHoWgEU+A6+McU9ygStAYKZw+FXiGaMiM6jymrqzEm2bNRWwo6Us1mn
+ BYHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=faYFDe+Adytg87HgOtz6HNNmF/jVigxYTlJk0XlAIQ0=;
- b=deomdF2ea49N8cf/U4rH4xyyZtV1c5XuRPwo9ipvHDl5HQod9tTIpKis3Ops930FU5
- yzFu4b8ADqCY0HTk7oYjt+11xz4EU4J0ROyGHegphGhQozaaSEGGR0c3jQ5v/L4h/X8R
- 4j44k4FmDORf8rPMbDbHm7iJ4G5aXBbT8hBYboBgXCGfgrFEOsNWC0GEbpoNtjWWHiuJ
- mVUmEnMreSjLBGuE5qMYyQ2qD2WycOnZYJW68RjLnwdBPkcLK8XbD9+o36Ou5IGQheRA
- YarZy5KbFvuP9Du9Eb8k4bGPL6n2HWrO1A2tXWm4HsTlUE1bbEk12l5GAvCeZlUclr+4
- N8sQ==
-X-Gm-Message-State: AOAM532KzTJPkZnEUOvX6KWC598SapILxkOzgeXKFUl+qxk3/+r/ZZ/T
- xUFZZi07g9XOiZ4j1fgn767pXw==
-X-Google-Smtp-Source: ABdhPJwQwT+cQCgAMJ2LQ1829fA4S6VlDz+F2P8G7mPGEAWyzQ40N2eIjXfzdDIs53RaBR5Vek19Hg==
-X-Received: by 2002:a62:d414:0:b029:217:24b8:a5b9 with SMTP id
- a20-20020a62d4140000b029021724b8a5b9mr16044288pfh.41.1616810193297; 
- Fri, 26 Mar 2021 18:56:33 -0700 (PDT)
+ bh=Gt3rGVbt95xHgiVZfuo2ZHvuR0GdcJNVGwvzFLdbOmw=;
+ b=oNR9wboAiu3fK5T6nSZYr2hH+11ZxOPshOpwKIP23o7h94tercDx09+SkX2kC0wsUK
+ 2bokGBPkKn/inMCyaNi0znchSAchX7Ofsru1BJMWM5loB4C9X67CtcPWw65cdF9QhO+T
+ YAHbzKSZyJVgU6jhN7O8g3y3NBPLhfm8V4t4cdsmG3BV2pE2c0ttbuE2HeR4tu1nizcP
+ 7AyAh2AhP+xqjZmotSrGjD+ysTjPrUchXrZEFwvzT2tuvCFfWIuxjIMJTxu9bN9Tc13h
+ 8i3YawnC6ZDkcT3SvoTxAsCuFmSUVi8mpAQ+j+Pj3WHa3YxtB5JrDGG6MjPhfdNHqCeL
+ lIfQ==
+X-Gm-Message-State: AOAM532sia+uj7OiZW7dq38+sa1x/o1xnT+kUAO20LwSlmBFnQbJgDgr
+ 2frMn/XC8hq/pQ+uxhsD+T9aKQ==
+X-Google-Smtp-Source: ABdhPJyiBjE/yzEeI4dBbEosD2V3cGtPPLV8m1JGUTPk5x8VPYoZgrPu/I4UfwZbh1AB98/uI7oAHg==
+X-Received: by 2002:a65:6a45:: with SMTP id o5mr14575953pgu.89.1616810541856; 
+ Fri, 26 Mar 2021 19:02:21 -0700 (PDT)
 Received: from google.com ([2620:15c:2ce:0:5dbf:19de:725b:1861])
- by smtp.gmail.com with ESMTPSA id 22sm9722499pjl.31.2021.03.26.18.56.32
+ by smtp.gmail.com with ESMTPSA id i1sm9550651pfo.160.2021.03.26.19.02.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Mar 2021 18:56:32 -0700 (PDT)
-Date: Fri, 26 Mar 2021 18:56:29 -0700
+ Fri, 26 Mar 2021 19:02:21 -0700 (PDT)
+Date: Fri, 26 Mar 2021 19:02:16 -0700
 From: Fangrui Song <maskray@google.com>
 To: Nathan Chancellor <nathan@kernel.org>
-Cc: kernel test robot <lkp@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] riscv: Use $(LD) instead of $(CC) to link vDSO
-Message-ID: <20210327015629.eecu77zvm4iri657@google.com>
+Message-ID: <20210327020216.63ayp7uul3ymhlor@google.com>
 References: <20210325215156.1986901-1-nathan@kernel.org>
- <202103262325.9ejJuOqf-lkp@intel.com>
- <20210326235839.zgfvmtfxrb3hy6i4@archlinux-ax161>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210326235839.zgfvmtfxrb3hy6i4@archlinux-ax161>
+In-Reply-To: <20210325215156.1986901-1-nathan@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210327_015636_319261_EB83CB19 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20210327_020228_129035_90D495C5 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +101,109 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2021-03-26, Nathan Chancellor wrote:
->On Sat, Mar 27, 2021 at 12:05:34AM +0800, kernel test robot wrote:
->> Hi Nathan,
->>
->> I love your patch! Yet something to improve:
->>
->> [auto build test ERROR on linus/master]
->> [also build test ERROR on v5.12-rc4 next-20210326]
->> [If your patch is applied to the wrong git tree, kindly drop us a note.
->> And when submitting patch, we suggest to use '--base' as documented in
->> https://git-scm.com/docs/git-format-patch]
->>
->> url:    https://github.com/0day-ci/linux/commits/Nathan-Chancellor/riscv-Use-LD-instead-of-CC-to-link-vDSO/20210326-055421
->> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 002322402dafd846c424ffa9240a937f49b48c42
->> config: riscv-randconfig-r032-20210326 (attached as .config)
->> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project f490a5969bd52c8a48586f134ff8f02ccbb295b3)
->> reproduce (this is a W=1 build):
->>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>         chmod +x ~/bin/make.cross
->>         # install riscv cross compiling tool for clang build
->>         # apt-get install binutils-riscv64-linux-gnu
->>         # https://github.com/0day-ci/linux/commit/dfdcaf93f40f0d15ffc3f25128442c1688e612d6
->>         git remote add linux-review https://github.com/0day-ci/linux
->>         git fetch --no-tags linux-review Nathan-Chancellor/riscv-Use-LD-instead-of-CC-to-link-vDSO/20210326-055421
->>         git checkout dfdcaf93f40f0d15ffc3f25128442c1688e612d6
->>         # save the attached .config to linux build tree
->>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv
+On 2021-03-25, Nathan Chancellor wrote:
+>Currently, the VDSO is being linked through $(CC). This does not match
+>how the rest of the kernel links objects, which is through the $(LD)
+>variable.
 >
->For the record, I tried to use this script to reproduce but it has a
->couple of bugs:
+>When linking with clang, there are a couple of warnings about flags that
+>will not be used during the link:
 >
->1. It does not download the right version of clang. This report says
->that it is clang-13 but the one that the script downloaded is clang-12.
+>clang-12: warning: argument unused during compilation: '-no-pie' [-Wunused-command-line-argument]
+>clang-12: warning: argument unused during compilation: '-pg' [-Wunused-command-line-argument]
 >
->2. It does not download it to the right location. The script expects
->~/0day/clang-latest but it is downloaded to ~/0day/clang it seems. I
->symlinked it to get around it.
->
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->>
->> All errors (new ones prefixed by >>):
->>
->> >> riscv64-linux-gnu-objcopy: 'arch/riscv/kernel/vdso/vdso.so.dbg': No such file
->
->This error only occurs because of errors before it that are not shown
->due to a denylist:
->
->ld.lld: error: arch/riscv/kernel/vdso/rt_sigreturn.o:(.text+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->ld.lld: error: arch/riscv/kernel/vdso/getcpu.o:(.text+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->ld.lld: error: arch/riscv/kernel/vdso/flush_icache.o:(.text+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->
->My patch only adds another occurrence of this error because we move from
->$(CC)'s default linker (in clang's case, ld.bfd) to $(LD), which in the
->case of 0day appears to be ld.lld. ld.lld should not be used with RISC-V
->in its current form due to errors of this nature, which happen without
->my patch as well:
->
->https://github.com/ClangBuiltLinux/linux/issues/1020
->
->Linker relaxation in ld.lld for RISC-V is an ongoing debate/process.
->Please give RISC-V the current treatment as s390 with ld.lld for the
->time being to get meaningful reports. We will reach out once that issue
->has been resolved.
+>'-no-pie' was added in commit 85602bea297f ("RISC-V: build vdso-dummy.o
+>with -no-pie") to override '-pie' getting added to the ld command from
+>distribution versions of GCC that enable PIE by default. It is
+>technically no longer needed after commit c2c81bb2f691 ("RISC-V: Fix the
+>VDSO symbol generaton for binutils-2.35+"), which removed vdso-dummy.o
+>in favor of generating vdso-syms.S from vdso.so with $(NM) but this also
+>resolves the issue in case it ever comes back due to having full control
+>over the $(LD) command. '-pg' is for function tracing, it is not used
+>during linking as clang states.
 
->TL;DR: Patch exposes existing issue with LD=ld.lld that would have
->happened without it in different areas, the report can be ignored.
+Looks good.
 
-Yes, lkp frequently reports this error. It can be suppressed by using
--mno-relax... if ld.lld is picked.
+-pg affects the link action: it changes crt1.o to gcrt1.o.
+Since the Makefile uses -nostdlib, crt1.o is suppressed, so -pg
+is entirely unneeded.
+(-nostdlib implies -nostartfiles so the previous usage has a redundant
+option.)
 
-Hmm. This motivated me to file
-https://github.com/riscv/riscv-elf-psabi-doc/issues/183
-R_RISCV_ALIGN friendly to linkers not supporting relaxation (riscv_relax_delete_bytes).
+>These flags could be removed/filtered to fix the warnings but it is
+>easier to just match the rest of the kernel and use $(LD) directly for
+>linking. See commits
+>
+>  fe00e50b2db8 ("ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO")
+>  691efbedc60d ("arm64: vdso: use $(LD) instead of $(CC) to link VDSO")
+>  2ff906994b6c ("MIPS: VDSO: Use $(LD) instead of $(CC) to link VDSO")
+>  2b2a25845d53 ("s390/vdso: Use $(LD) instead of $(CC) to link vDSO")
+>
+>for more information.
+>
+>The flags are converted to linker flags and '--eh-frame-hdr' is added to
+>match what is added by GCC implicitly, which can be seen by adding '-v'
+>to GCC's invocation.
 
->Cheers!
->Nathan
+Another minor change which may be shipped together: --hash-style=both
+can be --hash-style=gnu. We don't need sysv .hash . The glibc/musl
+support for .gnu.hash has been there for years. .gnu.hash is often
+smaller than .hash .
+
+Reviewed-by: Fangrui Song <maskray@google.com>
+
+>Additionally, since this area is being modified, use the $(OBJCOPY)
+>variable instead of an open coded $(CROSS_COMPILE)objcopy so that the
+>user's choice of objcopy binary is respected.
+>
+>Link: https://github.com/ClangBuiltLinux/linux/issues/803
+>Link: https://github.com/ClangBuiltLinux/linux/issues/970
+>Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>---
+> arch/riscv/kernel/vdso/Makefile | 12 ++++--------
+> 1 file changed, 4 insertions(+), 8 deletions(-)
+>
+>diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+>index 71a315e73cbe..ca2b40dfd24b 100644
+>--- a/arch/riscv/kernel/vdso/Makefile
+>+++ b/arch/riscv/kernel/vdso/Makefile
+>@@ -41,11 +41,10 @@ KASAN_SANITIZE := n
+> $(obj)/vdso.o: $(obj)/vdso.so
+>
+> # link rule for the .so file, .lds has to be first
+>-SYSCFLAGS_vdso.so.dbg = $(c_flags)
+> $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+> 	$(call if_changed,vdsold)
+>-SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+>-	-Wl,--build-id=sha1 -Wl,--hash-style=both
+>+LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
+>+	--build-id=sha1 --hash-style=both --eh-frame-hdr
+>
+> # We also create a special relocatable object that should mirror the symbol
+> # table and layout of the linked DSO. With ld --just-symbols we can then
+>@@ -60,13 +59,10 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+>
+> # actual build commands
+> # The DSO images are built using a special linker script
+>-# Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
+> # Make sure only to export the intended __vdso_xxx symbol offsets.
+> quiet_cmd_vdsold = VDSOLD  $@
+>-      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
+>-                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
+>-                   $(CROSS_COMPILE)objcopy \
+>-                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+>+      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
+>+                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+>                    rm $@.tmp
+>
+> # Extracts symbol offsets from the VDSO, converting them into an assembly file
+>-- 
+>2.31.0
 >
 >-- 
 >You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 >To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
->To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210326235839.zgfvmtfxrb3hy6i4%40archlinux-ax161.
+>To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210325215156.1986901-1-nathan%40kernel.org.
 
 _______________________________________________
 linux-riscv mailing list
