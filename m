@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52FAEC433DB
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C23DEC433E0
 	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 06:31:54 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 002816191A
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 06:31:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 002816191A
+	by mail.kernel.org (Postfix) with ESMTPS id 678976191A
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 06:31:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 678976191A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yIP+xowQk6qaNGJ119o/lnZyF69uMkOy3CNyX50g1sc=; b=RIHuJ31c85rstqUCdtk0TOgmln
-	gmNNRBS2pW60CvYBmLIE3vFp5HjabSYyHmpHDtrzP8mxamP11yqiZDZzgZ5XzAJrGMc9Yt+wootjw
-	AXUH5eTjN4dVEDX0THTX85DzfWSdTkaHUEpMfGSPuqtT/6rXfDps7VBXMRa517eQvB5HWPydmq32r
-	0YZKlbib0MR3KtTQTHiZHMJ3Rk5cu3XfH76cf95p7i6tg8/EmBGWiJWwToel4FtRf1QfzG2BuqHe9
-	/tXdvUoN0T4TtNkTnkpVAEnjNASKpvBLekEaVgVZR0pZFtPTITJjTQc0V3PDSnOznJeKbnNBs1PTi
-	eH95IeVw==;
+	bh=qLsCoe/9fRlmvClDIStokFIglyyQzcJ/Gr3WpRV0UoI=; b=Qf4h+J3ZFRIa1B44h6Gr7K7g32
+	km5kEeD29NMvMN3R6C1ibOdLJyquEzNzn2nhGH+PzhlsPljedIsDwx1r51PUgI0aN6E6vEjS/E6dR
+	QVw5O9dtfwP/PL0z5lIv3VK+OqqJjMoaliNeiVY11+mO8XH7ZI72S//JBryIF+LhlMEMspNkkFkfv
+	+V2ffD+vGdmxPNg7KU5nxaUB4W77emXQrMEAS7Aia/y45I5r9rPa6BMpgjUVghetYRn/HflCP2nfs
+	8cLhcs1Xs0XidHmBfPkB5Ve432Z9fOqTe4T02OyCybZ22rZ+uB0KE4IJbb7psOs6NhLvmjB9MXVlI
+	glIBsiXg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lQOxb-005uyK-Nf; Sun, 28 Mar 2021 06:31:43 +0000
+	id 1lQOxe-005uze-SG; Sun, 28 Mar 2021 06:31:46 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lQOxY-005uwx-KR
- for linux-riscv@lists.infradead.org; Sun, 28 Mar 2021 06:31:42 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id AFCCB61999;
- Sun, 28 Mar 2021 06:31:36 +0000 (UTC)
+ id 1lQOxb-005uy0-BI
+ for linux-riscv@lists.infradead.org; Sun, 28 Mar 2021 06:31:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A4715619A0;
+ Sun, 28 Mar 2021 06:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1616913099;
- bh=O2KxmIPB+fHLZecH69jIXhtq++wb564lj/icyjeUAfo=;
+ s=k20201202; t=1616913102;
+ bh=sUpQ42V7/BeYJXo8xKilrJhdJzUrsLncMVt8E/NbmTI=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=RIkij08xlS8DB8+yEsaHfhkJ4frVk8aqcXZKUjc8aZRsRg14dDqPdSr8TSjbqYWar
- YZa7xXiDmepsbU0aY2OQB+g9ZqgA6O0epYM/s/Lq/CGXTTUZR/qeGjvktEkSawSenY
- 6uspD6vEI92SJzbXoQjxXYH9frX6UTrSuMhM5XRheYpddQnE2p8LoyPEDQ5x0vhDc+
- aPIyENu/RTIQJgeveEE/LmORCiHcAjMknUD4XEEpdndhKUefcId80TspfCdlvafStJ
- 6CIxmOlQadSXN+7398RrpGZOq23MCSKdY+hW6nlsOKJHvtdBV75Hz84ouhtYXGQH+u
- 8EGq83B9rHGOg==
+ b=K1i+Vgp+d0Nt/rDzju12lI4q66EYLkSy5JZ076QiXlZZAxL4Zz1kplBNEVKnDnzeL
+ XUtkjJuzzqCLW32Oy7ysq/RMmkHMZuPYez5Wyxk2SMMxQoDGAf6hQweBSn8yFBqUCW
+ ilcp7x5OfSZ83pAAh9tjiC72g4z2cXm2BDzOz97kdkTOZQbGOFPWZ2VNnDrQitQwTS
+ PSxomOd2/RHIlHwBLl4fVNVs7Ua1PUFN+gK1ipO1IHCQiFh6FVawbp4ISyuFZ29+sQ
+ ZJw6ShzgANhvydDXfVdd/XWVF3Es2P54W9xEgMHObmbb/odl0xgFm9ORAQlNoAWC4v
+ O2brtoUrLFkBQ==
 From: guoren@kernel.org
 To: guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -55,17 +55,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-xtensa@linux-xtensa.org,
  openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
  Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
- "David S . Miller" <davem@davemloft.net>,
- Rob Gardner <rob.gardner@oracle.com>
-Subject: [PATCH v5 6/7] sparc: qspinlock: Add ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-Date: Sun, 28 Mar 2021 06:30:27 +0000
-Message-Id: <1616913028-83376-7-git-send-email-guoren@kernel.org>
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>
+Subject: [PATCH v5 7/7] xtensa: qspinlock: Add ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+Date: Sun, 28 Mar 2021 06:30:28 +0000
+Message-Id: <1616913028-83376-8-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1616913028-83376-1-git-send-email-guoren@kernel.org>
 References: <1616913028-83376-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210328_073140_847516_C25AF779 
-X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-CacheID: sfid-20210328_073143_607433_EA22C9BA 
+X-CRM114-Status: UNSURE (   7.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,24 +96,24 @@ architecture's xchg16.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: David S. Miller <davem@davemloft.net>
-Cc: Rob Gardner <rob.gardner@oracle.com>
+Cc: Chris Zankel <chris@zankel.net>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
 ---
- arch/sparc/Kconfig | 1 +
+ arch/xtensa/Kconfig | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 164a5254c91c..1079fe3f058c 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -91,6 +91,7 @@ config SPARC64
- 	select HAVE_REGS_AND_STACK_ACCESS_API
+diff --git a/arch/xtensa/Kconfig b/arch/xtensa/Kconfig
+index 9ad6b7b82707..f19d780638f7 100644
+--- a/arch/xtensa/Kconfig
++++ b/arch/xtensa/Kconfig
+@@ -9,6 +9,7 @@ config XTENSA
+ 	select ARCH_HAS_DMA_SET_UNCACHED if MMU
  	select ARCH_USE_QUEUED_RWLOCKS
  	select ARCH_USE_QUEUED_SPINLOCKS
 +	select ARCH_USE_QUEUED_SPINLOCKS_XCHG32
- 	select GENERIC_TIME_VSYSCALL
- 	select ARCH_CLOCKSOURCE_DATA
- 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_IPC_PARSE_VERSION
+ 	select BUILDTIME_TABLE_SORT
 -- 
 2.17.1
 
