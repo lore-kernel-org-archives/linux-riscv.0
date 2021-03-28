@@ -2,19 +2,18 @@ Return-Path: <SRS0=/ZyV=I2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47A80C433DB
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 01:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D2CDC433C1
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 01:51:19 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ADAF86192A
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 01:49:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ADAF86192A
+	by mail.kernel.org (Postfix) with ESMTPS id CA09F6192A
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Mar 2021 01:51:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA09F6192A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +22,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ajcaXcWIqfLvZZClE/1ig3CL8tp4MTbSJxIt20BssTw=; b=Om+lisHZoTNjWGyL6M4nfWqpq
-	Lh8AKDufFqRK9tsV7bXw6JpdBKiwDjgJ5FdiVz8eFhN5wQxeZPLXT4gX7QCMT4fP1eWB0rw855iUW
-	Tg137UrxEddnkJlELdr2McfIES2tds23lFJfq4hhsEM7KOfjrkdRVtE4kkNI/CEHOCkO86ZVkW4+H
-	MezofWE5vBWCxQD5jgA5VDWBsv9ov1CeNZmASZCmgmwOxHT8VFN1IxOtwjLABr61fT10l3mSTWRa2
-	EHZ6Kkd2HShlRH6Ge98DvHqy3cXxF7dleCf5snFjflI/2rGwn+ic0Pgbmub2Ckz7jSWGqyhDYwSa9
-	flu9y897w==;
+	 bh=m+ZvEVNZy+USQ+ZBk4klhSbXX37M/C+oR9WLNletA9I=; b=i/xwmUau8a6rL5LaKvysRpJ5/
+	taTa6RJZ+7vpojoqgEZR1Pk0JuTNB/dDYx2yxeRDea5XAJ876XTyHNS4jz3RI0N0hR2TSXTUfWU1h
+	2NLbkk8IwD0QOQqSmrnCkqgJev9oxG2OjQyVPRJrPhR2n4z0OAZB887S3LV/8biRnp6Z9nNX4nY74
+	hApCO97itjFjS1d/R4HAImBha22igyGFPu1lVwO4jQ8EXJWNtjs0BBzZjtLr7Uq7OFUqPEgasi0+7
+	HjN4XygNcBIgYcdGi5Ic+krzPjjWQwLDznJ8JJzBTxVjQicLke6j4VSJF1wHVuZ8waVE7cYQY//9J
+	GQktHKBlw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lQKYP-005iQN-8D; Sun, 28 Mar 2021 01:49:25 +0000
+	id 1lQKa3-005iWP-MI; Sun, 28 Mar 2021 01:51:07 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lQKYH-005iPp-3G
- for linux-riscv@lists.infradead.org; Sun, 28 Mar 2021 01:49:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id EA6466192A
- for <linux-riscv@lists.infradead.org>; Sun, 28 Mar 2021 01:49:11 +0000 (UTC)
+ id 1lQKa0-005iW5-44
+ for linux-riscv@lists.infradead.org; Sun, 28 Mar 2021 01:51:06 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6F053619A1
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Mar 2021 01:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1616896152;
- bh=r/CjWLOfQ/Cy98BD8/yfutAJhP32QSWIzkd5wFUy5ec=;
+ s=k20201202; t=1616896262;
+ bh=BUNgSqvKCD1KhF3NeU2ADrUH6ViHHRa1+b6YkOC3oZE=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=J/3+nDTfzogk2FKUnPgpz7x3yL3yM3zZhpqDBfZpclg9rXjQWrm+G24m3YywmAymx
- Md0cKCkj/tvQwY44pxexcJxlHFJzGURRz+FJbj5hASyEdz1/kXigQDFvnCk5jYZUfd
- vyU1qhZfoeto/1OnQYsXNRZNx0payLHwBLIjWvNXz6msLBq6t2IIueJUNWIMKmvb0x
- pHaImY/VZzujOAiMdoXDTIIj2oT2uo8rdkxshBX1JF02cO0LfpMKwjLkI+UqMJ4HMy
- OwXuvDFwIJK9lnnsMMaS92OMJic8Hb9Ue7L86Avqlk14SIxSehfppjslyXrLMD4csT
- +XE6nuKmzeskA==
-Received: by mail-lj1-f178.google.com with SMTP id a1so11870373ljp.2
- for <linux-riscv@lists.infradead.org>; Sat, 27 Mar 2021 18:49:11 -0700 (PDT)
-X-Gm-Message-State: AOAM533XHTmFQ+ToffuFOjtVsoWAczCCMn0lnoxJZewTx7dsTEOEp0SK
- nTuKM8Qm+6vhj9k+gImUr2HoUSMtsUMRUwM58/4=
-X-Google-Smtp-Source: ABdhPJyW6nHPZZw4sckD4eehDVI2/MTvmJEGaup03eXwH32xXeXXve1gtXcXfT8Prn4CK0frPQIN2pSq8Ty+SoZQm30=
-X-Received: by 2002:a2e:9084:: with SMTP id l4mr13189914ljg.498.1616896150341; 
- Sat, 27 Mar 2021 18:49:10 -0700 (PDT)
+ b=mXgn7fkgHaKx1wyAyVt+m5lJNJR0MzrE5OrAMbPfJPMq5Pg60W+BTvSMElW0NSsuT
+ KUK5vc0PysUqrztNBlXk6YoPv2cxfSDSDF5Ufxb6AVbMaWxS17bHEvmkWBoHyK1kac
+ gS2SHu2OPT8GqCphEMfoQ7tJOmDkwoXtyK69fIphdEPGJUbJs6dVRo/7S3vdRta+8A
+ xh0qvvCfqrw/lkax7EDQVn9h8cfDK5xudZJNNpjdPAkleyXyFbkvo9W2zeAMEWVJI8
+ 6LsAs+m19cTaes6i1gyj8TAPGFYeO9YA3y/xrFdG11F9Vn0cakibZaJAN79m+0UPQB
+ obgkouu9nS3Kg==
+Received: by mail-lj1-f169.google.com with SMTP id z25so11862125lja.3
+ for <linux-riscv@lists.infradead.org>; Sat, 27 Mar 2021 18:51:02 -0700 (PDT)
+X-Gm-Message-State: AOAM53397YyD4lDK5oNGsrlTJsp/JYjk+8p5kMoM/e6gvQD9Qwi3GdhX
+ 5iLLm/6PrPNQxcAQ3GBnB9O6HQhitixMJLg9N/Q=
+X-Google-Smtp-Source: ABdhPJwOo1LYn6W8dv8w9E8xhDuwCGJKtTINJ/V9CDbT+ATTN6EFhh/n5CyatHU/ICm8j1lw1imnRI+VEW+DCIiuk8o=
+X-Received: by 2002:a2e:2c0d:: with SMTP id s13mr13299541ljs.105.1616896260724; 
+ Sat, 27 Mar 2021 18:51:00 -0700 (PDT)
 MIME-Version: 1.0
 References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <b6466a43-6fb3-dc47-e0ef-d493e0930ab2@redhat.com>
-In-Reply-To: <b6466a43-6fb3-dc47-e0ef-d493e0930ab2@redhat.com>
+ <1616868399-82848-3-git-send-email-guoren@kernel.org>
+ <CAK8P3a0FG3cpqBNUP7kXj3713cMUqV1WcEh-vcRnGKM00WXqxw@mail.gmail.com>
+In-Reply-To: <CAK8P3a0FG3cpqBNUP7kXj3713cMUqV1WcEh-vcRnGKM00WXqxw@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sun, 28 Mar 2021 09:48:58 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRROuZOFBM4UDtMCjG0M2Q7c2ZRxHkj2+13amN6jaqvtQ@mail.gmail.com>
-Message-ID: <CAJF2gTRROuZOFBM4UDtMCjG0M2Q7c2ZRxHkj2+13amN6jaqvtQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: Waiman Long <longman@redhat.com>
+Date: Sun, 28 Mar 2021 09:50:49 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTSnrAasbGdpjcNk6xFDP5-06ZjQK+AWB6jJ7M3GXbZ9Q@mail.gmail.com>
+Message-ID: <CAJF2gTTSnrAasbGdpjcNk6xFDP5-06ZjQK+AWB6jJ7M3GXbZ9Q@mail.gmail.com>
+Subject: Re: [PATCH v4 2/4] riscv: cmpxchg.h: Merge macros
+To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-csky@vger.kernel.org, 
  linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, 
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
+ Peter Zijlstra <peterz@infradead.org>, Michael Clark <michaeljclark@mac.com>, 
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210328_024920_188972_26188B11 
-X-CRM114-Status: GOOD (  29.09  )
+X-CRM114-CacheID: sfid-20210328_025104_660091_A69453DA 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,128 +91,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 28, 2021 at 2:43 AM Waiman Long <longman@redhat.com> wrote:
+Thx Arnd,
+
+On Sun, Mar 28, 2021 at 5:25 AM Arnd Bergmann <arnd@arndb.de> wrote:
 >
-> On 3/27/21 2:06 PM, guoren@kernel.org wrote:
+> On Sat, Mar 27, 2021 at 7:06 PM <guoren@kernel.org> wrote:
+> >
 > > From: Guo Ren <guoren@linux.alibaba.com>
 > >
-> > Some architectures don't have sub-word swap atomic instruction,
-> > they only have the full word's one.
-> >
-> > The sub-word swap only improve the performance when:
-> > NR_CPUS < 16K
-> >   *  0- 7: locked byte
-> >   *     8: pending
-> >   *  9-15: not used
-> >   * 16-17: tail index
-> >   * 18-31: tail cpu (+1)
-> >
-> > The 9-15 bits are wasted to use xchg16 in xchg_tail.
-> >
-> > Please let architecture select xchg16/xchg32 to implement
-> > xchg_tail.
+> > To reduce assembly codes, let's merge duplicate codes into one
+> > (xchg_acquire, xchg_release, cmpxchg_release).
 > >
 > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Ingo Molnar <mingo@redhat.com>
-> > Cc: Waiman Long <longman@redhat.com>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > ---
-> >   kernel/Kconfig.locks       |  3 +++
-> >   kernel/locking/qspinlock.c | 44 +++++++++++++++++++++-----------------
-> >   2 files changed, 27 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/kernel/Kconfig.locks b/kernel/Kconfig.locks
-> > index 3de8fd11873b..d02f1261f73f 100644
-> > --- a/kernel/Kconfig.locks
-> > +++ b/kernel/Kconfig.locks
-> > @@ -239,6 +239,9 @@ config LOCK_SPIN_ON_OWNER
-> >   config ARCH_USE_QUEUED_SPINLOCKS
-> >       bool
-> >
-> > +config ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-> > +     bool
-> > +
-> >   config QUEUED_SPINLOCKS
-> >       def_bool y if ARCH_USE_QUEUED_SPINLOCKS
-> >       depends on SMP
-> > diff --git a/kernel/locking/qspinlock.c b/kernel/locking/qspinlock.c
-> > index cbff6ba53d56..54de0632c6a8 100644
-> > --- a/kernel/locking/qspinlock.c
-> > +++ b/kernel/locking/qspinlock.c
-> > @@ -163,26 +163,6 @@ static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
-> >       WRITE_ONCE(lock->locked_pending, _Q_LOCKED_VAL);
-> >   }
-> >
-> > -/*
-> > - * xchg_tail - Put in the new queue tail code word & retrieve previous one
-> > - * @lock : Pointer to queued spinlock structure
-> > - * @tail : The new queue tail code word
-> > - * Return: The previous queue tail code word
-> > - *
-> > - * xchg(lock, tail), which heads an address dependency
-> > - *
-> > - * p,*,* -> n,*,* ; prev = xchg(lock, node)
-> > - */
-> > -static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> > -{
-> > -     /*
-> > -      * We can use relaxed semantics since the caller ensures that the
-> > -      * MCS node is properly initialized before updating the tail.
-> > -      */
-> > -     return (u32)xchg_relaxed(&lock->tail,
-> > -                              tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-> > -}
-> > -
-> >   #else /* _Q_PENDING_BITS == 8 */
-> >
-> >   /**
-> > @@ -206,6 +186,30 @@ static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
-> >   {
-> >       atomic_add(-_Q_PENDING_VAL + _Q_LOCKED_VAL, &lock->val);
-> >   }
-> > +#endif
-> > +
-> > +#if _Q_PENDING_BITS == 8 && !defined(CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32)
-> > +/*
-> > + * xchg_tail - Put in the new queue tail code word & retrieve previous one
-> > + * @lock : Pointer to queued spinlock structure
-> > + * @tail : The new queue tail code word
-> > + * Return: The previous queue tail code word
-> > + *
-> > + * xchg(lock, tail), which heads an address dependency
-> > + *
-> > + * p,*,* -> n,*,* ; prev = xchg(lock, node)
-> > + */
-> > +static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> > +{
-> > +     /*
-> > +      * We can use relaxed semantics since the caller ensures that the
-> > +      * MCS node is properly initialized before updating the tail.
-> > +      */
-> > +     return (u32)xchg_relaxed(&lock->tail,
-> > +                              tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-> > +}
-> > +
-> > +#else
-> >
-> >   /**
-> >    * xchg_tail - Put in the new queue tail code word & retrieve previous one
 >
-> I don't have any problem adding a
-> CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32 config option to control that.
-Thx
-
->
-> One minor nit:
->
-> #endif /* _Q_PENDING_BITS == 8 */
->
-> You should probably remove the comment at the trailing end of the
-> corresponding "#endif" as it is now wrong.
-I'll fix it in next patch
+> This is a nice cleanup, but I wonder if you can go even further by using
+> the definitions from atomic-arch-fallback.h like arm64 and x86 do.
+Ok, I'll separate it from the qspinlock patchset and try atomic-arch-fallback.h.
 
 -- 
 Best Regards
