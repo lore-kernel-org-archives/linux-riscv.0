@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF384C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 714F4C433C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E93161985
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E93161985
+	by mail.kernel.org (Postfix) with ESMTPS id 08EE461985
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08EE461985
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QyvZ0ADxYRQeCHxtW8JXUUtDd5/obgLUf7Ct+Gitl98=; b=lIyxXdoBH1sij2hzTvaqMKD4n
-	JeqgJDk4kCQ5KaoI3unnVZJh6vn1NEjZgkJigZ1KztAnzULp3eIMNQZsyU8urgtiE75LSDMu9hq2G
-	1WVj5PX5lXvUP4M01aQMrvyeQ5z89yEi8lgLpeOF5RMMlOPVnwHOxxtQs9Sk8lkrb+mnR2XIYOW5d
-	EmlLOCPwaGoa75rEPU+TbVFwz9OWEdb0euAhRofXcPqGRFIe1uvS/rZG3KUUMlezYekr1IPpZH4Qo
-	9QEMxgsPS81f/Eq2j37JoiMjOyMtU0Eu5B+FaRMNSoGrnoWHlNEE3lv+Rnz18hMvj5cQ4KWnPXYPc
-	M3gvW8KuQ==;
+	 bh=Hc2IpnxFPVT8oIj3PJVkqBWS1ISDv5ctejqsv+OA9dU=; b=KFdk74Mv3alLQAlpuvf907PSS
+	A7aRjvqaXVVb0iz5SrnVt9Qf6SyD05kk3oTPLhdMlNkfRD2Y//kf9C3qkQtiXHgxHQA0aQKebd4ff
+	2O/d/WyRjx6OmDgRQToV6BeWrruBWthT7t1JfHgjHtYHfV6h+sKnGoSiu/w7briROwd6+Y/6QGQ9x
+	i2iO4F/dWxobiuJvZ60Maa80n0HPNy0+k2y0sMot0iSeExQ1LSIIqxmi4aaT0VcUjJNe8N0BhMyrY
+	pacj2AIDARfGhTMg76jZj+5Ns8CCJVC73J1YgmGGHLqj+qO6Gw0z6KRsbITi4vJLshfvdzVwJWzcf
+	RFFSPt1Jw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR1rt-0026Qa-Gh; Tue, 30 Mar 2021 00:04:25 +0000
+	id 1lR1sR-0026Vn-FM; Tue, 30 Mar 2021 00:04:59 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lQwdl-0013aL-9N
- for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:29:42 +0000
+ id 1lQweM-0013kI-Ai
+ for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:30:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=VCe4QmQLCwyArf7TfS2RTM//Ze/hAyVnYU
- NMw+5EuIc=; b=jtLZ/TQr6fGadMGyUcNKpSUzttVvRakB8hLlqZwgBeSmeffOjh
- qH88cJFcvfAduJb0Jl7ibCaUlXxN0+IrpVzameR1biQ13FpVB7FPUE5lFY/M0cD+
- 8NVY+9zuiSutImScjETfwevsYdHU9pfEo9Cv0OBYm/m+RQ5keCXl/yRS0=
+ Content-Transfer-Encoding; bh=MgvKzE3RWjWapRps+L/qSm8ZaZUnOBtKKG
+ ClBE5IhG0=; b=kroUk+J7j5wAL6f/z9Gvunn7IwgHTeE3rm6zSDEn51PQbACmPX
+ c4lshJok42Rb+iy8E/mc0tndtDJTyN//FL2Cfws+zA3eU/tC+xDDyJM8Q040nLbe
+ 8fBY3uTLQhnFTq3PbcYhQYKEOlj6XOk1x3ey7T+Ok8m+FzXby+c4XMowI=
 Received: from xhacker (unknown [101.86.19.180])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDX3Eh9HGJgUfVpAA--.35371S2; 
- Tue, 30 Mar 2021 02:29:18 +0800 (CST)
-Date: Tue, 30 Mar 2021 02:24:21 +0800
+ LkAmygDHzk6eHGJgFvZpAA--.41814S2; 
+ Tue, 30 Mar 2021 02:29:50 +0800 (CST)
+Date: Tue, 30 Mar 2021 02:24:54 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
@@ -61,32 +61,33 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH 5/9] riscv: kprobes: Implement alloc_insn_page()
-Message-ID: <20210330022421.0ee61d0d@xhacker>
+Subject: [PATCH 6/9] riscv: bpf: Move bpf_jit_alloc_exec() and
+ bpf_jit_free_exec() to core
+Message-ID: <20210330022454.3d0feda2@xhacker>
 In-Reply-To: <20210330022144.150edc6e@xhacker>
 References: <20210330022144.150edc6e@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDX3Eh9HGJgUfVpAA--.35371S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDGF45XF4kJrWxuw48WFg_yoWDGrb_C3
- WxKry3WrWYkrWxWFyDKw4Sqrsak343KFykWr12yryUtr1DWr13Ka95WF45G3sYqr97JFyf
- GrnxX3srWF42qjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUb4kYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
- Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8JV
- WxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
- wI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
- WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
- 7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
- 4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r4j6FyUMIIF0xvEx4A2jsIE14v26r4j6F4U
- MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU4yv3UU
- UUU
+X-CM-TRANSID: LkAmygDHzk6eHGJgFvZpAA--.41814S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyftry5KF1fXw4fuw1kAFb_yoW8Cr1UpF
+ s7Cr13ArWvqw1xGryftay7WF1Yyrs5Wa1xWFWUuayrAanIqFW7Zw15Gw15XrZ8ZFyjgayF
+ krWYkr93Cw1kZ37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkKb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
+ xK6I8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr
+ 0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+ 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+ 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+ 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+ W8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVW8JVWx
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8tKsU
+ UUUUU==
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210329_192933_243568_F729EFFE 
-X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-CacheID: sfid-20210329_193010_714016_53EAE59F 
+X-CRM114-Status: UNSURE (   7.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,33 +107,59 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Allocate PAGE_KERNEL_READ_EXEC(read only, executable) page for kprobes
-insn page. This is to prepare for STRICT_MODULE_RWX.
+We will drop the executable permissions of the code pages from the
+mapping at allocation time soon. Move bpf_jit_alloc_exec() and
+bpf_jit_free_exec() to bpf_jit_core.c so that they can be shared by
+both RV64I and RV32I.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/kernel/probes/kprobes.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/net/bpf_jit_comp64.c | 13 -------------
+ arch/riscv/net/bpf_jit_core.c   | 13 +++++++++++++
+ 2 files changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index 7e2c78e2ca6b..8c1f7a30aeed 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -84,6 +84,14 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
- 	return 0;
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index b44ff52f84a6..87e3bf5b9086 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1148,16 +1148,3 @@ void bpf_jit_build_epilogue(struct rv_jit_context *ctx)
+ {
+ 	__build_epilogue(false, ctx);
  }
- 
-+void *alloc_insn_page(void)
+-
+-void *bpf_jit_alloc_exec(unsigned long size)
+-{
+-	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
+-				    BPF_JIT_REGION_END, GFP_KERNEL,
+-				    PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+-				    __builtin_return_address(0));
+-}
+-
+-void bpf_jit_free_exec(void *addr)
+-{
+-	return vfree(addr);
+-}
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 3630d447352c..d8da819290b7 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -164,3 +164,16 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 					   tmp : orig_prog);
+ 	return prog;
+ }
++
++void *bpf_jit_alloc_exec(unsigned long size)
 +{
-+	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
-+				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
-+				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
-+				     __builtin_return_address(0));
++	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
++				    BPF_JIT_REGION_END, GFP_KERNEL,
++				    PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
++				    __builtin_return_address(0));
 +}
 +
- /* install breakpoint in text */
- void __kprobes arch_arm_kprobe(struct kprobe *p)
- {
++void bpf_jit_free_exec(void *addr)
++{
++	return vfree(addr);
++}
 -- 
 2.31.0
 
