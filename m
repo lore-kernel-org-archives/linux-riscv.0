@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA1D0C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 256F2C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:37 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 697E46198A
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 697E46198A
+	by mail.kernel.org (Postfix) with ESMTPS id C07AD61985
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:05:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C07AD61985
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DG165UiwPDkd/RYDFdrbDPbzfIUloE3SVDN3L728MuE=; b=PoZ+dqETx/D7c+YkohYNRS/t+
-	80hi8eRCpvTQj3oqBv9iDszIGSpWZAJTSBMfppMu7yuxgX7sUNM4iWden2eShLNYElw+m6KFj2YoX
-	jgzlX6Olp0dtW3C3S/wd8BN3EurXsaozgzTul3T2FWinM+AogRKMds7Y6+3iaQ60n8HHvOYZWCdQF
-	sCcrzmWUL6QajENn8cEQA4Yi2MGsyzHQG3yHm1Q6C3WD/3BQBKoQMjKQWhUrN+I1I4Jkhe0WV1rZh
-	mPDYxHo67wBjVr4G1wmIjFIiYl+xYGTOzDFSKz+tczvrJdEatHLxlNR0oaSFcWfxyb9lqdebV3BJE
-	UX3IBruCg==;
+	 bh=Z7CScelkegmbYT73lXsgnFCIQA0h7COwXoK5cCWowcc=; b=Qu8uOA8AnonIIPrifVxkhtLFw
+	7qASvL6nOLN1ja9v7j4sYys4VxMpZV/CMjkGTDPuURps5BlQJqM2TtteMS20aMnhuuOA/k9lqaG4G
+	vYtd1yhosiLbI0l8t0rS7x3HzNHh6EVFeYHOTy/d9/p0GZ/6aO/CM0ZBHNzbcoh+k4jK2FyuBpw0l
+	UDwnRefHyxBU+HqTouBD2M8garieZ4gsVwRb1wsuo9/1BTb5Zy4VmWY4F6bZlTk1jmF+t0lH6h6ah
+	iCfMbY1LBCPNTvnC264IiN6YJ0nbUVf7fwL0B+b4pIQm7Vbzv2TdT+nwVH4fsSjlyBnSMgC3Yn5rk
+	3oPqx4rLA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR1sV-0026Z9-Oz; Tue, 30 Mar 2021 00:05:04 +0000
+	id 1lR1so-0026bg-Ku; Tue, 30 Mar 2021 00:05:22 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lQwep-0013rR-4e
- for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:30:38 +0000
+ id 1lQwfD-0013yJ-3M
+ for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:31:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=Najrrc9y+/48DUXx4/endqtIY6BJkPiOWT
- uivmMc0is=; b=NaS9q8tOGiaDE2giyGJj/HhBdOzcB3LYDRI0hBV+yDVkKtANcj
- gpL2dYG897SXSmoXz60Ynj8BqdTBDNVRaJ5cuRGyjkamPcEJ7VRdY7NopN+oSKZU
- uSxF6gIhzhr9GWBYvd+h8POlcBCn7aOsxRc7Ky7u9/1EIJ8tcoSzUwgNI=
+ Content-Transfer-Encoding; bh=ik1VNJyYjBgUbqJ51FNWR51hX8kbricRWl
+ nztP2ATL4=; b=gZBtfH2uE3I3HFKUYWX6Eo6T+aZXHQWYoo1v5a4TA7E8tFYVdK
+ vOJZ7UeU0ipuRGA959Foxy1Vr2xnCO5k/3H36LRqmxMzs4MkLsiHDzStqOlSTO5I
+ ao/rfWoCN73FpdtnmnRb5mee6rNHc3WhYNGxqaxBNRAsOK/3erwNCZTCM=
 Received: from xhacker (unknown [101.86.19.180])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDn7Ei5HGJgEfdpAA--.51311S2; 
- Tue, 30 Mar 2021 02:30:18 +0800 (CST)
-Date: Tue, 30 Mar 2021 02:25:21 +0800
+ LkAmygB3fkrXHGJgyvdpAA--.50159S2; 
+ Tue, 30 Mar 2021 02:30:48 +0800 (CST)
+Date: Tue, 30 Mar 2021 02:25:51 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
@@ -61,15 +61,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH 7/9] riscv: bpf: Avoid breaking W^X
-Message-ID: <20210330022521.2a904a8c@xhacker>
+Subject: [PATCH 8/9] riscv: module: Create module allocations without exec
+ permissions
+Message-ID: <20210330022551.58ce4ff4@xhacker>
 In-Reply-To: <20210330022144.150edc6e@xhacker>
 References: <20210330022144.150edc6e@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDn7Ei5HGJgEfdpAA--.51311S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFyxtF45CF1ruF48Kr4UArb_yoWkKrg_Z3
- Wxta4xW3s5Jr4xCr4Durn5Zr1Ikw1FkFs5ur1xurW2y390vr1ftasaq3yrur9xZr4j9rW7
- WF9rXrWxZw42vjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+X-CM-TRANSID: LkAmygB3fkrXHGJgyvdpAA--.50159S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFyfWF4rGrWktry5Wr1xXwb_yoWfWrc_W3
+ WxJry3WryrKa1I9FZ3AanYvr4Iya4rGFZY9FyxZFy7Ga4DWrW7t3s8ta9xuFn8ZryfKrWf
+ GFy3Jr9xuw42qjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
  9fnUUIcSsGvfJTRUUUb4kYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
  6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
  8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
@@ -85,8 +86,8 @@ X-Coremail-Antispam: 1UD129KBjvdXoW7GFyxtF45CF1ruF48Kr4UArb_yoWkKrg_Z3
  UUU
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210329_193036_110886_7AA6B265 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20210329_193105_037392_0761A04A 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,36 +107,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-We allocate Non-executable pages, then call bpf_jit_binary_lock_ro()
-to enable executable permission after mapping them read-only. This is
-to prepare for STRICT_MODULE_RWX in following patch.
+The core code manages the executable permissions of code regions of
+modules explicitly, it is not necessary to create the module vmalloc
+regions with RWX permissions. Create them with RW- permissions instead.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/net/bpf_jit_core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/module.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index d8da819290b7..0d5099f0dac8 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -152,6 +152,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
- 
- 	if (!prog->is_func || extra_pass) {
-+		bpf_jit_binary_lock_ro(header);
- out_offset:
- 		kfree(ctx->offset);
- 		kfree(jit_data);
-@@ -169,7 +170,7 @@ void *bpf_jit_alloc_exec(unsigned long size)
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 104fba889cf7..8997b9dbcb3d 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -414,7 +414,7 @@ void *module_alloc(unsigned long size)
  {
- 	return __vmalloc_node_range(size, PAGE_SIZE, BPF_JIT_REGION_START,
- 				    BPF_JIT_REGION_END, GFP_KERNEL,
+ 	return __vmalloc_node_range(size, 1, VMALLOC_MODULE_START,
+ 				    VMALLOC_END, GFP_KERNEL,
 -				    PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
 +				    PAGE_KERNEL, 0, NUMA_NO_NODE,
  				    __builtin_return_address(0));
  }
- 
+ #endif
 -- 
 2.31.0
 
