@@ -2,73 +2,110 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DA4EC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F1686C433C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:45:50 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD3F06192F
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:11:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD3F06192F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9829761996
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:45:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9829761996
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
-	In-Reply-To:MIME-Version:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=24OmTgMGabFkhnS9K5GBVHcpVDFJwrp41yA+MF3Grl0=; b=WsYm4zs4P2D1A0
-	ajm9N+mPEAPveIL2Ait7hUn46bUp1lW8iT81f1V3iWh6GIrx/7gficbP1FFCriHEXiSJgNWa0SWil
-	CQ3+/ZGexKgDfn6t6PktyFB5p/GdeWZpQrfZ+vSZ/eAJ/VEAUK1RNX7ygM7jK1afoROXIBRQe3jsW
-	WLfalmQS1XjoW/I5+sOyrbsYorR1UKhJuLUPCfAU3dQHFVwS/I9r8kuHFn8d/je9zxDauzFQsGaGv
-	o6SBjPiiwqYqjYg7QxkwFITpiVa7Xbvv9cYSgjNiuXJnH+2k+hhwknb7FtgSodKEE5Ivgp/P06MJb
-	oGAKjMcKhxgfNKFKCP1g==;
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=v9VHIsCEGrZpWiJLFUeHf+hFd4kH1dLGLaUdme8XInI=; b=bdC8/EOmD+irVA9LGjv+6ZWJ3
+	FRmkW6HTrnqvI3YF156Twv0a/oCTMXwqPMIh473jA2dxPbamelK8Owwcj6xa6UPQhJJil3P6Zsp9M
+	3SGn51DFYDO5VmxdPV1logygcPTvnSA2KuOHak3HTIg+nBVQnLqbSA4Yx/Y1Bnz0WDxGX04+FTZAF
+	mphuRhJWfm0fBAvY11RvJx4ObM8rqqfHkqBqvigJk6EfjIPPN9/+5OYH5JyX8Y2ZcE9fHsIu6hmXU
+	qfJBfNS0xlkmz0g/Yeg2SFh0CJYya2cwhM2W8ThGU0U/D1my+qy4dc7h8/NRwHGj6HHumq6YOszsn
+	lzKb7UUdA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR1yb-0028Ec-V3; Tue, 30 Mar 2021 00:11:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lR2Vk-002FGE-Gn; Tue, 30 Mar 2021 00:45:37 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lQxKu-001CGg-Pz
- for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 19:14:11 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 36C9461936;
- Mon, 29 Mar 2021 19:14:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617045243;
- bh=ToS0MidpfphiNtS55x67RiSvWClxRs/ZhbXeO1EBtAw=;
- h=In-Reply-To:References:Subject:From:To:Date:From;
- b=oQfZOPcCqmdWePI7Lw64BaJIMp8Fg02xLSjbmILupDBGx799hmQd5C/AhhnXHzQPh
- Fo5TIF3XxWugMx0k7kmS8Ub6sBSGHfY8Pu5uk3SgFlHTuHOhPS0/l2ulNsQzLRsyry
- iQUpHuII7FhbQZDUyDqx5our/WCk8VKvumz8VEwUPLkHxyZoFrJ+iG5/NBTnpIgHhe
- ba8T5QPdvcUOTLUrJhsIQt0T3nqIJYvxBhwZ9gmmxDPeT8QDBvAgZcJoNndcspOyw8
- RvPJunEY33GrQTQsxgpSTYG+qxr+qMtywMxS3CcMthZ2PpH3T2TYfJFvaAew8UQeGF
- MW7BaGRcOa81g==
+ id 1lQyhx-001Pde-1x
+ for linux-riscv@desiato.infradead.org; Mon, 29 Mar 2021 20:42:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
+ Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=IOY00wZMw7iQ/C8A6RUq3HCwcrBzQhlsaRdSeoRLwXs=; b=i10nAkFfUPvG94ppFMu5wjVgl7
+ o8xxfMxUJBLMhD8ArNgJ5A+XOBRWMX/+b4qWykbfQEX3Ed4S8l+Nb++7OJyMTRvObtpuVRNaZ/DrL
+ n9faIXK+Bo+7DlEth7+rDc2BV2Fwvc7YXvrwfxm6yL3j8Z/e68DB6qWmUYIA9kMyRX63K+DWr4MUQ
+ UiaaxQzjjXkibmRICrdBAC+IZGARAiFwxVRnmwI1nwwtMGfGWVQPiLapv9QzgrDRezJNcFtPtuMVY
+ mwJ+/B7sAEVprEpNlcVGNt/J23CzAORpzr318uEt0uv5Xhty9mbK4L8pNUF9bK5Dac2iM/tChUjTM
+ xaRL1V5w==;
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+ by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lQyhe-0024nI-Ox
+ for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 20:41:55 +0000
+Received: by mail-ej1-x632.google.com with SMTP id jy13so21521491ejc.2
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 13:41:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=IOY00wZMw7iQ/C8A6RUq3HCwcrBzQhlsaRdSeoRLwXs=;
+ b=oWb6o1aHOSF0DXx/yX1KkO7igNt5jO2+W5TfD710HCbj6l6risPCncqXOwLHFW7VO8
+ n2WqBzfjhpbiAq9xr5ewQLs6CPp7Q8JD5j46qyEd0ryBtEmnUxAZ4pz+1sCID0ewC8ux
+ c+kDA6hixWaNdB3u91M8vSO/Rm6ab7D5cg6vvwEqrFt6JQRCTqRZ9lKp+iyrXKg1lOzD
+ EUimB0/jrdsRXR3RobVvOwNQtAEB3wOBlRKbEWGe1h4MUnTVdVYcpmrl64UXSU/F4xU7
+ 2UQ47VDwAE3NgXqOvtbgiNZ6wJdOIC5qg0CPJ/OAWvtEQ51hikQWiK0OlgG0pn+IzHNH
+ OpbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=IOY00wZMw7iQ/C8A6RUq3HCwcrBzQhlsaRdSeoRLwXs=;
+ b=loPH26n9OZEJZkuiKY1HjOWlox1rHUqfVgEZ5dnChdGeYxRoRmrpEA+EnDC4a02dni
+ SOcitB2vSg8BoZL3FB+SPU9Xl64t1y56KQe1ke1Hq0Z2k7h79EdAZeNTrtQfoNOuFfq/
+ nDkQvDrj9gS4LmnIAA7ay/6kGgaFIzUoSdgtq2KYnA9y0MGz2SRxAgIivbvTv/KClLZi
+ rfbz7CucQRru+DuI66qbuSeVH0KjPks8lUOrseM+B6FdI4lzSdjM3GDx3MCha6T0A19Y
+ TuUgjieu9h/sIfVhSuP2CY9QJt2yhvKu7bekFP10UljyVXOn1p8C5OhdJDNX/hR56hwf
+ HHGw==
+X-Gm-Message-State: AOAM533pu60hxB6C4hPxBGJbFPk1NDe+qd4fXwyCauekXOVYjlhrAPoO
+ ki6pjpqcJsdS94jkHy/4D3NgXDYtHd85NBxFD60=
+X-Google-Smtp-Source: ABdhPJxcjn88m4H97qxfK72HhcS5ov53I7up+0loT8VWTFlglQcHijm0szjlpAvoCk9P+6FVl226+HzoXj3NFKnjmh8=
+X-Received: by 2002:a17:906:73cd:: with SMTP id
+ n13mr29275638ejl.535.1617050484980; 
+ Mon, 29 Mar 2021 13:41:24 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <91d016e59bab9d9175168a63e7bcd81fdb69b549.1615954046.git.greentime.hu@sifive.com>
-References: <cover.1615954045.git.greentime.hu@sifive.com>
- <91d016e59bab9d9175168a63e7bcd81fdb69b549.1615954046.git.greentime.hu@sifive.com>
-Subject: Re: [PATCH v2 2/6] clk: sifive: Use reset-simple in prci driver for
- PCIe driver
-From: Stephen Boyd <sboyd@kernel.org>
-To: alex.dewar90@gmail.com, aou@eecs.berkeley.edu, bhelgaas@google.com,
- devicetree@vger.kernel.org, erik.danie@sifive.com, greentime.hu@sifive.com,
- hayashi.kunihiko@socionext.com, helgaas@kernel.org, hes@sifive.com,
- jh80.chung@samsung.com, khilman@baylibre.com, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, lorenzo.pieralisi@arm.com,
- mturquette@baylibre.com, p.zabel@pengutronix.de, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh+dt@kernel.org, vidyas@nvidia.com,
- zong.li@sifive.com
-Date: Mon, 29 Mar 2021 12:14:02 -0700
-Message-ID: <161704524201.3012082.13807741329367593907@swboyd.mtv.corp.google.com>
-User-Agent: alot/0.9.1
+References: <20210330022144.150edc6e@xhacker> <20210330022454.3d0feda2@xhacker>
+In-Reply-To: <20210330022454.3d0feda2@xhacker>
+From: Luke Nelson <luke.r.nels@gmail.com>
+Date: Mon, 29 Mar 2021 13:41:13 -0700
+Message-ID: <CAB-e3NQ11Gnoa716nnZ2tTgjb02_eZOf1gWn3YMmueEAp92c1g@mail.gmail.com>
+Subject: Re: [PATCH 6/9] riscv: bpf: Move bpf_jit_alloc_exec() and
+ bpf_jit_free_exec() to core
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, 
+ Dmitry Vyukov <dvyukov@google.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, 
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, 
+ Xi Wang <xi.wang@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ open list <linux-kernel@vger.kernel.org>, kasan-dev@googlegroups.com, 
+ Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210329_201409_433853_F0807D53 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20210329_214142_699739_671BCE57 
+X-CRM114-Status: UNSURE (   5.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,31 +123,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Greentime Hu (2021-03-17 23:08:09)
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 71ab75a46491..f094df93d911 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -173,7 +173,7 @@ config RESET_SCMI
->  
->  config RESET_SIMPLE
->         bool "Simple Reset Controller Driver" if COMPILE_TEST
-> -       default ARCH_AGILEX || ARCH_ASPEED || ARCH_BITMAIN || ARCH_REALTEK || ARCH_STM32 || ARCH_STRATIX10 || ARCH_SUNXI || ARCH_ZX || ARC
-> +       default ARCH_AGILEX || ARCH_ASPEED || ARCH_BITMAIN || ARCH_REALTEK || ARCH_STM32 || ARCH_STRATIX10 || ARCH_SUNXI || ARCH_ZX || ARC || RISCV
+> We will drop the executable permissions of the code pages from the
+> mapping at allocation time soon. Move bpf_jit_alloc_exec() and
+> bpf_jit_free_exec() to bpf_jit_core.c so that they can be shared by
+> both RV64I and RV32I.
 
-This conflicts. Can this default be part of the riscv defconfig instead?
+Looks good to me.
 
->         help
->           This enables a simple reset controller driver for reset lines that
->           that can be asserted and deasserted by toggling bits in a contiguous,
-> @@ -187,6 +187,7 @@ config RESET_SIMPLE
->            - RCC reset controller in STM32 MCUs
->            - Allwinner SoCs
->            - ZTE's zx2967 family
-> +          - SiFive FU740 SoCs
->  
->  config RESET_STM32MP157
->         bool "STM32MP157 Reset Driver" if COMPILE_TEST
+Acked-by: Luke Nelson <luke.r.nels@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
