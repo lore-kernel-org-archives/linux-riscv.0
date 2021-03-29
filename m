@@ -2,82 +2,91 @@ Return-Path: <SRS0=/EkZ=I3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 092A5C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Mar 2021 19:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21C63C433C1
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Mar 2021 19:12:56 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D5766196E
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Mar 2021 19:12:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D5766196E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9E19F61981
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Mar 2021 19:12:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E19F61981
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jiuyang.me
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZOHefo8nC62ocln0/ZqE2jOX89HyhTlnRgKwoD+kV4U=; b=RHdDTWYzcu7DuGosi0kA07K8O
-	F+NfvC+a0s4YVuDSsoXe+6O4LOujQFsayE0BaiEyCPGutaVrd5zPP0K5ld2DyfeTRliOZJK5ug/ol
-	GQB2omzuSTxskS1hBCCms6FA7ZBFMKmZEq00lNF32RxtGcrp26CEk+r0rXXSRXct2BOh7qEZC3RLx
-	uKVq95CaJ5F6NwDusf7gXLfxNp6FXK5gFN1GHza7wiCZ7vHLBsVv9CoEgK5r/rg5jQo7dbk05VKaa
-	4kREthU1L3/jD4OymHn4ihcTYGdIVIUWRSdPeeCPykXapKV+cX+cFk5c/RqmV9qDcaGFuLkBX5VV+
-	KckIwfxFg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D6HWn6vm/ff++MlTkJf4IfKcifw1ouhRAjqjtan/Mho=; b=VX4L1Q9ga4pO6laOMqG1PhMjF/
+	EUFsI3GSraqYXNF37vd1CHEQrrvAPKd8+XmIbOsS4gP07SEe8Y2iAsDLTuIAHSUV8SzrxhQzd7dTl
+	bofGvuJGaAR01ahL/oEZC70XzZZQIV7rqxcb2O84ck8VCpGWxM51ZBa2DrAodztV7E5dQ7Eo5rWhP
+	rI/UtjFLFDlSBqwEz9Hx83UpPLzL9CG2KWVqbB5B4BXCEI3gXGWKLGhyCb3W4NQZn88GljUyHiNxo
+	62cv8pCWxIYXdSE7tlutg5nJl244xIgShqa/HpNjHVFl29bV2AEKiC5UIJ1RqnUYjpNqAOa4TA1Kx
+	B1b8sk8Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lQxIW-001BxL-53; Mon, 29 Mar 2021 19:11:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1lQxIb-001ByP-Ky; Mon, 29 Mar 2021 19:11:41 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lQq6L-000cOh-10
- for linux-riscv@desiato.infradead.org; Mon, 29 Mar 2021 11:30:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=xAASgCT1znE4iZyX4yKtFW+FR4NtFv4F0rZP0TttRpc=; b=IUiKLtt370+VXpr4Dpb9tIRnmD
- lUlt8V0bVGbfLA+R8YSPIs2KN/WpHeEsLTx1xJLbLiXLynAZmIxYNh4kuFIPd1cjaXGTgOSWQoOIV
- QETpqcvhbwpVKGfbKrnWvzkGFspWw6FRMud3euBEeDrqOAmp45mWd2u7Kvf3O9M4aI5VFhAcu8//F
- AOGsqL6Ut9BtLNCe6g8wHoyGxVKxBkiRTrveBGZbdnHRjwFwVYBvF/DfhKrlZ9HZXRFFvwsnKDWWN
- e5CnjI2RJ1h+QIvFIOvGX8kRLrM3d7ZO9E4RhkJ9yNOU24aaT28io+SH1vNMaNB0s+x2RrCPd/ZBl
- 5izOhRpA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
- id 1lQq5j-001TUs-4F; Mon, 29 Mar 2021 11:30:08 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 982223069B1;
- Mon, 29 Mar 2021 13:29:54 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 85F90207539C8; Mon, 29 Mar 2021 13:29:54 +0200 (CEST)
-Date: Mon, 29 Mar 2021 13:29:54 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Guo Ren <guoren@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, linux-arch <linux-arch@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
- Anup Patel <anup@brainfault.org>,
- Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-Message-ID: <YGG6Ms5Rl0AOJL2i@hirez.programming.kicks-ass.net>
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
- <CAK8P3a2bNH-1VjsZmZJkvGzzZY=ckaaOK9ZGL-oD0DH4jW-+kQ@mail.gmail.com>
- <YGG3JIBVO0w6W3fg@hirez.programming.kicks-ass.net>
+ id 1lQq6Q-000cOm-VU
+ for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 11:30:40 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id i81so12754608oif.6
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 04:30:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jiuyang-me.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ZpbsboO00+NGpd7nPfABOl4VUqqJUF8OMrvGKrRJGlk=;
+ b=DNY7oU5AuNEygQnIMijS7RCHjJwRewCPsfUSQFe2h5cCOuJ+ifFY8DW4QRTPk93+If
+ bMHPE7IjFB2U6W+c2yzimU9uZt5TfHUjRGaUvDkm7npWoRMfZGKNzDIf6xDMUX5bu6oe
+ wpl/fN+0Q+n2ziyPey6y1Noy3ufYTE6y0a88c2J322sjbuMaPrr4UIvVI1fHpQaFvcDZ
+ POjsafTleR+VKvsssby9efnaPkcq66PSyONjY23mW37FtglEdAMacem4urvS6iWN7Bfs
+ YfjIjm80E6/m+aMwFYPD0FvKecvaGJEarz8dNzhv0aY4SNsq+aUeLZQFdhWMZUoKgq3c
+ AyFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ZpbsboO00+NGpd7nPfABOl4VUqqJUF8OMrvGKrRJGlk=;
+ b=NZl1ueLwelCdnXC6C26FirYGo1IzzpLjjmyJWadQw3uqINIyBKhRYGBjE7j26JBWSZ
+ qanfLOP2FTX17Ev6rVJnxmMirKsO8SH5ms34ICSeC4P0w5TWYZbTjTnWzQCDS3Pw41Xy
+ 5aRH0MvgBbAPgBFJMiqtxjYwUfIDwLTPZ60zDKrWQy1lo0s4ROdedD6lUM0HGIWz9dX1
+ 9TduFvvKVYFVWoM6eAWe9fd34T7mJZSj+XShHuHKTzReVcSBzIC3u1CMHJAUkm4s84MR
+ xlqih+06oLF1gprLG160gP7UmNO/wZSr4TrwRe6gjpA/BHcMNJMaj5tXyOD6iO6aOFpV
+ k4Fw==
+X-Gm-Message-State: AOAM532rjadfoHmtToD03K7kaunZqZBpeuHrS5fc270iRri6D5hIu6Ey
+ 4+Yg5BMSs33kVmQ9zoA6bTxp6rzgSr3OhvRlwxKhrA==
+X-Google-Smtp-Source: ABdhPJxUl/aFR80aVf1TQMBBpMuXPSOYnn6M6PkezmdoM4iqg409vk+JH1z0TKOcUvtNW4LNoXO2gw==
+X-Received: by 2002:a17:90a:f98e:: with SMTP id
+ cq14mr23359357pjb.60.1616982983564; 
+ Sun, 28 Mar 2021 18:56:23 -0700 (PDT)
+Received: from nuc.. ([193.110.201.196])
+ by smtp.gmail.com with ESMTPSA id x11sm18202652pjh.0.2021.03.28.18.56.20
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 28 Mar 2021 18:56:23 -0700 (PDT)
+From: Jiuyang Liu <liu@jiuyang.me>
+To: Alex Ghiti <alex@ghiti.fr>
+Cc: Jiuyang Liu <liu@jiuyang.me>, Andrew Waterman <waterman@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] implement flush_cache_vmap and flush_cache_vunmap for RISC-V
+Date: Mon, 29 Mar 2021 01:55:09 +0000
+Message-Id: <20210329015510.44110-1-liu@jiuyang.me>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YGG3JIBVO0w6W3fg@hirez.programming.kicks-ass.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210329_123039_161114_FCFC0624 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,13 +103,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 29, 2021 at 01:16:53PM +0200, Peter Zijlstra wrote:
-> Anyway, an additional 'funny' is that I suspect you cannot prove fwd
-> progress of the entire primitive with any of this on. But who cares
-> about details anyway.. :/
+This patch implements flush_cache_vmap and flush_cache_vunmap for
+RISC-V, since these functions might modify PTE. Without this patch,
+SFENCE.VMA won't be added to related codes, which might introduce a bug
+in some out-of-order micro-architecture implementations.
 
-What's the architectural guarantee on LL/SC progress for RISC-V ? And
-what if you double loop it like cmpxchg() ?
+Signed-off-by: Jiuyang Liu <liu@jiuyang.me>
+---
+ arch/riscv/include/asm/cacheflush.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index 23ff70350992..4adf25248c43 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -8,6 +8,14 @@
+ 
+ #include <linux/mm.h>
+ 
++/*
++ * flush_cache_vmap and flush_cache_vunmap might modify PTE, needs SFENCE.VMA.
++ * - flush_cache_vmap is invoked after map_kernel_range() has installed the page table entries.
++ * - flush_cache_vunmap is invoked before unmap_kernel_range() deletes the page table entries
++ */
++#define flush_cache_vmap(start, end) flush_tlb_all()
++#define flush_cache_vunmap(start, end) flush_tlb_all()
++
+ static inline void local_flush_icache_all(void)
+ {
+ 	asm volatile ("fence.i" ::: "memory");
+-- 
+2.31.1
+
 
 _______________________________________________
 linux-riscv mailing list
