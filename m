@@ -2,52 +2,52 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67F2DC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C61A6C433C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:04:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D19CB61936
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:04:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D19CB61936
+	by mail.kernel.org (Postfix) with ESMTPS id 351A961924
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 00:04:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 351A961924
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oT4bBQOHeRd068YyfnAER5XbaJ4DsPa+f+8+5QBVnLQ=; b=lnmehK9j2zd70or3AF9qweYzqv
-	BZDHKvnzQYd6in0eo7if814EMwAQJCH0p9tmp20kCm6tUEHgfRsM9xvtq7KxsifqAudRIrdSZZhKt
-	Wulho8EpX8CHj4ZSqxxweQyo50wHVmBP9VgUKEIaHAztufmQ+9dlSJIesfFgZx5GTg0785wEQqxDP
-	Yy8ZAyitHOipkXZ3HONaK/HKudVv/TEAiyDiFwtk7bkEC6GEQykJrE5eCC8PWLN2n8CJdSdonEO1j
-	DbqdKjvHLJ795nt/lCmG/YI9tKVY2Ho3vDaQJMkLpqEAMURSkTS+/kjs8ZQEo3QnUP3jt/MDoX9En
-	2Nauhupw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=7IMIxc4neCNqps+3Z0YDe9R5w1g3RYqaiKqgMHxm3eI=; b=q8gCdYjr5m2rtW3y5UbjJBCtW
+	BT9k9WGGuuJVfIFH9auI9Tv9A9OZARR1l5rHH4hdo5LWWWOXwM2pIcVc8GHJ4FcFT7BsYti9fzmH5
+	Fa/fRb4hs8SwT1mt7KLKRWFs00EWm3AaJYbzVQoM5/OUUm6MuzF7PwWMRUp+02ebipzijVgXPLkrH
+	S6srJA/RIWOmAaMVfjj0CUFPLzvBVU1KQJafwWf202y7I/ItjHzqjW01z4IKaaLiNeNxSiIM+zRmZ
+	NGeK2W3ofntV92/WjXVOI/rjjg8hvwK8kh+tMz+Blh3Sz2vY+yctA0SWC20XrdkhZqrgco4Q0wnQB
+	SeMMrNz4Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR1qx-0026G9-9z; Tue, 30 Mar 2021 00:03:27 +0000
+	id 1lR1r3-0026Hw-7O; Tue, 30 Mar 2021 00:03:33 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lQwbI-00136u-AR
- for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:27:22 +0000
+ id 1lQwbo-0013Bd-PX
+ for linux-riscv@lists.infradead.org; Mon, 29 Mar 2021 18:27:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
- bh=TtLVGU3fdGFUnspw6rWTgvkrU7WnO/Si+O2feWCXEJ0=; b=PzuqL32U8LFDO
- BDoLS9X6KUhf/FnGgOT84hR9gjiMXS62xNjlTlMAbCCVAzspdbC39z5WYHRgl8qF
- eGFEU+04M0WG98v6Xhu5epUnPsANchst09f0TdMqxe/ppET33slA01s86jxWht8s
- PHxpwEl0CoAHCyBOl0hTSWIlQM9WHA=
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=DB/sloEYmz7VRvujZiwTWQcY6o1S+cvefB
+ jxUT4Goqw=; b=JHPuSarkHesmRuLejElhNGaMXnOhoAYGW+2xLZlWxUACgOprnW
+ aikHkvLEQbW08YvD1zv6EEuDi9UMx9JHjAfEq5CdECEx+GIrVnzY7ue40ZLtpFFn
+ uRM/Zea7+ioOeYtPOhDWOt0q3b0rJWlfAC/vXxYRfnWglXSIcJjm7RZP4=
 Received: from xhacker (unknown [101.86.19.180])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDX3EjgG2JgN_FpAA--.35355S2; 
- Tue, 30 Mar 2021 02:26:40 +0800 (CST)
-Date: Tue, 30 Mar 2021 02:21:44 +0800
+ LkAmygCnr08FHGJgFfNpAA--.35778S2; 
+ Tue, 30 Mar 2021 02:27:17 +0800 (CST)
+Date: Tue, 30 Mar 2021 02:22:21 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
@@ -61,14 +61,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH 0/9] riscv: improve self-protection
-Message-ID: <20210330022144.150edc6e@xhacker>
+Subject: [PATCH 1/9] riscv: add __init section marker to some functions
+Message-ID: <20210330022221.174d2721@xhacker>
+In-Reply-To: <20210330022144.150edc6e@xhacker>
+References: <20210330022144.150edc6e@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDX3EjgG2JgN_FpAA--.35355S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxKrykur15Xw4rZrW5Jrb_yoW8Xr4Dpr
- s0kry5ZrWrCrn3CF1ayrykur1fXwsYg3yagrsrC34rJw4avFWUZwn5Xwn3tr98XFy0gF9a
- kF45u34Ykr18Z37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUkKb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+X-CM-TRANSID: LkAmygCnr08FHGJgFfNpAA--.35778S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuryfXrWUJry5ur48ur4xtFb_yoW5KFyUpr
+ WkKa1kZFWYkFWvga9rAry8ur1UJ3Zaka43trsFkas8XF17ur45X34kW3yqvr1UJFWkuayr
+ A34rAry5Aw4DAa7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUklb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
  0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
  A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
  jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
@@ -77,15 +79,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxKrykur15Xw4rZrW5Jrb_yoW8Xr4Dpr
  W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
  wI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
  WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
- 7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F
- 4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Wr1j6rW3Jr1lIxAIcVC2z280aVAFwI0_Jr0_
- Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU84KZJ
- UUUUU==
+ 7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F
+ 4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Gr0_Zr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
+ IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU84KZJUUUU
+ U==
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210329_192701_227413_94ED01CB 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210329_192733_578067_B2135D82 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +105,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-patch1 is a trivial improvement patch to move some functions to .init
-section
+They are not needed after booting, so mark them as __init to move them
+to the __init section.
 
-Then following patches improve self-protection by:
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/kernel/traps.c  | 2 +-
+ arch/riscv/mm/init.c       | 6 +++---
+ arch/riscv/mm/kasan_init.c | 6 +++---
+ arch/riscv/mm/ptdump.c     | 2 +-
+ 4 files changed, 8 insertions(+), 8 deletions(-)
 
-Marking some variables __ro_after_init
-Constifing some variables
-Enabling ARCH_HAS_STRICT_MODULE_RWX
-
-Jisheng Zhang (9):
-  riscv: add __init section marker to some functions
-  riscv: Mark some global variables __ro_after_init
-  riscv: Constify sys_call_table
-  riscv: Constify sbi_ipi_ops
-  riscv: kprobes: Implement alloc_insn_page()
-  riscv: bpf: Move bpf_jit_alloc_exec() and bpf_jit_free_exec() to core
-  riscv: bpf: Avoid breaking W^X
-  riscv: module: Create module allocations without exec permissions
-  riscv: Set ARCH_HAS_STRICT_MODULE_RWX if MMU
-
- arch/riscv/Kconfig                 |  1 +
- arch/riscv/include/asm/smp.h       |  4 ++--
- arch/riscv/include/asm/syscall.h   |  2 +-
- arch/riscv/kernel/module.c         |  2 +-
- arch/riscv/kernel/probes/kprobes.c |  8 ++++++++
- arch/riscv/kernel/sbi.c            | 10 +++++-----
- arch/riscv/kernel/smp.c            |  6 +++---
- arch/riscv/kernel/syscall_table.c  |  2 +-
- arch/riscv/kernel/time.c           |  2 +-
- arch/riscv/kernel/traps.c          |  2 +-
- arch/riscv/kernel/vdso.c           |  4 ++--
- arch/riscv/mm/init.c               | 12 ++++++------
- arch/riscv/mm/kasan_init.c         |  6 +++---
- arch/riscv/mm/ptdump.c             |  2 +-
- arch/riscv/net/bpf_jit_comp64.c    | 13 -------------
- arch/riscv/net/bpf_jit_core.c      | 14 ++++++++++++++
- 16 files changed, 50 insertions(+), 40 deletions(-)
-
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 1357abf79570..07fdded10c21 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -197,6 +197,6 @@ int is_valid_bugaddr(unsigned long pc)
+ #endif /* CONFIG_GENERIC_BUG */
+ 
+ /* stvec & scratch is already set from head.S */
+-void trap_init(void)
++void __init trap_init(void)
+ {
+ }
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 067583ab1bd7..76bf2de8aa59 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -57,7 +57,7 @@ static void __init zone_sizes_init(void)
+ 	free_area_init(max_zone_pfns);
+ }
+ 
+-static void setup_zero_page(void)
++static void __init setup_zero_page(void)
+ {
+ 	memset((void *)empty_zero_page, 0, PAGE_SIZE);
+ }
+@@ -75,7 +75,7 @@ static inline void print_mlm(char *name, unsigned long b, unsigned long t)
+ 		  (((t) - (b)) >> 20));
+ }
+ 
+-static void print_vm_layout(void)
++static void __init print_vm_layout(void)
+ {
+ 	pr_notice("Virtual kernel memory layout:\n");
+ 	print_mlk("fixmap", (unsigned long)FIXADDR_START,
+@@ -557,7 +557,7 @@ static inline void setup_vm_final(void)
+ #endif /* CONFIG_MMU */
+ 
+ #ifdef CONFIG_STRICT_KERNEL_RWX
+-void protect_kernel_text_data(void)
++void __init protect_kernel_text_data(void)
+ {
+ 	unsigned long text_start = (unsigned long)_start;
+ 	unsigned long init_text_start = (unsigned long)__init_text_begin;
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index 4f85c6d0ddf8..e1d041ac1534 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -60,7 +60,7 @@ asmlinkage void __init kasan_early_init(void)
+ 	local_flush_tlb_all();
+ }
+ 
+-static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pte_t *ptep, *base_pte;
+@@ -82,7 +82,7 @@ static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long en
+ 	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(base_pte)), PAGE_TABLE));
+ }
+ 
+-static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pmd_t *pmdp, *base_pmd;
+@@ -117,7 +117,7 @@ static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long en
+ 	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
+ }
+ 
+-static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pgd(unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pgd_t *pgdp = pgd_offset_k(vaddr);
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index ace74dec7492..3b7b6e4d025e 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -331,7 +331,7 @@ static int ptdump_show(struct seq_file *m, void *v)
+ 
+ DEFINE_SHOW_ATTRIBUTE(ptdump);
+ 
+-static int ptdump_init(void)
++static int __init ptdump_init(void)
+ {
+ 	unsigned int i, j;
+ 
 -- 
 2.31.0
 
