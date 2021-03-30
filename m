@@ -2,19 +2,19 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 913E8C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 20:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21696C433C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 20:55:11 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C4E5D61985
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 20:34:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4E5D61985
+	by mail.kernel.org (Postfix) with ESMTPS id 61A54619C5
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 20:55:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 61A54619C5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,39 +23,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:In-Reply-To:
 	Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JfJwgGWMAJZWqL98y0AX74BIqc13U69i0iMCSfdnO6w=; b=mZNszMOMN4I5gFknAYMpeobWQ
-	V97udvE08oumou4dPGFrAPHm54RoTh7llzBZV3UgUiPEeh1zMeiG+8BPUpC8aR9ZMwvDXn1kfybaF
-	LHwMoDmHEhYUjOcE6/dhxGsw/fY6cjT65eLgEyOutoOcjcAbVPdyTEZLZsnUyhDFQ68Iw2SCZZjlF
-	YeczmnHdWoxNAr5brVEXe/Jbzjrf+t06aqJSFDes7/3i2nZu6skcAU6ANa/asaoPNSemQPT6gdUc9
-	UXt4S/jkzcCRK7qZz5fvH3tKoNpgNhcyDlXgvEw2CdP7Gxd0hp9K7vTZJcTgNI3dsPtMxbKWv//Tz
-	JS5rlYA6A==;
+	 bh=fMKLEkjYyvWOKjAfpy+itkM6gLh89Cvnafp314oiGbg=; b=khgSiD+0XvoBNQb0WTq4v2kl1
+	/6PxPCSsPPh4+A08WphbAaPQjIS0PUlxubDse1FQsk6O46x9dVmTqzpX2oO3GhAQsjKRvgS5/iLi9
+	KjLFhgopefSCw+fj0bLUctNHm3+lwBhMwCVq2/JNtYG/CrxldG8yDTnAB0TBaBRst4Tk67519F4Vz
+	Gnoq5YYip482uf5C6e4yXznqlBcNqu4NaQ+mkYcKikDc8QUSAOI8zhI/hrFl2iwQ45kM7K9jJXIQJ
+	lhBt1dFX+/d/LgUTu1+eawIN+eOW/CqU86hx+849LO1sf0a8kNObvgNUoMrCgQuXSPMVW5vjd2J8M
+	kffqgIr0g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRL3C-004nsO-OJ; Tue, 30 Mar 2021 20:33:26 +0000
+	id 1lRLO1-004pHO-Nv; Tue, 30 Mar 2021 20:54:53 +0000
 Received: from angie.orcam.me.uk ([2001:4190:8020::4])
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lRL1h-004noy-O6
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 20:32:41 +0000
+ id 1lRLL2-004p1P-QR
+ for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 20:52:35 +0000
 Received: by angie.orcam.me.uk (Postfix, from userid 500)
- id A8E7992009C; Tue, 30 Mar 2021 22:31:45 +0200 (CEST)
+ id 3E11492009C; Tue, 30 Mar 2021 22:51:48 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
- by angie.orcam.me.uk (Postfix) with ESMTP id A2CFF92009B;
- Tue, 30 Mar 2021 22:31:45 +0200 (CEST)
-Date: Tue, 30 Mar 2021 22:31:45 +0200 (CEST)
+ by angie.orcam.me.uk (Postfix) with ESMTP id 3701892009B;
+ Tue, 30 Mar 2021 22:51:48 +0200 (CEST)
+Date: Tue, 30 Mar 2021 22:51:48 +0200 (CEST)
 From: "Maciej W. Rozycki" <macro@orcam.me.uk>
 To: Palmer Dabbelt <palmer@dabbelt.com>
-cc: alex@ghiti.fr, Paul Walmsley <paul.walmsley@sifive.com>, 
- dvyukov@google.com, linux-api@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
-In-Reply-To: <mhng-885e3a79-49cf-42fc-8561-a52c7b7e1ac6@palmerdabbelt-glaptop>
-Message-ID: <alpine.DEB.2.21.2103302221590.18977@angie.orcam.me.uk>
-References: <mhng-885e3a79-49cf-42fc-8561-a52c7b7e1ac6@palmerdabbelt-glaptop>
+cc: wangkefeng.wang@huawei.com, linux-riscv@lists.infradead.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Atish Patra <Atish.Patra@wdc.com>
+Subject: Re: [PATCH] riscv: Drop const annotation for sp
+In-Reply-To: <mhng-a94d2d1e-c9f6-47b1-9dbc-0ee1e6be418f@palmerdabbelt-glaptop>
+Message-ID: <alpine.DEB.2.21.2103302238420.18977@angie.orcam.me.uk>
+References: <mhng-a94d2d1e-c9f6-47b1-9dbc-0ee1e6be418f@palmerdabbelt-glaptop>
 User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210330_213239_204928_87580F82 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20210330_215233_381721_18162BB1 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +74,18 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Mon, 29 Mar 2021, Palmer Dabbelt wrote:
 
-> > --- /dev/null
-> > +++ b/arch/riscv/include/uapi/asm/setup.h
-> > @@ -0,0 +1,8 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
-> > +
-> > +#ifndef _UAPI_ASM_RISCV_SETUP_H
-> > +#define _UAPI_ASM_RISCV_SETUP_H
-> > +
-> > +#define COMMAND_LINE_SIZE	1024
-> > +
-> > +#endif /* _UAPI_ASM_RISCV_SETUP_H */
-> 
-> I put this on fixes, but it seemes like this should really be a Kconfig
-> enttry.  Either way, ours was quite a bit smaller than most architectures and
-> it's great that syzbot has started to find bugs, so I'd rather get this in
-> sooner.
+> The patch here is correct.  According to the GCC manual: "Do not use 
+> type qualifiers such as const and volatile, as the outcome may be 
+> contrary to expectations."  It doesn't mention in what way "const" may 
+> provide an unexpected outcome, but that's probably why I didn't have it 
+> the first time (despite us only reading the variable).  I must have 
+> forgotten about that when I saw the patch go by.
 
- This macro is exported as a part of the user API so it must not depend on 
-Kconfig.  Also changing it (rather than say adding COMMAND_LINE_SIZE_V2 or 
-switching to an entirely new data object that has its dimension set in a 
-different way) requires careful evaluation as external binaries have and 
-will have the value it expands to compiled in, so it's a part of the ABI 
-too.
+ See GCC PR c/85745 and PR target/86673.  It probably does not apply to 
+global asm variables though, not at least in the way described (IMHO it 
+doesn't make sense either, as `sp' surely isn't constant).
+
+ HTH,
 
   Maciej
 
