@@ -2,19 +2,19 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0563EC433C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE718C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:46 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D6DD61874
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D6DD61874
+	by mail.kernel.org (Postfix) with ESMTPS id 5056461928
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5056461928
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=WM3GNDUCFebPHowj/wTyVTX/e87XiYJ8Y/A4/EGwSPA=; b=J84MRep5q9Doj4TdN4Xv5PJNm
-	4iMNQM5suirLTeZ/rdyhMJFoFu6KGLXPNgdKtdZvi/HpQcPRbUegjEv08X+PradiHV/4wXMXMNTpe
-	hTy/FSQU4C20B2YFGXX2aCWTDVhTsK/XD7HU4glUxc+tacwOlbjl5rDnu0beAFaPqO+GNNTHUA7Gy
-	+uWjrIy9W5So1m9c0asavdwL9IcTfhamqXEGOi5b8Ij5cvVW15sYAtyxQabWbOrFSZQUzvtfe4aBC
-	0Jyd6HoK5vwxFATSR2xeLJUOKN9QjUMrvRyh+WLTAFZmc4518SptRO0QsrB2egjCULBwfmV7AUWoY
-	GmhhdrckQ==;
+	 bh=JDEVwHVq7kbCOL0uJyvBeyi9QNROGfpndaFNUdFdkkU=; b=OUpuLzpSeNKEvSVRQPuqK73bH
+	xul+Yy6hbrWln0yEUU5oH5S2ZTCrM5ypV97eM1Wo/wiURh53sI0HHqUBqggp949MuRHV14fBAAT5M
+	qgHUYrGyVItUf8+o75dQCXY7VopQLBf7GSNn+pFBzvfcJBQSqZWWWA/nsTOQFyLYF3mec3S7dRP7i
+	ta5Udr+qMKXg1ppOQfkxjDe3tQF0SMEYClxU02ynlx8dh5DhCospgZ7Sujl9T6mVDXywqGRaIfmSi
+	/IQRNBfDod4PpAvRkU0U6NS0NEgf8ilYYbIoGO7pRFCFwc85fgnDNrtZPy4k7WVWanruCgxrRb4xw
+	WffjiLqYg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR7Ka-002ncy-Sn; Tue, 30 Mar 2021 05:54:25 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1lR7Kg-002ndB-E3; Tue, 30 Mar 2021 05:54:30 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lR7KW-002ncC-5x
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 05:54:22 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id l123so11392167pfl.8
- for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
+ id 1lR7KX-002ncF-6Z
+ for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 05:54:23 +0000
+Received: by mail-pg1-x530.google.com with SMTP id m7so10917422pgj.8
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 22:54:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ULHvWovowCzcgsVAcye9+8nDN8kG4FPChtXUvkrF8dc=;
- b=C2vTCndtRJJ005jcly56OIHJ8oEzYdRlpJdwbQ4kxqm17peFNaZngpOQSCTMDpD5UY
- bysGhULBk8YeYqoectTdu5H56G7GUcbwqziTjd49M0hNoTTEH49TuIF8rTWTdc9ZlOvY
- Io4krfeRAfJAYHsYyMd5N7ceIThABEyEbq6AGD9dMUErLsZrYNAdSq7XUoLuoEtsdvg1
- 2JMUAbQpBeh3CQBHkVC4de/sk1teysE5bpVbXTG4DPCdmVe8dTh/lG5N9avEnlKdEwTK
- GonUgf1uv5y7QVBsf+8qLYzT/AVdlDvgOARI9OFxc9g2Fp4p4gTcMsb0AN5650fBevSL
- tz2Q==
+ bh=C/GOnzGh3SqlPD+cVcmlRhjiUhMBfsMKLeWTg6MJ7jY=;
+ b=j6+00ZGEEZ1AP2f/5GfoGcA0GsMEI6/C21ZD0lbg/XP4wPkwJoYipktdJubitpgDP+
+ wgcah0URjkl6AYXpG9cgWLRGXBLiMfR52o6o689Vreh0v+Lt7OvC8x1fB/5TTyRzxVF8
+ +IX08t8qK8hY6fl+cjZgCAcCHu+878OR2plvgVpyscHGsghufy9UmaGd89FOrEUlPan9
+ nG9gH1rRhXzv6eObqA1GS+3olKEarHx9O2bHn0GxV3LgaIXJwqlzB7vaHg7mDPBfn74V
+ M9q/5gFNLQPxJVxCGZV+Bo3GZhwX1ibxendhmE+iRq4Ugx4AwkIkXrvScKbd4CD2siGj
+ TIaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ULHvWovowCzcgsVAcye9+8nDN8kG4FPChtXUvkrF8dc=;
- b=tjl9MXD2c9U4Csi5KYF2uoT39rPA23y2Vd3WS3Mne8q/HZ2NtvfyqwT96Uf5ArhdYc
- zjBvyY601oNsRcoA2FMAr/9/ejcAuOcWWu5Aeo/LFep6jNHnXD6bky3z19T7aTRgyvUz
- 9oJH2MpeYu5ec1OfZMm+ixvTklfZGRg/8TKmvrLksID3v5eZUmkPYuJjy6bSKJe2TVXb
- DzxaU8csL0+Nqqbiet6+31m7kNzcxPAqKv+muA3MzsTX0AzaUYEtvz1XTCacBumBxhzw
- Ein+MnAwZXbeF8ZmhHSeSe0zMaC+FNksOpvxPBXxWZ416pUIZdMqKu0gXACFvXaMzU9n
- 3W3w==
-X-Gm-Message-State: AOAM530Q+CCz1+EDGJO99KvT5sQpU6NeMJrrrNW+RTox1buAvJDm9onI
- 0cWBIm836W0nyhEkA1SweeJuiDGrjxee5w==
-X-Google-Smtp-Source: ABdhPJxratnlnJNCe1ARb2oeJGfz/Zx7jg6R2XcRyILqncEt8HCAT/cf3O8AK2BT4GdXdpoaSeubpA==
-X-Received: by 2002:aa7:824e:0:b029:20a:3a1:eeda with SMTP id
- e14-20020aa7824e0000b029020a03a1eedamr27872954pfn.71.1617083658670; 
- Mon, 29 Mar 2021 22:54:18 -0700 (PDT)
+ bh=C/GOnzGh3SqlPD+cVcmlRhjiUhMBfsMKLeWTg6MJ7jY=;
+ b=kQHISTdKY1KeWTwZi+JrY8sFoVCCG/xMKlot+uGDgHIh75UlixYU/IdMU9whxeln1Z
+ +MBMCodIQv/vk10M40tzY3gb5t4tmnRfRuQ2lLXSiePgWXkAHiWMX8JRhW9k9M9qwYZN
+ O86rfvQWxCS/LIjYAhcBfiaBCoQa+Y3iWuXgj264FAf9Mmgss7gG64lB2YEPr8wVpYBH
+ ZuYrnME9SZLswFiuMMg+8oRvYrUP4pvr+0sdBEwcayQtA6N6OfxAupWL2ar8f9Bm2zTl
+ 6mvQV9/t9xiJ4V/BYUrOd0kQpIYddR9m3mw31LE23om+uhhvv2jgmHjxpdKso4SAiFnP
+ grEw==
+X-Gm-Message-State: AOAM531fJ+zDn/+3dIjEolsm4RrxyAkKpSnY/r0j4YBdqQJdvMPjHOeb
+ EMUcR7YyTnHUZ+TFAmRKp1/M8A==
+X-Google-Smtp-Source: ABdhPJw/6ycpvDSr4lA7omfOMiOjOM0m49OLwTpyVDudwQ7+YSNbP232TmXlPl85GjuTFN0yM22rIg==
+X-Received: by 2002:a63:1921:: with SMTP id z33mr27276370pgl.211.1617083659752; 
+ Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v14sm1505969pju.19.2021.03.29.22.54.18
+ by smtp.gmail.com with ESMTPSA id x22sm12044732pfa.24.2021.03.29.22.54.19
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 29 Mar 2021 22:54:18 -0700 (PDT)
-Date: Mon, 29 Mar 2021 22:54:18 -0700 (PDT)
-X-Google-Original-Date: Mon, 29 Mar 2021 22:50:14 PDT (-0700)
-Subject: Re: [PATCH] riscv,entry: fix misaligned base for excp_vect_table
-In-Reply-To: <20210317081725.28412-1-yuzihao@ict.ac.cn>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- yuzihao@ict.ac.cn, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+ Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
+Date: Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
+X-Google-Original-Date: Mon, 29 Mar 2021 22:54:11 PDT (-0700)
+Subject: Re: [PATCH] ftrace: Fix spelling mistake "disabed" -> "disabled"
+In-Reply-To: <20210317094223.34797d5d@gandalf.local.home>
+CC: colin.king@canonical.com, guoren@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+ x86@kernel.org, hpa@zytor.com, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 
+ kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yuzihao@ict.ac.cn
-Message-ID: <mhng-400b7987-97a8-4f74-8fbd-a11057c46d0d@palmerdabbelt-glaptop>
+To: rostedt@goodmis.org
+Message-ID: <mhng-54032ff9-fc8d-48fb-87a0-ff075313d077@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210330_065420_453181_D17A59EB 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20210330_065421_463606_074B022E 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +103,28 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Mar 2021 01:17:25 PDT (-0700), yuzihao@ict.ac.cn wrote:
-> * In RV64, the size of each entry in excp_vect_table is 8 bytes. If the
->   base of the table is not 8-byte aligned, loading an entry in the table
->   will raise a misaligned exception. Although such exception will be
->   handled by opensbi/bbl, this still causes performance degradation.
+On Wed, 17 Mar 2021 06:42:23 PDT (-0700), rostedt@goodmis.org wrote:
+> On Tue, 16 Mar 2021 21:21:08 -0700 (PDT)
+> Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> Signed-off-by: Zihao Yu <yuzihao@ict.ac.cn>
-> ---
->  arch/riscv/kernel/entry.S | 1 +
->  1 file changed, 1 insertion(+)
+>> Thanks, this is on fixes.
 >
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 744f3209c..76274a4a1 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -447,6 +447,7 @@ ENDPROC(__switch_to)
->  #endif
+> What does this mean? Is there a tree that spelling fixes go through now?
 >
->  	.section ".rodata"
-> +	.align LGREG
->  	/* Exception vector table */
->  ENTRY(excp_vect_table)
->  	RISCV_PTR do_trap_insn_misaligned
+> I had already pulled this patch into my queue for the next merge window
+> (and it's still in the testing phase with other patches before going to
+> linux-next).
+>
+> Should I drop it?
 
-Thanks, this is on fixes.
+Oh, sorry.  It's on the fixes branch of the riscv tree 
+<https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git> .  
+It's what I sent up to Linus every week, this one already went up.
+
+I must have not been looking closely enough, for some reason I thought 
+this only touched the riscv tree.  I wouldn't have taken it without an 
+Ack if I'd noticed, I guess just because it was only a comment spelling 
+change I hadn't checked the paths.  I'll try not to do that again.
 
 _______________________________________________
 linux-riscv mailing list
