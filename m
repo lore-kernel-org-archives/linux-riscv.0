@@ -2,19 +2,20 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96E75C433C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 03:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2865C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 03:36:45 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 40DA860C3E
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 03:15:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40DA860C3E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 8550661924
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 03:36:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8550661924
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -22,65 +23,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=jI4WKnAU07j3vAxcq2eYc7cIiMX0JZdG7LbUv+buP3k=; b=SQN5trwjuHE8IRo22/VGAJXvZ
-	4Sw0pptr+SkY3/dd1cmEj8J7c+9MmGw5t7OEiDlKEDTXg8GmZC8IWDvQXugb+CYAAvEXuSPvcZ2RN
-	J3SAiLr15DXlzGEU/hrsEiEx9Hm+tD/CzSkJ1SJBvr9TG37m3M/3WVCY2z/0GFH1UxG87GnZ3WeJL
-	vMiz8WPQqOl128njTDMz7JBJAwVqizlVOT2oWUdS+YYFLBSDaRNOkf/+BO1cDISGfXk/s+NHnsdJZ
-	rqh6IHtN0Vq+zu4SYk0nfA6X5cCEBLPzndHLIBiupaldhcZJRsdDiDMSsgr9ttSor9kGhF2l6A/Lj
-	9wW9ofydw==;
+	 bh=OWKDa3NJ/WS7ffOV8QGtYsMJoTwUV8EW6okAf+aSKAs=; b=nspdHbeW55Yies2kxsxzcObqE
+	gMoBrOqweAPFlICC3OkiSz7UO5iaCwKC3po6RSnPoXRChTG9waSDV0H7WBt2eItcEDxWJqdcKRpS8
+	aLbZjZ80TckM481R3sijgKeivOW633QRX+SThnUWpR2qr0RB4nXd6Q161P5BLlJAO4IU44YtgnU5m
+	fsLpO6OREe0uUowze34yqVFIWlTh+SGUffLnnh3dP6l8tj+Kjg+DDDOO7MujSvDySo5i8oNYlFMPo
+	HHUYMZAUE1YDdrfl/okHtfteAD0C60YKnNRB+LIEjlkUjFZwR1wQuP2fO+LavR1sAwMFPpNnXhTKJ
+	VrnSVw7LQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR4pf-002XVZ-1K; Tue, 30 Mar 2021 03:14:19 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lR5B8-002acx-Kk; Tue, 30 Mar 2021 03:36:30 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lR4pZ-002XUg-Ht
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 03:14:15 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0057B61996
- for <linux-riscv@lists.infradead.org>; Tue, 30 Mar 2021 03:14:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617074049;
- bh=6eSMLRiak11IODOB+CePI7a65DX9N8EkAy9ZzrCIP+E=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=KdMi5KiMduBWy6xItpcEY9isb6e1nAEdmm9B7NVKTZqjF7+XWdljKvaUejdZRj94U
- qX67Y1c/XOgi9ZKIGLXXCN4VvmqEwFf8du1gXCAXZD3bTU4HmKJ0MLlEWg/JIAwinH
- WXgA5tPnnDNdUb2WG2acEptutFjaiM2ZY08Tl7DYFPvkKg2VJ1N4OCgFtiCsoGXX7k
- WEF9v+hEtplZ766rLquAVZYq5UOENcf9DfrgULGkGDm8uLzhLQkFGtDGkJjmlALSGK
- aMMzRqLK9GmKpYm5j27NOW0PIxO+ssEnNA45LMd+ldPrTaoq7fPTZATXycZfHSAbc6
- UkH9hUYA93fGQ==
-Received: by mail-lj1-f175.google.com with SMTP id u20so18175079lja.13
- for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 20:14:08 -0700 (PDT)
-X-Gm-Message-State: AOAM531G6cppp4Bi/l4oMrn8CAfZblX/3PaJnfy9kY/IT2o6PLNHXM3v
- NxzOltKW9H3KmxN4eCjGwVPHRvyFL+smCPLdVWY=
-X-Google-Smtp-Source: ABdhPJybBWMS4ER6LoDJh0lOBZ6phOaqhlXDyrhTcDXbHrJqobU5QYkYxbC743xlAK9DNTW0TUKWXN1k7NjP7snB74o=
-X-Received: by 2002:a05:651c:211e:: with SMTP id
- a30mr13812844ljq.18.1617074047272; 
- Mon, 29 Mar 2021 20:14:07 -0700 (PDT)
+ id 1lR5B3-002abu-TH
+ for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 03:36:27 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id by2so7520556qvb.11
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 20:36:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=5oFbwfLQwyYfYwndfNuhqzfmnicAmT4eTuezCa87hZ8=;
+ b=Ig+y6Y+c1gyTxgnPBQWPhpOyXg4OoXKv2BE4qr6DHkGfLyEyHrKOUH7MGn1otpkWcN
+ kyE/XgUxXw2odCG9cs8Z01SbUYyCaZ5Lu35u7upzKgWerIlCX9tcG+ej8dGbF4oft59o
+ Jz45nZZMBILlzNrBpaIkRVJbA0/irRVXLZ8M5ZS6fbuk1zvqLF+xmgeATsd8G2M9wchi
+ ZqQaXZAQqhmisluHGosx2pBeGVINB4/GAWUybfaWEiIDOJmmYrmqzWrCWg05rXXqsEwA
+ DRvVz8/su4/18C7RTUF8HDL18/u0ZvAZd8OvyXlYSmkfecn/kES13pwqea31yuVPL438
+ 0pHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=5oFbwfLQwyYfYwndfNuhqzfmnicAmT4eTuezCa87hZ8=;
+ b=AfOVr2WvroGCf4bG8dNkKqJQL+Mdb/1h6YIFlODUU+Ypzjbvw7nZFv5p8/opeXrIUd
+ EoriKpEvjp2JB2/hDwk6LmfKeZ/ILSaFKil4VGodaTaaDJuANazo0+JXKXri7MsulWSc
+ JUg7D1zTAA6o8JbVj5Ac6kA2eHaI2hxffT5++g2ePUJ71GFoMtbwPpC1yE9kCD+1hdop
+ uEw0+6hoqfIUlFX99rghmYgFhih0P7EpGazIgJu10m7VH3vXxa0ZuoJAu3ZB0Eqrs7Aw
+ 33Hw4ExOo3Y293XvQQjXTTez5cIAZpEEeE3sWZgcGwNcWbUObNM191Js+MzfUeDc7/Ob
+ kjfg==
+X-Gm-Message-State: AOAM532vFXg6TqmprxRFxaJTMBgX+fTqvMKxAwYsoDw5rNHeEu9cB1/i
+ JWv4cSyEIZUY4I5qJUpCKXlyldlqRLmzA2qLYaoj0A==
+X-Google-Smtp-Source: ABdhPJycQJX/y0PAtsFp+YXjKCTZ+dLVuREDX7kiJ+wyKRjUQUcZEbZpXPSdS3GtQqa6UBU6KpvoUU+fWG5o791GvQ0=
+X-Received: by 2002:a0c:e9c7:: with SMTP id q7mr28188265qvo.7.1617075384531;
+ Mon, 29 Mar 2021 20:36:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
- <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
- <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
- <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
- <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
-In-Reply-To: <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 30 Mar 2021 11:13:55 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
-Message-ID: <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+References: <cover.1615954045.git.greentime.hu@sifive.com>
+ <91d016e59bab9d9175168a63e7bcd81fdb69b549.1615954046.git.greentime.hu@sifive.com>
+ <161704524201.3012082.13807741329367593907@swboyd.mtv.corp.google.com>
+In-Reply-To: <161704524201.3012082.13807741329367593907@swboyd.mtv.corp.google.com>
+From: Greentime Hu <greentime.hu@sifive.com>
+Date: Tue, 30 Mar 2021 11:36:12 +0800
+Message-ID: <CAHCEehL63aJQPA3DdRCa3pZHWX3DH9ktgKbo1+nD=KWxADsogA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] clk: sifive: Use reset-simple in prci driver for
+ PCIe driver
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: alex.dewar90@gmail.com, Albert Ou <aou@eecs.berkeley.edu>, 
+ Bjorn Helgaas <bhelgaas@google.com>, devicetree@vger.kernel.org, 
+ Erik Danie <erik.danie@sifive.com>, hayashi.kunihiko@socionext.com, 
+ Bjorn Helgaas <helgaas@kernel.org>, hes@sifive.com, jh80.chung@samsung.com, 
+ khilman@baylibre.com, linux-clk@vger.kernel.org, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Waiman Long <longman@redhat.com>, 
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
+ linux-pci@vger.kernel.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>, lorenzo.pieralisi@arm.com, 
+ Michael Turquette <mturquette@baylibre.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ robh+dt@kernel.org, vidyas@nvidia.com, Zong Li <zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210330_041414_039323_7247B462 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20210330_043626_090813_EEF8D352 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +101,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 29, 2021 at 8:50 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Mon, Mar 29, 2021 at 08:01:41PM +0800, Guo Ren wrote:
-> > u32 a = 0x55aa66bb;
-> > u16 *ptr = &a;
-> >
-> > CPU0                       CPU1
-> > =========             =========
-> > xchg16(ptr, new)     while(1)
-> >                                     WRITE_ONCE(*(ptr + 1), x);
-> >
-> > When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
->
-> Then I think your LL/SC is broken.
->
-> That also means you really don't want to build super complex locking
-> primitives on top, because that live-lock will percolate through.
-Do you mean the below implementation has live-lock risk?
-+static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-+{
-+       u32 old, new, val = atomic_read(&lock->val);
-+
-+       for (;;) {
-+               new = (val & _Q_LOCKED_PENDING_MASK) | tail;
-+               old = atomic_cmpxchg(&lock->val, val, new);
-+               if (old == val)
-+                       break;
-+
-+               val = old;
-+       }
-+       return old;
-+}
-
-
->
-> Step 1 would be to get your architecute fixed such that it can provide
-> fwd progress guarantees for LL/SC. Otherwise there's absolutely no point
-> in building complex systems with it.
-
-Quote Waiman's comment [1] on xchg16 optimization:
-
-"This optimization is needed to make the qspinlock achieve performance
-parity with ticket spinlock at light load."
-
-[1] https://lore.kernel.org/kvm/1429901803-29771-6-git-send-email-Waiman.Long@hp.com/
-
-So for a non-xhg16 machine:
- - ticket-lock for small numbers of CPUs
- - qspinlock for large numbers of CPUs
-
-Okay, I'll put all of them into the next patch :P
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPiDmlrwgMjAyMeW5tDPmnIgzMOaXpSDpgLHk
+uowg5LiK5Y2IMzoxNOWvq+mBk++8mgo+Cj4gUXVvdGluZyBHcmVlbnRpbWUgSHUgKDIwMjEtMDMt
+MTcgMjM6MDg6MDkpCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9yZXNldC9LY29uZmlnIGIvZHJp
+dmVycy9yZXNldC9LY29uZmlnCj4gPiBpbmRleCA3MWFiNzVhNDY0OTEuLmYwOTRkZjkzZDkxMSAx
+MDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvcmVzZXQvS2NvbmZpZwo+ID4gKysrIGIvZHJpdmVycy9y
+ZXNldC9LY29uZmlnCj4gPiBAQCAtMTczLDcgKzE3Myw3IEBAIGNvbmZpZyBSRVNFVF9TQ01JCj4g
+Pgo+ID4gIGNvbmZpZyBSRVNFVF9TSU1QTEUKPiA+ICAgICAgICAgYm9vbCAiU2ltcGxlIFJlc2V0
+IENvbnRyb2xsZXIgRHJpdmVyIiBpZiBDT01QSUxFX1RFU1QKPiA+IC0gICAgICAgZGVmYXVsdCBB
+UkNIX0FHSUxFWCB8fCBBUkNIX0FTUEVFRCB8fCBBUkNIX0JJVE1BSU4gfHwgQVJDSF9SRUFMVEVL
+IHx8IEFSQ0hfU1RNMzIgfHwgQVJDSF9TVFJBVElYMTAgfHwgQVJDSF9TVU5YSSB8fCBBUkNIX1pY
+IHx8IEFSQwo+ID4gKyAgICAgICBkZWZhdWx0IEFSQ0hfQUdJTEVYIHx8IEFSQ0hfQVNQRUVEIHx8
+IEFSQ0hfQklUTUFJTiB8fCBBUkNIX1JFQUxURUsgfHwgQVJDSF9TVE0zMiB8fCBBUkNIX1NUUkFU
+SVgxMCB8fCBBUkNIX1NVTlhJIHx8IEFSQ0hfWlggfHwgQVJDIHx8IFJJU0NWCj4KPiBUaGlzIGNv
+bmZsaWN0cy4gQ2FuIHRoaXMgZGVmYXVsdCBiZSBwYXJ0IG9mIHRoZSByaXNjdiBkZWZjb25maWcg
+aW5zdGVhZD8KPgoKTWF5YmUgSSBzaG91bGQgcmVtb3ZlIHRoaXMgc2luY2UgaXQgaGFzIGJlZW4g
+c2VsZWN0ZWQgYnkgQ0xLX1NJRklWRV9QUkNJPwoKIGNvbmZpZyBDTEtfU0lGSVZFX1BSQ0kKICAg
+ICAgICBib29sICJQUkNJIGRyaXZlciBmb3IgU2lGaXZlIFNvQ3MiCisgICAgICAgc2VsZWN0IFJF
+U0VUX0NPTlRST0xMRVIKKyAgICAgICBzZWxlY3QgUkVTRVRfU0lNUExFCgo+ID4gICAgICAgICBo
+ZWxwCj4gPiAgICAgICAgICAgVGhpcyBlbmFibGVzIGEgc2ltcGxlIHJlc2V0IGNvbnRyb2xsZXIg
+ZHJpdmVyIGZvciByZXNldCBsaW5lcyB0aGF0Cj4gPiAgICAgICAgICAgdGhhdCBjYW4gYmUgYXNz
+ZXJ0ZWQgYW5kIGRlYXNzZXJ0ZWQgYnkgdG9nZ2xpbmcgYml0cyBpbiBhIGNvbnRpZ3VvdXMsCj4g
+PiBAQCAtMTg3LDYgKzE4Nyw3IEBAIGNvbmZpZyBSRVNFVF9TSU1QTEUKPiA+ICAgICAgICAgICAg
+LSBSQ0MgcmVzZXQgY29udHJvbGxlciBpbiBTVE0zMiBNQ1VzCj4gPiAgICAgICAgICAgIC0gQWxs
+d2lubmVyIFNvQ3MKPiA+ICAgICAgICAgICAgLSBaVEUncyB6eDI5NjcgZmFtaWx5Cj4gPiArICAg
+ICAgICAgIC0gU2lGaXZlIEZVNzQwIFNvQ3MKPiA+Cj4gPiAgY29uZmlnIFJFU0VUX1NUTTMyTVAx
+NTcKPiA+ICAgICAgICAgYm9vbCAiU1RNMzJNUDE1NyBSZXNldCBEcml2ZXIiIGlmIENPTVBJTEVf
+VEVTVAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
