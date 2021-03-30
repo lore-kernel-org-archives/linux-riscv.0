@@ -2,19 +2,19 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE718C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D388C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 06:20:04 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5056461928
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 05:54:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5056461928
+	by mail.kernel.org (Postfix) with ESMTPS id B9DB061957
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 06:20:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9DB061957
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=JDEVwHVq7kbCOL0uJyvBeyi9QNROGfpndaFNUdFdkkU=; b=OUpuLzpSeNKEvSVRQPuqK73bH
-	xul+Yy6hbrWln0yEUU5oH5S2ZTCrM5ypV97eM1Wo/wiURh53sI0HHqUBqggp949MuRHV14fBAAT5M
-	qgHUYrGyVItUf8+o75dQCXY7VopQLBf7GSNn+pFBzvfcJBQSqZWWWA/nsTOQFyLYF3mec3S7dRP7i
-	ta5Udr+qMKXg1ppOQfkxjDe3tQF0SMEYClxU02ynlx8dh5DhCospgZ7Sujl9T6mVDXywqGRaIfmSi
-	/IQRNBfDod4PpAvRkU0U6NS0NEgf8ilYYbIoGO7pRFCFwc85fgnDNrtZPy4k7WVWanruCgxrRb4xw
-	WffjiLqYg==;
+	 bh=6Wef+YnSXt8y5pEpM2M0JTc2PyhKQenAGrtVfI1i0BQ=; b=XVf9pdqlMEo3wElPe6cSLcbfn
+	XnHnKKoVqPxJ4X5Mywor7inqUEuANi2QcK5qiudw2mdEaZJyXFglqrgs3w/P6VM7incwkRzvh7qbv
+	hWU2vw+593VBTynl9VsH1QLwO+mmk/sOo63a0anJsXGCVyt/ynV4vRCe2CFQKpc732iqUKrdb7bhk
+	J6JONqetYWr+Wv/CWv2t4CjQDEnz6pY2mMn2pzzgzbYOwlxPbzZ5bPFAsTo4sUCeGElj+bRGOyt7E
+	NWWAeW0DgJaNG+z4kroOm17V4J6uaoVZbVAWxa1/6ogPRdJOHTCmFxJs9S9HipcbYoUaBCNc+xHj1
+	Zi+IgnrvQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lR7Kg-002ndB-E3; Tue, 30 Mar 2021 05:54:30 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1lR7j1-002pFE-KD; Tue, 30 Mar 2021 06:19:39 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lR7KX-002ncF-6Z
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 05:54:23 +0000
-Received: by mail-pg1-x530.google.com with SMTP id m7so10917422pgj.8
- for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 22:54:20 -0700 (PDT)
+ id 1lR7im-002pDu-2s
+ for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 06:19:26 +0000
+Received: by mail-pl1-x631.google.com with SMTP id o2so5608928plg.1
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Mar 2021 23:19:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=C/GOnzGh3SqlPD+cVcmlRhjiUhMBfsMKLeWTg6MJ7jY=;
- b=j6+00ZGEEZ1AP2f/5GfoGcA0GsMEI6/C21ZD0lbg/XP4wPkwJoYipktdJubitpgDP+
- wgcah0URjkl6AYXpG9cgWLRGXBLiMfR52o6o689Vreh0v+Lt7OvC8x1fB/5TTyRzxVF8
- +IX08t8qK8hY6fl+cjZgCAcCHu+878OR2plvgVpyscHGsghufy9UmaGd89FOrEUlPan9
- nG9gH1rRhXzv6eObqA1GS+3olKEarHx9O2bHn0GxV3LgaIXJwqlzB7vaHg7mDPBfn74V
- M9q/5gFNLQPxJVxCGZV+Bo3GZhwX1ibxendhmE+iRq4Ugx4AwkIkXrvScKbd4CD2siGj
- TIaA==
+ bh=Wntns3ARiXICiDfUR6aRU71JIRxADrA3zKs3aGI5BBM=;
+ b=efEB3t5k3IG2v7+qm3KM7GePq74NecKE3GfGVw9Bhr0XtS0JIx1vPcbXzIvLS47846
+ qwPHetgSOUwC6CaCZxQl+sPhNWulA1c53gISFw+L0aBrZc4HLGhA9s/YXnJRz8mClvX6
+ OQVx8gLgrpybX4WIPfESHitRETDX12b53nvsNILif8jlVWNBiec8pv3Mx45hXGXl0feH
+ laAxvU5SXPDDVkiUB8c4r9s12EDLH85pbgClK/D9uIvqj97bNRLK2YNgl1jCgQHBsE5J
+ RDgFVX4k4AGAyyxgzeLf4UWeVP/nSFvMuLy8BF5Ty1RodbcndUyDGeI5GlUWXmDKXVxx
+ YGVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=C/GOnzGh3SqlPD+cVcmlRhjiUhMBfsMKLeWTg6MJ7jY=;
- b=kQHISTdKY1KeWTwZi+JrY8sFoVCCG/xMKlot+uGDgHIh75UlixYU/IdMU9whxeln1Z
- +MBMCodIQv/vk10M40tzY3gb5t4tmnRfRuQ2lLXSiePgWXkAHiWMX8JRhW9k9M9qwYZN
- O86rfvQWxCS/LIjYAhcBfiaBCoQa+Y3iWuXgj264FAf9Mmgss7gG64lB2YEPr8wVpYBH
- ZuYrnME9SZLswFiuMMg+8oRvYrUP4pvr+0sdBEwcayQtA6N6OfxAupWL2ar8f9Bm2zTl
- 6mvQV9/t9xiJ4V/BYUrOd0kQpIYddR9m3mw31LE23om+uhhvv2jgmHjxpdKso4SAiFnP
- grEw==
-X-Gm-Message-State: AOAM531fJ+zDn/+3dIjEolsm4RrxyAkKpSnY/r0j4YBdqQJdvMPjHOeb
- EMUcR7YyTnHUZ+TFAmRKp1/M8A==
-X-Google-Smtp-Source: ABdhPJw/6ycpvDSr4lA7omfOMiOjOM0m49OLwTpyVDudwQ7+YSNbP232TmXlPl85GjuTFN0yM22rIg==
-X-Received: by 2002:a63:1921:: with SMTP id z33mr27276370pgl.211.1617083659752; 
- Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
+ bh=Wntns3ARiXICiDfUR6aRU71JIRxADrA3zKs3aGI5BBM=;
+ b=TC6+eaHMfoO3bvg2YA7xRdBG0PRA7+9HtwzuYRKUWtCzwZdJtJHsPGIaLogJ7M8Fw+
+ w6g94nwrho11PYDPrd9MWvtPvTWJ+QbNobz6Sq65whfGCXyH7IBauARgpaNUjqtnYaRX
+ Oy5c7D9/S6gsXKrak0HfhCZiZWGiAGTaOX7Epoq5AkUGJ+Sx+W9Zc8obvu1KDehAR8qy
+ W0jWIFni4yMJ+VGUJIKfGift5v7n1ScrNtbs3HzyDOzyTUoIaxVHte2fZVN9+1diQghg
+ /Y5VANqsxsbrKWTPQMt45Mz3s6+ro7qbxoIGineRxAstpa/lni41MP3i+ykPU16eCI7X
+ mWNw==
+X-Gm-Message-State: AOAM533edXsc7HXcsCSVo6AeneFcxJlpeImwCRXwAEtPF+AvYfE9lgaU
+ +fo3TMZ8rxFqOlUHqk8sCjCs3w==
+X-Google-Smtp-Source: ABdhPJyaqyX4B5bJqmEI0fiz+XDTFousPYZKlhj+LGM0gL7a8gawlvGvUw4nbZ7DULYoj7fsyMICxQ==
+X-Received: by 2002:a17:902:9b8b:b029:e6:b027:2f96 with SMTP id
+ y11-20020a1709029b8bb02900e6b0272f96mr33264341plp.28.1617085162278; 
+ Mon, 29 Mar 2021 23:19:22 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x22sm12044732pfa.24.2021.03.29.22.54.19
+ by smtp.gmail.com with ESMTPSA id q25sm18713746pfh.34.2021.03.29.23.19.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
-Date: Mon, 29 Mar 2021 22:54:19 -0700 (PDT)
-X-Google-Original-Date: Mon, 29 Mar 2021 22:54:11 PDT (-0700)
-Subject: Re: [PATCH] ftrace: Fix spelling mistake "disabed" -> "disabled"
-In-Reply-To: <20210317094223.34797d5d@gandalf.local.home>
-CC: colin.king@canonical.com, guoren@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
- x86@kernel.org, hpa@zytor.com, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, 
- kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+ Mon, 29 Mar 2021 23:19:21 -0700 (PDT)
+Date: Mon, 29 Mar 2021 23:19:21 -0700 (PDT)
+X-Google-Original-Date: Mon, 29 Mar 2021 23:19:20 PDT (-0700)
+Subject: Re: [PATCH] riscv: remove unneeded semicolon
+In-Reply-To: <1616402316-19705-1-git-send-email-yang.lee@linux.alibaba.com>
+CC: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, 
+ kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, yang.lee@linux.alibaba.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: rostedt@goodmis.org
-Message-ID: <mhng-54032ff9-fc8d-48fb-87a0-ff075313d077@palmerdabbelt-glaptop>
+To: yang.lee@linux.alibaba.com
+Message-ID: <mhng-f2509677-edc1-4e9b-b718-74ba0b9484fe@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210330_065421_463606_074B022E 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20210330_071924_589149_66933FEC 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +103,31 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Mar 2021 06:42:23 PDT (-0700), rostedt@goodmis.org wrote:
-> On Tue, 16 Mar 2021 21:21:08 -0700 (PDT)
-> Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Mon, 22 Mar 2021 01:38:36 PDT (-0700), yang.lee@linux.alibaba.com wrote:
+> Eliminate the following coccicheck warning:
+> ./arch/riscv/mm/kasan_init.c:219:2-3: Unneeded semicolon
 >
->> Thanks, this is on fixes.
+> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+> ---
+>  arch/riscv/mm/kasan_init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> What does this mean? Is there a tree that spelling fixes go through now?
+> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+> index 4f85c6d..937d13c 100644
+> --- a/arch/riscv/mm/kasan_init.c
+> +++ b/arch/riscv/mm/kasan_init.c
+> @@ -216,7 +216,7 @@ void __init kasan_init(void)
+>  			break;
 >
-> I had already pulled this patch into my queue for the next merge window
-> (and it's still in the testing phase with other patches before going to
-> linux-next).
+>  		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
+> -	};
+> +	}
 >
-> Should I drop it?
+>  	for (i = 0; i < PTRS_PER_PTE; i++)
+>  		set_pte(&kasan_early_shadow_pte[i],
 
-Oh, sorry.  It's on the fixes branch of the riscv tree 
-<https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git> .  
-It's what I sent up to Linus every week, this one already went up.
-
-I must have not been looking closely enough, for some reason I thought 
-this only touched the riscv tree.  I wouldn't have taken it without an 
-Ack if I'd noticed, I guess just because it was only a comment spelling 
-change I hadn't checked the paths.  I'll try not to do that again.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
