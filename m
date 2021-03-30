@@ -2,66 +2,87 @@ Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96FAAC433C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 18:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34311C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 19:34:32 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7C69B619DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 18:39:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C69B619DD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 5EC1C6199A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 19:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5EC1C6199A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=unAyrtwG45E9ncUKmIBWT6hZA98F1wivoddX73thRu8=; b=icVzuMWh/vtXOpnyv53Gud/Og
-	7hGDoZohWVLVQFwCPxq6b7K6QTBj88OWL97Dolhx95wZh2I+7VZKcRhoiNI41cgN18SdsBaRyoDIJ
-	eJfbit3ywkQewTDacmCw2xkfixOEt4zdFsIciFqpKrXXwCHapwfpCsy+fJhPaGaFXMpK3OXZEX18P
-	D8tiylVo9Ds01S7TeUvAK7AsqqbMqaaRfG1uRi2KnHtManfEEvLV7dKfHziisGP1oHtCDCorJE9nn
-	6NpkVNfYFW7xN66l5Py2cr/wuJ2ESIS3vSu4qzD0PuqaGAnL0UJFVR8Bg4qXUS/032/aUH7dTW70Z
-	eAZwj1yFQ==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=hMz846WnHX5bf9HVEb0sI7kV/omK3XvwdgsFXDWFonM=; b=Wc13h1g50i+gtVtK7qnkjg2JY
+	T4I+ikvFFQKPWkcO507vEqoLmrxeWiHDdmb1nYHUf8EwUv5sk93jrLHT9eVFWZ6ypVXlVj/NhOrIB
+	IqXX1N+Di+qXO3BDj1qMNAaAGb+Juy4kLh0DeIdrg56ZCIRPobyRSOAGSLIGNfiO/zEXxswkULK2S
+	aTuy7/dBJF0GV7voi2r4GKqtU4Tw1fQI8T/U2xiFi7/ia3GSqN/QlK9QFSHbobRXq1Xq/qRT+RoNN
+	uKYggLfEEtZFjK4q5R8x/uadobTe/5DIeoNDKBw8XjO4Qkg0KBorLpwByDRK/pjeA8yNBPiFfmEOA
+	3mWYTniCw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRJGy-004e1O-C7; Tue, 30 Mar 2021 18:39:28 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1lRK7t-004iHx-Hd; Tue, 30 Mar 2021 19:34:09 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRJGk-004dyP-4J
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 18:39:18 +0000
-X-Originating-IP: 2.7.49.219
-Received: from [192.168.1.100] (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 996D720004;
- Tue, 30 Mar 2021 18:39:10 +0000 (UTC)
+ id 1lRK7k-004iGR-UI
+ for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 19:34:05 +0000
+Received: by mail-pf1-x430.google.com with SMTP id m11so12817487pfc.11
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Mar 2021 12:34:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=XFry8Wkz02eyXdL4/hl2t9a1C+YYwdL24ac3TLecD9k=;
+ b=faalDh/3pZX4D2F9Yw4G/Bkd1Mbp5qMT1QmtuOR7ZjzMyacXpIquMnqreoDSgZdfr3
+ a3Ln5CKlKuc+F7tYNitJkq8YIgyBASXwUyyVgJMTAfLEIsRYqXX6F33xEqgVsfoBVPnh
+ KNIK82tJGiOemUQNVtRpV9jRhOZZI0MVN4pBfv1idBhtulYnjXYwP5r4mfP0ypF0OEQa
+ d+JTtXOo7JiVB2cIU+kkSs36VdUo/eZAKe1ZbmVzWF7Cgbch8/9JAAnsy4DEuU5+OZ6E
+ 77wc/vYvavfw/x/n3NP0sypXA/flr8oNKN0UmW5nMT0ZkrGZcd35dlJ2bmYXpPqUV90M
+ dKAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=XFry8Wkz02eyXdL4/hl2t9a1C+YYwdL24ac3TLecD9k=;
+ b=bl2b924+P/mvV/cWcdZg0EmYiAndgTbqfMhPcjpsJSudhId90cW+59VgKzhVUPWebH
+ hWK/mENT1z3D5UmT2XOBdKN7qQtSOk6YwSvx5CpF/5Rd9k8SxGM75PHwRRzmldqVDZ9/
+ 44FePGuZfNscBPPpDWOqtfK5NpIpzNQNcAV6m/sZ53JxP72ZQbtr3ZgZH2KKpYeYOox3
+ IkYfd/9oQauu/QUbuXzsC66Gs6RymfnkEaeWYunb+D3Z4cqa35bNEzOr3uRRHYsPBGoT
+ 2WN30m5T59Bgwnv3kVZ5QSZn5dVbTIyNpMbWZcIM6+D1vUmt8lu9xkyTyX3QZ38REIJj
+ b7BQ==
+X-Gm-Message-State: AOAM532JgZH4upepcxrNE91yCzLdxgbJOqouepV6INtbY0FMcdSmgvOT
+ QEMRL0lw213vfZd3o77x07+zDQ==
+X-Google-Smtp-Source: ABdhPJwJQPbHYlmK1Za/+OFXr4Hrpjxhlw/A9GJSVJLFWOT3yO7g8bSkd+GeXxlGJdWWL8gUbgcJEQ==
+X-Received: by 2002:a63:1352:: with SMTP id 18mr2130392pgt.11.1617132838518;
+ Tue, 30 Mar 2021 12:33:58 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 12sm9361pgw.18.2021.03.30.12.33.57
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 30 Mar 2021 12:33:58 -0700 (PDT)
+Date: Tue, 30 Mar 2021 12:33:58 -0700 (PDT)
+X-Google-Original-Date: Tue, 30 Mar 2021 12:33:56 PDT (-0700)
 Subject: Re: [PATCH v6] RISC-V: enable XIP
-To: Vitaly Wool <vitaly.wool@konsulko.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>, Bin Meng <bin.meng@windriver.com>,
- Anup Patel <anup@brainfault.org>, Alistair Francis
- <Alistair.Francis@wdc.com>, Nicolas Pitre <nico@fluxnic.net>
-References: <20210322001214.29985-1-vitaly.wool@konsulko.com>
- <mhng-5c1edc6a-c0fc-4556-9aef-b2b330856f99@palmerdabbelt-glaptop>
- <CAM4kBB+NL0xDNO8NP-BXbgH4BP6wsj7KtQppDr3n45yxwEos-w@mail.gmail.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <d389a569-7d4c-1caf-ad08-45701e04821a@ghiti.fr>
-Date: Tue, 30 Mar 2021 14:39:10 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.0
-MIME-Version: 1.0
-In-Reply-To: <CAM4kBB+NL0xDNO8NP-BXbgH4BP6wsj7KtQppDr3n45yxwEos-w@mail.gmail.com>
-Content-Language: fr
+In-Reply-To: <d389a569-7d4c-1caf-ad08-45701e04821a@ghiti.fr>
+CC: vitaly.wool@konsulko.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, bin.meng@windriver.com, anup@brainfault.org,
+ Alistair Francis <Alistair.Francis@wdc.com>, nico@fluxnic.net
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: alex@ghiti.fr
+Message-ID: <mhng-add8fe77-f966-42ee-97b7-3d78f48fb103@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210330_193914_415594_9DDFB70F 
-X-CRM114-Status: GOOD (  31.81  )
+X-CRM114-CacheID: sfid-20210330_203401_311464_51709912 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,958 +94,589 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 3/30/21 =E0 2:26 AM, Vitaly Wool a =E9crit=A0:
-> On Tue, Mar 30, 2021 at 8:23 AM Palmer Dabbelt <palmerdabbelt@google.com>=
- wrote:
->>
->> On Sun, 21 Mar 2021 17:12:15 PDT (-0700), vitaly.wool@konsulko.com wrote:
->>> Introduce XIP (eXecute In Place) support for RISC-V platforms.
->>> It allows code to be executed directly from non-volatile storage
->>> directly addressable by the CPU, such as QSPI NOR flash which can
->>> be found on many RISC-V platforms. This makes way for significant
->>> optimization of RAM footprint. The XIP kernel is not compressed
->>> since it has to run directly from flash, so it will occupy more
->>> space on the non-volatile storage. The physical flash address used
->>> to link the kernel object files and for storing it has to be known
->>> at compile time and is represented by a Kconfig option.
->>>
->>> XIP on RISC-V will for the time being only work on MMU-enabled
->>> kernels.
->>>
->>> Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
->>>
->>> ---
->>>
->>> Changes in v2:
->>> - dedicated macro for XIP address fixup when MMU is not enabled yet
->>>    o both for 32-bit and 64-bit RISC-V
->>> - SP is explicitly set to a safe place in RAM before __copy_data call
->>> - removed redundant alignment requirements in vmlinux-xip.lds.S
->>> - changed long -> uintptr_t typecast in __XIP_FIXUP macro.
->>> Changes in v3:
->>> - rebased against latest for-next
->>> - XIP address fixup macro now takes an argument
->>> - SMP related fixes
->>> Changes in v4:
->>> - rebased against the current for-next
->>> - less #ifdef's in C/ASM code
->>> - dedicated XIP_FIXUP_OFFSET assembler macro in head.S
->>> - C-specific definitions moved into #ifndef __ASSEMBLY__
->>> - Fixed multi-core boot
->>> Changes in v5:
->>> - fixed build error for non-XIP kernels
->>> Changes in v6:
->>> - XIP_PHYS_RAM_BASE config option renamed to PHYS_RAM_BASE
->>> - added PHYS_RAM_BASE_FIXED config flag to allow usage of
->>>    PHYS_RAM_BASE in non-XIP configurations if needed
->>> - XIP_FIXUP macro rewritten with a tempoarary variable to avoid side
->>>    effects
->>> - fixed crash for non-XIP kernels that don't use built-in DTB
->>
->> So v5 landed on for-next, which generally means it's best to avoid
->> re-spinning the patch and instead send along fixups.  That said, the v5
->> is causing some testing failures for me.
->>
->> I'm going to drop the v5 for now as I don't have time to test this
->> tonight.  I'll try and take a look soon, as it will conflict with Alex's
->> patches.
-> =
-
-> I can come up with the incremental patch instead pretty much straight
-> away if that works better.
-> =
-
-> ~Vitaly
-> =
-
->>>   arch/riscv/Kconfig                  |  49 ++++++++++-
->>>   arch/riscv/Makefile                 |   8 +-
->>>   arch/riscv/boot/Makefile            |  13 +++
->>>   arch/riscv/include/asm/pgtable.h    |  65 ++++++++++++--
->>>   arch/riscv/kernel/cpu_ops_sbi.c     |  11 ++-
->>>   arch/riscv/kernel/head.S            |  49 ++++++++++-
->>>   arch/riscv/kernel/head.h            |   3 +
->>>   arch/riscv/kernel/setup.c           |   8 +-
->>>   arch/riscv/kernel/vmlinux-xip.lds.S | 132 ++++++++++++++++++++++++++++
->>>   arch/riscv/kernel/vmlinux.lds.S     |   6 ++
->>>   arch/riscv/mm/init.c                | 100 +++++++++++++++++++--
->>>   11 files changed, 426 insertions(+), 18 deletions(-)
->>>   create mode 100644 arch/riscv/kernel/vmlinux-xip.lds.S
->>>
->>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>> index 8ea60a0a19ae..bd6f82240c34 100644
->>> --- a/arch/riscv/Kconfig
->>> +++ b/arch/riscv/Kconfig
->>> @@ -441,7 +441,7 @@ config EFI_STUB
->>>
->>>   config EFI
->>>        bool "UEFI runtime support"
->>> -     depends on OF
->>> +     depends on OF && !XIP_KERNEL
->>>        select LIBFDT
->>>        select UCS2_STRING
->>>        select EFI_PARAMS_FROM_FDT
->>> @@ -465,11 +465,56 @@ config STACKPROTECTOR_PER_TASK
->>>        def_bool y
->>>        depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
->>>
->>> +config PHYS_RAM_BASE_FIXED
->>> +     bool "Explicitly specified physical RAM address"
->>> +     default n
->>> +
->>> +config PHYS_RAM_BASE
->>> +     hex "Platform Physical RAM address"
->>> +     depends on PHYS_RAM_BASE_FIXED
->>> +     default "0x80000000"
->>> +     help
->>> +       This is the physical address of RAM in the system. It has to be
->>> +       explicitly specified to run early relocations of read-write data
->>> +       from flash to RAM.
->>> +
->>> +config XIP_KERNEL
->>> +     bool "Kernel Execute-In-Place from ROM"
->>> +     depends on MMU
->>> +     select PHYS_RAM_BASE_FIXED
->>> +     help
->>> +       Execute-In-Place allows the kernel to run from non-volatile sto=
-rage
->>> +       directly addressable by the CPU, such as NOR flash. This saves =
-RAM
->>> +       space since the text section of the kernel is not loaded from f=
-lash
->>> +       to RAM.  Read-write sections, such as the data section and stac=
-k,
->>> +       are still copied to RAM.  The XIP kernel is not compressed since
->>> +       it has to run directly from flash, so it will take more space to
->>> +       store it.  The flash address used to link the kernel object fil=
-es,
->>> +       and for storing it, is configuration dependent. Therefore, if y=
-ou
->>> +       say Y here, you must know the proper physical address where to
->>> +       store the kernel image depending on your own flash memory usage.
->>> +
->>> +       Also note that the make target becomes "make xipImage" rather t=
-han
->>> +       "make zImage" or "make Image".  The final kernel binary to put =
-in
->>> +       ROM memory will be arch/riscv/boot/xipImage.
->>> +
->>> +       If unsure, say N.
->>> +
->>> +config XIP_PHYS_ADDR
->>> +     hex "XIP Kernel Physical Location"
->>> +     depends on XIP_KERNEL
->>> +     default "0x21000000"
->>> +     help
->>> +       This is the physical address in your flash memory the kernel wi=
-ll
->>> +       be linked for and stored to.  This address is dependent on your
->>> +       own flash usage.
->>> +
->>>   endmenu
->>>
->>>   config BUILTIN_DTB
->>> -     def_bool n
->>> +     bool
->>>        depends on OF
->>> +     default y if XIP_KERNEL
->>>
->>>   menu "Power management options"
->>>
->>> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
->>> index 1368d943f1f3..8fcbec03974d 100644
->>> --- a/arch/riscv/Makefile
->>> +++ b/arch/riscv/Makefile
->>> @@ -82,7 +82,11 @@ CHECKFLAGS +=3D -D__riscv -D__riscv_xlen=3D$(BITS)
->>>
->>>   # Default target when executing plain make
->>>   boot         :=3D arch/riscv/boot
->>> +ifeq ($(CONFIG_XIP_KERNEL),y)
->>> +KBUILD_IMAGE :=3D $(boot)/xipImage
->>> +else
->>>   KBUILD_IMAGE :=3D $(boot)/Image.gz
->>> +endif
->>>
->>>   head-y :=3D arch/riscv/kernel/head.o
->>>
->>> @@ -95,12 +99,14 @@ PHONY +=3D vdso_install
->>>   vdso_install:
->>>        $(Q)$(MAKE) $(build)=3Darch/riscv/kernel/vdso $@
->>>
->>> +ifneq ($(CONFIG_XIP_KERNEL),y)
->>>   ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
->>>   KBUILD_IMAGE :=3D $(boot)/loader.bin
->>>   else
->>>   KBUILD_IMAGE :=3D $(boot)/Image.gz
->>>   endif
->>> -BOOT_TARGETS :=3D Image Image.gz loader loader.bin
->>> +endif
->>> +BOOT_TARGETS :=3D Image Image.gz loader loader.bin xipImage
->>>
->>>   all: $(notdir $(KBUILD_IMAGE))
->>>
->>> diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
->>> index 03404c84f971..6bf299f70c27 100644
->>> --- a/arch/riscv/boot/Makefile
->>> +++ b/arch/riscv/boot/Makefile
->>> @@ -17,8 +17,21 @@
->>>   KCOV_INSTRUMENT :=3D n
->>>
->>>   OBJCOPYFLAGS_Image :=3D-O binary -R .note -R .note.gnu.build-id -R .c=
-omment -S
->>> +OBJCOPYFLAGS_xipImage :=3D-O binary -R .note -R .note.gnu.build-id -R =
-.comment -S
->>>
->>>   targets :=3D Image Image.* loader loader.o loader.lds loader.bin
->>> +targets :=3D Image Image.* loader loader.o loader.lds loader.bin xipIm=
-age
->>> +
->>> +ifeq ($(CONFIG_XIP_KERNEL),y)
->>> +
->>> +quiet_cmd_mkxip =3D $(quiet_cmd_objcopy)
->>> +cmd_mkxip =3D $(cmd_objcopy)
->>> +
->>> +$(obj)/xipImage: vmlinux FORCE
->>> +     $(call if_changed,mkxip)
->>> +     @$(kecho) '  Physical Address of xipImage: $(CONFIG_XIP_PHYS_ADDR=
-)'
->>> +
->>> +endif
->>>
->>>   $(obj)/Image: vmlinux FORCE
->>>        $(call if_changed,objcopy)
->>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/=
-pgtable.h
->>> index ebf817c1bdf4..21a9b2f8d1c7 100644
->>> --- a/arch/riscv/include/asm/pgtable.h
->>> +++ b/arch/riscv/include/asm/pgtable.h
->>> @@ -11,6 +11,33 @@
->>>
->>>   #include <asm/pgtable-bits.h>
->>>
->>> +#ifdef CONFIG_MMU
->>> +
->>> +#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
->>> +
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#define VMALLOC_SIZE     ((KERN_VIRT_SIZE >> 1) - SZ_16M)
->>> +#define VMALLOC_END      (PAGE_OFFSET - SZ_16M - 1)
->>> +
->>> +#define XIP_OFFSET           SZ_8M
->>> +#define XIP_MASK             (SZ_8M - 1)
->>> +#define XIP_VIRT_ADDR(physaddr)      \
->>> +     (PAGE_OFFSET - XIP_OFFSET + ((physaddr) & XIP_MASK))
->>> +
->>> +#else
->>> +
->>> +#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
->>> +#define VMALLOC_END      (PAGE_OFFSET - 1)
->>> +
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>> +#else
->>> +
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#define XIP_VIRT_ADDR(physaddr) (physaddr)
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +#endif /* CONFIG_MMU */
->>> +
->>>   #ifndef __ASSEMBLY__
->>>
->>>   /* Page Upper Directory not used in RISC-V */
->>> @@ -21,9 +48,25 @@
->>>
->>>   #ifdef CONFIG_MMU
->>>
->>> -#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
->>> -#define VMALLOC_END      (PAGE_OFFSET - 1)
->>> -#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +/*
->>> + * Since we use sections to map it, this macro replaces the physical a=
-ddress
->>> + * with its virtual address while keeping offset from the base section.
->>> + */
->>> +#define XIP_PHYS_ADDR(va)     \
->>> +     ((uintptr_t)(va) - PAGE_OFFSET + XIP_OFFSET + CONFIG_XIP_PHYS_ADD=
-R)
->>> +
->>> +#define XIP_VIRT_ADDR_START  XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
->>> +
->>> +#define XIP_FIXUP(addr)              ({ \
->>> +     uintptr_t __a =3D (uintptr_t)(addr); \
->>> +     (__a >=3D CONFIG_XIP_PHYS_ADDR && \
->>> +      __a < CONFIG_XIP_PHYS_ADDR + SZ_16M) ? \
->>> +     __a - CONFIG_XIP_PHYS_ADDR + CONFIG_PHYS_RAM_BASE - XIP_OFFSET : =
-__a; \
->>> +})
->>> +#else
->>> +#define XIP_FIXUP(addr)              (addr)
->>> +#endif /* CONFIG_XIP_KERNEL */
->>>
->>>   #define BPF_JIT_REGION_SIZE  (SZ_128M)
->>>   #define BPF_JIT_REGION_START (PAGE_OFFSET - BPF_JIT_REGION_SIZE)
->>> @@ -484,8 +527,20 @@ static inline int ptep_clear_flush_young(struct vm=
-_area_struct *vma,
->>>
->>>   #define kern_addr_valid(addr)   (1) /* FIXME */
->>>
->>> -extern void *dtb_early_va;
->>> -extern uintptr_t dtb_early_pa;
->>> +extern void *_dtb_early_va;
->>> +extern uintptr_t _dtb_early_pa;
->>> +#if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_MMU)
->>> +
->>> +#define dtb_early_va (*(void **)XIP_FIXUP(&_dtb_early_va))
->>> +#define dtb_early_pa (*(uintptr_t *)XIP_FIXUP(&_dtb_early_pa))
->>> +
->>> +#else
->>> +
->>> +#define dtb_early_va _dtb_early_va
->>> +#define dtb_early_pa _dtb_early_pa
->>> +
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>>   void setup_bootmem(void);
->>>   void paging_init(void);
->>>   void misc_mem_init(void);
->>> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_op=
-s_sbi.c
->>> index 685fae72b7f5..2413c2997350 100644
->>> --- a/arch/riscv/kernel/cpu_ops_sbi.c
->>> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
->>> @@ -53,10 +53,19 @@ static int sbi_hsm_hart_get_status(unsigned long ha=
-rtid)
->>>   }
->>>   #endif
->>>
->>> +static inline unsigned long get_secondary_start_phys(void)
->>> +{
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     return XIP_PHYS_ADDR(secondary_start_sbi);
->>> +#else
->>> +     return __pa_symbol(secondary_start_sbi);
->>> +#endif
->>> +}
->>> +
->>>   static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidl=
-e)
->>>   {
->>>        int rc;
->>> -     unsigned long boot_addr =3D __pa_symbol(secondary_start_sbi);
->>> +     unsigned long boot_addr =3D get_secondary_start_phys();
->>>        int hartid =3D cpuid_to_hartid_map(cpuid);
->>>
->>>        cpu_update_secondary_bootdata(cpuid, tidle);
->>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
->>> index f5a9bad86e58..bbe74e37914f 100644
->>> --- a/arch/riscv/kernel/head.S
->>> +++ b/arch/riscv/kernel/head.S
->>> @@ -9,11 +9,23 @@
->>>   #include <linux/linkage.h>
->>>   #include <asm/thread_info.h>
->>>   #include <asm/page.h>
->>> +#include <asm/pgtable.h>
->>>   #include <asm/csr.h>
->>>   #include <asm/hwcap.h>
->>>   #include <asm/image.h>
->>>   #include "efi-header.S"
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +.macro XIP_FIXUP_OFFSET reg
->>> +     REG_L t0, _xip_fixup
->>> +     add \reg, \reg, t0
->>> +.endm
->>> +_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_O=
-FFSET
->>> +#else
->>> +.macro XIP_FIXUP_OFFSET reg
->>> +.endm
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>>   __HEAD
->>>   ENTRY(_start)
->>>        /*
->>> @@ -69,7 +81,11 @@ pe_head_start:
->>>   #ifdef CONFIG_MMU
->>>   relocate:
->>>        /* Relocate return address */
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     li a1, XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
->>> +#else
->>>        li a1, PAGE_OFFSET
->>> +#endif
->>>        la a2, _start
->>>        sub a1, a1, a2
->>>        add ra, ra, a1
->>> @@ -91,6 +107,7 @@ relocate:
->>>         * to ensure the new translations are in use.
->>>         */
->>>        la a0, trampoline_pg_dir
->>> +     XIP_FIXUP_OFFSET a0
->>>        srl a0, a0, PAGE_SHIFT
->>>        or a0, a0, a1
->>>        sfence.vma
->>> @@ -144,7 +161,9 @@ secondary_start_sbi:
->>>
->>>        slli a3, a0, LGREG
->>>        la a4, __cpu_up_stack_pointer
->>> +     XIP_FIXUP_OFFSET a4
->>>        la a5, __cpu_up_task_pointer
->>> +     XIP_FIXUP_OFFSET a5
->>>        add a4, a3, a4
->>>        add a5, a3, a5
->>>        REG_L sp, (a4)
->>> @@ -156,6 +175,7 @@ secondary_start_common:
->>>   #ifdef CONFIG_MMU
->>>        /* Enable virtual memory and relocate to virtual address */
->>>        la a0, swapper_pg_dir
->>> +     XIP_FIXUP_OFFSET a0
->>>        call relocate
->>>   #endif
->>>        call setup_trap_vector
->>> @@ -236,12 +256,33 @@ pmp_done:
->>>   .Lgood_cores:
->>>   #endif
->>>
->>> +#ifndef CONFIG_XIP_KERNEL
->>>        /* Pick one hart to run the main boot sequence */
->>>        la a3, hart_lottery
->>>        li a2, 1
->>>        amoadd.w a3, a2, (a3)
->>>        bnez a3, .Lsecondary_start
->>>
->>> +#else
->>> +     /* hart_lottery in flash contains a magic number */
->>> +     la a3, hart_lottery
->>> +     mv a2, a3
->>> +     XIP_FIXUP_OFFSET a2
->>> +     lw t1, (a3)
->>> +     amoswap.w t0, t1, (a2)
->>> +     /* first time here if hart_lottery in RAM is not set */
->>> +     beq t0, t1, .Lsecondary_start
->>> +
->>> +     la sp, _end + THREAD_SIZE
->>> +     XIP_FIXUP_OFFSET sp
->>> +     mv s0, a0
->>> +     call __copy_data
->>> +
->>> +     /* Restore a0 copy */
->>> +     mv a0, s0
->>> +#endif
->>> +
->>> +#ifndef CONFIG_XIP_KERNEL
->>>        /* Clear BSS for flat non-ELF images */
->>>        la a3, __bss_start
->>>        la a4, __bss_stop
->>> @@ -251,15 +292,18 @@ clear_bss:
->>>        add a3, a3, RISCV_SZPTR
->>>        blt a3, a4, clear_bss
->>>   clear_bss_done:
->>> -
->>> +#endif
->>>        /* Save hart ID and DTB physical address */
->>>        mv s0, a0
->>>        mv s1, a1
->>> +
->>>        la a2, boot_cpu_hartid
->>> +     XIP_FIXUP_OFFSET a2
->>>        REG_S a0, (a2)
->>>
->>>        /* Initialize page tables and relocate to virtual addresses */
->>>        la sp, init_thread_union + THREAD_SIZE
->>> +     XIP_FIXUP_OFFSET sp
->>>   #ifdef CONFIG_BUILTIN_DTB
->>>        la a0, __dtb_start
->>>   #else
->>> @@ -268,6 +312,7 @@ clear_bss_done:
->>>        call setup_vm
->>>   #ifdef CONFIG_MMU
->>>        la a0, early_pg_dir
->>> +     XIP_FIXUP_OFFSET a0
->>>        call relocate
->>>   #endif /* CONFIG_MMU */
->>>
->>> @@ -292,7 +337,9 @@ clear_bss_done:
->>>
->>>        slli a3, a0, LGREG
->>>        la a1, __cpu_up_stack_pointer
->>> +     XIP_FIXUP_OFFSET a1
->>>        la a2, __cpu_up_task_pointer
->>> +     XIP_FIXUP_OFFSET a2
->>>        add a1, a3, a1
->>>        add a2, a3, a2
->>>
->>> diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
->>> index b48dda3d04f6..aabbc3ac3e48 100644
->>> --- a/arch/riscv/kernel/head.h
->>> +++ b/arch/riscv/kernel/head.h
->>> @@ -12,6 +12,9 @@ extern atomic_t hart_lottery;
->>>
->>>   asmlinkage void do_page_fault(struct pt_regs *regs);
->>>   asmlinkage void __init setup_vm(uintptr_t dtb_pa);
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +asmlinkage void __init __copy_data(void);
->>> +#endif
->>>
->>>   extern void *__cpu_up_stack_pointer[];
->>>   extern void *__cpu_up_task_pointer[];
->>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
->>> index e85bacff1b50..a0384c72c272 100644
->>> --- a/arch/riscv/kernel/setup.c
->>> +++ b/arch/riscv/kernel/setup.c
->>> @@ -50,7 +50,11 @@ struct screen_info screen_info __section(".data") =
-=3D {
->>>    * This is used before the kernel initializes the BSS so it can't be =
-in the
->>>    * BSS.
->>>    */
->>> -atomic_t hart_lottery __section(".sdata");
->>> +atomic_t hart_lottery __section(".sdata")
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +=3D ATOMIC_INIT(0xC001BEEF)
->>> +#endif
->>> +;
->>>   unsigned long boot_cpu_hartid;
->>>   static DEFINE_PER_CPU(struct cpu, cpu_devices);
->>>
->>> @@ -254,7 +258,7 @@ void __init setup_arch(char **cmdline_p)
->>>   #if IS_ENABLED(CONFIG_BUILTIN_DTB)
->>>        unflatten_and_copy_device_tree();
->>>   #else
->>> -     if (early_init_dt_verify(__va(dtb_early_pa)))
->>> +     if (early_init_dt_verify(__va(XIP_FIXUP(dtb_early_pa))))
->>>                unflatten_device_tree();
->>>        else
->>>                pr_err("No DTB found in kernel mappings\n");
->>> diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vm=
-linux-xip.lds.S
->>> new file mode 100644
->>> index 000000000000..9f0f08c34cd3
->>> --- /dev/null
->>> +++ b/arch/riscv/kernel/vmlinux-xip.lds.S
->>> @@ -0,0 +1,132 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +/*
->>> + * Copyright (C) 2012 Regents of the University of California
->>> + * Copyright (C) 2017 SiFive
->>> + * Copyright (C) 2020 Vitaly Wool, Konsulko AB
->>> + */
->>> +
->>> +#define LOAD_OFFSET XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
->>> +/* No __ro_after_init data in the .rodata section - which will always =
-be ro */
->>> +#define RO_AFTER_INIT_DATA
->>> +
->>> +#include <asm/vmlinux.lds.h>
->>> +#include <asm/page.h>
->>> +#include <asm/pgtable.h>
->>> +#include <asm/cache.h>
->>> +#include <asm/thread_info.h>
->>> +
->>> +OUTPUT_ARCH(riscv)
->>> +ENTRY(_start)
->>> +
->>> +jiffies =3D jiffies_64;
->>> +
->>> +SECTIONS
->>> +{
->>> +     /* Beginning of code and text segment */
->>> +     . =3D XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR);
->>> +     _xiprom =3D .;
->>> +     _start =3D .;
->>> +     HEAD_TEXT_SECTION
->>> +     INIT_TEXT_SECTION(PAGE_SIZE)
->>> +     /* we have to discard exit text and such at runtime, not link tim=
-e */
->>> +     .exit.text :
->>> +     {
->>> +             EXIT_TEXT
->>> +     }
->>> +
->>> +     .text : {
->>> +             _text =3D .;
->>> +             _stext =3D .;
->>> +             TEXT_TEXT
->>> +             SCHED_TEXT
->>> +             CPUIDLE_TEXT
->>> +             LOCK_TEXT
->>> +             KPROBES_TEXT
->>> +             ENTRY_TEXT
->>> +             IRQENTRY_TEXT
->>> +             SOFTIRQENTRY_TEXT
->>> +             *(.fixup)
->>> +             _etext =3D .;
->>> +     }
->>> +     RO_DATA(L1_CACHE_BYTES)
->>> +     .srodata : {
->>> +             *(.srodata*)
->>> +     }
->>> +     .init.rodata : {
->>> +             INIT_SETUP(16)
->>> +             INIT_CALLS
->>> +             CON_INITCALL
->>> +             INIT_RAM_FS
->>> +     }
->>> +     _exiprom =3D .;                   /* End of XIP ROM area */
->>> +
->>> +
->>> +/*
->>> + * From this point, stuff is considered writable and will be copied to=
- RAM
->>> + */
->>> +     __data_loc =3D ALIGN(16);         /* location in file */
->>> +     . =3D PAGE_OFFSET;                /* location in memory */
->>> +
->>> +     _sdata =3D .;                     /* Start of data section */
->>> +     _data =3D .;
->>> +     RW_DATA(L1_CACHE_BYTES, PAGE_SIZE, THREAD_SIZE)
->>> +     _edata =3D .;
->>> +     __start_ro_after_init =3D .;
->>> +     .data.ro_after_init : AT(ADDR(.data.ro_after_init) - LOAD_OFFSET)=
- {
->>> +             *(.data..ro_after_init)
->>> +     }
->>> +     __end_ro_after_init =3D .;
->>> +
->>> +     . =3D ALIGN(PAGE_SIZE);
->>> +     __init_begin =3D .;
->>> +     .init.data : {
->>> +             INIT_DATA
->>> +     }
->>> +     .exit.data : {
->>> +             EXIT_DATA
->>> +     }
->>> +     . =3D ALIGN(8);
->>> +     __soc_early_init_table : {
->>> +             __soc_early_init_table_start =3D .;
->>> +             KEEP(*(__soc_early_init_table))
->>> +             __soc_early_init_table_end =3D .;
->>> +     }
->>> +     __soc_builtin_dtb_table : {
->>> +             __soc_builtin_dtb_table_start =3D .;
->>> +             KEEP(*(__soc_builtin_dtb_table))
->>> +             __soc_builtin_dtb_table_end =3D .;
->>> +     }
->>> +     PERCPU_SECTION(L1_CACHE_BYTES)
->>> +
->>> +     . =3D ALIGN(PAGE_SIZE);
->>> +     __init_end =3D .;
->>> +
->>> +     .sdata : {
->>> +             __global_pointer$ =3D . + 0x800;
->>> +             *(.sdata*)
->>> +             *(.sbss*)
->>> +     }
->>> +
->>> +     BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
->>> +     EXCEPTION_TABLE(0x10)
->>> +
->>> +     .rel.dyn : AT(ADDR(.rel.dyn) - LOAD_OFFSET) {
->>> +             *(.rel.dyn*)
->>> +     }
->>> +
->>> +     /*
->>> +      * End of copied data. We need a dummy section to get its LMA.
->>> +      * Also located before final ALIGN() as trailing padding is not s=
-tored
->>> +      * in the resulting binary file and useless to copy.
->>> +      */
->>> +     .data.endmark : AT(ADDR(.data.endmark) - LOAD_OFFSET) { }
->>> +     _edata_loc =3D LOADADDR(.data.endmark);
->>> +
->>> +     . =3D ALIGN(PAGE_SIZE);
->>> +     _end =3D .;
->>> +
->>> +     STABS_DEBUG
->>> +     DWARF_DEBUG
->>> +
->>> +     DISCARDS
->>> +}
->>> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinu=
-x.lds.S
->>> index de03cb22d0e9..6745ec325930 100644
->>> --- a/arch/riscv/kernel/vmlinux.lds.S
->>> +++ b/arch/riscv/kernel/vmlinux.lds.S
->>> @@ -4,7 +4,12 @@
->>>    * Copyright (C) 2017 SiFive
->>>    */
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#include "vmlinux-xip.lds.S"
->>> +#else
->>> +
->>>   #define LOAD_OFFSET PAGE_OFFSET
->>> +
->>>   #include <asm/vmlinux.lds.h>
->>>   #include <asm/page.h>
->>>   #include <asm/cache.h>
->>> @@ -132,3 +137,4 @@ SECTIONS
->>>
->>>        DISCARDS
->>>   }
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> index 7f5036fbee8c..efe649d41f95 100644
->>> --- a/arch/riscv/mm/init.c
->>> +++ b/arch/riscv/mm/init.c
->>> @@ -31,8 +31,8 @@ EXPORT_SYMBOL(empty_zero_page);
->>>
->>>   extern char _start[];
->>>   #define DTB_EARLY_BASE_VA      PGDIR_SIZE
->>> -void *dtb_early_va __initdata;
->>> -uintptr_t dtb_early_pa __initdata;
->>> +void *_dtb_early_va __initdata;
->>> +uintptr_t _dtb_early_pa __initdata;
->>>
->>>   struct pt_alloc_ops {
->>>        pte_t *(*get_pte_virt)(phys_addr_t pa);
->>> @@ -88,6 +88,10 @@ static void print_vm_layout(void)
->>>                  (unsigned long)VMALLOC_END);
->>>        print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
->>>                  (unsigned long)high_memory);
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     print_mlm("xip", (unsigned long)XIP_VIRT_ADDR_START,
->>> +               (unsigned long)XIP_VIRT_ADDR_START + SZ_16M);
->>> +#endif /* CONFIG_XIP_KERNEL */
->>>   }
->>>   #else
->>>   static void print_vm_layout(void) { }
->>> @@ -113,6 +117,10 @@ void __init setup_bootmem(void)
->>>        phys_addr_t dram_end =3D memblock_end_of_DRAM();
->>>        phys_addr_t max_mapped_addr =3D __pa(~(ulong)0);
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     vmlinux_start =3D __pa_symbol(&_sdata);
->>> +#endif
->>> +
->>>        /* The maximal physical memory size is -PAGE_OFFSET. */
->>>        memblock_enforce_memory_limit(-PAGE_OFFSET);
->>>
->>> @@ -149,11 +157,27 @@ void __init setup_bootmem(void)
->>>        memblock_allow_resize();
->>>   }
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +
->>> +extern char _xiprom[], _exiprom[];
->>> +extern char _sdata[], _edata[];
->>> +
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>>   #ifdef CONFIG_MMU
->>> -static struct pt_alloc_ops pt_ops;
->>> +static struct pt_alloc_ops _pt_ops;
->>> +
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#define pt_ops (*(struct pt_alloc_ops *)XIP_FIXUP(&_pt_ops))
->>> +#else
->>> +#define pt_ops       _pt_ops
->>> +#endif
->>>
->>>   unsigned long va_pa_offset;
->>>   EXPORT_SYMBOL(va_pa_offset);
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#define va_pa_offset (*((unsigned long *)XIP_FIXUP(&va_pa_offset)))
->>> +#endif
->>>   unsigned long pfn_base;
->>>   EXPORT_SYMBOL(pfn_base);
->>>
->>> @@ -163,6 +187,12 @@ pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
->>>
->>>   pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +#define trampoline_pg_dir    ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
->>> +#define fixmap_pte           ((pte_t *)XIP_FIXUP(fixmap_pte))
->>> +#define early_pg_dir         ((pgd_t *)XIP_FIXUP(early_pg_dir))
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>>   void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_=
-t prot)
->>>   {
->>>        unsigned long addr =3D __fix_to_virt(idx);
->>> @@ -238,6 +268,15 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
->>>   pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->>>   pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +pmd_t xip_pmd[PTRS_PER_PMD] __page_aligned_bss;
->>> +
->>> +#define trampoline_pmd       ((pmd_t *)XIP_FIXUP(trampoline_pmd))
->>> +#define fixmap_pmd   ((pmd_t *)XIP_FIXUP(fixmap_pmd))
->>> +#define xip_pmd              ((pmd_t *)XIP_FIXUP(xip_pmd))
->>> +#define early_pmd    ((pmd_t *)XIP_FIXUP(early_pmd))
->>> +#endif /* CONFIG_XIP_KERNEL */
->>> +
->>>   static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
->>>   {
->>>        /* Before MMU is enabled */
->>> @@ -354,6 +393,19 @@ static uintptr_t __init best_map_size(phys_addr_t =
-base, phys_addr_t size)
->>>        return PMD_SIZE;
->>>   }
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +/* called from head.S with MMU off */
->>> +asmlinkage void __init __copy_data(void)
->>> +{
->>> +     void *from =3D (void *)(&_sdata);
->>> +     void *end =3D (void *)(&_end);
->>> +     void *to =3D (void *)CONFIG_PHYS_RAM_BASE;
->>> +     size_t sz =3D (size_t)(end - from);
->>> +
->>> +     memcpy(to, from, sz);
->>> +}
->>> +#endif
->>> +
->>>   /*
->>>    * setup_vm() is called from head.S with MMU-off.
->>>    *
->>> @@ -374,7 +426,8 @@ static uintptr_t __init best_map_size(phys_addr_t b=
-ase, phys_addr_t size)
->>>
->>>   asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>>   {
->>> -     uintptr_t va, pa, end_va;
->>> +     uintptr_t va, end_va;
->>> +     uintptr_t __maybe_unused pa;
->>>        uintptr_t load_pa =3D (uintptr_t)(&_start);
->>>        uintptr_t load_sz =3D (uintptr_t)(&_end) - load_pa;
->>>        uintptr_t map_size;
->>> @@ -382,6 +435,13 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>>        pmd_t fix_bmap_spmd, fix_bmap_epmd;
->>>   #endif
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     uintptr_t xiprom =3D (uintptr_t)CONFIG_XIP_PHYS_ADDR;
->>> +     uintptr_t xiprom_sz =3D (uintptr_t)(&_exiprom) - (uintptr_t)(&_xi=
-prom);
->>> +
->>> +     load_pa =3D (uintptr_t)CONFIG_PHYS_RAM_BASE;
->>> +     load_sz =3D (uintptr_t)(&_end) - (uintptr_t)(&_sdata);
->>> +#endif
->>>        va_pa_offset =3D PAGE_OFFSET - load_pa;
-
-I should have seen this before, I was too focused on having a XIP kernel =
-
-boot. I already moved the kernel mapping in the vmalloc zone: the =
-
-virtual to physical translations need to be handled differently now that =
-
-the kernel mapping does not lie into linear mapping anymore, we can't =
-
-use va_pa_offset defined above for both mappings.
-
-I was rebasing my patchset on the XIP patch but I believe that doing the =
-
-other way around would greatly simplify the XIP patch as the kernel =
-
-mapping would already be moved outside the linear mapping, there would =
-
-be no need to reserve a zone in vmalloc anymore (that simplifies =
-
-pgtable.h quite a lot). And the XIP kernel mapping could be implemented =
-
-in a new create_kernel_page_table (that would also simplify mm/init.c).
-
-I can help to do that but I don't think we should merge this patch as is =
-
-now.
-
-Alex
-
->>>        pfn_base =3D PFN_DOWN(load_pa);
->>>
->>> @@ -420,6 +480,21 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>>                           load_pa, PGDIR_SIZE, PAGE_KERNEL_EXEC);
->>>   #endif
->>>
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     create_pgd_mapping(trampoline_pg_dir, XIP_VIRT_ADDR_START,
->>> +                        (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
->>> +     for (va =3D XIP_VIRT_ADDR_START;
->>> +          va < XIP_VIRT_ADDR_START + xiprom_sz;
->>> +          va +=3D PMD_SIZE) {
->>> +             create_pmd_mapping(xip_pmd, va,
->>> +                                xiprom + (va - XIP_VIRT_ADDR_START),
->>> +                                PMD_SIZE, PAGE_KERNEL_EXEC);
->>> +     }
->>> +
->>> +     create_pgd_mapping(early_pg_dir, XIP_VIRT_ADDR_START,
->>> +                        (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
->>> +#endif
->>> +
->>>        /*
->>>         * Setup early PGD covering entire kernel which will allows
->>>         * us to reach paging_init(). We map all memory banks later
->>> @@ -444,7 +519,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>>                           pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
->>>        dtb_early_va =3D (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE=
- - 1));
->>>   #else /* CONFIG_BUILTIN_DTB */
->>> -     dtb_early_va =3D __va(dtb_pa);
->>> +     dtb_early_va =3D __va(XIP_FIXUP(dtb_pa));
->>>   #endif /* CONFIG_BUILTIN_DTB */
->>>   #else
->>>   #ifndef CONFIG_BUILTIN_DTB
->>> @@ -456,7 +531,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>>                           pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
->>>        dtb_early_va =3D (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SI=
-ZE - 1));
->>>   #else /* CONFIG_BUILTIN_DTB */
->>> -     dtb_early_va =3D __va(dtb_pa);
->>> +     dtb_early_va =3D __va(XIP_FIXUP(dtb_pa));
->>>   #endif /* CONFIG_BUILTIN_DTB */
->>>   #endif
->>>        dtb_early_pa =3D dtb_pa;
->>> @@ -497,6 +572,9 @@ static void __init setup_vm_final(void)
->>>        uintptr_t va, map_size;
->>>        phys_addr_t pa, start, end;
->>>        u64 i;
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     uintptr_t xiprom_sz =3D (uintptr_t)(&_exiprom) - (uintptr_t)(&_xi=
-prom);
->>> +#endif
->>>
->>>        /**
->>>         * MMU is enabled at this point. But page table setup is not com=
-plete yet.
->>> @@ -528,6 +606,16 @@ static void __init setup_vm_final(void)
->>>                                           map_size, PAGE_KERNEL_EXEC);
->>>                }
->>>        }
->>> +#ifdef CONFIG_XIP_KERNEL
->>> +     map_size =3D best_map_size(CONFIG_XIP_PHYS_ADDR, xiprom_sz);
->>> +     for (va =3D XIP_VIRT_ADDR_START;
->>> +          va < XIP_VIRT_ADDR_START + xiprom_sz;
->>> +          va +=3D map_size)
->>> +             create_pgd_mapping(swapper_pg_dir, va,
->>> +                                CONFIG_XIP_PHYS_ADDR + (va - XIP_VIRT_=
-ADDR_START),
->>> +                                map_size, PAGE_KERNEL_EXEC);
->>> +
->>> +#endif
->>>
->>>        /* Clear fixmap PTE and PMD mappings */
->>>        clear_fixmap(FIX_PTE);
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> =
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAzMCBNYXIgMjAyMSAxMTozOToxMCBQRFQgKC0wNzAwKSwgYWxleEBnaGl0aS5mciB3
+cm90ZToKPgo+Cj4gTGUgMy8zMC8yMSDDoCAyOjI2IEFNLCBWaXRhbHkgV29vbCBhIMOpY3JpdMKg
+Ogo+PiBPbiBUdWUsIE1hciAzMCwgMjAyMSBhdCA4OjIzIEFNIFBhbG1lciBEYWJiZWx0IDxwYWxt
+ZXJkYWJiZWx0QGdvb2dsZS5jb20+IHdyb3RlOgo+Pj4KPj4+IE9uIFN1biwgMjEgTWFyIDIwMjEg
+MTc6MTI6MTUgUERUICgtMDcwMCksIHZpdGFseS53b29sQGtvbnN1bGtvLmNvbSB3cm90ZToKPj4+
+PiBJbnRyb2R1Y2UgWElQIChlWGVjdXRlIEluIFBsYWNlKSBzdXBwb3J0IGZvciBSSVNDLVYgcGxh
+dGZvcm1zLgo+Pj4+IEl0IGFsbG93cyBjb2RlIHRvIGJlIGV4ZWN1dGVkIGRpcmVjdGx5IGZyb20g
+bm9uLXZvbGF0aWxlIHN0b3JhZ2UKPj4+PiBkaXJlY3RseSBhZGRyZXNzYWJsZSBieSB0aGUgQ1BV
+LCBzdWNoIGFzIFFTUEkgTk9SIGZsYXNoIHdoaWNoIGNhbgo+Pj4+IGJlIGZvdW5kIG9uIG1hbnkg
+UklTQy1WIHBsYXRmb3Jtcy4gVGhpcyBtYWtlcyB3YXkgZm9yIHNpZ25pZmljYW50Cj4+Pj4gb3B0
+aW1pemF0aW9uIG9mIFJBTSBmb290cHJpbnQuIFRoZSBYSVAga2VybmVsIGlzIG5vdCBjb21wcmVz
+c2VkCj4+Pj4gc2luY2UgaXQgaGFzIHRvIHJ1biBkaXJlY3RseSBmcm9tIGZsYXNoLCBzbyBpdCB3
+aWxsIG9jY3VweSBtb3JlCj4+Pj4gc3BhY2Ugb24gdGhlIG5vbi12b2xhdGlsZSBzdG9yYWdlLiBU
+aGUgcGh5c2ljYWwgZmxhc2ggYWRkcmVzcyB1c2VkCj4+Pj4gdG8gbGluayB0aGUga2VybmVsIG9i
+amVjdCBmaWxlcyBhbmQgZm9yIHN0b3JpbmcgaXQgaGFzIHRvIGJlIGtub3duCj4+Pj4gYXQgY29t
+cGlsZSB0aW1lIGFuZCBpcyByZXByZXNlbnRlZCBieSBhIEtjb25maWcgb3B0aW9uLgo+Pj4+Cj4+
+Pj4gWElQIG9uIFJJU0MtViB3aWxsIGZvciB0aGUgdGltZSBiZWluZyBvbmx5IHdvcmsgb24gTU1V
+LWVuYWJsZWQKPj4+PiBrZXJuZWxzLgo+Pj4+Cj4+Pj4gU2lnbmVkLW9mZi1ieTogVml0YWx5IFdv
+b2wgPHZpdGFseS53b29sQGtvbnN1bGtvLmNvbT4KPj4+Pgo+Pj4+IC0tLQo+Pj4+Cj4+Pj4gQ2hh
+bmdlcyBpbiB2MjoKPj4+PiAtIGRlZGljYXRlZCBtYWNybyBmb3IgWElQIGFkZHJlc3MgZml4dXAg
+d2hlbiBNTVUgaXMgbm90IGVuYWJsZWQgeWV0Cj4+Pj4gICAgbyBib3RoIGZvciAzMi1iaXQgYW5k
+IDY0LWJpdCBSSVNDLVYKPj4+PiAtIFNQIGlzIGV4cGxpY2l0bHkgc2V0IHRvIGEgc2FmZSBwbGFj
+ZSBpbiBSQU0gYmVmb3JlIF9fY29weV9kYXRhIGNhbGwKPj4+PiAtIHJlbW92ZWQgcmVkdW5kYW50
+IGFsaWdubWVudCByZXF1aXJlbWVudHMgaW4gdm1saW51eC14aXAubGRzLlMKPj4+PiAtIGNoYW5n
+ZWQgbG9uZyAtPiB1aW50cHRyX3QgdHlwZWNhc3QgaW4gX19YSVBfRklYVVAgbWFjcm8uCj4+Pj4g
+Q2hhbmdlcyBpbiB2MzoKPj4+PiAtIHJlYmFzZWQgYWdhaW5zdCBsYXRlc3QgZm9yLW5leHQKPj4+
+PiAtIFhJUCBhZGRyZXNzIGZpeHVwIG1hY3JvIG5vdyB0YWtlcyBhbiBhcmd1bWVudAo+Pj4+IC0g
+U01QIHJlbGF0ZWQgZml4ZXMKPj4+PiBDaGFuZ2VzIGluIHY0Ogo+Pj4+IC0gcmViYXNlZCBhZ2Fp
+bnN0IHRoZSBjdXJyZW50IGZvci1uZXh0Cj4+Pj4gLSBsZXNzICNpZmRlZidzIGluIEMvQVNNIGNv
+ZGUKPj4+PiAtIGRlZGljYXRlZCBYSVBfRklYVVBfT0ZGU0VUIGFzc2VtYmxlciBtYWNybyBpbiBo
+ZWFkLlMKPj4+PiAtIEMtc3BlY2lmaWMgZGVmaW5pdGlvbnMgbW92ZWQgaW50byAjaWZuZGVmIF9f
+QVNTRU1CTFlfXwo+Pj4+IC0gRml4ZWQgbXVsdGktY29yZSBib290Cj4+Pj4gQ2hhbmdlcyBpbiB2
+NToKPj4+PiAtIGZpeGVkIGJ1aWxkIGVycm9yIGZvciBub24tWElQIGtlcm5lbHMKPj4+PiBDaGFu
+Z2VzIGluIHY2Ogo+Pj4+IC0gWElQX1BIWVNfUkFNX0JBU0UgY29uZmlnIG9wdGlvbiByZW5hbWVk
+IHRvIFBIWVNfUkFNX0JBU0UKPj4+PiAtIGFkZGVkIFBIWVNfUkFNX0JBU0VfRklYRUQgY29uZmln
+IGZsYWcgdG8gYWxsb3cgdXNhZ2Ugb2YKPj4+PiAgICBQSFlTX1JBTV9CQVNFIGluIG5vbi1YSVAg
+Y29uZmlndXJhdGlvbnMgaWYgbmVlZGVkCj4+Pj4gLSBYSVBfRklYVVAgbWFjcm8gcmV3cml0dGVu
+IHdpdGggYSB0ZW1wb2FyYXJ5IHZhcmlhYmxlIHRvIGF2b2lkIHNpZGUKPj4+PiAgICBlZmZlY3Rz
+Cj4+Pj4gLSBmaXhlZCBjcmFzaCBmb3Igbm9uLVhJUCBrZXJuZWxzIHRoYXQgZG9uJ3QgdXNlIGJ1
+aWx0LWluIERUQgo+Pj4KPj4+IFNvIHY1IGxhbmRlZCBvbiBmb3ItbmV4dCwgd2hpY2ggZ2VuZXJh
+bGx5IG1lYW5zIGl0J3MgYmVzdCB0byBhdm9pZAo+Pj4gcmUtc3Bpbm5pbmcgdGhlIHBhdGNoIGFu
+ZCBpbnN0ZWFkIHNlbmQgYWxvbmcgZml4dXBzLiAgVGhhdCBzYWlkLCB0aGUgdjUKPj4+IGlzIGNh
+dXNpbmcgc29tZSB0ZXN0aW5nIGZhaWx1cmVzIGZvciBtZS4KPj4+Cj4+PiBJJ20gZ29pbmcgdG8g
+ZHJvcCB0aGUgdjUgZm9yIG5vdyBhcyBJIGRvbid0IGhhdmUgdGltZSB0byB0ZXN0IHRoaXMKPj4+
+IHRvbmlnaHQuICBJJ2xsIHRyeSBhbmQgdGFrZSBhIGxvb2sgc29vbiwgYXMgaXQgd2lsbCBjb25m
+bGljdCB3aXRoIEFsZXgncwo+Pj4gcGF0Y2hlcy4KPj4KPj4gSSBjYW4gY29tZSB1cCB3aXRoIHRo
+ZSBpbmNyZW1lbnRhbCBwYXRjaCBpbnN0ZWFkIHByZXR0eSBtdWNoIHN0cmFpZ2h0Cj4+IGF3YXkg
+aWYgdGhhdCB3b3JrcyBiZXR0ZXIuCj4+Cj4+IH5WaXRhbHkKPj4KPj4+PiAgIGFyY2gvcmlzY3Yv
+S2NvbmZpZyAgICAgICAgICAgICAgICAgIHwgIDQ5ICsrKysrKysrKystCj4+Pj4gICBhcmNoL3Jp
+c2N2L01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAgOCArLQo+Pj4+ICAgYXJjaC9yaXNjdi9i
+b290L01ha2VmaWxlICAgICAgICAgICAgfCAgMTMgKysrCj4+Pj4gICBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3BndGFibGUuaCAgICB8ICA2NSArKysrKysrKysrKystLQo+Pj4+ICAgYXJjaC9yaXNj
+di9rZXJuZWwvY3B1X29wc19zYmkuYyAgICAgfCAgMTEgKystCj4+Pj4gICBhcmNoL3Jpc2N2L2tl
+cm5lbC9oZWFkLlMgICAgICAgICAgICB8ICA0OSArKysrKysrKysrLQo+Pj4+ICAgYXJjaC9yaXNj
+di9rZXJuZWwvaGVhZC5oICAgICAgICAgICAgfCAgIDMgKwo+Pj4+ICAgYXJjaC9yaXNjdi9rZXJu
+ZWwvc2V0dXAuYyAgICAgICAgICAgfCAgIDggKy0KPj4+PiAgIGFyY2gvcmlzY3Yva2VybmVsL3Zt
+bGludXgteGlwLmxkcy5TIHwgMTMyICsrKysrKysrKysrKysrKysrKysrKysrKysrKysKPj4+PiAg
+IGFyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMgICAgIHwgICA2ICsrCj4+Pj4gICBhcmNo
+L3Jpc2N2L21tL2luaXQuYyAgICAgICAgICAgICAgICB8IDEwMCArKysrKysrKysrKysrKysrKysr
+LS0KPj4+PiAgIDExIGZpbGVzIGNoYW5nZWQsIDQyNiBpbnNlcnRpb25zKCspLCAxOCBkZWxldGlv
+bnMoLSkKPj4+PiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4
+LXhpcC5sZHMuUwo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2Fy
+Y2gvcmlzY3YvS2NvbmZpZwo+Pj4+IGluZGV4IDhlYTYwYTBhMTlhZS4uYmQ2ZjgyMjQwYzM0IDEw
+MDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yv
+S2NvbmZpZwo+Pj4+IEBAIC00NDEsNyArNDQxLDcgQEAgY29uZmlnIEVGSV9TVFVCCj4+Pj4KPj4+
+PiAgIGNvbmZpZyBFRkkKPj4+PiAgICAgICAgYm9vbCAiVUVGSSBydW50aW1lIHN1cHBvcnQiCj4+
+Pj4gLSAgICAgZGVwZW5kcyBvbiBPRgo+Pj4+ICsgICAgIGRlcGVuZHMgb24gT0YgJiYgIVhJUF9L
+RVJORUwKPj4+PiAgICAgICAgc2VsZWN0IExJQkZEVAo+Pj4+ICAgICAgICBzZWxlY3QgVUNTMl9T
+VFJJTkcKPj4+PiAgICAgICAgc2VsZWN0IEVGSV9QQVJBTVNfRlJPTV9GRFQKPj4+PiBAQCAtNDY1
+LDExICs0NjUsNTYgQEAgY29uZmlnIFNUQUNLUFJPVEVDVE9SX1BFUl9UQVNLCj4+Pj4gICAgICAg
+IGRlZl9ib29sIHkKPj4+PiAgICAgICAgZGVwZW5kcyBvbiBTVEFDS1BST1RFQ1RPUiAmJiBDQ19I
+QVZFX1NUQUNLUFJPVEVDVE9SX1RMUwo+Pj4+Cj4+Pj4gK2NvbmZpZyBQSFlTX1JBTV9CQVNFX0ZJ
+WEVECj4+Pj4gKyAgICAgYm9vbCAiRXhwbGljaXRseSBzcGVjaWZpZWQgcGh5c2ljYWwgUkFNIGFk
+ZHJlc3MiCj4+Pj4gKyAgICAgZGVmYXVsdCBuCj4+Pj4gKwo+Pj4+ICtjb25maWcgUEhZU19SQU1f
+QkFTRQo+Pj4+ICsgICAgIGhleCAiUGxhdGZvcm0gUGh5c2ljYWwgUkFNIGFkZHJlc3MiCj4+Pj4g
+KyAgICAgZGVwZW5kcyBvbiBQSFlTX1JBTV9CQVNFX0ZJWEVECj4+Pj4gKyAgICAgZGVmYXVsdCAi
+MHg4MDAwMDAwMCIKPj4+PiArICAgICBoZWxwCj4+Pj4gKyAgICAgICBUaGlzIGlzIHRoZSBwaHlz
+aWNhbCBhZGRyZXNzIG9mIFJBTSBpbiB0aGUgc3lzdGVtLiBJdCBoYXMgdG8gYmUKPj4+PiArICAg
+ICAgIGV4cGxpY2l0bHkgc3BlY2lmaWVkIHRvIHJ1biBlYXJseSByZWxvY2F0aW9ucyBvZiByZWFk
+LXdyaXRlIGRhdGEKPj4+PiArICAgICAgIGZyb20gZmxhc2ggdG8gUkFNLgo+Pj4+ICsKPj4+PiAr
+Y29uZmlnIFhJUF9LRVJORUwKPj4+PiArICAgICBib29sICJLZXJuZWwgRXhlY3V0ZS1Jbi1QbGFj
+ZSBmcm9tIFJPTSIKPj4+PiArICAgICBkZXBlbmRzIG9uIE1NVQo+Pj4+ICsgICAgIHNlbGVjdCBQ
+SFlTX1JBTV9CQVNFX0ZJWEVECj4+Pj4gKyAgICAgaGVscAo+Pj4+ICsgICAgICAgRXhlY3V0ZS1J
+bi1QbGFjZSBhbGxvd3MgdGhlIGtlcm5lbCB0byBydW4gZnJvbSBub24tdm9sYXRpbGUgc3RvcmFn
+ZQo+Pj4+ICsgICAgICAgZGlyZWN0bHkgYWRkcmVzc2FibGUgYnkgdGhlIENQVSwgc3VjaCBhcyBO
+T1IgZmxhc2guIFRoaXMgc2F2ZXMgUkFNCj4+Pj4gKyAgICAgICBzcGFjZSBzaW5jZSB0aGUgdGV4
+dCBzZWN0aW9uIG9mIHRoZSBrZXJuZWwgaXMgbm90IGxvYWRlZCBmcm9tIGZsYXNoCj4+Pj4gKyAg
+ICAgICB0byBSQU0uICBSZWFkLXdyaXRlIHNlY3Rpb25zLCBzdWNoIGFzIHRoZSBkYXRhIHNlY3Rp
+b24gYW5kIHN0YWNrLAo+Pj4+ICsgICAgICAgYXJlIHN0aWxsIGNvcGllZCB0byBSQU0uICBUaGUg
+WElQIGtlcm5lbCBpcyBub3QgY29tcHJlc3NlZCBzaW5jZQo+Pj4+ICsgICAgICAgaXQgaGFzIHRv
+IHJ1biBkaXJlY3RseSBmcm9tIGZsYXNoLCBzbyBpdCB3aWxsIHRha2UgbW9yZSBzcGFjZSB0bwo+
+Pj4+ICsgICAgICAgc3RvcmUgaXQuICBUaGUgZmxhc2ggYWRkcmVzcyB1c2VkIHRvIGxpbmsgdGhl
+IGtlcm5lbCBvYmplY3QgZmlsZXMsCj4+Pj4gKyAgICAgICBhbmQgZm9yIHN0b3JpbmcgaXQsIGlz
+IGNvbmZpZ3VyYXRpb24gZGVwZW5kZW50LiBUaGVyZWZvcmUsIGlmIHlvdQo+Pj4+ICsgICAgICAg
+c2F5IFkgaGVyZSwgeW91IG11c3Qga25vdyB0aGUgcHJvcGVyIHBoeXNpY2FsIGFkZHJlc3Mgd2hl
+cmUgdG8KPj4+PiArICAgICAgIHN0b3JlIHRoZSBrZXJuZWwgaW1hZ2UgZGVwZW5kaW5nIG9uIHlv
+dXIgb3duIGZsYXNoIG1lbW9yeSB1c2FnZS4KPj4+PiArCj4+Pj4gKyAgICAgICBBbHNvIG5vdGUg
+dGhhdCB0aGUgbWFrZSB0YXJnZXQgYmVjb21lcyAibWFrZSB4aXBJbWFnZSIgcmF0aGVyIHRoYW4K
+Pj4+PiArICAgICAgICJtYWtlIHpJbWFnZSIgb3IgIm1ha2UgSW1hZ2UiLiAgVGhlIGZpbmFsIGtl
+cm5lbCBiaW5hcnkgdG8gcHV0IGluCj4+Pj4gKyAgICAgICBST00gbWVtb3J5IHdpbGwgYmUgYXJj
+aC9yaXNjdi9ib290L3hpcEltYWdlLgo+Pj4+ICsKPj4+PiArICAgICAgIElmIHVuc3VyZSwgc2F5
+IE4uCj4+Pj4gKwo+Pj4+ICtjb25maWcgWElQX1BIWVNfQUREUgo+Pj4+ICsgICAgIGhleCAiWElQ
+IEtlcm5lbCBQaHlzaWNhbCBMb2NhdGlvbiIKPj4+PiArICAgICBkZXBlbmRzIG9uIFhJUF9LRVJO
+RUwKPj4+PiArICAgICBkZWZhdWx0ICIweDIxMDAwMDAwIgo+Pj4+ICsgICAgIGhlbHAKPj4+PiAr
+ICAgICAgIFRoaXMgaXMgdGhlIHBoeXNpY2FsIGFkZHJlc3MgaW4geW91ciBmbGFzaCBtZW1vcnkg
+dGhlIGtlcm5lbCB3aWxsCj4+Pj4gKyAgICAgICBiZSBsaW5rZWQgZm9yIGFuZCBzdG9yZWQgdG8u
+ICBUaGlzIGFkZHJlc3MgaXMgZGVwZW5kZW50IG9uIHlvdXIKPj4+PiArICAgICAgIG93biBmbGFz
+aCB1c2FnZS4KPj4+PiArCj4+Pj4gICBlbmRtZW51Cj4+Pj4KPj4+PiAgIGNvbmZpZyBCVUlMVElO
+X0RUQgo+Pj4+IC0gICAgIGRlZl9ib29sIG4KPj4+PiArICAgICBib29sCj4+Pj4gICAgICAgIGRl
+cGVuZHMgb24gT0YKPj4+PiArICAgICBkZWZhdWx0IHkgaWYgWElQX0tFUk5FTAo+Pj4+Cj4+Pj4g
+ICBtZW51ICJQb3dlciBtYW5hZ2VtZW50IG9wdGlvbnMiCj4+Pj4KPj4+PiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPj4+PiBpbmRleCAxMzY4
+ZDk0M2YxZjMuLjhmY2JlYzAzOTc0ZCAxMDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jpc2N2L01ha2Vm
+aWxlCj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+Pj4+IEBAIC04Miw3ICs4MiwxMSBA
+QCBDSEVDS0ZMQUdTICs9IC1EX19yaXNjdiAtRF9fcmlzY3ZfeGxlbj0kKEJJVFMpCj4+Pj4KPj4+
+PiAgICMgRGVmYXVsdCB0YXJnZXQgd2hlbiBleGVjdXRpbmcgcGxhaW4gbWFrZQo+Pj4+ICAgYm9v
+dCAgICAgICAgIDo9IGFyY2gvcmlzY3YvYm9vdAo+Pj4+ICtpZmVxICgkKENPTkZJR19YSVBfS0VS
+TkVMKSx5KQo+Pj4+ICtLQlVJTERfSU1BR0UgOj0gJChib290KS94aXBJbWFnZQo+Pj4+ICtlbHNl
+Cj4+Pj4gICBLQlVJTERfSU1BR0UgOj0gJChib290KS9JbWFnZS5nego+Pj4+ICtlbmRpZgo+Pj4+
+Cj4+Pj4gICBoZWFkLXkgOj0gYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5vCj4+Pj4KPj4+PiBAQCAt
+OTUsMTIgKzk5LDE0IEBAIFBIT05ZICs9IHZkc29faW5zdGFsbAo+Pj4+ICAgdmRzb19pbnN0YWxs
+Ogo+Pj4+ICAgICAgICAkKFEpJChNQUtFKSAkKGJ1aWxkKT1hcmNoL3Jpc2N2L2tlcm5lbC92ZHNv
+ICRACj4+Pj4KPj4+PiAraWZuZXEgKCQoQ09ORklHX1hJUF9LRVJORUwpLHkpCj4+Pj4gICBpZmVx
+ICgkKENPTkZJR19SSVNDVl9NX01PREUpJChDT05GSUdfU09DX0NBTkFBTikseXkpCj4+Pj4gICBL
+QlVJTERfSU1BR0UgOj0gJChib290KS9sb2FkZXIuYmluCj4+Pj4gICBlbHNlCj4+Pj4gICBLQlVJ
+TERfSU1BR0UgOj0gJChib290KS9JbWFnZS5nego+Pj4+ICAgZW5kaWYKPj4+PiAtQk9PVF9UQVJH
+RVRTIDo9IEltYWdlIEltYWdlLmd6IGxvYWRlciBsb2FkZXIuYmluCj4+Pj4gK2VuZGlmCj4+Pj4g
+K0JPT1RfVEFSR0VUUyA6PSBJbWFnZSBJbWFnZS5neiBsb2FkZXIgbG9hZGVyLmJpbiB4aXBJbWFn
+ZQo+Pj4+Cj4+Pj4gICBhbGw6ICQobm90ZGlyICQoS0JVSUxEX0lNQUdFKSkKPj4+Pgo+Pj4+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2Jvb3QvTWFr
+ZWZpbGUKPj4+PiBpbmRleCAwMzQwNGM4NGY5NzEuLjZiZjI5OWY3MGMyNyAxMDA2NDQKPj4+PiAt
+LS0gYS9hcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3Qv
+TWFrZWZpbGUKPj4+PiBAQCAtMTcsOCArMTcsMjEgQEAKPj4+PiAgIEtDT1ZfSU5TVFJVTUVOVCA6
+PSBuCj4+Pj4KPj4+PiAgIE9CSkNPUFlGTEFHU19JbWFnZSA6PS1PIGJpbmFyeSAtUiAubm90ZSAt
+UiAubm90ZS5nbnUuYnVpbGQtaWQgLVIgLmNvbW1lbnQgLVMKPj4+PiArT0JKQ09QWUZMQUdTX3hp
+cEltYWdlIDo9LU8gYmluYXJ5IC1SIC5ub3RlIC1SIC5ub3RlLmdudS5idWlsZC1pZCAtUiAuY29t
+bWVudCAtUwo+Pj4+Cj4+Pj4gICB0YXJnZXRzIDo9IEltYWdlIEltYWdlLiogbG9hZGVyIGxvYWRl
+ci5vIGxvYWRlci5sZHMgbG9hZGVyLmJpbgo+Pj4+ICt0YXJnZXRzIDo9IEltYWdlIEltYWdlLiog
+bG9hZGVyIGxvYWRlci5vIGxvYWRlci5sZHMgbG9hZGVyLmJpbiB4aXBJbWFnZQo+Pj4+ICsKPj4+
+PiAraWZlcSAoJChDT05GSUdfWElQX0tFUk5FTCkseSkKPj4+PiArCj4+Pj4gK3F1aWV0X2NtZF9t
+a3hpcCA9ICQocXVpZXRfY21kX29iamNvcHkpCj4+Pj4gK2NtZF9ta3hpcCA9ICQoY21kX29iamNv
+cHkpCj4+Pj4gKwo+Pj4+ICskKG9iaikveGlwSW1hZ2U6IHZtbGludXggRk9SQ0UKPj4+PiArICAg
+ICAkKGNhbGwgaWZfY2hhbmdlZCxta3hpcCkKPj4+PiArICAgICBAJChrZWNobykgJyAgUGh5c2lj
+YWwgQWRkcmVzcyBvZiB4aXBJbWFnZTogJChDT05GSUdfWElQX1BIWVNfQUREUiknCj4+Pj4gKwo+
+Pj4+ICtlbmRpZgo+Pj4+Cj4+Pj4gICAkKG9iaikvSW1hZ2U6IHZtbGludXggRk9SQ0UKPj4+PiAg
+ICAgICAgJChjYWxsIGlmX2NoYW5nZWQsb2JqY29weSkKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFi
+bGUuaAo+Pj4+IGluZGV4IGViZjgxN2MxYmRmNC4uMjFhOWIyZjhkMWM3IDEwMDY0NAo+Pj4+IC0t
+LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4+Pj4gKysrIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPj4+PiBAQCAtMTEsNiArMTEsMzMgQEAKPj4+Pgo+Pj4+
+ICAgI2luY2x1ZGUgPGFzbS9wZ3RhYmxlLWJpdHMuaD4KPj4+Pgo+Pj4+ICsjaWZkZWYgQ09ORklH
+X01NVQo+Pj4+ICsKPj4+PiArI2RlZmluZSBWTUFMTE9DX1NUQVJUICAgIChQQUdFX09GRlNFVCAt
+IFZNQUxMT0NfU0laRSkKPj4+PiArCj4+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+
+ICsjZGVmaW5lIFZNQUxMT0NfU0laRSAgICAgKChLRVJOX1ZJUlRfU0laRSA+PiAxKSAtIFNaXzE2
+TSkKPj4+PiArI2RlZmluZSBWTUFMTE9DX0VORCAgICAgIChQQUdFX09GRlNFVCAtIFNaXzE2TSAt
+IDEpCj4+Pj4gKwo+Pj4+ICsjZGVmaW5lIFhJUF9PRkZTRVQgICAgICAgICAgIFNaXzhNCj4+Pj4g
+KyNkZWZpbmUgWElQX01BU0sgICAgICAgICAgICAgKFNaXzhNIC0gMSkKPj4+PiArI2RlZmluZSBY
+SVBfVklSVF9BRERSKHBoeXNhZGRyKSAgICAgIFwKPj4+PiArICAgICAoUEFHRV9PRkZTRVQgLSBY
+SVBfT0ZGU0VUICsgKChwaHlzYWRkcikgJiBYSVBfTUFTSykpCj4+Pj4gKwo+Pj4+ICsjZWxzZQo+
+Pj4+ICsKPj4+PiArI2RlZmluZSBWTUFMTE9DX1NJWkUgICAgIChLRVJOX1ZJUlRfU0laRSA+PiAx
+KQo+Pj4+ICsjZGVmaW5lIFZNQUxMT0NfRU5EICAgICAgKFBBR0VfT0ZGU0VUIC0gMSkKPj4+PiAr
+Cj4+Pj4gKyNlbmRpZiAvKiBDT05GSUdfWElQX0tFUk5FTCAqLwo+Pj4+ICsKPj4+PiArI2Vsc2UK
+Pj4+PiArCj4+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsjZGVmaW5lIFhJUF9W
+SVJUX0FERFIocGh5c2FkZHIpIChwaHlzYWRkcikKPj4+PiArI2VuZGlmIC8qIENPTkZJR19YSVBf
+S0VSTkVMICovCj4+Pj4gKyNlbmRpZiAvKiBDT05GSUdfTU1VICovCj4+Pj4gKwo+Pj4+ICAgI2lm
+bmRlZiBfX0FTU0VNQkxZX18KPj4+Pgo+Pj4+ICAgLyogUGFnZSBVcHBlciBEaXJlY3Rvcnkgbm90
+IHVzZWQgaW4gUklTQy1WICovCj4+Pj4gQEAgLTIxLDkgKzQ4LDI1IEBACj4+Pj4KPj4+PiAgICNp
+ZmRlZiBDT05GSUdfTU1VCj4+Pj4KPj4+PiAtI2RlZmluZSBWTUFMTE9DX1NJWkUgICAgIChLRVJO
+X1ZJUlRfU0laRSA+PiAxKQo+Pj4+IC0jZGVmaW5lIFZNQUxMT0NfRU5EICAgICAgKFBBR0VfT0ZG
+U0VUIC0gMSkKPj4+PiAtI2RlZmluZSBWTUFMTE9DX1NUQVJUICAgIChQQUdFX09GRlNFVCAtIFZN
+QUxMT0NfU0laRSkKPj4+PiArI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4+Pj4gKy8qCj4+Pj4g
+KyAqIFNpbmNlIHdlIHVzZSBzZWN0aW9ucyB0byBtYXAgaXQsIHRoaXMgbWFjcm8gcmVwbGFjZXMg
+dGhlIHBoeXNpY2FsIGFkZHJlc3MKPj4+PiArICogd2l0aCBpdHMgdmlydHVhbCBhZGRyZXNzIHdo
+aWxlIGtlZXBpbmcgb2Zmc2V0IGZyb20gdGhlIGJhc2Ugc2VjdGlvbi4KPj4+PiArICovCj4+Pj4g
+KyNkZWZpbmUgWElQX1BIWVNfQUREUih2YSkgICAgIFwKPj4+PiArICAgICAoKHVpbnRwdHJfdCko
+dmEpIC0gUEFHRV9PRkZTRVQgKyBYSVBfT0ZGU0VUICsgQ09ORklHX1hJUF9QSFlTX0FERFIpCj4+
+Pj4gKwo+Pj4+ICsjZGVmaW5lIFhJUF9WSVJUX0FERFJfU1RBUlQgIFhJUF9WSVJUX0FERFIoQ09O
+RklHX1hJUF9QSFlTX0FERFIpCj4+Pj4gKwo+Pj4+ICsjZGVmaW5lIFhJUF9GSVhVUChhZGRyKSAg
+ICAgICAgICAgICAgKHsgXAo+Pj4+ICsgICAgIHVpbnRwdHJfdCBfX2EgPSAodWludHB0cl90KShh
+ZGRyKTsgXAo+Pj4+ICsgICAgIChfX2EgPj0gQ09ORklHX1hJUF9QSFlTX0FERFIgJiYgXAo+Pj4+
+ICsgICAgICBfX2EgPCBDT05GSUdfWElQX1BIWVNfQUREUiArIFNaXzE2TSkgPyBcCj4+Pj4gKyAg
+ICAgX19hIC0gQ09ORklHX1hJUF9QSFlTX0FERFIgKyBDT05GSUdfUEhZU19SQU1fQkFTRSAtIFhJ
+UF9PRkZTRVQgOiBfX2E7IFwKPj4+PiArfSkKPj4+PiArI2Vsc2UKPj4+PiArI2RlZmluZSBYSVBf
+RklYVVAoYWRkcikgICAgICAgICAgICAgIChhZGRyKQo+Pj4+ICsjZW5kaWYgLyogQ09ORklHX1hJ
+UF9LRVJORUwgKi8KPj4+Pgo+Pj4+ICAgI2RlZmluZSBCUEZfSklUX1JFR0lPTl9TSVpFICAoU1pf
+MTI4TSkKPj4+PiAgICNkZWZpbmUgQlBGX0pJVF9SRUdJT05fU1RBUlQgKFBBR0VfT0ZGU0VUIC0g
+QlBGX0pJVF9SRUdJT05fU0laRSkKPj4+PiBAQCAtNDg0LDggKzUyNywyMCBAQCBzdGF0aWMgaW5s
+aW5lIGludCBwdGVwX2NsZWFyX2ZsdXNoX3lvdW5nKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1h
+LAo+Pj4+Cj4+Pj4gICAjZGVmaW5lIGtlcm5fYWRkcl92YWxpZChhZGRyKSAgICgxKSAvKiBGSVhN
+RSAqLwo+Pj4+Cj4+Pj4gLWV4dGVybiB2b2lkICpkdGJfZWFybHlfdmE7Cj4+Pj4gLWV4dGVybiB1
+aW50cHRyX3QgZHRiX2Vhcmx5X3BhOwo+Pj4+ICtleHRlcm4gdm9pZCAqX2R0Yl9lYXJseV92YTsK
+Pj4+PiArZXh0ZXJuIHVpbnRwdHJfdCBfZHRiX2Vhcmx5X3BhOwo+Pj4+ICsjaWYgZGVmaW5lZChD
+T05GSUdfWElQX0tFUk5FTCkgJiYgZGVmaW5lZChDT05GSUdfTU1VKQo+Pj4+ICsKPj4+PiArI2Rl
+ZmluZSBkdGJfZWFybHlfdmEgKCoodm9pZCAqKilYSVBfRklYVVAoJl9kdGJfZWFybHlfdmEpKQo+
+Pj4+ICsjZGVmaW5lIGR0Yl9lYXJseV9wYSAoKih1aW50cHRyX3QgKilYSVBfRklYVVAoJl9kdGJf
+ZWFybHlfcGEpKQo+Pj4+ICsKPj4+PiArI2Vsc2UKPj4+PiArCj4+Pj4gKyNkZWZpbmUgZHRiX2Vh
+cmx5X3ZhIF9kdGJfZWFybHlfdmEKPj4+PiArI2RlZmluZSBkdGJfZWFybHlfcGEgX2R0Yl9lYXJs
+eV9wYQo+Pj4+ICsKPj4+PiArI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4+Pj4gKwo+
+Pj4+ICAgdm9pZCBzZXR1cF9ib290bWVtKHZvaWQpOwo+Pj4+ICAgdm9pZCBwYWdpbmdfaW5pdCh2
+b2lkKTsKPj4+PiAgIHZvaWQgbWlzY19tZW1faW5pdCh2b2lkKTsKPj4+PiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9rZXJuZWwvY3B1X29wc19zYmkuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdV9v
+cHNfc2JpLmMKPj4+PiBpbmRleCA2ODVmYWU3MmI3ZjUuLjI0MTNjMjk5NzM1MCAxMDA2NDQKPj4+
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVfb3BzX3NiaS5jCj4+Pj4gKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvY3B1X29wc19zYmkuYwo+Pj4+IEBAIC01MywxMCArNTMsMTkgQEAgc3RhdGlj
+IGludCBzYmlfaHNtX2hhcnRfZ2V0X3N0YXR1cyh1bnNpZ25lZCBsb25nIGhhcnRpZCkKPj4+PiAg
+IH0KPj4+PiAgICNlbmRpZgo+Pj4+Cj4+Pj4gK3N0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBn
+ZXRfc2Vjb25kYXJ5X3N0YXJ0X3BoeXModm9pZCkKPj4+PiArewo+Pj4+ICsjaWZkZWYgQ09ORklH
+X1hJUF9LRVJORUwKPj4+PiArICAgICByZXR1cm4gWElQX1BIWVNfQUREUihzZWNvbmRhcnlfc3Rh
+cnRfc2JpKTsKPj4+PiArI2Vsc2UKPj4+PiArICAgICByZXR1cm4gX19wYV9zeW1ib2woc2Vjb25k
+YXJ5X3N0YXJ0X3NiaSk7Cj4+Pj4gKyNlbmRpZgo+Pj4+ICt9Cj4+Pj4gKwo+Pj4+ICAgc3RhdGlj
+IGludCBzYmlfY3B1X3N0YXJ0KHVuc2lnbmVkIGludCBjcHVpZCwgc3RydWN0IHRhc2tfc3RydWN0
+ICp0aWRsZSkKPj4+PiAgIHsKPj4+PiAgICAgICAgaW50IHJjOwo+Pj4+IC0gICAgIHVuc2lnbmVk
+IGxvbmcgYm9vdF9hZGRyID0gX19wYV9zeW1ib2woc2Vjb25kYXJ5X3N0YXJ0X3NiaSk7Cj4+Pj4g
+KyAgICAgdW5zaWduZWQgbG9uZyBib290X2FkZHIgPSBnZXRfc2Vjb25kYXJ5X3N0YXJ0X3BoeXMo
+KTsKPj4+PiAgICAgICAgaW50IGhhcnRpZCA9IGNwdWlkX3RvX2hhcnRpZF9tYXAoY3B1aWQpOwo+
+Pj4+Cj4+Pj4gICAgICAgIGNwdV91cGRhdGVfc2Vjb25kYXJ5X2Jvb3RkYXRhKGNwdWlkLCB0aWRs
+ZSk7Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2hlYWQuUyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL2hlYWQuUwo+Pj4+IGluZGV4IGY1YTliYWQ4NmU1OC4uYmJlNzRlMzc5MTRmIDEw
+MDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2hlYWQuUwo+Pj4+ICsrKyBiL2FyY2gv
+cmlzY3Yva2VybmVsL2hlYWQuUwo+Pj4+IEBAIC05LDExICs5LDIzIEBACj4+Pj4gICAjaW5jbHVk
+ZSA8bGludXgvbGlua2FnZS5oPgo+Pj4+ICAgI2luY2x1ZGUgPGFzbS90aHJlYWRfaW5mby5oPgo+
+Pj4+ICAgI2luY2x1ZGUgPGFzbS9wYWdlLmg+Cj4+Pj4gKyNpbmNsdWRlIDxhc20vcGd0YWJsZS5o
+Pgo+Pj4+ICAgI2luY2x1ZGUgPGFzbS9jc3IuaD4KPj4+PiAgICNpbmNsdWRlIDxhc20vaHdjYXAu
+aD4KPj4+PiAgICNpbmNsdWRlIDxhc20vaW1hZ2UuaD4KPj4+PiAgICNpbmNsdWRlICJlZmktaGVh
+ZGVyLlMiCj4+Pj4KPj4+PiArI2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4+Pj4gKy5tYWNybyBY
+SVBfRklYVVBfT0ZGU0VUIHJlZwo+Pj4+ICsgICAgIFJFR19MIHQwLCBfeGlwX2ZpeHVwCj4+Pj4g
+KyAgICAgYWRkIFxyZWcsIFxyZWcsIHQwCj4+Pj4gKy5lbmRtCj4+Pj4gK194aXBfZml4dXA6IC5k
+d29yZCBDT05GSUdfUEhZU19SQU1fQkFTRSAtIENPTkZJR19YSVBfUEhZU19BRERSIC0gWElQX09G
+RlNFVAo+Pj4+ICsjZWxzZQo+Pj4+ICsubWFjcm8gWElQX0ZJWFVQX09GRlNFVCByZWcKPj4+PiAr
+LmVuZG0KPj4+PiArI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4+Pj4gKwo+Pj4+ICAg
+X19IRUFECj4+Pj4gICBFTlRSWShfc3RhcnQpCj4+Pj4gICAgICAgIC8qCj4+Pj4gQEAgLTY5LDcg
+KzgxLDExIEBAIHBlX2hlYWRfc3RhcnQ6Cj4+Pj4gICAjaWZkZWYgQ09ORklHX01NVQo+Pj4+ICAg
+cmVsb2NhdGU6Cj4+Pj4gICAgICAgIC8qIFJlbG9jYXRlIHJldHVybiBhZGRyZXNzICovCj4+Pj4g
+KyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsgICAgIGxpIGExLCBYSVBfVklSVF9BRERS
+KENPTkZJR19YSVBfUEhZU19BRERSKQo+Pj4+ICsjZWxzZQo+Pj4+ICAgICAgICBsaSBhMSwgUEFH
+RV9PRkZTRVQKPj4+PiArI2VuZGlmCj4+Pj4gICAgICAgIGxhIGEyLCBfc3RhcnQKPj4+PiAgICAg
+ICAgc3ViIGExLCBhMSwgYTIKPj4+PiAgICAgICAgYWRkIHJhLCByYSwgYTEKPj4+PiBAQCAtOTEs
+NiArMTA3LDcgQEAgcmVsb2NhdGU6Cj4+Pj4gICAgICAgICAqIHRvIGVuc3VyZSB0aGUgbmV3IHRy
+YW5zbGF0aW9ucyBhcmUgaW4gdXNlLgo+Pj4+ICAgICAgICAgKi8KPj4+PiAgICAgICAgbGEgYTAs
+IHRyYW1wb2xpbmVfcGdfZGlyCj4+Pj4gKyAgICAgWElQX0ZJWFVQX09GRlNFVCBhMAo+Pj4+ICAg
+ICAgICBzcmwgYTAsIGEwLCBQQUdFX1NISUZUCj4+Pj4gICAgICAgIG9yIGEwLCBhMCwgYTEKPj4+
+PiAgICAgICAgc2ZlbmNlLnZtYQo+Pj4+IEBAIC0xNDQsNyArMTYxLDkgQEAgc2Vjb25kYXJ5X3N0
+YXJ0X3NiaToKPj4+Pgo+Pj4+ICAgICAgICBzbGxpIGEzLCBhMCwgTEdSRUcKPj4+PiAgICAgICAg
+bGEgYTQsIF9fY3B1X3VwX3N0YWNrX3BvaW50ZXIKPj4+PiArICAgICBYSVBfRklYVVBfT0ZGU0VU
+IGE0Cj4+Pj4gICAgICAgIGxhIGE1LCBfX2NwdV91cF90YXNrX3BvaW50ZXIKPj4+PiArICAgICBY
+SVBfRklYVVBfT0ZGU0VUIGE1Cj4+Pj4gICAgICAgIGFkZCBhNCwgYTMsIGE0Cj4+Pj4gICAgICAg
+IGFkZCBhNSwgYTMsIGE1Cj4+Pj4gICAgICAgIFJFR19MIHNwLCAoYTQpCj4+Pj4gQEAgLTE1Niw2
+ICsxNzUsNyBAQCBzZWNvbmRhcnlfc3RhcnRfY29tbW9uOgo+Pj4+ICAgI2lmZGVmIENPTkZJR19N
+TVUKPj4+PiAgICAgICAgLyogRW5hYmxlIHZpcnR1YWwgbWVtb3J5IGFuZCByZWxvY2F0ZSB0byB2
+aXJ0dWFsIGFkZHJlc3MgKi8KPj4+PiAgICAgICAgbGEgYTAsIHN3YXBwZXJfcGdfZGlyCj4+Pj4g
+KyAgICAgWElQX0ZJWFVQX09GRlNFVCBhMAo+Pj4+ICAgICAgICBjYWxsIHJlbG9jYXRlCj4+Pj4g
+ICAjZW5kaWYKPj4+PiAgICAgICAgY2FsbCBzZXR1cF90cmFwX3ZlY3Rvcgo+Pj4+IEBAIC0yMzYs
+MTIgKzI1NiwzMyBAQCBwbXBfZG9uZToKPj4+PiAgIC5MZ29vZF9jb3JlczoKPj4+PiAgICNlbmRp
+Zgo+Pj4+Cj4+Pj4gKyNpZm5kZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiAgICAgICAgLyogUGlj
+ayBvbmUgaGFydCB0byBydW4gdGhlIG1haW4gYm9vdCBzZXF1ZW5jZSAqLwo+Pj4+ICAgICAgICBs
+YSBhMywgaGFydF9sb3R0ZXJ5Cj4+Pj4gICAgICAgIGxpIGEyLCAxCj4+Pj4gICAgICAgIGFtb2Fk
+ZC53IGEzLCBhMiwgKGEzKQo+Pj4+ICAgICAgICBibmV6IGEzLCAuTHNlY29uZGFyeV9zdGFydAo+
+Pj4+Cj4+Pj4gKyNlbHNlCj4+Pj4gKyAgICAgLyogaGFydF9sb3R0ZXJ5IGluIGZsYXNoIGNvbnRh
+aW5zIGEgbWFnaWMgbnVtYmVyICovCj4+Pj4gKyAgICAgbGEgYTMsIGhhcnRfbG90dGVyeQo+Pj4+
+ICsgICAgIG12IGEyLCBhMwo+Pj4+ICsgICAgIFhJUF9GSVhVUF9PRkZTRVQgYTIKPj4+PiArICAg
+ICBsdyB0MSwgKGEzKQo+Pj4+ICsgICAgIGFtb3N3YXAudyB0MCwgdDEsIChhMikKPj4+PiArICAg
+ICAvKiBmaXJzdCB0aW1lIGhlcmUgaWYgaGFydF9sb3R0ZXJ5IGluIFJBTSBpcyBub3Qgc2V0ICov
+Cj4+Pj4gKyAgICAgYmVxIHQwLCB0MSwgLkxzZWNvbmRhcnlfc3RhcnQKPj4+PiArCj4+Pj4gKyAg
+ICAgbGEgc3AsIF9lbmQgKyBUSFJFQURfU0laRQo+Pj4+ICsgICAgIFhJUF9GSVhVUF9PRkZTRVQg
+c3AKPj4+PiArICAgICBtdiBzMCwgYTAKPj4+PiArICAgICBjYWxsIF9fY29weV9kYXRhCj4+Pj4g
+Kwo+Pj4+ICsgICAgIC8qIFJlc3RvcmUgYTAgY29weSAqLwo+Pj4+ICsgICAgIG12IGEwLCBzMAo+
+Pj4+ICsjZW5kaWYKPj4+PiArCj4+Pj4gKyNpZm5kZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiAg
+ICAgICAgLyogQ2xlYXIgQlNTIGZvciBmbGF0IG5vbi1FTEYgaW1hZ2VzICovCj4+Pj4gICAgICAg
+IGxhIGEzLCBfX2Jzc19zdGFydAo+Pj4+ICAgICAgICBsYSBhNCwgX19ic3Nfc3RvcAo+Pj4+IEBA
+IC0yNTEsMTUgKzI5MiwxOCBAQCBjbGVhcl9ic3M6Cj4+Pj4gICAgICAgIGFkZCBhMywgYTMsIFJJ
+U0NWX1NaUFRSCj4+Pj4gICAgICAgIGJsdCBhMywgYTQsIGNsZWFyX2Jzcwo+Pj4+ICAgY2xlYXJf
+YnNzX2RvbmU6Cj4+Pj4gLQo+Pj4+ICsjZW5kaWYKPj4+PiAgICAgICAgLyogU2F2ZSBoYXJ0IElE
+IGFuZCBEVEIgcGh5c2ljYWwgYWRkcmVzcyAqLwo+Pj4+ICAgICAgICBtdiBzMCwgYTAKPj4+PiAg
+ICAgICAgbXYgczEsIGExCj4+Pj4gKwo+Pj4+ICAgICAgICBsYSBhMiwgYm9vdF9jcHVfaGFydGlk
+Cj4+Pj4gKyAgICAgWElQX0ZJWFVQX09GRlNFVCBhMgo+Pj4+ICAgICAgICBSRUdfUyBhMCwgKGEy
+KQo+Pj4+Cj4+Pj4gICAgICAgIC8qIEluaXRpYWxpemUgcGFnZSB0YWJsZXMgYW5kIHJlbG9jYXRl
+IHRvIHZpcnR1YWwgYWRkcmVzc2VzICovCj4+Pj4gICAgICAgIGxhIHNwLCBpbml0X3RocmVhZF91
+bmlvbiArIFRIUkVBRF9TSVpFCj4+Pj4gKyAgICAgWElQX0ZJWFVQX09GRlNFVCBzcAo+Pj4+ICAg
+I2lmZGVmIENPTkZJR19CVUlMVElOX0RUQgo+Pj4+ICAgICAgICBsYSBhMCwgX19kdGJfc3RhcnQK
+Pj4+PiAgICNlbHNlCj4+Pj4gQEAgLTI2OCw2ICszMTIsNyBAQCBjbGVhcl9ic3NfZG9uZToKPj4+
+PiAgICAgICAgY2FsbCBzZXR1cF92bQo+Pj4+ICAgI2lmZGVmIENPTkZJR19NTVUKPj4+PiAgICAg
+ICAgbGEgYTAsIGVhcmx5X3BnX2Rpcgo+Pj4+ICsgICAgIFhJUF9GSVhVUF9PRkZTRVQgYTAKPj4+
+PiAgICAgICAgY2FsbCByZWxvY2F0ZQo+Pj4+ICAgI2VuZGlmIC8qIENPTkZJR19NTVUgKi8KPj4+
+Pgo+Pj4+IEBAIC0yOTIsNyArMzM3LDkgQEAgY2xlYXJfYnNzX2RvbmU6Cj4+Pj4KPj4+PiAgICAg
+ICAgc2xsaSBhMywgYTAsIExHUkVHCj4+Pj4gICAgICAgIGxhIGExLCBfX2NwdV91cF9zdGFja19w
+b2ludGVyCj4+Pj4gKyAgICAgWElQX0ZJWFVQX09GRlNFVCBhMQo+Pj4+ICAgICAgICBsYSBhMiwg
+X19jcHVfdXBfdGFza19wb2ludGVyCj4+Pj4gKyAgICAgWElQX0ZJWFVQX09GRlNFVCBhMgo+Pj4+
+ICAgICAgICBhZGQgYTEsIGEzLCBhMQo+Pj4+ICAgICAgICBhZGQgYTIsIGEzLCBhMgo+Pj4+Cj4+
+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2hlYWQuaCBiL2FyY2gvcmlzY3Yva2Vy
+bmVsL2hlYWQuaAo+Pj4+IGluZGV4IGI0OGRkYTNkMDRmNi4uYWFiYmMzYWMzZTQ4IDEwMDY0NAo+
+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2hlYWQuaAo+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yv
+a2VybmVsL2hlYWQuaAo+Pj4+IEBAIC0xMiw2ICsxMiw5IEBAIGV4dGVybiBhdG9taWNfdCBoYXJ0
+X2xvdHRlcnk7Cj4+Pj4KPj4+PiAgIGFzbWxpbmthZ2Ugdm9pZCBkb19wYWdlX2ZhdWx0KHN0cnVj
+dCBwdF9yZWdzICpyZWdzKTsKPj4+PiAgIGFzbWxpbmthZ2Ugdm9pZCBfX2luaXQgc2V0dXBfdm0o
+dWludHB0cl90IGR0Yl9wYSk7Cj4+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICth
+c21saW5rYWdlIHZvaWQgX19pbml0IF9fY29weV9kYXRhKHZvaWQpOwo+Pj4+ICsjZW5kaWYKPj4+
+Pgo+Pj4+ICAgZXh0ZXJuIHZvaWQgKl9fY3B1X3VwX3N0YWNrX3BvaW50ZXJbXTsKPj4+PiAgIGV4
+dGVybiB2b2lkICpfX2NwdV91cF90YXNrX3BvaW50ZXJbXTsKPj4+PiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPj4+PiBp
+bmRleCBlODViYWNmZjFiNTAuLmEwMzg0YzcyYzI3MiAxMDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9zZXR1cC5jCj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+
+Pj4+IEBAIC01MCw3ICs1MCwxMSBAQCBzdHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm8gX19z
+ZWN0aW9uKCIuZGF0YSIpID0gewo+Pj4+ICAgICogVGhpcyBpcyB1c2VkIGJlZm9yZSB0aGUga2Vy
+bmVsIGluaXRpYWxpemVzIHRoZSBCU1Mgc28gaXQgY2FuJ3QgYmUgaW4gdGhlCj4+Pj4gICAgKiBC
+U1MuCj4+Pj4gICAgKi8KPj4+PiAtYXRvbWljX3QgaGFydF9sb3R0ZXJ5IF9fc2VjdGlvbigiLnNk
+YXRhIik7Cj4+Pj4gK2F0b21pY190IGhhcnRfbG90dGVyeSBfX3NlY3Rpb24oIi5zZGF0YSIpCj4+
+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICs9IEFUT01JQ19JTklUKDB4QzAwMUJF
+RUYpCj4+Pj4gKyNlbmRpZgo+Pj4+ICs7Cj4+Pj4gICB1bnNpZ25lZCBsb25nIGJvb3RfY3B1X2hh
+cnRpZDsKPj4+PiAgIHN0YXRpYyBERUZJTkVfUEVSX0NQVShzdHJ1Y3QgY3B1LCBjcHVfZGV2aWNl
+cyk7Cj4+Pj4KPj4+PiBAQCAtMjU0LDcgKzI1OCw3IEBAIHZvaWQgX19pbml0IHNldHVwX2FyY2go
+Y2hhciAqKmNtZGxpbmVfcCkKPj4+PiAgICNpZiBJU19FTkFCTEVEKENPTkZJR19CVUlMVElOX0RU
+QikKPj4+PiAgICAgICAgdW5mbGF0dGVuX2FuZF9jb3B5X2RldmljZV90cmVlKCk7Cj4+Pj4gICAj
+ZWxzZQo+Pj4+IC0gICAgIGlmIChlYXJseV9pbml0X2R0X3ZlcmlmeShfX3ZhKGR0Yl9lYXJseV9w
+YSkpKQo+Pj4+ICsgICAgIGlmIChlYXJseV9pbml0X2R0X3ZlcmlmeShfX3ZhKFhJUF9GSVhVUChk
+dGJfZWFybHlfcGEpKSkpCj4+Pj4gICAgICAgICAgICAgICAgdW5mbGF0dGVuX2RldmljZV90cmVl
+KCk7Cj4+Pj4gICAgICAgIGVsc2UKPj4+PiAgICAgICAgICAgICAgICBwcl9lcnIoIk5vIERUQiBm
+b3VuZCBpbiBrZXJuZWwgbWFwcGluZ3NcbiIpOwo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2tlcm5lbC92bWxpbnV4LXhpcC5sZHMuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgteGlw
+Lmxkcy5TCj4+Pj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4+PiBpbmRleCAwMDAwMDAwMDAwMDAu
+LjlmMGYwOGMzNGNkMwo+Pj4+IC0tLSAvZGV2L251bGwKPj4+PiArKysgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC92bWxpbnV4LXhpcC5sZHMuUwo+Pj4+IEBAIC0wLDAgKzEsMTMyIEBACj4+Pj4gKy8qIFNQ
+RFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkgKi8KPj4+PiArLyoKPj4+PiArICog
+Q29weXJpZ2h0IChDKSAyMDEyIFJlZ2VudHMgb2YgdGhlIFVuaXZlcnNpdHkgb2YgQ2FsaWZvcm5p
+YQo+Pj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMTcgU2lGaXZlCj4+Pj4gKyAqIENvcHlyaWdodCAo
+QykgMjAyMCBWaXRhbHkgV29vbCwgS29uc3Vsa28gQUIKPj4+PiArICovCj4+Pj4gKwo+Pj4+ICsj
+ZGVmaW5lIExPQURfT0ZGU0VUIFhJUF9WSVJUX0FERFIoQ09ORklHX1hJUF9QSFlTX0FERFIpCj4+
+Pj4gKy8qIE5vIF9fcm9fYWZ0ZXJfaW5pdCBkYXRhIGluIHRoZSAucm9kYXRhIHNlY3Rpb24gLSB3
+aGljaCB3aWxsIGFsd2F5cyBiZSBybyAqLwo+Pj4+ICsjZGVmaW5lIFJPX0FGVEVSX0lOSVRfREFU
+QQo+Pj4+ICsKPj4+PiArI2luY2x1ZGUgPGFzbS92bWxpbnV4Lmxkcy5oPgo+Pj4+ICsjaW5jbHVk
+ZSA8YXNtL3BhZ2UuaD4KPj4+PiArI2luY2x1ZGUgPGFzbS9wZ3RhYmxlLmg+Cj4+Pj4gKyNpbmNs
+dWRlIDxhc20vY2FjaGUuaD4KPj4+PiArI2luY2x1ZGUgPGFzbS90aHJlYWRfaW5mby5oPgo+Pj4+
+ICsKPj4+PiArT1VUUFVUX0FSQ0gocmlzY3YpCj4+Pj4gK0VOVFJZKF9zdGFydCkKPj4+PiArCj4+
+Pj4gK2ppZmZpZXMgPSBqaWZmaWVzXzY0Owo+Pj4+ICsKPj4+PiArU0VDVElPTlMKPj4+PiArewo+
+Pj4+ICsgICAgIC8qIEJlZ2lubmluZyBvZiBjb2RlIGFuZCB0ZXh0IHNlZ21lbnQgKi8KPj4+PiAr
+ICAgICAuID0gWElQX1ZJUlRfQUREUihDT05GSUdfWElQX1BIWVNfQUREUik7Cj4+Pj4gKyAgICAg
+X3hpcHJvbSA9IC47Cj4+Pj4gKyAgICAgX3N0YXJ0ID0gLjsKPj4+PiArICAgICBIRUFEX1RFWFRf
+U0VDVElPTgo+Pj4+ICsgICAgIElOSVRfVEVYVF9TRUNUSU9OKFBBR0VfU0laRSkKPj4+PiArICAg
+ICAvKiB3ZSBoYXZlIHRvIGRpc2NhcmQgZXhpdCB0ZXh0IGFuZCBzdWNoIGF0IHJ1bnRpbWUsIG5v
+dCBsaW5rIHRpbWUgKi8KPj4+PiArICAgICAuZXhpdC50ZXh0IDoKPj4+PiArICAgICB7Cj4+Pj4g
+KyAgICAgICAgICAgICBFWElUX1RFWFQKPj4+PiArICAgICB9Cj4+Pj4gKwo+Pj4+ICsgICAgIC50
+ZXh0IDogewo+Pj4+ICsgICAgICAgICAgICAgX3RleHQgPSAuOwo+Pj4+ICsgICAgICAgICAgICAg
+X3N0ZXh0ID0gLjsKPj4+PiArICAgICAgICAgICAgIFRFWFRfVEVYVAo+Pj4+ICsgICAgICAgICAg
+ICAgU0NIRURfVEVYVAo+Pj4+ICsgICAgICAgICAgICAgQ1BVSURMRV9URVhUCj4+Pj4gKyAgICAg
+ICAgICAgICBMT0NLX1RFWFQKPj4+PiArICAgICAgICAgICAgIEtQUk9CRVNfVEVYVAo+Pj4+ICsg
+ICAgICAgICAgICAgRU5UUllfVEVYVAo+Pj4+ICsgICAgICAgICAgICAgSVJRRU5UUllfVEVYVAo+
+Pj4+ICsgICAgICAgICAgICAgU09GVElSUUVOVFJZX1RFWFQKPj4+PiArICAgICAgICAgICAgICoo
+LmZpeHVwKQo+Pj4+ICsgICAgICAgICAgICAgX2V0ZXh0ID0gLjsKPj4+PiArICAgICB9Cj4+Pj4g
+KyAgICAgUk9fREFUQShMMV9DQUNIRV9CWVRFUykKPj4+PiArICAgICAuc3JvZGF0YSA6IHsKPj4+
+PiArICAgICAgICAgICAgICooLnNyb2RhdGEqKQo+Pj4+ICsgICAgIH0KPj4+PiArICAgICAuaW5p
+dC5yb2RhdGEgOiB7Cj4+Pj4gKyAgICAgICAgICAgICBJTklUX1NFVFVQKDE2KQo+Pj4+ICsgICAg
+ICAgICAgICAgSU5JVF9DQUxMUwo+Pj4+ICsgICAgICAgICAgICAgQ09OX0lOSVRDQUxMCj4+Pj4g
+KyAgICAgICAgICAgICBJTklUX1JBTV9GUwo+Pj4+ICsgICAgIH0KPj4+PiArICAgICBfZXhpcHJv
+bSA9IC47ICAgICAgICAgICAgICAgICAgIC8qIEVuZCBvZiBYSVAgUk9NIGFyZWEgKi8KPj4+PiAr
+Cj4+Pj4gKwo+Pj4+ICsvKgo+Pj4+ICsgKiBGcm9tIHRoaXMgcG9pbnQsIHN0dWZmIGlzIGNvbnNp
+ZGVyZWQgd3JpdGFibGUgYW5kIHdpbGwgYmUgY29waWVkIHRvIFJBTQo+Pj4+ICsgKi8KPj4+PiAr
+ICAgICBfX2RhdGFfbG9jID0gQUxJR04oMTYpOyAgICAgICAgIC8qIGxvY2F0aW9uIGluIGZpbGUg
+Ki8KPj4+PiArICAgICAuID0gUEFHRV9PRkZTRVQ7ICAgICAgICAgICAgICAgIC8qIGxvY2F0aW9u
+IGluIG1lbW9yeSAqLwo+Pj4+ICsKPj4+PiArICAgICBfc2RhdGEgPSAuOyAgICAgICAgICAgICAg
+ICAgICAgIC8qIFN0YXJ0IG9mIGRhdGEgc2VjdGlvbiAqLwo+Pj4+ICsgICAgIF9kYXRhID0gLjsK
+Pj4+PiArICAgICBSV19EQVRBKEwxX0NBQ0hFX0JZVEVTLCBQQUdFX1NJWkUsIFRIUkVBRF9TSVpF
+KQo+Pj4+ICsgICAgIF9lZGF0YSA9IC47Cj4+Pj4gKyAgICAgX19zdGFydF9yb19hZnRlcl9pbml0
+ID0gLjsKPj4+PiArICAgICAuZGF0YS5yb19hZnRlcl9pbml0IDogQVQoQUREUiguZGF0YS5yb19h
+ZnRlcl9pbml0KSAtIExPQURfT0ZGU0VUKSB7Cj4+Pj4gKyAgICAgICAgICAgICAqKC5kYXRhLi5y
+b19hZnRlcl9pbml0KQo+Pj4+ICsgICAgIH0KPj4+PiArICAgICBfX2VuZF9yb19hZnRlcl9pbml0
+ID0gLjsKPj4+PiArCj4+Pj4gKyAgICAgLiA9IEFMSUdOKFBBR0VfU0laRSk7Cj4+Pj4gKyAgICAg
+X19pbml0X2JlZ2luID0gLjsKPj4+PiArICAgICAuaW5pdC5kYXRhIDogewo+Pj4+ICsgICAgICAg
+ICAgICAgSU5JVF9EQVRBCj4+Pj4gKyAgICAgfQo+Pj4+ICsgICAgIC5leGl0LmRhdGEgOiB7Cj4+
+Pj4gKyAgICAgICAgICAgICBFWElUX0RBVEEKPj4+PiArICAgICB9Cj4+Pj4gKyAgICAgLiA9IEFM
+SUdOKDgpOwo+Pj4+ICsgICAgIF9fc29jX2Vhcmx5X2luaXRfdGFibGUgOiB7Cj4+Pj4gKyAgICAg
+ICAgICAgICBfX3NvY19lYXJseV9pbml0X3RhYmxlX3N0YXJ0ID0gLjsKPj4+PiArICAgICAgICAg
+ICAgIEtFRVAoKihfX3NvY19lYXJseV9pbml0X3RhYmxlKSkKPj4+PiArICAgICAgICAgICAgIF9f
+c29jX2Vhcmx5X2luaXRfdGFibGVfZW5kID0gLjsKPj4+PiArICAgICB9Cj4+Pj4gKyAgICAgX19z
+b2NfYnVpbHRpbl9kdGJfdGFibGUgOiB7Cj4+Pj4gKyAgICAgICAgICAgICBfX3NvY19idWlsdGlu
+X2R0Yl90YWJsZV9zdGFydCA9IC47Cj4+Pj4gKyAgICAgICAgICAgICBLRUVQKCooX19zb2NfYnVp
+bHRpbl9kdGJfdGFibGUpKQo+Pj4+ICsgICAgICAgICAgICAgX19zb2NfYnVpbHRpbl9kdGJfdGFi
+bGVfZW5kID0gLjsKPj4+PiArICAgICB9Cj4+Pj4gKyAgICAgUEVSQ1BVX1NFQ1RJT04oTDFfQ0FD
+SEVfQllURVMpCj4+Pj4gKwo+Pj4+ICsgICAgIC4gPSBBTElHTihQQUdFX1NJWkUpOwo+Pj4+ICsg
+ICAgIF9faW5pdF9lbmQgPSAuOwo+Pj4+ICsKPj4+PiArICAgICAuc2RhdGEgOiB7Cj4+Pj4gKyAg
+ICAgICAgICAgICBfX2dsb2JhbF9wb2ludGVyJCA9IC4gKyAweDgwMDsKPj4+PiArICAgICAgICAg
+ICAgICooLnNkYXRhKikKPj4+PiArICAgICAgICAgICAgICooLnNic3MqKQo+Pj4+ICsgICAgIH0K
+Pj4+PiArCj4+Pj4gKyAgICAgQlNTX1NFQ1RJT04oUEFHRV9TSVpFLCBQQUdFX1NJWkUsIDApCj4+
+Pj4gKyAgICAgRVhDRVBUSU9OX1RBQkxFKDB4MTApCj4+Pj4gKwo+Pj4+ICsgICAgIC5yZWwuZHlu
+IDogQVQoQUREUigucmVsLmR5bikgLSBMT0FEX09GRlNFVCkgewo+Pj4+ICsgICAgICAgICAgICAg
+KigucmVsLmR5biopCj4+Pj4gKyAgICAgfQo+Pj4+ICsKPj4+PiArICAgICAvKgo+Pj4+ICsgICAg
+ICAqIEVuZCBvZiBjb3BpZWQgZGF0YS4gV2UgbmVlZCBhIGR1bW15IHNlY3Rpb24gdG8gZ2V0IGl0
+cyBMTUEuCj4+Pj4gKyAgICAgICogQWxzbyBsb2NhdGVkIGJlZm9yZSBmaW5hbCBBTElHTigpIGFz
+IHRyYWlsaW5nIHBhZGRpbmcgaXMgbm90IHN0b3JlZAo+Pj4+ICsgICAgICAqIGluIHRoZSByZXN1
+bHRpbmcgYmluYXJ5IGZpbGUgYW5kIHVzZWxlc3MgdG8gY29weS4KPj4+PiArICAgICAgKi8KPj4+
+PiArICAgICAuZGF0YS5lbmRtYXJrIDogQVQoQUREUiguZGF0YS5lbmRtYXJrKSAtIExPQURfT0ZG
+U0VUKSB7IH0KPj4+PiArICAgICBfZWRhdGFfbG9jID0gTE9BREFERFIoLmRhdGEuZW5kbWFyayk7
+Cj4+Pj4gKwo+Pj4+ICsgICAgIC4gPSBBTElHTihQQUdFX1NJWkUpOwo+Pj4+ICsgICAgIF9lbmQg
+PSAuOwo+Pj4+ICsKPj4+PiArICAgICBTVEFCU19ERUJVRwo+Pj4+ICsgICAgIERXQVJGX0RFQlVH
+Cj4+Pj4gKwo+Pj4+ICsgICAgIERJU0NBUkRTCj4+Pj4gK30KPj4+PiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgu
+bGRzLlMKPj4+PiBpbmRleCBkZTAzY2IyMmQwZTkuLjY3NDVlYzMyNTkzMCAxMDA2NDQKPj4+PiAt
+LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4Lmxkcy5TCj4+Pj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvdm1saW51eC5sZHMuUwo+Pj4+IEBAIC00LDcgKzQsMTIgQEAKPj4+PiAgICAqIENv
+cHlyaWdodCAoQykgMjAxNyBTaUZpdmUKPj4+PiAgICAqLwo+Pj4+Cj4+Pj4gKyNpZmRlZiBDT05G
+SUdfWElQX0tFUk5FTAo+Pj4+ICsjaW5jbHVkZSAidm1saW51eC14aXAubGRzLlMiCj4+Pj4gKyNl
+bHNlCj4+Pj4gKwo+Pj4+ICAgI2RlZmluZSBMT0FEX09GRlNFVCBQQUdFX09GRlNFVAo+Pj4+ICsK
+Pj4+PiAgICNpbmNsdWRlIDxhc20vdm1saW51eC5sZHMuaD4KPj4+PiAgICNpbmNsdWRlIDxhc20v
+cGFnZS5oPgo+Pj4+ICAgI2luY2x1ZGUgPGFzbS9jYWNoZS5oPgo+Pj4+IEBAIC0xMzIsMyArMTM3
+LDQgQEAgU0VDVElPTlMKPj4+Pgo+Pj4+ICAgICAgICBESVNDQVJEUwo+Pj4+ICAgfQo+Pj4+ICsj
+ZW5kaWYgLyogQ09ORklHX1hJUF9LRVJORUwgKi8KPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+Pj4+IGluZGV4IDdmNTAzNmZiZWU4
+Yy4uZWZlNjQ5ZDQxZjk1IDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+
+Pj4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPj4+PiBAQCAtMzEsOCArMzEsOCBAQCBFWFBP
+UlRfU1lNQk9MKGVtcHR5X3plcm9fcGFnZSk7Cj4+Pj4KPj4+PiAgIGV4dGVybiBjaGFyIF9zdGFy
+dFtdOwo+Pj4+ICAgI2RlZmluZSBEVEJfRUFSTFlfQkFTRV9WQSAgICAgIFBHRElSX1NJWkUKPj4+
+PiAtdm9pZCAqZHRiX2Vhcmx5X3ZhIF9faW5pdGRhdGE7Cj4+Pj4gLXVpbnRwdHJfdCBkdGJfZWFy
+bHlfcGEgX19pbml0ZGF0YTsKPj4+PiArdm9pZCAqX2R0Yl9lYXJseV92YSBfX2luaXRkYXRhOwo+
+Pj4+ICt1aW50cHRyX3QgX2R0Yl9lYXJseV9wYSBfX2luaXRkYXRhOwo+Pj4+Cj4+Pj4gICBzdHJ1
+Y3QgcHRfYWxsb2Nfb3BzIHsKPj4+PiAgICAgICAgcHRlX3QgKigqZ2V0X3B0ZV92aXJ0KShwaHlz
+X2FkZHJfdCBwYSk7Cj4+Pj4gQEAgLTg4LDYgKzg4LDEwIEBAIHN0YXRpYyB2b2lkIHByaW50X3Zt
+X2xheW91dCh2b2lkKQo+Pj4+ICAgICAgICAgICAgICAgICAgKHVuc2lnbmVkIGxvbmcpVk1BTExP
+Q19FTkQpOwo+Pj4+ICAgICAgICBwcmludF9tbG0oImxvd21lbSIsICh1bnNpZ25lZCBsb25nKVBB
+R0VfT0ZGU0VULAo+Pj4+ICAgICAgICAgICAgICAgICAgKHVuc2lnbmVkIGxvbmcpaGlnaF9tZW1v
+cnkpOwo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiArICAgICBwcmludF9tbG0o
+InhpcCIsICh1bnNpZ25lZCBsb25nKVhJUF9WSVJUX0FERFJfU1RBUlQsCj4+Pj4gKyAgICAgICAg
+ICAgICAgICh1bnNpZ25lZCBsb25nKVhJUF9WSVJUX0FERFJfU1RBUlQgKyBTWl8xNk0pOwo+Pj4+
+ICsjZW5kaWYgLyogQ09ORklHX1hJUF9LRVJORUwgKi8KPj4+PiAgIH0KPj4+PiAgICNlbHNlCj4+
+Pj4gICBzdGF0aWMgdm9pZCBwcmludF92bV9sYXlvdXQodm9pZCkgeyB9Cj4+Pj4gQEAgLTExMyw2
+ICsxMTcsMTAgQEAgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1lbSh2b2lkKQo+Pj4+ICAgICAgICBw
+aHlzX2FkZHJfdCBkcmFtX2VuZCA9IG1lbWJsb2NrX2VuZF9vZl9EUkFNKCk7Cj4+Pj4gICAgICAg
+IHBoeXNfYWRkcl90IG1heF9tYXBwZWRfYWRkciA9IF9fcGEofih1bG9uZykwKTsKPj4+Pgo+Pj4+
+ICsjaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiArICAgICB2bWxpbnV4X3N0YXJ0ID0gX19w
+YV9zeW1ib2woJl9zZGF0YSk7Cj4+Pj4gKyNlbmRpZgo+Pj4+ICsKPj4+PiAgICAgICAgLyogVGhl
+IG1heGltYWwgcGh5c2ljYWwgbWVtb3J5IHNpemUgaXMgLVBBR0VfT0ZGU0VULiAqLwo+Pj4+ICAg
+ICAgICBtZW1ibG9ja19lbmZvcmNlX21lbW9yeV9saW1pdCgtUEFHRV9PRkZTRVQpOwo+Pj4+Cj4+
+Pj4gQEAgLTE0OSwxMSArMTU3LDI3IEBAIHZvaWQgX19pbml0IHNldHVwX2Jvb3RtZW0odm9pZCkK
+Pj4+PiAgICAgICAgbWVtYmxvY2tfYWxsb3dfcmVzaXplKCk7Cj4+Pj4gICB9Cj4+Pj4KPj4+PiAr
+I2lmZGVmIENPTkZJR19YSVBfS0VSTkVMCj4+Pj4gKwo+Pj4+ICtleHRlcm4gY2hhciBfeGlwcm9t
+W10sIF9leGlwcm9tW107Cj4+Pj4gK2V4dGVybiBjaGFyIF9zZGF0YVtdLCBfZWRhdGFbXTsKPj4+
+PiArCj4+Pj4gKyNlbmRpZiAvKiBDT05GSUdfWElQX0tFUk5FTCAqLwo+Pj4+ICsKPj4+PiAgICNp
+ZmRlZiBDT05GSUdfTU1VCj4+Pj4gLXN0YXRpYyBzdHJ1Y3QgcHRfYWxsb2Nfb3BzIHB0X29wczsK
+Pj4+PiArc3RhdGljIHN0cnVjdCBwdF9hbGxvY19vcHMgX3B0X29wczsKPj4+PiArCj4+Pj4gKyNp
+ZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsjZGVmaW5lIHB0X29wcyAoKihzdHJ1Y3QgcHRf
+YWxsb2Nfb3BzICopWElQX0ZJWFVQKCZfcHRfb3BzKSkKPj4+PiArI2Vsc2UKPj4+PiArI2RlZmlu
+ZSBwdF9vcHMgICAgICAgX3B0X29wcwo+Pj4+ICsjZW5kaWYKPj4+Pgo+Pj4+ICAgdW5zaWduZWQg
+bG9uZyB2YV9wYV9vZmZzZXQ7Cj4+Pj4gICBFWFBPUlRfU1lNQk9MKHZhX3BhX29mZnNldCk7Cj4+
+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsjZGVmaW5lIHZhX3BhX29mZnNldCAo
+KigodW5zaWduZWQgbG9uZyAqKVhJUF9GSVhVUCgmdmFfcGFfb2Zmc2V0KSkpCj4+Pj4gKyNlbmRp
+Zgo+Pj4+ICAgdW5zaWduZWQgbG9uZyBwZm5fYmFzZTsKPj4+PiAgIEVYUE9SVF9TWU1CT0wocGZu
+X2Jhc2UpOwo+Pj4+Cj4+Pj4gQEAgLTE2Myw2ICsxODcsMTIgQEAgcHRlX3QgZml4bWFwX3B0ZVtQ
+VFJTX1BFUl9QVEVdIF9fcGFnZV9hbGlnbmVkX2JzczsKPj4+Pgo+Pj4+ICAgcGdkX3QgZWFybHlf
+cGdfZGlyW1BUUlNfUEVSX1BHRF0gX19pbml0ZGF0YSBfX2FsaWduZWQoUEFHRV9TSVpFKTsKPj4+
+Pgo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiArI2RlZmluZSB0cmFtcG9saW5l
+X3BnX2RpciAgICAoKHBnZF90ICopWElQX0ZJWFVQKHRyYW1wb2xpbmVfcGdfZGlyKSkKPj4+PiAr
+I2RlZmluZSBmaXhtYXBfcHRlICAgICAgICAgICAoKHB0ZV90ICopWElQX0ZJWFVQKGZpeG1hcF9w
+dGUpKQo+Pj4+ICsjZGVmaW5lIGVhcmx5X3BnX2RpciAgICAgICAgICgocGdkX3QgKilYSVBfRklY
+VVAoZWFybHlfcGdfZGlyKSkKPj4+PiArI2VuZGlmIC8qIENPTkZJR19YSVBfS0VSTkVMICovCj4+
+Pj4gKwo+Pj4+ICAgdm9pZCBfX3NldF9maXhtYXAoZW51bSBmaXhlZF9hZGRyZXNzZXMgaWR4LCBw
+aHlzX2FkZHJfdCBwaHlzLCBwZ3Byb3RfdCBwcm90KQo+Pj4+ICAgewo+Pj4+ICAgICAgICB1bnNp
+Z25lZCBsb25nIGFkZHIgPSBfX2ZpeF90b192aXJ0KGlkeCk7Cj4+Pj4gQEAgLTIzOCw2ICsyNjgs
+MTUgQEAgcG1kX3QgZml4bWFwX3BtZFtQVFJTX1BFUl9QTURdIF9fcGFnZV9hbGlnbmVkX2JzczsK
+Pj4+PiAgIHBtZF90IGVhcmx5X3BtZFtQVFJTX1BFUl9QTURdIF9faW5pdGRhdGEgX19hbGlnbmVk
+KFBBR0VfU0laRSk7Cj4+Pj4gICBwbWRfdCBlYXJseV9kdGJfcG1kW1BUUlNfUEVSX1BNRF0gX19p
+bml0ZGF0YSBfX2FsaWduZWQoUEFHRV9TSVpFKTsKPj4+Pgo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJ
+UF9LRVJORUwKPj4+PiArcG1kX3QgeGlwX3BtZFtQVFJTX1BFUl9QTURdIF9fcGFnZV9hbGlnbmVk
+X2JzczsKPj4+PiArCj4+Pj4gKyNkZWZpbmUgdHJhbXBvbGluZV9wbWQgICAgICAgKChwbWRfdCAq
+KVhJUF9GSVhVUCh0cmFtcG9saW5lX3BtZCkpCj4+Pj4gKyNkZWZpbmUgZml4bWFwX3BtZCAgICgo
+cG1kX3QgKilYSVBfRklYVVAoZml4bWFwX3BtZCkpCj4+Pj4gKyNkZWZpbmUgeGlwX3BtZCAgICAg
+ICAgICAgICAgKChwbWRfdCAqKVhJUF9GSVhVUCh4aXBfcG1kKSkKPj4+PiArI2RlZmluZSBlYXJs
+eV9wbWQgICAgKChwbWRfdCAqKVhJUF9GSVhVUChlYXJseV9wbWQpKQo+Pj4+ICsjZW5kaWYgLyog
+Q09ORklHX1hJUF9LRVJORUwgKi8KPj4+PiArCj4+Pj4gICBzdGF0aWMgcG1kX3QgKl9faW5pdCBn
+ZXRfcG1kX3ZpcnRfZWFybHkocGh5c19hZGRyX3QgcGEpCj4+Pj4gICB7Cj4+Pj4gICAgICAgIC8q
+IEJlZm9yZSBNTVUgaXMgZW5hYmxlZCAqLwo+Pj4+IEBAIC0zNTQsNiArMzkzLDE5IEBAIHN0YXRp
+YyB1aW50cHRyX3QgX19pbml0IGJlc3RfbWFwX3NpemUocGh5c19hZGRyX3QgYmFzZSwgcGh5c19h
+ZGRyX3Qgc2l6ZSkKPj4+PiAgICAgICAgcmV0dXJuIFBNRF9TSVpFOwo+Pj4+ICAgfQo+Pj4+Cj4+
+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsvKiBjYWxsZWQgZnJvbSBoZWFkLlMg
+d2l0aCBNTVUgb2ZmICovCj4+Pj4gK2FzbWxpbmthZ2Ugdm9pZCBfX2luaXQgX19jb3B5X2RhdGEo
+dm9pZCkKPj4+PiArewo+Pj4+ICsgICAgIHZvaWQgKmZyb20gPSAodm9pZCAqKSgmX3NkYXRhKTsK
+Pj4+PiArICAgICB2b2lkICplbmQgPSAodm9pZCAqKSgmX2VuZCk7Cj4+Pj4gKyAgICAgdm9pZCAq
+dG8gPSAodm9pZCAqKUNPTkZJR19QSFlTX1JBTV9CQVNFOwo+Pj4+ICsgICAgIHNpemVfdCBzeiA9
+IChzaXplX3QpKGVuZCAtIGZyb20pOwo+Pj4+ICsKPj4+PiArICAgICBtZW1jcHkodG8sIGZyb20s
+IHN6KTsKPj4+PiArfQo+Pj4+ICsjZW5kaWYKPj4+PiArCj4+Pj4gICAvKgo+Pj4+ICAgICogc2V0
+dXBfdm0oKSBpcyBjYWxsZWQgZnJvbSBoZWFkLlMgd2l0aCBNTVUtb2ZmLgo+Pj4+ICAgICoKPj4+
+PiBAQCAtMzc0LDcgKzQyNiw4IEBAIHN0YXRpYyB1aW50cHRyX3QgX19pbml0IGJlc3RfbWFwX3Np
+emUocGh5c19hZGRyX3QgYmFzZSwgcGh5c19hZGRyX3Qgc2l6ZSkKPj4+Pgo+Pj4+ICAgYXNtbGlu
+a2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKQo+Pj4+ICAgewo+Pj4+
+IC0gICAgIHVpbnRwdHJfdCB2YSwgcGEsIGVuZF92YTsKPj4+PiArICAgICB1aW50cHRyX3QgdmEs
+IGVuZF92YTsKPj4+PiArICAgICB1aW50cHRyX3QgX19tYXliZV91bnVzZWQgcGE7Cj4+Pj4gICAg
+ICAgIHVpbnRwdHJfdCBsb2FkX3BhID0gKHVpbnRwdHJfdCkoJl9zdGFydCk7Cj4+Pj4gICAgICAg
+IHVpbnRwdHJfdCBsb2FkX3N6ID0gKHVpbnRwdHJfdCkoJl9lbmQpIC0gbG9hZF9wYTsKPj4+PiAg
+ICAgICAgdWludHB0cl90IG1hcF9zaXplOwo+Pj4+IEBAIC0zODIsNiArNDM1LDEzIEBAIGFzbWxp
+bmthZ2Ugdm9pZCBfX2luaXQgc2V0dXBfdm0odWludHB0cl90IGR0Yl9wYSkKPj4+PiAgICAgICAg
+cG1kX3QgZml4X2JtYXBfc3BtZCwgZml4X2JtYXBfZXBtZDsKPj4+PiAgICNlbmRpZgo+Pj4+Cj4+
+Pj4gKyNpZmRlZiBDT05GSUdfWElQX0tFUk5FTAo+Pj4+ICsgICAgIHVpbnRwdHJfdCB4aXByb20g
+PSAodWludHB0cl90KUNPTkZJR19YSVBfUEhZU19BRERSOwo+Pj4+ICsgICAgIHVpbnRwdHJfdCB4
+aXByb21fc3ogPSAodWludHB0cl90KSgmX2V4aXByb20pIC0gKHVpbnRwdHJfdCkoJl94aXByb20p
+Owo+Pj4+ICsKPj4+PiArICAgICBsb2FkX3BhID0gKHVpbnRwdHJfdClDT05GSUdfUEhZU19SQU1f
+QkFTRTsKPj4+PiArICAgICBsb2FkX3N6ID0gKHVpbnRwdHJfdCkoJl9lbmQpIC0gKHVpbnRwdHJf
+dCkoJl9zZGF0YSk7Cj4+Pj4gKyNlbmRpZgo+Pj4+ICAgICAgICB2YV9wYV9vZmZzZXQgPSBQQUdF
+X09GRlNFVCAtIGxvYWRfcGE7Cj4KPiBJIHNob3VsZCBoYXZlIHNlZW4gdGhpcyBiZWZvcmUsIEkg
+d2FzIHRvbyBmb2N1c2VkIG9uIGhhdmluZyBhIFhJUCBrZXJuZWwKPiBib290LiBJIGFscmVhZHkg
+bW92ZWQgdGhlIGtlcm5lbCBtYXBwaW5nIGluIHRoZSB2bWFsbG9jIHpvbmU6IHRoZQo+IHZpcnR1
+YWwgdG8gcGh5c2ljYWwgdHJhbnNsYXRpb25zIG5lZWQgdG8gYmUgaGFuZGxlZCBkaWZmZXJlbnRs
+eSBub3cgdGhhdAo+IHRoZSBrZXJuZWwgbWFwcGluZyBkb2VzIG5vdCBsaWUgaW50byBsaW5lYXIg
+bWFwcGluZyBhbnltb3JlLCB3ZSBjYW4ndAo+IHVzZSB2YV9wYV9vZmZzZXQgZGVmaW5lZCBhYm92
+ZSBmb3IgYm90aCBtYXBwaW5ncy4KPgo+IEkgd2FzIHJlYmFzaW5nIG15IHBhdGNoc2V0IG9uIHRo
+ZSBYSVAgcGF0Y2ggYnV0IEkgYmVsaWV2ZSB0aGF0IGRvaW5nIHRoZQo+IG90aGVyIHdheSBhcm91
+bmQgd291bGQgZ3JlYXRseSBzaW1wbGlmeSB0aGUgWElQIHBhdGNoIGFzIHRoZSBrZXJuZWwKPiBt
+YXBwaW5nIHdvdWxkIGFscmVhZHkgYmUgbW92ZWQgb3V0c2lkZSB0aGUgbGluZWFyIG1hcHBpbmcs
+IHRoZXJlIHdvdWxkCj4gYmUgbm8gbmVlZCB0byByZXNlcnZlIGEgem9uZSBpbiB2bWFsbG9jIGFu
+eW1vcmUgKHRoYXQgc2ltcGxpZmllcwo+IHBndGFibGUuaCBxdWl0ZSBhIGxvdCkuIEFuZCB0aGUg
+WElQIGtlcm5lbCBtYXBwaW5nIGNvdWxkIGJlIGltcGxlbWVudGVkCj4gaW4gYSBuZXcgY3JlYXRl
+X2tlcm5lbF9wYWdlX3RhYmxlICh0aGF0IHdvdWxkIGFsc28gc2ltcGxpZnkgbW0vaW5pdC5jKS4K
+Pgo+IEkgY2FuIGhlbHAgdG8gZG8gdGhhdCBidXQgSSBkb24ndCB0aGluayB3ZSBzaG91bGQgbWVy
+Z2UgdGhpcyBwYXRjaCBhcyBpcwo+IG5vdy4KCkkgdGhpbmsgdGhhdCdzIHRoZSByaWdodCB3YXkg
+dG8gZ28gZm9yIG5vdzogaXQncyBhIGxvdCBoYXJkZXIgdG8gdGVzdCAKdGhlIFhJUCBzdHVmZiwg
+YXMgaXQgcmVxdWlyZXMgYSBidW5jaCBvZiBoYXJuZXNzIGNoYW5nZXMuICBTbyBsZXQncyB0YWtl
+IAp0aGUgcGFnZSB0YWJsZSByZWZhY3RvcmluZyBpbiBub3cgYW5kIHJlYmFzZSB0aGlzIHN0dWZm
+IG9uIHRvcCBvZiBpdC4gIApUaGVyZSdzIHJlYWxseSBubyB3YXkgdG8gZG8gYm90aCB3aXRob3V0
+IG1ha2luZyBtb3JlIHdvcmsgZm9yIHNvbWVvbmUsIAppdCdzIGp1c3QgYSBoZWFkYWNoZSBvbiB0
+aW1pbmcuCgpBbGV4OiBpZiB5b3Ugd2FudCB0byBzaWduIHVwIHRvIHNwZW5kIHNvbWUgdGltZSB0
+aGVyZSB0aGF0J2QgYmUgZ3JlYXQsIApvdGhlcndpc2UgSSB3aWxsLiAgRWl0aGVyIHdheSwgY2Fu
+IHlvdSBwb2ludCBtZSAoZWl0aGVyIGp1c3QgaW5kaWNhdGUgCnRoZSBvbGQgdmVyc2lvbiBpcyBP
+SyBvciBzZW5kIGEgbmV3IG9uZSkgdG8gd2hhdCB5b3Ugd2FudCBtZSB0byBsb29rIGF0IApXUlQg
+dGhlIHBhZ2UgdGFibGUgY29kZT8gIElJUkMgaXQgbG9va2VkIHByZXR0eSBtdWNoIGZpbmUsIGJ1
+dCBJJ2xsIHRha2UgCmFub3RoZXIgbG9vayBBU0FQIHNvIHdlIGNhbiBhdm9pZCBzZXJpYWxpemlu
+ZyBldmVyeXRoaW5nLgoKPgo+IEFsZXgKPgo+Pj4+ICAgICAgICBwZm5fYmFzZSA9IFBGTl9ET1dO
+KGxvYWRfcGEpOwo+Pj4+Cj4+Pj4gQEAgLTQyMCw2ICs0ODAsMjEgQEAgYXNtbGlua2FnZSB2b2lk
+IF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKQo+Pj4+ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgbG9hZF9wYSwgUEdESVJfU0laRSwgUEFHRV9LRVJORUxfRVhFQyk7Cj4+Pj4gICAj
+ZW5kaWYKPj4+Pgo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiArICAgICBjcmVh
+dGVfcGdkX21hcHBpbmcodHJhbXBvbGluZV9wZ19kaXIsIFhJUF9WSVJUX0FERFJfU1RBUlQsCj4+
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICh1aW50cHRyX3QpeGlwX3BtZCwgUEdESVJfU0la
+RSwgUEFHRV9UQUJMRSk7Cj4+Pj4gKyAgICAgZm9yICh2YSA9IFhJUF9WSVJUX0FERFJfU1RBUlQ7
+Cj4+Pj4gKyAgICAgICAgICB2YSA8IFhJUF9WSVJUX0FERFJfU1RBUlQgKyB4aXByb21fc3o7Cj4+
+Pj4gKyAgICAgICAgICB2YSArPSBQTURfU0laRSkgewo+Pj4+ICsgICAgICAgICAgICAgY3JlYXRl
+X3BtZF9tYXBwaW5nKHhpcF9wbWQsIHZhLAo+Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHhpcHJvbSArICh2YSAtIFhJUF9WSVJUX0FERFJfU1RBUlQpLAo+Pj4+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFBNRF9TSVpFLCBQQUdFX0tFUk5FTF9FWEVDKTsKPj4+
+PiArICAgICB9Cj4+Pj4gKwo+Pj4+ICsgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhlYXJseV9wZ19k
+aXIsIFhJUF9WSVJUX0FERFJfU1RBUlQsCj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICh1
+aW50cHRyX3QpeGlwX3BtZCwgUEdESVJfU0laRSwgUEFHRV9UQUJMRSk7Cj4+Pj4gKyNlbmRpZgo+
+Pj4+ICsKPj4+PiAgICAgICAgLyoKPj4+PiAgICAgICAgICogU2V0dXAgZWFybHkgUEdEIGNvdmVy
+aW5nIGVudGlyZSBrZXJuZWwgd2hpY2ggd2lsbCBhbGxvd3MKPj4+PiAgICAgICAgICogdXMgdG8g
+cmVhY2ggcGFnaW5nX2luaXQoKS4gV2UgbWFwIGFsbCBtZW1vcnkgYmFua3MgbGF0ZXIKPj4+PiBA
+QCAtNDQ0LDcgKzUxOSw3IEBAIGFzbWxpbmthZ2Ugdm9pZCBfX2luaXQgc2V0dXBfdm0odWludHB0
+cl90IGR0Yl9wYSkKPj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhICsgUE1EX1NJWkUs
+IFBNRF9TSVpFLCBQQUdFX0tFUk5FTCk7Cj4+Pj4gICAgICAgIGR0Yl9lYXJseV92YSA9ICh2b2lk
+ICopRFRCX0VBUkxZX0JBU0VfVkEgKyAoZHRiX3BhICYgKFBNRF9TSVpFIC0gMSkpOwo+Pj4+ICAg
+I2Vsc2UgLyogQ09ORklHX0JVSUxUSU5fRFRCICovCj4+Pj4gLSAgICAgZHRiX2Vhcmx5X3ZhID0g
+X192YShkdGJfcGEpOwo+Pj4+ICsgICAgIGR0Yl9lYXJseV92YSA9IF9fdmEoWElQX0ZJWFVQKGR0
+Yl9wYSkpOwo+Pj4+ICAgI2VuZGlmIC8qIENPTkZJR19CVUlMVElOX0RUQiAqLwo+Pj4+ICAgI2Vs
+c2UKPj4+PiAgICNpZm5kZWYgQ09ORklHX0JVSUxUSU5fRFRCCj4+Pj4gQEAgLTQ1Niw3ICs1MzEs
+NyBAQCBhc21saW5rYWdlIHZvaWQgX19pbml0IHNldHVwX3ZtKHVpbnRwdHJfdCBkdGJfcGEpCj4+
+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICBwYSArIFBHRElSX1NJWkUsIFBHRElSX1NJWkUs
+IFBBR0VfS0VSTkVMKTsKPj4+PiAgICAgICAgZHRiX2Vhcmx5X3ZhID0gKHZvaWQgKilEVEJfRUFS
+TFlfQkFTRV9WQSArIChkdGJfcGEgJiAoUEdESVJfU0laRSAtIDEpKTsKPj4+PiAgICNlbHNlIC8q
+IENPTkZJR19CVUlMVElOX0RUQiAqLwo+Pj4+IC0gICAgIGR0Yl9lYXJseV92YSA9IF9fdmEoZHRi
+X3BhKTsKPj4+PiArICAgICBkdGJfZWFybHlfdmEgPSBfX3ZhKFhJUF9GSVhVUChkdGJfcGEpKTsK
+Pj4+PiAgICNlbmRpZiAvKiBDT05GSUdfQlVJTFRJTl9EVEIgKi8KPj4+PiAgICNlbmRpZgo+Pj4+
+ICAgICAgICBkdGJfZWFybHlfcGEgPSBkdGJfcGE7Cj4+Pj4gQEAgLTQ5Nyw2ICs1NzIsOSBAQCBz
+dGF0aWMgdm9pZCBfX2luaXQgc2V0dXBfdm1fZmluYWwodm9pZCkKPj4+PiAgICAgICAgdWludHB0
+cl90IHZhLCBtYXBfc2l6ZTsKPj4+PiAgICAgICAgcGh5c19hZGRyX3QgcGEsIHN0YXJ0LCBlbmQ7
+Cj4+Pj4gICAgICAgIHU2NCBpOwo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJUF9LRVJORUwKPj4+PiAr
+ICAgICB1aW50cHRyX3QgeGlwcm9tX3N6ID0gKHVpbnRwdHJfdCkoJl9leGlwcm9tKSAtICh1aW50
+cHRyX3QpKCZfeGlwcm9tKTsKPj4+PiArI2VuZGlmCj4+Pj4KPj4+PiAgICAgICAgLyoqCj4+Pj4g
+ICAgICAgICAqIE1NVSBpcyBlbmFibGVkIGF0IHRoaXMgcG9pbnQuIEJ1dCBwYWdlIHRhYmxlIHNl
+dHVwIGlzIG5vdCBjb21wbGV0ZSB5ZXQuCj4+Pj4gQEAgLTUyOCw2ICs2MDYsMTYgQEAgc3RhdGlj
+IHZvaWQgX19pbml0IHNldHVwX3ZtX2ZpbmFsKHZvaWQpCj4+Pj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgbWFwX3NpemUsIFBBR0VfS0VSTkVMX0VYRUMpOwo+Pj4+
+ICAgICAgICAgICAgICAgIH0KPj4+PiAgICAgICAgfQo+Pj4+ICsjaWZkZWYgQ09ORklHX1hJUF9L
+RVJORUwKPj4+PiArICAgICBtYXBfc2l6ZSA9IGJlc3RfbWFwX3NpemUoQ09ORklHX1hJUF9QSFlT
+X0FERFIsIHhpcHJvbV9zeik7Cj4+Pj4gKyAgICAgZm9yICh2YSA9IFhJUF9WSVJUX0FERFJfU1RB
+UlQ7Cj4+Pj4gKyAgICAgICAgICB2YSA8IFhJUF9WSVJUX0FERFJfU1RBUlQgKyB4aXByb21fc3o7
+Cj4+Pj4gKyAgICAgICAgICB2YSArPSBtYXBfc2l6ZSkKPj4+PiArICAgICAgICAgICAgIGNyZWF0
+ZV9wZ2RfbWFwcGluZyhzd2FwcGVyX3BnX2RpciwgdmEsCj4+Pj4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgQ09ORklHX1hJUF9QSFlTX0FERFIgKyAodmEgLSBYSVBfVklSVF9BRERS
+X1NUQVJUKSwKPj4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXBfc2l6ZSwg
+UEFHRV9LRVJORUxfRVhFQyk7Cj4+Pj4gKwo+Pj4+ICsjZW5kaWYKPj4+Pgo+Pj4+ICAgICAgICAv
+KiBDbGVhciBmaXhtYXAgUFRFIGFuZCBQTUQgbWFwcGluZ3MgKi8KPj4+PiAgICAgICAgY2xlYXJf
+Zml4bWFwKEZJWF9QVEUpOwo+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwo+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
