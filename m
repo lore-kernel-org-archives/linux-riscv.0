@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2998DC433B4
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28B0DC433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:32:46 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D1B1560FF0
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:32:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1B1560FF0
+	by mail.kernel.org (Postfix) with ESMTPS id CE37C60FF1
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:32:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE37C60FF1
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,49 +23,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ag3acVKK5bL8Qzux/8+4US/llLPUYErbAoFijoWEn7I=; b=D3lnaT+enfK0oMgCKp/V15/0fF
-	qbQYw6WoTs4o8YImbxuizcNkYRHQoKkSEavKKtWBl+/B5weUZAsiKTfAQyvIghp+GAlg7LNKzTv54
-	raqd+rb+4mcjLOpnfnKnXX4UYPfEXlZfnY0WsfswQCmppCdyP/KRuxgBGd4Bu1a8NGPanliqywDNp
-	gvkIddV/nQiz+jxm6dZ6nwqMX38T1UX/SLwuumdsrLOLD5uiKeVXgiki+nKVI1GhMpa7UOXh9zFvS
-	qru0oYwR2Y5DIpyxXqGYagdtNLk/YQ7D4/Ww1QTp4AFUjV/I2SHvwxnJmeZlb0YAFz2IscmtZVOxX
-	NyFLExjg==;
+	bh=28p2IWZf7O0CwtgEtu6bKTKr+UUprrtZmHO85Q00Ujs=; b=XG9GbbrT0adRIKZN9dJi23T71R
+	SR9O9ABHIdTw2LXh1azZJwn+J5zP9U26oNTY3KK2nQYWL1AcDyI3L9cvCjj4Ip+D4CIgVlagz4zC4
+	F5yTPyKVdEemqqCq+urj9BA/MKpzEdczKbdTHKBeuLmYag64AB46dT+C9b7HpVebGokRT+8Dl96HZ
+	r0+qG6hwKE3suXP6GUup5M8//D/nZciQAFj3WoXcOEH7smtPwakg74LDwhHMElscH+s3MmN9zgneb
+	PmWWmQ5iowMQsfmfsGkFbcL1uTt4sxZHRzpn2DElTbH51vp9TlzM4YaWnCIuBxcOZjap37q1KrLV+
+	pI8Qv0BQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRbtP-006oU4-CN; Wed, 31 Mar 2021 14:32:23 +0000
+	id 1lRbtZ-006oWF-1R; Wed, 31 Mar 2021 14:32:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRbtM-006oSv-B6
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 14:32:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id F176760FF1;
- Wed, 31 Mar 2021 14:32:12 +0000 (UTC)
+ id 1lRbtU-006oUi-1D
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 14:32:30 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 50A8A60FF0;
+ Wed, 31 Mar 2021 14:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617201139;
- bh=ET6mHFYyqB1SBq1ewQ1GZzs5w6YT4Vz0URxeLviz9rs=;
+ s=k20201202; t=1617201146;
+ bh=Ht9rtu0Co+dG0mLJd/EeyOUGuASgL6Jraidb6iiV2SA=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Dy4lrqNV7m0Yy2r05bp8XCPUAC8z34FNeWbsZGbTVJ+lgmHiGOSKMdqGkne7CRoBG
- h0aP6WRVV3BKhLHvmSQDrzflE0xWl0GYT7L60PDBgOBiqmYcbTKt2Bu9uZKJRZaUsC
- JLg3lic8aznTBUZTOQL+OKg8JNXlyE4WjU8cBh3xHk++jJEXBQtzEiQLzHnfiNCq/B
- g0HKpMzU6FVFUg006DAIrSZXocPI/6dxOd8xDDjfBpSviR9gXQWC7FD1n/kNq2jEoY
- ZMcJKFPvCAztLJ9A87rOz+Mc+atT+903XzdCNzQmHX5+m1XwlVwCQPi/iackWOsnMS
- W85nWlUX/+dvg==
+ b=sLjjqYUKM/9xT8bdGMLrv/vHz9hXgtgtxvs/oRmBw1S0V9setblm7Thg7sukdPtOh
+ 5Ff6couQIDJI4Zj2o5I89lUqC4hfTyLrlnnaG5vm6CEcTEYKTO/+O3NumvCjjgEiHc
+ 8qjcmWa/zIDXzY60NtXXR5R7f+OLc1kocQe2AiXzxCIR6a7HLR0QQiRzupGD7VTRTf
+ RKfRw6YVG0MHOEviuThmdh3Z97OSB71QBJy1WJSuDfUIdQyk79BIDFWVVYeb316LO+
+ 2vLNSCWQKmwWV5DF2Rwv5oYo/GVqHJaM8oo/Br5KYK2E3yzm1SqoUhERexFzNrbhEA
+ f1s1XOWvv+EcQ==
 From: guoren@kernel.org
 To: guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-xtensa@linux-xtensa.org,
  openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Waiman Long <longman@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
  Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH v6 4/9] csky: locks: Optimize coding convention
-Date: Wed, 31 Mar 2021 14:30:35 +0000
-Message-Id: <1617201040-83905-5-git-send-email-guoren@kernel.org>
+Subject: [PATCH v6 5/9] csky: Convert custom spinlock/rwlock to generic
+ qspinlock/qrwlock
+Date: Wed, 31 Mar 2021 14:30:36 +0000
+Message-Id: <1617201040-83905-6-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1617201040-83905-1-git-send-email-guoren@kernel.org>
 References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_153220_628132_422949E0 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210331_153228_466872_03083A64 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +86,109 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
- - Using smp_cond_load_acquire in arch_spin_lock by Peter's
-   advice.
- - Using __smp_acquire_fence in arch_spin_trylock
- - Using smp_store_release in arch_spin_unlock
+Update the C-SKY port to use the generic qspinlock and qrwlock.
 
-All above are just coding conventions and won't affect the
-function.
+C-SKY only support ldex.w/stex.w with word(double word) size &
+align access. So it must select XCHG32 to let qspinlock only use
+word atomic xchg_tail.
 
-TODO in smp_cond_load_acquire for architecture:
- - current csky only has:
-   lr.w val, <p0>
-   sc.w <p0>. val2
-   (Any other stores to p0 will let sc.w failed)
-
- - But smp_cond_load_acquire need:
-   lr.w val, <p0>
-   wfe
-   (Any stores to p0 will send the event to let wfe retired)
+Default is still ticket lock.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Link: https://lore.kernel.org/linux-riscv/CAAhSdy1JHLUFwu7RuCaQ+RUWRBks2KsDva7EpRt8--4ZfofSUQ@mail.gmail.com/T/#m13adac285b7f51f4f879a5d6b65753ecb1a7524e
+Cc: Waiman Long <longman@redhat.com>
 Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Will Deacon <will@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/csky/include/asm/spinlock.h | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
+ arch/csky/Kconfig                      | 8 ++++++++
+ arch/csky/include/asm/Kbuild           | 2 ++
+ arch/csky/include/asm/spinlock.h       | 4 ++++
+ arch/csky/include/asm/spinlock_types.h | 4 ++++
+ 4 files changed, 18 insertions(+)
 
+diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
+index 34e91224adc3..ae12332edb7b 100644
+--- a/arch/csky/Kconfig
++++ b/arch/csky/Kconfig
+@@ -8,6 +8,8 @@ config CSKY
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_QUEUED_RWLOCKS
++	select ARCH_USE_QUEUED_SPINLOCKS	if !CSKY_TICKET_LOCK
++	select ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+ 	select ARCH_WANT_FRAME_POINTERS if !CPU_CK610
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
+ 	select COMMON_CLK
+@@ -304,6 +306,12 @@ config NR_CPUS
+ 	depends on SMP
+ 	default "4"
+ 
++config CSKY_TICKET_LOCK
++	bool "Ticket-based spin-locking"
++	default y
++	help
++	  Say Y here to use ticket-based spin-locking.
++
+ config HIGHMEM
+ 	bool "High Memory Support"
+ 	depends on !CPU_CK610
+diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
+index cc24bb8e539f..2a2d09963bb9 100644
+--- a/arch/csky/include/asm/Kbuild
++++ b/arch/csky/include/asm/Kbuild
+@@ -2,6 +2,8 @@
+ generic-y += asm-offsets.h
+ generic-y += gpio.h
+ generic-y += kvm_para.h
++generic-y += mcs_spinlock.h
+ generic-y += qrwlock.h
++generic-y += qspinlock.h
+ generic-y += user.h
+ generic-y += vmlinux.lds.h
 diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
-index 69f5aa249c5f..69677167977a 100644
+index 69677167977a..fe98ad8ece51 100644
 --- a/arch/csky/include/asm/spinlock.h
 +++ b/arch/csky/include/asm/spinlock.h
-@@ -26,10 +26,8 @@ static inline void arch_spin_lock(arch_spinlock_t *lock)
- 		: "r"(p), "r"(ticket_next)
- 		: "cc");
+@@ -6,6 +6,7 @@
+ #include <linux/spinlock_types.h>
+ #include <asm/barrier.h>
  
--	while (lockval.tickets.next != lockval.tickets.owner)
--		lockval.tickets.owner = READ_ONCE(lock->tickets.owner);
--
--	smp_mb();
-+	smp_cond_load_acquire(&lock->tickets.owner,
-+					VAL == lockval.tickets.next);
++#ifdef CONFIG_CSKY_TICKET_LOCK
+ /*
+  * Ticket-based spin-locking.
+  */
+@@ -80,6 +81,9 @@ static inline int arch_spin_is_contended(arch_spinlock_t *lock)
+ 	return (tickets.next - tickets.owner) > 1;
  }
+ #define arch_spin_is_contended	arch_spin_is_contended
++#else /* CONFIG_CSKY_TICKET_LOCK */
++#include <asm/qspinlock.h>
++#endif /* CONFIG_CSKY_TICKET_LOCK */
  
- static inline int arch_spin_trylock(arch_spinlock_t *lock)
-@@ -55,15 +53,14 @@ static inline int arch_spin_trylock(arch_spinlock_t *lock)
- 	} while (!res);
+ #include <asm/qrwlock.h>
  
- 	if (!contended)
--		smp_mb();
-+		__smp_acquire_fence();
+diff --git a/arch/csky/include/asm/spinlock_types.h b/arch/csky/include/asm/spinlock_types.h
+index 8ff0f6ff3a00..547f035f6dd5 100644
+--- a/arch/csky/include/asm/spinlock_types.h
++++ b/arch/csky/include/asm/spinlock_types.h
+@@ -7,6 +7,7 @@
+ # error "please don't include this file directly"
+ #endif
  
- 	return !contended;
- }
++#ifdef CONFIG_CSKY_TICKET_LOCK
+ #define TICKET_NEXT	16
  
- static inline void arch_spin_unlock(arch_spinlock_t *lock)
- {
--	smp_mb();
--	WRITE_ONCE(lock->tickets.owner, lock->tickets.owner + 1);
-+	smp_store_release(&lock->tickets.owner, lock->tickets.owner + 1);
- }
+ typedef struct {
+@@ -21,6 +22,9 @@ typedef struct {
+ } arch_spinlock_t;
  
- static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+ #define __ARCH_SPIN_LOCK_UNLOCKED	{ { 0 } }
++#else
++#include <asm-generic/qspinlock_types.h>
++#endif
+ 
+ #include <asm-generic/qrwlock_types.h>
+ 
 -- 
 2.17.1
 
