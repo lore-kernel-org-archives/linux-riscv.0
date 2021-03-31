@@ -2,87 +2,104 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 61E42C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B0C7C433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:54:01 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 065D561007
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:48:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 065D561007
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 978AB6101A
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 14:54:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 978AB6101A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=to1J51+NbWctQPEP6j2kK5gEhHNEFc+ac9k8SbCgtIU=; b=IZ3eh7hbVhBBnuIvbxUbcDG8Q
-	B5jBkgZDOmHW8FMLKPBmstY8QHpn/Tk7HX4N6cRI3w7mp5JOAVrJAr/B0S+mQWpo2deRt3pIcHjXA
-	0BBDHHKdr6SiQtTmqNrmkIuSKf42gGXA3bFjp9O6SOcM9k6OE2mcrsuFhj18jSw3Dr4njk+vQC63p
-	BrgVUUQV6+FMXtzViJIgeY/bmttcFtMiqsZRtx77HKhqxtvOdnsTtBMzvQlD9f6WNp1gLpDalgxSw
-	7ZcVg9DR/8W7GSDT0XcUGBbN2WGvGiD1hl/GJZ8bspHQoKrC8VW6I1+ZFjwNSAxqvrhwHYyRtTfCH
-	tQ94OX7RQ==;
+	 bh=zeD1YPerpzI1TPk9ne6WsOSyRhkN/iPUHb+KaxD7bi8=; b=bjld+qOotu425dV0Na9AHEv+5
+	Emj019AFnvH95NA6/+n/dwNExyn2zSWQnoe/Ks4Eb88Qb2WUy9Jk58PQh9Blrkpva5P2hXU3nqSWY
+	88zf9UHXGlKV5pI8NteY+PlFk1T8lx0tW1AhnQ5XD5nwzcY+NFRczTOAj87wVy1zqIzbLFg9WPOBG
+	vxyfs8zdqKbragRYZjKP59xyh4ZygfZDRbbia8Jizgm4ERZrvzWvFkrcva0qVKZXHKprAKV2EpOqw
+	RXFvUFbvinlZUCOxVcA5+82nc2UY4n8kH/uazDqvPu9jzeW37fJnqM8aefWvAVaMe2N4ZMPSW6uW+
+	Hj5rmM3jQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRc8i-006pd0-Rx; Wed, 31 Mar 2021 14:48:13 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lRcE7-006q04-9H; Wed, 31 Mar 2021 14:53:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRc8e-006pc2-1d
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 14:48:11 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 705AF61019
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 14:48:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617202083;
- bh=dXpBkyPDmbez1Pv+mZa7eusgRzqDeW4JZXnYKhHzMk4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Re/nuxKj6QEYHf70+XHtUekdh0SgLtX2v0Dq4k/E/fjt30sf13znsjWRI0kjJM0Au
- n1YlstKhZlykOk+cnE6MvbEJSV7mx0zjGqRTI8VYNp6YFlRgSY8POv5d+N5lZlXh+9
- mwumfHkHrHUZWwbI6qMbkO5mGTY11xCmtyTg6qMQHWYIuO283M9fT2bkKV7qnVE4FJ
- A/0aSitADe9d7Mloan8wwpuLg76c4K5GMvu2c36Pwy1liSOzI4bafKwlbaZkZYzaXR
- Oun1TPpqQB5WRz161Npy3wLI569ki5fUnfLw4UaofWMv4hlLuLYbxBZqf+vXOttInp
- 8oLRFyWt3sBhw==
-Received: by mail-lf1-f50.google.com with SMTP id d13so8538462lfg.7
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 07:48:03 -0700 (PDT)
-X-Gm-Message-State: AOAM530tsjvFlkInHLA78Ymae4YC/ON/elEL0ZVA7/c7pUlcF4YFgsfE
- dSPI1UmK6N6vkd+qSB14lqubfaNxEviLp2D1JVY=
-X-Google-Smtp-Source: ABdhPJxV0SkyhL0J9EtcC6qc8ehvvfZdh5JPRdhm6ZIBPp9ZQqcovoazEDBeivA8bcGEP5e3bpkou1wZRXG+mH7U7hM=
-X-Received: by 2002:a05:6512:ba2:: with SMTP id
- b34mr2434254lfv.24.1617202081736; 
- Wed, 31 Mar 2021 07:48:01 -0700 (PDT)
+ id 1lRcE3-006pzF-F5
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 14:53:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1617202422;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=XZEKE6hBaJr4eywpWwM7diien2WEI7hK6/ALRAO0X7o=;
+ b=gb7P9Y83Phlll0xSC9w6ag/SPoP0hwnx1ER/1BzH9w8zshFDczdj9W1NXgffEBUerE2XMa
+ qjimVeIC71TmEtpz6roI1RETLS9nYs55A9wt10UkFSmD8sIblU1Jnan+49DTRsnZmU+vve
+ Es3PIxugSa6amr6KT2/kwrZ18V3ou80=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-255-q9s5QEWiO9Oyky6hKm6VYA-1; Wed, 31 Mar 2021 10:53:37 -0400
+X-MC-Unique: q9s5QEWiO9Oyky6hKm6VYA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9F98A612A3;
+ Wed, 31 Mar 2021 14:53:28 +0000 (UTC)
+Received: from [10.36.113.60] (ovpn-113-60.ams2.redhat.com [10.36.113.60])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 17D9910013D7;
+ Wed, 31 Mar 2021 14:53:16 +0000 (UTC)
+Subject: Re: [PATCH] memfd_secret: use unsigned int rather than long as
+ syscall flags type
+To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christopher Lameter <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
+ <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ James Bottomley <jejb@linux.ibm.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Matthew Wilcox <willy@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>,
+ Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Michael Kerrisk
+ <mtk.manpages@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki"
+ <rjw@rjwysocki.net>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
+References: <20210331142345.27532-1-rppt@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <516d5d41-8d4a-7519-e88e-e16747e993c9@redhat.com>
+Date: Wed, 31 Mar 2021 16:53:16 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
 MIME-Version: 1.0
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
- <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
- <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
- <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
- <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
- <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
- <4d0dbaa0-1f96-470c-0ed0-04f6827ea384@redhat.com>
-In-Reply-To: <4d0dbaa0-1f96-470c-0ed0-04f6827ea384@redhat.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 31 Mar 2021 22:47:50 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSavTCv2yyGvMyHWXapN2nWG17Z02catYJgC3s-hYco9g@mail.gmail.com>
-Message-ID: <CAJF2gTSavTCv2yyGvMyHWXapN2nWG17Z02catYJgC3s-hYco9g@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: Waiman Long <longman@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
+In-Reply-To: <20210331142345.27532-1-rppt@kernel.org>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_154809_324848_2CD6DC52 
-X-CRM114-Status: GOOD (  27.05  )
+X-CRM114-CacheID: sfid-20210331_155343_689735_7BA8DDFC 
+X-CRM114-Status: GOOD (  26.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,82 +111,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 30, 2021 at 10:09 PM Waiman Long <longman@redhat.com> wrote:
->
-> On 3/29/21 11:13 PM, Guo Ren wrote:
-> > On Mon, Mar 29, 2021 at 8:50 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> >> On Mon, Mar 29, 2021 at 08:01:41PM +0800, Guo Ren wrote:
-> >>> u32 a = 0x55aa66bb;
-> >>> u16 *ptr = &a;
-> >>>
-> >>> CPU0                       CPU1
-> >>> =========             =========
-> >>> xchg16(ptr, new)     while(1)
-> >>>                                      WRITE_ONCE(*(ptr + 1), x);
-> >>>
-> >>> When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
-> >> Then I think your LL/SC is broken.
-> >>
-> >> That also means you really don't want to build super complex locking
-> >> primitives on top, because that live-lock will percolate through.
-> > Do you mean the below implementation has live-lock risk?
-> > +static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> > +{
-> > +       u32 old, new, val = atomic_read(&lock->val);
-> > +
-> > +       for (;;) {
-> > +               new = (val & _Q_LOCKED_PENDING_MASK) | tail;
-> > +               old = atomic_cmpxchg(&lock->val, val, new);
-> > +               if (old == val)
-> > +                       break;
-> > +
-> > +               val = old;
-> > +       }
-> > +       return old;
-> > +}
-> If there is a continuous stream of incoming spinlock takers, it is
-> possible that some cpus may have to wait a long time to set the tail
-> right. However, this should only happen on artificial workload. I doubt
-> it will happen with real workload or with limit number of cpus.
-Yes, I agree or it couldn't with NR_CPU > 16k.
+On 31.03.21 16:23, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> Yuri Norov says:
+> 
+>    If parameter size is the same for native and compat ABIs, we may
+>    wire a syscall made by compat client to native handler. This is
+>    true for unsigned int, but not true for unsigned long or pointer.
+> 
+>    That's why I suggest using unsigned int and so avoid creating compat
+>    entry point.
+> 
+> Use unsigned int as the type of the flags parameter in memfd_secret()
+> system call.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+> 
+> @Andrew,
+> The patch is vs v5.12-rc5-mmots-2021-03-30-23, I'd appreciate if it would
+> be added as a fixup to the memfd_secret series.
+> 
+>   include/linux/syscalls.h                  | 2 +-
+>   mm/secretmem.c                            | 2 +-
+>   tools/testing/selftests/vm/memfd_secret.c | 2 +-
+>   3 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+> index 49c93c906893..1a1b5d724497 100644
+> --- a/include/linux/syscalls.h
+> +++ b/include/linux/syscalls.h
+> @@ -1050,7 +1050,7 @@ asmlinkage long sys_landlock_create_ruleset(const struct landlock_ruleset_attr _
+>   asmlinkage long sys_landlock_add_rule(int ruleset_fd, enum landlock_rule_type rule_type,
+>   		const void __user *rule_attr, __u32 flags);
+>   asmlinkage long sys_landlock_restrict_self(int ruleset_fd, __u32 flags);
+> -asmlinkage long sys_memfd_secret(unsigned long flags);
+> +asmlinkage long sys_memfd_secret(unsigned int flags);
+>   
+>   /*
+>    * Architecture-specific system calls
+> diff --git a/mm/secretmem.c b/mm/secretmem.c
+> index f2ae3f32a193..3b1ba3991964 100644
+> --- a/mm/secretmem.c
+> +++ b/mm/secretmem.c
+> @@ -199,7 +199,7 @@ static struct file *secretmem_file_create(unsigned long flags)
+>   	return file;
+>   }
+>   
+> -SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
+> +SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
+>   {
+>   	struct file *file;
+>   	int fd, err;
+> diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
+> index c878c2b841fc..2462f52e9c96 100644
+> --- a/tools/testing/selftests/vm/memfd_secret.c
+> +++ b/tools/testing/selftests/vm/memfd_secret.c
+> @@ -38,7 +38,7 @@ static unsigned long page_size;
+>   static unsigned long mlock_limit_cur;
+>   static unsigned long mlock_limit_max;
+>   
+> -static int memfd_secret(unsigned long flags)
+> +static int memfd_secret(unsigned int flags)
+>   {
+>   	return syscall(__NR_memfd_secret, flags);
+>   }
+> 
 
-So the implementation above is suitable for non-sub-word-xchg architecture.
-
-> >
-> >> Step 1 would be to get your architecute fixed such that it can provide
-> >> fwd progress guarantees for LL/SC. Otherwise there's absolutely no point
-> >> in building complex systems with it.
-> > Quote Waiman's comment [1] on xchg16 optimization:
-> >
-> > "This optimization is needed to make the qspinlock achieve performance
-> > parity with ticket spinlock at light load."
-> >
-> > [1] https://lore.kernel.org/kvm/1429901803-29771-6-git-send-email-Waiman.Long@hp.com/
-> >
-> > So for a non-xhg16 machine:
-> >   - ticket-lock for small numbers of CPUs
-> >   - qspinlock for large numbers of CPUs
-> >
-> > Okay, I'll put all of them into the next patch :P
-> >
-> It is true that qspinlock may not offer much advantage when the number
-> of cpus is small. It shines for systems with many cpus. You may use
-> NR_CPUS to determine if the default should be ticket or qspinlock with
-> user override. To determine the right NR_CPUS threshold, you may need to
-> run on real SMP RISCV systems to find out.
-We'd give the choice to the users, and they could select ticket-lock
-or qspinlock in riscv.
+LGTM
 
 -- 
-Best Regards
- Guo Ren
+Thanks,
 
-ML: https://lore.kernel.org/linux-csky/
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
