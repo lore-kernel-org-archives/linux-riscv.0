@@ -2,95 +2,83 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56148C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EC11C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:30:15 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EFCF96198F
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:27:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EFCF96198F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0565261874
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:30:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0565261874
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zKGHoMmkRRpHnJW59MaubpmDphO01GuesYOqSCJmpz0=; b=JC2CYmAuCoiQ5NCVEg52So/tW
-	jVicGW/QkqexQzlhloX5isOQshiFpU3yzv/p6Jgkkx0Ki+hV0vUIGVFqTtB1NjpnUonC+BMuCw7rY
-	WuEMflXyUR2ghdIN7XqkwsnrsmHCIDSKQqFexrYs4Vr94LfNwS5rxbbR4oit0dycsmGLqKxpt7BB7
-	f/uO9Q8E4ek3Wgl4YlYRsLu6pX7daW4bVQI2uuHBZg94lfpno0VhJEM5dd0GZOq6TEdPwei74q0CL
-	BXkrolCIDgUTF5x5cT0gW85EmhfErnAS6eEiUVin5BhWAx4PBotQr/DhyZpIZoVqrR7k/S64yeQY+
-	bGaiDneMQ==;
+	 bh=mhRFsQyn+hRclT3mDXFg9PU+oauXU+qliLD7YUifxvQ=; b=fCPkHe3L+Fp5IRsIcttD51ETL
+	TKOv1nhrZCEMUulanjp2Vs2MyRsIwVpEZ8MI2bzi8Yr6IimUfEyWC0R2T6HWlwEPCxjEspVI4OH27
+	ixzOB60x+QCj+V+VURhAgpkxFaW6ZvWvv3DApUGz6Smr+WMbFQFb5evuXtkL28zKavrfRNDYncR1W
+	iLIZ0GoGW/CdWYASR/xTfmM2UQc5f3DfCeT0zTaUzGi+GdlRHgB64xh1vAGwahAaXy7MyQbJ6MqSb
+	dE0cSoMWAd1TSClCJ8dND2XoUxVPSUc8neAq+J4xuV2a65xDxv3Ghpl/OS5xBY8gwBBs0VytwX91n
+	nPeF1lASw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRX8C-00687I-UN; Wed, 31 Mar 2021 09:27:21 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1lRXAg-00696A-Ci; Wed, 31 Mar 2021 09:29:54 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRX7a-0067wK-1A
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 09:26:56 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id g10so7593830plt.8
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 02:26:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=yP7PEulAPK6UHzRxTLeSHifkookZOtRjzWBAZ0O/gdc=;
- b=LOw7EcVTffm/NjdpGaGKUcEGQ77gQ9JBGdonP44rzUgXmMgCpaNUUehuHZr1fxV1UH
- 3BBm56IlXAYsVcHNKpUz4rfO9dQS24nWfBTjUsvikelk59OREv70zUWGBbH2weoPqb1v
- fe5f2NqgE0tBYaHEv53mPjfxC0q//a/k26g7ERe1p40gF7ZDAu55vDVITOsHtel4i7gk
- t193rAIOVpfvOXumSpeM5SWmZTcuFe8Ui9c0OnT1wU6EWF4zKZPgVgDWc6s3/YmvsIVs
- DSj7O3ADkHdwvuty7xC835x7GQzPyJUO+6tIJue0z3CAXUBR/aUoKr6JELz2lo+C+iNH
- gfZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=yP7PEulAPK6UHzRxTLeSHifkookZOtRjzWBAZ0O/gdc=;
- b=Oq349Tr89ej4UfCHVOyqgEEFtxeqC6zx0DugNhKAX1E2H1zbloCnLBq3vScx242mEj
- d7XB6y7c0zQeds2lJgHESEZGAr+2vUxbBvS8AZtqjZE+e2kcspb4st2P8d4Fjol7afeb
- r8X7J1dmo4eHivEvZmiCNfjdFgU9SmNLkkdaW3Ss45MfXFn3qP4GUOb2tbI6uTBG10Fw
- 1E8IiXUfpImUzjqa4DkceiHhrkjjEBxGyPReZb9BdCjRwHVNPArYK8gngDuib9R3Dp7R
- 8aIBnlz0voniQ/Po3OgQpA0l3Kd9cD5kXrsZQyx6bt27C04toxZZlE79eKOUES0he/p6
- WsQA==
-X-Gm-Message-State: AOAM532fGkLGW7Yo8jh53jiwYbpO7GJ7YHxrwu3a0O299c8vTvnZrwO2
- omG/Ptc2sXBYyu7Wekg6G/WCQQ==
-X-Google-Smtp-Source: ABdhPJyOcOzTnUY5eHiAJ1S0x1EGTnxPs4BI8SbPuOMDe+Jv2va6wUKiS7UneRWEWjd/DWnW7Vlmhw==
-X-Received: by 2002:a17:90b:1987:: with SMTP id
- mv7mr2512728pjb.152.1617182799984; 
- Wed, 31 Mar 2021 02:26:39 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id 143sm1726505pfx.144.2021.03.31.02.26.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 31 Mar 2021 02:26:39 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
- erik.danie@sifive.com, zong.li@sifive.com, bhelgaas@google.com,
- robh+dt@kernel.org, aou@eecs.berkeley.edu, mturquette@baylibre.com,
- sboyd@kernel.org, lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
- alex.dewar90@gmail.com, khilman@baylibre.com,
- hayashi.kunihiko@socionext.com, vidyas@nvidia.com, jh80.chung@samsung.com,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, helgaas@kernel.org
-Subject: [PATCH v3 6/6] riscv: dts: Add PCIe support for the SiFive FU740-C000
- SoC
-Date: Wed, 31 Mar 2021 17:26:05 +0800
-Message-Id: <20210331092605.105909-7-greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210331092605.105909-1-greentime.hu@sifive.com>
-References: <20210331092605.105909-1-greentime.hu@sifive.com>
+ id 1lRXA4-0068u4-4b; Wed, 31 Mar 2021 09:29:21 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 3578661606;
+ Wed, 31 Mar 2021 09:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1617182952;
+ bh=aMxacYx0WSuYSq+RvcHg7XLnuWTcQHWfWM2hCy7hYJU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=ZilpE/CgLvY3Nm3hLeCdPrSzQ0bka0Q/xAMzoDxoKT2sksg/+xdgw70lbIQlKRH9q
+ HQM7q1tR3SOaufoC3EF8clnG+n8fTsUXBRqFIqRReR3kDRE9b5+HETaEN2azemUCyN
+ +dywdbjbEuNLM1pOQ9fKcI8/BlabXbx6EDZQjXTlXZiHlwJBGfmHuNxznBzTG2bJFd
+ nNykz3YpDvfjp1B8PgDSj0QLp5Bc0UJEz3WtQfw8cmvL2FnE443FSPWgxCOoGmWTX7
+ urjc5s1XzZrXM3ARPcSSDIS4mEkSxEnbcwd3SAssAB5TkbJXQ91S3vF7J6sARmo8bJ
+ QvnQEWfFitvHA==
+Date: Wed, 31 Mar 2021 12:28:57 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Huacai Chen <chenhuacai@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2] mm: Move mem_init_print_info() into mm_init()
+Message-ID: <YGRA2SU28yciN9xU@kernel.org>
+References: <4d488195-7281-9238-b30d-9f89a6100fb9@csgroup.eu>
+ <20210317015210.33641-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210317015210.33641-1-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_102653_530220_F482FB3C 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20210331_102916_572608_81ECDBBE 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,64 +96,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
----
- arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+On Wed, Mar 17, 2021 at 09:52:10AM +0800, Kefeng Wang wrote:
+> mem_init_print_info() is called in mem_init() on each architecture,
+> and pass NULL argument, so using void argument and move it into mm_init().
+> 
+> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-index d1bb22b11920..b2317c8e3a80 100644
---- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-@@ -158,6 +158,7 @@ prci: clock-controller@10000000 {
- 			reg = <0x0 0x10000000 0x0 0x1000>;
- 			clocks = <&hfclk>, <&rtcclk>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 		uart0: serial@10010000 {
- 			compatible = "sifive,fu740-c000-uart", "sifive,uart0";
-@@ -288,5 +289,37 @@ gpio: gpio@10060000 {
- 			clocks = <&prci PRCI_CLK_PCLK>;
- 			status = "disabled";
- 		};
-+		pcie@e00000000 {
-+			compatible = "sifive,fu740-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			reg = <0xe 0x00000000 0x0 0x80000000>,
-+			      <0xd 0xf0000000 0x0 0x10000000>,
-+			      <0x0 0x100d0000 0x0 0x1000>;
-+			reg-names = "dbi", "config", "mgmt";
-+			device_type = "pci";
-+			dma-coherent;
-+			bus-range = <0x0 0xff>;
-+			ranges = <0x81000000  0x0 0x60080000  0x0 0x60080000 0x0 0x10000>,      /* I/O */
-+				 <0x82000000  0x0 0x60090000  0x0 0x60090000 0x0 0xff70000>,    /* mem */
-+				 <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x1000000>,    /* mem */
-+				 <0xc3000000 0x20 0x00000000 0x20 0x00000000 0x20 0x00000000>;  /* mem prefetchable */
-+			num-lanes = <0x8>;
-+			interrupts = <56>, <57>, <58>, <59>, <60>, <61>, <62>, <63>, <64>;
-+			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+			interrupt-parent = <&plic0>;
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &plic0 57>,
-+					<0x0 0x0 0x0 0x2 &plic0 58>,
-+					<0x0 0x0 0x0 0x3 &plic0 59>,
-+					<0x0 0x0 0x0 0x4 &plic0 60>;
-+			clock-names = "pcie_aux";
-+			clocks = <&prci PRCI_CLK_PCIE_AUX>;
-+			pwren-gpios = <&gpio 5 0>;
-+			reset-gpios = <&gpio 8 0>;
-+			resets = <&prci 4>;
-+			status = "okay";
-+		};
- 	};
- };
--- 
-2.30.2
+Acked-by: Mike Rapoport <rppt@linux.ibm.com>
 
+> ---
+> v2:
+> - Cleanup 'str' line suggested by Christophe and ACK
+> 
 
 _______________________________________________
 linux-riscv mailing list
