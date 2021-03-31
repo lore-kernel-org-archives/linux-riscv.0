@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDF90C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0F9EC433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:52 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9AB666100B
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9AB666100B
+	by mail.kernel.org (Postfix) with ESMTPS id 62D8F61008
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62D8F61008
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=frTCa0aiuNah+v9NQ7JPLm/KUR3HRimO48AMKI1Ci9Y=; b=L4s5hWNl4H5+QNW4H2xEkcDl2
-	uCC7ivY53Iq4LxeCMbf0uvBH0ga5xsP3UMXqV2YM/TnSkwXgy8dax/25KVIA/9x5m9chOAhR9qq6Y
-	ojdRxkIlLZziTj3P97FuLPtRGqgh9ycWhCvtao2zyW85+0AyN9MEydS1LNPkXeXYvCNmhyw7KQGcj
-	BFkuhXaNonJlcqx7me/rj0zfldzrxgVo61plyiBpqTLIN+dpHwY/LG5VUKS8RX7IPgGr2ZlNG3xEM
-	6z674IxUGa9bNmqD3juKm8KByloMXJw+p38dfz/k4AR/zG/Ej06hvdHuaJBrID51y77wTgK1XkF1y
-	Q5xGlUL9w==;
+	 bh=QyvZ0ADxYRQeCHxtW8JXUUtDd5/obgLUf7Ct+Gitl98=; b=NbFzDGuoITd4erJD7t7+4iD0d
+	UgLBzxcfQjfSs+yFsR2P0crxMayt32UQ5wrCszFr1Vg6nmuWF+jG6Qi8I6ACwWz4fR3KxaEofMcKI
+	HkrTMq2Y5oDobCNOwxuEx4wLq/PpAv8+zdX9YSiwP+e3VaIs6c8CSLmJVz02iMGdJDA3n0AbMuMhm
+	IzWhp5KxtC/iO7od06eVfYZyWHdcdzA1GTOHdIvsksYQaH3uBxrb+m/ACzBUA1WrpMhTcwbiUYsdf
+	ZCUuih7MNat8E6g5OxiL19bHYlNKGeFXlrpT5qwIpCkbtJ4/O8h+869aLqHyovUrFhnTmB2AKjXIa
+	q0HLfaFLg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRdlJ-0076gY-Ff; Wed, 31 Mar 2021 16:32:09 +0000
+	id 1lRdlo-0076lL-6W; Wed, 31 Mar 2021 16:32:40 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lRdlB-0076ev-BS
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:32:03 +0000
+ id 1lRdlj-0076ka-3Z
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:32:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=X3JnzAWB/wP2byqIVYcRzkGaaPhYaCeo9n
- v6lfgBPe0=; b=Xo6Hhyt/U2nM1S0+Fv8bA14b51KjeutJR0dCicPexA8ZKbeIJz
- CI1fcTfvliBJ+0g+xXnpQl8lMV+4c4b+YNYeUI5ouSq9pqN6FGxiGy6vCLDVlUw9
- lCAXXDCUYEtvuUFLY68pHxdbqMQChrcLkbDW6AP0vFob7zFYIZ5dKEvA4=
+ Content-Transfer-Encoding; bh=VCe4QmQLCwyArf7TfS2RTM//Ze/hAyVnYU
+ NMw+5EuIc=; b=Z61ZrDU44qPj/L7wRO9heLuognDflkvGa6LJIdH3hJSuXfWNEM
+ eicCOKPfCbNncVPIkwruwg07siMe475OkwuoY7EuHOshM8YzD2hg0HdHtKGXYbpW
+ kOfjvtlqjqK4IH6gb8jq/SAxmI6yOuxzU+jliUyGkLQVDZEJjZCTif2yE=
 Received: from xhacker (unknown [101.86.19.180])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDX30v0o2RgKr16AA--.16474S2; 
- Thu, 01 Apr 2021 00:31:48 +0800 (CST)
-Date: Thu, 1 Apr 2021 00:26:51 +0800
+ LkAmygB3fkIVpGRgrr16AA--.5145S2; 
+ Thu, 01 Apr 2021 00:32:22 +0800 (CST)
+Date: Thu, 1 Apr 2021 00:27:24 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt 
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin 
@@ -61,32 +61,33 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <xi.wang@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH v2 4/9] riscv: Constify sbi_ipi_ops
-Message-ID: <20210401002651.1da9087e@xhacker>
+Subject: [PATCH v2 5/9] riscv: kprobes: Implement alloc_insn_page()
+Message-ID: <20210401002724.794b3bc4@xhacker>
 In-Reply-To: <20210401002442.2fe56b88@xhacker>
 References: <20210401002442.2fe56b88@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDX30v0o2RgKr16AA--.16474S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxuF4kuF1rWw17ZFyrJFb_yoW8tw1kpw
- 4UCr45CFWrGFn7Ga43tFWku3y3K3ZrWwnIy34Yka45JFnIqrWUAan0qw12vwn8GFyDuFyS
- 9r4rCrZ0vF1UAFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUkEb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
- xK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
- 64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r
- 1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kI
- c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
- v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
- c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
- 0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Gr0_Zr1lIxAIcVC2z280aVAFwI0_Jr0_
- Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07je7K
- sUUUUU=
+X-CM-TRANSID: LkAmygB3fkIVpGRgrr16AA--.5145S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDGF45XF4kJrWxuw48WFg_yoWDGrb_C3
+ WxKry3WrWYkrWxWFyDKw4Sqrsak343KFykWr12yryUtr1DWr13Ka95WF45G3sYqr97JFyf
+ GrnxX3srWF42qjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUb4AYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+ vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr
+ 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+ 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+ 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+ 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+ W8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVWUJVW8
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8S1v3
+ UUUUU==
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_173202_132865_D7D05285 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20210331_173235_918047_A5AF7960 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +106,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Constify the sbi_ipi_ops so that it will be placed in the .rodata
-section. This will cause attempts to modify it to fail when strict
-page permissions are in place.
+Allocate PAGE_KERNEL_READ_EXEC(read only, executable) page for kprobes
+insn page. This is to prepare for STRICT_MODULE_RWX.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/include/asm/smp.h | 4 ++--
- arch/riscv/kernel/sbi.c      | 2 +-
- arch/riscv/kernel/smp.c      | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/probes/kprobes.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index df1f7c4cd433..a7d2811f3536 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -46,7 +46,7 @@ int riscv_hartid_to_cpuid(int hartid);
- void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
- 
- /* Set custom IPI operations */
--void riscv_set_ipi_ops(struct riscv_ipi_ops *ops);
-+void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
- 
- /* Clear IPI for current CPU */
- void riscv_clear_ipi(void);
-@@ -92,7 +92,7 @@ static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
- 	cpumask_set_cpu(boot_cpu_hartid, out);
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 7e2c78e2ca6b..8c1f7a30aeed 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -84,6 +84,14 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 	return 0;
  }
  
--static inline void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
-+static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
++void *alloc_insn_page(void)
++{
++	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
++				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
++				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
++				     __builtin_return_address(0));
++}
++
+ /* install breakpoint in text */
+ void __kprobes arch_arm_kprobe(struct kprobe *p)
  {
- }
- 
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index cbd94a72eaa7..cb848e80865e 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -556,7 +556,7 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
- 	sbi_send_ipi(cpumask_bits(&hartid_mask));
- }
- 
--static struct riscv_ipi_ops sbi_ipi_ops = {
-+static const struct riscv_ipi_ops sbi_ipi_ops = {
- 	.ipi_inject = sbi_send_cpumask_ipi
- };
- 
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 504284d49135..e035124f06dc 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -85,9 +85,9 @@ static void ipi_stop(void)
- 		wait_for_interrupt();
- }
- 
--static struct riscv_ipi_ops *ipi_ops __ro_after_init;
-+static const struct riscv_ipi_ops *ipi_ops __ro_after_init;
- 
--void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
-+void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
- {
- 	ipi_ops = ops;
- }
 -- 
 2.31.0
 
