@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0FC44C43460
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EDF90C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:22 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B93276100B
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:31:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B93276100B
+	by mail.kernel.org (Postfix) with ESMTPS id 9AB666100B
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:32:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9AB666100B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=VAH6BiQXVA9pBJssuQWLcsE9N+WplA8id8umVwnMhzQ=; b=iX0kqXAAFMllSFEHdu06Qnvs6
-	O1cI5ru92T2BCDyU/gnI+0Ckr/MceDbZO2HHbpEWFMnbzpptLU46FNWHwBC1Zwv31MjDM8t07ME0A
-	r2JesT+fkFdQqbr8eB89iWRf/XODZrdOTvOiqmz7kMaS1oX1b/0NeWjcOwl65h3qFz2m+dyl7PMV0
-	miakTvteGpt6O2nwcYExyf3/iY0pows8BRn2oeNmGvjqL60KohXARQplyaBGVjXDDgdaC9vWY6p7h
-	bvSjQ7J1Iphb2ZEhZGfRSf9epre1fkIZFtqdRIHUlobuEyHznPDl2rtrEPGpNrMuvqDsWz2TI3giX
-	uUSMyn2cQ==;
+	 bh=frTCa0aiuNah+v9NQ7JPLm/KUR3HRimO48AMKI1Ci9Y=; b=L4s5hWNl4H5+QNW4H2xEkcDl2
+	uCC7ivY53Iq4LxeCMbf0uvBH0ga5xsP3UMXqV2YM/TnSkwXgy8dax/25KVIA/9x5m9chOAhR9qq6Y
+	ojdRxkIlLZziTj3P97FuLPtRGqgh9ycWhCvtao2zyW85+0AyN9MEydS1LNPkXeXYvCNmhyw7KQGcj
+	BFkuhXaNonJlcqx7me/rj0zfldzrxgVo61plyiBpqTLIN+dpHwY/LG5VUKS8RX7IPgGr2ZlNG3xEM
+	6z674IxUGa9bNmqD3juKm8KByloMXJw+p38dfz/k4AR/zG/Ej06hvdHuaJBrID51y77wTgK1XkF1y
+	Q5xGlUL9w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRdkj-0076Xq-It; Wed, 31 Mar 2021 16:31:33 +0000
+	id 1lRdlJ-0076gY-Ff; Wed, 31 Mar 2021 16:32:09 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lRdkf-0076W9-AY
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:31:31 +0000
+ id 1lRdlB-0076ev-BS
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:32:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=Ikp7PZAuK4fo1XgsXlr4Y+BaLjbJ/cSgtN
- EE/K8IQMY=; b=RpJibMn2q1x3JBg0uDL3WvIWknem8AoXR8PCRtkf4CYZzIeItC
- O52qT98r5vRu5A/TIJ2+zQfeLPvkGxzRoAZFowPQ33ho+Z+QgJ6NEHURQK0FkuAH
- PQdK58jo6t1irJ798W33iZEKb4ZjVBsuXa/8WFSzGPO3kv3QVT+BO6gq8=
+ Content-Transfer-Encoding; bh=X3JnzAWB/wP2byqIVYcRzkGaaPhYaCeo9n
+ v6lfgBPe0=; b=Xo6Hhyt/U2nM1S0+Fv8bA14b51KjeutJR0dCicPexA8ZKbeIJz
+ CI1fcTfvliBJ+0g+xXnpQl8lMV+4c4b+YNYeUI5ouSq9pqN6FGxiGy6vCLDVlUw9
+ lCAXXDCUYEtvuUFLY68pHxdbqMQChrcLkbDW6AP0vFob7zFYIZ5dKEvA4=
 Received: from xhacker (unknown [101.86.19.180])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygCXOpnWo2Rgs7x6AA--.15943S2; 
- Thu, 01 Apr 2021 00:31:18 +0800 (CST)
-Date: Thu, 1 Apr 2021 00:26:21 +0800
+ LkAmygDX30v0o2RgKr16AA--.16474S2; 
+ Thu, 01 Apr 2021 00:31:48 +0800 (CST)
+Date: Thu, 1 Apr 2021 00:26:51 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt 
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin 
@@ -61,32 +61,32 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <xi.wang@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH v2 3/9] riscv: Constify sys_call_table
-Message-ID: <20210401002621.409624ee@xhacker>
+Subject: [PATCH v2 4/9] riscv: Constify sbi_ipi_ops
+Message-ID: <20210401002651.1da9087e@xhacker>
 In-Reply-To: <20210401002442.2fe56b88@xhacker>
 References: <20210401002442.2fe56b88@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygCXOpnWo2Rgs7x6AA--.15943S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxuF4kuF1rWw17ZFyrJFb_yoW8GrWxpr
- sxC34kKr95WF18CFyakFyxuryxJ3Z8W34agr1qkan8Cw13trZ8tws0ga4ayFyDGFZrWrW0
- gF4I9r90kr48XFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUkGb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+X-CM-TRANSID: LkAmygDX30v0o2RgKr16AA--.16474S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxuF4kuF1rWw17ZFyrJFb_yoW8tw1kpw
+ 4UCr45CFWrGFn7Ga43tFWku3y3K3ZrWwnIy34Yka45JFnIqrWUAan0qw12vwn8GFyDuFyS
+ 9r4rCrZ0vF1UAFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkEb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
  0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
  A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr
- 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
- 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
- 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
- 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
- WxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r4j6FyUMIIF0xvEx4A2jsIE14v26r1j6r4U
- MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jndbbUUU
- UU=
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
+ xK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
+ 64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r
+ 1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kI
+ c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+ v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
+ c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+ 0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Gr0_Zr1lIxAIcVC2z280aVAFwI0_Jr0_
+ Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07je7K
+ sUUUUU=
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_173130_056657_B086793F 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20210331_173202_132865_D7D05285 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +105,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Constify the sys_call_table so that it will be placed in the .rodata
-section. This will cause attempts to modify the table to fail when
-strict page permissions are in place.
+Constify the sbi_ipi_ops so that it will be placed in the .rodata
+section. This will cause attempts to modify it to fail when strict
+page permissions are in place.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/include/asm/syscall.h  | 2 +-
- arch/riscv/kernel/syscall_table.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/smp.h | 4 ++--
+ arch/riscv/kernel/sbi.c      | 2 +-
+ arch/riscv/kernel/smp.c      | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 49350c8bd7b0..b933b1583c9f 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -15,7 +15,7 @@
- #include <linux/err.h>
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index df1f7c4cd433..a7d2811f3536 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -46,7 +46,7 @@ int riscv_hartid_to_cpuid(int hartid);
+ void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
  
- /* The array of function pointers for syscalls. */
--extern void *sys_call_table[];
-+extern void * const sys_call_table[];
+ /* Set custom IPI operations */
+-void riscv_set_ipi_ops(struct riscv_ipi_ops *ops);
++void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
  
- /*
-  * Only the low 32 bits of orig_r0 are meaningful, so we return int.
-diff --git a/arch/riscv/kernel/syscall_table.c b/arch/riscv/kernel/syscall_table.c
-index f1ead9df96ca..a63c667c27b3 100644
---- a/arch/riscv/kernel/syscall_table.c
-+++ b/arch/riscv/kernel/syscall_table.c
-@@ -13,7 +13,7 @@
- #undef __SYSCALL
- #define __SYSCALL(nr, call)	[nr] = (call),
+ /* Clear IPI for current CPU */
+ void riscv_clear_ipi(void);
+@@ -92,7 +92,7 @@ static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
+ 	cpumask_set_cpu(boot_cpu_hartid, out);
+ }
  
--void *sys_call_table[__NR_syscalls] = {
-+void * const sys_call_table[__NR_syscalls] = {
- 	[0 ... __NR_syscalls - 1] = sys_ni_syscall,
- #include <asm/unistd.h>
+-static inline void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
++static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
+ {
+ }
+ 
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index cbd94a72eaa7..cb848e80865e 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -556,7 +556,7 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+ 	sbi_send_ipi(cpumask_bits(&hartid_mask));
+ }
+ 
+-static struct riscv_ipi_ops sbi_ipi_ops = {
++static const struct riscv_ipi_ops sbi_ipi_ops = {
+ 	.ipi_inject = sbi_send_cpumask_ipi
  };
+ 
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 504284d49135..e035124f06dc 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -85,9 +85,9 @@ static void ipi_stop(void)
+ 		wait_for_interrupt();
+ }
+ 
+-static struct riscv_ipi_ops *ipi_ops __ro_after_init;
++static const struct riscv_ipi_ops *ipi_ops __ro_after_init;
+ 
+-void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
++void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
+ {
+ 	ipi_ops = ops;
+ }
 -- 
 2.31.0
 
