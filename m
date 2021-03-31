@@ -2,20 +2,20 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0211C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C5D7EC4360C
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 12:38:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 16AE161981
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:39:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16AE161981
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 343A5619EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 12:31:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 343A5619EA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,73 +23,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=o3fC9ZaL+9Gxpd5YC4BCvKJqKPoZtHMGIwDw8iKog2o=; b=XKymqtvv5sUN2KzhLCjxClNlF
-	cDHWSZgGLEysfaIBC4mKenUt7hktkpRa5vrD4agcmsrr7Np0V0Dgn1GrdoKInGTIRQMOGGoTNG8UV
-	KMXFK7Ac3ElOXY9PDe2Cy1XKfrquUzOv/47B42Mhef92GWTCtugwFsUATFhNWDmjZ+v6cu+JKKv+9
-	EZ/BlUkvL0EV3x5VBBFcNgZ32kyHrihy1KDCfCfyEiVMVe6fl60Oh/US1Lxk3L7u/BgRh4veBkstk
-	HjCcrSBUMq2RO9l08DwgiYne9QwNiivt4e3lw85Ke5n8/GG//qtutbPa9hIQRfzQDllTtmUTQPvPI
-	kpfcyZs6g==;
+	 bh=xh2WPqLaEb/mrKJr8zF8sUI8Vo8YEbjx2QakAZUIt3Y=; b=c4QzRGqqO1ZfTuyndjbPKtXUo
+	KCZUo/D+lowmXqjNmev0kAdscNQS133QTl4CvK4YQNu3bV7A5HNQ4jZWZDbNnrRzjmkh0gTd6E7Ey
+	5WN8SqQx5HyEc0hfeCSWtP2ktISUiMNGnwnEXmphvqRWPr69AEMsm6TJS4UDxTDIXAPxw7hwNr9V7
+	5yJFfJL6y2LkT7bzKaIvDZOlcdqg1CIBgwGvVPnxjPzMXUVajpID3wVFNJfaBBL0jDWPs7UsAVahq
+	hGX9Lfn2YinaHibYjILvoVOvZxIj0cM1yg5Yi0G7CxGqgyobgvQGmkjjFcpDDkDqnGed1Kq+WD4Qv
+	c2CJKiRqA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRXJb-006Arh-VV; Wed, 31 Mar 2021 09:39:08 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1lRa0H-006ZEq-HW; Wed, 31 Mar 2021 12:31:21 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRXIk-006AYt-1S; Wed, 31 Mar 2021 09:38:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=g5jil2A5p1wkLzsVeTmgtclSOGELktvkEXEKlZIjYVg=; b=XiJ+OxK9qQFp9pb3iCkwBlOXp
- SMJ3LhDQZ76ImMGs1+23oQ/WioU0hWz9YYebFqQSGNvQ9UoNd6HpZZO1Sjlw6ufxhQGjsXhlyq1yL
- Rg135ndoOTaxrliAkRSdtcBfX2vfDfUyJu5lpt9Qx1ISZiGbjOFZL9lbJbIgPizvs5nTWoRI4FLnx
- IITtjbSu3y+aMQU0qpykWL/nQFeQEL15bN2ggOwffKUuT89Wrfg/HzYa88LdxJKrx3C6YUip0LQa6
- pzMLGWk3w8Fc3V7dXGDMahXGdpM/gmApUuTa+Zg5+b0cW019JI5maq8g7N3s6BN2W+w/Or1ItM82H
- Rqn3lcuqg==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51970)
- by pandora.armlinux.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <linux@armlinux.org.uk>)
- id 1lRXFB-0001b6-Rl; Wed, 31 Mar 2021 10:34:33 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1lRXF0-0003oo-SH; Wed, 31 Mar 2021 10:34:22 +0100
-Date: Wed, 31 Mar 2021 10:34:22 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Huacai Chen <chenhuacai@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2] mm: Move mem_init_print_info() into mm_init()
-Message-ID: <20210331093422.GU1463@shell.armlinux.org.uk>
-References: <4d488195-7281-9238-b30d-9f89a6100fb9@csgroup.eu>
- <20210317015210.33641-1-wangkefeng.wang@huawei.com>
+ id 1lRa0D-006ZDx-UV
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 12:31:19 +0000
+Received: by mail-pl1-x633.google.com with SMTP id y2so7819379plg.5
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 05:31:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=r0wurEgCXpwLk8V8e0yBHXS1a2Ee8JuUUWzmEE/Af/M=;
+ b=HYh87bVhVdS5VrDKKYPgUhVykPRkLtiX6qLzPszCtA/84fkP12rXge+IibQm4nJekx
+ siTu2pLi/bDAdAuLX1RZhevc8zPWbB9UM38zuMDDi/jj5sfmyvqNzG3pjCzF82ECILC8
+ 2CIYpBMZ/903hzzzU7jjx4Ei+cDy05KY614b0g1LqVH2APwryUwpCDRKtuJcYL7HxsYW
+ gYJC/ERallREgYeMhxGEBttYuQ6Zi5xKrAyUsLcEbgG+hQPgBWCHTTjyUtmuxeFvCXjv
+ JYzjZuCL9V2FrnCuQZvJCSp4jaOqcLHTXRwY9ot+U50D6yI7Qny5PrtmrI1r252xY/Td
+ y5TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=r0wurEgCXpwLk8V8e0yBHXS1a2Ee8JuUUWzmEE/Af/M=;
+ b=JsAoEiPnkWk/t8B1FPZRRiKMkh5x4e705EsXJSsi8GgJDJPA0zNSbTGda/Izu2gErK
+ gyjaWlf16oVMcjVj7lQ1HBqNDFPAPTL9NuBvC6PY1XhBVoxjmaj4M8j+DEVc/pwa9m3n
+ Hm+cxV7+AgiO3tenyB19fDFxK54l/ZQI8yDRn8wPXmYmsvWWkZRf2j87XyYvKj4rURmZ
+ Q1S+KXBtePd63v3ej9jV18cwZwiOfrFCBVpVwuySAMR1kDRhRasuYs0w4N9W/swzD/GK
+ ssI+63+121jJpAp2q6AoudRKmY5tmtoU2ofOxbx+NjIEy3+yEQGVtedh592sm2ntpVcE
+ j1/Q==
+X-Gm-Message-State: AOAM531AzhkiXZHCHiToQfQLfj/UZ16/UqfL4Zgcdsri+RNq+ab1U1ky
+ yin8mnyzudYLTYZ3vZ++Cs0=
+X-Google-Smtp-Source: ABdhPJyG4a82R/BbIuiJluEQk1BqTadUrv91d79dqwaxsWtGJSEWE5901Qw1cGhEGO+9XsI5urPZDQ==
+X-Received: by 2002:a17:90a:9385:: with SMTP id
+ q5mr3263996pjo.121.1617193870227; 
+ Wed, 31 Mar 2021 05:31:10 -0700 (PDT)
+Received: from localhost (g139.124-45-193.ppp.wakwak.ne.jp. [124.45.193.139])
+ by smtp.gmail.com with ESMTPSA id
+ r1sm2026366pjo.26.2021.03.31.05.31.09
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 31 Mar 2021 05:31:09 -0700 (PDT)
+Date: Wed, 31 Mar 2021 21:31:07 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, linux-arch <linux-arch@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
+ Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
+ ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+Message-ID: <20210331123107.GF1171117@lianli.shorne-pla.net>
+References: <1616868399-82848-4-git-send-email-guoren@kernel.org>
+ <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
+ <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
+ <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
+ <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
+ <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
+ <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
+ <YGNNCEAMSWbBU+hd@hirez.programming.kicks-ass.net>
+ <20210330223514.GE1171117@lianli.shorne-pla.net>
+ <CAK8P3a0hj2pYr-CuNJkjO==RafZ=J+6kCo4HTWEwvvRXPcngJA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210317015210.33641-1-wangkefeng.wang@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <CAK8P3a0hj2pYr-CuNJkjO==RafZ=J+6kCo4HTWEwvvRXPcngJA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_103816_213466_FCFE906F 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210331_133118_067464_E7C1CFDE 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,17 +115,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 17, 2021 at 09:52:10AM +0800, Kefeng Wang wrote:
-> mem_init_print_info() is called in mem_init() on each architecture,
-> and pass NULL argument, so using void argument and move it into mm_init().
+On Wed, Mar 31, 2021 at 09:23:27AM +0200, Arnd Bergmann wrote:
+> On Wed, Mar 31, 2021 at 12:35 AM Stafford Horne <shorne@gmail.com> wrote:
+> >
+> > I just want to chime in here, there may be a better spot in the thread to
+> > mention this but, for OpenRISC I did implement some generic 8/16-bit xchg code
+> > which I have on my todo list somwhere to replace the other generic
+> > implementations like that in mips.
+> >
+> >   arch/openrisc/include/asm/cmpxchg.h
+> >
+> > The idea would be that architectures just implement these methods:
+> >
+> >   long cmpxchg_u32(*ptr,old,new)
+> >   long xchg_u32(*ptr,val)
+> >
+> > Then the rest of the generic header would implement cmpxchg.
 > 
-> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> I like the idea of generalizing it a little further. I'd suggest staying a
+> little closer to the existing naming here though, as we already have
+> cmpxchg() for the type-agnostic version, and cmpxchg64() for the
+> fixed-length 64-bit version.
 
-Acked-by: Russell King <rmk+kernel@armlinux.org.uk> # for arm bits
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+OK.
+
+> I think a nice interface between architecture-specific and architecture
+> independent code would be to have architectures provide
+> arch_cmpxchg32()/arch_xchg32() as the most basic version, as well
+> as arch_cmpxchg8()/arch_cmpxchg16()/arch_xchg8()/arch_xchg16()
+> if they have instructions for those.
+
+Thanks for the name suggestions, it makes it easier for me.
+
+> The common code can then build cmpxchg16()/xchg16() on top of
+> either the 16-bit or the 32-bit primitives, and build the cmpxchg()/xchg()
+> wrapper around those (or alternatively we can decide to have them
+> only deal with fixed-32-bit and long/pointer sized atomics).
+
+Yeah, that was the idea.
+
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
