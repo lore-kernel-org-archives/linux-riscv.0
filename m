@@ -1,88 +1,98 @@
-Return-Path: <SRS0=oB3y=I4=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EFF79C433C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 23:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E266C433C1
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 00:25:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D41E6187E
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Mar 2021 23:54:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D41E6187E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id DE755619A7
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 00:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE755619A7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=X8TEn77GWBzzy5Ua+RCwhdwKDvk8kWKodglP2tmsELg=; b=KSpJLG4T71UHbTY382oLgjOOH
-	1/dhtIDYiP7WK8A8ozSWUBv4gJGHuQEoJwA/+4mY1EhuOXcZOWEYneb+ea3AAGOQdl8Mfqhzz0d7d
-	KLTKBhz2HnvHMU9mZru+r/fFlIBdxCg2Tmg9ThmYX98/Yt+9Zt0oZU+zZKBlTT2XHt3uKM7BzsqdT
-	SfUAcg0ygQbDUVJgi0YYwd0IgtENAq8LxIE3PWq7ecVXHyzdVOmk9RHP7OleWsnT1lE7PD+zHOGwI
-	JYFfkbZhE0dHU0SwXS1m10O/DUb6gii00Bveefx5loLkSObwcK1BcVkG/LzLSpvLLZ/WfBGhf5BC/
-	RkOsrVACw==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=YwXYbrK62fOnHxmvpWm79EjjTbJZZoiuZUg0x9B7eXM=; b=F3zcEOvGWR7A+YWMRaKvsaA7o
+	lguglup7Taj2Bxqoc01S0+XWcZDJ3kfWR6UvtedwlUgjC0pdnP6kxbWG6ZxSUQQuw/aqkMbv8iBG2
+	gd+FwXf7i7pqxs3e5/k0JqHVrGHPG0v8JVMShs5t+nPFBDtpTM5ibW6FzrsXZGL3slUdmc1HZpnZ/
+	lSNddfDWq88r/yCb4YpNYJ0Mbcpl3VbUmAHCZkM6toe0zgzTPnOSDV6ns1+d5j9r4jKw+crtM0ZHV
+	fmjM23wzfXsX3TFh/y+zr+bkOOtfUprXhnRyHNdNQshouLGRXnJ4ybSujxhzLIFNNPFcXhWo6cbBh
+	UzFKhzeqQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lROBp-0059Mr-Hm; Tue, 30 Mar 2021 23:54:29 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1lROf4-005ATz-QE; Wed, 31 Mar 2021 00:24:42 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lROBh-0059Lz-DH
- for linux-riscv@lists.infradead.org; Tue, 30 Mar 2021 23:54:25 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id
- x21-20020a17090a5315b029012c4a622e4aso283548pjh.2
- for <linux-riscv@lists.infradead.org>; Tue, 30 Mar 2021 16:54:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=4eVDKwhdLmciP93KTCC0yDxL5KfIZeE8g1SyVsqOLkA=;
- b=AlKXlLsA5yjVpl1CX25zymbCDal6W0KEOLvxT4VwnOEYesq4ZDx+gAr/9NziioBh2d
- EBqtWpicZr/mamdSf7J+UaN2FceX+60I+T9RVpm0muefken1m/AuVKntCTSKN7f3EOtW
- XCnV6eRQfewJp0THXtwT2vxo10+wyU7BgTRMSYK2UVHaazCd1CWsG9NeoZb+SxzAbu6p
- 4/EbRqAglhHPqRkoLWWwPkqn0LhmqFg5evzFxUeejxyoWBnNXtLO7ZvhuakYQNYqI8Tj
- Ddkz21c+cS5oD7gggWaFlzrQRHqqfzV0k22WBrx3lIY8ssKz0g3e4tEGLl2urNkAGEvF
- rHEg==
+ id 1lROeq-005ASk-SW
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 00:24:32 +0000
+Received: by mail-pf1-x431.google.com with SMTP id j25so13306519pfe.2
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Mar 2021 17:24:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=t8GisNUKhAXhRRmhb5Tmd7cSosC0ChQ5VE6Rcal6IVk=;
+ b=urdw3ivXzWShCpZ72V3nD7ok9QIvHP0ke8jFdQ6gOdSvymUjIs2/ErLZOItEsi3Exq
+ Zs/3q45bKVnrvrbSLkghBP8hFtj6qVeMzz3QGjNAbe8vYCKmt67b0HU/a1rimNbVG/bG
+ 9i5i5OG5X0jCsbYssTZKB2kEzfUjkj/Tz2IgeJP/MkJhFphCczFN6i17moOy/H7qOQ3e
+ aI+4KGsS3P5GrnDzdy7q9IblINvwNF1BiXXQaD5XzCxZULPiIcfhxzp7xxrMM0HeWyVS
+ JANPccHlgxQi8ZyQM3ouLqwjeOC7ke9gUVjz5HNCEAVRcxOfa39fRx9hzMCTKz9mMlld
+ ffdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=4eVDKwhdLmciP93KTCC0yDxL5KfIZeE8g1SyVsqOLkA=;
- b=SmCsb9Nfu5TmPWe7ehsu0DfIpphfd454Q5+I1HTtJYAVfOxB7vDQX7NKQK7cPdsb8v
- S9IgKd3LRfb0tBE59yMpt+liqneWt7AfTAW/3J+uctY702PQBdO/DpspIOTFT324eoYf
- 69DNmtFw9a3PRvx7iVrxtQ17aIFS3VWvdGUSo/jpfrJymiZbuhJqQnTKHkhl99+8mr8s
- ZF5N5LBB6Amk4mv1UPvpRn0BHHK6T7Ia9am/aGmBJgrUzRVWt8vZfOxtN6DxGoacnLvu
- g2iZYAJ/FepTJt726ENVcGr83afwcQ0HogHhT+Auc0kXylPBkIFsIbDhfrbZfbw2SVzY
- Dn3Q==
-X-Gm-Message-State: AOAM533mK0CCExvjK4prMRZ2fyYVqLPx2RHL8bRjiVy7CQbQaw6AAigv
- +OoKKgRE0YjYSb72zZ9my+tA/g/bB7M8fEKgTu8=
-X-Google-Smtp-Source: ABdhPJyv6Y/IWr85TsPhRhzUNvg49VdAa4O+NvEAVMjplZUTBY5Ax+gXoj0f79QdzyQQRKgKWYrz9Zyim4Cb6CEbMPc=
-X-Received: by 2002:a17:902:be02:b029:e6:bb0d:6c1e with SMTP id
- r2-20020a170902be02b02900e6bb0d6c1emr680485pls.77.1617148458772; Tue, 30 Mar
- 2021 16:54:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <mhng-1b7b4cb7-2f9a-4bdb-b00c-14ec1d7008b0@palmerdabbelt-glaptop>
- <1afc3d35-55ff-eefd-3fc9-6342f85fa887@microchip.com>
-In-Reply-To: <1afc3d35-55ff-eefd-3fc9-6342f85fa887@microchip.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Tue, 30 Mar 2021 18:54:08 -0500
-Message-ID: <CABb+yY2s+ovT4Dhbsy4Mjn2EtgEwYdezhmUcL3H8GWCdaO2bPA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] Add support for the PolarFire SoC system controller
-To: Conor.Dooley@microchip.com
-Cc: palmer@dabbelt.com, Rob Herring <robh+dt@kernel.org>, Damien.LeMoal@wdc.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, 
- Devicetree List <devicetree@vger.kernel.org>, linux-riscv@lists.infradead.org, 
- j.neuschaefer@gmx.net, Lewis.Hanly@microchip.com, Cyril.Jean@microchip.com, 
- Daire.McNamara@microchip.com, Atish.Patra@wdc.com, Anup.Patel@wdc.com, 
- david.abdurachmanov@gmail.com
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=t8GisNUKhAXhRRmhb5Tmd7cSosC0ChQ5VE6Rcal6IVk=;
+ b=fNUd5cAK0SVH+s6nALluNdhp559qp2jCsb+iMbM9Ngi/cJSJ3B5dh3pT1MGp9MRz/F
+ AxOVRRin3eqbjEbWBFQ3aOuFVZPW8rXEJ1YGFrRo9P+PYM1legtqlkodw/ufKKz9gOGh
+ kncMPHJul6lEGL+x4s32vJ6CpPEh0vp7OuER2/R5no2hxSJXORe++fOvCFjqwA5Fvjyd
+ ap8foyUE9DV7CBkMAAntKk/ENpPJ278OvIejpeo3+aSf4vF4jBNym0NOznRZcok/05in
+ K8rui79mKSVDHeKrkXOzYnwGpqdgBS/sSyRU0fGny6TMGmNV43UdO6NPInJsvjLEkOWG
+ dB+A==
+X-Gm-Message-State: AOAM530NVk0LL0ip+QTPei1cXD/lnNWP+9FJQyhuxrKDy2kZbFmfz+9Z
+ 4jJ3KEwLMTg18H2lcuKlSfLKKQ==
+X-Google-Smtp-Source: ABdhPJzu1TA+qlBzM73yS6GhrKUJdqQ2kl7j2QOiV7JjAougt35JjgWoZLN67F4hgX4tR8a+GoQsxw==
+X-Received: by 2002:aa7:9687:0:b029:22e:e5ce:95b6 with SMTP id
+ f7-20020aa796870000b029022ee5ce95b6mr502259pfk.53.1617150266450; 
+ Tue, 30 Mar 2021 17:24:26 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id p25sm169258pfe.100.2021.03.30.17.24.25
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 30 Mar 2021 17:24:25 -0700 (PDT)
+Date: Tue, 30 Mar 2021 17:24:25 -0700 (PDT)
+X-Google-Original-Date: Tue, 30 Mar 2021 17:06:40 PDT (-0700)
+Subject: Re: [PATCH v2 2/6] clk: sifive: Use reset-simple in prci driver for
+ PCIe driver
+In-Reply-To: <CAHCEehL63aJQPA3DdRCa3pZHWX3DH9ktgKbo1+nD=KWxADsogA@mail.gmail.com>
+CC: sboyd@kernel.org, alex.dewar90@gmail.com, aou@eecs.berkeley.edu,
+ bhelgaas@google.com, devicetree@vger.kernel.org, erik.danie@sifive.com,
+ hayashi.kunihiko@socionext.com, helgaas@kernel.org, hes@sifive.com,
+ jh80.chung@samsung.com, 
+ khilman@baylibre.com, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ lorenzo.pieralisi@arm.com, 
+ mturquette@baylibre.com, p.zabel@pengutronix.de,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ robh+dt@kernel.org, vidyas@nvidia.com, zong.li@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: greentime.hu@sifive.com
+Message-ID: <mhng-78a4de2c-8723-4b35-b64e-2e1866ad6743@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_005423_885499_1580FD20 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20210331_012429_558042_DD63BC1A 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +104,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 30, 2021 at 6:06 AM <Conor.Dooley@microchip.com> wrote:
-
-> >>  create mode 100644
-> >> Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
-> >>  create mode 100644 drivers/mailbox/mailbox-mpfs.c
-> >>  create mode 100644 drivers/soc/microchip/Kconfig
-> >>  create mode 100644 drivers/soc/microchip/Makefile
-> >>  create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
-> >>  create mode 100644 include/soc/microchip/mpfs.h
-> >
-> > The only problem I see here is that patch #3 (the driver for the system
-> > controller) comes before patch #4 (the DT bindings for that driver).
-> > That
-> > triggers a checkpatch warning.  I can just reorder it, but it would be
-> > great to
-> > have some reviews from the DT and mailbox people.  If not I'll try and
-> > find
-> > some time to take a closer look.
->
-> I've had a fair bit of back and forth with Rob about the dt bindings,
-> hopefully this version he happy with - think all of his concerns have
-> now been addressed. Haven't heard anything from Jassi Brar on the device
-> tree side however
->
-Nowhere is explained how the controller works, and the bindings seem
-trivial, so I have no concern.
-
--j
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyOSBNYXIgMjAyMSAyMDozNjoxMiBQRFQgKC0wNzAwKSwgZ3JlZW50aW1lLmh1QHNp
+Zml2ZS5jb20gd3JvdGU6Cj4gU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPiDmlrwgMjAy
+MeW5tDPmnIgzMOaXpSDpgLHkuowg5LiK5Y2IMzoxNOWvq+mBk++8mgo+Pgo+PiBRdW90aW5nIEdy
+ZWVudGltZSBIdSAoMjAyMS0wMy0xNyAyMzowODowOSkKPj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9yZXNldC9LY29uZmlnIGIvZHJpdmVycy9yZXNldC9LY29uZmlnCj4+ID4gaW5kZXggNzFhYjc1
+YTQ2NDkxLi5mMDk0ZGY5M2Q5MTEgMTAwNjQ0Cj4+ID4gLS0tIGEvZHJpdmVycy9yZXNldC9LY29u
+ZmlnCj4+ID4gKysrIGIvZHJpdmVycy9yZXNldC9LY29uZmlnCj4+ID4gQEAgLTE3Myw3ICsxNzMs
+NyBAQCBjb25maWcgUkVTRVRfU0NNSQo+PiA+Cj4+ID4gIGNvbmZpZyBSRVNFVF9TSU1QTEUKPj4g
+PiAgICAgICAgIGJvb2wgIlNpbXBsZSBSZXNldCBDb250cm9sbGVyIERyaXZlciIgaWYgQ09NUElM
+RV9URVNUCj4+ID4gLSAgICAgICBkZWZhdWx0IEFSQ0hfQUdJTEVYIHx8IEFSQ0hfQVNQRUVEIHx8
+IEFSQ0hfQklUTUFJTiB8fCBBUkNIX1JFQUxURUsgfHwgQVJDSF9TVE0zMiB8fCBBUkNIX1NUUkFU
+SVgxMCB8fCBBUkNIX1NVTlhJIHx8IEFSQ0hfWlggfHwgQVJDCj4+ID4gKyAgICAgICBkZWZhdWx0
+IEFSQ0hfQUdJTEVYIHx8IEFSQ0hfQVNQRUVEIHx8IEFSQ0hfQklUTUFJTiB8fCBBUkNIX1JFQUxU
+RUsgfHwgQVJDSF9TVE0zMiB8fCBBUkNIX1NUUkFUSVgxMCB8fCBBUkNIX1NVTlhJIHx8IEFSQ0hf
+WlggfHwgQVJDIHx8IFJJU0NWCj4+Cj4+IFRoaXMgY29uZmxpY3RzLiBDYW4gdGhpcyBkZWZhdWx0
+IGJlIHBhcnQgb2YgdGhlIHJpc2N2IGRlZmNvbmZpZyBpbnN0ZWFkPwo+Pgo+Cj4gTWF5YmUgSSBz
+aG91bGQgcmVtb3ZlIHRoaXMgc2luY2UgaXQgaGFzIGJlZW4gc2VsZWN0ZWQgYnkgQ0xLX1NJRklW
+RV9QUkNJPwo+Cj4gIGNvbmZpZyBDTEtfU0lGSVZFX1BSQ0kKPiAgICAgICAgIGJvb2wgIlBSQ0kg
+ZHJpdmVyIGZvciBTaUZpdmUgU29DcyIKPiArICAgICAgIHNlbGVjdCBSRVNFVF9DT05UUk9MTEVS
+Cj4gKyAgICAgICBzZWxlY3QgUkVTRVRfU0lNUExFCgpZYSwgdGhhdCdzIGJldHRlci4gIElJUkMg
+SSBzdWdnZXN0ZWQgc29tZXRoaW5nIHNpbWlsYXIgaW4gc29tZSBvdGhlciAKdmVyc2lvbiwgYnV0
+IEkgbWlnaHQgaGF2ZSBub3QgYWN0dWFsbHkgc2VudCB0aGUgbWFpbC4KCj4KPj4gPiAgICAgICAg
+IGhlbHAKPj4gPiAgICAgICAgICAgVGhpcyBlbmFibGVzIGEgc2ltcGxlIHJlc2V0IGNvbnRyb2xs
+ZXIgZHJpdmVyIGZvciByZXNldCBsaW5lcyB0aGF0Cj4+ID4gICAgICAgICAgIHRoYXQgY2FuIGJl
+IGFzc2VydGVkIGFuZCBkZWFzc2VydGVkIGJ5IHRvZ2dsaW5nIGJpdHMgaW4gYSBjb250aWd1b3Vz
+LAo+PiA+IEBAIC0xODcsNiArMTg3LDcgQEAgY29uZmlnIFJFU0VUX1NJTVBMRQo+PiA+ICAgICAg
+ICAgICAgLSBSQ0MgcmVzZXQgY29udHJvbGxlciBpbiBTVE0zMiBNQ1VzCj4+ID4gICAgICAgICAg
+ICAtIEFsbHdpbm5lciBTb0NzCj4+ID4gICAgICAgICAgICAtIFpURSdzIHp4Mjk2NyBmYW1pbHkK
+Pj4gPiArICAgICAgICAgIC0gU2lGaXZlIEZVNzQwIFNvQ3MKPj4gPgo+PiA+ICBjb25maWcgUkVT
+RVRfU1RNMzJNUDE1Nwo+PiA+ICAgICAgICAgYm9vbCAiU1RNMzJNUDE1NyBSZXNldCBEcml2ZXIi
+IGlmIENPTVBJTEVfVEVTVAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
