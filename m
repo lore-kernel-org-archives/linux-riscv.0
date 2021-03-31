@@ -2,84 +2,90 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0625C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 15:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 344B4C433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:30:26 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5CEB660725
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 15:23:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5CEB660725
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 781436100C
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 781436100C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=frbdRV9UQ2dgXz5qk0Sdpu+K8NIm8bvgUhCMgr20+Lo=; b=j8QTVhvIHGMuKaPuNCZUMN5q6
-	4sz1qo+Eu99aK+i4ylccxpAyvJqWpFlT7Iq4UZg3JyEIJfXd7e9jrslVkr6aBye4PAwff4hxlOQBJ
-	jCO76Rg2f4JpJWJ2SCOa0ccdyQ3NcmR0Q6ANpAzhEaWFFPgo7Rgs8Nv0lEEbJQQYmrOrzY/KSs9VD
-	J73RCc2Ik5GDyjdnjpJ2y5ylihmWdFp2XenryT28Ok91HE0Vd9LBcqOCul3w16A148+ViroFCd2us
-	8VqKpUi+PKv9bSS6o6Iuunl2wQ2D7Rb6froJLjU3X+/VVRGNn4KxMHjc4E0XJHSUauuyq7Vt0xqNj
-	ncs3Bamsg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RcaWc7mFyOFtkCrwdxwtOzjD1hWarD4Ipcd87cqssUA=; b=OApa7LrGpMrbT/naCpY45w0MjZ
+	djL5kZPJ+yVmqJonh5BZMilmKMBIWSw3G/KBbeyGqBl+oaxrqKne6AeHut8CZHAaaErn3U0ogTdg/
+	Uw+f4Z/7kEragrpBdlbgWwNQeARXWnWaEGixb1gJ2D1yTCr97P3wOpHE2YjpsFLHpcSuDK5YndNCZ
+	XFFBDf4UQ69c0yeYH3yXHwMUVR1wqhgKKnqG2Fq+Giom/dU3O0VernO9NqrJ/rmd8m+vmRKP9PsLc
+	3LQ7Bh8IghISR9zT+6/AKO4iLq2m/vd7HGntfdbNHaBNRW0hOfTKURBHM0uaoGzLHmbvGwWkqdUmC
+	A67fRGzQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRcgJ-006spF-AI; Wed, 31 Mar 2021 15:22:55 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRcgF-006sol-5X
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 15:22:53 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 296BE61026
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 15:22:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617204169;
- bh=PZdA6OkQUCLD5T11j2SNQAmYxalWfS4mcTSD9MYFgH8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=YljbhkIq0F8lakNXom3/CkHs2H6x8QHGkFFZqK23JScFpSHb6ph/e3/HwgzbsPE31
- 7QFsjXaAAT+a3BFbnwWMv2uOild3eZHsl5iPndsKmT7QkoVrdMwlibUjiK9VXljBFG
- 6OIQ8lK0mAnujwVIabpBd8/0oUg8CBUZqmWHcDaP+TeYP1emj+mok6tCR74t6jerMd
- W5U2/Ppuh9xb7XDSZ5WTQTKiwqI5XD+YP6e5zC0ABMb6q3bZKI6+9EVfGAk+/IW3Ps
- Jn/RlcjuGMPL3ABiCCFI7LY/YDOOGddfU5zxolPsOqm11X9kfL2vGKxAq8+xzzhUYT
- MKzeNJTYHGlzw==
-Received: by mail-lj1-f180.google.com with SMTP id s17so24320685ljc.5
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 08:22:49 -0700 (PDT)
-X-Gm-Message-State: AOAM531euVnof2IZVCbS2rGUcm4RWE3tGkhbxrm34Dtax7UAQ2bHEVQS
- R3pIkRX4W9Kgj5tJQu4NKrB4gbTZdt922JgCUas=
-X-Google-Smtp-Source: ABdhPJxH7HojAHVGxjaEG7h6yZ0vTSAW4NtjIt7Xau7864vwv4W45Y5iltVUKESj/hE0oy9GG5oWhEubNFctDEY0GLY=
-X-Received: by 2002:a2e:919a:: with SMTP id f26mr2446120ljg.508.1617204167433; 
- Wed, 31 Mar 2021 08:22:47 -0700 (PDT)
+	id 1lRdjK-0076Ad-BR; Wed, 31 Mar 2021 16:30:07 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lRdjG-007683-3m
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:30:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=Z3YZthlfu0euTQ+THZUZPW+nmkMWZoVGbwK6weVz8AM=; b=R4LfprXFW3i0K
+ GptS5/OFjr6eLUHAE6s8vZbnUgb14w+ptj6+vYza2lLNR3WpJ4o94RcE0PAAQBoP
+ 7Gh7wmQSXN7Dl1hOzM/dgihYO8DzXZ+QpToMVDDPnx046TTrnBj0EV7Q9C5KGS2v
+ o12cva7cBbiVTKM41ifd+wi+FC0kKs=
+Received: from xhacker (unknown [101.86.19.180])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygDX30tzo2RgObt6AA--.16468S2; 
+ Thu, 01 Apr 2021 00:29:39 +0800 (CST)
+Date: Thu, 1 Apr 2021 00:24:42 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt 
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin 
+ <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey 
+ Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, " 
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=" <bjorn@kernel.org>, Alexei Starovoitov 
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko 
+ <andrii@kernel.org>, Song Liu  <songliubraving@fb.com>, Yonghong Song
+ <yhs@fb.com>, John Fastabend  <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Luke Nelson  <luke.r.nels@gmail.com>, Xi Wang
+ <xi.wang@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
+Subject: [PATCH v2 0/9] riscv: improve self-protection
+Message-ID: <20210401002442.2fe56b88@xhacker>
 MIME-Version: 1.0
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
- <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
- <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
- <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
- <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
-In-Reply-To: <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 31 Mar 2021 23:22:35 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS4jexKsSiXBY=5rz53LjcLUZ1K4pxjYJDVQCWx_8JTuA@mail.gmail.com>
-Message-ID: <CAJF2gTS4jexKsSiXBY=5rz53LjcLUZ1K4pxjYJDVQCWx_8JTuA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Waiman Long <longman@redhat.com>, 
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
+X-CM-TRANSID: LkAmygDX30tzo2RgObt6AA--.16468S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyxKrykur15Xw4rZrW5Jrb_yoW8WFy7pr
+ s0kry5ZrWF9r93C3Way34kur1rJwsYg34agr45C34rJw4aqFWUAwnYqwn0qr1DXFy0gFnY
+ kF15u34Ykw18Z37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkCb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4
+ vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
+ 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+ 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+ 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+ 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+ W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2vPfDU
+ UUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_162251_647133_B0D569A2 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20210331_173003_233464_9F3F9163 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +102,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 29, 2021 at 8:50 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Mon, Mar 29, 2021 at 08:01:41PM +0800, Guo Ren wrote:
-> > u32 a = 0x55aa66bb;
-> > u16 *ptr = &a;
-> >
-> > CPU0                       CPU1
-> > =========             =========
-> > xchg16(ptr, new)     while(1)
-> >                                     WRITE_ONCE(*(ptr + 1), x);
-> >
-> > When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
->
-> Then I think your LL/SC is broken.
-No, it's not broken LR.W/SC.W. Quote <8.3 Eventual Success of
-Store-Conditional Instructions>:
+From: Jisheng Zhang <jszhang@kernel.org>
 
-"As a consequence of the eventuality guarantee, if some harts in an
-execution environment are
-executing constrained LR/SC loops, and no other harts or devices in
-the execution environment
-execute an unconditional store or AMO to that reservation set, then at
-least one hart will
-eventually exit its constrained LR/SC loop. By contrast, if other
-harts or devices continue to
-write to that reservation set, it is not guaranteed that any hart will
-exit its LR/SC loop."
+patch1 is a trivial improvement patch to move some functions to .init
+section
 
-So I think it's a feature of LR/SC. How does the above code (also use
-ll.w/sc.w to implement xchg16) running on arm64?
+Then following patches improve self-protection by:
 
-1: ldxr
-    eor
-    cbnz ... 2f
-    stxr
-    cbnz ... 1b   // I think it would deadlock for arm64.
+Marking some variables __ro_after_init
+Constifing some variables
+Enabling ARCH_HAS_STRICT_MODULE_RWX
 
-"LL/SC fwd progress" which you have mentioned could guarantee stxr
-success? How hardware could do that?
 
->
-> That also means you really don't want to build super complex locking
-> primitives on top, because that live-lock will percolate through.
->
-> Step 1 would be to get your architecute fixed such that it can provide
-> fwd progress guarantees for LL/SC. Otherwise there's absolutely no point
-> in building complex systems with it.
---
-Best Regards
- Guo Ren
+Since v1:
+  - no need to move bpf_jit_alloc_exec() and bpf_jit_free_exec() to core
+    because RV32 uses the default module_alloc() for jit code which also
+    meets W^X after patch8
+  - fix a build error caused by local debug code clean up
 
-ML: https://lore.kernel.org/linux-csky/
+Jisheng Zhang (9):
+  riscv: add __init section marker to some functions
+  riscv: Mark some global variables __ro_after_init
+  riscv: Constify sys_call_table
+  riscv: Constify sbi_ipi_ops
+  riscv: kprobes: Implement alloc_insn_page()
+  riscv: bpf: Write protect JIT code
+  riscv: bpf: Avoid breaking W^X on RV64
+  riscv: module: Create module allocations without exec permissions
+  riscv: Set ARCH_HAS_STRICT_MODULE_RWX if MMU
+
+ arch/riscv/Kconfig                 |  1 +
+ arch/riscv/include/asm/smp.h       |  4 ++--
+ arch/riscv/include/asm/syscall.h   |  2 +-
+ arch/riscv/kernel/module.c         | 10 ++++++++--
+ arch/riscv/kernel/probes/kprobes.c |  8 ++++++++
+ arch/riscv/kernel/sbi.c            | 10 +++++-----
+ arch/riscv/kernel/smp.c            |  6 +++---
+ arch/riscv/kernel/syscall_table.c  |  2 +-
+ arch/riscv/kernel/time.c           |  2 +-
+ arch/riscv/kernel/traps.c          |  2 +-
+ arch/riscv/kernel/vdso.c           |  4 ++--
+ arch/riscv/mm/init.c               | 12 ++++++------
+ arch/riscv/mm/kasan_init.c         |  6 +++---
+ arch/riscv/mm/ptdump.c             |  2 +-
+ arch/riscv/net/bpf_jit_comp64.c    |  2 +-
+ arch/riscv/net/bpf_jit_core.c      |  1 +
+ 16 files changed, 45 insertions(+), 29 deletions(-)
+
+-- 
+2.31.0
+
+
 
 _______________________________________________
 linux-riscv mailing list
