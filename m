@@ -2,19 +2,20 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EC11C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0211C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:39:25 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0565261874
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:30:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0565261874
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 16AE161981
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 09:39:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16AE161981
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -22,35 +23,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mhRFsQyn+hRclT3mDXFg9PU+oauXU+qliLD7YUifxvQ=; b=fCPkHe3L+Fp5IRsIcttD51ETL
-	TKOv1nhrZCEMUulanjp2Vs2MyRsIwVpEZ8MI2bzi8Yr6IimUfEyWC0R2T6HWlwEPCxjEspVI4OH27
-	ixzOB60x+QCj+V+VURhAgpkxFaW6ZvWvv3DApUGz6Smr+WMbFQFb5evuXtkL28zKavrfRNDYncR1W
-	iLIZ0GoGW/CdWYASR/xTfmM2UQc5f3DfCeT0zTaUzGi+GdlRHgB64xh1vAGwahAaXy7MyQbJ6MqSb
-	dE0cSoMWAd1TSClCJ8dND2XoUxVPSUc8neAq+J4xuV2a65xDxv3Ghpl/OS5xBY8gwBBs0VytwX91n
-	nPeF1lASw==;
+	 bh=o3fC9ZaL+9Gxpd5YC4BCvKJqKPoZtHMGIwDw8iKog2o=; b=XKymqtvv5sUN2KzhLCjxClNlF
+	cDHWSZgGLEysfaIBC4mKenUt7hktkpRa5vrD4agcmsrr7Np0V0Dgn1GrdoKInGTIRQMOGGoTNG8UV
+	KMXFK7Ac3ElOXY9PDe2Cy1XKfrquUzOv/47B42Mhef92GWTCtugwFsUATFhNWDmjZ+v6cu+JKKv+9
+	EZ/BlUkvL0EV3x5VBBFcNgZ32kyHrihy1KDCfCfyEiVMVe6fl60Oh/US1Lxk3L7u/BgRh4veBkstk
+	HjCcrSBUMq2RO9l08DwgiYne9QwNiivt4e3lw85Ke5n8/GG//qtutbPa9hIQRfzQDllTtmUTQPvPI
+	kpfcyZs6g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRXAg-00696A-Ci; Wed, 31 Mar 2021 09:29:54 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lRXJb-006Arh-VV; Wed, 31 Mar 2021 09:39:08 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRXA4-0068u4-4b; Wed, 31 Mar 2021 09:29:21 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3578661606;
- Wed, 31 Mar 2021 09:29:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617182952;
- bh=aMxacYx0WSuYSq+RvcHg7XLnuWTcQHWfWM2hCy7hYJU=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=ZilpE/CgLvY3Nm3hLeCdPrSzQ0bka0Q/xAMzoDxoKT2sksg/+xdgw70lbIQlKRH9q
- HQM7q1tR3SOaufoC3EF8clnG+n8fTsUXBRqFIqRReR3kDRE9b5+HETaEN2azemUCyN
- +dywdbjbEuNLM1pOQ9fKcI8/BlabXbx6EDZQjXTlXZiHlwJBGfmHuNxznBzTG2bJFd
- nNykz3YpDvfjp1B8PgDSj0QLp5Bc0UJEz3WtQfw8cmvL2FnE443FSPWgxCOoGmWTX7
- urjc5s1XzZrXM3ARPcSSDIS4mEkSxEnbcwd3SAssAB5TkbJXQ91S3vF7J6sARmo8bJ
- QvnQEWfFitvHA==
-Date: Wed, 31 Mar 2021 12:28:57 +0300
-From: Mike Rapoport <rppt@kernel.org>
+ id 1lRXIk-006AYt-1S; Wed, 31 Mar 2021 09:38:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=g5jil2A5p1wkLzsVeTmgtclSOGELktvkEXEKlZIjYVg=; b=XiJ+OxK9qQFp9pb3iCkwBlOXp
+ SMJ3LhDQZ76ImMGs1+23oQ/WioU0hWz9YYebFqQSGNvQ9UoNd6HpZZO1Sjlw6ufxhQGjsXhlyq1yL
+ Rg135ndoOTaxrliAkRSdtcBfX2vfDfUyJu5lpt9Qx1ISZiGbjOFZL9lbJbIgPizvs5nTWoRI4FLnx
+ IITtjbSu3y+aMQU0qpykWL/nQFeQEL15bN2ggOwffKUuT89Wrfg/HzYa88LdxJKrx3C6YUip0LQa6
+ pzMLGWk3w8Fc3V7dXGDMahXGdpM/gmApUuTa+Zg5+b0cW019JI5maq8g7N3s6BN2W+w/Or1ItM82H
+ Rqn3lcuqg==;
+Received: from shell.armlinux.org.uk
+ ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51970)
+ by pandora.armlinux.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <linux@armlinux.org.uk>)
+ id 1lRXFB-0001b6-Rl; Wed, 31 Mar 2021 10:34:33 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
+ (envelope-from <linux@shell.armlinux.org.uk>)
+ id 1lRXF0-0003oo-SH; Wed, 31 Mar 2021 10:34:22 +0100
+Date: Wed, 31 Mar 2021 10:34:22 +0100
+From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
 To: Kefeng Wang <wangkefeng.wang@huawei.com>
 Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Russell King <linux@armlinux.org.uk>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
  Yoshinori Sato <ysato@users.sourceforge.jp>,
@@ -70,15 +79,16 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-xtensa@linux-xtensa.org, linux-mm@kvack.org
 Subject: Re: [PATCH v2] mm: Move mem_init_print_info() into mm_init()
-Message-ID: <YGRA2SU28yciN9xU@kernel.org>
+Message-ID: <20210331093422.GU1463@shell.armlinux.org.uk>
 References: <4d488195-7281-9238-b30d-9f89a6100fb9@csgroup.eu>
  <20210317015210.33641-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20210317015210.33641-1-wangkefeng.wang@huawei.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_102916_572608_81ECDBBE 
-X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-CacheID: sfid-20210331_103816_213466_FCFE906F 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,12 +113,10 @@ On Wed, Mar 17, 2021 at 09:52:10AM +0800, Kefeng Wang wrote:
 > Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-
-> ---
-> v2:
-> - Cleanup 'str' line suggested by Christophe and ACK
-> 
+Acked-by: Russell King <rmk+kernel@armlinux.org.uk> # for arm bits
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
