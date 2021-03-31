@@ -2,19 +2,19 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 71297C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 06:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B7ACBC433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 07:12:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14887619C1
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 06:45:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14887619C1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 47CA1619DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 07:12:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 47CA1619DD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -22,39 +22,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mSwOQ1q34f9+jdcX2L9G8Xngl1ooIqFdVvzFyKJ/FvE=; b=MONb1pEdDT6VC3LNE5pvtU60N
-	n3CiClt4aqf/hn0tqcOlEzyejIZ3Bm+KYrNsLYSUFzjk4EvjVfBONdL7F8tAdaeu5K6jcwYHi5srS
-	0mPPw+8IA2JlzqcTEl6IPFjkiv7tDB/hOzdT2PU2xi5+biZOeQM7qwe4G2dZxnSyINB0mizRJOWLI
-	SJZPFhafjTPPcCSN6FCiRqD1+3LFEd1L7S5Lv74Ks2P8/u7VMIHr3VgAcL/8CX+O1rzvQUeFAUfVD
-	HZvYAUAmOM5wS3vel9FD0lWL9JmZyNRwEC7c1dCYGW5RDe/vzKjjrLEXaX3/HKMUEL2sGwSDU5n6Q
-	UuGm3FcPQ==;
+	 bh=8NWlqZXrpM8mmROcl1Qoy9ndhiD7LNdOSkFujkJ0M4k=; b=pVpfZcTEtcmrkVQ/cRFQZ+wPP
+	LZEgLtFovVIfnARDJBJvjoGGCUZPdcHrhFhMyUNwBh+vBB4dmNTqURGIQ+X8lBqeifiYAUtkIGrww
+	UyFXaLl10lacIaSmo+9e0PVWDKYXC0tVOn/OkK1GdTpgGczuWaR7H0FYsI30A4vn6HbqWcxV4K9hg
+	SWktq9DUR+kBEwiJX0RT0G04EfKtc5K0huWQLsEJV7anmNu6ZVc1+s9lfuKl2mdP1R87BduWc1a38
+	s/iRCwVkoyxSaAg5J8sMth8tQZAFpVIcDu1pFtzFXI9/5P13BTfWZDc8e3BkQ0rKQtzIrqwWgprKS
+	gYpBTGbuw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRUb9-005g1x-2m; Wed, 31 Mar 2021 06:45:03 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lRV1f-005kLC-AH; Wed, 31 Mar 2021 07:12:27 +0000
+Received: from mout.kundenserver.de ([217.72.192.75])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRUb2-005g0l-O1
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 06:44:59 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C788B619D3
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 06:44:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617173093;
- bh=RCtIwtDpANVEhOwxfHGQkphllx8RKXVlHbyBxFGWDK4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=g44+W5BgDfH0Mjud17uzJVuImiF0tl5u9sfPtLjbXhtm20ORWA0v8fwCgdlWIpMMu
- OfnXztDZwRdq79+Gz01hfvlHohRYt6oKuY+FXAtiZLnrgzFBtYM1MbadNRK73JSUOB
- hAlAkXlzDsz59wy3xxja7mC8LkquZtM17TYYr7L2cV8RsdmmeoY55K1CnktQ80tyDJ
- 2fD/v2SOK6bfbyouEaELgfG8JJQ+PvIS6TUlMG53YSohQvDSRKbPqLE2C/zH9hiOb7
- CGhhM1vVL68ilTdg/RkuxgSPd3l3ydh6jfoCllXj6XM7U7d+rt12tAmraeffVYchnk
- y8IZY8j/Y4ZJA==
-Received: by mail-lf1-f48.google.com with SMTP id i26so27451893lfl.1
- for <linux-riscv@lists.infradead.org>; Tue, 30 Mar 2021 23:44:52 -0700 (PDT)
-X-Gm-Message-State: AOAM531xrir/9qytHKbc0iqZx6HN3zKp9RBohs04nqs7vins86qbtIsi
- /0g40Umc4h1C+SgHTo5j0NBdOCOxLFjbcDzSSF4=
-X-Google-Smtp-Source: ABdhPJxWYKb5vHi3klerXBGqzxQaEaOsaVtBWtfmdufISdS1fHhvHXRHt+Ss9wnIFsGhtXF8Im+2yqjIQpsIkJolMPg=
-X-Received: by 2002:a05:6512:3709:: with SMTP id
- z9mr1231142lfr.557.1617173090981; 
- Tue, 30 Mar 2021 23:44:50 -0700 (PDT)
+ id 1lRV1b-005kKd-P5
+ for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 07:12:25 +0000
+Received: from mail-ot1-f42.google.com ([209.85.210.42]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MxEcg-1lpvf31gLY-00xeFv for <linux-riscv@lists.infradead.org>; Wed, 31
+ Mar 2021 09:12:21 +0200
+Received: by mail-ot1-f42.google.com with SMTP id
+ t23-20020a0568301e37b02901b65ab30024so18071296otr.4
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 00:12:20 -0700 (PDT)
+X-Gm-Message-State: AOAM530QBBgBZrG7hBX8YUhvxqsvF3NPoQK90iYMeC21BCyTwr/X9Yn7
+ zUe9P/A0N9yThgLe2pjTHpqPrPoiK2K3xjKgI9I=
+X-Google-Smtp-Source: ABdhPJyDDdJN4bOkBUX/6z8TQTYJT7CTrMHBr52q+GIbBO0fps9qLwpUyqCwRyTxF2TfGzWqXN6oPJ/d9KksN2Qfcso=
+X-Received: by 2002:a9d:758b:: with SMTP id s11mr1622938otk.305.1617174739722; 
+ Wed, 31 Mar 2021 00:12:19 -0700 (PDT)
 MIME-Version: 1.0
 References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
  <1616868399-82848-4-git-send-email-guoren@kernel.org>
@@ -67,14 +59,15 @@ References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
  <CAJF2gTSpnHndT9NkrzvNP6xvqV51_DENwh2BHaduUnGyUE=Jaw@mail.gmail.com>
  <CAK8P3a0DkbM=4oBBhA2DWvzMV7DwN1sqOU8Wa1qFtpd_w7iWmQ@mail.gmail.com>
  <CAJF2gTSGLn7katm6YAtkKWJcQRqw36_yqn+aK1pKUSRM5V1zUg@mail.gmail.com>
-In-Reply-To: <CAJF2gTSGLn7katm6YAtkKWJcQRqw36_yqn+aK1pKUSRM5V1zUg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 31 Mar 2021 14:44:39 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSXY1fCBSZ-Z=8_AcRxoiCOoaNu-5A_JximGJxZY18RzQ@mail.gmail.com>
-Message-ID: <CAJF2gTSXY1fCBSZ-Z=8_AcRxoiCOoaNu-5A_JximGJxZY18RzQ@mail.gmail.com>
+ <CAJF2gTSXY1fCBSZ-Z=8_AcRxoiCOoaNu-5A_JximGJxZY18RzQ@mail.gmail.com>
+In-Reply-To: <CAJF2gTSXY1fCBSZ-Z=8_AcRxoiCOoaNu-5A_JximGJxZY18RzQ@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 31 Mar 2021 09:12:05 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3EXJorMNFpG0_M3W2KFNrEqyoYBU9Cp-Fr=HJAZ9KGNA@mail.gmail.com>
+Message-ID: <CAK8P3a3EXJorMNFpG0_M3W2KFNrEqyoYBU9Cp-Fr=HJAZ9KGNA@mail.gmail.com>
 Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
  ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-To: Arnd Bergmann <arnd@arndb.de>
+To: Guo Ren <guoren@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
@@ -83,9 +76,23 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
  Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
  Waiman Long <longman@redhat.com>, Anup Patel <anup@brainfault.org>,
  Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
+X-Provags-ID: V03:K1:82DWx9iSOUZxIqETI3PBCOfoBE8fx2k0QZSrBpXzItTd+fJLISq
+ rkjT1VhlT/aS+agv94c6mtJ+/suLtvTNsHwLaZsS/k1m6u6plJDZGaP5ndgJ4ea82HIhYcj
+ MCQbwZZSPaV8hCo4h5znbBgCmwIEl6/Gb49eHCiNE1bkve6dTNAwfQZ1vO3iPg3wCMeTjB9
+ kt8gWsua6iYAatqIKqllg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:WRy0Ah4Ap6k=:Sp4g3chhYgg+O7ScpgNw+/
+ NORzq/hoiBUqdaXDO+gPLciCOJGArD9I2DdK+Da3bALDitCuImFZdyIPYXg6grtF0o2x5Gw5E
+ USOhUjWObwzf4u/ObjNL5FZJxZRFkMBzACESyFBhRSdhs8vTIMN01uuWjJwtds/GhVdYnV8oC
+ gOMbsA2GeW2iKkF6wTWpHDcuaVM5N509M9pMl0S0Yb7UOVuMM96ybftqqoBYgbxwbDptSb9Ag
+ b/gtA1OQPo1soGFDbF4gARskPga0dzPEnO07qYdg5FvV6lyCbcbUCRWsxABo7KmR0/6eDgMyM
+ A6VEKlosB0gtBuT+TahL7fOWY8qyeBXAkvBSDvfGWVv6YVk4W2i5s9Lrp3N8Q0AkgSESpJfUD
+ qaayw+KpADOp0IOK08R/VB5osUNF+kqKVDG2IDhI3YW586Gw6FYLjxbdpFIx9pLFVX2DtgtYQ
+ 4UX4BI+LNke6Rgd3mwpAELc4yEnNhydCkuoD2V7rrmvLW6pHqRLAgHuykDCWMzM+hK/Uu3n6z
+ GfGKhNtcZeFuax8FqJfn9WRbF46vZ7zt0Be0A1Qy0znS7/QU7Fd7ubl4t8Fx5AJO7Bc3BZb+s
+ BCZGisDA8EZHDi2rymmpnM/sl4i6mClZUY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_074457_861529_9D5CE522 
-X-CRM114-Status: GOOD (  38.55  )
+X-CRM114-CacheID: sfid-20210331_081223_968467_41832C02 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,116 +109,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd
+On Wed, Mar 31, 2021 at 8:44 AM Guo Ren <guoren@kernel.org> wrote:
+> On Wed, Mar 31, 2021 at 12:18 PM Guo Ren <guoren@kernel.org> wrote:
+> > On Tue, Mar 30, 2021 at 3:12 PM Arnd Bergmann <arnd@arndb.de> wrote:
+> > > On Tue, Mar 30, 2021 at 4:26 AM Guo Ren <guoren@kernel.org> wrote:
 
-On Wed, Mar 31, 2021 at 12:18 PM Guo Ren <guoren@kernel.org> wrote:
+> > > As I understand, this example must not cause a deadlock on
+> > > a compliant hardware implementation when the underlying memory
+> > > has RsrvEventual behavior, but could deadlock in case of
+> > > RsrvNonEventual
+> > Thx for the nice explanation:
+> >  - RsrvNonEventual - depends on software fall-back mechanisms, and
+> > just I'm worried about.
+> >  - RsrvEventual - HW would provide the eventual success guarantee.
+> In riscv-spec 8.3 Eventual Success of Store-Conditional Instructions
 >
-> On Tue, Mar 30, 2021 at 3:12 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> >
-> > On Tue, Mar 30, 2021 at 4:26 AM Guo Ren <guoren@kernel.org> wrote:
-> > > On Mon, Mar 29, 2021 at 9:56 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > > > On Mon, Mar 29, 2021 at 2:52 PM Guo Ren <guoren@kernel.org> wrote:
-> > > > > On Mon, Mar 29, 2021 at 7:31 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> > > > > >
-> > > > > > What's the architectural guarantee on LL/SC progress for RISC-V ?
-> > > >
-> > > >    "When LR/SC is used for memory locations marked RsrvNonEventual,
-> > > >      software should provide alternative fall-back mechanisms used when
-> > > >      lack of progress is detected."
-> > > >
-> > > > My reading of this is that if the example you tried stalls, then either
-> > > > the PMA is not RsrvEventual, and it is wrong to rely on ll/sc on this,
-> > > > or that the PMA is marked RsrvEventual but the implementation is
-> > > > buggy.
-> > >
-> > > Yes, PMA just defines physical memory region attributes, But in our
-> > > processor, when MMU is enabled (satp's value register > 2) in s-mode,
-> > > it will look at our custom PTE's attributes BIT(63) ref [1]:
-> > >
-> > >    PTE format:
-> > >    | 63 | 62 | 61 | 60 | 59 | 58-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> > >      SO   C    B    SH   SE    RSW   D   A   G   U   X   W   R   V
-> > >      ^    ^    ^    ^    ^
-> > >    BIT(63): SO - Strong Order
-> > >    BIT(62): C  - Cacheable
-> > >    BIT(61): B  - Bufferable
-> > >    BIT(60): SH - Shareable
-> > >    BIT(59): SE - Security
-> > >
-> > > So the memory also could be RsrvNone/RsrvEventual.
-> >
-> > I was not talking about RsrvNone, which would clearly mean that
-> > you cannot use lr/sc at all (trap would trap, right?), but "RsrvNonEventual",
-> > which would explain the behavior you described in an earlier reply:
-> >
-> > | u32 a = 0x55aa66bb;
-> > | u16 *ptr = &a;
-> > |
-> > | CPU0                       CPU1
-> > | =========             =========
-> > | xchg16(ptr, new)     while(1)
-> > |                                     WRITE_ONCE(*(ptr + 1), x);
-> > |
-> > | When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
-> >
-> > As I understand, this example must not cause a deadlock on
-> > a compliant hardware implementation when the underlying memory
-> > has RsrvEventual behavior, but could deadlock in case of
-> > RsrvNonEventual
-> Thx for the nice explanation:
->  - RsrvNonEventual - depends on software fall-back mechanisms, and
-> just I'm worried about.
->  - RsrvEventual - HW would provide the eventual success guarantee.
-In riscv-spec 8.3 Eventual Success of Store-Conditional Instructions
-
-I found:
-"As a consequence of the eventuality guarantee, if some harts in an
-execution environment are
-executing constrained LR/SC loops, and no other harts or devices in
-the execution environment
-execute an unconditional store or AMO to that reservation set, then at
-least one hart will
-eventually exit its constrained LR/SC loop. *** By contrast, if other
-harts or devices continue to
-write to that reservation set, it ***is not guaranteed*** that any
-hart will exit its LR/SC loop.*** "
-
-Seems RsrvEventual couldn't solve the code's problem I've mentioned.
-
+> I found:
+> "As a consequence of the eventuality guarantee, if some harts in an
+> execution environment are
+> executing constrained LR/SC loops, and no other harts or devices in
+> the execution environment
+> execute an unconditional store or AMO to that reservation set, then at
+> least one hart will
+> eventually exit its constrained LR/SC loop. *** By contrast, if other
+> harts or devices continue to
+> write to that reservation set, it ***is not guaranteed*** that any
+> hart will exit its LR/SC loop.*** "
 >
-> >
-> > > [1] https://github.com/c-sky/csky-linux/commit/e837aad23148542771794d8a2fcc52afd0fcbf88
-> > >
-> > > >
-> > > > It also seems that the current "amoswap" based implementation
-> > > > would be reliable independent of RsrvEventual/RsrvNonEventual.
-> > >
-> > > Yes, the hardware implementation of AMO could be different from LR/SC.
-> > > AMO could use ACE snoop holding to lock the bus in hw coherency
-> > > design, but LR/SC uses an exclusive monitor without locking the bus.
-> > >
-> > > RISC-V hasn't CAS instructions, and it uses LR/SC for cmpxchg. I don't
-> > > think LR/SC would be slower than CAS, and CAS is just good for code
-> > > size.
-> >
-> > What I meant here is that the current spinlock uses a simple amoswap,
-> > which presumably does not suffer from the lack of forward process you
-> > described.
-> Does that mean we should prevent using LR/SC (if RsrvNonEventual)?
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
+> Seems RsrvEventual couldn't solve the code's problem I've mentioned.
 
+Ok, got it.
 
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
