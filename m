@@ -2,92 +2,114 @@ Return-Path: <SRS0=kAis=I5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B7BFBC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12A27C433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 21:53:02 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 663406100B
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 16:35:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 663406100B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 8757461002
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Mar 2021 21:53:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8757461002
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=frcotfQter3Y4ffW/BYLcpaKM+EFNbhn2UvV8CSX7Ow=; b=jm5x4MxUCadaRSYAqYb0+b6x5
-	5ueF4yXoQuDrbs3s+KtunNb0ysAtip3DGSQ69/C4e2UBBp/LFfpXuUcNMv7ITUhCzG5pR0WznDFrJ
-	6kwNXaMM95E8SbLEl3raG4rcxQtVE5LKxw5nXqFtCVSg9vPaRGLY8E0luW6RqFmrVd9+wwAA7B4W2
-	mGuo39lxboG3Q6Ha04MTbXpEFWJd8HWE2fN+h019eTHInsk0VbLnBWtyX9aYnjeTnQOYUfE1ov/LS
-	iph24aLeaebbDhsX6uPpDkc8onCaxouXMXRcXpJcGgJxJvUkRLikNUniKPTxiO+zXJfJdpMQ8dXv4
-	eYSg5x0XQ==;
+	 bh=xXMs3bK+QjRRirEibajrvjvZyC8MENM3Gjltees5Id4=; b=aSuKxqRZ14OXOV9zCRcdCFgcV
+	yGg3bhXTMuYpgGznaijJiiKWiKWQ6xDIdJTCdwalMSYm6q9IRWGmmJtpDYhu9skSxGRUQ6QDCBeSW
+	R7BNifWouGtzgKPzSmAADRvvwdOoNhRMU/GD+JEQnLW2dzg3diSYY+uT2gSgxHi5ECmgxQGy7U1lO
+	/dnGrKQQjRUODHsdfmoRaJIbo5M8tyBrpGP7bIklXJ8BLhMgj6PYuO+Zsuc11u1pY98NWpb3Uy8IC
+	F6PgkbLCU8KeqOLuyCYs3RwEZF6LDOsujBMvhTarKmPmM4NFtOXr2fbS6T6hj2LqueeKT6cJc6Dkz
+	cxDEWcsYg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRdo5-007752-QG; Wed, 31 Mar 2021 16:35:01 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lRdo1-00774O-3N
- for linux-riscv@lists.infradead.org; Wed, 31 Mar 2021 16:34:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=9CYVVSdbdIN1CqoSzahmxkYgo2mgL2GjKI
- 5zP4cVXEs=; b=rEPMMiUzL+HWH+kbAS0OkvcrqLRAUS2ByDImzgrCVoJ33uPQot
- Flu0VFv9hfmQDgn7sdVBA/5W1bnIAmCIYMPAV/QR4bEFLcnwYU2dClDuJsxCZ/o9
- dEEvtEaRCB0MjE42Mpd4sVwkPl4HwHseN8ieqbaBDdWSYccwBa/hdTnPE=
-Received: from xhacker (unknown [101.86.19.180])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygBX+pimpGRg7b96AA--.53526S2; 
- Thu, 01 Apr 2021 00:34:46 +0800 (CST)
-Date: Thu, 1 Apr 2021 00:29:49 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt 
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin 
- <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey 
- Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, " 
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=" <bjorn@kernel.org>, Alexei Starovoitov 
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko 
- <andrii@kernel.org>, Song Liu  <songliubraving@fb.com>, Yonghong Song
- <yhs@fb.com>, John Fastabend  <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Luke Nelson  <luke.r.nels@gmail.com>, Xi Wang
- <xi.wang@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: [PATCH v2 9/9] riscv: Set ARCH_HAS_STRICT_MODULE_RWX if MMU
-Message-ID: <20210401002949.2d501560@xhacker>
-In-Reply-To: <20210401002442.2fe56b88@xhacker>
-References: <20210401002442.2fe56b88@xhacker>
+	id 1lRilN-007lfk-B7; Wed, 31 Mar 2021 21:52:33 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+ by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lRilB-007ldq-Bi; Wed, 31 Mar 2021 21:52:23 +0000
+Received: by mail-qk1-x734.google.com with SMTP id q26so312198qkm.6;
+ Wed, 31 Mar 2021 14:52:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=iVgFfy9Gk4TopgDWAZb3OEMFsekIXo3QttoRKgThI1I=;
+ b=LlC/3vOcZu0Rh5837wBCMc/jMQBLoS5tu19QTNj1eof7IhHTCSrowwreYpcEeTbT5X
+ NlWLfUqhbD9HhkHO9DsT4Tyx2dRlg91X71xYeCMm7fKtrUmafIBq7/LrPrNoupfhFp3m
+ GewFfvppFWbs9VRkNf6T/omLtxmxV/Um2gbRVOo+AHZwOoh9mGFiVd9+oTJRsbPr+urV
+ 9+SzjFJBATN+dQCPHnqvB4BC59ngCo/QcWw7P40soldfgVxjJkBfgZEWDD018mop0vXZ
+ RHFwc/5vTY5r72yfm8jOOOnGx6oz9cJw+eVDnJnP827bZO8OihlinIME1rTQWHzKsxKK
+ ckUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=iVgFfy9Gk4TopgDWAZb3OEMFsekIXo3QttoRKgThI1I=;
+ b=YpTEIPUp+qrgq7mq+Q8m3ODWK3ThxlO73K9/VPBvFH0IcL1XN25tO90XQjfvWCQpPV
+ qGTSFVg+52FXHBq8Xg1KzSq2ghAYAYK5R7mltGGRLrYHnZfeF5BUMIR0nzpfviSH4aIb
+ M0u7AnCu6yEZK/af6cXllxdnU10J+kuE0hWW2L3rtyCII9IvxerMiLUp4VWnaymG7hSs
+ qctx/L4xrUU8s8KRMzH/UZuGuMXOEBY9zGoOqhmLbG146d+hNVQOcHqBM85KZ0yerV3e
+ sm5MzZ/XtLWPtytEht84vElmVSlH2THu489yZvdJ7C56Fww5WjGHsreaFFOJqX9RTWX1
+ ImEQ==
+X-Gm-Message-State: AOAM532hmoSHLXJGVERi93UzA2wBspzt5FZC1BXyhGKDFtSvoqt4Gdnl
+ BvCMvkyjmjLK5PsOwY5X6WA=
+X-Google-Smtp-Source: ABdhPJwK1AgyeLn7/B6+lfbSP03Q/ohuFDGUVnzdZCNHOlmGfkjpcbj+5GbXHWQQi4iDLVthXpiBHg==
+X-Received: by 2002:a37:78b:: with SMTP id 133mr5361746qkh.109.1617227539232; 
+ Wed, 31 Mar 2021 14:52:19 -0700 (PDT)
+Received: from localhost ([207.98.216.60])
+ by smtp.gmail.com with ESMTPSA id d84sm2453310qke.53.2021.03.31.14.52.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 31 Mar 2021 14:52:18 -0700 (PDT)
+Date: Wed, 31 Mar 2021 14:52:18 -0700
+From: Yury Norov <yury.norov@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christopher Lameter <cl@linux.com>,
+ Dan Williams <dan.j.williams@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>,
+ Elena Reshetova <elena.reshetova@intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ James Bottomley <jejb@linux.ibm.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Matthew Wilcox <willy@infradead.org>,
+ Matthew Garrett <mjg59@srcf.ucam.org>,
+ Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
+ linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-nvdimm@lists.01.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH] memfd_secret: use unsigned int rather than long as
+ syscall flags type
+Message-ID: <20210331215218.GA3437@yury-ThinkPad>
+References: <20210331142345.27532-1-rppt@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygBX+pimpGRg7b96AA--.53526S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFy3Cw48Cr4DZw4DKF13CFg_yoW3ZrX_Ja
- yxJF9xur1rJaykCFZ2gr4fZr1jv3y8WF18uF1Y9ryUZa42gw13X3Zxt3Z5ZF15Zw13WF4x
- Z3yIqF4UGr1UWjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUb4AYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr
- 0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
- 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
- 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
- 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
- W8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVWUJVW8
- JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8PEf7
- UUUUU==
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
+Content-Disposition: inline
+In-Reply-To: <20210331142345.27532-1-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210331_173458_002081_7F5E9B98 
-X-CRM114-Status: UNSURE (   6.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210331_225221_602611_B6731319 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +126,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+On Wed, Mar 31, 2021 at 05:23:45PM +0300, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> Yuri Norov says:
+> 
+>   If parameter size is the same for native and compat ABIs, we may
+>   wire a syscall made by compat client to native handler. This is
+>   true for unsigned int, but not true for unsigned long or pointer.
+> 
+>   That's why I suggest using unsigned int and so avoid creating compat
+>   entry point.
+> 
+> Use unsigned int as the type of the flags parameter in memfd_secret()
+> system call.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
-Now we can set ARCH_HAS_STRICT_MODULE_RWX for MMU riscv platforms, this
-is good from security perspective.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 87d7b52f278f..9716be3674a2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -28,6 +28,7 @@ config RISCV
- 	select ARCH_HAS_SET_DIRECT_MAP
- 	select ARCH_HAS_SET_MEMORY
- 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
-+	select ARCH_HAS_STRICT_MODULE_RWX if MMU
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
--- 
-2.31.0
-
-
+Acked-by: Yury Norov <yury.norov@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
