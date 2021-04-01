@@ -7,88 +7,81 @@ X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89544C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01D35C433B4
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:36:14 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2C83661055
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:17:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C83661055
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id D9A4360BD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:36:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9A4360BD3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xlwGwLwbh4xDZ7zmsEpGvnqh5WuqexLbEVOZgm0xC/Q=; b=guENS4lWY2rE4Schh8WftCyU1
-	VT29W6m8X8gfd2SBXp6h6nfwc/Z8/RrTvsATVNvHdxy6pyyTRLT96hV+UXP7i3aG8Sjd6svc45fAm
-	q8pktcEWdpiBJ05HxsyxIzpG3Li53rPFrVocE7RjFpLh1RJbE0p9TSfS/frK1IflAN8Qyi8WAOnfD
-	rdtUvryN+W17FRv3qAYGgdrD4mDI0JGOA+vJ7kISG/l8UelBNF5lbBi8AuFAhM4pdc5ZyzebDxWpH
-	cApx8hWZa20TnYuuQ/DN4BAo4PZ8eyk59cX6tdh+RvNcSxYw8mTFzhIvzK5oYqQ9s/uep3lHKy7Hh
-	xo04yzRhg==;
+	 bh=jbJDBxNMLu7Zj+uutqCluB8LhM4h/axNt8bbCfnf0+k=; b=loRwaZExqjZ2r6OTqlNUxz9bT
+	sdoBV5fMRsHwLNewuvwMM/Jaa6/kFcZaZiexcfIa/8NPzxiRdfYqS0/YrA8BCMSGGIjczzTOfx3xh
+	+Y1AGd5+polTaGUODUuM5AG1JHGvOC7yC61fi53ZuPCpbj4cgnXsXycJn1QRYJXmztkYlzccqbH7J
+	nDedatP0efRwI/jfHMRQVDZ1uksQe9mTRV5Ecg+SRfh9JldUgTMymskXiRdc9A5/RWcV8zNAymjEZ
+	V2vuFizYwwaTf/yYBY7+Yxh84fZzwj7UP2QE6fr+esYswQX6Cw4WZqLDFFMjBdyjE3wCwETUvM9uT
+	3U62hoYxQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRqdK-008elG-89; Thu, 01 Apr 2021 06:16:46 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1lRqvu-008glb-7X; Thu, 01 Apr 2021 06:35:58 +0000
+Received: from mail-wr1-f52.google.com ([209.85.221.52])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRqdE-008ekj-Km
- for linux-riscv@lists.infradead.org; Thu, 01 Apr 2021 06:16:44 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id 7so1212380qka.7
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 23:16:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=/tdHq+eMgfvUCfgr19g4KGgjUw8dwNFaPcptJLMvv20=;
- b=d1tet9Y2otJ4bPKkudFR7D1GN4TSxbb31ttdrlkl/P3sIGNBKqc6I78rPuwagFZLLP
- 91dZeX1IuFNgTohpD/7akTLAyWiZR/t0GCbC7hQJFaTYIzg/1yxYzN48AUTERaZYb92I
- d5X5ASx9YOH20slwp7tXU1V8OlvUf4JNjbmasNAhuntVXe11XdwFpLt/Pqm/VPF3LI98
- wj9AKLkB4qVEmBFKJposxVO3VlPRrmBgrjmHiJRND+jlasqobxNVWZF6L0k5Po8PJh5Q
- DK3ZIR+/syfAhiRsujKvn1J0W61ILlAfeucEfPwH7DPcWSxFLVCfg/WaEjEWdcWbeJQO
- TDHA==
+ id 1lRqvo-008gkA-Ia
+ for linux-riscv@lists.infradead.org; Thu, 01 Apr 2021 06:35:56 +0000
+Received: by mail-wr1-f52.google.com with SMTP id j9so611392wrx.12
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 23:35:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=/tdHq+eMgfvUCfgr19g4KGgjUw8dwNFaPcptJLMvv20=;
- b=H+hO6knhSA553/24yY88OfJWzaGnofefdpulCLuFxwHoxvSw8I67bT6oJRWTTTcn1p
- r1Xqw7MSdQBXJL+Dtbp/PrmknFueKNcW/7TNGzU9yQuwQCZsudbVuRLNEHgsZZqb4JBa
- hxJgqZHK9/qdIvLHKRc/HV5xgoU+b0zglWdYm/JsGWH55QUgUTROebhOy2Qb7X2VwvHC
- 17x9+8BJ3CA2bBRyJtfioUQXUbNIJXjy1W7xRzCSKG0LNTHb4e5M4pd5m6QnJQC5iEHo
- YgCtzLtGeeaqddJq+Ig4ZzPzSNHGKphLiZtrfsrBG0/ZlbDckGSSSFZoITvDbe1XsULZ
- uhzw==
-X-Gm-Message-State: AOAM532IbaDsV6EvlszZq9u9lm5kFFtzjlSaoFuYG4lPAr6XwhmeeST5
- rl6lr+OT2jgpfZ8GRCNFqjHY7NV39cd03Dg2o5o0Iw==
-X-Google-Smtp-Source: ABdhPJxN7gKZfahwJhOWLIepnEZQQrrtp1Bkzqp9sIf8uf8W7egGtdMcqMlqet9G2ktx96KkylccNRofqZFJM0jdU/A=
-X-Received: by 2002:a37:66cd:: with SMTP id a196mr7046403qkc.374.1617257799357; 
- Wed, 31 Mar 2021 23:16:39 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=4rL9IgiyziFhXFq9JhHe8MRiCspi+Fv8AChbH+YGoiU=;
+ b=TlJK7vJH5nUYhzaTSa6DFL1x+iubDdNECLUXLbwjTAwwMsq28aB4naA5aNh8aOZQ/N
+ KpLdw4whartu9C3R+fuuwiQKWuQy1V4o8IbSN7EAnPtf4VPdA7RMs8pzjys/FHCnHtk2
+ sOozlGUef/s/4yLnPdCPz9AaxHxP02eL+yh2mOgV2rVgydlMjaH+DV+LZ0CLBezAqbXW
+ ldVMNIp4IP0E67QLCMBfiWTTnoRedKEV8IRXMI8PHSJGmS50XVD8hEHRSGIGrWG3ocn5
+ lMAL5iE9vIaOYrcmfmer8I1uw3BXpvAc91SZhrXNUaS+pXpwAyTGHDcrEFUGPagyxkDT
+ +mqw==
+X-Gm-Message-State: AOAM530J365Si94s1e7TwGmBo12hcFo7pYTlLODLyDgr1oYdeT5WtLlr
+ JiRhu3deMa0ost/UH+CL2m4=
+X-Google-Smtp-Source: ABdhPJw/qtpkUX8J2ufQv5E/USmElRfcGrQQSfQnIFS25ZxrLYmTbD+T5qkceGS46q+4xdmea/1CTg==
+X-Received: by 2002:a5d:4d45:: with SMTP id a5mr7872790wru.396.1617258950754; 
+ Wed, 31 Mar 2021 23:35:50 -0700 (PDT)
+Received: from rocinante ([95.155.85.46])
+ by smtp.gmail.com with ESMTPSA id k4sm11620091wrd.9.2021.03.31.23.35.49
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 31 Mar 2021 23:35:50 -0700 (PDT)
+Date: Thu, 1 Apr 2021 08:35:48 +0200
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Greentime Hu <greentime.hu@sifive.com>
+Cc: paul.walmsley@sifive.com, hes@sifive.com, erik.danie@sifive.com,
+ zong.li@sifive.com, bhelgaas@google.com, robh+dt@kernel.org,
+ aou@eecs.berkeley.edu, mturquette@baylibre.com, sboyd@kernel.org,
+ lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
+ alex.dewar90@gmail.com, khilman@baylibre.com,
+ hayashi.kunihiko@socionext.com, vidyas@nvidia.com,
+ jh80.chung@samsung.com, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, helgaas@kernel.org
+Subject: Re: [PATCH v4 5/6] PCI: fu740: Add SiFive FU740 PCIe host controller
+ driver
+Message-ID: <YGVpxHd/JhYPyaMQ@rocinante>
+References: <20210401060054.40788-1-greentime.hu@sifive.com>
+ <20210401060054.40788-6-greentime.hu@sifive.com>
 MIME-Version: 1.0
-References: <cover.1615954045.git.greentime.hu@sifive.com>
- <161704512808.3012082.7539298875497991635@swboyd.mtv.corp.google.com>
-In-Reply-To: <161704512808.3012082.7539298875497991635@swboyd.mtv.corp.google.com>
-From: Greentime Hu <greentime.hu@sifive.com>
-Date: Thu, 1 Apr 2021 14:16:28 +0800
-Message-ID: <CAHCEehJyzsTOHpMhRQ4U3Ex+QiO8h2emBAq3ZemFrgqB-XRZNw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] Add SiFive FU740 PCIe host controller driver
- support
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: alex.dewar90@gmail.com, Albert Ou <aou@eecs.berkeley.edu>, 
- Bjorn Helgaas <bhelgaas@google.com>, devicetree@vger.kernel.org, 
- Erik Danie <erik.danie@sifive.com>, hayashi.kunihiko@socionext.com, 
- Bjorn Helgaas <helgaas@kernel.org>, hes@sifive.com, jh80.chung@samsung.com, 
- khilman@baylibre.com, linux-clk@vger.kernel.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-pci@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, lorenzo.pieralisi@arm.com, 
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- robh+dt@kernel.org, vidyas@nvidia.com, Zong Li <zong.li@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <20210401060054.40788-6-greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210401_071641_621637_50AE4D91 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20210401_073554_271709_DBEB5DA4 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +93,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPiDmlrwgMjAyMeW5tDPmnIgzMOaXpSDpgLHk
-uowg5LiK5Y2IMzoxMuWvq+mBk++8mgo+Cj4gUXVvdGluZyBHcmVlbnRpbWUgSHUgKDIwMjEtMDMt
-MTcgMjM6MDg6MDcpCj4gPiBUaGlzIHBhdGNoc2V0IGluY2x1ZGVzIFNpRml2ZSBGVTc0MCBQQ0ll
-IGhvc3QgY29udHJvbGxlciBkcml2ZXIuIFdlIGFsc28KPiA+IGFkZCBwY2llX2F1eCBjbG9jayBh
-bmQgcGNpZV9wb3dlcl9vbl9yZXNldCBjb250cm9sbGVyIHRvIHByY2kgZHJpdmVyIGZvcgo+ID4g
-UENJZSBkcml2ZXIgdG8gdXNlIGl0Lgo+ID4KPiA+IFRoaXMgaXMgdGVzdGVkIHdpdGggZTEwMDBl
-OiBJbnRlbChSKSBQUk8vMTAwMCBOZXR3b3JrIENhcmQsIEFNRCBSYWRlb24gUjUKPiA+IDIzMCBn
-cmFwaGljcyBjYXJkIGFuZCBTUCBNLjIgUENJZSBHZW4gMyBTU0QgaW4gU2lGaXZlIFVubWF0Y2hl
-ZCBiYXNlZCBvbgo+ID4gdjUuMTEgTGludXgga2VybmVsLgo+Cj4gQ2FuIEkgbWVyZ2UgdGhlIGNs
-ayBwYXRjaGVzIHRvIGNsay1uZXh0PyBPciBpcyB0aGUgZHRzIHBhdGNoIGdvaW5nIHRvIGJlCj4g
-c2VudCBpbiBmb3IgdGhlIG1lcmdlIHdpbmRvdz8gSSdkIGxpa2UgdG8gbWVyZ2UgdGhlIGNsayBw
-YXRjaGVzIGlmIHRoZQo+IG90aGVyIHBhdGNoZXMgYXJlIGdvaW5nIHRvIG1pc3MgdGhlIG5leHQg
-bWVyZ2Ugd2luZG93LgoKSGkgU3RlcGhlbiwKClRoYW5rIHlvdSBmb3IgcmV2aWV3aW5nLiBJIGFt
-IG9rIHdpdGggZWl0aGVyIHdheS4gOikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+Hi Greentime,
+
+[...]
+> +	/* Wait for wait_idle */
+> +	ret = readl_poll_timeout(phy_cr_para_ack, val, val, 10, 5000);
+> +	if (ret)
+> +		dev_err(dev, "Wait for wait_ilde state failed!\n");
+> +
+> +	/* Clear */
+> +	writel_relaxed(0, phy_cr_para_wr_en);
+> +
+> +	/* Wait for ~wait_idle */
+> +	ret = readl_poll_timeout(phy_cr_para_ack, val, !val, 10, 5000);
+> +	if (ret)
+> +		dev_err(dev, "Wait for !wait_ilde state failed!\n");
+> +}
+[...]
+> +static int fu740_pcie_start_link(struct dw_pcie *pci)
+> +{
+> +	struct device *dev = pci->dev;
+> +
+> +	/* Start LTSSM. */
+> +	fu740_pcie_ltssm_enable(dev);
+> +	return 0;
+> +}
+
+The typos etc., are still here.  See:
+
+  https://lore.kernel.org/linux-pci/YFQqpojmJyX0l6lx@rocinante/
+
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
