@@ -2,97 +2,93 @@ Return-Path: <SRS0=bkE6=I6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28A49C43603
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89544C433B4
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:17:00 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D4DDA6105A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:01:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4DDA6105A
+	by mail.kernel.org (Postfix) with ESMTPS id 2C83661055
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 06:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C83661055
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=e38bc+dZ53pyHUpolad+fZ7YUBCZdXJBsHAxQOIuAOc=; b=IBM5ZekKoJd8WVeDG+vm+whbg
-	CorbIr5Je9QBAWoNFIOCM8qqRrhM+MGY9FCAZpw4Pvn005kBOKHAI9y4/UIpGifsN6lT9s8aUrfTk
-	QGgBBsxezhsKmkPClMj/znIWx7m/sANL54RneQx85CTBHDTT/2BUhiOUoRHF1l5ufvWcFkHhLXJzz
-	s4A7+vsjmEdw2YUbATYQXte3qeX0TgceRScZp3paHImrQmhag0CPbahivdaGMDknSD0l39VOfrFYe
-	d9Q4ow0cX79A8v7632x/8wDLZnfnKabAXF9ifw0/GKHjAMBv6Ic7HtQXMjtYjnZk+gD+IXUC8ZkQU
-	FA+mhsTqg==;
+	 bh=xlwGwLwbh4xDZ7zmsEpGvnqh5WuqexLbEVOZgm0xC/Q=; b=guENS4lWY2rE4Schh8WftCyU1
+	VT29W6m8X8gfd2SBXp6h6nfwc/Z8/RrTvsATVNvHdxy6pyyTRLT96hV+UXP7i3aG8Sjd6svc45fAm
+	q8pktcEWdpiBJ05HxsyxIzpG3Li53rPFrVocE7RjFpLh1RJbE0p9TSfS/frK1IflAN8Qyi8WAOnfD
+	rdtUvryN+W17FRv3qAYGgdrD4mDI0JGOA+vJ7kISG/l8UelBNF5lbBi8AuFAhM4pdc5ZyzebDxWpH
+	cApx8hWZa20TnYuuQ/DN4BAo4PZ8eyk59cX6tdh+RvNcSxYw8mTFzhIvzK5oYqQ9s/uep3lHKy7Hh
+	xo04yzRhg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lRqOX-008dRe-Ob; Thu, 01 Apr 2021 06:01:29 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1lRqdK-008elG-89; Thu, 01 Apr 2021 06:16:46 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lRqOU-008dPi-5h
- for linux-riscv@lists.infradead.org; Thu, 01 Apr 2021 06:01:28 +0000
-Received: by mail-pf1-x431.google.com with SMTP id c17so655422pfn.6
- for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 23:01:25 -0700 (PDT)
+ id 1lRqdE-008ekj-Km
+ for linux-riscv@lists.infradead.org; Thu, 01 Apr 2021 06:16:44 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id 7so1212380qka.7
+ for <linux-riscv@lists.infradead.org>; Wed, 31 Mar 2021 23:16:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=bJDxiGn0zb+AtBhh3GrH3c02J/dSNj0T0Os6e9JU2HI=;
- b=fADFrw70kQ6R9GVUIqdKks1e5hHtR47gSn2Ei7hYKbBt0gKF8Uk2eLlfFRlEMYW3Rg
- NS2s5c+CnMsJcIUytKnOsifC4Ycy3o1qIPAaSN9vuopXuPr7jhL8WzWNTYX4PTYjLdz9
- 8Lm9b++bZYs77iQ1TZO0C/QeTxhUuwZCJe42bOZbYTb2yTyw3jw+F1gvCTwnJbpr2Tq+
- MLsDvkEvqFI1nJlOyuZS0DhDo6t8BLOGwHcMluY47uYrfvKkvVBkXC/qNiA7vD7tLgZY
- UpwNq8Nez8+FbI9uXByFHPPZmdPzq8+YpX7d+0jNS49ok9S63UtuLTuB/7pll8cSY/PH
- jEqA==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=/tdHq+eMgfvUCfgr19g4KGgjUw8dwNFaPcptJLMvv20=;
+ b=d1tet9Y2otJ4bPKkudFR7D1GN4TSxbb31ttdrlkl/P3sIGNBKqc6I78rPuwagFZLLP
+ 91dZeX1IuFNgTohpD/7akTLAyWiZR/t0GCbC7hQJFaTYIzg/1yxYzN48AUTERaZYb92I
+ d5X5ASx9YOH20slwp7tXU1V8OlvUf4JNjbmasNAhuntVXe11XdwFpLt/Pqm/VPF3LI98
+ wj9AKLkB4qVEmBFKJposxVO3VlPRrmBgrjmHiJRND+jlasqobxNVWZF6L0k5Po8PJh5Q
+ DK3ZIR+/syfAhiRsujKvn1J0W61ILlAfeucEfPwH7DPcWSxFLVCfg/WaEjEWdcWbeJQO
+ TDHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=bJDxiGn0zb+AtBhh3GrH3c02J/dSNj0T0Os6e9JU2HI=;
- b=NPyiQvjQPelpj/HtBF44wQp1WEyQNPhbBqNBtLCHDO1ytKIIHeFj3sEtnED640VdlJ
- KzycO7QLukM4BFuYNCEYe/Bid4bumjh30y1PSjTFTLDUGG01gesJxvHaxKEorRYB7GHF
- d2xt+zgvS9H5LStv0CSPhYklTlt0K9cCw5DaDJIZV7lyTY9ATCCF6N7ZiYbfO8Q/C1fi
- 5V8nNrtW9VfyByo1Yy3euvHxVOfyXBnuBxkR9Pp80xokJxsqCyua33Gcl+cciIAEcr4W
- gR6krpz+C+ys4hgedaWK6DoLjNjpm3X+XhYymzGmvCzV77JQfrL97ns9gJHUsYAkGFO4
- gdYQ==
-X-Gm-Message-State: AOAM530FVU6RHoaSwP30mjKbOnXF4J3D7jEi64TscbxoCsamP4SZLiTT
- Qb/mZQyPvpNcVWrW62bYsWgLMA==
-X-Google-Smtp-Source: ABdhPJyQi+hmIS6NcVuS5ZNb8DrPEY3M/Gs8RhNMfXIYA91WfDdO0PRAMZBlYQ8QD6rU6+FOVZG/Ug==
-X-Received: by 2002:a62:4e57:0:b029:203:93bc:3cb with SMTP id
- c84-20020a624e570000b029020393bc03cbmr6022563pfb.56.1617256884685; 
- Wed, 31 Mar 2021 23:01:24 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id a6sm4037328pfc.61.2021.03.31.23.01.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 31 Mar 2021 23:01:24 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
- erik.danie@sifive.com, zong.li@sifive.com, bhelgaas@google.com,
- robh+dt@kernel.org, aou@eecs.berkeley.edu, mturquette@baylibre.com,
- sboyd@kernel.org, lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
- alex.dewar90@gmail.com, khilman@baylibre.com,
- hayashi.kunihiko@socionext.com, vidyas@nvidia.com, jh80.chung@samsung.com,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, helgaas@kernel.org
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: [PATCH v4 6/6] riscv: dts: Add PCIe support for the SiFive FU740-C000
- SoC
-Date: Thu,  1 Apr 2021 14:00:54 +0800
-Message-Id: <20210401060054.40788-7-greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210401060054.40788-1-greentime.hu@sifive.com>
-References: <20210401060054.40788-1-greentime.hu@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=/tdHq+eMgfvUCfgr19g4KGgjUw8dwNFaPcptJLMvv20=;
+ b=H+hO6knhSA553/24yY88OfJWzaGnofefdpulCLuFxwHoxvSw8I67bT6oJRWTTTcn1p
+ r1Xqw7MSdQBXJL+Dtbp/PrmknFueKNcW/7TNGzU9yQuwQCZsudbVuRLNEHgsZZqb4JBa
+ hxJgqZHK9/qdIvLHKRc/HV5xgoU+b0zglWdYm/JsGWH55QUgUTROebhOy2Qb7X2VwvHC
+ 17x9+8BJ3CA2bBRyJtfioUQXUbNIJXjy1W7xRzCSKG0LNTHb4e5M4pd5m6QnJQC5iEHo
+ YgCtzLtGeeaqddJq+Ig4ZzPzSNHGKphLiZtrfsrBG0/ZlbDckGSSSFZoITvDbe1XsULZ
+ uhzw==
+X-Gm-Message-State: AOAM532IbaDsV6EvlszZq9u9lm5kFFtzjlSaoFuYG4lPAr6XwhmeeST5
+ rl6lr+OT2jgpfZ8GRCNFqjHY7NV39cd03Dg2o5o0Iw==
+X-Google-Smtp-Source: ABdhPJxN7gKZfahwJhOWLIepnEZQQrrtp1Bkzqp9sIf8uf8W7egGtdMcqMlqet9G2ktx96KkylccNRofqZFJM0jdU/A=
+X-Received: by 2002:a37:66cd:: with SMTP id a196mr7046403qkc.374.1617257799357; 
+ Wed, 31 Mar 2021 23:16:39 -0700 (PDT)
 MIME-Version: 1.0
+References: <cover.1615954045.git.greentime.hu@sifive.com>
+ <161704512808.3012082.7539298875497991635@swboyd.mtv.corp.google.com>
+In-Reply-To: <161704512808.3012082.7539298875497991635@swboyd.mtv.corp.google.com>
+From: Greentime Hu <greentime.hu@sifive.com>
+Date: Thu, 1 Apr 2021 14:16:28 +0800
+Message-ID: <CAHCEehJyzsTOHpMhRQ4U3Ex+QiO8h2emBAq3ZemFrgqB-XRZNw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] Add SiFive FU740 PCIe host controller driver
+ support
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: alex.dewar90@gmail.com, Albert Ou <aou@eecs.berkeley.edu>, 
+ Bjorn Helgaas <bhelgaas@google.com>, devicetree@vger.kernel.org, 
+ Erik Danie <erik.danie@sifive.com>, hayashi.kunihiko@socionext.com, 
+ Bjorn Helgaas <helgaas@kernel.org>, hes@sifive.com, jh80.chung@samsung.com, 
+ khilman@baylibre.com, linux-clk@vger.kernel.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-pci@vger.kernel.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>, lorenzo.pieralisi@arm.com, 
+ Michael Turquette <mturquette@baylibre.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ robh+dt@kernel.org, vidyas@nvidia.com, Zong Li <zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210401_070126_610644_09DE8912 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210401_071641_621637_50AE4D91 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +100,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-index d1bb22b11920..b2317c8e3a80 100644
---- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-@@ -158,6 +158,7 @@ prci: clock-controller@10000000 {
- 			reg = <0x0 0x10000000 0x0 0x1000>;
- 			clocks = <&hfclk>, <&rtcclk>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
- 		uart0: serial@10010000 {
- 			compatible = "sifive,fu740-c000-uart", "sifive,uart0";
-@@ -288,5 +289,37 @@ gpio: gpio@10060000 {
- 			clocks = <&prci PRCI_CLK_PCLK>;
- 			status = "disabled";
- 		};
-+		pcie@e00000000 {
-+			compatible = "sifive,fu740-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			#interrupt-cells = <1>;
-+			reg = <0xe 0x00000000 0x0 0x80000000>,
-+			      <0xd 0xf0000000 0x0 0x10000000>,
-+			      <0x0 0x100d0000 0x0 0x1000>;
-+			reg-names = "dbi", "config", "mgmt";
-+			device_type = "pci";
-+			dma-coherent;
-+			bus-range = <0x0 0xff>;
-+			ranges = <0x81000000  0x0 0x60080000  0x0 0x60080000 0x0 0x10000>,      /* I/O */
-+				 <0x82000000  0x0 0x60090000  0x0 0x60090000 0x0 0xff70000>,    /* mem */
-+				 <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x1000000>,    /* mem */
-+				 <0xc3000000 0x20 0x00000000 0x20 0x00000000 0x20 0x00000000>;  /* mem prefetchable */
-+			num-lanes = <0x8>;
-+			interrupts = <56>, <57>, <58>, <59>, <60>, <61>, <62>, <63>, <64>;
-+			interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+			interrupt-parent = <&plic0>;
-+			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+			interrupt-map = <0x0 0x0 0x0 0x1 &plic0 57>,
-+					<0x0 0x0 0x0 0x2 &plic0 58>,
-+					<0x0 0x0 0x0 0x3 &plic0 59>,
-+					<0x0 0x0 0x0 0x4 &plic0 60>;
-+			clock-names = "pcie_aux";
-+			clocks = <&prci PRCI_CLK_PCIE_AUX>;
-+			pwren-gpios = <&gpio 5 0>;
-+			reset-gpios = <&gpio 8 0>;
-+			resets = <&prci 4>;
-+			status = "okay";
-+		};
- 	};
- };
--- 
-2.30.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPiDmlrwgMjAyMeW5tDPmnIgzMOaXpSDpgLHk
+uowg5LiK5Y2IMzoxMuWvq+mBk++8mgo+Cj4gUXVvdGluZyBHcmVlbnRpbWUgSHUgKDIwMjEtMDMt
+MTcgMjM6MDg6MDcpCj4gPiBUaGlzIHBhdGNoc2V0IGluY2x1ZGVzIFNpRml2ZSBGVTc0MCBQQ0ll
+IGhvc3QgY29udHJvbGxlciBkcml2ZXIuIFdlIGFsc28KPiA+IGFkZCBwY2llX2F1eCBjbG9jayBh
+bmQgcGNpZV9wb3dlcl9vbl9yZXNldCBjb250cm9sbGVyIHRvIHByY2kgZHJpdmVyIGZvcgo+ID4g
+UENJZSBkcml2ZXIgdG8gdXNlIGl0Lgo+ID4KPiA+IFRoaXMgaXMgdGVzdGVkIHdpdGggZTEwMDBl
+OiBJbnRlbChSKSBQUk8vMTAwMCBOZXR3b3JrIENhcmQsIEFNRCBSYWRlb24gUjUKPiA+IDIzMCBn
+cmFwaGljcyBjYXJkIGFuZCBTUCBNLjIgUENJZSBHZW4gMyBTU0QgaW4gU2lGaXZlIFVubWF0Y2hl
+ZCBiYXNlZCBvbgo+ID4gdjUuMTEgTGludXgga2VybmVsLgo+Cj4gQ2FuIEkgbWVyZ2UgdGhlIGNs
+ayBwYXRjaGVzIHRvIGNsay1uZXh0PyBPciBpcyB0aGUgZHRzIHBhdGNoIGdvaW5nIHRvIGJlCj4g
+c2VudCBpbiBmb3IgdGhlIG1lcmdlIHdpbmRvdz8gSSdkIGxpa2UgdG8gbWVyZ2UgdGhlIGNsayBw
+YXRjaGVzIGlmIHRoZQo+IG90aGVyIHBhdGNoZXMgYXJlIGdvaW5nIHRvIG1pc3MgdGhlIG5leHQg
+bWVyZ2Ugd2luZG93LgoKSGkgU3RlcGhlbiwKClRoYW5rIHlvdSBmb3IgcmV2aWV3aW5nLiBJIGFt
+IG9rIHdpdGggZWl0aGVyIHdheS4gOikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
