@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05B28C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ECB12C433ED
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:19:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9CC2161056
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:17:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9CC2161056
+	by mail.kernel.org (Postfix) with ESMTPS id 6FC1F61056
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:19:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FC1F61056
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,54 +23,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=CIQjxPlqUOYWWQiT+6V7Q0cAP3/NXhuxP7sWFO2agDc=; b=Ka78tt9fQ9sDXgdV59ENX5h6z
-	X+6L6sg4WEYqzN4ILdD8+/lltaRm1c24Y8eVsIYjYDVxsxNz+BmazSQoc9iUPwSrWL+2zdgXUPawH
-	bc36tQq5zKSRtFtMDErmrsFn8WWJgNRQEO4/7waoVec8uE/s2dxl+6z9yPFJ1fDjjkbCZCoC4u4yM
-	19vD1eUkbIXZMVVHXJ7dEfTLnET7I7AG8kJaxgcahSllMAyrUABLwGYfSjr6NL3dvQxgvM2Eg7La+
-	dd6F33fH3NUfluIhYpZc142NpQD8OpwlnOpgj1WpcqoJhLqe4YQiu2ZgxcQsSiZRGg9CoMWbtm2GQ
-	EYOj+2vmQ==;
+	 bh=0BnPky3x2ywDhFalQM6C4MGrLya0QScfpziJR8CMtPc=; b=Abr4AE2YAA/U4L3r24buJir5T
+	wrOijV9/YwW06Ykxmc3vSrXttz9wymXrBKcxh0SmAeQa6SHojJKlRLgRBLPej6+DJfIcXN5yzV7mP
+	/OLzChkLctZLd+Y/3rubTCCQEdnFQBWDpeyjKKdki7gEynhq3Ebk1vSTPvoE77D0Kh4V2k+rcwhSg
+	U0r7QsINy1PuPabm+fM/UYKeDDOPh0xLrpTNpn3XxWHRcLkqLWLKVZAkV8kslbvuOEIyODXmTn0go
+	AZyCQ8VDFuXaUN/dMrZQyKyUuxIlWDt/W8zv90dnU4qGJp61Wrv5mIwatFfptGIkLwWWarZaENtfa
+	xlaJYGs/A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSBEg-00BuMc-8f; Fri, 02 Apr 2021 04:16:42 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1lSBGk-00BuUl-SP; Fri, 02 Apr 2021 04:18:51 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lSBEa-00BuLy-W8
- for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 04:16:39 +0000
-Received: by mail-wr1-x429.google.com with SMTP id c8so3660929wrq.11
- for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 21:16:35 -0700 (PDT)
+ id 1lSBGa-00BuTy-7K
+ for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 04:18:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id
+ f22-20020a7bc8d60000b029010c024a1407so3777964wml.2
+ for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 21:18:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=EF04ZQkeFciI3OPVClfJodus6PK+ab706FdkNzAwhhM=;
- b=YnksgUvTp/aj/gKETPzhozoW5W6T/U14dYMauYuYflKWD8oXsbKHIgk/5UM7FgMBXS
- +BTLAkLs2N7OW+GbQSMqXVZeVVqP3RuO39RaPprBCyTCKfTE3OZu1hT+q59bbwpxI4KV
- vp+HYS6aC3a4n48AgGFXM0pD0faBVwawGv6qZ0sYE6SWO/zhmt+G9RzM7VW40KhH5kog
- hFUAYZ/1uLJkT5oGyKtjgQqsWioshEX565M97SN0U0iYThjmna7XyXPBnH5rzPh9zWye
- 0gQvDp+V8v4z+k/99thMEzz+vYpHcNrqBQt7c8a9fUot7/d5O5aqQRoHaFmdTxVxWZth
- a7ow==
+ :cc; bh=gEf69q7AWE2x1/Rq0Iy3chkYVF+eXWxDAEWrpJWIPb0=;
+ b=BiN5pFW/O77DiJXd0zx2/X1iLpsaPL6JiRjeMEk1PTjCMe5IYyCVuNyE/BDjW9dIjZ
+ uoHOhBWvf5BPD2vTlyDG6HjXQg07ebuyoMX1EfVMRxOK2GWLsjRPkz7J2sb+ef6//hgr
+ pt4sNPV9i0Rtcuj5utnP8QuvOClSES26++sg+APEy0lcDT7xhN8CEVVgMN50DjD9YY2e
+ QksmwcQnz+uOeY8ntNWTj8qV3MgiYDpoQ7WOn/sQqqbxBQTO9DtVbBi7GHOhks+t+0dp
+ Rad0fUf0hiiSKPClQTyzzg5Se1Drv7oKzWSNbevXc+Kway8nQRGPGr+qfVqI9MneH2ff
+ YWSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=EF04ZQkeFciI3OPVClfJodus6PK+ab706FdkNzAwhhM=;
- b=OJBbJwlG+FluD7pa4HVmnBQXnmLhzEhT6UhzohlYCxlahhPT5Adg5VmzbaFqhuqFEB
- 8DpFqgAfqZkQFjXukfxnKbikaiC5mT7+BmB8UrOO10ByUsHSxG/tN3pD5JQDgfVbmSZU
- n1WorNu8dXf4ePtNl83qNWVkq/FM31jiGfNV3uGIbXtZEB5K3DgYmyg7JvGlrAdhMZmC
- TqsfrAW/PTo4xfgMBfHktSf8ckpIztEQJp2w0GETrioAy26l2Yy7gYJEAHMBtcEE3SDz
- TSjDwwYEUaMpvosdp72NIyWCI9Jl7IXJuh1cFdYOtciS/XuvqTzx2ZhkrZ2IUgCbi9lH
- miyQ==
-X-Gm-Message-State: AOAM533JOcUlCHsQKCKzz4m6kttqvZeFzEOIxqORSKS1PnTHXKiuVXdW
- 8vahw04967OFBh/vXnsMZ0P+nON/odoy1+x5VGEnMQ==
-X-Google-Smtp-Source: ABdhPJySKIt34vbErD7KKU1Rn4WmavlZWVD2kvyhosy94dmoSbf5MPEsuKtsD881aut0OM0oi/P2hKLMqfIIe8Im7ZU=
-X-Received: by 2002:adf:9544:: with SMTP id 62mr12966999wrs.128.1617336995047; 
- Thu, 01 Apr 2021 21:16:35 -0700 (PDT)
+ bh=gEf69q7AWE2x1/Rq0Iy3chkYVF+eXWxDAEWrpJWIPb0=;
+ b=NSN/kJWqcnb7yrhhpXg32dZCOdfKFDjfr5SDhWyNI62E0dPmPcYY7dR4bNTmJglv3z
+ bFbzUigoHRyFXGifOwk3+wpcPKp9COk3aVgAqHKXGcYHzXklK+ztXhCaUBTgPapiIJ++
+ GMbalVo1DLuAMWgi2d0Msz/nDiRoPN8m1X5JNC5zWUTjhsuifdQzSiVbOIi5uPpWSukg
+ MucjE0XqJuotpne8DmtEgWxFNEYf04sK1U3ZHoGt3C1MCX+50MgX9A3C0RcYUXjBR3SG
+ 06Tm0Br7CEYWGGfXwIFI5KFpcaIqEKUTXHHCoLiTVAPXcq4qOltQtjLuQbadsMhSpnTk
+ Wbww==
+X-Gm-Message-State: AOAM533Ay/ppgB/52GE8eWYYCdw1Js85Kf2A5NYA6lWloU+DaSUR13N9
+ 6LwK+OnDFTpoGNY8Zqo9nr1XoaVfNcXyyZFb1vgrCQ==
+X-Google-Smtp-Source: ABdhPJygYb0Y34DkjFFMv58xpc9hYG+0m/JrspXVGLRPCjAU15Jzob3/DzPfO3yJZJFY3fTuzhjvnZTg71sUU9tB6Ug=
+X-Received: by 2002:a1c:60c2:: with SMTP id
+ u185mr10663309wmb.157.1617337118714; 
+ Thu, 01 Apr 2021 21:18:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210401002442.2fe56b88@xhacker> <20210401002724.794b3bc4@xhacker>
-In-Reply-To: <20210401002724.794b3bc4@xhacker>
+References: <20210401002442.2fe56b88@xhacker> <20210401002900.470f3413@xhacker>
+In-Reply-To: <20210401002900.470f3413@xhacker>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 2 Apr 2021 09:46:24 +0530
-Message-ID: <CAAhSdy1qcNBy-o8NAho-bhJY1FOF_DCiQ37XX+FEiBbYqokxhA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/9] riscv: kprobes: Implement alloc_insn_page()
+Date: Fri, 2 Apr 2021 09:48:27 +0530
+Message-ID: <CAAhSdy0mYFTwhPEHVU11yFzAwUMR_wZx3LtA0KF11wW=wNu_zA@mail.gmail.com>
+Subject: Re: [PATCH v2 8/9] riscv: module: Create module allocations without
+ exec permissions
 To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -88,8 +91,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210402_051637_385194_2779A4E7 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20210402_051841_474852_91C24BB4 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,13 +109,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 31, 2021 at 10:02 PM Jisheng Zhang
+On Wed, Mar 31, 2021 at 10:04 PM Jisheng Zhang
 <jszhang3@mail.ustc.edu.cn> wrote:
 >
 > From: Jisheng Zhang <jszhang@kernel.org>
 >
-> Allocate PAGE_KERNEL_READ_EXEC(read only, executable) page for kprobes
-> insn page. This is to prepare for STRICT_MODULE_RWX.
+> The core code manages the executable permissions of code regions of
+> modules explicitly, it is not necessary to create the module vmalloc
+> regions with RWX permissions. Create them with RW- permissions instead.
 >
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
@@ -124,28 +128,36 @@ Regards,
 Anup
 
 > ---
->  arch/riscv/kernel/probes/kprobes.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
+>  arch/riscv/kernel/module.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-> index 7e2c78e2ca6b..8c1f7a30aeed 100644
-> --- a/arch/riscv/kernel/probes/kprobes.c
-> +++ b/arch/riscv/kernel/probes/kprobes.c
-> @@ -84,6 +84,14 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 104fba889cf7..e89367bba7c9 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -407,14 +407,20 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
 >         return 0;
 >  }
 >
-> +void *alloc_insn_page(void)
-> +{
-> +       return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
-> +                                    GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
-> +                                    VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
-> +                                    __builtin_return_address(0));
-> +}
+> -#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+> +#ifdef CONFIG_MMU
 > +
->  /* install breakpoint in text */
->  void __kprobes arch_arm_kprobe(struct kprobe *p)
+> +#ifdef CONFIG_64BIT
+>  #define VMALLOC_MODULE_START \
+>          max(PFN_ALIGN((unsigned long)&_end - SZ_2G), VMALLOC_START)
+> +#else
+> +#define VMALLOC_MODULE_START   VMALLOC_START
+> +#endif
+> +
+>  void *module_alloc(unsigned long size)
 >  {
+>         return __vmalloc_node_range(size, 1, VMALLOC_MODULE_START,
+>                                     VMALLOC_END, GFP_KERNEL,
+> -                                   PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                                   PAGE_KERNEL, 0, NUMA_NO_NODE,
+>                                     __builtin_return_address(0));
+>  }
+>  #endif
 > --
 > 2.31.0
 >
