@@ -1,89 +1,97 @@
-Return-Path: <SRS0=bkE6=I6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=OQtk=I7=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63774C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 16:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 283DAC433B4
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:08:37 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 037D46138F
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Apr 2021 16:54:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 037D46138F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id AC704610D2
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:08:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC704610D2
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Yn6iwM/F6apO+3RnIgqo0W9wxKUDzwEyIPCc8fqqJFc=; b=IGF9D5OuKc7qtRk4h37GcMcBn
-	wUhHzQt7wBZqLkc2ZotDgYD2X5DsZAZXDl7reGuwqqtddhfbGsjms9D4CBNxQ4cquo/Kj+HEF1ZLw
-	zXSVSdZSAMQRXTCioBjy6ffSwU8+meVi9CQNo8pyG1IIMDPgO/ZQS8+mDndQ3rmfr5dTo1h/imSN9
-	KdKmVS3H7CNncclK/nIgoJAD0IOKejY0CClcr2FS69o7eA8BU2WVTMVVawyobfmU5J/B9Eik+2/4P
-	q7Rjm7HFRqOB+Tdpgm9Av62SFjrq7NjTn7WdLfnRYN6HCp2aNfQF65dpEDte+/ZYLh59OQolD+RtY
-	b98M2rYgA==;
+	 bh=vFp1oHRJCy3/sgsSrKMlzr3mARJvWU0TtI+HimPsVlU=; b=fHxWEql2GMV4llo6yO+9MGU6Q
+	to3WKaNA01Xc8HEyVPppBB2I2KFmz6of33Gk4vrZ1ezYDAXXwNkjyYrIRiBi0EwzX3ulLcdVtkuzJ
+	UMYghgElhl5KclcMx5Q66dCyUc4xprOJLlhTinAfhMJbflvwWh4UsdrKQCSBQx9aLwa55IDnepISZ
+	rfZ0TWJMhqqED7imEMEGXGrxjg0PLvOQUzMFx3VDT0SXWEWQrbqEKLVJn9lwFZnrTJWJPjXRw0aiD
+	1tvczhxYCdXXKKAVLS3rsq1ZC0W1YbgFFckdGCS0olXjhOEKiNlndc4CqS5ksVVT2oAhNOIxY5KL+
+	1cKwS4g5w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lS0aL-00APQl-2K; Thu, 01 Apr 2021 16:54:21 +0000
-Received: from mail-oo1-f42.google.com ([209.85.161.42])
+	id 1lSB6c-00Bto4-Ca; Fri, 02 Apr 2021 04:08:22 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lS0aH-00APPG-5u
- for linux-riscv@lists.infradead.org; Thu, 01 Apr 2021 16:54:19 +0000
-Received: by mail-oo1-f42.google.com with SMTP id
- i20-20020a4a8d940000b02901bc71746525so718218ook.2
- for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 09:54:16 -0700 (PDT)
+ id 1lSB6W-00Btnk-5Z
+ for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 04:08:18 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id
+ z6-20020a1c4c060000b029010f13694ba2so1799946wmf.5
+ for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 21:08:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=r29s2NuB4h8xDuoc4V2TUkw3k2SQOmwLpoFzxMpsSfU=;
+ b=uO9cVaFbcLWG2qSj/V5Qkp9SImi/1O/PNF5uCdkXCUUYZJA9vpqlZt2zRX/qXJ+oah
+ rO4VamcAG68UI6cC43pmYE6l2QOlTbqrFGjbSxNuXrWd/OtmqO6rMnqhxjBVRyqFyxlC
+ OUKieCjk5HQ7Tftt13rMzjeAfydRy7xK+3jCFtWg8v5ll3hzus2DVE8HIb+pwdbsI7yC
+ QVCqXkHxo8PllGMMtIKKFuW4k/d3AriUj05NbOe4teBaYbR9X2E74zD2YaXYDn5M4r7L
+ PIglkR+DonJicpVCPf6bYjXpdXpqh5F3TGvDZnH7i+ffnm5eBtVnpMfc7h/1w6E2v96N
+ XOog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=CL6cxNJtKIKQmvSTfzksNAMYKqjon+6PChUUz9zmOJ4=;
- b=CHNtCP4t3xyxq/dUMQHA0QaZ++qGZ1SKwVNbraOHEMBto4+LDdUGXXBNxeUOvwRc1b
- F/TynCGqQ5g/XY2QvlRjBsa6e8r9nVRfkyfeKh8VF5BCCv6YyoumJg/VZVq2z7EmQ6Kg
- MklGOITFs8XsZB6lhG5IjUdGFD7GH2HBEcq3CP4ekKjgcAzb/m0Mm8HuMYM0ri93F16Z
- jTiHTXya84nJKHqDGz/Xo5C48biNnri/5bQ58rwPrv2FXwiwgncs6ahWBSBjNDDOhHlh
- W1aYN9g7aRIQV1Q7TOqm/ZI/q5VpB1ngP/PvTNLuQr6CtoGa+9pFKfxVqld6laNDZbEl
- wX7w==
-X-Gm-Message-State: AOAM530ouo8QbPKO4osz0/MiCLrKml+3Rmc10FENmw2ZpFxbT8CprX8E
- az7frcXSnjVO1CMFGb4dag==
-X-Google-Smtp-Source: ABdhPJw+gejICHezMAuNryQdqWA8Zve/kSvWD62nMm2wCCAlpKJgdKHwi2th5zEK21YRRtHo5Tw8jA==
-X-Received: by 2002:a4a:e615:: with SMTP id f21mr7883695oot.91.1617296055414; 
- Thu, 01 Apr 2021 09:54:15 -0700 (PDT)
-Received: from robh.at.kernel.org (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id h17sm1241240otj.38.2021.04.01.09.54.12
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 01 Apr 2021 09:54:13 -0700 (PDT)
-Received: (nullmailer pid 597920 invoked by uid 1000);
- Thu, 01 Apr 2021 16:54:12 -0000
-Date: Thu, 1 Apr 2021 11:54:12 -0500
-From: Rob Herring <robh@kernel.org>
-To: Greentime Hu <greentime.hu@sifive.com>
-Cc: paul.walmsley@sifive.com, hes@sifive.com, erik.danie@sifive.com,
- zong.li@sifive.com, bhelgaas@google.com, aou@eecs.berkeley.edu,
- mturquette@baylibre.com, sboyd@kernel.org, lorenzo.pieralisi@arm.com,
- p.zabel@pengutronix.de, alex.dewar90@gmail.com, khilman@baylibre.com,
- hayashi.kunihiko@socionext.com, vidyas@nvidia.com, jh80.chung@samsung.com,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, helgaas@kernel.org
-Subject: Re: [PATCH v4 4/6] dt-bindings: PCI: Add SiFive FU740 PCIe host
- controller
-Message-ID: <20210401165412.GB573380@robh.at.kernel.org>
-References: <20210401060054.40788-1-greentime.hu@sifive.com>
- <20210401060054.40788-5-greentime.hu@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=r29s2NuB4h8xDuoc4V2TUkw3k2SQOmwLpoFzxMpsSfU=;
+ b=McAQx7st+OwqRZuQTPkwekM+ITKfVgjebqaqXPUW14tvq0TQ2zaXZV1ibDmWNab+G3
+ 1Q+tVNQA9dPbazGbNbHmvUliqBAxjDq2RZxYG9ZlK4qGw9Aj/sTrLnBBp2UrrMtIjPFA
+ ejZE8pWJ3S7ZBKcAvc7XHdPHmKumODHLgOhQ3HDGUTJJy4qa/Otwi/E1HUtJxbsHjDd9
+ uQgqGhz56RTJqIUpmiGUFXhShYPF6fflCE3pDO7PM+k2VStJo1lQN9nvVyG9i0q8/VTy
+ AF838qihPDFkvZlI/15pup8svHva0dovSZP6BlhING/iMjVhcz0houTthiGwhhlAEmad
+ 3i7g==
+X-Gm-Message-State: AOAM530/3Hsttf/gKUVrJGlIlDCAnLilCodMFSqTDfc6CnKl3Fsu4gkc
+ xdbybVS6Jr0BUqrpUPa4UEm0LE2dzCxINdM3PEOgXw==
+X-Google-Smtp-Source: ABdhPJzufLcR/4YtyTXgyOTuNyEx/ynwbR2Yl8q78bJ+i0nAQpDxD5IjgzH727vIE/K26GxxXakVKXJN8RA1Zji4Frc=
+X-Received: by 2002:a05:600c:9:: with SMTP id
+ g9mr11022806wmc.134.1617336493632; 
+ Thu, 01 Apr 2021 21:08:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210401060054.40788-5-greentime.hu@sifive.com>
+References: <20210401002442.2fe56b88@xhacker> <20210401002518.5cf48e91@xhacker>
+In-Reply-To: <20210401002518.5cf48e91@xhacker>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 2 Apr 2021 09:38:02 +0530
+Message-ID: <CAAhSdy0CgxZj14Jx62CS=gRVzZs9c9NUysWi1iTTZ3BJvAOjPQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/9] riscv: add __init section marker to some functions
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, 
+ Dmitry Vyukov <dvyukov@google.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Andrii Nakryiko <andrii@kernel.org>, Song Liu <songliubraving@fb.com>,
+ Yonghong Song <yhs@fb.com>, 
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210401_175417_292641_D1A918AD 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20210402_050816_456349_B2E229F4 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,139 +108,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 01, 2021 at 02:00:52PM +0800, Greentime Hu wrote:
-> Add PCIe host controller DT bindings of SiFive FU740.
-> 
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+On Wed, Mar 31, 2021 at 10:00 PM Jisheng Zhang
+<jszhang3@mail.ustc.edu.cn> wrote:
+>
+> From: Jisheng Zhang <jszhang@kernel.org>
+>
+> They are not needed after booting, so mark them as __init to move them
+> to the __init section.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  .../bindings/pci/sifive,fu740-pcie.yaml       | 109 ++++++++++++++++++
->  1 file changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> new file mode 100644
-> index 000000000000..ccb58e5f06d4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> @@ -0,0 +1,109 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/sifive,fu740-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SiFive FU740 PCIe host controller
-> +
-> +description: |+
-> +  SiFive FU740 PCIe host controller is based on the Synopsys DesignWare
-> +  PCI core. It shares common features with the PCIe DesignWare core and
-> +  inherits common properties defined in
-> +  Documentation/devicetree/bindings/pci/designware-pcie.txt.
-> +
-> +maintainers:
-> +  - Paul Walmsley <paul.walmsley@sifive.com>
-> +  - Greentime Hu <greentime.hu@sifive.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-bus.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: sifive,fu740-pcie
-> +
-> +  reg:
-> +    maxItems: 3
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: config
-> +      - const: mgmt
-> +
-> +  num-lanes:
-> +    const: 8
-> +
-> +  msi-parent: true
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: msi
-> +      - const: inta
-> +      - const: intb
-> +      - const: intc
-> +      - const: intd
-> +
-> +  resets:
-> +    description: A phandle to the PCIe power up reset line.
+>  arch/riscv/kernel/traps.c  | 2 +-
+>  arch/riscv/mm/init.c       | 6 +++---
+>  arch/riscv/mm/kasan_init.c | 6 +++---
+>  arch/riscv/mm/ptdump.c     | 2 +-
+>  4 files changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 1357abf79570..07fdded10c21 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -197,6 +197,6 @@ int is_valid_bugaddr(unsigned long pc)
+>  #endif /* CONFIG_GENERIC_BUG */
+>
+>  /* stvec & scratch is already set from head.S */
+> -void trap_init(void)
+> +void __init trap_init(void)
+>  {
+>  }
 
-How many (maxItems)?
+The trap_init() is unused currently so you can drop this change
+and remove trap_init() as a separate patch.
 
-> +
-> +  pwren-gpios:
-> +    description: Should specify the GPIO for controlling the PCI bus device power on.
-> +    maxItems: 1
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 067583ab1bd7..76bf2de8aa59 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -57,7 +57,7 @@ static void __init zone_sizes_init(void)
+>         free_area_init(max_zone_pfns);
+>  }
+>
+> -static void setup_zero_page(void)
+> +static void __init setup_zero_page(void)
+>  {
+>         memset((void *)empty_zero_page, 0, PAGE_SIZE);
+>  }
+> @@ -75,7 +75,7 @@ static inline void print_mlm(char *name, unsigned long b, unsigned long t)
+>                   (((t) - (b)) >> 20));
+>  }
+>
+> -static void print_vm_layout(void)
+> +static void __init print_vm_layout(void)
+>  {
+>         pr_notice("Virtual kernel memory layout:\n");
+>         print_mlk("fixmap", (unsigned long)FIXADDR_START,
+> @@ -557,7 +557,7 @@ static inline void setup_vm_final(void)
+>  #endif /* CONFIG_MMU */
+>
+>  #ifdef CONFIG_STRICT_KERNEL_RWX
+> -void protect_kernel_text_data(void)
+> +void __init protect_kernel_text_data(void)
+>  {
+>         unsigned long text_start = (unsigned long)_start;
+>         unsigned long init_text_start = (unsigned long)__init_text_begin;
+> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+> index 4f85c6d0ddf8..e1d041ac1534 100644
+> --- a/arch/riscv/mm/kasan_init.c
+> +++ b/arch/riscv/mm/kasan_init.c
+> @@ -60,7 +60,7 @@ asmlinkage void __init kasan_early_init(void)
+>         local_flush_tlb_all();
+>  }
+>
+> -static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
+> +static void __init kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
+>  {
+>         phys_addr_t phys_addr;
+>         pte_t *ptep, *base_pte;
+> @@ -82,7 +82,7 @@ static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long en
+>         set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(base_pte)), PAGE_TABLE));
+>  }
+>
+> -static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
+> +static void __init kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
+>  {
+>         phys_addr_t phys_addr;
+>         pmd_t *pmdp, *base_pmd;
+> @@ -117,7 +117,7 @@ static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long en
+>         set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
+>  }
+>
+> -static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
+> +static void __init kasan_populate_pgd(unsigned long vaddr, unsigned long end)
+>  {
+>         phys_addr_t phys_addr;
+>         pgd_t *pgdp = pgd_offset_k(vaddr);
+> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+> index ace74dec7492..3b7b6e4d025e 100644
+> --- a/arch/riscv/mm/ptdump.c
+> +++ b/arch/riscv/mm/ptdump.c
+> @@ -331,7 +331,7 @@ static int ptdump_show(struct seq_file *m, void *v)
+>
+>  DEFINE_SHOW_ATTRIBUTE(ptdump);
+>
+> -static int ptdump_init(void)
+> +static int __init ptdump_init(void)
+>  {
+>         unsigned int i, j;
+>
+> --
+> 2.31.0
+>
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Still need to list 'reset-gpios' here.
+Apart from above, looks good to me.
 
-> +
-> +required:
-> +  - dma-coherent
-> +  - num-lanes
-> +  - interrupts
-> +  - interrupt-names
-> +  - interrupt-parent
-> +  - interrupt-map-mask
-> +  - interrupt-map
-> +  - clock-names
-> +  - clocks
-> +  - resets
-> +  - pwren-gpios
-> +  - reset-gpios
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        #include <dt-bindings/clock/sifive-fu740-prci.h>
-> +
-> +        pcie@e00000000 {
-> +            compatible = "sifive,fu740-pcie";
-> +            #address-cells = <3>;
-> +            #size-cells = <2>;
-> +            #interrupt-cells = <1>;
-> +            reg = <0xe 0x00000000 0x0 0x80000000>,
-> +                  <0xd 0xf0000000 0x0 0x10000000>,
-> +                  <0x0 0x100d0000 0x0 0x1000>;
-> +            reg-names = "dbi", "config", "mgmt";
-> +            device_type = "pci";
-> +            dma-coherent;
-> +            bus-range = <0x0 0xff>;
-> +            ranges = <0x81000000  0x0 0x60080000  0x0 0x60080000 0x0 0x10000>,      /* I/O */
-> +                     <0x82000000  0x0 0x60090000  0x0 0x60090000 0x0 0xff70000>,    /* mem */
-> +                     <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x1000000>,    /* mem */
-> +                     <0xc3000000 0x20 0x00000000 0x20 0x00000000 0x20 0x00000000>;  /* mem prefetchable */
-> +            num-lanes = <0x8>;
-> +            interrupts = <56>, <57>, <58>, <59>, <60>, <61>, <62>, <63>, <64>;
-> +            interrupt-names = "msi", "inta", "intb", "intc", "intd";
-> +            interrupt-parent = <&plic0>;
-> +            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-> +            interrupt-map = <0x0 0x0 0x0 0x1 &plic0 57>,
-> +                            <0x0 0x0 0x0 0x2 &plic0 58>,
-> +                            <0x0 0x0 0x0 0x3 &plic0 59>,
-> +                            <0x0 0x0 0x0 0x4 &plic0 60>;
-> +            clock-names = "pcie_aux";
-> +            clocks = <&prci PRCI_CLK_PCIE_AUX>;
-> +            resets = <&prci 4>;
-> +            pwren-gpios = <&gpio 5 0>;
-> +            reset-gpios = <&gpio 8 0>;
-> +        };
-> +    };
-> -- 
-> 2.30.2
-> 
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
