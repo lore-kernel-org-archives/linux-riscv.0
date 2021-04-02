@@ -2,20 +2,20 @@ Return-Path: <SRS0=OQtk=I7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1219AC433ED
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 08:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B5E7C43461
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 08:59:38 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A036610E8
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 08:41:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A036610E8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id C0DE06113C
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 08:59:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C0DE06113C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,63 +23,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=XjQNJR0S1aUxyTn7ajyigXZ8EUI8S8nB7dCFc7OpkNE=; b=MrNH6ig6/7PNDy4pC0X+x898T
-	pcoIo1ngnFItC4+CcLATwfOsag8fVd2AG5GxFCKMld+AwX66IapVd6i1AHZouNVv66jruw644R/9M
-	iKaN23j8bsfLFHcduzY/NWrPcBx6R/inb3V744sKePtJH6s9N3plxBFT8bnSfqWP4BFpzViCaNx1T
-	H+wkj6M3Od0gcMHsoBa8lF3OQDoTMK6HoQzcTHLngMl8t9ARdVO5fiMlGJnlMexW/EimoFVrfx2nd
-	X3X/wGqxy3UGS/C1sad0Z1y9j1L9j1QaAhKsY07e+HhPFNH3xdMU3c2JRKCQ46A2P/67meLeOriPr
-	8BHKaKR0Q==;
+	 bh=TkIfbmcHdqo16lt2IXUt4vRTLlb51k2wqQoF+kjDopA=; b=O//YBooNE4GNIwu9wyK7rOKHG
+	gwICc5wI9WZyHaDuFD/EZ9454sch4YFFYp/wyDmjXxxxLrl8aPzejIk6dtSxomSWPo7ABA8bU8SlC
+	fMehpOcdRR9JSaK0q94bT2/ZLFJOEDAk1JpTRC8UoCdDHH5uTfMc8IPZJm2Bap7mk8hB00q/NGbOQ
+	lCvhI8ng3X0chjkdcrK/ZRdgRIqy1gLWX/+KeS1JwBBq4FzPVmtMV5cxmJh0nuq2iYJqsLYfTAICz
+	ll+0c/pFriCaAgFlUcoWePbZnm+Pf1dOF7ZaqXfU2wD54oY5V++jGppR3WkZxy+Wr2vh+RH34LzUW
+	8ETexVmEQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSFMk-00CJhB-43; Fri, 02 Apr 2021 08:41:18 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1lSFeG-00CQT3-Hu; Fri, 02 Apr 2021 08:59:24 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lSFMf-00CJgI-Kr
- for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 08:41:15 +0000
-Received: by mail-qk1-x732.google.com with SMTP id q26so4732252qkm.6
- for <linux-riscv@lists.infradead.org>; Fri, 02 Apr 2021 01:41:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ id 1lSFeB-00CQRK-Ry
+ for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 08:59:22 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 184so4962946ljf.9
+ for <linux-riscv@lists.infradead.org>; Fri, 02 Apr 2021 01:59:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=6Oq6IecKAdRhb0vISLYp5X5UHBzYjzxfpkAIMVbe92U=;
- b=Fjps3LQD0JVSTFEjcIJsN/pB1IYiA7TeDmRcqH6s+eEYlwyNlSHz9uRMvQ2GLPPIiC
- l/wX05Tqh0BIrKwfFyba/hVXWtCj6dqOAdWNkCW/Jsbpo6vHVBn1fJVPSLf7SaVBhAyL
- mEKzmhe7TOP82udk5b4ri0mtvsNWubfjW6dKKg0367P4w0zSCHl+Y7M7DVaMWLfzkY/a
- PM6O9aMLLhWenH7pWtIX/J6ZWhqxcGqLP3nJB4sugvZ0wJvBVrghMZkCaxRE2nENLKJM
- w3yaZNMpHhvuDvxcikMZe78A61aD4BVCBJrQX6X7ZjdEJ2MOANUTykWjSoo68oJX8wzP
- 7WQg==
+ :cc; bh=HywOIhb5prU0SvgCATKvH+ZBrrrzKF5XQkM0MZqr0LA=;
+ b=K58phw+IpQ//OZE32Gwyp+hDyT7tu3gNVxEMtandIn2kAiffLXdmEdS04bVlL12zRL
+ 3Ll05xL2x9/Gk+5wivRKbqrgR3LpQX0vyVTpJ69ZwbzSUeBmc2PKqPI6MKznUgBhI/Z5
+ 6ei4DP+DUVX4r6T4Cb+PdXQWv0olcT9mOewLrjdl4pA2deoUzXoSDrNBwAImjMo8/q/v
+ RlMq/+aPVcFbNJQjRQ7XrCzv6wcTnjmm2dpsciA1HKIKMp+qf36tyl4KBeDJIK1iwFCc
+ CBIe9O1zsPBiX7cYdtK+nVIP3tr2MzJS7DIaCW1+LORojLEFSCg9UKN1WXHWls0FqOkm
+ Ks2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=6Oq6IecKAdRhb0vISLYp5X5UHBzYjzxfpkAIMVbe92U=;
- b=nz1kyUD+IcqQjRqFWB5nabNdfXfZFZLQ0/rEEPEgGJiPC7ya6FZEWOzpM5zrkYk7BQ
- PRo2XPdXqu+g8wHabGGQazP7vyQuU0DkmBkgYyoE1h152eT2ZwPaC0cPbmZ/L5erHNVk
- fyidZztxlybwuZaIqqSgGX6Gwy8w9mwW1FBy0OZRm/j78pt/Jk70rTs+Yvjs7E0u7Mt8
- SRtg3eYivIQwgnxNMgsXoyLPWlCX8lBhGwglwr6uwEqxqkmlFeIU11ypxUfXXN9v1NdF
- C6IausyYM4b1ChdMzc79pF/Br421/iGZurlk0zhEyo7OwE7bstczW5Lqr27Tyze74fXb
- Gs9Q==
-X-Gm-Message-State: AOAM532r7CeY6E5BfIUhO1zjkfztcci4GgkAm6p5H8zLmuhFuZRF+UHD
- Tz/VNb03vjX7qqlQmIorl6YxFrgwjtd190f0dEoIdw==
-X-Google-Smtp-Source: ABdhPJwrAo1Q5aKgc8eUtKDaWI3azIH3Umeg+GTujtQJ7/TfRZUOok4RQrD42IYHB25KLC6DFD2BGY/v4Dape3KfFt4=
-X-Received: by 2002:a37:a7cb:: with SMTP id
- q194mr12418288qke.350.1617352870441; 
- Fri, 02 Apr 2021 01:41:10 -0700 (PDT)
+ bh=HywOIhb5prU0SvgCATKvH+ZBrrrzKF5XQkM0MZqr0LA=;
+ b=ujiAfejrVFUxo8AXvOVtC7vhRqhsy5ri4ETbtH7FA+fuBN3GpPujhgV8Rw9ZSNYSNC
+ 4TM1A56qnMUiHdPMYERKHmSa+ZlIWtWe7oV1CSl6HfxQrzslWYeGL/E5bF+/hYDK51j1
+ bkeS1jUrAQ0jcv0htO1saPZWLY9h2ILz2vxVxWs+7927licZWNQZHRJ7KbwQol9w9jff
+ LQQE11GlbEBltkDi1rUxWyCzNqQrcjuJpZR+ajv/bkWGIvlxBkRLp4z9qgOiBXaV/ZMG
+ I3xAKet6gp9W6PCreA54HM3h8p5rRFp9JjLp7+BrT/SA3xj+4M+HLDQKe0VFbP9e0nGV
+ Z+2Q==
+X-Gm-Message-State: AOAM530JL3IdEGygnWaHP+ue7Qh3+6QG/vpQF2aIvYWrA9GziiMQ/uXl
+ gXbcyOHCef5dQlAezUtEf5OYdOkAhXuwrt4cPGE=
+X-Google-Smtp-Source: ABdhPJw8cpfvx6+g3xC+Ja1aMlvho4dmtsu+dGUtAgfwKzdxVgHhaVnDtPlWS7DxXgJ74G2bNz/qvwTyG1+eZ5ifgLo=
+X-Received: by 2002:a05:651c:384:: with SMTP id
+ e4mr7528065ljp.500.1617353956993; 
+ Fri, 02 Apr 2021 01:59:16 -0700 (PDT)
 MIME-Version: 1.0
 References: <alpine.DEB.2.21.2103302221590.18977@angie.orcam.me.uk>
  <mhng-08e5e4fb-8a42-4f7b-8ceb-ff549784100e@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-08e5e4fb-8a42-4f7b-8ceb-ff549784100e@palmerdabbelt-glaptop>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Fri, 2 Apr 2021 10:40:58 +0200
-Message-ID: <CACT4Y+Z0PaAuUFrOBenztWkw8OV=J-qaeD1FASPM4ufcLg5a5A@mail.gmail.com>
+ <CACT4Y+Z0PaAuUFrOBenztWkw8OV=J-qaeD1FASPM4ufcLg5a5A@mail.gmail.com>
+In-Reply-To: <CACT4Y+Z0PaAuUFrOBenztWkw8OV=J-qaeD1FASPM4ufcLg5a5A@mail.gmail.com>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Fri, 2 Apr 2021 11:58:40 +0300
+Message-ID: <CAEn-LTqTXCEC=bXTvGyo8SNL0JMWRKtiSwQB7R=Pc4uhxZUruA@mail.gmail.com>
 Subject: Re: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: macro@orcam.me.uk, Alex Ghiti <alex@ghiti.fr>, 
+To: Dmitry Vyukov <dvyukov@google.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, macro@orcam.me.uk,
+ Alex Ghiti <alex@ghiti.fr>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Linux API <linux-api@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  LKML <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210402_094113_853579_E31CE19A 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20210402_095920_544949_1015C8C2 
+X-CRM114-Status: GOOD (  35.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +98,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 2, 2021 at 6:37 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Fri, Apr 2, 2021 at 11:43 AM Dmitry Vyukov <dvyukov@google.com> wrote:
 >
-> On Tue, 30 Mar 2021 13:31:45 PDT (-0700), macro@orcam.me.uk wrote:
-> > On Mon, 29 Mar 2021, Palmer Dabbelt wrote:
+> On Fri, Apr 2, 2021 at 6:37 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 > >
-> >> > --- /dev/null
-> >> > +++ b/arch/riscv/include/uapi/asm/setup.h
-> >> > @@ -0,0 +1,8 @@
-> >> > +/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
-> >> > +
-> >> > +#ifndef _UAPI_ASM_RISCV_SETUP_H
-> >> > +#define _UAPI_ASM_RISCV_SETUP_H
-> >> > +
-> >> > +#define COMMAND_LINE_SIZE 1024
-> >> > +
-> >> > +#endif /* _UAPI_ASM_RISCV_SETUP_H */
-> >>
-> >> I put this on fixes, but it seemes like this should really be a Kconfig
-> >> enttry.  Either way, ours was quite a bit smaller than most architectures and
-> >> it's great that syzbot has started to find bugs, so I'd rather get this in
-> >> sooner.
+> > On Tue, 30 Mar 2021 13:31:45 PDT (-0700), macro@orcam.me.uk wrote:
+> > > On Mon, 29 Mar 2021, Palmer Dabbelt wrote:
+> > >
+> > >> > --- /dev/null
+> > >> > +++ b/arch/riscv/include/uapi/asm/setup.h
+> > >> > @@ -0,0 +1,8 @@
+> > >> > +/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
+> > >> > +
+> > >> > +#ifndef _UAPI_ASM_RISCV_SETUP_H
+> > >> > +#define _UAPI_ASM_RISCV_SETUP_H
+> > >> > +
+> > >> > +#define COMMAND_LINE_SIZE 1024
+> > >> > +
+> > >> > +#endif /* _UAPI_ASM_RISCV_SETUP_H */
+> > >>
+> > >> I put this on fixes, but it seemes like this should really be a Kconfig
+> > >> enttry.  Either way, ours was quite a bit smaller than most architectures and
+> > >> it's great that syzbot has started to find bugs, so I'd rather get this in
+> > >> sooner.
+> > >
+> > >  This macro is exported as a part of the user API so it must not depend on
+> > > Kconfig.  Also changing it (rather than say adding COMMAND_LINE_SIZE_V2 or
+> > > switching to an entirely new data object that has its dimension set in a
+> > > different way) requires careful evaluation as external binaries have and
+> > > will have the value it expands to compiled in, so it's a part of the ABI
+> > > too.
 > >
-> >  This macro is exported as a part of the user API so it must not depend on
-> > Kconfig.  Also changing it (rather than say adding COMMAND_LINE_SIZE_V2 or
-> > switching to an entirely new data object that has its dimension set in a
-> > different way) requires careful evaluation as external binaries have and
-> > will have the value it expands to compiled in, so it's a part of the ABI
-> > too.
+> > Thanks, I didn't realize this was part of the user BI.  In that case we
+> > really can't chage it, so we'll have to sort out some other way do fix
+> > whatever is going on.
+> >
+> > I've dropped this from fixes.
 >
-> Thanks, I didn't realize this was part of the user BI.  In that case we
-> really can't chage it, so we'll have to sort out some other way do fix
-> whatever is going on.
+> Does increasing COMMAND_LINE_SIZE break user-space binaries? I would
+> expect it to work the same way as adding new enum values, or adding
+> fields at the end of versioned structs, etc.
+> I would assume the old bootloaders/etc will only support up to the
+> old, smaller max command line size, while the kernel will support
+> larger command line size, which is fine.
+> However, if something copies /proc/cmdline into a fixed-size buffer
+> and expects that to work, that will break... that's quite unfortunate
+> user-space code... is it what we afraid of?
 >
-> I've dropped this from fixes.
+> Alternatively, could expose the same COMMAND_LINE_SIZE, but internally
+> support a larger command line?
 
-Does increasing COMMAND_LINE_SIZE break user-space binaries? I would
-expect it to work the same way as adding new enum values, or adding
-fields at the end of versioned structs, etc.
-I would assume the old bootloaders/etc will only support up to the
-old, smaller max command line size, while the kernel will support
-larger command line size, which is fine.
-However, if something copies /proc/cmdline into a fixed-size buffer
-and expects that to work, that will break... that's quite unfortunate
-user-space code... is it what we afraid of?
+Looking at kernel commit history I see PowerPC switched from 512 to
+2048, and I don't see complaints about the ABI on the mailing list.
 
-Alternatively, could expose the same COMMAND_LINE_SIZE, but internally
-support a larger command line?
+If COMMAND_LINE_SIZE is used by user space applications and we
+increase it there shouldn't be problems. I would expect things to
+work, but just get truncated boot args? That is the application will
+continue only to look at the initial 512 chars.
+
+https://linuxppc-dev.ozlabs.narkive.com/m4cj8nBa/patch-1-1-powerpc-increase-command-line-size-to-2048-from-512
 
 _______________________________________________
 linux-riscv mailing list
