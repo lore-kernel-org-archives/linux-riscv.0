@@ -2,81 +2,87 @@ Return-Path: <SRS0=OQtk=I7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 17828C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53ED3C433ED
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:26:18 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D2EF610E8
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:25:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D2EF610E8
+	by mail.kernel.org (Postfix) with ESMTPS id DD96461151
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:26:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD96461151
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:Cc:To:Subject:From:References:In-Reply-To:
-	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4H8O6Vearstzf1P0tFMM6XZpn+44Lb9YWGGuFDgmh9E=; b=OmutO3gMxrE7BBiZyTXuBxq58/
-	6rb4k6+Kt+Lo373JCya2uslbzgGiH4EGxy8Y/RYnUINXswTtISorC+0b3n+M/XoOoiwqEg2+5FPwy
-	BMH3ln7Kp427VU9fBmg7F2pf/S/70fAncmM7X1/qv/Z1I+Hbbca26wOkC21z1tBJK82orDNKwGB1h
-	4L5XyMS1UGD7P6KNWNDj/ubDq/LVlfR+qVz4dDWc8758rIjVbPGv0hbD//e9gZ1QmRhduIFcAUQjR
-	kz9M5Hq3i5OUcWvVZG5kv8MUZ7ml3b1R1b3m916mP38l8oWGLdXjN0iBjPo30ok+hYPBEv3Lg4K0C
-	MoWR7+3Q==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=i9c4P8VK+X4dlZJrUVqbcZ7KkjQDE/zWIIRi9jNxx4k=; b=dU5LrvFnyJhRz+1za4cj7QfDO
+	9ZsF7nHkqbz75PvysVmUzdU6vX8R9hUWOV/rQY7e0LWRhXlkqjmf4ZYbZDiki/dWd0e5hGfKagJQL
+	Zd5ZDy5RYOeV+QG5et3bj0UNSi8oBXdxcqFy/LJk86mvFAxvINs9VIGDjZU2qZ4d/+uwdNB37sezU
+	k4Odrbu7YUcDcaz+nCcfLfbViJmAhCkoNGpN6YrSPjMA76o7bdtu2kPsM8LDjRkVTP4wi59UY1Abv
+	tndUn0MdE1zQVTLLJ/K250MT7ihJvDFE/u3NKbPGYYuhb+RvrJB7CZfONZNeNYdG1zmqaEvlhakaf
+	ZIo7p2FRA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSLfq-00DHnK-Ml; Fri, 02 Apr 2021 15:25:26 +0000
+	id 1lSLgT-00DI5M-KH; Fri, 02 Apr 2021 15:26:05 +0000
 Received: from pegase1.c-s.fr ([93.17.236.30])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lSLZ1-00DCUq-1Y; Fri, 02 Apr 2021 15:18:26 +0000
+ id 1lSLZf-00DCgT-EV; Fri, 02 Apr 2021 15:19:05 +0000
 Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4FBkG44gBbz9v2m7;
- Fri,  2 Apr 2021 17:18:20 +0200 (CEST)
+ by localhost (Postfix) with ESMTP id 4FBkGs0CTbz9v2lt;
+ Fri,  2 Apr 2021 17:19:01 +0200 (CEST)
 X-Virus-Scanned: Debian amavisd-new at c-s.fr
 Received: from pegase1.c-s.fr ([192.168.12.234])
  by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id sBnAWcx1Go7E; Fri,  2 Apr 2021 17:18:20 +0200 (CEST)
+ with ESMTP id HHSKL_ERdXgd; Fri,  2 Apr 2021 17:19:00 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4FBkG43Nc3z9v2ls;
- Fri,  2 Apr 2021 17:18:20 +0200 (CEST)
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FBkGr6FdVz9v2ls;
+ Fri,  2 Apr 2021 17:19:00 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 12BCB8BB7C;
- Fri,  2 Apr 2021 17:18:22 +0200 (CEST)
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id CCFD78BB79;
+ Fri,  2 Apr 2021 17:19:02 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
  by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id mdOU6-fT9Uo6; Fri,  2 Apr 2021 17:18:21 +0200 (CEST)
-Received: from po16121vm.idsi0.si.c-s.fr (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 71E4F8BB7F;
- Fri,  2 Apr 2021 17:18:21 +0200 (CEST)
-Received: by po16121vm.idsi0.si.c-s.fr (Postfix, from userid 0)
- id 4E3F867989; Fri,  2 Apr 2021 15:18:21 +0000 (UTC)
-Message-Id: <a01b6cdbae01fff77e26f7a5c40ee5260e1952b5.1617375802.git.christophe.leroy@csgroup.eu>
-In-Reply-To: <cover.1617375802.git.christophe.leroy@csgroup.eu>
-References: <cover.1617375802.git.christophe.leroy@csgroup.eu>
+ with ESMTP id 9kCnw8bE6TtL; Fri,  2 Apr 2021 17:19:02 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id AD03A8BB7C;
+ Fri,  2 Apr 2021 17:19:01 +0200 (CEST)
+Subject: Re: [PATCH v3 05/17] arm: Convert to GENERIC_CMDLINE
+To: Rob Herring <robh@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Daniel Walker <danielwa@cisco.com>,
+ Daniel Gimpelevich <daniel@gimpelevich.san-francisco.ca.us>,
+ "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>,
+ devicetree@vger.kernel.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ microblaze <monstr@monstr.eu>, "open list:MIPS"
+ <linux-mips@vger.kernel.org>, nios2 <ley.foon.tan@intel.com>,
+ Openrisc <openrisc@lists.librecores.org>, linux-hexagon@vger.kernel.org,
+ linux-riscv <linux-riscv@lists.infradead.org>, X86 ML <x86@kernel.org>,
+ linux-xtensa@linux-xtensa.org, SH-Linux <linux-sh@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>
+References: <cover.1616765869.git.christophe.leroy@csgroup.eu>
+ <7362e4f6a5f5b79e6ad3fd3cec3183a4a283f7fc.1616765870.git.christophe.leroy@csgroup.eu>
+ <CAL_Jsq+LF-s5K4Jwd5jCHrU8271L5WCiGb0tR7aTUa8ddHF1YQ@mail.gmail.com>
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v4 19/20] mips: Convert to GENERIC_CMDLINE
-To: will@kernel.org, danielwa@cisco.com, robh@kernel.org,
- daniel@gimpelevich.san-francisco.ca.us, arnd@kernel.org,
- akpm@linux-foundation.org
-Cc: linux-arch@vger.kernel.org, devicetree@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- microblaze <monstr@monstr.eu>, linux-mips@vger.kernel.org,
- nios2 <ley.foon.tan@intel.com>, openrisc@lists.librecores.org,
- linux-hexagon@vger.kernel.org, linux-riscv@lists.infradead.org,
- x86@kernel.org, linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-mm@kvack.org
-Date: Fri,  2 Apr 2021 15:18:21 +0000 (UTC)
+Message-ID: <f0ef9e09-982a-e44a-1a5f-0dd56a151789@csgroup.eu>
+Date: Fri, 2 Apr 2021 17:19:02 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.9.0
+MIME-Version: 1.0
+In-Reply-To: <CAL_Jsq+LF-s5K4Jwd5jCHrU8271L5WCiGb0tR7aTUa8ddHF1YQ@mail.gmail.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210402_161824_445420_A42FD5CB 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20210402_161904_178446_DDCA9B92 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,434 +94,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This converts the architecture to GENERIC_CMDLINE.
-
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
- arch/mips/Kconfig                         |  1 +
- arch/mips/Kconfig.debug                   | 44 -----------------------
- arch/mips/configs/ar7_defconfig           |  1 -
- arch/mips/configs/bcm47xx_defconfig       |  1 -
- arch/mips/configs/bcm63xx_defconfig       |  1 -
- arch/mips/configs/bmips_be_defconfig      |  1 -
- arch/mips/configs/bmips_stb_defconfig     |  1 -
- arch/mips/configs/capcella_defconfig      |  1 -
- arch/mips/configs/ci20_defconfig          |  1 -
- arch/mips/configs/cu1000-neo_defconfig    |  1 -
- arch/mips/configs/cu1830-neo_defconfig    |  1 -
- arch/mips/configs/e55_defconfig           |  1 -
- arch/mips/configs/generic_defconfig       |  1 -
- arch/mips/configs/gpr_defconfig           |  1 -
- arch/mips/configs/loongson3_defconfig     |  1 -
- arch/mips/configs/mpc30x_defconfig        |  1 -
- arch/mips/configs/rt305x_defconfig        |  1 -
- arch/mips/configs/tb0219_defconfig        |  1 -
- arch/mips/configs/tb0226_defconfig        |  1 -
- arch/mips/configs/tb0287_defconfig        |  1 -
- arch/mips/configs/workpad_defconfig       |  1 -
- arch/mips/configs/xway_defconfig          |  1 -
- arch/mips/kernel/relocate.c               |  4 +--
- arch/mips/kernel/setup.c                  | 40 ++-------------------
- arch/mips/pic32/pic32mzda/early_console.c |  2 +-
- arch/mips/pic32/pic32mzda/init.c          |  2 --
- 26 files changed, 5 insertions(+), 108 deletions(-)
-
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index d89efba3d8a4..a65ce9ddbfce 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -24,6 +24,7 @@ config MIPS
- 	select CPU_NO_EFFICIENT_FFS if (TARGET_ISA_REV < 1)
- 	select CPU_PM if CPU_IDLE
- 	select GENERIC_ATOMIC64 if !64BIT
-+	select GENERIC_CMDLINE
- 	select GENERIC_CMOS_UPDATE
- 	select GENERIC_CPU_AUTOPROBE
- 	select GENERIC_GETTIMEOFDAY
-diff --git a/arch/mips/Kconfig.debug b/arch/mips/Kconfig.debug
-index 7a8d94cdd493..b5a099c74eb6 100644
---- a/arch/mips/Kconfig.debug
-+++ b/arch/mips/Kconfig.debug
-@@ -30,50 +30,6 @@ config EARLY_PRINTK_8250
- config USE_GENERIC_EARLY_PRINTK_8250
- 	bool
- 
--config CMDLINE_BOOL
--	bool "Built-in kernel command line"
--	help
--	  For most systems, it is firmware or second stage bootloader that
--	  by default specifies the kernel command line options.  However,
--	  it might be necessary or advantageous to either override the
--	  default kernel command line or add a few extra options to it.
--	  For such cases, this option allows you to hardcode your own
--	  command line options directly into the kernel.  For that, you
--	  should choose 'Y' here, and fill in the extra boot arguments
--	  in CONFIG_CMDLINE.
--
--	  The built-in options will be concatenated to the default command
--	  line if CMDLINE_OVERRIDE is set to 'N'. Otherwise, the default
--	  command line will be ignored and replaced by the built-in string.
--
--	  Most MIPS systems will normally expect 'N' here and rely upon
--	  the command line from the firmware or the second-stage bootloader.
--
--config CMDLINE
--	string "Default kernel command string"
--	depends on CMDLINE_BOOL
--	help
--	  On some platforms, there is currently no way for the boot loader to
--	  pass arguments to the kernel.  For these platforms, and for the cases
--	  when you want to add some extra options to the command line or ignore
--	  the default command line, you can supply some command-line options at
--	  build time by entering them here.  In other cases you can specify
--	  kernel args so that you don't have to set them up in board prom
--	  initialization routines.
--
--	  For more information, see the CMDLINE_BOOL and CMDLINE_OVERRIDE
--	  options.
--
--config CMDLINE_OVERRIDE
--	bool "Built-in command line overrides firmware arguments"
--	depends on CMDLINE_BOOL
--	help
--	  By setting this option to 'Y' you will have your kernel ignore
--	  command line arguments from firmware or second stage bootloader.
--	  Instead, the built-in command line will be used exclusively.
--
--	  Normally, you will choose 'N' here.
--
- config SB1XXX_CORELIS
- 	bool "Corelis Debugger"
- 	depends on SIBYTE_SB1xxx_SOC
-diff --git a/arch/mips/configs/ar7_defconfig b/arch/mips/configs/ar7_defconfig
-index cf9c6329b807..5e8adcd799d0 100644
---- a/arch/mips/configs/ar7_defconfig
-+++ b/arch/mips/configs/ar7_defconfig
-@@ -120,5 +120,4 @@ CONFIG_SQUASHFS=y
- # CONFIG_ENABLE_MUST_CHECK is not set
- CONFIG_STRIP_ASM_SYMS=y
- CONFIG_DEBUG_FS=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="rootfstype=squashfs,jffs2"
-diff --git a/arch/mips/configs/bcm47xx_defconfig b/arch/mips/configs/bcm47xx_defconfig
-index 91ce75edbfb4..690f423509f0 100644
---- a/arch/mips/configs/bcm47xx_defconfig
-+++ b/arch/mips/configs/bcm47xx_defconfig
-@@ -77,5 +77,4 @@ CONFIG_DEBUG_INFO_REDUCED=y
- CONFIG_STRIP_ASM_SYMS=y
- CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="console=ttyS0,115200"
-diff --git a/arch/mips/configs/bcm63xx_defconfig b/arch/mips/configs/bcm63xx_defconfig
-index 861f680184b9..19b15424f669 100644
---- a/arch/mips/configs/bcm63xx_defconfig
-+++ b/arch/mips/configs/bcm63xx_defconfig
-@@ -65,5 +65,4 @@ CONFIG_PROC_KCORE=y
- # CONFIG_NETWORK_FILESYSTEMS is not set
- # CONFIG_CRYPTO_HW is not set
- CONFIG_MAGIC_SYSRQ=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="console=ttyS0,115200"
-diff --git a/arch/mips/configs/bmips_be_defconfig b/arch/mips/configs/bmips_be_defconfig
-index 032bb51defe8..2db7712acc5d 100644
---- a/arch/mips/configs/bmips_be_defconfig
-+++ b/arch/mips/configs/bmips_be_defconfig
-@@ -75,5 +75,4 @@ CONFIG_NLS_ISO8859_1=y
- CONFIG_PRINTK_TIME=y
- CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon"
-diff --git a/arch/mips/configs/bmips_stb_defconfig b/arch/mips/configs/bmips_stb_defconfig
-index 625bd2d7e685..bc1659d43ca7 100644
---- a/arch/mips/configs/bmips_stb_defconfig
-+++ b/arch/mips/configs/bmips_stb_defconfig
-@@ -86,5 +86,4 @@ CONFIG_NLS_ISO8859_1=y
- CONFIG_PRINTK_TIME=y
- CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon"
-diff --git a/arch/mips/configs/capcella_defconfig b/arch/mips/configs/capcella_defconfig
-index 7bf8971af53b..300032a5caa0 100644
---- a/arch/mips/configs/capcella_defconfig
-+++ b/arch/mips/configs/capcella_defconfig
-@@ -87,5 +87,4 @@ CONFIG_CRYPTO_TEA=m
- CONFIG_CRYPTO_TWOFISH=m
- CONFIG_CRYPTO_DEFLATE=m
- # CONFIG_CRYPTO_HW is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="mem=32M console=ttyVR0,38400"
-diff --git a/arch/mips/configs/ci20_defconfig b/arch/mips/configs/ci20_defconfig
-index ab7ebb066834..f874e421b54f 100644
---- a/arch/mips/configs/ci20_defconfig
-+++ b/arch/mips/configs/ci20_defconfig
-@@ -203,5 +203,4 @@ CONFIG_PANIC_TIMEOUT=10
- # CONFIG_DEBUG_PREEMPT is not set
- CONFIG_STACKTRACE=y
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon console=ttyS4,115200 clk_ignore_unused"
-diff --git a/arch/mips/configs/cu1000-neo_defconfig b/arch/mips/configs/cu1000-neo_defconfig
-index 9d75f5b77d5d..03cb524967e7 100644
---- a/arch/mips/configs/cu1000-neo_defconfig
-+++ b/arch/mips/configs/cu1000-neo_defconfig
-@@ -123,5 +123,4 @@ CONFIG_PANIC_TIMEOUT=10
- # CONFIG_DEBUG_PREEMPT is not set
- CONFIG_STACKTRACE=y
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon clk_ignore_unused"
-diff --git a/arch/mips/configs/cu1830-neo_defconfig b/arch/mips/configs/cu1830-neo_defconfig
-index 29decd0003c6..d733ccab494e 100644
---- a/arch/mips/configs/cu1830-neo_defconfig
-+++ b/arch/mips/configs/cu1830-neo_defconfig
-@@ -126,5 +126,4 @@ CONFIG_PANIC_TIMEOUT=10
- # CONFIG_DEBUG_PREEMPT is not set
- CONFIG_STACKTRACE=y
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon clk_ignore_unused"
-diff --git a/arch/mips/configs/e55_defconfig b/arch/mips/configs/e55_defconfig
-index fd82b858a8f0..ffc964d1bae7 100644
---- a/arch/mips/configs/e55_defconfig
-+++ b/arch/mips/configs/e55_defconfig
-@@ -33,5 +33,4 @@ CONFIG_AUTOFS4_FS=y
- CONFIG_PROC_KCORE=y
- CONFIG_TMPFS=y
- CONFIG_TMPFS_POSIX_ACL=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="console=ttyVR0,19200 ide0=0x1f0,0x3f6,40 mem=8M"
-diff --git a/arch/mips/configs/generic_defconfig b/arch/mips/configs/generic_defconfig
-index 714169e411cf..6003f6c7aa09 100644
---- a/arch/mips/configs/generic_defconfig
-+++ b/arch/mips/configs/generic_defconfig
-@@ -88,5 +88,4 @@ CONFIG_DEBUG_INFO_REDUCED=y
- CONFIG_DEBUG_FS=y
- # CONFIG_SCHED_DEBUG is not set
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="earlycon"
-diff --git a/arch/mips/configs/gpr_defconfig b/arch/mips/configs/gpr_defconfig
-index 5cb91509bb7c..8998d28b94c8 100644
---- a/arch/mips/configs/gpr_defconfig
-+++ b/arch/mips/configs/gpr_defconfig
-@@ -306,5 +306,4 @@ CONFIG_CRYPTO_TWOFISH=m
- CONFIG_CRYPTO_DEFLATE=m
- # CONFIG_ENABLE_MUST_CHECK is not set
- CONFIG_MAGIC_SYSRQ=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="console=ttyS0,115200 root=/dev/nfs rw ip=auto"
-diff --git a/arch/mips/configs/loongson3_defconfig b/arch/mips/configs/loongson3_defconfig
-index 0e79f81217bc..c4f9a236bd1f 100644
---- a/arch/mips/configs/loongson3_defconfig
-+++ b/arch/mips/configs/loongson3_defconfig
-@@ -408,5 +408,4 @@ CONFIG_MAGIC_SYSRQ=y
- # CONFIG_SCHED_DEBUG is not set
- # CONFIG_DEBUG_PREEMPT is not set
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="ieee754=relaxed"
-diff --git a/arch/mips/configs/mpc30x_defconfig b/arch/mips/configs/mpc30x_defconfig
-index d4e038802510..6ecef2a666fc 100644
---- a/arch/mips/configs/mpc30x_defconfig
-+++ b/arch/mips/configs/mpc30x_defconfig
-@@ -49,5 +49,4 @@ CONFIG_AUTOFS4_FS=y
- CONFIG_PROC_KCORE=y
- CONFIG_CONFIGFS_FS=m
- CONFIG_NFS_FS=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="mem=32M console=ttyVR0,19200 ide0=0x170,0x376,73"
-diff --git a/arch/mips/configs/rt305x_defconfig b/arch/mips/configs/rt305x_defconfig
-index fec5851c164b..c34441ce6621 100644
---- a/arch/mips/configs/rt305x_defconfig
-+++ b/arch/mips/configs/rt305x_defconfig
-@@ -147,4 +147,3 @@ CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
- # CONFIG_SCHED_DEBUG is not set
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
-diff --git a/arch/mips/configs/tb0219_defconfig b/arch/mips/configs/tb0219_defconfig
-index 6547f84750b5..ccf20bd156a1 100644
---- a/arch/mips/configs/tb0219_defconfig
-+++ b/arch/mips/configs/tb0219_defconfig
-@@ -73,5 +73,4 @@ CONFIG_NFS_FS=y
- CONFIG_ROOT_NFS=y
- CONFIG_NFSD=y
- CONFIG_NFSD_V3=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="cca=3 mem=64M console=ttyVR0,115200 ip=any root=/dev/nfs"
-diff --git a/arch/mips/configs/tb0226_defconfig b/arch/mips/configs/tb0226_defconfig
-index 7e099f7c2286..9f78fd00a4f6 100644
---- a/arch/mips/configs/tb0226_defconfig
-+++ b/arch/mips/configs/tb0226_defconfig
-@@ -68,5 +68,4 @@ CONFIG_NFS_FS=y
- CONFIG_ROOT_NFS=y
- CONFIG_NFSD=m
- CONFIG_NFSD_V3=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="cca=3 mem=32M console=ttyVR0,115200"
-diff --git a/arch/mips/configs/tb0287_defconfig b/arch/mips/configs/tb0287_defconfig
-index 0d881dd862c0..5529d0dacf94 100644
---- a/arch/mips/configs/tb0287_defconfig
-+++ b/arch/mips/configs/tb0287_defconfig
-@@ -81,5 +81,4 @@ CONFIG_NFSD_V3=y
- CONFIG_FONTS=y
- CONFIG_FONT_8x8=y
- CONFIG_FONT_8x16=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="cca=3 mem=64M console=ttyVR0,115200 ip=any root=/dev/nfs"
-diff --git a/arch/mips/configs/workpad_defconfig b/arch/mips/configs/workpad_defconfig
-index 891a5f77305d..ee712f7b5575 100644
---- a/arch/mips/configs/workpad_defconfig
-+++ b/arch/mips/configs/workpad_defconfig
-@@ -61,5 +61,4 @@ CONFIG_TMPFS_POSIX_ACL=y
- CONFIG_NFS_FS=m
- CONFIG_NFSD=m
- CONFIG_NFSD_V3=y
--CONFIG_CMDLINE_BOOL=y
- CONFIG_CMDLINE="console=ttyVR0,19200 ide0=0x170,0x376,49 mem=16M"
-diff --git a/arch/mips/configs/xway_defconfig b/arch/mips/configs/xway_defconfig
-index 9abbc0debc2a..ebd8dbdb0695 100644
---- a/arch/mips/configs/xway_defconfig
-+++ b/arch/mips/configs/xway_defconfig
-@@ -153,4 +153,3 @@ CONFIG_DEBUG_FS=y
- CONFIG_MAGIC_SYSRQ=y
- # CONFIG_SCHED_DEBUG is not set
- # CONFIG_FTRACE is not set
--CONFIG_CMDLINE_BOOL=y
-diff --git a/arch/mips/kernel/relocate.c b/arch/mips/kernel/relocate.c
-index 499a5357c09f..13c955027696 100644
---- a/arch/mips/kernel/relocate.c
-+++ b/arch/mips/kernel/relocate.c
-@@ -244,15 +244,13 @@ static inline __init unsigned long get_random_boot(void)
- static inline __init bool kaslr_disabled(void)
- {
- 	char *str;
--
--#if defined(CONFIG_CMDLINE_BOOL)
- 	const char *builtin_cmdline = CONFIG_CMDLINE;
- 
- 	str = strstr(builtin_cmdline, "nokaslr");
- 	if (str == builtin_cmdline ||
- 	    (str > builtin_cmdline && *(str - 1) == ' '))
- 		return true;
--#endif
-+
- 	str = strstr(arcs_cmdline, "nokaslr");
- 	if (str == arcs_cmdline || (str > arcs_cmdline && *(str - 1) == ' '))
- 		return true;
-diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
-index 279be0153f8b..f2270528011b 100644
---- a/arch/mips/kernel/setup.c
-+++ b/arch/mips/kernel/setup.c
-@@ -29,6 +29,7 @@
- #include <linux/of_fdt.h>
- #include <linux/dmi.h>
- #include <linux/crash_dump.h>
-+#include <linux/cmdline.h>
- 
- #include <asm/addrspace.h>
- #include <asm/bootinfo.h>
-@@ -66,12 +67,6 @@ EXPORT_SYMBOL(mips_machtype);
- static char __initdata command_line[COMMAND_LINE_SIZE];
- char __initdata arcs_cmdline[COMMAND_LINE_SIZE];
- 
--#ifdef CONFIG_CMDLINE_BOOL
--static const char builtin_cmdline[] __initconst = CONFIG_CMDLINE;
--#else
--static const char builtin_cmdline[] __initconst = "";
--#endif
--
- /*
-  * mips_io_port_base is the begin of the address space to which x86 style
-  * I/O ports are mapped.
-@@ -546,28 +541,6 @@ static void __init bootcmdline_init(void)
- {
- 	bool dt_bootargs = false;
- 
--	/*
--	 * If CMDLINE_OVERRIDE is enabled then initializing the command line is
--	 * trivial - we simply use the built-in command line unconditionally &
--	 * unmodified.
--	 */
--	if (IS_ENABLED(CONFIG_CMDLINE_OVERRIDE)) {
--		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
--		return;
--	}
--
--	/*
--	 * If the user specified a built-in command line &
--	 * MIPS_CMDLINE_BUILTIN_EXTEND, then the built-in command line is
--	 * prepended to arguments from the bootloader or DT so we'll copy them
--	 * to the start of boot_command_line here. Otherwise, empty
--	 * boot_command_line to undo anything early_init_dt_scan_chosen() did.
--	 */
--	if (IS_ENABLED(CONFIG_MIPS_CMDLINE_BUILTIN_EXTEND))
--		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
--	else
--		boot_command_line[0] = 0;
--
- #ifdef CONFIG_OF_EARLY_FLATTREE
- 	/*
- 	 * If we're configured to take boot arguments from DT, look for those
-@@ -585,16 +558,7 @@ static void __init bootcmdline_init(void)
- 	 * plat_mem_setup() should have filled arcs_cmdline with arguments from
- 	 * the bootloader.
- 	 */
--	if (IS_ENABLED(CONFIG_MIPS_CMDLINE_DTB_EXTEND) || !dt_bootargs)
--		bootcmdline_append(arcs_cmdline, COMMAND_LINE_SIZE);
--
--	/*
--	 * If the user specified a built-in command line & we didn't already
--	 * prepend it, we append it to boot_command_line here.
--	 */
--	if (IS_ENABLED(CONFIG_CMDLINE_BOOL) &&
--	    !IS_ENABLED(CONFIG_MIPS_CMDLINE_BUILTIN_EXTEND))
--		bootcmdline_append(builtin_cmdline, COMMAND_LINE_SIZE);
-+	cmdline_build(boot_command_line, arcs_cmdline);
- }
- 
- /*
-diff --git a/arch/mips/pic32/pic32mzda/early_console.c b/arch/mips/pic32/pic32mzda/early_console.c
-index 25372e62783b..94d3a5ba5e10 100644
---- a/arch/mips/pic32/pic32mzda/early_console.c
-+++ b/arch/mips/pic32/pic32mzda/early_console.c
-@@ -75,7 +75,7 @@ static char * __init pic32_getcmdline(void)
- 	 * arch_mem_init() has not been called yet, so we don't have a real
- 	 * command line setup if using CONFIG_CMDLINE_BOOL.
- 	 */
--#ifdef CONFIG_CMDLINE_OVERRIDE
-+#ifdef CONFIG_CMDLINE_FORCE
- 	return CONFIG_CMDLINE;
- #else
- 	return fw_getcmdline();
-diff --git a/arch/mips/pic32/pic32mzda/init.c b/arch/mips/pic32/pic32mzda/init.c
-index 764f2d022fae..39fdacbbac56 100644
---- a/arch/mips/pic32/pic32mzda/init.c
-+++ b/arch/mips/pic32/pic32mzda/init.c
-@@ -40,9 +40,7 @@ void __init plat_mem_setup(void)
- 	pr_info("Found following command lines\n");
- 	pr_info(" boot_command_line: %s\n", boot_command_line);
- 	pr_info(" arcs_cmdline     : %s\n", arcs_cmdline);
--#ifdef CONFIG_CMDLINE_BOOL
- 	pr_info(" builtin_cmdline  : %s\n", CONFIG_CMDLINE);
--#endif
- 	if (dtb != __dtb_start)
- 		strlcpy(arcs_cmdline, boot_command_line, COMMAND_LINE_SIZE);
- 
--- 
-2.25.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyNi8wMy8yMDIxIMOgIDE2OjQ3LCBSb2IgSGVycmluZyBhIMOpY3JpdMKgOgo+IE9uIEZy
+aSwgTWFyIDI2LCAyMDIxIGF0IDc6NDQgQU0gQ2hyaXN0b3BoZSBMZXJveQo+IDxjaHJpc3RvcGhl
+Lmxlcm95QGNzZ3JvdXAuZXU+IHdyb3RlOgo+Pgo+PiBUaGlzIGNvbnZlcnRzIHRoZSBhcmNoaXRl
+Y3R1cmUgdG8gR0VORVJJQ19DTURMSU5FLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBDaHJpc3RvcGhl
+IExlcm95IDxjaHJpc3RvcGhlLmxlcm95QGNzZ3JvdXAuZXU+Cj4+IC0tLQo+PiAgIGFyY2gvYXJt
+L0tjb25maWcgICAgICAgICAgICAgIHwgMzggKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0KPj4gICBhcmNoL2FybS9rZXJuZWwvYXRhZ3NfcGFyc2UuYyB8IDE1ICsrKysrLS0tLS0t
+LS0tCj4+ICAgMiBmaWxlcyBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKyksIDQ3IGRlbGV0aW9ucygt
+KQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm0vS2NvbmZpZyBiL2FyY2gvYXJtL0tjb25maWcK
+Pj4gaW5kZXggNWRhOTZmNWRmNDhmLi42N2JjNzVmMmRhODEgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gv
+YXJtL0tjb25maWcKPj4gKysrIGIvYXJjaC9hcm0vS2NvbmZpZwo+PiBAQCAtNTAsNiArNTAsNyBA
+QCBjb25maWcgQVJNCj4+ICAgICAgICAgIHNlbGVjdCBHRU5FUklDX0FSQ0hfVE9QT0xPR1kgaWYg
+QVJNX0NQVV9UT1BPTE9HWQo+PiAgICAgICAgICBzZWxlY3QgR0VORVJJQ19BVE9NSUM2NCBpZiBD
+UFVfVjdNIHx8IENQVV9WNiB8fCAhQ1BVXzMydjZLIHx8ICFBRUFCSQo+PiAgICAgICAgICBzZWxl
+Y3QgR0VORVJJQ19DTE9DS0VWRU5UU19CUk9BRENBU1QgaWYgU01QCj4+ICsgICAgICAgc2VsZWN0
+IEdFTkVSSUNfQ01ETElORSBpZiBBVEFHUwo+IAo+IERvbid0IHdlIG5lZWQgdGhpcyBlbmFibGVk
+IGZvciAhQVRBR1MgKGkuZS4gRFQgYm9vdCk/Cj4gCj4gQ2FuIHdlIGFsd2F5cyBlbmFibGUgR0VO
+RVJJQ19DTURMSU5FIGZvciBPRl9FQVJMWV9GTEFUVFJFRT8KPiAKCkRvbmUgaW4gdjQKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
