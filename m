@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 631C3C43460
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 96CE7C43460
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:25:10 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EDCF3610E8
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:24:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EDCF3610E8
+	by mail.kernel.org (Postfix) with ESMTPS id 33D906113E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 15:25:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33D906113E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,45 +23,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Date:Cc:To:Subject:From:References:In-Reply-To:
 	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqJo/UfZfrP5PFtqev9zEfVFiuZsW7KsIX+0t2VPAf4=; b=TpNS35cRgFcyRdoh8FrtkCRY83
-	kclBzJPEfAHxRDjVHnSZDQtTOBVNIURdjaVQvGVR9PPdJK7lgmfabzU4yEKg9bO6DoTml22Fz45X6
-	mA6LzrxKC2nVeWiMWcSP1noEuCdm0WC/ZuaoJEr0Yq2/vqtgQV6JXqIDNl0dcfRtjNvhCqBcodaHd
-	HMKYSyUmhaByyYfMVkeRCwEZi1nkIIBSeusv4jZF+7FKinEWrRnWKkNLLAmV6dNS5L11StSranfRL
-	nLFx8LkyEwKooUREc6WemUbloo4qeGpVA4DV0Cl5VLceAhxclCp6+3Mj2XkCESmST0yqhQV59K952
-	2NHnE2Mg==;
+	bh=cBvDXdiuCAC8TpNQ//KY/ZqJdI5E2Rzv5VnodIg9u/s=; b=Hfy6AwH0Gpz3lV/sn2Qr6KhTCB
+	Hjh/FmkvfBDxOb9S+p+/UG5gG8RtJ6JniIWM0TyosxQOPQCdkhaDhyPeQ2LNlWVgM03uWnk0xzCSV
+	11PZOWdrcup0ib6Y74GrffQap+7jHWxImGjCflcdS8yXJulukNeDgnHB881pr/ksaaBvj7E36iAoK
+	fTRAv2NzL6JJL1CObVLYTiPxAwUtX4oCPx+tNcrVTgWBKVa+8ukNdUJKJZkWaztyJnZqQoXOql857
+	aH5BWBDbm7Y4m6MHPuNEzEM5xqSiP0lHRf4qJQqYwhoBNdmxYPia8sSS8Ev5j8zuc4DkaB9+NBoKC
+	fyn17MQQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSLee-00DGhe-Ip; Fri, 02 Apr 2021 15:24:12 +0000
+	id 1lSLfL-00DHUb-NP; Fri, 02 Apr 2021 15:24:55 +0000
 Received: from pegase1.c-s.fr ([93.17.236.30])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lSLYz-00DCUX-KX; Fri, 02 Apr 2021 15:18:24 +0000
+ id 1lSLZ1-00DCUv-NI; Fri, 02 Apr 2021 15:18:25 +0000
 Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4FBkG32LP9z9v2mF;
- Fri,  2 Apr 2021 17:18:19 +0200 (CEST)
+ by localhost (Postfix) with ESMTP id 4FBkG52l3Hz9v2lx;
+ Fri,  2 Apr 2021 17:18:21 +0200 (CEST)
 X-Virus-Scanned: Debian amavisd-new at c-s.fr
 Received: from pegase1.c-s.fr ([192.168.12.234])
  by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id l6-zcpN14Qua; Fri,  2 Apr 2021 17:18:19 +0200 (CEST)
+ with ESMTP id GzDR9N0g0Rpg; Fri,  2 Apr 2021 17:18:21 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4FBkG31Gsmz9v2ls;
- Fri,  2 Apr 2021 17:18:19 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 1C3F28BB7D;
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FBkG519y8z9v2ls;
  Fri,  2 Apr 2021 17:18:21 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id F0A0F8BB7C;
+ Fri,  2 Apr 2021 17:18:22 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
  by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id yvlVdRkNlJmU; Fri,  2 Apr 2021 17:18:20 +0200 (CEST)
+ with ESMTP id JBXhU7_Qtg1N; Fri,  2 Apr 2021 17:18:22 +0200 (CEST)
 Received: from po16121vm.idsi0.si.c-s.fr (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 6DEC28BB82;
- Fri,  2 Apr 2021 17:18:20 +0200 (CEST)
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 789078BB7D;
+ Fri,  2 Apr 2021 17:18:22 +0200 (CEST)
 Received: by po16121vm.idsi0.si.c-s.fr (Postfix, from userid 0)
- id 45A3267989; Fri,  2 Apr 2021 15:18:20 +0000 (UTC)
-Message-Id: <ab0fd4477964cdbf99e3dd2965a455aa3e738e4b.1617375802.git.christophe.leroy@csgroup.eu>
+ id 5513E67989; Fri,  2 Apr 2021 15:18:22 +0000 (UTC)
+Message-Id: <349128c2baa37dfcafb61a10d4e6c62f93cfe881.1617375803.git.christophe.leroy@csgroup.eu>
 In-Reply-To: <cover.1617375802.git.christophe.leroy@csgroup.eu>
 References: <cover.1617375802.git.christophe.leroy@csgroup.eu>
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v4 18/20] x86: Convert to GENERIC_CMDLINE
+Subject: [PATCH v4 20/20] cmdline: Remove CONFIG_CMDLINE_EXTEND
 To: will@kernel.org, danielwa@cisco.com, robh@kernel.org,
  daniel@gimpelevich.san-francisco.ca.us, arnd@kernel.org,
  akpm@linux-foundation.org
@@ -73,10 +73,11 @@ Cc: linux-arch@vger.kernel.org, devicetree@vger.kernel.org,
  linux-hexagon@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
  sparclinux@vger.kernel.org, linux-mm@kvack.org
-Date: Fri,  2 Apr 2021 15:18:20 +0000 (UTC)
+Date: Fri,  2 Apr 2021 15:18:22 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210402_161821_751226_73441117 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20210402_161824_421426_F9A5CF14 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,126 +95,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This converts the architecture to GENERIC_CMDLINE.
+All architectures providing CONFIG_CMDLINE_EXTEND
+are now converted to GENERIC_CMDLINE.
+
+This configuration item is not used anymore, drop it.
 
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 ---
- arch/x86/Kconfig        | 45 ++---------------------------------------
- arch/x86/kernel/setup.c | 17 ++--------------
- 2 files changed, 4 insertions(+), 58 deletions(-)
+ include/linux/cmdline.h | 2 +-
+ init/Kconfig            | 6 ------
+ 2 files changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a20684d56b4b..66b384228ca3 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -104,6 +104,7 @@ config X86
- 	select ARCH_USE_QUEUED_SPINLOCKS
- 	select ARCH_USE_SYM_ANNOTATIONS
- 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-+	select ARCH_WANT_CMDLINE_PREPEND_BY_DEFAULT
- 	select ARCH_WANT_DEFAULT_BPF_JIT	if X86_64
- 	select ARCH_WANTS_DYNAMIC_TASK_STRUCT
- 	select ARCH_WANT_HUGE_PMD_SHARE
-@@ -118,6 +119,7 @@ config X86
- 	select EDAC_SUPPORT
- 	select GENERIC_CLOCKEVENTS_BROADCAST	if X86_64 || (X86_32 && X86_LOCAL_APIC)
- 	select GENERIC_CLOCKEVENTS_MIN_ADJUST
-+	select GENERIC_CMDLINE
- 	select GENERIC_CMOS_UPDATE
- 	select GENERIC_CPU_AUTOPROBE
- 	select GENERIC_CPU_VULNERABILITIES
-@@ -2358,49 +2360,6 @@ choice
+diff --git a/include/linux/cmdline.h b/include/linux/cmdline.h
+index a0773dc365c7..020028e2bdf0 100644
+--- a/include/linux/cmdline.h
++++ b/include/linux/cmdline.h
+@@ -36,7 +36,7 @@ static __always_inline bool __cmdline_build(char *dst, const char *src)
  
+ 	len = cmdline_strlcat(dst, src, COMMAND_LINE_SIZE);
+ 
+-	if (IS_ENABLED(CONFIG_CMDLINE_EXTEND))
++	if (IS_ENABLED(CONFIG_CMDLINE_APPEND))
+ 		len = cmdline_strlcat(dst, " " CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+ 
+ 	if (len < COMMAND_LINE_SIZE - 1)
+diff --git a/init/Kconfig b/init/Kconfig
+index af0d84662cc2..fa002e3765ab 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -163,12 +163,6 @@ config CMDLINE_FORCE
+ 	  arguments provided by the bootloader.
  endchoice
  
--config CMDLINE_BOOL
--	bool "Built-in kernel command line"
+-config CMDLINE_EXTEND
+-	bool
+-	default CMDLINE_APPEND
 -	help
--	  Allow for specifying boot arguments to the kernel at
--	  build time.  On some systems (e.g. embedded ones), it is
--	  necessary or convenient to provide some or all of the
--	  kernel boot arguments with the kernel itself (that is,
--	  to not rely on the boot loader to provide them.)
+-	  To be removed once all architectures are converted to generic CMDLINE
 -
--	  To compile command line arguments into the kernel,
--	  set this option to 'Y', then fill in the
--	  boot arguments in CONFIG_CMDLINE.
--
--	  Systems with fully functional boot loaders (i.e. non-embedded)
--	  should leave this option set to 'N'.
--
--config CMDLINE
--	string "Built-in kernel command string"
--	depends on CMDLINE_BOOL
--	default ""
--	help
--	  Enter arguments here that should be compiled into the kernel
--	  image and used at boot time.  If the boot loader provides a
--	  command line at boot time, it is appended to this string to
--	  form the full kernel command line, when the system boots.
--
--	  However, you can use the CONFIG_CMDLINE_FORCE option to
--	  change this behavior.
--
--	  In most cases, the command line (whether built-in or provided
--	  by the boot loader) should specify the device for the root
--	  file system.
--
--config CMDLINE_FORCE
--	bool "Built-in command line overrides boot loader arguments"
--	depends on CMDLINE_BOOL && CMDLINE != ""
--	help
--	  Set this option to 'Y' to have the kernel ignore the boot loader
--	  command line, and use ONLY the built-in command line.
--
--	  This is used to work around broken boot loaders.  This should
--	  be set to 'N' under normal conditions.
--
- config MODIFY_LDT_SYSCALL
- 	bool "Enable the LDT (local descriptor table)" if EXPERT
- 	default y
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 6f2de58eeb54..3f274b02e51c 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -5,6 +5,7 @@
-  * This file contains the setup_arch() code, which handles the architecture-dependent
-  * parts of early kernel initialization.
-  */
-+#include <linux/cmdline.h>
- #include <linux/console.h>
- #include <linux/crash_dump.h>
- #include <linux/dma-map-ops.h>
-@@ -161,9 +162,6 @@ unsigned long saved_video_mode;
- #define RAMDISK_LOAD_FLAG		0x4000
- 
- static char __initdata command_line[COMMAND_LINE_SIZE];
--#ifdef CONFIG_CMDLINE_BOOL
--static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
--#endif
- 
- #if defined(CONFIG_EDD) || defined(CONFIG_EDD_MODULE)
- struct edd edd;
-@@ -883,18 +881,7 @@ void __init setup_arch(char **cmdline_p)
- 	bss_resource.start = __pa_symbol(__bss_start);
- 	bss_resource.end = __pa_symbol(__bss_stop)-1;
- 
--#ifdef CONFIG_CMDLINE_BOOL
--#ifdef CONFIG_CMDLINE_FORCE
--	strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
--#else
--	if (builtin_cmdline[0]) {
--		/* append boot loader cmdline to builtin */
--		strlcat(builtin_cmdline, " ", COMMAND_LINE_SIZE);
--		strlcat(builtin_cmdline, boot_command_line, COMMAND_LINE_SIZE);
--		strlcpy(boot_command_line, builtin_cmdline, COMMAND_LINE_SIZE);
--	}
--#endif
--#endif
-+	cmdline_build(boot_command_line, boot_command_line);
- 
- 	strlcpy(command_line, boot_command_line, COMMAND_LINE_SIZE);
- 	*cmdline_p = command_line;
+ config COMPILE_TEST
+ 	bool "Compile also drivers which will not load"
+ 	depends on HAS_IOMEM
 -- 
 2.25.0
 
