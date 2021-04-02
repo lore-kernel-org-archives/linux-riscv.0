@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A4E6C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD47BC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:14:53 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A257B61056
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:13:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A257B61056
+	by mail.kernel.org (Postfix) with ESMTPS id 40DA361056
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Apr 2021 04:14:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40DA361056
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,54 +23,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Xidzg70LAklIDghQuJbrN0ptbCYbGOlYTx1IvNaRw14=; b=fVbLzUPU2DKLDFM1AHUDMm/C4
-	ikI383UIx8+goSEvYo+/BcYSj2vV2YIs/lyp/oH30GvJTq8oFBnHkwvXefss9997xrwcogorAv4Vr
-	+TDhDSaGB+Jv/PLsVyqDhrC93JyUOzBqPHOy1Fr/DtMBstqXhEGGBd+Hw3gviIjOvjy6UoMY0XY23
-	SDvu9NA2Fpqerzjl1Jnlt6tZt6UG0K7+c8hfFb48zAtR+lH81AOTbSK16KSbnk/hi8BeJi3fLeevo
-	R+lri3QHRqMPUeCiDrsB3F+J5ppqWHNEWeI/QXpqJwLClVLJfL9LEVZy3JnPbSVqny5su3d9qRnwf
-	DJMOSRgeQ==;
+	 bh=O5TYz+2xRnJ5cnaQrj1a9TMgq5j+KPacDCrAWk3Cqbk=; b=CXl/E5KODS6fDPAssJuwu6RRy
+	t8KYCRvb3ZCFRyAlKV2plg+zS3P2uKY+VRBj4ayyRWxv35kK7mBx86+8t26RpAG4fWIkuDDWNK7XB
+	kQwQxi0uoanzKzDOXCkx7MhplZRULB3SkUOuXi8GstM2SFTcf+HY3d+XzeWT9bO1lcG2FEqoE8P1A
+	GnvtQTaJccj7KyWN0rPKsG9SgJRsEiegalggb7GuHbrpS3Ma7PMp6TJDkB8zNjRE/2TfaRq4X8sKw
+	2qPsqr0waDMSR3bZcfo+cGqypfK6ICoRKmWOc8OqMccf17K5bHYPR+H8luIEGcqEygy85le1wyT5k
+	qI4jJplmw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSBB4-00Bu5l-K4; Fri, 02 Apr 2021 04:12:58 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1lSBCh-00BuCd-Ju; Fri, 02 Apr 2021 04:14:39 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lSBAy-00Bu5F-KI
- for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 04:12:54 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id c8so3656482wrq.11
- for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 21:12:52 -0700 (PDT)
+ id 1lSBCc-00BuC9-Pq
+ for linux-riscv@lists.infradead.org; Fri, 02 Apr 2021 04:14:36 +0000
+Received: by mail-wr1-x432.google.com with SMTP id j18so3678211wra.2
+ for <linux-riscv@lists.infradead.org>; Thu, 01 Apr 2021 21:14:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1Ab9mXgnZVMv96jlr6O1hIj0YRsCl0wKzDzAenTSuZc=;
- b=xf/w8QzI+ZBwFIoabuDx3ObP6k759O1uCoWKy8RIkcmvbjl+DGebyX85YYxjgYo4sX
- PaHW64tHXrgYHQBDApeA8ph+hznPztWlLMwAuqexcuiajj5rV0IdISu7vxJlEx7koGkb
- cmxXFNAz9rVUj/h3eC9Chtfz2c3nvzDmCxjioinaxE8P7iQpnz7fL0B9DCgyeWWYflH7
- mTp7kJmwjDBAqoitDCZoxKxQrbvyuWrDiprfRCtkRx9Sga5ojkbpKWXVVgbwg5Nudq3D
- 5TARSmVvgAdFsa5vtlxP2J5AzOqXeuDc0OKVeaVKw/l+P/4hKIyB4i5N8arf5pBVZPya
- XjBA==
+ :cc; bh=aTF4DSgy0PHbD8hdS+0qJlLOgVDSXpSKNN+yUg9A0Hs=;
+ b=IOwAv1pJyRJV4gn9mjCUoyrx9uKAxA+FBfNG9Mf4HIXV+pvQHAitUv7k5D3+aOt41l
+ GgTI/wiTUT5w5zeKpjSfD/MrilhGKYx/6q2TpM7IabcdfcmJOlAjTqWunt61zo7wi708
+ CGGDUhtD+1zL/KGi9MTQdV0YcKnKiDUn+wcriEoGsN9rH9BZ++dDSV4jof7EyvkIkNXI
+ NNcdilvjzbV3PJxlQf0UEA3QYia9hqMrQl8WTpV0itVsIDOcez06rZ9/cRYZ9Rk3UFNu
+ hg9I/2eIGjJ47UU7VT2oRMh14v1ZJQaKH9Zi8YWoZZCH+xi5ybGoghfYn4cHqMlRz8z1
+ 1dmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1Ab9mXgnZVMv96jlr6O1hIj0YRsCl0wKzDzAenTSuZc=;
- b=ExHBg0lFHBdFVSwx0aJWHVCFtKliyAqsQWy6McRGWpYjQKuB2cE6Q3uV2vgYNvY+GV
- qNwvk/mQh9zlm+KwoalOIsTS+fBW0ylpiScxXT0RD/C05S8kHbhcvm/tZ+Z5EkLVFms3
- dL4J9qrjo3RodYiBndyelWMwEhHrOLXNushV4AHyPQT/GwrTs41kvLLaqPhLRUM+k/IH
- FSx5e8VheNMYBSCddmGnIn3IcJ7FhU8iEDb/cV3JiZPtcjhx3REv10kSk0SoeZ46tfqI
- gyI9XCmEQ1FY3jfHJ7ca3jaqVzJMp8R8EWzJXAFEy/MttxgSEOHKxyYn1lyydprfBlyI
- Af+Q==
-X-Gm-Message-State: AOAM532k/kxknlO73jBNrDvncB7WgUz+uMahPTIwllVV7VsNZLE+0sZp
- tmH12eDFeTZgOn96JYPCqQyiIa8TiVoYV+ecOiajLw==
-X-Google-Smtp-Source: ABdhPJzce57ZbjTnYu4jCQZ2VOeAbeFZGI80++FdsSrgqHui+/61LSGd1A4m/MCwzZEPoTJBilxreUdun/rWvR5X5xo=
-X-Received: by 2002:adf:9544:: with SMTP id 62mr12956426wrs.128.1617336771963; 
- Thu, 01 Apr 2021 21:12:51 -0700 (PDT)
+ bh=aTF4DSgy0PHbD8hdS+0qJlLOgVDSXpSKNN+yUg9A0Hs=;
+ b=nx49MKoYC75Se4xsEzbSFMZ6bcZ+vplHo0mScW/SltgQDEqKVznDqutO6XFfxppp7a
+ pJdoBkqlGVStnnHp2hUD/qca0Cp7hREWIvO5DqnODrnT97+bWnTRxGxOUut/1IXZT0w1
+ PeTB9PECq0qs+CoypJ0n1jtioGM4zkTlQtKryrYxxL2GHJVjcrkAacbvA/ODYSwRBIzJ
+ EX3KY6oqdGtgVOM7wjy8WEv0IOQKy373GIGNpmvrkWlg3xc8yORgqBfNPjv/zmHArRV6
+ R0LqRUNRsdDWcERnv7ct7HszTJfW3d0TJnHpUUVuxCJ1nczJ1zBSzrzMdJFOLIcDOGtS
+ Gytw==
+X-Gm-Message-State: AOAM530R9G0PoYfJ/bljTuKgASQv4Zth5PaKHHhfqhco/strDXT1y4ti
+ 5EIDF/Lk2eGpWG08jNrlFK/fT28J2EWh5+N1IxHu3w==
+X-Google-Smtp-Source: ABdhPJy7kkYMQxTXJp2WyoNHqq3yHqeByHqHc7dSE27OX8CeJmSRxaQ0rEoYl8xvHJs4qnnACcmvyAiguHo7lXT6Tuw=
+X-Received: by 2002:a05:6000:c7:: with SMTP id
+ q7mr13176764wrx.356.1617336873672; 
+ Thu, 01 Apr 2021 21:14:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210401002442.2fe56b88@xhacker> <20210401002651.1da9087e@xhacker>
-In-Reply-To: <20210401002651.1da9087e@xhacker>
+References: <20210401002442.2fe56b88@xhacker> <20210401002949.2d501560@xhacker>
+In-Reply-To: <20210401002949.2d501560@xhacker>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 2 Apr 2021 09:42:41 +0530
-Message-ID: <CAAhSdy18AwkvNj5bgq6nLV29UNBQcs2MTDCwf_9GL5dC+4=8og@mail.gmail.com>
-Subject: Re: [PATCH v2 4/9] riscv: Constify sbi_ipi_ops
+Date: Fri, 2 Apr 2021 09:44:22 +0530
+Message-ID: <CAAhSdy0p4g1o2xLbHXzMer7P=DgLjYfbiO4nYTU1gqPbLgLUKg@mail.gmail.com>
+Subject: Re: [PATCH v2 9/9] riscv: Set ARCH_HAS_STRICT_MODULE_RWX if MMU
 To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -88,8 +89,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210402_051252_757065_589E0BFF 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20210402_051434_961782_57192C7C 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,14 +107,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 31, 2021 at 10:02 PM Jisheng Zhang
+On Wed, Mar 31, 2021 at 10:05 PM Jisheng Zhang
 <jszhang3@mail.ustc.edu.cn> wrote:
 >
 > From: Jisheng Zhang <jszhang@kernel.org>
 >
-> Constify the sbi_ipi_ops so that it will be placed in the .rodata
-> section. This will cause attempts to modify it to fail when strict
-> page permissions are in place.
+> Now we can set ARCH_HAS_STRICT_MODULE_RWX for MMU riscv platforms, this
+> is good from security perspective.
 >
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
@@ -125,62 +125,21 @@ Regards,
 Anup
 
 > ---
->  arch/riscv/include/asm/smp.h | 4 ++--
->  arch/riscv/kernel/sbi.c      | 2 +-
->  arch/riscv/kernel/smp.c      | 4 ++--
->  3 files changed, 5 insertions(+), 5 deletions(-)
+>  arch/riscv/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-> index df1f7c4cd433..a7d2811f3536 100644
-> --- a/arch/riscv/include/asm/smp.h
-> +++ b/arch/riscv/include/asm/smp.h
-> @@ -46,7 +46,7 @@ int riscv_hartid_to_cpuid(int hartid);
->  void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
->
->  /* Set custom IPI operations */
-> -void riscv_set_ipi_ops(struct riscv_ipi_ops *ops);
-> +void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
->
->  /* Clear IPI for current CPU */
->  void riscv_clear_ipi(void);
-> @@ -92,7 +92,7 @@ static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
->         cpumask_set_cpu(boot_cpu_hartid, out);
->  }
->
-> -static inline void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
-> +static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
->  {
->  }
->
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index cbd94a72eaa7..cb848e80865e 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -556,7 +556,7 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
->         sbi_send_ipi(cpumask_bits(&hartid_mask));
->  }
->
-> -static struct riscv_ipi_ops sbi_ipi_ops = {
-> +static const struct riscv_ipi_ops sbi_ipi_ops = {
->         .ipi_inject = sbi_send_cpumask_ipi
->  };
->
-> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-> index 504284d49135..e035124f06dc 100644
-> --- a/arch/riscv/kernel/smp.c
-> +++ b/arch/riscv/kernel/smp.c
-> @@ -85,9 +85,9 @@ static void ipi_stop(void)
->                 wait_for_interrupt();
->  }
->
-> -static struct riscv_ipi_ops *ipi_ops __ro_after_init;
-> +static const struct riscv_ipi_ops *ipi_ops __ro_after_init;
->
-> -void riscv_set_ipi_ops(struct riscv_ipi_ops *ops)
-> +void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
->  {
->         ipi_ops = ops;
->  }
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 87d7b52f278f..9716be3674a2 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -28,6 +28,7 @@ config RISCV
+>         select ARCH_HAS_SET_DIRECT_MAP
+>         select ARCH_HAS_SET_MEMORY
+>         select ARCH_HAS_STRICT_KERNEL_RWX if MMU
+> +       select ARCH_HAS_STRICT_MODULE_RWX if MMU
+>         select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>         select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+>         select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
 > --
 > 2.31.0
 >
