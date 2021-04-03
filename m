@@ -2,65 +2,82 @@ Return-Path: <SRS0=xqXW=JA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF5D0C433B4
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Apr 2021 18:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 04685C433ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Apr 2021 18:40:00 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6FCBE60551
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Apr 2021 18:31:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FCBE60551
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 9E2E66128E
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Apr 2021 18:39:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E2E66128E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:In-Reply-To:
-	Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=E92o70UXL2ssGrejYGIcAtszLw2Me8BLOR7WTqLaSls=; b=c0lNmMQfLciZA5zIFcdp0nwed
-	BDT+Gk6aBMSNrnX42MKudXXwAO4a9ZoJTTsnaq9E+WF9V/MvfaCYUdFsV3ivLPRDjxmyXE7V1MtUb
-	tSgX5EZ152SJFx6Zsq86473oxldJPXoFCggSO31VcTUIHVRRTNGsN2aV0+LcCZt1HtV+bFzQPfQnx
-	yQsE9akkxgDgqftwRwlegTx7jmE3qMJcef35cgKvL5HXFfK8Lr3DRRo1969GPj68mZO0fyieNVUdw
-	mdpDVwrIaCjC3MC+8U3hF5qiymKCIeI9KpP+rJ0CjfFTI8D1xH+nBQZtBmKpDytLLoGXb62XG3po5
-	8Gqqs1iqQ==;
+	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1tWevg9CZXiMyF/jlC5CXjnCaXe4eJ74XkT2JYWtq8Y=; b=qwJqueH4ccbUOs5qrOpX9cqNCu
+	zqJFtMT6Wa+lITfqDvO7YOiMXbUXzK5fq75DCWja85tCJxfPsZ+j3bTW3VLFTymtRKq77Ss3xl6FZ
+	p/d3BNe9xgNTBjcsmtc+XpsrJI6NaXxQfr2OqJoAYT+CvLeZnsjDB/pJYhbuwxh/bOBZAMfVxuuev
+	tZVMcDtgkrxudRbtmtIo1RHQoSqW7aqHGTlkNXQRscxio2sznUI+Ifb4OUyTuKGCgukW9ON0tPYN2
+	nnyduAFnDmEhZX35KJE44QKDo7G/eZFA8ZFEQXpEbPDPMq2FSKDk9UN6YlPTUN3xChrwLw9jClIPz
+	xi/ECkWw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lSl31-00EwBn-6Q; Sat, 03 Apr 2021 18:31:03 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::4])
- by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lSl2w-00EwAu-1H
- for linux-riscv@lists.infradead.org; Sat, 03 Apr 2021 18:30:59 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
- id D1DEC92009C; Sat,  3 Apr 2021 20:30:53 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by angie.orcam.me.uk (Postfix) with ESMTP id C2E5592009B;
- Sat,  3 Apr 2021 20:30:53 +0200 (CEST)
-Date: Sat, 3 Apr 2021 20:30:53 +0200 (CEST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Masami Hiramatsu <mhiramat@kernel.org>
-cc: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Guo Ren <guoren@linux.alibaba.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: keep interrupts disabled for BREAKPOINT exception
-In-Reply-To: <20210401093036.037f2abbce7ed5d1e68466b7@kernel.org>
-Message-ID: <alpine.DEB.2.21.2104032020100.65251@angie.orcam.me.uk>
-References: <20210330021624.2b776386@xhacker>
- <20210330183316.942215efe8e6e8455ad14113@kernel.org>
- <20210331222244.45a5807c@xhacker>
- <20210401093036.037f2abbce7ed5d1e68466b7@kernel.org>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
-MIME-Version: 1.0
+	id 1lSlBP-00Ewg9-PU; Sat, 03 Apr 2021 18:39:43 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+ by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lSlBM-00EwfR-7C
+ for linux-riscv@lists.infradead.org; Sat, 03 Apr 2021 18:39:42 +0000
+Received: by mail-pf1-x431.google.com with SMTP id l123so4087748pfl.8
+ for <linux-riscv@lists.infradead.org>; Sat, 03 Apr 2021 11:39:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=zD8wauqUMw0TlD45wfByZ3K32WygFAL1fLRSXJC1e/Q=;
+ b=DWtISbdUdqv4RGLKQXay9ogRu8c8kArSRreQHu3wGJN29oVK7gGAh6ZsRaBjBAlrRD
+ hRxuu7SJh1RXBk5l1+KYE1SJM5PMb1p2sJY887Muf0U3Sc15NLKYxCdngd/nD31X6ssG
+ UM4qbRNFBRy4JUbHVrQUGTaTBYGcdzGalcw7JYt0nGm4FeCD0YFYfK2itFljE38TT2p8
+ w8RQD7YTbsJtMwIQwl00Kwn9j+449bx0U0wK6j0oy3YWvkrzSLbPz3NF9rxNt6txc5ew
+ IB9S+CJ5nfRJt/5uhbrfePQ3zHdxJ/JVSilQlbLJTCbGmEYOVm02+wf8YcBYYQewmrYd
+ 9Omw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=zD8wauqUMw0TlD45wfByZ3K32WygFAL1fLRSXJC1e/Q=;
+ b=eVrx/YFQ9eGqByqRPih9wuVPlJ/yKO55Yqh7h5j/xQlhDljhAgzTdKsPiyzGCOmbm2
+ gMf373whwNwM3IAZlLJtAHKjMvtrulkvGP7PNksUomYg2EuH9M7EZOJjy/lzmZpBZvVh
+ C8wdVpMAFoyD36va7W88WDsw4RGQn+cTYmIUB96+1FYyg1Je3VxfaSyi4dmxZu4KygoW
+ rWgkj8CtrAmNJ7ZCxqRkM/13pCSTNHLuZ5/H9ihJHoRSw1uW1etAfH/I4Nm1n7r+CQI7
+ dec7MEZvPswboA4aY4p3plb4l/QjqxwjnQZIEjxKYn4/CUyoRE5jwWnpwscuKSlnneLz
+ bA5A==
+X-Gm-Message-State: AOAM533FdXmQrvKapRNow9Xl1tO3+UIksuRMUPtENzM1tt6fvTZF0kf0
+ xV4AyHoBBqB0et1jUD2YrxF33tW7+9izSg==
+X-Google-Smtp-Source: ABdhPJzBgIekprwFPtdRSoK+vU59Ehl7CiAQGJdsf3oqCIHFklsg0IAQJYMY70GDCXtJ3hwAlsq6lg==
+X-Received: by 2002:a63:181c:: with SMTP id y28mr17174906pgl.175.1617475177611; 
+ Sat, 03 Apr 2021 11:39:37 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id v134sm11473034pfc.182.2021.04.03.11.39.36
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 03 Apr 2021 11:39:36 -0700 (PDT)
+Date: Sat, 03 Apr 2021 11:39:36 -0700 (PDT)
+X-Google-Original-Date: Sat, 03 Apr 2021 11:39:28 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.12-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-7c342428-c3ce-4ed5-b311-cd79458c2f32@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210403_193058_249038_7CB1DACB 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20210403_193940_422378_9DB140A8 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +89,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 1 Apr 2021, Masami Hiramatsu wrote:
+The following changes since commit a5e13c6df0e41702d2b2c77c8ad41677ebb065b3:
 
-> > > > Current riscv's kprobe handlers are run with both preemption and
-> > > > interrupt enabled, this violates kprobe requirements. Fix this issue
-> > > > by keeping interrupts disabled for BREAKPOINT exception.  
-> > > 
-> > > Not only while the breakpoint exception but also until the end of
-> > > the single step (maybe you are using __BUG_INSN_32 ??) need to be
-> > > disable interrupts. Can this do that?
-> > > 
-> > 
-> > interrupt is disabled during "single step" by kprobes_save_local_irqflag()
-> > and kprobes_restore_local_irqflag(). The code flow looks like: 
-> > 
-> > do_trap_break()   // for bp
-> >   kprobe_breakpoint_handler()
-> >     setup_singlestep()
-> >       kprobes_restore_local_irqflag()
-> > 
-> > do_trap_break()  // for ss
-> >   kprobe_single_step_handler()
-> >     kprobes_restore_local_irqflag()
-> 
-> OK, thanks for the confirmation!
+  Linux 5.12-rc5 (2021-03-28 15:48:16 -0700)
 
- Is this approach guaranteed to keep interrupt handling latency low enough 
-for the system not to be negatively affected, e.g. for the purpose of NTP 
-timekeeping?
+are available in the Git repository at:
 
-  Maciej
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.12-rc6
+
+for you to fetch changes up to 1adbc2941eee8acbe3c7dc6b51cdbc5a9bf19565:
+
+  riscv: Make NUMA depend on MMU (2021-04-01 21:37:08 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.12-rc6
+
+I have a handful of fixes for 5.12:
+
+* A fix for a stack tracing regression related to "const register asm"
+  variables, which have unexpected behavior.
+* A fix to put_user() that ensures the value to be written is evaluated
+  before enabling access to userspace memory..
+* A fix to align the exception vector table correctly, so we don't rely
+  on the firmware's handling of unaligned accesses.
+* A build fix to make NUMA depend on MMU, which triggers some
+  randconfigs.
+
+----------------------------------------------------------------
+Ben Dooks (1):
+      riscv: evaluate put_user() arg before enabling user access
+
+Kefeng Wang (2):
+      riscv: Drop const annotation for sp
+      riscv: Make NUMA depend on MMU
+
+Yang Li (1):
+      riscv: remove unneeded semicolon
+
+Zihao Yu (1):
+      riscv,entry: fix misaligned base for excp_vect_table
+
+ arch/riscv/Kconfig               | 2 +-
+ arch/riscv/include/asm/uaccess.h | 7 +++++--
+ arch/riscv/kernel/entry.S        | 1 +
+ arch/riscv/kernel/stacktrace.c   | 2 +-
+ arch/riscv/mm/kasan_init.c       | 2 +-
+ 5 files changed, 9 insertions(+), 5 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
