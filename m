@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 116E8C433B4
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AE668C433ED
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:30 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8AAE4613A0
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:11:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8AAE4613A0
+	by mail.kernel.org (Postfix) with ESMTPS id 5A03D6139E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A03D6139E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zZHcQtpmhQodpomOXj/OQODe+zchcwH5GlXtvy0JVKw=; b=BZKXmZwReloyirMfpSJmfXsOR
-	ZTOunvA12HxAYlYGXu7Zs+15z7B1T2GYenF8mh/wszXkOiiydLNonDUMiB6g6R4AY4E3MHTDiIgF/
-	CFkgunGwO1CKgqV0VCnq0ryZt5bGoRW3fWyVrq0VeXKSBeLK9lZsqbJLJ1TB/B63EM36+N/gEfjsJ
-	2uGmJUVEwDOpeyPQJkOArlf5mRvghC2vEkLnMZlvm8jogoj1gqNBkdL9NNsramLJMwUegLM2UCTOh
-	F+pkMvv47sCcHKD4OVhLaR+qC2GvfD00cSM2znYJk6LJn9sjQMeEBLC4h9QfE1lReMlyigAaxxIli
-	8AIbuqZDQ==;
+	 bh=zZHcQtpmhQodpomOXj/OQODe+zchcwH5GlXtvy0JVKw=; b=eLqTyzdjjHoTIvozryWA4ND0Y
+	ntkJ+lgcEIjaFtg671O8d1kYd62tk5XvGKC3O42/oXE1ty/GOYyUl5DEwa/Z/SLXEWD1zdWSe51f2
+	iK7Dr52GcYr7qX9mZuqCoTtUQVEUFdLKpY2wMIoQEdipIQ0GgjHM6VlB8w4su9XnY6RnoU/62Egmm
+	GOfmZ8Bg1Rpx8mUczjJDIVS8iDCo7YNNaWrR68HUOaSVWAmjEDievAjjSwQVRqf3G+fBRsOBxV//s
+	b54326bzIfweHa0bUGGkKPiXY2vqpxKGfjIs7z1Ljo4SDQCipbjy/kDT78HCRvwboCnaLkI0BykM5
+	wz8Goj9yQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTRp1-0001PI-JE; Mon, 05 Apr 2021 16:11:27 +0000
+	id 1lTRpv-0001k6-AN; Mon, 05 Apr 2021 16:12:23 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTRiI-00HaMl-WC
- for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:05:27 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1D867613CB;
- Mon,  5 Apr 2021 16:04:28 +0000 (UTC)
+ id 1lTRiw-00HaY4-Hd
+ for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:06:00 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 58617613D6;
+ Mon,  5 Apr 2021 16:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617638668;
+ s=k20201202; t=1617638696;
  bh=FmeEp9DlJn1O6l/gDwyedOEMenAYz7+FkaYusJwSGo0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=KPERcj/ZTr60rXzkvluvhEXJVzd8pYT7+OxCeUS4DoD0FqWN9Q7vFqwhpODdECW+p
- vxjZhp8bQj1nuMw+k+fEXeR9lFJ81rKW83ajbYhP+Nw+K0JrFdTEw0hRvcHuN+N2Ov
- MPPmo7iIrGLOAGnqxy3eHHHcdNfYnT0ezN981mhbHwxpgo7qdWul8OLGR5y7WwbyIx
- Ahh2b/f4w0OfyXF2o7nJwGbvWwCJZrXXPZ/H8g69k0r31mhdDMFo6iZne06jjIJOA9
- SeqWb7SL/rpINaRRHPbjbJ7Mgk7ZMfhNbaENmay3WX46UT8rN1cO3gnZzO5ihChRPc
- BxUVlG+x1y4Qg==
+ b=V5CdTTNIpFfqps8P+WpSLfhLKnNYe2VKw7drK0QTSc42GC6MXEDl7Fo7QYV1vsnpu
+ QdA7BrOboeS5+K1RAB12lhpw0ZFpbGqq/6cdyyOL2+NdSx9UI+XZ95KW99d03ItbMx
+ VThIB7nrTrJPGOX7jiNMCR6zPH+8TsIQtSl8QVjctxk+LgcqBxh9/bNNICZ7drnYMp
+ 8uLSH3ELkSR15L5wGr3i5ZjlTH8TnIbmrmUJVzJkS1zz9enDdUlVboEexb2123xOsD
+ ar3w00hmS/sCV19/GYydDHOhhG5p0zYFzPVhr68k+GWJlH4Ijc5yGgjS4Zed6g3Zwb
+ FAmF4Usy0i3BA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,18 +55,18 @@ Cc: Ben Dooks <ben.dooks@codethink.co.uk>,
  syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com,
  Arnd Bergman <arnd@arndb.de>, Palmer Dabbelt <palmerdabbelt@google.com>,
  Sasha Levin <sashal@kernel.org>, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.11 20/22] riscv: evaluate put_user() arg before
+Subject: [PATCH AUTOSEL 5.10 20/22] riscv: evaluate put_user() arg before
  enabling user access
-Date: Mon,  5 Apr 2021 12:04:03 -0400
-Message-Id: <20210405160406.268132-20-sashal@kernel.org>
+Date: Mon,  5 Apr 2021 12:04:29 -0400
+Message-Id: <20210405160432.268374-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210405160406.268132-1-sashal@kernel.org>
-References: <20210405160406.268132-1-sashal@kernel.org>
+In-Reply-To: <20210405160432.268374-1-sashal@kernel.org>
+References: <20210405160432.268374-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210405_170432_237136_673C598F 
+X-CRM114-CacheID: sfid-20210405_170511_257516_D4554E53 
 X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
