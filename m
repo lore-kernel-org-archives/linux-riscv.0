@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE668C433ED
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3205DC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:38 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A03D6139E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A03D6139E
+	by mail.kernel.org (Postfix) with ESMTPS id CD9B96139E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:12:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CD9B96139E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,42 +23,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zZHcQtpmhQodpomOXj/OQODe+zchcwH5GlXtvy0JVKw=; b=eLqTyzdjjHoTIvozryWA4ND0Y
-	ntkJ+lgcEIjaFtg671O8d1kYd62tk5XvGKC3O42/oXE1ty/GOYyUl5DEwa/Z/SLXEWD1zdWSe51f2
-	iK7Dr52GcYr7qX9mZuqCoTtUQVEUFdLKpY2wMIoQEdipIQ0GgjHM6VlB8w4su9XnY6RnoU/62Egmm
-	GOfmZ8Bg1Rpx8mUczjJDIVS8iDCo7YNNaWrR68HUOaSVWAmjEDievAjjSwQVRqf3G+fBRsOBxV//s
-	b54326bzIfweHa0bUGGkKPiXY2vqpxKGfjIs7z1Ljo4SDQCipbjy/kDT78HCRvwboCnaLkI0BykM5
-	wz8Goj9yQ==;
+	 bh=QySWD4M0kLRoac4rR91iqL8gIROFONzf/F5b0I7A1Vs=; b=SylGkem9nUvro2lpNWqglIbzL
+	WGArs0Aam9x81+5KufTygN9dk6FJDtWpqJ7i1L6I0ANXUDeVDASFjirGR/myvsAea/uPVL3QMHt4i
+	shtE30AqTS7vCCkRvpzKDjhVMgss4OnRb/JZadkPYWYUcly0V4+RTK3K19wKz2wza+bpZUh3CWfpE
+	Z1FZJEUu4z68YZKSSAXpjBFoj3BanDuLtR1Qe7SwFJJIfddq6UOB2Vu2MWyGHd4kK7Xs8g4udGPph
+	WJJQYNeOOl0h2qHI30FTBvfUJdGnm2RwYgOptkCJyqiTVYnFLWgxel8H1Q5mGjqQYYA6f/lN9Hbk1
+	IhuJZ3a8g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTRpv-0001k6-AN; Mon, 05 Apr 2021 16:12:23 +0000
+	id 1lTRq3-0001nv-DI; Mon, 05 Apr 2021 16:12:31 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTRiw-00HaY4-Hd
- for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:06:00 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 58617613D6;
- Mon,  5 Apr 2021 16:04:55 +0000 (UTC)
+ id 1lTRj4-00Hab5-0p
+ for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:06:03 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 91B90613CF;
+ Mon,  5 Apr 2021 16:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617638696;
- bh=FmeEp9DlJn1O6l/gDwyedOEMenAYz7+FkaYusJwSGo0=;
+ s=k20201202; t=1617638697;
+ bh=QTHRy0qn11avl2j/plu94sJH14RZCJpjJZGTvzB4E+8=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=V5CdTTNIpFfqps8P+WpSLfhLKnNYe2VKw7drK0QTSc42GC6MXEDl7Fo7QYV1vsnpu
- QdA7BrOboeS5+K1RAB12lhpw0ZFpbGqq/6cdyyOL2+NdSx9UI+XZ95KW99d03ItbMx
- VThIB7nrTrJPGOX7jiNMCR6zPH+8TsIQtSl8QVjctxk+LgcqBxh9/bNNICZ7drnYMp
- 8uLSH3ELkSR15L5wGr3i5ZjlTH8TnIbmrmUJVzJkS1zz9enDdUlVboEexb2123xOsD
- ar3w00hmS/sCV19/GYydDHOhhG5p0zYFzPVhr68k+GWJlH4Ijc5yGgjS4Zed6g3Zwb
- FAmF4Usy0i3BA==
+ b=iUxS5UWn4yuzexH6xZz1oj/OYMUWqdMQ/TYx8KLMEBCQl1OiqBAhxWGcoH1BGclnW
+ K2AziRLWl8b0DoCkUF+J97w+o0HNiCV8dCQN4+kodKiU4xkFsjF/4QDN3JC7HiAAeI
+ bRBqhal8Qohyw2Dyhjg4MEvCwaDJKT8Suwh92nfT61MLdXxtnBiZ0rKj1Ok5KoqsVB
+ YHGzqWeLXieZn6CuOSYvj4c+I331FIQje7Q7YOvFoXkPqGnVoM2ospI8jxfK432VOc
+ O8MtaoMmGBFBp7Czwg768rMd2DCgjI2wfAbtCgL77R8pTlC6JtfrggGmHiqM8ZXsRo
+ ZXE35wliuZ1Ew==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>,
- syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com,
- Arnd Bergman <arnd@arndb.de>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Sasha Levin <sashal@kernel.org>, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 20/22] riscv: evaluate put_user() arg before
- enabling user access
-Date: Mon,  5 Apr 2021 12:04:29 -0400
-Message-Id: <20210405160432.268374-20-sashal@kernel.org>
+Cc: Zihao Yu <yuzihao@ict.ac.cn>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.10 21/22] riscv,
+ entry: fix misaligned base for excp_vect_table
+Date: Mon,  5 Apr 2021 12:04:30 -0400
+Message-Id: <20210405160432.268374-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210405160432.268374-1-sashal@kernel.org>
 References: <20210405160432.268374-1-sashal@kernel.org>
@@ -66,8 +65,9 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210405_170511_257516_D4554E53 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20210405_170519_145349_737C62BF 
+X-CRM114-Status: UNSURE (   6.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +84,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Dooks <ben.dooks@codethink.co.uk>
+From: Zihao Yu <yuzihao@ict.ac.cn>
 
-[ Upstream commit 285a76bb2cf51b0c74c634f2aaccdb93e1f2a359 ]
+[ Upstream commit ac8d0b901f0033b783156ab2dc1a0e73ec42409b ]
 
-The <asm/uaccess.h> header has a problem with put_user(a, ptr) if
-the 'a' is not a simple variable, such as a function. This can lead
-to the compiler producing code as so:
+In RV64, the size of each entry in excp_vect_table is 8 bytes. If the
+base of the table is not 8-byte aligned, loading an entry in the table
+will raise a misaligned exception. Although such exception will be
+handled by opensbi/bbl, this still causes performance degradation.
 
-1:	enable_user_access()
-2:	evaluate 'a' into register 'r'
-3:	put 'r' to 'ptr'
-4:	disable_user_acess()
-
-The issue is that 'a' is now being evaluated with the user memory
-protections disabled. So we try and force the evaulation by assigning
-'x' to __val at the start, and hoping the compiler barriers in
- enable_user_access() do the job of ordering step 2 before step 1.
-
-This has shown up in a bug where 'a' sleeps and thus schedules out
-and loses the SR_SUM flag. This isn't sufficient to fully fix, but
-should reduce the window of opportunity. The first instance of this
-we found is in scheudle_tail() where the code does:
-
-$ less -N kernel/sched/core.c
-
-4263  if (current->set_child_tid)
-4264         put_user(task_pid_vnr(current), current->set_child_tid);
-
-Here, the task_pid_vnr(current) is called within the block that has
-enabled the user memory access. This can be made worse with KASAN
-which makes task_pid_vnr() a rather large call with plenty of
-opportunity to sleep.
-
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Suggested-by: Arnd Bergman <arnd@arndb.de>
-
---
-Changes since v1:
-- fixed formatting and updated the patch description with more info
-
-Changes since v2:
-- fixed commenting on __put_user() (schwab@linux-m68k.org)
-
-Change since v3:
-- fixed RFC in patch title. Should be ready to merge.
-
+Signed-off-by: Zihao Yu <yuzihao@ict.ac.cn>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/include/asm/uaccess.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/entry.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 824b2c9da75b..f944062c9d99 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -306,7 +306,9 @@ do {								\
-  * data types like structures or arrays.
-  *
-  * @ptr must have pointer-to-simple-variable type, and @x must be assignable
-- * to the result of dereferencing @ptr.
-+ * to the result of dereferencing @ptr. The value of @x is copied to avoid
-+ * re-ordering where @x is evaluated inside the block that enables user-space
-+ * access (thus bypassing user space protection if @x is a function).
-  *
-  * Caller must check the pointer with access_ok() before calling this
-  * function.
-@@ -316,12 +318,13 @@ do {								\
- #define __put_user(x, ptr)					\
- ({								\
- 	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
-+	__typeof__(*__gu_ptr) __val = (x);			\
- 	long __pu_err = 0;					\
- 								\
- 	__chk_user_ptr(__gu_ptr);				\
- 								\
- 	__enable_user_access();					\
--	__put_user_nocheck(x, __gu_ptr, __pu_err);		\
-+	__put_user_nocheck(__val, __gu_ptr, __pu_err);		\
- 	__disable_user_access();				\
- 								\
- 	__pu_err;						\
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 744f3209c48d..76274a4a1d8e 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -447,6 +447,7 @@ ENDPROC(__switch_to)
+ #endif
+ 
+ 	.section ".rodata"
++	.align LGREG
+ 	/* Exception vector table */
+ ENTRY(excp_vect_table)
+ 	RISCV_PTR do_trap_insn_misaligned
 -- 
 2.30.2
 
