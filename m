@@ -2,86 +2,86 @@ Return-Path: <SRS0=oaCf=JC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A61FFC433ED
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48ADAC43461
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:40:52 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D6AE6139E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:24:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D6AE6139E
+	by mail.kernel.org (Postfix) with ESMTPS id E8AC7613A0
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 16:40:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E8AC7613A0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QySWD4M0kLRoac4rR91iqL8gIROFONzf/F5b0I7A1Vs=; b=Pimp61K77zQ/PARynxWl47y/b
-	5ylXMSGV3G3Fl3T2AZfZUdLIL5A1NsyuV9VQ5BCtjTILLxc1JutyWATi6AVnGD3LEW3CuiqkA+WBa
-	WGtGbM8/Npz+RLYNxpWWOt3vCHzjOo0gp7G8JDZ3DGUYvzR9BAxi3MGup2R72FhsCzc2cbgAjDrXZ
-	dxX15AqIOPyiqSkoeJr4cd7A8H1xDvIlxRHrRXovgMClGIEfMmIg/uFNlkuRKFNq835O9teqhLFCU
-	/TLMZSsNQDV92M+S91Ah19K6fPCaFk/vzqOJA51OF3+rehlYPlzROM1IQGBUUySg9Pt0Z6rCrrCsx
-	mpJW6ZGSg==;
+	 bh=pQWxjO+TsrAj8ZXLnNZWj6FY0plDIseRvPOdnDC6SGk=; b=qCkR43F9KC3jknkdStfsCggcg
+	5kTwxHrEpomflZmbAv+bZsIMbI5jka9NDYNrCPRbtV2ORR6u34v9u3gu8trZM/1pXp8BOM4Yd3I9i
+	obT/dMINvfEpQLpTiMxW4jMA2ogwa52NQ9dDaPwRcqBukZkfo9JfQcwirIQjO1AgcFlOcSX7mdPdC
+	HEP4ifoGoFfEfQcns+UvRFh18aKv/+l64uDuxWBrYCCS3EPMR+A3wuVKfaWbcTm5oJ+AJ8PD5HCHE
+	Qrk3EURBpC0A0xqwMRA8we9mk0jVeGlNsSLmlmsAr9yeQOuAzFVjcnsmI7y5HInQPbAQQZHt+GhoU
+	et/qdKxLQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTS1F-0005ZJ-K2; Mon, 05 Apr 2021 16:24:05 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
- by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTS16-0005VR-VO
- for linux-riscv@desiato.infradead.org; Mon, 05 Apr 2021 16:23:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
- References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description;
- bh=EU/1mNg4pbDa+j4Z8j0mb/Q1QQUngpV8rykUjuqwIMM=; b=SU4x/1atMvGjvjZ6xhEF/dBKV6
- vPXzQLG8H5oTe94G4QobI1FQe7pgYB+Xnatnbl59fHtirkzxW8mqTNFIFmTfpgPEwAvRqbG/YKevX
- mbqD/kwNp+/ASVHqoTbvgJpiv2PXCuA5EbFkNwiuQ6ujM6Xd2L6C5rH8vj+wnDjKygis9//EudKA5
- tZ/ZYWhVpggPhG/d1mPugAPGKvyWqdjNSFE8psGofkuz5h4pcRaIR2CaPu6dgPKp54QaCXJTd5n8W
- 3rUa5iNRFO73Zf4fCkUNGI96Tt2WGbc+AG1vCC1PTE6l4RYJ0Dtstuki6ZDjaCqqmec2pA8llFm74
- xGTm+MuQ==;
+	id 1lTSHN-00084N-D2; Mon, 05 Apr 2021 16:40:45 +0000
 Received: from mail.kernel.org ([198.145.29.99])
- by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTRiO-00BZlP-Ap
- for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:05:33 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 603EB613CD;
- Mon,  5 Apr 2021 16:04:29 +0000 (UTC)
+ by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lTSHJ-00083g-2f
+ for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 16:40:43 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 372B6613AF
+ for <linux-riscv@lists.infradead.org>; Mon,  5 Apr 2021 16:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1617638670;
- bh=QTHRy0qn11avl2j/plu94sJH14RZCJpjJZGTvzB4E+8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=fFXSpUgut1XaJfC371dIaXArrWjxCzVmeDQHi77xBuxL6vak7wugpbg9xlNOyDlo+
- YNyiG8JtCldqTtndZqMStfjXbx3vjaw73LyXmIH2S400MkupwSiI0Xz9u4wFqQtonq
- 7WrVphEeMuOrNl06MFuOJ1UCk3CtE8pKbjPeFRFznfyM16ugjLGLpYfPHuKxMMTW1O
- W6gpIF32XifQzEZSc3NtrmD96cEsNEUv5PhGAf8F+9YAoMxkyw6JVAITUmb8BlONZZ
- 5XVMjRWvGiYZOpC/tTDzjs+Yx8V733/iEy+KraiPy7+h4/wCqhK6cDjB/iQTBRPQfB
- B7yEp1b/LMOSQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Zihao Yu <yuzihao@ict.ac.cn>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
- linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.11 21/22] riscv,
- entry: fix misaligned base for excp_vect_table
-Date: Mon,  5 Apr 2021 12:04:04 -0400
-Message-Id: <20210405160406.268132-21-sashal@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210405160406.268132-1-sashal@kernel.org>
-References: <20210405160406.268132-1-sashal@kernel.org>
+ s=k20201202; t=1617640839;
+ bh=uwAcNXEy+ghDiCSwGPGlI0CYFJF4SwLzYINuCy4SDVg=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=GeIS+8lluCKRUl3YE+TiOVeb/hvdwna4O8MUQuwFiYmsAyLkj7J2FlGJspKA/mGST
+ GuSRADV73FM+ifYvNNcTGyzBIYMlbART2af2ippo6HWHGWZkU7JeBpJyD8+uYvZ0hi
+ 5e0md006K4jRK67wgby+Tu9sLRcRY5iCZUPpBbslgjMH+l5MEbxk6iVgEZ1Old+Tbm
+ LYki2E2+ILVESbdquz6fDxQrESGF50suQHkn0M/S7c4xJmIuAAAonvVvDniZHZRP7I
+ yXLtTeS3Spt2En09KW4Zp3E+ANVjGQ39jQQr7tXfbzFfThekM/y+TUO4DzmV25mycD
+ Yy9VP8DqW7VGQ==
+Received: by mail-lj1-f169.google.com with SMTP id z8so13253568ljm.12
+ for <linux-riscv@lists.infradead.org>; Mon, 05 Apr 2021 09:40:39 -0700 (PDT)
+X-Gm-Message-State: AOAM531CRjknA8XUEunjBvO6tUcWKmvXDrGnwjtOryW1hdYyYvOk28qf
+ R5/dEDwLNnemYatewonZDV52DcTdpVPzQMvM7ZE=
+X-Google-Smtp-Source: ABdhPJzkUEfDB95CnL6786fUCeee9xm+HPQm1Xan7zZk5hheQjM99nBvdzRzMz0emsctQ9RjQnKaWKBuL1CIvXQjk0Y=
+X-Received: by 2002:a2e:2a44:: with SMTP id q65mr17237317ljq.238.1617640837530; 
+ Mon, 05 Apr 2021 09:40:37 -0700 (PDT)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
+ <1616868399-82848-4-git-send-email-guoren@kernel.org>
+ <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
+ <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
+ <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
+ <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
+ <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
+ <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
+ <YGNNCEAMSWbBU+hd@hirez.programming.kicks-ass.net>
+In-Reply-To: <YGNNCEAMSWbBU+hd@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 6 Apr 2021 00:40:26 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTitt=aD1eU_i_Nvf2vvYWcPeeyB97UyGwV-G4e+Lh7yw@mail.gmail.com>
+Message-ID: <CAJF2gTTitt=aD1eU_i_Nvf2vvYWcPeeyB97UyGwV-G4e+Lh7yw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
+ ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+ Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Waiman Long <longman@redhat.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210405_170456_368143_9D754940 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210405_174041_561631_E99C2BD8 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +98,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zihao Yu <yuzihao@ict.ac.cn>
+On Wed, Mar 31, 2021 at 12:08 AM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Tue, Mar 30, 2021 at 11:13:55AM +0800, Guo Ren wrote:
+> > On Mon, Mar 29, 2021 at 8:50 PM Peter Zijlstra <peterz@infradead.org> wrote:
+> > >
+> > > On Mon, Mar 29, 2021 at 08:01:41PM +0800, Guo Ren wrote:
+> > > > u32 a = 0x55aa66bb;
+> > > > u16 *ptr = &a;
+> > > >
+> > > > CPU0                       CPU1
+> > > > =========             =========
+> > > > xchg16(ptr, new)     while(1)
+> > > >                                     WRITE_ONCE(*(ptr + 1), x);
+> > > >
+> > > > When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
+> > >
+> > > Then I think your LL/SC is broken.
+> > >
+> > > That also means you really don't want to build super complex locking
+> > > primitives on top, because that live-lock will percolate through.
+>
+> > Do you mean the below implementation has live-lock risk?
+> > +static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
+> > +{
+> > +       u32 old, new, val = atomic_read(&lock->val);
+> > +
+> > +       for (;;) {
+> > +               new = (val & _Q_LOCKED_PENDING_MASK) | tail;
+> > +               old = atomic_cmpxchg(&lock->val, val, new);
+> > +               if (old == val)
+> > +                       break;
+> > +
+> > +               val = old;
+> > +       }
+> > +       return old;
+> > +}
+>
+> That entirely depends on the architecture (and cmpxchg() impementation).
+>
+> There are a number of cases:
+>
+>  * architecture has cmpxchg() instruction (x86, s390, sparc, etc.).
+>
+>   - architecture provides fwd progress (x86)
+>   - architecture requires backoff for progress (sparc)
+>
+>  * architecture does not have cmpxchg, and implements it using LL/SC.
+>
+>   and here things get *really* interesting, because while an
+>   architecture can have LL/SC fwd progress, that does not translate into
+>   cmpxchg() also having the same guarantees and all bets are off.
+Seems riscv spec didn't mandatory LR/SC fwd guarantee, ref:
 
-[ Upstream commit ac8d0b901f0033b783156ab2dc1a0e73ec42409b ]
+In riscv-spec 8.3 Eventual Success of Store-Conditional Instructions
 
-In RV64, the size of each entry in excp_vect_table is 8 bytes. If the
-base of the table is not 8-byte aligned, loading an entry in the table
-will raise a misaligned exception. Although such exception will be
-handled by opensbi/bbl, this still causes performance degradation.
+"As a consequence of the eventuality guarantee, if some harts in an
+execution environment are executing constrained LR/SC loops, and no
+other harts or devices in the execution environment execute an
+unconditional store or AMO to that reservation set, then at least one
+hart will eventually exit its constrained LR/SC loop. *** By contrast,
+if other harts or devices continue to write to that reservation set,
+it ***is not guaranteed*** that any hart will exit its LR/SC loop.***
+"
 
-Signed-off-by: Zihao Yu <yuzihao@ict.ac.cn>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/riscv/kernel/entry.S | 1 +
- 1 file changed, 1 insertion(+)
+>
+> The real bummer is that C can do cmpxchg(), but there is no way it can
+> do LL/SC. And even if we'd teach C how to do LL/SC, it couldn't be
+> generic because architectures lacking it can't emulate it using
+> cmpxchg() (there's a fun class of bugs there).
+>
+> So while the above code might be the best we can do in generic code,
+> it's really up to the architecture to make it work.
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 744f3209c48d..76274a4a1d8e 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -447,6 +447,7 @@ ENDPROC(__switch_to)
- #endif
- 
- 	.section ".rodata"
-+	.align LGREG
- 	/* Exception vector table */
- ENTRY(excp_vect_table)
- 	RISCV_PTR do_trap_insn_misaligned
--- 
-2.30.2
+--
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
