@@ -2,19 +2,19 @@ Return-Path: <SRS0=oaCf=JC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F806C43462
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 08:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3741DC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 08:58:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 013C861245
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 08:57:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 013C861245
+	by mail.kernel.org (Postfix) with ESMTPS id B9181610E8
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Apr 2021 08:58:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9181610E8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,22 +23,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tj+F4Bjs3RLC2QLayAWUnvWI3BaNQBVCiv76Q8K27hU=; b=Fks7+uH36Rv0HdYRgoL3W8N/m
-	HVcQQ6jXqoQn4zMSzMtaWGJCibqs1p/Ai5EWHRCDHnldqJl/xz242c8gdAqHa6o36p4PElgvI2ejK
-	8gxY6kUv2Vv+QMgRz4A6LFxTaKKlaH0IEOcyciFsezoNcBZRmXoq745VAEO17so9E3RcyTqflupxD
-	wnPwNLrlYZ4kNZbk6XwFX7OiSl/W4rR0y31+vreMsgHh76K+jxdF4u2pB6r3hgIQetdaNiSqmSsA2
-	iJeTcga7xlhSSYnHuVZrg9EUPKh19FMPozg679eV9K2QPS2qQbS+NnTaPPNfWwDeOom7ygDqIAyXn
-	mSDd9GSSA==;
+	 bh=VAE6PEwOawChIhw8+v0xnQcdeBp3uBC9jL4f1cZXXKs=; b=pofyg2qFE0FovRsitW64pedVJ
+	2geZiuZ34FmMG6m+jfteeGLgGfSu9sChXuPKNj68ayRxfnaFQfVdmi3jFtq3LTStwIRDFNDB6QoMo
+	FeMB3B6dDozlJdBItK9OMAZx+Rv3DcsS7fckZHRrPh32UfTM22XHgPnglroy/kNNnJxrqeVe6L4t0
+	8RFZ6e4XR4+/8XZvBfc18mvylxHxFrjmhkd5QBwOxWVdRnUUq4TfSoN334A/meevwYSLQiBMOR0tp
+	z3mOh8CDwOFsBL/bxR2hJn8E4GctYjKrtA2hj/Dbs5yG4AsAJMERuKlPQR7cWo48+Rcv6VJCVV8F/
+	Po3jFzQ5w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTL3R-00H0Jw-4t; Mon, 05 Apr 2021 08:57:53 +0000
+	id 1lTL3T-00H0Kl-LN; Mon, 05 Apr 2021 08:57:55 +0000
 Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTL3B-00H0EG-6f
+ id 1lTL3B-00H0EB-8g
  for linux-riscv@lists.infradead.org; Mon, 05 Apr 2021 08:57:42 +0000
 Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
  by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 1358vWSG079894
+ 1358vWac079891
  for <linux-riscv@lists.infradead.org>; Mon, 5 Apr 2021 11:57:32 +0300 (EEST)
 DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
  q=dns/txt; i=@ics.forth.gr; t=1617613047; x=1620205047;
@@ -46,46 +46,45 @@ DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
  Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mIPpwtuqwCFbpjCfBOR3TLBkCrvCUYLFEkh8taAhOfc=;
- b=pwwaSblYBhSSJSM7pAEj6oqeUc+/LE/kltnkrlydWZUSTmzm0l992cgtYjeUWPEX
- Lw04Vpaj5gumdjg/r4CJBK9iapw+bIOsJxulMn+xPRrC9E6Rzzw3+WBIAtlBxiEN
- ATEQH0lYhrn0KzuBJxsgmuoFBu6Vx5PNHlmoeLY+CHh0Tl4We40901L7vkPOeHVB
- G7HRFSQm6qBYOa7g4qCkY2hnIIoVlkzg907ZTXE4DpPUXsuMtD3POHYnyEL/K0aT
- atqCL3aa6/fb/SBPGluvRDhRkX6B4yoBEpkZkxWmcG+VsJkK2hM/KPJDX03LbO0+
- qJ+BZYBLZY1/1V73ZvnxWg==;
-X-AuditID: 8b5b014d-a4c337000000209f-d8-606ad0f7e44b
+ bh=2B5iQoG8xFB2xC0JDWDglVCl+44LZZFKBpuK4i6AdO0=;
+ b=iC1rJ3/5ldSzBVT2hbC5y7Pum/XqxgIhYSgl2HfNBg/09xiOEL/Rj+IlolepYZRm
+ 7NRZc/z/0BqHBZRupd+KiA4w09IpQ5l4tpPMdlO+/JRtio65Q2GorkU8pVAUpxq7
+ ipMlJwaEBEsErUiesTffV0K1Gf+K60Q/UlQeUhR8GBmyCfUep/BbFsPGWUJGJzF1
+ JMKBUCaDDx3wj5Jg36uEmxt5A7v0MAunVyoRJ+r1CGaHdwu9iPTYJxFUIrsPcKy+
+ JJch+5AmsQUF4jXZZxD8wWNokveME5kmF9Vus4v5+o+0opzysN0bfXBNhZ6DJ8dv
+ AGuh6JxwRDC1k6lsT+rdwg==;
+X-AuditID: 8b5b014d-a70347000000209f-db-606ad0f7e47e
 Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
  by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 87.77.08351.7F0DA606; Mon,  5 Apr 2021 11:57:27 +0300 (EEST)
+ A8.77.08351.7F0DA606; Mon,  5 Apr 2021 11:57:27 +0300 (EEST)
 X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
 From: Nick Kossifidis <mick@ics.forth.gr>
 To: linux-riscv@lists.infradead.org, palmer@dabbelt.com
 Cc: paul.walmsley@sifive.com, linux-kernel@vger.kernel.org,
  Nick Kossifidis <mick@ics.forth.gr>
-Subject: [PATCH v3 1/5] RISC-V: Add EM_RISCV to kexec UAPI header
-Date: Mon,  5 Apr 2021 11:57:08 +0300
-Message-Id: <20210405085712.1953848-2-mick@ics.forth.gr>
+Subject: [PATCH v3 4/5] RISC-V: Add kdump support
+Date: Mon,  5 Apr 2021 11:57:11 +0300
+Message-Id: <20210405085712.1953848-5-mick@ics.forth.gr>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20210405085712.1953848-1-mick@ics.forth.gr>
 References: <20210405085712.1953848-1-mick@ics.forth.gr>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJLMWRmVeSWpSXmKPExsXSHT1dWff7hawEg1l3pCwu75rDZrHtcwub
- RfO7c+wWLy/3MFu0zeJ3YPV48/Ili8fDTZeYPDYvqfe41Hyd3ePzJrkA1igum5TUnMyy1CJ9
- uwSujJnt5xgLHrJVLPrTztbAeJ61i5GTQ0LARGJJ4yT2LkYuDiGBo4wSf7eAOCAJN4nb93eC
- FbEJaErMv3SQBcQWETCXaJ75mhHEZhbIkDi67xdYvbCAo0R3wzwmEJtFQFXiRetxsHpeAQuJ
- 358XQS2Tl2hfvp0NxOYUsJTYdn4RWL0QUM31Yz2MEPWCEidnPmGBmC8v0bx1NvMERr5ZSFKz
- kKQWMDKtYhRILDPWy0wu1kvLLyrJ0Esv2sQIDj1G3x2Mtze/1TvEyMTBeIhRgoNZSYT3YUNW
- ghBvSmJlVWpRfnxRaU5q8SFGaQ4WJXFeXr0J8UIC6YklqdmpqQWpRTBZJg5OqQam7VeuK5dt
- vSrOeO7NxCVM3H6HnAIrF0ioG17u6n9x+5v20xl/22Z6vLdhbJHe5Phx6dqVh9Qj8wp/OTgk
- 5lldMYzj+CUpvda10PXFERunXF4ld89Pqh/ZYg/USIXsFFTxONz4IviLgdx+Hf32jZvs6g3N
- vk7JD3s6aW3IwiXHZ8j/v/kw1ZtF7DHjvbvucxLC1Crk79maRUrNeK+0eIOo0aUIJb3Eyhv6
- n5jYjif4pq7bz6d+Kn+LJ8+NzrM9iWIiD4JKf7E28q+LvdH6/g+n5SLrpKK51y9/Lyk6zDkr
- vmqicXJC8/c3B3dMfjzF9bfe9ls3newbU189rzmaqPbe113367NtkZVSu+t8/99RYinOSDTU
- Yi4qTgQAgxNljqwCAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJLMWRmVeSWpSXmKPExsXSHT1dWff7hawEg+89BhaXd81hs9j2uYXN
+ ovndOXaLl5d7mC3aZvE7sHq8efmSxePhpktMHpuX1Htcar7O7vF5k1wAaxSXTUpqTmZZapG+
+ XQJXxq9/G9gL7hZUbOr5xNbAuCq6i5GTQ0LARGL19CaWLkYuDiGBo4wS76f/Y4NIuEncvr+T
+ FcRmE9CUmH/pIAuILSJgLtE88zUjiM0skCFxdN8vdhBbWMBQYt2y3cwgNouAqkT3mVtgcV4B
+ C4ktK1dBzZSXaF++HczmFLCU2HZ+EROILQRUc/1YDyNEvaDEyZlPWCDmy0s0b53NPIGRbxaS
+ 1CwkqQWMTKsYBRLLjPUyk4v10vKLSjL00os2MYJDj9F3B+PtzW/1DjEycTAeYpTgYFYS4X3Y
+ kJUgxJuSWFmVWpQfX1Sak1p8iFGag0VJnJdXb0K8kEB6YklqdmpqQWoRTJaJg1OqgSk1mK/C
+ ZK7o87svhedvlN7AzbBZ+PeZt3cUu8UX6NjEit7x7zwmuuZOr6zhzqRl53YdmGL9rNsl64D4
+ Ve17OXmW06dccfHdf0H1uvZs3kPZvVWSEVJLXsUFtzZf+Ps0IXTuDv0c5bnsHJoujRMWLV/w
+ lzvh0WMuhypZ350LGs/YSNlYum693ZvHUZH8ISMu3cNh+szUxqIT7gcCl8dnXo+drzS785/7
+ P5OC8E8FSh6np/aY3LLecpBlTWJWuEL7csbN2mcO9D+YXHyF23zB5Nae9OhrLZu+PfvL++7Z
+ nE2iV8RL37w4v87vwnnLO6+OygeUV6Rf0zac4y183ql07t+XkwL/Lz0iupHz2iWhOUuVWIoz
+ Eg21mIuKEwFqVXpCrAIAAA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210405_095737_630374_3EE17AA1 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210405_095737_699325_5B07E980 
+X-CRM114-Status: GOOD (  36.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +101,486 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RISC-V to the list of supported kexec architecturs, we need to
-add the definition early-on so that later patches can use it.
+This patch adds support for kdump, the kernel will reserve a
+region for the crash kernel and jump there on panic. In order
+for userspace tools (kexec-tools) to prepare the crash kernel
+kexec image, we also need to expose some information on
+/proc/iomem for the memory regions used by the kernel and for
+the region reserved for crash kernel. Note that on userspace
+the device tree is used to determine the system's memory
+layout so the "System RAM" on /proc/iomem is ignored.
 
-EM_RISCV is 243 as per ELF psABI specification here:
-https://github.com/riscv/riscv-elf-psabi-doc/blob/master/riscv-elf.md
+I tested this on riscv64 qemu and works as expected, you may
+test it by triggering a crash through /proc/sysrq_trigger:
+
+echo c > /proc/sysrq_trigger
+
+v3:
+ * Move ELF_CORE_COPY_REGS to asm/elf.h instead of uapi/asm/elf.h
+ * Set stvec when disabling MMU
+ * Minor cleanups and re-base
+
+v2:
+ * Properly populate the ioresources tree, so that it can be
+   used later on for implementing strict /dev/mem.
+ * Minor cleanups and re-base
 
 Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 ---
- include/uapi/linux/kexec.h | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/include/asm/elf.h        |  6 +++
+ arch/riscv/include/asm/kexec.h      | 19 ++++---
+ arch/riscv/kernel/Makefile          |  2 +-
+ arch/riscv/kernel/crash_save_regs.S | 56 +++++++++++++++++++++
+ arch/riscv/kernel/kexec_relocate.S  | 68 ++++++++++++++++++++++++-
+ arch/riscv/kernel/machine_kexec.c   | 43 +++++++++-------
+ arch/riscv/kernel/setup.c           | 11 ++++-
+ arch/riscv/mm/init.c                | 77 +++++++++++++++++++++++++++++
+ 8 files changed, 255 insertions(+), 27 deletions(-)
+ create mode 100644 arch/riscv/kernel/crash_save_regs.S
 
-diff --git a/include/uapi/linux/kexec.h b/include/uapi/linux/kexec.h
-index 05669c87a..778dc191c 100644
---- a/include/uapi/linux/kexec.h
-+++ b/include/uapi/linux/kexec.h
-@@ -42,6 +42,7 @@
- #define KEXEC_ARCH_MIPS_LE (10 << 16)
- #define KEXEC_ARCH_MIPS    ( 8 << 16)
- #define KEXEC_ARCH_AARCH64 (183 << 16)
-+#define KEXEC_ARCH_RISCV   (243 << 16)
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index 5c725e1df..f4b490cd0 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -81,4 +81,10 @@ extern int arch_setup_additional_pages(struct linux_binprm *bprm,
+ 	int uses_interp);
+ #endif /* CONFIG_MMU */
  
- /* The artificial cap on the number of segments passed to kexec_load. */
- #define KEXEC_SEGMENT_MAX 16
++#define ELF_CORE_COPY_REGS(dest, regs)			\
++do {							\
++	*(struct user_regs_struct *)&(dest) =		\
++		*(struct user_regs_struct *)regs;	\
++} while (0);
++
+ #endif /* _ASM_RISCV_ELF_H */
+diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+index efc69feb4..4fd583acc 100644
+--- a/arch/riscv/include/asm/kexec.h
++++ b/arch/riscv/include/asm/kexec.h
+@@ -21,11 +21,16 @@
+ 
+ #define KEXEC_ARCH KEXEC_ARCH_RISCV
+ 
++extern void riscv_crash_save_regs(struct pt_regs *newregs);
++
+ static inline void
+ crash_setup_regs(struct pt_regs *newregs,
+ 		 struct pt_regs *oldregs)
+ {
+-	/* Dummy implementation for now */
++	if (oldregs)
++		memcpy(newregs, oldregs, sizeof(struct pt_regs));
++	else
++		riscv_crash_save_regs(newregs);
+ }
+ 
+ 
+@@ -38,10 +43,12 @@ struct kimage_arch {
+ const extern unsigned char riscv_kexec_relocate[];
+ const extern unsigned int riscv_kexec_relocate_size;
+ 
+-typedef void (*riscv_kexec_do_relocate)(unsigned long first_ind_entry,
+-					unsigned long jump_addr,
+-					unsigned long fdt_addr,
+-					unsigned long hartid,
+-					unsigned long va_pa_off);
++typedef void (*riscv_kexec_method)(unsigned long first_ind_entry,
++				   unsigned long jump_addr,
++				   unsigned long fdt_addr,
++				   unsigned long hartid,
++				   unsigned long va_pa_off);
++
++extern riscv_kexec_method riscv_kexec_norelocate;
+ 
+ #endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index c2594018c..07f676ad3 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -58,7 +58,7 @@ obj-$(CONFIG_SMP) += cpu_ops_sbi.o
+ endif
+ obj-$(CONFIG_HOTPLUG_CPU)	+= cpu-hotplug.o
+ obj-$(CONFIG_KGDB)		+= kgdb.o
+-obj-${CONFIG_KEXEC}		+= kexec_relocate.o machine_kexec.o
++obj-${CONFIG_KEXEC}		+= kexec_relocate.o crash_save_regs.o machine_kexec.o
+ 
+ obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
+ 
+diff --git a/arch/riscv/kernel/crash_save_regs.S b/arch/riscv/kernel/crash_save_regs.S
+new file mode 100644
+index 000000000..7832fb763
+--- /dev/null
++++ b/arch/riscv/kernel/crash_save_regs.S
+@@ -0,0 +1,56 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2020 FORTH-ICS/CARV
++ *  Nick Kossifidis <mick@ics.forth.gr>
++ */
++
++#include <asm/asm.h>    	/* For RISCV_* and REG_* macros */
++#include <asm/csr.h>		/* For CSR_* macros */
++#include <asm/asm-offsets.h>	/* For offsets on pt_regs */
++#include <linux/linkage.h>	/* For SYM_* macros */
++
++.section ".text"
++SYM_CODE_START(riscv_crash_save_regs)
++	REG_S ra,  PT_RA(a0)	/* x1 */
++	REG_S sp,  PT_SP(a0)	/* x2 */
++	REG_S gp,  PT_GP(a0)	/* x3 */
++	REG_S tp,  PT_TP(a0)	/* x4 */
++	REG_S t0,  PT_T0(a0)	/* x5 */
++	REG_S t1,  PT_T1(a0)	/* x6 */
++	REG_S t2,  PT_T2(a0)	/* x7 */
++	REG_S s0,  PT_S0(a0)	/* x8/fp */
++	REG_S s1,  PT_S1(a0)	/* x9 */
++	REG_S a0,  PT_A0(a0)	/* x10 */
++	REG_S a1,  PT_A1(a0)	/* x11 */
++	REG_S a2,  PT_A2(a0)	/* x12 */
++	REG_S a3,  PT_A3(a0)	/* x13 */
++	REG_S a4,  PT_A4(a0)	/* x14 */
++	REG_S a5,  PT_A5(a0)	/* x15 */
++	REG_S a6,  PT_A6(a0)	/* x16 */
++	REG_S a7,  PT_A7(a0)	/* x17 */
++	REG_S s2,  PT_S2(a0)	/* x18 */
++	REG_S s3,  PT_S3(a0)	/* x19 */
++	REG_S s4,  PT_S4(a0)	/* x20 */
++	REG_S s5,  PT_S5(a0)	/* x21 */
++	REG_S s6,  PT_S6(a0)	/* x22 */
++	REG_S s7,  PT_S7(a0)	/* x23 */
++	REG_S s8,  PT_S8(a0)	/* x24 */
++	REG_S s9,  PT_S9(a0)	/* x25 */
++	REG_S s10, PT_S10(a0)	/* x26 */
++	REG_S s11, PT_S11(a0)	/* x27 */
++	REG_S t3,  PT_T3(a0)	/* x28 */
++	REG_S t4,  PT_T4(a0)	/* x29 */
++	REG_S t5,  PT_T5(a0)	/* x30 */
++	REG_S t6,  PT_T6(a0)	/* x31 */
++
++	csrr t1, CSR_STATUS
++	csrr t2, CSR_EPC
++	csrr t3, CSR_TVAL
++	csrr t4, CSR_CAUSE
++
++	REG_S t1, PT_STATUS(a0)
++	REG_S t2, PT_EPC(a0)
++	REG_S t3, PT_BADADDR(a0)
++	REG_S t4, PT_CAUSE(a0)
++	ret
++SYM_CODE_END(riscv_crash_save_regs)
+diff --git a/arch/riscv/kernel/kexec_relocate.S b/arch/riscv/kernel/kexec_relocate.S
+index 616c20771..14220f70f 100644
+--- a/arch/riscv/kernel/kexec_relocate.S
++++ b/arch/riscv/kernel/kexec_relocate.S
+@@ -150,7 +150,73 @@ SYM_CODE_START(riscv_kexec_relocate)
+ SYM_CODE_END(riscv_kexec_relocate)
+ riscv_kexec_relocate_end:
+ 
+-	.section ".rodata"
++
++/* Used for jumping to crashkernel */
++.section ".text"
++SYM_CODE_START(riscv_kexec_norelocate)
++	/*
++	 * s0: (const) Phys address to jump to
++	 * s1: (const) Phys address of the FDT image
++	 * s2: (const) The hartid of the current hart
++	 * s3: (const) va_pa_offset, used when switching MMU off
++	 */
++	mv	s0, a1
++	mv	s1, a2
++	mv	s2, a3
++	mv	s3, a4
++
++	/* Disable / cleanup interrupts */
++	csrw	sie, zero
++	csrw	sip, zero
++
++	/* Switch to physical addressing */
++	la	s4, 1f
++	sub	s4, s4, s3
++	csrw	stvec, s4
++	csrw	sptbr, zero
++
++.align 2
++1:
++	/* Pass the arguments to the next kernel  / Cleanup*/
++	mv	a0, s2
++	mv	a1, s1
++	mv	a2, s0
++
++	/* Cleanup */
++	mv	a3, zero
++	mv	a4, zero
++	mv	a5, zero
++	mv	a6, zero
++	mv	a7, zero
++
++	mv	s0, zero
++	mv	s1, zero
++	mv	s2, zero
++	mv	s3, zero
++	mv	s4, zero
++	mv	s5, zero
++	mv	s6, zero
++	mv	s7, zero
++	mv	s8, zero
++	mv	s9, zero
++	mv	s10, zero
++	mv	s11, zero
++
++	mv	t0, zero
++	mv	t1, zero
++	mv	t2, zero
++	mv	t3, zero
++	mv	t4, zero
++	mv	t5, zero
++	mv	t6, zero
++	csrw	sepc, zero
++	csrw	scause, zero
++	csrw	sscratch, zero
++
++	jalr	zero, a2, 0
++SYM_CODE_END(riscv_kexec_norelocate)
++
++.section ".rodata"
+ SYM_DATA(riscv_kexec_relocate_size,
+ 	.long riscv_kexec_relocate_end - riscv_kexec_relocate)
+ 
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2ce6c3daf..e0596c0ac 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -59,11 +59,6 @@ machine_kexec_prepare(struct kimage *image)
+ 
+ 	kexec_image_info(image);
+ 
+-	if (image->type == KEXEC_TYPE_CRASH) {
+-		pr_warn("Loading a crash kernel is unsupported for now.\n");
+-		return -EINVAL;
+-	}
+-
+ 	/* Find the Flattened Device Tree and save its physical address */
+ 	for (i = 0; i < image->nr_segments; i++) {
+ 		if (image->segment[i].memsz <= sizeof(fdt))
+@@ -85,17 +80,21 @@ machine_kexec_prepare(struct kimage *image)
+ 	}
+ 
+ 	/* Copy the assembler code for relocation to the control page */
+-	control_code_buffer = page_address(image->control_code_page);
+-	control_code_buffer_sz = page_size(image->control_code_page);
+-	if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
+-		pr_err("Relocation code doesn't fit within a control page\n");
+-		return -EINVAL;
+-	}
+-	memcpy(control_code_buffer, riscv_kexec_relocate,
+-		riscv_kexec_relocate_size);
++	if (image->type != KEXEC_TYPE_CRASH) {
++		control_code_buffer = page_address(image->control_code_page);
++		control_code_buffer_sz = page_size(image->control_code_page);
+ 
+-	/* Mark the control page executable */
+-	set_memory_x((unsigned long) control_code_buffer, 1);
++		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
++			pr_err("Relocation code doesn't fit within a control page\n");
++			return -EINVAL;
++		}
++
++		memcpy(control_code_buffer, riscv_kexec_relocate,
++			riscv_kexec_relocate_size);
++
++		/* Mark the control page executable */
++		set_memory_x((unsigned long) control_code_buffer, 1);
++	}
+ 
+ 	return 0;
+ }
+@@ -147,6 +146,9 @@ void machine_shutdown(void)
+ void
+ machine_crash_shutdown(struct pt_regs *regs)
+ {
++	crash_save_cpu(regs, smp_processor_id());
++	machine_shutdown();
++	pr_info("Starting crashdump kernel...\n");
+ }
+ 
+ /**
+@@ -169,7 +171,12 @@ machine_kexec(struct kimage *image)
+ 	unsigned long this_hart_id = raw_smp_processor_id();
+ 	unsigned long fdt_addr = internal->fdt_addr;
+ 	void *control_code_buffer = page_address(image->control_code_page);
+-	riscv_kexec_do_relocate do_relocate = control_code_buffer;
++	riscv_kexec_method kexec_method = NULL;
++
++	if (image->type != KEXEC_TYPE_CRASH)
++		kexec_method = control_code_buffer;
++	else
++		kexec_method = (riscv_kexec_method) &riscv_kexec_norelocate;
+ 
+ 	pr_notice("Will call new kernel at %08lx from hart id %lx\n",
+ 		  jump_addr, this_hart_id);
+@@ -180,7 +187,7 @@ machine_kexec(struct kimage *image)
+ 
+ 	/* Jump to the relocation code */
+ 	pr_notice("Bye...\n");
+-	do_relocate(first_ind_entry, jump_addr, fdt_addr,
+-		    this_hart_id, va_pa_offset);
++	kexec_method(first_ind_entry, jump_addr, fdt_addr,
++		     this_hart_id, va_pa_offset);
+ 	unreachable();
+ }
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 030554bab..31866dce9 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -20,6 +20,7 @@
+ #include <linux/swiotlb.h>
+ #include <linux/smp.h>
+ #include <linux/efi.h>
++#include <linux/crash_dump.h>
+ 
+ #include <asm/cpu_ops.h>
+ #include <asm/early_ioremap.h>
+@@ -160,6 +161,14 @@ static void __init init_resources(void)
+ 	if (ret < 0)
+ 		goto error;
+ 
++#ifdef CONFIG_KEXEC_CORE
++	if (crashk_res.start != crashk_res.end) {
++		ret = add_resource(&iomem_resource, &crashk_res);
++		if (ret < 0)
++			goto error;
++	}
++#endif
++
+ 	for_each_reserved_mem_region(region) {
+ 		res = &mem_res[res_idx--];
+ 
+@@ -252,7 +261,6 @@ void __init setup_arch(char **cmdline_p)
+ 	efi_init();
+ 	setup_bootmem();
+ 	paging_init();
+-	init_resources();
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+@@ -263,6 +271,7 @@ void __init setup_arch(char **cmdline_p)
+ #endif
+ 	misc_mem_init();
+ 
++	init_resources();
+ 	sbi_init();
+ 
+ 	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 7f5036fbe..e71b35cec 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -2,6 +2,8 @@
+ /*
+  * Copyright (C) 2012 Regents of the University of California
+  * Copyright (C) 2019 Western Digital Corporation or its affiliates.
++ * Copyright (C) 2020 FORTH-ICS/CARV
++ *  Nick Kossifidis <mick@ics.forth.gr>
+  */
+ 
+ #include <linux/init.h>
+@@ -14,6 +16,7 @@
+ #include <linux/libfdt.h>
+ #include <linux/set_memory.h>
+ #include <linux/dma-map-ops.h>
++#include <linux/crash_dump.h>
+ 
+ #include <asm/fixmap.h>
+ #include <asm/tlbflush.h>
+@@ -586,6 +589,77 @@ void mark_rodata_ro(void)
+ }
+ #endif
+ 
++#ifdef CONFIG_KEXEC_CORE
++/*
++ * reserve_crashkernel() - reserves memory for crash kernel
++ *
++ * This function reserves memory area given in "crashkernel=" kernel command
++ * line parameter. The memory reserved is used by dump capture kernel when
++ * primary kernel is crashing.
++ */
++static void __init reserve_crashkernel(void)
++{
++	unsigned long long crash_base = 0;
++	unsigned long long crash_size = 0;
++	unsigned long search_start = memblock_start_of_DRAM();
++	unsigned long search_end = memblock_end_of_DRAM();
++
++	int ret = 0;
++
++	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
++				&crash_size, &crash_base);
++	if (ret || !crash_size)
++		return;
++
++	crash_size = PAGE_ALIGN(crash_size);
++
++	if (crash_base == 0) {
++		/*
++		 * Current riscv boot protocol requires 2MB alignment for
++		 * RV64 and 4MB alignment for RV32 (hugepage size)
++		 */
++		crash_base = memblock_find_in_range(search_start, search_end,
++#ifdef CONFIG_64BIT
++						    crash_size, SZ_2M);
++#else
++						    crash_size, SZ_4M);
++#endif
++		if (crash_base == 0) {
++			pr_warn("crashkernel: couldn't allocate %lldKB\n",
++				crash_size >> 10);
++			return;
++		}
++	} else {
++		/* User specifies base address explicitly. */
++		if (!memblock_is_region_memory(crash_base, crash_size)) {
++			pr_warn("crashkernel: requested region is not memory\n");
++			return;
++		}
++
++		if (memblock_is_region_reserved(crash_base, crash_size)) {
++			pr_warn("crashkernel: requested region is reserved\n");
++			return;
++		}
++
++#ifdef CONFIG_64BIT
++		if (!IS_ALIGNED(crash_base, SZ_2M)) {
++#else
++		if (!IS_ALIGNED(crash_base, SZ_4M)) {
++#endif
++			pr_warn("crashkernel: requested region is misaligned\n");
++			return;
++		}
++	}
++	memblock_reserve(crash_base, crash_size);
++
++	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
++		crash_base, crash_base + crash_size, crash_size >> 20);
++
++	crashk_res.start = crash_base;
++	crashk_res.end = crash_base + crash_size - 1;
++}
++#endif /* CONFIG_KEXEC_CORE */
++
+ void __init paging_init(void)
+ {
+ 	setup_vm_final();
+@@ -598,6 +672,9 @@ void __init misc_mem_init(void)
+ 	arch_numa_init();
+ 	sparse_init();
+ 	zone_sizes_init();
++#ifdef CONFIG_KEXEC_CORE
++	reserve_crashkernel();
++#endif
+ 	memblock_dump_all();
+ }
+ 
 -- 
 2.26.2
 
