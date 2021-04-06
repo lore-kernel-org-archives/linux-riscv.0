@@ -2,90 +2,97 @@ Return-Path: <SRS0=fjc5=JD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2AAEC433ED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 19:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 42005C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 23:52:35 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 46D5F613D2
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 19:06:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 46D5F613D2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
+	by mail.kernel.org (Postfix) with ESMTPS id DDF2C613B3
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 23:52:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DDF2C613B3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:From:Cc:To:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9iRwW6nRNQWqlvnrH3iyBpAh0YhimQcRE8rS5zmANcA=; b=QmvNrlosWMSn7+IuGVAgir8W41
-	dMWbg2gxhNN0FrILAck+DV2x/P7gDhyPdq3Zx9/d+NLusRLoF9iMCsR6onQ9DXy4m6BDSJRM+zIMA
-	x6UdnIayIm+bBpE/RAs5Vv1RrlH9mXalR8BbogWZr3emdo7XmbcEzG/T3ElXUiTRGGcFORag1FRqO
-	YIlSIPmJiqEvQFucVI1mq5rkdP0RwSAqKDxUVjP++wOOvQiCoZnVDveWX1V9JBenbTzy3w84u4113
-	99yX1rs9M+7gW62E2kdRFPamz7ZXtI3gngqh1DtG0otq/XQPZqTkjo4Znrofc5VjoxOcX5J/WAr3y
-	WhiUkVDg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=l5j1KhdHA/0EM3zce4azkdn1mskjjNaB5Nq6jCU6Igw=; b=P/unrrfkj8J6XWPkmCWh/Rexd
+	BgJ4YDPPiE65jSrvG4+f7XgHvDd/XQQtI/m/dL2aNwvbQJzWF2XI+aYgH2IDCFB07t5oni1iOD1G2
+	wNUqiJk1ZwQgaGtttBUx+KIewz0Ju540p2/lhmmbY6no/T2jRSJ4uCel+9jjfuSJPzSduaY5KZeZQ
+	kwyUOrTc/CIVHbBs3QTzEI5X9DIKHbOc0J8R3q7zUsM9rB/XsvbtxXoolZvFFN9sBCbnLyv/w2tX2
+	+FNP2W/X7Lv1yZONCQj8tpdnEAhfBwgl4oJJ+Az1GbqznZL9YB4NYPqfwHGA4n1Tt/r0Lj71C6WqY
+	0FDgT2KHw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTr1H-003IoG-Q0; Tue, 06 Apr 2021 19:05:47 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1lTvUY-003eIl-Td; Tue, 06 Apr 2021 23:52:18 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTr1A-003InP-9w
- for linux-riscv@lists.infradead.org; Tue, 06 Apr 2021 19:05:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1617735936;
- bh=S5w76roMR9069RbtJkgU377LovVfOK0MpWKmGi2/kjk=;
- h=X-UI-Sender-Class:To:Cc:From:Subject:Date;
- b=YUvW0IUkEYFFBjdbWiLopC7be2NB6xosmAvZqw1+MYNWduVNaDmlVPE4efPOEFkwJ
- Nn7C2tFhRSn52qW6QmPZUJ9ZzQK/kW7ZDno+mqxgg/oaQdYHIvffm1RQXYgoOvRoxv
- 1PQEWcPZ4EvNmficarqQZgkIvIpDk81npdW3ebLM=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.123.35] ([62.143.247.63]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MWigq-1l5gHP3Qk4-00X3ZS; Tue, 06
- Apr 2021 21:05:35 +0200
-To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-From: Heinrich Schuchardt <xypron.glpk@gmx.de>
-Subject: [RFC] dt-bindings: riscv: enum for riscv,isa
-Message-ID: <5385012d-9f09-d7d9-7b6a-cef7de2d4056@gmx.de>
-Date: Tue, 6 Apr 2021 21:05:34 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.0
+ id 1lTvUS-003eI6-Se
+ for linux-riscv@lists.infradead.org; Tue, 06 Apr 2021 23:52:15 +0000
+Received: by mail-pl1-x630.google.com with SMTP id v8so8396716plz.10
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Apr 2021 16:52:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=r0Ha/Gv3pAkjmgqqsKcPiH9tlZnqWzms79uqmOiSHMs=;
+ b=DoH08R29BGwmuj6eSbyG3BUk0CMYUOgrE7l1ib0WohqefmBPVt3sY22jJOdDf2ba3M
+ OraAYZNzGMrAjzLBt/oLKxSGP5xVkpQwVYlEyQ+FCAxk1AucZMSXaKaX4yes8IpuX9bx
+ k/PK2mwZ7S6C7V1Otv/hHIYsXqEQzWVrSgtZ7Smoc3vdWQK5bfkyy5fWevoxUBoneWfM
+ UlLNvmrFvT/LKV17m0n35Iq2WXwO1WQ94cKquKeKdq4Eo0jQbOkxVxjhAnmnUDMrZ/jw
+ sjVzOf22KCT3mTqKrrakDQ7hCLtkS68PqKVrr3avChCGt1YUrsIst96sJ5oXc8I6D0zL
+ +AxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=r0Ha/Gv3pAkjmgqqsKcPiH9tlZnqWzms79uqmOiSHMs=;
+ b=O0RhwZXKWkDK6WPHSrFYrMgm+m5COuo+CsvPdxSKJZqu8wAxLv0DiRQKir/vERMS8u
+ ZkVqHo54GfPxzSxsI0B7u/yikYvEGFzYBh4FTtk9JYIhYEh3pskbFrrP1u/I88LzbdDT
+ liF1xI/6w8K/qG/DLulFkWTsQOLZdVbvmuhN4fYgtl/bCgoTTXedm5HfVIea5Vq/AzsD
+ l9vhoHGhS0U3fmebfh8RY6OZf7wjhLr6DlqlB275aH8upPXQEQLMKEwbrYNYPAlMP1mX
+ bvvvpZoaHwL+aEpQrUms213nnj2JgRzWup7cfKi3dbjHZfFjyyKVEZXEsvMJ61i+SFJK
+ OdBw==
+X-Gm-Message-State: AOAM530Obcv3qKSEKcqiXysuCi9S3Mh8gY/1MVFSjiXUggIMBqcOOxcl
+ pEff9f3w4dCW2vqjahs7W+s=
+X-Google-Smtp-Source: ABdhPJxtumeckyy0f77HdPuOn8G6N6f+xOhLUrB9QPIL+nP1d3kOEbilw2AHpr0vnTb2lu4tnB14Mw==
+X-Received: by 2002:a17:90a:6385:: with SMTP id
+ f5mr590598pjj.212.1617753131320; 
+ Tue, 06 Apr 2021 16:52:11 -0700 (PDT)
+Received: from localhost (g139.124-45-193.ppp.wakwak.ne.jp. [124.45.193.139])
+ by smtp.gmail.com with ESMTPSA id
+ k21sm19587938pfi.28.2021.04.06.16.52.10
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 06 Apr 2021 16:52:10 -0700 (PDT)
+Date: Wed, 7 Apr 2021 08:52:08 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Boqun Feng <boqun.feng@gmail.com>
+Cc: guoren@kernel.org, linux-arch@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, Guo Ren <guoren@linux.alibaba.com>,
+ Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
+ Anup Patel <anup@brainfault.org>, sparclinux@vger.kernel.org,
+ Waiman Long <longman@redhat.com>, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, Ingo Molnar <mingo@redhat.com>
+Subject: Re: [OpenRISC] [PATCH v6 1/9] locking/qspinlock: Add
+ ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+Message-ID: <20210406235208.GG3288043@lianli.shorne-pla.net>
+References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
+ <1617201040-83905-2-git-send-email-guoren@kernel.org>
+ <YGyRrBjomDCPOBUd@boqun-archlinux>
 MIME-Version: 1.0
-Content-Language: en-US
-X-Provags-ID: V03:K1:ngX28VYtdWQlHye7iPLWOBYn1ApSoOWXfA3SALu5YrflY7O+Qr/
- fZpezTIa/Nlhrsrdk9Lo/Y398bJ1h7tVl9oaPRkKRR+kMZWYWn3i+aFDp4GXpDdFXSeYAO2
- ItcbGkvnpvqiJGS+nuHYiriX0p3XHuyUBtt8ChCTREYFCRTkLqB4aTiXu/0VqJCWib9iOs6
- TkJj2Kcj5ofZ+TLHIVrxw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:UepjL+PZHsc=:BanShc5P6UyNbjSNcxkUNf
- zFYy/wDiOrK+rPwaV2rT1KnHpgwY2GVujT30j25QUW5YoobHI9kwgoTm+Gf7S/7bFc/6W1qDi
- p9AA6ZZnhQLeBWiJAaXE2FVMbUFsS+QfX2nCmYqzAWFl14OAFNvCtytuHS2TBklMymnESTpnb
- NuJ2kcsXtuhkgCCyamft7+66Kc0q1R4rJ/6dKr5L6LQhqJrI6kPC3r/cpzDrDkAzo7XZrl2mC
- XDACxBqFk3dUIgkqys4w4gRTg9iJiPn87JTR25jjwUVxAc8yUoi/6r5d6TutyuDuFMBMB2/Le
- R6jrnuXCrNwp23PRH7fS3tV8DGFmjLhTICvp+P2BZ2LLq3hVNc8Y3fZvM2PJXfo63tUFBSzXF
- V4wVsB2k/FuTjNE9vyg4UzvUMuArWX3VlR/Zj5/HKlRCjgCSkTMZCRSi/bvvfhpRcMbcXqM/3
- xFfXqHufV6iP+zYG12jZoUtVHwqE7k1LwdzLJ8reufc9en3BZr0LFbDBwYUWj0ndBT5RBA85H
- W99GkXuklomm8hH5zwC8jG5bpL9r2CscvZFcN9PUKzKBKKlSZwXUla7PGgNqwYYvQaaAWYcZ4
- uGWyOX5I2OyfLv0rgeAHmr0DoEMgp4AfjDLgJuboZiEpdtCTTMd8K+WpKcPkfeB0xhAFQD2kU
- 6O5IdeziwXrF9jVOktLRrabwTTUjr/u1K+0r5jGS1MIG2EVepDyldXGJzEchxt61hB9LBOWBR
- W91WKo92D4j5xjtPJzDmLRjtqcy4phKeQFmFUhwP9nIddAw3tgfq/+X1CYbOhj+2KuVFkbhui
- ruA4rbBWdULlNWmdYObMKIIDJRzvbUIShr8azks5hkzBsNVFviSAfnGffTcXUOf7GajM6U9bi
- mUFJqGTvfArPoTsINPOFAMNLOtH7WCf81z8Jc79Q7EocxQJRSLlyyEwZUcypJbN3gRYu7nsW+
- QPm+go/7A74UFcHZiliARwGqkoItSzSLGVm+ngzqzMFDpTbuuttKzkTZ8hHxm93GzuRYZFviL
- 2ZXegoYj0QuxhdruAF+Vrq2LgQ1qGU8m7YewqD6jkMdouN2fD+sNRCRjYDp+8wr01icY6Hfb6
- egGyQp63KAgHQ3GDzB+xj8mMg0RboqmGikpRuIHdE+xtHrzJaK4z/I3i7F8n0YwcREY+mlyVI
- 1DFqbCQau0bxor+CmuQT1lQ/UCniF8wDt4xYlbqquPyEwr8aNaWLOWxZfDFd7PR4g1Cng=
+Content-Disposition: inline
+In-Reply-To: <YGyRrBjomDCPOBUd@boqun-archlinux>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210406_200540_471359_F2EE6352 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210407_005214_301367_EB9E1414 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,29 +104,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In Documentation/devicetree/bindings/riscv/cpus.yaml I find for riscv,isa:
+On Wed, Apr 07, 2021 at 12:51:56AM +0800, Boqun Feng wrote:
+> Hi,
+> 
+> On Wed, Mar 31, 2021 at 02:30:32PM +0000, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> > 
+> > Some architectures don't have sub-word swap atomic instruction,
+> > they only have the full word's one.
+> > 
+> > The sub-word swap only improve the performance when:
+> > NR_CPUS < 16K
+> >  *  0- 7: locked byte
+> >  *     8: pending
+> >  *  9-15: not used
+> >  * 16-17: tail index
+> >  * 18-31: tail cpu (+1)
+> > 
+> > The 9-15 bits are wasted to use xchg16 in xchg_tail.
+> > 
+> > Please let architecture select xchg16/xchg32 to implement
+> > xchg_tail.
+> > 
+> 
+> If the architecture doesn't have sub-word swap atomic, won't it generate
+> the same/similar code no matter which version xchg_tail() is used? That
+> is even CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y, xchg_tail() acts
+> similar to an xchg16() implemented by cmpxchg(), which means we still
+> don't have forward progress guarantee. So this configuration doesn't
+> solve the problem.
+> 
+> I think it's OK to introduce this config and don't provide xchg16() for
+> risc-v. But I don't see the point of converting other architectures to
+> use it.
 
-     enum:
-       - rv64imac
-       - rv64imafdc
+Hello,
 
-This implies that 'rv64imafc' or 'rv64imafdqc' would be illegal values
-while these combinations of extensions would be compliant with "The
-RISC-V Instruction Set Manual".
+For OpenRISC I did ack the patch to convert to
+CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y.  But I think you are right, the
+generic code in xchg_tail and the xchg16 emulation code in produced by OpenRISC
+using xchg32 would produce very similar code.  I have not compared instructions,
+but it does seem like duplicate functionality.
 
-To me it does not make much sense to try to enumerate all permissible
-permutations of RISC-V extensions.
+Why doesn't RISC-V add the xchg16 emulation code similar to OpenRISC?  For
+OpenRISC we added xchg16 and xchg8 emulation code to enable qspinlocks.  So
+one thought is with CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y, can we remove our
+xchg16/xchg8 emulation code?
 
-Shouldn't this enum be removed and replaced by examples?
-
-Best regards
-
-Heinrich
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
