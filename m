@@ -7,70 +7,68 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5AEFCC433ED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 09:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A45B2C433ED
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 09:27:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E746F613C2
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 09:27:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E746F613C2
+	by mail.kernel.org (Postfix) with ESMTPS id 459A2613C2
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 09:27:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 459A2613C2
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=teB6eApcIFejgP5ygdOuebvLheCxLRRPzJzGo6TzNMY=; b=L+XeaCe3Jf7rdEwgpOXdzspI9
-	aW8jDx168sTQt54AV1FPq4kcTX6pZsPFbugBQDJ4fAG6mBMRMJX7LVEW8/fCpifNH9IQGNOJyzAMe
-	/xdZp68NtWUfbROcGrDyxgg6ICZOIx5mVWkXd1ftEPnVzjtwsKUeyQCaxRzuYTrTYxdbWHG9Y6KG3
-	kgkgIuWnZNeaLZjkCpMUarskN8S/y6g73K+StcDTm4JEz65s13TXdkHjygZj7IgagPKl7JIOtPdld
-	7eVAeSteF30mbtF8qnYjyJu0ADgeo2kjBYT4HIbPaEgLnvVkXQHLN6dLUzO6WgTbqTzzFAB105aN1
-	MNnPvTKcg==;
+	 bh=e38bc+dZ53pyHUpolad+fZ7YUBCZdXJBsHAxQOIuAOc=; b=hwLt6zi8hH5sb4aqKuRLIZYEe
+	cYmQ/bMOyBMj54oP34os3+37mVZvmUNblFI/jnA9xmchzQRkUVK7nKUvMFHtX65sCnZOppOfYmjaM
+	5P2EY2n4ljrwLPf4P9qc09HUisKSzzwwifFFXdYB4mr/Mem4GBcH9JRREoS9R8ZfmqYFIjbPUoEZ8
+	+qaMDi6WoihLN7F92gxgBVNQ6Grva6sgp2cokEcCbgl9r/435wlDZYLzQnfX7jKUlJ7KI12kXGUxL
+	oGcHw7WL69ZJhJ8iNi83URP2K0IMxVyU41AOSSz0Q/q8ZfoNPb2CKQdcw2m8vBYPZgblvr6zakgUp
+	DyK1gBHBg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lThzG-0020sj-Ii; Tue, 06 Apr 2021 09:27:06 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1lThzL-0020uH-0Y; Tue, 06 Apr 2021 09:27:11 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lThzC-0020r9-I6
- for linux-riscv@lists.infradead.org; Tue, 06 Apr 2021 09:27:05 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id
- mj7-20020a17090b3687b029014d162a65b6so3413399pjb.2
- for <linux-riscv@lists.infradead.org>; Tue, 06 Apr 2021 02:27:02 -0700 (PDT)
+ id 1lThzG-0020sO-Fd
+ for linux-riscv@lists.infradead.org; Tue, 06 Apr 2021 09:27:08 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id 11so8287382pfn.9
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Apr 2021 02:27:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=LJVnHEL9wDmISU9Vg0VlvH3XXVNDFMjw9QbGT0vkS+s=;
- b=L9h9BkEWqhuybBjcPeHdAn3uIOJwMUBFr97T/0bfTJYLxopvjIpL/vXRZSRN4UM47E
- lhfvNvA3EMQtDxeoDiS7j3afTFRKqatxYOgW5bBtch9BiX6aa1pnJ6fdMFpPQykkctFw
- dbBKZmfCaXgqtlmvoLSzMc5xfOsMaVYMxv/hZ72V/HhMyb7MEJQmiB2pfEQMBPwQ9flA
- 6rSU5Zu/Sx6GIrLSAWBeXCx8r5jOLAGC49wxsGg9mp4bU9WvN7aWqcOPevlBxQeAUYzV
- CwdoINl/BzJotVlmSnw8OMKxd4wvg8ex5PHyuQ81aulEYlACCBMon5r9VvrmoSHwD5AE
- a3QQ==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=bJDxiGn0zb+AtBhh3GrH3c02J/dSNj0T0Os6e9JU2HI=;
+ b=CkAK3AMNLVaTU0AJ+BKXafxyyc2oHDGM5ISRrZstIeYm0ynPQZLoUEbNCbeyNys0US
+ wvN6aKbq1RQwZcbDiughkylaiLEy5dzBC5DOItvgLBPmNMJskYLL8TfUaI9vtKagynM/
+ tJ+NdQww5Jl1iuVgbSIele56yUgv/6Zf1Fm14khEApXkHmRhy4xVSWdIpbjyQVhhapth
+ XXlnJmkhM4cRnqZMS9oAg7MaIJE9REDQNDPj0PTC5azcN4V9DgsjVdCjhdEcZ0WiPAF7
+ yln8aVHSakNPUsVmCLU7eAngNHG7lT3F63G6olwtImNY8A354i+NEIuidgqUB73U0eC2
+ gpUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=LJVnHEL9wDmISU9Vg0VlvH3XXVNDFMjw9QbGT0vkS+s=;
- b=HmwYW0PpUaTW0LrJUG6hdOW35RZKUIyFltTr0DXZWFOsgQHaDhxwe9f3d+IDzrRKFF
- mF8pqzT04YB5qwfDIwL71PC7aKlDyE2pudaEzY4heEFagxPPycX9smGcd7T3jZHa49cF
- QRHlz9Oi4ZfgS/1xffWE+7T3d3tGS+WZENuIDzJAth0Hln11t2d2TcEMmjtj3ESs6tFL
- JaznkI9z/31loCTBG5v++UhxxjZaUy9BW7ABjNqJMM7H2c7yNmZ+6u5nX9nzV0Bq9uan
- L6U5akYT8aqnanzxY9+i2Ej+UnAmrQxoOxs1yx1Z42AqIshKfMFbJM9JpWisTBoP/3fF
- kvhQ==
-X-Gm-Message-State: AOAM533ylui3pbQoouR2r3B0iRFUZybYwBU7S5Za/a2WfSnkxcYbTdNs
- /DaK1BTp7bxWMDMoqU1jESKgSg==
-X-Google-Smtp-Source: ABdhPJyBUlOkkOsWHmmrqZJ2SIsoXbyVkOTqhT2iu1A+tsGX6A1h0bljF+KGztp+WHHmrODKHxbZVA==
-X-Received: by 2002:a17:90b:3909:: with SMTP id
- ob9mr3602609pjb.181.1617701221094; 
- Tue, 06 Apr 2021 02:27:01 -0700 (PDT)
+ bh=bJDxiGn0zb+AtBhh3GrH3c02J/dSNj0T0Os6e9JU2HI=;
+ b=M7LMOJw4f4RcsCRU5Y84Db2GogHZShEnz2VTx01tSqFFwWta2ZD++9M8X/zFHcWvla
+ XInaAvUy4x9RzJ9rYhsqtFp/RQaU8SFiRJNn0eeW1jucoKb21WkUKcTjbjSmL8v26NJD
+ pPJujs4Ac+E7ewjW0MdU6ckwETgHsR4fDTbxthBzTOh0dp8zHFBncvEFcnhkZxv33NR+
+ 4stiy8JI2ccyZjLX8rRR68sCvyZIETaWw/FDMt7n6wyJdjBLX8GsoxobxCRLVYcEhT9k
+ 3hNlHzaIHjWu/u6OOmHN5IUDacKpVkl7xBjK2Qy6kSYY4ixayBUjuLtBlbWzmKH7z2ka
+ ENTg==
+X-Gm-Message-State: AOAM533QMmeSa2QEnuobCiOHSPLoY9ixHV0QjKjkQJDl70u7zw9zTsLU
+ sfzSo0+00wuuN9s0IMKHfQo71g==
+X-Google-Smtp-Source: ABdhPJydGIUF/6dUeUWIt/R7Abd1V20Uua9AfyQ1Nildjd522JxEtojvsjGsv0bmaULXYZeNuwupGA==
+X-Received: by 2002:a63:74c:: with SMTP id 73mr26216577pgh.200.1617701225074; 
+ Tue, 06 Apr 2021 02:27:05 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id w7sm13685589pff.208.2021.04.06.02.26.57
+ by smtp.gmail.com with ESMTPSA id w7sm13685589pff.208.2021.04.06.02.27.01
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 06 Apr 2021 02:27:00 -0700 (PDT)
+ Tue, 06 Apr 2021 02:27:04 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
  erik.danie@sifive.com, zong.li@sifive.com, bhelgaas@google.com,
@@ -81,17 +79,19 @@ To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-clk@vger.kernel.org, helgaas@kernel.org
-Subject: [PATCH v5 5/6] PCI: fu740: Add SiFive FU740 PCIe host controller
- driver
-Date: Tue,  6 Apr 2021 17:26:33 +0800
-Message-Id: <20210406092634.50465-6-greentime.hu@sifive.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: [PATCH v5 6/6] riscv: dts: Add PCIe support for the SiFive FU740-C000
+ SoC
+Date: Tue,  6 Apr 2021 17:26:34 +0800
+Message-Id: <20210406092634.50465-7-greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210406092634.50465-1-greentime.hu@sifive.com>
 References: <20210406092634.50465-1-greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210406_102703_190669_63AE515F 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20210406_102706_601316_E67AD4FD 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,369 +108,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Paul Walmsley <paul.walmsley@sifive.com>
-
-Add driver for the SiFive FU740 PCIe host controller.
-This controller is based on the DesignWare PCIe core.
-
-Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-Co-developed-by: Henry Styles <hes@sifive.com>
-Signed-off-by: Henry Styles <hes@sifive.com>
-Co-developed-by: Erik Danie <erik.danie@sifive.com>
-Signed-off-by: Erik Danie <erik.danie@sifive.com>
-Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- drivers/pci/controller/dwc/Kconfig      |   9 +
- drivers/pci/controller/dwc/Makefile     |   1 +
- drivers/pci/controller/dwc/pcie-fu740.c | 308 ++++++++++++++++++++++++
- 3 files changed, 318 insertions(+)
- create mode 100644 drivers/pci/controller/dwc/pcie-fu740.c
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 33 ++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index 22c5529e9a65..0a37d21ed64e 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -318,4 +318,13 @@ config PCIE_AL
- 	  required only for DT-based platforms. ACPI platforms with the
- 	  Annapurna Labs PCIe controller don't need to enable this.
- 
-+config PCIE_FU740
-+	bool "SiFive FU740 PCIe host controller"
-+	depends on PCI_MSI_IRQ_DOMAIN
-+	depends on SOC_SIFIVE || COMPILE_TEST
-+	select PCIE_DW_HOST
-+	help
-+	  Say Y here if you want PCIe controller support for the SiFive
-+	  FU740.
-+
- endmenu
-diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-index a751553fa0db..625f6aaeb5b8 100644
---- a/drivers/pci/controller/dwc/Makefile
-+++ b/drivers/pci/controller/dwc/Makefile
-@@ -5,6 +5,7 @@ obj-$(CONFIG_PCIE_DW_EP) += pcie-designware-ep.o
- obj-$(CONFIG_PCIE_DW_PLAT) += pcie-designware-plat.o
- obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
- obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
-+obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
- obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
- obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
- obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
-diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
-new file mode 100644
-index 000000000000..f8abb08095aa
---- /dev/null
-+++ b/drivers/pci/controller/dwc/pcie-fu740.c
-@@ -0,0 +1,308 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * FU740 DesignWare PCIe Controller integration
-+ * Copyright (C) 2019-2021 SiFive, Inc.
-+ * Paul Walmsley
-+ * Greentime Hu
-+ *
-+ * Based in part on the i.MX6 PCIe host controller shim which is:
-+ *
-+ * Copyright (C) 2013 Kosagi
-+ *		https://www.kosagi.com
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/gpio.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/pci.h>
-+#include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/resource.h>
-+#include <linux/types.h>
-+#include <linux/interrupt.h>
-+#include <linux/iopoll.h>
-+#include <linux/reset.h>
-+
-+#include "pcie-designware.h"
-+
-+#define to_fu740_pcie(x)	dev_get_drvdata((x)->dev)
-+
-+struct fu740_pcie {
-+	struct dw_pcie pci;
-+	void __iomem *mgmt_base;
-+	struct gpio_desc *reset;
-+	struct gpio_desc *pwren;
-+	struct clk *pcie_aux;
-+	struct reset_control *rst;
-+};
-+
-+#define SIFIVE_DEVICESRESETREG		0x28
-+
-+#define PCIEX8MGMT_PERST_N		0x0
-+#define PCIEX8MGMT_APP_LTSSM_ENABLE	0x10
-+#define PCIEX8MGMT_APP_HOLD_PHY_RST	0x18
-+#define PCIEX8MGMT_DEVICE_TYPE		0x708
-+#define PCIEX8MGMT_PHY0_CR_PARA_ADDR	0x860
-+#define PCIEX8MGMT_PHY0_CR_PARA_RD_EN	0x870
-+#define PCIEX8MGMT_PHY0_CR_PARA_RD_DATA	0x878
-+#define PCIEX8MGMT_PHY0_CR_PARA_SEL	0x880
-+#define PCIEX8MGMT_PHY0_CR_PARA_WR_DATA	0x888
-+#define PCIEX8MGMT_PHY0_CR_PARA_WR_EN	0x890
-+#define PCIEX8MGMT_PHY0_CR_PARA_ACK	0x898
-+#define PCIEX8MGMT_PHY1_CR_PARA_ADDR	0x8a0
-+#define PCIEX8MGMT_PHY1_CR_PARA_RD_EN	0x8b0
-+#define PCIEX8MGMT_PHY1_CR_PARA_RD_DATA	0x8b8
-+#define PCIEX8MGMT_PHY1_CR_PARA_SEL	0x8c0
-+#define PCIEX8MGMT_PHY1_CR_PARA_WR_DATA	0x8c8
-+#define PCIEX8MGMT_PHY1_CR_PARA_WR_EN	0x8d0
-+#define PCIEX8MGMT_PHY1_CR_PARA_ACK	0x8d8
-+
-+#define PCIEX8MGMT_PHY_CDR_TRACK_EN	BIT(0)
-+#define PCIEX8MGMT_PHY_LOS_THRSHLD	BIT(5)
-+#define PCIEX8MGMT_PHY_TERM_EN		BIT(9)
-+#define PCIEX8MGMT_PHY_TERM_ACDC	BIT(10)
-+#define PCIEX8MGMT_PHY_EN		BIT(11)
-+#define PCIEX8MGMT_PHY_INIT_VAL		(PCIEX8MGMT_PHY_CDR_TRACK_EN|\
-+					 PCIEX8MGMT_PHY_LOS_THRSHLD|\
-+					 PCIEX8MGMT_PHY_TERM_EN|\
-+					 PCIEX8MGMT_PHY_TERM_ACDC|\
-+					 PCIEX8MGMT_PHY_EN)
-+
-+#define PCIEX8MGMT_PHY_LANEN_DIG_ASIC_RX_OVRD_IN_3	0x1008
-+#define PCIEX8MGMT_PHY_LANE_OFF		0x100
-+#define PCIEX8MGMT_PHY_LANE0_BASE	(PCIEX8MGMT_PHY_LANEN_DIG_ASIC_RX_OVRD_IN_3 + 0x100 * 0)
-+#define PCIEX8MGMT_PHY_LANE1_BASE	(PCIEX8MGMT_PHY_LANEN_DIG_ASIC_RX_OVRD_IN_3 + 0x100 * 1)
-+#define PCIEX8MGMT_PHY_LANE2_BASE	(PCIEX8MGMT_PHY_LANEN_DIG_ASIC_RX_OVRD_IN_3 + 0x100 * 2)
-+#define PCIEX8MGMT_PHY_LANE3_BASE	(PCIEX8MGMT_PHY_LANEN_DIG_ASIC_RX_OVRD_IN_3 + 0x100 * 3)
-+
-+static void fu740_pcie_assert_reset(struct fu740_pcie *afp)
-+{
-+	/* Assert PERST_N GPIO */
-+	gpiod_set_value_cansleep(afp->reset, 0);
-+	/* Assert controller PERST_N */
-+	writel_relaxed(0x0, afp->mgmt_base + PCIEX8MGMT_PERST_N);
-+}
-+
-+static void fu740_pcie_deassert_reset(struct fu740_pcie *afp)
-+{
-+	/* Deassert controller PERST_N */
-+	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_PERST_N);
-+	/* Deassert PERST_N GPIO */
-+	gpiod_set_value_cansleep(afp->reset, 1);
-+}
-+
-+static void fu740_pcie_power_on(struct fu740_pcie *afp)
-+{
-+	gpiod_set_value_cansleep(afp->pwren, 1);
-+	/*
-+	 * Ensure that PERST has been asserted for at least 100 ms.
-+	 * Section 2.2 of PCI Express Card Electromechanical Specification
-+	 * Revision 3.0
-+	 */
-+	msleep(100);
-+}
-+
-+static void fu740_pcie_drive_reset(struct fu740_pcie *afp)
-+{
-+	fu740_pcie_assert_reset(afp);
-+	fu740_pcie_power_on(afp);
-+	fu740_pcie_deassert_reset(afp);
-+}
-+
-+static void fu740_phyregwrite(const uint8_t phy, const uint16_t addr,
-+			      const uint16_t wrdata, struct fu740_pcie *afp)
-+{
-+	struct device *dev = afp->pci.dev;
-+	void __iomem *phy_cr_para_addr;
-+	void __iomem *phy_cr_para_wr_data;
-+	void __iomem *phy_cr_para_wr_en;
-+	void __iomem *phy_cr_para_ack;
-+	int ret, val;
-+
-+	/* Setup */
-+	if (phy) {
-+		phy_cr_para_addr = afp->mgmt_base + PCIEX8MGMT_PHY1_CR_PARA_ADDR;
-+		phy_cr_para_wr_data = afp->mgmt_base + PCIEX8MGMT_PHY1_CR_PARA_WR_DATA;
-+		phy_cr_para_wr_en = afp->mgmt_base + PCIEX8MGMT_PHY1_CR_PARA_WR_EN;
-+		phy_cr_para_ack = afp->mgmt_base + PCIEX8MGMT_PHY1_CR_PARA_ACK;
-+	} else {
-+		phy_cr_para_addr = afp->mgmt_base + PCIEX8MGMT_PHY0_CR_PARA_ADDR;
-+		phy_cr_para_wr_data = afp->mgmt_base + PCIEX8MGMT_PHY0_CR_PARA_WR_DATA;
-+		phy_cr_para_wr_en = afp->mgmt_base + PCIEX8MGMT_PHY0_CR_PARA_WR_EN;
-+		phy_cr_para_ack = afp->mgmt_base + PCIEX8MGMT_PHY0_CR_PARA_ACK;
-+	}
-+
-+	writel_relaxed(addr, phy_cr_para_addr);
-+	writel_relaxed(wrdata, phy_cr_para_wr_data);
-+	writel_relaxed(1, phy_cr_para_wr_en);
-+
-+	/* Wait for wait_idle */
-+	ret = readl_poll_timeout(phy_cr_para_ack, val, val, 10, 5000);
-+	if (ret)
-+		dev_warn(dev, "Wait for wait_idle state failed!\n");
-+
-+	/* Clear */
-+	writel_relaxed(0, phy_cr_para_wr_en);
-+
-+	/* Wait for ~wait_idle */
-+	ret = readl_poll_timeout(phy_cr_para_ack, val, !val, 10, 5000);
-+	if (ret)
-+		dev_warn(dev, "Wait for !wait_idle state failed!\n");
-+}
-+
-+static void fu740_pcie_init_phy(struct fu740_pcie *afp)
-+{
-+	/* Enable phy cr_para_sel interfaces */
-+	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_PHY0_CR_PARA_SEL);
-+	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_PHY1_CR_PARA_SEL);
-+
-+	/*
-+	 * Wait 10 cr_para cycles to guarantee that the registers are ready
-+	 * to be edited.
-+	 */
-+	ndelay(10);
-+
-+	/* Set PHY AC termination mode */
-+	fu740_phyregwrite(0, PCIEX8MGMT_PHY_LANE0_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(0, PCIEX8MGMT_PHY_LANE1_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(0, PCIEX8MGMT_PHY_LANE2_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(0, PCIEX8MGMT_PHY_LANE3_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE0_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE1_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE2_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE3_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
-+}
-+
-+static int fu740_pcie_start_link(struct dw_pcie *pci)
-+{
-+	struct device *dev = pci->dev;
-+	struct fu740_pcie *afp = dev_get_drvdata(dev);
-+
-+	/* Enable LTSSM */
-+	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_LTSSM_ENABLE);
-+	return 0;
-+}
-+
-+static int fu740_pcie_host_init(struct pcie_port *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct fu740_pcie *afp = to_fu740_pcie(pci);
-+	struct device *dev = pci->dev;
-+	int ret;
-+
-+	/* Power on reset */
-+	fu740_pcie_drive_reset(afp);
-+
-+	/* Enable pcieauxclk */
-+	ret = clk_prepare_enable(afp->pcie_aux);
-+	if (ret) {
-+		dev_err(dev, "unable to enable pcie_aux clock\n");
-+		return ret;
-+	}
-+
-+	/*
-+	 * Assert hold_phy_rst (hold the controller LTSSM in reset after
-+	 * power_up_rst_n for register programming with cr_para)
-+	 */
-+	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_HOLD_PHY_RST);
-+
-+	/* Deassert power_up_rst_n */
-+	ret = reset_control_deassert(afp->rst);
-+	if (ret) {
-+		dev_err(dev, "unable to deassert pcie_power_up_rst_n\n");
-+		return ret;
-+	}
-+
-+	fu740_pcie_init_phy(afp);
-+
-+	/* Disable pcieauxclk */
-+	clk_disable_unprepare(afp->pcie_aux);
-+	/* Clear hold_phy_rst */
-+	writel_relaxed(0x0, afp->mgmt_base + PCIEX8MGMT_APP_HOLD_PHY_RST);
-+	/* Enable pcieauxclk */
-+	ret = clk_prepare_enable(afp->pcie_aux);
-+	/* Set RC mode */
-+	writel_relaxed(0x4, afp->mgmt_base + PCIEX8MGMT_DEVICE_TYPE);
-+
-+	return 0;
-+}
-+
-+static const struct dw_pcie_host_ops fu740_pcie_host_ops = {
-+	.host_init = fu740_pcie_host_init,
-+};
-+
-+static const struct dw_pcie_ops dw_pcie_ops = {
-+	.start_link = fu740_pcie_start_link,
-+};
-+
-+static int fu740_pcie_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct dw_pcie *pci;
-+	struct fu740_pcie *afp;
-+
-+	afp = devm_kzalloc(dev, sizeof(*afp), GFP_KERNEL);
-+	if (!afp)
-+		return -ENOMEM;
-+	pci = &afp->pci;
-+	pci->dev = dev;
-+	pci->ops = &dw_pcie_ops;
-+	pci->pp.ops = &fu740_pcie_host_ops;
-+
-+	/* SiFive specific region: mgmt */
-+	afp->mgmt_base = devm_platform_ioremap_resource_byname(pdev, "mgmt");
-+	if (IS_ERR(afp->mgmt_base))
-+		return PTR_ERR(afp->mgmt_base);
-+
-+	/* Fetch GPIOs */
-+	afp->reset = devm_gpiod_get_optional(dev, "reset-gpios", GPIOD_OUT_LOW);
-+	if (IS_ERR(afp->reset))
-+		return dev_err_probe(dev, PTR_ERR(afp->reset), "unable to get reset-gpios\n");
-+
-+	afp->pwren = devm_gpiod_get_optional(dev, "pwren-gpios", GPIOD_OUT_LOW);
-+	if (IS_ERR(afp->pwren))
-+		return dev_err_probe(dev, PTR_ERR(afp->pwren), "unable to get pwren-gpios\n");
-+
-+	/* Fetch clocks */
-+	afp->pcie_aux = devm_clk_get(dev, "pcie_aux");
-+	if (IS_ERR(afp->pcie_aux))
-+		return dev_err_probe(dev, PTR_ERR(afp->pcie_aux),
-+					     "pcie_aux clock source missing or invalid\n");
-+
-+	/* Fetch reset */
-+	afp->rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(afp->rst))
-+		return dev_err_probe(dev, PTR_ERR(afp->rst), "unable to get reset\n");
-+
-+	platform_set_drvdata(pdev, afp);
-+
-+	return dw_pcie_host_init(&pci->pp);
-+}
-+
-+static void fu740_pcie_shutdown(struct platform_device *pdev)
-+{
-+	struct fu740_pcie *afp = platform_get_drvdata(pdev);
-+
-+	/* Bring down link, so bootloader gets clean state in case of reboot */
-+	fu740_pcie_assert_reset(afp);
-+}
-+
-+static const struct of_device_id fu740_pcie_of_match[] = {
-+	{ .compatible = "sifive,fu740-pcie", },
-+	{},
-+};
-+
-+static struct platform_driver fu740_pcie_driver = {
-+	.driver = {
-+		   .name = "fu740-pcie",
-+		   .of_match_table = fu740_pcie_of_match,
-+		   .suppress_bind_attrs = true,
-+	},
-+	.probe = fu740_pcie_probe,
-+	.shutdown = fu740_pcie_shutdown,
-+};
-+
-+builtin_platform_driver(fu740_pcie_driver);
+diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+index d1bb22b11920..b2317c8e3a80 100644
+--- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+@@ -158,6 +158,7 @@ prci: clock-controller@10000000 {
+ 			reg = <0x0 0x10000000 0x0 0x1000>;
+ 			clocks = <&hfclk>, <&rtcclk>;
+ 			#clock-cells = <1>;
++			#reset-cells = <1>;
+ 		};
+ 		uart0: serial@10010000 {
+ 			compatible = "sifive,fu740-c000-uart", "sifive,uart0";
+@@ -288,5 +289,37 @@ gpio: gpio@10060000 {
+ 			clocks = <&prci PRCI_CLK_PCLK>;
+ 			status = "disabled";
+ 		};
++		pcie@e00000000 {
++			compatible = "sifive,fu740-pcie";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			reg = <0xe 0x00000000 0x0 0x80000000>,
++			      <0xd 0xf0000000 0x0 0x10000000>,
++			      <0x0 0x100d0000 0x0 0x1000>;
++			reg-names = "dbi", "config", "mgmt";
++			device_type = "pci";
++			dma-coherent;
++			bus-range = <0x0 0xff>;
++			ranges = <0x81000000  0x0 0x60080000  0x0 0x60080000 0x0 0x10000>,      /* I/O */
++				 <0x82000000  0x0 0x60090000  0x0 0x60090000 0x0 0xff70000>,    /* mem */
++				 <0x82000000  0x0 0x70000000  0x0 0x70000000 0x0 0x1000000>,    /* mem */
++				 <0xc3000000 0x20 0x00000000 0x20 0x00000000 0x20 0x00000000>;  /* mem prefetchable */
++			num-lanes = <0x8>;
++			interrupts = <56>, <57>, <58>, <59>, <60>, <61>, <62>, <63>, <64>;
++			interrupt-names = "msi", "inta", "intb", "intc", "intd";
++			interrupt-parent = <&plic0>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &plic0 57>,
++					<0x0 0x0 0x0 0x2 &plic0 58>,
++					<0x0 0x0 0x0 0x3 &plic0 59>,
++					<0x0 0x0 0x0 0x4 &plic0 60>;
++			clock-names = "pcie_aux";
++			clocks = <&prci PRCI_CLK_PCIE_AUX>;
++			pwren-gpios = <&gpio 5 0>;
++			reset-gpios = <&gpio 8 0>;
++			resets = <&prci 4>;
++			status = "okay";
++		};
+ 	};
+ };
 -- 
 2.30.2
 
