@@ -2,84 +2,74 @@ Return-Path: <SRS0=fjc5=JD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DDCBC433ED
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 07:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 39198C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 07:20:36 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 02A8D601FF
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 07:16:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 02A8D601FF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 816136138B
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Apr 2021 07:20:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 816136138B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=XV5TFshJp98AoGqKuQL9fastLrA/iuUD/kMl50uvnHw=; b=i/VfVuu6O8Y9G3QPF1gQWxYU9
-	nQNTBKcZlkOP7xUDyuVaQxJNmLHnbkuGTOO5t6Qsy/xuHzWiyPtWQ3fGqaOiEfiw7kVgU67yI0F9+
-	9nKFlEa8uqYOq2klCHcteK3abHI/nfssyg9s2oVg0W/rOICHoG4o8nb3kd5i02HZfEdVT0zQjXdL0
-	qxmywTPyp8eUbo12L7Ti3+PYTnSwByUD8ZGD5pH3ZREgWixT3EpVAaGUBStJchqu0qY0gacmitQXN
-	FVqLpfM3oKhclGbeF7A7GNM24qRma5lFbvwXfKFmMpeXXnYMmGOvwWk5ZIVb4dGBWtJhVTVp8P2Hf
-	jpqSoIpmg==;
+	 bh=EW7baa6YuIuRDedx083BQxOxXVxyzr7iohmd+5Gc1XA=; b=PH+A9SrNhXxlMuuOHsC0vwgiE
+	x8fIbkxdeNjl/rbsy2ovVcZlgHFKX++4eDMTzo0JJhuxDLe6X3VrVjCWh67i1OmQmxKO/mRVt/5Qr
+	vbvJjouBClyfXNn46dKgB0oO0NwNPCp9FvG4eDuFTPOvdi6OyKkbjExyjwWCx3GCX4wpP/ud3sYhu
+	WJnnJJusIUg/1/ca+CdcpXLDz5B8aFkteEGYbVg0NzqT95SYBJRvgZd4Bh3hUegwdIvcuNgQ0MUDu
+	JdR3tifSGmxvhVuaplx6CFtZHB9WuZbdL9qSPAP0dyA9kzkk1bOAPgoKhUwphg7C64a13uMKlCU5p
+	bY7iwKg8A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lTfwf-001k1r-S5; Tue, 06 Apr 2021 07:16:17 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1lTg0X-001kjQ-7q; Tue, 06 Apr 2021 07:20:17 +0000
+Received: from mail-vs1-f42.google.com ([209.85.217.42])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lTfwa-001k1P-VY
- for linux-riscv@desiato.infradead.org; Tue, 06 Apr 2021 07:16:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=aRGRQBCE7ZKsjbhrcqSn4Jo3nc9IkKbKN4abWLlyP80=; b=WvzcNuYnVyRbah4nxnWcWdoNU6
- H5wHYaDBfCISTQvHzRpzGRn91lc03dCUXiBbEEUDCPEB4Yeq63GiV6lLq8i8AZn/tWpZxZYSuhctd
- jzf6VVp1NOue0hMTMWxQ6mga6cVW6N5Z42Buoy8IX/h0NKUa+zFqx39wB3zP83mikjucbNP8MchX1
- FwnadXNwysORLciBkvj7UA/dLnA6M1F8WphRWx/kc45XKGGoqNFHveQGY09rmNhpPwFkIBPB2rDgH
- euma4zKdRl019WHxYogGJ9bTOK8qADgmVesbRspJNMCQ2pQLQNFFeKHZtm1/fK0PL76zCDW9f+atv
- w96mJ69g==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
- id 1lTfwF-00CQIw-Vj; Tue, 06 Apr 2021 07:16:00 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A7762301324;
- Tue,  6 Apr 2021 09:15:50 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 79FD12C1D199B; Tue,  6 Apr 2021 09:15:50 +0200 (CEST)
-Date: Tue, 6 Apr 2021 09:15:50 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, linux-arch <linux-arch@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-Message-ID: <YGwKpmPkn5xIxIyx@hirez.programming.kicks-ass.net>
-References: <1616868399-82848-1-git-send-email-guoren@kernel.org>
- <1616868399-82848-4-git-send-email-guoren@kernel.org>
- <YGGGqftfr872/4CU@hirez.programming.kicks-ass.net>
- <CAJF2gTQNV+_txMHJw0cmtS-xcnuaCja-F7XBuOL_J0yN39c+uQ@mail.gmail.com>
- <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
- <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
- <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
- <CAJF2gTS4jexKsSiXBY=5rz53LjcLUZ1K4pxjYJDVQCWx_8JTuA@mail.gmail.com>
+ id 1lTg0M-001kgu-L4
+ for linux-riscv@lists.infradead.org; Tue, 06 Apr 2021 07:20:10 +0000
+Received: by mail-vs1-f42.google.com with SMTP id 2so6329335vsh.4
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Apr 2021 00:20:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=WfE4/UxR9aMUAyVI/W893Z6O1V5sOJWf9p5n5uxKnHc=;
+ b=KFZqcsjwmglHG0uIY0uB0YOQNJWdzbO2ir5tgNY529kbqgsSZ+r7+XCIlK5KIU3DqG
+ 73UW2HkKgnkJt5gpBbRdFNndVDCtMuRWLKyWJXZUUkN9gCU43ItwejyJGddeVV9ZKt9A
+ LvYOFdaGS8Eiwtm/l6x5jYdGQpB7BU68tTqnl3ogusNEazm3ahvMrBxrrrERovtWHrPa
+ 4DDXKGcJ4o6u5ihnuZwK228r2BWV+3KbvJ4EL3uvyBVZt2zKUXOSh2EvVlXMLxme7dHS
+ eR7+/ZYKoDf981iU/hDg05ayS4tMJm9pRFXp0cOob18aUQUtZtbRCOsPkOChH+ZBN4ZO
+ lt8A==
+X-Gm-Message-State: AOAM531MkZ0MCWIiiihNUNtsDmpSQ3murkSmNvNUquEY23FUl14Mpb5m
+ PXg9gplqiEyivInABFsFOvvkt/N30kxMsjWsGzxeQqTF4D0=
+X-Google-Smtp-Source: ABdhPJz5iGk9TYXXhbRbt8SfpyWATxxhwF3T6eZB/PEOC74t/cVwJX7WeRFS1pweG5WpuYrw9WstMrMcrIB5u0W04bg=
+X-Received: by 2002:a67:f5ca:: with SMTP id t10mr9234571vso.40.1617693604829; 
+ Tue, 06 Apr 2021 00:20:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTS4jexKsSiXBY=5rz53LjcLUZ1K4pxjYJDVQCWx_8JTuA@mail.gmail.com>
+References: <20210405085712.1953848-1-mick@ics.forth.gr>
+ <20210405085712.1953848-4-mick@ics.forth.gr>
+In-Reply-To: <20210405085712.1953848-4-mick@ics.forth.gr>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 6 Apr 2021 09:19:52 +0200
+Message-ID: <CAMuHMdWi+wo0+PCR6B1wyXVesG-kL9NQt8XFBuWhZ3SdVUaLZg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] RISC-V: Improve init_resources
+To: Nick Kossifidis <mick@ics.forth.gr>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210406_082006_953093_49AF5735 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +86,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 31, 2021 at 11:22:35PM +0800, Guo Ren wrote:
-> On Mon, Mar 29, 2021 at 8:50 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > On Mon, Mar 29, 2021 at 08:01:41PM +0800, Guo Ren wrote:
-> > > u32 a = 0x55aa66bb;
-> > > u16 *ptr = &a;
-> > >
-> > > CPU0                       CPU1
-> > > =========             =========
-> > > xchg16(ptr, new)     while(1)
-> > >                                     WRITE_ONCE(*(ptr + 1), x);
-> > >
-> > > When we use lr.w/sc.w implement xchg16, it'll cause CPU0 deadlock.
-> >
-> > Then I think your LL/SC is broken.
-> No, it's not broken LR.W/SC.W. Quote <8.3 Eventual Success of
-> Store-Conditional Instructions>:
-> 
-> "As a consequence of the eventuality guarantee, if some harts in an
-> execution environment are executing constrained LR/SC loops, and no
-> other harts or devices in the execution environment execute an
-> unconditional store or AMO to that reservation set, then at least one
-> hart will eventually exit its constrained LR/SC loop. By contrast, if
-> other harts or devices continue to write to that reservation set, it
-> is not guaranteed that any hart will exit its LR/SC loop."
+Hi Nick,
 
-(there, reflowed it for you)
+Thanks for your patch!
 
-That just means your arch spec is broken too :-)
+On Mon, Apr 5, 2021 at 10:57 AM Nick Kossifidis <mick@ics.forth.gr> wrote:
+> * Kernel region is always present and we know where it is, no
+> need to look for it inside the loop, just ignore it like the
+> rest of the reserved regions within system's memory.
+>
+> * Don't call memblock_free inside the loop, if called it'll split
+> the region of pre-allocated resources in two parts, messing things
+> up, just re-use the previous pre-allocated resource and free any
+> unused resources after both loops finish.
+>
+> * memblock_alloc may add a region when called, so increase the
+> number of pre-allocated regions by one to be on the safe side
+> (reported and patched by Geert Uytterhoeven)
+>
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-> So I think it's a feature of LR/SC. How does the above code (also use
-> ll.w/sc.w to implement xchg16) running on arm64?
-> 
-> 1: ldxr
->     eor
->     cbnz ... 2f
->     stxr
->     cbnz ... 1b   // I think it would deadlock for arm64.
-> 
-> "LL/SC fwd progress" which you have mentioned could guarantee stxr
-> success? How hardware could do that?
+Where does this SoB come from?
 
-I'm not a hardware person; I've never actually build anything larger
-than a 4 bit adder with nand gates (IIRC, 25+ years ago). And I'll let
-Will answer the ARM64 part.
+> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 
-That said, I think the idea is that if you lock the line (load-locked is
-a clue ofcourse) to the core until either: an exception (or anything
-else that is guaranteed to fail LL/SC), SC or N instructions, then a
-competing LL/SC will stall in the LL while the first core makes
-progress.
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
 
-This same principle is key to hardware progress for cmpxchg/cas loops,
-don't instantly yield the exclusive hold on the cacheline, keep it
-around for a while.
+> @@ -129,53 +139,42 @@ static void __init init_resources(void)
+>         struct resource *res = NULL;
+>         struct resource *mem_res = NULL;
+>         size_t mem_res_sz = 0;
+> -       int ret = 0, i = 0;
+> -
+> -       code_res.start = __pa_symbol(_text);
+> -       code_res.end = __pa_symbol(_etext) - 1;
+> -       code_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> -
+> -       rodata_res.start = __pa_symbol(__start_rodata);
+> -       rodata_res.end = __pa_symbol(__end_rodata) - 1;
+> -       rodata_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> -
+> -       data_res.start = __pa_symbol(_data);
+> -       data_res.end = __pa_symbol(_edata) - 1;
+> -       data_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> +       int num_resources = 0, res_idx = 0;
+> +       int ret = 0;
+>
+> -       bss_res.start = __pa_symbol(__bss_start);
+> -       bss_res.end = __pa_symbol(__bss_stop) - 1;
+> -       bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> +       /* + 1 as memblock_alloc() might increase memblock.reserved.cnt */
+> +       num_resources = memblock.memory.cnt + memblock.reserved.cnt + 1;
+> +       res_idx = num_resources - 1;
+>
+> -       mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt) * sizeof(*mem_res);
 
-Out-of-order CPUs can do even better I think, by virtue of them being
-able to see tight loops.
+Oh, you incorporated my commit ce989f1472ae350e ("RISC-V: Fix out-of-bounds
+accesses in init_resources()") (from v5.12-rc4) into your patch.
+Why? This means your patch does not apply against upstream.
 
+> +       mem_res_sz = num_resources * sizeof(*mem_res);
+>         mem_res = memblock_alloc(mem_res_sz, SMP_CACHE_BYTES);
+>         if (!mem_res)
+>                 panic("%s: Failed to allocate %zu bytes\n", __func__, mem_res_sz);
 
-Anyway, given you have such a crap architecture (and here I thought
-RISC-V was supposed to be a modern design *sigh*), you had better go
-look at the sparc64 atomic implementation which has a software backoff
-for failed CAS in order to make fwd progress.
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
