@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9B6BC433B4
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 09:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 03576C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:37:12 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 51069610F9
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 09:48:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51069610F9
+	by mail.kernel.org (Postfix) with ESMTPS id A1BA461382
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:37:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A1BA461382
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+0MlWH78qBNex/5mSjOhkeDUkS0vuTOs/4pnjE7MRzA=; b=PTpqDNlhl/lnVBK4Enul/uMbt
-	7kU8aW4XE/Zyq8sgYVO55slomnE1jCC1axiFc0a5Aj7cxWrriOXVtFFIb/XBpWQ79Xf6VBNBiMBMF
-	VuoszzT+a0ZndlmK9fRkRncLmswNbMEgDS4nyC7eyWcVKNgc0wbZYo8OSvmHu+IKt9X59Wi3WxHmg
-	26HiFvA6N+nS5F4Yyf8Fa9yvw+rF1OhBNwyeG2XfneKzq6+eFQbWIxyJ86j1EvOGaYVq9zyQJm2P8
-	qmqFw/St0porR26sWMY6m/WziUfLgIxTd+jMTccy3JpVsgjlElp3RRp4i2bcvvjRnYp1R8wcROV7R
-	XolK/iG9w==;
+	 bh=X9MIU6WuJ5xlBR9aDikejhk5PW/w6Hhd1UlCGqJS7ck=; b=VMhkgIuzQOOexJ4maLMfFGQ43
+	Vs0eJ3rHcDER4qw7C1ibpWVLKxBEbQ1FqPD8FuBIGWy1nCzG+NPo12DJ0pz9WKoFwtdkQxZFKD9wo
+	lDDlUx2tbtZtJMjQHRfAgEzM/lg0AtqgIWJZC/SsdYRjTuxOzYaGyfALznhsy1c1gx7oz0N2jTvtE
+	YcM706OWzPPEuz64mQG70lsfQC+bG26KtlHSOrPNE9rBJxpJwA3tCczTJ2h1ppFZBDPEqFZECq4ot
+	bL8IfkfEjwYqOvLOZOwTVyD1DOwp4NlgJayILitg6vvmf9CS9N5ABv2hdZvZqmdPrrmBP9onhwS3x
+	GhyetMaMQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lU4nC-004eFC-Lg; Wed, 07 Apr 2021 09:48:10 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
- by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lU4n9-004eEr-1N
- for linux-riscv@desiato.infradead.org; Wed, 07 Apr 2021 09:48:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=+qSokmLjMhdEnOSkSopblq5MKalEi8UUYD3QbqGxqos=; b=eC2rQ34nM7cRrzDAhzzhEN3wPe
- kTzKVXiPYsQriyTitj8XaOZiOMYSs2CmPna+vSZrzx2X+AyYzDfGkh6XwDeUaP/R2Sdhw0fUQHZoE
- xcIkVZ9BgwAGrHrQdPx1JVxc28uo8a4iZ5LllVP7TnFFfJ9CG+a4lOMAZ0xT4W5AUDITT4PKOzipn
- iYX5eNIGnsNYC8ByBciAnWPp9g9vDQf8R7DSJ/g+l6EF+CP1ntsJaOLY4qb8I0kMJDUqs+viQJKqd
- up6N4jP4nowpqWEIhSTtf6tIwQksMPnvi+P/KtQNQPk3PhCqoIF2gV1qmvrv5jzGvLRrNMJHVDhzZ
- FeCH/O7Q==;
+	id 1lU6UQ-004tR8-Eu; Wed, 07 Apr 2021 11:36:54 +0000
 Received: from j217100.upc-j.chello.nl ([24.132.217.100]
  helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
- id 1lU4ms-00EGP6-RS; Wed, 07 Apr 2021 09:47:54 +0000
+ by desiato.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
+ id 1lU6UI-004tQo-A8; Wed, 07 Apr 2021 11:36:50 +0000
 Received: from hirez.programming.kicks-ass.net
  (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits))
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 44BCF300119;
- Wed,  7 Apr 2021 11:47:49 +0200 (CEST)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 66B363001FB;
+ Wed,  7 Apr 2021 13:36:45 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 27BB724403DB8; Wed,  7 Apr 2021 11:47:49 +0200 (CEST)
-Date: Wed, 7 Apr 2021 11:47:49 +0200
+ id 4D45A23D3AF81; Wed,  7 Apr 2021 13:36:45 +0200 (CEST)
+Date: Wed, 7 Apr 2021 13:36:45 +0200
 From: Peter Zijlstra <peterz@infradead.org>
-To: Stafford Horne <shorne@gmail.com>
-Cc: Boqun Feng <boqun.feng@gmail.com>, guoren@kernel.org,
- linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
- Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
- Anup Patel <anup@brainfault.org>, sparclinux@vger.kernel.org,
- Waiman Long <longman@redhat.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Ingo Molnar <mingo@redhat.com>
-Subject: Re: [OpenRISC] [PATCH v6 1/9] locking/qspinlock: Add
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Stafford Horne <shorne@gmail.com>, Guo Ren <guoren@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, linux-arch <linux-arch@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
+ Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
  ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-Message-ID: <YG1/xRgWlLHD4j/8@hirez.programming.kicks-ass.net>
-References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
- <1617201040-83905-2-git-send-email-guoren@kernel.org>
- <YGyRrBjomDCPOBUd@boqun-archlinux>
- <20210406235208.GG3288043@lianli.shorne-pla.net>
+Message-ID: <YG2ZTSFMGrikYWuL@hirez.programming.kicks-ass.net>
+References: <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
+ <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
+ <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
+ <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
+ <YGNNCEAMSWbBU+hd@hirez.programming.kicks-ass.net>
+ <20210330223514.GE1171117@lianli.shorne-pla.net>
+ <CAK8P3a0hj2pYr-CuNJkjO==RafZ=J+6kCo4HTWEwvvRXPcngJA@mail.gmail.com>
+ <CAJF2gTRxPMURTE3M5WMQ_0q1yZ6K8nraGsFjGLUmpG9nYS_hng@mail.gmail.com>
+ <20210406085626.GE3288043@lianli.shorne-pla.net>
+ <CAK8P3a3Pf3TbGoVP7JP7gfPV-WDM8MHV_hdqSwNKKFDr1Sb3zQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210406235208.GG3288043@lianli.shorne-pla.net>
+In-Reply-To: <CAK8P3a3Pf3TbGoVP7JP7gfPV-WDM8MHV_hdqSwNKKFDr1Sb3zQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +87,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 07, 2021 at 08:52:08AM +0900, Stafford Horne wrote:
-> Why doesn't RISC-V add the xchg16 emulation code similar to OpenRISC?  For
-> OpenRISC we added xchg16 and xchg8 emulation code to enable qspinlocks.  So
-> one thought is with CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y, can we remove our
-> xchg16/xchg8 emulation code?
+On Wed, Apr 07, 2021 at 10:42:50AM +0200, Arnd Bergmann wrote:
+> Since there are really only a handful of instances in the kernel
+> that use the cmpxchg() or xchg() on u8/u16 variables, it would seem
+> best to just disallow those completely 
 
-CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32 is guaranteed crap.
+Not going to happen. xchg16 is optimal for qspinlock and if we replace
+that with a cmpxchg loop on x86 we're regressing.
 
-All the architectures that have wanted it are RISC style LL/SC archs,
-and for them a cmpxchg loop is a daft thing to do, since it reduces the
-chance of it behaving sanely.
+> Interestingly, the s390 version using __sync_val_compare_and_swap()
+> seems to produce nice output on all architectures that have atomic
+> instructions, with any supported compiler, to the point where I think
+> we could just use that to replace most of the inline-asm versions except
+> for arm64:
+> 
+> #define cmpxchg(ptr, o, n)                                              \
+> ({                                                                      \
+>         __typeof__(*(ptr)) __o = (o);                                   \
+>         __typeof__(*(ptr)) __n = (n);                                   \
+>         (__typeof__(*(ptr))) __sync_val_compare_and_swap((ptr),__o,__n);\
+> })
 
-Why would we provide something that's known to be suboptimal? If an
-architecture chooses to not care about determinism and or fwd progress,
-then that's their choice. But not one, I feel, we should encourage.
+It generates the LL/SC loop, but doesn't do sensible optimizations when
+it's again used in a loop itself. That is, it generates a loop of a
+loop, just like what you'd expect, which is sub-optimal for LL/SC.
 
+> Not how gcc's acquire/release behavior of __sync_val_compare_and_swap()
+> relates to what the kernel wants here.
+> 
+> The gcc documentation also recommends using the standard
+> __atomic_compare_exchange_n() builtin instead, which would allow
+> constructing release/acquire/relaxed versions as well, but I could not
+> get it to produce equally good output. (possibly I was using it wrong)
+
+I'm scared to death of the C11 crap, the compiler will 'optimize' them
+when it feels like it and use the C11 memory model rules for it, which
+are not compatible with the kernel rules.
+
+But the same thing applies, it won't do the right thing for composites.
 
 _______________________________________________
 linux-riscv mailing list
