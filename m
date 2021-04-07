@@ -2,92 +2,96 @@ Return-Path: <SRS0=uKmQ=JE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40CFAC433B4
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85245C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:58:32 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B160F61139
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:57:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B160F61139
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1CBDC61139
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 11:58:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CBDC61139
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bpLjJdYXx2rKy9jiD6dF/PZC2ZWQTwC7ly155UUEch0=; b=cz1cvtNfm8az0Z87CGAuJG/yi
-	6qU1UrSkNYUbQRnRUyF4iOQ76m7xveaGaOMSoEtbf+8l/5a9ljx91FiQKJyuwFSQlOQDvg8hbRO7i
-	Iya5RiiNmwghC4tjJm20loznFVjQY1iB1tB3C3Yjd59VTMcIYxSFje1c6t3qURCQC3+vJH2vszTYM
-	AsMgkVc4dMLdAhcLT9aXdsehSLZsQHxE+n9TayHsUDO5/AcAvD5o+nqJVuLkXKi4QmdOPaJ5PcuXw
-	9nifzshQXrOiWiX0CmUUuiuZeCP8kCPkOHTBg3XQ63Opm8OtKyotn0Io2fL/P+Pc+PtBUDi8kDrOQ
-	pJAJF13cA==;
+	 bh=YeHBYNWJxt0IR6I73LZyxqVC7SW6uBB+mvxFt5ic578=; b=SOOCf98xG2vme2zkq34cXOzkG
+	G6J6nbuvWbz5cW1UQGfqACMpa2qMCVniBLSdtEmvTFI1LtpUaKw9h7CGfs+vyJ4A36Lxt9FU6OCA7
+	HDQMroQdIfQAAIgVo9AvA4hjoOwRZVBhzOZdbntSjfknCPHI73Kt3POsAqvdxBx3TMRWaSw2vXo17
+	QguhCrwv+es6Vdq4TJeknFYJ+CrTWdCYcOF9NRBATPHHKGSD+0on9ZiT947ycm2CK9QRf2fSePxGF
+	JGjKWiqRY5Kr0O9MhDFCrOjenrVtZLoxrVzlxxVHHvLwxewNT8go+MA11IjoVatGVkeEeJCXFV4xd
+	yAa5G+RMw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lU6o9-004vXy-MD; Wed, 07 Apr 2021 11:57:17 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1lU6p8-004vgF-Ba; Wed, 07 Apr 2021 11:58:18 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lU6o2-004vVq-UB
- for linux-riscv@lists.infradead.org; Wed, 07 Apr 2021 11:57:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1617796631; x=1649332631;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=H5pI3ie5XSFSAQDc8gf+PA4Da275zUOynoSsfmXEaiQ=;
- b=HRy2g2EWyOLUP7cbqT24M29eaMUiqqMilqVEWpG5I7YMVlTr/4iLkhUb
- p69G0YZ8wLal9Qg1Emls0xWB/IwiJFIe++mlJ29iKrAkUGIhlK2GNuWda
- gfN2oh2X18qbeEnDtnl7yada8x7m/bnhYgZnTmFpN8EFGMxIHfjPQs90v
- ZRzpMYumsuCCG78HKdPqNMZFgsVFrkJ5b/+uY/BVVpQnXQ+s1a3RRKhAR
- r37aK+m5rv9i2m6a8LMD+fKSqvwdf20u4fZlOE5GJw9/B/w97ouRKw+36
- hpfaA2iXdTbFCep13skpmL70CbD6CaJuTIQqsBfvje8oXaO3FhbAahvGr w==;
-IronPort-SDR: XVA6SwM44x27VdeecJQ2Hlhz2EXUA50iIA0241YfMy1z6x7Exhz2SLeT9r1ZMNZTrNTGD5cn86
- vnbFbgvwQ6Qeb5kvSka0LT2/xDUoQb62gNRiDC49L9yYHJ5LdmtnFFbOMK+lUvUpsEpUPogDQQ
- JrOY0LfNZNAslJOM1WMfBieiYTKiuUrE4RqHiCT1NUiojB6ljHh+ALO0GdtIthCnymUz21nOMI
- VE+ThaKl5Ks1uPNoSz0PeUtdPaSL2JiO7384sJfNP5FLdHqdnqcEWV4RVRyym77pjJJCt0/rZv
- Pkc=
-X-IronPort-AV: E=Sophos;i="5.82,203,1613404800"; d="scan'208";a="164061578"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 07 Apr 2021 19:56:48 +0800
-IronPort-SDR: y8YH9uqkSdZOSv/JwLpq3CoCkUEOPwj0jDV6NXMNI2zVVIB7ZG9Y1xck3elU40rJ6tCsTp/aeJ
- +j7LfZeY6yZhAgnxloX5jGA3fMiRkAaJex2bjVzNkEjtveedfEqLT7yuWK8iyouFecBTxjAgt5
- skxRLJB4W3YqfBrdV/br+U4UVnXEGAMAInObZl2/y70+fHHyucVFSXE8Ve4rCtait+VuxFpqI+
- eYsz88zBChcQiFKqYKTpDk0awdq/jCb1mWLZsWjk+cyl51G/ygAgTKibSiurq7OPnqEGg0QYK5
- quSS4LVlLbU37LnsjAD0cYpO
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 07 Apr 2021 04:38:07 -0700
-IronPort-SDR: 9e2jbEm8D1doKxEIYX3CmwvGDbWmBBGVjWx1JrOmMxjBeG/PY90cnZBcFhnunFZpyiXM6MnEQz
- KqCqa9m0k7FMtMK1KvCw60ICbcn3VdT/i0zly4dDsaf9LzZCWS7VgBaxoPSs9prS+ids7c73dX
- plYX4luXIOMQ0GC/jOhv3hvfqIkcaRIB9cpSi+WRaQauTFlfPE6e2oIOUVY5PKdVLl32TpPoiu
- i7Sp+CSG4Vnrp6OfXPrF7DC2pVZ+McGLU6uEC1dWRoBdrp3mgKuwvWzFmiPh6fxV6L2ZaASefK
- s0Y=
-WDCIronportException: Internal
-Received: from unknown (HELO twashi.fujisawa.hgst.com) ([10.225.163.90])
- by uls-op-cesaip02.wdc.com with ESMTP; 07 Apr 2021 04:56:47 -0700
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Alexander Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org
-Cc: Max Filippov <jcmvbkbc@gmail.com>, Greg Ungerer <gerg@linux-m68k.org>,
- Anup Patel <anup.patel@wdc.com>, Christoph Hellwig <hch@lst.de>
-Subject: [PATCH 2/2] riscv: introduce asm/flat.h
-Date: Wed,  7 Apr 2021 20:56:38 +0900
-Message-Id: <20210407115638.1055824-3-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210407115638.1055824-1-damien.lemoal@wdc.com>
-References: <20210407115638.1055824-1-damien.lemoal@wdc.com>
+ id 1lU6p1-004vfi-Uj
+ for linux-riscv@lists.infradead.org; Wed, 07 Apr 2021 11:58:13 +0000
+Received: from mail-ot1-f49.google.com ([209.85.210.49]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MNss4-1lEkjC3fqq-00OJyG for <linux-riscv@lists.infradead.org>; Wed, 07 Apr
+ 2021 13:58:11 +0200
+Received: by mail-ot1-f49.google.com with SMTP id
+ k14-20020a9d7dce0000b02901b866632f29so17811691otn.1
+ for <linux-riscv@lists.infradead.org>; Wed, 07 Apr 2021 04:58:10 -0700 (PDT)
+X-Gm-Message-State: AOAM530ztPfJANR+54VdTcl/Fe1Jhrue7ER2reKCm9oCvvmH2pGpTzu8
+ c/vTTioDoUxP4QB6BcNmbPt80q7l8wFgaewpqj0=
+X-Google-Smtp-Source: ABdhPJx6go5dv1rl+UzSOJd8wXt6Dn5ysS0pumma2IYLczj0nxb9z8e54FWCSruRNbRkAB1z2p2UWVLfOdOItXz14d4=
+X-Received: by 2002:a9d:316:: with SMTP id 22mr2634357otv.210.1617796689525;
+ Wed, 07 Apr 2021 04:58:09 -0700 (PDT)
 MIME-Version: 1.0
+References: <YGG5c4QGq6q+lKZI@hirez.programming.kicks-ass.net>
+ <CAJF2gTQUe237NY-kh+4_Yk4DTFJmA5_xgNQ5+BMpFZpUDUEYdw@mail.gmail.com>
+ <YGHM2/s4FpWZiEQ6@hirez.programming.kicks-ass.net>
+ <CAJF2gTRncV1+GT7nBpYkvfpyaG57o9ecaHBjoR6gEQAkG2ELrg@mail.gmail.com>
+ <YGNNCEAMSWbBU+hd@hirez.programming.kicks-ass.net>
+ <20210330223514.GE1171117@lianli.shorne-pla.net>
+ <CAK8P3a0hj2pYr-CuNJkjO==RafZ=J+6kCo4HTWEwvvRXPcngJA@mail.gmail.com>
+ <CAJF2gTRxPMURTE3M5WMQ_0q1yZ6K8nraGsFjGLUmpG9nYS_hng@mail.gmail.com>
+ <20210406085626.GE3288043@lianli.shorne-pla.net>
+ <CAK8P3a3Pf3TbGoVP7JP7gfPV-WDM8MHV_hdqSwNKKFDr1Sb3zQ@mail.gmail.com>
+ <YG2ZTSFMGrikYWuL@hirez.programming.kicks-ass.net>
+In-Reply-To: <YG2ZTSFMGrikYWuL@hirez.programming.kicks-ass.net>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 7 Apr 2021 13:57:53 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2E6JYwT7a1HUt=65v2cCJTTZm9mrW4Rxq=sXN4h9ObKg@mail.gmail.com>
+Message-ID: <CAK8P3a2E6JYwT7a1HUt=65v2cCJTTZm9mrW4Rxq=sXN4h9ObKg@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] locking/qspinlock: Add
+ ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Stafford Horne <shorne@gmail.com>, Guo Ren <guoren@kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+ Will Deacon <will@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Waiman Long <longman@redhat.com>, Anup Patel <anup@brainfault.org>
+X-Provags-ID: V03:K1:DBfL7FwScp9pBXXr4FOk6vtdO4PLMCm8s/60eH1H+6rvePAnIY+
+ qwjxdsK2xWpkYyVnmcIpjVnR+cca2ZddkMZb1ISv5mpGUXs5CmlxprmsGnNmdxKUpG67woA
+ LLEiv1OB+FBm459bx9LkRNMTF4muEyr4u9BWqxw3f/ipxKrw+aRFdMc0kdAM17p/3yM+ztN
+ cLsLMKQKdhFn5jNOL39cg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:I/IZ5kBqeDM=:zza/U3fBb1yvUdkxOOzDDS
+ KlJZLo1fTzOIZ/dr7MDIAoFI+osXEqtzBgjXdJ0mg29QVrKaWHI232hwgjR1A7iShlysSWkKt
+ xblQFEzznp3GWl2SwTS2caqMluHdEEQqDxig7jYr809Umuxnf5QKs9IFoOr4lcakGM/gTvlcX
+ ZAyVwEpuRsSN42uIm6SffJLoPy+FUgIhh8OcN7T0kAXQDuTidJSsPeoFPUXVBsYdGpA3SQbiT
+ gynMZ6mJMw+qMg409UFWuS0HbjGIR0Q1xOPybUDIjw8ytim+CZo9sA0T8NOO7BHuq5B562aeh
+ pFZ+Rkio1EFMPNLMjRUXhfw8CK08lxbRTAm8TdVx9QLqIhi/x8932w2nngLwhagchbM2q55jR
+ qnrXv0rYPi4YWGQ7PZ4pW/iVabEiu7JIE0AeuuohNtWPEHjtU+CF666+azRP9vKqCKHtPDScY
+ gtAvJFu0hnKbboMD0mDfnhqipvS/qn0B1AnbpaaSisVnyh2mRw8N0rrlKTBAraaYxOfqTtp74
+ HyQoHeRkKVoTaK0SuIE9WFEpX1obnLF2ohLRgATDT9SXsfPt2V2zC1bFAT81NaV4XnjaKP9lB
+ kfo2fDnU4jGwacG9pAsz5eZalsAoLAai/P
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210407_125712_118431_18AB31A3 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20210407_125812_182760_C313B357 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +108,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-uclibc/gcc combined with elf2flt riscv linker file fully resolve the
-PC relative __global_pointer$ value at compile time and do not generate
-a relocation entry to set a runtime gp value. As a result, if the
-flatbin loader introduces a gap between the text and data sections, the
-gp value becomes incorrect and prevent correct execution of a flatbin
-executable. Avoid this problem by introducing the file asm/flat.h
-and defining the macro FLAT_TEXT_DATA_NO_GAP to indicate that the text
-and data sections must be loaded at contiguous addresses.
+On Wed, Apr 7, 2021 at 1:36 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Wed, Apr 07, 2021 at 10:42:50AM +0200, Arnd Bergmann wrote:
+> > Since there are really only a handful of instances in the kernel
+> > that use the cmpxchg() or xchg() on u8/u16 variables, it would seem
+> > best to just disallow those completely
+>
+> Not going to happen. xchg16 is optimal for qspinlock and if we replace
+> that with a cmpxchg loop on x86 we're regressing.
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
----
- arch/riscv/include/asm/Kbuild |  1 -
- arch/riscv/include/asm/flat.h | 29 +++++++++++++++++++++++++++++
- 2 files changed, 29 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/flat.h
+I did not mean to remove the possibility of doing a 16-bit compare-exchange
+operation altogether, just removing it from the regular macros.
 
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 445ccc97305a..a8b54a3f4c2b 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- generic-y += early_ioremap.h
- generic-y += extable.h
--generic-y += flat.h
- generic-y += kvm_para.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/riscv/include/asm/flat.h b/arch/riscv/include/asm/flat.h
-new file mode 100644
-index 000000000000..43bccf090fd1
---- /dev/null
-+++ b/arch/riscv/include/asm/flat.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_FLAT_H
-+#define _ASM_RISCV_FLAT_H
-+
-+#include <asm/unaligned.h>
-+
-+static inline int flat_get_addr_from_rp(u32 __user *rp, u32 relval, u32 flags,
-+					u32 *addr)
-+{
-+	*addr = get_unaligned((__force u32 *)rp);
-+	return 0;
-+}
-+
-+static inline int flat_put_addr_at_rp(u32 __user *rp, u32 addr, u32 rel)
-+{
-+	put_unaligned(addr, (__force u32 *)rp);
-+	return 0;
-+}
-+
-+/*
-+ * uclibc/gcc fully resolve the PC relative __global_pointer value
-+ * at compile time and do not generate a relocation entry to set a
-+ * runtime gp value. As a result, the flatbin loader must not introduce
-+ * a gap between the text and data sections and keep them contiguous to
-+ * avoid invalid address accesses.
-+ */
-+#define FLAT_TEXT_DATA_NO_GAP	(1)
-+
-+#endif /* _ASM_RISCV_FLAT_H */
--- 
-2.30.2
+We already do this for the 64-bit xchg64()/cmpxchg64(), which only some
+of the 32-bit architectures provide, so I think having an explicit
+xchg8()/xchg16()/cmpxchg8()/cmpxchg16() interface while tightening the
+type checking would be more consistent here.
 
+On any 32-bit architecture, cmpxchg()/xchg() macros then only have
+to deal with word-sized operations.
+
+> > Interestingly, the s390 version using __sync_val_compare_and_swap()
+> > seems to produce nice output on all architectures that have atomic
+> > instructions, with any supported compiler, to the point where I think
+> > we could just use that to replace most of the inline-asm versions except
+> > for arm64:
+> >
+> > #define cmpxchg(ptr, o, n)                                              \
+> > ({                                                                      \
+> >         __typeof__(*(ptr)) __o = (o);                                   \
+> >         __typeof__(*(ptr)) __n = (n);                                   \
+> >         (__typeof__(*(ptr))) __sync_val_compare_and_swap((ptr),__o,__n);\
+> > })
+>
+> It generates the LL/SC loop, but doesn't do sensible optimizations when
+> it's again used in a loop itself. That is, it generates a loop of a
+> loop, just like what you'd expect, which is sub-optimal for LL/SC.
+
+One thing that it does though is to generate an ll/sc loop for xchg16(),
+while mips, openrisc, xtensa and sparc64 currently open-code the
+nested loop in their respective xchg16() wrappers. I have not seen
+any case in which it produces object code that is worse than the
+architecture specific code does today, except for those that rely on
+runtime patching (i486+smp, arm64+lse).
+
+> > Not how gcc's acquire/release behavior of __sync_val_compare_and_swap()
+> > relates to what the kernel wants here.
+> >
+> > The gcc documentation also recommends using the standard
+> > __atomic_compare_exchange_n() builtin instead, which would allow
+> > constructing release/acquire/relaxed versions as well, but I could not
+> > get it to produce equally good output. (possibly I was using it wrong)
+>
+> I'm scared to death of the C11 crap, the compiler will 'optimize' them
+> when it feels like it and use the C11 memory model rules for it, which
+> are not compatible with the kernel rules.
+>
+> But the same thing applies, it won't do the right thing for composites.
+
+Makes sense. As I said, I could not even get it to produce optimal code
+for the simple case.
+
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
