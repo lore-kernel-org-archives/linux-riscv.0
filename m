@@ -1,99 +1,139 @@
-Return-Path: <SRS0=uKmQ=JE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=+Lbj=JF=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00CFAC433B4
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 20:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 74713C433B4
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 11:21:29 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68540611C0
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Apr 2021 20:13:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68540611C0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id D523A61105
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 11:21:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D523A61105
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synaptics.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZHWqmshr3RgVLcNtrKtO+RBmqslr9JC2NPSak0fRWxc=; b=lTjZACbTrrhB7GwBqM9dplMQS
-	13sx9rr1OWc2zaN/IkRnWAxEZ1SH/AEJiLVaDM9z98K0HnDn7Fbro7kLC9Rpeg3nTt+9zmlca0z5M
-	KX1CGaMJw4t3di0n1qlCe5OiNkqGbdH3WNq6d2+isaWfX3y1GoS5JlP3Ni3rcwsep1VqBAuRMZL4p
-	boPZcKv/yd0vvH2VihhoJu2XOwDthvhQKPhKkeZS22WTO2WxRQQHfMW+b5ty6GeY/WpD8BUu+Qqdg
-	NyIm+9GzP7Tk/Efs07g/TautsCBfgfuNA36lPCw8/GkLZzfHzZ68rYP6VnJIB+e6siMbU9+Wex2gG
-	Jtc7gOHag==;
+	 bh=+MVRa66pg6iOvR1duKeuCBev7P1iz6IE9zEh/vCwhrI=; b=VwmiD9YXhouUMbS7E6j4b+ILi
+	AuRtClDtnHzS9fx7iLeR/dgTVfSl3GAW6S4szjTBo6c9HMHbC8+UXIqKexEl4U20X3BfOoLyikyit
+	IhtMUz3Y3fs/waI3gtx/8trIR3tvxke9hakQiBwwCPya5iFqcOdV8kJTIkGHbKVL8eWO/DfXaI5I1
+	Iy5Ui8j5INys9epLhCm7oZMMjkkzgddAlBclPDhoYaz9xatLO1D3nGgLnRoRWBsS1dLT6zgoAkIM+
+	Urs7XMihg03rIPSpEJYpwiQkdmowle09kvemhExNOCW1m+wSCq3gEQIUemMP554gfLPssUSN5amht
+	HVJJGgAzw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lUEY0-005uW2-A1; Wed, 07 Apr 2021 20:13:08 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1lUSim-007o6X-JR; Thu, 08 Apr 2021 11:21:13 +0000
+Received: from mail-mw2nam12on2068.outbound.protection.outlook.com
+ ([40.107.244.68] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUEXv-005uUx-H3
- for linux-riscv@lists.infradead.org; Wed, 07 Apr 2021 20:13:05 +0000
-Received: by mail-pf1-x433.google.com with SMTP id q5so117716pfh.10
- for <linux-riscv@lists.infradead.org>; Wed, 07 Apr 2021 13:13:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=dwldfrHGB7cvjNDHe6gxp+OQ0DSzEe0anuIQnT5lIYc=;
- b=dKW4tyxbGX73iHxH5Iha60EvcjCvKI+5hrpqwPPcbjELczGr/kzgfdsnLJJsWtOJbP
- ubOwwaB3iZb/RBJ+1QPkWGQAjFPjPBqh2IboNE1nH7H1pZZqyeSqspXh1PeeRkVlyVq3
- D+oq7t34NOHRn9OQqu4dUPDeY2QjjFesL1gh9WM+knJrz1i5ZQMIlvyZpNZOQKqZbOKS
- 4CB8O8zOE9mVX0eyokxf96eDPzy8oTdAAN584lU799CDSvkBRtjLRtC/rvSTel9pIKWP
- gshTMF9nTcU8N6w8UNgn+aG83qEZcXRIQj51bqqxl3MvzOMunlFLxakjAhVMSVBe674a
- jRAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=dwldfrHGB7cvjNDHe6gxp+OQ0DSzEe0anuIQnT5lIYc=;
- b=bHuf43yBKlUSLY8Fmi5d9DrLxTAsw+z50y35pLibxvnCaYVTmrFFQGMXn+xl/EJwBP
- eiYks/4hePifmurt4u91bGRqY9GaC3f2VFJ9uGCvJl3V1OszD4cUZ7fxCIUP68Ph44gz
- rWOPTVBpLFvpxZOaWTMZmgUkRcddHz9GebE0XTP6Cta7mTZyO9GL31B+ejnvaulqWIUB
- ioZUHcnMbLfZvQVuZvo74X2DeHNdsKc/l236BTa/bGqWvJDFiCBFMEX4WppcO9tRAvTi
- CdnKD+OYVvofFcjpLiuDKGE8lhw7QTfzvCpqhUWkWyyPWabPZ+s3EvJbWRrolirlLy35
- 0Yxw==
-X-Gm-Message-State: AOAM533lJysmW2j0xmrGiroO1FY8MkAzVOcoNGcH26hczkCIRj2e0qQU
- oevhxw7yujZKxfUJ4+jdDSc=
-X-Google-Smtp-Source: ABdhPJx1TzjDHM8SCpdazwwikZp8MB63xmALxAEXVlHdCjBoBVsMzPPllM88y4Piph/rcIdj06SGPw==
-X-Received: by 2002:a65:610f:: with SMTP id z15mr4931593pgu.360.1617826380553; 
- Wed, 07 Apr 2021 13:13:00 -0700 (PDT)
-Received: from localhost (g191.124-44-145.ppp.wakwak.ne.jp. [124.44.145.191])
- by smtp.gmail.com with ESMTPSA id
- m1sm5878421pjk.24.2021.04.07.13.12.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 07 Apr 2021 13:12:59 -0700 (PDT)
-Date: Thu, 8 Apr 2021 05:12:58 +0900
-From: Stafford Horne <shorne@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>, guoren@kernel.org,
- linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
- Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
- Anup Patel <anup@brainfault.org>, sparclinux@vger.kernel.org,
- Waiman Long <longman@redhat.com>, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Ingo Molnar <mingo@redhat.com>
-Subject: Re: [OpenRISC] [PATCH v6 1/9] locking/qspinlock: Add
- ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-Message-ID: <20210407201258.GH3288043@lianli.shorne-pla.net>
-References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
- <1617201040-83905-2-git-send-email-guoren@kernel.org>
- <YGyRrBjomDCPOBUd@boqun-archlinux>
- <20210406235208.GG3288043@lianli.shorne-pla.net>
- <YG1/xRgWlLHD4j/8@hirez.programming.kicks-ass.net>
+ id 1lUSic-007o42-1y
+ for linux-riscv@lists.infradead.org; Thu, 08 Apr 2021 11:21:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HRsYPAC1igHvmKSm/hoLL+LV1tJs2KN402XQxh/6HF4jU89hEM0qxk92r2brJ4WNnYrZecdRyoZRCAVuklWUFnjRCfSI/32hJKDwfUykGdU0QwojtRCCrjEEP/3Y6oHeGauxpbsC2mpFA6w+8sJLWem7iZKcoMCl2oQ2UQeaDq+DFD2i1H6wSlANWkmYXzun5BR1GlMUwwWufwJ0wULjkvVt5jYoJhT7e0gHjWxQW9eP/IZszkfllMY15yFyq3lKS8uFDDQhy2g/xRI9YqGuGpKEw8psNrJ3dE9trDd3KvRD1pCh3qRbYKZDElt4PTdvJMB3EQfi326Tk8JyjloiuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TukpbsVdmVuh+DxnqHHLyQNp1IqDyKQ9vIis7DVJVzA=;
+ b=WN5mhUQn8nod9PRzJpt6LYZ5IyidefBEwTDAXpmNZ+VH+Lg90dwxjkTbiMnFwWigLZL+bQiJL1q9g7iVf0BLSPPltl4WJ4yW7OzKwMRPHRgVmDbJfXfbz3lf7XCPOj7dcdJzwLGJEzQROwLy1VMo1W3AE+OvC5PFoFiCGqyRgcqOfEgJmhERuzMf84OdvVLgp/JzjGyKW3R0arJxzufghWNX+7BdWn1YBaR8mjf0h/oNSwCUnCBXjf0acIbm0Fitw6X1jZnO1N/9GmvoeK9JXiFpdamzo0CMN+XoVgghiuFyKXQG8OjH0JynN21vIDc18xkZ1pUzj3+qgSSv0jAjsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synaptics.com; dmarc=pass action=none
+ header.from=synaptics.com; dkim=pass header.d=synaptics.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Synaptics.onmicrosoft.com; s=selector2-Synaptics-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TukpbsVdmVuh+DxnqHHLyQNp1IqDyKQ9vIis7DVJVzA=;
+ b=QH+USveSv27VJMwlWECb8+Zn45U9dYA7ByHXFR0RPL5HcCNoiIbFVL19hiTWmpqZi7TfO6eDAooDXqdoM7V46wvwDVGpdm40i46f7Db1WW2sgPUmMq56OgS8Dbgy3+MmxIhB0oVX7LRmKIOfSgHq88PKDtwk66IcLsnDDFrOyrw=
+Authentication-Results: huawei.com; dkim=none (message not signed)
+ header.d=none;huawei.com; dmarc=none action=none header.from=synaptics.com;
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com (2603:10b6:a03:219::16)
+ by BYAPR03MB4551.namprd03.prod.outlook.com (2603:10b6:a03:c3::13)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3999.29; Thu, 8 Apr
+ 2021 11:20:51 +0000
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72]) by BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72%9]) with mapi id 15.20.3999.033; Thu, 8 Apr 2021
+ 11:20:51 +0000
+Date: Thu, 8 Apr 2021 19:20:40 +0800
+From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+To: Liao Chang <liaochang1@huawei.com>
+Cc: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+ <aou@eecs.berkeley.edu>, <guoren@linux.alibaba.com>, <mhiramat@kernel.org>,
+ <penberg@kernel.org>, <lkp@intel.com>, <me@packi.ch>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv/kprobe: fix kernel panic when invoking sys_read
+ traced by kprobe
+Message-ID: <20210408192040.746b0fcc@xhacker.debian>
+In-Reply-To: <20210330081848.14043-1-liaochang1@huawei.com>
+References: <20210330081848.14043-1-liaochang1@huawei.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+X-Originating-IP: [192.147.44.204]
+X-ClientProxiedBy: BYAPR05CA0059.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::36) To BY5PR03MB5345.namprd03.prod.outlook.com
+ (2603:10b6:a03:219::16)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YG1/xRgWlLHD4j/8@hirez.programming.kicks-ass.net>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from xhacker.debian (192.147.44.204) by
+ BYAPR05CA0059.namprd05.prod.outlook.com (2603:10b6:a03:74::36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4042.6 via Frontend Transport; Thu, 8 Apr 2021 11:20:48 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 9a5cbec2-8b50-441c-0d5f-08d8fa805dfd
+X-MS-TrafficTypeDiagnostic: BYAPR03MB4551:
+X-Microsoft-Antispam-PRVS: <BYAPR03MB455135E48B1778EF18CC88BFED749@BYAPR03MB4551.namprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:1332;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: h9lthm228lNXwS0zF8LoCmroYks2W9A3/DnGhQoxkWQvKODelBZ+kCSCmrEhTnDwoYkCBRQBqLnhgCz8m5uL7JkFitefip7BXK+IqJMC1DoK8ZDi5qPBqyt6wrWriNSuAV2v2zk87rkyE3wMNpj22mdjhzr8+SdQ0xhcL4dFtsw/21UrPFMjZ/9iv0Kwhf9VN+LwTX+tinljQE7R8pwnuVNwrFn5GV6SUrHMcpD0IL+I1Km899+hZ4RQXwm4CWRZSZ/gcr/2tZU32UXvn30psde4GiDaK7VQCD5cQJCcWUzlToIyxiMv+/84Ex1j8DPLlK915cZpW5HOLTBv8XEgiWMlE/hE/flRpvZwCJCmxXQM++D+rPAe1ImDePbBZphR1U245RuiastQm53xv7rlf929s/lpW7NLRGrnLI/HpU39EY5UuuEu9933qMwmR4/vC+E6EsPTmDa10OVILgTtyaJejyOl4556JspEZn1KvF+6NuZ44njTNXr+UzdFSvy78CsYEG3Yo3zQGGYZurHAbxK6s7SMnhSKHczQXvqfUDBTX9ZmDPDxBXax+dDpaCzM9q5H/QrhpcBfwKkG4/6kEqLR4mRmQZMjQ3v+O1vu526l/91zt+y8i9ZvFRt4tUa82USkPI7ZTNw73t1+Y+XBjoLSdMvIwPNAggGQIzBdTkSrCAcCCz1ZUaxSXdV/IkVI
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR03MB5345.namprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39860400002)(396003)(366004)(346002)(376002)(136003)(6506007)(52116002)(7696005)(5660300002)(6916009)(8936002)(66946007)(8676002)(66476007)(4326008)(38100700001)(478600001)(38350700001)(66556008)(55016002)(9686003)(45080400002)(956004)(6666004)(54906003)(83380400001)(86362001)(316002)(1076003)(2906002)(186003)(16526019)(7416002)(26005);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?gFNSoQ0Rk9Ph6kY20S+VL6SG/5ROtz+g/bei88G/tBnc+D7MMEXDG7Bndkj+?=
+ =?us-ascii?Q?swdnIuvNjBl963fLsOX4NDP8tvAnTh2ZnrVnI/31vUIFwpYuDSFynvZn0CKM?=
+ =?us-ascii?Q?yZfqvcYmGLK4JhFSxN02NciMp1WaeftbaKIJo1/bF2hatHriFJw0T56aKCp7?=
+ =?us-ascii?Q?COsvPOAL+DT4NeRA/Cj00Z1UL0TW7ftIjLmIuCILvsDvlAlldee50kuioq5w?=
+ =?us-ascii?Q?wNMZqqkZJLtRfuMg8HDCXB1LaOQxR1ac2jkuF74CdFj91LACUXQEln5MJCYM?=
+ =?us-ascii?Q?ew548subvDWfTLZizwt4HjuI+jO/D/zYhYAkH/SDAwv9OuIZnCNYJRUFqzlV?=
+ =?us-ascii?Q?kPz7ewf2hDtetAlv9J29EsB7RVXgx6knhCF2EBkCeSOcc9hntr57fCmehxBf?=
+ =?us-ascii?Q?0KE/GJQI6yelL2QsTttouI6cVJ5CurHajKkhniTB1WkHy2RgjAOuszsCu3OT?=
+ =?us-ascii?Q?iZqCgIakUX/d+fcI/06cP7zjuOONU1SllG39rv+exWNw259fGSrPFw54R+dP?=
+ =?us-ascii?Q?ksYq8YM8Y0Y0anb4be7HLYkiFJfvnkIpSL+e0VrmzQ7CzuaE8WKh7cC5i3Mf?=
+ =?us-ascii?Q?pmsehv7olloSeEdpWt0q0PHxq4Azwvs4wLVrG6thGsMlfCYLe2x+uxuBIisF?=
+ =?us-ascii?Q?zxL6c255Ryrab//M4Y9oJfFSnNI5Z2vKdX9k9ay+pgxcUEAn/6hCc1Raz5Ka?=
+ =?us-ascii?Q?laRoZnN7aZDU2+2ZP+tYdvm0LvFVKq1lRBzAST56erfK/XnX832BGSdyiDNr?=
+ =?us-ascii?Q?3ZaTyeslbCa4N4gmop9hpqPZGkcVmED3Pj2/eEqaMX/Qe1NLlgK3LWIW1QAh?=
+ =?us-ascii?Q?MqM0Eed6h9FQylDEwIN+3HRN458tMqZRzMZ3meN1Kxss7C1sqRUCDmpbsMC+?=
+ =?us-ascii?Q?9oyVx1dvyUrQjMKhmk5NvwmVJERxYQEmwPLdhbK3KE0Y0krho/qrdijUUCP7?=
+ =?us-ascii?Q?V2BZDExHNLl+dGXtUuUiejwC5VAeUW9qjHaaIEIskSy2BkMS3Rwnomw27PLZ?=
+ =?us-ascii?Q?Y5J1gGQw8tLWNyKgtorxiTYHQqW2M2tcI+8Xp3YPH2xdl3o9Y+LwyPDgSUlx?=
+ =?us-ascii?Q?keH9fXnJCLSb8+1SWnHJL1T0Smrqu7NgMsDz1mVhHs9qvGuCXRJODP9p/IUP?=
+ =?us-ascii?Q?K5oD0cy+O+k6nuCpxbMKt6gFp2DCjMf6qvcdkW+GcyCdI6125JEX6PwE5f4C?=
+ =?us-ascii?Q?7luC8jmvBydU8x5K/NQV7kDMSOpO5hQddd2t3TUzdqR5lNw3Hz87GKjMSGb3?=
+ =?us-ascii?Q?Cy9KVsd1cx75yZdFLT32JI4kXr8jpApDG0XpVzVEKXPpK4me20EwgPzl/QZx?=
+ =?us-ascii?Q?1YfRKOmUu0FPHWxp2ktQkBPa?=
+X-OriginatorOrg: synaptics.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a5cbec2-8b50-441c-0d5f-08d8fa805dfd
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR03MB5345.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2021 11:20:51.4171 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335d1fbc-2124-4173-9863-17e7051a2a0e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4t6V25jvgamdkGqT51ND4ByOOy43IZpxez3LfrcHAjp2LKKL02pjcscWv+uJbspzb/yP7z7xcXBcoD7Sq4+TIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR03MB4551
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210407_211303_782471_2B858A3A 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20210408_122102_989956_A44EE5F9 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +150,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 07, 2021 at 11:47:49AM +0200, Peter Zijlstra wrote:
-> On Wed, Apr 07, 2021 at 08:52:08AM +0900, Stafford Horne wrote:
-> > Why doesn't RISC-V add the xchg16 emulation code similar to OpenRISC?  For
-> > OpenRISC we added xchg16 and xchg8 emulation code to enable qspinlocks.  So
-> > one thought is with CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y, can we remove our
-> > xchg16/xchg8 emulation code?
+On Tue, 30 Mar 2021 16:18:48 +0800
+Liao Chang <liaochang1@huawei.com> wrote:
+
+
 > 
-> CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32 is guaranteed crap.
->
-> All the architectures that have wanted it are RISC style LL/SC archs,
-> and for them a cmpxchg loop is a daft thing to do, since it reduces the
-> chance of it behaving sanely.
+> The execution of sys_read end up hitting a BUG_ON() in __find_get_block
+> after installing kprobe at sys_read, the BUG message like the following:
 > 
-> Why would we provide something that's known to be suboptimal? If an
-> architecture chooses to not care about determinism and or fwd progress,
-> then that's their choice. But not one, I feel, we should encourage.
+> [   65.708663] ------------[ cut here ]------------
+> [   65.709987] kernel BUG at fs/buffer.c:1251!
+> [   65.711283] Kernel BUG [#1]
+> [   65.712032] Modules linked in:
+> [   65.712925] CPU: 0 PID: 51 Comm: sh Not tainted 5.12.0-rc4 #1
+> [   65.714407] Hardware name: riscv-virtio,qemu (DT)
+> [   65.715696] epc : __find_get_block+0x218/0x2c8
+> [   65.716835]  ra : __getblk_gfp+0x1c/0x4a
+> [   65.717831] epc : ffffffe00019f11e ra : ffffffe00019f56a sp : ffffffe002437930
+> [   65.719553]  gp : ffffffe000f06030 tp : ffffffe0015abc00 t0 : ffffffe00191e038
+> [   65.721290]  t1 : ffffffe00191e038 t2 : 000000000000000a s0 : ffffffe002437960
+> [   65.723051]  s1 : ffffffe00160ad00 a0 : ffffffe00160ad00 a1 : 000000000000012a
+> [   65.724772]  a2 : 0000000000000400 a3 : 0000000000000008 a4 : 0000000000000040
+> [   65.726545]  a5 : 0000000000000000 a6 : ffffffe00191e000 a7 : 0000000000000000
+> [   65.728308]  s2 : 000000000000012a s3 : 0000000000000400 s4 : 0000000000000008
+> [   65.730049]  s5 : 000000000000006c s6 : ffffffe00240f800 s7 : ffffffe000f080a8
+> [   65.731802]  s8 : 0000000000000001 s9 : 000000000000012a s10: 0000000000000008
+> [   65.733516]  s11: 0000000000000008 t3 : 00000000000003ff t4 : 000000000000000f
+> [   65.734434]  t5 : 00000000000003ff t6 : 0000000000040000
+> [   65.734613] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+> [   65.734901] Call Trace:
+> [   65.735076] [<ffffffe00019f11e>] __find_get_block+0x218/0x2c8
+> [   65.735417] [<ffffffe00020017a>] __ext4_get_inode_loc+0xb2/0x2f6
+> [   65.735618] [<ffffffe000201b6c>] ext4_get_inode_loc+0x3a/0x8a
+> [   65.735802] [<ffffffe000203380>] ext4_reserve_inode_write+0x2e/0x8c
+> [   65.735999] [<ffffffe00020357a>] __ext4_mark_inode_dirty+0x4c/0x18e
+> [   65.736208] [<ffffffe000206bb0>] ext4_dirty_inode+0x46/0x66
+> [   65.736387] [<ffffffe000192914>] __mark_inode_dirty+0x12c/0x3da
+> [   65.736576] [<ffffffe000180dd2>] touch_atime+0x146/0x150
+> [   65.736748] [<ffffffe00010d762>] filemap_read+0x234/0x246
+> [   65.736920] [<ffffffe00010d834>] generic_file_read_iter+0xc0/0x114
+> [   65.737114] [<ffffffe0001f5d7a>] ext4_file_read_iter+0x42/0xea
+> [   65.737310] [<ffffffe000163f2c>] new_sync_read+0xe2/0x15a
+> [   65.737483] [<ffffffe000165814>] vfs_read+0xca/0xf2
+> [   65.737641] [<ffffffe000165bae>] ksys_read+0x5e/0xc8
+> [   65.737816] [<ffffffe000165c26>] sys_read+0xe/0x16
+> [   65.737973] [<ffffffe000003972>] ret_from_syscall+0x0/0x2
+> [   65.738858] ---[ end trace fe93f985456c935d ]---
+> 
+> A simple reproducer looks like:
+>         echo 'p:myprobe sys_read fd=%a0 buf=%a1 count=%a2' > /sys/kernel/debug/tracing/kprobe_events
+>         echo 1 > /sys/kernel/debug/tracing/events/kprobes/myprobe/enable
+>         cat /sys/kernel/debug/tracing/trace
+> 
 
-Thanks, this is the response I was hoping my comment would provoke.
+I can't reproduce the BUG_ON with the above step, I may miss something.
 
-So not enabling CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32 for architectures
-unless they really want it should be the way.
+> Here's what happens to hit that BUG_ON():
+> 
+> 1) After installing kprobe at entry of sys_read, the first instruction
+>    is replaced by 'ebreak' instruction on riscv64 platform.
+> 
+> 2) Once kernel reach the 'ebreak' instruction at the entry of sys_read,
+>    it trap into the riscv breakpoint handler, where it do something to
+>    setup for coming single-step of origin instruction, including backup
+>    the 'sstatus' in pt_regs, followed by disable interrupt during single
+>    stepping via clear 'SIE' bit of 'sstatus' in pt_regs.
+> 
+> 3) Then kernel restore to the instruction slot contains two instructions,
+>    one is original instruction at entry of sys_read, the other is 'ebreak'.
+>    Here it trigger a 'Instruction page fault' exception (value at 'scause'
+>    is '0xc'), if PF is not filled into PageTabe for that slot yet.
+> 
+> 4) Again kernel trap into page fault exception handler, where it choose
+>    different policy according to the state of running kprobe. Because
+>    afte 2) the state is KPROBE_HIT_SS, so kernel reset the current kprobe
+>    and 'pc' points back to the probe address.
+> 
+> 5) Because 'epc' point back to 'ebreak' instrution at sys_read probe,
+>    kernel trap into breakpoint handler again, and repeat the operations
+>    at 2), however 'sstatus' without 'SIE' is keep at 4), it cause the
+>    real 'sstatus' saved at 2) is overwritten by the one withou 'SIE'.
 
--Stafford
+Is kprobe_single_step_handler() handled firstly this time? thus we won't
+enter kprobe_breakpoint_handler().
+
+> 
+> 6) When kernel cross the probe the 'sstatus' CSR restore with value
+>    without 'SIE', and reach __find_get_block where it requires the
+>    interrupt must be enabled.
+> 
+> Fix this is very trivial, just restore the value of 'sstatus' in pt_regs
+> with backup one at 2) when the instruction being single stepped cause a
+> page fault.
+
+
+PS: I'd suggest improve the commit msg. To be honest, I can't exactly
+get all the meanings of above 1) ~ 6)
 
 _______________________________________________
 linux-riscv mailing list
