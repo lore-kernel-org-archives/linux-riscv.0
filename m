@@ -2,69 +2,91 @@ Return-Path: <SRS0=+Lbj=JF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3032FC433B4
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 16:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6316FC433B4
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 19:01:31 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C1528610F8
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 16:26:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1528610F8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 082486101D
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Apr 2021 19:01:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 082486101D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=rHfr824KNsR4WQesRuEYq9SCjRmp9f+B4Uccsqh+skY=; b=bn7C9RYlyN9cyr+VXJLZQRx4M
-	85usIHeO1Woov6OVp+m/rapbap1ngEeo4JVHk4+vtvuaWqrHVHQut/PTjJ1TcIdOCW6AmailsCeb1
-	DGRXNR7IRa8dmvWKuj/Hnj4CdnSQzfOxBBfOTwwba/c5UQzJ/b4Q7IeYNOUzqb4COhpbHfuerPzfu
-	XZGfdlM6Xzu+VtMfSTkoy5KvS2avdFV1yiXZQV5hM/kCBU5zp+OkFXKXnMTS2pTNTLivqEQv1jQxs
-	DTbLAyaslpyO+yQayPeDoS78I0LNMZTQw1lwkRhNSF9ruHr69dGUV3dF4E4N0Ckjyh22ODAsWPVVt
-	lIGkTJo3g==;
+	 bh=t8ijxz+UZII6FQU5BfsTcSb3kxhWiFVit6D11y4mdGU=; b=gJpYNXghLG7e/F2l9V2fM6F31
+	iezVmRngDPa5PepYYlraT5rKLk7c8A6JMj1+SC6ZStObIqXi3FcU7GnlFMctYXaopvaT1FnIjLaB1
+	W58Weflj0UF5VxunNDCHYsT8slrn3CBcHU8qk3x3xfisJhh1SmdqBjxWryGXOSaY5aa9+ZgpUcjbH
+	WlTqJQuc0IMMdoDUwFV3JrlBdxI4Vup3zqP8wKyB75fTjtFGbJbx7mjGTUGe8JaTWku9K14eIbPjE
+	a/LX0qNNCl7fwM6Vbsmok4XwLtTLOPstz2yZorEGDTX0rb10u+1MfN5jUxGlbplrs1ZT/A01INtoq
+	ZJ1CzSfiA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lUXTi-008cXo-VE; Thu, 08 Apr 2021 16:25:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lUXTe-008cWi-Cr
- for linux-riscv@lists.infradead.org; Thu, 08 Apr 2021 16:25:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57886D6E;
- Thu,  8 Apr 2021 09:25:49 -0700 (PDT)
-Received: from lpieralisi (e121166-lin.cambridge.arm.com [10.1.196.255])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFD6C3F73D;
- Thu,  8 Apr 2021 09:25:46 -0700 (PDT)
-Date: Thu, 8 Apr 2021 17:25:39 +0100
-From: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-To: Greentime Hu <greentime.hu@sifive.com>
-Cc: paul.walmsley@sifive.com, hes@sifive.com, erik.danie@sifive.com,
- zong.li@sifive.com, bhelgaas@google.com, robh+dt@kernel.org,
- aou@eecs.berkeley.edu, mturquette@baylibre.com, sboyd@kernel.org,
- p.zabel@pengutronix.de, alex.dewar90@gmail.com,
- khilman@baylibre.com, hayashi.kunihiko@socionext.com,
- vidyas@nvidia.com, jh80.chung@samsung.com,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, helgaas@kernel.org
-Subject: Re: [PATCH v5 0/6] Add SiFive FU740 PCIe host controller driver
- support
-Message-ID: <20210408162539.GA32036@lpieralisi>
-References: <20210406092634.50465-1-greentime.hu@sifive.com>
+	id 1lUZty-0092tL-GY; Thu, 08 Apr 2021 19:01:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lUZtt-0092sQ-Le
+ for linux-riscv@lists.infradead.org; Thu, 08 Apr 2021 19:01:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1617908466;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=gYj2NbbPHdZxWOqVjXDc+Fhrs0vHkYF53Hr5bnrf7Wk=;
+ b=Y9PVO6Ub2qaVdo9oZgqF/3Dbtn7cGE9j3WQArE3NRE9cv0izSHWFiwa21bgq17CPXsMEI4
+ io7BM7fNEsLDVQHcwBTgsbsnIb4oVNFpIFXH1emf7RTS5W2MGosD53gyUZQBdNHZke2LHN
+ 1FWuZ2MEC8mfVaakdCpPO4Zh0yNq44M=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-362-nv9j8raePK-o-0Web69C_A-1; Thu, 08 Apr 2021 15:01:04 -0400
+X-MC-Unique: nv9j8raePK-o-0Web69C_A-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C25331883527;
+ Thu,  8 Apr 2021 19:01:02 +0000 (UTC)
+Received: from llong.remote.csb (ovpn-119-36.rdu2.redhat.com [10.10.119.36])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 12A63101F501;
+ Thu,  8 Apr 2021 19:00:59 +0000 (UTC)
+Subject: Re: [OpenRISC] [PATCH v6 1/9] locking/qspinlock: Add
+ ARCH_USE_QUEUED_SPINLOCKS_XCHG32
+To: Stafford Horne <shorne@gmail.com>, Boqun Feng <boqun.feng@gmail.com>
+Cc: guoren@kernel.org, linux-arch@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, Guo Ren <guoren@linux.alibaba.com>,
+ Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
+ Anup Patel <anup@brainfault.org>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ Ingo Molnar <mingo@redhat.com>
+References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
+ <1617201040-83905-2-git-send-email-guoren@kernel.org>
+ <YGyRrBjomDCPOBUd@boqun-archlinux>
+ <20210406235208.GG3288043@lianli.shorne-pla.net>
+From: Waiman Long <longman@redhat.com>
+Organization: Red Hat
+Message-ID: <1199af5f-275a-5812-fc73-f1d33449036b@redhat.com>
+Date: Thu, 8 Apr 2021 15:00:59 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210406092634.50465-1-greentime.hu@sifive.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <20210406235208.GG3288043@lianli.shorne-pla.net>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210408_172555_128281_81BF8FEE 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20210408_200109_877337_4D34AC0D 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,90 +98,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 06, 2021 at 05:26:28PM +0800, Greentime Hu wrote:
-> This patchset includes SiFive FU740 PCIe host controller driver. We also
-> add pcie_aux clock and pcie_power_on_reset controller to prci driver for
-> PCIe driver to use it.
-> 
-> This is tested with e1000e: Intel(R) PRO/1000 Network Card, AMD Radeon R5
-> 230 graphics card and SP M.2 PCIe Gen 3 SSD in SiFive Unmatched based on
-> v5.11 Linux kernel.
-> 
-> Changes in v5:
->  - Fix typo in comments
->  - Keep comments style consistent
->  - Refine some error handling codes
->  - Remove unneeded header file including
->  - Merge fu740_pcie_ltssm_enable implementation to fu740_pcie_start_link
-> 
-> Changes in v4:
->  - Fix Wunused-but-set-variable warning in prci driver
-> 
-> Changes in v3:
->  - Remove items that has been defined
->  - Refine format of sifive,fu740-pcie.yaml
->  - Replace perstn-gpios with the common one
->  - Change DBI mapping space to 2GB from 4GB
->  - Refine drivers/reset/Kconfig
-> 
-> Changes in v2:
->  - Refine codes based on reviewers' feedback
->  - Remove define and use the common one
->  - Replace __raw_writel with writel_relaxed
->  - Split fu740_phyregreadwrite to write function
->  - Use readl_poll_timeout in stead of while loop checking
->  - Use dwc common codes
->  - Use gpio descriptors and the gpiod_* api.
->  - Replace devm_ioremap_resource with devm_platform_ioremap_resource_byname
->  - Replace devm_reset_control_get with devm_reset_control_get_exclusive
->  - Add more comments for delay and sleep
->  - Remove "phy ? x : y" expressions
->  - Refine code logic to remove possible infinite loop
->  - Replace magic number with meaningful define
->  - Remove fu740_pcie_pm_ops
->  - Use builtin_platform_driver
-> 
-> Greentime Hu (5):
->   clk: sifive: Add pcie_aux clock in prci driver for PCIe driver
->   clk: sifive: Use reset-simple in prci driver for PCIe driver
->   MAINTAINERS: Add maintainers for SiFive FU740 PCIe driver
->   dt-bindings: PCI: Add SiFive FU740 PCIe host controller
->   riscv: dts: Add PCIe support for the SiFive FU740-C000 SoC
-> 
-> Paul Walmsley (1):
->   PCI: fu740: Add SiFive FU740 PCIe host controller driver
+On 4/6/21 7:52 PM, Stafford Horne wrote:
+>
+> For OpenRISC I did ack the patch to convert to
+> CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y.  But I think you are right, the
+> generic code in xchg_tail and the xchg16 emulation code in produced by OpenRISC
+> using xchg32 would produce very similar code.  I have not compared instructions,
+> but it does seem like duplicate functionality.
+>
+> Why doesn't RISC-V add the xchg16 emulation code similar to OpenRISC?  For
+> OpenRISC we added xchg16 and xchg8 emulation code to enable qspinlocks.  So
+> one thought is with CONFIG_ARCH_USE_QUEUED_SPINLOCKS_XCHG32=y, can we remove our
+> xchg16/xchg8 emulation code?
 
-I can pull the patches above into the PCI tree (but will drop patch 6 -
-dts changes), is it OK for you ? Please let me know how you would like
-to upstream it.
+For the record, the latest qspinlock code doesn't use xchg8 anymore. It 
+still need xchg16, though.
 
-Lorenzo
+Cheers,
+Longman
 
->  .../bindings/pci/sifive,fu740-pcie.yaml       | 113 +++++++
->  MAINTAINERS                                   |   8 +
->  arch/riscv/boot/dts/sifive/fu740-c000.dtsi    |  33 ++
->  drivers/clk/sifive/Kconfig                    |   2 +
->  drivers/clk/sifive/fu740-prci.c               |  11 +
->  drivers/clk/sifive/fu740-prci.h               |   2 +-
->  drivers/clk/sifive/sifive-prci.c              |  54 +++
->  drivers/clk/sifive/sifive-prci.h              |  13 +
->  drivers/pci/controller/dwc/Kconfig            |   9 +
->  drivers/pci/controller/dwc/Makefile           |   1 +
->  drivers/pci/controller/dwc/pcie-fu740.c       | 308 ++++++++++++++++++
->  drivers/reset/Kconfig                         |   1 +
->  include/dt-bindings/clock/sifive-fu740-prci.h |   1 +
->  13 files changed, 555 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
->  create mode 100644 drivers/pci/controller/dwc/pcie-fu740.c
-> 
-> -- 
-> 2.30.2
-> 
 
 _______________________________________________
 linux-riscv mailing list
