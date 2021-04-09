@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67562C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 06:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5CF9C433B4
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 06:19:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EF2FE61057
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 06:19:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF2FE61057
+	by mail.kernel.org (Postfix) with ESMTPS id 62E5861168
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 06:19:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62E5861168
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,24 +23,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7886NRbPKj4lyOiDna67nmrGKoNkJ8bM2Oyu31+DwX8=; b=IZPYm2uMzVthqnR7ScLrhLFX+
-	untZ6lln36BTdmYmhCkFWS1txNrvsQflohJUaGSwHf7PT5OEbApuM0ADQKuC0EXZEvlcpetiZ3gxL
-	K84vMjHyaFg6vyYMoXg+AtGCArhxqULiIrGyAWAyuV1OK09dOMnsYALUe72cqE5LCuU0YzJjmbxQP
-	NqfX39C6xxtuLO44rkevjwP8GTCtl2pVtw0WUgrGDAL4CA8ljFncYJ11YrPeVLnrrRWbSVr0w/lqO
-	E/gsdwcsOciNOqphR+ZKJF0Y7pDmr1IkhV+xqIhD7MilVD086P46k9TM/UoNgRrg1ZVmf0IFu1zuC
-	brBu+YhKg==;
+	 bh=8ZZK9Os4kMt6sUuuhU1NRoZQRjgpoDXyyCFo65KdQ4o=; b=ApBsnBBUXTID7sMcXXu9vKd2I
+	2AVTbRxb+RWtlPM8DNASmqt9nfuBbMBuSBF/0t6hZkewTjMcIdjU9jUkN83y7AWDR85rZNxfoNt8P
+	pixKbwRKOeEW2yEA2Idp3Yvs260DgFrHubeoxVVAvDmMYAngw+p3AFAr5Q/AmyxyKcAJczm7nZFxd
+	ZWwZPEA7RnNx61p0olIi6fj2ah0IA/hRE0FuT8jTF7KuvLn3iT+N73UaBENCJ0Y2hmsnfCWDqAVkl
+	NtN+hfinM1/vubq2UrGJjN9bC3tjsva6CWJggasUpAbFGzn/cL6up2LOzOOtBEdsNPE8vSeK+tRBP
+	CffoyYnFQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lUkU8-00AHpp-Sf; Fri, 09 Apr 2021 06:19:17 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1lUkUE-00AHsB-R5; Fri, 09 Apr 2021 06:19:22 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUkSO-00AHYa-TT
- for linux-riscv@lists.infradead.org; Fri, 09 Apr 2021 06:18:00 +0000
+ id 1lUkTS-00AHgK-Fl
+ for linux-riscv@lists.infradead.org; Fri, 09 Apr 2021 06:18:42 +0000
 X-Originating-IP: 81.185.169.105
 Received: from localhost.localdomain (105.169.185.81.rev.sfr.net
  [81.185.169.105]) (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id D86D3E0003;
- Fri,  9 Apr 2021 06:17:23 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id BFF84FF803;
+ Fri,  9 Apr 2021 06:18:28 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -49,18 +49,18 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v4 2/3] Documentation: riscv: Add documentation that describes
- the VM layout
-Date: Fri,  9 Apr 2021 02:14:59 -0400
-Message-Id: <20210409061500.14673-3-alex@ghiti.fr>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH v4 3/3] riscv: Prepare ptdump for vm layout dynamic addresses
+Date: Fri,  9 Apr 2021 02:15:00 -0400
+Message-Id: <20210409061500.14673-4-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20210409061500.14673-1-alex@ghiti.fr>
 References: <20210409061500.14673-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210409_071758_678519_C9E86DC9 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20210409_071835_400045_C2BC2882 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,92 +72,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBuZXcgZG9jdW1lbnQgcHJlc2VudHMgdGhlIFJJU0MtViB2aXJ0dWFsIG1lbW9yeSBsYXlv
-dXQgYW5kIGlzIGJhc2VkCm9uZSB0aGUgeDg2IG9uZTogaXQgZGVzY3JpYmVzIHRoZSBkaWZmZXJl
-bnQgbGltaXRzIG9mIHRoZSBkaWZmZXJlbnQgcmVnaW9ucwpvZiB0aGUgdmlydHVhbCBhZGRyZXNz
-IHNwYWNlLgoKU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgot
-LS0KIERvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0ICAgICB8ICAxICsKIERvY3VtZW50YXRp
-b24vcmlzY3Yvdm0tbGF5b3V0LnJzdCB8IDYzICsrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysKIDIgZmlsZXMgY2hhbmdlZCwgNjQgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0
-IERvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAoKZGlmZiAtLWdpdCBhL0RvY3VtZW50
-YXRpb24vcmlzY3YvaW5kZXgucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QKaW5k
-ZXggNmU2ZTM5NDgyNTAyLi5lYTkxNWMxOTYwNDggMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24v
-cmlzY3YvaW5kZXgucnN0CisrKyBiL0RvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0CkBAIC02
-LDYgKzYsNyBAQCBSSVNDLVYgYXJjaGl0ZWN0dXJlCiAgICAgOm1heGRlcHRoOiAxCiAKICAgICBi
-b290LWltYWdlLWhlYWRlcgorICAgIHZtLWxheW91dAogICAgIHBtdQogICAgIHBhdGNoLWFjY2Vw
-dGFuY2UKIApkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IGIv
-RG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0Cm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
-ZGV4IDAwMDAwMDAwMDAwMC4uMzI5ZDMyMDk4YWY0Ci0tLSAvZGV2L251bGwKKysrIGIvRG9jdW1l
-bnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0CkBAIC0wLDAgKzEsNjMgQEAKKy4uIFNQRFgtTGlj
-ZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCisKKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT0KK1ZpcnR1YWwgTWVtb3J5IExheW91dCBvbiBSSVNDLVYgTGludXgKKz09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KKworOkF1dGhvcjogQWxleGFuZHJlIEdoaXRp
-IDxhbGV4QGdoaXRpLmZyPgorOkRhdGU6IDEyIEZlYnJ1YXJ5IDIwMjEKKworVGhpcyBkb2N1bWVu
-dCBkZXNjcmliZXMgdGhlIHZpcnR1YWwgbWVtb3J5IGxheW91dCB1c2VkIGJ5IHRoZSBSSVNDLVYg
-TGludXgKK0tlcm5lbC4KKworUklTQy1WIExpbnV4IEtlcm5lbCAzMmJpdAorPT09PT09PT09PT09
-PT09PT09PT09PT09PQorCitSSVNDLVYgTGludXggS2VybmVsIFNWMzIKKy0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLQorCitUT0RPCisKK1JJU0MtViBMaW51eCBLZXJuZWwgNjRiaXQKKz09PT09PT09
-PT09PT09PT09PT09PT09PT0KKworVGhlIFJJU0MtViBwcml2aWxlZ2VkIGFyY2hpdGVjdHVyZSBk
-b2N1bWVudCBzdGF0ZXMgdGhhdCB0aGUgNjRiaXQgYWRkcmVzc2VzCisibXVzdCBoYXZlIGJpdHMg
-NjPigJM0OCBhbGwgZXF1YWwgdG8gYml0IDQ3LCBvciBlbHNlIGEgcGFnZS1mYXVsdCBleGNlcHRp
-b24gd2lsbAorb2NjdXIuIjogdGhhdCBzcGxpdHMgdGhlIHZpcnR1YWwgYWRkcmVzcyBzcGFjZSBp
-bnRvIDIgaGFsdmVzIHNlcGFyYXRlZCBieSBhIHZlcnkKK2JpZyBob2xlLCB0aGUgbG93ZXIgaGFs
-ZiBpcyB3aGVyZSB0aGUgdXNlcnNwYWNlIHJlc2lkZXMsIHRoZSB1cHBlciBoYWxmIGlzIHdoZXJl
-Cit0aGUgUklTQy1WIExpbnV4IEtlcm5lbCByZXNpZGVzLgorCitSSVNDLVYgTGludXggS2VybmVs
-IFNWMzkKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCis6OgorCisgID09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAg
-U3RhcnQgYWRkciAgICB8ICAgT2Zmc2V0ICAgfCAgICAgRW5kIGFkZHIgICAgIHwgIFNpemUgICB8
-IFZNIGFyZWEgZGVzY3JpcHRpb24KKyAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CisgICAgICAgICAgICAgICAgICAgIHwgICAg
-ICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIDAwMDAwMDAwMDAwMDAw
-MDAgfCAgICAwICAgICAgIHwgMDAwMDAwM2ZmZmZmZmZmZiB8ICAyNTYgR0IgfCB1c2VyLXNwYWNl
-IHZpcnR1YWwgbWVtb3J5LCBkaWZmZXJlbnQgcGVyIG1tCisgIF9fX19fX19fX19fX19fX19fX3xf
-X19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAg
-ICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8CisgICAw
-MDAwMDA0MDAwMDAwMDAwIHwgKzI1NiAgICBHQiB8IGZmZmZmZmJmZmZmZmZmZmYgfCB+MTZNIFRC
-IHwgLi4uIGh1Z2UsIGFsbW9zdCA2NCBiaXRzIHdpZGUgaG9sZSBvZiBub24tY2Fub25pY2FsCisg
-ICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAg
-ICAgIHwgICAgIHZpcnR1YWwgbWVtb3J5IGFkZHJlc3NlcyB1cCB0byB0aGUgLTI1NiBHQgorICAg
-ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAg
-ICB8ICAgICBzdGFydGluZyBvZmZzZXQgb2Yga2VybmVsIG1hcHBpbmdzLgorICBfX19fX19fX19f
-X19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgfAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8IEtlcm5lbC1zcGFjZSB2aXJ0dWFsIG1lbW9yeSwgc2hhcmVkIGJldHdlZW4g
-YWxsIHByb2Nlc3NlczoKKyAgX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIGZmZmZmZmMwMDAwMDAwMDAgfCAt
-MjU2ICAgIEdCIHwgZmZmZmZmYzdmZmZmZmZmZiB8ICAgMzIgR0IgfCBrYXNhbgorICAgZmZmZmZm
-Y2VmZWUwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZlZmZmZmZmIHwgICAgMiBNQiB8IGZp
-eG1hcAorICAgZmZmZmZmY2VmZjAwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZmZmZmZmZm
-IHwgICAxNiBNQiB8IFBDSSBpbworICAgZmZmZmZmY2YwMDAwMDAwMCB8IC0xOTYgICAgR0IgfCBm
-ZmZmZmZjZmZmZmZmZmZmIHwgICAgNCBHQiB8IHZtZW1tYXAKKyAgIGZmZmZmZmQwMDAwMDAwMDAg
-fCAtMTkyICAgIEdCIHwgZmZmZmZmZGZmZmZmZmZmZiB8ICAgNjQgR0IgfCB2bWFsbG9jL2lvcmVt
-YXAgc3BhY2UKKyAgIGZmZmZmZmUwMDAwMDAwMDAgfCAtMTI4ICAgIEdCIHwgZmZmZmZmZmY3ZmZm
-ZmZmZiB8ICAxMjQgR0IgfCBkaXJlY3QgbWFwcGluZyBvZiBhbGwgcGh5c2ljYWwgbWVtb3J5Cisg
-IF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9fX19f
-X19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgfAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICB8CisgIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAgICAg
-fCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgZmZmZmZmZmYw
-MDAwMDAwMCB8ICAgLTQgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVs
-ZXMKKyAgIGZmZmZmZmZmODAwMDAwMDAgfCAgIC0yICAgIEdCIHwgZmZmZmZmZmZmZmZmZmZmZiB8
-ICAgIDIgR0IgfCBrZXJuZWwsIEJQRgorICBfX19fX19fX19fX19fX19fX198X19fX19fX19fX19f
-fF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCi0tIAoyLjIwLjEKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This is a preparatory patch for sv48 support that will introduce
+dynamic PAGE_OFFSET.
+
+Dynamic PAGE_OFFSET implies that all zones (vmalloc, vmemmap, fixaddr...)
+whose addresses depend on PAGE_OFFSET become dynamic and can't be used
+to statically initialize the array used by ptdump to identify the
+different zones of the vm layout.
+
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/mm/ptdump.c | 67 ++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 55 insertions(+), 12 deletions(-)
+
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index ace74dec7492..aa1b3bce61ab 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -58,29 +58,52 @@ struct ptd_mm_info {
+ 	unsigned long end;
+ };
+ 
++enum address_markers_idx {
++#ifdef CONFIG_KASAN
++	KASAN_SHADOW_START_NR,
++	KASAN_SHADOW_END_NR,
++#endif
++	FIXMAP_START_NR,
++	FIXMAP_END_NR,
++	PCI_IO_START_NR,
++	PCI_IO_END_NR,
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	VMEMMAP_START_NR,
++	VMEMMAP_END_NR,
++#endif
++	VMALLOC_START_NR,
++	VMALLOC_END_NR,
++	PAGE_OFFSET_NR,
++	MODULES_MAPPING_NR,
++	KERNEL_MAPPING_NR,
++	END_OF_SPACE_NR
++};
++
+ static struct addr_marker address_markers[] = {
+ #ifdef CONFIG_KASAN
+-	{KASAN_SHADOW_START,	"Kasan shadow start"},
+-	{KASAN_SHADOW_END,	"Kasan shadow end"},
++	{0, "Kasan shadow start"},
++	{0, "Kasan shadow end"},
+ #endif
+-	{FIXADDR_START,		"Fixmap start"},
+-	{FIXADDR_TOP,		"Fixmap end"},
+-	{PCI_IO_START,		"PCI I/O start"},
+-	{PCI_IO_END,		"PCI I/O end"},
++	{0, "Fixmap start"},
++	{0, "Fixmap end"},
++	{0, "PCI I/O start"},
++	{0, "PCI I/O end"},
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-	{VMEMMAP_START,		"vmemmap start"},
+-	{VMEMMAP_END,		"vmemmap end"},
++	{0, "vmemmap start"},
++	{0, "vmemmap end"},
+ #endif
+-	{VMALLOC_START,		"vmalloc() area"},
+-	{VMALLOC_END,		"vmalloc() end"},
+-	{PAGE_OFFSET,		"Linear mapping"},
++	{0, "vmalloc() area"},
++	{0, "vmalloc() end"},
++	{0, "Linear mapping"},
++	{0, "Modules mapping"},
++	{0, "Kernel mapping (kernel, BPF)"},
+ 	{-1, NULL},
+ };
+ 
+ static struct ptd_mm_info kernel_ptd_info = {
+ 	.mm		= &init_mm,
+ 	.markers	= address_markers,
+-	.base_addr	= KERN_VIRT_START,
++	.base_addr	= 0,
+ 	.end		= ULONG_MAX,
+ };
+ 
+@@ -335,6 +358,26 @@ static int ptdump_init(void)
+ {
+ 	unsigned int i, j;
+ 
++#ifdef CONFIG_KASAN
++	address_markers[KASAN_SHADOW_START_NR].start_address = KASAN_SHADOW_START;
++	address_markers[KASAN_SHADOW_END_NR].start_address = KASAN_SHADOW_END;
++#endif
++	address_markers[FIXMAP_START_NR].start_address = FIXADDR_START;
++	address_markers[FIXMAP_END_NR].start_address = FIXADDR_TOP;
++	address_markers[PCI_IO_START_NR].start_address = PCI_IO_START;
++	address_markers[PCI_IO_END_NR].start_address = PCI_IO_END;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	address_markers[VMEMMAP_START_NR].start_address = VMEMMAP_START;
++	address_markers[VMEMMAP_END_NR].start_address = VMEMMAP_END;
++#endif
++	address_markers[VMALLOC_START_NR].start_address = VMALLOC_START;
++	address_markers[VMALLOC_END_NR].start_address = VMALLOC_END;
++	address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
++	address_markers[MODULES_MAPPING_NR].start_address = MODULES_VADDR;
++	address_markers[KERNEL_MAPPING_NR].start_address = kernel_virt_addr;
++
++	kernel_ptd_info.base_addr = KERN_VIRT_START;
++
+ 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
+ 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+ 			pg_level[i].mask |= pte_bits[j].mask;
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
