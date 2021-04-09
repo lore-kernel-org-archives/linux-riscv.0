@@ -2,103 +2,101 @@ Return-Path: <SRS0=YT8n=JG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 413A0C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 14:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8ED14C433ED
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 14:42:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D370B60FF1
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 14:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D370B60FF1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 16DC16101D
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 14:42:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16DC16101D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=p8g597bpZzw8STFHzyszfIzn2ygWLafbqW5AXQXhoSM=; b=Mmdy48TMxrD+hbNIodGs4033T
-	X4wb197Y0T3n/bL3rhTQAmDKsWVP7pvr6OVqXb1at5JuW+a0y9ldi367gU8OObY9VdMKREMuHlX7a
-	TQgAsHQQOtk9lpdbQfOUOnsaRLqwyrKiXPLJXGw4nocNGTxxLQnixjQhB1M6zY+hz6ZHUJ1lvSS6j
-	tL5WsCZIrN+/ANX+G9uIYCYuTi/+cstIWlDWYyNLn9PK8HRjlOfrQD5nF8mT0z+wdkXQoi4iEJ2kD
-	tDrnTpg+Uo1CufW+WBMt/9VEf4+YeKMBNDl4h26Cw8A2ut68TMg4W9weVn+xmZAQnqk7kDdAo+T9L
-	e49twtu7Q==;
+	 bh=eUMXBgSzJmz04bLe4t2DuJbEsRA8HJOEWdYX8VZ8BQc=; b=VMxR7ACr71oJ3YaiRFIbS64yS
+	Kyjq9O7WrNP3hpvgEFvPZLMaGToy1926ZbAuyPs+CgLuYo1ENjKStNhiTB/FdwO+h4przcA6dI5Mn
+	iqw5BGEvueaeRWvVyFM7ESUwfeNrS2eBQZKA2JiibpsQiTuE37HjVGI7sjTYSWwV88U3hmdUg9/CY
+	f3kq/XBC6rNaDE+BxqWnef3Aeatvnlt6XsDd15RySR8eYboICig8CXcqSMj5mmjlREKGBRc/jOfhs
+	CWetAQmJUtg3pIl+hvMlKhYGIoKC9sfnShFVF3+dtCUA6EOqXB1LxQM3VDCyZ8H2lX5s19UnoMrid
+	NcZJxhjyw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lUrwY-000tiB-8I; Fri, 09 Apr 2021 14:17:06 +0000
+	id 1lUsL9-000wVH-4N; Fri, 09 Apr 2021 14:42:31 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUrwW-000tho-2R
- for linux-riscv@desiato.infradead.org; Fri, 09 Apr 2021 14:17:04 +0000
+ id 1lUsL6-000wUn-L7
+ for linux-riscv@desiato.infradead.org; Fri, 09 Apr 2021 14:42:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=7lJbgd2hYY827G0NWvg1oy4yBkmSJegYFDEkQ7hgRxA=; b=Km6miluSB5ONX2JizgFTm7O/dt
- E+vUJMZJggr5l2bcl1KXf7cZCfih4g5q+xk7xHJsa5IxotMBXMKdX5wdbZ5F5rusY7rFFYXYylz2V
- u7AifwXy6ABD/O0MWv1MKyIcHQCyONALOMYOUTki+z2dJiw0gXIkFPz41xS2Pte3NLwfiKR29nzux
- oDt7soG6vaYCxuXbsz4tLddRIK7besqGFdXht9rCMrgYZ4DfLMtR0ngbIKnwxlCExrh4ORrtP4dTu
- tgDSWhG9SEnUOXXxkFTSQzYIBmzB5r/9ypN5Y45fgGlUO6yeIfkTWzh20r8DVULAxeEOhUOnTqAIT
- yeZ8vQJA==;
-Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=mgWegSwhOpcGml0uML3IWUn1X3Z+AH0MFZdCHi/93PY=; b=tRHYcuPLqSon7YteYysCoEzg1t
+ 6GNOtdFwkx2tknilmSYyEfpaUgwafy39EgsW4IBXPoX4Rs4PP4NIPQWR2RfI37N/MAntsGLhOjRuM
+ Dj8rx3M3UogSFiuDrm5FMR1eQi6QRNioxbM3ZHonVwbOVba2O/qAaLLDaVqeLAzGtYpzT3uGO9ZUJ
+ 9CMVvkyC9Z/sroK3sNjp+S6kx8nMku8HOWlEd0SPn/SFH44okc9fEGSmkCAwB0memtNXdlXwFOndl
+ q/MpmptX3Y8lLGKsEwFLPXWIBrJ0yebGw9/9h30n/JRyNFaxN7bwXCliAaHUr3JDTmRHYKSsvvkG6
+ SDPzQGow==;
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUrwT-004Zwy-6j
- for linux-riscv@lists.infradead.org; Fri, 09 Apr 2021 14:17:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1617977819;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=7lJbgd2hYY827G0NWvg1oy4yBkmSJegYFDEkQ7hgRxA=;
- b=h9e/ZEl72YLGUXj77m1IkVw2xAwUyM+ZrpFcqLBz6XA9VWGPXC4XCGyYFDRtEjL25GQwHl
- Dl50wn0KegaICwJt5+Cb8pY4tcsx95oELEJth/AMQVUqZWjNAVY0E2t4zuZYGl2eG5bUNN
- mbpMwtSk+fM2ipE1lIEMgv9CSIqwNDI=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-554-CbpfF08qOAm3ydVeGePGJg-1; Fri, 09 Apr 2021 10:16:55 -0400
-X-MC-Unique: CbpfF08qOAm3ydVeGePGJg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
- [10.5.11.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 39E0B807344;
- Fri,  9 Apr 2021 14:16:54 +0000 (UTC)
-Received: from [10.36.115.11] (ovpn-115-11.ams2.redhat.com [10.36.115.11])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 6FF2A648A1;
- Fri,  9 Apr 2021 14:16:51 +0000 (UTC)
-Subject: Re: [PATCH v7] RISC-V: enable XIP
-To: Mike Rapoport <rppt@linux.ibm.com>
-Cc: Alex Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org,
- Vitaly Wool <vitaly.wool@konsulko.com>
+ id 1lUsL3-004b30-Pz
+ for linux-riscv@lists.infradead.org; Fri, 09 Apr 2021 14:42:27 +0000
+Received: by mail-lj1-x234.google.com with SMTP id r20so6757605ljk.4
+ for <linux-riscv@lists.infradead.org>; Fri, 09 Apr 2021 07:42:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mgWegSwhOpcGml0uML3IWUn1X3Z+AH0MFZdCHi/93PY=;
+ b=o7eFJ30qOzBa3dgRnh/WcCN0kX49sPw9maR/6OuBKUPp5AJKAFmoQDa74vCSyYhlXn
+ hXJeJrBR3C5NdSpTtex/aViY9q5M/fbQ4/Z9GR18hYJendIm2ZSEhhp48Syfl2xDKuD7
+ d6uhhhrmy+ADPRbj2wNKbzG2BqQoEEVnbG5DY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mgWegSwhOpcGml0uML3IWUn1X3Z+AH0MFZdCHi/93PY=;
+ b=CnWnSZpCELgWn2H+J3dV9W5xSpOsPI6KXPJ8WSppl01qMpDhqSWR1HC7t64jbPbiei
+ oXgij57s4d6CcftKxZvhV9SWPkoBOaFfg7ikZMecmExnh07TW71IU0LXoAaPD7fJ6cag
+ LKJJdd5m2+l17PxqT0DUJHWyLL3FLzqUKnfsI0J0s7gSjpsCWowOsyKf0XQtuGSekeXg
+ oQ99g9VSDCLDOlhdkFZ/HgqGLuIkgTQ1RDzVZohqUNBXeBfAGcv0QK9I9RDhO8tVymAZ
+ DYVGKjoXbrCIEjy7nsMxCN6p1u6Eg4rz1MJUcXDg4f6O7wQ49PxBEkdIB+ZEy6XWR8n/
+ VVhg==
+X-Gm-Message-State: AOAM530L1ci+NgMxzDKBL35gOcahKqiOuAL9Vaq7dcO0uBa5vhiTx6LI
+ o5gwcf1uvSXsP2ReVNtRl4gMEu9A2YSVMZIVqA9lcw==
+X-Google-Smtp-Source: ABdhPJyLql3K0BO+oWb/9QvOTKYKMmjccNLMOLeXWEEXD3jfxsO8N+MD+HIzwc0FZJ18L7cYPrFgQ7ScHDtmwE+wAss=
+X-Received: by 2002:a2e:9dd8:: with SMTP id x24mr9267330ljj.173.1617979343021; 
+ Fri, 09 Apr 2021 07:42:23 -0700 (PDT)
+MIME-Version: 1.0
 References: <20210409065115.11054-1-alex@ghiti.fr>
  <3500f3cb-b660-5bbc-ae8d-0c9770e4a573@ghiti.fr>
  <be575094-badf-bac7-1629-36808ca530cc@redhat.com>
  <c4e78916-7e4c-76db-47f6-4dda3f09c871@ghiti.fr>
- <d4d771a8-c731-acaf-b42d-44800c61f2e6@redhat.com>
- <YHBgUs1JKvHWkG9F@linux.ibm.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat GmbH
-Message-ID: <2d442bca-c367-598c-b4ee-746925517118@redhat.com>
-Date: Fri, 9 Apr 2021 16:16:50 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
-MIME-Version: 1.0
-In-Reply-To: <YHBgUs1JKvHWkG9F@linux.ibm.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+ <YHBEsDuEvPAnL8Vb@linux.ibm.com>
+ <e7e87306-bb04-2d4f-7e7f-aabd40dccb3b@redhat.com>
+ <YHBdzPsHantT9r8t@linux.ibm.com>
+In-Reply-To: <YHBdzPsHantT9r8t@linux.ibm.com>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+Date: Fri, 9 Apr 2021 16:42:12 +0200
+Message-ID: <CAM4kBBKyHSYz+NNDpT=fWseWccsQ4HZ3teBc01jYT2g8j7Ze2A@mail.gmail.com>
+Subject: Re: [PATCH v7] RISC-V: enable XIP
+To: Mike Rapoport <rppt@linux.ibm.com>
+Cc: David Hildenbrand <david@redhat.com>, Alex Ghiti <alex@ghiti.fr>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ LKML <linux-kernel@vger.kernel.org>, linux-arch@vger.kernel.org, 
+ Linux-MM <linux-mm@kvack.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210409_071701_352609_57987821 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20210409_074225_867701_4FDC1B98 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +108,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09.04.21 16:10, Mike Rapoport wrote:
-> On Fri, Apr 09, 2021 at 02:07:24PM +0200, David Hildenbrand wrote:
->> On 09.04.21 13:39, Alex Ghiti wrote:
->>> Hi David,
->>
->> I assume you still somehow create the direct mapping for the kernel, right?
->> So it's really some memory region with a direct mapping but without a memmap
->> (and right now, without a resource), correct?
-> 
-> XIP kernel text is not a region in memory to begin with ;-)
+On Fri, Apr 9, 2021 at 3:59 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
+>
+> On Fri, Apr 09, 2021 at 02:46:17PM +0200, David Hildenbrand wrote:
+> > > > > Also, will that memory properly be exposed in the resource tree as
+> > > > > System RAM (e.g., /proc/iomem) ? Otherwise some things (/proc/kcore)
+> > > > > won't work as expected - the kernel won't be included in a dump.
+> > > Do we really need a XIP kernel to included in kdump?
+> > > And does not it sound weird to expose flash as System RAM in /proc/iomem? ;-)
+> >
+> > See my other mail, maybe we actually want something different.
+> >
+> > >
+> > > > I have just checked and it does not appear in /proc/iomem.
+> > > >
+> > > > Ok your conclusion would be to have struct page, I'm going to implement this
+> > > > version then using memblock as you described.
+> > >
+> > > I'm not sure this is required. With XIP kernel text never gets into RAM, so
+> > > it does not seem to require struct page.
+> > >
+> > > XIP by definition has some limitations relatively to "normal" operation,
+> > > so lack of kdump could be one of them.
+> >
+> > I agree.
+> >
+> > >
+> > > I might be wrong, but IMHO, artificially creating a memory map for part of
+> > > flash would cause more problems in the long run.
+> >
+> > Can you elaborate?
+>
+> Nothing particular, just a gut feeling. Usually, when you force something
+> it comes out the wrong way later.
 
-I think that's the part that confused me. I thought it would be mapped 
-somehow into physical address space and would be addressed like other 
-memory -- just that reads would be rewired to go to flash.
+It's possible still that MTD_XIP is implemented allowing to write to
+the flash used for XIP. While flash is being written, memory map
+doesn't make sense at all. I can't come up with a real life example
+when it can actually lead to problems but it is indeed weird when
+System RAM suddenly becomes unreadable. I really don't think exposing
+it in /proc/iomem is a good idea.
 
-> 
-> It resides in a flash and it is executed directly from there without being
-> relocated to RAM.
-> 
-> That's why it does not need neither direct mapping, nor struct pages.
+> > > BTW, how does XIP account the kernel text on other architectures that
+> > > implement it?
+> >
+> > Interesting point, I thought XIP would be something new on RISC-V (well, at
+> > least to me :) ). If that concept exists already, we better mimic what
+> > existing implementations do.
+>
+> I had quick glance at ARM, it seems that kernel text does not have memory
+> map and does not show up in System RAM.
 
-Thanks for clarifying! :)
+Exactly, and I believe ARM64 won't do that too when it gets its own
+XIP support (which is underway).
 
--- 
-Thanks,
-
-David / dhildenb
-
+Best regards,
+   Vitaly
 
 _______________________________________________
 linux-riscv mailing list
