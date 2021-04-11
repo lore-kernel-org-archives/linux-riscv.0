@@ -2,95 +2,76 @@ Return-Path: <SRS0=IRtM=JI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BE347C433B4
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 584D3C433ED
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:42:16 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D4D161041
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:02:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D4D161041
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D3656601FC
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:42:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3656601FC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=y80uFi/R6nXZ/r2/hW72i3Z7sjbSu82cPGxl3MshkT4=; b=COKr48WQu8P7NJYPdjO7bGAzL
-	0sWH6paiSz/QqDF78VBWFzXUhwo+OyvNItZ7+WbhDiTfMs10Aj3b5bUEWpdEMYk35iJ92zywyoesk
-	bsF8uwDWnuU9fbmJ78ScCVM+0wnjcb7cGRX+hzGRdv9E4R36iIRgB+lV3gbl3WCpCsof9cqDI+9+u
-	Pu38/R/073skdchhyvg7sUCUruiLTbIwsUhP4W66dosac7Y1ugLb3NelkLc5XfAuF/9/OEc3rQlXQ
-	dIcVgC8Itz5z7ICdNDr0dNDQep4YN3xuxA6tiYNO1wuiEuilluiGK7d1bq2l1zw/SFWSaU5A/5F1P
-	ymCh36Crw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uqLsTA1gDaBIVfvbvVuG86SRO1dpB/Sga2ZdByN8bWA=; b=KvE8IG+aqPUncL04bEHEvD30TH
+	oYosP4AI/zlFOfPU1eeFTmui8dmrwk6E3J6mWm8fn3G2tF7YxOCk3v2NEOqfOOESLctqiWAyTvUZu
+	QGyKuPIz6SuHJXAeLuECiUd6JnxWy6jo7oP5fRGhbYGfalY2LAJoo84LUDW9eEml/JVc/R+UUjeMp
+	AscZN9iHH6V9/02RCQ5aqBANHLwHNc4XFF9XExoJiBb969GGhrifUrlv3Hv8MChKHO1RyfnAMqcdb
+	DwBj0iT1I65NBkVSyq+vZSdiMyHUxQ0zu/dg76gPZvmh1ftzFEdsB94aYWsXsb+pUwbdUFgI7El5D
+	BZNS/ZHw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVcXu-004g4P-Ka; Sun, 11 Apr 2021 16:02:46 +0000
+	id 1lVd9v-004m7T-Oa; Sun, 11 Apr 2021 16:42:03 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVcXq-004g4D-Bd
- for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:02:42 +0000
+ id 1lVd9t-004m7F-Qe
+ for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:42:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=O6mWWoI5ypnfZoD5KfS4ZYg/oL1ydWtM6ROOj1yZNXo=; b=U0J8TjwZVo+x8kkZkmhASWzaX9
- 7jmr3iFrsqnB3/afkfaGztDMI29lcYmxckwts6neRlPxkt3l9b/du5BeIIXyjzqB1bfmTN8/5MCUJ
- w69wLX492N+c932IfyhkbZmQwIhAZJyonp1yk+0aqafdEqsvPQhc+Xks+5iA0URrkZBHuAH/u7Ye6
- aUEhbWuLffnnlb5T6fufinDd9yu4xMu4QaxG7YakWpBlKO5fNgdSOgse88Z1Ln47u7dOJF5eyP6oQ
- K4OCaaXlaGNxhl5dYEdpDCpi6Cbo4dlrKSRm3YDu+XepOK0C2fdVDjNK6uXBb9C0sH/3A3lEShGTN
- EdkQyd2g==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=Ch/IfGD5PGyjnqwG0mYAKGWiVWhbCS/KfAIOn22xtx8=; b=II8WMrOaYb4Msi2hVEKaXBZ6X+
+ upKyXLjQb32u88ZhQSkPcQltrtRt/yP844Tru2ljJ6horemruHrBBlLqCxS7agEF8T8pIe6fk7W39
+ x3Uv1z3H03kD8dtVVKdxDHjJsI4Pns3xDbg2NdXXFgOU7RpszQErNEwQXLAF1TmNPirnnI0ABYFh1
+ qnGCrdAQeDpeEnMV5DELgyYaxMv//PnI2wt5qnbblnmBTQN2sfOPMVdiSPHndTpL0wWCOLBpupGMp
+ DREyz22KL0rEnbe8/LdKvQUjMHW80jiyeAiozkMZ+XdSjHu1GYUhEuAIu2+hxXC7tS77nf7h1jya3
+ 0wNVgN6Q==;
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVcXn-005aUk-9i
- for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:02:41 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7C5A8611AD
- for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 16:02:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618156958;
- bh=TJw038FUfkWYVYkaVmTwRcX8gW1Hrtqnv9rYV52PKrI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=u0O8VVf8zy1PR2e25z0pJKozdIHbQJxa0IL1m2ShcIfesaiUzFtGRvrmSFOHMxSZs
- c8KgKfrywOtTgpLIESrsI/Cs4Vn9WkeLFbOe8EwqA2c1g1KPx8Wp9plKR8cHtNf3Qo
- IB2sDtZW0hA2ZzPXlkDLl7rGNxhR4rugm6fZ/8o3xXmWeFHiOtIOxfAo3Oue+bBzWz
- mt9+HpTF1RUm1fVm9AMrigkEsuBMzxUkJi9gampcR1e8Yd91Lwk++MgYmeehC82jRQ
- 85sY8hTUkTJ4v4kPjgzC7K/is4TbgtljQug0d3sWsK4KICaiyVwBkJjBGig+VFgbnz
- 6ZRNnnGckXNrA==
-Received: by mail-lj1-f171.google.com with SMTP id r22so1584658ljc.5
- for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 09:02:38 -0700 (PDT)
-X-Gm-Message-State: AOAM532bBsPR42SeDY3W2DiJb0SCRf5m1xjyK6sHc1CnkI2Sec1DPvO7
- VO7qRYRK53UEHe5TtCkTY8kF9su3yJ3DUc/5pVs=
-X-Google-Smtp-Source: ABdhPJwBbonxz+gck6Cl5q5ziKW6g+nADEkFDKCdplfaEDt09lBYiLD8iBC6rcF3SKmLf+EgR6MFZf5Na1JfSr6rJDU=
-X-Received: by 2002:a2e:8182:: with SMTP id e2mr13024419ljg.238.1618156956863; 
- Sun, 11 Apr 2021 09:02:36 -0700 (PDT)
+ id 1lVd9q-005bRe-Ih
+ for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:42:00 +0000
+X-Originating-IP: 2.7.49.219
+Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
+ [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 4736C240012;
+ Sun, 11 Apr 2021 16:41:47 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, Andrey Ryabinin <aryabinin@virtuozzo.com>,
+ Alexander Potapenko <glider@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH v5 0/3] Move kernel mapping outside the linear mapping
+Date: Sun, 11 Apr 2021 12:41:43 -0400
+Message-Id: <20210411164146.20232-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
- <1617201040-83905-4-git-send-email-guoren@kernel.org>
-In-Reply-To: <1617201040-83905-4-git-send-email-guoren@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 12 Apr 2021 00:02:24 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQRGWetpvvtXOn8_KzH8EQwL6VG02AoKBUWTkE69Xn6Kg@mail.gmail.com>
-Message-ID: <CAJF2gTQRGWetpvvtXOn8_KzH8EQwL6VG02AoKBUWTkE69Xn6Kg@mail.gmail.com>
-Subject: Re: [PATCH v6 3/9] riscv: locks: Introduce ticket-based spinlock
- implementation
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-arch <linux-arch@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org, 
- linux-xtensa@linux-xtensa.org, openrisc@lists.librecores.org, 
- sparclinux <sparclinux@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>, 
- Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210411_090239_409224_9DE77534 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20210411_094158_894020_74B3A768 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,199 +88,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 31, 2021 at 10:32 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> This patch introduces a ticket lock implementation for riscv, along the
-> same lines as the implementation for arch/arm & arch/csky.
->
-> We still use qspinlock as default.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/riscv/Kconfig                      |  7 ++-
->  arch/riscv/include/asm/spinlock.h       | 84 +++++++++++++++++++++++++
->  arch/riscv/include/asm/spinlock_types.h | 17 +++++
->  3 files changed, 107 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 67cc65ba1ea1..34d0276f01d5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -34,7 +34,7 @@ config RISCV
->         select ARCH_WANT_FRAME_POINTERS
->         select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
->         select ARCH_USE_QUEUED_RWLOCKS
-> -       select ARCH_USE_QUEUED_SPINLOCKS
-> +       select ARCH_USE_QUEUED_SPINLOCKS        if !RISCV_TICKET_LOCK
->         select ARCH_USE_QUEUED_SPINLOCKS_XCHG32
->         select CLONE_BACKWARDS
->         select CLINT_TIMER if !MMU
-> @@ -344,6 +344,11 @@ config NEED_PER_CPU_EMBED_FIRST_CHUNK
->         def_bool y
->         depends on NUMA
->
-> +config RISCV_TICKET_LOCK
-> +       bool "Ticket-based spin-locking"
-> +       help
-> +         Say Y here to use ticket-based spin-locking.
-> +
->  config RISCV_ISA_C
->         bool "Emit compressed instructions when building Linux"
->         default y
-> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> index a557de67a425..90b7eaa950cf 100644
-> --- a/arch/riscv/include/asm/spinlock.h
-> +++ b/arch/riscv/include/asm/spinlock.h
-> @@ -7,7 +7,91 @@
->  #ifndef _ASM_RISCV_SPINLOCK_H
->  #define _ASM_RISCV_SPINLOCK_H
->
-> +#ifdef CONFIG_RISCV_TICKET_LOCK
-> +#ifdef CONFIG_32BIT
-> +#define __ASM_SLLIW "slli\t"
-> +#define __ASM_SRLIW "srli\t"
-> +#else
-> +#define __ASM_SLLIW "slliw\t"
-> +#define __ASM_SRLIW "srliw\t"
-> +#endif
-> +
-> +/*
-> + * Ticket-based spin-locking.
-> + */
-> +static inline void arch_spin_lock(arch_spinlock_t *lock)
-> +{
-> +       arch_spinlock_t lockval;
-> +       u32 tmp;
-> +
-> +       asm volatile (
-> +               "1:     lr.w    %0, %2          \n"
-> +               "       mv      %1, %0          \n"
-> +               "       addw    %0, %0, %3      \n"
-> +               "       sc.w    %0, %0, %2      \n"
-> +               "       bnez    %0, 1b          \n"
-> +               : "=&r" (tmp), "=&r" (lockval), "+A" (lock->lock)
-> +               : "r" (1 << TICKET_NEXT)
-> +               : "memory");
-> +
-> +       smp_cond_load_acquire(&lock->tickets.owner,
-> +                                       VAL == lockval.tickets.next);
-It's wrong, blew is fixup:
+I decided to split sv48 support in small series to ease the review.
 
-diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
-index fe98ad8ece51..2be627ceb9df 100644
---- a/arch/csky/include/asm/spinlock.h
-+++ b/arch/csky/include/asm/spinlock.h
-@@ -27,7 +27,8 @@ static inline void arch_spin_lock(arch_spinlock_t *lock)
-                : "r"(p), "r"(ticket_next)
-                : "cc");
+This patchset pushes the kernel mapping (modules and BPF too) to the last
+4GB of the 64bit address space, this allows to:
+- implement relocatable kernel (that will come later in another
+  patchset) that requires to move the kernel mapping out of the linear
+  mapping to avoid to copy the kernel at a different physical address.
+- have a single kernel that is not relocatable (and then that avoids the
+  performance penalty imposed by PIC kernel) for both sv39 and sv48.
 
--       smp_cond_load_acquire(&lock->tickets.owner,
-+       if (lockval.owner != lockval.tickets.next)
-+               smp_cond_load_acquire(&lock->tickets.owner,
-                                        VAL == lockval.tickets.next);
-> +}
-> +
-> +static inline int arch_spin_trylock(arch_spinlock_t *lock)
-> +{
-> +       u32 tmp, contended, res;
-> +
-> +       do {
-> +               asm volatile (
-> +               "       lr.w    %0, %3          \n"
-> +               __ASM_SRLIW    "%1, %0, %5      \n"
-> +               __ASM_SLLIW    "%2, %0, %5      \n"
-> +               "       or      %1, %2, %1      \n"
-> +               "       li      %2, 0           \n"
-> +               "       sub     %1, %1, %0      \n"
-> +               "       bnez    %1, 1f          \n"
-> +               "       addw    %0, %0, %4      \n"
-> +               "       sc.w    %2, %0, %3      \n"
-> +               "1:                             \n"
-> +               : "=&r" (tmp), "=&r" (contended), "=&r" (res),
-> +                 "+A" (lock->lock)
-> +               : "r" (1 << TICKET_NEXT), "I" (TICKET_NEXT)
-> +               : "memory");
-> +       } while (res);
-> +
-> +       if (!contended)
-> +               __atomic_acquire_fence();
-> +
-> +       return !contended;
-> +}
-> +
-> +static inline void arch_spin_unlock(arch_spinlock_t *lock)
-> +{
-> +       smp_store_release(&lock->tickets.owner, lock->tickets.owner + 1);
-> +}
-> +
-> +static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
-> +{
-> +       return lock.tickets.owner == lock.tickets.next;
-> +}
-> +
-> +static inline int arch_spin_is_locked(arch_spinlock_t *lock)
-> +{
-> +       return !arch_spin_value_unlocked(READ_ONCE(*lock));
-> +}
-> +
-> +static inline int arch_spin_is_contended(arch_spinlock_t *lock)
-> +{
-> +       struct __raw_tickets tickets = READ_ONCE(lock->tickets);
-> +
-> +       return (tickets.next - tickets.owner) > 1;
-> +}
-> +#define arch_spin_is_contended arch_spin_is_contended
-> +#else /* CONFIG_RISCV_TICKET_LOCK */
->  #include <asm/qspinlock.h>
-> +#endif /* CONFIG_RISCV_TICKET_LOCK */
-> +
->  #include <asm/qrwlock.h>
->
->  #endif /* _ASM_RISCV_SPINLOCK_H */
-> diff --git a/arch/riscv/include/asm/spinlock_types.h b/arch/riscv/include/asm/spinlock_types.h
-> index d033a973f287..afbb19841d0f 100644
-> --- a/arch/riscv/include/asm/spinlock_types.h
-> +++ b/arch/riscv/include/asm/spinlock_types.h
-> @@ -10,7 +10,24 @@
->  # error "please don't include this file directly"
->  #endif
->
-> +#ifdef CONFIG_RISCV_TICKET_LOCK
-> +#define TICKET_NEXT    16
-> +
-> +typedef struct {
-> +       union {
-> +               u32 lock;
-> +               struct __raw_tickets {
-> +                       /* little endian */
-> +                       u16 owner;
-> +                       u16 next;
-> +               } tickets;
-> +       };
-> +} arch_spinlock_t;
-> +
-> +#define __ARCH_SPIN_LOCK_UNLOCKED      { { 0 } }
-> +#else
->  #include <asm-generic/qspinlock_types.h>
-> +#endif
->  #include <asm-generic/qrwlock_types.h>
->
->  #endif /* _ASM_RISCV_SPINLOCK_TYPES_H */
-> --
-> 2.17.1
->
+The first patch implements this behaviour, the second patch introduces a
+documentation that describes the virtual address space layout of the 64bit
+kernel and the last patch is taken from my sv48 series where I simply added
+the dump of the modules/kernel/BPF mapping.
 
+I removed the Reviewed-by on the first patch since it changed enough from
+last time and deserves a second look.
+
+Changes in v5:
+- Fix 32BIT build that failed because MODULE_VADDR does not exist as
+  modules lie in the vmalloc zone in 32BIT, reported by kernel test
+  robot.
+
+Changes in v4:
+- Fix BUILTIN_DTB since we used __va to obtain the virtual address of the
+  builtin DTB which returns a linear mapping address, and then we use
+  this address before setup_vm_final installs the linear mapping: this
+  is not possible anymore since the kernel does not lie inside the
+  linear mapping anymore.
+
+Changes in v3:
+- Fix broken nommu build as reported by kernel test robot by protecting
+  the kernel mapping only in 64BIT and MMU configs, by reverting the
+  introduction of load_sz_pmd and by not exporting load_sz/load_pa anymore
+  since they were not initialized in nommu config. 
+
+Changes in v2:
+- Fix documentation about direct mapping size which is 124GB instead
+  of 126GB.
+- Fix SPDX missing header in documentation.
+- Fix another checkpatch warning about EXPORT_SYMBOL which was not
+  directly below variable declaration.
+ 
+Alexandre Ghiti (3):
+  riscv: Move kernel mapping outside of linear mapping
+  Documentation: riscv: Add documentation that describes the VM layout
+  riscv: Prepare ptdump for vm layout dynamic addresses
+
+ Documentation/riscv/index.rst       |  1 +
+ Documentation/riscv/vm-layout.rst   | 63 +++++++++++++++++++++
+ arch/riscv/boot/loader.lds.S        |  3 +-
+ arch/riscv/include/asm/page.h       | 17 +++++-
+ arch/riscv/include/asm/pgtable.h    | 37 ++++++++----
+ arch/riscv/include/asm/set_memory.h |  1 +
+ arch/riscv/kernel/head.S            |  3 +-
+ arch/riscv/kernel/module.c          |  6 +-
+ arch/riscv/kernel/setup.c           |  5 ++
+ arch/riscv/kernel/vmlinux.lds.S     |  3 +-
+ arch/riscv/mm/fault.c               | 13 +++++
+ arch/riscv/mm/init.c                | 87 ++++++++++++++++++++++-------
+ arch/riscv/mm/kasan_init.c          |  9 +++
+ arch/riscv/mm/physaddr.c            |  2 +-
+ arch/riscv/mm/ptdump.c              | 73 ++++++++++++++++++++----
+ 15 files changed, 271 insertions(+), 52 deletions(-)
+ create mode 100644 Documentation/riscv/vm-layout.rst
 
 -- 
-Best Regards
- Guo Ren
+2.20.1
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
