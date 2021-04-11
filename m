@@ -2,96 +2,105 @@ Return-Path: <SRS0=IRtM=JI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BAB1EC433ED
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E34EC433ED
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 20:36:07 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 41BDC610A2
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:51:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41BDC610A2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id F0B2161028
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 20:36:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0B2161028
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JQQpyCokiw68v8NNACPMDLGMBooDv6wytDS3IYwLVrA=; b=n4m42v2n+W8RCPcoo1rOh62UF
-	j/CtzCAc7a9cGmGLE5La0Q7d9kC1p1Tbzwdt0yQRtNlHta8XwLwN60TkmholQ9qVqDULkUQn5IiwK
-	op7mF7v6M5sRjMFt/cBdNvR7eQj/l88nWtQxxdo/JUlW8VxVsaf0oIIrSP8omPdm5SoBm6/iu9FyI
-	PkLqrSX3mvjkSHc163HuecLv9DCchNKYej83OxzCFXpbqogX3+ohmYROtLKMWtU6dNdNHJYOGNBnN
-	ztVpC/N6nDFWbAS+8OunMjieF1NXM9Qt+B/vcZi2EHIsbLbID+VQvqg3eSp4xaxjO54ASQ2lz/3RA
-	4qrZU7bcw==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=ysQwNoP6wjuwEpBzaTdlaFTmHu1GImhFjvWpEZMuwqk=; b=MpAOkusePXH2AqlsnrEdpDesw
+	+OQQgKDx5KLYFBMzC68oZW8IT4XuHWxa9cWs1AeTj6IVFIrKeHvNakqOuZW2dAxkqKZM1DZZv8cwg
+	AY6Ke0HA9vh0NMVnW8qdmBNjkX3s2Lwun5MUtdREfFsWKV0Fu4cy/GvV+MMRh+rism5JrlAUlnVY8
+	F7ZGS4BC6Bb8rc+7skb6jMOqa0duhUUi1QKP8bb3CSrXi75RJNxGNkJwnFZdXe7QMkGYb7kLNEzT9
+	2TYXvBPw0JDwqouYRto/p077mvHpu92PeMkFOBT5qzh7zlkAPhx7IfUOd5FEMx3RRADnHdQbGL4NT
+	vFPUcxxjQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVdIx-004mq9-El; Sun, 11 Apr 2021 16:51:23 +0000
+	id 1lVgoG-0054FT-VT; Sun, 11 Apr 2021 20:35:57 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVdIv-004mq3-9F
- for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:51:21 +0000
+ id 1lVgoD-0054FD-8u
+ for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 20:35:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=jJSH1nH1qe9xY4Moz9qedRRkbZegjukeIMy7lX53poQ=; b=BMLGHqKRuwkL1Z2/hQuPVfS4gB
- lVb9lRrvyZWfT5m4GZZkDhNCDBgyhp9chYZkazPXVmrg9LQeD7jJ/MSQzW6nlsTocbnDyDA8l/TY0
- tOPHta/yB5lt3FYW3yxMvEw3xmYRIYGwnPZkl+KcVwvTR/cFOtTcD3TzMIhgS8/0FNUKueSrTWPvr
- SjaEKwisQaQbkBEbOWKpHQwh2SM9QTru7O8iMHpzqB2VuGiVvIDxtUk5uOrSInsIadqWKQAykkzcH
- lWR7SlXcPeAseHl7tDvP8OS6NpEF1EL/RFEwikzYQm8j6tdODiBs91HdSM6Brc9kMHzJPhd2ehOSS
- aa98AryA==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+ Sender:Reply-To:Content-ID:Content-Description:References;
+ bh=b/CaNV39sShXmEIRRd6qd6Dixx0bAywACpNaPhGDjYM=; b=zUtlYfTpiSxzQF8GEozv875j4H
+ TMlQ/34I/sv1y7wBx5uhdppDNDT/1+7hnlykgLjqbacf1VQoDVI/dWIVNhbL74Zc66Abc4m1T+4Vq
+ Bhi9yEsFR/Ukahp58nhWYWUiSZdWswBJeYfj0CKwKn0aw1mdRtldAt2/ZKzK2Zx3IOb5KOyQU+Xz4
+ MY4wvvefTPcvIaHtkZdVifqKaKr2/lfx114S05bfK9Pb4TX22B81/e/4q6ZdTpes9sg6xFcC/+6Pk
+ kBVn36ZwJQS2tWVWn2E68Q7HT1k59UNfjkUtGmixurkP6nh1+D+dXRs59stRFunscRgASn+vUHQz9
+ yaGG5O3A==;
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVdIs-005bib-5m
- for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:51:19 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id F24FD610A2
- for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 16:51:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618159877;
- bh=hdSLHeSFPSGynlGflxt+p7hzQD3ysw8VuEPN1TxHROo=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=u92ZNmVK9Okwh6sssywhSfccMkrhyVbN0i1TzFQL6ubJe69Tup7uioO2B9iqMd86R
- PyZ0nIQIDEDoAUcp4VH3s3x2J9YyjO1zaUEf9DXia28SOTL+AZwrnhWgZObeZK35IP
- Mworx49ICMEC1ZgjZOImQCDKTztZLllqG/G/tp0f0ABdVW6WKi7ogEnZtNlnYGmPa+
- MD6EfRtXCYXjrj3jRMIr4dmsz4f0usPxap0g6auXFA0M/p8yMcdcHUVSzB1kZJoz1R
- fipLWLnhth24IQWAQi0DnJ53iaGzHPfzM1CfxsJ9DLxzUApTJSn1eIRnqbr7xsq9Gx
- f15Nu2dLaaTdA==
-Received: by mail-lf1-f42.google.com with SMTP id n138so17564225lfa.3
- for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 09:51:16 -0700 (PDT)
-X-Gm-Message-State: AOAM530xIwOo1EB51zkUfd+HCGU4WaAjpPb7tueb6A76GBdVJNYqzBe/
- jEqCo4g30J6+Z4pbXsHgG3M2CUZy6aDdgNVeFvY=
-X-Google-Smtp-Source: ABdhPJwytlwOM+Rr5ik6o9Gt0Np/mypGW3IwYId67m7mmduUv1Bjo9G3FOhKEOOdYbF0Wmx6IQxmHYMGzhwXowpdgyc=
-X-Received: by 2002:ac2:4191:: with SMTP id z17mr5521549lfh.557.1618159875345; 
- Sun, 11 Apr 2021 09:51:15 -0700 (PDT)
-MIME-Version: 1.0
-References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
- <1617201040-83905-4-git-send-email-guoren@kernel.org>
- <CAJF2gTQRGWetpvvtXOn8_KzH8EQwL6VG02AoKBUWTkE69Xn6Kg@mail.gmail.com>
-In-Reply-To: <CAJF2gTQRGWetpvvtXOn8_KzH8EQwL6VG02AoKBUWTkE69Xn6Kg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 12 Apr 2021 00:51:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQpmgzXb+oi3uHuQ5e1awS2AwOtm4XJo8ce6pVkuXst+Q@mail.gmail.com>
-Message-ID: <CAJF2gTQpmgzXb+oi3uHuQ5e1awS2AwOtm4XJo8ce6pVkuXst+Q@mail.gmail.com>
-Subject: Re: [PATCH v6 3/9] riscv: locks: Introduce ticket-based spinlock
- implementation
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-arch <linux-arch@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org, 
- linux-xtensa@linux-xtensa.org, openrisc@lists.librecores.org, 
- sparclinux <sparclinux@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>, 
- Arnd Bergmann <arnd@arndb.de>
+ id 1lVgo9-005h55-9i
+ for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 20:35:50 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id n38so7845434pfv.2
+ for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 13:35:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=b/CaNV39sShXmEIRRd6qd6Dixx0bAywACpNaPhGDjYM=;
+ b=BOypHbvpUGw2Oa3TEgOtnY89yKfpFYd5tPfBv4ykEr1BhikKqWvNEJUC+oahvo7V6P
+ LZCemHs+AsoP5McnwYy7ZlWqgQpSMrtyOuKtQcSoiIUjV3znjJUOWexJQO6mU7uZqkWS
+ LJtcm0Z7gobw7q8nI/B0bqe3OkPLpahkHEXXd0dSeTyPFrKDEkcG4+QVjnQ7KEx2FNav
+ fCyuJUYbZ80Du5Gt8GHS8y1qB0GxDQsV4Urkqq1dWokQyDqj3B+bN1GjTzaigBk+0DiW
+ BbKISD9HfbVkPJnQwMNXO+9+hnHQtrydpTb3Zq/NO2kS3QIbCZ88raobl+EgHUpIEL46
+ dXmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=b/CaNV39sShXmEIRRd6qd6Dixx0bAywACpNaPhGDjYM=;
+ b=Q8LR+/wt2ujDHcEgl2zECOY39Km6A7524nadGeiAh74Tb0HukK83iYUjZynFVSnhF4
+ OTNLgsNJEJRNTtrUkFNiJFACmPBgApHO/Tm8xlq0Gf5dMo/JGfrKttbulwvqRc+VyOej
+ yFfIrpP+yq7YuG3pIaAN4Rle7WUI06GRZa9MLfHuvtIuygVEkiTk5qITh0TWydTXwPPK
+ QhiV/ICNsL92TAOUeCmY/TqiZReLIoeTrbl4mz12c/9Hxf/RERwlNmH5fDCPNrapAbmt
+ lmjU2+2Wuf6Lbl2evdF3r2Z2b6SCScj7iqUThGGc75CFP1ek8ADA/cckteOhV/U9NZUs
+ 0LdA==
+X-Gm-Message-State: AOAM531gzWHeWZYu5RcWCqnT5qQbetYU+2o07N6BmnsC63NQQhDRFuCB
+ bCNDj2q3/JjQ1zw8iHt58IvoelulgURpmw==
+X-Google-Smtp-Source: ABdhPJz2z9E5urFnuVpMcoaiJiImiOlxNjhwcd57cdLcajLBFypSJ0FdvtrMtD4wp77ph5QqD0helw==
+X-Received: by 2002:a63:aa48:: with SMTP id x8mr23539960pgo.246.1618173347359; 
+ Sun, 11 Apr 2021 13:35:47 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 186sm4567614pfe.212.2021.04.11.13.35.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 11 Apr 2021 13:35:46 -0700 (PDT)
+Date: Sun, 11 Apr 2021 13:35:46 -0700 (PDT)
+X-Google-Original-Date: Sun, 11 Apr 2021 13:35:26 PDT (-0700)
+Subject: Re: [PATCH v3 0/5] riscv: introduce alternative mechanism to apply
+ errata patches
+In-Reply-To: <1616423166-13857-1-git-send-email-vincent.chen@sifive.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Frank.Zhao@starfivetech.com, Anup Patel <Anup.Patel@wdc.com>,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ guoren@kernel.org, alankao@andestech.com, ruinland@andestech.com,
+ david.abdurachmanov@sifive.com, vincent.chen@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: vincent.chen@sifive.com
+Message-ID: <mhng-752a1f05-cc02-4464-90c4-67d8b1f5931e@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210411_095118_287871_9F2DE26A 
-X-CRM114-Status: GOOD (  30.48  )
+X-CRM114-CacheID: sfid-20210411_133549_431824_E19CFDF9 
+X-CRM114-Status: GOOD (  31.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,222 +112,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 12, 2021 at 12:02 AM Guo Ren <guoren@kernel.org> wrote:
+On Mon, 22 Mar 2021 07:26:01 PDT (-0700), vincent.chen@sifive.com wrote:
+> With the emergence of more and more RISC-V CPUs, the request for how to
+> upstream the vendor errata patch may gradually appear. In order to resolve
+> this issue, this patch introduces the alternative mechanism from ARM64 and
+> x86 to enable the kernel to patch code at runtime according to the
+> manufacturer information of the running CPU. The main purpose of this patch
+> set is to propose a framework to apply vendor's errata solutions. Based on
+> this framework, it can be ensured that the errata only applies to the
+> specified CPU cores. Other CPU cores do not be affected. Therefore, some
+> complicated scenarios are unsupported in this patch set, such as patching
+> code to the kernel module, doing relocation in patching code, and
+> heterogeneous CPU topology.
 >
-> On Wed, Mar 31, 2021 at 10:32 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > This patch introduces a ticket lock implementation for riscv, along the
-> > same lines as the implementation for arch/arm & arch/csky.
-> >
-> > We still use qspinlock as default.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >  arch/riscv/Kconfig                      |  7 ++-
-> >  arch/riscv/include/asm/spinlock.h       | 84 +++++++++++++++++++++++++
-> >  arch/riscv/include/asm/spinlock_types.h | 17 +++++
-> >  3 files changed, 107 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 67cc65ba1ea1..34d0276f01d5 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -34,7 +34,7 @@ config RISCV
-> >         select ARCH_WANT_FRAME_POINTERS
-> >         select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-> >         select ARCH_USE_QUEUED_RWLOCKS
-> > -       select ARCH_USE_QUEUED_SPINLOCKS
-> > +       select ARCH_USE_QUEUED_SPINLOCKS        if !RISCV_TICKET_LOCK
-> >         select ARCH_USE_QUEUED_SPINLOCKS_XCHG32
-> >         select CLONE_BACKWARDS
-> >         select CLINT_TIMER if !MMU
-> > @@ -344,6 +344,11 @@ config NEED_PER_CPU_EMBED_FIRST_CHUNK
-> >         def_bool y
-> >         depends on NUMA
-> >
-> > +config RISCV_TICKET_LOCK
-> > +       bool "Ticket-based spin-locking"
-> > +       help
-> > +         Say Y here to use ticket-based spin-locking.
-> > +
-> >  config RISCV_ISA_C
-> >         bool "Emit compressed instructions when building Linux"
-> >         default y
-> > diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-> > index a557de67a425..90b7eaa950cf 100644
-> > --- a/arch/riscv/include/asm/spinlock.h
-> > +++ b/arch/riscv/include/asm/spinlock.h
-> > @@ -7,7 +7,91 @@
-> >  #ifndef _ASM_RISCV_SPINLOCK_H
-> >  #define _ASM_RISCV_SPINLOCK_H
-> >
-> > +#ifdef CONFIG_RISCV_TICKET_LOCK
-> > +#ifdef CONFIG_32BIT
-> > +#define __ASM_SLLIW "slli\t"
-> > +#define __ASM_SRLIW "srli\t"
-> > +#else
-> > +#define __ASM_SLLIW "slliw\t"
-> > +#define __ASM_SRLIW "srliw\t"
-> > +#endif
-> > +
-> > +/*
-> > + * Ticket-based spin-locking.
-> > + */
-> > +static inline void arch_spin_lock(arch_spinlock_t *lock)
-> > +{
-> > +       arch_spinlock_t lockval;
-> > +       u32 tmp;
-> > +
-> > +       asm volatile (
-> > +               "1:     lr.w    %0, %2          \n"
-> > +               "       mv      %1, %0          \n"
-> > +               "       addw    %0, %0, %3      \n"
-> > +               "       sc.w    %0, %0, %2      \n"
-> > +               "       bnez    %0, 1b          \n"
-> > +               : "=&r" (tmp), "=&r" (lockval), "+A" (lock->lock)
-> > +               : "r" (1 << TICKET_NEXT)
-> > +               : "memory");
-> > +
-> > +       smp_cond_load_acquire(&lock->tickets.owner,
-> > +                                       VAL == lockval.tickets.next);
-> It's wrong, blew is fixup:
+> In the "alternative" scheme, Users could use the macro ALTERNATIVE to apply
+> an errata to the existing code flow. In the macro ALTERNATIVE, users need
+> to specify the manufacturer information (vendor id, arch id, and implement
+> id) for this errata. Therefore, kernel will know this errata is suitable
+> for which CPU core. During the booting procedure, kernel will select the
+> errata required by the CPU core and then patch it. It means that the kernel
+> only applies the errata to the specified CPU core. In this case, the
+> vendor's errata does not affect each other at runtime. The above patching
+> procedure only occurs during the booting phase, so we only take the
+> overhead of the "alternative" mechanism once.
 >
-> diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
-> index fe98ad8ece51..2be627ceb9df 100644
-> --- a/arch/csky/include/asm/spinlock.h
-> +++ b/arch/csky/include/asm/spinlock.h
-> @@ -27,7 +27,8 @@ static inline void arch_spin_lock(arch_spinlock_t *lock)
->                 : "r"(p), "r"(ticket_next)
->                 : "cc");
+> This "alternative" mechanism is enabled by default to ensure that all
+> required errata will be applied. However, users can disable this feature by
+> the Kconfig "CONFIG_RISCV_ERRATA_ALTERNATIVE".
 >
-> -       smp_cond_load_acquire(&lock->tickets.owner,
-> +       if (lockval.owner != lockval.tickets.next)
-> +               smp_cond_load_acquire(&lock->tickets.owner,
->                                         VAL == lockval.tickets.next);
-eh... plus __smp_acquire_fence:
-
-       if (lockval.owner != lockval.tickets.next)
-               smp_cond_load_acquire(&lock->tickets.owner,
-                                        VAL == lockval.tickets.next);
-       else
-               __smp_acquire_fence();
-
-> > +}
-> > +
-> > +static inline int arch_spin_trylock(arch_spinlock_t *lock)
-> > +{
-> > +       u32 tmp, contended, res;
-> > +
-> > +       do {
-> > +               asm volatile (
-> > +               "       lr.w    %0, %3          \n"
-> > +               __ASM_SRLIW    "%1, %0, %5      \n"
-> > +               __ASM_SLLIW    "%2, %0, %5      \n"
-> > +               "       or      %1, %2, %1      \n"
-> > +               "       li      %2, 0           \n"
-> > +               "       sub     %1, %1, %0      \n"
-> > +               "       bnez    %1, 1f          \n"
-> > +               "       addw    %0, %0, %4      \n"
-> > +               "       sc.w    %2, %0, %3      \n"
-> > +               "1:                             \n"
-> > +               : "=&r" (tmp), "=&r" (contended), "=&r" (res),
-> > +                 "+A" (lock->lock)
-> > +               : "r" (1 << TICKET_NEXT), "I" (TICKET_NEXT)
-> > +               : "memory");
-> > +       } while (res);
-> > +
-> > +       if (!contended)
-> > +               __atomic_acquire_fence();
-> > +
-> > +       return !contended;
-> > +}
-> > +
-> > +static inline void arch_spin_unlock(arch_spinlock_t *lock)
-> > +{
-> > +       smp_store_release(&lock->tickets.owner, lock->tickets.owner + 1);
-> > +}
-> > +
-> > +static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
-> > +{
-> > +       return lock.tickets.owner == lock.tickets.next;
-> > +}
-> > +
-> > +static inline int arch_spin_is_locked(arch_spinlock_t *lock)
-> > +{
-> > +       return !arch_spin_value_unlocked(READ_ONCE(*lock));
-> > +}
-> > +
-> > +static inline int arch_spin_is_contended(arch_spinlock_t *lock)
-> > +{
-> > +       struct __raw_tickets tickets = READ_ONCE(lock->tickets);
-> > +
-> > +       return (tickets.next - tickets.owner) > 1;
-> > +}
-> > +#define arch_spin_is_contended arch_spin_is_contended
-> > +#else /* CONFIG_RISCV_TICKET_LOCK */
-> >  #include <asm/qspinlock.h>
-> > +#endif /* CONFIG_RISCV_TICKET_LOCK */
-> > +
-> >  #include <asm/qrwlock.h>
-> >
-> >  #endif /* _ASM_RISCV_SPINLOCK_H */
-> > diff --git a/arch/riscv/include/asm/spinlock_types.h b/arch/riscv/include/asm/spinlock_types.h
-> > index d033a973f287..afbb19841d0f 100644
-> > --- a/arch/riscv/include/asm/spinlock_types.h
-> > +++ b/arch/riscv/include/asm/spinlock_types.h
-> > @@ -10,7 +10,24 @@
-> >  # error "please don't include this file directly"
-> >  #endif
-> >
-> > +#ifdef CONFIG_RISCV_TICKET_LOCK
-> > +#define TICKET_NEXT    16
-> > +
-> > +typedef struct {
-> > +       union {
-> > +               u32 lock;
-> > +               struct __raw_tickets {
-> > +                       /* little endian */
-> > +                       u16 owner;
-> > +                       u16 next;
-> > +               } tickets;
-> > +       };
-> > +} arch_spinlock_t;
-> > +
-> > +#define __ARCH_SPIN_LOCK_UNLOCKED      { { 0 } }
-> > +#else
-> >  #include <asm-generic/qspinlock_types.h>
-> > +#endif
-> >  #include <asm-generic/qrwlock_types.h>
-> >
-> >  #endif /* _ASM_RISCV_SPINLOCK_TYPES_H */
-> > --
-> > 2.17.1
-> >
+> The last two patches are to apply the SiFive CIP-453 and CIP-1200 errata by
+> this "alternative" scheme. Therefore, they can be regarded as examples.
+> According to the results of running this image on the QEMU virt platform,
+> kernel does not apply this errata at run-time because the CPU manufacturer
+> information does not match the specified SiFive CPU core. Therefore, these
+> errata does not affect any CPU core except for the specified SiFive cores.
 >
+> Changes in v3 patch:
+> 1. Remove "default y" setting of CONFIG_ERRATA_SIFIVE from Kconfig.erratas
+> 2. Correct the affected CPU list of errata "cip-453"
 >
-> --
-> Best Regards
->  Guo Ren
+> Changes in v2 patch:
+> 1. Display a warning message if Kernel finds the required errata is missing
+> 2. Provide sample code for a vendor who wants to append its errata
+> 3. Create a new patch to workaound SiFive errata cip-1200
 >
-> ML: https://lore.kernel.org/linux-csky/
+> Vincent Chen (5):
+>   riscv: Add 3 SBI wrapper functions to get cpu manufacturer information
+>   riscv: Introduce alternative mechanism to apply errata solution
+>   riscv: sifive: Add SiFive alternative ports
+>   riscv: sifive: Apply errata "cip-453" patch
+>   riscv: sifive: Apply errata "cip-1200" patch
+>
+>  arch/riscv/Kconfig                          |   1 +
+>  arch/riscv/Kconfig.erratas                  |  44 +++++++++
+>  arch/riscv/Kconfig.socs                     |   1 +
+>  arch/riscv/Makefile                         |   1 +
+>  arch/riscv/errata/Makefile                  |   2 +
+>  arch/riscv/errata/alternative.c             |  74 +++++++++++++++
+>  arch/riscv/errata/sifive/Makefile           |   2 +
+>  arch/riscv/errata/sifive/errata.c           | 106 +++++++++++++++++++++
+>  arch/riscv/errata/sifive/errata_cip_453.S   |  38 ++++++++
+>  arch/riscv/include/asm/alternative-macros.h | 142 ++++++++++++++++++++++++++++
+>  arch/riscv/include/asm/alternative.h        |  39 ++++++++
+>  arch/riscv/include/asm/asm.h                |   1 +
+>  arch/riscv/include/asm/csr.h                |   3 +
+>  arch/riscv/include/asm/errata_list.h        |  39 ++++++++
+>  arch/riscv/include/asm/sbi.h                |   3 +
+>  arch/riscv/include/asm/sections.h           |   1 +
+>  arch/riscv/include/asm/tlbflush.h           |   3 +-
+>  arch/riscv/include/asm/vendorid_list.h      |  10 ++
+>  arch/riscv/kernel/entry.S                   |   6 +-
+>  arch/riscv/kernel/sbi.c                     |  15 +++
+>  arch/riscv/kernel/smpboot.c                 |   4 +
+>  arch/riscv/kernel/vmlinux.lds.S             |   7 ++
+>  22 files changed, 539 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/riscv/Kconfig.erratas
+>  create mode 100644 arch/riscv/errata/Makefile
+>  create mode 100644 arch/riscv/errata/alternative.c
+>  create mode 100644 arch/riscv/errata/sifive/Makefile
+>  create mode 100644 arch/riscv/errata/sifive/errata.c
+>  create mode 100644 arch/riscv/errata/sifive/errata_cip_453.S
+>  create mode 100644 arch/riscv/include/asm/alternative-macros.h
+>  create mode 100644 arch/riscv/include/asm/alternative.h
+>  create mode 100644 arch/riscv/include/asm/errata_list.h
+>  create mode 100644 arch/riscv/include/asm/vendorid_list.h
 
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Thanks, these are on for-next.  There was one checkpatch error related 
+to _ALTERNATIVE_CFG locking parens, but I think that's a false positive 
+due to all the assembly stuff so I've left it alone.
 
 _______________________________________________
 linux-riscv mailing list
