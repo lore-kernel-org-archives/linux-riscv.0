@@ -1,107 +1,95 @@
-Return-Path: <SRS0=YT8n=JG=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=IRtM=JI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A538C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 18:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06A77C433ED
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:01:52 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CFDF061106
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Apr 2021 18:58:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CFDF061106
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0D9FC6105A
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:01:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0D9FC6105A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=OAjDKDwxMk9f5onA3dbmMAzCX7CVhnZHtkT6WDOlyu4=; b=AieidpsYn4aJlv4zNqpP6ODLT
-	uhXPt7fWkoHiOuAAG/XoBGvpGMnUUfGekz0JZKTyCcdmaYAhYDYTtkQtR8lbjaX92IPOXsdCALhvr
-	vgjlzjieBvSUJhjare9zMc8pHxxVZR0EvZdpUBalrCPij6dDqkWHXQN5P9C2QorxVefT5lyw94ggh
-	pulTUseHgwB8V17c3H/RXdtJb1eQkrT4yYv+XyRbKb1kp7qf7VQ3MXrPQ2kfap/Oh2HcTd/SzNakc
-	NIvPeLw3NTZBUBqtb3hsc5xKTykPyOu8uGcaeooMV9zqHP40cP2tuCYv1Vc1Hqpiru1MatpE1jPbE
-	WsMZv7+6w==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=c/xmUtO0zdEQNOQc2UnSAGhdGAOWMLCejGbSYpJzBeA=; b=jYTio4fElL6P8ds4O7j7kK8WG
+	ZtJ5ZmN07PMQJI7dwm3Cx3mtsHJbQKJrAOifx9oI8HbIqyDA1RguaHLCqqtakvdzidLV+v9GiqGr8
+	CUnWRaBhdIAYD8DZRDSLcd1uvfNYMTIia/LeULzjiLPUe8Z0LSqqVRF/U/NbeKosR80zyJflEywrS
+	nQVZsf4Z7dlmVQO7yOtga2eFdKfy0GE19JnK2ljtJTwiPeLOS/avgBkWBN2m0D9zapxt1rHL0DrKJ
+	0eju+dyiWsjJPdtdMtSI9hKsQ3NP2fLhT5LNankUeCSMul6147jx9nThgEQju0reVoLkD211musgV
+	fpIPPCuYg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lUwKr-001OCS-Rh; Fri, 09 Apr 2021 18:58:29 +0000
+	id 1lVcWi-004g19-61; Sun, 11 Apr 2021 16:01:32 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUwKq-001OCJ-8N
- for linux-riscv@desiato.infradead.org; Fri, 09 Apr 2021 18:58:28 +0000
+ id 1lVcWe-004g0n-Aw
+ for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:01:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
- Sender:Reply-To:Content-ID:Content-Description:References;
- bh=qzPGYRIIgbwAx3GIWXZYzwGgFSrgnjtXWJk804zYlrk=; b=MXgP9WoB6YlOQTW6eoY0vOGONT
- VEnly11DDfroNvdWeD98P04JJ6mkcFbm5bNz+p0Uy1syn90Yr0iLVvsKiqwUAACwDrVCHEQ/yKaUf
- V4I2f98UDmhHEhuygZsjYzOfLeFlEF9FqvYPXFfmq6VnWg/5fVZHQyJYzK2Dd2wa8AbfA+i/Idrw/
- SClJP3oLCDEmSAB/nUsUXW2HF9AZjA1KVXUPcm0tath3c5DuNw+GXCQ5zbHw5fUrG7JiCHzg/pvWB
- 9tkrxfQwF8skhekXJsYm/9eUiZeW+EQfMMg5v+s8qJ/uPrDmAH6ekHKdVeF7I1UOYz6Ry/Tp1ONTt
- /6tLo8TQ==;
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=I2EBx3sJ/vLLI2PJk75jYL2zbh38gHd3p0wjYi7vBvE=; b=Ne1KT5QpT574nXDKXqwf6nxYWI
+ cI3Ir70pK6WXL3Qa/2w/5qeL1UcPK/XICOg8OCDJmBdOyYMvwJzm6bM8zv5mCRcySrY/HPC7U8LNU
+ EZ5Q8YKxkT2YSDUzIS7QYDAgTf1zfM35usjFmqNfbEevNMAc4vCr9kX4vBzdrKrioPJnRrR1z+yRc
+ Ox9/Ut2vgQEclIY1EcdxfnUTlGY4GdDLOpFM7roGo4Q90llT63U6jA/P3DLMDW/pryYjYR+6dg1td
+ ClnDFku8yHwCNhg2TRb0tLkNz8ooEtqVdjCAJb5XJH8CJAlAmJIB1lJ4OyfF1olcWGm+CggOFx68G
+ P6m63wrw==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lUwKj-004kFB-Pb
- for linux-riscv@lists.infradead.org; Fri, 09 Apr 2021 18:58:23 +0000
-Received: by mail-pf1-x435.google.com with SMTP id q5so4822344pfh.10
- for <linux-riscv@lists.infradead.org>; Fri, 09 Apr 2021 11:58:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=qzPGYRIIgbwAx3GIWXZYzwGgFSrgnjtXWJk804zYlrk=;
- b=R2zitmc2UyEV/XFPNt4ZmSNyBT88XlV5CyfSwFCKbaDvAMOKHhQmYhcmW8lpJ3DVT3
- O3xwUFblk6wGJdP9AvbLAreJHXUBPiiKV+GpPPrDC6J5pe4D6+0XFpUbR9FRuvbpeoVf
- d31nPgAzjXydWPbI/6YEgHQM9JSocQV3RK90CXUdO7ypRQeaboZBYagiFSBo+EYusG3N
- 0d82tK0bvRp31CvuDfLoVqCnkBvB9RlogDGlgnKphfFkXREFMGqR5bWYQs3ysQywimdD
- yEVesZi3bfW44keuWvg4KLYJMfp2mEXxmGRAPK23mlTtNVbLKe/VjJpIQbFGD20E9McU
- ezlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=qzPGYRIIgbwAx3GIWXZYzwGgFSrgnjtXWJk804zYlrk=;
- b=bSV28RKqie5E6XZwrfS2XhjAejNQpVchy7DjI6Ho7T7leh3XC5NQG+u1+DBw+CF0rC
- grjdw3Y1KT2ByS08yM0WijupSku4VgXJX2CKc4lZui87PtTjvhUcxcFoo+V6HYeXugJ7
- lzdTi0GsSq8ovEJYvqGZT5YVBjrZgNpSMo1NPRkILizU8QK/YIbqqjzlyyjdA6sWNAG8
- LoXA1ZkfiPibfExEn8chrYp95B6tXdwlM4VaEKsyswtAEdDR8XIyPuzkLeOk42rNqJ2Z
- abCcXZk/+mP3OCW+UYizUPhGr6UKmv72kgp4Vq7wJsSA/VeYcYgN54iXamR+gQ+n9U3A
- R64A==
-X-Gm-Message-State: AOAM531Ync0RGEa4/T6FrGGFYT9YNZLHFsZidJiuQLHINrOiGJMGVQ4s
- 2fW/ueej3MNcLvXekpjqzBmQEA==
-X-Google-Smtp-Source: ABdhPJwKIOtldl7rBGs1NBZjyVCx0kPKACsREmjytSOckbEVS1OO/AnMx6b5G8xwh41jOKZDd2aUbA==
-X-Received: by 2002:a63:6744:: with SMTP id b65mr14411777pgc.314.1617994700058; 
- Fri, 09 Apr 2021 11:58:20 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id l18sm3602095pgh.70.2021.04.09.11.58.19
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 09 Apr 2021 11:58:19 -0700 (PDT)
-Date: Fri, 09 Apr 2021 11:58:19 -0700 (PDT)
-X-Google-Original-Date: Fri, 09 Apr 2021 11:58:17 PDT (-0700)
-Subject: Re: [PATCH v16 00/17] KVM RISC-V Support
-In-Reply-To: <a49a7142-104e-fdaa-4a6a-619505695229@redhat.com>
-CC: anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- graf@amazon.com, Atish Patra <Atish.Patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: pbonzini@redhat.com
-Message-ID: <mhng-d64da1be-bacd-4885-aaf2-fea3c763418c@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1lVcWb-005aRO-If
+ for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:01:27 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2895C611C9
+ for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 16:01:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1618156884;
+ bh=bxyiUc7lO8RjWeGmFNt0Glxp3nNNC162o0D7XY+vRXg=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ocbV3yCEonWttAc1zcbh4sFMlpL/8mLiYxvnPxd4vaNWUoxIUghQq/418Vd/8+OsQ
+ uJqpH09JX3FyCKp5XaQYZxmUsBFGWg8DBDqrZUYcGC9eTTDGDZ7Pv1fsnvFz66yY3l
+ CqFgPgBK9ODxn1O/DoS0JWKwm1nNfEok9TRCbissXEHtyCsrFX5+LauK+0HULFJudx
+ MheQDdG6dqOZZtISRGENS7K5+2Yo60vM8RzSwh/VaorG8/XaeVnWmZ6gy7/XASCyPB
+ iuDB+RBHMB+CmVctzSKyVDMGk7JOvcTcXfexy6bCgR4aqAXQUWdHhM9dc/xolI6hq+
+ ieCqE55bqcOfw==
+Received: by mail-lj1-f170.google.com with SMTP id r20so12300695ljk.4
+ for <linux-riscv@lists.infradead.org>; Sun, 11 Apr 2021 09:01:24 -0700 (PDT)
+X-Gm-Message-State: AOAM531wfJwhP5evzzVZhoLnl92hvZgaa5jgc/DZ+bK7FdSRZpXGN4M1
+ IHMIt3is331vR/dV7aagyf83lvGaQ+iX5+JGaEE=
+X-Google-Smtp-Source: ABdhPJy10CnI96Z9R6HlWIrVpcoYY10s7Y9maxlV3dOVr4CugIJl0sk8MNc8rkDLu53Ak6ongjwa0tUvq8SrIM/7luU=
+X-Received: by 2002:a05:651c:3c3:: with SMTP id
+ f3mr15178457ljp.105.1618156882398; 
+ Sun, 11 Apr 2021 09:01:22 -0700 (PDT)
+MIME-Version: 1.0
+References: <1617201040-83905-1-git-send-email-guoren@kernel.org>
+ <1617201040-83905-5-git-send-email-guoren@kernel.org>
+In-Reply-To: <1617201040-83905-5-git-send-email-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 12 Apr 2021 00:01:10 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT2Pe8o0wm1ohJE-A0HNjteiB6T3HMcH3Fdj7Tm7SSR8Q@mail.gmail.com>
+Message-ID: <CAJF2gTT2Pe8o0wm1ohJE-A0HNjteiB6T3HMcH3Fdj7Tm7SSR8Q@mail.gmail.com>
+Subject: Re: [PATCH v6 4/9] csky: locks: Optimize coding convention
+To: Guo Ren <guoren@kernel.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-arch <linux-arch@vger.kernel.org>, linuxppc-dev@lists.ozlabs.org, 
+ linux-xtensa@linux-xtensa.org, openrisc@lists.librecores.org, 
+ sparclinux <sparclinux@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210409_115821_928940_B47153A2 
-X-CRM114-Status: GOOD (  43.64  )
+X-CRM114-CacheID: sfid-20210411_090125_697184_0ACA5CAF 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,110 +101,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 31 Mar 2021 02:21:58 PDT (-0700), pbonzini@redhat.com wrote:
-> On 30/03/21 07:48, Anup Patel wrote:
->>
->> It seems Andrew does not want to freeze H-extension until we have virtualization
->> aware interrupt controller (such as RISC-V AIA specification) and IOMMU. Lot
->> of us feel that these things can be done independently because RISC-V
->> H-extension already has provisions for external interrupt controller with
->> virtualization support.
-
-Sorry to hear that.  It's really gotten to a point where I'm just 
-embarrassed with how the RISC-V foundation is being run -- not sure if 
-these other ones bled into Linux land, but this is the third ISA 
-extension that's blown up over the last few weeks.  We had a lot of 
-discussion about this on the binutils/GCC side of things and I've 
-managed to convince myself that coupling the software stack to the 
-specification process isn't viable -- we made that decision under the 
-assumption that specifications would actually progress through the 
-process, but in practice that's just not happening.
-
-My goal with the RISC-V stuff has always been getting us to a place 
-where we have real shipping products running a software stack that is as 
-close as possible to the upstream codebases.  I see that as the only way 
-to get the software stack to a point where it can be sustainably 
-maintained.  The "only frozen extensions" policy was meant to help this 
-by steering vendors towards a common base we could support, but in 
-practice it's just not working out.  The specification process is just 
-so unreliable that in practice everything that gets built ends up 
-relying on some non-standard behavior: whether it's a draft extension, 
-some vendor-specific extension, or just some implementation quirks.  
-There's always going to be some degree of that going on, but over the 
-last year or so we've just stopped progressing.
-
-My worry with accepting the draft extensions is that we have no 
-guarantee of compatibility between various drafts, which makes 
-supporting multiple versions much more difficult.  I've always really 
-only been worried about supporting what gets implemented in a chip I can 
-actually run code on, as I can at least guarantee that doesn't change.  
-In practice that really has nothing to do with the specification freeze: 
-even ratified specifications change in ways that break compatibility so 
-we need to support multiple versions anyway.  That's why we've got 
-things like the K210 support (which doesn't quite follow the ratified 
-specs) and are going to take the errata stuff.  I hadn't been all that 
-worried about the H support because there was a plan to get is to 
-hardware, but with the change I'm not really sure how that's going to 
-happen.
-
-> Yes, frankly that's pretty ridiculous as it's perfectly possible to
-> emulate the interrupt controller in software (and an IOMMU is not needed
-> at all if you are okay with emulated or paravirtualized devices---which
-> is almost always the case except for partitioning hypervisors).
-
-There's certainly some risk to freezing the H extension before we have 
-all flavors of systems up and running.  I spent a lot of time arguing 
-that case years ago before we started telling people that the H 
-extension just needed implementation, but that's not the decision we 
-made.  I don't really do RISC-V foundation stuff any more so I don't 
-know why this changed, but it's just too late.  It would be wonderful to 
-have an implementation of everything we need to build out one of these 
-complex systems, but I just just don't see how the current plan gets 
-there: that's a huge amount of work and I don't see why anyone would 
-commit to that when they can't count on it being supported when it's 
-released.
-
-There are clearly some systems that can be built with this as it stands.  
-They're not going to satisfy every use case, but at least we'll get 
-people to start seriously using the spec.  That's the only way I can see 
-to move forward with this.  It's pretty clear that sitting around and 
-waiting doesn't work, we've tried that.
-
-> Palmer, are you okay with merging RISC-V KVM?  Or should we place it in
-> drivers/staging/riscv/kvm?
-
-I'm certainly ready to drop my objections to merging the code based on 
-it targeting a draft extension, but at a bare minimum I want to get a 
-new policy in place that everyone can agree to for merging code.  I've 
-tried to draft up a new policy a handful of times this week, but I'm not 
-really quite sure how to go about this: ultimately trying to build 
-stable interfaces around an unstable ISA is just a losing battle.  I've 
-got a bunch of stuff going on right now, but I'll try to find some time 
-to actually sit down and finish one.
-
-I know it might seem odd to complain about how slowly things are going 
-and then throw up another roadblock, but I really do think this is a 
-very important thing to get right.  I'm just not sure how we're going to 
-get anywhere with RISC-V without someone providing stability, so I want 
-to make sure that whatever we do here can be done reliably.  If we don't 
-I'm worried the vendors are just going to go off and do their own 
-software stacks, which will make getting everyone back on the same page 
-very difficult.
-
-> Either way, the best way to do it would be like this:
+On Wed, Mar 31, 2021 at 10:32 PM <guoren@kernel.org> wrote:
 >
-> 1) you apply patch 1 in a topic branch
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> 2) you merge the topic branch in the risc-v tree
+>  - Using smp_cond_load_acquire in arch_spin_lock by Peter's
+>    advice.
+>  - Using __smp_acquire_fence in arch_spin_trylock
+>  - Using smp_store_release in arch_spin_unlock
 >
-> 3) Anup merges the topic branch too and sends me a pull request.
+> All above are just coding conventions and won't affect the
+> function.
 >
-> Paolo
+> TODO in smp_cond_load_acquire for architecture:
+>  - current csky only has:
+>    lr.w val, <p0>
+>    sc.w <p0>. val2
+>    (Any other stores to p0 will let sc.w failed)
+>
+>  - But smp_cond_load_acquire need:
+>    lr.w val, <p0>
+>    wfe
+>    (Any stores to p0 will send the event to let wfe retired)
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Link: https://lore.kernel.org/linux-riscv/CAAhSdy1JHLUFwu7RuCaQ+RUWRBks2KsDva7EpRt8--4ZfofSUQ@mail.gmail.com/T/#m13adac285b7f51f4f879a5d6b65753ecb1a7524e
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/csky/include/asm/spinlock.h | 11 ++++-------
+>  1 file changed, 4 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
+> index 69f5aa249c5f..69677167977a 100644
+> --- a/arch/csky/include/asm/spinlock.h
+> +++ b/arch/csky/include/asm/spinlock.h
+> @@ -26,10 +26,8 @@ static inline void arch_spin_lock(arch_spinlock_t *lock)
+>                 : "r"(p), "r"(ticket_next)
+>                 : "cc");
+>
+> -       while (lockval.tickets.next != lockval.tickets.owner)
+> -               lockval.tickets.owner = READ_ONCE(lock->tickets.owner);
+> -
+> -       smp_mb();
+> +       smp_cond_load_acquire(&lock->tickets.owner,
+> +                                       VAL == lockval.tickets.next);
+It's wrong, we should determine lockval before next read.
+
+Fixup:
+
+diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
+index fe98ad8ece51..2be627ceb9df 100644
+--- a/arch/csky/include/asm/spinlock.h
++++ b/arch/csky/include/asm/spinlock.h
+@@ -27,7 +27,8 @@ static inline void arch_spin_lock(arch_spinlock_t *lock)
+                : "r"(p), "r"(ticket_next)
+                : "cc");
+
+-       smp_cond_load_acquire(&lock->tickets.owner,
++       if (lockval.owner != lockval.tickets.next)
++               smp_cond_load_acquire(&lock->tickets.owner,
+                                        VAL == lockval.tickets.next);
+
+>  }
+>
+>  static inline int arch_spin_trylock(arch_spinlock_t *lock)
+> @@ -55,15 +53,14 @@ static inline int arch_spin_trylock(arch_spinlock_t *lock)
+>         } while (!res);
+>
+>         if (!contended)
+> -               smp_mb();
+> +               __smp_acquire_fence();
+>
+>         return !contended;
+>  }
+>
+>  static inline void arch_spin_unlock(arch_spinlock_t *lock)
+>  {
+> -       smp_mb();
+> -       WRITE_ONCE(lock->tickets.owner, lock->tickets.owner + 1);
+> +       smp_store_release(&lock->tickets.owner, lock->tickets.owner + 1);
+>  }
+>
+>  static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+> --
+> 2.17.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
