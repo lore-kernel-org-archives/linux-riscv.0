@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEE37C433B4
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B292C433B4
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:45:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 618E8610A6
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:44:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 618E8610A6
+	by mail.kernel.org (Postfix) with ESMTPS id B41E3610A8
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Apr 2021 16:45:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B41E3610A8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,38 +23,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7886NRbPKj4lyOiDna67nmrGKoNkJ8bM2Oyu31+DwX8=; b=mCA+aggoWMK0GBrtyTKoGviPw
-	GGhG780gKyVNjt1NZx9/TZEPnMhqcaRSLQS+xECu+7538XXE+p+XqnRZhTnCw3OVBQtAcjAD3uSFa
-	aCRdggR/ckGXdr/wJ3Cw/pqgKXCbDG7fhfqiia0d20LzsZBNH4U2ldwzgHwlziYOYkBQAT9NbaeQ5
-	afBEa/4s+b0otgdo5q7t5zv3FfWiYs1hMFf6WvGb/6lCu42Wf2tjQNyD/vgoAOE/E1kGNPbBkeCKK
-	5oCuJ7bo6NJZEELuLSwPsRDBLFHSTH4MYZEFTvmXybUX4+eLTytpMCk17XMJC/2X+wH3vbgEVK/xo
-	1+4SzbNIg==;
+	 bh=t6mLJq+HM8kIHq1G/22doDLjmSExW+MfjR/PNIzxrQ8=; b=SbPJSu+PaahA7ulGkLr0piYt2
+	RTaWSZ2uYv5QdnJhxRnYAFcWZT/1pch2KDVHAKdKeJr77L6zfAsDTs/M7Co9F3jYSmKaGX20MWIo2
+	9V4EP85CUXa+LY2ArnmFbLuYUxJdwmlh1Xc+JZtqLWH2LNutPwSPTkLWns99rltr9+yaX5BVxjHLX
+	l/VHlHOupfDTdwGJjr++HEO93RD3v2vPVeXy08KWUoplja0IafiajFuTv1y86qj46q+cpcl0mluUh
+	1y8azGBDfncJnEEkWiIbjyvG6HhtEPcnrpuJO8Hdo2pqQVVNmxYMvWpFJc7NY2R3TnP1Gfr465MQF
+	M64Fwpa6Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVdBw-004mJD-LH; Sun, 11 Apr 2021 16:44:08 +0000
+	id 1lVdCz-004mRN-K6; Sun, 11 Apr 2021 16:45:13 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVdBu-004mIy-Ns
- for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:44:06 +0000
+ id 1lVdCx-004mRC-6p
+ for linux-riscv@desiato.infradead.org; Sun, 11 Apr 2021 16:45:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
- To:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=WFcLtBl6RmKjsIRqwG0zx8sBRO6mPYJiXhHMrLe6GlE=; b=AjrTgm7I2Ys41y/n9NLAFaOQXp
- Q/bMT1c5KWf0k9/kFs4B4aejkDy2c6kCSWzTec/d8Qso8K4MWbhy4rOZfn9hFdWXRiMK++9nVxKb6
- KBIdBv9/1yWaLGpQquDSCsOWKFjc0NExHE5dRpcQ+LPYLIUC4mhP4lb+yVth1TKkvr+om5ff7u4b+
- U7cnT7OZnzOkw6RzYpSScxn5nSlBDVNne7xmrztgoBZQG1UFa8kdWgIR8oYvxoXsn5u9gtS88FQx8
- sfTD+wmhiqCHzMayi9FDTDtdPSVbwkBOol771WUG5F3vfP/ibW0TkskUYDX9De9ypU62yM1nsBY+5
- +1VRfalQ==;
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+ :Reply-To:Content-Type:Content-ID:Content-Description;
+ bh=SPxB88xAvzBOgb85DqnMbdC5D3pf52ZTNxFcXGYoVbk=; b=LmVdlYfKOu0IBqbV55TGpW55Ip
+ CPZQejO2LeX3K3m07rOkWZNGZY5PRX5WbQEmrgW51jiCD6h977FX0IR76X+UHj7qRTjFYGfVTbxmj
+ WRV+1LqA8JYI4B9TagN+6XOPkewklgBTn9Sbk65w7eHILRyEY6OEGB7AtEvrzLgEQSBBSie8IxCHH
+ WkbeotYZnOzud6tWm55H6sAFO4DjTQANwCocmB/mh1MIMilMTzI65+/LwSrVo5qlSakPbLO5A6Uxw
+ IpqoPC1DYKIZtpMrbE9aqMo+UYsvK56HJJD+ZOxCOCxcBONly0Rk7Zau+BvoG0bQnHWaFeel/PKd6
+ qK+blCWQ==;
+Received: from relay11.mail.gandi.net ([217.70.178.231])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVdBr-005bX5-Ot
- for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:44:05 +0000
-X-Originating-IP: 2.7.49.219
+ id 1lVdCu-005bZx-7J
+ for linux-riscv@lists.infradead.org; Sun, 11 Apr 2021 16:45:10 +0000
 Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
  [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 3288320004;
- Sun, 11 Apr 2021 16:43:56 +0000 (UTC)
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id A5A4D100007;
+ Sun, 11 Apr 2021 16:45:01 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -63,18 +62,18 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v5 2/3] Documentation: riscv: Add documentation that describes
- the VM layout
-Date: Sun, 11 Apr 2021 12:41:45 -0400
-Message-Id: <20210411164146.20232-3-alex@ghiti.fr>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>
+Subject: [PATCH v5 3/3] riscv: Prepare ptdump for vm layout dynamic addresses
+Date: Sun, 11 Apr 2021 12:41:46 -0400
+Message-Id: <20210411164146.20232-4-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20210411164146.20232-1-alex@ghiti.fr>
 References: <20210411164146.20232-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210411_094404_100805_A583909C 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20210411_094508_553958_4F915B59 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,92 +85,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBuZXcgZG9jdW1lbnQgcHJlc2VudHMgdGhlIFJJU0MtViB2aXJ0dWFsIG1lbW9yeSBsYXlv
-dXQgYW5kIGlzIGJhc2VkCm9uZSB0aGUgeDg2IG9uZTogaXQgZGVzY3JpYmVzIHRoZSBkaWZmZXJl
-bnQgbGltaXRzIG9mIHRoZSBkaWZmZXJlbnQgcmVnaW9ucwpvZiB0aGUgdmlydHVhbCBhZGRyZXNz
-IHNwYWNlLgoKU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgot
-LS0KIERvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0ICAgICB8ICAxICsKIERvY3VtZW50YXRp
-b24vcmlzY3Yvdm0tbGF5b3V0LnJzdCB8IDYzICsrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysKIDIgZmlsZXMgY2hhbmdlZCwgNjQgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0
-IERvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAoKZGlmZiAtLWdpdCBhL0RvY3VtZW50
-YXRpb24vcmlzY3YvaW5kZXgucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QKaW5k
-ZXggNmU2ZTM5NDgyNTAyLi5lYTkxNWMxOTYwNDggMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24v
-cmlzY3YvaW5kZXgucnN0CisrKyBiL0RvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0CkBAIC02
-LDYgKzYsNyBAQCBSSVNDLVYgYXJjaGl0ZWN0dXJlCiAgICAgOm1heGRlcHRoOiAxCiAKICAgICBi
-b290LWltYWdlLWhlYWRlcgorICAgIHZtLWxheW91dAogICAgIHBtdQogICAgIHBhdGNoLWFjY2Vw
-dGFuY2UKIApkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IGIv
-RG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0Cm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
-ZGV4IDAwMDAwMDAwMDAwMC4uMzI5ZDMyMDk4YWY0Ci0tLSAvZGV2L251bGwKKysrIGIvRG9jdW1l
-bnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0CkBAIC0wLDAgKzEsNjMgQEAKKy4uIFNQRFgtTGlj
-ZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCisKKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT0KK1ZpcnR1YWwgTWVtb3J5IExheW91dCBvbiBSSVNDLVYgTGludXgKKz09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KKworOkF1dGhvcjogQWxleGFuZHJlIEdoaXRp
-IDxhbGV4QGdoaXRpLmZyPgorOkRhdGU6IDEyIEZlYnJ1YXJ5IDIwMjEKKworVGhpcyBkb2N1bWVu
-dCBkZXNjcmliZXMgdGhlIHZpcnR1YWwgbWVtb3J5IGxheW91dCB1c2VkIGJ5IHRoZSBSSVNDLVYg
-TGludXgKK0tlcm5lbC4KKworUklTQy1WIExpbnV4IEtlcm5lbCAzMmJpdAorPT09PT09PT09PT09
-PT09PT09PT09PT09PQorCitSSVNDLVYgTGludXggS2VybmVsIFNWMzIKKy0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLQorCitUT0RPCisKK1JJU0MtViBMaW51eCBLZXJuZWwgNjRiaXQKKz09PT09PT09
-PT09PT09PT09PT09PT09PT0KKworVGhlIFJJU0MtViBwcml2aWxlZ2VkIGFyY2hpdGVjdHVyZSBk
-b2N1bWVudCBzdGF0ZXMgdGhhdCB0aGUgNjRiaXQgYWRkcmVzc2VzCisibXVzdCBoYXZlIGJpdHMg
-NjPigJM0OCBhbGwgZXF1YWwgdG8gYml0IDQ3LCBvciBlbHNlIGEgcGFnZS1mYXVsdCBleGNlcHRp
-b24gd2lsbAorb2NjdXIuIjogdGhhdCBzcGxpdHMgdGhlIHZpcnR1YWwgYWRkcmVzcyBzcGFjZSBp
-bnRvIDIgaGFsdmVzIHNlcGFyYXRlZCBieSBhIHZlcnkKK2JpZyBob2xlLCB0aGUgbG93ZXIgaGFs
-ZiBpcyB3aGVyZSB0aGUgdXNlcnNwYWNlIHJlc2lkZXMsIHRoZSB1cHBlciBoYWxmIGlzIHdoZXJl
-Cit0aGUgUklTQy1WIExpbnV4IEtlcm5lbCByZXNpZGVzLgorCitSSVNDLVYgTGludXggS2VybmVs
-IFNWMzkKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCis6OgorCisgID09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAg
-U3RhcnQgYWRkciAgICB8ICAgT2Zmc2V0ICAgfCAgICAgRW5kIGFkZHIgICAgIHwgIFNpemUgICB8
-IFZNIGFyZWEgZGVzY3JpcHRpb24KKyAgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CisgICAgICAgICAgICAgICAgICAgIHwgICAg
-ICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIDAwMDAwMDAwMDAwMDAw
-MDAgfCAgICAwICAgICAgIHwgMDAwMDAwM2ZmZmZmZmZmZiB8ICAyNTYgR0IgfCB1c2VyLXNwYWNl
-IHZpcnR1YWwgbWVtb3J5LCBkaWZmZXJlbnQgcGVyIG1tCisgIF9fX19fX19fX19fX19fX19fX3xf
-X19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAg
-ICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8CisgICAw
-MDAwMDA0MDAwMDAwMDAwIHwgKzI1NiAgICBHQiB8IGZmZmZmZmJmZmZmZmZmZmYgfCB+MTZNIFRC
-IHwgLi4uIGh1Z2UsIGFsbW9zdCA2NCBiaXRzIHdpZGUgaG9sZSBvZiBub24tY2Fub25pY2FsCisg
-ICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAg
-ICAgIHwgICAgIHZpcnR1YWwgbWVtb3J5IGFkZHJlc3NlcyB1cCB0byB0aGUgLTI1NiBHQgorICAg
-ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAg
-ICB8ICAgICBzdGFydGluZyBvZmZzZXQgb2Yga2VybmVsIG1hcHBpbmdzLgorICBfX19fX19fX19f
-X19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgfAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8IEtlcm5lbC1zcGFjZSB2aXJ0dWFsIG1lbW9yeSwgc2hhcmVkIGJldHdlZW4g
-YWxsIHByb2Nlc3NlczoKKyAgX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIGZmZmZmZmMwMDAwMDAwMDAgfCAt
-MjU2ICAgIEdCIHwgZmZmZmZmYzdmZmZmZmZmZiB8ICAgMzIgR0IgfCBrYXNhbgorICAgZmZmZmZm
-Y2VmZWUwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZlZmZmZmZmIHwgICAgMiBNQiB8IGZp
-eG1hcAorICAgZmZmZmZmY2VmZjAwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZmZmZmZmZm
-IHwgICAxNiBNQiB8IFBDSSBpbworICAgZmZmZmZmY2YwMDAwMDAwMCB8IC0xOTYgICAgR0IgfCBm
-ZmZmZmZjZmZmZmZmZmZmIHwgICAgNCBHQiB8IHZtZW1tYXAKKyAgIGZmZmZmZmQwMDAwMDAwMDAg
-fCAtMTkyICAgIEdCIHwgZmZmZmZmZGZmZmZmZmZmZiB8ICAgNjQgR0IgfCB2bWFsbG9jL2lvcmVt
-YXAgc3BhY2UKKyAgIGZmZmZmZmUwMDAwMDAwMDAgfCAtMTI4ICAgIEdCIHwgZmZmZmZmZmY3ZmZm
-ZmZmZiB8ICAxMjQgR0IgfCBkaXJlY3QgbWFwcGluZyBvZiBhbGwgcGh5c2ljYWwgbWVtb3J5Cisg
-IF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9fX19f
-X19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgfAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICB8CisgIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAgICAg
-fCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgZmZmZmZmZmYw
-MDAwMDAwMCB8ICAgLTQgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVs
-ZXMKKyAgIGZmZmZmZmZmODAwMDAwMDAgfCAgIC0yICAgIEdCIHwgZmZmZmZmZmZmZmZmZmZmZiB8
-ICAgIDIgR0IgfCBrZXJuZWwsIEJQRgorICBfX19fX19fX19fX19fX19fX198X19fX19fX19fX19f
-fF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCi0tIAoyLjIwLjEKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This is a preparatory patch for sv48 support that will introduce
+dynamic PAGE_OFFSET.
+
+Dynamic PAGE_OFFSET implies that all zones (vmalloc, vmemmap, fixaddr...)
+whose addresses depend on PAGE_OFFSET become dynamic and can't be used
+to statically initialize the array used by ptdump to identify the
+different zones of the vm layout.
+
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/mm/ptdump.c | 73 +++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 61 insertions(+), 12 deletions(-)
+
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index ace74dec7492..0aba4421115c 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -58,29 +58,56 @@ struct ptd_mm_info {
+ 	unsigned long end;
+ };
+ 
++enum address_markers_idx {
++#ifdef CONFIG_KASAN
++	KASAN_SHADOW_START_NR,
++	KASAN_SHADOW_END_NR,
++#endif
++	FIXMAP_START_NR,
++	FIXMAP_END_NR,
++	PCI_IO_START_NR,
++	PCI_IO_END_NR,
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	VMEMMAP_START_NR,
++	VMEMMAP_END_NR,
++#endif
++	VMALLOC_START_NR,
++	VMALLOC_END_NR,
++	PAGE_OFFSET_NR,
++#ifdef CONFIG_64BIT
++	MODULES_MAPPING_NR,
++#endif
++	KERNEL_MAPPING_NR,
++	END_OF_SPACE_NR
++};
++
+ static struct addr_marker address_markers[] = {
+ #ifdef CONFIG_KASAN
+-	{KASAN_SHADOW_START,	"Kasan shadow start"},
+-	{KASAN_SHADOW_END,	"Kasan shadow end"},
++	{0, "Kasan shadow start"},
++	{0, "Kasan shadow end"},
+ #endif
+-	{FIXADDR_START,		"Fixmap start"},
+-	{FIXADDR_TOP,		"Fixmap end"},
+-	{PCI_IO_START,		"PCI I/O start"},
+-	{PCI_IO_END,		"PCI I/O end"},
++	{0, "Fixmap start"},
++	{0, "Fixmap end"},
++	{0, "PCI I/O start"},
++	{0, "PCI I/O end"},
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-	{VMEMMAP_START,		"vmemmap start"},
+-	{VMEMMAP_END,		"vmemmap end"},
++	{0, "vmemmap start"},
++	{0, "vmemmap end"},
++#endif
++	{0, "vmalloc() area"},
++	{0, "vmalloc() end"},
++	{0, "Linear mapping"},
++#ifdef CONFIG_64BIT
++	{0, "Modules mapping"},
+ #endif
+-	{VMALLOC_START,		"vmalloc() area"},
+-	{VMALLOC_END,		"vmalloc() end"},
+-	{PAGE_OFFSET,		"Linear mapping"},
++	{0, "Kernel mapping (kernel, BPF)"},
+ 	{-1, NULL},
+ };
+ 
+ static struct ptd_mm_info kernel_ptd_info = {
+ 	.mm		= &init_mm,
+ 	.markers	= address_markers,
+-	.base_addr	= KERN_VIRT_START,
++	.base_addr	= 0,
+ 	.end		= ULONG_MAX,
+ };
+ 
+@@ -335,6 +362,28 @@ static int ptdump_init(void)
+ {
+ 	unsigned int i, j;
+ 
++#ifdef CONFIG_KASAN
++	address_markers[KASAN_SHADOW_START_NR].start_address = KASAN_SHADOW_START;
++	address_markers[KASAN_SHADOW_END_NR].start_address = KASAN_SHADOW_END;
++#endif
++	address_markers[FIXMAP_START_NR].start_address = FIXADDR_START;
++	address_markers[FIXMAP_END_NR].start_address = FIXADDR_TOP;
++	address_markers[PCI_IO_START_NR].start_address = PCI_IO_START;
++	address_markers[PCI_IO_END_NR].start_address = PCI_IO_END;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	address_markers[VMEMMAP_START_NR].start_address = VMEMMAP_START;
++	address_markers[VMEMMAP_END_NR].start_address = VMEMMAP_END;
++#endif
++	address_markers[VMALLOC_START_NR].start_address = VMALLOC_START;
++	address_markers[VMALLOC_END_NR].start_address = VMALLOC_END;
++	address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
++#ifdef CONFIG_64BIT
++	address_markers[MODULES_MAPPING_NR].start_address = MODULES_VADDR;
++#endif
++	address_markers[KERNEL_MAPPING_NR].start_address = kernel_virt_addr;
++
++	kernel_ptd_info.base_addr = KERN_VIRT_START;
++
+ 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
+ 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+ 			pg_level[i].mask |= pte_bits[j].mask;
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
