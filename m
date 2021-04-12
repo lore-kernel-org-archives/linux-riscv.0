@@ -2,86 +2,164 @@ Return-Path: <SRS0=xUWo=JJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D3D43C433B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B347CC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:37:55 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A0496120F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:12:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A0496120F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 3386D61029
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:37:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3386D61029
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synaptics.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	Cc:To:Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=u+zFkB3sRXlbCjelpSy7igcbu6VizhBfKuXNmWC5xTo=; b=Y1OS8efX9rPUX84vWMxOa2xI5
-	gazN8Sz14hpVAsJTPKSz9+BiAoqUgM8V4svMt5+B9p8Na8fQ2JKXAaxZra6MsoJ1xikARgNYrExHG
-	2RiPJp3MIyfD1cKbFc0x5X44gbt6v/cIVmaZRknomYTnQH/cM95as2eQ6Hx68m5w1pUS3Swusap92
-	KLcjhkMFqMmUpt7pqbshGoMWrkaX61sM8ZED9OzpYdlVdl9jRvfOPBh8I2S8macq+orWU+d/UXzDt
-	sEcgxqwuOJaX8PgLG14ynGf3XGDLDYON1GkO3kumY/EtuLD7641NygQ6iskeUg+LkaEyztMUI6eZW
-	71J+FdJGA==;
+	 bh=fgq3VuJEKUwibIuP8ie+06f2DGZgL0RqQihBtyFm32Q=; b=S9HzVMjt4Qqt8QfRr7/7gWPTR
+	1H8DQMJOog5dumMNBXKJcDAZaePPnzeF2TmW7qJwWNyDin+H6/Dc/ud8+sp4MCUw9uvgWliqW91mb
+	q1f6mVzeyVBMEZ7MPyx4JyGAC71hwNecRguPcJQU1CZbfDV38JsE659QMt+ROM1htUOy3G8MpAGyY
+	5uuUDjSjrxSIOKFSqSgIlQYbV408sCpYiGhef7NsAu3y2DDi9TOHZSg0AL3KI0Rb22rsXdEKCiu1M
+	AkUjEA+/YjcdiQjH6IxzEI6MVOhQBYbcWOjFcHvHnVD971RZnY9F8piPvU3PqcHACb+B+Zn/yIfS1
+	uF/MOfQ0g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVosG-005iXm-EZ; Mon, 12 Apr 2021 05:12:36 +0000
+	id 1lVpGW-005kAo-6e; Mon, 12 Apr 2021 05:37:40 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVosD-005iXd-2W
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 05:12:33 +0000
+ id 1lVpGS-005kAc-KB
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 05:37:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:References:Cc:To:
- Subject:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=m5h2MS0RKbdrUZN/JBolmUKfcJFo3TmmXT33IWYWWzk=; b=VzEaio4eTlSAAV13p4A1EJTsGy
- j342AIZVs2jWxfLu9pEVjEOSXZ8AysM8HZx1P6/jHavbtdMTkSfSEJS/AIl9iFKoZ3WRs002neuSR
- gyWYw95PcfspM1TRhB5/hT7+opZ1Lhr1G+wK0nOwVbLOD4UWd1Mt3DYhvgKC5bXxJYsKoYtVuEtBk
- Lw8eWZtQa9FnOk1cgJgUEF2iAVUYXAPDeDdtfBjglMo7KKlFFcPHorTpqDuZHa18O6Ah/eMPQBtar
- zNifna/WIXFbW7tOKjMOi7aLZW3Q8T3zwxPlAlq8kfKVtbahOMPlKB0E3AJdUU/15ENgOP7tA5f24
- TRO7chuw==;
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+ d=infradead.org; s=bombadil.20210309; h=MIME-Version:
+ Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:Content-Description;
+ bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=; b=0g1LEvb3oqJS+kwrY5aibYMtTZ
+ ao6nV7CyEZE3jGpiZ6IW8CA7+mwR4xm/YwCy5B4iNEQwzhP/cxxH6YpUrUUii5r+wiREuUlcaPInK
+ yMwm0irWpla3UDCySON3LV5i+b/xY1NGusaIE1J7bM7yvJt+NNdlHA5+8A8GprN9odXlUOOoNReFb
+ MfZt7qCRE2ojnV5pmvKdWb65BAfIvKetNqI9e/sX82eL0LO7jUgbom3dvS0oKaXlEGnLFL2e9xwt6
+ y+c59Mo4xMS66uclgM0XmVhWjq2xfGXaQfiXtipJxX699a/xblwrz5EL/TfPe9r5/9NLQWQwOXJtJ
+ /5LVBRZw==;
+Received: from mail-dm6nam12on2078.outbound.protection.outlook.com
+ ([40.107.243.78] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVos9-005shU-H2
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 05:12:31 +0000
-X-Originating-IP: 2.7.49.219
-Received: from [192.168.1.100] (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id B2748E0007;
- Mon, 12 Apr 2021 05:12:23 +0000 (UTC)
-From: Alex Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v7] RISC-V: enable XIP
-To: Vitaly Wool <vitaly.wool@konsulko.com>, Mike Rapoport <rppt@linux.ibm.com>
-Cc: David Hildenbrand <david@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>, linux-arch@vger.kernel.org,
- Linux-MM <linux-mm@kvack.org>
-References: <20210409065115.11054-1-alex@ghiti.fr>
- <3500f3cb-b660-5bbc-ae8d-0c9770e4a573@ghiti.fr>
- <be575094-badf-bac7-1629-36808ca530cc@redhat.com>
- <c4e78916-7e4c-76db-47f6-4dda3f09c871@ghiti.fr>
- <YHBEsDuEvPAnL8Vb@linux.ibm.com>
- <e7e87306-bb04-2d4f-7e7f-aabd40dccb3b@redhat.com>
- <YHBdzPsHantT9r8t@linux.ibm.com>
- <CAM4kBBKyHSYz+NNDpT=fWseWccsQ4HZ3teBc01jYT2g8j7Ze2A@mail.gmail.com>
-Message-ID: <ec1117a5-63fa-f800-1193-b5737eee6150@ghiti.fr>
-Date: Mon, 12 Apr 2021 01:12:23 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.1
+ id 1lVpGO-005t5g-DX
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 05:37:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=aFREYCECw0e8QM0EugRbBCMsUBp5qzb/eb3JxkQCQydrP7+w6LWbWqOYtJj355lxPKoVIg+A4rkh/mVQ6ZsVI4KU15S8gMgGkc2QmGP/bGir6zsT7OIcpcayEh4tGj8n0CFogogXGkTGMn5qrUDW+R0f4YETVLXA5WnMANRRLfTC7pV5tOTvCBIBlSQInbQ5AlnO/80A7QseewdzM6mCNSryCWc80uJTsquAvRK7KtbtZ/z19vjYcCE0QKHH35LfCI57VsrLbnN/okQUYqycHHHCReW+rPQwW1KELqUaL7cbPja22X4c1ckhjgifhywbyHsHq5In0E1Npm4qAjZ4Og==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=;
+ b=dozUTVfaA+il/snJWzW2cpWIBQ9u/jePdmzmjMwGw9ZerUSuv9zrD72LYNVdarUAocIjc/c7SKuSQ5Wa50BGiLWp2lZDUrS/CdJas3EjBInfZ5P5T1B583LnerllHSCOWd2amRzv2Acp5w54NvQhwWyRpBcSddDtXpp5Cy6yGumlutvMywj6CpnsNLSNNSr2gfM/mqKF3wmQMLzJ+lB2cyz/Bz7wIAYkq9+7S6P06uUy0QbbIUT2b0tcaIwCqaB4ZGAdmUCQqpkGbdeiBY/EzmYQFBQSN2TrXX/ooag94JYsau5jFXRKhs/HQa6ZDLpQucJ5FmyDF9GdJUBmS+3plA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synaptics.com; dmarc=pass action=none
+ header.from=synaptics.com; dkim=pass header.d=synaptics.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Synaptics.onmicrosoft.com; s=selector2-Synaptics-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=;
+ b=MbOTBEthr/QEo4a7BjZ8X7KwFmjwJQyRnVf+9iqhLiGjWgyJRNgMikYCjgzrRhG68BAzyQLf463NubSBs1mr/NTqINVPKH65gZjpSfW2i0h5kAQWSL+JI1CMtx4MAo6LuSlEMDl7o6fhEQdiGvYyPFeX7U1Ez67jqrs1eVTCQVQ=
+Authentication-Results: brainfault.org; dkim=none (message not signed)
+ header.d=none;brainfault.org; dmarc=none action=none
+ header.from=synaptics.com;
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com (2603:10b6:a03:219::16)
+ by SJ0PR03MB6239.namprd03.prod.outlook.com (2603:10b6:a03:3ad::11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.18; Mon, 12 Apr
+ 2021 05:37:27 +0000
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72]) by BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72%8]) with mapi id 15.20.4020.022; Mon, 12 Apr 2021
+ 05:37:27 +0000
+Date: Mon, 12 Apr 2021 13:37:11 +0800
+From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>, Andrey Konovalov
+ <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Song Liu <songliubraving@fb.com>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
+ <xi.wang@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v2 1/9] riscv: add __init section marker to some functions
+Message-ID: <20210412133711.7b625842@xhacker.debian>
+In-Reply-To: <CAAhSdy0CgxZj14Jx62CS=gRVzZs9c9NUysWi1iTTZ3BJvAOjPQ@mail.gmail.com>
+References: <20210401002442.2fe56b88@xhacker> <20210401002518.5cf48e91@xhacker>
+ <CAAhSdy0CgxZj14Jx62CS=gRVzZs9c9NUysWi1iTTZ3BJvAOjPQ@mail.gmail.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+X-Originating-IP: [192.147.44.204]
+X-ClientProxiedBy: SJ0PR13CA0159.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::14) To BY5PR03MB5345.namprd03.prod.outlook.com
+ (2603:10b6:a03:219::16)
 MIME-Version: 1.0
-In-Reply-To: <CAM4kBBKyHSYz+NNDpT=fWseWccsQ4HZ3teBc01jYT2g8j7Ze2A@mail.gmail.com>
-Content-Language: fr
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from xhacker.debian (192.147.44.204) by
+ SJ0PR13CA0159.namprd13.prod.outlook.com (2603:10b6:a03:2c7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4042.8 via Frontend
+ Transport; Mon, 12 Apr 2021 05:37:21 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: d4b3d65e-3f10-4ac8-da1c-08d8fd750e83
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6239:
+X-Microsoft-Antispam-PRVS: <SJ0PR03MB62391076B51DF15413E545D6ED709@SJ0PR03MB6239.namprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 3GAciX+Jg7Rqb/SH7ftcrqi9XKo6wTuMWLj8pkq213uxsUyX487RYzB0J1RDhMiwl1SXhGR2aHm3V09+RNuQamXbkurWBGssxgoO+RmUbxJGwvW36BDu9IlIzGe8bMp3TRU05FrxMLiot8wD3m+7BwOKQBjOHESPVV0DfW5aDv4HgZX3xkCEJ7sUivgr9F94lq0s22b0r4TmhEaZOfjpegJ9rP6ou3BTx576cMlatU+00h1s+yL5hAZV4bDMDI27Ihn44Z9+2leyv/1dTS0/+YgsbEXETpmFSCG2HHXTwtHFhZ0Bidv8a4LsL+I39FmvJhAp/IrUVS+R76a7tRXP4Hgj85G2jCDkPh1+pC5Ur0cb3ydjddnLrPkYz701ubWqKo+nveAQFv6dUrp4/CIoWZKS6i/qWxBEE9i2BjhCXUylAJJX0q9DblBCsomoCzKJT4VixnlwVkb7DjlTRZu5fyXtXJwkmkCna4xMtVV3Ka4xnzRgwYEwmaDdHCQOjJDH/FkGLJ22c0JJMhaK33KcnysIgkznf5sR1EuunFno3Dq/rGakPdjFhmS9Jb3VV4CE/O93R8CEMefiOHlHndCc1NN5AfBAdrE/E0B2US2x+0DowXaspX2dfQnSBx5YCyb78fjZlt9/BRwRAFvcRGeQYwSca2d5YglS6p08KoJTuGk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR03MB5345.namprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(366004)(39850400004)(396003)(346002)(376002)(136003)(7696005)(52116002)(55016002)(38100700002)(38350700002)(2906002)(316002)(26005)(4326008)(1076003)(6506007)(16526019)(53546011)(9686003)(86362001)(66556008)(186003)(8676002)(6666004)(956004)(66946007)(7416002)(6916009)(66476007)(8936002)(478600001)(54906003)(5660300002)(83380400001);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?bLYrPWHF8JJ2Cl+59CWRQovnlUXJ5MKx8TwAMHcnFc3RDO9l0Yi2lRntLzXd?=
+ =?us-ascii?Q?qvvXZZaCJmsDbEXDg56iyNpDKORv0lq+BY9hwFqgTO7GPXZi8AtDENdHz4hA?=
+ =?us-ascii?Q?TAlTY03dc/Ja+oHQW4nSoafkrxQX9Lmwt4uMmqqW+Jdg9eQdRZ44m083Y1TL?=
+ =?us-ascii?Q?qm7Dfe4+r2PFpCsAjZE3V9a9eT5enLiEHj1XlUf6EvWaiSZAH/N5Cd47TmQu?=
+ =?us-ascii?Q?4MAPHdlznCghDd74BoSxrBItLSzkvgZwM+besQwK9eTVxdYCt4TTDpo3kQCA?=
+ =?us-ascii?Q?2h8UOkVg6QwWWsGVYThYYthoSTr+CVzoJDYFJ2mHcBj5OwPJnHd7c/kum7dX?=
+ =?us-ascii?Q?CCQoTlrCZ94h/XU1zq2i36IzTWXpyx1buF/jx9bwC0jMDT9VESImuvHZp7UF?=
+ =?us-ascii?Q?FFsWfOZ91ubbL9RtrceYXitDWv3AehsRY2iynwRLHMT+xkeOgdOnxrUxFxTq?=
+ =?us-ascii?Q?bMw68Oa90zExVgoAaDkNoVHARJ3mC2nwDZuIGJJgDwOv64ywmrkKK6KUUCW4?=
+ =?us-ascii?Q?YZF8pvHb38teciIQDThiaBifzFMnF8A2Ne8tHuQmpOQObpmRl6pozY//P9Pj?=
+ =?us-ascii?Q?4QcGxVcYJRP9EiyH+uRfrPY5zD2qBaPCblFHcTajTcKC8bkH4uougsAu2Fev?=
+ =?us-ascii?Q?hsuamdFkkMZcyAQQRrXg1eIzy3cGmBkB0FTqOMcJB/oLXILt3ZES6vYObAR4?=
+ =?us-ascii?Q?hsesKe3pn0f6goz4xu6VR8YgUJ8RmEzMoxnPCphkT+9thQM2uXuXWrFJ7XJ7?=
+ =?us-ascii?Q?ey0+9L2S6cG090TtC62Ry3OMHXfTjA/ah7b8WEOxkYREK/kPzROmQRq44j2T?=
+ =?us-ascii?Q?m/QbKPZ4JjotVCVO0TOW+Yg0dIHI1WHo+MTBz65YQFC3mK85Hg9qMdFjHAy7?=
+ =?us-ascii?Q?l5thFTEKaztCuyaWmVfRlkOklSr5LcUEEQTTOI29Nv6a2p1uhVZdCEOMDHYo?=
+ =?us-ascii?Q?oVRQhQcWgS5Yed1E0ur15xlicaMduxnkiPsDRYS34AxA18g0cxgjKfV7DCbc?=
+ =?us-ascii?Q?mZWnoYXVQcdw3FxNTAl4HDtSAyv2+ASP39DJ7j0PJawe4xFKbZz5XP7TOURj?=
+ =?us-ascii?Q?apQDJPUeaF1NorlZISlBYsUngzd3R46wiM3ndXKqwxmIH0sSkjV2s0tLQKcV?=
+ =?us-ascii?Q?a37uEzjMgbjQX29fp1DLIHi98FBbDMUTpP4Wk3/+0NempLlx4CcTebb14Wzr?=
+ =?us-ascii?Q?qyKOq8rkQZ3H7NmrrIi58krQKfzhDikVn9UABRS15XRSCxf/rrWysMCDGviy?=
+ =?us-ascii?Q?/J56/BYfU4jYVLFMwq1eN2aTW7zbsy+lflbf7hnllqQciM9BK0MdxoSOVS3C?=
+ =?us-ascii?Q?9b184m6F0fnGkG40s5qbQeGZ?=
+X-OriginatorOrg: synaptics.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4b3d65e-3f10-4ac8-da1c-08d8fd750e83
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR03MB5345.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2021 05:37:27.1768 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335d1fbc-2124-4173-9863-17e7051a2a0e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NYlbIr71RZ2/13b1wPPqXxEXBPhYgu3cUn/KoPoVLKJrCsribjr1dy9tCnb5b9HzD8P+DwZd+Oz6nPQID8GuZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB6239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210411_221229_859509_7BE196BB 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20210411_223732_491059_987D76B4 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,124 +171,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le 4/9/21 =E0 10:42 AM, Vitaly Wool a =E9crit=A0:
-> On Fri, Apr 9, 2021 at 3:59 PM Mike Rapoport <rppt@linux.ibm.com> wrote:
->>
->> On Fri, Apr 09, 2021 at 02:46:17PM +0200, David Hildenbrand wrote:
->>>>>> Also, will that memory properly be exposed in the resource tree as
->>>>>> System RAM (e.g., /proc/iomem) ? Otherwise some things (/proc/kcore)
->>>>>> won't work as expected - the kernel won't be included in a dump.
->>>> Do we really need a XIP kernel to included in kdump?
->>>> And does not it sound weird to expose flash as System RAM in /proc/iom=
-em? ;-)
->>>
->>> See my other mail, maybe we actually want something different.
->>>
->>>>
->>>>> I have just checked and it does not appear in /proc/iomem.
->>>>>
->>>>> Ok your conclusion would be to have struct page, I'm going to impleme=
-nt this
->>>>> version then using memblock as you described.
->>>>
->>>> I'm not sure this is required. With XIP kernel text never gets into RA=
-M, so
->>>> it does not seem to require struct page.
->>>>
->>>> XIP by definition has some limitations relatively to "normal" operatio=
-n,
->>>> so lack of kdump could be one of them.
->>>
->>> I agree.
->>>
->>>>
->>>> I might be wrong, but IMHO, artificially creating a memory map for par=
-t of
->>>> flash would cause more problems in the long run.
->>>
->>> Can you elaborate?
->>
->> Nothing particular, just a gut feeling. Usually, when you force something
->> it comes out the wrong way later.
-> =
-
-> It's possible still that MTD_XIP is implemented allowing to write to
-> the flash used for XIP. While flash is being written, memory map
-> doesn't make sense at all. I can't come up with a real life example
-> when it can actually lead to problems but it is indeed weird when
-> System RAM suddenly becomes unreadable. I really don't think exposing
-> it in /proc/iomem is a good idea.
-> =
-
->>>> BTW, how does XIP account the kernel text on other architectures that
->>>> implement it?
->>>
->>> Interesting point, I thought XIP would be something new on RISC-V (well=
-, at
->>> least to me :) ). If that concept exists already, we better mimic what
->>> existing implementations do.
->>
->> I had quick glance at ARM, it seems that kernel text does not have memory
->> map and does not show up in System RAM.
-> =
-
-> Exactly, and I believe ARM64 won't do that too when it gets its own
-> XIP support (which is underway).
-> =
+On Fri, 2 Apr 2021 09:38:02 +0530
+Anup Patel <anup@brainfault.org> wrote:
 
 
+> 
+> 
+> On Wed, Mar 31, 2021 at 10:00 PM Jisheng Zhang
+> <jszhang3@mail.ustc.edu.cn> wrote:
+> >
+> > From: Jisheng Zhang <jszhang@kernel.org>
+> >
+> > They are not needed after booting, so mark them as __init to move them
+> > to the __init section.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/kernel/traps.c  | 2 +-
+> >  arch/riscv/mm/init.c       | 6 +++---
+> >  arch/riscv/mm/kasan_init.c | 6 +++---
+> >  arch/riscv/mm/ptdump.c     | 2 +-
+> >  4 files changed, 8 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > index 1357abf79570..07fdded10c21 100644
+> > --- a/arch/riscv/kernel/traps.c
+> > +++ b/arch/riscv/kernel/traps.c
+> > @@ -197,6 +197,6 @@ int is_valid_bugaddr(unsigned long pc)
+> >  #endif /* CONFIG_GENERIC_BUG */
+> >
+> >  /* stvec & scratch is already set from head.S */
+> > -void trap_init(void)
+> > +void __init trap_init(void)
+> >  {
+> >  }  
+> 
+> The trap_init() is unused currently so you can drop this change
+> and remove trap_init() as a separate patch.
 
-memmap does not seem necessary and ARM/ARM64 do not use it.
+the kernel init/main.c expects a trap_init() implementation in architecture
+code. Some architecture's implementation is NULL, similar as riscv, for example,
+arm, powerpc and so on. However I think you are right, the trap_init() can be
+removed, we need a trivial series to provide a __weak but NULL trap_init()
+implementation in init/main.c then remove all NULL implementation from
+all arch. I can take the task to do the clean up.
 
-But if someone tries to get a struct page from a physical address that =
+> 
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index 067583ab1bd7..76bf2de8aa59 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -57,7 +57,7 @@ static void __init zone_sizes_init(void)
+> >         free_area_init(max_zone_pfns);
+> >  }
+> >
+> > -static void setup_zero_page(void)
+> > +static void __init setup_zero_page(void)
+> >  {
+> >         memset((void *)empty_zero_page, 0, PAGE_SIZE);
 
-lies in flash, as mentioned by David, that could lead to silent =
+I think the zero page is already initialized as "0" because empty_zero_page
+sits in .bss section. So this setup_zero_page() function can be removed. I
+will send a newer version later.
 
-corruptions if something exists at the address where the struct page =
-
-should be. And it is hard to know which features in the kernel depends =
-
-on that.
-
-Regarding SPARSEMEM, the vmemmap lies in its own region so that's =
-
-unlikely to happen, so we will catch those invalid accesses (and that's =
-
-what I observed on riscv).
-
-But for FLATMEM, memmap is in the linear mapping, then that could very =
-
-likely happen silently.
-
-Could a simple solution be to force SPARSEMEM for those XIP kernels ? =
-
-Then wrong things could happen, but we would see those and avoid =
-
-spending hours to debug :)
-
-I will at least send a v8 to remove the pfn_valid modifications for =
-
-FLATMEM that now returns true to pfn in flash.
-
-Thanks,
-
-
-
-> Best regards,
->     Vitaly
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> =
-
+thanks
 
 _______________________________________________
 linux-riscv mailing list
