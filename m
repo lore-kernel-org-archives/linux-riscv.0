@@ -5,17 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_2 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B347CC433ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD4C0C433ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 06:22:40 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3386D61029
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 05:37:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3386D61029
+	by mail.kernel.org (Postfix) with ESMTPS id 4CF3C6121D
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 06:22:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CF3C6121D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synaptics.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,142 +23,133 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fgq3VuJEKUwibIuP8ie+06f2DGZgL0RqQihBtyFm32Q=; b=S9HzVMjt4Qqt8QfRr7/7gWPTR
-	1H8DQMJOog5dumMNBXKJcDAZaePPnzeF2TmW7qJwWNyDin+H6/Dc/ud8+sp4MCUw9uvgWliqW91mb
-	q1f6mVzeyVBMEZ7MPyx4JyGAC71hwNecRguPcJQU1CZbfDV38JsE659QMt+ROM1htUOy3G8MpAGyY
-	5uuUDjSjrxSIOKFSqSgIlQYbV408sCpYiGhef7NsAu3y2DDi9TOHZSg0AL3KI0Rb22rsXdEKCiu1M
-	AkUjEA+/YjcdiQjH6IxzEI6MVOhQBYbcWOjFcHvHnVD971RZnY9F8piPvU3PqcHACb+B+Zn/yIfS1
-	uF/MOfQ0g==;
+	 bh=m443N/FnlwU6JFYCh9lty5D4FvZ9pqrsXr+GtEGr4sk=; b=VcCjhrvUvtDSS1pfklpbbIj/b
+	UlX1J8G7Fs0P2cPv0pudSmbyD4xjg2dgvFhfacuyFNzZbnBF+txR4K6FCKEZ5+QRuyiMi+4ubgbtW
+	HHirCHv0G2Ewh2SW7erM9U+SlzmIIrHkwK5w3oXdfGDrtadVYs2XhW09OrjcyjDactpsnaVdFjXA6
+	CbP5gPeKhWDM/O5ExpdNylMr40PdwkiU5oRXyUKx0YxQpuVMRh81nbxVLjkCmQRBJ/++JLwMQ1vBu
+	iJdttFym2EHZPaV2BMlLB9aI1evGUliPhio01N2bT4w7fsuuToiR/2v2/zYZoLYFjQBYyjkPrhbrr
+	4jJr+ZdNQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVpGW-005kAo-6e; Mon, 12 Apr 2021 05:37:40 +0000
+	id 1lVpxo-005nGv-HO; Mon, 12 Apr 2021 06:22:24 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVpGS-005kAc-KB
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 05:37:37 +0000
+ id 1lVpxi-005nFy-P7
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 06:22:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=MIME-Version:
  Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:
  Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=; b=0g1LEvb3oqJS+kwrY5aibYMtTZ
- ao6nV7CyEZE3jGpiZ6IW8CA7+mwR4xm/YwCy5B4iNEQwzhP/cxxH6YpUrUUii5r+wiREuUlcaPInK
- yMwm0irWpla3UDCySON3LV5i+b/xY1NGusaIE1J7bM7yvJt+NNdlHA5+8A8GprN9odXlUOOoNReFb
- MfZt7qCRE2ojnV5pmvKdWb65BAfIvKetNqI9e/sX82eL0LO7jUgbom3dvS0oKaXlEGnLFL2e9xwt6
- y+c59Mo4xMS66uclgM0XmVhWjq2xfGXaQfiXtipJxX699a/xblwrz5EL/TfPe9r5/9NLQWQwOXJtJ
- /5LVBRZw==;
-Received: from mail-dm6nam12on2078.outbound.protection.outlook.com
- ([40.107.243.78] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+ bh=zV52orzhaGVrKDc9ehYqvL/uLA4wpO1m63w0z2/cOBE=; b=fNl7CLmbxsz7oeaq5Y1mPm1NKA
+ ipBsYmjgcllcuZfOZoaUPKdDaa1tCI18eGBf9jIeFRYOAK1OtLBMKS7cksfnjRDVfjDoIc8dFPYxp
+ IobLpW+5UTRGActjdRUy+tP6yBlvwDCMq/LGKJbURtH70Jt3ugsvBQnFVNHy7RUOkaVFHyXZo2VbJ
+ zPt/F2h1HbAky5yalNUtpKQrpr0NIFbWoUgoNkiPq9LTCqa2/LV07iCUw5J/nH3bKqrRsf6o+JW0R
+ HiarwKQjZ7oxt8SRvxzHixdSAXDXe4kCZvfRFxG/kRKiuK9gi4BrwNdfitkEEcqTZDdSNVlRNDwxx
+ Sne0lG8A==;
+Received: from mail-bn8nam08on2042.outbound.protection.outlook.com
+ ([40.107.100.42] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVpGO-005t5g-DX
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 05:37:33 +0000
+ id 1lVpxf-005tpg-QS
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 06:22:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aFREYCECw0e8QM0EugRbBCMsUBp5qzb/eb3JxkQCQydrP7+w6LWbWqOYtJj355lxPKoVIg+A4rkh/mVQ6ZsVI4KU15S8gMgGkc2QmGP/bGir6zsT7OIcpcayEh4tGj8n0CFogogXGkTGMn5qrUDW+R0f4YETVLXA5WnMANRRLfTC7pV5tOTvCBIBlSQInbQ5AlnO/80A7QseewdzM6mCNSryCWc80uJTsquAvRK7KtbtZ/z19vjYcCE0QKHH35LfCI57VsrLbnN/okQUYqycHHHCReW+rPQwW1KELqUaL7cbPja22X4c1ckhjgifhywbyHsHq5In0E1Npm4qAjZ4Og==
+ b=CiujYO0gX1jOrFRg1K1CzYiVkdo3Q7+XbZbvG1u53c7E/Mbu4CWdXDP/33XRPNJLmQSWqWeCMYB88jY1cpADrQK3XRswp2rDdLu/JTqElcpMk40mtZLFXHhVypZ7r0N7tUxDk5BXSXUd7FcKj+GKsZaM++DO67l0bZ4ITlqGK3muzzPfcVszIOpqcOJA7SYyH3Sr6/RWTgTA1HQckTZAIEie7zjEutKUgX0KKcJmxMIffis+LG/NDhl7NuQhF482r2tjRmB2x7kDjTT1ZjnQWHWyWgPKkyaWNR6mfKDJ+Jbbs5FJ52GUa0MBMmeoQCnyqVizECyxlFpfmkIE2jRKhg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=;
- b=dozUTVfaA+il/snJWzW2cpWIBQ9u/jePdmzmjMwGw9ZerUSuv9zrD72LYNVdarUAocIjc/c7SKuSQ5Wa50BGiLWp2lZDUrS/CdJas3EjBInfZ5P5T1B583LnerllHSCOWd2amRzv2Acp5w54NvQhwWyRpBcSddDtXpp5Cy6yGumlutvMywj6CpnsNLSNNSr2gfM/mqKF3wmQMLzJ+lB2cyz/Bz7wIAYkq9+7S6P06uUy0QbbIUT2b0tcaIwCqaB4ZGAdmUCQqpkGbdeiBY/EzmYQFBQSN2TrXX/ooag94JYsau5jFXRKhs/HQa6ZDLpQucJ5FmyDF9GdJUBmS+3plA==
+ bh=zV52orzhaGVrKDc9ehYqvL/uLA4wpO1m63w0z2/cOBE=;
+ b=nK+cKhvKfXQgO6qFhKi4gmIu6edzAhI/GedExYng7J3sGUQNPHQe1l1bsVY79EHVndgHrU2dvDP/FGbbf68KteZzPYrpg2cUv6DwctWwduOXH+clp0wPJPxp5mZ7iIF8K+W6GOygUGfR/jRSJtUiL1dMhgd+D7k63t8H+dukS+PY/pTSR7jHUMmZxhfWFdGSSdKiSzhdsaAAdtDxxi33PyfohxlG1/m6N+UaOumEhoaa8/qWeih9HZffcmLEM9K2O3F8DcHPFC4wfKPMzOHicWxIHRPNAoKzI1CuSMKPP0wIL4kxP8jTQh3LeqimAAEtMyNffNNRH26aLsfq6f4Iug==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=synaptics.com; dmarc=pass action=none
  header.from=synaptics.com; dkim=pass header.d=synaptics.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=Synaptics.onmicrosoft.com; s=selector2-Synaptics-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0HyWMggtiuCprit4TgYCubO+2iv3tDIcJ1LNHMmF0wg=;
- b=MbOTBEthr/QEo4a7BjZ8X7KwFmjwJQyRnVf+9iqhLiGjWgyJRNgMikYCjgzrRhG68BAzyQLf463NubSBs1mr/NTqINVPKH65gZjpSfW2i0h5kAQWSL+JI1CMtx4MAo6LuSlEMDl7o6fhEQdiGvYyPFeX7U1Ez67jqrs1eVTCQVQ=
-Authentication-Results: brainfault.org; dkim=none (message not signed)
- header.d=none;brainfault.org; dmarc=none action=none
- header.from=synaptics.com;
+ bh=zV52orzhaGVrKDc9ehYqvL/uLA4wpO1m63w0z2/cOBE=;
+ b=YSGWsixkl4yH7zb/A/waYrvauSqWbotqbZsR4zqpal97GtWAJN0WQBHCGE5sNJVuTiYLgh9GwF22gehlXm2kGah5KoXicofrF1wASotCiXD/+hfjTnvVa4ox9FZTBRDCBa8YBiwiP8HkXmXIY8YeTXT/EzJTD+3k/E+moRoa4aQ=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=synaptics.com;
 Received: from BY5PR03MB5345.namprd03.prod.outlook.com (2603:10b6:a03:219::16)
- by SJ0PR03MB6239.namprd03.prod.outlook.com (2603:10b6:a03:3ad::11)
+ by BYAPR03MB4485.namprd03.prod.outlook.com (2603:10b6:a03:c3::12)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.18; Mon, 12 Apr
- 2021 05:37:27 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.16; Mon, 12 Apr
+ 2021 06:22:11 +0000
 Received: from BY5PR03MB5345.namprd03.prod.outlook.com
  ([fe80::8569:341f:4bc6:5b72]) by BY5PR03MB5345.namprd03.prod.outlook.com
  ([fe80::8569:341f:4bc6:5b72%8]) with mapi id 15.20.4020.022; Mon, 12 Apr 2021
- 05:37:27 +0000
-Date: Mon, 12 Apr 2021 13:37:11 +0800
+ 06:22:11 +0000
+Date: Mon, 12 Apr 2021 14:22:03 +0800
 From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>, Andrey Konovalov
- <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Song Liu <songliubraving@fb.com>, Yonghong Song
- <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
- <kpsingh@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
- <xi.wang@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v2 1/9] riscv: add __init section marker to some functions
-Message-ID: <20210412133711.7b625842@xhacker.debian>
-In-Reply-To: <CAAhSdy0CgxZj14Jx62CS=gRVzZs9c9NUysWi1iTTZ3BJvAOjPQ@mail.gmail.com>
-References: <20210401002442.2fe56b88@xhacker> <20210401002518.5cf48e91@xhacker>
- <CAAhSdy0CgxZj14Jx62CS=gRVzZs9c9NUysWi1iTTZ3BJvAOjPQ@mail.gmail.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: liu@jiuyang.me, alex@ghiti.fr, waterman@eecs.berkeley.edu, Paul Walmsley
+ <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, geert@linux-m68k.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] implement flush_cache_vmap and flush_cache_vunmap for
+ RISC-V
+Message-ID: <20210412142203.6d86e5c6@xhacker.debian>
+In-Reply-To: <mhng-92e28f5c-ced0-4a92-949f-0fd865c0bbf5@palmerdabbelt-glaptop>
+References: <20210329015510.44110-1-liu@jiuyang.me>
+ <mhng-92e28f5c-ced0-4a92-949f-0fd865c0bbf5@palmerdabbelt-glaptop>
 X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Originating-IP: [192.147.44.204]
-X-ClientProxiedBy: SJ0PR13CA0159.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::14) To BY5PR03MB5345.namprd03.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0193.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::18) To BY5PR03MB5345.namprd03.prod.outlook.com
  (2603:10b6:a03:219::16)
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from xhacker.debian (192.147.44.204) by
- SJ0PR13CA0159.namprd13.prod.outlook.com (2603:10b6:a03:2c7::14) with
+ SJ0PR03CA0193.namprd03.prod.outlook.com (2603:10b6:a03:2ef::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4042.8 via Frontend
- Transport; Mon, 12 Apr 2021 05:37:21 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.16 via Frontend
+ Transport; Mon, 12 Apr 2021 06:22:08 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: d4b3d65e-3f10-4ac8-da1c-08d8fd750e83
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6239:
-X-Microsoft-Antispam-PRVS: <SJ0PR03MB62391076B51DF15413E545D6ED709@SJ0PR03MB6239.namprd03.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-MS-Office365-Filtering-Correlation-Id: 0dd0bc45-19fd-49c8-3892-08d8fd7b4e2e
+X-MS-TrafficTypeDiagnostic: BYAPR03MB4485:
+X-Microsoft-Antispam-PRVS: <BYAPR03MB4485B2A456492665A0C58FE3ED709@BYAPR03MB4485.namprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 3GAciX+Jg7Rqb/SH7ftcrqi9XKo6wTuMWLj8pkq213uxsUyX487RYzB0J1RDhMiwl1SXhGR2aHm3V09+RNuQamXbkurWBGssxgoO+RmUbxJGwvW36BDu9IlIzGe8bMp3TRU05FrxMLiot8wD3m+7BwOKQBjOHESPVV0DfW5aDv4HgZX3xkCEJ7sUivgr9F94lq0s22b0r4TmhEaZOfjpegJ9rP6ou3BTx576cMlatU+00h1s+yL5hAZV4bDMDI27Ihn44Z9+2leyv/1dTS0/+YgsbEXETpmFSCG2HHXTwtHFhZ0Bidv8a4LsL+I39FmvJhAp/IrUVS+R76a7tRXP4Hgj85G2jCDkPh1+pC5Ur0cb3ydjddnLrPkYz701ubWqKo+nveAQFv6dUrp4/CIoWZKS6i/qWxBEE9i2BjhCXUylAJJX0q9DblBCsomoCzKJT4VixnlwVkb7DjlTRZu5fyXtXJwkmkCna4xMtVV3Ka4xnzRgwYEwmaDdHCQOjJDH/FkGLJ22c0JJMhaK33KcnysIgkznf5sR1EuunFno3Dq/rGakPdjFhmS9Jb3VV4CE/O93R8CEMefiOHlHndCc1NN5AfBAdrE/E0B2US2x+0DowXaspX2dfQnSBx5YCyb78fjZlt9/BRwRAFvcRGeQYwSca2d5YglS6p08KoJTuGk=
+X-Microsoft-Antispam-Message-Info: Svg0rtE/qkz1YeJdMqdr8HnPA/ckRl6ek8h+fOAZTYGkLylg/ITSfdAAA+5DqGn35AWQ2iWg3x59M+xRUssvg7MX3bKppIx7iG5JtPE7bU4hzW/4K4xNnO2dxWTDeLUAcPRCgRwbZNGvpr/NtKFdcG2KQg26vdSqeQxcLE5zKASd8d9gWNHNekqD6KLxgAs9HWUm2NvDUNHfRDGd4wGtWW7OiEOQtAF+fl8qWKlqHRJ9sjscEgVSjSwSozxUSh5KcOOnhDB4Z3e66KuouzMIMC8JFruu5OxbHA5q55GDsnS169hOR6t6qViZX8dasPJeoqqK94lflpt7z+Iik9Wdk/9EA1jmpeEWJSvZIpvoyf9dIM4Uyyv1vk0X+9VRBUw36cg4a54OQcwwE+HOnpic37DmvHOCBA1SYow9MMxLgP7EO7mW13BaIE85+N/f7B0P3+1VSpOJPe0x7I0UiSWljU8ugY95kQu7vbuEjLAOcJkOkCEc5eIDZZeabb3sy7NA6FhuBRPuZpyrIVcfyRfGnbo5MZLL+i6qlouYFjPhY+5yGRk8bjTdkj1a0qgrnPnQg2GTI2yyhdmWmG7t0sLlTQY15r887LzY/QzrDExPKa9g4JttN5Mvrx6h/VxaPBVw3ZS0va6aHFQqRoMJL0qwXbPv5zg3XK21DkXxBEIQv+o=
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:BY5PR03MB5345.namprd03.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(366004)(39850400004)(396003)(346002)(376002)(136003)(7696005)(52116002)(55016002)(38100700002)(38350700002)(2906002)(316002)(26005)(4326008)(1076003)(6506007)(16526019)(53546011)(9686003)(86362001)(66556008)(186003)(8676002)(6666004)(956004)(66946007)(7416002)(6916009)(66476007)(8936002)(478600001)(54906003)(5660300002)(83380400001);
+ SFS:(376002)(346002)(396003)(136003)(366004)(39850400004)(16526019)(186003)(6666004)(26005)(2906002)(1076003)(316002)(4326008)(6506007)(9686003)(6916009)(55016002)(83380400001)(86362001)(7416002)(8936002)(38350700002)(956004)(38100700002)(478600001)(66476007)(66556008)(66946007)(7696005)(5660300002)(8676002)(52116002);
  DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?bLYrPWHF8JJ2Cl+59CWRQovnlUXJ5MKx8TwAMHcnFc3RDO9l0Yi2lRntLzXd?=
- =?us-ascii?Q?qvvXZZaCJmsDbEXDg56iyNpDKORv0lq+BY9hwFqgTO7GPXZi8AtDENdHz4hA?=
- =?us-ascii?Q?TAlTY03dc/Ja+oHQW4nSoafkrxQX9Lmwt4uMmqqW+Jdg9eQdRZ44m083Y1TL?=
- =?us-ascii?Q?qm7Dfe4+r2PFpCsAjZE3V9a9eT5enLiEHj1XlUf6EvWaiSZAH/N5Cd47TmQu?=
- =?us-ascii?Q?4MAPHdlznCghDd74BoSxrBItLSzkvgZwM+besQwK9eTVxdYCt4TTDpo3kQCA?=
- =?us-ascii?Q?2h8UOkVg6QwWWsGVYThYYthoSTr+CVzoJDYFJ2mHcBj5OwPJnHd7c/kum7dX?=
- =?us-ascii?Q?CCQoTlrCZ94h/XU1zq2i36IzTWXpyx1buF/jx9bwC0jMDT9VESImuvHZp7UF?=
- =?us-ascii?Q?FFsWfOZ91ubbL9RtrceYXitDWv3AehsRY2iynwRLHMT+xkeOgdOnxrUxFxTq?=
- =?us-ascii?Q?bMw68Oa90zExVgoAaDkNoVHARJ3mC2nwDZuIGJJgDwOv64ywmrkKK6KUUCW4?=
- =?us-ascii?Q?YZF8pvHb38teciIQDThiaBifzFMnF8A2Ne8tHuQmpOQObpmRl6pozY//P9Pj?=
- =?us-ascii?Q?4QcGxVcYJRP9EiyH+uRfrPY5zD2qBaPCblFHcTajTcKC8bkH4uougsAu2Fev?=
- =?us-ascii?Q?hsuamdFkkMZcyAQQRrXg1eIzy3cGmBkB0FTqOMcJB/oLXILt3ZES6vYObAR4?=
- =?us-ascii?Q?hsesKe3pn0f6goz4xu6VR8YgUJ8RmEzMoxnPCphkT+9thQM2uXuXWrFJ7XJ7?=
- =?us-ascii?Q?ey0+9L2S6cG090TtC62Ry3OMHXfTjA/ah7b8WEOxkYREK/kPzROmQRq44j2T?=
- =?us-ascii?Q?m/QbKPZ4JjotVCVO0TOW+Yg0dIHI1WHo+MTBz65YQFC3mK85Hg9qMdFjHAy7?=
- =?us-ascii?Q?l5thFTEKaztCuyaWmVfRlkOklSr5LcUEEQTTOI29Nv6a2p1uhVZdCEOMDHYo?=
- =?us-ascii?Q?oVRQhQcWgS5Yed1E0ur15xlicaMduxnkiPsDRYS34AxA18g0cxgjKfV7DCbc?=
- =?us-ascii?Q?mZWnoYXVQcdw3FxNTAl4HDtSAyv2+ASP39DJ7j0PJawe4xFKbZz5XP7TOURj?=
- =?us-ascii?Q?apQDJPUeaF1NorlZISlBYsUngzd3R46wiM3ndXKqwxmIH0sSkjV2s0tLQKcV?=
- =?us-ascii?Q?a37uEzjMgbjQX29fp1DLIHi98FBbDMUTpP4Wk3/+0NempLlx4CcTebb14Wzr?=
- =?us-ascii?Q?qyKOq8rkQZ3H7NmrrIi58krQKfzhDikVn9UABRS15XRSCxf/rrWysMCDGviy?=
- =?us-ascii?Q?/J56/BYfU4jYVLFMwq1eN2aTW7zbsy+lflbf7hnllqQciM9BK0MdxoSOVS3C?=
- =?us-ascii?Q?9b184m6F0fnGkG40s5qbQeGZ?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Kp8CwY7Gl9TP1X1DN1cqWqE3XyBNwjAekCY4pJu5bFhch+VqHPB8RNGwVees?=
+ =?us-ascii?Q?6c3NCPT4Nhw6AUaiYEteTxgSElG7sbIbowFV3lcUPFyiKQq6BWjQ/1PcVITI?=
+ =?us-ascii?Q?cZQ+9WRTUKs6zGf+TClLVzFEy0hc0K82x2fqETJ44oYSOd2/9RNxfw66TCEo?=
+ =?us-ascii?Q?ssK4g1r3Pc7MYFZWebERUMNR3neT5gXccTjlc8cpD2932WZO5IrRNJ65abuQ?=
+ =?us-ascii?Q?rQL1VAQtYjobYbSFrWXeEUJSILETl3U8df3PTPnoqxHttZpe3A+woxFi77lX?=
+ =?us-ascii?Q?q0FL2atypmYMom5Nax71PRGq9p8l0G3t+1Oqe4xSX3ZBTD2oQKLOi0U0uDpA?=
+ =?us-ascii?Q?asWvRaL4BdS3RiMcVbwZaKDPSjw5FXxk3zOUjo8RFnQwzuHiVa2G6FLvHaLQ?=
+ =?us-ascii?Q?nhMUtTv30PV5MhpSVy+dgxYhgmTbW7CTcOTDjerbJ+92i0nbcAvyNTqf08ed?=
+ =?us-ascii?Q?k8OQzLfTE1MFjFbQ3scOVAEV6pAxCAObc588jMgEUdy1L/BH4ClOgYgTsWSC?=
+ =?us-ascii?Q?nPKa4JdCay87e84IpS0WuTe/IdgnJknFRs4BKVtrH6JY1joXsQ+9EE7Ajmw7?=
+ =?us-ascii?Q?XF+VcvXLG/tAzOgYkP2uHW7blVOiAUo75wSllHTi9///4/Nx5cPqtr/8/Na/?=
+ =?us-ascii?Q?ymZum3kXF3EuSL3/xd6f/FikruxjpG02fsUPdNu3PfpN02752VMzGHPQpOb9?=
+ =?us-ascii?Q?VQzWM3Oag/N6SMa4vSmHafLznnY8zJ8nS9+fuKUcT2W3Vn2fzgIIXtXBwKB4?=
+ =?us-ascii?Q?+Fl9wHkVwoWVzZi8afTZGQ1M0CC+9Fp/Dele8p4dTjbYFskFFzEEfPI9or9C?=
+ =?us-ascii?Q?t/mjwErNqQM7AuMjw1f6h4k0WB8hgVP2OSN3N8bQC57oG7bqvNo5mrj3YsIy?=
+ =?us-ascii?Q?tWuQiHlin7aWDGy12TtDKSdim8vpAOZF9i9nyVj1hh4vXFnO3BVeGPnIDfPt?=
+ =?us-ascii?Q?k/Ylo5B6SKiZv2PrJuKLFsAia76l2xIRS5yWYJLe67IX/VMdRsK0cgN4Wq87?=
+ =?us-ascii?Q?wZmcK0eeROYzLILL8EPt7J7ymZYHLj7uO6Pj1W3DUKR5bHNb5xsiQf6HP2Nc?=
+ =?us-ascii?Q?3XH4KThF6OXkKDNrJee0FRxGmDmK9ThjQoQ5LTZPwl+7vu/ik5hv3nJyRsgj?=
+ =?us-ascii?Q?CpvwfzIuXFKhLD0CCt8YbxlXafeWsB3n4E6IxXkQ7pNYWiw3R5CcaVyJsx0u?=
+ =?us-ascii?Q?98NEmpSC3TipVdcW/tTQV+VHe9O7rD6szEj9DEzhgBluNJLNEJPJO7g4VW+h?=
+ =?us-ascii?Q?0QdqRNaeYYtmcRDSCGqEZJAooLLgIEC6aDlO1Z3FDga5/qK9U+Ew3cx5IwQ8?=
+ =?us-ascii?Q?x/qDpHFTnA1poL6PGakxeiVd?=
 X-OriginatorOrg: synaptics.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4b3d65e-3f10-4ac8-da1c-08d8fd750e83
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0dd0bc45-19fd-49c8-3892-08d8fd7b4e2e
 X-MS-Exchange-CrossTenant-AuthSource: BY5PR03MB5345.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2021 05:37:27.1768 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Apr 2021 06:22:10.9632 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 335d1fbc-2124-4173-9863-17e7051a2a0e
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NYlbIr71RZ2/13b1wPPqXxEXBPhYgu3cUn/KoPoVLKJrCsribjr1dy9tCnb5b9HzD8P+DwZd+Oz6nPQID8GuZw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB6239
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0qoS8PfFhcol+bEBsn1qKBigM0ariuH9vGMM3UT8y8bO0oI5HGotbtTNJ7LdJnpzc3xJQpbaF9A6nl40lOuTCQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR03MB4485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210411_223732_491059_987D76B4 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20210411_232215_893179_EDF8238B 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,70 +166,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Apr 2021 09:38:02 +0530
-Anup Patel <anup@brainfault.org> wrote:
+On Sun, 11 Apr 2021 14:41:07 -0700 (PDT) 
+Palmer Dabbelt <palmer@dabbelt.com> wrote:
 
 
 > 
 > 
-> On Wed, Mar 31, 2021 at 10:00 PM Jisheng Zhang
-> <jszhang3@mail.ustc.edu.cn> wrote:
+> On Sun, 28 Mar 2021 18:55:09 PDT (-0700), liu@jiuyang.me wrote:
+> > This patch implements flush_cache_vmap and flush_cache_vunmap for
+> > RISC-V, since these functions might modify PTE. Without this patch,
+> > SFENCE.VMA won't be added to related codes, which might introduce a bug
+> > in some out-of-order micro-architecture implementations.
 > >
-> > From: Jisheng Zhang <jszhang@kernel.org>
-> >
-> > They are not needed after booting, so mark them as __init to move them
-> > to the __init section.
-> >
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Signed-off-by: Jiuyang Liu <liu@jiuyang.me>
 > > ---
-> >  arch/riscv/kernel/traps.c  | 2 +-
-> >  arch/riscv/mm/init.c       | 6 +++---
-> >  arch/riscv/mm/kasan_init.c | 6 +++---
-> >  arch/riscv/mm/ptdump.c     | 2 +-
-> >  4 files changed, 8 insertions(+), 8 deletions(-)
+> >  arch/riscv/include/asm/cacheflush.h | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
 > >
-> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > index 1357abf79570..07fdded10c21 100644
-> > --- a/arch/riscv/kernel/traps.c
-> > +++ b/arch/riscv/kernel/traps.c
-> > @@ -197,6 +197,6 @@ int is_valid_bugaddr(unsigned long pc)
-> >  #endif /* CONFIG_GENERIC_BUG */
+> > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> > index 23ff70350992..4adf25248c43 100644
+> > --- a/arch/riscv/include/asm/cacheflush.h
+> > +++ b/arch/riscv/include/asm/cacheflush.h
+> > @@ -8,6 +8,14 @@
 > >
-> >  /* stvec & scratch is already set from head.S */
-> > -void trap_init(void)
-> > +void __init trap_init(void)
-> >  {
-> >  }  
+> >  #include <linux/mm.h>
+> >
+> > +/*
+> > + * flush_cache_vmap and flush_cache_vunmap might modify PTE, needs SFENCE.VMA.
+> > + * - flush_cache_vmap is invoked after map_kernel_range() has installed the page table entries.
+> > + * - flush_cache_vunmap is invoked before unmap_kernel_range() deletes the page table entries  
 > 
-> The trap_init() is unused currently so you can drop this change
-> and remove trap_init() as a separate patch.
+> These should have line breaks.
+> 
+> > + */
+> > +#define flush_cache_vmap(start, end) flush_tlb_all()  
+> 
+> We shouldn't need cache flushes for permission upgrades: the ISA allows
+> the old mappings to be visible until a fence, but the theory is that
+> window will be sort for reasonable architectures so the overhead of
+> flushing the entire TLB will overwhelm the extra faults.  There are a
+> handful of places where we preemptively flush, but those are generally
+> because we can't handle the faults correctly.
+> 
+> If you have some benchmark that demonstrates a performance issue on real
+> hardware here then I'm happy to talk about this further, but this
+> assumption is all over arch/riscv so I'd prefer to keep things
+> consistent for now.
 
-the kernel init/main.c expects a trap_init() implementation in architecture
-code. Some architecture's implementation is NULL, similar as riscv, for example,
-arm, powerpc and so on. However I think you are right, the trap_init() can be
-removed, we need a trivial series to provide a __weak but NULL trap_init()
-implementation in init/main.c then remove all NULL implementation from
-all arch. I can take the task to do the clean up.
+IMHO the flush_cache_vmap() isn't necessary. From previous discussion, it
+seems the reason to implement flush_cache_vmap() is we missed sfence.vma
+in vmalloc related code path. But...
+The riscv privileged spec says "In particular, if a leaf PTE is modified but
+a subsuming SFENCE.VMA is not executed, either the old translation or the
+new translation will be used, but the choice is unpredictable. The behavior
+is otherwise well-defined"
+
+*If old translation, we do have a page fault, but the vmalloc_fault() will
+take care of it, then local_flush_tlb_page() will sfence.vma properly.
+
+*If new translation, we don't do anything.
+
+In both cases, we don't need to implement the flush_cache_vmap()
+
+From another side, even we insert sfence.vma() in advance rather than
+rely on the vmalloc_fault() we still can't ensure other harts use the
+new translation. Take below small window case for example:
+
+	cpu0				cpu1
+map_kernel_range()
+  map_kernel_range_noflush()
+					access the new vmalloced space.
+
+  flush_cache_vmap()
+
+That's to say, we sill rely on the vmalloc_fault().
+
 
 > 
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 067583ab1bd7..76bf2de8aa59 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -57,7 +57,7 @@ static void __init zone_sizes_init(void)
-> >         free_area_init(max_zone_pfns);
-> >  }
-> >
-> > -static void setup_zero_page(void)
-> > +static void __init setup_zero_page(void)
-> >  {
-> >         memset((void *)empty_zero_page, 0, PAGE_SIZE);
+> > +#define flush_cache_vunmap(start, end) flush_tlb_all()  
+> 
 
-I think the zero page is already initialized as "0" because empty_zero_page
-sits in .bss section. So this setup_zero_page() function can be removed. I
-will send a newer version later.
+In flush_cache_vunmap() caller's code path, the translation is modified
+*after* the flush_cache_vunmap(), for example:
 
-thanks
+unmap_kernel_range()
+  flush_cache_vunmap()
+  vunmap_page_range()
+  flush_tlb_kernel_range()
+
+IOW, when we call flush_cache_vunmap(), the translation has not changed.
+Instead, I believe it's the flush_tlb_kernel_range() to flush the translations
+after we changed the translation in vunmap_page_range()
+
+Regards
 
 _______________________________________________
 linux-riscv mailing list
