@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD375C433B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DF33EC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:17:55 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 521D661241
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:17:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 521D661241
+	by mail.kernel.org (Postfix) with ESMTPS id 85CC661026
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:17:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 85CC661026
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,45 +23,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wQfKYbM/OOP4pqg0DWpolTTTyVFj3uBJ3equjrVhkfs=; b=Gjb1S1dVeF1txrN+LaRnIPIXA
-	9me6FezCdPXs+vTBgkGR7SrzA+QepItB1L/XZ9atFBbEIr1xvvvL8i/biuAptqcUrQCuZCGDPI7hE
-	sjHC1Rh7xCc7dUXrXi6kCuuAEK8u/6fZPbuqcgKjM2bIZssJX7A0q3JzAmB6ftKZaP0I5kIc3J6lv
-	0Vwvz3Pw2a+OiDQDvfx6RG/Az3HJmkuPROob4v/VTVCRn3mETUDzRH83yvgv8HN9kAXKsgeLmhHsy
-	AQvOJ00zrtybFWybEeVOc/XfG4v8ReLE1XwqkPUtXQMZZRxSIZtVpFLvvYGi4EMiEvueYCfqnV5Ek
-	3Xj6x4iNw==;
+	 bh=5+9AUiekVt2i/TMpuaF8sOR86tE2jUprF3YjUEuicwM=; b=PjRlOzhnACkDrT631TPuPmD2C
+	47Usp2+UU7FfGkv8S0FKroEaCQGzdekN1REtnfy1+8SCUOUi6RQX9vQySvYXLByfNX8mML2XfSgp/
+	mn7yX3RkxTI/Fz5Yssy+h/o4d388mNABzXf6xWmzQl0zMdlrFjAJHh4ZtHwRuNlDaw1xsLneO6PXF
+	31MJYrDhpLveZawe2gGXo4vQ3zwViXwR1XKpTDNxiezAXEA/aSxakHPB8zwYI2wgceWVPgt7HoXuz
+	elWh9RmBI5dnkjXIh6IuJ7uJ4CkBi/BfbUu3DR49BJRvTD/+jsWuDdQ2PcxjWu+lCr9QjBmK9paXs
+	heD0/cqWw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVzFV-007Duj-HR; Mon, 12 Apr 2021 16:17:18 +0000
+	id 1lVzFy-007Dy9-Qo; Mon, 12 Apr 2021 16:17:46 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzFS-007DuB-10
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:17:14 +0000
+ id 1lVzFv-007Dxs-7Q
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:17:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
  From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=HPUQ5hikiB/PpNEHlz4qMgRr8a4Ky8d+Pas5GCx2Zt4=; b=QiKGwNIkFg68TbtH/OIYLsnsd/
- fJUjhYWoETQosIf+/geqSqacRAUuzvmutBqwNpXWyw1rLs5StGt8rWASvpBOt80KAiepUIR+Ux8MD
- HPjeGGxwZTw0RX2h6U6Uhr+HylsDR5wREQSOI+nNEkD2nfHgoVarjgzCorRrZUeOBnTsOac8N8hp4
- m5OG9EV3bNDGb6ooBl8g3dACprtXeFPQXnF/Xz9OBH/OK/nwtskt702GMTFD9dDTEHR7Bkjc3ypkR
- CK+fePhe0NvmUFjVrMvBlOEirILUBYf+p0AIMQYVqNkxcoe0f1uIw2o/S1aASJQ86Co1xjuCD7lng
- c3bcaLDQ==;
+ bh=GCu6K1s61mntU0Jf7xOJ9b2Fb/es981iZLlTesdAjHY=; b=uoKorNIjvAfDPuFYyAUrJaloVP
+ tnfNgKP4taFdfyRzlkrRakyr5lFy+4M49SRzIqn898eL0SX7GgjHNkNtctxOVx0akYyYVhK6RiFDY
+ cQZUFPWCSPJ8r8NoJv4mQB0z3Lhs/0gT7r+teuxpJd4rLPo7rrKSdCJo4vw3SaPPqi+2FkqhM8bPV
+ jrEnxmARjDpVyl2IR8SOK935WwzrW+vDTeM84Cj6xbKvz8cCj+fCb7dnmtFP91AXuGixPXw2YpPdV
+ h8vHqpDCwydl4qiZ3IgFC7rOtcZTnP6ye6Auz2bv3pmIMt4k81KXg7nvPQv5SEC674QvwABUh7DRX
+ mmBFVfOg==;
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzFP-006NiU-7h
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:17:12 +0000
+ id 1lVzFs-006Nk4-70
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:17:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=HPUQ5hikiB/PpNEHlz4qMgRr8a4Ky8d+Pa
- s5GCx2Zt4=; b=mivupzkpXptRxp9N1ifz0wtDutpyuLRAKVv6LYt8+CTJcct0O1
- ffjGX+j1PUmbwuycphSBYkipj8AdG4+qGnYrfmCnFHsJ5TgevkPSQE+HU8uDpgAL
- +z1yVfr5AUnyS3oFHSxme+5oMr2VBzvg0VaEvL/UDjnx3pIctEpcMKnaU=
+ Content-Transfer-Encoding; bh=GCu6K1s61mntU0Jf7xOJ9b2Fb/es981iZL
+ lTesdAjHY=; b=icBNPsZmoBC+m9Pqb/3HJlnwxNeA7Cuc+r60oVnVF807J+hi3F
+ WarjbwaFnkG4TNmum/BDUUOmALVYbQAYl3wPUzXZpOHNLTF2oqKrMo92mT6Z3dXl
+ afd9deH0wVE80FS8SY71GnQ618/Rf4BNiavYMkOl3wwsIVn8019P8LehY=
 Received: from xhacker (unknown [101.86.20.15])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDn70t9cnRgbDjLAA--.59972S2; 
- Tue, 13 Apr 2021 00:17:02 +0800 (CST)
-Date: Tue, 13 Apr 2021 00:11:59 +0800
+ LkAmygDn7EiacnRg9zjLAA--.40703S2; 
+ Tue, 13 Apr 2021 00:17:30 +0800 (CST)
+Date: Tue, 13 Apr 2021 00:12:28 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
@@ -75,33 +75,32 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Anup Patel
  <anup@brainfault.org>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v3 01/10] riscv: mm: Remove setup_zero_page()
-Message-ID: <20210413001159.341a95d6@xhacker>
+Subject: [PATCH v3 02/10] riscv: add __init section marker to some functions
+Message-ID: <20210413001228.663f9bc3@xhacker>
 In-Reply-To: <20210413001110.7209bae6@xhacker>
 References: <20210413001110.7209bae6@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDn70t9cnRgbDjLAA--.59972S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDCw48tF4fWF4rKrW5trb_yoWDGFb_Wr
- yvvr4fWFy5Wa18uanrXwsxJr1UAayvyF4DXr1Iy34ayr13Wan8A3s5KFW3Xw1kGr4SvFZ2
- gFW3JFZxtr12kjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUb48YjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr
- 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
- 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
- 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
- 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
- W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Gr0_Zr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
- IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU81GQDUUUU
- U==
+X-CM-TRANSID: LkAmygDn7EiacnRg9zjLAA--.40703S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuryfXrWUJr47GF4rJFyfCrg_yoWrXr48pr
+ Z5Ka1kAFWY9ryvga9rArW8uryUJ3Z0k343trsrCa4rXF47urW5A34kW3yjvr1UXFWkuF4r
+ C345Cry3Aw48AaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkCb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
+ xK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
+ 64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r
+ 1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kI
+ c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+ v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
+ c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+ 0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVWUJVW8
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2znQUU
+ UUU
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210412_091711_741854_47B90AAC 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210412_091740_725254_9481EB1C 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,38 +119,109 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-The empty_zero_page sits at .bss..page_aligned section, so will be
-cleared to zero during clearing bss, we don't need to clear it again.
+They are not needed after booting, so mark them as __init to move them
+to the __init section.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/mm/init.c | 6 ------
- 1 file changed, 6 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 2 +-
+ arch/riscv/kernel/traps.c      | 2 +-
+ arch/riscv/mm/init.c           | 4 ++--
+ arch/riscv/mm/kasan_init.c     | 6 +++---
+ arch/riscv/mm/ptdump.c         | 2 +-
+ 5 files changed, 8 insertions(+), 8 deletions(-)
 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index ac202f44a670..e4741e1f0add 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -59,7 +59,7 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+ }
+ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+ 
+-void riscv_fill_hwcap(void)
++void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+ 	const char *isa;
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 0879b5df11b9..041f4b44262e 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -196,6 +196,6 @@ int is_valid_bugaddr(unsigned long pc)
+ #endif /* CONFIG_GENERIC_BUG */
+ 
+ /* stvec & scratch is already set from head.S */
+-void trap_init(void)
++void __init trap_init(void)
+ {
+ }
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 7f5036fbee8c..dbeaa4144e4d 100644
+index dbeaa4144e4d..ecd485662b07 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -57,11 +57,6 @@ static void __init zone_sizes_init(void)
- 	free_area_init(max_zone_pfns);
+@@ -70,7 +70,7 @@ static inline void print_mlm(char *name, unsigned long b, unsigned long t)
+ 		  (((t) - (b)) >> 20));
  }
  
--static void setup_zero_page(void)
--{
--	memset((void *)empty_zero_page, 0, PAGE_SIZE);
--}
--
- #if defined(CONFIG_MMU) && defined(CONFIG_DEBUG_VM)
- static inline void print_mlk(char *name, unsigned long b, unsigned long t)
+-static void print_vm_layout(void)
++static void __init print_vm_layout(void)
  {
-@@ -589,7 +584,6 @@ void mark_rodata_ro(void)
- void __init paging_init(void)
+ 	pr_notice("Virtual kernel memory layout:\n");
+ 	print_mlk("fixmap", (unsigned long)FIXADDR_START,
+@@ -553,7 +553,7 @@ static inline void setup_vm_final(void)
+ #endif /* CONFIG_MMU */
+ 
+ #ifdef CONFIG_STRICT_KERNEL_RWX
+-void protect_kernel_text_data(void)
++void __init protect_kernel_text_data(void)
  {
- 	setup_vm_final();
--	setup_zero_page();
+ 	unsigned long text_start = (unsigned long)_start;
+ 	unsigned long init_text_start = (unsigned long)__init_text_begin;
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index ec0029097251..e459290d2629 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -48,7 +48,7 @@ asmlinkage void __init kasan_early_init(void)
+ 	local_flush_tlb_all();
  }
  
- void __init misc_mem_init(void)
+-static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pte_t *ptep, *base_pte;
+@@ -70,7 +70,7 @@ static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long en
+ 	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(base_pte)), PAGE_TABLE));
+ }
+ 
+-static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pmd_t *pmdp, *base_pmd;
+@@ -105,7 +105,7 @@ static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long en
+ 	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
+ }
+ 
+-static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pgd(unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pgd_t *pgdp = pgd_offset_k(vaddr);
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index ace74dec7492..3b7b6e4d025e 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -331,7 +331,7 @@ static int ptdump_show(struct seq_file *m, void *v)
+ 
+ DEFINE_SHOW_ATTRIBUTE(ptdump);
+ 
+-static int ptdump_init(void)
++static int __init ptdump_init(void)
+ {
+ 	unsigned int i, j;
+ 
 -- 
 2.31.0
 
