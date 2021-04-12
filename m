@@ -2,85 +2,105 @@ Return-Path: <SRS0=xUWo=JJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E33FC4363C
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0467C43462
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:24:12 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F17C61288
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:24:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F17C61288
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 76BAD60200
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:24:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 76BAD60200
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=uW2tgZyHpciqqC//XQpAUcJ+Eilt4muPrHcZuONmvRU=; b=iXiBVdFj1ScQGhmT5wTh4U3Uz
-	qPzSGUnh0L0bSKKyIi7hmS7tMRCfRqplynkB/dKv+VZSRirDEsqHpRq9YbVQsBBh/gXWPYu3Vc2B+
-	tB67JH+aQooNI4oZhnAXuKEDA2SYyvUXmynoIe+qvyb6/EGDmoyZDOhkQ02bb+g1s+tNgow0rXCPd
-	IjuL4bh+TtPWtSfC1f36ywzudzS802CsF7u9f7yHogCxs1yo2uZj4QajbJCgSe9lpFF6Ew4feJZLT
-	tEc7l2uwTyEJdiQCsAPgiKCCqlNtnxpmwJ3fnmq1FmSUl7e4IiZuWq+6TgDMht2U2DYMxyt2WoqRr
-	EGpkRrduA==;
+	 bh=bJe4W0VjRfgFR/almKhEJHsyC06Hs8wMG4VTXf5J3XM=; b=qRs5er5XGIkkI/1acVZy75UfJ
+	GoDD/GHYCKS93SiXJfOnWO4BGYMoYvmYfJrqZWh/PNAc/oYN5itS+I2ALnVHnLDKHzJzN7bFU24CS
+	MakXZp6UScM8roCi43txGPYcZg857ctMavxVa/Y66idAIOtnwloYAWRJEmARayqPY10qwSbsEHJpc
+	tU7E8v5SY8q6JKDr/PB/QPrVx1ghwX39lFe0fA75YMm9ZLwN1jOh9+acnMr5YL4txwYlqeeKpzA2C
+	YtNWv0tHfi1nuvtbVbkD7OGAm4JlWdX6wxWUPBJxVmFNxDtlLJf9Vx9c6ZRvBPylOHYqkOrYWYdpW
+	uhHHWMh8Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVzLx-007El8-Hv; Mon, 12 Apr 2021 16:23:57 +0000
+	id 1lVzLz-007Elh-PB; Mon, 12 Apr 2021 16:23:59 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzLs-007Ejk-GV
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:23:52 +0000
+ id 1lVzLx-007El2-HI
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:23:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
- :Reply-To:Content-Type:Content-ID:Content-Description;
- bh=RW2H5XIPY6QsH7gM+Z0AnWNbza6KDYPFp5A3VyD9w6w=; b=THoIyD3LtLklqgwOMa/rDPTx3s
- iJ/M0MdBZawhchhfXQK3i/YYBTZgAiepnWkrkAA4qhubGRVtfikn+JrxVdEq32vvRyiK8/nA4usfW
- TjmPpXC8SwSAn2F46g5hM7d+A/Rsr8sPD/mhtXis1VoQCx74MIbh0SKff4tEIywxpli64fu7+Acje
- 6tB9AaaUKiMu4zc0Dn7kLRW+W9tP8LoaqHUwyWpT5rj2igNfs5p3u6brigxsPdJ7Qg9PvtBWJpNMD
- Gg7Vge0EHokptxNITswFPneG/TBwxYfL4pPN2zThH4USYYzYhBisemuexAF7ThVyYqcioVd6MoJzD
- zWeleGxg==;
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzLq-006O55-4B
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:23:51 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2CF6A61350;
- Mon, 12 Apr 2021 16:23:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618244629;
- bh=h/oMOtZ4b3Lu1QUgWmshCmfFJ+JNBlKbRPav86MrSsw=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=j2do6RJFChPB82z/IWowX1e0ViHjGj6lhH6gTFJGJrwTyqlhuLkxBIpb0spe2VL0B
- xe5AgMerqYNdveAYi5tYflqhzKQsrJUEwMPb3bPdY1PxzLjDzgEIRGdpX8V96Wiz6f
- zKiGEsGl7N9Dza+MJopiMhY+Nq/NL6FhhzJas/iLEQ5/L8yLnC/x5HjoezA8IZW01I
- wtAxz5CMV4NEBWsi2wP2IJGfB2NKBaickLqrMVg8G5WHM3Now0JdyFewr/XqKOn2UE
- WTwdlbjdQ8Ob7mZCyQ46wxG2kctXkHokhFeqHpIfRguuHHTx6nSe0OVryZlrqq5VmJ
- VOYaUvzVip6GQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Guenter Roeck <linux@roeck-us.net>,
- "David S . Miller" <davem@davemloft.net>, Sasha Levin <sashal@kernel.org>,
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.11 43/51] pcnet32: Use pci_resource_len to validate
- PCI resource
-Date: Mon, 12 Apr 2021 12:22:48 -0400
-Message-Id: <20210412162256.313524-43-sashal@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210412162256.313524-1-sashal@kernel.org>
-References: <20210412162256.313524-1-sashal@kernel.org>
+ Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-ID:Content-Description;
+ bh=8lRS5PKRg+wSW2+e9kKETn+Cn0NAuvZahdIC8PRgBYM=; b=a7kpOcI+3YOWc8LJCQDObXeVnD
+ QwcOfyzz81NhxWmI5fg3jEeEruj0eIwhp9GMJTTlqi8520Yt+MkNsBac7lFH1Py/xNaAgl2ZT9INO
+ yRsztjM5MTH04L+BkInHln1wb20Eabns2EPAnt6WuJJ1kwF0QjebjY4gNCLZ9nbF4ESRCu9qUNT3G
+ 5YfnBn6vFHNbbqLFOrmsF/YrqtSyq/OH8KGgQKKDksVDAa3FFG1whCjK7SaAz/os7zDFjs+5gLtGD
+ KAYNne/9xbJWeQpXkftxtzo4cA7yb0MAM7FFbJkyRuH2PPiw6lOb4lMjb/PxGYM/1IQBv3e62XBAZ
+ tEYC+EgQ==;
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lVzLu-006O5Y-OQ
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:23:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=8lRS5PKRg+wSW2+e9kKETn+Cn0NAuvZahd
+ IC8PRgBYM=; b=WC+KjpWaqSKQ1sOC4IQyxTGw3Mxis3xFPpTlZNEYw3pW5vJZU4
+ JjvPk+sdW2CS7lnpHTwoO0St0X60St3GzO6ON78S5jYa18zIELSBXZvZ2sbpJ6nM
+ HFeYcMhmEd4rFWJJVPtfVRyCgMhhbsHA02A3+deg0/2bLLovs0NIMA3VM=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygDX3Ejzc3RgBUDLAA--.24267S2; 
+ Tue, 13 Apr 2021 00:23:16 +0800 (CST)
+Date: Tue, 13 Apr 2021 00:18:13 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
+ <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey
+ Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, "
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=" <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+ <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Luke Nelson
+ <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Anup Patel
+ <anup@brainfault.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 07/10] riscv: bpf: Write protect JIT code
+Message-ID: <20210413001813.36b397bc@xhacker>
+In-Reply-To: <20210413001110.7209bae6@xhacker>
+References: <20210413001110.7209bae6@xhacker>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+X-CM-TRANSID: LkAmygDX3Ejzc3RgBUDLAA--.24267S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFyfAF4xCFy7WrW5tr4UXFb_yoW3XFg_Z3
+ W8ta4xW3s3Jr4xAr4DZr4rZr10yw1FkFZ5Zr1xXryUAas0gr15KasaqrWFgr97ursYqrW3
+ Wr97JryxXw4aqjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUb4AYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+ vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr
+ 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+ 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+ 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+ 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+ W8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVWUJVW8
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8S1v3
+ UUUUU==
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210412_092350_226297_DE0D10EF 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20210412_092355_272954_90548B2E 
+X-CRM114-Status: UNSURE (   6.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,54 +118,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
+From: Jisheng Zhang <jszhang@kernel.org>
 
-[ Upstream commit 66c3f05ddc538ee796321210c906b6ae6fc0792a ]
+Call bpf_jit_binary_lock_ro() to write protect JIT code.
 
-pci_resource_start() is not a good indicator to determine if a PCI
-resource exists or not, since the resource may start at address 0.
-This is seen when trying to instantiate the driver in qemu for riscv32
-or riscv64.
-
-pci 0000:00:01.0: reg 0x10: [io  0x0000-0x001f]
-pci 0000:00:01.0: reg 0x14: [mem 0x00000000-0x0000001f]
-...
-pcnet32: card has no PCI IO resources, aborting
-
-Use pci_resouce_len() instead.
-
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: David S. Miller <davem@davemloft.net>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/net/ethernet/amd/pcnet32.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/riscv/net/bpf_jit_core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/amd/pcnet32.c b/drivers/net/ethernet/amd/pcnet32.c
-index 187b0b9a6e1d..f78daba60b35 100644
---- a/drivers/net/ethernet/amd/pcnet32.c
-+++ b/drivers/net/ethernet/amd/pcnet32.c
-@@ -1534,8 +1534,7 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
- 	}
- 	pci_set_master(pdev);
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 3630d447352c..40d5bf113fee 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -152,6 +152,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 	bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
  
--	ioaddr = pci_resource_start(pdev, 0);
--	if (!ioaddr) {
-+	if (!pci_resource_len(pdev, 0)) {
- 		if (pcnet32_debug & NETIF_MSG_PROBE)
- 			pr_err("card has no PCI IO resources, aborting\n");
- 		err = -ENODEV;
-@@ -1548,6 +1547,8 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
- 			pr_err("architecture does not support 32bit PCI busmaster DMA\n");
- 		goto err_disable_dev;
- 	}
-+
-+	ioaddr = pci_resource_start(pdev, 0);
- 	if (!request_region(ioaddr, PCNET32_TOTAL_SIZE, "pcnet32_probe_pci")) {
- 		if (pcnet32_debug & NETIF_MSG_PROBE)
- 			pr_err("io address range already allocated\n");
+ 	if (!prog->is_func || extra_pass) {
++		bpf_jit_binary_lock_ro(jit_data->header);
+ out_offset:
+ 		kfree(ctx->offset);
+ 		kfree(jit_data);
 -- 
-2.30.2
+2.31.0
+
 
 
 _______________________________________________
