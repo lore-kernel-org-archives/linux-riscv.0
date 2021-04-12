@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EA4BC433B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 91C5EC43460
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:27:47 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 03F83613DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:27:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 03F83613DC
+	by mail.kernel.org (Postfix) with ESMTPS id 4454A613EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:27:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4454A613EF
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kgycZtBY+So80+JzJbBdDbpgyL7sJK5Y8jAGwzGyhqc=; b=hNQPe9+lTtWdgJFF82JmQoZ1z
-	xGnEC6v8uHrQJmXYc8s9LPun5r9mP3e+aLkQYof8YwzIZqcVAgYYeICAF4pQczVOaUo3Zz6Qj2tUT
-	/Fz2Wqk7bf6tQlW/Dh04KAUSd9NhalcXghLggjUglwxxJLdFP2OAzj9ucmW131pgLXr8mQ5dSFP4y
-	mxikj/9QV2HQOqqwJhgVn5ERvc8XSaSDC58D9X6bdjcKh2K4JpeBWHXaXhjmtguD8SmhGj3sO0kUh
-	OZrqHsNb76x2JhJmgZL9cpUYT+hVfwE7ptQJBslr43rbKTvZy/pMLSCwDRq+Eoain9FBc437uE+6S
-	RrYV0ELZQ==;
+	 bh=jbXN2EeuVH8YgI+F5LQNCRSaAnmlXOfftzVhacfYwP0=; b=B6ruYL2hmvN8rEHmjvqgSn2G6
+	NahgM5PCh8DYLi6hKiQ+vJ9T9WZG3oWVfdpJKQYoJhyvBO+/Xm/f6eEaE2NxGVbowZHPCmdMG97QX
+	WXu3Kxw9bdmHphO9s0Ki2HuYhSEre9QPcVkH0QGqzIr0ygpLVO2gyS+VfX/23mIv6ZdUfFdOBD+fn
+	uBbpAAoxtDHRYg1hln6jLT240E7Z3zfijuClc+fb+ulQh1QuZ6BrrSteBMurtymHDt/lBzVYQ9KA1
+	8uoLlID0dVF+1NLUFVDNW/7yJEzsKvyg+/NLYqxulcK2+E4rfRiqfrDY8JXwdYCjmepSTTn/CtQ4E
+	T09BA4b/w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVzP4-007FtP-PD; Mon, 12 Apr 2021 16:27:11 +0000
+	id 1lVzPW-007G7E-Hz; Mon, 12 Apr 2021 16:27:38 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzOu-007FpY-My
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:27:01 +0000
+ id 1lVzPS-007G5F-6S
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:27:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
  :Reply-To:Content-Type:Content-ID:Content-Description;
- bh=v+X659bJufr96HHkT7r1rvBWI6JDhcZPPGMPzSMHTo8=; b=0HGPTfvQ3HyKRQjmDEsKXNrdTL
- xacmNOMtr5xG+UDUMY+KeGezOZoiR8K9l/v9uWWDZmSp9iCyz0LFMcGqoYoLwnlvyb269u9VBjb+I
- 2Dea/uFTqloA/ioGe+a5ttT4ZZcpNCBsNnsF9U3zDQ4efD3BQQbasVxpUITWbQ/RbLZQ1FhKuZD+l
- z6AlegUoTcDCeshLAb19PLkOVx77oHN8vBJenqIDWWnp2T3bk3sJjXz2dffQzK0IAlKwjyTyytJju
- eMdul0/KgdJk4bQRFz38SSZjQGoJ3fEV+BbjQpfBLSTbMNaPg24dMGv0en72dbX+2ZfSN4Fnc14K+
- Qn858jxg==;
+ bh=AyBLNF6IJGD4IrWwWN061crFc5WTX3+jT5iHMF3Zj9Y=; b=kAoHL5EE3vvd12kSDwH84a/OTw
+ suNE0LIwT4w2oMzyXt2WjEs1ksoPPMi1QgGOzy1GeOhiLJRlDqEiJsGir0mZcR8JHCyJ7Cbch8blW
+ SOMwlEVozVPRJNyaeREB5vVu/hfXStKH4/H3ifqb4RQhMKEYmOWPTDiZdTx2y0tiYxAys2PWUJ5ID
+ +rNGNf1dLTmRRdhiNfw7NuLRZtJ4liJJFbSC+aWyLZ672pxerTZ6U4XfbxfLClKhI9e2RkWcqI6+L
+ hsCz/XONEFgH1hurJw/Iz95MRk8vSZibAUfCXwwZFEJZS1aA5r/nJg1arRO+dfI9mmqMJ0QrXIH8I
+ 96SwBpUQ==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzOs-006OjP-9X
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:26:59 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 23486613A3;
- Mon, 12 Apr 2021 16:26:57 +0000 (UTC)
+ id 1lVzPP-006Oqt-MR
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:27:32 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 88BF3613ED;
+ Mon, 12 Apr 2021 16:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618244817;
- bh=Brccmkfl5v+MBaeCytBTAt8JwT1Gq/R+gMUC5cpIjYE=;
+ s=k20201202; t=1618244851;
+ bh=/MG3KWNNLYHNW9Rh6BkTYR1TFQXUkcBfuNY6i+S1LtU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=dsY7NKH3rjymTWCn4mV/MQ+Op181tO555mGsn52+zSlk23bA5JfFQtK8Wg7tfOxNw
- 052Qe3d5tlqU9IvNkUj783ErdvgUMUuFUuTKDkq9tDvsJPgUsbbLVU3OUz9f8/Jss5
- DX29nhEu0Gtd9TTJ+P+au7+O/BH6dCkXMN2D9DqkpuzxkrmriagNrKoIhmPjaOhcjg
- 4LUwRkWjsdKPJVUeIlyDPYMRrqvLbWYM2c62+/eqXF14byNw2t+mUELWZq+plYYrta
- D6PCwer4chMo//9k9hLIAPbngusqv62Q/NWMspL9lD2hMH4BUqePg0l6oIl7hBiAO9
- sXvIFgS8Zm2OQ==
+ b=t/SwGlg/MAW+B0kS8x6vNAj1HvleUufq/OVYBM+Bav0Lsngg7e/iFt5wqJF5V+d0W
+ ZdpYAUyehm1uV2G+BL6+ZcFKd7gQ3Ls/mcu+5UFSYXSLgGk+2dxMSZ1ppGdXUknMPO
+ cLEmCIq03OhWAHHlxOXIWx3MtYiKri47EGm4bKq/Jl1Fw0qRvlMDoG8EDsAbs+pbpq
+ 6/zhpFHjhnEBpJUs0XhTje10rTa8d4/xL+aPyZSQht+hcQn0l2C9MM063OXu3eYxdg
+ TcyUSyMZXCubGmVCnKAdLVuWbl8XaP/B1vJlD0kfKilLmL6sREtlqW0irPu+hMcRh7
+ BhZfmnvodjeTA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Guenter Roeck <linux@roeck-us.net>,
  "David S . Miller" <davem@davemloft.net>, Sasha Levin <sashal@kernel.org>,
  netdev@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 4.14 21/25] pcnet32: Use pci_resource_len to validate
+Subject: [PATCH AUTOSEL 4.9 20/23] pcnet32: Use pci_resource_len to validate
  PCI resource
-Date: Mon, 12 Apr 2021 12:26:26 -0400
-Message-Id: <20210412162630.315526-21-sashal@kernel.org>
+Date: Mon, 12 Apr 2021 12:27:01 -0400
+Message-Id: <20210412162704.315783-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210412162630.315526-1-sashal@kernel.org>
-References: <20210412162630.315526-1-sashal@kernel.org>
+In-Reply-To: <20210412162704.315783-1-sashal@kernel.org>
+References: <20210412162704.315783-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210412_092658_372610_E920881A 
+X-CRM114-CacheID: sfid-20210412_092731_776034_3B37B8A7 
 X-CRM114-Status: UNSURE (   9.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -122,10 +122,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/amd/pcnet32.c b/drivers/net/ethernet/amd/pcnet32.c
-index 7f60d17819ce..073184f15c64 100644
+index c22bf52d3320..c3887ac3d04d 100644
 --- a/drivers/net/ethernet/amd/pcnet32.c
 +++ b/drivers/net/ethernet/amd/pcnet32.c
-@@ -1548,8 +1548,7 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
+@@ -1493,8 +1493,7 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
  	}
  	pci_set_master(pdev);
  
@@ -135,7 +135,7 @@ index 7f60d17819ce..073184f15c64 100644
  		if (pcnet32_debug & NETIF_MSG_PROBE)
  			pr_err("card has no PCI IO resources, aborting\n");
  		return -ENODEV;
-@@ -1561,6 +1560,8 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
+@@ -1506,6 +1505,8 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
  			pr_err("architecture does not support 32bit PCI busmaster DMA\n");
  		return err;
  	}
