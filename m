@@ -2,85 +2,105 @@ Return-Path: <SRS0=xUWo=JJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 407E0C433ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4436DC43462
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:26:09 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E8136613AB
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:26:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E8136613AB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id EB3ED613B8
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Apr 2021 16:26:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EB3ED613B8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=U/PZADWw629svXApLsTFEl1kEVDFbKe1DQ40H0FSrt8=; b=HZOxv3chOSr3agMTmSlkemnfY
-	DzEM8pGvTmpRD54y5SsvzMf37PSILvoHqrF0dz32p2HQVOkDKOcmKqAQv79XNqORlfEtzkatuyK28
-	q+U3Td+mTt0reXNdVrIOQx8vCsmI0WFUV+inwDvSExt51ISQnroLkRHY7rN6C1I6Hn3zwMS4y55nQ
-	34XiqKk8kuCzXdnC2coThJfV+dSzEZdhEY72i1YcElHFZgmNp1t4C631wbOnLQTS8YlIuTlblaFwI
-	Y0nsCF9Mpu0EGNZCRkcYdllwuvqluLpbhL2qB83li6s1ar2AjCXhU8UljFKE0RbI1WxeFjlR9fj6N
-	D6T0GXCtQ==;
+	 bh=O50w9EfEaTMadctOqllcikV20joRkTr9ePKIYYW8Q1g=; b=j6M75tkQAFkY8HIalB/Fw1loK
+	Qb1GkD25pU7aLpdc8wK9yhoZZwNdLqo//57KdFMnxDRP1Y7ujCXrBeN0NH/RjRq6MYUrm2dyWG5YA
+	393x2Wepu1BoI0Fv41z753gQYdAnvHlT1sLixN/yR5GUMWoN7SDMCnb4+tHy4Ds67FNHa3rzSG5OS
+	/OCKv5MlCty5VPMGNk7N+23BRSdwNHkbG8dm7kkprfE4zGXIHMQYdKCz8t3uk4ebk3xDWP6FCxG6h
+	IJ45Elrtc5w3V8HR3L7F9mg3/bdIJmjrrBuZS29y3xDyPgyiC0y6b9pGBHMqX5IxLkQMVbWOWf52Y
+	UfbOx5Ziw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lVzNp-007FO7-4n; Mon, 12 Apr 2021 16:25:54 +0000
+	id 1lVzNl-007FMJ-GF; Mon, 12 Apr 2021 16:25:49 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzNk-007FLs-1Y
- for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:25:49 +0000
+ id 1lVzNd-007FJN-VT
+ for linux-riscv@desiato.infradead.org; Mon, 12 Apr 2021 16:25:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
- :Reply-To:Content-Type:Content-ID:Content-Description;
- bh=U0nzaVFOa6tyE4I5L6k6cEvUuZTngq7RkMMXHGo/j/Y=; b=Sqfgu2p+KASiyVf+2LgcYWFopv
- 1fux6f9ptLK+DQcMXwIA6JtfumisB2iiHWX9m98/q0SxFFnFCqbJtVvHaiInV/6/isGKaOb6tRCj6
- 0q1KCBvVvEjGPaIVTaoNgSvRRjgza6Kdii9VmbZK40xQrj6yZti3yglgdT16NAXMnGJW1Adyb+WBT
- 1Xlc8Ehe7E+62XAzKyockHQFkU7doKZpfA18NshmpafidmwgHoVLZR9C/kmlxcRXCeRuEY7cZZXWm
- PX8eFkNIWn46zKA+WZdsHXEbxfgIgIKnpn3+ipcFtI5rZGXx3Y683iF+TGDgyh9TI6GKrNLlXcqhy
- nDvLszaA==;
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lVzNh-006OUX-K7
- for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:25:46 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7F0EC613A7;
- Mon, 12 Apr 2021 16:25:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618244745;
- bh=vexq6biuKCrPhpSSvklXRx2AKHq6uV5xEqsuRSIWA50=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=BhuY2KbfsBvqysoIwv4SuFpenR8LRQumZtRGbGXFXCP9uPRZSEgwzuDrcJGU3cJTM
- FGLKZj0o90cHzwxE289OE2Df87VCojHEfyUUTUZq8OiJUAcXnOGsIDxAP4GzJUdAdJ
- 9lRvRzMPr91A1w5t359adralDMpgwZYeCp2feyC6R/yR9nR78FMyJc6yRZCjTbg4AQ
- d3hjzPpcQPywiZTfrTS1azSJkrdEWiQERaEeFa98Cs7eWH++fj9kl1Z1s0CanUy/2b
- jxPVQ2s8IGWCxtp1PonRLrcO6NcEofLwFL95JE/1avjZgd3A3J94UO62W7TPOUUMcV
- HkWJDgXvxA1lQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Guenter Roeck <linux@roeck-us.net>,
- "David S . Miller" <davem@davemloft.net>, Sasha Levin <sashal@kernel.org>,
- netdev@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.4 34/39] pcnet32: Use pci_resource_len to validate
- PCI resource
-Date: Mon, 12 Apr 2021 12:24:56 -0400
-Message-Id: <20210412162502.314854-34-sashal@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210412162502.314854-1-sashal@kernel.org>
-References: <20210412162502.314854-1-sashal@kernel.org>
+ Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-ID:Content-Description;
+ bh=fvalhZunXH7epLYYoSy6BgPEhU+DOrmdmcJv5fbgncY=; b=fvRnuzIMsyZqci2DxkaBwLgEpY
+ b1zTINRfYWjsFMbEr9ABfuQTis2pwXYKLRRxva3O76qJKdkyxxpALTd3C0Bpny4DOnrbP/6l8tPJQ
+ r6Vn76xI0IDr/r9D7vT9cxaFIaD0x83cEU351bMgpndwZ4Gxz+Kou1QOWNOtE3cqzyYSGO1/rhikK
+ cd3R7JsP85YvsOvPaGPKzSac5e06oNFecai4riApy2NEmDiVkb+/mKo0XxnURejItzrxArr2LLeOF
+ jC6Np/EOnmb+5rn2Sv2b6RyLasdWaERBgTacbePHnHTiMUVw+R2ezVsX2h1jIUOr8zCgzu2wLsbNv
+ HWNBa+DA==;
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lVzNb-006OT7-4Y
+ for linux-riscv@lists.infradead.org; Mon, 12 Apr 2021 16:25:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=fvalhZunXH7epLYYoSy6BgPEhU+DOrmdmc
+ Jv5fbgncY=; b=krv6YJoXIfDnNRAi5GyPYct+lmsTEWhVDZXVOg3eeqaFsJAu6g
+ cq6sVsEt2U2SZ2TQFmf0YRw9btCBcNVNZ7KaNlU9Oa03mn06YN3lBYXeoyBVzsCt
+ k63RdMQgn+LTCSyCHPWbqRGMe1Ow5VNDF5CyySKP3ymRXMIyu34gl5S2o=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygC3vExddHRgRELLAA--.45187S2; 
+ Tue, 13 Apr 2021 00:25:01 +0800 (CST)
+Date: Tue, 13 Apr 2021 00:19:59 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
+ <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey
+ Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, "
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=" <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+ <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Luke Nelson
+ <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Anup Patel
+ <anup@brainfault.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 10/10] riscv: Set ARCH_HAS_STRICT_MODULE_RWX if MMU
+Message-ID: <20210413001959.5d2b221b@xhacker>
+In-Reply-To: <20210413001110.7209bae6@xhacker>
+References: <20210413001110.7209bae6@xhacker>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+X-CM-TRANSID: LkAmygC3vExddHRgRELLAA--.45187S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFy3Cw48Cr4DZw4DKF13CFg_yoWfGFX_Ga
+ yxJryUur18Jay8CFZ2gr1fZr1j93yUWFy8uF1Y9ryDZa42gw13X3ZIyas5ZF15Zw1jqF4x
+ ZayIqF17JryjqjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUb4AYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+ vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Gr
+ 0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
+ 04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+ 0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+ 0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+ W8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVW8JVW3JwCI42IY6I8E87Iv67AKxVW8JVWx
+ JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU8tKsU
+ UUUUU==
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210412_092545_703721_F62E3109 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20210412_092539_644411_0A81B6FD 
+X-CRM114-Status: UNSURE (   6.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,54 +118,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
+From: Jisheng Zhang <jszhang@kernel.org>
 
-[ Upstream commit 66c3f05ddc538ee796321210c906b6ae6fc0792a ]
+Now we can set ARCH_HAS_STRICT_MODULE_RWX for MMU riscv platforms, this
+is good from security perspective.
 
-pci_resource_start() is not a good indicator to determine if a PCI
-resource exists or not, since the resource may start at address 0.
-This is seen when trying to instantiate the driver in qemu for riscv32
-or riscv64.
-
-pci 0000:00:01.0: reg 0x10: [io  0x0000-0x001f]
-pci 0000:00:01.0: reg 0x14: [mem 0x00000000-0x0000001f]
-...
-pcnet32: card has no PCI IO resources, aborting
-
-Use pci_resouce_len() instead.
-
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: David S. Miller <davem@davemloft.net>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- drivers/net/ethernet/amd/pcnet32.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/amd/pcnet32.c b/drivers/net/ethernet/amd/pcnet32.c
-index f5ad12c10934..da84660ceae1 100644
---- a/drivers/net/ethernet/amd/pcnet32.c
-+++ b/drivers/net/ethernet/amd/pcnet32.c
-@@ -1548,8 +1548,7 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
- 	}
- 	pci_set_master(pdev);
- 
--	ioaddr = pci_resource_start(pdev, 0);
--	if (!ioaddr) {
-+	if (!pci_resource_len(pdev, 0)) {
- 		if (pcnet32_debug & NETIF_MSG_PROBE)
- 			pr_err("card has no PCI IO resources, aborting\n");
- 		err = -ENODEV;
-@@ -1562,6 +1561,8 @@ pcnet32_probe_pci(struct pci_dev *pdev, const struct pci_device_id *ent)
- 			pr_err("architecture does not support 32bit PCI busmaster DMA\n");
- 		goto err_disable_dev;
- 	}
-+
-+	ioaddr = pci_resource_start(pdev, 0);
- 	if (!request_region(ioaddr, PCNET32_TOTAL_SIZE, "pcnet32_probe_pci")) {
- 		if (pcnet32_debug & NETIF_MSG_PROBE)
- 			pr_err("io address range already allocated\n");
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 58a1d69713a9..e8074d248457 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -29,6 +29,7 @@ config RISCV
+ 	select ARCH_HAS_SET_DIRECT_MAP
+ 	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
++	select ARCH_HAS_STRICT_MODULE_RWX if MMU
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+ 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
 -- 
-2.30.2
+2.31.0
+
 
 
 _______________________________________________
