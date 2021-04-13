@@ -2,20 +2,20 @@ Return-Path: <SRS0=SYmu=JK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E39AC433ED
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Apr 2021 09:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CDA8C433ED
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Apr 2021 09:36:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E5AE610CA
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Apr 2021 09:31:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E5AE610CA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3AB3761222
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Apr 2021 09:36:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3AB3761222
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,47 +23,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Szz/434icNcnBsFFZX2pUH5DM0QXBEsg9baCp5ssoHs=; b=ZrBjHRYdbQV/CBmgWr7HPXVfm
-	tJKJO4q2bqKXB2+w2FyvmKPW3UmoVrFKmoi0FmCDSpHKJOaOMsHDZKofbKdKp8Wkzkxj6ylL35LS2
-	oTdyFuITufR8CtKcxRA6SFlDd69/EBlgLNxk5XhrD9p0I9GRCLW1g0k1l/mF50Gy97g3q6ARRdlEd
-	rpT4108SGwqIWs+emkoAQ6iqF4OfHNC1HsbC5sZrJIxUlojKqMebkPhHsthLbtxz+b1YKXN1s/gJ6
-	xZu1g8iv+xsO4405sDeKetKRrW54RT7wIyImP8K/jS8Ola3wxEa96MCDMYV2SrOBEQE6bcl8f//++
-	fQJ8j3e6A==;
+	 bh=JDMsBLVQHhELuj1iJY6kP4PWcdMtLuovwW36Xpo+WFA=; b=GB9ZixOyFLlDunmuri0AV7uOC
+	bgO2b/ovsz89/xyayRMPrffZqgKdqF6gDitojJmBwD54VK5OKsME+VCfbiwSCh2vuu0t7DsIyISjx
+	hwXSvEEPGxchl+5XSJK1x9VFunHg/hwBad3MJTMfwXhAvFAWeqArxea4ODjDgEU2xccJlakG84Tjc
+	eZxNos48zKhlNXf62NskpANizWLIh+ERD34h0SGsBkmdNrrUcG0JJrPrSLE3YXmtcLmicel3eAEqG
+	bKSrZCABjbTt8OsAB8Bbg/Mt7qXuI6ScXl8nJFmw9T73VUCfUEK3+f7Tclf44lpxkzIx/zWz8vdxt
+	0EkuKX2GA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWFO1-008iV9-Tk; Tue, 13 Apr 2021 09:31:10 +0000
-Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
+	id 1lWFTG-008jWu-Dn; Tue, 13 Apr 2021 09:36:34 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWFNy-008iUW-IX
- for linux-riscv@desiato.infradead.org; Tue, 13 Apr 2021 09:31:06 +0000
+ id 1lWFT8-008jUY-Vn
+ for linux-riscv@desiato.infradead.org; Tue, 13 Apr 2021 09:36:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Transfer-Encoding
- :Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+ Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
  Sender:Reply-To:Content-ID:Content-Description;
- bh=cUHex+FzSBdWYnFrFeQCHLHCGaVq+XLMvFksXbckuyI=; b=cIK8LofSpBk8gKamSBqHQoDihX
- L4XtFAEl3a8vuZmHWNsmlzjdE77qEBOMfzJ7BJHwrOaaQUPYo3FOAGRFKAFKDp9urHElWUgtlBDFz
- kLc1gX/wS5EVuT09jGiBrAa37wcs6HtBlX3M871nwCPhgsTSQMCsxYzB078p6yPEVx7Rethdwa0cG
- aIZfFA1PhhR2+bkUnJ1n1lbqQ1G0f6IsqZ3SfKK1XFoNrjwbhqiXuUXrYsUZRR23irRWQeQGA/UzB
- VVEef9QWvNkoqVuICSGQBNIxVPQMPedxYFV2PLDl1ipM1bqgyRyUKFVRJ9kKLpsGL1GDBNJky/8UK
- 69t9+rjA==;
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWFNv-006sdo-R4
- for linux-riscv@lists.infradead.org; Tue, 13 Apr 2021 09:31:05 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D94A6613B2;
- Tue, 13 Apr 2021 09:31:01 +0000 (UTC)
-Date: Tue, 13 Apr 2021 10:30:59 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
+ bh=2nGPE59l8gWiF0CqV9jlYVOt/A6vHOQsPW2h6H+vfmY=; b=njzHTxASJJ2X0EikzjsaTCfbhp
+ lLug7KEU5iaDbXwxTJVVGxKKWAY/U57Bh5gSWz7YYsj3H3UlKyKsy2HtKBjYALNuJm1doi6ZPQBtP
+ f6bVmuh/l4f/MRJOLX7MM8U3TY6UJw5WRUIf/6lRlOsBGsEkxDAc9JrDxHuQaY1CIjrtrE84dEQMZ
+ n7nE1c6o5xJVJEJX6KPhvu9lDyqCt8wp+TKsPWQZmmf8RSTSM0dSLTeS/j8PE9i0BAj0xQz7OU8RG
+ bC2M6YyVC4utH/Tsxo4nT3NOEjs7jxTLmCNkC5j/2HNgJcok95Tm/iFpDR4wANIt/9Gn/dAfeB+vb
+ xfEy/d8Q==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
+ id 1lWFSU-005Xmf-U9; Tue, 13 Apr 2021 09:36:06 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits))
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 933DC300033;
+ Tue, 13 Apr 2021 11:35:45 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 534D02C4B2075; Tue, 13 Apr 2021 11:35:45 +0200 (CEST)
+Date: Tue, 13 Apr 2021 11:35:45 +0200
+From: Peter Zijlstra <peterz@infradead.org>
 To: Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
+ Guo Ren <guoren@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, will.deacon@arm.com,
- Arnd Bergmann <arnd@arndb.de>
+ Guo Ren <guoren@linux.alibaba.com>, catalin.marinas@arm.com,
+ will.deacon@arm.com, Arnd Bergmann <arnd@arndb.de>
 Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
  implementation
-Message-ID: <20210413093059.GB15806@arm.com>
+Message-ID: <YHVl8fFfdQDn+QYW@hirez.programming.kicks-ass.net>
 References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
  <mhng-03d1655e-090e-4afb-a4e3-12b4b8f0e6bf@palmerdabbelt-glaptop>
  <CAHB2gtS6x25Oquf6W4Hhh-diUuZk1GJHTD2DjrffHo93nWbUYw@mail.gmail.com>
@@ -72,10 +78,6 @@ References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <CAHB2gtTmGt=V4cUgbt3zGgi+y5h0f5ON0n+MdRC8P=su670qhQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210413_023103_939129_447FB6DF 
-X-CRM114-Status: GOOD (  33.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,36 +95,7 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Tue, Apr 13, 2021 at 11:22:40AM +0200, Christoph M=FCllner wrote:
-> On Tue, Apr 13, 2021 at 10:03 AM Peter Zijlstra <peterz@infradead.org> wr=
-ote:
-> > On Mon, Apr 12, 2021 at 11:54:55PM +0200, Christoph M=FCllner wrote:
-> > > On Mon, Apr 12, 2021 at 7:33 PM Palmer Dabbelt <palmer@dabbelt.com> w=
-rote:
-> > > > My plan is to add a generic ticket-based lock, which can be selecte=
-d at
-> > > > compile time.  It'll have no architecture dependencies (though it'll
-> > > > likely have some hooks for architectures that can make this go fast=
-er).
-> > > > Users can then just pick which spinlock flavor they want, with the =
-idea
-> > > > being that smaller systems will perform better with ticket locks and
-> > > > larger systems will perform better with queued locks.  The main goal
-> > > > here is to give the less widely used architectures an easy way to h=
-ave
-> > > > fair locks, as right now we've got a lot of code duplication becaus=
-e any
-> > > > architecture that wants ticket locks has to do it themselves.
-> > >
-> > > In the case of LL/SC sequences, we have a maximum of 16 instructions
-> > > on RISC-V. My concern with a pure-C implementation would be that
-> > > we cannot guarantee this (e.g. somebody wants to compile with -O0)
-> > > and I don't know of a way to abort the build in case this limit excee=
-ds.
-> > > Therefore I have preferred inline assembly for OpenSBI (my initial id=
-ea
-> > > was to use closure-like LL/SC macros, where you can write the loop
-> > > in form of C code).
-> >
+
 > > For ticket locks you really only needs atomic_fetch_add() and
 > > smp_store_release() and an architectural guarantees that the
 > > atomic_fetch_add() has fwd progress under contention and that a sub-word
@@ -162,15 +135,22 @@ ea
 > trylock() fail if the SC fails.
 > That looks safe on first view, but nobody does this right now.
 
-Not familiar with RISC-V but I'd recommend that a trylock only fails if
-the lock is locked (after LR). A SC may fail for other reasons
-(cacheline eviction; depending on the microarchitecture) even if the
-lock is unlocked. At least on arm64 we had this issue with an
-implementation having a tendency to always fail the first STXR.
+Generic code has to use cmpxchg(), and then you get something like this:
 
--- =
+bool trylock(atomic_t *lock)
+{
+	u32 old =3D atomic_read(lock);
 
-Catalin
+	if ((old >> 16) !=3D (old & 0xffff))
+		return false;
+
+	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
+}
+
+That will try and do the full LL/SC loop, because it wants to complete
+the cmpxchg, but in generic code we have no other option.
+
+(Is this what C11's weak cmpxchg is for?)
 
 _______________________________________________
 linux-riscv mailing list
