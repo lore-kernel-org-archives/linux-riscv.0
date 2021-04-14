@@ -2,20 +2,19 @@ Return-Path: <SRS0=Cgvv=JL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C0D5C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 20:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 79FFCC433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 21:04:28 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0C1A0610C8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 20:48:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0C1A0610C8
+	by mail.kernel.org (Postfix) with ESMTPS id DE88561132
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 21:04:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE88561132
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,67 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=j7cxcPP+++AKTpiLgNvQE8ahjgZpOoUH8IfVpBUQLtY=; b=iQ/e5SOXaeVh/PJWXqpwRZLUV
-	nH/2O8Ace5FKwteEEaUMmocFM1Ld9TxrDZOEU5IgMgkHEc+Ng34zSIDy5oIOGFA6Ca4MdLl0t2N5g
-	yRNb3qHL7bkaGDAn4iDR3uHLClMsI5SWmxzFu3Vfh8aJNSxE8rysCBcMr4BElEucbPb8aSMsPVDvS
-	z+ePbcnrWWlJH9CoAe2RkwDj/czRcXsMRxAFSuVCstG9Fa9Hbfp9igb63+SRF26LVUkWxSLomFhla
-	8mSoGHjKB9yYBcxrPJQFwn280o/aKm8vQvF0ieARoaeLW7LAElOqV706QKEC+6rax0E7xmrbqlVl0
-	F4dDbsv0A==;
+	 bh=3wdJJ9SRgHUcnyFMV5CjkLdzKFmuQFeft/3M/TM9mMY=; b=ILWM7wpwRSrALISkTSHxMFsHQ
+	hdp6gDNqS2eczqYPsLp7l2psGMrD+CRqRpH3MojpTRahqaoTwyheI4CKWKeoiuMGe4AsJR6nTXcvX
+	tEIrdcX8NmObkvwqrmjsnbIp0JdQ4qhxNWfscuhzsGpmNESdu3WoZtO2i511gxQ9Mwzh9EYRbGtBP
+	xWJMhOi+7FMfmTa9WcRNcNYBlwBNxkrru1uzioqIFAs8lD0mB1U0Al8aNPm/WuNtRFXJEOM3aRz9n
+	qGje9xehDGoasSFp/dOwkT8mCPggyebb3nIomTjUe7t1juoZut2P7hrz6IZtlZ25IdWtHmvDgcXna
+	p2Elt3Hyg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWmQQ-00DlCV-6t; Wed, 14 Apr 2021 20:47:50 +0000
+	id 1lWmg7-00Dn5E-Sq; Wed, 14 Apr 2021 21:04:04 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWmQJ-00DlBq-Tw
- for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 20:47:44 +0000
+ id 1lWmf2-00Dmzd-FD
+ for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 21:02:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
  :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=sLv93iXIycaLiO5hR7ABqewJtoqEdT4F46Yjt+NKeHE=; b=EDd3fKLuyDVAV4/HXp0Oh0ExUc
- XVkFkOruMdDzD1gCWGi+PHWoZm8o7gy3uVWMSJPExa8Pxe4Z993SIYXbLATFmJ/j3ptr+3lYhLlli
- X7mFr811upxE3PiZw3kC/L6Al6V8/YZCDR/ExM3WCVqwJfBpj/nwUcpyz2ys/4mlbWEaO596azy4G
- VvbB99FuRIn3YHmPTLYEftj97EzVuhRG1vdZW/EQ10kmrpI1QSzR7VjI98HgDuAXwn0waAGHXO64D
- sTI2IME6zJ34s0T8ipOXZ1ZsTFkQ6zO0vSWCSbBu2phFYeZXGXu2IlME1/IWCyb42IBZuw3IUp10p
- eX/ZIqHQ==;
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+ bh=UNiXmh33gM3qS0FOiDfXRI3gMFMKu7/rvgZO8KzNOiY=; b=agnHMX0ZIWrop+7AJsBdTozX13
+ x882TS/NZh7Hzx4BV+nUG/bQtxxUXhMsXtX8cFh6VpQf5lF/5AwDr+GWLLAbjxRx6Xn2JZqDVZ8sv
+ 4DFljU9FOhKu5YRbxLlm1dRzfyuf/SZwluQTQM64+9FO9Renkjc+ay8VpfKLZpgr7+JjFi5KT+Om0
+ 2Ku+zWijEP0std5fjiU62Rsjbq0Wcuhy8Mx05RjpALsBZa/flgyxTpz1QfZ3X1fvdtVyFin2dTGVd
+ 1M5t9/HyRHnbJrPVDV10I4J60jyodHBtExQZ0t/y4W/AvTvB/qpAAh8G8KRCzJmLjjqEtKmmxeNu6
+ ZHfmPdiA==;
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWmQG-0085yU-Iz
- for linux-riscv@lists.infradead.org; Wed, 14 Apr 2021 20:47:42 +0000
-Received: by mail-pl1-x636.google.com with SMTP id 20so6863929pll.7
- for <linux-riscv@lists.infradead.org>; Wed, 14 Apr 2021 13:47:38 -0700 (PDT)
+ id 1lWmf0-0086Qs-0d
+ for linux-riscv@lists.infradead.org; Wed, 14 Apr 2021 21:02:55 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id
+ ot17-20020a17090b3b51b0290109c9ac3c34so13171753pjb.4
+ for <linux-riscv@lists.infradead.org>; Wed, 14 Apr 2021 14:02:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=sLv93iXIycaLiO5hR7ABqewJtoqEdT4F46Yjt+NKeHE=;
- b=gW2TgG9TCYZTJWWjUh8puMz9PGn7xT6vV8ZGnB26aip7Uyq/R8Kee4q90EE3YlKNL/
- t1X11KaWDfLgjvmIYRs7H1IRqr+Q34Ub9gXVBwIjx7BRJu/w+t3ySVKiUCZ9aRH15qdx
- PL/AJNKkxhb2PxnXjcueEMd6ZbmJoUp4MLXUCTkuGrwxBl83RFPx1NfC+9vdkiT+n6iz
- Q2Jqtlv3COFZXzQIVobzMJdJX/1Ruhs4GcFLYeIYUqoXj29nqS0beRas1Qr/6ds/T6qK
- wuolW4HSlw/t5/t/1Y+/hQPTybEhAF24/NDM/txhlIHcrOkn8fMw9o3t0S207+FsACom
- bANw==
+ bh=UNiXmh33gM3qS0FOiDfXRI3gMFMKu7/rvgZO8KzNOiY=;
+ b=u0fnXTpVsEGoPFPkAh/6LfZAlBoxyym0Rocaxk498N+SwZO8Xqr08r04o/3l9YTIDo
+ 7Au3zL4IVXAB9lLFQowD/3rOM3XXNnls5l5Klql07LDxyGs7w0obH3Mtlmzg1+C7CVpb
+ pqqn38DnhiIcpsBEEams4qrdh+SWeAqKvCW2B731ShKGovLsS4gWVS83dNehow8U1B0v
+ A1mhVbjSDX8PTrz10Bxu2pxVM5J7HytFdAOOelBEwgF14mG96ieXlxxB0y5y09Jw1x/y
+ t0PEyuVoSGvgFh3l9DEMCPrLdiDaKOmFhlFqsYTng7QVk8txDN+eBpuuy44hRhYog1Ql
+ 4ENw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=sLv93iXIycaLiO5hR7ABqewJtoqEdT4F46Yjt+NKeHE=;
- b=PJ4NGFSy5dB/vVOv6DEeqU95StSPPY3Vq5Fayu0bUnVkhGIyERdOnd8WmfiZPriPuk
- FdtRgf37bzyweFpfxB5wmiE0uF8W/CtTBJVVIPeM/dQngQNufnvrXmz4e5NiI7Q41k2Q
- wsbTZ6yb+HZ29xQWtJnIZn7usHU3oMZ/wTDfYRTRJ/8fw7J89q2XR5U0JOu8ZpBhdzzS
- eLxqO+d6ti5lLox/+LB32JrFuSCDdUD0X+UW12YgYKf8EZFrHmdCGnSmCqwA1K8mwYQF
- SfSvXa3bAWR0SxCgvYfeUvF97Fg00JP47Oq4EfFw4rNeFDom6Gc8Dc8mUrPEYYh3yHJD
- jAZg==
-X-Gm-Message-State: AOAM530bL92Nlef6KlTVUvahs3VsD8K+zyV00/l09j/bRnOSZADDzFxt
- 3m0pD5IuYzd1e6UBHUtKGQk=
-X-Google-Smtp-Source: ABdhPJxG7xnEb8Q8TbY0UrVLjkKo7TU4fG4oadoUY/4mNY2u0bhj7mnDN/RtN15rFzbiVJ/9Ku824w==
-X-Received: by 2002:a17:90b:fd8:: with SMTP id gd24mr8503pjb.229.1618433257584; 
- Wed, 14 Apr 2021 13:47:37 -0700 (PDT)
+ bh=UNiXmh33gM3qS0FOiDfXRI3gMFMKu7/rvgZO8KzNOiY=;
+ b=ubjRYvQtqRxAmmXH242Hwp2EBgSCorN9OP2Y5hRfYVrDqCWGjLneH3VrJcuO7gzLN/
+ rgG/gTuxjKHtC+Byg55c3mrirZLtv/v28rJQsIujqxgXFrTp+ZCvshmuM4XH+a3+c4/B
+ cetfGVDzLc1FrsfE5KpwtF3qCuBNk3dtRktSOMvBKtdtiPqspOW5HYDMi1okCZsXpJ9D
+ laCuXc2Dy8rahuAfwhWIuOJG1duHOvosKVpYZzCQJo1eJ8+b7/EpbEgpKeZlifskpoYs
+ zDp8otLM3ihbBVXESte6mJuqa11QQieXdeDUXOcsWOGj82Lu2+uRdVm8iUpW0uAmO/9U
+ YnGg==
+X-Gm-Message-State: AOAM530abJ+OjzgccsMBd81s2XfnRnr1BovbUF7Y21UP06Exw0Omt4YK
+ CzRuOAr8ViHgw9ZnFN5/qtI=
+X-Google-Smtp-Source: ABdhPJyXSDeamwRRE3yl4KyzbzFQqsCd3zzVg9u6w2eCOFpVC1eGMY23VQF30b979LhymEFZBKok/w==
+X-Received: by 2002:a17:903:308b:b029:eb:5fd0:87ea with SMTP id
+ u11-20020a170903308bb02900eb5fd087eamr144494plc.47.1618434172885; 
+ Wed, 14 Apr 2021 14:02:52 -0700 (PDT)
 Received: from localhost (g191.124-44-145.ppp.wakwak.ne.jp. [124.44.145.191])
  by smtp.gmail.com with ESMTPSA id
- w21sm246367pjy.21.2021.04.14.13.47.35
+ b21sm255987pji.39.2021.04.14.14.02.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 14 Apr 2021 13:47:36 -0700 (PDT)
-Date: Thu, 15 Apr 2021 05:47:34 +0900
+ Wed, 14 Apr 2021 14:02:52 -0700 (PDT)
+Date: Thu, 15 Apr 2021 06:02:49 +0900
 From: Stafford Horne <shorne@gmail.com>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: Guo Ren <guoren@kernel.org>,
@@ -97,7 +98,7 @@ Cc: Guo Ren <guoren@kernel.org>,
  Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>,
  jonas@southpole.se, stefan.kristiansson@saunalahti.fi
 Subject: Re: [RFC][PATCH] locking: Generic ticket-lock
-Message-ID: <20210414204734.GJ3288043@lianli.shorne-pla.net>
+Message-ID: <20210414210249.GK3288043@lianli.shorne-pla.net>
 References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
  <mhng-03d1655e-090e-4afb-a4e3-12b4b8f0e6bf@palmerdabbelt-glaptop>
  <CAHB2gtS6x25Oquf6W4Hhh-diUuZk1GJHTD2DjrffHo93nWbUYw@mail.gmail.com>
@@ -107,12 +108,13 @@ References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
  <YHaU4uxr6emrivuu@hirez.programming.kicks-ass.net>
  <YHawVOIHmDPbTmoB@hirez.programming.kicks-ass.net>
  <YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net>
+ <YHbj987Ks0JOKw/X@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net>
+In-Reply-To: <YHbj987Ks0JOKw/X@hirez.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210414_134740_668407_8B385B68 
-X-CRM114-Status: GOOD (  41.81  )
+X-CRM114-CacheID: sfid-20210414_140254_081163_6FC7F241 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,268 +131,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 14, 2021 at 12:16:38PM +0200, Peter Zijlstra wrote:
-> On Wed, Apr 14, 2021 at 11:05:24AM +0200, Peter Zijlstra wrote:
+On Wed, Apr 14, 2021 at 02:45:43PM +0200, Peter Zijlstra wrote:
+> On Wed, Apr 14, 2021 at 12:16:38PM +0200, Peter Zijlstra wrote:
+> > On Wed, Apr 14, 2021 at 11:05:24AM +0200, Peter Zijlstra wrote:
+> > 
+> > > That made me look at the qspinlock code, and queued_spin_*lock() uses
+> > > atomic_try_cmpxchg_acquire(), which means any arch that uses qspinlock
+> > > and has RCpc atomics will give us massive pain.
+> > > 
+> > > Current archs using qspinlock are: x86, arm64, power, sparc64, mips and
+> > > openrisc (WTF?!).
+> > > 
+> > > Of those, x86 and sparc are TSO archs with SC atomics, arm64 has RCsc
+> > > atomics, power has RCtso atomics (and is the arch we all hate for having
+> > > RCtso locks).
+> > > 
+> > > Now MIPS has all sorts of ill specified barriers, but last time looked
+> > > at it it didn't actually use any of that and stuck to using smp_mb(), so
+> > > it will have RCsc atomics.
+> > > 
+> > > /me goes look at wth openrisc is..  doesn't even appear to have
+> > > asm/barrier.h :-/ Looking at wikipedia it also doesn't appear to
+> > > actually have hardware ...
+> > 
+> > FWIW this is broken, anything SMP *MUST* define mb(), at the very least.
 > 
-> > That made me look at the qspinlock code, and queued_spin_*lock() uses
-> > atomic_try_cmpxchg_acquire(), which means any arch that uses qspinlock
-> > and has RCpc atomics will give us massive pain.
-> > 
-> > Current archs using qspinlock are: x86, arm64, power, sparc64, mips and
-> > openrisc (WTF?!).
-> > 
-> > Of those, x86 and sparc are TSO archs with SC atomics, arm64 has RCsc
-> > atomics, power has RCtso atomics (and is the arch we all hate for having
-> > RCtso locks).
-> > 
-> > Now MIPS has all sorts of ill specified barriers, but last time looked
-> > at it it didn't actually use any of that and stuck to using smp_mb(), so
-> > it will have RCsc atomics.
-> > 
-> > /me goes look at wth openrisc is..  doesn't even appear to have
-> > asm/barrier.h :-/ Looking at wikipedia it also doesn't appear to
-> > actually have hardware ...
+> As near as I can tell this should do. The arch spec only lists this one
+> instruction and the text makes it sound like a completion barrier.
 
-Yes, not hardware available to consumers directoy, my development is done on
-FPGAs.
+Yes, I will submit this patch.
 
-> FWIW this is broken, anything SMP *MUST* define mb(), at the very least.
-
-Oh, thats right, something missed, when we developed qspinlocks we discussed
-this and my point there was that l.swa/l.lwa implied a mem flush
-l.msync/barrier.  But mb still needs to be added.
-
-> > I'm thinking openrisc is a prime candidate for this ticket_lock.h we're
-> > all talking about.
-> 
-> How's this then? Compile tested only on openrisc/simple_smp_defconfig.
-
-I did my testing with this FPGA build SoC:
-
- https://github.com/stffrdhrn/de0_nano-multicore
-
-Note, the CPU timer sync logic uses mb() and is a bit flaky.  So missing mb()
-might be a reason.  I thought we had defined mb() and l.msync, but it seems to
-have gotten lost.
-
-With that said I could test out this ticket-lock implementation.  How would I
-tell if its better than qspinlock?
+The l.msync instruction completes all load/store operations.
+The l.lwa/l.swa pair (used for xchg/cmpxchg) also implies l.msync.
 
 > ---
->  arch/openrisc/Kconfig                      |  1 -
->  arch/openrisc/include/asm/Kbuild           |  5 +-
->  arch/openrisc/include/asm/spinlock.h       |  3 +-
->  arch/openrisc/include/asm/spinlock_types.h |  2 +-
->  include/asm-generic/qspinlock.h            | 30 +++++++++++
->  include/asm-generic/ticket-lock-types.h    | 11 ++++
->  include/asm-generic/ticket-lock.h          | 86 ++++++++++++++++++++++++++++++
->  7 files changed, 131 insertions(+), 7 deletions(-)
+>  arch/openrisc/include/asm/barrier.h | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
-> index 591acc5990dc..1858cf309f1f 100644
-> --- a/arch/openrisc/Kconfig
-> +++ b/arch/openrisc/Kconfig
-> @@ -32,7 +32,6 @@ config OPENRISC
->  	select HAVE_DEBUG_STACKOVERFLOW
->  	select OR1K_PIC
->  	select CPU_NO_EFFICIENT_FFS if !OPENRISC_HAVE_INST_FF1
-> -	select ARCH_USE_QUEUED_SPINLOCKS
->  	select ARCH_USE_QUEUED_RWLOCKS
->  	select OMPIC if SMP
->  	select ARCH_WANT_FRAME_POINTERS
-> diff --git a/arch/openrisc/include/asm/Kbuild b/arch/openrisc/include/asm/Kbuild
-> index ca5987e11053..cb260e7d73db 100644
-> --- a/arch/openrisc/include/asm/Kbuild
-> +++ b/arch/openrisc/include/asm/Kbuild
-> @@ -1,9 +1,8 @@
->  # SPDX-License-Identifier: GPL-2.0
->  generic-y += extable.h
->  generic-y += kvm_para.h
-> -generic-y += mcs_spinlock.h
-> -generic-y += qspinlock_types.h
-> -generic-y += qspinlock.h
-> +generic-y += ticket-lock.h
-> +generic-y += ticket-lock-types.h
->  generic-y += qrwlock_types.h
->  generic-y += qrwlock.h
->  generic-y += user.h
-> diff --git a/arch/openrisc/include/asm/spinlock.h b/arch/openrisc/include/asm/spinlock.h
-> index a8940bdfcb7e..0b839ed1f3a0 100644
-> --- a/arch/openrisc/include/asm/spinlock.h
-> +++ b/arch/openrisc/include/asm/spinlock.h
-> @@ -15,8 +15,7 @@
->  #ifndef __ASM_OPENRISC_SPINLOCK_H
->  #define __ASM_OPENRISC_SPINLOCK_H
->  
-> -#include <asm/qspinlock.h>
-> -
-> +#include <asm/ticket-lock.h>
->  #include <asm/qrwlock.h>
->  
->  #define arch_read_lock_flags(lock, flags) arch_read_lock(lock)
-> diff --git a/arch/openrisc/include/asm/spinlock_types.h b/arch/openrisc/include/asm/spinlock_types.h
-> index 7c6fb1208c88..58ea31fa65ce 100644
-> --- a/arch/openrisc/include/asm/spinlock_types.h
-> +++ b/arch/openrisc/include/asm/spinlock_types.h
-> @@ -1,7 +1,7 @@
->  #ifndef _ASM_OPENRISC_SPINLOCK_TYPES_H
->  #define _ASM_OPENRISC_SPINLOCK_TYPES_H
->  
-> -#include <asm/qspinlock_types.h>
-> +#include <asm/ticket-lock-types.h>
->  #include <asm/qrwlock_types.h>
->  
->  #endif /* _ASM_OPENRISC_SPINLOCK_TYPES_H */
-> diff --git a/include/asm-generic/qspinlock.h b/include/asm-generic/qspinlock.h
-> index d74b13825501..a7a1296b0b4d 100644
-> --- a/include/asm-generic/qspinlock.h
-> +++ b/include/asm-generic/qspinlock.h
-> @@ -2,6 +2,36 @@
->  /*
->   * Queued spinlock
->   *
-> + * A 'generic' spinlock implementation that is based on MCS locks. An
-> + * architecture that's looking for a 'generic' spinlock, please first consider
-> + * ticket-lock.h and only come looking here when you've considered all the
-> + * constraints below and can show your hardware does actually perform better
-> + * with qspinlock.
-> + *
-> + *
-> + * It relies on atomic_*_release()/atomic_*_acquire() to be RCsc (or no weaker
-> + * than RCtso if you're power), where regular code only expects atomic_t to be
-> + * RCpc.
-> + *
-> + * It relies on a far greater (compared to ticket-lock.h) set of atomic
-> + * operations to behave well together, please audit them carefully to ensure
-> + * they all have forward progress. Many atomic operations may default to
-> + * cmpxchg() loops which will not have good forward progress properties on
-> + * LL/SC architectures.
-> + *
-> + * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
-> + * do. Carefully read the patches that introduced queued_fetch_set_pending_acquire().
-> + *
-> + * It also heavily relies on mixed size atomic operations, in specific it
-> + * requires architectures to have xchg16; something which many LL/SC
-> + * architectures need to implement as a 32bit and+or in order to satisfy the
-> + * forward progress guarantees mentioned above.
-> + *
-> + * Further reading on mixed size atomics that might be relevant:
-> + *
-> + *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
-> + *
-> + *
->   * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
->   * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
->   *
-> diff --git a/include/asm-generic/ticket-lock-types.h b/include/asm-generic/ticket-lock-types.h
+> diff --git a/arch/openrisc/include/asm/barrier.h b/arch/openrisc/include/asm/barrier.h
 > new file mode 100644
-> index 000000000000..829759aedda8
+> index 000000000000..7538294721be
 > --- /dev/null
-> +++ b/include/asm-generic/ticket-lock-types.h
-> @@ -0,0 +1,11 @@
+> +++ b/arch/openrisc/include/asm/barrier.h
+> @@ -0,0 +1,9 @@
 > +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_BARRIER_H
+> +#define __ASM_BARRIER_H
 > +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_TYPES_H
-> +#define __ASM_GENERIC_TICKET_LOCK_TYPES_H
+> +#define mb() asm volatile ("l.msync" ::: "memory")
 > +
-> +#include <linux/types.h>
-> +typedef atomic_t arch_spinlock_t;
+> +#include <asm-generic/barrier.h>
 > +
-> +#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_TYPES_H */
-> diff --git a/include/asm-generic/ticket-lock.h b/include/asm-generic/ticket-lock.h
-> new file mode 100644
-> index 000000000000..3f0d53e21a37
-> --- /dev/null
-> +++ b/include/asm-generic/ticket-lock.h
-> @@ -0,0 +1,86 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +/*
-> + * 'Generic' ticket-lock implementation.
-> + *
-> + * It relies on atomic_fetch_add() having well defined forward progress
-> + * guarantees under contention. If your architecture cannot provide this, stick
-> + * to a test-and-set lock.
-> + *
-> + * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> + * sub-word of the value. This is generally true for anything LL/SC although
-> + * you'd be hard pressed to find anything useful in architecture specifications
-> + * about this. If your architecture cannot do this you might be better off with
-> + * a test-and-set.
-> + *
-> + * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-> + * uses atomic_fetch_add() which is SC to create an RCsc lock.
-> + *
-> + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> + * architecture has WFE like instructions to sleep instead of poll for word
-> + * modifications be sure to implement that (see ARM64 for example).
-> + *
-> + */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_H
-> +#define __ASM_GENERIC_TICKET_LOCK_H
-> +
-> +#include <linux/atomic.h>
-> +#include <asm/ticket-lock-types.h>
-> +
-> +static __always_inline void ticket_lock(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
-> +	u16 ticket = val >> 16;
-> +
-> +	if (ticket == (u16)val)
-> +		return;
-> +
-> +	atomic_cond_read_acquire(lock, ticket == (u16)VAL);
-> +}
-> +
-> +static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
-> +{
-> +	u32 old = atomic_read(lock);
-> +
-> +	if ((old >> 16) != (old & 0xffff))
-> +		return false;
-> +
-> +	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
-> +}
-> +
-> +static __always_inline void ticket_unlock(arch_spinlock_t *lock)
-> +{
-> +	u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
-> +	u32 val = atomic_read(lock);
-> +
-> +	smp_store_release(ptr, (u16)val + 1);
-> +}
-> +
-> +static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_read(lock);
-> +
-> +	return ((val >> 16) != (val & 0xffff));
-> +}
-> +
-> +static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_read(lock);
-> +
-> +	return (s16)((val >> 16) - (val & 0xffff)) > 1;
-> +}
-> +
-> +static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
-> +{
-> +	return !ticket_is_locked(&lock);
-> +}
-> +
-> +#define arch_spin_lock(l)		ticket_lock(l)
-> +#define arch_spin_trylock(l)		ticket_trylock(l)
-> +#define arch_spin_unlock(l)		ticket_unlock(l)
-> +#define arch_spin_is_locked(l)		ticket_is_locked(l)
-> +#define arch_spin_is_contended(l)	ticket_is_contended(l)
-> +#define arch_spin_value_unlocked(l)	ticket_value_unlocked(l)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_H */
+> +#endif /* __ASM_BARRIER_H */
 
 _______________________________________________
 linux-riscv mailing list
