@@ -2,84 +2,162 @@ Return-Path: <SRS0=Cgvv=JL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E872CC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 07:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 78D53C433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 08:58:53 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C70361220
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 07:08:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C70361220
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id C1C44613C8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 08:58:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1C44613C8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synaptics.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=HMgEVTrOwThg1BYSgMtBi5Z3F2gSUEQmr2/bbZSjH3A=; b=FIz5vwzmHaPlnom7+TFVJSylD
-	TsNIWuOvkzBZUAwO46YGxAMGOTRYfDsaaf6T0w6CsQ42jfmbulR1+DYb0daK2Jm5aelKx0wf5pJnH
-	L0I9cM+m6E7QQJbe3IAZEsZDmjxWpQfVEXhQd46oCseY17NIIU2H6V2OuQb6G8BEUgIaIc7Ym9ilk
-	P31fOP/vQr2lvWpMjEpQOzl8vr/hhhB0vlmwnuY23UmM5n8eza81ILFh/YPLY1Ge6bWCHKw7CV8Ck
-	QdWYQzJ10turQuVA7gFWmLrYSlK3cRQ6z+4eJzysx6tPKGUiVqZ3XQmEwXgm9lX79lPCmjGV7WZDq
-	C2kpwlupA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DbLDu/vtQcilGE0FOXpsBTmPJmmPc3R5ybhxNYGNU6k=; b=e0WpQ/kehThW+NX3HZ5hy86a1M
+	E6961WIk7d4LtBpPzS+JrFc3zNNT5S04EguuuagwQaAUc2QPVd1pIvvm5PG3hOBTdmItMV0QJK/Ep
+	70DnrgSii9p3J0ueEfkpRX6QclGvJKXSEJalTzVo91Z+Ui5xYLbCVs5BlMdaVZdHcnRSr9vZ0/e7H
+	wrZYN7QN7oTYpu7QSLZLSC2oVhdOuTsKhlfk/Nr/XzoIQ+X2b0c29NmHUa5t16kP1WiMuLLmZdbzz
+	inENnuvE5kbNTw4l0UtVNyAQ1Ma/D5pVxqBPhvMaqY/jjqd3w4BJb4fGTWfVvDywW6PuXwTCSsPjw
+	Cm8QItSA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWZdU-00Bmcq-VV; Wed, 14 Apr 2021 07:08:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1lWbM6-00C4li-FH; Wed, 14 Apr 2021 08:58:38 +0000
+Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWZdR-00BmcS-3E
- for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 07:08:25 +0000
+ id 1lWbLz-00C4jz-5K; Wed, 14 Apr 2021 08:58:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=cPfVvcbK8T4D/6el7vVPft6WcH2dgQZt6307pfljaIs=; b=QoWGo05rX8BTJjkF5ptA2dFFAt
- fULA6iI1uxTwTXJF/lE3ZsWeMkLeKB1QnIs7RdgHjQaoiRpQ2+cGn+N5u/oDRXFuuI/1HKTqearur
- 75+TDpMCNoM+vuMitFtxt4Hboytxc/SLq0NBKh1H4FVPRLFlsdCoscYcHZVBCXvZmS54Frsu8wCZj
- XnA0fPVx5HV3cD9/N1B6dymb7EahE6hQSKY0kdR0qZiLMdI/B3Ss+O2l7jxf9oGC5AXmAMtj2NOvJ
- 2M7/a9OvGIpCK7mQYaBZe8yojj0cnlknsfb+kET4/81eiFYcHoaOgVDBL9Dr2/gjYoPfjEM3uq1QN
- 5vgvzQzg==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
- id 1lWZdL-006mde-Sp; Wed, 14 Apr 2021 07:08:20 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 35C86300033;
- Wed, 14 Apr 2021 09:08:19 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id F1B4F203D395C; Wed, 14 Apr 2021 09:08:18 +0200 (CEST)
-Date: Wed, 14 Apr 2021 09:08:18 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
- implementation
-Message-ID: <YHaU4uxr6emrivuu@hirez.programming.kicks-ass.net>
-References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
- <mhng-03d1655e-090e-4afb-a4e3-12b4b8f0e6bf@palmerdabbelt-glaptop>
- <CAHB2gtS6x25Oquf6W4Hhh-diUuZk1GJHTD2DjrffHo93nWbUYw@mail.gmail.com>
- <YHVQNSfblP6G0Kgl@hirez.programming.kicks-ass.net>
- <YHVTgfCpxpINc8sM@hirez.programming.kicks-ass.net>
- <CAJF2gTQaF8wBCp-L6vgJPcu6EnFRWmh_qZMX2PiEfj0Z70-Ykg@mail.gmail.com>
+ d=infradead.org; s=bombadil.20210309; h=MIME-Version:
+ Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+ bh=08voTLsZcDJChYQ5jgeNzzEpKc8++MtNWQh8s3eoYvU=; b=e9DYXDQnGk88Ru+niLHnlhBNAK
+ VShnq1lsp3y7uble6fu5RisJbQiY/o6kVWxjl6FeYCAGBDi2/kZDwlTm2TvmIlrERJNLamLacaRAj
+ cTm8A7gLXCMTObTAxU4/xMbDAHn6nauoA+V9XHpRZ2QzKXqJjVJWMvQyARftRq6KhCgqhUp368Zo2
+ 6/zACmmEZKU4hHBojF4ItXezvGxhXY75cbKA3UUWeKpnq/lyIi0HnilfW45tJttqHcrUb1Sx+zaKS
+ Uns/MjC9F6e+fC1ON0fJZaa39vFRCEX1/Fw7Pozx8ESXEUCBiSsmp+dRw5IxgEsObeXqvY7uRbKXk
+ 8HagHhkw==;
+Received: from mail-dm6nam10on2065.outbound.protection.outlook.com
+ ([40.107.93.65] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lWbLv-007dHV-Iq; Wed, 14 Apr 2021 08:58:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=aFZ4fduwkKuEKsaIEawDGjylvNl+A6eqRZZaK1+acS9Oj68pRag6FHveY1KuznN5Ngu1Q+7gDet4chvKUutS96LwCOia5/vcpQ9FyodQ8HjOE8wg50Hm4r+yWDPeW0sq60oIVinusymRQAJJYUhz62gvZ+nf4MM1GCIoH1MJmipjQnUgtWz83W3b6lru/g2YvrSUiWlP4Y+YUmt7iC2iatOE7E6w9hAfqH4VJJ8/ZlhaZ8IUZLOfLnUebqTes7ljuifKrNClUTp3GekXA24alPIMqNvcRP2D3MZCOchtYNL3V/WCP8QuRmZtdJjhjtK/IaxFa9qUg6/pvfRnSJM0Kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=08voTLsZcDJChYQ5jgeNzzEpKc8++MtNWQh8s3eoYvU=;
+ b=kEzcTqxJ8VSQOq+LOZJISWXVgktC1YAmtxb5HbthzlBp7ySiOtUv+VyQirKR5K9t1D4kiekTlJprIkdOz5xJC5vH+bGSBd6mMxRjbDDYKLbKIuppRHI9YFvYOC7mfCyUM3lBbS4OsUe8BWsM7AGTgVjOV67nbmT04pBcHSICohkqjHeTE8R3o7YQNPSWuFjFBGHHrO7NDq/cuQQgK7GlMuUR+M1ZZ+M6gFjCweK2T1Tc7PtbW9FzN5ChSX7pip3fThe6mphYfDYOp68cy2IoR2B3UXSWx4ddNlWu/crlmN4MXfSCfHQUFuLSkkUdSP+anVX2LBOKGcDKzmW1o3DhhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synaptics.com; dmarc=pass action=none
+ header.from=synaptics.com; dkim=pass header.d=synaptics.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Synaptics.onmicrosoft.com; s=selector2-Synaptics-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=08voTLsZcDJChYQ5jgeNzzEpKc8++MtNWQh8s3eoYvU=;
+ b=Vw5JlE3LAAEucBaNse013pBy2dqiuPE0YpK2oVLfOdq7y6Bo0fWn1/vfcVjeGrS558kbEYs60EnJZw3zOSIcVLweOF7BQxbLz2avVqenu93DmEuQSF0aflRBRtDIybBYvid7UlyFY3nz08xfv3hbR7u2VbL7SrPcajsIS3RQhqI=
+Authentication-Results: synopsys.com; dkim=none (message not signed)
+ header.d=none; synopsys.com; dmarc=none action=none header.from=synaptics.com; 
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com (2603:10b6:a03:219::16)
+ by BY5PR03MB5078.namprd03.prod.outlook.com (2603:10b6:a03:1e5::12)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4042.16; Wed, 14 Apr
+ 2021 08:58:22 +0000
+Received: from BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72]) by BY5PR03MB5345.namprd03.prod.outlook.com
+ ([fe80::8569:341f:4bc6:5b72%8]) with mapi id 15.20.4020.022; Wed, 14 Apr 2021
+ 08:58:22 +0000
+Date: Wed, 14 Apr 2021 16:58:08 +0800
+From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+To: Vineet Gupta <vgupta@synopsys.com>, Russell King
+ <linux@armlinux.org.uk>, Yoshinori Sato <ysato@users.sourceforge.jp>, Brian
+ Cain <bcain@codeaurora.org>, Nick Hu <nickhu@andestech.com>, Greentime Hu
+ <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, Ley Foon Tan
+ <ley.foon.tan@intel.com>, Jonas Bonn <jonas@southpole.se>, Stefan
+ Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne
+ <shorne@gmail.com>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jeff Dike <jdike@addtoit.com>, Richard
+ Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-hexagon@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-um@lists.infradead.org, Anup Patel <anup@brainfault.org>
+Subject: [PATCH] init: consolidate trap_init()
+Message-ID: <20210414165808.458a3d11@xhacker.debian>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+X-Originating-IP: [192.147.44.204]
+X-ClientProxiedBy: SJ0PR03CA0126.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::11) To BY5PR03MB5345.namprd03.prod.outlook.com
+ (2603:10b6:a03:219::16)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTQaF8wBCp-L6vgJPcu6EnFRWmh_qZMX2PiEfj0Z70-Ykg@mail.gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from xhacker.debian (192.147.44.204) by
+ SJ0PR03CA0126.namprd03.prod.outlook.com (2603:10b6:a03:33c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.17 via Frontend
+ Transport; Wed, 14 Apr 2021 08:58:13 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 7241407c-569c-4a0a-dbeb-08d8ff23748b
+X-MS-TrafficTypeDiagnostic: BY5PR03MB5078:
+X-Microsoft-Antispam-PRVS: <BY5PR03MB507877BF88DECBED662A331CED4E9@BY5PR03MB5078.namprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Crn+fGVoq2cFN5JsT5rO0n2SsaHWm3Ut8MH/MkRVC3a9qKL2t5tE1ctlC/CGF/bawhG5BgLQ2vfB+zsJz/6c/gzjuusAGP+OrGvKHHLd32vOkRWFZKpIw6JTlfCJrM1THdSj7fE/N/xQHpFk5KKQ64qcJA8skAURoQRhF42jx7t0ZwpY9t0ykX0v+DXVIHhSMBefbzr76ntASr5IMG2y6hIXj5n6lGxRFQNnkiAvk98k894H4J3yDFVLESJAdmb2TPSsVzwwVIntTe1U1U4lh3IehBtsLFAqN9A0fvu2RtoghMXdCM+ftkxR4gA5L3XO71oClniv0MTq8c6J4PxZ4HyNsj4svHhKJBJDtUhHX8qAMowfq97tBxEyZgS+3VEK4mVHpp33nM6U4IEJEvC/BpXSsSKVSEAv9rKOuqdnha9NfcdtJ1DPJ2zybEB+DIXyUoHGMYAE8nniBysB8NtBE0P18DgXfJAD//sJFuT7YlnzjH3R+zV9pVEj/OoK+8/gMPE4UYnRsegZUPWPYErVX5/LKbHhJDcwvl5VDcKOoFEkwxXc/8iuS5Om4+jwtfsliw23D34iH2h9W4XkoSc2s76CuNEkIpx28IevWlry3CG3LKx8lSC5ytbkIG9q1UwDSHY3xe0E2wTUoHJalAFkh3sebbOQGxGqx4POpkcRcnlOLaC5gynphBILeJFwQEGD
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR03MB5345.namprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(366004)(376002)(136003)(346002)(396003)(39850400004)(956004)(55016002)(8676002)(8936002)(66476007)(9686003)(66556008)(66946007)(6666004)(7416002)(7406005)(921005)(110136005)(86362001)(2906002)(1076003)(316002)(38350700002)(7696005)(52116002)(186003)(83380400001)(26005)(16526019)(6506007)(5660300002)(478600001)(4326008)(38100700002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?cN76SSrX8CSB9pwmcNgZn7oaug3fu8oia1gOEDie+RQu2LDC5HMVflXF5Oei?=
+ =?us-ascii?Q?F3D7GWDS/GFTuG/xnCQ2W8YH6bxDMatQ1bawNa9XixIDzSI+dzjzCcwAPCcY?=
+ =?us-ascii?Q?qLUWxbxJ+tsU/BZAM3I71+qgtPIa23g4shUk031TJqdJtTxpI3uKwUtzRBDL?=
+ =?us-ascii?Q?QDdI9er3L18Z4CufL++In7dhSGbyQxzjELtGg3xBRqwvUhC6a2PdFVvWiYXq?=
+ =?us-ascii?Q?x6kXaUB/TUqo+sPxkMXPahbF+BKaz954iJkKw0Ff4hkJydKMtlw+JKvq8GwK?=
+ =?us-ascii?Q?mpihLgfdpDQRlFSxnLzDTa8NuWx+PguPle2l5lKGH9W2EgJyJWV4RDI8gMH/?=
+ =?us-ascii?Q?CrZHhosQb8oT7aqqSTpF2zsDjfeaMlHdpT/9kRDJS4oq98Zirm2l7aBLVNuc?=
+ =?us-ascii?Q?gJ6ZVIvQunw9erThGIzysLWpaoKzh1hbgfz5J1F/Qv+qoh6ZqvKhVGBp2r6f?=
+ =?us-ascii?Q?SGj/M6uE1+RJVziPTfK1CWahTVzqhIJD+U7CrWYqpUDwbM6KbJgv9FUOgJDl?=
+ =?us-ascii?Q?OTbsQP4H4exDbF8in0e/+CNu7wvNfqMJVQ+Lo9V0dnK3ZUlNPf/kbAPdGkJL?=
+ =?us-ascii?Q?R+EB52YdQU/Llg4kB+Cgzo/ARQzx1WChB7PZD8OY+pXkDMq3x31n8IWzRe6+?=
+ =?us-ascii?Q?YiPs+TMu/UBuxG2HYsz6R8xfmMQhO/A/ovqkQl2vra9TJ1zfuvq4XEm9Y3gB?=
+ =?us-ascii?Q?ZKYbdQPgvW462jyCKChfGhwmuKQGE0v8Mv3DoY91cjkuyvLcJdjdB1nXwy2H?=
+ =?us-ascii?Q?48vBrG3cUrN/b9fX38dqe7gAebyV3ZFkfaXMO8SfIoArhwBnvl490hxthE2i?=
+ =?us-ascii?Q?Bjm55kckQhi3EyAQluaIBRtNe1EuUgyd3kx5tfgW7cKBv4/fRgVOQDjtuYo4?=
+ =?us-ascii?Q?iSLLKrE/3ywFsGEDWRcTGVbi6872Xb1zuUktlBnQuI0KzUktHlvCY5Y9Rf05?=
+ =?us-ascii?Q?nvlDj/oaztJKh8+Wa/A2QsR5Q3H7wilKp3dVkpTTr2hkRjYsKNi8AVMmBFtM?=
+ =?us-ascii?Q?JfxdwB89v06vjzBX5WG+s7B4E3Adp9xgj6iaHDX5ZEV0LGddW0wu2cytNAGd?=
+ =?us-ascii?Q?DbG8zYGgytjnNsScaONPCQfa0FCJ2l1Q9OOEpBzoIcOeRB2UsJSof2j7Z+n2?=
+ =?us-ascii?Q?eNnpgegXeuNPC6EyXt/gIihLZuaJhaGLudadOVL7nj9SruscDQQp6WkipPAi?=
+ =?us-ascii?Q?fXpo5VY1oWKbdufEnc3QDXOOQnD5f8ExGeX1guIlXoGAzbWp4LtKg+oclJeO?=
+ =?us-ascii?Q?7KMfxo+E6GFkH7xoGrbV2O5s/IjArIb8BGXjf3vlslL08y5RsDK2qPe028v6?=
+ =?us-ascii?Q?TZqo/HdUZosKUVq0998wxLyf?=
+X-OriginatorOrg: synaptics.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7241407c-569c-4a0a-dbeb-08d8ff23748b
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR03MB5345.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2021 08:58:21.9376 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335d1fbc-2124-4173-9863-17e7051a2a0e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u3+IU7wqdlqvMVyVUza0UfQx5B/Ur9neZBnGGkRnm1Re505DQ2rdBkTR44Ir43r3kASpvgf2r7o74iIJ2MmnIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR03MB5078
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210414_015827_694357_CE8B7D6B 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +174,215 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 14, 2021 at 10:26:57AM +0800, Guo Ren wrote:
-> Thx Peter,
-> 
-> On Tue, Apr 13, 2021 at 4:17 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > On Tue, Apr 13, 2021 at 10:03:01AM +0200, Peter Zijlstra wrote:
-> >
-> > > For ticket locks you really only needs atomic_fetch_add() and
-> > > smp_store_release() and an architectural guarantees that the
-> > > atomic_fetch_add() has fwd progress under contention and that a sub-word
-> > > store (through smp_store_release()) will fail the SC.
-> > >
-> > > Then you can do something like:
-> > >
-> > > void lock(atomic_t *lock)
-> > > {
-> > >       u32 val = atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
-> > >       u16 ticket = val >> 16;
-> > >
-> > >       for (;;) {
-> > >               if (ticket == (u16)val)
-> > >                       break;
-> > >               cpu_relax();
-> > >               val = atomic_read_acquire(lock);
-> > >       }
-> Should it be?
->        for (;;) {
->                if (ticket == (u16)val) {
->                        __atomic_acquire_fence();
->                        break;
->                }
+Many architectures implement the trap_init() as NOP, since there is
+no such default for trap_init(), this empty stub is duplicated among
+these architectures. Provide a generic but weak NOP implementation
+to drop the empty stubs of trap_init() in these architectures.
 
-No, atomic_fetch_add() is full smp_mb(), it even has a comment on that
-says so.
+Signed-off-by: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+---
+ arch/arc/kernel/traps.c      |  5 -----
+ arch/arm/kernel/traps.c      |  5 -----
+ arch/h8300/kernel/traps.c    | 13 -------------
+ arch/hexagon/kernel/traps.c  |  4 ----
+ arch/nds32/kernel/traps.c    |  5 -----
+ arch/nios2/kernel/traps.c    |  5 -----
+ arch/openrisc/kernel/traps.c |  5 -----
+ arch/parisc/kernel/traps.c   |  4 ----
+ arch/powerpc/kernel/traps.c  |  5 -----
+ arch/riscv/kernel/traps.c    |  5 -----
+ arch/um/kernel/trap.c        |  4 ----
+ init/main.c                  |  2 ++
+ 12 files changed, 2 insertions(+), 60 deletions(-)
 
-Also, __atomic_acquire_fence() is an implementation detail of atomic,
-and architectures need not provide it. On top of that, IIRC the atomic
-_acquire/_release have RCpc ordering, where we want our locks to have
-RCsc ordering (and very much not weaker than RCtso). Even more so,
-adding barriers to atomics should really not be conditional.
+diff --git a/arch/arc/kernel/traps.c b/arch/arc/kernel/traps.c
+index 57235e5c0cea..6b83e3f2b41c 100644
+--- a/arch/arc/kernel/traps.c
++++ b/arch/arc/kernel/traps.c
+@@ -20,11 +20,6 @@
+ #include <asm/unaligned.h>
+ #include <asm/kprobes.h>
+ 
+-void __init trap_init(void)
+-{
+-	return;
+-}
+-
+ void die(const char *str, struct pt_regs *regs, unsigned long address)
+ {
+ 	show_kernel_fault_diag(str, regs, address);
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index 17d5a785df28..9baccef20392 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -780,11 +780,6 @@ void abort(void)
+ 	panic("Oops failed to kill thread");
+ }
+ 
+-void __init trap_init(void)
+-{
+-	return;
+-}
+-
+ #ifdef CONFIG_KUSER_HELPERS
+ static void __init kuser_init(void *vectors)
+ {
+diff --git a/arch/h8300/kernel/traps.c b/arch/h8300/kernel/traps.c
+index 5d8b969cd8f3..c3a3ebf77fbb 100644
+--- a/arch/h8300/kernel/traps.c
++++ b/arch/h8300/kernel/traps.c
+@@ -30,19 +30,6 @@
+ 
+ static DEFINE_SPINLOCK(die_lock);
+ 
+-/*
+- * this must be called very early as the kernel might
+- * use some instruction that are emulated on the 060
+- */
+-
+-void __init base_trap_init(void)
+-{
+-}
+-
+-void __init trap_init(void)
+-{
+-}
+-
+ asmlinkage void set_esp0(unsigned long ssp)
+ {
+ 	current->thread.esp0 = ssp;
+diff --git a/arch/hexagon/kernel/traps.c b/arch/hexagon/kernel/traps.c
+index 904134b37232..edfc35dafeb1 100644
+--- a/arch/hexagon/kernel/traps.c
++++ b/arch/hexagon/kernel/traps.c
+@@ -28,10 +28,6 @@
+ #define TRAP_SYSCALL	1
+ #define TRAP_DEBUG	0xdb
+ 
+-void __init trap_init(void)
+-{
+-}
+-
+ #ifdef CONFIG_GENERIC_BUG
+ /* Maybe should resemble arch/sh/kernel/traps.c ?? */
+ int is_valid_bugaddr(unsigned long addr)
+diff --git a/arch/nds32/kernel/traps.c b/arch/nds32/kernel/traps.c
+index ee0d9ae192a5..f06421c645af 100644
+--- a/arch/nds32/kernel/traps.c
++++ b/arch/nds32/kernel/traps.c
+@@ -183,11 +183,6 @@ void __pgd_error(const char *file, int line, unsigned long val)
+ }
+ 
+ extern char *exception_vector, *exception_vector_end;
+-void __init trap_init(void)
+-{
+-	return;
+-}
+-
+ void __init early_trap_init(void)
+ {
+ 	unsigned long ivb = 0;
+diff --git a/arch/nios2/kernel/traps.c b/arch/nios2/kernel/traps.c
+index b172da4eb1a9..596986a74a26 100644
+--- a/arch/nios2/kernel/traps.c
++++ b/arch/nios2/kernel/traps.c
+@@ -105,11 +105,6 @@ void show_stack(struct task_struct *task, unsigned long *stack,
+ 	printk("%s\n", loglvl);
+ }
+ 
+-void __init trap_init(void)
+-{
+-	/* Nothing to do here */
+-}
+-
+ /* Breakpoint handler */
+ asmlinkage void breakpoint_c(struct pt_regs *fp)
+ {
+diff --git a/arch/openrisc/kernel/traps.c b/arch/openrisc/kernel/traps.c
+index 4d61333c2623..aa1e709405ac 100644
+--- a/arch/openrisc/kernel/traps.c
++++ b/arch/openrisc/kernel/traps.c
+@@ -231,11 +231,6 @@ void unhandled_exception(struct pt_regs *regs, int ea, int vector)
+ 	die("Oops", regs, 9);
+ }
+ 
+-void __init trap_init(void)
+-{
+-	/* Nothing needs to be done */
+-}
+-
+ asmlinkage void do_trap(struct pt_regs *regs, unsigned long address)
+ {
+ 	force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)regs->pc);
+diff --git a/arch/parisc/kernel/traps.c b/arch/parisc/kernel/traps.c
+index 8d8441d4562a..747c328fb886 100644
+--- a/arch/parisc/kernel/traps.c
++++ b/arch/parisc/kernel/traps.c
+@@ -859,7 +859,3 @@ void  __init early_trap_init(void)
+ 
+ 	initialize_ivt(&fault_vector_20);
+ }
+-
+-void __init trap_init(void)
+-{
+-}
+diff --git a/arch/powerpc/kernel/traps.c b/arch/powerpc/kernel/traps.c
+index a44a30b0688c..e952bee89684 100644
+--- a/arch/powerpc/kernel/traps.c
++++ b/arch/powerpc/kernel/traps.c
+@@ -2207,11 +2207,6 @@ DEFINE_INTERRUPT_HANDLER(kernel_bad_stack)
+ 	die("Bad kernel stack pointer", regs, SIGABRT);
+ }
+ 
+-void __init trap_init(void)
+-{
+-}
+-
+-
+ #ifdef CONFIG_PPC_EMULATED_STATS
+ 
+ #define WARN_EMULATED_SETUP(type)	.type = { .name = #type }
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 0879b5df11b9..b3f3d84de779 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -194,8 +194,3 @@ int is_valid_bugaddr(unsigned long pc)
+ 		return ((insn & __COMPRESSED_INSN_MASK) == __BUG_INSN_16);
+ }
+ #endif /* CONFIG_GENERIC_BUG */
+-
+-/* stvec & scratch is already set from head.S */
+-void trap_init(void)
+-{
+-}
+diff --git a/arch/um/kernel/trap.c b/arch/um/kernel/trap.c
+index ad12f78bda7e..3198c4767387 100644
+--- a/arch/um/kernel/trap.c
++++ b/arch/um/kernel/trap.c
+@@ -311,7 +311,3 @@ void winch(int sig, struct siginfo *unused_si, struct uml_pt_regs *regs)
+ {
+ 	do_IRQ(WINCH_IRQ, regs);
+ }
+-
+-void trap_init(void)
+-{
+-}
+diff --git a/init/main.c b/init/main.c
+index 53b278845b88..4bdbe2928530 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -790,6 +790,8 @@ static inline void initcall_debug_enable(void)
+ }
+ #endif
+ 
++void __init __weak trap_init(void) { }
++
+ /* Report memory auto-initialization states for this boot. */
+ static void __init report_meminit(void)
+ {
+-- 
+2.31.0
+
 
 _______________________________________________
 linux-riscv mailing list
