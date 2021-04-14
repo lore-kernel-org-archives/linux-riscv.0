@@ -2,106 +2,106 @@ Return-Path: <SRS0=Cgvv=JL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E2DCFC433B4
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90D51C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:17:07 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5FAB360E08
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:11:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5FAB360E08
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
+	by mail.kernel.org (Postfix) with ESMTPS id DFD85611C9
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:17:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFD85611C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jiuyang.me
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kQr8B1wrVKnGx+SPi/BCiTMyakUpOe9OYF1/wMAE6n4=; b=JiT23QuVi0fB1Ig/j7Tv/g2Y/
-	82du1exWJ8PFL14uQgilIOoBdOpEM07jQhzbtSDdh3JJHDN8QSDwcYMGpX5vSISK5ZdNp/MIyM/WD
-	cbkCC2Gx4uXumzNI0pNRmZ0cehAyFstIQ9xXzNGHYfNF3X7tWD/eIeo76J0Xpn/5RFSyeIEcytV1R
-	q8Gfe0KDU1Elj0ZtnBfqoZuZM7YElvJYClqck0mBhvWL/5IaATB71+FqOQq/WK5pO9YBQTlpxqys1
-	5t0RgpKIjDf4xlg169ExI8mqDlnL5JSlz8imGt3GxX4W9HRKvmuJLrOr9NQgk+3SlbLdJcE9mjVy0
-	YqGluSN7w==;
+	 bh=xc8jlUvQtiu6zxB6bgTK408EJYJ4iElwR6pv5ULWb1o=; b=b2CePpd6aD30Nsg6xLIoL/TK7
+	Mpg+9csoI+1YqF8NMh4whPmtnFPegb17UZRYIcz0alsGrDR+/5xh1+hCYT8EYa1GzHlQIQLhZdAFr
+	e48gi4MF4JjVn8ehRT4zqywKu9qocbY1lGOw+86CHV9kRTeL4egOkpYSSeF8T6aeOuKumyc30jUFd
+	FbSlLpx7SZLJKE8s3tOurE6nUsSqk4nAPT5ydt3udyjac6fBS76JFdXak4xr+qHCkUZ2WR8GNu0gO
+	WW6OpRd7H0gn+Qy11cXbu0cuw16/o1MPUhmFTqKkNveV1m3doX8TfI/eUnj9l7kqKovxeATfYd0Wk
+	driV9dhWg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWbYS-00C6QC-9N; Wed, 14 Apr 2021 09:11:24 +0000
+	id 1lWbdf-00C7Kk-TU; Wed, 14 Apr 2021 09:16:48 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWbY0-00C6Np-DS; Wed, 14 Apr 2021 09:10:56 +0000
+ id 1lWbdc-00C7KW-Sc
+ for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 09:16:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=MBQu58u912Wp3RAACzwxJA2dsjrUY72qr2psLRaB7ps=; b=MrATausYZYDJzBp1KfoNsEQOXL
- EFc6eklzbGHYkzgjyRB+wqFCPQqAFY7FDntVQTa2K2kHfVOzLOLmyEBj+UAijsQ1KsnSCfdGVtQHp
- 5R928HDE3rHFH43GhR1HAIs6VUJOnpnJ4zv2wShRpJ0MMlLTlX7/ihs28ChxUTSsj5c/4Ey+sjGaD
- GASLtCSDTqadxEW8hUk1KBpudwrdhIw01ngadUSliumQKkQfGL1+BjVi/o91TudOIYYVO0v1fUukp
- FqMT2fhOcz7RuJF/5FSTCAAb0ctidSDPosJ2XF1T7MtG35D9fwxUrq/gg/8KN53MSdIHSEpGjFN99
- 5IguMYjw==;
-Received: from pegase1.c-s.fr ([93.17.236.30])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:
+ Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+ :Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description;
+ bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=; b=HOYlAih5y7EBPWcXsvg8WNAXQJ
+ FEpbPP94sglcKpzZytvv4YrwQG5mgiLTIoYtpzRWLAtzjNnQ/sIqOFl1fECsCLO9DFwFfURLRT3B7
+ Ii9jbYfcALwkw2i64pvXCZVBSMI5X9bR7DxpLDRHWlVuS86w5tiDQwBbcaNYJH8niuSFhclZKIVBj
+ EVmbn6JAmsySGU6QcpMUn0vzBCn8Z8/tLUVmChV7F5ganZLvq30FLQ+mvYFzAWVHgGETkOFPBqorc
+ Mmi0I6N+ZemsncvvYzP38luZO9+fAFAuiLGW6T36USN/jo/gsamJZCQ4plTX/XsTiXFKkiaUrCqXF
+ Dq8tI5jg==;
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWbXw-007duz-7Y; Wed, 14 Apr 2021 09:10:55 +0000
-Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4FKxXQ05PXz9txRC;
- Wed, 14 Apr 2021 11:10:46 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
- by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id 0zeBA9ZPccDQ; Wed, 14 Apr 2021 11:10:45 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4FKxXP4rdvz9ttBY;
- Wed, 14 Apr 2021 11:10:45 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id BE0B88B7BC;
- Wed, 14 Apr 2021 11:10:46 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
- by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id QZ2BMSlNARn7; Wed, 14 Apr 2021 11:10:46 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 098558B7BA;
- Wed, 14 Apr 2021 11:10:44 +0200 (CEST)
-Subject: Re: [PATCH] init: consolidate trap_init()
-To: Jisheng Zhang <Jisheng.Zhang@synaptics.com>,
- Vineet Gupta <vgupta@synopsys.com>, Russell King <linux@armlinux.org.uk>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Brian Cain <bcain@codeaurora.org>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>, Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: uclinux-h8-devel@lists.sourceforge.jp, linux-parisc@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-um@lists.infradead.org,
- linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-References: <20210414165808.458a3d11@xhacker.debian>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <44bdf1f1-117d-0f10-fc59-9edd32d1ad61@csgroup.eu>
-Date: Wed, 14 Apr 2021 11:10:42 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.1
+ id 1lWbdZ-007e97-P4
+ for linux-riscv@lists.infradead.org; Wed, 14 Apr 2021 09:16:43 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id j7so4549914pgi.3
+ for <linux-riscv@lists.infradead.org>; Wed, 14 Apr 2021 02:16:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jiuyang-me.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=;
+ b=WQ/HJS/WRTpXqT9pdtTnpECEN0jLG1Q0EG5TGIesfGM98eg4eAXypwvCnl+em4WRS3
+ JVgC/vRDah+VSLHwUMOweaHAGBlKcXG1ILdpgojFr6VFutwSDuvhxOLazsWf8PQJm7nu
+ XdG1yrEnGP4l1GhCxVzX7oIN2BxGb+LvjrWNgkOtTmFo6cSQvsk0o6vqqBHBybcau7U+
+ ekQGS07FgjtQ+vH8o9KtRx6vqea20RocvxPFHDWlagKGfjtH+8KueInEzu15WQtR+8eZ
+ 9/PNC0zzi7cKmVEcgZr/kHdEMA8Eoc3xJjHdDSK5hQCefdfpqPEKrvqa5sDOjwDIF2XI
+ djsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=;
+ b=nmmd/iE0cw/YarOV/lFTbd+vY9VO7KLqZo76AI2zGY60awOQUnJwJrUZaoExma7iZB
+ y9qvKGW0sMtbVmhH0nnZ4D0zspL2SXWSF5cmgsS/hJAY8bo/WwCcQaEwueWrfuYW1grO
+ lVVF4TCQp4t3IFhFKDS7ydv0E7suenNpUw9XfTEfzYdDH+ygFQ6uU6ooAyeoif638sjx
+ yZAWMl/EKNJK3Wwage4GbbMQgzNxnVXDvdCnE9dCVveteevdxZMSw5RCDEpRvmpvUCso
+ 8o7J+IQslk96ock7g3upT9MPawOsuNjpmvHUduEnGUupGQoAkZaYBaR38YrYsD2eTqiI
+ Y6qg==
+X-Gm-Message-State: AOAM532glvwglegQUeivvKczZypPPbkQhYuhxNVFpWLbRVRm8+9paIQS
+ CoKsWgTmowmzTJwWbXIPoEtKFA==
+X-Google-Smtp-Source: ABdhPJzCZKNt5XptTVToHYyMvOfdvSlm6eAy3Y0NSlPvGMTscX6/QCrkUYH3Y75IpqVzljYp2nSvWA==
+X-Received: by 2002:a63:707:: with SMTP id 7mr35442934pgh.319.1618391800504;
+ Wed, 14 Apr 2021 02:16:40 -0700 (PDT)
+Received: from nuc.localnet ([193.110.201.196])
+ by smtp.gmail.com with ESMTPSA id v6sm11267255pfb.130.2021.04.14.02.16.36
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 14 Apr 2021 02:16:40 -0700 (PDT)
+From: Jiuyang Liu <liu@jiuyang.me>
+To: Jisheng Zhang <Jisheng.Zhang@synaptics.com>, Alex Ghiti <alex@ghiti.fr>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Waterman <waterman@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] implement flush_cache_vmap for RISC-V
+Date: Wed, 14 Apr 2021 09:16:34 +0000
+Message-ID: <9908880.BHKHtspdbC@nuc>
+In-Reply-To: <18d198ac-7bc0-934d-e1e9-eca01b790d61@ghiti.fr>
+References: <20210412000531.12249-1-liu@jiuyang.me>
+ <20210412150817.33f49be8@xhacker.debian>
+ <18d198ac-7bc0-934d-e1e9-eca01b790d61@ghiti.fr>
 MIME-Version: 1.0
-In-Reply-To: <20210414165808.458a3d11@xhacker.debian>
-Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210414_021052_601333_97575297 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20210414_021641_981655_65D166CC 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,44 +113,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAxNC8wNC8yMDIxIMOgIDEwOjU4LCBKaXNoZW5nIFpoYW5nIGEgw6ljcml0wqA6Cj4gTWFu
-eSBhcmNoaXRlY3R1cmVzIGltcGxlbWVudCB0aGUgdHJhcF9pbml0KCkgYXMgTk9QLCBzaW5jZSB0
-aGVyZSBpcwo+IG5vIHN1Y2ggZGVmYXVsdCBmb3IgdHJhcF9pbml0KCksIHRoaXMgZW1wdHkgc3R1
-YiBpcyBkdXBsaWNhdGVkIGFtb25nCj4gdGhlc2UgYXJjaGl0ZWN0dXJlcy4gUHJvdmlkZSBhIGdl
-bmVyaWMgYnV0IHdlYWsgTk9QIGltcGxlbWVudGF0aW9uCj4gdG8gZHJvcCB0aGUgZW1wdHkgc3R1
-YnMgb2YgdHJhcF9pbml0KCkgaW4gdGhlc2UgYXJjaGl0ZWN0dXJlcy4KCllvdSBkZWZpbmUgdGhl
-IHdlYWsgZnVuY3Rpb24gaW4gdGhlIF9faW5pdCBzZWN0aW9uLgoKTW9zdCBidXQgbm90IGFsbCBh
-cmNoaXRlY3R1cmVzIGhhZCBpdCBpbiBfX2luaXQgc2VjdGlvbi4KCkFuZCB0aGUgcmVtYWluaW5n
-IG9uZXMgbWF5IG5vdCBiZSBkZWZpbmVkIGluIF9faW5pdCBzZWN0aW9uLiBGb3IgaW5zdGFuY2Ug
-bG9vayBhdCB0aGUgb25lIGluIGFscGhhIAphcmNoaXRlY3R1cmUuCgpIYXZlIHlvdSBjaGVja2Vk
-IHRoYXQgaXQgaXMgbm90IGEgcHJvYmxlbSA/IEl0IHdvdWxkIGJlIGdvb2QgdG8gc2F5IHNvbWV0
-aGluZyBhYm91dCBpdCBpbiB0aGUgY29tbWl0IApkZXNjcmlwdGlvbi4KCgo+IAo+IFNpZ25lZC1v
-ZmYtYnk6IEppc2hlbmcgWmhhbmcgPEppc2hlbmcuWmhhbmdAc3luYXB0aWNzLmNvbT4KPiAtLS0K
-PiAgIGFyY2gvYXJjL2tlcm5lbC90cmFwcy5jICAgICAgfCAgNSAtLS0tLQo+ICAgYXJjaC9hcm0v
-a2VybmVsL3RyYXBzLmMgICAgICB8ICA1IC0tLS0tCj4gICBhcmNoL2g4MzAwL2tlcm5lbC90cmFw
-cy5jICAgIHwgMTMgLS0tLS0tLS0tLS0tLQo+ICAgYXJjaC9oZXhhZ29uL2tlcm5lbC90cmFwcy5j
-ICB8ICA0IC0tLS0KPiAgIGFyY2gvbmRzMzIva2VybmVsL3RyYXBzLmMgICAgfCAgNSAtLS0tLQo+
-ICAgYXJjaC9uaW9zMi9rZXJuZWwvdHJhcHMuYyAgICB8ICA1IC0tLS0tCj4gICBhcmNoL29wZW5y
-aXNjL2tlcm5lbC90cmFwcy5jIHwgIDUgLS0tLS0KPiAgIGFyY2gvcGFyaXNjL2tlcm5lbC90cmFw
-cy5jICAgfCAgNCAtLS0tCj4gICBhcmNoL3Bvd2VycGMva2VybmVsL3RyYXBzLmMgIHwgIDUgLS0t
-LS0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgfCAgNSAtLS0tLQo+ICAgYXJjaC91
-bS9rZXJuZWwvdHJhcC5jICAgICAgICB8ICA0IC0tLS0KPiAgIGluaXQvbWFpbi5jICAgICAgICAg
-ICAgICAgICAgfCAgMiArKwo+ICAgMTIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA2
-MCBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvaW5pdC9tYWluLmMgYi9pbml0L21haW4u
-Ywo+IGluZGV4IDUzYjI3ODg0NWI4OC4uNGJkYmUyOTI4NTMwIDEwMDY0NAo+IC0tLSBhL2luaXQv
-bWFpbi5jCj4gKysrIGIvaW5pdC9tYWluLmMKPiBAQCAtNzkwLDYgKzc5MCw4IEBAIHN0YXRpYyBp
-bmxpbmUgdm9pZCBpbml0Y2FsbF9kZWJ1Z19lbmFibGUodm9pZCkKPiAgIH0KPiAgICNlbmRpZgo+
-ICAgCj4gK3ZvaWQgX19pbml0IF9fd2VhayB0cmFwX2luaXQodm9pZCkgeyB9Cj4gKwoKSSB0aGlu
-ayBpbiBhIEMgZmlsZSB3ZSBkb24ndCB0cnkgdG8gc2F2ZSBzcGFjZSBhcyBtdWNoIGFzIGluIGEg
-aGVhZGVyIGZpbGUuCgpJIHdvdWxkIHByZWZlciBzb21ldGhpbmcgbGlrZToKCgp2b2lkIF9faW5p
-dCBfX3dlYWsgdHJhcF9pbml0KHZvaWQpCnsKfQoKCj4gICAvKiBSZXBvcnQgbWVtb3J5IGF1dG8t
-aW5pdGlhbGl6YXRpb24gc3RhdGVzIGZvciB0aGlzIGJvb3QuICovCj4gICBzdGF0aWMgdm9pZCBf
-X2luaXQgcmVwb3J0X21lbWluaXQodm9pZCkKPiAgIHsKPiAKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wednesday, April 14, 2021 7:03:13 AM UTC you wrote:
+> Hi,
+> =
+
+> Le 4/12/21 =E0 3:08 AM, Jisheng Zhang a =E9crit :
+> > Hi Jiuyang,
+> > =
+
+> > On Mon, 12 Apr 2021 00:05:30 +0000 Jiuyang Liu <liu@jiuyang.me> wrote:
+> >> This patch implements flush_cache_vmap for RISC-V, since it modifies P=
+TE.
+> >> Without this patch, SFENCE.VMA won't be added to related codes, which
+> >> might introduce a bug in the out-of-order micro-architecture
+> >> implementations.
+> >> =
+
+> >> Signed-off-by: Jiuyang Liu <liu@jiuyang.me>
+> >> Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
+> >> Reviewed-by: Palmer Dabbelt <palmer@dabbelt.com>
+> > =
+
+> > IIRC, Palmer hasn't given this Reviewed-by tag.
+> > =
+
+> >> ---
+> > =
+
+> > Could you plz add version and changes? IIRC, this is the v3.
+> > =
+
+> >>   arch/riscv/include/asm/cacheflush.h | 6 ++++++
+> >>   1 file changed, 6 insertions(+)
+> >> =
+
+> >> diff --git a/arch/riscv/include/asm/cacheflush.h
+> >> b/arch/riscv/include/asm/cacheflush.h index 23ff70350992..3fd528badc35
+> >> 100644
+> >> --- a/arch/riscv/include/asm/cacheflush.h
+> >> +++ b/arch/riscv/include/asm/cacheflush.h
+> >> @@ -30,6 +30,12 @@ static inline void flush_dcache_page(struct page
+> >> *page)
+> >> =
+
+> >>   #define flush_icache_user_page(vma, pg, addr, len) \
+> >>   =
+
+> >>          flush_icache_mm(vma->vm_mm, 0)
+> >> =
+
+> >> +/*
+> >> + * flush_cache_vmap is invoked after map_kernel_range() has installed
+> >> the page + * table entries, which modifies PTE, SFENCE.VMA should be
+> >> inserted.> =
+
+> > Just my humble opinion, flush_cache_vmap() may not be necessary.
+> > vmalloc_fault can take care of this, and finally sfence.vma is inserted
+> > in related path.
+> I believe Palmer and Jisheng are right, my initial proposal to implement
+> flush_cache_vmap is wrong.
+> =
+
+> But then, Jiuyang should not have noticed any problem here, so what's
+> wrong? @Jiuyang: Does implementing flush_cache_vmap fix your issue?
+Yes, I just checked this today, it did fix our issue.
+But I'm happy to rework on this, thanks for your help! This week I will try=
+ to =
+
+trace wave of our core, and give a more detail email then.
+> And regarding flush_cache_vunmap, from Jisheng call stack, it seems also
+> not necessary.
+> =
+
+> @Jiuyang: Can you tell us more about what you noticed?
+> =
+
+> > Regards
+> > =
+
+> >> + */
+> >> +#define flush_cache_vmap(start, end) flush_tlb_all()
+> >> +
+> >> =
+
+> >>   #ifndef CONFIG_SMP
+> >>   =
+
+> >>   #define flush_icache_all() local_flush_icache_all()
+> >> =
+
+> >> --
+> >> 2.31.1
+> > =
+
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+Thanks,
+Jiuyang
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
