@@ -2,106 +2,83 @@ Return-Path: <SRS0=Cgvv=JL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 90D51C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C3B7C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:18:30 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DFD85611C9
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:17:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFD85611C9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jiuyang.me
+	by mail.kernel.org (Postfix) with ESMTPS id 791F66120E
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Apr 2021 09:18:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 791F66120E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xc8jlUvQtiu6zxB6bgTK408EJYJ4iElwR6pv5ULWb1o=; b=b2CePpd6aD30Nsg6xLIoL/TK7
-	Mpg+9csoI+1YqF8NMh4whPmtnFPegb17UZRYIcz0alsGrDR+/5xh1+hCYT8EYa1GzHlQIQLhZdAFr
-	e48gi4MF4JjVn8ehRT4zqywKu9qocbY1lGOw+86CHV9kRTeL4egOkpYSSeF8T6aeOuKumyc30jUFd
-	FbSlLpx7SZLJKE8s3tOurE6nUsSqk4nAPT5ydt3udyjac6fBS76JFdXak4xr+qHCkUZ2WR8GNu0gO
-	WW6OpRd7H0gn+Qy11cXbu0cuw16/o1MPUhmFTqKkNveV1m3doX8TfI/eUnj9l7kqKovxeATfYd0Wk
-	driV9dhWg==;
+	 bh=nvueCvriXBc1FwhBQSAGE4jtXOCc40LbIK5mqWGfek4=; b=icY6p0U9UL14K4L8er9ytyclZ
+	rAy+6pkrrNAfTZciPsVfQ7DFL2w+YvSlKaH+DF+2K74jm2laT57B5dnMQu3VkBYn+wQHhPa0M7ZMu
+	zEIDYuhNW87mnDjSgXV9BqXEhOQOXBM7KDDI4abC1uwtpad6NkGPLkhvxO+eF1CsTJAb1FAOf8p9w
+	2qOVYm8P0umbFr3P6HZHRJvhvt11wgN56T/lk+fK2O4Y6XeNoZYISgTu4rJkDCGKO8CCizmMLbJCl
+	2EWedXNEAMaTV338S9I+HZnNZgj5Qcp4nAsOo5JnWxdmXz+70kAbXu/qiJH4eftuiAVWLybpbLHSj
+	s9t53p4bA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWbdf-00C7Kk-TU; Wed, 14 Apr 2021 09:16:48 +0000
+	id 1lWbei-00C7Sx-Fh; Wed, 14 Apr 2021 09:17:52 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWbdc-00C7KW-Sc
- for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 09:16:45 +0000
+ id 1lWbec-00C7SH-6G
+ for linux-riscv@desiato.infradead.org; Wed, 14 Apr 2021 09:17:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:
- Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
- :Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=; b=HOYlAih5y7EBPWcXsvg8WNAXQJ
- FEpbPP94sglcKpzZytvv4YrwQG5mgiLTIoYtpzRWLAtzjNnQ/sIqOFl1fECsCLO9DFwFfURLRT3B7
- Ii9jbYfcALwkw2i64pvXCZVBSMI5X9bR7DxpLDRHWlVuS86w5tiDQwBbcaNYJH8niuSFhclZKIVBj
- EVmbn6JAmsySGU6QcpMUn0vzBCn8Z8/tLUVmChV7F5ganZLvq30FLQ+mvYFzAWVHgGETkOFPBqorc
- Mmi0I6N+ZemsncvvYzP38luZO9+fAFAuiLGW6T36USN/jo/gsamJZCQ4plTX/XsTiXFKkiaUrCqXF
- Dq8tI5jg==;
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Transfer-Encoding
+ :Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Reply-To:Content-ID:Content-Description;
+ bh=X3mbaIhfzTJxIlT8q9hsVfXPVB3GxHy9qKVpSotDeb4=; b=uIZbJBPYyi95ZRatB25Rcq+JNn
+ JoL6zY1E1GBwpXyU/34ODvDTyGgKz5j4YSWqzMsiIc8t9qLMYitHqVvYJkHL6MWz3xb/9HydkPqwW
+ bLEWEZSYsE8XIpzEW/HwzfDesrtSlfbyd/IJSK8Z0Nek46HWWOanwKzpaysoBO0ItGgFwxPvB4r5D
+ C9A66Da6GdzVhm7h3hIsMb1qxh28Z6afcPg3ePvpOTcIAw/fq0WDNf0sL2mGpzs+PxYCqmqdndIz0
+ XRUGXDAa5S0OY7Jt9abxxGGp1lyWHTf1/4mXkihsVwdic4uazhhniYNsFW+paYqXfFl7gg2d5/pkh
+ jOfPiRQA==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWbdZ-007e97-P4
- for linux-riscv@lists.infradead.org; Wed, 14 Apr 2021 09:16:43 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id j7so4549914pgi.3
- for <linux-riscv@lists.infradead.org>; Wed, 14 Apr 2021 02:16:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jiuyang-me.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=;
- b=WQ/HJS/WRTpXqT9pdtTnpECEN0jLG1Q0EG5TGIesfGM98eg4eAXypwvCnl+em4WRS3
- JVgC/vRDah+VSLHwUMOweaHAGBlKcXG1ILdpgojFr6VFutwSDuvhxOLazsWf8PQJm7nu
- XdG1yrEnGP4l1GhCxVzX7oIN2BxGb+LvjrWNgkOtTmFo6cSQvsk0o6vqqBHBybcau7U+
- ekQGS07FgjtQ+vH8o9KtRx6vqea20RocvxPFHDWlagKGfjtH+8KueInEzu15WQtR+8eZ
- 9/PNC0zzi7cKmVEcgZr/kHdEMA8Eoc3xJjHdDSK5hQCefdfpqPEKrvqa5sDOjwDIF2XI
- djsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=yUKHKB+V5H8dUAiGZbJrFX0fnMyjSFlwunjPC1r4S+8=;
- b=nmmd/iE0cw/YarOV/lFTbd+vY9VO7KLqZo76AI2zGY60awOQUnJwJrUZaoExma7iZB
- y9qvKGW0sMtbVmhH0nnZ4D0zspL2SXWSF5cmgsS/hJAY8bo/WwCcQaEwueWrfuYW1grO
- lVVF4TCQp4t3IFhFKDS7ydv0E7suenNpUw9XfTEfzYdDH+ygFQ6uU6ooAyeoif638sjx
- yZAWMl/EKNJK3Wwage4GbbMQgzNxnVXDvdCnE9dCVveteevdxZMSw5RCDEpRvmpvUCso
- 8o7J+IQslk96ock7g3upT9MPawOsuNjpmvHUduEnGUupGQoAkZaYBaR38YrYsD2eTqiI
- Y6qg==
-X-Gm-Message-State: AOAM532glvwglegQUeivvKczZypPPbkQhYuhxNVFpWLbRVRm8+9paIQS
- CoKsWgTmowmzTJwWbXIPoEtKFA==
-X-Google-Smtp-Source: ABdhPJzCZKNt5XptTVToHYyMvOfdvSlm6eAy3Y0NSlPvGMTscX6/QCrkUYH3Y75IpqVzljYp2nSvWA==
-X-Received: by 2002:a63:707:: with SMTP id 7mr35442934pgh.319.1618391800504;
- Wed, 14 Apr 2021 02:16:40 -0700 (PDT)
-Received: from nuc.localnet ([193.110.201.196])
- by smtp.gmail.com with ESMTPSA id v6sm11267255pfb.130.2021.04.14.02.16.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 14 Apr 2021 02:16:40 -0700 (PDT)
-From: Jiuyang Liu <liu@jiuyang.me>
-To: Jisheng Zhang <Jisheng.Zhang@synaptics.com>, Alex Ghiti <alex@ghiti.fr>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Waterman <waterman@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] implement flush_cache_vmap for RISC-V
-Date: Wed, 14 Apr 2021 09:16:34 +0000
-Message-ID: <9908880.BHKHtspdbC@nuc>
-In-Reply-To: <18d198ac-7bc0-934d-e1e9-eca01b790d61@ghiti.fr>
-References: <20210412000531.12249-1-liu@jiuyang.me>
- <20210412150817.33f49be8@xhacker.debian>
- <18d198ac-7bc0-934d-e1e9-eca01b790d61@ghiti.fr>
+ id 1lWbeZ-007eBw-Ca
+ for linux-riscv@lists.infradead.org; Wed, 14 Apr 2021 09:17:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1630B611CC;
+ Wed, 14 Apr 2021 09:17:40 +0000 (UTC)
+Date: Wed, 14 Apr 2021 10:17:38 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Anup Patel <anup@brainfault.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Will Deacon <will.deacon@arm.com>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH] riscv: locks: introduce ticket-based spinlock
+ implementation
+Message-ID: <20210414091738.GA8320@arm.com>
+References: <CAHB2gtS9J09VaY9ZxDJYVo2fTgS-u6p7e89aLCnwOHnYEOJR=g@mail.gmail.com>
+ <mhng-03d1655e-090e-4afb-a4e3-12b4b8f0e6bf@palmerdabbelt-glaptop>
+ <CAHB2gtS6x25Oquf6W4Hhh-diUuZk1GJHTD2DjrffHo93nWbUYw@mail.gmail.com>
+ <YHVQNSfblP6G0Kgl@hirez.programming.kicks-ass.net>
+ <CAHB2gtTmGt=V4cUgbt3zGgi+y5h0f5ON0n+MdRC8P=su670qhQ@mail.gmail.com>
+ <20210413093059.GB15806@arm.com>
+ <CAJF2gTSa8KO_iPn=05-YCHmAKNDkoESvATw+e434GY9eYy1LDw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTSa8KO_iPn=05-YCHmAKNDkoESvATw+e434GY9eYy1LDw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210414_021641_981655_65D166CC 
-X-CRM114-Status: GOOD (  27.71  )
+X-CRM114-CacheID: sfid-20210414_021743_503984_8AD78531 
+X-CRM114-Status: GOOD (  48.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,108 +95,165 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, April 14, 2021 7:03:13 AM UTC you wrote:
-> Hi,
+On Wed, Apr 14, 2021 at 08:23:51AM +0800, Guo Ren wrote:
+> On Tue, Apr 13, 2021 at 5:31 PM Catalin Marinas <catalin.marinas@arm.com>=
+ wrote:
+> > On Tue, Apr 13, 2021 at 11:22:40AM +0200, Christoph M=FCllner wrote:
+> > > On Tue, Apr 13, 2021 at 10:03 AM Peter Zijlstra <peterz@infradead.org=
+> wrote:
+> > > > On Mon, Apr 12, 2021 at 11:54:55PM +0200, Christoph M=FCllner wrote:
+> > > > > On Mon, Apr 12, 2021 at 7:33 PM Palmer Dabbelt <palmer@dabbelt.co=
+m> wrote:
+> > > > > > My plan is to add a generic ticket-based lock, which can be sel=
+ected at
+> > > > > > compile time.  It'll have no architecture dependencies (though =
+it'll
+> > > > > > likely have some hooks for architectures that can make this go =
+faster).
+> > > > > > Users can then just pick which spinlock flavor they want, with =
+the idea
+> > > > > > being that smaller systems will perform better with ticket lock=
+s and
+> > > > > > larger systems will perform better with queued locks.  The main=
+ goal
+> > > > > > here is to give the less widely used architectures an easy way =
+to have
+> > > > > > fair locks, as right now we've got a lot of code duplication be=
+cause any
+> > > > > > architecture that wants ticket locks has to do it themselves.
+> > > > >
+> > > > > In the case of LL/SC sequences, we have a maximum of 16 instructi=
+ons
+> > > > > on RISC-V. My concern with a pure-C implementation would be that
+> > > > > we cannot guarantee this (e.g. somebody wants to compile with -O0)
+> > > > > and I don't know of a way to abort the build in case this limit e=
+xceeds.
+> > > > > Therefore I have preferred inline assembly for OpenSBI (my initia=
+l idea
+> > > > > was to use closure-like LL/SC macros, where you can write the loop
+> > > > > in form of C code).
+> > > >
+> > > > For ticket locks you really only needs atomic_fetch_add() and
+> > > > smp_store_release() and an architectural guarantees that the
+> > > > atomic_fetch_add() has fwd progress under contention and that a sub=
+-word
+> > > > store (through smp_store_release()) will fail the SC.
+> > > >
+> > > > Then you can do something like:
+> > > >
+> > > > void lock(atomic_t *lock)
+> > > > {
+> > > >         u32 val =3D atomic_fetch_add(1<<16, lock); /* SC, gives us =
+RCsc */
+> > > >         u16 ticket =3D val >> 16;
+> > > >
+> > > >         for (;;) {
+> > > >                 if (ticket =3D=3D (u16)val)
+> > > >                         break;
+> > > >                 cpu_relax();
+> > > >                 val =3D atomic_read_acquire(lock);
+> > > >         }
+> > > > }
+> > > >
+> > > > void unlock(atomic_t *lock)
+> > > > {
+> > > >         u16 *ptr =3D (u16 *)lock + (!!__BIG_ENDIAN__);
+> > > >         u32 val =3D atomic_read(lock);
+> > > >
+> > > >         smp_store_release(ptr, (u16)val + 1);
+> > > > }
+> > > >
+> > > > That's _almost_ as simple as a test-and-set :-) It isn't quite opti=
+mal
+> > > > on x86 for not being allowed to use a memop on unlock, since its be=
+ing
+> > > > forced into a load-store because of all the volatile, but whatever.
+> > >
+> > > What about trylock()?
+> > > I.e. one could implement trylock() without a loop, by letting
+> > > trylock() fail if the SC fails.
+> > > That looks safe on first view, but nobody does this right now.
 > =
 
-> Le 4/12/21 =E0 3:08 AM, Jisheng Zhang a =E9crit :
-> > Hi Jiuyang,
-> > =
+> I think it's safe for riscv LR/SC, because in spec A 8.3 section:
+> "As a consequence of the eventuality guarantee, if some harts in an
+> execution environment are executing constrained LR/SC loops, and no
+> other harts or devices in the execution environment execute an
+> unconditional store or AMO to that reservation set, then at least one
+> hart will eventually exit its constrained LR/SC loop."
 
-> > On Mon, 12 Apr 2021 00:05:30 +0000 Jiuyang Liu <liu@jiuyang.me> wrote:
-> >> This patch implements flush_cache_vmap for RISC-V, since it modifies P=
-TE.
-> >> Without this patch, SFENCE.VMA won't be added to related codes, which
-> >> might introduce a bug in the out-of-order micro-architecture
-> >> implementations.
-> >> =
+This is clearly talking about _loops_ and that one hart will
+_eventually_ exit the loop. It does not say that there is a guaranteed
+LR/SC successful sequence or single iteration of the loop.
 
-> >> Signed-off-by: Jiuyang Liu <liu@jiuyang.me>
-> >> Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
-> >> Reviewed-by: Palmer Dabbelt <palmer@dabbelt.com>
-> > =
-
-> > IIRC, Palmer hasn't given this Reviewed-by tag.
-> > =
-
-> >> ---
-> > =
-
-> > Could you plz add version and changes? IIRC, this is the v3.
-> > =
-
-> >>   arch/riscv/include/asm/cacheflush.h | 6 ++++++
-> >>   1 file changed, 6 insertions(+)
-> >> =
-
-> >> diff --git a/arch/riscv/include/asm/cacheflush.h
-> >> b/arch/riscv/include/asm/cacheflush.h index 23ff70350992..3fd528badc35
-> >> 100644
-> >> --- a/arch/riscv/include/asm/cacheflush.h
-> >> +++ b/arch/riscv/include/asm/cacheflush.h
-> >> @@ -30,6 +30,12 @@ static inline void flush_dcache_page(struct page
-> >> *page)
-> >> =
-
-> >>   #define flush_icache_user_page(vma, pg, addr, len) \
-> >>   =
-
-> >>          flush_icache_mm(vma->vm_mm, 0)
-> >> =
-
-> >> +/*
-> >> + * flush_cache_vmap is invoked after map_kernel_range() has installed
-> >> the page + * table entries, which modifies PTE, SFENCE.VMA should be
-> >> inserted.> =
-
-> > Just my humble opinion, flush_cache_vmap() may not be necessary.
-> > vmalloc_fault can take care of this, and finally sfence.vma is inserted
-> > in related path.
-> I believe Palmer and Jisheng are right, my initial proposal to implement
-> flush_cache_vmap is wrong.
+> So it guarantees LR/SC pair:
 > =
 
-> But then, Jiuyang should not have noticed any problem here, so what's
-> wrong? @Jiuyang: Does implementing flush_cache_vmap fix your issue?
-Yes, I just checked this today, it did fix our issue.
-But I'm happy to rework on this, thanks for your help! This week I will try=
- to =
+> CPU0                   CPU1
+> =3D=3D=3D=3D=3D=3D=3D             =3D=3D=3D=3D=3D=3D=3D
+> LR addr1
+>                             LR addr1
+>                             SC addr1 // guarantee success.
+> SC addr1
 
-trace wave of our core, and give a more detail email then.
-> And regarding flush_cache_vunmap, from Jisheng call stack, it seems also
-> not necessary.
+I don't see the RISC-V spec guaranteeing the (eventual) success of the
+SC on CPU1 _without_ a loop.
+
+> But not guarantee, another hart unconditional store (which I mentioned be=
+fore):
+> u32 a =3D 0x55aa66bb;
+> u16 *ptr =3D &a;
 > =
 
-> @Jiuyang: Can you tell us more about what you noticed?
+> CPU0                       CPU1
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D             =3D=3D=3D=3D=3D=3D=3D=3D=3D
+> xchg16(ptr, new)     while(1)
+>                                     WRITE_ONCE(*(ptr + 1), x);
+
+If xchg16() is implemented with LR/SC, that's not guaranteed either. If
+it implemented as some form of swap, the architecture may guarantee it's
+success (or more like it won't deadlock).
+
+> > Not familiar with RISC-V but I'd recommend that a trylock only fails if
+> > the lock is locked (after LR). A SC may fail for other reasons
+> > (cacheline eviction; depending on the microarchitecture) even if the
+> > lock is unlocked. At least on arm64 we had this issue with an
+> > implementation having a tendency to always fail the first STXR.
 > =
 
-> > Regards
-> > =
+> I think it's a broken implementation for riscv. SC couldn't fail by
+> cache line bouncing and only could fail by another real write.
+> That means the HW implementation should use a per-hart address monitor
+> not just grab the cache line into the exclusive state without lockdown
+> the SNOOP channel.
+> I think the implementation of LR/SC you mentioned is a gambling style
+> but broke the riscv spec.
 
-> >> + */
-> >> +#define flush_cache_vmap(start, end) flush_tlb_all()
-> >> +
-> >> =
+Arm has the notion of exclusive monitors (local, global) but an
+implementation may fake them by using cacheline states. And that's
+allowed since the monitor doesn't need to guarantee success on the first
+try but an eventual success of an ldxr/stxr loop.
 
-> >>   #ifndef CONFIG_SMP
-> >>   =
+> Is the patch of Will's would fix up the problem you mentioned?
+> ----
+> commit 9bb17be062de6f5a9c9643258951aa0935652ec3
+> Author: Will Deacon <will.deacon@arm.com>
+> Date:   Tue Jul 2 14:54:33 2013 +0100
+> =
 
-> >>   #define flush_icache_all() local_flush_icache_all()
-> >> =
+>     ARM: locks: prefetch the destination word for write prior to strex
 
-> >> --
-> >> 2.31.1
-> > =
+No, that's only an optimisation. A prefetch would not guarantee that the
+cacheline stays in certain state. There can be a long time between the
+LR and SC, especially if interrupts are enabled or if you add
+virtualisation into the mix.
 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+The commit I was referring to is 4ecf7ccb1973 ("arm64: spinlock: retry
+trylock operation if strex fails on free lock").
 
-Thanks,
-Jiuyang
+-- =
 
-
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
