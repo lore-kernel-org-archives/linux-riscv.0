@@ -7,54 +7,54 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 593AEC433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 09:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C91AC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 09:34:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC49B61153
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 09:33:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC49B61153
+	by mail.kernel.org (Postfix) with ESMTPS id D5F086113B
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 09:34:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5F086113B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KT0mD4V+IfdMPTnDYWe5VsXtE5iPat0t0v1stcrPTCk=; b=KA9JhRB2P446WWf3uOuOsAIe3z
-	p9adzVKyz945R6WKJi4S5IBer10tlYK+9LsjYduxjggsX8FB9zRaDpBJjp/2FMIqI+Km8lA01Jiow
-	Blv8T+HQkuJ8A4DYJTUILgRo9lPnfJHT4LYhvgB5hY6jcGKCDbKngivVUa1i8HBThAofSqh7ltlK8
-	feZ/9Q3XPmoTBegdZ3AEcHeDQpwvykRa6OG7bzYntNrAmuFSLKRuh3uYO1aJKBZc/8jx8ywr+RZCm
-	Am+weKPlc5DG/8VtW5WuJDVBljebKgZIRc2w2DbVlJAVLTcBSJuQ8fxXaxggxc6XqC3G+BgKkEBKk
-	mengKtfA==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=o1cpBBERl5+ZDMM6LcvQcQvYTlUGHErBUMfdcGZ3oLs=; b=pQ3Wo9Pd3QUA+1DaFjn+zgQx2
+	OhggqyXJQ43y/aPgM7Jj7TmncHK6f47EmVd4uckcg/2WpIX22gZzgxMZ4R5Cq3QF/0WUlYR1AQFlE
+	T+B4d6aDE1EsrYuR9HcHrEXzCLD3OiNpGpOWjNO8ishDOH+x15UE5VOJCaw7a05nVktwaVSXvF799
+	nj/Lqv8WhGGHVMWJ5bVcqsllVx6n1C6VHFPrsR0FD1JszBesLPGY0g1Dsmy/uoU5NC52QC6i6VA6t
+	KY3EvOACIrbtta0QCoSWnfXPxGzulzJNv8v1ONA7oYz86bT+EMRj5rNZDbFEWwhSZciT4HxHXDNQR
+	BXCb45Qzg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lWyNW-00FXIV-9f; Thu, 15 Apr 2021 09:33:38 +0000
+	id 1lWyNi-00FXLB-0c; Thu, 15 Apr 2021 09:33:50 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lWyNQ-00FXHF-L4; Thu, 15 Apr 2021 09:33:32 +0000
+ id 1lWyNd-00FXKK-HA; Thu, 15 Apr 2021 09:33:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:In-Reply-To:References;
- bh=mw8MFq3AWmyeYQPJr8gAqkenbVrNNEEQU9RECxmRYIs=; b=NkXLKtDazn11iQVI2uf5FWP78v
- +Q+lF5BNFM57zhk72tYvt3+L9+gDkb886YWIR8Cc72Up98WbLVCepb8DTRTrOqOH3HDEWKAX8ZC1n
- 6cqWRjyhKYkAsg4kdQschfKmsVcZwrSGq/gI1RdTwVg4CQ9a3ye3Uu2TjLffbE6E+EIBYQdkoyn1l
- Whcuv++Lu1KR01Q/X4QP6BqJN4syebv0e+AFATIucyGNTkQlDT7oQW2O4z8KlGZlnx7mViIPgmWU0
- 8s8MnSCMgs9eC4xt94P8SUWUde3fhLCm3MT6E7J99sR2L63jEiUUqMd0xUO0cXvUdk3TawdNmDrgq
- Mpqf2Saw==;
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+ :Reply-To:Content-Type:Content-ID:Content-Description;
+ bh=/MjJF1x8OFQCL4izVHpn1s18hZrSw9Huql9x2KHCuWY=; b=XxBFc0kLOlRiuV6EqknJnFS/4b
+ 7uUn3uR3uvANusKgS4sl2cE0bNhAGxkL/tgWDyd5HCSg/1Dvx3lSj+DbJPhYuevuHuw9DCSY7tuUI
+ Kvb7xZTCzoQ6ten+1yhEq7LwDMwlHNaS8CbkBsICOseTyviZwB2bNdJ/H/oPhSb0XIoIZ9Yicnm5+
+ woMQpguSBgIWu25HBceBbwFpmjsob/0vQ1Ixawe2I6WsmutOTeZq38oKo2Hig71vatVgEHRbczK+l
+ xTLAnMyeNb9e8+dIaP4nQBeD7TaoOIVNIN1N96JAdSSxomGub50YRz4rU4GA8GOtJT4JPpFS244aO
+ gjbURTgA==;
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lWyNL-008QYG-ON; Thu, 15 Apr 2021 09:33:31 +0000
+ id 1lWyNa-008Qab-RJ; Thu, 15 Apr 2021 09:33:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65EA4106F;
- Thu, 15 Apr 2021 02:33:19 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5849A1396;
+ Thu, 15 Apr 2021 02:33:40 -0700 (PDT)
 Received: from net-arm-thunderx2-02.shanghai.arm.com
  (net-arm-thunderx2-02.shanghai.arm.com [10.169.208.215])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2ACE53F694;
- Thu, 15 Apr 2021 02:33:01 -0700 (PDT)
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 225E33F694;
+ Thu, 15 Apr 2021 02:33:22 -0700 (PDT)
 From: Jianlin Lv <Jianlin.Lv@arm.com>
 To: bpf@vger.kernel.org
 Cc: corbet@lwn.net, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
@@ -79,14 +79,16 @@ Cc: corbet@lwn.net, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
  linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  sparclinux@vger.kernel.org, Jianlin.Lv@arm.com, iecedge@gmail.com
-Subject: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
-Date: Thu, 15 Apr 2021 17:32:49 +0800
-Message-Id: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+Subject: [PATCH bpf-next 2/2] docs: bpf: bpf_jit_enable mode changed
+Date: Thu, 15 Apr 2021 17:32:50 +0800
+Message-Id: <20210415093250.3391257-2-Jianlin.Lv@arm.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210415_023327_896616_20C7C334 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20210415_023342_995990_E01E1739 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,300 +105,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For debugging JITs, dumping the JITed image to kernel log is discouraged,
-"bpftool prog dump jited" is much better way to examine JITed dumps.
-This patch get rid of the code related to bpf_jit_enable=2 mode and
-update the proc handler of bpf_jit_enable, also added auxiliary
-information to explain how to use bpf_jit_disasm tool after this change.
+Remove information about bpf_jit_enable=2 mode and added description for
+how to use the bpf_jit_disasm tool after get rid of =2 mode.
 
 Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
 ---
- arch/arm/net/bpf_jit_32.c         |  4 ----
- arch/arm64/net/bpf_jit_comp.c     |  4 ----
- arch/mips/net/bpf_jit.c           |  4 ----
- arch/mips/net/ebpf_jit.c          |  4 ----
- arch/powerpc/net/bpf_jit_comp.c   | 10 ----------
- arch/powerpc/net/bpf_jit_comp64.c | 11 -----------
- arch/riscv/net/bpf_jit_core.c     |  3 ---
- arch/s390/net/bpf_jit_comp.c      |  4 ----
- arch/sparc/net/bpf_jit_comp_32.c  |  3 ---
- arch/sparc/net/bpf_jit_comp_64.c  | 13 -------------
- arch/x86/net/bpf_jit_comp.c       |  3 ---
- arch/x86/net/bpf_jit_comp32.c     |  3 ---
- net/core/sysctl_net_core.c        | 14 +++-----------
- tools/bpf/bpf_jit_disasm.c        |  2 +-
- tools/bpf/bpftool/feature.c       |  3 ---
- 15 files changed, 4 insertions(+), 81 deletions(-)
+ Documentation/admin-guide/sysctl/net.rst |  1 -
+ Documentation/networking/filter.rst      | 25 ++++++------------------
+ 2 files changed, 6 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index 897634d0a67c..92d669c0b2d3 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -1997,10 +1997,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	}
- 	flush_icache_range((u32)header, (u32)(ctx.target + ctx.idx));
+diff --git a/Documentation/admin-guide/sysctl/net.rst b/Documentation/admin-guide/sysctl/net.rst
+index c941b214e0b7..a39f99deac38 100644
+--- a/Documentation/admin-guide/sysctl/net.rst
++++ b/Documentation/admin-guide/sysctl/net.rst
+@@ -86,7 +86,6 @@ Values:
  
--	if (bpf_jit_enable > 1)
--		/* there are 2 passes here */
--		bpf_jit_dump(prog->len, image_size, 2, ctx.target);
+ 	- 0 - disable the JIT (default value)
+ 	- 1 - enable the JIT
+-	- 2 - enable the JIT and ask the compiler to emit traces on kernel log.
+ 
+ bpf_jit_harden
+ --------------
+diff --git a/Documentation/networking/filter.rst b/Documentation/networking/filter.rst
+index 251c6bd73d15..86954f922168 100644
+--- a/Documentation/networking/filter.rst
++++ b/Documentation/networking/filter.rst
+@@ -504,25 +504,12 @@ been previously enabled by root::
+ 
+   echo 1 > /proc/sys/net/core/bpf_jit_enable
+ 
+-For JIT developers, doing audits etc, each compile run can output the generated
+-opcode image into the kernel log via::
 -
- 	bpf_jit_binary_lock_ro(header);
- 	prog->bpf_func = (void *)ctx.target;
- 	prog->jited = 1;
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index f7b194878a99..a13b83ac4ca8 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -1090,10 +1090,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		goto out_off;
- 	}
- 
--	/* And we're done. */
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(prog->len, prog_size, 2, ctx.image);
+-  echo 2 > /proc/sys/net/core/bpf_jit_enable
 -
- 	bpf_flush_icache(header, ctx.image + ctx.idx);
- 
- 	if (!prog->is_func || extra_pass) {
-diff --git a/arch/mips/net/bpf_jit.c b/arch/mips/net/bpf_jit.c
-index 0af88622c619..b5221282dd88 100644
---- a/arch/mips/net/bpf_jit.c
-+++ b/arch/mips/net/bpf_jit.c
-@@ -1250,10 +1250,6 @@ void bpf_jit_compile(struct bpf_prog *fp)
- 	/* Update the icache */
- 	flush_icache_range((ptr)ctx.target, (ptr)(ctx.target + ctx.idx));
- 
--	if (bpf_jit_enable > 1)
--		/* Dump JIT code */
--		bpf_jit_dump(fp->len, alloc_size, 2, ctx.target);
+-Example output from dmesg::
 -
- 	fp->bpf_func = (void *)ctx.target;
- 	fp->jited = 1;
- 
-diff --git a/arch/mips/net/ebpf_jit.c b/arch/mips/net/ebpf_jit.c
-index 939dd06764bc..dac5a1fc2462 100644
---- a/arch/mips/net/ebpf_jit.c
-+++ b/arch/mips/net/ebpf_jit.c
-@@ -1910,10 +1910,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	flush_icache_range((unsigned long)ctx.target,
- 			   (unsigned long)&ctx.target[ctx.idx]);
- 
--	if (bpf_jit_enable > 1)
--		/* Dump JIT code */
--		bpf_jit_dump(prog->len, image_size, 2, ctx.target);
+-    [ 3389.935842] flen=6 proglen=70 pass=3 image=ffffffffa0069c8f
+-    [ 3389.935847] JIT code: 00000000: 55 48 89 e5 48 83 ec 60 48 89 5d f8 44 8b 4f 68
+-    [ 3389.935849] JIT code: 00000010: 44 2b 4f 6c 4c 8b 87 d8 00 00 00 be 0c 00 00 00
+-    [ 3389.935850] JIT code: 00000020: e8 1d 94 ff e0 3d 00 08 00 00 75 16 be 17 00 00
+-    [ 3389.935851] JIT code: 00000030: 00 e8 28 94 ff e0 83 f8 01 75 07 b8 ff ff 00 00
+-    [ 3389.935852] JIT code: 00000040: eb 02 31 c0 c9 c3
 -
- 	bpf_jit_binary_lock_ro(header);
- 	prog->bpf_func = (void *)ctx.target;
- 	prog->jited = 1;
-diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
-index e809cb5a1631..ebca629de2d1 100644
---- a/arch/powerpc/net/bpf_jit_comp.c
-+++ b/arch/powerpc/net/bpf_jit_comp.c
-@@ -646,18 +646,8 @@ void bpf_jit_compile(struct bpf_prog *fp)
- 		bpf_jit_build_prologue(fp, code_base, &cgctx);
- 		bpf_jit_build_body(fp, code_base, &cgctx, addrs);
- 		bpf_jit_build_epilogue(code_base, &cgctx);
--
--		if (bpf_jit_enable > 1)
--			pr_info("Pass %d: shrink = %d, seen = 0x%x\n", pass,
--				proglen - (cgctx.idx * 4), cgctx.seen);
- 	}
+-When CONFIG_BPF_JIT_ALWAYS_ON is enabled, bpf_jit_enable is permanently set to 1 and
+-setting any other value than that will return in failure. This is even the case for
+-setting bpf_jit_enable to 2, since dumping the final JIT image into the kernel log
+-is discouraged and introspection through bpftool (under tools/bpf/bpftool/) is the
+-generally recommended approach instead.
++When CONFIG_BPF_JIT_ALWAYS_ON is enabled, bpf_jit_enable is permanently set
++to 1 and setting any other value than that will return in failure.
++For debugging JITs, the introspection through bpftool (tools/bpf/bpftool/)
++is the generally recommended approach instead. For JIT developers, doing
++audits etc, you can insert bpf_jit_dump() and recompile the kernel to
++output the generated opcode image into the kernel log.
  
--	if (bpf_jit_enable > 1)
--		/* Note that we output the base address of the code_base
--		 * rather than image, since opcodes are in code_base.
--		 */
--		bpf_jit_dump(flen, proglen, pass, code_base);
--
- 	bpf_flush_icache(code_base, code_base + (proglen/4));
- 
- #ifdef CONFIG_PPC64
-diff --git a/arch/powerpc/net/bpf_jit_comp64.c b/arch/powerpc/net/bpf_jit_comp64.c
-index aaf1a887f653..26243399ef2e 100644
---- a/arch/powerpc/net/bpf_jit_comp64.c
-+++ b/arch/powerpc/net/bpf_jit_comp64.c
-@@ -1215,20 +1215,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 		bpf_jit_build_prologue(code_base, &cgctx);
- 		bpf_jit_build_body(fp, code_base, &cgctx, addrs, extra_pass);
- 		bpf_jit_build_epilogue(code_base, &cgctx);
--
--		if (bpf_jit_enable > 1)
--			pr_info("Pass %d: shrink = %d, seen = 0x%x\n", pass,
--				proglen - (cgctx.idx * 4), cgctx.seen);
- 	}
- 
- skip_codegen_passes:
--	if (bpf_jit_enable > 1)
--		/*
--		 * Note that we output the base address of the code_base
--		 * rather than image, since opcodes are in code_base.
--		 */
--		bpf_jit_dump(flen, proglen, pass, code_base);
--
- #ifdef PPC64_ELF_ABI_v1
- 	/* Function descriptor nastiness: Address + TOC */
- 	((u64 *)image)[0] = (u64)code_base;
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 3630d447352c..856b84fb3947 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -142,9 +142,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	}
- 	bpf_jit_build_epilogue(ctx);
- 
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(prog->len, image_size, pass, ctx->insns);
--
- 	prog->bpf_func = (void *)ctx->insns;
- 	prog->jited = 1;
- 	prog->jited_len = image_size;
-diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
-index 63cae0476bb4..aa8b94ba694f 100644
---- a/arch/s390/net/bpf_jit_comp.c
-+++ b/arch/s390/net/bpf_jit_comp.c
-@@ -1842,10 +1842,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 		fp = orig_fp;
- 		goto free_addrs;
- 	}
--	if (bpf_jit_enable > 1) {
--		bpf_jit_dump(fp->len, jit.size, pass, jit.prg_buf);
--		print_fn_code(jit.prg_buf, jit.size_prg);
--	}
- 	if (!fp->is_func || extra_pass) {
- 		bpf_jit_binary_lock_ro(header);
- 	} else {
-diff --git a/arch/sparc/net/bpf_jit_comp_32.c b/arch/sparc/net/bpf_jit_comp_32.c
-index b1dbf2fa8c0a..cb4c55422730 100644
---- a/arch/sparc/net/bpf_jit_comp_32.c
-+++ b/arch/sparc/net/bpf_jit_comp_32.c
-@@ -743,9 +743,6 @@ cond_branch:			f_offset = addrs[i + filter[i].jf];
- 		oldproglen = proglen;
- 	}
- 
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(flen, proglen, pass + 1, image);
--
- 	if (image) {
- 		fp->bpf_func = (void *)image;
- 		fp->jited = 1;
-diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_comp_64.c
-index 4b8d3c65d266..09ebd48c4f1b 100644
---- a/arch/sparc/net/bpf_jit_comp_64.c
-+++ b/arch/sparc/net/bpf_jit_comp_64.c
-@@ -1546,16 +1546,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		}
- 		build_epilogue(&ctx);
- 
--		if (bpf_jit_enable > 1)
--			pr_info("Pass %d: size = %u, seen = [%c%c%c%c%c%c]\n", pass,
--				ctx.idx * 4,
--				ctx.tmp_1_used ? '1' : ' ',
--				ctx.tmp_2_used ? '2' : ' ',
--				ctx.tmp_3_used ? '3' : ' ',
--				ctx.saw_frame_pointer ? 'F' : ' ',
--				ctx.saw_call ? 'C' : ' ',
--				ctx.saw_tail_call ? 'T' : ' ');
--
- 		if (ctx.idx * 4 == prev_image_size)
- 			break;
- 		prev_image_size = ctx.idx * 4;
-@@ -1593,9 +1583,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		goto out_off;
- 	}
- 
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(prog->len, image_size, pass, ctx.image);
--
- 	bpf_flush_icache(header, (u8 *)header + (header->pages * PAGE_SIZE));
- 
- 	if (!prog->is_func || extra_pass) {
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 9eead60f0301..0a511f42a2a7 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -2311,9 +2311,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		cond_resched();
- 	}
- 
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(prog->len, proglen, pass + 1, image);
--
- 	if (image) {
- 		if (!prog->is_func || extra_pass) {
- 			bpf_tail_call_direct_fixup(prog);
-diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
-index 0a7a2870f111..8d36b4658076 100644
---- a/arch/x86/net/bpf_jit_comp32.c
-+++ b/arch/x86/net/bpf_jit_comp32.c
-@@ -2566,9 +2566,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		cond_resched();
- 	}
- 
--	if (bpf_jit_enable > 1)
--		bpf_jit_dump(prog->len, proglen, pass + 1, image);
--
- 	if (image) {
- 		bpf_jit_binary_lock_ro(header);
- 		prog->bpf_func = (void *)image;
-diff --git a/net/core/sysctl_net_core.c b/net/core/sysctl_net_core.c
-index c8496c1142c9..990b1720c7a4 100644
---- a/net/core/sysctl_net_core.c
-+++ b/net/core/sysctl_net_core.c
-@@ -273,16 +273,8 @@ static int proc_dointvec_minmax_bpf_enable(struct ctl_table *table, int write,
- 
- 	tmp.data = &jit_enable;
- 	ret = proc_dointvec_minmax(&tmp, write, buffer, lenp, ppos);
--	if (write && !ret) {
--		if (jit_enable < 2 ||
--		    (jit_enable == 2 && bpf_dump_raw_ok(current_cred()))) {
--			*(int *)table->data = jit_enable;
--			if (jit_enable == 2)
--				pr_warn("bpf_jit_enable = 2 was set! NEVER use this in production, only for JIT debugging!\n");
--		} else {
--			ret = -EPERM;
--		}
--	}
-+	if (write && !ret)
-+		*(int *)table->data = jit_enable;
- 	return ret;
- }
- 
-@@ -389,7 +381,7 @@ static struct ctl_table net_core_table[] = {
- 		.extra2		= SYSCTL_ONE,
- # else
- 		.extra1		= SYSCTL_ZERO,
--		.extra2		= &two,
-+		.extra2		= SYSCTL_ONE,
- # endif
- 	},
- # ifdef CONFIG_HAVE_EBPF_JIT
-diff --git a/tools/bpf/bpf_jit_disasm.c b/tools/bpf/bpf_jit_disasm.c
-index c8ae95804728..efa4b17ae016 100644
---- a/tools/bpf/bpf_jit_disasm.c
-+++ b/tools/bpf/bpf_jit_disasm.c
-@@ -7,7 +7,7 @@
-  *
-  * To get the disassembly of the JIT code, do the following:
-  *
-- *  1) `echo 2 > /proc/sys/net/core/bpf_jit_enable`
-+ *  1) Insert bpf_jit_dump() and recompile the kernel to output JITed image into log
-  *  2) Load a BPF filter (e.g. `tcpdump -p -n -s 0 -i eth1 host 192.168.20.0/24`)
-  *  3) Run e.g. `bpf_jit_disasm -o` to read out the last JIT code
-  *
-diff --git a/tools/bpf/bpftool/feature.c b/tools/bpf/bpftool/feature.c
-index 40a88df275f9..98c7eec2923f 100644
---- a/tools/bpf/bpftool/feature.c
-+++ b/tools/bpf/bpftool/feature.c
-@@ -203,9 +203,6 @@ static void probe_jit_enable(void)
- 		case 1:
- 			printf("JIT compiler is enabled\n");
- 			break;
--		case 2:
--			printf("JIT compiler is enabled with debugging traces in kernel logs\n");
--			break;
- 		case -1:
- 			printf("Unable to retrieve JIT-compiler status\n");
- 			break;
+ In the kernel source tree under tools/bpf/, there's bpf_jit_disasm for
+ generating disassembly out of the kernel log's hexdump::
 -- 
 2.25.1
 
