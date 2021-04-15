@@ -8,15 +8,15 @@ X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 02C90C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 14:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0FF0CC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 14:39:25 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 557F9611F1
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 14:04:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 557F9611F1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 706CF61139
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 14:39:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 706CF61139
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -24,55 +24,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NedIl2UuP8lGJlr3yWKcHIVXG6AAXZXTA61JpcdxZRs=; b=qAr/OpNX6A36SbHUq3ApFtlQk
-	QzpqD+PNQey30aX3KxLyxyQLizqf5aolw69fi8F+x4hx4oabx9TLaVRia1WasAHuQq74SYGT7Qa9A
-	fmDRrhGy8XILC0af2LrWLONK/IA4J6DZdmwtz6PmrqWOZlcGhxZnJqrIc9VDAvzeWIe28ESSBpf6K
-	/6E+ECb8S6AVRYz6QXZM5/ZYYQLE1SpRAECoMSx/OszucF4cj9YheOrfhILaiUEeaTC52Y9KpFqIl
-	lTibXIShQPA5gmFj40IKeDUfIsSMzP6Np5avKzlgYGe19iZkMlF8+0CdvFvwzdBoNxLeB58mIOQqO
-	oPF2vOE5w==;
+	 bh=omddKTg5M+CsCDzPjtfrI5cvZVm1/dtplZKQypC1+Rc=; b=XjWU4Q9E3zWho84YTXEGtEzKL
+	U3ncq1/znpvJRr1X4xo7xjWiEHQpknwkAxs9SWVtp70clVPoiKHXbx7J1ZYF0HnUQeOP9MoUQOCTS
+	25z2MNxwur9KiTgspJ/eP16fDFICErtNOUKMuTiWj4Lx9xZ1mFN9QhR6qcjnQ/XT284cI1FjAGPy5
+	3AcQWq/YfodI/uMxiQZgQCtKZGmz2+nGApWl3cHx11QSBEgqOq/NqIn7CO0kCJrqtuHfYEtYx059k
+	Y5T4B8/Lz1LLNgE45a6InWlT95kb7zDMUiZBs7URK0t3XcdwI9NAdjug4VJTADxSdjUdrrPvuU45J
+	sVtCyyZJQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lX2be-00GNAF-Gf; Thu, 15 Apr 2021 14:04:30 +0000
+	id 1lX39B-00GTIz-GW; Thu, 15 Apr 2021 14:39:09 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lX2bZ-00GN7k-DH
- for linux-riscv@desiato.infradead.org; Thu, 15 Apr 2021 14:04:25 +0000
+ id 1lX396-00GTIS-Uo; Thu, 15 Apr 2021 14:39:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
  Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=kuRDozf3WQKUEF+qhJ44HCCb1jtN9SZWxpKpBPaaFAk=; b=t/AJzh11zk3OJ/U+qENcIEVso0
- by8ImrDIM0mzp1DFFyRD7SsBslvr5CBNb/mbPNPK6p8nSOjZTDpRDjC9n1uz2V1cTFG8qfL5U+yB/
- 8CF8ZcfHqq8HMJwMhyacTqcJDz5nySKW5Rptvwv7huApeqpGmPFtUqJtO1tDNFVLJSq2CNM7/viQJ
- 1REDsz4GnapwJjt5mIoC1RV6Lyx0tsufYyX1ziAS3ZENHK58x6uF2taPIWgp3ExJ/GspBh6E3ud5c
- rrlGB870vFe1YHv8LTYyBVtv2qc3fDddzKn122pfcUWAmOdS9er5Zj2lrukr6WKyPk2Zdfq0Itw8k
- Zo1FJwTw==;
-Received: from mail.kernel.org ([198.145.29.99])
+ bh=47PdC+1x8pK3d2W77IhAOaJXzuG7NoVpwGQ66hUC/qA=; b=WAPjwV6CifSaNPiuOcump3BJ5A
+ 0EZN73buADJIIU29w1mZRhxR1uQ9p0k+rpfs8vs4K6Xv5D5THSeThbzdSr87R8ZVujL1/aP3iGOW1
+ 0EI4YtecM2EIxQ2IE66WOFMHEnyCI6YlW2T8+XzVeXp46leL/tUFmSSv3Hn7mNm5KRhmzeTdU3ylB
+ wk2YzU9ef6IUJIlCAjyyooPnFo2LTxOuePF5KAQUsZEHlds0CEWp176Bs5PR8335cx1MNwTvcKaGT
+ jydZU0yDCyYJtpyx02lNY6Sm7y0Ovm4IrOxjn5IutiMPU9MzsduJzF+OKdoarSx0t9+XddMi9RN9t
+ F0EIqKgw==;
+Received: from www62.your-server.de ([213.133.104.62])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lX2bV-008dOE-1D
- for linux-riscv@lists.infradead.org; Thu, 15 Apr 2021 14:04:24 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0523461222;
- Thu, 15 Apr 2021 14:04:17 +0000 (UTC)
-Subject: Re: [PATCH v3 1/2] binfmt_flat: allow not offsetting data start
-To: Damien Le Moal <damien.lemoal@wdc.com>, uclinux-dev@uclinux.org,
- ugerg@linux-m68k.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- linux-kernel@vger.kernel.org
-Cc: Max Filippov <jcmvbkbc@gmail.com>, Anup Patel <anup.patel@wdc.com>,
- Christoph Hellwig <hch@lst.de>
-References: <20210415061502.7248-1-damien.lemoal@wdc.com>
- <20210415061502.7248-2-damien.lemoal@wdc.com>
-From: Greg Ungerer <gerg@linux-m68k.org>
-Message-ID: <8ff801ad-6e17-fdd2-6186-5443540947a9@linux-m68k.org>
-Date: Fri, 16 Apr 2021 00:04:15 +1000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ id 1lX393-008eta-TI; Thu, 15 Apr 2021 14:39:03 +0000
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+ by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+ (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
+ id 1lX37j-000708-Ga; Thu, 15 Apr 2021 16:37:39 +0200
+Received: from [85.7.101.30] (helo=pc-6.home)
+ by sslproxy03.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
+ id 1lX37i-000EJ3-8n; Thu, 15 Apr 2021 16:37:38 +0200
+Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
+To: Jianlin Lv <Jianlin.Lv@arm.com>, bpf@vger.kernel.org
+Cc: corbet@lwn.net, ast@kernel.org, andrii@kernel.org, kafai@fb.com,
+ songliubraving@fb.com, yhs@fb.com, john.fastabend@gmail.com,
+ kpsingh@kernel.org, davem@davemloft.net, kuba@kernel.org,
+ illusionist.neo@gmail.com, linux@armlinux.org.uk, zlim.lnx@gmail.com,
+ catalin.marinas@arm.com, will@kernel.org, paulburton@kernel.org,
+ tsbogend@alpha.franken.de, naveen.n.rao@linux.ibm.com,
+ sandipan@linux.ibm.com, mpe@ellerman.id.au, benh@kernel.crashing.org,
+ paulus@samba.org, luke.r.nels@gmail.com, xi.wang@gmail.com,
+ bjorn@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, iii@linux.ibm.com, hca@linux.ibm.com,
+ gor@linux.ibm.com, borntraeger@de.ibm.com, yoshfuji@linux-ipv6.org,
+ dsahern@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ x86@kernel.org, hpa@zytor.com, udknight@gmail.com,
+ mchehab+huawei@kernel.org, dvyukov@google.com, maheshb@google.com,
+ horms@verge.net.au, nicolas.dichtel@6wind.com, viro@zeniv.linux.org.uk,
+ masahiroy@kernel.org, keescook@chromium.org, quentin@isovalent.com,
+ tklauser@distanz.ch, grantseltzer@gmail.com, irogers@google.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, iecedge@gmail.com
+References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
+Date: Thu, 15 Apr 2021 16:37:36 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-In-Reply-To: <20210415061502.7248-2-damien.lemoal@wdc.com>
+In-Reply-To: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
 Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.102.4/26141/Thu Apr 15 13:13:26 2021)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210415_070421_148242_66176E92 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20210415_073901_957868_C5D550FB 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,139 +111,107 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Damien,
-
-On 15/4/21 4:15 pm, Damien Le Moal wrote:
-> Commit 2217b9826246 ("binfmt_flat: revert "binfmt_flat: don't offset
-> the data start"") restored offsetting the start of the data section by
-> a number of words defined by MAX_SHARED_LIBS. As a result, since
-> MAX_SHARED_LIBS is never 0, a gap between the text and data sections
-> always exists. For architectures which cannot support a such gap
-> between the text and data sections (e.g. riscv nommu), flat binary
-> programs cannot be executed.
+On 4/15/21 11:32 AM, Jianlin Lv wrote:
+> For debugging JITs, dumping the JITed image to kernel log is discouraged,
+> "bpftool prog dump jited" is much better way to examine JITed dumps.
+> This patch get rid of the code related to bpf_jit_enable=2 mode and
+> update the proc handler of bpf_jit_enable, also added auxiliary
+> information to explain how to use bpf_jit_disasm tool after this change.
 > 
-> To allow an architecture to request contiguous text and data sections,
-> introduce the config option CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP.
-> Using this new option, the macro DATA_GAP_WORDS is conditionally
-> defined in binfmt_flat.c to MAX_SHARED_LIBS for architectures
-> tolerating the text-to-data gap (CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP
-> disabled case) and to 0 when CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP is
-> enabled. DATA_GAP_WORDS is used in load_flat_file() to calculate the
-> data section length and start position.
-> 
-> An architecture enabling CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP also
-> prevents the use of the separate text/data load case (when the flat file
-> header flags FLAT_FLAG_RAM and FLAT_FLAG_GZIP are not set with NOMMU
-> kernels) and forces the use of a single RAM region for loading
-> (equivalent to FLAT_FLAG_RAM being set).
-
-So is it the case that a flat format file on RISC-V will never have
-relocations?
-
-
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
->   fs/Kconfig.binfmt |  3 +++
->   fs/binfmt_flat.c  | 21 +++++++++++++++------
->   2 files changed, 18 insertions(+), 6 deletions(-)
-> 
-> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
-> index c6f1c8c1934e..c6df931d5d45 100644
-> --- a/fs/Kconfig.binfmt
-> +++ b/fs/Kconfig.binfmt
-> @@ -112,6 +112,9 @@ config BINFMT_FLAT_ARGVP_ENVP_ON_STACK
->   config BINFMT_FLAT_OLD_ALWAYS_RAM
->   	bool
->   
-> +config BINFMT_FLAT_NO_TEXT_DATA_GAP
-> +	bool
-> +
->   config BINFMT_FLAT_OLD
->   	bool "Enable support for very old legacy flat binaries"
->   	depends on BINFMT_FLAT
-> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
-> index b9c658e0548e..2be29bb964b8 100644
-> --- a/fs/binfmt_flat.c
-> +++ b/fs/binfmt_flat.c
-> @@ -74,6 +74,12 @@
->   #define	MAX_SHARED_LIBS			(1)
->   #endif
->   
-> +#ifdef CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP
-> +#define DATA_GAP_WORDS			(0)
-> +#else
-> +#define DATA_GAP_WORDS			(MAX_SHARED_LIBS)
-> +#endif
-> +>   struct lib_info {
->   	struct {
->   		unsigned long start_code;		/* Start of text segment */
-> @@ -559,7 +565,10 @@ static int load_flat_file(struct linux_binprm *bprm,
->   	 * case,  and then the fully copied to RAM case which lumps
->   	 * it all together.
->   	 */
-> -	if (!IS_ENABLED(CONFIG_MMU) && !(flags & (FLAT_FLAG_RAM|FLAT_FLAG_GZIP))) {
-> +	if (!IS_ENABLED(CONFIG_MMU) &&
-> +	    !IS_ENABLED(CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP) &&
-
-If RISC-V flat format files must always be loaded to RAM then why don't
-they set the FLAT_FLAG_RAM when compiled/generated?
-
-Regards
-Greg
-
-
-> +	    !(flags & (FLAT_FLAG_RAM|FLAT_FLAG_GZIP))) {
-> +
->   		/*
->   		 * this should give us a ROM ptr,  but if it doesn't we don't
->   		 * really care
-> @@ -576,7 +585,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->   			goto err;
->   		}
->   
-> -		len = data_len + extra + MAX_SHARED_LIBS * sizeof(unsigned long);
-> +		len = data_len + extra + DATA_GAP_WORDS * sizeof(unsigned long);
->   		len = PAGE_ALIGN(len);
->   		realdatastart = vm_mmap(NULL, 0, len,
->   			PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE, 0);
-> @@ -591,7 +600,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->   			goto err;
->   		}
->   		datapos = ALIGN(realdatastart +
-> -				MAX_SHARED_LIBS * sizeof(unsigned long),
-> +				DATA_GAP_WORDS * sizeof(unsigned long),
->   				FLAT_DATA_ALIGN);
->   
->   		pr_debug("Allocated data+bss+stack (%u bytes): %lx\n",
-> @@ -622,7 +631,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->   		memp_size = len;
->   	} else {
->   
-> -		len = text_len + data_len + extra + MAX_SHARED_LIBS * sizeof(u32);
-> +		len = text_len + data_len + extra + DATA_GAP_WORDS * sizeof(u32);
->   		len = PAGE_ALIGN(len);
->   		textpos = vm_mmap(NULL, 0, len,
->   			PROT_READ | PROT_EXEC | PROT_WRITE, MAP_PRIVATE, 0);
-> @@ -638,7 +647,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->   
->   		realdatastart = textpos + ntohl(hdr->data_start);
->   		datapos = ALIGN(realdatastart +
-> -				MAX_SHARED_LIBS * sizeof(u32),
-> +				DATA_GAP_WORDS * sizeof(u32),
->   				FLAT_DATA_ALIGN);
->   
->   		reloc = (__be32 __user *)
-> @@ -714,7 +723,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->   			ret = result;
->   			pr_err("Unable to read code+data+bss, errno %d\n", ret);
->   			vm_munmap(textpos, text_len + data_len + extra +
-> -				MAX_SHARED_LIBS * sizeof(u32));
-> +				  DATA_GAP_WORDS * sizeof(u32));
->   			goto err;
->   		}
+> Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
+[...]
+> diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
+> index 0a7a2870f111..8d36b4658076 100644
+> --- a/arch/x86/net/bpf_jit_comp32.c
+> +++ b/arch/x86/net/bpf_jit_comp32.c
+> @@ -2566,9 +2566,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+>   		cond_resched();
 >   	}
+>   
+> -	if (bpf_jit_enable > 1)
+> -		bpf_jit_dump(prog->len, proglen, pass + 1, image);
+> -
+>   	if (image) {
+>   		bpf_jit_binary_lock_ro(header);
+>   		prog->bpf_func = (void *)image;
+> diff --git a/net/core/sysctl_net_core.c b/net/core/sysctl_net_core.c
+> index c8496c1142c9..990b1720c7a4 100644
+> --- a/net/core/sysctl_net_core.c
+> +++ b/net/core/sysctl_net_core.c
+> @@ -273,16 +273,8 @@ static int proc_dointvec_minmax_bpf_enable(struct ctl_table *table, int write,
+>   
+>   	tmp.data = &jit_enable;
+>   	ret = proc_dointvec_minmax(&tmp, write, buffer, lenp, ppos);
+> -	if (write && !ret) {
+> -		if (jit_enable < 2 ||
+> -		    (jit_enable == 2 && bpf_dump_raw_ok(current_cred()))) {
+> -			*(int *)table->data = jit_enable;
+> -			if (jit_enable == 2)
+> -				pr_warn("bpf_jit_enable = 2 was set! NEVER use this in production, only for JIT debugging!\n");
+> -		} else {
+> -			ret = -EPERM;
+> -		}
+> -	}
+> +	if (write && !ret)
+> +		*(int *)table->data = jit_enable;
+>   	return ret;
+>   }
+>   
+> @@ -389,7 +381,7 @@ static struct ctl_table net_core_table[] = {
+>   		.extra2		= SYSCTL_ONE,
+>   # else
+>   		.extra1		= SYSCTL_ZERO,
+> -		.extra2		= &two,
+> +		.extra2		= SYSCTL_ONE,
+>   # endif
+>   	},
+>   # ifdef CONFIG_HAVE_EBPF_JIT
+> diff --git a/tools/bpf/bpf_jit_disasm.c b/tools/bpf/bpf_jit_disasm.c
+> index c8ae95804728..efa4b17ae016 100644
+> --- a/tools/bpf/bpf_jit_disasm.c
+> +++ b/tools/bpf/bpf_jit_disasm.c
+> @@ -7,7 +7,7 @@
+>    *
+>    * To get the disassembly of the JIT code, do the following:
+>    *
+> - *  1) `echo 2 > /proc/sys/net/core/bpf_jit_enable`
+> + *  1) Insert bpf_jit_dump() and recompile the kernel to output JITed image into log
+
+Hmm, if we remove bpf_jit_dump(), the next drive-by cleanup patch will be thrown
+at bpf@vger stating that bpf_jit_dump() has no in-tree users and should be removed.
+Maybe we should be removing bpf_jit_disasm.c along with it as well as bpf_jit_dump()
+itself ... I guess if it's ever needed in those rare occasions for JIT debugging we
+can resurrect it from old kernels just locally. But yeah, bpftool's jit dump should
+suffice for vast majority of use cases.
+
+There was a recent set for ppc32 jit which was merged into ppc tree which will create
+a merge conflict with this one [0]. So we would need a rebase and take it maybe during
+merge win once the ppc32 landed..
+
+   [0] https://lore.kernel.org/bpf/cover.1616430991.git.christophe.leroy@csgroup.eu/
+
+>    *  2) Load a BPF filter (e.g. `tcpdump -p -n -s 0 -i eth1 host 192.168.20.0/24`)
+>    *  3) Run e.g. `bpf_jit_disasm -o` to read out the last JIT code
+>    *
+> diff --git a/tools/bpf/bpftool/feature.c b/tools/bpf/bpftool/feature.c
+> index 40a88df275f9..98c7eec2923f 100644
+> --- a/tools/bpf/bpftool/feature.c
+> +++ b/tools/bpf/bpftool/feature.c
+> @@ -203,9 +203,6 @@ static void probe_jit_enable(void)
+>   		case 1:
+>   			printf("JIT compiler is enabled\n");
+>   			break;
+> -		case 2:
+> -			printf("JIT compiler is enabled with debugging traces in kernel logs\n");
+> -			break;
+
+This would still need to be there for older kernels ...
+
+>   		case -1:
+>   			printf("Unable to retrieve JIT-compiler status\n");
+>   			break;
 > 
+
 
 _______________________________________________
 linux-riscv mailing list
