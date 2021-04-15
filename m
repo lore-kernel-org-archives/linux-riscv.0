@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 166A7C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 17:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90A7DC433B4
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 17:19:45 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6BF9461184
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 17:18:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BF9461184
+	by mail.kernel.org (Postfix) with ESMTPS id 0720D61074
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Apr 2021 17:19:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0720D61074
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,58 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Date:Cc:To:Subject:From:References:In-Reply-To:
 	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oP+zjAgm7KBRYpKdMwA7X5bSh1z090PdLdFuIms/3g=; b=DWKpPwAh8+1VUkCcSb0oQ8weS2
-	7Nmns0ehLTktifNJMMUGWhUIltFdGyj1gZS7t+NoSCNdOtsMuP5NpAaVtuKVs6bRMPdKsDy183Gy7
-	k830inxascf1qw/4NgZVCOfAB6l2AbPJA05rAUQEyufpd+V4ttwcJaVBVy7xX0jLyF15OG6NEoo7/
-	btleqq1/X4mvUbBdMJRZbkUeFA7lvN2YbBHTyS3YHdP3AxkPH/XukklrcNAOWWgjPqrlZq7jJORsP
-	vIOPaKJ+HQh/SwL6ncKJaZZNgbV+CIMNP/Pr+px6dUzLQQs/pvGUn3HgL01++975HkdJHOIpVSHHH
-	Kez5WyXQ==;
+	bh=vBl5vsG43bkIsvOGkTl+IOlC1zTy789yCBIOfK8FPG4=; b=RVJ+FOVFinup2RbjHqBc6wShzt
+	XV35+NJqWIyXTQwS+xkA0S20O9k9u0A4IYPMzS73WYwSdGh36V98Bu/ePPgVokW+1O2blwgKcR06A
+	flxozB851TnL/DmSljCzJHsK3m/cstqns+cKdFpyPN8dv9n3U+rvcfulvAdWnMSr5kJMRowJcv8SZ
+	JUYisBvJU9xCDmpXQasYs1BlOCXVpyi/W5qZvtz2jHi00cwYvPOXkxB+UTJYuf0R0l/RgIchDPXmT
+	uDXIXEs7BPHLy7z196lu8pqGbmamuyb1gCYM4fyX33JejMZRm/KmBudXlwZUUgtdXaUmfuG3e5IF5
+	duDDYMLQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lX5dg-00GqGC-9p; Thu, 15 Apr 2021 17:18:48 +0000
+	id 1lX5eU-00GqZC-7l; Thu, 15 Apr 2021 17:19:38 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lX5dE-00GqBY-Sp; Thu, 15 Apr 2021 17:18:21 +0000
+ id 1lX5dG-00GqBn-7o; Thu, 15 Apr 2021 17:18:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Date:Cc:To:Subject:From:References:
  In-Reply-To:Message-Id:Sender:Reply-To:MIME-Version:Content-Type:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=Btm2cic9GFZuY/f1ULdFW+o09h/gz/ykpjirvAgRoaM=; b=cm4EbBiM6I67ZpKgY/3bFPIdxW
- 7eahfN7S4lwzVmIBA0U/Vm/0Q2Coylx9gi/T1Rjh3VH9f0SnLr1bLE8IHuJKX5gcVxicI1fgVn6BJ
- 1cAMVr7h7u2uIh9n52YWOwYTn8nNeja99PNfiinJLqSLXZ2pXs+f2hASt6SGm33ZiWXjCuhCHpZgS
- 1Egyb2bTow+TZo4qSojDSPpjif9/hPPZHU3fPLVzjcN7wqXmN/xpaiNsLgRdQXzkDskUUQcSeCruJ
- xgzdxT6K3dGzVsaCluZQFb1Gxgx+cGQqplYhTOB8TtL4fhibJvJAhAJOfuouug78UjTvbPSPIMjAG
- bGk4MWlg==;
+ bh=QMd+cu3dHCLUxai7ooI8glvIxSXVWhjgGRBdVC0942w=; b=WDhFgWeeeSveGTHIuZcH8zGJnj
+ dokB9n25XHuDLgW8JsQDvg/lOrOJYDMPlyM70VhxPN4TOYylo/k1Bws+QH2kltwgvVdqVyUmZYdu2
+ fLp0CmJEkc+vjNb22k4LmFYr75IIL6j+MWfhF1kC7RkS3kHc5x4JvMM4KyYKXVAQULcdSL5g3z+NO
+ WYx2bsSjO1N/YEuhdXVV7+VFuvODxfH5PQn8cTaN+wGRVpdDrjCmosW174bDjkaq3MEr4jTqBlxOM
+ sNn4LDWqkQzOEHc6GUTvYM1QL6xPSr8U7ZXOFVqVcX0/8Gvb4SjaWf2CbVOtC60+evGwC2OTkJvfd
+ cntKHY3g==;
 Received: from pegase1.c-s.fr ([93.17.236.30])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lX5dB-008llw-E7; Thu, 15 Apr 2021 17:18:19 +0000
+ id 1lX5dB-008llx-Ug; Thu, 15 Apr 2021 17:18:21 +0000
 Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4FLmJR3NnVz9vBLn;
- Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
+ by localhost (Postfix) with ESMTP id 4FLmJS2hFmz9twny;
+ Thu, 15 Apr 2021 19:18:16 +0200 (CEST)
 X-Virus-Scanned: Debian amavisd-new at c-s.fr
 Received: from pegase1.c-s.fr ([192.168.12.234])
  by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id C9R3Cqc6HllM; Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
+ with ESMTP id 9TQhOmPalXDv; Thu, 15 Apr 2021 19:18:16 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4FLmJR2HvLz9tyvC;
- Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FLmJS0s99z9tyvC;
+ Thu, 15 Apr 2021 19:18:16 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 2924B8B804;
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id EE0AA8B804;
  Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
  by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id G8IFx-cy7Cpg; Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
+ with ESMTP id HGdgYeJV7C-l; Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
 Received: from po16121vm.idsi0.si.c-s.fr (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id 9F20A8B7F6;
- Thu, 15 Apr 2021 19:18:14 +0200 (CEST)
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id A7C3D8B7F6;
+ Thu, 15 Apr 2021 19:18:15 +0200 (CEST)
 Received: by po16121vm.idsi0.si.c-s.fr (Postfix, from userid 0)
- id 7E3BA679F6; Thu, 15 Apr 2021 17:18:14 +0000 (UTC)
-Message-Id: <733408f48b1ed191f53518123ee6fc6d42287cc6.1618506910.git.christophe.leroy@csgroup.eu>
+ id 85190679F6; Thu, 15 Apr 2021 17:18:15 +0000 (UTC)
+Message-Id: <9bd00b3ca42dbec81a0139626e780a8f8c871988.1618506910.git.christophe.leroy@csgroup.eu>
 In-Reply-To: <cover.1618506910.git.christophe.leroy@csgroup.eu>
 References: <cover.1618506910.git.christophe.leroy@csgroup.eu>
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v1 1/5] mm: pagewalk: Fix walk for hugepage tables
+Subject: [PATCH v1 2/5] mm: ptdump: Fix build failure
 To: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>, 
  Steven Price <steven.price@arm.com>, akpm@linux-foundation.org
@@ -82,10 +82,10 @@ Cc: linux-arch@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-mm@kvack.org
-Date: Thu, 15 Apr 2021 17:18:14 +0000 (UTC)
+Date: Thu, 15 Apr 2021 17:18:15 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210415_101817_812111_FEC77E0A 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20210415_101818_319849_92139CCC 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,109 +103,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pagewalk ignores hugepd entries and walk down the tables
-as if it was traditionnal entries, leading to crazy result.
+	  CC      mm/ptdump.o
+	In file included from <command-line>:
+	mm/ptdump.c: In function 'ptdump_pte_entry':
+	././include/linux/compiler_types.h:320:38: error: call to '__compiletime_assert_207' declared with attribute error: Unsupported access size for {READ,WRITE}_ONCE().
+	  320 |  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+	      |                                      ^
+	././include/linux/compiler_types.h:301:4: note: in definition of macro '__compiletime_assert'
+	  301 |    prefix ## suffix();    \
+	      |    ^~~~~~
+	././include/linux/compiler_types.h:320:2: note: in expansion of macro '_compiletime_assert'
+	  320 |  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+	      |  ^~~~~~~~~~~~~~~~~~~
+	./include/asm-generic/rwonce.h:36:2: note: in expansion of macro 'compiletime_assert'
+	   36 |  compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long), \
+	      |  ^~~~~~~~~~~~~~~~~~
+	./include/asm-generic/rwonce.h:49:2: note: in expansion of macro 'compiletime_assert_rwonce_type'
+	   49 |  compiletime_assert_rwonce_type(x);    \
+	      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	mm/ptdump.c:114:14: note: in expansion of macro 'READ_ONCE'
+	  114 |  pte_t val = READ_ONCE(*pte);
+	      |              ^~~~~~~~~
+	make[2]: *** [mm/ptdump.o] Error 1
 
-Add walk_hugepd_range() and use it to walk hugepage tables.
+READ_ONCE() cannot be used for reading PTEs. Use ptep_get()
+instead. See commit 481e980a7c19 ("mm: Allow arches to provide ptep_get()")
+and commit c0e1c8c22beb ("powerpc/8xx: Provide ptep_get() with 16k pages")
+for details.
 
+Fixes: 30d621f6723b ("mm: add generic ptdump")
+Cc: Steven Price <steven.price@arm.com>
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 ---
- mm/pagewalk.c | 54 +++++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 48 insertions(+), 6 deletions(-)
+ mm/ptdump.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-index e81640d9f177..410a9d8f7572 100644
---- a/mm/pagewalk.c
-+++ b/mm/pagewalk.c
-@@ -58,6 +58,32 @@ static int walk_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static int walk_hugepd_range(hugepd_t *phpd, unsigned long addr,
-+			     unsigned long end, struct mm_walk *walk, int pdshift)
-+{
-+	int err = 0;
-+#ifdef CONFIG_ARCH_HAS_HUGEPD
-+	const struct mm_walk_ops *ops = walk->ops;
-+	int shift = hugepd_shift(*phpd);
-+	int page_size = 1 << shift;
-+
-+	if (addr & (page_size - 1))
-+		return 0;
-+
-+	for (;;) {
-+		pte_t *pte = hugepte_offset(*phpd, addr, pdshift);
-+
-+		err = ops->pte_entry(pte, addr, addr + page_size, walk);
-+		if (err)
-+			break;
-+		if (addr >= end - page_size)
-+			break;
-+		addr += page_size;
-+	}
-+#endif
-+	return err;
-+}
-+
- static int walk_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
- 			  struct mm_walk *walk)
+diff --git a/mm/ptdump.c b/mm/ptdump.c
+index 4354c1422d57..da751448d0e4 100644
+--- a/mm/ptdump.c
++++ b/mm/ptdump.c
+@@ -111,7 +111,7 @@ static int ptdump_pte_entry(pte_t *pte, unsigned long addr,
+ 			    unsigned long next, struct mm_walk *walk)
  {
-@@ -108,7 +134,10 @@ static int walk_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
- 				goto again;
- 		}
+ 	struct ptdump_state *st = walk->private;
+-	pte_t val = READ_ONCE(*pte);
++	pte_t val = ptep_get(pte);
  
--		err = walk_pte_range(pmd, addr, next, walk);
-+		if (is_hugepd(__hugepd(pmd_val(*pmd))))
-+			err = walk_hugepd_range((hugepd_t *)pmd, addr, next, walk, PMD_SHIFT);
-+		else
-+			err = walk_pte_range(pmd, addr, next, walk);
- 		if (err)
- 			break;
- 	} while (pmd++, addr = next, addr != end);
-@@ -157,7 +186,10 @@ static int walk_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
- 		if (pud_none(*pud))
- 			goto again;
- 
--		err = walk_pmd_range(pud, addr, next, walk);
-+		if (is_hugepd(__hugepd(pud_val(*pud))))
-+			err = walk_hugepd_range((hugepd_t *)pud, addr, next, walk, PUD_SHIFT);
-+		else
-+			err = walk_pmd_range(pud, addr, next, walk);
- 		if (err)
- 			break;
- 	} while (pud++, addr = next, addr != end);
-@@ -189,8 +221,13 @@ static int walk_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
- 			if (err)
- 				break;
- 		}
--		if (ops->pud_entry || ops->pmd_entry || ops->pte_entry)
--			err = walk_pud_range(p4d, addr, next, walk);
-+		if (ops->pud_entry || ops->pmd_entry || ops->pte_entry) {
-+			if (is_hugepd(__hugepd(p4d_val(*p4d))))
-+				err = walk_hugepd_range((hugepd_t *)p4d, addr, next, walk,
-+							P4D_SHIFT);
-+			else
-+				err = walk_pud_range(p4d, addr, next, walk);
-+		}
- 		if (err)
- 			break;
- 	} while (p4d++, addr = next, addr != end);
-@@ -225,8 +262,13 @@ static int walk_pgd_range(unsigned long addr, unsigned long end,
- 				break;
- 		}
- 		if (ops->p4d_entry || ops->pud_entry || ops->pmd_entry ||
--		    ops->pte_entry)
--			err = walk_p4d_range(pgd, addr, next, walk);
-+		    ops->pte_entry) {
-+			if (is_hugepd(__hugepd(pgd_val(*pgd))))
-+				err = walk_hugepd_range((hugepd_t *)pgd, addr, next, walk,
-+							PGDIR_SHIFT);
-+			else
-+				err = walk_p4d_range(pgd, addr, next, walk);
-+		}
- 		if (err)
- 			break;
- 	} while (pgd++, addr = next, addr != end);
+ 	if (st->effective_prot)
+ 		st->effective_prot(st, 4, pte_val(val));
 -- 
 2.25.0
 
