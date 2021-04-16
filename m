@@ -7,102 +7,90 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 03CBEC433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 16:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E60CC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 16:44:34 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5C73B6115B
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 16:34:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5C73B6115B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 52F6F61042
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 16:44:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 52F6F61042
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=bTo8q6QGDm1dVi6iRVowu2xtXf3tAos00iVX4WI8ees=; b=ctP7Utie35oeQIp8DbhUgkjxA
-	GALaLj8Phy1JpiWNwcA87j6rxwoDqyeZtpKAKwyOdHN8/LMS5HuW8H2Ah2ohnkhfi66M80M0Sck7V
-	nbp2LeMgw4F0KKPtSYtndEeRdv88ogVuV3x3axlBHRohRf7tYn2mF36hX+nuAvYDdyGYx9C8aUOJm
-	jVTtxNQ5BZiYhB0CUMq5yAugV4anmxXyG8ny2uDfTmi0szwzlUu4oeJuq9ha01Gpx8KryfMPUfNUm
-	70iaRLyc36wCNFLhQ/MHQiQD+HsDd+7HHReW97Etkr61UW3zL0UuYAnu1cNSFXHQ3qRUQ7QX7u+0+
-	E5W+HUu2A==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dDp40h3jAdLhIZ6G0sRySOEYfLB1Dx+ChA0PCXzzPzE=; b=AqFIETtbS96zpKF9H+/4dcPdMn
+	hEEGqFqR2skyERHeB4/O5FKDkekYZRk+afL8UEeAxOq5EKPkuUZOH2VaJhv/YVZFaL5Mh4VA0E/1P
+	tEeDFKVFUlHYCPbg6Bcqf5P3Pk1mUk3gTcAhK21QEk4CL2f4TDFvfsAdJIa3iOToPxv+1+igNqWFH
+	y5rRCIvRaKBx+IOmM3c60ZFX9+ShL/63jCW+7nTtI/VEQq5jTjDZRz9VrURrexYfWe+GrmS2n8RHO
+	zdAzWsSx77x7xeVtfkt7A0zXXev400H4ZNZ8HkNemNnLRhIeJYqHVw2H1l3OGFPgHxFSFurhvXw7W
+	MimgJvWQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXRPz-002nLs-Ag; Fri, 16 Apr 2021 16:34:07 +0000
+	id 1lXRZm-002plA-7D; Fri, 16 Apr 2021 16:44:14 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXRPx-002nLG-9H
- for linux-riscv@desiato.infradead.org; Fri, 16 Apr 2021 16:34:05 +0000
+ id 1lXRYX-002p3h-Ui
+ for linux-riscv@desiato.infradead.org; Fri, 16 Apr 2021 16:42:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
- Sender:Reply-To:Content-ID:Content-Description:References;
- bh=z2OC1cEMuhrClU6NrKEbwSpdwK0Wyx5ycssXYh5zYaY=; b=e5WXIl8CjbCTU1+YvaajNTzO4h
- UE/9quO7c2fv80vG4FvJPdJA+I8iHRGe/DFhCFtr36bzTyGsWPUdiXMXlH2muC64B7Tfv8t8ksNV7
- 8g5+gV/bgT7dLqN63WiGLUrLOZi+7XgGTvon+bdJyTf1xoWjv61Y7EzKzDHkAFeM3SqtEdRaiiArp
- uACwN7jwv1DGQuDejfh+lZ/bw3z8ALB/s9oU0zZzmeBTNpMXm5Pnf4axbOG4KoOJLW8mkOdAtRzr7
- nnygo7ReMRqsJ5dfsG+KTAcCDda2kwmkcJTbCnvlFIW6pjhTSX90ZotWoZSCrwcKGpJ1No/Gafu4x
- RpYhhgAg==;
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXRPt-009Yh3-OG
- for linux-riscv@lists.infradead.org; Fri, 16 Apr 2021 16:34:04 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id a12so18676269pfc.7
- for <linux-riscv@lists.infradead.org>; Fri, 16 Apr 2021 09:33:59 -0700 (PDT)
+ Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=V43aKoKjJB1GJ8L7DevKb0+AH+9zmQ4aFsOcNjBKj8s=; b=fYWoAZN/uy4lQHZLHdkwkcerwS
+ rTA/R/cFGraOVuXm9gqhzRvSC4jAR9Y4lCHByHDNGk6cLjC3ydYC+3mDfoSrfM+Ouyt8wJvu32q1G
+ +9v5L7Kr8aX+vNF5Rhl7gjGZarKInwqdwpAHSyFWQTvquz7LbAe5BFL0AT/nKD6XMpHNlKv5bqRYF
+ XA2xY8acQyXHW0CYzkgUln4ASmAYg70IwzFZTFrWuJAcYKWri1P7nz+dC2DIKD7Qm5LGunP+sZ8yM
+ fhjzqh5eqIZ3HG3hAdi20Ml4dZkUgmb4NgZJFY1Id1lJsVxTTAcTQVViMCqQWcAODqu4fz/dQBvnA
+ SmhP5oFw==;
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lXRYK-009Z57-J6
+ for linux-riscv@lists.infradead.org; Fri, 16 Apr 2021 16:42:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=z2OC1cEMuhrClU6NrKEbwSpdwK0Wyx5ycssXYh5zYaY=;
- b=maRGpOFYp6s48tNdoBVkOiMrziCDdLhM4rOR4KgB9GJvXiT8JjXZsphgurWw2bPWv7
- T5PmtSkO23D/cTi94/mAgEq4NUhHpgQtZl19zHHCiq5UAZ0xovLHauhJ8RBh5WBs/Bcn
- 3Oe01YPXH7SHcAyhK4SJQicy/x5bRnFEmUsJGjT5Suly3fBl+LJ6ZF1wLUy5qI/r0bPK
- N63cln/k0URTbRZY6VJSuHOl6icLs8DZYwyIyqXF9BwDODSg5nSZq9fHAu4+SGL/jyO/
- JwceGbPavk6Y5mwG5AwJRUe3/DV0/1d402Q0hzRBACqRXaMGQgsQARzbY8IkYSIuaNZp
- bZIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=z2OC1cEMuhrClU6NrKEbwSpdwK0Wyx5ycssXYh5zYaY=;
- b=PQe+2h7VQ3smS7IFi5hzzgeutlmrR/zEFltknTClQi2aM2udFeVrhXavGMfE6peNGE
- gPC8l2SyntWFF3sGOof3sanyTRjeptnLnrxpFCjWWscbxNMoHf/yikImJ388g9XINL3Z
- u+KYkk7F7Ygv7ZpmdVXYrBN7fB6XU97tV0Cna0wcOaPjNVra8d+oXWHkQmyLnGIyZt1j
- +hlsLBGLu3SpYNCwKHv2tBmMnuVwSOsqI1RklYfEJ81T+C1NKPDjSFiqGP8GNBonTCvU
- hwVBHhL652xyb4Yr3yj3kRRo+3kgwIzdf2SOz+wCEIzlIWq9IuZCjtad0cxEguw9Ea0c
- MB+Q==
-X-Gm-Message-State: AOAM532lllbLEgnYR2+nPDWnxp32ofzI0Ewmr8F+uKwvEQ+nCBK9UCWF
- nX2pQFShx6tT43nxzfl2i53roQ==
-X-Google-Smtp-Source: ABdhPJzdY9tt29/kSdPIjvZ8m8hDMZjPk11Or4POyQbLXVYX/vFpzeXAjr2YcYHuaICJvA4Pcb3ljw==
-X-Received: by 2002:a63:570e:: with SMTP id l14mr8746668pgb.159.1618590839027; 
- Fri, 16 Apr 2021 09:33:59 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id b7sm5760468pgs.62.2021.04.16.09.33.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 16 Apr 2021 09:33:58 -0700 (PDT)
-Date: Fri, 16 Apr 2021 09:33:58 -0700 (PDT)
-X-Google-Original-Date: Fri, 16 Apr 2021 09:33:56 PDT (-0700)
-Subject: Re: [PATCH] riscv: Protect kernel linear mapping only if
- CONFIG_STRICT_KERNEL_RWX is set
-In-Reply-To: <f659c498-a273-f249-a81b-cab1ed1ba2bb@ghiti.fr>
-CC: anup@brainfault.org, corbet@lwn.net,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>, aryabinin@virtuozzo.com,
- glider@google.com, 
- dvyukov@google.com, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
- linux-arch@vger.kernel.org, linux-mm@kvack.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-9ab3280b-4523-4892-9f9a-338f55df8108@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=V43aKoKjJB1GJ8L7DevKb0+AH+9zmQ4aFsOcNjBKj8s=; b=lzmx+h887qjx7
+ O0htMlV0I1+BsqSCqTegZP4WtLOZkUTUyye/MuHnceRA7RhAunqWF42YwuPUyZxU
+ sLX0tJr7Db9mu0GK9EhJHlELFjAYj9JcLEa61JvYojRYztWTH/KVh5ZIeJRTRbtK
+ NOeB81WkiWOQy+m0u1CUin2hyGghKo=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAnLkpyvnlgag7tAA--.45092S2; 
+ Sat, 17 Apr 2021 00:42:28 +0800 (CST)
+Date: Sat, 17 Apr 2021 00:37:22 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFT PATCH] riscv: mremap speedup - enable HAVE_MOVE_PUD and
+ HAVE_MOVE_PMD
+Message-ID: <20210417003539.5bceabc2@xhacker>
+MIME-Version: 1.0
+X-CM-TRANSID: LkAmygAnLkpyvnlgag7tAA--.45092S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFy3tw1rZw4rXw1rXrWrXwb_yoW8Zw4kpr
+ ZIkF9akrZxWF1Ik3yayry8W3yru3Z3WaySqryxGa48ZrW5trWDZrn2qw45JryUGFyvv3s3
+ Wa13Kry5G3y7u37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyIb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+ F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+ 4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2Iq
+ xVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r
+ 106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AK
+ xVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7
+ xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWU
+ JVW8JbIYCTnIWIevJa73UjIFyTuYvjxUcVWlDUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210416_093401_856965_CC8E7ADA 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20210416_094245_625903_2A9C19FF 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,57 +102,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAxNiBBcHIgMjAyMSAwMzo0NzoxOSBQRFQgKC0wNzAwKSwgYWxleEBnaGl0aS5mciB3
-cm90ZToKPiBIaSBBbnVwLAo+Cj4gTGUgNC8xNi8yMSDDoCA2OjQxIEFNLCBBbnVwIFBhdGVsIGEg
-w6ljcml0wqA6Cj4+IE9uIFRodSwgQXByIDE1LCAyMDIxIGF0IDQ6MzQgUE0gQWxleGFuZHJlIEdo
-aXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPj4+Cj4+PiBJZiBDT05GSUdfU1RSSUNUX0tFUk5F
-TF9SV1ggaXMgbm90IHNldCwgd2UgY2Fubm90IHNldCBkaWZmZXJlbnQgcGVybWlzc2lvbnMKPj4+
-IHRvIHRoZSBrZXJuZWwgZGF0YSBhbmQgdGV4dCBzZWN0aW9ucywgc28gbWFrZSBzdXJlIGl0IGlz
-IGRlZmluZWQgYmVmb3JlCj4+PiB0cnlpbmcgdG8gcHJvdGVjdCB0aGUga2VybmVsIGxpbmVhciBt
-YXBwaW5nLgo+Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0
-aS5mcj4KPj4KPj4gTWF5YmUgeW91IHNob3VsZCBhZGQgIkZpeGVzOiIgdGFnIGluIGNvbW1pdCB0
-YWcgPwo+Cj4gWWVzIHlvdSdyZSByaWdodCBJIHNob3VsZCBoYXZlIGRvbmUgdGhhdC4gTWF5YmUg
-UGFsbWVyIHdpbGwgc3F1YXNoIGl0IGFzCj4gaXQganVzdCBlbnRlcmVkIGZvci1uZXh0PwoKWWEs
-IEknbGwgZG8gaXQuICBNeSB0ZXN0aW5nIGJveCB3YXMganVzdCB0aWVkIHVwIGxhc3QgbmlnaHQg
-Zm9yIHRoZSByYzggClBSLCBzbyBJIHRocmV3IHRoaXMgb24gZm9yLW5leHQgdG8gZ2V0IHRoZSBi
-dWlsZGJvdHMgdG8gdGFrZSBhIGxvb2suICAKSXQncyBhIGJpdCB0b28gbGF0ZSB0byB0YWtlIHNv
-bWV0aGluZyBmb3IgdGhpcyB3ZWVrLCBhcyBJIHRyeSB0byBiZSAKcHJldHR5IGNvbnNlcnZhdGl2
-ZSB0aGlzIGxhdGUgaW4gdGhlIGN5Y2xlLiAgVGhlcmUncyBhbm90aGVyIGtwcm9iZXMgZml4IApv
-biB0aGUgbGlzdCBzbyBpZiB3ZSBlbmQgdXAgd2l0aCBhbiByYzggSSBtaWdodCBzZW5kIHRoaXMg
-YWxvbmcgd2l0aCAKdGhhdCwgb3RoZXJ3aXNlIHRoaXMnbGwganVzdCBnbyBvbnRvIGZvci1uZXh0
-IGJlZm9yZSB0aGUgbGluZWFyIG1hcCAKY2hhbmdlcyB0aGF0IGV4ZXJjaXNlIHRoZSBidWcuCgpZ
-b3UncmUgbW9yZSB0aGFuIHdlbGNvbWUgdG8ganVzdCBkaWcgdXAgdGhlIGZpeGVzIHRhZyBhbmQg
-cmVwbHksIG15IApzY3JpcHRzIHB1bGwgYWxsIHRhZ3MgZnJvbSByZXBsaWVzIChqdXN0IGxpa2Ug
-UmV2aWV3ZWItYnkpLiAgT3RoZXJ3aXNlIApJJ2xsIGRvIGl0IG15c2VsZiwgbW9zdCBwZW9wbGUg
-ZG9uJ3QgcmVhbGx5IHBvc3QgRml4ZXMgdGFncyB0aGF0IAphY2N1cmF0ZWx5IHNvIEkgZ28gdGhy
-b3VnaCBpdCBmb3IgcHJldHR5IG11Y2ggZXZlcnl0aGluZyBhbnl3YXkuCgpUaGFua3MgZm9yIHNv
-cnRpbmcgdGhpcyBvdXQgc28gcXVpY2tseSEKCj4KPj4KPj4gT3RoZXJ3aXNlIGl0IGxvb2tzIGdv
-b2QuCj4+Cj4+IFJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgo+
-Cj4gVGhhbmsgeW91IQo+Cj4gQWxleAo+Cj4+Cj4+IFJlZ2FyZHMsCj4+IEFudXAKPj4KPj4+IC0t
-LQo+Pj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIHwgOCArKysrLS0tLQo+Pj4gICAxIGZp
-bGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQo+Pj4KPj4+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0
-dXAuYwo+Pj4gaW5kZXggNjI2MDAzYmI1ZmNhLi5hYjM5NGQxNzNjZDQgMTAwNjQ0Cj4+PiAtLS0g
-YS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9z
-ZXR1cC5jCj4+PiBAQCAtMjY0LDEyICsyNjQsMTIgQEAgdm9pZCBfX2luaXQgc2V0dXBfYXJjaChj
-aGFyICoqY21kbGluZV9wKQo+Pj4KPj4+ICAgICAgICAgIHNiaV9pbml0KCk7Cj4+Pgo+Pj4gLSAg
-ICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1gpKQo+Pj4gKyAgICAg
-ICBpZiAoSVNfRU5BQkxFRChDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1gpKSB7Cj4+PiAgICAgICAg
-ICAgICAgICAgIHByb3RlY3Rfa2VybmVsX3RleHRfZGF0YSgpOwo+Pj4gLQo+Pj4gLSNpZiBkZWZp
-bmVkKENPTkZJR182NEJJVCkgJiYgZGVmaW5lZChDT05GSUdfTU1VKQo+Pj4gLSAgICAgICBwcm90
-ZWN0X2tlcm5lbF9saW5lYXJfbWFwcGluZ190ZXh0X3JvZGF0YSgpOwo+Pj4gKyNpZmRlZiBDT05G
-SUdfNjRCSVQKPj4+ICsgICAgICAgICAgICAgICBwcm90ZWN0X2tlcm5lbF9saW5lYXJfbWFwcGlu
-Z190ZXh0X3JvZGF0YSgpOwo+Pj4gICAjZW5kaWYKPj4+ICsgICAgICAgfQo+Pj4KPj4+ICAgI2lm
-ZGVmIENPTkZJR19TV0lPVExCCj4+PiAgICAgICAgICBzd2lvdGxiX2luaXQoMSk7Cj4+PiAtLQo+
-Pj4gMi4yMC4xCj4+Pgo+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwo+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cj4+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+From: Jisheng Zhang <jszhang@kernel.org>
+
+HAVE_MOVE_PUD enables remapping pages at the PUD level if both the source
+and destination addresses are PUD-aligned.
+HAVE_MOVE_PMD does similar speedup on the PMD level.
+
+With HAVE_MOVE_PUD enabled, there is about a 143x improvement on qemu
+With HAVE_MOVE_PMD enabled, there is about a 5x improvement on qemu
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+Hi all,
+
+After reading the risc-v privileged spec, I think it's safe to support
+the HAVE_MOVE_PUD and HAVE_MOVE_PMD optimization on riscv. The patch passed
+the mremap_test on QEMU. However this can't be tested on real HW due to lack
+of HW boards, this is the reason why I mark this patch as RFT. I hope I can
+buy a sipeed Allwiner D1 SoC powered SBC soon, at least I can test
+HAVE_MOVE_PMD. Helping me to test on real HW is appreciated!
+
+Thanks
+
+ arch/riscv/Kconfig               |  2 ++
+ arch/riscv/include/asm/pgtable.h | 12 ++++++++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e8074d248457..37660de68b00 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -80,6 +80,8 @@ config RISCV
+ 	select HAVE_KPROBES
+ 	select HAVE_KPROBES_ON_FTRACE
+ 	select HAVE_KRETPROBES
++	select HAVE_MOVE_PMD
++	select HAVE_MOVE_PUD
+ 	select HAVE_PCI
+ 	select HAVE_PERF_EVENTS
+ 	select HAVE_PERF_REGS
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index ebf817c1bdf4..287733b95d10 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -360,6 +360,18 @@ static inline void set_pte_at(struct mm_struct *mm,
+ 	set_pte(ptep, pteval);
+ }
+ 
++static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
++			      pmd_t *pmdp, pmd_t pmd)
++{
++	set_pmd(pmdp, pmd);
++}
++
++static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
++			      pud_t *pudp, pud_t pud)
++{
++	set_pud(pudp, pud);
++}
++
+ static inline void pte_clear(struct mm_struct *mm,
+ 	unsigned long addr, pte_t *ptep)
+ {
+-- 
+2.31.0
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
