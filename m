@@ -2,21 +2,21 @@ Return-Path: <SRS0=iBqs=JN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C754C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 09:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67A4EC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 10:39:40 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 964116113B
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 09:46:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 964116113B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id D4ED56115B
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 10:39:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4ED56115B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -24,39 +24,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LKMsX5dCmcp3LAuzsLR7jVIxyuzqlw6FIXF0ySnEmiA=; b=mkX7kfVxGHFLLshFYzKfXCKPm
-	3YPOXNaWDam4R6aoCBUJyG1LfNtxYxtrbFAZLZQl6KgZUVc73QT8FHXrMg83AorFvyEpJ5X9+TMPe
-	ADQrB9/OhPzbRHE+EkYr4uYIn0LnPd6a4vs4FMdPPej4YMXRYgBUm0WEd+FWroabUHQ3XR84Hz+aO
-	jA8zb7RjFYxIza0UbRScA0oX6yEG9GWj4UHxjUZKbYHoniROf5pJufr1cLj8AtMg84y9O38xGKnZA
-	aOZbAhx16wQGdO3TCqh0AsRSIfJmqH1kJTjwRa5O+4aZFq2eD7ET2GwivHBzXKGuenHZ/Bd1xtYvv
-	tc+AImziQ==;
+	 bh=X4REpDS1rVn6FRbeB4a4XvoKjAYnUm744Nvni7u4uFM=; b=DG/zR7WFBagUaW9fmLpt+hybh
+	SVdU1JLrexVTp9vgv1HsxjlG+Cc+2B+tQOQM/JzFWHbZMyZ7YiIOuirbj5ucZ+NOA+U4AKD24YqId
+	+ECrvxuJWeVb0e4m2sMciActqGcNK/62F1zYZnB7MMzXlOOP1tn3HvOuYQsXGjKjINUblp9zxzZfK
+	TLRrlzV53qpfHFWOAyflXt18yDP6stxd/dpl7UAhi3Wyu0oAPxS4LIMmWoVQe2AYRuPmThRDVOLmQ
+	R7CAucyNAxge0vff0R6Ac9nGhj4Q52TcilUjb0o8MuX6RPBUVOAmAfXLKow/ol14oWnKcJHUxbEmQ
+	YFMmwSIbA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXL2o-001b52-Ku; Fri, 16 Apr 2021 09:45:46 +0000
+	id 1lXLse-001lKL-3o; Fri, 16 Apr 2021 10:39:20 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXKmp-001YHd-Dq; Fri, 16 Apr 2021 09:29:15 +0000
+ id 1lXLrs-001lC9-Aa; Fri, 16 Apr 2021 10:38:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
  Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=v83el/ExZboCfns9embQgVp7z/4V8SGkb4TY2q/T6t8=; b=nOPwx5C//3IH9LRwla5j13fdpN
- ONwaL3URM7Ru216VqA1ELA8LRtIYAzTHmZ9L3lFviyEn8rkCGNyPVCIw9wJgtw3iSk/Y1632iyLQX
- 34iSyEhdaTUSzGhFN4eLI5oiK5TDV2JTkZvzhMx9Bs47EoVVmImIqnq7/jjju5jUD2HNpopsJgZin
- TG9ZASRwTenG8g4EM7Hn7GwNVMUJ4gvhDDNfD9D0gjniBb3rQzlkO88AO2ZOjkRk2mvZJOrXxWmMP
- EQdTQ5vYH7g97LFJ8SHSkt5l2B8tnqtLDU39LGMo1uZZG5T7yV3M9WWJpsR5XGOwAYay6hyxtmAmC
- XjakvYcw==;
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lXKmm-009F7o-Hv; Fri, 16 Apr 2021 09:29:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E41111396;
- Fri, 16 Apr 2021 02:29:03 -0700 (PDT)
-Received: from [192.168.1.179] (unknown [172.31.20.19])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C9EB3FA35;
- Fri, 16 Apr 2021 02:29:01 -0700 (PDT)
+ bh=Xe6M6b66w71Hbng1vE/04rLePEiAEXLqq+cSn2WXnh0=; b=FNqJ3vIgyo46uBreAhEnvAtyYl
+ zaDBMfwzqjyTmW6OegnmZNh1tyHaiRoO0xIsgV98Li33aBPd5X988de5R1B1Kd4dJy++VIvPjN4Ez
+ jRAAkXBDxT6BETbIcb5CTPMGLRWetMN5eEyD/cED0d960wzEj8BMX9PkY0Fv+kDNB1i2Go5zM3SIt
+ A5p+h+YsMJsOAqDrkan0Vs5hg7GbvsjeSCmAOumHqrDE81RLS7IYxdkFBuAB4tb/DGoe+9CynjSSA
+ q30TQuG1rDRvIEJ/pQRyM3jN/dYbPKsBmijxqMGO6NZ4NlVMHLdRFQMMquLgAbhVq+zrUSxeLlgu1
+ moByoZew==;
+Received: from pegase1.c-s.fr ([93.17.236.30])
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lXLro-009Hdu-Qt; Fri, 16 Apr 2021 10:38:31 +0000
+Received: from localhost (mailhub1-int [192.168.12.234])
+ by localhost (Postfix) with ESMTP id 4FMCNW3tv5z9v4WN;
+ Fri, 16 Apr 2021 12:38:19 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+ with ESMTP id TGx8rBpOGfLa; Fri, 16 Apr 2021 12:38:19 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FMCNW2yYgz9v4WM;
+ Fri, 16 Apr 2021 12:38:19 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 8FD108B83B;
+ Fri, 16 Apr 2021 12:38:20 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id gxbf4EojfzU4; Fri, 16 Apr 2021 12:38:20 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 6CE338B83A;
+ Fri, 16 Apr 2021 12:38:19 +0200 (CEST)
 Subject: Re: [PATCH v1 3/5] mm: ptdump: Provide page size to notepage()
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+To: Steven Price <steven.price@arm.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
  akpm@linux-foundation.org
@@ -66,17 +80,18 @@ Cc: linux-arch@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  x86@kernel.org, linux-mm@kvack.org
 References: <cover.1618506910.git.christophe.leroy@csgroup.eu>
  <1ef6b954fb7b0f4dfc78820f1e612d2166c13227.1618506910.git.christophe.leroy@csgroup.eu>
-From: Steven Price <steven.price@arm.com>
-Message-ID: <41819925-3ee5-4771-e98b-0073e8f095cf@arm.com>
-Date: Fri, 16 Apr 2021 10:28:56 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ <41819925-3ee5-4771-e98b-0073e8f095cf@arm.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <da53d2f2-b472-0c38-bdd5-99c5a098675d@csgroup.eu>
+Date: Fri, 16 Apr 2021 12:38:18 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.9.1
 MIME-Version: 1.0
-In-Reply-To: <1ef6b954fb7b0f4dfc78820f1e612d2166c13227.1618506910.git.christophe.leroy@csgroup.eu>
-Content-Language: en-GB
+In-Reply-To: <41819925-3ee5-4771-e98b-0073e8f095cf@arm.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210416_022912_700781_92D9508D 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20210416_033829_190192_AD457F50 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,123 +103,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/04/2021 18:18, Christophe Leroy wrote:
-> In order to support large pages on powerpc, notepage()
-> needs to know the page size of the page.
-> 
-> Add a page_size argument to notepage().
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> ---
->   arch/arm64/mm/ptdump.c         |  2 +-
->   arch/riscv/mm/ptdump.c         |  2 +-
->   arch/s390/mm/dump_pagetables.c |  3 ++-
->   arch/x86/mm/dump_pagetables.c  |  2 +-
->   include/linux/ptdump.h         |  2 +-
->   mm/ptdump.c                    | 16 ++++++++--------
->   6 files changed, 14 insertions(+), 13 deletions(-)
->
-[...]
-> diff --git a/mm/ptdump.c b/mm/ptdump.c
-> index da751448d0e4..61cd16afb1c8 100644
-> --- a/mm/ptdump.c
-> +++ b/mm/ptdump.c
-> @@ -17,7 +17,7 @@ static inline int note_kasan_page_table(struct mm_walk *walk,
->   {
->   	struct ptdump_state *st = walk->private;
->   
-> -	st->note_page(st, addr, 4, pte_val(kasan_early_shadow_pte[0]));
-> +	st->note_page(st, addr, 4, pte_val(kasan_early_shadow_pte[0]), PAGE_SIZE);
-
-I'm not completely sure what the page_size is going to be used for, but 
-note that KASAN presents an interesting case here. We short-cut by 
-detecting it's a KASAN region at a high level (PGD/P4D/PUD/PMD) and 
-instead of walking the tree down just call note_page() *once* but with 
-level==4 because we know KASAN sets up the page table like that.
-
-However the one call actually covers a much larger region - so while 
-PAGE_SIZE matches the level it doesn't match the region covered. AFAICT 
-this will lead to odd results if you enable KASAN on powerpc.
-
-To be honest I don't fully understand why powerpc requires the page_size 
-- it appears to be using it purely to find "holes" in the calls to 
-note_page(), but I haven't worked out why such holes would occur.
-
-Steve
-
->   
->   	walk->action = ACTION_CONTINUE;
->   
-> @@ -41,7 +41,7 @@ static int ptdump_pgd_entry(pgd_t *pgd, unsigned long addr,
->   		st->effective_prot(st, 0, pgd_val(val));
->   
->   	if (pgd_leaf(val))
-> -		st->note_page(st, addr, 0, pgd_val(val));
-> +		st->note_page(st, addr, 0, pgd_val(val), PGDIR_SIZE);
->   
->   	return 0;
->   }
-> @@ -62,7 +62,7 @@ static int ptdump_p4d_entry(p4d_t *p4d, unsigned long addr,
->   		st->effective_prot(st, 1, p4d_val(val));
->   
->   	if (p4d_leaf(val))
-> -		st->note_page(st, addr, 1, p4d_val(val));
-> +		st->note_page(st, addr, 1, p4d_val(val), P4D_SIZE);
->   
->   	return 0;
->   }
-> @@ -83,7 +83,7 @@ static int ptdump_pud_entry(pud_t *pud, unsigned long addr,
->   		st->effective_prot(st, 2, pud_val(val));
->   
->   	if (pud_leaf(val))
-> -		st->note_page(st, addr, 2, pud_val(val));
-> +		st->note_page(st, addr, 2, pud_val(val), PUD_SIZE);
->   
->   	return 0;
->   }
-> @@ -102,7 +102,7 @@ static int ptdump_pmd_entry(pmd_t *pmd, unsigned long addr,
->   	if (st->effective_prot)
->   		st->effective_prot(st, 3, pmd_val(val));
->   	if (pmd_leaf(val))
-> -		st->note_page(st, addr, 3, pmd_val(val));
-> +		st->note_page(st, addr, 3, pmd_val(val), PMD_SIZE);
->   
->   	return 0;
->   }
-> @@ -116,7 +116,7 @@ static int ptdump_pte_entry(pte_t *pte, unsigned long addr,
->   	if (st->effective_prot)
->   		st->effective_prot(st, 4, pte_val(val));
->   
-> -	st->note_page(st, addr, 4, pte_val(val));
-> +	st->note_page(st, addr, 4, pte_val(val), PAGE_SIZE);
->   
->   	return 0;
->   }
-> @@ -126,7 +126,7 @@ static int ptdump_hole(unsigned long addr, unsigned long next,
->   {
->   	struct ptdump_state *st = walk->private;
->   
-> -	st->note_page(st, addr, depth, 0);
-> +	st->note_page(st, addr, depth, 0, 0);
->   
->   	return 0;
->   }
-> @@ -153,5 +153,5 @@ void ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm, pgd_t *pgd)
->   	mmap_read_unlock(mm);
->   
->   	/* Flush out the last page */
-> -	st->note_page(st, 0, -1, 0);
-> +	st->note_page(st, 0, -1, 0, 0);
->   }
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAxNi8wNC8yMDIxIMOgIDExOjI4LCBTdGV2ZW4gUHJpY2UgYSDDqWNyaXTCoDoKPiBPbiAx
+NS8wNC8yMDIxIDE4OjE4LCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+PiBJbiBvcmRlciB0byBz
+dXBwb3J0IGxhcmdlIHBhZ2VzIG9uIHBvd2VycGMsIG5vdGVwYWdlKCkKPj4gbmVlZHMgdG8ga25v
+dyB0aGUgcGFnZSBzaXplIG9mIHRoZSBwYWdlLgo+Pgo+PiBBZGQgYSBwYWdlX3NpemUgYXJndW1l
+bnQgdG8gbm90ZXBhZ2UoKS4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQ2hyaXN0b3BoZSBMZXJveSA8
+Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1Pgo+PiAtLS0KPj4gwqAgYXJjaC9hcm02NC9tbS9w
+dGR1bXAuY8KgwqDCoMKgwqDCoMKgwqAgfMKgIDIgKy0KPj4gwqAgYXJjaC9yaXNjdi9tbS9wdGR1
+bXAuY8KgwqDCoMKgwqDCoMKgwqAgfMKgIDIgKy0KPj4gwqAgYXJjaC9zMzkwL21tL2R1bXBfcGFn
+ZXRhYmxlcy5jIHzCoCAzICsrLQo+PiDCoCBhcmNoL3g4Ni9tbS9kdW1wX3BhZ2V0YWJsZXMuY8Kg
+IHzCoCAyICstCj4+IMKgIGluY2x1ZGUvbGludXgvcHRkdW1wLmjCoMKgwqDCoMKgwqDCoMKgIHzC
+oCAyICstCj4+IMKgIG1tL3B0ZHVtcC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfCAxNiArKysrKysrKy0tLS0tLS0tCj4+IMKgIDYgZmlsZXMgY2hhbmdlZCwgMTQgaW5z
+ZXJ0aW9ucygrKSwgMTMgZGVsZXRpb25zKC0pCj4+Cj4gWy4uLl0KPj4gZGlmZiAtLWdpdCBhL21t
+L3B0ZHVtcC5jIGIvbW0vcHRkdW1wLmMKPj4gaW5kZXggZGE3NTE0NDhkMGU0Li42MWNkMTZhZmIx
+YzggMTAwNjQ0Cj4+IC0tLSBhL21tL3B0ZHVtcC5jCj4+ICsrKyBiL21tL3B0ZHVtcC5jCj4+IEBA
+IC0xNyw3ICsxNyw3IEBAIHN0YXRpYyBpbmxpbmUgaW50IG5vdGVfa2FzYW5fcGFnZV90YWJsZShz
+dHJ1Y3QgbW1fd2FsayAqd2FsaywKPj4gwqAgewo+PiDCoMKgwqDCoMKgIHN0cnVjdCBwdGR1bXBf
+c3RhdGUgKnN0ID0gd2Fsay0+cHJpdmF0ZTsKPj4gLcKgwqDCoCBzdC0+bm90ZV9wYWdlKHN0LCBh
+ZGRyLCA0LCBwdGVfdmFsKGthc2FuX2Vhcmx5X3NoYWRvd19wdGVbMF0pKTsKPj4gK8KgwqDCoCBz
+dC0+bm90ZV9wYWdlKHN0LCBhZGRyLCA0LCBwdGVfdmFsKGthc2FuX2Vhcmx5X3NoYWRvd19wdGVb
+MF0pLCBQQUdFX1NJWkUpOwo+IAo+IEknbSBub3QgY29tcGxldGVseSBzdXJlIHdoYXQgdGhlIHBh
+Z2Vfc2l6ZSBpcyBnb2luZyB0byBiZSB1c2VkIGZvciwgYnV0IG5vdGUgdGhhdCBLQVNBTiBwcmVz
+ZW50cyBhbiAKPiBpbnRlcmVzdGluZyBjYXNlIGhlcmUuIFdlIHNob3J0LWN1dCBieSBkZXRlY3Rp
+bmcgaXQncyBhIEtBU0FOIHJlZ2lvbiBhdCBhIGhpZ2ggbGV2ZWwgCj4gKFBHRC9QNEQvUFVEL1BN
+RCkgYW5kIGluc3RlYWQgb2Ygd2Fsa2luZyB0aGUgdHJlZSBkb3duIGp1c3QgY2FsbCBub3RlX3Bh
+Z2UoKSAqb25jZSogYnV0IHdpdGggCj4gbGV2ZWw9PTQgYmVjYXVzZSB3ZSBrbm93IEtBU0FOIHNl
+dHMgdXAgdGhlIHBhZ2UgdGFibGUgbGlrZSB0aGF0Lgo+IAo+IEhvd2V2ZXIgdGhlIG9uZSBjYWxs
+IGFjdHVhbGx5IGNvdmVycyBhIG11Y2ggbGFyZ2VyIHJlZ2lvbiAtIHNvIHdoaWxlIFBBR0VfU0la
+RSBtYXRjaGVzIHRoZSBsZXZlbCBpdCAKPiBkb2Vzbid0IG1hdGNoIHRoZSByZWdpb24gY292ZXJl
+ZC4gQUZBSUNUIHRoaXMgd2lsbCBsZWFkIHRvIG9kZCByZXN1bHRzIGlmIHlvdSBlbmFibGUgS0FT
+QU4gb24gcG93ZXJwYy4KCkh1bSAuLi4uIEkgc3VjY2Vzc2Z1bGx5IHRlc3RlZCBpdCB3aXRoIEtB
+U0FOLCBJIG5vdyByZWFsaXNlIHRoYXQgSSB0ZXN0ZWQgaXQgd2l0aCAKQ09ORklHX0tBU0FOX1ZN
+QUxMT0Mgc2VsZWN0ZWQuIEluIHRoaXMgc2l0dWF0aW9uLCBzaW5jZSAKaHR0cHM6Ly9naXRodWIu
+Y29tL3RvcnZhbGRzL2xpbnV4L2NvbW1pdC9hZjNkMGE2ODYgd2UgZG9uJ3QgaGF2ZSBhbnkgY29t
+bW9uIHNoYWRvdyBwYWdlIHRhYmxlIGFueW1vcmUuCgpJJ2xsIHRlc3QgYWdhaW4gd2l0aG91dCBD
+T05GSUdfS0FTQU5fVk1BTExPQy4KCj4gCj4gVG8gYmUgaG9uZXN0IEkgZG9uJ3QgZnVsbHkgdW5k
+ZXJzdGFuZCB3aHkgcG93ZXJwYyByZXF1aXJlcyB0aGUgcGFnZV9zaXplIC0gaXQgYXBwZWFycyB0
+byBiZSB1c2luZyBpdCAKPiBwdXJlbHkgdG8gZmluZCAiaG9sZXMiIGluIHRoZSBjYWxscyB0byBu
+b3RlX3BhZ2UoKSwgYnV0IEkgaGF2ZW4ndCB3b3JrZWQgb3V0IHdoeSBzdWNoIGhvbGVzIHdvdWxk
+IAo+IG9jY3VyLgoKSSB3YXMgaW5kZWVkIGludHJvZHVjZWQgZm9yIEtBU0FOLiBXZSBoYXZlIGEg
+Zmlyc3QgY29tbWl0IApodHRwczovL2dpdGh1Yi5jb20vdG9ydmFsZHMvbGludXgvY29tbWl0L2Nh
+YmU4MTM4IHdoaWNoIHVzZXMgcGFnZSBzaXplIHRvIGRldGVjdCB3aGV0aGVyIGl0IGlzIGEgCktB
+U0FOIGxpa2Ugc3R1ZmYuCgpUaGVuIGNhbWUgaHR0cHM6Ly9naXRodWIuY29tL3RvcnZhbGRzL2xp
+bnV4L2NvbW1pdC9iMDBmZjZkOGMgYXMgYSBmaXguIEkgY2FuJ3QgcmVtZW1iZXIgd2hhdCB0aGUg
+CnByb2JsZW0gd2FzIGV4YWN0bHksIHNvbWV0aGluZyBhcm91bmQgdGhlIHVzZSBvZiBodWdlcGFn
+ZXMgZm9yIGtlcm5lbCBtZW1vcnksIGNhbWUgYXMgcGFydCBvZiB0aGUgCnNlcmllcyAKaHR0cHM6
+Ly9wYXRjaHdvcmsub3psYWJzLm9yZy9wcm9qZWN0L2xpbnV4cHBjLWRldi9jb3Zlci9jb3Zlci4x
+NTg5ODY2OTg0LmdpdC5jaHJpc3RvcGhlLmxlcm95QGNzZ3JvdXAuZXUvCgoKQ2hyaXN0b3BoZQoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
