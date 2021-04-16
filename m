@@ -2,85 +2,121 @@ Return-Path: <SRS0=iBqs=JN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-20.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79877C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 13:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB490C433B4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 13:40:08 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EF56A61107
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 13:01:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF56A61107
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 58F8B610FA
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 13:40:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58F8B610FA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C9AMtrFmLgvBJYXqESeu1XQ3Mto2DJEFm2erdyWrTUc=; b=bFwMMBC5bI9JFE8Fe9JZakyBN
-	iiOFcmrsWZJh191bTWG/O3kYDontS+K5upvFUwxpMaMGkfr++abWeQmSc1rstpnu4U2WBDx3xWC4+
-	61/D72e2zFdBLMiAEpNKZ4auS9hLUGITn75fQaPIQFaD2U6Po4lbIxxMxH58+LL5AA3lON3jKKQkg
-	gw35Ns3cKU75qqstUqDHMThFgHozHiSMtpICEOZ00kvK3ZKkz9XONVBCVUbzftnRhY6HUlYxZUiK+
-	QsxOuS0Z/SOWV4ivB11i038RnQBrXlwXx11JvWVj8R2za4+DuONenVW3Ip2UIC8ZHWktabnbCfqTi
-	JwygZqlKg==;
+	 bh=dg8fhdWbXFmJae8qGHmXVkbqzbGQ7eVdgRC6cDMOdw8=; b=o2jEsSnqyGM9FVBM+NzklOrou
+	xFJBQOlgj/sDBYLVP+4qLMYMJoRjHxFlm+9xo/NLAO/pJClUmJ0/ES7wr1Mf7VYqQIrmCjy6S4Spx
+	IPXFY8VxHQusewJ2b9VK7fwK9ufnfy5p9f4T6XtPd99XtYbJxDAVrpI99XMq10X3DnCxou5g4jGoD
+	i71/MQbIUsj4HeaASPjek38f0GQkuQ+8Kxfz2zt9uaYpBepMdrZvEr0Lck8Tenqw8OikG0Cz18yfy
+	fobj4FzS54o/KRl15oalzoFh8m9zCOy2nljkI/3mzqum8oqkXYbicfpVBheby7Svqi+4hEjAhx6SF
+	xghqPgacQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXO5j-0029Sa-FM; Fri, 16 Apr 2021 13:00:59 +0000
+	id 1lXOhJ-002GnS-Dv; Fri, 16 Apr 2021 13:39:49 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXO5T-0029Po-EP; Fri, 16 Apr 2021 13:00:43 +0000
+ id 1lXOgP-002GRC-Gb; Fri, 16 Apr 2021 13:38:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=jfZsi8V+Y8kzx8B7ZD328Q+jSmGm3e81PFHNG5vxjZo=; b=HviPWTkiSOVmcLkF8Vl/yocYn/
- uHvvFTv8alhAUwcIWMwCFRxDGGGk5MgKHwo8nsqEDNkXmm3Yr4smgBVwOPzu9YxkU383eWuG9S/zQ
- GkYU8juusXDTq01nJABmK81QmQy7MpJ2cp7S80/OlxsmrpaIk7QrGLPgnwhlkGkH0yom162iN0XPB
- +XUsFtO5vdhSboq2K5CKPzTcYUVlbHv1RPJm4ApF1Rz77VfjpqJVPqa87lt4/84w6hQvJqisukyb5
- qpAuMBxWdFYmYO4VSlBoezt8XSDj5PYty2e7aQtikQQf3iDxh0K9DiHOyiX2c0dVbF8ok6NMtMM9j
- G9evJcng==;
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1lXO5O-009NTB-0e; Fri, 16 Apr 2021 13:00:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7604111B3;
- Fri, 16 Apr 2021 06:00:35 -0700 (PDT)
-Received: from [192.168.1.179] (unknown [172.31.20.19])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E1B33F85F;
- Fri, 16 Apr 2021 06:00:33 -0700 (PDT)
-Subject: Re: [PATCH v1 3/5] mm: ptdump: Provide page size to notepage()
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- akpm@linux-foundation.org
-Cc: linux-arch@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- x86@kernel.org, linux-mm@kvack.org
-References: <cover.1618506910.git.christophe.leroy@csgroup.eu>
- <1ef6b954fb7b0f4dfc78820f1e612d2166c13227.1618506910.git.christophe.leroy@csgroup.eu>
- <41819925-3ee5-4771-e98b-0073e8f095cf@arm.com>
- <da53d2f2-b472-0c38-bdd5-99c5a098675d@csgroup.eu>
- <1102cda1-b00f-b6ef-6bf3-22068cc11510@arm.com>
- <6ff4816b-8ff6-19de-73a2-3fcadc003ccd@csgroup.eu>
-From: Steven Price <steven.price@arm.com>
-Message-ID: <e39d500a-2154-3c5d-9393-8bf53a567fad@arm.com>
-Date: Fri, 16 Apr 2021 14:00:28 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=0mHucleBm3GX7Z1SOPiFjIocZZ3cy927o5LfpjbehY0=; b=xHzAUwJ47Pk2lsiHIAYDMd4o1H
+ +dwQz00CeBsMjqQqBud97aSod00HxSyRCEMPG5TtwTEwP2igWfyLMVNrHo5jKq8xvfNv7sc3GVZBc
+ sCTB+j2IMCkq17Vc/oV25Q0YSANh5bBV5YNZslzIkgLtDcT5yKz4yPV/XmCmpYNPJj2KacS3o/kSv
+ Wof4GvmAGsGnnZOLqY4veJwP1wOB1SxqtqEsKPf1URbmNbzMx5DDadFPCL9qaQouLTYceVEG+PD1j
+ uOtPowwubbtbnZbVu0QKF/okxFDShfDHOyxUIq07dgIgwoPjK++qpsRHtpcFAuHkYbhW4vP9MQiDK
+ 2DrjKBXQ==;
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1lXOgK-009PGE-4F; Fri, 16 Apr 2021 13:38:52 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id x8so24995611ybx.2;
+ Fri, 16 Apr 2021 06:38:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=0mHucleBm3GX7Z1SOPiFjIocZZ3cy927o5LfpjbehY0=;
+ b=LHOOZCdmhtYRgZeIr5lEhO6KXFFYOEi/8AF39AtF41E0Kj5ox6YUrLbD1vh18P9Lgw
+ sAVjw8PPsAkREA+eH+IscJhlq1h6M6yaFa7D2Ul9LpLgbbeOdwpmPXCeDFpcWsTP6nHq
+ SCI7Oj+YXaVgCPpr7CLkYRTDlBDXPOunOileWzKluP9csVXr0LkmjxeyoNNj/y0KHa8o
+ m1iDnTxmuwSUOqb9QqmuJjAcD1igAGYaIOj4rbRGNsMZcZ9Vp6C8Phtn32KKQWyVGS+x
+ HZbKvd+3/cmY7P4s96LQpYPFB1lT9xTMKroDuLgw++dQkCoTbyaprK8bjyaAEOyDTD6R
+ ve0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=0mHucleBm3GX7Z1SOPiFjIocZZ3cy927o5LfpjbehY0=;
+ b=Bm+hyWnMKnUNmFudnc0OpFw1LjQ5+9Rd9kavADTnPqEdH7ijnAaZqnww/hnHyp5yIb
+ UmKNUTDac5BG92+mL5Z4CKuhjEawR/EC55DOnjRxJ5HNCFehnADSrlr/VXHMA3KXsheF
+ gCxih4ymvuE9A7ua7QZCtKP40fyzsyhzFPCPu4a1CBQ/pN8bZv5UMk8BvnFb3LOcH9fl
+ yiuTtfhb3VnNg18mZTXb+1apvK0/OBbRv7GzMV/+eXCUyV1OQPeoNyldOYKoZK/tIrap
+ Mq4qb6+Z/qJpbjhMG74B1vy4D69NYfRZLqeMfSNcfuLE+Nc+v3+/iPiww9uGWgk50tKd
+ RoVA==
+X-Gm-Message-State: AOAM533OcPvMuIPuAG689UtOEQJlmJHo3DEXN2y66cE72+pEhUTl/x7g
+ 0RFVFAgKPnhAaUxHUpZfGPEMPHN/9wopWu4ODQI=
+X-Google-Smtp-Source: ABdhPJw5sY0mgMHNVNaARBdH4/XL7aCQwPNekTw5pB2njQeJlgreCNQsgFDRpI0R7ZiYJLGMXF7BF2idqTBCgkAwAiE=
+X-Received: by 2002:a25:7004:: with SMTP id l4mr12503620ybc.304.1618580325409; 
+ Fri, 16 Apr 2021 06:38:45 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <6ff4816b-8ff6-19de-73a2-3fcadc003ccd@csgroup.eu>
-Content-Language: en-GB
+References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+ <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
+In-Reply-To: <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
+From: Jianlin Lv <iecedge@gmail.com>
+Date: Fri, 16 Apr 2021 21:38:33 +0800
+Message-ID: <CAFA-uR8H2MMy_vjQ_ZL96ifKcVg2goK3nozOFavN+gnJ+=V6Rw@mail.gmail.com>
+Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
+To: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Jianlin Lv <Jianlin.Lv@arm.com>, bpf <bpf@vger.kernel.org>, corbet@lwn.net,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, 
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ illusionist.neo@gmail.com, 
+ linux@armlinux.org.uk, zlim.lnx@gmail.com, catalin.marinas@arm.com, 
+ Will Deacon <will@kernel.org>, paulburton@kernel.org, tsbogend@alpha.franken.de,
+ naveen.n.rao@linux.ibm.com, sandipan@linux.ibm.com, mpe@ellerman.id.au, 
+ benh@kernel.crashing.org, paulus@samba.org, luke.r.nels@gmail.com, 
+ xi.wang@gmail.com, bjorn@kernel.org, paul.walmsley@sifive.com, 
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, iii@linux.ibm.com, 
+ hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@de.ibm.com, 
+ yoshfuji@linux-ipv6.org, dsahern@kernel.org, tglx@linutronix.de, 
+ mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
+ udknight@gmail.com, mchehab+huawei@kernel.org, 
+ Dmitry Vyukov <dvyukov@google.com>, Mahesh Bandewar <maheshb@google.com>,
+ horms@verge.net.au, Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <keescook@chromium.org>,
+ quentin@isovalent.com, 
+ tklauser@distanz.ch, grantseltzer@gmail.com, irogers@google.com, 
+ linux-doc@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
+ Network Development <netdev@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210416_060038_161212_C94F4F6A 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20210416_063848_180863_57A97FE1 
+X-CRM114-Status: GOOD (  32.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,83 +128,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTYvMDQvMjAyMSAxMjowOCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPiAKPiAKPiBMZSAx
-Ni8wNC8yMDIxIMOgIDEyOjUxLCBTdGV2ZW4gUHJpY2UgYSDDqWNyaXTCoDoKPj4gT24gMTYvMDQv
-MjAyMSAxMTozOCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPj4+Cj4+Pgo+Pj4gTGUgMTYvMDQv
-MjAyMSDDoCAxMToyOCwgU3RldmVuIFByaWNlIGEgw6ljcml0wqA6Cj4+Pj4gT24gMTUvMDQvMjAy
-MSAxODoxOCwgQ2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPj4+Pj4gSW4gb3JkZXIgdG8gc3VwcG9y
-dCBsYXJnZSBwYWdlcyBvbiBwb3dlcnBjLCBub3RlcGFnZSgpCj4+Pj4+IG5lZWRzIHRvIGtub3cg
-dGhlIHBhZ2Ugc2l6ZSBvZiB0aGUgcGFnZS4KPj4+Pj4KPj4+Pj4gQWRkIGEgcGFnZV9zaXplIGFy
-Z3VtZW50IHRvIG5vdGVwYWdlKCkuCj4+Pj4+Cj4+Pj4+IFNpZ25lZC1vZmYtYnk6IENocmlzdG9w
-aGUgTGVyb3kgPGNocmlzdG9waGUubGVyb3lAY3Nncm91cC5ldT4KPj4+Pj4gLS0tCj4+Pj4+IMKg
-IGFyY2gvYXJtNjQvbW0vcHRkdW1wLmPCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCj4+Pj4+IMKg
-IGFyY2gvcmlzY3YvbW0vcHRkdW1wLmPCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCj4+Pj4+IMKg
-IGFyY2gvczM5MC9tbS9kdW1wX3BhZ2V0YWJsZXMuYyB8wqAgMyArKy0KPj4+Pj4gwqAgYXJjaC94
-ODYvbW0vZHVtcF9wYWdldGFibGVzLmPCoCB8wqAgMiArLQo+Pj4+PiDCoCBpbmNsdWRlL2xpbnV4
-L3B0ZHVtcC5owqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArLQo+Pj4+PiDCoCBtbS9wdGR1bXAuY8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMTYgKysrKysrKystLS0tLS0t
-LQo+Pj4+PiDCoCA2IGZpbGVzIGNoYW5nZWQsIDE0IGluc2VydGlvbnMoKyksIDEzIGRlbGV0aW9u
-cygtKQo+Pj4+Pgo+Pj4+IFsuLi5dCj4+Pj4+IGRpZmYgLS1naXQgYS9tbS9wdGR1bXAuYyBiL21t
-L3B0ZHVtcC5jCj4+Pj4+IGluZGV4IGRhNzUxNDQ4ZDBlNC4uNjFjZDE2YWZiMWM4IDEwMDY0NAo+
-Pj4+PiAtLS0gYS9tbS9wdGR1bXAuYwo+Pj4+PiArKysgYi9tbS9wdGR1bXAuYwo+Pj4+PiBAQCAt
-MTcsNyArMTcsNyBAQCBzdGF0aWMgaW5saW5lIGludCBub3RlX2thc2FuX3BhZ2VfdGFibGUoc3Ry
-dWN0IAo+Pj4+PiBtbV93YWxrICp3YWxrLAo+Pj4+PiDCoCB7Cj4+Pj4+IMKgwqDCoMKgwqAgc3Ry
-dWN0IHB0ZHVtcF9zdGF0ZSAqc3QgPSB3YWxrLT5wcml2YXRlOwo+Pj4+PiAtwqDCoMKgIHN0LT5u
-b3RlX3BhZ2Uoc3QsIGFkZHIsIDQsIHB0ZV92YWwoa2FzYW5fZWFybHlfc2hhZG93X3B0ZVswXSkp
-Owo+Pj4+PiArwqDCoMKgIHN0LT5ub3RlX3BhZ2Uoc3QsIGFkZHIsIDQsIHB0ZV92YWwoa2FzYW5f
-ZWFybHlfc2hhZG93X3B0ZVswXSksIAo+Pj4+PiBQQUdFX1NJWkUpOwo+Pj4+Cj4+Pj4gSSdtIG5v
-dCBjb21wbGV0ZWx5IHN1cmUgd2hhdCB0aGUgcGFnZV9zaXplIGlzIGdvaW5nIHRvIGJlIHVzZWQg
-Zm9yLCAKPj4+PiBidXQgbm90ZSB0aGF0IEtBU0FOIHByZXNlbnRzIGFuIGludGVyZXN0aW5nIGNh
-c2UgaGVyZS4gV2Ugc2hvcnQtY3V0IAo+Pj4+IGJ5IGRldGVjdGluZyBpdCdzIGEgS0FTQU4gcmVn
-aW9uIGF0IGEgaGlnaCBsZXZlbCAoUEdEL1A0RC9QVUQvUE1EKSAKPj4+PiBhbmQgaW5zdGVhZCBv
-ZiB3YWxraW5nIHRoZSB0cmVlIGRvd24ganVzdCBjYWxsIG5vdGVfcGFnZSgpICpvbmNlKiAKPj4+
-PiBidXQgd2l0aCBsZXZlbD09NCBiZWNhdXNlIHdlIGtub3cgS0FTQU4gc2V0cyB1cCB0aGUgcGFn
-ZSB0YWJsZSBsaWtlIAo+Pj4+IHRoYXQuCj4+Pj4KPj4+PiBIb3dldmVyIHRoZSBvbmUgY2FsbCBh
-Y3R1YWxseSBjb3ZlcnMgYSBtdWNoIGxhcmdlciByZWdpb24gLSBzbyB3aGlsZSAKPj4+PiBQQUdF
-X1NJWkUgbWF0Y2hlcyB0aGUgbGV2ZWwgaXQgZG9lc24ndCBtYXRjaCB0aGUgcmVnaW9uIGNvdmVy
-ZWQuIAo+Pj4+IEFGQUlDVCB0aGlzIHdpbGwgbGVhZCB0byBvZGQgcmVzdWx0cyBpZiB5b3UgZW5h
-YmxlIEtBU0FOIG9uIHBvd2VycGMuCj4+Pgo+Pj4gSHVtIC4uLi4gSSBzdWNjZXNzZnVsbHkgdGVz
-dGVkIGl0IHdpdGggS0FTQU4sIEkgbm93IHJlYWxpc2UgdGhhdCBJIAo+Pj4gdGVzdGVkIGl0IHdp
-dGggQ09ORklHX0tBU0FOX1ZNQUxMT0Mgc2VsZWN0ZWQuIEluIHRoaXMgc2l0dWF0aW9uLCAKPj4+
-IHNpbmNlIGh0dHBzOi8vZ2l0aHViLmNvbS90b3J2YWxkcy9saW51eC9jb21taXQvYWYzZDBhNjg2
-IHdlIGRvbid0IAo+Pj4gaGF2ZSBhbnkgY29tbW9uIHNoYWRvdyBwYWdlIHRhYmxlIGFueW1vcmUu
-Cj4+Pgo+Pj4gSSdsbCB0ZXN0IGFnYWluIHdpdGhvdXQgQ09ORklHX0tBU0FOX1ZNQUxMT0MuCj4+
-Pgo+Pj4+Cj4+Pj4gVG8gYmUgaG9uZXN0IEkgZG9uJ3QgZnVsbHkgdW5kZXJzdGFuZCB3aHkgcG93
-ZXJwYyByZXF1aXJlcyB0aGUgCj4+Pj4gcGFnZV9zaXplIC0gaXQgYXBwZWFycyB0byBiZSB1c2lu
-ZyBpdCBwdXJlbHkgdG8gZmluZCAiaG9sZXMiIGluIHRoZSAKPj4+PiBjYWxscyB0byBub3RlX3Bh
-Z2UoKSwgYnV0IEkgaGF2ZW4ndCB3b3JrZWQgb3V0IHdoeSBzdWNoIGhvbGVzIHdvdWxkIAo+Pj4+
-IG9jY3VyLgo+Pj4KPj4+IEkgd2FzIGluZGVlZCBpbnRyb2R1Y2VkIGZvciBLQVNBTi4gV2UgaGF2
-ZSBhIGZpcnN0IGNvbW1pdCAKPj4+IGh0dHBzOi8vZ2l0aHViLmNvbS90b3J2YWxkcy9saW51eC9j
-b21taXQvY2FiZTgxMzggd2hpY2ggdXNlcyBwYWdlIAo+Pj4gc2l6ZSB0byBkZXRlY3Qgd2hldGhl
-ciBpdCBpcyBhIEtBU0FOIGxpa2Ugc3R1ZmYuCj4+Pgo+Pj4gVGhlbiBjYW1lIGh0dHBzOi8vZ2l0
-aHViLmNvbS90b3J2YWxkcy9saW51eC9jb21taXQvYjAwZmY2ZDhjIGFzIGEgCj4+PiBmaXguIEkg
-Y2FuJ3QgcmVtZW1iZXIgd2hhdCB0aGUgcHJvYmxlbSB3YXMgZXhhY3RseSwgc29tZXRoaW5nIGFy
-b3VuZCAKPj4+IHRoZSB1c2Ugb2YgaHVnZXBhZ2VzIGZvciBrZXJuZWwgbWVtb3J5LCBjYW1lIGFz
-IHBhcnQgb2YgdGhlIHNlcmllcyAKPj4+IGh0dHBzOi8vcGF0Y2h3b3JrLm96bGFicy5vcmcvcHJv
-amVjdC9saW51eHBwYy1kZXYvY292ZXIvY292ZXIuMTU4OTg2Njk4NC5naXQuY2hyaXN0b3BoZS5s
-ZXJveUBjc2dyb3VwLmV1LyAKPj4KPj4KPj4KPj4gQWgsIHRoYXQncyB1c2VmdWwgY29udGV4dC4g
-U28gaXQgbG9va3MgbGlrZSBwb3dlcnBjIHRvb2sgYSBkaWZmZXJlbnQgCj4+IHJvdXRlIHRvIHJl
-ZHVjaW5nIHRoZSBLQVNBTiBvdXRwdXQgdG8geDg2Lgo+Pgo+PiBHaXZlbiB0aGUgZ2VuZXJpYyBw
-dGR1bXAgY29kZSBoYXMgaGFuZGxpbmcgZm9yIEtBU0FOIGFscmVhZHkgaXQgc2hvdWxkIAo+PiBi
-ZSBwb3NzaWJsZSB0byBkcm9wIHRoYXQgZnJvbSB0aGUgcG93ZXJwYyBhcmNoIGNvZGUsIHdoaWNo
-IEkgdGhpbmsgCj4+IG1lYW5zIHdlIGRvbid0IGFjdHVhbGx5IG5lZWQgdG8gcHJvdmlkZSBwYWdl
-IHNpemUgdG8gbm90ZXBhZ2UoKS4gCj4+IEhvcGVmdWxseSB0aGF0IG1lYW5zIG1vcmUgY29kZSB0
-byBkZWxldGUgOykKPj4KPiAKPiBZZXMgLi4uIGFuZCBuby4KPiAKPiBJdCBsb29rcyBsaWtlIHRo
-ZSBnZW5lcmljIHB0ZHVtcCBoYW5kbGVzIHRoZSBjYXNlIHdoZW4gc2V2ZXJhbCBwZ2RpciAKPiBl
-bnRyaWVzIHBvaW50cyB0byB0aGUgc2FtZSBrYXNhbl9lYXJseV9zaGFkb3dfcHRlLiBCdXQgaXQg
-ZG9lc24ndCB0YWtlIAo+IGludG8gYWNjb3VudCB0aGUgcG93ZXJwYyBjYXNlIHdoZXJlIHdlIGhh
-dmUgcmVndWxhciBwYWdlIHRhYmxlcyB3aGVyZSAKPiBzZXZlcmFsIChpZiBub3QgYWxsKSBQVEVz
-IGFyZSBwb2ludGluZyB0byB0aGUga2FzYW5fZWFybHlfc2hhZG93X3BhZ2UgLgoKSSdtIG5vdCBz
-dXJlIEkgZm9sbG93IHF1aXRlIGhvdyBwb3dlcnBjIGlzIGRpZmZlcmVudCBoZXJlLiBCdXQgY291
-bGQgeW91IApoYXZlIGEgc2ltaWxhciBjaGVjayBmb3IgUFRFcyBhZ2FpbnN0IGthc2FuX2Vhcmx5
-X3NoYWRvd19wdGUgYXMgdGhlIApvdGhlciBsZXZlbHMgYWxyZWFkeSBoYXZlPwoKSSdtIGp1c3Qg
-d29ycmllZCB0aGF0IHBhZ2Vfc2l6ZSBpc24ndCB3ZWxsIGRlZmluZWQgaW4gdGhpcyBpbnRlcmZh
-Y2UgYW5kIAppdCdzIGdvaW5nIHRvIGNhdXNlIHByb2JsZW1zIGluIHRoZSBmdXR1cmUuCgpTdGV2
-ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Apr 15, 2021 at 10:38 PM Daniel Borkmann <daniel@iogearbox.net> wrote:
+>
+> On 4/15/21 11:32 AM, Jianlin Lv wrote:
+> > For debugging JITs, dumping the JITed image to kernel log is discouraged,
+> > "bpftool prog dump jited" is much better way to examine JITed dumps.
+> > This patch get rid of the code related to bpf_jit_enable=2 mode and
+> > update the proc handler of bpf_jit_enable, also added auxiliary
+> > information to explain how to use bpf_jit_disasm tool after this change.
+> >
+> > Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
+> [...]
+> > diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
+> > index 0a7a2870f111..8d36b4658076 100644
+> > --- a/arch/x86/net/bpf_jit_comp32.c
+> > +++ b/arch/x86/net/bpf_jit_comp32.c
+> > @@ -2566,9 +2566,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+> >               cond_resched();
+> >       }
+> >
+> > -     if (bpf_jit_enable > 1)
+> > -             bpf_jit_dump(prog->len, proglen, pass + 1, image);
+> > -
+> >       if (image) {
+> >               bpf_jit_binary_lock_ro(header);
+> >               prog->bpf_func = (void *)image;
+> > diff --git a/net/core/sysctl_net_core.c b/net/core/sysctl_net_core.c
+> > index c8496c1142c9..990b1720c7a4 100644
+> > --- a/net/core/sysctl_net_core.c
+> > +++ b/net/core/sysctl_net_core.c
+> > @@ -273,16 +273,8 @@ static int proc_dointvec_minmax_bpf_enable(struct ctl_table *table, int write,
+> >
+> >       tmp.data = &jit_enable;
+> >       ret = proc_dointvec_minmax(&tmp, write, buffer, lenp, ppos);
+> > -     if (write && !ret) {
+> > -             if (jit_enable < 2 ||
+> > -                 (jit_enable == 2 && bpf_dump_raw_ok(current_cred()))) {
+> > -                     *(int *)table->data = jit_enable;
+> > -                     if (jit_enable == 2)
+> > -                             pr_warn("bpf_jit_enable = 2 was set! NEVER use this in production, only for JIT debugging!\n");
+> > -             } else {
+> > -                     ret = -EPERM;
+> > -             }
+> > -     }
+> > +     if (write && !ret)
+> > +             *(int *)table->data = jit_enable;
+> >       return ret;
+> >   }
+> >
+> > @@ -389,7 +381,7 @@ static struct ctl_table net_core_table[] = {
+> >               .extra2         = SYSCTL_ONE,
+> >   # else
+> >               .extra1         = SYSCTL_ZERO,
+> > -             .extra2         = &two,
+> > +             .extra2         = SYSCTL_ONE,
+> >   # endif
+> >       },
+> >   # ifdef CONFIG_HAVE_EBPF_JIT
+> > diff --git a/tools/bpf/bpf_jit_disasm.c b/tools/bpf/bpf_jit_disasm.c
+> > index c8ae95804728..efa4b17ae016 100644
+> > --- a/tools/bpf/bpf_jit_disasm.c
+> > +++ b/tools/bpf/bpf_jit_disasm.c
+> > @@ -7,7 +7,7 @@
+> >    *
+> >    * To get the disassembly of the JIT code, do the following:
+> >    *
+> > - *  1) `echo 2 > /proc/sys/net/core/bpf_jit_enable`
+> > + *  1) Insert bpf_jit_dump() and recompile the kernel to output JITed image into log
+>
+> Hmm, if we remove bpf_jit_dump(), the next drive-by cleanup patch will be thrown
+> at bpf@vger stating that bpf_jit_dump() has no in-tree users and should be removed.
+> Maybe we should be removing bpf_jit_disasm.c along with it as well as bpf_jit_dump()
+> itself ... I guess if it's ever needed in those rare occasions for JIT debugging we
+> can resurrect it from old kernels just locally. But yeah, bpftool's jit dump should
+> suffice for vast majority of use cases.
+>
+> There was a recent set for ppc32 jit which was merged into ppc tree which will create
+> a merge conflict with this one [0]. So we would need a rebase and take it maybe during
+> merge win once the ppc32 landed..
+>
+>    [0] https://lore.kernel.org/bpf/cover.1616430991.git.christophe.leroy@csgroup.eu/
+>
+> >    *  2) Load a BPF filter (e.g. `tcpdump -p -n -s 0 -i eth1 host 192.168.20.0/24`)
+> >    *  3) Run e.g. `bpf_jit_disasm -o` to read out the last JIT code
+> >    *
+> > diff --git a/tools/bpf/bpftool/feature.c b/tools/bpf/bpftool/feature.c
+> > index 40a88df275f9..98c7eec2923f 100644
+> > --- a/tools/bpf/bpftool/feature.c
+> > +++ b/tools/bpf/bpftool/feature.c
+> > @@ -203,9 +203,6 @@ static void probe_jit_enable(void)
+> >               case 1:
+> >                       printf("JIT compiler is enabled\n");
+> >                       break;
+> > -             case 2:
+> > -                     printf("JIT compiler is enabled with debugging traces in kernel logs\n");
+> > -                     break;
+>
+> This would still need to be there for older kernels ...
+
+I will submit another version after ppc32 landed to remove
+bpf_jit_disasm.c and restore bpftool/feature.c
+
+Jianlin
+
+
+>
+> >               case -1:
+> >                       printf("Unable to retrieve JIT-compiler status\n");
+> >                       break;
+> >
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
