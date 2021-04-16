@@ -2,95 +2,107 @@ Return-Path: <SRS0=iBqs=JN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 36614C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 05:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23B69C433B4
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 06:35:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9EF4761073
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 05:49:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9EF4761073
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
+	by mail.kernel.org (Postfix) with ESMTPS id 5E10D6113D
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 06:35:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E10D6113D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wYtr32c4F4dZeEFL7KUJqQR9hHXUE4ExcuYeudt2uG0=; b=NVYKYf0HsjB2nJWN7AcAWNlJM
-	dswQR2SQ6ZDIbByMyZAtl0BZ/dnEUXwB7dvoPBIjZkCqtjgMbxCesGhNG72agGAdtt/t0sZh3ZtGg
-	pGjSeqEfqcrqctiZH8dpQq9QH8qRez75Ab4tSbkeFetb27LGBXqMCxCMFrh+XqQBUbu108Er2h1/T
-	QHik4J6zxRvoV6I/Zi+aJgvTj8XgGn4lNg/KSnFa53gL9+UCTujINcXBPKaOwfyS68FMC7MZwMRcs
-	xpvsIzSKx6/8/qHckJRWdZDrj0qB+gaxbr+09UgYON56PkBaAgSejuSP1awYNzJ4EVELysW1MzzJ7
-	EQsTZmlsg==;
+	 bh=WiMrJN3BWAHQtZITk0o1P7NeIE6kll71BE31FGL9Ztw=; b=Ajrj9BbFatw6Wa3nN4Et2J2mT
+	5uNoICn7cGEzsE+ntRuzjEm60QXKss62BwLUvZYDV62maKTFQV7WstOfHddFYkAlewzPDbDWmiQgc
+	4kVv5zeRNLMnd0hAveXnHMGtDeW0KZn0+zxLWGIq7rXMGLVVeFOwGma87E6E+S/9gwrafb5LmyXSX
+	WJaW9DbmhVrfEMENVuoUjpdm0vnISCuT0qz0PnZ80C4i2ckYwChBYrvTYlNTERlhdNrHy21X1S+Wb
+	atyKtwC2wBrHQTvXWaOnez66rZhQGd+5+5d8bbr8ttQRWjn8vui6FyLcs4FE37LDOYI1que+ppChz
+	w9Qaa2U9g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXHLv-000uwb-Ui; Fri, 16 Apr 2021 05:49:16 +0000
+	id 1lXI4W-00146k-Us; Fri, 16 Apr 2021 06:35:21 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXHLU-000utH-KP; Fri, 16 Apr 2021 05:48:48 +0000
+ id 1lXI4T-00146I-Oi
+ for linux-riscv@desiato.infradead.org; Fri, 16 Apr 2021 06:35:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=+/wTIfsZe5yssy9qAlO5t+b2F4tL0Cuy7W9IuGWGRos=; b=DR7qP63eLvUwUic5bj6l5cNRtK
- YsJwXBPqaEYg1Bc6jxM7jH8dENufMRjL7xoeZHoSmHGGemmM4HfLHLpAbe3IP/cChENRvco54hFtc
- AirG1rjrrWMjbn6Tro9Ya4cyuk4ULuTuiDCBQWlnFtHzcnMTqXCedytjV+hwLaUxkDqwy4MCb93R7
- EhLqJ/cs0oI1UEReoI9oHl0PUBJ3AHUNIC8Fbbf6AqIodyGS9P8GLDJO6kY5Xx0Mz2CGlg3RoUJo+
- hjbw5Vj38WJcVTiQatEcZ85f/sEnttsUdofJ/pTgqzKpi8Ko/pZ6AJGjrsCoVBSqx5c+Asf3mIbIA
- sKfmzQZQ==;
-Received: from pegase1.c-s.fr ([93.17.236.30])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=wzYhl/kLkuf2zoQjIh+L1Ak/Vs4OYCeoB4+BeUIpZMg=; b=rMgSNH0M4hLUl2WZnFEKOziXWN
+ R92FnkO2tjauhO+wK85Hh7avxjnkFModDUA7d8DGsl2S7815GD2AvTNnR7uvADRWcwSNpjtbPrCGA
+ c2mewAzJmy7H56FTRlDYcc+XgzJ2I9ojc/ak8bdnSDqjUGXQzLEMKntwbih3G7zi6RQvc4xDK1qhW
+ yj1KsFS3juB+DiYR7n18ttLtaFQzaZZ3COELn1TnHZnR7jHOAZxWizzG9/O1ZQ/HwJWbXiaFnwwN1
+ 9HHMw2ztMuQB0LVDwGr//3dj5G5x+Ruj/hMLxQW2Y3QdD7PdUsbowX2W3TDVM04BvUB0jv6YNPGrK
+ rF0pzFhA==;
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXHLR-00962P-9h; Fri, 16 Apr 2021 05:48:47 +0000
-Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4FM4yL18bxzB09bL;
- Fri, 16 Apr 2021 07:48:42 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
- by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id y8gfrr0M5iy9; Fri, 16 Apr 2021 07:48:42 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4FM4yK6ptpzB09bK;
- Fri, 16 Apr 2021 07:48:41 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id C3C238B81C;
- Fri, 16 Apr 2021 07:48:42 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
- by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id GFphMEGbTxDw; Fri, 16 Apr 2021 07:48:42 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id BFF598B81A;
- Fri, 16 Apr 2021 07:48:41 +0200 (CEST)
-Subject: Re: [PATCH v1 1/5] mm: pagewalk: Fix walk for hugepage tables
-To: Daniel Axtens <dja@axtens.net>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Steven Price <steven.price@arm.com>, akpm@linux-foundation.org
-Cc: linux-arch@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- x86@kernel.org, linux-mm@kvack.org
-References: <cover.1618506910.git.christophe.leroy@csgroup.eu>
- <733408f48b1ed191f53518123ee6fc6d42287cc6.1618506910.git.christophe.leroy@csgroup.eu>
- <877dl3184l.fsf@dja-thinkpad.axtens.net>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <56d4c630-ac1e-6b75-39a5-7b5bfbd5b1aa@csgroup.eu>
-Date: Fri, 16 Apr 2021 07:48:41 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.1
+ id 1lXI4Q-0097ZE-L8
+ for linux-riscv@lists.infradead.org; Fri, 16 Apr 2021 06:35:16 +0000
+Received: by mail-qt1-x835.google.com with SMTP id y12so20109674qtx.11
+ for <linux-riscv@lists.infradead.org>; Thu, 15 Apr 2021 23:35:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=wzYhl/kLkuf2zoQjIh+L1Ak/Vs4OYCeoB4+BeUIpZMg=;
+ b=qqDG00BKayubR3jZRy9vUxctP7f1/6Xs7Mwn4Moa8MAym9s/UNJEKSo66v40rBPeUN
+ qITQPjAFEySnqz1RKICORLFChzXx2UTf04WtilTLxtr2vzjkB9GDKNLUdicMSKF6zno6
+ OJka/p6I/0ihC0PgqoNKeCLBr50Yry196xMgvDNTOQ4aKuLABftfK4Y9b4qgW1DTVUNP
+ F1DmLNL9OOF9aVLvOTcUbPMHXpJTj/BZ2jXECiJIVLdKxMV3DZFcQxI+wswhCGiHWYWm
+ QG4a0F/Lpqlv4THHfjYVEhKxJbzq+Fw037SLDUx9KFLuY7FtDJOjCBCG8xt5XxzEuQEB
+ /XlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wzYhl/kLkuf2zoQjIh+L1Ak/Vs4OYCeoB4+BeUIpZMg=;
+ b=V3bEy9BnkaaxJyZxtfMYH5qZ2cmT8Pyd6f7MS5zgr8yGOUThr5SF9ArohpT7FHRwjo
+ YSZ8kBqImhps8NGk0qJkYKS1j+4bvxPSxoErwD1UqLOuZmebtMo7vCsbs195qFr3pOI/
+ AgbUfGN5c7MdjD0mUDzygP78gutBEM3SGtOD3q0hnGTM+HFu26q6Xz4upkJX7Ed8577K
+ d/msWvjXCaZhgIKP7oAbIrx7qD02I+LEWEdNBkRJx6HDGNxonS4QVEt7Nl2ln1EvG56c
+ Nxl8/Qoa/GIvs8xtC0V7aF9tzLlLal7w/wFGt4jvTDxlLW+qskvPCls6VK6GHDx5FCIV
+ tF+g==
+X-Gm-Message-State: AOAM532qV6xar+OXn6xRq8c81ip3da+xH6wTXo+OZ95LpWUcl1prmY90
+ kHhsYt+T/PkcN/vgiymoMspPX80r0B+mx8COsQMqrw==
+X-Google-Smtp-Source: ABdhPJyVx5xNy340fC0rFmYlCpPhUw7Mv8ysgS6HKbvdOl+hgrJk5iuXZPEemctGgyvCc9EsOjXG4Oh7+2H+KJJHuJc=
+X-Received: by 2002:ac8:768c:: with SMTP id g12mr6482816qtr.67.1618554910039; 
+ Thu, 15 Apr 2021 23:35:10 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <877dl3184l.fsf@dja-thinkpad.axtens.net>
-Content-Language: fr
+References: <000000000000a5772005c00f8101@google.com>
+In-Reply-To: <000000000000a5772005c00f8101@google.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Fri, 16 Apr 2021 08:34:58 +0200
+Message-ID: <CACT4Y+ZZZu94pTz-WZXDLDA7-R+quErC1uYgkRJ8gnUCq2OJ2w@mail.gmail.com>
+Subject: Re: [syzbot] WARNING in ctx_sched_in
+To: syzbot <syzbot+50d41b514809f6f4f326@syzkaller.appspotmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, andrii@kernel.org, 
+ Alexei Starovoitov <ast@kernel.org>, bpf <bpf@vger.kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>, 
+ Jiri Olsa <jolsa@redhat.com>, Martin KaFai Lau <kafai@fb.com>,
+ kpsingh@kernel.org, 
+ LKML <linux-kernel@vger.kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ netdev <netdev@vger.kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Song Liu <songliubraving@fb.com>, 
+ syzkaller-bugs <syzkaller-bugs@googlegroups.com>, Yonghong Song <yhs@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210415_224845_675041_C920DCA2 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20210415_233514_715348_6BC94E28 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +114,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAxNi8wNC8yMDIxIMOgIDAwOjQzLCBEYW5pZWwgQXh0ZW5zIGEgw6ljcml0wqA6Cj4gSGkg
-Q2hyaXN0b3BoZSwKPiAKPj4gUGFnZXdhbGsgaWdub3JlcyBodWdlcGQgZW50cmllcyBhbmQgd2Fs
-ayBkb3duIHRoZSB0YWJsZXMKPj4gYXMgaWYgaXQgd2FzIHRyYWRpdGlvbm5hbCBlbnRyaWVzLCBs
-ZWFkaW5nIHRvIGNyYXp5IHJlc3VsdC4KPj4KPj4gQWRkIHdhbGtfaHVnZXBkX3JhbmdlKCkgYW5k
-IHVzZSBpdCB0byB3YWxrIGh1Z2VwYWdlIHRhYmxlcy4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQ2hy
-aXN0b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1Pgo+PiAtLS0KPj4gICBt
-bS9wYWdld2Fsay5jIHwgNTQgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrLS0tLS0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDQ4IGluc2VydGlvbnMoKyksIDYgZGVs
-ZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9tbS9wYWdld2Fsay5jIGIvbW0vcGFnZXdhbGsu
-Ywo+PiBpbmRleCBlODE2NDBkOWYxNzcuLjQxMGE5ZDhmNzU3MiAxMDA2NDQKPj4gLS0tIGEvbW0v
-cGFnZXdhbGsuYwo+PiArKysgYi9tbS9wYWdld2Fsay5jCj4+IEBAIC01OCw2ICs1OCwzMiBAQCBz
-dGF0aWMgaW50IHdhbGtfcHRlX3JhbmdlKHBtZF90ICpwbWQsIHVuc2lnbmVkIGxvbmcgYWRkciwg
-dW5zaWduZWQgbG9uZyBlbmQsCj4+ICAgCXJldHVybiBlcnI7Cj4+ICAgfQo+PiAgIAo+PiArc3Rh
-dGljIGludCB3YWxrX2h1Z2VwZF9yYW5nZShodWdlcGRfdCAqcGhwZCwgdW5zaWduZWQgbG9uZyBh
-ZGRyLAo+PiArCQkJICAgICB1bnNpZ25lZCBsb25nIGVuZCwgc3RydWN0IG1tX3dhbGsgKndhbGss
-IGludCBwZHNoaWZ0KQo+PiArewo+PiArCWludCBlcnIgPSAwOwo+PiArI2lmZGVmIENPTkZJR19B
-UkNIX0hBU19IVUdFUEQKPj4gKwljb25zdCBzdHJ1Y3QgbW1fd2Fsa19vcHMgKm9wcyA9IHdhbGst
-Pm9wczsKPj4gKwlpbnQgc2hpZnQgPSBodWdlcGRfc2hpZnQoKnBocGQpOwo+PiArCWludCBwYWdl
-X3NpemUgPSAxIDw8IHNoaWZ0Owo+PiArCj4+ICsJaWYgKGFkZHIgJiAocGFnZV9zaXplIC0gMSkp
-Cj4+ICsJCXJldHVybiAwOwo+PiArCj4+ICsJZm9yICg7Oykgewo+PiArCQlwdGVfdCAqcHRlID0g
-aHVnZXB0ZV9vZmZzZXQoKnBocGQsIGFkZHIsIHBkc2hpZnQpOwo+PiArCj4+ICsJCWVyciA9IG9w
-cy0+cHRlX2VudHJ5KHB0ZSwgYWRkciwgYWRkciArIHBhZ2Vfc2l6ZSwgd2Fsayk7Cj4+ICsJCWlm
-IChlcnIpCj4+ICsJCQlicmVhazsKPj4gKwkJaWYgKGFkZHIgPj0gZW5kIC0gcGFnZV9zaXplKQo+
-PiArCQkJYnJlYWs7Cj4+ICsJCWFkZHIgKz0gcGFnZV9zaXplOwo+PiArCX0KPiAKPiBJbml0aWFs
-bHkgSSB0aG91Z2h0IHRoaXMgd2FzIGEgc29tZXdoYXQgdW5pbnR1aXRpdmUgd2F5IHRvIHN0cnVj
-dHVyZQo+IHRoaXMgbG9vcCwgYnV0IEkgc2VlIGl0IHBhcmFsbGVscyB0aGUgc3RydWN0dXJlIG9m
-IHdhbGtfcHRlX3JhbmdlX2lubmVyLAo+IHNvIEkgdGhpbmsgdGhlIGNvbnNpc3RlbmN5IGlzIHdv
-cnRoIGl0Lgo+IAo+IEkgbm90aWNlIHRoZSBwdGUgd2Fsa2luZyBjb2RlIHBvdGVudGlhbGx5IHRh
-a2VzIHNvbWUgbG9ja3M6IGRvZXMgdGhpcwo+IGNvZGUgbmVlZCB0byBkbyB0aGF0Pwo+IAo+IGFy
-Y2gvcG93ZXJwYy9tbS9odWdldGxicGFnZS5jIHNheXMgdGhhdCBodWdlcGRzIGFyZSBwcm90ZWN0
-ZWQgYnkgdGhlCj4gbW0tPnBhZ2VfdGFibGVfbG9jaywgYnV0IEkgZG9uJ3QgdGhpbmsgd2UncmUg
-dGFraW5nIGl0IGluIHRoaXMgY29kZS4KCkknbGwgYWRkIGl0LCB0aGFua3MuCgo+IAo+PiArI2Vu
-ZGlmCj4+ICsJcmV0dXJuIGVycjsKPj4gK30KPj4gKwo+PiAgIHN0YXRpYyBpbnQgd2Fsa19wbWRf
-cmFuZ2UocHVkX3QgKnB1ZCwgdW5zaWduZWQgbG9uZyBhZGRyLCB1bnNpZ25lZCBsb25nIGVuZCwK
-Pj4gICAJCQkgIHN0cnVjdCBtbV93YWxrICp3YWxrKQo+PiAgIHsKPj4gQEAgLTEwOCw3ICsxMzQs
-MTAgQEAgc3RhdGljIGludCB3YWxrX3BtZF9yYW5nZShwdWRfdCAqcHVkLCB1bnNpZ25lZCBsb25n
-IGFkZHIsIHVuc2lnbmVkIGxvbmcgZW5kLAo+PiAgIAkJCQlnb3RvIGFnYWluOwo+PiAgIAkJfQo+
-PiAgIAo+PiAtCQllcnIgPSB3YWxrX3B0ZV9yYW5nZShwbWQsIGFkZHIsIG5leHQsIHdhbGspOwo+
-PiArCQlpZiAoaXNfaHVnZXBkKF9faHVnZXBkKHBtZF92YWwoKnBtZCkpKSkKPj4gKwkJCWVyciA9
-IHdhbGtfaHVnZXBkX3JhbmdlKChodWdlcGRfdCAqKXBtZCwgYWRkciwgbmV4dCwgd2FsaywgUE1E
-X1NISUZUKTsKPj4gKwkJZWxzZQo+PiArCQkJZXJyID0gd2Fsa19wdGVfcmFuZ2UocG1kLCBhZGRy
-LCBuZXh0LCB3YWxrKTsKPj4gICAJCWlmIChlcnIpCj4+ICAgCQkJYnJlYWs7Cj4+ICAgCX0gd2hp
-bGUgKHBtZCsrLCBhZGRyID0gbmV4dCwgYWRkciAhPSBlbmQpOwo+PiBAQCAtMTU3LDcgKzE4Niwx
-MCBAQCBzdGF0aWMgaW50IHdhbGtfcHVkX3JhbmdlKHA0ZF90ICpwNGQsIHVuc2lnbmVkIGxvbmcg
-YWRkciwgdW5zaWduZWQgbG9uZyBlbmQsCj4+ICAgCQlpZiAocHVkX25vbmUoKnB1ZCkpCj4+ICAg
-CQkJZ290byBhZ2FpbjsKPj4gICAKPj4gLQkJZXJyID0gd2Fsa19wbWRfcmFuZ2UocHVkLCBhZGRy
-LCBuZXh0LCB3YWxrKTsKPj4gKwkJaWYgKGlzX2h1Z2VwZChfX2h1Z2VwZChwdWRfdmFsKCpwdWQp
-KSkpCj4+ICsJCQllcnIgPSB3YWxrX2h1Z2VwZF9yYW5nZSgoaHVnZXBkX3QgKilwdWQsIGFkZHIs
-IG5leHQsIHdhbGssIFBVRF9TSElGVCk7Cj4+ICsJCWVsc2UKPj4gKwkJCWVyciA9IHdhbGtfcG1k
-X3JhbmdlKHB1ZCwgYWRkciwgbmV4dCwgd2Fsayk7Cj4gCj4gSSdtIGEgYml0IHdvcnJpZWQgeW91
-IG1pZ2h0IGVuZCB1cCBjYWxsaW5nIGludG8gd2Fsa19odWdlcGRfcmFuZ2Ugd2l0aAo+IG9wcy0+
-cHRlX2VudHJ5ID09IE5VTEwsIGFuZCB0aGVuIGp1bXBpbmcgdG8gMC4KCllvdSBhcmUgcmlnaHQs
-IEkgbWlzc2VkIGl0LgpJJ2xsIGJhaWwgb3V0IG9mIHdhbGtfaHVnZXBkX3JhbmdlKCkgd2hlbiBv
-cHMtPnB0ZV9lbnRyeSBpcyBOVUxMLgoKCj4gCj4gc3RhdGljIGludCB3YWxrX3B1ZF9yYW5nZShw
-NGRfdCAqcDRkLCB1bnNpZ25lZCBsb25nIGFkZHIsIHVuc2lnbmVkIGxvbmcgZW5kLAo+IAkJCSAg
-c3RydWN0IG1tX3dhbGsgKndhbGspCj4gewo+IC4uLgo+ICAgICAgICAgIHB1ZCA9IHB1ZF9vZmZz
-ZXQocDRkLCBhZGRyKTsKPiAJZG8gewo+ICAgICAgICAgICAgICAgICAgLi4uCj4gICAgICAgICAg
-ICAgICAgICBpZiAoKCF3YWxrLT52bWEgJiYgKHB1ZF9sZWFmKCpwdWQpIHx8ICFwdWRfcHJlc2Vu
-dCgqcHVkKSkpIHx8Cj4gCQkgICAgd2Fsay0+YWN0aW9uID09IEFDVElPTl9DT05USU5VRSB8fAo+
-IAkJICAgICEob3BzLT5wbWRfZW50cnkgfHwgb3BzLT5wdGVfZW50cnkpKSA8PDwgVEhJUyBDSEVD
-Swo+IAkJCWNvbnRpbnVlOwo+ICAgICAgICAgICAgICAgICAgLi4uCj4gCQlpZiAoaXNfaHVnZXBk
-KF9faHVnZXBkKHB1ZF92YWwoKnB1ZCkpKSkKPiAJCQllcnIgPSB3YWxrX2h1Z2VwZF9yYW5nZSgo
-aHVnZXBkX3QgKilwdWQsIGFkZHIsIG5leHQsIHdhbGssIFBVRF9TSElGVCk7Cj4gCQllbHNlCj4g
-CQkJZXJyID0gd2Fsa19wbWRfcmFuZ2UocHVkLCBhZGRyLCBuZXh0LCB3YWxrKTsKPiAJCWlmIChl
-cnIpCj4gCQkJYnJlYWs7Cj4gCX0gd2hpbGUgKHB1ZCsrLCBhZGRyID0gbmV4dCwgYWRkciAhPSBl
-bmQpOwo+IAo+IHdhbGtfcHVkX3JhbmdlIHdpbGwgcHJvY2VlZCBpZiB0aGVyZSBpcyBfZWl0aGVy
-XyBhbiBvcHMtPnBtZF9lbnRyeSBfb3JfCj4gYW4gb3BzLT5wdGVfZW50cnksIGJ1dCB3YWxrX2h1
-Z2VwZF9yYW5nZSB3aWxsIGNhbGwgb3BzLT5wdGVfZW50cnkKPiB1bmNvbmRpdGlvbmFsbHkuCj4g
-Cj4gVGhlIHNhbWUgaXNzdWUgYXBwbGllcyB0byB3YWxrX3twNGQscGdkfV9yYW5nZS4uLgo+IAo+
-IEtpbmQgcmVnYXJkcywKPiBEYW5pZWwKPiAKClRoYW5rcwpDaHJpc3RvcGhlCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Apr 16, 2021 at 6:35 AM syzbot
+<syzbot+50d41b514809f6f4f326@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    79c338ab riscv: keep interrupts disabled for BREAKPOINT ex..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> console output: https://syzkaller.appspot.com/x/log.txt?x=10fb93f9d00000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=f8af20e245283c9a
+> dashboard link: https://syzkaller.appspot.com/bug?extid=50d41b514809f6f4f326
+> userspace arch: riscv64
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+50d41b514809f6f4f326@syzkaller.appspotmail.com
+
++riscv maintainers as this happens only on riscv64
+
+> ------------[ cut here ]------------
+> WARNING: CPU: 1 PID: 4475 at kernel/events/core.c:3752 ctx_sched_in+0x12e/0x3ee kernel/events/core.c:3752
+> Modules linked in:
+> CPU: 1 PID: 4475 Comm: syz-executor.1 Not tainted 5.12.0-rc6-syzkaller-00183-g79c338ab575e #0
+> Hardware name: riscv-virtio,qemu (DT)
+> epc : ctx_sched_in+0x12e/0x3ee kernel/events/core.c:3752
+>  ra : ctx_sched_in+0x12e/0x3ee kernel/events/core.c:3752
+> epc : ffffffe000279fe8 ra : ffffffe000279fe8 sp : ffffffe009e17680
+>  gp : ffffffe004588ad0 tp : ffffffe006398000 t0 : 0000000000000000
+>  t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe009e176f0
+>  s1 : ffffffe0077edc00 a0 : ffffffe067d79118 a1 : 00000000000f0000
+>  a2 : 0000000000000002 a3 : ffffffe000279fe8 a4 : ffffffe006399000
+>  a5 : 0000000040000000 a6 : 0000000000f00000 a7 : ffffffe000280cc8
+>  s2 : 0000000000000007 s3 : ffffffe0077edd40 s4 : ffffffe006398000
+>  s5 : 0000000000000002 s6 : ffffffe00458c0d0 s7 : ffffffe067d78f70
+>  s8 : 0000000000000007 s9 : ffffffe067d79118 s10: ffffffe0077edc00
+>  s11: ffffffe0077edc08 t3 : e189d98bb4bfb900 t4 : ffffffc4042c47b2
+>  t5 : ffffffc4042c47ba t6 : 0000000000040000
+> status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+> Call Trace:
+> [<ffffffe000279fe8>] ctx_sched_in+0x12e/0x3ee kernel/events/core.c:3752
+> [<ffffffe00027a2e0>] perf_event_sched_in+0x38/0x74 kernel/events/core.c:2680
+> [<ffffffe000280da2>] perf_event_context_sched_in kernel/events/core.c:3817 [inline]
+> [<ffffffe000280da2>] __perf_event_task_sched_in+0x4ea/0x680 kernel/events/core.c:3860
+> [<ffffffe0000850f8>] perf_event_task_sched_in include/linux/perf_event.h:1210 [inline]
+> [<ffffffe0000850f8>] finish_task_switch.isra.0+0x284/0x318 kernel/sched/core.c:4189
+> [<ffffffe002a94308>] context_switch kernel/sched/core.c:4325 [inline]
+> [<ffffffe002a94308>] __schedule+0x484/0xe8c kernel/sched/core.c:5073
+> [<ffffffe002a95102>] preempt_schedule_notrace+0x9c/0x19a kernel/sched/core.c:5312
+> [<ffffffe0000cd54a>] rcu_read_unlock_sched_notrace include/linux/rcupdate.h:794 [inline]
+> [<ffffffe0000cd54a>] trace_lock_acquire+0xf0/0x20e include/trace/events/lock.h:13
+> [<ffffffe0000d3c0e>] lock_acquire+0x28/0x5a kernel/locking/lockdep.c:5481
+> [<ffffffe0003b20ee>] rcu_lock_acquire include/linux/rcupdate.h:267 [inline]
+> [<ffffffe0003b20ee>] rcu_read_lock include/linux/rcupdate.h:656 [inline]
+> [<ffffffe0003b20ee>] percpu_ref_put_many.constprop.0+0x38/0x148 include/linux/percpu-refcount.h:317
+> [<ffffffe0003baa56>] percpu_ref_put include/linux/percpu-refcount.h:338 [inline]
+> [<ffffffe0003baa56>] obj_cgroup_put include/linux/memcontrol.h:713 [inline]
+> [<ffffffe0003baa56>] memcg_slab_free_hook mm/slab.h:372 [inline]
+> [<ffffffe0003baa56>] memcg_slab_free_hook mm/slab.h:336 [inline]
+> [<ffffffe0003baa56>] do_slab_free mm/slub.c:3117 [inline]
+> [<ffffffe0003baa56>] ___cache_free+0x2bc/0x3dc mm/slub.c:3168
+> [<ffffffe0003be26c>] qlink_free mm/kasan/quarantine.c:146 [inline]
+> [<ffffffe0003be26c>] qlist_free_all+0x56/0xac mm/kasan/quarantine.c:165
+> [<ffffffe0003be774>] kasan_quarantine_reduce+0x14c/0x1c8 mm/kasan/quarantine.c:272
+> [<ffffffe0003bc3f8>] __kasan_slab_alloc+0x60/0x62 mm/kasan/common.c:437
+> [<ffffffe0003b8f10>] kasan_slab_alloc include/linux/kasan.h:223 [inline]
+> [<ffffffe0003b8f10>] slab_post_alloc_hook mm/slab.h:516 [inline]
+> [<ffffffe0003b8f10>] slab_alloc_node mm/slub.c:2907 [inline]
+> [<ffffffe0003b8f10>] slab_alloc mm/slub.c:2915 [inline]
+> [<ffffffe0003b8f10>] kmem_cache_alloc+0x168/0x3ca mm/slub.c:2920
+> [<ffffffe0001aaee2>] kmem_cache_zalloc include/linux/slab.h:674 [inline]
+> [<ffffffe0001aaee2>] taskstats_tgid_alloc kernel/taskstats.c:561 [inline]
+> [<ffffffe0001aaee2>] taskstats_exit+0x3ce/0x5fe kernel/taskstats.c:600
+> [<ffffffe000031bfc>] do_exit+0x3b2/0x1846 kernel/exit.c:810
+> [<ffffffe00003319a>] do_group_exit+0xa0/0x198 kernel/exit.c:922
+> [<ffffffe00004c558>] get_signal+0x31e/0x14ba kernel/signal.c:2781
+> [<ffffffe000007e06>] do_signal arch/riscv/kernel/signal.c:271 [inline]
+> [<ffffffe000007e06>] do_notify_resume+0xa8/0x930 arch/riscv/kernel/signal.c:317
+> [<ffffffe000005586>] ret_from_exception+0x0/0x14
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+>
+> --
+> You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/syzkaller-bugs/000000000000a5772005c00f8101%40google.com.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
