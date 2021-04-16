@@ -2,176 +2,77 @@ Return-Path: <SRS0=iBqs=JN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15DA7C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 08:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7683CC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 08:59:30 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5C4B361006
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 08:02:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5C4B361006
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id D704261153
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Apr 2021 08:59:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D704261153
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=hlwRJ9QkVsPvMRtMSjqSnh5hbK4Yywr9A4/6gmgO/j0=; b=IvnDSxUisgVyvxWTp8bOn6Wh7
-	a9m9QoIOY3VhQ6I88Tdct6p8RbDk3UHMl7t39S7HOxej83PAvxIiFyR+Y0TfloFGeiWPAsJxPVQQ1
-	wGrCA/jSAHnpKRNxG9EzjDZCEw6WojdDct/bXqlKADT6DUppSMapYdWIBtm4EwabSY/yG3uu4EQXm
-	rQokMYzgPg6aLd2/ZOYwIx3Bb3U/4E600G+VvB6+Ub14MGXGNKV34O3W91H5xhGLKIPSa9vp2qWxu
-	sVK6l2PeqIOa7smfZHxVjPLrERM+WwNqILrbqW9kZOWH7GKCvpBk9wALIrVQe2Bcv5YLXJe+MResc
-	vO+J05LDQ==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FFiUWZY+gM/Hs9dIXvEMTPa4cs2JJ0mDl9zG4Tk6cvU=; b=Dn8xJl65ZNiUlZl1aAAHkHPedT
+	rcsStsWuXbnA53uIZS2s18Y/6o2nSr+cArWk2KvXw+WmS6fwPlJcWiXszMGFdlqmYOSITE8EkNCtQ
+	HgYED0ML8SPbzYdVEnZyAcsHEbeGYRI3+36YrLjqHUgy0FhsXMi//vXZwjgs5qT7ow8n4IKbM8C2D
+	EbO/8Lq5TPMf771G5SgQpqBEsy7zZ3/AuhMNO8Iwh8buHfX3fH70XR4RB3t9A/mGXVjx8VHGBoAz6
+	D//yo1L3WEosnoyyIRwQDTy7Zo28jFSUTd1pDrGpr+nfdYpi3gnw+ECn+lVNSk3s2o0BAzHw1WF5V
+	kHSQpEPg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXJQh-001Gli-TR; Fri, 16 Apr 2021 08:02:20 +0000
+	id 1lXKJl-001Se3-HF; Fri, 16 Apr 2021 08:59:13 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXJ3Q-001DE4-5M
- for linux-riscv@desiato.infradead.org; Fri, 16 Apr 2021 07:38:16 +0000
+ id 1lXJpG-001LMU-AP
+ for linux-riscv@desiato.infradead.org; Fri, 16 Apr 2021 08:27:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=MIME-Version:
- Content-Transfer-Encoding:Content-Type:References:Message-ID:Date:Subject:CC:
- To:From:Sender:Reply-To:Content-ID:Content-Description:In-Reply-To;
- bh=rJ3zeS9U65ywsSivOcq9ZBYz+wx6iXDB2XZ+wfg0FtY=; b=qMHzJ/ZRld6hNujqCojy5dYOpl
- LlBt8FQknyW7/20zsz+ftcrEbwzq4WMStw+OENhP03zL9f0NOidAAPw0GXXPm2EKBHIG1qosshm/I
- Nkl/bz7WXiTw+oojRmlvicp2EpzLw87ylIRiNL6kJVLs8GVyGdEsN7nJz2m6FZKSSe80ugApLwV7V
- JDkteFosX2hCNDZEDPFf5CEvCnoOG2fuD/1nezpBpEoNZFDxnsrnevB37lvGmYYIjKrs1Xqf1BWgH
- V269pZ2zXNC8Gk4YPEy3QJbIQEtpVx5zjrvDQjinmhO5UQOmMcFM5vRt7mgXtpCaApsoXW3Te9NlL
- zKnallbg==;
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:MIME-Version:Message-ID:
+ Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=G+k0LvztAmWD/ih1Ia3fz1p9KlB1lgMKQT/GFIdmSR8=; b=o2Op9K0cHJcQ8quWzizpkaQP3E
+ 7RneLXc8d0piCaVaaST6UZ/mB3rBKJ8GKiEC4HaqLkqTC9PVyqPV+I/6Ry+q2aAgUGaDbpiNLSACw
+ NZVlYcnIU9wF4El0skrJOdvLL0dbKm7EjVkdyovgX46HGle2kWvQ5xjUeQOrsbJYb+oYrVLs752ol
+ KWNl1k6KZaMsCYuk0+FXbb2XDAWGlCfZImqU8aeW4ZRwC6ubZUXOYQ/cvUsqmNb08bg2j9HLenYdZ
+ aROw0wBt3KkLDy0SsSdIPPPqeziAaiojUMUWrYOPITcJYTitYbROhx9HZ1zHMwqxSJ8tqjDn1QEwL
+ xthX29BQ==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXJ3M-0099pE-Rh
- for linux-riscv@lists.infradead.org; Fri, 16 Apr 2021 07:38:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1618558692; x=1650094692;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=EHE/ivofGHKwjS2amYk+9p+WL6y9X09Y+xArdmQEB/I=;
- b=gokepgcMfBA7c6WpvLXZcTOPhGZi9+Xd3oWemoxcekbC/0ZP6B5cP7yo
- +1Dn8F8exvxIYM6kKGx+VpzlornVeFLCPqLYmtmAxyks5nvtNBaruhzkE
- 6HrRg98TXPEwbJ+O4W+l8qg+ZeM1PJVjy8Ink7VuAYV3GBO+9zeqOQNwe
- G+lXnrzx49Kj7c+Gw288koyFLN/harxoYa19+yNU4Z76xlCu7Nfl6ra2a
- qY460qEHeQQRWycSK9SSAYfLKSkCpN7NnqCWbVXdGuEan4JMu9ziGRAPc
- /tVTkso44alyDrYJ22bVJg9JgSt096dYyen6c4j2+IS7qDJ6u22shGzyO A==;
-IronPort-SDR: IyOyMRzUejnRQJWrso7TTpdgQ7Gtwh4UPxUUROzZqhZ9+2LqtTI+E96T5zS7BT6aLPKWb6ElMu
- vNL6llmHPxgWjk5UO2ssIf4FinHCe8EsGEm5wR77I18HfsT1Ba0nwLYf9pQmay/3K9rPDufjke
- yU+ED5WrsF4COhsOs+wYh1s0O6tGF+VxnxKJFlo++daVLSSFer+ve4FqH9vFy6LOU8iuyFDjS0
- aUTNSvqTqc5p33t2EnXfMnZrknfobV4S/EfaBrIbSPe/HkIQ1Qf8zjHSC+h4pAjnf/pamJIKTq
- D4w=
-X-IronPort-AV: E=Sophos;i="5.82,226,1613404800"; d="scan'208";a="164438659"
-Received: from mail-cys01nam02lp2057.outbound.protection.outlook.com (HELO
- NAM02-CY1-obe.outbound.protection.outlook.com) ([104.47.37.57])
- by ob1.hgst.iphmx.com with ESMTP; 16 Apr 2021 15:35:23 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GSn7iBL/W9qPZ+2d4VKFs8vd/tJkZKTUA7KH2Rbriy2luBXz50AytpMJusiuN8yGF96YGTMo3HSbvM8haHDHcqaYrZz9EIZ29sPn4odnmNsRfKqR/Ylq2pPYDHlbPDym+Zi+hTssN913EJxC8T/ggE1spBw1tAqvyUlmMLIiXqJypPqhziBIR15kN/C7Nr2GK0kSyt3xEAJa7tvfbA9rTR2G92WTVKMvaQkJSoxCtUWE6cuiM+zMFzZhfv7/IfND+lDZnPBb6jq5oOfIqJ6yHhIL/1p+DQePK6VcP+JwkjL2U+mw0C8/mYbzKL4Gihblce/i3bit/QZirefGF2fxbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rJ3zeS9U65ywsSivOcq9ZBYz+wx6iXDB2XZ+wfg0FtY=;
- b=KIF7xoSYR5MkIqU53rTwVXbuUo6nvdOt9OjU5/kasq1ZL/TCGQUXcDTNChwZVs9ouvSpyYpJtsWaRq+IICrTX+KNsldiTLW3kZ3IbU3dZdCU7y+xXVKIqjCloYrYrWwYozKalADiE+lBki4kwcfTxXeVtWRtPH4gmVE71xIWzg+Y/4AZhTj8+HE4NjWKk7Hh0r12Rf+bcfcJW/86FkDvQxDe8Iwy0kTWo/d21qOzNX7fxYFsUKOmYcoHgkBj2l8sgv9rEQQXPtI/CjwKiFGxYbsBfYCPBdcIXS1lO+SkXrMnhnsfKIFXdo53DW9DMf+4d/mhulO6JIHRsRySqdt+LQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rJ3zeS9U65ywsSivOcq9ZBYz+wx6iXDB2XZ+wfg0FtY=;
- b=r8nbmcvUC3litBr3N3Cpd6rTJUmYwlWM0gT3snZvKWarsQhwhwobW0DyOCC6IFsB3VSXKNXKeuQEjM+VdOMu5b7rHIEUDdHxxbAt+ySBHayc9xXZs39Za0jS3omnZpon/BrW6UOSPYPEy93+FuGUuEREOmWX93ttN5kO7SUpVdU=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by MN2PR04MB6669.namprd04.prod.outlook.com (2603:10b6:208:1e0::16)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4020.18; Fri, 16 Apr
- 2021 07:35:02 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::8557:ab07:8b6b:da78]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::8557:ab07:8b6b:da78%3]) with mapi id 15.20.4042.016; Fri, 16 Apr 2021
- 07:35:02 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Greg Ungerer <gerg@linux-m68k.org>, "uclinux-dev@uclinux.org"
- <uclinux-dev@uclinux.org>, "ugerg@linux-m68k.org" <ugerg@linux-m68k.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-CC: Max Filippov <jcmvbkbc@gmail.com>, Anup Patel <Anup.Patel@wdc.com>,
- Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH v3 1/2] binfmt_flat: allow not offsetting data start
-Thread-Topic: [PATCH v3 1/2] binfmt_flat: allow not offsetting data start
-Thread-Index: AQHXMb61DCVMbvZIeUC4C2ar1xW5kg==
-Date: Fri, 16 Apr 2021 07:35:02 +0000
-Message-ID: <BL0PR04MB651452B570CB9BA45AB7C3C1E74C9@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <20210415061502.7248-1-damien.lemoal@wdc.com>
- <20210415061502.7248-2-damien.lemoal@wdc.com>
- <8ff801ad-6e17-fdd2-6186-5443540947a9@linux-m68k.org>
- <BL0PR04MB6514D6C35731EA1CA581095EE74D9@BL0PR04MB6514.namprd04.prod.outlook.com>
- <a0ce28d4-f99d-c1f9-566d-c6ab2f60f585@linux-m68k.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: linux-m68k.org; dkim=none (message not signed)
- header.d=none;linux-m68k.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:c420:851d:e64f:2199]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 2a4f041a-0411-4c3d-ae07-08d900aa25d0
-x-ms-traffictypediagnostic: MN2PR04MB6669:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR04MB6669FE61DDE1D5FA6E67E1BBE74C9@MN2PR04MB6669.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: BKbT5wCu4dbgvdIM+0ND+roJOkSySVVKZj0rKl1xNwmFxKdkiTZE2Ktzsnsw8ndEkLOdDb9lhWdWc5ytWeuCWL469xepJJN+jU+puqr2x7dvFfrr+JL46J88STUOTMUZFxRbEv2xCkWuPRUeqS+P2lQ/H09jfVmNLlNLdVtyexVVXNR4t2xRCbPESB+sfZQaOCOHqXcZBjbtgVIJ0rqtYhgLrld54Um98l86iLB4hyyW/Z+2txrcntkeTcJKMDxHYlLxHMBM3pFUUodSfHIJvXuC7v5x3VtWrrHjxp7eR+W71PiOvvEKmXbqfZ38e8g//DD918tKtJgaPESs6EmPfAi5LZbbW+ByZDOmvnfvg6szOrvIAAWJd51e+KJoKPYN7yzEfN5S53allos59b7OpW99zfLzG9AJPcp5AP+e793aH42aekgk8SF8m8GNqDyW1Qa8Hht1d11JTqgGBXG5vMuI6LraQV7tBRX9Dqx2JaxpbXDnJZ3z4UNPaA61veH6Yvrs8zYNANkPG+wcBW+kCX/5tIncHk+kRegNHNag/uVFBGSyvezEVJa8w7aaz47WEH0vngHMpwHKUFWaV2mx9BFQhdNQY71ko/OB+XDe5mQ=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(346002)(39860400002)(376002)(396003)(136003)(76116006)(66446008)(186003)(4326008)(122000001)(2906002)(8676002)(8936002)(33656002)(6506007)(64756008)(54906003)(478600001)(83380400001)(71200400001)(7696005)(91956017)(53546011)(86362001)(52536014)(38100700002)(66476007)(55016002)(9686003)(66946007)(66556008)(316002)(110136005)(5660300002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?2svb5AQrhRUS35Axzfd57qzM899pCo/bo9EjYlkwZNraU5TBUavOmBZvpbJP?=
- =?us-ascii?Q?vNhiSTVthhu3k2kO6B9t9YbBAa0XlEhg2bVjSGtM9teEW80DwywWqvcwrXYh?=
- =?us-ascii?Q?Jz2wzKNXJcMnVKSTIC6YYYfSApm0v2dAII/eD4R2ohrGrxn7vGGF1WgXNlRp?=
- =?us-ascii?Q?ihqFkv1oTwZI/RChYno8poEw2giS0jctFBkGjT+/wPS1+gj4oiqwVOmYInw2?=
- =?us-ascii?Q?rpNPdb4knbH8OTggAErbyOgTPauM1lmFscSaDjEJv6Eis2k3zgoBXnnp7Rej?=
- =?us-ascii?Q?2sKADlhxZYASC4mCFEoYguvavR0SImi19VuopJci/7FunCDlxozavKtMolA9?=
- =?us-ascii?Q?QaSGIESOpvsPS38EzBCHZiHHcfsMJXHwB2/pIZVycyxmL7X4gVyBoQs1QguF?=
- =?us-ascii?Q?1yrIaYwQWV98dtszcuyzylpuuRr57lTVCzTis8D7RgCrZxixo5PT2LxMpmLy?=
- =?us-ascii?Q?rJnE6Qpucvy1pBP4oV6mveLElAQauW+i55wxLPmGBXQHqPBQQ9tZZ54VUD1e?=
- =?us-ascii?Q?Ot79SzLYfnSGhA8G+1TH9ZbF0NmIlXqVzv5gmoA23m9ePCqxHpNc76FdeXO/?=
- =?us-ascii?Q?dHUllxmHJk1uIeqCarcnPim/iCtkhXX5kisGgfa/PgsdA1dBdAhlHt/MADCF?=
- =?us-ascii?Q?7Wv6NjS5aWzM6dEG7SNMgeJNGaIwP4xgrW7WhkeeEesNWACThqgDydu4a2hJ?=
- =?us-ascii?Q?hY5xhu3W1MlZy1Pxt6Nb1Pb0dr0VmsCa1M1EJ1e83Kl3WlaX7zTe3gcPUEj6?=
- =?us-ascii?Q?I6rEncx9neSYRZGxqHG4EsF8RXJ+OtLjPqzlaBIffl+GmycZKNh0FCM8+N9A?=
- =?us-ascii?Q?n06yWpwYrxk30qlJJgfBkAQbkhhNNsqxv5s6fa3QKbYhQ76seAqjro3gqX7c?=
- =?us-ascii?Q?1kNVr43e3qZ1wLNxhG6ZdifK5g9vRwRJ1wfOQcfmMfmivy8MpS9mbDk5OF5L?=
- =?us-ascii?Q?JDFCWUN4ADuUqjjeJe1usM946WWpAGn01Vd2q0IOcfeGEm+M4u9tHpScagbj?=
- =?us-ascii?Q?Tnzq2QQenatr7uj6ujdW8lUIJtI7dhZpNshIj+4ptpJCIOAVoLte3qx3FcxM?=
- =?us-ascii?Q?75P4/dvpg34s4xqaKtwNKuQjhKZ/UsBzsHIucDIDKSU4RGqZAtNXuVgq4pRp?=
- =?us-ascii?Q?eWxkDacxC2OlIgDb0mr82Itx/hZnuQkLrUI/gmYTS0sBAoCn+9Fi5oNudhcC?=
- =?us-ascii?Q?jSOKvCKb/PoPqANqFBeSYrMg1+DluAf8VYwb4PijPo5tNvHyEGmUZWHELDKq?=
- =?us-ascii?Q?bU5aMIj2WFj6OQDvnnpTRf/AMYttrl4lobmPqml1Z7bWcEmZmoeaM3RNYclC?=
- =?us-ascii?Q?xysBSdXWlhG5JNsiQ8TzPmA6XcDdbthnvJuVtD+ubq+tozC6+XTUzNKCE4wW?=
- =?us-ascii?Q?8vn7LotXZz+WxhsQemGo61C4RwyTG7qmzwQpcfGBeVQ3l5pSDA=3D=3D?=
+ id 1lXJpC-009Bwx-TU
+ for linux-riscv@lists.infradead.org; Fri, 16 Apr 2021 08:27:40 +0000
+Received: from DGGEMS411-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4FM8RM2QhBzlYDD;
+ Fri, 16 Apr 2021 16:25:35 +0800 (CST)
+Received: from huawei.com (10.67.174.53) by DGGEMS411-HUB.china.huawei.com
+ (10.3.19.211) with Microsoft SMTP Server id 14.3.498.0; Fri, 16 Apr 2021
+ 16:27:21 +0800
+From: Liao Chang <liaochang1@huawei.com>
+To: <Jisheng.Zhang@synaptics.com>, <paul.walmsley@sifive.com>,
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <guoren@linux.alibaba.com>,
+ <mhiramat@kernel.org>, <penberg@kernel.org>, <mingo@kernel.org>,
+ <lkp@intel.com>, <me@packi.ch>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <liaochang1@huawei.com>
+Subject: [PATCH v2] riscv/kprobe: Restore local irqflag if kprobe is cancelled
+Date: Fri, 16 Apr 2021 16:27:31 +0800
+Message-ID: <20210416082731.121494-1-liaochang1@huawei.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a4f041a-0411-4c3d-ae07-08d900aa25d0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2021 07:35:02.7613 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ubwGaWu3uKrrhxxQ0AhgH/WXlm1182J86wcYfOBzF1vHNtfQ2jPONfdHCkEy1rSKcbJGHKcVtlp8wCW37nBy/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6669
+X-Originating-IP: [10.67.174.53]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210416_003813_016502_F9CBE396 
-X-CRM114-Status: GOOD (  30.96  )
+X-CRM114-CacheID: sfid-20210416_012739_287670_FF47EB6D 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,200 +89,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/04/16 16:24, Greg Ungerer wrote:
-> 
-> On 16/4/21 9:22 am, Damien Le Moal wrote:
->> On 2021/04/15 23:04, Greg Ungerer wrote:
->>> Hi Damien,
->>>
->>> On 15/4/21 4:15 pm, Damien Le Moal wrote:
->>>> Commit 2217b9826246 ("binfmt_flat: revert "binfmt_flat: don't offset
->>>> the data start"") restored offsetting the start of the data section by
->>>> a number of words defined by MAX_SHARED_LIBS. As a result, since
->>>> MAX_SHARED_LIBS is never 0, a gap between the text and data sections
->>>> always exists. For architectures which cannot support a such gap
->>>> between the text and data sections (e.g. riscv nommu), flat binary
->>>> programs cannot be executed.
->>>>
->>>> To allow an architecture to request contiguous text and data sections,
->>>> introduce the config option CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP.
->>>> Using this new option, the macro DATA_GAP_WORDS is conditionally
->>>> defined in binfmt_flat.c to MAX_SHARED_LIBS for architectures
->>>> tolerating the text-to-data gap (CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP
->>>> disabled case) and to 0 when CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP is
->>>> enabled. DATA_GAP_WORDS is used in load_flat_file() to calculate the
->>>> data section length and start position.
->>>>
->>>> An architecture enabling CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP also
->>>> prevents the use of the separate text/data load case (when the flat file
->>>> header flags FLAT_FLAG_RAM and FLAT_FLAG_GZIP are not set with NOMMU
->>>> kernels) and forces the use of a single RAM region for loading
->>>> (equivalent to FLAT_FLAG_RAM being set).
->>>
->>> So is it the case that a flat format file on RISC-V will never have
->>> relocations?
->>
->> No, it does have relocations. But there is no entry for the global pointer
->> (__global_pointer$) location. This is because the loading of that value in the
->> gp register in the C-library crt1.S is done using a PC-relative instruction. The
->> value for it is resolved at compile time and does not get a relocation table
->> entry. Other functions calls and symbol references do have relocation table
->> entries, so the binary can be loaded anywhere. The missing relocation for the
->> global pointer mandates that text and data be loaded at the same positions
->> relative to each other that the linker file defines. Otherwise, loading of
->> __global_pointer$ into the gp register (first thing that C libraries crt1.S do)
->> result in a garbage value being loaded.
->>
->> I tried some tricks with the linker file and changing uclibc crt1.S to have the
->> gp loading done using a symbol address instead of a PC-relative offset. I could
->> then see a relocation table entry for that symbol. That still did not work as I
->> was probably doing something wrong. Anyway, such solution requires changing a
->> lot of things in C libraries loading assembler that is common between NOMMU and
->> MMU code. Changing it would break MMU enabled programs.
->>
->>
->>>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
->>>> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
->>>> ---
->>>>    fs/Kconfig.binfmt |  3 +++
->>>>    fs/binfmt_flat.c  | 21 +++++++++++++++------
->>>>    2 files changed, 18 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
->>>> index c6f1c8c1934e..c6df931d5d45 100644
->>>> --- a/fs/Kconfig.binfmt
->>>> +++ b/fs/Kconfig.binfmt
->>>> @@ -112,6 +112,9 @@ config BINFMT_FLAT_ARGVP_ENVP_ON_STACK
->>>>    config BINFMT_FLAT_OLD_ALWAYS_RAM
->>>>    	bool
->>>>    
->>>> +config BINFMT_FLAT_NO_TEXT_DATA_GAP
->>>> +	bool
->>>> +
->>>>    config BINFMT_FLAT_OLD
->>>>    	bool "Enable support for very old legacy flat binaries"
->>>>    	depends on BINFMT_FLAT
->>>> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
->>>> index b9c658e0548e..2be29bb964b8 100644
->>>> --- a/fs/binfmt_flat.c
->>>> +++ b/fs/binfmt_flat.c
->>>> @@ -74,6 +74,12 @@
->>>>    #define	MAX_SHARED_LIBS			(1)
->>>>    #endif
->>>>    
->>>> +#ifdef CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP
->>>> +#define DATA_GAP_WORDS			(0)
->>>> +#else
->>>> +#define DATA_GAP_WORDS			(MAX_SHARED_LIBS)
->>>> +#endif
->>>> +>   struct lib_info {
->>>>    	struct {
->>>>    		unsigned long start_code;		/* Start of text segment */
->>>> @@ -559,7 +565,10 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    	 * case,  and then the fully copied to RAM case which lumps
->>>>    	 * it all together.
->>>>    	 */
->>>> -	if (!IS_ENABLED(CONFIG_MMU) && !(flags & (FLAT_FLAG_RAM|FLAT_FLAG_GZIP))) {
->>>> +	if (!IS_ENABLED(CONFIG_MMU) &&
->>>> +	    !IS_ENABLED(CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP) &&
->>>
->>> If RISC-V flat format files must always be loaded to RAM then why don't
->>> they set the FLAT_FLAG_RAM when compiled/generated?
->>
->> That is done. The patch I have for elf2flt sets it. Coding it like this here is
->> I think safer (whatever the userspace toolchain did, the kernel assumes
->> FLAT_FLAG_RAM). And it also has the nice side effect to suppress the first part
->> of the if () in the final binary. Smaller code size :)
-> 
-> My concern here is that CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GA being
-> enabled doesn't just in itself mean you need to force a RAM load.
-> It is just in the RISC-V case it currently does.
+The execution of sys_read end up hitting a BUG_ON() in __find_get_block after
+installing probe at sys_read via kprobe, the BUG message like the following:
 
-Good point.
+[   65.708663] ------------[ cut here ]------------
+[   65.709987] kernel BUG at fs/buffer.c:1251!
+[   65.711283] Kernel BUG [#1]
+[   65.712032] Modules linked in:
+[   65.712925] CPU: 0 PID: 51 Comm: sh Not tainted 5.12.0-rc4 #1
+[   65.714407] Hardware name: riscv-virtio,qemu (DT)
+[   65.715696] epc : __find_get_block+0x218/0x2c8
+[   65.716835]  ra : __getblk_gfp+0x1c/0x4a
+[   65.717831] epc : ffffffe00019f11e ra : ffffffe00019f56a sp : ffffffe002437930
+[   65.719553]  gp : ffffffe000f06030 tp : ffffffe0015abc00 t0 : ffffffe00191e038
+[   65.721290]  t1 : ffffffe00191e038 t2 : 000000000000000a s0 : ffffffe002437960
+[   65.723051]  s1 : ffffffe00160ad00 a0 : ffffffe00160ad00 a1 : 000000000000012a
+[   65.724772]  a2 : 0000000000000400 a3 : 0000000000000008 a4 : 0000000000000040
+[   65.726545]  a5 : 0000000000000000 a6 : ffffffe00191e000 a7 : 0000000000000000
+[   65.728308]  s2 : 000000000000012a s3 : 0000000000000400 s4 : 0000000000000008
+[   65.730049]  s5 : 000000000000006c s6 : ffffffe00240f800 s7 : ffffffe000f080a8
+[   65.731802]  s8 : 0000000000000001 s9 : 000000000000012a s10: 0000000000000008
+[   65.733516]  s11: 0000000000000008 t3 : 00000000000003ff t4 : 000000000000000f
+[   65.734434]  t5 : 00000000000003ff t6 : 0000000000040000
+[   65.734613] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+[   65.734901] Call Trace:
+[   65.735076] [<ffffffe00019f11e>] __find_get_block+0x218/0x2c8
+[   65.735417] [<ffffffe00020017a>] __ext4_get_inode_loc+0xb2/0x2f6
+[   65.735618] [<ffffffe000201b6c>] ext4_get_inode_loc+0x3a/0x8a
+[   65.735802] [<ffffffe000203380>] ext4_reserve_inode_write+0x2e/0x8c
+[   65.735999] [<ffffffe00020357a>] __ext4_mark_inode_dirty+0x4c/0x18e
+[   65.736208] [<ffffffe000206bb0>] ext4_dirty_inode+0x46/0x66
+[   65.736387] [<ffffffe000192914>] __mark_inode_dirty+0x12c/0x3da
+[   65.736576] [<ffffffe000180dd2>] touch_atime+0x146/0x150
+[   65.736748] [<ffffffe00010d762>] filemap_read+0x234/0x246
+[   65.736920] [<ffffffe00010d834>] generic_file_read_iter+0xc0/0x114
+[   65.737114] [<ffffffe0001f5d7a>] ext4_file_read_iter+0x42/0xea
+[   65.737310] [<ffffffe000163f2c>] new_sync_read+0xe2/0x15a
+[   65.737483] [<ffffffe000165814>] vfs_read+0xca/0xf2
+[   65.737641] [<ffffffe000165bae>] ksys_read+0x5e/0xc8
+[   65.737816] [<ffffffe000165c26>] sys_read+0xe/0x16
+[   65.737973] [<ffffffe000003972>] ret_from_syscall+0x0/0x2
+[   65.738858] ---[ end trace fe93f985456c935d ]---
 
-> 
-> And it may change in the future. The considerable RAM savings
-> you get from supporting a separate data segment to code segment
-> means there is motivation to create tooling and code generation
-> to support it.
+A simple reproducer looks like:
+	echo 'p:myprobe sys_read fd=%a0 buf=%a1 count=%a2' > /sys/kernel/debug/tracing/kprobe_events
+	echo 1 > /sys/kernel/debug/tracing/events/kprobes/myprobe/enable
+	cat trace
 
-Totally agree here. And I did try hard to get it to work...
+Here's what happens to hit that BUG_ON():
 
-> 
-> I don't feel that strongly about it, but this code is obtuse enough already.
-> No need to make it worse if we don't have too.
+If instruction being single stepped caused page fault, the
+kprobe is cancelled to let the page fault handler continues
+as normal page fault. But the local irqflags are disabled,
+so CPU will restore 'sstatus' with 'SIE' masked. After page
+fault is serviced, the kprobe is triggered again, we overwrite
+the saved irqflag by calling kprobe_save_local_irqflag(). Note,
+'SIE' is masked in this new saved irqflag. After kprobe is
+serviced, the CPU 'sstatus' is restored with 'SIE' masked.
+This overwritten 'sstatus' cause BUG_ON() in __find_get_block.
 
-I see your point. I will remove that
-!IS_ENABLED(CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP) from the top if() condition.
-Without it, fixing the toolchain etc will indeed not require patching again the
-kernel. Sending a v4.
+This bug is already fixed on arm64 by Jisheng Zhang.
 
-> 
-> Regards
-> Greg
-> 
-> 
-> 
->>>> +	    !(flags & (FLAT_FLAG_RAM|FLAT_FLAG_GZIP))) {
->>>> +
->>>>    		/*
->>>>    		 * this should give us a ROM ptr,  but if it doesn't we don't
->>>>    		 * really care
->>>> @@ -576,7 +585,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			goto err;
->>>>    		}
->>>>    
->>>> -		len = data_len + extra + MAX_SHARED_LIBS * sizeof(unsigned long);
->>>> +		len = data_len + extra + DATA_GAP_WORDS * sizeof(unsigned long);
->>>>    		len = PAGE_ALIGN(len);
->>>>    		realdatastart = vm_mmap(NULL, 0, len,
->>>>    			PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE, 0);
->>>> @@ -591,7 +600,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			goto err;
->>>>    		}
->>>>    		datapos = ALIGN(realdatastart +
->>>> -				MAX_SHARED_LIBS * sizeof(unsigned long),
->>>> +				DATA_GAP_WORDS * sizeof(unsigned long),
->>>>    				FLAT_DATA_ALIGN);
->>>>    
->>>>    		pr_debug("Allocated data+bss+stack (%u bytes): %lx\n",
->>>> @@ -622,7 +631,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    		memp_size = len;
->>>>    	} else {
->>>>    
->>>> -		len = text_len + data_len + extra + MAX_SHARED_LIBS * sizeof(u32);
->>>> +		len = text_len + data_len + extra + DATA_GAP_WORDS * sizeof(u32);
->>>>    		len = PAGE_ALIGN(len);
->>>>    		textpos = vm_mmap(NULL, 0, len,
->>>>    			PROT_READ | PROT_EXEC | PROT_WRITE, MAP_PRIVATE, 0);
->>>> @@ -638,7 +647,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    
->>>>    		realdatastart = textpos + ntohl(hdr->data_start);
->>>>    		datapos = ALIGN(realdatastart +
->>>> -				MAX_SHARED_LIBS * sizeof(u32),
->>>> +				DATA_GAP_WORDS * sizeof(u32),
->>>>    				FLAT_DATA_ALIGN);
->>>>    
->>>>    		reloc = (__be32 __user *)
->>>> @@ -714,7 +723,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			ret = result;
->>>>    			pr_err("Unable to read code+data+bss, errno %d\n", ret);
->>>>    			vm_munmap(textpos, text_len + data_len + extra +
->>>> -				MAX_SHARED_LIBS * sizeof(u32));
->>>> +				  DATA_GAP_WORDS * sizeof(u32));
->>>>    			goto err;
->>>>    		}
->>>>    	}
->>>>
->>>
->>
->>
-> 
+Fixes: c22b0bcb1dd02 ("riscv: Add kprobes supported")
+Signed-off-by: Liao Chang <liaochang1@huawei.com>
+---
 
+Changes in v2:
+- Reorganize commit message.
 
+ arch/riscv/kernel/probes/kprobes.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 7e2c78e2ca6b..d71f7c49a721 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -260,8 +260,10 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int trapnr)
+ 
+ 		if (kcb->kprobe_status == KPROBE_REENTER)
+ 			restore_previous_kprobe(kcb);
+-		else
++		else {
++			kprobes_restore_local_irqflag(kcb, regs);
+ 			reset_current_kprobe();
++		}
+ 
+ 		break;
+ 	case KPROBE_HIT_ACTIVE:
 -- 
-Damien Le Moal
-Western Digital Research
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
