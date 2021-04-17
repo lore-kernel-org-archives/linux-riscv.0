@@ -2,104 +2,93 @@ Return-Path: <SRS0=TuAZ=JO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F7B5C43460
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Apr 2021 01:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9C94C433B4
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Apr 2021 01:36:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D08B0610FC
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Apr 2021 01:10:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D08B0610FC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 899546102A
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Apr 2021 01:36:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 899546102A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F1owdAn3SO6U7DShjToi8QfcNEY+5PpjBILMBTXb/iA=; b=cdEe/79diagQjL65ipK/u2H0b0
-	bfodnwQXjvlQuEpHzvLniDx22HZ7qHPdx96XryIBWeMd+fTzhNIgLlImt5V0dOwLn3uLNAmtwMm6i
-	83610QP7qX1CpR45SMCq/kAyH4KDIL25bDsqKiGwBqbyZuZGUzk16oFu6qLve2jVFwiV0LAUwcGVd
-	eCzfq7TpRbohuvn7C5x0e7OYkI9FvmBBPmSyRPPIxUN3lOtCZl2UoX0M246U1HioolV2bM/8vOUxc
-	r6pu4v3orP1j5T37+xhhYsBQFOfWignNUTnQiVYjV8g0DtjrAn1Z+Ugvgpbb4CnsP4voSO8/1H3+1
-	ZcaTMfeQ==;
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=4XXwqx5wFZ6O734huLjgRwKKdQxn+Qo9LpkfG6kylpM=; b=fcSh7QwFD6fM9XVTTLbbCfugL
+	hQM51OiwTCBQ3KailFwJfo+YiaFwSO27DmdwLdvkC7gLrE/OUOptDVfzqvFsu2KpXE6ONUxoVgGPo
+	EpxECeD92oA2OtBJM3wOuLiF7/wE7LTIVXsa6Xu6QVeFutAZ63jbwfir+zBMkWWspKDmGp/3yrNfs
+	+DJavvzbOhvMFtfoPEy0BkL3CgmsfLL7yAbc28RxJ2fvcXfIYVjQV46jjn1FLkZWWzSSa5d0vU9K8
+	3M0p2nv2B2HMIx1+dednHlQPVOlvzQWQUtvmZz7kFfJ0xs9OSvf+g4lxvY3nzr1t2cVEbTwbNbNtA
+	BE6MF+CUg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXZTl-003vja-HV; Sat, 17 Apr 2021 01:10:33 +0000
+	id 1lXZsq-003zsq-1E; Sat, 17 Apr 2021 01:36:28 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXZTc-003vhe-Gl
- for linux-riscv@desiato.infradead.org; Sat, 17 Apr 2021 01:10:24 +0000
+ id 1lXZso-003zsh-20
+ for linux-riscv@desiato.infradead.org; Sat, 17 Apr 2021 01:36:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:In-Reply-To:References;
- bh=+YQiaEQm9MrxbfxHO/4/8kLRxztRCUW54q3Z+/cO5pU=; b=Je3aVMNKV1HmSGN8icrIs0+1Ji
- qN/zAJFnUgF+uFcHsPhXSECIfO3oxmuRNaGL+fGGXmM+8cJShbE7tNOBMGR6zyrX6vV3rC1Dk3vie
- vjUlslGNzxKeoW8PZwDrxX4i7QtyOprTN/fH1oe8mF1xv+kqb32lLQGdE8ewBWb3VZTooAb0fzfCn
- 6TwywAdjsYiiFN0okLPsBhetAhqdzWwtixDVDKXCsUwhfn1pb9goUE9JU5JTuDHtLO0anHefLlpqw
- ie4gUB3F8GhoglHvQMtgKRWbTmJQYoT3bEByZQzS4RmZG0VtAcbTHdP5+IeLSRLypm+pjPRGXPkHk
- VJfs9n3A==;
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=Cn/cJuEjJ9HZKaS69dSlqETG9/fZ0WAyDEPOim+PInY=; b=QtOOEf6WKqxrq/GJdqZQQXo6wL
+ zMuXux3D3owtedf5osVvpwqJiys+IMaqRsfJ6O+WwQi8XcwyJd5teZhfByZHsc8x660fpfeqnAE+z
+ btUVB095KOiy6QtzAES1tv7pXiZV9xLoziuOgPmSJljmJIFZvs2JoCRJA7zkVNaS16AAmUbf6ZTW1
+ HtgTGaJQIQcW3kWin6gi9BBjaS5f07+qnxdFTy0A6q8JQqi0fymGejyEMrs4S9b1AaJUhIpN6KXOy
+ tm0GQHanL1gZ07FEvMtK61Uqv1oqN5VqZpuxi8RUoAC8A/ZW2XtBQi2G9LF2L0KyXLOui+F9q/hwe
+ hEeOjBNw==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lXZTX-009owN-Dj
- for linux-riscv@lists.infradead.org; Sat, 17 Apr 2021 01:10:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1618621819; x=1650157819;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=8Zm5rXOuoxnhCqnsnX85LqLLaCeZAEf+Eqn2CbNRDuc=;
- b=WfsWzDXHr155Dh+RHPrAn76HjGMbKL055x2uCO9qcyv3sAnNWVclos+K
- UuwqKza+QwXbMrw7fNAEBSvqlqH5c8A5ci6z5lsiOjnzjplbOWcTkbmCy
- vVFQh0pAW8M+z2OUTnUIzEjMi8ZCS6bjzRVGMzDJ0eDEHUvxT95syMhPd
- rZX1CPoHR+tXMVkSHhOUBycuBb/WYXWzR6wWV6ovjKEmE3GJJ10uxvDii
- l937gu/OIVuAPM7lZe9NADD6SXKCaG+kkICQ4PPMge9uq1tuFL1b5WyLA
- Z+f63lrEFXJxXmb5abtwpXTo3SU10jqpJ9Zq2jZgUcGA+pLkhU61gKLS+ A==;
-IronPort-SDR: LdzBvPsaRBYARALerWbeHsVQlnRUgbN8fuVvHfFGfbZ16gu6jWRww4vaO/nCxhekU27WAaR5u8
- DBez7HA0+FVYj3nTRzfFb3iwpHbosnpGTeEvafy9EZggx5afkdh+3zJmbgNOw1KaFMkkktkEe8
- ydbEm2nJBHElYkucdWw9YpNXx0//voyWSfpFgxk1DSIQFAJIzBp6UhU37UN92/BrUki1/S8Lqd
- ifTkqx+MOmbE2iyBwlhSkMtA9mqTjE431U4xrBJ/8QFaf9SOAc1+KvnoQzGneootWGkFGcelUg
- +4c=
-X-IronPort-AV: E=Sophos;i="5.82,228,1613404800"; d="scan'208";a="165185052"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 17 Apr 2021 09:10:16 +0800
-IronPort-SDR: vKgsTMDSvTj60xiVKK7pYGpy/vV8gNTgHWZgZczc48OoTNErdU4XDk2SWNLSraznJHNCTfGjhR
- cUoPLPcBAkCmRDvdk/4A/Tb3G+JAw9qDQZD4NC8oIAtw9Rf1GzN/Bpu17S+C+Mad00xXkDqL2k
- RChIuOZXozrH7TmNiPlLMizGaRsCD9T4/nIxvqjhMiJNcTJ5+I2XJwCvXNFq2PEy1H7hIVcgBH
- NCwkNtFpLVdxt5AVQ1h3vytTWR1srnL/qtEv6dRPecjuonwDqaYe/YDd3pZSlyg7Ty80GjKBls
- 5t8hbui94O/9FKaYfAlI4LLJ
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 16 Apr 2021 17:49:29 -0700
-IronPort-SDR: t/sQcqGKZClTo/liT6bedqOZlkIQPGkBtzN2/WbRRe2vUlcY9ZHoZMOZLwXbIgd/2SDbG4tHo1
- iSDTFz+nNMIFpB1s8nOHUzxeRITbtsURGCI6j87L1OFXDbr04Hdblv0jr4uUKlKrxblyO7U71V
- +jU3mRTnTff8Jw0tKFmhZdMH7rq6O0oCKCveVXXpl2yHpLptMBUii+sQYao9fUWYF2suObZFNy
- TbYFS5A9dkNW/f74Fv/klbz6GfKhC2HkuLJOyUHDe1E5FHuM6yucNr9+C7BRkq9bS3awW6DxVU
- F10=
-WDCIronportException: Internal
-Received: from unknown (HELO twashi.fujisawa.hgst.com) ([10.225.163.5])
- by uls-op-cesaip02.wdc.com with ESMTP; 16 Apr 2021 18:10:15 -0700
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: uclinux-dev@uclinux.org, Greg Ungerer <gerg@linux-m68k.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>,
- Christoph Hellwig <hch@lst.de>
-Subject: [PATCH v4 0/2] Fix binfmt_flat loader for RISC-V
-Date: Sat, 17 Apr 2021 10:10:07 +0900
-Message-Id: <20210417011009.54569-1-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.30.2
+ id 1lXZsl-009pNC-Bq
+ for linux-riscv@lists.infradead.org; Sat, 17 Apr 2021 01:36:24 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8A3F3611AC
+ for <linux-riscv@lists.infradead.org>; Sat, 17 Apr 2021 01:36:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1618623382;
+ bh=ZGiW7XjMqPnX23vPoAublY1GvetP+oWUwxHm3Gl4bys=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=WYWIrAO0aznXudfwyArZZchGzW//lTcOIanP2Dwv4MwsOGn6vnJEiw/4XXM/6/tSP
+ jfom0wQ/Wj/VtkFvJKIzn7/oIXwHz71T2CRQ6XeIxheHO0qw1h+w5WM8Zw3LEvxmTJ
+ e/jf/DdexeAeRRm9CsR8N4jgNSt4Cz2q6YwjsagB8zb8P6/wib1J1KWliDaVv4x4Vr
+ uvvtPDHzqTYHEFgYdV7x7Eg7nOqy22WUbVg/39LBgX2asBS5K2qEy5fgVAJIMnZ/9K
+ r0NgoVxjbVyrFtpCEkPjnoFwM36Wy9C2yW/gN0PGaTaXzvs4efl+7WYR8SXKKqiaPV
+ iP0W0AMhSjGXQ==
+Received: by mail-lf1-f42.google.com with SMTP id n8so47621620lfh.1
+ for <linux-riscv@lists.infradead.org>; Fri, 16 Apr 2021 18:36:22 -0700 (PDT)
+X-Gm-Message-State: AOAM5339CV3mMUt+GR72cshXJ4FKWAUUVcws8GeHqb+cDEW3WlPbVAlt
+ voUUa605UWkwyTDBqeMdsaslCc3BKsaO8dX0nOQ=
+X-Google-Smtp-Source: ABdhPJxTCiLOcyZP0px1a402RFobt2UPKd4ESZA4RmjuKj/Df+3QjO9s2AEmxJ7uCDt4RbfEfMedzHX8FW2hLzoHu5c=
+X-Received: by 2002:a19:e34c:: with SMTP id c12mr4894188lfk.555.1618623380992; 
+ Fri, 16 Apr 2021 18:36:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <1618472362-85193-1-git-send-email-guoren@kernel.org>
+ <YHf+z0AotZmjvaJ/@hirez.programming.kicks-ass.net>
+In-Reply-To: <YHf+z0AotZmjvaJ/@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 17 Apr 2021 09:36:09 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQkPauGnLXUfs4sPvDx1MhXvCmb9ouGOAANsuEFU2qz1A@mail.gmail.com>
+Message-ID: <CAJF2gTQkPauGnLXUfs4sPvDx1MhXvCmb9ouGOAANsuEFU2qz1A@mail.gmail.com>
+Subject: Re: [PATCH] riscv: atomic: Using ARCH_ATOMIC in asm/atomic.h
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Anup Patel <Anup.Patel@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210416_181019_486638_17AA7634 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20210416_183623_440863_C6E3606B 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +105,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V NOMMU flat binaries cannot tolerate a gap between the text and
-data section as the toolchain fully resolves at compile time the PC
-relative global pointer (__global_pointer$ value loaded in the gp
-register). Without a relocation entry provided, the flat bin loader
-cannot fix the value if a gap is introduced and user executables fail
-to run.
+On Thu, Apr 15, 2021 at 4:52 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Thu, Apr 15, 2021 at 07:39:22AM +0000, guoren@kernel.org wrote:
+> >  - Add atomic_andnot_* operation
+>
+> > @@ -76,6 +59,12 @@ ATOMIC_OPS(sub, add, -i)
+> >  ATOMIC_OPS(and, and,  i)
+> >  ATOMIC_OPS( or,  or,  i)
+> >  ATOMIC_OPS(xor, xor,  i)
+> > +ATOMIC_OPS(andnot, and,  -i)
+>
+> ~i, surely.
 
-This series fixes this problem by allowing an architecture to request
-the flat loader to suppress the offset of the data start section.
-Combined with the use of elf2flt "-r" option to mark the flat
-executables with the FLAT_FLAG_RAM flag, the text and data sections are
-loaded contiguously in memory, without a change in their relative
-position from compile time.
-
-The first patch fixes binfmt_flat flat_load_file() using the new
-configuration option CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET. The
-second patch enables this new option for RISCV NOMMU builds.
-
-These patches do not change the binfmt_flat loader behavior for other
-architectures.
-
-Changes from v3:
-* Renamed the configuration option from
-  CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP to
-  CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET to clarify that only the
-  offseting of the data section start is suppressed.
-* Do not force loding to RAM (contiguously) if the flat binary does not
-  have the FLAT_FLAG_RAM flag set.
-* Updated commit messages to reflect above changes.
-
-Changes from v2:
-* Updated distribution list
-* Added Palmer ack-by tag
-
-Changes from v1:
-* Replace FLAT_TEXT_DATA_NO_GAP macro with
-  CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP config option (patch 1).
-* Remove the addition of riscv/include/asm/flat.h and set
-  CONFIG_BINFMT_FLAT_NO_TEXT_DATA_GAP for RISCV and !MMU
-
-Damien Le Moal (2):
-  binfmt_flat: allow not offsetting data start
-  riscv: Disable data start offset in flat binaries
-
- arch/riscv/Kconfig |  1 +
- fs/Kconfig.binfmt  |  3 +++
- fs/binfmt_flat.c   | 19 ++++++++++++++-----
- 3 files changed, 18 insertions(+), 5 deletions(-)
+Thx for correct me. I'll fix it in the next version patch.
 
 -- 
-2.30.2
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
