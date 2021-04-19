@@ -2,57 +2,57 @@ Return-Path: <SRS0=YGcN=JQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45D55C433ED
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48D10C433B4
 	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 00:56:45 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B71816100B
+	by mail.kernel.org (Postfix) with ESMTPS id B51476101D
 	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 00:56:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B71816100B
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B51476101D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Atw6IIOjHVLTTvtlWKqUAslKAQhzhKTQZQ9/dkILb08=; b=VpNvexvOPqCMifuhbtNf+36sFx
-	cPknFMU6h/NsRnbq2h1JyEYUJlkAg43k6C+loeZL8WxreiqnXhclEomG7vLo8dVBYT0/3V9+DsVft
-	BeneJz2OxZkmYYeSlofY+2UiUeaOO3Sb6K6N0thC9sqoJ9PBJqsffnrHfblhRhc6DQ1/3e9wTqh1T
-	2Bhq7RxAWGaWjQGAFr56rOrKv92qvO6bxfZnDtJFeY2FJ1//hmnCuzdyhBhjdMvfxf8GsoX7pBOp2
-	8aIKrKK934ZpjejmDx/AVyUCa8jcdKoFu9m4dU4Q2HCr/xS1p5rTqq6y5TL/1e4QjFpGuSGPowNhj
-	90ubpkGQ==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=tV4a9XGS+UOYkLK/J+DEG44XauKsEVDVq4t0UZBtmME=; b=rPx8A95eBs1oyfvGiDSfoTMkc
+	0h4TLIf1WqbEY2c0uygJTpMsyi6307O8a09kOSh3HayTnpgod/QKFeEzsARUcdEPZZDLPwv4xtKCr
+	mlyWGctdxXDLkVGfuGGvpS4gVE4tWNLnYe5gFqYK2URgBJkkz8DM/x90f3Cs7if5a1c7i9FpbMBFr
+	1o1zc3XWadt6NT+m+LE4eFNE3+jsLSIZM41YT/Z59D+BMfVveAyZTo0LbY1rk/+GUi4kbtvrekYVn
+	b40blu8MXvALw+w/AcqbOfOn3ipArOizgXKFW60O3P/vSKb7jzP4S5WVKtTFbW/t0Dm0FLoG3uscZ
+	OR99jocDw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYID9-008qFC-7F; Mon, 19 Apr 2021 00:56:23 +0000
+	id 1lYID7-008qEv-9n; Mon, 19 Apr 2021 00:56:21 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYID4-008qEZ-JZ
+ id 1lYID4-008qEY-JZ
  for linux-riscv@desiato.infradead.org; Mon, 19 Apr 2021 00:56:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:In-Reply-To:References;
- bh=j5vs+T9vdjaifTEm89biK1lrBqJ0dpftr2tys9oR/Jc=; b=A/syxJ1ASEOpUgBY4ag3p2JJcT
- NoYbjbjpQjagWFzibbLAkrL47VN2iphoGk4iLAql7B5A961RYiKQeY8vWKitUDvpIycOWXwDph+aj
- nuM9P9NrHF0JTBeS23ysy0TBQoqvShYtOdP4ypN77MBD23UEZNr8TnOetwRHlMtg8I9fyLe6LZs7s
- wNoJXoYozS+Tl/dOJKmyqNukwpJTRp/IOovf84lMvE9+mNTquHm7zDagBOOl+eAy3UBGjaGDWaj56
- RHTvPZHn4MtSorl42j5zO23Q4EOwEuEPvckfy9Ea/lon2oEmXE1iGxWvE6V8wHOVSN6b0/jv/mxa7
- 3IWHBgIQ==;
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+ :Reply-To:Content-Type:Content-ID:Content-Description;
+ bh=ufG3ghvJ4buyCaWzU2EnehZaO+hWmO9RRHTI40RgGNs=; b=BF3Y+QuB13+S6WCiUF068iTsOj
+ /unTwUPwVLdir51UPw5iah4lnWpUIZ/h2t7W318sqWW/WQl2bZxVzMZOJ85qoevD3zeWo4L+miPWa
+ 1uLw+JhZJ48Gv4IOztmLA0SdjmB4I74kUzlaFXpqlPwNthqCmGsjluw4eqa43TD0rDZGqNdjmDkNr
+ Sl2qNCsvjWLxjiEgzplp4SRra+PYFU334yKGszuITIH0wAzSaS9IyJLG+z5TqoN/jLn2Izw+9Vj4A
+ k2M4HviKAWjj80nvNWu+yBfXO4fG4js8pfcCERchJAM20juIlISaDqj1m1mdDGviTdDa/dD9HMg2f
+ WtuvZHHw==;
 Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYICz-00Apa2-VU
+ id 1lYICz-00Apa6-UW
  for linux-riscv@lists.infradead.org; Mon, 19 Apr 2021 00:56:17 +0000
 Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
  by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 13J0u09i011026
+ 13J0u0S2011029
  for <linux-riscv@lists.infradead.org>; Mon, 19 Apr 2021 03:56:00 +0300 (EEST)
 DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
  q=dns/txt; i=@ics.forth.gr; t=1618793755; x=1621385755;
@@ -60,42 +60,46 @@ DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
  Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=dnZDF3w6X7udDtiezD8XGYyfd4IjWkcxuZe8fuz0LRA=;
- b=dikSW43Z2/X2VJlkfW23IS53FUBEsNEf7RD5/fYcC7se8eJAiyjacQgiThWYKTd5
- jJr3R8MPw5aie6EdZ0yR4OA0GnRQz3IeYwY/ALEyAv5ldfS8czE/qi/6jJJUMAyN
- rXk1JWy/ScMAyzd1CAhYTakgPvrfPxAfEewWiaZUyCOjrymPcha5JE9tt15gm6r7
- peSF5zAJS6gRvRS5PJC7QHusRLHCsRwHuk5IRt4guA0JC2uXWFjkOe3t2KQi0iCb
- 7GhgdOZyiU2gmdSoJJa3XHZsQv9EHK2kvM0MN38V2c7Y+qdk8XOvm7C9GuHZub0I
- HSSvyE62v+aZikW+4s3FLA==;
-X-AuditID: 8b5b014d-a4c337000000209f-e2-607cd51ba308
+ bh=rEmZ8MA7Mmcm1B3W8WjBdSUosxLDHFbHVrbU4iEAoGY=;
+ b=bkfr8VsqmbGkclM0AXFQxA6auVIAgLUl5JUWAj4wzRYSlXuZnAQvRAtZMdZEtXJ7
+ fYRcvDb/YJrxlut0r4nkkeCxijTCUhtxbi2K8E4xz7MGsCgZ+yBOekMhCU8sxZej
+ 3jfjz3n6GpXpQMJBDUi4sOyWMJmMkhWWQ1X0UEaPGE/Mtp50vGc9Ap4EosGMhdSb
+ H9fGnq+JdquTT/pPxw+epoptFmoeAk5Ja2TUvcWmwD53vC5s+ulkhVFuX+2I22SY
+ nK29bcZqelW0YsrzEUYWvLnDoXmR44/zfdy2sqaUU3X2eJlc8akgOirK2ff4BMJi
+ cJjt955JQQB8OLqe5Np2BQ==;
+X-AuditID: 8b5b014d-a70347000000209f-e3-607cd51bb1fa
 Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
  by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- F3.FF.08351.B15DC706; Mon, 19 Apr 2021 03:55:55 +0300 (EEST)
+ 04.FF.08351.B15DC706; Mon, 19 Apr 2021 03:55:55 +0300 (EEST)
 X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
 From: Nick Kossifidis <mick@ics.forth.gr>
 To: linux-riscv@lists.infradead.org, palmer@dabbelt.com
 Cc: paul.walmsley@sifive.com, linux-kernel@vger.kernel.org,
  Nick Kossifidis <mick@ics.forth.gr>
-Subject: [PATCH v4 0/5] RISC-V: Add kexec/kdump support
-Date: Mon, 19 Apr 2021 03:55:34 +0300
-Message-Id: <20210419005539.22729-1-mick@ics.forth.gr>
+Subject: [PATCH v4 1/5] RISC-V: Add EM_RISCV to kexec UAPI header
+Date: Mon, 19 Apr 2021 03:55:35 +0300
+Message-Id: <20210419005539.22729-2-mick@ics.forth.gr>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210419005539.22729-1-mick@ics.forth.gr>
+References: <20210419005539.22729-1-mick@ics.forth.gr>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrPJMWRmVeSWpSXmKPExsXSHT1dWVf6ak2CwZrHchaXd81hs9j2uYXN
- ovndOXaLl5d7mC3aZvE7sHq8efmSxePhpktMHpuX1Htcar7O7vF5k1wAaxSXTUpqTmZZapG+
- XQJXxsKf51kK/vJV9J3YydrA+IC7i5GDQ0LAROLM9pIuRk4OIYGjjBJT37mC2BICbhK37+9k
- BbHZBDQl5l86yAJiiwiYSzTPfM0IYjMLZEgc3feLHcQWBopv6HwEFmcRUJV4uWglWC+vgJnE
- jJ0TWCBmyku0L9/OBhEXlDg58wkLxBx5ieats5knMPLMQpKahSS1gJFpFaNAYpmxXmZysV5a
- flFJhl560SZGcBgx+u5gvL35rd4hRiYOxkOMEhzMSiK892trEoR4UxIrq1KL8uOLSnNSiw8x
- SnOwKInz8upNiBcSSE8sSc1OTS1ILYLJMnFwSjUwaZ0Nr1GvD5Z9Keod9M7qS1/idf26kma1
- oIXL1WRtlr490DD9/Qn+aya6J2xeGYd8mWrDb2GRyedXx57ndzKpbNVxPS62cO6iFwaaDZKV
- efNWb5m1O2VVfHHFw2rZoDlHNJg2/L2VcPy8afnjZxvmv0uZtuV10wNb7Qd2Xga3+qrPdGy1
- +ffQUTun48bq2a2XGdkUulfoPzL4P8ft18F47ni/bvunzlbT/lmfcpA4xSt2aWf9QSUj+dSo
- dq0Lfl/Kl21P4956o9BWyuHYhryKkhmBC34p19iqPa6YuqH+N0OQtGpd2SXRfatfikbHd68L
- 4vk9cXGKyd2++u/OJmeLJEMdIuNXGs0//OfBDnclluKMREMt5qLiRAByhGsakgIAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJLMWRmVeSWpSXmKPExsXSHT1dWVf6ak2CQcMDOYvLu+awWWz73MJm
+ 0fzuHLvFy8s9zBZts/gdWD3evHzJ4vFw0yUmj81L6j0uNV9n9/i8SS6ANYrLJiU1J7MstUjf
+ LoEr4+b6Z2wFj9gqNn3ZyN7AeIG1i5GTQ0LARGLRgf3MXYxcHEICRxkl9n3axAaRcJO4fX8n
+ WBGbgKbE/EsHWUBsEQFzieaZrxlBbGaBDImj+36xg9jCAo4SZ46uBouzCKhK9O27DFbPK2Am
+ cXDtayaImfIS7cu3g83nBJozZcJnsHohoJp5/+8yQdQLSpyc+YQFYr68RPPW2cwTGPlmIUnN
+ QpJawMi0ilEgscxYLzO5WC8tv6gkQy+9aBMjOPQYfXcw3t78Vu8QIxMH4yFGCQ5mJRHe+7U1
+ CUK8KYmVValF+fFFpTmpxYcYpTlYlMR5efUmxAsJpCeWpGanphakFsFkmTg4pRqYUk1jnmxq
+ m84nJf9kzppvjq0blx1xt7ib+XSalGtJ1acGbdObV5h6jTQEts5Mn9LJeb6xUFHN8sKnxN3O
+ Mpwdy3MjHj10Snvaekz44wqn8/pFL3g2VwswJ3Us9VuruW9Kd3SHalWtidREP/O9lyrn1X9r
+ 8JxTez0mVFeojHvaVta0rANiR+O1Pmb8WmW2wMGcU6ru84e3B28wuSquZ9RYuPDolkfhir9m
+ zmR+v+5gzfmJX+7PXPvUw2fZi/I/5lZaJS2i93PjJbP35pxe6rdol92s6JJZnZ8mqmQd7La+
+ yinzVXZF5c3bB5MfdX+ay2v5cr6A1MVgvbtLMhdcXi36/LB7b6HR9NPLvghFbzOTUWIpzkg0
+ 1GIuKk4EANdfFgmsAgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210418_175614_412196_94E01F4B 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20210418_175614_391184_8FC21F91 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,57 +116,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds kexec/kdump and crash kernel
-support on RISC-V. For testing the patches a patched
-version of kexec-tools is needed (still a work in
-progress) which can be found at:
+Add RISC-V to the list of supported kexec architectures, we need to
+add the definition early-on so that later patches can use it.
 
-https://riscv.ics.forth.gr/kexec-tools-patched.tar.xz
+EM_RISCV is 243 as per ELF psABI specification here:
+https://github.com/riscv/riscv-elf-psabi-doc/blob/master/riscv-elf.md
 
-v4:
- * Rebase on top of "fixes" branch
- * Resolve Alex's comments
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+---
+ include/uapi/linux/kexec.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-v3:
- * Rebase on newer kernel tree
- * Minor cleanups
- * Split UAPI changes to a separate patch
- * Improve / cleanup init_resources
- * Resolve Palmer's comments
-
-v2:
- * Rebase on newer kernel tree
- * Minor cleanups
- * Properly populate the ioresources tre, so that it
-   can be used later on for implementing strict /dev/mem
- * Use linux,usable-memory on /memory instead of a new binding
- * USe a reserved-memory node for ELF core header
-
-Nick Kossifidis (5):
-  RISC-V: Add EM_RISCV to kexec UAPI header
-  RISC-V: Add kexec support
-  RISC-V: Improve init_resources
-  RISC-V: Add kdump support
-  RISC-V: Add crash kernel support
-
- arch/riscv/Kconfig                  |  25 ++++
- arch/riscv/include/asm/elf.h        |   6 +
- arch/riscv/include/asm/kexec.h      |  56 +++++++
- arch/riscv/kernel/Makefile          |   6 +
- arch/riscv/kernel/crash_dump.c      |  46 ++++++
- arch/riscv/kernel/crash_save_regs.S |  56 +++++++
- arch/riscv/kernel/kexec_relocate.S  | 223 ++++++++++++++++++++++++++++
- arch/riscv/kernel/machine_kexec.c   | 193 ++++++++++++++++++++++++
- arch/riscv/kernel/setup.c           | 114 ++++++++------
- arch/riscv/mm/init.c                | 104 +++++++++++++
- include/uapi/linux/kexec.h          |   1 +
- 11 files changed, 784 insertions(+), 46 deletions(-)
- create mode 100644 arch/riscv/include/asm/kexec.h
- create mode 100644 arch/riscv/kernel/crash_dump.c
- create mode 100644 arch/riscv/kernel/crash_save_regs.S
- create mode 100644 arch/riscv/kernel/kexec_relocate.S
- create mode 100644 arch/riscv/kernel/machine_kexec.c
-
+diff --git a/include/uapi/linux/kexec.h b/include/uapi/linux/kexec.h
+index 05669c87a..778dc191c 100644
+--- a/include/uapi/linux/kexec.h
++++ b/include/uapi/linux/kexec.h
+@@ -42,6 +42,7 @@
+ #define KEXEC_ARCH_MIPS_LE (10 << 16)
+ #define KEXEC_ARCH_MIPS    ( 8 << 16)
+ #define KEXEC_ARCH_AARCH64 (183 << 16)
++#define KEXEC_ARCH_RISCV   (243 << 16)
+ 
+ /* The artificial cap on the number of segments passed to kexec_load. */
+ #define KEXEC_SEGMENT_MAX 16
 -- 
 2.26.2
 
