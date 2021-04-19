@@ -2,108 +2,84 @@ Return-Path: <SRS0=YGcN=JQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 48C72C433ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 18:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 206BEC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 20:44:47 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9E1A7611EE
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 18:25:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E1A7611EE
+	by mail.kernel.org (Postfix) with ESMTPS id C9C8C613C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Apr 2021 20:44:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C9C8C613C9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=9dNTTgd1NeoYJF0dEeNgRjsmp/m5T2fzIaLlNF9yJ84=; b=M9P4Y0KmHOPzidXx8op5OlwMa
-	w3pVzjgJCLECSnUbbLOpJh6UkpGbi3AS3VQyGBIwm4KXF1l3bKBlDSRoP3jq0gdwARO+mYm+7OZRo
-	FycfEWZfWbyVcqi+kUTan2tFCt9JHMZ10KetMWNF8BxvAZ2h9QtYC4176AZAhXvZY6P7rpSCb9IGw
-	9vRRnopfnlHglOkIV2KA/yt9FjQ61bVAlu855ST+bL7KYPMcDaSoJydYDpYjKvmHc1xLcZVVK1Zgl
-	n7FM0+wYlLNlgwtq6xt7OTzzDGIC/HmGqAM0SfyXGVEzkMETD8ZuCoJ8EoEqDChpmGIr+0C3HmSqo
-	t7dhEPCZQ==;
+	 bh=gxXUkaO1VtQRpXaHCM4PWxvVX12Cnri9lirdtHx8MzQ=; b=aBHToEkTZTQoE4/eoe10fvu+X
+	BUzb1vGlvdqas5KBSI5a26dcPPjKvJz01UR/fWSxQrrIp30Rf0U4dC1R/zWlmOodpwvK7RbdVPzU9
+	uS5ypGjRjhE18OFc4Y2IvD/whAA/PaUN0CBYpeVLbdorArpNDRMChqliElV5kaHp19jI2yOjDuu3N
+	q7M0zfr4EYVauKpdGsU5A7QIFRCAc7sq9dmYAX0m/v8D7C/skYFnIpstd9mz3GAASJzbo8KU0+YkW
+	hH18HO03vtYIuNjo7fjOI5WjZXg9AO/+nvnivDHzQpFgQSaysejQY1jtQ6sG3z1KaJrdumopgPtHZ
+	4Sqf8zZRA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYYa3-00AQzJ-GB; Mon, 19 Apr 2021 18:25:07 +0000
+	id 1lYakw-00Aa2d-VZ; Mon, 19 Apr 2021 20:44:31 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYYZr-00AQxW-3T; Mon, 19 Apr 2021 18:24:55 +0000
+ id 1lYakc-00Aa0a-Hg; Mon, 19 Apr 2021 20:44:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=mpTWNqA+rdIcKr1spko4TVA9gXEjxs0ymjuB4L7YQjI=; b=fcFNJltY15R4JZKlkW4378zAhm
- xGV5ciDl0xPKYUUtv5NO9+I60MHcwR79W0stMEewkqRax+MCpH6ssPsap33s3n5350+BjUBJgIx6N
- kZWq8AJx/8dRytHyqsvGTeAUtbxC6E6N5V06D9mJlSYMqQkL6YU4y94GAj1fHhsF8Dku38nuZisz8
- AfXrcOhbdfR5OsPueSAcl1GZ6RrMSUMvTlBhV/4VZxOSENkaomcyriWaK3XQHzVOq80ZYRMdrUnFr
- 3VF9P+P0kTdgPiivCpEwxjlMs5z/izWwzKFpyzJfZSVSudteG2q8cjKMSCUk7KXMV/NHpfkhyXjV1
- dkJYXFRw==;
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+ :Reply-To:Content-Type:Content-ID:Content-Description;
+ bh=l/ok6UaHBFVrcdQiW+maIK7Fx8e6fcT+lbEf9VHn4ww=; b=kG61HWvZb3BKr51AvOkeY0Vupo
+ qUWAgGdVaD0qs2spfMk8SgkAs6y3c7XjgyXyEpK9yjm5vsX18BmWZg5FJ034RAixYwlkoU/OHf4Gm
+ GfbQVl0e0Yrx6cYOV4/J5Sd9h+6+0qLEHJjMjOrrDJelf9c9oS46DBlZukBju7XYF5EQ0Gndw+jwe
+ 4Ygln0/cfikFBKWmWAUu8GmA+q7iSc+Vh4XTOcqkXBi6EhAm+qSk96BW0/DWAaV3TWaKa9B/0Qvzt
+ 3wJ36hYZLUAuFsSjAWAkHgCwnY+atqWulPaR44oBsOkCPtEM5gvNaq1SKmw9SZ8VYVz6XdV0Hh6Qf
+ Si7xs56A==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYYZo-00BaVa-I2; Mon, 19 Apr 2021 18:24:53 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5E6B9611EE;
- Mon, 19 Apr 2021 18:24:36 +0000 (UTC)
+ id 1lYakW-00BeDl-QL; Mon, 19 Apr 2021 20:44:09 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4F6C8613B0;
+ Mon, 19 Apr 2021 20:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618856690;
- bh=YxOWGUrr9Arsoda9fsVSCB7Wv4rVHn47U+RWA4JnEik=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Eqgm4LWDn1T4KMIdCqYE+gjNg+SANj+00vJAZ20BOHkbCOUFadrvAoCiSfOO0vRry
- cRCtQoRNQsNXz5MFoOsMVaaP5Gd9/+08n7XDGr80HYzIgK9xevo+a/Sm9FXoJXZjTk
- HaSQiBdLsidEyOo5u5kxW/yk+MUsmi2kU2J8JYlAQ+COKbIhejTh20dmKGVs5wB+PQ
- r8kxDIacMWEYzyfTRPMIDb6vu58wBn7mPmvUnoXAazvSjaTq6lhypXTWnItI4BvjoA
- TnqdMG0PIIF9yA1redNzhKMCU4jKQXwnIlYMZ9uunZfCkBYwZUzqLYKrPmPwfNOjpf
- 8Nh3U2mR23q7w==
-Date: Mon, 19 Apr 2021 21:24:30 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- James Bottomley <jejb@linux.ibm.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Garrett <mjg59@srcf.ucam.org>,
- Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@linux.ibm.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org,
- x86@kernel.org, kernel test robot <oliver.sang@intel.com>
-Subject: Re: [PATCH] secretmem: optimize page_is_secretmem()
-Message-ID: <YH3K3sBFbNFOxTV+@kernel.org>
-References: <20210419084218.7466-1-rppt@kernel.org>
- <20210419112302.GX2531743@casper.infradead.org>
- <YH1v4XVzfXC1dYND@kernel.org>
- <20210419122156.GZ2531743@casper.infradead.org>
+ s=k20201202; t=1618865044;
+ bh=nAmp5UIFdq9tgAD5cLuft77KrM6yGyF0GIa2ORZdBR0=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=WkJzcDtLRxIiUmY9hnVWEo+0Ymu1f0trLmbVbn62ZoSQ7CJjM9yKCrP+DlvOnVOsv
+ CchRoJeW2ZsbJ02mstiAJC9E6/HTOEnFp0Ny/O2uXiMrwwHpI0U40EM61czb4xXrkf
+ Yg5xvBHV92s1LBtMJ2luQLP14G9SPQWmRZDpCsO4V6onU5P5movtlSmYo1Lo5b4rKy
+ WeMTJX2BbkVHIIzrnjD78FD6FJEz/DydRTwCRSE+rvM64aiunI5+RBLmw09V1eeBUO
+ HQ8ql2W9MV5EWLAI69+T59W9uJlZhCOfYdj/MXG/Jvy76huHQuvC6f03VZlGAwto9X
+ QDUlbGKqMzZKw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Jisheng Zhang <Jisheng.Zhang@synaptics.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Will Deacon <will@kernel.org>,
+ Sasha Levin <sashal@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.11 14/23] arm64: kprobes: Restore local irqflag if
+ kprobes is cancelled
+Date: Mon, 19 Apr 2021 16:43:33 -0400
+Message-Id: <20210419204343.6134-14-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210419204343.6134-1-sashal@kernel.org>
+References: <20210419204343.6134-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210419122156.GZ2531743@casper.infradead.org>
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210419_112452_675797_2E7AA103 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20210419_134404_916556_022D9D37 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +96,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 19, 2021 at 01:21:56PM +0100, Matthew Wilcox wrote:
-> On Mon, Apr 19, 2021 at 02:56:17PM +0300, Mike Rapoport wrote:
-> 
-> > > With that fixed, you'll have a head page that you can use for testing,
-> > > which means you don't need to test PageCompound() (because you know the
-> > > page isn't PageTail), you can just test PageHead().
-> > 
-> > I can't say I follow you here. page_is_secretmem() is intended to be a
-> > generic test, so I don't see how it will get PageHead() if it is called
-> > from other places.
-> 
-> static inline bool head_is_secretmem(struct page *head)
-> {
-> 	if (PageHead(head))
-> 		return false;
-> 	...
-> }
-> 
-> static inline bool page_is_secretmem(struct page *page)
-> {
-> 	if (PageTail(page))
-> 		return false;
-> 	return head_is_secretmem(page);
-> }
-> 
-> (yes, calling it head is a misnomer, because it's not necessarily a head,
-> it might be a base page, but until we have a name for pages which might
-> be a head page or a base page, it'll have to do ...)
+From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
 
-To me this looks less clean and readable and in the end we have an extra
-check for PG_Head if that won't get optimized away.
+[ Upstream commit 738fa58ee1328481d1d7889e7c430b3401c571b9 ]
 
-Does not seem to me there would be a measurable difference, but if this is
-important for future conversion to folio I don't mind using
-{head,page}_is_secretmem.
+If instruction being single stepped caused a page fault, the kprobes
+is cancelled to let the page fault handler continue as a normal page
+fault. But the local irqflags are disabled so cpu will restore pstate
+with DAIF masked. After pagefault is serviced, the kprobes is
+triggerred again, we overwrite the saved_irqflag by calling
+kprobes_save_local_irqflag(). NOTE, DAIF is masked in this new saved
+irqflag. After kprobes is serviced, the cpu pstate is retored with
+DAIF masked.
 
+This patch is inspired by one patch for riscv from Liao Chang.
+
+Signed-off-by: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
+Link: https://lore.kernel.org/r/20210412174101.6bfb0594@xhacker.debian
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/kernel/probes/kprobes.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+index 66aac2881ba8..85645b2b0c7a 100644
+--- a/arch/arm64/kernel/probes/kprobes.c
++++ b/arch/arm64/kernel/probes/kprobes.c
+@@ -267,10 +267,12 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+ 		if (!instruction_pointer(regs))
+ 			BUG();
+ 
+-		if (kcb->kprobe_status == KPROBE_REENTER)
++		if (kcb->kprobe_status == KPROBE_REENTER) {
+ 			restore_previous_kprobe(kcb);
+-		else
++		} else {
++			kprobes_restore_local_irqflag(kcb, regs);
+ 			reset_current_kprobe();
++		}
+ 
+ 		break;
+ 	case KPROBE_HIT_ACTIVE:
 -- 
-Sincerely yours,
-Mike.
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
