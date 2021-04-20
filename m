@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1DB85C43460
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FE7FC433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:17 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B25A861154
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B25A861154
+	by mail.kernel.org (Postfix) with ESMTPS id DB2DF6113C
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB2DF6113C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/6d4P6QZ4v0z3/hxcS46nfSJC79g/xoG0jT9S41oLpc=; b=SWHRp7sKVo4e+Yf4d7+fYhF3CF
-	H3UUZvfuozyNdKPRkJX5Ak46O7wyb+GQLf/l2zofuwPjjpaW6MyehP+rAV2j3lbDKpn4iPBCpICOq
-	gt/6DKPYHKAk2eBPd79rD2hZ+NN9vhay7htNfE/zz5s79e/kW/C84w1WFSgGT8Nw5hx9AC7Iwn5Ja
-	Mlc7tNYd0w8lRpxx4bUDMj5PPXIsQqE8WlYtIoru2M21cojONXESTC3GBudD1NkSb6aRxWtZwm2Nq
-	pok3XjTYodrrHeJRsVr34AqTzv0mvo9XEBLRU0Vot/3U1kyqNXQipfN25KTR7uU9BXVEaOrhCTaLY
-	NE2tlC0Q==;
+	bh=3e5JTzOeetBkXlOOcIPnrUIhoDKe6DS5pYlxrsN6JIc=; b=BBSPvzVyA3YTZogzlPnxyOqONI
+	dKWMhMquyHB0TV4+qUJXs+dDAxCD3a+FoyzxSzBo5I0SeOK9kbS8q/ORk1Qjz6j0/2jgPX1lwo8DS
+	LssLrsG0SSoM5ThRKAsmuBrrFjveDp1/SOJQcopXkNJ4I0F46o4J2hCMzUXBGrY00ru8GZEARtkko
+	nXmle1rTlqBZrjRnAZZewEp/P+ik/ueaW7JGooXzpvAt8D76Tr0BmIL68eNbFyc2E8GA4nqKOTz3E
+	n6VzNzzcyVfvmkBdtS2kKQ+50QZEBeZyHda97h4uve5Ea5aEiSn+gkmbhWnRJQqvn/C64XKJtQnQM
+	kEUHho4g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYqZs-00CFGi-Bb; Tue, 20 Apr 2021 13:38:08 +0000
+	id 1lYqZt-00CFH5-Uf; Tue, 20 Apr 2021 13:38:10 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYqZl-00CFEs-5j
- for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 13:38:01 +0000
+ id 1lYqZn-00CFFD-Aa
+ for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 13:38:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=References:In-Reply-To:Message-Id:
  Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=O4xyLNJXcs+rntHgTQU1tdLfhI2rgfm0nawz4hQ/hbY=; b=pspPvsmGml8ZfpLb4L+oiMuU7/
- AKo+CbUQw8Q2wzVg+EqhpzX3X/Pb8uvwEIzAs7ZxAVo0qtfejhlk+NoD1+DNcMD1PUVnyt24rgz3V
- Ih/dwVUf4J63zMXZ/0h6PtWxRYPCNGVL52UFoC4kTvczTQa/HH00fKSyniAKPD3TbGG+E2MYdeEr1
- 0dPIXY6jnMMpETPyGFqXM0QyyWKOuewAJe8dzOCy3Y0nm1jfW1NRW9l5D5Vu2myXDtlc/EI7PoFGK
- jEbnn2gI2qEoeBih0923ZLWlO+x+5OSdAyTpObTDu2yKshoGGjyKlSJn1XULP2guin73XO85k3UUA
- YsbvyWUQ==;
+ bh=VDyI4yKxevUYlLpn/474aJC8pGGv2F5K0zpk402oVhk=; b=rZqfN6VRXhjskTQyZPz9UryGdk
+ NBdzNhh1WEKeV9NO15aqytGDv7oe0M5pb98JDoeORCguwWBWFfEZLPhO1cvrsY3ihccP/bxSlEvN8
+ lCZAGyh4BVHAqkujpSf188cbEsL6UduGMtsAMU5lMM5tOx6qSG0+wK+MPvwBboA+MILHimayrsXF3
+ tVcLAe/zRwPoxdJPVithe7TUrAfjf/oUTwQUjUOoq1O8OImZCRcbS/+B1dv9Dbw4eaRSBGqO8kQGR
+ doezwyf47lAsdWPkzVq2KP+ltQ4G2GTEu5/0ACeqRy/oxKS/j4oMJnJSTmk+B/6GjQclsxU9al64u
+ gXzXK8FA==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYqZi-00C9kF-MC
- for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 13:37:59 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id AEC3161264;
- Tue, 20 Apr 2021 13:37:56 +0000 (UTC)
+ id 1lYqZk-00C9ka-Pq
+ for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 13:38:02 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C162A613B2;
+ Tue, 20 Apr 2021 13:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618925878;
- bh=O9z7efZKEjE4x4pfxgdpmovrUqTVtXeSt4LE2x0L458=;
+ s=k20201202; t=1618925880;
+ bh=VFw9ONtxEh8n9vqM/Or+LuOw1+hn0em8H5ATOgbnS+o=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=lWIY+sGZ5nyAwM8GWk0ey+jjoUR/nt8JI1rzXETzBGmjEGW8sIyCW+5DU6Bl7w7Gn
- T6IlsOnDVECBr3qcGhdPsRhWNljUrCoXVSzXG/pLnmjtHgTllLqQ1QpM3jUj7tgbSQ
- WdJY5UhyJX2T9g/ywtzOaQRPqaWVx+wEiADN7HKxvQkYIOL/Ps+dYYEL1I8EOPDwVW
- kQRFFuGbJJzz5LQhcvXsHj1NuyHrpwn7MuGi/mcWRCPTUXjppcnoomyOrNA9dUXAwv
- +BMIK2wUqyLWLkxkv4g9gr+7z8epYRNluujk8v0q4lZxr3ykjAWi0r8f3hx5o2Qtaf
- AZSeI+5FcvPfQ==
+ b=hlmJ9oUnOaUG0SKy86JB8b13UBIIrh1HY/j/mviNQgtGUxvEbLNvz8lRSWXfDJ55M
+ jWVxrSXIah/JpxNM/O7Uz71jcVqyM7i/4c4O3k/m2Oom8Sc/3vvFehmKzLGMnV+q/m
+ rYeKXk5y8J3VEaavpJw1kV31DypinrMAPUWQhazQ/h8N/QlGzM9x1uu4GWwsLZ/Wcr
+ kdQVDSFpznwem3nzBQBz5pCowdRrrshTnwnAZgngera/PHMh21+EmZ/Nw5Q4c658bu
+ MttwyRAOghh1R/loUHqtxD21C3bZMkZrKGN4NG0NTD64ltZGK6W10mO4/ZTfka2fxs
+ JNoOhPla7dT+Q==
 From: guoren@kernel.org
 To: guoren@kernel.org,
 	arnd@arndb.de
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
  Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 2/3] nios2: Cleanup deprecated function strlen_user
-Date: Tue, 20 Apr 2021 13:37:08 +0000
-Message-Id: <1618925829-90071-2-git-send-email-guoren@kernel.org>
+Subject: [PATCH 3/3] riscv: Cleanup deprecated function strlen_user
+Date: Tue, 20 Apr 2021 13:37:09 +0000
+Message-Id: <1618925829-90071-3-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1618925829-90071-1-git-send-email-guoren@kernel.org>
 References: <1618925829-90071-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210420_063758_770986_E5B02831 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20210420_063800_894010_BE22AA29 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,21 +116,21 @@ See grep result, nobody uses it.
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Cc: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/nios2/include/asm/uaccess.h | 1 -
+ arch/riscv/include/asm/uaccess.h | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/arch/nios2/include/asm/uaccess.h b/arch/nios2/include/asm/uaccess.h
-index a741abb..ba9340e 100644
---- a/arch/nios2/include/asm/uaccess.h
-+++ b/arch/nios2/include/asm/uaccess.h
-@@ -83,7 +83,6 @@ raw_copy_to_user(void __user *to, const void *from, unsigned long n);
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 824b2c9..4297f43 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -372,7 +372,6 @@ raw_copy_to_user(void __user *to, const void *from, unsigned long n)
  
- extern long strncpy_from_user(char *__to, const char __user *__from,
- 			      long __len);
--extern __must_check long strlen_user(const char __user *str);
- extern __must_check long strnlen_user(const char __user *s, long n);
+ extern long strncpy_from_user(char *dest, const char __user *src, long count);
  
- /* Optimized macros */
+-extern long __must_check strlen_user(const char __user *str);
+ extern long __must_check strnlen_user(const char __user *str, long n);
+ 
+ extern
 -- 
 2.7.4
 
