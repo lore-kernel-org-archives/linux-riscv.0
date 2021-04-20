@@ -2,20 +2,20 @@ Return-Path: <SRS0=56ix=JR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 39D06C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 03:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F93EC433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:03 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A2D1561168
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 03:29:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A2D1561168
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id E4BF761003
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E4BF761003
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,112 +23,81 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YHttDAceM6xys6TXtB5jRKv4oG35hVjNqpkV1wF6Ntg=; b=jMgKyAcC759Phws7K2AOpKm2C
-	2hpAXtiU6sIf1o+nGViPGvTThv4Z/R1yZULhMtI1devYnD5bjXbUIVhALE38lhdaM3Bw0H5jFYaaJ
-	hgSxf/iFvUwywyVwgqwnOL6Ui0gnMGgo88jLVTKeWlIHlu3fpfC2PPkHpBy0Y//jEB7zxK7o3i8oh
-	t4nDO8sVKcOIduFqjHpF0iBPEEWo8QgMo7SqCuGlAJp4ColpOKWdJlO6T62Yy4luCqQA+zbW6s0vf
-	rqzhJE1gExXzKs5JJCw28PRWZeUmqyiG5IYUClWcmNQII1do8UiA78mQIeumf2epwrdKNjG3knHSa
-	y8I/wghPA==;
+	 bh=xRa4mGombDijyyEmuYM9b+Vli+QVdRi3LoxSE0hpf8Q=; b=gntDjsI176flbRjG05SRXZjmq
+	NZFH3pckROMVsn9D2c8HYEipVBXKKPrEmmr2EYlLgoqWufN79i4CU03IuIFfq3W2ih3SO1Tu7idqL
+	j6NiAktN8BUxckjsSso4sZth8mU+Gw5qT/fnSkzM3n48NitVTvx8L3cqEgTpI0cKz/aQ6z3SK0/2U
+	xa/2Her/IhPU7yI3ckJlc7Zz6J61kZM5Nk5n8Ckp8GDLBy4DR+QqYawWXc19IL+zT/b06YqROG/Tc
+	Jv1zJY1gm98eQDPmHccqUIAy0+dA1H3d1RN4ufTDlw8Qv7UBo6WaT65NPYeEe7YyTCbAv+FiEBNqt
+	t3c+Psm8g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYh4S-00B61S-IP; Tue, 20 Apr 2021 03:29:04 +0000
+	id 1lYhqb-00B9dj-Ew; Tue, 20 Apr 2021 04:18:49 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYh4Q-00B61J-6m; Tue, 20 Apr 2021 03:29:02 +0000
+ id 1lYhqX-00B9dJ-Ug
+ for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 04:18:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-ID:Content-Description;
- bh=sjA5c4MI/V/Us5khupc3zlEWJtPk9Lba1kHWIn9xqrM=; b=xPVKGne2MahdGR/aYfgMu91g7y
- 9LGfvnIYgez9yYl/J6H2P6nRD5fC03Nk1sfJFqf1Tmgq8KS4l+7HKX3xoj18T939VbNWm+Oesk675
- mWWE2OwchiNnpBFRA+Uu3pozTLYoTNMBdCb1XjH1PCymsfDxAqngRzH/3O2FXL5YlykJYigMwpLob
- NxtD2kGLjru31MnEuw2F+Y3nx0bqii8AX/wKnQSqbYNDwKTgM64tE/qdssaMmyQZEdeO/nDf04D6O
- Jt70beGAJD2NJ2rCmYLyXAEVKd9v5iAugiXESPP71MQqcGgSlar/n7xijAESzyn1ApVot5L1DHq6f
- komsdu0w==;
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=; b=O12+S59rJzD2EsJNYFbwGA1qg+
+ KElVmvUVEDRZ7dlGfeyEeSG7lj++VttlYltT86mjYtQrcADw7ZwtNU9jHzbk5PU6IRea0TbuJLM5z
+ mU1+ws4tuhM12P4CYu6wj5vObL1GDgoT2Aj7YQA2VJmPQxc4fVgQYNJbkyU8F0bhu6zU30PCN65P8
+ 44gzlE13NYkVtwPRMYOCmNASv+hXF2+Fq3aW5hpdlAhj7rI9n68P4c40LfjnHvF3cTWQ53zQUHjpe
+ osei9CncjFK475IwIyskuRwTKJT89aUW3+dwtt1x2X4qB/G+Z7dM6pA4Pl6fc9yH5LwM/WgR+Un2W
+ +u2zvcrw==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYh4L-00Bn6F-DD; Tue, 20 Apr 2021 03:29:00 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id h36so5129205lfv.7;
- Mon, 19 Apr 2021 20:28:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1lYhqS-00Bnxs-4e
+ for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 04:18:44 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id p6so29403462wrn.9
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Apr 2021 21:18:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=sjA5c4MI/V/Us5khupc3zlEWJtPk9Lba1kHWIn9xqrM=;
- b=aZSJaNW84mZRYAHIY5t88erflreGTdYjaH3FYtF1qHJPn6VWs0jryZT46tcKmPEGha
- /og/FC8vcGojrzKljv51Y7lWbKJNsViPSNua0KzzWTeHQBaA77mtr8NCMQ4THd2QTzcC
- W4NX+bAwjkGszUu3wkPlccw0aoYiZjMS+T4JTPsVHoVH+R4TOOISLvGTXFbJ16T+Dgur
- kbNEKiwtz58pU2SAt4AjUcSxyUGvQb0yQueu6ghHyatn+Cc/mNZXXrnsQvXgxCwKXuNp
- sZTyXkoz02r+DOAERoaXyqJHUX8rL4MjlDqKs+1CuVe940UruGYC9kE+b/nNTgV9xhkG
- purg==
+ :cc; bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=;
+ b=zqRNucjDdX3DN0XU/uZOKhk1gQCfti9NkXWNmKs0zxE5Ss4HjHjFIrPYXOBdnMlU7M
+ 50DnQ/WyK/ILA4Tzs+ycleoOv88GPJNG/8GZCO+qVnRJ/jzjhBnEXiW1J2dIectUdooE
+ wRtBpyKG6VuHChMOwuAE0kBzSRbxz5uhe8FjnfeqCnyJQC0RzhZBKxegFxKMZQRCkqzs
+ jww90znjCKy9iq575YD2G4aK4RC9tsEY7UOIU8KcDgTDMYiPIu4IF47c+7TThl7Q4NUj
+ wwzBcQxCqaMn+zT2EmDf/ZLFJj7qXYAOpbUV/ahGQ8hA0OgV//AZfNJnXeluZOUseLlX
+ uwxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=sjA5c4MI/V/Us5khupc3zlEWJtPk9Lba1kHWIn9xqrM=;
- b=nUadml8T6uPucvTian6UYC7nkZ3UmVZRM4KJTr10kgI4UnHDJY6HJ80EEpnYfrGXPO
- hGf2bAojHB2FZikCNPJ9Prqrt7Oyq84pw3isg/WQcQsfaXy8S85VKtvo4m/3LpqR4HLd
- kJ3uv4XGbSVykikqzmu2b7Y8lzJnMPfipjUGkkl1D1ucZEOY/A3njNY5ojs0xU3coTgN
- TA+KVf7v6FVnCp9vRH44BGKlwLAnLzVO1yWwwqdjNg3moNNAWHFSZWiIhwuvhJaJn2/i
- aKvd8uepUyMiYTAanaiMosDh7GDTBBCXO/KqWpQLAXvPwxV0mgZM7AeTj2eX+ANDw5P2
- 24Yw==
-X-Gm-Message-State: AOAM5307uzUVFP8qk99FGc0cZkKDjJdEaWNmic3xXke0z4TIhMmpvF6g
- DUYOrl6te1+O9zSAy3EUk1i7YN/1KchsMjHmwWA=
-X-Google-Smtp-Source: ABdhPJxtNTC6hNyk2mAr0jYIRtC3Pnw65n4y2IU2BFaZPz0SzJ5eF0gkFi6YsfR4xYcNBc9nZPkqaJatjNPZ02gYJpQ=
-X-Received: by 2002:ac2:510d:: with SMTP id q13mr13835296lfb.75.1618889332453; 
- Mon, 19 Apr 2021 20:28:52 -0700 (PDT)
+ :message-id:subject:to:cc;
+ bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=;
+ b=HKDlA/w8GFfk8RxA5HY6YXarnA+egsHtqQbl8GUczKaOEGmXFpU/FdjE0RnR248ZjD
+ 2XJv/+zzjUwZkQ6vEpX/LuNuH9lSYgscc1tTtk+S3UbH+Rn/g4J1dPPhdYZAh+l7RRtm
+ DlMl70yjgVtxInKX1RyloOLlQsCoTJnxfh/+OXERx/rykK9L+Z1MwOa1pRCfierD4E6W
+ WVmdPjLyfy1JwGdk1b9Dnx0KVYiEQQxj8mTeLD3NUoY26lbvluykGGcMp26yoF7mBQgs
+ n7/2F1cszyCqhmMR9WkJCRLxEoAxlXLDG2W+nqVKedwC1sq3Ksd9ttPcrHgaQK/0jU/5
+ 513g==
+X-Gm-Message-State: AOAM5305GFbc5l+VH8788KCwLjAwOVR3GRwY5HoU+h/yQi/UVfwf5pvE
+ fnvb0OalRF9kteIJ6kwFqR+xBE/x5iDQEH4ATJhJjw==
+X-Google-Smtp-Source: ABdhPJywH6zNS+S9+aPYlLnH0UPE/gKZS9rjo3+N55w1r1s4RZCqJ8v1oZokj44lytbNf+NhzRcwKUvE36LHj44/WDs=
+X-Received: by 2002:adf:ce12:: with SMTP id p18mr18078880wrn.144.1618892317302; 
+ Mon, 19 Apr 2021 21:18:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
- <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
- <d3949501-8f7d-57c4-b3fe-bcc3b24c09d8@isovalent.com>
- <CAADnVQJ2oHbYfgY9jqM_JMxUsoZxaNrxKSVFYfgCXuHVpDehpQ@mail.gmail.com>
- <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
-In-Reply-To: <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 19 Apr 2021 20:28:41 -0700
-Message-ID: <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Quentin Monnet <quentin@isovalent.com>, Ian Rogers <irogers@google.com>, 
- Song Liu <songliubraving@fb.com>, 
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Alexei Starovoitov <ast@kernel.org>, 
- Andrii Nakryiko <andrii@kernel.org>, Paul Mackerras <paulus@samba.org>, 
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, Shubham Bansal <illusionist.neo@gmail.com>,
- Mahesh Bandewar <maheshb@google.com>, 
- Will Deacon <will@kernel.org>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
- linux-s390 <linux-s390@vger.kernel.org>, Ilya Leoshkevich <iii@linux.ibm.com>,
- paulburton@kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, Russell King <linux@armlinux.org.uk>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- Catalin Marinas <catalin.marinas@arm.com>,
- "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>, 
- Jakub Kicinski <kuba@kernel.org>, Tobias Klauser <tklauser@distanz.ch>,
- linux-mips@vger.kernel.org, 
- grantseltzer@gmail.com, Xi Wang <xi.wang@gmail.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Luke Nelson <luke.r.nels@gmail.com>, 
- LKML <linux-kernel@vger.kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
- ppc-dev <linuxppc-dev@lists.ozlabs.org>, KP Singh <kpsingh@kernel.org>,
- iecedge@gmail.com, 
- Simon Horman <horms@verge.net.au>, Borislav Petkov <bp@alien8.de>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, Yonghong Song <yhs@fb.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Dmitry Vyukov <dvyukov@google.com>,
- tsbogend@alpha.franken.de, Daniel Borkmann <daniel@iogearbox.net>,
- Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>, 
- Network Development <netdev@vger.kernel.org>, David Ahern <dsahern@kernel.org>,
- Wang YanQing <udknight@gmail.com>, Martin KaFai Lau <kafai@fb.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, bpf <bpf@vger.kernel.org>, 
- Jianlin Lv <Jianlin.Lv@arm.com>, "David S. Miller" <davem@davemloft.net>
+References: <20210417172159.32085-1-alex@ghiti.fr>
+In-Reply-To: <20210417172159.32085-1-alex@ghiti.fr>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 20 Apr 2021 09:48:26 +0530
+Message-ID: <CAAhSdy23jRTp3VoBpnH8B79eSSmuw8qMEYrXyh-02ccWT3O5QQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fix 32b kernel caused by 64b kernel mapping moving
+ outside linear mapping
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Arnd Bergmann <arnd@arndb.de>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ linux-doc@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com, linux-arch <linux-arch@vger.kernel.org>, 
+ Linux Memory Management List <linux-mm@kvack.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210419_202857_517850_44B5B8B9 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20210419_211840_275265_EA3A6CAB 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,56 +109,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBBcHIgMTcsIDIwMjEgYXQgMToxNiBBTSBDaHJpc3RvcGhlIExlcm95CjxjaHJpc3Rv
-cGhlLmxlcm95QGNzZ3JvdXAuZXU+IHdyb3RlOgo+Cj4KPgo+IExlIDE2LzA0LzIwMjEgw6AgMDE6
-NDksIEFsZXhlaSBTdGFyb3ZvaXRvdiBhIMOpY3JpdCA6Cj4gPiBPbiBUaHUsIEFwciAxNSwgMjAy
-MSBhdCA4OjQxIEFNIFF1ZW50aW4gTW9ubmV0IDxxdWVudGluQGlzb3ZhbGVudC5jb20+IHdyb3Rl
-Ogo+ID4+Cj4gPj4gMjAyMS0wNC0xNSAxNjozNyBVVEMrMDIwMCB+IERhbmllbCBCb3JrbWFubiA8
-ZGFuaWVsQGlvZ2VhcmJveC5uZXQ+Cj4gPj4+IE9uIDQvMTUvMjEgMTE6MzIgQU0sIEppYW5saW4g
-THYgd3JvdGU6Cj4gPj4+PiBGb3IgZGVidWdnaW5nIEpJVHMsIGR1bXBpbmcgdGhlIEpJVGVkIGlt
-YWdlIHRvIGtlcm5lbCBsb2cgaXMgZGlzY291cmFnZWQsCj4gPj4+PiAiYnBmdG9vbCBwcm9nIGR1
-bXAgaml0ZWQiIGlzIG11Y2ggYmV0dGVyIHdheSB0byBleGFtaW5lIEpJVGVkIGR1bXBzLgo+ID4+
-Pj4gVGhpcyBwYXRjaCBnZXQgcmlkIG9mIHRoZSBjb2RlIHJlbGF0ZWQgdG8gYnBmX2ppdF9lbmFi
-bGU9MiBtb2RlIGFuZAo+ID4+Pj4gdXBkYXRlIHRoZSBwcm9jIGhhbmRsZXIgb2YgYnBmX2ppdF9l
-bmFibGUsIGFsc28gYWRkZWQgYXV4aWxpYXJ5Cj4gPj4+PiBpbmZvcm1hdGlvbiB0byBleHBsYWlu
-IGhvdyB0byB1c2UgYnBmX2ppdF9kaXNhc20gdG9vbCBhZnRlciB0aGlzIGNoYW5nZS4KPiA+Pj4+
-Cj4gPj4+PiBTaWduZWQtb2ZmLWJ5OiBKaWFubGluIEx2IDxKaWFubGluLkx2QGFybS5jb20+Cj4g
-Pj4KPiA+PiBIZWxsbywKPiA+Pgo+ID4+IEZvciB3aGF0IGl0J3Mgd29ydGgsIEkgaGF2ZSBhbHJl
-YWR5IHNlZW4gcGVvcGxlIGR1bXAgdGhlIEpJVCBpbWFnZSBpbgo+ID4+IGtlcm5lbCBsb2dzIGlu
-IFFlbXUgVk1zIHJ1bm5pbmcgd2l0aCBqdXN0IGEgYnVzeWJveCwgbm90IGZvciBrZXJuZWwKPiA+
-PiBkZXZlbG9wbWVudCwgYnV0IGluIGEgY29udGV4dCB3aGVyZSBidWlkaW5nL3VzaW5nIGJwZnRv
-b2wgd2FzIG5vdAo+ID4+IHBvc3NpYmxlLgo+ID4KPiA+IElmIGJ1aWxkaW5nL3VzaW5nIGJwZnRv
-b2wgaXMgbm90IHBvc3NpYmxlIHRoZW4gbWFqb3JpdHkgb2Ygc2VsZnRlc3RzIHdvbid0Cj4gPiBi
-ZSBleGVyY2lzZWQuIEkgZG9uJ3QgdGhpbmsgc3VjaCBlbnZpcm9ubWVudCBpcyBzdWl0YWJsZSBm
-b3IgYW55IGtpbmQKPiA+IG9mIGJwZiBkZXZlbG9wbWVudC4gTXVjaCBzbyBmb3IgSklUIGRlYnVn
-Z2luZy4KPiA+IFdoaWxlIGJwZl9qaXRfZW5hYmxlPTIgaXMgbm90aGluZyBidXQgdGhlIGRlYnVn
-Z2luZyB0b29sIGZvciBKSVQgZGV2ZWxvcGVycy4KPiA+IEknZCByYXRoZXIgbnVrZSB0aGF0IGNv
-ZGUgaW5zdGVhZCBvZiBjYXJyeWluZyBpdCBmcm9tIGtlcm5lbCB0byBrZXJuZWwuCj4gPgo+Cj4g
-V2hlbiBJIGltcGxlbWVudGVkIEpJVCBmb3IgUFBDMzIsIGl0IHdhcyBleHRyZW1lbHkgaGVscGZ1
-bGwuCj4KPiBBcyBmYXIgYXMgSSB1bmRlcnN0YW5kLCBmb3IgdGhlIHRpbWUgYmVpbmcgYnBmdG9v
-bCBpcyBub3QgdXNhYmxlIGluIG15IGVudmlyb25tZW50IGJlY2F1c2UgaXQKPiBkb2Vzbid0IHN1
-cHBvcnQgY3Jvc3MgY29tcGlsYXRpb24gd2hlbiB0aGUgdGFyZ2V0J3MgZW5kaWFuZXNzIGRpZmZl
-cnMgZnJvbSB0aGUgYnVpbGRpbmcgaG9zdAo+IGVuZGlhbmVzcywgc2VlIGRpc2N1c3Npb24gYXQK
-PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9icGYvMjFlNjZhMDktNTE0Zi1mNDI2LWI5ZTItMTNi
-YWFiMGI5MzhiQGNzZ3JvdXAuZXUvCj4KPiBUaGF0J3MgcmlnaHQgdGhhdCBzZWxmdGVzdHMgY2Fu
-J3QgYmUgZXhlcmNpc2VkIGJlY2F1c2UgdGhleSBkb24ndCBidWlsZC4KPgo+IFRoZSBxdWVzdGlv
-biBtaWdodCBiZSBjYW5kaWQgYXMgSSBkaWRuJ3QgaW52ZXN0aWdhdGUgbXVjaCBhYm91dCB0aGUg
-cmVwbGFjZW1lbnQgb2YgImJwZl9qaXRfZW5hYmxlPTIKPiBkZWJ1Z2dpbmcgbW9kZSIgYnkgYnBm
-dG9vbCwgaG93IGRvIHdlIHVzZSBicGZ0b29sIGV4YWN0bHkgZm9yIHRoYXQgPyBFc3BlY2lhbGx5
-IHdoZW4gdXNpbmcgdGhlIEJQRgo+IHRlc3QgbW9kdWxlID8KCnRoZSBrZXJuZWwgZGV2ZWxvcGVy
-cyBjYW4gYWRkIGFueSBhbW91bnQgb2YgcHJpbnRrIGFuZCBkdW1wcyB0byBkZWJ1Zwp0aGVpciBj
-b2RlLApidXQgc3VjaCBkZWJ1Z2dpbmcgYWlkIHNob3VsZCBub3QgYmUgcGFydCBvZiB0aGUgcHJv
-ZHVjdGlvbiBrZXJuZWwuClRoYXQgc3lzY3RsIHdhcyB0d28gdGhpbmdzIGF0IG9uY2U6IGRlYnVn
-Z2luZyB0b29sIGZvciBrZXJuZWwgZGV2cyBhbmQKaW50cm9zcGVjdGlvbiBmb3IgdXNlcnMuCmJw
-ZnRvb2wgaml0IGR1bXAgc29sdmVzIHRoZSAybmQgcGFydC4gSXQgcHJvdmlkZXMgSklUIGludHJv
-c3BlY3Rpb24gdG8gdXNlcnMuCkRlYnVnZ2luZyBvZiB0aGUga2VybmVsIGNhbiBiZSBkb25lIHdp
-dGggYW55IGFtb3VudCBvZiBhdXhpbGlhcnkgY29kZQppbmNsdWRpbmcgY2FsbGluZyBwcmludF9o
-ZXhfZHVtcCgpIGR1cmluZyBqaXRpbmcuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, Apr 17, 2021 at 10:52 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> Fix multiple leftovers when moving the kernel mapping outside the linear
+> mapping for 64b kernel that left the 32b kernel unusable.
+>
+> Fixes: 4b67f48da707 ("riscv: Move kernel mapping outside of linear mapping")
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+
+Quite a few #ifdef but I don't see any better way at the moment. Maybe we can
+clean this later. Otherwise looks good to me.
+
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
+
+> ---
+>  arch/riscv/include/asm/page.h    |  9 +++++++++
+>  arch/riscv/include/asm/pgtable.h | 16 ++++++++++++----
+>  arch/riscv/mm/init.c             | 25 ++++++++++++++++++++++++-
+>  3 files changed, 45 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 22cfb2be60dc..f64b61296c0c 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -90,15 +90,20 @@ typedef struct page *pgtable_t;
+>
+>  #ifdef CONFIG_MMU
+>  extern unsigned long va_pa_offset;
+> +#ifdef CONFIG_64BIT
+>  extern unsigned long va_kernel_pa_offset;
+> +#endif
+>  extern unsigned long pfn_base;
+>  #define ARCH_PFN_OFFSET                (pfn_base)
+>  #else
+>  #define va_pa_offset           0
+> +#ifdef CONFIG_64BIT
+>  #define va_kernel_pa_offset    0
+> +#endif
+>  #define ARCH_PFN_OFFSET                (PAGE_OFFSET >> PAGE_SHIFT)
+>  #endif /* CONFIG_MMU */
+>
+> +#ifdef CONFIG_64BIT
+>  extern unsigned long kernel_virt_addr;
+>
+>  #define linear_mapping_pa_to_va(x)     ((void *)((unsigned long)(x) + va_pa_offset))
+> @@ -112,6 +117,10 @@ extern unsigned long kernel_virt_addr;
+>         (_x < kernel_virt_addr) ?                                               \
+>                 linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);      \
+>         })
+> +#else
+> +#define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
+> +#define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
+> +#endif
+>
+>  #ifdef CONFIG_DEBUG_VIRTUAL
+>  extern phys_addr_t __virt_to_phys(unsigned long x);
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 80e63a93e903..5afda75cc2c3 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -16,19 +16,27 @@
+>  #else
+>
+>  #define ADDRESS_SPACE_END      (UL(-1))
+> -/*
+> - * Leave 2GB for kernel and BPF at the end of the address space
+> - */
+> +
+> +#ifdef CONFIG_64BIT
+> +/* Leave 2GB for kernel and BPF at the end of the address space */
+>  #define KERNEL_LINK_ADDR       (ADDRESS_SPACE_END - SZ_2G + 1)
+> +#else
+> +#define KERNEL_LINK_ADDR       PAGE_OFFSET
+> +#endif
+>
+>  #define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+>  #define VMALLOC_END      (PAGE_OFFSET - 1)
+>  #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+>
+> -/* KASLR should leave at least 128MB for BPF after the kernel */
+>  #define BPF_JIT_REGION_SIZE    (SZ_128M)
+> +#ifdef CONFIG_64BIT
+> +/* KASLR should leave at least 128MB for BPF after the kernel */
+>  #define BPF_JIT_REGION_START   PFN_ALIGN((unsigned long)&_end)
+>  #define BPF_JIT_REGION_END     (BPF_JIT_REGION_START + BPF_JIT_REGION_SIZE)
+> +#else
+> +#define BPF_JIT_REGION_START   (PAGE_OFFSET - BPF_JIT_REGION_SIZE)
+> +#define BPF_JIT_REGION_END     (VMALLOC_END)
+> +#endif
+>
+>  /* Modules always live before the kernel */
+>  #ifdef CONFIG_64BIT
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 093f3a96ecfc..dc9b988e0778 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -91,8 +91,10 @@ static void print_vm_layout(void)
+>                   (unsigned long)VMALLOC_END);
+>         print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
+>                   (unsigned long)high_memory);
+> +#ifdef CONFIG_64BIT
+>         print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
+>                   (unsigned long)ADDRESS_SPACE_END);
+> +#endif
+>  }
+>  #else
+>  static void print_vm_layout(void) { }
+> @@ -165,9 +167,11 @@ static struct pt_alloc_ops pt_ops;
+>  /* Offset between linear mapping virtual address and kernel load address */
+>  unsigned long va_pa_offset;
+>  EXPORT_SYMBOL(va_pa_offset);
+> +#ifdef CONFIG_64BIT
+>  /* Offset between kernel mapping virtual address and kernel load address */
+>  unsigned long va_kernel_pa_offset;
+>  EXPORT_SYMBOL(va_kernel_pa_offset);
+> +#endif
+>  unsigned long pfn_base;
+>  EXPORT_SYMBOL(pfn_base);
+>
+> @@ -410,7 +414,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         load_sz = (uintptr_t)(&_end) - load_pa;
+>
+>         va_pa_offset = PAGE_OFFSET - load_pa;
+> +#ifdef CONFIG_64BIT
+>         va_kernel_pa_offset = kernel_virt_addr - load_pa;
+> +#endif
+>
+>         pfn_base = PFN_DOWN(load_pa);
+>
+> @@ -469,12 +475,16 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>                            pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
+>         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
+>  #else /* CONFIG_BUILTIN_DTB */
+> +#ifdef CONFIG_64BIT
+>         /*
+>          * __va can't be used since it would return a linear mapping address
+>          * whereas dtb_early_va will be used before setup_vm_final installs
+>          * the linear mapping.
+>          */
+>         dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
+> +#else
+> +       dtb_early_va = __va(dtb_pa);
+> +#endif /* CONFIG_64BIT */
+>  #endif /* CONFIG_BUILTIN_DTB */
+>  #else
+>  #ifndef CONFIG_BUILTIN_DTB
+> @@ -486,7 +496,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+>         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+>  #else /* CONFIG_BUILTIN_DTB */
+> +#ifdef CONFIG_64BIT
+>         dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
+> +#else
+> +       dtb_early_va = __va(dtb_pa);
+> +#endif /* CONFIG_64BIT */
+>  #endif /* CONFIG_BUILTIN_DTB */
+>  #endif
+>         dtb_early_pa = dtb_pa;
+> @@ -571,12 +585,21 @@ static void __init setup_vm_final(void)
+>                 for (pa = start; pa < end; pa += map_size) {
+>                         va = (uintptr_t)__va(pa);
+>                         create_pgd_mapping(swapper_pg_dir, va, pa,
+> -                                          map_size, PAGE_KERNEL);
+> +                                          map_size,
+> +#ifdef CONFIG_64BIT
+> +                                          PAGE_KERNEL
+> +#else
+> +                                          PAGE_KERNEL_EXEC
+> +#endif
+> +                                       );
+> +
+>                 }
+>         }
+>
+> +#ifdef CONFIG_64BIT
+>         /* Map the kernel */
+>         create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
+> +#endif
+>
+>         /* Clear fixmap PTE and PMD mappings */
+>         clear_fixmap(FIX_PTE);
+> --
+> 2.20.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
