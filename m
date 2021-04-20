@@ -2,105 +2,141 @@ Return-Path: <SRS0=56ix=JR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 25E90C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 15:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99F87C433ED
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 15:18:26 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D70E610CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 15:02:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D70E610CC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id BB0FA613AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 15:18:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB0FA613AB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xNwsYDWTBF0rk85+PHLLbOq/DG2pJU+xUnMkGdakWdc=; b=hQOfFVJ+0usW4b0nlfz+J/nBm
-	f3NfOcVBL90Enuc6HvmbSarpTQdNLvBypfgplLqdrg/jMpiEjRr1WZ6WD+iwAj2Ug429J1n//P+k/
-	8Moe7qWhAQb9SIxa2NqugvNA0w3Un6ZqppiDODp8wiAX+tA1irg4hKmLfco53nE26PGpx4wxwGtmX
-	LWzVTz9EJUWT8pJaRtJrW+8+E9Lmm1zqw3x/Gq345RGCUKeJ8/iEE2XpLDf0XeuWKf+QgHySvyZ0n
-	M5IJsJpH6OXKCGjiLnnAFI3LsLiLt0Vr+XT8UrJBn3/VUvWQFPCD1mfdm06+BvzCBpk/stq4/zQ2u
-	LYJSEyiBA==;
+	 bh=XZFGpjvIJ5YWspXvYimsR4csQ6lmWL/5s8+vsmhF5/g=; b=S1B3LlPIvFW31yfwRO2UsH5mn
+	Yzf2XqzBituYK8ukio/KWo5S1TfzXf5RqMPyth//3NFppDX8KOYVARKSHIqinAJrwFQnucE3Hcln+
+	baXrOwdidcPihV2NJtfXw5jJ9xhV1k5kUein4HdJZLDeqSNfQUtzvZiJsJT6qt6M1laoI148JHwgd
+	TNkUIkLCgj0e3YUmhsr6mf17SAuI1ehpfr8gPR/+1N4sY4BCv+KdMCml4b7lfrv9iKylDx2pSBHCI
+	5OJDkh7edLsz6iWopJX+nwikpeUeVTQogsdNW48x1WXcAwVhwvFtFEEb52Rxfl6sFXyBMhi5yE/TO
+	b0L6ln0Ug==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYrsu-00CPPh-Cy; Tue, 20 Apr 2021 15:01:52 +0000
+	id 1lYs8g-00CRsy-8g; Tue, 20 Apr 2021 15:18:10 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYrsZ-00CPLM-RR; Tue, 20 Apr 2021 15:01:32 +0000
+ id 1lYs8e-00CRsn-2h
+ for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 15:18:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
- To:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=SUg8wB0RrT5587aVCPvM1LiwsySkMaT1rmEJCD31MUk=; b=l6tqxfg+N8fNbthW5zDfICHte1
- 23ZSiywjyvAHD+Md/8Ev/itnOBZozGcn2/WWlmI/fEZPgqLJNfBtkJiCc/VdfIWtV/IKFBS65NquT
- nDFeubo1WCvFAHOKdrInTacOjwdFQNntYRyZg/8UBPiKZLvaI5PtA3uHOl3uugaqkANgNqJgMnZyG
- yN6kVLDHp3Kn1H+ND4HlRsCSaQgKv3jfcm85sY3D4+jTc4HZGQ9ki46sVbZr4KzCddMBY1JrIHmu0
- wVtY+zzEGvBIDL3bLzmLSWBoHPl4d0EosB4GGZtmlZxGMnXRVKs/8jhYyGqpGSKLBlYLmso2ZZQBI
- yyDSerlw==;
-Received: from mail.kernel.org ([198.145.29.99])
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=I5ndW6k8mLw6k1PzLhNPYJ9rDrEc5/TU+m57YMg1P3Q=; b=oEpCRGK65wTjfCQ/CUIVyAAg3s
+ TSQcwFNgE+j+0hmWv9WTRj9M02eRIA3ZuO65of+y6Hb6aliWjB1ryJ6p5DZ6xyvFqUW0AdaJtHohS
+ 4bYQfIvDzXyNMV53srQFMyevGMBOsRTfQZ1W6yJMjVQX5ly4FAePyaFFTs0gYSLOpQaT4lwMPsXcu
+ 8WDVeU8NV/f6RL9wkbpBY9hkJT269JHvMnv+S2ScPPJw6iEeRz/zrku0AFH+oNxSmnMRWzlS/HfTQ
+ X3gIXo0KIxzKbBScaC3gMR+iwATCf2TsSviXyrzeVSrT8W7i5R/C2wOGnL20gyP4umgx73BFPW4Pn
+ 7GwRuv2A==;
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYrsX-00CDQm-4q; Tue, 20 Apr 2021 15:01:30 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6BBEE613D1;
- Tue, 20 Apr 2021 15:01:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1618930888;
- bh=I/WWp3ZhiKpLexAP/6uikhopmlNfpvxqz9r1ZOciMHE=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=XwXn6wJhOGAPWFLJTXk9f9dCUdigjUcxoFpXuTTS7QeUKVHcKf3zboTSJuyxuYjhb
- 7S7xoeOnTbujEhT+qOIHjvQZre4ngKMAYrLa0rLDC3mofLug616wj1X5JSuijxJl3M
- wtWUvSC/otrlPsLI++IhM/Oomn7H4VvxqSgNKO7a+xupoT4mtWTM+1UljzJQw1bV49
- aAL3dsbVJgqgEIWEnKruH97rHDTT/mkJA2/canG8R1Uf1jGMHr0nvKzI5l0LQUBq2w
- wnSLVpbmsRZF+NWjSRwMNhPpfFP2tVySPxwi4WHp6VrQK1Z5FqJbynTDJqoZBqn7aB
- joNOnC5v3AX0Q==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
+ id 1lYs8b-00CEA3-H3
+ for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 15:18:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1618931884;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=I5ndW6k8mLw6k1PzLhNPYJ9rDrEc5/TU+m57YMg1P3Q=;
+ b=QFO9Tz1K14ojRc0Ur8YaRpu7HffNsZzrA93cd5y7I1UfBEO775ZhgTgnsGIFvCx76KMn3d
+ u3vfMqPdlkh+SlHn+Yiac2yTojPywjqv1QZ4kknEqod/xwcxzXLyFJ7TfKVbhMDXM+PuX3
+ U/3zkkvp7QSBQml6j9K0Icd2ndEQNTI=
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-259-IbeR32h7Oi6sxj4oRpvAhg-1; Tue, 20 Apr 2021 11:18:02 -0400
+X-MC-Unique: IbeR32h7Oi6sxj4oRpvAhg-1
+Received: by mail-ed1-f70.google.com with SMTP id
+ bf25-20020a0564021a59b0290385169cebf8so5915213edb.8
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Apr 2021 08:18:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:organization
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=I5ndW6k8mLw6k1PzLhNPYJ9rDrEc5/TU+m57YMg1P3Q=;
+ b=SzqskS8WqSYjxqCjOQrC7DEetpod0sZZt+BT0NWRMqK7SQiY1jYYu4U4afNG9xzvfI
+ sU1qd285uSn5kceWN/bCDcRYxkIpeCbInhmbp4fAuXUQWZGuv9AtlqW+lKCKlCFZjERq
+ qi7J2A+2YmOhwBHj9dmrqoexNEGRqZq0g9iUROZH9z9/+i2/hB7XQumBWEONxYsDSmTJ
+ 82gCBraYzCRuiP0EcLSpYYU2c3ZLv16i7lj5aV6c65ExHYxGMjnYC3OUvN9M/7am06fi
+ yynPnOf2cSW3EaDlaEdEdFZxGJqEPnb5aIKeXTfEFSOdIU/zD3k69CoRWbQLr+3+YQ/V
+ U6zQ==
+X-Gm-Message-State: AOAM5300u6HqQxe/JQsrAs3MWdHIBp4DgvC+r4Mo5Y7mMeGoa1vdrixE
+ fH6ESln7Ikb9QaLZ+X6l/YfyLv+SWG+TdAh6V2U9HCov671XoZC4n9uPIkrK0T4vATW2rRc3V+K
+ ubhsLCnjycp2Tn8UEc6YhTFE4KfMl
+X-Received: by 2002:aa7:c683:: with SMTP id n3mr32232734edq.214.1618931880951; 
+ Tue, 20 Apr 2021 08:18:00 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxKrP/Z3igfJPaQi8yJZtC2FjNZPIjMXhA64NexGRfIVc/CrlZnXvE6wVD3xtThrpBxYqmr/Q==
+X-Received: by 2002:aa7:c683:: with SMTP id n3mr32232708edq.214.1618931880725; 
+ Tue, 20 Apr 2021 08:18:00 -0700 (PDT)
+Received: from [192.168.3.132] (p4ff2390a.dip0.t-ipconnect.de. [79.242.57.10])
+ by smtp.gmail.com with ESMTPSA id
+ a17sm13193206ejx.13.2021.04.20.08.17.58
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 20 Apr 2021 08:18:00 -0700 (PDT)
+Subject: Re: [PATCH v3 1/2] secretmem/gup: don't check if page is secretmem
+ without reference
+To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
  Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>,
- Dan Williams <dan.j.williams@intel.com>,
+ Christopher Lameter <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>,
  Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
+ <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
  James Bottomley <jejb@linux.ibm.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>,
- Matthew Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@linux.ibm.com>,
- Mike Rapoport <rppt@kernel.org>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
+ Matthew Wilcox <willy@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>,
+ Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Michael Kerrisk
+ <mtk.manpages@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Shakeel Butt <shakeelb@google.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Tycho Andersen <tycho@tycho.ws>,
- Will Deacon <will@kernel.org>, Yury Norov <yury.norov@gmail.com>,
- linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-nvdimm@lists.01.org,
- linux-riscv@lists.infradead.org, x86@kernel.org,
- kernel test robot <oliver.sang@intel.com>
-Subject: [PATCH v3 2/2] secretmem: optimize page_is_secretmem()
-Date: Tue, 20 Apr 2021 18:00:49 +0300
-Message-Id: <20210420150049.14031-3-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20210420150049.14031-1-rppt@kernel.org>
+ Peter Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki"
+ <rjw@rjwysocki.net>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
 References: <20210420150049.14031-1-rppt@kernel.org>
+ <20210420150049.14031-2-rppt@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+Message-ID: <f906a634-ee25-5a8b-6cdf-3651832dbe99@redhat.com>
+Date: Tue, 20 Apr 2021 17:17:58 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
+In-Reply-To: <20210420150049.14031-2-rppt@kernel.org>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210420_080129_290733_C8B586C6 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20210420_081805_671700_CFD65579 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,65 +148,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTWlrZSBSYXBvcG9ydCA8cnBwdEBsaW51eC5pYm0uY29tPgoKS2VybmVsIHRlc3Qgcm9i
-b3QgcmVwb3J0ZWQgLTQuMiUgcmVncmVzc2lvbiBvZiB3aWxsLWl0LXNjYWxlLnBlcl90aHJlYWRf
-b3BzCmR1ZSB0byBjb21taXQgIm1tOiBpbnRyb2R1Y2UgbWVtZmRfc2VjcmV0IHN5c3RlbSBjYWxs
-IHRvIGNyZWF0ZSAic2VjcmV0IgptZW1vcnkgYXJlYXMiLgoKVGhlIHBlcmYgcHJvZmlsZSBvZiB0
-aGUgdGVzdCBpbmRpY2F0ZWQgdGhhdCB0aGUgcmVncmVzc2lvbiBpcyBjYXVzZWQgYnkKcGFnZV9p
-c19zZWNyZXRtZW0oKSBjYWxsZWQgZnJvbSBndXBfcHRlX3JhbmdlKCkgKGlubGluZWQgYnkgZ3Vw
-X3BnZF9yYW5nZSk6CgogMjcuNzYgICsyLjUgIDMwLjIzICAgICAgIHBlcmYtcHJvZmlsZS5jaGls
-ZHJlbi5jeWNsZXMtcHAuZ3VwX3BnZF9yYW5nZQogIDAuMDAgICszLjIgICAzLjE5IMKxIDIlICBw
-ZXJmLXByb2ZpbGUuY2hpbGRyZW4uY3ljbGVzLXBwLnBhZ2VfbWFwcGluZwogIDAuMDAgICszLjcg
-ICAzLjY2IMKxIDIlICBwZXJmLXByb2ZpbGUuY2hpbGRyZW4uY3ljbGVzLXBwLnBhZ2VfaXNfc2Vj
-cmV0bWVtCgpGdXJ0aGVyIGFuYWx5c2lzIHNob3dlZCB0aGF0IHRoZSBzbG93IGRvd24gaGFwcGVu
-cyBiZWNhdXNlIG5laXRoZXIKcGFnZV9pc19zZWNyZXRtZW0oKSBub3IgcGFnZV9tYXBwaW5nKCkg
-YXJlIG5vdCBpbmxpbmUgYW5kIG1vcmVvdmVyLAptdWx0aXBsZSBwYWdlIGZsYWdzIGNoZWNrcyBp
-biBwYWdlX21hcHBpbmcoKSBpbnZvbHZlIGNhbGxpbmcKY29tcG91bmRfaGVhZCgpIHNldmVyYWwg
-dGltZXMgZm9yIHRoZSBzYW1lIHBhZ2UuCgpNYWtlIHBhZ2VfaXNfc2VjcmV0bWVtKCkgaW5saW5l
-IGFuZCByZXBsYWNlIHBhZ2VfbWFwcGluZygpIHdpdGggcGFnZSBmbGFnCmNoZWNrcyB0aGF0IGRv
-IG5vdCBpbXBseSBwYWdlLXRvLWhlYWQgY29udmVyc2lvbi4KClJlcG9ydGVkLWJ5OiBrZXJuZWwg
-dGVzdCByb2JvdCA8b2xpdmVyLnNhbmdAaW50ZWwuY29tPgpTaWduZWQtb2ZmLWJ5OiBNaWtlIFJh
-cG9wb3J0IDxycHB0QGxpbnV4LmlibS5jb20+Ci0tLQogaW5jbHVkZS9saW51eC9zZWNyZXRtZW0u
-aCB8IDI2ICsrKysrKysrKysrKysrKysrKysrKysrKystCiBtbS9zZWNyZXRtZW0uYyAgICAgICAg
-ICAgIHwgMTIgKy0tLS0tLS0tLS0tCiAyIGZpbGVzIGNoYW5nZWQsIDI2IGluc2VydGlvbnMoKyks
-IDEyIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvc2VjcmV0bWVtLmgg
-Yi9pbmNsdWRlL2xpbnV4L3NlY3JldG1lbS5oCmluZGV4IDkwN2E2NzM0MDU5Yy4uYjg0MmIzOGNi
-ZWIxIDEwMDY0NAotLS0gYS9pbmNsdWRlL2xpbnV4L3NlY3JldG1lbS5oCisrKyBiL2luY2x1ZGUv
-bGludXgvc2VjcmV0bWVtLmgKQEAgLTQsOCArNCwzMiBAQAogCiAjaWZkZWYgQ09ORklHX1NFQ1JF
-VE1FTQogCitleHRlcm4gY29uc3Qgc3RydWN0IGFkZHJlc3Nfc3BhY2Vfb3BlcmF0aW9ucyBzZWNy
-ZXRtZW1fYW9wczsKKworc3RhdGljIGlubGluZSBib29sIHBhZ2VfaXNfc2VjcmV0bWVtKHN0cnVj
-dCBwYWdlICpwYWdlKQoreworCXN0cnVjdCBhZGRyZXNzX3NwYWNlICptYXBwaW5nOworCisJLyoK
-KwkgKiBVc2luZyBwYWdlX21hcHBpbmcoKSBpcyBxdWl0ZSBzbG93IGJlY2F1c2Ugb2YgdGhlIGFj
-dHVhbCBjYWxsCisJICogaW5zdHJ1Y3Rpb24gYW5kIHJlcGVhdGVkIGNvbXBvdW5kX2hlYWQocGFn
-ZSkgaW5zaWRlIHRoZQorCSAqIHBhZ2VfbWFwcGluZygpIGZ1bmN0aW9uLgorCSAqIFdlIGtub3cg
-dGhhdCBzZWNyZXRtZW0gcGFnZXMgYXJlIG5vdCBjb21wb3VuZCBhbmQgTFJVIHNvIHdlIGNhbgor
-CSAqIHNhdmUgYSBjb3VwbGUgb2YgY3ljbGVzIGhlcmUuCisJICovCisJaWYgKFBhZ2VDb21wb3Vu
-ZChwYWdlKSB8fCAhUGFnZUxSVShwYWdlKSkKKwkJcmV0dXJuIGZhbHNlOworCisJbWFwcGluZyA9
-IChzdHJ1Y3QgYWRkcmVzc19zcGFjZSAqKQorCQkoKHVuc2lnbmVkIGxvbmcpcGFnZS0+bWFwcGlu
-ZyAmIH5QQUdFX01BUFBJTkdfRkxBR1MpOworCisJaWYgKG1hcHBpbmcgIT0gcGFnZS0+bWFwcGlu
-ZykKKwkJcmV0dXJuIGZhbHNlOworCisJcmV0dXJuIHBhZ2UtPm1hcHBpbmctPmFfb3BzID09ICZz
-ZWNyZXRtZW1fYW9wczsKK30KKwogYm9vbCB2bWFfaXNfc2VjcmV0bWVtKHN0cnVjdCB2bV9hcmVh
-X3N0cnVjdCAqdm1hKTsKLWJvb2wgcGFnZV9pc19zZWNyZXRtZW0oc3RydWN0IHBhZ2UgKnBhZ2Up
-OwogYm9vbCBzZWNyZXRtZW1fYWN0aXZlKHZvaWQpOwogCiAjZWxzZQpkaWZmIC0tZ2l0IGEvbW0v
-c2VjcmV0bWVtLmMgYi9tbS9zZWNyZXRtZW0uYwppbmRleCAzYjFiYTM5OTE5NjQuLjBiY2QxNWUx
-YjU0OSAxMDA2NDQKLS0tIGEvbW0vc2VjcmV0bWVtLmMKKysrIGIvbW0vc2VjcmV0bWVtLmMKQEAg
-LTE1MSwyMiArMTUxLDEyIEBAIHN0YXRpYyB2b2lkIHNlY3JldG1lbV9mcmVlcGFnZShzdHJ1Y3Qg
-cGFnZSAqcGFnZSkKIAljbGVhcl9oaWdocGFnZShwYWdlKTsKIH0KIAotc3RhdGljIGNvbnN0IHN0
-cnVjdCBhZGRyZXNzX3NwYWNlX29wZXJhdGlvbnMgc2VjcmV0bWVtX2FvcHMgPSB7Citjb25zdCBz
-dHJ1Y3QgYWRkcmVzc19zcGFjZV9vcGVyYXRpb25zIHNlY3JldG1lbV9hb3BzID0gewogCS5mcmVl
-cGFnZQk9IHNlY3JldG1lbV9mcmVlcGFnZSwKIAkubWlncmF0ZXBhZ2UJPSBzZWNyZXRtZW1fbWln
-cmF0ZXBhZ2UsCiAJLmlzb2xhdGVfcGFnZQk9IHNlY3JldG1lbV9pc29sYXRlX3BhZ2UsCiB9Owog
-Ci1ib29sIHBhZ2VfaXNfc2VjcmV0bWVtKHN0cnVjdCBwYWdlICpwYWdlKQotewotCXN0cnVjdCBh
-ZGRyZXNzX3NwYWNlICptYXBwaW5nID0gcGFnZV9tYXBwaW5nKHBhZ2UpOwotCi0JaWYgKCFtYXBw
-aW5nKQotCQlyZXR1cm4gZmFsc2U7Ci0KLQlyZXR1cm4gbWFwcGluZy0+YV9vcHMgPT0gJnNlY3Jl
-dG1lbV9hb3BzOwotfQotCiBzdGF0aWMgc3RydWN0IHZmc21vdW50ICpzZWNyZXRtZW1fbW50Owog
-CiBzdGF0aWMgc3RydWN0IGZpbGUgKnNlY3JldG1lbV9maWxlX2NyZWF0ZSh1bnNpZ25lZCBsb25n
-IGZsYWdzKQotLSAKMi4yOC4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On 20.04.21 17:00, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> The check in gup_pte_range() whether a page belongs to a secretmem mapping
+> is performed before grabbing the page reference.
+> 
+> To avoid potential race move the check after try_grab_compound_head().
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>   mm/gup.c | 8 +++++---
+>   1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/gup.c b/mm/gup.c
+> index c3a17b189064..6515f82b0f32 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2080,13 +2080,15 @@ static int gup_pte_range(pmd_t pmd, unsigned long addr, unsigned long end,
+>   		VM_BUG_ON(!pfn_valid(pte_pfn(pte)));
+>   		page = pte_page(pte);
+>   
+> -		if (page_is_secretmem(page))
+> -			goto pte_unmap;
+> -
+>   		head = try_grab_compound_head(page, 1, flags);
+>   		if (!head)
+>   			goto pte_unmap;
+>   
+> +		if (unlikely(page_is_secretmem(page))) {
+> +			put_compound_head(head, 1, flags);
+> +			goto pte_unmap;
+> +		}
+> +
+>   		if (unlikely(pte_val(pte) != pte_val(*ptep))) {
+>   			put_compound_head(head, 1, flags);
+>   			goto pte_unmap;
+> 
+
+Reviewed-by: David Hildenbrand <david@redhat.com>
+
+-- 
+Thanks,
+
+David / dhildenb
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
