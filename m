@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F93EC433B4
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA5C5C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:54 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E4BF761003
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E4BF761003
+	by mail.kernel.org (Postfix) with ESMTPS id 4D15861177
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 04:19:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D15861177
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,69 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xRa4mGombDijyyEmuYM9b+Vli+QVdRi3LoxSE0hpf8Q=; b=gntDjsI176flbRjG05SRXZjmq
-	NZFH3pckROMVsn9D2c8HYEipVBXKKPrEmmr2EYlLgoqWufN79i4CU03IuIFfq3W2ih3SO1Tu7idqL
-	j6NiAktN8BUxckjsSso4sZth8mU+Gw5qT/fnSkzM3n48NitVTvx8L3cqEgTpI0cKz/aQ6z3SK0/2U
-	xa/2Her/IhPU7yI3ckJlc7Zz6J61kZM5Nk5n8Ckp8GDLBy4DR+QqYawWXc19IL+zT/b06YqROG/Tc
-	Jv1zJY1gm98eQDPmHccqUIAy0+dA1H3d1RN4ufTDlw8Qv7UBo6WaT65NPYeEe7YyTCbAv+FiEBNqt
-	t3c+Psm8g==;
+	 bh=RB/Ly9Gq8lIAtGen5nt7Nvpsd744CZbbOWAxv9pEBR0=; b=PHHaJHHf9cPJEmhs3NzCGej+w
+	4yCL2MFfwUG3lRpHdQcYn8afdQ3nLmhyzpBJyl5vyDIdJmcXS4sRaAy8rktITntfvTuY2X+UlvdVn
+	uiOUDgceqTIxkgKciNuj+pih+pqX5PT8yLhw8HzoBBvVmFBsokzPRh7jhFQeADHNzPhtjwY4SRYJL
+	zvs2Go62fo/jWGPtEFbS5UfrzPEO8cbp20tnWtr57qY513BsgD8VhzAdlouFgujTUxfP/YTjxX8rc
+	Czd1hKh40KGnnphCXfmdSCAVkqF6oMjbg/EOWqN9ySf+K4eMjg4Yy/ulVVbtK8y1WEgt9p+UTNh7p
+	EScuAyUfQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYhqb-00B9dj-Ew; Tue, 20 Apr 2021 04:18:49 +0000
+	id 1lYhrP-00B9i1-VS; Tue, 20 Apr 2021 04:19:40 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYhqX-00B9dJ-Ug
- for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 04:18:46 +0000
+ id 1lYhrN-00B9hk-M8
+ for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 04:19:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
  :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=; b=O12+S59rJzD2EsJNYFbwGA1qg+
- KElVmvUVEDRZ7dlGfeyEeSG7lj++VttlYltT86mjYtQrcADw7ZwtNU9jHzbk5PU6IRea0TbuJLM5z
- mU1+ws4tuhM12P4CYu6wj5vObL1GDgoT2Aj7YQA2VJmPQxc4fVgQYNJbkyU8F0bhu6zU30PCN65P8
- 44gzlE13NYkVtwPRMYOCmNASv+hXF2+Fq3aW5hpdlAhj7rI9n68P4c40LfjnHvF3cTWQ53zQUHjpe
- osei9CncjFK475IwIyskuRwTKJT89aUW3+dwtt1x2X4qB/G+Z7dM6pA4Pl6fc9yH5LwM/WgR+Un2W
- +u2zvcrw==;
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+ bh=6tOKXOtetoB5l502f6CwFsHmwD7mexR6F47nan+OthU=; b=pjdZDytO3PgA1RwzKntgOY+qwR
+ 7G0aa0dfkAsv7xN+zyBfI9D+uPnwvhGWdSzdlkL7/mMVNLoNFH+lNanJynKshEJ2VCIFzT9asxm8v
+ jLXuaVkGiJ44+K8ZUgRFlJxlg/EAUEmGNSawqCtC31nVm6aePLadG0MvtewANRViL2rccmjFA3oLK
+ QAauqZI4rD+MMb2GuiJ3mW3jnD7RfP1GjMqY3IkRvaN9ttNAj6sMrjn70FVFieAWaZgd7iDP1i8Ee
+ brcxfh/BSNPOTmthDg8YzLRBDufRpoSh5zjD3Uxywzw7DCz6qH59mQhlY7CSf8ZMSCIEg/wzSAjpa
+ M2EkY97w==;
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYhqS-00Bnxs-4e
- for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 04:18:44 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id p6so29403462wrn.9
- for <linux-riscv@lists.infradead.org>; Mon, 19 Apr 2021 21:18:38 -0700 (PDT)
+ id 1lYhrI-00BnzV-4E
+ for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 04:19:36 +0000
+Received: by mail-wr1-x430.google.com with SMTP id m9so23359665wrx.3
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Apr 2021 21:19:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=;
- b=zqRNucjDdX3DN0XU/uZOKhk1gQCfti9NkXWNmKs0zxE5Ss4HjHjFIrPYXOBdnMlU7M
- 50DnQ/WyK/ILA4Tzs+ycleoOv88GPJNG/8GZCO+qVnRJ/jzjhBnEXiW1J2dIectUdooE
- wRtBpyKG6VuHChMOwuAE0kBzSRbxz5uhe8FjnfeqCnyJQC0RzhZBKxegFxKMZQRCkqzs
- jww90znjCKy9iq575YD2G4aK4RC9tsEY7UOIU8KcDgTDMYiPIu4IF47c+7TThl7Q4NUj
- wwzBcQxCqaMn+zT2EmDf/ZLFJj7qXYAOpbUV/ahGQ8hA0OgV//AZfNJnXeluZOUseLlX
- uwxQ==
+ :cc; bh=6tOKXOtetoB5l502f6CwFsHmwD7mexR6F47nan+OthU=;
+ b=zPHU77GKMzPEi4Z3USHsG2BRW0Zi4R9HfLDI9y7k4FXV1enRHFnEnDFpNblWfiBxmr
+ do3ZkVZLdc8LojasG7YWO1dNz1M+r0AXaX9ZjzoEKYFZ8Z/wAxvxyRXTF1NwWMyZJd9B
+ O5fNW1Sjd0U6Odjk1x3B8z6uEpc+pHXeBW7ltTAEQu0DpyfIOYhv/0zch1Kw6bX4oIQ1
+ a7pVpXyJGsbA3HHIEyJnKH9+kMYJpHy7mGu0VNnpNFdJDPOJmwTEBmrQfuWaCldrzMNy
+ nrk1Cd5+0YuXB7qga8FtlY298hCzN0WhhpVElJvtFP5cQ9ghiUqvfTB/LzYFPYwxnETO
+ 5Ymw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=SjWEZ1zxdmBRj9KcJNahO8i2TB9ZNFWY/gcI2Oi4MqQ=;
- b=HKDlA/w8GFfk8RxA5HY6YXarnA+egsHtqQbl8GUczKaOEGmXFpU/FdjE0RnR248ZjD
- 2XJv/+zzjUwZkQ6vEpX/LuNuH9lSYgscc1tTtk+S3UbH+Rn/g4J1dPPhdYZAh+l7RRtm
- DlMl70yjgVtxInKX1RyloOLlQsCoTJnxfh/+OXERx/rykK9L+Z1MwOa1pRCfierD4E6W
- WVmdPjLyfy1JwGdk1b9Dnx0KVYiEQQxj8mTeLD3NUoY26lbvluykGGcMp26yoF7mBQgs
- n7/2F1cszyCqhmMR9WkJCRLxEoAxlXLDG2W+nqVKedwC1sq3Ksd9ttPcrHgaQK/0jU/5
- 513g==
-X-Gm-Message-State: AOAM5305GFbc5l+VH8788KCwLjAwOVR3GRwY5HoU+h/yQi/UVfwf5pvE
- fnvb0OalRF9kteIJ6kwFqR+xBE/x5iDQEH4ATJhJjw==
-X-Google-Smtp-Source: ABdhPJywH6zNS+S9+aPYlLnH0UPE/gKZS9rjo3+N55w1r1s4RZCqJ8v1oZokj44lytbNf+NhzRcwKUvE36LHj44/WDs=
-X-Received: by 2002:adf:ce12:: with SMTP id p18mr18078880wrn.144.1618892317302; 
- Mon, 19 Apr 2021 21:18:37 -0700 (PDT)
+ bh=6tOKXOtetoB5l502f6CwFsHmwD7mexR6F47nan+OthU=;
+ b=mDkRTUDgL+3fLl1j1O/cvdf2cEldVjOpI7Ld8v9tYZsu0BvGJEuqN9C0eE/hb0EBD2
+ qSfkrV8CSiiI+k935OA34w1r2EkV2e6BRnHvLDGdpE2QJFBco9CJ24XlZ9n4TbSz2hFE
+ jfA0vvy9Q8xGO58IPq+tKTqs+i3MR9BNdJXGRRDdj/nM8i5x8RLefKA7Zhm18Ka68puF
+ Scniw79Od4/qhDxJabD5KxCc4gDN010RuZfrZ9zfyVtnnh1Ac0G/Q9J9ZSe8+i3vlkD7
+ PGJw3pmse738VqPoThwPn/F4Su9+OZ/2pVr02pKaoFV90Xeg5Ioj6nDb5nLic+hBZ0bT
+ MTnw==
+X-Gm-Message-State: AOAM530WISklLlUgPddRN+HTImpY0vpFYY8NzIrKzSHZnWnpmvsxoZ4i
+ 9geBMbWmlX5VbHaPqnNwMiHxdVJN6sjMKVonCfy2iQ==
+X-Google-Smtp-Source: ABdhPJwyi59C/3tYFHMh5Y6vJynOO8jGTiBuy759HBjpadP75J9jtm+F/ANmSq07/Qd2xqFswBp4XEetGIu9IzB83DY=
+X-Received: by 2002:adf:dfc2:: with SMTP id q2mr17850344wrn.128.1618892370130; 
+ Mon, 19 Apr 2021 21:19:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210417172159.32085-1-alex@ghiti.fr>
-In-Reply-To: <20210417172159.32085-1-alex@ghiti.fr>
+References: <20210418112856.15078-1-alex@ghiti.fr>
+In-Reply-To: <20210418112856.15078-1-alex@ghiti.fr>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 20 Apr 2021 09:48:26 +0530
-Message-ID: <CAAhSdy23jRTp3VoBpnH8B79eSSmuw8qMEYrXyh-02ccWT3O5QQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fix 32b kernel caused by 64b kernel mapping moving
- outside linear mapping
+Date: Tue, 20 Apr 2021 09:49:18 +0530
+Message-ID: <CAAhSdy3csxeTiXgf8eKnRYhD7BM1LDLPddrn527AkA_-fiEGkw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Remove 32b kernel mapping from page table dump
 To: Alexandre Ghiti <alex@ghiti.fr>
 Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -96,8 +95,8 @@ Cc: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  kasan-dev@googlegroups.com, linux-arch <linux-arch@vger.kernel.org>, 
  Linux Memory Management List <linux-mm@kvack.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210419_211840_275265_EA3A6CAB 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20210419_211932_188198_070CB6C6 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,16 +113,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 17, 2021 at 10:52 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+On Sun, Apr 18, 2021 at 4:59 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >
-> Fix multiple leftovers when moving the kernel mapping outside the linear
-> mapping for 64b kernel that left the 32b kernel unusable.
+> The 32b kernel mapping lies in the linear mapping, there is no point in
+> printing its address in page table dump, so remove this leftover that
+> comes from moving the kernel mapping outside the linear mapping for 64b
+> kernel.
 >
-> Fixes: 4b67f48da707 ("riscv: Move kernel mapping outside of linear mapping")
+> Fixes: e9efb21fe352 ("riscv: Prepare ptdump for vm layout dynamic addresses")
 > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 
-Quite a few #ifdef but I don't see any better way at the moment. Maybe we can
-clean this later. Otherwise looks good to me.
+Looks good to me.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 
@@ -131,172 +131,43 @@ Regards,
 Anup
 
 > ---
->  arch/riscv/include/asm/page.h    |  9 +++++++++
->  arch/riscv/include/asm/pgtable.h | 16 ++++++++++++----
->  arch/riscv/mm/init.c             | 25 ++++++++++++++++++++++++-
->  3 files changed, 45 insertions(+), 5 deletions(-)
+>  arch/riscv/mm/ptdump.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 22cfb2be60dc..f64b61296c0c 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -90,15 +90,20 @@ typedef struct page *pgtable_t;
->
->  #ifdef CONFIG_MMU
->  extern unsigned long va_pa_offset;
-> +#ifdef CONFIG_64BIT
->  extern unsigned long va_kernel_pa_offset;
-> +#endif
->  extern unsigned long pfn_base;
->  #define ARCH_PFN_OFFSET                (pfn_base)
->  #else
->  #define va_pa_offset           0
-> +#ifdef CONFIG_64BIT
->  #define va_kernel_pa_offset    0
-> +#endif
->  #define ARCH_PFN_OFFSET                (PAGE_OFFSET >> PAGE_SHIFT)
->  #endif /* CONFIG_MMU */
->
-> +#ifdef CONFIG_64BIT
->  extern unsigned long kernel_virt_addr;
->
->  #define linear_mapping_pa_to_va(x)     ((void *)((unsigned long)(x) + va_pa_offset))
-> @@ -112,6 +117,10 @@ extern unsigned long kernel_virt_addr;
->         (_x < kernel_virt_addr) ?                                               \
->                 linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);      \
->         })
-> +#else
-> +#define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
-> +#define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
-> +#endif
->
->  #ifdef CONFIG_DEBUG_VIRTUAL
->  extern phys_addr_t __virt_to_phys(unsigned long x);
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 80e63a93e903..5afda75cc2c3 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -16,19 +16,27 @@
->  #else
->
->  #define ADDRESS_SPACE_END      (UL(-1))
-> -/*
-> - * Leave 2GB for kernel and BPF at the end of the address space
-> - */
-> +
-> +#ifdef CONFIG_64BIT
-> +/* Leave 2GB for kernel and BPF at the end of the address space */
->  #define KERNEL_LINK_ADDR       (ADDRESS_SPACE_END - SZ_2G + 1)
-> +#else
-> +#define KERNEL_LINK_ADDR       PAGE_OFFSET
-> +#endif
->
->  #define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
->  #define VMALLOC_END      (PAGE_OFFSET - 1)
->  #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
->
-> -/* KASLR should leave at least 128MB for BPF after the kernel */
->  #define BPF_JIT_REGION_SIZE    (SZ_128M)
-> +#ifdef CONFIG_64BIT
-> +/* KASLR should leave at least 128MB for BPF after the kernel */
->  #define BPF_JIT_REGION_START   PFN_ALIGN((unsigned long)&_end)
->  #define BPF_JIT_REGION_END     (BPF_JIT_REGION_START + BPF_JIT_REGION_SIZE)
-> +#else
-> +#define BPF_JIT_REGION_START   (PAGE_OFFSET - BPF_JIT_REGION_SIZE)
-> +#define BPF_JIT_REGION_END     (VMALLOC_END)
-> +#endif
->
->  /* Modules always live before the kernel */
+> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+> index 0aba4421115c..a4ed4bdbbfde 100644
+> --- a/arch/riscv/mm/ptdump.c
+> +++ b/arch/riscv/mm/ptdump.c
+> @@ -76,8 +76,8 @@ enum address_markers_idx {
+>         PAGE_OFFSET_NR,
 >  #ifdef CONFIG_64BIT
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 093f3a96ecfc..dc9b988e0778 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -91,8 +91,10 @@ static void print_vm_layout(void)
->                   (unsigned long)VMALLOC_END);
->         print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
->                   (unsigned long)high_memory);
-> +#ifdef CONFIG_64BIT
->         print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
->                   (unsigned long)ADDRESS_SPACE_END);
+>         MODULES_MAPPING_NR,
+> -#endif
+>         KERNEL_MAPPING_NR,
 > +#endif
->  }
->  #else
->  static void print_vm_layout(void) { }
-> @@ -165,9 +167,11 @@ static struct pt_alloc_ops pt_ops;
->  /* Offset between linear mapping virtual address and kernel load address */
->  unsigned long va_pa_offset;
->  EXPORT_SYMBOL(va_pa_offset);
-> +#ifdef CONFIG_64BIT
->  /* Offset between kernel mapping virtual address and kernel load address */
->  unsigned long va_kernel_pa_offset;
->  EXPORT_SYMBOL(va_kernel_pa_offset);
+>         END_OF_SPACE_NR
+>  };
+>
+> @@ -99,8 +99,8 @@ static struct addr_marker address_markers[] = {
+>         {0, "Linear mapping"},
+>  #ifdef CONFIG_64BIT
+>         {0, "Modules mapping"},
+> -#endif
+>         {0, "Kernel mapping (kernel, BPF)"},
 > +#endif
->  unsigned long pfn_base;
->  EXPORT_SYMBOL(pfn_base);
+>         {-1, NULL},
+>  };
 >
-> @@ -410,7 +414,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->         load_sz = (uintptr_t)(&_end) - load_pa;
->
->         va_pa_offset = PAGE_OFFSET - load_pa;
-> +#ifdef CONFIG_64BIT
->         va_kernel_pa_offset = kernel_virt_addr - load_pa;
+> @@ -379,8 +379,8 @@ static int ptdump_init(void)
+>         address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
+>  #ifdef CONFIG_64BIT
+>         address_markers[MODULES_MAPPING_NR].start_address = MODULES_VADDR;
+> -#endif
+>         address_markers[KERNEL_MAPPING_NR].start_address = kernel_virt_addr;
 > +#endif
 >
->         pfn_base = PFN_DOWN(load_pa);
+>         kernel_ptd_info.base_addr = KERN_VIRT_START;
 >
-> @@ -469,12 +475,16 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->                            pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
->         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
->  #else /* CONFIG_BUILTIN_DTB */
-> +#ifdef CONFIG_64BIT
->         /*
->          * __va can't be used since it would return a linear mapping address
->          * whereas dtb_early_va will be used before setup_vm_final installs
->          * the linear mapping.
->          */
->         dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
-> +#else
-> +       dtb_early_va = __va(dtb_pa);
-> +#endif /* CONFIG_64BIT */
->  #endif /* CONFIG_BUILTIN_DTB */
->  #else
->  #ifndef CONFIG_BUILTIN_DTB
-> @@ -486,7 +496,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
->         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
->  #else /* CONFIG_BUILTIN_DTB */
-> +#ifdef CONFIG_64BIT
->         dtb_early_va = kernel_mapping_pa_to_va(dtb_pa);
-> +#else
-> +       dtb_early_va = __va(dtb_pa);
-> +#endif /* CONFIG_64BIT */
->  #endif /* CONFIG_BUILTIN_DTB */
->  #endif
->         dtb_early_pa = dtb_pa;
-> @@ -571,12 +585,21 @@ static void __init setup_vm_final(void)
->                 for (pa = start; pa < end; pa += map_size) {
->                         va = (uintptr_t)__va(pa);
->                         create_pgd_mapping(swapper_pg_dir, va, pa,
-> -                                          map_size, PAGE_KERNEL);
-> +                                          map_size,
-> +#ifdef CONFIG_64BIT
-> +                                          PAGE_KERNEL
-> +#else
-> +                                          PAGE_KERNEL_EXEC
-> +#endif
-> +                                       );
-> +
->                 }
->         }
->
-> +#ifdef CONFIG_64BIT
->         /* Map the kernel */
->         create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
-> +#endif
->
->         /* Clear fixmap PTE and PMD mappings */
->         clear_fixmap(FIX_PTE);
 > --
 > 2.20.1
 >
