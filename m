@@ -2,154 +2,80 @@ Return-Path: <SRS0=56ix=JR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 239B8C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 445B8C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:14 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5E9AF61003
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:29:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E9AF61003
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id E453161264
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Apr 2021 13:38:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E453161264
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=rhZy9JBWcZryJcF8PHgCwIpEFwIAcpsVKpx0wIwN0P0=; b=DdZ4gb/HGjIpy6RkFOPopL1q6
-	sK0h985SYoTjnF19oTj+JGhKFok9rEHvfJtNbdfg9GW7KLmwXBUdfApSmw9iPOqoJVSk/13dJ2mES
-	khuUoYXojhUQckKLpwNgWn1jqZOngvTRq8FnF+CwZy9saPaGsDUHOE43jYr1hZZ2s2wREiK0z8chm
-	ft0t0v2fbBmDU6otD8ohrvQykSeNsvwxGhKNesi/W10Oldqw3CrzOvLtXqbOxI8NYm9xAwcrLgHHj
-	0ZEXEqCSdRWEbPez03tiGkTZq0iJ3suH6kP0QuaiGa14ASZpbpKRLThdKAEar8bid8TcuZwag3adH
-	4373l/k0w==;
+	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dCL0BxZsleBivXBsKBge1sp6UwP0+0ZjQED5gikXD2s=; b=rBRicnMEUWZDULMXpgGsst6Izf
+	OMnxV3kVpsIKf7ftCAWG8MfyblWEjhQPjQX6bz8gqpwD3d423VlrD5PscKc8iQaHMFJQEDmT1ldhf
+	3MvLMAcgUCwG98eTeht1G8aZSvpn5W2Z+vAK+AEj/PMiUEsP9qj6uat2A1ndM2LhGCLm2PDqDxtXk
+	RArF+6tvzLnYo9mJ31NJsg8IveLTNFUvnktbO7fxrCnJ+HbmhR2qoijan5dpYbWYIADs15dziDHbt
+	0JQrpbxrQfo2SDyVHZZpDxeWdFTS57MxdR3Pa3sLK5y3M4Whp5PKe9ZywTeB/ZtFbp8P17GQTdUoI
+	bBuD4UZQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lYqR8-00CDbw-UJ; Tue, 20 Apr 2021 13:29:07 +0000
+	id 1lYqZp-00CFGC-Az; Tue, 20 Apr 2021 13:38:05 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYqQt-00CDXF-H5; Tue, 20 Apr 2021 13:28:52 +0000
+ id 1lYqZj-00CFEd-6W
+ for linux-riscv@desiato.infradead.org; Tue, 20 Apr 2021 13:37:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=r7qXV4Ucbak5vgyd7ROLcIVKBZPYTemDw/ykiqY6SYg=; b=f8aZuGGiTXJ3bycdCdttChfBjV
- efgcexE9jINx1AojGBa7GOZ/0Z5mgj5s7MT0JFFkdal0iZJHL+PeRnePuzoSeWFCHZuDRWtGH7PW2
- xsf7/seh6i6rbr00jAE6UznYzbnwV5rP8Ymif3F3E55vIemWM7xRGDY67LONyJvwi9PlpULBR9C5s
- lkrF+mkX8N51OfWEQ9sndgmgO7yc6+gR+ilu6iRBKGorKy4OGMmCRQUrjpdj+SS6qKZQibC7lsHcy
- xOhniZc+8gZZW8vruvjCVsvWe21VhRyDAcR8h0WAu9nvncVOa2FrYYpqt26CGrjWzeoYT3KzOmzYq
- 7syN/afw==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+ d=infradead.org; s=bombadil.20210309; h=Message-Id:Date:Subject:Cc:To:From:
+ Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=iOtDFxy3I8KUJ4bNGsG6t/w9Ueyh3CWc0v1tTGJ8oJM=; b=N/sV3/n4dh4J2/WvQ2wvpLgri/
+ Ti1J+7uWd+6FnEaFMIQy6LbTTGeqGi+U0vHvPj85zd8plvuZbr6/FSUH4w0K951KkXSE5JOSALS0f
+ 33/6izQPTt6P3AEPJ6Dkn3ds8FsrwLMkyqr5CIvmNmhvlfVZiubPJF2Ni4S/7W0ntxNMCqIjkK6A4
+ Hbr1odOVThiY5z4PvZEhU+mi2nLk+pGxF8XE7ZguocgIVxP67j+VYulbZVfmD9g0OFwkFMLJhKpPy
+ DS3peh8RByyW9JrTjj2EkMdSmF1FGCmMDAHZXe1ZdoWDddspbNDHTq6heRsdTm5jo/qnw1Q4gI6iY
+ HrDvtNiw==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lYqQr-00C9Co-0w; Tue, 20 Apr 2021 13:28:50 +0000
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
- 13KD47xG166663; Tue, 20 Apr 2021 09:28:10 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=r7qXV4Ucbak5vgyd7ROLcIVKBZPYTemDw/ykiqY6SYg=;
- b=rPwYaU9qq29kTTv0X6zWH+Y9QoAMMR0r066osBDtHrVhZOYmI9YInWAOQ/heN4U1jksZ
- P6nrQ47gkG3vD1J0wFYkrV2iqUGVA5SkDHNnXKeA7nfYj3wuYwVf1qby0QapVz59LSxF
- PhK/2/kDgm3LSaspO1FoGmtFbeNbrT10viQlZ/MsS3Zm6BS79kRvTa1uuficT/8p5SOf
- UxC4pdex+SKH5QcWFLfR3DOTsrZ+Mw+4/iz+JUDojr2v1sLxGemMCDPpHf+OpmL34ZqX
- QxsxUmF0n55SOkaBzgzvZRsRH1qa/IebOfOACABu8ZikMuRL/2zvH6BbZOg4Pcp6s2/K fA== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 381y7x9dvp-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 20 Apr 2021 09:28:09 -0400
-Received: from m0098409.ppops.net (m0098409.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 13KD49if166797;
- Tue, 20 Apr 2021 09:28:09 -0400
-Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com
- [159.122.73.71])
- by mx0a-001b2d01.pphosted.com with ESMTP id 381y7x9dtm-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 20 Apr 2021 09:28:09 -0400
-Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
- by ppma02fra.de.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 13KDR9YH006552;
- Tue, 20 Apr 2021 13:28:06 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com
- (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
- by ppma02fra.de.ibm.com with ESMTP id 37yqa88xvx-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 20 Apr 2021 13:28:06 +0000
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
- id 13KDReOM28508444
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 20 Apr 2021 13:27:40 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 5ED9F4C050;
- Tue, 20 Apr 2021 13:28:03 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id EA5B34C044;
- Tue, 20 Apr 2021 13:27:58 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.145.82.136])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Tue, 20 Apr 2021 13:27:58 +0000 (GMT)
-Date: Tue, 20 Apr 2021 16:27:56 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- James Bottomley <jejb@linux.ibm.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>,
- Matthew Garrett <mjg59@srcf.ucam.org>,
- Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH v2 1/2] secretmem/gup: don't check if page is secretmem
- without reference
-Message-ID: <YH7W3MBR+XdyxlA7@linux.ibm.com>
-References: <20210420131611.8259-1-rppt@kernel.org>
- <20210420131611.8259-2-rppt@kernel.org>
- <95b7fa81-f72e-c63f-0456-4c25dee8a5eb@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <95b7fa81-f72e-c63f-0456-4c25dee8a5eb@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: umV0ysjUL103wxbfICo-4xhYTSyDzIUb
-X-Proofpoint-ORIG-GUID: dTV5P955knNPQLGIoMCHqafXwNzdKxMI
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.761
- definitions=2021-04-20_06:2021-04-20,
- 2021-04-20 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 phishscore=0
- impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
- mlxscore=0 mlxlogscore=682 bulkscore=0 suspectscore=0 adultscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104060000 definitions=main-2104200098
+ id 1lYqZg-00C9jz-O9
+ for linux-riscv@lists.infradead.org; Tue, 20 Apr 2021 13:37:57 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8A69B6113C;
+ Tue, 20 Apr 2021 13:37:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1618925876;
+ bh=UlQ0FBFsDr4ODbTFSXPy69eUKK+0YYAXdTX//RlJ41c=;
+ h=From:To:Cc:Subject:Date:From;
+ b=gwcM3ibBCh9KFA73MXiOekuiNcAJLtZFiZqnuCXM7m/SyRz+JvbVUSiWpYeNJshRx
+ mMTv9sF1eGfonecI2ub7KcXqAf1i+YfE/PZI449ys8zG2iJPTDNlJ0t83r1gZKts4h
+ pQwbO+lfQbMqlpnEmIgYdV6+mAXfy+OwGidHNLEMRnRE+d2xs256/wkv8UC0ZKFyPz
+ ENxdYXUxv60+kDtUYWI+iG5X2qSsZOMh3Kav9VrIShcO6eAGScREe9mUZ5Tcpl5yYh
+ AmvpRlar+6k/ahU6qWU9yQv3tDAElujPXLqogCxCOeklmel/0z/kV2qs3L14daZHnY
+ nrgwPUPsELP0A==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	arnd@arndb.de
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH 1/3] nds32: Cleanup deprecated function strlen_user
+Date: Tue, 20 Apr 2021 13:37:07 +0000
+Message-Id: <1618925829-90071-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210420_062849_083552_5084CD08 
-X-CRM114-Status: GOOD (  30.62  )
+X-CRM114-CacheID: sfid-20210420_063756_838731_30D350A6 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,67 +87,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 20, 2021 at 03:19:56PM +0200, David Hildenbrand wrote:
-> On 20.04.21 15:16, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > The check in gup_pte_range() whether a page belongs to a secretmem mapping
-> > is performed before grabbing the page reference.
-> > 
-> > To avoid potential race move the check after try_grab_compound_head().
-> > 
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > ---
-> >   mm/gup.c | 6 +++---
-> >   1 file changed, 3 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/mm/gup.c b/mm/gup.c
-> > index c3a17b189064..4b58c016e949 100644
-> > --- a/mm/gup.c
-> > +++ b/mm/gup.c
-> > @@ -2080,13 +2080,13 @@ static int gup_pte_range(pmd_t pmd, unsigned long addr, unsigned long end,
-> >   		VM_BUG_ON(!pfn_valid(pte_pfn(pte)));
-> >   		page = pte_page(pte);
-> > -		if (page_is_secretmem(page))
-> > -			goto pte_unmap;
-> > -
-> >   		head = try_grab_compound_head(page, 1, flags);
-> >   		if (!head)
-> >   			goto pte_unmap;
-> > +		if (page_is_secretmem(page))
-> > +			goto pte_unmap;
-> > +
-> 
-> Looking at the hunk below, I wonder if you're missing a put_compound_head().
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Hmm, yes.
+$ grep strlen_user * -r
+arch/csky/include/asm/uaccess.h:#define strlen_user(str) strnlen_user(str, 32767)
+arch/csky/lib/usercopy.c: * strlen_user: - Get the size of a string in user space.
+arch/ia64/lib/strlen.S: // Please note that in the case of strlen() as opposed to strlen_user()
+arch/mips/lib/strnlen_user.S: *  make strlen_user and strnlen_user access the first few KSEG0
+arch/nds32/include/asm/uaccess.h:extern __must_check long strlen_user(const char __user * str);
+arch/nios2/include/asm/uaccess.h:extern __must_check long strlen_user(const char __user *str);
+arch/riscv/include/asm/uaccess.h:extern long __must_check strlen_user(const char __user *str);
+kernel/trace/trace_probe_tmpl.h:static nokprobe_inline int fetch_store_strlen_user(unsigned long addr);
+kernel/trace/trace_probe_tmpl.h:                        ret += fetch_store_strlen_user(val + code->offset);
+kernel/trace/trace_uprobe.c:fetch_store_strlen_user(unsigned long addr)
+kernel/trace/trace_kprobe.c:fetch_store_strlen_user(unsigned long addr)
+kernel/trace/trace_kprobe.c:            return fetch_store_strlen_user(addr);
+
+See grep result, nobody uses it.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/nds32/include/asm/uaccess.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/nds32/include/asm/uaccess.h b/arch/nds32/include/asm/uaccess.h
+index 010ba5f..d4cbf06 100644
+--- a/arch/nds32/include/asm/uaccess.h
++++ b/arch/nds32/include/asm/uaccess.h
+@@ -260,7 +260,6 @@ do {									\
  
-> (also, I'd do if unlikely(page_is_secretmem()) but that's a different
-> discussion)
-
-I don't mind, actually. I don't think there would be massive secretmem
-usage soon.
-
-> >   		if (unlikely(pte_val(pte) != pte_val(*ptep))) {
-> >   			put_compound_head(head, 1, flags);
-> >   			goto pte_unmap;
-> > 
-> 
-> 
-> -- 
-> Thanks,
-> 
-> David / dhildenb
-> 
-
+ extern unsigned long __arch_clear_user(void __user * addr, unsigned long n);
+ extern long strncpy_from_user(char *dest, const char __user * src, long count);
+-extern __must_check long strlen_user(const char __user * str);
+ extern __must_check long strnlen_user(const char __user * str, long n);
+ extern unsigned long __arch_copy_from_user(void *to, const void __user * from,
+                                            unsigned long n);
 -- 
-Sincerely yours,
-Mike.
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
