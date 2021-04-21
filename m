@@ -2,82 +2,131 @@ Return-Path: <SRS0=lw90=JS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CAAAEC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 12:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2565C43460
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 13:10:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 157EE6142F
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 12:55:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 157EE6142F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0494D61454
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 13:10:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0494D61454
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6eTwgFXYFML/hVfVb4jJyU2klJGqD0LCVfWQxdHCGE=; b=kK9lyaOIfiPIFgQa0YQoyQnXg0
-	q1g8m6QRwxRVZfHLZ8H5XabiXud1XsoFtyaA4TSCHex42ZcnSMJcx7xDYQBXef2y55m2VRfewZc3Y
-	FEbu7KngyoStgZOHTIjOBP3+pwok6fXROPz6uDieS9Gor3yUvPWQztoRvl5lUUxvCiyhbBLVhdDMY
-	4yMqg3N8oz/H9iCnosjBtq2f7bAfx/4GwL0MtTNIuFGdeyGD/QWmQTE9BbEd+HGBdJNbK5cyrX2JE
-	o5WtdzxDO8HrHTL5OzNJUurKkVdi2O9oyvi+0rf09Fz5kQElR3scfGjI80XE38DPBv7qjZC/xZHzh
-	4IoXRAFA==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=st7Xfsov+6D6BY8DiYkOa213wb7WCnV8Aw0kBKvQJPQ=; b=LaORqF+nbQkNYTmUdV/wM5k1X
+	TfstpmnNpIZCAWdRtnzTT3LWbXg7w/ulqLepOofqGwRGxIPhe1BgpALoPgWQnQBxVNDrRzRnmBBA2
+	argqtUySjPL64/gfDnSZ7n4i4rQchRooTLI/2TfIKJ7KkgCdCt0GEdKh8VWkydActPUR3TBtHibBB
+	51gEak405uThJAvSskw5wfEyE87+Pc6njmLHf1UywGfN/uoJ3VfNoZp+tKfTFOJnKnHKBZhi1yzjg
+	d+dztB8GGoarXADL3XMsbb+5GpLsugcJF1xRg44nKk+2PbtggeEKt4CdVLEgRXqKIbcgwR6KdGDpH
+	W/EGIXA1g==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lZCNc-00EPRC-Vq; Wed, 21 Apr 2021 12:55:00 +0000
+	id 1lZCcg-00EQiq-3B; Wed, 21 Apr 2021 13:10:30 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZCNS-00EPPd-AO
- for linux-riscv@desiato.infradead.org; Wed, 21 Apr 2021 12:54:46 +0000
+ id 1lZCcb-00EQiI-5C; Wed, 21 Apr 2021 13:10:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=9nWNq4HDzyjNSrj3+6ino29qMMOoSEpFGlwVqqQs3ec=; b=Oy9IaMRL9w066vRONJ84waUuYt
- 4gjedTUZbrgYvro/m2FRsUgl/NnI2lx4uWRmV5795RI4b+dR4QOsYG6fgIQa4QrUyeoJO2lWLBnt3
- 143lS+7WDcyhhj8+lyoXwzSz7R4S9SC7LNPx/YrIz5+durSkG+amlvyx6cvm+IC2QPuOvRfs0t8mx
- MFgT0byXSVWheDomnUyp6TZ7QzppBDP9AtIS+RdKEyy8kkT9SqndXmjR0VEykLrHU/8RdaFzObEvP
- cpPC7wrWrhI9U/XvnnM7JFws/vRrOA8HLqWUWXuS9pSv0MlOBSoFYmGDnDKDpExue41yzp6tG2QCs
- o4U9/VXA==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=0JRgoaw/+DxjwArJdpImvV2/5CL8nzkAFiBkL9j+Hiw=; b=ODBC0r54ujLUmoJX2U6v8urlNa
+ zcIOvt6yCtac/GnidBEnS6xj9Vmu0U8slPoORLy+/3T1ouNwDsQqWCNa6O1LqJJu7VVPqM+X6/ORl
+ 6LqgFQgBgOnfy+8o8YxYt3sj0Q49lpqgzhmbXSbtyahn55lhBN014NDOGS6xBtolp6bJV6msL3rbz
+ xy9CJfCUFIOq2ILCmHXd+OVM5FE6fgh6K7DmdEkBqTSK6IKEcfWPFgbRqxAMD+TKKqpukw/GJC4h0
+ z5GTcQJr9PybR0Ol8nBf7J1dk5gPfx9J+t8OMPlbhpiAfKlSEuDhTZDIgVL7YvEaNy9LI4bLMQwXZ
+ s2oJxG6Q==;
+Received: from pegase1.c-s.fr ([93.17.236.30])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZCNN-00CsXl-Nj
- for linux-riscv@lists.infradead.org; Wed, 21 Apr 2021 12:54:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D73F761409;
- Wed, 21 Apr 2021 12:54:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1619009681;
- bh=UPaFWAocvXBKZfkgQNfMBBnfjUvRyl7CMDhhL9dTvG0=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=dN5EltKUDlUJPoy4pCWfEBohOvXEjJMCZgFYQOFOo7/BPwpD4pKf6pUisjQuAeOy/
- STUE3HlOzOo7nzwd78UFclbLbjubpE9+ZbC3I4ZIs7/1OAc+ytrjaQxY0bWC6tIufs
- Hb6qC6/Zxox32jNxM/rbeWP304FS5mALsQEAEVBGxxr2p2NnAyArnbfoOoI8kk5iH9
- T0qFwAIKyLU8xvr4ssb7mfzAs15X7n9kJw9DGISnPg9zfeKuXzuQAk9rTs2Uik1PHC
- Wh26d2BJjZJU64HkKOioi9dyiszs/POtDeeIboLivIVW51UOtseYZn0iQY/3duiy5I
- 3rQQpoJ/PVO0w==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	arnd@arndb.de
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-arch@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: [PATCH v3 2/2] riscv: atomic: Using ARCH_ATOMIC in asm/atomic.h
-Date: Wed, 21 Apr 2021 12:53:46 +0000
-Message-Id: <1619009626-93453-2-git-send-email-guoren@kernel.org>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1619009626-93453-1-git-send-email-guoren@kernel.org>
-References: <1619009626-93453-1-git-send-email-guoren@kernel.org>
+ id 1lZCcU-00CtfG-NX; Wed, 21 Apr 2021 13:10:23 +0000
+Received: from localhost (mailhub1-int [192.168.12.234])
+ by localhost (Postfix) with ESMTP id 4FQLWV02G6z9vBLd;
+ Wed, 21 Apr 2021 15:10:14 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+ with ESMTP id 3N9b8eVAXEqi; Wed, 21 Apr 2021 15:10:13 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FQLWT5ptNz9vBLc;
+ Wed, 21 Apr 2021 15:10:13 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 04BB08B82B;
+ Wed, 21 Apr 2021 15:10:15 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id yvkEbdNGcAw4; Wed, 21 Apr 2021 15:10:14 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id D3C3C8B825;
+ Wed, 21 Apr 2021 15:10:11 +0200 (CEST)
+Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Quentin Monnet <quentin@isovalent.com>, Ian Rogers <irogers@google.com>,
+ Song Liu <songliubraving@fb.com>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ Zi Shen Lim <zlim.lnx@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Paul Mackerras <paulus@samba.org>, Sandipan Das <sandipan@linux.ibm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ Shubham Bansal <illusionist.neo@gmail.com>,
+ Mahesh Bandewar <maheshb@google.com>, Will Deacon <will@kernel.org>,
+ Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+ linux-s390 <linux-s390@vger.kernel.org>, Ilya Leoshkevich
+ <iii@linux.ibm.com>, paulburton@kernel.org, Jonathan Corbet
+ <corbet@lwn.net>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
+ Jakub Kicinski <kuba@kernel.org>, Tobias Klauser <tklauser@distanz.ch>,
+ linux-mips@vger.kernel.org, grantseltzer@gmail.com,
+ Xi Wang <xi.wang@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
+ Luke Nelson <luke.r.nels@gmail.com>, LKML <linux-kernel@vger.kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, ppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ KP Singh <kpsingh@kernel.org>, iecedge@gmail.com,
+ Simon Horman <horms@verge.net.au>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Dmitry Vyukov <dvyukov@google.com>,
+ tsbogend@alpha.franken.de, Daniel Borkmann <daniel@iogearbox.net>,
+ Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+ Network Development <netdev@vger.kernel.org>,
+ David Ahern <dsahern@kernel.org>, Wang YanQing <udknight@gmail.com>,
+ Martin KaFai Lau <kafai@fb.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ bpf <bpf@vger.kernel.org>, Jianlin Lv <Jianlin.Lv@arm.com>,
+ "David S. Miller" <davem@davemloft.net>
+References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+ <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
+ <d3949501-8f7d-57c4-b3fe-bcc3b24c09d8@isovalent.com>
+ <CAADnVQJ2oHbYfgY9jqM_JMxUsoZxaNrxKSVFYfgCXuHVpDehpQ@mail.gmail.com>
+ <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
+ <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <7dc31256-eb1d-dc93-5e55-2de27475e0c6@csgroup.eu>
+Date: Wed, 21 Apr 2021 15:10:10 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.9.1
+MIME-Version: 1.0
+In-Reply-To: <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210421_055441_851881_A8B07022 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20210421_061019_108920_1510C0C2 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,674 +138,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-The linux/atomic-arch-fallback.h has been there for a while, but
-only x86 & arm64 support it. Let's make riscv follow the
-linux/arch/* development trendy and make the codes more readable
-and maintainable.
-
-This patch also cleanup some codes:
- - Add atomic_andnot_* operation
- - Using amoswap.w.rl & amoswap.w.aq instructions in xchg
- - Remove cmpxchg_acquire/release unnecessary optimization
-
-Change in v3:
- - Revert to origin atomic(64)_read/set coding style
-
-Change in v2:
- - Fixup andnot bug by Peter Zijlstra
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Link: https://lore.kernel.org/linux-riscv/CAK8P3a0FG3cpqBNUP7kXj3713cMUqV1WcEh-vcRnGKM00WXqxw@mail.gmail.com/
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
----
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- arch/riscv/include/asm/atomic.h  | 216 ++++++++++++++++-----------------------
- arch/riscv/include/asm/cmpxchg.h | 199 ++----------------------------------
- 2 files changed, 98 insertions(+), 317 deletions(-)
-
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 400a8c8..b825bdb 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -8,13 +8,8 @@
- #ifndef _ASM_RISCV_ATOMIC_H
- #define _ASM_RISCV_ATOMIC_H
- 
--#ifdef CONFIG_GENERIC_ATOMIC64
--# include <asm-generic/atomic64.h>
--#else
--# if (__riscv_xlen < 64)
--#  error "64-bit atomics require XLEN to be at least 64"
--# endif
--#endif
-+#include <linux/compiler.h>
-+#include <linux/types.h>
- 
- #include <asm/cmpxchg.h>
- #include <asm/barrier.h>
-@@ -25,22 +20,22 @@
- #define __atomic_release_fence()					\
- 	__asm__ __volatile__(RISCV_RELEASE_BARRIER "" ::: "memory");
- 
--static __always_inline int atomic_read(const atomic_t *v)
-+static __always_inline int arch_atomic_read(const atomic_t *v)
- {
- 	return READ_ONCE(v->counter);
- }
--static __always_inline void atomic_set(atomic_t *v, int i)
-+static __always_inline void arch_atomic_set(atomic_t *v, int i)
- {
- 	WRITE_ONCE(v->counter, i);
- }
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
- #define ATOMIC64_INIT(i) { (i) }
--static __always_inline s64 atomic64_read(const atomic64_t *v)
-+static __always_inline s64 arch_atomic64_read(const atomic64_t *v)
- {
- 	return READ_ONCE(v->counter);
- }
--static __always_inline void atomic64_set(atomic64_t *v, s64 i)
-+static __always_inline void arch_atomic64_set(atomic64_t *v, s64 i)
- {
- 	WRITE_ONCE(v->counter, i);
- }
-@@ -53,7 +48,7 @@ static __always_inline void atomic64_set(atomic64_t *v, s64 i)
-  */
- #define ATOMIC_OP(op, asm_op, I, asm_type, c_type, prefix)		\
- static __always_inline							\
--void atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)		\
-+void arch_atomic##prefix##_##op(c_type i, atomic##prefix##_t *v)	\
- {									\
- 	__asm__ __volatile__ (						\
- 		"	amo" #asm_op "." #asm_type " zero, %1, %0"	\
-@@ -76,6 +71,12 @@ ATOMIC_OPS(sub, add, -i)
- ATOMIC_OPS(and, and,  i)
- ATOMIC_OPS( or,  or,  i)
- ATOMIC_OPS(xor, xor,  i)
-+ATOMIC_OPS(andnot, and,  ~i)
-+
-+#define arch_atomic_andnot	arch_atomic_andnot
-+#ifndef CONFIG_GENERIC_ATOMIC64
-+#define arch_atomic64_andnot	arch_atomic64_andnot
-+#endif
- 
- #undef ATOMIC_OP
- #undef ATOMIC_OPS
-@@ -87,7 +88,7 @@ ATOMIC_OPS(xor, xor,  i)
-  */
- #define ATOMIC_FETCH_OP(op, asm_op, I, asm_type, c_type, prefix)	\
- static __always_inline							\
--c_type atomic##prefix##_fetch_##op##_relaxed(c_type i,			\
-+c_type arch_atomic##prefix##_fetch_##op##_relaxed(c_type i,		\
- 					     atomic##prefix##_t *v)	\
- {									\
- 	register c_type ret;						\
-@@ -99,7 +100,7 @@ c_type atomic##prefix##_fetch_##op##_relaxed(c_type i,			\
- 	return ret;							\
- }									\
- static __always_inline							\
--c_type atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
-+c_type arch_atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)\
- {									\
- 	register c_type ret;						\
- 	__asm__ __volatile__ (						\
-@@ -112,15 +113,16 @@ c_type atomic##prefix##_fetch_##op(c_type i, atomic##prefix##_t *v)	\
- 
- #define ATOMIC_OP_RETURN(op, asm_op, c_op, I, asm_type, c_type, prefix)	\
- static __always_inline							\
--c_type atomic##prefix##_##op##_return_relaxed(c_type i,			\
-+c_type arch_atomic##prefix##_##op##_return_relaxed(c_type i,		\
- 					      atomic##prefix##_t *v)	\
- {									\
--        return atomic##prefix##_fetch_##op##_relaxed(i, v) c_op I;	\
-+        return arch_atomic##prefix##_fetch_##op##_relaxed(i, v) c_op I;	\
- }									\
- static __always_inline							\
--c_type atomic##prefix##_##op##_return(c_type i, atomic##prefix##_t *v)	\
-+c_type arch_atomic##prefix##_##op##_return(c_type i,			\
-+						atomic##prefix##_t *v)	\
- {									\
--        return atomic##prefix##_fetch_##op(i, v) c_op I;		\
-+        return arch_atomic##prefix##_fetch_##op(i, v) c_op I;		\
- }
- 
- #ifdef CONFIG_GENERIC_ATOMIC64
-@@ -138,26 +140,26 @@ c_type atomic##prefix##_##op##_return(c_type i, atomic##prefix##_t *v)	\
- ATOMIC_OPS(add, add, +,  i)
- ATOMIC_OPS(sub, add, +, -i)
- 
--#define atomic_add_return_relaxed	atomic_add_return_relaxed
--#define atomic_sub_return_relaxed	atomic_sub_return_relaxed
--#define atomic_add_return		atomic_add_return
--#define atomic_sub_return		atomic_sub_return
-+#define arch_atomic_add_return_relaxed		arch_atomic_add_return_relaxed
-+#define arch_atomic_sub_return_relaxed		arch_atomic_sub_return_relaxed
-+#define arch_atomic_add_return			arch_atomic_add_return
-+#define arch_atomic_sub_return			arch_atomic_sub_return
- 
--#define atomic_fetch_add_relaxed	atomic_fetch_add_relaxed
--#define atomic_fetch_sub_relaxed	atomic_fetch_sub_relaxed
--#define atomic_fetch_add		atomic_fetch_add
--#define atomic_fetch_sub		atomic_fetch_sub
-+#define arch_atomic_fetch_add_relaxed		arch_atomic_fetch_add_relaxed
-+#define arch_atomic_fetch_sub_relaxed		arch_atomic_fetch_sub_relaxed
-+#define arch_atomic_fetch_add			arch_atomic_fetch_add
-+#define arch_atomic_fetch_sub			arch_atomic_fetch_sub
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
--#define atomic64_add_return_relaxed	atomic64_add_return_relaxed
--#define atomic64_sub_return_relaxed	atomic64_sub_return_relaxed
--#define atomic64_add_return		atomic64_add_return
--#define atomic64_sub_return		atomic64_sub_return
--
--#define atomic64_fetch_add_relaxed	atomic64_fetch_add_relaxed
--#define atomic64_fetch_sub_relaxed	atomic64_fetch_sub_relaxed
--#define atomic64_fetch_add		atomic64_fetch_add
--#define atomic64_fetch_sub		atomic64_fetch_sub
-+#define arch_atomic64_add_return_relaxed	arch_atomic64_add_return_relaxed
-+#define arch_atomic64_sub_return_relaxed	arch_atomic64_sub_return_relaxed
-+#define arch_atomic64_add_return		arch_atomic64_add_return
-+#define arch_atomic64_sub_return		arch_atomic64_sub_return
-+
-+#define arch_atomic64_fetch_add_relaxed		arch_atomic64_fetch_add_relaxed
-+#define arch_atomic64_fetch_sub_relaxed		arch_atomic64_fetch_sub_relaxed
-+#define arch_atomic64_fetch_add			arch_atomic64_fetch_add
-+#define arch_atomic64_fetch_sub			arch_atomic64_fetch_sub
- #endif
- 
- #undef ATOMIC_OPS
-@@ -172,23 +174,28 @@ ATOMIC_OPS(sub, add, +, -i)
- #endif
- 
- ATOMIC_OPS(and, and, i)
-+ATOMIC_OPS(andnot, and, ~i)
- ATOMIC_OPS( or,  or, i)
- ATOMIC_OPS(xor, xor, i)
- 
--#define atomic_fetch_and_relaxed	atomic_fetch_and_relaxed
--#define atomic_fetch_or_relaxed		atomic_fetch_or_relaxed
--#define atomic_fetch_xor_relaxed	atomic_fetch_xor_relaxed
--#define atomic_fetch_and		atomic_fetch_and
--#define atomic_fetch_or			atomic_fetch_or
--#define atomic_fetch_xor		atomic_fetch_xor
-+#define arch_atomic_fetch_and_relaxed		arch_atomic_fetch_and_relaxed
-+#define arch_atomic_fetch_andnot_relaxed	arch_atomic_fetch_andnot_relaxed
-+#define arch_atomic_fetch_or_relaxed		arch_atomic_fetch_or_relaxed
-+#define arch_atomic_fetch_xor_relaxed		arch_atomic_fetch_xor_relaxed
-+#define arch_atomic_fetch_and			arch_atomic_fetch_and
-+#define arch_atomic_fetch_andnot		arch_atomic_fetch_andnot
-+#define arch_atomic_fetch_or			arch_atomic_fetch_or
-+#define arch_atomic_fetch_xor			arch_atomic_fetch_xor
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
--#define atomic64_fetch_and_relaxed	atomic64_fetch_and_relaxed
--#define atomic64_fetch_or_relaxed	atomic64_fetch_or_relaxed
--#define atomic64_fetch_xor_relaxed	atomic64_fetch_xor_relaxed
--#define atomic64_fetch_and		atomic64_fetch_and
--#define atomic64_fetch_or		atomic64_fetch_or
--#define atomic64_fetch_xor		atomic64_fetch_xor
-+#define arch_atomic64_fetch_and_relaxed		arch_atomic64_fetch_and_relaxed
-+#define arch_atomic64_fetch_andnot_relaxed	arch_atomic64_fetch_andnot_relaxed
-+#define arch_atomic64_fetch_or_relaxed		arch_atomic64_fetch_or_relaxed
-+#define arch_atomic64_fetch_xor_relaxed		arch_atomic64_fetch_xor_relaxed
-+#define arch_atomic64_fetch_and			arch_atomic64_fetch_and
-+#define arch_atomic64_fetch_andnot		arch_atomic64_fetch_andnot
-+#define arch_atomic64_fetch_or			arch_atomic64_fetch_or
-+#define arch_atomic64_fetch_xor			arch_atomic64_fetch_xor
- #endif
- 
- #undef ATOMIC_OPS
-@@ -197,7 +204,7 @@ ATOMIC_OPS(xor, xor, i)
- #undef ATOMIC_OP_RETURN
- 
- /* This is required to provide a full barrier on success. */
--static __always_inline int atomic_fetch_add_unless(atomic_t *v, int a, int u)
-+static __always_inline int arch_atomic_fetch_add_unless(atomic_t *v, int a, int u)
- {
-        int prev, rc;
- 
-@@ -214,10 +221,10 @@ static __always_inline int atomic_fetch_add_unless(atomic_t *v, int a, int u)
- 		: "memory");
- 	return prev;
- }
--#define atomic_fetch_add_unless atomic_fetch_add_unless
-+#define arch_atomic_fetch_add_unless arch_atomic_fetch_add_unless
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
--static __always_inline s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
-+static __always_inline s64 arch_atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
- {
-        s64 prev;
-        long rc;
-@@ -235,82 +242,10 @@ static __always_inline s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u
- 		: "memory");
- 	return prev;
- }
--#define atomic64_fetch_add_unless atomic64_fetch_add_unless
-+#define arch_atomic64_fetch_add_unless		arch_atomic64_fetch_add_unless
- #endif
- 
--/*
-- * atomic_{cmp,}xchg is required to have exactly the same ordering semantics as
-- * {cmp,}xchg and the operations that return, so they need a full barrier.
-- */
--#define ATOMIC_OP(c_t, prefix, size)					\
--static __always_inline							\
--c_t atomic##prefix##_xchg_relaxed(atomic##prefix##_t *v, c_t n)		\
--{									\
--	return __xchg_relaxed(&(v->counter), n, size);			\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_xchg_acquire(atomic##prefix##_t *v, c_t n)		\
--{									\
--	return __xchg_acquire(&(v->counter), n, size);			\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_xchg_release(atomic##prefix##_t *v, c_t n)		\
--{									\
--	return __xchg_release(&(v->counter), n, size);			\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_xchg(atomic##prefix##_t *v, c_t n)			\
--{									\
--	return __xchg(&(v->counter), n, size);				\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_cmpxchg_relaxed(atomic##prefix##_t *v,		\
--				     c_t o, c_t n)			\
--{									\
--	return __cmpxchg_relaxed(&(v->counter), o, n, size);		\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_cmpxchg_acquire(atomic##prefix##_t *v,		\
--				     c_t o, c_t n)			\
--{									\
--	return __cmpxchg_acquire(&(v->counter), o, n, size);		\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_cmpxchg_release(atomic##prefix##_t *v,		\
--				     c_t o, c_t n)			\
--{									\
--	return __cmpxchg_release(&(v->counter), o, n, size);		\
--}									\
--static __always_inline							\
--c_t atomic##prefix##_cmpxchg(atomic##prefix##_t *v, c_t o, c_t n)	\
--{									\
--	return __cmpxchg(&(v->counter), o, n, size);			\
--}
--
--#ifdef CONFIG_GENERIC_ATOMIC64
--#define ATOMIC_OPS()							\
--	ATOMIC_OP(int,   , 4)
--#else
--#define ATOMIC_OPS()							\
--	ATOMIC_OP(int,   , 4)						\
--	ATOMIC_OP(s64, 64, 8)
--#endif
--
--ATOMIC_OPS()
--
--#define atomic_xchg_relaxed atomic_xchg_relaxed
--#define atomic_xchg_acquire atomic_xchg_acquire
--#define atomic_xchg_release atomic_xchg_release
--#define atomic_xchg atomic_xchg
--#define atomic_cmpxchg_relaxed atomic_cmpxchg_relaxed
--#define atomic_cmpxchg_acquire atomic_cmpxchg_acquire
--#define atomic_cmpxchg_release atomic_cmpxchg_release
--#define atomic_cmpxchg atomic_cmpxchg
--
--#undef ATOMIC_OPS
--#undef ATOMIC_OP
--
--static __always_inline int atomic_sub_if_positive(atomic_t *v, int offset)
-+static __always_inline int arch_atomic_sub_if_positive(atomic_t *v, int offset)
- {
-        int prev, rc;
- 
-@@ -327,11 +262,11 @@ static __always_inline int atomic_sub_if_positive(atomic_t *v, int offset)
- 		: "memory");
- 	return prev - offset;
- }
-+#define arch_atomic_dec_if_positive(v)	arch_atomic_sub_if_positive(v, 1)
- 
--#define atomic_dec_if_positive(v)	atomic_sub_if_positive(v, 1)
- 
- #ifndef CONFIG_GENERIC_ATOMIC64
--static __always_inline s64 atomic64_sub_if_positive(atomic64_t *v, s64 offset)
-+static __always_inline s64 arch_atomic64_sub_if_positive(atomic64_t *v, s64 offset)
- {
-        s64 prev;
-        long rc;
-@@ -349,8 +284,35 @@ static __always_inline s64 atomic64_sub_if_positive(atomic64_t *v, s64 offset)
- 		: "memory");
- 	return prev - offset;
- }
-+#define arch_atomic64_dec_if_positive(v)	arch_atomic64_sub_if_positive(v, 1)
-+#endif
-+
-+#define arch_atomic_xchg_relaxed(v, new) \
-+	arch_xchg_relaxed(&((v)->counter), (new))
-+#define arch_atomic_xchg_acquire(v, new) \
-+	arch_xchg_acquire(&((v)->counter), (new))
-+#define arch_atomic_xchg_release(v, new) \
-+	arch_xchg_release(&((v)->counter), (new))
-+#define arch_atomic_xchg(v, new) \
-+	arch_xchg(&((v)->counter), (new))
-+
-+#define arch_atomic_cmpxchg_relaxed(v, old, new) \
-+	arch_cmpxchg_relaxed(&((v)->counter), (old), (new))
-+#define arch_atomic_cmpxchg_acquire(v, old, new) \
-+	arch_cmpxchg_acquire(&((v)->counter), (old), (new))
-+#define arch_atomic_cmpxchg_release(v, old, new) \
-+	arch_cmpxchg_release(&((v)->counter), (old), (new))
-+#define arch_atomic_cmpxchg(v, old, new) \
-+	arch_cmpxchg(&((v)->counter), (old), (new))
- 
--#define atomic64_dec_if_positive(v)	atomic64_sub_if_positive(v, 1)
-+#ifndef CONFIG_GENERIC_ATOMIC64
-+#define arch_atomic64_xchg_relaxed		arch_atomic_xchg_relaxed
-+#define arch_atomic64_xchg			arch_atomic_xchg
-+
-+#define arch_atomic64_cmpxchg_relaxed		arch_atomic_cmpxchg_relaxed
-+#define arch_atomic64_cmpxchg			arch_atomic_cmpxchg
- #endif
- 
-+#define ARCH_ATOMIC
-+
- #endif /* _ASM_RISCV_ATOMIC_H */
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 262e5bb..16195a6 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -37,7 +37,7 @@
- 	__ret;								\
- })
- 
--#define xchg_relaxed(ptr, x)						\
-+#define arch_xchg_relaxed(ptr, x)					\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	(__typeof__(*(ptr))) __xchg_relaxed((ptr),			\
-@@ -52,16 +52,14 @@
- 	switch (size) {							\
- 	case 4:								\
- 		__asm__ __volatile__ (					\
--			"	amoswap.w %0, %2, %1\n"			\
--			RISCV_ACQUIRE_BARRIER				\
-+			"	amoswap.w.aq %0, %2, %1\n"		\
- 			: "=r" (__ret), "+A" (*__ptr)			\
- 			: "r" (__new)					\
- 			: "memory");					\
- 		break;							\
- 	case 8:								\
- 		__asm__ __volatile__ (					\
--			"	amoswap.d %0, %2, %1\n"			\
--			RISCV_ACQUIRE_BARRIER				\
-+			"	amoswap.d.aq %0, %2, %1\n"		\
- 			: "=r" (__ret), "+A" (*__ptr)			\
- 			: "r" (__new)					\
- 			: "memory");					\
-@@ -72,7 +70,7 @@
- 	__ret;								\
- })
- 
--#define xchg_acquire(ptr, x)						\
-+#define arch_xchg_acquire(ptr, x)					\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	(__typeof__(*(ptr))) __xchg_acquire((ptr),			\
-@@ -87,16 +85,14 @@
- 	switch (size) {							\
- 	case 4:								\
- 		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"	amoswap.w %0, %2, %1\n"			\
-+			"	amoswap.w.rl %0, %2, %1\n"		\
- 			: "=r" (__ret), "+A" (*__ptr)			\
- 			: "r" (__new)					\
- 			: "memory");					\
- 		break;							\
- 	case 8:								\
- 		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"	amoswap.d %0, %2, %1\n"			\
-+			"	amoswap.d.rl %0, %2, %1\n"		\
- 			: "=r" (__ret), "+A" (*__ptr)			\
- 			: "r" (__new)					\
- 			: "memory");					\
-@@ -107,7 +103,7 @@
- 	__ret;								\
- })
- 
--#define xchg_release(ptr, x)						\
-+#define arch_xchg_release(ptr, x)					\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	(__typeof__(*(ptr))) __xchg_release((ptr),			\
-@@ -140,24 +136,12 @@
- 	__ret;								\
- })
- 
--#define xchg(ptr, x)							\
-+#define arch_xchg(ptr, x)						\
- ({									\
- 	__typeof__(*(ptr)) _x_ = (x);					\
- 	(__typeof__(*(ptr))) __xchg((ptr), _x_, sizeof(*(ptr)));	\
- })
- 
--#define xchg32(ptr, x)							\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 4);				\
--	xchg((ptr), (x));						\
--})
--
--#define xchg64(ptr, x)							\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
--	xchg((ptr), (x));						\
--})
--
- /*
-  * Atomic compare and exchange.  Compare OLD with MEM, if identical,
-  * store NEW in MEM.  Return the initial value in MEM.  Success is
-@@ -199,7 +183,7 @@
- 	__ret;								\
- })
- 
--#define cmpxchg_relaxed(ptr, o, n)					\
-+#define arch_cmpxchg_relaxed(ptr, o, n)					\
- ({									\
- 	__typeof__(*(ptr)) _o_ = (o);					\
- 	__typeof__(*(ptr)) _n_ = (n);					\
-@@ -207,169 +191,4 @@
- 					_o_, _n_, sizeof(*(ptr)));	\
- })
- 
--#define __cmpxchg_acquire(ptr, old, new, size)				\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
--
--#define cmpxchg_acquire(ptr, o, n)					\
--({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg_acquire((ptr),			\
--					_o_, _n_, sizeof(*(ptr)));	\
--})
--
--#define __cmpxchg_release(ptr, old, new, size)				\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
--
--#define cmpxchg_release(ptr, o, n)					\
--({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg_release((ptr),			\
--					_o_, _n_, sizeof(*(ptr)));	\
--})
--
--#define __cmpxchg(ptr, old, new, size)					\
--({									\
--	__typeof__(ptr) __ptr = (ptr);					\
--	__typeof__(*(ptr)) __old = (old);				\
--	__typeof__(*(ptr)) __new = (new);				\
--	__typeof__(*(ptr)) __ret;					\
--	register unsigned int __rc;					\
--	switch (size) {							\
--	case 4:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.w %0, %2\n"				\
--			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" ((long)__old), "rJ" (__new)		\
--			: "memory");					\
--		break;							\
--	case 8:								\
--		__asm__ __volatile__ (					\
--			"0:	lr.d %0, %2\n"				\
--			"	bne %0, %z3, 1f\n"			\
--			"	sc.d.rl %1, %z4, %2\n"			\
--			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
--			"1:\n"						\
--			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
--			: "rJ" (__old), "rJ" (__new)			\
--			: "memory");					\
--		break;							\
--	default:							\
--		BUILD_BUG();						\
--	}								\
--	__ret;								\
--})
--
--#define cmpxchg(ptr, o, n)						\
--({									\
--	__typeof__(*(ptr)) _o_ = (o);					\
--	__typeof__(*(ptr)) _n_ = (n);					\
--	(__typeof__(*(ptr))) __cmpxchg((ptr),				\
--				       _o_, _n_, sizeof(*(ptr)));	\
--})
--
--#define cmpxchg_local(ptr, o, n)					\
--	(__cmpxchg_relaxed((ptr), (o), (n), sizeof(*(ptr))))
--
--#define cmpxchg32(ptr, o, n)						\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 4);				\
--	cmpxchg((ptr), (o), (n));					\
--})
--
--#define cmpxchg32_local(ptr, o, n)					\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 4);				\
--	cmpxchg_relaxed((ptr), (o), (n))				\
--})
--
--#define cmpxchg64(ptr, o, n)						\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
--	cmpxchg((ptr), (o), (n));					\
--})
--
--#define cmpxchg64_local(ptr, o, n)					\
--({									\
--	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
--	cmpxchg_relaxed((ptr), (o), (n));				\
--})
--
- #endif /* _ASM_RISCV_CMPXCHG_H */
--- 
-2.7.4
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyMC8wNC8yMDIxIMOgIDA1OjI4LCBBbGV4ZWkgU3Rhcm92b2l0b3YgYSDDqWNyaXTCoDoK
+PiBPbiBTYXQsIEFwciAxNywgMjAyMSBhdCAxOjE2IEFNIENocmlzdG9waGUgTGVyb3kKPiA8Y2hy
+aXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1PiB3cm90ZToKPj4KPj4KPj4KPj4gTGUgMTYvMDQvMjAy
+MSDDoCAwMTo0OSwgQWxleGVpIFN0YXJvdm9pdG92IGEgw6ljcml0IDoKPj4+IE9uIFRodSwgQXBy
+IDE1LCAyMDIxIGF0IDg6NDEgQU0gUXVlbnRpbiBNb25uZXQgPHF1ZW50aW5AaXNvdmFsZW50LmNv
+bT4gd3JvdGU6Cj4+Pj4KPj4+PiAyMDIxLTA0LTE1IDE2OjM3IFVUQyswMjAwIH4gRGFuaWVsIEJv
+cmttYW5uIDxkYW5pZWxAaW9nZWFyYm94Lm5ldD4KPj4+Pj4gT24gNC8xNS8yMSAxMTozMiBBTSwg
+SmlhbmxpbiBMdiB3cm90ZToKPj4+Pj4+IEZvciBkZWJ1Z2dpbmcgSklUcywgZHVtcGluZyB0aGUg
+SklUZWQgaW1hZ2UgdG8ga2VybmVsIGxvZyBpcyBkaXNjb3VyYWdlZCwKPj4+Pj4+ICJicGZ0b29s
+IHByb2cgZHVtcCBqaXRlZCIgaXMgbXVjaCBiZXR0ZXIgd2F5IHRvIGV4YW1pbmUgSklUZWQgZHVt
+cHMuCj4+Pj4+PiBUaGlzIHBhdGNoIGdldCByaWQgb2YgdGhlIGNvZGUgcmVsYXRlZCB0byBicGZf
+aml0X2VuYWJsZT0yIG1vZGUgYW5kCj4+Pj4+PiB1cGRhdGUgdGhlIHByb2MgaGFuZGxlciBvZiBi
+cGZfaml0X2VuYWJsZSwgYWxzbyBhZGRlZCBhdXhpbGlhcnkKPj4+Pj4+IGluZm9ybWF0aW9uIHRv
+IGV4cGxhaW4gaG93IHRvIHVzZSBicGZfaml0X2Rpc2FzbSB0b29sIGFmdGVyIHRoaXMgY2hhbmdl
+Lgo+Pj4+Pj4KPj4+Pj4+IFNpZ25lZC1vZmYtYnk6IEppYW5saW4gTHYgPEppYW5saW4uTHZAYXJt
+LmNvbT4KPj4+Pgo+Pj4+IEhlbGxvLAo+Pj4+Cj4+Pj4gRm9yIHdoYXQgaXQncyB3b3J0aCwgSSBo
+YXZlIGFscmVhZHkgc2VlbiBwZW9wbGUgZHVtcCB0aGUgSklUIGltYWdlIGluCj4+Pj4ga2VybmVs
+IGxvZ3MgaW4gUWVtdSBWTXMgcnVubmluZyB3aXRoIGp1c3QgYSBidXN5Ym94LCBub3QgZm9yIGtl
+cm5lbAo+Pj4+IGRldmVsb3BtZW50LCBidXQgaW4gYSBjb250ZXh0IHdoZXJlIGJ1aWRpbmcvdXNp
+bmcgYnBmdG9vbCB3YXMgbm90Cj4+Pj4gcG9zc2libGUuCj4+Pgo+Pj4gSWYgYnVpbGRpbmcvdXNp
+bmcgYnBmdG9vbCBpcyBub3QgcG9zc2libGUgdGhlbiBtYWpvcml0eSBvZiBzZWxmdGVzdHMgd29u
+J3QKPj4+IGJlIGV4ZXJjaXNlZC4gSSBkb24ndCB0aGluayBzdWNoIGVudmlyb25tZW50IGlzIHN1
+aXRhYmxlIGZvciBhbnkga2luZAo+Pj4gb2YgYnBmIGRldmVsb3BtZW50LiBNdWNoIHNvIGZvciBK
+SVQgZGVidWdnaW5nLgo+Pj4gV2hpbGUgYnBmX2ppdF9lbmFibGU9MiBpcyBub3RoaW5nIGJ1dCB0
+aGUgZGVidWdnaW5nIHRvb2wgZm9yIEpJVCBkZXZlbG9wZXJzLgo+Pj4gSSdkIHJhdGhlciBudWtl
+IHRoYXQgY29kZSBpbnN0ZWFkIG9mIGNhcnJ5aW5nIGl0IGZyb20ga2VybmVsIHRvIGtlcm5lbC4K
+Pj4+Cj4+Cj4+IFdoZW4gSSBpbXBsZW1lbnRlZCBKSVQgZm9yIFBQQzMyLCBpdCB3YXMgZXh0cmVt
+ZWx5IGhlbHBmdWxsLgo+Pgo+PiBBcyBmYXIgYXMgSSB1bmRlcnN0YW5kLCBmb3IgdGhlIHRpbWUg
+YmVpbmcgYnBmdG9vbCBpcyBub3QgdXNhYmxlIGluIG15IGVudmlyb25tZW50IGJlY2F1c2UgaXQK
+Pj4gZG9lc24ndCBzdXBwb3J0IGNyb3NzIGNvbXBpbGF0aW9uIHdoZW4gdGhlIHRhcmdldCdzIGVu
+ZGlhbmVzcyBkaWZmZXJzIGZyb20gdGhlIGJ1aWxkaW5nIGhvc3QKPj4gZW5kaWFuZXNzLCBzZWUg
+ZGlzY3Vzc2lvbiBhdAo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9icGYvMjFlNjZhMDktNTE0
+Zi1mNDI2LWI5ZTItMTNiYWFiMGI5MzhiQGNzZ3JvdXAuZXUvCj4+Cj4+IFRoYXQncyByaWdodCB0
+aGF0IHNlbGZ0ZXN0cyBjYW4ndCBiZSBleGVyY2lzZWQgYmVjYXVzZSB0aGV5IGRvbid0IGJ1aWxk
+Lgo+Pgo+PiBUaGUgcXVlc3Rpb24gbWlnaHQgYmUgY2FuZGlkIGFzIEkgZGlkbid0IGludmVzdGln
+YXRlIG11Y2ggYWJvdXQgdGhlIHJlcGxhY2VtZW50IG9mICJicGZfaml0X2VuYWJsZT0yCj4+IGRl
+YnVnZ2luZyBtb2RlIiBieSBicGZ0b29sLCBob3cgZG8gd2UgdXNlIGJwZnRvb2wgZXhhY3RseSBm
+b3IgdGhhdCA/IEVzcGVjaWFsbHkgd2hlbiB1c2luZyB0aGUgQlBGCj4+IHRlc3QgbW9kdWxlID8K
+PiAKPiB0aGUga2VybmVsIGRldmVsb3BlcnMgY2FuIGFkZCBhbnkgYW1vdW50IG9mIHByaW50ayBh
+bmQgZHVtcHMgdG8gZGVidWcKPiB0aGVpciBjb2RlLAo+IGJ1dCBzdWNoIGRlYnVnZ2luZyBhaWQg
+c2hvdWxkIG5vdCBiZSBwYXJ0IG9mIHRoZSBwcm9kdWN0aW9uIGtlcm5lbC4KPiBUaGF0IHN5c2N0
+bCB3YXMgdHdvIHRoaW5ncyBhdCBvbmNlOiBkZWJ1Z2dpbmcgdG9vbCBmb3Iga2VybmVsIGRldnMg
+YW5kCj4gaW50cm9zcGVjdGlvbiBmb3IgdXNlcnMuCj4gYnBmdG9vbCBqaXQgZHVtcCBzb2x2ZXMg
+dGhlIDJuZCBwYXJ0LiBJdCBwcm92aWRlcyBKSVQgaW50cm9zcGVjdGlvbiB0byB1c2Vycy4KPiBE
+ZWJ1Z2dpbmcgb2YgdGhlIGtlcm5lbCBjYW4gYmUgZG9uZSB3aXRoIGFueSBhbW91bnQgb2YgYXV4
+aWxpYXJ5IGNvZGUKPiBpbmNsdWRpbmcgY2FsbGluZyBwcmludF9oZXhfZHVtcCgpIGR1cmluZyBq
+aXRpbmcuCj4gCgpJIGdldCB0aGUgZm9sbG93aW5nIG1lc3NhZ2Ugd2hlbiB0cnlpbmcgdGhlIGNv
+bW1hbmQgc3VnZ2VzdGVkIGluIHRoZSBwYXRjaCBtZXNzYWdlOgoKcm9vdEB2Z29pcDp+IyAuL2Jw
+ZnRvb2wgcHJvZyBkdW1wIGppdGVkCkVycm9yOiBObyBsaWJiZmQgc3VwcG9ydAoKQ2hyaXN0b3Bo
+ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
