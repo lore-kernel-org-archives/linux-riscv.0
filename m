@@ -1,147 +1,79 @@
-Return-Path: <SRS0=lw90=JS=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=CVeS=JT=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BE46BC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 16:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6644CC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 11:00:28 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 08D0661409
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Apr 2021 16:30:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08D0661409
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id AC611613C9
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 11:00:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC611613C9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Subject:References:In-Reply-To:
-	Message-ID:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hO3CHPVTuk1oxbXzVoKE34XARh6PDbY9ucP68GTxT4M=; b=FT046Lc57KA2RF
-	itWZT4kGQUJxiPYm6XZhw90N24Nk2SGzWrwntSQgTDwkNCoosDyRFjcmevkI3P+l/9Z+mRKoCCYI/
-	Gye6dIi+GvvHkV0zx1o1Zc43Qa0urD1UjzrFFi/cqnZFpQMdLVTbr9eufXol43rMi2oQW3aFvAAfO
-	sh6mu6lWGEWVyhLwlGI0WyXlpGWiRuNNImWa9BkPlnn8dTMnpYYT59IzdAGEfrL5nrwUI6fjLkWbr
-	08T/Nytnt4CJ5+l+wahKYMy2ioFCDa6On6jJ/4bMo69JAJNd7mDaYs6Xq+8gE7ZsBTJAagTlKQN+W
-	Hf9YndMNH9s24AKPeiyg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=9UbPnWl4RxQGhqqOE1MzKBFpTgVXaz42sL/idHnDwus=; b=HRG1gAwuJ+LK/W0HKMG4p48IX
+	CQ19feouX/rLGbQk6BTt0V4NXrfZn4KZcvgMkQtpdu9ddOvDRwdzEu5UDsOx2Pi79bFGDgCSJZ9nb
+	JL+ieFUuwTdyCKWgSbUfLqcoP4rSoJ2a6yukc8elWcNQfe6c71dNn4iVH39KkkZ5nl/5P3ULZ5aBm
+	9DQ7kJpA6Fl/gRgeAhAPtt58AGjLEzFt84GOlSIzfECBgN0adfGIf60CFygz6+Ge39I7uPqB9suWA
+	AbX1KR5RzEnX10hegPQ6Pi/sFnYQlq/8ldezpXJakz2n5ztOsYt5UxKnZwFiFGHfF1jVzm5pDGOdS
+	+LZILMfXQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lZFjq-00EkMY-3W; Wed, 21 Apr 2021 16:30:06 +0000
+	id 1lZX3u-00GY5K-Qf; Thu, 22 Apr 2021 11:00:00 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZFjn-00EkML-QU; Wed, 21 Apr 2021 16:30:04 +0000
+ id 1lZX3r-00GY51-2u
+ for linux-riscv@desiato.infradead.org; Thu, 22 Apr 2021 10:59:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
- From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=kZEeiT+02hDVJRhO51gnJpF7hYzhozQfqmgkPQR+2go=; b=H3GU553BNUV9mqqtvlMg6mzH+s
- POX5xf36KGlYXxapADN4nrfKM+DnRMKruN2s0K6QbETURPokW982salmepytJ+OGnT/Q0W8i6KygV
- K6wJPcl8CHx8RIxpuo/aeyAaDxzpTqkWEujgLixpzEpK6eQBfKb1DmCBo0eyd5Y/cKAJsyMwGLZZL
- qjhD7jT/0uJjnQEXcenQyOLL+xjpTyMVPOIeEauVcBGmymsKiIvJZqXNje1geKBWVon3s93HPeivb
- EwXVSnvbsiu8fiPi4gPPMqTZ7NMlwV1CAgO4vRYk1CZ0gFVKmZj/ern/vSHelpgVCW2xqHwfIMm9M
- iQmC90dg==;
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZFjk-00D1mX-Lh; Wed, 21 Apr 2021 16:30:02 +0000
-Received: by mail-il1-x12f.google.com with SMTP id i22so30703827ila.11;
- Wed, 21 Apr 2021 09:29:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:message-id:in-reply-to:references:subject
- :mime-version:content-transfer-encoding;
- bh=kZEeiT+02hDVJRhO51gnJpF7hYzhozQfqmgkPQR+2go=;
- b=RCvSbC5gF4irYRxbKtCXq6ucAmn/fBlZPcmxc5StJjv0OsgtmawKZzSRMOt9KwaVfB
- mOterPVI+uca5uIZicYzxPVaYRAjch0dVaykdoLqmfnumz1qeSndgLTPIM5A88GuAh16
- kY60ERydmvvHQ8SECatQeY+fvihLUbYrM61BxVEcAV4K+xfLjiZrTMwPk+MtsJVT2Zr6
- GOZv43s51r2l+BrbedzeIDb4y3VrRbbDk8nnNp+fNSeMWAnjMPVM6JYQO/h4ai6vqwLR
- UCr2zI9SxvzesSwPuDXcovg8tK5WkZn8XccEKEIg0LxS0AurB5NZT/Bi0RNt9J0flU4S
- ysDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:message-id:in-reply-to
- :references:subject:mime-version:content-transfer-encoding;
- bh=kZEeiT+02hDVJRhO51gnJpF7hYzhozQfqmgkPQR+2go=;
- b=CFzJPtryb6DQQrvPqXwGJmzWlSlKH4U0deMLhzBHg/tM/DDx3BFvLP4HrapHJg9PCa
- +3RNlMkUViV9M+5FhVbTC85tV7iidRMaQ7ziOOxPwAKXY0fCJnijKvO6LAv1aRbJpp76
- py5LGnIe88loLO0tR4FUBbn6+8rgL2XHGjtUV68Bk/Uin+b4NMDLrvOwF1q437/uWReg
- p94qVJi2bR9hwEXI2AAuwMaXQYwOB8RsxYSCPjjb/xvQYabLquRy/5oHETMcJwVRgRZW
- dh7ZUZ4Av/BlTwtWPgiXvhpBWLF4RJfE56uJMetcLo1izlsqwQH1jlQzgEFexbe5RsiE
- RLOw==
-X-Gm-Message-State: AOAM531vfMoDQ4Pbu8/tRp6HAGWbQcOkp1aXIUlCWO0YMPErO2y0E7Gc
- 4M3GN3TB7h5b4vEPz6iFrYs=
-X-Google-Smtp-Source: ABdhPJz7ul05BAWC6HoOuLc6EjCX5ztWUgfj1SHdCI0SDk1nQOPXDNy1tG/R5d8sRRgMhivItaOuEA==
-X-Received: by 2002:a92:ce0e:: with SMTP id b14mr25946343ilo.283.1619022599257; 
- Wed, 21 Apr 2021 09:29:59 -0700 (PDT)
-Received: from localhost ([172.242.244.146])
- by smtp.gmail.com with ESMTPSA id v26sm1303125ioh.42.2021.04.21.09.29.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 21 Apr 2021 09:29:58 -0700 (PDT)
-Date: Wed, 21 Apr 2021 09:29:50 -0700
-From: John Fastabend <john.fastabend@gmail.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Quentin Monnet <quentin@isovalent.com>, Ian Rogers <irogers@google.com>, 
- Song Liu <songliubraving@fb.com>, 
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
- Zi Shen Lim <zlim.lnx@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
- Paul Mackerras <paulus@samba.org>, Sandipan Das <sandipan@linux.ibm.com>, 
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org, 
- Shubham Bansal <illusionist.neo@gmail.com>, 
- Mahesh Bandewar <maheshb@google.com>, Will Deacon <will@kernel.org>, 
- Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
- linux-s390 <linux-s390@vger.kernel.org>, 
- Ilya Leoshkevich <iii@linux.ibm.com>, paulburton@kernel.org, 
- Jonathan Corbet <corbet@lwn.net>, 
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Christian Borntraeger <borntraeger@de.ibm.com>, 
- Ingo Molnar <mingo@redhat.com>, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>, 
- Jakub Kicinski <kuba@kernel.org>, Tobias Klauser <tklauser@distanz.ch>, 
- linux-mips@vger.kernel.org, grantseltzer@gmail.com, 
- Xi Wang <xi.wang@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>, 
- Luke Nelson <luke.r.nels@gmail.com>, LKML <linux-kernel@vger.kernel.org>, 
- Heiko Carstens <hca@linux.ibm.com>, 
- ppc-dev <linuxppc-dev@lists.ozlabs.org>, KP Singh <kpsingh@kernel.org>, 
- iecedge@gmail.com, Simon Horman <horms@verge.net.au>, 
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>, 
- Yonghong Song <yhs@fb.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Dmitry Vyukov <dvyukov@google.com>, tsbogend@alpha.franken.de, 
- Daniel Borkmann <daniel@iogearbox.net>, 
- Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>, 
- Network Development <netdev@vger.kernel.org>, 
- David Ahern <dsahern@kernel.org>, Wang YanQing <udknight@gmail.com>, 
- Martin KaFai Lau <kafai@fb.com>, 
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, bpf <bpf@vger.kernel.org>, 
- Jianlin Lv <Jianlin.Lv@arm.com>, "David S. Miller" <davem@davemloft.net>
-Message-ID: <608052fea86fb_46b92087@john-XPS-13-9370.notmuch>
-In-Reply-To: <7dc31256-eb1d-dc93-5e55-2de27475e0c6@csgroup.eu>
-References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
- <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
- <d3949501-8f7d-57c4-b3fe-bcc3b24c09d8@isovalent.com>
- <CAADnVQJ2oHbYfgY9jqM_JMxUsoZxaNrxKSVFYfgCXuHVpDehpQ@mail.gmail.com>
- <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
- <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
- <7dc31256-eb1d-dc93-5e55-2de27475e0c6@csgroup.eu>
-Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
-Mime-Version: 1.0
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+ :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=az5FWo1I3N+PY1Ff9g7Obmb8SK5nOWAqs4dHbfKOGBs=; b=4eyAXhYwT0U9Jx919sfGVez5BB
+ PLBnnOmfzw5CKBkT577neOLdKsHzgObEVC4u0Qo/UY5qRk75vYbJAjUZHI2c4YH5X0IP4fkYfCih7
+ E1Tgkmhl0KftPn9UfwtpFqko+Ixo3hIKrN6oroKCJwl1W3ObRqIVoz32v8kjoQfpk9sSQwrASAOyv
+ ToCnUxwWnkNWrzbrkYQl8dg18XtkCwIqyZ3GkcIYnVbxQU2ytm3jn6wYyWzeDJ06c/mEyPfXorqo1
+ GhftADWvM6Lz5Fl5tDJrx4YMts9/h+Oxx2BbNOVt5aT0w7B97Hpli06r+jISJDYsXDusJAI0hMMmM
+ VVFSLTPA==;
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lZX3n-00Db6U-Jz
+ for linux-riscv@lists.infradead.org; Thu, 22 Apr 2021 10:59:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDE2311FB;
+ Thu, 22 Apr 2021 03:59:49 -0700 (PDT)
+Received: from C02TD0UTHF1T.local (unknown [10.57.22.241])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D918E3F774;
+ Thu, 22 Apr 2021 03:59:47 -0700 (PDT)
+Date: Thu, 22 Apr 2021 11:59:45 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+ Peter Zijlstra <peterz@infradead.org>
+Subject: [PATCH] asm-generic: atomic64: handle ARCH_ATOMIC builds (was "Re:
+ [PATCH v3 1/2] locking/atomics: Fixup GENERIC_ATOMIC64 conflict") with
+ atomic-arch-fallback.h
+Message-ID: <20210422105945.GB62037@C02TD0UTHF1T.local>
+References: <1619009626-93453-1-git-send-email-guoren@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1619009626-93453-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210421_093000_754887_C141CAFB 
-X-CRM114-Status: GOOD (  30.22  )
+X-CRM114-CacheID: sfid-20210422_035951_784676_27CD4B99 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,65 +85,315 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q2hyaXN0b3BoZSBMZXJveSB3cm90ZToKPiAKPiAKPiBMZSAyMC8wNC8yMDIxIMOgIDA1OjI4LCBB
-bGV4ZWkgU3Rhcm92b2l0b3YgYSDDqWNyaXTCoDoKPiA+IE9uIFNhdCwgQXByIDE3LCAyMDIxIGF0
-IDE6MTYgQU0gQ2hyaXN0b3BoZSBMZXJveQo+ID4gPGNocmlzdG9waGUubGVyb3lAY3Nncm91cC5l
-dT4gd3JvdGU6Cj4gPj4KPiA+Pgo+ID4+Cj4gPj4gTGUgMTYvMDQvMjAyMSDDoCAwMTo0OSwgQWxl
-eGVpIFN0YXJvdm9pdG92IGEgw6ljcml0IDoKPiA+Pj4gT24gVGh1LCBBcHIgMTUsIDIwMjEgYXQg
-ODo0MSBBTSBRdWVudGluIE1vbm5ldCA8cXVlbnRpbkBpc292YWxlbnQuY29tPiB3cm90ZToKPiA+
-Pj4+Cj4gPj4+PiAyMDIxLTA0LTE1IDE2OjM3IFVUQyswMjAwIH4gRGFuaWVsIEJvcmttYW5uIDxk
-YW5pZWxAaW9nZWFyYm94Lm5ldD4KPiA+Pj4+PiBPbiA0LzE1LzIxIDExOjMyIEFNLCBKaWFubGlu
-IEx2IHdyb3RlOgo+ID4+Pj4+PiBGb3IgZGVidWdnaW5nIEpJVHMsIGR1bXBpbmcgdGhlIEpJVGVk
-IGltYWdlIHRvIGtlcm5lbCBsb2cgaXMgZGlzY291cmFnZWQsCj4gPj4+Pj4+ICJicGZ0b29sIHBy
-b2cgZHVtcCBqaXRlZCIgaXMgbXVjaCBiZXR0ZXIgd2F5IHRvIGV4YW1pbmUgSklUZWQgZHVtcHMu
-Cj4gPj4+Pj4+IFRoaXMgcGF0Y2ggZ2V0IHJpZCBvZiB0aGUgY29kZSByZWxhdGVkIHRvIGJwZl9q
-aXRfZW5hYmxlPTIgbW9kZSBhbmQKPiA+Pj4+Pj4gdXBkYXRlIHRoZSBwcm9jIGhhbmRsZXIgb2Yg
-YnBmX2ppdF9lbmFibGUsIGFsc28gYWRkZWQgYXV4aWxpYXJ5Cj4gPj4+Pj4+IGluZm9ybWF0aW9u
-IHRvIGV4cGxhaW4gaG93IHRvIHVzZSBicGZfaml0X2Rpc2FzbSB0b29sIGFmdGVyIHRoaXMgY2hh
-bmdlLgo+ID4+Pj4+Pgo+ID4+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBKaWFubGluIEx2IDxKaWFubGlu
-Lkx2QGFybS5jb20+Cj4gPj4+Pgo+ID4+Pj4gSGVsbG8sCj4gPj4+Pgo+ID4+Pj4gRm9yIHdoYXQg
-aXQncyB3b3J0aCwgSSBoYXZlIGFscmVhZHkgc2VlbiBwZW9wbGUgZHVtcCB0aGUgSklUIGltYWdl
-IGluCj4gPj4+PiBrZXJuZWwgbG9ncyBpbiBRZW11IFZNcyBydW5uaW5nIHdpdGgganVzdCBhIGJ1
-c3lib3gsIG5vdCBmb3Iga2VybmVsCj4gPj4+PiBkZXZlbG9wbWVudCwgYnV0IGluIGEgY29udGV4
-dCB3aGVyZSBidWlkaW5nL3VzaW5nIGJwZnRvb2wgd2FzIG5vdAo+ID4+Pj4gcG9zc2libGUuCj4g
-Pj4+Cj4gPj4+IElmIGJ1aWxkaW5nL3VzaW5nIGJwZnRvb2wgaXMgbm90IHBvc3NpYmxlIHRoZW4g
-bWFqb3JpdHkgb2Ygc2VsZnRlc3RzIHdvbid0Cj4gPj4+IGJlIGV4ZXJjaXNlZC4gSSBkb24ndCB0
-aGluayBzdWNoIGVudmlyb25tZW50IGlzIHN1aXRhYmxlIGZvciBhbnkga2luZAo+ID4+PiBvZiBi
-cGYgZGV2ZWxvcG1lbnQuIE11Y2ggc28gZm9yIEpJVCBkZWJ1Z2dpbmcuCj4gPj4+IFdoaWxlIGJw
-Zl9qaXRfZW5hYmxlPTIgaXMgbm90aGluZyBidXQgdGhlIGRlYnVnZ2luZyB0b29sIGZvciBKSVQg
-ZGV2ZWxvcGVycy4KPiA+Pj4gSSdkIHJhdGhlciBudWtlIHRoYXQgY29kZSBpbnN0ZWFkIG9mIGNh
-cnJ5aW5nIGl0IGZyb20ga2VybmVsIHRvIGtlcm5lbC4KPiA+Pj4KPiA+Pgo+ID4+IFdoZW4gSSBp
-bXBsZW1lbnRlZCBKSVQgZm9yIFBQQzMyLCBpdCB3YXMgZXh0cmVtZWx5IGhlbHBmdWxsLgo+ID4+
-Cj4gPj4gQXMgZmFyIGFzIEkgdW5kZXJzdGFuZCwgZm9yIHRoZSB0aW1lIGJlaW5nIGJwZnRvb2wg
-aXMgbm90IHVzYWJsZSBpbiBteSBlbnZpcm9ubWVudCBiZWNhdXNlIGl0Cj4gPj4gZG9lc24ndCBz
-dXBwb3J0IGNyb3NzIGNvbXBpbGF0aW9uIHdoZW4gdGhlIHRhcmdldCdzIGVuZGlhbmVzcyBkaWZm
-ZXJzIGZyb20gdGhlIGJ1aWxkaW5nIGhvc3QKPiA+PiBlbmRpYW5lc3MsIHNlZSBkaXNjdXNzaW9u
-IGF0Cj4gPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYnBmLzIxZTY2YTA5LTUxNGYtZjQyNi1i
-OWUyLTEzYmFhYjBiOTM4YkBjc2dyb3VwLmV1Lwo+ID4+Cj4gPj4gVGhhdCdzIHJpZ2h0IHRoYXQg
-c2VsZnRlc3RzIGNhbid0IGJlIGV4ZXJjaXNlZCBiZWNhdXNlIHRoZXkgZG9uJ3QgYnVpbGQuCj4g
-Pj4KPiA+PiBUaGUgcXVlc3Rpb24gbWlnaHQgYmUgY2FuZGlkIGFzIEkgZGlkbid0IGludmVzdGln
-YXRlIG11Y2ggYWJvdXQgdGhlIHJlcGxhY2VtZW50IG9mICJicGZfaml0X2VuYWJsZT0yCj4gPj4g
-ZGVidWdnaW5nIG1vZGUiIGJ5IGJwZnRvb2wsIGhvdyBkbyB3ZSB1c2UgYnBmdG9vbCBleGFjdGx5
-IGZvciB0aGF0ID8gRXNwZWNpYWxseSB3aGVuIHVzaW5nIHRoZSBCUEYKPiA+PiB0ZXN0IG1vZHVs
-ZSA/Cj4gPiAKPiA+IHRoZSBrZXJuZWwgZGV2ZWxvcGVycyBjYW4gYWRkIGFueSBhbW91bnQgb2Yg
-cHJpbnRrIGFuZCBkdW1wcyB0byBkZWJ1Zwo+ID4gdGhlaXIgY29kZSwKPiA+IGJ1dCBzdWNoIGRl
-YnVnZ2luZyBhaWQgc2hvdWxkIG5vdCBiZSBwYXJ0IG9mIHRoZSBwcm9kdWN0aW9uIGtlcm5lbC4K
-PiA+IFRoYXQgc3lzY3RsIHdhcyB0d28gdGhpbmdzIGF0IG9uY2U6IGRlYnVnZ2luZyB0b29sIGZv
-ciBrZXJuZWwgZGV2cyBhbmQKPiA+IGludHJvc3BlY3Rpb24gZm9yIHVzZXJzLgo+ID4gYnBmdG9v
-bCBqaXQgZHVtcCBzb2x2ZXMgdGhlIDJuZCBwYXJ0LiBJdCBwcm92aWRlcyBKSVQgaW50cm9zcGVj
-dGlvbiB0byB1c2Vycy4KPiA+IERlYnVnZ2luZyBvZiB0aGUga2VybmVsIGNhbiBiZSBkb25lIHdp
-dGggYW55IGFtb3VudCBvZiBhdXhpbGlhcnkgY29kZQo+ID4gaW5jbHVkaW5nIGNhbGxpbmcgcHJp
-bnRfaGV4X2R1bXAoKSBkdXJpbmcgaml0aW5nLgo+ID4gCj4gCj4gSSBnZXQgdGhlIGZvbGxvd2lu
-ZyBtZXNzYWdlIHdoZW4gdHJ5aW5nIHRoZSBjb21tYW5kIHN1Z2dlc3RlZCBpbiB0aGUgcGF0Y2gg
-bWVzc2FnZToKPiAKPiByb290QHZnb2lwOn4jIC4vYnBmdG9vbCBwcm9nIGR1bXAgaml0ZWQKPiBF
-cnJvcjogTm8gbGliYmZkIHN1cHBvcnQKPiAKPiBDaHJpc3RvcGhlCgpTZWVtcyB5b3VyIGJwZnRv
-b2wgcHJvZyB3YXMgYnVpbHQgd2l0aG91dCBsaWJiZmQsIGNhbiB5b3UgcmVidWlsZCB3aXRoIGxp
-YmJmZAppbnN0YWxsZWQuCgouSm9obgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Hi Guo,
+
+On Wed, Apr 21, 2021 at 12:53:45PM +0000, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Current GENERIC_ATOMIC64 in atomic-arch-fallback.h is broken. When a 32-bit
+> arch use atomic-arch-fallback.h will cause compile error.
+> 
+> In file included from include/linux/atomic.h:81,
+>                     from include/linux/rcupdate.h:25,
+>                     from include/linux/rculist.h:11,
+>                     from include/linux/pid.h:5,
+>                     from include/linux/sched.h:14,
+>                     from arch/riscv/kernel/asm-offsets.c:10:
+>    include/linux/atomic-arch-fallback.h: In function 'arch_atomic64_inc':
+> >> include/linux/atomic-arch-fallback.h:1447:2: error: implicit declaration of function 'arch_atomic64_add'; did you mean 'arch_atomic_add'? [-Werror=implicit-function-declaration]
+>     1447 |  arch_atomic64_add(1, v);
+>          |  ^~~~~~~~~~~~~~~~~
+>          |  arch_atomic_add
+
+This is expected; GENERIC_ATOMIC64 doesn't implement arch_atomic64_*(),
+and thus violates the expectations of the fallback code.
+
+To make GENERIC_ATOMIC64 compatible with ARCH_ATOMIC, the
+GENERIC_ATOMIC64 implementation *must* provide arch_atomic64_*()
+functions.
+
+> The atomic-arch-fallback.h & atomic-fallback.h &
+> atomic-instrumented.h are generated by gen-atomic-fallback.sh &
+> gen-atomic-instrumented.sh, so just take care the bash files.
+> 
+> Remove the dependency of atomic-*-fallback.h in atomic64.h.
+
+Please don't duplicate the fallbacks; this'll make it harder to move
+other over and eventually remove the non-ARCH_ATOMIC implementations.
+
+Does the patch below make things work for you, or have I missed
+something?
+
+I've given this a basic build test on an arm config using
+GENERIC_ATOMIC64 (but not ARCH_ATOMIC).
+
+Thanks,
+Mark.
+---->8----
+From 7f0389c8a1f41ecb5b2700f6ba38ff2ba093eb33 Mon Sep 17 00:00:00 2001
+From: Mark Rutland <mark.rutland@arm.com>
+Date: Thu, 22 Apr 2021 11:26:04 +0100
+Subject: [PATCH] asm-generic: atomic64: handle ARCH_ATOMIC builds
+
+We'd like all architectures to convert to ARCH_ATOMIC, as this will
+enable functionality, and once all architectures are converted it will
+be possible to make significant cleanups to the atomic headers.
+
+A number of architectures use GENERIC_ATOMIC64, and it's impractical to
+convert them all in one go. To make it possible to convert them
+one-by-one, let's make the GENERIC_ATOMIC64 implementation function as
+either atomic64_*() or arch_atomic64_*() depending on whether
+ARCH_ATOMIC is selected. To do this, the C implementations are prefixed
+as generic_atomic64_*(), and the asm-generic/atomic64.h header maps
+atomic64_*()/arch_atomic64_*() onto these as appropriate via teh
+preprocessor.
+
+Once all users are moved over to ARCH_ATOMIC the ifdeffery in the header
+can be simplified and/or removed entirely.
+
+For existing users (none of which select ARCH_ATOMIC), there should be
+no functional change as a result of this patch.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Guo Ren <guoren@linux.alibaba.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+---
+ include/asm-generic/atomic64.h | 74 ++++++++++++++++++++++++++++++++++--------
+ lib/atomic64.c                 | 36 ++++++++++----------
+ 2 files changed, 79 insertions(+), 31 deletions(-)
+
+diff --git a/include/asm-generic/atomic64.h b/include/asm-generic/atomic64.h
+index 370f01d4450f..45c7ff8c9477 100644
+--- a/include/asm-generic/atomic64.h
++++ b/include/asm-generic/atomic64.h
+@@ -15,19 +15,17 @@ typedef struct {
+ 
+ #define ATOMIC64_INIT(i)	{ (i) }
+ 
+-extern s64 atomic64_read(const atomic64_t *v);
+-extern void atomic64_set(atomic64_t *v, s64 i);
+-
+-#define atomic64_set_release(v, i)	atomic64_set((v), (i))
++extern s64 generic_atomic64_read(const atomic64_t *v);
++extern void generic_atomic64_set(atomic64_t *v, s64 i);
+ 
+ #define ATOMIC64_OP(op)							\
+-extern void	 atomic64_##op(s64 a, atomic64_t *v);
++extern void generic_atomic64_##op(s64 a, atomic64_t *v);
+ 
+ #define ATOMIC64_OP_RETURN(op)						\
+-extern s64 atomic64_##op##_return(s64 a, atomic64_t *v);
++extern s64 generic_atomic64_##op##_return(s64 a, atomic64_t *v);
+ 
+ #define ATOMIC64_FETCH_OP(op)						\
+-extern s64 atomic64_fetch_##op(s64 a, atomic64_t *v);
++extern s64 generic_atomic64_fetch_##op(s64 a, atomic64_t *v);
+ 
+ #define ATOMIC64_OPS(op)	ATOMIC64_OP(op) ATOMIC64_OP_RETURN(op) ATOMIC64_FETCH_OP(op)
+ 
+@@ -46,11 +44,61 @@ ATOMIC64_OPS(xor)
+ #undef ATOMIC64_OP_RETURN
+ #undef ATOMIC64_OP
+ 
+-extern s64 atomic64_dec_if_positive(atomic64_t *v);
+-#define atomic64_dec_if_positive atomic64_dec_if_positive
+-extern s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n);
+-extern s64 atomic64_xchg(atomic64_t *v, s64 new);
+-extern s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u);
+-#define atomic64_fetch_add_unless atomic64_fetch_add_unless
++extern s64 generic_atomic64_dec_if_positive(atomic64_t *v);
++extern s64 generic_atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n);
++extern s64 generic_atomic64_xchg(atomic64_t *v, s64 new);
++extern s64 generic_atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u);
++
++#ifdef ARCH_ATOMIC
++
++#define arch_atomic64_read		generic_atomic64_read
++#define arch_atomic64_set		generic_atomic64_set
++#define arch_atomic64_set_release	generic_atomic64_set
++
++#define	arch_atomic64_add		generic_atomic64_add
++#define	arch_atomic64_add_return	generic_atomic64_add_return
++#define	arch_atomic64_fetch_add		generic_atomic64_fetch_add
++#define	arch_atomic64_sub		generic_atomic64_sub
++#define	arch_atomic64_sub_return	generic_atomic64_sub_return
++#define	arch_atomic64_fetch_sub		generic_atomic64_fetch_sub
++
++#define	arch_atomic64_and		generic_atomic64_and
++#define	arch_atomic64_fetch_and		generic_atomic64_fetch_and
++#define	arch_atomic64_or		generic_atomic64_or
++#define	arch_atomic64_fetch_or		generic_atomic64_fetch_or
++#define	arch_atomic64_xor		generic_atomic64_xor
++#define	arch_atomic64_fetch_xor		generic_atomic64_fetch_xor
++
++#define arch_atomic64_dec_if_positive 	generic_atomic64_dec_if_positive
++#define arch_atomic64_cmpxchg	 	generic_atomic64_cmpxchg
++#define arch_atomic64_xchg	 	generic_atomic64_xchg
++#define arch_atomic64_fetch_add_unless	generic_atomic64_fetch_add_unless
++
++#else /* ARCH_ATOMIC */
++
++#define atomic64_read			generic_atomic64_read
++#define atomic64_set			generic_atomic64_set
++#define atomic64_set_release		generic_atomic64_set
++
++#define	atomic64_add			generic_atomic64_add
++#define	atomic64_add_return		generic_atomic64_add_return
++#define	atomic64_fetch_add		generic_atomic64_fetch_add
++#define	atomic64_sub			generic_atomic64_sub
++#define	atomic64_sub_return		generic_atomic64_sub_return
++#define	atomic64_fetch_sub		generic_atomic64_fetch_sub
++
++#define	atomic64_and			generic_atomic64_and
++#define	atomic64_fetch_and		generic_atomic64_fetch_and
++#define	atomic64_or			generic_atomic64_or
++#define	atomic64_fetch_or		generic_atomic64_fetch_or
++#define	atomic64_xor			generic_atomic64_xor
++#define	atomic64_fetch_xor		generic_atomic64_fetch_xor
++
++#define atomic64_dec_if_positive 	generic_atomic64_dec_if_positive
++#define atomic64_cmpxchg	 	generic_atomic64_cmpxchg
++#define atomic64_xchg	 		generic_atomic64_xchg
++#define atomic64_fetch_add_unless	generic_atomic64_fetch_add_unless
++
++#endif /* ARCH_ATOMIC */
+ 
+ #endif  /*  _ASM_GENERIC_ATOMIC64_H  */
+diff --git a/lib/atomic64.c b/lib/atomic64.c
+index e98c85a99787..3df653994177 100644
+--- a/lib/atomic64.c
++++ b/lib/atomic64.c
+@@ -42,7 +42,7 @@ static inline raw_spinlock_t *lock_addr(const atomic64_t *v)
+ 	return &atomic64_lock[addr & (NR_LOCKS - 1)].lock;
+ }
+ 
+-s64 atomic64_read(const atomic64_t *v)
++s64 generic_atomic64_read(const atomic64_t *v)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -53,9 +53,9 @@ s64 atomic64_read(const atomic64_t *v)
+ 	raw_spin_unlock_irqrestore(lock, flags);
+ 	return val;
+ }
+-EXPORT_SYMBOL(atomic64_read);
++EXPORT_SYMBOL(generic_atomic64_read);
+ 
+-void atomic64_set(atomic64_t *v, s64 i)
++void generic_atomic64_set(atomic64_t *v, s64 i)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -64,10 +64,10 @@ void atomic64_set(atomic64_t *v, s64 i)
+ 	v->counter = i;
+ 	raw_spin_unlock_irqrestore(lock, flags);
+ }
+-EXPORT_SYMBOL(atomic64_set);
++EXPORT_SYMBOL(generic_atomic64_set);
+ 
+ #define ATOMIC64_OP(op, c_op)						\
+-void atomic64_##op(s64 a, atomic64_t *v)				\
++void generic_atomic64_##op(s64 a, atomic64_t *v)			\
+ {									\
+ 	unsigned long flags;						\
+ 	raw_spinlock_t *lock = lock_addr(v);				\
+@@ -76,10 +76,10 @@ void atomic64_##op(s64 a, atomic64_t *v)				\
+ 	v->counter c_op a;						\
+ 	raw_spin_unlock_irqrestore(lock, flags);			\
+ }									\
+-EXPORT_SYMBOL(atomic64_##op);
++EXPORT_SYMBOL(generic_atomic64_##op);
+ 
+ #define ATOMIC64_OP_RETURN(op, c_op)					\
+-s64 atomic64_##op##_return(s64 a, atomic64_t *v)			\
++s64 generic_atomic64_##op##_return(s64 a, atomic64_t *v)		\
+ {									\
+ 	unsigned long flags;						\
+ 	raw_spinlock_t *lock = lock_addr(v);				\
+@@ -90,10 +90,10 @@ s64 atomic64_##op##_return(s64 a, atomic64_t *v)			\
+ 	raw_spin_unlock_irqrestore(lock, flags);			\
+ 	return val;							\
+ }									\
+-EXPORT_SYMBOL(atomic64_##op##_return);
++EXPORT_SYMBOL(generic_atomic64_##op##_return);
+ 
+ #define ATOMIC64_FETCH_OP(op, c_op)					\
+-s64 atomic64_fetch_##op(s64 a, atomic64_t *v)				\
++s64 generic_atomic64_fetch_##op(s64 a, atomic64_t *v)			\
+ {									\
+ 	unsigned long flags;						\
+ 	raw_spinlock_t *lock = lock_addr(v);				\
+@@ -105,7 +105,7 @@ s64 atomic64_fetch_##op(s64 a, atomic64_t *v)				\
+ 	raw_spin_unlock_irqrestore(lock, flags);			\
+ 	return val;							\
+ }									\
+-EXPORT_SYMBOL(atomic64_fetch_##op);
++EXPORT_SYMBOL(generic_atomic64_fetch_##op);
+ 
+ #define ATOMIC64_OPS(op, c_op)						\
+ 	ATOMIC64_OP(op, c_op)						\
+@@ -130,7 +130,7 @@ ATOMIC64_OPS(xor, ^=)
+ #undef ATOMIC64_OP_RETURN
+ #undef ATOMIC64_OP
+ 
+-s64 atomic64_dec_if_positive(atomic64_t *v)
++s64 generic_atomic64_dec_if_positive(atomic64_t *v)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -143,9 +143,9 @@ s64 atomic64_dec_if_positive(atomic64_t *v)
+ 	raw_spin_unlock_irqrestore(lock, flags);
+ 	return val;
+ }
+-EXPORT_SYMBOL(atomic64_dec_if_positive);
++EXPORT_SYMBOL(generic_atomic64_dec_if_positive);
+ 
+-s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
++s64 generic_atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -158,9 +158,9 @@ s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
+ 	raw_spin_unlock_irqrestore(lock, flags);
+ 	return val;
+ }
+-EXPORT_SYMBOL(atomic64_cmpxchg);
++EXPORT_SYMBOL(generic_atomic64_cmpxchg);
+ 
+-s64 atomic64_xchg(atomic64_t *v, s64 new)
++s64 generic_atomic64_xchg(atomic64_t *v, s64 new)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -172,9 +172,9 @@ s64 atomic64_xchg(atomic64_t *v, s64 new)
+ 	raw_spin_unlock_irqrestore(lock, flags);
+ 	return val;
+ }
+-EXPORT_SYMBOL(atomic64_xchg);
++EXPORT_SYMBOL(generic_atomic64_xchg);
+ 
+-s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
++s64 generic_atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
+ {
+ 	unsigned long flags;
+ 	raw_spinlock_t *lock = lock_addr(v);
+@@ -188,4 +188,4 @@ s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
+ 
+ 	return val;
+ }
+-EXPORT_SYMBOL(atomic64_fetch_add_unless);
++EXPORT_SYMBOL(generic_atomic64_fetch_add_unless);
+-- 
+2.11.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
