@@ -2,174 +2,93 @@ Return-Path: <SRS0=CVeS=JT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D1EEC433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 12:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CE7AC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 13:13:03 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 71C6C6144A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 12:01:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71C6C6144A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id C28FE61435
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Apr 2021 13:13:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C28FE61435
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=Vf+VLJqyZV9YlqNYYMxMfZtudEeFOpa5ueVoLa3074o=; b=aqEsp/5MncTwHIzsCHIK9CIIs
-	YfFdQfZmYCijAmBMjS/ffpHyLAQNZrz5DWag5425q87cZfp0lpN5kYlZZH8PtAfPcOOEzwXlJN98I
-	POVnPNgvKC3c1dsBLdyl661Fp6B/n7JEApvuFIRFL5BTjaJxCg6hGvrb8bN4B46Bmtl55wBWGCiq1
-	MW8mN0eo8+UG1wAALu6IBpQpBys3wscS+vFaI1OB2yQsDcIAPK7UpNoPVON+2tS0UP8FYiyRjXNey
-	Rznj4UYyHm4eNTXyWlWHq+DW75KSiYIj7Km6zSv4SL4g8KX0sedNPYrPAd7FrudM9YwW2IRHXaDfv
-	7m4gsqczA==;
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=UBbA4oNEKhpTMfxcP6NiZkyoAiT+lc4BXi51gpi1pTU=; b=GBW319da9asB0/ilG52p2D5W3
+	P/u+lxSR0uRQFpHt+rV5dA4G7up9VVQ2uzaNajAbcUkKoOksjpzCOpzZk9LuHPjUufKmuaB1Nl5wg
+	eyTR/M3dJu0bfAVX4X0niPmU+8uWE+TqmADZkEaM7z1QY1jOReqw4aXVbqqzjLzIBlNUcWN461nwO
+	1AX065EbBlz2TvCnoED/FzG3NLhsW5xTyCebs/i3nfoW9g3RUX8xExjXQG/ruIX/AG9+tHdAlBAmz
+	lh3J3MYW06Nff75k+73ycQ9dXL3SQ6tbVzOo3/pKLckN6PDrJP5bqhLm3dYggudJZf+bs8CdEJoQ2
+	BQdmJaVlw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lZY0g-00Ge5A-Dd; Thu, 22 Apr 2021 12:00:42 +0000
+	id 1lZZ8L-00GmlA-Dp; Thu, 22 Apr 2021 13:12:41 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZY0e-00Ge53-Ck
- for linux-riscv@desiato.infradead.org; Thu, 22 Apr 2021 12:00:41 +0000
+ id 1lZZ8I-00Gmkz-IX
+ for linux-riscv@desiato.infradead.org; Thu, 22 Apr 2021 13:12:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=MIME-Version:
- Content-Transfer-Encoding:Content-Type:References:Message-ID:Date:Subject:CC:
- To:From:Sender:Reply-To:Content-ID:Content-Description:In-Reply-To;
- bh=05v0q5/pgYNB8r4vVtW0Q8jpXRo4ihV4DWNlfBVnpQI=; b=ym4sQl4xJfLSOWBHvY8+c6dgTH
- awsycSNEABpVLagBSia0dtNc+/UNXvXP9c+jnCuQdeXaMk2eT4/ql5cM5ypxTsaFR3ExumRYYCdL5
- kNyvQ51Btt4o/Fk6CAGzdPSllYO9mYkttq4bep0TColSILYdoRB25vaF5xbnOr8qLmTd8VbVsP3T8
- vimIhZLUI4DhJLGTMbrnpt1wb/NZxy+A8RD3Ps1D6NWuDulXEQrOBB8RU8JB14SCYxynSjrvWmQHy
- FLlPL0a1Id7QDntNCi94vjgrz3gnUmghYz4j8ZzX/Te4PYZPFwcM6fVV6oglCtylt//J7j59Yu1hw
- GnujsBVg==;
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=CuF/+mqMuXSvBnTQOaIxj292JX7dLi7X0hrFyoC6wFs=; b=u3sLTv6pNIWwiRWFq9WmCHFc0l
+ K1tD1048DwsN0kpYpcQlCn+OR6zbTTmhJlC3ASrnCtxrBqTQWaFVvrn+NCpbCiUYbLQgcd05nz6hM
+ sAQvwpTTg0jkfQIqnnGyHmMiblLzWGk8iW3wLkRXkM/OpMzvUed8UeZyklz2qdsnOaHuRmXjuS7lz
+ ++UnccGwjCxTpW2/0vPCLnNgAqc9Q3SsJgZy85oQFn5ruKybJ+JllFrIrp0Ykqek9IA49mVDTY4FP
+ A99fHW1KJSKwUh+iKjrzS+3t7egv9QsxW39XcDathi5F5GdkRuiLpbRhkXHsG+X8RCeT3RA+WTtHD
+ DV1akcCw==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZY0b-00DeA9-7J
- for linux-riscv@lists.infradead.org; Thu, 22 Apr 2021 12:00:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1619092836; x=1650628836;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=jFI7cMiC4oh8Am4A9ZGZjLuorlhW4/gmKPPiybmZ5cM=;
- b=hDRp1cqBNFOy0hmy5HtjroCHe64GLrI4BM1yJxSSbPGlzPnNRXRhlvfE
- eJ7cZ7T30+2bfiMlOUokq9Ot0XXA6+tLQ3HqPDbEoOT7DZI9Z5m0fBFx/
- izKYY/QoKezAm25LpTnU2RLRKkmPl1W3C+z5NfY+mAyTBO2UPI3Davpua
- Ik2ZzPqG4S2rlz9GINPgkJO5RTFF4sp1IQwKHXJ0txtymsj4f/02RMwR7
- hBKEuPvR2+V89y60XjRe69M08MNg5hQLfsOSr3e1zuixgWEFyTg1797wQ
- 48Uo+XmIwb0eWFFUl1xdAeXgGlJmFdTWRL678KaLrzrVv+uylRBFsEGlF g==;
-IronPort-SDR: yVk+BXoWEKySZq9ivtuj/KdXb21/27D9Vwm6HmH3ynf0N+WYgMB0SOcqgiNu1P8NF8lmAGSFvj
- X6AW/p2bt99XOFwcANQ3ciKzSUasZOmY7SAfEHc2DW6d9V3Etdrie2vMV9Tie5IMRWNaH7lC6e
- /VfkXdM79jnuXm03u55XfbGH740M+Mj8TchuCTsRNuCfhe8vZdt7f4D0irLSm2KzVm3zkBTCtn
- wSzLldDB3TFFqU9J3A1XYS7LMG1PmemB6c3zFNysvx59IupFuXsoh2oRACWQMJEaoZ3Q93sZqQ
- 5YE=
-X-IronPort-AV: E=Sophos;i="5.82,242,1613404800"; d="scan'208";a="170395536"
-Received: from mail-dm6nam11lp2177.outbound.protection.outlook.com (HELO
- NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.177])
- by ob1.hgst.iphmx.com with ESMTP; 22 Apr 2021 20:00:34 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PCulRv/bJUkwuUWve2FALVg4w6cjCL0LWqMenHkMEcKy0FWbp/OAVvQeJivTx8tKuyCGlNk8kIB1IfYreXEAtdO20kDflDSHqiT8vy8JQq8baGaCZA9fGNvpJimCe4JhSP0MaAB+VA1O15oKMHpCOZKJOQNBE8eL4qnzAlTUOhyNCPN4uu0cW0RZulZr62NyYL8e/U7pJGwiqLmEV7C0Vp+l7NPQ/fbe+lSBLNH78K6U04eFjiyw/g/tHBb8k07zCA1qGW/PgE3BI6Wk8KPExiT17MxOfihdVXWug+/90cMx79MBPPcTsnZCIm18XNhDHchqVog/ONpXW/oEKGeywQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=05v0q5/pgYNB8r4vVtW0Q8jpXRo4ihV4DWNlfBVnpQI=;
- b=bhh3YbEQkxwKYLs7pEJQp7pKSCY8fj2nFTwpp1jMPm0LQHskJn7xd2skDv69/WuRmoixbPPooaeKwmOcA2rU0qOCDu7fdDJaqZv+dlTwuabdaKzmmCGbnqrSgzLtCcJFKSy0BrB3u3+1+gIQmGAolWwEFMIyyn7ujmgY7VtUB2DT4hXjoHmYv8fYMGD9g4FPmovw7bKN11w5eulKqKYgzCQL18TnE2bOfcgU9mH6ibHTwPDWhi6C/Gf/xFRS2FCm93XSFcHYhs1HM1ZRYB/yckN36xmAkkJvTC5qqcdIb1Wld7D17p2+aePU4md4JBYqly5UAR5F5jue7H+36ohecQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=05v0q5/pgYNB8r4vVtW0Q8jpXRo4ihV4DWNlfBVnpQI=;
- b=r6JZQHSUs6+UmkrU/Ak9O3D3xL0gMnXqTrsd4IjFlgg8wxSGx01NVaMH6MCLmdZLafsZwtPrQkfCHIlQYztHqnCbdIgJSVTd22Kc7u66edXCZYoR/8fNsBsttfmsw0kH3q9zb5Msj3vjXvot26LARuY6OB4wr8rMHZQAoDMYqfk=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by BL0PR04MB4450.namprd04.prod.outlook.com (2603:10b6:208:42::17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4065.22; Thu, 22 Apr
- 2021 12:00:32 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::8557:ab07:8b6b:da78]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::8557:ab07:8b6b:da78%3]) with mapi id 15.20.4065.023; Thu, 22 Apr 2021
- 12:00:32 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Greg Ungerer <gerg@linux-m68k.org>, "uclinux-dev@uclinux.org"
- <uclinux-dev@uclinux.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Anup Patel
- <Anup.Patel@wdc.com>, Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH v4 1/2] binfmt_flat: allow not offsetting data start
-Thread-Topic: [PATCH v4 1/2] binfmt_flat: allow not offsetting data start
-Thread-Index: AQHXMyZv8axGA7lx3kGvgyyYuv6fjQ==
-Date: Thu, 22 Apr 2021 12:00:32 +0000
-Message-ID: <BL0PR04MB651434FAFF5566A575FDBE76E7469@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <20210417011009.54569-1-damien.lemoal@wdc.com>
- <20210417011009.54569-2-damien.lemoal@wdc.com>
- <5227b984-f415-98b5-dae8-0cf84a71bb46@linux-m68k.org>
- <BL0PR04MB651453DC7A8BE4E050B11893E74B9@BL0PR04MB6514.namprd04.prod.outlook.com>
- <b83b023e-abab-35d2-22c7-5d259af2ac97@linux-m68k.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: linux-m68k.org; dkim=none (message not signed)
- header.d=none;linux-m68k.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:165:d3a4:4d5e:855d]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 7d8be2b6-81f7-429a-e24d-08d905863af9
-x-ms-traffictypediagnostic: BL0PR04MB4450:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BL0PR04MB445009DDC9D21AFD6CB3A2CCE7469@BL0PR04MB4450.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:5797;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: pD1XJx3ZVK9Hxh/vGYEnf4vcei1yJvPsADn2JlM2HoWFH8tI+vThbxYI0WepzNooUNKHfDn2MeOrz/JRVVSDOMJOev8hU6m3T62pf8XQdYoQSSTUSztPkgI+Q85kNBQLcvVObOeVR5Zn7zaN1/uMXjkobB4B1hJMBE/vJ8l6px+6tgCUOVNjwvqt5b7O1k+2AoxgZc1WYHxRJ53i3QN6d11zMupAKqhIRaa4zmoLJMr3zX9MYtsvAFADytyhVic9SL7ZsFseO4Bb7EDdEWgBAsI9BoBybb8pIKrR6SYrQQqWciioEoxUHS9DKRIVfpSHteIDRiYsr6rH1JfORu8AMbO5O4AebQwjz5I8sjZTRWe2hJ3BipDMXS4ghPB6RsFCQWX17GL1I6Xoo/T5Qs9OaYy18qq8hbqDqEjF0PHZprEzqUlilocPmvSewNvCwSu7jsKHWYtFk0Bx4dCA2Mn7hp810HRAZkUOctzY4NutcZWf4lRsu/idcxsqYZ+6tYR6Q0nAPJmaZj0/MbTjng747xTQ3JkSBrdmOoE9AiORtSyyzRli8ieI/onk9UaTg6JuWZXjyEYXwOw+IWqvqXx3CrGqE0BweH7a+P+TSABAoIQ=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(396003)(376002)(136003)(366004)(346002)(478600001)(9686003)(66446008)(71200400001)(66946007)(64756008)(66556008)(91956017)(76116006)(83380400001)(122000001)(66476007)(38100700002)(7696005)(8936002)(55016002)(8676002)(316002)(110136005)(33656002)(54906003)(53546011)(6506007)(5660300002)(186003)(4326008)(86362001)(52536014)(2906002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?TXy/mODyqUBCTwd953a/XUHptywWEMGqEAnsvkOwzsnPeC42xMz8T2/9bV64?=
- =?us-ascii?Q?6sRFK49tSp1C98ZcFa6ni3MOXHUtvloP84qwEBuY3Db08bUpephbMLBZyIjn?=
- =?us-ascii?Q?x9wE0DAGSg8EZ/AWsRrcT0yhn0FCsAIyz+Jr1wihj2uY/PPveGUn4JoE0eG6?=
- =?us-ascii?Q?I8h8uDTiK/BdmJU8yPBEG0YNqYQYF2fEogvhcYesyQ1STugjNu7TbeBdi0HT?=
- =?us-ascii?Q?Ei0c9zNpjyMsAiLopWNN3MkZ+KWq77ndgNv3I2BUcs/M/CH9vxJTEMAPYecw?=
- =?us-ascii?Q?s6YVHo1Opzm5poA7WIhoS7nmulv0jsxqUlHZGh/dB4itezEt1QDN30aFLGIK?=
- =?us-ascii?Q?O5v6IiLoC7Qg++5sVoJkUxocM+01WdrfXRXFpdwQZZxcKxTQzskzriWUyHhE?=
- =?us-ascii?Q?5hfs1OghqmZ6KALS2+9gbq3Q+8nmW0ab6nETJEFCkYG7FkHS7VtgwnK75BSD?=
- =?us-ascii?Q?31AdVwaDgmBzrUmmI0oBK7aQPB+o1m7lfzrQ2La9HBSZbhYEOA12K3XASoIp?=
- =?us-ascii?Q?0vFTXHAjxFwyqYSIb8q9NN/omkpjKuOCNDbz5cV1zU7xB60foNtNx2Rp3rxS?=
- =?us-ascii?Q?qhWnqmKC6P2ZqUla1dNNyCLh5Q1br8sm4i92y2r3qfoAn5n9WETioDE5n0vV?=
- =?us-ascii?Q?1KJIPljWN3WndBZVnMtSRSST7cQVkkLW4uhu/KJ2+prY6y6geNdueaHPw92d?=
- =?us-ascii?Q?jtl99go7vf7UkSgp930ZpirDwHo6UV4oMRbum5gTkJiuss7GhxBra1O4EgIR?=
- =?us-ascii?Q?htL8PbGFOD9VBPi24PULKSd082rklzLWAY/5YdkwGt6F7tLhp3A63n89AC86?=
- =?us-ascii?Q?3oRasQZU9B5LAM2qP2HDjQl9Yt+1usnMF/+kQbxtwnrLZcnDb2SsCERz3xvW?=
- =?us-ascii?Q?RbTGNmWJ7iJpoH0g6UtrWPOsNovMt3YCFgrm8jL5imxNgTYZHmhWQrafk2O7?=
- =?us-ascii?Q?aIbkxpEycA7pVEY2jF5qN0FoYNoVPXm/5RM0AUn7geWWV1v8BblLSwUgFwVU?=
- =?us-ascii?Q?fM9avgKAABvMuBh9AIlX+bkIHmldygkNe+TaO8NAfA2W2XTJS8GP4RtfBCOJ?=
- =?us-ascii?Q?4Ty9OYXokQJ4ofP9ejfw/pKa3LVWzzofUbfwNQu6h7ad2TP2fvLdH8A2k0+B?=
- =?us-ascii?Q?5cweJ66yCaVwFlhbhk5NpoZ4xdwBMy4biF3gY+8XR7BUEvLpQn9x8LD5jguk?=
- =?us-ascii?Q?jho08VJPguDibayzK1GN/Usal6iWGW18o0bpdH0H1rt/sAo3L7HOkgCQHdEw?=
- =?us-ascii?Q?WMHK8Ocp0WH8r7eIsflaDDjiiK5OI5uV1je+Nk41u/o6QZlKBqyAW1l4NrKf?=
- =?us-ascii?Q?1SrLVnl5o7bxE1Kk87OQEdqt6ewKJ50/iqe2OjKdp0ogimtS113GvRjVtBTG?=
- =?us-ascii?Q?zc4O5fUuNoRGwZtzKikenGQ7LO8b3NR/ZfQxb41lON7MUmQGRg=3D=3D?=
+ id 1lZZ8D-00Dhuu-6Z
+ for linux-riscv@lists.infradead.org; Thu, 22 Apr 2021 13:12:37 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8B67261426
+ for <linux-riscv@lists.infradead.org>; Thu, 22 Apr 2021 13:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1619097152;
+ bh=NRPaqtEsmUYwNyH+Sf5eK51rNGMJ920vK+sU/qyUaa4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=T5oBDFNuNg9n6OjL1ZFEj8iJVcrA4Z+e5AV70s6wccb0JalTnhAUwGtDWL/DREzsW
+ glt++KMvFx9NS7UY4WmmB6v8j12L6l5AO94lXFuHF8aAjvUpMJqb+tbTR8zqYMyDz2
+ r6uR2LY31aPT/asqDWq43SvFbDQGjig9ujBpnz7Ya775HFTk42lfCziLq1RloCJDvP
+ anoyCQDtNvjPKEJUkjgwnZAGbFnr8aNI2Fu29Apry/9iwuPAOiThJdAo8gEMgxwW+W
+ Zt3yE6FDgH6OvTQHDh0hG+VxuvGph8IVG0+6W2rfnEuWxefwDFjFWweWM4adECV4FR
+ TjDdR/7lqjDTA==
+Received: by mail-lf1-f54.google.com with SMTP id 12so71833902lfq.13
+ for <linux-riscv@lists.infradead.org>; Thu, 22 Apr 2021 06:12:32 -0700 (PDT)
+X-Gm-Message-State: AOAM530lP7IPvJuCEXrVNp4cBC9gccr1p99LiVcX4E1DhpdvQYTJwFuL
+ TRBlQoMRguoDUFHJBh8wIgyeMN9cXqVWZJuA/Ec=
+X-Google-Smtp-Source: ABdhPJxfutkjLP/5vTtrn+JRUE5c8Vh90V8p2MeanOxF8SOMdTUUb8/8jPc+nXC3YARCDdrB1O2LTLhx0vj9pslv+o8=
+X-Received: by 2002:a19:e34c:: with SMTP id c12mr2542335lfk.555.1619097150692; 
+ Thu, 22 Apr 2021 06:12:30 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d8be2b6-81f7-429a-e24d-08d905863af9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Apr 2021 12:00:32.1921 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VNM3GJJVzmopOUPONv+Sx41lKiRu87/pyfm9P1g7Ut+H76E5hWwbw+6JpqUsDmtBWkdG+z6LHhgrBeufFygZ/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4450
+References: <1619009626-93453-1-git-send-email-guoren@kernel.org>
+ <20210422105945.GB62037@C02TD0UTHF1T.local>
+In-Reply-To: <20210422105945.GB62037@C02TD0UTHF1T.local>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 22 Apr 2021 21:12:19 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQSrBM5rBH+2cG8-iTAw8C+A20S-WGtE33hjVVLVLCpJA@mail.gmail.com>
+Message-ID: <CAJF2gTQSrBM5rBH+2cG8-iTAw8C+A20S-WGtE33hjVVLVLCpJA@mail.gmail.com>
+Subject: Re: [PATCH] asm-generic: atomic64: handle ARCH_ATOMIC builds (was
+ "Re: [PATCH v3 1/2] locking/atomics: Fixup GENERIC_ATOMIC64 conflict") with
+ atomic-arch-fallback.h
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-arch <linux-arch@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+ Peter Zijlstra <peterz@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210422_050037_296929_432EEB53 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20210422_061233_352089_41E8C2F7 
+X-CRM114-Status: GOOD (  37.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,156 +105,328 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/04/18 11:38, Greg Ungerer wrote:
-> 
-> 
-> On 17/4/21 2:54 pm, Damien Le Moal wrote:
->> On 2021/04/17 13:52, Greg Ungerer wrote:
->>>
->>> On 17/4/21 11:10 am, Damien Le Moal wrote:
->>>> Commit 2217b9826246 ("binfmt_flat: revert "binfmt_flat: don't offset
->>>> the data start"") restored offsetting the start of the data section by
->>>> a number of words defined by MAX_SHARED_LIBS. As a result, since
->>>> MAX_SHARED_LIBS is never 0, a gap between the text and data sections
->>>> always exists. For architectures which cannot support a such gap
->>>> between the text and data sections (e.g. riscv nommu), flat binary
->>>> programs cannot be executed.
->>>>
->>>> To allow an architecture to request no data start offset to allow for
->>>> contiguous text and data sections for binaries flagged with
->>>> FLAT_FLAG_RAM, introduce the new config option
->>>> CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET. Using this new option, the
->>>> macro DATA_START_OFFSET_WORDS is conditionally defined in binfmt_flat.c
->>>> to MAX_SHARED_LIBS for architectures tolerating or needing the data
->>>> start offset (CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET disabled case)
->>>> and to 0 when CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET is enabled.
->>>> DATA_START_OFFSET_WORDS is used in load_flat_file() to calculate the
->>>> data section length and start position.
->>>>
->>>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
->>>> ---
->>>>    fs/Kconfig.binfmt |  3 +++
->>>>    fs/binfmt_flat.c  | 19 ++++++++++++++-----
->>>>    2 files changed, 17 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
->>>> index c6f1c8c1934e..06fb7a93a1bd 100644
->>>> --- a/fs/Kconfig.binfmt
->>>> +++ b/fs/Kconfig.binfmt
->>>> @@ -112,6 +112,9 @@ config BINFMT_FLAT_ARGVP_ENVP_ON_STACK
->>>>    config BINFMT_FLAT_OLD_ALWAYS_RAM
->>>>    	bool
->>>>    
->>>> +config BINFMT_FLAT_NO_DATA_START_OFFSET
->>>> +	bool
->>>> +
->>>>    config BINFMT_FLAT_OLD
->>>>    	bool "Enable support for very old legacy flat binaries"
->>>>    	depends on BINFMT_FLAT
->>>> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
->>>> index b9c658e0548e..1dc68dfba3e0 100644
->>>> --- a/fs/binfmt_flat.c
->>>> +++ b/fs/binfmt_flat.c
->>>> @@ -74,6 +74,12 @@
->>>>    #define	MAX_SHARED_LIBS			(1)
->>>>    #endif
->>>>    
->>>> +#ifdef CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET
->>>> +#define DATA_START_OFFSET_WORDS		(0)
->>>> +#else
->>>> +#define DATA_START_OFFSET_WORDS		(MAX_SHARED_LIBS)
->>>> +#endif
->>>> +
->>>>    struct lib_info {
->>>>    	struct {
->>>>    		unsigned long start_code;		/* Start of text segment */
->>>> @@ -560,6 +566,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    	 * it all together.
->>>>    	 */
->>>>    	if (!IS_ENABLED(CONFIG_MMU) && !(flags & (FLAT_FLAG_RAM|FLAT_FLAG_GZIP))) {
->>>> +
->>>
->>> Random white space change...
->>> Don't worry about re-spinning though, I will just edit this chunk out.
->>
->> Oops. Sorry about that. I should have better checked :)
->>
->>>
->>>
->>>>    		/*
->>>>    		 * this should give us a ROM ptr,  but if it doesn't we don't
->>>>    		 * really care
->>>> @@ -576,7 +583,8 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			goto err;
->>>>    		}
->>>>    
->>>> -		len = data_len + extra + MAX_SHARED_LIBS * sizeof(unsigned long);
->>>> +		len = data_len + extra +
->>>> +			DATA_START_OFFSET_WORDS * sizeof(unsigned long);
->>>>    		len = PAGE_ALIGN(len);
->>>>    		realdatastart = vm_mmap(NULL, 0, len,
->>>>    			PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE, 0);
->>>> @@ -591,7 +599,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			goto err;
->>>>    		}
->>>>    		datapos = ALIGN(realdatastart +
->>>> -				MAX_SHARED_LIBS * sizeof(unsigned long),
->>>> +				DATA_START_OFFSET_WORDS * sizeof(unsigned long),
->>>>    				FLAT_DATA_ALIGN);
->>>>    
->>>>    		pr_debug("Allocated data+bss+stack (%u bytes): %lx\n",
->>>> @@ -622,7 +630,8 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    		memp_size = len;
->>>>    	} else {
->>>>    
->>>> -		len = text_len + data_len + extra + MAX_SHARED_LIBS * sizeof(u32);
->>>> +		len = text_len + data_len + extra +
->>>> +			DATA_START_OFFSET_WORDS * sizeof(u32);
->>>>    		len = PAGE_ALIGN(len);
->>>>    		textpos = vm_mmap(NULL, 0, len,
->>>>    			PROT_READ | PROT_EXEC | PROT_WRITE, MAP_PRIVATE, 0);
->>>> @@ -638,7 +647,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    
->>>>    		realdatastart = textpos + ntohl(hdr->data_start);
->>>>    		datapos = ALIGN(realdatastart +
->>>> -				MAX_SHARED_LIBS * sizeof(u32),
->>>> +				DATA_START_OFFSET_WORDS * sizeof(u32),
->>>>    				FLAT_DATA_ALIGN);
->>>>    
->>>>    		reloc = (__be32 __user *)
->>>> @@ -714,7 +723,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->>>>    			ret = result;
->>>>    			pr_err("Unable to read code+data+bss, errno %d\n", ret);
->>>>    			vm_munmap(textpos, text_len + data_len + extra +
->>>> -				MAX_SHARED_LIBS * sizeof(u32));
->>>> +				  DATA_START_OFFSET_WORDS * sizeof(u32));
->>>>    			goto err;
->>>>    		}
->>>>    	}
->>>>
->>>
->>> Thanks, otherwise looks good.
->>>
->>> Acked-by: Greg Ungerer <gerg@linux-m68k.org>
->>>
->>> I will push this into my m68knommu tree, for-next branch.
->>> I just carry the flat format changes in that tree now to make my life easier.
->>
->> Great. Thanks !
->> Are you taking both patches or should Plamer take the riscv Kconfig change
->> through his tree ?
-> 
-> I am happy to take both.
-> Palmer?
+Hi Mark,
 
-Palmer,
+On Thu, Apr 22, 2021 at 6:59 PM Mark Rutland <mark.rutland@arm.com> wrote:
+>
+> Hi Guo,
+>
+> On Wed, Apr 21, 2021 at 12:53:45PM +0000, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Current GENERIC_ATOMIC64 in atomic-arch-fallback.h is broken. When a 32-bit
+> > arch use atomic-arch-fallback.h will cause compile error.
+> >
+> > In file included from include/linux/atomic.h:81,
+> >                     from include/linux/rcupdate.h:25,
+> >                     from include/linux/rculist.h:11,
+> >                     from include/linux/pid.h:5,
+> >                     from include/linux/sched.h:14,
+> >                     from arch/riscv/kernel/asm-offsets.c:10:
+> >    include/linux/atomic-arch-fallback.h: In function 'arch_atomic64_inc':
+> > >> include/linux/atomic-arch-fallback.h:1447:2: error: implicit declaration of function 'arch_atomic64_add'; did you mean 'arch_atomic_add'? [-Werror=implicit-function-declaration]
+> >     1447 |  arch_atomic64_add(1, v);
+> >          |  ^~~~~~~~~~~~~~~~~
+> >          |  arch_atomic_add
+>
+> This is expected; GENERIC_ATOMIC64 doesn't implement arch_atomic64_*(),
+> and thus violates the expectations of the fallback code.
+>
+> To make GENERIC_ATOMIC64 compatible with ARCH_ATOMIC, the
+> GENERIC_ATOMIC64 implementation *must* provide arch_atomic64_*()
+> functions.
+How do you let a "static __always_inline" of
+"asm-generic/atomic-instrumented.h" call a real function? See
+lib/atomic64.c.
 
-Ping !
+>
+> > The atomic-arch-fallback.h & atomic-fallback.h &
+> > atomic-instrumented.h are generated by gen-atomic-fallback.sh &
+> > gen-atomic-instrumented.sh, so just take care the bash files.
+> >
+> > Remove the dependency of atomic-*-fallback.h in atomic64.h.
+>
+> Please don't duplicate the fallbacks; this'll make it harder to move
+> other over and eventually remove the non-ARCH_ATOMIC implementations.
+>
+> Does the patch below make things work for you, or have I missed
+> something?
+RISC-V combines 32bit & 64bit together just like x86. Current
+ARCH_ATOMIC could work perfectly with RV64, but not RV32.
+
+RV32 still could use ARCH_ATOMIC to improve kasan check.
+
+>
+> I've given this a basic build test on an arm config using
+> GENERIC_ATOMIC64 (but not ARCH_ATOMIC).
+>
+> Thanks,
+> Mark.
+> ---->8----
+> From 7f0389c8a1f41ecb5b2700f6ba38ff2ba093eb33 Mon Sep 17 00:00:00 2001
+> From: Mark Rutland <mark.rutland@arm.com>
+> Date: Thu, 22 Apr 2021 11:26:04 +0100
+> Subject: [PATCH] asm-generic: atomic64: handle ARCH_ATOMIC builds
+>
+> We'd like all architectures to convert to ARCH_ATOMIC, as this will
+> enable functionality, and once all architectures are converted it will
+> be possible to make significant cleanups to the atomic headers.
+>
+> A number of architectures use GENERIC_ATOMIC64, and it's impractical to
+> convert them all in one go. To make it possible to convert them
+> one-by-one, let's make the GENERIC_ATOMIC64 implementation function as
+> either atomic64_*() or arch_atomic64_*() depending on whether
+> ARCH_ATOMIC is selected. To do this, the C implementations are prefixed
+> as generic_atomic64_*(), and the asm-generic/atomic64.h header maps
+> atomic64_*()/arch_atomic64_*() onto these as appropriate via teh
+> preprocessor.
+>
+> Once all users are moved over to ARCH_ATOMIC the ifdeffery in the header
+> can be simplified and/or removed entirely.
+>
+> For existing users (none of which select ARCH_ATOMIC), there should be
+> no functional change as a result of this patch.
+>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> ---
+>  include/asm-generic/atomic64.h | 74 ++++++++++++++++++++++++++++++++++--------
+>  lib/atomic64.c                 | 36 ++++++++++----------
+>  2 files changed, 79 insertions(+), 31 deletions(-)
+>
+> diff --git a/include/asm-generic/atomic64.h b/include/asm-generic/atomic64.h
+> index 370f01d4450f..45c7ff8c9477 100644
+> --- a/include/asm-generic/atomic64.h
+> +++ b/include/asm-generic/atomic64.h
+> @@ -15,19 +15,17 @@ typedef struct {
+>
+>  #define ATOMIC64_INIT(i)       { (i) }
+>
+> -extern s64 atomic64_read(const atomic64_t *v);
+> -extern void atomic64_set(atomic64_t *v, s64 i);
+> -
+> -#define atomic64_set_release(v, i)     atomic64_set((v), (i))
+> +extern s64 generic_atomic64_read(const atomic64_t *v);
+> +extern void generic_atomic64_set(atomic64_t *v, s64 i);
+>
+>  #define ATOMIC64_OP(op)                                                        \
+> -extern void     atomic64_##op(s64 a, atomic64_t *v);
+> +extern void generic_atomic64_##op(s64 a, atomic64_t *v);
+>
+>  #define ATOMIC64_OP_RETURN(op)                                         \
+> -extern s64 atomic64_##op##_return(s64 a, atomic64_t *v);
+> +extern s64 generic_atomic64_##op##_return(s64 a, atomic64_t *v);
+>
+>  #define ATOMIC64_FETCH_OP(op)                                          \
+> -extern s64 atomic64_fetch_##op(s64 a, atomic64_t *v);
+> +extern s64 generic_atomic64_fetch_##op(s64 a, atomic64_t *v);
+>
+>  #define ATOMIC64_OPS(op)       ATOMIC64_OP(op) ATOMIC64_OP_RETURN(op) ATOMIC64_FETCH_OP(op)
+>
+> @@ -46,11 +44,61 @@ ATOMIC64_OPS(xor)
+>  #undef ATOMIC64_OP_RETURN
+>  #undef ATOMIC64_OP
+>
+> -extern s64 atomic64_dec_if_positive(atomic64_t *v);
+> -#define atomic64_dec_if_positive atomic64_dec_if_positive
+> -extern s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n);
+> -extern s64 atomic64_xchg(atomic64_t *v, s64 new);
+> -extern s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u);
+> -#define atomic64_fetch_add_unless atomic64_fetch_add_unless
+> +extern s64 generic_atomic64_dec_if_positive(atomic64_t *v);
+> +extern s64 generic_atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n);
+> +extern s64 generic_atomic64_xchg(atomic64_t *v, s64 new);
+> +extern s64 generic_atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u);
+> +
+> +#ifdef ARCH_ATOMIC
+> +
+> +#define arch_atomic64_read             generic_atomic64_read
+> +#define arch_atomic64_set              generic_atomic64_set
+> +#define arch_atomic64_set_release      generic_atomic64_set
+> +
+> +#define        arch_atomic64_add               generic_atomic64_add
+> +#define        arch_atomic64_add_return        generic_atomic64_add_return
+> +#define        arch_atomic64_fetch_add         generic_atomic64_fetch_add
+> +#define        arch_atomic64_sub               generic_atomic64_sub
+> +#define        arch_atomic64_sub_return        generic_atomic64_sub_return
+> +#define        arch_atomic64_fetch_sub         generic_atomic64_fetch_sub
+> +
+> +#define        arch_atomic64_and               generic_atomic64_and
+> +#define        arch_atomic64_fetch_and         generic_atomic64_fetch_and
+> +#define        arch_atomic64_or                generic_atomic64_or
+> +#define        arch_atomic64_fetch_or          generic_atomic64_fetch_or
+> +#define        arch_atomic64_xor               generic_atomic64_xor
+> +#define        arch_atomic64_fetch_xor         generic_atomic64_fetch_xor
+> +
+> +#define arch_atomic64_dec_if_positive  generic_atomic64_dec_if_positive
+> +#define arch_atomic64_cmpxchg          generic_atomic64_cmpxchg
+> +#define arch_atomic64_xchg             generic_atomic64_xchg
+> +#define arch_atomic64_fetch_add_unless generic_atomic64_fetch_add_unless
+> +
+> +#else /* ARCH_ATOMIC */
+> +
+> +#define atomic64_read                  generic_atomic64_read
+> +#define atomic64_set                   generic_atomic64_set
+> +#define atomic64_set_release           generic_atomic64_set
+> +
+> +#define        atomic64_add                    generic_atomic64_add
+> +#define        atomic64_add_return             generic_atomic64_add_return
+> +#define        atomic64_fetch_add              generic_atomic64_fetch_add
+> +#define        atomic64_sub                    generic_atomic64_sub
+> +#define        atomic64_sub_return             generic_atomic64_sub_return
+> +#define        atomic64_fetch_sub              generic_atomic64_fetch_sub
+> +
+> +#define        atomic64_and                    generic_atomic64_and
+> +#define        atomic64_fetch_and              generic_atomic64_fetch_and
+> +#define        atomic64_or                     generic_atomic64_or
+> +#define        atomic64_fetch_or               generic_atomic64_fetch_or
+> +#define        atomic64_xor                    generic_atomic64_xor
+> +#define        atomic64_fetch_xor              generic_atomic64_fetch_xor
+> +
+> +#define atomic64_dec_if_positive       generic_atomic64_dec_if_positive
+> +#define atomic64_cmpxchg               generic_atomic64_cmpxchg
+> +#define atomic64_xchg                  generic_atomic64_xchg
+> +#define atomic64_fetch_add_unless      generic_atomic64_fetch_add_unless
+> +
+> +#endif /* ARCH_ATOMIC */
+>
+>  #endif  /*  _ASM_GENERIC_ATOMIC64_H  */
+> diff --git a/lib/atomic64.c b/lib/atomic64.c
+> index e98c85a99787..3df653994177 100644
+> --- a/lib/atomic64.c
+> +++ b/lib/atomic64.c
+> @@ -42,7 +42,7 @@ static inline raw_spinlock_t *lock_addr(const atomic64_t *v)
+>         return &atomic64_lock[addr & (NR_LOCKS - 1)].lock;
+>  }
+>
+> -s64 atomic64_read(const atomic64_t *v)
+> +s64 generic_atomic64_read(const atomic64_t *v)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -53,9 +53,9 @@ s64 atomic64_read(const atomic64_t *v)
+>         raw_spin_unlock_irqrestore(lock, flags);
+>         return val;
+>  }
+> -EXPORT_SYMBOL(atomic64_read);
+> +EXPORT_SYMBOL(generic_atomic64_read);
+>
+> -void atomic64_set(atomic64_t *v, s64 i)
+> +void generic_atomic64_set(atomic64_t *v, s64 i)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -64,10 +64,10 @@ void atomic64_set(atomic64_t *v, s64 i)
+>         v->counter = i;
+>         raw_spin_unlock_irqrestore(lock, flags);
+>  }
+> -EXPORT_SYMBOL(atomic64_set);
+> +EXPORT_SYMBOL(generic_atomic64_set);
+>
+>  #define ATOMIC64_OP(op, c_op)                                          \
+> -void atomic64_##op(s64 a, atomic64_t *v)                               \
+> +void generic_atomic64_##op(s64 a, atomic64_t *v)                       \
+>  {                                                                      \
+>         unsigned long flags;                                            \
+>         raw_spinlock_t *lock = lock_addr(v);                            \
+> @@ -76,10 +76,10 @@ void atomic64_##op(s64 a, atomic64_t *v)                            \
+>         v->counter c_op a;                                              \
+>         raw_spin_unlock_irqrestore(lock, flags);                        \
+>  }                                                                      \
+> -EXPORT_SYMBOL(atomic64_##op);
+> +EXPORT_SYMBOL(generic_atomic64_##op);
+>
+>  #define ATOMIC64_OP_RETURN(op, c_op)                                   \
+> -s64 atomic64_##op##_return(s64 a, atomic64_t *v)                       \
+> +s64 generic_atomic64_##op##_return(s64 a, atomic64_t *v)               \
+>  {                                                                      \
+>         unsigned long flags;                                            \
+>         raw_spinlock_t *lock = lock_addr(v);                            \
+> @@ -90,10 +90,10 @@ s64 atomic64_##op##_return(s64 a, atomic64_t *v)                    \
+>         raw_spin_unlock_irqrestore(lock, flags);                        \
+>         return val;                                                     \
+>  }                                                                      \
+> -EXPORT_SYMBOL(atomic64_##op##_return);
+> +EXPORT_SYMBOL(generic_atomic64_##op##_return);
+>
+>  #define ATOMIC64_FETCH_OP(op, c_op)                                    \
+> -s64 atomic64_fetch_##op(s64 a, atomic64_t *v)                          \
+> +s64 generic_atomic64_fetch_##op(s64 a, atomic64_t *v)                  \
+>  {                                                                      \
+>         unsigned long flags;                                            \
+>         raw_spinlock_t *lock = lock_addr(v);                            \
+> @@ -105,7 +105,7 @@ s64 atomic64_fetch_##op(s64 a, atomic64_t *v)                               \
+>         raw_spin_unlock_irqrestore(lock, flags);                        \
+>         return val;                                                     \
+>  }                                                                      \
+> -EXPORT_SYMBOL(atomic64_fetch_##op);
+> +EXPORT_SYMBOL(generic_atomic64_fetch_##op);
+>
+>  #define ATOMIC64_OPS(op, c_op)                                         \
+>         ATOMIC64_OP(op, c_op)                                           \
+> @@ -130,7 +130,7 @@ ATOMIC64_OPS(xor, ^=)
+>  #undef ATOMIC64_OP_RETURN
+>  #undef ATOMIC64_OP
+>
+> -s64 atomic64_dec_if_positive(atomic64_t *v)
+> +s64 generic_atomic64_dec_if_positive(atomic64_t *v)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -143,9 +143,9 @@ s64 atomic64_dec_if_positive(atomic64_t *v)
+>         raw_spin_unlock_irqrestore(lock, flags);
+>         return val;
+>  }
+> -EXPORT_SYMBOL(atomic64_dec_if_positive);
+> +EXPORT_SYMBOL(generic_atomic64_dec_if_positive);
+>
+> -s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
+> +s64 generic_atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -158,9 +158,9 @@ s64 atomic64_cmpxchg(atomic64_t *v, s64 o, s64 n)
+>         raw_spin_unlock_irqrestore(lock, flags);
+>         return val;
+>  }
+> -EXPORT_SYMBOL(atomic64_cmpxchg);
+> +EXPORT_SYMBOL(generic_atomic64_cmpxchg);
+>
+> -s64 atomic64_xchg(atomic64_t *v, s64 new)
+> +s64 generic_atomic64_xchg(atomic64_t *v, s64 new)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -172,9 +172,9 @@ s64 atomic64_xchg(atomic64_t *v, s64 new)
+>         raw_spin_unlock_irqrestore(lock, flags);
+>         return val;
+>  }
+> -EXPORT_SYMBOL(atomic64_xchg);
+> +EXPORT_SYMBOL(generic_atomic64_xchg);
+>
+> -s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
+> +s64 generic_atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
+>  {
+>         unsigned long flags;
+>         raw_spinlock_t *lock = lock_addr(v);
+> @@ -188,4 +188,4 @@ s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u)
+>
+>         return val;
+>  }
+> -EXPORT_SYMBOL(atomic64_fetch_add_unless);
+> +EXPORT_SYMBOL(generic_atomic64_fetch_add_unless);
+> --
+> 2.11.0
+>
 
 
 -- 
-Damien Le Moal
-Western Digital Research
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
