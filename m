@@ -7,85 +7,69 @@ X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
 	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BB28FC433ED
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Apr 2021 10:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B7FBC433B4
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Apr 2021 10:47:19 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E57A06141C
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Apr 2021 10:26:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E57A06141C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=isovalent.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6341E61452
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Apr 2021 10:47:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6341E61452
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+yyxsKbITJojl35ecuVddFJcAoPmWqfPK+BVPSqZg3o=; b=EuJG6JgvGiMLGmmPOy3uLov74
-	1svzgg09eQZk4yUZKEMF9v1oThBJMJQyntpduEHKarCmaZcLLHtlCmbOLHArJ8q5Gku6J/+/qH+EJ
-	I2d4GeJG9J5gZ593Cp3z71zct9ir4cS45y5VeORXbrHBTd6369UoLH5BHYrhlGaF/iKuOQTifz2Wt
-	tX3KP2Cv5oOB4iRU2oWaYNgaEkQKlpPRznrP4/7hJmdCmnC6fNmtQ5xKbyxoeBuLnSJPpwSpdBoTc
-	3WOdfWeYwZWmqvlWpjVpEw1CuoIyevxOUQEDbch2Afo0iZvEMwU576XCyhhiMqJtW3U0agYklne0A
-	/y1dn22UQ==;
+	 bh=+TvYtMidnYNeywrPudF0OIfao9DZs5P1TEIQj6d1IOg=; b=WCz2qmKdqlMtSkfiWYxd9N9aJ
+	h3kr5Zrkx5AM4SyUYj5nlYLcbqdTUPgO3rQIcYgv3K+unsXx10+ldkVVBkGExB/S4PTrF+fAel26f
+	Av7TdjJC2elPFAKf3e2WoHjHVJIDi3xAUnn3P9wRjOPDonmZs52sVAh9YUab8hElqxsnkrkhq9El6
+	2nY1qvJK+ztqPYd1wjUTU6NcceaRAl+fbGCorOBL3lQeRhYOYg59qc0tBXsuTTK5MTqvpc/GBIOSR
+	E3oxs24cG8QZpY6DFdqk/VOZ1dXTFfT78Bwlx83Ktrmiu80PCl8/MoRuzJGXb7BcdBO4X23CmjQv5
+	/XTDi5yuQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lZt12-001JIh-EG; Fri, 23 Apr 2021 10:26:28 +0000
+	id 1lZtKt-001KyA-Q0; Fri, 23 Apr 2021 10:46:59 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZt10-001JI0-4B
- for linux-riscv@desiato.infradead.org; Fri, 23 Apr 2021 10:26:26 +0000
+ id 1lZtKo-001Kxs-0J; Fri, 23 Apr 2021 10:46:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
  Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=pZC3bOQbN5+fqyuA7H9ye81q8uOWfqddKhA+GXdAbe0=; b=MpzyaI4tia8fQOFhr6Zj8wEqz2
- UKRACFf0vjg2pKFbr/wExhv09E68PCYQHP+KccirnwNtu9OHJNSYPF9ORkzrgYuVjeG1C2k+WujN/
- ZYUI3gfDTgkeC7iYimQmi6SMT9DgqiDiWEgBbSVDjKlIPoadrzVP0Dyb+z1SB5atwZYvh2WmcuIxA
- W+5rcWEqw/9HsgG+BkMoYynqKiflcuRigsXzHYVrvx1SfgqwDk8SiQi7d/2cT/OagJh1cOZBfTFj5
- M4F7nSHqrcbI08+bCOjN9UnfHbxll0VJrRlVUgn7NqCuIPy+HVClBv1tUgA80hI6XjExMtk9r0DFu
- 2GjIVWWA==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+ bh=Q2f7pknDGvylH+2T6Gwm3RxONng+S1QwPJy49l5kogY=; b=ZOS9MVqzlXDc8aB3h9yEcH1KHu
+ gO2iOVAqS+ey+0igENyk9vuIhkjoEDcsMWt/0aizlez7cywXkHryAmIcDeXbqsh+veSZxIbMRY/Ql
+ fdOZYLX6wpAEyoIt+Vnyo/7/fO3PzveBQPrSVsaT+vUfMSbxhRZQUAH304Fx4xvyhOZJlckgbOE52
+ cFnLNJKjDcSo7hdGDCPw0crgEVHe/XK7DFAuKLJAld0r8N18aNy5eRkxza8am2ZG+Hk2ru8jchTfR
+ KO3VfJG2esGZ7/C0iPAXSAQh+ZdPjqw52HYso+1+jdxElf7+sEWEhnEK0t6f5cFPogcXsPwx9cdZu
+ aL1LWBVA==;
+Received: from pegase1.c-s.fr ([93.17.236.30])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lZt0w-00EKIx-BN
- for linux-riscv@lists.infradead.org; Fri, 23 Apr 2021 10:26:23 +0000
-Received: by mail-wm1-x330.google.com with SMTP id w186so21181827wmg.3
- for <linux-riscv@lists.infradead.org>; Fri, 23 Apr 2021 03:26:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=isovalent-com.20150623.gappssmtp.com; s=20150623;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=pZC3bOQbN5+fqyuA7H9ye81q8uOWfqddKhA+GXdAbe0=;
- b=aSb/o1mV8h0CcE9ai+0+GIlXRSGlsJTPumKNmGEJ88Z4i3bGRbY+GZu4y+9bXJ2Ej0
- Gnr1pQPVFxw/OkuLgXzy8PcFfaYDEZW1fihUNP/VtK/ltQ5OgS+ABY7Byb2o9rvuH3w9
- aiiyIdPgdOTZ+hKQKeseFBSIHuPOG3wEViDcm9o+RO0YnIbhhMqz+iQQf7AY04+ybwHf
- 2nC4MhrVKh/73RRSCeoHklo+CLEPmhYLF8BmrTl+dusVmM5VfEfslHL7IoEnP1IXaaeU
- +VlpWeuLfKHGTov0axRspP5fwSgIZ4r+kUdG1PRmBmRYDbmUFoGKlyjNhDcKQj1tRsaO
- 5EEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=pZC3bOQbN5+fqyuA7H9ye81q8uOWfqddKhA+GXdAbe0=;
- b=TooA6Dm6mOgKnJg5+ltUIsclg+44VIeo59O5E/akm/Zs7rE4MxdZX6Yhczkggpr0F4
- AWW8TiDIu44q+zSjKaoaDM2ILeVFAllyldoSEudk61f/zgGxmABpeW4R61ZHVlKpWqUw
- pU+WJqIAts0rOcuNCzgKleKQCH6//Zv0h7ZswlNf8UW+IS5VlRPIALwT7VVe5zgKsckc
- AGveK9j4CJ8RwDCFCLQaWLeRVE1equ6RkMc6PA/0bHBc7/4Cy9k0kQpquoh2WevxSnF8
- BciIskGsoacy+F1T2dc6rwa2gilb8+K0bDfe1v7XOuBd1GG9TqXD8hi9WClvSLT+U6QA
- tJuw==
-X-Gm-Message-State: AOAM530d676pkwE4Y91ycxh+/qEEusBuVGtX1jVGEbzkImTAvasfwnsx
- smS/Y58DYcCP1fN3h4B9TBvrqQ==
-X-Google-Smtp-Source: ABdhPJwzRkVz3Ofbfxh8n0buCkcX7vCmdhQBvEZ1KP3t4/FvoWzwFRVeYSa0K9So4C2Yfv4k3szanw==
-X-Received: by 2002:a1c:b743:: with SMTP id h64mr3431829wmf.35.1619173579445; 
- Fri, 23 Apr 2021 03:26:19 -0700 (PDT)
-Received: from [192.168.1.8] ([149.86.88.56])
- by smtp.gmail.com with ESMTPSA id b15sm8464544wrt.57.2021.04.23.03.26.17
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 23 Apr 2021 03:26:18 -0700 (PDT)
+ id 1lZtKk-00EL0v-Nq; Fri, 23 Apr 2021 10:46:52 +0000
+Received: from localhost (mailhub1-int [192.168.12.234])
+ by localhost (Postfix) with ESMTP id 4FRWF13r5mz9vBLs;
+ Fri, 23 Apr 2021 12:46:45 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
+ with ESMTP id I4hoOf8rPe-y; Fri, 23 Apr 2021 12:46:45 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4FRWF12070z9vBLd;
+ Fri, 23 Apr 2021 12:46:45 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id D41E88B84A;
+ Fri, 23 Apr 2021 12:46:46 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id l4QaA45lnxMf; Fri, 23 Apr 2021 12:46:46 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id B69ED8B765;
+ Fri, 23 Apr 2021 12:46:43 +0200 (CEST)
 Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+To: Quentin Monnet <quentin@isovalent.com>,
  Alexei Starovoitov <alexei.starovoitov@gmail.com>
 Cc: Ian Rogers <irogers@google.com>, Song Liu <songliubraving@fb.com>,
  "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
@@ -133,17 +117,19 @@ References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
  <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
  <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
  <be132117-f267-5817-136d-e1aeb8409c2a@csgroup.eu>
-From: Quentin Monnet <quentin@isovalent.com>
-Message-ID: <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
-Date: Fri, 23 Apr 2021 11:26:16 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <6a809d3f-c9e3-0eb7-9c1d-a202ad848424@csgroup.eu>
+Date: Fri, 23 Apr 2021 12:46:39 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.10.0
 MIME-Version: 1.0
-In-Reply-To: <be132117-f267-5817-136d-e1aeb8409c2a@csgroup.eu>
-Content-Language: en-GB
+In-Reply-To: <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210423_032622_569812_98B69387 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20210423_034651_105507_8E781FD3 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,69 +141,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2021-04-23 09:19 UTC+0200 ~ Christophe Leroy <christophe.leroy@csgroup.eu>
-
-[...]
-
-> I finally managed to cross compile bpftool with libbpf, libopcodes,
-> readline, ncurses, libcap, libz and all needed stuff. Was not easy but I
-> made it.
-
-Libcap is optional and bpftool does not use readline or ncurses. May I
-ask how you tried to build it?
-
-> 
-> Now, how do I use it ?
-> 
-> Let say I want to dump the jitted code generated from a call to
-> 'tcpdump'. How do I do that with 'bpftool prog dump jited' ?
-> 
-> I thought by calling this line I would then get programs dumped in a way
-> or another just like when setting 'bpf_jit_enable=2', but calling that
-> line just provides me some bpftool help text.
-
-Well the purpose of this text is to help you find the way to call
-bpftool to do what you want :). For dumping your programs' instructions,
-you need to tell bpftool what program to dump: Bpftool isn't waiting
-until you load a program to dump it, instead you need to load your
-program first and then tell bpftool to retrieve the instructions from
-the kernel. To reference your program you could use a pinned path, or
-first list the programs on your system with "bpftool prog show":
-
-
-    # bpftool prog show
-    138: tracing  name foo  tag e54c922dfa54f65f  gpl
-            loaded_at 2021-02-25T01:32:30+0000  uid 0
-            xlated 256B  jited 154B  memlock 4096B  map_ids 64
-            btf_id 235
-
-Then you can use for example the program id displayed on the first line
-to reference and dump your program:
-
-    # bpftool prog dump jited id 138
-
-You should find additional documentation under
-tools/bpf/bpftool/Documentation.
-
-> 
-> By the way, I would be nice to have a kernel OPTION that selects all
-> OPTIONS required for building bpftool. Because you discover them one by
-> one at every build failure. I had to had CONFIG_IPV6, CONFIG_DEBUG_BTF,
-> CONFIG_CGROUPS, ... If there could be an option like "Build a 'bpftool'
-> ready kernel" that selected all those, it would be great.
-> 
-> Christophe
-
-I do not believe any of these are required to build bpftool.
-
-Quentin
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyMy8wNC8yMDIxIMOgIDEyOjI2LCBRdWVudGluIE1vbm5ldCBhIMOpY3JpdMKgOgo+IDIw
+MjEtMDQtMjMgMDk6MTkgVVRDKzAyMDAgfiBDaHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxl
+cm95QGNzZ3JvdXAuZXU+Cj4gCj4gWy4uLl0KPiAKPj4gSSBmaW5hbGx5IG1hbmFnZWQgdG8gY3Jv
+c3MgY29tcGlsZSBicGZ0b29sIHdpdGggbGliYnBmLCBsaWJvcGNvZGVzLAo+PiByZWFkbGluZSwg
+bmN1cnNlcywgbGliY2FwLCBsaWJ6IGFuZCBhbGwgbmVlZGVkIHN0dWZmLiBXYXMgbm90IGVhc3kg
+YnV0IEkKPj4gbWFkZSBpdC4KPiAKPiBMaWJjYXAgaXMgb3B0aW9uYWwgYW5kIGJwZnRvb2wgZG9l
+cyBub3QgdXNlIHJlYWRsaW5lIG9yIG5jdXJzZXMuIE1heSBJCj4gYXNrIGhvdyB5b3UgdHJpZWQg
+dG8gYnVpbGQgaXQ/CgpjZCB0b29scy9icGYvCgptYWtlIEFSQ0g9cG93ZXJwYyBDUk9TU19DT01Q
+SUxFPXBwYy1saW51eC0KCgpDaHJpc3RvcGhlCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
