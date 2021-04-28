@@ -2,104 +2,94 @@ Return-Path: <SRS0=fWiV=JZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C006C433B4
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Apr 2021 03:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A9CEC433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Apr 2021 04:15:06 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DA7C6140A
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Apr 2021 03:41:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DA7C6140A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4ACFF613ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Apr 2021 04:15:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4ACFF613ED
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KREvKf4iFRybqEiwFi1c41ZRNRPelVkMOiiLJ8jhHHU=; b=d4YQYw3bxq9KZyLNklqcEdZc6
-	dPacIk6ka6cKPy+0kJRpMseEucxbex02/1ptrFd2pqYiJs5jFF16bieABV5M9m7LejgV20MxHAITK
-	CnPsQglwLzt4TCs7JdCEglWZCwCwGoiB1HLhtm/eaNEa/Ygbz47lj49Sb5PzhM9NqS7+9de+ylOqT
-	z75lVLxzLh5M2bNc+IXZZDVfTXgM26sG1XtdtLU8bTumlM5NgvFM1fBgMD8F7O4Aj0pgzSKEuymJq
-	qi3IWw2gQWajcSWgP7+Qp8wUXlEAxvO8xu7FPso3NIeeO3DrMbV03VtQrQQdCf1E/1McL54zJrs/r
-	9CNM6O9vQ==;
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:MIME-Version:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A3bJqTMUpdKd62WnbrVQqP39pXb1Ed/ZC5gQ8J6xli8=; b=Mdu4QhxS+vXOH3FRUgN7qaraUm
+	riy+LL9yev83Kd69TnvcTRz6WoK4XDVjG+Mg4+ic+7peRFj+PDiCnGDBlu2XxeCsYagEwL51wQUjX
+	ogZzuZqyc+9FrOQJ8vZZk0U+sZARFYADfgIFXigmm4+P19zkoHuSsWXZqgy4AxdCb9qRzW3Jcpuhf
+	dvAqSSdWuXkTKZs6w0prbrAdhcHnE37zHkfONSjh4Xcg29nTCS3G/KEv39mLBrRT5oljHN1elc4j2
+	60srK0dU3kHXGF34YFn/UM4RCoN+TghAKxoPncm7OEcaGNRmcX/3GOlUEcozT3QWYpynq2KXbkzVw
+	tlfb+f+w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lbb4Z-002gxz-Vv; Wed, 28 Apr 2021 03:41:12 +0000
+	id 1lbbb1-002jYf-03; Wed, 28 Apr 2021 04:14:43 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lbb4V-002gxe-9a
- for linux-riscv@desiato.infradead.org; Wed, 28 Apr 2021 03:41:08 +0000
+ id 1lbbax-002jYK-Uw
+ for linux-riscv@desiato.infradead.org; Wed, 28 Apr 2021 04:14:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=unJ/nW7IwIPU8FuEPxu2WTBi2sq/u62GKZm9+1iXWxg=; b=QGVxfbDHIl7MlX41CQCfmj0qEh
- jjzuoi17VzYNSBZI3tK8BNx1nVLm/pXgoA5TYOUddvaf6E9cdra5SxO7vJAj3mIOP5Jcb3GcxuLJA
- rhehOyHiHwmcRsGTrp2q0w24Wjh0inuhdkv7xzdFqqHFqQslL/iT46LboGAUQev6Qe52QWxsgk9/o
- 8AzjvCrfODAme4j0uIgyzZ/trbhbCb+jo8+QOB0TEG/yBLocXhiyQ//9QEW/mfkhJtP1/2t6Rzl9K
- nLS2XJ/gDHqOxZDYHFYQ1srLqIzS+J/EUCYxCFBK3G7SnN+67/xOFE5JLpyQx1nPcf8CZeLjbsEcG
- xUD5BUdg==;
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+ :Date:From:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=KDHkVVYm6hBaMYBkXAgpTY990Od3VDPZXR1b+LSLQhs=; b=G4a8HCgVNx1oi1ty9RiyTAlH2k
+ 7Dpw39FvCUx48JS+pHE49T/+1NUhwexdt3HHvJvkwNFg6ZQGI07qnJPPi0ZMwUJH/lvhhAdcKwiul
+ Qvk7gp0BQb6UM08UT84/4qLws0POjMjPDENNhEUR95x03IoI3FwjE41luteUY44TeH4797fPQaq4z
+ ATjqgP5wbzhdtRxox/6+maFfIZe4WZSc1X82483iiEavlca4d35v22NTeYvPE9hvrYDyddrku3ZVV
+ 1wRfWnDz+pyRmpmD0gkv8KUz7GTH2pXbcd0RKUBObkzPpVv3crEYMCJ74ILS35DMHKk10DtBNkF3P
+ vwJbMWFA==;
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lbb4S-00HA8i-Ci
- for linux-riscv@lists.infradead.org; Wed, 28 Apr 2021 03:41:05 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id
- a22-20020a05600c2256b029014294520f18so3552812wmm.1
- for <linux-riscv@lists.infradead.org>; Tue, 27 Apr 2021 20:41:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=unJ/nW7IwIPU8FuEPxu2WTBi2sq/u62GKZm9+1iXWxg=;
- b=QZH1yvadssNTkCLMPr/YyOHxUqvnHGZdJCeQ0QG07wZ0c8v0Tq0mdqoauuoTNo8c5t
- 52FJF+EF5/YcdSBwaM+q6wczSHVyrqMzy7KO8c6WMEyJ5VU2ugjm8CcPR2jttv1T/2O6
- OQX7EngW1Kd701aUoIHwM9CM6zKwoGh0O7QqHeOzcDnsSBDAxguVsEwXzdNPa965DUQx
- uNdKG3sM+V3YHeIQciUPGRNi+aEFtzAjLBmOvqJwb43mMmKtUGURK7e1fhZdAufBrwdf
- 9VRI74ZT2q5ZsWsHB9vphithqi77n7VEtA8rNG3EUPgub2WbkFATcl1aDrnfbtmPUPpO
- g+gQ==
+ id 1lbbav-00HApo-8i
+ for linux-riscv@lists.infradead.org; Wed, 28 Apr 2021 04:14:38 +0000
+Received: by mail-io1-xd31.google.com with SMTP id b10so4033595iot.4
+ for <linux-riscv@lists.infradead.org>; Tue, 27 Apr 2021 21:14:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=KDHkVVYm6hBaMYBkXAgpTY990Od3VDPZXR1b+LSLQhs=;
+ b=MOowmMYbDUTZkJIMiIiyFJQDwoM0MvifXfJ9UIQS56WaiI7rVfKcDPSAGxr4jR64nz
+ vXplAyQma4c8Nj7rQWrhpv1zNZxC9q5ak0ng3DKupwJvJP4XTftAm0jdTFDcNUFHcgwU
+ xnawjMr58La0AkcNxWE0bm4KGHLKBcem/uJhB6yCaw4hXFgN9JhXOQ/FBPXhb/V02vkq
+ NOr+ogZ7UzYQDlKuOX+wIA9npB2aowT5pPHxqTYlmZECfgXhZstfdK1lsnGKNRVSn8ve
+ 9GZ6Py7fqfmBOkKYLSt50YCCyZgYjR6P950GEcb40zxUNGgQmhR7DKW3XghWM2OkEmfA
+ r82w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=unJ/nW7IwIPU8FuEPxu2WTBi2sq/u62GKZm9+1iXWxg=;
- b=SWqNN81alTZeFV8hfByauXcHWcl9H2kSHXdVbP7DmF8A8GqFhJDZ5GH54zDUl7AfLu
- P9TetkDqHGzsq+RuAUDMuz0U8Aw9evYzLlB5EoYmM5+Je7DFG/TwvsI0kE1uahVBVeIe
- tvctuE5/QUXeLXU/zmc5RJHhMXBEGVJ5B/yU8LAtDDXpXbU8Syau74SQ7E8gFQroSlal
- yr3cMSiFX2IkKX7aKXzTeUwyXf+LI9NVLMY9f7+WsCH/bsPahqyC18K6r1fgeENjiAUH
- g3w6xY+LtIIuQzGrGDUXVXKHcFy1tf515eN3oxAliH+Bbc0jXqS4yY23CjaoLHsFV8in
- SP2w==
-X-Gm-Message-State: AOAM531PFKDY0qQnd7NQk6b4hlCilrTwevbB+Luya0uP0Pzu0dAsk80y
- kNUG2scRGd6JobuPTslPSAfJ59YFLRNLe1LUjoqGyA==
-X-Google-Smtp-Source: ABdhPJzI3LHtQ4OsT4z7dItzbxcMlwFjrS5Ewft66N9Bnj+ahbwhYUYdFV/mrMnOfwdZlsG+w0ppsAHoZ3+66SZ6bpk=
-X-Received: by 2002:a7b:c348:: with SMTP id l8mr1765461wmj.152.1619581262305; 
- Tue, 27 Apr 2021 20:41:02 -0700 (PDT)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=KDHkVVYm6hBaMYBkXAgpTY990Od3VDPZXR1b+LSLQhs=;
+ b=DlS46ZpZRb2xzjdWF55oqrAO9mTl5AfW8JiwOIsOiGDETYv0OQ3rlaGv1Rp/ReMTVr
+ X8RXk54kQyNHRhetXRlJA1dwLLaFOHYdzWwi5AV05dUMtIr22Ul3ObmbwTbaNVpFEtgY
+ Vj/qb/Qq+MyD3/i420TsF0jKzc/VXKaxWWJnUXzZpZAktoeEXgHTTW/R5o8rsXPe1rJr
+ 6813vkjtegRvMd9Qb8KZ3zXiYG9AHtrL7UhfyUTUQvSdorXX25dUMl/b9fg0mdhfD/2M
+ faQFAKxg+TGWV8dArMokxcWi3NDVyYAbbw6YIWXnU0nF4eNJNqi6YettUcfsp3MXmmGD
+ 4cYA==
+X-Gm-Message-State: AOAM532XvDgYUNBGsqaETsgQI9zJ9I8H+Nos078uZW1oZPtSK2O+c37+
+ v+yrZOFHpc1FbOGoY8hGYkHudbdtYEfVt6xxYMs=
+X-Google-Smtp-Source: ABdhPJzFK5pECLSZt+y9EL4BdEG0TjzDlptbkrW7xj+Yi0w+J2WCxoZWB4HHJA9heFBOiZ7Ox6jVGcOYLnThaXOBm38=
+X-Received: by 2002:a02:662b:: with SMTP id k43mr24443251jac.139.1619583275234; 
+ Tue, 27 Apr 2021 21:14:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210428033415.107756-1-palmer@dabbelt.com>
-In-Reply-To: <20210428033415.107756-1-palmer@dabbelt.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 28 Apr 2021 09:10:51 +0530
-Message-ID: <CAAhSdy3Qnx+3tCecXLDw=1m45zMU67n3K4_YTYA2127mZm+Kfg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Always define XIP_FIXUP
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andrew Morton <akpm@linux-foundation.org>, Atish Patra <Atish.Patra@wdc.com>, 
- Anup Patel <Anup.Patel@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
- Mike Rapoport <rppt@kernel.org>, Vitaly Wool <vitaly.wool@konsulko.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, Greentime Hu <greentime.hu@sifive.com>,
- 0x7f454c46@gmail.com, chenhuang5@huawei.com, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- kernel-team@android.com, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Guenter Roeck <linux@roeck-us.net>
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Wed, 28 Apr 2021 06:14:24 +0200
+Message-ID: <CAKXUXMz51GMRM6s7YqGYgfZwRhW=y0aCALM-C3APU0=GjZ+X_g@mail.gmail.com>
+Subject: MAINTAINERS section RISC-V/MICROCHIP POLARFIRE SOC SUPPORT with
+ invalid file references
+To: Atish Patra <atish.patra@wdc.com>, Conor.Dooley@microchip.com, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210427_204104_589920_BAE09081 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20210427_211437_340605_56EAF5DB 
+X-CRM114-Status: UNSURE (   5.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,74 +106,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 28, 2021 at 9:05 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
->
-> XIP depends on MMU, but XIP_FIXUP is defined throughout the kernel in
-> order to avoid excessive ifdefs.  This just makes sure to always define
-> XIP_FIXIP, which will fix MMU=n builds.
->
-> Fixes: 44c922572952 ("RISC-V: enable XIP")
-> Reported-by: Guenter Roeck <linux@roeck-us.net>
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Dear Patish, dear Conor, dear Palmer,
 
-Looks good to me.
+Commit df29598aaf5c ("MAINTAINERS: add microchip polarfire soc
+support") adds the new section RISC-V/MICROCHIP POLARFIRE SOC SUPPORT,
+but that section solely refers to files that do not exist in the
+repository.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Hence, ./scripts/get_maintainer.pl --self-test=patterns complains:
 
-Regards,
-Anup
+  warning: no file matches    F:    drivers/soc/microchip/
+  warning: no file matches    F:    include/soc/microchip/mpfs.h
 
-> ---
->  arch/riscv/include/asm/pgtable.h | 24 ++++++++++++------------
->  1 file changed, 12 insertions(+), 12 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 2f1384e14e31..fd749351f432 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -73,18 +73,6 @@
->  #endif
->  #define FIXADDR_START    (FIXADDR_TOP - FIXADDR_SIZE)
->
-> -#ifdef CONFIG_XIP_KERNEL
-> -#define XIP_OFFSET             SZ_8M
-> -#define XIP_FIXUP(addr) ({                                                     \
-> -       uintptr_t __a = (uintptr_t)(addr);                                      \
-> -       (__a >= CONFIG_XIP_PHYS_ADDR && __a < CONFIG_XIP_PHYS_ADDR + SZ_16M) ?  \
-> -               __a - CONFIG_XIP_PHYS_ADDR + CONFIG_PHYS_RAM_BASE - XIP_OFFSET :\
-> -               __a;                                                            \
-> -       })
-> -#else
-> -#define XIP_FIXUP(addr)                (addr)
-> -#endif /* CONFIG_XIP_KERNEL */
-> -
->  #endif
->
->  #ifndef __ASSEMBLY__
-> @@ -101,6 +89,18 @@
->  #include <asm/pgtable-32.h>
->  #endif /* CONFIG_64BIT */
->
-> +#ifdef CONFIG_XIP_KERNEL
-> +#define XIP_OFFSET             SZ_8M
-> +#define XIP_FIXUP(addr) ({                                                     \
-> +       uintptr_t __a = (uintptr_t)(addr);                                      \
-> +       (__a >= CONFIG_XIP_PHYS_ADDR && __a < CONFIG_XIP_PHYS_ADDR + SZ_16M) ?  \
-> +               __a - CONFIG_XIP_PHYS_ADDR + CONFIG_PHYS_RAM_BASE - XIP_OFFSET :\
-> +               __a;                                                            \
-> +       })
-> +#else
-> +#define XIP_FIXUP(addr)                (addr)
-> +#endif /* CONFIG_XIP_KERNEL */
-> +
->  #ifdef CONFIG_MMU
->  /* Number of entries in the page global directory */
->  #define PTRS_PER_PGD    (PAGE_SIZE / sizeof(pgd_t))
-> --
-> 2.31.1.498.g6c1eba8ee3d-goog
->
+The patch series, [PATCH v4 0/5] Add Microchip PolarFire Soc Support,
+never adds those files, though. Are they coming through a different
+patch series into Linus' tree or do you intend to refer to other files
+instead?
+
+
+Lukas
 
 _______________________________________________
 linux-riscv mailing list
