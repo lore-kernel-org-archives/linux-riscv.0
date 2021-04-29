@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 043B0C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BA47C433B4
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:10:35 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5BCD76143B
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:05:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BCD76143B
+	by mail.kernel.org (Postfix) with ESMTPS id 91B6061447
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:10:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 91B6061447
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=glider.be
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,58 +23,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XNcsT3/+jKdSi02nXcAc01inU/qq8qyQKw9sVTHjfgo=; b=RdowraKKpgFT9IPKwlHkgrZ8XV
-	mRTDiclfs2KwdK/uQy1qdVY/ExDscLUbXZvSjrAf1sV9vBeML5nJmZ4+PPPtqIpCOZTTmh6mh8dKK
-	HB/yFh6Ego8eYC9ISnd0dc/3AhjglqrNcW/gIAyr/6B+2EPY9RUIAxdtd49etyVIzseH0vUTdVflI
-	8KWd8UoJKROzFSH8pZOBjlwgEDBufPm55Q6lZO3h1vX+07cEUiDEbm/pwdSBwOLoUbbCQRF9yFkY5
-	R/wPfRN0HH2yMNe/iECb3d7jEho/WAcqcBKBiSORJW580kdT5EIsZLCooxeLJihzKNk0q6lbQbZ91
-	akSchMZg==;
+	bh=lZ6M9RtSLgmKBJy0wx5JHR0pLMZif1inSqyXDfyY+o8=; b=fHN6ge7TIRzZ7r65gb9+vJtj4Y
+	vJ2RpRpaI6RSWw9OcfA8QRCtyqfbwVEXX8G5mY36NbM2+dUx0xds2UI8naWiLIDa5Jp9LVhz92FRg
+	rGIkpKwwieBC4kCtCCsjal+G9WHI2rjhY4+IE8iKkKL6BWlAKGMvOhnR1WDlkN8xd/34v5eAiLbM/
+	rDfnCXccCK8z8svvFgtHJ3RZNaCRT5a35TcZ4mUtBjSw9+NSIOA+2PmNxM19nl28sEjgeGB5QzzqY
+	RnJeouHju4hB/CS5MLEfqq+QpZ7rR3opghu22SAlLLtwQkoG20DkTxsDgAtjp0+rhjLIP+d2dtciX
+	ytHU6Xww==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc8E7-005tMs-JO; Thu, 29 Apr 2021 15:05:15 +0000
+	id 1lc8J0-005uPR-Ff; Thu, 29 Apr 2021 15:10:18 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc8E4-005tMU-6u
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 15:05:13 +0000
+ id 1lc8Ix-005uP9-Hp
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 15:10:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:In-Reply-To:References;
- bh=hTMOOgzfGIx1PKOZrURGjf5gY7SvqMN7rEkC9C+rECQ=; b=BEOBKMKFdxAF32GpQiLUf4cxCZ
- RdrjZotY73U3wDvSQALES0zpcwXiQsLYHIAI37IBCe4+ouwJAbg6WIT0ew1EUegYExhNVxyODgRyD
- 4ltU/PAIHLVmr5ZcQuDDfCrIQYUpxOD4+fH7nEW6WWniioMN7KEUid4JDlBZaZSQS9OctGgbNKHUh
- 2t0K7KrWsYwvzuzxAa/O/NOrU7r7nPJn0thlnIjsuXRxEP3V/uucwghpPvYF++vs3OY1gpgHvzU2m
- Adpnsr8bfZootA0A+IR+F9fRx9amRkrmuHw33UMsDIl8cgyD/+mqFK0XvOLAIkgf4Qo8O9Ck6BCuw
- SDqJDs0w==;
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+ bh=TKUKg5w8ha65td2l7eEuAAY266Y4z37siNIzDYX4QsA=; b=JlZ91C3H0nvR2QJTh2HHRvB08L
+ 50lRJSa0HACTodTA9C7bfqrgCnAS9HtRlipFr6z7Mc30Mzs8mICEREUDvYbdi1mjinTCShx81ZdU/
+ KTCFLXaw/ct4FJq9KDwL3jeQMbdTQ2Ax8YGajkZS6zU3EuLIp2keF3QDE/nESFYJfMjqAqVTWH2ls
+ T/5DKaa5Fd6B9fxY90m1DT4IVF9C9Y4smRkvKLjfgHmaBYB30dg86Sca8gLopVtRARARMMwC4e2Ye
+ bb8XHXP2c1+Z/JnsQwyGc6puFPe0Y3a7eG7M4YY+gBGZ7DPnoiFcEDAaYg1dzzMUY5BWJpXcdlJO8
+ AIupYmLA==;
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc8E1-000iFY-7p
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 15:05:10 +0000
+ id 1lc8Iu-000iSX-IG
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 15:10:14 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d4dd:70b4:3264:8d97])
- by albert.telenet-ops.be with bizsmtp
- id yf532400w4p6Y3806f535w; Thu, 29 Apr 2021 17:05:04 +0200
+ by laurent.telenet-ops.be with bizsmtp
+ id yfA6240094p6Y3801fA6tY; Thu, 29 Apr 2021 17:10:08 +0200
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1lc8Du-001HhU-BI; Thu, 29 Apr 2021 17:05:02 +0200
+ id 1lc8In-001HmU-J3; Thu, 29 Apr 2021 17:10:05 +0200
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1lc8Dt-009d6c-Pu; Thu, 29 Apr 2021 17:05:01 +0200
+ id 1lc8In-009dGx-34; Thu, 29 Apr 2021 17:10:05 +0200
 From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Vitaly Wool <vitaly.wool@konsulko.com>, Alex Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2] riscv: Only extend kernel reservation if mapped read-only
-Date: Thu, 29 Apr 2021 17:05:00 +0200
-Message-Id: <02e05df076da23fc0f52c944bbf0a5cb99e95bd6.1619708542.git.geert+renesas@glider.be>
+Subject: [PATCH] riscv: Consistify protect_kernel_linear_mapping_text_rodata()
+ use
+Date: Thu, 29 Apr 2021 17:10:04 +0200
+Message-Id: <b89a090317cf26bbe1caaa3cfa513a789ece1b19.1619708711.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_080509_441938_DB6F06B6 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20210429_081012_761371_A728F889 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +92,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the kernel mapping was moved outside of the linear mapping, the
-kernel memory reservation was increased, to take into account mapping
-granularity.  However, this is done unconditionally, regardless of
-whether the kernel memory is mapped read-only or not.
+The various uses of protect_kernel_linear_mapping_text_rodata() are
+not consistent:
+  - Its definition depends on "64BIT && !XIP_KERNEL",
+  - Its forward declaration depends on MMU,
+  - Its single caller depends on "STRICT_KERNEL_RWX && 64BIT && MMU &&
+    !XIP_KERNEL".
 
-If this extension is not needed, up to 2 MiB may be lost, which has a
-big impact on e.g. Canaan K210 (64-bit nommu) platforms with only 8 MiB
-of RAM.
+Fix this by settling on the dependencies of the caller, which can be
+simplified as STRICT_KERNEL_RWX depends on "MMU && !XIP_KERNEL".
+Provide a dummy definition, as the caller is protected by
+"IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)" instead of "#ifdef
+CONFIG_STRICT_KERNEL_RWX".
 
-Reclaim the lost memory by only extending the reserved region when
-needed, i.e. depending on a simplified version of the conditional logic
-around the call to protect_kernel_linear_mapping_text_rodata().
-
-Fixes: 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of linear mapping")
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-v2:
-  - Simplify the conditional, as STRICT_KERNEL_RWX depends on
-    MMU && !XIP_KERNEL.
-
-Only tested on K210 (SiPeed MAIX BiT):
-
-    -Memory: 5852K/8192K available (1344K kernel code, 147K rwdata, 272K rodata, 106K init, 72K bss, 2340K reserved, 0K cma-reserved)
-    +Memory: 5948K/8192K available (1344K kernel code, 147K rwdata, 272K rodata, 106K init, 72K bss, 2244K reserved, 0K cma-reserved)
-
-Yes, I was lucky, as only 96 KiB was lost ;-)
+Only tested on K210 (SiPeed MAIX BiT).
 ---
- arch/riscv/mm/init.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/set_memory.h | 7 ++++++-
+ arch/riscv/kernel/setup.c           | 2 --
+ arch/riscv/mm/init.c                | 2 +-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
 
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index a9c56776fa0e74d6..086f757e8ba3cc69 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -17,7 +17,6 @@ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
+ int set_memory_rw_nx(unsigned long addr, int numpages);
+ void protect_kernel_text_data(void);
+-void protect_kernel_linear_mapping_text_rodata(void);
+ #else
+ static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+@@ -27,6 +26,12 @@ static inline void protect_kernel_text_data(void) {}
+ static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+ #endif
+ 
++#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
++void protect_kernel_linear_mapping_text_rodata(void);
++#else
++static inline void protect_kernel_linear_mapping_text_rodata(void) {}
++#endif
++
+ int set_direct_map_invalid_noflush(struct page *page);
+ int set_direct_map_default_noflush(struct page *page);
+ bool kernel_page_present(struct page *page);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 7b31779101f662e4..03901d3a8b027343 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -293,9 +293,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+ 		protect_kernel_text_data();
+-#if defined(CONFIG_64BIT) && defined(CONFIG_MMU) && !defined(CONFIG_XIP_KERNEL)
+ 		protect_kernel_linear_mapping_text_rodata();
+-#endif
+ 	}
+ 
+ #ifdef CONFIG_SWIOTLB
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 788eb222deacf994..3ebc0f5d2b73b42b 100644
+index 3ebc0f5d2b73b42b..6cc0421a5d0ef4a3 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -136,11 +136,16 @@ void __init setup_bootmem(void)
+@@ -646,7 +646,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ }
  
- 	/*
- 	 * Reserve from the start of the kernel to the end of the kernel
--	 * and make sure we align the reservation on PMD_SIZE since we will
-+	 */
+-#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
 +#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-+	/*
-+	 * Make sure we align the reservation on PMD_SIZE since we will
- 	 * map the kernel in the linear mapping as read-only: we do not want
- 	 * any allocation to happen between _end and the next pmd aligned page.
- 	 */
--	memblock_reserve(vmlinux_start, (vmlinux_end - vmlinux_start + PMD_SIZE - 1) & PMD_MASK);
-+	vmlinux_end = (vmlinux_end + PMD_SIZE - 1) & PMD_MASK;
-+#endif
-+	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
- 
- 	/*
- 	 * memblock allocator is not aware of the fact that last 4K bytes of
+ void protect_kernel_linear_mapping_text_rodata(void)
+ {
+ 	unsigned long text_start = (unsigned long)lm_alias(_start);
 -- 
 2.25.1
 
