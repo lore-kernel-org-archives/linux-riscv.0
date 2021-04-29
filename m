@@ -2,89 +2,79 @@ Return-Path: <SRS0=tUGE=J2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6465C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 14:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 043B0C433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:05:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6CFD861029
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 14:41:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CFD861029
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5BCD76143B
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:05:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BCD76143B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=glider.be
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Bh4oykyUZbT06zizwtY9U9D0VIIqhyozr8dfg1UjL98=; b=PIY8YgkbCs8BEeZXG7fb1E3cf
-	NPsN+XdvqX+XKSpzXEr9d0fnfvIEmMPSuEL82jjblpy1Vgvhus1KzBk7gaj0wm9dm8Y4eTZXlwITf
-	IvGH7+WZcpgUlOqBgVe5EiQzaKzxo0cswRuJQxcOrYpV7gDZd8qJiuUSuB60oyNPNkX4LSxEvVy0j
-	pfpoxkB6/lJZPr8ARLkHKQmEAh4lyqhB7EtIqWpIgIS8rYkSz4gcI1JLvp1LxWaJLDzwCDuJElaCi
-	cAOlY/lTSrnoCrX03vy/USY5LhVQJ6I9tLLMOp1DEEAaxInoXyfHgX2nmyGnsUcnMyYuizIiKo+qU
-	OL3/PB1RA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XNcsT3/+jKdSi02nXcAc01inU/qq8qyQKw9sVTHjfgo=; b=RdowraKKpgFT9IPKwlHkgrZ8XV
+	mRTDiclfs2KwdK/uQy1qdVY/ExDscLUbXZvSjrAf1sV9vBeML5nJmZ4+PPPtqIpCOZTTmh6mh8dKK
+	HB/yFh6Ego8eYC9ISnd0dc/3AhjglqrNcW/gIAyr/6B+2EPY9RUIAxdtd49etyVIzseH0vUTdVflI
+	8KWd8UoJKROzFSH8pZOBjlwgEDBufPm55Q6lZO3h1vX+07cEUiDEbm/pwdSBwOLoUbbCQRF9yFkY5
+	R/wPfRN0HH2yMNe/iECb3d7jEho/WAcqcBKBiSORJW580kdT5EIsZLCooxeLJihzKNk0q6lbQbZ91
+	akSchMZg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc7rI-005qi3-Gz; Thu, 29 Apr 2021 14:41:40 +0000
+	id 1lc8E7-005tMs-JO; Thu, 29 Apr 2021 15:05:15 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc7rG-005qhk-2Y
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 14:41:38 +0000
+ id 1lc8E4-005tMU-6u
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 15:05:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-ID:Content-Description;
- bh=1duNQ45gysbugwXrktBTo31sNNlK9JvBYcuHKmnWwBs=; b=KbamiftrKLM17ZDEJACpVJ0sq4
- mVX4snSBHGpA8K+I9YqwWDW9IetNVSRYvGgZJw/whGnl3rCyjq0gcRqYlSEYAYD8LHyf6xfRsG8RT
- 5ffY2y2g/qCab6Bagmw9MW9gil0dSWqAcU7EMj1skreFxp38kwMSPI55K6ZdpAUq/47Xz5Lep57SX
- DoiLvTM5RpFOlgEIe428ZKdjtZaFh7ZojuewkKA6N4Qw1rViVZ2Skqsr+3xVj4RNTRwnd+6ID6nUc
- aoWBD3Tuv1gRhO4/Qodx7VoPXqBVJmFEi2tKNuytoCNy3jYegjPPtp2+CQMaDgBQdXnCJFogEQMoz
- bvkFSnZw==;
-Received: from mail-vs1-f51.google.com ([209.85.217.51])
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=hTMOOgzfGIx1PKOZrURGjf5gY7SvqMN7rEkC9C+rECQ=; b=BEOBKMKFdxAF32GpQiLUf4cxCZ
+ RdrjZotY73U3wDvSQALES0zpcwXiQsLYHIAI37IBCe4+ouwJAbg6WIT0ew1EUegYExhNVxyODgRyD
+ 4ltU/PAIHLVmr5ZcQuDDfCrIQYUpxOD4+fH7nEW6WWniioMN7KEUid4JDlBZaZSQS9OctGgbNKHUh
+ 2t0K7KrWsYwvzuzxAa/O/NOrU7r7nPJn0thlnIjsuXRxEP3V/uucwghpPvYF++vs3OY1gpgHvzU2m
+ Adpnsr8bfZootA0A+IR+F9fRx9amRkrmuHw33UMsDIl8cgyD/+mqFK0XvOLAIkgf4Qo8O9Ck6BCuw
+ SDqJDs0w==;
+Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc7rD-000hJ2-4V
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 14:41:36 +0000
-Received: by mail-vs1-f51.google.com with SMTP id k124so33851643vsk.3
- for <linux-riscv@lists.infradead.org>; Thu, 29 Apr 2021 07:41:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=1duNQ45gysbugwXrktBTo31sNNlK9JvBYcuHKmnWwBs=;
- b=YBs5T9B0GwTP8wLwsY+U3WFnZfC0SWpJePxEzX3pOHHUi+CtJBc75nTRKVugnbyYQE
- gPSY0qj9ux/LmZUzUMrUSDOHlqGg1UWsf0nLwN9k1IC4zsF0fn+wdhMo5rJxWv1cW8Eb
- gnhzh2HeQKCvp+tPdJbX6f2jZIE32lgwsIRrO9SzLFiP6i932z1NZqG5nQjGbNufTvzi
- bEpowB/GRPIMOS9tbOyJ+geJ6DBLcVUfeQGlf6tS4/BB7xAVYf+hjgfYwxRJE3I7xDXT
- JDI3fkxiL8A1lfks+KR9EdYPCdbjn8IvZrzuxePcO6EFXQ3wOBntJCBsjQX7tGU/qtTm
- lfwA==
-X-Gm-Message-State: AOAM53383kSG8ZQKtyEiCvwzHp1jzbLjRSk5eT2PwiHmLt2wUqu2eTyO
- 1h0i0ijC85vpFj6ySzs2C4DInE6rnHE92iLBrDU=
-X-Google-Smtp-Source: ABdhPJxaE0d5lgxiwnQ9Nvnc2pxVgy9FTuxI8ZPVZwlv5na3rF4773vo6jNMOeXIgB+ks1yo26uXkSWjR8QDiUmyku8=
-X-Received: by 2002:a67:8745:: with SMTP id j66mr366840vsd.18.1619707293304;
- Thu, 29 Apr 2021 07:41:33 -0700 (PDT)
+ id 1lc8E1-000iFY-7p
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 15:05:10 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d4dd:70b4:3264:8d97])
+ by albert.telenet-ops.be with bizsmtp
+ id yf532400w4p6Y3806f535w; Thu, 29 Apr 2021 17:05:04 +0200
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1lc8Du-001HhU-BI; Thu, 29 Apr 2021 17:05:02 +0200
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1lc8Dt-009d6c-Pu; Thu, 29 Apr 2021 17:05:01 +0200
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, Arnd Bergmann <arnd@arndb.de>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH v2] riscv: Only extend kernel reservation if mapped read-only
+Date: Thu, 29 Apr 2021 17:05:00 +0200
+Message-Id: <02e05df076da23fc0f52c944bbf0a5cb99e95bd6.1619708542.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <1a7660125046b94db9c6a7d62aa0ce88c8cd2f1d.1619617340.git.geert+renesas@glider.be>
- <605dc5e8-0a41-7458-6037-d6263b0ffd59@ghiti.fr>
-In-Reply-To: <605dc5e8-0a41-7458-6037-d6263b0ffd59@ghiti.fr>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 29 Apr 2021 16:41:21 +0200
-Message-ID: <CAMuHMdWV69hjaja=8YyjuvTUDwrO_oryJzhwgoR4Kfz0esUhZg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Only extend kernel reservation if mapped read-only
-To: alex@ghiti.fr
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Arnd Bergmann <arnd@arndb.de>, linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_074135_197315_66E2EAAE 
-X-CRM114-Status: GOOD (  31.02  )
+X-CRM114-CacheID: sfid-20210429_080509_441938_DB6F06B6 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +86,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQWxleCwKCk9uIFRodSwgQXByIDI5LCAyMDIxIGF0IDQ6MDkgUE0gQWxleCBHaGl0aSA8YWxl
-eEBnaGl0aS5mcj4gd3JvdGU6Cj4gTGUgNC8yOC8yMSDDoCA5OjQ1IEFNLCBHZWVydCBVeXR0ZXJo
-b2V2ZW4gYSDDqWNyaXQgOgo+ID4gV2hlbiB0aGUga2VybmVsIG1hcHBpbmcgd2FzIG1vdmVkIG91
-dHNpZGUgb2YgdGhlIGxpbmVhciBtYXBwaW5nLCB0aGUKPiA+IGtlcm5lbCBtZW1vcnkgcmVzZXJ2
-YXRpb24gd2FzIGluY3JlYXNlZCwgdG8gdGFrZSBpbnRvIGFjY291bnQgbWFwcGluZwo+ID4gZ3Jh
-bnVsYXJpdHkuICBIb3dldmVyLCB0aGlzIGlzIGRvbmUgdW5jb25kaXRpb25hbGx5LCByZWdhcmRs
-ZXNzIG9mCj4gPiB3aGV0aGVyIHRoZSBrZXJuZWwgbWVtb3J5IGlzIG1hcHBlZCByZWFkLW9ubHkg
-b3Igbm90Lgo+ID4KPiA+IElmIHRoaXMgZXh0ZW5zaW9uIGlzIG5vdCBuZWVkZWQsIHVwIHRvIDIg
-TWlCIG1heSBiZSBsb3N0LCB3aGljaCBoYXMgYQo+ID4gYmlnIGltcGFjdCBvbiBlLmcuIENhbmFh
-biBLMjEwICg2NC1iaXQgbm9tbXUpIHBsYXRmb3JtcyB3aXRoIG9ubHkgOCBNaUIKPiA+IG9mIFJB
-TS4KPiA+Cj4gPiBSZWNsYWltIHRoZSBsb3N0IG1lbW9yeSBieSBvbmx5IGV4dGVuZGluZyB0aGUg
-cmVzZXJ2ZWQgcmVnaW9uIHdoZW4KPiA+IG5lZWRlZCwgaS5lLiBtYXRjaGluZyB0aGUgY29uZGl0
-aW9uYWwgbG9naWMgYXJvdW5kIHRoZSBjYWxsIHRvCj4gPiBwcm90ZWN0X2tlcm5lbF9saW5lYXJf
-bWFwcGluZ190ZXh0X3JvZGF0YSgpLgo+ID4KPiA+IEZpeGVzOiAyYmZjNmNkODFiZDE3ZTQzICgi
-cmlzY3Y6IE1vdmUga2VybmVsIG1hcHBpbmcgb3V0c2lkZSBvZiBsaW5lYXIgbWFwcGluZyIpCj4g
-PiBTaWduZWQtb2ZmLWJ5OiBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0K3JlbmVzYXNAZ2xpZGVy
-LmJlPgo+ID4gLS0tCj4gPiBPbmx5IHRlc3RlZCBvbiBLMjEwIChTaVBlZWQgTUFJWCBCaVQpOgo+
-ID4KPiA+ICAgICAgLU1lbW9yeTogNTg1MksvODE5MksgYXZhaWxhYmxlICgxMzQ0SyBrZXJuZWwg
-Y29kZSwgMTQ3SyByd2RhdGEsIDI3Mksgcm9kYXRhLCAxMDZLIGluaXQsIDcySyBic3MsIDIzNDBL
-IHJlc2VydmVkLCAwSyBjbWEtcmVzZXJ2ZWQpCj4gPiAgICAgICtNZW1vcnk6IDU5NDhLLzgxOTJL
-IGF2YWlsYWJsZSAoMTM0NEsga2VybmVsIGNvZGUsIDE0N0sgcndkYXRhLCAyNzJLIHJvZGF0YSwg
-MTA2SyBpbml0LCA3MksgYnNzLCAyMjQ0SyByZXNlcnZlZCwgMEsgY21hLXJlc2VydmVkKQo+ID4K
-PiA+IFllcywgSSB3YXMgbHVja3ksIGFzIG9ubHkgOTYgS2lCIHdhcyBsb3N0IDstKQo+ID4gLS0t
-Cj4gPiAgIGFyY2gvcmlzY3YvbW0vaW5pdC5jIHwgMTAgKysrKysrKystLQo+ID4gICAxIGZpbGUg
-Y2hhbmdlZCwgOCBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gPiBpbmRl
-eCA3ODhlYjIyMmRlYWNmOTk0Li4zNDM5NzgzZjI2YWJjNDg4IDEwMDY0NAo+ID4gLS0tIGEvYXJj
-aC9yaXNjdi9tbS9pbml0LmMKPiA+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gPiBAQCAt
-MTM2LDExICsxMzYsMTcgQEAgdm9pZCBfX2luaXQgc2V0dXBfYm9vdG1lbSh2b2lkKQo+ID4KPiA+
-ICAgICAgIC8qCj4gPiAgICAgICAgKiBSZXNlcnZlIGZyb20gdGhlIHN0YXJ0IG9mIHRoZSBrZXJu
-ZWwgdG8gdGhlIGVuZCBvZiB0aGUga2VybmVsCj4gPiAtICAgICAgKiBhbmQgbWFrZSBzdXJlIHdl
-IGFsaWduIHRoZSByZXNlcnZhdGlvbiBvbiBQTURfU0laRSBzaW5jZSB3ZSB3aWxsCj4gPiArICAg
-ICAgKi8KPiA+ICsjaWYgZGVmaW5lZChDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1gpICYmIGRlZmlu
-ZWQoQ09ORklHXzY0QklUKSAmJiBcCj4gPiArICAgIGRlZmluZWQoQ09ORklHX01NVSkgJiYgIWRl
-ZmluZWQoQ09ORklHX1hJUF9LRVJORUwpCj4KPiBBUkNIX0hBU19TVFJJQ1RfS0VSTkVMX1JXWCBk
-ZXBlbmRzIG9uIE1NVSBhbmQgIVhJUF9LRVJORUwgc28gSSB0aGluayB5b3UKPiBjYW4gZ2V0IHJp
-ZCBvZiB0aG9zZSBjaGVja3MuCgpUaGFua3MsIHlvdSdyZSByaWdodC4gIFdpbGwgc2ltcGxpZnkg
-aW4gdjIuCgpJJ2xsIGFsc28gY2xlYW4gdXAgdGhlIG90aGVyIGxvY2F0aW9uIHdoZXJlIHRoaXMg
-d2FzIGNvcGllZCBmcm9tLgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAg
-ICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGlu
-dXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZl
-cnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBC
-dXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVy
-IiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+When the kernel mapping was moved outside of the linear mapping, the
+kernel memory reservation was increased, to take into account mapping
+granularity.  However, this is done unconditionally, regardless of
+whether the kernel memory is mapped read-only or not.
+
+If this extension is not needed, up to 2 MiB may be lost, which has a
+big impact on e.g. Canaan K210 (64-bit nommu) platforms with only 8 MiB
+of RAM.
+
+Reclaim the lost memory by only extending the reserved region when
+needed, i.e. depending on a simplified version of the conditional logic
+around the call to protect_kernel_linear_mapping_text_rodata().
+
+Fixes: 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of linear mapping")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+v2:
+  - Simplify the conditional, as STRICT_KERNEL_RWX depends on
+    MMU && !XIP_KERNEL.
+
+Only tested on K210 (SiPeed MAIX BiT):
+
+    -Memory: 5852K/8192K available (1344K kernel code, 147K rwdata, 272K rodata, 106K init, 72K bss, 2340K reserved, 0K cma-reserved)
+    +Memory: 5948K/8192K available (1344K kernel code, 147K rwdata, 272K rodata, 106K init, 72K bss, 2244K reserved, 0K cma-reserved)
+
+Yes, I was lucky, as only 96 KiB was lost ;-)
+---
+ arch/riscv/mm/init.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 788eb222deacf994..3ebc0f5d2b73b42b 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -136,11 +136,16 @@ void __init setup_bootmem(void)
+ 
+ 	/*
+ 	 * Reserve from the start of the kernel to the end of the kernel
+-	 * and make sure we align the reservation on PMD_SIZE since we will
++	 */
++#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
++	/*
++	 * Make sure we align the reservation on PMD_SIZE since we will
+ 	 * map the kernel in the linear mapping as read-only: we do not want
+ 	 * any allocation to happen between _end and the next pmd aligned page.
+ 	 */
+-	memblock_reserve(vmlinux_start, (vmlinux_end - vmlinux_start + PMD_SIZE - 1) & PMD_MASK);
++	vmlinux_end = (vmlinux_end + PMD_SIZE - 1) & PMD_MASK;
++#endif
++	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+ 
+ 	/*
+ 	 * memblock allocator is not aware of the fact that last 4K bytes of
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
