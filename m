@@ -2,86 +2,102 @@ Return-Path: <SRS0=tUGE=J2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AAC7C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D9A0EC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:23:03 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED63060725
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 15:15:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED63060725
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2BA9C613F1
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:23:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2BA9C613F1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=0U46qd7rgSTUGPeSoqrONl8yDUeMkMlNjIn66OQFl2Y=; b=iQbu0FDoHsz3QgswOup+JkI71
-	fZgy0zM1ofhPGsSGC2I0ntI0Yi2MI+vkFZFMCFmGO+k1pseU2DnAfq/BFW1KaeJw1BjkAHaplcqVZ
-	iVoXwPU6aTqh0MyPUCzKEwO3bQWXuDUHJUG6ePSTJvdHjNsqK/KU133WWcGJFkG5m42eaN7v2KRZL
-	E56sBu/OdjxA2NUaRmn0SxZPnEBO7BE6rq3Boz3Nw4Ryen1FFatCfQmrYDc7WmkZY5xGzjmGU0Vwr
-	FUj50dOqAo8lci4kh4QX+tq+RpXlAlTXrNSj1ubWZsQBeNHu4hP+VvGAFyakFYYHxnGcdnTj8mA/R
-	PRiITTFLg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=rr6jzJL6HfWiIIxIewJGfUvq60hAEwiLPzenqKjeIhg=; b=YzdJe13sD3X/msAHirOeu4k80
+	IJ2gowZLA0McIcr5JeVn9SvvFZsoT/EjYiYEWDSvbSKc9D98bPpb1ROUJ+scWOCnmehGt/VlNulbb
+	ul54cmlAQV0q8xpmLsWHjeXBmabXrHhhumUbfnwWCFeCxQqizinreYamUvwzZ1OkS0nGo1Sg/KWhS
+	PRxqx8GHSBmsuZKbJ5S4yGQEBef4wuQNi2rh6nYGZW5s9s0Wg6tAjEbUiRFbHNs46/7blkJqsRC82
+	h+ib79J7spHvDMHnc5iWZsEHRMJc7URTCmkOQNaNuOLfJrDi/v7eMqlhy71iKT/V/J0SGW6lAKSAg
+	DAutsTsvA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc8O3-005vXN-IO; Thu, 29 Apr 2021 15:15:31 +0000
+	id 1lc9R6-0062aN-VG; Thu, 29 Apr 2021 16:22:45 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc8Nz-005vX8-Lp
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 15:15:29 +0000
+ id 1lc9R5-0062aE-FG
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 16:22:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:References;
- bh=FUKLtQrmdq307LmBisXbBmRaGxW8+9QxEVqZfsvUc1o=; b=fhvVuazI3WKYW1xyfKoQKSUrtl
- x7u4Gqk5UY1+LLB0665q+zQJsUg2fZSlf9haPLGX4wZq1go0KazvOh9LM9iTcUEY/k23CXSylHKwy
- 7mPBJX62k9jXFREDtlqbZWXl2xFIbePV6LKKSIBXnp/oNwfgK9WjpHRMmD+g10jG17ZPbEoFxi0W4
- arl4sg8ZcHE85tzcHLPPSdi1KCwohAF+Orj9bDpu7JvJ300h8Dz0c0wKCY8n3DA86tYpJwe28RY2T
- 5hyFG20BfsKIqxn1SJcH91I4+LwkOaOLDMlYOKL5RJURDGx8pwEamjAe0I7jzG1TnvGtlr/ilwGhY
- dN3vQ6cw==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=lS5ui2LIN/jns61jMI+NEmkgbdZa81SaVZHOH40XKMI=; b=EcKv6c4hKKImJDgGzNsdnrSTFm
+ HqDnAH1ox/p2SFY1QTrmInVV7u+rVNTaXp2v/eytMWJF2yZwbFZrjhjqFHxpQY6Q3krTuK4ZtBISQ
+ Rw27X6tqt5s0lGXJHkOfMyRt3Th/Mqh45r0ORgH+vQaT/hGW/XgwO4P/atKbb0p9kFRXSi70V7OTB
+ 80lEQfwtv97NraCVhwomLEM79aEYA9Gw++oe+ZF+I3vsFXBMrRgEa3XQ3ksm8tb7QILsUW/vphqIA
+ 9/LB0uvckasAP8ba3NikA5nU5T94yC0XUNaseLUDxQhKHtb0tvxJt/IbBFr+Fu3dur7ak+seJbdub
+ tAJsFsQA==;
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc8Nx-000icO-2X
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 15:15:26 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D4C3F6144B;
- Thu, 29 Apr 2021 15:15:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1619709324;
- bh=BlAMIRtj2IZcp3ctO0A7trOlyHNIVXGiVatXmNlOtaw=;
- h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=Tw9xxmLej/iCGcwMhxSO0GKEfaH0cNxBr32lYkOPpREnevCLPgML+fQZxu1mJUy3H
- Gy1jZkYjfKpqU/AR+WYe2wcB1K5u98IztUAgR7FumJWPRhrii7d/e3US5utNwv1Rf/
- 3eruYEuAywtxkmMcR37KbN5HXs7fjnaYfysJoKlv2ES+YaF6McR5JTaNBInUhpIU3H
- EYDzVlNVF9R1DqvzULmQ1a6BqxyNg1r+wjGjvIhmjvp1RSwMFfWZ/m93cmC+tiFYlu
- lyG3h3E0b5yMporFkhj9CJakxkq26BllyAYfyMkzobO4HjlX32fe1d5+pYZMNa5JR4
- wImFV9Lcieqpw==
-Date: Thu, 29 Apr 2021 10:15:22 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-Cc: Greentime Hu <greentime.hu@sifive.com>, paul.walmsley@sifive.com,
- hes@sifive.com, erik.danie@sifive.com, zong.li@sifive.com,
- bhelgaas@google.com, robh+dt@kernel.org, aou@eecs.berkeley.edu,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
- alex.dewar90@gmail.com, khilman@baylibre.com,
- hayashi.kunihiko@socionext.com, vidyas@nvidia.com,
- jh80.chung@samsung.com, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 5/6] PCI: fu740: Add SiFive FU740 PCIe host controller
- driver
-Message-ID: <20210429151522.GA495642@bjorn-Precision-5520>
+ id 1lc9R2-000l8x-1h
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 16:22:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1619713360; x=1651249360;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=7BcdnZisl7B8/PzFL89x7k4XXNQZrdodFVgVdVog5FU=;
+ b=FLDp7iGQyHQFUZ+5R4u5Oj5x+2L5IV6dj57xbWIO/8vx8esP2i+BQ3U8
+ +WQykPZwRaaPS+N4Robiu+NYzaEHYjHytRdKyMdW7wzZ8Qf5oW9+DMW+k
+ Piv87ywYzvRamLUQPvUGO388A3l7PqYM+JXoHYvVCdu6nSTuo5+fYLiwB
+ NAeNoDozJSnAg6zDUxVOypI354YYeEKyddpi4hV6hbyarImq99x2MjIwk
+ RVI5nl4gVPqcT5/Q7kLbBfsQ/W7/oVTzetUnB7LbYBRGVo2fzrLSuQ77C
+ gDdONHZFkOn0DfjVaw1xDy5Ry0OzsjCdLlS5gSCXyZ3QTZ2qz/U2Dk/SQ w==;
+IronPort-SDR: 9up+t1yzJJ4pGk6aqPHPwq23SeK79ZZS0/Y/Ik5MOTulOKzh5caNovjBGbxJ6lrde4h5QZmJrQ
+ G73+Fc0cmYnSDDjVoLsU2YXwIrUMjba7jmRXoEesjVW0Q60ssAZUtNzH6Q9iWHH4rUT3nyL+3R
+ Wna9vys0auG6ohc1PqenBrWVDC6VWLhnGT5WJ0I82sPJzhT+fDtLMfo0fttZvYpj/xGIWpcQTN
+ xg1HYukdxQqRdkLC3pEkIDPiA8Fr/Yr5p1A7x76LvkAVhFk/dbR+oH+9VmdG9amUI3uuiwhn1e
+ sn0=
+X-IronPort-AV: E=Sophos;i="5.82,259,1613458800"; d="scan'208";a="115378716"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 29 Apr 2021 09:22:37 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Thu, 29 Apr 2021 09:22:36 -0700
+Received: from [10.171.246.9] (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2176.2 via Frontend
+ Transport; Thu, 29 Apr 2021 09:22:34 -0700
+Subject: Re: [PATCH] net: macb: Remove redundant assignment to queue
+To: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
+CC: <claudiu.beznea@microchip.com>, <kuba@kernel.org>, <davem@davemloft.net>, 
+ <linux@armlinux.org.uk>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>, 
+ <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>
+References: <1619691946-90305-1-git-send-email-jiapeng.chong@linux.alibaba.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Organization: microchip
+Message-ID: <8c969699-6ce3-4731-e33c-2d1b045aafab@microchip.com>
+Date: Thu, 29 Apr 2021 18:22:33 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210429145954.GA29122@lpieralisi>
+In-Reply-To: <1619691946-90305-1-git-send-email-jiapeng.chong@linux.alibaba.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_081525_170999_33F92711 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20210429_092240_433440_BA367F6E 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,48 +109,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 29, 2021 at 03:59:54PM +0100, Lorenzo Pieralisi wrote:
-> On Wed, Apr 28, 2021 at 02:47:13PM -0500, Bjorn Helgaas wrote:
-> > On Tue, Apr 06, 2021 at 05:26:33PM +0800, Greentime Hu wrote:
-> > > From: Paul Walmsley <paul.walmsley@sifive.com>
-> > > 
-> > > Add driver for the SiFive FU740 PCIe host controller.
-> > > This controller is based on the DesignWare PCIe core.
-> > > 
-> > > Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> > > Co-developed-by: Henry Styles <hes@sifive.com>
-> > > Signed-off-by: Henry Styles <hes@sifive.com>
-> > > Co-developed-by: Erik Danie <erik.danie@sifive.com>
-> > > Signed-off-by: Erik Danie <erik.danie@sifive.com>
-> > > Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-> > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> > 
-> > Tripped over these errors while build testing with the .config below.
+On 29/04/2021 at 12:25, Jiapeng Chong wrote:
+> Variable queue is set to bp->queues but these values is not used as it
+> is overwritten later on, hence redundant assignment  can be removed.
 > 
-> Sorry about that - the kbot did not managed to test it. Is it a
-> randconfig ? I think we should ask the kbuild bot guys to add it,
-> I think it can be done on a per-repo basis.
+> Cleans up the following clang-analyzer warning:
+> 
+> drivers/net/ethernet/cadence/macb_main.c:4919:21: warning: Value stored
+> to 'queue' during its initialization is never read
+> [clang-analyzer-deadcode.DeadStores].
+> 
+> drivers/net/ethernet/cadence/macb_main.c:4832:21: warning: Value stored
+> to 'queue' during its initialization is never read
+> [clang-analyzer-deadcode.DeadStores].
+> 
+> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+> Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
 
-I don't know enough about the bot.  The lkp@intel.com reports I get
-include allyesconfig for x86_64; not sure why that wouldn't catch
-this.
+Looks good to me as assignments are done in for loops:
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-> Waiting for a fix asap - I can move/rebase some commits if the fix
-> takes time.
+Regards,
+   Nicolas
 
-If it's feasible you could just move the FU740 stuff to a different
-branch so we can be sure to include the other dwc stuff.  Same for
-brcmstb.
+> ---
+>   drivers/net/ethernet/cadence/macb_main.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+> index 0f6a6cb..5693850 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -4829,7 +4829,7 @@ static int __maybe_unused macb_suspend(struct device *dev)
+>   {
+>          struct net_device *netdev = dev_get_drvdata(dev);
+>          struct macb *bp = netdev_priv(netdev);
+> -       struct macb_queue *queue = bp->queues;
+> +       struct macb_queue *queue;
+>          unsigned long flags;
+>          unsigned int q;
+>          int err;
+> @@ -4916,7 +4916,7 @@ static int __maybe_unused macb_resume(struct device *dev)
+>   {
+>          struct net_device *netdev = dev_get_drvdata(dev);
+>          struct macb *bp = netdev_priv(netdev);
+> -       struct macb_queue *queue = bp->queues;
+> +       struct macb_queue *queue;
+>          unsigned long flags;
+>          unsigned int q;
+>          int err;
+> --
+> 1.8.3.1
+> 
 
-Oh, and Colin just posted a NULL pointer check that could be squashed
-into the new mediatek-gen3 driver.
 
-Bjorn
+-- 
+Nicolas Ferre
 
 _______________________________________________
 linux-riscv mailing list
