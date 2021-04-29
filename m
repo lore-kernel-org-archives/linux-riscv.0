@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CE9B4C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 08:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE283C433B4
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 08:46:15 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 50F99613F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 08:05:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50F99613F8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 54AFC6141E
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 08:46:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54AFC6141E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LY4gR72yfM1vuteUJ5mZPsRZuhHXNjDQzmJmFqUUpZs=; b=f+XzgeDY9Z69RYuqPGxkQqEAoK
-	7p4LhVxren+ZT42ZZ9zJRlltdAo9wH3kXOTamP20xL8X3kuOEvnk+EcOLRKwZfurR4fZyGwo2dMjK
-	GqdMv383/uKb72d2Zm2NwZLXdfkyAZlvIDuYBsufNQ3ApCidKDF8wqGLbWxHhL+Wwfw2CkFzXdr/K
-	gcdB8cXL95YW5ff9fG7+qzRLeNkcjajK8b7uGWUzOAzEhH08F6hgjmhMBBehxV3H+OMVux0ss/5bU
-	OFEEMoW6uuq1xu7wCx8tUw+Vu2cIl8Z1pgYnsnnYJmWT4zCWsAg6bq6nAjSq2PJHHCpWXCNpjfHaL
-	jEP8/wYw==;
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cfAvsLlm/SQU0Y4ZXOIHhi11iMKw5+7K2GsO1uLz0wk=; b=oTJAfj2UiczwSj
+	y4pmUu14g4An0rstNAW3S8I86rEc1LGvvsjWbmYz2NSIhbJEHK4hN9XGIB0gABTF7qJtYy9RP2LmL
+	5kJ/jk5RB6Sa8/YIVOqExHXg6uzS7Kg8lZNWrPq817q5z69/rQx+3GFAm3wBW3madUBKN7jgXxLLP
+	QfyyDT0CwFDz9Jq8rulg++h4dmWgW90VwEmGWbrK5WIADxj259wIAGzIFdu5QYz5AVRlWR2ggxpC3
+	NUS9ZXcuarypGMwQVqvxzbhqoKnUoVOwbNbaNX30sPgzTjoF90b473+f9tZ4WGrCWnbZ1kXWeulVv
+	vwZQXUvK2k9lbFWCIEvQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc1fQ-005Fpa-KE; Thu, 29 Apr 2021 08:05:00 +0000
+	id 1lc2J5-005Lr9-Gd; Thu, 29 Apr 2021 08:45:59 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc1fO-005FpU-Ku
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 08:04:58 +0000
+ id 1lc2J3-005Lqp-LJ
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 08:45:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Message-Id:Date:Subject:Cc:To:From:
- Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ MIME-Version:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:
  Content-ID:Content-Description:In-Reply-To:References;
- bh=COxLyxut35FF++DcEvwtNdhVoc8KFkkAUWYyY8ZW2IU=; b=NJjLUfTdO85Apy2dBPLIIB8nPX
- 7qQj79scOe7v8b0pTpVB8C2+CFvLpVdP0TDdEgfvRc2w8kJ+tP1612Fbsd+cR52KUDjQiYHz44swd
- lxAgVbKtkWENS4YAhqDZ5iMMo4EfssxgNL7G64gSiqXA44PvsI71H4QCvDSbypSXgHB1dom/uKKyi
- dYsK+0Ra7U1V0+JWWM2zYZ0d9d9HN9MTvVsUZMrdM5Fb2Wt9H7gLnUNu1UsulNbQMEhHByS7PfPP9
- sLy2FIgxrEjLNPR1iNs7AWKqm9wA5ZKNlxELR6QG3w+zzlg+c0S89sJpK4hhQVEuhyw0WOoOhk79j
- s8EXXhKQ==;
-Received: from [64.62.193.209] (helo=transporter.internal.sifive.com)
+ bh=OgSjdYNodjoFoLNBIeXmlGucKytvN/1G2+FQvPAeLLU=; b=UTmCOkkpnEEMWC/kOeME2maX0z
+ 2f9piff2ez/f585iLn9kdX4HJviJ3v1PltT6GS+y//egrGegncOOX5RQJ4Oao1URkbZV3hwIiIQHf
+ FKUDf3cfvtZ7AUjfYv12AmOlBoVU7QQbLXDUbG+IHxXYyYy+6XQkj1E5m2RXe8epK8Op+kO6R2znt
+ VcknTi+qsiRDpEyY9+Qf88Sbg6QIOmKp1Su88x/rpvoeJ+dypJ+RCjpPZL8SoYA+lK8P3fswApbSw
+ GUhtq+0JONCLGAOjmZAieGXFzGcHd5z0zU92hUkBQQnF8bi9viRAi9NljeyIHSObMo2yoe8xZYpE/
+ C968UNfw==;
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc1fM-000TFE-2J
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 08:04:57 +0000
-Received: from gamma15.internal.sifive.com (gamma15.internal.sifive.com
- [10.14.21.64])
- by transporter.internal.sifive.com (Postfix) with ESMTPS id 5407A20109;
- Thu, 29 Apr 2021 00:58:38 -0700 (PDT)
-Received: from localhost (gamma15.internal.sifive.com [local])
- by gamma15.internal.sifive.com (OpenSMTPD) with ESMTPA id 188a7901;
- Thu, 29 Apr 2021 07:58:38 +0000 (UTC)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com,
-	vincent.chen@sifive.com
-Subject: [PATCH] riscv: enable SiFive errata CIP-453 and CIP-1200 Kconfig only
- if CONFIG_64BIT=y
-Date: Thu, 29 Apr 2021 00:58:36 -0700
-Message-Id: <1619683116-196404-1-git-send-email-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.7.4
+ id 1lc2Iv-000UzO-K0
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 08:45:56 +0000
+X-Originating-IP: 2.7.49.219
+Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
+ [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id C4ECF240006;
+ Thu, 29 Apr 2021 08:45:42 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Disallow to build XIP_KERNEL with SOC_SIFIVE
+Date: Thu, 29 Apr 2021 04:45:41 -0400
+Message-Id: <20210429084541.28083-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_010456_113114_2CE9D733 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210429_014549_817713_2864DB24 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +79,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The corresponding hardware issues of CONFIG_ERRATA_SIFIVE_CIP_453 and
-CONFIG_ERRATA_SIFIVE_CIP_1200 only exist in the SiFive 64bit CPU cores.
-Therefore, these two errata are required only if CONFIG_64BIT=y
+RISCV_ERRATA_ALTERNATIVE patches text at runtime which is not possible when
+the kernel is executed from the flash in XIP mode, and as the SIFIVE
+errata must be fixed somehow, disallow to build a XIP kernel that
+supports SIFIVE socs.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 ---
- arch/riscv/Kconfig.erratas | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig.erratas | 2 +-
+ arch/riscv/Kconfig.socs    | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index d5d03ae..b44d6ec 100644
+index d5d03ae8d685..9537dbd67357 100644
 --- a/arch/riscv/Kconfig.erratas
 +++ b/arch/riscv/Kconfig.erratas
-@@ -21,7 +21,7 @@ config ERRATA_SIFIVE
+@@ -2,7 +2,7 @@ menu "CPU errata selection"
  
- config ERRATA_SIFIVE_CIP_453
- 	bool "Apply SiFive errata CIP-453"
--	depends on ERRATA_SIFIVE
-+	depends on ERRATA_SIFIVE && 64BIT
- 	default y
+ config RISCV_ERRATA_ALTERNATIVE
+ 	bool "RISC-V alternative scheme"
+-	default y
++	default y if !XIP_KERNEL
  	help
- 	  This will apply the SiFive CIP-453 errata to add sign extension
-@@ -32,7 +32,7 @@ config ERRATA_SIFIVE_CIP_453
+ 	  This Kconfig allows the kernel to automatically patch the
+ 	  errata required by the execution platform at run time. The
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 00c2b205654c..9cb38bc9d7cd 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -9,6 +9,7 @@ config SOC_MICROCHIP_POLARFIRE
  
- config ERRATA_SIFIVE_CIP_1200
- 	bool "Apply SiFive errata CIP-1200"
--	depends on ERRATA_SIFIVE
-+	depends on ERRATA_SIFIVE && 64BIT
- 	default y
- 	help
- 	  This will apply the SiFive CIP-1200 errata to repalce all
+ config SOC_SIFIVE
+ 	bool "SiFive SoCs"
++	depends on !XIP_KERNEL
+ 	select SERIAL_SIFIVE if TTY
+ 	select SERIAL_SIFIVE_CONSOLE if TTY
+ 	select CLK_SIFIVE
 -- 
-2.7.4
+2.20.1
 
 
 _______________________________________________
