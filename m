@@ -2,81 +2,104 @@ Return-Path: <SRS0=tUGE=J2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34548C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DF9D6C433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:32:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9CFCF6140C
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:31:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9CFCF6140C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4059B6140C
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 16:32:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4059B6140C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=eYb+5O1wAj0s2AWb6w8yGaqZm6Yd8AW/gd07qQANzj4=; b=eAJOd4T+wAQ/SV8pS+61UvKxg
-	LFfZOSrQ72XE65q3wqEc7sayN312tW3q0lfddZXdOIVxzonNLJuU6sloGGUdVnWPKDzRGOoG2CMHr
-	O/5tg1wvXvOQARR40jnACZHHFKNQTxTNho3Q3WuF2KHrVJdoS1ksSCHOGEh538IRC1yxVtZLe5nXj
-	Et0kchcIJ0ZXi2Y2+r0QX5OphxeysX0Z8VtgjPPbMUPBs2455V494xDHv5DTu6kB/xXcTgZno6tbJ
-	Bg/v1tiwr4xEzUV7Wxmiur4ULOtwzDQKVAFMvSftTwshijT0UqrAFoUFt3frcQ+VH8upLakmS6CWi
-	Sfe2n8IRw==;
+	 bh=B1JNYjABcH+hzB68FnV4gcZ/QUEz+iZ/mtswn8NdQZ0=; b=ovdpFnzut1i8KDJNxd54/zauX
+	6Ocgml2aB3wB1SdpwBFQMalDIAtvVnmVvg2nQ4kTZmaMulPQABxvz8RBr20I+n7LkintkM3hsh6fb
+	Yhjsp5jKZqn2NEX1pXs8h1KjwqxkJdsIKnfdZCYSJjp1Y8moczzKGHMG04h9ESetcbo9O2dqkF6+9
+	QX7rPvRPC9ldvBWY50oSnXpDHPnWgPmOF0wYmkAJGJNj/tNrOdPduJVqqz14HtIGxm2F6jdEpZH3q
+	R9DbLG2ukR3KoQsfOxer/srKNdyZ9RKwBFFLKylN5Msl5ZhUnmIOBXprZdAm0rYKpawLcMFUOvT6N
+	j2qI6S8ZA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc9ZZ-0063Ya-32; Thu, 29 Apr 2021 16:31:29 +0000
+	id 1lc9aS-0063ky-0j; Thu, 29 Apr 2021 16:32:24 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc9YN-0063O1-Mu
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 16:30:16 +0000
+ id 1lc9aO-0063kM-77
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 16:32:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
- From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=pxNL48C8NJtjPjaOAPEd1rglpkan6UYHNC42+w9pH0g=; b=NZx+om+B080UcgzEleofiojNoO
- 8LF7CYQonUmlrWXz2yG43P1NUsYDa6tUDjSBtvYHG7pmeV2IpWdgY2QW4vSpkH2Q0IknnCBDCCUQD
- Jjh+qpalSqBdhxiec7k9WtfWbb49cjI2mG5c8C4VASgeyzrCW4oBLRtS/7Gu3q4fZuWewroskU4aV
- Jy9CEZNA4FxpGAEz6QpeaYcUvo0fx5/B+4CA3ZaT+RJXiuUGFA/LdhL1HdVZOvtIEeHj4ziQzDcKX
- kVP2TZhNWXNZ+l8ON6fBs+QaipqUAh3LdEJbGbytMf06fTB6gNwj64tPqIMssrKYM1lWzwk262x4z
- iSJcg6cA==;
-Received: from mail.kernel.org ([198.145.29.99])
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=weXedyppiPqjfs4gYPMZr/jLJU0tpcI0KJ15HonorPY=; b=a5tF5ppki5LhUZ/yKRO2pTBi1C
+ f1HD/grLmxJHu5EP0ZwmFctp2/02Lty8QTZ9B6fwhVeKAzrpCwIMtnEZqK5lMaeoAlN47mn/xEq7j
+ x/nadBRMkAPRo5qSn3eAVBKaF4xUGxrD/MvcLOI5Hrf2sG+0RVTURgjGE0MRVLqiEE82y2KCXheCT
+ OIsgdFca2YvUfk3v1ULXjiI4CM1MnebiR10vyrGJLSXKwjoafyj0LDBHNLHvCppZOGKeFWB/hbDGL
+ EnHWRUVqLEn0eLMaoPNueF47aiEMnYr21Ktv4MJuhj5GSMZIOy6yCOb5ViRr6AT7ZUSV7o1+pM5Ka
+ myCvoaFA==;
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc9YK-000laT-Ul
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 16:30:14 +0000
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 97C8961407;
- Thu, 29 Apr 2021 16:30:09 +0000 (UTC)
-Date: Thu, 29 Apr 2021 12:30:07 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, Paul Walmsley
- <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, peterz@infradead.org,
- jpoimboe@redhat.com, jbaron@akamai.com, ardb@kernel.org, Atish Patra
- <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
- akpm@linux-foundation.org, rppt@kernel.org, mhiramat@kernel.org,
- zong.li@sifive.com, guoren@linux.alibaba.com, wangkefeng.wang@huawei.com,
- 0x7f454c46@gmail.com, chenhuang5@huawei.com, linux-kernel@vger.kernel.org,
- kernel-team@android.com, Palmer Dabbelt <palmerdabbelt@google.com>,
- Changbin Du <changbin.du@gmail.com>
-Subject: Re: [PATCH] RISC-V: insn: Use a raw spinlock to protect TEXT_POKE*
-Message-ID: <20210429123007.5144fc0d@gandalf.local.home>
-In-Reply-To: <20210429061713.783628-1-palmer@dabbelt.com>
-References: <20210429061713.783628-1-palmer@dabbelt.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ id 1lc9aL-000lkC-Iz
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 16:32:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1619713937; x=1651249937;
+ h=subject:to:cc:references:from:message-id:date:
+ mime-version:in-reply-to:content-transfer-encoding;
+ bh=hqg6GCymKi8MGlWIx2XifSrXyOJ+2DS2KKgnhY+o25c=;
+ b=nuwH1QYqpkv75KEdc2eIZMysz9HXNnh/Q1SvwW7reinSR+0JInz/MP+D
+ cah27+moCJKaHS7+blGJHc2JjOmtYkTDhfHiZ86CzOujBq4kfhTTXMcLd
+ efpEtbKpmraeFIlIhVyS7yWKc6awQX5VO3B+VK5kVOuZL0K/xV1lcyqbQ
+ +M3OY6bdo0utH3PNBEKc8wye3YqhUjC83UHem03dQv39dVX7TqeswesLj
+ W4hDFgf0aZ8O+Nn17sgnRaTrr5DJ+XUe+eugEWGIqvDbcA4ib/m2GGnAb
+ 58POcVUG0UkBysUOncJBQF+zask1eICDWFwQjFRercaQ8i/kLlcd2JhvQ w==;
+IronPort-SDR: sa6xaJUC2wpDcfdsfc9/3DuLsY6QIhK+Lij0cF1caQycbtdtzI1AYHt9rqjxJoiAMu7/k52Ys4
+ rI/XO6uGRNC+gdkSSylW13+HJOpdp1e4+kTOX92dyzgjAer3v3yNPCi1KUhJWTKI6Q8QN7VnrH
+ lClRW075l2fIyGZJCne1R1AnVE/eQBkU7L1lCkCCTB3KADR/YzQI71ZVHE2iF9RFmVeu1aPtcN
+ DuuHsCmnX/ij0o27rA0+6GniQZGBxVIwFxQtyjg5cVJoF908gp2la/Ew/njJVS+wp1X18IeQVf
+ Sk8=
+X-IronPort-AV: E=Sophos;i="5.82,259,1613458800"; d="scan'208";a="112706308"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 29 Apr 2021 09:32:15 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Thu, 29 Apr 2021 09:32:15 -0700
+Received: from [10.171.246.9] (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2176.2 via Frontend
+ Transport; Thu, 29 Apr 2021 09:32:13 -0700
+Subject: Re: [PATCH] net: macb: Remove redundant assignment to w0 and queue
+To: Jakub Kicinski <kuba@kernel.org>, Jiapeng Chong
+ <jiapeng.chong@linux.alibaba.com>
+CC: <claudiu.beznea@microchip.com>, <davem@davemloft.net>,
+ <linux@armlinux.org.uk>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+ <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>
+References: <1619604188-120341-1-git-send-email-jiapeng.chong@linux.alibaba.com>
+ <20210428122106.2597718a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Organization: microchip
+Message-ID: <ac269e45-113c-1fc3-192a-97253633e031@microchip.com>
+Date: Thu, 29 Apr 2021 18:32:12 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
+In-Reply-To: <20210428122106.2597718a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_093013_054419_C295954B 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20210429_093217_720611_A65F21ED 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +111,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Apr 2021 23:17:13 -0700
-Palmer Dabbelt <palmer@dabbelt.com> wrote:
-
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
+On 28/04/2021 at 21:21, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> We currently use text_mutex to protect the fixmap sections from
-> concurrent callers.  This is convienent for kprobes as the generic code
-> already holds text_mutex, but ftrace doesn't which triggers a lockdep
-> assertion.  We could take text_mutex for ftrace, but the jump label
-> implementation (which is currently taking text_mutex) isn't explicitly
-> listed as being sleepable and it's called from enough places it seems
-> safer to just avoid sleeping.
+> On Wed, 28 Apr 2021 18:03:08 +0800 Jiapeng Chong wrote:
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+>> index 0f6a6cb..5f1dbc2 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -3248,7 +3248,6 @@ static void gem_prog_cmp_regs(struct macb *bp, struct ethtool_rx_flow_spec *fs)
+>>        /* ignore field if any masking set */
+>>        if (tp4sp_m->ip4src == 0xFFFFFFFF) {
+>>                /* 1st compare reg - IP source address */
+>> -             w0 = 0;
+>>                w1 = 0;
+>>                w0 = tp4sp_v->ip4src;
+>>                w1 = GEM_BFINS(T2DISMSK, 1, w1); /* 32-bit compare */
+>> @@ -3262,7 +3261,6 @@ static void gem_prog_cmp_regs(struct macb *bp, struct ethtool_rx_flow_spec *fs)
+>>        /* ignore field if any masking set */
+>>        if (tp4sp_m->ip4dst == 0xFFFFFFFF) {
+>>                /* 2nd compare reg - IP destination address */
+>> -             w0 = 0;
+>>                w1 = 0;
+>>                w0 = tp4sp_v->ip4dst;
+>>                w1 = GEM_BFINS(T2DISMSK, 1, w1); /* 32-bit compare */
 > 
-> arm64 and parisc, the other two TEXT_POKE-style patching
-> implemnetations, already use raw spinlocks.  abffa6f3b157 ("arm64:
-> convert patch_lock to raw lock") lays out the case for a raw spinlock as
-> opposed to a regular spinlock, and while I don't know of anyone using rt
-> on RISC-V I'm sure it'll eventually show up and I don't see any reason
-> to wait.
+> Looks like this was written like that on purpose.
+> 
+>> @@ -4829,7 +4827,7 @@ static int __maybe_unused macb_suspend(struct device *dev)
+>>   {
+>>        struct net_device *netdev = dev_get_drvdata(dev);
+>>        struct macb *bp = netdev_priv(netdev);
+>> -     struct macb_queue *queue = bp->queues;
+>> +     struct macb_queue *queue;
+>>        unsigned long flags;
+>>        unsigned int q;
+>>        int err;
+>> @@ -4916,7 +4914,7 @@ static int __maybe_unused macb_resume(struct device *dev)
+>>   {
+>>        struct net_device *netdev = dev_get_drvdata(dev);
+>>        struct macb *bp = netdev_priv(netdev);
+>> -     struct macb_queue *queue = bp->queues;
+>> +     struct macb_queue *queue;
+>>        unsigned long flags;
+>>        unsigned int q;
+>>        int err;
+> 
+> This chunk looks good!
+> 
+> Would you mind splitting the patch into two (1 - w0 assignments, and
+> 2 - queue assignments) and reposting? We can merge the latter, the
+> former is up to the driver maintainer to decide.
 
-On x86 we use text_mutex for jump label and ftrace. I don't understand the
-issue here. The arm64 update was already using spin locks in the
-insn_write() function itself. riscv just makes sure that text_mutex is held.
+Good move Jakub, thanks for having suggested this as we are highlighting 
+a bug!
 
-It also looks like ftrace on riscv should also have text_mutex held
-whenever it modifies the code. Because I see this in
-arch/riscv/kernel/ftrace.c:
+Best regards,
+   Nicolas
 
-
-int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-{
-        mutex_lock(&text_mutex);
-        return 0;
-}
-
-int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-{
-        mutex_unlock(&text_mutex);
-        return 0;
-}
-
-Which should be getting called before and after respectively from when
-ftrace does its updates.
-
-Can you show me the back trace of that lockdep splat?
-
--- Steve
+-- 
+Nicolas Ferre
 
 _______________________________________________
 linux-riscv mailing list
