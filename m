@@ -7,15 +7,15 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E5C79C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 09:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50ABDC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 09:12:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14D2261449
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 09:05:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14D2261449
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 836546143D
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 09:12:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 836546143D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,76 +23,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mIiBCgFl2g1shncyjhY26dGe1Bi/etLjPZED6vhwf3s=; b=eHvPrfU+WhLCAschU3FrxBsPi
-	8nOOa3DiqjJTHDAQRPVpui6GMIlFOplCqzXMz2Y+/VJmV4tTuANrz7V4HmvufMwNTVsA1FE+89DxH
-	s7ri8hYUbCW266C/yHddMgemdPdQ2Rn/BBi07BduJUWwWMpB1Q4peKA/B/dYAepvDeKmPHVsTTLhj
-	/BFsNyGsD0JRwOKtC8GY3qvPnpYhoQgi++vqBJt9U0yLfDk+5j8eSxg0sH37Xb724+lIQ+37UN40S
-	fjY/Jn8zLCkqMEm2LLOzF644qwTxd5UFFIVVc3qdjolXiJ8GN9bdbAHysUpZQIUy/UiKr/e3Hipbz
-	OjDZutmGQ==;
+	 bh=88Hs5VMzG7sL+FOmDcbbSUsGBKdCkbJnflnxRI3sYsc=; b=Zg3tVcpLgBl/at+k3nNSiM8FB
+	t3qYafeZXNDbTBYW7ZOf/YZ3l5IW+luZiSrZBUsbW6mpfErpuEJ239e84bAq2eYNn5nRS7T4Z0zQ/
+	VgsZR+WPx7YxlI4Yk+ixcIGBV/tFfcpGm2Qwif+eTPMTea+WJpM4+BmIT+u9//JueicC3z6cbqumQ
+	pXGwDMgMuMKVToptRMeOgnN6K2hRpY1J2PMINZnVdMcv7ekrKHjEukSoLQtJEbB8ovlhcQdWoyV5J
+	Enf12IA0TvyySGIKOPSkc+SH3kCTemabGDCUTqXn10SbnLMp5xYa32ZxNbPh6DwA51fxcB1ZyJcqG
+	5mKiGvcaw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc2bI-005PLV-4X; Thu, 29 Apr 2021 09:04:48 +0000
+	id 1lc2iT-005Q6N-Qq; Thu, 29 Apr 2021 09:12:14 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc2bE-005PKu-Qa
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 09:04:45 +0000
+ id 1lc2iR-005Q5z-O9
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 09:12:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
  :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=JhU1X3vzNY9wzqlownyXgot5D1Z6xMdc1aK+MIYwVRU=; b=BZXDC00irzc+gYmPwnpO+SHv2R
- UiFuf9UtQCLA23rLcezaYSzC86ipJXcqk+IyUyM8QcenF+bSxRWWJTIAqBbXyuJoFWeQ3yxeRoRBM
- PBvPxpDDy15MJEwoqEqsJg9wijTuEJTyGgC9INe2M07pd4qmHHho4Sr7Y/+hdDVnZqXUZHGM63qUH
- 2NcGkdiQmJUAq8+9mHxXddcfb3gCP/aNX54rEj1XuDVr9jX3Dz0RvimrYcz4teRVnu03Uuv4KaJRQ
- ZFKnf1FdWH3drF8Pk+7itKhfitS+s38WNSZ9rEYQ9vIDzt9+o2naXAuRk/Yhz19zX+rSJRSu5EDjI
- RcRLdB9A==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+ bh=jUQerQ7HmMjJ6I/BYS0A6Oi2QMhIX3dppb9FwnW9e9Y=; b=BFBSi1EgrOX9icn60vqhJ+yJfd
+ egY/84ZRFXMcUJIDiOtwWYAfo2nC9igMwrxoJNo41jXDNXdgh6mER0RugsVik4oTdx3VhNmF3ifez
+ QhHwZCLr4LF+O8CQcA5AiP4pAkVQQgtHq4nx7AzRrvTpT6mHCO4oDoPaDUu420eQ5RqEvR4vfLBR9
+ 0O5Wmti4rID+arqF/YmzDTw7orbpfF4evc3uFuqYbBwRVOILn3yAKNUI54FVuYnXPQLWZj7yuicJz
+ +lt8bFNJ2+jNBMGQUtDsEIUVDiTY53j9cmcEBghwwDk8FhfiriemAmjfchxSSQRgesdc/6eNpzcfn
+ 732GGe0A==;
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc2bC-000Vdf-9S
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 09:04:43 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id n84so8183392wma.0
- for <linux-riscv@lists.infradead.org>; Thu, 29 Apr 2021 02:04:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ id 1lc2iO-000Vxn-Vp
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 09:12:10 +0000
+Received: by mail-lf1-x131.google.com with SMTP id n138so103854057lfa.3
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Apr 2021 02:12:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=JhU1X3vzNY9wzqlownyXgot5D1Z6xMdc1aK+MIYwVRU=;
- b=t/IbhjoE8jmfMZ9QBRuEgF4tv6CnbIFCLQAno93ZIaMtu5yv3p3e3DT29e5uJ4ziA7
- N+AFskSWzdmW9bPZYeBZXw7Q9jZuU2t+/l+tuwVNC6igNHRFYgz2IW0Diaotbj5TzwsD
- sLvhjVAAAU0gsE1qCZDkQnAJMsQRX6bgfouJZQutiHPYTzWUwU11KFfUzqaAEkUxPonm
- hVgVlYeSCu6BM3G9000OFKy/4zTlUrFRM7L6kkfTxUkExY8YzN/7ugaRmhppDePFGB8g
- SSKSZRHa8bFvL+E8Eh6bDfr0KPQvcOs8WxWltxBcjdHGFR5pFfqg2oTjT9CpdEwa6u33
- zSYQ==
+ :cc; bh=jUQerQ7HmMjJ6I/BYS0A6Oi2QMhIX3dppb9FwnW9e9Y=;
+ b=qRK90K4NjKongoIsln74lxIykKe/b2JvthSH33TfE2+g+CFr5PbnjGg4nkINSkxGpz
+ PfmGGOHik/6elmqnxUB14vTAM9+M6l+nlU/atjUAKRk7y+0fpq5cEqtkyXYHkJBo89Bp
+ 7/5BschtB4EGHak5z7CgmUf45Bw/uy55yFMQ4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=JhU1X3vzNY9wzqlownyXgot5D1Z6xMdc1aK+MIYwVRU=;
- b=AaBIzaiLR/mW5bNKmzyNBD3u8dSEnPUn+vSLoiSrOq62leOmvMhk4KgoViHe+t997x
- vcCPKIHlsSZitJuLh/hzrmQOkkbc7lKPDY23eY+Mgw3p1pIjlMyH7/eEiWPxz2CegaR9
- ftczz8XWSk/JsVSCTbKbo4mzyYtRgNmp7QSCRjh/gmrtcf/+6EL4Ysa1+p/GQjQcSrUC
- JwAU+n3Nj8STEeaDBND+/oBYN5PnWzM3T1X39nv7ypACGQhtiJUP9NouA+uSb8sYALQA
- n8oBylMFT1Z4XCaVb9Os4rjjqi5bsSm45U8llv1RyhPv87T43s06RRPRKg19W/XtJGxz
- CMVQ==
-X-Gm-Message-State: AOAM530IwdYDNxC6UxbbP7mSHjAGO/s8ce5kVQZJVugyqFeo38u0bjto
- llcHZU2zpelbzhTug7fIIO+n1ZccD7ziSmzZKTE21w==
-X-Google-Smtp-Source: ABdhPJzkClW+CZRM7U3328nJPfxASbz419Mgf0KujwF2sTQwvB0Bo179KhVMxhhdAv31iWSBSVxYp7xOyAOc9tfk4JY=
-X-Received: by 2002:a7b:c348:: with SMTP id l8mr9414474wmj.152.1619687079775; 
- Thu, 29 Apr 2021 02:04:39 -0700 (PDT)
+ bh=jUQerQ7HmMjJ6I/BYS0A6Oi2QMhIX3dppb9FwnW9e9Y=;
+ b=RZx08UwvrZc3QXjB0E/5lYFcnrsNHEKrQZ7C/JN2LnuUVvRHuDnLuIYUkWTjw49iPS
+ v5flGv0Zm9cw00IS8CycSwhOHpzRhVSwJ3cKbp0nEB8ZFAyuTMx6sYFj4ttgw6WW7Wro
+ 0AUIau0TTboGsa+4j+jyzsMQB2TYF0BU0x9keQljM22SFJgCz61d143U/+LyZZPUgZIB
+ TUZmAaiyuHlZu4JuCP3E6J+tVhQJyT3QcUY2bnjRjCr26psn1UfDZB4s64G7dzMMl0cZ
+ UqhkarNL5ShPqrJTF2ZA/jxICPBdGZ5D0cxEOq0MouPndOTFtpbqvIvgPD++wfOGipl2
+ KP8A==
+X-Gm-Message-State: AOAM531YeNn2rEvNkMHdjU33QfE2PDFQu7ecbm2NLGLQ+SEJACGAUPvd
+ VCvxMXmqHY85D1FGPC/mogl2IG/UjXwJJkZNFIpBPw==
+X-Google-Smtp-Source: ABdhPJwspHTwzOKICOpQaGFTHLVSyBQKTmIgOM5MIuJdnlGQ9vUHRtihLVXMxS4r52+QEJjZjC3nMP7Y9gaLzBivkx4=
+X-Received: by 2002:ac2:5335:: with SMTP id f21mr23886022lfh.288.1619687526274; 
+ Thu, 29 Apr 2021 02:12:06 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210429084541.28083-1-alex@ghiti.fr>
 In-Reply-To: <20210429084541.28083-1-alex@ghiti.fr>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 29 Apr 2021 14:34:28 +0530
-Message-ID: <CAAhSdy0Wxjop+X2AUp8azDS9JdD21pmdapUjH0vU9rNBu7Evjg@mail.gmail.com>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+Date: Thu, 29 Apr 2021 11:11:55 +0200
+Message-ID: <CAM4kBBK=yQ=jXYw85Ti7Y3EyGd11aOYt7QnD4+fFFkDhvrwcxA@mail.gmail.com>
 Subject: Re: [PATCH] riscv: Disallow to build XIP_KERNEL with SOC_SIFIVE
 To: Alexandre Ghiti <alex@ghiti.fr>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ LKML <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210429_020442_396857_EAE97562 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20210429_021209_046315_429E0F79 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,13 +105,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 29, 2021 at 2:15 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+On Thu, Apr 29, 2021 at 10:47 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >
 > RISCV_ERRATA_ALTERNATIVE patches text at runtime which is not possible when
 > the kernel is executed from the flash in XIP mode, and as the SIFIVE
 > errata must be fixed somehow, disallow to build a XIP kernel that
 > supports SIFIVE socs.
->
+
+Could you please hold off this patch for a bit? I will try to come up
+with an alternative solution. It should be possible to define a
+special section within the RW area and place the functions that need
+such patching there.
+Not that I like that much but at least we'll keep the ability to use
+XIP on SiFive.
+
+Best regards,
+   Vitaly
+
 > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 > ---
 >  arch/riscv/Kconfig.erratas | 2 +-
@@ -144,21 +150,17 @@ On Thu, Apr 29, 2021 at 2:15 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >  config SOC_SIFIVE
 >         bool "SiFive SoCs"
 > +       depends on !XIP_KERNEL
-
-Does this mean that now all SOCs will have to explicitly say
-"depends on !XIP_KERNEL"
-
-How about adding "depends on !XIP_KERNEL" for RISCV_ERRATA_ALTERNATIVE ?
-
-Regards,
-Anup
-
 >         select SERIAL_SIFIVE if TTY
 >         select SERIAL_SIFIVE_CONSOLE if TTY
 >         select CLK_SIFIVE
 > --
 > 2.20.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
