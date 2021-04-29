@@ -2,104 +2,104 @@ Return-Path: <SRS0=tUGE=J2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E7EB4C43462
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 06:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CCBBCC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 06:50:40 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3ABD861447
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 06:26:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3ABD861447
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1840361446
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Apr 2021 06:50:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1840361446
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=L8dm8+Tr7aZDHzeljp8iu7HTTpBN8+fb8zv9FVdcCpo=; b=ElVL9YzMMeAsSgG0fNlKs4ML+
-	iplrY8UcwrBR8+ifOCied9WHuG4hd11WaTx8t0lCMhnZ8eBZXnadzH2uokX0J2BIaNGJSX+7uJxuZ
-	lQkM43zmyW+IRiQq4AJHz3PmYMDyILlDSUP48FOF/oCQ9NtQKR4o7Q2w1eTL9BA1JKWbR5zDEnEZ2
-	1O2Bn/Sj1/8Vl0sBjc5xXd8QsbaADDOQRnJds3wwrMJP/lcpQ8csdCNBiaaoLmyakWhq6e2FoQist
-	sOGHqxfFkTdZaRSiLOe4GwfjOC8pZT7q8aLIAOlu9EbvfQfKM4FFZC3Bc55FqxF1FS8wDdvLN+PvU
-	zyyb4Fvlg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=zx5aqfw8MezzTqBdn3F5uirj6Bp0PsGBLI2ardAeGbE=; b=mAZmKqlMp5XpNrmikfpaIdbDJ
+	CnCLu5nC3IKMenvMfSHruisUfB403uutTUJzT2Avn2G3M3DWO53274C6++3rNg6PcE2d/weEGYD2P
+	aroX8+BCj4CIrHuXhEixZ0kZ++jjgJJ9S3BQ4KDcU+dmMuxtkFADNDeJ0tAY8QH6wnPYTVDRQcuJ9
+	8cq69diG1ZJHBm/e+Y8gR2kImKSJJEO9OiRwSj5X1+blm7n8IFcGGUYAyK7wkvLA3Ubsnd8/rFYzX
+	cyFWfycq2W9C28uyG5fKH+I8ngvmRJoBCAme84pfl2IcTSqPZxtcR2580y6rFg2k16jbs+hm/E32M
+	uIu+Rb6uQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lc07W-00540I-Qp; Thu, 29 Apr 2021 06:25:54 +0000
+	id 1lc0VG-0056bJ-E6; Thu, 29 Apr 2021 06:50:26 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc07S-0053x4-Fj
- for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 06:25:50 +0000
+ id 1lc0VE-0056af-Bz
+ for linux-riscv@desiato.infradead.org; Thu, 29 Apr 2021 06:50:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
- Sender:Reply-To:Content-ID:Content-Description:References;
- bh=5V9zWyCsSWRyBJB2YSVQw8NdRmiQnJFEEv4u2i4PnwY=; b=wGeeoKSDAR0rnGCm6VClDZmGir
- 6VNQVq7/kpp+G2ypREheJ+9Pm6Z6GNohcWw0BtQojeqrOMQsjFtVAra1Mx3CvuLlJWQjAL+K9aawu
- xKQodEUGVVqHr3WlaBy+nWQK97A78/onJC1luMVW+AFVyqMJjOtKQCUXmEg/bGbFdtn1veydlaBQ3
- Rz9RTGhIWiagQPsSIp5l1o3sY/SajF1ikBGqL5XdJXsCxPw9MWw5dMjwfd2JInqrJhaGSejcKlaDV
- Vk6p+o+Pb/LcIj2c6VfW/FO4GwVeDp9dMuPWY2P44vIqbbLqMPE73qksI6RSwv63T/IQbrltwuPiK
- 0TQu1R5w==;
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+ :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=8Sjs/qcN62tImx0y3y2XAUfVwF7AM9LLy6umWEbVG8w=; b=AWpimOcKzpaMnVh5mXOwqViKDh
+ KJxzvLP8GeMjlZcDmvSBpO/DPGtnd6jaUhFDDL6JTDUsQ3EmmPhkLLWw3Yseb4i6NznLwm2p3poV4
+ MnpROepllFOOTSA4UpjNsmdmpyScbd/6SqszJG0ZuebqLXwWIgMn11SX+sfW0L0njpAjHD6pNuCfS
+ SP355sYIS3WsyRYhSvcxkgzsYV/vvlcY7aD4T5M1kCMpi2QPH87fGYU+jnVf4I42XOBl3TSagYSPe
+ eGzA3m2iILFRjkhl7f++J5+bMnA7cj0m6clMhs49u/nfGKoZ32bXu1068OPOyXo5yfvz+/m+ED5aD
+ mDoRfBUw==;
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lc07P-000PO7-PG
- for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 06:25:49 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id
- f6-20020a17090a6546b029015088cf4a1eso10414491pjs.2
- for <linux-riscv@lists.infradead.org>; Wed, 28 Apr 2021 23:25:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=5V9zWyCsSWRyBJB2YSVQw8NdRmiQnJFEEv4u2i4PnwY=;
- b=xYVcMr3ofFj5i8PN9JdEri3Np4iIZw7dwiY5dz3koxZHQZlw6qzIesVy9Tdm5nptCX
- q/6WRreGc6Ecx/7uH7e3QEoo5pnDlT6dLo0EfFdoDEHyYlSCwICDB7IXLWOIfe69X7Oq
- lHXQc3gh2RDvIXAxvti9Q13W5P9YtDyOU3gXNZ2plvz4UZM7r6cWtebTdcdbsSemWZL6
- o2+YmBGdpAQcw65K2jsvfqaRoYMnVcVEBqdqEGXVvqJW/5+kBV5/hhhSHt2WPOFJi81V
- WGa7QQKqizVxyyHcW2ng8rD/z3y0XwlGsueD86iKNz8e9UOaeN56QIa4LsXBeAb5VTN+
- vS8Q==
+ id 1lc0VB-000Q1b-NT
+ for linux-riscv@lists.infradead.org; Thu, 29 Apr 2021 06:50:23 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id z16so5540606pga.1
+ for <linux-riscv@lists.infradead.org>; Wed, 28 Apr 2021 23:50:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=8Sjs/qcN62tImx0y3y2XAUfVwF7AM9LLy6umWEbVG8w=;
+ b=TX7c/xviVNjBLWT+DkxyQEf0lpH8+Gne8DU/X1k3TrZKR0hxNi6Q6Xn+RqV83TYI1l
+ XPl0x78hveiDuFh4j3P9AgFtZQaz0fc0IWlXdR/Un13SvhOkx8mbSdrC1iTieLz6Dkji
+ U06qF/V0yjF/SCRWftyXtlrZWS5RxdafvCctB9Lxmt3wuAvKG4tIRhxVH5X46eqEmeyB
+ AWt2uS56zuXczQOoe47EEDL2OwkAW4bPJuswRQOZxmguleUtH+6oIC0zhfxbKXvqpJms
+ EpdU9Wy7VdOJ29OoPA0JxSwxosXnc2eiHsrYwDIR2JcU5Cbm3fpM8NFSwAHfqGjvpD/O
+ 1fEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=5V9zWyCsSWRyBJB2YSVQw8NdRmiQnJFEEv4u2i4PnwY=;
- b=i/WJfu7KJjyTp9ZUfeCwYXMtHLF9HxlBtj1yIpaYOSWL1K5qUyiPK8a2bfcK7wXu01
- Wx6lWBywmsVAWPNW7xZW3thFQr3o8RgStkQXW0qMYgxAWOPzQkrtscLRyzLdCHxI6dqg
- CBsSkIFDI3OnDBo26nDj2kzaRl2/XfXRF0/MPCF9dDhUW5S3AJgr0aJS6VU0yWpC+7iR
- n+pJlqbbjdGusQd6duL2ZcqARNR+jTguMSxMUlAeGwrBhF58eqEqTpASLTOIidsInSlm
- +MSiSHKb7LRqWj7o5+B6AIMqDzbwG8+Gu5rMhBlqlbWfMwIX3QGclVc1cERgi1h1r4T9
- G6MA==
-X-Gm-Message-State: AOAM531SvB2seFCx7cG/Nqh1u6sufOVYfRzPDmwjBzYbneOU0/uGA7Zh
- Ordn6cZHCM86BY4NRK7AXKIfig==
-X-Google-Smtp-Source: ABdhPJyvbZmSwXCAkBT6VXeFS0m0xx7jYkh+Y72sntlPebrrA2MZNLeiZAHznGxx0KddljLghUMIMg==
-X-Received: by 2002:a17:90b:e07:: with SMTP id
- ge7mr5367645pjb.204.1619677546961; 
- Wed, 28 Apr 2021 23:25:46 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id e1sm1446766pgl.25.2021.04.28.23.25.46
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=8Sjs/qcN62tImx0y3y2XAUfVwF7AM9LLy6umWEbVG8w=;
+ b=R97rISMZxDNEgL67NMWyPpnLEd5vAt0rAa3M/GJ2b0haDw5BRz/Tlhh5B4nZ+AN9sG
+ QoYr9Rsbifm0eZA03TbWXAJFwvi52faVIgbug6YD1pACzZ8fUJGs3nAQWZoO8v4oMJ5r
+ u5N190vI5VIRkrKmyPPbDditNXBP43nZTNg8G4oggwRqXIoRU0BgU524nD+9W82d+Rdh
+ 1F04QhG4vKnfsR/46JYt1Qct8uyiokV6iUmlsOGn3WhIA762rlQiHV05CgNOMlOlS9sf
+ OBPgLk7XpoU5NculfI3RWsXEvfyH7puRutDhJur3ZxwuGGt2tzUvWumt4AqOwUviLQrV
+ rvDA==
+X-Gm-Message-State: AOAM53106jduiaZCQZMnhTc2Gq2KuZCyOQinKdAtVjhB2bRcrh6LOlMp
+ hpnVoOAsjoRYSREk+0oERRU=
+X-Google-Smtp-Source: ABdhPJxNQVcep5m3uq9y8KxO8imsnoEkxIHzrFfr198Zz0dfHnWmIk9xOz0iJ8C4uBWGBh73TsuA1g==
+X-Received: by 2002:aa7:8186:0:b029:27d:edb:c65a with SMTP id
+ g6-20020aa781860000b029027d0edbc65amr6719470pfi.68.1619679020042; 
+ Wed, 28 Apr 2021 23:50:20 -0700 (PDT)
+Received: from mail.google.com ([141.164.41.4])
+ by smtp.gmail.com with ESMTPSA id a18sm1507599pgk.66.2021.04.28.23.50.17
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 28 Apr 2021 23:25:46 -0700 (PDT)
-Date: Wed, 28 Apr 2021 23:25:46 -0700 (PDT)
-X-Google-Original-Date: Wed, 28 Apr 2021 23:25:44 PDT (-0700)
-Subject: Re: [PATCH] riscv: Fix 32b kernel build with CONFIG_DEBUG_VIRTUAL=y
-In-Reply-To: <20210428100217.15964-1-alex@ghiti.fr>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- alex@ghiti.fr, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-e465b5c3-6c0d-4192-adf7-b4e7f8a76a76@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ Wed, 28 Apr 2021 23:50:19 -0700 (PDT)
+Date: Thu, 29 Apr 2021 14:50:15 +0800
+From: Changbin Du <changbin.du@gmail.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: changbin.du@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: patch: remove lockdep assertion on lock text_mutex
+Message-ID: <20210429065015.lqdefm2sagyacmbs@mail.google.com>
+References: <20210417023532.354714-1-changbin.du@gmail.com>
+ <mhng-6a0fd653-64f8-4d0d-a265-d80cecdc1b84@palmerdabbelt-glaptop>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-6a0fd653-64f8-4d0d-a265-d80cecdc1b84@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210428_232547_838580_A2DB5EBB 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20210428_235021_790218_F4252201 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +111,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Apr 2021 03:02:17 PDT (-0700), alex@ghiti.fr wrote:
-> Declare kernel_virt_addr for 32b kernel since it is used in
-> __phys_addr_symbol defined when CONFIG_DEBUG_VIRTUAL is set.
->
-> Fixes: 2bfc6cd81bd17 ("riscv: Move kernel mapping outside of linear
-> mapping")
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->  arch/riscv/include/asm/page.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index e280ba60cb34..6a7761c86ec2 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -106,9 +106,9 @@ extern unsigned long pfn_base;
->  #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
->  #endif /* CONFIG_MMU */
->
-> -#ifdef CONFIG_64BIT
->  extern unsigned long kernel_virt_addr;
->
-> +#ifdef CONFIG_64BIT
->  #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_pa_offset))
->  #ifdef CONFIG_XIP_KERNEL
->  #define kernel_mapping_pa_to_va(y)	({						\
+On Wed, Apr 28, 2021 at 11:20:20PM -0700, Palmer Dabbelt wrote:
+> On Fri, 16 Apr 2021 19:35:32 PDT (-0700), changbin.du@gmail.com wrote:
+> > The function patch_insn_write() expects that the text_mutex is already
+> > held. There's a case that text_mutex is acquired by ftrace_run_update_code()
+> > under syscall context but then patch_insn_write() will be executed under the
+> > migration kthread context as we involves stop machine. So we should remove
+> > the assertion, or it can cause warning storm in kernel message.
+> > 
+> > [  104.641978] ------------[ cut here ]------------
+> > [  104.642327] WARNING: CPU: 0 PID: 13 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x166/0x17c
+> > [  104.643587] Modules linked in:
+> > [  104.644691] CPU: 0 PID: 13 Comm: migration/0 Not tainted 5.12.0-rc7-00067-g9cdbf6467424 #102
+> > [  104.644907] Hardware name: riscv-virtio,qemu (DT)
+> > [  104.645068] Stopper: multi_cpu_stop+0x0/0x17e <- 0x0
+> > [  104.645349] epc : patch_insn_write+0x166/0x17c
+> > [  104.645467]  ra : patch_insn_write+0x162/0x17c
+> > [  104.645534] epc : ffffffe0000059c6 ra : ffffffe0000059c2 sp : ffffffe002a33c70
+> > [  104.645580]  gp : ffffffe0019e5518 tp : ffffffe002a232c0 t0 : ffffffe01295e8a8
+> > [  104.645622]  t1 : 0000000000000001 t2 : 0000000000000000 s0 : ffffffe002a33cc0
+> > [  104.645675]  s1 : ffffffe000007f72 a0 : 0000000000000000 a1 : ffffffffffffffff
+> > [  104.645716]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 0000000000000001
+> > [  104.645757]  a5 : ffffffe0799e45c8 a6 : 00000000000ca097 a7 : 0000000000000000
+> > [  104.645798]  s2 : 0000000000000008 s3 : 0000000000000f72 s4 : ffffffe002a33ce0
+> > [  104.645839]  s5 : 0000000000000f7a s6 : 0000000000000003 s7 : 0000000000000003
+> > [  104.645880]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000000
+> > [  104.645920]  s11: 0000000000000002 t3 : 0000000000000001 t4 : ffffffe000c615c8
+> > [  104.645958]  t5 : 0000000000007fff t6 : 0000000000000380
+> > [  104.645998] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+> > [  104.646081] Call Trace:
+> > [  104.646147] [<ffffffe0000059c6>] patch_insn_write+0x166/0x17c
+> > [  104.646280] [<ffffffe0000059ec>] patch_text_nosync+0x10/0x32
+> > [  104.646317] [<ffffffe000007d0c>] ftrace_update_ftrace_func+0x74/0xac
+> > [  104.646352] [<ffffffe0000d338a>] ftrace_modify_all_code+0x9c/0x144
+> > [  104.646387] [<ffffffe0000d3444>] __ftrace_modify_code+0x12/0x1c
+> > [  104.646420] [<ffffffe0000c4c2c>] multi_cpu_stop+0xa8/0x17e
+> > [  104.646451] [<ffffffe0000c4474>] cpu_stopper_thread+0xb2/0x156
+> > [  104.646489] [<ffffffe00003645e>] smpboot_thread_fn+0x102/0x1ea
+> > [  104.646524] [<ffffffe0000311b0>] kthread+0x132/0x148
+> > [  104.646556] [<ffffffe000002e02>] ret_from_exception+0x0/0x14
+> > [  104.646657] ---[ end trace ccf71babb9de4d5b ]---
+> > [  104.647444] ------------[ cut here ]------------
+> > 
+> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
+> > ---
+> >  arch/riscv/kernel/patch.c | 13 ++++++-------
+> >  1 file changed, 6 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> > index 0b552873a577..6d2ed9c15065 100644
+> > --- a/arch/riscv/kernel/patch.c
+> > +++ b/arch/riscv/kernel/patch.c
+> > @@ -49,19 +49,18 @@ static void patch_unmap(int fixmap)
+> >  }
+> >  NOKPROBE_SYMBOL(patch_unmap);
+> > 
+> > +
+> > +/*
+> > + * Before reaching here, it was expected to lock the text_mutex
+> > + * already, so we don't need to give another lock here and could
+> > + * ensure that it was safe between each cores.
+> > + */
+> >  static int patch_insn_write(void *addr, const void *insn, size_t len)
+> >  {
+> >  	void *waddr = addr;
+> >  	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
+> >  	int ret;
+> > 
+> > -	/*
+> > -	 * Before reaching here, it was expected to lock the text_mutex
+> > -	 * already, so we don't need to give another lock here and could
+> > -	 * ensure that it was safe between each cores.
+> > -	 */
+> > -	lockdep_assert_held(&text_mutex);
+> > -
+> >  	if (across_pages)
+> >  		patch_map(addr + len, FIX_TEXT_POKE1);
+> 
+> Well, we definately need the lock -- otherwise concurrent callers will
+> install conflicting maps for FIX_TEXT_POKE*, step on each other, and install
+> the wrong patch.  I just sent out a patch to use an explicit lock here, as
+> sharing text_mutex doesn't seem safe.
 
-Thanks, this is on for-next.
+It has already locked by text_mutex. The real problem is lockdep cannot
+handle this case(with stopmachine) or it is a false positive report.
+
+-- 
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
