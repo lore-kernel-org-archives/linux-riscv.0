@@ -2,87 +2,90 @@ Return-Path: <SRS0=1eEn=J4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,FROM_LOCAL_HEX,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F209BC433ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 May 2021 05:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 637BDC433B4
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 May 2021 15:17:54 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B1F6613F0
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 May 2021 05:51:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B1F6613F0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id CA39D615FF
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 May 2021 15:17:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA39D615FF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:MIME-Version:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LUDCryIQE3Z779KnvBr1Y9NoXb3CPlH/AfFfepDn5w4=; b=PzVf4IpySXdrwl
-	L67NSBrK1BUkNshzzykpn3/inrZvCQsGPJM5CB7dXSICJlEXYLZZ3DKr8x2dmeLudas4UQdWHBSng
-	rL7WESBoanXDCg6iAcLFnoEh5STrHEUXumtY/lR//lYUXmWWOLKOrkxMqlGAauvXlGP5SY+S1QkBy
-	k/GMCBC6KsUHGTZRwT6RAWm4IX0nPwAjwfijWEsNrP6AUv8fi24rl//fz3aqMEAfQ06nJnXaPWx8p
-	2Aeck/vnhU0noG5MMAaRMAzeajac1aVCUi5Epnt86GGToHg4xE/XT6Cka9Ek9WCeTmMYgB/3y+IXQ
-	SwZ5YAGrvchYfDDzWt0A==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WJ/zQMDrN1r+re1L7yj3rc9cPIulWBXETfjGMLFioGY=; b=p5foZCN9OWu/ykaNI7WESD4QG9
+	+0R78CuyuhxZuVQ99+/9Z+/AXsS9zNJaO5Ra7vYOlHz7z3fSkwXB48/LywZvmRIRucIFubRYDnWOf
+	Kl2FQQH0Vj+feku3wZW7JRcagWvGyhsk91JX7zNInJC5zHIemPCNReR3JOKWqRBUvc8WYN0z/tYwd
+	FnhXiwOsp4WqNBaKAtM1ttcF8ccmIMmEuDcyOW3k2r4xI1UapoXPOkOIvrXc7sN/LO6RFvKBvJU9+
+	zKg2P/RF/c7XDl9+cL9pgZ7vUVcK2RtZuet5ZhvLghzznkKNxCeeJz6vVGotDVsHyKcNKSqc561KX
+	m0oJu2nA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lciXE-009Xtn-Fy; Sat, 01 May 2021 05:51:24 +0000
+	id 1lcrN6-00AGbR-IP; Sat, 01 May 2021 15:17:33 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lciXB-009Xtb-46
- for linux-riscv@desiato.infradead.org; Sat, 01 May 2021 05:51:21 +0000
+ id 1lcrMr-00AGaq-ED; Sat, 01 May 2021 15:17:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:To:From:Subject:
- Message-ID:Date:MIME-Version:Sender:Reply-To:Cc:Content-Transfer-Encoding:
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:In-Reply-To:References;
- bh=diU0RNkAZollR/UrfKoeFvOTmJ41JtW3kpnG7nzIye4=; b=CFqL0+2eaU9Xa52tDznOb6oe1S
- D9ryNibV9W1a8DTYJ+cnB6CqiczBgafYh/AhkOObkksslCvpKzcElhU+1eFqFGlkCwmF4WvqgY4bn
- 5DzrZ/A+S0QTQL5nnXLy2eQql27Ue+TvD9rKMou27l1zfadQb4pxd/ISPhCoGSQMfrV0d4UnMRiEW
- YqDT4BoZdShLxBfX/BURt4KD36iu4Vc07mV8WNctSYLpEjES+VeFHXtR5GMa9LAcLL+HWYZrrcptN
- Dxf+SLnSIqM2SxdU5xdQKcaUWLszoNQhDhywZW1TjhriI2jl0o6X3DVGzWLcCVfgpKSuzulQ3NYnk
- QdD9PLtw==;
-Received: from mail-io1-f72.google.com ([209.85.166.72])
+ bh=u9G2y9j8kDI7ZQJXHPzFbSaa9rJKSH6IgG7TTQj7jqQ=; b=WqBEBzqdjZk+i0YAsrhIJkFm+E
+ kLX1qPtqgkUIYp9dMLBvHysyNrjxmrC3wuMahU1K8ALZmvcUczjC+ste+MXNowQ8KYqW0T/Chl3WR
+ ptIFYiIp4gigRueOcusqzNjCo2a0eKy1rsvrlHyrE4kemnZLXAopXjj4xNn3mABJ4TljkC+kEjM93
+ Ac2F/ADt6aH0mpbZ8iYvZrYdepjLPEpjwgShYW2NacwCiBR4EpT57+BTRS3ZEUIJPn/mVyEkFDOTC
+ LByPzez1IpXRya5/fLXzHafx/D4uFXW6W85hbg4htn7P21+bRXwT8/JivHGe4M7mxRYaB3XxUlQe4
+ ehHV3YPw==;
+Received: from conuserg-09.nifty.com ([210.131.2.76])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lciX8-001rCI-5r
- for linux-riscv@lists.infradead.org; Sat, 01 May 2021 05:51:19 +0000
-Received: by mail-io1-f72.google.com with SMTP id
- v25-20020a0566020159b02904017f565b33so75529iot.1
- for <linux-riscv@lists.infradead.org>; Fri, 30 Apr 2021 22:51:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:date:message-id:subject:from:to;
- bh=diU0RNkAZollR/UrfKoeFvOTmJ41JtW3kpnG7nzIye4=;
- b=FiizUtSQRpfy04p2G+owul/I326ZK+J4KKuJrypFRDYo6Bl74+Kk8Grxp7HgR3jgln
- Uvl7OAdmmtQadSGLdQ2cZd+m3QabGlTXcwt+59qnNBU48MUjuhYC4EULvMppgPXO9qoz
- fka10Pqe2tH2QPvev5N8tI5WiMxxae8OM9KudwmTQwMx9eXxdfdVpV1+h1ygke5BcOD7
- 7M2KEc0gqWtOy3c0QkfsYPc0kynCU5RWSsNx25JYTjeJ6lCOQ3JtM5VdOpALSqR/fbv9
- r/XfKd7aBw0TpteyUnd9TF3LJyClJXxrZTIjF1MKFl5XRvQNyc63NENWLY3uzpDiaYcN
- 4kCA==
-X-Gm-Message-State: AOAM532ThC2IYtt9iZLug+7/4S3wiI09/EjUY7YVst1/9//Wxdk5WEoC
- do7wwupkGHxzl5r0D+LCUDRIDSFDzhFqNSPCYzjz57WrmY7o
-X-Google-Smtp-Source: ABdhPJwtMxjHUuqXVYXVlLQ77T5B4K3t2pi07rUtT0Z+ek7e9SxkH3ZKKqcRXNa5CTthibApvwZDyxYs5Jzsx5dy9bMcuvi71Otn
+ id 1lcrMo-0022Rn-0l; Sat, 01 May 2021 15:17:16 +0000
+Received: from localhost.localdomain (133-32-232-101.west.xps.vectant.ne.jp
+ [133.32.232.101]) (authenticated)
+ by conuserg-09.nifty.com with ESMTP id 141FFirA014188;
+ Sun, 2 May 2021 00:15:44 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 141FFirA014188
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1619882145;
+ bh=u9G2y9j8kDI7ZQJXHPzFbSaa9rJKSH6IgG7TTQj7jqQ=;
+ h=From:To:Cc:Subject:Date:From;
+ b=E/Y5NiHGYWBCdK49NO0y6Qu2vvGHmQlyFFVptGIbXAAaoIGy8pjC6imlkiakgytni
+ JZP2Z5pzajhdbQ/0C2H8goOoY8HdgxdHI8DfHIm4hSK/ZRB/SUnIBq+3rXrZFHJ+uJ
+ HpDbDONoTW3tLDb+7U7GLOtj5WThv70KojHnCZVi/QhIhVbQlVrEB99glwjEO1fm0s
+ zleWaVpLEnonAvu1y8hGYYJhm20aLE9Bq17KoF92T1gBaUxlMNJT5uGIPCSIIz0gN9
+ 5YKXQD0zN3lojtQzZOpjBYpy0dfkkVKLEJSUz2DixNVjUEJaCN3+/W1t1wZPC4dCsF
+ L7ZzM5deu0ZTA==
+X-Nifty-SrcIP: [133.32.232.101]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kernel@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-kbuild@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Will Deacon <will@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Subject: [PATCH] Raise the minimum GCC version to 5.2
+Date: Sun,  2 May 2021 00:15:38 +0900
+Message-Id: <20210501151538.145449-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-X-Received: by 2002:a92:c26a:: with SMTP id h10mr7042919ild.294.1619848275818; 
- Fri, 30 Apr 2021 22:51:15 -0700 (PDT)
-Date: Fri, 30 Apr 2021 22:51:15 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <00000000000011fd4305c13e51c7@google.com>
-Subject: [syzbot] KASAN: user-memory-access Read in do_syscall_trace_enter
-From: syzbot <syzbot+e00eb4c4f40728f9bcde@syzkaller.appspotmail.com>
-To: aou@eecs.berkeley.edu, keescook@chromium.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, luto@amacapital.net, oleg@redhat.com, 
- palmer@dabbelt.com, paul.walmsley@sifive.com, syzkaller-bugs@googlegroups.com, 
- wad@chromium.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210430_225118_243832_30960AC6 
-X-CRM114-Status: UNSURE (   5.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210501_081714_409155_0979B7F3 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +102,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The current minimum GCC version is 4.9 except ARCH=arm64 requiring
+GCC 5.1.
 
-syzbot found the following issue on:
+When we discussed last time, we agreed to raise the minimum GCC version
+to 5.1 globally. [1]
 
-HEAD commit:    18a3c5f7 Merge tag 'for_linus' of git://git.kernel.org/pub..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-console output: https://syzkaller.appspot.com/x/log.txt?x=14fa7ca5d00000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=105967f18e189a79
-dashboard link: https://syzkaller.appspot.com/bug?extid=e00eb4c4f40728f9bcde
-userspace arch: riscv64
+I'd like to propose GCC 5.2 to clean up arch/powerpc/Kconfig as well.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+This commit updates the minimum versions in scripts/min-tool-version.sh
+and Documentation/process/changes.rst with trivial code cleanups.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+e00eb4c4f40728f9bcde@syzkaller.appspotmail.com
+More cleanups will be possible as follow-up patches, but this one must
+be agreed and applied to the mainline first.
 
-==================================================================
-BUG: KASAN: user-memory-access in test_bit include/asm-generic/bitops/non-atomic.h:106 [inline]
-BUG: KASAN: user-memory-access in cpumask_test_cpu include/linux/cpumask.h:373 [inline]
-BUG: KASAN: user-memory-access in trace_sys_enter include/trace/events/syscalls.h:18 [inline]
-BUG: KASAN: user-memory-access in do_syscall_trace_enter+0x24c/0x5ae arch/riscv/kernel/ptrace.c:255
-Read of size 8 at addr 000000000118e9ae by task syz-executor.1/3237
+[1]: https://lore.kernel.org/lkml/CAHk-=wjHTpG+gMx9vqrZgo8Uw0NqA2kNjS87o63Zv3=WG2K3zA@mail.gmail.com/
 
-CPU: 1 PID: 3237 Comm: syz-executor.1 Not tainted 5.12.0-rc8-syzkaller-00194-g18a3c5f7abfd #0
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-[<ffffffe000009708>] walk_stackframe+0x0/0x23c arch/riscv/kernel/traps.c:202
-[<ffffffe002a631dc>] dump_backtrace+0x40/0x4e arch/riscv/kernel/stacktrace.c:113
-[<ffffffe002a6320c>] show_stack+0x22/0x2e arch/riscv/kernel/stacktrace.c:118
-[<ffffffe002a6ca98>] __dump_stack lib/dump_stack.c:79 [inline]
-[<ffffffe002a6ca98>] dump_stack+0x148/0x1d8 lib/dump_stack.c:120
-[<ffffffe0003bd560>] __kasan_report mm/kasan/report.c:403 [inline]
-[<ffffffe0003bd560>] kasan_report+0x146/0x18c mm/kasan/report.c:416
-[<ffffffe0003bddc8>] check_region_inline mm/kasan/generic.c:174 [inline]
-[<ffffffe0003bddc8>] __asan_load8+0x4a/0x80 mm/kasan/generic.c:253
-[<ffffffe000006fe8>] test_bit include/asm-generic/bitops/non-atomic.h:106 [inline]
-[<ffffffe000006fe8>] cpumask_test_cpu include/linux/cpumask.h:373 [inline]
-[<ffffffe000006fe8>] trace_sys_enter include/trace/events/syscalls.h:18 [inline]
-[<ffffffe000006fe8>] do_syscall_trace_enter+0x24c/0x5ae arch/riscv/kernel/ptrace.c:255
-[<ffffffe000005664>] handle_syscall_trace_enter+0x6/0x1e
-==================================================================
-Kernel panic - not syncing: panic_on_warn set ...
-SMP: stopping secondary CPUs
-Rebooting in 86400 seconds..
-
-
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+I'd like Linus to pick up this patch
+if there is no objection.
+
+
+ Documentation/process/changes.rst | 2 +-
+ arch/arm64/Kconfig                | 2 +-
+ arch/powerpc/Kconfig              | 2 +-
+ arch/riscv/Kconfig                | 2 +-
+ include/linux/compiler-gcc.h      | 6 +-----
+ lib/Kconfig.debug                 | 2 +-
+ scripts/min-tool-version.sh       | 8 +-------
+ 7 files changed, 7 insertions(+), 17 deletions(-)
+
+diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
+index dac17711dc11..cf104a8d1850 100644
+--- a/Documentation/process/changes.rst
++++ b/Documentation/process/changes.rst
+@@ -29,7 +29,7 @@ you probably needn't concern yourself with pcmciautils.
+ ====================== ===============  ========================================
+         Program        Minimal version       Command to check the version
+ ====================== ===============  ========================================
+-GNU C                  4.9              gcc --version
++GNU C                  5.2              gcc --version
+ Clang/LLVM (optional)  10.0.1           clang --version
+ GNU make               3.81             make --version
+ binutils               2.23             ld -v
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 7f2a80091337..fae9514dabab 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -78,7 +78,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_CFI_CLANG
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+-	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && (GCC_VERSION >= 50000 || CC_IS_CLANG)
++	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
+ 	select ARCH_SUPPORTS_NUMA_BALANCING
+ 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+ 	select ARCH_WANT_DEFAULT_BPF_JIT
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 1e6230bea09d..10dc47eac122 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -212,7 +212,7 @@ config PPC
+ 	select HAVE_FUNCTION_ERROR_INJECTION
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_TRACER
+-	select HAVE_GCC_PLUGINS			if GCC_VERSION >= 50200   # plugin support on gcc <= 5.1 is buggy on PPC
++	select HAVE_GCC_PLUGINS
+ 	select HAVE_GENERIC_VDSO
+ 	select HAVE_HW_BREAKPOINT		if PERF_EVENTS && (PPC_BOOK3S || PPC_8xx)
+ 	select HAVE_IDE
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4515a10c5d22..748a5b37a0e5 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -226,7 +226,7 @@ config ARCH_RV32I
+ config ARCH_RV64I
+ 	bool "RV64I"
+ 	select 64BIT
+-	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
++	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && CC_IS_GCC
+ 	select HAVE_DYNAMIC_FTRACE if MMU
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD
+diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
+index 5d97ef738a57..3608189dfc29 100644
+--- a/include/linux/compiler-gcc.h
++++ b/include/linux/compiler-gcc.h
+@@ -98,10 +98,8 @@
+ 
+ #if GCC_VERSION >= 70000
+ #define KASAN_ABI_VERSION 5
+-#elif GCC_VERSION >= 50000
++#else
+ #define KASAN_ABI_VERSION 4
+-#elif GCC_VERSION >= 40902
+-#define KASAN_ABI_VERSION 3
+ #endif
+ 
+ #if __has_attribute(__no_sanitize_address__)
+@@ -122,9 +120,7 @@
+ #define __no_sanitize_undefined
+ #endif
+ 
+-#if GCC_VERSION >= 50100
+ #define COMPILER_HAS_GENERIC_BUILTIN_OVERFLOW 1
+-#endif
+ 
+ /*
+  * Turn individual warnings and errors on and off locally, depending
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 678c13967580..0d0ed298905d 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -284,7 +284,7 @@ config DEBUG_INFO_DWARF4
+ 
+ config DEBUG_INFO_DWARF5
+ 	bool "Generate DWARF Version 5 debuginfo"
+-	depends on GCC_VERSION >= 50000 || (CC_IS_CLANG && (AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502)))
++	depends on CC_IS_GCC || (CC_IS_CLANG && (AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502)))
+ 	depends on !DEBUG_INFO_BTF
+ 	help
+ 	  Generate DWARF v5 debug info. Requires binutils 2.35.2, gcc 5.0+ (gcc
+diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
+index d22cf91212b0..d5d0d26b8e7d 100755
+--- a/scripts/min-tool-version.sh
++++ b/scripts/min-tool-version.sh
+@@ -17,13 +17,7 @@ binutils)
+ 	echo 2.23.0
+ 	;;
+ gcc)
+-	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
+-	# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
+-	if [ "$SRCARCH" = arm64 ]; then
+-		echo 5.1.0
+-	else
+-		echo 4.9.0
+-	fi
++	echo 5.2.0
+ 	;;
+ icc)
+ 	# temporary
+-- 
+2.27.0
+
 
 _______________________________________________
 linux-riscv mailing list
