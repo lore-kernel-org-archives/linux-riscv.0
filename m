@@ -2,121 +2,119 @@ Return-Path: <SRS0=OIoX=J5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BFDA9C433B4
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 May 2021 21:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A5A4C433B4
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 May 2021 21:16:39 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 370B361288
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 May 2021 21:06:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 370B361288
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id CF0ED60FE4
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 May 2021 21:16:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF0ED60FE4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H4Bvz3S3+x6V3Uf4UUeme4xuWi3RpEwS7hu76N5xSYU=; b=F/pl404r72SG30
-	EMYWjfXBU/Z+mAEDD/w/lSQ+taLO5GbUWfvVv/RcTNgIXG7KpePPoR0HwiIMbv9MvGrXzTpo3Z3mz
-	X3+CbvLOkAw3XUsykMTg4yV9BeV9se2XnhKKIlrOKL/8DBsQxHk5ak8ldtXEKjsDf++ZAybMlLJI5
-	De5gXnMPwPF0cZ66nUS1BxnL2yzlukoFsn7f7kjtVLSefTUh+HLg1Cx1+7O7PRESA7AYViOtX0PKy
-	lYOAY+fjsV9Los/4uD/AzIQ/Js4Q8w7AP9xjWnQCLO6RZVZTvJ1v0AR9NQCYEVaVsIFI7b19gF6St
-	LEy7Q+aB5DxTvAKSMGbA==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=TazXsVXGmksVaGlyvtjyhgWoe7OIpUO1fQrgDV9omLY=; b=qk9vXI6aCKrUfnAVw5cCL+P05
+	tfM+eJZU6bv1pgaJamqJ4WLGP2QTgAYGTeghmy8IdAFp7RBPA99SLz0NVeVFkl/WyYD096Csv4Muc
+	YoEmNqw7hJdXRIKCgOTot8Cao1QTaNKW3LIGA9KO9jHSldYUij3SUEpQ1ugeLdcYuNLCBh9GD8shl
+	v4rP9Rw8nXRCRTxddd6zMu1eNXCCs7+ylAEBVePtLKZC1aQWgb1F36zWYCR0SbBvXQQd563uOzWtd
+	jwVWMi9eqOWyaoR5khD35sbuIEhL6ap3fEZaMkGTsy5h9txyHMQbsih2aO5ESzCjlVDGPCjeZsxb1
+	7Zj46sImA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldJHy-00CTsd-Sl; Sun, 02 May 2021 21:06:06 +0000
+	id 1ldJRw-00CVNW-8U; Sun, 02 May 2021 21:16:24 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldJHx-00CTs2-K3; Sun, 02 May 2021 21:06:05 +0000
+ id 1ldJRs-00CVMz-6c
+ for linux-riscv@desiato.infradead.org; Sun, 02 May 2021 21:16:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
- Message-ID:Sender:Reply-To:Content-ID:Content-Description;
- bh=N7Yqh79l2fm2YthqZGJy/4v3jPHgVVehObKuu0oKfEI=; b=y04HEmMAcDiqE+q7+nXnAluepH
- xkdHJfJwDKdgqdFLHVnnLiC+dXop10Q/7kgBSegk5d/yeiokwD/DhM1IinqF9J/eRt2HmODl4lfI3
- NJLaCjhnTOzKqQevINkAtW+lr8InUrHW2mVTm9H7QsiMz3D9sr870ka5FUE7ipTHsbwD+Ok7S5JGI
- HI//AvWRmkFzmh8tm/q6XkWrskT039s9GtkFHAI1SE5Yx7TQx51avz9UxaAYrVhqkYetpYNSyfGgv
- 9QflONdWRBSy7Q0ATbTct4p1M/PEOILUx96neOC1Wfr57hrTqgdVnrWGkVajPd5IoiHb5gRrdwGod
- PYVlX6LQ==;
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=ztLe0PUCKTK2LtdP2HGMOWnOHEgLtC71r4QQFdpNTzw=; b=cUv8XVXvn2SeCFlM18xdScY5oO
+ XGs3R3Bt5MPutHv2VDTDyzPcvAvjOpfkS3O90Wk3sGgcR9CIgMGael6F5C8itOibGd7WVu4J4Ke7v
+ G+PizJTxRaQ8EhTr+tm82RR9f1Lvv9Nk/a7dhzCPrYFDTH89iR42kFjqgnuN1Hkz1XWyAQ3Fg4+tU
+ vj1sk+ByLHbvIYHdMxpMUCvhOX0MRnP6Cb4+14Xses2Pw9rIjgPL5wxqejF1D6Ccxw76luMx+gvcF
+ MAKssQXLCQ95bAicTHhjkQ8CV7Y8A8JaWQyaszOnxjJF4GuC4M2kr3mGfKr88Di93ukwdXs4niWxS
+ VvM0Cg0A==;
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldJHu-002gi7-1l; Sun, 02 May 2021 21:06:03 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id d15so4477230ljo.12;
- Sun, 02 May 2021 14:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=N7Yqh79l2fm2YthqZGJy/4v3jPHgVVehObKuu0oKfEI=;
- b=JU9W/xnDmpy9qH74iotexdN48jCFjPv+eFhuUnAbFENynmfWePJbMoBnfQSm7XWs+l
- o8h/uhfhqzWMJucn92gIG9Okv5/MyMdAFj2mj7nt+cf/PUl4ozBbnj4iRRnn2qRmPeYX
- HW5qvgcm5HgATizwthp/ysQOaJv5NnA/Iw05Csrr8LTZwMyjVjZDWxZDXHR++SNsZ5dd
- Bxv4xEfiFqpFfNOX/lOivJrw2OTWJAwvkJhZX+ybmEPFw2Ec4YLpmibqAWyfso69ukgu
- t7nX2a9FsyxFJr7ckPwClPzE479B0NUPXkLM+QhMTGmzYY5d8bSaL2riGmpDnsolJLpU
- H39g==
+ id 1ldJRp-002gwg-98
+ for linux-riscv@lists.infradead.org; Sun, 02 May 2021 21:16:18 +0000
+Received: by mail-lf1-x135.google.com with SMTP id x19so5247057lfa.2
+ for <linux-riscv@lists.infradead.org>; Sun, 02 May 2021 14:16:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linux-foundation.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=ztLe0PUCKTK2LtdP2HGMOWnOHEgLtC71r4QQFdpNTzw=;
+ b=YBiD6aB1h/sCqYhKTphH+dg0wIZGGo6mw2O+h2UbBPaKs2j+amxCQcnTb6T4EcSFDi
+ 569RK7dsnKNOuJGN1Zq3Sl1+5gAq1k0k2Eo073vJURqtQ79ulv+UTiBKQN1QHx0TnXJL
+ 8kMigLRMuOZq6Z9mW4YA2S0oPDLTJFBkJG6AU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=N7Yqh79l2fm2YthqZGJy/4v3jPHgVVehObKuu0oKfEI=;
- b=fYpK0Wdkd0viXjlL5wHcyJftcIJ0GbITABS6AZVe4MNXjuu5+KL76RQSVpu32N2c+N
- p8IvLdEmKWduw4b+Hl2YXlFSxX/iWNLvM8Wk0ikvAjqh7We2KHiJOpnw5HSYgerAOX1Z
- 2U5iUVdxW4G1OxbOlYWYToKExDDzDF3LHEXI79PprAB5nxpGGkC/J1xISIjDfe3NWSL8
- 2L4Rw97ZcxBYIYkibL/n6Ko6FNGCmLSs1EHyb2NjGkbsfxLoaDvEFmA+quSqO5gnkSwq
- QwyY1Fd/lI3xhADKJ6K/Rm1gttq/yUmJzufeP21RdaxUWmNz19Fljj9/LGKAR8865Nj9
- jzCA==
-X-Gm-Message-State: AOAM533GFFRJT2ej+oH7CuVIIUzmbALrpeUQv6Wnu23TSchl8ScfFSq7
- m4DiMV8JytBOxwcBGLx1qhs=
-X-Google-Smtp-Source: ABdhPJyFdolNvSlvoH3O9+/CNW7drmqIFS0V+aTPiSan0DUukLYT6G12bs4xGHCF2oOGcHObWcQ3mA==
-X-Received: by 2002:a2e:6e13:: with SMTP id j19mr6110327ljc.116.1619989559570; 
- Sun, 02 May 2021 14:05:59 -0700 (PDT)
-Received: from [192.168.1.218] (dsl-trebng21-58c191-211.dhcp.inet.fi.
- [88.193.145.211])
- by smtp.gmail.com with UTF8SMTPSA id m17sm944171lfg.171.2021.05.02.14.05.58
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=ztLe0PUCKTK2LtdP2HGMOWnOHEgLtC71r4QQFdpNTzw=;
+ b=HL4hWcLaNqcpYcl7SA8+gur1AXni6/iCkqOapOvnQrlIUQYwInriAPNjyYk+1LY71U
+ 2/y327b+KsBe7q6r2coDkGBnxqMQd4hdeXcqKsiV7/IyHFsRhxTfWksmQ+wwjmF8VJOB
+ DZ2Uvzb5koTa/abBLnNr/JFZee9LrhjOxBTfhPAw8DYvWGm8gKeciX77lWVSAXN9/2HT
+ 2ad+915VDa7oSH3r42aQ3A8Rnne5XVLHKy4TocV5paaaYhL3gtvsJT7qzFMczd1L5xdO
+ sC4S16JKqashomYUXpCJrUNvh+oCJ/Se2vvk9Z0Y/UjrxTBh/1lJTne22ahGso1+3525
+ nTAQ==
+X-Gm-Message-State: AOAM531dR+PCpIl6bMyCwsE2VXokUTlbCsB8hSsiTUgC0WaVyd2lmDNS
+ Lvhy1/iTeyW1c0ATnETw7zUA3RstNQCSwjh+YdQ=
+X-Google-Smtp-Source: ABdhPJyNfZ5QYjsL+qGd9muUl8wvrU2B31+FvINlsgLPOucFGSnCvlfZT5r6nR4MXiDPi5D5bRLhKQ==
+X-Received: by 2002:ac2:53a2:: with SMTP id j2mr11376197lfh.246.1619990175109; 
+ Sun, 02 May 2021 14:16:15 -0700 (PDT)
+Received: from mail-lf1-f41.google.com (mail-lf1-f41.google.com.
+ [209.85.167.41])
+ by smtp.gmail.com with ESMTPSA id x19sm1038827ljh.50.2021.05.02.14.16.14
+ for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 02 May 2021 14:05:59 -0700 (PDT)
-Message-ID: <9198344a-f318-55b4-62b6-22354227ff2d@gmail.com>
-Date: Mon, 3 May 2021 00:05:59 +0300
+ Sun, 02 May 2021 14:16:14 -0700 (PDT)
+Received: by mail-lf1-f41.google.com with SMTP id z9so756927lfu.8
+ for <linux-riscv@lists.infradead.org>; Sun, 02 May 2021 14:16:14 -0700 (PDT)
+X-Received: by 2002:a2e:330f:: with SMTP id d15mr11126850ljc.251.1619989727157; 
+ Sun, 02 May 2021 14:08:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101
- Thunderbird/89.0
-Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-Content-Language: en-US
-To: Segher Boessenkool <segher@kernel.crashing.org>,
- Joe Perches <joe@perches.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Masahiro Yamada <masahiroy@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Miguel Ojeda <ojeda@kernel.org>, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Will Deacon <will@kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
 References: <20210501151538.145449-1-masahiroy@kernel.org>
  <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
  <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
  <20210502183030.GF10366@gate.crashing.org>
  <81a926a3bdb70debe3ae2b13655ea8d249fb9991.camel@perches.com>
  <20210502203253.GH10366@gate.crashing.org>
-From: Ali Kaasinen <ali.kaasinen@gmail.com>
 In-Reply-To: <20210502203253.GH10366@gate.crashing.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Sun, 2 May 2021 14:08:31 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wjGJskk5EwnDCccs6DcLytE2yx76+P_W-n1-B5zq0M3KA@mail.gmail.com>
+Message-ID: <CAHk-=wjGJskk5EwnDCccs6DcLytE2yx76+P_W-n1-B5zq0M3KA@mail.gmail.com>
+Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Joe Perches <joe@perches.com>,
+ Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Arnd Bergmann <arnd@arndb.de>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jonathan Corbet <corbet@lwn.net>, 
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>, 
+ Paul Mackerras <paulus@samba.org>, linux-riscv@lists.infradead.org, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Will Deacon <will@kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210502_140602_143158_CCECAE45 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20210502_141617_334075_2DC47FF9 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,47 +126,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/05/2021 23.32, Segher Boessenkool wrote:
-
-> On Sun, May 02, 2021 at 01:00:28PM -0700, Joe Perches wrote:
->> On Sun, 2021-05-02 at 13:30 -0500, Segher Boessenkool wrote:
->>> On Sat, May 01, 2021 at 07:41:53PM -0700, Joe Perches wrote:
->>>> Why not raise the minimum gcc compiler version even higher?
->> On Sun, 2021-05-02 at 13:37 -0500, Segher Boessenkool wrote:
->>> Everyone should always use an as new release as practical
->> []
->>
->>> The latest GCC 5 release is only three and a half years old.
->> You argue slightly against yourself here.
-> I don't?
->
->> Yes, it's mostly a question of practicality vs latest.
->>
->> clang requires a _very_ recent version.
->> gcc _could_ require a later version.
->> Perhaps 8 might be best as that has a __diag warning control mechanism.
-> I have no idea what you mean?
->
->> gcc 8.1 is now 3 years old today.
-> And there will be a new GCC 8 release very soon now!
+On Sun, May 2, 2021 at 1:38 PM Segher Boessenkool
+<segher@kernel.crashing.org> wrote:
 >
 > The point is, you inconvenience users if you require a compiler version
 > they do not already have.  Five years might be fine, but three years is
 > not.
->
->
-> Segher
 
-Users & especially devs should upgrade then. 3 years of not updating 
-your compiler - if you regularly build the kernel - seems nonsensical.
+So this should be our main issue - not how old a compiler is, but how
+our compiler version limitations end up possibly making it harder for
+users to upgrade.
 
+Of course, one issue there is whether said users would have upgraded
+regardless - if you have a very old distribution, how likely are you
+to upgrade the kernel at all?
 
-Ali
+But we do very much want to encourage people to upgrade their kernels,
+even if they might be running otherwise fairly old user space. If for
+no other reason than that it's good for our kernel coverage testing -
+the more different distributions people test a new kernel with, the
+better. And some of the less common architectures have their own
+issues, with distros possibly not even supporting them any more (if
+they ever did - considering all the odd ad-hoc cross-compiler builds
+people have had..)
+
+This is why "our clang support requires a very recent version of
+clang" is not relevant - distributions won't have old versions of
+clang anyway, and even if they do, such distributions will be
+gcc-based, so "build the kernel with clang" for that situation is
+perhaps an exercise for some intrepid person who is willing to do odd
+and unusual things, and might as well build their own clang version
+too.
+
+So I really wish people didn't get hung about some "three years ago"
+or similar. It's not relevant.
+
+What is relevant is what version of gcc various distributions actually
+have reasonably easily available, and how old and relevant the
+distributions are. We did decide that (just as an example) RHEL 7 was
+too old to worry about when we updated the gcc version requirement
+last time.
+
+Last year, Arnd and Kirill (maybe others were involved too) made a
+list of distros and older gcc versions. But I don't think anybody
+actually _maintains_ such a list. It would be perhaps interesting to
+have some way to check what compiler versions are being offered by
+different distros.
+
+           Linus
 
 _______________________________________________
 linux-riscv mailing list
