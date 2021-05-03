@@ -2,115 +2,86 @@ Return-Path: <SRS0=w96C=J6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56E2CC433ED
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 13:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D00CBC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 16:42:29 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A576F611EE
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 13:12:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A576F611EE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 42C3861951
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 16:42:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42C3861951
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tXTCCvn9RjQ0TDXd6TK58XcQTz3U30fMvIp+9jmOiZY=; b=jKBUbRoEL8cacmJXjvOqtBqA6
-	yz/D8vtsg/dFs1NfycDzk3NMvj299zcYzNoI0Q3K4AtF0YH+N2Xc5C2CWkk96AGAyW9FfKi2461/+
-	Du5r29Klcr/YQwqdggy0D0wHboDw80DflAbGfhAK1UrYOz/tzq8wnSQ+Dun1Btnk/gPXXnKwj1HE3
-	4zaNLfk32JXUxP1WOLuTjLRtsRf+lGwtGxcoT5ciUJKmYFG1xB2LOHdDMYaRNwHeJGS9HGjgsmUwN
-	3H+kqJZOhfF30wZvAv2TJXAuopavjAyUY+E3HzOU1sp5MnR7nGLnRCbG0GDASzjnAl5uq1z18dev8
-	ZQhYP4wnQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=h5iImFsj5GFiyExWF7bL5fh0XXwGFrXTReGNG8rJNFE=; b=FmZHF/pGd0Aw46XM4WiTqaBop
+	nKiccpZL/DmiuvcrNbEcQPx/WA9yQsbx+P5wz2rdReV5MGFZlSVN1cr8TFcVCi7h2xcG/OY1etWe2
+	9vihMlSObmm39MGHX1x0T0avYRYcjd5cqXFrofEts2xhE35OB4k7QKEZon5OczGnGT/1HqHg74Aca
+	NZs72xlN9z0A+J3c51fJCfWTfeazYR88lCOCr2Ujb3mriAKMHVVCOaazjb1S0zVkzQDx66zQL/71T
+	sy1dEyrEZUcWby+SRMTntsDj4cPYvXdZ371AJVO6KWPVCGqYDz9sjFmTVPUTCnFTsFum7f8jY/yDO
+	D+pFOAvSQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldYMA-00DvaP-1X; Mon, 03 May 2021 13:11:26 +0000
+	id 1ldbeE-00EQ67-9U; Mon, 03 May 2021 16:42:18 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldYLd-00DvY6-7H; Mon, 03 May 2021 13:11:17 +0000
+ id 1ldbcS-00EPSH-PI
+ for linux-riscv@desiato.infradead.org; Mon, 03 May 2021 16:40:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=q6aPtToSrVgBi/90t1ZUB9kHaOhzD5C9bj4BQEcePPk=; b=DZkKfv+laICFJ1pU8rt5MMt0+o
- f8GbA99YbC0r8GS2NFgoCAOheHEG/wsixA0jEizhVh/dIl6M3aWRGScAjsPOdkIIaq7dnPMMURAGq
- k8ogrouosabf3hSgsdmPLpEFwXZFX6WmtIr9Zi4Ue5I5hOHGuzYQ/3dE4IWw+1vRZFo1eU6vrdeuK
- TQq5hif6uI52LMHX+tBdNe++mIw3X7i5is7K3JMUK7ehi+/DUq15OgGFFyk4IC+wVD93h5EGv9sva
- J67jmPEp2nso8fYVGh2+Zwd3ni6eAnlg9lD1odZ7s0VITEG1t/oaAda/Ifq3kcRk4Wmwy7yUI1ITH
- vmgIbuMQ==;
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+ :Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:References;
+ bh=qT3aBZpv9oGRYq44NKFfP4UzzIwvKTYme00AJi1+gKs=; b=B68ZU5mN+R/RjxEpPye3JmLVOX
+ Odm0T9pTNRBDlsX7FEVupxi8h/VMY/SmSPqVRKcR6wt6rZACrHXwyb5v0GIMPkIw6re8GW0OluWUl
+ 7ip573XQaR1+0cfnlq6dGGFUu5LP1qIzz1Lg7YgQ8dkdqJOJVXqMdfac6kPxifCbAe2dMVnCFpcUH
+ Dd7KhHt0/SqRb6dmgO1H1eEebQFnYnICKJrUNRU6DLGx6P/j2SuzX/Prxf7JAGgu+kuj2/wwGuCaK
+ JF+Ko8jcw4iE81dEoPBYi1pCSEwsvxiGb8D/bH+syZwejr6A12qPjFFqspR5UPRTOE4AZsOoVW5T8
+ X1J5l7Tg==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldYLa-0035CN-Mz; Mon, 03 May 2021 13:10:51 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id b131so7422143ybg.5;
- Mon, 03 May 2021 06:10:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=q6aPtToSrVgBi/90t1ZUB9kHaOhzD5C9bj4BQEcePPk=;
- b=lqGGCtzE5m8F9orYtPate6N4BTFbRDldnXzGj2tE87HBcn1BRn7f5XfxsJmYODrxik
- e8EkfaDCxloU/Q9iBapQyXgVjXP0S4DEJ0fXLrl9h3WPztOm88MubRYvbs9d3jfqGqx+
- iy9k59bjEyTqA/JJgPQ3YBDSOg4s+trVOYoxK6J7Lt5Gi2GwquvTtB02IITfC21XkxNA
- lGyAB0OIcRbwh0FVuTlthtGxfWSXpeBK0cMQGMm7c6fDD1CV4+4N2Ay8M/08fvry9jyw
- TF22FDOSLWt3qkPw5KtV5L2sv6tZ8jOFNTAw83cA9C4ThWwXkIpT0aLKrSpPx/QUefiX
- Kbxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=q6aPtToSrVgBi/90t1ZUB9kHaOhzD5C9bj4BQEcePPk=;
- b=WBXUqJObo1PlZiVuD+GCFKFpTgTkLFjxT5yciYLbWggJKNP9uDMl4F5x1mmYzOCzNi
- r9DSJ0zz1BFFbNbvOTusQIpgBOGhQY9Xj8PuvIDF8/uDPbuyGqxvyEjG0zitH/iuI/M3
- 5PxXabs5TCMjhcXedWxRtT2Nz97U+NgVf2IQ1x/mUaK6337Xlqg3PRbFkp30KDwklRSr
- Tlq0Eg2/wO4Az0Eb+sAmOJlHxq8whSIg4EyVhbM8Piv5zkr+h4Q0yd2jXxPOf1DDOZKc
- b+Yl/PDlYnuXU82LXGKewtJw2nvl+UpPijNbtS6cPAy0g93AKDYnKfRwf7zaToXXiwFo
- ObVQ==
-X-Gm-Message-State: AOAM531hQYGPbdAHBZKJRB+3LnHfRLeAu3nMVPvcOfZZUX+dJkIYAcQj
- oBaDzR5l5XxgTZz7oHgrBHt0fd0aMLs3NgMspao=
-X-Google-Smtp-Source: ABdhPJxvygbDWGxmRr6V8Vm4D83Fq4MRol9PEQb74s8BS9df3UUbSP8yls4vcRx2kU2tZhdFxHQp30hnnaM7RamlTpQ=
-X-Received: by 2002:a25:7909:: with SMTP id u9mr25466002ybc.22.1620047448169; 
- Mon, 03 May 2021 06:10:48 -0700 (PDT)
+ id 1ldbcP-003HCn-TW
+ for linux-riscv@lists.infradead.org; Mon, 03 May 2021 16:40:27 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id F1AD06191F;
+ Mon,  3 May 2021 16:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1620060025;
+ bh=tHYHD0jT1jG1itD5UPajDk4y8ocfKR79gQ2CjG/pTbE=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:From;
+ b=JLcFn19J2apAX5K6ef/KUYrOmvgNsunQdt63eKOmDkGhDnGLgDFdRB28ot7D5pyH1
+ h7FjPDwLxcv/lBZoRCqschRbNQJyuaUlQEvu6LAdC3EPK6IB3XuPpz/haaWUPJoqRA
+ 178OmpJBsTkGhHwdI7FrX7de02BLp77vbKCE4zWBQBHUaTZ0T+UfPOnhSEXca2f50h
+ VFgjuxVEQafjC+uGCmls8vfTGrwMsu4HVWLvww0OzwbF4wsLh4+NBwIIg+WMwqGw9r
+ Ao/8VK+gu4mPYmjitl2EcyaxWahhfbK+p7wOpx881wxfeiSp1TOv+tMN1sGNYOhwxj
+ JWfD4/WsFmLiQ==
+Date: Mon, 3 May 2021 11:40:23 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Greentime Hu <greentime.hu@sifive.com>
+Cc: paul.walmsley@sifive.com, hes@sifive.com, erik.danie@sifive.com,
+ zong.li@sifive.com, bhelgaas@google.com, robh+dt@kernel.org,
+ aou@eecs.berkeley.edu, mturquette@baylibre.com, sboyd@kernel.org,
+ lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
+ alex.dewar90@gmail.com, khilman@baylibre.com,
+ hayashi.kunihiko@socionext.com, vidyas@nvidia.com,
+ jh80.chung@samsung.com, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 0/6] Add SiFive FU740 PCIe host controller driver
+ support
+Message-ID: <20210503164023.GA919777@bjorn-Precision-5520>
 MIME-Version: 1.0
-References: <20210501151538.145449-1-masahiroy@kernel.org>
- <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
- <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
- <20210502183030.GF10366@gate.crashing.org>
- <81a926a3bdb70debe3ae2b13655ea8d249fb9991.camel@perches.com>
- <20210502203253.GH10366@gate.crashing.org>
- <CAHk-=wjGJskk5EwnDCccs6DcLytE2yx76+P_W-n1-B5zq0M3KA@mail.gmail.com>
- <20210502223007.GZ1847222@casper.infradead.org>
- <YI+nhMcPSTs/5Ydp@ada-deb-carambola.ifak-system.com>
- <CAK8P3a0kV4ZfMEFh0DcMDjXqxA0yhj8a8CL-YFGV6B4pszHeGg@mail.gmail.com>
- <fc0c7c092f274ab8b760b3c897830347@AcuMS.aculab.com>
-In-Reply-To: <fc0c7c092f274ab8b760b3c897830347@AcuMS.aculab.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 3 May 2021 15:10:37 +0200
-Message-ID: <CANiq72nyvrb6ZrVVeaT9py7D_Sv9q-a1HGYH-hNpqfmcCmb4dg@mail.gmail.com>
-Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-To: David Laight <David.Laight@aculab.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Matthew Wilcox <willy@infradead.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Segher Boessenkool <segher@kernel.crashing.org>, Joe Perches <joe@perches.com>,
- Masahiro Yamada <masahiroy@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>, 
- Paul Mackerras <paulus@samba.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Will Deacon <will@kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20210406092634.50465-1-greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210503_061050_769231_9AF0401A 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20210503_094026_072333_3E6ED823 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,18 +98,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 3, 2021 at 2:20 PM David Laight <David.Laight@aculab.com> wrote:
->
-> It would be nice to be able to build current kernels (for local
-> use) on the 'new' system - but gcc is already too old.
+On Tue, Apr 06, 2021 at 05:26:28PM +0800, Greentime Hu wrote:
+> This patchset includes SiFive FU740 PCIe host controller driver. We also
+> add pcie_aux clock and pcie_power_on_reset controller to prci driver for
+> PCIe driver to use it.
 
-I have seen such environments too... However, for the kernel in
-particular, you could install a newer GCC in the 'new' machine (just
-for the kernel builds) or do your kernel builds in a different machine
--- a 'new' 'new' one :)
+I dropped this series because of the build problem I mentioned [1].
+It will not be included in v5.13 unless the build problem is fixed
+ASAP.
 
-Cheers,
-Miguel
+[1] https://lore.kernel.org/r/20210428194713.GA314975@bjorn-Precision-5520
+
+> This is tested with e1000e: Intel(R) PRO/1000 Network Card, AMD Radeon R5
+> 230 graphics card and SP M.2 PCIe Gen 3 SSD in SiFive Unmatched based on
+> v5.11 Linux kernel.
+> 
+> Changes in v5:
+>  - Fix typo in comments
+>  - Keep comments style consistent
+>  - Refine some error handling codes
+>  - Remove unneeded header file including
+>  - Merge fu740_pcie_ltssm_enable implementation to fu740_pcie_start_link
+> 
+> Changes in v4:
+>  - Fix Wunused-but-set-variable warning in prci driver
+> 
+> Changes in v3:
+>  - Remove items that has been defined
+>  - Refine format of sifive,fu740-pcie.yaml
+>  - Replace perstn-gpios with the common one
+>  - Change DBI mapping space to 2GB from 4GB
+>  - Refine drivers/reset/Kconfig
+> 
+> Changes in v2:
+>  - Refine codes based on reviewers' feedback
+>  - Remove define and use the common one
+>  - Replace __raw_writel with writel_relaxed
+>  - Split fu740_phyregreadwrite to write function
+>  - Use readl_poll_timeout in stead of while loop checking
+>  - Use dwc common codes
+>  - Use gpio descriptors and the gpiod_* api.
+>  - Replace devm_ioremap_resource with devm_platform_ioremap_resource_byname
+>  - Replace devm_reset_control_get with devm_reset_control_get_exclusive
+>  - Add more comments for delay and sleep
+>  - Remove "phy ? x : y" expressions
+>  - Refine code logic to remove possible infinite loop
+>  - Replace magic number with meaningful define
+>  - Remove fu740_pcie_pm_ops
+>  - Use builtin_platform_driver
+> 
+> Greentime Hu (5):
+>   clk: sifive: Add pcie_aux clock in prci driver for PCIe driver
+>   clk: sifive: Use reset-simple in prci driver for PCIe driver
+>   MAINTAINERS: Add maintainers for SiFive FU740 PCIe driver
+>   dt-bindings: PCI: Add SiFive FU740 PCIe host controller
+>   riscv: dts: Add PCIe support for the SiFive FU740-C000 SoC
+> 
+> Paul Walmsley (1):
+>   PCI: fu740: Add SiFive FU740 PCIe host controller driver
+> 
+>  .../bindings/pci/sifive,fu740-pcie.yaml       | 113 +++++++
+>  MAINTAINERS                                   |   8 +
+>  arch/riscv/boot/dts/sifive/fu740-c000.dtsi    |  33 ++
+>  drivers/clk/sifive/Kconfig                    |   2 +
+>  drivers/clk/sifive/fu740-prci.c               |  11 +
+>  drivers/clk/sifive/fu740-prci.h               |   2 +-
+>  drivers/clk/sifive/sifive-prci.c              |  54 +++
+>  drivers/clk/sifive/sifive-prci.h              |  13 +
+>  drivers/pci/controller/dwc/Kconfig            |   9 +
+>  drivers/pci/controller/dwc/Makefile           |   1 +
+>  drivers/pci/controller/dwc/pcie-fu740.c       | 308 ++++++++++++++++++
+>  drivers/reset/Kconfig                         |   1 +
+>  include/dt-bindings/clock/sifive-fu740-prci.h |   1 +
+>  13 files changed, 555 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+>  create mode 100644 drivers/pci/controller/dwc/pcie-fu740.c
+> 
+> -- 
+> 2.30.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
