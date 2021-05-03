@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CA89C433B4
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 00:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6440C433B4
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 06:17:51 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 264B161284
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 00:53:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 264B161284
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.crashing.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3715E61249
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 06:17:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3715E61249
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hr4nFzbu5W6IT43VNeiflEaDTxFJNRvIfiL1oceyuMk=; b=mYa9VAnoCVGJ+U9uRM0+aN/Wa
-	PCoJtMhNXAPNzlPwCqXiYykQ8RDfsZVHCh2qem7DH3rbJHbURx6BXZFIwzvSFPQ0XzQBQbw24/ecw
-	tJaS+iMTfcD92SJBCW/vyu2WA4Pe8kCeuqBJD66yjszHmZ2M9DFhxWT5GTs2EM9rVF7T+fLmYGIwA
-	GjroTp3kCU/8Idp2jfpwG72oAibRl+s7h0O4eh0/KvDoJ23PuTSc2oPYay8ixDDv6CP/CwkgudhTp
-	o7GvKKiYgIsE1/7Ldu2JUQ3+kRgrE8tCbOuxWwT7koogr3YtsFC6Zth8L/yGnVgzEnrZShD9OS9fL
-	ci1lqD76A==;
+	 bh=rowo/BQmFP1Ze/Lh7ilYnpf6dqAepi5SP3x12mbC74s=; b=TSgyk1mYwtz2eph8dZdtgDCwR
+	3+uT84RLBj6y8KT/lDv4TSxpnKu+FdMnxYXQU3h8Ctqa+1AA+TN48iYl2bq03KEkrN4k99nk6Qtfb
+	vkVdMk63S4IZEeL0Ipcz17g2JBfMdDgZwphJCwBIvmt7edwg8/9m2PnksFm9CyIwx1UOpOmw4cbSv
+	AL8hLw6wIKVx+sH1AA77zW8ATPQH17kcTxTIC+yCoMRnWY4/6LdvK3H6SXhhPkFnMVPT2jebqj8wa
+	l4SewsFN7mGjOuUNUqMk3oOUrCN2HHYROvt4vmhxOMCnQDZRSm2CGnejiWbosF1CmM3DS/YGlqol/
+	xUO+HsPZg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldMp3-00CpGb-Et; Mon, 03 May 2021 00:52:29 +0000
+	id 1ldRtc-00DGfl-Nk; Mon, 03 May 2021 06:17:32 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldMo0-00CpB8-Rc; Mon, 03 May 2021 00:51:30 +0000
+ id 1ldRtO-00DGf7-7Y; Mon, 03 May 2021 06:17:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:Mime-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=IDhySqU+Lk+s5GHdK6vgLUXqyiNVJP1ZTC0GsDjbXIE=; b=J1EdItx9cM2VmjlD0g79ZwkII3
- znXr+Ffue1ywrUiz/Ad9gpl7g7kaJdWnjQIAZNpSbdy4a3dSzepJtsYhFSyN73/WmzpgmSv32YMYo
- 1gVWP8kcSeNYgYm4/54Lt2SrCid4KxoGNd8NtXj+umBhS+eOAdSVxc8XVM0/Cajhk9kJt9gFEp++9
- bhXbujQ4fkkBSo/4eHsN9feaWa9y7OJ1iNqw1BTtBblnhCoFydWD5kSOwISJgsXfgZJ5ATNhgryoD
- ritr1A04jJeCCv/37s2I5nUVb6oTOxhE9z7cGSQ/vrT04F4C+l9M1UPw+5htlPITH6V5JwGt4eCiq
- qYiyHROQ==;
-Received: from gate.crashing.org ([63.228.1.57])
- by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1ldMnw-002l0F-TR; Mon, 03 May 2021 00:51:22 +0000
-Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
- by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 1430j0Yc013128;
- Sun, 2 May 2021 19:45:00 -0500
-Received: (from segher@localhost)
- by gate.crashing.org (8.14.1/8.14.1/Submit) id 1430ivVE013125;
- Sun, 2 May 2021 19:44:57 -0500
-X-Authentication-Warning: gate.crashing.org: segher set sender to
- segher@kernel.crashing.org using -f
-Date: Sun, 2 May 2021 19:44:57 -0500
-From: Segher Boessenkool <segher@kernel.crashing.org>
-To: Joe Perches <joe@perches.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Miguel Ojeda <ojeda@kernel.org>, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Will Deacon <will@kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=jATAUJQ3VkYmFNurPdD8+iCSWrbg2CFByUFGa3HFUao=; b=Ip9D4uw3Sg/Nw/6DMjPo4DWJvj
+ oJ6rigrrdzZMk67XZAUFU4J52YPnVZbeZXOTacerKeCkh9g5D/gESQuzPgswrcaA4ykNK4hgtATVm
+ M4QKD4kFlWRZFx++XCiICaWSdU7qi7IM5bMhtvUo8rbieUwhGgy7j/+l58WgK0nxMtHNYqjcEneU+
+ 4OY6AAW1038eNwm/1+nx4+mB4AhNAZSb/G0ya/dDILnu3dcTW50aYFLlVfyE6Pt1zzltLWx1z+AVL
+ kxNwtxQbE1JAOPuWYD6WZZeLpOzzH4nI15hyvWcAwUlEbVIbWHzFRrFb5CuXZ48Uzfx1utn8hQL7S
+ lNFTvZMA==;
+Received: from pegase2.c-s.fr ([93.17.235.10])
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1ldRtK-002rT1-QX; Mon, 03 May 2021 06:17:16 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+ by localhost (Postfix) with ESMTP id 4FYXn84YcGz9sTN;
+ Mon,  3 May 2021 08:17:00 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+ by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id MGmplfnQL6Sb; Mon,  3 May 2021 08:17:00 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase2.c-s.fr (Postfix) with ESMTP id 4FYXn83Sl9z9sTM;
+ Mon,  3 May 2021 08:17:00 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 5696A8B776;
+ Mon,  3 May 2021 08:17:00 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id CP2hKwLive3m; Mon,  3 May 2021 08:17:00 +0200 (CEST)
+Received: from [172.25.230.103] (po15451.idsi0.si.c-s.fr [172.25.230.103])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 140408B775;
+ Mon,  3 May 2021 08:17:00 +0200 (CEST)
 Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-Message-ID: <20210503004457.GI10366@gate.crashing.org>
+To: Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ linux-kbuild@vger.kernel.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Paul Mackerras <paulus@samba.org>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
 References: <20210501151538.145449-1-masahiroy@kernel.org>
- <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
- <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
- <20210502183030.GF10366@gate.crashing.org>
- <81a926a3bdb70debe3ae2b13655ea8d249fb9991.camel@perches.com>
- <20210502203253.GH10366@gate.crashing.org>
- <fcffe807353391339a03106f175ffa71377752b1.camel@perches.com>
-Mime-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fcffe807353391339a03106f175ffa71377752b1.camel@perches.com>
-User-Agent: Mutt/1.4.2.3i
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <8b5f1d57-1357-affd-565f-f4826f3ecbdf@csgroup.eu>
+Date: Mon, 3 May 2021 08:16:58 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
+MIME-Version: 1.0
+In-Reply-To: <20210501151538.145449-1-masahiroy@kernel.org>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210502_175121_318785_F38E76D1 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20210502_231715_069800_7778E6D2 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,30 +103,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 02, 2021 at 02:23:01PM -0700, Joe Perches wrote:
-> On Sun, 2021-05-02 at 15:32 -0500, Segher Boessenkool wrote:
-> > On Sun, May 02, 2021 at 01:00:28PM -0700, Joe Perches wrote:
-> []
-> > > Perhaps 8 might be best as that has a __diag warning control mechanism.
-> > 
-> > I have no idea what you mean?
-> 
-> ? read the last bit of compiler-gcc.h
-
-Ah, you mean
-#pragma GCC diagnostic
-(which has existed since GCC 4.2).  Does anything in this __diag stuff
-require GCC 8?  Other than that this is hardcoded here :-)
-
-
-Segher
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAwMS8wNS8yMDIxIMOgIDE3OjE1LCBNYXNhaGlybyBZYW1hZGEgYSDDqWNyaXTCoDoKPiBU
+aGUgY3VycmVudCBtaW5pbXVtIEdDQyB2ZXJzaW9uIGlzIDQuOSBleGNlcHQgQVJDSD1hcm02NCBy
+ZXF1aXJpbmcKPiBHQ0MgNS4xLgo+IAo+IFdoZW4gd2UgZGlzY3Vzc2VkIGxhc3QgdGltZSwgd2Ug
+YWdyZWVkIHRvIHJhaXNlIHRoZSBtaW5pbXVtIEdDQyB2ZXJzaW9uCj4gdG8gNS4xIGdsb2JhbGx5
+LiBbMV0KPiAKPiBJJ2QgbGlrZSB0byBwcm9wb3NlIEdDQyA1LjIgdG8gY2xlYW4gdXAgYXJjaC9w
+b3dlcnBjL0tjb25maWcgYXMgd2VsbC4KCk9uZSBwb2ludCBJIG1pc3NlZCB3aGVuIEkgc2F3IHlv
+dXIgcGF0Y2ggZmlyc3QgdGltZSwgYnV0IEkgcmVhbGlzZWQgZHVyaW5nIHRoZSBkaXNjdXNzaW9u
+OgoKVXAgdG8gNC45LCBHQ0Mgd2FzIG51bWJlcmVkIHdpdGggMyBkaWdpdHMsIHdlIGhhZCA0Ljgu
+MCwgNC44LjEsIC4uLiA0LjguNSwgNC45LjAsIDQuOS4xLCAuLi4uIDQuOS40CgpUaGVuIHN0YXJ0
+aW5nIGF0IDUsIEdDQyBzd2l0Y2hlZCB0byBhIDIgZGlnaXRzIHNjaGVtZSwgd2l0aCA1LjAsIDUu
+MSwgNS4yLCAuLi4gNS41CgpTbywgdGhhdCBpcyBub3QgR0NDIDUuMSBvciA1LjIgdGhhdCB5b3Ug
+c2hvdWxkIHRhcmdldCwgYnV0IG9ubHkgR0NDIDUuClRoZW4gaXQgaXMgdXAgdG8gdGhlIHVzZXIg
+dG8gdXNlIHRoZSBsYXRlc3QgYXZhaWxhYmxlIHZlcnNpb24gb2YgR0NDIDUsIHdoaWNoIGlzIDUu
+NSBhdCB0aGUgdGltZSAKYmVnaW4sIGp1c3QgbGlrZSB0aGUgdXNlciB3b3VsZCBoYXZlIHNlbGVj
+dGVkIDQuOS40IHdoZW4gNC45IHdhcyB0aGUgbWluaW11bSBHQ0MgdmVyc2lvbi4KCkNocmlzdG9w
+aGUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
