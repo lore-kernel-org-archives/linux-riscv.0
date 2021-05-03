@@ -7,120 +7,108 @@ X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62474C433ED
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 09:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C7E5AC433ED
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 09:59:47 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B4F4360FE9
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 09:50:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B4F4360FE9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
+	by mail.kernel.org (Postfix) with ESMTPS id 30CDE61157
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 May 2021 09:59:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 30CDE61157
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iwobgaSHOlqWm83mli7zwbKi9QlNCdHt107bZ6bjC8g=; b=EhorOyhz6kwZ146IIZxNjVGge
-	wfkQfTs+ZZRL5+15F6NroCgKpw0uKi91qnDcalZv4busqMINO0UhAn3L7eDsDwokuJHJQbVr3BQmV
-	k04X3xDQlL38Ns1addBNimq9Cqmy6nB3ZMrzNP3fg7QRqBR/LPqpYDbooHnzcwB/+x/MUdw31ENBi
-	iaI97T2K9AEBS1KDRS1jKSQbIk0kgX5D6YGIcACqajrSmdT/ihYHRrpG7PcTp3f4oeeNBVAbhQiNc
-	9B3zVCRhFa1PWetUTmd3xE5ERLpeIa62WcnzKO22rclsf6jWNqxOlZajU2PKPPYSt7B6ctExzhyAp
-	3Fgc27wEw==;
+	 bh=2aUzMW0Tioz7dSK+IQ3NB9FwLZtlhqH/nVx97U2qYgo=; b=MLXug+te0y5rO/ctV5YCKw+ta
+	Moqz06fKQ9yblbVzMkJnB69Pl/OAF9qDqpGoPuL57OYKeCOhCNZty/TJG6GZCuGGKRgpSYrMnE8Ye
+	rOs/lf+XAeTKahL/kz0ir90y3nbh7XZx/R6PM0nN0CFEzW0y7ZuKL0DEEN5WoVBfxjY8eBKxvHe+E
+	AQrNuGZY6pUgNY2cNTmIKqaPvtDP5sMqzKi2t6ncEldFEb74VZ16d0PgqV+KAHlZokeTQLdiaUXjR
+	82JJ9YCsvq1+gNaHYuUjcj9wnTOYsKltaM/r7dDEFQkj4yx2lL8r5my+d/hQUzD6Y77tiuQY3687a
+	uu1p3sr0Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldVDT-00Da9D-EV; Mon, 03 May 2021 09:50:16 +0000
+	id 1ldVMJ-00DbcM-Oa; Mon, 03 May 2021 09:59:23 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldVCR-00Da4l-Ve
- for linux-riscv@desiato.infradead.org; Mon, 03 May 2021 09:49:52 +0000
+ id 1ldVLM-00DbVf-4c; Mon, 03 May 2021 09:58:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
+ :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=MxJLb+ygPOSc1s4jkTCr3WpnkstsUG9OT+AgF9yJyJM=; b=DfDbwP8WV6rcM/KI72dR4b38oq
- BID//fQ9mpoHIkq0RcIWjvuw1CBeOP6I1498cWvcP9S1TLQ4G5vFfINkPk9kzfdRDJYn8tLyb3c/a
- TGRfOOMevM/+MMGWwtQaBmt3pGQgttzyilZEdw3sw21cpoLM+HhdzubBXbeDI6uFCKZlK9CmOA5YQ
- FmoqEsMygh3xLJ6R3L5Qsk3RNb8oR1dUh6h7LS5RWlz0TqszXfDf6ytow7Z1bN3eAXOD6xAREynxE
- fi300+CcjhZ25YYiZHxTKo0GADbebeBdWsCA/e6RbLBZ4hmEAmgmsAvTIN58h6nJiq8Ls6yUUyunY
- 3bMCy8Dw==;
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+ bh=dk+hpgKDs7zb+Jf/5p9WgRYtrXjb4LieXdBldX0g7TU=; b=p2vGfRMaaEAX6lCQLcIfzLrB5M
+ bivBdCGyfLzZ7u4Dzg2l9QrqWgOaeBalZRKqWynoNJtmPZLexG1XLxvyyUNaJabm3goj9qPrkn3Fh
+ O7s5wxY6CJdWtOxjUxcDly3gPs4hlvGsPjAjeyB/Btymq3bMwJntZu7+bpLoMggJ5PQFiLiz774op
+ tZMnRxf8T9AZibJYKcO85eI9TTb+ui8wv9e7ccHwxwCZC1yJtijA4fJBp/SRNKHHUCtr+RJqD70OT
+ PBf9N70O/hA/obkeI9tFQI1sphIHalPp6arzaWzRvp4N6kfok/XJw4MZUcyuzfKqNofy0+A5PDVIb
+ zgik8WkQ==;
+Received: from mout.kundenserver.de ([217.72.192.73])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldVCP-002xJy-DI
- for linux-riscv@lists.infradead.org; Mon, 03 May 2021 09:49:10 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id c3so3152758lfs.7
- for <linux-riscv@lists.infradead.org>; Mon, 03 May 2021 02:48:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=shutemov-name.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=MxJLb+ygPOSc1s4jkTCr3WpnkstsUG9OT+AgF9yJyJM=;
- b=L2Okofnh+nI4KG9D4jS3dPq7uMy7zX3MoaDNsLku2rv1p+JCuCycrUhGQh3bN4jLao
- Z2Tb+ZyHD6Z33j6r11oEs60V4DQX4UEaRNtVuh+dfkUofHMt34GzzhFIaiZxkBhTGXOK
- WolPbOJhWmGB3mhsuTtxXCtcXSXJ2Uz6A88uJD5/ANWNgGeSAKZOHFIAJ+AMqoqWg81l
- WsU5TSq3ktxz/R0cjDVvz47BrNsgljf96EO59UaOhnnunTQ0vRpmMHQeHkEmFeNTAJYn
- ut8PZdGMT+DOEEpC2A8g0Cg21jj7+3AWVikbjJtQgqXCEzDx/TPEs1Eb14TG1oOUEBV1
- sp8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=MxJLb+ygPOSc1s4jkTCr3WpnkstsUG9OT+AgF9yJyJM=;
- b=eF5BGO50Xdmu5/HqPh5EMbq5NRpfrl1UKzx/KEfG6zIhjjRrj20lAHZrCkMMr1PDgd
- oPZZY3gQ+dgHgesKlGRYcSk7leyWInkFwW9tANpxXbgA+nCks3jLnuwX0mXWvvZu6lhW
- +Gep3J0C+lZwehi/9s6heJ3bwc2VrY4yjOFO8Q33QYwSMzCAP2pgT10Vf2A9Dzp30QyF
- OP5+60rxeMGYhpPH1l96MRw2Go3dOJxYkY2McrBejxPrXsVmaeE4XCpjTbUkfzg/uQfh
- VAeKPtFCplzETXP3UkPLIKhfNDA3R7y5QD4nIrpccVFnmeaOLLbEUNUBd4YegS22KKkb
- gXDA==
-X-Gm-Message-State: AOAM530aosPX/Vs9eCcUivkTrCYBrrTbRKP9XQOXVlMua0/bmSjzKZFr
- hud8WybMW7kNLFYEvEGpUzqbcQ==
-X-Google-Smtp-Source: ABdhPJzhF/j+aryEsz1w0KLEzdyFZwzZ6xWzP9d/ftzoOA567IhOefWHg93LARjh8yYYNHONoC3+UQ==
-X-Received: by 2002:ac2:532d:: with SMTP id f13mr5151750lfh.81.1620035337449; 
- Mon, 03 May 2021 02:48:57 -0700 (PDT)
-Received: from box.localdomain ([86.57.175.117])
- by smtp.gmail.com with ESMTPSA id n27sm1093460lfh.271.2021.05.03.02.48.56
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 03 May 2021 02:48:56 -0700 (PDT)
-Received: by box.localdomain (Postfix, from userid 1000)
- id D372F1025F5; Mon,  3 May 2021 12:49:00 +0300 (+03)
-Date: Mon, 3 May 2021 12:49:00 +0300
-From: "Kirill A. Shutemov" <kirill@shutemov.name>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Segher Boessenkool <segher@kernel.crashing.org>,
- Joe Perches <joe@perches.com>,
- Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Miguel Ojeda <ojeda@kernel.org>, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Will Deacon <will@kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-Message-ID: <20210503094900.idmjc4zbrxr5sn73@box.shutemov.name>
+ id 1ldVLJ-002xdo-74; Mon, 03 May 2021 09:58:22 +0000
+Received: from mail-wm1-f44.google.com ([209.85.128.44]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MOzjW-1lw9DW13gi-00PN9f; Mon, 03 May 2021 11:58:14 +0200
+Received: by mail-wm1-f44.google.com with SMTP id
+ b11-20020a7bc24b0000b0290148da0694ffso2961164wmj.2; 
+ Mon, 03 May 2021 02:58:14 -0700 (PDT)
+X-Gm-Message-State: AOAM533pv4a+VXEtE4VzKt8+VWNWSCw0eQ5EF2mvGdsrt/ylhA2vZ3aF
+ WlOIub4lgQ7O0zdWdPd97G4fb9ePUFiGOZ4xKSY=
+X-Google-Smtp-Source: ABdhPJwLwM4+7HWAumVwBVTy8mKR1bNlDKElkSrFM6JnoDhONvF95iiZ55DXUZCRZ5QgHthYE50RJYfEuqYwOiecy7Q=
+X-Received: by 2002:a7b:c4da:: with SMTP id g26mr20474973wmk.43.1620035893994; 
+ Mon, 03 May 2021 02:58:13 -0700 (PDT)
+MIME-Version: 1.0
 References: <20210501151538.145449-1-masahiroy@kernel.org>
  <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
  <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
  <20210502183030.GF10366@gate.crashing.org>
  <81a926a3bdb70debe3ae2b13655ea8d249fb9991.camel@perches.com>
  <20210502203253.GH10366@gate.crashing.org>
- <CAHk-=wjGJskk5EwnDCccs6DcLytE2yx76+P_W-n1-B5zq0M3KA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wjGJskk5EwnDCccs6DcLytE2yx76+P_W-n1-B5zq0M3KA@mail.gmail.com>
+ <fcffe807353391339a03106f175ffa71377752b1.camel@perches.com>
+ <20210503004457.GI10366@gate.crashing.org>
+In-Reply-To: <20210503004457.GI10366@gate.crashing.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 3 May 2021 11:57:30 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a19QJ_5tbbEq2f9=XKjVYUZcAy8QMvoM=8SNEdCnvmwyQ@mail.gmail.com>
+Message-ID: <CAK8P3a19QJ_5tbbEq2f9=XKjVYUZcAy8QMvoM=8SNEdCnvmwyQ@mail.gmail.com>
+Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Joe Perches <joe@perches.com>,
+ Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jonathan Corbet <corbet@lwn.net>, 
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Miguel Ojeda <ojeda@kernel.org>, Paul Mackerras <paulus@samba.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Will Deacon <will@kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+X-Provags-ID: V03:K1:H6JCGoqn+L4zyA4r+if2rcSXgoTZNIXWVMFR0cAqQgGUdMYk8ro
+ bminRlmsncQ5WYSdQAFi4N8MFHmQZpsqABUqjUt+a1PvybZLjCUEK+rCiXRjharfm67BWoj
+ SDxWeguE7T36/4bH6mQWHJK51xKbATIjUm3qgCuEFzcPjx39790wWOCqCCMM6a59RvpafvN
+ knCZ2TfPw8g8U3uMXVjEA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:nrzfN7+Xa0Y=:dQ/BQDsoofAfb1xFPsKkph
+ OzphfGsDNF7sugQfRaW08sRnFaqufZlYwUYdssPrVhXcvPODCxLz4KCvQGZA2hlt0n39Oj77K
+ c9o5lp1iNtK66mM6tqyqweGrIYfjSJaQtzVFsztgI+WKEicket6yaDTyrw6bXfc3TsylDOcah
+ cduBVUmS463wbVKezJUp337B1iRbwZNxAbX8+Gxvk7NQm9v+ZpP67Sw1C9FW8t5vKrKw4nhZi
+ lDgmosLK0o3DLvCJBH7qu2WSND/0/4pIw+kf/DzofeVUAgCA1eCc7552YXn8wcu+nC3K27onb
+ HEzEyPKLFNiAsoSfPj2chdiNaPdkQFrae4Ae9b/9y52qBPRLN8GWEC7KNxjqzc+HkVbCeY4oQ
+ kVC4dshEEy4e0YeHLGNzHvpPwdZPGAvvL6UxP9Ew+HDc9w/0G1KCGcB3zkuE0PgDCTsp/+akD
+ LMPUheh7F0kx1vyPoQurR7f4pwBf2gVvkoE6DLWBZ6uHIznO5Igbzwx7gkg5cYmt3a68a7/wI
+ 7TJzlwUJvnC/AZCJHq8mPGLSeOMaU5o1W5wJnm66hhAu8bT9nzjQ7vKCRAjieU3jxyIvCpWKv
+ CN9QY0QmRbjXiLPOZlh8DJkZ09uSgiI+zFcYD3rWjr1UqKPTgHQvtlrgaivNuRsFA7oskzje5
+ 8vLk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210503_024909_472341_F3326DD7 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20210503_025821_584172_E5F6E7C4 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,18 +125,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 02, 2021 at 02:08:31PM -0700, Linus Torvalds wrote:
-> Last year, Arnd and Kirill (maybe others were involved too) made a
-> list of distros and older gcc versions. But I don't think anybody
-> actually _maintains_ such a list.
+On Mon, May 3, 2021 at 2:44 AM Segher Boessenkool
+<segher@kernel.crashing.org> wrote:
+>
+> On Sun, May 02, 2021 at 02:23:01PM -0700, Joe Perches wrote:
+> > On Sun, 2021-05-02 at 15:32 -0500, Segher Boessenkool wrote:
+> > > On Sun, May 02, 2021 at 01:00:28PM -0700, Joe Perches wrote:
+> > []
+> > > > Perhaps 8 might be best as that has a __diag warning control mechanism.
+> > >
+> > > I have no idea what you mean?
+> >
+> > ? read the last bit of compiler-gcc.h
+>
+> Ah, you mean
+> #pragma GCC diagnostic
+> (which has existed since GCC 4.2).  Does anything in this __diag stuff
+> require GCC 8?  Other than that this is hardcoded here :-)
 
-Distrowatch does. I used it for checking. But you need to check it per
-distro. For Debian it would be here:
+The '8' was just a kernel thing, we made it configurable to have version
+specific warnings, and I have a header file that adds these macros
+for all supported compilers, but the version that is in mainline only does
+it for gcc-8 or later.
 
-https://distrowatch.com/table.php?distribution=debian
+Early compilers only supported "#pragma GCC diagnostic", but I think
+even gcc-4.6 supported the _Pragma() syntax that lets you do it inside
+of a macro.
 
--- 
- Kirill A. Shutemov
+It's something we should improve with plumbing on top, e.g. I want
+a macro that lets you locally turn off both -Woverride-init on gcc
+and -Winitializer-overrides on clang. It's not a reason to mandate
+a newer compiler though.
+
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
