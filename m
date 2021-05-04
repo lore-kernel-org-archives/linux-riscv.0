@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E8C2C43611
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 11:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4631DC43461
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 11:00:53 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E3FDF613B4
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 11:00:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E3FDF613B4
+	by mail.kernel.org (Postfix) with ESMTPS id 6F8BB61026
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 11:00:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F8BB61026
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,66 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QzhdGZn+4TOCK83wLTHH7AVx5hkGm3PZBX3oqTxgbqM=; b=nJzAeDvCNucZzQnHcKPqEZA3A
-	cTHkp53rXhF12h2wMhRilmaXakLzQ7vdbRWnz6dapvjdYGuXw8s8r9Mk21+9LPnhx/iBHXFN1etHr
-	sbQCIbsjjsm5AbJZk8R5sWxnWOz0vONung+2go3zio16qipsMJil8YCgBIpCWVaD9rPnkax4KBmlD
-	GGo3hgETsHfa+BD3BztEqsOHBNxLNqnDDM+vYdK/G0thCvv3qX55C8VFKg2V4OiRMqNykHIsxqZQC
-	MRUnrLUM4nuK49XF3WmqGNPAs+bxziB54nk6i5hrBwp86YGEREjs+qGVYil6jhF6XGy8bE3VV6uTj
-	Ok1elWgKA==;
+	 bh=nUsIMfp1f6j6ed1+CBvnyBOys92zv19j+sRtQUVdQ5Y=; b=XBA4xMKGVlFtLiVbevmiFhSxl
+	4IBbNjqt/J0pbh7pwrbJv7AuFXpGHeMKloYYwhxWewCyWNwZHOtWNSlKyhNci7uphPF1YVbFJIlNh
+	nRmQ7PEZ2zan9X32BkoXDmzgsL/OLi0cHpj+BImmn4/+9LjIvMacnxpQ8wBsws8SZVyK8xqca+wIl
+	egZThEQlmT1z5vcKnd03ifJXyS8/nyo4zpwfaDi51VZ9UPeGqwzFsL6Yri/mnTdqGHHLdkP7+Gf9J
+	RMGSWWoKipl0L9EwnUeCFF1JIkwKYvxhoE1+U00Sk3Zd4JLyQc7J2frSPaEcBMhI8Srs5nNjivmmc
+	C3bsKCwSg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldsn3-00G20H-Fz; Tue, 04 May 2021 11:00:33 +0000
+	id 1ldsn5-00G218-Hi; Tue, 04 May 2021 11:00:35 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldsmu-00G1yF-5t
- for linux-riscv@desiato.infradead.org; Tue, 04 May 2021 11:00:24 +0000
+ id 1ldsmx-00G1z5-Dt
+ for linux-riscv@desiato.infradead.org; Tue, 04 May 2021 11:00:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:
  Reply-To:Cc:Content-Type:Content-ID:Content-Description;
- bh=vEh7zwdmOqzz+rJcxXSAwcExQpnY0trAqavM2fyHl9I=; b=TmMHN1H5KbVds9f2h4QWkTD18U
- VpB+FBQtwnZQfnjnV3QL6hH0eg1KTcaIqsL6WkOAKQzBnme/01GHhPUs99sXvPrFQ71rhwDm1DFUX
- jBx5vCN42mcQSGln3IY0mngWVX3B23TBjTr9mkc/KjcBzqHuRBoNZaOCO/Zp1x80NkwuWipF4EMjG
- AtZN5SyTPmxSAuN9EA9h3JPrEr6S0veRHvvAjzGUwNPKT2A/IBSmaAxUnQ7UF2AD1BAs9Yu22Y3hO
- 8k1HpbvzC7t0xNUdKhkF7jFM4uaGiY+gs35qr9br5dhN5ukmPRAOV0UTp+5zNjFFZokapS9gSacMX
- 8sxS8dWw==;
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+ bh=ddtby8u0R33cOntLLPoDYh0e5Ss2FvGJIP/FJDn2Hhw=; b=J8Ig157WYoGj6LR7yU7vBLwCWc
+ CDTlCxSuY8jK+CYuz676U2XNkx5RLqIkYH3YSfwEPAZeuh2CMj1mZ9Em8tf3lkRZiyKRYsf/uucAX
+ kenZPLo2BU6XzSwFSg/ijffSECkdzW/kgjYPszSEjDj6yv4TzllS0y3CKyFbEu1KH9SkDV1pw7YmV
+ SluoGBGmi0A2eA2JX5Z8sLQQbANCPuUQb8sd/MrcGAJnqe/C3NS5n8heXzxfwok64lEkgI6vhfSpU
+ wvXWtzmPCls5wIHQrVg+meFOkIuR8wiY0/oPeO+AA8SZQzykx0+wdH1cABBy3U7JaqLDVhUoZw5x5
+ KpfqeYug==;
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldsmr-003usk-FI
- for linux-riscv@lists.infradead.org; Tue, 04 May 2021 11:00:22 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id y30so6480499pgl.7
- for <linux-riscv@lists.infradead.org>; Tue, 04 May 2021 04:00:18 -0700 (PDT)
+ id 1ldsmu-003ut0-Q7
+ for linux-riscv@lists.infradead.org; Tue, 04 May 2021 11:00:26 +0000
+Received: by mail-pf1-x435.google.com with SMTP id i190so7017324pfc.12
+ for <linux-riscv@lists.infradead.org>; Tue, 04 May 2021 04:00:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=vEh7zwdmOqzz+rJcxXSAwcExQpnY0trAqavM2fyHl9I=;
- b=kyg/bynLvk0jET8a+V5hi4Gvf86iFQo8DVyd0B15ckMGCf9xETbjcI2IBy11aPABOw
- buKcGfKotWyiKb3dWMlHj9J0RaQfH/b9UGO9b6lUYCIhSK8FFBnxzYYA+lT8IH1aId7F
- NtlMVBPTyIj7W/bP2WiZRYcQdCaEJMKhxPLeGfWSl5DpiTF75lCSwaJft6TMD4+bYdSj
- 5tPYh+9ija08bz2mycQyKBIdLjJoS5LKXzE/wX5gaKNjBQVRAgnd21f436uhlcW2S9Tt
- UhAaK13x1mH2mlnjVPqCC8iPwNeTquaRQp/VF7k90FY79FKfkhHXosxZLrNZleIXSyEy
- ozDg==
+ bh=ddtby8u0R33cOntLLPoDYh0e5Ss2FvGJIP/FJDn2Hhw=;
+ b=nK5+3Wxx25GLN15WqSNbNa5E54rLfzDmxI0Zyx+4kxtndBZjOqgHRKxtXL3xzmFwaZ
+ Phwr9DqBdn5N7mGOmyv5OVMBDiycI3bwe4kmUT5N8tKLOL7bgc5jidxVdlwNJqwMST4f
+ 5kmFSaa5emm/cbP02gIoypUR2fqhWCiBXj/inYl9Bly2gCUaZqnLwNIwb1dLY4g1TkD7
+ DSwJBHHniJ1KdhlV+ruBUzWylUsCtf0/B9DydDYuEifaBV6bQqHHjIcqFFXgxtyrfjNo
+ jv+J6BXLmSqBSaHPUuinLISxMkYQAX7fvQ9umKbFBwmn/yQOvdwIyRZ3P/FbZk9dCBLY
+ 8UNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=vEh7zwdmOqzz+rJcxXSAwcExQpnY0trAqavM2fyHl9I=;
- b=JeF2hE2qOeBey4cc2qPx0KDV+xW3sEyWr6T7JrAVGjd6D/h850teSuh8ByHbf+6PUb
- uQhGK/fS9ROVQ5H2v3I/W4t+NiZrJGNA6tb5g0sRKZJoJ0xKtAIOFo+WpaaYYVFuuZUq
- +xpHst6ohuwIZYoPOvgfZkJSJAcxIGEMSMmbZGK32maI/31P5pzCJvIO0MpauIo29tHw
- RXjG8opErsKJo+FxcvStDxj301ZU41byBcy5POiEJ+oiaAqokfXu2v+mISo3Dukcr6T3
- 8xtN0CkcDCgkNm0DiEcw/TklTcdcDvlq1wbQtQzkZSBrpFc8HY9LLOpfWQYnMnaXihG8
- zUUw==
-X-Gm-Message-State: AOAM533uzrvyWdZG2ACdp3MPPaTRWhIoQXTSlpQUknf+xDfMEYdvm1IY
- ipLOnZpRATcqoYFtezbY3sUxvQ==
-X-Google-Smtp-Source: ABdhPJxrORUPctm64X7uKK0XRL2WvytiVqXGSwUmzPYSv++RL5cDleKp7rWm0/bin5yug/JC9u1j+w==
-X-Received: by 2002:a65:4485:: with SMTP id l5mr22501162pgq.209.1620126018073; 
- Tue, 04 May 2021 04:00:18 -0700 (PDT)
+ bh=ddtby8u0R33cOntLLPoDYh0e5Ss2FvGJIP/FJDn2Hhw=;
+ b=t5RnvmvWK7vGODaXrElovD7GvVycAg/j06k3jO4gjPhYo1Fm6Qj69KzvKLbxEke/Kz
+ IWCm7ULB6B9+hUNisrQScHFSqy6pglcBBrgU5ltwB38RLImSnEHW3gg7CgxSjXvLsOe/
+ XOl/qm9lcvhx2/3vyxl8h3J8DYugbjJGIjRJ+9ixcpPknd4Uh2p77TmgM+eZcS6EhfiS
+ JJPRwDbDjOS9d40VWrK9B27hmQZYmcKAGwiNu/MJMRXJmMRwhEYdij12AVtbM7h8KvTK
+ rqA2KgTMJuqY88JMVq8pbKhX8VTVTJE9lF2DBJNx/3sgTy8l9l1C8YA/tHs4Ed1fn3hD
+ TfbQ==
+X-Gm-Message-State: AOAM533b5SldficdZy9YD49epOo+54VJ0+bKQ9JRESBAZsF9yVKWbXyj
+ wIGq62ME+OhmpMH+t8GJdlkZEQ==
+X-Google-Smtp-Source: ABdhPJymWl5vUOYmViNUkZVNeRXaMKCprW0D+gm1Enp4gVbzlNWrhrkUq2lBvFxo/96g4Yx2hNgPHw==
+X-Received: by 2002:a17:90a:e64e:: with SMTP id
+ ep14mr26936300pjb.103.1620126021903; 
+ Tue, 04 May 2021 04:00:21 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id k17sm11762529pfa.68.2021.05.04.04.00.14
+ by smtp.gmail.com with ESMTPSA id k17sm11762529pfa.68.2021.05.04.04.00.18
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 04 May 2021 04:00:17 -0700 (PDT)
+ Tue, 04 May 2021 04:00:21 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
  erik.danie@sifive.com, zong.li@sifive.com, bhelgaas@google.com,
@@ -93,17 +94,17 @@ To: greentime.hu@sifive.com, paul.walmsley@sifive.com, hes@sifive.com,
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-clk@vger.kernel.org, helgaas@kernel.org
-Subject: [PATCH v6 1/6] clk: sifive: Add pcie_aux clock in prci driver for
- PCIe driver
-Date: Tue,  4 May 2021 18:59:35 +0800
-Message-Id: <20210504105940.100004-2-greentime.hu@sifive.com>
+Subject: [PATCH v6 2/6] clk: sifive: Use reset-simple in prci driver for PCIe
+ driver
+Date: Tue,  4 May 2021 18:59:36 +0800
+Message-Id: <20210504105940.100004-3-greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20210504105940.100004-1-greentime.hu@sifive.com>
 References: <20210504105940.100004-1-greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210504_040021_532405_DCE9E5DE 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20210504_040024_868353_08B4E171 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,148 +121,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add pcie_aux clock in this patch so that pcie driver can use
-clk_prepare_enable() and clk_disable_unprepare() to enable and disable
-pcie_aux clock.
+We use reset-simple in this patch so that pcie driver can use
+devm_reset_control_get() to get this reset data structure and use
+reset_control_deassert() to deassert pcie_power_up_rst_n.
 
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Acked-by: Stephen Boyd <sboyd@kernel.org>
 ---
- drivers/clk/sifive/fu740-prci.c               | 11 +++++
- drivers/clk/sifive/fu740-prci.h               |  2 +-
- drivers/clk/sifive/sifive-prci.c              | 41 +++++++++++++++++++
- drivers/clk/sifive/sifive-prci.h              |  9 ++++
- include/dt-bindings/clock/sifive-fu740-prci.h |  1 +
- 5 files changed, 63 insertions(+), 1 deletion(-)
+ drivers/clk/sifive/Kconfig       |  2 ++
+ drivers/clk/sifive/sifive-prci.c | 13 +++++++++++++
+ drivers/clk/sifive/sifive-prci.h |  4 ++++
+ drivers/reset/Kconfig            |  1 +
+ 4 files changed, 20 insertions(+)
 
-diff --git a/drivers/clk/sifive/fu740-prci.c b/drivers/clk/sifive/fu740-prci.c
-index 764d1097aa51..53f6e00a03b9 100644
---- a/drivers/clk/sifive/fu740-prci.c
-+++ b/drivers/clk/sifive/fu740-prci.c
-@@ -72,6 +72,12 @@ static const struct clk_ops sifive_fu740_prci_hfpclkplldiv_clk_ops = {
- 	.recalc_rate = sifive_prci_hfpclkplldiv_recalc_rate,
- };
+diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
+index 1c14eb20c066..9132c3c4aa86 100644
+--- a/drivers/clk/sifive/Kconfig
++++ b/drivers/clk/sifive/Kconfig
+@@ -10,6 +10,8 @@ if CLK_SIFIVE
  
-+static const struct clk_ops sifive_fu740_prci_pcie_aux_clk_ops = {
-+	.enable = sifive_prci_pcie_aux_clock_enable,
-+	.disable = sifive_prci_pcie_aux_clock_disable,
-+	.is_enabled = sifive_prci_pcie_aux_clock_is_enabled,
-+};
-+
- /* List of clock controls provided by the PRCI */
- struct __prci_clock __prci_init_clocks_fu740[] = {
- 	[PRCI_CLK_COREPLL] = {
-@@ -120,4 +126,9 @@ struct __prci_clock __prci_init_clocks_fu740[] = {
- 		.parent_name = "hfpclkpll",
- 		.ops = &sifive_fu740_prci_hfpclkplldiv_clk_ops,
- 	},
-+	[PRCI_CLK_PCIE_AUX] = {
-+		.name = "pcie_aux",
-+		.parent_name = "hfclk",
-+		.ops = &sifive_fu740_prci_pcie_aux_clk_ops,
-+	},
- };
-diff --git a/drivers/clk/sifive/fu740-prci.h b/drivers/clk/sifive/fu740-prci.h
-index 13ef971f7764..511a0bf7ba2b 100644
---- a/drivers/clk/sifive/fu740-prci.h
-+++ b/drivers/clk/sifive/fu740-prci.h
-@@ -9,7 +9,7 @@
- 
- #include "sifive-prci.h"
- 
--#define NUM_CLOCK_FU740	8
-+#define NUM_CLOCK_FU740	9
- 
- extern struct __prci_clock __prci_init_clocks_fu740[NUM_CLOCK_FU740];
- 
+ config CLK_SIFIVE_PRCI
+ 	bool "PRCI driver for SiFive SoCs"
++	select RESET_CONTROLLER
++	select RESET_SIMPLE
+ 	select CLK_ANALOGBITS_WRPLL_CLN28HPC
+ 	help
+ 	  Supports the Power Reset Clock interface (PRCI) IP block found in
 diff --git a/drivers/clk/sifive/sifive-prci.c b/drivers/clk/sifive/sifive-prci.c
-index 1490b01ce629..9997a3fa4a38 100644
+index 9997a3fa4a38..0d79ba31a793 100644
 --- a/drivers/clk/sifive/sifive-prci.c
 +++ b/drivers/clk/sifive/sifive-prci.c
-@@ -453,6 +453,47 @@ void sifive_prci_hfpclkpllsel_use_hfpclkpll(struct __prci_data *pd)
- 	r = __prci_readl(pd, PRCI_HFPCLKPLLSEL_OFFSET);	/* barrier */
- }
+@@ -588,6 +588,19 @@ static int sifive_prci_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pd->va))
+ 		return PTR_ERR(pd->va);
  
-+/* PCIE AUX clock APIs for enable, disable. */
-+int sifive_prci_pcie_aux_clock_is_enabled(struct clk_hw *hw)
-+{
-+	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
-+	struct __prci_data *pd = pc->pd;
-+	u32 r;
++	pd->reset.rcdev.owner = THIS_MODULE;
++	pd->reset.rcdev.nr_resets = PRCI_RST_NR;
++	pd->reset.rcdev.ops = &reset_simple_ops;
++	pd->reset.rcdev.of_node = pdev->dev.of_node;
++	pd->reset.active_low = true;
++	pd->reset.membase = pd->va + PRCI_DEVICESRESETREG_OFFSET;
++	spin_lock_init(&pd->reset.lock);
 +
-+	r = __prci_readl(pd, PRCI_PCIE_AUX_OFFSET);
-+
-+	if (r & PRCI_PCIE_AUX_EN_MASK)
-+		return 1;
-+	else
-+		return 0;
-+}
-+
-+int sifive_prci_pcie_aux_clock_enable(struct clk_hw *hw)
-+{
-+	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
-+	struct __prci_data *pd = pc->pd;
-+	u32 r __maybe_unused;
-+
-+	if (sifive_prci_pcie_aux_clock_is_enabled(hw))
-+		return 0;
-+
-+	__prci_writel(1, PRCI_PCIE_AUX_OFFSET, pd);
-+	r = __prci_readl(pd, PRCI_PCIE_AUX_OFFSET);	/* barrier */
-+
-+	return 0;
-+}
-+
-+void sifive_prci_pcie_aux_clock_disable(struct clk_hw *hw)
-+{
-+	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
-+	struct __prci_data *pd = pc->pd;
-+	u32 r __maybe_unused;
-+
-+	__prci_writel(0, PRCI_PCIE_AUX_OFFSET, pd);
-+	r = __prci_readl(pd, PRCI_PCIE_AUX_OFFSET);	/* barrier */
-+
-+}
-+
- /**
-  * __prci_register_clocks() - register clock controls in the PRCI
-  * @dev: Linux struct device
++	r = devm_reset_controller_register(&pdev->dev, &pd->reset.rcdev);
++	if (r) {
++		dev_err(dev, "could not register reset controller: %d\n", r);
++		return r;
++	}
+ 	r = __prci_register_clocks(dev, pd, desc);
+ 	if (r) {
+ 		dev_err(dev, "could not register clocks: %d\n", r);
 diff --git a/drivers/clk/sifive/sifive-prci.h b/drivers/clk/sifive/sifive-prci.h
-index dbdbd1722688..022c67cf053c 100644
+index 022c67cf053c..91658a88af4e 100644
 --- a/drivers/clk/sifive/sifive-prci.h
 +++ b/drivers/clk/sifive/sifive-prci.h
-@@ -67,6 +67,11 @@
- #define PRCI_DDRPLLCFG1_CKE_SHIFT	31
- #define PRCI_DDRPLLCFG1_CKE_MASK	(0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
+@@ -11,6 +11,7 @@
  
-+/* PCIEAUX */
-+#define PRCI_PCIE_AUX_OFFSET		0x14
-+#define PRCI_PCIE_AUX_EN_SHIFT		0
-+#define PRCI_PCIE_AUX_EN_MASK		(0x1 << PRCI_PCIE_AUX_EN_SHIFT)
+ #include <linux/clk/analogbits-wrpll-cln28hpc.h>
+ #include <linux/clk-provider.h>
++#include <linux/reset/reset-simple.h>
+ #include <linux/platform_device.h>
+ 
+ /*
+@@ -121,6 +122,8 @@
+ #define PRCI_DEVICESRESETREG_CHIPLINK_RST_N_MASK			\
+ 		(0x1 << PRCI_DEVICESRESETREG_CHIPLINK_RST_N_SHIFT)
+ 
++#define PRCI_RST_NR						7
 +
- /* GEMGXLPLLCFG0 */
- #define PRCI_GEMGXLPLLCFG0_OFFSET	0x1c
- #define PRCI_GEMGXLPLLCFG0_DIVR_SHIFT	0
-@@ -296,4 +301,8 @@ unsigned long sifive_prci_tlclksel_recalc_rate(struct clk_hw *hw,
- unsigned long sifive_prci_hfpclkplldiv_recalc_rate(struct clk_hw *hw,
- 						   unsigned long parent_rate);
+ /* CLKMUXSTATUSREG */
+ #define PRCI_CLKMUXSTATUSREG_OFFSET				0x2c
+ #define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT		1
+@@ -221,6 +224,7 @@
+  */
+ struct __prci_data {
+ 	void __iomem *va;
++	struct reset_simple_data reset;
+ 	struct clk_hw_onecell_data hw_clks;
+ };
  
-+int sifive_prci_pcie_aux_clock_is_enabled(struct clk_hw *hw);
-+int sifive_prci_pcie_aux_clock_enable(struct clk_hw *hw);
-+void sifive_prci_pcie_aux_clock_disable(struct clk_hw *hw);
-+
- #endif /* __SIFIVE_CLK_SIFIVE_PRCI_H */
-diff --git a/include/dt-bindings/clock/sifive-fu740-prci.h b/include/dt-bindings/clock/sifive-fu740-prci.h
-index cd7706ea5677..7899b7fee7db 100644
---- a/include/dt-bindings/clock/sifive-fu740-prci.h
-+++ b/include/dt-bindings/clock/sifive-fu740-prci.h
-@@ -19,5 +19,6 @@
- #define PRCI_CLK_CLTXPLL	       5
- #define PRCI_CLK_TLCLK		       6
- #define PRCI_CLK_PCLK		       7
-+#define PRCI_CLK_PCIE_AUX	       8
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 4171c6f76385..0f40dadf5705 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -197,6 +197,7 @@ config RESET_SIMPLE
+ 	   - RCC reset controller in STM32 MCUs
+ 	   - Allwinner SoCs
+ 	   - ZTE's zx2967 family
++	   - SiFive FU740 SoCs
  
- #endif	/* __DT_BINDINGS_CLOCK_SIFIVE_FU740_PRCI_H */
+ config RESET_STM32MP157
+ 	bool "STM32MP157 Reset Driver" if COMPILE_TEST
 -- 
 2.31.1
 
