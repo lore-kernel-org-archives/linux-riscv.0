@@ -2,84 +2,87 @@ Return-Path: <SRS0=FKry=J7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34B28C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 14:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20051C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 16:23:48 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D12C61183
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 14:24:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D12C61183
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 50A1C611AD
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 16:23:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50A1C611AD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8qVsQPlitILuZY2L7pL9NcDAtdcWEFZPcZgrt2ecCuM=; b=a1z/SxnLOUSaVVKlI58Jmli2I
-	VqWHSm7xe++Iq3iN2FRpPuGL7+/vhfF2Xas0i0Ik05XhF0xiY25JTbMrCTwwVvWyqucH21Hv0T2Ff
-	R9pcOEfZrHq4NBniBjXH2ZzVRkWnva4kINvHybooXCsz3EWiqRl/kV4bjWj3cQxI1ORGS2OamCOTR
-	i3b2MvYfMpUViv3s1R47KS5hq4GqGwDyBwMdFYzJr6S9DNbzy0/nScQj56xEQJQ8cLPdFN2n1Y0dg
-	XrOsevQ7xYBXitf+ZsJTkDAijk4bXnARacVncxEzVn82ffknE/d/0en6O6A+42yl7ysMTWh1X3CBD
-	9TrHTX9NA==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=Mg7DMnJ+IH/X1+QhcC03x+PqOAFShY72xKcsBJ2MOTY=; b=keGUfdDxeVMlE8UImhMmB7obD
+	R/T4z04veBKANohIF4nDyZ1YyKuGP7AqSaxHsYT5YEV4GwRrG11XyQBrEKvfQUiMJex+H4IdaMpmE
+	SLPkvDQ3tUnZENZuLanKsQZH/8pSxYqDNvsUPp0hdtPTiNOnwUwNBSOGdC1wCt8RLpL/HnF/eViSG
+	AyyAS/6dPNWD8cdl/MUDkbQy5n9YBjlk0nljUKXZOmgCLreSOVNQvC5U8iXVCh08wJxrS3DSHwGrB
+	2UqEN1Ygw+NMFTeHffS9NoYKuFTzN96J3kHt7M6dsW8ihVmAjv3gYGbI8BLb7sb71cK3FcobzgBj6
+	M3s649r0w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldvyH-00GM2X-Pn; Tue, 04 May 2021 14:24:21 +0000
+	id 1ldxph-00GWy3-SL; Tue, 04 May 2021 16:23:37 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldvyF-00GM2R-TO
- for linux-riscv@desiato.infradead.org; Tue, 04 May 2021 14:24:19 +0000
+ id 1ldxpg-00GWxl-6x
+ for linux-riscv@desiato.infradead.org; Tue, 04 May 2021 16:23:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=SmsKdExe4v2/sba9NMdGCfTO5GZ4kk9/eWEOLFyUMCs=; b=lkWLAhHOkruA9P881+D72FUxzc
- /Fe4PZC+BFRB72cVR3KAlVa/klr5xQ4GQg+LfztJ3MUtqxfjzFsfOSxcIrnGb4lBoP0oHmDLscS3d
- 0udv1kzj0tbj/rmidrO9CHoRDYNCiTnCfP6BT/rQnQhmDDil8514gtg8GPzP17JGIl9BjDtWlnMRR
- dCh3hbIYBz94Hl6K+EvSjVKLSPFyFTvTTFsGX7bc/4jT8yp3kiyeM0m3SCBx4/LpknKXLRZI79fkI
- McdeM96zSfWFZW+3oNaz+2sG2Wr0GuPs8RWMs+NSJD6Kvw3Pa79v+O0zuiTNFSz62gb2n0UnfXEM5
- M84LBfOw==;
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1ldvyC-00429c-3E
- for linux-riscv@lists.infradead.org; Tue, 04 May 2021 14:24:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF76AED1;
- Tue,  4 May 2021 07:24:05 -0700 (PDT)
-Received: from lpieralisi (e121166-lin.cambridge.arm.com [10.1.196.255])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EF513F718;
- Tue,  4 May 2021 07:24:03 -0700 (PDT)
-Date: Tue, 4 May 2021 15:23:58 +0100
-From: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
+ :Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:References;
+ bh=SvzHTYXZ3tPrm53kvqP2CACwOijLsW+bZCrjGr/QI2c=; b=WUctvn6vDHtXqp7M5Wj2gAqN19
+ LJzIlU8mJSezi8SqIQIVZIH3l/k4XCx1D8CyxF/dCDfsLTJ+gU0JEFLPZlwIRiaTApXl6gPxWa7lP
+ Bf1PvAs/LV+FJuQoMubtqo1i1EtS4BcCy7QCwDYsDvfMH/lo58YL993yU7fkNydbyEWlRZepzvHDg
+ Som97xRNs3hx7/S72hkEDQwQ1Ft5MSKv2TOdVc0kX0qACCqNzvEVsor+m2GbKc0OYzQMj8Yk3zPJ5
+ hVOYcshG4UQkNGsPMQyHHZ+V1wCP+VM+hc6QOt8XiQX39LG1sdl87h5HaRjywQdKOkIab7eUXMBCZ
+ yF/wI7YA==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1ldxpd-0046Nh-JG
+ for linux-riscv@lists.infradead.org; Tue, 04 May 2021 16:23:34 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 46957611AD;
+ Tue,  4 May 2021 16:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1620145412;
+ bh=OjTM3wjN3EUalqu7VP3gGcczRSciVlWRIKa7hPRIbmw=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:From;
+ b=WIKvK7ezck0cLI8tML9ClP7dOnYY3ZnzY+99TcsSBkwttohmLHSOaNFDPxgXTtm4l
+ MCCyZGfCB1d7PDTDQkNlGwWzvGoBIjS4Z3f9Db7z3BPDACcnQGeZJCYHdAK34Phl08
+ Mjq6MzT1qYp/lhNeSSDoI/Z8bkQ2/bLgdhfkzz26WUiDgmrxI26epnFeYXlKJ0FqBN
+ AMzj+om8OFAuNGpGPLvueA7ZPG0d/sxoEIDQDa9LPMguAUi1BxVEzIWWBUJQz6RHa2
+ wQQsFGF5VzcOo82pFVJ0tEztkbiOLkBz8KDblQnjpCc5UR/axyx09GrkN5Xditg7W5
+ rYjg5Ugi4kpng==
+Date: Tue, 4 May 2021 11:23:31 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Leon Romanovsky <leon@kernel.org>
 Cc: Greentime Hu <greentime.hu@sifive.com>, paul.walmsley@sifive.com,
  hes@sifive.com, erik.danie@sifive.com, zong.li@sifive.com,
  bhelgaas@google.com, robh+dt@kernel.org, aou@eecs.berkeley.edu,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+ mturquette@baylibre.com, sboyd@kernel.org,
+ lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
  alex.dewar90@gmail.com, khilman@baylibre.com,
  hayashi.kunihiko@socionext.com, vidyas@nvidia.com,
  jh80.chung@samsung.com, linux-pci@vger.kernel.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v6 5/6] PCI: fu740: Add SiFive FU740 PCIe host controller
- driver
-Message-ID: <20210504142358.GA25477@lpieralisi>
-References: <20210504105940.100004-6-greentime.hu@sifive.com>
- <20210504134632.GA1088165@bjorn-Precision-5520>
+Subject: Re: [PATCH v6 1/6] clk: sifive: Add pcie_aux clock in prci driver
+ for PCIe driver
+Message-ID: <20210504162331.GA1122904@bjorn-Precision-5520>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210504134632.GA1088165@bjorn-Precision-5520>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+In-Reply-To: <YJE886bhppqes5LQ@unreal>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210504_072416_254612_69E17D20 
-X-CRM114-Status: GOOD (  29.15  )
+X-CRM114-CacheID: sfid-20210504_092333_717859_30BE5907 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,107 +99,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 04, 2021 at 08:46:32AM -0500, Bjorn Helgaas wrote:
-> On Tue, May 04, 2021 at 06:59:39PM +0800, Greentime Hu wrote:
-> > From: Paul Walmsley <paul.walmsley@sifive.com>
+On Tue, May 04, 2021 at 03:24:19PM +0300, Leon Romanovsky wrote:
+> On Tue, May 04, 2021 at 06:59:35PM +0800, Greentime Hu wrote:
+> > We add pcie_aux clock in this patch so that pcie driver can use
+> > clk_prepare_enable() and clk_disable_unprepare() to enable and disable
+> > pcie_aux clock.
 > > 
-> > Add driver for the SiFive FU740 PCIe host controller.
-> > This controller is based on the DesignWare PCIe core.
-> > 
-> > Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> > Co-developed-by: Henry Styles <hes@sifive.com>
-> > Signed-off-by: Henry Styles <hes@sifive.com>
-> > Co-developed-by: Erik Danie <erik.danie@sifive.com>
-> > Signed-off-by: Erik Danie <erik.danie@sifive.com>
-> > Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> > Acked-by: Stephen Boyd <sboyd@kernel.org>
 > > ---
-> >  drivers/pci/controller/dwc/Kconfig      |  10 +
-> >  drivers/pci/controller/dwc/Makefile     |   1 +
-> >  drivers/pci/controller/dwc/pcie-fu740.c | 309 ++++++++++++++++++++++++
-> >  3 files changed, 320 insertions(+)
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-fu740.c
+> >  drivers/clk/sifive/fu740-prci.c               | 11 +++++
+> >  drivers/clk/sifive/fu740-prci.h               |  2 +-
+> >  drivers/clk/sifive/sifive-prci.c              | 41 +++++++++++++++++++
+> >  drivers/clk/sifive/sifive-prci.h              |  9 ++++
+> >  include/dt-bindings/clock/sifive-fu740-prci.h |  1 +
+> >  5 files changed, 63 insertions(+), 1 deletion(-)
 > > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index 22c5529e9a65..255d43b1661b 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -318,4 +318,14 @@ config PCIE_AL
-> >  	  required only for DT-based platforms. ACPI platforms with the
-> >  	  Annapurna Labs PCIe controller don't need to enable this.
-> >  
-> > +config PCIE_FU740
-> > +	bool "SiFive FU740 PCIe host controller"
-> > +	depends on PCI_MSI_IRQ_DOMAIN
-> > +	depends on SOC_SIFIVE || COMPILE_TEST
-> > +	depends on GPIOLIB
+> > diff --git a/drivers/clk/sifive/fu740-prci.c b/drivers/clk/sifive/fu740-prci.c
+> > index 764d1097aa51..53f6e00a03b9 100644
+> > --- a/drivers/clk/sifive/fu740-prci.c
+> > +++ b/drivers/clk/sifive/fu740-prci.c
+> > @@ -72,6 +72,12 @@ static const struct clk_ops sifive_fu740_prci_hfpclkplldiv_clk_ops = {
+> >  	.recalc_rate = sifive_prci_hfpclkplldiv_recalc_rate,
 > 
-> 1) I'm a little disappointed that I reported the build issue 6 days
->    ago when we were already in the merge window, and it's taken until
->    now to make some progress.
+> <...>
 > 
-> 2) I would prefer not to depend on GPIOLIB because it reduces
->    compile-test coverage.  For example, the x86_64 defconfig does not
->    enable GPIOLIB, so one must manually enable it to even be able to
->    enable PCIE_FU740.
+> > +/* PCIE AUX clock APIs for enable, disable. */
+> > +int sifive_prci_pcie_aux_clock_is_enabled(struct clk_hw *hw)
 > 
->    Many other PCI controller drivers use GPIO, but no others depend on
->    GPIOLIB, so I infer that in the !GPIOLIB case, gpio/consumer.h
->    provides the stubs required for compile testing.
-> 
->    We could have a conversation about whether it's better to
->    explicitly depend on GPIOLIB here, or whether building a working
->    FU740 driver implicitly depends on GPIOLIB being selected
->    elsewhere.  That implicit dependency *is* a little obscure, but I
->    think that's what other drivers currently do, and I'd like to do
->    this consistently unless there's a good reason otherwise.
+> It should be bool
 
-I will drop the explicit GPIOLIB dependency and push it out. For (1) I
-agree with you - I merged when I received some input - it is reasonable
-to avoid adding it to v5.13 material for this reason, apologies.
+It's used via this function pointer:
 
-Thanks,
-Lorenzo
+  struct clk_ops {
+    int             (*is_enabled)(struct clk_hw *hw);
 
->    Here are some examples of other drivers:
-> 
->    dwc/pci-dra7xx.c:
->      config PCI_DRA7XX_HOST
->        depends on SOC_DRA7XX || COMPILE_TEST
-> 
->      config SOC_DRA7XX
->        select ARCH_OMAP2PLUS
-> 
->      config ARCH_OMAP2PLUS
->        select GPIOLIB
-> 
->    dwc/pci-meson.c:
->      config PCI_MESON
->        # doesn't, but probably *should* depend on "ARCH_MESON || COMPILE_TEST"
-> 
->      menuconfig ARCH_MESON
->        select GPIOLIB
-> 
->    dwc/pcie-qcom.c:
->      config PCIE_QCOM
->        depends on OF && (ARCH_QCOM || COMPILE_TEST)
-> 
->      config ARCH_QCOM
->        select GPIOLIB
-> 
->    pcie-rockchip.c:
->      config PCIE_ROCKCHIP_HOST
->        depends on ARCH_ROCKCHIP || COMPILE_TEST
-> 
->      config ARCH_ROCKCHIP
->        select GPIOLIB
-> 
-> > +	select PCIE_DW_HOST
-> > +	help
-> > +	  Say Y here if you want PCIe controller support for the SiFive
-> > +	  FU740.
+so I think "int" is actually appropriate here.
+
+There are some weird/interesting bool vs int usages nearby, though:
+
+  "bool __is_clk_gate_enabled()" goes to some trouble to convert
+  int to bool ("return (reg_val & bit_mask) != 0;"), and then
+  kona_peri_clk_is_enabled() converts the bool back to int ("return
+  is_clk_gate_enabled(bcm_clk->ccu, gate) ? 1 : 0;").
+
+  "int lpc32xx_clk_gate_is_enabled()" actually returns a bool that is
+  implicitly converted to int.
+
+  Many *_is_enabled() functions return !!(...) where !! is an
+  int-to-bool conversion that is arguably unnecessary and again
+  results in an implicit conversion to int.
+
+I don't see any *problems* with any of these; it just seems like a
+little more mental effort to think about all the explicit and implicit
+conversions going on.
+
+> > +int sifive_prci_pcie_aux_clock_enable(struct clk_hw *hw)
+> > +{
+> > +	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +	struct __prci_data *pd = pc->pd;
+> > +	u32 r __maybe_unused;
 > > +
-> >  endmenu
+> > +	if (sifive_prci_pcie_aux_clock_is_enabled(hw))
+> > +		return 0;
+> 
+> You actually call to this new function only once, put your
+> __prci_readl() here.
+
+Both sifive_prci_pcie_aux_clock_enable() and
+sifive_prci_pcie_aux_clock_is_enabled() are used via the clk_ops
+function pointers.
+
+Maybe sifive_prci_pcie_aux_clock_is_enabled() could be replaced by the
+__prci_readl() here, but I don't know enough about clk_ops internals
+to know.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
