@@ -2,20 +2,19 @@ Return-Path: <SRS0=FKry=J7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7EEA4C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C68ADC433B4
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:24:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C267613AA
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:18:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C267613AA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	by mail.kernel.org (Postfix) with ESMTPS id 242FA613B4
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:24:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 242FA613B4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,70 +22,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4pPoYMl6uHYSb7fdhRxZ7+Wm0VtUy4g9EZzKUR1uLWc=; b=jrEZCSU0apnQkT7+k21kOuE0C
-	DSFP2f86c6pAjRFWu7DIEGPvjBvce+lPdhcXzdBAu57sERI2KiR0dusDXp7t6BMz4HLSSqsq69307
-	4XKi/3J/o74XKJRQBdqsvctXTlOh83S9FveZIzK1H+5DxJ7QtgKNIKi+sxQQsVjmSNEVnm8vKpMk9
-	r8H99ntfyeNtqqm1tMh8TO8tfNVtSSFVFx+AA7+0UYDJVKO47FoCNjRU9QdCgshxAkJulnoPshSHM
-	AxpPiJJ383oP2qAkzOmGQf92jmfKfoL+nm4NwpyyHypRJOPQJPLxnh1XgpwGGq6BNluMyFqfk427Y
-	nw3+Gk2PA==;
+	 bh=BWL7JaF2rIwFjsJKkuKIv3bxkwxDLJ2GFSTqhEITodg=; b=MhhmEt0RAfuQkzRZ7cWiaR8Yb
+	z+nAjVDSFN7pE1bWoXFc3DHXQd08Ec5AxfUexRe0sJxzvublfNU50Yab98h2Jg+J+G4GV3z1QfJH7
+	Xy+gU5wQa4OUHYclV6YTe+kVQLlVqlR2UIoV2UZizPxWADuIDxV+9I4VK/x5dUCbJ9bZ5F7p2QnYD
+	JlxcryIPh20+yYPfESnAXet4Owe2KaBngzH/4UuyKyXdcTLXXbmUQZDK/wR7QfrMB6nVdbTn7UCdY
+	dBQnczPmuXhMD1YZxMfqp2xEB4oZPNv2jw9xOANgLKwD8iBqkrzGEzAKSTXlRnCTxSbd3nsju7LPd
+	ooWywpzEQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldtza-00GAZw-J8; Tue, 04 May 2021 12:17:34 +0000
+	id 1ldu6H-00GB84-SF; Tue, 04 May 2021 12:24:29 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldtzM-00GAZG-Gw; Tue, 04 May 2021 12:17:20 +0000
+ id 1ldu6G-00GB7q-AO
+ for linux-riscv@desiato.infradead.org; Tue, 04 May 2021 12:24:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Transfer-Encoding
- :Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
- Sender:Reply-To:Content-ID:Content-Description;
- bh=eDT+DJZ7O2KfKKhPn1AndeyZ5VeZy+lGlFfTrL/8u4E=; b=x2QmMcFmuPAGQ8zrwzy0j/jk4E
- qs/SuHiMpyjCPFnbXceg/a2cFu2Xcd7fVqrbkhwymi6YDdSzenHxWnClgwrMl4c6/y3n/qutcBhqq
- 9Tk9jGiZ/2dwadDfvz0qm6vhKP/CSBoeV2Yi6YOVY61/xB/yMkecbmz/gOG/7z1RwcGAL2driCMsx
- +9Serp1DpYdKtO/yDPp7x0H6YTNw/2o/7Qrj9QOuJdqBFZOO1qiHSuSGokiFlT9w+KKwHAZ6BSiYH
- dFi5kIQlySl1rs/79W7bgi227z0OnaBMk0JcW5tqIcEkmO2J0cKk3DlA0kOiEoAcJQdlXxweeXDzq
- KuMXyAOQ==;
-Received: from mx2.suse.de ([195.135.220.15])
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+ :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=UTwe46S8I5PAwK9GY1KUO9JmWI3rtri2kBSKPlVXfEY=; b=RwcNpR1tkiGvWPED2gWqwIdyeC
+ JaIJi4Y1x7xcNc2ECS+m81RKtSuKEI0ajuaEsYxa2p5cybJvlSxjgs/nD9edYb0j05pbkGTtLqlRl
+ Jx+swGw1LV5SH5FF5KXhltTI37NhgQqS3cypdxcBOP6HIdBVmn+tjcy7fWfLFqLsIrYfb3CN4Yft8
+ hm0pP+uQCbrpXkFW1gMSfWUwEFLeSlS40qNVH6OTokr7Ak5s3Zw891rha0x0lefMPkx4dQEMKwli+
+ RIaTtzBpH3KvYMElAyR01cA00dsNiAOdLZ162D1BkeS2gcrmoWLMcKC+9B9XtQOXJX9eKi17cM5Hi
+ 7jHXK2lw==;
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldtzJ-003xfF-IC; Tue, 04 May 2021 12:17:19 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id A0178AE5E;
- Tue,  4 May 2021 12:17:15 +0000 (UTC)
-Date: Tue, 4 May 2021 14:17:13 +0200
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Joe Perches <joe@perches.com>, Paul Mackerras <paulus@samba.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-Message-ID: <20210504121713.GT6564@kitsune.suse.cz>
-References: <20210501151538.145449-1-masahiroy@kernel.org>
- <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
- <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
- <65cda2bb-1b02-6ebc-0ea2-c48927524aa0@codethink.co.uk>
- <CANiq72mk84uay--BWOLT4zF12-rat9erohKazB8SpTPoVCTX1A@mail.gmail.com>
- <20210504092225.GS6564@kitsune.suse.cz>
- <CANiq72kHwAeQ+vhFqg9tiQA-QHEK_xvP_Sro-_c5LJ2XDzjzxQ@mail.gmail.com>
+ id 1ldu6D-003xss-Oe
+ for linux-riscv@lists.infradead.org; Tue, 04 May 2021 12:24:27 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 54735613B4;
+ Tue,  4 May 2021 12:24:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1620131064;
+ bh=vArYzEMEwRqDbMRFkfiHNa4Cgeb/07wrYgojfXEM6ig=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=f8ApvRPhpj1ghZ3GYlONwF21yByVn6tOlm5gExHU9CgVbE38i4gVlkktgw2fcqEBT
+ 2BI1Kc+8aoqMzhiK+LgMM/mkS/TOu4WchUA47NAZFl56Od8RreTRfQOpguR2XoJgc2
+ 0ojolL9ZtF/h6+OfVzabe/ChOlHh35FJ8K09aqkFtpcDgj6RQm88Axlyp5z1fqHelY
+ S7CNTilkyJ2Cgs79Vz8LRogTJt2ixK1EkztsdanK089ZE6wdtQB/Kj5eplasCOxeGc
+ y7osxn+gPLsTO5KkTVn073nXPICN6pUipqsNZOOte8gfA4ULES81Kz9N2FB/7R1JP/
+ bHMrKkSRsKxBw==
+Date: Tue, 4 May 2021 15:24:19 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Greentime Hu <greentime.hu@sifive.com>
+Cc: paul.walmsley@sifive.com, hes@sifive.com, erik.danie@sifive.com,
+ zong.li@sifive.com, bhelgaas@google.com, robh+dt@kernel.org,
+ aou@eecs.berkeley.edu, mturquette@baylibre.com, sboyd@kernel.org,
+ lorenzo.pieralisi@arm.com, p.zabel@pengutronix.de,
+ alex.dewar90@gmail.com, khilman@baylibre.com,
+ hayashi.kunihiko@socionext.com, vidyas@nvidia.com,
+ jh80.chung@samsung.com, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, helgaas@kernel.org
+Subject: Re: [PATCH v6 1/6] clk: sifive: Add pcie_aux clock in prci driver
+ for PCIe driver
+Message-ID: <YJE886bhppqes5LQ@unreal>
+References: <20210504105940.100004-1-greentime.hu@sifive.com>
+ <20210504105940.100004-2-greentime.hu@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CANiq72kHwAeQ+vhFqg9tiQA-QHEK_xvP_Sro-_c5LJ2XDzjzxQ@mail.gmail.com>
-User-Agent: Mutt/1.11.3 (2019-02-01)
+In-Reply-To: <20210504105940.100004-2-greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210504_051717_890314_559E5CC3 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20210504_052425_845489_7381258A 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +95,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 04, 2021 at 02:09:24PM +0200, Miguel Ojeda wrote:
-> On Tue, May 4, 2021 at 11:22 AM Michal Such=E1nek <msuchanek@suse.de> wro=
-te:
-> >
-> > Except it makes answering the question "Is this bug we see on this
-> > ancient system still present in upstream?" needlessly more difficult to
-> > answer.
-> =
+On Tue, May 04, 2021 at 06:59:35PM +0800, Greentime Hu wrote:
+> We add pcie_aux clock in this patch so that pcie driver can use
+> clk_prepare_enable() and clk_disable_unprepare() to enable and disable
+> pcie_aux clock.
+> 
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Acked-by: Stephen Boyd <sboyd@kernel.org>
+> ---
+>  drivers/clk/sifive/fu740-prci.c               | 11 +++++
+>  drivers/clk/sifive/fu740-prci.h               |  2 +-
+>  drivers/clk/sifive/sifive-prci.c              | 41 +++++++++++++++++++
+>  drivers/clk/sifive/sifive-prci.h              |  9 ++++
+>  include/dt-bindings/clock/sifive-fu740-prci.h |  1 +
+>  5 files changed, 63 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/sifive/fu740-prci.c b/drivers/clk/sifive/fu740-prci.c
+> index 764d1097aa51..53f6e00a03b9 100644
+> --- a/drivers/clk/sifive/fu740-prci.c
+> +++ b/drivers/clk/sifive/fu740-prci.c
+> @@ -72,6 +72,12 @@ static const struct clk_ops sifive_fu740_prci_hfpclkplldiv_clk_ops = {
+>  	.recalc_rate = sifive_prci_hfpclkplldiv_recalc_rate,
 
-> Can you please provide some details? If you are talking about testing
-> a new kernel image in the ancient system "as-is", why wouldn't you
-> build it in a newer system? If you are talking about  particular
-> problems about bisecting (kernel, compiler) pairs etc., details would
-> also be welcome.
+<...>
 
-Yes, bisecting comes to mind. If you need to switch the userspace as
-well the bisection results are not that solid. You may not be even able
-to bisect because the workload does not exist on a new system at all.
-Crafting a minimal test case that can be forward-ported to a new system
-is not always trivial - if you understood the problem to that extent you
-might not even need to bisect it in the first place.
+> +/* PCIE AUX clock APIs for enable, disable. */
+> +int sifive_prci_pcie_aux_clock_is_enabled(struct clk_hw *hw)
+
+It should be bool
+
+> +{
+> +	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> +	struct __prci_data *pd = pc->pd;
+> +	u32 r;
+> +
+> +	r = __prci_readl(pd, PRCI_PCIE_AUX_OFFSET);
+> +
+> +	if (r & PRCI_PCIE_AUX_EN_MASK)
+> +		return 1;
+> +	else
+> +		return 0;
+> +}
+
+and here simple "return r & PRCI_PCIE_AUX_EN_MASK;"
+
+> +
+> +int sifive_prci_pcie_aux_clock_enable(struct clk_hw *hw)
+> +{
+> +	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> +	struct __prci_data *pd = pc->pd;
+> +	u32 r __maybe_unused;
+> +
+> +	if (sifive_prci_pcie_aux_clock_is_enabled(hw))
+> +		return 0;
+
+You actually call to this new function only once, put your
+__prci_readl() here.
 
 Thanks
-
-Michal
 
 _______________________________________________
 linux-riscv mailing list
