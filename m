@@ -2,111 +2,91 @@ Return-Path: <SRS0=FKry=J7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1245C433B4
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7EEA4C433ED
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:18:29 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 363A6613AA
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:09:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 363A6613AA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1C267613AA
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 May 2021 12:18:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C267613AA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cnkam3UyTt9Ky0TPsfXorn3xW1dBzUVahGnzm6omzWA=; b=QqoXvn3yoX3wTmtklq2PNtNt3
-	05FJRli9RSc/YWQExbwqxTJ6Fsr91wgj8i/AgYVE3MuB0a1xbAOos5efHnWOb0UdDPbolakH3SkPT
-	qsvftsE1+aRuJ6VqiL6627hn60Sw4T/8yXXsSquhfwGBpC9y/O+YrylCzn/iCTN5qm5mPgt/dpZNI
-	p0flGFwpXXPrwLKUctb2yuGH6Z1dFAhSalXMPfcDJOF4pWnSv1WBhJSEWtfvtbfhhy4yqiLjtmJ8b
-	xQFCSX7jYjcyAWKSTM1YInN7zRXsDOqeHKQJO9mo11qoFpyqFKw7WcclxBVzLuRSyRZ6ayrJomCgV
-	tplKPUqIQ==;
+	 bh=4pPoYMl6uHYSb7fdhRxZ7+Wm0VtUy4g9EZzKUR1uLWc=; b=jrEZCSU0apnQkT7+k21kOuE0C
+	DSFP2f86c6pAjRFWu7DIEGPvjBvce+lPdhcXzdBAu57sERI2KiR0dusDXp7t6BMz4HLSSqsq69307
+	4XKi/3J/o74XKJRQBdqsvctXTlOh83S9FveZIzK1H+5DxJ7QtgKNIKi+sxQQsVjmSNEVnm8vKpMk9
+	r8H99ntfyeNtqqm1tMh8TO8tfNVtSSFVFx+AA7+0UYDJVKO47FoCNjRU9QdCgshxAkJulnoPshSHM
+	AxpPiJJ383oP2qAkzOmGQf92jmfKfoL+nm4NwpyyHypRJOPQJPLxnh1XgpwGGq6BNluMyFqfk427Y
+	nw3+Gk2PA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ldtrx-00G9mz-6s; Tue, 04 May 2021 12:09:41 +0000
+	id 1ldtza-00GAZw-J8; Tue, 04 May 2021 12:17:34 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldtrv-00G9mR-7R; Tue, 04 May 2021 12:09:39 +0000
+ id 1ldtzM-00GAZG-Gw; Tue, 04 May 2021 12:17:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-ID:Content-Description;
- bh=GoONfpBLyMysB/FhmzAT7uuw2J/Ov3DAFLCcF6TfPu0=; b=dT3odR20UjpiAbJCdaYFtkOBBE
- SUwL2QBWANSazcs1kcmXyDs9gFiP/BHdHcwkqv7Bj61RGHb2zN7MYEp7m/iHIna9+GnhmIUJmxV2W
- UfTcOxAtrt4abFvRhsTDTimZ5fBtLHFBGioD2bJed/19bfoFC2EdWE9Vu0SdFWOw5IFX21OkilYfc
- KIMGk9g5Gi/uljYRv1RVxYNzMsg9dRqYwJlb+CUc5DdqknrSMCqRS2EAZXqRl7ErzpAM9subYZ7Fq
- BIw4TxTu8omF4dFgOse0PfZvqST1lnN8xVkXadgCi5wP/hRERXQ6+tm4MWA/63L7bc2g1vxrCTUoI
- r4VZB+zQ==;
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Transfer-Encoding
+ :Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Reply-To:Content-ID:Content-Description;
+ bh=eDT+DJZ7O2KfKKhPn1AndeyZ5VeZy+lGlFfTrL/8u4E=; b=x2QmMcFmuPAGQ8zrwzy0j/jk4E
+ qs/SuHiMpyjCPFnbXceg/a2cFu2Xcd7fVqrbkhwymi6YDdSzenHxWnClgwrMl4c6/y3n/qutcBhqq
+ 9Tk9jGiZ/2dwadDfvz0qm6vhKP/CSBoeV2Yi6YOVY61/xB/yMkecbmz/gOG/7z1RwcGAL2driCMsx
+ +9Serp1DpYdKtO/yDPp7x0H6YTNw/2o/7Qrj9QOuJdqBFZOO1qiHSuSGokiFlT9w+KKwHAZ6BSiYH
+ dFi5kIQlySl1rs/79W7bgi227z0OnaBMk0JcW5tqIcEkmO2J0cKk3DlA0kOiEoAcJQdlXxweeXDzq
+ KuMXyAOQ==;
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ldtrs-003xGL-Ml; Tue, 04 May 2021 12:09:38 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id v188so1713829ybe.1;
- Tue, 04 May 2021 05:09:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=GoONfpBLyMysB/FhmzAT7uuw2J/Ov3DAFLCcF6TfPu0=;
- b=tckQoMf463vNPurJ8/DE4FlF1sR1Nq0y0BGfCjVf8H5j3Et6hVbvUaiODNjIcMs8Mt
- /jviFaGyjUN7LjTPIxRHFL6MbcW/qsfvx7daHYGdThRFhwx1eXpFdf80lgbrdZv5XAjV
- q4gQ4TPa7fL+vnbwn0z/rAJc/sZkrwddRBwa++gDz+AHI7QIQYmqAdOtMto9fFmvT2bc
- fVvw/3LRWi+nbFtSTZbFEIN/PYyaBpsjosnuewLM9WmkMpdXmIGMx9D0R9AaZW8PuyET
- eTYCcWQ8qBfkV4daDjJf5RPZUriDmdZ2ym+kRWtgTKy71x49yqybOjhVhEz2ORMPpte6
- O99Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=GoONfpBLyMysB/FhmzAT7uuw2J/Ov3DAFLCcF6TfPu0=;
- b=oEw5O7vv4Z5xHl/8oc8oP/ps757Bxf4mRRFo5PWGptKlGyG2zBqRTlNW3i2Ym2zKib
- +ujgPK6F0qbVaxOgVPVCIeyW4dR4TRbVtNIzr0ZLhiSAg5I2Xe4618/TOLVIXprQxO3Q
- o/nNZzPjfIy5uJqh/zTcBBdsmOBMxles2dwGbP4IpnIuVHLH03b6CtfxjEzyoxz9KJXX
- P/FgrDOG75HfEPxkNtKhd4kTa4TZOlYT0MsURYT2utsLFG7WN4hPZaD8M89xVheKtuhD
- ypxpzaWLz5drNFpBaN72lGIsBmpxlJebrZNWO6xDfZpuDBZX3nX5nU0zJk2DmC+vwFe+
- 9Zdg==
-X-Gm-Message-State: AOAM5310WweIALKmM7OIIyIgtelQquTfNuaWw0S1ImdCJntpH+E8KHcJ
- bnYb7S9Rkoek56+iy8gA2cw+puwbDVSlq4Ym3qI=
-X-Google-Smtp-Source: ABdhPJyVieeZ40YfvrO3ib1FXeZbp8MAXFqo0Q4vUyeRjydd2sG818ixSt8PiKN39BRhtEFPC21X4DYHtphGIkl2Kro=
-X-Received: by 2002:a25:bc8b:: with SMTP id e11mr34501993ybk.115.1620130175246; 
- Tue, 04 May 2021 05:09:35 -0700 (PDT)
-MIME-Version: 1.0
+ id 1ldtzJ-003xfF-IC; Tue, 04 May 2021 12:17:19 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id A0178AE5E;
+ Tue,  4 May 2021 12:17:15 +0000 (UTC)
+Date: Tue, 4 May 2021 14:17:13 +0200
+From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Miguel Ojeda <ojeda@kernel.org>, Will Deacon <will@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Joe Perches <joe@perches.com>, Paul Mackerras <paulus@samba.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
+Message-ID: <20210504121713.GT6564@kitsune.suse.cz>
 References: <20210501151538.145449-1-masahiroy@kernel.org>
  <CANiq72k1hB3X6+Nc_iu=f=BoB-F9JW2j_B4ZMcv8_UpW5QQ2Og@mail.gmail.com>
  <3943bc020f6227c8801907317fc113aa13ad4bad.camel@perches.com>
  <65cda2bb-1b02-6ebc-0ea2-c48927524aa0@codethink.co.uk>
  <CANiq72mk84uay--BWOLT4zF12-rat9erohKazB8SpTPoVCTX1A@mail.gmail.com>
  <20210504092225.GS6564@kitsune.suse.cz>
-In-Reply-To: <20210504092225.GS6564@kitsune.suse.cz>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 4 May 2021 14:09:24 +0200
-Message-ID: <CANiq72kHwAeQ+vhFqg9tiQA-QHEK_xvP_Sro-_c5LJ2XDzjzxQ@mail.gmail.com>
-Subject: Re: [PATCH] Raise the minimum GCC version to 5.2
-To: =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>, Albert Ou <aou@eecs.berkeley.edu>, 
- Arnd Bergmann <arnd@arndb.de>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
- linux-kernel <linux-kernel@vger.kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Will Deacon <will@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Joe Perches <joe@perches.com>, Paul Mackerras <paulus@samba.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+ <CANiq72kHwAeQ+vhFqg9tiQA-QHEK_xvP_Sro-_c5LJ2XDzjzxQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CANiq72kHwAeQ+vhFqg9tiQA-QHEK_xvP_Sro-_c5LJ2XDzjzxQ@mail.gmail.com>
+User-Agent: Mutt/1.11.3 (2019-02-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210504_050936_776987_0A9FFC41 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20210504_051717_890314_559E5CC3 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +98,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgNCwgMjAyMSBhdCAxMToyMiBBTSBNaWNoYWwgU3VjaMOhbmVrIDxtc3VjaGFu
-ZWtAc3VzZS5kZT4gd3JvdGU6Cj4KPiBFeGNlcHQgaXQgbWFrZXMgYW5zd2VyaW5nIHRoZSBxdWVz
-dGlvbiAiSXMgdGhpcyBidWcgd2Ugc2VlIG9uIHRoaXMKPiBhbmNpZW50IHN5c3RlbSBzdGlsbCBw
-cmVzZW50IGluIHVwc3RyZWFtPyIgbmVlZGxlc3NseSBtb3JlIGRpZmZpY3VsdCB0bwo+IGFuc3dl
-ci4KCkNhbiB5b3UgcGxlYXNlIHByb3ZpZGUgc29tZSBkZXRhaWxzPyBJZiB5b3UgYXJlIHRhbGtp
-bmcgYWJvdXQgdGVzdGluZwphIG5ldyBrZXJuZWwgaW1hZ2UgaW4gdGhlIGFuY2llbnQgc3lzdGVt
-ICJhcy1pcyIsIHdoeSB3b3VsZG4ndCB5b3UKYnVpbGQgaXQgaW4gYSBuZXdlciBzeXN0ZW0/IElm
-IHlvdSBhcmUgdGFsa2luZyBhYm91dCAgcGFydGljdWxhcgpwcm9ibGVtcyBhYm91dCBiaXNlY3Rp
-bmcgKGtlcm5lbCwgY29tcGlsZXIpIHBhaXJzIGV0Yy4sIGRldGFpbHMgd291bGQKYWxzbyBiZSB3
-ZWxjb21lLgoKPiBTdXJlLCB0aHJvd2luZyBvdXQgb2xkIGNvbXBpbGVyIHZlcnNpb25zIHRoYXQg
-YXJlIGtub3duIHRvIGNhdXNlCj4gcHJvYmxlbXMgbWFrZXMgc2Vuc2UuIFVwZGF0aW5nIHRvIGxh
-dGVzdCBqdXN0IGJlY2F1c2UgbXVjaCBsZXNzIHNvLgoKSSBkZWZpbml0ZWx5IGRpZCBub3QgYXJn
-dWUgZm9yICJsYXRlc3QgY29tcGlsZXIiIG9yICJ1cGRhdGluZyBqdXN0IGJlY2F1c2UiLgoKPiBP
-bmUgb2YgdGhlIHNlbGxpbmcgcG9pbnQgb2YgQyBpbiBnZW5lcmFsIGFuZCBnY2MgaW4gcGFydGlj
-dWxhciBpcwo+IHN0YWJpbGl0eS4gSWYgd2UgbmVlZCB0aGUgbGF0ZXN0IGNvbXBpbGVyIHdlIGNh
-biBhcyB3ZWxsIHJld3JpdGUgdGhlCj4ga2VybmVsIGluIFJ1c3Qgd2hpY2ggaGFzIGEgcmVxdWly
-ZWQgdXBkYXRlIGN5Y2xlIG9mIGEgZmV3IG1vbnRocy4KClJ1c3QgZG9lcyBub3QgaGF2ZSBhICJy
-ZXF1aXJlZCB1cGRhdGUgY3ljbGUiIGFuZCBpdCBkb2VzIG5vdCBicmVhayBvbGQKY29kZSB1bmxl
-c3MgcmVhbGx5IHJlcXVpcmVkLCBqdXN0IGxpa2UgQyBhbmQgY29tbW9uIGNvbXBpbGVycy4KCkNv
-bmNlcm5pbmcgR0NDLCB0aGV5IHBhdGNoIHJlbGVhc2VzIGZvciB+Mi41IHllYXJzLCBzdXJlLCBi
-dXQgZm9yIG1hbnkKcHJvamVjdHMgdGhhdCBpcyBub3QgbmVhcmx5IGVub3VnaC4gU28geW91IHN0
-aWxsIG5lZWQgY3VzdG9tIHN1cHBvcnQsCndoaWNoIGlzIGFueXdheSB3aGF0IG1vc3QgcGVvcGxl
-IGNhcmUgYWJvdXQuCgo+IEJlY2F1c2Ugc29tZSBtYWlubGluZSBrZXJuZWwgZmVhdHVyZXMgcmVs
-eSBvbiBibGVlZGluZyBlZGdlIHRvb2xzIEkgZW5kCj4gdXAgYnVpbGRpbmcgbWFpbmxpbmUgd2l0
-aCBjdXJyZW50IHRvb2xzIGFueXdheSBidXQgaWYgeW91IGRvIG5vdCBuZWVkCj4gQlRGIG9yIHdo
-YXRldmVyIG90aGVyIGxhdGVzdCBnaW1taWNrIG9sZGVyIHRvb2xjaGFpbnMgc2hvdWxkIGRvLgoK
-SXQgd291bGQgYmUgYmV0dGVyIHRvIGhlYXIgY29uY3JldGUgYXJndW1lbnRzIGFib3V0IHdoeSAi
-b2xkZXIKdG9vbGNoYWlucyBzaG91bGQgZG8iLCByYXRoZXIgdGhhbiBjYWxsaW5nIHRoaW5ncyBh
-IGdpbW1pY2suCgpDaGVlcnMsCk1pZ3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Tue, May 04, 2021 at 02:09:24PM +0200, Miguel Ojeda wrote:
+> On Tue, May 4, 2021 at 11:22 AM Michal Such=E1nek <msuchanek@suse.de> wro=
+te:
+> >
+> > Except it makes answering the question "Is this bug we see on this
+> > ancient system still present in upstream?" needlessly more difficult to
+> > answer.
+> =
+
+> Can you please provide some details? If you are talking about testing
+> a new kernel image in the ancient system "as-is", why wouldn't you
+> build it in a newer system? If you are talking about  particular
+> problems about bisecting (kernel, compiler) pairs etc., details would
+> also be welcome.
+
+Yes, bisecting comes to mind. If you need to switch the userspace as
+well the bisection results are not that solid. You may not be even able
+to bisect because the workload does not exist on a new system at all.
+Crafting a minimal test case that can be forward-ported to a new system
+is not always trivial - if you understood the problem to that extent you
+might not even need to bisect it in the first place.
+
+Thanks
+
+Michal
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
