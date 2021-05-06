@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D13AC433ED
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2545CC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:19:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82E1B61106
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:16:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82E1B61106
+	by mail.kernel.org (Postfix) with ESMTPS id D8BE160232
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:19:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D8BE160232
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,84 +23,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=OXkwy6Q2gpnEjYwt8ZPHr9z7nOZ5HKlueTWLg9CI1T0=; b=bfS87s4dbI0SEMWTRMtMXUAyB
-	2VDD4dMx8SX6ee9U1lraFkMKSUvZJEBgrx39nDm8cjZjiTlNUUNBNNpEQZ5uvk60r+5IclIdZ5CYa
-	VxCq+S4PwCDyW3Cz7Zo1qiW/yLbUzCUOQmDeUcpUcRPwFnvKSKAqcJiryGa4G8nbEPVhwtGWqRUP6
-	VRNR/d7qr/oUa1QH8wfMyP+1dVIg9pirjRAQ9dGWrkSIie+cyZXXYiix3q1LRij73tK6dyAURX5rd
-	76CFsrXGVHt9VE+lcobpPAoJTcAbAoQOwmqxKadMzMN+fLH7a96LpZJ0ZrKsvzNIBytCWkB2n3+Oy
-	cQBDe6T9w==;
+	 bh=wvc5M6YXsmCkGzMtAwH5hAukzhKeDZGiuQlJZf9MNkg=; b=YMegFWpZPyWt0bcxIOJGwIltM
+	i6jnQVUBYTqtDAP4IJT9b5linvBuY8LsOQNbJ2HRBgl3nJb4MFNHZq34/gGlGaB1UT9l0ugVnFPQG
+	orTdiYdwWiTLl3F4VaiAxkUCdI9EGh521VfOUzdUm0xiT3+6GNwffhfNsveHscONvhjXe8lrQI5qB
+	fGrCi/3pgVGWByky5TV462cQx0Gkv8S88hj8eylxE0OrxMy8lclu+MClkWQZmTLnaP17kkElX1Kl6
+	6h4V8cFQ9GCm6C1OjAAtK7GYrAjB/36kxqFoHD2K+jRCxNL5dNm5krQbsQhyj1f5og+NlELoEr+OK
+	lNXE+wYWA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1leYFZ-003SUA-Ae; Thu, 06 May 2021 07:16:45 +0000
+	id 1leYHs-003SwN-Bm; Thu, 06 May 2021 07:19:08 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1leYFM-003SRf-DX
- for linux-riscv@desiato.infradead.org; Thu, 06 May 2021 07:16:34 +0000
+ id 1leYHo-003Svm-JP
+ for linux-riscv@desiato.infradead.org; Thu, 06 May 2021 07:19:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
  Sender:Reply-To:Content-ID:Content-Description:References;
- bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=; b=JEzGnKRZaGKVS86N442QYpG3aa
- bNCpSXerlzQ6JyIM7U7kTB7a1RzQdj81UfVQfLj1xX3IQ/vUB+eJnprDKUIaNOwyj9ZWWUVDJz5Ou
- Hcx8yhEBEOGu14lQkOeEPEvhdM+Vs5wcC1KegZE4nAtthYOO2tCT0MpeDRqrfIawncN5DeGQTh9d2
- PQlvP7GzpTevCDVHu71TG/o01wdlX/eP6NH+c3+XYFj8FMEefi2cp8koYfTxuKTpQKqdjLu42vMFp
- wXKEB0x0CNDPa0FkokaQeN8/dAQMq/BVSJM8UMsTd4GlvL6jFhyYuSRErU+pz87LpcWsd9di5Bf4M
- Tfqu4esA==;
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+ bh=ff6iClsWGOy2S69S3t4caAKrwDBzIMs9yWLn5gps7VU=; b=Jr5vmbdqZ+qUIKeT6K6EfTCWhO
+ baVnlVeFYO5ZPYcpTDqFeZY7sTo9Iq/1AtVSowJ7xw+WbuGwtbEjFdwGhxDt3KwFw4TWHATStQSyV
+ WtmycKxn6bTSnDBZIDF6lxi1kYg+tiDTkJZKIWcTMVUuXs4B2fPAzDsbnCTaUNrOX7bZHhqeDzkKx
+ 1ia8kHjFqQ8H3/wrTiKQJmgO4kLlWWUQePHFwJpnH/KqbEa8Oh3EUXE2I1t1Tc6noplEGdFm6qORa
+ trgu47vBRBBy9aqRVF7C8QkfLa1EPZjtez+D5NZgFl9DGQtmtJ3O4jrQDQL481F/TCegfCtH6SwOF
+ 0EFWNgGQ==;
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1leYFD-005evO-Vr
- for linux-riscv@lists.infradead.org; Thu, 06 May 2021 07:16:25 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id
- k3-20020a17090ad083b0290155b934a295so2963374pju.2
- for <linux-riscv@lists.infradead.org>; Thu, 06 May 2021 00:16:23 -0700 (PDT)
+ id 1leYHl-005f3N-S2
+ for linux-riscv@lists.infradead.org; Thu, 06 May 2021 07:19:03 +0000
+Received: by mail-pg1-x529.google.com with SMTP id s22so4099203pgk.6
+ for <linux-riscv@lists.infradead.org>; Thu, 06 May 2021 00:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=;
- b=UFK3IbmDg+TWOLSAgVrbm5DhgEgM4inla9cyzlq/T/wP5lRwdv+191Zfud9XfYFQra
- BXDcGXz9eX82HAu0kaQPDs4vnpXGu9B8uxEKgHFdS12DjnOPG++NF3Q1ycGRSlJVM5Pd
- Mfl3X1JjT9ftj7ARx2JqSvmGY1KJ6HbqIW4O0MQuCmeNmgIPUd7ALViS9lBsgHWwnmoK
- S579n0j5Z2pdbnnQ9zkjOc/8YhsvZNrUUrUa+n9JfU5OGo4gkciL1jQoN9PNHXy1hP7T
- foV5ljgVfDOgoFf9FlFvsioGoM4YHMBy69r3JcyQNEMLe6acZpgJ0BSWs28QLp36rWrp
- FWpA==
+ bh=ff6iClsWGOy2S69S3t4caAKrwDBzIMs9yWLn5gps7VU=;
+ b=1nj1YicF1Nrd74sETWXvmza4aB8KIMQv+jFBpSry5u0//OZEWNQ6KGo2cDQHusIm9Q
+ aHGJ9VwgbqW6yVmZmvQYMmVH+FhQMj9WQ+EiM963Cd6pgMrOPo1JCJHZYWzuQ6gPo/bh
+ 2AbbhVKT3K4C/HGGDJSQjD29dOFHv4cQiBvivnfgZVIuRsHBQ4RQpaUVoY5ccjgI1Kwd
+ 5wG/DDsGK2qXQUBnj2Xpd14Ip4bCrQSKZhOX5qgzdmLyi0/GZ1P3xv/ypK+K1bRIdCa0
+ tmFjujgL5q8cb56ZDCCwUACSst+znlhSjHjG80zoBij6QLf0np2xAZ1gp6xfz7EBaaL/
+ 9InQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=;
- b=eIlwZTSuHUbpy/PnqW6kg5JT7Kl1Pz0jrly0aZVZ2SHeyTXTSKtBSr7N7ui5oIDEha
- j46tiiTRbNDK5/Q3w22HJ4hc/s3I0Q6eA19rNLgeERGtg64q9VLyECAAE8pZixJlIxDO
- zm47pfew8nYK3Sk6pQhgRh2Ds9RVBkTERH4ETGMEhuqBM4OWehUa38T5grKW0ARL/g/P
- f1ff8TJfRmU8TDE9m2rJ4wdFQQCz488gqfXJdvUpB3dBF4jOd/5ApeFgTwg4Qg+2VzEz
- mDIVx7eTKKY+eBiasuiBSTwdr5Rns7ym0p09c3eGoAEq96xrOJbK3hG5ELDDcv4lJAwv
- iumg==
-X-Gm-Message-State: AOAM530r0hkUOy+W1Je/UaQ/P++Kpns6jM6b4x9tu+97+EuNaGOZZ7Ta
- y883o/EGIDQouH6JandmUeenskYaifeRmg==
-X-Google-Smtp-Source: ABdhPJzXZ2rLHed9dHeg++2oXfMdblWD/tNtJgseyi7VT0TiwoVdMN6raG3OS1rGa7EyWVGVdoT5Eg==
-X-Received: by 2002:a17:90a:7bc1:: with SMTP id
- d1mr3050762pjl.183.1620285383384; 
- Thu, 06 May 2021 00:16:23 -0700 (PDT)
+ bh=ff6iClsWGOy2S69S3t4caAKrwDBzIMs9yWLn5gps7VU=;
+ b=Lx18zoq2VmPo4ZZkvUYw/sAMF5toZ4QsdsR/wn9UA+NIj7/iSYkhhR+6SFn20qRzyX
+ HqZVn0JubvMv4zebCrlQYri9APiImQ6UXZHFNCM07I5iL+LegCXbide9hiYXvCgDTSCo
+ 3+2kGTQgAOMlUV9IRkeATRbvGr6FK7mTYbNeI3GXGP4hyTrBeJJQjZ9BRVm+ED/Jer4c
+ 9Oz3Z0T8G4Nxc1wYYHlphnfmBNnN/Y29kBZxDA8pmnIkESLaq/5S0I/LLjyPh1+c676y
+ ZurItvZIbi+8I3FKOqQuhUqt/4doAxnD8SjNZagnvRLJuKj1/fX4BTTVuFH5ITo5lkf7
+ u5ng==
+X-Gm-Message-State: AOAM530pzjut+/YW0TGwDIOT576BW7+UsbXNQD8a1uGHTAKbyGGR55nN
+ jgG/HAFuP2SDuf5EViwqwqLl8w==
+X-Google-Smtp-Source: ABdhPJxpAJhWX5TTFyynpL+sjUHgdm5DptIpWf5u41d4l2+6z1Wg4UYRdxCjIrhVTIu4yb/ngKmP4g==
+X-Received: by 2002:aa7:81d8:0:b029:28e:6e31:7c9a with SMTP id
+ c24-20020aa781d80000b029028e6e317c9amr3116972pfn.56.1620285540533; 
+ Thu, 06 May 2021 00:19:00 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a7sm9807684pjm.0.2021.05.06.00.16.22
+ by smtp.gmail.com with ESMTPSA id k8sm1389832pfp.99.2021.05.06.00.18.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 06 May 2021 00:16:22 -0700 (PDT)
-Date: Thu, 06 May 2021 00:16:22 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 May 2021 00:16:21 PDT (-0700)
-Subject: Re: [PATCH] riscv: Consistify
- protect_kernel_linear_mapping_text_rodata() use
-In-Reply-To: <b89a090317cf26bbe1caaa3cfa513a789ece1b19.1619708711.git.geert+renesas@glider.be>
+ Thu, 06 May 2021 00:19:00 -0700 (PDT)
+Date: Thu, 06 May 2021 00:19:00 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 May 2021 00:18:58 PDT (-0700)
+Subject: Re: [PATCH] riscv: remove unused handle_exception symbol
+In-Reply-To: <20210501185359.64043-1-rouven@czerwinskis.de>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- vitaly.wool@konsulko.com, alex@ghiti.fr, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, geert+renesas@glider.be
+ kernel@pengutronix.de, rouven@czerwinskis.de, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: geert+renesas@glider.be
-Message-ID: <mhng-b16d1d5a-0ddf-4717-bde7-114e49d508e1@palmerdabbelt-glaptop>
+To: rouven@czerwinskis.de
+Message-ID: <mhng-84f8c8d7-96c4-4c9c-a254-5fa19a390bbf@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210506_001624_047390_0E2DC207 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20210506_001901_924687_EEEBCBE3 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,81 +115,29 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Apr 2021 08:10:04 PDT (-0700), geert+renesas@glider.be wrote:
-> The various uses of protect_kernel_linear_mapping_text_rodata() are
-> not consistent:
->   - Its definition depends on "64BIT && !XIP_KERNEL",
->   - Its forward declaration depends on MMU,
->   - Its single caller depends on "STRICT_KERNEL_RWX && 64BIT && MMU &&
->     !XIP_KERNEL".
+On Sat, 01 May 2021 11:53:58 PDT (-0700), rouven@czerwinskis.de wrote:
+> Since commit 79b1feba5455 ("RISC-V: Setup exception vector early")
+> exception vectors are setup early and the handle_exception symbol from
+> the asm files is no longer referenced in traps.c. Remove it.
 >
-> Fix this by settling on the dependencies of the caller, which can be
-> simplified as STRICT_KERNEL_RWX depends on "MMU && !XIP_KERNEL".
-> Provide a dummy definition, as the caller is protected by
-> "IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)" instead of "#ifdef
-> CONFIG_STRICT_KERNEL_RWX".
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Rouven Czerwinski <rouven@czerwinskis.de>
 > ---
-> Only tested on K210 (SiPeed MAIX BiT).
-> ---
->  arch/riscv/include/asm/set_memory.h | 7 ++++++-
->  arch/riscv/kernel/setup.c           | 2 --
->  arch/riscv/mm/init.c                | 2 +-
->  3 files changed, 7 insertions(+), 4 deletions(-)
+>  arch/riscv/kernel/traps.c | 2 --
+>  1 file changed, 2 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index a9c56776fa0e74d6..086f757e8ba3cc69 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -17,7 +17,6 @@ int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
->  int set_memory_rw_nx(unsigned long addr, int numpages);
->  void protect_kernel_text_data(void);
-> -void protect_kernel_linear_mapping_text_rodata(void);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
-> @@ -27,6 +26,12 @@ static inline void protect_kernel_text_data(void) {}
->  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
->  #endif
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 1357abf79570..6810fc9c775d 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -25,8 +25,6 @@
 >
-> +#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> +void protect_kernel_linear_mapping_text_rodata(void);
-> +#else
-> +static inline void protect_kernel_linear_mapping_text_rodata(void) {}
-> +#endif
-> +
->  int set_direct_map_invalid_noflush(struct page *page);
->  int set_direct_map_default_noflush(struct page *page);
->  bool kernel_page_present(struct page *page);
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 7b31779101f662e4..03901d3a8b027343 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -293,9 +293,7 @@ void __init setup_arch(char **cmdline_p)
+>  int show_unhandled_signals = 1;
 >
->  	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
->  		protect_kernel_text_data();
-> -#if defined(CONFIG_64BIT) && defined(CONFIG_MMU) && !defined(CONFIG_XIP_KERNEL)
->  		protect_kernel_linear_mapping_text_rodata();
-> -#endif
->  	}
+> -extern asmlinkage void handle_exception(void);
+> -
+>  static DEFINE_SPINLOCK(die_lock);
 >
->  #ifdef CONFIG_SWIOTLB
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 3ebc0f5d2b73b42b..6cc0421a5d0ef4a3 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -646,7 +646,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->  #endif
->  }
->
-> -#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
-> +#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
->  void protect_kernel_linear_mapping_text_rodata(void)
->  {
->  	unsigned long text_start = (unsigned long)lm_alias(_start);
+>  void die(struct pt_regs *regs, const char *str)
 
 Thanks, this is on for-next.
 
