@@ -2,78 +2,84 @@ Return-Path: <SRS0=VC1f=KB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 48446C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 13:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C7E2C433ED
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 13:22:14 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CD6E61104
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 13:20:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CD6E61104
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	by mail.kernel.org (Postfix) with ESMTPS id CC27B61154
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 13:22:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC27B61154
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
+	Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5zPNVvxiYD7t3gEPMOeORHcWjf2o3G68cchJG4YdXXY=; b=nQYXhfJm6I9krPQk3sNNMMHwv
-	O5XZIhw18sZuR1AZ6mLJur0X7d0OBmTRr3BqaJKR3DyX4FHs6tLIk9KbERaBL+YyOK6ZTdAWEfj0l
-	RuiC4tGqgttORKz54vzJBIgHrPrc59uRVRS0v9BHKBSOFW8jUB9Fq6cs0FWp8eMAcc/qsS0YTVHE+
-	8AJzgNg8Gj2d7u0HVlEgyHdM0Bq6auDkxROrXru71eCxxSBKSwcY368no1T7gY6tgttFUyex2U0yA
-	TIvNMwnh6IZDPw9U4ULIFKF60mVouloeQyOj2h/TzAoGG0hy68MS6lG8cKOKIgTS6n/mOey94Lpcn
-	slFFg+i2w==;
+	 bh=1W+oEdHFun/UlRhcivvi2CsB8EizEP24UT1aNaQtnv0=; b=DrxvpUwlNxhucITcE4CAIEFDO
+	Ujm5wNFBdndI5a8IvMoBUQb4tJOexbGc0j7nVVqEb5kX26t6ReBKC6VW+7UXox/GrA99wJmwbY8Sa
+	TYWIc+CqO+Z5vdgf5TMMRx1kSwIz49NNVpyJlEQn/d0Cnj4TuxH/LYq4w/lLf8UhFwOq+cXYyTJam
+	+DI6d4POt4XcOSR2pJOO+fOoT7cB/1KBpavdIrWNZWSr4HSvC1T+dnqp2OPDV7yfQ4T4WjvVQvbbu
+	f/13ptXGWVy8cy0DBal8+G8Dwgztfs6KuSNi3/Ma+ZuanQM6JgfZybXjdiVJBnyMdhmxOICUlDw4k
+	5J5dKSwDA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ledvG-004Icf-Ao; Thu, 06 May 2021 13:20:10 +0000
+	id 1ledx1-004Iok-17; Thu, 06 May 2021 13:21:59 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ledvE-004IcZ-Lw
- for linux-riscv@desiato.infradead.org; Thu, 06 May 2021 13:20:08 +0000
+ id 1ledwd-004Im5-Qx; Thu, 06 May 2021 13:21:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
- From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=4yXICiluDg+AzIXh0EygQLTni+dT/+L2Nulb804NVEU=; b=xp6/XUL0kEpaHWMgkl7Rlux9d+
- EcBrKCAhZ5vXXp/j3kAzhsywnjyq6t6bfUSY+FAw5NVjtdiK5YddejOYpAkqDVrYWwOkPqSZ9UdBl
- KM+aZvcYqAMYyN4D+tK4bAHALBlnUvh3dcGaFpV2nFv5iVczRqD2cjz2Kj41Vs1guS6ZGq/TRGMoP
- vIdrQA/hFcTcqplcyaDHcs/3YJRy+eYa7xE8ZLyoXv73APCKfVz4hXqqJlULxhcsnS2BXFrFX2kKP
- iCN0r+3triBygUq5Ie9CK/thgKX6FlwMv8czzj2reOQWLGaXMWTJ/ktTw1DBj8otOObdr63IdTWZm
- fwHqCxhw==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:
+ Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+ :Subject:CC:To:From:Sender:Reply-To:Content-ID:Content-Description;
+ bh=ijpcudPExsY5z6p9/V7nuLjzO7/PcoGRY1zqyZRtedQ=; b=wbuW6XnndWE00pYwjYkaWfY5gQ
+ TmIOHjnUZtlGqWcB3ZlmsK3T0uqhLSUek1FA5s913BBlGuJfCZ7XQRxb/lIdJm41ZxwyhhZ2Z85mp
+ PtQAkVlE5RokAiTqaqQeMW3ZbCXmmwCTzj/7rKICKAhEMUvhfomLfKfRMFvir+k+OFRu8a69QE+b/
+ 2N181MzJjse6dDvqiBUkHiWEeM+NZMP2+esTAvhj+p1WnpzRz6MkiBUpvOr21jHm6IrPLuBW+Brcj
+ qoYiH5HpyML7ZTPHP7DNovIL6wcou5aqsG89zapNqtlPI66WhzTO+r6y+nKyPoC/wvN6rVQGlIcl/
+ bH2bF4oQ==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ledvB-0063Ma-Lm
- for linux-riscv@lists.infradead.org; Thu, 06 May 2021 13:20:07 +0000
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 42473610EA;
- Thu,  6 May 2021 13:20:02 +0000 (UTC)
-Date: Thu, 6 May 2021 09:20:00 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, mingo@redhat.com, Paul Walmsley
- <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, mhiramat@kernel.org,
- zong.li@sifive.com, guoren@linux.alibaba.com, Atish Patra
- <Atish.Patra@wdc.com>, linux-kernel@vger.kernel.org,
- kernel-team@android.com, Palmer Dabbelt <palmerdabbelt@google.com>,
- Changbin Du <changbin.du@gmail.com>
-Subject: Re: [PATCH] RISC-V: Don't check text_mutex during stop_machine
-Message-ID: <20210506092000.26fd392b@gandalf.local.home>
-In-Reply-To: <20210506071041.417854-1-palmer@dabbelt.com>
-References: <20210506071041.417854-1-palmer@dabbelt.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ id 1ledwb-0063PK-2Q; Thu, 06 May 2021 13:21:34 +0000
+Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4FbZ101PT8zlc6W;
+ Thu,  6 May 2021 21:19:16 +0800 (CST)
+Received: from thunder-town.china.huawei.com (10.174.177.72) by
+ DGGEMS410-HUB.china.huawei.com (10.3.19.210) with Microsoft SMTP Server id
+ 14.3.498.0; Thu, 6 May 2021 21:21:14 +0800
+From: Zhen Lei <thunder.leizhen@huawei.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
+ <robh+dt@kernel.org>, Al Cooper <alcooperx@gmail.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, linux-serial <linux-serial@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>, linux-kernel
+ <linux-kernel@vger.kernel.org>, bcm-kernel-feedback-list
+ <bcm-kernel-feedback-list@broadcom.com>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-stm32
+ <linux-stm32@st-md-mailman.stormreply.com>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+CC: Zhen Lei <thunder.leizhen@huawei.com>
+Subject: [PATCH v3 2/2] dt-bindings: serial: Add label property in serial.yaml
+Date: Thu, 6 May 2021 21:20:49 +0800
+Message-ID: <20210506132049.1513-3-thunder.leizhen@huawei.com>
+X-Mailer: git-send-email 2.26.0.windows.1
+In-Reply-To: <20210506132049.1513-1-thunder.leizhen@huawei.com>
+References: <20210506132049.1513-1-thunder.leizhen@huawei.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.174.177.72]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210506_062005_782179_E8C0CDF0 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20210506_062133_293732_BEBF7E65 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,104 +96,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  6 May 2021 00:10:41 -0700
-Palmer Dabbelt <palmer@dabbelt.com> wrote:
+When there is more than one serial port present, the property 'label'
+allows a custom name to be used for briefly describe the usage or position
+of each serial port.
 
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 7f1e5203de88..da2405652f1d 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -11,6 +11,8 @@
->  #include <asm/cacheflush.h>
->  #include <asm/patch.h>
->  
-> +int riscv_ftrace_in_stop_machine;
-> +
->  #ifdef CONFIG_DYNAMIC_FTRACE
->  int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
->  {
-> @@ -232,3 +234,16 @@ int ftrace_disable_ftrace_graph_caller(void)
->  }
->  #endif /* CONFIG_DYNAMIC_FTRACE */
->  #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-> +
-> +void arch_ftrace_update_code(int command)
-> +{
-> +	/*
-> +	 * The code sequences we use for ftrace can't be patched while the
-> +	 * kernel is running, so we need to use stop_machine() to modify them
-> +	 * for now.  This doesn't play nice with text_mutex, we use this flag
-> +	 * to elide the check.
-> +	 */
-> +	riscv_ftrace_in_stop_machine = true;
-> +	ftrace_run_stop_machine(command);
-> +	riscv_ftrace_in_stop_machine = false;
-> +}
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 0b552873a577..7983dba477f0 100644
+Without this "label" property, many dtbs_check warnings similar to the
+following are reported:
+arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dt.yaml: \
+serial@ffd74000: Additional properties are not allowed ('label' was unexpected)
+        From schema: Documentation/devicetree/bindings/serial/pl011.yaml
 
-This would work, but my suggestion was to do it without having to add this
-arch function. Because the caller of this is:
+Signed-off-by: Zhen Lei <thunder.leizhen@huawei.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/serial/serial.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-static void ftrace_run_update_code(int command)
-{
-	int ret;
-
-	ret = ftrace_arch_code_modify_prepare();
-	FTRACE_WARN_ON(ret);
-	if (ret)
-		return;
-
-	/*
-	 * By default we use stop_machine() to modify the code.
-	 * But archs can do what ever they want as long as it
-	 * is safe. The stop_machine() is the safest, but also
-	 * produces the most overhead.
-	 */
-	arch_ftrace_update_code(command);
-
-	ret = ftrace_arch_code_modify_post_process();
-	FTRACE_WARN_ON(ret);
-}
+diff --git a/Documentation/devicetree/bindings/serial/serial.yaml b/Documentation/devicetree/bindings/serial/serial.yaml
+index 2fdf4ed198da781..c75ba3fb6465005 100644
+--- a/Documentation/devicetree/bindings/serial/serial.yaml
++++ b/Documentation/devicetree/bindings/serial/serial.yaml
+@@ -23,6 +23,8 @@ properties:
+   $nodename:
+     pattern: "^serial(@.*)?$"
+ 
++  label: true
++
+   cts-gpios:
+     maxItems: 1
+     description:
+-- 
+2.26.0.106.g9fadedd
 
 
-Where you already have two hooks that you use to take the text_mutex before
-calling arch_ftrace_update_code().
-
-In RISC-V those are:
-
-int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-{
-        mutex_lock(&text_mutex);
-        return 0;
-}
-
-int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-{
-        mutex_unlock(&text_mutex);
-        return 0;
-}
-
-Where all you have to do is change them to:
-
-int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-{
-        mutex_lock(&text_mutex);
-	riscv_ftrace_in_stop_machine = true;
-        return 0;
-}
-
-int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-{
-	riscv_ftrace_in_stop_machine = false;
-        mutex_unlock(&text_mutex);
-        return 0;
-}
-
-And you have the exact same affect. Those functions are only used before
-calling the stop machine code you have.
-
--- Steve
 
 _______________________________________________
 linux-riscv mailing list
