@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF633C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D13AC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:17:00 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 251CC61077
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:14:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 251CC61077
+	by mail.kernel.org (Postfix) with ESMTPS id 82E1B61106
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 May 2021 07:16:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82E1B61106
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,80 +23,84 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=Nj+pb9hEgx372SVEWyyLsD/FjlB+82rqMXKB11HJGSM=; b=axV/MP/PwfY3MqfW3Fs0jEnZm
-	f771qO5pG4PuuoUF+av/qwERtFcLT6yy6Jmb/6FWVwCRKtbK/p3L/mis5Ax5wnLOWJeg9w179FAVA
-	5G0d7tOGHfSfe01etBqhEmgrgOa2UFg4rR160pErDY6PGoNPfTCtdghdP1FpCqgZfEMifGCSw/kpM
-	ZC57B9OBYyGEbYkykUcGCqS/jP7u8nLYPp/bgiHkjMjQj6NOAcAA/iABbJxH2qzcTbT7Enx0e9hwg
-	FQlk6kduwARAow8ALCm7evj/BI08r3rbPr7x3HmH6n7+o8XC/OhTNhl57Xjs9MliIODnRVPJhDoJh
-	epy4jGDPg==;
+	 bh=OXkwy6Q2gpnEjYwt8ZPHr9z7nOZ5HKlueTWLg9CI1T0=; b=bfS87s4dbI0SEMWTRMtMXUAyB
+	2VDD4dMx8SX6ee9U1lraFkMKSUvZJEBgrx39nDm8cjZjiTlNUUNBNNpEQZ5uvk60r+5IclIdZ5CYa
+	VxCq+S4PwCDyW3Cz7Zo1qiW/yLbUzCUOQmDeUcpUcRPwFnvKSKAqcJiryGa4G8nbEPVhwtGWqRUP6
+	VRNR/d7qr/oUa1QH8wfMyP+1dVIg9pirjRAQ9dGWrkSIie+cyZXXYiix3q1LRij73tK6dyAURX5rd
+	76CFsrXGVHt9VE+lcobpPAoJTcAbAoQOwmqxKadMzMN+fLH7a96LpZJ0ZrKsvzNIBytCWkB2n3+Oy
+	cQBDe6T9w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1leYCo-003S7E-Jr; Thu, 06 May 2021 07:13:54 +0000
+	id 1leYFZ-003SUA-Ae; Thu, 06 May 2021 07:16:45 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1leYCk-003S6s-R0
- for linux-riscv@desiato.infradead.org; Thu, 06 May 2021 07:13:51 +0000
+ id 1leYFM-003SRf-DX
+ for linux-riscv@desiato.infradead.org; Thu, 06 May 2021 07:16:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
  Sender:Reply-To:Content-ID:Content-Description:References;
- bh=SGYzOBTlLlpIkWRl/S/Nid0gbfZB7VB7MFOHms97XBw=; b=TDmT28ICoP2Tkq75k9uZ4tAW5T
- zrfKCQYLl1PkACEqIR6sKguW8vGF7nhCXty2hwCCaOe2kuIu3Hd/EPeI4+eJbd1Nv56zrBwy2yyvY
- ZVSJnHP6tQT8S/7goPZb7Uge2dZbq3W2VsTjhfzv2A2JeKT37b9w/Iwk1E9ngmFVuG1QhcoSuB3H6
- t75TdJS/5qIHkP4Mj2FmeBkDachYS2t4VPZhw8UvdkxRcAlQYt8I2/cNKlMN8m1CvQgjtt19vvXlX
- arHjYEK1pGs9kYqO5R3Iw/KukaSb1BAqCweYEM4HiP7k5liakRgqyWYgRteOb639Iwcsqf0uE8meY
- ZGKzBfcw==;
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+ bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=; b=JEzGnKRZaGKVS86N442QYpG3aa
+ bNCpSXerlzQ6JyIM7U7kTB7a1RzQdj81UfVQfLj1xX3IQ/vUB+eJnprDKUIaNOwyj9ZWWUVDJz5Ou
+ Hcx8yhEBEOGu14lQkOeEPEvhdM+Vs5wcC1KegZE4nAtthYOO2tCT0MpeDRqrfIawncN5DeGQTh9d2
+ PQlvP7GzpTevCDVHu71TG/o01wdlX/eP6NH+c3+XYFj8FMEefi2cp8koYfTxuKTpQKqdjLu42vMFp
+ wXKEB0x0CNDPa0FkokaQeN8/dAQMq/BVSJM8UMsTd4GlvL6jFhyYuSRErU+pz87LpcWsd9di5Bf4M
+ Tfqu4esA==;
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1leYCi-005er7-86
- for linux-riscv@lists.infradead.org; Thu, 06 May 2021 07:13:49 +0000
-Received: by mail-pf1-x430.google.com with SMTP id i13so4577692pfu.2
- for <linux-riscv@lists.infradead.org>; Thu, 06 May 2021 00:13:46 -0700 (PDT)
+ id 1leYFD-005evO-Vr
+ for linux-riscv@lists.infradead.org; Thu, 06 May 2021 07:16:25 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id
+ k3-20020a17090ad083b0290155b934a295so2963374pju.2
+ for <linux-riscv@lists.infradead.org>; Thu, 06 May 2021 00:16:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=SGYzOBTlLlpIkWRl/S/Nid0gbfZB7VB7MFOHms97XBw=;
- b=lg14LhDG4yWolbJkKiQS2KXKA6T4ECkN0JroW7eGywkxUO/Fx3OvPdTttUkojbSP4t
- mBz8SS6ath7yb2DmTiTlJzPBu78oQgEPY9WL8GZSGr0xhe2zVaxh+y3iC2sCFQjLqNmQ
- BKDrKS+PPJMat7jyVlRSDh1b+Teh85CYs9+MCdhsdLoiuoKBo6zxi6hbv6sfeTw8TE21
- paZMvems9/0eHClEwdWpDsiXs7Uakqp+niLtG26mbUQTxuhgRy+XrwMILn0zY7Ygy59w
- wd+72s6mrbKOkrBgnlvyrM6tzd2DKh+AfxWuzcjscWbMThtsj1Jev6pO0oXj5aRpw9eD
- T0Sw==
+ bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=;
+ b=UFK3IbmDg+TWOLSAgVrbm5DhgEgM4inla9cyzlq/T/wP5lRwdv+191Zfud9XfYFQra
+ BXDcGXz9eX82HAu0kaQPDs4vnpXGu9B8uxEKgHFdS12DjnOPG++NF3Q1ycGRSlJVM5Pd
+ Mfl3X1JjT9ftj7ARx2JqSvmGY1KJ6HbqIW4O0MQuCmeNmgIPUd7ALViS9lBsgHWwnmoK
+ S579n0j5Z2pdbnnQ9zkjOc/8YhsvZNrUUrUa+n9JfU5OGo4gkciL1jQoN9PNHXy1hP7T
+ foV5ljgVfDOgoFf9FlFvsioGoM4YHMBy69r3JcyQNEMLe6acZpgJ0BSWs28QLp36rWrp
+ FWpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=SGYzOBTlLlpIkWRl/S/Nid0gbfZB7VB7MFOHms97XBw=;
- b=mXy3RsT32ZxFoTyY+9+EO5aODT8RQmn3SizniPPZDTJbRf5AAi3diNbBd7I+hQJB6c
- x6U6gjpIhp6hVu8jfuuqezSnkj2m2s/Gzvhb/sVuadZEMIHaI36rGD2GQokBT3eJD8Qr
- v8SpDeuweYZi8RScfkn+WBwK526KqmgfoR9g5vyxjKTLNJ5//dZFhNhjYdJp5Atf6DHD
- VSpYs1Be9Od2xzU4Fv9BBkQi9q2XCQPIqq+anFxcMHS1PKC6PHmG3XuNeFHKy6/ISUJY
- 9deTHNTRXuMHTXOS6Lw1c06qzK3anZC251d/9yOYPH66skZK2W8ODbjaKI81chKrvGF0
- XHlA==
-X-Gm-Message-State: AOAM533++X4TeOx/Lp0OZpWG4YLTxijyUkMd6CuLKiv4buEjMu8M6RMJ
- PZw1sOQWP44RoWNTnxmB/ZmBqyhaFGEBTA==
-X-Google-Smtp-Source: ABdhPJzNaoLfE/rno5m116Dln0zHvSPydy1ER688BUAx99/BzEfhlD7HkxEcz7H5/9G2nfGTHI9WGQ==
-X-Received: by 2002:a63:d47:: with SMTP id 7mr2974895pgn.400.1620285225995;
- Thu, 06 May 2021 00:13:45 -0700 (PDT)
+ bh=Dp5soMSHrCjUpZswZvxQlzWraT5prbwHNht9WSOKHdU=;
+ b=eIlwZTSuHUbpy/PnqW6kg5JT7Kl1Pz0jrly0aZVZ2SHeyTXTSKtBSr7N7ui5oIDEha
+ j46tiiTRbNDK5/Q3w22HJ4hc/s3I0Q6eA19rNLgeERGtg64q9VLyECAAE8pZixJlIxDO
+ zm47pfew8nYK3Sk6pQhgRh2Ds9RVBkTERH4ETGMEhuqBM4OWehUa38T5grKW0ARL/g/P
+ f1ff8TJfRmU8TDE9m2rJ4wdFQQCz488gqfXJdvUpB3dBF4jOd/5ApeFgTwg4Qg+2VzEz
+ mDIVx7eTKKY+eBiasuiBSTwdr5Rns7ym0p09c3eGoAEq96xrOJbK3hG5ELDDcv4lJAwv
+ iumg==
+X-Gm-Message-State: AOAM530r0hkUOy+W1Je/UaQ/P++Kpns6jM6b4x9tu+97+EuNaGOZZ7Ta
+ y883o/EGIDQouH6JandmUeenskYaifeRmg==
+X-Google-Smtp-Source: ABdhPJzXZ2rLHed9dHeg++2oXfMdblWD/tNtJgseyi7VT0TiwoVdMN6raG3OS1rGa7EyWVGVdoT5Eg==
+X-Received: by 2002:a17:90a:7bc1:: with SMTP id
+ d1mr3050762pjl.183.1620285383384; 
+ Thu, 06 May 2021 00:16:23 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id br10sm9048783pjb.13.2021.05.06.00.13.45
+ by smtp.gmail.com with ESMTPSA id a7sm9807684pjm.0.2021.05.06.00.16.22
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 06 May 2021 00:13:45 -0700 (PDT)
-Date: Thu, 06 May 2021 00:13:45 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 May 2021 00:13:41 PDT (-0700)
-Subject: Re: [PATCH] riscv: enable SiFive errata CIP-453 and CIP-1200 Kconfig
- only if CONFIG_64BIT=y
-In-Reply-To: <1619683116-196404-1-git-send-email-vincent.chen@sifive.com>
-CC: linux-riscv@lists.infradead.org, vincent.chen@sifive.com
+ Thu, 06 May 2021 00:16:22 -0700 (PDT)
+Date: Thu, 06 May 2021 00:16:22 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 May 2021 00:16:21 PDT (-0700)
+Subject: Re: [PATCH] riscv: Consistify
+ protect_kernel_linear_mapping_text_rodata() use
+In-Reply-To: <b89a090317cf26bbe1caaa3cfa513a789ece1b19.1619708711.git.geert+renesas@glider.be>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ vitaly.wool@konsulko.com, alex@ghiti.fr, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, geert+renesas@glider.be
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vincent.chen@sifive.com
-Message-ID: <mhng-0ac45f93-d73a-4966-9dca-5bd058e8236e@palmerdabbelt-glaptop>
+To: geert+renesas@glider.be
+Message-ID: <mhng-b16d1d5a-0ddf-4717-bde7-114e49d508e1@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210506_001348_308798_8EF824B6 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20210506_001624_047390_0E2DC207 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,39 +117,81 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Apr 2021 00:58:36 PDT (-0700), vincent.chen@sifive.com wrote:
-> The corresponding hardware issues of CONFIG_ERRATA_SIFIVE_CIP_453 and
-> CONFIG_ERRATA_SIFIVE_CIP_1200 only exist in the SiFive 64bit CPU cores.
-> Therefore, these two errata are required only if CONFIG_64BIT=y
+On Thu, 29 Apr 2021 08:10:04 PDT (-0700), geert+renesas@glider.be wrote:
+> The various uses of protect_kernel_linear_mapping_text_rodata() are
+> not consistent:
+>   - Its definition depends on "64BIT && !XIP_KERNEL",
+>   - Its forward declaration depends on MMU,
+>   - Its single caller depends on "STRICT_KERNEL_RWX && 64BIT && MMU &&
+>     !XIP_KERNEL".
 >
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Fix this by settling on the dependencies of the caller, which can be
+> simplified as STRICT_KERNEL_RWX depends on "MMU && !XIP_KERNEL".
+> Provide a dummy definition, as the caller is protected by
+> "IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)" instead of "#ifdef
+> CONFIG_STRICT_KERNEL_RWX".
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  arch/riscv/Kconfig.erratas | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Only tested on K210 (SiPeed MAIX BiT).
+> ---
+>  arch/riscv/include/asm/set_memory.h | 7 ++++++-
+>  arch/riscv/kernel/setup.c           | 2 --
+>  arch/riscv/mm/init.c                | 2 +-
+>  3 files changed, 7 insertions(+), 4 deletions(-)
 >
-> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-> index d5d03ae..b44d6ec 100644
-> --- a/arch/riscv/Kconfig.erratas
-> +++ b/arch/riscv/Kconfig.erratas
-> @@ -21,7 +21,7 @@ config ERRATA_SIFIVE
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index a9c56776fa0e74d6..086f757e8ba3cc69 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -17,7 +17,6 @@ int set_memory_x(unsigned long addr, int numpages);
+>  int set_memory_nx(unsigned long addr, int numpages);
+>  int set_memory_rw_nx(unsigned long addr, int numpages);
+>  void protect_kernel_text_data(void);
+> -void protect_kernel_linear_mapping_text_rodata(void);
+>  #else
+>  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+> @@ -27,6 +26,12 @@ static inline void protect_kernel_text_data(void) {}
+>  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+>  #endif
 >
->  config ERRATA_SIFIVE_CIP_453
->  	bool "Apply SiFive errata CIP-453"
-> -	depends on ERRATA_SIFIVE
-> +	depends on ERRATA_SIFIVE && 64BIT
->  	default y
->  	help
->  	  This will apply the SiFive CIP-453 errata to add sign extension
-> @@ -32,7 +32,7 @@ config ERRATA_SIFIVE_CIP_453
+> +#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
+> +void protect_kernel_linear_mapping_text_rodata(void);
+> +#else
+> +static inline void protect_kernel_linear_mapping_text_rodata(void) {}
+> +#endif
+> +
+>  int set_direct_map_invalid_noflush(struct page *page);
+>  int set_direct_map_default_noflush(struct page *page);
+>  bool kernel_page_present(struct page *page);
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 7b31779101f662e4..03901d3a8b027343 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -293,9 +293,7 @@ void __init setup_arch(char **cmdline_p)
 >
->  config ERRATA_SIFIVE_CIP_1200
->  	bool "Apply SiFive errata CIP-1200"
-> -	depends on ERRATA_SIFIVE
-> +	depends on ERRATA_SIFIVE && 64BIT
->  	default y
->  	help
->  	  This will apply the SiFive CIP-1200 errata to repalce all
+>  	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+>  		protect_kernel_text_data();
+> -#if defined(CONFIG_64BIT) && defined(CONFIG_MMU) && !defined(CONFIG_XIP_KERNEL)
+>  		protect_kernel_linear_mapping_text_rodata();
+> -#endif
+>  	}
+>
+>  #ifdef CONFIG_SWIOTLB
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 3ebc0f5d2b73b42b..6cc0421a5d0ef4a3 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -646,7 +646,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  #endif
+>  }
+>
+> -#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
+> +#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
+>  void protect_kernel_linear_mapping_text_rodata(void)
+>  {
+>  	unsigned long text_start = (unsigned long)lm_alias(_start);
 
 Thanks, this is on for-next.
 
