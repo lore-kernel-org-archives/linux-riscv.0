@@ -2,147 +2,75 @@ Return-Path: <SRS0=6bm6=KC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C03BBC433ED
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 07:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24B7AC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 09:15:12 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1FCE16141B
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 07:36:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FCE16141B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3C87861426
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 09:15:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3C87861426
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tgTVQQafPxXX2qZQtJ4nsrCdEbG3PQbKH8QGsJzGs2M=; b=ObZqSfiLwAnIeqYts46Y01ynz
-	MCmvVuxOb1qyLDE45mX0YHVxWuHIK/h/wXIymdK7xNeVoxS53TgOmwGRfraECbNL24Of/X84qRPOu
-	J4SZXec1Y1o0nvNW/oMgVn6RAwcPmCZ5Yo6DiCuME7kB2WhRJAxBWTuFQWEMGY0I+SWdoXVN2+SXF
-	/FZZlYlKp/0CBKTTF6BruX8um3sCgzqyXu2xNnPZhrZlLz5DCPJrplucAWCicqEMxY+8VggMb5nYw
-	m0OM7b/u4pBZKaEAKeorO9J/xgygparekojKD/1HQ0jehedmhskxSRXsUTJvM3ZpT8YrO32YxU3yD
-	acOg9C0zA==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZcLk5cbsakXjTxv6xcfD8nrID1tp+fb37YHebHjtElc=; b=NgqK+ekceselkCblfobMKnSpiK
+	oLqUvtmYsrLtP5b7ebhJ4tMR+sxARl1NwAnkmW7lbp6lgphmjfYH1y7EJq7hmOUKJQN0QAGcHMsFe
+	x95ES0/ST43w2hhf846GKwNYc0KM6ueUK28YuldSE3nEu+MBoi77iEfrOggHMdSZ8pz6TUQjLPVrS
+	Ju9uKPJM+FNvSZ3OsXdhDjuxNY/67AOIBFzmZsceohj/2GtkYAsURoj+3ozey3FGNHV/IsxbeRux3
+	WzylW3ReqeBCKziuVZrtalE+qnBlUjaT5AqWuQpetVOiqxI7JwIlMcyBgJYwmo16m34+fRCv1VnNU
+	4Vb65i9Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lev1k-006OKT-Fc; Fri, 07 May 2021 07:36:00 +0000
+	id 1lewZa-006bPa-CD; Fri, 07 May 2021 09:15:02 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lev1h-006OJg-2C
- for linux-riscv@desiato.infradead.org; Fri, 07 May 2021 07:35:57 +0000
+ id 1lewZW-006bPP-UA
+ for linux-riscv@desiato.infradead.org; Fri, 07 May 2021 09:14:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References
- :Cc:To:Sender:Reply-To:Content-ID:Content-Description;
- bh=YRLhFcul/s0bAb0h6pwheuix10YVXJYp5em6Jk4RpTY=; b=VG5nbpFXTtPrnzYapgdeKNietC
- MpXiZOIFUH2xxaDoLe/i4bT2yCAx08pFYhEdP2Kwx0OAHUW0OuS2k99C/PIyqcKnVhwNx2rmMysrS
- WWsgM2e44y3T6jyzFrKx855nDMrBXfzolmAr0J90akF6L6NWRgPTkWoJ9W2cOu7wWJyQiGyaPff/k
- iUOOIfbohmvG/vfAaAqIYpxJvfLufqFd3O7pp09IH1U2q3QGCKf9zFPidgxSFpjd/vamVdPCbQXzP
- PT7neXMcceBHdXI2TaUsm1JfycVj3+Yufr1HY8plSj5ZwEz6xDwXZqqkAIMM/hAx1+LugWnc3A3Ry
- UFgM2QRg==;
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:
+ Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+ Sender:Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+ bh=jt0lKiANR7FQUHTM+IZD1hAX2mMCG17wENXDr4E5Q88=; b=3YgokCRxNfFlksmqvfKQXHsq2d
+ k8O7UodusH4UpuVM5WIUiOltpxmiOSjokoriRLMMjwJQuNST94ssUO4unDASM8jwMY4rDgKZ5jz5v
+ vrOL65HPiBPbWVNMHjUivAbxzDLD6+co6LwJvcABBNUualduGIH0242OTHWlnkanW2DxS4gQCJv0a
+ mwPs/nrYcDmbnVqHLUfSa2fZppXO+OnQLuMAuVxymspwi3U6P/iVCCh9TiSfRhUzTGQFngVUYtCtJ
+ Zx2q1nNQ0hSbyr834eZKd9ITOnwd3N325d2b4Nd/xPgO3H1EqAdkvHksoiFMQw8RLFX9lnL6G6oOd
+ 0D2aFM2Q==;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lev1c-006eiw-J3
- for linux-riscv@lists.infradead.org; Fri, 07 May 2021 07:35:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1620372951;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=YRLhFcul/s0bAb0h6pwheuix10YVXJYp5em6Jk4RpTY=;
- b=LKQ8IWaBht40hQ37zGhiXWlx+x+Dj6an1dgqmq+UDQ3Msuggv1C2b3TezDAWLG/j28CUxx
- SYtxDjtmTeLa6lateTlt99a9Vpwn/iZBxnYdboXBfMzDsZa4lqARUwn76xIegra1nQR16K
- nHeDtHsZAN4JgiRXzfUjQ3eqptexoS4=
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
- [209.85.218.70]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-557-kX00adAYN4iptmZK_Kv2dQ-1; Fri, 07 May 2021 03:35:49 -0400
-X-MC-Unique: kX00adAYN4iptmZK_Kv2dQ-1
-Received: by mail-ej1-f70.google.com with SMTP id
- bx15-20020a170906a1cfb029037415131f28so2671852ejb.18
- for <linux-riscv@lists.infradead.org>; Fri, 07 May 2021 00:35:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:references:from:organization:subject
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=YRLhFcul/s0bAb0h6pwheuix10YVXJYp5em6Jk4RpTY=;
- b=M+dftLRUEiEv3h/zhTjgJH83bceSR3Vz/0iDLklY3i/k70ttLm+wUkcipEvHMz7Hbv
- 9p9tKfJ3DouyFMxWzquXJn2WJf8lQVKpXXOtV/w8y76PqiHO2pxCgYT6iAtJHWhQeWrB
- +4MYkOERtkTNXksFwBAcK9WacCybft723OVTE5/nkp9JmeWlQvLleL3slezXIBXjXyhS
- TeIxaksrtb7cly0YQK5zmt7fb22WmhcrBOgNYclttJDzd8WwG45kGsjB+RCdtXrp3S5B
- Bgtr0MUAGtaoEAj7OcEXkXzvg1VnGI+u0yd2lNte7FfD/KrmXAO+a3k7bqDrIzbnVUZJ
- +y1g==
-X-Gm-Message-State: AOAM532+5wbS0Lwh4+fNAWdk44Ozo6ql4GPk16HzBw14FNgeRk66U6BO
- 6/rd1Bzmqs9qKXQDdevx3Xc65DmnKRd1f+sMntVOFXHdnpG0/l8p3q60OjcbxhimFup5+0jXBUv
- tc8eDYuVj8ga9MggeHNwhjApYOrD6
-X-Received: by 2002:a17:907:174a:: with SMTP id
- lf10mr8861611ejc.433.1620372948261; 
- Fri, 07 May 2021 00:35:48 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJx5XI2zKUbsKazvcW2Vr5jvMDeiB+dtOEKTtfzbIqz37aYae3i7ugq6B0OmfMhiabycSZroRA==
-X-Received: by 2002:a17:907:174a:: with SMTP id
- lf10mr8861569ejc.433.1620372947917; 
- Fri, 07 May 2021 00:35:47 -0700 (PDT)
-Received: from [192.168.3.132] (p5b0c63c0.dip0.t-ipconnect.de. [91.12.99.192])
- by smtp.gmail.com with ESMTPSA id
- l17sm2925176ejk.22.2021.05.07.00.35.45
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 07 May 2021 00:35:47 -0700 (PDT)
-To: Nick Kossifidis <mick@ics.forth.gr>, jejb@linux.ibm.com
-Cc: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport
- <rppt@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>,
- Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Michael Kerrisk
- <mtk.manpages@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki"
- <rjw@rjwysocki.net>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-nvdimm@lists.01.org,
- linux-riscv@lists.infradead.org, x86@kernel.org
-References: <20210303162209.8609-1-rppt@kernel.org>
- <20210505120806.abfd4ee657ccabf2f221a0eb@linux-foundation.org>
- <de27bfae0f4fdcbb0bb4ad17ec5aeffcd774c44b.camel@linux.ibm.com>
- <996dbc29-e79c-9c31-1e47-cbf20db2937d@redhat.com>
- <8eb933f921c9dfe4c9b1b304e8f8fa4fbc249d84.camel@linux.ibm.com>
- <77fe28bd940b2c1afd69d65b6d349352@mailhost.ics.forth.gr>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Subject: Re: [PATCH v18 0/9] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <5232c8a7-8a05-9d0f-69ff-3dba2b04e784@redhat.com>
-Date: Fri, 7 May 2021 09:35:45 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+ id 1lewZT-006j4e-9E
+ for linux-riscv@lists.infradead.org; Fri, 07 May 2021 09:14:57 +0000
+Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.58])
+ by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Fc4Sd0lYkzqSgV;
+ Fri,  7 May 2021 17:11:29 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS405-HUB.china.huawei.com (10.3.19.205) with Microsoft SMTP Server id
+ 14.3.498.0; Fri, 7 May 2021 17:14:40 +0800
+From: Tong Tiangen <tongtiangen@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Tong
+ Tiangen" <tongtiangen@huawei.com>
+Subject: [RFC PATCH] riscv: add VMAP_STACK overflow detection
+Date: Fri, 7 May 2021 17:25:09 +0800
+Message-ID: <20210507092509.41346-1-tongtiangen@huawei.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <77fe28bd940b2c1afd69d65b6d349352@mailhost.ics.forth.gr>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-Originating-IP: [10.175.113.25]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210507_003552_841639_25493462 
-X-CRM114-Status: GOOD (  36.12  )
+X-CRM114-CacheID: sfid-20210507_021455_703651_141D148A 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,85 +82,297 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDcuMDUuMjEgMDE6MTYsIE5pY2sgS29zc2lmaWRpcyB3cm90ZToKPiDOo8+EzrnPgiAyMDIx
-LTA1LTA2IDIwOjA1LCBKYW1lcyBCb3R0b21sZXkgzq3Os8+BzrHPiM61Ogo+PiBPbiBUaHUsIDIw
-MjEtMDUtMDYgYXQgMTg6NDUgKzAyMDAsIERhdmlkIEhpbGRlbmJyYW5kIHdyb3RlOgo+Pj4KPj4+
-IEFsc28sIHRoZXJlIGlzIGEgd2F5IHRvIHN0aWxsIHJlYWQgdGhhdCBtZW1vcnkgd2hlbiByb290
-IGJ5Cj4+Pgo+Pj4gMS4gSGF2aW5nIGtkdW1wIGFjdGl2ZSAod2hpY2ggd291bGQgb2Z0ZW4gYmUg
-dGhlIGNhc2UsIGJ1dCBtYXliZSBub3QKPj4+IHRvIGR1bXAgdXNlciBwYWdlcyApCj4+PiAyLiBU
-cmlnZ2VyaW5nIGEga2VybmVsIGNyYXNoIChlYXN5IHZpYSBwcm9jIGFzIHJvb3QpCj4+PiAzLiBX
-YWl0aW5nIGZvciB0aGUgcmVib290IGFmdGVyIGt1bXAoKSBjcmVhdGVkIHRoZSBkdW1wIGFuZCB0
-aGVuCj4+PiByZWFkaW5nIHRoZSBjb250ZW50IGZyb20gZGlzay4KPj4KPj4gQW55dGhpbmcgdGhh
-dCBjYW4gbGVhdmUgcGh5c2ljYWwgbWVtb3J5IGludGFjdCBidXQgYm9vdCB0byBhIGtlcm5lbAo+
-PiB3aGVyZSB0aGUgbWlzc2luZyBkaXJlY3QgbWFwIGVudHJ5IGlzIHJlc3RvcmVkIGNvdWxkIHRo
-ZW9yZXRpY2FsbHkKPj4gZXh0cmFjdCB0aGUgc2VjcmV0LiAgSG93ZXZlciwgaXQncyBub3QgZXhh
-Y3RseSBnb2luZyB0byBiZSBhIHN0ZWFsdGh5Cj4+IGV4dHJhY3Rpb24gLi4uCj4+Cj4+PiBPciwg
-YXMgYW4gYXR0YWNrZXIsIGxvYWQgYSBjdXN0b20ga2V4ZWMoKSBrZXJuZWwgYW5kIHJlYWQgbWVt
-b3J5Cj4+PiBmcm9tIHRoZSBuZXcgZW52aXJvbm1lbnQuIE9mIGNvdXJzZSwgdGhlIGxhdHRlciB0
-d28gYXJlIGFkdmFuY2VkCj4+PiBtZWNoYW5pc21zLCBidXQgdGhleSBhcmUgcG9zc2libGUgd2hl
-biByb290LiBXZSBtaWdodCBiZSBhYmxlIHRvCj4+PiBtaXRpZ2F0ZSwgZm9yIGV4YW1wbGUsIGJ5
-IHplcm9pbmcgb3V0IHNlY3JldG1lbSBwYWdlcyBiZWZvcmUgYm9vdGluZwo+Pj4gaW50byB0aGUg
-a2V4ZWMga2VybmVsLCBpZiB3ZSBjYXJlIDopCj4+Cj4+IEkgdGhpbmsgd2UgY291bGQgaGFuZGxl
-IGl0IGJ5IG1hcmtpbmcgdGhlIHJlZ2lvbiwgeWVzLCBhbmQgYSB6ZXJvIG9uCj4+IHNodXRkb3du
-IG1pZ2h0IGJlIHVzZWZ1bCAuLi4gaXQgd291bGQgcHJldmVudCBhbGwgd2FybSByZWJvb3QgdHlw
-ZQo+PiBhdHRhY2tzLgo+Pgo+IAo+IEkgaGFkIHNpbWlsYXIgY29uY2VybnMgYWJvdXQgcmVjb3Zl
-cmluZyBzZWNyZXRzIHdpdGgga2R1bXAsIGFuZAo+IGNvbnNpZGVyZWQgY2xlYW5pbmcgdXAga2V5
-cmluZ3MgYmVmb3JlIGp1bXBpbmcgdG8gdGhlIG5ldyBrZXJuZWwuIFRoZQo+IHByb2JsZW0gaXMg
-d2UgY2FuJ3QgcHJvdmlkZSBndWFyYW50ZWVzIGluIHRoYXQgY2FzZSwgb25jZSB0aGUga2VybmVs
-IGhhcwo+IGNyYXNoZWQgYW5kIHdlIGFyZSBvbiBvdXIgd2F5IHRvIHJ1biBjcmFzaGtlcm5lbCwg
-d2UgY2FuJ3QgYmUgc3VyZSB3ZQo+IGNhbiByZWxpYWJseSB6ZXJvLW91dCBhbnl0aGluZywgdGhl
-IG1vcmUgY29kZSB3ZSBhZGQgdG8gdGhhdCBwYXRoIHRoZQoKV2VsbCwgSSB0aGluayBpdCBkZXBl
-bmRzLiBBc3N1bWUgd2UgZG8gdGhlIGZvbGxvd2luZwoKMSkgWmVybyBvdXQgYW55IHNlY3JldG1l
-bSBwYWdlcyB3aGVuIGhhbmRpbmcgdGhlbSBiYWNrIHRvIHRoZSBidWRkeS4gCihhbHRlcm5hdGl2
-ZTogaW5pdF9vbl9mcmVlPTEpIC0tIGlmIG5vdCBhbHJlYWR5IGRvbmUsIEkgZGlkbid0IGNoZWNr
-IHRoZSAKY29kZS4KCjIpIE9uIGtkdW1wKCksIHplcm8gb3V0IGFsbCBhbGxvY2F0ZWQgc2VjcmV0
-bWVtLiBJdCdkIGJlIGVhc2llciBpZiB3ZSdkIApqdXN0IGFsbG9jYXRlZCBmcm9tIGEgZml4ZWQg
-cGh5c2ljYWwgbWVtb3J5IGFyZWE7IG90aGVyd2lzZSB3ZSBoYXZlIHRvIAp3YWxrIHByb2Nlc3Mg
-cGFnZSB0YWJsZXMgb3IgdXNlIGEgUEZOIHdhbGtlci4gQW5kIHplcm9pbmcgb3V0IHNlY3JldG1l
-bSAKcGFnZXMgd2l0aG91dCBhIGRpcmVjdCBtYXBwaW5nIGlzIGEgZGlmZmVyZW50IGNoYWxsZW5n
-ZS4KCk5vdywgZHVyaW5nIDIpIGl0IGNhbiBoYXBwZW4gdGhhdAoKYSkgV2UgY3Jhc2ggaW4gb3Vy
-IGNsZWFyaW5nIGNvZGUgKGUuZy4sIHNvbWV0aGluZyBpcyBzZXJpb3VzbHkgbWVzc2VkIAp1cCkg
-YW5kIGZhaWwgdG8gc3RhcnQgdGhlIGtkdW1wIGtlcm5lbC4gVGhhdCdzIGFjdHVhbGx5IGdvb2Qs
-IGluc3RlYWQgb2YgCmxlYWtpbmcgZGF0YSB3ZSBmYWlsIGhhcmQuCgpiKSBXZSBkb24ndCBmaW5k
-IGFsbCBzZWNyZXRtZW0gcGFnZXMsIGZvciBleGFtcGxlLCBiZWNhdXNlIHByb2Nlc3MgcGFnZSAK
-dGFibGVzIGFyZSBtZXNzZWQgdXAgb3Igc29tZXRoaW5nIG1lc3NlZCB1cCBvdXIgbWVtbWFwIChp
-ZiB3ZSdkIHVzZSB0aGF0IAp0byBpZGVudGlmeSBzZWNyZXRtZW0gcGFnZXMgdmlhIGEgUEZOIHdh
-bGtlciBzb21laG93KQoKCkJ1dCBmb3IgdGhlIHNpbXBsZSBjYXNlcyAoZS5nLiwgbWFsaWNpb3Vz
-IHJvb3QgdHJpZXMgdG8gY3Jhc2ggdGhlIGtlcm5lbCAKdmlhIC9wcm9jL3N5c3JxLXRyaWdnZXIp
-IGJvdGggYSkgYW5kIGIpIHdvdWxkbid0IGFwcGx5LgoKT2J2aW91c2x5LCBpZiBhbiBhZG1pbiB3
-b3VsZCB3YW50IHRvIG1pdGlnYXRlIHJpZ2h0IG5vdywgaGUgd291bGQgd2FudCAKdG8gZGlzYWJs
-ZSBrZHVtcCBjb21wbGV0ZWx5LCBtZWFuaW5nIGFueSBhdHRlbXB0IHRvIGxvYWQgYSBjcmFzaGtl
-cm5lbCAKd291bGQgZmFpbCBhbmQgY2Fubm90IGJlIGVuYWJsZWQgYWdhaW4gZm9yIHRoYXQga2Vy
-bmVsIChhbHNvIG5vdCB2aWEgCmNtZGxpbmUgYW4gYXR0YWNrZXIgY291bGQgbW9kaWZ5IHRvIHJl
-Ym9vdCBpbnRvIGEgc3lzdGVtIHdpdGggdGhlIG9wdGlvbiAKZm9yIGEgY3Jhc2hrZXJuZWwpLiBE
-aXNhYmxpbmcga2R1bXAgaW4gdGhlIGtlcm5lbCB3aGVuIHNlY3JldG1lbSBwYWdlcyAKYXJlIGFs
-bG9jYXRlZCBpcyBvbmUgYXBwcm9hY2gsIGFsdGhvdWdoIHN1Yi1vcHRpbWFsLgoKPiBtb3JlIHJp
-c2t5IGl0IGdldHMuIEhvd2V2ZXIgZHVyaW5nIHJlYm9vdC9ub3JtYWwga2V4ZWMoKSB3ZSBzaG91
-bGQgZG8KPiBzb21lIGNsZWFudXAsIGl0IG1ha2VzIHNlbnNlIGFuZCBzZWNyZXRtZW0gY2FuIGlu
-ZGVlZCBiZSB1c2VmdWwgaW4gdGhhdAo+IGNhc2UuIFJlZ2FyZGluZyBsb2FkaW5nIGN1c3RvbSBr
-ZXhlYygpIGtlcm5lbHMsIHdlIG1pdGlnYXRlIHRoaXMgd2l0aAo+IHRoZSBrZXhlYyBmaWxlLWJh
-c2VkIEFQSSB3aGVyZSB3ZSBjYW4gdmVyaWZ5IHRoZSBzaWduYXR1cmUgb2YgdGhlIGxvYWRlZAo+
-IGtpbWFnZSAoYXNzdW1pbmcgdGhlIHN5c3RlbSBydW5zIGEga2VybmVsIHByb3ZpZGVkIGJ5IGEg
-dHJ1c3RlZCAzcmQKPiBwYXJ0eSBhbmQgd2UgJ3ZlIG1haW50YWluZWQgYSBjaGFpbiBvZiB0cnVz
-dCBzaW5jZSBib290aW5nKS4KCkZvciBleGFtcGxlIGluIFZNcyAobGlrZSBRRU1VKSwgd2Ugb2Z0
-ZW4gZG9uJ3QgY2xlYXIgcGh5c2ljYWwgbWVtb3J5IApkdXJpbmcgYSByZWJvb3QuIFNvIGlmIGFu
-IGF0dGFja2VyIG1hbmFnZXMgdG8gbG9hZCBhIGtlcm5lbCB0aGF0IHlvdSBjYW4gCnRyaWNrIGlu
-dG8gcmVhZGluZyByYW5kb20gcGh5c2ljYWwgbWVtb3J5IGFyZWFzLCB3ZSBjYW4gbGVhayBzZWNy
-ZXRtZW0gCmRhdGEgSSB0aGluay4KCkFuZCB0aGVyZSBtaWdodCBiZSB3YXlzIHRvIGFjaGlldmUg
-dGhhdCBqdXN0IHVzaW5nIHRoZSBjbWRsaW5lLCBub3QgCm5lY2Vzc2FyaWx5IGxvYWRpbmcgYSBk
-aWZmZXJlbnQga2VybmVsLiBGb3IgZXhhbXBsZSBpZiB5b3UgbGltaXQgdGhlIAprZXJuZWwgZm9v
-dHByaW50ICgibWVtPTI1Nk0iKSBhbmQgZGlzYWJsZSBzdHJpY3RfaW9tZW1fY2hlY2tzIAooInN0
-cmljdF9pb21lbV9jaGVja3M9cmVsYXhlZCIpIHlvdSBjYW4ganVzdCBleHRyYWN0IHRoYXQgbWVt
-b3J5IHZpYSAKL2Rldi9tZW0gaWYgSSBhbSBub3Qgd3JvbmcuCgpTbyBhcyBhbiBhdHRhY2tlciwg
-bW9kaWZ5IHRoZSAoZ3J1YikgY21kbGluZSB0byAibWVtPTI1Nk0gCnN0cmljdF9pb21lbV9jaGVj
-a3M9cmVsYXhlZCIsIHJlYm9vdCwgYW5kIHJlYWQgYWxsIG1lbW9yeSB2aWEgL2Rldi9tZW0uIApP
-ciBsb2FkIGEgc2lnbmVkIGtleGVjIGtlcm5lbCB3aXRoIHRoYXQgY21kbGluZSBhbmQgYm9vdCBp
-bnRvIGl0LgoKSW50ZXJlc3RpbmcgcHJvYmxlbSA6KQoKLS0gClRoYW5rcywKCkRhdmlkIC8gZGhp
-bGRlbmIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This patch adds stack overflow detection to riscv, usable when
+CONFIG_VMAP_STACK=y.
+
+Overflow is detected in kernel exception entry(kernel/entry.S), if the kernel
+stack is overflow and been detected, the overflow handler is invoked on a
+per-cpu overflow stack. This approach preserves GPRs and the original exception
+information.
+
+The overflow detect is performed before any attempt is made to access the stack
+and the principle of stack overflow detection: kernel stacks are aligned to
+double their size, enabling overflow to be detected with a single bit test. For
+example, a 16K stack is aligned to 32K, ensuring that bit 14 of the SP must be
+zero. On an overflow (or underflow), this bit is flipped. Thus, overflow (of
+less than the size of the stack) can be detected by testing whether this bit is
+set.
+
+This gives us a useful error message on stack overflow, as can be trigger with
+the LKDTM overflow test:
+
+[  388.053267] lkdtm: Performing direct entry EXHAUST_STACK
+[  388.053663] lkdtm: Calling function with 1024 frame size to depth 32 ...
+[  388.054016] lkdtm: loop 32/32 ...
+[  388.054186] lkdtm: loop 31/32 ...
+[  388.054491] lkdtm: loop 30/32 ...
+[  388.054672] lkdtm: loop 29/32 ...
+[  388.054859] lkdtm: loop 28/32 ...
+[  388.055010] lkdtm: loop 27/32 ...
+[  388.055163] lkdtm: loop 26/32 ...
+[  388.055309] lkdtm: loop 25/32 ...
+[  388.055481] lkdtm: loop 24/32 ...
+[  388.055653] lkdtm: loop 23/32 ...
+[  388.055837] lkdtm: loop 22/32 ...
+[  388.056015] lkdtm: loop 21/32 ...
+[  388.056188] lkdtm: loop 20/32 ...
+[  388.058145] Insufficient stack space to handle exception!
+[  388.058153] Task stack:     [0xffffffd014260000..0xffffffd014264000]
+[  388.058160] Overflow stack: [0xffffffe1f8d2c220..0xffffffe1f8d2d220]
+[  388.058168] CPU: 0 PID: 89 Comm: bash Not tainted 5.12.0-rc8-dirty #90
+[  388.058175] Hardware name: riscv-virtio,qemu (DT)
+[  388.058187] epc : number+0x32/0x2c0
+[  388.058247]  ra : vsnprintf+0x2ae/0x3f0
+[  388.058255] epc : ffffffe0002d38f6 ra : ffffffe0002d814e sp : ffffffd01425ffc0
+[  388.058263]  gp : ffffffe0012e4010 tp : ffffffe08014da00 t0 : ffffffd0142606e8
+[  388.058271]  t1 : 0000000000000000 t2 : 0000000000000000 s0 : ffffffd014260070
+[  388.058303]  s1 : ffffffd014260158 a0 : ffffffd01426015e a1 : ffffffd014260158
+[  388.058311]  a2 : 0000000000000013 a3 : ffff0a01ffffff10 a4 : ffffffe000c398e0
+[  388.058319]  a5 : 511b02ec65f3e300 a6 : 0000000000a1749a a7 : 0000000000000000
+[  388.058327]  s2 : ffffffff000000ff s3 : 00000000ffff0a01 s4 : ffffffe0012e50a8
+[  388.058335]  s5 : 0000000000ffff0a s6 : ffffffe0012e50a8 s7 : ffffffe000da1cc0
+[  388.058343]  s8 : ffffffffffffffff s9 : ffffffd0142602b0 s10: ffffffd0142602a8
+[  388.058351]  s11: ffffffd01426015e t3 : 00000000000f0000 t4 : ffffffffffffffff
+[  388.058359]  t5 : 000000000000002f t6 : ffffffd014260158
+[  388.058366] status: 0000000000000100 badaddr: ffffffd01425fff8 cause: 000000000000000f
+[  388.058374] Kernel panic - not syncing: Kernel stack overflow
+[  388.058381] CPU: 0 PID: 89 Comm: bash Not tainted 5.12.0-rc8-dirty #90
+[  388.058387] Hardware name: riscv-virtio,qemu (DT)
+[  388.058393] Call Trace:
+[  388.058400] [<ffffffe000004944>] walk_stackframe+0x0/0xce
+[  388.058406] [<ffffffe0006f0b28>] dump_backtrace+0x38/0x46
+[  388.058412] [<ffffffe0006f0b46>] show_stack+0x10/0x18
+[  388.058418] [<ffffffe0006f3690>] dump_stack+0x74/0x8e
+[  388.058424] [<ffffffe0006f0d52>] panic+0xfc/0x2b2
+[  388.058430] [<ffffffe0006f0acc>] print_trace_address+0x0/0x24
+[  388.058436] [<ffffffe0002d814e>] vsnprintf+0x2ae/0x3f0
+[  388.058956] SMP: stopping secondary CPUs
+
+Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+---
+ arch/riscv/Kconfig                   |   1 +
+ arch/riscv/include/asm/thread_info.h |  15 ++++
+ arch/riscv/kernel/entry.S            | 108 +++++++++++++++++++++++++++
+ arch/riscv/kernel/traps.c            |  35 +++++++++
+ 4 files changed, 159 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4515a10c5d22..587f001e84f4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -63,6 +63,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_SECCOMP_FILTER
+ 	select HAVE_ARCH_TRACEHOOK
++	select HAVE_ARCH_VMAP_STACK
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_CONTEXT_TRACKING
+ 	select HAVE_DEBUG_KMEMLEAK
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 0e549a3089b3..60da0dcacf14 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -19,6 +19,21 @@
+ #endif
+ #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+ 
++/*
++ * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
++ * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
++ * assembly.
++ */
++#ifdef CONFIG_VMAP_STACK
++#define THREAD_ALIGN            (2 * THREAD_SIZE)
++#else
++#define THREAD_ALIGN            THREAD_SIZE
++#endif
++
++#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
++#define OVERFLOW_STACK_SIZE     SZ_4K
++#define SHADOW_OVERFLOW_STACK_SIZE (1024)
++
+ #ifndef __ASSEMBLY__
+ 
+ #include <asm/processor.h>
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 83095faa680e..deadf4000b86 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -29,6 +29,15 @@ ENTRY(handle_exception)
+ _restore_kernel_tpsp:
+ 	csrr tp, CSR_SCRATCH
+ 	REG_S sp, TASK_TI_KERNEL_SP(tp)
++
++#ifdef CONFIG_VMAP_STACK
++	addi sp, sp, -(PT_SIZE_ON_STACK)
++	srli sp, sp, THREAD_SHIFT
++	andi sp, sp, 0x1
++	bnez sp, handle_kernel_stack_overflow
++	REG_L sp, TASK_TI_KERNEL_SP(tp)
++#endif
++
+ _save_context:
+ 	REG_S sp, TASK_TI_USER_SP(tp)
+ 	REG_L sp, TASK_TI_KERNEL_SP(tp)
+@@ -375,6 +384,105 @@ handle_syscall_trace_exit:
+ 	call do_syscall_trace_exit
+ 	j ret_from_exception
+ 
++#ifdef CONFIG_VMAP_STACK
++handle_kernel_stack_overflow:
++	la sp, shadow_stack
++	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
++
++	//save caller register to shadow stack
++	addi sp, sp, -(PT_SIZE_ON_STACK)
++	REG_S x1,  PT_RA(sp)
++	REG_S x5,  PT_T0(sp)
++	REG_S x6,  PT_T1(sp)
++	REG_S x7,  PT_T2(sp)
++	REG_S x10, PT_A0(sp)
++	REG_S x11, PT_A1(sp)
++	REG_S x12, PT_A2(sp)
++	REG_S x13, PT_A3(sp)
++	REG_S x14, PT_A4(sp)
++	REG_S x15, PT_A5(sp)
++	REG_S x16, PT_A6(sp)
++	REG_S x17, PT_A7(sp)
++	REG_S x28, PT_T3(sp)
++	REG_S x29, PT_T4(sp)
++	REG_S x30, PT_T5(sp)
++	REG_S x31, PT_T6(sp)
++
++	la ra, restore_caller_reg
++	tail get_overflow_stack
++
++restore_caller_reg:
++	//save per-cpu overflow stack
++	sd a0, -8(sp)
++	//restore caller register from shadow_stack
++	REG_L x1,  PT_RA(sp)
++	REG_L x5,  PT_T0(sp)
++	REG_L x6,  PT_T1(sp)
++	REG_L x7,  PT_T2(sp)
++	REG_L x10, PT_A0(sp)
++	REG_L x11, PT_A1(sp)
++	REG_L x12, PT_A2(sp)
++	REG_L x13, PT_A3(sp)
++	REG_L x14, PT_A4(sp)
++	REG_L x15, PT_A5(sp)
++	REG_L x16, PT_A6(sp)
++	REG_L x17, PT_A7(sp)
++	REG_L x28, PT_T3(sp)
++	REG_L x29, PT_T4(sp)
++	REG_L x30, PT_T5(sp)
++	REG_L x31, PT_T6(sp)
++
++	//load per-cpu overflow stack
++	ld sp, -8(sp)
++	addi sp, sp, -(PT_SIZE_ON_STACK)
++
++	//save context to overflow stack
++	REG_S x1,  PT_RA(sp)
++	REG_S x3,  PT_GP(sp)
++	REG_S x5,  PT_T0(sp)
++	REG_S x6,  PT_T1(sp)
++	REG_S x7,  PT_T2(sp)
++	REG_S x8,  PT_S0(sp)
++	REG_S x9,  PT_S1(sp)
++	REG_S x10, PT_A0(sp)
++	REG_S x11, PT_A1(sp)
++	REG_S x12, PT_A2(sp)
++	REG_S x13, PT_A3(sp)
++	REG_S x14, PT_A4(sp)
++	REG_S x15, PT_A5(sp)
++	REG_S x16, PT_A6(sp)
++	REG_S x17, PT_A7(sp)
++	REG_S x18, PT_S2(sp)
++	REG_S x19, PT_S3(sp)
++	REG_S x20, PT_S4(sp)
++	REG_S x21, PT_S5(sp)
++	REG_S x22, PT_S6(sp)
++	REG_S x23, PT_S7(sp)
++	REG_S x24, PT_S8(sp)
++	REG_S x25, PT_S9(sp)
++	REG_S x26, PT_S10(sp)
++	REG_S x27, PT_S11(sp)
++	REG_S x28, PT_T3(sp)
++	REG_S x29, PT_T4(sp)
++	REG_S x30, PT_T5(sp)
++	REG_S x31, PT_T6(sp)
++
++	REG_L s0, TASK_TI_KERNEL_SP(tp)
++	csrr s1, CSR_STATUS
++	csrr s2, CSR_EPC
++	csrr s3, CSR_TVAL
++	csrr s4, CSR_CAUSE
++	csrr s5, CSR_SCRATCH
++	REG_S s0, PT_SP(sp)
++	REG_S s1, PT_STATUS(sp)
++	REG_S s2, PT_EPC(sp)
++	REG_S s3, PT_BADADDR(sp)
++	REG_S s4, PT_CAUSE(sp)
++	REG_S s5, PT_TP(sp)
++	move a0, sp
++	tail handle_bad_stack
++#endif
++
+ END(handle_exception)
+ 
+ ENTRY(ret_from_fork)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 1357abf79570..ff8033b9fdd6 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -200,3 +200,38 @@ int is_valid_bugaddr(unsigned long pc)
+ void trap_init(void)
+ {
+ }
++
++#ifdef CONFIG_VMAP_STACK
++DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack)
++		__aligned(16);
++/*
++ * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
++ * to get per-cpu overflow stack(get_overflow_stack).
++ */
++long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
++asmlinkage unsigned long get_overflow_stack(void)
++{
++	return (unsigned long)this_cpu_ptr(overflow_stack) +
++		OVERFLOW_STACK_SIZE;
++}
++
++asmlinkage void handle_bad_stack(struct pt_regs *regs)
++{
++	unsigned long tsk_stk = (unsigned long)current->stack;
++	unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
++
++	console_verbose();
++
++	pr_emerg("Insufficient stack space to handle exception!\n");
++	pr_emerg("Task stack:     [0x%016lx..0x%016lx]\n",
++			tsk_stk, tsk_stk + THREAD_SIZE);
++	pr_emerg("Overflow stack: [0x%016lx..0x%016lx]\n",
++			ovf_stk, ovf_stk + OVERFLOW_STACK_SIZE);
++
++	__show_regs(regs);
++	panic("Kernel stack overflow");
++
++	for (;;)
++		wait_for_interrupt();
++}
++#endif
+-- 
+2.18.0.huawei.25
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
