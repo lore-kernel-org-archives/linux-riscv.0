@@ -1,132 +1,78 @@
-Return-Path: <SRS0=6bm6=KC=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=gmBF=KD=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2BB3C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 23:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 636E0C433ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 May 2021 02:56:27 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 282B860FEA
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 May 2021 23:58:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 282B860FEA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	by mail.kernel.org (Postfix) with ESMTPS id C372C60FF1
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 May 2021 02:56:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C372C60FF1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Yt4KWfJLNbZNEJYCD1DnLh05rJRqFsJm9M3DVM4nSDY=; b=pTelBhfpHdiIgNA/mA+Bmv/ip
-	Ne5ZEG+sQnKtiVntuekNvq3BHt37SVQObO6XcWUN9F36a0h6J1C+yQ4sh0+EVRMMEYsKT3aOaccfO
-	8MjIZI55V2FfFnDiUd0PDkZ1eQPWvr52SgtaNSymGhyHsucqavywRw1zeICODgB16zv6PoPDedjV9
-	whZXk5MkisQ1VJd/0H/izzcVTdPZA/ndhSxgYwWHltPZp5Kt6UOm1RntMxzbEkFJMEmJNfgTHx6st
-	YydIrsJExuFmOOrN6t5RyROZfkpsJCY+DM/o0NnF3YugM38jR4SMekQlgqwhu96fDruzxM5gNDPiZ
-	tSZfinAow==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2ZDW71giC1TTfRgMfNFqJyPYkE/ocC4uRztPGM2LIvw=; b=QxsTWWyhGHP4YL+Z1b/Ei2Xb27
+	KD22f+mU/fwYeb1OReVzRICEcDPvKZY2b5iSCv83Y+E4QfEZz6Nu70fnJYK7hXxk5YLS0KjUXOaJG
+	3dEVrNyJI8zewHAda5PKaOKTMk+HGrFE2qck1ugw7CjLXNNaEoYjO7BGICyMwVA3oP5WsTBbeqHrB
+	Zc2XpTZk/mjck5WrQ+O00TKJoNlnhFypvdbrcl8zZkQaOoYY7S8PXUBhL4wJxasOtMKSKYC4Jw2ay
+	moH4XzywmVluVWUUk1dYRgeR0yIXGpTEe7s7MCFVCmq/5apTUK/UWVp3PFVt6nYrWwFcaCBEF6Enh
+	KG5WLclA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lfAMA-008KQy-Gq; Fri, 07 May 2021 23:58:06 +0000
+	id 1lfD8O-008bob-BL; Sat, 08 May 2021 02:56:04 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lfAM8-008KQR-3G
- for linux-riscv@desiato.infradead.org; Fri, 07 May 2021 23:58:04 +0000
+ id 1lfD8L-008bnq-EE
+ for linux-riscv@desiato.infradead.org; Sat, 08 May 2021 02:56:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=2iQQvEB0+fCpb/rAB5HWawShZb8qZlIcaFuxaSL0oes=; b=aVLjTz8JZ6kCexCmLaCnogZSA6
- TEQc5GRhf2Ihg2NCxHvv4EgQLlQ22x5gA/1umB+UDUO5qo8lcNzarX1kUUNkSC9ojp4ifoMYp0/JC
- pLn+PgYy+oFx9mxRQlDjQViKXkuqowRQtwaw6T6gZ2CUTt1oOb4MpXd1Dt5RsmLlHi/zNSQmG7T6h
- fnVTEAQMHGiKCPCBXX/KU6RWzh1JntbP1FBhGpbK/6NcwJbgqT518Onnfk0Qa7REdW3WjsIzvv14q
- FG+XUHkZ/zwoetJELiOQKsAKjW0Zkp37Qb9hbJZ8iI5UW9tEneiJeMOpan7hdme4Gq4ksAAl7ODmM
- 2vvbEzxg==;
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:
+ Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+ Sender:Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+ bh=azyIcSgFQi9Z9Uz/QmVGIAlWzecQKYFiczRIL7ayE58=; b=o8Xz75WHM7ZUkxhNLy0o07x3M5
+ dSDU0t3rt8O3keB2Fmd2Dvg97kObMgvP3y3ff5LfEeqFcrQobUF3kVMceyxUCCLMd/Yh/kIgOCnPT
+ nQZOtTeOx93IocLZHO17m9vaJ1SNL8mia5h9x6rOn+UIvQVg6FMHK7u0DizVRR9V3tZWGQatwkB4p
+ aruBO0sedFWIr7q/5ou8TIuU+uIR7MjWlBBxkiB1VJcFsA8HOZynOS2kzONPk/mPGers8ao0/iBnn
+ rSK7MWEakNmKt7q1fsUWRDuzTHaBcNrxTDacQoDLOCYU+VH0LYZqKdv2Je4OajNpRXNrI0zJ2OGmb
+ pK1ZE6aQ==;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lfAM5-007GR4-Cn
- for linux-riscv@lists.infradead.org; Fri, 07 May 2021 23:58:02 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id
- l10-20020a17090a850ab0290155b06f6267so6343397pjn.5
- for <linux-riscv@lists.infradead.org>; Fri, 07 May 2021 16:57:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=2iQQvEB0+fCpb/rAB5HWawShZb8qZlIcaFuxaSL0oes=;
- b=EqhSZy45d2y8OQQwraWGhlD9n54vClwPwSn7UuK9xZviJIBJseEIUX0aF36GebrTNP
- 3Y9esEq2VEVMdpYAd+09juu7yIqSSNYhNNt+rVs1po+n6QlJ3kc6cbxhUV5wUfFprLGx
- TjvIY1CeOIbcMr4b7WQIEnR9bfI+n///RODlA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=2iQQvEB0+fCpb/rAB5HWawShZb8qZlIcaFuxaSL0oes=;
- b=KLA4IH+3CirHHrJIThR5ifpxIbNjs+lEs4PxDeCu7hPMI+fHHnbvqpove8FEAMrMXb
- VpLvQEhKypUvZ4L3qtoCmuLE7YaYpFybKUkncex7GSNOsnjLmkurg1zCDK3hNxMpGuKG
- khaE/cHoC/l/NHfedcFNWLR3kLc6Elh/CN4P1hlLPM6qqnD6DhhkPN+BbOyPCwlW8wvx
- ofdB9rJIkOwo/gJfYVC0R0tPuaXUxYmYbpycJ2d9dLywUjFm1GtpehJgNf+y4bIVrId+
- W3GtR69qpi3cHhe1cCtN25aP9PNGM25mp3qSwnxy7Ebmm+VYZJxWxE89my6NBiiMWInM
- Ltjg==
-X-Gm-Message-State: AOAM533uEg7TjqjsDSJqjf5KdwnNxLdR8j5TNUmQVs0SI4Eaj2dwVQus
- 48FO+xZ7kvDl5VItM2RQ9OuyBw==
-X-Google-Smtp-Source: ABdhPJwW5et97Z//abVIXmo2gBu5V8/Vzg230KpxBawys34RoMW6n/H4x7d7dTWApKrw1+7V8ZstIg==
-X-Received: by 2002:a17:902:ff09:b029:ed:3b29:ff43 with SMTP id
- f9-20020a170902ff09b02900ed3b29ff43mr12583115plj.14.1620431878548; 
- Fri, 07 May 2021 16:57:58 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id ha14sm5011198pjb.40.2021.05.07.16.57.56
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 07 May 2021 16:57:56 -0700 (PDT)
-Date: Fri, 7 May 2021 16:57:55 -0700
-From: Kees Cook <keescook@chromium.org>
-To: James Bottomley <jejb@linux.ibm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>,
- Matthew Garrett <mjg59@srcf.ucam.org>,
- Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@linux.ibm.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-nvdimm@lists.01.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v18 0/9] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <202105071620.E834B1FA92@keescook>
-References: <20210303162209.8609-1-rppt@kernel.org>
- <20210505120806.abfd4ee657ccabf2f221a0eb@linux-foundation.org>
- <de27bfae0f4fdcbb0bb4ad17ec5aeffcd774c44b.camel@linux.ibm.com>
- <202105060916.ECDEC21@keescook>
- <9e1953a1412fad06a9f7988a280d2d9a74ab0464.camel@linux.ibm.com>
+ id 1lfD8H-007Kii-Ub
+ for linux-riscv@lists.infradead.org; Sat, 08 May 2021 02:55:59 +0000
+Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.58])
+ by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4FcX1h1wfKz16Pb6;
+ Sat,  8 May 2021 10:53:12 +0800 (CST)
+Received: from huawei.com (10.175.113.32) by DGGEMS410-HUB.china.huawei.com
+ (10.3.19.210) with Microsoft SMTP Server id 14.3.498.0; Sat, 8 May 2021
+ 10:55:41 +0800
+From: Liu Shixin <liushixin2@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexander Potapenko
+ <glider@google.com>, Marco Elver <elver@google.com>, Dmitry Vyukov
+ <dvyukov@google.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <kasan-dev@googlegroups.com>, Liu Shixin <liushixin2@huawei.com>
+Subject: [RFC] riscv: Enable KFENCE for riscv64
+Date: Sat, 8 May 2021 11:29:12 +0800
+Message-ID: <20210508032912.2693212-1-liushixin2@huawei.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <9e1953a1412fad06a9f7988a280d2d9a74ab0464.camel@linux.ibm.com>
+X-Originating-IP: [10.175.113.32]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210507_165801_488173_7F7BC6D8 
-X-CRM114-Status: GOOD (  28.28  )
+X-CRM114-CacheID: sfid-20210507_195558_343132_3C3FD589 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,64 +89,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 06, 2021 at 11:47:47AM -0700, James Bottomley wrote:
-> On Thu, 2021-05-06 at 10:33 -0700, Kees Cook wrote:
-> > On Thu, May 06, 2021 at 08:26:41AM -0700, James Bottomley wrote:
-> [...]
-> > > > I think that a very complete description of the threats which
-> > > > this feature addresses would be helpful.  
-> > > 
-> > > It's designed to protect against three different threats:
-> > > 
-> > >    1. Detection of user secret memory mismanagement
-> > 
-> > I would say "cross-process secret userspace memory exposures" (via a
-> > number of common interfaces by blocking it at the GUP level).
-> > 
-> > >    2. significant protection against privilege escalation
-> > 
-> > I don't see how this series protects against privilege escalation.
-> > (It protects against exfiltration.) Maybe you mean include this in
-> > the first bullet point (i.e. "cross-process secret userspace memory
-> > exposures, even in the face of privileged processes")?
-> 
-> It doesn't prevent privilege escalation from happening in the first
-> place, but once the escalation has happened it protects against
-> exfiltration by the newly minted root attacker.
+Add architecture specific implementation details for KFENCE and enable
+KFENCE for the riscv64 architecture. In particular, this implements the
+required interface in <asm/kfence.h>.
 
-So, after thinking a bit more about this, I don't think there is
-protection here against privileged execution. This feature kind of helps
-against cross-process read/write attempts, but it doesn't help with
-sufficiently privileged (i.e. ptraced) execution, since we can just ask
-the process itself to do the reading:
+KFENCE requires that attributes for pages from its memory pool can
+individually be set. Therefore, force the kfence pool to be mapped at
+page granularity.
 
-$ gdb ./memfd_secret
-...
-ready: 0x7ffff7ffb000
-Breakpoint 1, ...
-(gdb) compile code unsigned long addr = 0x7ffff7ffb000UL; printf("%016lx\n", *((unsigned long *)addr));
-55555555555555555
+I tested this patch using the testcases in kfence_test.c and all passed.
 
-And since process_vm_readv() requires PTRACE_ATTACH, there's very little
-difference in effort between process_vm_readv() and the above.
+Signed-off-by: Liu Shixin <liushixin2@huawei.com>
+---
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/kfence.h | 51 +++++++++++++++++++++++++++++++++
+ arch/riscv/mm/fault.c           | 11 ++++++-
+ 3 files changed, 62 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/kfence.h
 
-So, what other paths through GUP exist that aren't covered by
-PTRACE_ATTACH? And if none, then should this actually just be done by
-setting the process undumpable? (This is already what things like gnupg
-do.)
-
-So, the user-space side of this doesn't seem to really help. The kernel
-side protection is interesting for kernel read/write flaws, though, in
-the sense that the process is likely not being attacked from "current",
-so a kernel-side attack would need to either walk the page tables and
-create new ones, or spawn a new userspace process to do the ptracing.
-
-So, while I like the idea of this stuff, and I see how it provides
-certain coverages, I'm curious to learn more about the threat model to
-make sure it's actually providing meaningful hurdles to attacks.
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c426e7d20907..000d8aba1030 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -64,6 +64,7 @@ config RISCV
+ 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
+ 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
++	select HAVE_ARCH_KFENCE if MMU && 64BIT
+ 	select HAVE_ARCH_KGDB
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+diff --git a/arch/riscv/include/asm/kfence.h b/arch/riscv/include/asm/kfence.h
+new file mode 100644
+index 000000000000..590c5b7e3514
+--- /dev/null
++++ b/arch/riscv/include/asm/kfence.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _ASM_RISCV_KFENCE_H
++#define _ASM_RISCV_KFENCE_H
++
++#include <linux/pfn.h>
++#include <linux/slab.h>
++#include <linux/kfence.h>
++#include <asm/pgtable.h>
++
++static inline bool arch_kfence_init_pool(void)
++{
++	int i;
++	unsigned long addr;
++	pte_t *pte;
++	pmd_t *pmd;
++
++	for (addr = (unsigned long)__kfence_pool; is_kfence_address((void *)addr);
++	     addr += PAGE_SIZE) {
++		pte = virt_to_kpte(addr);
++		pmd = pmd_off_k(addr);
++
++		if (!pmd_leaf(*pmd) && pte_present(*pte))
++			continue;
++
++		pte = kmalloc(PAGE_SIZE, GFP_ATOMIC);
++		for (i = 0; i < PTRS_PER_PTE; i++)
++			set_pte(pte + i, pfn_pte(PFN_DOWN(__pa((addr & PMD_MASK) + i * PAGE_SIZE)), PAGE_KERNEL));
++
++		set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(pte)), PAGE_TABLE));
++		flush_tlb_kernel_range(addr, addr + PMD_SIZE);
++	}
++
++	return true;
++}
++
++static inline bool kfence_protect_page(unsigned long addr, bool protect)
++{
++	pte_t *pte = virt_to_kpte(addr);
++
++	if (protect)
++		set_pte(pte, __pte(pte_val(*pte) & ~_PAGE_PRESENT));
++	else
++		set_pte(pte, __pte(pte_val(*pte) | _PAGE_PRESENT));
++
++	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
++
++	return true;
++}
++
++#endif /* _ASM_RISCV_KFENCE_H */
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 096463cc6fff..aa08dd2f8fae 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -14,6 +14,7 @@
+ #include <linux/signal.h>
+ #include <linux/uaccess.h>
+ #include <linux/kprobes.h>
++#include <linux/kfence.h>
+ 
+ #include <asm/ptrace.h>
+ #include <asm/tlbflush.h>
+@@ -45,7 +46,15 @@ static inline void no_context(struct pt_regs *regs, unsigned long addr)
+ 	 * Oops. The kernel tried to access some bad page. We'll have to
+ 	 * terminate things with extreme prejudice.
+ 	 */
+-	msg = (addr < PAGE_SIZE) ? "NULL pointer dereference" : "paging request";
++	if (addr < PAGE_SIZE)
++		msg = "NULL pointer dereference";
++	else {
++		if (kfence_handle_page_fault(addr, regs->cause == EXC_STORE_PAGE_FAULT, regs))
++			return;
++
++		msg = "paging request";
++	}
++
+ 	die_kernel_fault(msg, addr, regs);
+ }
+ 
 -- 
-Kees Cook
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
