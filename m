@@ -2,89 +2,64 @@ Return-Path: <SRS0=SpZ8=KF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_NONE,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 66B31C43140
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 11:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67267C433B4
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 11:27:17 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D9D9E60FDC
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 11:23:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9D9E60FDC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=leemhuis.info
+	by mail.kernel.org (Postfix) with ESMTPS id E81AC61108
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 11:27:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E81AC61108
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qti28ZMt1W+4nYsNA/rZscs1umFz7b3CXPtthj7qU9Q=; b=WWIoXH/p1uRQ79ChnAlR7Tm3v
-	dmL/oT/9jELkPKn5W8yQLb6UvPbZEAnd9ysQsahQZeDG12+6DJ75jYvLIpAwi+eAsR5mXxkVG/Fan
-	jywiLKPpqM1acKzyihnVe39amC6tvooIKZY1zYzE3jbYzi5/lngjZOMvlvV/0RlsIERKxRdLrOZpe
-	6iFU8VvQrHVWXA6xiE3KZqFQdK5a777jgkoMEt2s2aH9hLyf7iBpr6V2rX2njKQos4OKaw1s0p6Qv
-	Z2uvnh9stzrBTBx6jC6BIdexfaVhL8onyBbaFW/YXzPSzkJOLCF7ABnI1XOatHbiGpTNRkVTnQK2V
-	wCzRFgsUg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Mime-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nP3LT+wzuSAgJuZZDi1O7NiE3Q0TQjTyE8dBjFkaifY=; b=ljGTSB9Qt2mbJTgGwMV8OJzbH
+	WHEiW04I2cILyQyFP8De/PGhXLXj2vzhe94O3rVueBMdn3/Vu5nifAuD2/QLdZTeAQQ5J8GrlYzgD
+	cejVu/EMh7PcnJiZ9bdIHmkTAokqNQ9ANj3X/ppUPXz0iqhLmZnm4fj6SKeq4sM0hixQQxskMdQ8Y
+	O19KIkg3zckBhuaHqzeEhwaSvzz6K2Rd5SXtRF/FSeiTOKQuHIzr2CgxCJqI59oW1ne9cv4s/E5fh
+	4/SvujwGWkhWfgxnd3PBnCHBuKqKPUG86bTtHltqTne2ZWFcBiQkWzgZ7UCW4gV5aEKQneUFFTay8
+	9y2fHjS5A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lg405-00E4H6-2o; Mon, 10 May 2021 11:23:01 +0000
-Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
- by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lg3X0-00E0cS-Ji; Mon, 10 May 2021 10:52:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=GWicXhhP8t7jOGZurHjueOJK1QYxQW5khYIthm1fU+w=; b=cLtufRz8bEgSTA1bm8R68GsxsL
- YaAK/kE1CnSbJhDlsBx9o0hlcVFlQTIRAAoLQVgrcO4CY4SQjxK72rUHrpJpu9mpBu17SBS+5KMrH
- sODJDo+5K8ZOBnZVJTXLCzBAP3tH+FQxP6DOqQbmX4+5vbKIwDBYw8K+f8+72odqlHM6cv4Q0Og+1
- LEJEM8+BdogOEomo6TpTrl7ZWBY3Puud517qOMEjD4m6r2NWBW1ojL5BVjqEQSEUCP23wZAfedFc7
- J8Aie7ZEJKsBFLL6y5iodjYZTYWSXUHwP+hsTgUSDdaVULHxTDiatwApSnDeN82dzcSmbOd/TSDja
- vL+Yc5wQ==;
-Received: from wp530.webpack.hosteurope.de ([2a01:488:42:1000:50ed:8234::])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lg3Ww-008ZhA-VU; Mon, 10 May 2021 10:52:57 +0000
-Received: from ip4d14bd53.dynamic.kabel-deutschland.de ([77.20.189.83]
- helo=[192.168.66.200]); authenticated
- by wp530.webpack.hosteurope.de running ExIM with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
- id 1lg3Wn-0008EG-Lc; Mon, 10 May 2021 12:52:45 +0200
+	id 1lg43v-00E52M-EU; Mon, 10 May 2021 11:26:59 +0000
+Received: from dyn-234.woodhou.se ([90.155.92.234])
+ by desiato.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
+ id 1lg3Y2-00E0oX-Qu; Mon, 10 May 2021 10:54:03 +0000
+Message-ID: <2ae366fdff4bd5910a2270823e8da70521c859af.camel@infradead.org>
 Subject: Re: [PATCH 00/53] Get rid of UTF-8 chars that can be mapped as ASCII
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- alsa-devel@alsa-project.org, coresight@lists.linaro.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+From: David Woodhouse <dwmw2@infradead.org>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Linux Doc Mailing
+ List <linux-doc@vger.kernel.org>
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+ alsa-devel@alsa-project.org, coresight@lists.linaro.org, 
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
  intel-wired-lan@lists.osuosl.org, keyrings@vger.kernel.org,
- kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-fpga@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-integrity@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sgx@vger.kernel.org, linux-usb@vger.kernel.org,
+ kvm@vger.kernel.org,  linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-edac@vger.kernel.org,
+ linux-ext4@vger.kernel.org,  linux-f2fs-devel@lists.sourceforge.net,
+ linux-fpga@vger.kernel.org,  linux-hwmon@vger.kernel.org,
+ linux-iio@vger.kernel.org,  linux-input@vger.kernel.org,
+ linux-integrity@vger.kernel.org,  linux-media@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-pm@vger.kernel.org, 
+ linux-rdma@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-sgx@vger.kernel.org, linux-usb@vger.kernel.org, 
  mjpeg-users@lists.sourceforge.net, netdev@vger.kernel.org,
- rcu@vger.kernel.org, x86@kernel.org
-References: <cover.1620641727.git.mchehab+huawei@kernel.org>
-From: Thorsten Leemhuis <linux@leemhuis.info>
-Message-ID: <c4479ced-f4d8-1a1e-ee54-9abc55344187@leemhuis.info>
-Date: Mon, 10 May 2021 12:52:44 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
-MIME-Version: 1.0
+ rcu@vger.kernel.org,  x86@kernel.org
+Date: Mon, 10 May 2021 11:54:02 +0100
 In-Reply-To: <cover.1620641727.git.mchehab+huawei@kernel.org>
-Content-Language: en-BS
-X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1620643975;446fd51c;
-X-HE-SMSGID: 1lg3Wn-0008EG-Lc
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210510_035255_163300_4F45A767 
-X-CRM114-Status: GOOD (  13.37  )
+References: <cover.1620641727.git.mchehab+huawei@kernel.org>
+X-Mailer: Evolution 3.28.5-0ubuntu0.18.04.2 
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +71,179 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7682271309350720933=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDEwLjA1LjIxIDEyOjI2LCBNYXVybyBDYXJ2YWxobyBDaGVoYWIgd3JvdGU6Cj4KPiBBcyBM
-aW51eCBkZXZlbG9wZXJzIGFyZSBhbGwgYXJvdW5kIHRoZSBnbG9iZSwgYW5kIG5vdCBldmVyeWJv
-ZHkgaGFzIFVURi04Cj4gYXMgdGhlaXIgZGVmYXVsdCBjaGFyc2V0LCBiZXR0ZXIgdG8gdXNlIFVU
-Ri04IG9ubHkgb24gY2FzZXMgd2hlcmUgaXQgaXMgcmVhbGx5Cj4gbmVlZGVkLgo+IFvigKZdCj4g
-VGhlIHJlbWFpbmluZyBwYXRjaGVzIG9uIHNlcmllcyBhZGRyZXNzIHN1Y2ggY2FzZXMgb24gKi5y
-c3QgZmlsZXMgYW5kIAo+IGluc2lkZSB0aGUgRG9jdW1lbnRhdGlvbi9BQkksIHVzaW5nIHRoaXMg
-cGVybCBtYXAgdGFibGUgaW4gb3JkZXIgdG8gZG8gdGhlCj4gY2hhcnNldCBjb252ZXJzaW9uOgo+
-IAo+IG15ICVjaGFyX21hcCA9ICgKPiBb4oCmXQo+IAkweDIwMTMgPT4gJy0nLAkJIyBFTiBEQVNI
-Cj4gCTB4MjAxNCA9PiAnLScsCQkjIEVNIERBU0gKCkkgbWlnaHQgYmUgcGVyZm9ybWluZyBiaWtl
-IHNoZWRkaW5nIGhlcmUsIGJ1dCB3b3VsZG4ndCBpdCBiZSBiZXR0ZXIgdG8KcmVwbGFjZSB0aG9z
-ZSB0d28gd2l0aCAiLS0iLCBhcyBleHBsYWluZWQgaW4KaHR0cHM6Ly9lbi53aWtpcGVkaWEub3Jn
-L3dpa2kvRGFzaCNBcHByb3hpbWF0aW5nX3RoZV9lbV9kYXNoX3dpdGhfdHdvX29yX3RocmVlX2h5
-cGhlbnMKCkZvciBFTSBEQVNIIHRoZXJlIHNlZW1zIHRvIGJlIGV2ZW4gIi0tLSIsIGJ1dCBJJ2Qg
-c2F5IHRoYXQgaXMgYSBiaXQgdG9vCm11Y2guCgpPciBkbyB5b3UgZmVhciB0aGUgZXh0cmEgd29y
-ayBhcyBzb21lIGxpbmVzIHRoZW4gbWlnaHQgYnJlYWsgdGhlCjgwLWNoYXJhY3RlciBsaW1pdCB0
-aGVuPwoKQ2lhbywgVGhvcnN0ZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+
+--===============7682271309350720933==
+Content-Type: multipart/signed; micalg="sha-256";
+	protocol="application/x-pkcs7-signature";
+	boundary="=-ob5s4dkk/IPkbSg8129x"
+
+
+--=-ob5s4dkk/IPkbSg8129x
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, 2021-05-10 at 12:26 +0200, Mauro Carvalho Chehab wrote:
+> There are several UTF-8 characters at the Kernel's documentation.
+>=20
+> Several of them were due to the process of converting files from
+> DocBook, LaTeX, HTML and Markdown. They were probably introduced
+> by the conversion tools used on that time.
+>=20
+> Other UTF-8 characters were added along the time, but they're easily
+> replaceable by ASCII chars.
+>=20
+> As Linux developers are all around the globe, and not everybody has UTF-8
+> as their default charset, better to use UTF-8 only on cases where it is r=
+eally
+> needed.
+
+No, that is absolutely the wrong approach.
+
+If someone has a local setup which makes bogus assumptions about text
+encodings, that is their own mistake.
+
+We don't do them any favours by trying to *hide* it in the common case
+so that they don't notice it for longer.
+
+There really isn't much excuse for such brokenness, this far into the
+21st century.
+
+Even *before* UTF-8 came along in the final decade of the last
+millennium, it was important to know which character set a given piece
+of text was encoded in.
+
+In fact it was even *more* important back then, we couldn't just assume
+UTF-8 everywhere like we can in modern times.
+
+Git can already do things like CRLF conversion on checking files out to
+match local conventions; if you want to teach it to do character set
+conversions too then I suppose that might be useful to a few developers
+who've fallen through a time warp and still need it. But nobody's ever
+bothered before because it just isn't necessary these days.
+
+Please *don't* attempt to address this anachronistic and esoteric
+"requirement" by dragging the kernel source back in time by three
+decades.
+
+
+
+--=-ob5s4dkk/IPkbSg8129x
+Content-Type: application/x-pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCECow
+ggUcMIIEBKADAgECAhEA4rtJSHkq7AnpxKUY8ZlYZjANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE
+BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG
+A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl
+bnRpY2F0aW9uIGFuZCBTZWN1cmUgRW1haWwgQ0EwHhcNMTkwMTAyMDAwMDAwWhcNMjIwMTAxMjM1
+OTU5WjAkMSIwIAYJKoZIhvcNAQkBFhNkd213MkBpbmZyYWRlYWQub3JnMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAsv3wObLTCbUA7GJqKj9vHGf+Fa+tpkO+ZRVve9EpNsMsfXhvFpb8
+RgL8vD+L133wK6csYoDU7zKiAo92FMUWaY1Hy6HqvVr9oevfTV3xhB5rQO1RHJoAfkvhy+wpjo7Q
+cXuzkOpibq2YurVStHAiGqAOMGMXhcVGqPuGhcVcVzVUjsvEzAV9Po9K2rpZ52FE4rDkpDK1pBK+
+uOAyOkgIg/cD8Kugav5tyapydeWMZRJQH1vMQ6OVT24CyAn2yXm2NgTQMS1mpzStP2ioPtTnszIQ
+Ih7ASVzhV6csHb8Yrkx8mgllOyrt9Y2kWRRJFm/FPRNEurOeNV6lnYAXOymVJwIDAQABo4IB0zCC
+Ac8wHwYDVR0jBBgwFoAUgq9sjPjF/pZhfOgfPStxSF7Ei8AwHQYDVR0OBBYEFLfuNf820LvaT4AK
+xrGK3EKx1DE7MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+BwMEBggrBgEFBQcDAjBGBgNVHSAEPzA9MDsGDCsGAQQBsjEBAgEDBTArMCkGCCsGAQUFBwIBFh1o
+dHRwczovL3NlY3VyZS5jb21vZG8ubmV0L0NQUzBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3Js
+LmNvbW9kb2NhLmNvbS9DT01PRE9SU0FDbGllbnRBdXRoZW50aWNhdGlvbmFuZFNlY3VyZUVtYWls
+Q0EuY3JsMIGLBggrBgEFBQcBAQR/MH0wVQYIKwYBBQUHMAKGSWh0dHA6Ly9jcnQuY29tb2RvY2Eu
+Y29tL0NPTU9ET1JTQUNsaWVudEF1dGhlbnRpY2F0aW9uYW5kU2VjdXJlRW1haWxDQS5jcnQwJAYI
+KwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmNvbW9kb2NhLmNvbTAeBgNVHREEFzAVgRNkd213MkBpbmZy
+YWRlYWQub3JnMA0GCSqGSIb3DQEBCwUAA4IBAQALbSykFusvvVkSIWttcEeifOGGKs7Wx2f5f45b
+nv2ghcxK5URjUvCnJhg+soxOMoQLG6+nbhzzb2rLTdRVGbvjZH0fOOzq0LShq0EXsqnJbbuwJhK+
+PnBtqX5O23PMHutP1l88AtVN+Rb72oSvnD+dK6708JqqUx2MAFLMevrhJRXLjKb2Mm+/8XBpEw+B
+7DisN4TMlLB/d55WnT9UPNHmQ+3KFL7QrTO8hYExkU849g58Dn3Nw3oCbMUgny81ocrLlB2Z5fFG
+Qu1AdNiBA+kg/UxzyJZpFbKfCITd5yX49bOriL692aMVDyqUvh8fP+T99PqorH4cIJP6OxSTdxKM
+MIIFHDCCBASgAwIBAgIRAOK7SUh5KuwJ6cSlGPGZWGYwDQYJKoZIhvcNAQELBQAwgZcxCzAJBgNV
+BAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAY
+BgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMT0wOwYDVQQDEzRDT01PRE8gUlNBIENsaWVudCBBdXRo
+ZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBMB4XDTE5MDEwMjAwMDAwMFoXDTIyMDEwMTIz
+NTk1OVowJDEiMCAGCSqGSIb3DQEJARYTZHdtdzJAaW5mcmFkZWFkLm9yZzCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBALL98Dmy0wm1AOxiaio/bxxn/hWvraZDvmUVb3vRKTbDLH14bxaW
+/EYC/Lw/i9d98CunLGKA1O8yogKPdhTFFmmNR8uh6r1a/aHr301d8YQea0DtURyaAH5L4cvsKY6O
+0HF7s5DqYm6tmLq1UrRwIhqgDjBjF4XFRqj7hoXFXFc1VI7LxMwFfT6PStq6WedhROKw5KQytaQS
+vrjgMjpICIP3A/CroGr+bcmqcnXljGUSUB9bzEOjlU9uAsgJ9sl5tjYE0DEtZqc0rT9oqD7U57My
+ECIewElc4VenLB2/GK5MfJoJZTsq7fWNpFkUSRZvxT0TRLqznjVepZ2AFzsplScCAwEAAaOCAdMw
+ggHPMB8GA1UdIwQYMBaAFIKvbIz4xf6WYXzoHz0rcUhexIvAMB0GA1UdDgQWBBS37jX/NtC72k+A
+CsaxitxCsdQxOzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+BQcDBAYIKwYBBQUHAwIwRgYDVR0gBD8wPTA7BgwrBgEEAbIxAQIBAwUwKzApBggrBgEFBQcCARYd
+aHR0cHM6Ly9zZWN1cmUuY29tb2RvLm5ldC9DUFMwWgYDVR0fBFMwUTBPoE2gS4ZJaHR0cDovL2Ny
+bC5jb21vZG9jYS5jb20vQ09NT0RPUlNBQ2xpZW50QXV0aGVudGljYXRpb25hbmRTZWN1cmVFbWFp
+bENBLmNybDCBiwYIKwYBBQUHAQEEfzB9MFUGCCsGAQUFBzAChklodHRwOi8vY3J0LmNvbW9kb2Nh
+LmNvbS9DT01PRE9SU0FDbGllbnRBdXRoZW50aWNhdGlvbmFuZFNlY3VyZUVtYWlsQ0EuY3J0MCQG
+CCsGAQUFBzABhhhodHRwOi8vb2NzcC5jb21vZG9jYS5jb20wHgYDVR0RBBcwFYETZHdtdzJAaW5m
+cmFkZWFkLm9yZzANBgkqhkiG9w0BAQsFAAOCAQEAC20spBbrL71ZEiFrbXBHonzhhirO1sdn+X+O
+W579oIXMSuVEY1LwpyYYPrKMTjKECxuvp24c829qy03UVRm742R9Hzjs6tC0oatBF7KpyW27sCYS
+vj5wbal+TttzzB7rT9ZfPALVTfkW+9qEr5w/nSuu9PCaqlMdjABSzHr64SUVy4ym9jJvv/FwaRMP
+gew4rDeEzJSwf3eeVp0/VDzR5kPtyhS+0K0zvIWBMZFPOPYOfA59zcN6AmzFIJ8vNaHKy5QdmeXx
+RkLtQHTYgQPpIP1Mc8iWaRWynwiE3ecl+PWzq4i+vdmjFQ8qlL4fHz/k/fT6qKx+HCCT+jsUk3cS
+jDCCBeYwggPOoAMCAQICEGqb4Tg7/ytrnwHV2binUlYwDQYJKoZIhvcNAQEMBQAwgYUxCzAJBgNV
+BAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAY
+BgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMSswKQYDVQQDEyJDT01PRE8gUlNBIENlcnRpZmljYXRp
+b24gQXV0aG9yaXR5MB4XDTEzMDExMDAwMDAwMFoXDTI4MDEwOTIzNTk1OVowgZcxCzAJBgNVBAYT
+AkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAYBgNV
+BAoTEUNPTU9ETyBDQSBMaW1pdGVkMT0wOwYDVQQDEzRDT01PRE8gUlNBIENsaWVudCBBdXRoZW50
+aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAvrOeV6wodnVAFsc4A5jTxhh2IVDzJXkLTLWg0X06WD6cpzEup/Y0dtmEatrQPTRI5Or1u6zf
++bGBSyD9aH95dDSmeny1nxdlYCeXIoymMv6pQHJGNcIDpFDIMypVpVSRsivlJTRENf+RKwrB6vcf
+WlP8dSsE3Rfywq09N0ZfxcBa39V0wsGtkGWC+eQKiz4pBZYKjrc5NOpG9qrxpZxyb4o4yNNwTqza
+aPpGRqXB7IMjtf7tTmU2jqPMLxFNe1VXj9XB1rHvbRikw8lBoNoSWY66nJN/VCJv5ym6Q0mdCbDK
+CMPybTjoNCQuelc0IAaO4nLUXk0BOSxSxt8kCvsUtQIDAQABo4IBPDCCATgwHwYDVR0jBBgwFoAU
+u69+Aj36pvE8hI6t7jiY7NkyMtQwHQYDVR0OBBYEFIKvbIz4xf6WYXzoHz0rcUhexIvAMA4GA1Ud
+DwEB/wQEAwIBhjASBgNVHRMBAf8ECDAGAQH/AgEAMBEGA1UdIAQKMAgwBgYEVR0gADBMBgNVHR8E
+RTBDMEGgP6A9hjtodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9DT01PRE9SU0FDZXJ0aWZpY2F0aW9u
+QXV0aG9yaXR5LmNybDBxBggrBgEFBQcBAQRlMGMwOwYIKwYBBQUHMAKGL2h0dHA6Ly9jcnQuY29t
+b2RvY2EuY29tL0NPTU9ET1JTQUFkZFRydXN0Q0EuY3J0MCQGCCsGAQUFBzABhhhodHRwOi8vb2Nz
+cC5jb21vZG9jYS5jb20wDQYJKoZIhvcNAQEMBQADggIBAHhcsoEoNE887l9Wzp+XVuyPomsX9vP2
+SQgG1NgvNc3fQP7TcePo7EIMERoh42awGGsma65u/ITse2hKZHzT0CBxhuhb6txM1n/y78e/4ZOs
+0j8CGpfb+SJA3GaBQ+394k+z3ZByWPQedXLL1OdK8aRINTsjk/H5Ns77zwbjOKkDamxlpZ4TKSDM
+KVmU/PUWNMKSTvtlenlxBhh7ETrN543j/Q6qqgCWgWuMAXijnRglp9fyadqGOncjZjaaSOGTTFB+
+E2pvOUtY+hPebuPtTbq7vODqzCM6ryEhNhzf+enm0zlpXK7q332nXttNtjv7VFNYG+I31gnMrwfH
+M5tdhYF/8v5UY5g2xANPECTQdu9vWPoqNSGDt87b3gXb1AiGGaI06vzgkejL580ul+9hz9D0S0U4
+jkhJiA7EuTecP/CFtR72uYRBcunwwH3fciPjviDDAI9SnC/2aPY8ydehzuZutLbZdRJ5PDEJM/1t
+yZR2niOYihZ+FCbtf3D9mB12D4ln9icgc7CwaxpNSCPt8i/GqK2HsOgkL3VYnwtx7cJUmpvVdZ4o
+gnzgXtgtdk3ShrtOS1iAN2ZBXFiRmjVzmehoMof06r1xub+85hFQzVxZx5/bRaTKTlL8YXLI8nAb
+R9HWdFqzcOoB/hxfEyIQpx9/s81rgzdEZOofSlZHynoSMYIDyjCCA8YCAQEwga0wgZcxCzAJBgNV
+BAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAY
+BgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMT0wOwYDVQQDEzRDT01PRE8gUlNBIENsaWVudCBBdXRo
+ZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEA4rtJSHkq7AnpxKUY8ZlYZjANBglghkgB
+ZQMEAgEFAKCCAe0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjEw
+NTEwMTA1NDAyWjAvBgkqhkiG9w0BCQQxIgQgL3/7pAsd0OmIKpx3YJrV4o45y9CkDZx92/HDF48d
+q9Iwgb4GCSsGAQQBgjcQBDGBsDCBrTCBlzELMAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIg
+TWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQx
+PTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhlbnRpY2F0aW9uIGFuZCBTZWN1cmUgRW1h
+aWwgQ0ECEQDiu0lIeSrsCenEpRjxmVhmMIHABgsqhkiG9w0BCRACCzGBsKCBrTCBlzELMAkGA1UE
+BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG
+A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxPTA7BgNVBAMTNENPTU9ETyBSU0EgQ2xpZW50IEF1dGhl
+bnRpY2F0aW9uIGFuZCBTZWN1cmUgRW1haWwgQ0ECEQDiu0lIeSrsCenEpRjxmVhmMA0GCSqGSIb3
+DQEBAQUABIIBAHzwJmgq+6gvW3P1J5Cy/JCDc1dstwjZx2gvKNH1HiimqZWGRLY/pd2wxAq6SB7n
+RGYW9bZTWa8rgCUd0onKtdhe7HlmvcREhYLnRiMKuhI7S7LzhYps7xb6NllDTQijUkxBxSTwjfRo
+poKQCuX9FQFHeN1cTX4OoNRwqYouDk8T8au7ZBiBli4EixkcXl4FSo8CMbcQfMMKGnM21r/WvXGM
+zzK2L3HYc5jW1Rrnc3CNwR+yYDBrDtAf0949+PCdJX9hPM1KTsXIWvARcTlqfOCMKfBC513+Lrlc
+GtdMvUCdHQCeyphzgU/V9VIVUqv+1o5QGDdyEmSU3aPR4SQ8ThMAAAAAAAA=
+
+
+--=-ob5s4dkk/IPkbSg8129x--
+
+
+
+--===============7682271309350720933==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7682271309350720933==--
+
+
