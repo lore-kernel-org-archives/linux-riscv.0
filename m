@@ -2,122 +2,94 @@ Return-Path: <SRS0=SpZ8=KF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5AF21C433B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 14:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E222AC433B4
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 16:34:48 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D6EE61260
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 14:34:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D6EE61260
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3194561155
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 May 2021 16:34:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3194561155
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AQ15/I0b69CPhGOLuyTPGo052VpkpTUo7cbenUNrFxQ=; b=czFePRTKtcl/Fhnu+XFSHc3md
-	6a/QjJbaOElwKdWQgnyCy44dnTaZ1uSv/kbC/zA+/YreEcWeVNfXvDPFUSyKo5vQxLBae206x5YeQ
-	P5CODY7KUCyQIsRCcsqWco2cwH4eAmor4Qt5eX3J5wWExkPw0vNAF4YGx/EKvNB+9MeJ2zjo3y4Xh
-	bxDuW3hM0EeBSfSk9pbs+WwLFfHs6iFZJKay/zmyQtKtP1xmbjg+4bWUVuzoqL14UElxxSEOqxX1Y
-	D/OMGsTGcCu9DUCQcRdNzAhggJXQJv87OHzTC20cOdcAkMtgc3rARjvP6s5h42x+BrsKkBKSXUCff
-	XTct1ZaKg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gsMNHgwL3iACSu6SzF8G6MHJ/AZzfPCjl5kwfjvUSsQ=; b=DULiXIrnHsTIug9pBOppUODx62
+	uXL54XHarKnAWQQBTCrSmRW32i5eX5D5c1U5PAtpR3HyjQHaBm9XddmxpaZgn9HApcANYQhPFd3xE
+	SlJF/3973t+fWUAKfjWJrZ53SYNM7euPCIeoLC7+QLIWzsxeXRK8w6k8ELQ4y7FJJWVdD1lc3hrvO
+	al2/IRQZv/X6m0pkkNo9eg16Aof/j/285GE6Z3s+TT2T+0ZevVAXY+I9TMPnTsKPyM8rBVSGRCxhE
+	Egt3ErDGbl0smFWCiOKApXz4Jiz9hGk5jX7vc730gs0lA4Ff9Kcoa3XaHOlq74BuLgpO4YhdKWRee
+	QOMBhiNA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lg6yr-00EdNS-Ih; Mon, 10 May 2021 14:33:57 +0000
+	id 1lg8rX-00Ez2D-FR; Mon, 10 May 2021 16:34:31 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lg6yp-00EdMp-Bj; Mon, 10 May 2021 14:33:55 +0000
+ id 1lg8rN-00EyxC-9y
+ for linux-riscv@desiato.infradead.org; Mon, 10 May 2021 16:34:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=iXsxoOt9fS3DXvxCyyFOaJfbPkU6WlTqA1MG4BgEpJA=; b=WgrR7z67JUh5fMYBc1UBOalIFk
- UgzMaqSBBP8LCxTijUrODxluFgb1pgGrsuf5gLF5UeKR39+o9IhWpMFUDov48QuyJKKvNZbQXL4iO
- zLLxDY53bB9S1JUmfFn5CM5G0aqqjZZnxxtCkKPBjL/SdZ65UIsZhiVBMEMXb2XY5EUdAs0U/4XQz
- i+c1MT3GhAQ3lU0pGjq7ozf+bv6DOpULO3h62d+9NXm+Ra7bNuIuFUYNyyJYkpwfXUTScGMLclsXZ
- nnKwrI+jsWJihwUZRt/vXGFVGDZ5UAmuic5zgi9C/XBBDJzJv+qkTo8hdxhBpuatmcdKnbpTCSdT2
- kjNM8yQw==;
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lg6yl-008oXc-9w; Mon, 10 May 2021 14:33:54 +0000
-Received: by mail-wr1-x435.google.com with SMTP id d4so16865340wru.7;
- Mon, 10 May 2021 07:33:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=iXsxoOt9fS3DXvxCyyFOaJfbPkU6WlTqA1MG4BgEpJA=;
- b=jIc4OS4UG1e9Htue39hs2SdJXCmPLn+MTostxG/pw06sXYt4cF0beJY8cOPd4XkNvN
- wMkWqq4rS4nqVWqmlHYwknDCThc4F5oj3a10x6AGXMwZ0Kkxjgx6mU53ky5S6gct5IOF
- gb8YE/CdqFeQhJSfkuXg75IoXDsEW/QKbfnCDm8DSyF/6zHxA2in236S9Jv233h02Cag
- nY/zUkluYzDhxrfM75C6Qnf/beBRBG9DBN2uslTW/jB8AmOrnU4strwuRTlIYCmTiED9
- Adakd2gy/AYmhY6PfiGery2Nb+BVYLJb2xN6RqR96XQSpLkoAkrrTIc1zJH3tzspThUx
- eDlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=iXsxoOt9fS3DXvxCyyFOaJfbPkU6WlTqA1MG4BgEpJA=;
- b=RxDfTn0c7SOkJ0LQPBBmM6Zx4Hc7thsPIL4RT5QaIMtJuh5ihtC4Zs/nxfDsn6hVoN
- EouVDVEJ6dyqmJMZdHE+Dx4sonlsf4nFmnIsVokrTlGEMX4NtFyeMFctlmsn9i56Ui4M
- brvb4UCgRqWDq90T7J6Kt8NUxZAAF+lbFI4lPrwRzoclr+Oq6jSo+GyDFKBuwU+e1/F7
- PBitFZQs6bg86v8etraektJ9nHCrqjzJ4x4ImK+PABLPJ9yT7xO5D87R4riWmMuIyiOz
- au8chxcMP1mkKLFxbJ6IG5BUPNrJHJysOz7QYls37sBZ8gwLpFK5N/W/Sk6w3jpjN+Cx
- c1JA==
-X-Gm-Message-State: AOAM530FGPmTdnnXf1LznbrJnjahhbAxkRr6xR1BHbXvh+UjbHmpz83T
- fQwUZYEDor8hX666C6IJAyg=
-X-Google-Smtp-Source: ABdhPJze1q8t3iuv5DjzOv0RveTjqSpEwnprh+IG3St78u9eWCZrU93KSEZYLbobgkyZLBZ/m0bYBQ==
-X-Received: by 2002:adf:e98c:: with SMTP id h12mr30469476wrm.314.1620657229579; 
- Mon, 10 May 2021 07:33:49 -0700 (PDT)
-Received: from [192.168.1.122]
- (cpc159425-cmbg20-2-0-cust403.5-4.cable.virginm.net. [86.7.189.148])
- by smtp.gmail.com with ESMTPSA id h9sm20117820wmb.35.2021.05.10.07.33.47
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 10 May 2021 07:33:48 -0700 (PDT)
-Subject: Re: [PATCH 00/53] Get rid of UTF-8 chars that can be mapped as ASCII
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- David Woodhouse <dwmw2@infradead.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- alsa-devel@alsa-project.org, coresight@lists.linaro.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-wired-lan@lists.osuosl.org, keyrings@vger.kernel.org,
- kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-fpga@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-integrity@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sgx@vger.kernel.org, linux-usb@vger.kernel.org,
- mjpeg-users@lists.sourceforge.net, netdev@vger.kernel.org,
- rcu@vger.kernel.org, x86@kernel.org
-References: <cover.1620641727.git.mchehab+huawei@kernel.org>
- <2ae366fdff4bd5910a2270823e8da70521c859af.camel@infradead.org>
- <20210510135518.305cc03d@coco.lan>
- <df6b4567-030c-a480-c5a6-fe579830e8c0@gmail.com>
- <YJk8LMFViV7Z3Uu7@casper.infradead.org>
-From: Edward Cree <ecree.xilinx@gmail.com>
-Message-ID: <ed65025c-1087-9672-7451-6d28e7ab8f92@gmail.com>
-Date: Mon, 10 May 2021 15:33:47 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.0
+ Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=W35ihF1HmZl897viGKIMEuGvRdzLmwITgJf6gYzR6Qk=; b=X5vSOTxBxfoVHkXhJk4ne/jojP
+ 3NYWUMQaFzleFgSZQKbtJacAhuwUWNcdwEwHbhH4K547IFjbcvhBqKmDM4sW0decEiQKtEC8BffNz
+ DTPILVUoQ02xnOmOakdMUXQEtVzl+rICizEuWxJHumIxlsrkxzfpOC7rshL8hP9DJ+moNWiLcBeY9
+ 6dD4dl+Oho+hAJ1TnzPmOFOnb307XyHNvteO/KZQ2SoS7o+juITpmEznhd7XjOVtJrLQZ6QDAP7G9
+ a/UtCqeREO0BCdmU8m1oL3R/0XrKziDVHGb7JNMZSwbeB6GroACxc1OI6/bk7bk/vMa5WPlZK8zXI
+ yoyT/b8g==;
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lg8rG-008vOt-Dp
+ for linux-riscv@lists.infradead.org; Mon, 10 May 2021 16:34:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=W35ihF1HmZl897viGKIMEuGvRdzLmwITgJf6gYzR6Qk=; b=A6ydf6k2ZxXA/
+ mhQldeR0HM+RIIPx8DQvwK54AQtg1yXKodWvvMZiWX2uzr01Kho5FEwymDUAA0J7
+ 5QvYXln7O4CfBK6gizFz1CtSat17QuWbpmx44omLyuKA947iQdB5icXbGc9m/fPp
+ CYDDw0NRtQEGnf1Emi+EYIc7jpXjJk=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygDHzpp5YJlgEbi3AA--.7137S2; 
+ Tue, 11 May 2021 00:34:02 +0800 (CST)
+Date: Tue, 11 May 2021 00:28:38 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: code patching only works on !XIP_KERNEL
+Message-ID: <20210511002838.7b3cb1e7@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <YJk8LMFViV7Z3Uu7@casper.infradead.org>
-Content-Language: en-GB
+X-CM-TRANSID: LkAmygDHzpp5YJlgEbi3AA--.7137S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFy3GF4xZw45JF4DJrW5ZFb_yoW5Jr1Dpr
+ naya47XFZrXr4ruw4YkFy8Ww45ZFZ7XFWfJryrGa48ArW0yrWqyr1j9r1UG34UXr93Ww1f
+ WFyrG34UCr4qywUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUy2b7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26r4j6r4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+ 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+ 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
+ 6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+ I_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+ 6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
+ 0_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j
+ 6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210510_073351_423678_92D27A7E 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20210510_093415_166411_C5933BF6 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,35 +106,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/05/2021 14:59, Matthew Wilcox wrote:
-> Most of these
-> UTF-8 characters come from latex conversions and really aren't
-> necessary (and are being used incorrectly).
-I fully agree with fixing those.
-The cover-letter, however, gave the impression that that was not the
- main purpose of this series; just, perhaps, a happy side-effect.
+From: Jisheng Zhang <jszhang@kernel.org>
 
-> You seem quite knowedgeable about the various differences.  Perhaps
-> you'd be willing to write a document for Documentation/doc-guide/
-> that provides guidance for when to use which kinds of horizontal
-> line?I have Opinions about the proper usage of punctuation, but I also know
- that other people have differing opinions.  For instance, I place
- spaces around an em dash, which is nonstandard according to most
- style guides.  Really this is an individual enough thing that I'm not
- sure we could have a "kernel style guide" that would be more useful
- than general-purpose guidance like the page you linked.
-Moreover, such a guide could make non-native speakers needlessly self-
- conscious about their writing and discourage them from contributing
- documentation at all.  I'm not advocating here for trying to push
- kernel developers towards an eats-shoots-and-leaves level of
- linguistic pedantry; rather, I merely think that existing correct
- usages should be left intact (and therefore, excising incorrect usage
- should only be attempted by someone with both the expertise and time
- to check each case).
+Some features which need code patching such as KPROBES, DYNAMIC_FTRACE
+KGDB can only work on !XIP_KERNEL. Add dependencies for these features
+that rely on code patching.
 
-But if you really want such a doc I wouldn't mind contributing to it.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+Hi,
 
--ed
+Currently, the RISCV_ERRATA_ALTERNATIVE also only works on !XIP_KERNEL
+but from the maillist it seem there's effort to make the co-exist, so
+I drop RISCV_ERRATA_ALTERNATIVE dependency on !XIP_KERNEL.
+
+Thanks
+
+ arch/riscv/Kconfig | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a8ad8eb76120..61320b94ef97 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -60,11 +60,11 @@ config RISCV
+ 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+ 	select HANDLE_DOMAIN_IRQ
+ 	select HAVE_ARCH_AUDITSYSCALL
+-	select HAVE_ARCH_JUMP_LABEL
+-	select HAVE_ARCH_JUMP_LABEL_RELATIVE
++	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
++	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
+ 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
+-	select HAVE_ARCH_KGDB
++	select HAVE_ARCH_KGDB if !XIP_KERNEL
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_SECCOMP_FILTER
+@@ -79,9 +79,9 @@ config RISCV
+ 	select HAVE_GCC_PLUGINS
+ 	select HAVE_GENERIC_VDSO if MMU && 64BIT
+ 	select HAVE_IRQ_TIME_ACCOUNTING
+-	select HAVE_KPROBES
+-	select HAVE_KPROBES_ON_FTRACE
+-	select HAVE_KRETPROBES
++	select HAVE_KPROBES if !XIP_KERNEL
++	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
++	select HAVE_KRETPROBES if !XIP_KERNEL
+ 	select HAVE_PCI
+ 	select HAVE_PERF_EVENTS
+ 	select HAVE_PERF_REGS
+@@ -230,11 +230,11 @@ config ARCH_RV64I
+ 	bool "RV64I"
+ 	select 64BIT
+ 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
+-	select HAVE_DYNAMIC_FTRACE if MMU && $(cc-option,-fpatchable-function-entry=8)
++	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+-	select HAVE_FTRACE_MCOUNT_RECORD
++	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+-	select HAVE_FUNCTION_TRACER
++	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+ 	select SWIOTLB if MMU
+ 
+ endchoice
+-- 
+2.31.0
+
+
 
 _______________________________________________
 linux-riscv mailing list
