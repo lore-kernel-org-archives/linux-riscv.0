@@ -2,92 +2,99 @@ Return-Path: <SRS0=YITu=KG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5EBBC433B4
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 May 2021 13:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DF951C433ED
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 May 2021 15:38:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 31D25613CD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 May 2021 13:29:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31D25613CD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id BD161616EB
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 May 2021 15:38:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD161616EB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=g+5uWJkvmciAFST8qC7tRuoT9PaZ6vs5PAuMLvjqzjY=; b=QWWz/jv5pVrYtsMiaMLazBm7R
-	SqQIDQNtqmeO2ZlEiV/y7R60qB6fL/dzIA+jc6we96mSet+qaEWjHpJsncVnu3vfEsxN7b9yL9Ute
-	xAzFt+6IwPEazYFfjj+6jNtdsu0WCp9djIiLGEjjlyxjPhV5qqph5oWCszeKvmX2mAxQ9v2Unpgr6
-	0Vhm3uXnLBzxC/g3ixPDiE1MzX34r1qQJt+Djfy68f5wTVPaiv9PP/wxtUNNI7t07Pi4wjyXuRNOx
-	8Mq0iGxasl37LKqCFxMHvP/bMCooEseNDh6Wmk2cJsjtFhqWGQ2A4EswrsqLzJwJv4UK3JlwkRsk0
-	2JOml3b4Q==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=48zkZhO934fdF/v0HUTam5VPEGOdTpAsUJ+hD6VH/SE=; b=bfzp7laDEmT+orP+aSYR9xtjyO
+	l1DsAjHDatAMY0yeoivfGud22ElklI2Xs7H3ob648mzUgudHVbzz9CQL5UAYoMKg2oMyOAi1AH5Kg
+	R3a4YuBIW+YvM0Vao4q8KlxrXe0m+nCMF6IgZ+wpwXIQ8sMb7T/LsWJ7pjkar62VpHOoPjA3CZHQz
+	b/t7l54aZynrZgUO7CyYXc4UoyYXac9Kzm1544VADdPCBvN1cPgJvDNg7+mfAx76khB/B6kw1F29X
+	Pa+ydoStykgKuEIOPEMVy7D+A4btpluoDdQyorjvBzYaRpg4ZN24LXoTJIA/OR223Ax9X00468wIY
+	fkijraEw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lgSRL-0007Yw-HY; Tue, 11 May 2021 13:28:47 +0000
+	id 1lgUSg-000cpt-J7; Tue, 11 May 2021 15:38:18 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lgRcQ-00HQ5X-VE; Tue, 11 May 2021 12:36:11 +0000
+ id 1lgUSf-000cpZ-6n
+ for linux-riscv@desiato.infradead.org; Tue, 11 May 2021 15:38:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=NYXJBN3WobENOWfGDygqbobAQEKEQ51Tw1yxTFf871M=; b=QKfXPj3viNypiOMNNxUZJf9BTF
- gN8yQWmk8utMwsUEmj9RFLuZFS2E0ZO21ohoa4+A1cftcFEqiX5Nc7osED1ojLUafOLuBZUz8bOTY
- mjVSLsRB7vvlBAiyIS0UbZ2LQfuZHQXYTcHWsAhCqgwp4b0GtGyrcmqkJydzksiJ6796y3i7GRP/C
- WGm/I1gbm3ikx34WrAIq3JvYa9LpQlIgmSEYDD5QlU5kvitA5HIBPl7eyFUV/XmiRTpmj+o1Av3tG
- Iu8r7b8TPh8AhJmWJWe458l6umwLa4X5NU/GRS8FkI6tpqREzd+YCLdpTX22qEay6fONG8Ek5tS24
- tqPP3/wg==;
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+ Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=KaWDJcmf0akmgDM4xkDbgfWR/MHkDDuIHvhuIJq81co=; b=EWKvw0XcSjQEgQ1M4ToNvdSzoo
+ OiSzoz6AV0t0Jqe0Nxtn9tJoNmgF6gJ5ZXc8wgy7M0ZIxblAeNRewdjBCW2A2mfX4lzk/Lt40C7Vr
+ USCp91wQX21+C6CKSyT5ngV0Zat6CoV4zDzDwgECTIi3UmehtiKNcX6FTgJMWeXAUAj65McNF3FUU
+ YKxmGJvj87WQZch9vxLzKtXuY/d7suvDtmQ9rU2mtlr9WyHdBlMe2xGw2UyLxPihiADfCt5H2IMBD
+ 4Jnsrayt3Sm+YWu7iF/AA+cJ6i7sR2U6cXvDAVhbt6299z/uCw+UodH82Bbdwp/rOAK7Dgg1cAQu4
+ BLayUuAA==;
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lgRcN-009ZhT-QY; Tue, 11 May 2021 12:36:09 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Ffclc1cMrzCr9G;
- Tue, 11 May 2021 20:33:16 +0800 (CST)
-Received: from [10.174.177.243] (10.174.177.243) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.498.0; Tue, 11 May 2021 20:35:48 +0800
-Subject: Re: [PATCH stable v5.10 0/7] arm64: Default to 32-bit wide ZONE_DMA
-To: Greg KH <gregkh@linuxfoundation.org>, Jing Xiangfeng
- <jingxiangfeng@huawei.com>
-CC: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <rppt@kernel.org>, <lorenzo.pieralisi@arm.com>, <guohanjun@huawei.com>,
- <sudeep.holla@arm.com>, <rjw@rjwysocki.net>, <lenb@kernel.org>,
- <song.bao.hua@hisilicon.com>, <ardb@kernel.org>, <anshuman.khandual@arm.com>, 
- <bhelgaas@google.com>, <guro@fb.com>, <robh+dt@kernel.org>,
- <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <frowand.list@gmail.com>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-riscv@lists.infradead.org>
-References: <20210303073319.2215839-1-jingxiangfeng@huawei.com>
- <YEDkmj6cchMPAq2h@kroah.com>
- <9bc396116372de5b538d71d8f9ae9c3259f1002e.camel@suse.de>
- <YEDr/lYZHew88/Ip@kroah.com>
- <827b317d7f5da6e048806922098291faacdb19f9.camel@suse.de>
- <YETwL6QGWFyJTAzk@kroah.com> <604597E3.5000605@huawei.com>
- <YEX1OcbVNSqwwusF@kroah.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <31cd8432-2466-555d-7617-ae48cbcd4244@huawei.com>
-Date: Tue, 11 May 2021 20:35:47 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1lgUSc-009ivQ-Ct
+ for linux-riscv@lists.infradead.org; Tue, 11 May 2021 15:38:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1620747494; x=1652283494;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=XOB1CwGDTbBnyoCClAe5S5eJtfPOnOb+M6/jGa4fYXc=;
+ b=z22ff8TZWw/MaeKJ13/U45AjFr8BUGZuV0am9KU8P7JkWWzxdXuwW1JN
+ vsUGWX6Vh5WlE60qVL1EWlj4dGxdE9I2CFrMDTbi+uPh7B+Ge6kAUSUwe
+ czgRyOpjsNgcfRdNfBrqlkO0FAyxYxxJJr02+ehUiofjjZOdsSVmlTR/J
+ AaWbVcF9gGHCzzji+J7WUbWV3YocY5HPP5plGvQyLpVk1xcUx7AZjCzF7
+ pUHdnmEtiZw+QW3NXIR7KBPfJqnfrvw8GgPyvi5VOhm0RJ0UuF2iQ/zPv
+ gRTgNZhqQw6ywdsxAMuofYCRLKEslARx7nvvPofsvRTZE7B+uBqB0ghhz Q==;
+IronPort-SDR: KaQgM2P0FsZgAgXNspFkNpN6ghIYODJTqUu8jTXYLf10Z9X6W86WGq59c0HVzep0tVryCEBwB9
+ EX7xWKlnaJ2YOlLjryKOMQfgGbfDyPfbdjlCXwhpeNx0YpFX7JsPnpPKLna6hkf/boRpXrSsVu
+ eJdk1a4oUqL/TO4owbUGKpVj9xKD5GwwIu4V4ujJaFv/s4j+hNXdNS7tfCHm5uQC65bVHeaiwI
+ K+j9gvNTgOVKxUbGqPJ4PY8Xp6D0HCzwcoOiqh8uWd3U+BuIRZ1KEqsnNwB/ESNgQ0uw0M1Z9W
+ TCM=
+X-IronPort-AV: E=Sophos;i="5.82,291,1613458800"; d="scan'208";a="120686633"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 11 May 2021 08:38:13 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 11 May 2021 08:38:12 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2176.2 via Frontend
+ Transport; Tue, 11 May 2021 08:38:09 -0700
+From: <conor.dooley@microchip.com>
+To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
+ <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <j.neuschaefer@gmx.net>
+CC: <lewis.hanly@microchip.com>, <cyril.jean@microchip.com>,
+ <daire.mcnamara@microchip.com>, <atish.patra@wdc.com>, <anup.patel@wdc.com>,
+ <david.abdurachmanov@gmail.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v7 0/5] Add support for the PolarFire SoC system controller
+Date: Tue, 11 May 2021 16:38:09 +0100
+Message-ID: <20210511153809.24760-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-In-Reply-To: <YEX1OcbVNSqwwusF@kroah.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.243]
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210511_053608_049476_4BA7F124 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20210511_083814_506055_EADAD132 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +106,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2021/3/8 17:58, Greg KH wrote:
-> On Mon, Mar 08, 2021 at 11:20:03AM +0800, Jing Xiangfeng wrote:
->>
->>
->> On 2021/3/7 23:24, Greg KH wrote:
->>> On Thu, Mar 04, 2021 at 04:09:28PM +0100, Nicolas Saenz Julienne wrote:
->>>> On Thu, 2021-03-04 at 15:17 +0100, Greg KH wrote:
->>>>> On Thu, Mar 04, 2021 at 03:05:32PM +0100, Nicolas Saenz Julienne wrote:
->>>>>> Hi Greg.
->>>>>>
->>>>>> On Thu, 2021-03-04 at 14:46 +0100, Greg KH wrote:
->>>>>>> On Wed, Mar 03, 2021 at 03:33:12PM +0800, Jing Xiangfeng wrote:
->>>>>>>> Using two distinct DMA zones turned out to be problematic. Here's an
->>>>>>>> attempt go back to a saner default.
->>>>>>> What problem does this solve?  How does this fit into the stable kernel
->>>>>>> rules?
->>>>>> We changed the way we setup memory zones in arm64 in order to cater for
->>>>>> Raspberry Pi 4's weird DMA constraints: ZONE_DMA spans the lower 1GB of memory
->>>>>> and ZONE_DMA32 the rest of the 32bit address space. Since you can't allocate
->>>>>> memory that crosses zone boundaries, this broke crashkernel allocations on big
->>>>>> machines. This series fixes all this by parsing the HW description and checking
->>>>>> for DMA constrained buses. When not found, the unnecessary zone creation is
->>>>>> skipped.
->>>>> What kernel/commit caused this "breakage"?
->>>> 1a8e1cef7603 arm64: use both ZONE_DMA and ZONE_DMA32
->>> Thanks for the info, all now queued up.
->> There is a fix in 5.11. Please consider applying the following commit to
->> 5.10.y:
->>
->> aed5041ef9a3 of: unittest: Fix build on architectures without
->> CONFIG_OF_ADDRES
-> 
-> Thanks, now queued up.
-
-Hi Grep, another commit d78050ee3544 "arm64: Remove 
-arm64_dma32_phys_limit and its uses" should be involved, thanks.
-
-"Prior to this patch, disabling CONFIG_ZONE_DMA32 leads to CMA
-allocation from the whole RAM as arm64_dma32_phys_limit becomes
-PHYS_MASK+1." from Catalin, see more from the link
-https://www.spinics.net/lists/arm-kernel/msg867356.html
-> 
-> greg k-h
-> .
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClRoaXMgcGF0
+Y2ggc2VyaWVzIGFkZHMgc3VwcG9ydCBmb3IgdGhlIHN5c3RlbSBjb250cm9sbGVyIG9uCnRoZSBQ
+b2xhckZpcmUgU29DLCB1c2luZyB0aGUgbWFpbGJveCBmcmFtZXdvcmsuIEEgTWljcm9jaGlwIGRp
+cmVjdG9yeQppbiB0aGUgU29DIHN1YnN5c3RlbSBoYXMgYmVlbiBjcmVhdGVkIHRvIGhvbGQgdGhl
+IG1haWxib3ggY2xpZW50CmRyaXZlciBhbmQgd2lsbCBiZSB1c2VkIGZvciBmdXR1cmUgc2Vydmlj
+ZSBkcml2ZXJzLgoKVGhlc2UgZHJpdmVycyBhcmUgZ2F0ZWQgYnkgdGhlIGtjb25maWcgb3B0aW9u
+OgpDT05GSUdfU09DX01JQ1JPQ0hJUF9QT0xBUkZJUkUsIHNvIHRoaXMgcGF0Y2ggc2VyaWVzIGRl
+cGVuZHMgb24gQXRpc2gKUGF0cmEncyBQb2xhckZpcmUgU29DIHN1cHBvcnQgcGF0Y2hlcyB3aGlj
+aCBpbnRyb2R1Y2UgaXQgKHRoaXMgc2VyaWVzIGlzIG5vdyBpbiA1LjEzLXJjMSkuCgpUaGUgZm9s
+bG93aW5nIGxpbmssIHdoaWNoIGlzIGEgZGlyZWN0IGRvd25sb2FkIG9mIGEgcGRmLCBjb250YWlu
+cyBkb2N1bWVudGF0aW9uCmZvciB0aGUgc3lzdGVtIGNvbnRyb2xsZXI6Cmh0dHBzOi8vd3d3Lm1p
+Y3Jvc2VtaS5jb20vZG9jdW1lbnQtcG9ydGFsL2RvY19kb3dubG9hZC8xMjQ0ODUzLXVnMDkwNS1w
+b2xhcmZpcmUtc29jLWZwZ2Etc3lzdGVtLXNlcnZpY2VzLXVzZXItZ3VpZGUKCkNoYW5nZXMgZnJv
+bSB2NjoKKiBSZS1hZGQgdGhlIG1haW50YWluZXJzIHNlY3Rpb24gdGhhdCB3YXMgcmVtb3ZlZCBm
+cm9tIGJhc2UgcGZzb2Mgc3VwcG9ydCBwYXRjaCBzZXJpZXMKKiBSZW1vdmVkIEN5cmlsIEplYW4g
+ZnJvbSBtYWludGFpbmVycyBlbnRyeS4KCkNoYW5nZXMgZnJvbSB2NToKKiBSZW1vdmVkIGV4Y2Vz
+cyBmdW5jdGlvbnMsIGNsZWFudXAgaW4gbWFpbGJveC1tcGZzLmMKCkNoYW5nZXMgZnJvbSB2NDoK
+KiBDaGFuZ2VkIGR0IGJpbmRpbmcgZnJvbSBSb2IgSGVycmluZydzIGZlZWRiYWNrCiogU2hvcnRl
+bmVkIHNvbWUgdmVyYm9zZSB2YXJpYWJsZSBuYW1lcwoqIFJlb3JkZXJlZCBiaW5kaW5nIHBhdGNo
+ZXMKKiBXcml0ZSBkaXJlY3RseSBpbnRvIHJlc3BvbnNlIGFycmF5LCByYXRoZXIgdGhhbiBhbGxv
+Y2F0ZSBpbiBjb250cm9sbGVyIGlzciBhbmQgbWVtY3B5IGluIGNsaWVudAoKQ2hhbmdlcyBmcm9t
+IHYzOgoqIEZpeGVkIG1ib3hlcyByZWZlcmVuY2UgaW4gZHQgYmluZGluZyBmb3IgbWFpbGJveCBj
+bGllbnQKKiBCdWcgZml4ZXMgYW5kIGNsZWFudXAgZnJvbSBKb25hdGhhbiBOZXVzY2jDpGZlcidz
+IGZlZWRiYWNrIG9uCiAgbWFpbGJveC1tcGZzLmMgJiBtcGZzLXN5cy1jb250cm9sbGVyLmMKKiBS
+ZW5hbWVkIGR0IGJpbmRpbmcgZmlsZXMgdG8gbWF0Y2ggY29tcGF0aWJsZSBzdHJpbmdzCiogUmVt
+b3ZlZCBQRlNvQyBnYXRpbmcgY29uZGl0aW9uIG9uIGRyaXZlcnMvc29jL21pY3JvY2hpcCBzdWJk
+aXJlY3RvcnkKKiBDb252ZXJ0ZWQgYWxsIHNpemUgYmFzZWQgb3BlcmF0aW9ucyB0byBieXRlcyBm
+b3IgY29uc2lzdGVuY3kKKiBDb252ZXJ0ZWQgcmVzcG9uc2UgYXJyYXkgdG8gYSBzdHJ1Y3R1cmUs
+IGVuYWJsaW5nIHN1cHBvcnQgZm9yIG1vcmUKICBjb21wbGV4IHNlcnZpY2VzIHRoYXQgcmV0dXJu
+IGEgc3RhdHVzIGluc3RlYWQgb2YvYWxvbmdzaWRlIGEgcGF5bG9hZC4KCkNoYW5nZXMgZnJvbSB2
+MjoKKiBGdXJ0aGVyIHJld29ya2VkIGR0IGJpbmRpbmdzIHRvIHNhdGlzZnkgZXJyb3JzIGFuZCBm
+ZWVkYmFjawogIChob3BlZnVsbHkgcGhhbmRsZSBhcnJheSBpcyB0aGUgY29ycmVjdCB0eXBlIGZv
+ciB0aGUgbWJveGVzKQoqIEZ1bGwgbWFpbnRhaW5lcnMgZW50cnkgbW92ZWQgdG8gQXRpc2gncyBQ
+RlNvQyBzdXBwb3J0IHNlcmllcywgdGhpcyBzZXJpZXMgbm93IG9ubHkgYWRkcyBtYWlsYm94IGRy
+aXZlcgoqIENvbnZlcnRlZCBjb25maWcgb3B0aW9ucyBmcm9tIE1QRlMgdG8gUE9MQVJGSVJFX1NP
+QyBzbyB0aGV5IGFyZSBtb3JlIHJlY29nbmlzYWJsZQoqIEZ1cnRoZXIgc2ltcGxpZmllZCBkcml2
+ZXIgY29kZSBmcm9tIGZlZWRiYWNrCgpDaGFuZ2VzIGZyb20gdjE6CiogU3F1YXNoZWQgaGVhZGVy
+IGludG8gZmlyc3QgcGF0Y2gKKiBGaXhlZCBEVCBiaW5kaW5nIHdhcm5pbmdzICYgc21hbGwgZml4
+ZXMKKiBDbGVhbmVkIHVwIGRyaXZlcnMgZnJvbSBmZWVkYmFjawoKQ29ub3IgRG9vbGV5ICg1KToK
+ICBkdC1iaW5kaW5nczogYWRkIGJpbmRpbmdzIGZvciBwb2xhcmZpcmUgc29jIG1haWxib3gKICBt
+Ym94OiBhZGQgcG9sYXJmaXJlIHNvYyBzeXN0ZW0gY29udHJvbGxlciBtYWlsYm94CiAgZHQtYmlu
+ZGluZ3M6IGFkZCBiaW5kaW5ncyBmb3IgcG9sYXJmaXJlIHNvYyBzeXN0ZW0gY29udHJvbGxlcgog
+IHNvYzogYWRkIHBvbGFyZmlyZSBzb2Mgc3lzdGVtIGNvbnRyb2xsZXIKICBNQUlOVEFJTkVSUzog
+YWRkIGVudHJ5IGZvciBwb2xhcmZpcmUgc29jIG1haWxib3gKCiAuLi4vbWljcm9jaGlwLHBvbGFy
+ZmlyZS1zb2MtbWFpbGJveC55YW1sICAgICAgfCAgNDcgKysrKwogLi4uaWNyb2NoaXAscG9sYXJm
+aXJlLXNvYy1zeXMtY29udHJvbGxlci55YW1sIHwgIDM1ICsrKwogTUFJTlRBSU5FUlMgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA4ICsKIGRyaXZlcnMvbWFpbGJveC9LY29u
+ZmlnICAgICAgICAgICAgICAgICAgICAgICB8ICAxMiArCiBkcml2ZXJzL21haWxib3gvTWFrZWZp
+bGUgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKwogZHJpdmVycy9tYWlsYm94L21haWxib3gt
+bXBmcy5jICAgICAgICAgICAgICAgIHwgMjUxICsrKysrKysrKysrKysrKysrKwogZHJpdmVycy9z
+b2MvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvc29j
+L01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBkcml2ZXJzL3NvYy9t
+aWNyb2NoaXAvS2NvbmZpZyAgICAgICAgICAgICAgICAgfCAgMTAgKwogZHJpdmVycy9zb2MvbWlj
+cm9jaGlwL01ha2VmaWxlICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvc29jL21pY3Jv
+Y2hpcC9tcGZzLXN5cy1jb250cm9sbGVyLmMgICB8IDExOSArKysrKysrKysKIGluY2x1ZGUvc29j
+L21pY3JvY2hpcC9tcGZzLmggICAgICAgICAgICAgICAgICB8ICA1NiArKysrCiAxMiBmaWxlcyBj
+aGFuZ2VkLCA1NDMgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9tYWlsYm94L21pY3JvY2hpcCxwb2xhcmZpcmUtc29jLW1h
+aWxib3gueWFtbAogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9zb2MvbWljcm9jaGlwL21pY3JvY2hpcCxwb2xhcmZpcmUtc29jLXN5cy1jb250cm9s
+bGVyLnlhbWwKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21haWxib3gvbWFpbGJveC1tcGZz
+LmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3NvYy9taWNyb2NoaXAvS2NvbmZpZwogY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvc29jL21pY3JvY2hpcC9NYWtlZmlsZQogY3JlYXRlIG1v
+ZGUgMTAwNjQ0IGRyaXZlcnMvc29jL21pY3JvY2hpcC9tcGZzLXN5cy1jb250cm9sbGVyLmMKIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBpbmNsdWRlL3NvYy9taWNyb2NoaXAvbXBmcy5oCgotLSAKMi4zMS4x
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
