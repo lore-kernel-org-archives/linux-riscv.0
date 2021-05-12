@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-22.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F8B2C433B4
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 May 2021 18:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 964D7C43460
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 May 2021 18:04:19 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3E4396143C
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 May 2021 18:04:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3E4396143C
+	by mail.kernel.org (Postfix) with ESMTPS id EA69161453
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 May 2021 18:04:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EA69161453
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,55 +23,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pFTVZgt9HSZFAq89wxjNf0JC/6uKaO8kE3AW/FAQ4g0=; b=X80mdQVpksMduhdI2O2OHDgDn
-	LI7fpL02rp+I69pOHsmhO7Z9AhYXjnqJV347Rf50lNhv28Dsdqu6xCEA13f4QJvRw8g8Qli8T5TdH
-	kr2PdA04T4N/Z2kMM/6UGzDoNlbu0JCEgo8tQuspzeJslaurAPRU/I4TDRq+fNjwCVX/cdUeRlRSk
-	0kCQn7XydDMCgWSkQfT0nNFnlYDp+3vMPpIAof9oImwxZhprjydHlEqvViH2/u8kfaNdZzOuytPOt
-	KLqUm4kIPI6MbniwANCXpPtUJbQ3d6o3R8gSNGgRGGCXBIG8+3ecZR4aVe4v7IswhpXuBOkXp52nP
-	q71dZuxPg==;
+	 bh=JzXe2cB7LA2AnSGm3mjGIMyX0DlvBRpgGjjeefltKrw=; b=Uq2bzDts9vc5czked79HGx5hD
+	uUt5gOa0jtzZY1rt3UyQ/GhaT44Ak7AHu9YnIKbQmeRo7RnOTxRB7+W6/cgfvjJZnrH9Co794THD/
+	4rDRse92wlrzLF3S9a549vfwEdxXLreiJ9OXKugzl2DSnb9oftN7FkJKIcR00ELp64tTE0VNrd9Rx
+	Cn/YkCnkw59LtlQA2jKDonAFlGUOW/ayoxEbDPeShU0SyuU/1ZVD69aLAW5q0YOEG51TvziStqdqy
+	wmxzvJNWx9CucBmF17aKsgrJ76shzrQ8S4k4kYb9njG+2nh2C2OooDg26yfUmuMi2JlBy5YeY/c35
+	kN0LK2vLg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lgtDD-003WLE-29; Wed, 12 May 2021 18:03:59 +0000
+	id 1lgtDG-003WN5-7L; Wed, 12 May 2021 18:04:02 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lgtBw-003Vlr-38
- for linux-riscv@desiato.infradead.org; Wed, 12 May 2021 18:02:40 +0000
+ id 1lgtBy-003Vme-8N
+ for linux-riscv@desiato.infradead.org; Wed, 12 May 2021 18:02:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
  :Reply-To:Content-Type:Content-ID:Content-Description;
- bh=JRfScDZX8Dtkxuod/0h29YGhmktvvLlXyd2gzXtQWfg=; b=wE8dQskNuatBblpJaKr09mQGSa
- M3sUjuZbE7U060s5SbrAdEvT7VTcrN9dwPdHijwEivuGTU5QSKJ0CjUeUH8CP0teG3Vqp3grU4KJX
- B0k8yAZVRaDgDLCEp8QkRfDBYUEfkJS4vEadgafk2JvF2UIu2sZdBOeGc425Nijn3EO0kItlcLNs5
- mkeNU6AHo7xD1PilZI8cJ2I/Uh64JWb9uk+HhiAHWJB6dsVJRp0OqiQt8hsA9z7YGlWV27QMhWP4B
- Bl5m2mSS4dX0MeOkFFrxWL5PUcK73K6Yy/Beq41u5iZoAOGYIVxpALhz0BD+/NH1C7t4Z7Un9LmvI
- yF6N7L9A==;
+ bh=CJjCqJhPewRkbCDl1/e5HonHSNr4JJ3mY+74nheRsJk=; b=MKd5bgsclR7J1J3vjBPnQXfBj6
+ BEsD6ozSvOm4O6PKigzMtil+Uo6XlIGDHFOQxgaN7VPkENiXh5EzKfeoWdfPu1A+5pqRJw6PW0h69
+ ZOmXstfZ5H3kV+tIaKBJgj4Q4LKVr2XtSPgm87Q6ElWgH/mutfcmMG9I7HnwvOfvZ53CUNioKWA7t
+ P5qHlaWHhtQwkfUCMJtctQ78dPlIQBp3fj3OgJvFm6dWpituqZx1U/29wt4UmdKTPNBD69Q4jCG/e
+ 8npvj7wTdlOf0sIgK6Y4ZY3BsIQMpj6fooYoRhsL7g/kyFKDrA8wKdtpkqFepP2vubgPcJURbdj8o
+ eelCC0aw==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lgtBt-00Afqu-4o
- for linux-riscv@lists.infradead.org; Wed, 12 May 2021 18:02:38 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9213461438;
- Wed, 12 May 2021 18:02:35 +0000 (UTC)
+ id 1lgtBv-00Afri-Be
+ for linux-riscv@lists.infradead.org; Wed, 12 May 2021 18:02:41 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D9F136142D;
+ Wed, 12 May 2021 18:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1620842556;
- bh=m2noJKqKeW0U5wmwK56a/Dvf7G3056Cma/3oi2F6q9M=;
+ s=k20201202; t=1620842558;
+ bh=XjNwv2Xw4I05Tn+u7g5M5/v9oyFzRCtsszzdvESb0/g=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=RrZ4fS3FND9cWPwbTIqP6yRXoci/DtCu2UdgcGmbpZFEQQFE5JDq6uIWWEDbxK6Ot
- 7QjW3HeO853HufTKmswoO2FACbrSzQYDg3WT+Bc1+u7hXO62flwqiK662misO9/XOZ
- wc0VbGGNM1lFap+UM43cyDAP/aeId+h9oKHlmT/OO3riOeXDTn8C0yscTlT1ZqmK8L
- oQSrb7Aqv7ACjXLB5HOrnaLiwTrH10c7ucW7KJpzScJq8QUU7M4WQuzmUcCJ5xefC8
- 6bQiMHMZz1eDgzVhIa9DsUL3G84QXv2Iy6pb3YSPVIFUmP5M5sq4hD+48HM7ukcYFT
- ZoNlNU+Tk8tmQ==
+ b=Rm9hXtjBvtM+/1rSUzo0q5Ib+diKSXtGKpFB/6y5O7tlWPhm+kKg51v0nB3R77hGA
+ aWVg//OfpnZOYoZfzfgZSFEJTyaBbK0RKYsBE7UzLzADftCboJUoJANwunA5puR4DC
+ khqb7ock9bca8QINMtJIGEhdafXd/g5HI0vareZkZ5s7Uzv/xTREaPU/0oNmF6Pq9O
+ EQE5SiyvWAZ+C/U7oGuHwqP5fLnkVQWyJ1H6MCDrhlqH0+SeGK2u1iD+zUQB1ZlcGV
+ le9SIzbD7q6a9VuvwZG+5SrQ6gIcOv7b3HIS/jjVnHgLk90aDF+Z9mP89VAVJiVfZx
+ +xBq7yxGsVWCA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <nathan@kernel.org>, Fangrui Song <maskray@google.com>,
+Cc: Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
  linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.11 18/35] scripts/recordmcount.pl: Fix RISC-V regex
- for clang
-Date: Wed, 12 May 2021 14:01:48 -0400
-Message-Id: <20210512180206.664536-18-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.11 19/35] riscv: Workaround mcount name prior to
+ clang-13
+Date: Wed, 12 May 2021 14:01:49 -0400
+Message-Id: <20210512180206.664536-19-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210512180206.664536-1-sashal@kernel.org>
 References: <20210512180206.664536-1-sashal@kernel.org>
@@ -79,9 +80,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210512_110237_240804_6F2ADC88 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210512_110239_475417_89F1F0F5 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +100,116 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Nathan Chancellor <nathan@kernel.org>
 
-[ Upstream commit 2f095504f4b9cf75856d6a9cf90299cf75aa46c5 ]
+[ Upstream commit 7ce04771503074a7de7f539cc43f5e1b385cb99b ]
 
-Clang can generate R_RISCV_CALL_PLT relocations to _mcount:
+Prior to clang 13.0.0, the RISC-V name for the mcount symbol was
+"mcount", which differs from the GCC version of "_mcount", which results
+in the following errors:
 
-$ llvm-objdump -dr build/riscv/init/main.o | rg mcount
-                000000000000000e:  R_RISCV_CALL_PLT     _mcount
-                000000000000004e:  R_RISCV_CALL_PLT     _mcount
+riscv64-linux-gnu-ld: init/main.o: in function `__traceiter_initcall_level':
+main.c:(.text+0xe): undefined reference to `mcount'
+riscv64-linux-gnu-ld: init/main.o: in function `__traceiter_initcall_start':
+main.c:(.text+0x4e): undefined reference to `mcount'
+riscv64-linux-gnu-ld: init/main.o: in function `__traceiter_initcall_finish':
+main.c:(.text+0x92): undefined reference to `mcount'
+riscv64-linux-gnu-ld: init/main.o: in function `.LBB32_28':
+main.c:(.text+0x30c): undefined reference to `mcount'
+riscv64-linux-gnu-ld: init/main.o: in function `free_initmem':
+main.c:(.text+0x54c): undefined reference to `mcount'
 
-After this, the __start_mcount_loc section is properly generated and
-function tracing still works.
+This has been corrected in https://reviews.llvm.org/D98881 but the
+minimum supported clang version is 10.0.1. To avoid build errors and to
+gain a working function tracer, adjust the name of the mcount symbol for
+older versions of clang in mount.S and recordmcount.pl.
 
 Link: https://github.com/ClangBuiltLinux/linux/issues/1331
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Reviewed-by: Fangrui Song <maskray@google.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- scripts/recordmcount.pl | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/ftrace.h | 14 ++++++++++++--
+ arch/riscv/kernel/mcount.S      | 10 +++++-----
+ scripts/recordmcount.pl         |  2 +-
+ 3 files changed, 18 insertions(+), 8 deletions(-)
 
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 845002cc2e57..04dad3380041 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -13,9 +13,19 @@
+ #endif
+ #define HAVE_FUNCTION_GRAPH_RET_ADDR_PTR
+ 
++/*
++ * Clang prior to 13 had "mcount" instead of "_mcount":
++ * https://reviews.llvm.org/D98881
++ */
++#if defined(CONFIG_CC_IS_GCC) || CONFIG_CLANG_VERSION >= 130000
++#define MCOUNT_NAME _mcount
++#else
++#define MCOUNT_NAME mcount
++#endif
++
+ #define ARCH_SUPPORTS_FTRACE_OPS 1
+ #ifndef __ASSEMBLY__
+-void _mcount(void);
++void MCOUNT_NAME(void);
+ static inline unsigned long ftrace_call_adjust(unsigned long addr)
+ {
+ 	return addr;
+@@ -36,7 +46,7 @@ struct dyn_arch_ftrace {
+  * both auipc and jalr at the same time.
+  */
+ 
+-#define MCOUNT_ADDR		((unsigned long)_mcount)
++#define MCOUNT_ADDR		((unsigned long)MCOUNT_NAME)
+ #define JALR_SIGN_MASK		(0x00000800)
+ #define JALR_OFFSET_MASK	(0x00000fff)
+ #define AUIPC_OFFSET_MASK	(0xfffff000)
+diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
+index 8a5593ff9ff3..6d462681c9c0 100644
+--- a/arch/riscv/kernel/mcount.S
++++ b/arch/riscv/kernel/mcount.S
+@@ -47,8 +47,8 @@
+ 
+ ENTRY(ftrace_stub)
+ #ifdef CONFIG_DYNAMIC_FTRACE
+-       .global _mcount
+-       .set    _mcount, ftrace_stub
++       .global MCOUNT_NAME
++       .set    MCOUNT_NAME, ftrace_stub
+ #endif
+ 	ret
+ ENDPROC(ftrace_stub)
+@@ -78,7 +78,7 @@ ENDPROC(return_to_handler)
+ #endif
+ 
+ #ifndef CONFIG_DYNAMIC_FTRACE
+-ENTRY(_mcount)
++ENTRY(MCOUNT_NAME)
+ 	la	t4, ftrace_stub
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ 	la	t0, ftrace_graph_return
+@@ -124,6 +124,6 @@ do_trace:
+ 	jalr	t5
+ 	RESTORE_ABI_STATE
+ 	ret
+-ENDPROC(_mcount)
++ENDPROC(MCOUNT_NAME)
+ #endif
+-EXPORT_SYMBOL(_mcount)
++EXPORT_SYMBOL(MCOUNT_NAME)
 diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
-index 867860ea57da..a36df04cfa09 100755
+index a36df04cfa09..7b83a1aaec98 100755
 --- a/scripts/recordmcount.pl
 +++ b/scripts/recordmcount.pl
 @@ -392,7 +392,7 @@ if ($arch eq "x86_64") {
      $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
  } elsif ($arch eq "riscv") {
      $function_regex = "^([0-9a-fA-F]+)\\s+<([^.0-9][0-9a-zA-Z_\\.]+)>:";
--    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL\\s_mcount\$";
-+    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL(_PLT)?\\s_mcount\$";
+-    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL(_PLT)?\\s_mcount\$";
++    $mcount_regex = "^\\s*([0-9a-fA-F]+):\\sR_RISCV_CALL(_PLT)?\\s_?mcount\$";
      $type = ".quad";
      $alignment = 2;
  } elsif ($arch eq "nds32") {
