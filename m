@@ -2,96 +2,101 @@ Return-Path: <SRS0=Ai3O=KJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22B34C433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97BE1C433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:27:51 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7710E613FB
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:26:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7710E613FB
+	by mail.kernel.org (Postfix) with ESMTPS id 1056B613F6
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:27:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1056B613F6
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FBn9Dcmtygx+dL1BrH51jPB2mmZbbK4bdcDpqTpoZEQ=; b=BLyeggY5GpGXvH/LRMGgeeVEr
-	I9y80xVVk+cyss27ZFdn3BtHPrcGeU8rjZnY34CYnyZP2LPuDrjQgyDwLZnDQGwVgQTFIdLh1iA8d
-	27wmsee9Dr9hW4EQt+AIlIJozbsUJaFV1LUG+JcaTAlQZcFA1W03Xvb93Sijhgl9rrWJeoFby8waw
-	PPhPV6u2q383JIv5Be8cisKiu1tCWswwDOVvdn5uUWftP71Cuh5ghXLEtt12p4EH66OMg6pj4gLWW
-	h3yjcqZn9Gqq+qFKDlHEzFHLjgO6oWLJav9LAGVLc4nrxY2nUk9WH9e806AzEq+/ayUE2uhVvl8L6
-	3IRWsnr4g==;
+	 bh=WJTECJZuoBImiG145hmOTMigzVDrbpu5QdCSGb2a+xo=; b=mWyUxgqJYhUJ1/zo1JWSMcfPw
+	Uv+9FOh5avgRYF3KJWqaO/PeSMUjgb+Zzwm65Up0KGF22Xs1D659uHvoo3wOPl5yHJVpl9ZU+7XKL
+	/k56KfJ//d2ardlzk/oMezAcCubBxFi5A2uvjQRpsTesNo9OgkGl9hutotJtvAhjJbZBHRxdrC4C/
+	t7UCLEEieCz+haSDo+fFCd+zYeu/b6d8I6HiLyueLo/Iz7UuBdCx9/Ty5d5HQ4qKsHkPsuP9bL6zH
+	98NbIA1s/VpGuqbMjst9/AVDoCG98rvx6+aroBnGof6+RoIlyD6XZabxWPGQ4kYjL3lkGpIS0/p2g
+	hyhvQGJIQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhU4y-007cjH-By; Fri, 14 May 2021 09:25:56 +0000
+	id 1lhU6Z-007d2n-N2; Fri, 14 May 2021 09:27:35 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhU4v-007cij-Vj
- for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 09:25:54 +0000
+ id 1lhU6L-007d0Q-T2
+ for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 09:27:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References
- :Cc:To:Sender:Reply-To:Content-ID:Content-Description;
- bh=Fx334L5vVgVDfx7L2kVeRZ1gFR/dFDyujA5YMe7z6io=; b=mWDjBydvgTLX95CpCU+XnDUMb5
- KQuVqDMU6iZ3PHda5SCyErwloQ4e4aH0DSOchHIDXd3IGsUX0pGhIM96uzQ5OZGOUJtb9XOR8D5ko
- tLEuT1QLDHcgleX+hfocFHpvRM6u/SSXDZ/d1lniZtNcwGLB3wb3gOq/OQM4zYxi/DfirA8Esi+ru
- /5Vkk2rfqh0pCCnUH2pmkfnzpHGiX4hmBIlhVzL6VlHumbqtLAxjNi22hqMkZh99d4GJVe2ASaG6t
- ReD68WtcjXYpE2gtd8yU/GyJ/1f9FylSlNuL3Qv7VBXnOpGa7nP6umYxy/nHDhA1/aY0WCcXTvDX0
- abXvSixg==;
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=; b=d1eEDp+yorkXdxcEX+xcb3jfel
+ RltwxvsSUW2rwU0AvOIZdSxlfY8Ipq69UCCYj4zmB1TcHoDJp+Y64RpL4tWbZkcNQ7TuvYFHYYqC+
+ ujxrpp07hcx9FzzUpYQl3Vyo8AX6mnTm6iJUgJ/SzMLTQigvnF99FpY41hTO+22DZwTKBZiMm5qeM
+ ionchFv0nIi9o6jYHZ0t/T7L0RDszH9XkdYnsWPXG4cdNDnWFYgNtJv5ZSLhbQA7R1i05LtGPnKL+
+ hqU3mUlV1+HZ8fRd/UnTH/vEYLLqlhoCm6eTjO9tinEu5lI95TqWZCVB5Kv9DRgwiCrldTb/SmE0g
+ Y9+AKrKw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhU4s-00Br8c-F0
- for linux-riscv@lists.infradead.org; Fri, 14 May 2021 09:25:52 +0000
+ id 1lhU6J-00BrHc-2e
+ for linux-riscv@lists.infradead.org; Fri, 14 May 2021 09:27:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1620984349;
+ s=mimecast20190719; t=1620984438;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=Fx334L5vVgVDfx7L2kVeRZ1gFR/dFDyujA5YMe7z6io=;
- b=S5lFNU5TQKD03U47KGRUq0qxXj401VvzZwf8ycDk75sZ8elD6zmYfr8ormTPVmnMFlB//f
- k7DIspm8Yj8j769M+pu58fgnypnwOYb1A7IAdw2hBPD/n1GZwGdpwstsH11YZVHvVvpX7A
- tkxkRTd+2YudBVAMGoeBZyeF6WdzMDE=
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-569-nJfsKbSJNq6-yeenWAWx1A-1; Fri, 14 May 2021 05:25:47 -0400
-X-MC-Unique: nJfsKbSJNq6-yeenWAWx1A-1
-Received: by mail-ed1-f70.google.com with SMTP id
- o12-20020aa7d3cc0000b02903891695ceabso16081787edr.3
- for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 02:25:47 -0700 (PDT)
+ bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=;
+ b=F3K9A+rC136Eqdkqk5fITbuifX7Z8+mW7DIBhw3Ucdl4OOm85uB++HqmwTz5RA5aVoVFDQ
+ mnWi3YtOdaL01NVHBdtYSEVRHD8KSPIsVWtI0RNik46+L5C7FT7ULmP641/Zjnv9sc1wbG
+ zI2v9eOvChONlXQNF9ajOAc2g9jpraE=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-494-Ep884cPSPCKKUfFnF6Y9og-1; Fri, 14 May 2021 05:27:14 -0400
+X-MC-Unique: Ep884cPSPCKKUfFnF6Y9og-1
+Received: by mail-ej1-f69.google.com with SMTP id
+ v10-20020a170906292ab02903d18e1be8f8so2048924ejd.13
+ for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 02:27:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:references:from:organization:subject
+ h=x-gm-message-state:subject:to:cc:references:from:organization
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=Fx334L5vVgVDfx7L2kVeRZ1gFR/dFDyujA5YMe7z6io=;
- b=WBE2wiyq69CGD/EoQ/KDioahhg4k8rf2CnMtqNtn1btZfHdXrq7MdYXK13r0rtkb9t
- SwVJVQt/N2P6rwtUFZ9eQC/4V5JzkdD5wLp8GY8Y0NbiSgSRLLjgC3P0SuBoxXYBaJEw
- 9TWJmcTmBGjNcbHM5r9OUosr+LLNURjRO/tgbBrNYPcUTtNcCviBk1GuLKXGRLeOo97K
- Zfk81s68kDLJu70z2KMk7tAIH0g2t6ShxYawC4cUFyutPSC8s7XF/4H01vPybxAcPryn
- x3GzCQWbY2qxkScGYbynRA8vlpB96kUTYNdTH10T3y5F1YeJsj1ctNzbA7qP9EYVic5v
- cI3w==
-X-Gm-Message-State: AOAM532qU/Du+CNy4UvqcUJFNebqBUb3NaNKtcgWf6g7EyzfpBEjxm7W
- 3DnSm28Ht/IeL3AzSZ7Qvr1oHFI0bOF6lQOU4bic9viyE36Eii5bIjFIRK/yU3w3Nsxm1Ywi5cX
- J4NUB6XaZIPYHBIIHw1lch7dEnKhe
-X-Received: by 2002:a50:cd57:: with SMTP id d23mr54117162edj.5.1620984346407; 
- Fri, 14 May 2021 02:25:46 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwffpojWIdDjWYW/MMXX/wRjb+C923CYpz5CDGlKRq9NSx2v+gQE16nA0IMA6MthtTXx38cuQ==
-X-Received: by 2002:a50:cd57:: with SMTP id d23mr54117114edj.5.1620984346105; 
- Fri, 14 May 2021 02:25:46 -0700 (PDT)
+ bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=;
+ b=b8Ofs1bROhOA+OOCHWBIDTw5ZHLM/jUAAw4p81Plke6SCamaaq+Gu51v+cQLl1nmEd
+ jBsQHSNCza3AToRy3YJEs8bFBIOYPEv7ypyC4OSQrJZWnAQH2R7XmKBUAcrw9ctRt9cC
+ EQryR0RDQkM0FjztAjrr7NcSZoFuP6RG9LVZPvc33WcFboXcr2zR302glihfKpTn0jD4
+ +6yZ9Y2PGAm07KyIWPwKFT+2sZlnl7jC4KDpPvwyT/qVuCf2Z1RHMDS2R3fkFqor3fGB
+ 9iQOpEQDJ3UE3IBjWDRqc/KybP9lOJjlTPlcLlK0YwoCsrEnjH8CsTw4YzWR91M6I915
+ 0alw==
+X-Gm-Message-State: AOAM5319OgmYPS9XzSJB7EbarTE7pU7kJLf3VB6nsiuimpR1GNIjWhK4
+ vdigdFW3amvj8yBUDqLQI2b0i9o5kw78WSDrG5KNf7gBGiBxNBwfPd3Eo/KQGLgbyVOYGU2aCJ5
+ +RP3CtW0ZUh5GRIkdmiBBlqE/sKJj
+X-Received: by 2002:a05:6402:10c6:: with SMTP id
+ p6mr55735309edu.241.1620984433540; 
+ Fri, 14 May 2021 02:27:13 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyEtOCv5Ls17oMjk/nlAqkQoSV5N2CP4kQHSOXjzJBX9acMLtoFBB9xjtabyDhiKP+sEIswPA==
+X-Received: by 2002:a05:6402:10c6:: with SMTP id
+ p6mr55735269edu.241.1620984433367; 
+ Fri, 14 May 2021 02:27:13 -0700 (PDT)
 Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
  by smtp.gmail.com with ESMTPSA id
- gt12sm3267244ejb.60.2021.05.14.02.25.44
+ m9sm3510728ejj.53.2021.05.14.02.27.11
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 14 May 2021 02:25:45 -0700 (PDT)
+ Fri, 14 May 2021 02:27:13 -0700 (PDT)
+Subject: Re: [PATCH v19 6/8] PM: hibernate: disable when there are active
+ secretmem users
 To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
@@ -119,25 +124,23 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
 References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-6-rppt@kernel.org>
+ <20210513184734.29317-7-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Organization: Red Hat
-Subject: Re: [PATCH v19 5/8] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <b625c5d7-bfcc-9e95-1f79-fc8b61498049@redhat.com>
-Date: Fri, 14 May 2021 11:25:43 +0200
+Message-ID: <d243610c-78df-5e25-cb60-320e7a352d82@redhat.com>
+Date: Fri, 14 May 2021 11:27:11 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <20210513184734.29317-6-rppt@kernel.org>
+In-Reply-To: <20210513184734.29317-7-rppt@kernel.org>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210514_022550_609975_99E9181A 
-X-CRM114-Status: GOOD (  31.17  )
+X-CRM114-CacheID: sfid-20210514_022719_205981_51D0B69E 
+X-CRM114-Status: GOOD (  30.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,164 +157,151 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->   #ifdef CONFIG_IA64
->   # include <linux/efi.h>
-> @@ -64,6 +65,9 @@ static inline int valid_mmap_phys_addr_range(unsigned long pfn, size_t size)
->   #ifdef CONFIG_STRICT_DEVMEM
->   static inline int page_is_allowed(unsigned long pfn)
->   {
-> +	if (pfn_valid(pfn) && page_is_secretmem(pfn_to_page(pfn)))
-> +		return 0;
-> +
-
-1. The memmap might be garbage. You should use pfn_to_online_page() instead.
-
-page = pfn_to_online_page(pfn);
-if (page && page_is_secretmem(page))
-	return 0;
-
-2. What about !CONFIG_STRICT_DEVMEM?
-
-3. Someone could map physical memory before a secretmem page gets 
-allocated and read the content after it got allocated and gets used. If 
-someone would gain root privileges and would wait for the target 
-application to (re)start, that could be problematic.
-
-
-I do wonder if enforcing CONFIG_STRICT_DEVMEM would be cleaner. 
-devmem_is_allowed() should disallow access to any system ram, and 
-thereby, any possible secretmem pages, avoiding this check completely.
-
-
-[...]
-
+On 13.05.21 20:47, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> It is unsafe to allow saving of secretmem areas to the hibernation
+> snapshot as they would be visible after the resume and this essentially
+> will defeat the purpose of secret memory mappings.
+> 
+> Prevent hibernation whenever there are active secret memory users.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Christopher Lameter <cl@linux.com>
+> Cc: Dan Williams <dan.j.williams@intel.com>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Elena Reshetova <elena.reshetova@intel.com>
+> Cc: Hagen Paul Pfeifer <hagen@jauu.net>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: James Bottomley <jejb@linux.ibm.com>
+> Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Cc: Michael Kerrisk <mtk.manpages@gmail.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Cc: Roman Gushchin <guro@fb.com>
+> Cc: Shakeel Butt <shakeelb@google.com>
+> Cc: Shuah Khan <shuah@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Tycho Andersen <tycho@tycho.ws>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>   include/linux/secretmem.h |  6 ++++++
+>   kernel/power/hibernate.c  |  5 ++++-
+>   mm/secretmem.c            | 15 +++++++++++++++
+>   3 files changed, 25 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
+> index e617b4afcc62..21c3771e6a56 100644
+> --- a/include/linux/secretmem.h
+> +++ b/include/linux/secretmem.h
+> @@ -30,6 +30,7 @@ static inline bool page_is_secretmem(struct page *page)
+>   }
 >   
-> diff --git a/mm/secretmem.c b/mm/secretmem.c
-> new file mode 100644
-> index 000000000000..1ae50089adf1
-> --- /dev/null
-> +++ b/mm/secretmem.c
-> @@ -0,0 +1,239 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright IBM Corporation, 2021
-> + *
-> + * Author: Mike Rapoport <rppt@linux.ibm.com>
-> + */
-> +
-> +#include <linux/mm.h>
-> +#include <linux/fs.h>
-> +#include <linux/swap.h>
-> +#include <linux/mount.h>
-> +#include <linux/memfd.h>
-> +#include <linux/bitops.h>
-> +#include <linux/printk.h>
-> +#include <linux/pagemap.h>
-> +#include <linux/syscalls.h>
-> +#include <linux/pseudo_fs.h>
-> +#include <linux/secretmem.h>
-> +#include <linux/set_memory.h>
-> +#include <linux/sched/signal.h>
-> +
-> +#include <uapi/linux/magic.h>
-> +
-> +#include <asm/tlbflush.h>
-> +
-> +#include "internal.h"
-> +
-> +#undef pr_fmt
-> +#define pr_fmt(fmt) "secretmem: " fmt
-> +
-> +/*
-> + * Define mode and flag masks to allow validation of the system call
-> + * parameters.
-> + */
-> +#define SECRETMEM_MODE_MASK	(0x0)
-> +#define SECRETMEM_FLAGS_MASK	SECRETMEM_MODE_MASK
-> +
-> +static bool secretmem_enable __ro_after_init;
-> +module_param_named(enable, secretmem_enable, bool, 0400);
-> +MODULE_PARM_DESC(secretmem_enable,
-> +		 "Enable secretmem and memfd_secret(2) system call");
-> +
-> +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+>   bool vma_is_secretmem(struct vm_area_struct *vma);
+> +bool secretmem_active(void);
+>   
+>   #else
+>   
+> @@ -43,6 +44,11 @@ static inline bool page_is_secretmem(struct page *page)
+>   	return false;
+>   }
+>   
+> +static inline bool secretmem_active(void)
 > +{
-> +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-> +	struct inode *inode = file_inode(vmf->vma->vm_file);
-> +	pgoff_t offset = vmf->pgoff;
-> +	gfp_t gfp = vmf->gfp_mask;
-> +	unsigned long addr;
-> +	struct page *page;
-> +	int err;
+> +	return false;
+> +}
 > +
-> +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
-> +		return vmf_error(-EINVAL);
+>   #endif /* CONFIG_SECRETMEM */
+>   
+>   #endif /* _LINUX_SECRETMEM_H */
+> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
+> index da0b41914177..559acef3fddb 100644
+> --- a/kernel/power/hibernate.c
+> +++ b/kernel/power/hibernate.c
+> @@ -31,6 +31,7 @@
+>   #include <linux/genhd.h>
+>   #include <linux/ktime.h>
+>   #include <linux/security.h>
+> +#include <linux/secretmem.h>
+>   #include <trace/events/power.h>
+>   
+>   #include "power.h"
+> @@ -81,7 +82,9 @@ void hibernate_release(void)
+>   
+>   bool hibernation_available(void)
+>   {
+> -	return nohibernate == 0 && !security_locked_down(LOCKDOWN_HIBERNATION);
+> +	return nohibernate == 0 &&
+> +		!security_locked_down(LOCKDOWN_HIBERNATION) &&
+> +		!secretmem_active();
+>   }
+>   
+>   /**
+> diff --git a/mm/secretmem.c b/mm/secretmem.c
+> index 1ae50089adf1..7c2499e4de22 100644
+> --- a/mm/secretmem.c
+> +++ b/mm/secretmem.c
+> @@ -40,6 +40,13 @@ module_param_named(enable, secretmem_enable, bool, 0400);
+>   MODULE_PARM_DESC(secretmem_enable,
+>   		 "Enable secretmem and memfd_secret(2) system call");
+>   
+> +static atomic_t secretmem_users;
 > +
-> +retry:
-> +	page = find_lock_page(mapping, offset);
-> +	if (!page) {
-> +		page = alloc_page(gfp | __GFP_ZERO);
-
-We'll end up here with gfp == GFP_HIGHUSER (via the mapping below), correct?
-
-> +		if (!page)
-> +			return VM_FAULT_OOM;
+> +bool secretmem_active(void)
+> +{
+> +	return !!atomic_read(&secretmem_users);
+> +}
 > +
-> +		err = set_direct_map_invalid_noflush(page, 1);
-> +		if (err) {
-> +			put_page(page);
-> +			return vmf_error(err);
-
-Would we want to translate that to a proper VM_FAULT_..., which would 
-most probably be VM_FAULT_OOM when we fail to allocate a pagetable?
-
-> +		}
+>   static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+>   {
+>   	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+> @@ -94,6 +101,12 @@ static const struct vm_operations_struct secretmem_vm_ops = {
+>   	.fault = secretmem_fault,
+>   };
+>   
+> +static int secretmem_release(struct inode *inode, struct file *file)
+> +{
+> +	atomic_dec(&secretmem_users);
+> +	return 0;
+> +}
 > +
-> +		__SetPageUptodate(page);
-> +		err = add_to_page_cache_lru(page, mapping, offset, gfp);
-> +		if (unlikely(err)) {
-> +			put_page(page);
-> +			/*
-> +			 * If a split of large page was required, it
-> +			 * already happened when we marked the page invalid
-> +			 * which guarantees that this call won't fail
-> +			 */
-> +			set_direct_map_default_noflush(page, 1);
-> +			if (err == -EEXIST)
-> +				goto retry;
-> +
-> +			return vmf_error(err);
-> +		}
-> +
-> +		addr = (unsigned long)page_address(page);
-> +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>   static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
+>   {
+>   	unsigned long len = vma->vm_end - vma->vm_start;
+> @@ -116,6 +129,7 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
+>   }
+>   
+>   static const struct file_operations secretmem_fops = {
+> +	.release	= secretmem_release,
+>   	.mmap		= secretmem_mmap,
+>   };
+>   
+> @@ -202,6 +216,7 @@ SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
+>   	file->f_flags |= O_LARGEFILE;
+>   
+>   	fd_install(fd, file);
+> +	atomic_inc(&secretmem_users);
+>   	return fd;
+>   
+>   err_put_fd:
+> 
 
-Hmm, to me it feels like something like that belongs into the 
-set_direct_map_invalid_*() calls? Otherwise it's just very easy to mess 
-up ...
+It looks a bit racy, but I guess we don't really care about these corner 
+cases.
 
-
-I'm certainly not a filesystem guy. Nothing else jumped at me.
-
-
-To me, the overall approach makes sense and I consider it an improved 
-mlock() mechanism for storing secrets, although I'd love to have some 
-more information in the log regarding access via root, namely that there 
-are still fancy ways to read secretmem memory once root via
-
-1. warm reboot attacks especially in VMs (e.g., modifying the cmdline)
-2. kexec-style reboot attacks (e.g., modifying the cmdline)
-3. kdump attacks
-4. kdb most probably
-5. "letting the process read the memory for us" via Kees if that still
-    applies
-6. ... most probably something else
-
-Just to make people aware that there are still some things to be sorted 
-out when we fully want to protect against privilege escalations.
-
-(maybe this information is buried in the cover letter already, where it 
-usually gets lost)
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
 Thanks,
