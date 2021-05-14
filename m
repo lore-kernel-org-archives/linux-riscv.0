@@ -2,20 +2,20 @@ Return-Path: <SRS0=Ai3O=KJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FA71C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 06:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CC8FC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:28:32 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5F57B61446
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 06:35:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F57B61446
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
+	by mail.kernel.org (Postfix) with ESMTPS id D5E3A61457
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:28:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5E3A61457
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
@@ -23,112 +23,122 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=UcilsHmfnAJf7R7VwvOAu+JBLWVYfA6/TUjK7p3ZenI=; b=mbWpRKuEYOXUlUCVpGHYAJs/A
-	ufOINKWVB7j4S7pnXy7LzKmx+jopueDjJgVywBoFtLzJNgTpZ5VGXZbCdMgbBRJnnekN35eyxPuRX
-	RXwXpB0zJqsrjz2G6Ypb4pqOhRE9Pozmy/s/KoTnt3kd35oAeuw2IMJw0o2IA5mTvzE8SLlVDcgkn
-	ZOOPsD2EdDeZS1JIciYhyXvS5ngATyIaCtQO4L+CNF2xxDrgHnAXP5KfOxNKvsNqbXr39mUrgP+5S
-	/OZqvSdLClxqj87bPFDL59H88VDm33Y7KQM1SycSN+QuzOFDdvW+8svx9EEfPI7JhVzs7J0BHms3S
-	sj5Mrnudw==;
+	 bh=30wQjcDQ7JMyfj4bdm8gcDTwadOzSIhv5TL5ALgTt74=; b=H2SllKZg5Ot9JGZTcKIqnuCqM
+	tEeKaR/2PEEOkHpNrtFsluB+ugrQbVYpiqwrF6rp/A+oGvylWcA1TNOXb2vhYh4d9WV1PsHNBjNdH
+	7Xhux9F8Po5yiUE4PypHSC72g08+O42LxcTlH3OPpAY0FP6MylmoOgNDKVnW2xJqGHAOnwqm5yxxn
+	mDHdEXl14C54kTuJPLLxgQjv+Pnz1kw4IlE70A+wCKdJhHJ9Z4ZCS7rPwrGr4JGe1Llt+rwKlogl2
+	8Fjn598l7V3EnyrptyFwH0zTgfnWbpOi04PWWsBqqduvJ6GjOUp/cTzb1yNd82pK+oxdXadQNclyz
+	gDTrn4ozw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhRPH-007J8g-0F; Fri, 14 May 2021 06:34:43 +0000
+	id 1lhTB2-007V56-Ls; Fri, 14 May 2021 08:28:08 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhROy-007J3j-CJ; Fri, 14 May 2021 06:34:24 +0000
+ id 1lhTAz-007V4S-A9
+ for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 08:28:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
  Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=VXceOUtE5LSPd2DlJFL6vCZQ0yv1XPzn5JDz73q2p4U=; b=c+rbsEiKQpHX/+LjOaL/Hj8hpy
- FIf6oyy7honjydbhcVQtN9b+MrT1h/xQhrwY98KTHO5rbB/Jd4VwwhykW+wwwsCsCYVICIVaokmE9
- X2v2EkndNP7crA1AEPSXJmhw17yB7OMsxtdujbx0KHyh5v1DsoEi9B0EFdQJoJOScwCHPnbvI/wRr
- 79fjF8E5Oyv09zz0IDV3WQy9s2jDPlQjensA5K02NO6qisw/lXeFCWqaB73UUJ47DL1NWurUnMnVz
- 20n2Hm529Gva4VuW50n1ZhvCE2pS4IbfyFHhZrAlafU5FyalQ/JVGyhH0URWugGQypi6jmoJMi77Y
- vT7hiiXA==;
-Received: from pegase2.c-s.fr ([93.17.235.10])
+ bh=1mI4ocY2raC+FaNmp1QLwbvQ7SwKQVD3QJeG7UD1jEM=; b=N9EmMtJjmQOmQdcgmEwkXhhGeV
+ LCa5m4EeQZyhvfNHHN4k41YqVr54uyUmF2kvMumQOa6raVFQdvdWBWuGBIf/ns9tH89wBxJCsli2Q
+ 8oUA1FdvXDCfn9gJ3YxbPbCH/OZbz2/d4tML5TpBXd+wVC7yx5l508yef6xdvaSByUTDC1Jn0dFhy
+ W1TGXeJqewxZmLU+Cl4oz/b+px863HXTSXSrFiyiERrANIj70/2kbDUk3R8IOfYugmZy3xGOWBHud
+ 6wyJHAMAyLbY+/8Ms8Huu6dGV1NfqOYQbR712JRMWlnDyZ3wi1s0GAGmKQnxXlXkPfnJJes7+ideG
+ mhYwU0AA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhROt-00BkbA-TT; Fri, 14 May 2021 06:34:22 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
- by localhost (Postfix) with ESMTP id 4FhJdw0rX3z9sZJ;
- Fri, 14 May 2021 08:34:12 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
- by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 2g3l4M-96ajV; Fri, 14 May 2021 08:34:12 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
- by pegase2.c-s.fr (Postfix) with ESMTP id 4FhJdv1cGvz9sZM;
- Fri, 14 May 2021 08:34:11 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id E667D8B7F8;
- Fri, 14 May 2021 08:34:10 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
- by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
- with ESMTP id uFPDiVXY0wO1; Fri, 14 May 2021 08:34:10 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
- by messagerie.si.c-s.fr (Postfix) with ESMTP id D62098B7F6;
- Fri, 14 May 2021 08:34:07 +0200 (CEST)
-Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
-To: Quentin Monnet <quentin@isovalent.com>,
- Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Ian Rogers <irogers@google.com>, Song Liu <songliubraving@fb.com>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Paul Mackerras <paulus@samba.org>, Sandipan Das <sandipan@linux.ibm.com>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Shubham Bansal <illusionist.neo@gmail.com>,
- Mahesh Bandewar <maheshb@google.com>, Will Deacon <will@kernel.org>,
- Nicolas Dichtel <nicolas.dichtel@6wind.com>,
- linux-s390 <linux-s390@vger.kernel.org>, Ilya Leoshkevich
- <iii@linux.ibm.com>, paulburton@kernel.org, Jonathan Corbet
- <corbet@lwn.net>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Ingo Molnar <mingo@redhat.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
- Jakub Kicinski <kuba@kernel.org>, Tobias Klauser <tklauser@distanz.ch>,
- linux-mips@vger.kernel.org, grantseltzer@gmail.com,
- Xi Wang <xi.wang@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
- Luke Nelson <luke.r.nels@gmail.com>, LKML <linux-kernel@vger.kernel.org>,
- Heiko Carstens <hca@linux.ibm.com>, ppc-dev <linuxppc-dev@lists.ozlabs.org>,
- KP Singh <kpsingh@kernel.org>, iecedge@gmail.com,
- Simon Horman <horms@verge.net.au>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Yonghong Song <yhs@fb.com>,
- Thomas Gleixner <tglx@linutronix.de>, Dmitry Vyukov <dvyukov@google.com>,
- tsbogend@alpha.franken.de, Daniel Borkmann <daniel@iogearbox.net>,
- Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
- Network Development <netdev@vger.kernel.org>,
- David Ahern <dsahern@kernel.org>, Wang YanQing <udknight@gmail.com>,
- Martin KaFai Lau <kafai@fb.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- bpf <bpf@vger.kernel.org>, Jianlin Lv <Jianlin.Lv@arm.com>,
- "David S. Miller" <davem@davemloft.net>
-References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
- <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
- <d3949501-8f7d-57c4-b3fe-bcc3b24c09d8@isovalent.com>
- <CAADnVQJ2oHbYfgY9jqM_JMxUsoZxaNrxKSVFYfgCXuHVpDehpQ@mail.gmail.com>
- <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
- <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
- <be132117-f267-5817-136d-e1aeb8409c2a@csgroup.eu>
- <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <52171382-1eca-58e2-b3d1-b2cc6b431e27@csgroup.eu>
-Date: Fri, 14 May 2021 08:34:07 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+ id 1lhTAt-00Bohb-IV
+ for linux-riscv@lists.infradead.org; Fri, 14 May 2021 08:28:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1620980876;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=1mI4ocY2raC+FaNmp1QLwbvQ7SwKQVD3QJeG7UD1jEM=;
+ b=SoJsFqQTNvxWOrB82XHKxHgyrVNqEOdvmRLKtCDUgsH8urgdQY9+Yp58aCeZ3Ff3QPW7jg
+ BuRBlw3qKf5mk9rFupuMjlmiDlEoUkexGirBRHq1TBNb3O+BKxCzJHOJHLRAnfpFZV0gdH
+ I7ZxjfGVyTWMuvsSfFoo09+Bj78EKko=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-160-_X-w9YBmMHqtpfHHL4d1tA-1; Fri, 14 May 2021 04:27:55 -0400
+X-MC-Unique: _X-w9YBmMHqtpfHHL4d1tA-1
+Received: by mail-ed1-f72.google.com with SMTP id
+ d13-20020a056402144db0290387e63c95d8so16046551edx.11
+ for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 01:27:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:organization
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=1mI4ocY2raC+FaNmp1QLwbvQ7SwKQVD3QJeG7UD1jEM=;
+ b=FG0fGSUphtdc3zTDAm4n20VN6jY4rzdJNk2lXOUZTM7OrEV/zl3uTngKEWSVxCAu3s
+ xfqZy7XZzC11AOSeawehCAMC4GmkTKarsbTy02UL0E+3rsgi4BkHORYfsT7FlE717x7a
+ 6RMep8KXX8QEQw9detmI5c3FBz9s6FbDJHueGGewMD9ydM5Aaf5ZftGHfxxoUG6ivuYt
+ qL02gu9USzySSC7BAl2HCt2NpMeuJ7tK4Kozu3eFFSYVr6lcvc6wGESQvyKYFk1P/Sm3
+ nqzfCGmtrhoMbgce/70bt1z55IM+8kqQVYuJaCeO5TtbBqb9Ai3WkVgSkKk40BYe9V5G
+ NRhw==
+X-Gm-Message-State: AOAM531B0Doqn4PlDX4PD5QvMmn+wZ86iVC/y8b0pCQuH88krGT/wWDo
+ eOGPMKF5lWORwu9N5Yc/aeke8l1FIdk4NawURjTnqL1t3f6TGVOkBCGVOUoht3PYBLXWvbWitPk
+ CGzVyTtXXwZpC8UYuprv4a8voDC+f
+X-Received: by 2002:a17:907:2136:: with SMTP id
+ qo22mr5726960ejb.246.1620980874020; 
+ Fri, 14 May 2021 01:27:54 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzYM3IfGE3NxrG0ZrIWpmGkbHrM02LfrvrKJb1wjjik/A6PZcbISFg2IAai8LzSK6j7yfSBCQ==
+X-Received: by 2002:a17:907:2136:: with SMTP id
+ qo22mr5726935ejb.246.1620980873769; 
+ Fri, 14 May 2021 01:27:53 -0700 (PDT)
+Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
+ by smtp.gmail.com with ESMTPSA id
+ z26sm3292663ejl.38.2021.05.14.01.27.51
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 14 May 2021 01:27:53 -0700 (PDT)
+Subject: Re: [PATCH v19 1/8] mmap: make mlock_future_check() global
+To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christopher Lameter <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
+ <hpa@zytor.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Ingo Molnar <mingo@redhat.com>, James Bottomley <jejb@linux.ibm.com>,
+ Kees Cook <keescook@chromium.org>, "Kirill A. Shutemov"
+ <kirill@shutemov.name>, Matthew Wilcox <willy@infradead.org>,
+ Matthew Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki"
+ <rjw@rjwysocki.net>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
+References: <20210513184734.29317-1-rppt@kernel.org>
+ <20210513184734.29317-2-rppt@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+Message-ID: <8bb6ca25-5d30-70e6-c590-5930832ec9b2@redhat.com>
+Date: Fri, 14 May 2021 10:27:51 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
-Content-Language: fr
+In-Reply-To: <20210513184734.29317-2-rppt@kernel.org>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210513_233420_132442_F88D0149 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20210514_012759_720417_910A609B 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,42 +150,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAyMy8wNC8yMDIxIMOgIDEyOjI2LCBRdWVudGluIE1vbm5ldCBhIMOpY3JpdMKgOgo+IDIw
-MjEtMDQtMjMgMDk6MTkgVVRDKzAyMDAgfiBDaHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxl
-cm95QGNzZ3JvdXAuZXU+Cj4gCj4gWy4uLl0KPiAKPj4gSSBmaW5hbGx5IG1hbmFnZWQgdG8gY3Jv
-c3MgY29tcGlsZSBicGZ0b29sIHdpdGggbGliYnBmLCBsaWJvcGNvZGVzLAo+PiByZWFkbGluZSwg
-bmN1cnNlcywgbGliY2FwLCBsaWJ6IGFuZCBhbGwgbmVlZGVkIHN0dWZmLiBXYXMgbm90IGVhc3kg
-YnV0IEkKPj4gbWFkZSBpdC4KPiAKPiBMaWJjYXAgaXMgb3B0aW9uYWwgYW5kIGJwZnRvb2wgZG9l
-cyBub3QgdXNlIHJlYWRsaW5lIG9yIG5jdXJzZXMuIE1heSBJCj4gYXNrIGhvdyB5b3UgdHJpZWQg
-dG8gYnVpbGQgaXQ/Cj4gCj4+Cj4+IE5vdywgaG93IGRvIEkgdXNlIGl0ID8KPj4KPj4gTGV0IHNh
-eSBJIHdhbnQgdG8gZHVtcCB0aGUgaml0dGVkIGNvZGUgZ2VuZXJhdGVkIGZyb20gYSBjYWxsIHRv
-Cj4+ICd0Y3BkdW1wJy4gSG93IGRvIEkgZG8gdGhhdCB3aXRoICdicGZ0b29sIHByb2cgZHVtcCBq
-aXRlZCcgPwo+Pgo+PiBJIHRob3VnaHQgYnkgY2FsbGluZyB0aGlzIGxpbmUgSSB3b3VsZCB0aGVu
-IGdldCBwcm9ncmFtcyBkdW1wZWQgaW4gYSB3YXkKPj4gb3IgYW5vdGhlciBqdXN0IGxpa2Ugd2hl
-biBzZXR0aW5nICdicGZfaml0X2VuYWJsZT0yJywgYnV0IGNhbGxpbmcgdGhhdAo+PiBsaW5lIGp1
-c3QgcHJvdmlkZXMgbWUgc29tZSBicGZ0b29sIGhlbHAgdGV4dC4KPiAKPiBXZWxsIHRoZSBwdXJw
-b3NlIG9mIHRoaXMgdGV4dCBpcyB0byBoZWxwIHlvdSBmaW5kIHRoZSB3YXkgdG8gY2FsbAo+IGJw
-ZnRvb2wgdG8gZG8gd2hhdCB5b3Ugd2FudCA6KS4gRm9yIGR1bXBpbmcgeW91ciBwcm9ncmFtcycg
-aW5zdHJ1Y3Rpb25zLAo+IHlvdSBuZWVkIHRvIHRlbGwgYnBmdG9vbCB3aGF0IHByb2dyYW0gdG8g
-ZHVtcDogQnBmdG9vbCBpc24ndCB3YWl0aW5nCj4gdW50aWwgeW91IGxvYWQgYSBwcm9ncmFtIHRv
-IGR1bXAgaXQsIGluc3RlYWQgeW91IG5lZWQgdG8gbG9hZCB5b3VyCj4gcHJvZ3JhbSBmaXJzdCBh
-bmQgdGhlbiB0ZWxsIGJwZnRvb2wgdG8gcmV0cmlldmUgdGhlIGluc3RydWN0aW9ucyBmcm9tCj4g
-dGhlIGtlcm5lbC4gVG8gcmVmZXJlbmNlIHlvdXIgcHJvZ3JhbSB5b3UgY291bGQgdXNlIGEgcGlu
-bmVkIHBhdGgsIG9yCj4gZmlyc3QgbGlzdCB0aGUgcHJvZ3JhbXMgb24geW91ciBzeXN0ZW0gd2l0
-aCAiYnBmdG9vbCBwcm9nIHNob3ciOgo+IAo+IAo+ICAgICAgIyBicGZ0b29sIHByb2cgc2hvdwo+
-ICAgICAgMTM4OiB0cmFjaW5nICBuYW1lIGZvbyAgdGFnIGU1NGM5MjJkZmE1NGY2NWYgIGdwbAo+
-ICAgICAgICAgICAgICBsb2FkZWRfYXQgMjAyMS0wMi0yNVQwMTozMjozMCswMDAwICB1aWQgMAo+
-ICAgICAgICAgICAgICB4bGF0ZWQgMjU2QiAgaml0ZWQgMTU0QiAgbWVtbG9jayA0MDk2QiAgbWFw
-X2lkcyA2NAo+ICAgICAgICAgICAgICBidGZfaWQgMjM1CgpHb3QgdGhlIGZvbGxvd2luZyBlcnJv
-cjoKCnJvb3RAdmdvaXA6fiMgLi9icGZ0b29sIHByb2cgc2hvdwpsaWJicGY6IGVsZjogZW5kaWFu
-bmVzcyBtaXNtYXRjaCBpbiBwaWRfaXRlcl9icGYuCmxpYmJwZjogZmFpbGVkIHRvIGluaXRpYWxp
-emUgc2tlbGV0b24gQlBGIG9iamVjdCAncGlkX2l0ZXJfYnBmJzogLTQwMDMKRXJyb3I6IGZhaWxl
-ZCB0byBvcGVuIFBJRCBpdGVyYXRvciBza2VsZXRvbgoKCkNocmlzdG9waGUKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 13.05.21 20:47, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> It will be used by the upcoming secret memory implementation.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Christopher Lameter <cl@linux.com>
+> Cc: Dan Williams <dan.j.williams@intel.com>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Elena Reshetova <elena.reshetova@intel.com>
+> Cc: Hagen Paul Pfeifer <hagen@jauu.net>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: James Bottomley <jejb@linux.ibm.com>
+> Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Cc: Michael Kerrisk <mtk.manpages@gmail.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Cc: Roman Gushchin <guro@fb.com>
+> Cc: Shakeel Butt <shakeelb@google.com>
+> Cc: Shuah Khan <shuah@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Tycho Andersen <tycho@tycho.ws>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>   mm/internal.h | 3 +++
+>   mm/mmap.c     | 5 ++---
+>   2 files changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 54bd0dc2c23c..46eb82eaa195 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -373,6 +373,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
+>   extern void mlock_vma_page(struct page *page);
+>   extern unsigned int munlock_vma_page(struct page *page);
+>   
+> +extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
+> +			      unsigned long len);
+> +
+>   /*
+>    * Clear the page's PageMlocked().  This can be useful in a situation where
+>    * we want to unconditionally remove a page from the pagecache -- e.g.,
+> diff --git a/mm/mmap.c b/mm/mmap.c
+> index 0584e540246e..81f5595a8490 100644
+> --- a/mm/mmap.c
+> +++ b/mm/mmap.c
+> @@ -1352,9 +1352,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
+>   	return hint;
+>   }
+>   
+> -static inline int mlock_future_check(struct mm_struct *mm,
+> -				     unsigned long flags,
+> -				     unsigned long len)
+> +int mlock_future_check(struct mm_struct *mm, unsigned long flags,
+> +		       unsigned long len)
+>   {
+>   	unsigned long locked, lock_limit;
+>   
+> 
+
+Reviewed-by: David Hildenbrand <david@redhat.com>
+
+-- 
+Thanks,
+
+David / dhildenb
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
