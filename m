@@ -2,19 +2,19 @@ Return-Path: <SRS0=Ai3O=KJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D4219C43460
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 70974C433B4
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:51:27 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5836861278
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:43:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5836861278
+	by mail.kernel.org (Postfix) with ESMTPS id CF229613C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 08:51:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF229613C9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,75 +23,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
 	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hDqpGxzrDzsyuHu5oqbdkZhBDiBjmOXL2fpoMKKmzos=; b=EB2p+5Ycz4lqrxoaOwyJtNDai
-	EWubFH0CsKQ/Hb6+FZrpjArZe0QkJV0n1LiBRqC1jVyBES9tmk6MPle7JIwzpZHRAETOJtybcZ3XA
-	ye5rkqApw504nRxpeyarsr77DtZRe/S10A6+jmwagzVNO/KprtuwpobY2H8387E0SHXD3r2h31qJt
-	pH+jUjMwaJrX/qIzbQC4UWyTEUUl+qJgARG2LdCKerZcEWJ3pPmfqG7eNQbJa1i0R64X5WTZoxeBe
-	DpNs7NNpmohiUccbordqPeiGUISpJSJW8brLTjYdEVHT87DQTZn67ZHtaY32rKbnX5EecFdukr1Hy
-	7on63lWvQ==;
+	 bh=FFazI286P5M8E4YlvdgCjTbUdwsg3azjHJtBRSd3lDk=; b=UMFiwEpN+3co8UiUiUb0cMGT3
+	4gYrXztpO+poW5swAYhv9/WbDcEfRTGzQqJajvhb25Fg29OkiTYGoaMjXHSkD5/0KhtZca1kv/DqF
+	VyZY++4ZDdr6ZP5cphc499X8L+RJ24GF5dnJ7PAs/Xb+3VBTtRZSMqyD+eLPpaZ5F68tJaQ+G34EV
+	H3hO73N7FX1tlOtWH1E2YwcKypELDeeuuDLchy4h9mlPOhWcjBbqMslZOA86UE9VtDUa8rY2kn4ot
+	Xoj2UDdSuvfTL0j+5XpP1ePd1bzCu6za/m5GuFw9l321dHzIm77Zbd1SKhqqi0J81ZNS3pplvr35Y
+	+lq7ddx4A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhTQ4-007XdW-LS; Fri, 14 May 2021 08:43:40 +0000
+	id 1lhTXI-007YOg-FB; Fri, 14 May 2021 08:51:08 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhTQ2-007XdI-Nx
- for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 08:43:38 +0000
+ id 1lhTXG-007YOK-9w
+ for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 08:51:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References
  :Cc:To:Sender:Reply-To:Content-ID:Content-Description;
- bh=lsAavQGtZZQfxxuNta+2PaMZ+gKpW3kyTUx2+4IIAWk=; b=Wh+bG0y+b+y9SE27/rO2P5HoF4
- OzYYJ8hco7mZrynXyjvRq1MMbRIPjpE5EzlhZ7doek3WVgTGKlc3NBk0GQfwTA8HeVenCm574iBhj
- nMCfQ4bLxFOacTiU5gZp18+XnQTaQhQBKiN5AMa2cs7gRqksSmnNc4HVWoX247Gl3HYhSSxlBjQum
- gJ03iNyFnZ0sH6K2bO/Vesh22a9wdjpu2HXMKc9OTLaWRxs8VpWodi7Bx/X8YQAm/AvUarWL7hQvR
- RzRBknk0+W3zZFoGXofseKlO5REIvhRADMideE+ck5PHCcMdrjyCRDNMy05F3oVugTCvVIJxxlVvc
- FaORz6zg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ bh=A6IAZwI0xwEgxZkIPkaUDpjaSLTjanXMP6EohDn10+Y=; b=1ctQVweXhYz7o1fWbcl94++B9J
+ ToXvTF6oCuHMoaJpeHu9BD0fH9fMOBZULI4lXhCA2uu9qyTFwxyRPFoUukI5bNfaHe+FbnFRAWKPa
+ OlObjuUaO3uyEJJ8KIEEDZ9xbzwSW+fKn/LAeb8BVlUF1orX74J3KNwonLP9Ci3cS9wmT0jWxHXNP
+ WuEg4q64Q8GbvpQgyzF3mIeGLFcuKNjXEuS3Ge22NuZ6B8UbLc50FUEGqwmN4exvRje8kcOY/naP6
+ RhelgwDNiCC8oNvNqORITdWCqnsNVS6rl9AzADhbmesWKY05tVwh5RD8lKUIaYi6KtWmbcsG+wiov
+ GnP5FkjQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhTQ0-00BpR5-2z
- for linux-riscv@lists.infradead.org; Fri, 14 May 2021 08:43:37 +0000
+ id 1lhTXC-00BpiB-L9
+ for linux-riscv@lists.infradead.org; Fri, 14 May 2021 08:51:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1620981814;
+ s=mimecast20190719; t=1620982261;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=lsAavQGtZZQfxxuNta+2PaMZ+gKpW3kyTUx2+4IIAWk=;
- b=YxlcmwxVHOceWjTKAGrIUdEot99VucH4vxjA3qjNsFknrZE7IXHazHM13viWykVqBYy5X5
- VM71SW5cAV+9j5Ym6YI6WGbtkINZy3T2wJUjOcktgu6sJWqNVprSe1SzUqtQkob8aT1KH+
- jmNR+YduELejNqcSBKUmHafKfcTRvj0=
-Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
- [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-112-cCHc536sOJqDh4ahlZHymA-1; Fri, 14 May 2021 04:43:32 -0400
-X-MC-Unique: cCHc536sOJqDh4ahlZHymA-1
-Received: by mail-ed1-f72.google.com with SMTP id
- g7-20020aa7c5870000b02903888f809d62so16109646edq.23
- for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 01:43:32 -0700 (PDT)
+ bh=A6IAZwI0xwEgxZkIPkaUDpjaSLTjanXMP6EohDn10+Y=;
+ b=eDmPlB4ZidLGZMxAQ1alx5ZUBc3d/lvPkq03fZ9lChKsM+1s5P4GvBy3q2UHeX5VhapPA4
+ zGmSKvNigepDz+IBW6AjsuJQFH9l80UwoxkdT3Lqc4qHN95zpL+L/iJKmbRSHQmg832S9T
+ qImZuRwx/AreJMSpUERZpZ3gpd8nF+U=
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
+ [209.85.218.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-169-WdX7DlGHN2-ItlpnnXrmSg-1; Fri, 14 May 2021 04:50:59 -0400
+X-MC-Unique: WdX7DlGHN2-ItlpnnXrmSg-1
+Received: by mail-ej1-f70.google.com with SMTP id
+ o18-20020a17090637d2b02903bf3465db95so5250222ejc.18
+ for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 01:50:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:to:cc:references:from:organization:subject
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=lsAavQGtZZQfxxuNta+2PaMZ+gKpW3kyTUx2+4IIAWk=;
- b=BDHsDPdtJ1qo3zSGBlg/LTjG+mxE0wPGiBaiEmAidWB9xrcMPQ2WnrPEZ/YEwbpW0Q
- FeOS34VGyCX2svYdELJJkFzq1Jbsw94AsaJo2yvn7yNSnq9K0r4fGQxsVGeFZYDG9+z7
- 3H8vG4shDlCSHcG+ui4mpMYE/8YuFW16mkkHBCj2kokwu4qHlXeL2OTTZfS6tJUbfxh9
- nVAQhf0qnJUYhBGreFMQR5zuigRgmpHfztUffrPxMB/YwHT7rTC0oMFF/5WhwlnGHqwl
- hS2R1na6ZXUM/XVXcmgIIkIZJnf7IUlQpKIFW+gduzkCJ0uLb7ZeG1uBe6mf9ML5ASlQ
- 9lag==
-X-Gm-Message-State: AOAM531g+LdgWQvy1q/dSKOTXe5WSCYh3KR+mUop7vmI0QniLH3DfO2G
- oD2ov/6YhPtN4eeUsTNJUYgheeT7rBJGCWGCbmnrgTEVfBy89i3h4XdCljWtI6TOgq0ZPcyHhGc
- MvaHc5ixjDBECOAPeAob0fcxvIUxC
-X-Received: by 2002:a50:ed0c:: with SMTP id j12mr54641139eds.12.1620981811579; 
- Fri, 14 May 2021 01:43:31 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJypI4ge2hxqi/JfrvWJM2sA3w80IXDC+WmQ5wQdEdZZtqA+keJm9IEpbNTASfWRrXFPNSGQBQ==
-X-Received: by 2002:a50:ed0c:: with SMTP id j12mr54641100eds.12.1620981811327; 
- Fri, 14 May 2021 01:43:31 -0700 (PDT)
+ bh=A6IAZwI0xwEgxZkIPkaUDpjaSLTjanXMP6EohDn10+Y=;
+ b=WncugScU398//oKgsku0zhzGEQUQMCz8a473zbBMzsgIWIarwsKdiRnSBRoGdq5jYE
+ oCZchtiGh45tGRG/8J7ZoVJhY9QZJ9T2eK+4/Ix9bRRr8cIXkgAhiNJQjDXV/DQ7zf7T
+ ON7bpvPut+T0lnboVe7/jpI2uX5C8AwtDaimTYx8nZnzN2jVQQ60csPvgpAro8MOvWZ6
+ opkhNSoVJarq81G+ADEb1OBFFm3Nu4V3rMq1xAXaBmpPdLaRXiB2nwNFaySfZUHgGLPv
+ 5fpkqfLAqTSE8p8nZVviMPmwuNApEYsPHBU+wRHkcu99ueSMrms6oylY9BLkL4jMGyDy
+ cLKA==
+X-Gm-Message-State: AOAM5318rUxvLOeAJTRgcMRI+J9GnMCRMLNwrwIxlUdCYVqOXPnzVryQ
+ oW83gCLZlRivfDpmMcHQz1sq12Ecv6z0zaCqGrpmuYwhhJAVU5nXBlvUPG5KKf6ultDaWOh5bB2
+ GSX2t3sqwyoS9Y2nosyl0rVfeVqE1
+X-Received: by 2002:aa7:de02:: with SMTP id h2mr54907497edv.61.1620982258507; 
+ Fri, 14 May 2021 01:50:58 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwbFV5SCx4C1Oa2Pq/TZ05TRM0enPIT1usIgqsxFBagAMreWK04a8ZIkxs0DNaI7qx1TZ7bmg==
+X-Received: by 2002:aa7:de02:: with SMTP id h2mr54907444edv.61.1620982258235; 
+ Fri, 14 May 2021 01:50:58 -0700 (PDT)
 Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
  by smtp.gmail.com with ESMTPSA id
- k12sm3969468edo.50.2021.05.14.01.43.29
+ yw9sm3241097ejb.91.2021.05.14.01.50.56
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 14 May 2021 01:43:31 -0700 (PDT)
+ Fri, 14 May 2021 01:50:57 -0700 (PDT)
 To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
@@ -119,25 +119,25 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
 References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-4-rppt@kernel.org>
+ <20210513184734.29317-6-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Organization: Red Hat
-Subject: Re: [PATCH v19 3/8] set_memory: allow set_direct_map_*_noflush() for
- multiple pages
-Message-ID: <858e5561-bc7d-4ce1-5cb8-3c333199d52a@redhat.com>
-Date: Fri, 14 May 2021 10:43:29 +0200
+Subject: Re: [PATCH v19 5/8] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Message-ID: <ea1ddcfa-f52d-9a7d-cb7b-8502b38a90da@redhat.com>
+Date: Fri, 14 May 2021 10:50:55 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <20210513184734.29317-4-rppt@kernel.org>
+In-Reply-To: <20210513184734.29317-6-rppt@kernel.org>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210514_014336_232522_D2532485 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20210514_015102_783238_371227E2 
+X-CRM114-Status: GOOD (  40.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,107 +157,123 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 13.05.21 20:47, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> The underlying implementations of set_direct_map_invalid_noflush() and
-> set_direct_map_default_noflush() allow updating multiple contiguous pages
-> at once.
+> Introduce "memfd_secret" system call with the ability to create
+> memory areas visible only in the context of the owning process and
+> not mapped not only to other processes but in the kernel page tables
+> as well.
 > 
-> Add numpages parameter to set_direct_map_*_noflush() to expose this
-> ability with these APIs.
+> The secretmem feature is off by default and the user must explicitly
+> enable it at the boot time.
 > 
+> Once secretmem is enabled, the user will be able to create a file 
+> descriptor using the memfd_secret() system call. The memory areas
+> created by mmap() calls from this file descriptor will be unmapped
+> from the kernel direct map and they will be only mapped in the page
+> table of the processes that have access to the file descriptor.
+> 
+> The file descriptor based memory has several advantages over the 
+> "traditional" mm interfaces, such as mlock(), mprotect(), madvise().
+> File descriptor approach allows explict and controlled sharing of the
+> memory
 
-[...]
+s/explict/explicit/
 
-Finally doing some in-depth review, sorry for not having a detailed look 
-earlier.
+> areas, it allows to seal the operations. Besides, file descriptor
+> based memory paves the way for VMMs to remove the secret memory range
+> from the userpace hipervisor process, for instance QEMU. Andy
+> Lutomirski says:
 
+s/userpace hipervisor/userspace hypervisor/
 
->   
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(struct page *page, int numpages)
->   {
->   	struct page_change_data data = {
->   		.set_mask = __pgprot(0),
->   		.clear_mask = __pgprot(PTE_VALID),
->   	};
-> +	unsigned long size = PAGE_SIZE * numpages;
->   
+> 
+> "Getting fd-backed memory into a guest will take some possibly major
+> work in the kernel, but getting vma-backed memory into a guest
+> without mapping it in the host user address space seems much, much
+> worse."
+> 
+> memfd_secret() is made a dedicated system call rather than an
+> extention to
 
-Nit: I'd have made this const and added an early exit for !numpages. But 
-whatever you prefer.
+s/extention/extension/
 
->   	if (!debug_pagealloc_enabled() && !rodata_full)
->   		return 0;
->   
->   	return apply_to_page_range(&init_mm,
->   				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +				   size, change_page_range, &data);
->   }
->   
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(struct page *page, int numpages)
->   {
->   	struct page_change_data data = {
->   		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
->   		.clear_mask = __pgprot(PTE_RDONLY),
->   	};
-> +	unsigned long size = PAGE_SIZE * numpages;
->   
+> memfd_create() because it's purpose is to allow the user to create
+> more secure memory mappings rather than to simply allow file based
+> access to the memory. Nowadays a new system call cost is negligible
+> while it is way simpler for userspace to deal with a clear-cut system
+> calls than with a multiplexer or an overloaded syscall. Moreover, the
+> initial implementation of memfd_secret() is completely distinct from
+> memfd_create() so there is no much sense in overloading
+> memfd_create() to begin with. If there will be a need for code
+> sharing between these implementation it can be easily achieved
+> without a need to adjust user visible APIs.
+> 
+> The secret memory remains accessible in the process context using
+> uaccess primitives, but it is not exposed to the kernel otherwise;
+> secret memory areas are removed from the direct map and functions in
+> the follow_page()/get_user_page() family will refuse to return a page
+> that belongs to the secret memory area.
+> 
+> Once there will be a use case that will require exposing secretmem to
+> the kernel it will be an opt-in request in the system call flags so
+> that user would have to decide what data can be exposed to the
+> kernel.
 
-Nit: dito
+Maybe spell out an example: like page migration.
 
->   	if (!debug_pagealloc_enabled() && !rodata_full)
->   		return 0;
->   
->   	return apply_to_page_range(&init_mm,
->   				   (unsigned long)page_address(page),
-> -				   PAGE_SIZE, change_page_range, &data);
-> +				   size, change_page_range, &data);
->   }
->   
+> 
+> Removing of the pages from the direct map may cause its fragmentation
+> on architectures that use large pages to map the physical memory
+> which affects the system performance. However, the original Kconfig
+> text for CONFIG_DIRECT_GBPAGES said that gigabyte pages in the direct
+> map "... can improve the kernel's performance a tiny bit ..." (commit
+> 00d1c5e05736 ("x86: add gbpages switches")) and the recent report [1]
+> showed that "... although 1G mappings are a good default choice,
+> there is no compelling evidence that it must be the only choice".
+> Hence, it is sufficient to have secretmem disabled by default with
+> the ability of a system administrator to enable it at boot time.
 
+Maybe add a link to the Intel performance evaluation.
 
-[...]
+> 
+> Pages in the secretmem regions are unevictable and unmovable to
+> avoid accidental exposure of the sensitive data via swap or during
+> page migration.
+> 
+> Since the secretmem mappings are locked in memory they cannot exceed 
+> RLIMIT_MEMLOCK. Since these mappings are already locked independently
+> from mlock(), an attempt to mlock()/munlock() secretmem range would
+> fail and mlockall()/munlockall() will ignore secretmem mappings.
 
->   extern int kernel_set_to_readonly;
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index 156cd235659f..15a55d6e9cec 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -2192,14 +2192,14 @@ static int __set_pages_np(struct page *page, int numpages)
->   	return __change_page_attr_set_clr(&cpa, 0);
->   }
->   
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(struct page *page, int numpages)
->   {
-> -	return __set_pages_np(page, 1);
-> +	return __set_pages_np(page, numpages);
->   }
->   
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(struct page *page, int numpages)
->   {
-> -	return __set_pages_p(page, 1);
-> +	return __set_pages_p(page, numpages);
->   }
->   
+Maybe add something like "similar to pages pinned by VFIO".
 
-So, what happens if we succeeded setting 
-set_direct_map_invalid_noflush() for some pages but fail when having to 
-split a large mapping?
+> 
+> However, unlike mlock()ed memory, secretmem currently behaves more
+> like long-term GUP: secretmem mappings are unmovable mappings
+> directly consumed by user space. With default limits, there is no
+> excessive use of secretmem and it poses no real problem in
+> combination with ZONE_MOVABLE/CMA, but in the future this should be
+> addressed to allow balanced use of large amounts of secretmem along
+> with ZONE_MOVABLE/CMA.
+> 
+> A page that was a part of the secret memory area is cleared when it
+> is freed to ensure the data is not exposed to the next user of that
+> page.
 
-Did I miss something or would the current code not undo what it 
-partially did? Or do we simply not care?
+You could skip that with init_on_free (and eventually also with 
+init_on_alloc) set to avoid double clearing.
 
-I guess to handle this cleanly we would either have to catch all error 
-cases first (esp. splitting large mappings) before actually performing 
-the set to invalid, or have some recovery code in place if possible.
+> 
+> The following example demonstrates creation of a secret mapping
+> (error handling is omitted):
+> 
+> fd = memfd_secret(0); ftruncate(fd, MAP_SIZE); ptr = mmap(NULL,
+> MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+> 
+> [1]
+> https://lore.kernel.org/linux-mm/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com/
 
-
-AFAIKs, your patch #5 right now only calls it with 1 page, do we need 
-this change at all? Feels like a leftover from older versions to me 
-where we could have had more than a single page.
+[my mail client messed up the remainder of the mail for whatever reason, 
+will comment in a separate mail if there is anything to comment :) ]
 
 -- 
 Thanks,
