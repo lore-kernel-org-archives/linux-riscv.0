@@ -1,152 +1,78 @@
-Return-Path: <SRS0=0BZE=KI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Ai3O=KJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 649CDC433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 May 2021 19:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 299AAC433B4
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 03:11:55 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 914B0613E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 May 2021 19:11:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 914B0613E9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 70153610F8
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 03:11:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 70153610F8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Date:Cc:To:From:
-	Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+tdNU/Z99BwU/l6L7Ej5895O1HZtYbq2JD2+YFO+Ik=; b=GvkeUihF/aoUefrkCo4a67F/jh
-	LChfbTNGY8B6WR/+jZ6gHXGCPoAH0OBIMnexANBtmh8NEiRVl+Qc0SantiKWavezf2Pdz80ae0X8M
-	pHhXdEFPviE0TtiVqBqCQnUUxGSFhfX/PW6VgyiApM/5F41NdbjC6bEilBR64dZ7w8AB3I51jzYzz
-	bUz+wT3YKyJCgp626ST6WC/rJB+UoRjBkbVsPiQJUKUecWkd3bkwEE+nMlcb8ZYNFFLuTk8APbYvY
-	nUUcsh+nlg9v2ZMG6xBiMXH1XypzPWkPcyBixIoQwStHmexhnrCFb45Jlvrg0GZFUabnqE14nXFsW
-	yWbgTlmg==;
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1qT8YTupvP1lBho26QVU0ZL1ITJoy5C/JpA2d38gTnE=; b=R+BQBJOpqJHVG4R1sAfUe9gN+5
+	f/mob8G8nqWuPBC3YUWcsMTuxVKsT5m7hAmugMMw1SNhCP+/O1DGvwusYWMyFgZGXD/fLhO3cj0pW
+	YwStVcVAnvbIC2NSddsHSa3ShpSh/azZ5re9fHvwniiH17n8nuPKWw0CnkqAj6fgt/C5pDpwrEQo2
+	W7S+K3HQeplDEcFh8X2uCBqRJJsxltmObyVneE1vPMNVkc6FOYTF9/7eYhnxZDoKr1XqmcaoegFob
+	vt+c7iHeRrAcj+SryHq0EpO9EOEo+pHsDdumsRXCejMzPtkT2za4wPeu/rbNqZHYf4gINQqO1hWBd
+	52gE6f2A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhGjh-006EXU-P0; Thu, 13 May 2021 19:11:05 +0000
+	id 1lhOEk-0072EO-OA; Fri, 14 May 2021 03:11:38 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhGiM-006EMm-90; Thu, 13 May 2021 19:09:42 +0000
+ id 1lhOEg-0072E0-Lz
+ for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 03:11:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=MIME-Version:
- Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:
- Reply-To:From:Subject:Message-ID:Sender:Content-ID:Content-Description;
- bh=9KGxdVfKAFm1I53SUvn34ujA5n44tgSgVk4imYX1XGI=; b=Y5+Tx+Kl5V7obR2J08lgykIHhz
- aPkCBzblZqIafvThrgf8FHatbGsn4DhbEFTBO0kBmlmpQCiIs0IpqFNS1zc04K8pUP5Xz8Rm+7F+8
- mqiqiqjWeTnGVVxj3jtcaOZojdbl+UDOHVU0YogVZg+rczKFz+I5ywceRS5gJDtP9uWA5GxKfplfq
- N3pykwuH6PzBWUb1IPi7LPCbMsVmCY+nTtAKScYugkFD7DBXxlBAdolH8lQDWAm+28wTTgVXLYLQ1
- 70Wpapytx+NIKZmixLYYM5FhIf2u+f667tQhZJaOyqecCJ5tGnN79kpCyhRCZEG+7VGe4zlgHop6t
- xxNJ7Hnw==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:MIME-Version:Message-ID:
+ Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=J/AT4UY5pnAR7D7K0k13qqQ47FVbBOjWkZrpkDXS1sM=; b=qqAU4ltwKvVafV8z/1YucCn9VU
+ yE04ujFFRxaLXLaV05/GaYtFnjSKavWbcyZqOS0RbCoYMZ1Mghj4o93DobvGxh9cHXSdHizdFxZtU
+ FNyqfxNK+afKfL5G7xrpN+seixQ+w6MLY+I/kVOS7+EoZVezIZlMcQrAG1ZjDBDHqWvOTuLC/Dx5w
+ OeUfrD5yyDsyjDPqgOg9JdMAG5Hg7eq5ycI5bvUDvQ/+LgGBC6d12oFwtDHJJ+M5VnFrr4ctnJShW
+ p9bDEH3+ObGk9fYsSZDJ40ZEp8waHgX/8PUdO5FEUJD1lp7MkeC/GQfI0FuFH6KC903d8orpPBy4N
+ BpFnCm9w==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhGiI-00BT70-Nh; Thu, 13 May 2021 19:09:40 +0000
-Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
- 14DJ4jxX080582; Thu, 13 May 2021 15:08:38 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=message-id : subject :
- from : reply-to : to : cc : date : in-reply-to : references : content-type
- : content-transfer-encoding : mime-version; s=pp1;
- bh=9KGxdVfKAFm1I53SUvn34ujA5n44tgSgVk4imYX1XGI=;
- b=hzaalpiCUueoLXUUbKI9QLpVLcQPnGEkI7yS+gd0GTOXDR4ahuZ2bGcVBQ2tX9ZNX7dt
- TUQeLd27KOkU1s8VW9omCbwXl1NCq9yql2TZSh67MdgONAPmTZSgZjN2idUhENuetP6X
- EVo2kKyTbOKbuaY8TKsP9GannMu7y6uXZEYTjXykc0CLbzRtAz35gAS5AMY7+zyzKchs
- 3zAJK5oJRgR5Uuvy+YOUJeyjhYJyIYS64tjtFmc7v9HY2tbauqdD4pxuwdWNZ27PCnQ4
- kj5Ll0zBudokMs9v3yHQEVsm/fsHS2a7rb+ADiNTjcFVdiXfWMwJy/cFqa+bvkAt6QRh Jw== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0b-001b2d01.pphosted.com with ESMTP id 38h8kpaaag-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 13 May 2021 15:08:37 -0400
-Received: from m0098420.ppops.net (m0098420.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 14DJ67os087378;
- Thu, 13 May 2021 15:08:35 -0400
-Received: from ppma05wdc.us.ibm.com (1b.90.2fa9.ip4.static.sl-reverse.com
- [169.47.144.27])
- by mx0b-001b2d01.pphosted.com with ESMTP id 38h8kpaa9p-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 13 May 2021 15:08:35 -0400
-Received: from pps.filterd (ppma05wdc.us.ibm.com [127.0.0.1])
- by ppma05wdc.us.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 14DJ8TOH029614;
- Thu, 13 May 2021 19:08:34 GMT
-Received: from b03cxnp07029.gho.boulder.ibm.com
- (b03cxnp07029.gho.boulder.ibm.com [9.17.130.16])
- by ppma05wdc.us.ibm.com with ESMTP id 38fu1y91jp-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 13 May 2021 19:08:34 +0000
-Received: from b03ledav004.gho.boulder.ibm.com
- (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
- by b03cxnp07029.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 14DJ8XvI31457738
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 13 May 2021 19:08:33 GMT
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 433CB7805C;
- Thu, 13 May 2021 19:08:33 +0000 (GMT)
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 01C2D7805E;
- Thu, 13 May 2021 19:08:25 +0000 (GMT)
-Received: from jarvis.int.hansenpartnership.com (unknown [9.80.208.94])
- by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
- Thu, 13 May 2021 19:08:25 +0000 (GMT)
-Message-ID: <821fa66abf8b05f78eb4d25d4b260e3ded887536.camel@linux.ibm.com>
-Subject: Re: [PATCH v19 0/8] mm: introduce memfd_secret system call to
- create "secret" memory areas
-From: James Bottomley <jejb@linux.ibm.com>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski
- <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, Christopher
- Lameter <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>, Dave
- Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>,
- Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Hagen Paul Pfeifer <hagen@jauu.net>, Ingo Molnar
- <mingo@redhat.com>, Kees Cook <keescook@chromium.org>, "Kirill A. Shutemov"
- <kirill@shutemov.name>, Matthew Wilcox <willy@infradead.org>, Matthew
- Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>, Michal
- Hocko <mhocko@suse.com>, Mike Rapoport <rppt@linux.ibm.com>, Michael
- Kerrisk <mtk.manpages@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Peter Zijlstra <peterz@infradead.org>, "Rafael
- J. Wysocki" <rjw@rjwysocki.net>, Rick Edgecombe
- <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>, Shakeel Butt
- <shakeelb@google.com>, Shuah Khan <shuah@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Tycho Andersen <tycho@tycho.ws>, Will Deacon
- <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
-Date: Thu, 13 May 2021 12:08:24 -0700
-In-Reply-To: <20210513184734.29317-1-rppt@kernel.org>
-References: <20210513184734.29317-1-rppt@kernel.org>
-User-Agent: Evolution 3.34.4 
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 7ap-yiBU9BTIbIPC0ZJGSsyE3t6-UbeR
-X-Proofpoint-ORIG-GUID: c38dzU9azelNW-MAXavtk9uxz-7I1msz
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+ id 1lhOEd-00BgBX-KZ
+ for linux-riscv@lists.infradead.org; Fri, 14 May 2021 03:11:33 +0000
+Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.58])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4FhD5L6qvYzmWBC;
+ Fri, 14 May 2021 11:09:10 +0800 (CST)
+Received: from huawei.com (10.175.113.32) by DGGEMS401-HUB.china.huawei.com
+ (10.3.19.201) with Microsoft SMTP Server id 14.3.498.0; Fri, 14 May 2021
+ 11:11:15 +0800
+From: Liu Shixin <liushixin2@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexander Potapenko
+ <glider@google.com>, Marco Elver <elver@google.com>, Dmitry Vyukov
+ <dvyukov@google.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <kasan-dev@googlegroups.com>, Liu Shixin <liushixin2@huawei.com>
+Subject: [PATCH RFC v2] riscv: Enable KFENCE for riscv64
+Date: Fri, 14 May 2021 11:44:32 +0800
+Message-ID: <20210514034432.2004082-1-liushixin2@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.761
- definitions=2021-05-13_12:2021-05-12,
- 2021-05-13 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0
- suspectscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0
- priorityscore=1501 mlxlogscore=999 spamscore=0 phishscore=0 clxscore=1011
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104190000 definitions=main-2105130132
+X-Originating-IP: [10.175.113.32]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210513_120938_902903_A5107C72 
-X-CRM114-Status: GOOD (  53.76  )
+X-CRM114-CacheID: sfid-20210513_201132_024356_A69481DF 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,279 +84,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: jejb@linux.ibm.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2021-05-13 at 21:47 +0300, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> Hi,
-> 
-> @Andrew, this is based on v5.13-rc1, I can rebase whatever way you
-> prefer.
-> 
-> This is an implementation of "secret" mappings backed by a file
-> descriptor.
-> 
-> The file descriptor backing secret memory mappings is created using a
-> dedicated memfd_secret system call The desired protection mode for
-> the
-> memory is configured using flags parameter of the system call. The
-> mmap()
-> of the file descriptor created with memfd_secret() will create a
-> "secret"
-> memory mapping. The pages in that mapping will be marked as not
-> present in
-> the direct map and will be present only in the page table of the
-> owning mm.
-> 
-> Although normally Linux userspace mappings are protected from other
-> users,
-> such secret mappings are useful for environments where a hostile
-> tenant is
-> trying to trick the kernel into giving them access to other tenants
-> mappings.
-> 
-> It's designed to provide the following protections:
-> 
-> * Enhanced protection (in conjunction with all the other in-kernel
-> attack prevention systems) against ROP attacks. Seceretmem makes
-> "simple"
-> ROP insufficient to perform exfiltration, which increases the
-> required
-> complexity of the attack. Along with other protections like the
-> kernel
-> stack size limit and address space layout randomization which make
-> finding
-> gadgets is really hard, absence of any in-kernel primitive for
-> accessing
-> secret memory means the one gadget ROP attack can't work. Since the
-> only
-> way to access secret memory is to reconstruct the missing mapping
-> entry,
-> the attacker has to recover the physical page and insert a PTE
-> pointing to
-> it in the kernel and then retrieve the contents.  That takes at least
-> three
-> gadgets which is a level of difficulty beyond most standard attacks.
-> 
-> * Prevent cross-process secret userspace memory exposures. Once the
-> secret
-> memory is allocated, the user can't accidentally pass it into the
-> kernel to
-> be transmitted somewhere. The secreremem pages cannot be accessed via
-> the
-> direct map and they are disallowed in GUP.
-> 
-> * Harden against exploited kernel flaws. In order to access
-> secretmem, a
-> kernel-side attack would need to either walk the page tables and
-> create new
-> ones, or spawn a new privileged uiserspace process to perform secrets
-> exfiltration using ptrace.
-> 
-> In the future the secret mappings may be used as a mean to protect
-> guest memory
-> in a virtual machine host.
-> 
-> For demonstration of secret memory usage we've created a userspace
-> library
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
-> 
-> that does two things: the first is act as a preloader for openssl to
-> redirect all the OPENSSL_malloc calls to secret memory meaning any
-> secret
-> keys get automatically protected this way and the other thing it does
-> is
-> expose the API to the user who needs it. We anticipate that a lot of
-> the
-> use cases would be like the openssl one: many toolkits that deal with
-> secret keys already have special handling for the memory to try to
-> give
-> them greater protection, so this would simply be pluggable into the
-> toolkits without any need for user application modification.
-> 
-> Hiding secret memory mappings behind an anonymous file allows usage
-> of
-> the page cache for tracking pages allocated for the "secret" mappings
-> as
-> well as using address_space_operations for e.g. page migration
-> callbacks.
-> 
-> The anonymous file may be also used implicitly, like hugetlb files,
-> to
-> implement mmap(MAP_SECRET) and use the secret memory areas with
-> "native" mm
-> ABIs in the future.
-> 
-> Removing of the pages from the direct map may cause its fragmentation
-> on
-> architectures that use large pages to map the physical memory which
-> affects
-> the system performance. However, the original Kconfig text for
-> CONFIG_DIRECT_GBPAGES said that gigabyte pages in the direct map "...
-> can
-> improve the kernel's performance a tiny bit ..." (commit 00d1c5e05736
-> ("x86: add gbpages switches")) and the recent report [1] showed that
-> "...
-> although 1G mappings are a good default choice, there is no
-> compelling
-> evidence that it must be the only choice". Hence, it is sufficient to
-> have
-> secretmem disabled by default with the ability of a system
-> administrator to
-> enable it at boot time.
-> 
-> In addition, there is also a long term goal to improve management of
-> the
-> direct map.
-> 
-> [1] 
-> https://lore.kernel.org/linux-mm/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com/
-> 
-> v19:
-> * block /dev/mem mmap access, per David
-> * disallow mmap/mprotect with PROT_EXEC, per Kees
-> * simplify return in page_is_secretmem(), per Matthew
-> * use unsigned int for syscall falgs, per Yury
-> 
-> v18: 
-> https://lore.kernel.org/lkml/20210303162209.8609-1-rppt@kernel.org
-> * rebase on v5.12-rc1
-> * merge kfence fix into the original patch
-> * massage commit message of the patch introducing the memfd_secret
-> syscall
-> 
-> v17: 
-> https://lore.kernel.org/lkml/20210208084920.2884-1-rppt@kernel.org
-> * Remove pool of large pages backing secretmem allocations, per
-> Michal Hocko
-> * Add secretmem pages to unevictable LRU, per Michal Hocko
-> * Use GFP_HIGHUSER as secretmem mapping mask, per Michal Hocko
-> * Make secretmem an opt-in feature that is disabled by default
->  
-> v16: 
-> https://lore.kernel.org/lkml/20210121122723.3446-1-rppt@kernel.org
-> * Fix memory leak intorduced in v15
-> * Clean the data left from previous page user before handing the page
-> to
->   the userspace
-> 
-> v15: 
-> https://lore.kernel.org/lkml/20210120180612.1058-1-rppt@kernel.org
-> * Add riscv/Kconfig update to disable set_memory operations for nommu
->   builds (patch 3)
-> * Update the code around add_to_page_cache() per Matthew's comments
->   (patches 6,7)
-> * Add fixups for build/checkpatch errors discovered by CI systems
-> 
-> Older history:
-> v14: 
-> https://lore.kernel.org/lkml/20201203062949.5484-1-rppt@kernel.org
-> v13: 
-> https://lore.kernel.org/lkml/20201201074559.27742-1-rppt@kernel.org
-> v12: 
-> https://lore.kernel.org/lkml/20201125092208.12544-1-rppt@kernel.org
-> v11: 
-> https://lore.kernel.org/lkml/20201124092556.12009-1-rppt@kernel.org
-> v10: 
-> https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
-> v9: 
-> https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
-> v8: 
-> https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
-> v7: 
-> https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
-> v6: 
-> https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
-> v5: 
-> https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
-> v4: 
-> https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
-> v3: 
-> https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
-> v2: 
-> https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
-> v1: 
-> https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
-> rfc-v2: 
-> https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
-> rfc-v1: 
-> https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
-> rfc-v0: 
-> https://lore.kernel.org/lkml/1572171452-7958-1-git-send-email-rppt@kernel.org/
-> 
-> Mike Rapoport (8):
->   mmap: make mlock_future_check() global
->   riscv/Kconfig: make direct map manipulation options depend on MMU
->   set_memory: allow set_direct_map_*_noflush() for multiple pages
->   set_memory: allow querying whether set_direct_map_*() is actually
-> enabled
->   mm: introduce memfd_secret system call to create "secret" memory
-> areas
->   PM: hibernate: disable when there are active secretmem users
->   arch, mm: wire up memfd_secret system call where relevant
->   secretmem: test: add basic selftest for memfd_secret(2)
-> 
->  arch/arm64/include/asm/Kbuild             |   1 -
->  arch/arm64/include/asm/cacheflush.h       |   6 -
->  arch/arm64/include/asm/kfence.h           |   2 +-
->  arch/arm64/include/asm/set_memory.h       |  17 ++
->  arch/arm64/include/uapi/asm/unistd.h      |   1 +
->  arch/arm64/kernel/machine_kexec.c         |   1 +
->  arch/arm64/mm/mmu.c                       |   6 +-
->  arch/arm64/mm/pageattr.c                  |  23 +-
->  arch/riscv/Kconfig                        |   4 +-
->  arch/riscv/include/asm/set_memory.h       |   4 +-
->  arch/riscv/include/asm/unistd.h           |   1 +
->  arch/riscv/mm/pageattr.c                  |   8 +-
->  arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
->  arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
->  arch/x86/include/asm/set_memory.h         |   4 +-
->  arch/x86/mm/pat/set_memory.c              |   8 +-
->  drivers/char/mem.c                        |   4 +
->  include/linux/secretmem.h                 |  54 ++++
->  include/linux/set_memory.h                |  16 +-
->  include/linux/syscalls.h                  |   1 +
->  include/uapi/asm-generic/unistd.h         |   7 +-
->  include/uapi/linux/magic.h                |   1 +
->  kernel/power/hibernate.c                  |   5 +-
->  kernel/power/snapshot.c                   |   4 +-
->  kernel/sys_ni.c                           |   2 +
->  mm/Kconfig                                |   4 +
->  mm/Makefile                               |   1 +
->  mm/gup.c                                  |  12 +
->  mm/internal.h                             |   3 +
->  mm/mlock.c                                |   3 +-
->  mm/mmap.c                                 |   5 +-
->  mm/secretmem.c                            | 254 +++++++++++++++++++
->  mm/vmalloc.c                              |   5 +-
->  scripts/checksyscalls.sh                  |   4 +
->  tools/testing/selftests/vm/.gitignore     |   1 +
->  tools/testing/selftests/vm/Makefile       |   3 +-
->  tools/testing/selftests/vm/memfd_secret.c | 296
-> ++++++++++++++++++++++
->  tools/testing/selftests/vm/run_vmtests.sh |  17 ++
->  38 files changed, 744 insertions(+), 46 deletions(-)
->  create mode 100644 arch/arm64/include/asm/set_memory.h
->  create mode 100644 include/linux/secretmem.h
->  create mode 100644 mm/secretmem.c
->  create mode 100644 tools/testing/selftests/vm/memfd_secret.c
-> 
-> 
-> base-commit: 6efb943b8616ec53a5e444193dccf1af9ad627b5
+Add architecture specific implementation details for KFENCE and enable
+KFENCE for the riscv64 architecture. In particular, this implements the
+required interface in <asm/kfence.h>.
 
-For the series:
+KFENCE requires that attributes for pages from its memory pool can
+individually be set. Therefore, force the kfence pool to be mapped at
+page granularity.
 
-Acked-by: James Bottomley <James.Bottomley@HansenPartnership.com>
+I tested this patch using the testcases in kfence_test.c and all passed.
 
-James
+Signed-off-by: Liu Shixin <liushixin2@huawei.com>
+---
+v1->v2: Change kmalloc() to pte_alloc_one_kernel() for allocating pte.
 
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/kfence.h | 51 +++++++++++++++++++++++++++++++++
+ arch/riscv/mm/fault.c           | 11 ++++++-
+ 3 files changed, 62 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/kfence.h
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c426e7d20907..000d8aba1030 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -64,6 +64,7 @@ config RISCV
+ 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
+ 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
++	select HAVE_ARCH_KFENCE if MMU && 64BIT
+ 	select HAVE_ARCH_KGDB
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+diff --git a/arch/riscv/include/asm/kfence.h b/arch/riscv/include/asm/kfence.h
+new file mode 100644
+index 000000000000..c25d67e0b8ba
+--- /dev/null
++++ b/arch/riscv/include/asm/kfence.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _ASM_RISCV_KFENCE_H
++#define _ASM_RISCV_KFENCE_H
++
++#include <linux/kfence.h>
++#include <linux/pfn.h>
++#include <asm-generic/pgalloc.h>
++#include <asm/pgtable.h>
++
++static inline bool arch_kfence_init_pool(void)
++{
++	int i;
++	unsigned long addr;
++	pte_t *pte;
++	pmd_t *pmd;
++
++	for (addr = (unsigned long)__kfence_pool; is_kfence_address((void *)addr);
++	     addr += PAGE_SIZE) {
++		pte = virt_to_kpte(addr);
++		pmd = pmd_off_k(addr);
++
++		if (!pmd_leaf(*pmd) && pte_present(*pte))
++			continue;
++
++		pte = pte_alloc_one_kernel(&init_mm);
++		for (i = 0; i < PTRS_PER_PTE; i++)
++			set_pte(pte + i, pfn_pte(PFN_DOWN(__pa((addr & PMD_MASK) + i * PAGE_SIZE)), PAGE_KERNEL));
++
++		set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(pte)), PAGE_TABLE));
++		flush_tlb_kernel_range(addr, addr + PMD_SIZE);
++	}
++
++	return true;
++}
++
++static inline bool kfence_protect_page(unsigned long addr, bool protect)
++{
++	pte_t *pte = virt_to_kpte(addr);
++
++	if (protect)
++		set_pte(pte, __pte(pte_val(*pte) & ~_PAGE_PRESENT));
++	else
++		set_pte(pte, __pte(pte_val(*pte) | _PAGE_PRESENT));
++
++	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
++
++	return true;
++}
++
++#endif /* _ASM_RISCV_KFENCE_H */
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 096463cc6fff..aa08dd2f8fae 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -14,6 +14,7 @@
+ #include <linux/signal.h>
+ #include <linux/uaccess.h>
+ #include <linux/kprobes.h>
++#include <linux/kfence.h>
+ 
+ #include <asm/ptrace.h>
+ #include <asm/tlbflush.h>
+@@ -45,7 +46,15 @@ static inline void no_context(struct pt_regs *regs, unsigned long addr)
+ 	 * Oops. The kernel tried to access some bad page. We'll have to
+ 	 * terminate things with extreme prejudice.
+ 	 */
+-	msg = (addr < PAGE_SIZE) ? "NULL pointer dereference" : "paging request";
++	if (addr < PAGE_SIZE)
++		msg = "NULL pointer dereference";
++	else {
++		if (kfence_handle_page_fault(addr, regs->cause == EXC_STORE_PAGE_FAULT, regs))
++			return;
++
++		msg = "paging request";
++	}
++
+ 	die_kernel_fault(msg, addr, regs);
+ }
+ 
+-- 
+2.18.0.huawei.25
 
 
 _______________________________________________
