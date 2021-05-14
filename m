@@ -5,17 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 97BE1C433ED
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6305BC433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:28:35 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1056B613F6
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:27:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1056B613F6
+	by mail.kernel.org (Postfix) with ESMTPS id D0E8461407
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 09:28:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0E8461407
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,79 +23,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WJTECJZuoBImiG145hmOTMigzVDrbpu5QdCSGb2a+xo=; b=mWyUxgqJYhUJ1/zo1JWSMcfPw
-	Uv+9FOh5avgRYF3KJWqaO/PeSMUjgb+Zzwm65Up0KGF22Xs1D659uHvoo3wOPl5yHJVpl9ZU+7XKL
-	/k56KfJ//d2ardlzk/oMezAcCubBxFi5A2uvjQRpsTesNo9OgkGl9hutotJtvAhjJbZBHRxdrC4C/
-	t7UCLEEieCz+haSDo+fFCd+zYeu/b6d8I6HiLyueLo/Iz7UuBdCx9/Ty5d5HQ4qKsHkPsuP9bL6zH
-	98NbIA1s/VpGuqbMjst9/AVDoCG98rvx6+aroBnGof6+RoIlyD6XZabxWPGQ4kYjL3lkGpIS0/p2g
-	hyhvQGJIQ==;
+	 bh=xD5tnLqZxu8EBPPIJMIPw9IKnqCKluFhZHQyRx8jAwY=; b=TwOEcEd1hHNFK0xGUgO56J/4C
+	qysx/KeFtE8cNxcfcW84dbCEYvnS5NVqkV5sWKPTL4VxjVR0VL7msIT9wZyBwF27/oURVVOZdkx7E
+	0R122CwpVoIuAQDLsZUdn+kGXg4wc9O37mrF1pAmrUT6+/nD7QAIbSCIfZ8KRQC5N2K+8nOP2hpTy
+	OWUsOHQ4KPaWvi5itj9yf6hCEmTz1Jq5LPgFBad3Y77udDjYnDHdcRyt4EMOZUQCi5YAZR0cN21Dt
+	iFb9rPQCAwflummREe+GiCQZKIvCgaFQ1UHx37MRn+VjrivYlhQ/crGn4GsI63f7z3hGDrO+dw4HC
+	z+ZpXQwpg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhU6Z-007d2n-N2; Fri, 14 May 2021 09:27:35 +0000
+	id 1lhU7F-007dD8-09; Fri, 14 May 2021 09:28:17 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhU6L-007d0Q-T2
- for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 09:27:23 +0000
+ id 1lhU6w-007d8x-Q2
+ for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 09:27:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
  Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=; b=d1eEDp+yorkXdxcEX+xcb3jfel
- RltwxvsSUW2rwU0AvOIZdSxlfY8Ipq69UCCYj4zmB1TcHoDJp+Y64RpL4tWbZkcNQ7TuvYFHYYqC+
- ujxrpp07hcx9FzzUpYQl3Vyo8AX6mnTm6iJUgJ/SzMLTQigvnF99FpY41hTO+22DZwTKBZiMm5qeM
- ionchFv0nIi9o6jYHZ0t/T7L0RDszH9XkdYnsWPXG4cdNDnWFYgNtJv5ZSLhbQA7R1i05LtGPnKL+
- hqU3mUlV1+HZ8fRd/UnTH/vEYLLqlhoCm6eTjO9tinEu5lI95TqWZCVB5Kv9DRgwiCrldTb/SmE0g
- Y9+AKrKw==;
+ bh=lCFOeXXuHqZj/3n5W4PkDf5UJ0V8NO/Y5/poalLCeQU=; b=pxozzTckAVlhxaj2nyMZKO7tvS
+ 9BrO+u6TJ/7mV3qRXEz+FNu6WwLvFySCvOzid4H3knNiT0uAIFoPANWuHVMWGDB5Dqj9nUOyE0Mt3
+ KIDSVmDJwqtrsFH6q0V7lE1bCNexJK89bXYByS+9B3p57MGyQAWfcLPi1FmDEyJWO/1J+CIgLJtUD
+ pTtqVCpQsUgGUIWtU52cHyPLaZFOmMyasnEGrz1ilgTiTwugpu3xFe+1A9Z2G3XfRqhwdmNPbwT3p
+ r5oRfQyGYwJwj77ACZgSTb96yp0oipeElmV4IBTWCjSdfdFsyhRIyCT6O5UXOe64SeDuBofrlh4uh
+ aazrxj2g==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhU6J-00BrHc-2e
- for linux-riscv@lists.infradead.org; Fri, 14 May 2021 09:27:20 +0000
+ id 1lhU6s-00BrKC-Oi
+ for linux-riscv@lists.infradead.org; Fri, 14 May 2021 09:27:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1620984438;
+ s=mimecast20190719; t=1620984473;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=;
- b=F3K9A+rC136Eqdkqk5fITbuifX7Z8+mW7DIBhw3Ucdl4OOm85uB++HqmwTz5RA5aVoVFDQ
- mnWi3YtOdaL01NVHBdtYSEVRHD8KSPIsVWtI0RNik46+L5C7FT7ULmP641/Zjnv9sc1wbG
- zI2v9eOvChONlXQNF9ajOAc2g9jpraE=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-494-Ep884cPSPCKKUfFnF6Y9og-1; Fri, 14 May 2021 05:27:14 -0400
-X-MC-Unique: Ep884cPSPCKKUfFnF6Y9og-1
-Received: by mail-ej1-f69.google.com with SMTP id
- v10-20020a170906292ab02903d18e1be8f8so2048924ejd.13
- for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 02:27:14 -0700 (PDT)
+ bh=lCFOeXXuHqZj/3n5W4PkDf5UJ0V8NO/Y5/poalLCeQU=;
+ b=doEV/osVmgQ4E2qonk1MwbTRonAvztAxV0UpO6phcTOAXqfbH1NKOqZfCEHk9x2lVnOk2o
+ csEOklxirAkGqsic5gcu/kDbCb5LToyo6pIxnlri6tuqCqPr/HC7oMpdZUdKA6QS0g9mMF
+ u8gUE53evgj+umwiX02/idBTe9U3534=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-492-uMxfUvmCNlKdhBTnflifHA-1; Fri, 14 May 2021 05:27:51 -0400
+X-MC-Unique: uMxfUvmCNlKdhBTnflifHA-1
+Received: by mail-ed1-f71.google.com with SMTP id
+ i19-20020a05640242d3b0290388cea34ed3so16052812edc.15
+ for <linux-riscv@lists.infradead.org>; Fri, 14 May 2021 02:27:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:cc:references:from:organization
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=yW2asbdUagGat2ijahWn20ew93BwpmErRmbUGUDMNcY=;
- b=b8Ofs1bROhOA+OOCHWBIDTw5ZHLM/jUAAw4p81Plke6SCamaaq+Gu51v+cQLl1nmEd
- jBsQHSNCza3AToRy3YJEs8bFBIOYPEv7ypyC4OSQrJZWnAQH2R7XmKBUAcrw9ctRt9cC
- EQryR0RDQkM0FjztAjrr7NcSZoFuP6RG9LVZPvc33WcFboXcr2zR302glihfKpTn0jD4
- +6yZ9Y2PGAm07KyIWPwKFT+2sZlnl7jC4KDpPvwyT/qVuCf2Z1RHMDS2R3fkFqor3fGB
- 9iQOpEQDJ3UE3IBjWDRqc/KybP9lOJjlTPlcLlK0YwoCsrEnjH8CsTw4YzWR91M6I915
- 0alw==
-X-Gm-Message-State: AOAM5319OgmYPS9XzSJB7EbarTE7pU7kJLf3VB6nsiuimpR1GNIjWhK4
- vdigdFW3amvj8yBUDqLQI2b0i9o5kw78WSDrG5KNf7gBGiBxNBwfPd3Eo/KQGLgbyVOYGU2aCJ5
- +RP3CtW0ZUh5GRIkdmiBBlqE/sKJj
-X-Received: by 2002:a05:6402:10c6:: with SMTP id
- p6mr55735309edu.241.1620984433540; 
- Fri, 14 May 2021 02:27:13 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyEtOCv5Ls17oMjk/nlAqkQoSV5N2CP4kQHSOXjzJBX9acMLtoFBB9xjtabyDhiKP+sEIswPA==
-X-Received: by 2002:a05:6402:10c6:: with SMTP id
- p6mr55735269edu.241.1620984433367; 
- Fri, 14 May 2021 02:27:13 -0700 (PDT)
+ bh=lCFOeXXuHqZj/3n5W4PkDf5UJ0V8NO/Y5/poalLCeQU=;
+ b=mcUIl7Ul95JlhP98CVaGuxkjEQZ0oiXblOzpW6JtlHL8qbxnvClxHXj3uGAn9leFlk
+ cDfbHQacVutGHVM8OF8RVJQ+dHowEepUXWphsaPdiljsXRlGsHmtLc+hxr7cN67n2jga
+ 3X+7xU79DyCBTkLZqq7yqeGTgXmuEd8kDbsCEMMYk4cS6kYTXwoqJQzO4aL+i3fOa1Ts
+ 8G4EtsGXvzLMHobbIXfWrMaJvez4Amw9W+8ZZ/vxCEdCtD1C/dRS91RJYsIRoTEOU3dD
+ FXN4oC50TSza44h6Tbtc0sBQfJdqcUd2WjV1zmH9poM9Z6pj194EZ/+lL4bL3VUq6PNG
+ kJdg==
+X-Gm-Message-State: AOAM530Qhn9FWPvaHdm23mGStPVZQVwJXUm4Jl4OaR7MIqZrozcNeYF/
+ Lkg2Lu02wxDD2qKawNZCz8QOpmnA6ewGorxZlEifiqRtRzSgRrS+orNHC+lqc4ZlJwlyx8Bi+hE
+ jEsUrCZRgsKRCa4akp0rpS7SOVyHP
+X-Received: by 2002:a05:6402:1713:: with SMTP id
+ y19mr11073783edu.286.1620984470700; 
+ Fri, 14 May 2021 02:27:50 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxfJBqZFBKWj/4MZ8aMrds7gZKR5l1ZQNZ/fzLhEZqsf7ePvhUBKvxtTbsw6S08p7GvU/DmLA==
+X-Received: by 2002:a05:6402:1713:: with SMTP id
+ y19mr11073750edu.286.1620984470525; 
+ Fri, 14 May 2021 02:27:50 -0700 (PDT)
 Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
  by smtp.gmail.com with ESMTPSA id
- m9sm3510728ejj.53.2021.05.14.02.27.11
+ t20sm3351530ejc.61.2021.05.14.02.27.48
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 14 May 2021 02:27:13 -0700 (PDT)
-Subject: Re: [PATCH v19 6/8] PM: hibernate: disable when there are active
- secretmem users
+ Fri, 14 May 2021 02:27:50 -0700 (PDT)
+Subject: Re: [PATCH v19 7/8] arch, mm: wire up memfd_secret system call where
+ relevant
 To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
@@ -124,23 +123,23 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
 References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-7-rppt@kernel.org>
+ <20210513184734.29317-8-rppt@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Organization: Red Hat
-Message-ID: <d243610c-78df-5e25-cb60-320e7a352d82@redhat.com>
-Date: Fri, 14 May 2021 11:27:11 +0200
+Message-ID: <227cabb7-17a4-9b39-5893-df825fd2e29b@redhat.com>
+Date: Fri, 14 May 2021 11:27:48 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <20210513184734.29317-7-rppt@kernel.org>
+In-Reply-To: <20210513184734.29317-8-rppt@kernel.org>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210514_022719_205981_51D0B69E 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20210514_022754_891053_5BE9CCFE 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,18 +159,16 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 13.05.21 20:47, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> It is unsafe to allow saving of secretmem areas to the hibernation
-> snapshot as they would be visible after the resume and this essentially
-> will defeat the purpose of secret memory mappings.
-> 
-> Prevent hibernation whenever there are active secret memory users.
+> Wire up memfd_secret system call on architectures that define
+> ARCH_HAS_SET_DIRECT_MAP, namely arm64, risc-v and x86.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Alexander Viro <viro@zeniv.linux.org.uk>
 > Cc: Andy Lutomirski <luto@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
 > Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Christopher Lameter <cl@linux.com>
 > Cc: Dan Williams <dan.j.williams@intel.com>
 > Cc: Dave Hansen <dave.hansen@linux.intel.com>
@@ -186,7 +183,6 @@ On 13.05.21 20:47, Mike Rapoport wrote:
 > Cc: Matthew Wilcox <willy@infradead.org>
 > Cc: Michael Kerrisk <mtk.manpages@gmail.com>
 > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 > Cc: Paul Walmsley <paul.walmsley@sifive.com>
 > Cc: Peter Zijlstra <peterz@infradead.org>
 > Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
@@ -197,109 +193,106 @@ On 13.05.21 20:47, Mike Rapoport wrote:
 > Cc: Tycho Andersen <tycho@tycho.ws>
 > Cc: Will Deacon <will@kernel.org>
 > ---
->   include/linux/secretmem.h |  6 ++++++
->   kernel/power/hibernate.c  |  5 ++++-
->   mm/secretmem.c            | 15 +++++++++++++++
->   3 files changed, 25 insertions(+), 1 deletion(-)
+>   arch/arm64/include/uapi/asm/unistd.h   | 1 +
+>   arch/riscv/include/asm/unistd.h        | 1 +
+>   arch/x86/entry/syscalls/syscall_32.tbl | 1 +
+>   arch/x86/entry/syscalls/syscall_64.tbl | 1 +
+>   include/linux/syscalls.h               | 1 +
+>   include/uapi/asm-generic/unistd.h      | 7 ++++++-
+>   scripts/checksyscalls.sh               | 4 ++++
+>   7 files changed, 15 insertions(+), 1 deletion(-)
 > 
-> diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
-> index e617b4afcc62..21c3771e6a56 100644
-> --- a/include/linux/secretmem.h
-> +++ b/include/linux/secretmem.h
-> @@ -30,6 +30,7 @@ static inline bool page_is_secretmem(struct page *page)
->   }
+> diff --git a/arch/arm64/include/uapi/asm/unistd.h b/arch/arm64/include/uapi/asm/unistd.h
+> index f83a70e07df8..ce2ee8f1e361 100644
+> --- a/arch/arm64/include/uapi/asm/unistd.h
+> +++ b/arch/arm64/include/uapi/asm/unistd.h
+> @@ -20,5 +20,6 @@
+>   #define __ARCH_WANT_SET_GET_RLIMIT
+>   #define __ARCH_WANT_TIME32_SYSCALLS
+>   #define __ARCH_WANT_SYS_CLONE3
+> +#define __ARCH_WANT_MEMFD_SECRET
 >   
->   bool vma_is_secretmem(struct vm_area_struct *vma);
-> +bool secretmem_active(void);
+>   #include <asm-generic/unistd.h>
+> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
+> index 977ee6181dab..6c316093a1e5 100644
+> --- a/arch/riscv/include/asm/unistd.h
+> +++ b/arch/riscv/include/asm/unistd.h
+> @@ -9,6 +9,7 @@
+>    */
 >   
->   #else
+>   #define __ARCH_WANT_SYS_CLONE
+> +#define __ARCH_WANT_MEMFD_SECRET
 >   
-> @@ -43,6 +44,11 @@ static inline bool page_is_secretmem(struct page *page)
->   	return false;
->   }
+>   #include <uapi/asm/unistd.h>
 >   
-> +static inline bool secretmem_active(void)
-> +{
-> +	return false;
-> +}
+> diff --git a/arch/x86/entry/syscalls/syscall_32.tbl b/arch/x86/entry/syscalls/syscall_32.tbl
+> index 28a1423ce32e..e44519020a43 100644
+> --- a/arch/x86/entry/syscalls/syscall_32.tbl
+> +++ b/arch/x86/entry/syscalls/syscall_32.tbl
+> @@ -451,3 +451,4 @@
+>   444	i386	landlock_create_ruleset	sys_landlock_create_ruleset
+>   445	i386	landlock_add_rule	sys_landlock_add_rule
+>   446	i386	landlock_restrict_self	sys_landlock_restrict_self
+> +447	i386	memfd_secret		sys_memfd_secret
+> diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+> index ecd551b08d05..a06f16106f24 100644
+> --- a/arch/x86/entry/syscalls/syscall_64.tbl
+> +++ b/arch/x86/entry/syscalls/syscall_64.tbl
+> @@ -368,6 +368,7 @@
+>   444	common	landlock_create_ruleset	sys_landlock_create_ruleset
+>   445	common	landlock_add_rule	sys_landlock_add_rule
+>   446	common	landlock_restrict_self	sys_landlock_restrict_self
+> +447	common	memfd_secret		sys_memfd_secret
+>   
+>   #
+>   # Due to a historical design error, certain syscalls are numbered differently
+> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+> index 050511e8f1f8..1a1b5d724497 100644
+> --- a/include/linux/syscalls.h
+> +++ b/include/linux/syscalls.h
+> @@ -1050,6 +1050,7 @@ asmlinkage long sys_landlock_create_ruleset(const struct landlock_ruleset_attr _
+>   asmlinkage long sys_landlock_add_rule(int ruleset_fd, enum landlock_rule_type rule_type,
+>   		const void __user *rule_attr, __u32 flags);
+>   asmlinkage long sys_landlock_restrict_self(int ruleset_fd, __u32 flags);
+> +asmlinkage long sys_memfd_secret(unsigned int flags);
+>   
+>   /*
+>    * Architecture-specific system calls
+> diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
+> index 6de5a7fc066b..28b388368cf6 100644
+> --- a/include/uapi/asm-generic/unistd.h
+> +++ b/include/uapi/asm-generic/unistd.h
+> @@ -873,8 +873,13 @@ __SYSCALL(__NR_landlock_add_rule, sys_landlock_add_rule)
+>   #define __NR_landlock_restrict_self 446
+>   __SYSCALL(__NR_landlock_restrict_self, sys_landlock_restrict_self)
+>   
+> +#ifdef __ARCH_WANT_MEMFD_SECRET
+> +#define __NR_memfd_secret 447
+> +__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
+> +#endif
 > +
->   #endif /* CONFIG_SECRETMEM */
+>   #undef __NR_syscalls
+> -#define __NR_syscalls 447
+> +#define __NR_syscalls 448
 >   
->   #endif /* _LINUX_SECRETMEM_H */
-> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-> index da0b41914177..559acef3fddb 100644
-> --- a/kernel/power/hibernate.c
-> +++ b/kernel/power/hibernate.c
-> @@ -31,6 +31,7 @@
->   #include <linux/genhd.h>
->   #include <linux/ktime.h>
->   #include <linux/security.h>
-> +#include <linux/secretmem.h>
->   #include <trace/events/power.h>
+>   /*
+>    * 32 bit systems traditionally used different
+> diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
+> index a18b47695f55..b7609958ee36 100755
+> --- a/scripts/checksyscalls.sh
+> +++ b/scripts/checksyscalls.sh
+> @@ -40,6 +40,10 @@ cat << EOF
+>   #define __IGNORE_setrlimit	/* setrlimit */
+>   #endif
 >   
->   #include "power.h"
-> @@ -81,7 +82,9 @@ void hibernate_release(void)
->   
->   bool hibernation_available(void)
->   {
-> -	return nohibernate == 0 && !security_locked_down(LOCKDOWN_HIBERNATION);
-> +	return nohibernate == 0 &&
-> +		!security_locked_down(LOCKDOWN_HIBERNATION) &&
-> +		!secretmem_active();
->   }
->   
->   /**
-> diff --git a/mm/secretmem.c b/mm/secretmem.c
-> index 1ae50089adf1..7c2499e4de22 100644
-> --- a/mm/secretmem.c
-> +++ b/mm/secretmem.c
-> @@ -40,6 +40,13 @@ module_param_named(enable, secretmem_enable, bool, 0400);
->   MODULE_PARM_DESC(secretmem_enable,
->   		 "Enable secretmem and memfd_secret(2) system call");
->   
-> +static atomic_t secretmem_users;
+> +#ifndef __ARCH_WANT_MEMFD_SECRET
+> +#define __IGNORE_memfd_secret
+> +#endif
 > +
-> +bool secretmem_active(void)
-> +{
-> +	return !!atomic_read(&secretmem_users);
-> +}
-> +
->   static vm_fault_t secretmem_fault(struct vm_fault *vmf)
->   {
->   	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-> @@ -94,6 +101,12 @@ static const struct vm_operations_struct secretmem_vm_ops = {
->   	.fault = secretmem_fault,
->   };
+>   /* Missing flags argument */
+>   #define __IGNORE_renameat	/* renameat2 */
 >   
-> +static int secretmem_release(struct inode *inode, struct file *file)
-> +{
-> +	atomic_dec(&secretmem_users);
-> +	return 0;
-> +}
-> +
->   static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
->   {
->   	unsigned long len = vma->vm_end - vma->vm_start;
-> @@ -116,6 +129,7 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
->   }
->   
->   static const struct file_operations secretmem_fops = {
-> +	.release	= secretmem_release,
->   	.mmap		= secretmem_mmap,
->   };
->   
-> @@ -202,6 +216,7 @@ SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
->   	file->f_flags |= O_LARGEFILE;
->   
->   	fd_install(fd, file);
-> +	atomic_inc(&secretmem_users);
->   	return fd;
->   
->   err_put_fd:
 > 
-
-It looks a bit racy, but I guess we don't really care about these corner 
-cases.
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
