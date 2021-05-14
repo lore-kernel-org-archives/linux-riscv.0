@@ -2,77 +2,133 @@ Return-Path: <SRS0=Ai3O=KJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 299AAC433B4
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 03:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FA71C433ED
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 06:35:03 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 70153610F8
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 03:11:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 70153610F8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5F57B61446
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 May 2021 06:35:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F57B61446
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1qT8YTupvP1lBho26QVU0ZL1ITJoy5C/JpA2d38gTnE=; b=R+BQBJOpqJHVG4R1sAfUe9gN+5
-	f/mob8G8nqWuPBC3YUWcsMTuxVKsT5m7hAmugMMw1SNhCP+/O1DGvwusYWMyFgZGXD/fLhO3cj0pW
-	YwStVcVAnvbIC2NSddsHSa3ShpSh/azZ5re9fHvwniiH17n8nuPKWw0CnkqAj6fgt/C5pDpwrEQo2
-	W7S+K3HQeplDEcFh8X2uCBqRJJsxltmObyVneE1vPMNVkc6FOYTF9/7eYhnxZDoKr1XqmcaoegFob
-	vt+c7iHeRrAcj+SryHq0EpO9EOEo+pHsDdumsRXCejMzPtkT2za4wPeu/rbNqZHYf4gINQqO1hWBd
-	52gE6f2A==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=UcilsHmfnAJf7R7VwvOAu+JBLWVYfA6/TUjK7p3ZenI=; b=mbWpRKuEYOXUlUCVpGHYAJs/A
+	ufOINKWVB7j4S7pnXy7LzKmx+jopueDjJgVywBoFtLzJNgTpZ5VGXZbCdMgbBRJnnekN35eyxPuRX
+	RXwXpB0zJqsrjz2G6Ypb4pqOhRE9Pozmy/s/KoTnt3kd35oAeuw2IMJw0o2IA5mTvzE8SLlVDcgkn
+	ZOOPsD2EdDeZS1JIciYhyXvS5ngATyIaCtQO4L+CNF2xxDrgHnAXP5KfOxNKvsNqbXr39mUrgP+5S
+	/OZqvSdLClxqj87bPFDL59H88VDm33Y7KQM1SycSN+QuzOFDdvW+8svx9EEfPI7JhVzs7J0BHms3S
+	sj5Mrnudw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhOEk-0072EO-OA; Fri, 14 May 2021 03:11:38 +0000
+	id 1lhRPH-007J8g-0F; Fri, 14 May 2021 06:34:43 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhOEg-0072E0-Lz
- for linux-riscv@desiato.infradead.org; Fri, 14 May 2021 03:11:34 +0000
+ id 1lhROy-007J3j-CJ; Fri, 14 May 2021 06:34:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:MIME-Version:Message-ID:
- Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:In-Reply-To:References;
- bh=J/AT4UY5pnAR7D7K0k13qqQ47FVbBOjWkZrpkDXS1sM=; b=qqAU4ltwKvVafV8z/1YucCn9VU
- yE04ujFFRxaLXLaV05/GaYtFnjSKavWbcyZqOS0RbCoYMZ1Mghj4o93DobvGxh9cHXSdHizdFxZtU
- FNyqfxNK+afKfL5G7xrpN+seixQ+w6MLY+I/kVOS7+EoZVezIZlMcQrAG1ZjDBDHqWvOTuLC/Dx5w
- OeUfrD5yyDsyjDPqgOg9JdMAG5Hg7eq5ycI5bvUDvQ/+LgGBC6d12oFwtDHJJ+M5VnFrr4ctnJShW
- p9bDEH3+ObGk9fYsSZDJ40ZEp8waHgX/8PUdO5FEUJD1lp7MkeC/GQfI0FuFH6KC903d8orpPBy4N
- BpFnCm9w==;
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=VXceOUtE5LSPd2DlJFL6vCZQ0yv1XPzn5JDz73q2p4U=; b=c+rbsEiKQpHX/+LjOaL/Hj8hpy
+ FIf6oyy7honjydbhcVQtN9b+MrT1h/xQhrwY98KTHO5rbB/Jd4VwwhykW+wwwsCsCYVICIVaokmE9
+ X2v2EkndNP7crA1AEPSXJmhw17yB7OMsxtdujbx0KHyh5v1DsoEi9B0EFdQJoJOScwCHPnbvI/wRr
+ 79fjF8E5Oyv09zz0IDV3WQy9s2jDPlQjensA5K02NO6qisw/lXeFCWqaB73UUJ47DL1NWurUnMnVz
+ 20n2Hm529Gva4VuW50n1ZhvCE2pS4IbfyFHhZrAlafU5FyalQ/JVGyhH0URWugGQypi6jmoJMi77Y
+ vT7hiiXA==;
+Received: from pegase2.c-s.fr ([93.17.235.10])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhOEd-00BgBX-KZ
- for linux-riscv@lists.infradead.org; Fri, 14 May 2021 03:11:33 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4FhD5L6qvYzmWBC;
- Fri, 14 May 2021 11:09:10 +0800 (CST)
-Received: from huawei.com (10.175.113.32) by DGGEMS401-HUB.china.huawei.com
- (10.3.19.201) with Microsoft SMTP Server id 14.3.498.0; Fri, 14 May 2021
- 11:11:15 +0800
-From: Liu Shixin <liushixin2@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexander Potapenko
- <glider@google.com>, Marco Elver <elver@google.com>, Dmitry Vyukov
- <dvyukov@google.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <kasan-dev@googlegroups.com>, Liu Shixin <liushixin2@huawei.com>
-Subject: [PATCH RFC v2] riscv: Enable KFENCE for riscv64
-Date: Fri, 14 May 2021 11:44:32 +0800
-Message-ID: <20210514034432.2004082-1-liushixin2@huawei.com>
-X-Mailer: git-send-email 2.18.0.huawei.25
+ id 1lhROt-00BkbA-TT; Fri, 14 May 2021 06:34:22 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+ by localhost (Postfix) with ESMTP id 4FhJdw0rX3z9sZJ;
+ Fri, 14 May 2021 08:34:12 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+ by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 2g3l4M-96ajV; Fri, 14 May 2021 08:34:12 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase2.c-s.fr (Postfix) with ESMTP id 4FhJdv1cGvz9sZM;
+ Fri, 14 May 2021 08:34:11 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id E667D8B7F8;
+ Fri, 14 May 2021 08:34:10 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id uFPDiVXY0wO1; Fri, 14 May 2021 08:34:10 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id D62098B7F6;
+ Fri, 14 May 2021 08:34:07 +0200 (CEST)
+Subject: Re: [PATCH bpf-next 1/2] bpf: Remove bpf_jit_enable=2 debugging mode
+To: Quentin Monnet <quentin@isovalent.com>,
+ Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Ian Rogers <irogers@google.com>, Song Liu <songliubraving@fb.com>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ Zi Shen Lim <zlim.lnx@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Paul Mackerras <paulus@samba.org>, Sandipan Das <sandipan@linux.ibm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ Shubham Bansal <illusionist.neo@gmail.com>,
+ Mahesh Bandewar <maheshb@google.com>, Will Deacon <will@kernel.org>,
+ Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+ linux-s390 <linux-s390@vger.kernel.org>, Ilya Leoshkevich
+ <iii@linux.ibm.com>, paulburton@kernel.org, Jonathan Corbet
+ <corbet@lwn.net>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, X86 ML <x86@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>,
+ Jakub Kicinski <kuba@kernel.org>, Tobias Klauser <tklauser@distanz.ch>,
+ linux-mips@vger.kernel.org, grantseltzer@gmail.com,
+ Xi Wang <xi.wang@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
+ Luke Nelson <luke.r.nels@gmail.com>, LKML <linux-kernel@vger.kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, ppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ KP Singh <kpsingh@kernel.org>, iecedge@gmail.com,
+ Simon Horman <horms@verge.net.au>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Dmitry Vyukov <dvyukov@google.com>,
+ tsbogend@alpha.franken.de, Daniel Borkmann <daniel@iogearbox.net>,
+ Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+ Network Development <netdev@vger.kernel.org>,
+ David Ahern <dsahern@kernel.org>, Wang YanQing <udknight@gmail.com>,
+ Martin KaFai Lau <kafai@fb.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ bpf <bpf@vger.kernel.org>, Jianlin Lv <Jianlin.Lv@arm.com>,
+ "David S. Miller" <davem@davemloft.net>
+References: <20210415093250.3391257-1-Jianlin.Lv@arm.com>
+ <9c4a78d2-f73c-832a-e6e2-4b4daa729e07@iogearbox.net>
+ <d3949501-8f7d-57c4-b3fe-bcc3b24c09d8@isovalent.com>
+ <CAADnVQJ2oHbYfgY9jqM_JMxUsoZxaNrxKSVFYfgCXuHVpDehpQ@mail.gmail.com>
+ <0dea05ba-9467-0d84-4515-b8766f60318e@csgroup.eu>
+ <CAADnVQ+oQT6C7Qv7P5TV-x7im54omKoCYYKtYhcnhb1Uv3LPMQ@mail.gmail.com>
+ <be132117-f267-5817-136d-e1aeb8409c2a@csgroup.eu>
+ <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <52171382-1eca-58e2-b3d1-b2cc6b431e27@csgroup.eu>
+Date: Fri, 14 May 2021 08:34:07 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.32]
-X-CFilter-Loop: Reflected
+In-Reply-To: <58296f87-ad00-a0f5-954b-2150aa84efc4@isovalent.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210513_201132_024356_A69481DF 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20210513_233420_132442_F88D0149 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,134 +140,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add architecture specific implementation details for KFENCE and enable
-KFENCE for the riscv64 architecture. In particular, this implements the
-required interface in <asm/kfence.h>.
-
-KFENCE requires that attributes for pages from its memory pool can
-individually be set. Therefore, force the kfence pool to be mapped at
-page granularity.
-
-I tested this patch using the testcases in kfence_test.c and all passed.
-
-Signed-off-by: Liu Shixin <liushixin2@huawei.com>
----
-v1->v2: Change kmalloc() to pte_alloc_one_kernel() for allocating pte.
-
- arch/riscv/Kconfig              |  1 +
- arch/riscv/include/asm/kfence.h | 51 +++++++++++++++++++++++++++++++++
- arch/riscv/mm/fault.c           | 11 ++++++-
- 3 files changed, 62 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/kfence.h
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c426e7d20907..000d8aba1030 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -64,6 +64,7 @@ config RISCV
- 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
- 	select HAVE_ARCH_KASAN if MMU && 64BIT
- 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
-+	select HAVE_ARCH_KFENCE if MMU && 64BIT
- 	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_KGDB_QXFER_PKT
- 	select HAVE_ARCH_MMAP_RND_BITS if MMU
-diff --git a/arch/riscv/include/asm/kfence.h b/arch/riscv/include/asm/kfence.h
-new file mode 100644
-index 000000000000..c25d67e0b8ba
---- /dev/null
-+++ b/arch/riscv/include/asm/kfence.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _ASM_RISCV_KFENCE_H
-+#define _ASM_RISCV_KFENCE_H
-+
-+#include <linux/kfence.h>
-+#include <linux/pfn.h>
-+#include <asm-generic/pgalloc.h>
-+#include <asm/pgtable.h>
-+
-+static inline bool arch_kfence_init_pool(void)
-+{
-+	int i;
-+	unsigned long addr;
-+	pte_t *pte;
-+	pmd_t *pmd;
-+
-+	for (addr = (unsigned long)__kfence_pool; is_kfence_address((void *)addr);
-+	     addr += PAGE_SIZE) {
-+		pte = virt_to_kpte(addr);
-+		pmd = pmd_off_k(addr);
-+
-+		if (!pmd_leaf(*pmd) && pte_present(*pte))
-+			continue;
-+
-+		pte = pte_alloc_one_kernel(&init_mm);
-+		for (i = 0; i < PTRS_PER_PTE; i++)
-+			set_pte(pte + i, pfn_pte(PFN_DOWN(__pa((addr & PMD_MASK) + i * PAGE_SIZE)), PAGE_KERNEL));
-+
-+		set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(pte)), PAGE_TABLE));
-+		flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-+	}
-+
-+	return true;
-+}
-+
-+static inline bool kfence_protect_page(unsigned long addr, bool protect)
-+{
-+	pte_t *pte = virt_to_kpte(addr);
-+
-+	if (protect)
-+		set_pte(pte, __pte(pte_val(*pte) & ~_PAGE_PRESENT));
-+	else
-+		set_pte(pte, __pte(pte_val(*pte) | _PAGE_PRESENT));
-+
-+	flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-+
-+	return true;
-+}
-+
-+#endif /* _ASM_RISCV_KFENCE_H */
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 096463cc6fff..aa08dd2f8fae 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -14,6 +14,7 @@
- #include <linux/signal.h>
- #include <linux/uaccess.h>
- #include <linux/kprobes.h>
-+#include <linux/kfence.h>
- 
- #include <asm/ptrace.h>
- #include <asm/tlbflush.h>
-@@ -45,7 +46,15 @@ static inline void no_context(struct pt_regs *regs, unsigned long addr)
- 	 * Oops. The kernel tried to access some bad page. We'll have to
- 	 * terminate things with extreme prejudice.
- 	 */
--	msg = (addr < PAGE_SIZE) ? "NULL pointer dereference" : "paging request";
-+	if (addr < PAGE_SIZE)
-+		msg = "NULL pointer dereference";
-+	else {
-+		if (kfence_handle_page_fault(addr, regs->cause == EXC_STORE_PAGE_FAULT, regs))
-+			return;
-+
-+		msg = "paging request";
-+	}
-+
- 	die_kernel_fault(msg, addr, regs);
- }
- 
--- 
-2.18.0.huawei.25
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyMy8wNC8yMDIxIMOgIDEyOjI2LCBRdWVudGluIE1vbm5ldCBhIMOpY3JpdMKgOgo+IDIw
+MjEtMDQtMjMgMDk6MTkgVVRDKzAyMDAgfiBDaHJpc3RvcGhlIExlcm95IDxjaHJpc3RvcGhlLmxl
+cm95QGNzZ3JvdXAuZXU+Cj4gCj4gWy4uLl0KPiAKPj4gSSBmaW5hbGx5IG1hbmFnZWQgdG8gY3Jv
+c3MgY29tcGlsZSBicGZ0b29sIHdpdGggbGliYnBmLCBsaWJvcGNvZGVzLAo+PiByZWFkbGluZSwg
+bmN1cnNlcywgbGliY2FwLCBsaWJ6IGFuZCBhbGwgbmVlZGVkIHN0dWZmLiBXYXMgbm90IGVhc3kg
+YnV0IEkKPj4gbWFkZSBpdC4KPiAKPiBMaWJjYXAgaXMgb3B0aW9uYWwgYW5kIGJwZnRvb2wgZG9l
+cyBub3QgdXNlIHJlYWRsaW5lIG9yIG5jdXJzZXMuIE1heSBJCj4gYXNrIGhvdyB5b3UgdHJpZWQg
+dG8gYnVpbGQgaXQ/Cj4gCj4+Cj4+IE5vdywgaG93IGRvIEkgdXNlIGl0ID8KPj4KPj4gTGV0IHNh
+eSBJIHdhbnQgdG8gZHVtcCB0aGUgaml0dGVkIGNvZGUgZ2VuZXJhdGVkIGZyb20gYSBjYWxsIHRv
+Cj4+ICd0Y3BkdW1wJy4gSG93IGRvIEkgZG8gdGhhdCB3aXRoICdicGZ0b29sIHByb2cgZHVtcCBq
+aXRlZCcgPwo+Pgo+PiBJIHRob3VnaHQgYnkgY2FsbGluZyB0aGlzIGxpbmUgSSB3b3VsZCB0aGVu
+IGdldCBwcm9ncmFtcyBkdW1wZWQgaW4gYSB3YXkKPj4gb3IgYW5vdGhlciBqdXN0IGxpa2Ugd2hl
+biBzZXR0aW5nICdicGZfaml0X2VuYWJsZT0yJywgYnV0IGNhbGxpbmcgdGhhdAo+PiBsaW5lIGp1
+c3QgcHJvdmlkZXMgbWUgc29tZSBicGZ0b29sIGhlbHAgdGV4dC4KPiAKPiBXZWxsIHRoZSBwdXJw
+b3NlIG9mIHRoaXMgdGV4dCBpcyB0byBoZWxwIHlvdSBmaW5kIHRoZSB3YXkgdG8gY2FsbAo+IGJw
+ZnRvb2wgdG8gZG8gd2hhdCB5b3Ugd2FudCA6KS4gRm9yIGR1bXBpbmcgeW91ciBwcm9ncmFtcycg
+aW5zdHJ1Y3Rpb25zLAo+IHlvdSBuZWVkIHRvIHRlbGwgYnBmdG9vbCB3aGF0IHByb2dyYW0gdG8g
+ZHVtcDogQnBmdG9vbCBpc24ndCB3YWl0aW5nCj4gdW50aWwgeW91IGxvYWQgYSBwcm9ncmFtIHRv
+IGR1bXAgaXQsIGluc3RlYWQgeW91IG5lZWQgdG8gbG9hZCB5b3VyCj4gcHJvZ3JhbSBmaXJzdCBh
+bmQgdGhlbiB0ZWxsIGJwZnRvb2wgdG8gcmV0cmlldmUgdGhlIGluc3RydWN0aW9ucyBmcm9tCj4g
+dGhlIGtlcm5lbC4gVG8gcmVmZXJlbmNlIHlvdXIgcHJvZ3JhbSB5b3UgY291bGQgdXNlIGEgcGlu
+bmVkIHBhdGgsIG9yCj4gZmlyc3QgbGlzdCB0aGUgcHJvZ3JhbXMgb24geW91ciBzeXN0ZW0gd2l0
+aCAiYnBmdG9vbCBwcm9nIHNob3ciOgo+IAo+IAo+ICAgICAgIyBicGZ0b29sIHByb2cgc2hvdwo+
+ICAgICAgMTM4OiB0cmFjaW5nICBuYW1lIGZvbyAgdGFnIGU1NGM5MjJkZmE1NGY2NWYgIGdwbAo+
+ICAgICAgICAgICAgICBsb2FkZWRfYXQgMjAyMS0wMi0yNVQwMTozMjozMCswMDAwICB1aWQgMAo+
+ICAgICAgICAgICAgICB4bGF0ZWQgMjU2QiAgaml0ZWQgMTU0QiAgbWVtbG9jayA0MDk2QiAgbWFw
+X2lkcyA2NAo+ICAgICAgICAgICAgICBidGZfaWQgMjM1CgpHb3QgdGhlIGZvbGxvd2luZyBlcnJv
+cjoKCnJvb3RAdmdvaXA6fiMgLi9icGZ0b29sIHByb2cgc2hvdwpsaWJicGY6IGVsZjogZW5kaWFu
+bmVzcyBtaXNtYXRjaCBpbiBwaWRfaXRlcl9icGYuCmxpYmJwZjogZmFpbGVkIHRvIGluaXRpYWxp
+emUgc2tlbGV0b24gQlBGIG9iamVjdCAncGlkX2l0ZXJfYnBmJzogLTQwMDMKRXJyb3I6IGZhaWxl
+ZCB0byBvcGVuIFBJRCBpdGVyYXRvciBza2VsZXRvbgoKCkNocmlzdG9waGUKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
