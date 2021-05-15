@@ -2,64 +2,64 @@ Return-Path: <SRS0=yiB6=KK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45B3BC433ED
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 May 2021 10:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 78A19C43470
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 May 2021 10:19:32 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A0FF2613F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 May 2021 10:19:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A0FF2613F5
+	by mail.kernel.org (Postfix) with ESMTPS id F3C3C613F0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 May 2021 10:19:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F3C3C613F0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iXDU9iyKg2I75KsKR+aQkw4aHDd9TE1D6rOEmjHHj3U=; b=fO7NDbDX4MJEDbqHNePUQnZxx0
-	a5nUCrg+KlzTTNa+p3jJ0M1m6WUOUzMyQPmKr+W46+Cn0+I0V/3MpIo/gF+7jSclMmlXY4hXWLEes
-	v6eqP+z7MgsR9508vQwl4MIN6MTcPq2meTtBln/OnbwOy2X9zONfoCVWk5jH/4Ytyi7Gzd0dhDSgL
-	O80Dy8NXEvejhu/34N6W/3r/xoAgLtyWCkBbjK2yKA9lyluTvIWRARQxIe7ru2ljlErRca9UNp3u7
-	60r9h8U9XWy+2yOx62xw9pt+CYYKaVK9FZlqkB4Ifptr7Ygzis3FFo5NbJoi56rr2ShXLL9CLloes
-	BT1+1jTw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=sGUfaFmwx7SvpSIDVL58T4Kydc+0Lw8u75/34WE+VQE=; b=AO2maToCW98+onBbhNQbADety
+	3T/LFKdUCLS5uixEzF8uspRi2EYWSeW8R1NmbWJy2zOcdceHD70HDeHcMNs19j1kJUC/VX+61utA6
+	ONT+ShZ6U6zW7EwoWGtnYhm7O7JpMnwdPULHrW0pZUjpE46wJhiAufLcKcNKnZ6nUgK2HQ8uW/Z8K
+	K/vJzXDwTBU+YOw3NLyYLHRoERWChG7SNotbyra4LLJ4VHSsf5xRAdAUA3yHO4lMtasxS4d7izacP
+	9L+B/jPRBef88iAS3VbX77qLS76KZBMGHRDMJ/xrmn/a+bo8y8g0lkUPkThFi7pSM7keRSbZHtTPi
+	rh+VsQDMA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lhrO3-00A8ZU-E2; Sat, 15 May 2021 10:19:11 +0000
+	id 1lhrOB-00A8cD-1A; Sat, 15 May 2021 10:19:19 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhrNy-00A8YN-VF; Sat, 15 May 2021 10:19:07 +0000
+ id 1lhrO3-00A8ZY-Vt; Sat, 15 May 2021 10:19:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:In-Reply-To:References;
- bh=IVFJYXi6jXoEq2/8KNBNR1ngrmV0D8LAiyWkewQzP7Y=; b=phqZr7Q7I9bjphSHqliQctTFX+
- W9xQP3CYrZZkfmV0SRR7ne7MruwfYk1xDbHgMcUxMxmlHyS/u5v986hsvIP/BuCHK2Yt5L2WnVgdv
- dpKi52wjTbELZKY5U8suZcQIzcCCp1C5IVlYDEKR/4GPmpEZFCagiJM+0aMFLNGNHQYiSYTf8i6Tq
- hZAB5s6O4p2RfYpNXLLH+im0/OCrmmcLLxtLQEfeNZsuTHMSxZOsHf51yio0kBqGW7cpIA9FqOBf+
- 6DaG72PjArKZDVVNg/kUxsyXPlpUiI8vt9bIscCj3mvFST3B7XJpYJg6oMIRJ6l+8V20taFVK+D/A
- k5Yg83Sw==;
+ MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+ :Reply-To:Content-Type:Content-ID:Content-Description;
+ bh=iRPS09GKtyHN36s6c6tnCvwonnTmhlRhulJXnYJYC2s=; b=h7OckPo5keHsV6lpPqqWgLBrkK
+ MkdV+2dlTkoB9GOCW+BCZGi4PaXYxZVT58Ea/OzRUfZdkj9XMxv7xmgY4HuMl5JHPBqgzMAp3Gp+V
+ ZWNsNAsZ6jZgo81I4TQGo4tIRMpjx7HmTW16fh8xv4epFYJ8ANRz3/672NPj5qN8qv/5aMVvo3huI
+ q5RGb+AN5rGEWQjJ/E0CBOAiLl8alIJMX721HrBi0jjO/klERbG6ihUXwnNmLyn5Wg1nIbwwIYEUV
+ Gq+DwSh3cerLxnp7r4jrXpAROK1YESg0mOqE4NzTQYl3w07QHbxITAJW5LGIlwxhLmqpDhEGqb5wj
+ Ob1WW1vg==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lhrNt-00CU3z-9h; Sat, 15 May 2021 10:19:03 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2FED6613ED;
- Sat, 15 May 2021 10:18:56 +0000 (UTC)
+ id 1lhrO1-00CU4c-G2; Sat, 15 May 2021 10:19:10 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 222DB613F2;
+ Sat, 15 May 2021 10:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621073940;
- bh=IpDqq3tGZovUUgcolTosWSkNN0zOGEGLOzuZ4zntl2M=;
- h=From:To:Cc:Subject:Date:From;
- b=mPn1OjVomxs7Tu/J0zC+FtbvaOsr6yQtXpoEj9sOi4LdXTcbto5qJ96l5zGrlpywO
- S9h/yllV/A7xG4K2EqluCEN+iU8aMWSWgvByBTJiljpi+sS3kiNXEDaRAWkE1e7SKM
- sxKRPsWhTYLl3eTQWbxjjYc5gYDjylTk+ySJih9CK9j6ccvN98Y6VtRlIgLO5VL8+8
- 1QeSFO1LDLs8iguwhOAyXJFeodhvDZp8PXLkMitx7yPyKl0bGUmVhJjLazb7iS4leT
- cYyRbNnN88rAws6za+S3f2nl8YyuPZ0+1JIwQRAsVrcvD6dvU/aeGd/unrmM2Ofwwi
- 8sCIbzxalbdtQ==
+ s=k20201202; t=1621073949;
+ bh=ZuoXd0B2SrZ7Z7bKOj6098xfQUeD3LlhjJk6ioEZ4Xs=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=OaXxzQOLVw4qXYynCG0CbJTLPAAS4Cb6ml36FdzlD2oZFwMEoeLCGboIwHsdJ5exf
+ Ga2adeohFo6jmgrDUQjP94/gg0dswfFTbe+zdsfcWzgNBT43wk4Rxgkfpfu1PQ0+Z7
+ ZxuSwUyFzpHZs+JqnThCfpAyalEYKBpG0bbzQmP4PXw6PFNb5+nQV6gUU6v/7++9gN
+ Hzg5TNwsEo/ElbE+CUdy7zXGXcUoVWfppN9fShcogVKUpONLfuipIrULhaQbwVAGSP
+ c+UkqkoXdQGbJ9zE+9HHem2AcbupgnH8nxd1PtiVRb0sqYrQm9KC8BHrRsfyNFx2uH
+ C6SoseNotBhMg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arch@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@lst.de>,
@@ -77,14 +77,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@lst.de>,
  uclinux-h8-devel@lists.sourceforge.jp, linux-hexagon@vger.kernel.org,
  linux-m68k@lists.linux-m68k.org, linux-riscv@lists.infradead.org,
  linux-um@lists.infradead.org
-Subject: [PATCH 0/6] [v2] asm-generic: strncpy_from_user/strnlen_user cleanup
-Date: Sat, 15 May 2021 12:17:57 +0200
-Message-Id: <20210515101803.924427-1-arnd@kernel.org>
+Subject: [PATCH 2/6] [v2] h8300: remove stale strncpy_from_user
+Date: Sat, 15 May 2021 12:17:59 +0200
+Message-Id: <20210515101803.924427-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20210515101803.924427-1-arnd@kernel.org>
+References: <20210515101803.924427-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210515_031901_437032_3D6B224D 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20210515_031909_593674_35CCB514 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +105,90 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-As I've queued up some patches for asm-generic, I remembered an
-older series that I created but never submitted.
+This function is never called because h8300 uses the asm-generic
+inline function version.
 
-These two functions appear to be unnecessarily different between
-architectures, and the asm-generic version is a bit questionable,
-even for NOMMU architectures.
-
-Clean this up to just use the generic library version for anything
-that uses the generic version today. I've expanded on the patch
-descriptions a little, as suggested by Christoph Hellwig, but I
-suspect a more detailed review would uncover additional problems
-with the custom versions that are getting removed.
-
-       Arnd
-
-Arnd Bergmann (6):
-  [v2] asm-generic/uaccess.h: remove __strncpy_from_user/__strnlen_user
-  [v2] h8300: remove stale strncpy_from_user
-  [v2] hexagon: use generic strncpy/strnlen from_user
-  [v2] arc: use generic strncpy/strnlen from_user
-  [v2] asm-generic: uaccess: remove inline
-    strncpy_from_user/strnlen_user
-  [v2] asm-generic: remove extra strn{cpy_from,len}_user declarations
-
- arch/arc/Kconfig                    |   2 +
- arch/arc/include/asm/uaccess.h      |  72 ----------------
- arch/arc/mm/extable.c               |  12 ---
- arch/h8300/Kconfig                  |   2 +
- arch/h8300/kernel/h8300_ksyms.c     |   2 -
- arch/h8300/lib/Makefile             |   2 +-
- arch/h8300/lib/strncpy.S            |  35 --------
- arch/hexagon/Kconfig                |   2 +
- arch/hexagon/include/asm/uaccess.h  |  31 -------
- arch/hexagon/kernel/hexagon_ksyms.c |   1 -
- arch/hexagon/mm/Makefile            |   2 +-
- arch/hexagon/mm/strnlen_user.S      | 126 ----------------------------
- arch/m68k/Kconfig                   |   4 +-
- arch/riscv/Kconfig                  |   4 +-
- arch/um/include/asm/uaccess.h       |   5 +-
- arch/um/kernel/skas/uaccess.c       |   5 +-
- include/asm-generic/uaccess.h       |  52 ++----------
- 17 files changed, 25 insertions(+), 334 deletions(-)
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/h8300/kernel/h8300_ksyms.c |  2 --
+ arch/h8300/lib/Makefile         |  2 +-
+ arch/h8300/lib/strncpy.S        | 35 ---------------------------------
+ 3 files changed, 1 insertion(+), 38 deletions(-)
  delete mode 100644 arch/h8300/lib/strncpy.S
- delete mode 100644 arch/hexagon/mm/strnlen_user.S
 
+diff --git a/arch/h8300/kernel/h8300_ksyms.c b/arch/h8300/kernel/h8300_ksyms.c
+index 1c6f902e82a5..853d6e886477 100644
+--- a/arch/h8300/kernel/h8300_ksyms.c
++++ b/arch/h8300/kernel/h8300_ksyms.c
+@@ -19,7 +19,6 @@ asmlinkage long __mulsi3(long, long);
+ asmlinkage long __udivsi3(long, long);
+ asmlinkage void *memcpy(void *, const void *, size_t);
+ asmlinkage void *memset(void *, int, size_t);
+-asmlinkage long strncpy_from_user(void *to, void *from, size_t n);
+ 
+ 	/* gcc lib functions */
+ EXPORT_SYMBOL(__ucmpdi2);
+@@ -34,4 +33,3 @@ EXPORT_SYMBOL(__mulsi3);
+ EXPORT_SYMBOL(__udivsi3);
+ EXPORT_SYMBOL(memcpy);
+ EXPORT_SYMBOL(memset);
+-EXPORT_SYMBOL(strncpy_from_user);
+diff --git a/arch/h8300/lib/Makefile b/arch/h8300/lib/Makefile
+index 685fa837c1f7..5911c1fa856d 100644
+--- a/arch/h8300/lib/Makefile
++++ b/arch/h8300/lib/Makefile
+@@ -3,7 +3,7 @@
+ # Makefile for H8/300-specific library files..
+ #
+ 
+-lib-y  = memcpy.o memset.o abs.o strncpy.o \
++lib-y  = memcpy.o memset.o abs.o \
+ 	 mulsi3.o udivsi3.o muldi3.o moddivsi3.o \
+ 	 ashldi3.o lshrdi3.o ashrdi3.o ucmpdi2.o \
+ 	 delay.o
+diff --git a/arch/h8300/lib/strncpy.S b/arch/h8300/lib/strncpy.S
+deleted file mode 100644
+index 8b65d7c4727b..000000000000
+--- a/arch/h8300/lib/strncpy.S
++++ /dev/null
+@@ -1,35 +0,0 @@
+-;;; SPDX-License-Identifier: GPL-2.0
+-;;; strncpy.S
+-
+-#include <asm/linkage.h>
+-
+-	.text
+-.global strncpy_from_user
+-
+-;;; long strncpy_from_user(void *to, void *from, size_t n)
+-strncpy_from_user:
+-	mov.l	er2,er2
+-	bne	1f
+-	sub.l	er0,er0
+-	rts
+-1:
+-	mov.l	er4,@-sp
+-	sub.l	er3,er3
+-2:
+-	mov.b	@er1+,r4l
+-	mov.b	r4l,@er0
+-	adds	#1,er0
+-	beq	3f
+-	inc.l	#1,er3
+-	dec.l	#1,er2
+-	bne	2b
+-3:
+-	dec.l	#1,er2
+-4:
+-	mov.b	r4l,@er0
+-	adds	#1,er0
+-	dec.l	#1,er2
+-	bne	4b
+-	mov.l	er3,er0
+-	mov.l	@sp+,er4
+-	rts
 -- 
 2.29.2
-
-Cc: Christoph Hellwig <hch@lst.de>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Vineet Gupta <vgupta@synopsys.com>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Brian Cain <bcain@codeaurora.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jeff Dike <jdike@addtoit.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Sid Manning <sidneym@codeaurora.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: linux-snps-arc@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: uclinux-h8-devel@lists.sourceforge.jp
-Cc: linux-hexagon@vger.kernel.org
-Cc: linux-m68k@lists.linux-m68k.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-um@lists.infradead.org
-Cc: linux-arch@vger.kernel.org
 
 
 _______________________________________________
