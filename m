@@ -2,184 +2,96 @@ Return-Path: <SRS0=ZUll=KM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD6E9C433ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 13:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 720C7C433B4
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 14:45:49 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 55E6B61059
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 13:17:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55E6B61059
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id EE7AE61455
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 14:45:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE7AE61455
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=56Gf067rDtXTO2Q8jP6GsEAc+KC2/MK3SxBFvkWkVpU=; b=WCSD5BDYzxHV9VBDw03DOcouZ
-	hAsf2Gbhdmbcq/0+TFhYCXKRS6tq9rQO2us1K96RW+NpiOsNnCQiQBmKDBOq4WAtssfhANYiPurm3
-	3lvpO/hJWgvwy65M/PUturLK18ecl37uDOTLroU9BITTAGsZvKEAvolJzE//LYGzVFDFlwucPtb/M
-	bUY1T/mqzCcKvGxmaXbuSmbZFaeJiUjEi6HEwLrDg/haP1gGZWWsEyq8u4jWc+SUak8j+KTMlJ2i3
-	Y4sgGaoIl19nH3V5zflkG6S/wC8317v2eSEY1l4HCVh4WHdkYP4vOK9jzw4VKQhKWAx2wgHEkkSX7
-	wiM33JQXg==;
+	 bh=x83zKLlP2mwJ79X2CEcwOWFIPE41VMetZtG3WHJ3DK8=; b=jNe2FbtbsODOsvRU+D4k52Xfg
+	RF0BKI5WZVgfAl7BRIJtfNxGyvsE9vOdjf83MmfqcOGjrFI4Z0gVPgsWv8fzpDSxNQNi2g4cX9UBx
+	b9Fau6CWEEmGiITG2F+4Uvl/LnnjHsNBmDPHSAmDJwKekEkvJJhD/K2gJ2mKwpsZ8oj9ssb4ca1dB
+	O8M8lecXN3tut2X/B5FcLKATSkbeXsx6EXy9NugVAyclcCCTtkoNoW7SjVf3GgzvMZc0Cd/RyoJfJ
+	XXiPkhqTKWQ4/c/18K1BaMOdfMIprIL3bJ0ql34kxqfWSY8sUBbYnx2HZ+QKcV9Vx6cxnxcKAZ0Oa
+	F0VNTD/CA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lid7K-00F25b-78; Mon, 17 May 2021 13:17:06 +0000
+	id 1lieV1-00FIgz-TK; Mon, 17 May 2021 14:45:40 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lid1i-00F0r2-M0; Mon, 17 May 2021 13:11:19 +0000
+ id 1lieUw-00FIfy-UE
+ for linux-riscv@desiato.infradead.org; Mon, 17 May 2021 14:45:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=MIME-Version:Content-Type:
- Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
- To:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=rip7XFR0BFk/jcVrblzy2OjHhUZycRZYHU6/NmyDcb8=; b=3hqirybkQf2rvQHq7BTYJgm0dC
- 1BYgcNFv62qCFjCDh3ASy1bGC5hCbFGNU5dxc3t+xAuuSVvNTY5CBT0Pd68JCOSTZkWELGXPZwq0/
- lyw3nuA8yUdKp/k42bXNDFDSfQnMUuPlgivoY4qao2eiXRnyB6O4hogHIqpnUs8/zii7ZrWIMoKMq
- uObsqSGURqJUDsq2Sr1i6iJAPdodO7QZr7AKmzKhS5gs25AElJgT1bRXVvp7c+4ys/VuRmEcB4azE
- VtNdFTECSID/XyjzdBel6EbrRlydbj/EGKTnbYU+YdrP2kXsUCBi3wnWdB5QooWR9+rAfug1b9rUg
- X0fzC0GQ==;
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
- by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lid1d-00Dmh0-NH; Mon, 17 May 2021 13:11:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1621257071; x=1652793071;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:content-transfer-encoding:mime-version;
- bh=1uLrgPfppmFH2vM6/L/JqMHBvAu4tkt7ZHOK+EuhRKU=;
- b=kyxCzidoEJFK6IXpQv6zc6M6oQIPxzDxHGYskncgZFLhbO1lr+a4d2b2
- h9mce3yAXRNRMBqMGNZMHJecEktVpIEFDvTmNArWa0qyh6Fg8m6e74w+F
- w/4y57OgvF0b/+u+TcX1IMCcSuRgRFfMz1QI6qqTYckT4m8k9RXaOJm5y
- IKP/CQHzKs6zIVq8bF1t9kxL8qCWJW6ZY/4i/rHgcMd50nNBdyY5Dqo6w
- Nx3I5YBuV79C91vAek6c3IorwbDacwne9zLroc9G3xcXY2ijNCdAYmZHa
- MNBtPD5C2LrifFlIe6eSFoMRRLCXz1hkG6uwcwsupa0OnTyi5SSPVMUE6 w==;
-IronPort-SDR: r3ApJRUivDBz+wMnRIIUAOZU5euVJLI6NCF/+8iQxo0yN9/T2ct0Wdw1B/QXsy/IYFBwOH8qzR
- b9JAa1FHmcIxOzKt2mNGnt1co9aeIe+DE/P253Yfj4+S45v+BsefKACOy+c/sIVPTfW20AegUx
- ZJ7bGfPOzquV0bWi3/GBdOOaEguRI4uv2caWyobSiNxhcRvrmazT8GRH5PriJ2LLOAs6C0WInB
- pYpURYC2xmUzbwnL7j4dBo+FhXdNn5qIajUHGkRx3X3GS54mwk6dfDzcD31Sk7vMEsG82tgxzv
- 1h0=
-X-IronPort-AV: E=Sophos;i="5.82,307,1613404800"; d="scan'208";a="168450205"
-Received: from mail-dm6nam08lp2046.outbound.protection.outlook.com (HELO
- NAM04-DM6-obe.outbound.protection.outlook.com) ([104.47.73.46])
- by ob1.hgst.iphmx.com with ESMTP; 17 May 2021 21:11:08 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SMWoFXxzpqpqHXHpDKRD3BURh87R0KhuR9Ck00jKZLp9ixJFKtkzJdjHRHnUU4R54QyyfMlWAII5py3De2sL4aarikQtAP1s8MiH3vl+uIb/3YAIwRE5SiiGHIJFcMCrNAfbiHj9u5Gofzk2NgaCYZodu7hUuI9Oukmnh67W17WHE0a0j3fJN8ABIgK89lq68wHb0hCOqFdO47v5JiQm+yLBSCxCt7nyVqur0T3SzzLRfU47xTTt6w/bnncWmTklboQpaiyrQUXWP9XJQo2JJMgRJRZthEFkoWMdJ6eBka5I3i1YlDO+Esfee78oo0EFIRcddUHsGS5sgp2jChKckQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rip7XFR0BFk/jcVrblzy2OjHhUZycRZYHU6/NmyDcb8=;
- b=IWu4y8r9yNIaqO2F5z2tAJ2AOWr211rIujuza1p74wO4w44q+2oUUH6ymN8cJ4EP5GWEmE7AhHbg2nqH+HaigEj8EawM6E/KVTNmq+pj1LQiAg6N7OMCh+YEBuHTZyN7byEovi5zlmceV3UnN7VKYfyQ9L+EznUTiUMzKSU2HmeX4TA/jqTBBhr/YtAs2ct1LLt4xkPM6WTh0AFoXXhguaMWYGiz84S6AgFNcmYxcdFJ0oAoUqJwBvreCskvLxxNX+BbDkDDalAnIkXAGHIX4H/q3uRHU1nIc+9RHQq72wsJDFzx2Sc1PjePG//RsEh3ZhBVVCqzHOaE/4qaWwCRww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-ID:Content-Description;
+ bh=ZXsRNWguWbVa0PtAmixG+uiM2qAEjYWOfHSwLuA4TyE=; b=On0qalxwxdjrqjaj+7u9M6M/9X
+ wBRyQ3MBH8Tluti4h2oJYR/50V+yMgTMkRShJixzJlXnQU0G1faZX65VqgYmQZIjtsAG02yxafFT5
+ z4XYVWmsxWp04YhBoZb68FlsmU+6BpDSNpTl38xKSJtRLyCV6D8kq9QfujSuSF+m0v0Ru6BxtrAal
+ Aw1zWOt4+XHRZMts1YfYz9E4a7iaPwFU8XnmLre6fZvTSb/l1XLLKGrmvpoalXM3CKsTn1xny6lxS
+ AUWPXPriel7yKx17LXJACeCx5v4nMaV8m92QZpSV6+wtsh1tSzI6K5+pSvhKD8jxtwv8EATsCtJ6d
+ K860DT/g==;
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
+ id 1lieUq-00DsVf-Ph
+ for linux-riscv@lists.infradead.org; Mon, 17 May 2021 14:45:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rip7XFR0BFk/jcVrblzy2OjHhUZycRZYHU6/NmyDcb8=;
- b=ZZqJ7gPbYsgEwYivMTHG1H7Ur+AQ9o881RybsoaSW5Oi6XjdLuGL9yiCrff6nMZ9S6RfPEb19MF6sv/JwCAwTLSV22KE91H5shn1SNPGSUvimTFHCkpi5cYuJEVCxz4b2uod18Tbqp6534EPZM2wG07r/slx0f1/TUdfz4TVagE=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
- by CO6PR04MB7875.namprd04.prod.outlook.com (2603:10b6:303:13c::18)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4129.26; Mon, 17 May
- 2021 13:11:08 +0000
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::88a0:bf18:b01d:1a50]) by CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::88a0:bf18:b01d:1a50%4]) with mapi id 15.20.4129.031; Mon, 17 May 2021
- 13:11:08 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
- Rob Herring <robh+dt@kernel.org>
-Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
- Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v4 8/8] RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU
- virt machine
-Date: Mon, 17 May 2021 18:38:23 +0530
-Message-Id: <20210517130823.796963-9-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210517130823.796963-1-anup.patel@wdc.com>
-References: <20210517130823.796963-1-anup.patel@wdc.com>
-X-Originating-IP: [122.179.32.240]
-X-ClientProxiedBy: MA1PR0101CA0024.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:21::34) To CO6PR04MB7812.namprd04.prod.outlook.com
- (2603:10b6:303:138::6)
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=ZXsRNWguWbVa0PtAmixG+uiM2qAEjYWOfH
+ SwLuA4TyE=; b=EqztZO8DWB8gA3sQFNBpU6PwbOgqEpdc/bTPL2yVNn47iZdzWK
+ 6sUMGqvRSLsBbD3AJgkf9TbgcKVCzR5I7nqvqX4RUW6zShDmnorVMGrB5FceKPwd
+ 03Xr7hymxSFVdqRy+q73W9cmxguTaVMm1fghbdBRHhLgd6qSfiDsfGVCk=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygB3f0d+gaJgnBTyAA--.22620S2; 
+ Mon, 17 May 2021 22:45:18 +0800 (CST)
+Date: Mon, 17 May 2021 22:40:01 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Alex Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: init: Consolidate vars, functions
+Message-ID: <20210517224001.42424097@xhacker>
+In-Reply-To: <66c8965d-494f-6c2f-0739-9bee13fc507c@ghiti.fr>
+References: <20210516211556.43c00055@xhacker> <20210516211922.2110232e@xhacker>
+ <66c8965d-494f-6c2f-0739-9bee13fc507c@ghiti.fr>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.179.32.240) by
- MA1PR0101CA0024.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::34) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4108.25 via Frontend
- Transport; Mon, 17 May 2021 13:10:59 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 1824654c-d81f-4e81-437a-08d919353c42
-X-MS-TrafficTypeDiagnostic: CO6PR04MB7875:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CO6PR04MB78750AB998CF6525A62822B68D2D9@CO6PR04MB7875.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:849;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: CoHKaSn4sPUUi1qmd2Yd+VpYX41PhCn9CYsIt0CNOcPRTgrLdCY0UhmjiNIgH6tWQSrupMVaF6U7LH7abDmAdUSF70rbhbhxvxRexUHCIhNRlkrZVFqTPkln+aFzZ40RA5MV2Jw0fbSODFcXl7hH7BO3HckC4OoiZ+67f3sVpIqyZD8vq1AphzH5L7pmahnt/AiBSlIRmYPTLu2BAfhJ6WG6+bLC88KxIY522XGHEj7gBXJ+0siI0zUEEYRbEp6w9s4pigsfYkUqN0FfB2T5j6E+aXSd1J0ucG8TNi2weg9s9n5jC1Co76lB1VnvcoV9XbPlJjh1MeX9XZuvErkoFjzJElnTVjJstYyRmRy1ztH9pmA2QKpRHuSyf7x4H/8kl0UvXnme2N81KHmLrO41azx79v/rzAf8EYsgOECADBNNYSxrcIhawLp1nqmDHjIbn4QM8WaePpr69mCP+u2r1C45dKh2pFIVm8nwlF5GEZQLlZgcU0wUB+VSv4c0gm75i8CBbCU1D++APw1BdqBNKKGQgm7tnM/p7C5a+ge4oNezBbo/PNz7dQMdqxQDBajtZT/QLJtL86uT4beWb2hMyD9PVpdbCXpL9W8v6S2TEEhbqYZAeXF7MgEnTcs7gM3gzKVru/x1ACztX0AQSFc7wg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(396003)(366004)(376002)(346002)(39850400004)(110136005)(44832011)(4326008)(66556008)(66946007)(956004)(55016002)(54906003)(316002)(8886007)(7416002)(186003)(7696005)(8936002)(26005)(478600001)(52116002)(86362001)(2616005)(8676002)(6666004)(38100700002)(38350700002)(2906002)(5660300002)(36756003)(1076003)(66476007)(16526019);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?yw2tRjt1GUgB42pw0YSpGLQ1WTIHj7NC0fJ5fJCJSnzUusQaP7WfRKFQdX6X?=
- =?us-ascii?Q?itR1e/coyh6X/br/ZMK+0ljkh7RV8a9t3iKxXNSL79LCEiaGH7U1MMUZasom?=
- =?us-ascii?Q?hCzzFyFBQjdsoiTEqbcVkrOnC9Nv0LXmpFmbMEREdWyMs4xWxCJx3xasgucs?=
- =?us-ascii?Q?3pC42yIGZObc7AYlJllky/FmVOEkXaLUjot3Ki3L7jo9+Zh56qvSlBMHUo85?=
- =?us-ascii?Q?YM4MEDxoC7SV4JmFAyT+PewVztEepJX0Nno3OycykiCgNiiTwx+lZXZSLO7W?=
- =?us-ascii?Q?J5Uc0hMPxwHWm/rM0oxFSWZe5G0Aqf4klCvNxxL+wkuXrzKwRnShc71YTL7B?=
- =?us-ascii?Q?6M9L6LV7aDtkg/McejjAu3QUg4WrZL/cnJLLo74dlMhB1YilBUp9cun7qPCS?=
- =?us-ascii?Q?5Jn4tEIA8i/M2prqfck/iZ+G4TifqMljCQX4z/22U4oYgJntdXR11q9xeY2Y?=
- =?us-ascii?Q?11NujDGXgXeBwC0tVk3wq1q10+pjhMRpMGvbpPUAgNPP24rYdJSaizi47r/o?=
- =?us-ascii?Q?d4utP/doNp6GormdVRTmw6MVHvfZEIjRY6tgyOBZn+f38oe0RDNg0501Ntis?=
- =?us-ascii?Q?R5z6Ld2dW9dy304f5peLXlFFIjcgF77r0+iAvdZI+W7OpabuN2if+zanlkd4?=
- =?us-ascii?Q?nZqvh8piXr8/ERuYZggXyDF5K4ld5LT4Ngzy3K/bHAmex1jUSmW0fUTHLran?=
- =?us-ascii?Q?Bax4IwfsxtNCNCCYzHTwdxNxeU2lXiMCvs7o1Q/ACul+tnFnC28cqM9Q9gPs?=
- =?us-ascii?Q?u8JbLCpYEW+L2Bp9iPAX1OTa6cAd43xqKr63jVdThxkoiOQNEq+ziFokJItq?=
- =?us-ascii?Q?pB3KNx6E970fqaFtBnVslGOv4F4lPAXtM4ZdVAqz4Hrzd4NRJ5vFe0vP60B6?=
- =?us-ascii?Q?akG0LNKoaDp56EA7PI56F9Agis00NioLzpNQJz7HsUqObnLhxjjy+fuxwi8+?=
- =?us-ascii?Q?mrMV+/0tMSqNYgJu6NDh9TabSN6jsJxfOH/gtJVIiul/zC9n2/BoFZD3J8eO?=
- =?us-ascii?Q?ambUjxH8QAJDepUgbFMhKi+zRY6ixMRQLIwO8qEQf6XvxH3n9gStCu/bst4T?=
- =?us-ascii?Q?OzaBU0ig8ladFrYsgTcqr7MGY1IBO0l1UTaoguUoW+CKq76AfcPp4BFcDSH9?=
- =?us-ascii?Q?XgJFw0YLBTdhp8fU+F0eSLv5WfRmTYRFXprcDJF2rTpwI0jibPbEGMgWVKgf?=
- =?us-ascii?Q?1bYMpBh5NaflCmbGvNTRDTeOVIcmu3RodkLXsLWblRiGxAdoKk6e1qP2BPAc?=
- =?us-ascii?Q?eJbL7NZM6uBJCfR2qLGf1sZjiRPPWbhMsTiT4LhSPr3o1j5kfb7fy9qNQkY7?=
- =?us-ascii?Q?awRJ1UidiLGh1x9VaQMvrRJB?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1824654c-d81f-4e81-437a-08d919353c42
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 May 2021 13:11:08.5767 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BFvYWe8TfmCBfcDo9Khyi8nf8JMzQCgA70P2r1VzIhOraftn9egcw3DkEyAUmjcWDTcgzgrpOYFxuNhOipuDrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7875
+X-CM-TRANSID: LkAmygB3f0d+gaJgnBTyAA--.22620S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZFW8XF1fJw4ktw4kuw43Awb_yoW8JFWrpr
+ 4FqFW5Ja1kArW7CasFqr4IgFyj9Fn3WFyrJw1UKr1fuFn8Grn8Xw4UWrW5u39FgrWxuF4Y
+ vr4jy34qgw4jv37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUy2b7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+ C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+ 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
+ 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
+ 6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+ I_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+ 6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj4
+ 0_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_
+ Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j5BMNUUUUU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210517_061113_790513_F8B143D2 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20210517_074529_298905_D8BC9832 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,56 +108,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We enable RISC-V SBI CPU Idle driver for QEMU virt machine to test
-SBI HSM Supend on QEMU.
+On Sun, 16 May 2021 21:10:48 +0200
+Alex Ghiti <alex@ghiti.fr> wrote:
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/Kconfig.socs           | 3 +++
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 3 files changed, 5 insertions(+)
+> Hi Jisheng,
+> 
+> On 16/05/2021 15:19, Jisheng Zhang wrote:
+> > On Sun, 16 May 2021 21:15:56 +0800 Jisheng Zhang  wrote:
+> >   
+> >> From: Jisheng Zhang <jszhang@kernel.org>
+> >>
+> >> Consolidate the following items in init.c
+> >>
+> >> Staticize global vars as much as possible;
+> >> Add __initdata mark if the global var isn't needed after init
+> >> Add __init mark if the func isn't needed after init
+> >> Add __ro_after_init if the global var is read only after init  
+> > 
+> > Hi Alexandre,
+> > 
+> > I think kernel_virt_addr can be removed, users can directly use
+> > the KERNEL_LINK_ADDR MACRO. Maybe I miss the reason of intrducing
+> > it in commit 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of
+> > linear mapping"), could you please comment?
+> > 
+> > Thanks in advance  
+> 
+> kernel_virt_addr will be used when I push my relocatable series since 
+> then, the kernel virtual address will be different from 
+> KERNEL_LINK_ADDR. I agree this was not needed in 2bfc6cd81bd17e43 
+> ("riscv: Move kernel mapping outside of linear mapping"), I'm a bit late 
+> in pushing the relocatable series.
+> 
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index ed963761fbd2..3ae937121a77 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -27,6 +27,9 @@ config SOC_VIRT
- 	select GOLDFISH
- 	select RTC_DRV_GOLDFISH if RTC_CLASS
- 	select SIFIVE_PLIC
-+	select PM_GENERIC_DOMAINS if PM
-+	select PM_GENERIC_DOMAINS_OF if PM && OF
-+	select RISCV_SBI_CPUIDLE if CPU_IDLE
- 	help
- 	  This enables support for QEMU Virt Machine.
- 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 57a24d40d43f..ed71f125cbc9 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -20,6 +20,7 @@ CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_VIRT=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_PM=y
- CONFIG_CPU_IDLE=y
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 97d899df2445..0088d6989332 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -20,6 +20,7 @@ CONFIG_SOC_VIRT=y
- CONFIG_ARCH_RV32I=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_PM=y
- CONFIG_CPU_IDLE=y
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
--- 
-2.25.1
+Thanks for your information. I think kernel_virt_addr could be __ro_after_init
+But I will keep it unchanged until your relocatable series.
+
+thanks
 
 
 _______________________________________________
