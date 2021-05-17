@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FE3BC433B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 06:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 51A44C433B4
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 06:23:44 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 60F3761166
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 06:19:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60F3761166
+	by mail.kernel.org (Postfix) with ESMTPS id 20F396121F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 May 2021 06:23:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20F396121F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,34 +23,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dU3NLTZJfda+eWihap+60sCn4daNcIiOtwQaOrx5ZCs=; b=epSJNpUNsuZYd+VNIqLAXlKfC
-	447rZZeZeF5qawaHg6k+ONA/JOFETKYjv4GYvb4+q4Ob8N3zvIB/w2Cp4Og0BMyMnGM4ztY68RmXf
-	QNNEhE0g3SL7QryRAfyoaoWXMic7MWeXJsMoZR1NfB/P27o6R+PIH8LV2OcWSTMCvjhMRxU4KOEme
-	J2XOuVxKrVM2Z7rNu8c7VldtO0TgLuKZVJzhmTP1B+IS7Xu3q+jCBiSyUtbBksjck/botOynjGHwr
-	XI75FcPciW2x0s+cEPjkH2swBU+Zo0Gx4a21lGf2aDSIDoiZb8ecmGZY7UOUvLrVzZSWG0kwNdw3d
-	LlyoqInFQ==;
+	 bh=Y4JcfoLSoFVS1OD/Hk+b6pL+RjXWbqPBwgeTtdIM3pM=; b=kvgaYdIr1oM/fQFcwgx5NVyqn
+	4hfP22b/CjzzIqf9HiunbgHcX0VhzlvMgiuZLYCTH2bCkN2HDsiwbSfXXD7Zg8/tkqRkJlkIsUE9Z
+	Qta5s9PsrmbjPSpEI+WknMnoO6swpcz4ly3ZOHq668B4l+u4kUkm3BLkKVIjkjhbE+1yuTLJs3I2r
+	3WTxgsU1p7jjorwIB+Bpk54pR+HXXUhpyXS6K7mDF9nyM2jZ6IfYRU0UToYqBYsgd/lCyXQKVAJCp
+	McO+jj9/DpxUeulXJGAnZUKDXmoS/tt/SNO6Tr+EiWKcC9Z65LoZRNij49WXmY9zATL4+9PjDS2kP
+	aeiSG4tpw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1liWav-00Dqi9-5K; Mon, 17 May 2021 06:19:13 +0000
+	id 1liWf0-00DrtS-2Y; Mon, 17 May 2021 06:23:26 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liWYn-00DqOI-NL; Mon, 17 May 2021 06:17:04 +0000
+ id 1liWc4-00Dr5P-F4; Mon, 17 May 2021 06:20:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
  :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=Rc39pSTelZ0E7dwuNrXoMHBf3l0C451wcyf/Kvd1O6E=; b=lOQbmoKenA8Yy4Ntf8VbGkAxBm
- PftAEcPlhhqexAJpmQyv5s6wQYXfoJ4Aq9c7dfgSoT66QC4l9QPwu/xH20wJ28a6cBR0OKt5YL1BF
- /O7Os4JvgyXVgljnO2yY4/Kgtej7NnHo1vlndfmptBYnXvGwYZ7P6qpeOMF9ha5jHcMI1A0MvG7V9
- Ne1ijrC0nOHNJRgpUEgVM/mvpjjErqM5UV/Dz1jqZmrFyGcczklR/rzqxtOWHox1WatovacX4bIUM
- wC+tCUrdyhgNu4DN1V7kyjWdBZPa09ikmjjKXzVc9eUq0QD4xkBvzbrx0NojkGYipQ5MHloT+i0tD
- GFC792Pg==;
+ bh=L3HgWD1ZWatejcOTZ8qpzoMfp2kYHt1Of2v8raX/g74=; b=wtw2lDqUaJp/Hx4yDfjWQfucrO
+ 2ZVQbDtWpUSut6dYkvCYyK/Dn4ZoREBpU5/PxAfM9cL4g1Nsnvsf4lXpptkhbjnE95hEDigyW0ON0
+ 1q9esjeSMiettx7n711+65CQRkd94ZAli2hahdvVouKUAntJ9Ia3FMOICkb/ULU8gvLrjlXst4WYo
+ 18FCTflZEZ8y8zrUC/cAr/bdlQO2w3yFbTRf+Se4PpSCUouktJaNTH1X3WgrXb2M+hjZO/+0LVPEE
+ G4sj4ldkflRsa5vXh1d6caC2F6vL1rzK6qcfV0YFYv3FsxnRLIp28WlTPAEymMsiuISEIY825jQJY
+ 9r+zYHQw==;
 Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liWYl-00DVIK-9l; Mon, 17 May 2021 06:17:00 +0000
+ id 1liWc1-00DVXF-UV; Mon, 17 May 2021 06:20:23 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
- id 60D5F6736F; Mon, 17 May 2021 08:16:56 +0200 (CEST)
-Date: Mon, 17 May 2021 08:16:56 +0200
+ id 465B36736F; Mon, 17 May 2021 08:20:18 +0200 (CEST)
+Date: Mon, 17 May 2021 08:20:18 +0200
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
@@ -70,17 +70,18 @@ Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
  linux-kernel@vger.kernel.org, uclinux-h8-devel@lists.sourceforge.jp,
  linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
  linux-riscv@lists.infradead.org, linux-um@lists.infradead.org
-Subject: Re: [PATCH 4/6] [v2] arc: use generic strncpy/strnlen from_user
-Message-ID: <20210517061656.GB23581@lst.de>
+Subject: Re: [PATCH 5/6] [v2] asm-generic: uaccess: remove inline
+ strncpy_from_user/strnlen_user
+Message-ID: <20210517062018.GC23581@lst.de>
 References: <20210515101803.924427-1-arnd@kernel.org>
- <20210515101803.924427-5-arnd@kernel.org>
+ <20210515101803.924427-6-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210515101803.924427-5-arnd@kernel.org>
+In-Reply-To: <20210515101803.924427-6-arnd@kernel.org>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210516_231659_508403_19567863 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20210516_232022_152065_7CB06EC6 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,20 +98,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 15, 2021 at 12:18:01PM +0200, Arnd Bergmann wrote:
+On Sat, May 15, 2021 at 12:18:02PM +0200, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Most per-architecture versions of these functions are broken
-> in some form, and they are almost certainly slower than the
-> generic code as well.
+> Consolidate the asm-generic implementation with the library version
+> that is used everywhere else.
 > 
-> This version is fairly slow because it always does byte accesses
-> even for aligned data, and its checks for user_addr_max() differ
-> from the generic code.
-> 
-> Remove the ones for arc and instead use the generic version.
+> These are the three versions for NOMMU kernels,
 
-Same comment as for hexaon before.
+I don't get the three versions part?
+
+> +	select GENERIC_STRNCPY_FROM_USER
+> +	select GENERIC_STRNLEN_USER
+
+Given that most architetures select the generic version I wonder
+if it might be worth to add another patch to invert the logic so
+that architectures with their own implementation need to sekect a symbol.
+
+> +extern long strncpy_from_user(char *dst, const char __user *src, long count);
+> +extern long strnlen_user(const char __user *src, long n);
+
+No need for the extern here.
 
 _______________________________________________
 linux-riscv mailing list
