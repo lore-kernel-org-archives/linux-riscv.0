@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3E01C433ED
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 07:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF236C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 07:22:51 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6B7A561166
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 07:21:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B7A561166
+	by mail.kernel.org (Postfix) with ESMTPS id 2140C61166
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 07:22:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2140C61166
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,43 +23,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=k90vrzzRAVYxp8jp8LHX0+hymxO0JlOuXcuQmoTNiMM=; b=g4RE+xERNyziTe7r1nWSd1Yii
-	lF45qKC9NvIz9T0zJ9SEX3rJ79A9GeKJOn+VEOs5lm+Ya8k7184PKElidrkqD/7gQ/w60JcRwQyBS
-	/H+rY7/hvuhxE69r1hsZ484jwFPTay+KdMoKbtdZq/uYluP7vBhl4CW6i+SrlMk3xQmsgUI1gYoli
-	vQoepjUpsMKIV8ClrWF66vSW94nxcsYtecZ9ehg1e4h9sWoqCgA5O9KlT+KQhCdtBHc3DNW+0d3N+
-	jdReRYlDG/HVYUtN0O5g7+t4cWOhyHyPn2VRkrvJbwS82Ms4I2WaX6t16bl+/rqKRNlz1vHRMG6iK
-	pVyveU9Ug==;
+	 bh=puJ58Mo3ts8D4bETs38nNg1IVUsGSZaUT48ufm6YCeU=; b=Eh6NsNiWpATUnbv660TUJLjA1
+	UnLxzlv08SVi/0e33IhFV/0oNVdmPIcequnY/7MpKr12RQ7sSSL5Ulf7oafOQqHId9/gyO4y/6gl3
+	De1ceiiPTRMZoVbeDfM2kJ9SGU3kCM9ZQyCuyP3J3KUA3bKx1MHdny1R6Q8eegH+DNRRWVyZ/WtP2
+	HaWwo21J36zZqQ3g6FnvzYfS939H9AJcwnzRK3PrZo3I442TanFAePgJTbC/dEm6eckeA+8CH8iAQ
+	zdB8BY1egsEaCcRLPUWJo6rO1NTfgJOu+4V+Ef7qkPbnaxNppVm+WhdeWCsxVFpC0pnISLB+5ANfk
+	mmx631mRA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1liu34-00HIs5-2n; Tue, 18 May 2021 07:21:50 +0000
+	id 1liu3u-00HJ94-VL; Tue, 18 May 2021 07:22:43 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liu2Q-00HIZT-U6; Tue, 18 May 2021 07:21:11 +0000
+ id 1liu2c-00HIcZ-V0; Tue, 18 May 2021 07:21:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
  :Reply-To:Content-Type:Content-ID:Content-Description;
- bh=xlPv8bK+kYUHQ5KeZlE+cVBt7o0l6PJl4UCe9txHG6M=; b=5HB/xxhtZlaCqLz2JoX2WfSSg0
- ABH2r5kTWCpXYatzJwJu9n1cSohX6i2S8/0jUWgl+Pc6flxb65GSKtYkPIahyrAViYA4u3FK0rFhK
- sNHVWkrcuoMgzWhGLiy3s0bKZOnIxl4A2CBJ6whZbRi3PfTk7rcToLDHiR+wrg+Tm0yIFWoYuX40O
- amPHdY+q4H0CqhFwiwhB2NBfTMVWMCbNKEE+7cZux8tZecJ2tHe81FYmjt5AkjZTlGpKQ0JOe+k1r
- /v8NKBD/I0ajFAb1Dofl87VPI9ZUliVUOuUNWHUu/eHt25B6GgiXRoKTxtJ0fw1XFSm2zhpfRwww1
- ojuDtYFw==;
+ bh=s1tihprrndNEowLm5YgrQRX3PW5FVP8G7FOcYxdHinY=; b=1qwuK+74M5aQlFCGynHat2DdlL
+ +QDNhEyBEau79zOAsd1NJLJdWIVZrlO7HHiVOTYEqGcLKB9vw2A+wmHIJ7lfjfs8o+Rdu0t7hKhF2
+ KtbmxBkKAFfH7bvMw9LkaDNx7QDI9V2NlGvAxXpPhlfFrspeBIiFQIOAFGtGSr35JUbwPAgJCtbx3
+ biymOEuMJPiT7WnlMQDNvMO9x4G1GECN90aQOyuSxVnb2Uhx6S/fvVh5rK9lMfWLZJe+nYCg9QLBW
+ Q4Cy93p7TcX+A7U+QwtDMBwykx5Ni0oqWLRNKHWSGpKpOpywRAjkM/LiC0Fw17RR9cqnM1NgmfeEO
+ iH6A6YAQ==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liu2I-00EP0c-O9; Tue, 18 May 2021 07:21:09 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D22F961354;
- Tue, 18 May 2021 07:20:50 +0000 (UTC)
+ id 1liu2V-00EP2L-0Y; Tue, 18 May 2021 07:21:21 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id DF8D661360;
+ Tue, 18 May 2021 07:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621322462;
- bh=md5mw3JUxzbtFFaaDyyGq19iUCguUIMuIFvGTOhePfw=;
+ s=k20201202; t=1621322474;
+ bh=VPlgDYwLzrYfExLKq4qVF51gZCyV282lUs8rNsT8l0w=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=P3a06ZJvRz46kFMWg9pf/IOA57egQ4wI4Y69wTSENf0rhnnoM1Z1TFAYh++bdWLkO
- l37aYiW/A19EiugDX/o+LTgeqNGZkGfpYZ8dsPIo4w7OfAN3GOzpk39b+YUTbQOFFD
- bHM8C5jkExlpXHUfQyAYCDnuTkKf+0hH5Ia/huO48ztdE2CTC8xeFt/hOJ44BoBK2r
- suvk4iWxgOEuQIkvkNfZCJi1YFWTfWWhU4hhk+jrQRe0cbmxPzaasQqBdo0eE5MJs8
- eDY5z1K7TwGmk5h3yoUPMEXy36XzNRB7ph+/3fCIokWZmcS+j+jB/l83bRiAFAb52m
- Fzfz3N3IoPG2Q==
+ b=K5PwhRMD8bU2CDOmwnKDlaJHdTSqbGy94jnbyid+awVbgoi49NA2qX0lHna9rjEri
+ HGWd24NXUy8nAnevipFFL71wTfg1bN5FDkc3mRxx1IA3VUAbMx9rezhrfVwGID5AvI
+ i7VzPEd1EEPMRB4/1TBMgP1crvAe2gmJ7u0SLRoizKm8tj72NVPYRq9zQuIsrNCCHl
+ tTd86MGJWlGdWWgZZavxtFO02uQ1kMiG5HRg471f+i+y5N+/hXW1MITKC1ZpemNaI3
+ 5HAuWd5vaYG/xOTSCuiw7I7DLoffN9emLRTI69Z/2qhVahAtWZW8ncGDSX4g4viYtu
+ IYdJMq9UlwMnQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
@@ -92,17 +92,19 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, linux-nvdimm@lists.01.org,
- linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: [PATCH v20 1/7] mmap: make mlock_future_check() global
-Date: Tue, 18 May 2021 10:20:28 +0300
-Message-Id: <20210518072034.31572-2-rppt@kernel.org>
+ linux-riscv@lists.infradead.org, x86@kernel.org,
+ kernel test robot <lkp@intel.com>
+Subject: [PATCH v20 2/7] riscv/Kconfig: make direct map manipulation options
+ depend on MMU
+Date: Tue, 18 May 2021 10:20:29 +0300
+Message-Id: <20210518072034.31572-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20210518072034.31572-1-rppt@kernel.org>
 References: <20210518072034.31572-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_002102_868254_890A41F5 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20210518_002115_117396_FF2F8D3D 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,75 +123,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-It will be used by the upcoming secret memory implementation.
+ARCH_HAS_SET_DIRECT_MAP and ARCH_HAS_SET_MEMORY configuration options have
+no meaning when CONFIG_MMU is disabled and there is no point to enable
+them for the nommu case.
+
+Add an explicit dependency on MMU for these options.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Reported-by: kernel test robot <lkp@intel.com>
 Reviewed-by: David Hildenbrand <david@redhat.com>
 Acked-by: James Bottomley <James.Bottomley@HansenPartnership.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Christopher Lameter <cl@linux.com>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Elena Reshetova <elena.reshetova@intel.com>
-Cc: Hagen Paul Pfeifer <hagen@jauu.net>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: James Bottomley <jejb@linux.ibm.com>
-Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Matthew Wilcox <willy@infradead.org>
-Cc: Michael Kerrisk <mtk.manpages@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Roman Gushchin <guro@fb.com>
-Cc: Shakeel Butt <shakeelb@google.com>
-Cc: Shuah Khan <shuah@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Tycho Andersen <tycho@tycho.ws>
-Cc: Will Deacon <will@kernel.org>
 ---
- mm/internal.h | 3 +++
- mm/mmap.c     | 5 ++---
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ arch/riscv/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 54bd0dc2c23c..46eb82eaa195 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -373,6 +373,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
- extern void mlock_vma_page(struct page *page);
- extern unsigned int munlock_vma_page(struct page *page);
- 
-+extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-+			      unsigned long len);
-+
- /*
-  * Clear the page's PageMlocked().  This can be useful in a situation where
-  * we want to unconditionally remove a page from the pagecache -- e.g.,
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 0584e540246e..81f5595a8490 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -1352,9 +1352,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
- 	return hint;
- }
- 
--static inline int mlock_future_check(struct mm_struct *mm,
--				     unsigned long flags,
--				     unsigned long len)
-+int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-+		       unsigned long len)
- {
- 	unsigned long locked, lock_limit;
- 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a8ad8eb76120..c426e7d20907 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -26,8 +26,8 @@ config RISCV
+ 	select ARCH_HAS_KCOV
+ 	select ARCH_HAS_MMIOWB
+ 	select ARCH_HAS_PTE_SPECIAL
+-	select ARCH_HAS_SET_DIRECT_MAP
+-	select ARCH_HAS_SET_MEMORY
++	select ARCH_HAS_SET_DIRECT_MAP if MMU
++	select ARCH_HAS_SET_MEMORY if MMU
+ 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+ 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
 -- 
 2.28.0
 
