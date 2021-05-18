@@ -2,146 +2,74 @@ Return-Path: <SRS0=MbfZ=KN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6CFEAC433B4
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 10:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AC0E1C433B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 10:19:03 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F23CD60BD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 10:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F23CD60BD3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 39A23611B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 10:19:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39A23611B0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=re/pHtJuQ0mYzbFpBtSiaEgBWo5GqWnlPmL0q13mJ7E=; b=bxwZ/4d4RgHlF88JXCFiaQONY
-	FsxpFoN0DeEhxZUciiBY1Q5YC1ty9YX0qxt7F80Ya3U84kcwd5pm0XaJSqIaJAOspSz19NF+pv90I
-	0yuLvrThNfVQbkjK0tNPMhlREtXpIIfTb+nbLbTGxA4hG5DBeBEBv2JtQwDursBUxmtc50UTdeoBR
-	CwU1zTSTy35ot2c8j3if1DaT/ybZ9vL7ljFcg55/skqt9IbT+jRmVilVTUrHMEwrdSG/SKWanCTK/
-	OZXZuYXq3/C6EgJpYyB0z4Lf2wt1XlTcIetNEykgpriVqJSxzhFVoMpc2/FIU860FnyhAHkx3XQMR
-	l3sRIRNdw==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q57r1PIsKipkJoYBGnauM5c94eqCtQXZ8HtgmG0jWhY=; b=WKFgxEfxxgia/rs+ITg7zRUUBM
+	pssSGDeubF5tc2FO+XZm7Z+WhgQSlhnLLUf2BC4t3S+tP4u2kljZISiuki/04fIT7mFtEd1eeFXg1
+	U59sumRj0NaScMEx3WWVvAEzbPIFEgLrMxWyR2DX2publRBcgg6WnzjleqI6IKB1Wkysf/qotSaxS
+	7n0D+XQLP098og/IUdclty3ywWD31/RVADPur0clPdM5624bK7N3AzTyWLz59SyJSF/3u9iTPK77p
+	EoqFZzGU27Mvz8VWcR/P1rBI4ANMKPEMJUcUvQKBtMHxokbCaGgPz5cvSMyc2GL8sCQnSX713GsIy
+	4TuNrjEQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1liwmc-000KGK-Iy; Tue, 18 May 2021 10:17:02 +0000
+	id 1liwoK-000Knu-LE; Tue, 18 May 2021 10:18:48 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liwco-000HPd-9C
- for linux-riscv@desiato.infradead.org; Tue, 18 May 2021 10:06:54 +0000
+ id 1liwiq-000J4M-2C
+ for linux-riscv@desiato.infradead.org; Tue, 18 May 2021 10:13:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
- Subject:Sender:Reply-To:Content-ID:Content-Description;
- bh=dFkmeu2athwSt2LK0RUUi/E/grHFe/dKRRuvCpK8qJo=; b=cOVFHc938qesVzzbUzLYLjefZy
- ZijyFsWIrASNF+L8S4nM67qoas9mWam6+MwRt9efcWTadRW6Qslpt9XVIBo4+++TlGtXLoGcVyJe8
- 5/hxpmto2z9qRN60O8xSpX2t5tqJjhen2Tp/C+WvcXibVuMu+AvTx7xpabgaTDnc1l25c+fCvt8F+
- 69BSsGkyMT0k2xEZJ4HLuG/dQ2hJvXxVymqSFGHlQTu7QqhRmBP+rsTUrkWPBfkWA6MzMwFu3qyI6
- xB0JXkYbUq9r4iPI4KDTL6VCMOal1UrAe72Ey7MISzOk8L1WIFMs0IS6sZBms6bfbAFVtu7/Dm2h4
- LuFY5MUg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=ULr33bD4SvaLmtwnbFGom7VdQaB7nHdqOiA4jXh/X1Y=; b=lY8ZMSfRWARwiMkNPZQIjFEAP3
+ 7qJVlFr3O80s8xTsr7QnlHW7zxV/B4QT+cy9+C/xgTdjI66qfxwmxhKLYqTNsWjJ8CNPbcQJkByiU
+ 299Phh/XjnomEj99atQxy5qQM6vW/11DuV+enkL5bhXt64SmfYkCoJPz2CJ9eeovfAUtjJ2L7Odkp
+ pDRkeUNbSWO598p05VPmdvCdgUJ6S4rVStY59GfFHB5zCwjCwWW1p0J9IvfzWcC5RMBQvTuhBqElV
+ BPsdUJMcrG3bTLoYdeZ/bS/b30mhG9Opo0f1Y8EhL2tXW7AFb8bNzZXhMX3Ln39ozAcN2tLIrExjr
+ 3RFP7Z2Q==;
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1liwck-00EXbX-Vw
- for linux-riscv@lists.infradead.org; Tue, 18 May 2021 10:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1621332410;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=dFkmeu2athwSt2LK0RUUi/E/grHFe/dKRRuvCpK8qJo=;
- b=gxDyXub6E2FHAH1ajjW9AsFdwlgRX02dDz2k9SIJUhNnhs8kEEdOL9xHfOn6x+J0u1zTUm
- EEAUAASgibvrepcVITsh7+Vu/UxUNy6+cEaQNV/s1OWRJ7xvXIPZ3sdwq5s9DBeCa4vv4B
- Oy9NFaQJ+NaaYac5negNVDJFgnmgChg=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-294-9VR6ECTmMtGlhRoSFiSxqA-1; Tue, 18 May 2021 06:06:46 -0400
-X-MC-Unique: 9VR6ECTmMtGlhRoSFiSxqA-1
-Received: by mail-wr1-f72.google.com with SMTP id
- 93-20020adf80e60000b0290106fab45006so5347574wrl.20
- for <linux-riscv@lists.infradead.org>; Tue, 18 May 2021 03:06:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:organization
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=dFkmeu2athwSt2LK0RUUi/E/grHFe/dKRRuvCpK8qJo=;
- b=QtGcAkbJ5NMNJO1IrIrINdaReH0ZcO8snabOgqgKCyxDZzHQWOfgB4gQL3m3uZA4Kq
- Kp8GMLaccxpbxJJf1uzHJfJSEnmyB3QaG1F9cUY7+pzqAsITXt4DN7648jYjVn1aIxYS
- ApXD6HeNatwpHGNS/TSa6eQ834ndHi0MRhQoF7Y2LtDVIjk+7Xh/EIHuas5/bH//xr5o
- K+33TYjbt30HeWgjARRqzJBGgplWGrP+NIcnqxP/Zp9awwq0YL/My19hXHc1jF4IoVh1
- Dp2gwAOkZE26U8a/kT/TU7HnwroyrJ1gxgDdf9PMpCSc3a+MOppPCQgz3oCwzqMc9m7t
- AWHA==
-X-Gm-Message-State: AOAM5319BwXpfAxQcnhA9Lf4kl6KxVP98hhF8Ixa7JEOC/Qwi4AonWWG
- zadaIvlkd2hXz+Ay6ZnyxTIpaYBpe+bPvo/3UcBzW960ZcVHf1ZWFRlhjjkSWbupccniNiqdutO
- K3WdIxDB62XRnBKs+/93zcF+0X/Jz
-X-Received: by 2002:a05:6000:1ac5:: with SMTP id
- i5mr5879841wry.6.1621332405357; 
- Tue, 18 May 2021 03:06:45 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwiVxI2VqHM3UC3HkCv7YVP9ChZhf/paSvmhTbK/1R/b2aClM7EAkaKYj9OwIH5AzvG3tEX6Q==
-X-Received: by 2002:a05:6000:1ac5:: with SMTP id
- i5mr5879787wry.6.1621332405164; 
- Tue, 18 May 2021 03:06:45 -0700 (PDT)
-Received: from [192.168.3.132] (p5b0c64fd.dip0.t-ipconnect.de. [91.12.100.253])
- by smtp.gmail.com with ESMTPSA id f14sm8395872wry.40.2021.05.18.03.06.43
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 18 May 2021 03:06:44 -0700 (PDT)
-Subject: Re: [PATCH v19 5/8] mm: introduce memfd_secret system call to create
- "secret" memory areas
-To: Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Christopher Lameter
- <cl@linux.com>, Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin"
- <hpa@zytor.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
- Ingo Molnar <mingo@redhat.com>, James Bottomley <jejb@linux.ibm.com>,
- Kees Cook <keescook@chromium.org>, "Kirill A. Shutemov"
- <kirill@shutemov.name>, Matthew Wilcox <willy@infradead.org>,
- Matthew Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Michael Kerrisk
- <mtk.manpages@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
+ id 1liwim-00EY68-Ub
+ for linux-riscv@lists.infradead.org; Tue, 18 May 2021 10:13:06 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 4FD341C0002;
+ Tue, 18 May 2021 10:12:55 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki"
- <rjw@rjwysocki.net>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
-References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-6-rppt@kernel.org>
- <b625c5d7-bfcc-9e95-1f79-fc8b61498049@redhat.com>
- <YKDJ1L7XpJRQgSch@kernel.org> <YKOP5x8PPbqzcsdK@dhcp22.suse.cz>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Message-ID: <8e114f09-60e4-2343-1c42-1beaf540c150@redhat.com>
-Date: Tue, 18 May 2021 12:06:42 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH v6 0/3] Introduce 64b relocatable kernel
+Date: Tue, 18 May 2021 12:12:49 +0200
+Message-Id: <20210518101252.1484465-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-In-Reply-To: <YKOP5x8PPbqzcsdK@dhcp22.suse.cz>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_030651_113336_06B21147 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20210518_031305_291236_562A1EAB 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,44 +81,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18.05.21 11:59, Michal Hocko wrote:
-> On Sun 16-05-21 10:29:24, Mike Rapoport wrote:
->> On Fri, May 14, 2021 at 11:25:43AM +0200, David Hildenbrand wrote:
-> [...]
->>>> +		if (!page)
->>>> +			return VM_FAULT_OOM;
->>>> +
->>>> +		err = set_direct_map_invalid_noflush(page, 1);
->>>> +		if (err) {
->>>> +			put_page(page);
->>>> +			return vmf_error(err);
->>>
->>> Would we want to translate that to a proper VM_FAULT_..., which would most
->>> probably be VM_FAULT_OOM when we fail to allocate a pagetable?
->>
->> That's what vmf_error does, it translates -ESOMETHING to VM_FAULT_XYZ.
-> 
-> I haven't read through the rest but this has just caught my attention.
-> Is it really reasonable to trigger the oom killer when you cannot
-> invalidate the direct mapping. From a quick look at the code it is quite
-> unlikely to se ENOMEM from that path (it allocates small pages) but this
-> can become quite sublte over time. Shouldn't this simply SIGBUS if it
-> cannot manipulate the direct mapping regardless of the underlying reason
-> for that?
-> 
+After multiple attempts, this patchset is now based on the fact that the
+64b kernel mapping was moved outside the linear mapping.
 
-OTOH, it means our kernel zones are depleted, so we'd better reclaim 
-somehow ...
+The first patch allows to build relocatable kernels but is not selected         
+by default. That patch should ease KASLR implementation a lot.                                                            
+The second and third patches take advantage of an already existing powerpc       
+script that checks relocations at compile-time, and uses it for riscv.           
+
+This patchset was tested on:
+
+* kernel:                                                                        
+- rv32: OK                                                                       
+- rv64 with RELOCATABLE: OK and checked that "suspicious" relocations are caught.
+- rv64 without RELOCATABLE: OK                                                   
+- powerpc: build only and checked that "suspicious" relocations are caught.      
+                                                                                 
+* xipkernel:                                                                     
+- rv32: build only                                                               
+- rv64: OK                                                                       
+
+* nommukernel:                                                                   
+- rv64: build only
+
+Changes in v6:
+  * Remove the kernel move to vmalloc zone
+  * Rebased on top of for-next
+  * Remove relocatable property from 32b kernel as the kernel is mapped in
+    the linear mapping and would then need to be copied physically too
+  * CONFIG_RELOCATABLE depends on !XIP_KERNEL
+  * Remove Reviewed-by from first patch as it changed a bit
+
+Changes in v5:
+  * Add "static __init" to create_kernel_page_table function as reported by
+    Kbuild test robot
+  * Add reviewed-by from Zong
+  * Rebase onto v5.7
+
+Changes in v4:                                                                   
+  * Fix BPF region that overlapped with kernel's as suggested by Zong            
+  * Fix end of module region that could be larger than 2GB as suggested by Zong  
+  * Fix the size of the vm area reserved for the kernel as we could lose         
+    PMD_SIZE if the size was already aligned on PMD_SIZE                         
+  * Split compile time relocations check patch into 2 patches as suggested by Anup
+  * Applied Reviewed-by from Zong and Anup                                       
+
+Changes in v3:                                                                   
+  * Move kernel mapping to vmalloc                                               
+
+Changes in v2:                                                                   
+  * Make RELOCATABLE depend on MMU as suggested by Anup                          
+  * Rename kernel_load_addr into kernel_virt_addr as suggested by Anup           
+  * Use __pa_symbol instead of __pa, as suggested by Zong                        
+  * Rebased on top of v5.6-rc3                                                   
+  * Tested with sv48 patchset                                                    
+  * Add Reviewed/Tested-by from Zong and Anup
+
+Alexandre Ghiti (3):
+  riscv: Introduce CONFIG_RELOCATABLE
+  powerpc: Move script to check relocations at compile time in scripts/
+  riscv: Check relocations at compile time
+
+ arch/powerpc/tools/relocs_check.sh | 18 ++--------
+ arch/riscv/Kconfig                 | 12 +++++++
+ arch/riscv/Makefile                |  5 ++-
+ arch/riscv/Makefile.postlink       | 36 ++++++++++++++++++++
+ arch/riscv/kernel/vmlinux.lds.S    |  6 ++++
+ arch/riscv/mm/Makefile             |  4 +++
+ arch/riscv/mm/init.c               | 53 +++++++++++++++++++++++++++++-
+ arch/riscv/tools/relocs_check.sh   | 26 +++++++++++++++
+ scripts/relocs_check.sh            | 20 +++++++++++
+ 9 files changed, 162 insertions(+), 18 deletions(-)
+ create mode 100644 arch/riscv/Makefile.postlink
+ create mode 100755 arch/riscv/tools/relocs_check.sh
+ create mode 100755 scripts/relocs_check.sh
 
 -- 
-Thanks,
-
-David / dhildenb
+2.30.2
 
 
 _______________________________________________
