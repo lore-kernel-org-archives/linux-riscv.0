@@ -2,112 +2,73 @@ Return-Path: <SRS0=MbfZ=KN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-22.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E79EC433B4
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 11:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 133CBC433ED
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 15:22:16 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 01AD261209
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 11:09:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 01AD261209
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8782F611BD
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 May 2021 15:22:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8782F611BD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JPZJvS6ldCxUNNhOyxola4RBzHycbDkwodf1ZY6XJOo=; b=Fyv/vCrdrPpmS/QCOrkpQUaRI
-	nbW2yJX62IszzMYwfRnBt248XaZNLt+rD8CsGi9OpbPIbcvvBoWpe9qLjGUZHFR+dRmSdvAgn93Cj
-	qh0HSqWjypTygJZglyAuW51JWxGilmjmnrvrje8uHWkJWipZCMnioJPwxRBPrqKEeEvMr863UsTj+
-	Z5TCFcfYiFRURbZFDHGI/VZJENb/ld3th35AXfkEOklBvzf7gj7vu8MqhR+mlFqBWnQNGy1kEdH8A
-	9rnDHINGuD8ET3PplphffVhVPK9IpJou+OsHPH8zLeyDHG4jsBx0zNyX2Sh/fnGHggFAS4oGDAUUL
-	goLnTeZHQ==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oympgjdQv4/FwzYOqvLhdCFVKT94Pzhy1ABM3RcLdpg=; b=WCR48XqT6ScR0JZsMAp5+hkTcc
+	IAWcwboOPxuRiGWChSSYke5tjSYcTGkPOMVncPQgRgeZzZa7dafcO/ZjoZInxV8YiQzJSCmf3yh3x
+	u3lxCoBNn++xUP4J5JtWRlljsYM74j8Zct8ssIcMWOALT6G+l2coUyc1xPX64hmvbSlZiXATDPcBb
+	RckYP+KSiGPxpSdAX8NdIgpZnq6//hjIn0Jdfj7T6aXKRJoUmPOlZhh8d3pz5TuUGL99XT3Y42iNu
+	HRcJkw74D9cVyjpfsyWab+3GjTIyC6oyHRAlC+3qWWMe7MOv5B6yy3ClhQNLNCtOpVgmS0PCgDR+a
+	GiTW6oLA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1lixak-000UpX-7w; Tue, 18 May 2021 11:08:50 +0000
+	id 1lj1Xa-001ANG-6b; Tue, 18 May 2021 15:21:50 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lixaW-000Uo4-OZ; Tue, 18 May 2021 11:08:37 +0000
+ id 1lj1XW-001AMH-3J
+ for linux-riscv@desiato.infradead.org; Tue, 18 May 2021 15:21:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=4YrC8sXmTYcRXRqQEW1PHcV/1KnSvWM0S1bOpAI2CJA=; b=uuk0B4FsjMb8DDDRkq62k0/Hpi
- 9hvqVspVlaVsFRV6QOYRBpO8IdN/quL6xMtMmfrBwooyjOvzMnXxp0x2wUx6PPKR6MYalz3Fvre2n
- lJ50DfP4ztWnpwutbrVgc00RxwQ42D3u3CM7aEVw7P8FqqNLM6tSCl0YS1DTFk4/GgeS12UjW6nB6
- W8iOScAJqQJhGsSv8mKw8ULju0VfzbriDLYge72DhQvshLbBTm3aTX6JgOr8cyGoi0fIJlpLjjMQt
- g22KC5fTqTEnZvUbus1DcI2LvRdPeKHxdgDRVQd6z6xrw5FRxHG0WFebjxx2Xzr+1iaYQ1CyaOgFp
- hVQV+JSw==;
-Received: from mx2.suse.de ([195.135.220.15])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=CvtPTgT9V0A0cObCZBCFt4MiSRC91gGNm9k32gWwLjs=; b=PnLR6R81zG5K0Iu3nB0deC5A0i
+ VYeK/UHty4SH52duGT+mLpj5Ma4YT5geP56+5b3UC0PtmeKdL1+eVX/wwih32gXmecJ44jKskl1/K
+ KQeWFS0g4KMNCGTPCO+c80YU5v8l5e9MZsHVyvrFsBKVT7y45Y4IVlvypC5Ec+AIk0H0XL9RWCMsZ
+ Vu/znuXBN0TCEs+k41vH2ooFVXdT6f7IKsy24Mp/xsd2c3BMW0bTXwxVvTgkjIZDbftAj9Yyr4Q4J
+ S25fDZGdtEiSPN9oTuy1ZbpMmCfiJ9gYOTHluXwg4+/2PynyI08rqB5N/MwMDP0bg+Rl+rN1ZfFxx
+ G0/k1E1A==;
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lixaT-00EahD-Gn; Tue, 18 May 2021 11:08:35 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1621336109; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=4YrC8sXmTYcRXRqQEW1PHcV/1KnSvWM0S1bOpAI2CJA=;
- b=IeXTGF9s14zk1xMYwqe63UzwmexLD0t5w2/lmVlgBw7GL+9Q9WNp2iapvjbdnvXH0892B0
- 1vztSfmB1vN+rsIDTC2mrkkDvcaU/PrlXK+za1yXSEDxf3T+eBJpwkZkg54uwDGDEWVXGh
- cLuYNls00SwLIDJ2DsL6MtGb3g25t6M=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id B0DBDB00E;
- Tue, 18 May 2021 11:08:28 +0000 (UTC)
-Date: Tue, 18 May 2021 13:08:27 +0200
-From: Michal Hocko <mhocko@suse.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christopher Lameter <cl@linux.com>,
- Dan Williams <dan.j.williams@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Hagen Paul Pfeifer <hagen@jauu.net>, Ingo Molnar <mingo@redhat.com>,
- James Bottomley <jejb@linux.ibm.com>, Kees Cook <keescook@chromium.org>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>,
- Matthew Garrett <mjg59@srcf.ucam.org>, Mark Rutland <mark.rutland@arm.com>,
- Mike Rapoport <rppt@linux.ibm.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH v19 5/8] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <YKOgK9eQSfgoz6eE@dhcp22.suse.cz>
-References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-6-rppt@kernel.org>
- <b625c5d7-bfcc-9e95-1f79-fc8b61498049@redhat.com>
- <YKDJ1L7XpJRQgSch@kernel.org> <YKOP5x8PPbqzcsdK@dhcp22.suse.cz>
- <8e114f09-60e4-2343-1c42-1beaf540c150@redhat.com>
- <YKOXbNWvUsqM4uxb@dhcp22.suse.cz>
- <00644dd8-edac-d3fd-a080-0a175fa9bf13@redhat.com>
+ id 1lj1XS-00ElPZ-CG
+ for linux-riscv@lists.infradead.org; Tue, 18 May 2021 15:21:44 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 11C4F60002;
+ Tue, 18 May 2021 15:21:35 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, Zong Li <zong.li@sifive.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH RFC] riscv: Map the kernel with correct permissions the first
+ time
+Date: Tue, 18 May 2021 17:21:34 +0200
+Message-Id: <20210518152134.1772653-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <00644dd8-edac-d3fd-a080-0a175fa9bf13@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_040833_861240_96818749 
-X-CRM114-Status: GOOD (  43.92  )
+X-CRM114-CacheID: sfid-20210518_082142_717586_6A26FB61 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,74 +85,213 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue 18-05-21 12:35:36, David Hildenbrand wrote:
-> On 18.05.21 12:31, Michal Hocko wrote:
-> > On Tue 18-05-21 12:06:42, David Hildenbrand wrote:
-> > > On 18.05.21 11:59, Michal Hocko wrote:
-> > > > On Sun 16-05-21 10:29:24, Mike Rapoport wrote:
-> > > > > On Fri, May 14, 2021 at 11:25:43AM +0200, David Hildenbrand wrote:
-> > > > [...]
-> > > > > > > +		if (!page)
-> > > > > > > +			return VM_FAULT_OOM;
-> > > > > > > +
-> > > > > > > +		err = set_direct_map_invalid_noflush(page, 1);
-> > > > > > > +		if (err) {
-> > > > > > > +			put_page(page);
-> > > > > > > +			return vmf_error(err);
-> > > > > > 
-> > > > > > Would we want to translate that to a proper VM_FAULT_..., which would most
-> > > > > > probably be VM_FAULT_OOM when we fail to allocate a pagetable?
-> > > > > 
-> > > > > That's what vmf_error does, it translates -ESOMETHING to VM_FAULT_XYZ.
-> > > > 
-> > > > I haven't read through the rest but this has just caught my attention.
-> > > > Is it really reasonable to trigger the oom killer when you cannot
-> > > > invalidate the direct mapping. From a quick look at the code it is quite
-> > > > unlikely to se ENOMEM from that path (it allocates small pages) but this
-> > > > can become quite sublte over time. Shouldn't this simply SIGBUS if it
-> > > > cannot manipulate the direct mapping regardless of the underlying reason
-> > > > for that?
-> > > > 
-> > > 
-> > > OTOH, it means our kernel zones are depleted, so we'd better reclaim somehow
-> > > ...
-> > 
-> > Killing a userspace seems to be just a bad way around that.
-> > 
-> > Although I have to say openly that I am not a great fan of VM_FAULT_OOM
-> > in general. It is usually a a wrong way to tell the handle the failure
-> > because it happens outside of the allocation context so you lose all the
-> > details (e.g. allocation constrains, numa policy etc.). Also whenever
-> > there is ENOMEM then the allocation itself has already made sure that
-> > all the reclaim attempts have been already depleted. Just consider an
-> > allocation with GFP_NOWAIT/NO_RETRY or similar to fail and propagate
-> > ENOMEM up the call stack. Turning that into the OOM killer sounds like a
-> > bad idea to me.  But that is a more general topic. I have tried to bring
-> > this up in the past but there was not much of an interest to fix it as
-> > it was not a pressing problem...
-> > 
-> 
-> I'm certainly interested; it would mean that we actually want to try
-> recovering from VM_FAULT_OOM in various cases, and as you state, we might
-> have to supply more information to make that work reliably.
+For 64b kernels, we map all the kernel with write and execute permissions
+and afterwards remove writability from text and executability from data.
 
-Or maybe we want to get rid of VM_FAULT_OOM altogether... But this is
-really tangent to this discussion. The only relation is that this would
-be another place to check when somebody wants to go that direction.
+For 32b kernels, the kernel mapping resides in the linear mapping, so we
+map all the linear mapping as writable and executable and afterwards we
+remove those properties for unused memory and kernel mapping as
+described above.
 
-> Having that said, I guess what we have here is just the same as when our
-> process fails to allocate a generic page table in __handle_mm_fault(), when
-> we fail p4d_alloc() and friends ...
+Change this behavior to directly map the kernel with correct permissions
+and avoid going through the whole mapping to fix the permissions.
 
-From a quick look it is really similar in a sense that it effectively never
-happens and if it does then it certainly does the wrong thing. The point
-I was trying to make is that there is likely no need to go that way.
-Fundamentally, not being able to handle direct map for the page fault
-sounds like what SIGBUS should be used for. From my POV it is similar to
-ENOSPC when FS cannot allocate metadata on the storage.
+At the same time, this fixes an issue introduced by commit 2bfc6cd81bd1
+("riscv: Move kernel mapping outside of linear mapping") as reported
+here https://github.com/starfive-tech/linux/issues/17.
+
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+---
+
+This patchset was tested on:
+
+* kernel:
+- rv32 with CONFIG_STRICT_KERNEL_RWX: OK
+- rv32 without CONFIG_STRICT_KERNEL_RWX: OK
+- rv64 with CONFIG_STRICT_KERNEL_RWX: OK
+- rv64 without CONFIG_STRICT_KERNEL_RWX: OK
+
+* xipkernel:
+- rv32: build only
+- rv64: OK
+
+ arch/riscv/include/asm/set_memory.h |  2 -
+ arch/riscv/kernel/setup.c           |  1 -
+ arch/riscv/mm/init.c                | 80 ++++++++++++++---------------
+ 3 files changed, 38 insertions(+), 45 deletions(-)
+
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 086f757e8ba3..70154f012791 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -16,13 +16,11 @@ int set_memory_rw(unsigned long addr, int numpages);
+ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
+ int set_memory_rw_nx(unsigned long addr, int numpages);
+-void protect_kernel_text_data(void);
+ #else
+ static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+-static inline void protect_kernel_text_data(void) {}
+ static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+ #endif
+ 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 03901d3a8b02..1eb50e512056 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -292,7 +292,6 @@ void __init setup_arch(char **cmdline_p)
+ 	sbi_init();
+ 
+ 	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+-		protect_kernel_text_data();
+ 		protect_kernel_linear_mapping_text_rodata();
+ 	}
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 4faf8bd157ea..92b3184420a2 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -436,6 +436,36 @@ asmlinkage void __init __copy_data(void)
+ }
+ #endif
+ 
++#ifdef CONFIG_STRICT_KERNEL_RWX
++#define is_text_va(va)		({								\
++		unsigned long _va = va;								\
++		(_va < (unsigned long)__init_data_begin && _va >= (unsigned long)_start);	\
++	})
++
++static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
++{
++	return is_text_va(va) ? PAGE_KERNEL_READ_EXEC : PAGE_KERNEL;
++}
++
++void mark_rodata_ro(void)
++{
++	unsigned long rodata_start = (unsigned long)__start_rodata;
++	unsigned long data_start = (unsigned long)_data;
++
++	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
++
++	debug_checkwx();
++}
++#else
++static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
++{
++	if (IS_ENABLED(CONFIG_32BIT))
++		return PAGE_KERNEL_EXEC;
++
++	return (va < kernel_virt_addr) ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
++}
++#endif
++
+ /*
+  * setup_vm() is called from head.S with MMU-off.
+  *
+@@ -465,7 +495,8 @@ uintptr_t xiprom, xiprom_sz;
+ #define xiprom_sz      (*((uintptr_t *)XIP_FIXUP(&xiprom_sz)))
+ #define xiprom         (*((uintptr_t *)XIP_FIXUP(&xiprom)))
+ 
+-static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
++static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size,
++					    __always_unused bool early)
+ {
+ 	uintptr_t va, end_va;
+ 
+@@ -484,7 +515,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+ 				   map_size, PAGE_KERNEL);
+ }
+ #else
+-static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
++static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size, bool early)
+ {
+ 	uintptr_t va, end_va;
+ 
+@@ -492,7 +523,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+ 	for (va = kernel_virt_addr; va < end_va; va += map_size)
+ 		create_pgd_mapping(pgdir, va,
+ 				   load_pa + (va - kernel_virt_addr),
+-				   map_size, PAGE_KERNEL_EXEC);
++				   map_size, early ? PAGE_KERNEL_EXEC : pgprot_from_kernel_va(va));
+ }
+ #endif
+ 
+@@ -569,7 +600,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	 * us to reach paging_init(). We map all memory banks later
+ 	 * in setup_vm_final() below.
+ 	 */
+-	create_kernel_page_table(early_pg_dir, map_size);
++	create_kernel_page_table(early_pg_dir, map_size, true);
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 	/* Setup early PMD for DTB */
+@@ -693,21 +724,15 @@ static void __init setup_vm_final(void)
+ 		map_size = best_map_size(start, end - start);
+ 		for (pa = start; pa < end; pa += map_size) {
+ 			va = (uintptr_t)__va(pa);
+-			create_pgd_mapping(swapper_pg_dir, va, pa,
+-					   map_size,
+-#ifdef CONFIG_64BIT
+-					   PAGE_KERNEL
+-#else
+-					   PAGE_KERNEL_EXEC
+-#endif
+-					);
+ 
++			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
++					   pgprot_from_kernel_va(va));
+ 		}
+ 	}
+ 
+ #ifdef CONFIG_64BIT
+ 	/* Map the kernel */
+-	create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
++	create_kernel_page_table(swapper_pg_dir, PMD_SIZE, false);
+ #endif
+ 
+ 	/* Clear fixmap PTE and PMD mappings */
+@@ -738,35 +763,6 @@ static inline void setup_vm_final(void)
+ }
+ #endif /* CONFIG_MMU */
+ 
+-#ifdef CONFIG_STRICT_KERNEL_RWX
+-void __init protect_kernel_text_data(void)
+-{
+-	unsigned long text_start = (unsigned long)_start;
+-	unsigned long init_text_start = (unsigned long)__init_text_begin;
+-	unsigned long init_data_start = (unsigned long)__init_data_begin;
+-	unsigned long rodata_start = (unsigned long)__start_rodata;
+-	unsigned long data_start = (unsigned long)_data;
+-	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
+-
+-	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
+-	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
+-	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
+-	/* rodata section is marked readonly in mark_rodata_ro */
+-	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+-	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
+-}
+-
+-void mark_rodata_ro(void)
+-{
+-	unsigned long rodata_start = (unsigned long)__start_rodata;
+-	unsigned long data_start = (unsigned long)_data;
+-
+-	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+-
+-	debug_checkwx();
+-}
+-#endif
+-
+ #ifdef CONFIG_KEXEC_CORE
+ /*
+  * reserve_crashkernel() - reserves memory for crash kernel
 -- 
-Michal Hocko
-SUSE Labs
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
