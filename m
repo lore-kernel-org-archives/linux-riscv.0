@@ -2,18 +2,19 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 12E86C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 06:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02B9DC433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 06:33:35 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BF15E611AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 06:12:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF15E611AD
+	by mail.kernel.org (Postfix) with ESMTPS id 7E7C86023E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 06:33:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E7C86023E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,73 +23,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kbT6OGMPJ96MpLbbQ3V8JICPR8Yvsntr6vylLzo4rJM=; b=Cs3hzl6r4ZKSG8KSX0jAKAV6Z
-	caSjnOGB/Fva10r5BoIkjnVJjg2D+MLtwVnmg9Og6hPD5qFxnTUcLTelYQK+xXJMGrIdW79nfNux5
-	1epefm1aLjkFmQheuprIVqrKfnJa9iUh1cB8vfOXHRrb4FQMekCf2RSNkyN8ILo/8gSQUvlt2WKhX
-	7pMXVFMeiOcHDvWeMlyAcT0ipdZJ2MPdHDNPwiTFcIqDm3Xoa71wo2sJkmOVhkjyp0zv481SBLkr+
-	+0Kc2BqFO8RiQxLC5eoosmD/JdNs7As/VdXKlPssJtI3cZVgrSzLn5CeFOudKsRTEXBd/ZcIuUOsQ
-	0mgklsJOg==;
+	 bh=twkk2SHVDEXNdO7pSqrELNqypyP95BdqsLzAdktq0hQ=; b=hsYi/kXpy1WiNNbK0hh+t45Ar
+	j3jJf+rO4iHsQFNNyKXMWT+wDMqGhgCvhaycursABENsQ0IdC0y8vQMmzgOQFulehT3AVMLvQEZdm
+	y4rwV4if8Yt1XjIA4XgawemDZpYzGRIOj3+loUdkN3lfAfSQXYPKagHBITfvQJwb3PujZVmQj3rDA
+	57zey6MUjaF7tOkIEkc0YDjNj+ocoDyDbHsIq0hQUC8Fw5/SEWPfkKG1pJabFr4oejpAsAf+Jom1F
+	i2nbRAEFgxWGeS4iukWKcPCBilPLt+PMjuRge8ZATPdB3Z7F+yPYJkNaJJ0HEhTbYjDk+/Dr8Nuo6
+	779aqzpxQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljFR9-002xGA-W4; Wed, 19 May 2021 06:12:08 +0000
+	id 1ljFlb-002zxx-TM; Wed, 19 May 2021 06:33:16 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljFR7-002xFi-41
- for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 06:12:05 +0000
+ id 1ljFlZ-002zxV-5t
+ for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 06:33:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
  :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=0ZOHlTtIuO0KvtP35Ncl+RMxfppJjVep11mqcq1nXNQ=; b=E9p/HhY5/5/UFeVAYlnbhbn5Cb
- 8Wely+FK+TkjYhOKQt9n9W616nAuz35Uq1Kb73ZbDV6Iffi9xsF+zJPEpijb+TDpVQ9F+taTqF7gZ
- XqRCRxnFLAvrRCbNXXGgmDGVf6Xl6Rz5OoE/f1hwNslBVZm77MHsHs7l9PO9V/D9cThOzfvly0sxD
- WtmlFVe4I+FaddG6D5x6rtXvLSnz4FCZWA2xjYCTqH4nCqC+9IGh6YjbHTH9/Jt+sAk3r5fpuw+fb
- jg0dRmBalhfQzHnV1R4zMmffUv5BajY0WLrG0U3MB7JOvLtfkQCdga1Y676ar3KHNtZh3fIMG75cp
- PuiizP6Q==;
+ bh=AL6Ox9wMbxUGK+6hDKCnRs3QG4Hhtgi4qR3S/SvkJbU=; b=nn2NpXii/7fBTu5yDgT5jFRyd4
+ kB3/sWe278IZuPzJUq5emKXK2ugeemPaKPH7JeJa9HiDNUyKKpU+PmV1Brd9ehYBIWZBRHLMgAMP4
+ EJk54v3ZUhdZ3X7tw9uhXIiVUjxhiFGoevTeesIHRSN9KTS6g8G1BUH1Sc8EKZoIMnt3gJqfSYG45
+ RfjH42Hvi75CXRCZOzyaENfUqy66KnvZNBUxIHs6v7xQ+vD5sXpzSL5ugCERmGRN1ei/63KX3X/L/
+ qXX9cQooQ+kt8Cc3ianvi6tzTtn7+EfaJunCKZXIEY35ZRoQBs10lQUVQnLB6ZC9yPK6GVpvOF5hC
+ ZuIsq+aA==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljFR4-00FAnc-Gi
- for linux-riscv@lists.infradead.org; Wed, 19 May 2021 06:12:03 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id EBA8360FF2
- for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 06:12:01 +0000 (UTC)
+ id 1ljFlV-00FBJL-63
+ for linux-riscv@lists.infradead.org; Wed, 19 May 2021 06:33:11 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B522B611AE
+ for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 06:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621404722;
- bh=aliJ2A5IaLQl1kaFJpcVaP8FxOlUquhNHY8hfbwV5oQ=;
+ s=k20201202; t=1621405988;
+ bh=DsjSl6yBWh1YFEOLeF/4l7RPg+W/ybQ288UPZbcSu78=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=G9DZR23da4IjsoJ/mtAo2AxCyf5GDW2IBuWal8rsvRSUyw0YGESWBWY9765O/zFUq
- OnqbcN7Xothn9+c0LxanS4KEHJFBdg7HNlH5a7rdHiMyBlCUh1DDhbKVBx2ZPl5z1T
- SPuWPJT/TmE2An9xwQXLbCq/JmtSIpzY2dTaSpllQnS2hujMM2i0xiKWOKGhum8cAE
- nde1rhH/lYw62U5AeKtUbRnV2sD44ZCQlwXr0e2I6VYgukoTamidjdhgzrnudauYJq
- zKyF21Fnyqd+NpIXsFzM0lCvqPJA8PaZOHLV+Mezrqm25c8acZlF3PHChGjmJjsBgX
- RoQPiT48pGerA==
-Received: by mail-lf1-f49.google.com with SMTP id i9so17281359lfe.13
- for <linux-riscv@lists.infradead.org>; Tue, 18 May 2021 23:12:01 -0700 (PDT)
-X-Gm-Message-State: AOAM531n96pbIjnSKlcNBLKeCkd3sRDydvMFbmBEICu3Ut0lzaacjDnv
- PZ51wnUbFCc86d4KOEJtrroHYtKLT6zHldxzIr0=
-X-Google-Smtp-Source: ABdhPJxlGj9xlx+dM6z1cg/1XfTAYuNHni/4fS0DrteOYCWlgF9XOUG9wrp/nkdsQ6fjglLfVBF0odXgygjFL2krD6E=
-X-Received: by 2002:ac2:5493:: with SMTP id t19mr7293363lfk.346.1621404720345; 
- Tue, 18 May 2021 23:12:00 -0700 (PDT)
+ b=Aj9DWes/2u/h2nTLkEPJsRme4HkRERdMUmQgH3Q6Rp0i0+gBei8u/IRvWGayu9O/h
+ YxSwdRWIQEdrK2jrz5p74sJJkN0y0HuZeoTjstQSVsU/G+u2mJ8niYS2ZLjPFBRxn/
+ b2dgYNoqvRsD6+/F9T4dSbyvIq4LDNBRU+0Mxigx44yKcBN7X7t+y5McTMnHkP8Pyf
+ 9h5rKAc/o5Sr2ydfHK/bkmJ9/HSiS7p0/owiyu46UvWPwRNLGAbw+jYn5pIxg5jjQX
+ 0g8adi6FFyMpdFmezPu1fA0ySeutvYZKzUxUq3288lSEdGKKubIy/xfu0SHEOrmpbt
+ Jya6aWciL7jLg==
+Received: by mail-lf1-f41.google.com with SMTP id z13so17398108lft.1
+ for <linux-riscv@lists.infradead.org>; Tue, 18 May 2021 23:33:08 -0700 (PDT)
+X-Gm-Message-State: AOAM533Rb6xVRUTyaBTjcRjRt4om1vWZU5Q8pngrpSTogNJRo6uIq82+
+ UWqiuRntL6gqfqCrLQ4lIbh24eYQRfGqjStf+y8=
+X-Google-Smtp-Source: ABdhPJwIFYVRRBikGgC4O2rYg2NsvavLz6Rnauk/tXrxyUlwUwx/kHYxLrjPvZ1W078K0+Y1qEXZd5ppwdDbuJBd+8o=
+X-Received: by 2002:a19:f701:: with SMTP id z1mr7103212lfe.557.1621405987051; 
+ Tue, 18 May 2021 23:33:07 -0700 (PDT)
 MIME-Version: 1.0
 References: <1621400656-25678-1-git-send-email-guoren@kernel.org>
- <20210519052048.GA24853@lst.de>
- <CAJF2gTR5838=Uwc5P6Xs=G7vk80k0yqWcSsNe0OFcwc9sDBBHg@mail.gmail.com>
- <20210519060617.GA28397@lst.de>
-In-Reply-To: <20210519060617.GA28397@lst.de>
+ <1621400656-25678-4-git-send-email-guoren@kernel.org>
+In-Reply-To: <1621400656-25678-4-git-send-email-guoren@kernel.org>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 19 May 2021 14:11:48 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSd273ZuRpgFZK-UKA=LgDHGEVrWdN8admScta-mF-Hvw@mail.gmail.com>
-Message-ID: <CAJF2gTSd273ZuRpgFZK-UKA=LgDHGEVrWdN8admScta-mF-Hvw@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-To: Christoph Hellwig <hch@lst.de>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- drew@beagleboard.org, wefu@redhat.com, lazyparser@gmail.com, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
+Date: Wed, 19 May 2021 14:32:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTQX82y5COejF95pG9vqZYqqwJgq1H4JrGjEMrT7Enmew@mail.gmail.com>
+Message-ID: <CAJF2gTTQX82y5COejF95pG9vqZYqqwJgq1H4JrGjEMrT7Enmew@mail.gmail.com>
+Subject: Re: [PATCH RFC 3/3] riscv: Add SYNC_DMA_FOR_CPU/DEVICE for
+ DMA_COHERENT
+To: Guo Ren <guoren@kernel.org>, Anup Patel <anup.patel@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, drew@beagleboard.org, 
+ Christoph Hellwig <hch@lst.de>, wefu@redhat.com, lazyparser@gmail.com
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-arch <linux-arch@vger.kernel.org>, 
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>
+ linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
+ Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_231202_600035_E7674662 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20210518_233309_297479_C89A9C18 
+X-CRM114-Status: GOOD (  30.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +106,230 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 19, 2021 at 2:06 PM Christoph Hellwig <hch@lst.de> wrote:
+On Wed, May 19, 2021 at 1:05 PM <guoren@kernel.org> wrote:
 >
-> On Wed, May 19, 2021 at 02:05:00PM +0800, Guo Ren wrote:
-> > Since the existing RISC-V ISA cannot solve this problem, it is better
-> > to provide some configuration for the SOC vendor to customize.
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> We've been talking about this problem for close to five years.  So no,
-> if you don't manage to get the feature into the ISA it can't be
-> supported.
+> To support DMA device in a non-coherent interconnect SOC system,
+> we need the below facilities:
+>  - Change a memory region attributes from cacheable to strong.
+>    It would be used in DMA descriptors.
+>  - Sync the cache with memory before DMA start and after DMA end.
+>    It would be used for DMA data transfer buffers.
+>
+> This patch enables kernel dma/direct.c coherent infrastructure and
+> a new sbi_ecall API for dma_sync.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Drew Fustini <drew@beagleboard.org>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Wei Fu <wefu@redhat.com>
+> Cc: Wei Wu <lazyparser@gmail.com>
+> ---
+>  arch/riscv/Kconfig               |  4 ++++
+>  arch/riscv/include/asm/pgtable.h | 13 +++++++++++++
+>  arch/riscv/include/asm/sbi.h     | 16 ++++++++++++++++
+>  arch/riscv/kernel/sbi.c          | 19 +++++++++++++++++++
+>  arch/riscv/mm/Makefile           |  4 ++++
+>  arch/riscv/mm/dma-mapping.c      | 41 ++++++++++++++++++++++++++++++++++++++++
+>  6 files changed, 97 insertions(+)
+>  create mode 100644 arch/riscv/mm/dma-mapping.c
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 632fac5..94a736a 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -20,6 +20,9 @@ config RISCV
+>         select ARCH_HAS_DEBUG_VM_PGTABLE
+>         select ARCH_HAS_DEBUG_VIRTUAL if MMU
+>         select ARCH_HAS_DEBUG_WX
+> +       select ARCH_HAS_DMA_PREP_COHERENT if RISCV_DMA_COHERENT
+> +       select ARCH_HAS_SYNC_DMA_FOR_CPU if RISCV_DMA_COHERENT
+> +       select ARCH_HAS_SYNC_DMA_FOR_DEVICE if RISCV_DMA_COHERENT
+>         select ARCH_HAS_FORTIFY_SOURCE
+>         select ARCH_HAS_GCOV_PROFILE_ALL
+>         select ARCH_HAS_GIGANTIC_PAGE
+> @@ -41,6 +44,7 @@ config RISCV
+>         select CLONE_BACKWARDS
+>         select CLINT_TIMER if !MMU
+>         select COMMON_CLK
+> +       select DMA_DIRECT_REMAP if RISCV_DMA_COHERENT
+>         select EDAC_SUPPORT
+>         select GENERIC_ARCH_TOPOLOGY if SMP
+>         select GENERIC_ATOMIC64 if !64BIT
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index f822f22..8994d58 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -465,6 +465,19 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+>         return ptep_test_and_clear_young(vma, address, ptep);
+>  }
+>
+> +#ifdef CONFIG_RISCV_DMA_COHERENT
+> +#define pgprot_noncached pgprot_noncached
+> +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
+> +{
+> +       unsigned long prot = pgprot_val(_prot);
+> +
+> +       prot &= ~_PAGE_DMA_MASK;
+> +       prot |= _PAGE_DMA_NONCACHE;
+> +
+> +       return __pgprot(prot);
+> +}
+> +#endif
+> +
+>  /*
+>   * Encode and decode a swap entry
+>   *
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 0d42693..08b4244 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -27,6 +27,7 @@ enum sbi_ext_id {
+>         SBI_EXT_IPI = 0x735049,
+>         SBI_EXT_RFENCE = 0x52464E43,
+>         SBI_EXT_HSM = 0x48534D,
+> +       SBI_EXT_DMA = 0xAB150401,
+>  };
+>
+>  enum sbi_ext_base_fid {
+> @@ -37,6 +38,7 @@ enum sbi_ext_base_fid {
+>         SBI_EXT_BASE_GET_MVENDORID,
+>         SBI_EXT_BASE_GET_MARCHID,
+>         SBI_EXT_BASE_GET_MIMPID,
+> +       SBI_EXT_RFENCE_REMOTE_DMA_SYNC,
+Oops ... It's no use. Remove in next version patch.
 
-arch/riscv/errata/ is also defined in riscv ISA?
+>  };
+>
+>  enum sbi_ext_time_fid {
+> @@ -63,6 +65,17 @@ enum sbi_ext_hsm_fid {
+>         SBI_EXT_HSM_HART_STATUS,
+>  };
+>
+> +enum sbi_ext_dma_fid {
+> +       SBI_DMA_SYNC = 0,
+> +};
+> +
+> +enum sbi_dma_sync_data_direction {
+> +       SBI_DMA_BIDIRECTIONAL = 0,
+> +       SBI_DMA_TO_DEVICE = 1,
+> +       SBI_DMA_FROM_DEVICE = 2,
+> +       SBI_DMA_NONE = 3,
+> +};
+> +
+>  enum sbi_hsm_hart_status {
+>         SBI_HSM_HART_STATUS_STARTED = 0,
+>         SBI_HSM_HART_STATUS_STOPPED,
+> @@ -128,6 +141,9 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
+>                                 unsigned long size,
+>                                 unsigned long asid);
+>  int sbi_probe_extension(int ext);
+> +void sbi_dma_sync(unsigned long start,
+> +                 unsigned long size,
+> +                 enum sbi_dma_sync_data_direction dir);
+>
+>  /* Check if current SBI specification version is 0.1 or not */
+>  static inline int sbi_spec_is_0_1(void)
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 7402a41..ff8e18b 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -521,6 +521,25 @@ int sbi_probe_extension(int extid)
+>  }
+>  EXPORT_SYMBOL(sbi_probe_extension);
+>
+> +void sbi_dma_sync(unsigned long start,
+> +                 unsigned long size,
+> +                 enum sbi_dma_sync_data_direction dir)
+> +{
+> +#if 0
+> +       sbi_ecall(SBI_EXT_DMA, SBI_DMA_SYNC, start, size, dir,
+> +                 0, 0, 0);
+> +#else
+> +       /* Just for try, it should be in sbi ecall and will be removed before merged */
+> +       register unsigned long i asm("a0") = start & ~(L1_CACHE_BYTES - 1);
+> +
+> +       for (; i < (start + size); i += L1_CACHE_BYTES)
+> +               __asm__ __volatile__(".long 0x02b5000b");
+> +
+> +       __asm__ __volatile__(".long 0x01b0000b");
+> +#endif
+> +}
+> +EXPORT_SYMBOL(sbi_dma_sync);
+> +
+>  static long __sbi_base_ecall(int fid)
+>  {
+>         struct sbiret ret;
+> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> index 7ebaef1..b67d956 100644
+> --- a/arch/riscv/mm/Makefile
+> +++ b/arch/riscv/mm/Makefile
+> @@ -14,6 +14,10 @@ obj-$(CONFIG_MMU) += fault.o pageattr.o
+>  obj-y += cacheflush.o
+>  obj-y += context.o
+>
+> +ifeq ($(CONFIG_RISCV_DMA_COHERENT), y)
+> +obj-y += dma-mapping.o
+> +endif
+> +
+>  ifeq ($(CONFIG_MMU),y)
+>  obj-$(CONFIG_SMP) += tlbflush.o
+>  endif
+> diff --git a/arch/riscv/mm/dma-mapping.c b/arch/riscv/mm/dma-mapping.c
+> new file mode 100644
+> index 00000000..f5db60b
+> --- /dev/null
+> +++ b/arch/riscv/mm/dma-mapping.c
+> @@ -0,0 +1,41 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <linux/dma-map-ops.h>
+> +#include <asm/sbi.h>
+> +
+> +void arch_dma_prep_coherent(struct page *page, size_t size)
+> +{
+> +       void *ptr = page_address(page);
+> +
+> +       memset(ptr, 0, size);
+> +       sbi_dma_sync(page_to_phys(page), size, SBI_DMA_BIDIRECTIONAL);
+> +}
+> +
+> +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> +               enum dma_data_direction dir)
+> +{
+> +       switch (dir) {
+> +       case DMA_TO_DEVICE:
+> +       case DMA_FROM_DEVICE:
+> +       case DMA_BIDIRECTIONAL:
+> +               sbi_dma_sync(paddr, size, dir);
+> +               break;
+> +       default:
+> +               BUG();
+> +       }
+> +}
+> +
+> +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+> +               enum dma_data_direction dir)
+> +{
+> +       switch (dir) {
+> +       case DMA_TO_DEVICE:
+> +               return;
+> +       case DMA_FROM_DEVICE:
+> +       case DMA_BIDIRECTIONAL:
+> +               sbi_dma_sync(paddr, size, dir);
+> +               break;
+> +       default:
+> +               BUG();
+> +       }
+> +}
+> --
+> 2.7.4
+>
+
 
 -- 
 Best Regards
