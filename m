@@ -2,20 +2,20 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C41EC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 13:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AC82C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 15:09:08 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 03D026100C
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 13:58:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 03D026100C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
+	by mail.kernel.org (Postfix) with ESMTPS id A1E3161042
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 15:09:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A1E3161042
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
@@ -23,45 +23,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iddXpuhAV/sIrS6Qu4DZGD86XcirfeIN/XhZjqQTduE=; b=Kos1g7rus1SGw67a2WJ2bNUqU
-	hKN+DVx16iZsL9hK/hBR42PwL53LLLzZPQRuHw+Xc9+gxPl9oSgckNRSUrFoBtberWOgTeQnYkUen
-	QtMG8PG9FuA+5YVIEQ2hnzM6D/omvqVMgAp/y2PdM/wievA+aguP4G1z+7kxU9ffwxqa221zqltgS
-	Nu+gJW3GKEifB6A1myIBWUGlCn8UXzIx1HB+A1C7qjNNIFFWrFHcdUrkf4gZP3OxiZ0h1FQkRw/04
-	qksKLsteU/4Lxrc4Q4HRXDBXHWoRF/cNFYT8V+johGtyhfFSJUkNH2tivhjiVIAVIJqjqsbae8Pjx
-	Npj0omm8w==;
+	 bh=8JiC5ratQf3aMzxPXRuYLgVLfhRZINl376oazKG/OSo=; b=ZVHtkprYXoUwbC6LDxhpf+j0j
+	0XyqbUnJYB83H504O8ne9cyrjYbQuujobTOaSMcgfLNOF5mG7YLd+cvsWvu6CgCt3tWP2VfyFfHwz
+	SdBW8+Bl921NMU5uy/W4UJYkt2+qi3iP2exBSXslVTl8A8DTVmvby1LK15P0Z6NVXYlwVrNB9jdQP
+	Fgw3aLrv8/kK/QIdGzDRnsrjsdmxOKTwvqjnyEhv45xqjalnzue6/I4HusrMHFuIcZoBlR8rw5PdU
+	a8lCOOUWZHsEP+qEM3lYxnYJJ14ir0EGnB6yvAGFiYAJ4NNZokO8f1am4oAhhRrou4hbSYJ9kWhDe
+	dKhGJfFKQ==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljMiD-004CTl-AK; Wed, 19 May 2021 13:58:13 +0000
+	id 1ljNoR-004L9n-BU; Wed, 19 May 2021 15:08:43 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljMiB-004CTN-27; Wed, 19 May 2021 13:58:11 +0000
+ id 1ljNoP-004L9V-24; Wed, 19 May 2021 15:08:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
  :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=WSPEM2CUZzlI2+eWWDFsMiI9pAMz7JWex+E8GZ7XwdQ=; b=fErnb7F2+gvh6S32igG6MbW15r
- 35gP8PJGpe8sFgITz/XM/R7vhAKA9LsSAcYTaWKr9AiCYnuRP0A9Uo+2URPwQ1r35K0Pofyt0zO9D
- ETcq5eW1ESOkZ7kpiwSKqeoIS75DiHaf4TCcMG4W7FznBNxc2mDSe/gqrpmm+OGiunvWPxRtVb5fT
- cPGLs5aWk7+m2vWkdxKQ//yKpzyBcN/3rg4m7YTTSb5UfVM20ELPwPMxV6dlUD1iWvtZtFGY2H/7f
- 9KHyUXAdPOZzQmcK5+dhu+yPjnbGCj52Ln/NDEBJDuzUGyq7NP++6adAPnH9Hoah8VysX6U089Ja5
- ZhS5iVgw==;
-Received: from mail.kernel.org ([198.145.29.99])
+ bh=O4M1xcTAuM/DDdc0c5CDLl/yAMutYPdkSv4nE2h3AeI=; b=a0CxK+TGeDIcOWm60l9ioIBc+B
+ IRf/W9MYmHgkcAJuZUyvhQJ1bI1dCzjp+ki09ngNztx50z0tllcoz560uS8ZVhBjf8FfJg2vgVXFc
+ Uj5Prhn+kvjaPKbRzXVElZU9B1nvJKvR1DraZYT9QHMExIQFe0zSlA95VO9/jGmGAN9GjVKvcXdVK
+ tRV9fHKxXswPcHIZsnqhjFwl0595ZKyCKfu+8qYfSeOMnHfpAjPAkrC2ALyuubhR31EsOORx2F8O8
+ NHT3Bp7Od4ZYI7fct4awq9nPLbVo1IRzhmwg3h6bsph+7JGF7RM/nsjUi5XiQjSip92t+dXkiYKAj
+ lRM0zXjA==;
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljMi7-00FWHn-PH; Wed, 19 May 2021 13:58:09 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D15586100C;
- Wed, 19 May 2021 13:58:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1621432687;
- bh=1VkCYNL0c12Ug0LXnzJjOzCC3hjW/+2zr3MkeEO+0n4=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=SMDZeq2XvmrcXuBcr7sl4S4JEZSUBlQkZcFB2xQViTrjZjhCIDg0/Ffa2IMKrgmaW
- m/b3eNYlCd3m8nvzOaEY5fyWv1IXGkJSq9tyd0ckJ/pn2qTlscaa8jermQrDLwn5Me
- 3fsUl7684B5GSf9aWhkkog0Ibsh8fcFX3y4B1BgE=
-Date: Wed, 19 May 2021 15:58:05 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
+ id 1ljNoM-00FZnf-DC; Wed, 19 May 2021 15:08:39 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 14JF5rt9115755;
+ Wed, 19 May 2021 15:08:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2020-01-29;
+ bh=O4M1xcTAuM/DDdc0c5CDLl/yAMutYPdkSv4nE2h3AeI=;
+ b=oiJTPjfiELJ31h/2dywpDTju0Qrln1slSZD7cshRMtRC1k/KtXgpy+pe9GMtWVazE3OI
+ T43P/YIzlig6H66ly2aKF7u3kVapM/k15DD0B3UxeQsIhQv1NV4PSFyb1WryaUD1CZBQ
+ FFqwljp8bpOKSyJyNYB4Wyq6SDS4HwAvqlsz2komMzLQEXQsZLN1fCER+K8D+To2ry0B
+ 517gY7iFWGrcvZqNfJ/TIrh0AA140vIF1hgaDBZIlVAvxVIcAQtm5DiurBep9g+eiZUT
+ UjhhSKTy+SXYwuNJTzyt18K3FAEz/7vz4bre9m2YARBqXaWviYUKa//gMujh8daNUqZY gQ== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by userp2130.oracle.com with ESMTP id 38j5qr9wfu-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 19 May 2021 15:08:32 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 14JF03JH086247;
+ Wed, 19 May 2021 15:08:32 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+ by aserp3020.oracle.com with ESMTP id 38mecjfk91-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 19 May 2021 15:08:32 +0000
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [127.0.0.1])
+ by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 14JF52Qc141441;
+ Wed, 19 May 2021 15:08:31 GMT
+Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
+ by aserp3020.oracle.com with ESMTP id 38mecjfk6v-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 19 May 2021 15:08:31 +0000
+Received: from abhmp0017.oracle.com (abhmp0017.oracle.com [141.146.116.23])
+ by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 14JF8S9g005989;
+ Wed, 19 May 2021 15:08:28 GMT
+Received: from kadam (/41.212.42.34) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Wed, 19 May 2021 08:08:27 -0700
+Date: Wed, 19 May 2021 18:08:14 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
@@ -73,7 +100,7 @@ Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  linux-staging@lists.linux.dev
 Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
-Message-ID: <YKUZbb6OK+UYAq+t@kroah.com>
+Message-ID: <20210519150814.GY1955@kadam>
 References: <20210519033553.1110536-1-anup.patel@wdc.com>
  <YKSa48cejI1Lax+/@kroah.com>
  <CAAhSdy18qySXbUdrEsUe-KtbtuEoYrys0TcmsV2UkEA2=7UQzw@mail.gmail.com>
@@ -81,12 +108,24 @@ References: <20210519033553.1110536-1-anup.patel@wdc.com>
  <d7d5ad76-aec3-3297-0fac-a9da9b0c3663@redhat.com>
  <YKUDWgZVj82/KiKw@kroah.com>
  <daa30135-8757-8d33-a92e-8db4207168ff@redhat.com>
+ <YKUZbb6OK+UYAq+t@kroah.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <daa30135-8757-8d33-a92e-8db4207168ff@redhat.com>
+In-Reply-To: <YKUZbb6OK+UYAq+t@kroah.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-GUID: DSYkubxMfO3UDZdxS1ycNWkOZn5DmMy3
+X-Proofpoint-ORIG-GUID: DSYkubxMfO3UDZdxS1ycNWkOZn5DmMy3
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=9989
+ signatures=668683
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1015
+ impostorscore=0
+ mlxscore=0 lowpriorityscore=0 malwarescore=0 mlxlogscore=999
+ suspectscore=0 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104190000 definitions=main-2105190095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210519_065807_919385_6496BF67 
-X-CRM114-Status: GOOD (  41.70  )
+X-CRM114-CacheID: sfid-20210519_080838_596488_2D6AC41B 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,93 +142,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 19, 2021 at 03:29:24PM +0200, Paolo Bonzini wrote:
-> On 19/05/21 14:23, Greg Kroah-Hartman wrote:
-> > > - the code could be removed if there's no progress on either changing the
-> > > RISC-V acceptance policy or ratifying the spec
-> > 
-> > I really do not understand the issue here, why can this just not be
-> > merged normally?
-> 
-> Because the RISC-V people only want to merge code for "frozen" or "ratified"
-> processor extensions, and the RISC-V foundation is dragging their feet in
-> ratifying the hypervisor extension.
-> 
-> It's totally a self-inflicted pain on part of the RISC-V maintainers; see
-> Documentation/riscv/patch-acceptance.rst:
-> 
->   We'll only accept patches for new modules or extensions if the
->   specifications for those modules or extensions are listed as being
->   "Frozen" or "Ratified" by the RISC-V Foundation.  (Developers may, of
->   course, maintain their own Linux kernel trees that contain code for
->   any draft extensions that they wish.)
-> 
-> (Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/riscv/patch-acceptance.rst)
+It's sort of frustrating that none of this information was in the commit
+message.
 
-Lovely, and how is that going to work for code that lives outside of the
-riscv "arch" layer?  Like all drivers?
+"This code is not ready to be merged into the arch/risc/ directory
+because the RISC-V Foundation has not certified the hardware spec yet.
+However, the following chips have implemented it ABC12345, ABC6789 and
+they've already shipping to thousands of customers since blah blah blah
+so we should support it."
 
-And what exactly is "not ratified" that these patches take advantage of?
-If there is hardware out there with these features, well, Linux needs to
-run on it, so we need to support that.  No external committee rules
-should be relevant here.
+I honestly thought it was an issue with the code or the userspace API.
 
-Now if this is for hardware that is not "real", then that's a different
-story.  In that case, who cares, no one can use it, so why not take it?
+regards,
+dan carpenter
 
-So what exactly is this trying to "protect" Linux from?
-
-> > All staging drivers need a TODO list that shows what needs to be done in
-> > order to get it out of staging.  All I can tell so far is that the riscv
-> > maintainers do not want to take this for "unknown reasons" so let's dump
-> > it over here for now where we don't have to see it.
-> > 
-> > And that's not good for developers or users, so perhaps the riscv rules
-> > are not very good?
-> 
-> I agree wholeheartedly.
-> 
-> I have heard contrasting opinions on conflict of interest where the
-> employers of the maintainers benefit from slowing down the integration of
-> code in Linus's tree.  I find these allegations believable, but even if that
-> weren't the case, the policy is (to put it kindly) showing its limits.
-
-Slowing down code merges is horrible, again, if there's hardware out
-there, and someone sends code to support it, and wants to maintain it,
-then we should not be rejecting it.
-
-Otherwise we are not doing our job as an operating system kernel, our
-role is to make hardware work.  We don't get to just ignore code because
-we don't like the hardware (oh if only we could!), if a user wants to
-use it, our role is to handle that.
-
-> > > Of course there should have been a TODO file explaining the situation. But
-> > > if you think this is not the right place, I totally understand; if my
-> > > opinion had any weight in this, I would just place it in arch/riscv/kvm.
-> > > 
-> > > The RISC-V acceptance policy as is just doesn't work, and the fact that
-> > > people are trying to work around it is proving it.  There are many ways to
-> > > improve it:
-> > 
-> > What is this magical acceptance policy that is preventing working code
-> > from being merged?  And why is it suddenly the rest of the kernel
-> > developer's problems because of this?
-> 
-> It is my problem because I am trying to help Anup merging some perfectly
-> good KVM code; when a new KVM port comes up, I coordinate merging the first
-> arch/*/kvm bits with the arch/ maintainers and from that point on that
-> directory becomes "mine" (or my submaintainers').
-
-Agreed, but the riscv maintainers should not be forcing this "problem"
-onto all of us, like it seems is starting to happen :(
-
-Ok, so, Paul, Palmer, and Albert, what do we do here?  Why can't we take
-working code like this into the kernel if someone is willing to support
-and maintain it over time?
-
-thanks,
-
-greg k-h
 
 _______________________________________________
 linux-riscv mailing list
