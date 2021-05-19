@@ -2,99 +2,106 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C57DC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 16:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67775C43460
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 18:17:57 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5BC9610CD
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 16:35:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5BC9610CD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 8D9F760FF1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 18:17:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8D9F760FF1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tGkiBs6vsvr1IgBCMNn8VO4iMHtIvv0uRIeyoVcxq6Q=; b=AFDXNgRGk5jyr59vvB0jFC5Y+
-	vvcAShA4+smsb0Oy9ghiv8/UAz2qt+uhgMDU2yLRTMlA2+Lw7qAvIJ6L3u4upVuOdsOJQfCH8RSJn
-	6woV6JHORfaBmsYun31Ff6KLCC1Trqgth59LQz+m+1EiZ5Xmageur0Xa49hCEWMCWq4wby0JFzKmx
-	K9qqbsYAVUTxatbijuQ8BJE+oVXda0NujqAAmvU+OSlpPTtE5kiRJo/MyqqmXF+igXZz0Gi4Ajor9
-	wQYa85Ibz7QdAkwJYHqPgDO+/etjaDMVQKMEdidRVz+LcSI5JQFhYMmeF8TtX9DRJS9HBVJMUUnrX
-	Btxm5QP6w==;
+	 bh=VW/m/KAov2Hz0054Nyijoq/TP6j3k6/HIJup1Df2v4I=; b=MKFkUyhxChH+vtWoIYiVoNmqz
+	vzHtRPSHTu1vNou//9GW3N/spC083QVlyM1Jj5TdhVwUHKn+pkRXoUeqPtD3o3mxdgeWzNHlbA17t
+	wCV66/H7+xNFqcmhPxiGWVoMw6JjshFFLbXFgJ3QwIIzzBMKd8sOFkfo37xrF4DFVldUMUm8Fb6Jw
+	hZIL0+7FlgH4M77DnlgEdhu16e5F0Tej7c6NAgILr0z+/MbeLp13HqDi6wW8QQ+nm3CuJxrgZFwgk
+	+ALcJP7Vne4c2iKe6ugyfhD7L1ZxuKFNVhjQWmj5VdITYVISu2GIndFhdmmwZu/zY8yp40wDoRhfn
+	+Yspbx3dw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljPAI-004Z0B-8p; Wed, 19 May 2021 16:35:22 +0000
+	id 1ljQlH-004kbj-Vl; Wed, 19 May 2021 18:17:40 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljPAG-004Yyb-5u
- for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 16:35:20 +0000
+ id 1ljQlG-004kbU-Nz
+ for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 18:17:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
- From:Date:Sender:Reply-To:Content-ID:Content-Description;
- bh=I7EF5DgYXK5CNIBTo0gfJuvE3joYDduH2yARUBRK5ps=; b=bMlEOucLqugog0qT5aBeKEHbkA
- LPId5yh43EXDx9ATfKfTUhQ63Th0jMil3wQj0sLv/UeNDvFS0MXfTyS67UIBD+iau8G8girStK4ga
- ZLqiMScS/2vWANhyO6Mm82sGUWcnswPtAVbI4FHzOsyqrX+Lzmlldwr/xbhHaA2UPdul7jrYlp/NG
- 3lHZoyzwuNoZXLWRU14LCXRmGvnGPdFNSJyjXUjw9JfKKZBF4ffroJYO+XPc++2XwnAPmHm9oY5n8
- PyTchuXlOQuuurUSNNcXwzs1CZMDHpD2gnBSLL9r4oLEPsVQbFcxqCkxNrSvXzRWDLLBSEkaKJ4TN
- n2/BbboA==;
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
- id 1ljPA8-00FdUl-N2
- for linux-riscv@lists.infradead.org; Wed, 19 May 2021 16:35:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=I7EF5DgYXK5CNIBTo0gfJuvE3joYDduH2y
- ARUBRK5ps=; b=AUwfohXp0nzurU67e9OW4h+PY/fKPYE9lviT5s+v9ZRa0PFYxt
- uZFDr4079SUrpkhhjkpjXeAMVNGN/HFzI1mrkTQRTB8canXoeRfEdLbZaV4UL5fU
- IJCuUsG2q4I+kj6QA5CuX9k4SrsgUa8a3ppsfPdOboQq6gEcwwcqxziMs=
-Received: from xhacker (unknown [101.86.20.15])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygBnbZkTPqVgof8DAQ--.63533S2; 
- Thu, 20 May 2021 00:34:27 +0800 (CST)
-Date: Thu, 20 May 2021 00:29:09 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang
- <jszhang@kernel.org>, Zong Li <zong.li@sifive.com>, Anup Patel
- <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC] riscv: Map the kernel with correct permissions the
- first time
-Message-ID: <20210520002909.0b699b2b@xhacker>
-In-Reply-To: <20210518152134.1772653-1-alex@ghiti.fr>
-References: <20210518152134.1772653-1-alex@ghiti.fr>
+ Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-ID:Content-Description;
+ bh=2rY1yW/YsvOZYFTiuIc2+ehXyRnGQoCM7oBhn+XshDI=; b=iU5mdRSPAl4WO9KKn4wgYsaYGd
+ 9ny3qHQuO73FeRsc2zEK9sBLKp45JOBzlho7T2WjQ2LkRlOR9wE5PmKBVHF3IXF7OQzJ02e0NHNvF
+ Cz+CkP2c7/NlvDD0gA/IbnaNvSjuzVg2fU6/pWTsmKLeW1jNOMi6KEkWUajpGJFxef/zFTHhT+IFK
+ jeZFptEzLGtsi8vTj692XFarzCBrKeU00i7ReHfBZt48hZyxCl7ygBvMspii9c0Ey91XoYw5BCkY+
+ EOmEHH+OdH3xmYG7oXTqWnE+5c4EsbIgFXGVZQzxAUWApjCUQtpcICNthsWwTPkxaGd1RD9V1u13m
+ qb6+DRGg==;
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
+ by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
+ id 1ljQlD-00FgnB-GY
+ for linux-riscv@lists.infradead.org; Wed, 19 May 2021 18:17:37 +0000
+Received: by mail-ua1-f50.google.com with SMTP id q8so255536uap.5
+ for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 11:17:29 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=2rY1yW/YsvOZYFTiuIc2+ehXyRnGQoCM7oBhn+XshDI=;
+ b=WRVCO2+8I4HerW+/tQit/IOXxy6NvawsB5QH7f0A50luBtWDEL+OJiICUoNpLBJysc
+ vXwBrjKUjl4D5jWifmKBISQedg3wpIsbrZXKx6F1Jg6IjWsGZWRCL5maMkP4wREKvRrh
+ seCef8ALDvUHNfQR9ChOenxDOWlJGbHiqOXMgR94hfTcGxPlnX24WgQwNIDmoA44tI59
+ WVlJzgO95rQHZ3gJRIXqFq2ciklTEB3D20K5fzsSl+lvFKVqDbzdNj+McXOkBf58Mv6D
+ qcDeeQs8AkxGapzqrnkSR+FUBPs8KqyVMg9Zx7Pnii5lbFhGUHN1VZUAwJ51CDWukKNs
+ tk2w==
+X-Gm-Message-State: AOAM530JtAQb/ic0ovW6NFzFTKcNP/UiYfskLuFQcEFJwzcaevC/dyM4
+ /Ap40BzlYogKxNOQozwbPBOwpm/H7tvNtkLS0FU=
+X-Google-Smtp-Source: ABdhPJwW7PwgWmazkSCrWv4XAkCvSaYsIKLalnqHAOYA26PIBau9vsCcc8rqJcC2rad2wL1KTwP6PI8LTRXqT3PWq4A=
+X-Received: by 2002:ab0:7705:: with SMTP id z5mr1011167uaq.2.1621448248375;
+ Wed, 19 May 2021 11:17:28 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygBnbZkTPqVgof8DAQ--.63533S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3AF1Duw4fJr17uFy8JFWUJwb_yoW3Kr4fpF
- W8Jrn8ZFWYqFykWrW7CryY9ryfJwn3Ja4aqF17CrykWFnrCF4Fvrn0ga9FqryDAayvqF4f
- Aay0kws3uwsrtFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUySb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
- 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC2
- 0s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI
- 0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
- 14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20x
- vaj40_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
- 6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07beAp5UUUUU=
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
+References: <20201209094916.17383-1-zong.li@sifive.com>
+ <87v99qyjaz.fsf@igel.home>
+ <CANXhq0oLxFK1431WmTj5HRO5k_omYkQZCBTG+HORTk9=W_XyNg@mail.gmail.com>
+ <CANXhq0p90Cgha_zLzxamK9mxmVPn3effh_cZq_CTLrcAkKZg2Q@mail.gmail.com>
+ <87lfaj7cki.fsf@igel.home> <871rc4on36.fsf@igel.home>
+ <CANXhq0pDge0BPgAjoLrX7Y2qtofb3dhV1_CPHBaCg0o4cEMrbQ@mail.gmail.com>
+ <87a6qrk2pw.fsf@igel.home>
+ <CANXhq0rOeAWnRYHAYKJfDeY4kYz6+5mU_dJSqU67+2p9u0STHQ@mail.gmail.com>
+ <874kgyfetu.fsf@igel.home>
+ <CANXhq0rE-ZcPBp02Pvozpk_s-j6NhxHUmso75uz6ji9bejO8gA@mail.gmail.com>
+ <87h7kukzy4.fsf@igel.home>
+ <CANXhq0r5_xhFu3W9mUFkp_7BYUVBzvHZE1A6jpBDcL_KwTc1cA@mail.gmail.com>
+ <87tuob7n8g.fsf@igel.home>
+ <CANXhq0rTC8grpRe_Q0vG6_52b-41OuN4vHum8RvouMbE6xiXpQ@mail.gmail.com>
+ <CALecT5jQ7_-d7j+MXrG++Bnr_wYmbWgCK20Ju5Pgjbu9xmwQBA@mail.gmail.com>
+ <CANXhq0q-ou6h_Qxjtq52RQ_V2ERu8JLNa7Vq77Rpv_+SFX4LNA@mail.gmail.com>
+In-Reply-To: <CANXhq0q-ou6h_Qxjtq52RQ_V2ERu8JLNa7Vq77Rpv_+SFX4LNA@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 19 May 2021 20:17:16 +0200
+Message-ID: <CAMuHMdWGakAT1LKg_sje=ZYTbLX1_BjjOsqOYP9KrzhMmMi6Ag@mail.gmail.com>
+Subject: Re: [PATCH v7 0/5] clk: add driver for the SiFive FU740
+To: Zong Li <zong.li@sifive.com>
+Cc: Yixun Lan <yixun.lan@gmail.com>, Andreas Schwab <schwab@linux-m68k.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Pragnesh Patel <pragnesh.patel@openfive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Michael Turquette <mturquette@baylibre.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210519_093513_630109_9B7DE8E1 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20210519_111735_583266_42EB5BDC 
+X-CRM114-Status: GOOD (  36.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,245 +113,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 May 2021 17:21:34 +0200
-Alexandre Ghiti <alex@ghiti.fr> wrote:
-
-> For 64b kernels, we map all the kernel with write and execute permissions
-> and afterwards remove writability from text and executability from data.
-> 
-> For 32b kernels, the kernel mapping resides in the linear mapping, so we
-> map all the linear mapping as writable and executable and afterwards we
-> remove those properties for unused memory and kernel mapping as
-> described above.
-> 
-> Change this behavior to directly map the kernel with correct permissions
-> and avoid going through the whole mapping to fix the permissions.
-> 
-> At the same time, this fixes an issue introduced by commit 2bfc6cd81bd1
-> ("riscv: Move kernel mapping outside of linear mapping") as reported
-> here https://github.com/starfive-tech/linux/issues/17.
-> 
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
-> 
-> This patchset was tested on:
-> 
-> * kernel:
-> - rv32 with CONFIG_STRICT_KERNEL_RWX: OK
-> - rv32 without CONFIG_STRICT_KERNEL_RWX: OK
-> - rv64 with CONFIG_STRICT_KERNEL_RWX: OK
-> - rv64 without CONFIG_STRICT_KERNEL_RWX: OK
-> 
-> * xipkernel:
-> - rv32: build only
-> - rv64: OK
-> 
->  arch/riscv/include/asm/set_memory.h |  2 -
->  arch/riscv/kernel/setup.c           |  1 -
->  arch/riscv/mm/init.c                | 80 ++++++++++++++---------------
->  3 files changed, 38 insertions(+), 45 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index 086f757e8ba3..70154f012791 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -16,13 +16,11 @@ int set_memory_rw(unsigned long addr, int numpages);
->  int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
->  int set_memory_rw_nx(unsigned long addr, int numpages);
-> -void protect_kernel_text_data(void);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
-> -static inline void protect_kernel_text_data(void) {}
->  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
->  #endif
->  
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 03901d3a8b02..1eb50e512056 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -292,7 +292,6 @@ void __init setup_arch(char **cmdline_p)
->  	sbi_init();
->  
->  	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
-> -		protect_kernel_text_data();
->  		protect_kernel_linear_mapping_text_rodata();
-
-If we extend the idea a bit, I.E create the correct permission for alias line
-mapping at the first time, we can remove protect_kernel_linear_mapping_text_rodata()
-
-PS: No matter whether it's fine to extend, the set_memory_nx() calling in
-protect_kernel_linear_mapping_text_rodata() is not necessary since the linear
-mapping for 64bit is NX from the beginning.
-
->  	}
->  
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4faf8bd157ea..92b3184420a2 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -436,6 +436,36 @@ asmlinkage void __init __copy_data(void)
->  }
->  #endif
->  
-> +#ifdef CONFIG_STRICT_KERNEL_RWX
-> +#define is_text_va(va)		({								\
-> +		unsigned long _va = va;								\
-> +		(_va < (unsigned long)__init_data_begin && _va >= (unsigned long)_start);	\
-> +	})
-
-It's better if is_text_va() is a inline function
-
-> +
-> +static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
-
-I'm not sure whether it's necessary to put __init marker to inline functions
-There are such issues in current riscv code, I planed to cook one patch
-to remove __init from inline functions.
-
-
-> +{
-> +	return is_text_va(va) ? PAGE_KERNEL_READ_EXEC : PAGE_KERNEL;
-
-if we extend the idea, then here we may return PAGE_KERNEL_READ, PAGE_KERNEL
-and PAGE_KERNEL_READ_EXEC correspondingly.
-
-Thanks
-
-> +}
-> +
-> +void mark_rodata_ro(void)
-> +{
-> +	unsigned long rodata_start = (unsigned long)__start_rodata;
-> +	unsigned long data_start = (unsigned long)_data;
-> +
-> +	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-> +
-> +	debug_checkwx();
-> +}
-> +#else
-> +static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
-> +{
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		return PAGE_KERNEL_EXEC;
-> +
-> +	return (va < kernel_virt_addr) ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
-> +}
-> +#endif
-> +
->  /*
->   * setup_vm() is called from head.S with MMU-off.
->   *
-> @@ -465,7 +495,8 @@ uintptr_t xiprom, xiprom_sz;
->  #define xiprom_sz      (*((uintptr_t *)XIP_FIXUP(&xiprom_sz)))
->  #define xiprom         (*((uintptr_t *)XIP_FIXUP(&xiprom)))
->  
-> -static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
-> +static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size,
-> +					    __always_unused bool early)
->  {
->  	uintptr_t va, end_va;
->  
-> @@ -484,7 +515,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
->  				   map_size, PAGE_KERNEL);
->  }
->  #else
-> -static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
-> +static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size, bool early)
->  {
->  	uintptr_t va, end_va;
->  
-> @@ -492,7 +523,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
->  	for (va = kernel_virt_addr; va < end_va; va += map_size)
->  		create_pgd_mapping(pgdir, va,
->  				   load_pa + (va - kernel_virt_addr),
-> -				   map_size, PAGE_KERNEL_EXEC);
-> +				   map_size, early ? PAGE_KERNEL_EXEC : pgprot_from_kernel_va(va));
->  }
->  #endif
->  
-> @@ -569,7 +600,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->  	 * us to reach paging_init(). We map all memory banks later
->  	 * in setup_vm_final() below.
->  	 */
-> -	create_kernel_page_table(early_pg_dir, map_size);
-> +	create_kernel_page_table(early_pg_dir, map_size, true);
->  
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	/* Setup early PMD for DTB */
-> @@ -693,21 +724,15 @@ static void __init setup_vm_final(void)
->  		map_size = best_map_size(start, end - start);
->  		for (pa = start; pa < end; pa += map_size) {
->  			va = (uintptr_t)__va(pa);
-> -			create_pgd_mapping(swapper_pg_dir, va, pa,
-> -					   map_size,
-> -#ifdef CONFIG_64BIT
-> -					   PAGE_KERNEL
-> -#else
-> -					   PAGE_KERNEL_EXEC
-> -#endif
-> -					);
->  
-> +			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
-> +					   pgprot_from_kernel_va(va));
->  		}
->  	}
->  
->  #ifdef CONFIG_64BIT
->  	/* Map the kernel */
-> -	create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
-> +	create_kernel_page_table(swapper_pg_dir, PMD_SIZE, false);
->  #endif
->  
->  	/* Clear fixmap PTE and PMD mappings */
-> @@ -738,35 +763,6 @@ static inline void setup_vm_final(void)
->  }
->  #endif /* CONFIG_MMU */
->  
-> -#ifdef CONFIG_STRICT_KERNEL_RWX
-> -void __init protect_kernel_text_data(void)
-> -{
-> -	unsigned long text_start = (unsigned long)_start;
-> -	unsigned long init_text_start = (unsigned long)__init_text_begin;
-> -	unsigned long init_data_start = (unsigned long)__init_data_begin;
-> -	unsigned long rodata_start = (unsigned long)__start_rodata;
-> -	unsigned long data_start = (unsigned long)_data;
-> -	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
-> -
-> -	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
-> -	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
-> -	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
-> -	/* rodata section is marked readonly in mark_rodata_ro */
-> -	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-> -	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
-> -}
-> -
-> -void mark_rodata_ro(void)
-> -{
-> -	unsigned long rodata_start = (unsigned long)__start_rodata;
-> -	unsigned long data_start = (unsigned long)_data;
-> -
-> -	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-> -
-> -	debug_checkwx();
-> -}
-> -#endif
-> -
->  #ifdef CONFIG_KEXEC_CORE
->  /*
->   * reserve_crashkernel() - reserves memory for crash kernel
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWm9uZywKCk9uIFdlZCwgTWF5IDE5LCAyMDIxIGF0IDU6NTUgUE0gWm9uZyBMaSA8em9uZy5s
+aUBzaWZpdmUuY29tPiB3cm90ZToKPiBPbiBUdWUsIE1heSAxMSwgMjAyMSBhdCA0OjU3IFBNIFlp
+eHVuIExhbiA8eWl4dW4ubGFuQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPiBPbiBXZWQsIEFwciAxNCwg
+MjAyMSBhdCAyOjI1IFBNIFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4gd3JvdGU6Cj4gPiA+
+IE9uIE1vbiwgQXByIDEyLCAyMDIxIGF0IDc6MzEgUE0gQW5kcmVhcyBTY2h3YWIgPHNjaHdhYkBs
+aW51eC1tNjhrLm9yZz4gd3JvdGU6Cj4gPiA+ID4gT24gTcOkciAzMSAyMDIxLCBab25nIExpIHdy
+b3RlOgo+ID4gPiA+ID4gSSBmb3VuZCB0aGF0IHRoZSBnZW1neGxwbGwgd2FzIGRpc2FibGVkIGlt
+bWVkaWF0ZWx5IGJ5IHBvd2VyCj4gPiA+ID4gPiBtYW5hZ2VtZW50IGFmdGVyIG1hY2IgZHJpdmVy
+IGluc3RhbGwuIFRoZSBtYWlubGluZSdzIGRlZmNvbmZpZyBkb2Vzbid0Cj4gPiA+ID4gPiBlbmFi
+bGUgQ09ORklHX1BNLCBzbyB0aGUgbmV0d29yayBpcyBmaW5lIG9uIGl0LiBUaGUgb3BlbnN1c2Ug
+ZGVmY29uZmlnCj4gPiA+ID4gPiBlbmFibGVzIENPTkZJR19QTSwgYW5kIHRoZSBwYXRjaAo+ID4g
+PiA+ID4gNzMyMzc0YTBiNDQwZDlhNzljODQxMmYzMThhMjVjZDM3YmE2ZjRlMiBhZGRlZCB0aGUg
+ZW5hYmxlL2Rpc2FibGUKPiA+ID4gPiA+IGNhbGxiYWNrIGZ1bmN0aW9ucywgc28gdGhlIGdlbWd4
+bHBsbCBQTEwsIEkgaGF2ZSBubyBpZGVhIHdoeSBwb3dlcgo+ID4gPiA+ID4gbWFuYWdlbWVudCBk
+aXNhYmxlIGl0LCBJIHdvdWxkIGtlZXAgdHJhY2UgaXQuCj4gPiA+ID4KPiA+ID4gPiBEb2VzIHRo
+YXQgbWVhbiB0aGF0IENPTkZJR19QTSBhbHNvIGFmZmVjdHMgdGhlIEZVNzQwPwo+ID4gPgo+ID4g
+PiBZZXMsIHdlIGdvdCB0aGUgc2FtZSBwcm9ibGVtIG9uIHRoZSBGVTc0MC4gV2UgYXJlIGNoZWNr
+aW5nIHRoZSBpc3N1ZS4KPiA+ID4KPiA+IEp1c3QgYSBtaWxkIHBpbmcsIGFueSBwcm9ncmVzcyBy
+ZWdhcmRpbmcgdGhpcyBpc3N1ZT8KPgo+IEN1cnJlbnRseSwgaWYgcnVudGltZSBwb3dlciBtYW5h
+Z2VtZW50IGlzIGVuYWJsZWQsIG1hY2IgZHJpdmVyIHdvdWxkCj4gZ28gdG8gc2xlZXAgYXQgdGhl
+IGVuZCBvZiBtYWNiX3Byb2JlLCB0aGVuIHRoZSBnaWdhYml0IGV0aGVybmV0IFBMTAo+IHdvdWxk
+IGJlIGRpc2FibGVkLiAgRHVyaW5nIHRoaXMgcGVyaW9kIG9mIHRpbWUsIHRoZSBzeXN0ZW0gd291
+bGQgaGFuZwo+IHVwIGlmIHdlIHRyeSB0byBhY2Nlc3MgR0VNR1hMIGNvbnRyb2wgcmVnaXN0ZXJz
+LCBpdCBtZWFucyB0aGF0IHdlCj4gY2FuJ3QgYWNjZXNzIEdFTUdYTCBjb250cm9sIHJlZ2lzdGVy
+cyBiZWZvcmUgdGhlIGdpZ2FiaXQgZXRoZXJuZXQgUExMCj4gaXMgcmVzdW1lZCBhZ2Fpbi4gVGhl
+cmUgYXJlIHNvbWUgY2FzZXMsIGZvciBleGFtcGxlLCBpZiB3ZSBleGVjdXRlIHRoZQoKU291bmRz
+IGZhbWlsaWFyLgoKPiAnaWZjb25maWcnIGNvbW1hbmQsIGl0IHdvdWxkIGV2ZW50dWFsbHkgZ28g
+dG8gdGhlIG1hY2JfZ2V0X3N0YXR1cyB0bwoKRG8geW91IG1lYW4gbWFjX2dldF9zdGF0cygpPyBt
+YWNiX2dldF9zdGF0dXMoKSBkb2VzIG5vdCBleGlzdC4KCj4gYWNjZXNzIEdFTUdYTCBjb250cm9s
+IHJlZ2lzdGVycyBhbmQgY2F1c2UgdGhlIHN5c3RlbSB0byBoYW5nIHVwLiBHaXZlCj4gbW9yZSBl
+eGFtcGxlIGhlcmUsIGlmIHdlIGV4ZWN1dGUgJ2lwIGxpbmsgc2V0IGxvIHVwICYgaXAgYWRkciBh
+ZGQKPiAxMjcuMC4wLjEvOCBkZXYgbG8nLCBpdCB3b3VsZCBjYXVzZSB0aGUgc3lzdGVtIHRvIGhh
+bmcgdXAsIGJlY2F1c2UKPiB0aGVzZSBjb21tYW5kcyB3b3VsZCB0cnkgdG8gcXVlcnkgdGhlIGlu
+dGVyZmFjZXMgYW5kIGV2ZW50dWFsbHkgZ28gdG8KPiBtYWNiX2dldF9zdGF0dXMgYXMgd2VsbC4g
+SG93ZXZlciwgaWYgd2UgY2FuIHJlc3VtZSB0aGUgZ2lnYWJpdAo+IGV0aGVybmV0IFBMTCBmaXJz
+dCwgc3VjaCBhcyAnaXAgbGluayBzZXQgZXRoMCB1cCcgb3IgJ3VkaGNwYycsIHRoZW4KPiBldmVy
+eXRoaW5nIGdvZXMgd2VsbC4gSSdtIHRyeWluZyB0byBmaWd1cmUgb3V0IGlmIHRoZXJlIGFyZSBz
+b21lIGhvb2tzCj4gdGhhdCB3ZSBjYW4gY2hlY2sgdGhlIFBMTCBzdGF0dXMgaW4gdGhlIG1hY2Ig
+ZHJpdmVyIGJlZm9yZSBpdCBhY3R1YWxseQo+IHRvdWNoZXMgdGhlIGNvbnRyb2wgcmVnaXN0ZXJz
+LiBJZiBhbnlvbmUgaGFzIGFuIGlkZWEgYWJvdXQgdGhhdCwKPiBwbGVhc2UgZmVlbCBmcmVlIHRv
+IHBvaW50IGl0IG91dCB0byBtZSwgdGhhbmtzLgoKQW5kIHlvdSBjYW5ub3QgY2FsbCBwbV9ydW50
+aW1lX2dldF9zeW5jKCksIGFzIHRoaXMgaXMgY2FsbGVkIGZyb20KYXRvbWljIGNvbnRlY3QuIE90
+aGVyIGRyaXZlcnMgYXZvaWQgYWNjZXNzaW5nIHRoZSByZWdpc3RlcnMgd2hpbGUKdGhlIGRldmlj
+ZSBpcyBub3QgdXAsIGNmci4gZS5nLiBjb21taXQgN2ZhMjk1NWZmNzBjZTQ1MyAoInNoX2V0aDoK
+Rml4IHNsZWVwaW5nIGZ1bmN0aW9uIGNhbGxlZCBmcm9tIGludmFsaWQgY29udGV4dCIpLgoKR3J7
+b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0gCkdlZXJ0
+IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2Vl
+cnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmlj
+YWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0
+byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0
+aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
