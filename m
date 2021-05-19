@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DC3BC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 05:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DEF3C433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 05:05:57 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 188516135B
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 05:05:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 188516135B
+	by mail.kernel.org (Postfix) with ESMTPS id 9BA9B6135B
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 05:05:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BA9B6135B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kaKeaoM60JAziq8uKCH0+Javz0CCUh1OkSCqMJEcYaA=; b=IOxP9wHImfqeWMjBecyMXpYyov
-	GR7SIlU20NT8kCeGE4vrrLfiG9d6iveSqj400q/mOJL5tQ3vO1UUlexzrEiVvSxRBp4ry1akkCzBI
-	PmCqtl/JMbblF8NgCkNr7EzRt20vX05jz+E15/vQysv7GsQ0soHbnEzKTfx9R60vsRXvyEQMm8ze2
-	Pqb6XeU1xF24TawhXqWoMcfcR1BexCPUNS6S4V1LNPJXxHMnBT4ndqS1FMufPVFWWexHSX4EZPOlN
-	ipAJano6rjHR+mJ1SMFwcFhRhAXr/ZAQFmj3E1YqYoH2VOhiZ/98Zcvkp5Qc3V4ELW0GTiXON47EI
-	EoUtXAdQ==;
+	bh=zvYjF3jlzlniaPIrsD8qnXP1krzuQcRkXY06cvrhjUA=; b=rPXnpMAw4JJKuod26KDWkqmJyt
+	UgwYNif/aiwjqsbQfmkcbM9ETdpTh7zTnAevZ8BitOOzYs45ihI4SjrjJIV+ggpNXws0SK077zsJ4
+	jOG/VlNnfDfTtwjTjZtxWr6G+EzvI5Uaw8TeIodno0AHxhNMpwZB8J+s/F5J3fnKGoYbiApNoAop4
+	J7tCy+uY4ZdoFJ7C2U4WxITWYpy4nHhRSsPXuk3Y6TCmwHcLzsbsNjDU0p4DRFiqe8FnG7qWtP8ET
+	ZQAwjewI/zcIF9fromCoMUGZoBjwRqBlKa3zbTUOqNZ1VtYRbqA4JaeTjzupJwpQK1pex0J9l2+L+
+	+x2Xipzw==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljEOj-002o5J-Dn; Wed, 19 May 2021 05:05:33 +0000
+	id 1ljEOo-002o6S-52; Wed, 19 May 2021 05:05:40 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljEOg-002o4A-Qm
- for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 05:05:30 +0000
+ id 1ljEOm-002o5r-DW
+ for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 05:05:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=References:In-Reply-To:Message-Id:
  Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=lHs06fqmuQ5mBNnljnhvA2ss3HnpHOY/L1Ee4ospZoA=; b=rb7SU6HEGhAub2Z7bsf0cFiKkH
- GxoOqmS8d5QPl0789LxXorme2FCVztZQbdc3DIF07Pmo42ZXkp2Ucb6dyVGmcUFuDShZQudryB4Ld
- +hSoqYXRYoR6FVx1hYcsEcNn1TLKUSRNIAVZdUSmc2GCqpQnS2XPL2fvPp5iO72ubA74RsMSuxjJp
- exuQdyjTFssP7EYE/Qd0O5VEL3exxwa7YcGmK9gYzcLlN/Ujxbc5xZoiT+yGPUEtoddc4qQRuhFNC
- o0dxryetvS7etGtI+wzIs5jqNJPveCCqfyExHuqwfjpriMDTVFzqnfJEuaU4QdEcydyJXvyA6z1+n
- TX7Tijyg==;
+ bh=XEW7Hyk2gI4q/XAkJiFwLlEEX2Ug1cgABBcNa1z+NRI=; b=zXBcqy2qouJWZ6pWKPRhmhrYKz
+ Q21pHXII4KZ6neyBUKriOoOKBCTFrvgCG+tXIR4NMrHgNAQEh5xFMAHmtSbs/o8PEXO9pH2P5nM6B
+ RXas/JNbtLxri85DwOjNJVr7ty5aOCA9lbKM22mkJ6kcEem/zx7KjhFgl2P6RgTWaVvCemxSvBLyP
+ gvYETme1lj3dSpi58UdgOmyWssuYZZA0tcuPQKFOor7JQvc4PYGAem/WJyrznxsNypIvhILZvutIM
+ 6f16l3tBy4+f0a4n2QQU8bz0y6bWEuB7zG/7Q/qqUdzSKPILCjnSAjqAF/P7EduQ+l8Oa5J9HSztH
+ i0Kgd/lQ==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljEOe-00F8ZS-5Y
- for linux-riscv@lists.infradead.org; Wed, 19 May 2021 05:05:29 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4401E61364;
- Wed, 19 May 2021 05:05:25 +0000 (UTC)
+ id 1ljEOj-00F8Zw-Oy
+ for linux-riscv@lists.infradead.org; Wed, 19 May 2021 05:05:35 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D0E54613AE;
+ Wed, 19 May 2021 05:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621400727;
- bh=Mc4hZG1Zr7Tnoyw/Uvexi2F7Qpbq/iGh58EZtVvBeAI=;
+ s=k20201202; t=1621400733;
+ bh=sYN05bC53EDVyET7U5IMlzdjAkaiTBtrJ259CHygA2g=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=I4jJGnA5e17WivC5h1/FZT2i6/Or1dFr3+vaoIvac6qtpJQT36d+n/Pn5b0ez3kos
- 9gg1htVsfY+qbUxZD9z75CfsUdfK1zzz+PSU1IpXxHsFlRQO5ITwpdEAcI4lBEHten
- XuAFJXgDK/eUPKZXYPQbrHsaS3mS349sOheRzMDObKnwyIO4ZtFba96Rd6Vad01lx2
- hKzvhmTCaQhq8iQuwpgimSRWMRYFGXKla9gJ+d6JtOahOEB7y9eNCk9UtyzFM+F+Zm
- AYoeLfBEz+Lgz2mgpGCNhpUNwAE+lUJwFWHbKlloQVNi+vId5mK4+JsFZy1bH0Enil
- 0SINvKMDVdhEg==
+ b=fvDTItlkZj5gI9AXS4AQXNPjQLrTpx/5B2e1rmH39FXvYEC3cMJFrlw+zJ0AaPMWD
+ T6YWvUc8hG4FVJL8ZDwTN9Io+YQKOSrxlTlROygKIi3oF0XwzV/L4k0VQb2UNYSRlO
+ 0lX+aqj1IIoL95XmXz7mMsLBr0YBv+iOzKj3zM4nq06mIVU4sqNrSUvzpjJ8WRMme+
+ f9pv6GgC2egWvVQbVfgbHF2uKNX88Yh1xsk55L55JvhN9MopdCkXLgnMZ6rbs35c4D
+ wBPGC/enieQxXgHBFiJYPZBSbR+1y760gO6AekeHeiLfQtRvtHpODZ9rNBpdhAE2yL
+ USUjp+Avm1iYw==
 From: guoren@kernel.org
 To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
  drew@beagleboard.org, hch@lst.de, wefu@redhat.com, lazyparser@gmail.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
  Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH RFC 1/3] riscv: pgtable.h: Fixup _PAGE_CHG_MASK usage
-Date: Wed, 19 May 2021 05:04:14 +0000
-Message-Id: <1621400656-25678-2-git-send-email-guoren@kernel.org>
+Subject: [PATCH RFC 2/3] riscv: Add DMA_COHERENT for custom PTE attributes
+Date: Wed, 19 May 2021 05:04:15 +0000
+Message-Id: <1621400656-25678-3-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1621400656-25678-1-git-send-email-guoren@kernel.org>
 References: <1621400656-25678-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_220528_265252_EA79BA49 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20210518_220533_873393_8142CE0B 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,10 +96,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-'& _PAGE_CHG_MASK' should masks all attributes BITS then
-'>> _PAGE_PFN_SHIFT' get the final correct PFN value.
+The RISC-V ISA doesn't yet specify how to query or modify PMAs, so
+let vendors define the custom properties of memory regions in PTE.
 
-'& _PAGE_CHG_MASK' makes the code semantics more accurate.
+That means address attributes would use PTE entry not PMA to meet
+the different requirements of IO/mem.
+
+The patch helps SOC vendors to support their own custom
+interconnect coherent solution with PTE attributes.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Cc: Anup Patel <anup.patel@wdc.com>
@@ -110,68 +114,111 @@ Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 Cc: Wei Fu <wefu@redhat.com>
 Cc: Wei Wu <lazyparser@gmail.com>
 ---
- arch/riscv/include/asm/pgtable-64.h | 8 +++++---
- arch/riscv/include/asm/pgtable.h    | 6 +++---
- 2 files changed, 8 insertions(+), 6 deletions(-)
+ arch/riscv/Kconfig                    | 27 +++++++++++++++++++++++++++
+ arch/riscv/include/asm/pgtable-bits.h | 13 ++++++++++++-
+ arch/riscv/include/asm/pgtable.h      |  7 ++++---
+ 3 files changed, 43 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index f3b0da6..cbf9acf 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -62,12 +62,14 @@ static inline void pud_clear(pud_t *pudp)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a8ad8eb..632fac5 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -376,6 +376,33 @@ config FPU
  
- static inline unsigned long pud_page_vaddr(pud_t pud)
- {
--	return (unsigned long)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-+	return (unsigned long)pfn_to_virt(
-+		(pud_val(pud) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
- }
+ 	  If you don't know what to do here, say Y.
  
- static inline struct page *pud_page(pud_t pud)
- {
--	return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-+	return pfn_to_page(
-+		(pud_val(pud) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
- }
++config RISCV_DMA_COHERENT
++	bool "Custom DMA coherent support"
++	depends on MMU
++	help
++	  Help SOC vendors to support their own custom interconnect coherent
++	  solution with PTE attributes.
++
++	  The RISC-V ISA doesn't yet specify how to query or modify PMAs, so let
++	  vendors define the custom properties of memory regions in PTE.
++
++	  If you don't know what to do here, say N.
++
++config RISCV_PAGE_DMA_MASK
++	hex "Custom DMA attributes' mask bits in pte"
++	depends on RISCV_DMA_COHERENT
++	default "0x0"
++
++config RISCV_PAGE_CACHE
++	hex "Custom CACHE attribute bits in pte"
++	depends on RISCV_DMA_COHERENT
++	default "0x0"
++
++config RISCV_PAGE_DMA_NONCACHE
++	hex "Custom NONCACHE attribute bits in pte"
++	depends on RISCV_DMA_COHERENT
++	default "0x0"
++
+ endmenu
  
- static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-@@ -77,7 +79,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+ menu "Kernel features"
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index bbaeb5d..071c5dc 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -24,6 +24,16 @@
+ #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
+ #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
  
- static inline unsigned long _pmd_pfn(pmd_t pmd)
- {
--	return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-+	return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
- }
++#ifdef CONFIG_RISCV_DMA_COHERENT
++#define _PAGE_DMA_MASK		CONFIG_RISCV_PAGE_DMA_MASK
++#define _PAGE_CACHE		CONFIG_RISCV_PAGE_CACHE
++#define _PAGE_DMA_NONCACHE	CONFIG_RISCV_PAGE_DMA_NONCACHE
++#else
++#define _PAGE_DMA_MASK		(0UL)
++#define _PAGE_CACHE		(0UL)
++#define _PAGE_DMA_NONCACHE	(0UL)
++#endif
++
+ #define _PAGE_SPECIAL   _PAGE_SOFT
+ #define _PAGE_TABLE     _PAGE_PRESENT
  
- #define pmd_ERROR(e) \
+@@ -38,6 +48,7 @@
+ /* Set of bits to preserve across pte_modify() */
+ #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
+ 					  _PAGE_WRITE | _PAGE_EXEC |	\
+-					  _PAGE_USER | _PAGE_GLOBAL))
++					  _PAGE_USER | _PAGE_GLOBAL |	\
++					  _PAGE_DMA_MASK))
+ 
+ #endif /* _ASM_RISCV_PGTABLE_BITS_H */
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 9469f46..869d6bf 100644
+index 869d6bf..f822f22 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -216,12 +216,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+@@ -114,7 +114,7 @@
+ #define USER_PTRS_PER_PGD   (TASK_SIZE / PGDIR_SIZE)
  
- static inline struct page *pmd_page(pmd_t pmd)
- {
--	return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-+	return pfn_to_page((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
- }
+ /* Page protection bits */
+-#define _PAGE_BASE	(_PAGE_PRESENT | _PAGE_ACCESSED | _PAGE_USER)
++#define _PAGE_BASE	(_PAGE_PRESENT | _PAGE_ACCESSED | _PAGE_USER | _PAGE_CACHE)
  
- static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- {
--	return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-+	return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
- }
+ #define PAGE_NONE		__pgprot(_PAGE_PROT_NONE)
+ #define PAGE_READ		__pgprot(_PAGE_BASE | _PAGE_READ)
+@@ -134,7 +134,8 @@
+ 				| _PAGE_WRITE \
+ 				| _PAGE_PRESENT \
+ 				| _PAGE_ACCESSED \
+-				| _PAGE_DIRTY)
++				| _PAGE_DIRTY \
++				| _PAGE_CACHE)
  
- static inline pte_t pmd_pte(pmd_t pmd)
-@@ -232,7 +232,7 @@ static inline pte_t pmd_pte(pmd_t pmd)
- /* Yields the page frame number (PFN) of a page table entry */
- static inline unsigned long pte_pfn(pte_t pte)
- {
--	return (pte_val(pte) >> _PAGE_PFN_SHIFT);
-+	return ((pte_val(pte) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
- }
+ #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
+ #define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+@@ -148,7 +149,7 @@
+  * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
+  * change the properties of memory regions.
+  */
+-#define _PAGE_IOREMAP _PAGE_KERNEL
++#define _PAGE_IOREMAP ((_PAGE_KERNEL & ~_PAGE_DMA_MASK) | _PAGE_DMA_NONCACHE)
  
- #define pte_page(x)     pfn_to_page(pte_pfn(x))
+ extern pgd_t swapper_pg_dir[];
+ 
 -- 
 2.7.4
 
