@@ -2,88 +2,152 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C411DC433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 000EFC433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:34:04 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1957C6112F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:10:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1957C6112F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
+	by mail.kernel.org (Postfix) with ESMTPS id 7B1086135F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:34:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7B1086135F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
-	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bpeUWA0ebCp1p9x1ZuDsUsU+kE9LBbGkLqftNhQ3PEk=; b=HjhVuaiChL7TNxVy5i3zFH8bK
-	Fp0CpFpGnXMq0hZJklDGNgbW4XnIEUeuUkcPZecrLwBB+4RuLm9wyzbYv4S3Ba/m32GPw3TMTnhg4
-	CpAMVabpTKFXulbYkDztu2RCMvqMJvZBBTc2XLeHLW2MKUmCVD8ADSkLawUmEO36TfZeLTldYJ4hb
-	J1oBwU3rhV4zk2CWkJk/lB5qcZ7MhF7DwP/XjUT/cR5FwTbGuddrW/jWyISxRa62u5pkYw/AwXBRE
-	dFwF/Ub27ppds11To7aCw5hU5QuGXG3y+OoZVcGqfK76xek5Hxa6RjSvmP7tB1Ps4jfj6F+IBtpLE
-	14St/5PpA==;
+	:Content-Type:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Date:Cc:To:From:
+	Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wGkINrl3JghQtG5rvZkmiQxFBeyotw91yXv0NgvgZOQ=; b=ehwr2dln6S261i6xRMExe0KbsE
+	6/2/2JAUp3LAcA2VPSKpiSZPSKs7GbcuSXQY8agROg6iZQdP0VuF4TW7zoXhJD6VdAe/HicSoCvD2
+	p3elwekY8smCHwsaWh1lO1Aam0gjkyyptXS7gt4IB8QLrAs9yWu0u2jMUeKT+ou1tdrDkPXF4P5bp
+	aDKFiT1D2+vPVcwuy0EDE80f1DkFJyxcc9ZZrJvL+8UrNNqZGpwSaqafCwkK06X7GqseW8ND+2zWE
+	ShL2Z9OLQXHf7yHvsPJJ5naayxJUgsmtPJrsvVdvh1/Y/sVxxySISAqumGyLvhiykQX7Tbi6MQb6V
+	k0gszJgA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljAio-002Kab-2b; Wed, 19 May 2021 01:10:02 +0000
+	id 1ljB5k-002MsJ-25; Wed, 19 May 2021 01:33:44 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljAik-002KaB-SL
- for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 01:09:59 +0000
+ id 1ljB5V-002MqZ-Fr; Wed, 19 May 2021 01:33:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
- To:From:Sender:Reply-To:Content-ID:Content-Description;
- bh=A0Bo5CtsQsgz5SDjrQrDU9cAiU/YNwwEqHL7TPc3aoI=; b=wYSi2e8iW7WiFS71qx9dnCpjC0
- 0jenrZM/jZin+6cIOu2y+NXpj6wEWg4h//NzASZ8vjPIes7fre0Cz9ZXi6OnET7nxWXPY/klCbcFn
- P+Us7gXZ247KBguxCi7Y0kHpTTwqw5lvojMLCBVnMkTr9pWNXqV2v+7wNPfqIZlnWyxEb1o0Wz+PB
- +uvAh1F4l1EtNYgUFlFArtp7mgMBYJvK/MzQjPzM9V3EKfvc6HCMcJ4HjT8wjPpO1Risd6ojBTXB+
- voM4e8ltr4AuxqpE8Hm5Fr/oNMPy73qiejriiYgXLTsKIAZ7AqH3rSINNNa2W6airUuvLYeqZ3lHD
- A7M9oqQg==;
-Received: from ozlabs.org ([2401:3900:2:1::2])
+ MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:Reply-To:From:
+ Subject:Message-ID:Sender:Content-ID:Content-Description;
+ bh=TSIcUKlJKuIIr978ibfL+W5lJZ618kXPKibv8DMD+8w=; b=LjK1b5LEFctSSuJeIKQP76r5zw
+ 8HQuC5dkKUqUHK9eLvvVKjTECA982ynaUsY/8n9R+Bay/U41FmAvXwt9uAWmYaZCFPLESWH83Jy49
+ qLFSn2kxsmSclNemM6uNXVb9r6YHPOs+VzfWSEOjk0G/Qz1DfxG1cVOMl5SpxL1olMEv3BV9Ad4cP
+ qynFHz8q7C6gWv/2f51I+ZVIq2hYPw1YhkUjqLA9RHVajamOB/LDff3qLNWDFGBazr3dhTuyRR+i+
+ qTKbbfIclYf8eVBdyOPpuiP4kxc6AqT8PBNY3glsGintsfCVVpUsn3iN2EtAOSGlg7ZfqyTmKzq1a
+ BRq5FtqQ==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljAih-00F3qh-EO
- for linux-riscv@lists.infradead.org; Wed, 19 May 2021 01:09:57 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 4FlFCD2wYLz9sTD;
- Wed, 19 May 2021 11:09:43 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ellerman.id.au;
- s=201909; t=1621386586;
- bh=UCeiL9QFW+a7PCn8oeEp01d3KWoBysRALLIYZbpvvyE=;
- h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
- b=jNMRRWQ5yquDKv5DX8yudzgOyHyXimeCXk58EnQLYq8E47ViUTgZH9w+5HYVDjLF4
- mntXHpaeTTUZFgzsBaReFbLJf6trEFog30nCXNXdpx0x1gsPCRGT6CaM37uKpj2hgK
- QDATBwXulF1TDjeCzpMIxpGOswxnEUEg0uqMjh9RQbKRELZjt+RGu9RH6BUH9Osu6D
- k4TTNX7Y+eZ1oHS6UxOzZZOmUA3SQ/KhO5pZQ29763NNKcQy77CSQiQgQ4MN1D2gcb
- MWdS64ItBYLx7Z7q7y6ZBNd9kaZSkMrIfH76llm0HO0lP6OnYKXgK9g/vaiX0fzyJ4
- wGvrtp4K4Q1NQ==
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Alexandre Ghiti <alex@ghiti.fr>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linuxppc-dev@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v6 2/3] powerpc: Move script to check relocations at
- compile time in scripts/
-In-Reply-To: <20210518101252.1484465-3-alex@ghiti.fr>
-References: <20210518101252.1484465-1-alex@ghiti.fr>
- <20210518101252.1484465-3-alex@ghiti.fr>
-Date: Wed, 19 May 2021 11:09:39 +1000
-Message-ID: <877djvjzqk.fsf@mpe.ellerman.id.au>
+ id 1ljB5S-00F45d-Oi; Wed, 19 May 2021 01:33:28 +0000
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
+ 14J14LBp095740; Tue, 18 May 2021 21:32:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=message-id : subject :
+ from : reply-to : to : cc : date : in-reply-to : references : content-type
+ : mime-version : content-transfer-encoding; s=pp1;
+ bh=TSIcUKlJKuIIr978ibfL+W5lJZ618kXPKibv8DMD+8w=;
+ b=C5kj5m8CJg96NebcO1bm9othMtFMyAinaRQ504k8x6EXkUmEb9ZuvrPGOZqTQNQ0g0Xv
+ Mwn2vhUdbL+JkHCIikF/YPjf1uZT134MQZakQfw76N/Z0HZ6QpRptSxKwdG86sVWFTw/
+ 3RDtLRiN5QDTGArFs0km0FVBKuxuVztvCuLdDVpEicvxcjGJyXAvTVyUMWP8r87Vq6G7
+ EyP+NjO2d3VB3bKNejrXwFxI/D1BQIpE0p3WDQ8roRlLOjydlA13sRNVW+eYVbv2FYGj
+ hIsjYjGbtCiZgQ8tJt139+MQ42d5SDmhyG7xo0cGdRGo+gzO2f6qTHbo5VMFSnuzR14M Lg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 38mqycs8de-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 18 May 2021 21:32:43 -0400
+Received: from m0098419.ppops.net (m0098419.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 14J14MOc095896;
+ Tue, 18 May 2021 21:32:42 -0400
+Received: from ppma02dal.us.ibm.com (a.bd.3ea9.ip4.static.sl-reverse.com
+ [169.62.189.10])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 38mqycs8d6-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 18 May 2021 21:32:42 -0400
+Received: from pps.filterd (ppma02dal.us.ibm.com [127.0.0.1])
+ by ppma02dal.us.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 14J1QwAw010620;
+ Wed, 19 May 2021 01:32:41 GMT
+Received: from b03cxnp08027.gho.boulder.ibm.com
+ (b03cxnp08027.gho.boulder.ibm.com [9.17.130.19])
+ by ppma02dal.us.ibm.com with ESMTP id 38j5x9j6ev-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 19 May 2021 01:32:41 +0000
+Received: from b03ledav004.gho.boulder.ibm.com
+ (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
+ by b03cxnp08027.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 14J1Weni11076004
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 19 May 2021 01:32:40 GMT
+Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 66A827805E;
+ Wed, 19 May 2021 01:32:40 +0000 (GMT)
+Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 8BA5378066;
+ Wed, 19 May 2021 01:32:30 +0000 (GMT)
+Received: from jarvis.int.hansenpartnership.com (unknown [9.80.208.94])
+ by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
+ Wed, 19 May 2021 01:32:30 +0000 (GMT)
+Message-ID: <d99864e677cec4ed83e52c4417c58bbe5fd728b1.camel@linux.ibm.com>
+Subject: Re: [PATCH v19 6/8] PM: hibernate: disable when there are active
+ secretmem users
+From: James Bottomley <jejb@linux.ibm.com>
+To: Mark Rutland <mark.rutland@arm.com>, Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Catalin Marinas
+ <catalin.marinas@arm.com>, Christopher Lameter <cl@linux.com>, Dan Williams
+ <dan.j.williams@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Elena Reshetova
+ <elena.reshetova@intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Hagen Paul
+ Pfeifer <hagen@jauu.net>, Ingo Molnar <mingo@redhat.com>, Kees Cook
+ <keescook@chromium.org>, "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Matthew Wilcox <willy@infradead.org>, Matthew Garrett
+ <mjg59@srcf.ucam.org>, Michal Hocko <mhocko@suse.com>, Mike Rapoport
+ <rppt@linux.ibm.com>, Michael Kerrisk <mtk.manpages@gmail.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Peter Zijlstra
+ <peterz@infradead.org>, "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rick
+ Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
+ Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Tycho Andersen <tycho@tycho.ws>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, linux-api@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-nvdimm@lists.01.org, linux-riscv@lists.infradead.org, x86@kernel.org
+Date: Tue, 18 May 2021 18:32:29 -0700
+In-Reply-To: <20210518102424.GD82842@C02TD0UTHF1T.local>
+References: <20210513184734.29317-1-rppt@kernel.org>
+ <20210513184734.29317-7-rppt@kernel.org>
+ <20210518102424.GD82842@C02TD0UTHF1T.local>
+User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: LznGIJm2lBQ6APrvvyeFq2Y4fBjyOunI
+X-Proofpoint-ORIG-GUID: 7e9L0ZhoY0K9faClVgEt7JR6P8qAFxb2
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.761
+ definitions=2021-05-18_11:2021-05-18,
+ 2021-05-18 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0
+ priorityscore=1501 mlxlogscore=792 adultscore=0 phishscore=0 spamscore=0
+ mlxscore=0 impostorscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2104190000
+ definitions=main-2105190004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_180955_725371_754C5A86 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20210518_183326_931633_DAFEF7B7 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,69 +159,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: jejb@linux.ibm.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cml0ZXM6Cj4gUmVsb2NhdGluZyBrZXJu
-ZWwgYXQgcnVudGltZSBpcyBkb25lIHZlcnkgZWFybHkgaW4gdGhlIGJvb3QgcHJvY2Vzcywgc28K
-PiBpdCBpcyBub3QgY29udmVuaWVudCB0byBjaGVjayBmb3IgcmVsb2NhdGlvbnMgdGhlcmUgYW5k
-IHJlYWN0IGluIGNhc2UgYQo+IHJlbG9jYXRpb24gd2FzIG5vdCBleHBlY3RlZC4KPgo+IFBvd2Vy
-cGMgYXJjaGl0ZWN0dXJlIGhhcyBhIHNjcmlwdCB0aGF0IGFsbG93cyB0byBjaGVjayBhdCBjb21w
-aWxlIHRpbWUKPiBmb3Igc3VjaCB1bmV4cGVjdGVkIHJlbG9jYXRpb25zOiBleHRyYWN0IHRoZSBj
-b21tb24gbG9naWMgdG8gc2NyaXB0cy8KPiBzbyB0aGF0IG90aGVyIGFyY2hpdGVjdHVyZXMgY2Fu
-IHRha2UgYWR2YW50YWdlIG9mIGl0Lgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRp
-IDxhbGV4QGdoaXRpLmZyPgo+IFJldmlld2VkLWJ5OiBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1
-bHQub3JnPgo+IC0tLQo+ICBhcmNoL3Bvd2VycGMvdG9vbHMvcmVsb2NzX2NoZWNrLnNoIHwgMTgg
-KystLS0tLS0tLS0tLS0tLS0tCj4gIHNjcmlwdHMvcmVsb2NzX2NoZWNrLnNoICAgICAgICAgICAg
-fCAyMCArKysrKysrKysrKysrKysrKysrKwo+ICAyIGZpbGVzIGNoYW5nZWQsIDIyIGluc2VydGlv
-bnMoKyksIDE2IGRlbGV0aW9ucygtKQo+ICBjcmVhdGUgbW9kZSAxMDA3NTUgc2NyaXB0cy9yZWxv
-Y3NfY2hlY2suc2gKCkknbSBub3Qgc3VyZSB0aGF0IHNjcmlwdCBpcyByZWFsbHkgYmlnL2NvbXBs
-aWNhdGVkIGVub3VnaCB0byB3YXJyYW50CnNoYXJpbmcgdnMganVzdCBjb3B5aW5nLCBidXQgSSBk
-b24ndCBtaW5kIGVpdGhlci4KCkFja2VkLWJ5OiBNaWNoYWVsIEVsbGVybWFuIDxtcGVAZWxsZXJt
-YW4uaWQuYXU+IChwb3dlcnBjKQoKY2hlZXJzCgo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMv
-dG9vbHMvcmVsb2NzX2NoZWNrLnNoIGIvYXJjaC9wb3dlcnBjL3Rvb2xzL3JlbG9jc19jaGVjay5z
-aAo+IGluZGV4IDAxNGUwMGU3NGQyYi4uZTM2Nzg5NTk0MWFlIDEwMDc1NQo+IC0tLSBhL2FyY2gv
-cG93ZXJwYy90b29scy9yZWxvY3NfY2hlY2suc2gKPiArKysgYi9hcmNoL3Bvd2VycGMvdG9vbHMv
-cmVsb2NzX2NoZWNrLnNoCj4gQEAgLTE1LDIxICsxNSw4IEBAIGlmIFsgJCMgLWx0IDMgXTsgdGhl
-bgo+ICAJZXhpdCAxCj4gIGZpCj4gIAo+IC0jIEhhdmUgS2J1aWxkIHN1cHBseSB0aGUgcGF0aCB0
-byBvYmpkdW1wIGFuZCBubSBzbyB3ZSBoYW5kbGUgY3Jvc3MgY29tcGlsYXRpb24uCj4gLW9iamR1
-bXA9IiQxIgo+IC1ubT0iJDIiCj4gLXZtbGludXg9IiQzIgo+IC0KPiAtIyBSZW1vdmUgZnJvbSB0
-aGUgYmFkIHJlbG9jYXRpb25zIHRob3NlIHRoYXQgbWF0Y2ggYW4gdW5kZWZpbmVkIHdlYWsgc3lt
-Ym9sCj4gLSMgd2hpY2ggd2lsbCByZXN1bHQgaW4gYW4gYWJzb2x1dGUgcmVsb2NhdGlvbiB0byAw
-Lgo+IC0jIFdlYWsgdW5yZXNvbHZlZCBzeW1ib2xzIGFyZSBvZiB0aGF0IGZvcm0gaW4gbm0gb3V0
-cHV0Ogo+IC0jICIgICAgICAgICAgICAgICAgICB3IF9iaW5hcnlfX2J0Zl92bWxpbnV4X2Jpbl9l
-bmQiCj4gLXVuZGVmX3dlYWtfc3ltYm9scz0kKCRubSAiJHZtbGludXgiIHwgYXdrICckMSB+IC93
-LyB7IHByaW50ICQyIH0nKQo+IC0KPiAgYmFkX3JlbG9jcz0kKAo+IC0kb2JqZHVtcCAtUiAiJHZt
-bGludXgiIHwKPiAtCSMgT25seSBsb29rIGF0IHJlbG9jYXRpb24gbGluZXMuCj4gLQlncmVwIC1F
-ICdcPFJfJyB8Cj4gKyR7c3JjdHJlZX0vc2NyaXB0cy9yZWxvY3NfY2hlY2suc2ggIiRAIiB8Cj4g
-IAkjIFRoZXNlIHJlbG9jYXRpb25zIGFyZSBva2F5Cj4gIAkjIE9uIFBQQzY0Ogo+ICAJIwlSX1BQ
-QzY0X1JFTEFUSVZFLCBSX1BQQzY0X05PTkUKPiBAQCAtNDMsOCArMzAsNyBAQCBSX1BQQ19BRERS
-MTZfTE8KPiAgUl9QUENfQUREUjE2X0hJCj4gIFJfUFBDX0FERFIxNl9IQQo+ICBSX1BQQ19SRUxB
-VElWRQo+IC1SX1BQQ19OT05FJyB8Cj4gLQkoWyAiJHVuZGVmX3dlYWtfc3ltYm9scyIgXSAmJiBn
-cmVwIC1GIC13IC12ICIkdW5kZWZfd2Vha19zeW1ib2xzIiB8fCBjYXQpCj4gK1JfUFBDX05PTkUn
-Cj4gICkKPiAgCj4gIGlmIFsgLXogIiRiYWRfcmVsb2NzIiBdOyB0aGVuCj4gZGlmZiAtLWdpdCBh
-L3NjcmlwdHMvcmVsb2NzX2NoZWNrLnNoIGIvc2NyaXB0cy9yZWxvY3NfY2hlY2suc2gKPiBuZXcg
-ZmlsZSBtb2RlIDEwMDc1NQo+IGluZGV4IDAwMDAwMDAwMDAwMC4uMTM3YzY2MDQ5OWYzCj4gLS0t
-IC9kZXYvbnVsbAo+ICsrKyBiL3NjcmlwdHMvcmVsb2NzX2NoZWNrLnNoCj4gQEAgLTAsMCArMSwy
-MCBAQAo+ICsjIS9iaW4vc2gKPiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1v
-ci1sYXRlcgo+ICsKPiArIyBHZXQgYSBsaXN0IG9mIGFsbCB0aGUgcmVsb2NhdGlvbnMsIHJlbW92
-ZSBmcm9tIGl0IHRoZSByZWxvY2F0aW9ucwo+ICsjIHRoYXQgYXJlIGtub3duIHRvIGJlIGxlZ2l0
-aW1hdGUgYW5kIHJldHVybiB0aGlzIGxpc3QgdG8gYXJjaCBzcGVjaWZpYwo+ICsjIHNjcmlwdCB0
-aGF0IHdpbGwgbG9vayBmb3Igc3VzcGljaW91cyByZWxvY2F0aW9ucy4KPiArCj4gK29iamR1bXA9
-IiQxIgo+ICtubT0iJDIiCj4gK3ZtbGludXg9IiQzIgo+ICsKPiArIyBSZW1vdmUgZnJvbSB0aGUg
-cG9zc2libGUgYmFkIHJlbG9jYXRpb25zIHRob3NlIHRoYXQgbWF0Y2ggYW4gdW5kZWZpbmVkCj4g
-KyPCoHdlYWsgc3ltYm9sIHdoaWNoIHdpbGwgcmVzdWx0IGluIGFuIGFic29sdXRlIHJlbG9jYXRp
-b24gdG8gMC4KPiArIyBXZWFrIHVucmVzb2x2ZWQgc3ltYm9scyBhcmUgb2YgdGhhdCBmb3JtIGlu
-IG5tIG91dHB1dDoKPiArIyAiICAgICAgICAgICAgICAgICAgdyBfYmluYXJ5X19idGZfdm1saW51
-eF9iaW5fZW5kIgo+ICt1bmRlZl93ZWFrX3N5bWJvbHM9JCgkbm0gIiR2bWxpbnV4IiB8IGF3ayAn
-JDEgfiAvdy8geyBwcmludCAkMiB9JykKPiArCj4gKyRvYmpkdW1wIC1SICIkdm1saW51eCIgfAo+
-ICsJZ3JlcCAtRSAnXDxSXycgfAo+ICsJKFsgIiR1bmRlZl93ZWFrX3N5bWJvbHMiIF0gJiYgZ3Jl
-cCAtRiAtdyAtdiAiJHVuZGVmX3dlYWtfc3ltYm9scyIgfHwgY2F0KQo+IC0tIAo+IDIuMzAuMgo+
-Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 2021-05-18 at 11:24 +0100, Mark Rutland wrote:
+> On Thu, May 13, 2021 at 09:47:32PM +0300, Mike Rapoport wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > It is unsafe to allow saving of secretmem areas to the hibernation
+> > snapshot as they would be visible after the resume and this
+> > essentially will defeat the purpose of secret memory mappings.
+> > 
+> > Prevent hibernation whenever there are active secret memory users.
+> 
+> Have we thought about how this is going to work in practice, e.g. on
+> mobile systems? It seems to me that there are a variety of common
+> applications which might want to use this which people don't expect
+> to inhibit hibernate (e.g. authentication agents, web browsers).
+
+If mobile systems require hibernate, then the choice is to disable this
+functionality or implement a secure hibernation store.   I also thought
+most mobile hibernation was basically equivalent to S3, in which case
+there's no actual writing of ram into storage, in which case there's no
+security barrier and likely the inhibition needs to be made a bit more
+specific to the suspend to disk case?
+
+> Are we happy to say that any userspace application can incidentally
+> inhibit hibernate?
+
+Well, yes, for the laptop use case because we don't want suspend to
+disk to be able to compromise the secret area.  You can disable this
+for mobile if you like, or work out how to implement hibernate securely
+if you're really suspending to disk.
+
+James
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
