@@ -2,19 +2,19 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CD06C43460
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 10:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FE73C433ED
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 12:24:21 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA0E6610A8
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 10:49:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA0E6610A8
+	by mail.kernel.org (Postfix) with ESMTPS id 0F01C60FE8
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 12:24:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F01C60FE8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,49 +23,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oMtXK+7ZMDHe1rflCCVYNNtDHKBGkfBRLLHWnYNNAgc=; b=M2+Jke+Jydx87VKAQHcb63+Mb
-	0wWR/KH+PyLY+j7PHSQzKk4RHnxz9iH4ie1UGK9DDLpvQYKNZXgId187oGB2FZiZpAwM+mEELnLgE
-	Pp9g3gXltKFYSSOBzB1yTxJjAh1xEwaZVV7ObBXBMu+liJXV5rUpSWywnbjLZipmr5WxP4kJIkdij
-	1pSBR2QGC+tNjOn6wfcZ5wdJ7nSv2RkX9kSqCmPHviSBCxZRYqUW8lwtGZtjPxBwV9DkB3a7bRPuE
-	xRndiFFaBcd2zcD9IluigNHx+vXjXb312mLM1k18qYZddVJ21Pv1CU5vDtI14UDNCSdUF3CkAgKpD
-	GbHqQ/wPA==;
+	 bh=paXEF+LufQWCKLaLaZLHDR1zaLVkZID4TV4FkFzGMGg=; b=AtUw0p0CWA7iVHfp/uhqUijU2
+	G3DfbnACg5k3VAJamEQ8jtRHDau2WpL74DB37dGmLBjS439rndG0HnSGfIhFKWceLuLt9wcNYWbgJ
+	bmsSJmInsEs6EWGvkkAm09zfFoo446N/68rze6SyjNyk2gpt11TPtSCGp8H6/7I6/h3XM4s6VY52A
+	dZVwVTYjeYj23BOa/HHLHuez0TevIsOwkOKlxFNdr91HMzX3smt4upgHLcrkenV4h+uT3FWy7Baam
+	GRMQprTVG6rudR8rnfGXGxeUseZdpTR1zAGIGAy2BHrLbZQ2rFjQg9wZ2F/dyLwF6MewjUDc4qhuV
+	8La7kAj2w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljJlb-003ewR-2I; Wed, 19 May 2021 10:49:31 +0000
+	id 1ljLF4-003taH-KZ; Wed, 19 May 2021 12:24:02 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljJjt-003eK1-UZ; Wed, 19 May 2021 10:47:46 +0000
+ id 1ljLF1-003tYI-VW; Wed, 19 May 2021 12:24:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
  :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=cgWxGkbQLQnVNZgYbp37G/STJ3z6RtVgqdVl7dgWAGA=; b=ydKJ/HvxGf5tscSqt05hIiRznZ
- SGrbqN5zqQwDfjtYIioniWTjwyv8glABisKTib55SX4JW91QfvxBaG+es5s27I3jjS9vPMSph4ykN
- mNNZWJCeUWxK92O/VDWieJQ2aw2+wBmtEns9DxYmUYi7T0DXvdeDLZXNWcWX7y3TMxX+nxh6xYlLA
- xahtcQxaRWfSEdMl7TpVPzYzYfBM+AlrRUqixjI/9RcVWa7OacZ2Zpd3KVzARvtufT3KsZ37/+apU
- JgmujGADCENl0B86rYJkJQ6J4MqM0E/BuH6BA8QAwioj0HltX+rXDRrPEMPzyqBU2JBjLM1qW9Yuz
- 9BO7Qg6A==;
+ bh=+DshfRX8lD+m6GSXKaHgsCIw1taojrsfKqZ8C+DV3Y8=; b=Y7R+xudktBxmDsLXPs0oePjbOf
+ F4iiqsGq4pM6A9jl601m8ySzd9RTE6aAuC9OFbwIgDXnQ3hvtrrOM9t3uYemLfyLoRXFllIZ/nKWb
+ y+x5arTCewAWJSkwosG6GTr46uYdQFFkrROgXt10DMGwVlE89Mtbn3wUvXk3KEvSxXrB2Iqpp2xXy
+ P46sVgcY8DHhuhid0QI4ek5guKjMu+QhgO8uE1qZzNsdnFJtyfiVVMpFSlMnqJhTL0dOfMAPEYl41
+ VrVZExTs/2g/v/j2C3/wsY7+Am16wkkMmAk8OT4rXKxIbSqHoS8NbJsUrnfD0+Hh5uLkgE4vAvW6G
+ nGQoyE0A==;
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljJjq-00FMnA-Qm; Wed, 19 May 2021 10:47:44 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id DBFBA611BD;
- Wed, 19 May 2021 10:47:40 +0000 (UTC)
+ id 1ljLEz-00FRvs-4S; Wed, 19 May 2021 12:23:58 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0886860FE8;
+ Wed, 19 May 2021 12:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1621421261;
- bh=SXc+hAJjey2h+VFj3gyn7xrlOb7KS62mh1je1KAkZYM=;
+ s=korg; t=1621427036;
+ bh=qf5m2Nia+4DoUNrww0bmk5cQtJEm5cWAINMR8yRdz/A=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Oq/FOCI0KLWwj9CX+OKZZ/sWYz+u7RO3yGdlQj3XT1e6GUXE69wUpill4kA645JoL
- e0B8JwnAhu79JyCXMqoYqgEiJtcSELZPTVNpuKiBuUkTMWA/I+O8axtWPCdPtHqPvt
- yLwxuwlJydNNFthpuuSzEe7ShL1K4SVQ4Dl20qQc=
-Date: Wed, 19 May 2021 12:47:39 +0200
+ b=YfCZvauDRbYUmSAlgtaMrkiKYI1UYEyinYzXVIPR7xRh1CtNh0+9OVD9OrNltg37F
+ ahwtG1OzCfm+TPgAP2KCQ/seEJB4ce2EP9qVSocsEdEVaEDy5NMlr35rgUFUsut7E7
+ UvuvRtU/TJAcTlN9lW3pCF7Im0grQPZmNY7SFmII=
+Date: Wed, 19 May 2021 14:23:54 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>,
- Jonathan Corbet <corbet@lwn.net>, Alexander Graf <graf@amazon.com>,
- Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Alexander Graf <graf@amazon.com>, Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Damien Le Moal <damien.lemoal@wdc.com>,
  KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org,
@@ -73,17 +73,18 @@ Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  linux-staging@lists.linux.dev
 Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
-Message-ID: <YKTsyyVYsHVMQC+G@kroah.com>
+Message-ID: <YKUDWgZVj82/KiKw@kroah.com>
 References: <20210519033553.1110536-1-anup.patel@wdc.com>
  <YKSa48cejI1Lax+/@kroah.com>
  <CAAhSdy18qySXbUdrEsUe-KtbtuEoYrys0TcmsV2UkEA2=7UQzw@mail.gmail.com>
- <YKSgcn5gxE/4u2bT@kroah.com>
+ <YKSgcn5gxE/4u2bT@kroah.com> <YKTsyyVYsHVMQC+G@kroah.com>
+ <d7d5ad76-aec3-3297-0fac-a9da9b0c3663@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YKSgcn5gxE/4u2bT@kroah.com>
+In-Reply-To: <d7d5ad76-aec3-3297-0fac-a9da9b0c3663@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210519_034742_949207_7718CECE 
-X-CRM114-Status: GOOD (  36.45  )
+X-CRM114-CacheID: sfid-20210519_052357_264779_DA2BF444 
+X-CRM114-Status: GOOD (  30.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,115 +101,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 19, 2021 at 07:21:54AM +0200, Greg Kroah-Hartman wrote:
-> On Wed, May 19, 2021 at 10:40:13AM +0530, Anup Patel wrote:
-> > On Wed, May 19, 2021 at 10:28 AM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
-> > >
-> > > On Wed, May 19, 2021 at 09:05:35AM +0530, Anup Patel wrote:
-> > > > From: Anup Patel <anup@brainfault.org>
-> > > >
-> > > > This series adds initial KVM RISC-V support. Currently, we are able to boot
-> > > > Linux on RV64/RV32 Guest with multiple VCPUs.
-> > > >
-> > > > Key aspects of KVM RISC-V added by this series are:
-> > > > 1. No RISC-V specific KVM IOCTL
-> > > > 2. Minimal possible KVM world-switch which touches only GPRs and few CSRs
-> > > > 3. Both RV64 and RV32 host supported
-> > > > 4. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
-> > > > 5. KVM ONE_REG interface for VCPU register access from user-space
-> > > > 6. PLIC emulation is done in user-space
-> > > > 7. Timer and IPI emuation is done in-kernel
-> > > > 8. Both Sv39x4 and Sv48x4 supported for RV64 host
-> > > > 9. MMU notifiers supported
-> > > > 10. Generic dirtylog supported
-> > > > 11. FP lazy save/restore supported
-> > > > 12. SBI v0.1 emulation for KVM Guest available
-> > > > 13. Forward unhandled SBI calls to KVM userspace
-> > > > 14. Hugepage support for Guest/VM
-> > > > 15. IOEVENTFD support for Vhost
-> > > >
-> > > > Here's a brief TODO list which we will work upon after this series:
-> > > > 1. SBI v0.2 emulation in-kernel
-> > > > 2. SBI v0.2 hart state management emulation in-kernel
-> > > > 3. In-kernel PLIC emulation
-> > > > 4. ..... and more .....
-> > > >
-> > > > This series can be found in riscv_kvm_v18 branch at:
-> > > > https//github.com/avpatel/linux.git
-> > > >
-> > > > Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v7 branch
-> > > > at: https//github.com/avpatel/kvmtool.git
-> > > >
-> > > > The QEMU RISC-V hypervisor emulation is done by Alistair and is available
-> > > > in master branch at: https://git.qemu.org/git/qemu.git
-> > > >
-> > > > To play around with KVM RISC-V, refer KVM RISC-V wiki at:
-> > > > https://github.com/kvm-riscv/howto/wiki
-> > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
-> > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
-> > > >
-> > > > Changes since v17:
-> > > >  - Rebased on Linux-5.13-rc2
-> > > >  - Moved to new KVM MMU notifier APIs
-> > > >  - Removed redundant kvm_arch_vcpu_uninit()
-> > > >  - Moved KVM RISC-V sources to drivers/staging for compliance with
-> > > >    Linux RISC-V patch acceptance policy
-> > >
-> > > What is this new "patch acceptance policy" and what does it have to do
-> > > with drivers/staging?
+On Wed, May 19, 2021 at 01:18:44PM +0200, Paolo Bonzini wrote:
+> On 19/05/21 12:47, Greg Kroah-Hartman wrote:
+> > > It is not a dumping ground for stuff that arch maintainers can not seem
+> > > to agree on, and it is not a place where you can just randomly play
+> > > around with user/kernel apis with no consequences.
+> > > 
+> > > So no, sorry, not going to take this code at all.
 > > 
-> > The Linux RISC-V patch acceptance policy is here:
-> > Documentation/riscv/patch-acceptance.rst
-> > 
-> > As-per this policy, the Linux RISC-V maintainers will only accept
-> > patches for frozen/ratified RISC-V extensions. Basically, it links the
-> > Linux RISC-V development process with the RISC-V foundation
-> > process which is painfully slow.
-> > 
-> > The KVM RISC-V patches have been sitting on the lists for almost
-> > 2 years now. The requirements for freezing RISC-V H-extension
-> > (hypervisor extension) keeps changing and we are not clear when
-> > it will be frozen. In fact, quite a few people have already implemented
-> > RISC-V H-extension in hardware as well and KVM RISC-V works
-> > on real HW as well.
-> > 
-> > Rationale of moving KVM RISC-V to drivers/staging is to continue
-> > KVM RISC-V development without breaking the Linux RISC-V patch
-> > acceptance policy until RISC-V H-extension is frozen. Once, RISC-V
-> > H-extension is frozen we will move KVM RISC-V back to arch/riscv
-> > (like other architectures).
+> > And to be a bit more clear about this, having other subsystem
+> > maintainers drop their unwanted code on this subsystem,_without_  even
+> > asking me first is just not very nice. All of a sudden I am now > responsible for this stuff, without me even being asked about it.
+> > Should I start throwing random drivers into the kvm subsystem for them
+> > to maintain because I don't want to?:)
 > 
-> Wait, no, this has nothing to do with what drivers/staging/ is for and
-> how it is used.  Again, not ok.
+> (I did see the smiley), I'm on board with throwing random drivers in
+> arch/riscv. :)
 > 
-> > > What does drivers/staging/ have to do with this at all?  Did anyone ask
-> > > the staging maintainer about this?
-> > 
-> > Yes, Paolo (KVM maintainer) suggested having KVM RISC-V under
-> > drivers/staging until RISC-V H-extension is frozen and continue the
-> > KVM RISC-V development from there.
+> The situation here didn't seem very far from what process/2.Process.rst says
+> about staging:
 > 
-> staging is not for stuff like this at all.  It is for code that is
-> self-contained (not this) and needs work to get merged into the main
-> part of the kernel (listed in a TODO file, and is not this).
-> 
-> It is not a dumping ground for stuff that arch maintainers can not seem
-> to agree on, and it is not a place where you can just randomly play
-> around with user/kernel apis with no consequences.
-> 
-> So no, sorry, not going to take this code at all.
+> - "a way to keep track of drivers that aren't up to standards", though in
+> this case the issue is not coding standards or quality---the code is very
+> good---and which people "may want to use"
 
-And to be a bit more clear about this, having other subsystem
-maintainers drop their unwanted code on this subsystem, _without_ even
-asking me first is just not very nice.  All of a sudden I am now
-responsible for this stuff, without me even being asked about it.
-Should I start throwing random drivers into the kvm subsystem for them
-to maintain because I don't want to?  :)
+Exactly, this is different.  And it's not self-contained, which is
+another requirement for staging code that we have learned to enforce
+over the years (makes it easier to rip out if no one is willing to
+maintain it.)
 
-If there's really no other way to do this, than to put it in staging,
-let's talk about it.  But saying "this must go here" is not a
-conversation...
+> - the code could be removed if there's no progress on either changing the
+> RISC-V acceptance policy or ratifying the spec
+
+I really do not understand the issue here, why can this just not be
+merged normally?
+
+Is the code somehow not ok?  Is it relying on hardware in ways that
+breaks other users?  Does it cause problems for different users?  Is it
+a user api that you don't like or think is the "proper" one?
+
+All staging drivers need a TODO list that shows what needs to be done in
+order to get it out of staging.  All I can tell so far is that the riscv
+maintainers do not want to take this for "unknown reasons" so let's dump
+it over here for now where we don't have to see it.
+
+And that's not good for developers or users, so perhaps the riscv rules
+are not very good?
+
+> Of course there should have been a TODO file explaining the situation. But
+> if you think this is not the right place, I totally understand; if my
+> opinion had any weight in this, I would just place it in arch/riscv/kvm.
+> 
+> The RISC-V acceptance policy as is just doesn't work, and the fact that
+> people are trying to work around it is proving it.  There are many ways to
+> improve it:
+
+What is this magical acceptance policy that is preventing working code
+from being merged?  And why is it suddenly the rest of the kernel
+developer's problems because of this?
 
 thanks,
 
