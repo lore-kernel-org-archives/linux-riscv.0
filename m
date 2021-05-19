@@ -2,127 +2,178 @@ Return-Path: <SRS0=tjIm=KO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D9AE3C433ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EC5DC433B4
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 03:36:50 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 60D7D6135F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 01:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60D7D6135F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	by mail.kernel.org (Postfix) with ESMTPS id E787160E0B
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 May 2021 03:36:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E787160E0B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Zl0bx7PqIUUVp+G7aHwiWCSdKkJ8x4fEVnwA97maZ1s=; b=njwWax1bK61nEpLYesgVwx4UZ
-	/5br92/0Kz38XZvsZENwF4FLYfISSfMDjaS0PWmSjYIjaojDUJoENbqiv1c+xAWEKZMQBkc8YCJ4A
-	JJbYco/Lxe1zKk4iCRvH/wBhMZWbH/et06Qx7nEjKfhY68bbt7O3AD1KtVl99pD2ASNJFQS8HCC5t
-	8vO76TGYGjHfdb9r1noqEaA3s+JaP6g9Mj06op/4OM5/jW47t3yY5hzDd/mKjZAaohFHsbLo+YOHl
-	xARzTmqsX3cze8ad9lbDPEj5ZYfDuzVYc1wR1zlHco3pKeOv/kwC0bFaOcBVPw5ilMrSmvIKpm8Y7
-	Ab5fI+NvA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GQe0DsvaA8N/Nizs2TBC/r5fcXN20WpFSnlr87zdIH8=; b=gbd0hpz3z7jKzlsfg8EWoSStMa
+	eMf4AamEFgtBshTWVapFuoCCK3JKVs01jeX19X40ns0y1nuBtHLWpOxt9PXuBOgvNULuBmqxyUdTO
+	Dd9sApYN99VngixaQJgYJ59aI3UeOwEiZXKF/FY6CyOZ8mz5CXkUaSxBPJcFwSGmjReuCENo4IFfz
+	zoPUeFTpjBKkVAPpJSF3kueIAFHncWZHZ0k7VXoMSr6td08DkclHzsBImukq/r3VKB7v3tFRlgk8p
+	UELL29vBIchgGhnws8roL4t0UlbOUdWclO+d2RhQz2dnxEVXno57fS08Es3JMqiCKgvkl8EWPt+B+
+	8YN9PhGg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljBLY-002OzQ-Ei; Wed, 19 May 2021 01:50:04 +0000
+	id 1ljD0W-002bFm-G5; Wed, 19 May 2021 03:36:28 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljBLU-002OyR-GD
- for linux-riscv@desiato.infradead.org; Wed, 19 May 2021 01:50:02 +0000
+ id 1ljD0T-002bFU-Qc; Wed, 19 May 2021 03:36:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=oy9iy31YW42GgULMnDfqqrgoX8PmHZpkik30uv+f1aA=; b=suvoKTvClCPrcqBIGQ2K9NiYW2
- /YUnq92wStuDzW5+hNBamyB76UkRKI4wWt5FuVute8g0qnwFWa3E7EXaiF4hsqXuIlbmgPgZVYZwE
- Kd6BorMekGqhvAiiZHUfyVaUPHvavTx6J0MxfUJ2l2l7NVweKFiYp2qSabCJLZNDy2pBOOo/cxW3b
- fvIjUghysPw/U3VTmrhS8k9/Oj/pa6L3AxCR9kQV0hfQp1JFZYG2ggTG/Bdbrv5ds2WjLKlINZaXi
- SvOpMcJiJeZ1zPudmdTpjTs4ZIjPQrHStUJj1hB3jGz2UQ23IhsbRGmeTkq7Q1ye5A4OMfYc9Zqlb
- uWbSJ/Pg==;
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+ d=infradead.org; s=bombadil.20210309; h=MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=osCqAPJkD6g0ggfoqkXxp+33qJgrlILQhlCFsEQHuOw=; b=g0a8LmGJC/TAZn1slsR4AQMDoZ
+ kBgrhzRduPHW+J3PBUkRv+i66Jl4YOHLhimvyPqKtQuBVzeGcPvE+7OSp0kNazY/gLqAXRzCUIz6K
+ 0NBq1CaQr8ItP310maAw7bFHW5BpOG1Jpqyv4gFT5uXPOm01IkHVSleLvPv8P2uXtxVrLK9X+W9lX
+ +VYpfQUNk00WLhPKO62FPSt/kFLeHX+THaLfBhlIh3K5rXEHe8H4LkPZRdAOwFrzRyWbl+Vzg2Z8R
+ keVSLAjlXrfM2fo67MvJGGO8WpaWbiXLnDS4BfwsxFuhwyztnxGb6Qk6vpQtmjd3AVIWcohdsldrW
+ YWIs1Ddw==;
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljBLQ-00F4Ip-Tl
- for linux-riscv@lists.infradead.org; Wed, 19 May 2021 01:49:58 +0000
-Received: by mail-ed1-x529.google.com with SMTP id a25so13414171edr.12
- for <linux-riscv@lists.infradead.org>; Tue, 18 May 2021 18:49:54 -0700 (PDT)
+ id 1ljD0Q-00F5dy-6k; Wed, 19 May 2021 03:36:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1621395381; x=1652931381;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=T928rnrPgluU0UhJVYwE+uScXpesaiL3M/ku4yQib5o=;
+ b=pE/5H2Wb+QfzhpxtM0eOa7DKVrNZosgJMEjcdi9LX/ijRxWlm0weoRS0
+ e4PsSh7FTk8cFTKyDGfJvLcr2aAwlJGMzHdqgpbJGlCsCoy6XLaqFzW48
+ SVMYxPYLV8HyiOBjDYMn6s8K2Qm4A7nM/2Nf5bWrNlS+XUjtqL4wqInCQ
+ Nq+JmUqiP3ryUjo3tQiT5rVwI+2SEZGgOnG1/kwpDQcncXDUIeyj/yl5q
+ x6ldsXNdLFEiVoDAuCqO5VEVyazsFD+Bi91od0RG1lpl5bZVCJ1alK6J5
+ auEFld7glCRWWSAZ65SCIVYy4JMwtOQoSiu1/IxFRMt+WFSG17KduI5XL Q==;
+IronPort-SDR: Mmv8cqc1Sa1u0CoESzgHz7Pcz6sDJcwX1wdQpG3uvk1LhkgJA8THTgEscF0kTqw+NEILugeOPl
+ 3SI6AHnnULwETpJTaFVYa2fNEscJXMzpp9G5qEjwXwA8xmgQX5uZ4CkLBjOTW+NULM5js2/Ma1
+ ioXFxX0uGiF80XL4k2fynJA19YTFDn45wATxpiiEikMc1Kkt3T5c+OGv39Ebp0PHfAMI7TMRkn
+ VYsHsxtYPNZ3pIs/ytiT5UxNtD97/+OeLwPR4Ria84EsvTg53FZd+mVV+wbAMUoYzG4hLKrSrr
+ ipw=
+X-IronPort-AV: E=Sophos;i="5.82,311,1613404800"; d="scan'208";a="168652736"
+Received: from mail-co1nam11lp2169.outbound.protection.outlook.com (HELO
+ NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.169])
+ by ob1.hgst.iphmx.com with ESMTP; 19 May 2021 11:36:18 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=GBKQgGs4bZXWRtwqvUizVIcHOfja1rmnWPlWuk2bHGHlWfRJ8aprALZuR5vp+zaPRCpafDDlvZByScrLibzWo/t8oWh+4BoPBJUaLq+pPlkR1SgQWmVd01Gyht57qf3qsLZLoBEx9NutT3pOVchk/Mok1SBKxu6pMjQITF3YmU5cIe4VB6rS1frtosgqLFN8l2r9zd2kqSL0O/e1xpbcsoAkvrbHPyJmgshleHn/CxMgzEjk3PA9tG8x39/TwgvM6eaTGCdOsCKT5z9jIHY4q3sM6ao0DcANV3ofdiXiMAA5Gjf0DsqYlC8u3gNlruoSFd99eQNDTvDiGKxfvmYOqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=osCqAPJkD6g0ggfoqkXxp+33qJgrlILQhlCFsEQHuOw=;
+ b=a6CQs/Z6FBpyck0oVVVf6BWdr/BVKFOW2eVog1LJvN4KWxqIwRIe/kG/WVwhAVkVa05eKENr+ilBR4IRhCd6w1qLiUpVjEjqT0lS7d3Em3Sh5D8OlGbPL6ygBrEjEIrtL/mhoEyDjvGCiryiGxKdGG4A+ojcPTqe+Q7PHwNp9d6EFFkdrE7VEgEQo8x9TthJcAgkeLy8GsPs4pZsRZqUQewyho31dMNv8kfiZGkvJSowqbHfTVIMLshoQIiBUMsBfgHH30cKKoaFmtanqeVJqI7gO+pFYr27yOpylK6SPO9v7y/1MVKmtZa2FBWGBWGIEzv6i1r1u3sEgjSzqVCjnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=intel-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=oy9iy31YW42GgULMnDfqqrgoX8PmHZpkik30uv+f1aA=;
- b=tvQ2E7Kd2+Hf+RN1JCJdnQu6RymaGP0zziznDt8ISnI+jG1I9F5rTtPCJWa6PikhKh
- XFhKmAAqHeMsUAOgy6hUDl59IPnHpchWu1cnHTyyjxMolBXIohuKR723SkE7OCNxzAbK
- oygZjSu1ZC0vRf3URWfxhzVNd3YMtTfsohBEjCi0q+/uREUxDQtHtMXYqH6q8d9eUBIB
- 218/C9Rmj+pEf1HRmaUjm/IPbnYkBLCQnR3DkYGpm/9v4+VmsDb6lUfsBZ8rq8wjdtNW
- PEFTJvZlWna6c3qGn3K9JEbsQ5ZbIkKlwDebT3ZVImG1L8u/VdgWTl83Y5Z5wVd6ZNag
- 17jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=oy9iy31YW42GgULMnDfqqrgoX8PmHZpkik30uv+f1aA=;
- b=PTHc0ME82+UlEX/PvmWrR4bX/T9hRBDfIuxzhumRTiWx+mxaXNGmaraXQDwu6tDvwV
- Lrvl4yWhGvKVyRzjRTiIgAAeCxPpppy58mRDSz6uKjy5YK1qdc6BUhcPxy9P+DIqPAtr
- jU/1I/7rMu7957PQtJTHottnWkWdOtrD5ObQgo4oRzBM4xqNAj+FVuzPLsPKJQqRxcmh
- q1QHqJNbzzmlE1QLrmlV5Z4Hjdtka6aOc7NXyKTY5ukXGEP3wwUFv6QBngbYPK67hExg
- JYIrwClPN3oaAlX+G6WKFq4InfzxImepLBnZFRa+qtBkZ7U03GZ5IqDQuUGoD7PP3V4d
- lMvg==
-X-Gm-Message-State: AOAM532hEJi2FXJDLYlXTfd+4V3oKuou9taACxjBgvlTwfbHeMA33H6N
- xoS8Sssi4kRiwp98roaTBj+UeV6kmLy7UNBEp0I9fA==
-X-Google-Smtp-Source: ABdhPJzCebUO43WPo6zd3pAT6bxEi4LXjBLrk7zln8XX7z9KqzudweIVCjqD+YotU9S81wu4CFwPj9RiJ4aku6RH+xo=
-X-Received: by 2002:a50:ff13:: with SMTP id a19mr10495865edu.300.1621388993652; 
- Tue, 18 May 2021 18:49:53 -0700 (PDT)
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=osCqAPJkD6g0ggfoqkXxp+33qJgrlILQhlCFsEQHuOw=;
+ b=q75CcJUXKLGyg/NGiV8f/jrwUMD1YcTVq1StXl/m5yJvdO7vujN1s7XHcd+ij3vz45Tea46uaVHEtZdzCG95wjv90smFQaD7BT1+AN1JOg0S73usFXrTxjl2P5vgUoFFhPVWqZqNPRy+ztq2a4MFZxuK2+uM5RfjDKuumQ9vxg8=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
+ by CO6PR04MB7761.namprd04.prod.outlook.com (2603:10b6:5:35f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4129.26; Wed, 19 May
+ 2021 03:36:17 +0000
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::88a0:bf18:b01d:1a50]) by CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::88a0:bf18:b01d:1a50%4]) with mapi id 15.20.4129.033; Wed, 19 May 2021
+ 03:36:17 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Alexander Graf <graf@amazon.com>, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Anup Patel <anup@brainfault.org>,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Subject: [PATCH v18 00/18] KVM RISC-V Support
+Date: Wed, 19 May 2021 09:05:35 +0530
+Message-Id: <20210519033553.1110536-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-Originating-IP: [122.179.32.148]
+X-ClientProxiedBy: MA1PR0101CA0057.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:20::19) To CO6PR04MB7812.namprd04.prod.outlook.com
+ (2603:10b6:303:138::6)
 MIME-Version: 1.0
-References: <20210513184734.29317-1-rppt@kernel.org>
- <20210513184734.29317-7-rppt@kernel.org>
- <20210518102424.GD82842@C02TD0UTHF1T.local>
- <d99864e677cec4ed83e52c4417c58bbe5fd728b1.camel@linux.ibm.com>
-In-Reply-To: <d99864e677cec4ed83e52c4417c58bbe5fd728b1.camel@linux.ibm.com>
-From: Dan Williams <dan.j.williams@intel.com>
-Date: Tue, 18 May 2021 18:49:42 -0700
-Message-ID: <CAPcyv4hwZ2e-xzsySOjaJXDSXRKctsoGA5zW-enTn2Y9ezWPVw@mail.gmail.com>
-Subject: Re: [PATCH v19 6/8] PM: hibernate: disable when there are active
- secretmem users
-To: James Bottomley <jejb@linux.ibm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Mike Rapoport <rppt@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Christopher Lameter <cl@linux.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>,
- Elena Reshetova <elena.reshetova@intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
- Hagen Paul Pfeifer <hagen@jauu.net>, Ingo Molnar <mingo@redhat.com>,
- Kees Cook <keescook@chromium.org>, 
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Matthew Wilcox <willy@infradead.org>, 
- Matthew Garrett <mjg59@srcf.ucam.org>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@linux.ibm.com>, Michael Kerrisk <mtk.manpages@gmail.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Roman Gushchin <guro@fb.com>, Shakeel Butt <shakeelb@google.com>,
- Shuah Khan <shuah@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Tycho Andersen <tycho@tycho.ws>,
- Will Deacon <will@kernel.org>, 
- Yury Norov <yury.norov@gmail.com>, Linux API <linux-api@vger.kernel.org>, 
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-fsdevel <linux-fsdevel@vger.kernel.org>, Linux MM <linux-mm@kvack.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-kselftest@vger.kernel.org, 
- linux-nvdimm <linux-nvdimm@lists.01.org>, linux-riscv@lists.infradead.org, 
- X86 ML <x86@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (122.179.32.148) by
+ MA1PR0101CA0057.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:20::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4129.25 via Frontend
+ Transport; Wed, 19 May 2021 03:36:12 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 19c427e5-1a3c-4f75-851d-08d91a774295
+X-MS-TrafficTypeDiagnostic: CO6PR04MB7761:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <CO6PR04MB776105746584F190CBE24E878D2B9@CO6PR04MB7761.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:79;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: iqqhZJuMomzu2AE3I2OeAwVQ1uqPblNe1SbZ89PiJZhbD/dKCmv4qKTWQOejPwzEakd4L3cVnGEuUpWTsioaF4OSaSFZmdfQ+cjIA5yb+dA30c2RsT088tONtidTCycf1pQyAe6XmBypMGmAKyOsJeVUtkzgJtCkd4oDJcG6mbZe76IJuLZkpShEgVCx2AOi7K8R2qhevNteEA5MAJtk/HERZPtp99peV8T/XpBSvnkqwgYEdlnBuLcTg7/on48BAgGt5VbRIu2jGLDdhTc4rmk8FVmQwsZBKe+AcXF1w9qZINs41LHIGtkGY4UjHVrqoUjjM7d3opfyWPPq6Pu+xgKpeIpQuM6X7So+KzPYv305JXY6Oct50aCmDUwvkI/dlXUmLauAMh+EqyfWwSMv9j1Qx2LsEWw4VoCZizuoxq4H3ikNNBSXE+JXnmCIxqAz20yLQZ0c9FDN7nKbL+lnB4jdqSQfxGFjydJWZnUwgWV3NaBwbuRKWV6Ss4b0j0QLod4QClX73LMsLx03wrAx/wiRGvoaO25+0uT+ypRtPUaz07qPNjD0Z9qRbgi69mb10kIvmQvBLWNPHLeh2J1bPIyZjxq7XF8+tS+snqw8bd1FsS9pd4Klrz8Qg1MW/VjIi7t/OxhuCGJpHjuHrCPmpdMPKtadWYU8y3og6kco4TDNmJSKJMbfB9cdhlydmsDQB4lwZmnf7mDEFX5HEOU4GIqLKGDYir3eEaJcIPJ4+15GSMSeLbMllNwJp86FB/LiUqnnk3gq26auAMenn3DmQXuVYTobZpFYJoljW8QuLJGKiTW3x2HmuSEX9dq/OVWFJTAA8WNhp16wSbLE8wj8YQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(396003)(136003)(376002)(39860400002)(346002)(316002)(38350700002)(55016002)(38100700002)(66476007)(66946007)(1076003)(2616005)(186003)(5660300002)(4326008)(26005)(8936002)(478600001)(86362001)(2906002)(52116002)(7696005)(16526019)(110136005)(83380400001)(8676002)(6666004)(966005)(66556008)(36756003)(30864003)(7416002)(956004)(54906003)(44832011)(8886007)(42580500001);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?DpUQKgaoij+kk5lQnaEXtmQ32O6VMRSPoC6S3R2qzKiUTurq11Zigm7nQRjU?=
+ =?us-ascii?Q?Ll4MEZLHBfuEv/3cvA5vrd+mvlDyB/zG+/vRxak+iIYMuhEfZDusplX24LkI?=
+ =?us-ascii?Q?C/hON3hkH/6CSLdXeO9K5b872F2OaYU1FJRo9KtPwDvmUVzTfb+EJkq7/H4/?=
+ =?us-ascii?Q?gF8dIb6yzLBWjVcNN0fjsvHDyO3hC4sc01uoTddGmKwiF8WPNIWRcDMmmTdi?=
+ =?us-ascii?Q?J3+KrpHZrlyTgyc1PJHHUy5jXTaZe9pEJXbY5kPW5mb/0Jx0uVSbmJaPnIrw?=
+ =?us-ascii?Q?d/kWX5OTX/VPSUvrMfAFtKU79MMlmia2BcgH7lpRMDMTj74gR9i5OAfppbUf?=
+ =?us-ascii?Q?nA+oH6i+3RRav84WEAjTmjRrMUo9MpUjOE0gEbpvd8xMacCw45T3AYVeci25?=
+ =?us-ascii?Q?jJbzOJ7MccxYKOP+RhFUHEathwO7vI1aI5+DMxQ9asPf7dcfSSiOO3SXfLGi?=
+ =?us-ascii?Q?EO3EW1+0O4yWjKPJT9U+tTlnqS2lFQT5tYSIQ9IiyEgvLnZWSOPh8qgTNpds?=
+ =?us-ascii?Q?DU5KnTK2OajSl0vpTQiQjTYQ+0kgTcHE118v4wnZNz2rxj8ZU00Tc2idwjUN?=
+ =?us-ascii?Q?FcmTSIVPI7JfTiGVmNWsNP4dIkp6JeNdVtEdxu7R2mvgBPFun9HjBzqpaIn8?=
+ =?us-ascii?Q?f4wwpBxGMRDm1475Fh2Zt80fwYi7ay6k0noV+2w9C9BLaXV1jEczD+Da65tx?=
+ =?us-ascii?Q?7WJ2duvcsg+5nzS5eVPs+dlLtc0eWXMctH72h/vu4Qstp97nzNnTlF8vbihQ?=
+ =?us-ascii?Q?IezWdN1ijZKxchKIypBEl/BRFhLNocLJMS65nATIltleF+lCT4YYZZYs25Q+?=
+ =?us-ascii?Q?/Mk8zIqEfFz3IbotHUhtik3Bs2+hoXfnQfd3wSFpk3Q7uAkfVNAZSqRzyZuO?=
+ =?us-ascii?Q?lokypwrF1ycxVRIW1NTlgwmXhAMFQ1MavoKNxA+LTpdoSeoCnQJV4ce+1FiB?=
+ =?us-ascii?Q?ukO+dOBSIbA3SBl93lLwStVI3EKGK9e1qfR74zD2CL+TzGffzFGBAecoqPxC?=
+ =?us-ascii?Q?h4X3ELJMYmPmolFUSFZZJsRtiT3M+9OzC85svO6jMXkfunI2+qs1F3W+gqxp?=
+ =?us-ascii?Q?FyAuUN908oC4A3ai7oFizVz0z1AJtq52bibDP8wKgass+wmb8THBhYtMIai4?=
+ =?us-ascii?Q?io7ABXfGwIdtXFRhH8/Pfd/MmUWwWs7XAd+xy69ofXlJaNK+n4WR4aMyA2l0?=
+ =?us-ascii?Q?izUkiKYf3w1WyEq+9d2b8nT7KedSE1qySA/VK58C+SKF2aiLUn5Xn9P7Gvc6?=
+ =?us-ascii?Q?Pugl1z4r0p22YwqDHVQcaG4q/srA4X/tmFWlxzPutJ9kqC0/dAJlqdtpp0iG?=
+ =?us-ascii?Q?DSjcEjrmeus8iCcEQPKUhebI?=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19c427e5-1a3c-4f75-851d-08d91a774295
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2021 03:36:17.4084 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sG6fRhosZzNrfa0x8RaNCilb/XBCTuDv1DxoRxlg/NtN5HV6rxegn6DLSX7Ka6e1OeTxbL/2ZiRbMF5hDNdVMg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210518_184956_968771_28E7A104 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20210518_203622_295800_E2DD0C70 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,46 +190,280 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 18, 2021 at 6:33 PM James Bottomley <jejb@linux.ibm.com> wrote:
->
-> On Tue, 2021-05-18 at 11:24 +0100, Mark Rutland wrote:
-> > On Thu, May 13, 2021 at 09:47:32PM +0300, Mike Rapoport wrote:
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > >
-> > > It is unsafe to allow saving of secretmem areas to the hibernation
-> > > snapshot as they would be visible after the resume and this
-> > > essentially will defeat the purpose of secret memory mappings.
-> > >
-> > > Prevent hibernation whenever there are active secret memory users.
-> >
-> > Have we thought about how this is going to work in practice, e.g. on
-> > mobile systems? It seems to me that there are a variety of common
-> > applications which might want to use this which people don't expect
-> > to inhibit hibernate (e.g. authentication agents, web browsers).
->
-> If mobile systems require hibernate, then the choice is to disable this
-> functionality or implement a secure hibernation store.   I also thought
-> most mobile hibernation was basically equivalent to S3, in which case
-> there's no actual writing of ram into storage, in which case there's no
-> security barrier and likely the inhibition needs to be made a bit more
-> specific to the suspend to disk case?
->
-> > Are we happy to say that any userspace application can incidentally
-> > inhibit hibernate?
->
-> Well, yes, for the laptop use case because we don't want suspend to
-> disk to be able to compromise the secret area.  You can disable this
-> for mobile if you like, or work out how to implement hibernate securely
-> if you're really suspending to disk.
+From: Anup Patel <anup@brainfault.org>
 
-Forgive me if this was already asked and answered. Why not document
-that secretmem is ephemeral in the case of hibernate and push the
-problem to userspace to disable hibernation? In other words
-hibernation causes applications to need to reload their secretmem, it
-will be destroyed on the way down and SIGBUS afterwards. That at least
-gives a system the flexibility to either sacrifice hibernate for
-secretmem (with a userspace controlled policy), or sacrifice secretmem
-using processes for hibernate.
+This series adds initial KVM RISC-V support. Currently, we are able to boot
+Linux on RV64/RV32 Guest with multiple VCPUs.
+
+Key aspects of KVM RISC-V added by this series are:
+1. No RISC-V specific KVM IOCTL
+2. Minimal possible KVM world-switch which touches only GPRs and few CSRs
+3. Both RV64 and RV32 host supported
+4. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
+5. KVM ONE_REG interface for VCPU register access from user-space
+6. PLIC emulation is done in user-space
+7. Timer and IPI emuation is done in-kernel
+8. Both Sv39x4 and Sv48x4 supported for RV64 host
+9. MMU notifiers supported
+10. Generic dirtylog supported
+11. FP lazy save/restore supported
+12. SBI v0.1 emulation for KVM Guest available
+13. Forward unhandled SBI calls to KVM userspace
+14. Hugepage support for Guest/VM
+15. IOEVENTFD support for Vhost
+
+Here's a brief TODO list which we will work upon after this series:
+1. SBI v0.2 emulation in-kernel
+2. SBI v0.2 hart state management emulation in-kernel
+3. In-kernel PLIC emulation
+4. ..... and more .....
+
+This series can be found in riscv_kvm_v18 branch at:
+https//github.com/avpatel/linux.git
+
+Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v7 branch
+at: https//github.com/avpatel/kvmtool.git
+
+The QEMU RISC-V hypervisor emulation is done by Alistair and is available
+in master branch at: https://git.qemu.org/git/qemu.git
+
+To play around with KVM RISC-V, refer KVM RISC-V wiki at:
+https://github.com/kvm-riscv/howto/wiki
+https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
+https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
+
+Changes since v17:
+ - Rebased on Linux-5.13-rc2
+ - Moved to new KVM MMU notifier APIs
+ - Removed redundant kvm_arch_vcpu_uninit()
+ - Moved KVM RISC-V sources to drivers/staging for compliance with
+   Linux RISC-V patch acceptance policy
+
+Changes since v16:
+ - Rebased on Linux-5.12-rc5
+ - Remove redundant kvm_arch_create_memslot(), kvm_arch_vcpu_setup(),
+   kvm_arch_vcpu_init(), kvm_arch_has_vcpu_debugfs(), and
+   kvm_arch_create_vcpu_debugfs() from PATCH5
+ - Make stage2_wp_memory_region() and stage2_ioremap() as static
+   in PATCH13
+
+Changes since v15:
+ - Rebased on Linux-5.11-rc3
+ - Fixed kvm_stage2_map() to use gfn_to_pfn_prot() for determing
+   writeability of a host pfn.
+ - Use "__u64" in-place of "u64" and "__u32" in-place of "u32" for
+   uapi/asm/kvm.h
+
+Changes since v14:
+ - Rebased on Linux-5.10-rc3
+ - Fixed Stage2 (G-stage) PDG allocation to ensure it is 16KB aligned
+
+Changes since v13:
+ - Rebased on Linux-5.9-rc3
+ - Fixed kvm_riscv_vcpu_set_reg_csr() for SIP updation in PATCH5
+ - Fixed instruction length computation in PATCH7
+ - Added ioeventfd support in PATCH7
+ - Ensure HSTATUS.SPVP is set to correct value before using HLV/HSV
+   intructions in PATCH7
+ - Fixed stage2_map_page() to set PTE 'A' and 'D' bits correctly
+   in PATCH10
+ - Added stage2 dirty page logging in PATCH10
+ - Allow KVM user-space to SET/GET SCOUNTER CSR in PATCH5
+ - Save/restore SCOUNTEREN in PATCH6
+ - Reduced quite a few instructions for __kvm_riscv_switch_to() by
+   using CSR swap instruction in PATCH6
+ - Detect and use Sv48x4 when available in PATCH10
+
+Changes since v12:
+ - Rebased patches on Linux-5.8-rc4
+ - By default enable all counters in HCOUNTEREN
+ - RISC-V H-Extension v0.6.1 spec support
+
+Changes since v11:
+ - Rebased patches on Linux-5.7-rc3
+ - Fixed typo in typecast of stage2_map_size define
+ - Introduced struct kvm_cpu_trap to represent trap details and
+   use it as function parameter wherever applicable
+ - Pass memslot to kvm_riscv_stage2_map() for supporing dirty page
+   logging in future
+ - RISC-V H-Extension v0.6 spec support
+ - Send-out first three patches as separate series so that it can
+   be taken by Palmer for Linux RISC-V
+
+Changes since v10:
+ - Rebased patches on Linux-5.6-rc5
+ - Reduce RISCV_ISA_EXT_MAX from 256 to 64
+ - Separate PATCH for removing N-extension related defines
+ - Added comments as requested by Palmer
+ - Fixed HIDELEG CSR programming
+
+Changes since v9:
+ - Rebased patches on Linux-5.5-rc3
+ - Squash PATCH19 and PATCH20 into PATCH5
+ - Squash PATCH18 into PATCH11
+ - Squash PATCH17 into PATCH16
+ - Added ONE_REG interface for VCPU timer in PATCH13
+ - Use HTIMEDELTA for VCPU timer in PATCH13
+ - Updated KVM RISC-V mailing list in MAINTAINERS entry
+ - Update KVM kconfig option to depend on RISCV_SBI and MMU
+ - Check for SBI v0.2 and SBI v0.2 RFENCE extension at boot-time
+ - Use SBI v0.2 RFENCE extension in VMID implementation
+ - Use SBI v0.2 RFENCE extension in Stage2 MMU implementation
+ - Use SBI v0.2 RFENCE extension in SBI implementation
+ - Moved to RISC-V Hypervisor v0.5 draft spec
+ - Updated Documentation/virt/kvm/api.txt for timer ONE_REG interface
+
+Changes since v8:
+ - Rebased series on Linux-5.4-rc3 and Atish's SBI v0.2 patches
+ - Use HRTIMER_MODE_REL instead of HRTIMER_MODE_ABS in timer emulation
+ - Fixed kvm_riscv_stage2_map() to handle hugepages
+ - Added patch to forward unhandled SBI calls to user-space
+ - Added patch for iterative/recursive stage2 page table programming
+ - Added patch to remove per-CPU vsip_shadow variable
+ - Added patch to fix race-condition in kvm_riscv_vcpu_sync_interrupts()
+
+Changes since v7:
+ - Rebased series on Linux-5.4-rc1 and Atish's SBI v0.2 patches
+ - Removed PATCH1, PATCH3, and PATCH20 because these already merged
+ - Use kernel doc style comments for ISA bitmap functions
+ - Don't parse X, Y, and Z extension in riscv_fill_hwcap() because it will
+   be added in-future
+ - Mark KVM RISC-V kconfig option as EXPERIMENTAL
+ - Typo fix in commit description of PATCH6 of v7 series
+ - Use separate structs for CORE and CSR registers of ONE_REG interface
+ - Explicitly include asm/sbi.h in kvm/vcpu_sbi.c
+ - Removed implicit switch-case fall-through in kvm_riscv_vcpu_exit()
+ - No need to set VSSTATUS.MXR bit in kvm_riscv_vcpu_unpriv_read()
+ - Removed register for instruction length in kvm_riscv_vcpu_unpriv_read()
+ - Added defines for checking/decoding instruction length
+ - Added separate patch to forward unhandled SBI calls to userspace tool
+
+Changes since v6:
+ - Rebased patches on Linux-5.3-rc7
+ - Added "return_handled" in struct kvm_mmio_decode to ensure that
+   kvm_riscv_vcpu_mmio_return() updates SEPC only once
+ - Removed trap_stval parameter from kvm_riscv_vcpu_unpriv_read()
+ - Updated git repo URL in MAINTAINERS entry
+
+Changes since v5:
+ - Renamed KVM_REG_RISCV_CONFIG_TIMEBASE register to
+   KVM_REG_RISCV_CONFIG_TBFREQ register in ONE_REG interface
+ - Update SPEC in kvm_riscv_vcpu_mmio_return() for MMIO exits
+ - Use switch case instead of illegal instruction opcode table for simplicity
+ - Improve comments in stage2_remote_tlb_flush() for a potential remote TLB
+  flush optimization
+ - Handle all unsupported SBI calls in default case of
+   kvm_riscv_vcpu_sbi_ecall() function
+ - Fixed kvm_riscv_vcpu_sync_interrupts() for software interrupts
+ - Improved unprivilege reads to handle traps due to Guest stage1 page table
+ - Added separate patch to document RISC-V specific things in
+   Documentation/virt/kvm/api.txt
+
+Changes since v4:
+ - Rebased patches on Linux-5.3-rc5
+ - Added Paolo's Acked-by and Reviewed-by
+ - Updated mailing list in MAINTAINERS entry
+
+Changes since v3:
+ - Moved patch for ISA bitmap from KVM prep series to this series
+ - Make vsip_shadow as run-time percpu variable instead of compile-time
+ - Flush Guest TLBs on all Host CPUs whenever we run-out of VMIDs
+
+Changes since v2:
+ - Removed references of KVM_REQ_IRQ_PENDING from all patches
+ - Use kvm->srcu within in-kernel KVM run loop
+ - Added percpu vsip_shadow to track last value programmed in VSIP CSR
+ - Added comments about irqs_pending and irqs_pending_mask
+ - Used kvm_arch_vcpu_runnable() in-place-of kvm_riscv_vcpu_has_interrupt()
+   in system_opcode_insn()
+ - Removed unwanted smp_wmb() in kvm_riscv_stage2_vmid_update()
+ - Use kvm_flush_remote_tlbs() in kvm_riscv_stage2_vmid_update()
+ - Use READ_ONCE() in kvm_riscv_stage2_update_hgatp() for vmid
+
+Changes since v1:
+ - Fixed compile errors in building KVM RISC-V as module
+ - Removed unused kvm_riscv_halt_guest() and kvm_riscv_resume_guest()
+ - Set KVM_CAP_SYNC_MMU capability only after MMU notifiers are implemented
+ - Made vmid_version as unsigned long instead of atomic
+ - Renamed KVM_REQ_UPDATE_PGTBL to KVM_REQ_UPDATE_HGATP
+ - Renamed kvm_riscv_stage2_update_pgtbl() to kvm_riscv_stage2_update_hgatp()
+ - Configure HIDELEG and HEDELEG in kvm_arch_hardware_enable()
+ - Updated ONE_REG interface for CSR access to user-space
+ - Removed irqs_pending_lock and use atomic bitops instead
+ - Added separate patch for FP ONE_REG interface
+ - Added separate patch for updating MAINTAINERS file
+
+Anup Patel (14):
+  RISC-V: Add hypervisor extension related CSR defines
+  RISC-V: Add initial skeletal KVM support
+  RISC-V: KVM: Implement VCPU create, init and destroy functions
+  RISC-V: KVM: Implement VCPU interrupts and requests handling
+  RISC-V: KVM: Implement KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
+  RISC-V: KVM: Implement VCPU world-switch
+  RISC-V: KVM: Handle MMIO exits for VCPU
+  RISC-V: KVM: Handle WFI exits for VCPU
+  RISC-V: KVM: Implement VMID allocator
+  RISC-V: KVM: Implement stage2 page table programming
+  RISC-V: KVM: Implement MMU notifiers
+  RISC-V: KVM: Document RISC-V specific parts of KVM API
+  RISC-V: KVM: Move sources to drivers/staging directory
+  RISC-V: KVM: Add MAINTAINERS entry
+
+Atish Patra (4):
+  RISC-V: KVM: Add timer functionality
+  RISC-V: KVM: FP lazy save/restore
+  RISC-V: KVM: Implement ONE REG interface for FP registers
+  RISC-V: KVM: Add SBI v0.1 support
+
+ Documentation/virt/kvm/api.rst                | 193 +++-
+ MAINTAINERS                                   |  11 +
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/Makefile                           |   1 +
+ arch/riscv/include/uapi/asm/kvm.h             | 128 +++
+ drivers/clocksource/timer-riscv.c             |   9 +
+ drivers/staging/riscv/kvm/Kconfig             |  36 +
+ drivers/staging/riscv/kvm/Makefile            |  23 +
+ drivers/staging/riscv/kvm/asm/kvm_csr.h       | 105 ++
+ drivers/staging/riscv/kvm/asm/kvm_host.h      | 271 +++++
+ drivers/staging/riscv/kvm/asm/kvm_types.h     |   7 +
+ .../staging/riscv/kvm/asm/kvm_vcpu_timer.h    |  44 +
+ drivers/staging/riscv/kvm/main.c              | 118 +++
+ drivers/staging/riscv/kvm/mmu.c               | 802 ++++++++++++++
+ drivers/staging/riscv/kvm/riscv_offsets.c     | 170 +++
+ drivers/staging/riscv/kvm/tlb.S               |  74 ++
+ drivers/staging/riscv/kvm/vcpu.c              | 997 ++++++++++++++++++
+ drivers/staging/riscv/kvm/vcpu_exit.c         | 701 ++++++++++++
+ drivers/staging/riscv/kvm/vcpu_sbi.c          | 173 +++
+ drivers/staging/riscv/kvm/vcpu_switch.S       | 401 +++++++
+ drivers/staging/riscv/kvm/vcpu_timer.c        | 225 ++++
+ drivers/staging/riscv/kvm/vm.c                |  81 ++
+ drivers/staging/riscv/kvm/vmid.c              | 120 +++
+ include/clocksource/timer-riscv.h             |  16 +
+ include/uapi/linux/kvm.h                      |   8 +
+ 25 files changed, 4706 insertions(+), 9 deletions(-)
+ create mode 100644 arch/riscv/include/uapi/asm/kvm.h
+ create mode 100644 drivers/staging/riscv/kvm/Kconfig
+ create mode 100644 drivers/staging/riscv/kvm/Makefile
+ create mode 100644 drivers/staging/riscv/kvm/asm/kvm_csr.h
+ create mode 100644 drivers/staging/riscv/kvm/asm/kvm_host.h
+ create mode 100644 drivers/staging/riscv/kvm/asm/kvm_types.h
+ create mode 100644 drivers/staging/riscv/kvm/asm/kvm_vcpu_timer.h
+ create mode 100644 drivers/staging/riscv/kvm/main.c
+ create mode 100644 drivers/staging/riscv/kvm/mmu.c
+ create mode 100644 drivers/staging/riscv/kvm/riscv_offsets.c
+ create mode 100644 drivers/staging/riscv/kvm/tlb.S
+ create mode 100644 drivers/staging/riscv/kvm/vcpu.c
+ create mode 100644 drivers/staging/riscv/kvm/vcpu_exit.c
+ create mode 100644 drivers/staging/riscv/kvm/vcpu_sbi.c
+ create mode 100644 drivers/staging/riscv/kvm/vcpu_switch.S
+ create mode 100644 drivers/staging/riscv/kvm/vcpu_timer.c
+ create mode 100644 drivers/staging/riscv/kvm/vm.c
+ create mode 100644 drivers/staging/riscv/kvm/vmid.c
+ create mode 100644 include/clocksource/timer-riscv.h
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
