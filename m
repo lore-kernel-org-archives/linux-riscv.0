@@ -2,106 +2,79 @@ Return-Path: <SRS0=83+V=KP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 01D38C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 04:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A574C43460
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 05:12:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 60E60611BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 04:56:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60E60611BE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=beagleboard.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7C150611AE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 05:12:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C150611AE
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IbWdOuYsJRFYIJTN05D56wAyiraiH6Q8ftEVJYfaFNc=; b=jKUOyzPGZtYwZs2LS0JPRj+rF
-	m4Y9qOLS0HiL/JTV6+R/G31DKGQfyzvtVLzdTrGf0ZxCS3fIFBLISUwiqiiRLIuutmm1nn4YI6VG/
-	p2sMpaLyHFZ11TdVBf4CG24QQC1JG9t/MKjXUxoyGAXKUxB2FE4bOo7NGXi/yFpiF5bzHHQ2d/PdX
-	Af6ij+2IG5DiLo06mZwuispmTNgn3lv9jPXs0K9tU5oIkcGt7ndv503SUe5z+7dEZZ6OnauE1GCYn
-	RShX0CrNVX3g/QMTPfULLsbSPWOYRWKrCfC8F/ToQm1VaqTwZB6esbHZ+Bho4PHJugprdkok+HbpZ
-	WIhGK0C3A==;
+	 bh=qDQ34+lDZ3XxhBavmRJhOKM73xRX4tAy4orApLzif9c=; b=nQMgExMSOBIBsKSdi8G8awits
+	eLfnDPNrHizBLzmKSCeBSCvEc9aoIo/Pc/10qs1YUL/qGnuTV5umbkbUcCpMNlcszCzY9XCTCeNwM
+	cZ+UllfAVuPYrLbFyt/tNVgKXy7lbBARK3MxXIrtM2lifYzwTorfhzc7ucYfwOlIhQZpaNiCGEM3L
+	tqk2J06Tj41spdLnjta0DSgSyQpoVAY6EQOaJkYxoa4g4z8zcoXPban2aeF6zvkI6ffaBLuIUh/6n
+	p+5xFMJ6LBW79eTM3l2bpaem63UnJ8O0T7Vze7U/TF5e/VEU7yk+TXq7nwXZdOgoiZVJjLy9cGEEN
+	RpKEY6D9w==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljais-005uRz-BC; Thu, 20 May 2021 04:55:50 +0000
+	id 1ljayN-005vbF-Ss; Thu, 20 May 2021 05:11:52 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljaip-005uRb-H7
- for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 04:55:47 +0000
+ id 1ljayK-005vb3-9e
+ for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 05:11:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=; b=XkWAao50kEHjfinoJuOd0r4Xda
- OGUjlz6VFCoRL0kCK/mN5s8T2XAZw0gDVcW0EyOESJDYuMSDltT3jR2xwJiF1kqgK9z9PHLE12VbF
- 1wZTrOlI+uEj+oZuTXrVwyoAXD2IdeE0R2wCHGq6LwexqBoq2HF+a+zP1nu9srCmIrD/gZKRON3Wp
- lXNcvFoGSLmZX9IoavhAWDpjDO59TTDjPtetsTHZqetmwUxLYbCpi10rQ/5BU263rb6MbZuS2QpKF
- 7vlO2n0rnDsCCXzR7oAOtuoetS9EJBoOlVCEV6Z5IK2HYRfOrKJrS3v/G1hJKoBIUZ2kCKxtSKxRw
- OhDQGPng==;
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+ Subject:Sender:Reply-To:Content-ID:Content-Description;
+ bh=2Niq391QpgukmKq+9QRt2UvOwRaDAHoV2KTILR/R240=; b=tJcG4juiS3DNRCI+Q1dInLJt2U
+ a/47hGcnC/apZoxYrLtTXT7vIUqbOEGXbC+ylC46/u0Om3lrK/zzingkj8aIWvB+a7FwYXsRgKwNI
+ wD1ZSM82jjxL4R9TkJLkqSEshRAdotwGk6jzOkQkC/6KN+BxkHeMgjNVXK8LvdemNNLemep6wfRsY
+ HumT4pldsVvCsOYXzv/2lKeeLWt7zDm8LDCly9E4cUdGFusL50fH3cDqfKcbnkrpYCz/kjSWCqzvj
+ Uns1bt5x7YZoIqyk8Ax0Srax42YapnZ4hGKI0No8Qi8LgMk7Wd0lOGQN0o1SJEJoIF+Aa/8m5D45j
+ gVne+1Lw==;
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljaim-00FwFU-7Q
- for linux-riscv@lists.infradead.org; Thu, 20 May 2021 04:55:46 +0000
-Received: by mail-pl1-x635.google.com with SMTP id e15so1674364plh.1
- for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 21:55:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=beagleboard-org.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=;
- b=IfRLXKPkRmQK2vqKG+W7DLxIvHkl6XlhmjYujlpvVgUwtUeW5ztTCuUO/qU1CW0YMI
- eNU8sZcbsJzBNRgOTj3LUImK2bUrtNtFcwYwyIs/ZOlJlRDL3BHXM1S8T2pyoosEU3aL
- YoI62eFmCWg+5Huqmv463Vx5vVADHyplpPv1P64n7Mp2eGINbiS4BmcSgyzWe7n4qk/4
- iNuUhnZZFOV5l6fzPyYHL2hh7vCzyHvQvAd5hJbHnnfYxl0D5d07xiI4W0IvNw6+WyEo
- aVhv6jxTJtUfyEU4xE8T8ELYQ/rZSEl0HPNyEnVDMWrl6sqvJeAuYeKfDxDo4Vu0DB3B
- ABiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=;
- b=Opq4o0o/Joj0d0VDruQU/yHRLsCjF0yHGV/rfVtckTG1hg9CQpIPlk7+SkSJ1NvRIF
- PYsgdOneMrCdD4GAu+KszDkGrowdPwxczmweNXOIED3DdmqGro4N87XT1PXkY9qMXZyy
- cTpVunyDmPqEs9y9LxKOOVt5Qss8Se56AOqlRjHvyNXNcJqHyPAC8qAjK3Ly857x4yjj
- ZLZW0qtuF40wi/cf3aOPA4VMlcmC3GusiHwqaib1CZfxomisvzNxxR36N/T0vMs0ZQVp
- DuLSv4eEQ67wH61VAPgX/+efgLU2syVd9IgGyGOTIz/M3/Cd6MTn4r8I/0HWproLr4to
- Nqjg==
-X-Gm-Message-State: AOAM531MDSfvC97fqpbE4PG8/dB/bO87wsOgf2eDD/G1IsinDVi7I5xZ
- /X/shAwIJnUs/nRaU95UAlU1uQ==
-X-Google-Smtp-Source: ABdhPJyURTzdqzYxNX+DsrWg38Bv4qXb2YTaXDts0AQVao5QVwOGHeNqN6CyHLIZ2OkHTafwJjCzcA==
-X-Received: by 2002:a17:90a:a505:: with SMTP id
- a5mr2822640pjq.58.1621486543191; 
- Wed, 19 May 2021 21:55:43 -0700 (PDT)
-Received: from x1 ([2601:1c0:4701:ae70:1ac3:31d1:689c:7daa])
- by smtp.gmail.com with ESMTPSA id m1sm446663pjo.10.2021.05.19.21.55.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 19 May 2021 21:55:42 -0700 (PDT)
-Date: Wed, 19 May 2021 21:55:40 -0700
-From: Drew Fustini <drew@beagleboard.org>
+ id 1ljayG-00Fweo-LE
+ for linux-riscv@lists.infradead.org; Thu, 20 May 2021 05:11:47 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 21422240006;
+ Thu, 20 May 2021 05:11:34 +0000 (UTC)
+Subject: Re: [PATCH RFC] riscv: Map the kernel with correct permissions the
+ first time
 To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Wei Fu <tekkamanninja@gmail.com>,
- Emil Renner Berthing <emil.renner.berthing@gmail.com>
-Subject: Re: [PATCH] riscv: mm: Fix W+X mappings at boot
-Message-ID: <20210520045540.GA3236664@x1>
-References: <20210516170038.7de9c866@xhacker>
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, Zong Li <zong.li@sifive.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20210518152134.1772653-1-alex@ghiti.fr>
+ <20210520002909.0b699b2b@xhacker>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <8d60a600-9f01-e913-fe2c-da0e0a363f82@ghiti.fr>
+Date: Thu, 20 May 2021 07:11:34 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210516170038.7de9c866@xhacker>
+In-Reply-To: <20210520002909.0b699b2b@xhacker>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210519_215544_302212_8A43AFF6 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20210519_221145_014311_DD8CFE25 
+X-CRM114-Status: GOOD (  34.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,87 +86,263 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 16, 2021 at 05:00:38PM +0800, Jisheng Zhang wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
+Hi Jisheng,
+
+On 19/05/2021 18:29, Jisheng Zhang wrote:
+> On Tue, 18 May 2021 17:21:34 +0200
+> Alexandre Ghiti <alex@ghiti.fr> wrote:
 > 
-> When the kernel mapping was moved the last 2GB of the address space,
-> (__va(PFN_PHYS(max_low_pfn))) is much smaller than the .data section
-> start address, the last set_memory_nx() in protect_kernel_text_data()
-> will fail, thus the .data section is still mapped as W+X. This results
-> in below W+X mapping waring at boot. Fix it by passing the correct
-> .data section page num to the set_memory_nx().
+>> For 64b kernels, we map all the kernel with write and execute permissions
+>> and afterwards remove writability from text and executability from data.
+>>
+>> For 32b kernels, the kernel mapping resides in the linear mapping, so we
+>> map all the linear mapping as writable and executable and afterwards we
+>> remove those properties for unused memory and kernel mapping as
+>> described above.
+>>
+>> Change this behavior to directly map the kernel with correct permissions
+>> and avoid going through the whole mapping to fix the permissions.
+>>
+>> At the same time, this fixes an issue introduced by commit 2bfc6cd81bd1
+>> ("riscv: Move kernel mapping outside of linear mapping") as reported
+>> here https://github.com/starfive-tech/linux/issues/17.
+>>
+>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+>> ---
+>>
+>> This patchset was tested on:
+>>
+>> * kernel:
+>> - rv32 with CONFIG_STRICT_KERNEL_RWX: OK
+>> - rv32 without CONFIG_STRICT_KERNEL_RWX: OK
+>> - rv64 with CONFIG_STRICT_KERNEL_RWX: OK
+>> - rv64 without CONFIG_STRICT_KERNEL_RWX: OK
+>>
+>> * xipkernel:
+>> - rv32: build only
+>> - rv64: OK
+>>
+>>   arch/riscv/include/asm/set_memory.h |  2 -
+>>   arch/riscv/kernel/setup.c           |  1 -
+>>   arch/riscv/mm/init.c                | 80 ++++++++++++++---------------
+>>   3 files changed, 38 insertions(+), 45 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+>> index 086f757e8ba3..70154f012791 100644
+>> --- a/arch/riscv/include/asm/set_memory.h
+>> +++ b/arch/riscv/include/asm/set_memory.h
+>> @@ -16,13 +16,11 @@ int set_memory_rw(unsigned long addr, int numpages);
+>>   int set_memory_x(unsigned long addr, int numpages);
+>>   int set_memory_nx(unsigned long addr, int numpages);
+>>   int set_memory_rw_nx(unsigned long addr, int numpages);
+>> -void protect_kernel_text_data(void);
+>>   #else
+>>   static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+>>   static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+>>   static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>>   static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>> -static inline void protect_kernel_text_data(void) {}
+>>   static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+>>   #endif
+>>   
+>> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> index 03901d3a8b02..1eb50e512056 100644
+>> --- a/arch/riscv/kernel/setup.c
+>> +++ b/arch/riscv/kernel/setup.c
+>> @@ -292,7 +292,6 @@ void __init setup_arch(char **cmdline_p)
+>>   	sbi_init();
+>>   
+>>   	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+>> -		protect_kernel_text_data();
+>>   		protect_kernel_linear_mapping_text_rodata();
 > 
-> [    0.396516] ------------[ cut here ]------------
-> [    0.396889] riscv/mm: Found insecure W+X mapping at address (____ptrval____)/0xffffffff80c00000
-> [    0.398347] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/ptdump.c:258 note_page+0x244/0x24a
-> [    0.398964] Modules linked in:
-> [    0.399459] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc1+ #14
-> [    0.400003] Hardware name: riscv-virtio,qemu (DT)
-> [    0.400591] epc : note_page+0x244/0x24a
-> [    0.401368]  ra : note_page+0x244/0x24a
-> [    0.401772] epc : ffffffff80007c86 ra : ffffffff80007c86 sp : ffffffe000e7bc30
-> [    0.402304]  gp : ffffffff80caae88 tp : ffffffe000e70000 t0 : ffffffff80cb80cf
-> [    0.402800]  t1 : ffffffff80cb80c0 t2 : 0000000000000000 s0 : ffffffe000e7bc80
-> [    0.403310]  s1 : ffffffe000e7bde8 a0 : 0000000000000053 a1 : ffffffff80c83ff0
-> [    0.403805]  a2 : 0000000000000010 a3 : 0000000000000000 a4 : 6c7e7a5137233100
-> [    0.404298]  a5 : 6c7e7a5137233100 a6 : 0000000000000030 a7 : ffffffffffffffff
-> [    0.404849]  s2 : ffffffff80e00000 s3 : 0000000040000000 s4 : 0000000000000000
-> [    0.405393]  s5 : 0000000000000000 s6 : 0000000000000003 s7 : ffffffe000e7bd48
-> [    0.405935]  s8 : ffffffff81000000 s9 : ffffffffc0000000 s10: ffffffe000e7bd48
-> [    0.406476]  s11: 0000000000001000 t3 : 0000000000000072 t4 : ffffffffffffffff
-> [    0.407016]  t5 : 0000000000000002 t6 : ffffffe000e7b978
-> [    0.407435] status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
-> [    0.408052] Call Trace:
-> [    0.408343] [<ffffffff80007c86>] note_page+0x244/0x24a
-> [    0.408855] [<ffffffff8010c5a6>] ptdump_hole+0x14/0x1e
-> [    0.409263] [<ffffffff800f65c6>] walk_pgd_range+0x2a0/0x376
-> [    0.409690] [<ffffffff800f6828>] walk_page_range_novma+0x4e/0x6e
-> [    0.410146] [<ffffffff8010c5f8>] ptdump_walk_pgd+0x48/0x78
-> [    0.410570] [<ffffffff80007d66>] ptdump_check_wx+0xb4/0xf8
-> [    0.410990] [<ffffffff80006738>] mark_rodata_ro+0x26/0x2e
-> [    0.411407] [<ffffffff8031961e>] kernel_init+0x44/0x108
-> [    0.411814] [<ffffffff80002312>] ret_from_exception+0x0/0xc
-> [    0.412309] ---[ end trace 7ec3459f2547ea83 ]---
-> [    0.413141] Checked W+X mappings: failed, 512 W+X pages found
+> If we extend the idea a bit, I.E create the correct permission for alias line
+> mapping at the first time, we can remove protect_kernel_linear_mapping_text_rodata()
 > 
-> Fixes: 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of linear mapping")
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/mm/init.c | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
+
+Yes, I agree, I will do that.
+
+> PS: No matter whether it's fine to extend, the set_memory_nx() calling in
+> protect_kernel_linear_mapping_text_rodata() is not necessary since the linear
+> mapping for 64bit is NX from the beginning.
+
+You're totally right, that will be fixed when removing 
+protect_kernel_linear_mapping_text_rodata() entirely.
+
 > 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4faf8bd157ea..4c4c92ce0bb8 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -746,14 +746,18 @@ void __init protect_kernel_text_data(void)
->  	unsigned long init_data_start = (unsigned long)__init_data_begin;
->  	unsigned long rodata_start = (unsigned long)__start_rodata;
->  	unsigned long data_start = (unsigned long)_data;
-> -	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
-> +#if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
-> +	unsigned long end_va = kernel_virt_addr + load_sz;
-> +#else
-> +	unsigned long end_va = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
-> +#endif
->  
->  	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
->  	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
->  	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
->  	/* rodata section is marked readonly in mark_rodata_ro */
->  	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-> -	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
-> +	set_memory_nx(data_start, (end_va - data_start) >> PAGE_SHIFT);
->  }
->  
->  void mark_rodata_ro(void)
-> -- 
-> 2.31.0
+>>   	}
+>>   
+>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>> index 4faf8bd157ea..92b3184420a2 100644
+>> --- a/arch/riscv/mm/init.c
+>> +++ b/arch/riscv/mm/init.c
+>> @@ -436,6 +436,36 @@ asmlinkage void __init __copy_data(void)
+>>   }
+>>   #endif
+>>   
+>> +#ifdef CONFIG_STRICT_KERNEL_RWX
+>> +#define is_text_va(va)		({								\
+>> +		unsigned long _va = va;								\
+>> +		(_va < (unsigned long)__init_data_begin && _va >= (unsigned long)_start);	\
+>> +	})
+> 
+> It's better if is_text_va() is a inline function
+> 
+
+Ok, will do.
+
+>> +
+>> +static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
+> 
+> I'm not sure whether it's necessary to put __init marker to inline functions
+> There are such issues in current riscv code, I planed to cook one patch
+> to remove __init from inline functions.
+> 
+> 
+>> +{
+>> +	return is_text_va(va) ? PAGE_KERNEL_READ_EXEC : PAGE_KERNEL;
+> 
+> if we extend the idea, then here we may return PAGE_KERNEL_READ, PAGE_KERNEL
+> and PAGE_KERNEL_READ_EXEC correspondingly.
+
+Again, I agree :)
+
+I will come up with an enhanced v2 soon,
+
+Thanks for your comments,
+
+Alex
+
+> 
+> Thanks
+> 
+>> +}
+>> +
+>> +void mark_rodata_ro(void)
+>> +{
+>> +	unsigned long rodata_start = (unsigned long)__start_rodata;
+>> +	unsigned long data_start = (unsigned long)_data;
+>> +
+>> +	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+>> +
+>> +	debug_checkwx();
+>> +}
+>> +#else
+>> +static inline __init pgprot_t pgprot_from_kernel_va(uintptr_t va)
+>> +{
+>> +	if (IS_ENABLED(CONFIG_32BIT))
+>> +		return PAGE_KERNEL_EXEC;
+>> +
+>> +	return (va < kernel_virt_addr) ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+>> +}
+>> +#endif
+>> +
+>>   /*
+>>    * setup_vm() is called from head.S with MMU-off.
+>>    *
+>> @@ -465,7 +495,8 @@ uintptr_t xiprom, xiprom_sz;
+>>   #define xiprom_sz      (*((uintptr_t *)XIP_FIXUP(&xiprom_sz)))
+>>   #define xiprom         (*((uintptr_t *)XIP_FIXUP(&xiprom)))
+>>   
+>> -static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+>> +static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size,
+>> +					    __always_unused bool early)
+>>   {
+>>   	uintptr_t va, end_va;
+>>   
+>> @@ -484,7 +515,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+>>   				   map_size, PAGE_KERNEL);
+>>   }
+>>   #else
+>> -static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+>> +static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size, bool early)
+>>   {
+>>   	uintptr_t va, end_va;
+>>   
+>> @@ -492,7 +523,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+>>   	for (va = kernel_virt_addr; va < end_va; va += map_size)
+>>   		create_pgd_mapping(pgdir, va,
+>>   				   load_pa + (va - kernel_virt_addr),
+>> -				   map_size, PAGE_KERNEL_EXEC);
+>> +				   map_size, early ? PAGE_KERNEL_EXEC : pgprot_from_kernel_va(va));
+>>   }
+>>   #endif
+>>   
+>> @@ -569,7 +600,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>>   	 * us to reach paging_init(). We map all memory banks later
+>>   	 * in setup_vm_final() below.
+>>   	 */
+>> -	create_kernel_page_table(early_pg_dir, map_size);
+>> +	create_kernel_page_table(early_pg_dir, map_size, true);
+>>   
+>>   #ifndef __PAGETABLE_PMD_FOLDED
+>>   	/* Setup early PMD for DTB */
+>> @@ -693,21 +724,15 @@ static void __init setup_vm_final(void)
+>>   		map_size = best_map_size(start, end - start);
+>>   		for (pa = start; pa < end; pa += map_size) {
+>>   			va = (uintptr_t)__va(pa);
+>> -			create_pgd_mapping(swapper_pg_dir, va, pa,
+>> -					   map_size,
+>> -#ifdef CONFIG_64BIT
+>> -					   PAGE_KERNEL
+>> -#else
+>> -					   PAGE_KERNEL_EXEC
+>> -#endif
+>> -					);
+>>   
+>> +			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
+>> +					   pgprot_from_kernel_va(va));
+>>   		}
+>>   	}
+>>   
+>>   #ifdef CONFIG_64BIT
+>>   	/* Map the kernel */
+>> -	create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
+>> +	create_kernel_page_table(swapper_pg_dir, PMD_SIZE, false);
+>>   #endif
+>>   
+>>   	/* Clear fixmap PTE and PMD mappings */
+>> @@ -738,35 +763,6 @@ static inline void setup_vm_final(void)
+>>   }
+>>   #endif /* CONFIG_MMU */
+>>   
+>> -#ifdef CONFIG_STRICT_KERNEL_RWX
+>> -void __init protect_kernel_text_data(void)
+>> -{
+>> -	unsigned long text_start = (unsigned long)_start;
+>> -	unsigned long init_text_start = (unsigned long)__init_text_begin;
+>> -	unsigned long init_data_start = (unsigned long)__init_data_begin;
+>> -	unsigned long rodata_start = (unsigned long)__start_rodata;
+>> -	unsigned long data_start = (unsigned long)_data;
+>> -	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
+>> -
+>> -	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
+>> -	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
+>> -	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
+>> -	/* rodata section is marked readonly in mark_rodata_ro */
+>> -	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+>> -	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
+>> -}
+>> -
+>> -void mark_rodata_ro(void)
+>> -{
+>> -	unsigned long rodata_start = (unsigned long)__start_rodata;
+>> -	unsigned long data_start = (unsigned long)_data;
+>> -
+>> -	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+>> -
+>> -	debug_checkwx();
+>> -}
+>> -#endif
+>> -
+>>   #ifdef CONFIG_KEXEC_CORE
+>>   /*
+>>    * reserve_crashkernel() - reserves memory for crash kernel
 > 
 > 
 > 
@@ -201,28 +350,7 @@ On Sun, May 16, 2021 at 05:00:38PM +0800, Jisheng Zhang wrote:
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-I know there is a new thread now with a different approach but I wanted
-to say that this did fix that warning on the BeagleV Starlight beta
-prototype board [1] with the StarFive JH7100 SoC [2]. I am using Emil's
-starlight branch [3] which is a set of StarFive patches on top of
-5.13-rc2. Emil included this W+X mapping patch [4]. It does fix the
-warning on boot for me and the bootlog [5] shows:
-
-  [    2.302598] Checked W+X mappings: passed, no W+X pages found
-
-Thus if useful, here is my TB:
-
-Tested-by: Drew Fustini <drew@beagleboard.org>
-
-thanks,
-drew
-
-[1] https://github.com/beagleboard/beaglev-starlight
-[2] https://github.com/starfive-tech/beaglev_doc
-[3] https://github.com/esmil/linux/tree/starlight
-[4] https://github.com/esmil/linux/commit/b865eb820db8b9b94a7a2d2619e46cc3251fb90d
-[5] https://gist.github.com/pdp7/0bf9088d034384d29ba4e8418c9dfd91
+> 
 
 _______________________________________________
 linux-riscv mailing list
