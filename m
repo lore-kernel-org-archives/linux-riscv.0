@@ -2,98 +2,106 @@ Return-Path: <SRS0=83+V=KP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26AF8C433B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 01:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01D38C433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 04:56:12 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 768B0611AE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 01:59:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 768B0611AE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 60E60611BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 04:56:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60E60611BE
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=beagleboard.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=350NmyEn5dsbL2s5Rjp/6+v0jccu1Mt+7+VZoPBQHbE=; b=LibkZUj0qBdZT/Rp44y8x+vk2
-	mQhTzzKl00+JCooERly/04aEOjUG0BFHRAH5CrBEYK+PHdxiLQnr/9Wnyp84Sp1ndaDmuMcWJQqFt
-	WhtbTUpQZdEGpnbMx1tmHar5ihLmtBQIUz3troWdFULbrXKRb0qnDHBDF9MWRVArP/cNKM7waCk/T
-	X4yeBdU94Wke1EHywAXWF91QryHnrNQY5UbXNYTaNbNKd7kEHXp0LmC0UdXVChogPrg9Jqy+anmTC
-	B0S2XbM3SsXG3/MINH2ZPTx9AJdMn/DcrKSbmlCZI28S7Kp366lihadCYj+G7v5rZbAB5rEinLZhC
-	LrohYr7Qw==;
+	 bh=IbWdOuYsJRFYIJTN05D56wAyiraiH6Q8ftEVJYfaFNc=; b=jKUOyzPGZtYwZs2LS0JPRj+rF
+	m4Y9qOLS0HiL/JTV6+R/G31DKGQfyzvtVLzdTrGf0ZxCS3fIFBLISUwiqiiRLIuutmm1nn4YI6VG/
+	p2sMpaLyHFZ11TdVBf4CG24QQC1JG9t/MKjXUxoyGAXKUxB2FE4bOo7NGXi/yFpiF5bzHHQ2d/PdX
+	Af6ij+2IG5DiLo06mZwuispmTNgn3lv9jPXs0K9tU5oIkcGt7ndv503SUe5z+7dEZZ6OnauE1GCYn
+	RShX0CrNVX3g/QMTPfULLsbSPWOYRWKrCfC8F/ToQm1VaqTwZB6esbHZ+Bho4PHJugprdkok+HbpZ
+	WIhGK0C3A==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1ljXy7-005bvo-J4; Thu, 20 May 2021 01:59:23 +0000
+	id 1ljais-005uRz-BC; Thu, 20 May 2021 04:55:50 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljXy5-005bvZ-4E
- for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 01:59:21 +0000
+ id 1ljaip-005uRb-H7
+ for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 04:55:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+ :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=tUv3rVPeSWDnF3GAjcJBgmsDqPM8xlWqUZ0ePXqSqfE=; b=I4fCczEV6LpjPM334tzJdu+bga
- RVCP0t9fu2xWkN8TpoS1iu84AkpxT/R7c9AFNKGStdkWGQ1jrFo9h+W299hggK50ralp/c5eAxlXu
- t9l/8oXhQUmcQvpBSn+jUBcdxUworB2mzKwPJp3YLLKyja9dXwKEJE52/byfPnE8MaVyAfEZYDQ+4
- dkA3ccXAsBSb80UmP5CsRVJcqO4mR2Tksi0T2AfcrsvIegBdaVLFuDQOVlwH+OcOkAML5o53tBS4P
- S6NstHAaWPIQhe7uIMRge8kY1UdOjHU3v0mAzoUuS8QtA49R9A3eUaqvcif/OtmSFz41GYegcMgLi
- aqRaVh7g==;
-Received: from mail.kernel.org ([198.145.29.99])
+ bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=; b=XkWAao50kEHjfinoJuOd0r4Xda
+ OGUjlz6VFCoRL0kCK/mN5s8T2XAZw0gDVcW0EyOESJDYuMSDltT3jR2xwJiF1kqgK9z9PHLE12VbF
+ 1wZTrOlI+uEj+oZuTXrVwyoAXD2IdeE0R2wCHGq6LwexqBoq2HF+a+zP1nu9srCmIrD/gZKRON3Wp
+ lXNcvFoGSLmZX9IoavhAWDpjDO59TTDjPtetsTHZqetmwUxLYbCpi10rQ/5BU263rb6MbZuS2QpKF
+ 7vlO2n0rnDsCCXzR7oAOtuoetS9EJBoOlVCEV6Z5IK2HYRfOrKJrS3v/G1hJKoBIUZ2kCKxtSKxRw
+ OhDQGPng==;
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljXy1-00Ft7M-Te
- for linux-riscv@lists.infradead.org; Thu, 20 May 2021 01:59:19 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5706C61355
- for <linux-riscv@lists.infradead.org>; Thu, 20 May 2021 01:59:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621475957;
- bh=JdmBtI/nybX20LTYzwdeu3sRM7FFnENPxyFNjn3PhTc=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=aQy9ccJsdFmRayoAiTGj43uqjruUasRMW3XaC7Y51U6ChraF+gd4VnB5Mm47kDzoF
- YtOxGgjcaqZept35IaUQW0QVaeAhwRn2ILFnGyv9rjSwh+marLBoRCyIbJ/p6xFnft
- V2MQ4C4f2aWrFpBp6vD41RmLBy5yWatN4r39rw8hffgO+MRPVrijETmZN5SYhNHtC6
- ZJtWFpbhBZRS9NwBEwEiN3/i/Yw67Xq4F7h1bfNd9n9SMfgpmkqUqZG/X5yLoUNN5J
- KR0y8HJp7SkFTsys/rn8aSejDiLFMkfizOeXOFWduU2BGIsxKMnNxfTzGVg9KmA8yw
- 9magqsOUmrp8A==
-Received: by mail-lf1-f46.google.com with SMTP id z13so22021034lft.1
- for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 18:59:17 -0700 (PDT)
-X-Gm-Message-State: AOAM533o+rbaKeDXBwfpSb2K3tW9HVXqIhqUjYuMorQQXsRSPw0Hip6o
- OfxZluBJpIlD+cqZ2KH/AOKKBQdp3FK7Hbt7AbE=
-X-Google-Smtp-Source: ABdhPJx4Yk2C9GqxDVxay2oozMIz1ibiukYQwG5GLFDi0mjK8VBRld1CDnMtfMIba/K4AMweT0lkvN1tYYTAfnwELo4=
-X-Received: by 2002:ac2:5493:: with SMTP id t19mr1678843lfk.346.1621475955570; 
- Wed, 19 May 2021 18:59:15 -0700 (PDT)
+ id 1ljaim-00FwFU-7Q
+ for linux-riscv@lists.infradead.org; Thu, 20 May 2021 04:55:46 +0000
+Received: by mail-pl1-x635.google.com with SMTP id e15so1674364plh.1
+ for <linux-riscv@lists.infradead.org>; Wed, 19 May 2021 21:55:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=beagleboard-org.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=;
+ b=IfRLXKPkRmQK2vqKG+W7DLxIvHkl6XlhmjYujlpvVgUwtUeW5ztTCuUO/qU1CW0YMI
+ eNU8sZcbsJzBNRgOTj3LUImK2bUrtNtFcwYwyIs/ZOlJlRDL3BHXM1S8T2pyoosEU3aL
+ YoI62eFmCWg+5Huqmv463Vx5vVADHyplpPv1P64n7Mp2eGINbiS4BmcSgyzWe7n4qk/4
+ iNuUhnZZFOV5l6fzPyYHL2hh7vCzyHvQvAd5hJbHnnfYxl0D5d07xiI4W0IvNw6+WyEo
+ aVhv6jxTJtUfyEU4xE8T8ELYQ/rZSEl0HPNyEnVDMWrl6sqvJeAuYeKfDxDo4Vu0DB3B
+ ABiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=7hUMPWC64LAsjcIj5xagu1FVPYx/So//vZuQ9Tazp4A=;
+ b=Opq4o0o/Joj0d0VDruQU/yHRLsCjF0yHGV/rfVtckTG1hg9CQpIPlk7+SkSJ1NvRIF
+ PYsgdOneMrCdD4GAu+KszDkGrowdPwxczmweNXOIED3DdmqGro4N87XT1PXkY9qMXZyy
+ cTpVunyDmPqEs9y9LxKOOVt5Qss8Se56AOqlRjHvyNXNcJqHyPAC8qAjK3Ly857x4yjj
+ ZLZW0qtuF40wi/cf3aOPA4VMlcmC3GusiHwqaib1CZfxomisvzNxxR36N/T0vMs0ZQVp
+ DuLSv4eEQ67wH61VAPgX/+efgLU2syVd9IgGyGOTIz/M3/Cd6MTn4r8I/0HWproLr4to
+ Nqjg==
+X-Gm-Message-State: AOAM531MDSfvC97fqpbE4PG8/dB/bO87wsOgf2eDD/G1IsinDVi7I5xZ
+ /X/shAwIJnUs/nRaU95UAlU1uQ==
+X-Google-Smtp-Source: ABdhPJyURTzdqzYxNX+DsrWg38Bv4qXb2YTaXDts0AQVao5QVwOGHeNqN6CyHLIZ2OkHTafwJjCzcA==
+X-Received: by 2002:a17:90a:a505:: with SMTP id
+ a5mr2822640pjq.58.1621486543191; 
+ Wed, 19 May 2021 21:55:43 -0700 (PDT)
+Received: from x1 ([2601:1c0:4701:ae70:1ac3:31d1:689c:7daa])
+ by smtp.gmail.com with ESMTPSA id m1sm446663pjo.10.2021.05.19.21.55.42
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 19 May 2021 21:55:42 -0700 (PDT)
+Date: Wed, 19 May 2021 21:55:40 -0700
+From: Drew Fustini <drew@beagleboard.org>
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Wei Fu <tekkamanninja@gmail.com>,
+ Emil Renner Berthing <emil.renner.berthing@gmail.com>
+Subject: Re: [PATCH] riscv: mm: Fix W+X mappings at boot
+Message-ID: <20210520045540.GA3236664@x1>
+References: <20210516170038.7de9c866@xhacker>
 MIME-Version: 1.0
-References: <1621400656-25678-1-git-send-email-guoren@kernel.org>
- <20210519052048.GA24853@lst.de>
- <CAJF2gTR5838=Uwc5P6Xs=G7vk80k0yqWcSsNe0OFcwc9sDBBHg@mail.gmail.com>
- <20210519060617.GA28397@lst.de> <20210519065431.GB3076809@x1>
- <CAAhSdy3C1owsbY_9gkxkhWfCXnL_noow7F4t=5+j7q+AJO3pZQ@mail.gmail.com>
- <CAJF2gTQKqce_6cmGQnfLOX8uXvOUWUR-pQT4yOMioMcFAPfBjQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTQKqce_6cmGQnfLOX8uXvOUWUR-pQT4yOMioMcFAPfBjQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 20 May 2021 09:59:04 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTR2gWETwiszV0n4otjHxu0hGXDp1TT9n=8hX8UHVZY3tw@mail.gmail.com>
-Message-ID: <CAJF2gTR2gWETwiszV0n4otjHxu0hGXDp1TT9n=8hX8UHVZY3tw@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-To: Anup Patel <anup@brainfault.org>
-Cc: Drew Fustini <drew@beagleboard.org>, Christoph Hellwig <hch@lst.de>,
- Anup Patel <anup.patel@wdc.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, wefu@redhat.com, 
- =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <20210516170038.7de9c866@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210519_185918_014208_2720C469 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20210519_215544_302212_8A43AFF6 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +118,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 20, 2021 at 9:47 AM Guo Ren <guoren@kernel.org> wrote:
->
-> On Wed, May 19, 2021 at 3:15 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Wed, May 19, 2021 at 12:24 PM Drew Fustini <drew@beagleboard.org> wrote:
-> > >
-> > > On Wed, May 19, 2021 at 08:06:17AM +0200, Christoph Hellwig wrote:
-> > > > On Wed, May 19, 2021 at 02:05:00PM +0800, Guo Ren wrote:
-> > > > > Since the existing RISC-V ISA cannot solve this problem, it is better
-> > > > > to provide some configuration for the SOC vendor to customize.
-> > > >
-> > > > We've been talking about this problem for close to five years.  So no,
-> > > > if you don't manage to get the feature into the ISA it can't be
-> > > > supported.
-> > >
-> > > Isn't it a good goal for Linux to support the capabilities present in
-> > > the SoC that a currently being fab'd?
-> > >
-> > > I believe the CMO group only started last year [1] so the RV64GC SoCs
-> > > that are going into mass production this year would not have had the
-> > > opporuntiy of utilizing any RISC-V ISA extension for handling cache
-> > > management.
-> >
-> > The current Linux RISC-V policy is to only accept patches for frozen or
-> > ratified ISA specs.
-> > (Refer, Documentation/riscv/patch-acceptance.rst)
-> >
-> > This means even if emulate CMO instructions in OpenSBI, the Linux
-I think it's CBO now.
-https://github.com/riscv/riscv-CMOs/blob/master/discussion-files/RISC_V_range_CMOs_bad_v1.00.pdf
+On Sun, May 16, 2021 at 05:00:38PM +0800, Jisheng Zhang wrote:
+> From: Jisheng Zhang <jszhang@kernel.org>
+> 
+> When the kernel mapping was moved the last 2GB of the address space,
+> (__va(PFN_PHYS(max_low_pfn))) is much smaller than the .data section
+> start address, the last set_memory_nx() in protect_kernel_text_data()
+> will fail, thus the .data section is still mapped as W+X. This results
+> in below W+X mapping waring at boot. Fix it by passing the correct
+> .data section page num to the set_memory_nx().
+> 
+> [    0.396516] ------------[ cut here ]------------
+> [    0.396889] riscv/mm: Found insecure W+X mapping at address (____ptrval____)/0xffffffff80c00000
+> [    0.398347] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/ptdump.c:258 note_page+0x244/0x24a
+> [    0.398964] Modules linked in:
+> [    0.399459] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc1+ #14
+> [    0.400003] Hardware name: riscv-virtio,qemu (DT)
+> [    0.400591] epc : note_page+0x244/0x24a
+> [    0.401368]  ra : note_page+0x244/0x24a
+> [    0.401772] epc : ffffffff80007c86 ra : ffffffff80007c86 sp : ffffffe000e7bc30
+> [    0.402304]  gp : ffffffff80caae88 tp : ffffffe000e70000 t0 : ffffffff80cb80cf
+> [    0.402800]  t1 : ffffffff80cb80c0 t2 : 0000000000000000 s0 : ffffffe000e7bc80
+> [    0.403310]  s1 : ffffffe000e7bde8 a0 : 0000000000000053 a1 : ffffffff80c83ff0
+> [    0.403805]  a2 : 0000000000000010 a3 : 0000000000000000 a4 : 6c7e7a5137233100
+> [    0.404298]  a5 : 6c7e7a5137233100 a6 : 0000000000000030 a7 : ffffffffffffffff
+> [    0.404849]  s2 : ffffffff80e00000 s3 : 0000000040000000 s4 : 0000000000000000
+> [    0.405393]  s5 : 0000000000000000 s6 : 0000000000000003 s7 : ffffffe000e7bd48
+> [    0.405935]  s8 : ffffffff81000000 s9 : ffffffffc0000000 s10: ffffffe000e7bd48
+> [    0.406476]  s11: 0000000000001000 t3 : 0000000000000072 t4 : ffffffffffffffff
+> [    0.407016]  t5 : 0000000000000002 t6 : ffffffe000e7b978
+> [    0.407435] status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [    0.408052] Call Trace:
+> [    0.408343] [<ffffffff80007c86>] note_page+0x244/0x24a
+> [    0.408855] [<ffffffff8010c5a6>] ptdump_hole+0x14/0x1e
+> [    0.409263] [<ffffffff800f65c6>] walk_pgd_range+0x2a0/0x376
+> [    0.409690] [<ffffffff800f6828>] walk_page_range_novma+0x4e/0x6e
+> [    0.410146] [<ffffffff8010c5f8>] ptdump_walk_pgd+0x48/0x78
+> [    0.410570] [<ffffffff80007d66>] ptdump_check_wx+0xb4/0xf8
+> [    0.410990] [<ffffffff80006738>] mark_rodata_ro+0x26/0x2e
+> [    0.411407] [<ffffffff8031961e>] kernel_init+0x44/0x108
+> [    0.411814] [<ffffffff80002312>] ret_from_exception+0x0/0xc
+> [    0.412309] ---[ end trace 7ec3459f2547ea83 ]---
+> [    0.413141] Checked W+X mappings: failed, 512 W+X pages found
+> 
+> Fixes: 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of linear mapping")
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/mm/init.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 4faf8bd157ea..4c4c92ce0bb8 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -746,14 +746,18 @@ void __init protect_kernel_text_data(void)
+>  	unsigned long init_data_start = (unsigned long)__init_data_begin;
+>  	unsigned long rodata_start = (unsigned long)__start_rodata;
+>  	unsigned long data_start = (unsigned long)_data;
+> -	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
+> +#if defined(CONFIG_64BIT) && defined(CONFIG_MMU)
+> +	unsigned long end_va = kernel_virt_addr + load_sz;
+> +#else
+> +	unsigned long end_va = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
+> +#endif
+>  
+>  	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
+>  	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
+>  	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
+>  	/* rodata section is marked readonly in mark_rodata_ro */
+>  	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+> -	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
+> +	set_memory_nx(data_start, (end_va - data_start) >> PAGE_SHIFT);
+>  }
+>  
+>  void mark_rodata_ro(void)
+> -- 
+> 2.31.0
+> 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-> > patches won't be taken by Palmer because CMO specification is
-> > still in draft stage.
-> How do you think about
-> sbi_ecall(SBI_EXT_DMA, SBI_DMA_SYNC, start, size, dir, 0, 0, 0);
-> ? thx
-CBO insn trap is okay for me ;-)
+I know there is a new thread now with a different approach but I wanted
+to say that this did fix that warning on the BeagleV Starlight beta
+prototype board [1] with the StarFive JH7100 SoC [2]. I am using Emil's
+starlight branch [3] which is a set of StarFive patches on top of
+5.13-rc2. Emil included this W+X mapping patch [4]. It does fix the
+warning on boot for me and the bootlog [5] shows:
 
-> >
-> > Also, we all know how much time it takes for RISCV international
-> > to freeze some spec. Judging by that we are looking at another
-> > 3-4 years at minimum.
-> >
-> > Regards,
-> > Anup
->
->
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
+  [    2.302598] Checked W+X mappings: passed, no W+X pages found
 
+Thus if useful, here is my TB:
 
+Tested-by: Drew Fustini <drew@beagleboard.org>
 
--- 
-Best Regards
- Guo Ren
+thanks,
+drew
 
-ML: https://lore.kernel.org/linux-csky/
+[1] https://github.com/beagleboard/beaglev-starlight
+[2] https://github.com/starfive-tech/beaglev_doc
+[3] https://github.com/esmil/linux/tree/starlight
+[4] https://github.com/esmil/linux/commit/b865eb820db8b9b94a7a2d2619e46cc3251fb90d
+[5] https://gist.github.com/pdp7/0bf9088d034384d29ba4e8418c9dfd91
 
 _______________________________________________
 linux-riscv mailing list
