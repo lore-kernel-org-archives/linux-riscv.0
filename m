@@ -7,79 +7,105 @@ X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C11F9C433ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 19:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CDC0FC433ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 20:22:05 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8009161074
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 19:13:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8009161074
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
+	by mail.kernel.org (Postfix) with ESMTPS id 2646B61057
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 May 2021 20:22:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2646B61057
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=korsgaard.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
 	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
+	Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddVfVBab/RF54c1H1/gQg9/1jHxSyrm/5jUg0Ej+cSM=; b=VGWFMhGL4KUrz2E67sT9NP+EaG
-	eCXolEA3QX8ZaBttUqGaiZPbRPnbYzAzRKHXVO5D05y3mcRQuNUyCdVDyzV3DwO4G5xIrFW3vhwEm
-	2TzFChJVI3qY1uTG0Ud1105o1RDmCTVP2OrtcBW4pjlitV++wXTlQarO4aNubGN/5kRn+N547Ffbm
-	bWCE89Y26XXI7ex9IYQMWSXj8WIGq3ljW+YNpJEMm8wHkqoIlOkGteGfJsjc2GWh6UmwyfWyJUo2A
-	+lPOz7DeWOBPVGwdi804UIoJY04MGErfEMUIXijOKIgvR4oNI5RpUbT4Fd3p7+v/tQTkjiFeX6Uwo
-	h4td35AA==;
+	bh=rXoqyUb4wTQnarSSY7rf82i+nCAViGMdOHO4yROndIw=; b=Dk/sbjBP7aMEeBGMOnS7vIn3O+
+	KRtzTUr38O+xjiuvzxhAtrRAe/uXh9IsYJiXFI2VvvGVjLDnlTez+LsWJeCdWKUwzz2QSV8I9mS6J
+	JZuls8aJuQpN7KcJNcu90YvLQ6Yz3D3/t2AGeapaXSw37JzHVLIyNiurSuCjD7mLtbpIoeb2rV4Ey
+	UkwQOuzwGWNXMcbV/u/FFZm1TzVV88tqmpU5NluWVKtExidgn3OHjgHlZVwq6sVo9evpoYZUt2tpz
+	7XmKKu6BFO/HZPqsbXWZDeyMyExROa0xsgfWulTsPLG08vf/IV1OjgcxcRimOCSKOS+NL8ta3BPMB
+	JyPAdoMA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ljo6P-002Src-Kp; Thu, 20 May 2021 19:13:02 +0000
+	id 1ljpAw-002dFN-WC; Thu, 20 May 2021 20:21:47 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ljo6J-002SqQ-Nv
- for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 19:12:58 +0000
+ id 1ljpAt-002dEj-Li
+ for linux-riscv@desiato.infradead.org; Thu, 20 May 2021 20:21:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:MIME-Version:Message-ID:
+ In-Reply-To:Date:References:Subject:Cc:To:From:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=cGw0j3P5SU7zt1q+cDmxpJKsarFcBobz/o56K1XZ/fM=; b=Kak0SDCKMKjeqdEOACofpVuZfx
- MOv3ILtkkqrS28zrCXbD+DaUiW5cqzZpwrCWOJ2RimnVrPNiBcQuAhYNyzhQXyxRiuSehO/XxUihb
- SVGO4+C6LCsxQxrJZcIJ3hpTcH6BdE3/GcO+c07nFMTmJsEtDXwbRwiYI3DFBNSK2ZIgLVhqaplSZ
- +s9ZAieFdhhPQthfp07Hr8U5GAfIO1koHuDpexaZLwwRz8N8B71bWLse8c+66Koa8QcLQIQg/bsgc
- lgbijQm6OOu6JpdYRgEwCfcUeTX4hTf75kM3QTNS2GDWyvm8tKdDQx6fqNfLn+tPVNbWdSG+tIqtE
- X34RDgXQ==;
-Received: from vps0.lunn.ch ([185.16.172.187])
+ bh=gj6HxIbz15inQkT3Nj+fjyjwArJruqAZA723Ulizlqw=; b=FJNgmycuELBTqKfaxFocb8Lvoh
+ Tr503EfxguvTorGTuDmLZJH4XfTCXyyhvs4Wy/3WBSyP/ooyzFYcyfX/JXtDxATW0PEwH1rVFvuBU
+ U5gPi42pixu3IPqtCYME2wjQqRLeLK5HJMW2vbLHiBaYODu1ll0F9/IQacZ/7peqzgJuYFBzXOcIP
+ IoCaJHyJyU0MaXIbIa+y6hYUn6NTyQoTN4qJzZB++AC6p9s5JewG89k/oTgh56WkVNvHje3U6uaAH
+ m3vDxJOh64Aexlm0/rGlsWO5yufAd9UYu4hvYGrQsXVlFFRIcnfGBtnbhv++yGvr+sCThN4gGb+0A
+ 8y2Qakwg==;
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ljo6G-00GbdG-Ro
- for linux-riscv@lists.infradead.org; Thu, 20 May 2021 19:12:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
- Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
- bh=cGw0j3P5SU7zt1q+cDmxpJKsarFcBobz/o56K1XZ/fM=; b=oidm6O8Ayml7oqE416ieS3XpCE
- avFo9NlMkK9Epm5NZRONxUOYBI7pPiryGaKg+2nBZpMb0zvQiJ0NzXiarU92UPfADY4O6sQdyWqI8
- phDvt0pJQFFLRM9NynJM0D5/GTX2PyOQUV2M5rc9UvhQY15aChPRXWRkJgl6XW3xYyHU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
- (envelope-from <andrew@lunn.ch>)
- id 1ljo65-0059qC-Tt; Thu, 20 May 2021 21:12:41 +0200
-Date: Thu, 20 May 2021 21:12:41 +0200
-From: Andrew Lunn <andrew@lunn.ch>
+ id 1ljpAq-00Ge7p-5Y
+ for linux-riscv@lists.infradead.org; Thu, 20 May 2021 20:21:42 +0000
+Received: by mail-ej1-x631.google.com with SMTP id z12so25799553ejw.0
+ for <linux-riscv@lists.infradead.org>; Thu, 20 May 2021 13:21:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
+ :user-agent:mime-version;
+ bh=gj6HxIbz15inQkT3Nj+fjyjwArJruqAZA723Ulizlqw=;
+ b=cQgXNYSAohE4c8rIm8/VBR6j/zfMfuEf/h/FWAxhg/gl/jqEi+50X2c8DN+2UNTJZE
+ uDDlZNlTU4yLq9ncmddAippZoCrrOA4JWVKZs7h0Gp8jvt6viT41p7dTiDlI4pnSHJ3V
+ MeGWVNU5hpaoM+5GrYF+OZ+ZxW7h+H+fCJWtAgfH7X/nxDF1tlync/v4p3WnYWdOAg9O
+ D1/evxW2s9kuELppxD2KjXkrTFJzYSUdSKQs8y6nP3r1L4PuAPkZ7m/vHfd9PCqBFgro
+ z3D1dcwcIEnKokf+FTJ9JEkFHbrJqadPUtMGAasWC0nLDP16HpnGLfS8/fzktLPKGL/o
+ ICBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:from:to:cc:subject:references:date
+ :in-reply-to:message-id:user-agent:mime-version;
+ bh=gj6HxIbz15inQkT3Nj+fjyjwArJruqAZA723Ulizlqw=;
+ b=Rcxn6d4rbS9G7qY4mZAB8Z0LA4e38zMXYJ54YxNiUGKUu5/anCxMheo7GRATC/G2QI
+ eekhewlOToiociAr3hRoklkk3w46UcbOfy2l5HmT/l94iVWAoD0rGAfUu2AWW9pFoBV1
+ 4UjM0xur/QVJFJee0Vo3Y+6WKfgb/5XZXLyvA81XMqBTVFfSDo2/PAVa6o8daKjb1APZ
+ 33+c9HJ52OnnN8ZCLsaBGzVLSR0AQ3JWz0g3711FsVJ2dtcG69XJs5kvQT3zoSTA7Yob
+ NSFwkalH6fljC2h5SiJdTYRQQ9s7kSYhKRGde+y7o5Y7EF+bwaOWD4GfuGhn22lXSIVN
+ 5m8g==
+X-Gm-Message-State: AOAM533q6eOe41qU1Yl2hazvW9GwE491G/NHtrzmhsXfd1aNg1YWkEDT
+ F6dTIkuLC8lPb6S5XebwU5g=
+X-Google-Smtp-Source: ABdhPJwoEXiLY0CmtQlqxtzxp5h8vnCy2Q12h8grAgCuCty6keJH1wflPoKN4KuBNPZdlzE+Z5SN4w==
+X-Received: by 2002:a17:906:2854:: with SMTP id
+ s20mr6336510ejc.335.1621542098666; 
+ Thu, 20 May 2021 13:21:38 -0700 (PDT)
+Received: from dell.be.48ers.dk (d51A5BC31.access.telenet.be. [81.165.188.49])
+ by smtp.gmail.com with ESMTPSA id
+ qo14sm2012776ejb.47.2021.05.20.13.21.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 20 May 2021 13:21:37 -0700 (PDT)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.92)
+ (envelope-from <peter@korsgaard.com>)
+ id 1ljpAm-0008J6-MG; Thu, 20 May 2021 22:21:36 +0200
+From: Peter Korsgaard <peter@korsgaard.com>
 To: Lee Jones <lee.jones@linaro.org>
-Cc: linux-kernel@vger.kernel.org, Peter Korsgaard <peter@korsgaard.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+Cc: linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  Andreas Larsson <andreas@gaisler.com>, linux-i2c@vger.kernel.org,
  linux-riscv@lists.infradead.org
 Subject: Re: [PATCH 10/16] i2c: busses: i2c-ocores: Place the expected
  function names into the documentation headers
-Message-ID: <YKa0qSttQKoSn/XY@lunn.ch>
 References: <20210520190105.3772683-1-lee.jones@linaro.org>
  <20210520190105.3772683-11-lee.jones@linaro.org>
+Date: Thu, 20 May 2021 22:21:36 +0200
+In-Reply-To: <20210520190105.3772683-11-lee.jones@linaro.org> (Lee Jones's
+ message of "Thu, 20 May 2021 20:00:59 +0100")
+Message-ID: <878s4988bz.fsf@dell.be.48ers.dk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210520190105.3772683-11-lee.jones@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210520_121252_914447_073DFFE6 
-X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-CacheID: sfid-20210520_132140_244164_8AB27BA5 
+X-CRM114-Status: UNSURE (   8.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,26 +123,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 20, 2021 at 08:00:59PM +0100, Lee Jones wrote:
-> Fixes the following W=1 kernel build warning(s):
-> 
->  drivers/i2c/busses/i2c-ocores.c:253: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
->  drivers/i2c/busses/i2c-ocores.c:267: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
->  drivers/i2c/busses/i2c-ocores.c:299: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
->  drivers/i2c/busses/i2c-ocores.c:347: warning: expecting prototype for It handles an IRQ(). Prototype was for ocores_process_polling() instead
-> 
-> Cc: Peter Korsgaard <peter@korsgaard.com>
-> Cc: Andrew Lunn <andrew@lunn.ch>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Andreas Larsson <andreas@gaisler.com>
-> Cc: linux-i2c@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Lee Jones <lee.jones@linaro.org>
+>>>>> "Lee" == Lee Jones <lee.jones@linaro.org> writes:
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+ > Fixes the following W=1 kernel build warning(s):
+ >  drivers/i2c/busses/i2c-ocores.c:253: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+ >  drivers/i2c/busses/i2c-ocores.c:267: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+ >  drivers/i2c/busses/i2c-ocores.c:299: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+ >  drivers/i2c/busses/i2c-ocores.c:347: warning: expecting prototype for It handles an IRQ(). Prototype was for ocores_process_polling() instead
 
-    Andrew
+ > Cc: Peter Korsgaard <peter@korsgaard.com>
+ > Cc: Andrew Lunn <andrew@lunn.ch>
+ > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+ > Cc: Paul Walmsley <paul.walmsley@sifive.com>
+ > Cc: Andreas Larsson <andreas@gaisler.com>
+ > Cc: linux-i2c@vger.kernel.org
+ > Cc: linux-riscv@lists.infradead.org
+ > Signed-off-by: Lee Jones <lee.jones@linaro.org>
+
+Reviewed-by: Peter Korsgaard <peter@korsgaard.com>
+
+-- 
+Bye, Peter Korsgaard
 
 _______________________________________________
 linux-riscv mailing list
