@@ -3,82 +3,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E416C4707C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2936BC4707A
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 18:08:41 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EEADF613CB
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:50:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EEADF613CB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
+	by mail.kernel.org (Postfix) with ESMTPS id AD6C9613CB
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 18:08:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD6C9613CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6c+cyesPFaTrOIxQ5MbUO7RgHmIyv6zb1AjeZ6LDQM=; b=Oia8STMTaPwQphMyw5cPvO6iNw
-	WgCoo7NCIJ/6dbv4s2FDDles4YOaShOjNGvRst5Ywy2FUtoPuaL8D7RYttuL+2hu19ekz2DLlBGOj
-	Aknm59h0UeLGsPIWhbgqVGdUoE7u1KMGdBZz7alNym+o/3IWJPHi9wPZjnfh3en1RtPTjaQShVU4i
-	8RUJrgDL1ZFcI/UAVD2uvPqJea5Q49LKmiKRxucdmF14AxpqdXkNmg2CqSrI/UCOFVCz0X+shUBWS
-	b3LcNy92XbyqUaOL/1ioUKj1tSS7O2EZTSTRAKm21OXrKGmUFvPK3o8WOWWcZAMaH7MoF6Bj95xS8
-	VdFiJWhQ==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=JT6qbQMaIjnkGFCwIqUPnn88zRQdopPSzy/Cn5UgXN0=; b=BuWKTYXzBBAHtWP40h4zAbH84L
+	BoanOlHJwAP1XyYYZJjlb+5tkSdaWyYfVaBVSBYjdTmqaTyZuvAC/2pOtind7ic/7QyKayBf5je3k
+	e6D5gOEMm05gDZBojJIRtVh++YuNVZy29kZ0kvu+KjfHyDtrZuq8sXfHpej43jiZJ6nR/5pwKADfW
+	LZMfzLL7jn1uBNLB162EPCOCbxbbdQRpW0ze34LevAuefQL+CJln7tJpJm6Jt/zh+wVqV/EsY4hlB
+	Ev4RgjXq1EXNa8U8XN8N+ewhEN+W9hPJj443bj2M9teb7mkN3OkWsdXBlA8dCRkjzsB/4CZ9hRBei
+	jvNtieTg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lk9HW-000bY2-1S; Fri, 21 May 2021 17:49:54 +0000
+	id 1lk9ZP-000fCP-86; Fri, 21 May 2021 18:08:23 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lk9Fe-000anU-7V; Fri, 21 May 2021 17:47:58 +0000
+ id 1lk9ZM-000fBe-65
+ for linux-riscv@desiato.infradead.org; Fri, 21 May 2021 18:08:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
- :References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=zeO15+6GAcuD7C6oautXKgZf1a/SrLIvHdVZPr/OU7c=; b=gcxRK1Q89iczd21+O9ESNJh00i
- gTp06uQ4PxazkeGey9dih7Mx+HrGoh8RUJU8wPY6fzgkQUw0QiVjYtqyI49V/o4XNeRuavUYzphRG
- OkwGSxAovVjM3cFCifq4j/hlm6MxzpBpv0/Aylq9BH2SIKndtaU6BmYcvK3fQDPJjxfZ+m+0ZlqNy
- RERMh2WTjf5VrjD9D2qv+r8+aaCQgD0SFLhvm3EXc7853JdSkyVkGtLtW5jeQE1XerAqQ7lbPVG4Q
- YHuqR/mYftgJj6v0rmdRuPcvDnQFMfknbJQJvs8eFtQUgPVfUDXaEps2ZFjYMlUNe7vcn9GY6RZyu
- AAMhpnlQ==;
-Received: from mail.kernel.org ([198.145.29.99])
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+ Sender:Reply-To:Content-ID:Content-Description:References;
+ bh=5U6SWI6tKwJQxiyyyLqjT1i8tYx3isO7hjR5W5+1Jeo=; b=VYswGhKi21FCp1Mcj+Wq9iP+8h
+ UPt4+j6+sbFDSR1WtZVw3S/SoaPMDeCVQqqhtixVHRPjFCLI9ch95msHN+zPGBaneOUGlT8TFYxyR
+ 7IowYkQSXnmCIMJC0V9GbdWykAN/2m5hGB2VDFSvwkvgzgysMhsVzMk5uTHneprJ9bKxjtMEJ/U97
+ 2N+X/AF+gXnADe5uCzQLbaZRiDrNvepioigc/FuMuhDbcv87S4uOTQ8UEhczgPaQq0zRU5yUVYmEK
+ e40PVyU8XqkYnQE59Kc75SYb9VIMEdpH7Q+DfRHxL1T6VBHvha3bfHYeLTSVNMtzFb25tcUl63tEd
+ Qmo8mfTA==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lk9Fb-00HKLQ-82; Fri, 21 May 2021 17:47:56 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2FA836135C;
- Fri, 21 May 2021 17:47:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1621619273;
- bh=xOq3jj2UbZa7lDCzy39FJlunDF10xKfCJ5FyeAWwORQ=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=KBD6lbrTjL2LnMejfzX5ud65busPKGi/lpJ5soBktqKEEpW0q6Q6RPLPSTn5hfIHM
- +M+fDBS/u7VpUhjC6axyc2792Z/IHzPsQ6ZlEk30RF72T56Ut8cvZkW3OYoikfOVsI
- An7+UKMeTx7OhM7Vig7bmYyLVyhSJqX/6Jz6i2BU=
-Date: Fri, 21 May 2021 19:47:51 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, anup@brainfault.org,
- Anup Patel <Anup.Patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- corbet@lwn.net, graf@amazon.com, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-staging@lists.linux.dev
+ id 1lk9ZJ-00HLNt-D0
+ for linux-riscv@lists.infradead.org; Fri, 21 May 2021 18:08:18 +0000
+Received: by mail-pl1-x633.google.com with SMTP id s20so11390601plr.13
+ for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 11:08:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=5U6SWI6tKwJQxiyyyLqjT1i8tYx3isO7hjR5W5+1Jeo=;
+ b=vtTnyRah2kvhTAvKkgyp5rIri/BGQNchS7lXj3oCYhV5McFBbxGTr4EjYc6mvyOinn
+ 3AfMgA6VhS3u8947Z/3CuaEcMpm7wash5s4UhzpQ/gq2UOH/pXd1P8HP6LXs2AX2ghZ7
+ WTvvt1/yfLL8GYTjA6616yKQHybiIg2wPemKZer7/tMyrMrTs7n6j06sv5XO10p5HCbh
+ yLcC8WefzjiIY7amtnohfd+oXEAboa4fIZAxuILISPaizFwPRbUSghFsEjTIIQvrWCKL
+ mLont745Oggstxjw6092u9UjqC0L3W/ZSGD2MiRRew69QhYXK6txzd/ZBpU4jI6Eu+y6
+ cfSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=5U6SWI6tKwJQxiyyyLqjT1i8tYx3isO7hjR5W5+1Jeo=;
+ b=isI0FsQ7vJxZMZSAcJnrVdjlb90l354zieZrv7xbbv7uR/pCl/0JVM2fFDTcz0brqn
+ MKinr1rzlIhNNJzXDJZxwUdU4ch2cNoTXalzj+nkafLnoNXzMeBZmHYrmutxVvzG01lD
+ NN4apgKJD57FHdz7fCA8/rDeEY+niUeNioh2siNEC7GH8YyZj/jqY/S7QlgdZWeY31IT
+ /krfWNBm0wI2a5IOvPyYDfkW55Duq+FJB+5/HXvojH8m7PBep+xuWCkzG3x7e+PhMoIV
+ 1IfF0BYw7T6WW5m0E1VvT2FmAj5z6iMOSldEVoe7I7PcXzuvBwQG8nN2t5ZQ76ABH9RU
+ x6OA==
+X-Gm-Message-State: AOAM531dmborNJy/FDXgpIIB87Lgu5dVUdOl0FpWr2ZHgiUXSWwYoDCS
+ d6HbjgKVFFW7FcykUVjCtgHyPg==
+X-Google-Smtp-Source: ABdhPJwLEJQWqh67UT0dt8OTf7ZYOzZievMqQ6z7E3S6USV227nLPVyaUv+fvSjbWzdxhAnKUIgAHA==
+X-Received: by 2002:a17:902:f543:b029:f3:bfca:21b4 with SMTP id
+ h3-20020a170902f543b02900f3bfca21b4mr13333335plf.6.1621620495939; 
+ Fri, 21 May 2021 11:08:15 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id r11sm4812600pgl.34.2021.05.21.11.08.15
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 21 May 2021 11:08:15 -0700 (PDT)
+Date: Fri, 21 May 2021 11:08:15 -0700 (PDT)
+X-Google-Original-Date: Fri, 21 May 2021 11:08:12 PDT (-0700)
 Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
-Message-ID: <YKfyR5jUu3HMvYg5@kroah.com>
-References: <mhng-37377fcb-af8f-455c-be08-db1cd5d4b092@palmerdabbelt-glaptop>
- <ff55329c-709d-c1a5-a807-1942f515bba7@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ff55329c-709d-c1a5-a807-1942f515bba7@redhat.com>
+In-Reply-To: <YKfyR5jUu3HMvYg5@kroah.com>
+CC: pbonzini@redhat.com, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ corbet@lwn.net, graf@amazon.com, 
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Greg KH <gregkh@linuxfoundation.org>
+Message-ID: <mhng-122345f7-47d9-4509-8ae6-ce1da912fc00@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210521_104755_328016_ADB82585 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20210521_110817_480022_682BBA5E 
+X-CRM114-Status: GOOD (  28.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,52 +114,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 21, 2021 at 07:21:12PM +0200, Paolo Bonzini wrote:
-> On 21/05/21 19:13, Palmer Dabbelt wrote:
-> > > 
-> > 
-> > I don't view this code as being in a state where it can be
-> > maintained, at least to the standards we generally set within the
-> > kernel.  The ISA extension in question is still subject to change, it
-> > says so right at the top of the H extension <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex#L4>
-> > 
-> >   {\bf Warning! This draft specification may change before being
-> > accepted as standard by the RISC-V Foundation.}
-> 
-> To give a complete picture, the last three relevant changes have been in
-> August 2019, November 2019 and May 2020.  It seems pretty frozen to me.
-> 
-> In any case, I think it's clear from the experience with Android that
-> the acceptance policy cannot succeed.  The only thing that such a policy
-> guarantees, is that vendors will use more out-of-tree code.  Keeping a
-> fully-developed feature out-of-tree for years is not how Linux is run.
-> 
-> > I'm not sure where exactly the line for real hardware is, but for
-> > something like this it would at least involve some chip that is
-> > widely availiable and needs the H extension to be useful
-> 
-> Anup said that "quite a few people have already implemented RISC-V
-> H-extension in hardware as well and KVM RISC-V works on real HW as well".
-> Those people would benefit from having KVM in the Linus tree.
+On Fri, 21 May 2021 10:47:51 PDT (-0700), Greg KH wrote:
+> On Fri, May 21, 2021 at 07:21:12PM +0200, Paolo Bonzini wrote:
+>> On 21/05/21 19:13, Palmer Dabbelt wrote:
+>> > >
+>> >
+>> > I don't view this code as being in a state where it can be
+>> > maintained, at least to the standards we generally set within the
+>> > kernel.  The ISA extension in question is still subject to change, it
+>> > says so right at the top of the H extension <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex#L4>
+>> >
+>> >   {\bf Warning! This draft specification may change before being
+>> > accepted as standard by the RISC-V Foundation.}
+>>
+>> To give a complete picture, the last three relevant changes have been in
+>> August 2019, November 2019 and May 2020.  It seems pretty frozen to me.
+>>
+>> In any case, I think it's clear from the experience with Android that
+>> the acceptance policy cannot succeed.  The only thing that such a policy
+>> guarantees, is that vendors will use more out-of-tree code.  Keeping a
+>> fully-developed feature out-of-tree for years is not how Linux is run.
+>>
+>> > I'm not sure where exactly the line for real hardware is, but for
+>> > something like this it would at least involve some chip that is
+>> > widely availiable and needs the H extension to be useful
+>>
+>> Anup said that "quite a few people have already implemented RISC-V
+>> H-extension in hardware as well and KVM RISC-V works on real HW as well".
+>> Those people would benefit from having KVM in the Linus tree.
+>
+> Great, but is this really true?  If so, what hardware has this?  I have
+> a new RISC-V device right here next to me, what would I need to do to
+> see if this is supported in it or not?
 
-Great, but is this really true?  If so, what hardware has this?  I have
-a new RISC-V device right here next to me, what would I need to do to
-see if this is supported in it or not?
+You can probe the misa register, it should have the H bit set if it 
+supports the H extension.
 
-If this isn't in any hardware that anyone outside of
-internal-to-company-prototypes, then let's wait until it really is in a
-device that people can test this code on.
-
-What's the rush to get this merged now if no one can use it?
-
-thanks,
-
-greg k-h
+> If this isn't in any hardware that anyone outside of
+> internal-to-company-prototypes, then let's wait until it really is in a
+> device that people can test this code on.
+>
+> What's the rush to get this merged now if no one can use it?
+>
+> thanks,
+>
+> greg k-h
 
 _______________________________________________
 linux-riscv mailing list
