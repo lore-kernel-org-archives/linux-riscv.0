@@ -2,127 +2,100 @@ Return-Path: <SRS0=oP9+=KQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1521DC04FF3
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 20:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68C12C04FF3
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 23:40:46 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 73FB96135A
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 20:26:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 73FB96135A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1CD7E6100C
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 23:40:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CD7E6100C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZ2xhn2XFkYyckomhh15ep8n9Hk5DF+OFXNwGUHI14c=; b=GRjaekELmy7QehlFvH/wAEAVQk
-	ap/vwhUxtICpz43z9905Fh2dUlFIZ10j9AlQK3TikKZMwHZ5+78FUKCaglZ/kqJerrLmPRFJ922JI
-	MSgKi21o1ojbnIiw9c9ttLiWzOz4eGj42C69d1f3uLBRZZiYfJFwpcANwnTu892LkerADAAEvhEdz
-	y7HtAI6cCvAkWxtm0e3Ibx9Lm4s8Z41YkspKkyodfX5XOpxic1EWuDh2bgx8zWDjHrHjxSvj6udQh
-	qkQbxgOOv/sXKvO+BLxxBjDgDQtzmhs3eH//QhP0LjPY9w/e7qPohtCVpNZY6KFSXQSjroPGTVCZ8
-	ntDIk9SQ==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BzjWbmZYI7+7DciMhsyLUpKn9HnmaiVxpgMuOZHk5uI=; b=ISauHqkd4MoGRmGPAGbFMq7SlF
+	brm6HULtCGmqzih3v2Fzpg6C1tb3esEbgQWT2pDWD2JPtiaAcobWJIRstIB0IaL/+GKrBezlTDFXx
+	2s4T1zfgMD9T9/vuzGtIZlG4BIXMuv450T00MW7A+cNUNIqCm7tnhYxf5typ3VWGmqVxkp6i5EoHF
+	vfDQCW2/RVcCWRitfhhR40GjPzfrU2vhF04/XzTzFJsX3c+pIAXO1c2jb2A/3btw1Zu85dOfiqWuF
+	7eN/F7xWTgjeZ5jXfrc+y1cccqd9baWZxYhyrLsLef0WEhVGeRQoFokUTr9ldkrjObZNI/0Hscqxm
+	o8T467Dg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lkBiu-0012Te-UP; Fri, 21 May 2021 20:26:21 +0000
+	id 1lkEkk-001MqY-9P; Fri, 21 May 2021 23:40:26 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lkBii-0012RQ-4Y
- for linux-riscv@desiato.infradead.org; Fri, 21 May 2021 20:26:08 +0000
+ id 1lkEkh-001Mq0-Jv
+ for linux-riscv@desiato.infradead.org; Fri, 21 May 2021 23:40:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References
- :Cc:To:Sender:Reply-To:Content-ID:Content-Description;
- bh=538ECF91gJCkNsV6K0m49/DR+WsCYP9T9kKj+WEgQUw=; b=QbKBkOPdRmxKlwJfovh9ogtYr+
- Xqpubg9kqNfBS5o7oRyJsl68cphcd9ScgUP8oM5f6hl7tK1Ssts6q02VINtvZH+6vOD42F0WD4/ji
- JQrOcLg4j0JLQudnuGSIDbSOGpy35jGOI/DJx4MTWrTAmTYGAh1+vNTLaJHA0/aErjcbBVzNIHzjI
- 8L9RBxptei7SUIT7gFQ95SFlbAzyix45evkHcnXd13nbRucdV1RY65XKlYDzAk4qs0WnAZiM34/4C
- CM4TeiXV3QVC4ClvpYu1ilTiYAMj3l7sHh8B0aoYvqAO3B7MLTYnh0bptbj6JHiIgZQD5rYNjdP5C
- +6tO9ITg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ d=infradead.org; s=bombadil.20210309; h=Message-Id:Date:Subject:Cc:To:From:
+ Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:In-Reply-To:References;
+ bh=QPNEPMeEe3xE9g9EwhJj9uez3HAqm7pfx8k5lT3zTmo=; b=mQpTsN8KGCvpH7F6csXfCcoIwo
+ E4rsAKFLA8LNq1soagW0NBcTF/Ms+FsNb6V5I7HvvEWFoEvz5TqbOg3WaaiPdasPBGhV8i6WCF7oV
+ 0iFcZyCYbpZMiJwiWa9CeT+WR1AbrdfftPO4Kpe8lkPQ/ZRcNutC4GULKBH/uulYk6piuiAjJ6ATT
+ e7XTWbHo38lHQ6lAaaumd0DWkhoBaN/n1FTbBdNz87Nr6nBLz2O+OfCXAWcFjQX/QY1XH9FBnhK5S
+ OfdP7uD39di6dDvlTTIj/fkxMbDVlS6/IDmszjvi/AUV5+ZHnbqxxPZ3RmWR05thWXM0S5MejpwCw
+ V5PM0PVA==;
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lkBif-00HPXJ-A9
- for linux-riscv@lists.infradead.org; Fri, 21 May 2021 20:26:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1621628764;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=538ECF91gJCkNsV6K0m49/DR+WsCYP9T9kKj+WEgQUw=;
- b=cSAL+eAFsA3PdoLglROQ5gDza85F+u2vXskQY/GoM4k4D5Gq/i4WIrC+Ghtz36jv+yuCoM
- YKS4i6hkt8/hDs104zmbfVZSs4qNsft/j5oWgnzEGoH2Ec3/Sruqv1x6ddm8zjACkdvUXy
- 5chuVHBJJdDH0w5EAas+wqwYp+86E7o=
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-224-6d5gEx18PbGdEgNGLo-WNQ-1; Fri, 21 May 2021 16:26:02 -0400
-X-MC-Unique: 6d5gEx18PbGdEgNGLo-WNQ-1
-Received: by mail-ed1-f69.google.com with SMTP id
- d8-20020a0564020008b0290387d38e3ce0so11921998edu.1
- for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 13:26:02 -0700 (PDT)
+ id 1lkEkf-00HUyc-5r
+ for linux-riscv@lists.infradead.org; Fri, 21 May 2021 23:40:22 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id
+ ne24-20020a17090b3758b029015f2dafecb0so6826412pjb.4
+ for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 16:40:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=QPNEPMeEe3xE9g9EwhJj9uez3HAqm7pfx8k5lT3zTmo=;
+ b=J7nxVMFvgBIsiz6IcEZjBmmm2GI/9CjXxEpHLedMLYKHsDCPmraX/MKEQWwjq7l3uK
+ o8Qql6Hnn27aBPmIkQi3Se93xl+bn/9ReLPE9qk+5Rdbn8iimg8urFSA6OMBtSh9PJa2
+ 5a69ECqqVlE8WwbcwsKTkyytsWGYtLGclxY5hxQ5/gIczm3SHdYZ7ttiC9/MEW8MNVaQ
+ gvV7Ej4ZQLEduYDYAgkmFnuouCpAae5Lp7mqiuP8l4MPeD0cSqcvzIMVlRWhi7j7DIsQ
+ A+7hF1xOyTPKYBY4rylRbW4918oI7XQbSBc5vu6ARXLmes4P2WYDXFA9BkfBQENhOrYi
+ lBIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:references:from:subject:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=538ECF91gJCkNsV6K0m49/DR+WsCYP9T9kKj+WEgQUw=;
- b=lOVXH+Edu3TBicWt608fPD6qqjT2HVZV2VqKV3aIYpHVWXOAKpRFxqZkaxXdEvdyfE
- R8d0COYv7oukV46HVfKU+ssk/eT2WM9l/pKoflJzlfwtA2/7ze7xque+Nv33o1xApeSY
- fLspK/5KGDRGFUxDOssapSw0l6CNyufcoIqnQ2jirz1Ej8It1Rx36qinpQESRYMSYAvE
- AqRqPBIJ6AVjzPUu25YZbFDu6AXXaof3U7POc4WBpFuyIvAQpJZiXAUoewSw6NoFzpN1
- QavHCa0y4HE5RueiYBomidalfv4adPZAOkEC7O2k5yyi1t+Ddky/W8W+SnO9ZYVlB8D2
- RQBQ==
-X-Gm-Message-State: AOAM533LDzDl5DA0Vl8qy8EPGI3jGrCer3Ofn57zXOv5w6Co0sU+vEzG
- p/iAQu2L/YiWMsr5Rz8aKrbS4WqtrUeJ1UegPCinoIqIJQ8JmxCEhUUATAPsselRFbGO2rsitMV
- /oeYLS9p9UgbIpK8Imr+TcEzvDjf9
-X-Received: by 2002:a17:906:408d:: with SMTP id
- u13mr3539574ejj.128.1621628761493; 
- Fri, 21 May 2021 13:26:01 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwWdTt0OF6CxsPUnwkdM+BeqLBz1MEl7r1QIb+Pld1fs/jKvj4IlpWl2lFYHMg6LfydV3c3fQ==
-X-Received: by 2002:a17:906:408d:: with SMTP id
- u13mr3539559ejj.128.1621628761262; 
- Fri, 21 May 2021 13:26:01 -0700 (PDT)
-Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id l28sm4751766edc.29.2021.05.21.13.25.59
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 21 May 2021 13:26:00 -0700 (PDT)
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, anup@brainfault.org,
- Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, corbet@lwn.net, graf@amazon.com,
- Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-staging@lists.linux.dev
-References: <mhng-37377fcb-af8f-455c-be08-db1cd5d4b092@palmerdabbelt-glaptop>
- <ff55329c-709d-c1a5-a807-1942f515bba7@redhat.com>
- <YKfyR5jUu3HMvYg5@kroah.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
-Message-ID: <00d96cc3-026e-bd78-db08-f9e98a4abeff@redhat.com>
-Date: Fri, 21 May 2021 22:25:59 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
-MIME-Version: 1.0
-In-Reply-To: <YKfyR5jUu3HMvYg5@kroah.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=QPNEPMeEe3xE9g9EwhJj9uez3HAqm7pfx8k5lT3zTmo=;
+ b=G8zyKjFGUA9D+OQ+tNPdubOrEKb43xi4bXdU4JjWi6Ba7/eqOGAbJWgt/3mIvNj/Ve
+ d59nxYom0RewlDBFjLiN0hOELJnGpuBmir1DiA2jhl5Y0z9DgHLh9xhC3PxEQDp6vXVm
+ DemtE0Kds2Xjdbii8amrxZM5M7W1C4vlMgHWAxHWL8lIKLH+gajoWr2/1U7RwIZxwUU4
+ 75TcbPTO15v8mg3Rkgl8h7rE10+PG04A/WLZlyM57K6w718HTok/F0QCxmqaSOMKrtMB
+ deSSJhVPaFsiW4tQKZmLvgnwl+n1MOe2xHd/U1uQ19zeo+OMJQkmWMKX0bgOkgDM6P7S
+ GZYQ==
+X-Gm-Message-State: AOAM532nWggy05SuypBKKczwqLBxf0qL24oz+kolTtFb57NAa+AEmdnk
+ MVOf0eLCkxtKHXZlUe+obRjOmA==
+X-Google-Smtp-Source: ABdhPJwPHLG9iyB+aYpacJGoRqHYa2+2RjDDNnN4kimuvo5iN4nYceLAx98VcjSyosIUdQehkf/O+Q==
+X-Received: by 2002:a17:902:8682:b029:ef:d2:4311 with SMTP id
+ g2-20020a1709028682b02900ef00d24311mr14466302plo.4.1621640419439; 
+ Fri, 21 May 2021 16:40:19 -0700 (PDT)
+Received: from localhost.localdomain (114-44-1-239.dynamic-ip.hinet.net.
+ [114.44.1.239])
+ by smtp.gmail.com with ESMTPSA id w19sm4888442pfu.215.2021.05.21.16.40.18
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 21 May 2021 16:40:19 -0700 (PDT)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org
+Cc: vincent.chen@sifive.com
+Subject: [PATCH] riscv: skip errata_cip_453.o if CONFIG_ERRATA_SIFIVE_CIP_453
+ is disabled
+Date: Sat, 22 May 2021 07:40:15 +0800
+Message-Id: <1621640415-24971-1-git-send-email-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210521_132605_446105_B2DD5980 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20210521_164021_268461_1D5DA570 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,41 +107,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/05/21 19:47, Greg KH wrote:
-> If this isn't in any hardware that anyone outside of
-> internal-to-company-prototypes, then let's wait until it really is in a
-> device that people can test this code on.
-> 
-> What's the rush to get this merged now if no one can use it?
+From: Vincent <vincent.chen@sifive.com>
 
-There is not just hardware, there are simulators and emulators too (you 
-can use QEMU to test it for example), and it's not exactly a rush since 
-it's basically been ready for 2 years and has hardly seen any code 
-changes since v13 which was based on Linux 5.9.
+The errata_cip_453.o should be built only when the Kconfig
+CONFIG_ERRATA_SIFIVE_CIP_453 is enabled.
 
-Not having the code upstream is hindering further development so that 
-RISC-V KVM can be feature complete when hardware does come out.  Missing 
-features and optimizations could be added on top, but they are harder to 
-review if they are integrated in a relatively large series instead of 
-being done incrementally.  Not having the header files in Linus's tree 
-makes it harder to merge RISC-V KVM support in userspace (userspace is 
-shielded anyway by any future changes to the hypervisor specification, 
-so there's no risk of breaking the ABI).
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Vincent <vincent.chen@sifive.com>
+Fixes: 0e0d4992517f ("riscv: enable SiFive errata CIP-453 and CIP-1200 Kconfig only if CONFIG_64BIT=y")
+---
+ arch/riscv/errata/sifive/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-At some point one has to say enough is enough; for me, that is after one 
-year with no changes to the spec and, especially, no deadline in sight 
-for freezing it.  The last 5 versions of the patch set were just 
-adapting to changes in the generic KVM code.  If the code is good, I 
-don't see why the onus of doing those changes should be on Anup, rather 
-than being shared amongst all KVM developers as is the case for all the 
-other architectures.
-
-Paolo
+diff --git a/arch/riscv/errata/sifive/Makefile b/arch/riscv/errata/sifive/Makefile
+index bdd5fc843b8e..2fde48db0619 100644
+--- a/arch/riscv/errata/sifive/Makefile
++++ b/arch/riscv/errata/sifive/Makefile
+@@ -1,2 +1,2 @@
+-obj-y += errata_cip_453.o
++obj-$(CONFIG_ERRATA_SIFIVE_CIP_453) += errata_cip_453.o
+ obj-y += errata.o
+-- 
+2.31.1
 
 
 _______________________________________________
