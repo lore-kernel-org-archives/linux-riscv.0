@@ -2,123 +2,101 @@ Return-Path: <SRS0=oP9+=KQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F5D2C4707A
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AE21AC47076
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:23:13 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E06B860E0C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:21:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E06B860E0C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 389F561168
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 May 2021 17:23:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 389F561168
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
+	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:In-Reply-To:
+	Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mMcTKQ1RFk8+WEO43Lx/s+WuouMb54CyTEYbrIPtOSM=; b=d8aAC+0N1zez/kvBe0OgZ8EMKv
-	KWVS648ZEGJEv2eGRMfL49AgOttYV6BvhvsSKgb5JDyuSgYFZVS3sa/37VY0JJkLqQB2UoKpJbIEz
-	CNXZOM5MQmnrPG/2VmMZTP3gUxxaRe7h6ok2mbbUGtDjZpdYawdDcmkOWB5ZyeqC8am+8uUJqUsFE
-	l/f4WoBjt9MSW+7WbJz99Q75khkkFialTpePdZJYhyRlhmfc2JUXdLWk/EdKH5NcsCgMwv7X8yqKh
-	kvB8CqNTOlnupMZvlMdZOswGKQzm0nZUh0Hj9l9SQcVpYDgTfbHk35yIN+4ibldvn77SsrP2R/Tnb
-	db2S0Y/w==;
+	bh=iEAynHV8GNbJUuMG8Qzc8sXW1UVrMy6gKmG8NZjmL4Q=; b=MuO6mTn2wYTV1tclt+gxLYXuFb
+	pT8PXnkJ/aW0PFZtiuYA4SbqOQoeSE1UEitItVT2i3C3QSzjopPVim+Y70+S3AlOhVKEX6mp0Rj/w
+	UctuicL4l7iUZ06JARdQ9Xoay7mhcUG45JWqAZa1FWzpAUxh3sYLiJxlGxTkGcNmAkeJsadUhQeGS
+	kwrgValg6378yN7InOUFq9t1p4v4yWDvZkBWygei9286gpzg9BT2qTjvx71o9oqfMtdVw8+OaOcEx
+	61u+oHP3kpAPfqkJhYcian3tAWO5Kkf9x2A9D2AlD7X3vUEBDip3Q0a4KOkDu407Odd9in5M5TKDC
+	lMBovp5Q==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lk8pz-000TAv-5i; Fri, 21 May 2021 17:21:27 +0000
+	id 1lk8rO-000Tbu-C3; Fri, 21 May 2021 17:22:54 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lk8pv-000T9e-BH
- for linux-riscv@desiato.infradead.org; Fri, 21 May 2021 17:21:24 +0000
+ id 1lk8r0-000TST-Jf
+ for linux-riscv@desiato.infradead.org; Fri, 21 May 2021 17:22:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
- Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References
- :Cc:To:Sender:Reply-To:Content-ID:Content-Description;
- bh=qwR/0GNmU1erDIzfTwdpHCjLZxYNU+OZQVJXmXfAYfM=; b=2nokiKDWuYXXgq6vqa0jvhUu0p
- UqbNb5Ve0HjS0XaoGmB5L/0CdtsDWzLo8GX7/1uJGOkoa3w5GOlO8EL1Enh4sKcYnna1yKBAFavnK
- NzEvYRkcU3QeFfTKwhvmlnM2DPnt89B/f8BdZaGoj7EH4oguZGiiQcqfYoDm825EO0DaO0yFUKnbc
- KNDCGOA8FZY6uWp3cGKU2ybDXJwu/swrmVk3+DOsnPEIhyGog/hjS3RCmiNE936kvI8H1z+Ovh24p
- WaG+0nI2Im0J0WUDDZX4lH9uhkG0d8HrFav2+7oq+TCoUGDQFUoAv/cIh1bLE0EfXVGv/46cCZLof
- SmpGR6bg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:MIME-Version:References:
+ Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=OxzA+Gn/ccTryb9Et76MKiO/XUXjIk86duT1i91PIbc=; b=EGarGTzvFKF/OKVFjQ+yvvWEO7
+ 8zSZKVs52SLD4vjtywdcrOnjZjMB2UF0GdquqUDkinAXe7VB2QJxp/3Y8FAZ7lUHWTeKts+q22xoU
+ a2ajEirQIzVWBXc5C6Upl2XkBK9D/gHn5HiHnQnLcWc2g8z7Lvfdm2EGwLn1xtgmf89hxvA5DVdLp
+ 90roHDTrDdtLAAVoDiE3r57OQlGpyq83XX6Z5Hpz/wAyAQupy3FDTKySSG9gldB5eHhyL6LD+QAUv
+ XptaZXkLgpj+opJAPVXtZD7rCTTuWH886cUTABe0DfRleTqhG8KJEnCpgk7dXr9RKbCxsEZGk32KU
+ aYzB6GlA==;
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lk8ps-00HJ8W-Iv
- for linux-riscv@lists.infradead.org; Fri, 21 May 2021 17:21:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1621617678;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=qwR/0GNmU1erDIzfTwdpHCjLZxYNU+OZQVJXmXfAYfM=;
- b=CCihWsLBld0vIX6h828dfgM5/f81LWzCA2y4ZGnswJP9BSZQEUYCfom/XO1YBZhPqG0vjh
- ebc7huFLriC6ALJcr/qZor1TQISZvfKTuy69k8I/9zPWVcpOt0VdmbW01yJIhl7NXSCKq3
- 4qZg+o9LU5pBr9+nKZEfJapZaZY+/KM=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-272-B-7Vu3JkN9KENkC7ssWGeA-1; Fri, 21 May 2021 13:21:16 -0400
-X-MC-Unique: B-7Vu3JkN9KENkC7ssWGeA-1
-Received: by mail-ej1-f69.google.com with SMTP id
- e1-20020a170906c001b02903d958aadd4fso4986991ejz.23
- for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 10:21:16 -0700 (PDT)
+ id 1lk8qx-00HJD4-Nu
+ for linux-riscv@lists.infradead.org; Fri, 21 May 2021 17:22:29 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id a11so20912353ioo.0
+ for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 10:22:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :mime-version; bh=OxzA+Gn/ccTryb9Et76MKiO/XUXjIk86duT1i91PIbc=;
+ b=aq0lY0K3ymgvdxaaWh+7wFuf0qKh7K/+R9p5xjwFFufrr7GaSSw6pzHTei8gpQXWuK
+ 7LVEojqiUriV2Ecj3v5U8adtDbR+PndPTswQxXdgyvOirjC33kQ3eIhW4f3vcDU3vIPZ
+ T52/Qzo691vuY+pjjpxkHRDycx+uf4MPqtTnZjyrJnBTP5Y37NGSGC6Q++V1CIeMbIGK
+ 3saI7RocnZIpu54MaN2tzvQ07whUeStvSnBHh4FsHRZ/j7dNhvbyfnMwxt440F4FzWa0
+ JwLY2qIaTuiK4xENy5d2cRw5VyXL9nV/+EORvboQTxl1Qq7gwxxAyp5H4QWPgsHORloa
+ 11Qg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:references:from:subject:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=qwR/0GNmU1erDIzfTwdpHCjLZxYNU+OZQVJXmXfAYfM=;
- b=FMTlzE88XNxIVN8Ik1butMiZz0b36lDnY/QvBiVYcAU2Pk591yzy/C+ib/52xXvyd7
- x4EcuexlkkMSMLS4QFdprXSs1ebFSsBcDrt+FK2jsm/up+3/ESF7P31QEpGsEPxj81jb
- BQbjamkLKvlwviJ1dVlF4VmwtOVzBQuwIbna0poxeo7FodcuuKVIA/BmjAMuZnRrUpe/
- 3G7l+QDxMP7qtZ1SeNc7sXfYxwpuWtNm7AQoBaY/5uKLrISHVJSK0dAsCwTRT7haXaog
- LmVZamsEGMDC3ZVYSTx3crynI8oJMQX8bHNQnO2aUvzFHJQXOBXnU52xoTfCExQXUwlJ
- P4yg==
-X-Gm-Message-State: AOAM533um5ABeFdXTX8fxfiaBBoIu0e/JRCB8B93w5up0riLXmlC5uQu
- 4sCZZ5QETbdc4BCqgyx5XW5if5eQM6rMxQXTzkQgQkGp27F3DHPBl8vB+Waf/HdTkhNTSvDiYYx
- fdnARoOmvO/AblQ1EXW/awL+/R7WQ
-X-Received: by 2002:aa7:cd03:: with SMTP id b3mr12350063edw.206.1621617675165; 
- Fri, 21 May 2021 10:21:15 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxs1PPEtRit2YsbPl3fyEJzFG+BMaVTPI5cJbO+TcDqnJ8UNSbmnYU1JgZsPGIv6fh/e498XA==
-X-Received: by 2002:aa7:cd03:: with SMTP id b3mr12350048edw.206.1621617675016; 
- Fri, 21 May 2021 10:21:15 -0700 (PDT)
-Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id m12sm4079494edc.40.2021.05.21.10.21.13
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 21 May 2021 10:21:14 -0700 (PDT)
-To: Palmer Dabbelt <palmerdabbelt@google.com>,
- Greg KH <gregkh@linuxfoundation.org>
-Cc: anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- corbet@lwn.net, graf@amazon.com, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-staging@lists.linux.dev
-References: <mhng-37377fcb-af8f-455c-be08-db1cd5d4b092@palmerdabbelt-glaptop>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
-Message-ID: <ff55329c-709d-c1a5-a807-1942f515bba7@redhat.com>
-Date: Fri, 21 May 2021 19:21:12 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:mime-version;
+ bh=OxzA+Gn/ccTryb9Et76MKiO/XUXjIk86duT1i91PIbc=;
+ b=jADnVtTJ73mOUH/OQXhOfXFggGPr3AwZ7P7+GupgKldH9Xs8h3oLlmcsw8wFSBphn7
+ gAWh3ynL+UDwy/KHaAO6W3aRcIEOsgEJ6jDOHOM0gYTRkKAVKthGnuV98kQ2o9mhL3AM
+ 61gIRs/c6oHFT+cqiMA0aZfLg9gyqfbjCMKr6fhQK9X5pTq7EZinc8KTxwcGG3XxS0Fx
+ ELUbJhd31oRh7yvZ1JLGOkSCjDmiLPIv1rb1hPvbq48zYD4QLy56V1AgD+M/uad6UzGa
+ IHeZXWAtSh/oJRdWpesXqG4d4PbOjDtgB5lm0xsdrUz4sj5FK92mgNclTUZ23wg7qc5x
+ t9Wg==
+X-Gm-Message-State: AOAM532UsfptXAKhnSma7yd5a9jbHVZnLq7nv7f7rIBsv7zkLFg3kK+7
+ CSptklwlOneZzYInQvIobyljdA==
+X-Google-Smtp-Source: ABdhPJzmpEELKtk7YrUKq2YtrdOM6YKc8MAFHH9i5izCQfeOTORlV5uPKQqiL4cTgEb/zlY4RallAw==
+X-Received: by 2002:a6b:690c:: with SMTP id e12mr13365539ioc.69.1621617745956; 
+ Fri, 21 May 2021 10:22:25 -0700 (PDT)
+Received: from localhost ([2601:8c4:0:1be::1e4])
+ by smtp.gmail.com with ESMTPSA id k13sm4535908ils.45.2021.05.21.10.22.25
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 21 May 2021 10:22:25 -0700 (PDT)
+Date: Fri, 21 May 2021 10:22:24 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Anup Patel <Anup.Patel@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: arch/riscv/staging
+In-Reply-To: <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
+Message-ID: <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
+References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
+ <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <mhng-37377fcb-af8f-455c-be08-db1cd5d4b092@palmerdabbelt-glaptop>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210521_102120_715150_E3212EFA 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20210521_102227_831691_9EE76C88 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,41 +108,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/05/21 19:13, Palmer Dabbelt wrote:
->> 
-> 
-> I don't view this code as being in a state where it can be
-> maintained, at least to the standards we generally set within the
-> kernel.  The ISA extension in question is still subject to change, it
-> says so right at the top of the H extension 
-> <https://github.com/riscv/riscv-isa-manual/blob/master/src/hypervisor.tex#L4>
-> 
->   {\bf Warning! This draft specification may change before being 
->   accepted as standard by the RISC-V Foundation.}
+Hi Damien,
 
-To give a complete picture, the last three relevant changes have been in
-August 2019, November 2019 and May 2020.  It seems pretty frozen to me.
+Thanks for the thoughtful and considered E-mail.  I know you addressed 
+this to Palmer, but maybe you'd be willing to discuss this a little bit 
+with me?
 
-In any case, I think it's clear from the experience with Android that
-the acceptance policy cannot succeed.  The only thing that such a policy
-guarantees, is that vendors will use more out-of-tree code.  Keeping a
-fully-developed feature out-of-tree for years is not how Linux is run.
+On Fri, 21 May 2021, Damien Le Moal wrote:
 
-> I'm not sure where exactly the line for real hardware is, but for
-> something like this it would at least involve some chip that is
-> widely availiable and needs the H extension to be useful
+> For the hypervisor extension and KVM support, the specifications are now very
+> stable and while changes due to the advanced interrupt controller specs work,
+> among other, are still possible, the changes will likely be small and should not
+> cause much headache in the kernel.
 
-Anup said that "quite a few people have already implemented RISC-V
-H-extension in hardware as well and KVM RISC-V works on real HW as 
-well".  Those people would benefit from having KVM in the Linus tree.
+This is the part that I don't quite understand.  If everyone -- including 
+the architecture folks working on the ISA extension at riscv.org -- agrees 
+that the H extension isn't going to change significantly, why don't they 
+freeze the extension?  Could it be that the RVI folks are worried that 
+they may need to make significant changes, and that's why they haven't 
+frozen it yet?
 
-Paolo
+> Given that there is already HW (and QEMU) supporting H extension, we 
+> really need to move forward with merging riscv KVM support.
 
+This is maybe a side question, but: has someone actually put the H 
+extension into silicon?  My understanding so far is that it's only been 
+implemented into an experimental FPGA soft-core so far.
+
+> That will reduce the risk of seeing forks pop out here and there and 
+> greatly facilitate Paolo and Anup work.
+
+When you write about forks, are you worried about architecture forks, 
+forks of Anup's patchset, or some other kind of fork here?
+
+I ask because in the past, it sounds like there's been some concern from 
+WDC that someone else will come along and submit an alternative RISC-V KVM 
+patch set that we'd somehow prefer over Anup's.  That's pretty 
+unlikely; I think everyone involved -- certainly including Palmer and I -- 
+know that you guys have done the foundational work here, and you guys 
+would certainly have clear precedence here, unless there turned out to be 
+something wrong with the WDC patchset that you all wouldn't be willing to 
+fix.  But maybe I'm misunderstanding your concern?
+
+> For this, I propose that we create arch/riscv/staging as a temporary location
+> for on-going work for supporting ISA extensions that are being drafted but not
+> yet frozen. That will allow the community to share a common code base for the
+> support code, and also allow more eyes to look at the extension themselves.
+> This way we can both facilitate and accelerate riscv ecosystem development while
+> also speeding up the specification work by providing constant feedback.
+
+If the goal is to create a common code base for testing and discussing 
+draft extensions, we'd be happy to maintain another branch or another 
+k.org tree to hold these. 
+
+But in terms of the suggestion to create arch/riscv/staging, I think 
+that's just going to create the same problems that the RISC-V patch 
+acceptance guidelines were intended to solve.  To put it differently, from 
+my point of view, it's a feature, not a bug, that we don't send code for 
+discussion drafts of ISA changes upstream to Linus.   But maybe I'm 
+misunderstanding what you're looking for ?
+
+
+regards,
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
