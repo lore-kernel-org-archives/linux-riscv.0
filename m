@@ -2,99 +2,94 @@ Return-Path: <SRS0=Qta6=KR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79E02C04FF3
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 03:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A716C2B9F2
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 05:15:23 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CAF29613D6
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 03:06:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CAF29613D6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9D034610C8
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 05:15:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D034610C8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding
-	:Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKff8qs+GmhD3TOPNmXoC7B1bQRLC3WZHsQSV5JYav8=; b=eTkjbejySRegZLY0nndUUahVC2
-	c7nZsaf31A6kEeJKqYqbZTi70O/wYKeHukDAm+KtFLd3e0iw425py18Nge6tUPZq/vxBrq6Eih0XJ
-	qJObUCQPnYWqpX++wPe6qQiLcu4Yn6KdoW0fZu0ZWnztrtMOO2CPbqOw/3bblNHp9KcTdiJXblX5Q
-	yIdkZcKhVPy6hFOvT0auQqUjDtJF30nifoGN96UbhUItYlgeKHSStUYrtmzvlKLHPTH+AEc8+82yN
-	SUoRGcDw8EKgkNegJUe+6KlwhKXOwRHfYrocfiJG6oC+mcq46FL3jZ79H9fgmDLvRzymWWAb9JfI4
-	CgMO1wdg==;
+	d=lists.infradead.org; s=desiato.20200630; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:Date:Message-ID:Subject:From:References:Cc:To:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uMUjOtucx4wTV8xSezmGB7jguVWAI8G7WfVYsYtlcQw=; b=OrgHSKWWtxMVyCPUBtRM83Cb1R
+	YXMjb4U+9UU+8lB/RSi+nGK2JBCDU0Nr82WDwCXt2uCpj9ozFzzMgy92c/pjtKL92CgmNMG+/SOBQ
+	Gvve1mgD+lrWAmMqlgwBFKhdVPcxgcpxfm9OAK3wWQHnDv1fV0sPWzEigAAKqvjKepudhSdXHOId8
+	CqInM7c3lDQPRH73xN2rtfU9ZMQpnihBVbpMGoWeqipQxkN1EG1y9RDsVQ92IUUF85Ig4s0jPULma
+	TbGx9VSJB2TedpwjDkz7wjLikmrmX1N7XtcmthBDtRVIhC/yFF4nWFvvRNz2o5/if0JJwj5VzpbUF
+	65Mn2ifg==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lkHxr-001gce-Hj; Sat, 22 May 2021 03:06:11 +0000
+	id 1lkJyO-001qa4-7U; Sat, 22 May 2021 05:14:52 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lkHxp-001gcV-HX
- for linux-riscv@desiato.infradead.org; Sat, 22 May 2021 03:06:10 +0000
+ id 1lkJy6-001qXV-Qr; Sat, 22 May 2021 05:14:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=bombadil.20210309; h=Content-Type:Cc:To:Subject:Message-ID
- :Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+ d=infradead.org; s=bombadil.20210309; h=Content-Type:In-Reply-To:MIME-Version
+ :Date:Message-ID:Subject:From:References:Cc:To:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=f0Zo8cm4stwzdU9UqoCMa2cZOAhsKZ2r8/0ZXW0PTgs=; b=Jmo2JmvckKBoXavcPik8h6Kzdj
- OUEQ/fWn5Id8jLb2I6Ia8ROCqWhds3z28aHVFg60mkhVk1rvueMWv5YLJYTm/PCS6JRd4m85Ay1tY
- yMZxfc7XGoRFWMjUAejZYRI2+XnKzoEsp23LwWymyrYWmhGZLQDbwSfiCDE1lrhVxMkZN4aRRcVQX
- IQnmYD6MMqPsunYo5/ro6CQAt2iF8fz8bnR55o4TXkTapgN+BR/bn3VgFW46dajBk8MeZnaJDqQlk
- PW/O/MBJVCiZERdGq9Nb2V9bUz2kNZvv+PrnvBahehxpQGVUKZM0sfh6PAXCLc5jIBjnFhKO8lNQu
- fA4+eDtg==;
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+ bh=fE0DYmrm9SxpZYdTHC8iCMREL4dmAA5TTbNe80rzyKI=; b=zMcA8a2+iwPUnytzWjXxlov/Y+
+ CuXcQx7OFu7Yp4JlWgXAqlKRHe5MpeaqlKodUSknuh7L61BcANG5HeOXqjPgmZeuktUAaSHRnEJ2G
+ sUz+vATYp9jZp9uE8of7mPthWiMtS+f1EsDJeKL7zClZazDoOQXEYc7lO/w1DU2n3vk3QmrYafbQ1
+ kuEmdu6oh2rEn4TruF3d4aCXg4j/99FeUmhGCTbNQ/X3RnqhDEIThBG1zHpNkHJAeM3u4d2YSHDda
+ WDua4yvEBfsVk5o+sq0L+S1I5m0o0g5eNE8AuJhECvGEiktCfoHYzTIgjIyv0x3sKO44awnayEFSx
+ fpUbjK4A==;
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lkHxm-00HXmc-97
- for linux-riscv@lists.infradead.org; Sat, 22 May 2021 03:06:08 +0000
-Received: by mail-wm1-x336.google.com with SMTP id u133so12067047wmg.1
- for <linux-riscv@lists.infradead.org>; Fri, 21 May 2021 20:06:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=f0Zo8cm4stwzdU9UqoCMa2cZOAhsKZ2r8/0ZXW0PTgs=;
- b=MeAtjn6tA7yUDONHuRGrU5sOT0MVy0eTdxIdMY54c49wRl5dvnmJzfewtEJJWXq8kE
- RMgkP1j4fvtLv4dZpzTjV6KAbrXG6cAYtXbUrnYVxYgH9jx88pxrupYAhvkbtUOkOE0T
- VuZuFJhUQRC8PuwsPYQi6OY26SKYPZAkl6FaYmdAiuPj1P7vs03QncPfOXMYgS1mYDxR
- FFvUQIKwdhU/JhxOb8cmaC4FXCDdKtYa5bQ318q+SLKCy92kA/Rp0/wI/l+KpxFxjLA3
- PsRKF63i22BQb6pgKgZyb/3eNuM2YTlm4woyd+hZcvAfj4eBsxqzakeY8s2XtXAoW1vM
- 8vDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=f0Zo8cm4stwzdU9UqoCMa2cZOAhsKZ2r8/0ZXW0PTgs=;
- b=dEvt9b4NHrGS2KzzasQ55Sa811AwNdYmKMQTw/w7xSsOhrvR1f39gIHUTwuFH7ON1M
- 09j5DPH5tO8b6fOwsQtEVtW6i6quW2tg+PK7OP2eZJrt1GzzMujNOfSyZa/z2d9OdXbf
- YhyCMWMpA5P4BJkrIU5iJH4je8mM8glgSqgUrCX8E2dSZoXSOvy+sC6mbkyL8Mo/2wC1
- 2tky5mcbErr/Uw2XNkaG6qK7ttOK3CSi8IObkTi2PX9n8CgjabAu83SveNqk4XwPHdYz
- GdsyjFbkvLWwHq06nOWSmrqrYkH8NJe1AhdxkrG9vFDZYbunwoNN65eSvJAjeiSmWjjJ
- da8A==
-X-Gm-Message-State: AOAM532RXI5ojaOBmKpRlO7kv/9ajRG1NU5w1/BLO/lfvHcmWiIC+0IM
- r3HjoKYCiHTqxUEaWLXkVtOjna0/fnVXrX6gsK8zjySgiMiT97YY
-X-Google-Smtp-Source: ABdhPJypufT92hg2OijZZWiwsPkAyDaYLoNr27GhAzYR36ckLjbs6l3QrJwSLhlZzu5A1koVAAw03hubzpBeHO78l10=
-X-Received: by 2002:a1c:4e0b:: with SMTP id g11mr11079031wmh.3.1621652762054; 
- Fri, 21 May 2021 20:06:02 -0700 (PDT)
+ id 1lkJy3-0000ft-Pq; Sat, 22 May 2021 05:14:33 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1621660467; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=fE0DYmrm9SxpZYdTHC8iCMREL4dmAA5TTbNe80rzyKI=;
+ b=dyswBoL09pf/e3t8Xn6tbAtVB2GFnAELtpQwp9alptrlr+Q8uaitdfYjXHS+9zTkR5aa/V
+ /zqkwMAeNqRLKZMsc79az2riu5QknFBLNbdDQ4l6JWbPiMNqyelW4Gwm4Qz5gzx8lYAat3
+ UexIb4asXmRFPcZxyyCCDXi/b2Y8R6A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1621660467;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=fE0DYmrm9SxpZYdTHC8iCMREL4dmAA5TTbNe80rzyKI=;
+ b=oZpTW1j1zGwpEeSEuClOLupKR40dJykDS3YZ0DHQNmN43SqmUnOQucMJB4LXRABGIEfg7w
+ +Kjygicj77dnJCDQ==
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 6B63DAAFD;
+ Sat, 22 May 2021 05:14:27 +0000 (UTC)
+To: Javier Martinez Canillas <javierm@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Russell King <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org,
+ Hans de Goede <hdegoede@redhat.com>, linux-efi@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Peter Robinson <pbrobinson@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20210521193704.3042024-1-javierm@redhat.com>
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Subject: Re: [PATCH 2/2] drivers/firmware: consolidate EFI framebuffer setup
+ for all arches
+Message-ID: <e23a44ba-5e9d-d27b-b5e8-0cce3b158ed7@suse.de>
+Date: Sat, 22 May 2021 07:14:25 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
 MIME-Version: 1.0
-References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
- <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
- <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
-In-Reply-To: <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 22 May 2021 08:35:49 +0530
-Message-ID: <CAAhSdy3RFGEq0+ZWUjsVCsmR8EvQzs6JOQMRXt7+92wNnCE27w@mail.gmail.com>
-Subject: Re: arch/riscv/staging
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Anup Patel <Anup.Patel@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+In-Reply-To: <20210521193704.3042024-1-javierm@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210521_200606_403918_C7929D4F 
-X-CRM114-Status: GOOD (  36.85  )
+X-CRM114-CacheID: sfid-20210521_221432_156639_4B1F9E46 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,118 +101,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7567466148420279855=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+GregKH
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============7567466148420279855==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="JtNxE1TITTUjh336w2OlWq1BXvBZPIZL1"
 
-On Fri, May 21, 2021 at 10:53 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->
-> Hi Damien,
->
-> Thanks for the thoughtful and considered E-mail.  I know you addressed
-> this to Palmer, but maybe you'd be willing to discuss this a little bit
-> with me?
->
-> On Fri, 21 May 2021, Damien Le Moal wrote:
->
-> > For the hypervisor extension and KVM support, the specifications are now very
-> > stable and while changes due to the advanced interrupt controller specs work,
-> > among other, are still possible, the changes will likely be small and should not
-> > cause much headache in the kernel.
->
-> This is the part that I don't quite understand.  If everyone -- including
-> the architecture folks working on the ISA extension at riscv.org -- agrees
-> that the H extension isn't going to change significantly, why don't they
-> freeze the extension?  Could it be that the RVI folks are worried that
-> they may need to make significant changes, and that's why they haven't
-> frozen it yet?
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--JtNxE1TITTUjh336w2OlWq1BXvBZPIZL1
+Content-Type: multipart/mixed; boundary="IkKD6gurUFm5U0BsW26VqMVD5IckojXuq";
+ protected-headers="v1"
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: Javier Martinez Canillas <javierm@redhat.com>,
+ linux-kernel@vger.kernel.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Russell King <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org,
+ Hans de Goede <hdegoede@redhat.com>, linux-efi@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Peter Robinson <pbrobinson@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Message-ID: <e23a44ba-5e9d-d27b-b5e8-0cce3b158ed7@suse.de>
+Subject: Re: [PATCH 2/2] drivers/firmware: consolidate EFI framebuffer setup
+ for all arches
+References: <20210521193704.3042024-1-javierm@redhat.com>
+In-Reply-To: <20210521193704.3042024-1-javierm@redhat.com>
 
-I have been involved in the H-extension spec development for the past
-few years working with RISC-V ISA architects (Andrew and John.) I am also
-involved in the RISC-V AIA specification as chair. I confirm that all required
-provisions are already there in the RISC-V H-extension to support an
-external interrupt controller with virtualization acceleration (such as
-RISC-V AIA).
+--IkKD6gurUFm5U0BsW26VqMVD5IckojXuq
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
 
-In fact, Paolo (with his years of experience in KVM virtualization) also
-confirmed that current H-extension have all required features.
+Hi
 
-Clearly, significant changes are very very unlikely.
+Am 21.05.21 um 21:37 schrieb Javier Martinez Canillas:
+> The register_gop_device() function registers an "efi-framebuffer" platf=
+orm
+> device to match against the efifb driver, to have an early framebuffer =
+for
+> EFI platforms.
+>=20
+> But the Generic System Framebuffers (sysfb) already has support for thi=
+s.
+>=20
+> Instead of having duplicated logic for x86 and other architectures usin=
+g
+> EFI, consolidate the two in sysfb and remove it from the EFI init logic=
+=2E
+>=20
+> Signed-off-by: Javier Martinez Canillas <javierm@redhat.com>
+> ---
+>=20
+>   arch/arm/Kconfig                  |  1 +
+>   arch/arm/include/asm/efi.h        |  5 +-
+>   arch/arm64/Kconfig                |  1 +
+>   arch/arm64/include/asm/efi.h      |  5 +-
+>   arch/riscv/Kconfig                |  1 +
+>   arch/riscv/include/asm/efi.h      |  5 +-
+>   drivers/firmware/Kconfig          |  7 ++-
+>   drivers/firmware/Makefile         |  2 +-
+>   drivers/firmware/efi/efi-init.c   | 90 ------------------------------=
+-
+>   drivers/firmware/efi/sysfb_efi.c  | 77 +++++++++++++++++++++++++-
+>   drivers/firmware/sysfb.c          | 40 +++++++++-----
+>   drivers/firmware/sysfb_simplefb.c | 29 ++++++----
+>   include/linux/sysfb.h             | 28 +++++-----
+>   13 files changed, 145 insertions(+), 146 deletions(-)
+>=20
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 24804f11302..30ba195ca72 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -127,6 +127,7 @@ config ARM
+>   	select PERF_USE_VMALLOC
+>   	select RTC_LIB
+>   	select SET_FS
+> +	select SYSFB
 
->
-> > Given that there is already HW (and QEMU) supporting H extension, we
-> > really need to move forward with merging riscv KVM support.
->
-> This is maybe a side question, but: has someone actually put the H
-> extension into silicon?  My understanding so far is that it's only been
-> implemented into an experimental FPGA soft-core so far.
->
-> > That will reduce the risk of seeing forks pop out here and there and
-> > greatly facilitate Paolo and Anup work.
->
-> When you write about forks, are you worried about architecture forks,
-> forks of Anup's patchset, or some other kind of fork here?
->
-> I ask because in the past, it sounds like there's been some concern from
-> WDC that someone else will come along and submit an alternative RISC-V KVM
-> patch set that we'd somehow prefer over Anup's.  That's pretty
-> unlikely; I think everyone involved -- certainly including Palmer and I --
-> know that you guys have done the foundational work here, and you guys
-> would certainly have clear precedence here, unless there turned out to be
-> something wrong with the WDC patchset that you all wouldn't be willing to
-> fix.  But maybe I'm misunderstanding your concern?
+Don't select this as part of the architecture. Rather make an option for =
 
-This is certainly your misunderstanding. Like Paolo mentioned in other
-thread, the current KVM RISC-V is in good shape and as-per expectations
-of the KVM core maintainer.
+SYSFB that depends in the architectures that supports it.
 
->
-> > For this, I propose that we create arch/riscv/staging as a temporary location
-> > for on-going work for supporting ISA extensions that are being drafted but not
-> > yet frozen. That will allow the community to share a common code base for the
-> > support code, and also allow more eyes to look at the extension themselves.
-> > This way we can both facilitate and accelerate riscv ecosystem development while
-> > also speeding up the specification work by providing constant feedback.
->
-> If the goal is to create a common code base for testing and discussing
-> draft extensions, we'd be happy to maintain another branch or another
-> k.org tree to hold these.
+Best regards
+Thomas
 
-Having a staging branch or separate tree does not work for KVM RISC-V
-because we have lot's of user-space tools (QEMU, KVMTOOL, etc) which
-expect the KVM UAPI header to be available in the upstream kernel. These
-user-space tools will not accept patches until the KVM UAPI header is available
-in the upstream kernel. Same thing was mentioned by Paolo in other thread.
 
->
-> But in terms of the suggestion to create arch/riscv/staging, I think
-> that's just going to create the same problems that the RISC-V patch
-> acceptance guidelines were intended to solve.  To put it differently, from
-> my point of view, it's a feature, not a bug, that we don't send code for
-> discussion drafts of ISA changes upstream to Linus.   But maybe I'm
-> misunderstanding what you're looking for ?
+--=20
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Maxfeldstr. 5, 90409 N=C3=BCrnberg, Germany
+(HRB 36809, AG N=C3=BCrnberg)
+Gesch=C3=A4ftsf=C3=BChrer: Felix Imend=C3=B6rffer
 
-For KVM RISC-V, the arch/riscv/staging directory is a perfect solution
-because:
-1) The KVM RISC-V UAPI is header is indeed based on the latest
-ratified RISC-V privilege spec v1.11 hence the KVM RISC-V UAPI
-header complies with current RISC-V patch acceptance policy.
-2) All usage of RISC-V H-extension is contained within the KVM RISC-V
-sources only. Rest of the Linux RISC-V kernel does not use H-extension
-at all.
 
-The current RISC-V patch acceptance policy should make an exception
-for draft extensions where the UAPI headers are based on ratified
-RISC-V specs and sources for such draft extension should be placed
-in arch/riscv/staging directory.
+--IkKD6gurUFm5U0BsW26VqMVD5IckojXuq--
 
-Regards,
-Anup
+--JtNxE1TITTUjh336w2OlWq1BXvBZPIZL1
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmCokzEFAwAAAAAACgkQlh/E3EQov+Am
+OQ//Qi8H2p0Hk15vY3ajQsg465AoKPe35Vm5k/maVXwrOTqvV2TpRdL3IAy5IOhvaV9VPsbibLLk
+JDP7fvy1loqvwPGA5iiSfANQIqTEtlFySY7OZx5QFXV+Sl9Cp5Y4fJ3pl+GY0IzcbvMeWsiEet8h
+OdQfvHc/aH63OVs97BayrdUtikbKcp339FZ73Ewj4ORXWAiKw/NwumOR7nQEwKxYtNQbATH7XdDG
+cK5RP4pFRsUZQsy0YLZfsV6gqzoX/QoLtfd5yDQ5e0O4g3m2TOAgCHX5eTsDXIUjocU0uOXwXGYi
+A0gyh+soRIrMkMaUwVTeke5xsd2TEz+In3ZasbAOW+q6eLUjXpE3lnjCqusOeB9Aefe4RrwtVeAp
+VLRIJnykqONYXLVAvpmBodPYuji7AYBgdtSstdZ7eggwjzu0cvgM+OBkPwNFOTUz/RO13lGi7gGW
+DE3aTiZCHCFU5w4wy1NcI9uFTw75YWZY6n5biCmrMWzlX1MgXd5ICgniRXtQ3V04hlsZpB3bKDGK
+OX4sJbFdQUVPra6zTfeYrcxVJGHBNf4rAP9ugQab7QDaFPS42gSiqPY4nccWAPs9PIadUcz7nd/y
+4Wm2mwlhUg7RxjanrgrrD/yXjbD5Id0ms0y96dkO+BIlP9DSj56w1WAR+QVFqvYwu2GXlQJlbOwV
+vVs=
+=RRb+
+-----END PGP SIGNATURE-----
+
+--JtNxE1TITTUjh336w2OlWq1BXvBZPIZL1--
+
+
+--===============7567466148420279855==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7567466148420279855==--
+
