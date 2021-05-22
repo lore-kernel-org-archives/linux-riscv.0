@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3889DC2B9F2
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 15:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D166C2B9F2
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 16:29:24 +0000 (UTC)
 Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 64E9A6109F
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 15:59:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64E9A6109F
+	by mail.kernel.org (Postfix) with ESMTPS id ADE8F60FE5
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 May 2021 16:29:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ADE8F60FE5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,82 +23,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=gTcrn8E6qdsSZvNv+rYSrdMLU74UhoIbdH9YPFa3Euo=; b=RJE7ttphL/LOp8oSt+TdU7Wepn
-	bO18re+YqPLN+YKJ/FBXBwQEgedAUfeoT9vAieE17dvMU4Wyo8ochxh/Xl1TH+T86fG5Hwm70jcpO
-	TRwSKteeb2bZQbghARSjwTsR4LgcdcaoaBB8WcfgaIzp5K59xA8r9dnhNQ2IBiUZcKoBp2KkN4n0i
-	ARGo0G+oBfS8xhdcD9oO6G1b2UpitRgWQ1QZW7ZUS9lLwtWeg28JrPasSQZhAslYgAyIjFD2QTMir
-	RuvVg0JUw3913giJKuTNK4wWBuYBe4dAfZcNzsfPXjzIINH3OfWT5f/2tHl1wOZ6n13NGdKlWq1mI
-	WUYDYjHQ==;
+	bh=eXkxiEGIZYuU6dUodCibve/QBL7Yf7K1RCifFDjhp3E=; b=LnRmjfAvl+93GVjz9CXd2Wdzli
+	0DLOdKchuvcmvDUvbVOgk01qVKi7tDNc87kSeW8L+7gZIMYfk7mv5GrZmv7Chk925gzPRRAcqXSDJ
+	fzx6a1fKKZ6An1VoVor5acpjN2vpIjzr4cZhlw5qhZMKlckj1+OLG0RY/FEgm3tHe3/GoajoVpHsH
+	9c2qlvQ9VJ/gWkswyQ5O+ouOE3bEXTiZiEv6/JLo1wodqXZgnAOL598F7wlZEGhQ8Vf92Q3BNnViq
+	X5whioKJBTiPzUfTXEhhMQ1jneNII6bNy/jDRcY3TX6jNkTuio9BDNT9GBQkG6IiOlgYjqjaRILD5
+	8lUXa3yA==;
 Received: from localhost ([::1] helo=desiato.infradead.org)
 	by desiato.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lkU1k-002kXx-Nh; Sat, 22 May 2021 15:59:00 +0000
+	id 1lkUUw-002mwc-Qv; Sat, 22 May 2021 16:29:10 +0000
 Received: from bombadil.infradead.org ([2607:7c80:54:e::133])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lkU1i-002kXr-Mt
- for linux-riscv@desiato.infradead.org; Sat, 22 May 2021 15:58:58 +0000
+ id 1lkUUs-002mv6-1E
+ for linux-riscv@desiato.infradead.org; Sat, 22 May 2021 16:29:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
  Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
  Sender:Reply-To:Content-ID:Content-Description:References;
- bh=YC0AUzrulbfXTPGUc6+Eo3yjtdbpbQr1DON/2cAmC8k=; b=Teh74R8UxzOF3zNtlERmW89izF
- DuiSjyWL6G6ElqrclWHs9sgmS1GRe1oVMt2eCMTAd3XAHV8v04DDRC+QqqPsouNauPPgjmI1TFC6s
- 3v1LXXyeTZ9+pwxr7jFIo9cStK+e63kv/DRitvRSg0+hmzvIMzqDfZMwmbrX7bka3hEFCBs5lEDil
- 8bFVn3a4qUAoxpDsgvG9Xkz5JkmQ4GsCwG/06RrRTNjc8jAlZ5ex+GboA9NuN4qDUCFCWbye/0zgS
- r9Mu+T36pY/Mvdu5BLC7Kdm3eb4YDiX961pe7shl9vonyTEbeVwVvzj4o/JG5eSnGWpiMNlS0azUQ
- z8reTlDw==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+ bh=/RjwXMDGGnLqgaP+DWL1fFHxiRPZNOvS4B48swsRTno=; b=I1FYPt/InHZzjPHg12xxWJKYo2
+ eaOmyEiVsTyd89IqyPC0imcaB86krB2hwDIKTZUVToG8r1d8IyXlqPBeLFgmqSA1P1YEEF/Ew/1fE
+ ytUZBNct/iFQVnA1p2ttaY0cWSrBT4iMzGqDWFhM4cFYD/CGeSOoCOdbXlxdbnZ/eivoZ3G6quLC0
+ cQmjo/NOB1d7ZNEVG+58GvTg8HYbsaOmBMiVu2tkbYsLZ/k9VDx82Iih3utsFy02DNXOhH7w4dGz7
+ 5DPH02opAsI0TvtfAHQPnV3qIfIy/FCuP0NHozNqJJTt2QyIN63e0vAJc0GaoQNrzqamvbjcjCGrp
+ IOM8jFTg==;
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lkU1f-0008sK-Is
- for linux-riscv@lists.infradead.org; Sat, 22 May 2021 15:58:57 +0000
-Received: by mail-pl1-x632.google.com with SMTP id u7so3932480plq.4
- for <linux-riscv@lists.infradead.org>; Sat, 22 May 2021 08:58:51 -0700 (PDT)
+ id 1lkUUo-0009Gv-Sm
+ for linux-riscv@lists.infradead.org; Sat, 22 May 2021 16:29:04 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d16so17254401pfn.12
+ for <linux-riscv@lists.infradead.org>; Sat, 22 May 2021 09:29:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=YC0AUzrulbfXTPGUc6+Eo3yjtdbpbQr1DON/2cAmC8k=;
- b=1ZCdw+5jYXoni4Z20fd02wMjFgDKuQCeYYsbZZlGNgrYaRso7G25McVG5/j9Ndp2qo
- Lho+FiPX1jtz5f9pPWo60WCw+rqoDJ6QbZVZven1A94SEOUQMb/7CFtHD0swUVfA/92F
- 20gSHXAxKWkl5jON7/R1ufJPwir5GZcNWfbJkbdZ86POZIs9+ozjV6dY+pQuYPRU4/h6
- dN7hwg44G1JYfxQBeJp+KfW0HtJlb1TNmQChe9iylgPUbokhBuQzO5oYQz8Oo5/5YUMb
- fcyJNkG9v4o+La6OM/y3QIcsh9XPLWWP00zC/HTQXD350unyXbpCVE422Di5OkqhHJ7c
- heGQ==
+ bh=/RjwXMDGGnLqgaP+DWL1fFHxiRPZNOvS4B48swsRTno=;
+ b=Yk9YcEOZYVBiMRvYaE90Pi5hY2g5vjGYFM9Km5zSuBd29JjSD/9m8S/v/cbSAYPoyM
+ tFJw6tdHtPpuwXlqpyaIxqdtgSnYd4eCgQU3HYrElZ1OVlJB12QrOtTuzbv8+AbDg5KG
+ 4/aZJo0CGytDRppLMQiIQrCULMZZz//pPyXGMtFgF8exX04PQz1puII95xXz7ciFKZck
+ Y2Fx9iyzlR/qD8qpuR0fB9LAWFyCVE3GTs/PCvtNAJ4AhD0bXyR3l3j62CNWmBxW2C7c
+ olhL8+pc2BaEDqu6b13sbjdPuzCDcKN4Vk6++PDRsTwRbkqp38r2rGu4kf8aRyhUPyHh
+ k91g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=YC0AUzrulbfXTPGUc6+Eo3yjtdbpbQr1DON/2cAmC8k=;
- b=WEXPWekW0XJrhOohC8v0C1e4NULVgzWQSDD8PpH+l26qDNDpCLuHCKn3rl3YEUEIwF
- jjPRavnh/n8Ti+acupYFw6YCgBGHDQbXLwVwi0fTZClaVFovHl9rCZFaHoyj/u8mxWMp
- Y7dUQ5krbFnlM4evQoAArcvRAdqDacSDlTbjqygvfCPZ3VGxXc7v1prI3aiHeIY8QC8R
- 7uEcHXxMGBKuN9khpMDiwgzgAF6RozNITVEOPeZakEvyP8lYrUGB3UhOeyGQy4HNDNt3
- ZSd0xsaK6glTG0qR+iQR8JKkvAXmwWEdycR7aM2OKF5Busw9deWGnzQ0F64hFSYmguHH
- 4ILA==
-X-Gm-Message-State: AOAM5326ZpC4NMppUDl1XvBP51tN3/vEKN6uHNSW1OCxbN+BO/5i+Kde
- cEbJaJpCcDW32osrhMWzS4gQ5A==
-X-Google-Smtp-Source: ABdhPJzfD3lIGj2z7tMu9To9+LZC4m6Mitb2IPcsL/WvC7j2QUJD7RgGKOvA5D1D4ItV67bS5B5CWA==
-X-Received: by 2002:a17:90a:aa14:: with SMTP id
- k20mr16800134pjq.88.1621699131009; 
- Sat, 22 May 2021 08:58:51 -0700 (PDT)
+ bh=/RjwXMDGGnLqgaP+DWL1fFHxiRPZNOvS4B48swsRTno=;
+ b=Q1sG3hftEBLPg7elF0BHo2xjn/IO+TQAGtaQhQnEjNfhClUByDKeuIUfy8LwDl218s
+ r3QZcpIyllqTqljnV33T95pgTa2e2OtLKAPopdS4UNZTYN6sAUo8pm7c3LYAIP701PUI
+ hWpRCddCoTRkdQ5eMrfUgSjSH3tqXMf6ea0Zr1bWr3cvEom8tFrUiMKLxvCnmIafsWdx
+ Kkhpb2JbiOGA6Tr+/a6B5HhF67GSU4/x4+IkNF3YVtQxTTL6nDAZ2FUP2b+IYplgQ3km
+ 8YXgnKVEAkKfj8hUATkid8cfbqVISom1+zwSzOQ0USRfHrKrYqZ7u/kP6ncqSkCIKBV9
+ +OZw==
+X-Gm-Message-State: AOAM530fL2e6XhobwyoCp3nPy0BEYfroigp0UVxLiubohkHA091jWXaQ
+ RqhrklZnBsqgrv6At+Q8PfLlSA==
+X-Google-Smtp-Source: ABdhPJx/Pj3xp/rwchxS8fQtYfwR9q2R8JILzlEMehK9apXsKpjwxWvONYFepuAKalp9Wo590QIVcA==
+X-Received: by 2002:a63:e642:: with SMTP id p2mr4752588pgj.316.1621700941978; 
+ Sat, 22 May 2021 09:29:01 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id n69sm636105pfd.132.2021.05.22.08.58.49
+ by smtp.gmail.com with ESMTPSA id 204sm6844905pfy.56.2021.05.22.09.29.01
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 22 May 2021 08:58:50 -0700 (PDT)
-Date: Sat, 22 May 2021 08:58:50 -0700 (PDT)
-X-Google-Original-Date: Sat, 22 May 2021 08:58:47 PDT (-0700)
-Subject: Re: [RFT PATCH] riscv: mremap speedup - enable HAVE_MOVE_PUD and
- HAVE_MOVE_PMD
-In-Reply-To: <20210417003539.5bceabc2@xhacker>
+ Sat, 22 May 2021 09:29:01 -0700 (PDT)
+Date: Sat, 22 May 2021 09:29:01 -0700 (PDT)
+X-Google-Original-Date: Sat, 22 May 2021 09:28:58 PDT (-0700)
+Subject: Re: [RFC PATCH] riscv: stacktrace: fix the riscv stacktrace when
+ CONFIG_FRAME_POINTER enabled
+In-Reply-To: <20210429070348.2167483-1-chenhuang5@huawei.com>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ wangkefeng.wang@huawei.com, 0x7f454c46@gmail.com,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, chenhuang5@huawei.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang3@mail.ustc.edu.cn
-Message-ID: <mhng-5de139d5-ac6e-4f73-9d63-721790b30c26@palmerdabbelt-glaptop>
+To: chenhuang5@huawei.com
+Message-ID: <mhng-75c14e1e-a23c-404b-a1f6-235e53bdb6f3@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210522_085855_699829_DBACEE75 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20210522_092902_958277_05E3F26B 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,71 +116,118 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Apr 2021 09:37:22 PDT (-0700), jszhang3@mail.ustc.edu.cn wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
+On Thu, 29 Apr 2021 00:03:48 PDT (-0700), chenhuang5@huawei.com wrote:
+> As [1] and [2] said, the arch_stack_walk should not to trace itself, or it will
+> leave the trace unexpectedly when called. The example is when we do "cat
+> /sys/kernel/debug/page_owner", all pages' stack is the same.
 >
-> HAVE_MOVE_PUD enables remapping pages at the PUD level if both the source
-> and destination addresses are PUD-aligned.
-> HAVE_MOVE_PMD does similar speedup on the PMD level.
+> arch_stack_walk+0x18/0x20
+> stack_trace_save+0x40/0x60
+> register_dummy_stack+0x24/0x5e
+> init_page_owner+0x2e
 >
-> With HAVE_MOVE_PUD enabled, there is about a 143x improvement on qemu
-> With HAVE_MOVE_PMD enabled, there is about a 5x improvement on qemu
+> So we use __builtin_frame_address(1) as the first frame to be walked. And mark
+> the arch_stack_walk() noinline.
 >
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> We found that pr_cont will affact pages' stack whose task state is RUNNING when
+> testing "echo t > /proc/sysrq-trigger". So move the place of pr_cont and mark
+> the function dump_backtrace() noinline.
+>
+> Also we move the case when task == NULL into else branch, and test for it in
+> "echo c > /proc/sysrq-trigger".
+>
+> [1] https://lore.kernel.org/lkml/20210319184106.5688-1-mark.rutland@arm.com/
+> [2] https://lore.kernel.org/lkml/20210317142050.57712-1-chenjun102@huawei.com/
+>
+> Signed-off-by: Chen Huang <chenhuang5@huawei.com>
 > ---
-> Hi all,
+> In this way, some crash will loss the print info "Call trace:", likes that:
+> # echo BUG > /sys/kernel/debug/provoke-crash/DIRECT
+> [   61.774690] lkdtm: Performing direct entry BUG
+> [   61.775350] ------------[ cut here ]------------
+> [   61.775611] kernel BUG at drivers/misc/lkdtm/bugs.c:76!
+> [   61.776073] Kernel BUG [#1]
+> [   61.776319] Modules linked in:
+> [   61.776696] CPU: 3 PID: 1 Comm: sh Not tainted 5.11.0-rc6-next-20210208-00013-gb16da2c3b9aa #132
+> [   61.777185] Hardware name: riscv-virtio,qemu (DT)
+> [   61.777594] epc : lkdtm_BUG+0x6/0x8
+> [   61.777916]  ra : lkdtm_do_action+0x14/0x1c
+> [   61.778212] epc : ffffffe00048a7e8 ra : ffffffe0006d71a8 sp : ffffffe07fedbd90
+> [   61.778646]  gp : ffffffe0012e4208 tp : ffffffe07fed0000 t0 : ffffffe0012f2097
+> [   61.779115]  t1 : ffffffe0012f2088 t2 : 0000000000000000 s0 : ffffffe07fedbda0
+> [   61.779588]  s1 : 0000000000000010 a0 : ffffffe000c7fbb8 a1 : ffffffe001284d28
+> [   61.780017]  a2 : 0000000000000010 a3 : 0000000000000000 a4 : c10724222fbe9200
+> [   61.780473]  a5 : ffffffe00048a7e2 a6 : c0000000ffffefff a7 : 0000000000000064
+> [   61.780932]  s2 : ffffffe000c7fbc8 s3 : ffffffe000d9e3f8 s4 : ffffffe081969000
+> [   61.781405]  s5 : 000000000000004b s6 : 0000000000000004 s7 : ffffffe07fedbe80
+> [   61.781872]  s8 : 0000003ffff987e4 s9 : 0000002ab0b7ac50 s10: 0000002ab0bacb90
+> [   61.782336]  s11: 0000000000000000 t3 : 000000000000006c t4 : ffffffffffffffff
+> [   61.782794]  t5 : 0000000000000037 t6 : ffffffe07fedbae8
+> [   61.783158] status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [   61.783680] [<ffffffe00048a7e8>] lkdtm_BUG+0x6/0x8
+> [   61.784149] [<ffffffe0006d71a8>] lkdtm_do_action+0x14/0x1c
+> [   61.784516] [<ffffffe00048a5ee>] direct_entry+0xc0/0x10a
+> [   61.784849] [<ffffffe0002498ce>] full_proxy_write+0x42/0x6a
+> [   61.785209] [<ffffffe000114b7c>] vfs_write+0x7e/0x218
+> [   61.785562] [<ffffffe000114e84>] ksys_write+0x98/0xc0
+> [   61.785904] [<ffffffe000114eba>] sys_write+0xe/0x16
+> [   61.786275] [<ffffffe000003466>] ret_from_syscall+0x0/0x2
+> [   61.787175] ---[ end trace 6919e7283b64f492 ]---
+> [   61.787707] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [   61.788270] SMP: stopping secondary CPUs
+> [   61.788934] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
 >
-> After reading the risc-v privileged spec, I think it's safe to support
-> the HAVE_MOVE_PUD and HAVE_MOVE_PMD optimization on riscv. The patch passed
-> the mremap_test on QEMU. However this can't be tested on real HW due to lack
-> of HW boards, this is the reason why I mark this patch as RFT. I hope I can
-> buy a sipeed Allwiner D1 SoC powered SBC soon, at least I can test
-> HAVE_MOVE_PMD. Helping me to test on real HW is appreciated!
+>  arch/riscv/kernel/stacktrace.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 >
-> Thanks
->
->  arch/riscv/Kconfig               |  2 ++
->  arch/riscv/include/asm/pgtable.h | 12 ++++++++++++
->  2 files changed, 14 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e8074d248457..37660de68b00 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -80,6 +80,8 @@ config RISCV
->  	select HAVE_KPROBES
->  	select HAVE_KPROBES_ON_FTRACE
->  	select HAVE_KRETPROBES
-> +	select HAVE_MOVE_PMD
-> +	select HAVE_MOVE_PUD
->  	select HAVE_PCI
->  	select HAVE_PERF_EVENTS
->  	select HAVE_PERF_REGS
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index ebf817c1bdf4..287733b95d10 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -360,6 +360,18 @@ static inline void set_pte_at(struct mm_struct *mm,
->  	set_pte(ptep, pteval);
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index 2b3e0cb90d78..bde85fc53357 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -27,10 +27,10 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  		fp = frame_pointer(regs);
+>  		sp = user_stack_pointer(regs);
+>  		pc = instruction_pointer(regs);
+> -	} else if (task == NULL || task == current) {
+> -		fp = (unsigned long)__builtin_frame_address(0);
+> -		sp = sp_in_global;
+> -		pc = (unsigned long)walk_stackframe;
+> +	} else if (task == current) {
+> +		fp = (unsigned long)__builtin_frame_address(1);
+> +		sp = (unsigned long)__builtin_frame_address(0);
+> +		pc = (unsigned long)__builtin_return_address(0);
+>  	} else {
+>  		/* task blocked in __switch_to */
+>  		fp = task->thread.s[0];
+> @@ -106,15 +106,15 @@ static bool print_trace_address(void *arg, unsigned long pc)
+>  	return true;
 >  }
 >
-> +static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> +			      pmd_t *pmdp, pmd_t pmd)
-> +{
-> +	set_pmd(pmdp, pmd);
-> +}
-> +
-> +static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-> +			      pud_t *pudp, pud_t pud)
-> +{
-> +	set_pud(pudp, pud);
-> +}
-> +
->  static inline void pte_clear(struct mm_struct *mm,
->  	unsigned long addr, pte_t *ptep)
+> -void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+> +noinline void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+>  		    const char *loglvl)
 >  {
+> -	pr_cont("%sCall Trace:\n", loglvl);
+>  	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
+>  }
+>
+>  void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+>  {
+> +	pr_cont("%sCall Trace:\n", loglvl);
+>  	dump_backtrace(NULL, task, loglvl);
+>  }
+>
+> @@ -139,7 +139,7 @@ unsigned long get_wchan(struct task_struct *task)
+>
+>  #ifdef CONFIG_STACKTRACE
+>
+> -void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+> +noinline void arch_stack_walk(stack_trace_consume_fn consume_entry, void *cookie,
+>  		     struct task_struct *task, struct pt_regs *regs)
+>  {
+>  	walk_stackframe(task, regs, consume_entry, cookie);
 
-Thanks, this is on for-next.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
