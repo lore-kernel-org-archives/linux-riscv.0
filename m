@@ -1,21 +1,21 @@
-Return-Path: <SRS0=jEvo=KT=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=WUGv=KU=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B4D0C2B9F7
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 23:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 14E08C2B9F7
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 00:42:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA265613FC
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 23:50:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA265613FC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D32D0611CD
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 00:42:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D32D0611CD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,63 +23,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2+n5IeSyrh/lxL4P0Zvemq0CBwjPV9y3EbezPXyiiA4=; b=aLAJWmZfR5Sg2j
-	5wrvX0DITVMMI+CAjgeyjKQOVe5XorsiMqcuY3EIAkiftHlHg74PxuhJAGYywVAltWaRpZDWYQ7iI
-	1jU42WEmEOf1m+k1sIbxRtpKRZHIW78s7vdLiAcGtxvmrAJqhqlZ9iS/p2Q5Uedj5zymdN3qwYwHL
-	Nx7dCB9c/cAQ0D4rDdbF7B8ySFijP9frtMoKK112eAeBqnz6GoCJU6foWGRF9+hp0IMinPtv6kinI
-	4Ze1MaR645k/YfULmhRokCEnOMX7AVWAyZK75ysX5II4hlzShxQWCAA4yuYYn8i/m7b/tZ4FdS1wK
-	bzcvDPnM8rGyWEsWu++Q==;
+	List-Owner; bh=N9ZRWlmRpoeY187WfmLYoa3qE1Nqpfed022IDlIOn8g=; b=vdUG67ouXbOSDO
+	cFatQxxu43Ua8JZMqmSYb2blOKLfWUN2oiQ33K9DCNC3vIeFxL+IVS52l038BfOk/4F3YBb9EkKvZ
+	OE+we8/ujfwbO4S1xyJ8jTLSbgBtF3LlKgHr2s8VNbjhDtgSXTinYtvjb2vpVoyVHshQZrw+5QcCk
+	0xurAg2huM1fIQnYSx6IomdDnboIAelhnw/jwqGILhtcUO06KyGlICy/Zi6j9DQBewiEcqy68FKnK
+	YRL7rZhfBjeMdCO5dKLWDUhGOlAkFlbHk+fICWzOrZblRZhdg+pwfYE917o2Y02ck1LZut6Y1HIBx
+	UJOyBRySoZXQLGdWBjkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1llKKk-002PjS-1m; Mon, 24 May 2021 23:50:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1llL9J-002c1T-QE; Tue, 25 May 2021 00:42:21 +0000
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1ll4it-000jhr-D6; Mon, 24 May 2021 07:10:01 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C66BF610CE;
- Mon, 24 May 2021 07:09:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621840198;
- bh=VqeAbTowU2gy8WZZTwDL7TeG6i87KvzkMjBPopk2/MU=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=sOet6f6QwsQ2S/ifMEhpI20wsajVQO/p0pqVSxnHxPiqwpPZp7trusy4x/SpCm/66
- snnt36FBZfZpGpoPniUUBY5cRtOoIRtBPJFHApxG6O8juyeu1K61Gv0TmNbANBm9hC
- NMv5pmeE0ZMdTgoTFp92Rswwl9FBYhW7YeL2rGqKKjPb1LMO4LKUXybiKwV3bafxX+
- 8pnM7RarYs8Ms5NBrEpszyuM91S22QCMIhLHo7GWjwnKuBKUVXS9ExOht/MPOf+4Ar
- xnX0Lt86UmA+CpCGe+2hRkYel8N8Nd6oZ5pfEcAtxUL7984rWwVXyXOmzdJ/hjlEV2
- nPqaNAypDYiMA==
-Received: by mail-lf1-f47.google.com with SMTP id m11so39267205lfg.3;
- Mon, 24 May 2021 00:09:58 -0700 (PDT)
-X-Gm-Message-State: AOAM531/UD0kxIXJnnwtabzXQIQmzDsKPkbFfaA/MwnT9hqSHitxH9cP
- s+dxWg6kVwOKBicWfBSew+iAK/zY8pYL6W4d4kk=
-X-Google-Smtp-Source: ABdhPJwlHM3+Ancb3AdeK6ZBUDnPT/xU9V6uqjqKT1aElXvtCZRpHBvxr5Jc/xareS8YTQcM797YGQkn4W+GbEWt+yc=
-X-Received: by 2002:a05:6512:36c5:: with SMTP id
- e5mr9698245lfs.41.1621840197068; 
- Mon, 24 May 2021 00:09:57 -0700 (PDT)
+ id 1llEtp-001Ni7-DU
+ for linux-riscv@lists.infradead.org; Mon, 24 May 2021 18:01:59 +0000
+Received: by mail-ua1-x936.google.com with SMTP id 68so1634751uao.11
+ for <linux-riscv@lists.infradead.org>; Mon, 24 May 2021 11:01:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=6Yts7qQiY5cVw+gZuSHeCN8lE/arX6Qto1/OwLEXAhQ=;
+ b=H8BM+oDJsRf44M+gFJkkX2QGVohKPWVfWWJU1mhWKhdIAEex/y5Apwy3ws0LA6RZyi
+ 6WnwtyNXX+DOUwTZSzorRoijv7lG0bmMnBRaGIkcCaoKmNIIngJHaeJm+gWvkADlTnX6
+ SMrzNlrJWO25a0iSaOrEJWWo0PzSp6eAMvxpc7k7v4OrARj2Fg/NJkS9tYYMhFlE7frh
+ pBipM/2BBB75n9EseQ9DXqjJrBVWZ9eTAUPph4y3yvHa4C6eDqQyrVxDSBnh3sLXG2JK
+ BlL8LVo2mGZLNKqM8rm1n8F4ahX4fi67nCHB5iam3AIvB7K97PmRBIlxzXzwAX/EqoGm
+ qLgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=6Yts7qQiY5cVw+gZuSHeCN8lE/arX6Qto1/OwLEXAhQ=;
+ b=ZQoZY6/15rFOfLUBuTc43cmCWr01lX5OmfBZE+uU3LgI89x9RPVz9x1Lkq2lr7Yv+4
+ uBaxlXMW7/HrGS3X2Hf6tQgn3zDQMZBw45nNGfNq69vdaV//KtITy/qnntIBiKi0N2xQ
+ qmCNneX8Qz65I9ccT31vO44K8L6YBE4tV5ci1xRSXlGNG1YlpiIzKxDqp/lQ3pfOomLX
+ /KB18/u0k6YpFyaPaGBjDkLlg5Dw0+Lqqz+c/GVtdBItzMDc42LLtT+wbU94So2LCTdR
+ jaKgcd/AYfkoIp2lj0lUBlg9Vk8m1Fr0tyzO9+WUe2DVbA21qXw1OL5+98vUyOQIL1+v
+ y6zg==
+X-Gm-Message-State: AOAM532M9Bc7dVD+3xWuP4tQY2/JhgcASpbE19qQhNH3OCt1SVOvG+q7
+ NaH/4IzfgW/BGwWzDSNXKuwUmSq3MYgLGAGUXGziuA==
+X-Google-Smtp-Source: ABdhPJzldT2KtNW5LanITjVVU8o7Tu39YI61SMrwMRReheJzUy03Rj2D1eZAzB04TnuGNIFPO+/hkePdl+GMFf+OCc0=
+X-Received: by 2002:a9f:24b4:: with SMTP id 49mr14197782uar.100.1621879313042; 
+ Mon, 24 May 2021 11:01:53 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210519033553.1110536-1-anup.patel@wdc.com>
-In-Reply-To: <20210519033553.1110536-1-anup.patel@wdc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 24 May 2021 15:09:45 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSSHba78A3KWjUVV9241r63+M4G=VeDpL8VGPjGKzssnA@mail.gmail.com>
-Message-ID: <CAJF2gTSSHba78A3KWjUVV9241r63+M4G=VeDpL8VGPjGKzssnA@mail.gmail.com>
-Subject: Re: [PATCH v18 00/18] KVM RISC-V Support
+References: <20210517130823.796963-1-anup.patel@wdc.com>
+ <20210517130823.796963-6-anup.patel@wdc.com>
+In-Reply-To: <20210517130823.796963-6-anup.patel@wdc.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 24 May 2021 20:01:16 +0200
+Message-ID: <CAPDyKFpxx-jBbL4o_iJCcivFL2ei5a7PcWVfUaBmLu-q89Mkjg@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 5/8] cpuidle: Factor-out power domain related code
+ from PSCI domain driver
 To: Anup Patel <anup.patel@wdc.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Graf <graf@amazon.com>, 
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, Anup Patel <anup@brainfault.org>,
- kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- linux-doc@vger.kernel.org, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, 
+ Pavel Machek <pavel@ucw.cz>, Rob Herring <robh+dt@kernel.org>, 
+ Sandeep Tripathy <milun.tripathy@gmail.com>, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
+ Anup Patel <anup@brainfault.org>, DTML <devicetree@vger.kernel.org>, 
+ linux-riscv@lists.infradead.org, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-staging@lists.linux.dev
+ Linux PM <linux-pm@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210524_000959_514816_B96679A3 
-X-CRM114-Status: GOOD (  37.66  )
+X-CRM114-CacheID: sfid-20210524_110157_489374_13959890 
+X-CRM114-Status: GOOD (  29.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,300 +105,234 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thx Anup,
+On Mon, 17 May 2021 at 15:10, Anup Patel <anup.patel@wdc.com> wrote:
+>
+> The generic power domain related code in PSCI domain driver is largely
+> independent of PSCI and can be shared with RISC-V SBI domain driver
+> hence we factor-out this code into dt_idle_genpd.c and dt_idle_genpd.h.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 
-Tested-by: Guo Ren <guoren@kernel.org> (Just on qemu-rv64)
+This is clearly a big step in the right direction. Just a couple minor
+things, see more below.
 
-I'm following your KVM patchset and it's a great job for riscv
-H-extension. I think hardware companies hope Linux KVM ready first
-before the real chip. That means we can ensure the hardware could run
-mainline linux.
+Note that, I have a couple of patches in the pipe for the
+cpuidle-psci-domain driver (not ready to be posted). I need a couple
+of more days to confirm this restructuring still makes sense beyond
+these potential new changes. I will let you know as soon as I can with
+the outcome.
 
-Good luck!
+[...]
 
-On Wed, May 19, 2021 at 11:36 AM Anup Patel <anup.patel@wdc.com> wrote:
->
-> From: Anup Patel <anup@brainfault.org>
->
-> This series adds initial KVM RISC-V support. Currently, we are able to boot
-> Linux on RV64/RV32 Guest with multiple VCPUs.
->
-> Key aspects of KVM RISC-V added by this series are:
-> 1. No RISC-V specific KVM IOCTL
-> 2. Minimal possible KVM world-switch which touches only GPRs and few CSRs
-> 3. Both RV64 and RV32 host supported
-> 4. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
-> 5. KVM ONE_REG interface for VCPU register access from user-space
-> 6. PLIC emulation is done in user-space
-> 7. Timer and IPI emuation is done in-kernel
-> 8. Both Sv39x4 and Sv48x4 supported for RV64 host
-> 9. MMU notifiers supported
-> 10. Generic dirtylog supported
-> 11. FP lazy save/restore supported
-> 12. SBI v0.1 emulation for KVM Guest available
-> 13. Forward unhandled SBI calls to KVM userspace
-> 14. Hugepage support for Guest/VM
-> 15. IOEVENTFD support for Vhost
->
-> Here's a brief TODO list which we will work upon after this series:
-> 1. SBI v0.2 emulation in-kernel
-> 2. SBI v0.2 hart state management emulation in-kernel
-> 3. In-kernel PLIC emulation
-> 4. ..... and more .....
->
-> This series can be found in riscv_kvm_v18 branch at:
-> https//github.com/avpatel/linux.git
->
-> Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v7 branch
-> at: https//github.com/avpatel/kvmtool.git
->
-> The QEMU RISC-V hypervisor emulation is done by Alistair and is available
-> in master branch at: https://git.qemu.org/git/qemu.git
->
-> To play around with KVM RISC-V, refer KVM RISC-V wiki at:
-> https://github.com/kvm-riscv/howto/wiki
-> https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
-> https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
->
-> Changes since v17:
->  - Rebased on Linux-5.13-rc2
->  - Moved to new KVM MMU notifier APIs
->  - Removed redundant kvm_arch_vcpu_uninit()
->  - Moved KVM RISC-V sources to drivers/staging for compliance with
->    Linux RISC-V patch acceptance policy
->
-> Changes since v16:
->  - Rebased on Linux-5.12-rc5
->  - Remove redundant kvm_arch_create_memslot(), kvm_arch_vcpu_setup(),
->    kvm_arch_vcpu_init(), kvm_arch_has_vcpu_debugfs(), and
->    kvm_arch_create_vcpu_debugfs() from PATCH5
->  - Make stage2_wp_memory_region() and stage2_ioremap() as static
->    in PATCH13
->
-> Changes since v15:
->  - Rebased on Linux-5.11-rc3
->  - Fixed kvm_stage2_map() to use gfn_to_pfn_prot() for determing
->    writeability of a host pfn.
->  - Use "__u64" in-place of "u64" and "__u32" in-place of "u32" for
->    uapi/asm/kvm.h
->
-> Changes since v14:
->  - Rebased on Linux-5.10-rc3
->  - Fixed Stage2 (G-stage) PDG allocation to ensure it is 16KB aligned
->
-> Changes since v13:
->  - Rebased on Linux-5.9-rc3
->  - Fixed kvm_riscv_vcpu_set_reg_csr() for SIP updation in PATCH5
->  - Fixed instruction length computation in PATCH7
->  - Added ioeventfd support in PATCH7
->  - Ensure HSTATUS.SPVP is set to correct value before using HLV/HSV
->    intructions in PATCH7
->  - Fixed stage2_map_page() to set PTE 'A' and 'D' bits correctly
->    in PATCH10
->  - Added stage2 dirty page logging in PATCH10
->  - Allow KVM user-space to SET/GET SCOUNTER CSR in PATCH5
->  - Save/restore SCOUNTEREN in PATCH6
->  - Reduced quite a few instructions for __kvm_riscv_switch_to() by
->    using CSR swap instruction in PATCH6
->  - Detect and use Sv48x4 when available in PATCH10
->
-> Changes since v12:
->  - Rebased patches on Linux-5.8-rc4
->  - By default enable all counters in HCOUNTEREN
->  - RISC-V H-Extension v0.6.1 spec support
->
-> Changes since v11:
->  - Rebased patches on Linux-5.7-rc3
->  - Fixed typo in typecast of stage2_map_size define
->  - Introduced struct kvm_cpu_trap to represent trap details and
->    use it as function parameter wherever applicable
->  - Pass memslot to kvm_riscv_stage2_map() for supporing dirty page
->    logging in future
->  - RISC-V H-Extension v0.6 spec support
->  - Send-out first three patches as separate series so that it can
->    be taken by Palmer for Linux RISC-V
->
-> Changes since v10:
->  - Rebased patches on Linux-5.6-rc5
->  - Reduce RISCV_ISA_EXT_MAX from 256 to 64
->  - Separate PATCH for removing N-extension related defines
->  - Added comments as requested by Palmer
->  - Fixed HIDELEG CSR programming
->
-> Changes since v9:
->  - Rebased patches on Linux-5.5-rc3
->  - Squash PATCH19 and PATCH20 into PATCH5
->  - Squash PATCH18 into PATCH11
->  - Squash PATCH17 into PATCH16
->  - Added ONE_REG interface for VCPU timer in PATCH13
->  - Use HTIMEDELTA for VCPU timer in PATCH13
->  - Updated KVM RISC-V mailing list in MAINTAINERS entry
->  - Update KVM kconfig option to depend on RISCV_SBI and MMU
->  - Check for SBI v0.2 and SBI v0.2 RFENCE extension at boot-time
->  - Use SBI v0.2 RFENCE extension in VMID implementation
->  - Use SBI v0.2 RFENCE extension in Stage2 MMU implementation
->  - Use SBI v0.2 RFENCE extension in SBI implementation
->  - Moved to RISC-V Hypervisor v0.5 draft spec
->  - Updated Documentation/virt/kvm/api.txt for timer ONE_REG interface
->
-> Changes since v8:
->  - Rebased series on Linux-5.4-rc3 and Atish's SBI v0.2 patches
->  - Use HRTIMER_MODE_REL instead of HRTIMER_MODE_ABS in timer emulation
->  - Fixed kvm_riscv_stage2_map() to handle hugepages
->  - Added patch to forward unhandled SBI calls to user-space
->  - Added patch for iterative/recursive stage2 page table programming
->  - Added patch to remove per-CPU vsip_shadow variable
->  - Added patch to fix race-condition in kvm_riscv_vcpu_sync_interrupts()
->
-> Changes since v7:
->  - Rebased series on Linux-5.4-rc1 and Atish's SBI v0.2 patches
->  - Removed PATCH1, PATCH3, and PATCH20 because these already merged
->  - Use kernel doc style comments for ISA bitmap functions
->  - Don't parse X, Y, and Z extension in riscv_fill_hwcap() because it will
->    be added in-future
->  - Mark KVM RISC-V kconfig option as EXPERIMENTAL
->  - Typo fix in commit description of PATCH6 of v7 series
->  - Use separate structs for CORE and CSR registers of ONE_REG interface
->  - Explicitly include asm/sbi.h in kvm/vcpu_sbi.c
->  - Removed implicit switch-case fall-through in kvm_riscv_vcpu_exit()
->  - No need to set VSSTATUS.MXR bit in kvm_riscv_vcpu_unpriv_read()
->  - Removed register for instruction length in kvm_riscv_vcpu_unpriv_read()
->  - Added defines for checking/decoding instruction length
->  - Added separate patch to forward unhandled SBI calls to userspace tool
->
-> Changes since v6:
->  - Rebased patches on Linux-5.3-rc7
->  - Added "return_handled" in struct kvm_mmio_decode to ensure that
->    kvm_riscv_vcpu_mmio_return() updates SEPC only once
->  - Removed trap_stval parameter from kvm_riscv_vcpu_unpriv_read()
->  - Updated git repo URL in MAINTAINERS entry
->
-> Changes since v5:
->  - Renamed KVM_REG_RISCV_CONFIG_TIMEBASE register to
->    KVM_REG_RISCV_CONFIG_TBFREQ register in ONE_REG interface
->  - Update SPEC in kvm_riscv_vcpu_mmio_return() for MMIO exits
->  - Use switch case instead of illegal instruction opcode table for simplicity
->  - Improve comments in stage2_remote_tlb_flush() for a potential remote TLB
->   flush optimization
->  - Handle all unsupported SBI calls in default case of
->    kvm_riscv_vcpu_sbi_ecall() function
->  - Fixed kvm_riscv_vcpu_sync_interrupts() for software interrupts
->  - Improved unprivilege reads to handle traps due to Guest stage1 page table
->  - Added separate patch to document RISC-V specific things in
->    Documentation/virt/kvm/api.txt
->
-> Changes since v4:
->  - Rebased patches on Linux-5.3-rc5
->  - Added Paolo's Acked-by and Reviewed-by
->  - Updated mailing list in MAINTAINERS entry
->
-> Changes since v3:
->  - Moved patch for ISA bitmap from KVM prep series to this series
->  - Make vsip_shadow as run-time percpu variable instead of compile-time
->  - Flush Guest TLBs on all Host CPUs whenever we run-out of VMIDs
->
-> Changes since v2:
->  - Removed references of KVM_REQ_IRQ_PENDING from all patches
->  - Use kvm->srcu within in-kernel KVM run loop
->  - Added percpu vsip_shadow to track last value programmed in VSIP CSR
->  - Added comments about irqs_pending and irqs_pending_mask
->  - Used kvm_arch_vcpu_runnable() in-place-of kvm_riscv_vcpu_has_interrupt()
->    in system_opcode_insn()
->  - Removed unwanted smp_wmb() in kvm_riscv_stage2_vmid_update()
->  - Use kvm_flush_remote_tlbs() in kvm_riscv_stage2_vmid_update()
->  - Use READ_ONCE() in kvm_riscv_stage2_update_hgatp() for vmid
->
-> Changes since v1:
->  - Fixed compile errors in building KVM RISC-V as module
->  - Removed unused kvm_riscv_halt_guest() and kvm_riscv_resume_guest()
->  - Set KVM_CAP_SYNC_MMU capability only after MMU notifiers are implemented
->  - Made vmid_version as unsigned long instead of atomic
->  - Renamed KVM_REQ_UPDATE_PGTBL to KVM_REQ_UPDATE_HGATP
->  - Renamed kvm_riscv_stage2_update_pgtbl() to kvm_riscv_stage2_update_hgatp()
->  - Configure HIDELEG and HEDELEG in kvm_arch_hardware_enable()
->  - Updated ONE_REG interface for CSR access to user-space
->  - Removed irqs_pending_lock and use atomic bitops instead
->  - Added separate patch for FP ONE_REG interface
->  - Added separate patch for updating MAINTAINERS file
->
-> Anup Patel (14):
->   RISC-V: Add hypervisor extension related CSR defines
->   RISC-V: Add initial skeletal KVM support
->   RISC-V: KVM: Implement VCPU create, init and destroy functions
->   RISC-V: KVM: Implement VCPU interrupts and requests handling
->   RISC-V: KVM: Implement KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
->   RISC-V: KVM: Implement VCPU world-switch
->   RISC-V: KVM: Handle MMIO exits for VCPU
->   RISC-V: KVM: Handle WFI exits for VCPU
->   RISC-V: KVM: Implement VMID allocator
->   RISC-V: KVM: Implement stage2 page table programming
->   RISC-V: KVM: Implement MMU notifiers
->   RISC-V: KVM: Document RISC-V specific parts of KVM API
->   RISC-V: KVM: Move sources to drivers/staging directory
->   RISC-V: KVM: Add MAINTAINERS entry
->
-> Atish Patra (4):
->   RISC-V: KVM: Add timer functionality
->   RISC-V: KVM: FP lazy save/restore
->   RISC-V: KVM: Implement ONE REG interface for FP registers
->   RISC-V: KVM: Add SBI v0.1 support
->
->  Documentation/virt/kvm/api.rst                | 193 +++-
->  MAINTAINERS                                   |  11 +
->  arch/riscv/Kconfig                            |   1 +
->  arch/riscv/Makefile                           |   1 +
->  arch/riscv/include/uapi/asm/kvm.h             | 128 +++
->  drivers/clocksource/timer-riscv.c             |   9 +
->  drivers/staging/riscv/kvm/Kconfig             |  36 +
->  drivers/staging/riscv/kvm/Makefile            |  23 +
->  drivers/staging/riscv/kvm/asm/kvm_csr.h       | 105 ++
->  drivers/staging/riscv/kvm/asm/kvm_host.h      | 271 +++++
->  drivers/staging/riscv/kvm/asm/kvm_types.h     |   7 +
->  .../staging/riscv/kvm/asm/kvm_vcpu_timer.h    |  44 +
->  drivers/staging/riscv/kvm/main.c              | 118 +++
->  drivers/staging/riscv/kvm/mmu.c               | 802 ++++++++++++++
->  drivers/staging/riscv/kvm/riscv_offsets.c     | 170 +++
->  drivers/staging/riscv/kvm/tlb.S               |  74 ++
->  drivers/staging/riscv/kvm/vcpu.c              | 997 ++++++++++++++++++
->  drivers/staging/riscv/kvm/vcpu_exit.c         | 701 ++++++++++++
->  drivers/staging/riscv/kvm/vcpu_sbi.c          | 173 +++
->  drivers/staging/riscv/kvm/vcpu_switch.S       | 401 +++++++
->  drivers/staging/riscv/kvm/vcpu_timer.c        | 225 ++++
->  drivers/staging/riscv/kvm/vm.c                |  81 ++
->  drivers/staging/riscv/kvm/vmid.c              | 120 +++
->  include/clocksource/timer-riscv.h             |  16 +
->  include/uapi/linux/kvm.h                      |   8 +
->  25 files changed, 4706 insertions(+), 9 deletions(-)
->  create mode 100644 arch/riscv/include/uapi/asm/kvm.h
->  create mode 100644 drivers/staging/riscv/kvm/Kconfig
->  create mode 100644 drivers/staging/riscv/kvm/Makefile
->  create mode 100644 drivers/staging/riscv/kvm/asm/kvm_csr.h
->  create mode 100644 drivers/staging/riscv/kvm/asm/kvm_host.h
->  create mode 100644 drivers/staging/riscv/kvm/asm/kvm_types.h
->  create mode 100644 drivers/staging/riscv/kvm/asm/kvm_vcpu_timer.h
->  create mode 100644 drivers/staging/riscv/kvm/main.c
->  create mode 100644 drivers/staging/riscv/kvm/mmu.c
->  create mode 100644 drivers/staging/riscv/kvm/riscv_offsets.c
->  create mode 100644 drivers/staging/riscv/kvm/tlb.S
->  create mode 100644 drivers/staging/riscv/kvm/vcpu.c
->  create mode 100644 drivers/staging/riscv/kvm/vcpu_exit.c
->  create mode 100644 drivers/staging/riscv/kvm/vcpu_sbi.c
->  create mode 100644 drivers/staging/riscv/kvm/vcpu_switch.S
->  create mode 100644 drivers/staging/riscv/kvm/vcpu_timer.c
->  create mode 100644 drivers/staging/riscv/kvm/vm.c
->  create mode 100644 drivers/staging/riscv/kvm/vmid.c
->  create mode 100644 include/clocksource/timer-riscv.h
->
-> --
-> 2.25.1
->
+> diff --git a/drivers/cpuidle/dt_idle_genpd.c b/drivers/cpuidle/dt_idle_genpd.c
 
+I think it would be a good idea to add a new section for this to the
+MAINTAINERS file. Perhaps a "DT IDLE DOMAIN" section? Or perhaps you
+have another idea?
 
--- 
-Best Regards
- Guo Ren
+In any case, I am happy to continue with maintenance of this code,
+even in the new restructured form.
 
-ML: https://lore.kernel.org/linux-csky/
+> new file mode 100644
+> index 000000000000..5a901773db60
+> --- /dev/null
+> +++ b/drivers/cpuidle/dt_idle_genpd.c
+> @@ -0,0 +1,182 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * PM domains for CPUs via genpd.
+> + *
+> + * Copyright (C) 2019 Linaro Ltd.
+> + * Author: Ulf Hansson <ulf.hansson@linaro.org>
+> + *
+> + * Copyright (c) 2021 Western Digital Corporation or its affiliates.
+> + */
+> +
+> +#define pr_fmt(fmt) "dt-idle-genpd: " fmt
+> +
+> +#include <linux/cpu.h>
+> +#include <linux/device.h>
+> +#include <linux/kernel.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/slab.h>
+> +#include <linux/string.h>
+> +
+> +#include "dt_idle_genpd.h"
+> +
+> +static int dt_pd_parse_state_nodes(
+> +                       int (*parse_state)(struct device_node *, u32 *),
+> +                       struct genpd_power_state *states, int state_count)
+> +{
+> +       int i, ret;
+> +       u32 state, *state_buf;
+> +
+> +       for (i = 0; i < state_count; i++) {
+> +               ret = parse_state(to_of_node(states[i].fwnode), &state);
+> +               if (ret)
+> +                       goto free_state;
+> +
+> +               state_buf = kmalloc(sizeof(u32), GFP_KERNEL);
+> +               if (!state_buf) {
+> +                       ret = -ENOMEM;
+> +                       goto free_state;
+> +               }
+> +               *state_buf = state;
+> +               states[i].data = state_buf;
+> +       }
+> +
+> +       return 0;
+> +
+> +free_state:
+> +       i--;
+> +       for (; i >= 0; i--)
+> +               kfree(states[i].data);
+> +       return ret;
+> +}
+> +
+> +static int dt_pd_parse_states(struct device_node *np,
+> +                       int (*parse_state)(struct device_node *, u32 *),
+> +                       struct genpd_power_state **states,
+> +                       int *state_count)
+> +{
+> +       int ret;
+> +
+> +       /* Parse the domain idle states. */
+> +       ret = of_genpd_parse_idle_states(np, states, state_count);
+> +       if (ret)
+> +               return ret;
+> +
+> +       /* Fill out the dt specifics for each found state. */
+> +       ret = dt_pd_parse_state_nodes(parse_state, *states, *state_count);
+> +       if (ret)
+> +               kfree(*states);
+> +
+> +       return ret;
+> +}
+> +
+> +static void dt_pd_free_states(struct genpd_power_state *states,
+> +                             unsigned int state_count)
+> +{
+> +       int i;
+> +
+> +       for (i = 0; i < state_count; i++)
+> +               kfree(states[i].data);
+> +       kfree(states);
+> +}
+> +
+> +void dt_pd_free(struct generic_pm_domain *pd)
+> +{
+> +       dt_pd_free_states(pd->states, pd->state_count);
+> +       kfree(pd->name);
+> +       kfree(pd);
+> +}
+> +EXPORT_SYMBOL_GPL(dt_pd_free);
+> +
+> +struct generic_pm_domain *dt_pd_alloc(struct device_node *np,
+> +                       int (*parse_state)(struct device_node *, u32 *))
+> +{
+> +       struct generic_pm_domain *pd;
+> +       struct genpd_power_state *states = NULL;
+> +       int ret, state_count = 0;
+> +
+> +       pd = kzalloc(sizeof(*pd), GFP_KERNEL);
+> +       if (!pd)
+> +               goto out;
+> +
+> +       pd->name = kasprintf(GFP_KERNEL, "%pOF", np);
+> +       if (!pd->name)
+> +               goto free_pd;
+> +
+> +       /*
+> +        * Parse the domain idle states and let genpd manage the state selection
+> +        * for those being compatible with "domain-idle-state".
+> +        */
+> +       ret = dt_pd_parse_states(np, parse_state, &states, &state_count);
+> +       if (ret)
+> +               goto free_name;
+> +
+> +       pd->free_states = dt_pd_free_states;
+> +       pd->name = kbasename(pd->name);
+> +       pd->states = states;
+> +       pd->state_count = state_count;
+> +
+> +       pr_debug("alloc PM domain %s\n", pd->name);
+> +       return pd;
+> +
+> +free_name:
+> +       kfree(pd->name);
+> +free_pd:
+> +       kfree(pd);
+> +out:
+> +       pr_err("failed to alloc PM domain %pOF\n", np);
+> +       return NULL;
+> +}
+> +EXPORT_SYMBOL_GPL(dt_pd_alloc);
+> +
+> +int dt_pd_init_topology(struct device_node *np)
+> +{
+> +       struct device_node *node;
+> +       struct of_phandle_args child, parent;
+> +       int ret;
+> +
+> +       for_each_child_of_node(np, node) {
+> +               if (of_parse_phandle_with_args(node, "power-domains",
+> +                                       "#power-domain-cells", 0, &parent))
+> +                       continue;
+> +
+> +               child.np = node;
+> +               child.args_count = 0;
+> +               ret = of_genpd_add_subdomain(&parent, &child);
+> +               of_node_put(parent.np);
+> +               if (ret) {
+> +                       of_node_put(node);
+> +                       return ret;
+> +               }
+> +       }
+> +
+> +       return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(dt_pd_init_topology);
+
+May I suggest that we stick to dt_idle_* as the prefix for all of the
+exported functions in this file. Static functions can just skip the
+prefix altogether.
+
+> +
+> +struct device *dt_idle_genpd_attach_cpu(int cpu, const char *name)
+> +{
+> +       struct device *dev;
+> +
+> +       dev = dev_pm_domain_attach_by_name(get_cpu_device(cpu), name);
+> +       if (IS_ERR_OR_NULL(dev))
+> +               return dev;
+> +
+> +       pm_runtime_irq_safe(dev);
+> +       if (cpu_online(cpu))
+> +               pm_runtime_get_sync(dev);
+> +
+> +       dev_pm_syscore_device(dev, true);
+> +
+> +       return dev;
+> +}
+> +EXPORT_SYMBOL_GPL(dt_idle_genpd_attach_cpu);
+> +
+> +void dt_idle_genpd_detach_cpu(struct device *dev)
+> +{
+> +       if (IS_ERR_OR_NULL(dev))
+> +               return;
+> +
+> +       dev_pm_domain_detach(dev, false);
+> +}
+> +EXPORT_SYMBOL_GPL(dt_idle_genpd_detach_cpu);
+
+Again, a minor comment on the naming of the functions. How about
+skipping "genpd" in the prefix, thus just dt_idle_attach|detach_cpu()?
+
+[...]
+
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
