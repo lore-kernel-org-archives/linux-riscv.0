@@ -2,89 +2,70 @@ Return-Path: <SRS0=jEvo=KT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0A31C04FF3
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5ABABC2B9F7
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:43:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 639D261404
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:03:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 639D261404
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 19B7F61400
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:43:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 19B7F61400
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=oz90gDMATGNUV03YP1BlyUwUajZD/NYfNcebb3VeN+k=; b=TnXxqnFhoBGDj6Y+Mtn1Dx+Hv
-	aQK6GF08QIEjTDJ5lf/oesQM8KjXG012AggeFYDuGh+i6V/vQEW3ER80bZuD6qT0Km6kYCXP1jEmf
-	Ev/xJP4ZAJeF30qbfnMX+W2HMBps3KeErs6S+xTyLJU9d43NLiW89MPTVs3030UTCXZP6IYgvMsHx
-	TSlIbU4BdkklW9VbLvTHDuNCgMdSYrdqXblvPG3oKB8W2T96Owy0vxstAuD9IiF3j37Yl82Qu0f0G
-	i1NHLA+tjlj4usvMIsyQiQzhvFV9KJnMf2LcHcD6KhPprQWgeuamAhVrVg4Oo4urrS5YvmZiMYQb2
-	8AA7uCZ0Q==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=JimWudYe+XtUV/YPIP8LjQXpKcIHN1+FpRdHAUxYm7A=; b=0+jgLE3tczR+W8IuDc8ECQ4N8
+	ha55XdKuGG3UMLRA8xaQjleiqCPGGxJr/PONZGsk4Z2dDEnMLsQAxWuCPKvxP++OtqZSbzr2kr27B
+	g5k8x+4CjADPBP8LGp/TQ2nu0bYtbt4HdEKgAkRTT+6Bz/FQwwpH9o0HBKFqTIey38SA3hwLtkUlr
+	tMiSOARaedlu7FoIMuzjp3FLAIowrA+UhgCDyQzY3bJWKAh1an0PK6wuDIjP5Z2CJ+VhmGG4MhDd/
+	FA46zFraSeshoKLX7N9xOb7yAcub3GLFJvTfaVSaqCZB+FvrAfQ4gk9T9jp5bXfn2YmVhnK8svacY
+	bRn9jmE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1llIfb-0022UJ-3V; Mon, 24 May 2021 22:03:31 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1llJHt-002BJl-Lq; Mon, 24 May 2021 22:43:05 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lkxCa-000bZY-0R
- for linux-riscv@lists.infradead.org; Sun, 23 May 2021 23:08:09 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id s20so13673791plr.13
- for <linux-riscv@lists.infradead.org>; Sun, 23 May 2021 16:08:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=+ek5JEdHmZfkP/iL93ubgamlrQWOFJ7iqzsCNIoDld4=;
- b=b9rYqVvZrGPUtTOmdzx2IYQW08HBtjmdCS12+f1Fa2htEzrqT+7AehgNAje45RL48G
- dTHzRq+r3cLExx3DCx5N+OtXCdGZ/IuFovUOOb81bAfd+lbV5DnlrHubooqc3+zM2VRG
- nuEaVWyGYyGzcd7AxQAOradiTI4qXmSLG3m1AP6BaxkoLCzS/ruCf9QCop650p4aUmIt
- 0gbZDbx+S2Zc1Pe6A1i1Gai/sESyWF9IT8de5MR0cK8rrvm7W94H5b2HOsqIKLj/sVV/
- cbipPf0tWdXDDlg9OxeDrAZnCNxp5Hxgi32qDiqJjnFv9HFTEz2xjythOtn9ZVQcSB8h
- y7+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=+ek5JEdHmZfkP/iL93ubgamlrQWOFJ7iqzsCNIoDld4=;
- b=rtKgdos8aLXcaD9c5fkmt4CQkWHK4YcLgdR+/sLcdDhW73kYJPBY6o9sl31FsKs/H5
- KJwLG4Js6pb1xJuA1bLc9IAI5GKptlmpnujF3CSKsjpskQg0J8H4yjHJ01vMnEsg7PfO
- DxwHtTZRD/4o9IL2P0N5cX3mtQh/59ieEG8HaxskTgc/GDn+Zo7gKmAm5FSebwZqo8Vq
- SPB17/u9ziWDp1TM2bpQCWqrAcFqi0CL5xOH1xrrUOBt9ENN9l+Hzf3nCZS9/GSqq7+y
- S/un1r99aO3NQks4GuNhgDtt7RV30qoVjjYtsoOpem2fCkJoqZc4hVVJRVeKzOKp1vvt
- l3JQ==
-X-Gm-Message-State: AOAM530q4PdDzOWgshIX0GaiIp7mOk9etQLtZ+xD6Mm+3+WKy+KfGHdv
- 4X+5izaeF6k+WhJhlvx4wTACSD8SkkWiwg==
-X-Google-Smtp-Source: ABdhPJzU84TojgMs4/tvrGXL40QGrZ9ZKodrHTQcbvB2S/M2El5YjfZmKO+Xg4uIMMSNIwRE66LT9g==
-X-Received: by 2002:a17:90b:2397:: with SMTP id
- mr23mr21022021pjb.77.1621811280115; 
- Sun, 23 May 2021 16:08:00 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id w206sm9174945pfc.61.2021.05.23.16.07.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 23 May 2021 16:07:59 -0700 (PDT)
-Date: Sun, 23 May 2021 16:07:59 -0700 (PDT)
-X-Google-Original-Date: Sun, 23 May 2021 16:07:52 PDT (-0700)
-Subject: Re: [PATCH v2] riscv: mm: Drop redundant _sdata and _edata declaration
-In-Reply-To: <20210514094908.42809-1-wangkefeng.wang@huawei.com>
-CC: linux-riscv@lists.infradead.org, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, anshuman.khandual@arm.com,
- wangkefeng.wang@huawei.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-a8cabed1-0c17-4c28-bce4-798ecf3747fa@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1llAzP-000yAg-AH
+ for linux-riscv@lists.infradead.org; Mon, 24 May 2021 13:51:30 +0000
+Received: from dggems706-chm.china.huawei.com (unknown [172.30.72.58])
+ by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4FpdpQ4x8Sz1BRDF;
+ Mon, 24 May 2021 21:48:30 +0800 (CST)
+Received: from dggpemm000001.china.huawei.com (7.185.36.245) by
+ dggems706-chm.china.huawei.com (10.3.19.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Mon, 24 May 2021 21:51:20 +0800
+Received: from [10.174.178.95] (10.174.178.95) by
+ dggpemm000001.china.huawei.com (7.185.36.245) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Mon, 24 May 2021 21:51:20 +0800
+Subject: Re: [RFC PATCH] riscv: add VMAP_STACK overflow detection
+To: Palmer Dabbelt <palmer@dabbelt.com>
+References: <mhng-6eadf458-2777-4b73-acd4-ff4339a32923@palmerdabbelt-glaptop>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+From: tongtiangen <tongtiangen@huawei.com>
+Message-ID: <7758ffa3-d681-92b8-24b2-7d1f0e7f02a7@huawei.com>
+Date: Mon, 24 May 2021 21:51:20 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.7.1
+MIME-Version: 1.0
+In-Reply-To: <mhng-6eadf458-2777-4b73-acd4-ff4339a32923@palmerdabbelt-glaptop>
+X-Originating-IP: [10.174.178.95]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm000001.china.huawei.com (7.185.36.245)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210523_160808_071365_9D7462A4 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20210524_065127_848997_F3E721CB 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +82,331 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 May 2021 02:49:08 PDT (-0700), wangkefeng.wang@huawei.com wrote:
-> The _sdata/_edata is already in sections.h, drop redundant
-> declaration.
->
-> Also move _xiprom/_exiprom declarations at the beginning of
-> the file, cleanup one CONFIG_XIP_KERNEL.
->
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
->  arch/riscv/mm/init.c | 8 +-------
->  1 file changed, 1 insertion(+), 7 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4faf8bd157ea..3396e9f1b8e8 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -33,6 +33,7 @@ unsigned long kernel_virt_addr = KERNEL_LINK_ADDR;
->  EXPORT_SYMBOL(kernel_virt_addr);
->  #ifdef CONFIG_XIP_KERNEL
->  #define kernel_virt_addr       (*((unsigned long *)XIP_FIXUP(&kernel_virt_addr)))
-> +extern char _xiprom[], _exiprom[];
->  #endif
->
->  unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
-> @@ -176,13 +177,6 @@ void __init setup_bootmem(void)
->  	memblock_allow_resize();
->  }
->
-> -#ifdef CONFIG_XIP_KERNEL
-> -
-> -extern char _xiprom[], _exiprom[];
-> -extern char _sdata[], _edata[];
-> -
-> -#endif /* CONFIG_XIP_KERNEL */
-> -
->  #ifdef CONFIG_MMU
->  static struct pt_alloc_ops _pt_ops __ro_after_init;
 
-Thanks, this is on for-next.
+
+On 2021/5/23 9:49, Palmer Dabbelt wrote:
+> On Fri, 07 May 2021 02:25:09 PDT (-0700), tongtiangen@huawei.com wrote:
+>> This patch adds stack overflow detection to riscv, usable when
+>> CONFIG_VMAP_STACK=y.
+>>
+>> Overflow is detected in kernel exception entry(kernel/entry.S), if 
+>> the kernel
+>> stack is overflow and been detected, the overflow handler is invoked 
+>> on a
+>> per-cpu overflow stack. This approach preserves GPRs and the original 
+>> exception
+>> information.
+>>
+>> The overflow detect is performed before any attempt is made to access 
+>> the stack
+>> and the principle of stack overflow detection: kernel stacks are 
+>> aligned to
+>> double their size, enabling overflow to be detected with a single bit 
+>> test. For
+>> example, a 16K stack is aligned to 32K, ensuring that bit 14 of the 
+>> SP must be
+>> zero. On an overflow (or underflow), this bit is flipped. Thus, 
+>> overflow (of
+>> less than the size of the stack) can be detected by testing whether 
+>> this bit is
+>> set.
+>>
+>> This gives us a useful error message on stack overflow, as can be 
+>> trigger with
+>> the LKDTM overflow test:
+>>
+>> [  388.053267] lkdtm: Performing direct entry EXHAUST_STACK
+>> [  388.053663] lkdtm: Calling function with 1024 frame size to depth 
+>> 32 ...
+>> [  388.054016] lkdtm: loop 32/32 ...
+>> [  388.054186] lkdtm: loop 31/32 ...
+>> [  388.054491] lkdtm: loop 30/32 ...
+>> [  388.054672] lkdtm: loop 29/32 ...
+>> [  388.054859] lkdtm: loop 28/32 ...
+>> [  388.055010] lkdtm: loop 27/32 ...
+>> [  388.055163] lkdtm: loop 26/32 ...
+>> [  388.055309] lkdtm: loop 25/32 ...
+>> [  388.055481] lkdtm: loop 24/32 ...
+>> [  388.055653] lkdtm: loop 23/32 ...
+>> [  388.055837] lkdtm: loop 22/32 ...
+>> [  388.056015] lkdtm: loop 21/32 ...
+>> [  388.056188] lkdtm: loop 20/32 ...
+>> [  388.058145] Insufficient stack space to handle exception!
+>> [  388.058153] Task stack: [0xffffffd014260000..0xffffffd014264000]
+>> [  388.058160] Overflow stack: [0xffffffe1f8d2c220..0xffffffe1f8d2d220]
+>> [  388.058168] CPU: 0 PID: 89 Comm: bash Not tainted 5.12.0-rc8-dirty 
+>> #90
+>> [  388.058175] Hardware name: riscv-virtio,qemu (DT)
+>> [  388.058187] epc : number+0x32/0x2c0
+>> [  388.058247]  ra : vsnprintf+0x2ae/0x3f0
+>> [  388.058255] epc : ffffffe0002d38f6 ra : ffffffe0002d814e sp : 
+>> ffffffd01425ffc0
+>> [  388.058263]  gp : ffffffe0012e4010 tp : ffffffe08014da00 t0 : 
+>> ffffffd0142606e8
+>> [  388.058271]  t1 : 0000000000000000 t2 : 0000000000000000 s0 : 
+>> ffffffd014260070
+>> [  388.058303]  s1 : ffffffd014260158 a0 : ffffffd01426015e a1 : 
+>> ffffffd014260158
+>> [  388.058311]  a2 : 0000000000000013 a3 : ffff0a01ffffff10 a4 : 
+>> ffffffe000c398e0
+>> [  388.058319]  a5 : 511b02ec65f3e300 a6 : 0000000000a1749a a7 : 
+>> 0000000000000000
+>> [  388.058327]  s2 : ffffffff000000ff s3 : 00000000ffff0a01 s4 : 
+>> ffffffe0012e50a8
+>> [  388.058335]  s5 : 0000000000ffff0a s6 : ffffffe0012e50a8 s7 : 
+>> ffffffe000da1cc0
+>> [  388.058343]  s8 : ffffffffffffffff s9 : ffffffd0142602b0 s10: 
+>> ffffffd0142602a8
+>> [  388.058351]  s11: ffffffd01426015e t3 : 00000000000f0000 t4 : 
+>> ffffffffffffffff
+>> [  388.058359]  t5 : 000000000000002f t6 : ffffffd014260158
+>> [  388.058366] status: 0000000000000100 badaddr: ffffffd01425fff8 
+>> cause: 000000000000000f
+>> [  388.058374] Kernel panic - not syncing: Kernel stack overflow
+>> [  388.058381] CPU: 0 PID: 89 Comm: bash Not tainted 5.12.0-rc8-dirty 
+>> #90
+>> [  388.058387] Hardware name: riscv-virtio,qemu (DT)
+>> [  388.058393] Call Trace:
+>> [  388.058400] [<ffffffe000004944>] walk_stackframe+0x0/0xce
+>> [  388.058406] [<ffffffe0006f0b28>] dump_backtrace+0x38/0x46
+>> [  388.058412] [<ffffffe0006f0b46>] show_stack+0x10/0x18
+>> [  388.058418] [<ffffffe0006f3690>] dump_stack+0x74/0x8e
+>> [  388.058424] [<ffffffe0006f0d52>] panic+0xfc/0x2b2
+>> [  388.058430] [<ffffffe0006f0acc>] print_trace_address+0x0/0x24
+>> [  388.058436] [<ffffffe0002d814e>] vsnprintf+0x2ae/0x3f0
+>> [  388.058956] SMP: stopping secondary CPUs
+>>
+>> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+>> ---
+>>  arch/riscv/Kconfig                   |   1 +
+>>  arch/riscv/include/asm/thread_info.h |  15 ++++
+>>  arch/riscv/kernel/entry.S            | 108 +++++++++++++++++++++++++++
+>>  arch/riscv/kernel/traps.c            |  35 +++++++++
+>>  4 files changed, 159 insertions(+)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 4515a10c5d22..587f001e84f4 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -63,6 +63,7 @@ config RISCV
+>>      select HAVE_ARCH_MMAP_RND_BITS if MMU
+>>      select HAVE_ARCH_SECCOMP_FILTER
+>>      select HAVE_ARCH_TRACEHOOK
+>> +    select HAVE_ARCH_VMAP_STACK
+>>      select HAVE_ASM_MODVERSIONS
+>>      select HAVE_CONTEXT_TRACKING
+>>      select HAVE_DEBUG_KMEMLEAK
+>> diff --git a/arch/riscv/include/asm/thread_info.h 
+>> b/arch/riscv/include/asm/thread_info.h
+>> index 0e549a3089b3..60da0dcacf14 100644
+>> --- a/arch/riscv/include/asm/thread_info.h
+>> +++ b/arch/riscv/include/asm/thread_info.h
+>> @@ -19,6 +19,21 @@
+>>  #endif
+>>  #define THREAD_SIZE        (PAGE_SIZE << THREAD_SIZE_ORDER)
+>>
+>> +/*
+>> + * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect 
+>> overflow by
+>> + * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the 
+>> entry
+>> + * assembly.
+>> + */
+>> +#ifdef CONFIG_VMAP_STACK
+>> +#define THREAD_ALIGN            (2 * THREAD_SIZE)
+>> +#else
+>> +#define THREAD_ALIGN            THREAD_SIZE
+>> +#endif
+>> +
+>> +#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+>> +#define OVERFLOW_STACK_SIZE     SZ_4K
+>> +#define SHADOW_OVERFLOW_STACK_SIZE (1024)
+>> +
+>>  #ifndef __ASSEMBLY__
+>>
+>>  #include <asm/processor.h>
+>> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+>> index 83095faa680e..deadf4000b86 100644
+>> --- a/arch/riscv/kernel/entry.S
+>> +++ b/arch/riscv/kernel/entry.S
+>> @@ -29,6 +29,15 @@ ENTRY(handle_exception)
+>>  _restore_kernel_tpsp:
+>>      csrr tp, CSR_SCRATCH
+>>      REG_S sp, TASK_TI_KERNEL_SP(tp)
+>> +
+>> +#ifdef CONFIG_VMAP_STACK
+>> +    addi sp, sp, -(PT_SIZE_ON_STACK)
+>> +    srli sp, sp, THREAD_SHIFT
+>> +    andi sp, sp, 0x1
+>> +    bnez sp, handle_kernel_stack_overflow
+>> +    REG_L sp, TASK_TI_KERNEL_SP(tp)
+>> +#endif
+>> +
+>>  _save_context:
+>>      REG_S sp, TASK_TI_USER_SP(tp)
+>>      REG_L sp, TASK_TI_KERNEL_SP(tp)
+>> @@ -375,6 +384,105 @@ handle_syscall_trace_exit:
+>>      call do_syscall_trace_exit
+>>      j ret_from_exception
+>>
+>> +#ifdef CONFIG_VMAP_STACK
+>> +handle_kernel_stack_overflow:
+>> +    la sp, shadow_stack
+>> +    addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+>> +
+>> +    //save caller register to shadow stack
+>> +    addi sp, sp, -(PT_SIZE_ON_STACK)
+>> +    REG_S x1,  PT_RA(sp)
+>> +    REG_S x5,  PT_T0(sp)
+>> +    REG_S x6,  PT_T1(sp)
+>> +    REG_S x7,  PT_T2(sp)
+>> +    REG_S x10, PT_A0(sp)
+>> +    REG_S x11, PT_A1(sp)
+>> +    REG_S x12, PT_A2(sp)
+>> +    REG_S x13, PT_A3(sp)
+>> +    REG_S x14, PT_A4(sp)
+>> +    REG_S x15, PT_A5(sp)
+>> +    REG_S x16, PT_A6(sp)
+>> +    REG_S x17, PT_A7(sp)
+>> +    REG_S x28, PT_T3(sp)
+>> +    REG_S x29, PT_T4(sp)
+>> +    REG_S x30, PT_T5(sp)
+>> +    REG_S x31, PT_T6(sp)
+>> +
+>> +    la ra, restore_caller_reg
+>> +    tail get_overflow_stack
+>> +
+>> +restore_caller_reg:
+>> +    //save per-cpu overflow stack
+>> +    sd a0, -8(sp)
+>> +    //restore caller register from shadow_stack
+>> +    REG_L x1,  PT_RA(sp)
+>> +    REG_L x5,  PT_T0(sp)
+>> +    REG_L x6,  PT_T1(sp)
+>> +    REG_L x7,  PT_T2(sp)
+>> +    REG_L x10, PT_A0(sp)
+>> +    REG_L x11, PT_A1(sp)
+>> +    REG_L x12, PT_A2(sp)
+>> +    REG_L x13, PT_A3(sp)
+>> +    REG_L x14, PT_A4(sp)
+>> +    REG_L x15, PT_A5(sp)
+>> +    REG_L x16, PT_A6(sp)
+>> +    REG_L x17, PT_A7(sp)
+>> +    REG_L x28, PT_T3(sp)
+>> +    REG_L x29, PT_T4(sp)
+>> +    REG_L x30, PT_T5(sp)
+>> +    REG_L x31, PT_T6(sp)
+>> +
+>> +    //load per-cpu overflow stack
+>> +    ld sp, -8(sp)
+>> +    addi sp, sp, -(PT_SIZE_ON_STACK)
+>> +
+>> +    //save context to overflow stack
+>> +    REG_S x1,  PT_RA(sp)
+>> +    REG_S x3,  PT_GP(sp)
+>> +    REG_S x5,  PT_T0(sp)
+>> +    REG_S x6,  PT_T1(sp)
+>> +    REG_S x7,  PT_T2(sp)
+>> +    REG_S x8,  PT_S0(sp)
+>> +    REG_S x9,  PT_S1(sp)
+>> +    REG_S x10, PT_A0(sp)
+>> +    REG_S x11, PT_A1(sp)
+>> +    REG_S x12, PT_A2(sp)
+>> +    REG_S x13, PT_A3(sp)
+>> +    REG_S x14, PT_A4(sp)
+>> +    REG_S x15, PT_A5(sp)
+>> +    REG_S x16, PT_A6(sp)
+>> +    REG_S x17, PT_A7(sp)
+>> +    REG_S x18, PT_S2(sp)
+>> +    REG_S x19, PT_S3(sp)
+>> +    REG_S x20, PT_S4(sp)
+>> +    REG_S x21, PT_S5(sp)
+>> +    REG_S x22, PT_S6(sp)
+>> +    REG_S x23, PT_S7(sp)
+>> +    REG_S x24, PT_S8(sp)
+>> +    REG_S x25, PT_S9(sp)
+>> +    REG_S x26, PT_S10(sp)
+>> +    REG_S x27, PT_S11(sp)
+>> +    REG_S x28, PT_T3(sp)
+>> +    REG_S x29, PT_T4(sp)
+>> +    REG_S x30, PT_T5(sp)
+>> +    REG_S x31, PT_T6(sp)
+>> +
+>> +    REG_L s0, TASK_TI_KERNEL_SP(tp)
+>> +    csrr s1, CSR_STATUS
+>> +    csrr s2, CSR_EPC
+>> +    csrr s3, CSR_TVAL
+>> +    csrr s4, CSR_CAUSE
+>> +    csrr s5, CSR_SCRATCH
+>> +    REG_S s0, PT_SP(sp)
+>> +    REG_S s1, PT_STATUS(sp)
+>> +    REG_S s2, PT_EPC(sp)
+>> +    REG_S s3, PT_BADADDR(sp)
+>> +    REG_S s4, PT_CAUSE(sp)
+>> +    REG_S s5, PT_TP(sp)
+>> +    move a0, sp
+>> +    tail handle_bad_stack
+>> +#endif
+>> +
+>>  END(handle_exception)
+>>
+>>  ENTRY(ret_from_fork)
+>> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> index 1357abf79570..ff8033b9fdd6 100644
+>> --- a/arch/riscv/kernel/traps.c
+>> +++ b/arch/riscv/kernel/traps.c
+>> @@ -200,3 +200,38 @@ int is_valid_bugaddr(unsigned long pc)
+>>  void trap_init(void)
+>>  {
+>>  }
+>> +
+>> +#ifdef CONFIG_VMAP_STACK
+>> +DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], 
+>> overflow_stack)
+>> +        __aligned(16);
+>> +/*
+>> + * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) 
+>> is used
+>> + * to get per-cpu overflow stack(get_overflow_stack).
+>> + */
+>> +long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+>> +asmlinkage unsigned long get_overflow_stack(void)
+>> +{
+>> +    return (unsigned long)this_cpu_ptr(overflow_stack) +
+>> +        OVERFLOW_STACK_SIZE;
+>> +}
+>> +
+>> +asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>> +{
+>> +    unsigned long tsk_stk = (unsigned long)current->stack;
+>> +    unsigned long ovf_stk = (unsigned 
+>> long)this_cpu_ptr(overflow_stack);
+>> +
+>> +    console_verbose();
+>> +
+>> +    pr_emerg("Insufficient stack space to handle exception!\n");
+>> +    pr_emerg("Task stack:     [0x%016lx..0x%016lx]\n",
+>> +            tsk_stk, tsk_stk + THREAD_SIZE);
+>> +    pr_emerg("Overflow stack: [0x%016lx..0x%016lx]\n",
+>> +            ovf_stk, ovf_stk + OVERFLOW_STACK_SIZE);
+>> +
+>> +    __show_regs(regs);
+>> +    panic("Kernel stack overflow");
+>> +
+>> +    for (;;)
+>> +        wait_for_interrupt();
+>> +}
+>> +#endif
+>
+> This LGTM.  It seems good enough to take, I'm not sure why this is an 
+> RFC?
+> .
+Thank you for your reply.
+The purpose of my RFC is that I don't think the scheme of getting 
+per-cpu overflow stack is optimal.
+At present, the patch based on next has been issued.
+
+
 
 _______________________________________________
 linux-riscv mailing list
