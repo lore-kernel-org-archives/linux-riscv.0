@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D9EEBC2B9F7
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D3A26C2B9F7
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 23:07:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 95E5B613D2
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 22:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95E5B613D2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8076E61403
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 May 2021 23:07:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8076E61403
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=rkd4fnu4Ir71pLWT0hTfGavLHs8EATI75s7IwFDavUM=; b=FdkHO8OSO/0iKG3PZp4IrlcPd
-	OIWI3s4NKnS3C5uRyeh+nZYJGSwyHkauGYC8g761fWGzkfWvosCfqFvIQ0D2PM02uttPEbqRi6BFJ
-	n1vj7J/X9u8gY41FVWLuaNbjczHWuCL+JHSPS9dRJHWptZ3JmdpZIh1+DJPmH3gCrG51do+II5M5T
-	kQLHGjju9wuH+yRSmhMr+4xE1PBNGmAJvmSMhfF070CDu4Qwwk0DuUkG8cj/3Y4NMitLxqgBDY7S3
-	H+sBpvwQ4rVXV96Nkg0rvjdje4zHLoYygUFuF3A8w0DxjzOXaPoZQE0hAjyIrJspxjG1DxLUd6ucH
-	LdQcn3F5A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Zehqr+zz8GLddf56xJgAc3fIFBHJ/BpUltAyVV9+2zg=; b=vIQgOF/fkroQsY
+	WyvM/4deDXTvKN9Q8J4iKX+EHjJ42ZHa52JqfqLLZtXpxazOLB4P4CzSHiWWLkZEphO7nL0XJ4fLD
+	zcQYXLD3NfujRgEtuXPuY9CXhABHwQ8SFS0gpMJSYBDQGxVED0y53wdehEwZ9o7fgc39O2rEtOeXm
+	W2Om/T3G96uA+LPlFEq4ERVTNEXemmePIvme5WpEnRNwJUOrNT90U3t0GQmvIjyAuZ8sIa+gWK4B1
+	gekTIUVYhczOvsJtsdfXgcuPhqkR/BwuPDxjhhnbDE/H6KkXw2culAGNyw4r2s+1VMq2yWrZZ1pl+
+	WAIacxAyPoGCXabKOxQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94 #2 (Red Hat Linux))
-	id 1llJOf-002D23-AD; Mon, 24 May 2021 22:50:05 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1llJex-002H1H-H9; Mon, 24 May 2021 23:06:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
  by bombadil.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1lkxCV-000bZX-TE
- for linux-riscv@lists.infradead.org; Sun, 23 May 2021 23:08:06 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id
- o17-20020a17090a9f91b029015cef5b3c50so10183430pjp.4
- for <linux-riscv@lists.infradead.org>; Sun, 23 May 2021 16:07:59 -0700 (PDT)
+ id 1ll5iG-000laF-R0
+ for linux-riscv@lists.infradead.org; Mon, 24 May 2021 08:13:26 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id b7so13836744wmh.5
+ for <linux-riscv@lists.infradead.org>; Mon, 24 May 2021 01:13:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=bqwY39AFMBrbwig3rQXemXwwiBs2O/Q1J2TqYuZJo1c=;
- b=FNI3c7igaRKGetKvdNZNG48WO8UHmCkzZXZLs3HlffPB/AB+5NR/bbrL58u1itIpFN
- CBUCfOPbQgiOuWBWbbRtespgYed8HwgKT9+PrQpRNfpX/bU2vhvM/2r5NquaIhmlg/TM
- TvqUikX8wUOmBO54974kJUiXPgOXNz8JRXHweOj4nVYthlZD9bRPuQEHZFpL26y++M/R
- lnHhY+6o5+Sw+0qSym+0EwMceQkjDvbr8KI8lLILcz0cs6bCiaNZBcqtxWvb1CW36ZI1
- 2wHoRrdd++ZCptGB28jHpsaiTQ4MdM8BZczJ1UMI2cLVqHUcgf7y0XmP5ony8xccsvga
- rapg==
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=hkoJ4XU3fJYIUXpsvaVz4eo9jPqdu/8/7QTK7vX9wJM=;
+ b=pL2oo52tUpRLBy49VIx5zFQfFs5QoWz6wCdaZlOZynpDEiny/Ix3dTTLDNMS3jTgP+
+ CAvTt0KKu+xM5jHc9zloqeIu+MILVF1fS0tLdulYu0KHAhGdkXyg/ezsgjuFDshU/ipv
+ Nc6vA/sFhFWX0CtXzfB8q/dBybiq/y3SCsxnogvRPd8VgF5hhq3CT56rtSKRNN3rsHZ9
+ 6xA8OndA1FmuRj6PzaoOaJ9Kr0EEIbMfvHcy78eF3jAhKwg9eXN9h0Cs+EykFPkbD5cP
+ 6mo1yQO1u3Iqh6grda/3LMtWRo+eGmxP449xoKZhaNwwtAnAhYQJrtAzarXyd2pmiP4f
+ /DfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=bqwY39AFMBrbwig3rQXemXwwiBs2O/Q1J2TqYuZJo1c=;
- b=mPsluzLjk75xsYQF5lsIL3SmSNmJacKW2PPJi+0RIGvFH/bo9euZFtu0Y9yHtGdOiY
- qPSe3vJ/+/wosd2kqm9kKjVxuHT1CwG4+t9wM9NwKKcfKJfcBLjO2+AAk8B7shOYuJmw
- /GZ71a3zEFhkbJBX5W4T906UHZPmj3neIjL6RcDsVu9HsOU6HVeyQeO1Sm7lo7iMRRms
- ad36rwPbfHaMzF3PYb4b9lYdH2dtlGd8FWyqbbyJ1vUdVOFnhKmvARulCHUbRdE1j8aD
- sHm/Ho5te3guNgeRFcWeZZEwtpC+HRVXx0H2WYmP6prqJ2jac/TUnvLJOrzu9klBIWVQ
- HgmA==
-X-Gm-Message-State: AOAM530uyA3XW+j4kzL2KvaU+TD1+ODFVjEWB0QLQURjD3VGyQe2erAV
- OW3MFt6aUdp3QseDG2CPCLG8ix7SxWEhrg==
-X-Google-Smtp-Source: ABdhPJxP4JthaP/hcHChPlvNU+ynfvFfWo01KUzvv/Zj/mmrdzdKq5cp81Kkka9ZUV/O9plevNntkg==
-X-Received: by 2002:a17:90a:590d:: with SMTP id
- k13mr22391629pji.68.1621811278357; 
- Sun, 23 May 2021 16:07:58 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id mv15sm8543882pjb.25.2021.05.23.16.07.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 23 May 2021 16:07:57 -0700 (PDT)
-Date: Sun, 23 May 2021 16:07:57 -0700 (PDT)
-X-Google-Original-Date: Sun, 23 May 2021 15:53:48 PDT (-0700)
-Subject: Re: [PATCH] riscv: Move setup_bootmem into paging_init
-In-Reply-To: <20210510114222.42195-1-wangkefeng.wang@huawei.com>
-CC: linux-riscv@lists.infradead.org, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, anshuman.khandual@arm.com,
- wangkefeng.wang@huawei.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-3af958e9-72a7-4f6f-97cd-3b196d3400e2@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=hkoJ4XU3fJYIUXpsvaVz4eo9jPqdu/8/7QTK7vX9wJM=;
+ b=ODLKl4N1KiyT6g3L4Rwr9YJ5INSb0K9rcBBr+HxAd2GqVb6DbGeuWm4dw/zEo8D5tn
+ 4cvFCyfGuGsCJL2iEPYQ6ErYbw5x7emRJj2fJ0yu9GILlV+UQlnRCihqLmLf7a3sDzTC
+ ZBGAD+UF0RLQDjrBK+xoIbZbs8SLjh4yYyzlwudvcJV5XG/zH+BFf06brNUHqWg4IE/y
+ Qli78CLqxxn5fCy76yoEpwlSo45/xoXNzVH3RWyApbld41McqNDe8JDaht8B9u+SMUjK
+ gI9L72913P3zePiJcXo5aGbTnostIfz+Ub3wElOtB/X5gzHp7SXRhDZFd4DZsEV/mM2U
+ 6xhw==
+X-Gm-Message-State: AOAM533wJRf36NXKaiDb8/yA/WEc30OnYMfJhdkpqZKjxyARE2g3lcue
+ MonwkIkLomrBy/LuHa5WW4dEOqpd95/l/it4FCPIRw==
+X-Google-Smtp-Source: ABdhPJyC2jCu7SFxxUWfosx6Xigmxy1B2+g0gPGzW98vy1plPs28wHz7rs4SviVoeR8UnTFwEAYZZhBVno/WhE+51kM=
+X-Received: by 2002:a1c:4e0b:: with SMTP id g11mr18341827wmh.3.1621844001916; 
+ Mon, 24 May 2021 01:13:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <1621839068-31738-1-git-send-email-guoren@kernel.org>
+ <1621839068-31738-3-git-send-email-guoren@kernel.org>
+In-Reply-To: <1621839068-31738-3-git-send-email-guoren@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 24 May 2021 13:43:10 +0530
+Message-ID: <CAAhSdy16yXsuPRBv2Sn-OJwEhvs1UkdMUr1jqhB8qxXo+Mu7=w@mail.gmail.com>
+Subject: Re: [PATCH 3/3] riscv: Use use_asid_allocator flush TLB
+To: Guo Ren <guoren@kernel.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Arnd Bergmann <arnd@arndb.de>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210523_160803_970785_CC8218DE 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20210524_011324_904686_71939AEB 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +92,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 May 2021 04:42:22 PDT (-0700), wangkefeng.wang@huawei.com wrote:
-> Make setup_bootmem() static.
+On Mon, May 24, 2021 at 12:22 PM <guoren@kernel.org> wrote:
 >
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Use static_branch_unlikely(&use_asid_allocator) to keep the origin
+> tlb flush style, so it's no effect on the existing machine. Here
+> are the optimized functions:
+>  - flush_tlb_mm
+>  - flush_tlb_page
+>  - flush_tlb_range
+>
+> All above are based on the below new implement functions:
+>  - __sbi_tlb_flush_range_asid
+>  - local_flush_tlb_range_asid
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 > ---
->  arch/riscv/include/asm/pgtable.h | 1 -
->  arch/riscv/kernel/setup.c        | 1 -
->  arch/riscv/mm/init.c             | 3 ++-
->  3 files changed, 2 insertions(+), 3 deletions(-)
+>  arch/riscv/include/asm/mmu_context.h |  2 ++
+>  arch/riscv/include/asm/tlbflush.h    | 22 ++++++++++++++++++++
+>  arch/riscv/mm/context.c              |  2 +-
+>  arch/riscv/mm/tlbflush.c             | 40 +++++++++++++++++++++++++++++++++---
+>  4 files changed, 62 insertions(+), 4 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 9469f464e71a..2017794d0e64 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -533,7 +533,6 @@ extern uintptr_t _dtb_early_pa;
->  #define dtb_early_pa	_dtb_early_pa
->  #endif /* CONFIG_XIP_KERNEL */
->
-> -void setup_bootmem(void);
->  void paging_init(void);
->  void misc_mem_init(void);
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 03901d3a8b02..4db4d0b5911f 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -276,7 +276,6 @@ void __init setup_arch(char **cmdline_p)
->  	parse_early_param();
->
->  	efi_init();
-> -	setup_bootmem();
->  	paging_init();
->  #if IS_ENABLED(CONFIG_BUILTIN_DTB)
->  	unflatten_and_copy_device_tree();
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4faf8bd157ea..136d0342b147 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -119,7 +119,7 @@ void __init mem_init(void)
->  	print_vm_layout();
+> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+> index b065941..7030837 100644
+> --- a/arch/riscv/include/asm/mmu_context.h
+> +++ b/arch/riscv/include/asm/mmu_context.h
+> @@ -33,6 +33,8 @@ static inline int init_new_context(struct task_struct *tsk,
+>         return 0;
 >  }
 >
-> -void __init setup_bootmem(void)
-> +static void __init setup_bootmem(void)
->  {
->  	phys_addr_t vmlinux_end = __pa_symbol(&_end);
->  	phys_addr_t vmlinux_start = __pa_symbol(&_start);
-> @@ -866,6 +866,7 @@ RESERVEDMEM_OF_DECLARE(elfcorehdr, "linux,elfcorehdr", elfcore_hdr_setup);
+> +DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
+> +
+>  #include <asm-generic/mmu_context.h>
 >
->  void __init paging_init(void)
+>  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index c84218a..9390319 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -8,6 +8,7 @@
+>  #define _ASM_RISCV_TLBFLUSH_H
+>
+>  #include <linux/mm_types.h>
+> +#include <asm/page.h>
+>  #include <asm/smp.h>
+>  #include <asm/errata_list.h>
+>
+> @@ -22,9 +23,30 @@ static inline void local_flush_tlb_page(unsigned long addr)
 >  {
-> +	setup_bootmem();
->  	setup_vm_final();
->  	setup_zero_page();
+>         ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
 >  }
+> +
+> +static inline void local_flush_tlb_range_asid(unsigned long start, unsigned long size,
+> +                                             unsigned long asid)
+> +{
+> +       unsigned long page_add = PAGE_DOWN(start);
+> +       unsigned long page_end = PAGE_UP(start + size);
 
-Thanks, this is on for-next.
+Your PATCH2 is not correct because PAGE_UP(x) should in-fact
+return 0 when x == 0.
+
+In fact, if both "start" and "size" are zero then both page_add and
+page_end should be zero so that no "sfence.vma" is executed.
+
+If you want at least one TLB entry to be invalidated when size == 0
+then you can simply set "size = 1" when size is zero which will force
+one TLB invalidation.
+
+Please drop your PATCH2 and the rest of the things look good to me.
+
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
+
+> +
+> +       if (size == -1) {
+> +               __asm__ __volatile__ ("sfence.vma x0, %0" : : "r" (asid) : "memory");
+> +               return;
+> +       }
+> +
+> +       while(page_add < page_end) {
+> +               __asm__ __volatile__ ("sfence.vma %0, %1"
+> +                               :
+> +                               : "r" (page_add), "r" (asid)
+> +                               : "memory");
+> +               page_add += PAGE_SIZE;
+> +       }
+> +}
+>  #else /* CONFIG_MMU */
+>  #define local_flush_tlb_all()                  do { } while (0)
+>  #define local_flush_tlb_page(addr)             do { } while (0)
+> +#define local_flush_tlb_range_asid(addr)       do { } while (0)
+>  #endif /* CONFIG_MMU */
+>
+>  #if defined(CONFIG_SMP) && defined(CONFIG_MMU)
+> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> index 68aa312..45c1b04 100644
+> --- a/arch/riscv/mm/context.c
+> +++ b/arch/riscv/mm/context.c
+> @@ -18,7 +18,7 @@
+>
+>  #ifdef CONFIG_MMU
+>
+> -static DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+> +DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+>
+>  static unsigned long asid_bits;
+>  static unsigned long num_asids;
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 720b443..69588dc 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -4,6 +4,7 @@
+>  #include <linux/smp.h>
+>  #include <linux/sched.h>
+>  #include <asm/sbi.h>
+> +#include <asm/mmu_context.h>
+>
+>  void flush_tlb_all(void)
+>  {
+> @@ -39,18 +40,51 @@ static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
+>         put_cpu();
+>  }
+>
+> +static void __sbi_tlb_flush_range_asid(struct cpumask *cmask, unsigned long start,
+> +                                      unsigned long size, unsigned long asid)
+> +{
+> +       struct cpumask hmask;
+> +       unsigned int cpuid;
+> +
+> +       if (cpumask_empty(cmask))
+> +               return;
+> +
+> +       cpuid = get_cpu();
+> +
+> +       if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
+> +               local_flush_tlb_range_asid(start, size, asid);
+> +       } else {
+> +               riscv_cpuid_to_hartid_mask(cmask, &hmask);
+> +               sbi_remote_sfence_vma_asid(cpumask_bits(&hmask), start, size, asid);
+> +       }
+> +
+> +       put_cpu();
+> +}
+> +
+>  void flush_tlb_mm(struct mm_struct *mm)
+>  {
+> -       __sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
+> +       if (static_branch_unlikely(&use_asid_allocator))
+> +               __sbi_tlb_flush_range_asid(mm_cpumask(mm), 0, -1,
+> +                                          atomic_long_read(&mm->context.id));
+> +       else
+> +               __sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
+>  }
+>
+>  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+>  {
+> -       __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
+> +       if (static_branch_unlikely(&use_asid_allocator))
+> +               __sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE,
+> +                                          atomic_long_read(&vma->vm_mm->context.id));
+> +       else
+> +               __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
+>  }
+>
+>  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>                      unsigned long end)
+>  {
+> -       __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
+> +       if (static_branch_unlikely(&use_asid_allocator))
+> +               __sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), start, end - start,
+> +                                          atomic_long_read(&vma->vm_mm->context.id));
+> +       else
+> +               __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
+>  }
+> --
+> 2.7.4
+>
 
 _______________________________________________
 linux-riscv mailing list
