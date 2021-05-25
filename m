@@ -2,67 +2,57 @@ Return-Path: <SRS0=WUGv=KU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A9AEFC2B9F8
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 14:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B4716C2B9F8
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 16:10:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 68D8661284
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 14:45:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68D8661284
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 68CC561378
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 16:10:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 68CC561378
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=owNCr2+fTsUQGWyHp10e88AyZUGxB+OMocBbr8bP8RU=; b=0dH+bSLp3q21hg
-	LLpDP0xkeW0e5Q88k+1UoPdxztXYg/4l0qShDGbdc1EVtShkCAmD122AzDhy7Thj/oLkXo73qSUkS
-	5Af5XeMtqm95MycPsckgCha62b0mdj0HM19geYCWCOA3B+S18yCEBgHbkc/g3u7b8WSHBThsYkb7Q
-	Z2kqVRBppfmoMJMi8rub4rh5mTzmbbl/SPvQnuN6KoauFULs2DkIk/K4OGINwSRkLgvneOuQSh7Vp
-	rTbhTNAr1b4dc2mXSSz13BS2CP7wrIGToSxm2YYB1kPiGdcwVxb6+lFPBDHNg3V5vQbLi1fdlRAIY
-	TfzjQc5dUpqbtY8QDjjw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=PdGnSvjYlU7pQw0nWzTtgNryBVLH/nMasW0q2MF4YcY=; b=hiSWmbdJeOPyk/Q/cuChqenInl
+	5LjwapSim4fWNErjclO6pRyw9OQyCbrIAZ+0Ixq6NC7mOJGmEMvRT0IonhUoH5hiRsjjRsJbj1KMH
+	+NnU9H4DEQTdLD/QA7Za9cGZDxb58o78h8qE7Kows1LJVz5kw19HFFTn99M4j6dCQMlX1GSdt6Yag
+	TeyyNF9GgFpHwLH3DkbEASp4qjasfwnlzz2Fw3ztdkI6JkJStnc/Yd4A9KQTn0W0oOpCGNzkTeTza
+	kLjNpG0+q8vAX8av6W20zpUc6wX18dI0bi9+q2D9hpdApzuajkSBoUP/TYgB+WZ8Y62GO0faiR0Nx
+	ag6LUDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llYJ0-005jaB-1e; Tue, 25 May 2021 14:45:14 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1llYIx-005jYc-DX
- for linux-riscv@lists.infradead.org; Tue, 25 May 2021 14:45:13 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B958A6141C;
- Tue, 25 May 2021 14:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1621953911;
- bh=jfWp5vialmXhYcXsdvLggfVIv1bcNp7z6bzNnIfhMJs=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=lyU0XUfjokFn6Duv+OPmiSjb1JOVme62avzrZz2hHvx1oFvh07TXcqjNc7vTtydze
- 9GU04pIGPwo1dv0rmUZZaX068G8FEAM+YtGrLHhYLfsvEwTrP8DWcmSaHoZff6IH3a
- qKhyCIxNvROpdTzWZeJdKieBQj0EFkzeAmOYmvxmnMeesMpvQV2AuJ3ci3i3JVmMLU
- VrpviY6aghQ2FKhDrEXVejZQ4kPEJOr9f6OrUwWz7Zlzm40CXnnouGPHqLE5tQx2BB
- te+qUNejwrTWcjIPdEHR2BPVyDZmBtyB/j4Ra11amW2TL4jCbYm437zf/Mlkn3YAXD
- WQZ9fr5DvMEqQ==
-Date: Tue, 25 May 2021 23:45:07 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: kprobes: Remove redundant kprobe_step_ctx
-Message-Id: <20210525234507.2a576f91d157eba18eb4306a@kernel.org>
-In-Reply-To: <20210512225819.6756c0b0@xhacker>
-References: <20210419002919.1a0a539d@xhacker> <20210512225819.6756c0b0@xhacker>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210525_074511_556107_BAECA8DA 
-X-CRM114-Status: GOOD (  26.98  )
+	id 1llZdL-006I1r-4h; Tue, 25 May 2021 16:10:19 +0000
+Received: from [2601:1c0:6280:3f0::7376]
+ by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1llZAD-0064rZ-AI; Tue, 25 May 2021 15:40:13 +0000
+Subject: Re: [PATCH -next] riscv: TRANSPARENT_HUGEPAGE: depends on MMU
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>,
+ Nanyong Sun <sunnanyong@huawei.com>
+References: <20210525001302.27779-1-rdunlap@infradead.org>
+ <YKzSdtoaeL9mfokF@kernel.org>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <a2953d37-aaf3-3db5-f4a3-488a8ca7f245@infradead.org>
+Date: Tue, 25 May 2021 08:40:10 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
+MIME-Version: 1.0
+In-Reply-To: <YKzSdtoaeL9mfokF@kernel.org>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,165 +69,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
-
-On Wed, 12 May 2021 22:58:19 +0800
-Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
-
-> On Mon, 19 Apr 2021 00:29:19 +0800
-> Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+On 5/25/21 3:33 AM, Mike Rapoport wrote:
+> On Mon, May 24, 2021 at 05:13:02PM -0700, Randy Dunlap wrote:
+>> Fix a Kconfig warning and many build errors:
+>>
+>> WARNING: unmet direct dependencies detected for COMPACTION
+>>   Depends on [n]: MMU [=n]
+>>   Selected by [y]:
+>>   - TRANSPARENT_HUGEPAGE [=y] && HAVE_ARCH_TRANSPARENT_HUGEPAGE [=y]
+>>
+>> and the subseqent thousands of build errors and warnings.
+>>
+>> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>> Cc: Albert Ou <aou@eecs.berkeley.edu>
+>> Cc: linux-riscv@lists.infradead.org
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: Nanyong Sun <sunnanyong@huawei.com>
 > 
-> > From: Jisheng Zhang <jszhang@kernel.org>
-> > 
-> > Inspired by commit ba090f9cafd5 ("arm64: kprobes: Remove redundant
-> > kprobe_step_ctx"), the ss_pending and match_addr of kprobe_step_ctx
-> > are redundant because those can be replaced by KPROBE_HIT_SS and
-> > &cur_kprobe->ainsn.api.insn[0] + GET_INSN_LENGTH(cur->opcode)
-> > respectively.
-> > 
-> > Remove the kprobe_step_ctx to simplify the code.
+> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Hi all,
+>> ---
+>> I really think that mm/Kconfig should have "depends on MMU" for
+>> TRANSPARENT_HUGEPAGE, but commit 15626062f4a9 from 2012
+>> ("thp, x86: introduce HAVE_ARCH_TRANSPARENT_HUGEPAGE") thought
+>> differently. I.e., mm/Kconfig should be protecting all arches
+>> against this Kconfig problem.
 > 
-> This patch can still be applied to 5.13-rc1, could you please review? Let me
-> know if a rebase on 5.13-rc1 is needed.
+> We could 
+> 
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 02d44e3420f5..85bc8bf32e7b 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -403,7 +403,7 @@ config NOMMU_INITIAL_TRIM_EXCESS
+>  
+>  config TRANSPARENT_HUGEPAGE
+>  	bool "Transparent Hugepage Support"
+> -	depends on HAVE_ARCH_TRANSPARENT_HUGEPAGE
+> +	depends on MMU && HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>  	select COMPACTION
+>  	select XARRAY_MULTI
+>  	help
+> 
+> but in a sense HAVE_ARCH_TRANSPARENT_HUGEPAGE should imply that MMU is
+> selected :)
 
-As far as I compared with arm64 code, this looks good to me.
+Yes, I had this patch before the one that I sent but decided against it
+based on history.
 
-Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
-
-Thanks,
-
-> 
-> Thanks
-> 
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/include/asm/kprobes.h   |  7 ------
-> >  arch/riscv/kernel/probes/kprobes.c | 40 +++++++-----------------------
-> >  2 files changed, 9 insertions(+), 38 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
-> > index 4647d38018f6..9ea9b5ec3113 100644
-> > --- a/arch/riscv/include/asm/kprobes.h
-> > +++ b/arch/riscv/include/asm/kprobes.h
-> > @@ -29,18 +29,11 @@ struct prev_kprobe {
-> >  	unsigned int status;
-> >  };
-> >  
-> > -/* Single step context for kprobe */
-> > -struct kprobe_step_ctx {
-> > -	unsigned long ss_pending;
-> > -	unsigned long match_addr;
-> > -};
-> > -
-> >  /* per-cpu kprobe control block */
-> >  struct kprobe_ctlblk {
-> >  	unsigned int kprobe_status;
-> >  	unsigned long saved_status;
-> >  	struct prev_kprobe prev_kprobe;
-> > -	struct kprobe_step_ctx ss_ctx;
-> >  };
-> >  
-> >  void arch_remove_kprobe(struct kprobe *p);
-> > diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-> > index 8c1f7a30aeed..4c1ad5536748 100644
-> > --- a/arch/riscv/kernel/probes/kprobes.c
-> > +++ b/arch/riscv/kernel/probes/kprobes.c
-> > @@ -17,7 +17,7 @@ DEFINE_PER_CPU(struct kprobe *, current_kprobe) = NULL;
-> >  DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
-> >  
-> >  static void __kprobes
-> > -post_kprobe_handler(struct kprobe_ctlblk *, struct pt_regs *);
-> > +post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
-> >  
-> >  static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
-> >  {
-> > @@ -43,7 +43,7 @@ static void __kprobes arch_simulate_insn(struct kprobe *p, struct pt_regs *regs)
-> >  		p->ainsn.api.handler((u32)p->opcode,
-> >  					(unsigned long)p->addr, regs);
-> >  
-> > -	post_kprobe_handler(kcb, regs);
-> > +	post_kprobe_handler(p, kcb, regs);
-> >  }
-> >  
-> >  int __kprobes arch_prepare_kprobe(struct kprobe *p)
-> > @@ -149,21 +149,6 @@ static void __kprobes kprobes_restore_local_irqflag(struct kprobe_ctlblk *kcb,
-> >  	regs->status = kcb->saved_status;
-> >  }
-> >  
-> > -static void __kprobes
-> > -set_ss_context(struct kprobe_ctlblk *kcb, unsigned long addr, struct kprobe *p)
-> > -{
-> > -	unsigned long offset = GET_INSN_LENGTH(p->opcode);
-> > -
-> > -	kcb->ss_ctx.ss_pending = true;
-> > -	kcb->ss_ctx.match_addr = addr + offset;
-> > -}
-> > -
-> > -static void __kprobes clear_ss_context(struct kprobe_ctlblk *kcb)
-> > -{
-> > -	kcb->ss_ctx.ss_pending = false;
-> > -	kcb->ss_ctx.match_addr = 0;
-> > -}
-> > -
-> >  static void __kprobes setup_singlestep(struct kprobe *p,
-> >  				       struct pt_regs *regs,
-> >  				       struct kprobe_ctlblk *kcb, int reenter)
-> > @@ -182,8 +167,6 @@ static void __kprobes setup_singlestep(struct kprobe *p,
-> >  		/* prepare for single stepping */
-> >  		slot = (unsigned long)p->ainsn.api.insn;
-> >  
-> > -		set_ss_context(kcb, slot, p);	/* mark pending ss */
-> > -
-> >  		/* IRQs and single stepping do not mix well. */
-> >  		kprobes_save_local_irqflag(kcb, regs);
-> >  
-> > @@ -219,13 +202,8 @@ static int __kprobes reenter_kprobe(struct kprobe *p,
-> >  }
-> >  
-> >  static void __kprobes
-> > -post_kprobe_handler(struct kprobe_ctlblk *kcb, struct pt_regs *regs)
-> > +post_kprobe_handler(struct kprobe *cur, struct kprobe_ctlblk *kcb, struct pt_regs *regs)
-> >  {
-> > -	struct kprobe *cur = kprobe_running();
-> > -
-> > -	if (!cur)
-> > -		return;
-> > -
-> >  	/* return addr restore if non-branching insn */
-> >  	if (cur->ainsn.api.restore != 0)
-> >  		regs->epc = cur->ainsn.api.restore;
-> > @@ -355,16 +333,16 @@ bool __kprobes
-> >  kprobe_single_step_handler(struct pt_regs *regs)
-> >  {
-> >  	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
-> > +	unsigned long addr = instruction_pointer(regs);
-> > +	struct kprobe *cur = kprobe_running();
-> >  
-> > -	if ((kcb->ss_ctx.ss_pending)
-> > -	    && (kcb->ss_ctx.match_addr == instruction_pointer(regs))) {
-> > -		clear_ss_context(kcb);	/* clear pending ss */
-> > -
-> > +	if (cur && (kcb->kprobe_status & (KPROBE_HIT_SS | KPROBE_REENTER)) &&
-> > +	    ((unsigned long)&cur->ainsn.api.insn[0] + GET_INSN_LENGTH(cur->opcode) == addr)) {
-> >  		kprobes_restore_local_irqflag(kcb, regs);
-> > -
-> > -		post_kprobe_handler(kcb, regs);
-> > +		post_kprobe_handler(cur, kcb, regs);
-> >  		return true;
-> >  	}
-> > +	/* not ours, kprobes should ignore it */
-> >  	return false;
-> >  }
-> >  
-> 
+>>  arch/riscv/Kconfig |    2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> --- linux-next-20210524.orig/arch/riscv/Kconfig
+>> +++ linux-next-20210524/arch/riscv/Kconfig
+>> @@ -106,7 +106,7 @@ config RISCV
+>>  	select SYSCTL_EXCEPTION_TRACE
+>>  	select THREAD_INFO_IN_TASK
+>>  	select UACCESS_MEMCPY if !MMU
+>> -	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT
+>> +	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+>>  
+>>  config ARCH_MMAP_RND_BITS_MIN
+>>  	default 18 if 64BIT
+>>
 > 
 
-
+thanks.
 -- 
-Masami Hiramatsu <mhiramat@kernel.org>
+~Randy
+
 
 _______________________________________________
 linux-riscv mailing list
