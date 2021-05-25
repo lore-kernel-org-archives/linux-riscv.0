@@ -2,86 +2,60 @@ Return-Path: <SRS0=WUGv=KU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D677BC2B9F8
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 12:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F916C2B9F8
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 12:36:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C43361409
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 12:33:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C43361409
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2191661409
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 12:36:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2191661409
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=20ZQTPQQETnOfHzQ53j0lyeDJJzpr6uIl45zTFykXXo=; b=o0Xe8fzY0c3Adp
-	v2TrBMCkZd+eW5IxbqW1jCnajnE966taANvgtZWtfqQA+o3nKi24XrmSe3Tt5m2qsus//0J3vRr0z
-	tVWJMGggaeDzf4eiEPRrfHCjF7Ud9f8UP90inTsr9YWIGn4sA7fDVNIQzu5QPOL5e+Zdx1+MNWNPj
-	LKXri8GsDY64DM+To59suv4I9oQkB7nsdnysAxJrs1DWIU9xYSf9RwGlmhNnp3aPTVQVfFJpYXRZS
-	n7j4DPn+hKsjoNoGvURg1lekStNl6XGssznGBFe4HCMOlKz/rDv6L83b78ORQJU/0LklVKV9Ne0q6
-	aVxrwtaKCjSczPuQHcnw==;
+	List-Owner; bh=4bjzY/UvIXbRwyzhscZqSbjhm75yq6iY4IGr/1zHLtE=; b=RaEtWPJVxSDoHP
+	WJvN8nJo7VqxDPZQ0DemZGV0FUs01HgbVcPKF6k/I2QrprjLCNatfWqE94kd22J7ErHlboNb+9lcs
+	izIn0DDAW8ApOXcUz9pMsH0IaWoLZbXmIey057t7WBTNE578wkbkFk1mbpKiT2pV8OZ0kPTu8Sb/Y
+	17X9guHzRv3BbyMIHzttF91Bj6Kl2Ky0PyNGlOrTtkTqraZ5YWUOCWDIHEl8jeUGW4vy0mxoFCm4L
+	GT9DtwLQiNEvw29/Zy3lWCEyXvfKxNkCM//fdigeij6n5EstP1sAWs3hfh7WIeX+RleZBMKsmzZTX
+	u0sktc3Ey/7tkb4NBxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llWEr-0053mB-KU; Tue, 25 May 2021 12:32:49 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1llWHx-0054nn-UG; Tue, 25 May 2021 12:36:01 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1llWEn-0053jq-TD
- for linux-riscv@lists.infradead.org; Tue, 25 May 2021 12:32:47 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id y14so29973589wrm.13
- for <linux-riscv@lists.infradead.org>; Tue, 25 May 2021 05:32:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=sFy/LCaXB1SRilva8CJ6mi6jxkEQV+dWKl9QiGNHUsg=;
- b=s2myp/MyFCHOHtpxco8bZqGgOkPGygWKSZEMO5NAtVwE7ob5u1K956l3GFDdI8BvXp
- 6huP+HAe5CK3gwN1qVuy1yHJgr5u1dVVw844eZ4sUbKonuWYdz7uDbugoZn7ZPs1Pijh
- RbxX8EkV57WppSRghckgfI2u2zN49d7zF0mrxQWOQevslGVYdY+W5vNXe/K6tY41C+GL
- 4gD18WUuLnhhTN19n0BJxOF6Z2aY/EJ2Gqed5nPh6W1riNawh/tLQcBEp/+rhWKYfs2Z
- Uk+XNOTGlJ3BlTkWJnbNqo1hdeDOAb78BDm7BZsf2uwGyjXnG1AwvQ0MsayaKfHJ+tEQ
- KYoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=sFy/LCaXB1SRilva8CJ6mi6jxkEQV+dWKl9QiGNHUsg=;
- b=CTKpzzeMpV8PBCvflF0naGLNsO9ojYKHon94YCXd1D4jOaBTOSx3limMoNIF0vP0gK
- TlqLCwU+wYYi99+6U7BkyDBfAz87Gdrj77r4UohFJRmKadZw5cxNuLPClzgTSgeEQbik
- XhTvqCUADAtdqMchHmN1h30mClTi2Aex9D/vsaaHFiUmL/hqOcsVlOBQol6rsCkKA4jD
- IQFrg1DykP3/koHPHbA/huFwdnPhOuAnuTHh0DTmg0WwoU8ucqs7JRsS0RDydLdGjTjI
- FWwb/whHH8AY3sQq+hVLNpi6O8NADy+zLneyUoHFa25UfThQavXzPjmdjSoKi+tRE/Tl
- LGMA==
-X-Gm-Message-State: AOAM532PrWSonubg4uPK1/dEXhJU4E3Sf0iYgmiTdNwNAIntugheGW8m
- J0BVXzBaEPyHV6zc5Q+pngK5J9rLnZC/U+JkwGn2Qw==
-X-Google-Smtp-Source: ABdhPJwmnDH3iFAvmCNe+NjWKkYYKkEISVmzhPeoZ89aTiS5cvv29wco+Is3CTtZH/UHKJezW1DX4vg3l9OBcF2kkmY=
-X-Received: by 2002:adf:e38c:: with SMTP id e12mr26636946wrm.128.1621945963328; 
- Tue, 25 May 2021 05:32:43 -0700 (PDT)
+ id 1llWHv-0054mA-5E
+ for linux-riscv@lists.infradead.org; Tue, 25 May 2021 12:36:00 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 647BA6736F; Tue, 25 May 2021 14:35:56 +0200 (CEST)
+Date: Tue, 25 May 2021 14:35:56 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: guoren@kernel.org
+Cc: anup.patel@wdc.com, palmerdabbelt@google.com, arnd@arndb.de, hch@lst.de,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V3 2/2] riscv: Use use_asid_allocator flush TLB
+Message-ID: <20210525123556.GB4842@lst.de>
+References: <1621945447-38820-1-git-send-email-guoren@kernel.org>
+ <1621945447-38820-3-git-send-email-guoren@kernel.org>
 MIME-Version: 1.0
-References: <1621945234-37878-1-git-send-email-guoren@kernel.org>
-In-Reply-To: <1621945234-37878-1-git-send-email-guoren@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 25 May 2021 18:02:31 +0530
-Message-ID: <CAAhSdy3b455vEhsMtL_swSnt1udP_z_dM_zcXvRfLN5ikjY8_A@mail.gmail.com>
-Subject: Re: [PATCH] arch: Cleanup unused functions
-To: Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@lst.de>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
- Michal Simek <monstr@monstr.eu>
+Content-Disposition: inline
+In-Reply-To: <1621945447-38820-3-git-send-email-guoren@kernel.org>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210525_053246_016940_89877763 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20210525_053559_405884_CB638C0B 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,69 +72,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 25, 2021 at 5:52 PM <guoren@kernel.org> wrote:
->
+On Tue, May 25, 2021 at 12:24:07PM +0000, guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
->
-> These functions haven't been used, so just remove them. The patch
-> has been tested with riscv, but I only use grep to check the
-> microblaze's.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Christoph Hellwig <hch@lst.de>
+> 
+> Use static_branch_unlikely(&use_asid_allocator) to keep the origin
+> tlb flush style, so it's no effect on the existing machine. Here
+> are the optimized functions:
+>  - flush_tlb_mm
+>  - flush_tlb_page
+>  - flush_tlb_range
+> 
+> All above are based on the below new implement functions:
+>  - __sbi_tlb_flush_range_asid
+>  - local_flush_tlb_range_asid
 
-Looks good to me.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+This mentiones what functions you're changing, but not what the
+substantial change is, and more importantly why you change it.
 
-Regards,
-Anup
+> +static inline void local_flush_tlb_range_asid(unsigned long start, unsigned long size,
+> +					      unsigned long asid)
 
-> ---
->  arch/microblaze/include/asm/page.h |  3 ---
->  arch/riscv/include/asm/page.h      | 10 ----------
->  2 files changed, 13 deletions(-)
->
-> diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
-> index bf681f2..ce55097 100644
-> --- a/arch/microblaze/include/asm/page.h
-> +++ b/arch/microblaze/include/asm/page.h
-> @@ -35,9 +35,6 @@
->
->  #define ARCH_SLAB_MINALIGN     L1_CACHE_BYTES
->
-> -#define PAGE_UP(addr)  (((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> -#define PAGE_DOWN(addr)        ((addr)&(~((PAGE_SIZE)-1)))
-> -
->  /*
->   * PAGE_OFFSET -- the first address of the first page of memory. With MMU
->   * it is set to the kernel start address (aligned on a page boundary).
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 6a7761c..a1b888f 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -37,16 +37,6 @@
->
->  #ifndef __ASSEMBLY__
->
-> -#define PAGE_UP(addr)  (((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> -#define PAGE_DOWN(addr)        ((addr)&(~((PAGE_SIZE)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up/down if needed */
-> -#define _ALIGN_UP(addr, size)  (((addr)+((size)-1))&(~((size)-1)))
-> -#define _ALIGN_DOWN(addr, size)        ((addr)&(~((size)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up if needed */
-> -#define _ALIGN(addr, size)     _ALIGN_UP(addr, size)
-> -
->  #define clear_page(pgaddr)                     memset((pgaddr), 0, PAGE_SIZE)
->  #define copy_page(to, from)                    memcpy((to), (from), PAGE_SIZE)
->
-> --
-> 2.7.4
->
+Crazy long line.  Should be:
+
+static inline void local_flush_tlb_range_asid(unsigned long start,
+		unsigned long size, unsigned long asid)
+
+> +{
+> +	unsigned long tmp = start & PAGE_MASK;
+> +	unsigned long end = ALIGN(start + size, PAGE_SIZE);
+> +
+> +	if (size == -1) {
+> +		__asm__ __volatile__ ("sfence.vma x0, %0" : : "r" (asid) : "memory");
+> +		return;
+
+Please split the global (size == -1) case into separate helpers.
+
+> +	while(tmp < end) {
+
+Missing whitespace befre the (.
+
+Also I think this would read nicer as:
+
+	for (tmp = start & PAGE_MASK; tmp < end; tmp += PAGE_SIZE)
+
+> +static void __sbi_tlb_flush_range_asid(struct cpumask *cmask, unsigned long start,
+> +				       unsigned long size, unsigned long asid)
+
+Another overly long line.
+
+Also for all thee __sbi_* functions, why the __ prefix?
+
+> +	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
+> +		local_flush_tlb_range_asid(start, size, asid);
+> +	} else {
+> +		riscv_cpuid_to_hartid_mask(cmask, &hmask);
+> +		sbi_remote_sfence_vma_asid(cpumask_bits(&hmask), start, size, asid);
+
+Another long line (and a few more later).
 
 _______________________________________________
 linux-riscv mailing list
