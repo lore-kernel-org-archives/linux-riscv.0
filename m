@@ -2,20 +2,20 @@ Return-Path: <SRS0=WUGv=KU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 848DBC2B9F8
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 09:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65B95C2B9F8
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 10:33:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CADC6141B
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 09:35:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CADC6141B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 24E9B61181
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 10:33:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24E9B61181
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,51 +23,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z5PaF8NVWCL5E5rz/8rLO/aMTU+6LwRN4M9iTahNi9o=; b=JQlRR/+jklKZ65
-	ut7fAo8x3crbbBJHtZOhIWNQC9u2CBqSJr2sImNCJsQ4E8vKPGiQe6NEKUWmBVy0ajc3wZcyoM32n
-	ShupVp9MQkvzy4W+soXPExw+8pPxUwRJfC5BGst83QahBMZ58CTVE6ECXKdvbI8K/0hQeXnX+lCCf
-	PNO2Cj91bdMDzCgHWySdrysnbQg4hJLexwhUifTu6aKsmHe85u8k00ZXRSx9lxwC2xvf1ncgUvw2T
-	fDxUvoPEZfKCFJjAmAoyk8rPDnIGaoCjspLM/TyTHsHb2M1A1RgQ+xDc2hqoxnUsXDjUB9vQyn/bC
-	dk9Ia5pHIxxOzOwxakgQ==;
+	List-Owner; bh=h3ftDclI9KrLA5jHqdVzAY/ST7JVjTsunIficCzb20M=; b=u4JaAcPgRPRg8T
+	+hQ9w7tHk5MwcjQd3o38JOTupryNjJmH5a7/mMQ6WDnpboB22NQlRGCm+fwB2XnNNlRoHrLQKpLxO
+	6CVdOOaf15wXy0Zfg4g3kI+URFc/biyzlj6pn+NM3WCrxBvmNU0UZdBLROYBcKIMZdnn2rqR7oE//
+	3rLtLoORWtJT1AmaSgiSrAxCpahJMJZbfuQdvjGpZg+/uK6VkeaXCAEHrttB40EJQQ3DvkzyrNTzu
+	aPLa9EUI6Ji6R34UknGhGjml44j6dYSjDQm5ETSxDUiSeBZEhIilb6RxAreXDszknE5Ac4dt07+Jn
+	EMOmpiQ2Dbj8dE8nJgWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llTTB-004PK3-Cy; Tue, 25 May 2021 09:35:25 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1llUNW-004ZnW-2D; Tue, 25 May 2021 10:33:38 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1llTT9-004PJF-NB
- for linux-riscv@bombadil.infradead.org; Tue, 25 May 2021 09:35:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=77alA0oNaOdxO9Nn5XAmzEZ6uOPGgpzTh0etFfYrlAM=; b=CJtzWCtnRisoGTNMJQCQYaQgVp
- ZVGRtAAqogEkkwH9F9sBAGoaUIJqf8hyB4tWDL7yuZj/sqQh0U+BWtvZWmQGjuMN34YGl+CVRhKqY
- SpUjecHol9ErWniyWlQeiZ55SyQ6f5qUrCbAB5OfKHdCF0QtETh17x5xH9Cm8rZZgktR5YKtOhTaY
- BAo+VxbRlblic7Pi6monzUyPO9BA4KI29sePHIRFeDpFieohokdd8OHlD/lC11YmnpM9AjF2UhJvK
- mi4DXoLwyN6+LX4/ewdxrfmy4NRfdBhlIaoT1r8+VKmnGA1IUj76nNdLFH4YSTQJZb4oPpyYKmINK
- b2mPNq0A==;
-Received: from hch by casper.infradead.org with local (Exim 4.94 #2 (Red Hat
- Linux)) id 1llTSP-003LFb-Qx; Tue, 25 May 2021 09:34:52 +0000
-Date: Tue, 25 May 2021 10:34:37 +0100
-From: Christoph Hellwig <hch@infradead.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, Anup Patel <anup.patel@wdc.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>,
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH 2/3] riscv: Fixup PAGE_UP in asm/page.h
-Message-ID: <YKzErU3lpFO58hkY@infradead.org>
-References: <1621839068-31738-1-git-send-email-guoren@kernel.org>
- <1621839068-31738-2-git-send-email-guoren@kernel.org>
- <YKyae+8O25A8vxMS@infradead.org>
- <CAJF2gTRA=tUid7akgVXfk6MHOd0KmJpDQEZ2m9wRfhigBDzQTw@mail.gmail.com>
+ id 1llUNT-004ZmC-2y
+ for linux-riscv@lists.infradead.org; Tue, 25 May 2021 10:33:36 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D279A6135F;
+ Tue, 25 May 2021 10:33:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1621938814;
+ bh=Ko9OW2xC/ai6cW5nxuzYSepYUMdmcDhImMaQHNUt4GU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=u4RVyL+7FSjZtsX7r9rxHtTCssZ+FSunKqJIhJTzaw8YlvWznlde3vYlfZbIpF60m
+ yQgFbMSALJNlefBsKkLBKrzgThn/6zIZcqK4MbbsPwRok5/2bSGiEt+IwKBlJk9fe0
+ CeUrgp0qwWudZozH9zxIpl24wuAJ449j9aEzd5ZGLSqYjZQuwgFl4yGNc0Rf9fS0mn
+ XMs9GjkBQjMYHJLlrG8URw36vTGYy3Kl1SDfM1dRj/G0p9LPGlFeXQkZQGkQhDZJOL
+ nzMwdabh+bzX1ZruB+J2ISA2Y6nt32ZI4AFKzptaMitsiVSzduIGXGXsSC/fxJ75jy
+ tSKHsaVQvjVdg==
+Date: Tue, 25 May 2021 13:33:26 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Nanyong Sun <sunnanyong@huawei.com>
+Subject: Re: [PATCH -next] riscv: TRANSPARENT_HUGEPAGE: depends on MMU
+Message-ID: <YKzSdtoaeL9mfokF@kernel.org>
+References: <20210525001302.27779-1-rdunlap@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTRA=tUid7akgVXfk6MHOd0KmJpDQEZ2m9wRfhigBDzQTw@mail.gmail.com>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
- casper.infradead.org. See http://www.infradead.org/rpr.html
+In-Reply-To: <20210525001302.27779-1-rdunlap@infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210525_033335_218575_5601CE96 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +81,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 25, 2021 at 05:28:21PM +0800, Guo Ren wrote:
-> On Tue, May 25, 2021 at 2:34 PM Christoph Hellwig <hch@infradead.org> wrote:
-> >
-> > On Mon, May 24, 2021 at 06:51:07AM +0000, guoren@kernel.org wrote:
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > >
-> > > Current PAGE_UP implementation is wrong. PAGE_UP(0) should be
-> > > 0x1000, but current implementation will give out 0.
-> > >
-> > > Although the current PAGE_UP isn't used, it will soon be used in
-> > > tlb_flush optimization.
-> >
-> > Nak.  Please just remove the PAGE_UP/PAGE_DOWN macros just like they
-> > have been removed from other architectures long ago and use the
-> > generic DIV_ROUND_UP macro for your new code like everyone else.
+On Mon, May 24, 2021 at 05:13:02PM -0700, Randy Dunlap wrote:
+> Fix a Kconfig warning and many build errors:
 > 
-> This patch has been dropped because it's wrong, ref Anup's reply.
+> WARNING: unmet direct dependencies detected for COMPACTION
+>   Depends on [n]: MMU [=n]
+>   Selected by [y]:
+>   - TRANSPARENT_HUGEPAGE [=y] && HAVE_ARCH_TRANSPARENT_HUGEPAGE [=y]
 > 
-> Remove PAGE_UP/DOWN is okay for me. How about:
->  static inline void local_flush_tlb_range_asid(unsigned long start,
-> unsigned long size,
->                                               unsigned long asid)
->  {
-> -       unsigned long page_add = PAGE_DOWN(start);
-> -       unsigned long page_end = PAGE_UP(start + size);
-> +       unsigned long page_add = _ALIGN_DOWN(start, PAGE_SIZE);
-> +       unsigned long page_end = _ALIGN_UP(start + size, PAGE_SIZE);
+> and the subseqent thousands of build errors and warnings.
 > 
-> _ALIGN_XXX are also defined in arch/riscv/include/asm/page.h.
+> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Nanyong Sun <sunnanyong@huawei.com>
 
-And these also are leftovers from days gone by and should be removed.
+Acked-by: Mike Rapoport <rppt@linux.ibm.com>
 
-I think this should simply be:
+> ---
+> I really think that mm/Kconfig should have "depends on MMU" for
+> TRANSPARENT_HUGEPAGE, but commit 15626062f4a9 from 2012
+> ("thp, x86: introduce HAVE_ARCH_TRANSPARENT_HUGEPAGE") thought
+> differently. I.e., mm/Kconfig should be protecting all arches
+> against this Kconfig problem.
 
-	
-	unsigned long page_add = start & PAGE_MASK;
-	unsigned long page_end = PAGE_ALIGN(start + size);
+We could 
 
-(and page_add is a pretty horrible name as well..)
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 02d44e3420f5..85bc8bf32e7b 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -403,7 +403,7 @@ config NOMMU_INITIAL_TRIM_EXCESS
+ 
+ config TRANSPARENT_HUGEPAGE
+ 	bool "Transparent Hugepage Support"
+-	depends on HAVE_ARCH_TRANSPARENT_HUGEPAGE
++	depends on MMU && HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select COMPACTION
+ 	select XARRAY_MULTI
+ 	help
+
+but in a sense HAVE_ARCH_TRANSPARENT_HUGEPAGE should imply that MMU is
+selected :)
+
+>  arch/riscv/Kconfig |    2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> --- linux-next-20210524.orig/arch/riscv/Kconfig
+> +++ linux-next-20210524/arch/riscv/Kconfig
+> @@ -106,7 +106,7 @@ config RISCV
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+>  	select UACCESS_MEMCPY if !MMU
+> -	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT
+> +	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+>  
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
