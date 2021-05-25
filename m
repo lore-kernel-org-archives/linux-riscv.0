@@ -4,80 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
 	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B012C2B9F8
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 13:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23C56C2B9F8
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 14:35:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0FF0C6141C
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 13:00:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0FF0C6141C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
+	by mail.kernel.org (Postfix) with ESMTPS id CBC3C61417
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 May 2021 14:35:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBC3C61417
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=garyguo.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELHri5X9KI157fByEoNT02f8MopC0XaBmgHEo2hpwpw=; b=b2pZmtWFZIjyjH+6Ne4ZQexvP4
-	CZeQXGr0ncioGhMRXULJ0/HSSv+8cltEbz2Bh0itqLsncLHYqO78Iy520ZCC6fL06KoykBlYm+i3u
-	nRvI4MI0ZIrgwkh5ajhgUsMx7urV9zd5wtMA7gVP0hfgvDctWxtEGKmdxtfcgUSd8pk/bhmoUiqJM
-	MTp+LzgMk96RoWHNSXFCo79guJUtiiJ7R/pA+mvIwE1cF8DBb6sfQ8Osz3VQQ7fYK6CsVRhzHY46r
-	H0IgTq7ogeEJ5fh+klAXCeD3Kc0CmL1KDKdhV0vqgJBj5zVOTmKqVP7Wd0XMck7SF53FhWHhWAoe+
-	lpDTrK1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=peStAjvJUZ4yzRBHOdMXaiUise+jJ5gqHB+ejBFNVLE=; b=4Q1h48FOgu6PS+
+	VHdYEJHrzLWtb1ls6+7p5lJucVdFTEAX98d4TofVbjnesV5foSAlmgEve4eD3l7FfmnFhTFSxGJXu
+	Ai6cLktWerFY3jpvs8kCPsKfql3S38iCH0CEbr0T6IFDAecjzSaTi7OLn8/EqQlY66/DcgC8L4kpy
+	1Cg+lInWue4UqiaJC6X3iErqZ2MzAXOTE72YbfwCkDCZEs3PBH/41NZBcL7yRcIAX9bErJHk9zL5q
+	BS6PbhzAh42DL3eVxlKd2h41JsLfBRF9VttlIZD0pKhR08qNiSfVZvvzDmTAO/YfoL0Voq6RRXj8a
+	s4r2yO9xOh3YfU95QTUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llWfI-005BZz-N1; Tue, 25 May 2021 13:00:08 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1llY8q-005faV-D7; Tue, 25 May 2021 14:34:44 +0000
+Received: from mail-eopbgr110133.outbound.protection.outlook.com
+ ([40.107.11.133] helo=GBR01-CWL-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1llWfF-005BXb-Rm
- for linux-riscv@lists.infradead.org; Tue, 25 May 2021 13:00:07 +0000
-Received: from [192.168.1.155] ([77.2.164.130]) by mrelayeu.kundenserver.de
- (mreue109 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1Md6V3-1lD1Bp2l7b-00aGKe; Tue, 25 May 2021 14:59:54 +0200
-Subject: Re: [PATCH v2 2/2] drivers: gpio: add virtio-gpio guest driver
-To: Viresh Kumar <viresh.kumar@linaro.org>,
- "Enrico Weigelt, metux IT consult" <info@metux.net>,
- =?UTF-8?Q?Alex_Benn=c3=a9e?= <alex.bennee@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- bgolaszewski@baylibre.com, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowang@redhat.com>,
- Linux Documentation <linux-doc@vger.kernel.org>, linux-gpio@vger.kernel.org,
- virtualization@lists.linux-foundation.org, linux-riscv@lists.infradead.org
-References: <20201203191135.21576-1-info@metux.net>
- <20201203191135.21576-2-info@metux.net>
- <CAOh2x=kcM351ObubnQSzUa=FVBQUmAUhz4u8ExORUthQQ0WbGQ@mail.gmail.com>
-From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
-Message-ID: <253f218d-07ac-1963-75e1-9ac2d035437a@metux.net>
-Date: Tue, 25 May 2021 14:59:53 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.0
+ id 1llY8n-005fY3-7S
+ for linux-riscv@lists.infradead.org; Tue, 25 May 2021 14:34:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nyBVdBDkAhaodh3ZuceRHTni9Y4BCpXIRsanlz0p+Ss0D6cfpj8Pqw81OfW8d2PvPXflF/UdnJnW/WN+teEkhQcL6aOEtls4JWO9yEj3BZDcV8HUGdlSg7RAdy239fNa4sIHkZddLt+sYbqnOP2nwT8Nvuo4Z1qVlnqTVty4dx2a33/QaGWChXIRNaTXAXgO2lVunvDLnDnYtEZg5gcxgLsMws7/cEj/xe82M34YyiuCUmD8KdMHLzZEKvXaXxnS06WY7zdR4x8r7gQ4B20dMPikTFLD9HXIFiPQGJNo6xbCsabNYe7c7Ds/UCwzKnuvvQtaUPXxVly/+s5TkMuUKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMHhm/pjsF4ufDo9X5m3enGmxTU4/l4yWsActk8eq6E=;
+ b=XkmIj+HRQlZ/0WyAKYbxyOKThsh4foT+u8HkWnETqgWI4NLFDv5z4GiVo3GLvIjm0ZKwiOTTqH1PW4FPj6YaKQhZ72Nsp/H5abV+flBQeMrgvZi/WW+JKZdeItR60fYGNS6g2SCHTJtsUgdndnqxRXdSZIw7yzQ4iWe/D32GARH4wtI/I896r9Bc3iNkgO2faegR4/+WAkCVJhHmOL1wZaPeibMLisHZ+35iv/ZCpEYxGxHHfeEmtZhLr3dHB9Ln1WSBmDAnMr4044H+l8rr5Mo53gQZV8YGUYwre2dWLIAz66gNJExnqDM8gjIDT+zFenwkRegPi1a+6dn3TjDBpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMHhm/pjsF4ufDo9X5m3enGmxTU4/l4yWsActk8eq6E=;
+ b=unwzMyrkOY5e/I1QkmMLDBRk4kSOImt5+ncLHSzYQnZ3nzQjqcuh2tgVqmtKo8tNdc1qYgiOy53ri46W0h0yXp9+X38glNKMptO2t3LTQ/JBfYy9x8I6z6dayUreKnO9kiLkduR9eyAKVPlqAcSOXZqgMQm/OIc0tydBOdly6Fc=
+Authentication-Results: ACULAB.COM; dkim=none (message not signed)
+ header.d=none;ACULAB.COM; dmarc=none action=none header.from=garyguo.net;
+Received: from LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:16::23)
+ by LO0P265MB3417.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:186::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4150.23; Tue, 25 May
+ 2021 14:34:36 +0000
+Received: from LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::944f:5a46:312d:8099]) by LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::944f:5a46:312d:8099%3]) with mapi id 15.20.4150.027; Tue, 25 May 2021
+ 14:34:36 +0000
+Date: Tue, 25 May 2021 15:34:32 +0100
+From: Gary Guo <gary@garyguo.net>
+To: David Laight <David.Laight@ACULAB.COM>
+Cc: 'Palmer Dabbelt' <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu"
+ <aou@eecs.berkeley.edu>, "nickhu@andestech.com" <nickhu@andestech.com>,
+ "nylon7@andestech.com" <nylon7@andestech.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: fix memmove and optimise memcpy when misalign
+Message-ID: <20210525153431.0000508d@garyguo.net>
+In-Reply-To: <17637b10e71b41b89126cbb1b2fa61cf@AcuMS.aculab.com>
+References: <20210522232256.00003f08@garyguo.net>
+ <mhng-fdda10f7-fc83-4654-a0b2-e9c86b92c37e@palmerdabbelt-glaptop>
+ <17637b10e71b41b89126cbb1b2fa61cf@AcuMS.aculab.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; i686-w64-mingw32)
+X-Originating-IP: [2001:470:6972:501:81f9:56c7:d6ec:ac27]
+X-ClientProxiedBy: LNXP265CA0092.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:76::32) To LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:16::23)
 MIME-Version: 1.0
-In-Reply-To: <CAOh2x=kcM351ObubnQSzUa=FVBQUmAUhz4u8ExORUthQQ0WbGQ@mail.gmail.com>
-Content-Language: tl
-X-Provags-ID: V03:K1:P+C+8jE7h8AIU2+P4QAc0bNMwt+Y7MdaM1X7ydHqfxe9je0tPYy
- be3w5uTCFWkLcxmoBlru5+W4Tk2mr/voJuWycO84rHSYafupt3Uq1xWjFMNW3F03qmqIeo3
- cTkcoPXdGz06y+TYfDTAeOgojJpIJezE0d1fhIopLlIyWOsuvtrqhqZJNb5hcmgo5hMAS2V
- S2cQMbRYoxbMBNMEpWoFw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:RbO7NUknbTY=:HjhTGnKuau+6zb9Ta6G1Yh
- VzrJdmQ911+bCR6R5e9wvAcOFl/7wBWYHrYhRqtFvRVTd83T+WlNL0DWFZAEPaSEU2ttLc2FK
- 9/cmPPiOBLP6XfSEBMusNIoq+ZDrmgZTI7hxa0TZmkq4k1Xngkr6fCsy7WF25OeETPCaR1mBQ
- K6VZKRIfQfvIBwF/v1jTPvIjPvYEMu+rIk1AhegdZibK/mnIiDyrVQWQ4yiMFEGK13bHBEoxf
- SKmxkahtwNrpOP+R9KtOmG+DY6saa01i9Bfy6/8VTX4cV6mZCtuito1iNurgHq76etXrvUnTe
- CTxBDc6tGp61htLU6taesJY6WUUZMC+R3jOvsPgY/VnzYxLxShmRAMH7jg3arQ0w00/GQQ8aE
- haTTOXh3rQC7a5R7OjC/Y83HbrVdJqRQiRXllD3Jgr1EYKyc/o1DkpT+4eYUMMRfB+BfB7XJ7
- 2MWr61dYb2hBdvERcNIBllN4rrEzRtrxHZIzouhQ0NJ5sEvmhkmh892Iz81zBjgnawxLsrjjn
- E1gqPSNvOPVPkxwZXrp8HU=
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from localhost (2001:470:6972:501:81f9:56c7:d6ec:ac27) by
+ LNXP265CA0092.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:76::32) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4150.23 via Frontend Transport; Tue, 25 May 2021 14:34:35 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 1d24965c-1926-44d2-cee4-08d91f8a382e
+X-MS-TrafficTypeDiagnostic: LO0P265MB3417:
+X-Microsoft-Antispam-PRVS: <LO0P265MB34179001B98251C14601E9E0D6259@LO0P265MB3417.GBRP265.PROD.OUTLOOK.COM>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: cEnmAqo8clrzBWDeZjvQgdmOJ/0VqU4Q70hQmAucNUEjK57SuSUHmmH1cdajVaRuULD8ne3Gbt0VLEFNATqpLmVeeqRpHxl4CvP4YxmuDuSMIe1cRetAE0QsO6xJP/KjR+BnfBiwfnsTbufpgRvC8tTJeuecw5Oz7MUEXOM0afIbZlM5HSh48CBbVdGd8TmIHUNzl+BQpWSYgFG95IBVWy+3QPdmuqEpdJYeec+lc/QFfpU0ufx6RGyJ/h+yKVoZwO1dxXJ0oPy4Y99eGQmp3p5CEIF1OvhlERmdF7LkgNBgxz/+iW8E9Q3Shn3avhozEC7or4LcNZ8s5weWur9JMfhPuKzecTmeRRoRB6ey28dkSXGGXw6wCTMXN1/JH3IUtMdJQNCN+idvZemOBgMmXQFu5+hip8eRfXjg3BBlRKujnNeIdgiNQwUKVt4LETtqWAXZTM6v3n8waP/fCAmGxj1P3L8PjExRw07e2drNsdvXTsQfYoo5q8i3neDxPS+ldRC6UFNpVgjU9wy2heKJhX9NaD7G3gjcZukmsE85kmkiDFuQsPn+tEOeZz5EVJCpiaY/vO7HC34iILeh5RxffbeeUPIVPOdOPnLVwKs6tbc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
+ SFS:(39830400003)(136003)(376002)(346002)(396003)(366004)(8676002)(6496006)(66556008)(478600001)(1076003)(66476007)(52116002)(5660300002)(66946007)(16526019)(38100700002)(2616005)(36756003)(2906002)(83380400001)(4326008)(54906003)(186003)(6666004)(8936002)(86362001)(316002)(6916009)(6486002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?FgAckPYeM1JC2i8zPbWljq93M7hvC/Q7b4jmYal0lk97nmDgZ8M3MrHcMt56?=
+ =?us-ascii?Q?BIIVL+Bud59xRK6c+IiZ/LcyVyJyFMlM0P+UnxuHn4WBdcSSTQKzoGb6bQfn?=
+ =?us-ascii?Q?Zgeippz9EpaArsbZdw2qO8bjjGQHTQ/0adKPODe/O8/ABIJ27310e/jbS4/Q?=
+ =?us-ascii?Q?AL/u5WRB5A/LkgJg2qkGOZ8t8dnhxTxfHoDWqRdtflyj8WKIbjksPiowmajB?=
+ =?us-ascii?Q?p2y3Hr80i7v4YuilXj6r7m5O3+u1neAAIXeug54lq9Mu2P1pyarcdxkyWtB0?=
+ =?us-ascii?Q?V/GSQdEli9/mNKIA4IaTPSirKZXKyNQdfiIRWFWYexdaQTbpoZ8ubQGnCSHb?=
+ =?us-ascii?Q?iyRl9bkl+AJuQdqWiTWb5gEfRDUbS5pTNEoBVMCGOiwjiu57AJPBfISaE6P/?=
+ =?us-ascii?Q?6g5108q4IbgtVmE/5mDHi1tptc2ypueUQXvWszlvMI6hFz6Vi5mVUM0ui+s0?=
+ =?us-ascii?Q?ZJrWAf/JeiyCNEfeoqjaAhL+6Ml5Zmurt66xR6xqXQD4IqhUAvuaxItut8ow?=
+ =?us-ascii?Q?WOjXEs9dS+AntF7IoY0WyrZpwSo57wRkhdwb82APc+L8HDuk8g92VqD6Gl2I?=
+ =?us-ascii?Q?Byzz9D8EGah2+ulsKb2JI6GjOUYMl0Abt2U+ZAHCoaFOTSPQW7A4NNcrzH3Q?=
+ =?us-ascii?Q?2CNi3KfiLaj9qx7jAMK/6IuRyTLIGWxNr6SiYKhh9r5uXnsigp2ZAFtbBPkA?=
+ =?us-ascii?Q?gSiv6pbsj0mKrSlU2rkY+S2H2wpyi0Uu9hu+BlIO9bWWtHleTLEEEDE1FJ5b?=
+ =?us-ascii?Q?7rl+eb6nR43ZSsD9t8AgEdTdKwb08x++kT6EL3pe/PJKkSK1+lKf/IOCoE8O?=
+ =?us-ascii?Q?ZtU6lbuCkCkrR/Gu+ffsFQy3mC/LYrYhPGh/pgVNFOuqFP28Q4fkQ+qSmr2h?=
+ =?us-ascii?Q?mVG0bwtyPlGJpnTNcSSwms3YV+m0kascPgdrTWZkhlvvdPJD4Sd3RIHeSdnw?=
+ =?us-ascii?Q?nnyNhOXo0QUx2YbRoeNz6na7jUmNCwnH1l9cwBpZLzjix2NaT5HrEkX8YC2D?=
+ =?us-ascii?Q?kBkvFMaYPkSLBvfqphknz4G3m2/RdHHC8EWPXmAID0eAxKW086ZvFt95LJSX?=
+ =?us-ascii?Q?qcRAGst2fe3PtM1Z1kdGoXzYnvegH9IxmknvlTVvbWdDDMKouGBTKeGhNdyd?=
+ =?us-ascii?Q?eRZaKPNtz0mSQ4ia+NRmVsXvwUTVIIUXunYxMbkHHWiwSJVlIQkrcBtrRoq+?=
+ =?us-ascii?Q?w9hsHx1Hu8uYgVosUMTgs8/Gqgdpm9v4xdnXR6YhnVkf12rgFtfEziF3NcXj?=
+ =?us-ascii?Q?Vkzffn2pW1Rpu7Yyxk32lmtJrh5fCaEMLPbbRw6ymWCxP/P/+4tIU/2rkZ9h?=
+ =?us-ascii?Q?TiLSNqENYfDqm5qP30mwbZksrIhkgb91oOdIEbDs/XJzlDAB7QPq4WwdX4fR?=
+ =?us-ascii?Q?Xpr1wr7zdBjgXGxXlNnVSlXJHe19?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d24965c-1926-44d2-cee4-08d91f8a382e
+X-MS-Exchange-CrossTenant-AuthSource: LNXP265MB0746.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2021 14:34:35.9704 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: X69Dq6DMorI8x7N5e43wZWx2DyMd84MpQ/6cLeg8Rgy1SLN9mOzHcmRF4v8bfUFAJ4zIiV4/BD/IUjyzSHSkQQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB3417
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210525_060006_231164_68201360 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20210525_073441_364927_8DC7AE44 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,27 +149,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjQuMDUuMjEgMTM6MjcsIFZpcmVzaCBLdW1hciB3cm90ZToKCkhpLAoKCj4gV2UgKExpbmFy
-bydzIFByb2plY3QgU3RyYXRvcwo+IGh0dHBzOi8vbGluYXJvLmF0bGFzc2lhbi5uZXQvd2lraS9z
-cGFjZXMvU1RSL292ZXJ2aWV3KQo+ICAgYXJlIGludGVyZXN0ZWQgaW4gdGhpcyBzdHVmZi4gSSB3
-YXMgdHJ5aW5nIHRvIGxvb2sgYXQgdGhlIGxhc3Qgc3RhdHVzCj4gb2YgYWxsIHRoaXMuIEZldwo+
-IHF1ZXN0aW9ucyBmb3IgeW91Ogo+IAo+IC0gV2FzIHRoZSBzcGVjIGV2ZXIgcG9zdGVkIHRvIHZp
-cnRpby1kZXYgbGlzdCA/IEkgdGhvdWdodCB0aGF0J3MgdGhlCj4gdmVyeSBmaXJzdCBzdGVwIGJl
-Zm9yZQo+IHdlIG1lcmdlIHRoZSBjb2RlLgoKSSBoYWQgcG9zdGVkIHNvbWUgc3BlYyBxdWl0ZSBz
-b21lIHRpbWUgYWdvLCBidXQgaXQgd2Fzbid0IGluIHRoZSBmb3JtCm9mIHBhdGNoZXMgYWdhaW5z
-dCB0aGUgLnRleCBkb2N1bWVudGF0aW9uIGZpbGVzIHlldC4gSXQncyBiZWVuIGxheWluZwphc2lk
-ZSBmb3IgcXVpdGUgYSB3aGlsZSwgc2luY2UgSSd2ZSBiZWVuIGJ1c3kgdy8gb3RoZXIgdGhpbmdz
-LgoKCi0tbXR4CgotLSAKLS0tCkhpbndlaXM6IHVudmVyc2NobMO8c3NlbHRlIEUtTWFpbHMga8O2
-bm5lbiBsZWljaHQgYWJnZWjDtnJ0IHVuZCBtYW5pcHVsaWVydAp3ZXJkZW4gISBGw7xyIGVpbmUg
-dmVydHJhdWxpY2hlIEtvbW11bmlrYXRpb24gc2VuZGVuIFNpZSBiaXR0ZSBpaHJlbgpHUEcvUEdQ
-LVNjaGzDvHNzZWwgenUuCi0tLQpFbnJpY28gV2VpZ2VsdCwgbWV0dXggSVQgY29uc3VsdApGcmVl
-IHNvZnR3YXJlIGFuZCBMaW51eCBlbWJlZGRlZCBlbmdpbmVlcmluZwppbmZvQG1ldHV4Lm5ldCAt
-LSArNDktMTUxLTI3NTY1Mjg3CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On Sun, 23 May 2021 17:12:23 +0000
+David Laight <David.Laight@ACULAB.COM> wrote:
+
+> From: Palmer Dabbelt
+> > Sent: 23 May 2021 02:47  
+> ...
+> > IMO the right way to go here is to just move to C-based string
+> > routines, at least until we get to the point where we're seriously
+> > optimizing for specific processors.  We went with the C-based
+> > string rountines in glibc as part of the upstreaming process and
+> > found only some small performance differences when compared to the
+> > hand-written assembly, and they're way easier to maintain.
+
+I prefer C versions as well, and actually before commit 04091d6 we are
+indeed using the generic C version. The issue is that 04091d6
+introduces an assembly version that's very broken. It does not offer
+and performance improvement to the C version, and breaks all processors
+without hardware misalignment support (yes, firmware is expected to
+trap and handle these, but they are painfully slow).
+
+I noticed the issue because I ran Linux on my own firmware and found
+that kernel couldn't boot. I didn't implement misalignment emulation at
+that time (and just send the trap to the supervisor).
+
+Because 04091d6 is accepted, my assumption is that we need an assembly
+version. So I spent some time writing, testing and optimising the
+assembly.
+
+> > 
+> > IIRC Linux only has trivial C string routines in lib, I think the
+> > best way to go about that would be to higher performance versions
+> > in there. That will allow other ports to use them.  
+> 
+> I certainly wonder how much benefit these massively unrolled
+> loops have on modern superscaler processors - especially those
+> with any form of 'out of order' execution.
+> 
+> It is often easy to write assembler where all the loop
+> control instructions happen in parallel with the memory
+> accesses - which cannot be avoided.
+> Loop unrolling is so 1970s.
+> 
+> Sometimes you need to unroll once.
+> And maybe interleave the loads and stores.
+> But after that you can just be trashing the i-cache.
+
+I didn't introduce the loop unrolling though. The loop unrolled
+assembly is there before this patch, and I didn't even change the
+unroll factor. I only added a path to handle misaligned case.
+
+There are a lot of diffs because I did made some changes to the
+register allocation so that the code is more optimal. I also made a few
+cleanups and added a few comments. It might be easier to review if you
+apply the patch locally and just look at the file.
+
+- Gary
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
