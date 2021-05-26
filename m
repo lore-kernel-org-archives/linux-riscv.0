@@ -3,19 +3,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F2B3C2B9F7
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 05:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1EC0C2B9F7
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 05:57:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 55617611CD
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 05:54:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55617611CD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2979B61360
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 05:57:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2979B61360
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -23,69 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Dlzi/xPq8CZ/w9RC6Pe44o2EBnYDTcN09eTADwUYov4=; b=xrVRhZt9bIMQENcELN3hq9w8lf
-	QAHtyH4gtzrFilJBpSEM+XPKLtxyxNNXjcuEH2D8QvFVwnV6YTPUDEdbPG44TmFOfoA+tUdZyk5b2
-	9HKrccmWJj9h0fgYbC5AGfBeZaY47hR//XrRijvl72/qEZM5ha4UXHMiS6UtnIAkHmvvSmuH46lul
-	kD1kubTBp9+sWMCFhImytrsVwCqca943zPc/qOcohvfMeAzfll5DOgM31/WWqMLDdDmQ2NE+mM5R7
-	zwU+uS2pLlm0z0myU9zXwLObgwb9w9osM70KsRcUB4oxCb7zgk4M+i7EYdibcAKMXsf8hnw1nz+wz
-	oEiuhUFA==;
+	bh=ileTkUD98syp1HBgKlO2g7hGQKHHdSinpn1Btdt6mO4=; b=4othCeRUjREkyqIxdi9mMBUYW8
+	j8erjGKz0cJDGk1jBZzMRLBE6fLV9OAvcQgUA6CTHsirY7bFGk0Hb+hWPST8izUCr2eR2HQ0NNtDn
+	9kkH9tGST3lzLY4waJ9V9Ge0TDZhYP0gT/KgZc3vvJETCvFKxQkOqqwnFmClTabFC4qi0mYhSC6gA
+	+a5gnFlKHLW/kssN9Z9FrcViHEUTeswe9UiNEXhtuTuQAmbh0/heQdMyyjm/4yGCqM0EhJllvbnK2
+	NM4z4Kmxw2yYXW6s/iiWYLjvShSELXw9dqCElIWLRHs5BqHLqglH5NZr3GfilHcXf0v/bbMttmLib
+	YFpbc77g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llmUa-00BLed-N1; Wed, 26 May 2021 05:54:08 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1llmXA-00BNND-DR; Wed, 26 May 2021 05:56:48 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1llmUW-00BLat-P0
- for linux-riscv@lists.infradead.org; Wed, 26 May 2021 05:54:06 +0000
-Received: by mail-pg1-x536.google.com with SMTP id j12so25515pgh.7
- for <linux-riscv@lists.infradead.org>; Tue, 25 May 2021 22:54:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ id 1llmX7-00BNLH-GE
+ for linux-riscv@lists.infradead.org; Wed, 26 May 2021 05:56:47 +0000
+Received: by mail-pf1-x434.google.com with SMTP id y15so126904pfn.13
+ for <linux-riscv@lists.infradead.org>; Tue, 25 May 2021 22:56:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ijh+tKCRl102WDItU3h4MEe7FxL6Ka6hVALjPg6FVHY=;
- b=jAm/KVZc2eb2Lz/Aiq3MeRSWldBNjkBGuPEg1u794BKh6MJJayZixF00DkobccJcmh
- 414y82ocnZFiidQgBLMFC3mUczsMWNf9sqgWalzCNIOZy2jc6bsf9S6LVxt0or2qRp1d
- FLyVtG7N6TMXmfP0L4YEyIY5kZxpf2/sUdAG3oAiHKzr8rKf8SSqe+Xg4bA4wSsEhMYh
- SdmLr7tvmzqP3dg0ZsdxEcNVjndBuGPNqnbGPaj/FDT2vhr1my+YXwxkErzONejqQDNy
- Z5FK18Bafnb4oK1MSHNmC+axB8aUgfSpKKgySfJXUI4oYFz9B82jHU8Bj9OVchCkCyZf
- wVXQ==
+ bh=2FGHlrjOjpcAf7rkKfXMkdUxLlFSv85QWK25OpBoSRk=;
+ b=invCuJh0K1iFVJOdksr323jEaAfu4iZPLHpc3Nf0IdXhodxl71ffFoGbFB+MvG933M
+ sIP107sJyvt+Wc42aujofC2p1NewfceN2UM+xGHlAnqdsp1TGqCfZGCK1LdiRUsuLJEy
+ sKgspd/2wVfHW9JoULMaOp3eho+95wiy6xpKV6Ho2xBs5dkrOvbOzezhaLkkwQoXGwr+
+ ogxBt/rh/+vmNe6ZSqrZDXeLklF4f3ngxA8vfPTPe/JJ8r4ofvWGcBlG1obY7H6Y7IVo
+ 5uMUZzk7MAEclwNVMMHMBGUwMeoyd4J3QvgHv0/Ae4cytv4o7zX04NONM5HNgTgmahDk
+ 7Ruw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ijh+tKCRl102WDItU3h4MEe7FxL6Ka6hVALjPg6FVHY=;
- b=oM6DtZqoTOPStY4t3caNDBOaHMVsKdx/N1M/fbnrfAxiDfO2hWBYcMDuG2JLNaXCpZ
- YStU4TKt17cDpt1JFHVdYw+UVUWfcL1sOkfH69wkVOmz7W8eeCHr//bYqbZVeb+ZDLZj
- q47js1Jd8ukCBqErs2enCSbMGiyAi72mdPhA3FvlLtRK1MnTyt0AaiiWVzn2Xsh91/vn
- 4G3sVJQTd0ZC5s47dPV+vpjmMRLHKxhbYVHOHfAFWicqINOYWJv4H/+x614HuSNW8dJU
- NzupC80HzhKc0j0uwHyrV0+ChktokChwm7HXsOy9RBYLWqJDmQk3UWIiv3rpQXY4VVA9
- qzRw==
-X-Gm-Message-State: AOAM5322glhX9dNMVsDwGUe9zfxZIKpFjmz9UxLyTLUeC9+WT2vsKV+9
- +lLrXMs+mYI66QVhpntXT+UEEQ==
-X-Google-Smtp-Source: ABdhPJwH1ZEE2kuQ/eJYr7WS2tUXhYI/t+4C3qmYnBtb0gGaf40EqWPQFxUIkiN1McqF+OrNdKnjMg==
-X-Received: by 2002:a05:6a00:16c9:b029:2df:c620:8156 with SMTP id
- l9-20020a056a0016c9b02902dfc6208156mr33544056pfc.40.1622008442589; 
- Tue, 25 May 2021 22:54:02 -0700 (PDT)
+ bh=2FGHlrjOjpcAf7rkKfXMkdUxLlFSv85QWK25OpBoSRk=;
+ b=S3N27Ob37+fED96I/Tt8v8TPMNI9IaOXoTIrMGpVMDWIIiiH10BZDBHRxAlBzAINUA
+ aruiE0rtjpMJs9RHFP6xPw3n497PBE06+9kBoMkwjJDKFVbwH4qAs8gAQwY+4V1/6SDW
+ EsPJ7T/vgzrGfSUQf5UhTmX/QeR7620BtSes4+LhzAN5vXjKOuaQiz+0zyI4U3F0oq2Y
+ QKQyBajfgvJuz9e/Vlvw1xTGsnX7MK07Vzhs46dOhowh/tkhi16zc8M2gVM9eeym9EOk
+ zsbyxs3luJ3cZTp86Idbi4PIxK4s/5Lt93CI9NfVHUjiCpEqLpCKshrpg/O/iJ04kTR1
+ zYEA==
+X-Gm-Message-State: AOAM5302uNol5pPqSEmrEEIbYhhHMJKeEd8z//ChMwsZm9ur5fB1Stba
+ rn8dTb/0uvkZwuDySyQg182a7A==
+X-Google-Smtp-Source: ABdhPJzuxehRoTy2dENPawO5k9iKa7LywWedHDIrTNOvYNgT4ncWRG45MvjRVF3SyscH3X8uYdKPag==
+X-Received: by 2002:a62:17cc:0:b029:2de:39c1:7eb7 with SMTP id
+ 195-20020a6217cc0000b02902de39c17eb7mr33668871pfx.26.1622008604543; 
+ Tue, 25 May 2021 22:56:44 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 6sm15168328pfx.117.2021.05.25.22.54.01
+ by smtp.gmail.com with ESMTPSA id n23sm15638580pff.93.2021.05.25.22.56.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 25 May 2021 22:54:02 -0700 (PDT)
-Date: Tue, 25 May 2021 22:54:02 -0700 (PDT)
-X-Google-Original-Date: Tue, 25 May 2021 22:52:57 PDT (-0700)
-Subject: Re: [PATCH -next 4/4] riscv: mm: add THP support on 64-bit
-In-Reply-To: <CAMuHMdWxQO1ik_-On3qZMN9+r8V8YMgfg2EArxiMDvoHQRo=+g@mail.gmail.com>
-CC: sunnanyong@huawei.com, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, 
- Atish Patra <Atish.Patra@wdc.com>, wangkefeng.wang@huawei.com,
- jszhang@kernel.org
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: geert@linux-m68k.org
-Message-ID: <mhng-187c9f60-c350-4b13-9c3b-e1afe8cb145c@palmerdabbelt-glaptop>
+ Tue, 25 May 2021 22:56:44 -0700 (PDT)
+Date: Tue, 25 May 2021 22:56:44 -0700 (PDT)
+X-Google-Original-Date: Tue, 25 May 2021 22:56:42 PDT (-0700)
+Subject: Re: [PATCH v2] riscv: Turn has_fpu into a static key if FPU=y
+In-Reply-To: <20210512225545.6c23d51f@xhacker>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: jszhang3@mail.ustc.edu.cn
+Message-ID: <mhng-ce59aaab-ee8a-4c8f-a563-d3856ef3c35d@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210525_225404_856371_972B530B 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20210525_225645_581521_E791D136 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,118 +95,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyNSBNYXkgMjAyMSAwNToxNDo0NSBQRFQgKC0wNzAwKSwgZ2VlcnRAbGludXgtbTY4
-ay5vcmcgd3JvdGU6Cj4gSGkgTmFueW9uZywKPgo+IE9uIEZyaSwgQXByIDMwLCAyMDIxIGF0IDk6
-NTggQU0gTmFueW9uZyBTdW4gPHN1bm5hbnlvbmdAaHVhd2VpLmNvbT4gd3JvdGU6Cj4+IEJyaW5n
-IFRyYW5zcGFyZW50IEh1Z2VQYWdlIHN1cHBvcnQgdG8gcmlzY3YuIEEKPj4gdHJhbnNwYXJlbnQg
-aHVnZSBwYWdlIGlzIGFsd2F5cyByZXByZXNlbnRlZCBhcyBhIHBtZC4KPj4KPj4gU2lnbmVkLW9m
-Zi1ieTogTmFueW9uZyBTdW4gPHN1bm5hbnlvbmdAaHVhd2VpLmNvbT4KPgo+IFRoYW5rcyBmb3Ig
-eW91ciBwYXRjaCwgd2hpY2ggaXMgbm93IGNvbW1pdCBlODhiMzMzMTQyZTRhYmE3ICgicmlzY3Y6
-Cj4gbW06IGFkZCBUSFAgc3VwcG9ydCBvbiA2NC1iaXQiKSBpbiByaXNjdi9mb3ItbmV4dC4KPgo+
-PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+PiArKysgYi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+Cj4+IEBAIC00MzgsNiArNDU5LDE0MSBAQCBzdGF0
-aWMgaW5saW5lIGludCBwdGVwX2NsZWFyX2ZsdXNoX3lvdW5nKHN0cnVjdCB2bV9hcmVhX3N0cnVj
-dCAqdm1hLAo+PiAgICAgICAgIHJldHVybiBwdGVwX3Rlc3RfYW5kX2NsZWFyX3lvdW5nKHZtYSwg
-YWRkcmVzcywgcHRlcCk7Cj4+ICB9Cj4+Cj4+ICsvKgo+PiArICogVEhQIGZ1bmN0aW9ucwo+PiAr
-ICovCj4+ICtzdGF0aWMgaW5saW5lIHBtZF90IHB0ZV9wbWQocHRlX3QgcHRlKQo+PiArewo+PiAr
-ICAgICAgIHJldHVybiBfX3BtZChwdGVfdmFsKHB0ZSkpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMg
-aW5saW5lIHBtZF90IHBtZF9ta2h1Z2UocG1kX3QgcG1kKQo+PiArewo+PiArICAgICAgIHJldHVy
-biBwbWQ7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgcG1kX3QgcG1kX21raW52YWxpZChw
-bWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIF9fcG1kKHBtZF92YWwocG1kKSAmIH4o
-X1BBR0VfUFJFU0VOVHxfUEFHRV9QUk9UX05PTkUpKTsKPj4gK30KPj4gKwo+PiArI2RlZmluZSBf
-X3BtZF90b19waHlzKHBtZCkgIChwbWRfdmFsKHBtZCkgPj4gX1BBR0VfUEZOX1NISUZUIDw8IFBB
-R0VfU0hJRlQpCj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBwbWRfcGZuKHBt
-ZF90IHBtZClzCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuICgoX19wbWRfdG9fcGh5cyhwbWQpICYg
-UE1EX01BU0spID4+IFBBR0VfU0hJRlQpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIHBt
-ZF90IG1rX3BtZChzdHJ1Y3QgcGFnZSAqcGFnZSwgcGdwcm90X3QgcHJvdCkKPj4gK3sKPj4gKyAg
-ICAgICByZXR1cm4gcGZuX3BtZChwYWdlX3RvX3BmbihwYWdlKSwgcHJvdCk7Cj4+ICt9Cj4+ICsK
-Pj4gK3N0YXRpYyBpbmxpbmUgcG1kX3QgcG1kX21vZGlmeShwbWRfdCBwbWQsIHBncHJvdF90IG5l
-d3Byb3QpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHB0ZV9wbWQocHRlX21vZGlmeShwbWRfcHRl
-KHBtZCksIG5ld3Byb3QpKTsKPj4gK30KPj4gKwo+PiArI2RlZmluZSBwbWRfd3JpdGUgcG1kX3dy
-aXRlCj4+ICtzdGF0aWMgaW5saW5lIGludCBwbWRfd3JpdGUocG1kX3QgcG1kKQo+PiArewo+PiAr
-ICAgICAgIHJldHVybiBwdGVfd3JpdGUocG1kX3B0ZShwbWQpKTsKPj4gK30KPj4gKwo+PiArc3Rh
-dGljIGlubGluZSBpbnQgcG1kX2RpcnR5KHBtZF90IHBtZCkKPj4gK3sKPj4gKyAgICAgICByZXR1
-cm4gcHRlX2RpcnR5KHBtZF9wdGUocG1kKSk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUg
-aW50IHBtZF95b3VuZyhwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHB0ZV95b3Vu
-ZyhwbWRfcHRlKHBtZCkpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIHBtZF90IHBtZF9t
-a29sZChwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHB0ZV9wbWQocHRlX21rb2xk
-KHBtZF9wdGUocG1kKSkpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIHBtZF90IHBtZF9t
-a3lvdW5nKHBtZF90IHBtZCkKPj4gK3sKPj4gKyAgICAgICByZXR1cm4gcHRlX3BtZChwdGVfbWt5
-b3VuZyhwbWRfcHRlKHBtZCkpKTsKPj4gK30KPj4gKwo+PiArc3RhdGljIGlubGluZSBwbWRfdCBw
-bWRfbWt3cml0ZShwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHB0ZV9wbWQocHRl
-X21rd3JpdGUocG1kX3B0ZShwbWQpKSk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgcG1k
-X3QgcG1kX3dycHJvdGVjdChwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHB0ZV9w
-bWQocHRlX3dycHJvdGVjdChwbWRfcHRlKHBtZCkpKTsKPj4gK30KPj4gKwo+PiArc3RhdGljIGlu
-bGluZSBwbWRfdCBwbWRfbWtjbGVhbihwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJu
-IHB0ZV9wbWQocHRlX21rY2xlYW4ocG1kX3B0ZShwbWQpKSk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRp
-YyBpbmxpbmUgcG1kX3QgcG1kX21rZGlydHkocG1kX3QgcG1kKQo+PiArewo+PiArICAgICAgIHJl
-dHVybiBwdGVfcG1kKHB0ZV9ta2RpcnR5KHBtZF9wdGUocG1kKSkpOwo+PiArfQo+PiArCj4+ICtz
-dGF0aWMgaW5saW5lIHZvaWQgc2V0X3BtZF9hdChzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWdu
-ZWQgbG9uZyBhZGRyLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBtZF90ICpw
-bWRwLCBwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAgcmV0dXJuIHNldF9wdGVfYXQobW0sIGFk
-ZHIsIChwdGVfdCAqKXBtZHAsIHBtZF9wdGUocG1kKSk7Cj4+ICt9Cj4KPiBUaGlzIGNvbmZsaWN0
-cyB3aXRoIHRoZSBleGlzdGluZyBkZWZpbml0aW9uIHJlY2VudGx5IGFkZGVkIGluIGNvbW1pdAo+
-IDc1NmE4ODk2YjYxNjZiYmEgKCJyaXNjdjogbXJlbWFwIHNwZWVkdXAgLSBlbmFibGUgSEFWRV9N
-T1ZFX1BVRCBhbmQKPiBIQVZFX01PVkVfUE1EIik6Cj4KPiAgICAgYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9wZ3RhYmxlLmg6NTc5OjIwOiBlcnJvcjogcmVkZWZpbml0aW9uIG9mIOKAmHNldF9wbWRf
-YXTigJkKPiAgICAgICA1NzkgfCBzdGF0aWMgaW5saW5lIHZvaWQgc2V0X3BtZF9hdChzdHJ1Y3Qg
-bW1fc3RydWN0ICptbSwKPiB1bnNpZ25lZCBsb25nIGFkZHIsCj4gICAgICAgICAgIHwgICAgICAg
-ICAgICAgICAgICAgIF5+fn5+fn5+fn4KPiAgICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmg6NDIwOjIwOiBub3RlOiBwcmV2aW91cyBkZWZpbml0aW9uCj4gb2Yg4oCYc2V0X3BtZF9h
-dOKAmSB3YXMgaGVyZQo+ICAgICAgIDQyMCB8IHN0YXRpYyBpbmxpbmUgdm9pZCBzZXRfcG1kX2F0
-KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+IHVuc2lnbmVkIGxvbmcgYWRkciwKPiAgICAgICAgICAg
-fCAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fgoKU29ycnkgYWJvdXQgdGhhdC4gIEkgd2Fz
-IHRyeWluZyB0byByZS1hcnJhbmdlIGZvci1uZXh0IHRvIGtlZXAgcGF0Y2ggCnNldHMgb24gYnJh
-bmNoZXMgdG8gYXZvaWQgdGhlIHJlYmFzaW5nIGxpa2Ugd2UgaGFkIGxhc3QgdGltZSwgYnV0IHRo
-YXQgCm1ha2VzIG1lcmdlcyBsaWtlIHRoaXMgbW9yZSBvZiBhIGhlYWRhY2hlIGFuZCBqdXN0IG1h
-a2VzIHRoZSB3aG9sZSB0aGluZyAKYSBiaXQgY2x1bmt5LgoKSSd2ZSBmaXhlZCB0aGlzIHVwLCBh
-bG9uZyB3aXRoIGp1c3QgbWFraW5nIHRoZSBoaXN0b3J5IGxpbmVhciBhZ2Fpbi4gIAoKVGhhbmtz
-IQoKPgo+PiArCj4+ICsjaWZkZWYgQ09ORklHX1RSQU5TUEFSRU5UX0hVR0VQQUdFCj4+ICtzdGF0
-aWMgaW5saW5lIGludCBwbWRfdHJhbnNfaHVnZShwbWRfdCBwbWQpCj4+ICt7Cj4+ICsgICAgICAg
-cmV0dXJuIHBtZF9sZWFmKHBtZCk7Cj4+ICt9Cj4+ICsKPj4gKyNkZWZpbmUgX19IQVZFX0FSQ0hf
-UE1EUF9TRVRfQUNDRVNTX0ZMQUdTCj4+ICtzdGF0aWMgaW5saW5lIGludCBwbWRwX3NldF9hY2Nl
-c3NfZmxhZ3Moc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGFkZHJlc3MsIHBtZF90ICpwbWRw
-LAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG1kX3QgZW50cnks
-IGludCBkaXJ0eSkKPj4gK3sKPj4gKyAgICAgICByZXR1cm4gcHRlcF9zZXRfYWNjZXNzX2ZsYWdz
-KHZtYSwgYWRkcmVzcywgKHB0ZV90ICopcG1kcCwgcG1kX3B0ZShlbnRyeSksIGRpcnR5KTsKPj4g
-K30KPj4gKwo+PiArI2RlZmluZSBfX0hBVkVfQVJDSF9QTURQX1RFU1RfQU5EX0NMRUFSX1lPVU5H
-Cj4+ICtzdGF0aWMgaW5saW5lIGludCBwbWRwX3Rlc3RfYW5kX2NsZWFyX3lvdW5nKHN0cnVjdCB2
-bV9hcmVhX3N0cnVjdCAqdm1hLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgdW5zaWduZWQgbG9uZyBhZGRyZXNzLCBwbWRfdCAqcG1kcCkKPj4gK3sKPj4gKyAgICAg
-ICByZXR1cm4gcHRlcF90ZXN0X2FuZF9jbGVhcl95b3VuZyh2bWEsIGFkZHJlc3MsIChwdGVfdCAq
-KXBtZHApOwo+PiArfQo+PiArCj4+ICsjZGVmaW5lIF9fSEFWRV9BUkNIX1BNRFBfSFVHRV9HRVRf
-QU5EX0NMRUFSCj4+ICtzdGF0aWMgaW5saW5lIHBtZF90IHBtZHBfaHVnZV9nZXRfYW5kX2NsZWFy
-KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgdW5zaWduZWQgbG9uZyBhZGRyZXNzLCBwbWRfdCAqcG1kcCkKPj4gK3sKPj4gKyAg
-ICAgICByZXR1cm4gcHRlX3BtZChwdGVwX2dldF9hbmRfY2xlYXIobW0sIGFkZHJlc3MsIChwdGVf
-dCAqKXBtZHApKTsKPj4gK30KPj4gKwo+PiArI2RlZmluZSBfX0hBVkVfQVJDSF9QTURQX1NFVF9X
-UlBST1RFQ1QKPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBwbWRwX3NldF93cnByb3RlY3Qoc3RydWN0
-IG1tX3N0cnVjdCAqbW0sCj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICB1bnNpZ25lZCBsb25nIGFkZHJlc3MsIHBtZF90ICpwbWRwKQo+PiArewo+PiArICAgICAgIHB0
-ZXBfc2V0X3dycHJvdGVjdChtbSwgYWRkcmVzcywgKHB0ZV90ICopcG1kcCk7Cj4+ICt9Cj4+ICsK
-Pj4gKyNkZWZpbmUgcG1kcF9lc3RhYmxpc2ggcG1kcF9lc3RhYmxpc2gKPj4gK3N0YXRpYyBpbmxp
-bmUgcG1kX3QgcG1kcF9lc3RhYmxpc2goc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4+ICsg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBhZGRyZXNzLCBwbWRf
-dCAqcG1kcCwgcG1kX3QgcG1kKQo+PiArewo+PiArICAgICAgIHJldHVybiBfX3BtZChhdG9taWNf
-bG9uZ194Y2hnKChhdG9taWNfbG9uZ190ICopcG1kcCwgcG1kX3ZhbChwbWQpKSk7Cj4+ICt9Cj4+
-ICsKPj4gKyNkZWZpbmUgX19IQVZFX0FSQ0hfRkxVU0hfUE1EX1RMQl9SQU5HRQo+PiArdm9pZCBm
-bHVzaF9wbWRfdGxiX3JhbmdlKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hLCB1bnNpZ25lZCBs
-b25nIHN0YXJ0LAo+PiArICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCk7
-Cj4+ICsKPj4gKyNlbmRpZiAvKiBDT05GSUdfVFJBTlNQQVJFTlRfSFVHRVBBR0UgKi8KPj4gKwo+
-PiAgLyoKPj4gICAqIEVuY29kZSBhbmQgZGVjb2RlIGEgc3dhcCBlbnRyeQo+PiAgICoKPgo+IEdy
-e29ldGplLGVldGluZ31zLAo+Cj4gICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKPgo+IC0t
-IAo+IEdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlh
-MzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKPgo+IEluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMg
-d2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKPiB3aGVu
-IEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNv
-bWV0aGluZyBsaWtlIHRoYXQuCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBM
-aW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Wed, 12 May 2021 07:55:45 PDT (-0700), jszhang3@mail.ustc.edu.cn wrote:
+> From: Jisheng Zhang <jszhang@kernel.org>
+>
+> The has_fpu check sits at hot code path: switch_to(). Currently, has_fpu
+> is a bool variable if FPU=y, switch_to() checks it each time, we can
+> optimize out this check by turning the has_fpu into a static key.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+> Since v1:
+>  - use static_branch_likely()
+
+Sorry, I missed this one.  I was actually considering pointing that out, 
+but I wasn't sure likely was the way to go -- the old code had the save 
+code out of line, and the unlikely one did too.
+
+That said, I'm probably just over-thinking it: most machines have FPUs, 
+so having the branch as likely seems reasonable.  I've taken this one 
+instead.
+
+>  - Improve the commit msg
+>
+>  arch/riscv/include/asm/switch_to.h | 11 ++++++++---
+>  arch/riscv/kernel/cpufeature.c     |  4 ++--
+>  arch/riscv/kernel/process.c        |  2 +-
+>  arch/riscv/kernel/signal.c         |  4 ++--
+>  4 files changed, 13 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index 407bcc96a710..0a3f4f95c555 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -6,6 +6,7 @@
+>  #ifndef _ASM_RISCV_SWITCH_TO_H
+>  #define _ASM_RISCV_SWITCH_TO_H
+>
+> +#include <linux/jump_label.h>
+>  #include <linux/sched/task_stack.h>
+>  #include <asm/processor.h>
+>  #include <asm/ptrace.h>
+> @@ -55,9 +56,13 @@ static inline void __switch_to_aux(struct task_struct *prev,
+>  	fstate_restore(next, task_pt_regs(next));
+>  }
+>
+> -extern bool has_fpu;
+> +extern struct static_key_false cpu_hwcap_fpu;
+> +static __always_inline bool has_fpu(void)
+> +{
+> +	return static_branch_likely(&cpu_hwcap_fpu);
+> +}
+>  #else
+> -#define has_fpu false
+> +static __always_inline bool has_fpu(void) { return false; }
+>  #define fstate_save(task, regs) do { } while (0)
+>  #define fstate_restore(task, regs) do { } while (0)
+>  #define __switch_to_aux(__prev, __next) do { } while (0)
+> @@ -70,7 +75,7 @@ extern struct task_struct *__switch_to(struct task_struct *,
+>  do {							\
+>  	struct task_struct *__prev = (prev);		\
+>  	struct task_struct *__next = (next);		\
+> -	if (has_fpu)					\
+> +	if (has_fpu())					\
+>  		__switch_to_aux(__prev, __next);	\
+>  	((last) = __switch_to(__prev, __next));		\
+>  } while (0)
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index ac202f44a670..a2848dc36927 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -19,7 +19,7 @@ unsigned long elf_hwcap __read_mostly;
+>  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+>
+>  #ifdef CONFIG_FPU
+> -bool has_fpu __read_mostly;
+> +__ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+>  #endif
+>
+>  /**
+> @@ -146,6 +146,6 @@ void riscv_fill_hwcap(void)
+>
+>  #ifdef CONFIG_FPU
+>  	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
+> -		has_fpu = true;
+> +		static_branch_enable(&cpu_hwcap_fpu);
+>  #endif
+>  }
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index f9cd57c9c67d..03ac3aa611f5 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -87,7 +87,7 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+>  	unsigned long sp)
+>  {
+>  	regs->status = SR_PIE;
+> -	if (has_fpu) {
+> +	if (has_fpu()) {
+>  		regs->status |= SR_FS_INITIAL;
+>  		/*
+>  		 * Restore the initial value to the FP register
+> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+> index 65942b3748b4..c2d5ecbe5526 100644
+> --- a/arch/riscv/kernel/signal.c
+> +++ b/arch/riscv/kernel/signal.c
+> @@ -90,7 +90,7 @@ static long restore_sigcontext(struct pt_regs *regs,
+>  	/* sc_regs is structured the same as the start of pt_regs */
+>  	err = __copy_from_user(regs, &sc->sc_regs, sizeof(sc->sc_regs));
+>  	/* Restore the floating-point state. */
+> -	if (has_fpu)
+> +	if (has_fpu())
+>  		err |= restore_fp_state(regs, &sc->sc_fpregs);
+>  	return err;
+>  }
+> @@ -143,7 +143,7 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+>  	/* sc_regs is structured the same as the start of pt_regs */
+>  	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
+>  	/* Save the floating-point state. */
+> -	if (has_fpu)
+> +	if (has_fpu())
+>  		err |= save_fp_state(regs, &sc->sc_fpregs);
+>  	return err;
+>  }
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
