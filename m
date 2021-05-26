@@ -2,59 +2,119 @@ Return-Path: <SRS0=lIhr=KV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1078C47088
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 15:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3314AC47088
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 15:44:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F8E26139A
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 15:11:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F8E26139A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id EF72561028
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 May 2021 15:44:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF72561028
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+Fq7Kcbpby0oV1GhWFC/eB8I+uSH3/IS1gV9rVUKxlQ=; b=hRMxEdScaGsHML
-	u0kej9ujPjrUnfc8q+HFGxHt3NxOAIdXIkfuN4S0xCSPzXm4AoExQI9qzozylfMYHMcrGyJbPzzz3
-	K82HLTVeEpsKlsNFIfzVox/Pe3s/DiRWlOiFEpp123pPLkujyYbNXijd2rugo6/lWuamKxk/TW34f
-	r2yejhPP5N8vWpGC90TfbQSIDC7AdtRpWmOB2WMLK/ERRsydJ+kThhAv2A8hJ1AnLMk7E0zjkfTp2
-	O9UfTWkZVmYl2AyEbG1NXIDMRgXIQ7poVwLfGRbgt3ddErX012sFpwuEHnuKoKZBl8xEwdlo5ZW8W
-	dDtH/cQhVPqEY3bwvCYw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=50IuIJVCmRoInxTAfkicmh67l1HMqfGg/QaY/0IZg8A=; b=Eg06FK2OyQ/DFk
+	OuueJOFFEOXshdfaNddvjlsmQumMr1457nDAxAkdrljqxatZEWhJAP2KOfYjD4clB80nu4pswDD25
+	DEYBZP3mHO8Cazl7jv2c1JTLmHznnlFPwU0PgOST90johmydKLAGs828jCg4jROKV1xYK2FGwvI4E
+	o+KfPP9xXF61jlrMttVOLIQdVURN+0uungHHGd3Wgbh1wgsi2vo/E62MK2xlaFhC1/TQDDbOCAc1P
+	Q3GBNh8ALobX2DuNjafuztmQHrtHBDv4b2iW2fUkgr80XHUi1cH5vjCnoCxh8f1JqcR81brIh948X
+	o+nQtE0L9y2zKe9VDEEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1llvC2-00FEeL-4t; Wed, 26 May 2021 15:11:34 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1llvh9-00FSym-42; Wed, 26 May 2021 15:43:43 +0000
+Received: from conssluserg-02.nifty.com ([210.131.2.81])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lltmi-00EWvV-Pr
- for linux-riscv@lists.infradead.org; Wed, 26 May 2021 13:41:23 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id E1E4EC0007;
- Wed, 26 May 2021 13:41:13 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>, Zong Li <zong.li@sifive.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v2] riscv: Map the kernel with correct permissions the first
- time
-Date: Wed, 26 May 2021 15:41:10 +0200
-Message-Id: <20210526134110.217073-1-alex@ghiti.fr>
-X-Mailer: git-send-email 2.30.2
+ id 1llubS-00EvQW-Af; Wed, 26 May 2021 14:33:48 +0000
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com
+ [209.85.214.173]) (authenticated)
+ by conssluserg-02.nifty.com with ESMTP id 14QEXAIR002409;
+ Wed, 26 May 2021 23:33:11 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 14QEXAIR002409
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1622039591;
+ bh=K2JBpUyGmknhlRJpT71wl4Baxz8GsbPi2HBWhe0fUJY=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ILDEYKAiQK7B/4DimCTAOYnjsseKaQ1dPgHn31xY8h3UVsgF/C7B6zWQmVjH4DP6F
+ olANctJrD67l+/JOS4RenYe29C9FcSpo3p19WInjceJtm3q4jZ+tOVFx7rzXm0pelz
+ Cu7tqYo3umjioF9yqhM2tldSoriFEyiAouaRsE3BDOLnL3LjJZ8cyof+rwzb/MB95d
+ UIvpJn8LgJIIXLkq4NiDzePLpjORdoXJwZyrpQwd/BerQ4zV0kIWg9SzODezFH+CLy
+ kCJvtezc0vhOkZuzBYkTfq1UYCae6GaKIgVtapxKLnrmmk4MJxIBY3vsXmimQjGLT+
+ 03l46pK1oQfkQ==
+X-Nifty-SrcIP: [209.85.214.173]
+Received: by mail-pl1-f173.google.com with SMTP id u7so714746plq.4;
+ Wed, 26 May 2021 07:33:11 -0700 (PDT)
+X-Gm-Message-State: AOAM530JSgtq3rr6gFfRPujs3i+vK391Fookfq+t0xw0zFEoU0bDQU9R
+ +Z0erR0cVkItKdFQ88RvJgZccO7XJXhqM8862K4=
+X-Google-Smtp-Source: ABdhPJw/7i4Yr5Lur94Y0RHgLFU9NY7pValTqlXUvZTdqsgLwd6wmbbeeFmUfP1tSYkLq/bZEryNx1br7CSMU1EHLow=
+X-Received: by 2002:a17:902:541:b029:f0:3187:409b with SMTP id
+ 59-20020a1709020541b02900f03187409bmr36247746plf.47.1622039579510; Wed, 26
+ May 2021 07:32:59 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210512075729.60291-1-masahiroy@kernel.org>
+In-Reply-To: <20210512075729.60291-1-masahiroy@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Wed, 26 May 2021 23:32:22 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAS7cEj9h=Hi0O-AoFjJPg2mxp0zbi8boXj4O9aYt_yg6Q@mail.gmail.com>
+Message-ID: <CAK7LNAS7cEj9h=Hi0O-AoFjJPg2mxp0zbi8boXj4O9aYt_yg6Q@mail.gmail.com>
+Subject: Re: [PATCH 1/5] kbuild: require all architectures to have
+ arch/$(SRCARCH)/Kbuild
+To: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@codeaurora.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Chris Zankel <chris@zankel.net>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Greentime Hu <green.hu@gmail.com>, Guo Ren <guoren@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Helge Deller <deller@gmx.de>, Ingo Molnar <mingo@redhat.com>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Jeff Dike <jdike@addtoit.com>, Jonas Bonn <jonas@southpole.se>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Michal Marek <michal.lkml@markovi.net>,
+ Michal Simek <monstr@monstr.eu>, Nick Hu <nickhu@andestech.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Rich Felker <dalias@libc.org>, Richard Henderson <rth@twiddle.net>,
+ Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>,
+ Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Vasily Gorbik <gor@linux.ibm.com>, Vincent Chen <deanbo422@gmail.com>,
+ Vineet Gupta <vgupta@synopsys.com>, Will Deacon <will@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, linux-alpha@vger.kernel.org,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Parisc List <linux-parisc@vger.kernel.org>,
+ "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ arcml <linux-snps-arc@lists.infradead.org>, linux-um@lists.infradead.org,
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ openrisc@lists.librecores.org, sparclinux <sparclinux@vger.kernel.org>,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>, 
+ X86 ML <x86@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210526_064121_180619_125DEC4C 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20210526_073346_614317_18B2C63F 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,359 +131,294 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For 64b kernels, we map all the kernel with write and execute permissions
-and afterwards remove writability from text and executability from data.
+On Wed, May 12, 2021 at 5:00 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> arch/$(SRCARCH)/Kbuild is useful for Makefile cleanups because you can
+> use the obj-y syntax.
+>
+> Add an empty file if it is missing in arch/$(SRCARCH)/.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
 
-For 32b kernels, the kernel mapping resides in the linear mapping, so we
-map all the linear mapping as writable and executable and afterwards we
-remove those properties for unused memory and kernel mapping as
-described above.
 
-Change this behavior to directly map the kernel with correct permissions
-and avoid going through the whole mapping to fix the permissions.
+Applied to linux-kbuild.
 
-At the same time, this fixes an issue introduced by commit 2bfc6cd81bd1
-("riscv: Move kernel mapping outside of linear mapping") as reported
-here https://github.com/starfive-tech/linux/issues/17.
+>
+>  Makefile               | 2 +-
+>  arch/alpha/Kbuild      | 1 +
+>  arch/arc/Makefile      | 3 ---
+>  arch/arm/Makefile      | 1 -
+>  arch/arm64/Makefile    | 1 -
+>  arch/csky/Kbuild       | 1 +
+>  arch/h8300/Kbuild      | 1 +
+>  arch/hexagon/Kbuild    | 1 +
+>  arch/ia64/Kbuild       | 1 +
+>  arch/microblaze/Kbuild | 1 +
+>  arch/mips/Makefile     | 3 ---
+>  arch/nds32/Kbuild      | 1 +
+>  arch/nios2/Kbuild      | 1 +
+>  arch/openrisc/Makefile | 1 -
+>  arch/parisc/Kbuild     | 1 +
+>  arch/powerpc/Makefile  | 3 ---
+>  arch/riscv/Makefile    | 1 -
+>  arch/s390/Makefile     | 3 ---
+>  arch/sh/Kbuild         | 1 +
+>  arch/sparc/Makefile    | 3 ---
+>  arch/um/Kbuild         | 1 +
+>  arch/x86/Makefile      | 3 ---
+>  arch/xtensa/Kbuild     | 1 +
+>  23 files changed, 13 insertions(+), 23 deletions(-)
+>  create mode 100644 arch/alpha/Kbuild
+>  create mode 100644 arch/csky/Kbuild
+>  create mode 100644 arch/h8300/Kbuild
+>  create mode 100644 arch/hexagon/Kbuild
+>  create mode 100644 arch/ia64/Kbuild
+>  create mode 100644 arch/microblaze/Kbuild
+>  create mode 100644 arch/nds32/Kbuild
+>  create mode 100644 arch/nios2/Kbuild
+>  create mode 100644 arch/parisc/Kbuild
+>  create mode 100644 arch/sh/Kbuild
+>  create mode 100644 arch/um/Kbuild
+>  create mode 100644 arch/xtensa/Kbuild
+>
+> diff --git a/Makefile b/Makefile
+> index 15b6476d0f89..7df040b1b023 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -658,7 +658,7 @@ endif
+>
+>  ifeq ($(KBUILD_EXTMOD),)
+>  # Objects we will link into vmlinux / subdirs we need to visit
+> -core-y         := init/ usr/
+> +core-y         := init/ usr/ arch/$(SRCARCH)/
+>  drivers-y      := drivers/ sound/
+>  drivers-$(CONFIG_SAMPLES) += samples/
+>  drivers-$(CONFIG_NET) += net/
+> diff --git a/arch/alpha/Kbuild b/arch/alpha/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/alpha/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/arc/Makefile b/arch/arc/Makefile
+> index 4392c9c189c4..3e6d4b84797f 100644
+> --- a/arch/arc/Makefile
+> +++ b/arch/arc/Makefile
+> @@ -85,9 +85,6 @@ KBUILD_LDFLAGS        += $(ldflags-y)
+>
+>  head-y         := arch/arc/kernel/head.o
+>
+> -# See arch/arc/Kbuild for content of core part of the kernel
+> -core-y         += arch/arc/
+> -
+>  # w/o this dtb won't embed into kernel binary
+>  core-y         += arch/arc/boot/dts/
+>
+> diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+> index 415c3514573a..173da685a52e 100644
+> --- a/arch/arm/Makefile
+> +++ b/arch/arm/Makefile
+> @@ -252,7 +252,6 @@ endif
+>
+>  export TEXT_OFFSET GZFLAGS MMUEXT
+>
+> -core-y                         += arch/arm/
+>  # If we have a machine-specific directory, then include it in the build.
+>  core-y                         += $(machdirs) $(platdirs)
+>
+> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> index 7ef44478560d..b73c151f3a53 100644
+> --- a/arch/arm64/Makefile
+> +++ b/arch/arm64/Makefile
+> @@ -149,7 +149,6 @@ KBUILD_CFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
+>  KBUILD_CPPFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
+>  KBUILD_AFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
+>
+> -core-y         += arch/arm64/
+>  libs-y         := arch/arm64/lib/ $(libs-y)
+>  libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+>
+> diff --git a/arch/csky/Kbuild b/arch/csky/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/csky/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/h8300/Kbuild b/arch/h8300/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/h8300/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/hexagon/Kbuild b/arch/hexagon/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/hexagon/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/ia64/Kbuild b/arch/ia64/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/ia64/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/microblaze/Kbuild b/arch/microblaze/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/microblaze/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/mips/Makefile b/arch/mips/Makefile
+> index 258234c35a09..4e942b7ef022 100644
+> --- a/arch/mips/Makefile
+> +++ b/arch/mips/Makefile
+> @@ -332,9 +332,6 @@ head-y := arch/mips/kernel/head.o
+>  libs-y                 += arch/mips/lib/
+>  libs-$(CONFIG_MIPS_FP_SUPPORT) += arch/mips/math-emu/
+>
+> -# See arch/mips/Kbuild for content of core part of the kernel
+> -core-y += arch/mips/
+> -
+>  drivers-y                      += arch/mips/crypto/
+>
+>  # suspend and hibernation support
+> diff --git a/arch/nds32/Kbuild b/arch/nds32/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/nds32/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/nios2/Kbuild b/arch/nios2/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/nios2/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/openrisc/Makefile b/arch/openrisc/Makefile
+> index 410e7abfac69..c52de526e518 100644
+> --- a/arch/openrisc/Makefile
+> +++ b/arch/openrisc/Makefile
+> @@ -42,7 +42,6 @@ endif
+>
+>  head-y                 := arch/openrisc/kernel/head.o
+>
+> -core-y         += arch/openrisc/
+>  libs-y         += $(LIBGCC)
+>
+>  PHONY += vmlinux.bin
+> diff --git a/arch/parisc/Kbuild b/arch/parisc/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/parisc/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+> index 3212d076ac6a..af669aa75b73 100644
+> --- a/arch/powerpc/Makefile
+> +++ b/arch/powerpc/Makefile
+> @@ -267,9 +267,6 @@ head-$(CONFIG_PPC_FPU)              += arch/powerpc/kernel/fpu.o
+>  head-$(CONFIG_ALTIVEC)         += arch/powerpc/kernel/vector.o
+>  head-$(CONFIG_PPC_OF_BOOT_TRAMPOLINE)  += arch/powerpc/kernel/prom_init.o
+>
+> -# See arch/powerpc/Kbuild for content of core part of the kernel
+> -core-y += arch/powerpc/
+> -
+>  # Default to zImage, override when needed
+>  all: zImage
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 3eb9590a0775..c5f359540862 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -90,7 +90,6 @@ endif
+>
+>  head-y := arch/riscv/kernel/head.o
+>
+> -core-y += arch/riscv/
+>  core-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += arch/riscv/errata/
+>
+>  libs-y += arch/riscv/lib/
+> diff --git a/arch/s390/Makefile b/arch/s390/Makefile
+> index e443ed9947bd..37b61645694c 100644
+> --- a/arch/s390/Makefile
+> +++ b/arch/s390/Makefile
+> @@ -128,9 +128,6 @@ OBJCOPYFLAGS        := -O binary
+>
+>  head-y         := arch/s390/kernel/head64.o
+>
+> -# See arch/s390/Kbuild for content of core part of the kernel
+> -core-y         += arch/s390/
+> -
+>  libs-y         += arch/s390/lib/
+>  drivers-y      += drivers/s390/
+>
+> diff --git a/arch/sh/Kbuild b/arch/sh/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/sh/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/sparc/Makefile b/arch/sparc/Makefile
+> index bee99e65fe23..4e65245bc755 100644
+> --- a/arch/sparc/Makefile
+> +++ b/arch/sparc/Makefile
+> @@ -58,9 +58,6 @@ endif
+>
+>  head-y                 := arch/sparc/kernel/head_$(BITS).o
+>
+> -# See arch/sparc/Kbuild for the core part of the kernel
+> -core-y                 += arch/sparc/
+> -
+>  libs-y                 += arch/sparc/prom/
+>  libs-y                 += arch/sparc/lib/
+>
+> diff --git a/arch/um/Kbuild b/arch/um/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/um/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+> index c77c5d8a7b3e..4307bf48ec53 100644
+> --- a/arch/x86/Makefile
+> +++ b/arch/x86/Makefile
+> @@ -239,9 +239,6 @@ head-y += arch/x86/kernel/platform-quirks.o
+>
+>  libs-y  += arch/x86/lib/
+>
+> -# See arch/x86/Kbuild for content of core part of the kernel
+> -core-y += arch/x86/
+> -
+>  # drivers-y are linked after core-y
+>  drivers-$(CONFIG_MATH_EMULATION) += arch/x86/math-emu/
+>  drivers-$(CONFIG_PCI)            += arch/x86/pci/
+> diff --git a/arch/xtensa/Kbuild b/arch/xtensa/Kbuild
+> new file mode 100644
+> index 000000000000..a4e40e534e6a
+> --- /dev/null
+> +++ b/arch/xtensa/Kbuild
+> @@ -0,0 +1 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> --
+> 2.27.0
+>
 
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
 
-Changes in v2:
-* Rebased on top of for-next (and "riscv: mm: fix build errors caused by
-  mk_pmd()")
-* Get rid of protect_kernel_linear_mapping_text_rodata as suggested by
-  Jisheng
-* Improve code in general compared to previous RFC
-
-Tested on:
-
-* kernel
-- rv32: OK
-- rv64: OK
-
-* kernel w/o CONFIG_STRICT_KERNEL_RWX:
-- rv32: OK
-- rv64: OK
-
-* xipkernel:
-- rv32: build only
-- rv64: OK
-
-* nommukernel:
-- rv64: build only
-
- arch/riscv/include/asm/page.h       |   9 +-
- arch/riscv/include/asm/sections.h   |  16 ++++
- arch/riscv/include/asm/set_memory.h |   8 --
- arch/riscv/kernel/setup.c           |   5 --
- arch/riscv/mm/init.c                | 123 +++++++++++++++-------------
- 5 files changed, 89 insertions(+), 72 deletions(-)
-
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 6e004d8fda4d..7ff5e0d81e41 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -95,6 +95,7 @@ extern unsigned long va_kernel_pa_offset;
- #endif
- extern unsigned long va_kernel_xip_pa_offset;
- extern unsigned long pfn_base;
-+extern uintptr_t load_sz;
- #define ARCH_PFN_OFFSET		(pfn_base)
- #else
- #define va_pa_offset		0
-@@ -108,6 +109,9 @@ extern unsigned long pfn_base;
- extern unsigned long kernel_virt_addr;
- 
- #ifdef CONFIG_64BIT
-+#define is_kernel_mapping(x)	((x) >= kernel_virt_addr && (x) < (kernel_virt_addr + load_sz))
-+#define is_linear_mapping(x)	((x) >= PAGE_OFFSET && (x) < kernel_virt_addr)
-+
- #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_pa_offset))
- #define kernel_mapping_pa_to_va(y)	({						\
- 	unsigned long _y = y;								\
-@@ -127,10 +131,13 @@ extern unsigned long kernel_virt_addr;
- 
- #define __va_to_pa_nodebug(x)	({						\
- 	unsigned long _x = x;							\
--	(_x < kernel_virt_addr) ?						\
-+	is_linear_mapping(_x) ?							\
- 		linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);	\
- 	})
- #else
-+#define is_kernel_mapping(x)	((x) >= kernel_virt_addr && (x) < (kernel_virt_addr + load_sz))
-+#define is_linear_mapping(x)	((x) >= PAGE_OFFSET)
-+
- #define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
- #define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
- #endif /* CONFIG_64BIT */
-diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-index 8a303fb1ee3b..6b5affecca83 100644
---- a/arch/riscv/include/asm/sections.h
-+++ b/arch/riscv/include/asm/sections.h
-@@ -6,6 +6,7 @@
- #define __ASM_SECTIONS_H
- 
- #include <asm-generic/sections.h>
-+#include <linux/mm.h>
- 
- extern char _start[];
- extern char _start_kernel[];
-@@ -13,4 +14,19 @@ extern char __init_data_begin[], __init_data_end[];
- extern char __init_text_begin[], __init_text_end[];
- extern char __alt_start[], __alt_end[];
- 
-+static inline bool is_va_kernel_text(uintptr_t va)
-+{
-+	return (va >= (uintptr_t)_start && va < (uintptr_t)__init_text_begin);
-+}
-+
-+static inline bool is_va_kernel_lm_alias_text(uintptr_t va)
-+{
-+	return (va >= (uintptr_t)lm_alias(_start) && va < (uintptr_t)lm_alias(__init_text_begin));
-+}
-+
-+static inline bool is_va_kernel_init_text(uintptr_t va)
-+{
-+	return (va >= (uintptr_t)__init_text_begin && va < (uintptr_t)__init_data_begin);
-+}
-+
- #endif /* __ASM_SECTIONS_H */
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 086f757e8ba3..ebb8516ec5bc 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -16,22 +16,14 @@ int set_memory_rw(unsigned long addr, int numpages);
- int set_memory_x(unsigned long addr, int numpages);
- int set_memory_nx(unsigned long addr, int numpages);
- int set_memory_rw_nx(unsigned long addr, int numpages);
--void protect_kernel_text_data(void);
- #else
- static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
--static inline void protect_kernel_text_data(void) {}
- static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
- #endif
- 
--#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
--void protect_kernel_linear_mapping_text_rodata(void);
--#else
--static inline void protect_kernel_linear_mapping_text_rodata(void) {}
--#endif
--
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
- bool kernel_page_present(struct page *page);
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 4db4d0b5911f..96f483e7c279 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -290,11 +290,6 @@ void __init setup_arch(char **cmdline_p)
- 	init_resources();
- 	sbi_init();
- 
--	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
--		protect_kernel_text_data();
--		protect_kernel_linear_mapping_text_rodata();
--	}
--
- #ifdef CONFIG_SWIOTLB
- 	swiotlb_init(1);
- #endif
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 2d80088f33d5..4b1bcbbd50aa 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -425,6 +425,63 @@ asmlinkage void __init __copy_data(void)
- }
- #endif
- 
-+#ifdef CONFIG_STRICT_KERNEL_RWX
-+static __init pgprot_t pgprot_from_va(uintptr_t va)
-+{
-+#ifdef CONFIG_64BIT
-+	if (is_va_kernel_text(va) || is_va_kernel_init_text(va))
-+		return PAGE_KERNEL_READ_EXEC;
-+
-+	/*
-+	 * We must mark only text as read-only as init text will get freed later
-+	 * and rodata section is marked readonly in mark_rodata_ro.
-+	 */
-+	if (is_va_kernel_lm_alias_text(va))
-+		return PAGE_KERNEL_READ;
-+
-+	return PAGE_KERNEL;
-+#else
-+	if (is_va_kernel_text(va))
-+		return PAGE_KERNEL_READ_EXEC;
-+
-+	if (is_va_kernel_init_text(va))
-+		return PAGE_KERNEL_EXEC;
-+
-+	return PAGE_KERNEL;
-+#endif /* CONFIG_64BIT */
-+}
-+
-+void mark_rodata_ro(void)
-+{
-+	unsigned long rodata_start = (unsigned long)__start_rodata;
-+	unsigned long data_start = (unsigned long)_data;
-+	unsigned long __maybe_unused lm_rodata_start = (unsigned long)lm_alias(__start_rodata);
-+	unsigned long __maybe_unused lm_data_start = (unsigned long)lm_alias(_data);
-+
-+	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-+#ifdef CONFIG_64BIT
-+	set_memory_ro(lm_rodata_start, (lm_data_start - lm_rodata_start) >> PAGE_SHIFT);
-+#endif
-+
-+	debug_checkwx();
-+}
-+#else /* CONFIG_STRICT_KERNEL_RWX */
-+static __init pgprot_t pgprot_from_va(uintptr_t va)
-+{
-+#ifdef CONFIG_64BIT
-+	if (is_kernel_mapping(va))
-+		return PAGE_KERNEL_EXEC;
-+
-+	if (is_linear_mapping(va))
-+		return PAGE_KERNEL;
-+
-+	return PAGE_KERNEL;
-+#else
-+	return PAGE_KERNEL_EXEC;
-+#endif /* CONFIG_64BIT */
-+}
-+#endif /* CONFIG_STRICT_KERNEL_RWX */
-+
- /*
-  * setup_vm() is called from head.S with MMU-off.
-  *
-@@ -454,7 +511,8 @@ uintptr_t xiprom, xiprom_sz;
- #define xiprom_sz      (*((uintptr_t *)XIP_FIXUP(&xiprom_sz)))
- #define xiprom         (*((uintptr_t *)XIP_FIXUP(&xiprom)))
- 
--static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
-+static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size,
-+					    __always_unused bool early)
- {
- 	uintptr_t va, end_va;
- 
-@@ -473,7 +531,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
- 				   map_size, PAGE_KERNEL);
- }
- #else
--static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
-+static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size, bool early)
- {
- 	uintptr_t va, end_va;
- 
-@@ -481,7 +539,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
- 	for (va = kernel_virt_addr; va < end_va; va += map_size)
- 		create_pgd_mapping(pgdir, va,
- 				   load_pa + (va - kernel_virt_addr),
--				   map_size, PAGE_KERNEL_EXEC);
-+				   map_size, early ? PAGE_KERNEL_EXEC : pgprot_from_va(va));
- }
- #endif
- 
-@@ -558,7 +616,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	 * us to reach paging_init(). We map all memory banks later
- 	 * in setup_vm_final() below.
- 	 */
--	create_kernel_page_table(early_pg_dir, map_size);
-+	create_kernel_page_table(early_pg_dir, map_size, true);
- 
- #ifndef __PAGETABLE_PMD_FOLDED
- 	/* Setup early PMD for DTB */
-@@ -634,22 +692,6 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- #endif
- }
- 
--#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
--void protect_kernel_linear_mapping_text_rodata(void)
--{
--	unsigned long text_start = (unsigned long)lm_alias(_start);
--	unsigned long init_text_start = (unsigned long)lm_alias(__init_text_begin);
--	unsigned long rodata_start = (unsigned long)lm_alias(__start_rodata);
--	unsigned long data_start = (unsigned long)lm_alias(_data);
--
--	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
--	set_memory_nx(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
--
--	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
--	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
--}
--#endif
--
- static void __init setup_vm_final(void)
- {
- 	uintptr_t va, map_size;
-@@ -682,21 +724,15 @@ static void __init setup_vm_final(void)
- 		map_size = best_map_size(start, end - start);
- 		for (pa = start; pa < end; pa += map_size) {
- 			va = (uintptr_t)__va(pa);
--			create_pgd_mapping(swapper_pg_dir, va, pa,
--					   map_size,
--#ifdef CONFIG_64BIT
--					   PAGE_KERNEL
--#else
--					   PAGE_KERNEL_EXEC
--#endif
--					);
- 
-+			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
-+					   pgprot_from_va(va));
- 		}
- 	}
- 
- #ifdef CONFIG_64BIT
- 	/* Map the kernel */
--	create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
-+	create_kernel_page_table(swapper_pg_dir, PMD_SIZE, false);
- #endif
- 
- 	/* Clear fixmap PTE and PMD mappings */
-@@ -727,35 +763,6 @@ static inline void setup_vm_final(void)
- }
- #endif /* CONFIG_MMU */
- 
--#ifdef CONFIG_STRICT_KERNEL_RWX
--void __init protect_kernel_text_data(void)
--{
--	unsigned long text_start = (unsigned long)_start;
--	unsigned long init_text_start = (unsigned long)__init_text_begin;
--	unsigned long init_data_start = (unsigned long)__init_data_begin;
--	unsigned long rodata_start = (unsigned long)__start_rodata;
--	unsigned long data_start = (unsigned long)_data;
--	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
--
--	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
--	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
--	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
--	/* rodata section is marked readonly in mark_rodata_ro */
--	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
--	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
--}
--
--void mark_rodata_ro(void)
--{
--	unsigned long rodata_start = (unsigned long)__start_rodata;
--	unsigned long data_start = (unsigned long)_data;
--
--	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
--
--	debug_checkwx();
--}
--#endif
--
- #ifdef CONFIG_KEXEC_CORE
- /*
-  * reserve_crashkernel() - reserves memory for crash kernel
 -- 
-2.30.2
-
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
