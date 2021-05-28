@@ -2,69 +2,88 @@ Return-Path: <SRS0=2wW0=KX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84313C4708C
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 11:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7890C47087
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 11:56:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 360276113D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 11:42:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 360276113D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 8236961186
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 11:56:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8236961186
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=08L5muCXdPBk7Osmj51yockV0qLGv4iCG6wmom+1ueM=; b=PRHR4Rl+N3XPQW
-	UMjdg2G2RfpOh9hyu8qjIk/wwwNamETWZ/3LIiBP+YgXP3W4Sl2t2SG/oFNm7KWQCKyB8fQj2k3Ha
-	mTsfMbrHTtW+0pVMWVMYAxtr0BG23ly0usEaxTqdfPJwLB9hcqsozFh7Hi7FDOzv7RhkykInhHZ+g
-	BdYmcXDj8Ipp6SYj+mxnD/Gs+tCZh++BB5VJpQ05JOtpDgNiZfMw1FxA1VZ2zWOVgfarmUnOEVin1
-	NMj7KpKBUA2bnOZ4aDy0lwvD1aDom9RzLXRr/O0AmPes8i1aU7qOrM+rBDMfi+tzmU+/cYYAZSdGx
-	YhxU9PbuUcbcC+2rAKHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
+	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QfBg8R0f2+c/j7Rga0xL2AzCuiOAd/NYd1XYco7642o=; b=G0LC3R5mw7CEhSx/CX7bc8kJFi
+	kTJJHxmvQt6M3wS2EsGF2WKCKWIYa7/KJqYgP02Pd6wdzWtZKkKn1tBH9nZ9DqM7kqmU/0LCJyeJa
+	/2l+pHeScBFfHXuCYyP4TDF4wDiOtGLDQbjI+XqFC4ggwwtf6n89KerSuCtyorgl1qSq2ipSECURS
+	MI5OfFFWpI83a1D8ruk2yScZz7WLqgIIKztYTF3cWQ7aAaO8uNIkyzKcI1S25n9ORmrsIonznvQe6
+	ymc81xZltAHBICtdJa/0UytJHdDutpXQid0UDIl+WoaIScZNnLJn/jPZOWJdFhsVr3XUZX4zbCZ7K
+	KNikpfbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lmasB-00Eydu-MI; Fri, 28 May 2021 11:41:52 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1lmb5e-00F80i-Ic; Fri, 28 May 2021 11:55:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lmaWu-00ElCn-Tc
- for linux-riscv@lists.infradead.org; Fri, 28 May 2021 11:19:54 +0000
-Received: by mail-wm1-x333.google.com with SMTP id h3so1907479wmq.3
- for <linux-riscv@lists.infradead.org>; Fri, 28 May 2021 04:19:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8H7j70pvIp9Dkh0LuFFC2veDISFLsHSeHoR49KfKrVs=;
- b=e91t1G5Hs9M0Rn5TuVkEehaP1o8fAJR2WuehuZJYSaYh1RVZ1uqibeAIaYpg0yWtmZ
- KXLyLqEyd9f5FnFEwP91xnK97VCmmFi726jNHG+d5JbidYATO0eRRaEMwZ2ePFOVDBXD
- XIlcaRoMDzt6gbOFfmtpjB8gZ16WwPa45XCr2cnzG22S86imf1GQCsOcGjXB6F/Gr1R0
- fUDm7bZb/e5tj/Lwqf7i0LN2qEjrWQDYf2Ix1tiGubs+VyVTJ8ppxcdTZxWkz+zUKv//
- 2Ujy6db9c3Ra5KSCGDLx8zyuzJRcZj54o+j41wEBeAdnmCRLPtrX8Op7sTn/h3ujFvOc
- +/ng==
+ id 1lmafB-00Eqdl-Mh
+ for linux-riscv@lists.infradead.org; Fri, 28 May 2021 11:28:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1622201303;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=F+Ay7W48graQkpCe/otQyiwWe4qMEErEsA0X00IJFpQ=;
+ b=At+fPuw2uPGObJg8gW30MnWX92hemxbeyR1KKHPAknlM4IqKqeT120MnEUjqA0VwpD7XA7
+ Qu5idoRFNgmIYzKiF3KuQKzyWdaJGQdYfZAmXHZeP5uXBRANTi3XpWeD3p9GApdpGcMm/e
+ cqSmoFXXV61IQDJFkLluEd9Q/jcyoXg=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-276-_GzbzzUmO7ChSM_uhq0LTw-1; Fri, 28 May 2021 07:28:19 -0400
+X-MC-Unique: _GzbzzUmO7ChSM_uhq0LTw-1
+Received: by mail-wr1-f69.google.com with SMTP id
+ f19-20020adfb6130000b02901121afc9a31so917368wre.10
+ for <linux-riscv@lists.infradead.org>; Fri, 28 May 2021 04:28:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8H7j70pvIp9Dkh0LuFFC2veDISFLsHSeHoR49KfKrVs=;
- b=pzEsHEhZGPZUt+mfJJ6Y2yDVpWTZ7njR67oLixsyn6Nxvvmm0akVeRLNPHBAGeNCml
- o9909cFr7sxi+ABDBXUsic0a4XCs+F/eyBeRSVrgTN1+ZZbXd6bowJScBajkE3UZfCsz
- C+6+I0dWw0FrhDcUFo0MbZt8l64N4+7G/k6tm+ALDoW2RiBcmXT4c0tYtjf2pPwGAEK2
- pW31ri2DPB2vrSGfh+7QD+zm+ja0K39bZZXn7DxNc+EntxTjApOmpLAm06YZYaSf4ohK
- ouo3ue2ueSxX4rJW+oVnJXgAtysBSdH4AGtjC09TIwVTGRVVsEVGoPwY07xSJ1Ew1TJj
- udSQ==
-X-Gm-Message-State: AOAM531KHX3xp8H17Zf4y+1a0Gd+/p4u66vX/4C8q6LPDSvvFp3+Ttyf
- 3w1BmrhM48hgOS+8zWl1yIs+7ywQAygu5nF1qnPYPQ==
-X-Google-Smtp-Source: ABdhPJzSycJLy4PQOTGTTRuUajLT6JmQNkNaQLVXAwxkivFHXrJgRFwo2Ja5idXqAn+ZOcgw0olaoHxrnw1Gi1lQ17M=
-X-Received: by 2002:a1c:4e11:: with SMTP id g17mr13122763wmh.185.1622200790969; 
- Fri, 28 May 2021 04:19:50 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:to:cc:references:from:subject:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=F+Ay7W48graQkpCe/otQyiwWe4qMEErEsA0X00IJFpQ=;
+ b=n/4MufamGs4mamY4C4+l4oTT9m1IiucEbKb63ck+unb0BFzXvV3UwLXvZUp2GkluMF
+ 5LVsqJLCNQZVM0evnuN+jglTgymM6/G0PW8bWKFthyjfS2ehP2afIp83b+CjWU2gWevw
+ Bkxz/a2ZbPZmjyxPa6Rd9YbUKe1DkmvaU0iSTZDJJMYlSJkcRouHRqmLX2SI3QjeA7p8
+ 8pBSP17uPiGz7qKebmyw8HmYSzJiIThrpsN0GsK0JZKicScJyGjE6ZRphPtKvXG1KQK2
+ 50n9MsQ2C228ZocQxB2IxsZqDTk3jC7xET9i0BlJVtTptvbTdJGipa9uqSsr9go/7r3x
+ TuGQ==
+X-Gm-Message-State: AOAM5304QWDqxAndWKi7hYewDknrl39/9Y1G9mxGceGXlBMecniZFGTN
+ gMDtzDY1QkIaIC/rDOXTxf6kLabAgGlW5oGI1XGiQiRwq+473aUkAQPtoDbmJnpCDUA66icM9Ti
+ BQJS2iKuOorIUuide6cKuVKZERHE9
+X-Received: by 2002:adf:82ee:: with SMTP id 101mr1901196wrc.137.1622201298604; 
+ Fri, 28 May 2021 04:28:18 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyQ9E8Pn8b5lSM/UPFzeTTHWAfOsnqJtchlkeZymXvBz2mocM/OaUOFK9IimeGq/X+/kUr5/Q==
+X-Received: by 2002:adf:82ee:: with SMTP id 101mr1901174wrc.137.1622201298357; 
+ Fri, 28 May 2021 04:28:18 -0700 (PDT)
+Received: from ?IPv6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e?
+ ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
+ by smtp.gmail.com with ESMTPSA id 62sm2301476wrm.1.2021.05.28.04.28.17
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 28 May 2021 04:28:17 -0700 (PDT)
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
 References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
  <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
  <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
@@ -73,22 +92,25 @@ References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.
  <9f107eaf-cc6e-d554-c923-62fb317c4d4b@redhat.com>
  <YLCvdmwPrm/S/GKg@kroah.com>
  <CH2PR04MB70782F16D88C700AB621D1B6E7229@CH2PR04MB7078.namprd04.prod.outlook.com>
- <YLC211VUeTrUdo3v@kroah.com> <efa8b40b-4c64-4323-7070-223329a52872@redhat.com>
+ <YLC211VUeTrUdo3v@kroah.com>
+ <efa8b40b-4c64-4323-7070-223329a52872@redhat.com>
  <YLDNEbm+M/geZkHG@kroah.com>
-In-Reply-To: <YLDNEbm+M/geZkHG@kroah.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 28 May 2021 16:49:39 +0530
-Message-ID: <CAAhSdy08jBxHb_BG+YSoB3GokSq=sn9YOjcK4nx5aXT4ZkWaHg@mail.gmail.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
 Subject: Re: arch/riscv/staging
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Damien Le Moal <Damien.LeMoal@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>
+Message-ID: <e6160b1f-7e13-d277-1996-fe1fefb75a73@redhat.com>
+Date: Fri, 28 May 2021 13:28:16 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
+MIME-Version: 1.0
+In-Reply-To: <YLDNEbm+M/geZkHG@kroah.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210528_041953_058073_69D8C45B 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20210528_042825_902850_3CFEA5D2 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,59 +122,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
-
-On Fri, May 28, 2021 at 4:29 PM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
+On 28/05/21 12:59, Greg Kroah-Hartman wrote:
 > On Fri, May 28, 2021 at 11:37:02AM +0200, Paolo Bonzini wrote:
-> > On 28/05/21 11:24, Greg Kroah-Hartman wrote:
-> > > Ok, as it sounds like this isn't going anywhere until the spec group
-> > > gets their work done, you all should just wait as there's no real need
-> > > for any kernel code here either, given that there can't be any hardware
-> > > made until the spec is finished anyway.
-> >
-> > There's need for kernel code so that userspace tooling can be built upon it.
-> > Not having the header files in Linus's tree makes it harder to merge RISC-V
-> > KVM support in userspace.  KVM shields userspace from any future changes to
-> > the hypervisor specification; the userspace API *is* based exclusively on
-> > ratified specifications and there's no risk of breaking the ABI.
->
+>> On 28/05/21 11:24, Greg Kroah-Hartman wrote:
+>>> Ok, as it sounds like this isn't going anywhere until the spec group
+>>> gets their work done, you all should just wait as there's no real need
+>>> for any kernel code here either, given that there can't be any hardware
+>>> made until the spec is finished anyway.
+>>
+>> There's need for kernel code so that userspace tooling can be built upon it.
+>> Not having the header files in Linus's tree makes it harder to merge RISC-V
+>> KVM support in userspace.  KVM shields userspace from any future changes to
+>> the hypervisor specification; the userspace API *is* based exclusively on
+>> ratified specifications and there's no risk of breaking the ABI.
+> 
 > The "risk" is the kernel/hardware api, that seems to not be solid yet
 > given the spec is not released so I understand why the riscv maintainers
 > do not want to accept it.
->
-> Work to make that solid/released and then no one will be complaining
-> here,
 
-There is no "risk" in the kernel/hardware api exposed by the KVM RISC-V
-because the KVM RISC-V UAPI header is based on the latest ratified
-RISC-V privilege v1.11 specification.
-Refer:
-https://github.com/avpatel/linux/blob/riscv_kvm_v17/arch/riscv/include/uapi/asm/kvm.h
-https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMFDQC-and-Priv-v1.11/riscv-privileged-20190608.pdf
+The key word is "seems".  We _have_ worked on making the spec solid; no 
+one that has actually done work on hypervisors for RISC-V believes that 
+it is not solid.  No work has been done on the spec for one year 
+*because there's no work to be done*.
 
-The unratified hypervisor extension part of RISC-V privilege spec is
-only used by the arch/riscv/kvm sources.
-Refer:
-https://github.com/avpatel/linux/tree/riscv_kvm_v17/arch/riscv/kvm
+So the people who actually do the work are twiddling thumbs and waiting 
+for the freezing of all the dependent specs (of which there's a new one 
+every time I check, because the goalposts for freezing the spec keep on 
+being moved).  And at this point probably waiting for hell to freeze as 
+well.
 
-In other words, the KVM RISC-V UAPI header is solid and based
-on released/ratified RISC-V specification but the KVM RISC-V
-implementation internal to the kernel uses unratified hypervisor
-extension.
+Anyway---I understand that you don't care (you shouldn't).  Just from my 
+point of view it's ridiculous that I cannot merge code that is 
+completely standalone just because it has one file in 
+arch/riscv/include/asm/uapi, and that RISC-V maintainers cannot 
+participate in the community the same way everyone else does.
 
-If the hypervisor extension changes (which is very very unlikely) then
-still the KVM RISC-V UAPI header will remain the same because it is
-based on released specification.
+Paolo
 
-Regards,
-Anup
 
 _______________________________________________
 linux-riscv mailing list
