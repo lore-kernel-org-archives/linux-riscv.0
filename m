@@ -2,91 +2,78 @@ Return-Path: <SRS0=2wW0=KX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_RED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18B32C4707F
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 01:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0C38C4708D
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 07:37:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BDECE60E09
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 01:21:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BDECE60E09
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6D80C61358
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 07:37:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D80C61358
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVZRq8JInej0Hl1KgGF/gE+NHiWQW5PHAfn62nu+7U8=; b=Si8iVWy9aGTqDI
-	tLb7//nNW4g2cZ9XquqJrIrIqjYGUUY9sRO6k38ChRniEDDGvI9jn5uzyzrkfcV02VWHIzzTMUwlt
-	AY9+kc1JeNi0pEuCcehRkjtzHn+2P1frlAYJlIHBxPcuNqeFIT4utUf2Mm+WpKSyxTCKavSOzKX5i
-	MPpX+Rjy9L2XUSrkWBhQ7JVEkmPc98LCRUObiYKP/j1NcGVz2emAQ2iIjvASL7xQb7WuIWPV5RSU7
-	1CVedv8wvrCDz+Wd2FLbuwwaYfn/a0TB2nVOBBmFaZnv+xfDYgTr1r1z/qKNDUskh7+jxh49t9LLM
-	MtTkpf7+XUKYEOoOoBEQ==;
+	List-Owner; bh=BIWEv49D7eUnb9/iFMa86pZtuY7PKsPX2Agy/pDt+JY=; b=rQ/YETYLqOOID6
+	a9On6GeO1+Bz9rjV8J7MW53MXs+j/dA1NO5Dhd3qsfOwtJNTLyKvCt4mhcpTPXTaEGA8x0bl9Dnqy
+	FdalchnBdlG0OH+7CFahwuFkO3lfbC87L1fXzLXddPkoxIJyz6gl9fthQ1J1mJJwkAy1u4vfF41C7
+	SePiVjQ/afDuygicSHZjICkQA109WhXBsfhBjq5t36vg3+6WwTtC4Zhk9/4fj0RpYMW4IZxSxew7F
+	lluFFs5qoHh4GX6aBrQ9daRIX1z0Wnxfg+dvInte5ZL+ljgjJY6LzkWl9iu2MAI7NFNl6I0rsldJL
+	E79zq2j6c34VkTRQQJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lmRBY-00Au5S-NU; Fri, 28 May 2021 01:21:12 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1lmX3I-00D4ZJ-28; Fri, 28 May 2021 07:37:04 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lmQxY-00AoXU-NI
- for linux-riscv@lists.infradead.org; Fri, 28 May 2021 01:06:46 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id
- 66-20020a9d02c80000b02903615edf7c1aso1985851otl.13
- for <linux-riscv@lists.infradead.org>; Thu, 27 May 2021 18:06:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=date:from:to:cc:subject:in-reply-to:message-id:references
- :mime-version; bh=My9UV3KfRsIE2OYFFO9odGDLSxkwqhPaNcyCAkYgfPE=;
- b=Fbmz3YEwm9/YekpOb8CGYnreH5dCyyiNaZ/iM2wR1Ho6nXwjyImhIoAH6eSQV3/Nv6
- pqJvhIRu1Ph193fjKZTovWrSZAuZuElN58L18zFzCW8ZRtdYiQzJQ4GCa669wLWm7UcP
- ZmJwftJjJxiCmAWmfj4a6Ki+YdB4G5/8PmdeBaCA74g1jrfcEXcoeBs96nwcn1KG8bYR
- Un1LlLmy5ATmE/jlbP9RUYqVeIf2hMtEPVFzpMWvLhckiSJ4rtJ1tFYHVrE2AQxYzJzw
- ayBm5LWwRPcFSkkI2KegLMAvrkZErFQ570MOjpUGtSwsfPLKTVZFlUgzK2NScnkv7g2s
- FsRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
- :references:mime-version;
- bh=My9UV3KfRsIE2OYFFO9odGDLSxkwqhPaNcyCAkYgfPE=;
- b=IzSmKmTjxcazwhVP2vcBePOYTNLbnWZWKWALkumvxq4Fv0tCW4YZvUzcG2hXV9A6l/
- BLc2Sr4XbMi7ssU6ziWEpORBc7LDerZrChsPkyaAxG+byqDIhV3WqhpwUOOqwXBYGc2D
- e5TPPCimjxWItb/s2O0oKAcPCT3QTWIgkrkld9XZlxIzbAVzNFjEZ8JkOYOApoP9AeY9
- BtQDX/Kd68GCWwUM6MCgipTlswyYCw8dJJNUsIDo638PCGuGofAm/MkuTF9zNCHw/jjh
- Zai5R6VbDsQXY2wV6PZvUNhhwvRXQTORy/PW8UVanQPnnl81vpCUnjhjmwZB7wwNFbzL
- BoxA==
-X-Gm-Message-State: AOAM530tvQ6eP0R27H/hOEgMRUIQRTCRjowWq9mhLg9BSG3PjAZR8GIe
- br8TktLG0N1mbyNF7obkSaft/mRMkQNYww==
-X-Google-Smtp-Source: ABdhPJwej90vv4Qb06LfmedmXuraDFLq3vr6y5MVnZ107yQC65MlSPvSFq2tuXiq5EBnFujq7tG66A==
-X-Received: by 2002:a9d:65d5:: with SMTP id z21mr4984654oth.229.1622164003041; 
- Thu, 27 May 2021 18:06:43 -0700 (PDT)
-Received: from localhost ([2601:8c4:0:1be::1e4])
- by smtp.gmail.com with ESMTPSA id y7sm824818oto.60.2021.05.27.18.06.41
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 27 May 2021 18:06:41 -0700 (PDT)
-Date: Thu, 27 May 2021 18:06:40 -0700 (PDT)
-From: Paul Walmsley <paul.walmsley@sifive.com>
-To: Anup Patel <anup@brainfault.org>
-cc: Damien Le Moal <Damien.LeMoal@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Anup Patel <Anup.Patel@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: arch/riscv/staging
-In-Reply-To: <CAAhSdy3RFGEq0+ZWUjsVCsmR8EvQzs6JOQMRXt7+92wNnCE27w@mail.gmail.com>
-Message-ID: <53424413-4a31-7a12-759a-49e3f41f11a@sifive.com>
-References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
- <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
- <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
- <CAAhSdy3RFGEq0+ZWUjsVCsmR8EvQzs6JOQMRXt7+92wNnCE27w@mail.gmail.com>
+ id 1lmX2j-00D4KZ-Kq; Fri, 28 May 2021 07:36:31 +0000
+Received: from dggeml716-chm.china.huawei.com (unknown [172.30.72.53])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4FrxFx2wgGzWntx;
+ Fri, 28 May 2021 15:31:49 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggeml716-chm.china.huawei.com (10.3.17.127) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id
+ 15.1.2176.2; Fri, 28 May 2021 15:36:25 +0800
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 28 May 2021 15:36:24 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: <linux-alpha@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-ia64@vger.kernel.org>, <linux-m68k@lists.linux-m68k.org>,
+ <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+ <sparclinux@vger.kernel.org>, <linux-mm@kvack.org>, Kefeng Wang
+ <wangkefeng.wang@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, "David S. Miller"
+ <davem@davemloft.net>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Palmer Dabbelt <palmer@dabbelt.com>, Richard Henderson
+ <rth@twiddle.net>, Russell King <linux@armlinux.org.uk>, Mike Rapoport
+ <rppt@linux.ibm.com>
+Subject: [PATCH v2] mm: generalize ZONE_[DMA|DMA32]
+Date: Fri, 28 May 2021 15:45:57 +0800
+Message-ID: <20210528074557.17768-1-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210527143047.123611-1-wangkefeng.wang@huawei.com>
+References: <20210527143047.123611-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.175.113.25]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210527_180644_875860_C979DF97 
-X-CRM114-Status: GOOD (  41.15  )
+X-CRM114-CacheID: sfid-20210528_003630_057695_D661B33E 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,114 +90,368 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+ZONE_[DMA|DMA32] configs have duplicate definitions on platforms
+that subscribe them. Instead, just make them generic options which
+can be selected on applicable platforms.
 
-On Sat, 22 May 2021, Anup Patel wrote:
+Also only x86/arm64 architectures could enable both ZONE_DMA and
+ZONE_DMA32 if EXPERT, add ARCH_HAS_ZONE_DMA_SET to make dma zone
+configurable and visible on the two architectures.
 
-> On Fri, May 21, 2021 at 10:53 PM Paul Walmsley <paul.walmsley@sifive.com> wrote:
->
-> > On Fri, 21 May 2021, Damien Le Moal wrote:
-> >
-> > > For the hypervisor extension and KVM support, the specifications are now very
-> > > stable and while changes due to the advanced interrupt controller specs work,
-> > > among other, are still possible, the changes will likely be small and should not
-> > > cause much headache in the kernel.
-> >
-> > This is the part that I don't quite understand.  If everyone -- including
-> > the architecture folks working on the ISA extension at riscv.org -- agrees
-> > that the H extension isn't going to change significantly, why don't they
-> > freeze the extension?  Could it be that the RVI folks are worried that
-> > they may need to make significant changes, and that's why they haven't
-> > frozen it yet?
-> 
-> I have been involved in the H-extension spec development for the past
-> few years working with RISC-V ISA architects (Andrew and John.) I am also
-> involved in the RISC-V AIA specification as chair. 
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Richard Henderson <rth@twiddle.net>
+Cc: Russell King <linux@armlinux.org.uk>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com> # for arm64
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # for m68k
+Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+v2:
+-i386 can't enable ZONE_DMA32, fix it.
+-make ZONE_DMA default y on X86 as before.
+-collect ACKs
 
-Sounds like you've got great connections with the right people at RISC-V 
-International as far as virtualization is concerned.
+ arch/alpha/Kconfig                     |  5 +----
+ arch/arm/Kconfig                       |  3 ---
+ arch/arm64/Kconfig                     |  9 +--------
+ arch/ia64/Kconfig                      |  4 +---
+ arch/m68k/Kconfig                      |  5 +----
+ arch/microblaze/Kconfig                |  4 +---
+ arch/mips/Kconfig                      |  7 -------
+ arch/powerpc/Kconfig                   |  4 ----
+ arch/powerpc/platforms/Kconfig.cputype |  1 +
+ arch/riscv/Kconfig                     |  5 +----
+ arch/s390/Kconfig                      |  4 +---
+ arch/sparc/Kconfig                     |  5 +----
+ arch/x86/Kconfig                       | 15 ++-------------
+ mm/Kconfig                             | 12 ++++++++++++
+ 14 files changed, 23 insertions(+), 60 deletions(-)
 
-> I confirm that all required provisions are already there in the RISC-V 
-> H-extension to support an external interrupt controller with 
-> virtualization acceleration (such as RISC-V AIA).
-> 
-> In fact, Paolo (with his years of experience in KVM virtualization) also
-> confirmed that current H-extension have all required features.
-> 
-> Clearly, significant changes are very very unlikely.
+diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+index 5998106faa60..6a69a14c4825 100644
+--- a/arch/alpha/Kconfig
++++ b/arch/alpha/Kconfig
+@@ -40,6 +40,7 @@ config ALPHA
+ 	select MMU_GATHER_NO_RANGE
+ 	select SET_FS
+ 	select SPARSEMEM_EXTREME if SPARSEMEM
++	select ZONE_DMA
+ 	help
+ 	  The Alpha is a 64-bit general-purpose processor designed and
+ 	  marketed by the Digital Equipment Corporation of blessed memory,
+@@ -65,10 +66,6 @@ config GENERIC_CALIBRATE_DELAY
+ 	bool
+ 	default y
+ 
+-config ZONE_DMA
+-	bool
+-	default y
+-
+ config GENERIC_ISA_DMA
+ 	bool
+ 	default y
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 24804f11302d..000c3f80b58e 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -218,9 +218,6 @@ config GENERIC_CALIBRATE_DELAY
+ config ARCH_MAY_HAVE_PC_FDC
+ 	bool
+ 
+-config ZONE_DMA
+-	bool
+-
+ config ARCH_SUPPORTS_UPROBES
+ 	def_bool y
+ 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 9f1d8566bbf9..42794474f37f 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -42,6 +42,7 @@ config ARM64
+ 	select ARCH_HAS_SYSCALL_WRAPPER
+ 	select ARCH_HAS_TEARDOWN_DMA_OPS if IOMMU_SUPPORT
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
++	select ARCH_HAS_ZONE_DMA_SET if EXPERT
+ 	select ARCH_HAVE_ELF_PROT
+ 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+ 	select ARCH_INLINE_READ_LOCK if !PREEMPTION
+@@ -307,14 +308,6 @@ config GENERIC_CSUM
+ config GENERIC_CALIBRATE_DELAY
+ 	def_bool y
+ 
+-config ZONE_DMA
+-	bool "Support DMA zone" if EXPERT
+-	default y
+-
+-config ZONE_DMA32
+-	bool "Support DMA32 zone" if EXPERT
+-	default y
+-
+ config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
+ 	def_bool y
+ 
+diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+index 279252e3e0f7..fd8503a0088a 100644
+--- a/arch/ia64/Kconfig
++++ b/arch/ia64/Kconfig
+@@ -60,6 +60,7 @@ config IA64
+ 	select NUMA if !FLATMEM
+ 	select PCI_MSI_ARCH_FALLBACKS if PCI_MSI
+ 	select SET_FS
++	select ZONE_DMA32
+ 	default y
+ 	help
+ 	  The Itanium Processor Family is Intel's 64-bit successor to
+@@ -72,9 +73,6 @@ config 64BIT
+ 	select ATA_NONSTANDARD if ATA
+ 	default y
+ 
+-config ZONE_DMA32
+-	def_bool y
+-
+ config MMU
+ 	bool
+ 	default y
+diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+index 372e4e69c43a..05a729c6ad7f 100644
+--- a/arch/m68k/Kconfig
++++ b/arch/m68k/Kconfig
+@@ -34,6 +34,7 @@ config M68K
+ 	select SET_FS
+ 	select UACCESS_MEMCPY if !MMU
+ 	select VIRT_TO_BUS
++	select ZONE_DMA
+ 
+ config CPU_BIG_ENDIAN
+ 	def_bool y
+@@ -62,10 +63,6 @@ config TIME_LOW_RES
+ config NO_IOPORT_MAP
+ 	def_bool y
+ 
+-config ZONE_DMA
+-	bool
+-	default y
+-
+ config HZ
+ 	int
+ 	default 1000 if CLEOPATRA
+diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
+index 0660f47012bc..14a67a42fcae 100644
+--- a/arch/microblaze/Kconfig
++++ b/arch/microblaze/Kconfig
+@@ -43,6 +43,7 @@ config MICROBLAZE
+ 	select MMU_GATHER_NO_RANGE
+ 	select SPARSE_IRQ
+ 	select SET_FS
++	select ZONE_DMA
+ 
+ # Endianness selection
+ choice
+@@ -60,9 +61,6 @@ config CPU_LITTLE_ENDIAN
+ 
+ endchoice
+ 
+-config ZONE_DMA
+-	def_bool y
+-
+ config ARCH_HAS_ILOG2_U32
+ 	def_bool n
+ 
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index ed51970c08e7..430d5324f1af 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -3277,13 +3277,6 @@ config I8253
+ 	select CLKSRC_I8253
+ 	select CLKEVT_I8253
+ 	select MIPS_EXTERNAL_TIMER
+-
+-config ZONE_DMA
+-	bool
+-
+-config ZONE_DMA32
+-	bool
+-
+ endmenu
+ 
+ config TRAD_SIGNALS
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 088dd2afcfe4..0f78bb383a12 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -403,10 +403,6 @@ config PPC_ADV_DEBUG_DAC_RANGE
+ config PPC_DAWR
+ 	bool
+ 
+-config ZONE_DMA
+-	bool
+-	default y if PPC_BOOK3E_64
+-
+ config PGTABLE_LEVELS
+ 	int
+ 	default 2 if !PPC64
+diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
+index f998e655b570..7d271de8fcbd 100644
+--- a/arch/powerpc/platforms/Kconfig.cputype
++++ b/arch/powerpc/platforms/Kconfig.cputype
+@@ -111,6 +111,7 @@ config PPC_BOOK3E_64
+ 	select PPC_FPU # Make it a choice ?
+ 	select PPC_SMP_MUXED_IPI
+ 	select PPC_DOORBELL
++	select ZONE_DMA
+ 
+ endchoice
+ 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a8ad8eb76120..d29643dee126 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -103,6 +103,7 @@ config RISCV
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select THREAD_INFO_IN_TASK
+ 	select UACCESS_MEMCPY if !MMU
++	select ZONE_DMA32 if 64BIT
+ 
+ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+@@ -132,10 +133,6 @@ config MMU
+ 	  Select if you want MMU-based virtualised addressing space
+ 	  support by paged memory management. If unsure, say 'Y'.
+ 
+-config ZONE_DMA32
+-	bool
+-	default y if 64BIT
+-
+ config VA_BITS
+ 	int
+ 	default 32 if 32BIT
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index b4c7c34069f8..daab9d56957a 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -2,9 +2,6 @@
+ config MMU
+ 	def_bool y
+ 
+-config ZONE_DMA
+-	def_bool y
+-
+ config CPU_BIG_ENDIAN
+ 	def_bool y
+ 
+@@ -210,6 +207,7 @@ config S390
+ 	select THREAD_INFO_IN_TASK
+ 	select TTY
+ 	select VIRT_CPU_ACCOUNTING
++	select ZONE_DMA
+ 	# Note: keep the above list sorted alphabetically
+ 
+ config SCHED_OMIT_FRAME_POINTER
+diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+index 164a5254c91c..39679664cc9a 100644
+--- a/arch/sparc/Kconfig
++++ b/arch/sparc/Kconfig
+@@ -59,6 +59,7 @@ config SPARC32
+ 	select CLZ_TAB
+ 	select HAVE_UID16
+ 	select OLD_SIGACTION
++	select ZONE_DMA
+ 
+ config SPARC64
+ 	def_bool 64BIT
+@@ -141,10 +142,6 @@ config HIGHMEM
+ 	default y if SPARC32
+ 	select KMAP_LOCAL
+ 
+-config ZONE_DMA
+-	bool
+-	default y if SPARC32
+-
+ config GENERIC_ISA_DMA
+ 	bool
+ 	default y if SPARC32
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 0045e1b44190..11cf8a0d6800 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -33,6 +33,7 @@ config X86_64
+ 	select NEED_DMA_MAP_STATE
+ 	select SWIOTLB
+ 	select ARCH_HAS_ELFCORE_COMPAT
++	select ZONE_DMA32
+ 
+ config FORCE_DYNAMIC_FTRACE
+ 	def_bool y
+@@ -93,6 +94,7 @@ config X86
+ 	select ARCH_HAS_SYSCALL_WRAPPER
+ 	select ARCH_HAS_UBSAN_SANITIZE_ALL
+ 	select ARCH_HAS_DEBUG_WX
++	select ARCH_HAS_ZONE_DMA_SET if EXPERT
+ 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+ 	select ARCH_MIGHT_HAVE_ACPI_PDC		if ACPI
+ 	select ARCH_MIGHT_HAVE_PC_PARPORT
+@@ -343,9 +345,6 @@ config ARCH_SUSPEND_POSSIBLE
+ config ARCH_WANT_GENERAL_HUGETLB
+ 	def_bool y
+ 
+-config ZONE_DMA32
+-	def_bool y if X86_64
+-
+ config AUDIT_ARCH
+ 	def_bool y if X86_64
+ 
+@@ -393,16 +392,6 @@ config CC_HAS_SANE_STACKPROTECTOR
+ 
+ menu "Processor type and features"
+ 
+-config ZONE_DMA
+-	bool "DMA memory allocation support" if EXPERT
+-	default y
+-	help
+-	  DMA memory allocation support allows devices with less than 32-bit
+-	  addressing to allocate within the first 16MB of address space.
+-	  Disable if no such devices will be used.
+-
+-	  If unsure, say Y.
+-
+ config SMP
+ 	bool "Symmetric multi-processing support"
+ 	help
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 02d44e3420f5..16930f40f293 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -789,6 +789,18 @@ config ARCH_HAS_CACHE_LINE_SIZE
+ config ARCH_HAS_PTE_DEVMAP
+ 	bool
+ 
++config ARCH_HAS_ZONE_DMA_SET
++	bool
++
++config ZONE_DMA
++	bool "Support DMA zone" if ARCH_HAS_ZONE_DMA_SET
++	default y if ARM64 || X86
++
++config ZONE_DMA32
++	bool "Support DMA32 zone" if ARCH_HAS_ZONE_DMA_SET
++	depends on !X86_32
++	default y if ARM64
++
+ config ZONE_DEVICE
+ 	bool "Device memory (pmem, HMM, etc...) hotplug support"
+ 	depends on MEMORY_HOTPLUG
+-- 
+2.26.2
 
-Earlier this year, there was a post where someone asked on the RISC-V 
-International lists whether the ISA architects were ready to freeze the H 
-extension:
-
-    https://lists.riscv.org/g/tech-privileged/topic/80346318#465
-
-Many of the same points were made that you and Damien and Paolo have 
-brought up on the Linux kernel mailing lists.  Two engineers working on 
-the RISC-V ISA responded, representing two different companies.  They 
-wrote in the thread above that it's "far from certain" that no changes 
-will need to be need to be made, and that "it's a good (and necessary 
-compromise)" to "[wait] a little longer to see [the AIA specification] at 
-least stabilize".  So it sounds like there's still a diversity of opinions 
-here.
-
-Since it sounds like you've got a lot of influence with the RVI folks 
-working on virtualization, seems like you'd be an ideal person to try to 
-convince them that you're right and that they should freeze the hypervisor 
-ISA extension right now?  Then we could just merge your patch set and we 
-could all skip the next round of Linux kernel E-mails about this topic.
-
-> > > That will reduce the risk of seeing forks pop out here and there and
-> > > greatly facilitate Paolo and Anup work.
-> >
-> > When you write about forks, are you worried about architecture forks,
-> > forks of Anup's patchset, or some other kind of fork here?
-> >
-> > I ask because in the past, it sounds like there's been some concern 
-> > from WDC that someone else will come along and submit an alternative 
-> > RISC-V KVM patch set that we'd somehow prefer over Anup's.  That's 
-> > pretty unlikely; I think everyone involved -- certainly including 
-> > Palmer and I -- know that you guys have done the foundational work 
-> > here, and you guys would certainly have clear precedence here, unless 
-> > there turned out to be something wrong with the WDC patchset that you 
-> > all wouldn't be willing to fix.  But maybe I'm misunderstanding your 
-> > concern?
-> 
-> This is certainly your misunderstanding. 
-
-OK, well, maybe you and Damien can get together and spell out what you all 
-are concerned about regarding forks.  Then we can see if there's anything 
-that should be done to address it.  
-
-Right now the only fork risk that I can see is related to the architecture 
-itself.
-
-> > But in terms of the suggestion to create arch/riscv/staging, I think
-> > that's just going to create the same problems that the RISC-V patch
-> > acceptance guidelines were intended to solve.  To put it differently, from
-> > my point of view, it's a feature, not a bug, that we don't send code for
-> > discussion drafts of ISA changes upstream to Linus.   But maybe I'm
-> > misunderstanding what you're looking for ?
-> 
-> For KVM RISC-V, the arch/riscv/staging directory is a perfect solution
-> because:
-> 1) The KVM RISC-V UAPI is header is indeed based on the latest
-> ratified RISC-V privilege spec v1.11 hence the KVM RISC-V UAPI
-> header complies with current RISC-V patch acceptance policy.
-> 2) All usage of RISC-V H-extension is contained within the KVM RISC-V
-> sources only. Rest of the Linux RISC-V kernel does not use H-extension
-> at all.
-> 
-> The current RISC-V patch acceptance policy should make an exception
-> for draft extensions where the UAPI headers are based on ratified
-> RISC-V specs and sources for such draft extension should be placed
-> in arch/riscv/staging directory.
-
-Others have already covered why arch/riscv/staging is a bad idea, so no 
-point in rehashing that here.
-
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
