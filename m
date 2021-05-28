@@ -7,15 +7,15 @@ X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 746CBC4708C
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 08:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3128C47087
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 08:29:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2731161184
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 08:27:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2731161184
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 6DC8A61278
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 May 2021 08:29:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6DC8A61278
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -23,43 +23,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBWZ6ckV5BdjSDWPa6J4SQOdm9ylIoJ9zPT9hkbXif0=; b=PxUhgA/H/JTIuIjQ+B24NyrCYM
-	Hrb4EbdEbjt8KpCZWElKOpykuEG7afqs7RXVle7BQ3VEzxZOdFGh76xk844j/WDHiujPHuuMhMwWz
-	PB7fAHySJLRQvjchzbWrCvV3Jl+DQzKk5nGRmQFLQHJH8Eetj/uwEP2nDg9MpK8bTO8DkdJ7JXPNR
-	Dfg4I7ZPO77wOCMjre0MPVlwtPmNWLw42RkDTMc3D+//UhUTXLOrA+mwmUjiuldhnJcyPIK5+9YSz
-	MsZabFlt+ck1RCvCeW6T9rpKKE5u5Kx6/fX+7timbl9McAkvdMK6LCUYsRpPvPgLCNaoiyIIm1bgh
-	8P+AsgOA==;
+	bh=KcrsuUpXNJwDLUr2cCEpUs3WXjrHBQ/Q8Bd5xGwgJrc=; b=4OxEwYmYhjUaCLGb6BuzwXIRyC
+	wf87DwE9MdEl7FbmRq5GFBXbm/ItFhq7GCtZj0JzHcWytpw+MSOGKmR6AiBZZ/shLIaIlY8N8tco2
+	rRcfkR0fnf3yEtTs8ms/cr/nx6GbFGmbPDDEamwRvPoyZHnjJ2cuizaR5bI3kBB6n4xhh99bQeSV7
+	Ok/eQ3xtMq+xt/Zq3tk/TXl/uxeq5zbil5/aTYACWFqNaYNKbqfhJTmg1zkVDFt191Nz9QVTk9+g3
+	OO6yhnJ4w97mv95lSsdrkI2WZvixa8lzcazVYrFhOOy9XIIXu0rm8z2DcdPzqtC9p35Wn1jkZahG8
+	LMnN6Ulg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lmXpR-00DQqG-R7; Fri, 28 May 2021 08:26:49 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1lmXrz-00DS6J-C7; Fri, 28 May 2021 08:29:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lmXnX-00DPou-50
- for linux-riscv@lists.infradead.org; Fri, 28 May 2021 08:24:53 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 9834BE000F;
- Fri, 28 May 2021 08:24:43 +0000 (UTC)
-Subject: Re: [PATCH v2] riscv: Map the kernel with correct permissions the
- first time
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Jisheng Zhang <jszhang@kernel.org>, Zong Li <zong.li@sifive.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20210526134110.217073-1-alex@ghiti.fr>
- <YK89yVQirCLdodxG@infradead.org>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <fe6fe4ba-00df-4695-c31e-7078bd77be50@ghiti.fr>
-Date: Fri, 28 May 2021 10:24:43 +0200
+ id 1lmXru-00DS2g-9m
+ for linux-riscv@lists.infradead.org; Fri, 28 May 2021 08:29:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1622190561;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=GmrOm6UiZ2g4DQDmrWDfe4rsqjiWdNT/yGyUC63w1IA=;
+ b=YyxfmnMrpk2I3TwU6sutYEOAc8x6+YAh2pvIng2edXJJOTQXhkYYMcVNfO8PiynubDFcr3
+ 6LiKrKBEdCz6PetU6uXPKocTgmnO/0cuR0xyRB/RjtF3YzbFikCYHGTU6Qpo93RLXIQlHJ
+ EZ/NYRM1/XvxwnReQ6spcS/ligULjiU=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-547-A3XdJjtSPfCvX5q_emOB0g-1; Fri, 28 May 2021 04:29:19 -0400
+X-MC-Unique: A3XdJjtSPfCvX5q_emOB0g-1
+Received: by mail-ed1-f72.google.com with SMTP id
+ s20-20020a0564025214b029038752a2d8f3so1772758edd.2
+ for <linux-riscv@lists.infradead.org>; Fri, 28 May 2021 01:29:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=GmrOm6UiZ2g4DQDmrWDfe4rsqjiWdNT/yGyUC63w1IA=;
+ b=bdUORltzl4HraBO8XiEq1RDwfBuwOFok9vGcb7FxLVF+HkTk1S1tWGGx0VVa3X8LdI
+ rmT2EaPgF9H9MINFZLu4uvpSbwfKy1vEMU1q/Cw/Zpud3VEzm3fZXylF4OGFf9Tf0Zzf
+ sNM8LTtrEJ55/4N5zlw5KWla8zenne3ZsEPllYe2FFlW5MEnm4eNUVr3Az13xgK24zQb
+ bu7Zder4/owXQogR1hnYtBeGTlw/Al0KW5nMzI/W6dsO4Hb1FEo45+jQ20OEllUoc2dn
+ jAuxa4bWuH4Ak/tkpdiE88BXaUFKtfe0aIlB79fOKJQfTL/w62OezaepzLGG12QFIjHL
+ VRbA==
+X-Gm-Message-State: AOAM530hBcL9P5u4vbjSwE/t9xF765VcdfHG0z1y/6f8SRnXLMXRgu70
+ 6u/GY8GcP09WJVbhyyD9k7gmhRB4jwt58+n5XDJxIUsQMnqXEWkdsarZg2ph5HClyVEnvLTOw2w
+ nDipiaaAys98M8cXY+Afal/7/ATG+
+X-Received: by 2002:aa7:dc0b:: with SMTP id b11mr8737766edu.124.1622190558218; 
+ Fri, 28 May 2021 01:29:18 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxj4AQT04xSS/5T7AjgbopSeyOiv0X1A5vvuGVzzJ1sLcJmDSLCtWY66PHIPndYMbmBZeb85g==
+X-Received: by 2002:aa7:dc0b:: with SMTP id b11mr8737757edu.124.1622190558042; 
+ Fri, 28 May 2021 01:29:18 -0700 (PDT)
+Received: from ?IPv6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e?
+ ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
+ by smtp.gmail.com with ESMTPSA id by20sm2028207ejc.74.2021.05.28.01.29.16
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 28 May 2021 01:29:17 -0700 (PDT)
+Subject: Re: arch/riscv/staging
+To: Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+References: <DM6PR04MB70811AC515371C5728DDE6A2E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
+ <DM6PR04MB7081D11851CD0D3863C4ABA9E7299@DM6PR04MB7081.namprd04.prod.outlook.com>
+ <9eb59267-542b-8adc-07-d795f5a43098@sifive.com>
+ <CAAhSdy3RFGEq0+ZWUjsVCsmR8EvQzs6JOQMRXt7+92wNnCE27w@mail.gmail.com>
+ <53424413-4a31-7a12-759a-49e3f41f11a@sifive.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Message-ID: <9f107eaf-cc6e-d554-c923-62fb317c4d4b@redhat.com>
+Date: Fri, 28 May 2021 10:29:16 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.2
+ Thunderbird/78.10.1
 MIME-Version: 1.0
-In-Reply-To: <YK89yVQirCLdodxG@infradead.org>
-Content-Language: fr
+In-Reply-To: <53424413-4a31-7a12-759a-49e3f41f11a@sifive.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210528_012451_520031_3F6A6655 
-X-CRM114-Status: GOOD (  32.82  )
+X-CRM114-CacheID: sfid-20210528_012922_464765_0CF3C3B1 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,250 +116,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
+On 28/05/21 03:06, Paul Walmsley wrote:
+> OK, well, maybe you and Damien can get together and spell out what you all
+> are concerned about regarding forks.  Then we can see if there's anything
+> that should be done to address it.
+> 
+> Right now the only fork risk that I can see is related to the architecture
+> itself.
 
-Le 27/05/2021 =E0 08:35, Christoph Hellwig a =E9crit=A0:
-> On Wed, May 26, 2021 at 03:41:10PM +0200, Alexandre Ghiti wrote:
->>   #ifdef CONFIG_64BIT
->> +#define is_kernel_mapping(x)	((x) >=3D kernel_virt_addr && (x) < (kerne=
-l_virt_addr + load_sz))
->> +#define is_linear_mapping(x)	((x) >=3D PAGE_OFFSET && (x) < kernel_virt=
-_addr)
->> +
-> =
+The risk is that improvements to KVM RISC-V are developed in forks 
+rather than in a single git tree.
 
-> Overly long lines.  Independ of that complex macros are generally much
-> more readable if they are written more function-like, that is the name
-> and paramtes are kept on a line of their own:
-> =
-
-> #define is_kernel_mapping(x) \
-> 	((x) >=3D kernel_virt_addr && (x) < (kernel_virt_addr + load_sz))
-> =
-
-> But what is the reason to not make them type-safe inline functions
-> anyway?
-
-No reason. I will then make those macros inline functions and send =
-
-another patchset to make the below macro an inline function too.
-
-> =
-
->>   #define __va_to_pa_nodebug(x)	({						\
->>   	unsigned long _x =3D x;							\
->> -	(_x < kernel_virt_addr) ?						\
->> +	is_linear_mapping(_x) ?							\
->>   		linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);	\
->>   	})
-> =
-
-> ... especially for something complex like this.
-> =
-
->> +static inline bool is_va_kernel_lm_alias_text(uintptr_t va)
->> +{
->> +	return (va >=3D (uintptr_t)lm_alias(_start) && va < (uintptr_t)lm_alia=
-s(__init_text_begin));
-> =
-
-> Overly long line as well.  And useless braces.
-
-Ok.
-
-> =
-
->> +static inline bool is_va_kernel_init_text(uintptr_t va)
->> +{
->> +	return (va >=3D (uintptr_t)__init_text_begin && va < (uintptr_t)__init=
-_data_begin);
->> +}
-> =
-
-> Same here.
-
-checkpatch does not complain about those lines which are under 100 =
-
-characters, what's the point in breaking them on multiple lines?
-
-> =
-
->> +#ifdef CONFIG_STRICT_KERNEL_RWX
->> +static __init pgprot_t pgprot_from_va(uintptr_t va)
->> +{
->> +#ifdef CONFIG_64BIT
->> +	if (is_va_kernel_text(va) || is_va_kernel_init_text(va))
->> +		return PAGE_KERNEL_READ_EXEC;
->> +
->> +	/*
->> +	 * We must mark only text as read-only as init text will get freed lat=
-er
->> +	 * and rodata section is marked readonly in mark_rodata_ro.
->> +	 */
->> +	if (is_va_kernel_lm_alias_text(va))
->> +		return PAGE_KERNEL_READ;
->> +
->> +	return PAGE_KERNEL;
->> +#else
->> +	if (is_va_kernel_text(va))
->> +		return PAGE_KERNEL_READ_EXEC;
->> +
->> +	if (is_va_kernel_init_text(va))
->> +		return PAGE_KERNEL_EXEC;
->> +
->> +	return PAGE_KERNEL;
->> +#endif /* CONFIG_64BIT */
->> +}
-> =
-
-> If the entire function is different for config symbols please just
-> split it into two separate functions.  But to make the difference more
-> clear IS_ENABLED might fit better here:
-> =
-
-> static __init pgprot_t pgprot_from_va(uintptr_t va)
-> {
-> 	if (is_va_kernel_text(va))
-> 		return PAGE_KERNEL_READ_EXEC;
-> 	if (is_va_kernel_init_text(va))
-> 		return IS_ENABLED(CONFIG_64BIT) ?
-> 			PAGE_KERNEL_READ_EXEC : PAGE_KERNEL_EXEC;
-> 	if (IS_ENABLED(CONFIG_64BIT) && is_va_kernel_lm_alias_text(va))
-> 		return PAGE_KERNEL_READ;
-> 	return PAGE_KERNEL;
-> }
-> =
-
-> Preferable with comments explaining the 32-bit vs 64-bit difference.
-
-Ok this is more compact, I'll do that with the comment.
-
-> =
-
->> +void mark_rodata_ro(void)
->> +{
->> +	unsigned long rodata_start =3D (unsigned long)__start_rodata;
->> +	unsigned long data_start =3D (unsigned long)_data;
->> +	unsigned long __maybe_unused lm_rodata_start =3D (unsigned long)lm_ali=
-as(__start_rodata);
->> +	unsigned long __maybe_unused lm_data_start =3D (unsigned long)lm_alias=
-(_data);
->> +
->> +	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
->> +#ifdef CONFIG_64BIT
->> +	set_memory_ro(lm_rodata_start, (lm_data_start - lm_rodata_start) >> PA=
-GE_SHIFT);
->> +#endif
-> =
-
-> Lots of unreadable overly lone lines.  Why not add a helper and do
-> something like:
-> =
-
-> static void set_kernel_memory_ro(char *startp, char *endp)
-> {
->          unsigned long start =3D (unsigned long)startp;
-> 	unsigned long end =3D (unsigned long)endp;
-> =
-
-> 	set_memory_ro(start, (start - end) >> PAGE_SHIFT);
-> }
-> =
-
->          set_kernel_memory_ro(_start_rodata, _data);
-> 	if (IS_ENABLED(CONFIG_64BIT))
-> 		set_kernel_memory_ro(lm_alias(__start_rodata), lm_alias(_data));
-> =
-
-> =
-
-
-Ok, that's better indeed. I will do something like that instead, to =
-
-avoid multiple versions of this helper:
-
-int set_kernel_memory(char *startp, char *endp, =
-
-
-                       int (*set_memory)(unsigned long start, int =
-
-num_pages))
-
->> +static __init pgprot_t pgprot_from_va(uintptr_t va)
->> +{
->> +#ifdef CONFIG_64BIT
->> +	if (is_kernel_mapping(va))
->> +		return PAGE_KERNEL_EXEC;
->> +
->> +	if (is_linear_mapping(va))
->> +		return PAGE_KERNEL;
->> +
->> +	return PAGE_KERNEL;
->> +#else
->> +	return PAGE_KERNEL_EXEC;
->> +#endif /* CONFIG_64BIT */
->> +}
->> +#endif /* CONFIG_STRICT_KERNEL_RWX */
->> +
-> =
-
-> Same comment as for the other version.  This could become:
-> =
-
-> static __init pgprot_t pgprot_from_va(uintptr_t va)
-> {
-> 	if (IS_ENABLED(CONFIG_64BIT) && !is_kernel_mapping(va))
-> 		return PAGE_KERNEL;
-> 	return PAGE_KERNEL_EXEC;
-> }
-
-Ok I'll do that.
-
-> =
-
->> -static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map=
-_size)
->> +static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map=
-_size, bool early)
-> =
-
-> Overly long line.
-> =
-
->>   	for (va =3D kernel_virt_addr; va < end_va; va +=3D map_size)
->>   		create_pgd_mapping(pgdir, va,
->>   				   load_pa + (va - kernel_virt_addr),
->> -				   map_size, PAGE_KERNEL_EXEC);
->> +				   map_size, early ? PAGE_KERNEL_EXEC : pgprot_from_va(va));
-> =
-
-> Same here.  But why not pass in a "pgprot_t ram_pgprot" instead of the
-> bool, which would be self-documenting.
-
-This function is used to map the kernel mapping, the pgprot_t is then =
-
-different in create_kernel_page_table depending on the virtual address =
-
-so I can't pass a single pgprot_t for that or I would need a dummy =
-
-pgprot_t to test anyway.
-
-Thank you for your review,
-
-Alex
-
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> =
+Paolo
 
 
 _______________________________________________
