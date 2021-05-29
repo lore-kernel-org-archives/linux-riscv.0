@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FD84C47082
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 22:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 92067C47082
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:08:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE0CD6105A
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 22:45:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE0CD6105A
+	by mail.kernel.org (Postfix) with ESMTPS id 42DEC61090
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:08:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42DEC61090
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,69 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=tsEcfMPIjO4geOkIu44YNdo2e/25GKUmFiEaJ5yqO8I=; b=FdktubBqGkUIRp2G2PtN46NqCN
-	4lto15cNr3tUAslsUBQAlekD3e0TYEYLUsuBB+G8IaxFQ/amwHWJXlAIq9AF5jo8pGL8gaqVYyD7j
-	wzgvDBGyHLj6EdeHPPZr5gm0i2AvHxOs1NPlQV1s0AJS37YYtP2PRitYpqyXOMege1pwQIrLW12ix
-	Bwv26KPd5WeIjtSljjt75j5afPeTSQZVf4l3tw/dzo/FECZ1ihQGP96EHRm9sARMu5wSZKQLD8QmA
-	EGY1goRH9xn+UyVezbH05C/P9om99LFlC50iKutEst8WC64ufUiNXQ8sPbEV+1tVkaTew59Wtvn3Z
-	bI7ZM31A==;
+	bh=iRGXFCMCp+fkpn3Aq/blYLJ/jhVgs4xuuz3Hl3cotBQ=; b=ZMJAdsE9EggT4uiZWZUyvtZG8Y
+	WQaC7yiuVi1rt3hEqQrPmNfGG9jedF7r2Uz6BKMIU9QPkvATjXuTsXV0eLy102BTKAClMUiWeILCM
+	qq0uBm6wNvW/rmznWuY3TKTO6NgN/did3GJCUm9eQwUAqRdLQEqGx96sq3n6k9bZR0rErYhXETLL8
+	GEP8SQYyg2AuNbQTmvkL2gZdN0NJcii9CKPv59UZmYu1gbX2CjvC1oECrREOEJEUyev6Ak6Rdswai
+	EWFkGgb4zBx1t+zl13YPVMF9zkr+92rK5KTWf27u0iV8AW12LKZp8NJYmYFxhrs/YNnOLUux5ITw7
+	v+sJwjPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln7ho-008W9q-IB; Sat, 29 May 2021 22:45:20 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1ln844-008Y1S-15; Sat, 29 May 2021 23:08:20 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln7hZ-008W7Y-JH
- for linux-riscv@lists.infradead.org; Sat, 29 May 2021 22:45:07 +0000
-Received: by mail-pg1-x535.google.com with SMTP id l70so5422058pga.1
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 15:45:05 -0700 (PDT)
+ id 1ln840-008Y0X-NY
+ for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:08:18 +0000
+Received: by mail-pl1-x635.google.com with SMTP id 69so3361793plc.5
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:08:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=Lpdx0Um03jUzqWO4AaIxjC3bK1N0jnixW+8FFlMlqMA=;
- b=sj3hzKzorWG43QKLPPjBiiTmSiEUHi97unt/f9AoqvyIidgde3OSve5K7/wqfstvxo
- pPAH6blRfLa+LT3yh/0pPtiauFlxY2wUUg+OM+hpz5VQW+Jz+So6ac7mgCcTyq8/ZFpy
- ce7xp2jx4510guVZDywugXiuIgtaOCDSYLZhHKuQJ6aQWmjUBHTKxA5pzbxoKsPpWoHm
- 7vZ+GF6EcItYzrz6yrR5VUBVDcRGycWIg+/XYVCfFobvFHKiq4gaX6iSqyAPZEBrFACx
- 5MgndjKNyarKhotIx8MNj6LAbQdHYPTf07NgtgwS3gNuvTOIFWw+delANS0yVVqtOYHN
- n1CQ==
+ bh=sRVlaEEdmy2fejqm1LOYoX48nSor38C+saK1W6Lf4/s=;
+ b=E1wgVzZGpfyq9t7N8n24R3QZGtn759prQ9Ypv80Idx5khXw3ckZKvEoArXvhg/yXoQ
+ bOIba+tCmn/iOFPQDmOc9EY3VqLAmTqvm/C4b+CGAPfyS2aO1WfPSAQJcVq2gSQf7P6q
+ pxwLT+k0/9sJc7ZYQkKt2YgyV2Lcct2eKmc0vu4wcsMLS7iH5jgEXpAJyGNJLTnCIguW
+ wl6L3ckQ4hBnkmIGXtyHuEiE1RpCBzsp4zd0gXxEteKgo/Jj2jYY0LQNkDL371GamncT
+ ro54HMR92i/U+NZQFKVACEiB0WsYqtR13aljHT+8L4GqF+Y1+r/7U07YI10mV4LgXTF4
+ 9kRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=Lpdx0Um03jUzqWO4AaIxjC3bK1N0jnixW+8FFlMlqMA=;
- b=g04qZ0be86QBzZVfBWulrfFGhUl18ICrOXb4EW1fEjDhHQyXCkh1pjm4anHlNpWJP1
- 6fw+l1yFBJSps1MO9hNjm/RslzhsUbnA4nB3h9UXPMA8e5UDGyGKJj8hIO2i4ThcOW73
- AB5a9SWKoV9ik5VBVNl5OsDTB3lY3T42HsYES1JRopTpq29WPWzyASByvoPoXrydDAvj
- P0AfsNRAx+2KzvVUmSglS62iprw53/vYD6z1N/f4YKBpZVQlNopgsKJCbp7jZnqD0+xN
- tYyksDdsfWKZkMHtx/sciUzvo9IxHQbAyPGPlHZWv8Gf1mdBa7Gh+AUrGJqdj6fYIXnY
- govg==
-X-Gm-Message-State: AOAM530PJJzvbWz4cqh+KkygORuCY09UQmEazG5snjFOPOsarEveiCSm
- um5p8NF2Oo+sYGnP1fTflkT7Pg==
-X-Google-Smtp-Source: ABdhPJyWtP3MVhxRgO3jrnndKaQfJ0lHL6blo2oW0FRSpfHSJK4uH9cuYZsGnZQwwLYHURnmuoX7tA==
-X-Received: by 2002:a05:6a00:16c9:b029:2df:c620:8156 with SMTP id
- l9-20020a056a0016c9b02902dfc6208156mr10214707pfc.40.1622328304768; 
- Sat, 29 May 2021 15:45:04 -0700 (PDT)
+ bh=sRVlaEEdmy2fejqm1LOYoX48nSor38C+saK1W6Lf4/s=;
+ b=n+GWgO+6rqLmuV00R9QPWK0pxLve57NZkeE46VG9sc+KVpoSRX8A6Cxon33RiYjzo9
+ 4r2XqZ90MvatutH0VxElu+7OC+fhtx1dsEGi+/QaMk5DASc8bRvhJEzPfrRDqBLaNUMS
+ p/z72y2lyNJXaA494HSiipzOBnHyZ3sTC//PdX+25Qy1VgN7e54kD4Emad5jnUOnTNZo
+ Yew6jzVQhQSpmcrrCgiPpE4ZXHh87HKl2d+WTe7roeEr3NbP5GZY5O+exiLc7XbFXaLA
+ 0bKzCDev+KJBWfkAc8f7PMSg1N7ICurFPlQE7I5ZUQFTVJI5ukQVMcuPXLYlVM/DbWEI
+ 7YBA==
+X-Gm-Message-State: AOAM531Rg+2SgEzGTFJccsfwuEgmjYq6k3o2DH+0rkfNCq0mdbPOHNqb
+ WFaLBVtVpHzI2hOxQQnJhBopZA==
+X-Google-Smtp-Source: ABdhPJwFfFnBe8aicTdBk4lfp+U758kjADLjg1HfzNkpIgiuq6BLJtEMp3irt06nPnjgz+jn88h+nQ==
+X-Received: by 2002:a17:90a:a78d:: with SMTP id
+ f13mr11437791pjq.161.1622329695920; 
+ Sat, 29 May 2021 16:08:15 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id gg10sm7221762pjb.49.2021.05.29.15.45.03
+ by smtp.gmail.com with ESMTPSA id r11sm7503153pgl.34.2021.05.29.16.08.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 29 May 2021 15:45:04 -0700 (PDT)
-Date: Sat, 29 May 2021 15:45:04 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 May 2021 15:38:54 PDT (-0700)
-Subject: Re: [PATCH -next] riscv: mm: fix build errors caused by mk_pmd()
-In-Reply-To: <20210524070220.793082-1-sunnanyong@huawei.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Atish Patra <Atish.Patra@wdc.com>, 
- wangkefeng.wang@huawei.com, sunnanyong@huawei.com
+ Sat, 29 May 2021 16:08:15 -0700 (PDT)
+Date: Sat, 29 May 2021 16:08:15 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 May 2021 16:04:50 PDT (-0700)
+Subject: Re: [PATCH -next] riscv: TRANSPARENT_HUGEPAGE: depends on MMU
+In-Reply-To: <a2953d37-aaf3-3db5-f4a3-488a8ca7f245@infradead.org>
+CC: linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ akpm@linux-foundation.org, sunnanyong@huawei.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: sunnanyong@huawei.com
-Message-ID: <mhng-4fb5ea1f-084a-4010-b4a6-d19423511720@palmerdabbelt-glaptop>
+To: rdunlap@infradead.org, rppt@kernel.org
+Message-ID: <mhng-184591e7-860d-4bec-86c1-7a26ad6e806e@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_154505_655852_55387246 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20210529_160816_790038_F3AA2F96 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +101,85 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 May 2021 00:02:20 PDT (-0700), sunnanyong@huawei.com wrote:
-> With "riscv: mm: add THP support on 64-bit", mk_pmd() function
-> introduce build errors,
-> 1.build with CONFIG_ARCH_RV32I=y:
-> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
-> arch/riscv/include/asm/pgtable.h:513:9: error: implicit declaration of function 'pfn_pmd';
->  did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
+On Tue, 25 May 2021 08:40:10 PDT (-0700), rdunlap@infradead.org wrote:
+> On 5/25/21 3:33 AM, Mike Rapoport wrote:
+>> On Mon, May 24, 2021 at 05:13:02PM -0700, Randy Dunlap wrote:
+>>> Fix a Kconfig warning and many build errors:
+>>>
+>>> WARNING: unmet direct dependencies detected for COMPACTION
+>>>   Depends on [n]: MMU [=n]
+>>>   Selected by [y]:
+>>>   - TRANSPARENT_HUGEPAGE [=y] && HAVE_ARCH_TRANSPARENT_HUGEPAGE [=y]
+>>>
+>>> and the subseqent thousands of build errors and warnings.
+>>>
+>>> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
+>>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+>>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>>> Cc: Albert Ou <aou@eecs.berkeley.edu>
+>>> Cc: linux-riscv@lists.infradead.org
+>>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>>> Cc: Nanyong Sun <sunnanyong@huawei.com>
+>>
+>> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+>>
+>>> ---
+>>> I really think that mm/Kconfig should have "depends on MMU" for
+>>> TRANSPARENT_HUGEPAGE, but commit 15626062f4a9 from 2012
+>>> ("thp, x86: introduce HAVE_ARCH_TRANSPARENT_HUGEPAGE") thought
+>>> differently. I.e., mm/Kconfig should be protecting all arches
+>>> against this Kconfig problem.
+>>
+>> We could
+>>
+>> diff --git a/mm/Kconfig b/mm/Kconfig
+>> index 02d44e3420f5..85bc8bf32e7b 100644
+>> --- a/mm/Kconfig
+>> +++ b/mm/Kconfig
+>> @@ -403,7 +403,7 @@ config NOMMU_INITIAL_TRIM_EXCESS
+>>
+>>  config TRANSPARENT_HUGEPAGE
+>>  	bool "Transparent Hugepage Support"
+>> -	depends on HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>> +	depends on MMU && HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>>  	select COMPACTION
+>>  	select XARRAY_MULTI
+>>  	help
+>>
+>> but in a sense HAVE_ARCH_TRANSPARENT_HUGEPAGE should imply that MMU is
+>> selected :)
 >
-> 2.build with CONFIG_SPARSEMEM=y && CONFIG_SPARSEMEM_VMEMMAP=n
-> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
-> include/asm-generic/memory_model.h:64:14: error: implicit declaration of function 'page_to_section';
->  did you mean 'present_section'? [-Werror=implicit-function-declaration]
->
-> Use macro definition instead of inline function for mk_pmd
-> to fix the above problems.It is similar to the mk_pte macro.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Nanyong Sun <sunnanyong@huawei.com>
-> ---
->  arch/riscv/include/asm/pgtable.h | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 4b708ae08910..f35d9c90d4cb 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -508,10 +508,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
->  	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
->  }
->
-> -static inline pmd_t mk_pmd(struct page *page, pgprot_t prot)
-> -{
-> -	return pfn_pmd(page_to_pfn(page), prot);
-> -}
-> +#define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
->
->  static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
->  {
+> Yes, I had this patch before the one that I sent but decided against it
+> based on history.
 
-Thanks, this is on for-next.
+IMO 15626062f4a9 ("thp, x86: introduce HAVE_ARCH_TRANSPARENT_HUGEPAGE") 
+is really saying "the arches that have transparent huge pages are MMU=y, 
+so we don't need the extra check".  That seems reasonable as of when the 
+code landed, and while arm has MMU=n and THP it already depends on MMU 
+(via ARM_LPAE, which seems kind of natural there).
+
+The generic version seems fine to me, but I'm going to take this one now 
+so we can avoid the build issues.
+
+>>>  arch/riscv/Kconfig |    2 +-
+>>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> --- linux-next-20210524.orig/arch/riscv/Kconfig
+>>> +++ linux-next-20210524/arch/riscv/Kconfig
+>>> @@ -106,7 +106,7 @@ config RISCV
+>>>  	select SYSCTL_EXCEPTION_TRACE
+>>>  	select THREAD_INFO_IN_TASK
+>>>  	select UACCESS_MEMCPY if !MMU
+>>> -	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT
+>>> +	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+>>>
+>>>  config ARCH_MMAP_RND_BITS_MIN
+>>>  	default 18 if 64BIT
+>>>
+>>
+>
+> thanks.
 
 _______________________________________________
 linux-riscv mailing list
