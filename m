@@ -2,19 +2,19 @@ Return-Path: <SRS0=5xGv=KY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D6BEEC4708F
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 21:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4ED35C47082
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 22:45:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F4C261132
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 21:09:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F4C261132
+	by mail.kernel.org (Postfix) with ESMTPS id C8FB06105A
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 22:45:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C8FB06105A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=pQvsKd6JCszF/dckyZ3Z8zgl+I8xhtBSpzS1K6zOTjY=; b=4Q9dqqjtkMLVF0ekMhiy1zIH3y
-	0lOsQn1pxtrr+EkaCtJ/BZ49AOEFFJbb26va9X01A8nrO4R1kN/C4Bn70mJm6OcIP0DYth6D+omVd
-	OfVRkPKT2pJVtl077C9Jis7r8ewmYY+uDlAKGlpq2L36Nf387hwoW9iZnAAqZM9j8BpgFxk82hZ9B
-	NC3ArG6geplCbU9DyogBksVIn60Adhyv1s3MDv8RmE04oORwU9i1v5Hn9wCOAsZMXT0schXqiskEZ
-	AvyehABQrvz1G7bN+m8l2k/ky3O139DFekAsz9eiZyjohG3DTS7MOIOLaISB9iv6YiEF4sgBsdFG3
-	h6WKEDcg==;
+	bh=LTYvmDUqJ6GNUnvfrrQRnWnY/KkAGKufA7oRYvvkLF4=; b=YTSX1AXnmoGETgUSzVafZF9gsx
+	Gut6o0XgVCj9ZsMU7pcR9hWI/BS2mdU3W/X56t4wUv11W58Z30OEOpR4uRf87YNp5/wZTL+ytubko
+	mr2yeSHBUye31dMT3yFcO8/Pynw9dEYESOy1Vguv2+Dea0WqInaceFb0RLC7XgWDV0uyfwMGRARIe
+	GAsbUO2lcavJVCiTmonaJHmQOlEWfYNXdM+pmO7vDv11Trtvnkvu++DaqkaBWNMFEteN3AMRIFY/3
+	FMyK04Rkye4ywLlBY9zg89pN1hTVjUSaKr84MeqeFcoll5ulqiYuJnOXYg6dE/oHe5odKOe7S0aZb
+	QoIW6MtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln6D4-008NYa-Aj; Sat, 29 May 2021 21:09:30 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1ln7hY-008W7O-F0; Sat, 29 May 2021 22:45:04 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln6D0-008NWL-Ok
- for linux-riscv@lists.infradead.org; Sat, 29 May 2021 21:09:28 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id i5so5336131pgm.0
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 14:09:26 -0700 (PDT)
+ id 1ln7hV-008W62-9q
+ for linux-riscv@lists.infradead.org; Sat, 29 May 2021 22:45:02 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id v13so3331121ple.9
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 15:45:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8r50WTYijVxw13w+Cbl0B/a8grECRXS0efGfJBQBVbo=;
- b=PBNynF5n2iXQe/+sssTBzt+gMIs+NXmjTog4xShBRczk86R+NMYtPGbqrvT1uGgFvi
- y8xKRP38wrBGyf2e7wWlP0eeLc0rsArRKi1vFVBLa6lbKTRRKsgkx+tPBDvNbigotovP
- 8PSspNUgOVnqazvOGVUXmFzu8DZ5yqhYZ54hQnm04cH/zReTEdwSoTTRz2DTjafV42Pk
- 0YG2nFsdsVR1BspmBgODXxuqC2VBsm9VFx2gy6MNui+3hcaoFxsllYcxmPpAFl8Qi7zs
- PCRlCWxcLB21/9hTjxhiPGvs7yMCmrhbVpueQ/jO/+f+CV066JcJ9AGrqf553ZIq4y3g
- ZP+w==
+ bh=QdAbDnERBsqqqZlDK/g4pI9/2J/fe7PAQ8nVc8saF5U=;
+ b=Sp4NhLsDtuuxZHQ1WGu+doDMbpmQwg6H3QTyLVQ0Ji4jRsd6hxA9x4DoRurcF+DhEp
+ eLT7LTEx65AsIYTMrnBf7/lL0Js+vMLl/DXMlU2nCRmhz6x2fRpKHR74mIsqCg+p7dFy
+ sycMZosMyT+PtGJiypj97ZBWxSB93brsSy/Zc6WUfmfnfG0EVbplcDTqFnWShJATTGKm
+ 2KIZyD8PW+qRq00AWmbshPbNThmRSwrjni0p+LxMC4/j7/I2mUE2klXK3QxeSGdKiHvD
+ eMFcMIARzuqB0TgF16RfvLUgJgtusIRYRL0CVFfQ7MsNvL/KK/LnGI4wJW05/JD8hzzl
+ wWLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8r50WTYijVxw13w+Cbl0B/a8grECRXS0efGfJBQBVbo=;
- b=cOaXXc6RwPWWSYWwCxnZ352n1BtrQrOYmE1QUBgcO3NcfKNm2GPK97QXTS2plMBFNh
- SB0g3QznCSlTIoPnBdpbLlitfjADwCyT7G056d/uBUUotMKM6YSJ/jR4TnISOvi/f85P
- YFruyaiz8NtoStZvb6W7qlmER6zKm5jqC94DIgtgPoTjxmCM3fr5cUWzli0ChLRrw7ri
- BFkCFiUgL1uW1KKrGluPd++8AyBl3EIE2iGTBogmYp4+V7FdltAvknzgcP5KmiYg5PUS
- rJ144HCkcFVcxgt40khUqUWdto//OJJcSuW2wgtRlzgVxMn5j5g6VIgMcmqpMkrow7g7
- 6d3A==
-X-Gm-Message-State: AOAM532lxykOLHjc1z77eQwtr/cipgD+AWdG7b68QquvxGCrsqnsEgEd
- ZJuluBhmVSphDPWjvzDg+dxmZw==
-X-Google-Smtp-Source: ABdhPJwPn0+uGvchgpImUmRLtYMKtuL//7Wv0+g7ZeOxfdVONPvEborW1k4FjfBCMS6GGHxB0hG5tA==
-X-Received: by 2002:a63:1443:: with SMTP id 3mr15524590pgu.69.1622322565931;
- Sat, 29 May 2021 14:09:25 -0700 (PDT)
+ bh=QdAbDnERBsqqqZlDK/g4pI9/2J/fe7PAQ8nVc8saF5U=;
+ b=aLu6TD7wtC/SnIgoS6OVUp/Rv+ZLI/ghddTIvaGZ2jNoZ8Y21JIHZDJ4nnctp7ZhQa
+ 00qXsCogx67R3YTv3Ie0v4RuJ6cpy0MTqtTrBGnrSfjbSqnTvE3VSPXJW48E1l4YIqWg
+ Zez8XxZqoLJtazYULshX/dmgNF4ylsanQmhQnc2yUB7+ltuKwK9sVoC9pw4G0mvS+vw8
+ 4HT1lW7Imo6VQPWbSXZLi29Q1QCMJcSXTN4HZuJpc6bDIrCvifKgzGRtFaE4npP/GjwW
+ 7CviiLzKqaHXCooigK+2AvBBbgScVU0hrqvbwyzzW3+YiyJr53YMG8/E6+b1QKvIXm67
+ HZJQ==
+X-Gm-Message-State: AOAM530xkg4aQuode43bvFKqz3NqwtvlUUBS7IU/cIi4np8O+T8Vn50x
+ XXUyMZX5C4PIBeb1sVGQW/lC/bhMP+GB3Q==
+X-Google-Smtp-Source: ABdhPJw9qbIMHVnncTQR58bkFEMkDWGggFl2fYrCOKwH4Ga+vR8jNSvN0MZa5ioDkIK7d2SgHOtfdQ==
+X-Received: by 2002:a17:90a:de07:: with SMTP id
+ m7mr4330380pjv.100.1622328299762; 
+ Sat, 29 May 2021 15:44:59 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c17sm7686313pgm.3.2021.05.29.14.09.25
+ by smtp.gmail.com with ESMTPSA id b12sm8091809pgs.52.2021.05.29.15.44.58
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 29 May 2021 14:09:25 -0700 (PDT)
-Date: Sat, 29 May 2021 14:09:25 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 May 2021 13:56:03 PDT (-0700)
-Subject: Re: [PATCH] riscv: mm: init: Consolidate vars, functions
-In-Reply-To: <20210517224001.42424097@xhacker>
-CC: alex@ghiti.fr, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ Sat, 29 May 2021 15:44:59 -0700 (PDT)
+Date: Sat, 29 May 2021 15:44:59 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 May 2021 14:35:12 PDT (-0700)
+Subject: Re: [PATCH] riscv: skip errata_cip_453.o if
+ CONFIG_ERRATA_SIFIVE_CIP_453 is disabled
+In-Reply-To: <1621640415-24971-1-git-send-email-vincent.chen@sifive.com>
+CC: linux-riscv@lists.infradead.org, vincent.chen@sifive.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang3@mail.ustc.edu.cn
-Message-ID: <mhng-42fdf6d2-5e43-4e39-abae-971f47e6ff69@palmerdabbelt-glaptop>
+To: vincent.chen@sifive.com
+Message-ID: <mhng-3d2cfdd1-82ed-42b9-aaeb-fb0790e24cfc@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_140926_903517_7C97D075 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20210529_154501_438385_6904BE48 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +100,29 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 May 2021 07:40:01 PDT (-0700), jszhang3@mail.ustc.edu.cn wrote:
-> On Sun, 16 May 2021 21:10:48 +0200
-> Alex Ghiti <alex@ghiti.fr> wrote:
+On Fri, 21 May 2021 16:40:15 PDT (-0700), vincent.chen@sifive.com wrote:
+> From: Vincent <vincent.chen@sifive.com>
 >
->> Hi Jisheng,
->>
->> On 16/05/2021 15:19, Jisheng Zhang wrote:
->> > On Sun, 16 May 2021 21:15:56 +0800 Jisheng Zhang  wrote:
->> >
->> >> From: Jisheng Zhang <jszhang@kernel.org>
->> >>
->> >> Consolidate the following items in init.c
->> >>
->> >> Staticize global vars as much as possible;
->> >> Add __initdata mark if the global var isn't needed after init
->> >> Add __init mark if the func isn't needed after init
->> >> Add __ro_after_init if the global var is read only after init
->> >
->> > Hi Alexandre,
->> >
->> > I think kernel_virt_addr can be removed, users can directly use
->> > the KERNEL_LINK_ADDR MACRO. Maybe I miss the reason of intrducing
->> > it in commit 2bfc6cd81bd17e43 ("riscv: Move kernel mapping outside of
->> > linear mapping"), could you please comment?
->> >
->> > Thanks in advance
->>
->> kernel_virt_addr will be used when I push my relocatable series since
->> then, the kernel virtual address will be different from
->> KERNEL_LINK_ADDR. I agree this was not needed in 2bfc6cd81bd17e43
->> ("riscv: Move kernel mapping outside of linear mapping"), I'm a bit late
->> in pushing the relocatable series.
->>
+> The errata_cip_453.o should be built only when the Kconfig
+> CONFIG_ERRATA_SIFIVE_CIP_453 is enabled.
 >
-> Thanks for your information. I think kernel_virt_addr could be __ro_after_init
-> But I will keep it unchanged until your relocatable series.
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Vincent <vincent.chen@sifive.com>
+> Fixes: 0e0d4992517f ("riscv: enable SiFive errata CIP-453 and CIP-1200 Kconfig only if CONFIG_64BIT=y")
+> ---
+>  arch/riscv/errata/sifive/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/errata/sifive/Makefile b/arch/riscv/errata/sifive/Makefile
+> index bdd5fc843b8e..2fde48db0619 100644
+> --- a/arch/riscv/errata/sifive/Makefile
+> +++ b/arch/riscv/errata/sifive/Makefile
+> @@ -1,2 +1,2 @@
+> -obj-y += errata_cip_453.o
+> +obj-$(CONFIG_ERRATA_SIFIVE_CIP_453) += errata_cip_453.o
+>  obj-y += errata.o
 
-Thanks, this is on for-next.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
