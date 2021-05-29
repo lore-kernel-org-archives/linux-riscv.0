@@ -2,19 +2,19 @@ Return-Path: <SRS0=5xGv=KY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5544C4708F
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71921C47082
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:52:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E708F61074
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:49:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E708F61074
+	by mail.kernel.org (Postfix) with ESMTPS id 014EB6108D
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:52:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 014EB6108D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=l2TNzfrnh2qIAWBRQMM+Eia6qS58LpPmoQVvioldV7Q=; b=Hss9bLKp4I8oZbPHJ5GHIINzQe
-	hfEmYuFob7H7rsxbNw/sGHvk3VRRbmJa0JGCSVgBxJI8dLG92LuPQC/r7Ds+ZaI+6Jq6DlmP5ByN8
-	z0Tt2tVe4/06hbivtBZ74PWw36pg6IrrrV2yk2PBuIZhhCOmCtDX/YpD/PdY2Dn8AOb0QfZeBdUAR
-	BewTlAPyFm/WNPr9dHyyVJB7BNUift1dnZq8Ds18eHtya2KAEJVlkViuYgOcDlSoc1t3W3SeflI54
-	Lc89Mc3beCDHtQ6GHYsd5LWg2pOAqcutlM6NcpFWVtQurl8eop9Ic3iMOuei+7UH1TVfNYoS5fS/T
-	Oi5Gkisg==;
+	bh=+R4jEE25pZ0iJAPxaMxqMzsV0y44ZUEelHQ87Zl6vsg=; b=bV4K5DuaCYbZmpxgEcYlsmDFWE
+	lbrQUYUASKubEEvOh+OgoX4M06aKaMjqdPZ6yg8rYTIYxUSr1u715BAgc7nPBrfZzruYEYROIYQJm
+	h5para8NGQ3lKN+XX3elt9WR6SGejMwJeci0y0UJUOdRrDL9iQmk1xbwKMM+vnS8jNJvEQompYrFy
+	pNem5kCmL+ATrvrW0oL9gX/iNThcDN4z11o5A72jNfgS2zqyIcPBhh0XDaoTHq1lqpFS9sro3GEx8
+	9DlXQtMXuqyfk3fW5WR7Z+7DmNWbcACc6Xpb1aawNwmjDrB0REaYGMu2gVxkOeM2as4tbnizH2f8k
+	u3dZxwMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln8hR-008c87-W1; Sat, 29 May 2021 23:49:02 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1ln8jx-008cJA-5a; Sat, 29 May 2021 23:51:37 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln8hN-008c7R-HU
- for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:49:01 +0000
-Received: by mail-pg1-x531.google.com with SMTP id f22so5455033pgb.9
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:48:57 -0700 (PDT)
+ id 1ln8jt-008cI8-TI
+ for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:51:35 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id v14so5471702pgi.6
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:51:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=aCLcnsFehA0whsoi8QGqBncN2kvRCW6NwZZHWI5dQsk=;
- b=gat21H51KtiR21Pf7oinfjVK2dvETUnZA1Iy3FS/Zl2brmeGIZevrbHXw9ZGDVeH3v
- ltOkzhUsLvGODIgQgXqenHFPKTbVHJEB2KBkJISdurFqqs6ot+HSDFeFhlkmWwr36svc
- uloy3+uU7cYAG5gcOLxTHZDAhUIfoZ9+sewJpB5yFr/II+zFrv3lxj/mbK+K3PmAr2HZ
- TvIvishUvOmsx9yhjbF/6mYWEi7vZ5znnjDfOCoV4HHQo2DKH57Mrnc5hRfuBN9noIdw
- p5EhcRjpYe4O2H20ZN8NPB+qRc1dzpPrKbE0TkEWGYM/9rnI3vQSs2EPk2YACOpQK+To
- 9RhQ==
+ bh=8UImWCr2XVFitJoBQVTHt3iV6JOy0UxslMS+oB/yncg=;
+ b=w/ASenlrlYpoSgmPGAUNBpcrDCpZFcQhoW++hsBDOGf9S8cr4HPj9mCywbL3m32AB/
+ FkfDqqUTYjALltd8MsFQVzK+XJKnuB5uBffBtyuyNSbpEvY51Y+YSBcyozgpgVPIhsl4
+ gSkNAp/AZrPe1wwIb8UV011ifeU7vO4ukx6BuyLcM76tCvr1Uy/aoQq0EgTwtXI339ZE
+ yvotJShBaEPsozN/z+qKcAcoWfuuffE+sy1Y2IKgiPOTeSJKRcqrZMljgjP+p6CReia5
+ ltKCmOEzmEjTPnBEqZmlyI5k3pTk5oxpJp0XPPe5YII8ZSbANX5Us7f8mWD7bzf7OiUF
+ n5+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=aCLcnsFehA0whsoi8QGqBncN2kvRCW6NwZZHWI5dQsk=;
- b=jmHyaRA0p9NGVBUWM203e1CrA0y0oYL0yTVyBnsAqUXD3TavCwoyT7oi1RYzvbP06Y
- OEzZ944CAmb8ZGt+2zKsuZvAWmNanyHiRffzJCG0QBe9q8WaSXwh7qB5d0dj2sv5OSgH
- B3pu7ldEfdFAb673qclp8OWeAPYG49/6Snk10IdfRS2K2N4agO1pkHFF46fIr3b2CT9n
- 7cegHnrpKyDmdoJ84rK2j1Xk2zs17taG0w4je+pyE+T0YhmlK5kUriO0L9Yniubx2+fk
- XM11dwl10e46AQCYq5z2NKtOwSBFvtGMdVBeLPSKMxJhH9PgEye/N3d+WC4Ek4cLye0D
- COgQ==
-X-Gm-Message-State: AOAM533Tcjg5HGAaS8cxWnEe0mwua0P29B2ykLg9ZERnVJ8eVEdLCncP
- Cx4AveHjMfoJW+8qQ24RavwJVh2ubDKe8w==
-X-Google-Smtp-Source: ABdhPJyRRlUumHZb7inq+fGcEvXCyZDFT/wx2DDwxonUMxrGIkmatPbjXBwBXHjfcQhcYbCZbz+d6A==
-X-Received: by 2002:a63:79c3:: with SMTP id
- u186mr16020640pgc.203.1622332136621; 
- Sat, 29 May 2021 16:48:56 -0700 (PDT)
+ bh=8UImWCr2XVFitJoBQVTHt3iV6JOy0UxslMS+oB/yncg=;
+ b=NS+SyyJ0RCvmudD0hUQwzSDPsDsZC02LSn7NVYCA3fJHhD2cf65/R0QZFlU+ctyGd2
+ I7JUUd3/ce+xVk6fb4gNSTFVCSkYEVWpL2M9hvIhrJ8p1aytnYZq9oL7xjT1tfjAv9R5
+ pRXqRmWfAzYg5o3Ypvlrwr2y7wAKy5CMPJ5LudsAemznvTSl7Thfh9WbfUkUB4kt9ZLo
+ EFGnaLcd7oyVkQV7m82+swbUFuBBxn3haZPtGXxjptnRP9ehrzhqN8FHjwr1rwVNnFAj
+ Ml/Eya+dyn0OLbllYx7Z1uDLIC28JJZq3XIhumF4eoDraeLJbWDga21Irwt47mJUMQTx
+ Jc6Q==
+X-Gm-Message-State: AOAM5300pDGO0eUp6pqbUHo4ImqVAtqzqaKt0x+91z7VXrPP20+qhLM5
+ Y3mR2/HcDO/mKC7dYfiQ8l20VA==
+X-Google-Smtp-Source: ABdhPJxVMvbtNLEA8KHH03zcvYuWVttTsQO8pYCDwf0GD8YJkvMEKOKNYDHbevN2fpsnwnTRTOFYRA==
+X-Received: by 2002:a63:7204:: with SMTP id n4mr16027141pgc.78.1622332293157; 
+ Sat, 29 May 2021 16:51:33 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id j20sm7181239pfj.40.2021.05.29.16.48.55
+ by smtp.gmail.com with ESMTPSA id g29sm7743523pgm.11.2021.05.29.16.51.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 29 May 2021 16:48:56 -0700 (PDT)
-Date: Sat, 29 May 2021 16:48:56 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 May 2021 16:48:52 PDT (-0700)
-Subject: Re: [PATCH] riscv: remove unused SBI helpers and exports
-In-Reply-To: <CAAhSdy1zYdEgAVtePY9weOvzbnZ86DupWzoUKSn3Q98FDt50Ng@mail.gmail.com>
-CC: Christoph Hellwig <hch@lst.de>, pbonzini@redhat.com,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+ Sat, 29 May 2021 16:51:32 -0700 (PDT)
+Date: Sat, 29 May 2021 16:51:32 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 May 2021 16:51:28 PDT (-0700)
+Subject: Re: [PATCH v2] mm: generalize ZONE_[DMA|DMA32]
+In-Reply-To: <20210528074557.17768-1-wangkefeng.wang@huawei.com>
+CC: akpm@linux-foundation.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org,
+ wangkefeng.wang@huawei.com, 
+ catalin.marinas@arm.com, will@kernel.org, geert@linux-m68k.org,
+ tsbogend@alpha.franken.de, 
+ davem@davemloft.net, mingo@redhat.com, bp@alien8.de, rth@twiddle.net,
+ linux@armlinux.org.uk, rppt@linux.ibm.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: anup@brainfault.org
-Message-ID: <mhng-76155150-9e67-4125-a970-d805d38c7831@palmerdabbelt-glaptop>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-5e5d5859-1c9b-4e53-a9aa-9deb502aec61@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_164857_657184_2EBF3A9C 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20210529_165133_986133_D25D4B81 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +108,369 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 May 2021 06:24:10 PDT (-0700), anup@brainfault.org wrote:
-> On Thu, May 27, 2021 at 6:47 PM Christoph Hellwig <hch@lst.de> wrote:
->>
->> On Thu, May 27, 2021 at 03:15:09PM +0200, Paolo Bonzini wrote:
->> >>> -EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
->> >> All sbi_remote_hfence_xyz() calls are used by KVM RISC-V module.
->> >>
->> >
->> > Why aren't all these added by the series that add the module (not talking
->> > about KVM only)?
->>
->> Yes, that is the way to do it.
+On Fri, 28 May 2021 00:45:57 PDT (-0700), wangkefeng.wang@huawei.com wrote:
+> ZONE_[DMA|DMA32] configs have duplicate definitions on platforms
+> that subscribe them. Instead, just make them generic options which
+> can be selected on applicable platforms.
 >
-> Actually SBI v0.2 RFENCE extension defines all these calls hence Atish
-> added it as part of SBI v0.2 patches.
+> Also only x86/arm64 architectures could enable both ZONE_DMA and
+> ZONE_DMA32 if EXPERT, add ARCH_HAS_ZONE_DMA_SET to make dma zone
+> configurable and visible on the two architectures.
 >
-> All sbi_remote_hfence_xyz() are primarily for hypervisors only.
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Richard Henderson <rth@twiddle.net>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com> # for arm64
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # for m68k
+> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-We took them early as a way to help make it easier to handle the KVM 
-patches, as at the time these were the only things touching files 
-outside of arch/riscv/kvm.
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com> # for RISC-V
 
-I know the general rule is to only take code with callers, but these are 
-defined by the SBI so I figured we'd make everyone's lives a bit easier 
-by just keeping them around.
+> ---
+> v2:
+> -i386 can't enable ZONE_DMA32, fix it.
+> -make ZONE_DMA default y on X86 as before.
+> -collect ACKs
+>
+>  arch/alpha/Kconfig                     |  5 +----
+>  arch/arm/Kconfig                       |  3 ---
+>  arch/arm64/Kconfig                     |  9 +--------
+>  arch/ia64/Kconfig                      |  4 +---
+>  arch/m68k/Kconfig                      |  5 +----
+>  arch/microblaze/Kconfig                |  4 +---
+>  arch/mips/Kconfig                      |  7 -------
+>  arch/powerpc/Kconfig                   |  4 ----
+>  arch/powerpc/platforms/Kconfig.cputype |  1 +
+>  arch/riscv/Kconfig                     |  5 +----
+>  arch/s390/Kconfig                      |  4 +---
+>  arch/sparc/Kconfig                     |  5 +----
+>  arch/x86/Kconfig                       | 15 ++-------------
+>  mm/Kconfig                             | 12 ++++++++++++
+>  14 files changed, 23 insertions(+), 60 deletions(-)
+>
+> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+> index 5998106faa60..6a69a14c4825 100644
+> --- a/arch/alpha/Kconfig
+> +++ b/arch/alpha/Kconfig
+> @@ -40,6 +40,7 @@ config ALPHA
+>  	select MMU_GATHER_NO_RANGE
+>  	select SET_FS
+>  	select SPARSEMEM_EXTREME if SPARSEMEM
+> +	select ZONE_DMA
+>  	help
+>  	  The Alpha is a 64-bit general-purpose processor designed and
+>  	  marketed by the Digital Equipment Corporation of blessed memory,
+> @@ -65,10 +66,6 @@ config GENERIC_CALIBRATE_DELAY
+>  	bool
+>  	default y
+>
+> -config ZONE_DMA
+> -	bool
+> -	default y
+> -
+>  config GENERIC_ISA_DMA
+>  	bool
+>  	default y
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 24804f11302d..000c3f80b58e 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -218,9 +218,6 @@ config GENERIC_CALIBRATE_DELAY
+>  config ARCH_MAY_HAVE_PC_FDC
+>  	bool
+>
+> -config ZONE_DMA
+> -	bool
+> -
+>  config ARCH_SUPPORTS_UPROBES
+>  	def_bool y
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 9f1d8566bbf9..42794474f37f 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -42,6 +42,7 @@ config ARM64
+>  	select ARCH_HAS_SYSCALL_WRAPPER
+>  	select ARCH_HAS_TEARDOWN_DMA_OPS if IOMMU_SUPPORT
+>  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+> +	select ARCH_HAS_ZONE_DMA_SET if EXPERT
+>  	select ARCH_HAVE_ELF_PROT
+>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+>  	select ARCH_INLINE_READ_LOCK if !PREEMPTION
+> @@ -307,14 +308,6 @@ config GENERIC_CSUM
+>  config GENERIC_CALIBRATE_DELAY
+>  	def_bool y
+>
+> -config ZONE_DMA
+> -	bool "Support DMA zone" if EXPERT
+> -	default y
+> -
+> -config ZONE_DMA32
+> -	bool "Support DMA32 zone" if EXPERT
+> -	default y
+> -
+>  config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
+>  	def_bool y
+>
+> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+> index 279252e3e0f7..fd8503a0088a 100644
+> --- a/arch/ia64/Kconfig
+> +++ b/arch/ia64/Kconfig
+> @@ -60,6 +60,7 @@ config IA64
+>  	select NUMA if !FLATMEM
+>  	select PCI_MSI_ARCH_FALLBACKS if PCI_MSI
+>  	select SET_FS
+> +	select ZONE_DMA32
+>  	default y
+>  	help
+>  	  The Itanium Processor Family is Intel's 64-bit successor to
+> @@ -72,9 +73,6 @@ config 64BIT
+>  	select ATA_NONSTANDARD if ATA
+>  	default y
+>
+> -config ZONE_DMA32
+> -	def_bool y
+> -
+>  config MMU
+>  	bool
+>  	default y
+> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+> index 372e4e69c43a..05a729c6ad7f 100644
+> --- a/arch/m68k/Kconfig
+> +++ b/arch/m68k/Kconfig
+> @@ -34,6 +34,7 @@ config M68K
+>  	select SET_FS
+>  	select UACCESS_MEMCPY if !MMU
+>  	select VIRT_TO_BUS
+> +	select ZONE_DMA
+>
+>  config CPU_BIG_ENDIAN
+>  	def_bool y
+> @@ -62,10 +63,6 @@ config TIME_LOW_RES
+>  config NO_IOPORT_MAP
+>  	def_bool y
+>
+> -config ZONE_DMA
+> -	bool
+> -	default y
+> -
+>  config HZ
+>  	int
+>  	default 1000 if CLEOPATRA
+> diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
+> index 0660f47012bc..14a67a42fcae 100644
+> --- a/arch/microblaze/Kconfig
+> +++ b/arch/microblaze/Kconfig
+> @@ -43,6 +43,7 @@ config MICROBLAZE
+>  	select MMU_GATHER_NO_RANGE
+>  	select SPARSE_IRQ
+>  	select SET_FS
+> +	select ZONE_DMA
+>
+>  # Endianness selection
+>  choice
+> @@ -60,9 +61,6 @@ config CPU_LITTLE_ENDIAN
+>
+>  endchoice
+>
+> -config ZONE_DMA
+> -	def_bool y
+> -
+>  config ARCH_HAS_ILOG2_U32
+>  	def_bool n
+>
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index ed51970c08e7..430d5324f1af 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -3277,13 +3277,6 @@ config I8253
+>  	select CLKSRC_I8253
+>  	select CLKEVT_I8253
+>  	select MIPS_EXTERNAL_TIMER
+> -
+> -config ZONE_DMA
+> -	bool
+> -
+> -config ZONE_DMA32
+> -	bool
+> -
+>  endmenu
+>
+>  config TRAD_SIGNALS
+> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> index 088dd2afcfe4..0f78bb383a12 100644
+> --- a/arch/powerpc/Kconfig
+> +++ b/arch/powerpc/Kconfig
+> @@ -403,10 +403,6 @@ config PPC_ADV_DEBUG_DAC_RANGE
+>  config PPC_DAWR
+>  	bool
+>
+> -config ZONE_DMA
+> -	bool
+> -	default y if PPC_BOOK3E_64
+> -
+>  config PGTABLE_LEVELS
+>  	int
+>  	default 2 if !PPC64
+> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
+> index f998e655b570..7d271de8fcbd 100644
+> --- a/arch/powerpc/platforms/Kconfig.cputype
+> +++ b/arch/powerpc/platforms/Kconfig.cputype
+> @@ -111,6 +111,7 @@ config PPC_BOOK3E_64
+>  	select PPC_FPU # Make it a choice ?
+>  	select PPC_SMP_MUXED_IPI
+>  	select PPC_DOORBELL
+> +	select ZONE_DMA
+>
+>  endchoice
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a8ad8eb76120..d29643dee126 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -103,6 +103,7 @@ config RISCV
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+>  	select UACCESS_MEMCPY if !MMU
+> +	select ZONE_DMA32 if 64BIT
+>
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> @@ -132,10 +133,6 @@ config MMU
+>  	  Select if you want MMU-based virtualised addressing space
+>  	  support by paged memory management. If unsure, say 'Y'.
+>
+> -config ZONE_DMA32
+> -	bool
+> -	default y if 64BIT
+> -
+>  config VA_BITS
+>  	int
+>  	default 32 if 32BIT
+> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+> index b4c7c34069f8..daab9d56957a 100644
+> --- a/arch/s390/Kconfig
+> +++ b/arch/s390/Kconfig
+> @@ -2,9 +2,6 @@
+>  config MMU
+>  	def_bool y
+>
+> -config ZONE_DMA
+> -	def_bool y
+> -
+>  config CPU_BIG_ENDIAN
+>  	def_bool y
+>
+> @@ -210,6 +207,7 @@ config S390
+>  	select THREAD_INFO_IN_TASK
+>  	select TTY
+>  	select VIRT_CPU_ACCOUNTING
+> +	select ZONE_DMA
+>  	# Note: keep the above list sorted alphabetically
+>
+>  config SCHED_OMIT_FRAME_POINTER
+> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+> index 164a5254c91c..39679664cc9a 100644
+> --- a/arch/sparc/Kconfig
+> +++ b/arch/sparc/Kconfig
+> @@ -59,6 +59,7 @@ config SPARC32
+>  	select CLZ_TAB
+>  	select HAVE_UID16
+>  	select OLD_SIGACTION
+> +	select ZONE_DMA
+>
+>  config SPARC64
+>  	def_bool 64BIT
+> @@ -141,10 +142,6 @@ config HIGHMEM
+>  	default y if SPARC32
+>  	select KMAP_LOCAL
+>
+> -config ZONE_DMA
+> -	bool
+> -	default y if SPARC32
+> -
+>  config GENERIC_ISA_DMA
+>  	bool
+>  	default y if SPARC32
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 0045e1b44190..11cf8a0d6800 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -33,6 +33,7 @@ config X86_64
+>  	select NEED_DMA_MAP_STATE
+>  	select SWIOTLB
+>  	select ARCH_HAS_ELFCORE_COMPAT
+> +	select ZONE_DMA32
+>
+>  config FORCE_DYNAMIC_FTRACE
+>  	def_bool y
+> @@ -93,6 +94,7 @@ config X86
+>  	select ARCH_HAS_SYSCALL_WRAPPER
+>  	select ARCH_HAS_UBSAN_SANITIZE_ALL
+>  	select ARCH_HAS_DEBUG_WX
+> +	select ARCH_HAS_ZONE_DMA_SET if EXPERT
+>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+>  	select ARCH_MIGHT_HAVE_ACPI_PDC		if ACPI
+>  	select ARCH_MIGHT_HAVE_PC_PARPORT
+> @@ -343,9 +345,6 @@ config ARCH_SUSPEND_POSSIBLE
+>  config ARCH_WANT_GENERAL_HUGETLB
+>  	def_bool y
+>
+> -config ZONE_DMA32
+> -	def_bool y if X86_64
+> -
+>  config AUDIT_ARCH
+>  	def_bool y if X86_64
+>
+> @@ -393,16 +392,6 @@ config CC_HAS_SANE_STACKPROTECTOR
+>
+>  menu "Processor type and features"
+>
+> -config ZONE_DMA
+> -	bool "DMA memory allocation support" if EXPERT
+> -	default y
+> -	help
+> -	  DMA memory allocation support allows devices with less than 32-bit
+> -	  addressing to allocate within the first 16MB of address space.
+> -	  Disable if no such devices will be used.
+> -
+> -	  If unsure, say Y.
+> -
+>  config SMP
+>  	bool "Symmetric multi-processing support"
+>  	help
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 02d44e3420f5..16930f40f293 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -789,6 +789,18 @@ config ARCH_HAS_CACHE_LINE_SIZE
+>  config ARCH_HAS_PTE_DEVMAP
+>  	bool
+>
+> +config ARCH_HAS_ZONE_DMA_SET
+> +	bool
+> +
+> +config ZONE_DMA
+> +	bool "Support DMA zone" if ARCH_HAS_ZONE_DMA_SET
+> +	default y if ARM64 || X86
+> +
+> +config ZONE_DMA32
+> +	bool "Support DMA32 zone" if ARCH_HAS_ZONE_DMA_SET
+> +	depends on !X86_32
+> +	default y if ARM64
+> +
+>  config ZONE_DEVICE
+>  	bool "Device memory (pmem, HMM, etc...) hotplug support"
+>  	depends on MEMORY_HOTPLUG
 
 _______________________________________________
 linux-riscv mailing list
