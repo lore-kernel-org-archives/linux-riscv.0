@@ -7,85 +7,85 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 12022C4708F
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A37AC4708F
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:42:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC1CF61090
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:08:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC1CF61090
+	by mail.kernel.org (Postfix) with ESMTPS id B4FA061003
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:42:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B4FA061003
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:CC:In-Reply-To:Subject:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=z359v0+bytwy/pg63+HFo6nlH/n3hYe6oBFfoHkLWuI=; b=0M2+tMinBNiMBunOIkctZ34i1O
-	kTz/xygbPiLAXGPWj8SyEPdxozNRBmBU53gEwh7F2pf8+f6IVW5Ps3wdP+K4nfgJPclQ+8vUnQ8D9
-	do1WUlhy0oyH2C4c3m/WjUWCsN5BDVQQc9YzGSJdLetuOXaxbKo2Kuv0ljzqRGfs8ASHiw9W3O+vG
-	oLqGSDlblIodBEjcfYLesOMzY8fNXZX4BkPc19hgk2r0Y8m28KwRr1f9K92xO8Xui7PnJpDHr7b3/
-	bs5v92c+KAV5M0RKRHci/ApoiK88mW1+iC2BhwnQvBYaM42+ZIcQzE7RVSAhfxHcKs7ykH1wpdI3K
-	JxZuz3ew==;
+	bh=QIsXDiXjSqnodDcLE6dDwVwU41SjFeYGFOYpJLpC9cc=; b=2qTvOfiB5gDF52lmhGkxHEGq39
+	Cht/kXlSTTDJAuC6cCNp2FeYO/z08KHNXzXvaNbZSASGPeqH3uCBkgHeb7t3u/jy0BR6U9lgHry/7
+	v5dTeGWqNu3Ai/5VApyvxlA/h+Nd0MzN98IomGj4IFl1WAT+iLSzxXoO7rnVH4SWmLTZLTeqmTx3A
+	J/bQM6v6mNpoQHfRIh2EzcRgAh+sjxqj3E5kpY92ojT2Z+rHTrnIbVlahvpa6YMZape7Hp7SLMTk9
+	07qnl6ji89WRnsdedUyg6hUuJ0bPLbwKgcPg0e1EFxJEGFahXSDemgn6ngnlJ+JgRPespv/1q8GGT
+	lb4/raig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln849-008Y2J-AG; Sat, 29 May 2021 23:08:25 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1ln8bI-008bUK-6e; Sat, 29 May 2021 23:42:40 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln847-008Y16-02
- for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:08:24 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id f8so4568612pjh.0
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:08:18 -0700 (PDT)
+ id 1ln8bE-008bTJ-Vr
+ for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:42:38 +0000
+Received: by mail-pg1-x535.google.com with SMTP id r1so5446712pgk.8
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:42:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ h=date:from:subject:in-reply-to:cc:to:message-id:mime-version
  :content-transfer-encoding;
- bh=qss0x+5sHCW7H4avOnfrc4/iwaDvuVYHTQ7IXox97jI=;
- b=FwnxWJLhicCZPG6FDqH6ssQblDovkkGj63nfCN2c9eZ0cVUk2N4D5mIYhjEPJKjVfW
- NqXBY8uuErmw/KEKK+/+bx/UGMmhonkcTlT5+Hd4fBSjtzzhyAyIS/cK3f0Ctm0A04mI
- vuMman8k2T1QvcXXZGM3wsXAPEPmTwnPaC/7OIyBzY4TXCsR00+sbQkTrVKDFCunq64x
- AcQe2B4lrAaQhCj0L8xaG7DVGaoqKGw9DXaYRNARQxlwbNXMBO1wgDyKqjixfwzU3eQf
- PsytkA6CSCuDrWeWYkhaUtPnNJK1PJ4iozQ7a1nm1OPL6+zHY/URtWXfDmAaJPDsA3ld
- cavQ==
+ bh=nCF8S4c2UqVaSQfWVl5eT5cODWPKUpixcjFKEGaEBsg=;
+ b=E5j3/R9jGWjyCkfveb2hFi3KRV59el0pmSmh+8jttzaEE49YnjYfWQrISUX64DQTYD
+ CYRdBqqAhVie9tBk2A+r2dzPZRJyuQP4ps6vdHoJucMBqoeUE4mUuxgptKEKmked618I
+ L7Ab8AynI+ph9zaO9IkGNdX1bYp7Nxg5H2TbkY/SYhwpws1R9fVlrkrE1LHF5r+cqVLS
+ U7DxNqsMin6gbEHkEqcnymxvPahPMJwWPB5nKL8bBBKQQyP9ayWCz6441HZ8LELXsyxN
+ MazOBw7l0X7C3ebInAujp8DqGA1qKg6P393sKCixoqXtj6RnfI8kVG4RTuL5Jyr88dRY
+ n0kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ h=x-gm-message-state:date:from:subject:in-reply-to:cc:to:message-id
  :mime-version:content-transfer-encoding;
- bh=qss0x+5sHCW7H4avOnfrc4/iwaDvuVYHTQ7IXox97jI=;
- b=qecvN5cuvo6vaqoWDiwNEjaA2LrQ76xqciyf4UyFS+qP/8MbTtodoGj1n1C88Se4ra
- dUpZ3ZxSjoM47gQ+cV44OvDOgPtVuAlyTjKLbkJWbEAVpjtXiDwK4FPK2S98NKRo+jsy
- TS5KKvhTSbLnnw0WgAmY1e0w4c+GV4KdAQ8fwLhZivW3DdSwlQ2sEBKtsc/XALQl2RkY
- lWhMGX+GzGSa2wIBAylNvdb9/puj2BnHfkQv3HcTb4J/10o2mvMnCZUv4C4hhmYXTxtE
- K6KXInaSt+4J0ryDsZDMyXQ5JemlNmllFZfSeUrkgu69mENy7I8CLq8bDNV/dAxjs8Yn
- ueHg==
-X-Gm-Message-State: AOAM530Kx/N0EDfnBTG2OqXfXT5jf8QzFOvkXnDxbSDzqvrkBHbkXrq4
- dQhtteX1EOdTidTaxJvMm52R2w==
-X-Google-Smtp-Source: ABdhPJzrWRNEm5ifiRm0JTVwjK2OCpXjOulal+R0YAqOyyJ2AkYsuIY448mYbv2VRTVX+ccVnODgsA==
-X-Received: by 2002:a17:902:ab95:b029:ee:f899:6fe8 with SMTP id
- f21-20020a170902ab95b02900eef8996fe8mr13937488plr.81.1622329697639; 
- Sat, 29 May 2021 16:08:17 -0700 (PDT)
+ bh=nCF8S4c2UqVaSQfWVl5eT5cODWPKUpixcjFKEGaEBsg=;
+ b=j9i854eo/84RZQ2o7DXbYHqPt7TTArnTj2C2d5RTrvgIFj+GmVnQ427vHGPygAByu/
+ UfPTtoaSBCHOT5z5P/uw3D3HE/vuc8N7mLNgLlPivfLRUdc6/z+OtA8Wg9HKr855oc3J
+ WijWF1PtBpD98hXLJMtIzfdCwwVnpzeCeEhGnlQCtKhDcjm+3RK4tlETlp0P38ydSTZw
+ NrCTLtN/Fp7aeE5ENrQMcDIKACOEb/xKKaSeDSDkI78E2N8CO/JYV0Q4sWFhGNg55UZq
+ ReQoRATuJtyUEjuNrOT++yLjpSNMyxOQARw+PdPp1oMCYNvHGtoeL/EYGfJ77D+ofdG3
+ tT8w==
+X-Gm-Message-State: AOAM533/dPt7Plkp7Tic4LwfJv+gUz1JN/FkrVPSdT8rK/otnvIYBTbX
+ xVMEodgb+g+8DShoz+i4FpcwZA==
+X-Google-Smtp-Source: ABdhPJyBM9qTLEBjQIl1kZoPH7198QqOL+uALfz0g+QnABTxRKo7JOcZf9HC769u0b3OkMLMhkHXdQ==
+X-Received: by 2002:a65:584d:: with SMTP id s13mr16053871pgr.97.1622331756137; 
+ Sat, 29 May 2021 16:42:36 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id i16sm7281143pji.30.2021.05.29.16.08.16
+ by smtp.gmail.com with ESMTPSA id k20sm7843994pgl.72.2021.05.29.16.42.35
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 29 May 2021 16:08:17 -0700 (PDT)
-Date: Sat, 29 May 2021 16:08:17 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 May 2021 16:07:41 PDT (-0700)
-Subject: Re: [PATCH] arch: Cleanup unused functions
-In-Reply-To: <1621945234-37878-1-git-send-email-guoren@kernel.org>
+ Sat, 29 May 2021 16:42:35 -0700 (PDT)
+Date: Sat, 29 May 2021 16:42:35 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 May 2021 16:16:36 PDT (-0700)
+From: palmerdabbelt@google.com
+X-Google-Original-From: palmer@dabbelt.com
+Subject: Re: [PATCH V4 1/2] riscv: Fixup _PAGE_GLOBAL in _PAGE_KERNEL
+In-Reply-To: <1622008161-41451-2-git-send-email-guoren@kernel.org>
 CC: guoren@kernel.org, Anup Patel <Anup.Patel@wdc.com>,
  Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@lst.de>,
  linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-sunxi@lists.linux.dev, guoren@linux.alibaba.com, monstr@monstr.eu
-From: Palmer Dabbelt <palmerdabbelt@google.com>
+ linux-sunxi@lists.linux.dev, guoren@linux.alibaba.com
 To: guoren@kernel.org
-Message-ID: <mhng-93a12abf-0283-4ec3-a521-89b8d882654f@palmerdabbelt-glaptop>
+Message-ID: <mhng-60806045-5ac7-4057-b596-a4d9cb79b7be@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_160823_074647_54A75D44 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20210529_164237_080160_503F9D25 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +102,48 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 May 2021 05:20:34 PDT (-0700), guoren@kernel.org wrote:
+On Tue, 25 May 2021 22:49:20 PDT (-0700), guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> These functions haven't been used, so just remove them. The patch
-> has been tested with riscv, but I only use grep to check the
-> microblaze's.
+> Kernel virtual address translation should avoid to use ASIDs or it'll
+> cause more TLB-miss and TLB-refill. Because the current ASID in satp
+> belongs to the current process, but the target kernel va TLB entry's
+> ASID still belongs to the previous process.
+
+Sorry, I still can't quite figure out what this is trying to say.  I 
+went ahead and re-wrote the commit text to
+
+    riscv: Use global mappings for kernel pages
+
+    We map kernel pages into all addresses spages, so they can be marked as
+    global.  This allows hardware to avoid flushing the kernel mappings when
+    moving between address spaces.
+
+LMK if I'm misunderstanding something here, it's on for-next.
+
 >
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 > ---
->  arch/microblaze/include/asm/page.h |  3 ---
->  arch/riscv/include/asm/page.h      | 10 ----------
->  2 files changed, 13 deletions(-)
+>  arch/riscv/include/asm/pgtable.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
-> index bf681f2..ce55097 100644
-> --- a/arch/microblaze/include/asm/page.h
-> +++ b/arch/microblaze/include/asm/page.h
-> @@ -35,9 +35,6 @@
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 9469f46..346a3c6 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -134,7 +134,8 @@
+>  				| _PAGE_WRITE \
+>  				| _PAGE_PRESENT \
+>  				| _PAGE_ACCESSED \
+> -				| _PAGE_DIRTY)
+> +				| _PAGE_DIRTY \
+> +				| _PAGE_GLOBAL)
 >
->  #define ARCH_SLAB_MINALIGN	L1_CACHE_BYTES
->
-> -#define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> -#define PAGE_DOWN(addr)	((addr)&(~((PAGE_SIZE)-1)))
-> -
->  /*
->   * PAGE_OFFSET -- the first address of the first page of memory. With MMU
->   * it is set to the kernel start address (aligned on a page boundary).
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 6a7761c..a1b888f 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -37,16 +37,6 @@
->
->  #ifndef __ASSEMBLY__
->
-> -#define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> -#define PAGE_DOWN(addr)	((addr)&(~((PAGE_SIZE)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up/down if needed */
-> -#define _ALIGN_UP(addr, size)	(((addr)+((size)-1))&(~((size)-1)))
-> -#define _ALIGN_DOWN(addr, size)	((addr)&(~((size)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up if needed */
-> -#define _ALIGN(addr, size)	_ALIGN_UP(addr, size)
-> -
->  #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
->  #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
-
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-It's generally easier if you split this sort of stuff up, as it'll be 
-easier to merge if we don't have to coordinate between the trees.  I'm 
-happy to take this, but I'd prefer an Ack from one of the microblaze 
-folks first.
+>  #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
+>  #define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
 
 _______________________________________________
 linux-riscv mailing list
