@@ -1,97 +1,80 @@
-Return-Path: <SRS0=5xGv=KY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=590W=KZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 71921C47082
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95A6EC4708F
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 00:26:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 014EB6108D
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 May 2021 23:52:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 014EB6108D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 27739610FA
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 00:26:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27739610FA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=+R4jEE25pZ0iJAPxaMxqMzsV0y44ZUEelHQ87Zl6vsg=; b=bV4K5DuaCYbZmpxgEcYlsmDFWE
-	lbrQUYUASKubEEvOh+OgoX4M06aKaMjqdPZ6yg8rYTIYxUSr1u715BAgc7nPBrfZzruYEYROIYQJm
-	h5para8NGQ3lKN+XX3elt9WR6SGejMwJeci0y0UJUOdRrDL9iQmk1xbwKMM+vnS8jNJvEQompYrFy
-	pNem5kCmL+ATrvrW0oL9gX/iNThcDN4z11o5A72jNfgS2zqyIcPBhh0XDaoTHq1lqpFS9sro3GEx8
-	9DlXQtMXuqyfk3fW5WR7Z+7DmNWbcACc6Xpb1aawNwmjDrB0REaYGMu2gVxkOeM2as4tbnizH2f8k
-	u3dZxwMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/KHsAa7sSSWOEy+GDbECMYiNOYxvXRLx4XBf5QW34/A=; b=swjWWTke4FMLUt
+	zQsGnvA1v69vhUe928jxXN9AAR1R0LU7JJ75rxori+RgTUTLWCPc1i7PTRj0eQ+o0e1jCJRV3foIQ
+	XOsy9wAtn1YqnrPCjwwnRkJRDuxkYA2AdL9LCvfH3ACJuD00L1vg5c5DEcQtRj9oCkKI9hmcVbCR1
+	ZW+dhXCB69K2b06rI6s3Ct5t6xub3/lBfQGie1lDxeR1Z+AE5GNX7+hDp7wt1e2NHEhD3BRkrQJI5
+	A7gZkqMQ6qtB35zr6YJ3e+0JmWGOXV/yWnbfnDKdmOnq7qRntHH7FHOuiHocAu6+N34iNkTm6KnYm
+	qEjhWM4+nSceJKCJ55tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln8jx-008cJA-5a; Sat, 29 May 2021 23:51:37 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1ln9Ho-008flL-6Z; Sun, 30 May 2021 00:26:36 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln8jt-008cI8-TI
- for linux-riscv@lists.infradead.org; Sat, 29 May 2021 23:51:35 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id v14so5471702pgi.6
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 16:51:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=8UImWCr2XVFitJoBQVTHt3iV6JOy0UxslMS+oB/yncg=;
- b=w/ASenlrlYpoSgmPGAUNBpcrDCpZFcQhoW++hsBDOGf9S8cr4HPj9mCywbL3m32AB/
- FkfDqqUTYjALltd8MsFQVzK+XJKnuB5uBffBtyuyNSbpEvY51Y+YSBcyozgpgVPIhsl4
- gSkNAp/AZrPe1wwIb8UV011ifeU7vO4ukx6BuyLcM76tCvr1Uy/aoQq0EgTwtXI339ZE
- yvotJShBaEPsozN/z+qKcAcoWfuuffE+sy1Y2IKgiPOTeSJKRcqrZMljgjP+p6CReia5
- ltKCmOEzmEjTPnBEqZmlyI5k3pTk5oxpJp0XPPe5YII8ZSbANX5Us7f8mWD7bzf7OiUF
- n5+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=8UImWCr2XVFitJoBQVTHt3iV6JOy0UxslMS+oB/yncg=;
- b=NS+SyyJ0RCvmudD0hUQwzSDPsDsZC02LSn7NVYCA3fJHhD2cf65/R0QZFlU+ctyGd2
- I7JUUd3/ce+xVk6fb4gNSTFVCSkYEVWpL2M9hvIhrJ8p1aytnYZq9oL7xjT1tfjAv9R5
- pRXqRmWfAzYg5o3Ypvlrwr2y7wAKy5CMPJ5LudsAemznvTSl7Thfh9WbfUkUB4kt9ZLo
- EFGnaLcd7oyVkQV7m82+swbUFuBBxn3haZPtGXxjptnRP9ehrzhqN8FHjwr1rwVNnFAj
- Ml/Eya+dyn0OLbllYx7Z1uDLIC28JJZq3XIhumF4eoDraeLJbWDga21Irwt47mJUMQTx
- Jc6Q==
-X-Gm-Message-State: AOAM5300pDGO0eUp6pqbUHo4ImqVAtqzqaKt0x+91z7VXrPP20+qhLM5
- Y3mR2/HcDO/mKC7dYfiQ8l20VA==
-X-Google-Smtp-Source: ABdhPJxVMvbtNLEA8KHH03zcvYuWVttTsQO8pYCDwf0GD8YJkvMEKOKNYDHbevN2fpsnwnTRTOFYRA==
-X-Received: by 2002:a63:7204:: with SMTP id n4mr16027141pgc.78.1622332293157; 
- Sat, 29 May 2021 16:51:33 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id g29sm7743523pgm.11.2021.05.29.16.51.32
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 29 May 2021 16:51:32 -0700 (PDT)
-Date: Sat, 29 May 2021 16:51:32 -0700 (PDT)
-X-Google-Original-Date: Sat, 29 May 2021 16:51:28 PDT (-0700)
-Subject: Re: [PATCH v2] mm: generalize ZONE_[DMA|DMA32]
-In-Reply-To: <20210528074557.17768-1-wangkefeng.wang@huawei.com>
-CC: akpm@linux-foundation.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, 
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, linux-mm@kvack.org,
- wangkefeng.wang@huawei.com, 
- catalin.marinas@arm.com, will@kernel.org, geert@linux-m68k.org,
- tsbogend@alpha.franken.de, 
- davem@davemloft.net, mingo@redhat.com, bp@alien8.de, rth@twiddle.net,
- linux@armlinux.org.uk, rppt@linux.ibm.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-5e5d5859-1c9b-4e53-a9aa-9deb502aec61@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1ln9Hm-008fkp-6m
+ for linux-riscv@lists.infradead.org; Sun, 30 May 2021 00:26:35 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D6CF361131
+ for <linux-riscv@lists.infradead.org>; Sun, 30 May 2021 00:26:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1622334392;
+ bh=WO4AvDQOErMivEJBVOiXhGXr5BkKrXIWDEGphngSgbo=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=i/Pw+IYthyq+6HSTuiPvfqKj0VEF9TAJjD4ATVR0yZ0TtflaZ0n3IGq9ltH2zOTBF
+ tajB4cUozkLkH3ZItczvs7cviBB4p+aT1GppQl25j1xVZc+HvUFR4A3qVgfxKT2nvu
+ +BVQm0brOFXf92ZIS0o3wPp4W3+VLUX2MxnBDXWHKxqKyplUHGDp4wR3jqbfyjv+Kx
+ HUo66HaMomE6mknJEBM9U0RC8Lk7RiK19GIIbJAh/DIvOIHkAmxQyW0U6NAc/Ue1XS
+ y87nW3YwYHqm4hZLwwWOwcgwe9rbvvBXM7UU4TTU6xGdpx6JsWFm/ur1nfzK4cZrUc
+ fJqJmuFxUv3NQ==
+Received: by mail-lj1-f182.google.com with SMTP id 131so10091028ljj.3
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 17:26:32 -0700 (PDT)
+X-Gm-Message-State: AOAM530mBSgo+wI9hTqieHX/Sh97ZIOcQt3vzB11p+KbS3jI2+Trs47c
+ 9/6TPhis7zdCbhmB4yISA2dK8buaxkSlF9KvBGk=
+X-Google-Smtp-Source: ABdhPJzAv7KxOF4cW+l6E6gE3uAhvDSqrsRPGJzs6vvDaU7PttVLgVopNfDeoPAKiteBVSoM5AoDZDhtiWO9RVnzXQk=
+X-Received: by 2002:a05:651c:2d0:: with SMTP id
+ f16mr3853539ljo.18.1622334391183; 
+ Sat, 29 May 2021 17:26:31 -0700 (PDT)
+MIME-Version: 1.0
+References: <1621945234-37878-1-git-send-email-guoren@kernel.org>
+ <mhng-93a12abf-0283-4ec3-a521-89b8d882654f@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-93a12abf-0283-4ec3-a521-89b8d882654f@palmerdabbelt-glaptop>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 30 May 2021 08:26:20 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTMYi-fr2kz5PHBtZ17iJdq0gN5UWT+eRV7ODwNfUcqrw@mail.gmail.com>
+Message-ID: <CAJF2gTTMYi-fr2kz5PHBtZ17iJdq0gN5UWT+eRV7ODwNfUcqrw@mail.gmail.com>
+Subject: Re: [PATCH] arch: Cleanup unused functions
+To: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Anup Patel <Anup.Patel@wdc.com>, Arnd Bergmann <arnd@arndb.de>,
+ Christoph Hellwig <hch@lst.de>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
+ Michal Simek <monstr@monstr.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_165133_986133_D25D4B81 
-X-CRM114-Status: GOOD (  27.33  )
+X-CRM114-CacheID: sfid-20210529_172634_333585_56657C59 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,374 +86,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 May 2021 00:45:57 PDT (-0700), wangkefeng.wang@huawei.com wrote:
-> ZONE_[DMA|DMA32] configs have duplicate definitions on platforms
-> that subscribe them. Instead, just make them generic options which
-> can be selected on applicable platforms.
+On Sun, May 30, 2021 at 7:08 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
 >
-> Also only x86/arm64 architectures could enable both ZONE_DMA and
-> ZONE_DMA32 if EXPERT, add ARCH_HAS_ZONE_DMA_SET to make dma zone
-> configurable and visible on the two architectures.
+> On Tue, 25 May 2021 05:20:34 PDT (-0700), guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > These functions haven't been used, so just remove them. The patch
+> > has been tested with riscv, but I only use grep to check the
+> > microblaze's.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Michal Simek <monstr@monstr.eu>
+> > Cc: Christoph Hellwig <hch@lst.de>
+> > ---
+> >  arch/microblaze/include/asm/page.h |  3 ---
+> >  arch/riscv/include/asm/page.h      | 10 ----------
+> >  2 files changed, 13 deletions(-)
+> >
+> > diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
+> > index bf681f2..ce55097 100644
+> > --- a/arch/microblaze/include/asm/page.h
+> > +++ b/arch/microblaze/include/asm/page.h
+> > @@ -35,9 +35,6 @@
+> >
+> >  #define ARCH_SLAB_MINALIGN   L1_CACHE_BYTES
+> >
+> > -#define PAGE_UP(addr)        (((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
+> > -#define PAGE_DOWN(addr)      ((addr)&(~((PAGE_SIZE)-1)))
+> > -
+> >  /*
+> >   * PAGE_OFFSET -- the first address of the first page of memory. With MMU
+> >   * it is set to the kernel start address (aligned on a page boundary).
+> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > index 6a7761c..a1b888f 100644
+> > --- a/arch/riscv/include/asm/page.h
+> > +++ b/arch/riscv/include/asm/page.h
+> > @@ -37,16 +37,6 @@
+> >
+> >  #ifndef __ASSEMBLY__
+> >
+> > -#define PAGE_UP(addr)        (((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
+> > -#define PAGE_DOWN(addr)      ((addr)&(~((PAGE_SIZE)-1)))
+> > -
+> > -/* align addr on a size boundary - adjust address up/down if needed */
+> > -#define _ALIGN_UP(addr, size)        (((addr)+((size)-1))&(~((size)-1)))
+> > -#define _ALIGN_DOWN(addr, size)      ((addr)&(~((size)-1)))
+> > -
+> > -/* align addr on a size boundary - adjust address up if needed */
+> > -#define _ALIGN(addr, size)   _ALIGN_UP(addr, size)
+> > -
+> >  #define clear_page(pgaddr)                   memset((pgaddr), 0, PAGE_SIZE)
+> >  #define copy_page(to, from)                  memcpy((to), (from), PAGE_SIZE)
 >
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Richard Henderson <rth@twiddle.net>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com> # for arm64
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # for m68k
-> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>
+> It's generally easier if you split this sort of stuff up, as it'll be
+> easier to merge if we don't have to coordinate between the trees.  I'm
+> happy to take this, but I'd prefer an Ack from one of the microblaze
+> folks first.
+Em ... I'll separate it. Thx for reply.
 
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com> # for RISC-V
+-- 
+Best Regards
+ Guo Ren
 
-> ---
-> v2:
-> -i386 can't enable ZONE_DMA32, fix it.
-> -make ZONE_DMA default y on X86 as before.
-> -collect ACKs
->
->  arch/alpha/Kconfig                     |  5 +----
->  arch/arm/Kconfig                       |  3 ---
->  arch/arm64/Kconfig                     |  9 +--------
->  arch/ia64/Kconfig                      |  4 +---
->  arch/m68k/Kconfig                      |  5 +----
->  arch/microblaze/Kconfig                |  4 +---
->  arch/mips/Kconfig                      |  7 -------
->  arch/powerpc/Kconfig                   |  4 ----
->  arch/powerpc/platforms/Kconfig.cputype |  1 +
->  arch/riscv/Kconfig                     |  5 +----
->  arch/s390/Kconfig                      |  4 +---
->  arch/sparc/Kconfig                     |  5 +----
->  arch/x86/Kconfig                       | 15 ++-------------
->  mm/Kconfig                             | 12 ++++++++++++
->  14 files changed, 23 insertions(+), 60 deletions(-)
->
-> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-> index 5998106faa60..6a69a14c4825 100644
-> --- a/arch/alpha/Kconfig
-> +++ b/arch/alpha/Kconfig
-> @@ -40,6 +40,7 @@ config ALPHA
->  	select MMU_GATHER_NO_RANGE
->  	select SET_FS
->  	select SPARSEMEM_EXTREME if SPARSEMEM
-> +	select ZONE_DMA
->  	help
->  	  The Alpha is a 64-bit general-purpose processor designed and
->  	  marketed by the Digital Equipment Corporation of blessed memory,
-> @@ -65,10 +66,6 @@ config GENERIC_CALIBRATE_DELAY
->  	bool
->  	default y
->
-> -config ZONE_DMA
-> -	bool
-> -	default y
-> -
->  config GENERIC_ISA_DMA
->  	bool
->  	default y
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 24804f11302d..000c3f80b58e 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -218,9 +218,6 @@ config GENERIC_CALIBRATE_DELAY
->  config ARCH_MAY_HAVE_PC_FDC
->  	bool
->
-> -config ZONE_DMA
-> -	bool
-> -
->  config ARCH_SUPPORTS_UPROBES
->  	def_bool y
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 9f1d8566bbf9..42794474f37f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -42,6 +42,7 @@ config ARM64
->  	select ARCH_HAS_SYSCALL_WRAPPER
->  	select ARCH_HAS_TEARDOWN_DMA_OPS if IOMMU_SUPPORT
->  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
-> +	select ARCH_HAS_ZONE_DMA_SET if EXPERT
->  	select ARCH_HAVE_ELF_PROT
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
->  	select ARCH_INLINE_READ_LOCK if !PREEMPTION
-> @@ -307,14 +308,6 @@ config GENERIC_CSUM
->  config GENERIC_CALIBRATE_DELAY
->  	def_bool y
->
-> -config ZONE_DMA
-> -	bool "Support DMA zone" if EXPERT
-> -	default y
-> -
-> -config ZONE_DMA32
-> -	bool "Support DMA32 zone" if EXPERT
-> -	default y
-> -
->  config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
->  	def_bool y
->
-> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-> index 279252e3e0f7..fd8503a0088a 100644
-> --- a/arch/ia64/Kconfig
-> +++ b/arch/ia64/Kconfig
-> @@ -60,6 +60,7 @@ config IA64
->  	select NUMA if !FLATMEM
->  	select PCI_MSI_ARCH_FALLBACKS if PCI_MSI
->  	select SET_FS
-> +	select ZONE_DMA32
->  	default y
->  	help
->  	  The Itanium Processor Family is Intel's 64-bit successor to
-> @@ -72,9 +73,6 @@ config 64BIT
->  	select ATA_NONSTANDARD if ATA
->  	default y
->
-> -config ZONE_DMA32
-> -	def_bool y
-> -
->  config MMU
->  	bool
->  	default y
-> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-> index 372e4e69c43a..05a729c6ad7f 100644
-> --- a/arch/m68k/Kconfig
-> +++ b/arch/m68k/Kconfig
-> @@ -34,6 +34,7 @@ config M68K
->  	select SET_FS
->  	select UACCESS_MEMCPY if !MMU
->  	select VIRT_TO_BUS
-> +	select ZONE_DMA
->
->  config CPU_BIG_ENDIAN
->  	def_bool y
-> @@ -62,10 +63,6 @@ config TIME_LOW_RES
->  config NO_IOPORT_MAP
->  	def_bool y
->
-> -config ZONE_DMA
-> -	bool
-> -	default y
-> -
->  config HZ
->  	int
->  	default 1000 if CLEOPATRA
-> diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
-> index 0660f47012bc..14a67a42fcae 100644
-> --- a/arch/microblaze/Kconfig
-> +++ b/arch/microblaze/Kconfig
-> @@ -43,6 +43,7 @@ config MICROBLAZE
->  	select MMU_GATHER_NO_RANGE
->  	select SPARSE_IRQ
->  	select SET_FS
-> +	select ZONE_DMA
->
->  # Endianness selection
->  choice
-> @@ -60,9 +61,6 @@ config CPU_LITTLE_ENDIAN
->
->  endchoice
->
-> -config ZONE_DMA
-> -	def_bool y
-> -
->  config ARCH_HAS_ILOG2_U32
->  	def_bool n
->
-> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> index ed51970c08e7..430d5324f1af 100644
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -3277,13 +3277,6 @@ config I8253
->  	select CLKSRC_I8253
->  	select CLKEVT_I8253
->  	select MIPS_EXTERNAL_TIMER
-> -
-> -config ZONE_DMA
-> -	bool
-> -
-> -config ZONE_DMA32
-> -	bool
-> -
->  endmenu
->
->  config TRAD_SIGNALS
-> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-> index 088dd2afcfe4..0f78bb383a12 100644
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -403,10 +403,6 @@ config PPC_ADV_DEBUG_DAC_RANGE
->  config PPC_DAWR
->  	bool
->
-> -config ZONE_DMA
-> -	bool
-> -	default y if PPC_BOOK3E_64
-> -
->  config PGTABLE_LEVELS
->  	int
->  	default 2 if !PPC64
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-> index f998e655b570..7d271de8fcbd 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -111,6 +111,7 @@ config PPC_BOOK3E_64
->  	select PPC_FPU # Make it a choice ?
->  	select PPC_SMP_MUXED_IPI
->  	select PPC_DOORBELL
-> +	select ZONE_DMA
->
->  endchoice
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a8ad8eb76120..d29643dee126 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -103,6 +103,7 @@ config RISCV
->  	select SYSCTL_EXCEPTION_TRACE
->  	select THREAD_INFO_IN_TASK
->  	select UACCESS_MEMCPY if !MMU
-> +	select ZONE_DMA32 if 64BIT
->
->  config ARCH_MMAP_RND_BITS_MIN
->  	default 18 if 64BIT
-> @@ -132,10 +133,6 @@ config MMU
->  	  Select if you want MMU-based virtualised addressing space
->  	  support by paged memory management. If unsure, say 'Y'.
->
-> -config ZONE_DMA32
-> -	bool
-> -	default y if 64BIT
-> -
->  config VA_BITS
->  	int
->  	default 32 if 32BIT
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index b4c7c34069f8..daab9d56957a 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -2,9 +2,6 @@
->  config MMU
->  	def_bool y
->
-> -config ZONE_DMA
-> -	def_bool y
-> -
->  config CPU_BIG_ENDIAN
->  	def_bool y
->
-> @@ -210,6 +207,7 @@ config S390
->  	select THREAD_INFO_IN_TASK
->  	select TTY
->  	select VIRT_CPU_ACCOUNTING
-> +	select ZONE_DMA
->  	# Note: keep the above list sorted alphabetically
->
->  config SCHED_OMIT_FRAME_POINTER
-> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-> index 164a5254c91c..39679664cc9a 100644
-> --- a/arch/sparc/Kconfig
-> +++ b/arch/sparc/Kconfig
-> @@ -59,6 +59,7 @@ config SPARC32
->  	select CLZ_TAB
->  	select HAVE_UID16
->  	select OLD_SIGACTION
-> +	select ZONE_DMA
->
->  config SPARC64
->  	def_bool 64BIT
-> @@ -141,10 +142,6 @@ config HIGHMEM
->  	default y if SPARC32
->  	select KMAP_LOCAL
->
-> -config ZONE_DMA
-> -	bool
-> -	default y if SPARC32
-> -
->  config GENERIC_ISA_DMA
->  	bool
->  	default y if SPARC32
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 0045e1b44190..11cf8a0d6800 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -33,6 +33,7 @@ config X86_64
->  	select NEED_DMA_MAP_STATE
->  	select SWIOTLB
->  	select ARCH_HAS_ELFCORE_COMPAT
-> +	select ZONE_DMA32
->
->  config FORCE_DYNAMIC_FTRACE
->  	def_bool y
-> @@ -93,6 +94,7 @@ config X86
->  	select ARCH_HAS_SYSCALL_WRAPPER
->  	select ARCH_HAS_UBSAN_SANITIZE_ALL
->  	select ARCH_HAS_DEBUG_WX
-> +	select ARCH_HAS_ZONE_DMA_SET if EXPERT
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
->  	select ARCH_MIGHT_HAVE_ACPI_PDC		if ACPI
->  	select ARCH_MIGHT_HAVE_PC_PARPORT
-> @@ -343,9 +345,6 @@ config ARCH_SUSPEND_POSSIBLE
->  config ARCH_WANT_GENERAL_HUGETLB
->  	def_bool y
->
-> -config ZONE_DMA32
-> -	def_bool y if X86_64
-> -
->  config AUDIT_ARCH
->  	def_bool y if X86_64
->
-> @@ -393,16 +392,6 @@ config CC_HAS_SANE_STACKPROTECTOR
->
->  menu "Processor type and features"
->
-> -config ZONE_DMA
-> -	bool "DMA memory allocation support" if EXPERT
-> -	default y
-> -	help
-> -	  DMA memory allocation support allows devices with less than 32-bit
-> -	  addressing to allocate within the first 16MB of address space.
-> -	  Disable if no such devices will be used.
-> -
-> -	  If unsure, say Y.
-> -
->  config SMP
->  	bool "Symmetric multi-processing support"
->  	help
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 02d44e3420f5..16930f40f293 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -789,6 +789,18 @@ config ARCH_HAS_CACHE_LINE_SIZE
->  config ARCH_HAS_PTE_DEVMAP
->  	bool
->
-> +config ARCH_HAS_ZONE_DMA_SET
-> +	bool
-> +
-> +config ZONE_DMA
-> +	bool "Support DMA zone" if ARCH_HAS_ZONE_DMA_SET
-> +	default y if ARM64 || X86
-> +
-> +config ZONE_DMA32
-> +	bool "Support DMA32 zone" if ARCH_HAS_ZONE_DMA_SET
-> +	depends on !X86_32
-> +	default y if ARM64
-> +
->  config ZONE_DEVICE
->  	bool "Device memory (pmem, HMM, etc...) hotplug support"
->  	depends on MEMORY_HOTPLUG
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
