@@ -2,82 +2,63 @@ Return-Path: <SRS0=590W=KZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F0B9FC47092
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 13:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F24E7C47094
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82155610C8
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 13:23:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82155610C8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
+	by mail.kernel.org (Postfix) with ESMTPS id C5F3661108
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C5F3661108
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SVQohJub0OoNueI0AdXGHfoC35CdOyW44U+shIZnuT8=; b=DutSrGdygWlxdn
-	ycqvZ4rDitMysFhjYv2BBeQEyTDu06J26MWzdCI66JlCVHHTLPeiBPp+ZGZmNE83fotJvt0ze2AI6
-	x+CjoqW/r7ztCdckQoX0S1hQp27v5HWSGBRqQ7ju8vwwzciUK6OAa+oagWTRX3JgvOl8lzTOxEqzN
-	2g7/Fkg+VznM984Hh7FX6goywuL9BdqHW6PhGKuWhcyfrU6E+x4AHUIjtAn/fu4te/r88jdZvTGqO
-	0YQypcxfC93GrDk85lmGqteBDX1lgmyIkBS5vMsiIhBnSs6MNd3UpWw9uVFl3UJFJHYIG1Fa49zwc
-	qGh6fNi2+zOt5sEhqd7g==;
+	List-Owner; bh=AsC5lk20dyc/s6FOgC+I2IbkQGeVw3BHKL6xiGS8peE=; b=Pg2reBuSj4/rzW
+	h6xo4dQ5K09rqlBA0Lz89R2drxA81AH/0q+c3LewiXZl96OXkPCXVo9f0USYjkeArRYCikKAxcjcx
+	r0GMIyAr1oolYTyW6Wkm2vNcKIf9uRuthMYBbNKu+sZpJA14rNIr9nzUvYLJ44YjNC28rN1L+v8lA
+	m9PralcN3msnLJDS3ul2YApztEjyuyV3/TiZht2YDn2HXevRbmfHNO2Yo/ICdcKzn77+tY6BqLbLY
+	XyJ56Xloyj01GxA6IL8xxFcxtApsuz8MA5hqOmFtiHotYUk0o+LZLNv7/pYREdTiNUPiUtPSDwfPV
+	Rjj8PVFo4lVv8gahfZbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lnLOo-009goP-Eg; Sun, 30 May 2021 13:22:38 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1lnOdl-009tos-8F; Sun, 30 May 2021 16:50:17 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lnLOg-009gnc-5s
- for linux-riscv@lists.infradead.org; Sun, 30 May 2021 13:22:33 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id qq22so4174838ejb.9
- for <linux-riscv@lists.infradead.org>; Sun, 30 May 2021 06:22:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=jNq7jRw74YTrmktGVVgUaeZphWbs7T9GsPL9ks1JQc4=;
- b=LiSwTd3hwKHUwMvF3VJXYNxCH/PpOqUsU0AasPhI5gu1tkyQMDigMPEiAjLnUz/Dwe
- 6/fxLjqxDrQPLPJBTqzl1vc5ynfHZCefWRdmKC7tic/skvcSqfXFlUHi7M58Yg8L6Ww3
- xX6V/Acy01o1cwLG4IEw5zXN2TYnO7t/KMI7o=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=jNq7jRw74YTrmktGVVgUaeZphWbs7T9GsPL9ks1JQc4=;
- b=eUXlNk2BfrHiEKPr224QdbboRQf9SKtGj1ztgKEU2AKELEfmBkCDL2nSzWhQ+TtcSu
- Z5LSIaZP9hjb9tnj1TlD6Xw1Lc8INYBJKDNg1uBl6ApVvcQS9LgbqwDxpA7xdMYwwypu
- ru3HoHeSGn47/CNR56M2wHAloZf+eU8ZbeLv3JjzVUBU1rCigOhkPyj4yIn8nPbRPi8J
- 2o9/IEpLI3Juntq8b/MRa4Cr609Fetxyu8/YtdituJg5EEhnsOCNgd+7rQQeGIy63SlW
- DtOWp5nasLOWI1xR5xv4E/anLHCSEI+Z5Z7VOefkZlPDrgs4Up123oA/hL8aP+oDtHjL
- VHfw==
-X-Gm-Message-State: AOAM53075qZrmfIBuOCAklCpwMRPn3OWuvKPIvUwF5ve0ojcnHu+LGVo
- IT1fZWbtIIzvWNTXKIMkGwx97eGnHyQnP6fa
-X-Google-Smtp-Source: ABdhPJwit5Xijapk3jepufl9HH6gFHwuAhJWjEuvd5rzdTAyrVp/fBR6/GhqY/I+8VLmDxclj9unGg==
-X-Received: by 2002:a17:906:f8d0:: with SMTP id
- lh16mr9794021ejb.331.1622380942929; 
- Sun, 30 May 2021 06:22:22 -0700 (PDT)
-Received: from lootbox.konsulko.bg (lan.nucleusys.com. [92.247.61.126])
- by smtp.gmail.com with ESMTPSA id g19sm4744085ejw.79.2021.05.30.06.22.22
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 30 May 2021 06:22:22 -0700 (PDT)
-From: Vitaly Wool <vitaly.wool@konsulko.com>
-To: linux-riscv@lists.infradead.org
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- Jisheng Zhang <jszhang@kernel.org>, Vitaly Wool <vitaly.wool@konsulko.com>
-Subject: [PATCH] riscv: fix typo in init.c
-Date: Sun, 30 May 2021 16:22:17 +0300
-Message-Id: <20210530132217.7851-1-vitaly.wool@konsulko.com>
-X-Mailer: git-send-email 2.20.1
-MIME-Version: 1.0
+ id 1lnOdi-009toB-Be
+ for linux-riscv@lists.infradead.org; Sun, 30 May 2021 16:50:15 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 82A9E61027;
+ Sun, 30 May 2021 16:50:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1622393413;
+ bh=HDSaZ0r8YKgOW4RVtraztMNXpYLvrjOWnnb7z2CxfsQ=;
+ h=From:To:Cc:Subject:Date:From;
+ b=GAGEb5c22zpNCgKwGBgY8HNtxiJgf0vgoElGLScInJXq+kuUkcai+NAm5FYi1S5fe
+ Wfdn/WN+Tra9jBnjfvuw0dBg7b5AjxiD7BIRbn00pRkCh0xyDVYPvwt74QsoXXOUOS
+ gfzas4nvp/Jca6YhLA/1tHUWJkEAFHPEV4mOEn0FIgu5H0LNMmXPQmeyoUx1f3rS8W
+ oy7zXQIGU0rqhAfdie79pXVa/2nJbvWhtsbObF93E1Dn/X8hBjHCxY0UVDQc1qa6Ac
+ sLvrTnTQT502mD9HDx13tAidDdRzPTNdIqqMsWpEZpEVMPH7kUc4trbRRMdJtEi1IH
+ JBlAUV7Vaf4lg==
+From: guoren@kernel.org
+To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
+ arnd@arndb.de, hch@lst.de
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V5 0/3] riscv: Fixup asid_allocator remaining issues
+Date: Sun, 30 May 2021 16:49:23 +0000
+Message-Id: <1622393366-46079-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210530_062230_261374_D5CED918 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20210530_095014_444306_6621F8EE 
+X-CRM114-Status: UNSURE (   5.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,35 +71,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 010623568222 introduced a typo in "__initdata" spelling
-which led to build breakage for XIP. Fix that.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Fixes: 010623568222bd144eb73aa9f3b46c79b63d7676
-Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
----
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The patchset fixes the remaining problems of asid_allocator.
+ - Fixup _PAGE_GLOBAL for kernel virtual address mapping
+ - Optimize tlb_flush with asid & range
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index ae32f78207f0..e7b136abf90c 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -451,7 +451,7 @@ static uintptr_t load_sz __initdata;
- #endif
- 
- #ifdef CONFIG_XIP_KERNEL
--static uintptr_t xiprom __inidata;
-+static uintptr_t xiprom __initdata;
- static uintptr_t xiprom_sz __initdata;
- #define xiprom_sz      (*((uintptr_t *)XIP_FIXUP(&xiprom_sz)))
- #define xiprom         (*((uintptr_t *)XIP_FIXUP(&xiprom)))
+Changes since v4:
+ - Fixup double PAGE_SIZE add in local_flush_tlb_range_asid
+ - Add tlbflush: Optimize coding convention
+ - Optimize comment
+
+Changes since v3:
+ - Optimize coding convention for
+   "riscv: Use use_asid_allocator flush TLB"
+
+Changes since v2:
+ - Remove PAGE_UP/DOWN usage in tlbflush.h
+ - Optimize variable name
+
+Changes since v1:
+ - Drop PAGE_UP wrong fixup
+ - Rebase on clean linux-5.13-rc2
+ - Add Reviewed-by
+
+Guo Ren (3):
+  riscv: Use global mappings for kernel pages
+  riscv: Add ASID-based tlbflushing methods
+  riscv: tlbflush: Optimize coding convention
+
+ arch/riscv/include/asm/mmu_context.h |  2 ++
+ arch/riscv/include/asm/pgtable.h     |  3 +-
+ arch/riscv/include/asm/tlbflush.h    | 22 ++++++++++++++
+ arch/riscv/mm/context.c              |  2 +-
+ arch/riscv/mm/tlbflush.c             | 57 ++++++++++++++++++++++++++++--------
+ 5 files changed, 71 insertions(+), 15 deletions(-)
+
 -- 
-2.29.2
+2.7.4
 
 
 _______________________________________________
