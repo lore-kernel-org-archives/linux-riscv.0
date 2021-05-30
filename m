@@ -2,71 +2,64 @@ Return-Path: <SRS0=590W=KZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E776EC4708C
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 04:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 863ACC4708C
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 04:54:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BE51611AC
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 04:30:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BE51611AC
+	by mail.kernel.org (Postfix) with ESMTPS id 4150A610FC
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 04:54:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4150A610FC
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Mc6Y5TKpJZKZ1ty4mMncSfbc3viqBA7OPLGyV9iL1s=; b=bWvVSXY9PAbzQH
-	R61HRzWP+6bH7Y3PNJX3bx8b8cNjCUEcasTk3IMhPJ9Ym/m0WaU9N7ypdr7I5X+gCMovRIuvgEb+C
-	bsij3Al3BUCYdVdoCCLhNrXjDUBo3aseAkpFcomY5zjK6L3PbSt+1ShJ/FOUQcooWc+r8jPAd134f
-	NJnX3WOrWiQhe3DoFC1qob+ptcbVHO65Bq7tvDhH8yHqhAMxcb3dU3rweAtyeLRclAgwvm7Z1OVCu
-	GVZ2nQvbuwrgDcpvRyG9eI/V1AUtt4OhZbk5u4y4rpx0Q5103iKWvzvzcipXXMFf03pPvn3PxMHlX
-	MfLkWF2nHB+XweT0W1CA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=glty6Ppc2WNzh1OlDWIPzl6Y6CFaq80zPaeuqOx3EZQ=; b=2Z43XnYIqk9NDc
+	0CY6E0zoG0/AcULjFLxIR5baToIAeFy+gWhCgwCqt4TuW07bK1eE9LCchhKsqvfgQRIl/eGPNLU5y
+	0QC7G1TDL56fNjRazvlp8ciIrrrIG/AuYjI2BlQ2jwG5ciA8AwtIZLwpHIBt26BgSgnbH9qXRm3oA
+	/tNnleyvqTla78HV63K1PfnelIgNBGSRWB6VK3r4GDxptXHLJRd2kFPjeVIHvRlmAzsaar+J8z6tI
+	Qv4MhtchwgapOnXsfFVbM5G7dJyLOppI07imFHejECRJd9VWyEV5SpnD4t5/1d4yprluYsWe4Dzl1
+	or6w6WNWIDV8mTw0al6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lnD5W-008y9e-HM; Sun, 30 May 2021 04:30:10 +0000
+	id 1lnDSx-008z4n-Am; Sun, 30 May 2021 04:54:23 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lnD5T-008y9K-AU
- for linux-riscv@lists.infradead.org; Sun, 30 May 2021 04:30:08 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id 8B995611C2;
- Sun, 30 May 2021 04:30:05 +0000 (UTC)
+ id 1lnDSu-008z49-OW
+ for linux-riscv@lists.infradead.org; Sun, 30 May 2021 04:54:21 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 562836102A;
+ Sun, 30 May 2021 04:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622349005;
- bh=CaEJl3x3VEThIk7xZIuEjNc+efMtgrlaI3SpxobHbkY=;
- h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
- b=q5axJgZlB7xPLEGlRH8rXLkitLF4RdQ0xTfjBecCwjj7plmYX149drR37HMe0oIa2
- P3KGfymprvpUNx8ErcJiCKeHQCRLr/xGumRPpbB/d/b6BEXQZqQZ3epMxE3AnEoQ6S
- RVsyVQWJ07tCgqCUKYXOENysyeXGBFdovJTR7jyYEn/afQIf/2geUYLgCZgImi4Ef0
- wZ6c1ND+6XNsx6xlLNF7vo437ENaUu2m7wnol510jPXfcuAZlN3ISObmycJzecHxxG
- Xri1wUOkpevrglLD1mPoGW9KvhWO8OE/u8VQXmFjKp+/Zm/hPydUIxHESLYrsDoLW9
- aXLitplFhl3Sg==
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.13-rc4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-5051d261-3f3c-405c-a9a0-68fb70aa7c71@palmerdabbelt-glaptop>
-References: <mhng-5051d261-3f3c-405c-a9a0-68fb70aa7c71@palmerdabbelt-glaptop>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-5051d261-3f3c-405c-a9a0-68fb70aa7c71@palmerdabbelt-glaptop>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.13-rc4
-X-PR-Tracked-Commit-Id: bab0d47c0ebb50ae0bcfa4e84986a60113bf7d6b
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 9d68fe84f8c52942c30febfec289c6219fe4f285
-Message-Id: <162234900553.23697.6619086393235550234.pr-tracker-bot@kernel.org>
-Date: Sun, 30 May 2021 04:30:05 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ s=k20201202; t=1622350460;
+ bh=8j+beZJ0vT46mk9agllfdVUQIeq9LdNVKMDsT+pMEyM=;
+ h=From:To:Cc:Subject:Date:From;
+ b=dGK9IodYmYsvRq6EdXsOx0R9PtXpqZGztRk5dWD9VL1jwIKUg6X5uR2wEpriiLlJr
+ 4x5AtcaEd4lzQSygyjwrocwEFeJ9i2BYGLJH6CQzMXn4GB5lAfHZdxvudJWbj5q11N
+ wsRaCWCX3uXt+wuvYCS9ioBp8VOdRi3q2tl+HtgZ3+IGORcFpyfSuNPRR12fsnCAV0
+ cF+2aZJ5ClCdeSjw/i4qrxpMCR5UtOXzk8ovPhmfIx4GC6mH0b8xlhxVBztqNfOxo1
+ 0wsA2+W4I8H7fLxg2YZCrvLtq3cc2nT6d9TI1CyaKZylLOBS63ZkL3pyN8cog+KdU5
+ Gqg1vdkMernRw==
+From: guoren@kernel.org
+To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
+ arnd@arndb.de
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V2 0/2] arch: Cleanup unused functions
+Date: Sun, 30 May 2021 04:53:26 +0000
+Message-Id: <1622350408-44875-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_213007_428187_C3949696 
-X-CRM114-Status: UNSURE (   2.88  )
+X-CRM114-CacheID: sfid-20210529_215420_840691_4C92800F 
+X-CRM114-Status: UNSURE (   4.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,18 +78,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 29 May 2021 10:22:16 -0700 (PDT):
+From: Guo Ren <guoren@linux.alibaba.com>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.13-rc4
+These functions haven't been used, so just remove them. The patch
+has been tested with riscv, but I only use grep to check the
+microblaze's.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/9d68fe84f8c52942c30febfec289c6219fe4f285
+Changes since v1:
+ - Separate into two patches
+ - Add Reviewed-by & Acked-by
 
-Thank you!
+Guo Ren (2):
+  riscv: Cleanup unused functions
+  microblaze: Cleanup unused functions
+
+ arch/microblaze/include/asm/page.h |  3 ---
+ arch/riscv/include/asm/page.h      | 10 ----------
+ 2 files changed, 13 deletions(-)
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
