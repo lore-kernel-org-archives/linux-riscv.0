@@ -2,78 +2,90 @@ Return-Path: <SRS0=590W=KZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DB18FC4708F
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 00:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C65C4C47082
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 01:22:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67C01601FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 00:52:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 67C01601FE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 208C760E0B
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 01:22:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 208C760E0B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6haM/6/GVxmVlfPqlau8zVLETJoQ9W0Ib761a80oYk0=; b=2g6cvViARgoQKN
-	PBGh/9mQMh79xJ2gTdqq/vqVQdnIRm6qqEvF0xj1qNodFajct9DpXQPTU1OALiAXKoDtaGvBWFljL
-	m+nOFMwo5JVz2TyvnmI1hQ3qGp4ISx/Pwbtmad3PX2nE8Ftx4dU6x0qzEenCPRQY4uTjca0oBLkEt
-	AVvR34Aq0lIvhsi2AcQKDizLShUAb6fHTghI29raIdx4TyD0sa3SMtWWmbn6Esb9mlZjRFJsXEIGM
-	WZs7Hh24IgDUp08/TrWKFpxrAFqdnN8MWuxZQeQRtm/RKqgaou2Lc/J8PrXgOBIJK0S9kNU0WcJgg
-	oLxkB8Qyr3A8uNLkGmew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=OdehMbgDi8CNt0j/LLnZZEp03p8AuxPSTsr4sWZfX/4=; b=xZVxskX8901V4j/qqKaSKAo2At
+	4OM/Uv+u67bjiADRWz9wcS4m9IXD9I+nY4CR8AmzRUJ31YsEs3j2bCabsAktFvJJ74MtUQ2Qiuhrx
+	GOORxiKOyABCnwqK/VWuricAy4sXY5l6UdXw/KQDeuNF4Q903Y+Qf9HfSRXsYnB8O/JobeWYTC4of
+	JYzcmrWuxvd5B0u93MXFdWee/XfdUw7TSiW+QRoBoZdcqPiuTGAQeESlGsHfJ2Nxu1X5/F/uzaAgG
+	3E7pLnTqBrcCx8XaRFBO/lHGZbSaqws1bHXFIt/7hBkhM8b68Bn+hVw8rGaghaTEgnd7w+1zyz3dX
+	3msdKiLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ln9g0-008hk3-9L; Sun, 30 May 2021 00:51:36 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lnA9U-008jwe-Q3; Sun, 30 May 2021 01:22:04 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ln9fw-008hjV-UZ
- for linux-riscv@lists.infradead.org; Sun, 30 May 2021 00:51:34 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4449D6112F
- for <linux-riscv@lists.infradead.org>; Sun, 30 May 2021 00:51:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622335892;
- bh=PWNzmVem9VS//uwig1vEDgd9W083PCsm3baFjr0EQlQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=dz5ODyQj3jZj9vOkeVa+Q50fMJBAiUfYq8x2cPJi19s/pSdXtJtMmlqH16qJ5n8/y
- W3GyGlb+MwGXn3jg/78Tqg9ccouo0cTqzCqBN2XD6LJMuF4ltnhSdQk7jPc85sp6Ac
- qMOtei5Lo6+xfbAlgysc2kXZHv/mqY23blpHI683qZSQ0uKUbjCizEAO3TFWyFI/qi
- PB9bL2OV0r5SyxBrVvFEoqV3TgHP/azY4VqE6PGsyssRAMVkLNMNo18PxMyxNRIyQo
- zkdtde9FniQ0TR4M/ljUOnKiD0HnCrPpsyWA8ZBtYcMVU3ddGHsHzPLiNeL5egwe1b
- L5pNTAT3NXxiw==
-Received: by mail-lj1-f179.google.com with SMTP id e2so10117765ljk.4
- for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 17:51:32 -0700 (PDT)
-X-Gm-Message-State: AOAM531KP0wDy9xBTeyYwwTe7MrL/fLr5I2AVmCdJgaz8/MQOb8pfo96
- TFFABzuTCxHMPepl6PotVZfOpf2wh7Wtwg4YZy0=
-X-Google-Smtp-Source: ABdhPJz2oQ+nB/fKMvvqGrO2vZx+W5md+YIZJDzAEE/bZLcrKJ81oJQTDekOEPMm2E0lbAsEqzAbwAmkbFgNTITKBLQ=
-X-Received: by 2002:a05:651c:502:: with SMTP id
- o2mr11500461ljp.105.1622335890517; 
- Sat, 29 May 2021 17:51:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210527070903.GA32653@lst.de>
- <mhng-cfb5a043-4b59-4698-b732-5cf5ceb49114@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-cfb5a043-4b59-4698-b732-5cf5ceb49114@palmerdabbelt-glaptop>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 May 2021 08:51:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQr-5BZeZZo3YfmvjBCC6AkDMKubAR_9kcgYiBu_q8FYw@mail.gmail.com>
-Message-ID: <CAJF2gTQr-5BZeZZo3YfmvjBCC6AkDMKubAR_9kcgYiBu_q8FYw@mail.gmail.com>
-Subject: Re: [PATCH V4 2/2] riscv: Use use_asid_allocator flush TLB
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Christoph Hellwig <hch@lst.de>, Anup Patel <Anup.Patel@wdc.com>,
- Arnd Bergmann <arnd@arndb.de>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>
+ id 1lnA9P-008ju6-2K
+ for linux-riscv@lists.infradead.org; Sun, 30 May 2021 01:22:03 +0000
+Received: by mail-pl1-x629.google.com with SMTP id t21so3446355plo.2
+ for <linux-riscv@lists.infradead.org>; Sat, 29 May 2021 18:21:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=xEi6BXoNnqtihXfBBcx4dPYE6EijHD5pKsgqYkE4P1o=;
+ b=njwqfZE8koNsvOck2/ofN7d+VeB9/E7agwkbIWPFN8S37AyMerjqqKz0V8hWHejz/W
+ KKgX7L/+HAb4y3usDPcNGrcSU/QAX0Iagyogl0FZzt3oFCPljEk/heMiCdJ1LIg9ymCQ
+ v+xeboWgbaWpQug7Dk/UsI1nW3gstZ0zL80egM1CBOvR94CAw9zv4DnjaDBiYA7A+4Xr
+ AvWuyjzo1QfuqIWC3ChrCOJetq+8z2s4gTbq3flNl0ifg6Bwypds4FmRaajKGM4hNPiW
+ 4Pe3h9UKu7COlOyWOdD/Dn1Ro+iIOIFFzVIl0rFNIWkMlPXjEX6lAk5l8AS03Jk5kaW7
+ cZ3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=xEi6BXoNnqtihXfBBcx4dPYE6EijHD5pKsgqYkE4P1o=;
+ b=XkKhYDq/klJkuyEF9WIlg9fodlfARf/tdNF+AxvFH3zwTrLhxKb4rb0kV8d8GBsmpt
+ h9Ly2BI/TjHsjFoTpm/FunLNQOFFDwOo0r1iLwn2x2yEhr7DWZbu8zOVm5YIBcFxsmYp
+ Y3TTMGR0TOKz1ZssZ+9GpI2FLGbtXtrxclGRFyB4lpEfK8QM+f2sGmh3joKmuymi7JLH
+ 28vY77pIVrp2t1YMZhRJjjkWxqxgyjTda6MyJGkof99RqQBkCJ4SwJ1jBq3tX24CyIsA
+ oN8nhNIGqKEvkxTaVg11jj5x5UNBdjllMkRMJ8cIdFT4kqyRM1ve2DLC9Q5SsTLEm5qM
+ UzoA==
+X-Gm-Message-State: AOAM5303s8tF7+AqYuAxq9QGqf3TUCS2l35qlsISy96ImhDpQ1tsTAl5
+ GTnS6WADhrcG3LvFAGXnF9OQ5CmLtC0EUWqe
+X-Google-Smtp-Source: ABdhPJwXmSyqUABdXDz0ldneJ5UzS6/oEHX7G+UGEOWDVAMNntp8O5RLzJ4SG1+zJ7w5qYdkAwo2Bw==
+X-Received: by 2002:a17:90a:de09:: with SMTP id
+ m9mr11649295pjv.41.1622337713693; 
+ Sat, 29 May 2021 18:21:53 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id e17sm7340341pfi.131.2021.05.29.18.21.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 29 May 2021 18:21:53 -0700 (PDT)
+Date: Sat, 29 May 2021 18:21:53 -0700 (PDT)
+X-Google-Original-Date: Sat, 29 May 2021 18:21:51 PDT (-0700)
+Subject: Re: [PATCH -next] riscv: mm: fix build errors caused by mk_pmd()
+In-Reply-To: <mhng-4fb5ea1f-084a-4010-b4a6-d19423511720@palmerdabbelt-glaptop>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ wangkefeng.wang@huawei.com, sunnanyong@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: sunnanyong@huawei.com
+Message-ID: <mhng-5dc6487a-bafb-471f-ac5c-f6ec93cd311c@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210529_175133_060045_C4BF9932 
-X-CRM114-Status: GOOD (  45.56  )
+X-CRM114-CacheID: sfid-20210529_182159_207213_AF7F4303 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,238 +97,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 30, 2021 at 7:42 AM <palmerdabbelt@google.com> wrote:
+On Sat, 29 May 2021 15:45:04 PDT (-0700), Palmer Dabbelt wrote:
+> On Mon, 24 May 2021 00:02:20 PDT (-0700), sunnanyong@huawei.com wrote:
+>> With "riscv: mm: add THP support on 64-bit", mk_pmd() function
+>> introduce build errors,
+>> 1.build with CONFIG_ARCH_RV32I=y:
+>> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
+>> arch/riscv/include/asm/pgtable.h:513:9: error: implicit declaration of function 'pfn_pmd';
+>>  did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
+>>
+>> 2.build with CONFIG_SPARSEMEM=y && CONFIG_SPARSEMEM_VMEMMAP=n
+>> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
+>> include/asm-generic/memory_model.h:64:14: error: implicit declaration of function 'page_to_section';
+>>  did you mean 'present_section'? [-Werror=implicit-function-declaration]
+>>
+>> Use macro definition instead of inline function for mk_pmd
+>> to fix the above problems.It is similar to the mk_pte macro.
+>>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Signed-off-by: Nanyong Sun <sunnanyong@huawei.com>
+>> ---
+>>  arch/riscv/include/asm/pgtable.h | 5 +----
+>>  1 file changed, 1 insertion(+), 4 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>> index 4b708ae08910..f35d9c90d4cb 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -508,10 +508,7 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+>>  	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
+>>  }
+>>
+>> -static inline pmd_t mk_pmd(struct page *page, pgprot_t prot)
+>> -{
+>> -	return pfn_pmd(page_to_pfn(page), prot);
+>> -}
+>> +#define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
+>>
+>>  static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
+>>  {
 >
-> On Thu, 27 May 2021 00:09:03 PDT (-0700), Christoph Hellwig wrote:
-> > On Wed, May 26, 2021 at 05:49:21AM +0000, guoren@kernel.org wrote:
-> >> From: Guo Ren <guoren@linux.alibaba.com>
-> >>
-> >> Use static_branch_unlikely(&use_asid_allocator) to keep the origin
-> >> tlb flush style, so it's no effect on the existing machine. Here
-> >> are the optimized functions:
-> >>  - flush_tlb_mm
-> >>  - flush_tlb_page
-> >>  - flush_tlb_range
-> >>
-> >> All above are based on the below new implement functions:
-> >>  - __sbi_tlb_flush_range_asid
-> >>  - local_flush_tlb_range_asid
-> >>
-> >> These functions are based on ASID instead of previous non-ASID
-> >> tlb_flush implementation which invalidates more useful tlb
-> >> entries.
-> >
-> > I still think the commit message is incomplete and rather misleading.
-> > Here is what I'd come up with from reading the patch:
-> >
-> > ---------
-> > Subject: add ASID-based tlbflushing methods
-> >
-> > Implement optimized version of the tlb flushing routines for systems
-> > using ASIDs.  These are behind the use_asid_allocator static branch to
-> > not affect existing systems not using ASIDs.
-> > ---------
->
-> That seems much better, thanks.
->
-> >> +static inline void local_flush_tlb_range_asid(unsigned long start,
-> >> +                            unsigned long size, unsigned long asid)
-> >> +{
-> >> +    unsigned long tmp, end = ALIGN(start + size, PAGE_SIZE);
-> >> +
-> >> +    for (tmp = start & PAGE_MASK; tmp < end; tmp += PAGE_SIZE) {
-> >> +            __asm__ __volatile__ ("sfence.vma %0, %1"
-> >> +                            :
-> >> +                            : "r" (tmp), "r" (asid)
-> >> +                            : "memory");
-> >> +            tmp += PAGE_SIZE;
-> >> +    }
-> >
-> > This double increments tmp.
-> >
-> > Also the non-ASID code switches to a global flush once flushing more
-> > than a single page.  It might be worth documenting the tradeoff in the
-> > code.
->
-> For some reason I thought we'd written this down in the commentary of
-> teh ISA manual as the suggested huersitic here, but I can't find it so
-> maybe I'm wrong.  If it's actually there it would be good to point that
-> out, otherwise some documentation seems fine as it'll probably become a
-> tunable at some point anyway.
-From my view: "non-ASID code switches to a global flush all" is a
-hardware bug fixup, so I just reserved it to prevent breaking other
-machines.
+> Thanks, this is on for-next.
 
-The comment for the "non-ASID code" should be another patch.
-
->
-> >> +static void __sbi_tlb_flush_range_asid(struct cpumask *cmask,
-> >> +                                   unsigned long start,
-> >> +                                   unsigned long size,
-> >> +                                   unsigned long asid)
-> >> +{
-> >
-> > I don't think the calling conventions here are optimal.  I'd pass
-> > the mm_struct as the first argument, as we can derive both the cpumask
-> > and asid from it instead of doing that in the callers.
-> >
-> > But more importantly I think the static branch check can be moved deeper
-> > into the code to avoid a lot of duplication.  What do you think of this
-> > version?
-> >
-> > diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> > index b0659413a080..7030837adc1a 100644
-> > --- a/arch/riscv/include/asm/mmu_context.h
-> > +++ b/arch/riscv/include/asm/mmu_context.h
-> > @@ -33,6 +33,8 @@ static inline int init_new_context(struct task_struct *tsk,
-> >       return 0;
-> >  }
-> >
-> > +DECLARE_STATIC_KEY_FALSE(use_asid_allocator);
-> > +
-> >  #include <asm-generic/mmu_context.h>
-> >
-> >  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
-> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> > index 68aa312fc352..45c1b04b105d 100644
-> > --- a/arch/riscv/mm/context.c
-> > +++ b/arch/riscv/mm/context.c
-> > @@ -18,7 +18,7 @@
-> >
-> >  #ifdef CONFIG_MMU
-> >
-> > -static DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-> > +DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-> >
-> >  static unsigned long asid_bits;
-> >  static unsigned long num_asids;
-> > diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> > index 720b443c4528..d8afbb1269d5 100644
-> > --- a/arch/riscv/mm/tlbflush.c
-> > +++ b/arch/riscv/mm/tlbflush.c
-> > @@ -4,6 +4,33 @@
-> >  #include <linux/smp.h>
-> >  #include <linux/sched.h>
-> >  #include <asm/sbi.h>
-> > +#include <asm/mmu_context.h>
-> > +
-> > +static inline void local_flush_tlb_all_asid(unsigned long asid)
-> > +{
-> > +     __asm__ __volatile__ ("sfence.vma x0, %0"
-> > +                     :
-> > +                     : "r" (asid)
-> > +                     : "memory");
-> > +}
-> > +
-> > +static inline void local_flush_tlb_page_asid(unsigned long addr,
-> > +             unsigned long asid)
-> > +{
-> > +     __asm__ __volatile__ ("sfence.vma %0, %1"
-> > +                     :
-> > +                     : "r" (addr), "r" (asid)
-> > +                     : "memory");
-> > +}
-> > +
-> > +static inline void local_flush_tlb_range_asid(unsigned long start,
-> > +                             unsigned long size, unsigned long asid)
-> > +{
-> > +     unsigned long addr, end = ALIGN(start + size, PAGE_SIZE);
-> > +
-> > +     for (addr = start & PAGE_MASK; addr < end; addr += PAGE_SIZE)
-> > +             local_flush_tlb_page_asid(addr, asid);
-> > +}
-> >
-> >  void flush_tlb_all(void)
-> >  {
-> > @@ -12,28 +39,43 @@ void flush_tlb_all(void)
-> >
-> >  /*
-> >   * This function must not be called with cmask being null.
-> > - * Kernel may panic if cmask is NULL.
-> >   */
-> > -static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
-> > +static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
-> >                                 unsigned long size)
-> >  {
-> > +     struct cpumask *cmask = mm_cpumask(mm);
-> >       struct cpumask hmask;
-> >       unsigned int cpuid;
-> > +     bool broadcast;
-> >
-> >       if (cpumask_empty(cmask))
-> >               return;
-> >
-> >       cpuid = get_cpu();
-> > +     /* check if the tlbflush needs to be sent to other CPUs */
-> > +     broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
-> > +     if (static_branch_unlikely(&use_asid_allocator)) {
-> > +             unsigned long asid = atomic_long_read(&mm->context.id);
-> >
-> > -     if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
-> > -             /* local cpu is the only cpu present in cpumask */
-> > -             if (size <= PAGE_SIZE)
-> > +             if (broadcast) {
-> > +                     riscv_cpuid_to_hartid_mask(cmask, &hmask);
-> > +                     sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
-> > +                                                start, size, asid);
-> > +             } else if (size != -1) {
-> > +                     local_flush_tlb_range_asid(start, size, asid);
-> > +             } else {
-> > +                     local_flush_tlb_all_asid(asid);
-> > +             }
-> > +     } else {
-> > +             if (broadcast) {
-> > +                     riscv_cpuid_to_hartid_mask(cmask, &hmask);
-> > +                     sbi_remote_sfence_vma(cpumask_bits(&hmask),
-> > +                                           start, size);
-> > +             } else if (size <= PAGE_SIZE) {
-> >                       local_flush_tlb_page(start);
-> > -             else
-> > +             } else {
-> >                       local_flush_tlb_all();
-> > -     } else {
-> > -             riscv_cpuid_to_hartid_mask(cmask, &hmask);
-> > -             sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
-> > +             }
-> >       }
-> >
-> >       put_cpu();
-> > @@ -41,16 +83,16 @@ static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
-> >
-> >  void flush_tlb_mm(struct mm_struct *mm)
-> >  {
-> > -     __sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
-> > +     __sbi_tlb_flush_range(mm, 0, -1);
-> >  }
-> >
-> >  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
-> >  {
-> > -     __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
-> > +     __sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE);
-> >  }
-> >
-> >  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
-> >                    unsigned long end)
-> >  {
-> > -     __sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
-> > +     __sbi_tlb_flush_range(vma->vm_mm, start, end - start);
-> >  }
->
-> LGTM.  I took the first one as IMO they're really distnict issues, LMK
-> if you want to re-spin this one or if I should just take what's here.
-
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Sorry, I wasn't looking closely enough.  I think the actual problem here 
+is that mk_pmd() should be in pgtable-64.h.
 
 _______________________________________________
 linux-riscv mailing list
