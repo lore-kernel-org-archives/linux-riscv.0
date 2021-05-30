@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 940F7C47092
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2CFAC47095
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4F59F611CE
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F59F611CE
+	by mail.kernel.org (Postfix) with ESMTPS id C046A611CE
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 May 2021 16:50:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C046A611CE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,46 +23,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8A8sshfgJpQAA1H1bkmsUTeA74GJBj6Z/A4kInu2vOk=; b=r8oXumZrna6qW1
-	XdVMXBbPjrkPnQHW9bxHXX3ysPJcqJa1G77tXQKpuZ3z0ahvBE9UpHfEy8jPjMRVxDA0njK60cxC+
-	FsBOFaYJxTTb2zwp0EQv7rvNODxEHVEo1LZyiD0pw1RUI/XVtxOFIl2EpVetoleJMO6TADFPBvzOt
-	yXOVqGCiRt6bw9vV8EhRtyoZWnjF/2Q8mWPM5HEzuu6ni/EEFWvgIZSq+sFxoC9B32tkDVFYecCS/
-	Cj3GQFLzYwg3n39cqaKpoKs7OezXc9ddp0Op06x3YE2ErkwGftiW0CGlcN8lxdKJmA6s9pvGKvds9
-	1VeOX/IdIsKayzPbVRsA==;
+	List-Owner; bh=h54OmUngA0BNBF3besQyLzIm3r1j6TCc1PUwHMGivK4=; b=e4q9A5QRbaTaki
+	srt1prMLYEs8hMJHRUf5HmMSWgFZEDx0/XCJ0/Omy/oBmETk8qQ3WUxVIQ5Q/a6iODfWi+EUwnN9X
+	N5V9iF0i7JsxETaOlq6bSdgqrA/MVtb1yraTHseC8XqDoCpQZjiS/1H5tFh4aT0A1FcbJRxc30KRr
+	z3m76IKO+7UVp7X0w1/bIkZlJj2+VDjy29yC23h1GtcITJKv0qfC9JV8wFY8Jxjhz/U2Geo14gmb6
+	CT1M2utnKQNlzFN7nOveVp6RHybpz+xoYYUbAvx+S3M1XmG2cl4pGWTCB9ZPpBOJkCaGMdMYvvhy0
+	Yg+RcFW8Nai0D6RB207A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lnOds-009tr3-Az; Sun, 30 May 2021 16:50:24 +0000
+	id 1lnOdm-009tpE-Gv; Sun, 30 May 2021 16:50:18 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lnOdp-009tq7-0H
- for linux-riscv@lists.infradead.org; Sun, 30 May 2021 16:50:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9459D61027;
- Sun, 30 May 2021 16:50:18 +0000 (UTC)
+ id 1lnOdk-009toZ-2G
+ for linux-riscv@lists.infradead.org; Sun, 30 May 2021 16:50:17 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id DAB57611EE;
+ Sun, 30 May 2021 16:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622393420;
- bh=7QeWtBcpmgX2h1U9CSCvY1o63rcwMf7sxdiWDnALUwM=;
+ s=k20201202; t=1622393415;
+ bh=0HrILH6BshJfMkD9I3tL+9zxsVQ6ho2ivjftGmjwtWY=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=qJoAYQlWEwdM35MRPZa8cvx3sFeawkf+1sbNxYZ5uetxWas7b4pr3b4EHhsdFEBbZ
- Vqn67zpyeTosp8e/ajzAQvCcnihdg3LaxejLHP4pLn/Nmvyo0VAGCqKanWdYZZtPDc
- 219NJL9B2Gi9WXvDENZ4ZknONDSGW7uXNOrHhUbqsNQZ8AuHkaqTNyGGd0XTzokZ/S
- WawAns5UQiJf+gJhoAjNeSXjIbLX1XN2FQeI5de6cyDP/EwvzI/KNZRFG9KoyHjD+g
- biE9rbnoiGfZjs3XTau61B7hhhrlNyL0HJvYkmeApwRLl3HnWVI/7d5su34RBhZVjJ
- RxqWgQTiUgxpg==
+ b=lGnmdIQX5/lR/bejxMh7tJmE7UZ+MI9rOdcdqtoxHKFS+WHPubf3I2WPl3MH+VwF8
+ YT6OZRMK4dsErIpby31is3DMgtVvoZDkTycAgIlAMD8X/KrUeC3GSCzpzUFkBQS81e
+ ttdoqbb0P5Vmh486kvmiZw4MG5KqToKxVQCFTPR9sgwF053MZ9B64TzJvTPU8izK2v
+ LWLdvN7gcfGYbY5eIHgU3ukOanRhInO6tcMNhYBnof6sJ1yKHOmDH9hNa56MV/wBgw
+ rG5XWP+1pVQ+jt6nINM57mnq/WlVHfYDvDc9Fx6+bso2BJhITIziSE8daBXkBuN9Jb
+ Wk0ib9pMVzx1w==
 From: guoren@kernel.org
 To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
  arnd@arndb.de, hch@lst.de
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Atish Patra <atish.patra@wdc.com>
-Subject: [PATCH V5 3/3] riscv: tlbflush: Optimize coding convention
-Date: Sun, 30 May 2021 16:49:26 +0000
-Message-Id: <1622393366-46079-4-git-send-email-guoren@kernel.org>
+ linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V5 1/3] riscv: Use global mappings for kernel pages
+Date: Sun, 30 May 2021 16:49:24 +0000
+Message-Id: <1622393366-46079-2-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1622393366-46079-1-git-send-email-guoren@kernel.org>
 References: <1622393366-46079-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210530_095021_123537_A7A69250 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20210530_095016_150199_FB3C034D 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,157 +82,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Passing the mm_struct as the first argument, as we can derive both
-the cpumask and asid from it instead of doing that in the callers.
+We map kernel pages into all addresses space, so they can be marked as
+global. This allows hardware to avoid flushing the kernel mappings when
+moving between address spaces.
 
-But more importantly, the static branch check can be moved deeper
-into the code to avoid a lot of duplication.
-
-Also add FIXME comment on the non-ASID code switches to a global
-flush once flushing more than a single page.
-
-Link: https://lore.kernel.org/linux-riscv/CAJF2gTQpDYtEdw6ZrTVZUYqxGdhLPs25RjuUiQtz=xN2oKs2fw@mail.gmail.com/T/#m30f7e8d02361f21f709bc3357b9f6ead1d47ed43
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-Developed-by: Christoph Hellwig <hch@lst.de>
-Cc: Christoph Hellwig <hch@lst.de>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Anup Patel <anup.patel@wdc.com>
-Cc: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/mm/tlbflush.c | 91 ++++++++++++++++++++++--------------------------
- 1 file changed, 41 insertions(+), 50 deletions(-)
+ arch/riscv/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 87b4e52..facca6e 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -12,56 +12,59 @@ void flush_tlb_all(void)
- }
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 9469f46..346a3c6 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -134,7 +134,8 @@
+ 				| _PAGE_WRITE \
+ 				| _PAGE_PRESENT \
+ 				| _PAGE_ACCESSED \
+-				| _PAGE_DIRTY)
++				| _PAGE_DIRTY \
++				| _PAGE_GLOBAL)
  
- /*
-- * This function must not be called with cmask being null.
-+ * This function must not be called with mm_cpumask(mm) being null.
-  * Kernel may panic if cmask is NULL.
-  */
--static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
-+static void __sbi_tlb_flush_range(struct mm_struct *mm,
-+				  unsigned long start,
- 				  unsigned long size)
- {
-+	struct cpumask *cmask = mm_cpumask(mm);
- 	struct cpumask hmask;
- 	unsigned int cpuid;
-+	bool local;
- 
- 	if (cpumask_empty(cmask))
- 		return;
- 
- 	cpuid = get_cpu();
- 
--	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
--		/* local cpu is the only cpu present in cpumask */
--		if (size <= PAGE_SIZE)
--			local_flush_tlb_page(start);
--		else
--			local_flush_tlb_all();
--	} else {
--		riscv_cpuid_to_hartid_mask(cmask, &hmask);
--		sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
--	}
-+	/*
-+	 * check if the tlbflush needs to be sent to other CPUs, local
-+	 * cpu is the only cpu present in cpumask.
-+	 */
-+	local = !(cpumask_any_but(cmask, cpuid) < nr_cpu_ids);
- 
--	put_cpu();
--}
--
--static void __sbi_tlb_flush_range_asid(struct cpumask *cmask,
--				       unsigned long start,
--				       unsigned long size,
--				       unsigned long asid)
--{
--	struct cpumask hmask;
--	unsigned int cpuid;
--
--	if (cpumask_empty(cmask))
--		return;
--
--	cpuid = get_cpu();
-+	if (static_branch_likely(&use_asid_allocator)) {
-+		unsigned long asid = atomic_long_read(&mm->context.id);
- 
--	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
--		if (size == -1)
--			local_flush_tlb_all_asid(asid);
--		else
--			local_flush_tlb_range_asid(start, size, asid);
-+		if (likely(local)) {
-+			if (size == -1)
-+				local_flush_tlb_all_asid(asid);
-+			else
-+				local_flush_tlb_range_asid(start, size, asid);
-+		} else {
-+			riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+			sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
-+						   start, size, asid);
-+		}
- 	} else {
--		riscv_cpuid_to_hartid_mask(cmask, &hmask);
--		sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
--					   start, size, asid);
-+		if (likely(local)) {
-+			/*
-+			 * FIXME: The non-ASID code switches to a global flush
-+			 * once flushing more than a single page. It's made by
-+			 * commit 6efb16b1d551 (RISC-V: Issue a tlb page flush
-+			 * if possible).
-+			 */
-+			if (size <= PAGE_SIZE)
-+				local_flush_tlb_page(start);
-+			else
-+				local_flush_tlb_all();
-+		} else {
-+			riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+			sbi_remote_sfence_vma(cpumask_bits(&hmask),
-+					      start, size);
-+		}
- 	}
- 
- 	put_cpu();
-@@ -69,28 +72,16 @@ static void __sbi_tlb_flush_range_asid(struct cpumask *cmask,
- 
- void flush_tlb_mm(struct mm_struct *mm)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(mm), 0, -1,
--					   atomic_long_read(&mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
-+	__sbi_tlb_flush_range(mm, 0, -1);
- }
- 
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE,
--					   atomic_long_read(&vma->vm_mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
-+	__sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE);
- }
- 
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), start, end - start,
--					   atomic_long_read(&vma->vm_mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
-+	__sbi_tlb_flush_range(vma->vm_mm, start, end - start);
- }
+ #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
+ #define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
 -- 
 2.7.4
 
