@@ -5,138 +5,92 @@ X-Spam-Level:
 X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 039B2C47082
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 12:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B044C47082
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 12:25:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A8B926124B
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 12:22:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8B926124B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=xilinx.com
+	by mail.kernel.org (Postfix) with ESMTPS id 33DD0610C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 12:25:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33DD0610C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=monstr.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=4QlRJFqramJKeIVPz/pE34+xZCgqFmdx8DaAExUThe0=; b=CpbrzJGfd8K5/HgOOCVJdI0N/q
-	+Q5PgE7O6E0lboBezjCtSLNuIuP+k5QsPvOoLCWxMB7baaqRnX6JksF976e+zdY7bFe6yAxW++78f
-	QmgKub42sjIUnIcpgWqSdZe2bui1LfCejS4ZMLcI4K0OLIaaHLrsPP/kk0fkEMig/ep3ngbBqvpGy
-	+xoiRpK9eW8N8RtPXxHJ38L7S2TQ55wDrHyme9ve4fPkx4UBDxs/6R5d40Gs9dUgEBhJm1p3kryn0
-	kcs9r7F8s94EZoi8kB1PONBJjjnRMJKVUySWHZ5NF45qHLsTxw2NoK9vxrmE16Sstx0g4TceIdfOt
-	mFeBvZnA==;
+	bh=abKla0QHHfp7P482S9Sxk3VmpZSYvJQDuIQ6IzGL1sw=; b=EEWzlL3IxLNaOnAGMrcB0EIBFf
+	b8B3W1bVZNWCIDpZP2Ksi2VIOnik9/POwDI32ohse71WaraA6XVft8wsCKgwuwc1U1wNkzSDB7Wuk
+	C6+2fuqhS7K2tKoBP/4ZHz/QUrgEGnkLrbY4+ifFQMfmVONw4HIZVcGuvnTS1fqPVZ2XiAwp+tZYD
+	tmhyKd+EJVmaH+qzGjHcG3mwP8OwFVItUve51U5PkTjjM+m+DSXwMRSGy35a9sUw5aducca5n0mDa
+	OQFRoPXdRPcx4RwMzvgc2tuvbHZwPKg6z2ZCAL9Fhaag1gpaDuX3XXlbtZtCyVVjVkbPRTKMY+Br7
+	823LAAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lngwF-00C8dm-QR; Mon, 31 May 2021 12:22:35 +0000
-Received: from mail-dm6nam12on2049.outbound.protection.outlook.com
- ([40.107.243.49] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1lngye-00C97u-6b; Mon, 31 May 2021 12:25:04 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lngwC-00C8c7-Nm; Mon, 31 May 2021 12:22:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kNyhJTsf3pt/r/xJamo8CmEEtQ8PlpqlrxZtKV5/KRLbtROS00ndhXthrfTfEoU6o+TNla6Vsb0DxOAX2W2MF1aFmFC8hWk32XilicD576FX+GiikXXlq4Ng97l1O6bEaEotS5Jyvag5ypgZT/etcvPLK0PRf/sQKl/GytEg6c7A2TE9wtQE54O62y0Q474ijklDi9SC/qpS8krJW58Ki4ZEtmzNYCVWmUgpjmEP2uv/xrfEhSyIIwb9/m8rfObocwMivDjkrZ/IKbPFurOagXJMbAxlfNp+RI8KR6hQq7mq7u0L3w9uhZ8iljB5FCPMwPCLOkTrVyAlYEg1PSfqgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oS/QsdVDIzT8OPpGE0MNvbxd3Px81tbH99R4M1X8mI4=;
- b=Yix4qG2hYTGUGcJ+mGjY1jE1NdEiAFJmHnna7HSKhFhhm1gD1/5cN7/M/IBbj/8H9xtG4LJ7vf1ZspJwYrVE4Zm+bkUQGtm83riuo5NB+RGMeVT3uYUnaXiAKvG2Qu+9mun6xFJaGzoO41FU5JtdR4nvxXRMOqrpXuHpGiO4L7T1eXK3vogFdIcF2Yi2JQnOJAWW27TgqdeY+pgqsZk3jwwDE5jkv0XV3pIIVvX44rQsrMuK4b1xDWbxr225KYvW4c+yL4ejoP4Ayz0yVjL35iOdE50NA5VoVHbPBKUvPno1udw4NOt8YjmytvQR4Mim3SZwe6j3ZCSBlandRMRUeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 149.199.62.198) smtp.rcpttodomain=linux.ibm.com smtp.mailfrom=xilinx.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=xilinx.com;
- dkim=none (message not signed); arc=none
+ id 1lngyb-00C96j-VJ
+ for linux-riscv@lists.infradead.org; Mon, 31 May 2021 12:25:03 +0000
+Received: by mail-ej1-x633.google.com with SMTP id g20so956772ejt.0
+ for <linux-riscv@lists.infradead.org>; Mon, 31 May 2021 05:25:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=xilinx.onmicrosoft.com; s=selector2-xilinx-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oS/QsdVDIzT8OPpGE0MNvbxd3Px81tbH99R4M1X8mI4=;
- b=tULRj4D3zOCR1er2uvUfkkrbShd4TaZRYh0jXOpFcN/hDc/e1uYNNdjsszseyAjuS7yP0KJCI16H+wf+f8igyfyp++uOl0XCH38sZ9X8MJJ7XS4nbZnvjCnehTvyWmBseA2+iMCNhRnI/ZfApdT6zkQkH3Nk+z/m69D7w2R/d3Y=
-Received: from BN6PR14CA0048.namprd14.prod.outlook.com (2603:10b6:404:13f::34)
- by CH2PR02MB6454.namprd02.prod.outlook.com (2603:10b6:610:10::28)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4173.27; Mon, 31 May
- 2021 12:22:28 +0000
-Received: from BN1NAM02FT018.eop-nam02.prod.protection.outlook.com
- (2603:10b6:404:13f:cafe::63) by BN6PR14CA0048.outlook.office365.com
- (2603:10b6:404:13f::34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4173.20 via Frontend
- Transport; Mon, 31 May 2021 12:22:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 149.199.62.198)
- smtp.mailfrom=xilinx.com; linux.ibm.com; dkim=none (message not signed)
- header.d=none;linux.ibm.com; dmarc=pass action=none header.from=xilinx.com;
-Received-SPF: Pass (protection.outlook.com: domain of xilinx.com designates
- 149.199.62.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=149.199.62.198; helo=xsj-pvapexch01.xlnx.xilinx.com;
-Received: from xsj-pvapexch01.xlnx.xilinx.com (149.199.62.198) by
- BN1NAM02FT018.mail.protection.outlook.com (10.13.3.159) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.4150.30 via Frontend Transport; Mon, 31 May 2021 12:22:28 +0000
-Received: from xsj-pvapexch02.xlnx.xilinx.com (172.19.86.41) by
- xsj-pvapexch01.xlnx.xilinx.com (172.19.86.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Mon, 31 May 2021 05:22:27 -0700
-Received: from smtp.xilinx.com (172.19.127.96) by
- xsj-pvapexch02.xlnx.xilinx.com (172.19.86.41) with Microsoft SMTP Server id
- 15.1.2176.2 via Frontend Transport; Mon, 31 May 2021 05:22:27 -0700
-Received: from [172.30.17.109] (port=59010)
- by smtp.xilinx.com with esmtp (Exim 4.90)
- (envelope-from <michal.simek@xilinx.com>)
- id 1lngw6-0007Re-TG; Mon, 31 May 2021 05:22:27 -0700
-Subject: Re: [PATCH v2] mm: generalize ZONE_[DMA|DMA32]
-To: Kefeng Wang <wangkefeng.wang@huawei.com>, Andrew Morton
- <akpm@linux-foundation.org>
-CC: <linux-alpha@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-ia64@vger.kernel.org>, <linux-m68k@lists.linux-m68k.org>,
- <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
- <sparclinux@vger.kernel.org>, <linux-mm@kvack.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "David S. Miller" <davem@davemloft.net>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Palmer Dabbelt <palmer@dabbelt.com>, Richard
- Henderson <rth@twiddle.net>, Russell King <linux@armlinux.org.uk>, Mike
- Rapoport <rppt@linux.ibm.com>
-References: <20210527143047.123611-1-wangkefeng.wang@huawei.com>
- <20210528074557.17768-1-wangkefeng.wang@huawei.com>
-From: Michal Simek <michal.simek@xilinx.com>
-Message-ID: <67269724-625f-4e82-7c05-a52879bc94bd@xilinx.com>
-Date: Mon, 31 May 2021 14:22:21 +0200
+ d=monstr-eu.20150623.gappssmtp.com; s=20150623;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=FW9/91oXBy6Mao6g/WQyoqZ2VlX3RS8bSdK17yEcolU=;
+ b=zeFMi410XXFAIk92KbRPsYvamk9jNcjSYzFyz8hyv0j66nyXqVGZ4aXT/Arsdk+n6b
+ p+XBFg5deVkez/9/judkzj3agLMeWTzkV6E16U2qRIiwSAb5Qz55SwyoJ/duSxaPbJgL
+ PAg6n4Bp9XFLgye5mUrLlElxVEVgDYhwqbrhTL8a55aS24pNLB81o4THCiSjgaEu3wZq
+ /PDzRXmk95xZNY3BzOjI1fWPV6LhHoK0jwPSK//an3mA7QJK3RX3iVThcWyn42kRmnoV
+ wcnYPsgQ8EmJIJHQaoCqAOoByUOvyldnoc76L4FNZ7VwBC0iF+Wu5ti9fDYIkB0Te8ON
+ Cb2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=FW9/91oXBy6Mao6g/WQyoqZ2VlX3RS8bSdK17yEcolU=;
+ b=Xmbq/Vxm9TgBtRL9O1omlw5RkzXOZCtytRhtLiiuWJCWpxUIZgGDgEh2FvAH/C+r/W
+ w9pEkFp3esKbzk1KDILiZj74MUGdzRPht2c5eI6K8oM1Xj8OtuAo4gCsBYSXmEyQPTNH
+ 56i9F1z+VhpidpaV6bfqbhxIs7mCWtKUAJOvFf0b9E4HoyjS80EMgANOS9BfvYZg8DyW
+ FUTQZKTYvz90sLdz/2b5h4vl+LZpCQz8cuuJlycZBDLbPl3q5xAXGvj79tQlazUwQqT6
+ xLriN2ViXPHZ7tAd/yJkOmwizruB4epACdw1a4jqxfriPnTAYkSut/qmuUwU5li8Wxdj
+ 9gHg==
+X-Gm-Message-State: AOAM5303tz5KWyKfBhmim3BLE2/HImGwh5mlwQT+PXY5CEObadCSiE8r
+ qVDl8jxpbPFJsas22y05Aa1yKw==
+X-Google-Smtp-Source: ABdhPJyDYlmkSLP3gas8rRrq3uvFjJoPBY9aCf31K4xNc/54kq9YOxBqvPi2P0P04x4KlgfPdlQgsg==
+X-Received: by 2002:a17:906:5d0c:: with SMTP id
+ g12mr22408401ejt.447.1622463899056; 
+ Mon, 31 May 2021 05:24:59 -0700 (PDT)
+Received: from ?IPv6:2a02:768:2307:40d6::45a? ([2a02:768:2307:40d6::45a])
+ by smtp.gmail.com with ESMTPSA id b22sm1235904eds.71.2021.05.31.05.24.58
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 31 May 2021 05:24:58 -0700 (PDT)
+Subject: Re: [PATCH V2 2/2] microblaze: Cleanup unused functions
+To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
+ arnd@arndb.de
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <1622350408-44875-1-git-send-email-guoren@kernel.org>
+ <1622350408-44875-3-git-send-email-guoren@kernel.org>
+From: Michal Simek <monstr@monstr.eu>
+Message-ID: <73bf48c1-6692-795c-ba16-b7baeb11d3b9@monstr.eu>
+Date: Mon, 31 May 2021 14:24:57 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.10.2
 MIME-Version: 1.0
-In-Reply-To: <20210528074557.17768-1-wangkefeng.wang@huawei.com>
+In-Reply-To: <1622350408-44875-3-git-send-email-guoren@kernel.org>
 Content-Language: en-US
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 527071dd-5cb3-4563-fdf7-08d9242ec17c
-X-MS-TrafficTypeDiagnostic: CH2PR02MB6454:
-X-Microsoft-Antispam-PRVS: <CH2PR02MB64548E9C7BA43828A70BB99EC63F9@CH2PR02MB6454.namprd02.prod.outlook.com>
-X-Auto-Response-Suppress: DR, RN, NRN, OOF, AutoReply
-X-MS-Oob-TLC-OOBClassifiers: OLM:1148;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: J/pg3xWFq6y3RPjkPGOiLaLW9Wji9CdPTwNTWe9CaVsvRMWZMMj6QBjCcA77bEYBz9I5D+0zqiF2j8dQaEYAM4CcAI4qrpZtICpeIr5a0Z29sxH5bnGkAyJw3+iyyumdB8VyXziwywdDNwR0zc0Y04Wvm7dDira4ALIlBSKvhjkdhlqN5BPsu6GSpQv7qM0fGXaUK7HzfrklLidpcbtLiFQB4Gha0XPPDwXKQSRFPHJpLzppjEq77Z8SwlIUVeIoXBy4L5jA2yaNbEWUQMIce7ai+aXSIqSYro0ECe1OLB4zunQBtZ/H3ivgTQJRIPSioqMRyG75cKmPx50ZpTo+xVZUKwlWR6nLBDRHjMm1w66izC/EGbNH/POi8bjCmJiNsroTdxvjP1kK7WK+aAQzl6BkZzp8OCWkp3ZRJnsnevlr4xBuCb+Yb4zz9BuRHxD6zDco6DWQctQDOzeJc9jfSmCboq4rc93kdFU29DcCJsMXZMP6+o+vnByrm99B54RyUSPMlIPwft5iFt93pFnT2pl+aWfhqkPlvdSKtQ10XfypwmdZ+H6rpW+QxovZRHSimxf/xMTPFTptFzpvJjNlTgFCr4DJ5nYpCOJaxR5cec5b1t0vXm4HGbnCsu51jBCO7kSwr+2PBzihAGNm4/y2r617R4UHhcrt8boxg+AFqnAIpNZtJW0hr9uQzXXimWaKGAcID2PgXhcyd6vcXBD4wKnw/F4fhvn9oLO8rGnGi6I=
-X-Forefront-Antispam-Report: CIP:149.199.62.198; CTRY:US; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:xsj-pvapexch01.xlnx.xilinx.com;
- PTR:unknown-62-198.xilinx.com; CAT:NONE;
- SFS:(4636009)(396003)(39860400002)(136003)(346002)(376002)(46966006)(36840700001)(5660300002)(53546011)(426003)(2906002)(9786002)(47076005)(7416002)(36756003)(31696002)(2616005)(83380400001)(36860700001)(336012)(44832011)(4326008)(6666004)(70206006)(8936002)(316002)(8676002)(31686004)(70586007)(54906003)(356005)(7636003)(26005)(82740400003)(110136005)(478600001)(186003)(82310400003)(50156003)(83133001)(43740500002);
- DIR:OUT; SFP:1101; 
-X-OriginatorOrg: xilinx.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 May 2021 12:22:28.1446 (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 527071dd-5cb3-4563-fdf7-08d9242ec17c
-X-MS-Exchange-CrossTenant-Id: 657af505-d5df-48d0-8300-c31994686c5c
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=657af505-d5df-48d0-8300-c31994686c5c; Ip=[149.199.62.198];
- Helo=[xsj-pvapexch01.xlnx.xilinx.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1NAM02FT018.eop-nam02.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR02MB6454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210531_052232_817983_6F69592F 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20210531_052502_041129_C88AE0EE 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,188 +109,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 5/28/21 9:45 AM, Kefeng Wang wrote:
-> ZONE_[DMA|DMA32] configs have duplicate definitions on platforms
-> that subscribe them. Instead, just make them generic options which
-> can be selected on applicable platforms.
+On 5/30/21 6:53 AM, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Also only x86/arm64 architectures could enable both ZONE_DMA and
-> ZONE_DMA32 if EXPERT, add ARCH_HAS_ZONE_DMA_SET to make dma zone
-> configurable and visible on the two architectures.
+> These functions haven't been used, so just remove them. The patch
+> just uses grep to verify.
 > 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Richard Henderson <rth@twiddle.net>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com> # for arm64
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # for m68k
-> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Michal Simek <monstr@monstr.eu>
 > ---
-> v2:
-> -i386 can't enable ZONE_DMA32, fix it.
-> -make ZONE_DMA default y on X86 as before.
-> -collect ACKs
+>  arch/microblaze/include/asm/page.h | 3 ---
+>  1 file changed, 3 deletions(-)
 > 
->  arch/alpha/Kconfig                     |  5 +----
->  arch/arm/Kconfig                       |  3 ---
->  arch/arm64/Kconfig                     |  9 +--------
->  arch/ia64/Kconfig                      |  4 +---
->  arch/m68k/Kconfig                      |  5 +----
->  arch/microblaze/Kconfig                |  4 +---
->  arch/mips/Kconfig                      |  7 -------
->  arch/powerpc/Kconfig                   |  4 ----
->  arch/powerpc/platforms/Kconfig.cputype |  1 +
->  arch/riscv/Kconfig                     |  5 +----
->  arch/s390/Kconfig                      |  4 +---
->  arch/sparc/Kconfig                     |  5 +----
->  arch/x86/Kconfig                       | 15 ++-------------
->  mm/Kconfig                             | 12 ++++++++++++
->  14 files changed, 23 insertions(+), 60 deletions(-)
+> diff --git a/arch/microblaze/include/asm/page.h b/arch/microblaze/include/asm/page.h
+> index bf681f2..ce55097 100644
+> --- a/arch/microblaze/include/asm/page.h
+> +++ b/arch/microblaze/include/asm/page.h
+> @@ -35,9 +35,6 @@
+>  
+>  #define ARCH_SLAB_MINALIGN	L1_CACHE_BYTES
+>  
+> -#define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
+> -#define PAGE_DOWN(addr)	((addr)&(~((PAGE_SIZE)-1)))
+> -
+>  /*
+>   * PAGE_OFFSET -- the first address of the first page of memory. With MMU
+>   * it is set to the kernel start address (aligned on a page boundary).
 > 
-> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-> index 5998106faa60..6a69a14c4825 100644
-> --- a/arch/alpha/Kconfig
-> +++ b/arch/alpha/Kconfig
-> @@ -40,6 +40,7 @@ config ALPHA
->  	select MMU_GATHER_NO_RANGE
->  	select SET_FS
->  	select SPARSEMEM_EXTREME if SPARSEMEM
-> +	select ZONE_DMA
->  	help
->  	  The Alpha is a 64-bit general-purpose processor designed and
->  	  marketed by the Digital Equipment Corporation of blessed memory,
-> @@ -65,10 +66,6 @@ config GENERIC_CALIBRATE_DELAY
->  	bool
->  	default y
->  
-> -config ZONE_DMA
-> -	bool
-> -	default y
-> -
->  config GENERIC_ISA_DMA
->  	bool
->  	default y
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 24804f11302d..000c3f80b58e 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -218,9 +218,6 @@ config GENERIC_CALIBRATE_DELAY
->  config ARCH_MAY_HAVE_PC_FDC
->  	bool
->  
-> -config ZONE_DMA
-> -	bool
-> -
->  config ARCH_SUPPORTS_UPROBES
->  	def_bool y
->  
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 9f1d8566bbf9..42794474f37f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -42,6 +42,7 @@ config ARM64
->  	select ARCH_HAS_SYSCALL_WRAPPER
->  	select ARCH_HAS_TEARDOWN_DMA_OPS if IOMMU_SUPPORT
->  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
-> +	select ARCH_HAS_ZONE_DMA_SET if EXPERT
->  	select ARCH_HAVE_ELF_PROT
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
->  	select ARCH_INLINE_READ_LOCK if !PREEMPTION
-> @@ -307,14 +308,6 @@ config GENERIC_CSUM
->  config GENERIC_CALIBRATE_DELAY
->  	def_bool y
->  
-> -config ZONE_DMA
-> -	bool "Support DMA zone" if EXPERT
-> -	default y
-> -
-> -config ZONE_DMA32
-> -	bool "Support DMA32 zone" if EXPERT
-> -	default y
-> -
->  config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
->  	def_bool y
->  
-> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-> index 279252e3e0f7..fd8503a0088a 100644
-> --- a/arch/ia64/Kconfig
-> +++ b/arch/ia64/Kconfig
-> @@ -60,6 +60,7 @@ config IA64
->  	select NUMA if !FLATMEM
->  	select PCI_MSI_ARCH_FALLBACKS if PCI_MSI
->  	select SET_FS
-> +	select ZONE_DMA32
->  	default y
->  	help
->  	  The Itanium Processor Family is Intel's 64-bit successor to
-> @@ -72,9 +73,6 @@ config 64BIT
->  	select ATA_NONSTANDARD if ATA
->  	default y
->  
-> -config ZONE_DMA32
-> -	def_bool y
-> -
->  config MMU
->  	bool
->  	default y
-> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-> index 372e4e69c43a..05a729c6ad7f 100644
-> --- a/arch/m68k/Kconfig
-> +++ b/arch/m68k/Kconfig
-> @@ -34,6 +34,7 @@ config M68K
->  	select SET_FS
->  	select UACCESS_MEMCPY if !MMU
->  	select VIRT_TO_BUS
-> +	select ZONE_DMA
->  
->  config CPU_BIG_ENDIAN
->  	def_bool y
-> @@ -62,10 +63,6 @@ config TIME_LOW_RES
->  config NO_IOPORT_MAP
->  	def_bool y
->  
-> -config ZONE_DMA
-> -	bool
-> -	default y
-> -
->  config HZ
->  	int
->  	default 1000 if CLEOPATRA
-> diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
-> index 0660f47012bc..14a67a42fcae 100644
-> --- a/arch/microblaze/Kconfig
-> +++ b/arch/microblaze/Kconfig
-> @@ -43,6 +43,7 @@ config MICROBLAZE
->  	select MMU_GATHER_NO_RANGE
->  	select SPARSE_IRQ
->  	select SET_FS
-> +	select ZONE_DMA
->  
->  # Endianness selection
->  choice
-> @@ -60,9 +61,6 @@ config CPU_LITTLE_ENDIAN
->  
->  endchoice
->  
-> -config ZONE_DMA
-> -	def_bool y
-> -
->  config ARCH_HAS_ILOG2_U32
->  	def_bool n
->  
 
+Ah ok. you have sent v2. Will take this version instead of previous one.
 
-Acked-by: Michal Simek <michal.simek@xilinx.com> # for MB
-
+Thanks,
 Michal
+
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
+
 
 _______________________________________________
 linux-riscv mailing list
