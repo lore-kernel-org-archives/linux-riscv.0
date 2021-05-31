@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E9FE5C4708F
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 06:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97849C47082
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 06:37:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 743EA61002
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 06:34:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 743EA61002
+	by mail.kernel.org (Postfix) with ESMTPS id 558DD61108
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 06:37:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 558DD61108
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,38 +23,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJcUjmEUipLUNzGxqPH/xMqKsBmoMpVVTv+wKGiwUy0=; b=yrxu3NPWWF6aCO
-	cOWgjJE3B8LOgih/S8R6Ex5zVIG65iyHNaMUdcs4tCSg/IlDwihWj4o1/vGimOw9ITH/6KB8G+94Q
-	j11JM67y2w+V2aXA1mmTqqcFjrIsxO3uHUivuoIWci4Kz8x7im+0hUD695b4h+U/PgsYmk5bkBJlm
-	h26N7TuXX9VDtB62Zl97dGhhPeJ5XxjqdkI2Z3gc1PJN+SbIJmALKhrMBXBSFRPvwEuH5LH32k8DX
-	2ylM96CPZu7JyRq0S6r8hiaNQnBfbtK7mX1nANluz0gr2UrEYZdK5+evG44qxnLnE0m6dhq9C9XMS
-	cOReVwWwlffLLVb34tvQ==;
+	List-Owner; bh=mIVnKqUZ+PC6TB3k88ZHE25ucRI4NJQEULPLuOmMhUQ=; b=0mLvzkkNG1p3t3
+	kp5Cput1svdzZWL1guXyrvHVkDBHXFKFq/BHuqyEZ1c144EcD9dNdueUHN7hb7k3lf7xyAa0f1E86
+	Jmx7suMQRgvrZd7u63falV/03l1pPenB+j8lIGwTX0kS+WD0b0uymqQF2M0L828jEV85+sW7qBz6Z
+	MZZg4Gvpi9pBHkfjoENoxvamuJoSoCyC+Hf5tYqS4f78M7/V/dyMTob+zzRLW3Mc5UwuqUKHXYT7l
+	mLQY8+r/WJVwBZxUb1xZdZwUZIM5CtXjYmnizDJB+/cXRruYkUT0St12m/K9mMtxWCq1mo1h5MU2a
+	GkLH1KiknXc9xuOd/Aig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lnbVG-00AyXx-Of; Mon, 31 May 2021 06:34:22 +0000
+	id 1lnbXr-00Ayqp-Du; Mon, 31 May 2021 06:37:03 +0000
 Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lnbVD-00AyXN-RQ
- for linux-riscv@lists.infradead.org; Mon, 31 May 2021 06:34:21 +0000
+ id 1lnbXp-00AyqG-0B
+ for linux-riscv@lists.infradead.org; Mon, 31 May 2021 06:37:02 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
- id 2603A67373; Mon, 31 May 2021 08:34:17 +0200 (CEST)
-Date: Mon, 31 May 2021 08:34:16 +0200
+ id 4B7F367373; Mon, 31 May 2021 08:36:58 +0200 (CEST)
+Date: Mon, 31 May 2021 08:36:58 +0200
 From: Christoph Hellwig <hch@lst.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: anup@brainfault.org, Christoph Hellwig <hch@lst.de>,
- pbonzini@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: remove unused SBI helpers and exports
-Message-ID: <20210531063416.GA1143@lst.de>
-References: <CAAhSdy1zYdEgAVtePY9weOvzbnZ86DupWzoUKSn3Q98FDt50Ng@mail.gmail.com>
- <mhng-76155150-9e67-4125-a970-d805d38c7831@palmerdabbelt-glaptop>
+To: palmerdabbelt@google.com
+Cc: Christoph Hellwig <hch@lst.de>, guoren@kernel.org,
+ Anup Patel <Anup.Patel@wdc.com>, Arnd Bergmann <arnd@arndb.de>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ guoren@linux.alibaba.com
+Subject: Re: [PATCH V4 2/2] riscv: Use use_asid_allocator flush TLB
+Message-ID: <20210531063658.GB1143@lst.de>
+References: <20210527070903.GA32653@lst.de>
+ <mhng-cfb5a043-4b59-4698-b732-5cf5ceb49114@palmerdabbelt-glaptop>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-76155150-9e67-4125-a970-d805d38c7831@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-cfb5a043-4b59-4698-b732-5cf5ceb49114@palmerdabbelt-glaptop>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210530_233420_060246_58F57298 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20210530_233701_215600_D0EC649B 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,20 +73,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 29, 2021 at 04:48:56PM -0700, Palmer Dabbelt wrote:
-> I know the general rule is to only take code with callers, but these are 
-> defined by the SBI so I figured we'd make everyone's lives a bit easier by 
-> just keeping them around.
+On Sat, May 29, 2021 at 04:42:37PM -0700, palmerdabbelt@google.com wrote:
+>>
+>> Also the non-ASID code switches to a global flush once flushing more
+>> than a single page.  It might be worth documenting the tradeoff in the
+>> code.
+>
+> For some reason I thought we'd written this down in the commentary of teh 
+> ISA manual as the suggested huersitic here, but I can't find it so maybe 
+> I'm wrong.  If it's actually there it would be good to point that out, 
+> otherwise some documentation seems fine as it'll probably become a tunable 
+> at some point anyway.
 
-Keeping unused code never helps anyone.  Adding code without any known
-users like some of the others is even worse.  And given that sbi_ecall
-is exported (and just a trivial inline asm wrapper) there is no point
-in having most of the helpers at all, but that is another story.
+The real question is why is the heuristic different for the ASID vs
+non-ASID case?  I think that really need a comment.
 
-So for now I'd suggest to merge my patch, and changing any new code
-to just use sbi_ecall instead of the remove wrappes as there is no
-point in bloating the core kernel with trivial wrappers only used by
-a single module.
+> LGTM.  I took the first one as IMO they're really distnict issues, LMK if 
+> you want to re-spin this one or if I should just take what's here.
+
+What distinct issue?  The fact that the new code is buggy and uses rather
+non-optimal calling conventions?
 
 _______________________________________________
 linux-riscv mailing list
