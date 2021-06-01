@@ -1,60 +1,81 @@
-Return-Path: <SRS0=ZKx/=K2=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=0g6C=K3=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2EC62C47082
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 15:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 38D32C47080
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 02:57:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 55035610A6
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 May 2021 15:18:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55035610A6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id ED7236135C
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 02:57:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED7236135C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWyTk4Sywaq2LUcdLuqZmCLO6qZbYIoygNQW5HGOltI=; b=JpO8gSfuNsFw/uv+LuJPZCx67F
-	uFbcX/84aL4yeCTR2c9g3JywoDzjqtm0DnonQimRFG0kUXAEHMzUrEiJ5X+dZdVnwKbPl1q8hgeJk
-	IFay1ue+irGv1iQP4hSk08d3SO35/bjxVJfZIW1VKC3bGmCNPZRuBgq03CRtt3GSHeyvvcOnlScPL
-	Rig8BWR5uMerqisgvY7KsSDWsOttCigEhyVXKopd0da1Gh+jw/BGn8GjO1T8pWOuxtSA1OImlB1EJ
-	eX4D3kd8iibLpdW3C5JEAXOrC+Q2smIaj+7zm6XxJvj/QR3I5TiNCU4cTxeAwd4n8uVzWwznZRj6s
-	ZDeJoGvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LBtcVN1q8DEsIm564jMVSv8vQdekND9mkhUicLgtBNY=; b=xFi1oO0cKxRVEC
+	plg5BqrL4fBs1AQZLhaPwWnumYAYUHvaWlgdwBZ3D8ncEG/JlWvYUZpJSrZDKopbz+she9grwMF4w
+	u1O9Gy9yAxlzpojXE6+wFWvTpQjjHrY9UwCFBs2l/Vtf4Fj5eRbA/o9s/lxnwrFI6QGltA45jdhgW
+	FLLI4MVof2ZTu80Fz25EtgnDYDVnWwf6xGioF2Ji5BbK+hL+ziOMcoZ0K4YP2BZLWxxwrCvj5RmaH
+	LIBq2JGMDxf/jpj9r6ypit30YicbWUyuvin+uj/IfC4a6rAmMBhluUQn4tgZeQRRX6FQZNr8uhotA
+	umeae36H34kxCOXs7FoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lnjfi-00CicM-AK; Mon, 31 May 2021 15:17:42 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1lnuaE-00EKs3-Iq; Tue, 01 Jun 2021 02:56:46 +0000
+Received: from ozlabs.org ([203.11.71.1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lnjfa-00Cibe-6U
- for linux-riscv@lists.infradead.org; Mon, 31 May 2021 15:17:35 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id DED5240009;
- Mon, 31 May 2021 15:17:25 +0000 (UTC)
-Subject: Re: [PATCH] riscv: xip: support runtime trap patching
-To: Vitaly Wool <vitaly.wool@konsulko.com>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Palmer Dabbelt <palmerdabbelt@google.com>,
- Nicolas Pitre <nico@fluxnic.net>
-References: <20210531085342.17494-1-vitaly.wool@konsulko.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <62961217-1733-eaa3-b072-cbb252620c9a@ghiti.fr>
-Date: Mon, 31 May 2021 17:17:25 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.2
+ id 1lnua1-00EKoG-0c; Tue, 01 Jun 2021 02:56:34 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 4FvGy61k79z9sWF;
+ Tue,  1 Jun 2021 12:56:13 +1000 (AEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ellerman.id.au;
+ s=201909; t=1622516184;
+ bh=iY7MeF5kJVTgb76PGSIe64N6mVxLFvLQ+P911N0MgIM=;
+ h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+ b=mgyJJS7Mpwj0xHxjTQUJCbxWXBqEpx7u6kJmlJrory1kepRlcJMq86u8b7CRC0TBx
+ 2eKAPApa1yyT+8Bx3Nq7xXqq+U0aoxEZ+zVk8LZNufbS19MjY54JklUeikWPo3saVu
+ rZYPlntAMlPhhFnF6Z4PsS/40mD9BayKN5dAP0deDvSFY91SZJGkqyvQLfTKpVKAj7
+ nHaMrjkuyFLjQPzypNJGHxewO6DV/mxxi6HJjuKa/Hbn4YkWBejjdidjhax1ODsJHB
+ 2xtaQQzhaLoYsK439xsAx0/uvUVbRJkkNCZEwtolQgis+ZjvEfMSx7TFq4rv4vlYtC
+ mKEDQ5CYN2DQw==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>, Andrew Morton
+ <akpm@linux-foundation.org>
+Cc: linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-mm@kvack.org, Kefeng Wang
+ <wangkefeng.wang@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "David S. Miller"
+ <davem@davemloft.net>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Palmer Dabbelt <palmer@dabbelt.com>, Richard Henderson
+ <rth@twiddle.net>, Russell King <linux@armlinux.org.uk>, Mike Rapoport
+ <rppt@linux.ibm.com>
+Subject: Re: [PATCH v2] mm: generalize ZONE_[DMA|DMA32]
+In-Reply-To: <20210528074557.17768-1-wangkefeng.wang@huawei.com>
+References: <20210527143047.123611-1-wangkefeng.wang@huawei.com>
+ <20210528074557.17768-1-wangkefeng.wang@huawei.com>
+Date: Tue, 01 Jun 2021 12:56:10 +1000
+Message-ID: <87k0negunp.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-In-Reply-To: <20210531085342.17494-1-vitaly.wool@konsulko.com>
-Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210531_081734_536210_AF5FF8B3 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20210531_195633_239102_DD33B5E0 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,138 +87,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vitaly,
-
-Le 31/05/2021 =E0 10:53, Vitaly Wool a =E9crit=A0:
-> RISCV_ERRATA_ALTERNATIVE patches text at runtime which is currently
-> not possible when the kernel is executed from the flash in XIP mode.
-> Since runtime patching concerns only traps at the moment, let's just
-> have all the traps reside in RAM anyway if RISCV_ERRATA_ALTERNATIVE
-> is set. Thus, these functions will be patch-able even when the .text
-> section is in flash.
-> =
-
-
-This sounds like a good fix for sifive platforms to work with XIP kernel =
-
-in 5.13: did you test that it actually works on HW?
-
-> Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
+Kefeng Wang <wangkefeng.wang@huawei.com> writes:
+> ZONE_[DMA|DMA32] configs have duplicate definitions on platforms
+> that subscribe them. Instead, just make them generic options which
+> can be selected on applicable platforms.
+>
+> Also only x86/arm64 architectures could enable both ZONE_DMA and
+> ZONE_DMA32 if EXPERT, add ARCH_HAS_ZONE_DMA_SET to make dma zone
+> configurable and visible on the two architectures.
+>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Richard Henderson <rth@twiddle.net>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com> # for arm64
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # for m68k
+> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->   arch/riscv/kernel/traps.c           | 13 +++++++++----
->   arch/riscv/kernel/vmlinux-xip.lds.S | 15 ++++++++++++++-
->   2 files changed, 23 insertions(+), 5 deletions(-)
-> =
+> v2:
+> -i386 can't enable ZONE_DMA32, fix it.
+> -make ZONE_DMA default y on X86 as before.
+> -collect ACKs
+>
+>  arch/alpha/Kconfig                     |  5 +----
+>  arch/arm/Kconfig                       |  3 ---
+>  arch/arm64/Kconfig                     |  9 +--------
+>  arch/ia64/Kconfig                      |  4 +---
+>  arch/m68k/Kconfig                      |  5 +----
+>  arch/microblaze/Kconfig                |  4 +---
+>  arch/mips/Kconfig                      |  7 -------
+>  arch/powerpc/Kconfig                   |  4 ----
+>  arch/powerpc/platforms/Kconfig.cputype |  1 +
 
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 0721b9798595..7bc88d8aab97 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -86,8 +86,13 @@ static void do_trap_error(struct pt_regs *regs, int si=
-gno, int code,
->   	}
->   }
->   =
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
-> +#if defined (CONFIG_XIP_KERNEL) && defined (CONFIG_RISCV_ERRATA_ALTERNAT=
-IVE)
-> +#define __trap_section		__section(".xip.traps")
-> +#else
-> +#define __trap_section
-> +#endif
-
-Maybe we could do something more generic. At the moment, only traps are =
-
-subject to alternatives but that will likely expand: what about rather =
-
-defining a section called __alternative_section?
-
->   #define DO_ERROR_INFO(name, signo, code, str)				\
-> -asmlinkage __visible void name(struct pt_regs *regs)			\
-> +asmlinkage __visible __trap_section void name(struct pt_regs *regs)	\
->   {									\
->   	do_trap_error(regs, signo, code, regs->epc, "Oops - " str);	\
->   }
-> @@ -111,7 +116,7 @@ DO_ERROR_INFO(do_trap_store_misaligned,
->   int handle_misaligned_load(struct pt_regs *regs);
->   int handle_misaligned_store(struct pt_regs *regs);
->   =
-
-> -asmlinkage void do_trap_load_misaligned(struct pt_regs *regs)
-> +asmlinkage void __trap_section do_trap_load_misaligned(struct pt_regs *r=
-egs)
->   {
->   	if (!handle_misaligned_load(regs))
->   		return;
-> @@ -119,7 +124,7 @@ asmlinkage void do_trap_load_misaligned(struct pt_reg=
-s *regs)
->   		      "Oops - load address misaligned");
->   }
->   =
-
-> -asmlinkage void do_trap_store_misaligned(struct pt_regs *regs)
-> +asmlinkage void __trap_section do_trap_store_misaligned(struct pt_regs *=
-regs)
->   {
->   	if (!handle_misaligned_store(regs))
->   		return;
-> @@ -146,7 +151,7 @@ static inline unsigned long get_break_insn_length(uns=
-igned long pc)
->   	return GET_INSN_LENGTH(insn);
->   }
->   =
-
-> -asmlinkage __visible void do_trap_break(struct pt_regs *regs)
-> +asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *r=
-egs)
->   {
->   #ifdef CONFIG_KPROBES
->   	if (kprobe_single_step_handler(regs))
-> diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmli=
-nux-xip.lds.S
-> index 4b29b9917f99..a3ff09c4c3f9 100644
-> --- a/arch/riscv/kernel/vmlinux-xip.lds.S
-> +++ b/arch/riscv/kernel/vmlinux-xip.lds.S
-> @@ -99,9 +99,22 @@ SECTIONS
->   	}
->   	PERCPU_SECTION(L1_CACHE_BYTES)
->   =
-
-> -	. =3D ALIGN(PAGE_SIZE);
-> +	. =3D ALIGN(8);
-> +	.alternative : {
-> +		__alt_start =3D .;
-> +		*(.alternative)
-> +		__alt_end =3D .;
-> +	}
->   	__init_end =3D .;
->   =
-
-> +	. =3D ALIGN(16);
-
-Why 16 here?
-
-> +	.xip.traps : {
-> +		__xip_traps_start =3D .;
-> +		*(.xip.traps)
-> +		__xip_traps_end =3D .;
-> +	}
-> +
-> +	. =3D ALIGN(PAGE_SIZE);
->   	.sdata : {
->   		__global_pointer$ =3D . + 0x800;
->   		*(.sdata*)
-> =
-
-
-Thanks,
-
-Alex
+cheers
 
 _______________________________________________
 linux-riscv mailing list
