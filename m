@@ -2,105 +2,94 @@ Return-Path: <SRS0=0g6C=K3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00A43C4708F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 15:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E1FCAC47080
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 15:49:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D8EC6128A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 15:01:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D8EC6128A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 9265B6136E
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Jun 2021 15:49:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9265B6136E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=b7TUg3ueOw27eOdFpB/w62M/3Gt9fDop4rA0rD+JZ7k=; b=ywPiAmTgzYjUKz
-	IClDt0Bcwnkzq8iH8sXkzBfqgwrju4Wahp2hZEUEddUlhGu9iZV5KgJlrOjOmtoHpiHqmmyOZ8Jow
-	hukDLXvF8sB/hGf8bFAOlMAAvHTXy/oxMXwZbXXJYXP2vzW/81xKNFM1LXkIzG+Y3tW3xjtz5Qwob
-	oGqqVtkUDdRRJi3wqp6PoJiJwExLWGp1e9uQsnSZgkWuZbcWsGSxI4QQb58YHV9TBVXokGIoFPs+I
-	74ug7IK55NK3gyDlitySQ3veSficGaR/0BNE0aLVnf4/OBiCQSePeZBZslaTQS54orxIOXP3vQpvt
-	CFcudIuQhHWWkde7u5aA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KCcVn4IvNjWSAAm87lPoUw+wBwWO+UEStiapyLRMSJM=; b=OzqM8IF8QAZijv
+	pWmOTlNprJTkPDo14VCoeCfeXxIZkThgpSSypbMnHVV2/oU7xl0R5HfWfZaQjPmoSnNDcL3sEqfzR
+	sFPpIXpPdhcxbuBxsPg8vHSkjD8KqyPx07pjhJDdwZxcicEMKwVD6K7+XdfTrVJ5dXOnrVy1rsvwx
+	qmin/DbMDJN090+qQrnix8agPTq2kQCvWkdoRyjkN43HXVX0rpSrxOUaxrW6NvndGkAJpO+CxwpBe
+	xjuEH9D1+oaR4jh0W4ggOdHLR4slzXhJG90AiUSj3kLZTqzBHtxFcO+9zSn8nEkRWQBGvfFxQQbSU
+	5lKsbs6s1ic//BabsJkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lo5st-00H46h-Av; Tue, 01 Jun 2021 15:00:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1lo6dC-00HJc7-Lw; Tue, 01 Jun 2021 15:48:38 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lo5sc-00H40D-F4
- for linux-riscv@lists.infradead.org; Tue, 01 Jun 2021 15:00:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1622559629;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=hAx+DmaU9psRUFpOWKzTpPgXBDLvmtbZVBLkZrWn7aA=;
- b=bz1W2R4Y+tfS8o/vPu1CRk/Z4ocU+fBRLakcvSQv/La2z84/LmJwkKwZpZ+venfv8jmijJ
- eTyTgxcPtLuWOlIElVnAo4f43MkC3AY/SIiiEqL5pwHmKANZ4dX4+j7Iuh11psnJXjeiUC
- u/XNgM+C1Ioea8CnUcVXHkVKyUVEkZM=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-478-Uxs8XjlNP0awGdy3Te_Ajg-1; Tue, 01 Jun 2021 11:00:28 -0400
-X-MC-Unique: Uxs8XjlNP0awGdy3Te_Ajg-1
-Received: by mail-wm1-f69.google.com with SMTP id
- r15-20020a05600c35cfb029017cc4b1e9faso1172559wmq.8
- for <linux-riscv@lists.infradead.org>; Tue, 01 Jun 2021 08:00:27 -0700 (PDT)
+ id 1lo6d2-00HJaC-7x
+ for linux-riscv@lists.infradead.org; Tue, 01 Jun 2021 15:48:31 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id n2so14925747wrm.0
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Jun 2021 08:48:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=eC+UrKQhZWSUaVlLIOHbE2SZuIqLpKwpAjPlNiir0JU=;
+ b=0AxqEwwW5wHG3WD/YtaoCu5nkw2aU09/TH9AdJxIAaz7K0+DWU+mL357PAJ0PqONEA
+ adkHGOl35fKbsI5UkFAwvfTlIfQ17TD0+pCo51yNX7BE+NXBpkYEhxQZCTRkHjEIhdxq
+ OziEP09RjJ1HVqcZgkiLYZaRFEiCvgzKbSva+8+gNAKgVhR8GMjyLynOU7rmkzRsZD8i
+ Z3qaUjQ88dIwOb2CcA3OKVM5+TDD74m1Xm0g1RTz6hryhmLqO9Uhw4MZzqoM9BYD6DHZ
+ Xsk1Obkh8UD6BV5LZ6Frprpq7lKGl+0z6WWX9IUJQs8Sdm89saQLAzatndvuF20A4rY5
+ Gxyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=hAx+DmaU9psRUFpOWKzTpPgXBDLvmtbZVBLkZrWn7aA=;
- b=QZfDTA3M8PLX/aGZR9o9kFg0489vEq8h7ayNo5IYOKBtR4fF2KRf5Js2UdDFYrImKB
- KbNDFTplYZv3KhYgA8mQoEkuI05jfTBXVjM5V3J7HGiq828V8o/647CFwMISCq6yDqvi
- slYTmwQKbmJVNqjR5a56P8IScCAndNhedVc8i3aDgyjRt3p4DxSobi1MoTnHzXfopoe5
- c0q5MBRpjsxPWQhl2zU1OH4APjZcYvDlGf6QpX4++vaJzJgK707R53jU0ahgjWrU0aHP
- fwCFP0m0L/8t65k4wPKNi3q37FztXcfJjPSdm3WNqmkUw/lMNbwTDxAltU2kwkTGR6KX
- o68Q==
-X-Gm-Message-State: AOAM531CWScyBiUt0IUGrKwE5mZ/mGxTRA6ajESP9uf176q0KDe+uhjc
- qFWHuPtOhyJ2FqKqAqEicMtTQd1qHzMDE3LlmZuFDQ/2YAlRpg7tQuz9v+9j+bbDcHYBZrFP8kh
- 9VSzUYYN2KzkV6MvCTA47VDO/o3na
-X-Received: by 2002:a1c:4606:: with SMTP id t6mr10455275wma.122.1622559623740; 
- Tue, 01 Jun 2021 08:00:23 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxb3gWNTGsicMh72TPTgarw80B3/Xgd3dh6bwU5R919OO11/15QK5NWgTLz4MJdZteAlri8Pg==
-X-Received: by 2002:a1c:4606:: with SMTP id t6mr10455243wma.122.1622559623491; 
- Tue, 01 Jun 2021 08:00:23 -0700 (PDT)
-Received: from minerva.redhat.com ([92.176.231.106])
- by smtp.gmail.com with ESMTPSA id h9sm18532656wmb.35.2021.06.01.08.00.22
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Jun 2021 08:00:22 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-riscv@lists.infradead.org, Daniel Vetter <daniel@ffwll.ch>,
- David Airlie <airlied@linux.ie>, Hans de Goede <hdegoede@redhat.com>,
- Peter Robinson <pbrobinson@gmail.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org,
- Javier Martinez Canillas <javierm@redhat.com>
-Subject: [PATCH v2 2/2] drivers/firmware: consolidate EFI framebuffer setup
- for all arches
-Date: Tue,  1 Jun 2021 17:00:17 +0200
-Message-Id: <20210601150017.774363-1-javierm@redhat.com>
-X-Mailer: git-send-email 2.31.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=eC+UrKQhZWSUaVlLIOHbE2SZuIqLpKwpAjPlNiir0JU=;
+ b=bzYBBJSU2PO9oqjnac0VERt0tXNPL5qroF/OWTgiHsDjV8QWtFBWd9klQYspxCZbaI
+ cv0xEdztGw8XVZuZY3Ac/Q5dSKbnnXxmcqchIDuqd93SATFspiJo5KjVZb/GzEv8tECj
+ FtVOun+l0ckp8m0etMBuTDPDtwOoGkqyNE/ztOe1lYRvaS9B06fMBVcjssKkj9rOQnv5
+ /+JI1Ik1TFHVRDoibASRTUMl0Y1Wz+CTbZn2sf9V0366VkflM/C5poCf4VeEnFhBmQHC
+ m4vv5QUhJM9ej6x+mOqfQ/rGGGKAlcyHz8SsKs9594hKuoXl6WcK1I8qmz8kcBHdi3ex
+ x7xA==
+X-Gm-Message-State: AOAM532rFuoyh6pAW4zsoVpqq7zaLJhpKU0o0H9GoOmtnlWVuudJ+asF
+ /IR59n07NJcazs4HDp03yfSUvdoinckmf+DvW3Wqc6OZ213tlQ==
+X-Google-Smtp-Source: ABdhPJwY9n7Q6jCH3ioGvKgpxRGVG84Fg38lXR4RcahBbmtiASKBfrwKypms9mEim6yctafzoHI2WbVnYgzK+64C6HU=
+X-Received: by 2002:a5d:6b81:: with SMTP id n1mr17721015wrx.144.1622562505594; 
+ Tue, 01 Jun 2021 08:48:25 -0700 (PDT)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=javierm@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+References: <20210528184405.1793783-1-atish.patra@wdc.com>
+ <20210528184405.1793783-7-atish.patra@wdc.com>
+ <20210601131034.j423a2acw5nxuo6g@toster>
+In-Reply-To: <20210601131034.j423a2acw5nxuo6g@toster>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 1 Jun 2021 21:18:13 +0530
+Message-ID: <CAAhSdy0uVVyyY=ZC=OcUY9t78rDBvhZ3zJHiiOgfwcXvLLnX0Q@mail.gmail.com>
+Subject: Re: [RFC v2 6/7] RISC-V: Add perf platform driver based on SBI PMU
+ extension
+To: Stanislaw Kardach <kda@semihalf.com>
+Cc: Atish Patra <atish.patra@wdc.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Anup Patel <anup.patel@wdc.com>, bpf@vger.kernel.org, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, 
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Nick Kossifidis <mick@ics.forth.gr>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Alan Kao <alankao@andestech.com>, Nick Hu <nickhu@andestech.com>, 
+ Vincent Chen <vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210601_080030_692129_8E679A96 
-X-CRM114-Status: GOOD (  33.99  )
+X-CRM114-CacheID: sfid-20210601_084828_418964_CFD187AF 
+X-CRM114-Status: GOOD (  31.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,567 +106,675 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The register_gop_device() function registers an "efi-framebuffer" platform
-device to match against the efifb driver, to have an early framebuffer for
-EFI platforms.
+On Tue, Jun 1, 2021 at 6:40 PM Stanislaw Kardach <kda@semihalf.com> wrote:
+>
+> On Fri, May 28, 2021 at 11:44:04AM -0700, Atish Patra wrote:
+> > RISC-V SBI specification added a PMU extension that allows to configure
+> > /start/stop any pmu counter. The RISC-V perf can use most of the generic
+> > perf features except interrupt overflow and event filtering based on
+> > privilege mode which will be added in future.
+> >
+> > It also allows to monitor a handful of firmware counters that can provide
+> > insights into firmware activity during a performance analysis.
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > ---
+> >  drivers/perf/Kconfig         |   8 +
+> >  drivers/perf/Makefile        |   1 +
+> >  drivers/perf/riscv_pmu.c     |   2 +
+> >  drivers/perf/riscv_pmu_sbi.c | 537 +++++++++++++++++++++++++++++++++++
+> >  4 files changed, 548 insertions(+)
+> >  create mode 100644 drivers/perf/riscv_pmu_sbi.c
+> >
+> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> > index 1546a487d970..2acb5feaab35 100644
+> > --- a/drivers/perf/Kconfig
+> > +++ b/drivers/perf/Kconfig
+> > @@ -73,6 +73,14 @@ config RISCV_PMU_LEGACY
+> >         implementation on RISC-V based systems. This only allows counting
+> >         of cycle/instruction counter and will be removed in future.
+> >
+> > +config RISCV_PMU_SBI
+> > +     depends on RISCV_PMU
+> > +     bool "RISC-V PMU based on SBI PMU extension"
+> > +     default y
+> > +     help
+> > +       Say y if you want to use the CPU performance monitor
+> > +       using SBI PMU extension on RISC-V based systems.
+> > +
+> >  config ARM_PMU_ACPI
+> >       depends on ARM_PMU && ACPI
+> >       def_bool y
+> > diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+> > index e8aa666a9d28..7bcac4b5a983 100644
+> > --- a/drivers/perf/Makefile
+> > +++ b/drivers/perf/Makefile
+> > @@ -13,6 +13,7 @@ obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
+> >  obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
+> >  ifeq ($(CONFIG_RISCV_PMU), y)
+> >  obj-$(CONFIG_RISCV_PMU_LEGACY) += riscv_pmu_legacy.o
+> > +obj-$(CONFIG_RISCV_PMU_SBI) += riscv_pmu_sbi.o
+> >  endif
+> >  obj-$(CONFIG_THUNDERX2_PMU) += thunderx2_pmu.o
+> >  obj-$(CONFIG_XGENE_PMU) += xgene_pmu.o
+> > diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> > index c184aa50134d..596af3a40948 100644
+> > --- a/drivers/perf/riscv_pmu.c
+> > +++ b/drivers/perf/riscv_pmu.c
+> > @@ -15,6 +15,8 @@
+> >  #include <linux/printk.h>
+> >  #include <linux/smp.h>
+> >
+> > +#include <asm/sbi.h>
+> > +
+> >  static unsigned long csr_read_num(int csr_num)
+> >  {
+> >  #define switchcase_csr_read(__csr_num, __val)                {\
+> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> > new file mode 100644
+> > index 000000000000..80dd1de428c4
+> > --- /dev/null
+> > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > @@ -0,0 +1,537 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * RISC-V performance counter support.
+> > + *
+> > + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> > + *
+> > + * This code is based on ARM perf event code which is in turn based on
+> > + * sparc64 and x86 code.
+> > + */
+> > +
+> > +#include <linux/mod_devicetable.h>
+> > +#include <linux/perf/riscv_pmu.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#include <asm/sbi.h>
+> > +
+> > +union sbi_pmu_ctr_info {
+> > +     unsigned long value;
+> > +     struct {
+> > +             unsigned long csr:12;
+> > +             unsigned long width:6;
+> > +#if __riscv_xlen == 32
+> > +             unsigned long reserved:13;
+> > +#else
+> > +             unsigned long reserved:45;
+> > +#endif
+> > +             unsigned long type:1;
+> > +     };
+> > +};
+> > +
+> > +/**
+> > + * RISC-V doesn't have hetergenous harts yet. This need to be part of
+> > + * per_cpu in case of harts with different pmu counters
+> > + */
+> > +static union sbi_pmu_ctr_info *pmu_ctr_list;
+> > +
+> > +struct pmu_event_data {
+> > +     union {
+> > +             union {
+> > +                     struct hw_gen_event {
+> > +                             uint32_t event_code:16;
+> > +                             uint32_t event_type:4;
+> > +                             uint32_t reserved:12;
+> > +                     } hw_gen_event;
+> > +                     struct hw_cache_event {
+> > +                             uint32_t result_id:1;
+> > +                             uint32_t op_id:2;
+> > +                             uint32_t cache_id:13;
+> > +                             uint32_t event_type:4;
+> > +                             uint32_t reserved:12;
+> > +                     } hw_cache_event;
+> > +             };
+> > +             uint32_t event_idx;
+> > +     };
+> > +};
+> > +
+> > +static const struct pmu_event_data pmu_hw_event_map[] = {
+> > +     [PERF_COUNT_HW_CPU_CYCLES]              = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_CPU_CYCLES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_INSTRUCTIONS]            = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_INSTRUCTIONS,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_CACHE_REFERENCES]        = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_CACHE_REFERENCES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_CACHE_MISSES]            = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_CACHE_MISSES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_BRANCH_INSTRUCTIONS]     = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_BRANCH_INSTRUCTIONS,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_BRANCH_MISSES]           = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_BRANCH_MISSES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_BUS_CYCLES]              = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_BUS_CYCLES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_STALLED_CYCLES_FRONTEND] = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_STALLED_CYCLES_FRONTEND,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_STALLED_CYCLES_BACKEND]  = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_STALLED_CYCLES_BACKEND,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +     [PERF_COUNT_HW_REF_CPU_CYCLES]          = {.hw_gen_event = {
+> > +                                                     SBI_PMU_HW_REF_CPU_CYCLES,
+> > +                                                     SBI_PMU_EVENT_TYPE_HW, 0}},
+> > +};
+> > +
+> > +#define C(x) PERF_COUNT_HW_CACHE_##x
+> > +static const struct pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+> > +[PERF_COUNT_HW_CACHE_OP_MAX]
+> > +[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
+> > +     [C(L1D)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(L1I)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS), C(OP_READ),
+> > +                                     C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(LL)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(DTLB)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(ITLB)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(BPU)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +     [C(NODE)] = {
+> > +             [C(OP_READ)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_READ), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_READ), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_WRITE)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_WRITE), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_WRITE), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +             [C(OP_PREFETCH)] = {
+> > +                     [C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
+> > +                                     C(OP_PREFETCH), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +                     [C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
+> > +                                     C(OP_PREFETCH), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
+> > +             },
+> > +     },
+> > +};
+> > +
+> > +static int pmu_sbi_ctr_get_width(int idx)
+> > +{
+> > +     return pmu_ctr_list[idx].width;
+> > +}
+> > +
+> > +static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+> > +{
+> > +     struct hw_perf_event *hwc = &event->hw;
+> > +     struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+> > +     struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
+> > +     struct sbiret ret;
+> > +     int idx;
+> > +     uint64_t cbase = 0;
+> > +     uint64_t cmask = GENMASK_ULL(rvpmu->num_counters - 1, 0);
+> > +     unsigned long cflags = 0;
+> > +
+> > +     /* retrieve the available counter index */
+> > +     ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
+> > +                     cflags, hwc->event_base, hwc->config, 0);
+> > +     if (ret.error) {
+> > +             pr_debug("Not able to find a counter for event %lx config %llx\n",
+> > +                     hwc->event_base, hwc->config);
+> > +             return sbi_err_map_linux_errno(ret.error);
+> > +     }
+> > +
+> > +     idx = ret.value;
+> > +     if (idx >= rvpmu->num_counters || !pmu_ctr_list[idx].value)
+> > +             return -ENOENT;
+> > +
+> > +     /* Additional sanity check for the counter id */
+> > +     if (!test_and_set_bit(idx, cpuc->used_event_ctrs))
+> > +             return idx;
+> > +     else
+> > +             return -ENOENT;
+> > +}
+> > +
+> > +static void pmu_sbi_ctr_clear_idx(struct perf_event *event)
+> > +{
+> > +
+> > +     struct hw_perf_event *hwc = &event->hw;
+> > +     struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+> > +     struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
+> > +     int idx = hwc->idx;
+> > +
+> > +     clear_bit(idx, cpuc->used_event_ctrs);
+> > +}
+> > +
+> > +static int pmu_event_find_cache(u64 config)
+> > +{
+> > +     unsigned int cache_type, cache_op, cache_result, ret;
+> > +
+> > +     cache_type = (config >>  0) & 0xff;
+> > +     if (cache_type >= PERF_COUNT_HW_CACHE_MAX)
+> > +             return -EINVAL;
+> > +
+> > +     cache_op = (config >>  8) & 0xff;
+> > +     if (cache_op >= PERF_COUNT_HW_CACHE_OP_MAX)
+> > +             return -EINVAL;
+> > +
+> > +     cache_result = (config >> 16) & 0xff;
+> > +     if (cache_result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
+> > +             return -EINVAL;
+> > +
+> > +     ret = pmu_cache_event_map[cache_type][cache_op][cache_result].event_idx;
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +static bool pmu_sbi_is_fw_event(struct perf_event *event)
+> > +{
+> > +     u32 type = event->attr.type;
+> > +     u64 config = event->attr.config;
+> > +
+> > +     if ((type == PERF_TYPE_RAW) && ((config >> 63) == 1))
+> > +             return true;
+> > +     else
+> > +             return false;
+> > +}
+> > +
+> > +static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+> > +{
+> > +     u32 type = event->attr.type;
+> > +     u64 config = event->attr.config;
+> > +     int bSoftware;
+> > +     u64 raw_config_val;
+> > +     int ret;
+> > +
+> > +     switch (type) {
+> > +     case PERF_TYPE_HARDWARE:
+> > +             if (config >= PERF_COUNT_HW_MAX)
+> > +                     return -EINVAL;
+> > +             ret = pmu_hw_event_map[event->attr.config].event_idx;
+> > +             break;
+> > +     case PERF_TYPE_HW_CACHE:
+> > +             ret = pmu_event_find_cache(config);
+> > +             break;
+> > +     case PERF_TYPE_RAW:
+> > +             /*
+> > +              * As per SBI specification, the upper 7 bits must be unused for
+> > +              * a raw event. Use the MSB (63b) to distinguish between hardware
+> > +              * raw event and firmware events.
+> > +              */
+> > +             bSoftware = config >> 63;
+> > +             raw_config_val = config & RISCV_PMU_RAW_EVENT_MASK;
+> > +             if (bSoftware) {
+> > +                     if (raw_config_val < SBI_PMU_FW_MAX)
+> > +                             ret = (raw_config_val & 0xFFFF) |
+> > +                                   (SBI_PMU_EVENT_TYPE_FW << 16);
+> > +                     else
+> > +                             return -EINVAL;
+> > +             } else {
+> > +                     ret = RISCV_PMU_RAW_EVENT_IDX;
+> > +                     *econfig = raw_config_val;
+> > +             }
+> > +             break;
+> > +     default:
+> > +             ret = -EINVAL;
+> > +             break;
+> > +     }
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +static u64 pmu_sbi_ctr_read(struct perf_event *event)
+> > +{
+> > +     struct hw_perf_event *hwc = &event->hw;
+> > +     int idx = hwc->idx;
+> > +     struct sbiret ret;
+> > +     union sbi_pmu_ctr_info info;
+> > +     u64 val = 0;
+> > +
+> > +     if (pmu_sbi_is_fw_event(event)) {
+> > +             ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+> > +                             hwc->idx, 0, 0, 0, 0, 0);
+> > +             if (!ret.error)
+> > +                     val = ret.value;
+> > +     } else {
+> > +             info = pmu_ctr_list[idx];
+> > +             val = riscv_pmu_ctr_read_csr(info.csr);
+> > +             if (IS_ENABLED(CONFIG_32BIT))
+> > +                     val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 32 | val;
+> > +     }
+> > +
+> > +     return val;
+> > +}
+> > +
+> > +static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+> > +{
+> > +     struct sbiret ret;
+> > +     struct hw_perf_event *hwc = &event->hw;
+> > +
+> > +     ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
+> > +                     1, 1, ival, 0, 0);
+> > +     if (ret.error)
+> > +             pr_err("Starting counter idx %d failed with error %d\n",
+> > +                     hwc->idx, sbi_err_map_linux_errno(ret.error));
+> > +}
+> > +
+> > +static void pmu_sbi_ctr_stop(struct perf_event *event)
+> > +{
+> > +     struct sbiret ret;
+> > +     struct hw_perf_event *hwc = &event->hw;
+> > +     struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+> > +     struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
+> > +     unsigned long flag = 0;
+> > +
+> > +     if (cpuc->events[hwc->idx] == NULL)
+> > +             flag = SBI_PMU_STOP_FLAG_RESET;
+> > +     ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
+> > +     if (ret.error)
+> > +             pr_err("Stopping counter idx %d failed with error %d\n",
+> > +                     hwc->idx, sbi_err_map_linux_errno(ret.error));
+> > +}
+> > +
+> > +static int pmu_sbi_find_num_ctrs(void)
+> > +{
+> > +     struct sbiret ret;
+> > +
+> > +     ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_NUM_COUNTERS, 0, 0, 0, 0, 0, 0);
+> > +     if (!ret.error)
+> > +             return ret.value;
+> > +     else
+> > +             return sbi_err_map_linux_errno(ret.error);
+> > +}
+> > +
+> > +static int pmu_sbi_get_ctrinfo(int nctr)
+> > +{
+> > +     struct sbiret ret;
+> > +     int i, num_hw_ctr = 0, num_fw_ctr = 0;
+> > +     union sbi_pmu_ctr_info cinfo;
+> > +
+> > +     pmu_ctr_list = kzalloc(sizeof(*pmu_ctr_list) * nctr, GFP_KERNEL);
+> > +     if (!pmu_ctr_list)
+> > +             return -ENOMEM;
+> > +
+> > +     for (i = 0; i <= nctr; i++) {
+> > +             ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
+> > +             if (ret.error)
+> > +                     /* The logical counter ids are not expected to be contiguous */
+> > +                     continue;
+> > +             cinfo.value = ret.value;
+> > +             if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
+> > +                     num_fw_ctr++;
+> > +             else
+> > +                     num_hw_ctr++;
+> > +             pmu_ctr_list[i].value = cinfo.value;
+> > +     }
+> > +
+> > +     pr_info("There are %d firmware & %d hardware counters available\n",
+> > +             num_fw_ctr, num_hw_ctr);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int pmu_sbi_starting_cpu(unsigned int cpu)
+> > +{
+> > +     /* Enable the access for TIME csr only from the user mode now */
+> > +     csr_write(CSR_SCOUNTEREN, 0x2);
+> Would it be possible to also enable CYCLE csr here (and I guess same
+> would propagate to mcounteren logic in the opensbi patches)? Are there
+> any security concerns in allowing applications to read it directly?
 
-But there is already support to do exactly the same by the Generic System
-Framebuffers (sysfb) driver. This used to be only for X86 but it has been
-moved to drivers/firmware and could be reused by other architectures.
+If CYCLE csr is always enabled then a process can get cycle count of
+all process and underlying kernel. This means process A can now
+estimate code path taken by process B based on observing variations
+in CYCLE csr values. This certainly seems like a back-door channel
+being opened up.
 
-Also, besides supporting registering an "efi-framebuffer", this driver can
-register a "simple-framebuffer" allowing to use the siple{fb,drm} drivers
-on non-X86 EFI platforms. For example, on aarch64 these drivers can only
-be used with DT and doesn't have code to register a "simple-frambuffer"
-platform device when booting with EFI.
+Ideally, a process should only see CPU cycles consumed by the
+process itself. Same rationale applies to Guest/VM as well.
 
-For these reasons, let's remove the register_gop_device() duplicated code
-and instead move the platform specific logic that's there to sysfb driver.
+>
+> It would be useful given that the frequency of TIME is not fixed in spec
+> and it may not be enough for a rdtsc-like counter. In such cases CYCLE
+> csr might be useful to userspace applications (i.e. DPDK) with obvious
+> limitations such as gating via WFI or value changes when using perf.
 
-Signed-off-by: Javier Martinez Canillas <javierm@redhat.com>
----
+CYCLE csr frequency is also not fixed. In fact, CYCLE csr frequency
+is same as CPU frequency and RISC-V platforms might support
+CPU frequency scaling as well in which case CYCLE csr frequency
+can change at runtime.
 
-Changes in v2:
-- Use "depends on" for the supported architectures instead of selecting it.
-- Improve commit message to explain the benefits of reusing sysfb for !X86.
+On other hand, it is much simpler to expose timer frequency to
+user space via procfs or sysfs. In fact, RISC-V platform will always
+have fixed frequency for TIME csr irrespective to underlying CPU
+frequency.
 
- arch/arm/include/asm/efi.h        |  5 +-
- arch/arm64/include/asm/efi.h      |  5 +-
- arch/riscv/include/asm/efi.h      |  5 +-
- drivers/firmware/Kconfig          |  8 +--
- drivers/firmware/Makefile         |  2 +-
- drivers/firmware/efi/efi-init.c   | 90 -------------------------------
- drivers/firmware/efi/sysfb_efi.c  | 77 +++++++++++++++++++++++++-
- drivers/firmware/sysfb.c          | 40 +++++++++-----
- drivers/firmware/sysfb_simplefb.c | 29 ++++++----
- include/linux/sysfb.h             | 28 +++++-----
- 10 files changed, 143 insertions(+), 146 deletions(-)
+>
+> For context: there was a similar situation with arm64 at the point of
+> DPDK port to that arch. Armv7-A standardized their timer (CNTVCT) but
+> not its frequency which usually was ~100MHz. The PMU cycle counter
+> (PMCCNTR) was by default disabled for read from userspace (EL0). This
+> required DPDK folks to create a kernel module to enable the PMCCNTR in
+> userspace so that they could implement high-resolution rte_rdtsc() call.
+> This got fixed in Armv8.6-A which specified the timer counter frequency
+> to be 1GHz.
+>
+> If the CYCLE csr remains S-mode private, I will have to effectively
+> resort to the same kernel-module trick as arm64 in the RISC-V DPDK port.
+> Alternatively perhaps a sysfs knob or driver parameter could be added to
+> enable the CYCLE csr in U-mode?
 
-diff --git a/arch/arm/include/asm/efi.h b/arch/arm/include/asm/efi.h
-index 9de7ab2ce05..a6f3b179e8a 100644
---- a/arch/arm/include/asm/efi.h
-+++ b/arch/arm/include/asm/efi.h
-@@ -17,6 +17,7 @@
- 
- #ifdef CONFIG_EFI
- void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- 
- int efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md);
- int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md);
-@@ -52,10 +53,6 @@ void efi_virtmap_unload(void);
- struct screen_info *alloc_screen_info(void);
- void free_screen_info(struct screen_info *si);
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- /*
-  * A reasonable upper bound for the uncompressed kernel size is 32 MBytes,
-  * so we will reserve that amount of memory. We have no easy way to tell what
-diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index 1bed37eb013..d3e1825337b 100644
---- a/arch/arm64/include/asm/efi.h
-+++ b/arch/arm64/include/asm/efi.h
-@@ -14,6 +14,7 @@
- 
- #ifdef CONFIG_EFI
- extern void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- #else
- #define efi_init()
- #endif
-@@ -85,10 +86,6 @@ static inline void free_screen_info(struct screen_info *si)
- {
- }
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- #define EFI_ALLOC_ALIGN		SZ_64K
- 
- /*
-diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
-index 6d98cd99968..7a8f0d45b13 100644
---- a/arch/riscv/include/asm/efi.h
-+++ b/arch/riscv/include/asm/efi.h
-@@ -13,6 +13,7 @@
- 
- #ifdef CONFIG_EFI
- extern void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- #else
- #define efi_init()
- #endif
-@@ -39,10 +40,6 @@ static inline void free_screen_info(struct screen_info *si)
- {
- }
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- void efi_virtmap_load(void);
- void efi_virtmap_unload(void);
- 
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 4392fc57cf3..c704ac441fb 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -254,9 +254,9 @@ config QCOM_SCM_DOWNLOAD_MODE_DEFAULT
- config SYSFB
- 	bool
- 	default y
--	depends on X86 || COMPILE_TEST
-+	depends on X86 || ARM || ARM64 || RISCV || COMPILE_TEST
- 
--config X86_SYSFB
-+config SYSFB_SIMPLEFB
- 	bool "Mark VGA/VBE/EFI FB as generic system framebuffer"
- 	depends on SYSFB
- 	help
-@@ -264,10 +264,10 @@ config X86_SYSFB
- 	  bootloader or kernel can show basic video-output during boot for
- 	  user-guidance and debugging. Historically, x86 used the VESA BIOS
- 	  Extensions and EFI-framebuffers for this, which are mostly limited
--	  to x86.
-+	  to x86 BIOS or EFI systems.
- 	  This option, if enabled, marks VGA/VBE/EFI framebuffers as generic
- 	  framebuffers so the new generic system-framebuffer drivers can be
--	  used on x86. If the framebuffer is not compatible with the generic
-+	  used instead. If the framebuffer is not compatible with the generic
- 	  modes, it is advertised as fallback platform framebuffer so legacy
- 	  drivers like efifb, vesafb and uvesafb can pick it up.
- 	  If this option is not selected, all system framebuffers are always
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index 946dda07443..705fabe8815 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -19,7 +19,7 @@ obj-$(CONFIG_RASPBERRYPI_FIRMWARE) += raspberrypi.o
- obj-$(CONFIG_FW_CFG_SYSFS)	+= qemu_fw_cfg.o
- obj-$(CONFIG_QCOM_SCM)		+= qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o
- obj-$(CONFIG_SYSFB)		+= sysfb.o
--obj-$(CONFIG_X86_SYSFB)		+= sysfb_simplefb.o
-+obj-$(CONFIG_SYSFB_SIMPLEFB)	+= sysfb_simplefb.o
- obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
- obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
- obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
-diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-index a552a08a174..b19ce1a83f9 100644
---- a/drivers/firmware/efi/efi-init.c
-+++ b/drivers/firmware/efi/efi-init.c
-@@ -275,93 +275,3 @@ void __init efi_init(void)
- 	}
- #endif
- }
--
--static bool efifb_overlaps_pci_range(const struct of_pci_range *range)
--{
--	u64 fb_base = screen_info.lfb_base;
--
--	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
--		fb_base |= (u64)(unsigned long)screen_info.ext_lfb_base << 32;
--
--	return fb_base >= range->cpu_addr &&
--	       fb_base < (range->cpu_addr + range->size);
--}
--
--static struct device_node *find_pci_overlap_node(void)
--{
--	struct device_node *np;
--
--	for_each_node_by_type(np, "pci") {
--		struct of_pci_range_parser parser;
--		struct of_pci_range range;
--		int err;
--
--		err = of_pci_range_parser_init(&parser, np);
--		if (err) {
--			pr_warn("of_pci_range_parser_init() failed: %d\n", err);
--			continue;
--		}
--
--		for_each_of_pci_range(&parser, &range)
--			if (efifb_overlaps_pci_range(&range))
--				return np;
--	}
--	return NULL;
--}
--
--/*
-- * If the efifb framebuffer is backed by a PCI graphics controller, we have
-- * to ensure that this relation is expressed using a device link when
-- * running in DT mode, or the probe order may be reversed, resulting in a
-- * resource reservation conflict on the memory window that the efifb
-- * framebuffer steals from the PCIe host bridge.
-- */
--static int efifb_add_links(struct fwnode_handle *fwnode)
--{
--	struct device_node *sup_np;
--
--	sup_np = find_pci_overlap_node();
--
--	/*
--	 * If there's no PCI graphics controller backing the efifb, we are
--	 * done here.
--	 */
--	if (!sup_np)
--		return 0;
--
--	fwnode_link_add(fwnode, of_fwnode_handle(sup_np));
--	of_node_put(sup_np);
--
--	return 0;
--}
--
--static const struct fwnode_operations efifb_fwnode_ops = {
--	.add_links = efifb_add_links,
--};
--
--static struct fwnode_handle efifb_fwnode;
--
--static int __init register_gop_device(void)
--{
--	struct platform_device *pd;
--	int err;
--
--	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI)
--		return 0;
--
--	pd = platform_device_alloc("efi-framebuffer", 0);
--	if (!pd)
--		return -ENOMEM;
--
--	if (IS_ENABLED(CONFIG_PCI)) {
--		fwnode_init(&efifb_fwnode, &efifb_fwnode_ops);
--		pd->dev.fwnode = &efifb_fwnode;
--	}
--
--	err = platform_device_add_data(pd, &screen_info, sizeof(screen_info));
--	if (err)
--		return err;
--
--	return platform_device_add(pd);
--}
--subsys_initcall(register_gop_device);
-diff --git a/drivers/firmware/efi/sysfb_efi.c b/drivers/firmware/efi/sysfb_efi.c
-index 9f035b15501..2814af6baf1 100644
---- a/drivers/firmware/efi/sysfb_efi.c
-+++ b/drivers/firmware/efi/sysfb_efi.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  *
-  * EFI Quirks Copyright (c) 2006 Edgar Hucek <gimli@dark-green.com>
-@@ -19,7 +19,9 @@
- #include <linux/init.h>
- #include <linux/kernel.h>
- #include <linux/mm.h>
-+#include <linux/of_address.h>
- #include <linux/pci.h>
-+#include <linux/platform_device.h>
- #include <linux/screen_info.h>
- #include <linux/sysfb.h>
- #include <video/vga.h>
-@@ -267,7 +269,72 @@ static const struct dmi_system_id efifb_dmi_swap_width_height[] __initconst = {
- 	{},
- };
- 
--__init void sysfb_apply_efi_quirks(void)
-+static bool efifb_overlaps_pci_range(const struct of_pci_range *range)
-+{
-+	u64 fb_base = screen_info.lfb_base;
-+
-+	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
-+		fb_base |= (u64)(unsigned long)screen_info.ext_lfb_base << 32;
-+
-+	return fb_base >= range->cpu_addr &&
-+	       fb_base < (range->cpu_addr + range->size);
-+}
-+
-+static struct device_node *find_pci_overlap_node(void)
-+{
-+	struct device_node *np;
-+
-+	for_each_node_by_type(np, "pci") {
-+		struct of_pci_range_parser parser;
-+		struct of_pci_range range;
-+		int err;
-+
-+		err = of_pci_range_parser_init(&parser, np);
-+		if (err) {
-+			pr_warn("of_pci_range_parser_init() failed: %d\n", err);
-+			continue;
-+		}
-+
-+		for_each_of_pci_range(&parser, &range)
-+			if (efifb_overlaps_pci_range(&range))
-+				return np;
-+	}
-+	return NULL;
-+}
-+
-+/*
-+ * If the efifb framebuffer is backed by a PCI graphics controller, we have
-+ * to ensure that this relation is expressed using a device link when
-+ * running in DT mode, or the probe order may be reversed, resulting in a
-+ * resource reservation conflict on the memory window that the efifb
-+ * framebuffer steals from the PCIe host bridge.
-+ */
-+static int efifb_add_links(struct fwnode_handle *fwnode)
-+{
-+	struct device_node *sup_np;
-+
-+	sup_np = find_pci_overlap_node();
-+
-+	/*
-+	 * If there's no PCI graphics controller backing the efifb, we are
-+	 * done here.
-+	 */
-+	if (!sup_np)
-+		return 0;
-+
-+	fwnode_link_add(fwnode, of_fwnode_handle(sup_np));
-+	of_node_put(sup_np);
-+
-+	return 0;
-+}
-+
-+static const struct fwnode_operations efifb_fwnode_ops = {
-+	.add_links = efifb_add_links,
-+};
-+
-+static struct fwnode_handle efifb_fwnode;
-+
-+__init void sysfb_apply_efi_quirks(struct platform_device *pd)
- {
- 	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI ||
- 	    !(screen_info.capabilities & VIDEO_CAPABILITY_SKIP_QUIRKS))
-@@ -281,4 +348,10 @@ __init void sysfb_apply_efi_quirks(void)
- 		screen_info.lfb_height = temp;
- 		screen_info.lfb_linelength = 4 * screen_info.lfb_width;
- 	}
-+
-+	if (screen_info.orig_video_isVGA == VIDEO_TYPE_EFI &&
-+	    IS_ENABLED(CONFIG_PCI)) {
-+		fwnode_init(&efifb_fwnode, &efifb_fwnode_ops);
-+		pd->dev.fwnode = &efifb_fwnode;
-+	}
- }
-diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
-index 1337515963d..3ecd60a0215 100644
---- a/drivers/firmware/sysfb.c
-+++ b/drivers/firmware/sysfb.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  */
- 
- /*
-- * Simple-Framebuffer support for x86 systems
-+ * Simple-Framebuffer support
-  * Create a platform-device for any available boot framebuffer. The
-  * simple-framebuffer platform device is already available on DT systems, so
-  * this module parses the global "screen_info" object and creates a suitable
-@@ -16,12 +16,12 @@
-  * to pick these devices up without messing with simple-framebuffer drivers.
-  * The global "screen_info" is still valid at all times.
-  *
-- * If CONFIG_X86_SYSFB is not selected, we never register "simple-framebuffer"
-+ * If CONFIG_SYSFB_SIMPLEFB is not selected, never register "simple-framebuffer"
-  * platform devices, but only use legacy framebuffer devices for
-  * backwards compatibility.
-  *
-  * TODO: We set the dev_id field of all platform-devices to 0. This allows
-- * other x86 OF/DT parsers to create such devices, too. However, they must
-+ * other OF/DT parsers to create such devices, too. However, they must
-  * start at offset 1 for this to work.
-  */
- 
-@@ -39,31 +39,43 @@ static __init int sysfb_init(void)
- 	struct screen_info *si = &screen_info;
- 	struct simplefb_platform_data mode;
- 	struct platform_device *pd;
--	const char *name;
- 	bool compatible;
- 	int ret;
- 
--	sysfb_apply_efi_quirks();
-+	pd = platform_device_alloc("", 0);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	sysfb_apply_efi_quirks(pd);
- 
- 	/* try to create a simple-framebuffer device */
--	compatible = parse_mode(si, &mode);
-+	compatible = sysfb_parse_mode(si, &mode);
- 	if (compatible) {
--		ret = create_simplefb(si, &mode);
-+		ret = sysfb_create_simplefb(si, &mode, pd);
- 		if (!ret)
- 			return 0;
- 	}
- 
- 	/* if the FB is incompatible, create a legacy framebuffer device */
- 	if (si->orig_video_isVGA == VIDEO_TYPE_EFI)
--		name = "efi-framebuffer";
-+		pd->name = "efi-framebuffer";
- 	else if (si->orig_video_isVGA == VIDEO_TYPE_VLFB)
--		name = "vesa-framebuffer";
-+		pd->name = "vesa-framebuffer";
- 	else
--		name = "platform-framebuffer";
-+		pd->name = "platform-framebuffer";
-+
-+	ret = platform_device_add_data(pd, si, sizeof(*si));
-+	if (ret)
-+		goto err;
-+
-+	ret = platform_device_add(pd);
-+	if (ret)
-+		goto err;
- 
--	pd = platform_device_register_resndata(NULL, name, 0,
--					       NULL, 0, si, sizeof(*si));
--	return PTR_ERR_OR_ZERO(pd);
-+	return 0;
-+err:
-+	platform_device_put(pd);
-+	return ret;
- }
- 
- /* must execute after PCI subsystem for EFI quirks */
-diff --git a/drivers/firmware/sysfb_simplefb.c b/drivers/firmware/sysfb_simplefb.c
-index df892444ea1..cffff4283f3 100644
---- a/drivers/firmware/sysfb_simplefb.c
-+++ b/drivers/firmware/sysfb_simplefb.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  */
- 
-@@ -23,9 +23,9 @@
- static const char simplefb_resname[] = "BOOTFB";
- static const struct simplefb_format formats[] = SIMPLEFB_FORMATS;
- 
--/* try parsing x86 screen_info into a simple-framebuffer mode struct */
--__init bool parse_mode(const struct screen_info *si,
--		       struct simplefb_platform_data *mode)
-+/* try parsing screen_info into a simple-framebuffer mode struct */
-+__init bool sysfb_parse_mode(const struct screen_info *si,
-+			     struct simplefb_platform_data *mode)
- {
- 	const struct simplefb_format *f;
- 	__u8 type;
-@@ -57,13 +57,14 @@ __init bool parse_mode(const struct screen_info *si,
- 	return false;
- }
- 
--__init int create_simplefb(const struct screen_info *si,
--			   const struct simplefb_platform_data *mode)
-+__init int sysfb_create_simplefb(const struct screen_info *si,
-+				 const struct simplefb_platform_data *mode,
-+				 struct platform_device *pd)
- {
--	struct platform_device *pd;
- 	struct resource res;
- 	u64 base, size;
- 	u32 length;
-+	int ret;
- 
- 	/*
- 	 * If the 64BIT_BASE capability is set, ext_lfb_base will contain the
-@@ -105,7 +106,15 @@ __init int create_simplefb(const struct screen_info *si,
- 	if (res.end <= res.start)
- 		return -EINVAL;
- 
--	pd = platform_device_register_resndata(NULL, "simple-framebuffer", 0,
--					       &res, 1, mode, sizeof(*mode));
--	return PTR_ERR_OR_ZERO(pd);
-+	pd->name = "simple-framebuffer";
-+
-+	ret = platform_device_add_resources(pd, &res, 1);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_device_add_data(pd, mode, sizeof(*mode));
-+	if (ret)
-+		return ret;
-+
-+	return platform_device_add(pd);
- }
-diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
-index 3e5355769dc..d97162f4b97 100644
---- a/include/linux/sysfb.h
-+++ b/include/linux/sysfb.h
-@@ -58,37 +58,39 @@ struct efifb_dmi_info {
- #ifdef CONFIG_EFI
- 
- extern struct efifb_dmi_info efifb_dmi_list[];
--void sysfb_apply_efi_quirks(void);
-+void sysfb_apply_efi_quirks(struct platform_device *pd);
- 
- #else /* CONFIG_EFI */
- 
--static inline void sysfb_apply_efi_quirks(void)
-+static inline void sysfb_apply_efi_quirks(struct platform_device *pd)
- {
- }
- 
- #endif /* CONFIG_EFI */
- 
--#ifdef CONFIG_X86_SYSFB
-+#ifdef CONFIG_SYSFB_SIMPLEFB
- 
--bool parse_mode(const struct screen_info *si,
--		struct simplefb_platform_data *mode);
--int create_simplefb(const struct screen_info *si,
--		    const struct simplefb_platform_data *mode);
-+bool sysfb_parse_mode(const struct screen_info *si,
-+		      struct simplefb_platform_data *mode);
-+int sysfb_create_simplefb(const struct screen_info *si,
-+			  const struct simplefb_platform_data *mode,
-+			  struct platform_device *pd);
- 
--#else /* CONFIG_X86_SYSFB */
-+#else /* CONFIG_SYSFB_SIMPLE */
- 
--static inline bool parse_mode(const struct screen_info *si,
--			      struct simplefb_platform_data *mode)
-+static inline bool sysfb_parse_mode(const struct screen_info *si,
-+				    struct simplefb_platform_data *mode)
- {
- 	return false;
- }
- 
--static inline int create_simplefb(const struct screen_info *si,
--				  const struct simplefb_platform_data *mode)
-+static inline int sysfb_create_simplefb(const struct screen_info *si,
-+					 const struct simplefb_platform_data *mode,
-+					 struct platform_device *pd)
- {
- 	return -EINVAL;
- }
- 
--#endif /* CONFIG_X86_SYSFB */
-+#endif /* CONFIG_SYSFB_SIMPLE */
- 
- #endif /* _LINUX_SYSFB_H */
--- 
-2.31.1
+Before we think about sysfs knob or driver parameter, I would suggest
+you to explore approaches of knowing timer frequency in DPDK.
 
+Regards,
+Anup
+
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int pmu_sbi_dying_cpu(unsigned int cpu)
+> > +{
+> > +     /* Disable all counters access for user mode now */
+> > +     csr_write(CSR_SCOUNTEREN, 0x0);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +
+> > +static int pmu_sbi_device_probe(struct platform_device *pdev)
+> > +{
+> > +     struct riscv_pmu *pmu = NULL;
+> > +     int num_counters;
+> > +
+> > +     pmu = riscv_pmu_alloc();
+> > +     if (!pmu)
+> > +             return -ENOMEM;
+> > +
+> > +     if (((sbi_major_version() == 0) && (sbi_minor_version() < 3)) ||
+> > +             sbi_probe_extension(SBI_EXT_PMU) <= 0) {
+> > +             /* Fall back to the legacy implementation */
+> > +             riscv_pmu_legacy_init(pmu);
+> > +             return 0;
+> > +     }
+> > +
+> > +     pr_info("SBI PMU extension is available\n");
+> > +
+> > +     num_counters = pmu_sbi_find_num_ctrs();
+> > +     if (num_counters < 0) {
+> > +             pr_err("SBI PMU extension doesn't provide any counters\n");
+> > +             return -ENODEV;
+> > +     }
+> > +
+> > +     /* cache all the information about counters now */
+> > +     if (pmu_sbi_get_ctrinfo(num_counters))
+> > +             return -ENODEV;
+> > +
+> > +     pmu->num_counters = num_counters;
+> > +     pmu->ctr_start = pmu_sbi_ctr_start;
+> > +     pmu->ctr_stop = pmu_sbi_ctr_stop;
+> > +     pmu->event_map = pmu_sbi_event_map;
+> > +     pmu->ctr_get_idx = pmu_sbi_ctr_get_idx;
+> > +     pmu->ctr_get_width = pmu_sbi_ctr_get_width;
+> > +     pmu->ctr_clear_idx = pmu_sbi_ctr_clear_idx;
+> > +     pmu->ctr_read = pmu_sbi_ctr_read;
+> > +
+> > +     perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+> > +
+> > +     cpuhp_setup_state(CPUHP_AP_PERF_RISCV_STARTING,
+> > +                       "perf/riscv/pmu:starting",
+> > +                       pmu_sbi_starting_cpu, pmu_sbi_dying_cpu);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static struct platform_driver pmu_sbi_driver = {
+> > +     .probe          = pmu_sbi_device_probe,
+> > +     .driver         = {
+> > +             .name   = RISCV_PMU_PDEV_NAME,
+> > +     },
+> > +};
+> > +
+> > +static int __init pmu_sbi_devinit(void)
+> > +{
+> > +     int ret;
+> > +     struct platform_device *pdev;
+> > +
+> > +     ret = platform_driver_register(&pmu_sbi_driver);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     pdev = platform_device_register_simple(RISCV_PMU_PDEV_NAME, -1, NULL, 0);
+> > +     if (IS_ERR(pdev)) {
+> > +             platform_driver_unregister(&pmu_sbi_driver);
+> > +             return PTR_ERR(pdev);
+> > +     }
+> > +
+> > +     return ret;
+> > +}
+> > +device_initcall(pmu_sbi_devinit)
+> > --
+> > 2.25.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> --
+> Best Regards,
+> Stanislaw Kardach
 
 _______________________________________________
 linux-riscv mailing list
