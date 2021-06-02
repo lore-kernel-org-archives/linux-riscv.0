@@ -2,170 +2,90 @@ Return-Path: <SRS0=2RK3=K4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28BFFC4708F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 11:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BDD7C4708F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 11:49:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E3A7761263
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 11:45:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E3A7761263
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id DB2AD613AA
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 11:49:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB2AD613AA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=56Gf067rDtXTO2Q8jP6GsEAc+KC2/MK3SxBFvkWkVpU=; b=aRpX14T1FA3BDp
-	I1v8Jr2m0DgJQk7RoPhA2QSUi5MWfO29tz7ZSt4jqcQGCj4KpKC5C7BrTDwyECDRWttRPoufz8rOQ
-	6jKnAj2umxYABxlpppVKxsfJy00n0LnXXBhwa+UR4UnaxRGi6CUi9/6iSMh9TNhI77Nn+ezz0FbmR
-	Bg7u5SX7meypcoaFEYJ3ePFKJI5zIngPkzvKhm8Ij+P60MWPQdO/ixsnKawwtoNtE/iuFEMtdSAo5
-	ZsLlZt4Ldya1Cu5rvWNxX8B4L3GNkGZoqc+pmctAufg3wW0muaLgdLbPEeXVUD2h3ofbrVMUoxx22
-	hDuQj+ZwCHpV+UaWdh7A==;
+	List-Owner; bh=/HPh/OGA4Iej6IhhIqtUgnKJcfci1iLqvMKPCTD04Ck=; b=LbRHFVJGzOcX16
+	zeBBgA+rei0TXH2zyeeqaiN4qVTfNdrfoRE3UfSnN/I0JmLDl41vdyUc4Eu/2qdkaN0PDNYDYcTMR
+	JysC5SBXY1cyGsCJ4a4CHrNwwmhonV+wTcUj0HpJM9d3vlzTlJFxBk1lyzdGe4pkT6feOfEXEIjgk
+	jHsTzmXsc+lqOZO0iJY8runlojtLz2zKvtLhTPYQqUqicygXaTz1ULP9Z2tbTNl+1eY7baZcv9d0K
+	1r6y9rFe4ll7U0LTxiBHSfiueWsN1UAEys9dZlsibX4zEaeHgoEba1toy//Hn8ofD+10cLEtjgWxq
+	NP9/Dh0r7eyvI7Xrw6+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1loPIn-003oPM-Ml; Wed, 02 Jun 2021 11:44:49 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1loPMj-003pL6-SE; Wed, 02 Jun 2021 11:48:53 +0000
+Received: from mail-ua1-f47.google.com ([209.85.222.47])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1loOzF-003idR-ME; Wed, 02 Jun 2021 11:24:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1622633077; x=1654169077;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:content-transfer-encoding:mime-version;
- bh=1uLrgPfppmFH2vM6/L/JqMHBvAu4tkt7ZHOK+EuhRKU=;
- b=mITV/XyaSq6O4a9XOCrBn/mw9mlKiwBEdWqJcghCy2tu2WWGmw6qITtG
- Z6fY8+W7ZRd0L7cKxIIQKi6njZuv5zwnEwGpySOWv1FvVcgYf+gD1ISEH
- NKxMxabvZHecGwZQfWrlgmuKCELlbCX3Lg9PmtMVnzSD53UtfRQe+v8ra
- dGJFh0gO5bks/KzO/StT3DG2xAfhuIU8WdEbGc94xvsYStP9sonKb6OJG
- 43ib6+3l9ClGjFdjRnVmN/i3wpQ7F+xKre3LoSf4y/gH3AznoOP8g01U9
- 38tC6OB2M/zvqGLjg0RXLTgNuVQ0y1Vpfc8L09O7H+ymDuTcrCsGVKGM3 g==;
-IronPort-SDR: etfxiaSgzIO/DfEo1H3PVrltS0flITHztoPp4IZMr0lb5B1cqPP6k/ZX4wr6DWfU6EvG+Dm7II
- JUAxL5WirOYHNANYhH5r9G0ZnaxdKab55iZR+Cj1kM33gAulD1tPRDfIeBm14UDe3kwh0nZbDf
- NfkCh9bIuSDS8Dj4xlqwkKBO0FDNoic78D3XJEIkqiZeNaXP1CQwF+JinIo3Vod1wPZWBj1iyf
- YN2scG3VHKAQwytd31ASKXecNtiOpwrms2WrXjMO9Luipq+z25UrkA3kjKpKsx525eaosgvNcm
- vxk=
-X-IronPort-AV: E=Sophos;i="5.83,242,1616428800"; d="scan'208";a="281803690"
-Received: from mail-bn8nam08lp2046.outbound.protection.outlook.com (HELO
- NAM04-BN8-obe.outbound.protection.outlook.com) ([104.47.74.46])
- by ob1.hgst.iphmx.com with ESMTP; 02 Jun 2021 19:24:34 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fgTi4cQncSvrxs4rzFpnYuFKwvl9lNBc+V8+HXn2RXLSpCFsR2dbBFUO4ROC6RllwfTLTiDviA0/57hXoxxnJs6SWullqLOlPx3M6O2HocRRxQ9Qrke3W17RZWdXgCEJEindgGfF7Wtk4CndzD72IZnjd1+UrnjorobR9vpDDfPRXvh653K1AocfShrj1XDNx7oM7mVxF4nMbdVirbdPeM2CuUBbe6y3ww7QH1bwQ5NeOsOrijCKy37uaw6g23GzS2fMtVOI1VgX8W/3500HYsJLfW049oJMpS2dfXbu1e54cCT+Itz8R+X3T0YrWoTShRPBl6/tcrWrmSl+wywK/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rip7XFR0BFk/jcVrblzy2OjHhUZycRZYHU6/NmyDcb8=;
- b=MuQuxOECPdfY9y9cEIv3MUDLtAcHj6TC+1f4D2ZYIW6xUjzHD8FXHW+ELXgWwDgxnHK3uzUO+7hC+c72//+mgfyMGLCgjoYi9zegIHOWW0tjK2IRHBMkSzQNNUAaVcMQw4PKK5tJfyZk4/6asAZjAE7RqduRxx1a8JBxR0WOBmJSDaWKGkiVWTAyI11c4f6xmZQwXhgD1MmIx8f3wK2EM23CrJJOVyS9pssNO6bSkjm/bz5X2fJdPNlJtz5t+wbw3UGLMG4YQDkFErjNw1moU6fHW3e5HH0fJwDeaUuaTE+EzP7ungDoUP2Fy3A1VJIf278+fccWKXgb/8p65aiEKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rip7XFR0BFk/jcVrblzy2OjHhUZycRZYHU6/NmyDcb8=;
- b=bv2ykx495AZ6Tl/Zq9h125bTIQ6N0rA3sX4S/hLs9oWW6n7D6dHA76+mBsN1R2/OP+tvG9PutarIL1rsPeupIYIhPm5WmDsMIXF7mJUFf2I1SLJlxg6C+EGblo6kxdxV5249li6JewSKHG/5neIe78uNPh0BOYhVw683KZPFmrU=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
- by CO6PR04MB7747.namprd04.prod.outlook.com (2603:10b6:5:35b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4173.20; Wed, 2 Jun
- 2021 11:24:33 +0000
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::a153:b7f8:c87f:89f8]) by CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::a153:b7f8:c87f:89f8%8]) with mapi id 15.20.4195.021; Wed, 2 Jun 2021
- 11:24:33 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
- Rob Herring <robh+dt@kernel.org>
-Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
- Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
-Subject: [PATCH v5 8/8] RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU
- virt machine
-Date: Wed,  2 Jun 2021 16:53:21 +0530
-Message-Id: <20210602112321.2241566-9-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210602112321.2241566-1-anup.patel@wdc.com>
-References: <20210602112321.2241566-1-anup.patel@wdc.com>
-X-Originating-IP: [122.179.70.115]
-X-ClientProxiedBy: MAXPR01CA0098.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::16) To CO6PR04MB7812.namprd04.prod.outlook.com
- (2603:10b6:303:138::6)
+ id 1loP0D-003j0A-TP; Wed, 02 Jun 2021 11:25:39 +0000
+Received: by mail-ua1-f47.google.com with SMTP id m23so1063814uao.12;
+ Wed, 02 Jun 2021 04:25:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=AV6hHV9w+Q9HOaDxt1MduQbvvUP04JEJ1UZD5l/XTkY=;
+ b=b8CtXmIzhySaSrsTw22u2a3za+vwaYF8bcZdd+lXywMv+udfS8CaDhGKsi53pHsiD1
+ M/iImy1bVPyyGitfDBcOaWvFOBRVgxODT6I3KkSbvRZbzqd7QXtFL7MUAvlWVvDQ7DeS
+ UBEGjB5AWxk8ryTmj6c2qwIb4HziVq8Vshv8uv0b50JfFv3azyoNegXLJzceRXzwnZUO
+ s56TVe+wt9iRSDyMe04stMleeIPC2nWLp/bWn+jqiMaardS1hIuldzqklN921hjSniCY
+ tREGmcWvbXYbCQLhyUARDeBBRoHBiN2IuexMh21JRDlR6VDw2aEH5kcy2uda4Cw9USbe
+ GCyA==
+X-Gm-Message-State: AOAM5339saJi+VH8LhGP4kzeFWORgq/fFjWQSsxxx8/YrXts4l8fALDE
+ CD0jZEdWIfUMpbM4QK/uk+Mnp0364pPkTfIDGJQ=
+X-Google-Smtp-Source: ABdhPJyzzWa9paQxXHYFBMFScAZBlkmtyILKANDBBOx9rPPA/yxyu03vLu3qpQ9izu7tVqpx2AMkJo4APWbgLQB/p8I=
+X-Received: by 2002:ab0:26d8:: with SMTP id b24mr14134972uap.58.1622633136111; 
+ Wed, 02 Jun 2021 04:25:36 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.179.70.115) by
- MAXPR01CA0098.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4173.20 via Frontend Transport; Wed, 2 Jun 2021 11:24:28 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 860ad3d8-7a80-4f86-eb4d-08d925b8fee0
-X-MS-TrafficTypeDiagnostic: CO6PR04MB7747:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CO6PR04MB7747F6008D74215BA5C0BBCD8D3D9@CO6PR04MB7747.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:849;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: cFWz8SXSTrDXa4sO9fqiZ7xX9bONDemirVBedKj0QT1SG2F4pl8O9cfce/Op0E33vr4UBbp0PH+asSCVP68WMyxT9g2PxU0Y1F+Trm+2euG1lpy5L+OVADoP+JWudU87WBBdwDkxMp40feKochAcv27WPsmzasT62YCkv6qVzGduEIhr86ZdlHFJ8SF7WZwAfS6nlXfp+8UVChQ+3mzOlZwgzg9i2VdTQ/K9wbxTvn+HRHbxcPhGagi//9cS7UQ+XFZYU4FPaXAatrOsr47VMN2N1vtnnrnz7rqpM3EcbW38ad6tP518Pw2Yw88RumgRSv+tpPS+tnbfHd/h4qxk9zDTlzzSy/JISk8uDzRADOUOn6mK/k7TfAWO8YEH8fY8q7aRBfv9NdE7aNZdwABQ1VLN5BClmKUMLIxahQJmHAx2zC75BQ8Kpkq+py9GS7PFBlRNWy/6y0inb4EMa1q1SWHKShRc/1JYD+5YzonZ9uzTwZsCzMYEqSo8//HEZZHrGFPxrXgDdq9yoN7gnNDPTAXtOp9GXytj0Zi0dXopbTHJcrx1blxp0sm0kvPvHHFsmxXfqRqrbjj934ayzAqoLcEhDGcxP3KX6S3gDrxR1uIhNmtAEiLHfOkpCDFiey7v9ECWYsxwodcJjE4M2ONGhQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(346002)(39860400002)(396003)(376002)(366004)(52116002)(7696005)(36756003)(8936002)(86362001)(38100700002)(6666004)(66476007)(55016002)(110136005)(316002)(54906003)(26005)(4326008)(956004)(44832011)(1076003)(2616005)(8886007)(478600001)(186003)(16526019)(7416002)(66946007)(5660300002)(8676002)(38350700002)(2906002)(66556008);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Z6m+GNnltHP2hMIdwnULQAVEa41+FlZhQVhoZ1VLsIVvcY6HpdF6KhtFdB/C?=
- =?us-ascii?Q?m+/1tXbZYzknbhsSGemwD3wxBsGuT3uUzN7bbnNQG5RLkynOvCGajNeyUchS?=
- =?us-ascii?Q?23fUKE1Qbbl5JnYOCEf6shzP7xTuqFyw2pJQ7pEHk4dlqmaChJj+dh2a2GdM?=
- =?us-ascii?Q?P5YHOQAw6qyghXGt4hCCgrGp6ZV5+R9bNOAyEaG/qTanjIZQYIrpRVQ0lpEi?=
- =?us-ascii?Q?ffOuJSNJNyUJZf95l+6+y3sA5REsfkOYjJw+UFpYUHu9Mwm0fE2hcCLoAskh?=
- =?us-ascii?Q?XskaAvnYZlyxPOrjSl9UxXdBYmYlYf96xCCxntT5OJ5dQZssiYFqxbEADO2I?=
- =?us-ascii?Q?w4UM61AyPNDNvfh3L1kqRH6qqY3UBvSY5zDVbiCJZ3MqXh0iRxlfznRuHI/R?=
- =?us-ascii?Q?nNV9O8Rogai3H1QXixwY0lE9ZthUA5dFDtuiOlpDFCI794BM4HyXANV9h0OZ?=
- =?us-ascii?Q?q3pdKTMMaD2xE6LSuTd97+oxn0HphcxT0XMEHEGO0Jb08sQ3xwdPvLTYGEC0?=
- =?us-ascii?Q?YBvquE+qyMyQO4V2mYKcVd5XhNgObCmJnStaT8EAxFnDbDMgiMGVS46vnEkj?=
- =?us-ascii?Q?hsWhitI6WSZ452x8Vb/Xdmtk9Xp3Z3BWjE1MtijwgaU8l7OjQtNNMWowQU2j?=
- =?us-ascii?Q?RN5MUWgHGreqs7eWxX2EWAUY8FDmjP5LH+FT+daAE1+Yy7L7T8hgneoyqlrz?=
- =?us-ascii?Q?OxY+zh4o24HamlYH4TTXZcQk1dphKLdwjWZV4tmigvlljlEudyBpgKAiv/Fs?=
- =?us-ascii?Q?XLl+ctzzHhi96cZXzPoJH83PlwAGRvOPWu+XzK1emGSX2viJnpO4qeMFDftB?=
- =?us-ascii?Q?lAWNWMU0mzNEKkjeBLXJ0zbxJYdIeq4lbfcZMdfyrzL0KV6v+dKHKpATsEPQ?=
- =?us-ascii?Q?ze3DpjFJmzVyFSZMMXOElhqU00WIAGSRWQSZwJmayRprc8zBJvptTB7PY8Be?=
- =?us-ascii?Q?9XR2l3B9djFvuRTDJIetB3fw59/NWto+m8HzbvY2hj/vl0KunXVqTOrKnHk5?=
- =?us-ascii?Q?gXn8HdIvMa+v4eVl+acl9zPRgtj3pUblPrRoAP+7shr4YYunJ5xd6YX60HaG?=
- =?us-ascii?Q?d2ZKvjkkqkVFAP3kVJSVmTnwKzfIHZOdN/fhy5bN/1eIVQzuwHocLVoz5Gen?=
- =?us-ascii?Q?bVn66XUaqYkJUukgTGhe+1wYSBwuYEOGFhrq77EnSwE7ChdRToCdH8iul169?=
- =?us-ascii?Q?vC22KhFfoB+xKmXuC0IAxF5QfT8HbkBqmJSA3iSXACyNPMNLXTV+hPvOjALH?=
- =?us-ascii?Q?4XyLfvEWYb23F87CfdLVs6X3h6g9xhuDaN/EuKjklBsRP2DupuVCMvJgBX3w?=
- =?us-ascii?Q?ZSy8ETNQBfVTc0QUdaQ8chAN?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 860ad3d8-7a80-4f86-eb4d-08d925b8fee0
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2021 11:24:33.1373 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pgM7tQR/WhvJHE99shpyySM+rYGA2d/3Fw5QU/NWCAqRbyoZ1efOFOx17jXAO0Si0NvceLtziZPgfsmc+gE7Fg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7747
+References: <20210602105348.13387-1-rppt@kernel.org>
+ <20210602105348.13387-5-rppt@kernel.org>
+In-Reply-To: <20210602105348.13387-5-rppt@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 2 Jun 2021 13:25:24 +0200
+Message-ID: <CAMuHMdUUzMNcWNXCjwZmH-VBC+jH1ShBpeg6EBCdRXv3mwHxsQ@mail.gmail.com>
+Subject: Re: [PATCH 4/9] m68k: remove support for DISCONTIGMEM
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Jonathan Corbet <corbet@lwn.net>, 
+ Matt Turner <mattst88@gmail.com>, Mike Rapoport <rppt@linux.ibm.com>, 
+ Richard Henderson <rth@twiddle.net>, Vineet Gupta <vgupta@synopsys.com>,
+ kexec@lists.infradead.org, 
+ alpha <linux-alpha@vger.kernel.org>, Linux-Arch <linux-arch@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Linux MM <linux-mm@kvack.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ arcml <linux-snps-arc@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ sparclinux <sparclinux@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210602_042437_839487_A2B88D87 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20210602_042538_010339_37A3E15F 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,57 +102,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We enable RISC-V SBI CPU Idle driver for QEMU virt machine to test
-SBI HSM Supend on QEMU.
+Hi Mike,
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/Kconfig.socs           | 3 +++
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 3 files changed, 5 insertions(+)
+On Wed, Jun 2, 2021 at 12:54 PM Mike Rapoport <rppt@kernel.org> wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+>
+> DISCONTIGMEM was replaced by FLATMEM with freeing of the unused memory map
+> in v5.11.
+>
+> Remove the support for DISCONTIGMEM entirely.
+>
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index ed963761fbd2..3ae937121a77 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -27,6 +27,9 @@ config SOC_VIRT
- 	select GOLDFISH
- 	select RTC_DRV_GOLDFISH if RTC_CLASS
- 	select SIFIVE_PLIC
-+	select PM_GENERIC_DOMAINS if PM
-+	select PM_GENERIC_DOMAINS_OF if PM && OF
-+	select RISCV_SBI_CPUIDLE if CPU_IDLE
- 	help
- 	  This enables support for QEMU Virt Machine.
- 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 57a24d40d43f..ed71f125cbc9 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -20,6 +20,7 @@ CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_VIRT=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_PM=y
- CONFIG_CPU_IDLE=y
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 97d899df2445..0088d6989332 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -20,6 +20,7 @@ CONFIG_SOC_VIRT=y
- CONFIG_ARCH_RV32I=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_PM=y
- CONFIG_CPU_IDLE=y
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
--- 
-2.25.1
+Thanks for your patch!
 
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+
+> --- a/arch/m68k/include/asm/page_mm.h
+> +++ b/arch/m68k/include/asm/page_mm.h
+> @@ -126,25 +126,7 @@ static inline void *__va(unsigned long x)
+>
+>  extern int m68k_virt_to_node_shift;
+>
+> -#ifndef CONFIG_DISCONTIGMEM
+>  #define __virt_to_node(addr)   (&pg_data_map[0])
+
+With pg_data_map[] removed, this definition can go as well.
+Seems to be a leftover from 1008a11590b966b4 ("m68k: switch to MEMBLOCK
+ + NO_BOOTMEM")
+
+There are a few more:
+arch/m68k/include/asm/mmzone.h:extern pg_data_t pg_data_map[];
+arch/m68k/include/asm/mmzone.h:#define NODE_DATA(nid)
+(&pg_data_map[nid])
+
+> -#else
+> -extern struct pglist_data *pg_data_table[];
+> -
+> -static inline __attribute_const__ int __virt_to_node_shift(void)
+> -{
+> -       int shift;
+> -
+> -       asm (
+> -               "1:     moveq   #0,%0\n"
+> -               m68k_fixup(%c1, 1b)
+> -               : "=d" (shift)
+> -               : "i" (m68k_fixup_vnode_shift));
+> -       return shift;
+> -}
+> -
+> -#define __virt_to_node(addr)   (pg_data_table[(unsigned long)(addr) >> __virt_to_node_shift()])
+> -#endif
+
+> --- a/arch/m68k/mm/init.c
+> +++ b/arch/m68k/mm/init.c
+> @@ -44,28 +44,8 @@ EXPORT_SYMBOL(empty_zero_page);
+>
+>  int m68k_virt_to_node_shift;
+>
+> -#ifdef CONFIG_DISCONTIGMEM
+> -pg_data_t pg_data_map[MAX_NUMNODES];
+> -EXPORT_SYMBOL(pg_data_map);
+> -
+> -pg_data_t *pg_data_table[65];
+> -EXPORT_SYMBOL(pg_data_table);
+> -#endif
+> -
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
