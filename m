@@ -2,93 +2,86 @@ Return-Path: <SRS0=2RK3=K4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B22CDC4708F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 13:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FAC6C4708F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 14:03:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 69D286023D
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 13:19:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69D286023D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 090D5613B8
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Jun 2021 14:03:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 090D5613B8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MdWORENMfGSK7VNjP3VKHiWq8UPi4UM4ovm4nHmWto=; b=CJ8Tdx/59lNAOo
-	IllrCoz3FmJSKCOKdSoT6khD6F/HKbAm0FsItbJ8n0xWkonxOVBWElhFhfBViRCfkMLUeITnYNU6T
-	hblDW+LeSNBA+rFwO6UotA/d9Nb/6OPBxy8AxLRV4/LHJhCYX/hlR/UuWJl7YS2OuIYQchbksjZ+T
-	zhLaUQKHGY6WP4AjsbpVRfIgS89v92wnGWZBAMlmbU59ZwdAYGz8UMOZ1PAZnIDGt8NIaDeIxB8xl
-	CwyqS5s5jyX+XJFzlZdBsZ//0+tFImVb8QXqh/TIjQJNVmqOCLdnQJUnQnWy+v1GcVsJBMmhyJ3v4
-	BX1JEut8iGt9J0mPx8Lg==;
+	List-Owner; bh=1vhuols7/ps4ezi9+DKrJ6KSoLLTImIfNoLPCI0P68A=; b=xivceD9KkAVyf1
+	RzsfyN7jIL/ZiQDnyRTmkUqPgD/iKwsH7DCPZIrzjiBdmknAEn39RWd4qL72pzsXp4pJyxOdLRGjq
+	Hm3ANaDSTr0ex2BASfHnl49yuFWb7F4kBtUM/GgZ8hpplByEut/zRb61H6/GskrKWYss6uah8UVEm
+	iEsMLIS1FGdr3op4btiGXY7dual2RDQjlSBA6A85j2xx9BKhJdDiYLfV5mM+XXMKhyGTvW/oXk4nO
+	xnabieRb6LEJ3Xs8DKrSuzRB5cy+/vPHiFRRGttUui2/5SqoaNjERdaV9Eu1Vk1lFfC5MxOZqIRV5
+	URbv7npNcPqflBj2F/rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1loQlx-004KYU-0K; Wed, 02 Jun 2021 13:19:01 +0000
-Received: from mail-ua1-f48.google.com ([209.85.222.48])
+	id 1loRSz-004RL2-UG; Wed, 02 Jun 2021 14:03:29 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1loQlp-004KV2-Hs
- for linux-riscv@lists.infradead.org; Wed, 02 Jun 2021 13:18:59 +0000
-Received: by mail-ua1-f48.google.com with SMTP id m23so1241995uao.12
- for <linux-riscv@lists.infradead.org>; Wed, 02 Jun 2021 06:18:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=uH5yxU+BzRF90wWQwBO4VM5milL3akGJBti5j4uOIZE=;
- b=s6OLJzCVfowSoFK+Kn+Dhlq9dbdZvw299TRcMkIdw5Yuw3QzvKXt83rm00ZYmdAzHh
- /1dzY+TZZYI7BxQvrF0FDyUZF9EMiKzASt4L13dLl6SCkUavqGGqBrk3O90KyRB0h+lE
- 5vqtpcRDiNuA4hyi2GEWpaPREnpTT8jFXAL3Ypr8EXcRsTLjM2LEkV+hLkRG4wNmfK+c
- hawPsG2yo23cDzABvRJQmn8X+GmEu9mJER+1cYC3lQAxQ/foh9xbWloSO7ggqM4k6Djv
- ehNToKgNW35e/8OEm0Hun2TjV2n0awAldfNx1NCqo7S6PU2Wlxzae8ooaKznyMLri193
- rSiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=uH5yxU+BzRF90wWQwBO4VM5milL3akGJBti5j4uOIZE=;
- b=t1QutOH8URk62p/MZlRA/e3V+jwGzfwjeglJBDnFerwVpJHvTrDLNO+xQ1+kn12iZp
- iNPY4PD8dA+pERWHQaFNmtzWF1vgPeJ8MQec/oyTDfBIO90N0BtxhB/m9IIfEGon6nVB
- BmiVUfm7g1TaBEVKS+WXyk1XOOIJkPRuaPiR085KhukjJ6lzv5wg+TKa7DpBXp5Edxyu
- 48sVBy76dL/8clkvrUNyBfw/mG3HtdQ97h5d0iYgIww2QQ4gsB5NEZHpoucN/wWBlcUU
- i46GpqQvnTcqzVjoGhisX+ee8sB6QCdK0bbmqqEyv6HQpkJAoZFHKRcZ9r6wIj0dbX5B
- l4nw==
-X-Gm-Message-State: AOAM53008jIq/J+ww0yv7w/dzeFmlm60wQKSzMm1BgmeW3+xznvD8f6b
- c6GZ282no6ydWnHePJPuAV4RSXMFdlVy/rJhIlExGw==
-X-Google-Smtp-Source: ABdhPJyvipLZfILhu87oS/az2/HBFVuElK4GQ6Srx/B1cgHvOyXaym3QLEigUlS/OUkA08r+m8+miEhdsQUfZ9i5/94=
-X-Received: by 2002:ab0:100f:: with SMTP id f15mr21456136uab.100.1622639870335; 
- Wed, 02 Jun 2021 06:17:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210602112321.2241566-1-anup.patel@wdc.com>
- <20210602112321.2241566-6-anup.patel@wdc.com>
-In-Reply-To: <20210602112321.2241566-6-anup.patel@wdc.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 2 Jun 2021 15:17:13 +0200
-Message-ID: <CAPDyKFq2tvvAD=2RiePZzce=+OsDaxLWqz+90pTKjTTzqVqcHQ@mail.gmail.com>
-Subject: Re: [PATCH v5 5/8] cpuidle: Factor-out power domain related code from
- PSCI domain driver
-To: Anup Patel <anup.patel@wdc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- "Rafael J . Wysocki" <rjw@rjwysocki.net>, 
- Pavel Machek <pavel@ucw.cz>, Rob Herring <robh+dt@kernel.org>, 
- Sandeep Tripathy <milun.tripathy@gmail.com>, Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
- Anup Patel <anup@brainfault.org>, DTML <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
+ id 1loRSl-004RIb-Ff; Wed, 02 Jun 2021 14:03:16 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8CE12613B8;
+ Wed,  2 Jun 2021 14:03:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1622642595;
+ bh=rVTIekozkKZiHFO8KV73KQ3u8bmmogfis0wnY/V9zMk=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=j8vmJNJ02mTS2qujW9AuK34CyGewsKEQa3NJI4x54mI/kZ6TFkXgNShYSldLi9wwR
+ iVZIZpo10XmlpdD1gKCLSxI2hAconHrCrMCgpriX/VTH8VoFXTo8owedKrPE/jIZ0c
+ D0z4cOoqJMINruzqON7gaCTnozO9ZlPYtavKjKyFVVT2dZ+EtfNVi3gYHbuLNepcSX
+ +gq/yzfSnUELMMLNTwhQ6DbA0qs/Rfv2LkuAbudO4aFFo53imu8k7hO2V3DMiMK48/
+ BPzuDC2hRRaPw3diNLbn7YRlcBUV1pB+YMb1s77Dpt31JAkWDkRc6hv1mITOzdI2oz
+ pUQhhp2WADSpA==
+Date: Wed, 2 Jun 2021 17:03:01 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Richard Henderson <rth@twiddle.net>,
+ Vineet Gupta <vgupta@synopsys.com>, kexec@lists.infradead.org,
+ alpha <linux-alpha@vger.kernel.org>,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux PM <linux-pm@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Linux MM <linux-mm@kvack.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ sparclinux <sparclinux@vger.kernel.org>
+Subject: Re: [PATCH 4/9] m68k: remove support for DISCONTIGMEM
+Message-ID: <YLePlSaXR0XvtZki@kernel.org>
+References: <20210602105348.13387-1-rppt@kernel.org>
+ <20210602105348.13387-5-rppt@kernel.org>
+ <CAMuHMdUUzMNcWNXCjwZmH-VBC+jH1ShBpeg6EBCdRXv3mwHxsQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUUzMNcWNXCjwZmH-VBC+jH1ShBpeg6EBCdRXv3mwHxsQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210602_061853_616829_C26AD103 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20210602_070315_576596_9B221AC1 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +98,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Jun 2021 at 13:24, Anup Patel <anup.patel@wdc.com> wrote:
->
-> The generic power domain related code in PSCI domain driver is largely
-> independent of PSCI and can be shared with RISC-V SBI domain driver
-> hence we factor-out this code into dt_idle_genpd.c and dt_idle_genpd.h.
->
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+On Wed, Jun 02, 2021 at 01:25:24PM +0200, Geert Uytterhoeven wrote:
+> Hi Mike,
+> 
+> On Wed, Jun 2, 2021 at 12:54 PM Mike Rapoport <rppt@kernel.org> wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> >
+> > DISCONTIGMEM was replaced by FLATMEM with freeing of the unused memory map
+> > in v5.11.
+> >
+> > Remove the support for DISCONTIGMEM entirely.
+> >
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> Thanks for your patch!
+> 
+> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> 
+> > --- a/arch/m68k/include/asm/page_mm.h
+> > +++ b/arch/m68k/include/asm/page_mm.h
+> > @@ -126,25 +126,7 @@ static inline void *__va(unsigned long x)
+> >
+> >  extern int m68k_virt_to_node_shift;
+> >
+> > -#ifndef CONFIG_DISCONTIGMEM
+> >  #define __virt_to_node(addr)   (&pg_data_map[0])
+> 
+> With pg_data_map[] removed, this definition can go as well.
+> Seems to be a leftover from 1008a11590b966b4 ("m68k: switch to MEMBLOCK
+>  + NO_BOOTMEM")
+> 
+> There are a few more:
+> arch/m68k/include/asm/mmzone.h:extern pg_data_t pg_data_map[];
+> arch/m68k/include/asm/mmzone.h:#define NODE_DATA(nid)
+> (&pg_data_map[nid])
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+It seems that arch/m68k/include/asm/mmzone.h can be simply removed.
+ 
+> > -#else
+> > -extern struct pglist_data *pg_data_table[];
+> > -
+> > -static inline __attribute_const__ int __virt_to_node_shift(void)
+> > -{
+> > -       int shift;
+> > -
+> > -       asm (
+> > -               "1:     moveq   #0,%0\n"
+> > -               m68k_fixup(%c1, 1b)
+> > -               : "=d" (shift)
+> > -               : "i" (m68k_fixup_vnode_shift));
+> > -       return shift;
+> > -}
+> > -
+> > -#define __virt_to_node(addr)   (pg_data_table[(unsigned long)(addr) >> __virt_to_node_shift()])
+> > -#endif
+> 
+> > --- a/arch/m68k/mm/init.c
+> > +++ b/arch/m68k/mm/init.c
+> > @@ -44,28 +44,8 @@ EXPORT_SYMBOL(empty_zero_page);
+> >
+> >  int m68k_virt_to_node_shift;
+> >
+> > -#ifdef CONFIG_DISCONTIGMEM
+> > -pg_data_t pg_data_map[MAX_NUMNODES];
+> > -EXPORT_SYMBOL(pg_data_map);
+> > -
+> > -pg_data_t *pg_data_table[65];
+> > -EXPORT_SYMBOL(pg_data_table);
+> > -#endif
+> > -
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
-A small nitpick below.
-
-[...]
-
-> +EXPORT_SYMBOL_GPL(dt_idle_pd_free);
-
-Do we really need to export this symbol? Looks like there are only
-built-in cpuidle drivers that are going to use it. At least for now.
-
-As a matter of fact, the same comment applies to all cases of
-EXPORT_SYMBOL_GPL from $subject patch. Can we drop all of them?
-
-[...]
-
-Kind regards
-Uffe
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
