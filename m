@@ -2,91 +2,84 @@ Return-Path: <SRS0=jumX=K5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91356C47082
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A478C47096
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:53:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 44A8F6100B
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:39:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44A8F6100B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 43282613DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:53:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43282613DC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Svl7w38HYN3ZyHC9mnuwbHmIIKODFBGxvdJZIZCIUsc=; b=bMYYvwX4rmK1MRaFHNBxHMRVHf
-	q1wVa6LdmB3ppTlYhiQnlYyoKQT5CIxyDYEwRNYwXvTJt84wfc2xiKBmyXHvblvEZY0vlVvquaouB
-	Lis3OXxl/CStvaNZRd6VxKZtm8lEqzHlbCS+/D1/8Rm6P54BmN4LesfwkRaMtckpYHn4oKzINR+Nl
-	PSp7PgYKBd2oVDk8FlTbpAkV9EUajV8uY/8GfqFlbysoGP0WA1f36Xaz3Jg99UlxJz7mqKGiZlciG
-	95GX+nkQny8Ap0B3mk8CNtg6LayXKe2AdJrDzCV+ipaSnGlM9zbXCO0BAWOeg05UkkXDqgt2XbOIR
-	sepi4TXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I9kxbxr7wH0L/bpJaoVvopfUwNUHjKwY71Ds2N/l4CY=; b=J6TrL8GU+/YWGz
+	V8yOn7/tncHJ3x3BQOeS3h9nV8RWwxEdegOzM7sO/jaYXGTsOlqNYd44jQCOmVB/t1acj6s4wbLTK
+	9scr0CXrwXPrIWHPwOxqm+z9kAbTFC0te34qNfOrDOYUgds47vWeVCUxIn7snzC3N2ncI2EmB0Ki0
+	H5yKW+Eu0umAjPvIL7PQe6zhO4A3Adg+A/0rBCI/UQa5cgIYwn5En9R8D4KrxfLw+8/bVRZqkFhto
+	kObERaBIp2vdWue0tvQcK8l5Rq6QvZHLJy9ddmySmrVL2jNLRtMMGGb47KAkOIP9EzG/kmlk4v8r3
+	76f3KdGPDyQcQdDhSOjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lopR7-009Omn-6X; Thu, 03 Jun 2021 15:39:09 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1lopeF-009PqT-EJ; Thu, 03 Jun 2021 15:52:43 +0000
+Received: from mail-yb1-f172.google.com ([209.85.219.172])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lopR4-009OlQ-2M
- for linux-riscv@lists.infradead.org; Thu, 03 Jun 2021 15:39:08 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id 69so3080050plc.5
- for <linux-riscv@lists.infradead.org>; Thu, 03 Jun 2021 08:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=xiSNoTsQAWFB9DVX3RD/cDXCI3SDa7h02xABzqIqJJ4=;
- b=WRx+02TnyU9B+J6Bx5LcciqVLSJgdpGAxTnH+jm10R1cMtfbG4GXGkTtx+7IB21AXt
- yQjPHKTTVCH79rlaXsvWBhesONX8S8ZfvqUKnjq8EduouYjEXgxVWaQAPgQTOnldsSxq
- T8a6ORlPrOsLRO3/vuumDa3cM0EoVxQ6t49k1j1QAWhjPbAijrJHop93H/0mYsV3pnUs
- 0Mbkq2F/P5oMs6BBPtTPdZuQ0DKNLbD5Yew3DZrELC21l4AsHzy6+tijUQAMmsfDFhYq
- Rr/tr7TPMVvSaLkhKDB+YLTdqWbgMJsdxt523Juw4PP2V05QfnBs4SneDRJ3xD4ClYVB
- PnnA==
+ id 1lopeA-009PpR-DD
+ for linux-riscv@lists.infradead.org; Thu, 03 Jun 2021 15:52:42 +0000
+Received: by mail-yb1-f172.google.com with SMTP id b9so9453597ybg.10
+ for <linux-riscv@lists.infradead.org>; Thu, 03 Jun 2021 08:52:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=V0E1bQ+uKUVeIFgvkIlglV33FCznGkcgKYHmyJqXHZ4=;
+ b=L6c8kr29xlQkfikA6a4PIf875euklpqQN8EDPNIOkcCRGCACOIUxKiYzdH59e2Gdz+
+ llM+M3HbTJjzz6D1YkvrdHTH9mma5v1oj3jm5hcu8R+6tfq84GXqAJp4V1WLddFy0ZQI
+ wFzBY0zW2VLkGcBJY5JoJV2nZ1aADn2s7hVRk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=xiSNoTsQAWFB9DVX3RD/cDXCI3SDa7h02xABzqIqJJ4=;
- b=XUeEuu0S/MXh9mp1ZOlO9SYJCmv3NWcQyk9q7FcVssbkNG5Ro4GJZPqOuwpn6dRGmD
- MKmisMT8uNLXMhIQVwlRW6Zmd7nK2sRSwXlrcOmd2YEZz07PietzLGa1FFD80UGtCFRw
- yFGnHI+Ow8vRzCm1Ge6G3sqINRdbvYymuKuyjRthKf4D2ooSHjEZfd1ofni96M1OjEmm
- Np2mQF7t6Dlp4Rnmu92BZKaeoa/lNSQnCmNmPJ/jO1oNT0GIP9pVD32J0ZC0p7AZKYsS
- xSZZGe1stgxZcWNwWX155krnMM8WChPj97beM0VDJrcB2mDcu/YSRlA1Op7fd2tG5JLX
- EPxw==
-X-Gm-Message-State: AOAM533S65FTCYdjwkxLpa6QqvdXWeIu2xua66pCoDOidwku1WkuOEIn
- 7XqTEd2gmQFTKn5Vz3HvQda3PA==
-X-Google-Smtp-Source: ABdhPJxDHapyTneuf10BOIYnHCD/30vlCMwfZHqN9aC4Dfoefbey30fBxmi4a504pBs7/DIEYY0ihA==
-X-Received: by 2002:a17:902:bc81:b029:ef:3f99:9f76 with SMTP id
- bb1-20020a170902bc81b02900ef3f999f76mr97314plb.33.1622734742010; 
- Thu, 03 Jun 2021 08:39:02 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id r28sm2993442pgm.53.2021.06.03.08.39.01
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 03 Jun 2021 08:39:01 -0700 (PDT)
-Date: Thu, 03 Jun 2021 08:39:01 -0700 (PDT)
-X-Google-Original-Date: Thu, 03 Jun 2021 08:38:58 PDT (-0700)
-Subject: RE: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-In-Reply-To: <CO6PR04MB7812D8905C6EEBDE8513866F8D3C9@CO6PR04MB7812.namprd04.prod.outlook.com>
-CC: guoren@kernel.org, anup@brainfault.org, drew@beagleboard.org,
- Christoph Hellwig <hch@lst.de>, wefu@redhat.com, lazyparser@gmail.com,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-sunxi@lists.linux.dev, 
- guoren@linux.alibaba.com, Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-3875d1bc-74dd-4dc8-b71d-18a8f004039a@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=V0E1bQ+uKUVeIFgvkIlglV33FCznGkcgKYHmyJqXHZ4=;
+ b=tH3KoYY/zwYq2rt5Q/6CAp6LBjfL8y16seSw+OVxe0uaE3J0MSdUoM+jxZeg2xwjci
+ ilVu1HIFwjZANLas4Y9g7qZMAgO1pUu4s/EiAtj0aEAjYF9n5pnZpCk3pz4CJ+/Xw4S9
+ OARPxCiNYnun4L06RbETTZaDAdj53bkBGQQWwfI3cZ4oRrR46AYYn/Z3hgK5ksqU8sJy
+ f9SM00rGNFvrB/lckzPXk3BiOEN7tzsos2XVNYpqEL2XBUNyUldd/BszOMnapQMlZMON
+ tHTziBr2v844l+pRnsYtkzO/yNuaL7nLf1w8Hf42NtFWqIiofvRrM9nhzpu6YF2BUrvk
+ IHEg==
+X-Gm-Message-State: AOAM533nBcmMl1r0RBOQeBgesD+dnfrEoLgKBBWguF5pSIZCAjs63IM+
+ s1Kc7KlpSexcSvl52UwWMVtKeZq+JL//FInDhjOoqg==
+X-Google-Smtp-Source: ABdhPJyP9W19k/Ki6c2DwddIwJwVZOUopod0HSUrSsvq+oGgiLZQc/+ykQGJfWEIsf0Ermak0Nf58vUycg2mFIDfLuQ=
+X-Received: by 2002:a25:d256:: with SMTP id j83mr825910ybg.421.1622735496472; 
+ Thu, 03 Jun 2021 08:51:36 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210603082749.1256129-1-alex@ghiti.fr>
+ <20210603082749.1256129-2-alex@ghiti.fr>
+ <20210603202748.2775f739@xhacker> <20210603204942.703c9cb4@xhacker>
+In-Reply-To: <20210603204942.703c9cb4@xhacker>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+Date: Thu, 3 Jun 2021 17:51:25 +0200
+Message-ID: <CAM4kBBKo2qzgfXZMk4Zfkw-wgMnwNRcdj_ZCJHg4=JAG0kb9oQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] riscv: Factorize xip and !xip kernel address
+ conversion macros
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jisheng Zhang <jszhang@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ Zong Li <zong.li@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210603_083906_149336_5115E864 
-X-CRM114-Status: GOOD (  79.57  )
+X-CRM114-CacheID: sfid-20210603_085238_462527_595688BC 
+X-CRM114-Status: GOOD (  24.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,221 +91,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Jun 2021 23:00:29 PDT (-0700), Anup Patel wrote:
+On Thu, Jun 3, 2021, 14:57 Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+>
+> On Thu, 3 Jun 2021 20:27:48 +0800
+> Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+>
+> > On Thu,  3 Jun 2021 10:27:47 +0200
+> > Alexandre Ghiti <alex@ghiti.fr> wrote:
+> >
+> > > To simplify the kernel address conversion code, make the same definition of
+> > > kernel_mapping_pa_to_va and kernel_mapping_va_to_pa compatible for both xip
+> > > and !xip kernel by defining XIP_OFFSET to 0 in !xip kernel.
+> > >
+> > > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> > > ---
+> > >  arch/riscv/include/asm/page.h    | 14 +++-----------
+> > >  arch/riscv/include/asm/pgtable.h |  2 ++
+> > >  2 files changed, 5 insertions(+), 11 deletions(-)
+> > >
+> > > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > > index 6a7761c86ec2..6e004d8fda4d 100644
+> > > --- a/arch/riscv/include/asm/page.h
+> > > +++ b/arch/riscv/include/asm/page.h
+> > > @@ -93,9 +93,7 @@ extern unsigned long va_pa_offset;
+> > >  #ifdef CONFIG_64BIT
+> > >  extern unsigned long va_kernel_pa_offset;
+> > >  #endif
+> > > -#ifdef CONFIG_XIP_KERNEL
+> > >  extern unsigned long va_kernel_xip_pa_offset;
+> > > -#endif
+> > >  extern unsigned long pfn_base;
+> > >  #define ARCH_PFN_OFFSET            (pfn_base)
+> > >  #else
+> > > @@ -103,6 +101,7 @@ extern unsigned long pfn_base;
+> > >  #ifdef CONFIG_64BIT
+> > >  #define va_kernel_pa_offset        0
+> > >  #endif
+> > > +#define va_kernel_xip_pa_offset 0
+> > >  #define ARCH_PFN_OFFSET            (PAGE_OFFSET >> PAGE_SHIFT)
+> > >  #endif /* CONFIG_MMU */
+> > >
+> > > @@ -110,29 +109,22 @@ extern unsigned long kernel_virt_addr;
+> > >
+> > >  #ifdef CONFIG_64BIT
+> > >  #define linear_mapping_pa_to_va(x) ((void *)((unsigned long)(x) + va_pa_offset))
+> > > -#ifdef CONFIG_XIP_KERNEL
+> > >  #define kernel_mapping_pa_to_va(y) ({                                              \
+> > >     unsigned long _y = y;                                                           \
+> > >     (_y >= CONFIG_PHYS_RAM_BASE) ?
+> >
+> > This CONFIG_PHYS_RAM_BASE is only available for XIP, could result in a
+> > compiler error for !XIP?
+> >
+> > I'm also concerned with the unecessary overhead of kernel_mapping_pa_to_va()
+> > for !XIP case, there's a "if" condition branch, and extra symbol: va_kernel_xip_pa_offset
+>
+> Err, I just found this symobl always exists no matter XIP is enabled or not.
+> I will send out a patch for this clean up
+
+What cleanup?
+
+Best regards,
+   Vitaly
+
+>
+> >
+> > >             (void *)((unsigned long)(_y) + va_kernel_pa_offset + XIP_OFFSET) :      \
+> > >             (void *)((unsigned long)(_y) + va_kernel_xip_pa_offset);                \
+> > >     })
+> > > -#else
+> > > -#define kernel_mapping_pa_to_va(x) ((void *)((unsigned long)(x) + va_kernel_pa_offset))
+> > > -#endif
+> > >  #define __pa_to_va_nodebug(x)              linear_mapping_pa_to_va(x)
+> > >
+> > >  #define linear_mapping_va_to_pa(x) ((unsigned long)(x) - va_pa_offset)
+> > > -#ifdef CONFIG_XIP_KERNEL
+> > >  #define kernel_mapping_va_to_pa(y) ({                                              \
+> > >     unsigned long _y = y;                                                   \
+> > >     (_y < kernel_virt_addr + XIP_OFFSET) ?                                  \
+> > >             ((unsigned long)(_y) - va_kernel_xip_pa_offset) :               \
+> > >             ((unsigned long)(_y) - va_kernel_pa_offset - XIP_OFFSET);       \
+> > >     })
+> >
+> > Similar as kernel_mapping_pa_to_va(), an overhead of "if" condition branch
+> > for !XIP and extra va_kernel_xip_pa_offset symbol.
+> >
+> > > -#else
+> > > -#define kernel_mapping_va_to_pa(x) ((unsigned long)(x) - va_kernel_pa_offset)
+> > > -#endif
+> > > +
+> > >  #define __va_to_pa_nodebug(x)      ({                                              \
+> > >     unsigned long _x = x;                                                   \
+> > >     (_x < kernel_virt_addr) ?                                               \
+> > > @@ -141,7 +133,7 @@ extern unsigned long kernel_virt_addr;
+> > >  #else
+> > >  #define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
+> > >  #define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
+> > > -#endif
+> > > +#endif /* CONFIG_64BIT */
+> > >
+> > >  #ifdef CONFIG_DEBUG_VIRTUAL
+> > >  extern phys_addr_t __virt_to_phys(unsigned long x);
+> > > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > > index bde8ce3bfe7c..d98e931a31e5 100644
+> > > --- a/arch/riscv/include/asm/pgtable.h
+> > > +++ b/arch/riscv/include/asm/pgtable.h
+> > > @@ -77,6 +77,8 @@
+> > >
+> > >  #ifdef CONFIG_XIP_KERNEL
+> > >  #define XIP_OFFSET         SZ_8M
+> > > +#else
+> > > +#define XIP_OFFSET         0
+> > >  #endif
+> > >
+> > >  #ifndef __ASSEMBLY__
+> >
+> >
 >
 >
->> -----Original Message-----
->> From: Palmer Dabbelt <palmer@dabbelt.com>
->> Sent: 03 June 2021 09:43
->> To: guoren@kernel.org
->> Cc: anup@brainfault.org; drew@beagleboard.org; Christoph Hellwig
->> <hch@lst.de>; Anup Patel <Anup.Patel@wdc.com>; wefu@redhat.com;
->> lazyparser@gmail.com; linux-riscv@lists.infradead.org; linux-
->> kernel@vger.kernel.org; linux-arch@vger.kernel.org; linux-
->> sunxi@lists.linux.dev; guoren@linux.alibaba.com; Paul Walmsley
->> <paul.walmsley@sifive.com>
->> Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
->> 
->> On Sat, 29 May 2021 17:30:18 PDT (-0700), Palmer Dabbelt wrote:
->> > On Fri, 21 May 2021 17:36:08 PDT (-0700), guoren@kernel.org wrote:
->> >> On Wed, May 19, 2021 at 3:15 PM Anup Patel <anup@brainfault.org>
->> wrote:
->> >>>
->> >>> On Wed, May 19, 2021 at 12:24 PM Drew Fustini
->> <drew@beagleboard.org> wrote:
->> >>> >
->> >>> > On Wed, May 19, 2021 at 08:06:17AM +0200, Christoph Hellwig
->> wrote:
->> >>> > > On Wed, May 19, 2021 at 02:05:00PM +0800, Guo Ren wrote:
->> >>> > > > Since the existing RISC-V ISA cannot solve this problem, it is
->> >>> > > > better to provide some configuration for the SOC vendor to
->> customize.
->> >>> > >
->> >>> > > We've been talking about this problem for close to five years.
->> >>> > > So no, if you don't manage to get the feature into the ISA it
->> >>> > > can't be supported.
->> >>> >
->> >>> > Isn't it a good goal for Linux to support the capabilities present
->> >>> > in the SoC that a currently being fab'd?
->> >>> >
->> >>> > I believe the CMO group only started last year [1] so the RV64GC
->> >>> > SoCs that are going into mass production this year would not have
->> >>> > had the opporuntiy of utilizing any RISC-V ISA extension for
->> >>> > handling cache management.
->> >>>
->> >>> The current Linux RISC-V policy is to only accept patches for frozen
->> >>> or ratified ISA specs.
->> >>> (Refer, Documentation/riscv/patch-acceptance.rst)
->> >>>
->> >>> This means even if emulate CMO instructions in OpenSBI, the Linux
->> >>> patches won't be taken by Palmer because CMO specification is still
->> >>> in draft stage.
->> >> Before CMO specification release, could we use a sbi_ecall to solve
->> >> the current problem? This is not against the specification, when CMO
->> >> is ready we could let users choose to use the new CMO in Linux.
->> >>
->> >> From a tech view, CMO trap emulation is the same as sbi_ecall.
->> >>
->> >>>
->> >>> Also, we all know how much time it takes for RISCV international to
->> >>> freeze some spec. Judging by that we are looking at another
->> >>> 3-4 years at minimum.
->> >
->> > Sorry for being slow here, this thread got buried.
->> >
->> > I've been trying to work with a handful of folks at the RISC-V
->> > foundation to try and get a subset of the various in-development
->> > specifications (some simple CMOs, something about non-caching in the
->> > page tables, and some way to prevent speculative accesse from
->> > generating coherence traffic that will break non-coherent systems).
->> > I'm not sure we can get this together quickly, but I'd prefer to at
->> > least try before we jump to taking vendor-specificed behavior here.
->> > It's obviously an up-hill battle to try and get specifications through
->> > the process and I'm certainly not going to promise it will work, but
->> > I'm hoping that the impending need to avoid forking the ISA will be
->> > sufficient to get people behind producing some specifications in a timely
->> fashion.
->> >
->> > I wasn't aware than this chip had non-coherent devices until I saw
->> > this thread, so we'd been mostly focused on the Beagle V chip.  That
->> > was in a sense an easier problem because the SiFive IP in it was never
->> > designed to have non-coherent devices so we'd have to make anything
->> > work via a series of slow workarounds, which would make emulating the
->> > eventually standardized behavior reasonable in terms of performance
->> > (ie, everything would be super slow so who really cares).
->> >
->> > I don't think relying on some sort of SBI call for the CMOs whould be
->> > such a performance hit that it would prevent these systems from being
->> > viable, but assuming you have reasonable performance on your
->> > non-cached accesses then that's probably not going to be viable to
->> > trap and emulate.  At that point it really just becomes silly to
->> > pretend that we're still making things work by emulating the
->> > eventually ratified behavior, as anyone who actually tries to use this
->> > thing to do IO would need out of tree patches.  I'm not sure exactly
->> > what the plan is for the page table bits in the specification right
->> > now, but if you can give me a pointer to some documentation then I'm
->> > happy to try and push for something compatible.
->> >
->> > If we can't make the process work at the foundation then I'd be
->> > strongly in favor of just biting the bullet and starting to take
->> > vendor-specific code that's been implemented in hardware and is
->> > necessarry to make things work acceptably.  That's obviously a
->> > sub-optimal solution as it'll lead to a bunch of ISA fragmentation,
->> > but at least we'll be able to keep the software stack together.
->> >
->> > Can you tell us when these will be in the hands of users?  That's
->> > pretty important here, as I don't want to be blocking real users from
->> > having their hardware work.  IIRC there were some plans to distribute
->> > early boards, but it looks like the foundation got involved and I
->> > guess I lost the thread at that point.
->> >
->> > Sorry this is all such a headache, but hopefully we can get things
->> > sorted out.
->> 
->> I talked with some of the RISC-V foundation folks, we're not going to have an
->> ISA specification for the non-coherent stuff any time soon.  I took a look at
->> this code and I definately don't want to take it as is, but I'm not opposed to
->> taking something that makes the hardware work as long as it's a lot cleaner.
->> We've already got two of these non-coherent chips, I'm sure more will come,
->> and I'd rather have the extra headaches than make everyone fork the software
->> stack.
 >
-> Thanks for confirming. The CMO extension is still in early stages so it will
-> certainly take more time for them. After CMO extension is finalized, it will
-> take some more time to have actual RISC-V platforms with CMO implemented.
-
-Agreed.  It's going to take two or three years from the standard to get 
-hardware to supporting it, so that means we're three or four years away 
-(at least, there's not even any solid timeline for a spec a year from 
-now) from having hardware.  There's just going to be too much 
-non-standard hardware here to try to ignore it all.
-
->> After talking to Atish it looks like there's likely to be an SBI extension to
->> handle the CMOs, which should let us avoid the bulk of the vendor-specific
->> behavior in the kernel.  I know some people are worried about adding to the
->> SBI surface.  I'm worried about that too, but that's way better than sticking a
->> bunch of vendor-specific instructions into the kernel.  The SBI extension
->> should make for a straight-forward cache flush implementation in Linux, so
->> let's just plan on that getting through quickly (as has been done before).
->
-> Yes, I agree. We can have just a single SBI call which is meant for DMA sync
-> purpose only which means it will flush/invalidate pages from all cache
-> levels irrespective of the cache hierarchy (i.e. flush/invalidate to RAM). The
-> CMO extension might more generic cache operations which can target
-> any cache level.
->
-> I am already preparing a write-up for SBI DMA sync call in SBI spec. I will
-> share it with you separately as well.
-
-Great, thanks.  Atish sort of mentioned that, but I didn't want to put 
-words in your mouth (and I assume you were aleep or something, due to 
-time zones).
-
->> Unfortunately we've yet to come up with a way to handle the non-cacheable
->> mappings without introducing a degree of vendor-specific behavior or
->> seriously impacting performance (mark them as not valid and deal with them
->> in the trap handler).  I'm not really sure it counts as supporting the hardware
->> if it's massively slow, so that really leaves us with vendor-specific mappings as
->> the only option to make these chips work.
->
-> A RISC-V platform can have non-cacheable mappings is following possible
-> ways:
-> 1) Fixed physical address range as non-cacheable using PMAs
-> 2) Custom page table attributes
-> 3) Svpmbt extension being defined by RVI
->
-> Atish and me both think it is possible to have RISC-V specific DMA ops
-> implementation which can handle all above case. Atish is already working
-> on DMA ops implementation for RISC-V.
-
-Great, thanks.  I haven't started writing any code, but I think we're 
-going to be able to get a big chunk of #1 from the "dma-ranges" device 
-tree stuff.  I think we still need some arch-specific allocation work to 
-make sure we don't alias, though.
-
-The page table attributes are definately going to need dma ops.  I'd 
-been assuming we'd have multiple DMA op tables for the multiple flavors, 
-but if they fit into a single op table cleanly that's fine -- that sort 
-of stuff really needs the code here.
-
-Since you guys have already started I'll just wait for patches.
-
-Thanks!
-
->> This implementation, which adds some Kconfig entries that control page table
->> bits, definately isn't suitable for upstream.  Allowing users to set arbitrary
->> page table bits will eventually conflict with the standard, and is just going to
->> be a mess.  It'll also lead to kernels that are only compatible with specific
->> designs, which we're trying very hard to avoid.  At a bare minimum we'll need
->> some way to detect systems with these page table bits before setting them,
->> and some description of what the bits actually do so we can reason about
->> them.
->
-> Yes, vendor specific Kconfig options are strict NO NO. We can't give-up the
-> goal of unified kernel image for all platforms.
-
-I think this is just a phrasing issue, but just to be sure:
-
-IMO it's not that they're vendor-specific Kconfig options, it's that 
-turning them on will conflict with standard systems (and other vendors).  
-We've already got the ability to select sets of Kconfig settings that 
-will only boot on one vendor's system, which is fine, as long as there 
-remains a set of Kconfig settings that will boot on all systems.
-
-An example here would be the errata: every system has errata of some 
-sort, so if we start flipping off various vendor's errata Kconfigs 
-you'll end up with kernels that only function properly on some systems.  
-That's fine with me, as long as it's possible to turn on all vendor's 
-errata Kconfigs at the same time and the resulting kernel functions 
-correctly on all systems.
-
-> Regards,
-> Anup
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
