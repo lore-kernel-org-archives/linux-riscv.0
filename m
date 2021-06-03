@@ -2,89 +2,93 @@ Return-Path: <SRS0=jumX=K5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA40AC47082
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B6C03C47082
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 20:28:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 89DE9613DC
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 15:56:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 89DE9613DC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 7BB73613D7
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 20:28:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7BB73613D7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=alien8.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7KCEWz9CC8RR8dpMok9+ZT/cIF7eNxBHTpIfKn9GeoE=; b=j/LVUdEIjGAh8t
-	iAcuan8ZGOxtQJlqRpHGc/chYaudxXI8OBv4OAqPx8LeV2V8Yjp6JQ97SkrlRi9KL8boNGT0//eyE
-	wTn1b59t8jfD0JLVbq4GcA/OULqjMcOW7qi/OeO+QD1/k/v5ailvinlOTDORrxN+rWdlZgGabKFeW
-	IR1Whx6ceSBDnL1fG3JglEMzFgDa580T8fyETPh7sYswKHm4tXGtrzcfyeHs/md809jTrLPw5507n
-	qDmwXyTTrj43ui1CKuhnMi7Ygdqv/IAKm4RYXBvy9NXrYcpA0UUyJoG1dua9MiC61vo/i/qJrXqAr
-	F7EyOxO88Yd3Htjtx1pw==;
+	List-Owner; bh=DuE/nNTWmBJnR8LEInbHRdnHAdfJpvhsQUPIUqJ6tQQ=; b=jgo22pZCkCRaRM
+	upkqs4Y5b3O8XpWc9XE2linphqXlRyjRewSomTCwfk6lztW91nPJZx4yY54Ya0kY8PuYzv/kA+M4Q
+	VZXJzuOg6k+VWUN8j72BWFtB3OrG2nYcYbSqAs8sY/P/rt7zLq+M0FAcGzpVEOmYhJkblKbaHhFoE
+	kL3Gbj9zwm+iKKQDZVB6ir3RKjoG/+SboB/wxdceAyVNxSKEY4gkks7YoV0eBAU2FK4aLkwaHnpzu
+	inybMiGPNCY116JEXwgFOumT5H3RJYQPRtCQBUUEEpDLh4s986Tou+7pBrAAyxoYONRtaVfK1ccwU
+	7NBcp+kSSLcBuL6lCQNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lophY-009QKp-1R; Thu, 03 Jun 2021 15:56:08 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lophS-009QJK-Tp
- for linux-riscv@lists.infradead.org; Thu, 03 Jun 2021 15:56:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=S1F8wjCfxP6fei3oMOM80fl/LRAtNMxSy2
- SudXZrPwU=; b=hn8kklUuDGSVAYbKzR3OTrZis0iYbZFS32BPtT2jWoQWl5hdE5
- KsvJQ4UzcKeAuJQ4LcXIP0ScWETLZ9uPj7+yfbUCSOP2lw5L5dslgmOwJb3ueDWN
- 6MAl0i6kvVG1CzUvK3lJaG5ERPMYjuYw7bhb94Q2tKjta6JXfktlm2F5A=
-Received: from xhacker (unknown [101.86.20.15])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygA3taNk+7hgR_qJAA--.45436S2; 
- Thu, 03 Jun 2021 23:55:17 +0800 (CST)
-Date: Thu, 3 Jun 2021 23:49:50 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Vitaly Wool <vitaly.wool@konsulko.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>, Christoph
- Hellwig <hch@infradead.org>, Zong Li <zong.li@sifive.com>, Anup Patel
- <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>, LKML
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 1/3] riscv: Factorize xip and !xip kernel address
- conversion macros
-Message-ID: <20210603234950.3ff475e3@xhacker>
-In-Reply-To: <CAM4kBBKo2qzgfXZMk4Zfkw-wgMnwNRcdj_ZCJHg4=JAG0kb9oQ@mail.gmail.com>
-References: <20210603082749.1256129-1-alex@ghiti.fr>
- <20210603082749.1256129-2-alex@ghiti.fr>
- <20210603202748.2775f739@xhacker> <20210603204942.703c9cb4@xhacker>
- <CAM4kBBKo2qzgfXZMk4Zfkw-wgMnwNRcdj_ZCJHg4=JAG0kb9oQ@mail.gmail.com>
+	id 1lotwR-00AV30-7u; Thu, 03 Jun 2021 20:27:47 +0000
+Received: from mail.skyhub.de ([5.9.137.197])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lotw4-00AV0r-Vc; Thu, 03 Jun 2021 20:27:26 +0000
+Received: from zn.tnic (p200300ec2f138500c7e12fc0802db454.dip0.t-ipconnect.de
+ [IPv6:2003:ec:2f13:8500:c7e1:2fc0:802d:b454])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 0C77C1EC0246;
+ Thu,  3 Jun 2021 22:27:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
+ t=1622752042;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
+ bh=OdHEZyA0Yz82G9giMJIrJ6sLC/3gLs0Aj9USNqocCdM=;
+ b=n/qUCf7CAevYLO1ua7Xqqjpw/2DKzujCT+H1jn+x5ugKmQ4H2WI5rxAl9X5LimeJKHbs2M
+ kOUvyxeDDa1NQg8mJHgE84zLB/p8lkOiGljmxRGNZS3q9J3rhUJ5BPqkeW+gwtYIwq7KLo
+ 9nn344GKcSr0hzTiGpQkueO8Paj9s3Q=
+Date: Thu, 3 Jun 2021 22:27:19 +0200
+From: Borislav Petkov <bp@alien8.de>
+To: Javier Martinez Canillas <javierm@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Hans de Goede <hdegoede@redhat.com>,
+ Peter Robinson <pbrobinson@gmail.com>,
+ dri-devel@lists.freedesktop.org, Daniel Vetter <daniel@ffwll.ch>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@linux.ie>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Brijesh Singh <brijesh.singh@amd.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chester Lin <clin@suse.com>, Dinh Nguyen <dinguyen@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Joerg Roedel <jroedel@suse.de>, John Stultz <john.stultz@linaro.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>,
+ Juergen Gross <jgross@suse.com>, Kalle Valo <kvalo@codeaurora.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Russell King <linux@armlinux.org.uk>, Sudeep Holla <sudeep.holla@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH v2 0/2] allow simple{fb,drm} drivers to be used on
+ non-x86 EFI platforms
+Message-ID: <YLk7HjX2OnLhMt4V@zn.tnic>
+References: <20210601145912.774054-1-javierm@redhat.com>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygA3taNk+7hgR_qJAA--.45436S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAF47Xw13Jry7Ww17GrWrGrg_yoW5Jw4rpr
- 1kKFsFkF4FqryYk3yqvas8ua4DtwnxGrySqr1DK34UZ3Z0vFWxWF48Kr17uryqqFyUZF4f
- uFyxJ34fuw1UJwUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUkmb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
- 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
- WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
- I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
- 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
- 42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU4o7KUUUUU
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
+Content-Disposition: inline
+In-Reply-To: <20210601145912.774054-1-javierm@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210603_085603_658620_3C238D01 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20210603_132725_277866_BB94DE8D 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +105,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Jun 2021 17:51:25 +0200
-Vitaly Wool <vitaly.wool@konsulko.com> wrote:
+On Tue, Jun 01, 2021 at 04:59:10PM +0200, Javier Martinez Canillas wrote:
+> The series touches different subystems and will need coordination between
+> maintainers. Ard Biesheuvel said that can be merged through the EFI tree.
 
-> On Thu, Jun 3, 2021, 14:57 Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
-> >
-> > On Thu, 3 Jun 2021 20:27:48 +0800
-> > Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
-> >  
-> > > On Thu,  3 Jun 2021 10:27:47 +0200
-> > > Alexandre Ghiti <alex@ghiti.fr> wrote:
-> > >  
-> > > > To simplify the kernel address conversion code, make the same definition of
-> > > > kernel_mapping_pa_to_va and kernel_mapping_va_to_pa compatible for both xip
-> > > > and !xip kernel by defining XIP_OFFSET to 0 in !xip kernel.
-> > > >
-> > > > Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> > > > ---
-> > > >  arch/riscv/include/asm/page.h    | 14 +++-----------
-> > > >  arch/riscv/include/asm/pgtable.h |  2 ++
-> > > >  2 files changed, 5 insertions(+), 11 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> > > > index 6a7761c86ec2..6e004d8fda4d 100644
-> > > > --- a/arch/riscv/include/asm/page.h
-> > > > +++ b/arch/riscv/include/asm/page.h
-> > > > @@ -93,9 +93,7 @@ extern unsigned long va_pa_offset;
-> > > >  #ifdef CONFIG_64BIT
-> > > >  extern unsigned long va_kernel_pa_offset;
-> > > >  #endif
-> > > > -#ifdef CONFIG_XIP_KERNEL
-> > > >  extern unsigned long va_kernel_xip_pa_offset;
-> > > > -#endif
-> > > >  extern unsigned long pfn_base;
-> > > >  #define ARCH_PFN_OFFSET            (pfn_base)
-> > > >  #else
-> > > > @@ -103,6 +101,7 @@ extern unsigned long pfn_base;
-> > > >  #ifdef CONFIG_64BIT
-> > > >  #define va_kernel_pa_offset        0
-> > > >  #endif
-> > > > +#define va_kernel_xip_pa_offset 0
-> > > >  #define ARCH_PFN_OFFSET            (PAGE_OFFSET >> PAGE_SHIFT)
-> > > >  #endif /* CONFIG_MMU */
-> > > >
-> > > > @@ -110,29 +109,22 @@ extern unsigned long kernel_virt_addr;
-> > > >
-> > > >  #ifdef CONFIG_64BIT
-> > > >  #define linear_mapping_pa_to_va(x) ((void *)((unsigned long)(x) + va_pa_offset))
-> > > > -#ifdef CONFIG_XIP_KERNEL
-> > > >  #define kernel_mapping_pa_to_va(y) ({                                              \
-> > > >     unsigned long _y = y;                                                           \
-> > > >     (_y >= CONFIG_PHYS_RAM_BASE) ?  
-> > >
-> > > This CONFIG_PHYS_RAM_BASE is only available for XIP, could result in a
-> > > compiler error for !XIP?
-> > >
-> > > I'm also concerned with the unecessary overhead of kernel_mapping_pa_to_va()
-> > > for !XIP case, there's a "if" condition branch, and extra symbol: va_kernel_xip_pa_offset  
-> >
-> > Err, I just found this symobl always exists no matter XIP is enabled or not.
-> > I will send out a patch for this clean up  
-> 
-> What cleanup?
-> 
+I'm always happy when code from arch/x86/ moves away so
 
-http://lists.infradead.org/pipermail/linux-riscv/2021-June/006802.html
+Acked-by: Borislav Petkov <bp@suse.de>
 
+Btw, for the future, please CC everyone on the whole patchset - I had to
+go look at your 2/2 on lore to see what it does because I had only 1/2
+in my mbox.
+
+Thx.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
