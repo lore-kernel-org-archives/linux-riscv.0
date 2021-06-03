@@ -2,43 +2,43 @@ Return-Path: <SRS0=jumX=K5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 851F9C47096
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 08:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8F4DC47082
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 08:29:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 58233613C9
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 08:28:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58233613C9
+	by mail.kernel.org (Postfix) with ESMTPS id A3B236024A
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Jun 2021 08:29:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3B236024A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1N0CcygAQKPwnawQuqsZRGASCJtWuHbHIaAa7xdLLSA=; b=gA5km2Y48uQPzh
-	DKQFyyon+Tk5FOQrY+i5jYVjY5xz/fMDgvVvow/xQH7X98RtNsmGM08M140ORicPz2r7pX0hzAcRF
-	QG+BxDH4e8vg149eslRrLeryg9N9J94zALNIDYkNGMO8MOwt3Z7zU7/Cxfwa3rrHhOBxqT0y5nhEt
-	bvfbNMm+PhIXlI5NEUwoGp3VLWGaArRQHHZIclUxhRXrlHgeRXuRlH0mT4hLD/DuyS44B7nbjSHT+
-	UOqnGVV/RH3sQHUQDaJvysaZYVeseJFxZxTuA5phBhj16xEa0zo8YxMYJl6rh8ZJ4TYMKHDyUACRi
-	TJ98DuEf1mYe1k29XBzQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JAVJw6ehnKGR2KfB81O0j0kO9BPUKVTrq8CsC3WCVjI=; b=XJRUvHi3PgmNq0
+	4dzg0YAYXFasdPJ63QcbDlz6svKVONUKo/bLMDjQRfb7y86zjJMycxmWjXoBJcEvml3ZVOTWcAlGc
+	1vD6aqPzHQpyhQcHizRoKVZIkyMKRyAHGvWlJKJ4c5qgg/FK6FlQkt2hIzXoLTXwzRzz+jVgkS4W4
+	I9/5IXqJAarQVcgrZ/YUh6+XedWBrUMK65U/fNlkEwsjdR/4kfCpGImdB9B+bzpETmozUtKaywNqR
+	PleATS8e+30R9lNa207h4yvzPryVIYEaJr9kXh7UyRPDeEsmH9bnnivvED5tvXOAbb5lxKWApK6g5
+	lDrawwiuagrvc7Zl0C+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1loihv-007gsO-Ep; Thu, 03 Jun 2021 08:28:03 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1loiix-007h5a-1l; Thu, 03 Jun 2021 08:29:07 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1loihs-007gqm-Di
- for linux-riscv@lists.infradead.org; Thu, 03 Jun 2021 08:28:01 +0000
+ id 1loiit-007h4H-RJ
+ for linux-riscv@lists.infradead.org; Thu, 03 Jun 2021 08:29:05 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
- by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 30F0D60004;
- Thu,  3 Jun 2021 08:27:51 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 63967FF806;
+ Thu,  3 Jun 2021 08:28:57 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -46,15 +46,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v3 0/3] riscv: Map the kernel with correct permissions the
- first time
-Date: Thu,  3 Jun 2021 10:27:46 +0200
-Message-Id: <20210603082749.1256129-1-alex@ghiti.fr>
+Subject: [PATCH v3 1/3] riscv: Factorize xip and !xip kernel address
+ conversion macros
+Date: Thu,  3 Jun 2021 10:27:47 +0200
+Message-Id: <20210603082749.1256129-2-alex@ghiti.fr>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210603082749.1256129-1-alex@ghiti.fr>
+References: <20210603082749.1256129-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210603_012800_630415_A180D84B 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20210603_012904_046343_AB9E56B5 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +73,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel permissions are fixed after the kernel page table is created:         
-fix that by mapping the kernel 'correctly' the first time.                       
-                                                                                 
-Patch 1 is a cleanup patch on which the next patches are based on, not           
-necessary for this patchset though.                                              
-                                                                                 
-Patch 2 introduces a new helper to set kernel mapping permissions while          
-avoiding all the casts when using set_memory_* API.                              
-                                                                                 
-Patch 3 is the bulk of this work and deals with mapping the kernel with          
-the right permissions.                                                           
-                                                                                 
-Changes in v3:                                                                   
-* Add a patch that factorizes kernel address conversions                         
-* Add a helper called set_kernel_memory in its own patch, as suggested by        
-  Christoph                                                                      
-* Prefer IS_ENABLED over #ifdef, as suggested by Christoph                       
-* Split overly long lines, as suggested by Christoph                             
-* Simplify kernel mapping by mapping ALL text as readonly and taking advantage   
-  of already present code that enables write for init text before                
-  free_initmem_default.                                                          
-                                                                                 
-Changes in v2:                                                                   
-* Rebased on top of for-next (and "riscv: mm: fix build errors caused by         
-  mk_pmd()")                                                                     
-* Get rid of protect_kernel_linear_mapping_text_rodata as suggested by           
-  Jisheng                                                                        
-* Improve code in general compared to previous RFC
+To simplify the kernel address conversion code, make the same definition of
+kernel_mapping_pa_to_va and kernel_mapping_va_to_pa compatible for both xip
+and !xip kernel by defining XIP_OFFSET to 0 in !xip kernel.
 
-Alexandre Ghiti (3):
-  riscv: Factorize xip and !xip kernel address conversion macros
-  riscv: Introduce set_kernel_memory helper
-  riscv: Map the kernel with correct permissions the first time
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+---
+ arch/riscv/include/asm/page.h    | 14 +++-----------
+ arch/riscv/include/asm/pgtable.h |  2 ++
+ 2 files changed, 5 insertions(+), 11 deletions(-)
 
- arch/riscv/include/asm/page.h       |  27 ++++----
- arch/riscv/include/asm/pgtable.h    |   2 +
- arch/riscv/include/asm/sections.h   |  17 +++++
- arch/riscv/include/asm/set_memory.h |  13 ++--
- arch/riscv/kernel/setup.c           |  11 +--
- arch/riscv/mm/init.c                | 102 ++++++++++++----------------
- arch/riscv/mm/pageattr.c            |  10 +++
- 7 files changed, 95 insertions(+), 87 deletions(-)
-
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 6a7761c86ec2..6e004d8fda4d 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -93,9 +93,7 @@ extern unsigned long va_pa_offset;
+ #ifdef CONFIG_64BIT
+ extern unsigned long va_kernel_pa_offset;
+ #endif
+-#ifdef CONFIG_XIP_KERNEL
+ extern unsigned long va_kernel_xip_pa_offset;
+-#endif
+ extern unsigned long pfn_base;
+ #define ARCH_PFN_OFFSET		(pfn_base)
+ #else
+@@ -103,6 +101,7 @@ extern unsigned long pfn_base;
+ #ifdef CONFIG_64BIT
+ #define va_kernel_pa_offset	0
+ #endif
++#define va_kernel_xip_pa_offset 0
+ #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
+ #endif /* CONFIG_MMU */
+ 
+@@ -110,29 +109,22 @@ extern unsigned long kernel_virt_addr;
+ 
+ #ifdef CONFIG_64BIT
+ #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_pa_offset))
+-#ifdef CONFIG_XIP_KERNEL
+ #define kernel_mapping_pa_to_va(y)	({						\
+ 	unsigned long _y = y;								\
+ 	(_y >= CONFIG_PHYS_RAM_BASE) ?							\
+ 		(void *)((unsigned long)(_y) + va_kernel_pa_offset + XIP_OFFSET) :	\
+ 		(void *)((unsigned long)(_y) + va_kernel_xip_pa_offset);		\
+ 	})
+-#else
+-#define kernel_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_kernel_pa_offset))
+-#endif
+ #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
+ 
+ #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - va_pa_offset)
+-#ifdef CONFIG_XIP_KERNEL
+ #define kernel_mapping_va_to_pa(y) ({						\
+ 	unsigned long _y = y;							\
+ 	(_y < kernel_virt_addr + XIP_OFFSET) ?					\
+ 		((unsigned long)(_y) - va_kernel_xip_pa_offset) :		\
+ 		((unsigned long)(_y) - va_kernel_pa_offset - XIP_OFFSET);	\
+ 	})
+-#else
+-#define kernel_mapping_va_to_pa(x)	((unsigned long)(x) - va_kernel_pa_offset)
+-#endif
++
+ #define __va_to_pa_nodebug(x)	({						\
+ 	unsigned long _x = x;							\
+ 	(_x < kernel_virt_addr) ?						\
+@@ -141,7 +133,7 @@ extern unsigned long kernel_virt_addr;
+ #else
+ #define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
+ #define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
+-#endif
++#endif /* CONFIG_64BIT */
+ 
+ #ifdef CONFIG_DEBUG_VIRTUAL
+ extern phys_addr_t __virt_to_phys(unsigned long x);
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index bde8ce3bfe7c..d98e931a31e5 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -77,6 +77,8 @@
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ #define XIP_OFFSET		SZ_8M
++#else
++#define XIP_OFFSET		0
+ #endif
+ 
+ #ifndef __ASSEMBLY__
 -- 
 2.30.2
 
