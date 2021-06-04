@@ -2,82 +2,85 @@ Return-Path: <SRS0=5Qc/=K6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 437D8C07E94
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BCC0C07E94
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 09CBB61405
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 09CBB61405
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 620D661411
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 620D661411
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=2VLd+nv9XxApC2uHnoV6eyQm4GrYg2p+ojmOq93AktU=; b=IZt
-	G74GTpu6W6Lkofq+6BCoFFNWR6wQzhT868bTvcECHKpBq56oB+RTsVMOhi3pb+k9qfZlVzvikhLCq
-	o1+IqIMhIoLiLLHdX7BgurapVIDTPliN3/qFYqljdrh5prLvftjgwe9belMd1qPAfP/lfu6GnSd1Z
-	EUzjhfxjQyq7Jvm5RBxpOF9IbdpMc+zyL1xrE/gpzEi7BKg9QA/wT3l1raD1pxKBf/+DRT65IK161
-	xgse9tY2SsYKVu3RmFx7AfYVbS6U7lzzZI8Hqo4xy450G/LIGxVyl3/LAQS/VEaIy8DMty5Yfsn+0
-	6X0Age4yV+eZR+Q2tSdUO+K92HMD8bA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IpHjRLNEPc7V46naw9j9Hq2CXuoo0zJtTo/3BgEQdYo=; b=ImnUf9Tnn0Rsjz
+	eI8HBgRbzde3oNI+Ed2LZOS9tIBOvFldx/kqhwubkaHN+yoWf3U+roHRrvpAEdTytMHIWy8FVGR4y
+	uz3s/ZHwOKj5+ouk6BN9v2hdeUjEgSGUNx8p9kGpuzEZ8h/RDLRi1Kbfg6WZO6IuLIhlKNDRdei/y
+	hKPfrkxoVBfhPWGCTpJp7NXmh1+HFDp2sn7VMp8cZzh1pnSzwR1XBQG2aAMdf5qt9gI+9ZuhiXA9p
+	Pj+N/nkj89lvCgBtUc4tJW/lhUixq9+9FAlfRjqCySmU2xDcEgTkKmjtgDo6tXdzUuTCg7kjaYOzE
+	CVxi3ctWzf3XekO0Mneg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lp6XV-00ClNx-SO; Fri, 04 Jun 2021 09:54:53 +0000
-Received: from mail-qt1-f172.google.com ([209.85.160.172])
+	id 1lp6YF-00ClXp-PT; Fri, 04 Jun 2021 09:55:39 +0000
+Received: from mout.kundenserver.de ([212.227.126.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lp6XR-00ClMZ-Cd
- for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 09:54:53 +0000
-Received: by mail-qt1-f172.google.com with SMTP id t20so6534995qtx.8
- for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 02:54:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=FlfOt5ZHd9jswm+VbsyTDC9ioUME0yS40PkkEczf0Y0=;
- b=Je2OMatfku272SCys5wuDeevnAQuoLeZkgdAbEr/5K4pXTiED5RWjXXFR6ASBJkcga
- 4RfBcqtAd0IEbQ0zMUoqZrkmh//WGaFOMBQ69RV54tQfjUQ2j7cYRWC2ty4gvYeARXNM
- zOFzgoQG7/yDFnrzF1kCUkEX42wG+jzUP752BWL+iisTJItJC/DFS5OD8Un3gsKexafi
- 6MFnmuN9Yie17X2YSDJqir774ETG2ESiWC7iDaZa5C/b7KGdcQLhkfjgol4vJQgDSeXw
- hsiEnsAZihm4EUozsqqAo/CY41FQHSd1FraBTNt8/kTl4L4+alMm2Aci7LVS+YZFPtAA
- o5pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=FlfOt5ZHd9jswm+VbsyTDC9ioUME0yS40PkkEczf0Y0=;
- b=OoABhEBulhKYQAdxKGa2wDHDUqK3taAlLlon0AFBYkR9DVUFHQgKmasyM/AqnWQ1Tw
- dXI7zWWwkkyOa94LLX5gQoZRkbMaDP875Wj5VbP1LtDzwe02FErYGJ/Ue3SyZnbXMNih
- 0p7CUkJDWGaSSyb+ePr7mHg9u26GbCoAGu0hkmQZy/alQ3ZTuoSlR+K1ADobtyrSZ8N3
- fswxGuVmqitSfvvNQzo+wofMlLktfBA4mInl8YrYUx6fHb0H+mjzZRfC+hhMyYjJ4eGo
- dWmChEAXovqgTeObVJhI6K6jdarL0pcXGz8QjgLd6FyeSGnrflLynztSJuVyAupFDodT
- URng==
-X-Gm-Message-State: AOAM530Foc6S5IBD3m0iBG9hWGrQwxAzJZbK7BUCaP7a9tzQ9w9iDaT4
- q4BDX/ZZxoiswqyXC16d35Ilnm1zL01uGOOA9gA=
-X-Google-Smtp-Source: ABdhPJwVwznMNJLi7K3cb0oL7/O0blrCBHqQbUVLtyL8W6808bqa4dS7SJcbZZti9fTrimhgectolbRglfaKv4KR5Ww=
-X-Received: by 2002:ac8:5313:: with SMTP id t19mr3898290qtn.190.1622800424625; 
- Fri, 04 Jun 2021 02:53:44 -0700 (PDT)
+ id 1lp6YC-00ClW6-0A
+ for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 09:55:37 +0000
+Received: from mail-wr1-f45.google.com ([209.85.221.45]) by
+ mrelayeu.kundenserver.de (mreue011 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1Mgebs-1lAFQ725yG-00h7Uk for <linux-riscv@lists.infradead.org>; Fri, 04 Jun
+ 2021 11:55:31 +0200
+Received: by mail-wr1-f45.google.com with SMTP id a20so8730579wrc.0
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 02:55:31 -0700 (PDT)
+X-Gm-Message-State: AOAM530Sw4LVTTc4FSgAuxpcOWtorjyxVtrhKFWfVN2g1Hzja4Y+SLAR
+ jztpiK++eyFroMiSrhdXHubptPgt8FfWbPL+co4=
+X-Google-Smtp-Source: ABdhPJxshE3+Uw6+fWuekuuwJhK8oE6TcJIBm0QrwrkRRuWDjLhV71VM+ZrxsXwvq+Gqd5ead+heu/mutRyeZaqbM2U=
+X-Received: by 2002:a5d:5084:: with SMTP id a4mr3045824wrt.286.1622800531222; 
+ Fri, 04 Jun 2021 02:55:31 -0700 (PDT)
 MIME-Version: 1.0
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Date: Fri, 4 Jun 2021 18:53:33 +0900
-Message-ID: <CACuRN0NjftJDUAsF2pkXbx0jnJ=bba9+j-hJA8Mjj0r4RVicLA@mail.gmail.com>
-Subject: [PATCH 0/1] riscv: better network performance with memcpy, uaccess
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Gary Guo <gary@garyguo.net>,
- Nick Hu <nickhu@andestech.com>, 
- Nylon Chen <nylon7@andestech.com>, Akira Tsukamoto <akira.tsukamoto@gmail.com>,
- linux-riscv@lists.infradead.org, 
- Linux kernel mailing list <linux-kernel@vger.kernel.org>
+References: <CO6PR04MB7812D8905C6EEBDE8513866F8D3C9@CO6PR04MB7812.namprd04.prod.outlook.com>
+ <mhng-3875d1bc-74dd-4dc8-b71d-18a8f004039a@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-3875d1bc-74dd-4dc8-b71d-18a8f004039a@palmerdabbelt-glaptop>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 4 Jun 2021 11:53:48 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a03sxxnzpZPxNnXLtCFOFBZ6espEj4V5y=K+59dOLJc6A@mail.gmail.com>
+Message-ID: <CAK8P3a03sxxnzpZPxNnXLtCFOFBZ6espEj4V5y=K+59dOLJc6A@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Anup Patel <Anup.Patel@wdc.com>, Guo Ren <guoren@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>, 
+ Christoph Hellwig <hch@lst.de>, wefu@redhat.com, lazyparser@gmail.com, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>
+X-Provags-ID: V03:K1:5n5g3G5xtua3c+FuFfsnsfbJUZZvWQtNjmCNhHk2/xqmmtjYMkT
+ P6ufsQlFJEM1W0McGYA/xTm8KQKfBmuFIJZWDaj2px+3S94VU1b/wbnZSl8IZ0p5blmokSu
+ sP0bugf4uWRwb0MNMQq+3QfoBjH8e0IleVHkr4oZfTQbdwE8IGcyf97X2WFUa1QqpvKo5fT
+ ypOvNp1CByB/m2QiWKkZQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:FhSwdiYNnds=:Ga4qt0E5Sk67io3T0oJfVG
+ HaFOOusm5giBmmFiVWjgJ/H8Z/bnTq6QiCgAoCKhPJcVbFSUxtkyVhK569m8Z6qSMs1Ut36+9
+ 0KPXcVKe3GuV20NA+hE1fg1hijZ1v5KCFU9Fbm1FTMxasyIs2O7MgdIvb/Yqp79fsQvGEDTOC
+ ncpvk5dOg8y7tqdmJIrQRAvDKeloYusmrv1BDhU3/adCDx9tNFOJZpVfBsGb/IWaDbD7qRHZC
+ C0NzwbbS9I3rSf3flL1BAPXVrQSWwP8M/pIQGd9L0UWzB1ZLWiQvjlkX6xp5g4RB0CIEpElyx
+ WKTwo5OsksRE8Y4qHcnE6iD1pRppLPbfBiCyWAc83LR4ThdlpAzn+9DGEq/714QPbO2sNR229
+ HtgaclQnk6MoxOP4Hf8JYgg2zceRF9JY5dXXOdefGyjq1WMh3yprhmPTMzt7HdMCdvDD6bSO7
+ Yr8JkqsKF33vhYoINNAGUCh/GZQSu89KLH8Y/HiSuwn4BJneagxJtyJMJ7KPAn++jYDLrpXCQ
+ ewsj4E2ZNmOPb2skOHUaYc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210604_025449_458479_F263945F 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20210604_025536_364580_6EE7410E 
+X-CRM114-Status: GOOD (  32.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +97,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I am adding a cover letter to explain the history and details since
-improvement is a combination with Gary's memcpy patch [1].
+On Thu, Jun 3, 2021 at 5:39 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> On Wed, 02 Jun 2021 23:00:29 PDT (-0700), Anup Patel wrote:
+> >> This implementation, which adds some Kconfig entries that control page table
+> >> bits, definately isn't suitable for upstream.  Allowing users to set arbitrary
+> >> page table bits will eventually conflict with the standard, and is just going to
+> >> be a mess.  It'll also lead to kernels that are only compatible with specific
+> >> designs, which we're trying very hard to avoid.  At a bare minimum we'll need
+> >> some way to detect systems with these page table bits before setting them,
+> >> and some description of what the bits actually do so we can reason about
+> >> them.
+> >
+> > Yes, vendor specific Kconfig options are strict NO NO. We can't give-up the
+> > goal of unified kernel image for all platforms.
+>
+> I think this is just a phrasing issue, but just to be sure:
+>
+> IMO it's not that they're vendor-specific Kconfig options, it's that
+> turning them on will conflict with standard systems (and other vendors).
+> We've already got the ability to select sets of Kconfig settings that
+> will only boot on one vendor's system, which is fine, as long as there
+> remains a set of Kconfig settings that will boot on all systems.
+>
+> An example here would be the errata: every system has errata of some
+> sort, so if we start flipping off various vendor's errata Kconfigs
+> you'll end up with kernels that only function properly on some systems.
+> That's fine with me, as long as it's possible to turn on all vendor's
+> errata Kconfigs at the same time and the resulting kernel functions
+> correctly on all systems.
 
-Comparison of iperf3 benchmark results by applying Gary's memcpy patch and
-my uaccess optimization patch. All results are from the same base kernel,
-same rootfs and save BeagleV beta board.
+Yes, this is generally the goal, and it would be great to have that
+working in a way where a 'defconfig' build just turns on all the options
+that are needed to use any SoC specific features and drivers while
+still working on all hardware. There are however limits you may run
+into at some point, and other architectures usually only manage to span
+some 10 to 15 years of hardware implementations with a single
+kernel before it get really hard.
 
-First left column : beaglev 5.13.rc4 kernel [2]
-Second column     : Added Palmer's memcpy in C + my uaccess patch [3]
-Third column      : Added Gary's memcpy + my uaccess patch [4]
+To give some common examples that make it break down:
 
---- TCP recv ---
-686 Mbits/sec  |  700 Mbits/sec  |  904 Mbits/sec
-683 Mbits/sec  |  701 Mbits/sec  |  898 Mbits/sec
-695 Mbits/sec  |  702 Mbits/sec  |  905 Mbits/sec
+- 32-bit vs 64-bit already violates that rule on risc-v (as it does on
+  most other architectures)
 
---- TCP send ---
-383 Mbits/sec  |  390 Mbits/sec  |  393 Mbits/sec
-384 Mbits/sec  |  393 Mbits/sec  |  392 Mbits/sec
+- architectures that support both big-endian and little-endian kernels
+  tend to have platforms that require one or the other (e.g. mips,
+  though not arm). Not an issue for you.
 
---- UDP send ---
-307 Mbits/sec  |  358 Mbits/sec  |  402 Mbits/sec
-307 Mbits/sec  |  359 Mbits/sec  |  402 Mbits/sec
+- page table formats are the main cause of incompatibility: arm32
+  and x86-32 require three-level tables for certain features, but those
+  are incompatible with older cores, arm64 supports three different
+  page sizes, but none of them works on all cores (4KB almost works
+  everywhere).
 
---- UDP recv ---
-630 Mbits/sec  |  799 Mbits/sec  |  875 Mbits/sec
-730 Mbits/sec  |  796 Mbits/sec  |  873 Mbits/sec
+- SMP-enabled ARMv7 kernels can be configured to run on either
+  ARMv6 or ARMv8, but not both, in this case because of incompatible
+  barrier instructions.
 
+- 32-bit Arm has a couple more remaining features that require building
+  a machine specific kernel if enabled because they hardcode physical
+  addresses: early printk (debug_ll, not the normal earlycon), NOMMU,
+  and XIP.
 
-The uaccess patch is reducing pipeline stall of read after write (RAW)
-by unroling load and store.
-The main reason for using assembler inside uaccess.S is because the
-__asm_to/copy_from_user() handling page fault must be done manually inside
-the functions.
-
-The above result is combination from Gary $B!G (Bs memcpy speeding up
-by reducing
-the S-mode and M-mode switching and my uaccess reducing pipeline stall for
-user space uses syscall with large data.
-
-We had a discussion of improving network performance on the BeagleV beta
-board with Palmer.
-
-Palmer suggested to use C-based string routines, which checks the unaligned
-address and use 8 bytes aligned copy if the both src and dest are aligned
-and if not use the current copy function.
-
-The Gary's assembly version of memcpy is improving by not using unaligned
-access in 64 bit boundary, uses shifting it after reading with offset of
-aligned access, because every misaligned access is trapped and switches to
-opensbi in M-mode. The main speed up is coming from avoiding S-mode (kernel)
-and M-mode (opensbi) switching.
-
-Processing network packets require a lot of unaligned access for the packet
-header, which is not able to change the design of the header format to be
-aligned.
-And user applications pass large packet data with send/recf() and sendto/
-recvfrom() to repeat less function calls for reading and writing data for the
-optimization.
-
-Akira
-
-[1] https://lkml.org/lkml/2021/2/16/778
-[2] https://github.com/mcd500/linux-jh7100/tree/starlight-sdimproved
-[3] https://github.com/mcd500/linux-jh7100/tree/starlight-sd-palmer-string
-[4] https://github.com/mcd500/linux-jh7100/tree/starlight-sd-gary
-
-Akira Tsukamoto (1):
-  riscv: prevent pipeline stall in __asm_to/copy_from_user
-
- arch/riscv/lib/uaccess.S | 106 +++++++++++++++++++++++++++------------
- 1 file changed, 73 insertions(+), 33 deletions(-)
-
---
-2.17.1
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
