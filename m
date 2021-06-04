@@ -2,82 +2,82 @@ Return-Path: <SRS0=5Qc/=K6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5C82C07E94
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 437D8C07E94
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 59C4761400
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:53:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59C4761400
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
+	by mail.kernel.org (Postfix) with ESMTPS id 09CBB61405
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 09:55:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 09CBB61405
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Duq/YPqwyk22MyvAQ+wAtWoEi7Ek2/7rJG6UFGxTecM=; b=zdyMqgtiU0+678
-	F/ICLBUis/TMKez/qcEx3f/Q0HIb7q/QSFGimXNLv3QZz+t32eiSvMZlUZT+emkUhOJVw21Me/Of7
-	6QcZR9HlBzozkw9zMQRUmc+6E++A4T/wvXYCprDuNxuGbqRLpwn8aAwRtrQ+Oe0xIBN6+mreL9orc
-	eb9PuJ+cAfYzDqyhCPXqhMhhVeL5cPHLEIFzIit102zdWdh27HHttoxb7CqjggBJGvdOg4UdhfDhQ
-	FDpABNK4o5YjoZVrZxwHOUTTnlhzHmIMQa/8MtS8fR7Ak5yKnqmjwsqHkUa3RzTzAqLMUPrvESIGD
-	L2dbUIUxuxh1fSWPvSpg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=2VLd+nv9XxApC2uHnoV6eyQm4GrYg2p+ojmOq93AktU=; b=IZt
+	G74GTpu6W6Lkofq+6BCoFFNWR6wQzhT868bTvcECHKpBq56oB+RTsVMOhi3pb+k9qfZlVzvikhLCq
+	o1+IqIMhIoLiLLHdX7BgurapVIDTPliN3/qFYqljdrh5prLvftjgwe9belMd1qPAfP/lfu6GnSd1Z
+	EUzjhfxjQyq7Jvm5RBxpOF9IbdpMc+zyL1xrE/gpzEi7BKg9QA/wT3l1raD1pxKBf/+DRT65IK161
+	xgse9tY2SsYKVu3RmFx7AfYVbS6U7lzzZI8Hqo4xy450G/LIGxVyl3/LAQS/VEaIy8DMty5Yfsn+0
+	6X0Age4yV+eZR+Q2tSdUO+K92HMD8bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lp6Vg-00Ckyd-1x; Fri, 04 Jun 2021 09:53:00 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1lp6XV-00ClNx-SO; Fri, 04 Jun 2021 09:54:53 +0000
+Received: from mail-qt1-f172.google.com ([209.85.160.172])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lp6Va-00CkwK-Ln
- for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 09:52:58 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id s107so12904512ybi.3
- for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 02:52:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=dHxjx5YL69TG257xYMSlRK9DeSKTQjJUGuYuF182ZkA=;
- b=ZjNrkxUTZGVEOoJt3tb3BRIbJS+FLoZFrMhc6MX/H92/nvb6aCc3J/4G1fgy3QycmF
- wI/D/zKJ5ReMigNMp1Yruu+AfWR9GYZFfjznAioLnLSJQieXrGVOO6VX0V7ya22FKgQi
- l4R+FvRvFa0eHm/hoSZ3YM1MqKW1pwFIOSlqg=
+ id 1lp6XR-00ClMZ-Cd
+ for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 09:54:53 +0000
+Received: by mail-qt1-f172.google.com with SMTP id t20so6534995qtx.8
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 02:54:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=FlfOt5ZHd9jswm+VbsyTDC9ioUME0yS40PkkEczf0Y0=;
+ b=Je2OMatfku272SCys5wuDeevnAQuoLeZkgdAbEr/5K4pXTiED5RWjXXFR6ASBJkcga
+ 4RfBcqtAd0IEbQ0zMUoqZrkmh//WGaFOMBQ69RV54tQfjUQ2j7cYRWC2ty4gvYeARXNM
+ zOFzgoQG7/yDFnrzF1kCUkEX42wG+jzUP752BWL+iisTJItJC/DFS5OD8Un3gsKexafi
+ 6MFnmuN9Yie17X2YSDJqir774ETG2ESiWC7iDaZa5C/b7KGdcQLhkfjgol4vJQgDSeXw
+ hsiEnsAZihm4EUozsqqAo/CY41FQHSd1FraBTNt8/kTl4L4+alMm2Aci7LVS+YZFPtAA
+ o5pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=dHxjx5YL69TG257xYMSlRK9DeSKTQjJUGuYuF182ZkA=;
- b=rJ0cLL7VOymGdYxHdVJxB1oK42tbbazLCPKQBP2JbKKxDpPpqHYNVCOmFGfoA1hL8H
- UAJPM4s9kW9CH4KUFUvXuCIGlLhSlFkHdjtM509RNK5oHMq/wn0CwwY85oi5jlH15Sgp
- AiIDsAyuXNLDhLkhTzMRtZcCOlq8pbBFpP7seiSCHQQMwJJqR8dzbzVmtSed2ADmJVPd
- jFh7VO5dPHTK9g/dslHUV+2sNkQkGuJyXFVFEugPFFFzfGetfyL46u7EyZsfivfpx4aT
- udZsh9GKBvk9R4kJLePOnWezt7mW4XBndJ9+yUUCieSJwAs6aDz6/qcWlMDa79iQ08T/
- nY9A==
-X-Gm-Message-State: AOAM532b6C2OarBZih5QViob4pcvJWUSyAEvAQOjzHlf00ac9GLmh8+X
- 9sndPzMfkI07WwWFkm33ZooNpfZJX7FczcegXuNDLA==
-X-Google-Smtp-Source: ABdhPJyS9cYbCFKGsztRDfF6yaEQmGAAoAeRCo6x/1tvJKc15N9ceuS5HGdAbrtrzPPK25UBZxg8Mk36jlthwCVCiaE=
-X-Received: by 2002:a05:6902:4b2:: with SMTP id
- r18mr3959329ybs.446.1622800371649; 
- Fri, 04 Jun 2021 02:52:51 -0700 (PDT)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=FlfOt5ZHd9jswm+VbsyTDC9ioUME0yS40PkkEczf0Y0=;
+ b=OoABhEBulhKYQAdxKGa2wDHDUqK3taAlLlon0AFBYkR9DVUFHQgKmasyM/AqnWQ1Tw
+ dXI7zWWwkkyOa94LLX5gQoZRkbMaDP875Wj5VbP1LtDzwe02FErYGJ/Ue3SyZnbXMNih
+ 0p7CUkJDWGaSSyb+ePr7mHg9u26GbCoAGu0hkmQZy/alQ3ZTuoSlR+K1ADobtyrSZ8N3
+ fswxGuVmqitSfvvNQzo+wofMlLktfBA4mInl8YrYUx6fHb0H+mjzZRfC+hhMyYjJ4eGo
+ dWmChEAXovqgTeObVJhI6K6jdarL0pcXGz8QjgLd6FyeSGnrflLynztSJuVyAupFDodT
+ URng==
+X-Gm-Message-State: AOAM530Foc6S5IBD3m0iBG9hWGrQwxAzJZbK7BUCaP7a9tzQ9w9iDaT4
+ q4BDX/ZZxoiswqyXC16d35Ilnm1zL01uGOOA9gA=
+X-Google-Smtp-Source: ABdhPJwVwznMNJLi7K3cb0oL7/O0blrCBHqQbUVLtyL8W6808bqa4dS7SJcbZZti9fTrimhgectolbRglfaKv4KR5Ww=
+X-Received: by 2002:ac8:5313:: with SMTP id t19mr3898290qtn.190.1622800424625; 
+ Fri, 04 Jun 2021 02:53:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210531085342.17494-1-vitaly.wool@konsulko.com>
- <62961217-1733-eaa3-b072-cbb252620c9a@ghiti.fr>
- <2fb64dce-779a-c6f2-53b7-088cd38813a4@ghiti.fr>
-In-Reply-To: <2fb64dce-779a-c6f2-53b7-088cd38813a4@ghiti.fr>
-From: Vitaly Wool <vitaly.wool@konsulko.com>
-Date: Fri, 4 Jun 2021 11:52:40 +0200
-Message-ID: <CAM4kBBKL0D0cvHaNTt2DobbUROp1eGAfmNkakOqzgakEZDLYbA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: xip: support runtime trap patching
-To: Alex Ghiti <alex@ghiti.fr>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Nicolas Pitre <nico@fluxnic.net>
+From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
+Date: Fri, 4 Jun 2021 18:53:33 +0900
+Message-ID: <CACuRN0NjftJDUAsF2pkXbx0jnJ=bba9+j-hJA8Mjj0r4RVicLA@mail.gmail.com>
+Subject: [PATCH 0/1] riscv: better network performance with memcpy, uaccess
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Gary Guo <gary@garyguo.net>,
+ Nick Hu <nickhu@andestech.com>, 
+ Nylon Chen <nylon7@andestech.com>, Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ linux-riscv@lists.infradead.org, 
+ Linux kernel mailing list <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210604_025254_758655_521EA8EE 
-X-CRM114-Status: GOOD (  29.85  )
+X-CRM114-CacheID: sfid-20210604_025449_458479_F263945F 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,97 +89,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQWxleCwKCk9uIEZyaSwgSnVuIDQsIDIwMjEgYXQgMTE6MzUgQU0gQWxleCBHaGl0aSA8YWxl
-eEBnaGl0aS5mcj4gd3JvdGU6Cj4KPiBMZSAzMS8wNS8yMDIxIMOgIDE3OjE3LCBBbGV4IEdoaXRp
-IGEgw6ljcml0IDoKPiA+IEhpIFZpdGFseSwKPiA+Cj4gPiBMZSAzMS8wNS8yMDIxIMOgIDEwOjUz
-LCBWaXRhbHkgV29vbCBhIMOpY3JpdCA6Cj4gPj4gUklTQ1ZfRVJSQVRBX0FMVEVSTkFUSVZFIHBh
-dGNoZXMgdGV4dCBhdCBydW50aW1lIHdoaWNoIGlzIGN1cnJlbnRseQo+ID4+IG5vdCBwb3NzaWJs
-ZSB3aGVuIHRoZSBrZXJuZWwgaXMgZXhlY3V0ZWQgZnJvbSB0aGUgZmxhc2ggaW4gWElQIG1vZGUu
-Cj4gPj4gU2luY2UgcnVudGltZSBwYXRjaGluZyBjb25jZXJucyBvbmx5IHRyYXBzIGF0IHRoZSBt
-b21lbnQsIGxldCdzIGp1c3QKPiA+PiBoYXZlIGFsbCB0aGUgdHJhcHMgcmVzaWRlIGluIFJBTSBh
-bnl3YXkgaWYgUklTQ1ZfRVJSQVRBX0FMVEVSTkFUSVZFCj4gPj4gaXMgc2V0LiBUaHVzLCB0aGVz
-ZSBmdW5jdGlvbnMgd2lsbCBiZSBwYXRjaC1hYmxlIGV2ZW4gd2hlbiB0aGUgLnRleHQKPiA+PiBz
-ZWN0aW9uIGlzIGluIGZsYXNoLgo+ID4+Cj4gPgo+ID4gVGhpcyBzb3VuZHMgbGlrZSBhIGdvb2Qg
-Zml4IGZvciBzaWZpdmUgcGxhdGZvcm1zIHRvIHdvcmsgd2l0aCBYSVAga2VybmVsCj4gPiBpbiA1
-LjEzOiBkaWQgeW91IHRlc3QgdGhhdCBpdCBhY3R1YWxseSB3b3JrcyBvbiBIVz8KPiA+Cj4gPj4g
-U2lnbmVkLW9mZi1ieTogVml0YWx5IFdvb2wgPHZpdGFseS53b29sQGtvbnN1bGtvLmNvbT4KPiA+
-PiAtLS0KPiA+PiAgIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgICAgICAgIHwgMTMgKysr
-KysrKysrLS0tLQo+ID4+ICAgYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC14aXAubGRzLlMgfCAx
-NSArKysrKysrKysrKysrKy0KPiA+PiAgIDIgZmlsZXMgY2hhbmdlZCwgMjMgaW5zZXJ0aW9ucygr
-KSwgNSBkZWxldGlvbnMoLSkKPiA+Pgo+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+ID4+IGluZGV4IDA3MjFiOTc5
-ODU5NS4uN2JjODhkOGFhYjk3IDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Ry
-YXBzLmMKPiA+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gPj4gQEAgLTg2LDgg
-Kzg2LDEzIEBAIHN0YXRpYyB2b2lkIGRvX3RyYXBfZXJyb3Ioc3RydWN0IHB0X3JlZ3MgKnJlZ3Ms
-IGludAo+ID4+IHNpZ25vLCBpbnQgY29kZSwKPiA+PiAgICAgICB9Cj4gPj4gICB9Cj4gPj4gKyNp
-ZiBkZWZpbmVkIChDT05GSUdfWElQX0tFUk5FTCkgJiYgZGVmaW5lZAo+ID4+IChDT05GSUdfUklT
-Q1ZfRVJSQVRBX0FMVEVSTkFUSVZFKQo+ID4+ICsjZGVmaW5lIF9fdHJhcF9zZWN0aW9uICAgICAg
-ICBfX3NlY3Rpb24oIi54aXAudHJhcHMiKQo+ID4+ICsjZWxzZQo+ID4+ICsjZGVmaW5lIF9fdHJh
-cF9zZWN0aW9uCj4gPj4gKyNlbmRpZgo+ID4KPiA+IE1heWJlIHdlIGNvdWxkIGRvIHNvbWV0aGlu
-ZyBtb3JlIGdlbmVyaWMuIEF0IHRoZSBtb21lbnQsIG9ubHkgdHJhcHMgYXJlCj4gPiBzdWJqZWN0
-IHRvIGFsdGVybmF0aXZlcyBidXQgdGhhdCB3aWxsIGxpa2VseSBleHBhbmQ6IHdoYXQgYWJvdXQg
-cmF0aGVyCj4gPiBkZWZpbmluZyBhIHNlY3Rpb24gY2FsbGVkIF9fYWx0ZXJuYXRpdmVfc2VjdGlv
-bj8KPgo+IEFueSB0aG91Z2h0cyBhYm91dCB0aGF0PwoKT2ggc29ycnksIEkgaGF2ZSBvdmVybG9v
-a2VkIHRoaXMuIEkgZG8gYWdyZWUgdGhpcyBpcyB0aGUgd2F5IHRvIGdvCmxvbmcgdGVybSwgSSBq
-dXN0IHdhbnRlZCB0byBkbyBhIHJlYXNvbmFibHkgZ29vZCBxdWljayBmaXggc2luY2UgdGhlCmRl
-ZmF1bHQgU2lGaXZlIGNvbmZpZ3VyYXRpb24gd29uJ3QgZXZlbiBidWlsZCB3aXRoIENPTkZJR19Y
-SVAgZW5hYmxlZC4KU28gSSB3b3VsZCBwcm9iYWJseSBqdXN0IHN1Z2dlc3QgdG8gdGFrZSB0aGUg
-ZXhpc3Rpbmcgc29sdXRpb24gYW5kCnRoZW4gdGhpbmsgb3ZlciB0aGUgZGV0YWlscyAoZS4gZy4g
-c2hvdWxkIHdlIGp1c3QgdXNlIG9uZSAiYWx0ZXJuYXRpdmUKc2VjdGlvbiIgZm9yIGJvdGggdGhl
-IGZ1bmN0aW9ucyBhbmQgdGhlIHRhYmxlIG9yIGhhdmUgc2VwYXJhdGUgb25lcz8pCmZvciB0aGUg
-Z2VuZXJpYyBzb2x1dGlvbi4KCkJlc3QgcmVnYXJkcywKICAgVml0YWx5Cgo+IFRoYW5rcywKPgo+
-IEFsZXgKPgo+ID4KPiA+PiAgICNkZWZpbmUgRE9fRVJST1JfSU5GTyhuYW1lLCBzaWdubywgY29k
-ZSwgc3RyKSAgICAgICAgICAgICAgICBcCj4gPj4gLWFzbWxpbmthZ2UgX192aXNpYmxlIHZvaWQg
-bmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykgICAgICAgICAgICBcCj4gPj4gK2FzbWxpbmthZ2Ug
-X192aXNpYmxlIF9fdHJhcF9zZWN0aW9uIHZvaWQgbmFtZShzdHJ1Y3QgcHRfcmVncyAqcmVncykg
-ICAgXAo+ID4+ICAgeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+PiAg
-ICAgICBkb190cmFwX2Vycm9yKHJlZ3MsIHNpZ25vLCBjb2RlLCByZWdzLT5lcGMsICJPb3BzIC0g
-IiBzdHIpOyAgICBcCj4gPj4gICB9Cj4gPj4gQEAgLTExMSw3ICsxMTYsNyBAQCBET19FUlJPUl9J
-TkZPKGRvX3RyYXBfc3RvcmVfbWlzYWxpZ25lZCwKPiA+PiAgIGludCBoYW5kbGVfbWlzYWxpZ25l
-ZF9sb2FkKHN0cnVjdCBwdF9yZWdzICpyZWdzKTsKPiA+PiAgIGludCBoYW5kbGVfbWlzYWxpZ25l
-ZF9zdG9yZShzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gPj4gLWFzbWxpbmthZ2Ugdm9pZCBkb190
-cmFwX2xvYWRfbWlzYWxpZ25lZChzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiA+PiArYXNtbGlua2Fn
-ZSB2b2lkIF9fdHJhcF9zZWN0aW9uIGRvX3RyYXBfbG9hZF9taXNhbGlnbmVkKHN0cnVjdCBwdF9y
-ZWdzCj4gPj4gKnJlZ3MpCj4gPj4gICB7Cj4gPj4gICAgICAgaWYgKCFoYW5kbGVfbWlzYWxpZ25l
-ZF9sb2FkKHJlZ3MpKQo+ID4+ICAgICAgICAgICByZXR1cm47Cj4gPj4gQEAgLTExOSw3ICsxMjQs
-NyBAQCBhc21saW5rYWdlIHZvaWQgZG9fdHJhcF9sb2FkX21pc2FsaWduZWQoc3RydWN0Cj4gPj4g
-cHRfcmVncyAqcmVncykKPiA+PiAgICAgICAgICAgICAgICAgIk9vcHMgLSBsb2FkIGFkZHJlc3Mg
-bWlzYWxpZ25lZCIpOwo+ID4+ICAgfQo+ID4+IC1hc21saW5rYWdlIHZvaWQgZG9fdHJhcF9zdG9y
-ZV9taXNhbGlnbmVkKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4+ICthc21saW5rYWdlIHZvaWQg
-X190cmFwX3NlY3Rpb24gZG9fdHJhcF9zdG9yZV9taXNhbGlnbmVkKHN0cnVjdAo+ID4+IHB0X3Jl
-Z3MgKnJlZ3MpCj4gPj4gICB7Cj4gPj4gICAgICAgaWYgKCFoYW5kbGVfbWlzYWxpZ25lZF9zdG9y
-ZShyZWdzKSkKPiA+PiAgICAgICAgICAgcmV0dXJuOwo+ID4+IEBAIC0xNDYsNyArMTUxLDcgQEAg
-c3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25nCj4gPj4gZ2V0X2JyZWFrX2luc25fbGVuZ3RoKHVu
-c2lnbmVkIGxvbmcgcGMpCj4gPj4gICAgICAgcmV0dXJuIEdFVF9JTlNOX0xFTkdUSChpbnNuKTsK
-PiA+PiAgIH0KPiA+PiAtYXNtbGlua2FnZSBfX3Zpc2libGUgdm9pZCBkb190cmFwX2JyZWFrKHN0
-cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4+ICthc21saW5rYWdlIF9fdmlzaWJsZSBfX3RyYXBfc2Vj
-dGlvbiB2b2lkIGRvX3RyYXBfYnJlYWsoc3RydWN0IHB0X3JlZ3MKPiA+PiAqcmVncykKPiA+PiAg
-IHsKPiA+PiAgICNpZmRlZiBDT05GSUdfS1BST0JFUwo+ID4+ICAgICAgIGlmIChrcHJvYmVfc2lu
-Z2xlX3N0ZXBfaGFuZGxlcihyZWdzKSkKPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvdm1saW51eC14aXAubGRzLlMKPiA+PiBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgteGlw
-Lmxkcy5TCj4gPj4gaW5kZXggNGIyOWI5OTE3Zjk5Li5hM2ZmMDljNGMzZjkgMTAwNjQ0Cj4gPj4g
-LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC14aXAubGRzLlMKPiA+PiArKysgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC92bWxpbnV4LXhpcC5sZHMuUwo+ID4+IEBAIC05OSw5ICs5OSwyMiBAQCBT
-RUNUSU9OUwo+ID4+ICAgICAgIH0KPiA+PiAgICAgICBQRVJDUFVfU0VDVElPTihMMV9DQUNIRV9C
-WVRFUykKPiA+PiAtICAgIC4gPSBBTElHTihQQUdFX1NJWkUpOwo+ID4+ICsgICAgLiA9IEFMSUdO
-KDgpOwo+ID4+ICsgICAgLmFsdGVybmF0aXZlIDogewo+ID4+ICsgICAgICAgIF9fYWx0X3N0YXJ0
-ID0gLjsKPiA+PiArICAgICAgICAqKC5hbHRlcm5hdGl2ZSkKPiA+PiArICAgICAgICBfX2FsdF9l
-bmQgPSAuOwo+ID4+ICsgICAgfQo+ID4+ICAgICAgIF9faW5pdF9lbmQgPSAuOwo+ID4+ICsgICAg
-LiA9IEFMSUdOKDE2KTsKPiA+Cj4gPiBXaHkgMTYgaGVyZT8KPiA+Cj4gPj4gKyAgICAueGlwLnRy
-YXBzIDogewo+ID4+ICsgICAgICAgIF9feGlwX3RyYXBzX3N0YXJ0ID0gLjsKPiA+PiArICAgICAg
-ICAqKC54aXAudHJhcHMpCj4gPj4gKyAgICAgICAgX194aXBfdHJhcHNfZW5kID0gLjsKPiA+PiAr
-ICAgIH0KPiA+PiArCj4gPj4gKyAgICAuID0gQUxJR04oUEFHRV9TSVpFKTsKPiA+PiAgICAgICAu
-c2RhdGEgOiB7Cj4gPj4gICAgICAgICAgIF9fZ2xvYmFsX3BvaW50ZXIkID0gLiArIDB4ODAwOwo+
-ID4+ICAgICAgICAgICAqKC5zZGF0YSopCj4gPj4KPiA+Cj4gPiBUaGFua3MsCj4gPgo+ID4gQWxl
-eAo+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Cj4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+I am adding a cover letter to explain the history and details since
+improvement is a combination with Gary's memcpy patch [1].
+
+Comparison of iperf3 benchmark results by applying Gary's memcpy patch and
+my uaccess optimization patch. All results are from the same base kernel,
+same rootfs and save BeagleV beta board.
+
+First left column : beaglev 5.13.rc4 kernel [2]
+Second column     : Added Palmer's memcpy in C + my uaccess patch [3]
+Third column      : Added Gary's memcpy + my uaccess patch [4]
+
+--- TCP recv ---
+686 Mbits/sec  |  700 Mbits/sec  |  904 Mbits/sec
+683 Mbits/sec  |  701 Mbits/sec  |  898 Mbits/sec
+695 Mbits/sec  |  702 Mbits/sec  |  905 Mbits/sec
+
+--- TCP send ---
+383 Mbits/sec  |  390 Mbits/sec  |  393 Mbits/sec
+384 Mbits/sec  |  393 Mbits/sec  |  392 Mbits/sec
+
+--- UDP send ---
+307 Mbits/sec  |  358 Mbits/sec  |  402 Mbits/sec
+307 Mbits/sec  |  359 Mbits/sec  |  402 Mbits/sec
+
+--- UDP recv ---
+630 Mbits/sec  |  799 Mbits/sec  |  875 Mbits/sec
+730 Mbits/sec  |  796 Mbits/sec  |  873 Mbits/sec
+
+
+The uaccess patch is reducing pipeline stall of read after write (RAW)
+by unroling load and store.
+The main reason for using assembler inside uaccess.S is because the
+__asm_to/copy_from_user() handling page fault must be done manually inside
+the functions.
+
+The above result is combination from Gary $B!G (Bs memcpy speeding up
+by reducing
+the S-mode and M-mode switching and my uaccess reducing pipeline stall for
+user space uses syscall with large data.
+
+We had a discussion of improving network performance on the BeagleV beta
+board with Palmer.
+
+Palmer suggested to use C-based string routines, which checks the unaligned
+address and use 8 bytes aligned copy if the both src and dest are aligned
+and if not use the current copy function.
+
+The Gary's assembly version of memcpy is improving by not using unaligned
+access in 64 bit boundary, uses shifting it after reading with offset of
+aligned access, because every misaligned access is trapped and switches to
+opensbi in M-mode. The main speed up is coming from avoiding S-mode (kernel)
+and M-mode (opensbi) switching.
+
+Processing network packets require a lot of unaligned access for the packet
+header, which is not able to change the design of the header format to be
+aligned.
+And user applications pass large packet data with send/recf() and sendto/
+recvfrom() to repeat less function calls for reading and writing data for the
+optimization.
+
+Akira
+
+[1] https://lkml.org/lkml/2021/2/16/778
+[2] https://github.com/mcd500/linux-jh7100/tree/starlight-sdimproved
+[3] https://github.com/mcd500/linux-jh7100/tree/starlight-sd-palmer-string
+[4] https://github.com/mcd500/linux-jh7100/tree/starlight-sd-gary
+
+Akira Tsukamoto (1):
+  riscv: prevent pipeline stall in __asm_to/copy_from_user
+
+ arch/riscv/lib/uaccess.S | 106 +++++++++++++++++++++++++++------------
+ 1 file changed, 73 insertions(+), 33 deletions(-)
+
+--
+2.17.1
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
