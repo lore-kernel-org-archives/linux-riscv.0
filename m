@@ -2,78 +2,71 @@ Return-Path: <SRS0=5Qc/=K6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E038C47083
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 07:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B4A4C07E94
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 07:10:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CCF5561413
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 07:03:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CCF5561413
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D6D6161415
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 07:10:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6D6161415
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=doPY5YFVof31/5L3f7PPE7KBlRNK8SQdl+A4z0wELno=; b=F80spX+RaMZZV+
-	IxzoJvTMARLRYU90JAE+QaCfaknxbmrvytYdgQHJsirilOF0cywPOnRexDUkx343CnNTWby392nnW
-	g7vaH8WCqUxGw6QTzOg07nsTbuwoBDuHegU4c3MYDgr0Ygfn7GgDOgWCQfF6RHhfJBsMnJg41qmko
-	eHPKC/zvgXCUVQtTN4nO6st7LNQadSpEslpJ2N1haeYAmwxpCcB2fX/YxytPWZoL7yDrTRc4mvhGE
-	APk4a0GuFjzQQuc2pxGU8HzBQudpUcFdMppgO1MpxRCJVZEP23NQnP2QcckOPuQ+jufRyc51oY79F
-	CvmJIawU+plyJzPNOWDw==;
+	List-Owner; bh=lqTX0UGxsUg3KC2KGMPHpVJH7oujzN3uQgHt3yLgTSA=; b=I/57sRJ+Ah3Jap
+	Pqik3V5+P/8aV1EDom25HONbqykcsunKQz5mq4yZ1WEUcRXEVN820fvNHjc3DPY6f05aX02pjdOcA
+	VxnCAznhxfWJ2nGrJyQ3+kY8y7nWGJWMWHv7fMenW9p7clhJWplVPFdl5uDeckSv2mU405I3C6GbH
+	Uz5qRxnl5Bxbb69p0Vht/KYe+UCXie9KcR3736ZLbvjy93xccdcHoPHYW6ggLcA87nIQQRWASe9ef
+	U3jufr81CB6pXbFwibbfiGKlouym3tJIqHeNnArdPLUhDiQepm1k2mNox4aEU6Y80LeC88A9Fb0X8
+	8uCs2lFK0ZXOHHqwrRsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lp3r8-00BuFo-5i; Fri, 04 Jun 2021 07:02:58 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lp3y2-00BxFb-4H; Fri, 04 Jun 2021 07:10:06 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lp3f5-00BoDh-2D; Fri, 04 Jun 2021 06:50:33 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3515A61415;
- Fri,  4 Jun 2021 06:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622789430;
- bh=lDEh/GlZ6IHzCVgoifZXFj4eSjBGzRR223ZmBbEbu7M=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=FFzVOjIJiCWzdDVdPOERBe+6WCuPkRQX7QoI7Waosxm/3cjzgDaj7FR4VcbvtndpF
- I7LnDiGmeXg+T//F9l1eT/bfu4LdtRglAhKPnEwGrSICHYLC4d4iqYRIWVGsjPrQsY
- SQlmy4lnuYwfWGbNxIBov1kbm+UssQAoftJ4Ihv9dOUOh1TNLPmsA6Wada1KVNha4R
- YBsOMw5ijOD+d9Ylug1CBP0Znxweh4IQwpiLtVrygr6/BGOPGwyD6kk/2+T/pQHvGJ
- 3yA2ewQe15ITdLRhwcIMW7tJYcTEAOpVVnMo+uilV6cGq6XyCS25HnxLbvk3H/+VDA
- 5UTnsjhL588eg==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>,
- Mike Rapoport <rppt@kernel.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Richard Henderson <rth@twiddle.net>, Vineet Gupta <vgupta@synopsys.com>,
- kexec@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
-Subject: [PATCH v2 9/9] mm: replace CONFIG_FLAT_NODE_MEM_MAP with
- CONFIG_FLATMEM
-Date: Fri,  4 Jun 2021 09:49:16 +0300
-Message-Id: <20210604064916.26580-10-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20210604064916.26580-1-rppt@kernel.org>
-References: <20210604064916.26580-1-rppt@kernel.org>
+ id 1lp3mN-00BsG9-2V
+ for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 06:58:05 +0000
+Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.56])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4FxD4C1DRJzWqgj;
+ Fri,  4 Jun 2021 14:53:15 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 4 Jun 2021 14:58:00 +0800
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 4 Jun 2021 14:57:59 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: Andrew Morton <akpm@linux-foundation.org>, <linux-kernel@vger.kernel.org>
+CC: <linux-mm@kvack.org>, Kefeng Wang <wangkefeng.wang@huawei.com>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ <linux-riscv@lists.infradead.org>
+Subject: [PATCH v2 12/15] riscv: convert to setup_initial_init_mm()
+Date: Fri, 4 Jun 2021 15:06:30 +0800
+Message-ID: <20210604070633.32363-13-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
+References: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.175.113.25]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210603_235031_190001_5A82A9D3 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20210603_235803_399080_3359003D 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,118 +83,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+Use setup_initial_init_mm() helper to simplify code.
 
-After removal of the DISCONTIGMEM memory model the FLAT_NODE_MEM_MAP
-configuration option is equivalent to FLATMEM.
-
-Drop CONFIG_FLAT_NODE_MEM_MAP and use CONFIG_FLATMEM instead.
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- include/linux/mmzone.h | 4 ++--
- kernel/crash_core.c    | 2 +-
- mm/Kconfig             | 4 ----
- mm/page_alloc.c        | 6 +++---
- mm/page_ext.c          | 2 +-
- 5 files changed, 7 insertions(+), 11 deletions(-)
+ arch/riscv/kernel/setup.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index acdc51c7b259..1d5cafe5ccc3 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -777,7 +777,7 @@ typedef struct pglist_data {
- 	struct zonelist node_zonelists[MAX_ZONELISTS];
- 
- 	int nr_zones; /* number of populated zones in this node */
--#ifdef CONFIG_FLAT_NODE_MEM_MAP	/* means !SPARSEMEM */
-+#ifdef CONFIG_FLATMEM	/* means !SPARSEMEM */
- 	struct page *node_mem_map;
- #ifdef CONFIG_PAGE_EXTENSION
- 	struct page_ext *node_page_ext;
-@@ -867,7 +867,7 @@ typedef struct pglist_data {
- 
- #define node_present_pages(nid)	(NODE_DATA(nid)->node_present_pages)
- #define node_spanned_pages(nid)	(NODE_DATA(nid)->node_spanned_pages)
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- #define pgdat_page_nr(pgdat, pagenr)	((pgdat)->node_mem_map + (pagenr))
- #else
- #define pgdat_page_nr(pgdat, pagenr)	pfn_to_page((pgdat)->node_start_pfn + (pagenr))
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 53eb8bc6026d..2b8446ea7105 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -483,7 +483,7 @@ static int __init crash_save_vmcoreinfo_init(void)
- 	VMCOREINFO_OFFSET(page, compound_head);
- 	VMCOREINFO_OFFSET(pglist_data, node_zones);
- 	VMCOREINFO_OFFSET(pglist_data, nr_zones);
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- 	VMCOREINFO_OFFSET(pglist_data, node_mem_map);
- #endif
- 	VMCOREINFO_OFFSET(pglist_data, node_start_pfn);
-diff --git a/mm/Kconfig b/mm/Kconfig
-index bffe4bd859f3..ded98fb859ab 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -55,10 +55,6 @@ config FLATMEM
- 	def_bool y
- 	depends on !SPARSEMEM || FLATMEM_MANUAL
- 
--config FLAT_NODE_MEM_MAP
--	def_bool y
--	depends on !SPARSEMEM
--
- #
- # SPARSEMEM_EXTREME (which is the default) does some bootmem
- # allocations when sparse_init() is called.  If this cannot
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 8f08135d3eb4..f039736541eb 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -6444,7 +6444,7 @@ static void __meminit zone_init_free_lists(struct zone *zone)
- 	}
- }
- 
--#if !defined(CONFIG_FLAT_NODE_MEM_MAP)
-+#if !defined(CONFIG_FLATMEM)
- /*
-  * Only struct pages that correspond to ranges defined by memblock.memory
-  * are zeroed and initialized by going through __init_single_page() during
-@@ -7241,7 +7241,7 @@ static void __init free_area_init_core(struct pglist_data *pgdat)
- 	}
- }
- 
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- static void __ref alloc_node_mem_map(struct pglist_data *pgdat)
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 03901d3a8b02..52396874f859 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -264,10 +264,7 @@ static void __init parse_dtb(void)
+ void __init setup_arch(char **cmdline_p)
  {
- 	unsigned long __maybe_unused start = 0;
-@@ -7289,7 +7289,7 @@ static void __ref alloc_node_mem_map(struct pglist_data *pgdat)
- }
- #else
- static void __ref alloc_node_mem_map(struct pglist_data *pgdat) { }
--#endif /* CONFIG_FLAT_NODE_MEM_MAP */
-+#endif /* CONFIG_FLATMEM */
+ 	parse_dtb();
+-	init_mm.start_code = (unsigned long) _stext;
+-	init_mm.end_code   = (unsigned long) _etext;
+-	init_mm.end_data   = (unsigned long) _edata;
+-	init_mm.brk        = (unsigned long) _end;
++	setup_initial_init_mm(_stext, _etext, _edata, _end);
  
- #ifdef CONFIG_DEFERRED_STRUCT_PAGE_INIT
- static inline void pgdat_set_deferred_range(pg_data_t *pgdat)
-diff --git a/mm/page_ext.c b/mm/page_ext.c
-index df6f74aac8e1..293b2685fc48 100644
---- a/mm/page_ext.c
-+++ b/mm/page_ext.c
-@@ -191,7 +191,7 @@ void __init page_ext_init_flatmem(void)
- 	panic("Out of memory");
- }
+ 	*cmdline_p = boot_command_line;
  
--#else /* CONFIG_FLAT_NODE_MEM_MAP */
-+#else /* CONFIG_FLATMEM */
- 
- struct page_ext *lookup_page_ext(const struct page *page)
- {
 -- 
-2.28.0
+2.26.2
 
 
 _______________________________________________
