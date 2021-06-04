@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FF14C07E94
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 11:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C3EDC07E94
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 11:53:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 08FB56140B
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 11:52:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08FB56140B
+	by mail.kernel.org (Postfix) with ESMTPS id DEFD46140B
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 11:53:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEFD46140B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,22 +23,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BM0+ClqLJhO0cklXaS2DG9R5D7i23YbdEmn4vdnFwIs=; b=2essJ3gMBtflxo
-	fZW5UF1m2C4zW6a8ym6Mk4VY7+8g7mHNuBqkmK3zSc/317xevC+K+xO3nPpLvadB6kUbZMvAzdncW
-	umU9pYZrFCqYJx3AfyWHP6n+CwzgVkX21MKR2tU7XyPS3sfpmjqQJJaNOM3DWoM/NcOyW35pYcUlr
-	NbP4pQ5Rdv8Oyp5EB5IUzJsz5TW4vFCbp/+cEaBh4Qs8SIueWKfGcqIFgTDEgfibFmxDJhpW3hHwX
-	nDuW+0qP/JDylv6BD5GvQijt5zNSBYjJjNybTtATByfNYxHo2atiw9pOmCvXN1ztW6vI2UmN22Jsj
-	epJEWWX1mwQdLqq+gaSg==;
+	List-Owner; bh=hDyzo1SID8ISVQi+gEj6D2EPtSFQkeCtWOc/OFRpVFw=; b=D0AwZlpi6wpoMJ
+	OB0/mvadP5iUza/4GdmsKb3u9Pbj5RWZ/VbfHkGwK8TNXfQkaQc4KEK0FFxli0y1BrsnGPt5sMM7R
+	eD8gFa+oZRguRWfzQ/y7XCPUPaWN56xfZbWFMwKymAZ4Hqx9maLt1oCEV/SflofrrcQEIfs8qse/n
+	VLdFWoll6S1xIOT0me/LTO8DsI/rvJYaqGNIT5xYHLOQS0F3pNIX2da77IQZyMSfzaIIvEOipYHs6
+	hZcgznTgesglOxbHSTR4ZnRU7UXNqn9/0Pxd9secQ4LRjfKRNsiAgkkiATTgMoans1dRovC/WOkJv
+	LqlmcbaFnTq8XW6/q7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lp8N8-00DPdJ-Qt; Fri, 04 Jun 2021 11:52:18 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1lp8O9-00DPuj-Si; Fri, 04 Jun 2021 11:53:21 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lp8Mz-00DPZZ-I2
- for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 11:52:12 +0000
+ id 1lp8O6-00DPsh-G7
+ for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 11:53:20 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id A0A78240007;
- Fri,  4 Jun 2021 11:52:03 +0000 (UTC)
+ by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id C06E51BF207;
+ Fri,  4 Jun 2021 11:53:12 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -46,17 +46,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v4 2/4] riscv: Simplify xip and !xip kernel address conversion
- macros
-Date: Fri,  4 Jun 2021 13:49:48 +0200
-Message-Id: <20210604114950.1446390-3-alex@ghiti.fr>
+Subject: [PATCH v4 3/4] riscv: Introduce set_kernel_memory helper
+Date: Fri,  4 Jun 2021 13:49:49 +0200
+Message-Id: <20210604114950.1446390-4-alex@ghiti.fr>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210604114950.1446390-1-alex@ghiti.fr>
 References: <20210604114950.1446390-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210604_045209_772163_0FA4FCD5 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20210604_045318_710904_7E6B771A 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,92 +73,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To simplify the kernel address conversion code, make the same definition of
-kernel_mapping_pa_to_va and kernel_mapping_va_to_pa compatible for both xip
-and !xip kernel by defining XIP_OFFSET to 0 in !xip kernel.
+This helper should be used for setting permissions to the kernel
+mapping as it takes pointers as arguments and then avoids explicit cast
+to unsigned long needed for the set_memory_* API.
 
+Suggested-by: Christoph Hellwig <hch@infradead.org>
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/include/asm/page.h    | 14 +++-----------
- arch/riscv/include/asm/pgtable.h |  2 ++
- 2 files changed, 5 insertions(+), 11 deletions(-)
+ arch/riscv/include/asm/set_memory.h |  5 +++++
+ arch/riscv/mm/pageattr.c            | 10 ++++++++++
+ 2 files changed, 15 insertions(+)
 
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 6a7761c86ec2..6e004d8fda4d 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -93,9 +93,7 @@ extern unsigned long va_pa_offset;
- #ifdef CONFIG_64BIT
- extern unsigned long va_kernel_pa_offset;
- #endif
--#ifdef CONFIG_XIP_KERNEL
- extern unsigned long va_kernel_xip_pa_offset;
--#endif
- extern unsigned long pfn_base;
- #define ARCH_PFN_OFFSET		(pfn_base)
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 086f757e8ba3..7a411fed9e0e 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -16,6 +16,7 @@ int set_memory_rw(unsigned long addr, int numpages);
+ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
+ int set_memory_rw_nx(unsigned long addr, int numpages);
++int set_kernel_memory(char *start, char *end, int (*set_memory)(unsigned long, int));
+ void protect_kernel_text_data(void);
  #else
-@@ -103,6 +101,7 @@ extern unsigned long pfn_base;
- #ifdef CONFIG_64BIT
- #define va_kernel_pa_offset	0
+ static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+@@ -24,6 +25,10 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+ static inline void protect_kernel_text_data(void) {}
+ static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
++static inline int set_kernel_memory(char *start, char *end, int (*set_memory)(unsigned long, int))
++{
++	return 0;
++}
  #endif
-+#define va_kernel_xip_pa_offset 0
- #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
- #endif /* CONFIG_MMU */
  
-@@ -110,29 +109,22 @@ extern unsigned long kernel_virt_addr;
+ #if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 5e49e4b4a4cc..c47ac6a432ac 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -156,6 +156,16 @@ int set_memory_nx(unsigned long addr, int numpages)
+ 	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
+ }
  
- #ifdef CONFIG_64BIT
- #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_pa_offset))
--#ifdef CONFIG_XIP_KERNEL
- #define kernel_mapping_pa_to_va(y)	({						\
- 	unsigned long _y = y;								\
- 	(_y >= CONFIG_PHYS_RAM_BASE) ?							\
- 		(void *)((unsigned long)(_y) + va_kernel_pa_offset + XIP_OFFSET) :	\
- 		(void *)((unsigned long)(_y) + va_kernel_xip_pa_offset);		\
- 	})
--#else
--#define kernel_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_kernel_pa_offset))
--#endif
- #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
- 
- #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - va_pa_offset)
--#ifdef CONFIG_XIP_KERNEL
- #define kernel_mapping_va_to_pa(y) ({						\
- 	unsigned long _y = y;							\
- 	(_y < kernel_virt_addr + XIP_OFFSET) ?					\
- 		((unsigned long)(_y) - va_kernel_xip_pa_offset) :		\
- 		((unsigned long)(_y) - va_kernel_pa_offset - XIP_OFFSET);	\
- 	})
--#else
--#define kernel_mapping_va_to_pa(x)	((unsigned long)(x) - va_kernel_pa_offset)
--#endif
++int set_kernel_memory(char *startp, char *endp,
++		      int (*set_memory)(unsigned long start, int num_pages))
++{
++	unsigned long start = (unsigned long)startp;
++	unsigned long end = (unsigned long)endp;
++	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
 +
- #define __va_to_pa_nodebug(x)	({						\
- 	unsigned long _x = x;							\
- 	(_x < kernel_virt_addr) ?						\
-@@ -141,7 +133,7 @@ extern unsigned long kernel_virt_addr;
- #else
- #define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_offset))
- #define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
--#endif
-+#endif /* CONFIG_64BIT */
- 
- #ifdef CONFIG_DEBUG_VIRTUAL
- extern phys_addr_t __virt_to_phys(unsigned long x);
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index bde8ce3bfe7c..d98e931a31e5 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -77,6 +77,8 @@
- 
- #ifdef CONFIG_XIP_KERNEL
- #define XIP_OFFSET		SZ_8M
-+#else
-+#define XIP_OFFSET		0
- #endif
- 
- #ifndef __ASSEMBLY__
++	return set_memory(start, num_pages);
++}
++
+ int set_direct_map_invalid_noflush(struct page *page)
+ {
+ 	int ret;
 -- 
 2.30.2
 
