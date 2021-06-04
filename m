@@ -2,87 +2,89 @@ Return-Path: <SRS0=5Qc/=K6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16485C07E94
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 14:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2748BC07E94
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 15:52:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B74996140B
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 14:50:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B74996140B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id E54E9613F1
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 15:52:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E54E9613F1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qZHrIivwf3uwgGZqo9uQSvlPS/NAHSGZl0vWRAxQ680=; b=b09VRlP1tplH83
-	R9M+pQzyf6tPZ8BrylNxzItZ48rD/kkDhacWO4Wh/jalDayo2u/zTUu3tLHr2Fw2cO4kjK9iVA+wG
-	cv2UO+v4DfDYFk7941wGhqXXFsew4JqNUSBIrtt7uKYRMj+6rQRVZkxP3yCK4lq7EpOhoVMDsn05j
-	T/rEnTuHxPnE1dysZ4Rqx6IVEvIJzYpjmICN3ppTVV1jZIgubKJkTbH+7ltgtkUWBasX9TsXVtCyl
-	gTObJBwmLS4hd4QgHynZcczVaC5H9sImT5sC/MP0vXI6g5de98lbk9j3lGltx4hhPzo87xMCdXDfN
-	5t5f5ZxyavgasW620Qig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=rjYfLSZFmOm6hedrv+lI1HxW7vGtVmjL/PkLRYK3Tcg=; b=4t2GiDICOORLylao4qQPoHxoRU
+	YgsorY8mc6R1OWyA4SeDRGc5HJEOHvQGIQ+UqqoTYGCFmnKIxMVvC/PeFzmAtEiEiy6evFvefO1V8
+	kbpYyFPw2qpkSOPMewve/Gqvf5LE5xqh+7s8M2VioUh9l55uylG1bpVk/dDjXbkf25PVy9EMWimXD
+	dyJXuheItpx4cqSOo3+t6EfA17Lf56seRgDjf1i+N6QcZExLEH/afhHLWLkv78mkgKzIc9RwlY4Ue
+	taoHPvPtRbxy0LW3zW7bkXi1XORkS/utxjDddUwm+5ew/gBlJcDHnr09fKtgV4Ut0gXurv2vPRsb3
+	TJcGpnxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpB9H-00E02x-Qk; Fri, 04 Jun 2021 14:50:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lpC7Q-00EFjc-TB; Fri, 04 Jun 2021 15:52:20 +0000
+Received: from mail-pg1-f177.google.com ([209.85.215.177])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpB8z-00DzzZ-A9; Fri, 04 Jun 2021 14:49:57 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3F7C46140B;
- Fri,  4 Jun 2021 14:49:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622818193;
- bh=rnFSlNaPq8u6wC/6QmquuOa136Onpb4MOEGa2hLgk9I=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=LwwJaCK2IwLxB9kyXGjYKVF9yzkzn7XRMKeQ8X72ltVfnmPF5p41UBu+e+05a9DAy
- tZKeaBQHBAcKLB2Qe5TMvMpTImanf/IJol37sjCQauBE3/upu93O1L0ehCiz24v3Eo
- sgkxYEhJA2jhJ1hXN8nOKaMM///ktUE3ni2XrsbrjomrPUTFManqUNJ/xUZvLqqjSH
- FSVnaCBtBJhMvzfd0MKLff525QxHTp7w4mkKBDT0KOaGgN/fy/0yJ+Z0e/so6SnMiQ
- P2u25M6Qqug84oEiWVQUttGG0bIXa2/7x8ISySiIyeKQCCUonmeBlNLWKV2nP78fa3
- 67XpLaAb4EoHQ==
-Date: Fri, 4 Jun 2021 17:49:41 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Vineet Gupta <Vineet.Gupta1@synopsys.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Richard Henderson <rth@twiddle.net>,
- "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>
-Subject: Re: [PATCH v2 3/9] arc: remove support for DISCONTIGMEM
-Message-ID: <YLo9hb3yTeh3LBMg@kernel.org>
-References: <20210604064916.26580-1-rppt@kernel.org>
- <20210604064916.26580-4-rppt@kernel.org>
- <f1616f95-f99c-c387-4ed4-88961457a7c6@synopsys.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f1616f95-f99c-c387-4ed4-88961457a7c6@synopsys.com>
+ id 1lpC7L-00EFi3-CB
+ for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 15:52:19 +0000
+Received: by mail-pg1-f177.google.com with SMTP id y11so62941pgp.11
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 08:52:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=EblRfcbrw2Bfqfw9tfH547IVGROshi6ov6X25dHCJ4A=;
+ b=yRJyGFcI2I1WPSrV9AuioyhAYT7ivG/QNeKzsKD+R3SWR+zmdDzvTJyQHDflLW48UZ
+ ZMN9fWF22tbQszlRzxddUiBYPzPGvPeEnHGVjyZ6H7fngyTpw3uXmStjFrVkZy+OQcso
+ kXMV0enVx2naw8jI3c2txamHX0gLCKYwF8ACEAmsgd2Et14JHk6UEFvFDvR1oTzWCNbc
+ otX5J5MRTZSIUstEeftY1EQ0uKBkF2eZATvJBfiVw08Kk4w5bqIaaJ0MPntelkdjHTOI
+ m1IhzpFWbc1BWJeMWkQZo/eHDUvPXDE1MN6zeKvq/oER5cjMWYiEQu4IxZyE8+iPMyTK
+ JF2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=EblRfcbrw2Bfqfw9tfH547IVGROshi6ov6X25dHCJ4A=;
+ b=NkKjOX7aWFsBr1/KkcYysNmCTca0RAWRJnei4ftfFH5qAGNWzHBn9gxenc6v0YO1VH
+ t6h27Wjo2epm1Ra7qDKyTcar7UjEzOzWI+ExxHO3Mggh8je5oTjow7DDPozHkqv84SU3
+ fKlVh4/lIudolLiBxh+UMDzptj6r/jWO1Cf+NF5JSWr8m6DOoEOOYaCQw8Y30LYvwkw9
+ pujq2z4VUZXfzouOKPtz2TO1D7KtDT9TYB+ejV5OH5VvxfmqhXc3VnTpch7G3UZuruhB
+ HSL7vm5K9jqjVrcmpsbGBBuNIO3PW0yYlnCwvhkdKzKKUh7A2PvHvABlGhZTnciypuTf
+ rWXw==
+X-Gm-Message-State: AOAM532547yf28XtPIMFaZxz/LmJrp+caIEnILBbOWDRwEUi/P/8oXkN
+ 5ka7pueXyeDrflwQvN8PyrYMcQs/Dkl9wCXf
+X-Google-Smtp-Source: ABdhPJwjL1ysqjo2D10XZSVezd+QjVVOK16oTGexVdRXBHLeQlNEuD+FadY9VPzz6KqoG35+tyVkog==
+X-Received: by 2002:a62:5444:0:b029:2e9:c69d:dc64 with SMTP id
+ i65-20020a6254440000b02902e9c69ddc64mr4996989pfb.32.1622821869389; 
+ Fri, 04 Jun 2021 08:51:09 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id f5sm4869053pjp.37.2021.06.04.08.51.07
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 04 Jun 2021 08:51:08 -0700 (PDT)
+Date: Fri, 04 Jun 2021 08:51:08 -0700 (PDT)
+X-Google-Original-Date: Fri, 04 Jun 2021 08:51:06 PDT (-0700)
+Subject: Re: [PATCH -fixes] riscv: Fix BUILTIN_DTB for sifive and microchip soc
+In-Reply-To: <CAK8P3a1TiSNoqUEjTaqPyqnU8d0-p-yZkrsvmXt5fo4Rkfue_w@mail.gmail.com>
+CC: alex@ghiti.fr, robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-f1a76f5f-ad66-40ae-aad3-cd2f669f33bf@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210604_074953_409450_3210002F 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20210604_085215_438280_226918FD 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,152 +96,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 04, 2021 at 02:07:39PM +0000, Vineet Gupta wrote:
-> On 6/3/21 11:49 PM, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> >
-> > DISCONTIGMEM was replaced by FLATMEM with freeing of the unused memory map
-> > in v5.11.
-> >
-> > Remove the support for DISCONTIGMEM entirely.
-> >
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> Looks non intrusive, but I'd still like to give this a spin on hardware 
-> - considering highmem on ARC has tendency to go sideways ;-)
-> Can you please share a branch !
+On Fri, 04 Jun 2021 06:08:05 PDT (-0700), Arnd Bergmann wrote:
+> On Fri, Jun 4, 2021 at 2:06 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>>
+>> Fix BUILTIN_DTB config which resulted in a dtb that was actually not built
+>> into the Linux image: in the same manner as Canaan soc does, create an object
+>> file from the dtb file that will get linked into the Linux image.
+>>
+>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+>
+> Along the same lines as the comment that Jisheng Zhang made on the fixed
+> address, building a dtb into the kernel itself fundamentally breaks generic
+> kernel images.
+>
+> I can understand using it on K210, which is extremely limited and wouldn't
+> run a generic kernel anyway, but for normal platforms like microchip and
+> sifive, it would be better to disallow CONFIG_BUILTIN_DTB in Kconfig
+> and require a non-broken boot loader.
 
-Sure:
+When we first added BUILTIN_DTB we actually had a compatibility 
+mechanism in there.  There isn't enough in the ISA to handle board 
+compatibility, but we were hoping to get something to deal with that.  
+It didn't pan out so we dropped the compatibility mechanism, which is 
+how we ended up here.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=memory-models/rm-discontig/v2
- 
-> Acked-by: Vineet Gupta <vgupta@synopsys.com>
-
-Thanks!
- 
-> Thx,
-> -Vineet
-> 
-> > ---
-> >   arch/arc/Kconfig              | 13 ------------
-> >   arch/arc/include/asm/mmzone.h | 40 -----------------------------------
-> >   arch/arc/mm/init.c            |  8 -------
-> >   3 files changed, 61 deletions(-)
-> >   delete mode 100644 arch/arc/include/asm/mmzone.h
-> >
-> > diff --git a/arch/arc/Kconfig b/arch/arc/Kconfig
-> > index 2d98501c0897..d8f51eb8963b 100644
-> > --- a/arch/arc/Kconfig
-> > +++ b/arch/arc/Kconfig
-> > @@ -62,10 +62,6 @@ config SCHED_OMIT_FRAME_POINTER
-> >   config GENERIC_CSUM
-> >   	def_bool y
-> >   
-> > -config ARCH_DISCONTIGMEM_ENABLE
-> > -	def_bool n
-> > -	depends on BROKEN
-> > -
-> >   config ARCH_FLATMEM_ENABLE
-> >   	def_bool y
-> >   
-> > @@ -344,15 +340,6 @@ config ARC_HUGEPAGE_16M
-> >   
-> >   endchoice
-> >   
-> > -config NODES_SHIFT
-> > -	int "Maximum NUMA Nodes (as a power of 2)"
-> > -	default "0" if !DISCONTIGMEM
-> > -	default "1" if DISCONTIGMEM
-> > -	depends on NEED_MULTIPLE_NODES
-> > -	help
-> > -	  Accessing memory beyond 1GB (with or w/o PAE) requires 2 memory
-> > -	  zones.
-> > -
-> >   config ARC_COMPACT_IRQ_LEVELS
-> >   	depends on ISA_ARCOMPACT
-> >   	bool "Setup Timer IRQ as high Priority"
-> > diff --git a/arch/arc/include/asm/mmzone.h b/arch/arc/include/asm/mmzone.h
-> > deleted file mode 100644
-> > index b86b9d1e54dc..000000000000
-> > --- a/arch/arc/include/asm/mmzone.h
-> > +++ /dev/null
-> > @@ -1,40 +0,0 @@
-> > -/* SPDX-License-Identifier: GPL-2.0-only */
-> > -/*
-> > - * Copyright (C) 2016 Synopsys, Inc. (www.synopsys.com)
-> > - */
-> > -
-> > -#ifndef _ASM_ARC_MMZONE_H
-> > -#define _ASM_ARC_MMZONE_H
-> > -
-> > -#ifdef CONFIG_DISCONTIGMEM
-> > -
-> > -extern struct pglist_data node_data[];
-> > -#define NODE_DATA(nid) (&node_data[nid])
-> > -
-> > -static inline int pfn_to_nid(unsigned long pfn)
-> > -{
-> > -	int is_end_low = 1;
-> > -
-> > -	if (IS_ENABLED(CONFIG_ARC_HAS_PAE40))
-> > -		is_end_low = pfn <= virt_to_pfn(0xFFFFFFFFUL);
-> > -
-> > -	/*
-> > -	 * node 0: lowmem:             0x8000_0000   to 0xFFFF_FFFF
-> > -	 * node 1: HIGHMEM w/o  PAE40: 0x0           to 0x7FFF_FFFF
-> > -	 *         HIGHMEM with PAE40: 0x1_0000_0000 to ...
-> > -	 */
-> > -	if (pfn >= ARCH_PFN_OFFSET && is_end_low)
-> > -		return 0;
-> > -
-> > -	return 1;
-> > -}
-> > -
-> > -static inline int pfn_valid(unsigned long pfn)
-> > -{
-> > -	int nid = pfn_to_nid(pfn);
-> > -
-> > -	return (pfn <= node_end_pfn(nid));
-> > -}
-> > -#endif /* CONFIG_DISCONTIGMEM  */
-> > -
-> > -#endif
-> > diff --git a/arch/arc/mm/init.c b/arch/arc/mm/init.c
-> > index 397a201adfe3..abfeef7bf6f8 100644
-> > --- a/arch/arc/mm/init.c
-> > +++ b/arch/arc/mm/init.c
-> > @@ -32,11 +32,6 @@ unsigned long arch_pfn_offset;
-> >   EXPORT_SYMBOL(arch_pfn_offset);
-> >   #endif
-> >   
-> > -#ifdef CONFIG_DISCONTIGMEM
-> > -struct pglist_data node_data[MAX_NUMNODES] __read_mostly;
-> > -EXPORT_SYMBOL(node_data);
-> > -#endif
-> > -
-> >   long __init arc_get_mem_sz(void)
-> >   {
-> >   	return low_mem_sz;
-> > @@ -147,9 +142,6 @@ void __init setup_arch_memory(void)
-> >   	 * to the hole is freed and ARC specific version of pfn_valid()
-> >   	 * handles the hole in the memory map.
-> >   	 */
-> > -#ifdef CONFIG_DISCONTIGMEM
-> > -	node_set_online(1);
-> > -#endif
-> >   
-> >   	min_high_pfn = PFN_DOWN(high_mem_start);
-> >   	max_high_pfn = PFN_DOWN(high_mem_start + high_mem_sz);
-> 
-
--- 
-Sincerely yours,
-Mike.
+Maybe the right thing to do here is to add some sort of "be compatible 
+with the platform spec" Kconfig, which we could then use to disallow all 
+these features that result in non-portable kernels?
 
 _______________________________________________
 linux-riscv mailing list
