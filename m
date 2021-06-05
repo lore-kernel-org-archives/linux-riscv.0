@@ -1,94 +1,69 @@
-Return-Path: <SRS0=5Qc/=K6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=INRY=K7=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1826CC4743C
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 22:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3886C47082
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jun 2021 05:17:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CF93561028
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Jun 2021 22:11:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF93561028
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2544861028
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Jun 2021 05:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2544861028
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=paoPmvYS96fsV7pOVbIoELZ2wuSNnlfRDA9OA2xGOUI=; b=GEj1zYqMOVGMtzUBbnGvEi6Z5q
-	Mqa6GjL40k6UxJIzraqjZwMcIMAX4dvGf65Y3pzFLadKsj9XSjA2KorA8cZAUeiCuNyQV6EYoub7S
-	Kpipobpat8HcBcoP4gCKsCBtCcgtWnsoS/Mfy/AaBmAcehNYHjBNJCBwnekKDMT0L3xFv2BkHuzCv
-	1TZJ68xQIkcTmI+3MfSzoOgdRVFHKwDzUi2eVKpCpn2Oz3/Om/6S/cAri49cvcIi19fmJC40zegBC
-	1zKsSVyR2juXHVSWnZCjnbRbBO42BnUElIxrJK2bfdOcnmkzpLnltrCQbpxR4EXBKB0jraUjzFs46
-	EGXSTF8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MYOPWh4osy3H+4CqDoTSP9cUjHk69FLTGgYd5EM+NiI=; b=QFG87hFnkGlxfa
+	7ruiayZ7Ifn24SVY/bYvgWY1AoaL+8aJAFSVUl1Hp0MVoNGu891yv4x2TtP8VnaWGxOUCPqun+Ffd
+	Pr2bdSt/AwYKHMbJjpF3ImmBq9p/iRwoVG5mO17RnsoHB7/XNw71bHvA/dJtRUehdu9Y93Ry6+iQm
+	W0AzKqTJKU0Auid+BHw4EPwLdplbID5jz3hKhQWCsukvTk6Cah4Rt3lNh6EctG8PbNXKRep2l4S3+
+	ez1EopQOUCOK0xzZGxttDrQSu6CKFXlG6J0upW5PKaPoIYg3Ahbi9/05TEljB6FqXf14dZWwmOsco
+	bt/nmE8DHWOjkF0Jo1Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpI1P-00FQ5c-QW; Fri, 04 Jun 2021 22:10:31 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1lpOfn-00G30I-96; Sat, 05 Jun 2021 05:16:39 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpI1L-00FQ4C-2y
- for linux-riscv@lists.infradead.org; Fri, 04 Jun 2021 22:10:31 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id v14so8937024pgi.6
- for <linux-riscv@lists.infradead.org>; Fri, 04 Jun 2021 15:10:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=Kl/E6sm1Hy5waa1ESIZ6GAoJ0uFLqC7+4leUJX1UReE=;
- b=e1C3eBAJo533STH89elp7a4H+e6DnBllnlpNPkSJ37AUtSa9D2fSu0R9qPHRWFpoUB
- dyKBlwyR2c9ha5qH37lC+zWEtaBtf/3ujqhuCkHBVKkpFXmVRfB052qGmbX6QEROyzD5
- 3piThQCpvPoTNvTgpwAYjppQ7qiFBb3tZhJuG3A4soIr6mSQh9a2WrqXG2sMAvkf4lAr
- VShOLXtWlvCnxX+kxgqH+shj8nPlrteBjpNkyAbKPqD3c8r53ZkiFSt9/f1WtmOKJCE+
- lnqhimh/cKxstXt7srO9gYkWhdjTgZ6M61MALsrXBsMcUtD9cVabUQh9b9yd6ovsvTxK
- 9GbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Kl/E6sm1Hy5waa1ESIZ6GAoJ0uFLqC7+4leUJX1UReE=;
- b=HbZd8/dgLw9aDa2CrM2xUFd2sI5Rj7gIll/X4eUEM1D390SdhbkEEaxmadS3vvfVDp
- kmOxumjIsGq1Ai/H01Cjmf+korZtOqcxNWC7BHdCeIrrOxsihxHmMlyJsuOj4w9U3eBQ
- GIGUJDTs7KklCX/bF4D4BRLivevYVeGRrcCCc9J9NFmR8aNWjgerhHp9Ne1coPeJKBIo
- RBhFR3RQ1R/sFr8PL4mIMrMEqMtld9Fe6bVRcNhievL2gHMNpK5haTEc3HjwAmZoOBUu
- jWe6mqQZll/s5JQ2793xLrpCW8HqlV5Hyf299GbnF3UsX6ltFsJ5K9cjRWjkB8JDnavt
- ixAQ==
-X-Gm-Message-State: AOAM531DWJ2gQ94yEXXrTCE/xsI48s8TIADbUhhgOVLYCUoXjTLPNsyF
- 4XLv7Dyr5Ki9wrkVB3buNGBDUw==
-X-Google-Smtp-Source: ABdhPJx6gnUDtLRP5p/Mj/1tsX2DdzihHec2VB3/gPJAOwx7MOtdoF07gdAgTqrtYn6zBIaIbuTF9w==
-X-Received: by 2002:a05:6a00:139a:b029:2e3:db98:9ae3 with SMTP id
- t26-20020a056a00139ab02902e3db989ae3mr6785904pfg.81.1622844626154; 
- Fri, 04 Jun 2021 15:10:26 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 35sm2768481pgq.91.2021.06.04.15.10.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Jun 2021 15:10:25 -0700 (PDT)
-Date: Fri, 04 Jun 2021 15:10:25 -0700 (PDT)
-X-Google-Original-Date: Fri, 04 Jun 2021 15:10:24 PDT (-0700)
-Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-In-Reply-To: <CAK8P3a04C8HObpSHNYqQpe4V96MoSLs7sEpiPvp4OpvyAU1_fQ@mail.gmail.com>
-CC: guoren@kernel.org, Anup Patel <Anup.Patel@wdc.com>, anup@brainfault.org,
- drew@beagleboard.org, Christoph Hellwig <hch@lst.de>, wefu@redhat.com,
- lazyparser@gmail.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, 
- linux-sunxi@lists.linux.dev, guoren@linux.alibaba.com,
- Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Message-ID: <mhng-82cca177-11c3-44d0-a0c3-37df6a40bb6b@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1lpOfi-00G2y9-OE
+ for linux-riscv@lists.infradead.org; Sat, 05 Jun 2021 05:16:36 +0000
+Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.56])
+ by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4FxnmQ5Crtz1BGXl;
+ Sat,  5 Jun 2021 13:11:34 +0800 (CST)
+Received: from dggpemm500009.china.huawei.com (7.185.36.225) by
+ dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Sat, 5 Jun 2021 13:16:21 +0800
+Received: from huawei.com (10.175.113.32) by dggpemm500009.china.huawei.com
+ (7.185.36.225) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2; Sat, 5 Jun 2021
+ 13:16:20 +0800
+From: Liu Shixin <liushixin2@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Liu
+ Shixin" <liushixin2@huawei.com>
+Subject: [PATCH -next] riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
+Date: Sat, 5 Jun 2021 13:48:37 +0800
+Message-ID: <20210605054838.2017817-1-liushixin2@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
+MIME-Version: 1.0
+X-Originating-IP: [10.175.113.32]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemm500009.china.huawei.com (7.185.36.225)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210604_151029_621535_465D175B 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20210604_221635_252254_32D45A67 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +75,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Jun 2021 14:26:11 PDT (-0700), Arnd Bergmann wrote:
-> On Fri, Jun 4, 2021 at 6:14 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->> >> To give some common examples that make it break down:
->> >>
->> >> - 32-bit vs 64-bit already violates that rule on risc-v (as it does on
->> >>   most other architectures)
->>
->> Yes, and there's no way around that on RISC-V.  They're different base
->> ISAs therefor re-define the same instructions, so we're essentially at
->> two kernel binaries by that point.  The platform spec says rv64gc, so we
->> can kind of punt on this one for now.  If rv32 hardware shows up
->> we'll probably want a standard system there too, which is why we've
->> avoided coupling kernel portability to XLEN.
->
-> I would actually put 32-bit into the same category as NOMMU, XIP
-> and the built-in DTB:
-> Since it seems unrealistic to expect an rv32 Debian or Fedora build,
-> there is very little to gain by enforcing compatibility between machines.
-> This is different from 32-bit Arm, which is widely used across multiple
-> distros and many SoCs.
+This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
+define the required page table functions(Currently, riscv has only
+three-level page tables support for 64BIT).
 
-OK, well, that's what the spec says already.  Maybe the right answer is 
-to just add that "be compatible with the platform spec" Kconfig and have 
-it also enforce rv64gc like the spec says.
+Signed-off-by: Liu Shixin <liushixin2@huawei.com>
+---
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/vmalloc.h | 12 ++++++++++
+ arch/riscv/mm/Makefile           |  1 +
+ arch/riscv/mm/pgtable.c          | 40 ++++++++++++++++++++++++++++++++
+ 4 files changed, 54 insertions(+)
+ create mode 100644 arch/riscv/mm/pgtable.c
 
->
->> >> - architectures that support both big-endian and little-endian kernels
->> >>   tend to have platforms that require one or the other (e.g. mips,
->> >>   though not arm). Not an issue for you.
->>
->> It is now!  We've added big-endian to RISC-V.  There's no hardware yet
->> and very little software support.  IMO the right answer is to ban that
->> from the platform spec, but again it'll depnd on what vendors want to
->> build (though anyone is listening, please don't make my life miserable
->> ;)).
->
-> I don't see any big-endian support in linux-next. This one does seem
-> worth enforcing to be kept out, as it would double the number of user
-> space ABIs, not just kernel configurations. On arm64, I think the general
-> feeling is now that we would have been better off not merging big-endian
-> support into the kernel as an option, but it still seemed important at the
-> time. Not that there is anything really wrong with big-endian by itself,
-> just that there is no use case that is worth the added complexity of
-> supporting both.
->
-> Let me know if there are patches you want me to Nak in the future ;-)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4c0bfb2569e9..fb3c48fa96c1 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -61,6 +61,7 @@ config RISCV
+ 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+ 	select HANDLE_DOMAIN_IRQ
+ 	select HAVE_ARCH_AUDITSYSCALL
++	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
+ 	select HAVE_ARCH_JUMP_LABEL
+ 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
+diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
+index ff9abc00d139..8f17f421f80c 100644
+--- a/arch/riscv/include/asm/vmalloc.h
++++ b/arch/riscv/include/asm/vmalloc.h
+@@ -1,4 +1,16 @@
+ #ifndef _ASM_RISCV_VMALLOC_H
+ #define _ASM_RISCV_VMALLOC_H
+ 
++#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
++
++#define IOREMAP_MAX_ORDER (PMD_SHIFT)
++
++#define arch_vmap_pmd_supported	arch_vmap_pmd_supported
++static inline bool __init arch_vmap_pmd_supported(pgprot_t prot)
++{
++	return true;
++}
++
++#endif
++
+ #endif /* _ASM_RISCV_VMALLOC_H */
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index 7ebaef10ea1b..f932b4d69946 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -13,6 +13,7 @@ obj-y += extable.o
+ obj-$(CONFIG_MMU) += fault.o pageattr.o
+ obj-y += cacheflush.o
+ obj-y += context.o
++obj-y += pgtable.o
+ 
+ ifeq ($(CONFIG_MMU),y)
+ obj-$(CONFIG_SMP) += tlbflush.o
+diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+new file mode 100644
+index 000000000000..738dc6f3530f
+--- /dev/null
++++ b/arch/riscv/mm/pgtable.c
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <asm/pgalloc.h>
++#include <linux/gfp.h>
++#include <linux/kernel.h>
++#include <linux/pgtable.h>
++
++#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
++
++#ifndef __PAGETABLE_PMD_FOLDED
++int pmd_set_huge(pmd_t *pmd, phys_addr_t phys, pgprot_t prot)
++{
++	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), prot);
++
++	set_pmd(pmd, new_pmd);
++	return 1;
++}
++
++int pmd_clear_huge(pmd_t *pmd)
++{
++	if (!pmd_leaf(READ_ONCE(*pmd)))
++		return 0;
++	pmd_clear(pmd);
++	return 1;
++}
++#endif
++
++int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
++{
++	pte_t *pte;
++
++	pte = (pte_t *)pmd_page_vaddr(*pmd);
++	pmd_clear(pmd);
++
++	flush_tlb_kernel_range(addr, addr + PMD_SIZE);
++	pte_free_kernel(NULL, pte);
++	return 1;
++}
++
++#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
+-- 
+2.18.0.huawei.25
 
-Sorry, by "added big-endian to RISC-V" I meant to the ISA, not to Linux.  
-We haven't had any interesting in adding it to Linux.  The interest has 
-all been in the embedded space.
 
 _______________________________________________
 linux-riscv mailing list
