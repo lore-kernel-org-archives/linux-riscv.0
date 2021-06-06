@@ -2,18 +2,19 @@ Return-Path: <SRS0=9QI1=LA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1F6C4743D
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A49EC48BC2
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:31:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 24C5661432
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:29:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24C5661432
+	by mail.kernel.org (Postfix) with ESMTPS id 5CF8F6139A
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:31:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5CF8F6139A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5cgob1DPdlm49Zt3yWVrM6sKiD0sVEvzDCtFedmIbxk=; b=XKD8+pDTqSVp4u
-	In51voCQWu4I3VQFanR4dl+5iakfziJVFYLSvKMMPQQWlRCDtZMjygctx2UyEE7v9jrvI7753TJrn
-	RCBt11spi0L+nSbdnGoge55GlhdTm/sKHd4IrsEVsZlrBi38LtYn/uU7hM+GD/96XVi6Xpae6FEkh
-	dXXBr9BUEAX67BFOeJ3Xlg6LLbdZF+ajQda7sQQ4bZtTN3v5ouy8SxsMOrP9Az9xAfqMbHqJ8hZQV
-	jdTEpHgqdywL0Zlei66PRfpDbWNXrTka0GmAJUuJNF+2dL12lxmq0P7cMFWz+ZSeMApEjYAYgMsxB
-	i8fEXFS86XxtS7mXeugw==;
+	List-Owner; bh=VU6p0fANN7nZyjBqq55J9IZRdx7HNuwi1yJNSeDkjHY=; b=EkHniLFMnclMXZ
+	rn3I255xc5w2OzbJQdO0A2hQ5tgqmM4nC1NC/UmVY0UZmdRCGkgqO4sjEqu7wraV/3Z1qIT0EsijL
+	TmS3PVH6GbxfdDLgrX6ZA0Q6d8iSc6tNay9PVUJZM6QVbZTULvlOYgthojTyVcDeX8W2HoXj10rpo
+	xos2LiTDCfXAlfGd06P4v63N11TWkWKM6aRBMX9Cc88hcwvELE/D9kjwW5xyygCVWSO9ixW69Gdox
+	bczHEqGjJToxwB3gYxofv3SfShTI+vqRRmbfO6aX2D4NY7C6U2BCdUkY8ohFWTwq+7moBQ0OJ7Gy1
+	KSF/nYpHWzNlxPQQGKQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq0Ks-000qbO-W3; Sun, 06 Jun 2021 21:29:35 +0000
+	id 1lq0Mn-000r3f-0v; Sun, 06 Jun 2021 21:31:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq0Ke-000qa1-Aq; Sun, 06 Jun 2021 21:29:21 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 953E4613B6;
- Sun,  6 Jun 2021 21:29:14 +0000 (UTC)
+ id 1lq0MY-000qzw-VE; Sun, 06 Jun 2021 21:31:20 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id AEFDA613B6;
+ Sun,  6 Jun 2021 21:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623014959;
- bh=4t5DawWhLmQPAFGRKhX1jFE4WEqbArxXgmERWe2C0xQ=;
+ s=k20201202; t=1623015078;
+ bh=ZtDz+Tx3gDJURxeLGuynFGZ8uxab5SNEIC7k5srsrBY=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Wu/fyJA4UR/3OsXx5PdnZuKJmqUDl6cQ0I5qOPmOobYB/YwD3loa7CHDMxmjDs7+O
- /+vTonUI3DKMDg+OJCEqqvIqeoGeqCBaFfCM6MGkwmW6KvTZO5CLkleOMNy5KmfR4d
- PteqC/M3+gPE1uiUsTSHvYSMYrpSkJ75a30BXywU3cSKzUfAv/A0+aJ76/IGuUYyhl
- S6LUi9EmnHUL5lEcDnAewWs8EsYomaOBUCef/cImLCqjaabNrEeHJoCWkyMWvCEGV1
- 9+bVS1xXN0QGlOiLh2r3UXefQeesEuK/PQnscumw1S0RmHISk2eF6NrfUP8ytWcSpP
- sTzKK7DJdkKEw==
-Date: Mon, 7 Jun 2021 00:29:09 +0300
+ b=AHcE9g6brTgSAV+4xVNhxekKQlGM0mhAwBWD7XpWpqvtSKGR2QVl9LLO9Fp8mdhc+
+ pc81xS+K6zgxjC9BvkiLbrgqfQSTHMEsv0LbOBaFKiII1tEOu5/8nloj4MSsU82HIa
+ zrNuIDNh84AL4LuphasPGIwe4LNbg9inob5KFPcyQWr6fCOpQ1hseHxL1zqLaM0xud
+ rcUhT1KG4HC3/rPAMCNByPC09q5k03V88CjP/YnrWLRCt6Qt1kUehiQTJUTNwYN4hW
+ To0R1RL/ILuw03NT52wJ9AiDWAT36NN77oYd2Bnz8ID2ZeewkpMb92YVMYNyVavhgv
+ L/9jySVl4Hzcg==
+Date: Mon, 7 Jun 2021 00:31:09 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: Kefeng Wang <wangkefeng.wang@huawei.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
@@ -55,16 +56,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
  uclinux-h8-devel@lists.sourceforge.jp,
  linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2 00/15] init_mm: cleanup ARCH's text/data/brk setup code
-Message-ID: <YL0+Jargm+y9aqx1@kernel.org>
+ linux-sh@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 01/15] mm: add setup_initial_init_mm() helper
+Message-ID: <YL0+nZPViz5xzxca@kernel.org>
 References: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
+ <20210604070633.32363-2-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
+In-Reply-To: <20210604070633.32363-2-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_142920_428987_F29A5452 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20210606_143119_040561_68DCD4E8 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,15 +85,9 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello Kefeng,
 
-On Fri, Jun 04, 2021 at 03:06:18PM +0800, Kefeng Wang wrote:
-> Add setup_initial_init_mm() helper, then use it
-> to cleanup the text, data and brk setup code.
-> 
-> v2:
-> - change argument from "char *" to "void *" setup_initial_init_mm()
->   suggested by Geert Uytterhoeven
-> - use NULL instead of (void *)0 on h8300 and m68k
-> - collect ACKs
+On Fri, Jun 04, 2021 at 03:06:19PM +0800, Kefeng Wang wrote:
+> Add setup_initial_init_mm() helper to setup kernel text,
+> data and brk.
 > 
 > Cc: linux-snps-arc@lists.infradead.org
 > Cc: linux-arm-kernel@lists.infradead.org
@@ -103,46 +99,35 @@ On Fri, Jun 04, 2021 at 03:06:18PM +0800, Kefeng Wang wrote:
 > Cc: linux-riscv@lists.infradead.org
 > Cc: linux-sh@vger.kernel.org
 > Cc: linux-s390@vger.kernel.org
-> Kefeng Wang (15):
->   mm: add setup_initial_init_mm() helper
->   arc: convert to setup_initial_init_mm()
->   arm: convert to setup_initial_init_mm()
->   arm64: convert to setup_initial_init_mm()
->   csky: convert to setup_initial_init_mm()
->   h8300: convert to setup_initial_init_mm()
->   m68k: convert to setup_initial_init_mm()
->   nds32: convert to setup_initial_init_mm()
->   nios2: convert to setup_initial_init_mm()
->   openrisc: convert to setup_initial_init_mm()
->   powerpc: convert to setup_initial_init_mm()
->   riscv: convert to setup_initial_init_mm()
->   s390: convert to setup_initial_init_mm()
->   sh: convert to setup_initial_init_mm()
->   x86: convert to setup_initial_init_mm()
-
-I might be missing something, but AFAIU the init_mm.start_code and other
-fields are not used really early so the new setup_initial_init_mm()
-function can be called in the generic code outside setup_arch(), e.g in
-mm_init().
- 
->  arch/arc/mm/init.c                 | 5 +----
->  arch/arm/kernel/setup.c            | 5 +----
->  arch/arm64/kernel/setup.c          | 5 +----
->  arch/csky/kernel/setup.c           | 5 +----
->  arch/h8300/kernel/setup.c          | 5 +----
->  arch/m68k/kernel/setup_mm.c        | 5 +----
->  arch/m68k/kernel/setup_no.c        | 5 +----
->  arch/nds32/kernel/setup.c          | 5 +----
->  arch/nios2/kernel/setup.c          | 5 +----
->  arch/openrisc/kernel/setup.c       | 5 +----
->  arch/powerpc/kernel/setup-common.c | 5 +----
->  arch/riscv/kernel/setup.c          | 5 +----
->  arch/s390/kernel/setup.c           | 5 +----
->  arch/sh/kernel/setup.c             | 5 +----
->  arch/x86/kernel/setup.c            | 5 +----
->  include/linux/mm_types.h           | 8 ++++++++
->  16 files changed, 23 insertions(+), 60 deletions(-)
+> Cc: x86@kernel.org
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+>  include/linux/mm_types.h | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 5aacc1c10a45..e1d2429089a4 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -572,6 +572,14 @@ struct mm_struct {
+>  };
+>  
+>  extern struct mm_struct init_mm;
+> +static inline void setup_initial_init_mm(void *start_code, void *end_code,
+> +					 void *end_data, void *brk)
+
+I think it's not that performance sensitive to make it inline. It can be
+placed in mm/init-mm.c with a forward declaration in mm.h
+
+> +{
+> +	init_mm.start_code = (unsigned long)start_code;
+> +	init_mm.end_code = (unsigned long)end_code;
+> +	init_mm.end_data = (unsigned long)end_data;
+> +	init_mm.brk = (unsigned long)brk;
+> +}
+  
+>  /* Pointer magic because the dynamic array size confuses some compilers. */
+>  static inline void mm_init_cpumask(struct mm_struct *mm)
 > -- 
 > 2.26.2
 > 
