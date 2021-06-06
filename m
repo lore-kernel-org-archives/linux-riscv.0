@@ -2,112 +2,69 @@ Return-Path: <SRS0=9QI1=LA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6D29C4743E
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 18:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1F6C4743D
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:29:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A57E613C7
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 18:40:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A57E613C7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sholland.org
+	by mail.kernel.org (Postfix) with ESMTPS id 24C5661432
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 21:29:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24C5661432
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=G38FShIXTdTipGKUtYmuVC6uJfUIBVG9dqN2e9urncM=; b=MtT+f7/NSOI6KBOOZUILLYxxGI
-	YJwyhy2OE5NJcmf1RYPKJLNAkwbsr7tUy24RvQZEZYmtI3oj9xCqtb81xoQJf0flBvWiPjZSzbaJA
-	9UdZkwOwxRONBpkr0ZfSEkwZDb4YWavUimXEP642P/QEhpTh1d6mL89ICNWQ7pI0TRgr1JGJUZOJF
-	lRgYnkzyc7PUKdZCJqL7+kSEFrAoZ0BLPfTlYXjyY93RrWmBxeeup2odLVoEyD+YR8MjGncWlgrqi
-	ZtkWGQiNmLzQY2P0tXMKKvrFp5oLoz7k5GDdg2wY80VmnL5mHtnyKvt2XR/aGRhl9wm3vMjA8qMJB
-	KDMKJxiA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5cgob1DPdlm49Zt3yWVrM6sKiD0sVEvzDCtFedmIbxk=; b=XKD8+pDTqSVp4u
+	In51voCQWu4I3VQFanR4dl+5iakfziJVFYLSvKMMPQQWlRCDtZMjygctx2UyEE7v9jrvI7753TJrn
+	RCBt11spi0L+nSbdnGoge55GlhdTm/sKHd4IrsEVsZlrBi38LtYn/uU7hM+GD/96XVi6Xpae6FEkh
+	dXXBr9BUEAX67BFOeJ3Xlg6LLbdZF+ajQda7sQQ4bZtTN3v5ouy8SxsMOrP9Az9xAfqMbHqJ8hZQV
+	jdTEpHgqdywL0Zlei66PRfpDbWNXrTka0GmAJUuJNF+2dL12lxmq0P7cMFWz+ZSeMApEjYAYgMsxB
+	i8fEXFS86XxtS7mXeugw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpxgn-000fU4-8S; Sun, 06 Jun 2021 18:40:01 +0000
-Received: from new3-smtp.messagingengine.com ([66.111.4.229])
+	id 1lq0Ks-000qbO-W3; Sun, 06 Jun 2021 21:29:35 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpxgY-000fSp-Sq; Sun, 06 Jun 2021 18:39:48 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailnew.nyi.internal (Postfix) with ESMTP id E2A3758094C;
- Sun,  6 Jun 2021 14:39:45 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Sun, 06 Jun 2021 14:39:45 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- subject:to:cc:references:from:message-id:date:mime-version
- :in-reply-to:content-type:content-transfer-encoding; s=fm2; bh=/
- jdo7cePtO24oEruM82Zm8LlZTN5Vu0LoLWniZZ9ji8=; b=OhvTP95hppIbju+O/
- OH7w5xIuU3nVosv6KggLjXzehodZLMWfCh3S4Zb8B5Wcxp55Vbg5sK2JFFp5sPp5
- e1HaEwfcjZVH8/UydNusK+GnXT2O0pG2dOtmcPGfOdFOsDNWLMIWdB6WsaxT19g3
- uD2N8M8FJ4yPWvb9w46CfBxrnX5h/CF2+Hs+br3RlpIIuY0hNn+fSgDcvIuGdi2l
- jNQihj706UnbV0FVVACRxIbqpcb7xJX71v7p/dG2Y0KHRhxj2Q1IaQukTKNRmhe+
- GDT7daGhU9oFPqR7ADJ4s8x0HWDtgoC+5lqiQmgu6z2XkS3XVHZgmRMfbrASqEPA
- ImWKQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-transfer-encoding:content-type
- :date:from:in-reply-to:message-id:mime-version:references
- :subject:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm3; bh=/jdo7cePtO24oEruM82Zm8LlZTN5Vu0LoLWniZZ9j
- i8=; b=T4WtxARGFX9OVC4HmhDCc3JnbLM35Wx39jiPIx53ynKyjhS6kaPX4oyCg
- KqiK9MgKHLaF/0yirHteTrEVY8PfgcoPGaErj4sp58qdrJFuFVxiqDgHX5cRe3u5
- tlnJUaiejdXzNHriD6+lB98rF60TUdoaKA3RmatIrz3FmqT2VUpApTXvNEbGB0ji
- KSr4GoxuN3mNYCHkmHDfPc8+pLjcWdKFy1D2Pf4C8yDJ/heawtmlPMP13poWYdRb
- TeDDNZnqb1e6jYEErTMoFn8D1doX+tJTKRWX4vDJ3es+ueVTk9E9PBZu9YV9uyRM
- si5EuoAS3kk8p1U3FMSxacoM+NdbQ==
-X-ME-Sender: <xms:cBa9YIPvwPLqLpEH5jPCBFdwMfiPAdMM_MUzbU_DOdc0RcbOKocMVw>
- <xme:cBa9YO_ID2KlBW-Dr9tu-QxIjd97urpLiLaNpZQGU5Qx3H-YKV_7tn1ylXVmQKE6w
- NvFGf4w2mkM9JfkGQ>
-X-ME-Received: <xmr:cBa9YPSf82SL6QqGlztnHgMHNyxdBD8c_1I9I2LkXIMkqp7gxsj3hrHDIdvjcPgutJW855gGaqnd1kyGP1z0AP6VVQ7VRv6FqYPgdWswQU0Ww2Y4U6OqnyW9rQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedthedgudeftdcutefuodetggdotefrod
- ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
- necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
- enucfjughrpefuvfhfhffkffgfgggjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
- uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
- ggtffrrghtthgvrhhnpefgveffteelheffjeeukedvkedviedtheevgeefkeehueeiieeu
- teeugfettdeggeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
- hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:cBa9YAu_Qy_jW2ENNaqVpFc9IDMDDmbt7u7eBRhXa2ERIudYb1cp9g>
- <xmx:cBa9YAf-4-Fu2514hC8XEqppjh6ES3oYaRU_RMx4XezHG_BVek4JkA>
- <xmx:cBa9YE0PqMWUnV3f2d-LUB1BGPStwdWdxmjEvqtNceoUOQog59Jkkw>
- <xmx:cRa9YDUfcS2UOPdnilZVNeYW0MDmjRmcSjrUwTLch_K1n8_EQiTmug>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 6 Jun 2021 14:39:43 -0400 (EDT)
-Subject: Re: [PATCH v5 6/8] cpuidle: Add RISC-V SBI CPU idle driver
-To: Anup Patel <anup.patel@wdc.com>
-Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
- Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, Liush
- <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Pavel Machek <pavel@ucw.cz>
-References: <20210602112321.2241566-1-anup.patel@wdc.com>
- <20210602112321.2241566-7-anup.patel@wdc.com>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <26cddfa8-75e2-7b5b-1a47-e01cc1c7821e@sholland.org>
-Date: Sun, 6 Jun 2021 13:39:43 -0500
-User-Agent: Mozilla/5.0 (X11; Linux ppc64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.0
+ id 1lq0Ke-000qa1-Aq; Sun, 06 Jun 2021 21:29:21 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 953E4613B6;
+ Sun,  6 Jun 2021 21:29:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1623014959;
+ bh=4t5DawWhLmQPAFGRKhX1jFE4WEqbArxXgmERWe2C0xQ=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=Wu/fyJA4UR/3OsXx5PdnZuKJmqUDl6cQ0I5qOPmOobYB/YwD3loa7CHDMxmjDs7+O
+ /+vTonUI3DKMDg+OJCEqqvIqeoGeqCBaFfCM6MGkwmW6KvTZO5CLkleOMNy5KmfR4d
+ PteqC/M3+gPE1uiUsTSHvYSMYrpSkJ75a30BXywU3cSKzUfAv/A0+aJ76/IGuUYyhl
+ S6LUi9EmnHUL5lEcDnAewWs8EsYomaOBUCef/cImLCqjaabNrEeHJoCWkyMWvCEGV1
+ 9+bVS1xXN0QGlOiLh2r3UXefQeesEuK/PQnscumw1S0RmHISk2eF6NrfUP8ytWcSpP
+ sTzKK7DJdkKEw==
+Date: Mon, 7 Jun 2021 00:29:09 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v2 00/15] init_mm: cleanup ARCH's text/data/brk setup code
+Message-ID: <YL0+Jargm+y9aqx1@kernel.org>
+References: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <20210602112321.2241566-7-anup.patel@wdc.com>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_113947_041527_6881B7A8 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20210606_142920_428987_F29A5452 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,104 +81,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/2/21 6:23 AM, Anup Patel wrote:
-> The RISC-V SBI HSM extension provides HSM suspend call which can
-> be used by Linux RISC-V to enter platform specific low-power state.
-> 
-> This patch adds a CPU idle driver based on RISC-V SBI calls which
-> will populate idle states from device tree and use SBI calls to
-> entry these idle states.
-> 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  MAINTAINERS                   |   7 +
->  drivers/cpuidle/Kconfig       |   5 +
->  drivers/cpuidle/Kconfig.riscv |  15 +
->  drivers/cpuidle/Makefile      |   4 +
->  drivers/cpuidle/cpuidle-sbi.c | 626 ++++++++++++++++++++++++++++++++++
->  5 files changed, 657 insertions(+)
->  create mode 100644 drivers/cpuidle/Kconfig.riscv
->  create mode 100644 drivers/cpuidle/cpuidle-sbi.c
-> 
-> ...
-> diff --git a/drivers/cpuidle/cpuidle-sbi.c b/drivers/cpuidle/cpuidle-sbi.c
-> new file mode 100644
-> index 000000000000..f743684d07de
-> --- /dev/null
-> +++ b/drivers/cpuidle/cpuidle-sbi.c
-> @@ -0,0 +1,626 @@
-> ...
-> +	/* Initialize idle states from DT. */
-> +	ret = sbi_cpuidle_dt_init_states(dev, drv, cpu, state_count);
-> +	if (ret) {
-> +		pr_err("HART%ld: failed to init idle states\n",
-> +		       cpuid_to_hartid_map(cpu));
-> +		return ret;
-> +	}
-> +
-> +	ret = cpuidle_register(drv, NULL);
-> +	if (ret)
-> +		goto deinit;
-> +
-> +	cpuidle_cooling_register(drv);
-> +
-> +	return 0;
-> +deinit:
-> +	sbi_cpuidle_deinit_cpu(cpu);
-> +	return ret;
-> +}
-> +
-> +static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
+Hello Kefeng,
 
-This function should be moved inside the CONFIG_DT_IDLE_GENPD block
-below. Otherwise it is defined but unused.
+On Fri, Jun 04, 2021 at 03:06:18PM +0800, Kefeng Wang wrote:
+> Add setup_initial_init_mm() helper, then use it
+> to cleanup the text, data and brk setup code.
+> 
+> v2:
+> - change argument from "char *" to "void *" setup_initial_init_mm()
+>   suggested by Geert Uytterhoeven
+> - use NULL instead of (void *)0 on h8300 and m68k
+> - collect ACKs
+> 
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: uclinux-h8-devel@lists.sourceforge.jp
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: openrisc@lists.librecores.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: linux-s390@vger.kernel.org
+> Kefeng Wang (15):
+>   mm: add setup_initial_init_mm() helper
+>   arc: convert to setup_initial_init_mm()
+>   arm: convert to setup_initial_init_mm()
+>   arm64: convert to setup_initial_init_mm()
+>   csky: convert to setup_initial_init_mm()
+>   h8300: convert to setup_initial_init_mm()
+>   m68k: convert to setup_initial_init_mm()
+>   nds32: convert to setup_initial_init_mm()
+>   nios2: convert to setup_initial_init_mm()
+>   openrisc: convert to setup_initial_init_mm()
+>   powerpc: convert to setup_initial_init_mm()
+>   riscv: convert to setup_initial_init_mm()
+>   s390: convert to setup_initial_init_mm()
+>   sh: convert to setup_initial_init_mm()
+>   x86: convert to setup_initial_init_mm()
 
-> +{
-> +	struct genpd_power_state *state = &pd->states[pd->state_idx];
-> +	u32 *pd_state;
-> +
-> +	if (!state->data)
-> +		return 0;
-> +
-> +	if (!sbi_cpuidle_pd_allow_domain_state)
-> +		return -EBUSY;
-> +
-> +	/* OSI mode is enabled, set the corresponding domain state. */
-> +	pd_state = state->data;
-> +	sbi_set_domain_state(*pd_state);
-> +
-> +	return 0;
-> +}
-> +
-> +static void sbi_cpuidle_domain_sync_state(struct device *dev)
-> +{
-> +	/*
-> +	 * All devices have now been attached/probed to the PM domain
-> +	 * topology, hence it's fine to allow domain states to be picked.
-> +	 */
-> +	sbi_cpuidle_pd_allow_domain_state = true;
-> +}
-> +
-> +#ifdef CONFIG_DT_IDLE_GENPD
-> +
-> +struct sbi_pd_provider {
-> +	struct list_head link;
-> +	struct device_node *node;
-> +};
-> +
-> +static LIST_HEAD(sbi_pd_providers);
-> +
-> +static int sbi_pd_init(struct device_node *np)
-> +{
-> +	struct generic_pm_domain *pd;
-> +	struct sbi_pd_provider *pd_provider;
-> +	struct dev_power_governor *pd_gov;
-> +	int ret = -ENOMEM, state_count = 0;
-> +
-> +	pd = dt_idle_pd_alloc(np, sbi_dt_parse_state_node);
-> +	if (!pd)
-> +		goto out;
-> ...
+I might be missing something, but AFAIU the init_mm.start_code and other
+fields are not used really early so the new setup_initial_init_mm()
+function can be called in the generic code outside setup_arch(), e.g in
+mm_init().
+ 
+>  arch/arc/mm/init.c                 | 5 +----
+>  arch/arm/kernel/setup.c            | 5 +----
+>  arch/arm64/kernel/setup.c          | 5 +----
+>  arch/csky/kernel/setup.c           | 5 +----
+>  arch/h8300/kernel/setup.c          | 5 +----
+>  arch/m68k/kernel/setup_mm.c        | 5 +----
+>  arch/m68k/kernel/setup_no.c        | 5 +----
+>  arch/nds32/kernel/setup.c          | 5 +----
+>  arch/nios2/kernel/setup.c          | 5 +----
+>  arch/openrisc/kernel/setup.c       | 5 +----
+>  arch/powerpc/kernel/setup-common.c | 5 +----
+>  arch/riscv/kernel/setup.c          | 5 +----
+>  arch/s390/kernel/setup.c           | 5 +----
+>  arch/sh/kernel/setup.c             | 5 +----
+>  arch/x86/kernel/setup.c            | 5 +----
+>  include/linux/mm_types.h           | 8 ++++++++
+>  16 files changed, 23 insertions(+), 60 deletions(-)
+> 
+> -- 
+> 2.26.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
