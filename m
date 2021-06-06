@@ -4,18 +4,18 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC775C47096
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 16:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1174DC4743E
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 16:30:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 83A21610C9
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 16:26:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 83A21610C9
+	by mail.kernel.org (Postfix) with ESMTPS id C0B5F6142D
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 16:29:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C0B5F6142D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,52 +24,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CJR9164Z9wEUObpNuHch7ukUjVYq7eN7nnm4oS+sNDM=; b=3AMO2KVxxtsLm/
-	aD72Y6ZPGC2CCh5kMCbOHI5f7CGntxEt8SgnZBsnZ1zF4doDX/zE1N7HM21shOjrOtyHi7y5yTSnW
-	Sttwitap2Lj4TgNPrfiHLbp0AlNrljrUqkCzsme4dMHceIX1ciPPbeo3VcCndUcBYpAtI0qzgjA6j
-	qFMg1ynQh46v/v206zo6dTTQjp51ojS2k9NQfFMGO88mLpU5Hejw4MEYn+AQ8F87Yn3bg176tRsvt
-	oNzXFsu58ERFRGxBYu9kEbBFJvHbWFtknEa2rVGl6Wvk1c52+qwsrS6q/XmUMNhhNMnblRqih1sHY
-	+96IBWZ1aFq7HtOMIKNA==;
+	List-Owner; bh=lNZ+U8P8h1JM2LVIVQ8prmB0WIuKRDYMlMIoasOjTIE=; b=1vDo/Dco6dBojs
+	Ce9ufKKv9hCClo1h1YrUvNwbgXOtQCkf0Iy3RrYcaO7UOrkQgSrD+fP9K8UedPTdKlVpm+QP+noq8
+	1jVtwFKfcpqb0fdac/XmduthB6QTTiQFfNY6wfUkUzChrNKV+YHZkaFC92o3wP+7i/dYc1iwXMjHl
+	Vz7Z2B00ukH0CdKWR1TuDAwoaqlVwnRtFAgilodZetRRVx9KjBCa14I495+qYsJDPdyn5ksif4L2N
+	NFTYIRwZMwo3T3J/MFbqPZpvInL7Imq8OppgCIvfmJvWXqnC5UMvzeKufkV3kIVTC1bxk/c74MhOl
+	ggoBIjjgS1dHQ+AkWBeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpvbj-000Xw9-Ea; Sun, 06 Jun 2021 16:26:39 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1lpveh-000YC7-SM; Sun, 06 Jun 2021 16:29:43 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpvbf-000XvU-Se
- for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 16:26:37 +0000
-Received: by mail-wr1-x431.google.com with SMTP id f2so14577964wri.11
- for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 09:26:33 -0700 (PDT)
+ id 1lpvee-000YBi-US
+ for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 16:29:42 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id
+ p13-20020a05600c358db029019f44afc845so8513711wmq.3
+ for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 09:29:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=4LMS6521uwLvF3d0VH9aHVTLaSPCmp9aqfX/Cw2Qkt8=;
- b=qbMma+/EYBI89XYXH6O5Gn0B1ZxLNxhf+QnPVywlVhDpm4TQtWpC0b58caEwBCMnIC
- rojWchC/QzXkvoo9WoG7CkI/9FQOI/ImTnp8KF9xJ6yXQPr8BDjhDq21NL0nfbd2sizR
- l6tqoyurBVltuw8jmKvNFidWuqunqEb0N01jo5k/NUrcQOzJHlE3WwqvUw62xOA7Jxq6
- Mo3cMHRMrgw9rnd251x5xx6gBnUmLtODkcYSyUYZV0XkokBiAOZV0tPdD1XiycamAGLX
- 7nyyz9G+fmLZT4BvvIZ3qaVccg5yRvDDocQocDtbPhUwfwBS5705coTiHcjG9EbA4cG1
- YVuw==
+ bh=qxkRqzdPS7sAeenmAuAvXZNGk/e4PdC5sUpAPxYKCMA=;
+ b=n4gGZKDBFX45+p0Oca5kJ8IwxlnU0aUbBahQijaeb3j27qEE2IJahLAUPVrStQRjQx
+ dbCgI70DMtLse1Z+A8cRbAStEDKVKP0sIsZubxQt6Ui1PLFahD7lZQwp0l82/s9rMYf/
+ sQqgxc2oWrAyAyWdmMCBIyURlyTplSYS8R+Vy9OzAn3yba4lsIan869Eefdd2d4556n8
+ zWb2+dl0SKmLtwSDBr+DC9P2ieoeKmvFGy9F5feO+oOtbGOlD1RyBFojHSZJyLYdTe7Q
+ mdelZj99XyiwcT3twseJY++oUXVzEE7vhFN+vPeTbD8Dl0Lel50cnxhMtP1J/cgIEU4d
+ HRrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=4LMS6521uwLvF3d0VH9aHVTLaSPCmp9aqfX/Cw2Qkt8=;
- b=Zh4qt8hmTMo9ni86WYxIpyp3TiUdSdtVJo83dKqMz0cip2w0r1qkMM6vsMqRpM3Y3e
- +709j/ErAMGEk8Ov1NConHNEAaj8+FBPUlBZxHsX/UAO7aG6CFkWHYvNS0BP+xMUYsgp
- /SFqbq06PDkJL8JWSCQAuufWIUb8Oc1pQmTWDgXYC3yI8XJi6xviio0Pv6+q0+HmRKpY
- dDUx5nNk4QarQfSlHTN4gyYeqpmDErn5hu5CFRPldHcQgq5bgpfJps8w7IGKy8gB8ER9
- Fjm5gMOuMG7NQ8cIf23i8QbA56ofcS0IOD7g6pPSajxx+osp88vXwMo7n+Pn+nc0/9sj
- 2UhA==
-X-Gm-Message-State: AOAM533qcUPCrONdDAe6RhcIrDpRZBnmUxkZkPDPAMIXkFqcEmAh4ZMU
- LKWILeVUotRANFBFyzwDfDU=
-X-Google-Smtp-Source: ABdhPJyerIt5K+ze4U8Rv+TuJdirbauulSeSldhLjdb6CNMv2sLlQ70UGAhvFiVs4ybWr75JK9jngQ==
-X-Received: by 2002:adf:fe4a:: with SMTP id m10mr13371826wrs.332.1622996792572; 
- Sun, 06 Jun 2021 09:26:32 -0700 (PDT)
+ bh=qxkRqzdPS7sAeenmAuAvXZNGk/e4PdC5sUpAPxYKCMA=;
+ b=CghmIhBX5rzFZaSSVRDL/s0Qh9bAwb3IXX3benqKGT+7fVxzE+st7JZeBZO5QeCECY
+ 9K34Tr6cNbFZLHjEyVirs6dt3ebkj3nDLAW8JO3zzkO2+Z6zfZLVyzl+TL+iFfaUrYJ7
+ E7JEw/I2NM9u3n1RYndpmGztGogsKi26qDIWDOEvscWWvqaNVsCJhEkSFhmt2SOjZNnQ
+ 6uFDV89IO5cx4wc1MmrDuK1J2AgZFUYmjhcYrHtz8eRPIP5MsFCj5bAIEEc8utPReE4l
+ fZz0CC81ANfgHd4JWyiLLENoPuzHVw0+FfAnj7VjevUiWiHb2xXY+kpLRPAW27mwEVw0
+ Lxbw==
+X-Gm-Message-State: AOAM531QNisu3ujeNWqvJlVMo2Uic8k17qsuX7yxFk7/JlG1chycuCYg
+ +hNr3My0vpvF+wc19MssnmY=
+X-Google-Smtp-Source: ABdhPJyrscID/EgtH33p7P2vPcGxNXzPY1ijc8FmSRl2qmAONrX/E6TS55YTH52Ls7/wzKf9m0odbw==
+X-Received: by 2002:a1c:6503:: with SMTP id z3mr13027277wmb.72.1622996979205; 
+ Sun, 06 Jun 2021 09:29:39 -0700 (PDT)
 Received: from jernej-laptop.localnet (cpe-86-58-17-133.cable.triera.net.
  [86.58.17.133])
- by smtp.gmail.com with ESMTPSA id p12sm13492367wme.43.2021.06.06.09.26.30
+ by smtp.gmail.com with ESMTPSA id g21sm14000384wrb.46.2021.06.06.09.29.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 06 Jun 2021 09:26:32 -0700 (PDT)
+ Sun, 06 Jun 2021 09:29:38 -0700 (PDT)
 From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
  arnd@arndb.de, wens@csie.org, maxime@cerno.tech, drew@beagleboard.org,
@@ -77,19 +78,17 @@ To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
  guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
- Guo Ren <guoren@linux.alibaba.com>, Atish Patra <atish.patra@wdc.com>,
- Christoph Hellwig <hch@lst.de>
-Subject: Re: [RFC PATCH v2 09/11] riscv: soc: Initial DTS for Allwinner D1
- NeZha board
-Date: Sun, 06 Jun 2021 18:26:30 +0200
-Message-ID: <2490489.OUOj5N01qN@jernej-laptop>
-In-Reply-To: <1622970249-50770-13-git-send-email-guoren@kernel.org>
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [RFC PATCH v2 00/11] riscv: Add DMA_COHERENT support for
+ Allwinner D1
+Date: Sun, 06 Jun 2021 18:29:37 +0200
+Message-ID: <3110420.cQCZQDpDj9@jernej-laptop>
+In-Reply-To: <1622970249-50770-1-git-send-email-guoren@kernel.org>
 References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
- <1622970249-50770-13-git-send-email-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_092635_994670_D49A482C 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20210606_092941_022983_27881806 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,227 +107,128 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi!
 
-I didn't go through all details. After you fix all comments below, you should 
-run "make dtbs_check" and fix all reported warnings too.
-
-Dne nedelja, 06. junij 2021 ob 11:04:07 CEST je guoren@kernel.org napisal(a):
+Dne nedelja, 06. junij 2021 ob 11:03:55 CEST je guoren@kernel.org napisal(a):
 > From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Add initial DTS for Allwinner D1 NeZha board having only essential
-> devices (uart, dummy, clock, reset, clint, plic, etc).
+> The RISC-V ISA doesn't yet specify how to query or modify PMAs, so let
+> vendors define the custom properties of memory regions in PTE.
 > 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-Developed-by: Liu Shaohua <liush@allwinnertech.com>
-> Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Chen-Yu Tsai <wens@csie.org>
-> Cc: Drew Fustini <drew@beagleboard.org>
-> Cc: Maxime Ripard <maxime@cerno.tech>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Wei Fu <wefu@redhat.com>
-> Cc: Wei Wu <lazyparser@gmail.com>
-> ---
->  arch/riscv/boot/dts/Makefile                       |  1 +
->  arch/riscv/boot/dts/allwinner/Makefile             |  2 +
->  .../boot/dts/allwinner/allwinner-d1-nezha-kit.dts  | 29 ++++++++
->  arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi    | 84
-> ++++++++++++++++++++++ 4 files changed, 116 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
->  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
-> create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
+> This patchset helps SOC vendors to support their own custom interconnect
+> coherent solution with PTE attributes.
 > 
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index fe996b8..3e7b264 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -2,5 +2,6 @@
->  subdir-y += sifive
->  subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
->  subdir-y += microchip
-> +subdir-y += allwinner
+> For example, allwinner D1[1] uses T-HEAD C906 as main processor, C906 has
+> two modes in MMU:
+>  - Compatible mode, the same as the definitions in spec.
+>  - Enhanced mode, add custom DMA_COHERENT attribute bits in PTE which
+>    not mentioned in spec.
 > 
->  obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> diff --git a/arch/riscv/boot/dts/allwinner/Makefile
-> b/arch/riscv/boot/dts/allwinner/Makefile new file mode 100644
-> index 00000000..4adbf4b
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/allwinner/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_SOC_SUNXI) += allwinner-d1-nezha-kit.dtb
-> diff --git a/arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
-> b/arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts new file mode
-> 100644
-> index 00000000..cd9f7c9
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
+> Allwinner D1 needs the enhanced mode to support the DMA type device with
+> non-coherent interconnect in its SOC. C906 uses BITS(63 - 59) as custom
+> attribute bits in PTE.
+> 
+> The patchset contain 4 parts (asid, pgtable, cmo, soc) which have been
+> tested on D1:
+>  - asid: T-HEAD C906 of D1 contains full asid hw facilities which has no
+>    conflict with RISC-V spec, and hope these patches soon could be
+>    approved.
+>  - pgtable: Using a image-hdr to pass vendor specific information and
+>    setup custom PTE attributes in a global struct variable during boot
+>    stage. Also it needs define custom protection_map in linux/mm.
+>  - cmo: We need deal with dma_sync & icache_sync & __vdso_icache_sync.
+>    In this patchset, I just show you how T-HEAD C9xx work, and seems Atish
+>    is working for the DMA infrustructure, please let me know the idea.
+>  - soc: Add allwinner gmac driver & dts & Kconfig for sunxi test.
+> 
+> The patchset could work with linux-5.13-rc4, here is the steps for D1:
+>  - Download linux-5.13-rc4 and apply the patchset
+>  - make ARCH=riscv CROSS_COMPILE=riscv64-linux- defconfig
+>  - make ARCH=riscv CROSS_COMPILE=riscv64-linux- Image modules dtbs
+>  - mkimage -A riscv -O linux -T kernel -C none -a 0x00200000 -e 0x00200000
+> -n Linux -d arch/riscv/boot/Image uImage - Download newest opensbi [2],
+> build with [3], and get fw_dynamic.bin - Copy uImage, fw_dynamic.bin,
+> allwinner-d1-nezha-kit.dtb into boot partition of TF card.
+>  - Plugin the TF card and power on D1.
+> 
+> Link: https://linux-sunxi.org/D1 [1]
+> Link: https://github.com/riscv/opensbi branch:master [2]
+> Link:
+> https://github.com/riscv/opensbi/blob/master/docs/platform/thead-c9xx.md
+> [3]
+> 
 
-Board DT names are comprised of soc name and board name, in this case it would 
-be "sun20i-d1-nezha-kit.dts"
-
-> @@ -0,0 +1,29 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-
-Usually copyrights are added below spdx id.
-
-> +
-> +/dts-v1/;
-> +
-> +#include "allwinner-d1.dtsi"
-> +
-> +/ {
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-
-This should be part of SoC level DTSI.
-
-> +	model = "Allwinner D1 NeZha Kit";
-> +	compatible = "allwinner,d1-nezha-kit";
-
-Board specific compatible string should be followed with SoC compatible, in 
-this case "allwinner,sun20i-d1".  You should document it too.
-
-> +
-> +	chosen {
-> +		bootargs = "console=ttyS0,115200";
-
-Above line doesn't belong here. If anything, it should be added dynamically by 
-bootloader.
-
-> +		stdout-path = &serial0;
-> +	};
-> +
-> +	memory@40000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x40000000 0x0 0x20000000>;
-> +	};
-
-Ditto for whole memory node.
-
-> +
-> +	soc {
-> +	};
-
-There is no point having empty nodes.
-
-> +};
-> +
-> +&serial0 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
-> b/arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi new file mode 100644
-> index 00000000..11cd938
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
-
-Current naming approach for Allwinner SoC level DTSI is "sun20i-d1.dtsi".
-
-> @@ -0,0 +1,84 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-
-> +
-> +/dts-v1/;
-> +
-> +/ {
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-
-Since all peripherals and memory are below 4 GiB, why have 64-bit addresses 
-and sizes? It just clutters DT.
-
-> +	model = "Allwinner D1 Soc";
-> +	compatible = "allwinner,d1-nezha-kit";
-
-Compatible and model don't belong to SoC level DTSI.
-
-> +
-> +	chosen {
-> +	};
-
-Remove empty node.
-
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		timebase-frequency = <2400000>;
-> +		cpu@0 {
-> +			device_type = "cpu";
-> +			reg = <0>;
-> +			status = "okay";
-> +			compatible = "riscv";
-> +			riscv,isa = "rv64imafdcv";
-> +			mmu-type = "riscv,sv39";
-> +			cpu0_intc: interrupt-controller {
-> +				#interrupt-cells = <1>;
-> +				compatible = "riscv,cpu-intc";
-> +				interrupt-controller;
-> +			};
-> +		};
-> +	};
-> +
-> +	soc {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		compatible = "simple-bus";
-> +		ranges;
-> +
-> +		reset: reset-sample {
-> +			compatible = "thead,reset-sample";
-> +			plic-delegate = <0x0 0x101ffffc>;
-> +		};
-> +
-> +		clint: clint@14000000 {
-> +			compatible = "riscv,clint0";
-> +			interrupts-extended = <
-> +				&cpu0_intc  3 &cpu0_intc  7
-> +				>;
-> +			reg = <0x0 0x14000000 0x0 0x04000000>;
-> +			clint,has-no-64bit-mmio;
-> +		};
-> +
-> +		plic: interrupt-controller@10000000 {
-> +			#interrupt-cells = <1>;
-> +			compatible = "riscv,plic0";
-> +			interrupt-controller;
-> +			interrupts-extended = <
-> +				&cpu0_intc  0xffffffff &cpu0_intc  9
-> +				>;
-> +			reg = <0x0 0x10000000 0x0 0x04000000>;
-> +			reg-names = "control";
-> +			riscv,max-priority = <7>;
-> +			riscv,ndev = <200>;
-> +		};
-> +
-> +		dummy_apb: apb-clock {
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <24000000>;
-> +			clock-output-names = "dummy_apb";
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		serial0: serial@2500000 {
-
-This should be uart0 and board should have alias for it. Check ARM based 
-Allwinner DTs.
+Some patches are marked with v2 and some V5. It's very confusing. Mark them 
+with same version in next revision.
 
 Best regards,
 Jernej
 
-> +			compatible = "snps,dw-apb-uart";
-> +			reg = <0x0 0x02500000 0x0 0x400>;
-> +			reg-io-width = <4>;
-> +			reg-shift = <2>;
-> +			interrupt-parent = <&plic>;
-> +			interrupts = <18>;
-> +			clocks = <&dummy_apb>;
-> +			status = "disabled";
-> +		};
-> +	};
-> +};
+> Changes since v1:
+>  - Rebase on linux-5.13-rc4
+>  - Support defconfig for different PTE attributes
+>  - Support C906 icache_sync
+>  - Add Allwinner D1 dts & Kconfig & gmac for testing
+>  - Add asid optimization for D1 usage
+> 
+> Guo Ren (10):
+>   riscv: asid: Use global mappings for kernel pages
+>   riscv: asid: Add ASID-based tlbflushing methods
+>   riscv: asid: Optimize tlbflush coding convention
+>   riscv: pgtable: Fixup _PAGE_CHG_MASK usage
+>   riscv: pgtable: Add custom protection_map init
+>   riscv: pgtable: Add DMA_COHERENT with custom PTE attributes
+>   riscv: cmo: Add dma-noncoherency support
+>   riscv: cmo: Add vendor custom icache sync
+>   riscv: soc: Initial DTS for Allwinner D1 NeZha board
+>   riscv: soc: Add Allwinner SoC kconfig option
+> 
+> liush (1):
+>   riscv: soc: Allwinner D1 GMAC driver only for temp use
+> 
+>  arch/riscv/Kconfig                                 |    9 +
+>  arch/riscv/Kconfig.socs                            |   12 +
+>  arch/riscv/boot/dts/Makefile                       |    1 +
+>  arch/riscv/boot/dts/allwinner/Makefile             |    2 +
+>  .../boot/dts/allwinner/allwinner-d1-nezha-kit.dts  |   29 +
+>  arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi    |  100 +
+>  arch/riscv/configs/defconfig                       |    1 +
+>  arch/riscv/include/asm/cacheflush.h                |   48 +-
+>  arch/riscv/include/asm/mmu_context.h               |    2 +
+>  arch/riscv/include/asm/pgtable-64.h                |    8 +-
+>  arch/riscv/include/asm/pgtable-bits.h              |   20 +-
+>  arch/riscv/include/asm/pgtable.h                   |   44 +-
+>  arch/riscv/include/asm/sbi.h                       |   15 +
+>  arch/riscv/include/asm/soc.h                       |    1 +
+>  arch/riscv/include/asm/tlbflush.h                  |   22 +
+>  arch/riscv/include/asm/vendorid_list.h             |    1 +
+>  arch/riscv/kernel/sbi.c                            |   19 +
+>  arch/riscv/kernel/soc.c                            |   22 +
+>  arch/riscv/kernel/vdso/flush_icache.S              |   33 +-
+>  arch/riscv/mm/Makefile                             |    1 +
+>  arch/riscv/mm/cacheflush.c                         |    3 +-
+>  arch/riscv/mm/context.c                            |    2 +-
+>  arch/riscv/mm/dma-mapping.c                        |   53 +
+>  arch/riscv/mm/init.c                               |   26 +
+>  arch/riscv/mm/tlbflush.c                           |   57 +-
+>  drivers/net/ethernet/Kconfig                       |    1 +
+>  drivers/net/ethernet/Makefile                      |    1 +
+>  drivers/net/ethernet/allwinnertmp/Kconfig          |   17 +
+>  drivers/net/ethernet/allwinnertmp/Makefile         |    7 +
+>  drivers/net/ethernet/allwinnertmp/sunxi-gmac-ops.c |  690 ++++++
+>  drivers/net/ethernet/allwinnertmp/sunxi-gmac.c     | 2240
+> ++++++++++++++++++++ drivers/net/ethernet/allwinnertmp/sunxi-gmac.h     | 
+> 258 +++
+>  drivers/net/phy/realtek.c                          |    2 +-
+>  mm/mmap.c                                          |    4 +
+>  34 files changed, 3714 insertions(+), 37 deletions(-)
+>  create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
+>  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
+> create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi create
+> mode 100644 arch/riscv/mm/dma-mapping.c
+>  create mode 100644 drivers/net/ethernet/allwinnertmp/Kconfig
+>  create mode 100644 drivers/net/ethernet/allwinnertmp/Makefile
+>  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac-ops.c
+>  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac.c
+>  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac.h
 
 
 
