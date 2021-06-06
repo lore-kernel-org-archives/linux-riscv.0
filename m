@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D61A8C4743E
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 09:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D6CDC48BC2
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 09:05:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 812AC6142A
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 09:05:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 812AC6142A
+	by mail.kernel.org (Postfix) with ESMTPS id 37D0361422
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 09:05:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 37D0361422
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,48 +23,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8A8sshfgJpQAA1H1bkmsUTeA74GJBj6Z/A4kInu2vOk=; b=Xp9fZa28naVCH3
-	naIPDc1MguQsmtsNdRQFdZvoYa9WWBk9kRNp5RGC3icAXh1Afyk5On8KikFTScspgEbt54MNcmD4J
-	HJYTxTCb5FGMJ0cu1hqWWjcVS6eiK+YnIQuQBXRZmq/7B3mAzOblMgpLvHQwLjhv1Lge1ZBgyudJF
-	J969BOfBkEzFoUQg1GZ4k0FYPXbzM+4MkYZS73LQ1r7mYNAKGbWGL/NeNKhZnuLHokmq4IeS+/uNx
-	sIe4Pi6W7vgEtk3kELt5RJNVvB5NkCPDe/fzlojjLiUT9RT8ziTDR0oUVMQseefIEVuCicBMfQ+4X
-	UbFPVH7ENOHXbiR9GQJg==;
+	List-Owner; bh=Hq6RsR2Swq9fGxQqkls/dzFAiBb/qjwM66RSLnWdqBc=; b=xwEgjc3NjKr0yL
+	9oqwfhQh/lt7B0dB0igONU6a7FZiY9c+RsOsNqr4JajMeYyrDs/8gy0kPn3G3imeSD7DDepDcEEvB
+	+yPR+tmeL/BeMGO6Nrdwub0xrqz7NGru4uX1DMWYSkDi7KqKkW/OKc87rPtPaKvr/90/fOHo/Guul
+	1N+gOrO+ZAXOdmZJGO4PIpSniPTfR0MVb3Lb1EYPxR1wysSWEj9/1IKVO4g38OHE5YjXucfTMqw+B
+	Yd8345psBnqcW2RQN4Pb/rs6RKkQb+qUBFKmQu0S3aGmf1z4CDcxNLArA3f8jF1ZxbREQ9VKetuwA
+	BzXsDAyOLZCnWt6HyZHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpoih-0002gI-SD; Sun, 06 Jun 2021 09:05:23 +0000
+	id 1lpois-0002mR-0E; Sun, 06 Jun 2021 09:05:34 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpoie-0002ek-OM
- for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 09:05:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4C79361435;
- Sun,  6 Jun 2021 09:05:17 +0000 (UTC)
+ id 1lpoip-0002kj-3N
+ for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 09:05:32 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D5DFC61445;
+ Sun,  6 Jun 2021 09:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1622970320;
- bh=7QeWtBcpmgX2h1U9CSCvY1o63rcwMf7sxdiWDnALUwM=;
+ s=k20201202; t=1622970330;
+ bh=ImFn70PLgXUHSxXz/kYrTQSzz2TKvLSmtoIrB/isbsc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=i23GRSqfXkoo/eGZaRULdK7DvawwQzDF5zBSCkAYq/rmnc79U0ALzgVuyUrRRi0FP
- F95ZBgZYpWZkMoyZZDUnNYfwQreCurVBnC69tVnjGmAEOXbKWnEUxUKDET9/WfaRi+
- ob6yagG7m/UmLnAFY7CszwnncFhh0XuQmjmZwb7laJfw93z1ChQ31W+TjtIwMVtJkD
- Wn2tVmwFSZVSDcOCq3fxOAwoVzUfhhj5l4MlDfes4iNK8Ee6yWl8Jfd7hYwFGeYg6+
- cYWiMaC16nSlM+JVLt5ULt42JEzTVY3vzE2zjksegy7yRvcgGoxOJ8/DF/4ialnLGu
- 9ZO9l9B/Lcd0g==
+ b=oTU1FSyzc5fcybOhyi+u8t+br3DWkuLwmupadD/Yomq3S6+lWcUikjVV54ATWVgn+
+ redgdfL7kRxmeHtrDf3J/PkBf+SqRJU9OUPkBFZ88JpuSsmzZqBnEC5vtCwbVmdLOT
+ RMzGI8bHicLzQIoIa94hBcAaXqONFnEQyBNccAc3ANs3YUdXsL7H8goFtTvcOKSzri
+ 9390z8bnrXbtNFVMGsY109+L44AgY15cyXeVXb7i/a/J3EgrsNWSUyAzEbFb4N9ulU
+ dahA1uihDqbh3Fowr4I81ebUEkwGMDwh6moZDYEx50U+1RCA07yU1HaPBt1/P23bsu
+ zjul+x/c5bT9A==
 From: guoren@kernel.org
 To: guoren@kernel.org, anup.patel@wdc.com, palmerdabbelt@google.com,
  arnd@arndb.de, wens@csie.org, maxime@cerno.tech, drew@beagleboard.org,
  liush@allwinnertech.com, lazyparser@gmail.com, wefu@redhat.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
- Guo Ren <guoren@linux.alibaba.com>, Christoph Hellwig <hch@lst.de>,
- Atish Patra <atish.patra@wdc.com>
-Subject: [PATCH V5 3/3] riscv: tlbflush: Optimize coding convention
-Date: Sun,  6 Jun 2021 09:04:01 +0000
-Message-Id: <1622970249-50770-7-git-send-email-guoren@kernel.org>
+ Guo Ren <guoren@linux.alibaba.com>, Christoph Hellwig <hch@lst.de>
+Subject: [RFC PATCH v2 06/11] riscv: pgtable: Add DMA_COHERENT with custom PTE
+ attributes
+Date: Sun,  6 Jun 2021 09:04:04 +0000
+Message-Id: <1622970249-50770-10-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1622970249-50770-1-git-send-email-guoren@kernel.org>
 References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_020520_850971_827A7E48 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20210606_020531_203886_E7AB7F3A 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,157 +84,194 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Passing the mm_struct as the first argument, as we can derive both
-the cpumask and asid from it instead of doing that in the callers.
+The dma-noncoherent SOCs need different virtual memory mappings
+with different attributes:
+ - noncached + Strong Order (for IO/DMA descriptor)
+ - noncached + Weak Order (for writecombine usage, eg: frame
+   buffer)
 
-But more importantly, the static branch check can be moved deeper
-into the code to avoid a lot of duplication.
+All above base on PTE attributes by MMU hardware. That means
+address attributes are determined by PTE entry, not PMA. RISC-V
+soc vendors have defined their own custom PTE attributes for
+dma-noncoherency.
 
-Also add FIXME comment on the non-ASID code switches to a global
-flush once flushing more than a single page.
-
-Link: https://lore.kernel.org/linux-riscv/CAJF2gTQpDYtEdw6ZrTVZUYqxGdhLPs25RjuUiQtz=xN2oKs2fw@mail.gmail.com/T/#m30f7e8d02361f21f709bc3357b9f6ead1d47ed43
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-Developed-by: Christoph Hellwig <hch@lst.de>
-Cc: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
 Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Christoph Hellwig <hch@lst.de>
 Cc: Anup Patel <anup.patel@wdc.com>
-Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Drew Fustini <drew@beagleboard.org>
+Cc: Wei Fu <wefu@redhat.com>
+Cc: Wei Wu <lazyparser@gmail.com>
+Cc: Chen-Yu Tsai <wens@csie.org>
+Cc: Maxime Ripard <maxime@cerno.tech>
 ---
- arch/riscv/mm/tlbflush.c | 91 ++++++++++++++++++++++--------------------------
- 1 file changed, 41 insertions(+), 50 deletions(-)
+ arch/riscv/include/asm/pgtable-bits.h  | 20 +++++++++++++++++++-
+ arch/riscv/include/asm/pgtable.h       | 11 ++++-------
+ arch/riscv/include/asm/soc.h           |  1 +
+ arch/riscv/include/asm/vendorid_list.h |  1 +
+ arch/riscv/kernel/soc.c                | 22 ++++++++++++++++++++++
+ arch/riscv/mm/init.c                   |  4 ++++
+ 6 files changed, 51 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 87b4e52..facca6e 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -12,56 +12,59 @@ void flush_tlb_all(void)
- }
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index bbaeb5d..080a9eb 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -24,6 +24,11 @@
+ #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
+ #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
+ 
++#define _PAGE_DMA_MASK	__riscv_custom_pte.mask
++#define _PAGE_DMA_CACHE	__riscv_custom_pte.cache
++#define _PAGE_DMA_IO	__riscv_custom_pte.io
++#define _PAGE_DMA_WC	__riscv_custom_pte.wc
++
+ #define _PAGE_SPECIAL   _PAGE_SOFT
+ #define _PAGE_TABLE     _PAGE_PRESENT
+ 
+@@ -35,9 +40,22 @@
+ 
+ #define _PAGE_PFN_SHIFT 10
+ 
++#ifndef __ASSEMBLY__
++
++struct riscv_custom_pte {
++	unsigned long cache;
++	unsigned long mask;
++	unsigned long io;
++	unsigned long wc;
++};
++
++extern struct riscv_custom_pte __riscv_custom_pte;
++
+ /* Set of bits to preserve across pte_modify() */
+ #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
+ 					  _PAGE_WRITE | _PAGE_EXEC |	\
+-					  _PAGE_USER | _PAGE_GLOBAL))
++					  _PAGE_USER | _PAGE_GLOBAL |	\
++					  _PAGE_DMA_MASK))
++#endif
+ 
+ #endif /* _ASM_RISCV_PGTABLE_BITS_H */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 13a79643..6ddeb49 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -114,7 +114,7 @@
+ #define USER_PTRS_PER_PGD   (TASK_SIZE / PGDIR_SIZE)
+ 
+ /* Page protection bits */
+-#define _PAGE_BASE	(_PAGE_PRESENT | _PAGE_ACCESSED | _PAGE_USER)
++#define _PAGE_BASE	(_PAGE_PRESENT | _PAGE_ACCESSED | _PAGE_USER | _PAGE_DMA_CACHE)
+ 
+ #define PAGE_NONE		__pgprot(_PAGE_PROT_NONE)
+ #define PAGE_READ		__pgprot(_PAGE_BASE | _PAGE_READ)
+@@ -135,7 +135,8 @@
+ 				| _PAGE_PRESENT \
+ 				| _PAGE_ACCESSED \
+ 				| _PAGE_DIRTY \
+-				| _PAGE_GLOBAL)
++				| _PAGE_GLOBAL \
++				| _PAGE_DMA_CACHE)
+ 
+ #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
+ #define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+@@ -145,11 +146,7 @@
+ 
+ #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
+ 
+-/*
+- * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
+- * change the properties of memory regions.
+- */
+-#define _PAGE_IOREMAP _PAGE_KERNEL
++#define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_DMA_MASK) | _PAGE_DMA_IO)
+ 
+ extern pgd_t swapper_pg_dir[];
+ 
+diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+index f494066..fc587d7 100644
+--- a/arch/riscv/include/asm/soc.h
++++ b/arch/riscv/include/asm/soc.h
+@@ -17,6 +17,7 @@
+ 		 = { .compatible = compat, .data = fn  }
+ 
+ void soc_early_init(void);
++void soc_setup_vm(void);
+ 
+ extern unsigned long __soc_early_init_table_start;
+ extern unsigned long __soc_early_init_table_end;
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index 9d93421..c2710f3 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -6,5 +6,6 @@
+ #define ASM_VENDOR_LIST_H
+ 
+ #define SIFIVE_VENDOR_ID	0x489
++#define  THEAD_VENDOR_ID	0x401
+ 
+ #endif
+diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+index a051617..05fa764 100644
+--- a/arch/riscv/kernel/soc.c
++++ b/arch/riscv/kernel/soc.c
+@@ -3,8 +3,10 @@
+  * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+  */
+ #include <linux/init.h>
++#include <linux/mm.h>
+ #include <linux/libfdt.h>
+ #include <linux/pgtable.h>
++#include <asm/image.h>
+ #include <asm/soc.h>
  
  /*
-- * This function must not be called with cmask being null.
-+ * This function must not be called with mm_cpumask(mm) being null.
-  * Kernel may panic if cmask is NULL.
-  */
--static void __sbi_tlb_flush_range(struct cpumask *cmask, unsigned long start,
-+static void __sbi_tlb_flush_range(struct mm_struct *mm,
-+				  unsigned long start,
- 				  unsigned long size)
- {
-+	struct cpumask *cmask = mm_cpumask(mm);
- 	struct cpumask hmask;
- 	unsigned int cpuid;
-+	bool local;
- 
- 	if (cpumask_empty(cmask))
- 		return;
- 
- 	cpuid = get_cpu();
- 
--	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
--		/* local cpu is the only cpu present in cpumask */
--		if (size <= PAGE_SIZE)
--			local_flush_tlb_page(start);
--		else
--			local_flush_tlb_all();
--	} else {
--		riscv_cpuid_to_hartid_mask(cmask, &hmask);
--		sbi_remote_sfence_vma(cpumask_bits(&hmask), start, size);
--	}
-+	/*
-+	 * check if the tlbflush needs to be sent to other CPUs, local
-+	 * cpu is the only cpu present in cpumask.
-+	 */
-+	local = !(cpumask_any_but(cmask, cpuid) < nr_cpu_ids);
- 
--	put_cpu();
--}
--
--static void __sbi_tlb_flush_range_asid(struct cpumask *cmask,
--				       unsigned long start,
--				       unsigned long size,
--				       unsigned long asid)
--{
--	struct cpumask hmask;
--	unsigned int cpuid;
--
--	if (cpumask_empty(cmask))
--		return;
--
--	cpuid = get_cpu();
-+	if (static_branch_likely(&use_asid_allocator)) {
-+		unsigned long asid = atomic_long_read(&mm->context.id);
- 
--	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
--		if (size == -1)
--			local_flush_tlb_all_asid(asid);
--		else
--			local_flush_tlb_range_asid(start, size, asid);
-+		if (likely(local)) {
-+			if (size == -1)
-+				local_flush_tlb_all_asid(asid);
-+			else
-+				local_flush_tlb_range_asid(start, size, asid);
-+		} else {
-+			riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+			sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
-+						   start, size, asid);
-+		}
- 	} else {
--		riscv_cpuid_to_hartid_mask(cmask, &hmask);
--		sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
--					   start, size, asid);
-+		if (likely(local)) {
-+			/*
-+			 * FIXME: The non-ASID code switches to a global flush
-+			 * once flushing more than a single page. It's made by
-+			 * commit 6efb16b1d551 (RISC-V: Issue a tlb page flush
-+			 * if possible).
-+			 */
-+			if (size <= PAGE_SIZE)
-+				local_flush_tlb_page(start);
-+			else
-+				local_flush_tlb_all();
-+		} else {
-+			riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+			sbi_remote_sfence_vma(cpumask_bits(&hmask),
-+					      start, size);
-+		}
+@@ -26,3 +28,23 @@ void __init soc_early_init(void)
+ 		}
  	}
- 
- 	put_cpu();
-@@ -69,28 +72,16 @@ static void __sbi_tlb_flush_range_asid(struct cpumask *cmask,
- 
- void flush_tlb_mm(struct mm_struct *mm)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(mm), 0, -1,
--					   atomic_long_read(&mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(mm), 0, -1);
-+	__sbi_tlb_flush_range(mm, 0, -1);
  }
++
++static void __init thead_init(void)
++{
++	__riscv_custom_pte.cache = 0x7000000000000000;
++	__riscv_custom_pte.mask  = 0xf800000000000000;
++	__riscv_custom_pte.io    = BIT(63);
++	__riscv_custom_pte.wc    = 0;
++}
++
++void __init soc_setup_vm(void)
++{
++	unsigned long vendor_id =
++		((struct riscv_image_header *)(&_start))->res1;
++
++	switch (vendor_id) {
++	case THEAD_VENDOR_ID:
++		thead_init();
++		break;
++	}
++};
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 4b398c6..fb70c49 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -524,6 +524,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	pmd_t fix_bmap_spmd, fix_bmap_epmd;
+ #endif
  
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE,
--					   atomic_long_read(&vma->vm_mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), addr, PAGE_SIZE);
-+	__sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE);
- }
++	soc_setup_vm();
+ 	setup_protection_map();
  
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end)
- {
--	if (static_branch_unlikely(&use_asid_allocator))
--		__sbi_tlb_flush_range_asid(mm_cpumask(vma->vm_mm), start, end - start,
--					   atomic_long_read(&vma->vm_mm->context.id));
--	else
--		__sbi_tlb_flush_range(mm_cpumask(vma->vm_mm), start, end - start);
-+	__sbi_tlb_flush_range(vma->vm_mm, start, end - start);
+ #ifdef CONFIG_XIP_KERNEL
+@@ -911,3 +912,6 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 	return vmemmap_populate_basepages(start, end, node, NULL);
  }
+ #endif
++
++struct riscv_custom_pte __riscv_custom_pte __ro_after_init;
++EXPORT_SYMBOL(__riscv_custom_pte);
 -- 
 2.7.4
 
