@@ -2,19 +2,19 @@ Return-Path: <SRS0=9QI1=LA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A8979C47096
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 07:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D03A1C47096
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 07:41:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4939261244
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 07:41:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4939261244
+	by mail.kernel.org (Postfix) with ESMTPS id 81D1360C3D
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Jun 2021 07:41:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81D1360C3D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,44 +23,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7drnu4hJrjiUCcCmMKBQ2vicP8AFmWP6j/wpejpqwqQ=; b=E0wkiTvGjJ+pQaX/5t/W7Rw+Lh
-	pqBvso+kJhetg/8AgT1ZOM2plRM/ecggfNrOOraOZS+ypLW7ODhz4T/CvGR1dMX8dSDXWQHolAbKt
-	vQvi+6/an70Pe8+uhySZI0cltaPXG7LVlr8VPXgm1JsG+k2EIv1WVv83k7w9VVMCDQ8YNek2GiUyj
-	B1N0ZWNCTIY5uboskodNkbdGGWYW/tZV54PMwknY11IM3TzAPw4m/jPGaCq/ZGMgZJFbdmT3g2O74
-	CcrsH5gMSCJtB4Vm+VqlknlMHfHjOmVF5FXtyAoOKw8pwIUFAhxxzZC/4BHYo341YroP3Tv+l2bEP
-	GhUx5+DQ==;
+	bh=WMAubswFo/X3nqr1mop3jUnWMmbBGmj7UP7ojAYk2Ag=; b=hOfRNJVbNbXu5OOnyWAoG03/mg
+	khWO1JHLTzuQSytafKEJ7AwMmBBKOeQ3MIPzXPPCgxCJev7v3zvmhAt7GaovCjzxX6pCkcAjH73Rj
+	Qe/s/uTci5mQIR/P72xWgPyjFvl24LScIAl2K7BSMq65epasqDZR6qxmr057QE3hmd0DGqzqIzZr7
+	l34dQW/jpuMYB641CLTBjYtZYVb/KgmdB856B3lPCxmtgCasx8X53DBuA9JbqLL+neppJV7zm6RqH
+	Yx39kRf4Bun9KOLpLXIiNaMnG4zh0c6JQxxuwKHui5LIKt3KTQotY8l7Fjgn/uCiMj86BTW8QW3eR
+	l1VuY/LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lpnOy-00HYmg-GG; Sun, 06 Jun 2021 07:40:56 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1lpnNM-00HYe5-FZ; Sun, 06 Jun 2021 07:39:16 +0000
+Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lpnOv-00HYm1-MK
- for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 07:40:55 +0000
+ id 1lpnNJ-00HYdc-6P
+ for linux-riscv@lists.infradead.org; Sun, 06 Jun 2021 07:39:15 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 89713E0002;
- Sun,  6 Jun 2021 07:40:44 +0000 (UTC)
-Subject: Re: [PATCH -fixes] riscv: Fix BUILTIN_DTB for sifive and microchip soc
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, DTML <devicetree@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-References: <20210604120639.1447869-1-alex@ghiti.fr>
- <CAK8P3a1TiSNoqUEjTaqPyqnU8d0-p-yZkrsvmXt5fo4Rkfue_w@mail.gmail.com>
- <1287f6f3-2f07-3269-9048-8f7d08eecc09@ghiti.fr>
- <CAK8P3a1_N6dAdjWR10FtgaVz828o7W5Mp55DO3Ex+3en-ikOUw@mail.gmail.com>
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 851F6240003;
+ Sun,  6 Jun 2021 07:38:46 +0000 (UTC)
+Subject: Re: [PATCH v4 2/4] riscv: Simplify xip and !xip kernel address
+ conversion macros
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20210604114950.1446390-1-alex@ghiti.fr>
+ <20210604114950.1446390-3-alex@ghiti.fr> <20210604204743.7bdd4fbd@xhacker>
 From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <5d3a00d1-9e45-398a-39cf-1e6e9924eb18@ghiti.fr>
-Date: Sun, 6 Jun 2021 09:40:34 +0200
+Message-ID: <5886a364-a154-d2f5-1f0c-5acac5641ed4@ghiti.fr>
+Date: Sun, 6 Jun 2021 09:38:42 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.10.2
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a1_N6dAdjWR10FtgaVz828o7W5Mp55DO3Ex+3en-ikOUw@mail.gmail.com>
+In-Reply-To: <20210604204743.7bdd4fbd@xhacker>
 Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_004053_885150_922AAEB8 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20210606_003913_530691_AFD8B1C7 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +71,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUgNS8wNi8yMDIxIMOgIDEzOjAwLCBBcm5kIEJlcmdtYW5uIGEgw6ljcml0wqA6Cj4gT24gU2F0
-LCBKdW4gNSwgMjAyMSBhdCA4OjM3IEFNIEFsZXggR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3Rl
-Ogo+PiBMZSA0LzA2LzIwMjEgw6AgMTU6MDgsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXQgOgo+Pj4g
-T24gRnJpLCBKdW4gNCwgMjAyMSBhdCAyOjA2IFBNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0
-aS5mcj4gd3JvdGU6Cj4+Pj4KPj4+PiBGaXggQlVJTFRJTl9EVEIgY29uZmlnIHdoaWNoIHJlc3Vs
-dGVkIGluIGEgZHRiIHRoYXQgd2FzIGFjdHVhbGx5IG5vdCBidWlsdAo+Pj4+IGludG8gdGhlIExp
-bnV4IGltYWdlOiBpbiB0aGUgc2FtZSBtYW5uZXIgYXMgQ2FuYWFuIHNvYyBkb2VzLCBjcmVhdGUg
-YW4gb2JqZWN0Cj4+Pj4gZmlsZSBmcm9tIHRoZSBkdGIgZmlsZSB0aGF0IHdpbGwgZ2V0IGxpbmtl
-ZCBpbnRvIHRoZSBMaW51eCBpbWFnZS4KPj4+Pgo+Pj4+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRy
-ZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4KPj4+Cj4+PiBBbG9uZyB0aGUgc2FtZSBsaW5lcyBhcyB0
-aGUgY29tbWVudCB0aGF0IEppc2hlbmcgWmhhbmcgbWFkZSBvbiB0aGUgZml4ZWQKPj4+IGFkZHJl
-c3MsIGJ1aWxkaW5nIGEgZHRiIGludG8gdGhlIGtlcm5lbCBpdHNlbGYgZnVuZGFtZW50YWxseSBi
-cmVha3MgZ2VuZXJpYwo+Pj4ga2VybmVsIGltYWdlcy4KPj4+Cj4+PiBJIGNhbiB1bmRlcnN0YW5k
-IHVzaW5nIGl0IG9uIEsyMTAsIHdoaWNoIGlzIGV4dHJlbWVseSBsaW1pdGVkIGFuZCB3b3VsZG4n
-dAo+Pj4gcnVuIGEgZ2VuZXJpYyBrZXJuZWwgYW55d2F5LCBidXQgZm9yIG5vcm1hbCBwbGF0Zm9y
-bXMgbGlrZSBtaWNyb2NoaXAgYW5kCj4+PiBzaWZpdmUsIGl0IHdvdWxkIGJlIGJldHRlciB0byBk
-aXNhbGxvdyBDT05GSUdfQlVJTFRJTl9EVEIgaW4gS2NvbmZpZwo+Pj4gYW5kIHJlcXVpcmUgYSBu
-b24tYnJva2VuIGJvb3QgbG9hZGVyLgo+Pgo+PiBJIGtpbmQgb2YgZGlzYWdyZWUgYmVjYXVzZSBp
-ZiBJIHdhbnQgdG8gYnVpbGQgYSBjdXN0b20ga2VybmVsIGZvciB0aG9zZQo+PiBwbGF0Zm9ybXMg
-d2l0aCBhIGJ1aWx0aW4gZHRiIGZvciBzb21lIHJlYXNvbnMgKGRlYnVnLCBkZXZlbG9wbWVudC4u
-RXRjKSwKPj4gSSB0aGluayBJIHNob3VsZCBiZSBhYmxlIHRvIGRvIHNvLgo+IAo+IEhvdyBpcyB0
-aGUgYnVpbHRpbiBkdGIgYmV0dGVyIHRoYW4gYXBwZW5kZWQgZHRiLCBvciBwYXNzaW5nIHRoZSBk
-dGIgdG8gdGhlCj4gYm9vdCBsb2FkZXIgaW4gdGhhdCBjYXNlPwoKQWggbmV2ZXIgc2FpZCBpdCB3
-YXMgYmV0dGVyLCBqdXN0IGl0IHdhcyBhdmFpbGFibGUgc28gdGhlcmUgaXMgbm8gcmVhc29uIAp3
-ZSBjb3VsZCBub3QgYWxsb3cgaXQgOikKCj4gCj4gICAgICAgICAgIEFybmQKPiAKPiBfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Le 4/06/2021 =E0 14:47, Jisheng Zhang a =E9crit=A0:
+> Hi Alexandre,
+> =
+
+> On Fri,  4 Jun 2021 13:49:48 +0200
+> Alexandre Ghiti <alex@ghiti.fr> wrote:
+> =
+
+>> To simplify the kernel address conversion code, make the same definition=
+ of
+>> kernel_mapping_pa_to_va and kernel_mapping_va_to_pa compatible for both =
+xip
+>> and !xip kernel by defining XIP_OFFSET to 0 in !xip kernel.
+>>
+>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+>> Reviewed-by: Anup Patel <anup@brainfault.org>
+>> ---
+>>   arch/riscv/include/asm/page.h    | 14 +++-----------
+>>   arch/riscv/include/asm/pgtable.h |  2 ++
+>>   2 files changed, 5 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page=
+.h
+>> index 6a7761c86ec2..6e004d8fda4d 100644
+>> --- a/arch/riscv/include/asm/page.h
+>> +++ b/arch/riscv/include/asm/page.h
+>> @@ -93,9 +93,7 @@ extern unsigned long va_pa_offset;
+>>   #ifdef CONFIG_64BIT
+>>   extern unsigned long va_kernel_pa_offset;
+>>   #endif
+>> -#ifdef CONFIG_XIP_KERNEL
+>>   extern unsigned long va_kernel_xip_pa_offset;
+>> -#endif
+>>   extern unsigned long pfn_base;
+>>   #define ARCH_PFN_OFFSET		(pfn_base)
+>>   #else
+>> @@ -103,6 +101,7 @@ extern unsigned long pfn_base;
+>>   #ifdef CONFIG_64BIT
+>>   #define va_kernel_pa_offset	0
+>>   #endif
+>> +#define va_kernel_xip_pa_offset 0
+>>   #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
+>>   #endif /* CONFIG_MMU */
+>>   =
+
+>> @@ -110,29 +109,22 @@ extern unsigned long kernel_virt_addr;
+>>   =
+
+>>   #ifdef CONFIG_64BIT
+>>   #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_p=
+a_offset))
+>> -#ifdef CONFIG_XIP_KERNEL
+>>   #define kernel_mapping_pa_to_va(y)	({						\
+>>   	unsigned long _y =3D y;								\
+>>   	(_y >=3D CONFIG_PHYS_RAM_BASE) ?							\
+> =
+
+> For !XIP, IIRC, one rule for riscv kernel is one unified Image for all RV=
+64GC
+> or RV32GC platforms. When CONFIG_PHYS_RAM_BASE is available for all
+> riscv platforms after patch1, I'm not sure the common unified Image is st=
+ill
+> possible or not.
+> =
+
+
+I completely did not handle the 32b case and was convinced that =
+
+0x8000_0000 was indeed the beginning of the RAM for all riscv64 plaforms.
+
+> One possible solution would be forcing CONFIG_PHYS_RAM_BASE =3D 0 if !XIP=
+ in patch1
+> or remove patch1 instead define CONFIG_PHY_RAM_BASE 0 for !XIP
+
+Setting CONFIG_PHYS_RAM_BASE to 0 for !xip kernels is IMO not that great =
+
+since it represents something that is real but wrong (unlike XIP_OFFSET =
+
+which is 0 for !xip kernel and in that case, this is true). I will think =
+
+to a better solution and am open to suggestions.
+
+Thanks Jisheng again for your reviews, really appreciated!
+
+Alex
+
+> =
+
+> Thanks
+> =
+
+>>   		(void *)((unsigned long)(_y) + va_kernel_pa_offset + XIP_OFFSET) :	\
+>>   		(void *)((unsigned long)(_y) + va_kernel_xip_pa_offset);		\
+>>   	})
+>> -#else
+>> -#define kernel_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_ke=
+rnel_pa_offset))
+>> -#endif
+>>   #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
+>>   =
+
+>>   #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - va_pa_offset)
+>> -#ifdef CONFIG_XIP_KERNEL
+>>   #define kernel_mapping_va_to_pa(y) ({						\
+>>   	unsigned long _y =3D y;							\
+>>   	(_y < kernel_virt_addr + XIP_OFFSET) ?					\
+>>   		((unsigned long)(_y) - va_kernel_xip_pa_offset) :		\
+>>   		((unsigned long)(_y) - va_kernel_pa_offset - XIP_OFFSET);	\
+>>   	})
+>> -#else
+>> -#define kernel_mapping_va_to_pa(x)	((unsigned long)(x) - va_kernel_pa_o=
+ffset)
+>> -#endif
+>> +
+>>   #define __va_to_pa_nodebug(x)	({						\
+>>   	unsigned long _x =3D x;							\
+>>   	(_x < kernel_virt_addr) ?						\
+>> @@ -141,7 +133,7 @@ extern unsigned long kernel_virt_addr;
+>>   #else
+>>   #define __pa_to_va_nodebug(x)  ((void *)((unsigned long) (x) + va_pa_o=
+ffset))
+>>   #define __va_to_pa_nodebug(x)  ((unsigned long)(x) - va_pa_offset)
+>> -#endif
+>> +#endif /* CONFIG_64BIT */
+>>   =
+
+>>   #ifdef CONFIG_DEBUG_VIRTUAL
+>>   extern phys_addr_t __virt_to_phys(unsigned long x);
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/p=
+gtable.h
+>> index bde8ce3bfe7c..d98e931a31e5 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -77,6 +77,8 @@
+>>   =
+
+>>   #ifdef CONFIG_XIP_KERNEL
+>>   #define XIP_OFFSET		SZ_8M
+>> +#else
+>> +#define XIP_OFFSET		0
+>>   #endif
+>>   =
+
+>>   #ifndef __ASSEMBLY__
+> =
+
+> =
+
+> =
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> =
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
