@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F617C4743F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A503C47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:25:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 01D7861185
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:20:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 01D7861185
+	by mail.kernel.org (Postfix) with ESMTPS id 579EC6120F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:25:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 579EC6120F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cerno.tech
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,49 +23,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scVB+9ZtMOaHgnwcJq4SmT+g7A0BtUDZvDaj6WAdbVY=; b=S06D9aC5tuFgC7SfPdaBR+Js85
-	Y9RBnFMcWZI/O9VtrOSivksS7udSXLvaBqGZL7Fupeypa3WA9xI3YQ8lWKunK4bkoJFRlGpxcWp/W
-	XPVfAZCuAr9z9h2kTsW+B5UF91gS3jO7icqHb7fvqCZvRI+VwaoexQQnM+9CUIA69VXonRs7YrBMY
-	BjtlVVjqdfOWggX9zTUvfaVPyfvmZKtg4BSJIGeVVHeIuenV8PWtAz1h9J9ncVfJeWZFld1FU0/WR
-	p10/nX4As8fQWCeHmByZqFpZFGVkVuKUhB8udn0UAwzeSRYkUK52cVAtr614dh6gb9s6NIg1zzDkY
-	f5XRuIug==;
+	bh=xWY+/mjSH8IUigErb+Hx+9lWjaD7er3YhFziNc7fLuw=; b=Xmi2g6gVBGKj5u/UlfCdl/wrtS
+	DEj3cjDyFejNqY9YkdmFNreTrZWT2DynPwUMWFdHBOdVqorxrfnf8XS+wbLttmFZxTmWEr8vnoyVX
+	CzVh1LWo2v/ZjOcQNxQvHvfXqiE2Omy9P35QDGGGB6+yoUZWooNlk1/I7AJ22/ZyIa8nGAc/Gp7oo
+	82C5HNCy7uaXLkQreqTPrWeZi20LQ28pKc6/vlbhdGLxduUDUxQBh4rv5ZrSStqSSfEqsSoZDpri3
+	RjFVhVuveLrT5peXii8gqbMs/vgk5OOGgzet8Ri3xZzH66aNduFEokbNe/FS0HK6vaCPVFLRZfy+u
+	xT00b/2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq9YK-002091-6S; Mon, 07 Jun 2021 07:20:04 +0000
+	id 1lq9cr-0022Nq-AD; Mon, 07 Jun 2021 07:24:45 +0000
 Received: from new3-smtp.messagingengine.com ([66.111.4.229])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq9Xj-001zj2-GD
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 07:19:32 +0000
+ id 1lq9cl-0022Js-Np
+ for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 07:24:44 +0000
 Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailnew.nyi.internal (Postfix) with ESMTP id 1C2B4580859;
- Mon,  7 Jun 2021 03:19:22 -0400 (EDT)
+ by mailnew.nyi.internal (Postfix) with ESMTP id D6E9258079D;
+ Mon,  7 Jun 2021 03:24:38 -0400 (EDT)
 Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Mon, 07 Jun 2021 03:19:22 -0400
+ by compute4.internal (MEProxy); Mon, 07 Jun 2021 03:24:38 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
  date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm3; bh=1MtV7DMaXaVx7kK0l4uODe/8kJj
- 9XmsvH5dcusPCkGw=; b=mBnRj6qByI8qYZCklroL0lAGepN28NsxpSJjrBcB5sQ
- Fd9Psov/izy8WWxboZMQrjOwwJviIZQ1ylCuBAHUSkt8Ao6IPLlLSKhvj6mcVRD8
- LJ6/qMfFntNQNPLP2a62nXZUY8NH253jQVw1M4YUkv4uKkDGM1F7bo90+bh6G1x5
- bj0aDQbh0YyqRWRUOV5GKZ4I4w9KGgTIxrOj526n2CQdqJwMlVEjkuNXa48Gyq+K
- zyqEXFJtCh1G5QY3/g35qFlIJ8uGWKdvPASB+N6V+QlwVgonLN3gJwLlKpWGq6pb
- CeKKGy+wRrKhZ3pmMs9Kyrb32nbI/45NJ/orDN6+Urg==
+ :content-type:in-reply-to; s=fm3; bh=npy2EWSBZQkD+7QAo6OmKOU0JWy
+ D1F5O8A85rULxr7U=; b=iOGGyA6K5vLhIVd9R7XZSsJ/52MYAKnKrX1ygQ2ozpX
+ 5ZifqVqhFux2c3lLOjSEa3rXLpRqYWQx3Nhkx1oQ1MxSjW7gIpWZzM0IdeQoUyV4
+ 73oPh/ABFbcyCa303FsFMnFDjfalau7YkevPHyga+0+F9ObnHAUTU4Kka56JO2d0
+ AHR6paY3ZCBa4adVLAGe5FexL65/gL7swg4BPZlFaqy/ObqOP2pxcljkH6oI8qfM
+ VJlJcP6bFkFBTdOpvQW5m6cGZAk43zX0nPnN3JdliEwcZ4AKsr3T7f/LjDOUqZie
+ WicXZWJqgUBn63KCJVaWrbDf6IvkbFyeUoMGqnvrqJA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-type:date:from:in-reply-to
  :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=1MtV7D
- MaXaVx7kK0l4uODe/8kJj9XmsvH5dcusPCkGw=; b=bmYOOfFKE/epxmVpWVbopE
- VYpCQV6oGT+5CyTeUxLZFc4z0mgApPY9MACKgKEovvnmMc+RXiHaZ/Ted/Ej6fic
- QRTnY2S4D9qWJG7LjaAvxBHEdK6X+A9vue/5+elM7kS9X0He6rmROFZkyr4Il3dH
- HlQHhutW7aZ1sUq5xYiGY/hF7Hk9mj/PlPznoN4e764vMfHOqPagcnRw8dGbe2fa
- FC9ghv6wu9aI8YHgTy8H2MTiZOfaSJG+FLESreO4U76f1II53+1KwmVOxt0/s2mJ
- eqgikwj++/p8qCwqXnWrrGE3X6/W+kSvAEn8+wC/c+C3mScl/e5WMPlvs4WRWShQ
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=npy2EW
+ SBZQkD+7QAo6OmKOU0JWyD1F5O8A85rULxr7U=; b=OgSRVCswkQ5nLq8tXl8E7U
+ O71YCnLyoyVQodFLxY2bQyVBuebED27X0dfe4vRpf462JyLIP9nP8HZlz247pNSL
+ fUV3o7FqG5BvfiRMNceJgBpYLCIoPFkO7DMLDd7hmjBREUXPft3fwAggheUvFoCC
+ Mf4RchFi9jzOZVtpCjQVlSk0mCvX2kR33HVBlNgmeA36LBifSis71sqzNomioJlY
+ R9Hyn3uZZPrXNRCpe7YTy1giKGddq9x/YtJtLtqbNP7xtBJJDNyB1KVP2d47WC07
+ FXkQZhHKWC+S9E0Lk6wTMXLVmCiZDLvs9XoJ2S+WLTbADkqOQ+IpObBpuXBpy7jw
  ==
-X-ME-Sender: <xms:dsi9YD8PzeOsxSVus-A228PvbTqQz6CohsW2u_XtbriccrxjEmgbww>
- <xme:dsi9YPszDDIsnC2zox9UotklYx-GoY969n7JJ1qczXkkkr7vzED9qVKCAOCWl9xO6
- wEIhIqSRpb647dNzqM>
-X-ME-Received: <xmr:dsi9YBD8qdIiGpihbYwvC6ezQsNyInmjOqpu8_IymTLXXyvPeXra5sSKLUZmbD0iptG0M7uLMPEvIvKELzgeLqeHndg8PA-f1Q3e>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedtiedgudduiecutefuodetggdotefrod
+X-ME-Sender: <xms:tMm9YA4kLfv-JLF2sBbl4fnug_K7P2UWkGsavopWtTV8GY3QZMRY9g>
+ <xme:tMm9YB4KeynpGL2GqENTXtvXXR3cXsC8Rd5fNuleAOyyAp68yq446BLe7Vx2R6xwE
+ cslc2f6TLv8t_5oGE8>
+X-ME-Received: <xmr:tMm9YPeagoP_ZcUGdv6tZwDcu327e-dmuSRsjT_6fhCcf4uXUg4exwqc4pXrXe6zvLLT9ZMSNOcfIGe8yKusZEFAU05sNG9YCGia>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedtiedguddujecutefuodetggdotefrod
  ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
  necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
  enucfjughrpeffhffvuffkfhggtggujgesghdtreertddtvdenucfhrhhomhepofgrgihi
@@ -73,13 +73,13 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedtiedgudduiecutefuodetgg
  htthgvrhhnpeelkeeghefhuddtleejgfeljeffheffgfeijefhgfeufefhtdevteegheei
  heegudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
  hmrgigihhmvgestggvrhhnohdrthgvtghh
-X-ME-Proxy: <xmx:dsi9YPceeu7PfbaDUqebc_9UD46Pb53aYkodLS4bjEIz3IZ0ndlDhQ>
- <xmx:dsi9YIPdyDsxA-_m-yN06QL-5SE1TSIPJjVxMtUK-x8m8MC7QMGU-w>
- <xmx:dsi9YBmfNDuQjipMIp48FePBz4_59Siz-Qiythf4bwfzZyjRZ9vUIA>
- <xmx:esi9YPmxGZwoaS4mPItl7MJfZb2hP6WhKibqLCIgA54Lc7M8mE3dMQ>
+X-ME-Proxy: <xmx:tMm9YFJRbaipaRJETHt57jUU0IfUD0rmi60Xm2v6OrTwvnFPn-LUNg>
+ <xmx:tMm9YEIQdz26dGRAC0Ach-2KyKic8-WprH7osj5KznWMrYyJt6bcGg>
+ <xmx:tMm9YGzUC97fXMd5tHrc0rMOMJHAqo2lxtOmMSjbo_PUKo0g75iJUQ>
+ <xmx:tsm9YGg7r53owZ2q3Fdm15OO2D5SwfwNgSlGZYzVI_dnLS8aEeoeJg>
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 7 Jun 2021 03:19:18 -0400 (EDT)
-Date: Mon, 7 Jun 2021 09:19:16 +0200
+ 7 Jun 2021 03:24:35 -0400 (EDT)
+Date: Mon, 7 Jun 2021 09:24:34 +0200
 From: Maxime Ripard <maxime@cerno.tech>
 To: guoren@kernel.org
 Cc: anup.patel@wdc.com, palmerdabbelt@google.com, arnd@arndb.de,
@@ -89,15 +89,16 @@ Cc: anup.patel@wdc.com, palmerdabbelt@google.com, arnd@arndb.de,
  linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
  Guo Ren <guoren@linux.alibaba.com>,
  Atish Patra <atish.patra@wdc.com>, Christoph Hellwig <hch@lst.de>
-Subject: Re: [RFC PATCH v2 10/11] riscv: soc: Add Allwinner SoC kconfig option
-Message-ID: <20210607071916.kwdbtafbqp3icgia@gilmour>
+Subject: Re: [RFC PATCH v2 09/11] riscv: soc: Initial DTS for Allwinner D1
+ NeZha board
+Message-ID: <20210607072434.3g3bqxdlpxjirg6k@gilmour>
 References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
- <1622970249-50770-14-git-send-email-guoren@kernel.org>
+ <1622970249-50770-13-git-send-email-guoren@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <1622970249-50770-14-git-send-email-guoren@kernel.org>
+In-Reply-To: <1622970249-50770-13-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210607_001927_662558_70418644 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20210607_002439_920999_9382488A 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +110,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6851655081708034395=="
+Content-Type: multipart/mixed; boundary="===============0799377766342630653=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6851655081708034395==
+--===============0799377766342630653==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jllkrmwwe7syrz3c"
+	protocol="application/pgp-signature"; boundary="fsxrp47ju6oajdor"
 Content-Disposition: inline
 
 
---jllkrmwwe7syrz3c
+--fsxrp47ju6oajdor
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 Hi,
 
-On Sun, Jun 06, 2021 at 09:04:08AM +0000, guoren@kernel.org wrote:
+Thanks for the patches
+
+On Sun, Jun 06, 2021 at 09:04:07AM +0000, guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 >=20
-> Add Allwinner kconfig option which selects SoC specific and common
-> drivers that is required for this SoC.
->=20
-> Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
-> interconnect issues for dma synchronization, so we set the default
-> value when SOC_SUNXI selected.
+> Add initial DTS for Allwinner D1 NeZha board having only essential
+> devices (uart, dummy, clock, reset, clint, plic, etc).
 >=20
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Co-Developed-by: Liu Shaohua <liush@allwinnertech.com>
@@ -150,51 +149,147 @@ On Sun, Jun 06, 2021 at 09:04:08AM +0000, guoren@kernel.org wrote:
 > Cc: Wei Fu <wefu@redhat.com>
 > Cc: Wei Wu <lazyparser@gmail.com>
 > ---
->  arch/riscv/Kconfig.socs      | 12 ++++++++++++
->  arch/riscv/configs/defconfig |  1 +
->  2 files changed, 13 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index ed96376..055fb3e 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -69,4 +69,16 @@ config SOC_CANAAN_K210_DTB_SOURCE
-> =20
->  endif
-> =20
-> +config SOC_SUNXI
-> +	bool "Allwinner SoCs"
-> +	depends on MMU
-> +	select DWMAC_GENERIC
-> +	select SERIAL_8250
-> +	select SERIAL_8250_CONSOLE
-> +	select SERIAL_8250_DW
-> +	select SIFIVE_PLIC
-> +	select STMMAC_ETH
-> +	help
-> +	  This enables support for Allwinner SoC platforms like the D1.
-> +
+>  arch/riscv/boot/dts/Makefile                       |  1 +
+>  arch/riscv/boot/dts/allwinner/Makefile             |  2 +
+>  .../boot/dts/allwinner/allwinner-d1-nezha-kit.dts  | 29 ++++++++
+>  arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi    | 84 ++++++++++++++++=
+++++++
 
-We probably don't want to select DWMAC, STMMAC_ETH and the 8250 options,
-looks good otherwise.
+Can you add the riscv folder to our MAINTAINERS entry as well?
+
+>  4 files changed, 116 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
+>  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.=
+dts
+>  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
+>=20
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index fe996b8..3e7b264 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -2,5 +2,6 @@
+>  subdir-y +=3D sifive
+>  subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) +=3D canaan
+>  subdir-y +=3D microchip
+> +subdir-y +=3D allwinner
+
+I assume they should be ordered alphabetically?
+
+>  obj-$(CONFIG_BUILTIN_DTB) :=3D $(addsuffix /, $(subdir-y))
+> diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts=
+/allwinner/Makefile
+> new file mode 100644
+> index 00000000..4adbf4b
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/allwinner/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_SOC_SUNXI) +=3D allwinner-d1-nezha-kit.dtb
+> diff --git a/arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts b/a=
+rch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
+> new file mode 100644
+> index 00000000..cd9f7c9
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-kit.dts
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include "allwinner-d1.dtsi"
+> +
+> +/ {
+> +	#address-cells =3D <2>;
+> +	#size-cells =3D <2>;
+> +	model =3D "Allwinner D1 NeZha Kit";
+> +	compatible =3D "allwinner,d1-nezha-kit";
+> +
+> +	chosen {
+> +		bootargs =3D "console=3DttyS0,115200";
+> +		stdout-path =3D &serial0;
+> +	};
+> +
+> +	memory@40000000 {
+> +		device_type =3D "memory";
+> +		reg =3D <0x0 0x40000000 0x0 0x20000000>;
+> +	};
+> +
+> +	soc {
+> +	};
+> +};
+> +
+> +&serial0 {
+> +	status =3D "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi b/arch/riscv=
+/boot/dts/allwinner/allwinner-d1.dtsi
+> new file mode 100644
+> index 00000000..11cd938
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
+> @@ -0,0 +1,84 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +/ {
+> +	#address-cells =3D <2>;
+> +	#size-cells =3D <2>;
+> +	model =3D "Allwinner D1 Soc";
+> +	compatible =3D "allwinner,d1-nezha-kit";
+> +
+> +	chosen {
+> +	};
+> +
+> +	cpus {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		timebase-frequency =3D <2400000>;
+> +		cpu@0 {
+> +			device_type =3D "cpu";
+> +			reg =3D <0>;
+> +			status =3D "okay";
+> +			compatible =3D "riscv";
+> +			riscv,isa =3D "rv64imafdcv";
+> +			mmu-type =3D "riscv,sv39";
+> +			cpu0_intc: interrupt-controller {
+> +				#interrupt-cells =3D <1>;
+> +				compatible =3D "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +	};
+> +
+> +	soc {
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		compatible =3D "simple-bus";
+> +		ranges;
+> +
+> +		reset: reset-sample {
+> +			compatible =3D "thead,reset-sample";
+> +			plic-delegate =3D <0x0 0x101ffffc>;
+> +		};
+
+This compatible is not documented anywhere?
 
 Maxime
 
---jllkrmwwe7syrz3c
+--fsxrp47ju6oajdor
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCYL3IbwAKCRDj7w1vZxhR
-xdpIAP4ujY0W+0Oepl3WVbuQMtnV7QIHCkJ4/R3cBa41tsTA6gD/c1XIXK7VsiTZ
-YdTeyYZcEkyrsfdNoFrv3BUCBXRhlwU=
-=hNxN
+iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCYL3JsgAKCRDj7w1vZxhR
+xfeYAQCQjrUn1ueYXDlTtlHb4vbQ+cWzt+OSYY2p+uPeJZsJBQD+MAaXRiaGN/Xf
+/u9es7GVOVAV6tXcL8oApZ4kgXfIvgY=
+=RKXH
 -----END PGP SIGNATURE-----
 
---jllkrmwwe7syrz3c--
+--fsxrp47ju6oajdor--
 
 
---===============6851655081708034395==
+--===============0799377766342630653==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -205,5 +300,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6851655081708034395==--
+--===============0799377766342630653==--
 
