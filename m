@@ -2,87 +2,82 @@ Return-Path: <SRS0=HNmv=LB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3804CC47082
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 64647C47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:49:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ECFA761059
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:14:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECFA761059
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 254A261130
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:49:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 254A261130
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xHcVchjhiaBygrgb/QB0O4h+e07L5+4PoEKEJDyq6/0=; b=DRbAP/iESAlQvB
-	ipl2x6pxE24e5wI9BoxGV/mdBG59Jb2IZXWKkzFSTKCQUT5M9HqeCJgmUlSk92f+OY2+aBywAulW3
-	GQjnq3KMkyHuxQAK9IvWfVu0AZiB4HfAhqwmpSubQJZKXxo2DgjrjWFY8VLRfb7TZLQcxJBus9yoH
-	q9//VDTB9nQTRe/Wij/ULPA/DLMv6vV2C2SqWYtdX4WolUgVV0pFaoNHGiltbMDYAGZPN8lSW0XU1
-	EriL/UBm9tBy3HHnnh5TEd+TO5mha5g1UhcrU8qe0PZK4bDf6vSUUhtSPKa4/86shjgkfz1dsD0oO
-	KmSMav2RGZ1nZkUDi9Ug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k52YuZ3OZTKIEyiNrk8vadFVIKk7gyX/B/ktjxckmrY=; b=kcZjatc1og/fCB3YwgwqlSLTi2
+	eW6OE953SylwwuZbyFVSP1Eit1KDJWdLOAkQyCDW4bA36+tGqHf00OK6EPIHU6+ajnd6nQRXpbjEB
+	stbQAriEXXkU1J7AfZDZ/yb3Ntpj2ZdTG9XdQ6dohhVME80vtTONz8eDcps04F0ZZPrd8SLUByc4a
+	2TeEM6NmTavTCfQ6hRQtUF2MqkCx2SKcCwb75RhWkZdX12V/zLEezZuMZdm1uMexXc/jnLSLgWSHJ
+	CGLmV8dS/ydg3BhJGrG9N4cc5JTySKGMvVlw9l+0VshkjKChZZot6I3lMSBLp4zSC9eqQrQc1wg96
+	mxgSlg0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq7aF-001Y8C-7C; Mon, 07 Jun 2021 05:13:55 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lq88V-001c6S-KU; Mon, 07 Jun 2021 05:49:19 +0000
+Received: from pegase1.c-s.fr ([93.17.236.30])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq7aB-001Y7h-LH
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 05:13:54 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1682361241
- for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 05:13:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623042831;
- bh=fI16kZ5xsiBLuH71xO2b3UcXdOFx6qOOxVT9QnYCIC4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=c8IbR0eDW0Mrv5I/Nxvv48mvUrrViPxO8hdlZVl9Ro7DFNosrIVTj3PzX42y1UzZB
- LqwjFaJGc2A4XpW9W2+8QfE5XzzLInaZgn5Q9YJ/bN26M5m4xi8QC6Ti6ShYi7feKI
- gHpxb3GFh4etkH3Yw27MxEYi90JSUJcf9l3R5acjqVYLa/L0BLmoVpwNHPJodSpQj0
- 2n8qOOhrXI1v/QRNgx+Dn8ywFTs8B6pkWIuzJFTfiHXYJDxpMbk1oYNuNwAQ648id0
- LnKAitk8Q7+wxAWteKWMS5XQ5w1Vq0BIMA0e0eYoG2oX0j36hw1NpBRA5WshFYGQBZ
- MWDsoXrAIDiSQ==
-Received: by mail-lj1-f174.google.com with SMTP id r16so1261405ljk.9
- for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 22:13:50 -0700 (PDT)
-X-Gm-Message-State: AOAM533NIGnZRb2eSqIDEPUlVW7l3COz4ca+QbW9+fukLvET4kIEVTVO
- qv1mOd38KchGVtPi2JGn7XCZscISMmPjm/W+n3g=
-X-Google-Smtp-Source: ABdhPJyL1o4ghZz6BFG+zxEk3qS+UkdAZ3Jr3K5rSeIpg78hW4DQRsJVD2T1KKAUFcytnQQiEunN0AUAQqsb5ElIACk=
-X-Received: by 2002:a2e:b5d8:: with SMTP id g24mr13515380ljn.115.1623042829378; 
- Sun, 06 Jun 2021 22:13:49 -0700 (PDT)
+ id 1lq88G-001c35-1m; Mon, 07 Jun 2021 05:49:08 +0000
+Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
+ by localhost (Postfix) with ESMTP id 4Fz2Vc3ZsszB9cJ;
+ Mon,  7 Jun 2021 07:48:56 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+ by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id vyaOJDm2hiAi; Mon,  7 Jun 2021 07:48:56 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+ by pegase1.c-s.fr (Postfix) with ESMTP id 4Fz2Vc2XHVzB9Zm;
+ Mon,  7 Jun 2021 07:48:56 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id 436848B77F;
+ Mon,  7 Jun 2021 07:48:56 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+ by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id KgJWM97gaIvs; Mon,  7 Jun 2021 07:48:56 +0200 (CEST)
+Received: from [172.25.230.103] (po15451.idsi0.si.c-s.fr [172.25.230.103])
+ by messagerie.si.c-s.fr (Postfix) with ESMTP id E86C38B763;
+ Mon,  7 Jun 2021 07:48:55 +0200 (CEST)
+Subject: Re: [PATCH v2 00/15] init_mm: cleanup ARCH's text/data/brk setup code
+To: Kefeng Wang <wangkefeng.wang@huawei.com>, Mike Rapoport <rppt@kernel.org>
+Cc: uclinux-h8-devel@lists.sourceforge.jp, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-mm@kvack.org,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20210604070633.32363-1-wangkefeng.wang@huawei.com>
+ <YL0+Jargm+y9aqx1@kernel.org>
+ <481056ab-686e-9f42-3b8a-b31941f58af6@huawei.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <006eb573-5a20-1ac7-6234-338d11346a08@csgroup.eu>
+Date: Mon, 7 Jun 2021 07:48:54 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <mhng-a5f8374f-350b-4c13-86e8-c6aa5e697454@palmerdabbelt-glaptop>
- <mhng-c0406cea-776b-49d2-a223-13a83d3a7433@palmerdabbelt-glaptop>
- <CO6PR04MB7812D8905C6EEBDE8513866F8D3C9@CO6PR04MB7812.namprd04.prod.outlook.com>
- <CAJF2gTRH6OVB1RrOyp88LDvX3fV0doJxNTM61trWxJsLaX0X0g@mail.gmail.com>
- <CO6PR04MB7812614750AE3CA78D49C0AD8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
- <CAJF2gTSgC2+ULpfSQKvan7phPf8VT+nxUiekfpHELNjsQYo=CA@mail.gmail.com>
- <CO6PR04MB7812D075519BCFBAF744DE7D8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
-In-Reply-To: <CO6PR04MB7812D075519BCFBAF744DE7D8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 7 Jun 2021 13:13:37 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRc_1nt9rMJNOMwU-j6etUhjuPxTYCRU8utxz=JHpUtgA@mail.gmail.com>
-Message-ID: <CAJF2gTRc_1nt9rMJNOMwU-j6etUhjuPxTYCRU8utxz=JHpUtgA@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-To: Anup Patel <Anup.Patel@wdc.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- "anup@brainfault.org" <anup@brainfault.org>,
- "drew@beagleboard.org" <drew@beagleboard.org>, 
- Christoph Hellwig <hch@lst.de>, "wefu@redhat.com" <wefu@redhat.com>, 
- "lazyparser@gmail.com" <lazyparser@gmail.com>, 
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
- "linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, 
- "guoren@linux.alibaba.com" <guoren@linux.alibaba.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+In-Reply-To: <481056ab-686e-9f42-3b8a-b31941f58af6@huawei.com>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_221351_770187_8C0329E1 
-X-CRM114-Status: GOOD (  85.39  )
+X-CRM114-CacheID: sfid-20210606_224904_275435_9E2B3EA2 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,396 +89,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-:
-
-
-On Mon, Jun 7, 2021 at 12:47 PM Anup Patel <Anup.Patel@wdc.com> wrote:
->
->
->
-> > -----Original Message-----
-> > From: Guo Ren <guoren@kernel.org>
-> > Sent: 07 June 2021 09:52
-> > To: Anup Patel <Anup.Patel@wdc.com>
-> > Cc: Atish Patra <atishp@atishpatra.org>; Palmer Dabbelt
-> > <palmer@dabbelt.com>; anup@brainfault.org; drew@beagleboard.org;
-> > Christoph Hellwig <hch@lst.de>; wefu@redhat.com; lazyparser@gmail.com;
-> > linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
-> > arch@vger.kernel.org; linux-sunxi@lists.linux.dev; guoren@linux.alibaba.com;
-> > Paul Walmsley <paul.walmsley@sifive.com>
-> > Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-> >
-> > Hi Anup,
-> >
-> > On Mon, Jun 7, 2021 at 11:38 AM Anup Patel <Anup.Patel@wdc.com> wrote:
-> > >
-> > >
-> > >
-> > > > -----Original Message-----
-> > > > From: Guo Ren <guoren@kernel.org>
-> > > > Sent: 06 June 2021 22:42
-> > > > To: Anup Patel <Anup.Patel@wdc.com>; Atish Patra
-> > > > <atishp@atishpatra.org>
-> > > > Cc: Palmer Dabbelt <palmer@dabbelt.com>; anup@brainfault.org;
-> > > > drew@beagleboard.org; Christoph Hellwig <hch@lst.de>;
-> > > > wefu@redhat.com; lazyparser@gmail.com;
-> > > > linux-riscv@lists.infradead.org; linux- kernel@vger.kernel.org;
-> > > > linux-arch@vger.kernel.org; linux- sunxi@lists.linux.dev;
-> > > > guoren@linux.alibaba.com; Paul Walmsley <paul.walmsley@sifive.com>
-> > > > Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-> > > >
-> > > > Hi Anup and Atish,
-> > > >
-> > > > On Thu, Jun 3, 2021 at 2:00 PM Anup Patel <Anup.Patel@wdc.com>
-> > wrote:
-> > > > >
-> > > > >
-> > > > >
-> > > > > > -----Original Message-----
-> > > > > > From: Palmer Dabbelt <palmer@dabbelt.com>
-> > > > > > Sent: 03 June 2021 09:43
-> > > > > > To: guoren@kernel.org
-> > > > > > Cc: anup@brainfault.org; drew@beagleboard.org; Christoph Hellwig
-> > > > > > <hch@lst.de>; Anup Patel <Anup.Patel@wdc.com>;
-> > wefu@redhat.com;
-> > > > > > lazyparser@gmail.com; linux-riscv@lists.infradead.org; linux-
-> > > > > > kernel@vger.kernel.org; linux-arch@vger.kernel.org; linux-
-> > > > > > sunxi@lists.linux.dev; guoren@linux.alibaba.com; Paul Walmsley
-> > > > > > <paul.walmsley@sifive.com>
-> > > > > > Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-> > > > > >
-> > > > > > On Sat, 29 May 2021 17:30:18 PDT (-0700), Palmer Dabbelt wrote:
-> > > > > > > On Fri, 21 May 2021 17:36:08 PDT (-0700), guoren@kernel.org
-> > wrote:
-> > > > > > >> On Wed, May 19, 2021 at 3:15 PM Anup Patel
-> > > > > > >> <anup@brainfault.org>
-> > > > > > wrote:
-> > > > > > >>>
-> > > > > > >>> On Wed, May 19, 2021 at 12:24 PM Drew Fustini
-> > > > > > <drew@beagleboard.org> wrote:
-> > > > > > >>> >
-> > > > > > >>> > On Wed, May 19, 2021 at 08:06:17AM +0200, Christoph
-> > > > > > >>> > Hellwig
-> > > > > > wrote:
-> > > > > > >>> > > On Wed, May 19, 2021 at 02:05:00PM +0800, Guo Ren
-> > wrote:
-> > > > > > >>> > > > Since the existing RISC-V ISA cannot solve this
-> > > > > > >>> > > > problem, it is better to provide some configuration
-> > > > > > >>> > > > for the SOC vendor to
-> > > > > > customize.
-> > > > > > >>> > >
-> > > > > > >>> > > We've been talking about this problem for close to five years.
-> > > > > > >>> > > So no, if you don't manage to get the feature into the
-> > > > > > >>> > > ISA it can't be supported.
-> > > > > > >>> >
-> > > > > > >>> > Isn't it a good goal for Linux to support the capabilities
-> > > > > > >>> > present in the SoC that a currently being fab'd?
-> > > > > > >>> >
-> > > > > > >>> > I believe the CMO group only started last year [1] so the
-> > > > > > >>> > RV64GC SoCs that are going into mass production this year
-> > > > > > >>> > would not have had the opporuntiy of utilizing any RISC-V
-> > > > > > >>> > ISA extension for handling cache management.
-> > > > > > >>>
-> > > > > > >>> The current Linux RISC-V policy is to only accept patches
-> > > > > > >>> for frozen or ratified ISA specs.
-> > > > > > >>> (Refer, Documentation/riscv/patch-acceptance.rst)
-> > > > > > >>>
-> > > > > > >>> This means even if emulate CMO instructions in OpenSBI, the
-> > > > > > >>> Linux patches won't be taken by Palmer because CMO
-> > > > > > >>> specification is still in draft stage.
-> > > > > > >> Before CMO specification release, could we use a sbi_ecall to
-> > > > > > >> solve the current problem? This is not against the
-> > > > > > >> specification, when CMO is ready we could let users choose to
-> > > > > > >> use the new CMO in
-> > > > Linux.
-> > > > > > >>
-> > > > > > >> From a tech view, CMO trap emulation is the same as sbi_ecall.
-> > > > > > >>
-> > > > > > >>>
-> > > > > > >>> Also, we all know how much time it takes for RISCV
-> > > > > > >>> international to freeze some spec. Judging by that we are
-> > > > > > >>> looking at another
-> > > > > > >>> 3-4 years at minimum.
-> > > > > > >
-> > > > > > > Sorry for being slow here, this thread got buried.
-> > > > > > >
-> > > > > > > I've been trying to work with a handful of folks at the RISC-V
-> > > > > > > foundation to try and get a subset of the various
-> > > > > > > in-development specifications (some simple CMOs, something
-> > > > > > > about non-caching in the page tables, and some way to prevent
-> > > > > > > speculative accesse from generating coherence traffic that will break
-> > non-coherent systems).
-> > > > > > > I'm not sure we can get this together quickly, but I'd prefer
-> > > > > > > to at least try before we jump to taking vendor-specificed behavior
-> > here.
-> > > > > > > It's obviously an up-hill battle to try and get specifications
-> > > > > > > through the process and I'm certainly not going to promise it
-> > > > > > > will work, but I'm hoping that the impending need to avoid
-> > > > > > > forking the ISA will be sufficient to get people behind
-> > > > > > > producing some specifications in a timely
-> > > > > > fashion.
-> > > > > > >
-> > > > > > > I wasn't aware than this chip had non-coherent devices until I
-> > > > > > > saw this thread, so we'd been mostly focused on the Beagle V chip.
-> > > > > > > That was in a sense an easier problem because the SiFive IP in
-> > > > > > > it was never designed to have non-coherent devices so we'd
-> > > > > > > have to make anything work via a series of slow workarounds,
-> > > > > > > which would make emulating the eventually standardized
-> > > > > > > behavior reasonable in terms of performance (ie, everything
-> > > > > > > would be super slow so who really
-> > > > cares).
-> > > > > > >
-> > > > > > > I don't think relying on some sort of SBI call for the CMOs
-> > > > > > > whould be such a performance hit that it would prevent these
-> > > > > > > systems from being viable, but assuming you have reasonable
-> > > > > > > performance on your non-cached accesses then that's probably
-> > > > > > > not going to be viable to trap and emulate.  At that point it
-> > > > > > > really just becomes silly to pretend that we're still making
-> > > > > > > things work by emulating the eventually ratified behavior, as
-> > > > > > > anyone who actually tries to use this thing to do IO would
-> > > > > > > need out of tree patches.  I'm not sure exactly what the plan
-> > > > > > > is for the page table bits in the specification right now, but
-> > > > > > > if you can give me a pointer to some documentation then I'm
-> > > > > > > happy to try and push for something
-> > > > compatible.
-> > > > > > >
-> > > > > > > If we can't make the process work at the foundation then I'd
-> > > > > > > be strongly in favor of just biting the bullet and starting to
-> > > > > > > take vendor-specific code that's been implemented in hardware
-> > > > > > > and is necessarry to make things work acceptably.  That's
-> > > > > > > obviously a sub-optimal solution as it'll lead to a bunch of
-> > > > > > > ISA fragmentation, but at least we'll be able to keep the
-> > > > > > > software stack
-> > > > together.
-> > > > > > >
-> > > > > > > Can you tell us when these will be in the hands of users?
-> > > > > > > That's pretty important here, as I don't want to be blocking
-> > > > > > > real users from having their hardware work.  IIRC there were
-> > > > > > > some plans to distribute early boards, but it looks like the
-> > > > > > > foundation got involved and I guess I lost the thread at that point.
-> > > > > > >
-> > > > > > > Sorry this is all such a headache, but hopefully we can get
-> > > > > > > things sorted out.
-> > > > > >
-> > > > > > I talked with some of the RISC-V foundation folks, we're not
-> > > > > > going to have an ISA specification for the non-coherent stuff
-> > > > > > any time soon.  I took a look at this code and I definately
-> > > > > > don't want to take it as is, but I'm not opposed to taking
-> > > > > > something that makes the
-> > > > hardware work as long as it's a lot cleaner.
-> > > > > > We've already got two of these non-coherent chips, I'm sure more
-> > > > > > will come, and I'd rather have the extra headaches than make
-> > > > > > everyone fork the software stack.
-> > > > >
-> > > > > Thanks for confirming. The CMO extension is still in early stages
-> > > > > so it will certainly take more time for them. After CMO extension
-> > > > > is finalized, it will take some more time to have actual RISC-V
-> > > > > platforms with
-> > > > CMO implemented.
-> > > > >
-> > > > > >
-> > > > > > After talking to Atish it looks like there's likely to be an SBI
-> > > > > > extension to handle the CMOs, which should let us avoid the bulk
-> > > > > > of the vendor-specific behavior in the kernel.  I know some
-> > > > > > people are worried about adding to the SBI surface.  I'm worried
-> > > > > > about that too, but that's way better than sticking a bunch of
-> > > > > > vendor-specific instructions into the kernel.  The SBI extension
-> > > > > > should make for a straight-forward cache flush implementation in
-> > > > > > Linux, so let's just plan on
-> > > > that getting through quickly (as has been done before).
-> > > > >
-> > > > > Yes, I agree. We can have just a single SBI call which is meant
-> > > > > for DMA sync purpose only which means it will flush/invalidate
-> > > > > pages from all cache levels irrespective of the cache hierarchy (i.e.
-> > > > > flush/invalidate to RAM). The CMO extension might more generic
-> > > > > cache operations which can target any cache level.
-> > > > >
-> > > > > I am already preparing a write-up for SBI DMA sync call in SBI
-> > > > > spec. I will share it with you separately as well.
-> > > > >
-> > > > > >
-> > > > > > Unfortunately we've yet to come up with a way to handle the
-> > > > > > non-cacheable mappings without introducing a degree of
-> > > > > > vendor-specific behavior or seriously impacting performance
-> > > > > > (mark them as not valid and deal with them in the trap handler).
-> > > > > > I'm not really sure it counts as supporting the hardware if it's
-> > > > > > massively slow, so that really leaves us with vendor-specific
-> > > > > > mappings as the only
-> > > > option to make these chips work.
-> > > > >
-> > > > > A RISC-V platform can have non-cacheable mappings is following
-> > > > > possible
-> > > > > ways:
-> > > > > 1) Fixed physical address range as non-cacheable using PMAs
-> > > > > 2) Custom page table attributes
-> > > > > 3) Svpmbt extension being defined by RVI
-> > > > >
-> > > > > Atish and me both think it is possible to have RISC-V specific DMA
-> > > > > ops implementation which can handle all above case. Atish is
-> > > > > already working on DMA ops implementation for RISC-V.
-> > > > Not only DMA ops, but also icache_sync & __vdso_icache_sync. Please
-> > > > have a look at:
-> > > > https://lore.kernel.org/linux-riscv/1622970249-50770-12-git-send-ema
-> > > > il-
-> > > > guoren@kernel.org/T/#u
-> > >
-> > > The icache_sync and __vdso_icache_sync will have to be addressed
-> > > differently. The SBI DMA sync extension cannot address this.
-> > Agree
-> >
-> > >
-> > > It seems Allwinner D1 have more non-standard stuff:
-> > > 1) Custom PTE bits for IO-coherent access
-> > > 2) Custom data cache flush/invalidate for DMA sync
-> > > 3) Custom icache flush/invalidate
-> > Yes, but 3) is a performance optimization, not critical for running.
-> >
-> > >
-> > > Other hand, BeagleV has only two problems:
-> > > 1) Custom physical address range for IO-coherent access
-> > > 2) Custom L2 cache flush/invalidate for DMA sync
-> > https://github.com/starfive-
-> > tech/linux/commit/d4c4044c08134dca8e5eaaeb6d3faf97dc453b6d
-> >
-> > Currently, they still use DMA sync with DMA descriptor, are you sure they
-> > have minor memory physical address.
-> >
-> > >
-> > > From above #2, can be solved by SBI DMA sync call and Linux DMA ops
-> > > for both BeagleV and Allwinner D1
-> > >
-> > > On BeagleV, issue #1 can be solved using "dma-ranges".
-> > >
-> > > On Allwinner D1, issues #1 and #3 need to be addressed separately.
-> > >
-> > > I think supporting BeagleV in upstream Linux is relatively easy
-> > > compared to Allwinner D1.
-> > >
-> > > @Guo, please check if you can reserve dedicated physical address range
-> > > for IO-coherent access (just like BeagleV). If yes, then we can tackle
-> > > issue #1 for Allwinner
-> > > D1 using "dma-ranges" DT property.
-> > There is no dedicated physical address range for IO-coherent access in D1. But
-> > the solution you mentioned couldn't solve all requirements.
-> > Only one mirror physical address range is not enough, we need at least three
-> > (Normal, DMA desc, frame buffer).
->
-> How many non-coherent devices you really have?
->
-> I am guess lot of critical devices on Allwinner D1 are not coherent with CPU.
-> The problem for Allwinner D1 is even worst than I thought. If such critical
-> high through-put devices are not cache coherent with CPU then I am
-> speechless about Allwinner D1 situation.
->
-> > And that will triple the memory physical address which can't be accepted by
-> > our users from the hardware design cost view.
-> >
-> >  "dma-ranges" DT property is a big early MIPS smell. ARM SOC users can't
-> > accept it. (They just say replace the CPU, but don't touch anything other.)
-> >
-> > PTE attributes are the non-coherent solution for many years. MIPS also
-> > follows that now:
-> > ref arch/mips/include/asm/pgtable-bits.h &
-> > arch/mips/include/asm/pgtable.h
->
-> RISC-V is in the process of standardizing Svpmbt extension.
->
-> Unfortunately, the higher order bits which your implementation uses is
-> not for SoC vendor use as-per the RISC-V privilege spec.
->
-> >
-> > #ifndef _CACHE_CACHABLE_NO_WA
-> > #define _CACHE_CACHABLE_NO_WA           (0<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_CACHABLE_WA
-> > #define _CACHE_CACHABLE_WA              (1<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_UNCACHED
-> > #define _CACHE_UNCACHED                 (2<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_CACHABLE_NONCOHERENT
-> > #define _CACHE_CACHABLE_NONCOHERENT     (3<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_CACHABLE_CE
-> > #define _CACHE_CACHABLE_CE              (4<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_CACHABLE_COW
-> > #define _CACHE_CACHABLE_COW             (5<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_CACHABLE_CUW
-> > #define _CACHE_CACHABLE_CUW             (6<<_CACHE_SHIFT)
-> > #endif
-> > #ifndef _CACHE_UNCACHED_ACCELERATED
-> > #define _CACHE_UNCACHED_ACCELERATED     (7<<_CACHE_SHIFT)
-> >
-> > We can't force our users to double/triplicate their physical memory regions.
->
-> We are trying to find a workable solution here so that we don't have
-> to deal with custom PTE attributes which are reserved for RISC-V priv
-> specification only.
-How do think about my new patch of custom PTE attributes?
-https://lore.kernel.org/linux-riscv/610849b6f66e8d5a9653c9f62f46c48d@mailhost.ics.forth.gr/T/#mdc0dacba57346b5ac59a01961495c132b93cfcdb
-
->
-> Regards,
-> Anup
->
-> >
-> > >
-> > > Regards,
-> > > Anup
-> > >
-> > > >
-> > > >
-> > > > >
-> > > > > >
-> > > > > > This implementation, which adds some Kconfig entries that
-> > > > > > control page table bits, definately isn't suitable for upstream.
-> > > > > > Allowing users to set arbitrary page table bits will eventually
-> > > > > > conflict with the standard, and is just going to be a mess.
-> > > > > > It'll also lead to kernels that are only compatible with
-> > > > > > specific designs, which we're trying very hard to avoid.  At a
-> > > > > > bare minimum we'll need some way to detect systems with these
-> > > > > > page table bits before setting them, and some description of
-> > > > > > what the bits actually do so we can reason about
-> > > > them.
-> > > > >
-> > > > > Yes, vendor specific Kconfig options are strict NO NO. We can't
-> > > > > give-up the goal of unified kernel image for all platforms.
-> > > > >
-> > > > > Regards,
-> > > > > Anup
-> > > >
-> > > >
-> > > >
-> > > > --
-> > > > Best Regards
-> > > >  Guo Ren
-> > > >
-> > > > ML: https://lore.kernel.org/linux-csky/
-> >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
-
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgS2VmZW5nLAoKTGUgMDcvMDYvMjAyMSDDoCAwMjo1NSwgS2VmZW5nIFdhbmcgYSDDqWNyaXTC
+oDoKPiAKPiBPbiAyMDIxLzYvNyA1OjI5LCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+PiBIZWxsbyBL
+ZWZlbmcsCj4+Cj4+IE9uIEZyaSwgSnVuIDA0LCAyMDIxIGF0IDAzOjA2OjE4UE0gKzA4MDAsIEtl
+ZmVuZyBXYW5nIHdyb3RlOgo+Pj4gQWRkIHNldHVwX2luaXRpYWxfaW5pdF9tbSgpIGhlbHBlciwg
+dGhlbiB1c2UgaXQKPj4+IHRvIGNsZWFudXAgdGhlIHRleHQsIGRhdGEgYW5kIGJyayBzZXR1cCBj
+b2RlLgo+Pj4KPj4+IHYyOgo+Pj4gLSBjaGFuZ2UgYXJndW1lbnQgZnJvbSAiY2hhciAqIiB0byAi
+dm9pZCAqIiBzZXR1cF9pbml0aWFsX2luaXRfbW0oKQo+Pj4gwqDCoCBzdWdnZXN0ZWQgYnkgR2Vl
+cnQgVXl0dGVyaG9ldmVuCj4+PiAtIHVzZSBOVUxMIGluc3RlYWQgb2YgKHZvaWQgKikwIG9uIGg4
+MzAwIGFuZCBtNjhrCj4+PiAtIGNvbGxlY3QgQUNLcwo+Pj4KPj4+IENjOiBsaW51eC1zbnBzLWFy
+Y0BsaXN0cy5pbmZyYWRlYWQub3JnCj4+PiBDYzogbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZy
+YWRlYWQub3JnCj4+PiBDYzogbGludXgtY3NreUB2Z2VyLmtlcm5lbC5vcmcKPj4+IENjOiB1Y2xp
+bnV4LWg4LWRldmVsQGxpc3RzLnNvdXJjZWZvcmdlLmpwCj4+PiBDYzogbGludXgtbTY4a0BsaXN0
+cy5saW51eC1tNjhrLm9yZwo+Pj4gQ2M6IG9wZW5yaXNjQGxpc3RzLmxpYnJlY29yZXMub3JnCj4+
+PiBDYzogbGludXhwcGMtZGV2QGxpc3RzLm96bGFicy5vcmcKPj4+IENjOiBsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCj4+PiBDYzogbGludXgtc2hAdmdlci5rZXJuZWwub3JnCj4+PiBD
+YzogbGludXgtczM5MEB2Z2VyLmtlcm5lbC5vcmcKPj4+IEtlZmVuZyBXYW5nICgxNSk6Cj4+PiDC
+oMKgIG1tOiBhZGQgc2V0dXBfaW5pdGlhbF9pbml0X21tKCkgaGVscGVyCj4+PiDCoMKgIGFyYzog
+Y29udmVydCB0byBzZXR1cF9pbml0aWFsX2luaXRfbW0oKQo+Pj4gwqDCoCBhcm06IGNvbnZlcnQg
+dG8gc2V0dXBfaW5pdGlhbF9pbml0X21tKCkKPj4+IMKgwqAgYXJtNjQ6IGNvbnZlcnQgdG8gc2V0
+dXBfaW5pdGlhbF9pbml0X21tKCkKPj4+IMKgwqAgY3NreTogY29udmVydCB0byBzZXR1cF9pbml0
+aWFsX2luaXRfbW0oKQo+Pj4gwqDCoCBoODMwMDogY29udmVydCB0byBzZXR1cF9pbml0aWFsX2lu
+aXRfbW0oKQo+Pj4gwqDCoCBtNjhrOiBjb252ZXJ0IHRvIHNldHVwX2luaXRpYWxfaW5pdF9tbSgp
+Cj4+PiDCoMKgIG5kczMyOiBjb252ZXJ0IHRvIHNldHVwX2luaXRpYWxfaW5pdF9tbSgpCj4+PiDC
+oMKgIG5pb3MyOiBjb252ZXJ0IHRvIHNldHVwX2luaXRpYWxfaW5pdF9tbSgpCj4+PiDCoMKgIG9w
+ZW5yaXNjOiBjb252ZXJ0IHRvIHNldHVwX2luaXRpYWxfaW5pdF9tbSgpCj4+PiDCoMKgIHBvd2Vy
+cGM6IGNvbnZlcnQgdG8gc2V0dXBfaW5pdGlhbF9pbml0X21tKCkKPj4+IMKgwqAgcmlzY3Y6IGNv
+bnZlcnQgdG8gc2V0dXBfaW5pdGlhbF9pbml0X21tKCkKPj4+IMKgwqAgczM5MDogY29udmVydCB0
+byBzZXR1cF9pbml0aWFsX2luaXRfbW0oKQo+Pj4gwqDCoCBzaDogY29udmVydCB0byBzZXR1cF9p
+bml0aWFsX2luaXRfbW0oKQo+Pj4gwqDCoCB4ODY6IGNvbnZlcnQgdG8gc2V0dXBfaW5pdGlhbF9p
+bml0X21tKCkKPj4gSSBtaWdodCBiZSBtaXNzaW5nIHNvbWV0aGluZywgYnV0IEFGQUlVIHRoZSBp
+bml0X21tLnN0YXJ0X2NvZGUgYW5kIG90aGVyCj4+IGZpZWxkcyBhcmUgbm90IHVzZWQgcmVhbGx5
+IGVhcmx5IHNvIHRoZSBuZXcgc2V0dXBfaW5pdGlhbF9pbml0X21tKCkKPj4gZnVuY3Rpb24gY2Fu
+IGJlIGNhbGxlZCBpbiB0aGUgZ2VuZXJpYyBjb2RlIG91dHNpZGUgc2V0dXBfYXJjaCgpLCBlLmcg
+aW4KPj4gbW1faW5pdCgpLgo+IAo+IEhpIE1pa2XvvIwgZWFjaCBhcmNoaXRlY3R1cmUgaGFzIHRo
+ZWlyIG93biB2YWx1ZSwgbm90IHRoZSBzYW1lLCBlZyBtNjhLIGFuZAo+IAo+IGg4MzAwLCBhbHNv
+IHRoZSBuYW1lIG9mIHRoZSB0ZXh0L2NvZGUvYnJrIGlzIGRpZmZlcmVudCBpbiBzb21lIGFyY2gs
+IHNvIEkga2VlcAo+IAo+IHVuY2hhbmdlZC4KCldoYXQgeW91IGNvdWxkIGRvIGlzIHRvIGRlZmlu
+ZSBhIF9fd2VhayBmdW5jdGlvbiB0aGF0IGFyY2hpdGVjdHVyZXMgY2FuIG92ZXJyaWRlIGFuZCBj
+YWxsIHRoYXQgCmZ1bmN0aW9uIGZyb20gbW1faW5pdCgpIGFzIHN1Z2dlc3RlZCBieSBNaWtlLAoK
+U29tZXRoaW5nIGxpa2U6Cgp2b2lkIF9fd2VhayBzZXR1cF9pbml0aWFsX2luaXRfbW0odm9pZCkK
+ewoJaW5pdF9tbS5zdGFydF9jb2RlID0gKHVuc2lnbmVkIGxvbmcpX3N0ZXh0OwoJaW5pdF9tbS5l
+bmRfY29kZSA9ICh1bnNpZ25lZCBsb25nKV9ldGV4dDsKCWluaXRfbW0uZW5kX2RhdGEgPSAodW5z
+aWduZWQgbG9uZylfZWRhdGE7Cglpbml0X21tLmJyayA9ICh1bnNpZ25lZCBsb25nKV9lbmQ7Cn0K
+ClRoZW4gb25seSB0aGUgZmV3IGFyY2hpdGVjdHVyZSB0aGF0IGFyZSBkaWZmZXJlbnQgd291bGQg
+b3ZlcnJpZGUgaXQuCgpJIHNlZSBhIGZldyBhcmNoaWN0ZWN0dXJlcyBhcmUgdXNpZ25lIFBBR0Vf
+T0ZGU0VUIHRvIHNldCAuc3RhcnRfY29kZSwgYnV0IGl0IGlzIGxpa2VseSB0aGF0IHRoaXMgaXMg
+CmVxdWl2YWxlbnQgdG8gX3N0ZXh0LgoKQ2hyaXN0b3BoZQoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
