@@ -2,18 +2,18 @@ Return-Path: <SRS0=HNmv=LB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED72AC47082
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 04:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A5F9C47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 04:36:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ABD5A6121E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 04:22:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ABD5A6121E
+	by mail.kernel.org (Postfix) with ESMTPS id D6BCA610A2
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 04:36:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6BCA610A2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,65 +22,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0rmTlJqiLpD7plfWundUHrCCiv7c5e4KyR/DtbpMyso=; b=arS3FEmpuAeB6t
-	K9k40ctz9bMS1fB1OO4c3u+HY+X34xDw+lHrI37qJO2v3zDmRrnsO+lu6Gxr6k2xxrmn4IivcLLZc
-	GLgUplzqVyRhnkK+XhKRItTNT9BdJQ9biJ2H/5dDk80gXSsMWobV7h3G2vIsfBsfrQDgVDsY2bAtD
-	NITUt/oJ5H1etiKvHk8shKC29MT6aM7MKR2ulrEhyqdwMHfe7Od34i6ffN6MgwXftgCTBd8KeHljF
-	jYhIWVGtNwHElsINYKV9SUwZwrHbx7p9JBiJvL1L9aeb2yQyv7m2ULhXBiIGHOQJ/ax4RssF3X2Ad
-	2mozyF9FeYoV8YPoZkyA==;
+	List-Owner; bh=jA3QNmQ0esZXwmP3gEgG+vg6EhjAKOU0QX2393s/Ju4=; b=Z0KcQEP1ol3L0N
+	9EQpynLWN5puMhzAQl2680cJ7bGm+q4XwEAD1jn4vvJQG4VtGL2MXGaCXC1hcz5h77hGhSkDQnln8
+	zEyuAOlc18o9IfWxVL43Y2YDUx5VRWjJ0w2UN64kDcqxTmPqZ06qEme/xZVyJ8zbMADlW2KgA/O2N
+	eUJX10wnfRYblh3FeUtPDNh2qnqaHSfxA02XGy9IXbQRjRDwc8Om32qaar0wc+hW1k9xMiYF7mkfg
+	5kKIW73dwzaZAiNiPgTuOCnBRxLyq/7tMN+bxz6ULuAG1s4xnFA6jkKE+MyOi1XSiu9guVTrRyiaM
+	WoUkJAVFkx75uZH4HrXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq6mW-001UAa-Qb; Mon, 07 Jun 2021 04:22:32 +0000
+	id 1lq6zy-001Vcp-RV; Mon, 07 Jun 2021 04:36:26 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq6mT-001U9s-Sj
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 04:22:32 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 360C361241
- for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 04:22:29 +0000 (UTC)
+ id 1lq6zt-001Vc9-D5
+ for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 04:36:25 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CE6116121E
+ for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 04:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623039749;
- bh=w0Tct7TLCCrzZsCnmVFxhk0rgBdL5pL2Hl2bNoy6Qgg=;
+ s=k20201202; t=1623040580;
+ bh=im2gzm66A8fxb/16kOAjLznX7/J53Tnzbnd+6PWnKNM=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=UnDSNxeoqcv0/hsx2aLzTIffPPPMYcv/RSUG6CD6/DYKriUJjsZbA/q+tP77DudTo
- VBEEcZGNgqspbxVFL8+mq490Y4jZQ0tKGYeny+JLjCVIq1PL26kppi4ZAbLpU7Ageq
- VhKgzEKGPYD+xZ/vdL0rhZDN7tMCxluXMp0A8TSq1+td8teklCqRXxzfofsKpX5fJW
- RIZvxIjwTPWfy/IUOcqQBlFc3+bTB7h5VPUtfGIliq2MhrbQjdu38vIXwSV7vJVAA8
- VWjJMOOLzHAyVtKLVdeiLBPbmCq7mRhvKyF6glZ4yXfwkKtuA6/u0p52vTjeXB4Ekn
- Zua28LPdIao5A==
-Received: by mail-lj1-f178.google.com with SMTP id x14so5933895ljp.7
- for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 21:22:29 -0700 (PDT)
-X-Gm-Message-State: AOAM533Yq8yytsfC6XApvcnEoq3I+R0YIvIUN5pV9gT5/iMARYUiUgdS
- YzaLLuwFmKi1yFMIgY2zSrXHFCWu1W5fdKEUtk8=
-X-Google-Smtp-Source: ABdhPJywQZATuh7ciiYZKICWSotgwqD/5go8Iab8LOhQTYgbCBGnhM+s1JtxSRM/NSUBRAltU7qg73APnt7ziEs5S50=
-X-Received: by 2002:a2e:b5d8:: with SMTP id g24mr13391275ljn.115.1623039747520; 
- Sun, 06 Jun 2021 21:22:27 -0700 (PDT)
+ b=kuaZth230TL4sF0sr51/3RjnXx/PFlnOJSE2wEap3G0FYbcwboZ9ZEfaxdbPI3kO4
+ zx9leRfBo/KM6muuTk3kjc/bEtwwdcSI1tB4xjg6U5dJ0aNJ1RGS+/1e0DLRsorRPO
+ u4mBpsKFEyAmap+NhxLPkNdb80dY4VrJlwEFD/vQu6vaUZii+lGq+tjw+30igON8Ty
+ Wh59DN6/o/YKSt47Du4tNAja4AFk5Jn8cus0wmAloU1kn/nnKTQe4Au9YkxBR2vDmv
+ m0u75OmYLhdtcKxvVNc9w6HGiNMLRsqN9zmvfOmzNFDlkA3TRsCx2aFA22ptjktWB1
+ w42mvQ9kRwrEw==
+Received: by mail-lf1-f46.google.com with SMTP id i10so24031769lfj.2
+ for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 21:36:20 -0700 (PDT)
+X-Gm-Message-State: AOAM531S4kJGpcTHlnbmchi6eBbBEuEGNkIMBS/ABRbxdzlV3nxfTXsN
+ +MocwGnifa/JNAcIvw1kpSQeJk270LgwTdCtDSk=
+X-Google-Smtp-Source: ABdhPJzCJwuyh33/n2ptWxi8MoWxCk4WJq3GGiXzTMUpqQBQ96IZaBNQOONe348qpbkgI10hWLQulLRc/pxO3pHczqY=
+X-Received: by 2002:ac2:5389:: with SMTP id g9mr10192844lfh.557.1623040579170; 
+ Sun, 06 Jun 2021 21:36:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <mhng-a5f8374f-350b-4c13-86e8-c6aa5e697454@palmerdabbelt-glaptop>
- <mhng-c0406cea-776b-49d2-a223-13a83d3a7433@palmerdabbelt-glaptop>
- <CO6PR04MB7812D8905C6EEBDE8513866F8D3C9@CO6PR04MB7812.namprd04.prod.outlook.com>
- <CAJF2gTRH6OVB1RrOyp88LDvX3fV0doJxNTM61trWxJsLaX0X0g@mail.gmail.com>
- <CO6PR04MB7812614750AE3CA78D49C0AD8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
-In-Reply-To: <CO6PR04MB7812614750AE3CA78D49C0AD8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
+References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
+ <CO6PR04MB7812C5A068EEDB4D5A2348458D389@CO6PR04MB7812.namprd04.prod.outlook.com>
+In-Reply-To: <CO6PR04MB7812C5A068EEDB4D5A2348458D389@CO6PR04MB7812.namprd04.prod.outlook.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 7 Jun 2021 12:22:15 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSgC2+ULpfSQKvan7phPf8VT+nxUiekfpHELNjsQYo=CA@mail.gmail.com>
-Message-ID: <CAJF2gTSgC2+ULpfSQKvan7phPf8VT+nxUiekfpHELNjsQYo=CA@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
+Date: Mon, 7 Jun 2021 12:36:07 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSBR76_6RjCxPj-k4bTnA84F9c9L-sGbO45bPnMiuvAFQ@mail.gmail.com>
+Message-ID: <CAJF2gTSBR76_6RjCxPj-k4bTnA84F9c9L-sGbO45bPnMiuvAFQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 00/11] riscv: Add DMA_COHERENT support for
+ Allwinner D1
 To: Anup Patel <Anup.Patel@wdc.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- "anup@brainfault.org" <anup@brainfault.org>,
- "drew@beagleboard.org" <drew@beagleboard.org>, 
- Christoph Hellwig <hch@lst.de>, "wefu@redhat.com" <wefu@redhat.com>, 
- "lazyparser@gmail.com" <lazyparser@gmail.com>, 
+Cc: "palmerdabbelt@google.com" <palmerdabbelt@google.com>,
+ "arnd@arndb.de" <arnd@arndb.de>, 
+ "wens@csie.org" <wens@csie.org>, "maxime@cerno.tech" <maxime@cerno.tech>, 
+ "drew@beagleboard.org" <drew@beagleboard.org>,
+ "liush@allwinnertech.com" <liush@allwinnertech.com>, 
+ "lazyparser@gmail.com" <lazyparser@gmail.com>,
+ "wefu@redhat.com" <wefu@redhat.com>, 
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
  "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
- "linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>, 
- "guoren@linux.alibaba.com" <guoren@linux.alibaba.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+ "linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>,
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_212229_997507_6F2AD326 
-X-CRM114-Status: GOOD (  81.61  )
+X-CRM114-CacheID: sfid-20210606_213621_505380_D69E0BD5 
+X-CRM114-Status: GOOD (  37.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,308 +98,168 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Anup,
 
-On Mon, Jun 7, 2021 at 11:38 AM Anup Patel <Anup.Patel@wdc.com> wrote:
+On Mon, Jun 7, 2021 at 11:44 AM Anup Patel <Anup.Patel@wdc.com> wrote:
 >
 >
 >
 > > -----Original Message-----
-> > From: Guo Ren <guoren@kernel.org>
-> > Sent: 06 June 2021 22:42
-> > To: Anup Patel <Anup.Patel@wdc.com>; Atish Patra <atishp@atishpatra.org>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>; anup@brainfault.org;
-> > drew@beagleboard.org; Christoph Hellwig <hch@lst.de>; wefu@redhat.com;
-> > lazyparser@gmail.com; linux-riscv@lists.infradead.org; linux-
-> > kernel@vger.kernel.org; linux-arch@vger.kernel.org; linux-
-> > sunxi@lists.linux.dev; guoren@linux.alibaba.com; Paul Walmsley
-> > <paul.walmsley@sifive.com>
-> > Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
+> > From: guoren@kernel.org <guoren@kernel.org>
+> > Sent: 06 June 2021 14:34
+> > To: guoren@kernel.org; Anup Patel <Anup.Patel@wdc.com>;
+> > palmerdabbelt@google.com; arnd@arndb.de; wens@csie.org;
+> > maxime@cerno.tech; drew@beagleboard.org; liush@allwinnertech.com;
+> > lazyparser@gmail.com; wefu@redhat.com
+> > Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+> > arch@vger.kernel.org; linux-sunxi@lists.linux.dev; Guo Ren
+> > <guoren@linux.alibaba.com>
+> > Subject: [RFC PATCH v2 00/11] riscv: Add DMA_COHERENT support for
+> > Allwinner D1
 > >
-> > Hi Anup and Atish,
+> > From: Guo Ren <guoren@linux.alibaba.com>
 > >
-> > On Thu, Jun 3, 2021 at 2:00 PM Anup Patel <Anup.Patel@wdc.com> wrote:
-> > >
-> > >
-> > >
-> > > > -----Original Message-----
-> > > > From: Palmer Dabbelt <palmer@dabbelt.com>
-> > > > Sent: 03 June 2021 09:43
-> > > > To: guoren@kernel.org
-> > > > Cc: anup@brainfault.org; drew@beagleboard.org; Christoph Hellwig
-> > > > <hch@lst.de>; Anup Patel <Anup.Patel@wdc.com>; wefu@redhat.com;
-> > > > lazyparser@gmail.com; linux-riscv@lists.infradead.org; linux-
-> > > > kernel@vger.kernel.org; linux-arch@vger.kernel.org; linux-
-> > > > sunxi@lists.linux.dev; guoren@linux.alibaba.com; Paul Walmsley
-> > > > <paul.walmsley@sifive.com>
-> > > > Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
-> > > >
-> > > > On Sat, 29 May 2021 17:30:18 PDT (-0700), Palmer Dabbelt wrote:
-> > > > > On Fri, 21 May 2021 17:36:08 PDT (-0700), guoren@kernel.org wrote:
-> > > > >> On Wed, May 19, 2021 at 3:15 PM Anup Patel <anup@brainfault.org>
-> > > > wrote:
-> > > > >>>
-> > > > >>> On Wed, May 19, 2021 at 12:24 PM Drew Fustini
-> > > > <drew@beagleboard.org> wrote:
-> > > > >>> >
-> > > > >>> > On Wed, May 19, 2021 at 08:06:17AM +0200, Christoph Hellwig
-> > > > wrote:
-> > > > >>> > > On Wed, May 19, 2021 at 02:05:00PM +0800, Guo Ren wrote:
-> > > > >>> > > > Since the existing RISC-V ISA cannot solve this problem,
-> > > > >>> > > > it is better to provide some configuration for the SOC
-> > > > >>> > > > vendor to
-> > > > customize.
-> > > > >>> > >
-> > > > >>> > > We've been talking about this problem for close to five years.
-> > > > >>> > > So no, if you don't manage to get the feature into the ISA
-> > > > >>> > > it can't be supported.
-> > > > >>> >
-> > > > >>> > Isn't it a good goal for Linux to support the capabilities
-> > > > >>> > present in the SoC that a currently being fab'd?
-> > > > >>> >
-> > > > >>> > I believe the CMO group only started last year [1] so the
-> > > > >>> > RV64GC SoCs that are going into mass production this year
-> > > > >>> > would not have had the opporuntiy of utilizing any RISC-V ISA
-> > > > >>> > extension for handling cache management.
-> > > > >>>
-> > > > >>> The current Linux RISC-V policy is to only accept patches for
-> > > > >>> frozen or ratified ISA specs.
-> > > > >>> (Refer, Documentation/riscv/patch-acceptance.rst)
-> > > > >>>
-> > > > >>> This means even if emulate CMO instructions in OpenSBI, the
-> > > > >>> Linux patches won't be taken by Palmer because CMO specification
-> > > > >>> is still in draft stage.
-> > > > >> Before CMO specification release, could we use a sbi_ecall to
-> > > > >> solve the current problem? This is not against the specification,
-> > > > >> when CMO is ready we could let users choose to use the new CMO in
-> > Linux.
-> > > > >>
-> > > > >> From a tech view, CMO trap emulation is the same as sbi_ecall.
-> > > > >>
-> > > > >>>
-> > > > >>> Also, we all know how much time it takes for RISCV international
-> > > > >>> to freeze some spec. Judging by that we are looking at another
-> > > > >>> 3-4 years at minimum.
-> > > > >
-> > > > > Sorry for being slow here, this thread got buried.
-> > > > >
-> > > > > I've been trying to work with a handful of folks at the RISC-V
-> > > > > foundation to try and get a subset of the various in-development
-> > > > > specifications (some simple CMOs, something about non-caching in
-> > > > > the page tables, and some way to prevent speculative accesse from
-> > > > > generating coherence traffic that will break non-coherent systems).
-> > > > > I'm not sure we can get this together quickly, but I'd prefer to
-> > > > > at least try before we jump to taking vendor-specificed behavior here.
-> > > > > It's obviously an up-hill battle to try and get specifications
-> > > > > through the process and I'm certainly not going to promise it will
-> > > > > work, but I'm hoping that the impending need to avoid forking the
-> > > > > ISA will be sufficient to get people behind producing some
-> > > > > specifications in a timely
-> > > > fashion.
-> > > > >
-> > > > > I wasn't aware than this chip had non-coherent devices until I saw
-> > > > > this thread, so we'd been mostly focused on the Beagle V chip.
-> > > > > That was in a sense an easier problem because the SiFive IP in it
-> > > > > was never designed to have non-coherent devices so we'd have to
-> > > > > make anything work via a series of slow workarounds, which would
-> > > > > make emulating the eventually standardized behavior reasonable in
-> > > > > terms of performance (ie, everything would be super slow so who really
-> > cares).
-> > > > >
-> > > > > I don't think relying on some sort of SBI call for the CMOs whould
-> > > > > be such a performance hit that it would prevent these systems from
-> > > > > being viable, but assuming you have reasonable performance on your
-> > > > > non-cached accesses then that's probably not going to be viable to
-> > > > > trap and emulate.  At that point it really just becomes silly to
-> > > > > pretend that we're still making things work by emulating the
-> > > > > eventually ratified behavior, as anyone who actually tries to use
-> > > > > this thing to do IO would need out of tree patches.  I'm not sure
-> > > > > exactly what the plan is for the page table bits in the
-> > > > > specification right now, but if you can give me a pointer to some
-> > > > > documentation then I'm happy to try and push for something
-> > compatible.
-> > > > >
-> > > > > If we can't make the process work at the foundation then I'd be
-> > > > > strongly in favor of just biting the bullet and starting to take
-> > > > > vendor-specific code that's been implemented in hardware and is
-> > > > > necessarry to make things work acceptably.  That's obviously a
-> > > > > sub-optimal solution as it'll lead to a bunch of ISA
-> > > > > fragmentation, but at least we'll be able to keep the software stack
-> > together.
-> > > > >
-> > > > > Can you tell us when these will be in the hands of users?  That's
-> > > > > pretty important here, as I don't want to be blocking real users
-> > > > > from having their hardware work.  IIRC there were some plans to
-> > > > > distribute early boards, but it looks like the foundation got
-> > > > > involved and I guess I lost the thread at that point.
-> > > > >
-> > > > > Sorry this is all such a headache, but hopefully we can get things
-> > > > > sorted out.
-> > > >
-> > > > I talked with some of the RISC-V foundation folks, we're not going
-> > > > to have an ISA specification for the non-coherent stuff any time
-> > > > soon.  I took a look at this code and I definately don't want to
-> > > > take it as is, but I'm not opposed to taking something that makes the
-> > hardware work as long as it's a lot cleaner.
-> > > > We've already got two of these non-coherent chips, I'm sure more
-> > > > will come, and I'd rather have the extra headaches than make
-> > > > everyone fork the software stack.
-> > >
-> > > Thanks for confirming. The CMO extension is still in early stages so
-> > > it will certainly take more time for them. After CMO extension is
-> > > finalized, it will take some more time to have actual RISC-V platforms with
-> > CMO implemented.
-> > >
-> > > >
-> > > > After talking to Atish it looks like there's likely to be an SBI
-> > > > extension to handle the CMOs, which should let us avoid the bulk of
-> > > > the vendor-specific behavior in the kernel.  I know some people are
-> > > > worried about adding to the SBI surface.  I'm worried about that
-> > > > too, but that's way better than sticking a bunch of vendor-specific
-> > > > instructions into the kernel.  The SBI extension should make for a
-> > > > straight-forward cache flush implementation in Linux, so let's just plan on
-> > that getting through quickly (as has been done before).
-> > >
-> > > Yes, I agree. We can have just a single SBI call which is meant for
-> > > DMA sync purpose only which means it will flush/invalidate pages from
-> > > all cache levels irrespective of the cache hierarchy (i.e.
-> > > flush/invalidate to RAM). The CMO extension might more generic cache
-> > > operations which can target any cache level.
-> > >
-> > > I am already preparing a write-up for SBI DMA sync call in SBI spec. I
-> > > will share it with you separately as well.
-> > >
-> > > >
-> > > > Unfortunately we've yet to come up with a way to handle the
-> > > > non-cacheable mappings without introducing a degree of
-> > > > vendor-specific behavior or seriously impacting performance (mark
-> > > > them as not valid and deal with them in the trap handler).  I'm not
-> > > > really sure it counts as supporting the hardware if it's massively
-> > > > slow, so that really leaves us with vendor-specific mappings as the only
-> > option to make these chips work.
-> > >
-> > > A RISC-V platform can have non-cacheable mappings is following
-> > > possible
-> > > ways:
-> > > 1) Fixed physical address range as non-cacheable using PMAs
-> > > 2) Custom page table attributes
-> > > 3) Svpmbt extension being defined by RVI
-> > >
-> > > Atish and me both think it is possible to have RISC-V specific DMA ops
-> > > implementation which can handle all above case. Atish is already
-> > > working on DMA ops implementation for RISC-V.
-> > Not only DMA ops, but also icache_sync & __vdso_icache_sync. Please have a
-> > look at:
-> > https://lore.kernel.org/linux-riscv/1622970249-50770-12-git-send-email-
-> > guoren@kernel.org/T/#u
+> > The RISC-V ISA doesn't yet specify how to query or modify PMAs, so let
+> > vendors define the custom properties of memory regions in PTE.
+> >
+> > This patchset helps SOC vendors to support their own custom interconnect
+> > coherent solution with PTE attributes.
+> >
+> > For example, allwinner D1[1] uses T-HEAD C906 as main processor, C906 has
+> > two modes in MMU:
+> >  - Compatible mode, the same as the definitions in spec.
+> >  - Enhanced mode, add custom DMA_COHERENT attribute bits in PTE which
+> >    not mentioned in spec.
+> >
+> > Allwinner D1 needs the enhanced mode to support the DMA type device with
+> > non-coherent interconnect in its SOC. C906 uses BITS(63 - 59) as custom
+> > attribute bits in PTE.
+> >
+> > The patchset contain 4 parts (asid, pgtable, cmo, soc) which have been tested
+> > on D1:
+> >  - asid: T-HEAD C906 of D1 contains full asid hw facilities which has no
+> >    conflict with RISC-V spec, and hope these patches soon could be
+> >    approved.
+> >  - pgtable: Using a image-hdr to pass vendor specific information and
+> >    setup custom PTE attributes in a global struct variable during boot
+> >    stage. Also it needs define custom protection_map in linux/mm.
+> >  - cmo: We need deal with dma_sync & icache_sync & __vdso_icache_sync.
+> >    In this patchset, I just show you how T-HEAD C9xx work, and seems Atish
+> >    is working for the DMA infrustructure, please let me know the idea.
+> >  - soc: Add allwinner gmac driver & dts & Kconfig for sunxi test.
+> >
+> > The patchset could work with linux-5.13-rc4, here is the steps for D1:
+> >  - Download linux-5.13-rc4 and apply the patchset
+> >  - make ARCH=riscv CROSS_COMPILE=riscv64-linux- defconfig
+> >  - make ARCH=riscv CROSS_COMPILE=riscv64-linux- Image modules dtbs
+> >  - mkimage -A riscv -O linux -T kernel -C none -a 0x00200000 -e 0x00200000 -
+> > n Linux -d arch/riscv/boot/Image uImage
+> >  - Download newest opensbi [2], build with [3], and get fw_dynamic.bin
+> >  - Copy uImage, fw_dynamic.bin, allwinner-d1-nezha-kit.dtb into boot
+> >    partition of TF card.
+> >  - Plugin the TF card and power on D1.
+> >
+> > Link: https://linux-sunxi.org/D1 [1]
+> > Link: https://github.com/riscv/opensbi branch:master [2]
+> > Link: https://github.com/riscv/opensbi/blob/master/docs/platform/thead-
+> > c9xx.md [3]
+> >
+> > Changes since v1:
+> >  - Rebase on linux-5.13-rc4
+> >  - Support defconfig for different PTE attributes
+> >  - Support C906 icache_sync
+> >  - Add Allwinner D1 dts & Kconfig & gmac for testing
+> >  - Add asid optimization for D1 usage
+> >
+> > Guo Ren (10):
+> >   riscv: asid: Use global mappings for kernel pages
+> >   riscv: asid: Add ASID-based tlbflushing methods
+> >   riscv: asid: Optimize tlbflush coding convention
+> >   riscv: pgtable: Fixup _PAGE_CHG_MASK usage
+> >   riscv: pgtable: Add custom protection_map init
+> >   riscv: pgtable: Add DMA_COHERENT with custom PTE attributes
+> >   riscv: cmo: Add dma-noncoherency support
+> >   riscv: cmo: Add vendor custom icache sync
+> >   riscv: soc: Initial DTS for Allwinner D1 NeZha board
+> >   riscv: soc: Add Allwinner SoC kconfig option
 >
-> The icache_sync and __vdso_icache_sync will have to be addressed
-> differently. The SBI DMA sync extension cannot address this.
-Agree
+> The series cover letter says DMA_COHERENT support but
+> it is doing lot of stuff not related to DMA.
+>
+> Please keep the first three patches separate. They belong
+> to your ASID series.
+I just want to give out a whole view of how allwinner D1 works, which
+could help soc folks run their mini system.
+
+Christoph Hellwig has helped to update the ASID series, and I've given
+the tested-by on my hardware 4*910 SMP & 906 D1
+https://lore.kernel.org/linux-riscv/20210606152050.636038-1-hch@lst.de/T/#t
+
+Ok, you won't see it in the next version patchset.
 
 >
-> It seems Allwinner D1 have more non-standard stuff:
-> 1) Custom PTE bits for IO-coherent access
-> 2) Custom data cache flush/invalidate for DMA sync
-> 3) Custom icache flush/invalidate
-Yes, but 3) is a performance optimization, not critical for running.
-
->
-> Other hand, BeagleV has only two problems:
-> 1) Custom physical address range for IO-coherent access
-> 2) Custom L2 cache flush/invalidate for DMA sync
-https://github.com/starfive-tech/linux/commit/d4c4044c08134dca8e5eaaeb6d3faf97dc453b6d
-
-Currently, they still use DMA sync with DMA descriptor, are you sure
-they have minor memory physical address.
-
->
-> From above #2, can be solved by SBI DMA sync call and
-> Linux DMA ops for both BeagleV and Allwinner D1
->
-> On BeagleV, issue #1 can be solved using "dma-ranges".
->
-> On Allwinner D1, issues #1 and #3 need to be addressed
-> separately.
->
-> I think supporting BeagleV in upstream Linux is relatively
-> easy compared to Allwinner D1.
->
-> @Guo, please check if you can reserve dedicated
-> physical address range for IO-coherent access (just like
-> BeagleV). If yes, then we can tackle issue #1 for Allwinner
-> D1 using "dma-ranges" DT property.
-There is no dedicated physical address range for IO-coherent access in
-D1. But the solution you mentioned couldn't solve all requirements.
-Only one mirror physical address range is not enough, we need at least
-three (Normal, DMA desc, frame buffer).
-And that will triple the memory physical address which can't be
-accepted by our users from the hardware design cost view.
-
- "dma-ranges" DT property is a big early MIPS smell. ARM SOC users
-can't accept it. (They just say replace the CPU, but don't touch
-anything other.)
-
-PTE attributes are the non-coherent solution for many years. MIPS also
-follows that now:
-ref arch/mips/include/asm/pgtable-bits.h & arch/mips/include/asm/pgtable.h
-
-#ifndef _CACHE_CACHABLE_NO_WA
-#define _CACHE_CACHABLE_NO_WA           (0<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_CACHABLE_WA
-#define _CACHE_CACHABLE_WA              (1<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_UNCACHED
-#define _CACHE_UNCACHED                 (2<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_CACHABLE_NONCOHERENT
-#define _CACHE_CACHABLE_NONCOHERENT     (3<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_CACHABLE_CE
-#define _CACHE_CACHABLE_CE              (4<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_CACHABLE_COW
-#define _CACHE_CACHABLE_COW             (5<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_CACHABLE_CUW
-#define _CACHE_CACHABLE_CUW             (6<<_CACHE_SHIFT)
-#endif
-#ifndef _CACHE_UNCACHED_ACCELERATED
-#define _CACHE_UNCACHED_ACCELERATED     (7<<_CACHE_SHIFT)
-
-We can't force our users to double/triplicate their physical memory regions.
+> I also dislike the fact that you are continuously sending
+> SBI DMA sync patches without any discussion on the
+> UnixPlatform mailing list for SBI spec changes.
+SBI DMA sync is not critical for us, I could follow your definition
+when you are ready. Even CBO trap emulation is okay for me.
 
 >
 > Regards,
 > Anup
 >
 > >
+> > liush (1):
+> >   riscv: soc: Allwinner D1 GMAC driver only for temp use
 > >
-> > >
-> > > >
-> > > > This implementation, which adds some Kconfig entries that control
-> > > > page table bits, definately isn't suitable for upstream.  Allowing
-> > > > users to set arbitrary page table bits will eventually conflict with
-> > > > the standard, and is just going to be a mess.  It'll also lead to
-> > > > kernels that are only compatible with specific designs, which we're
-> > > > trying very hard to avoid.  At a bare minimum we'll need some way to
-> > > > detect systems with these page table bits before setting them, and
-> > > > some description of what the bits actually do so we can reason about
-> > them.
-> > >
-> > > Yes, vendor specific Kconfig options are strict NO NO. We can't
-> > > give-up the goal of unified kernel image for all platforms.
-> > >
-> > > Regards,
-> > > Anup
-> >
-> >
+> >  arch/riscv/Kconfig                                 |    9 +
+> >  arch/riscv/Kconfig.socs                            |   12 +
+> >  arch/riscv/boot/dts/Makefile                       |    1 +
+> >  arch/riscv/boot/dts/allwinner/Makefile             |    2 +
+> >  .../boot/dts/allwinner/allwinner-d1-nezha-kit.dts  |   29 +
+> >  arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi    |  100 +
+> >  arch/riscv/configs/defconfig                       |    1 +
+> >  arch/riscv/include/asm/cacheflush.h                |   48 +-
+> >  arch/riscv/include/asm/mmu_context.h               |    2 +
+> >  arch/riscv/include/asm/pgtable-64.h                |    8 +-
+> >  arch/riscv/include/asm/pgtable-bits.h              |   20 +-
+> >  arch/riscv/include/asm/pgtable.h                   |   44 +-
+> >  arch/riscv/include/asm/sbi.h                       |   15 +
+> >  arch/riscv/include/asm/soc.h                       |    1 +
+> >  arch/riscv/include/asm/tlbflush.h                  |   22 +
+> >  arch/riscv/include/asm/vendorid_list.h             |    1 +
+> >  arch/riscv/kernel/sbi.c                            |   19 +
+> >  arch/riscv/kernel/soc.c                            |   22 +
+> >  arch/riscv/kernel/vdso/flush_icache.S              |   33 +-
+> >  arch/riscv/mm/Makefile                             |    1 +
+> >  arch/riscv/mm/cacheflush.c                         |    3 +-
+> >  arch/riscv/mm/context.c                            |    2 +-
+> >  arch/riscv/mm/dma-mapping.c                        |   53 +
+> >  arch/riscv/mm/init.c                               |   26 +
+> >  arch/riscv/mm/tlbflush.c                           |   57 +-
+> >  drivers/net/ethernet/Kconfig                       |    1 +
+> >  drivers/net/ethernet/Makefile                      |    1 +
+> >  drivers/net/ethernet/allwinnertmp/Kconfig          |   17 +
+> >  drivers/net/ethernet/allwinnertmp/Makefile         |    7 +
+> >  drivers/net/ethernet/allwinnertmp/sunxi-gmac-ops.c |  690 ++++++
+> >  drivers/net/ethernet/allwinnertmp/sunxi-gmac.c     | 2240
+> > ++++++++++++++++++++
+> >  drivers/net/ethernet/allwinnertmp/sunxi-gmac.h     |  258 +++
+> >  drivers/net/phy/realtek.c                          |    2 +-
+> >  mm/mmap.c                                          |    4 +
+> >  34 files changed, 3714 insertions(+), 37 deletions(-)  create mode 100644
+> > arch/riscv/boot/dts/allwinner/Makefile
+> >  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1-nezha-
+> > kit.dts
+> >  create mode 100644 arch/riscv/boot/dts/allwinner/allwinner-d1.dtsi
+> >  create mode 100644 arch/riscv/mm/dma-mapping.c  create mode 100644
+> > drivers/net/ethernet/allwinnertmp/Kconfig
+> >  create mode 100644 drivers/net/ethernet/allwinnertmp/Makefile
+> >  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac-ops.c
+> >  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac.c
+> >  create mode 100644 drivers/net/ethernet/allwinnertmp/sunxi-gmac.h
 > >
 > > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
-
+> > 2.7.4
+>
 
 
 -- 
