@@ -6,14 +6,14 @@ X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
 	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AF1FC47082
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3804CC47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:14:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3FA05611C0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:09:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FA05611C0
+	by mail.kernel.org (Postfix) with ESMTPS id ECFA761059
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 05:14:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECFA761059
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,39 +22,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T0PaGnXSMBO8yR2g0L6YRrm/SwUwSA9QdrvxUMllctE=; b=vy/djk4yGBozST
-	UAXhCSX6p2wiZjqY2MJfzpz40c5zPvguvLjxcC7uJwsocvJu8HiTKjsDJ2A47cAZ4iv65gYWuulWE
-	SqUrDg4iZCbxyhJaRqWNpvBHDQEgb6mJdu5XMpLPMzlkJF+uuQFA3H9TYDBmy1FeRivwwEIO/Usli
-	RrGfr2eCYezgBnDnNIWvRg0T+UiKHY/cJt5qZjhek4iOEbGMM39tvdq0Ro7Idzlu4J8CGTxgD5+2+
-	wBcthNHV982KOuE5J2G1V28V+s190fucjxRjZW88UKrQlE4FLz1PYXcqRuGc2+xsXCn+ewnoBQY3R
-	4jqk5JP3Zc8RWhC1SJEQ==;
+	List-Owner; bh=xHcVchjhiaBygrgb/QB0O4h+e07L5+4PoEKEJDyq6/0=; b=DRbAP/iESAlQvB
+	ipl2x6pxE24e5wI9BoxGV/mdBG59Jb2IZXWKkzFSTKCQUT5M9HqeCJgmUlSk92f+OY2+aBywAulW3
+	GQjnq3KMkyHuxQAK9IvWfVu0AZiB4HfAhqwmpSubQJZKXxo2DgjrjWFY8VLRfb7TZLQcxJBus9yoH
+	q9//VDTB9nQTRe/Wij/ULPA/DLMv6vV2C2SqWYtdX4WolUgVV0pFaoNHGiltbMDYAGZPN8lSW0XU1
+	EriL/UBm9tBy3HHnnh5TEd+TO5mha5g1UhcrU8qe0PZK4bDf6vSUUhtSPKa4/86shjgkfz1dsD0oO
+	KmSMav2RGZ1nZkUDi9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq7VP-001Xac-8I; Mon, 07 Jun 2021 05:08:55 +0000
+	id 1lq7aF-001Y8C-7C; Mon, 07 Jun 2021 05:13:55 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq7VL-001Xa9-E5
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 05:08:54 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B871E6127C
- for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 05:08:50 +0000 (UTC)
+ id 1lq7aB-001Y7h-LH
+ for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 05:13:54 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1682361241
+ for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 05:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623042530;
- bh=ePvPoJu7u2KF56QW4Q7kJycD7Jjr2uDNDzVglnc3XU0=;
+ s=k20201202; t=1623042831;
+ bh=fI16kZ5xsiBLuH71xO2b3UcXdOFx6qOOxVT9QnYCIC4=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=o9lsnnTyWoR4siDcA7FUyweDVqt9Ajkftze8FaZhREHtUNakOlJZcj5Q7sjIZhZDj
- WsfvZDoL7XzszCbx1DB+b32Tsobfkw+cWhf2k+eAQ6VWI6o3tcNJPDHTHCS/PNIF3y
- vBU4w9tHCGrsSviywD9w73T0sKIAPXY1E7DTCYnUZ2dn2JCMOdaTRCRofHoWkmMlKD
- YReEw06rGftHBqO2pD5PonOQzAOCSU3/CwHXWKgE0qfkr3DLIWnGQezjUknXqh53dL
- 95XpdsB8O/diiCUSXgS68pkFHmdU4WE0B1jmQrrOSZmWwVrlJ7kZRqI9EG5H0zGs4s
- rkQYYrZ6EBapQ==
-Received: by mail-lj1-f180.google.com with SMTP id x14so6054761ljp.7
- for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 22:08:50 -0700 (PDT)
-X-Gm-Message-State: AOAM532gbWYbFDlFv6DWPlanJXotNkocIJ4arXHfQiJgU/lofASqzhoP
- Xwk6ZK78qbFjiTDYoE+m6FMyupMXMWnRRQxQbmE=
-X-Google-Smtp-Source: ABdhPJwrbAiToCZ36Puj+93fheIEDlSZSjWJWUuQx1ObP9tpcF0aS0MdXZsUIPy3dkcMXDwBigg12WU2xvjTqL6lYS4=
-X-Received: by 2002:a05:651c:502:: with SMTP id
- o2mr13427682ljp.105.1623042528848; 
- Sun, 06 Jun 2021 22:08:48 -0700 (PDT)
+ b=c8IbR0eDW0Mrv5I/Nxvv48mvUrrViPxO8hdlZVl9Ro7DFNosrIVTj3PzX42y1UzZB
+ LqwjFaJGc2A4XpW9W2+8QfE5XzzLInaZgn5Q9YJ/bN26M5m4xi8QC6Ti6ShYi7feKI
+ gHpxb3GFh4etkH3Yw27MxEYi90JSUJcf9l3R5acjqVYLa/L0BLmoVpwNHPJodSpQj0
+ 2n8qOOhrXI1v/QRNgx+Dn8ywFTs8B6pkWIuzJFTfiHXYJDxpMbk1oYNuNwAQ648id0
+ LnKAitk8Q7+wxAWteKWMS5XQ5w1Vq0BIMA0e0eYoG2oX0j36hw1NpBRA5WshFYGQBZ
+ MWDsoXrAIDiSQ==
+Received: by mail-lj1-f174.google.com with SMTP id r16so1261405ljk.9
+ for <linux-riscv@lists.infradead.org>; Sun, 06 Jun 2021 22:13:50 -0700 (PDT)
+X-Gm-Message-State: AOAM533NIGnZRb2eSqIDEPUlVW7l3COz4ca+QbW9+fukLvET4kIEVTVO
+ qv1mOd38KchGVtPi2JGn7XCZscISMmPjm/W+n3g=
+X-Google-Smtp-Source: ABdhPJyL1o4ghZz6BFG+zxEk3qS+UkdAZ3Jr3K5rSeIpg78hW4DQRsJVD2T1KKAUFcytnQQiEunN0AUAQqsb5ElIACk=
+X-Received: by 2002:a2e:b5d8:: with SMTP id g24mr13515380ljn.115.1623042829378; 
+ Sun, 06 Jun 2021 22:13:49 -0700 (PDT)
 MIME-Version: 1.0
 References: <mhng-a5f8374f-350b-4c13-86e8-c6aa5e697454@palmerdabbelt-glaptop>
  <mhng-c0406cea-776b-49d2-a223-13a83d3a7433@palmerdabbelt-glaptop>
@@ -65,9 +64,9 @@ References: <mhng-a5f8374f-350b-4c13-86e8-c6aa5e697454@palmerdabbelt-glaptop>
  <CO6PR04MB7812D075519BCFBAF744DE7D8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
 In-Reply-To: <CO6PR04MB7812D075519BCFBAF744DE7D8D389@CO6PR04MB7812.namprd04.prod.outlook.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 7 Jun 2021 13:08:36 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSdPgpr-X=dQbHNTp8uTdWzXD1XP6aCD60kq_4HULvjWw@mail.gmail.com>
-Message-ID: <CAJF2gTSdPgpr-X=dQbHNTp8uTdWzXD1XP6aCD60kq_4HULvjWw@mail.gmail.com>
+Date: Mon, 7 Jun 2021 13:13:37 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRc_1nt9rMJNOMwU-j6etUhjuPxTYCRU8utxz=JHpUtgA@mail.gmail.com>
+Message-ID: <CAJF2gTRc_1nt9rMJNOMwU-j6etUhjuPxTYCRU8utxz=JHpUtgA@mail.gmail.com>
 Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
 To: Anup Patel <Anup.Patel@wdc.com>
 Cc: Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -82,8 +81,8 @@ Cc: Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  "guoren@linux.alibaba.com" <guoren@linux.alibaba.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210606_220851_553601_36344FA5 
-X-CRM114-Status: GOOD (  86.15  )
+X-CRM114-CacheID: sfid-20210606_221351_770187_8C0329E1 
+X-CRM114-Status: GOOD (  85.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,6 +98,9 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+
+:
+
 
 On Mon, Jun 7, 2021 at 12:47 PM Anup Patel <Anup.Patel@wdc.com> wrote:
 >
@@ -377,23 +379,6 @@ On Mon, Jun 7, 2021 at 12:47 PM Anup Patel <Anup.Patel@wdc.com> wrote:
 > The problem for Allwinner D1 is even worst than I thought. If such critical
 > high through-put devices are not cache coherent with CPU then I am
 > speechless about Allwinner D1 situation.
-Allwinner D1 is a cost-down product and there is no cache coherent
-device at all. Cache coherent interconnect will increase the chip
-design cost and the performance is enough in their scenario.
-
-So that why we need Srong Order + noncache & Weak Order + noncache to
-optimization.
-
-From T-HEAD side we could privide two kinds of solution of DMA coherent.
- - Let SOC vendor update coherent interconnect, and our CPU could
-support coherent protocal.
- - Let SOC vendor connect their DMA device with our CPU LL cache
-coherent interface.
-
-But we can't force them do that. They want how my origin soc works
-then make it work with your RV core. They know trade off coherency or
-non-coherency in their busisness scenario.
-
 >
 > > And that will triple the memory physical address which can't be accepted by
 > > our users from the hardware design cost view.
@@ -410,9 +395,6 @@ non-coherency in their busisness scenario.
 >
 > Unfortunately, the higher order bits which your implementation uses is
 > not for SoC vendor use as-per the RISC-V privilege spec.
-For a while, I had placed my hopes on C-bit, but my fantasy was
-disillusioned. -_-!
-
 >
 > >
 > > #ifndef _CACHE_CACHABLE_NO_WA
@@ -444,7 +426,8 @@ disillusioned. -_-!
 > We are trying to find a workable solution here so that we don't have
 > to deal with custom PTE attributes which are reserved for RISC-V priv
 > specification only.
-Thank you for your hard work in this regard, sincerely.
+How do think about my new patch of custom PTE attributes?
+https://lore.kernel.org/linux-riscv/610849b6f66e8d5a9653c9f62f46c48d@mailhost.ics.forth.gr/T/#mdc0dacba57346b5ac59a01961495c132b93cfcdb
 
 >
 > Regards,
