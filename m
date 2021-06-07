@@ -2,84 +2,71 @@ Return-Path: <SRS0=HNmv=LB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A97AC47082
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 12:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D7ABC47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 16:13:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BA641611C0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 12:40:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA641611C0
+	by mail.kernel.org (Postfix) with ESMTPS id F059D613D5
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 16:13:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F059D613D5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OmUa8ZQfQpkSjH6iLaWaSBYkf0BbNzlXGn6KEpuMTB0=; b=zKrMauYTk1W0bs
-	CVAHas63PKwCSARhsYUOUtABSaJbfxuh18gAZTjznh8CR9KsiV8cYbLr6Q51PhDykOoQgJFTixW00
-	FWREHIIX3ZdQFrUj5wQhDf6+ojdXFEeIp53lLNCJUiJruV5XIX6+hAO9nO8g9llvzMA+FTjX2Sp7v
-	32hrorzzjCsQUTyW87kVH9fYYpizHestrU96Pyw2pZp+2RXLyfIbNAc9yEv243FMBGqHG75KHHOjW
-	R2IMgDdbR9hDWBNuF6+Pw9Oo3zmee15II44fntV1PJwpIAGU/ZmFjld43fpVaKZeQUsz54wIF3d1h
-	QjGnZbzUuFhHC3AmvpNQ==;
+	List-Owner; bh=4PG95wAjCGKN+MTttj7rqDGv65azDLee/Mh1sKlholk=; b=JtMMpN145QnjMq
+	Nj8J3rUKgiuIDqfoxi0EOuoMgt2GO3LIWf8+MqPcXvDeYVK+G2rP9fMifDEYQGupIVrKj7arSDd2o
+	vwy/4oATorGe9vSZWU3y4ZGI9zT/d5nZ3ZwatDvJ0lTY1My20F78RI520u5bVuJyjxzKkcQ0BkhaV
+	W/G6ztx9F0Q2l4f384D7vfko/qglOq3ePcs21SEIfHEbWlBLUw+RW6iBIWouDp8sXdIAcyhq4Im+v
+	rUUyjt6XkwCQqfKWd7p8wovSZDN1GoZxnJwexBUgAJcwnYTQworTEXx560WrKZ7pdW/gtLy6cyVZH
+	JFATiX6LHRu8j7+3NEWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqEXx-003Z4s-Nl; Mon, 07 Jun 2021 12:40:01 +0000
+	id 1lqHsP-004OW8-HU; Mon, 07 Jun 2021 16:13:21 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqEXu-003Z4D-Dm
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 12:40:00 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A5E7061249
- for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 12:39:57 +0000 (UTC)
+ id 1lqHrs-004OAV-8Q
+ for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 16:12:52 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 3CE496128B;
+ Mon,  7 Jun 2021 16:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623069597;
- bh=LUAY4oJCPkrVMDMv4EYSat/1R4o3Msb/H6pgTpNF6Dc=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=KWV+7c3IjzT7FtlrB8gnUBQW/jSf/nTwRv+WGXgX1oQerF7TNwnjINy9dIy0WM9XG
- H1eMFTEQYp0FdRfJtMNFI3oqNy4X3oGD4+HIUq9/iTB8P8wYTaDPwD/HPWcoaF6BQu
- 2n1h5PrujEwNugnUORQbo1zKFUmY+3LjPLub+kbavMAFzreI59ISbTUM60VJX+WXfS
- VVW0lJbixOMhfywWAgsIKDbu3fxk7qCyg6Lu06aqudSTABe3Cdyq/Ubusv+JNhg2vT
- o9fCVpoKq+s/nQ/NzUEDefCCqiMPGg3z4whipIhJYw+B4JzYo/IFTU7/Td6hKQDVxB
- uMx+BBnyHbJZA==
-Received: by mail-lf1-f53.google.com with SMTP id t7so18916441lff.0
- for <linux-riscv@lists.infradead.org>; Mon, 07 Jun 2021 05:39:57 -0700 (PDT)
-X-Gm-Message-State: AOAM531nPm+/PWwue4hv5a6ZsuHErdI30gt4VjGpEWe65QzfkWlNCW8w
- Bb4AjnPQ/LV8oGL8gb8IuJFtWiqf1lhLuGisLAI=
-X-Google-Smtp-Source: ABdhPJz48qsWSQ02EwreDy3/VnjhXRWA7jvdPh9Ppq+bQ7kJFHb73CXOyYtlYg++k2AP3yDR3+5XzBToRYQX0vNFFNo=
-X-Received: by 2002:a05:6512:3f02:: with SMTP id
- y2mr12282446lfa.355.1623069595963; 
- Mon, 07 Jun 2021 05:39:55 -0700 (PDT)
+ s=k20201202; t=1623082368;
+ bh=qdx3A4dL/aV5aO0z1JewHyWSwi8Q7i9bcnqPBVn6azs=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=o6BwxUwzyUQlKGGorK72hZg6g3/0Rjm8/HedVIgBKoPMNzmPZLZoRwGKq56Q9PwXv
+ FXR8jF/kQ/bCN5JS9pNMy4XpV47KdtyD4wubBHE8wObv0QzwddyfmHjR3cAt3P/Yk7
+ kbSl9I85qv3KlPkxxLTQs8gV/vlzHaM/1RIjHtXaPr1YmE0cBbA68A/KSZmTxhIlWZ
+ qRfNE5LzFfF8pgkvkq/H7SvdpL+o2twi49sPnqbL9y2uDwu5LXTgX59ZyuiLBP6EEH
+ PSUjnH67yz6wA752G8uCMB5XOWyK0zu+z7t+WbCCktY4VhG6JwaDo2tXih4M66wwpx
+ CvN5HpwxnoMEw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Khem Raj <raj.khem@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.12 26/49] riscv: Use -mno-relax when using lld linker
+Date: Mon,  7 Jun 2021 12:11:52 -0400
+Message-Id: <20210607161215.3583176-26-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210607161215.3583176-1-sashal@kernel.org>
+References: <20210607161215.3583176-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
- <1622970249-50770-14-git-send-email-guoren@kernel.org>
- <20210607071916.kwdbtafbqp3icgia@gilmour>
- <CAJF2gTT=aLNpwuQmOPw=L8eoezwX8DmGOunmPx0H_WzbaOpO+g@mail.gmail.com>
- <20210607121216.ypoehirsdypul3br@gilmour>
-In-Reply-To: <20210607121216.ypoehirsdypul3br@gilmour>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 7 Jun 2021 20:39:44 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTR1z3ZMOwyMBztNUnQJse2zPJV6CenXRnqu1LbUG6XW7A@mail.gmail.com>
-Message-ID: <CAJF2gTR1z3ZMOwyMBztNUnQJse2zPJV6CenXRnqu1LbUG6XW7A@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 10/11] riscv: soc: Add Allwinner SoC kconfig option
-To: Maxime Ripard <maxime@cerno.tech>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
- Drew Fustini <drew@beagleboard.org>, liush@allwinnertech.com,
- =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- wefu@redhat.com, linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
- Atish Patra <atish.patra@wdc.com>, Christoph Hellwig <hch@lst.de>
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210607_053958_539734_C4E3177B 
-X-CRM114-Status: GOOD (  26.75  )
+X-CRM114-CacheID: sfid-20210607_091248_335087_99207C59 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,79 +83,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 7, 2021 at 8:12 PM Maxime Ripard <maxime@cerno.tech> wrote:
->
-> On Mon, Jun 07, 2021 at 03:43:03PM +0800, Guo Ren wrote:
-> > On Mon, Jun 7, 2021 at 3:19 PM Maxime Ripard <maxime@cerno.tech> wrote:
-> > >
-> > > Hi,
-> > >
-> > > On Sun, Jun 06, 2021 at 09:04:08AM +0000, guoren@kernel.org wrote:
-> > > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > >
-> > > > Add Allwinner kconfig option which selects SoC specific and common
-> > > > drivers that is required for this SoC.
-> > > >
-> > > > Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
-> > > > interconnect issues for dma synchronization, so we set the default
-> > > > value when SOC_SUNXI selected.
-> > > >
-> > > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > > Co-Developed-by: Liu Shaohua <liush@allwinnertech.com>
-> > > > Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
-> > > > Cc: Anup Patel <anup.patel@wdc.com>
-> > > > Cc: Atish Patra <atish.patra@wdc.com>
-> > > > Cc: Christoph Hellwig <hch@lst.de>
-> > > > Cc: Chen-Yu Tsai <wens@csie.org>
-> > > > Cc: Drew Fustini <drew@beagleboard.org>
-> > > > Cc: Maxime Ripard <maxime@cerno.tech>
-> > > > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > > > Cc: Wei Fu <wefu@redhat.com>
-> > > > Cc: Wei Wu <lazyparser@gmail.com>
-> > > > ---
-> > > >  arch/riscv/Kconfig.socs      | 12 ++++++++++++
-> > > >  arch/riscv/configs/defconfig |  1 +
-> > > >  2 files changed, 13 insertions(+)
-> > > >
-> > > > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > > > index ed96376..055fb3e 100644
-> > > > --- a/arch/riscv/Kconfig.socs
-> > > > +++ b/arch/riscv/Kconfig.socs
-> > > > @@ -69,4 +69,16 @@ config SOC_CANAAN_K210_DTB_SOURCE
-> > > >
-> > > >  endif
-> > > >
-> > > > +config SOC_SUNXI
-> > > > +     bool "Allwinner SoCs"
-> > > > +     depends on MMU
-> > > > +     select DWMAC_GENERIC
-> > > > +     select SERIAL_8250
-> > > > +     select SERIAL_8250_CONSOLE
-> > > > +     select SERIAL_8250_DW
-> > > > +     select SIFIVE_PLIC
-> > > > +     select STMMAC_ETH
-> > > > +     help
-> > > > +       This enables support for Allwinner SoC platforms like the D1.
-> > > > +
-> > >
-> > > We probably don't want to select DWMAC, STMMAC_ETH and the 8250 options,
-> > > looks good otherwise.
-> > >
-> > > Maxime
-> > Remove DWMAC, STMMAC_ETH is okay.
-> >
-> > But I think we still need:
-> > select SERIAL_8250_DW if SERIAL_8250
->
-> Well, even the UART is optional. Just enable them in the defconfig
-Okay
+From: Khem Raj <raj.khem@gmail.com>
 
+[ Upstream commit ec3a5cb61146c91f0f7dcec8b7e7157a4879a9ee ]
 
+lld does not implement the RISCV relaxation optimizations like GNU ld
+therefore disable it when building with lld, Also pass it to
+assembler when using external GNU assembler ( LLVM_IAS != 1 ), this
+ensures that relevant assembler option is also enabled along. if these
+options are not used then we see following relocations in objects
+
+0000000000000000 R_RISCV_ALIGN     *ABS*+0x0000000000000002
+
+These are then rejected by lld
+ld.lld: error: capability.c:(.fixup+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax but the .o is already compiled with -mno-relax
+
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/Makefile | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 1368d943f1f3..5243bf2327c0 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -38,6 +38,15 @@ else
+ 	KBUILD_LDFLAGS += -melf32lriscv
+ endif
+ 
++ifeq ($(CONFIG_LD_IS_LLD),y)
++	KBUILD_CFLAGS += -mno-relax
++	KBUILD_AFLAGS += -mno-relax
++ifneq ($(LLVM_IAS),1)
++	KBUILD_CFLAGS += -Wa,-mno-relax
++	KBUILD_AFLAGS += -Wa,-mno-relax
++endif
++endif
++
+ # ISA string setting
+ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
 -- 
-Best Regards
- Guo Ren
+2.30.2
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
