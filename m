@@ -2,18 +2,18 @@ Return-Path: <SRS0=HNmv=LB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D3A21C47082
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A90EC47082
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:46:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9867A60FE9
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:46:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9867A60FE9
+	by mail.kernel.org (Postfix) with ESMTPS id 2710C60FE9
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Jun 2021 07:46:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2710C60FE9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,63 +22,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BWVF+vAUV9UEGh2tw6PFy/bAZStGHmMejgwKaihelpc=; b=f6cI5qLV1BxogW
-	zAjmJPrDR6jINuaGXeGpPjCA/WNd3hUUImZwVLBLlZjDooxNIQWgsRrh2tnvBTZFIANRbEZjotIwm
-	uV3TCmELe4jHuwHpgooHiRu6L05m9Ad9Us7Rs0mXDnxCgUwQ4FTVoEoRCs10SODbiRjJ1xpg/gHbP
-	dALBc+gUEeN6ehhyx+WtJFjkWkn3U1tXnoFbQQsxoWhc0Q/DXpaL3uszzNM2rAVdxxwENfC6un0ri
-	qb+4DorLEp2ooKS1XSgfNE5keSZVO/bzAWWh23PeFzk86rKES8KhoLEB/0qQZ4HdWNZkh2+T6DRTT
-	YsI/0+2xdAZA/ZacTVUA==;
+	List-Owner; bh=0Cki0mxwIsT6RnTb0o+i/G3vN/mnsP5h0Rbf6U6oMQI=; b=VEKnn8TLmNsI7R
+	blwvGC2O0o2j/fLUaSrlWgzKiBWgCuQNfhvaTPdrgjr5/pFrTJsP2Z1+/l1Wg4xLEhzVfyG4HpYzt
+	9Lyk+7XxRmiOKPRWBRmbroU2ITKio+C8QcQ64oFQ/+cWU2efvBYVCXCfJ27NbulWCKIyiPr5xEDfx
+	PLmq47vgQm4hl+Pocr6v/2mejz1VBvfq3NrvHu/nkvqbKN2862VPkJXFVs6Jp8jrbyT0DBQKN9CGG
+	PJPN9b3rAbCoEP/d148RcGVlfkO7cAqnAQWVrV+5RC8cCscdTHhOXQrblOD4bRDZQSn2AGNFyYXAz
+	H3Ek5/3clG6UxtgNb1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lq9xf-002831-36; Mon, 07 Jun 2021 07:46:15 +0000
+	id 1lq9xx-00287Y-Li; Mon, 07 Jun 2021 07:46:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lq9xc-00282Q-RH
- for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 07:46:14 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 56E2761263
- for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 07:46:12 +0000 (UTC)
+ id 1lq9xu-00286N-48
+ for linux-riscv@lists.infradead.org; Mon, 07 Jun 2021 07:46:31 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id BB7A261246
+ for <linux-riscv@lists.infradead.org>; Mon,  7 Jun 2021 07:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623051972;
- bh=aKh9TrwohntWukPeb8eXG9QkpL0E7zlN5CxzbKaesVk=;
+ s=k20201202; t=1623051989;
+ bh=2HlV8yHs2q1qjoHRDtJoVGUfxTgO4byPz6D2uYNRljQ=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=AQqPz/xdXabEyCypW5iV8x+ZQjmQJ3JYdPZ1/ERiY4MRQVB7z0XY3bt0kmrqADDl7
- QAQ52nTSWW5U3gyaQ2uHlr+z9Juebvnrs745xGIe17jY9R7k+rdqUOmXJiqoaUhuHa
- DNhdfXkJI9UNPbU0+TF0XgOdFM+Bwy5v8s+BZ5P1LFWTE+BSv7CJjQ9uXtjeCSdXXF
- S/+PRqSjoiu6Ylb3/u6FocwnENvXx8NZKzReJxdbYOe2u14HF8L88s1YuT5u80LDqv
- KOIFDgs8NBMk7oeJlac/AvSYxR6yG/C2FnCPCAxbYQo+RUWClFlHLNewbSRcX4o/U1
- 5E5GijghcFuxw==
-Received: by mail-lj1-f172.google.com with SMTP id o8so20929054ljp.0
- for <linux-riscv@lists.infradead.org>; Mon, 07 Jun 2021 00:46:12 -0700 (PDT)
-X-Gm-Message-State: AOAM531lcMLnCncfbjxu/Oa1EFHTq/z+pUGa3U47+lM6boy5WmVSxVgu
- RgrUmybOKrCdX4lcLa9k+1BIaXMB3ljIlSPhuIY=
-X-Google-Smtp-Source: ABdhPJzxueGqIP4yyWtEMyoXRqvhk8OiKmBujjKQ9JamOA13E8TTZrWry7LLQ9qEzkhD8kBUPmRAPlNuYHUWxcCixZU=
-X-Received: by 2002:a05:651c:502:: with SMTP id
- o2mr13832361ljp.105.1623051970623; 
- Mon, 07 Jun 2021 00:46:10 -0700 (PDT)
+ b=FxmLOZM5r4Z7GtFixysiILFJTjRWbjbsEs7+jojonhIuOUMLae2X86XjlksRQ5ItZ
+ Kp2HLKf3hcq7htEBpNBiljaaA0b8EQt5akMDMCJIotNGyl5UPwG+jI6yUpPh3et0b2
+ Nr4zEMKyO2dzXmvFuISpk7OjS+IoUa1mw+c32lciZ1Yz69tEKRHYivY0wXJB8VvxuV
+ 2KACYptzrizLvKJH8Ke9yVZ7BXy3dT1r+E+my3CVoV61LYAgNUm5oWIMfGhVgRNc1l
+ GDHIoWE7a8/w4ZcUjJJZHCGPyL6q7GBOTQsOP+QqXJzGgdW7CR6Ol3csV4KeLNJqw8
+ aWtYQYO0/o0yg==
+Received: by mail-lj1-f173.google.com with SMTP id s22so467194ljg.5
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Jun 2021 00:46:29 -0700 (PDT)
+X-Gm-Message-State: AOAM530qvrPo9fdt4UWgDlV9G5CZfboW276NHw7zvccnu7mcQzMhuXhs
+ 6eWB4FuR/D80E5F0+pJiHGLw16rOH7uEhG4JH28=
+X-Google-Smtp-Source: ABdhPJxL4zA7EQ2YHPHcUCPx8//5Y1q0itGfKI8bjok0Q3XogGDj6ywZVtGkP4ihvSlwi8LNJxqiz/MEyp7tBn9b04E=
+X-Received: by 2002:a2e:900f:: with SMTP id h15mr12585106ljg.285.1623051988136; 
+ Mon, 07 Jun 2021 00:46:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
- <1622970249-50770-14-git-send-email-guoren@kernel.org>
- <20210607071916.kwdbtafbqp3icgia@gilmour>
- <CAK8P3a0YVh5T8MmUcAAjhxGBhNm_OeZq9S=rwAsZVMJNAttyOw@mail.gmail.com>
-In-Reply-To: <CAK8P3a0YVh5T8MmUcAAjhxGBhNm_OeZq9S=rwAsZVMJNAttyOw@mail.gmail.com>
+References: <CAJF2gTTjwB4U-NxCtfgMA5aR2HzoQtA8a51W5UM1LHGRbjz9pg@mail.gmail.com>
+ <20210519064435.GA3076809@x1> <20210519065352.GA31590@lst.de>
+ <CAJF2gTR4FXRbp7oky-ypdVJba6btFHpp-+dPyJStRaQX_-5rzg@mail.gmail.com>
+ <29733b0931d9dd6a2f0b6919067c7efe@mailhost.ics.forth.gr>
+ <CAJF2gTTpSbNWS4VLHAu4XsV5-Vos=6R9MmPOx8-yzMFJu=wX4A@mail.gmail.com>
+ <a8f2e68dcc1a6eb1ff3b95fcb8d0d0d2@mailhost.ics.forth.gr>
+ <CAJF2gTQuQ5bE6HeGSoNaDynA0o3+KEo4snwft42YGzE=+DjKOQ@mail.gmail.com>
+ <20210607062701.GB24060@lst.de>
+ <CAJF2gTRZuER5YbTD=0xWLU0Np6eD8L_z3rZH0i_WXgENUD3nbQ@mail.gmail.com>
+ <20210607065108.GA24872@lst.de>
+In-Reply-To: <20210607065108.GA24872@lst.de>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 7 Jun 2021 15:45:58 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQxVHYS8m4pWekttRCSbE8O6g7ySDs5YJ=-BtqXZwvYBQ@mail.gmail.com>
-Message-ID: <CAJF2gTQxVHYS8m4pWekttRCSbE8O6g7ySDs5YJ=-BtqXZwvYBQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 10/11] riscv: soc: Add Allwinner SoC kconfig option
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Maxime Ripard <maxime@cerno.tech>, Anup Patel <anup.patel@wdc.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Chen-Yu Tsai <wens@csie.org>, 
- Drew Fustini <drew@beagleboard.org>, liush@allwinnertech.com, 
- =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, wefu@redhat.com, 
+Date: Mon, 7 Jun 2021 15:46:16 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTR2koLW2si-VsYDh5D9DCX=1e-tGvwgj=MExva94+gC4Q@mail.gmail.com>
+Message-ID: <CAJF2gTR2koLW2si-VsYDh5D9DCX=1e-tGvwgj=MExva94+gC4Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/3] riscv: Add DMA_COHERENT support
+To: Christoph Hellwig <hch@lst.de>
+Cc: Nick Kossifidis <mick@ics.forth.gr>, Drew Fustini <drew@beagleboard.org>, 
+ Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-arch <linux-arch@vger.kernel.org>, 
  linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
- Atish Patra <atish.patra@wdc.com>, Christoph Hellwig <hch@lst.de>
+ Paul Walmsley <paul.walmsley@sifive.com>, Benjamin Koch <snowball@c3pb.de>, 
+ Matteo Croce <mcroce@linux.microsoft.com>, Wei Fu <tekkamanninja@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210607_004612_916637_9723D70C 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20210607_004630_204868_D5A16770 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +100,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 7, 2021 at 3:29 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Mon, Jun 7, 2021 at 2:51 PM Christoph Hellwig <hch@lst.de> wrote:
 >
-> On Mon, Jun 7, 2021 at 9:20 AM Maxime Ripard <maxime@cerno.tech> wrote:
-> > On Sun, Jun 06, 2021 at 09:04:08AM +0000, guoren@kernel.org wrote:
->
-> > > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > > index ed96376..055fb3e 100644
-> > > --- a/arch/riscv/Kconfig.socs
-> > > +++ b/arch/riscv/Kconfig.socs
-> > > @@ -69,4 +69,16 @@ config SOC_CANAAN_K210_DTB_SOURCE
-> > >
-> > >  endif
-> > >
-> > > +config SOC_SUNXI
-> > > +     bool "Allwinner SoCs"
-> > > +     depends on MMU
-> > > +     select DWMAC_GENERIC
-> > > +     select SERIAL_8250
-> > > +     select SERIAL_8250_CONSOLE
-> > > +     select SERIAL_8250_DW
-> > > +     select SIFIVE_PLIC
-> > > +     select STMMAC_ETH
-> > > +     help
-> > > +       This enables support for Allwinner SoC platforms like the D1.
-> > > +
+> On Mon, Jun 07, 2021 at 02:41:14PM +0800, Guo Ren wrote:
+> > Double/Triple the size of physical memory regions can't be accepted by
+> > SOC vendors, because it wastes HW resources.
+> > Some cost-down soc interconnects only have 32bit~34bit width of
+> > physical address, are you sure you could force them to expand it? (I
+> > can't)
 > >
-> > We probably don't want to select DWMAC, STMMAC_ETH and the 8250 options,
-> > looks good otherwise.
+> > > or somewhat dynamic.
+> > How can HW implement with dynamic modifying PMA? What's the granularity?
 >
-> Correct: those subsystems may be completely disabled, which would lead to a
-> build failure, and a platform should not force-enable drivers or
-> subsystems unless
-> those are build time dependencies.
->
->        Arnd
+> I'm just stating the requirements from the Linux DMA perspective.  You
+> also do not need tripple the address space, just double.
 
-I see, thx. how about just leave. I think the user would make mistakes
-and waste time here.
-select SERIAL_8250_DW if SERIAL_8250
+With double, you only got "strong order + non-cache" for the DMA
+descriptor. How about write-combine scenario?
 
--- 
+Even, double physical memory address space also wastes HW resources.
+
+
+
+
+--
 Best Regards
  Guo Ren
 
