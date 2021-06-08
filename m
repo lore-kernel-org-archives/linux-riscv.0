@@ -2,87 +2,142 @@ Return-Path: <SRS0=YeFR=LC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DBC29C47082
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 05:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A58CDC47082
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 07:25:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C0B56127A
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 05:45:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C0B56127A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5A8F561073
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 07:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A8F561073
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=synaptics.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q7OTIND1OycgKUuUYIQ0HdlvW2iE//Xvf/GoY68hc5g=; b=sG5UGYpZgNfzAW
-	6FLQyuBDSk6u0ct5Vl/aHMcuwqpzr8Q41r9HOkDjHEi+TH4PDGs77qSPfr99LEwF9nm11+NfcqSo7
-	ppQcpiJU25FfZMzyuC5ihDRLHEnnFR1Tbddd2dFzZOI64BjmxIQXdYtegi5Ej2tzPwNg3Y6/VE3sL
-	hqaAks7ZHLv+f6yIMXftHCuK0pv5nB1HcX5rJcppIKUjwGxE77onghyvo5vnlrfQFl+VPdr273hH0
-	K3mEavOUa1OIsx/DlPsFaHQZHuzxpc9bHrDud1Sc+Vd1dbkQvLECCXCd6zqN1wNt/OciGZFNO85dW
-	GPoRLYHyci4/hoQ/0BJg==;
+	List-Owner; bh=SfXe3Z/5RDWLtVDqB8sfFVedOUQIAldohKT32VwQr0s=; b=gxGNjUWdbQt5o8
+	b+6VBQ7qEFQpYYHziXm8h/MA35QWUwYIsJIIfWJY+iyA94AdAQs62kYqbybpCSKmfxsCDPQs5KvMS
+	/2yd8z1iLHHsyFTMtHtlkxIZKcNLVM2D4IYlOiUTVYG77D6ejzVBQ/82jflgU4ALF1CRwxTGPi6mq
+	S7le/Ttrcf2W0IyQHCuQwqGQXk0Cp38ACfAUh5i2qrnko5pLkdM3ngfiLD7NBV3yfUOGquFpw5/HN
+	4hEGYeVuWE6wZ3166f6OHdF9CnPtaUZ+JS1UAJMuOfTZ6Pxcc8q6r4JQi4W25YNHtZRQKsV9O7oTv
+	nM1uTqvCRkAGdQXMzX9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqUYS-006ZxY-0a; Tue, 08 Jun 2021 05:45:36 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lqW6N-006qh8-Jt; Tue, 08 Jun 2021 07:24:43 +0000
+Received: from mail-dm6nam10on2048.outbound.protection.outlook.com
+ ([40.107.93.48] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqUYC-006ZtI-Jn; Tue, 08 Jun 2021 05:45:21 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C5D8361029;
- Tue,  8 Jun 2021 05:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623131119;
- bh=49fVzdt4MSY+UspP64EgJQ791zimRP1gxTciSlJZXt4=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=G0Rtshf8pvTrv3vEhpsoWQuj5JjeNYokUzfYJ5STkCXI/OnFwZ+jzE319giZq9upk
- Ip6wZYmg/mXX1RsKoBHJISuKRrHfu3i7LKK8o6lrdj3F/wsMYKU4KSiTq0yf0Te/9Y
- EXkEDnDuymhI/7Es9g0unojNazWzSj6FWZpsSVsuRv7SkD+TKqrUPOkH42sn/s2o3k
- YyeAtmie679nER7vSNNhYu+t0T8vpaLE8THVLmZUT2dI3k363OIVX5xgUfeXV7EiTs
- ihyAaoDmjCZhWOCiJEmXQBaJ0yMnS1SK6yRX7SpN+JL1ZvqVGV5DXW68K81QTP/SNc
- ubRqN6fNQU7pg==
-Date: Tue, 8 Jun 2021 08:45:07 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Richard Henderson <rth@twiddle.net>,
- Vineet Gupta <vgupta@synopsys.com>, kexec@lists.infradead.org,
- alpha <linux-alpha@vger.kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Linux MM <linux-mm@kvack.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- arcml <linux-snps-arc@lists.infradead.org>,
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- sparclinux <sparclinux@vger.kernel.org>
-Subject: Re: [PATCH v2 8/9] mm: replace CONFIG_NEED_MULTIPLE_NODES with
- CONFIG_NUMA
-Message-ID: <YL8D47Ty8iXZJsK3@kernel.org>
-References: <20210604064916.26580-1-rppt@kernel.org>
- <20210604064916.26580-9-rppt@kernel.org>
- <CAMuHMdVa29gUQAdHjKh-qDNpOJaoGwXtUkBM2qnOTi1DWV70xA@mail.gmail.com>
+ id 1lqW6K-006qgA-Ln
+ for linux-riscv@lists.infradead.org; Tue, 08 Jun 2021 07:24:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZqlqRD2fTJByTY7dol34WBo2An/PyfWzOlepXuoKuhMpKqz3Up/cPsVR88PqByoZEyzAcOsQiMQxFCAAH7Rl5iaGQTarxe1fOHjzxpIYtX5ahqEIrX0X/X/x7EsiG7T4j8WzVW3jCbPuoMdxfpsgpqx/Co5snr9ragDwI77pxS6ZPtuOfW/mNf+GYStUSozp5drpuKMZqHEYCg3r2aYKMDEusYq+aBh0trbJ4Vb632E14V7hL+Dhg9W0x8iT3FSndoIW++f877bfLQJ96ntbzEkjqOqwd9ogG95UgHPnbfmQ1HYJC88s34waOm775RZPQWMj+3RCthqRvgY53J3atw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K9iufL7HbpDDcJY1BA63yvDZ6PVmiejL3UYYj+309Yk=;
+ b=cVPrl8IUdK3Y94lGzCnWj5Y1HFicypQ0afUyc1yrgWK3tprjmETGobaKx7gLIgSsdE2RQnPOdhsDqsl3tBiZ9UsMqwAPb23QbZKhtSP20UXtwhabTevJln4dVw2SBiGd3spdUrpVLCEKl0h0A65lYQsNYocSSl/o1OuiduaM2diKZai/UFRF2guHxsgz551JSwLbj3Zf0LdJO3OZk59FfNauAooNLW9eixt9DZlbs/38mqKNkflJGmQreG+hm/4vemvzcidZ9jqa/EPwxkvmyy2BDc+iU+pSP5pEyj0cOMbiGV9A/1aWlBTxPy+4TiXnLc/f9MkWKKsNXUqbzW/2/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synaptics.com; dmarc=pass action=none
+ header.from=synaptics.com; dkim=pass header.d=synaptics.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Synaptics.onmicrosoft.com; s=selector2-Synaptics-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K9iufL7HbpDDcJY1BA63yvDZ6PVmiejL3UYYj+309Yk=;
+ b=ksKD1V6HXu3j8V6DPE00TYUIqm7kXc+vH9vRT+eQgpayihsukuprpC2JsovCfHb64AOgIvLMWXOswRSFmrzakVdfvd8Vhpq941f2Ddjp627h3Y+TLQyxFbBLRAcTohZKrXqjoGXNd0E9zuHS6P7NZ6cydr+wrCblIkaTHl9M3SM=
+Authentication-Results: konsulko.com; dkim=none (message not signed)
+ header.d=none; konsulko.com; dmarc=none action=none header.from=synaptics.com; 
+Received: from BN9PR03MB6058.namprd03.prod.outlook.com (2603:10b6:408:137::15)
+ by BN9PR03MB6138.namprd03.prod.outlook.com (2603:10b6:408:11b::18)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.24; Tue, 8 Jun
+ 2021 07:24:34 +0000
+Received: from BN9PR03MB6058.namprd03.prod.outlook.com
+ ([fe80::502a:5487:b3ee:f61c]) by BN9PR03MB6058.namprd03.prod.outlook.com
+ ([fe80::502a:5487:b3ee:f61c%4]) with mapi id 15.20.4219.021; Tue, 8 Jun 2021
+ 07:24:34 +0000
+Date: Tue, 8 Jun 2021 15:24:21 +0800
+From: Jisheng Zhang <Jisheng.Zhang@synaptics.com>
+To: Vitaly Wool <vitaly.wool@konsulko.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang
+ <jszhang3@mail.ustc.edu.cn>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv
+ <linux-riscv@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: code patching only works on !XIP_KERNEL
+Message-ID: <20210608152406.36a973d0@xhacker.debian>
+In-Reply-To: <CAM4kBBK1BJSE-LeDiEJL-z+tgZMi6Zcb+6AnnQiB8ceaU98k0w@mail.gmail.com>
+References: <CAM4kBBJqF=AxTu50PF=EshLSyqn0=yeC2dwf4JJj_Grsi_Tccg@mail.gmail.com>
+ <mhng-1c10179a-d96b-4cf1-860a-03f0313ac980@palmerdabbelt-glaptop>
+ <CAM4kBBK1BJSE-LeDiEJL-z+tgZMi6Zcb+6AnnQiB8ceaU98k0w@mail.gmail.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+X-Originating-IP: [192.147.44.204]
+X-ClientProxiedBy: SJ0PR03CA0206.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::31) To BN9PR03MB6058.namprd03.prod.outlook.com
+ (2603:10b6:408:137::15)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdVa29gUQAdHjKh-qDNpOJaoGwXtUkBM2qnOTi1DWV70xA@mail.gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from xhacker.debian (192.147.44.204) by
+ SJ0PR03CA0206.namprd03.prod.outlook.com (2603:10b6:a03:2ef::31) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.22 via Frontend
+ Transport; Tue, 8 Jun 2021 07:24:31 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: d8bc3d18-e134-4ae9-6cae-08d92a4e76e6
+X-MS-TrafficTypeDiagnostic: BN9PR03MB6138:
+X-Microsoft-Antispam-PRVS: <BN9PR03MB6138DB5A47806DE1D379A112ED379@BN9PR03MB6138.namprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: RyRVrn8STPFExruiM6LgplmoF+jWq0N7p1470o9z17zgCxKRfQriDdMs1aMD8yxHrmWm5uUB20Z4hFQx4Gbk25fAqZI5/xcwoqKElZokHoRNUNph0jWQnJ2vebHgmFpsSgfox1+FPlFRUfGnS367SZ38EZAkZMN2b7Ff3jiEWF/3rThOYp0jP+FKf5+ENWL1lacvVLrbyFIiSBL1XllE0/a0ixVSw6WW4h/eHfc8c5FzIEY5GaYAwZi+BYCAd25eje7NRIgiLE3j565RWs4TDggouBDPK13PoRbMRjSbw7BfTUhOMy5SuWRNLNTWobCnYN0krLm3i3xKlcKOUwFcr6m/n72BwyqYAiNV49Sg/buhnAC/aEr3mTis7kSnJh2eMTIbT0mgNieftdaGQv9d2w0mMJTrQy9acAHSQggrKhdzby1BnYw54rWYP1nfIcpVJAthXNPqpMSU2YU1o8ABQCrD3ngpqBDlsp1BznOI+w+ZvwOgiyZAKGUguFmtcg0eEQpCkX9GwT0R5i6jxuZ4cym5Zc/OAnFwA8my0W+tQEIMYqmmsNeRtS9rTFGdAg9nidqLxcL+pfU5mlnPZ50RaSoWqPQ4MUCkw6sGDfO3V4NEVUYsajP69GO+60X7N2nfAGs79l47iUo/x1ex3KuFDpUd0YTKRALAS32gWkxvhRM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BN9PR03MB6058.namprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(346002)(366004)(396003)(376002)(136003)(39850400004)(66476007)(9686003)(66556008)(5660300002)(2906002)(1076003)(38100700002)(956004)(38350700002)(7696005)(8676002)(6506007)(55016002)(53546011)(52116002)(66946007)(8936002)(186003)(54906003)(6916009)(16526019)(86362001)(316002)(6666004)(478600001)(4326008)(83380400001)(26005);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZJ+7NUhSZCzqu+C+urZZfGqYxIXwYU3Dq1GthzjDbaYcBkHOLJCPTobDuNqZ?=
+ =?us-ascii?Q?8Zgd5CqkxG1AARy8AXnJv6ifPsq7Gqh7XxjFSORvOOZx26YUvAY+mRiTL8Vr?=
+ =?us-ascii?Q?tp5E1N3FUkc+75p+UruvVhkMmhviAMLSk6x+zf1RS/EfmRfRMZXzZCojr2Ee?=
+ =?us-ascii?Q?HHWwUDlZNu/8a2R0ydT1wA3zyZOC/YxRlyFJLxG2Ux2cUtTBxG5WD93BwBCW?=
+ =?us-ascii?Q?QkpAqUYxp3pdEhZtr8bIHzngkmTuM0UjScSFSZOyvrW/LJacgt0Y5OWcycgK?=
+ =?us-ascii?Q?xbkmUlfFuz5sLWBUbj8B13Oi5cOqpOUtwRarlhHJhEExoCFi1D9gVXD5jmq7?=
+ =?us-ascii?Q?jb09JgVD3lzMJZrqnGNhq6TkdXnoCBWGf7RnopgMyKDFf23eqZcqO8uo4fTg?=
+ =?us-ascii?Q?TGIxa1ET6y7WAXIVgeNNWNzukWFh1xTlhwjosM9fc0Zh1+qXzVEXX7OuDjdA?=
+ =?us-ascii?Q?/Mx51QkwTFvkBWI6wgdd5i6z2OPmv8uswxmOjMAz8WN62d/cOhXc/LnAuZ21?=
+ =?us-ascii?Q?9mkcTV5bh/odRuWDA6RPTHmSga8K1Vhxw+B46sDSJEuCDf5gwIZe0y0lRGSX?=
+ =?us-ascii?Q?rxn4h0JKdLNtYwh9VE4RGtOgat2hwD1NgaVpy942bwCvR56Q34P2jsA1jndV?=
+ =?us-ascii?Q?QJ6+bHic88qHnapH53m7X7gGn6f+pXSMsrcEoXhFddk+ZEBfp38Agi0/2Tv1?=
+ =?us-ascii?Q?XcfE20yxRCLb8sty74cnGo7W5fqXSoZVqtrN5BdoHkZtFfwAxGrzh5xa2JF8?=
+ =?us-ascii?Q?q6qIWaLNyhZ8yie8RUabGtl9qcznIQEZSLw+cU5MJO0orNMj0OeDmHUyd8/b?=
+ =?us-ascii?Q?7OgaOfnwFa/5omaN9zdW/GsUeyugIsas9Z1oz2MR4oy2bdc0mcrbOTzHAzzF?=
+ =?us-ascii?Q?Ntio5zAgqtQoWm/LQ93DE8/DshlCisoIGcJLjgV4i8pwczB4MzHdHq9cjk7V?=
+ =?us-ascii?Q?Xwtm6W7XWQCMZs5HsP0pw35ib0wHApPpDXQCo7n1jaQKATkU4M8yyJd/gnvd?=
+ =?us-ascii?Q?idOmROdpViOm1hDNLlhtDDWaZVJKsbiDS4cVLeb5DhyDpYlLm11kN8mIbvxM?=
+ =?us-ascii?Q?H0ZusjUIIahOMmfpzdigubccFyQGPYrBIuJdvCXJEYMVfxN5Wea+zK+0a/K5?=
+ =?us-ascii?Q?cwe1qK2Q9dlGi2FMc9EmTwPfx0FRey40hvUfMmJcsyYXBCAqrjxuhlAB4XpK?=
+ =?us-ascii?Q?y+y4p2WuDKP+kgIuodJuSJkRUCNS2DI799pXuuHiWxPtDJnNEevml6dJbD/6?=
+ =?us-ascii?Q?sdZ+q7covb5asFJcQgaj7vLKOWvCqkPpFiyJvS6tvhRtm1lCzGFY+NTyrv85?=
+ =?us-ascii?Q?0dgtXWBduRPll9tKV9VNdbcT?=
+X-OriginatorOrg: synaptics.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8bc3d18-e134-4ae9-6cae-08d92a4e76e6
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR03MB6058.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jun 2021 07:24:34.1548 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335d1fbc-2124-4173-9863-17e7051a2a0e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Dc9Fm6cOMqHrDlOLWXrg6X/Hh6HR8MvMns1/VOnP0+mbM70Wyqoef0Y3HvuLjcjdoyymhG92j9CR/KIrKN+jlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR03MB6138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210607_224520_707166_61E5C795 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20210608_002440_802235_21DC9B15 
+X-CRM114-Status: GOOD (  32.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,70 +154,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 24 May 2021 21:32:38 +0200
+Vitaly Wool <vitaly.wool@konsulko.com> wrote:
 
-On Mon, Jun 07, 2021 at 10:53:08AM +0200, Geert Uytterhoeven wrote:
-> Hi Mike,
-> 
-> On Fri, Jun 4, 2021 at 8:50 AM Mike Rapoport <rppt@kernel.org> wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> >
-> > After removal of DISCINTIGMEM the NEED_MULTIPLE_NODES and NUMA
-> > configuration options are equivalent.
-> >
-> > Drop CONFIG_NEED_MULTIPLE_NODES and use CONFIG_NUMA instead.
-> >
-> > Done with
-> >
-> >         $ sed -i 's/CONFIG_NEED_MULTIPLE_NODES/CONFIG_NUMA/' \
-> >                 $(git grep -wl CONFIG_NEED_MULTIPLE_NODES)
-> >         $ sed -i 's/NEED_MULTIPLE_NODES/NUMA/' \
-> >                 $(git grep -wl NEED_MULTIPLE_NODES)
-> >
-> > with manual tweaks afterwards.
-> >
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> Thanks for your patch!
-> 
-> As you dropped the following hunk from v2 of PATCH 5/9, there's now
-> one reference left of CONFIG_NEED_MULTIPLE_NODES
-> (plus the discontigmem comment):
 
-Aargh, indeed. Thanks for catching this.
+> 
+> 
+> On Sat, May 22, 2021 at 7:15 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >
+> > On Mon, 10 May 2021 11:19:30 PDT (-0700), vitaly.wool@konsulko.com wrote:  
+> > > On Mon, May 10, 2021 at 6:35 PM Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:  
+> > >>
+> > >> From: Jisheng Zhang <jszhang@kernel.org>
+> > >>
+> > >> Some features which need code patching such as KPROBES, DYNAMIC_FTRACE
+> > >> KGDB can only work on !XIP_KERNEL. Add dependencies for these features
+> > >> that rely on code patching.  
+> > >
+> > > Since we can define extra RW sections to place some tiny code bits in
+> > > RAM, I would suggest that you hold back this patch for a while.
+> > > I am not going to support the idea of e. g. compiling KGDB support
+> > > into a XIP kernel, but disabling the whole HAVE_ARCH_JUMP_LABEL is
+> > > hardly the way to go.  
+> >
+> > Do you have any updates on this?  The SOC_SIFIVE disable thread floated
+> > back to the top of my inbox and I didn't see anything there.  I'd prefer
+> > to avoid chasing around Kconfig disables for a bunch of stuff that we're
+> > just going to fix soon, but if this is going to be a big change then
+> > it's likely for next cycle anyway so in that case I'll start picking up
+> > these compile disable patches.  
+> 
+> Sorry, was caught up in fixing other stuff but now I'm on it so expect
+> some updates soon.
 
-And I wondered why you suggested to fix spelling in cover letter for v3 :)
- 
-> -diff --git a/mm/memory.c b/mm/memory.c
-> -index f3ffab9b9e39157b..fd0ebb63be3304f5 100644
-> ---- a/mm/memory.c
-> -+++ b/mm/memory.c
-> -@@ -90,8 +90,7 @@
-> - #warning Unfortunate NUMA and NUMA Balancing config, growing
-> page-frame for last_cpupid.
-> - #endif
-> -
-> --#ifndef CONFIG_NEED_MULTIPLE_NODES
-> --/* use the per-pgdat data instead for discontigmem - mbligh */
-> -+#ifdef CONFIG_FLATMEM
-> - unsigned long max_mapnr;
-> - EXPORT_SYMBOL(max_mapnr);
-> -
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
-> -- 
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
+Hi Vitaly,
 
--- 
-Sincerely yours,
-Mike.
+Based on your "[PATCH] riscv: xip: support runtime trap patching", IMHO, it
+solves ERRATA patching issue(And it makes use of the fact that the ERRATA
+only touches traps at the moment), but can't make code patching tech such as
+KPROBES, DYNAMIC_FTRACE etc. work properly, so my patch is still needed.
+
+What do you think?
+
+Regards
+
+> 
+> Best regards,
+>    Vitaly
+> 
+> > Not trying to rush any thing here, just don't want to have a bunch of
+> > broken configs.
+> >  
+> > >
+> > > Best regards,
+> > >    Vitaly
+> > >  
+> > >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > >> ---
+> > >> Hi,
+> > >>
+> > >> Currently, the RISCV_ERRATA_ALTERNATIVE also only works on !XIP_KERNEL
+> > >> but from the maillist it seem there's effort to make the co-exist, so
+> > >> I drop RISCV_ERRATA_ALTERNATIVE dependency on !XIP_KERNEL.
+> > >>
+> > >> Thanks
+> > >>
+> > >>  arch/riscv/Kconfig | 18 +++++++++---------
+> > >>  1 file changed, 9 insertions(+), 9 deletions(-)
+> > >>
+> > >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > >> index a8ad8eb76120..61320b94ef97 100644
+> > >> --- a/arch/riscv/Kconfig
+> > >> +++ b/arch/riscv/Kconfig
+> > >> @@ -60,11 +60,11 @@ config RISCV
+> > >>         select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+> > >>         select HANDLE_DOMAIN_IRQ
+> > >>         select HAVE_ARCH_AUDITSYSCALL
+> > >> -       select HAVE_ARCH_JUMP_LABEL
+> > >> -       select HAVE_ARCH_JUMP_LABEL_RELATIVE
+> > >> +       select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
+> > >> +       select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
+> > >>         select HAVE_ARCH_KASAN if MMU && 64BIT
+> > >>         select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
+> > >> -       select HAVE_ARCH_KGDB
+> > >> +       select HAVE_ARCH_KGDB if !XIP_KERNEL
+> > >>         select HAVE_ARCH_KGDB_QXFER_PKT
+> > >>         select HAVE_ARCH_MMAP_RND_BITS if MMU
+> > >>         select HAVE_ARCH_SECCOMP_FILTER
+> > >> @@ -79,9 +79,9 @@ config RISCV
+> > >>         select HAVE_GCC_PLUGINS
+> > >>         select HAVE_GENERIC_VDSO if MMU && 64BIT
+> > >>         select HAVE_IRQ_TIME_ACCOUNTING
+> > >> -       select HAVE_KPROBES
+> > >> -       select HAVE_KPROBES_ON_FTRACE
+> > >> -       select HAVE_KRETPROBES
+> > >> +       select HAVE_KPROBES if !XIP_KERNEL
+> > >> +       select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+> > >> +       select HAVE_KRETPROBES if !XIP_KERNEL
+> > >>         select HAVE_PCI
+> > >>         select HAVE_PERF_EVENTS
+> > >>         select HAVE_PERF_REGS
+> > >> @@ -230,11 +230,11 @@ config ARCH_RV64I
+> > >>         bool "RV64I"
+> > >>         select 64BIT
+> > >>         select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
+> > >> -       select HAVE_DYNAMIC_FTRACE if MMU && $(cc-option,-fpatchable-function-entry=8)
+> > >> +       select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
+> > >>         select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> > >> -       select HAVE_FTRACE_MCOUNT_RECORD
+> > >> +       select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+> > >>         select HAVE_FUNCTION_GRAPH_TRACER
+> > >> -       select HAVE_FUNCTION_TRACER
+> > >> +       select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+> > >>         select SWIOTLB if MMU
+> > >>
+> > >>  endchoice
+> > >> --
+> > >> 2.31.0
+> > >>
+> > >>
+> > >>
+> > >> _______________________________________________
 
 _______________________________________________
 linux-riscv mailing list
