@@ -2,78 +2,81 @@ Return-Path: <SRS0=YeFR=LC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F474C47082
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 09:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8AE7C47082
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 11:49:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0FEF561249
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 09:23:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0FEF561249
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id A55EB6139A
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Jun 2021 11:49:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A55EB6139A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=doPY5YFVof31/5L3f7PPE7KBlRNK8SQdl+A4z0wELno=; b=msrVtWxk7SIcLF
-	asv2caYMenFB87zrV6tVLAW5go/HExatrjYp1iXpqSdA+kqRZU22D4O2gQFTF4Y98CLDTlqxr6ApL
-	p8BG9Ca++fopJPuATCUELOZWuezfxYNW0C2WjRJR904QeXWmOGHh0m8SqrDUlQZ0zf59MDri4jwI1
-	GRpi4wCiHasLU7jV5sJcyDDai9BFx6vr/7yKtPfqr7hOAiwGdDwrbNOn5JCc8nl4JdPy/MgMhBT3P
-	XH0TUWoa4d42yed3O6tLej2wKVurk0DEoitMNco3HpTVMBDIjbYokpUmK1x6MX/eKYTfX5ofvO+Nk
-	H5rNQwiOY0JcbqiB2g2A==;
+	List-Owner; bh=HAa35qKxpCH9pgJPHoBjgbKe35BlKge8fam5nN8C+VY=; b=oaFnFSvHD8WB1l
+	01z4KYC73VE7G9N80WoYueo5zcu0oakBfwANF4WE4+LXdQl88dZ/F756uNM0h6YrfgfNajTK00K34
+	CAGvCy/OOVu4e1uuJQwj4JRRpK9TAoZbcmCVeqTUPsIh3udTureiCu3sfo/0V9hM9ysjRtSG80Ya7
+	uTLukZyXt05aRmpeKvmLiti1JOC9nMhfC0I4q1QGQPCIqu4b16I2fTNMPn6ywGi9MDXR/R7Hwyv4Y
+	40NAI6JH9OkE4qVGL7g40F0Vzi7bU/44qAMfDp6n6/5NDKgChRnEmFjpgfb6qQg0MQe+mQvQAJN27
+	D62K6qAlu3qMPpSo1qIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqXwj-007MIH-QB; Tue, 08 Jun 2021 09:22:53 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqXob-007Hkd-9P; Tue, 08 Jun 2021 09:14:30 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B55CA61278;
- Tue,  8 Jun 2021 09:14:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623143668;
- bh=lDEh/GlZ6IHzCVgoifZXFj4eSjBGzRR223ZmBbEbu7M=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=CBfKZuYBhfUYXhnu1/Q+GcZTRvIyVwqk4OlKe/GEc17t/9vnTzCn3+6STQ5/LrWyP
- 8QFWfCwt8RuCmCYqGrfuMUYMf8TuGEDAHwre0FfL8FXqeF48qkGpvZpcwYFJzt4XGO
- JcyHuTpulyjZnXu14di6K2Cf1M5TiHD6xEeC+2cmnNhaNtpIQyCSjOB8JNJfb/PPQ1
- Wb5J09t+fossaPoReHqWdEdSkJJqD+/z2/L/BHoqjkvy/9MBHHgzSbkeuZ/ex8Dz0T
- 0m07Bad0h9qq0FDqyCIiuAFw81XELQT4ubN6MTX3ywS0SdKnkYIQnokWOfWnAoSsd0
- DZubZDkPDz+fA==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>,
- Mike Rapoport <rppt@kernel.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Richard Henderson <rth@twiddle.net>, Vineet Gupta <vgupta@synopsys.com>,
- kexec@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
-Subject: [PATCH v3 9/9] mm: replace CONFIG_FLAT_NODE_MEM_MAP with
- CONFIG_FLATMEM
-Date: Tue,  8 Jun 2021 12:13:16 +0300
-Message-Id: <20210608091316.3622-10-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20210608091316.3622-1-rppt@kernel.org>
-References: <20210608091316.3622-1-rppt@kernel.org>
+	id 1lqaEN-0087IX-4U; Tue, 08 Jun 2021 11:49:15 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lqZxT-008375-7S
+ for linux-riscv@lists.infradead.org; Tue, 08 Jun 2021 11:31:49 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-237-4PJJ-y6jPCSvRvqvFJVMeA-1; Tue, 08 Jun 2021 12:31:41 +0100
+X-MC-Unique: 4PJJ-y6jPCSvRvqvFJVMeA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
+ Server (TLS) id 15.0.1497.18; Tue, 8 Jun 2021 12:31:40 +0100
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.018; Tue, 8 Jun 2021 12:31:40 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Akira Tsukamoto' <akira.tsukamoto@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Gary Guo <gary@garyguo.net>, Nick Hu
+ <nickhu@andestech.com>, Nylon Chen <nylon7@andestech.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "Linux
+ kernel mailing list" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 1/1] riscv: prevent pipeline stall in
+ __asm_to/copy_from_user
+Thread-Topic: [PATCH 1/1] riscv: prevent pipeline stall in
+ __asm_to/copy_from_user
+Thread-Index: AQHXWSgp7oRD1A6yb0KBcJjcvPCgrasJ/Lbg
+Date: Tue, 8 Jun 2021 11:31:40 +0000
+Message-ID: <67dab8dc517f4add8b0c29074a6b3f06@AcuMS.aculab.com>
+References: <CACuRN0NjftJDUAsF2pkXbx0jnJ=bba9+j-hJA8Mjj0r4RVicLA@mail.gmail.com>
+ <CACuRN0Pd8VFTz55qzXvJeqOEt2ZGi--j1wDyqnAt=q_42ES++w@mail.gmail.com>
+In-Reply-To: <CACuRN0Pd8VFTz55qzXvJeqOEt2ZGi--j1wDyqnAt=q_42ES++w@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210608_021429_416254_FFDBAFB2 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20210608_043147_601224_0FDA915B 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,120 +93,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+From: Akira Tsukamoto
+> Sent: 04 June 2021 10:57
+> 
+> Reducing pipeline stall of read after write (RAW).
+> 
+> These are the results from combination of the speedup with
+> Gary's misalign fix. Speeds up from 680Mbps to 900Mbps.
+> 
+> Before applying these two patches.
 
-After removal of the DISCONTIGMEM memory model the FLAT_NODE_MEM_MAP
-configuration option is equivalent to FLATMEM.
+I think the changes should be in separate patches.
+Otherwise it is difficult to see what is relevant.
+It also looks as if there is a register rename.
+Maybe that should be a precursor patch?
+...
 
-Drop CONFIG_FLAT_NODE_MEM_MAP and use CONFIG_FLATMEM instead.
+I think this is the old main copy loop:
+>  1:
+> -    fixup REG_L, t2, (a1), 10f
+> -    fixup REG_S, t2, (a0), 10f
+> -    addi a1, a1, SZREG
+> -    addi a0, a0, SZREG
+> -    bltu a1, t1, 1b
+and this is the new one:
+>  3:
+> +    fixup REG_L a4,       0(a1), 10f
+> +    fixup REG_L a5,   SZREG(a1), 10f
+> +    fixup REG_L a6, 2*SZREG(a1), 10f
+> +    fixup REG_L a7, 3*SZREG(a1), 10f
+> +    fixup REG_L t0, 4*SZREG(a1), 10f
+> +    fixup REG_L t1, 5*SZREG(a1), 10f
+> +    fixup REG_L t2, 6*SZREG(a1), 10f
+> +    fixup REG_L t3, 7*SZREG(a1), 10f
+> +    fixup REG_S a4,       0(t5), 10f
+> +    fixup REG_S a5,   SZREG(t5), 10f
+> +    fixup REG_S a6, 2*SZREG(t5), 10f
+> +    fixup REG_S a7, 3*SZREG(t5), 10f
+> +    fixup REG_S t0, 4*SZREG(t5), 10f
+> +    fixup REG_S t1, 5*SZREG(t5), 10f
+> +    fixup REG_S t2, 6*SZREG(t5), 10f
+> +    fixup REG_S t3, 7*SZREG(t5), 10f
+> +    addi a1, a1, 8*SZREG
+> +    addi t5, t5, 8*SZREG
+> +    bltu a1, a3, 3b
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
----
- include/linux/mmzone.h | 4 ++--
- kernel/crash_core.c    | 2 +-
- mm/Kconfig             | 4 ----
- mm/page_alloc.c        | 6 +++---
- mm/page_ext.c          | 2 +-
- 5 files changed, 7 insertions(+), 11 deletions(-)
+I don't know the architecture, but unless there is a stunning
+pipeline delay for memory reads a simple interleaved copy
+may be fast enough.
+So something like:
+	a = src[0];
+	do {
+		b = src[1];
+		src += 2;
+		dst[0] = a;
+		dst += 2;
+		a = src[0];
+		dst[-1] = b;
+	} while (src != src_end);
+	dst[0] = a;
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index acdc51c7b259..1d5cafe5ccc3 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -777,7 +777,7 @@ typedef struct pglist_data {
- 	struct zonelist node_zonelists[MAX_ZONELISTS];
- 
- 	int nr_zones; /* number of populated zones in this node */
--#ifdef CONFIG_FLAT_NODE_MEM_MAP	/* means !SPARSEMEM */
-+#ifdef CONFIG_FLATMEM	/* means !SPARSEMEM */
- 	struct page *node_mem_map;
- #ifdef CONFIG_PAGE_EXTENSION
- 	struct page_ext *node_page_ext;
-@@ -867,7 +867,7 @@ typedef struct pglist_data {
- 
- #define node_present_pages(nid)	(NODE_DATA(nid)->node_present_pages)
- #define node_spanned_pages(nid)	(NODE_DATA(nid)->node_spanned_pages)
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- #define pgdat_page_nr(pgdat, pagenr)	((pgdat)->node_mem_map + (pagenr))
- #else
- #define pgdat_page_nr(pgdat, pagenr)	pfn_to_page((pgdat)->node_start_pfn + (pagenr))
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 53eb8bc6026d..2b8446ea7105 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -483,7 +483,7 @@ static int __init crash_save_vmcoreinfo_init(void)
- 	VMCOREINFO_OFFSET(page, compound_head);
- 	VMCOREINFO_OFFSET(pglist_data, node_zones);
- 	VMCOREINFO_OFFSET(pglist_data, nr_zones);
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- 	VMCOREINFO_OFFSET(pglist_data, node_mem_map);
- #endif
- 	VMCOREINFO_OFFSET(pglist_data, node_start_pfn);
-diff --git a/mm/Kconfig b/mm/Kconfig
-index bffe4bd859f3..ded98fb859ab 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -55,10 +55,6 @@ config FLATMEM
- 	def_bool y
- 	depends on !SPARSEMEM || FLATMEM_MANUAL
- 
--config FLAT_NODE_MEM_MAP
--	def_bool y
--	depends on !SPARSEMEM
+It is probably worth doing benchmarks of the copy loop
+in userspace.
+
+	David
+
 -
- #
- # SPARSEMEM_EXTREME (which is the default) does some bootmem
- # allocations when sparse_init() is called.  If this cannot
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 8f08135d3eb4..f039736541eb 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -6444,7 +6444,7 @@ static void __meminit zone_init_free_lists(struct zone *zone)
- 	}
- }
- 
--#if !defined(CONFIG_FLAT_NODE_MEM_MAP)
-+#if !defined(CONFIG_FLATMEM)
- /*
-  * Only struct pages that correspond to ranges defined by memblock.memory
-  * are zeroed and initialized by going through __init_single_page() during
-@@ -7241,7 +7241,7 @@ static void __init free_area_init_core(struct pglist_data *pgdat)
- 	}
- }
- 
--#ifdef CONFIG_FLAT_NODE_MEM_MAP
-+#ifdef CONFIG_FLATMEM
- static void __ref alloc_node_mem_map(struct pglist_data *pgdat)
- {
- 	unsigned long __maybe_unused start = 0;
-@@ -7289,7 +7289,7 @@ static void __ref alloc_node_mem_map(struct pglist_data *pgdat)
- }
- #else
- static void __ref alloc_node_mem_map(struct pglist_data *pgdat) { }
--#endif /* CONFIG_FLAT_NODE_MEM_MAP */
-+#endif /* CONFIG_FLATMEM */
- 
- #ifdef CONFIG_DEFERRED_STRUCT_PAGE_INIT
- static inline void pgdat_set_deferred_range(pg_data_t *pgdat)
-diff --git a/mm/page_ext.c b/mm/page_ext.c
-index df6f74aac8e1..293b2685fc48 100644
---- a/mm/page_ext.c
-+++ b/mm/page_ext.c
-@@ -191,7 +191,7 @@ void __init page_ext_init_flatmem(void)
- 	panic("Out of memory");
- }
- 
--#else /* CONFIG_FLAT_NODE_MEM_MAP */
-+#else /* CONFIG_FLATMEM */
- 
- struct page_ext *lookup_page_ext(const struct page *page)
- {
--- 
-2.28.0
-
-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
