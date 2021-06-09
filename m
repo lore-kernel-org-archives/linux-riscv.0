@@ -2,89 +2,75 @@ Return-Path: <SRS0=S+R5=LD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63145C47082
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E392C47082
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:26:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 25BFE61208
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:20:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 25BFE61208
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 035806136D
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:26:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 035806136D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=+n8fm9paWVEdPuo/MqgaiOv+HNw29iZVXmXIH7ulC9o=; b=zbSaZgf1ElVH8lqLWu3EKF5fui
-	Cr+m/d4rI6VVJ4ioXPPouoCSaAmqLUW9qph/rUFiqmGz4Dfl4/paQwFoWYLz3ZuXFvJ8LEw2lIE4s
-	wqBr8HxbssYJ7GPOmfKoACYbTmgNCtFNOSrCCWepF55a4veoYxLHMFMmalGxI9RDRSeuzFpMGluHy
-	fTcx6mp39hRhVgvAonHDXt7V+vkY3zdFeZRE+Re+91zIssh+yOSZ/qgvzqr+H5OV8D+YV00qpXSnk
-	Cjb/CWSv/li7Gaqpd4yIIUEvpWDcYjgcWuPtiBUYj0LCgGmeiQHDmAz+wn2YGeYphXS64k/z67q0X
-	BL5sorHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=42uetXkurBPAtSrApnKFga7y7/WhGgT9V0RW0fEmqlg=; b=ERcksc41CO5hml
+	5bfHxlZZpm3+4G2YZc2unRZD5Vy5SpCN0FZINHiLTgFjuSYBwZQai+qpL0tqzfUSsqys8e18zpJV3
+	er4bR9ATAKiNX7KahDKeIUzk1o4ehcxXkqR2LhLbtFCiaEW52Pzx63QDx/z6HcZWay2IfFTYmSFhn
+	HySqKPigFgJxwzJCthVp/CRYM4W6xsAj0nv3MsOZUs2ijJGOiWbReC/v/ppbJL8/o+ftlxE1E0YPs
+	u74AE4KeSH1H0WqDxGMm/z/FuI1FEYuGighKTxpigHnFHBu38fZ7nmHtAkbdM/Ls8cuYRneZP3cdx
+	rvUTR7l2Dk34fEAwx29w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqlwf-00ArXa-92; Wed, 09 Jun 2021 00:19:45 +0000
-Received: from mail-pf1-f181.google.com ([209.85.210.181])
+	id 1lqm2n-00Ascu-RX; Wed, 09 Jun 2021 00:26:05 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqlwc-00ArW0-Ab
- for linux-riscv@lists.infradead.org; Wed, 09 Jun 2021 00:19:43 +0000
-Received: by mail-pf1-f181.google.com with SMTP id d16so16986111pfn.12
- for <linux-riscv@lists.infradead.org>; Tue, 08 Jun 2021 17:19:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=BL8LYfLiW97gYs50mMRPWFDzO43ZPs/0nLhvyiI1l9k=;
- b=TwN6pJqmDjnw1jUF78frKPE3sQLHszqGjFRAVBbsP15o7eht+rzG9v0aT4xjB7Oi4y
- 4KHRy6xnA6ntzPCsKiXtaqInCJv35Uyvk1ntGoSG3vg6Cc595QGvVlcaFvyFV5/tMfnv
- 4laIKokxgf6or5+ToPBfFxXd8B3bxeVCslRrte5JKXpVEJ6w5vGi2o0atO52gEC74K4w
- Ay4VVIqMRCU+owvvl21mgw5JLyAFwyBKGKvEfV0KAMDi1ps/z1jCvHMZGd+AxmmRc7sl
- j6rbVn6PQgNDpk0YEyqBG42n5dOsYMvc+Sm59ws7BqIKaEUb2AZF5wpkpvszBOpvpa8D
- r6dQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=BL8LYfLiW97gYs50mMRPWFDzO43ZPs/0nLhvyiI1l9k=;
- b=BR77X5AxS3IG0iYYD12nfO+t6hHez9BX+/cf48sl6/nJ0pf4SJiYFz8GqkEJ0SqRt+
- SmXFVSETISQRPb2y/tZjVBb7hEbZUjHq730jnGDYHFTKTJUIevWwNefgi74r1DfUExiY
- iBBoSbsiiAnCszDOb9CiWh5zu7Ozo63hUz/6FTzQ1x1rmBkebs38lGRkfnFcZ/plWjEv
- 9u9gcz8t3szX/N840YClZdSC/83Vz2KY0xlWFd7rFobJC1uSf6cQ3+Pqi9dT6DZmXCOH
- 3M46tr0T3qNOQ85AZKM1GIEhzAaSar3W2/W5UTYB4EJwAsDm+aZUgkkr0NxKhOdnlF/X
- 7Qgw==
-X-Gm-Message-State: AOAM531uJlTrB9gfFMIyZcT86LUaQSosXySlVForczXSspSxuZ1egWR+
- RMy7GI2T4H3QlwYfhfTZq3tCzw==
-X-Google-Smtp-Source: ABdhPJwmp1Lk7bsoywWHJKG1fB6e9hWnUEMNIoCQ52jVaFnQVitNhNkU5zua3Ug1Kgzuz7vqyQvFPA==
-X-Received: by 2002:a65:520a:: with SMTP id o10mr920386pgp.172.1623197918663; 
- Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id j5sm10143402pgl.70.2021.06.08.17.18.37
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
-Date: Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
-X-Google-Original-Date: Tue, 08 Jun 2021 17:18:24 PDT (-0700)
-Subject: Re: [PATCH V2 1/2] riscv: Cleanup unused functions
-In-Reply-To: <1622350408-44875-2-git-send-email-guoren@kernel.org>
-CC: guoren@kernel.org, Anup Patel <Anup.Patel@wdc.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
- guoren@linux.alibaba.com
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: guoren@kernel.org
-Message-ID: <mhng-c8795d34-beda-4ef5-85fc-932ac36a726e@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1lqm2T-00AsXq-N0; Wed, 09 Jun 2021 00:25:46 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9F5CF61352;
+ Wed,  9 Jun 2021 00:25:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+ s=korg; t=1623198345;
+ bh=j6Daa0ANcHXgawdprrhhE9gPp/k5n5R1I8bzEIzLkJ4=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=SZYHTTfaMcaxuiVLTcleHa9xYaQtKKlW0lSVx8ank0QE87umgBXHwANYgV3RZTaNu
+ rf7Ir5wxGLTzdarw+lfYNOq0SOvDo1l3StstPYzKpK2C8V7G7swvSJ4cooRpaDMdu2
+ H1uHQBHkLxKC0zrfLh/KxjIWjXc3HCBsO4EPTYqY=
+Date: Tue, 8 Jun 2021 17:25:44 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>, Mike
+ Rapoport <rppt@linux.ibm.com>, Richard Henderson <rth@twiddle.net>, Vineet
+ Gupta <vgupta@synopsys.com>, kexec@lists.infradead.org,
+ linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org
+Subject: Re: [PATCH v3 8/9] mm: replace CONFIG_NEED_MULTIPLE_NODES with
+ CONFIG_NUMA
+Message-Id: <20210608172544.d9bf17549565d866fbb18451@linux-foundation.org>
+In-Reply-To: <20210608091316.3622-9-rppt@kernel.org>
+References: <20210608091316.3622-1-rppt@kernel.org>
+ <20210608091316.3622-9-rppt@kernel.org>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210608_171942_421610_171B67BD 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20210608_172545_808281_1A2B251A 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +82,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 May 2021 21:53:27 PDT (-0700), guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> These functions haven't been used, so just remove them. The patch
-> has been tested with riscv.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
->  arch/riscv/include/asm/page.h | 10 ----------
->  1 file changed, 10 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 6a7761c..a1b888f 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -37,16 +37,6 @@
->
->  #ifndef __ASSEMBLY__
->
-> -#define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
-> -#define PAGE_DOWN(addr)	((addr)&(~((PAGE_SIZE)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up/down if needed */
-> -#define _ALIGN_UP(addr, size)	(((addr)+((size)-1))&(~((size)-1)))
-> -#define _ALIGN_DOWN(addr, size)	((addr)&(~((size)-1)))
-> -
-> -/* align addr on a size boundary - adjust address up if needed */
-> -#define _ALIGN(addr, size)	_ALIGN_UP(addr, size)
-> -
->  #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
->  #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
+On Tue,  8 Jun 2021 12:13:15 +0300 Mike Rapoport <rppt@kernel.org> wrote:
 
-Thanks, this is on for-next.  I'm assuming you want the other one to go 
-through the microblaze tree, and it looks like it's already been picked 
-up.
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> After removal of DISCINTIGMEM the NEED_MULTIPLE_NODES and NUMA
+> configuration options are equivalent.
+> 
+> Drop CONFIG_NEED_MULTIPLE_NODES and use CONFIG_NUMA instead.
+> 
+> Done with
+> 
+> 	$ sed -i 's/CONFIG_NEED_MULTIPLE_NODES/CONFIG_NUMA/' \
+> 		$(git grep -wl CONFIG_NEED_MULTIPLE_NODES)
+> 	$ sed -i 's/NEED_MULTIPLE_NODES/NUMA/' \
+> 		$(git grep -wl NEED_MULTIPLE_NODES)
+> 
+> with manual tweaks afterwards.
+> 
+> ...
+>
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -987,7 +987,7 @@ extern int movable_zone;
+>  #ifdef CONFIG_HIGHMEM
+>  static inline int zone_movable_is_highmem(void)
+>  {
+> -#ifdef CONFIG_NEED_MULTIPLE_NODES
+> +#ifdef CONFIG_NUMA
+>  	return movable_zone == ZONE_HIGHMEM;
+>  #else
+>  	return (ZONE_MOVABLE - 1) == ZONE_HIGHMEM;
+
+I dropped this hunk - your "mm/mmzone.h: simplify is_highmem_idx()"
+removed zone_movable_is_highmem().  
 
 _______________________________________________
 linux-riscv mailing list
