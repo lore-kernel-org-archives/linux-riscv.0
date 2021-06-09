@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C93EC4743D
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C851C47082
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:13:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 11A0D6108E
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:08:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 11A0D6108E
+	by mail.kernel.org (Postfix) with ESMTPS id 59BBE613AD
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:13:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59BBE613AD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Bqk+7DV1c1QLG7JLXmvRoO5H/9nduuActFC0a0iu7oA=; b=vDkPWL1HK3/aJXKbUmDZnLC5ve
-	BhpaNWO4t3blaOJ6SAo2GOTk/SQirjxygTTmYKijnvuRncGiaF+iFyeBIkemhIfMVhGtsX2Btfmwp
-	lF5Xe2d8FvPKPNU4Se9tGSc2FCrFaqnbzPx6oAcoz5+7Nq5oNOsG0C50JY4f1d7xHIdZ7/MKeiLA2
-	k/pzqheFFRZdFmjdgo/uOTeGy/Ja6HjTgz4YY3ik8T2HlpRCpXxTKelIEIvxU9l8yzvCGIllJXB49
-	hJU+rWkjO7e0ScUHq6aWuKwGlx2pygM4rKx9ejy3dJJoB8EsMKn1BU9T85cHtyb0iCqcYQy+qsyDP
-	/uoXzJnA==;
+	bh=9ZViEonQ72OucIov0o9p6PecrBo7g7sxFy4ucriqP00=; b=PgwejSr1lqf71/+Rm8D/ffMJS7
+	ZYVBcU3ZMUl3Qd4rWTzw7xAbeFXZ4WbXb6+Ah0n5dZNqyXn5VEW8IlpRmBn0+bEr5V5D2E2a+ThwK
+	n4EFvfIbHiOpRm8c8tV0Ucy1mKBviekcsMFH+RYSk93r5dY+OIv5M15ozDuSLJy8/SKwk6SWXT8BK
+	vmJ66R5bWF2ng0wlO5KZ271LQK0ohGkKJdgdGT/EwXN9ytNrTa8TgMKMP7VSxuJNGVfppWGV3tfgp
+	9CN9fhTqtsUnzEssBdMLHE+0Jd1SgUYH3rpCDusAnG4kKcPxx3YdD4Y0p9u0fgZdPz9/yHmw9kg7q
+	Nu/k1VEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqllb-00ApzG-0P; Wed, 09 Jun 2021 00:08:19 +0000
-Received: from mail-pf1-f176.google.com ([209.85.210.176])
+	id 1lqlpz-00AqQG-6w; Wed, 09 Jun 2021 00:12:51 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqllX-00AprH-UD
- for linux-riscv@lists.infradead.org; Wed, 09 Jun 2021 00:08:17 +0000
-Received: by mail-pf1-f176.google.com with SMTP id k15so16998066pfp.6
- for <linux-riscv@lists.infradead.org>; Tue, 08 Jun 2021 17:06:13 -0700 (PDT)
+ id 1lqlpv-00AqPj-RE
+ for linux-riscv@lists.infradead.org; Wed, 09 Jun 2021 00:12:49 +0000
+Received: by mail-pg1-x536.google.com with SMTP id e20so5975737pgg.0
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Jun 2021 17:12:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=R/k0myT1X7Ewv76TA+iGRlCsIF04l49PA1ocz9s7kkU=;
- b=XFN6hEgeyL7VQ+lHXBNI1EMYNmWB3f2IbRNINoLGZ172p543bg08XWPuy1GOY1A/V+
- c4pd5fRkMfw3LXXTbefHrusAgpEyveNdHOpolFk1RMHTgyzrqqo87xnD6c9CxWUbh6kx
- VrkT6+PrPmUxg22oc53mnOFbRullxEc4NWtvttdTnMM7ICsaeOMri+J5E5Lt1bc8d8Ys
- 4Ph1g40MhZ8zJMuSa0btSNQC8GlI40efsxBv3O76d5ywlhO/F29Zy2bPbuwtooNFw/oz
- jk49UmYy/gLaFPkVC4xNNi29/pVffLZy9I2DTmZyUPDaTlwgWvn9iW/evP7pBU/EA/Xr
- x7DA==
+ bh=gpshw1WRGUrOMDm1dHvWn3SBn8eQqTW1CLj/AcXBFEQ=;
+ b=mOv/ug9Hykkz5Ggy2DWpWSNHozSLIFLI8GgaEfLnGrC4yJt3D//AIhJi9Y8EIHZzsu
+ cNFa3JVlKL4fzzSrcPp6esJ0W0zATcsNP0hIMx3acdCF8vCCxjTsM6eZxX0Mcq6cxJ/m
+ 5sr/aXUi+lx9xQsXkawA5y833gz7/50TZAsSaLbtM4G2+jK8412IKmpzrkXLQCnRWEQq
+ IngKdJN/SLPS3ZPOH0QOGnesI+0cjAyBx/Ny9rv4mjiyx4Y1xD6iKz66gedqT5G5p4r4
+ ahDv+zvW41IvP5tJ7/wXqpwEgcdedASFUzkhHtd2o4LP5RjzcuMAHI4KTnbBhRvCT/mb
+ N/yA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=R/k0myT1X7Ewv76TA+iGRlCsIF04l49PA1ocz9s7kkU=;
- b=QyuuPhb7Og0bTafLiYFXOVq2przjgd8ujfi967SyQaC4izete02x8edcHv+ffecOVh
- z6gm20YH4RdhHFHnP0DcJOA3xAbNHiyGZCW6my4NSzLVhiBrjfuHKIk1fN+Zw1u9rSSb
- N10JVfNKNVf4lKOL/fm5TtWzWu4DAjAdRLimEBGUggnh73wq5YGGFeTqfAJFb0x53nO2
- ie8vJw9nfX40G83lxliu3e1trDXZivHq77QtwFzt6wv3Tg3tMceUQRNOeP+9ujiCulTz
- TIiLO6wR/XaC7G3ptpRXUO8YdQlNfUwJJqZMXB2H3tGntwLk+2Y9I/FIqmnXTy5hfRyI
- Kr4Q==
-X-Gm-Message-State: AOAM530Ja8kb8ub+6Ps1tFYmhnbOocla8JVoVRauA+LXB0nVXgW5Npyw
- 88eRxA5vimmolzExT64Nn7sC3w==
-X-Google-Smtp-Source: ABdhPJye+W8VRhoqCXDkNa2Q2xQUuGVDU122+jgT3y0Vuv9BLAvkAVIfht2VcK8SrIzNgFC/bgc2Sg==
-X-Received: by 2002:a63:1542:: with SMTP id 2mr827496pgv.329.1623197113206;
- Tue, 08 Jun 2021 17:05:13 -0700 (PDT)
+ bh=gpshw1WRGUrOMDm1dHvWn3SBn8eQqTW1CLj/AcXBFEQ=;
+ b=hYo0Uz0Q450w2mKRSBDpdfEuBdPp0l6OIM7PN2LimJdkzf41478d90xTZ1sG5A5B2z
+ 7MWSiPR3XRHvbG3xRbQEbw6eUM/82931+Cljy8betONYKvs17Zs3Qbc7VGJbpBVmV5EY
+ OsvKGYb0gbjaYnbr36ikVSaPYZ/4NQl8K36CKTca2guFeWYTxU3rdYMj27mpXP8b/jj2
+ FBuXZrxb/5/Orx7ZraVQnWG6LmiW23SsTFNqQQf6wR7H2sxUUdQGbT4Stlet7ma8gOW6
+ Ja+IltW10SXAHfP3wDE8DqA35K3EGdBiP/utC8KSK6nhMJ8GuX1Mb8nPANeDPBJijoik
+ D6Yw==
+X-Gm-Message-State: AOAM530tsEgY0Zb/CeFI+V47dO+4bIh6lw2pY0qD/yWeiokLppKlJsV3
+ z/6Du0Y2ewE1ZsikVix9A7YVKdFeK9FM+2fg
+X-Google-Smtp-Source: ABdhPJywSS6XUoBLf/U+A5Boragd7qhq9DipEvt65WhCwPtu+Vxa4eR+ChWvWXaWHCcmhtmbTQNsUw==
+X-Received: by 2002:a63:d40d:: with SMTP id a13mr881986pgh.382.1623197566210; 
+ Tue, 08 Jun 2021 17:12:46 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id w125sm11361134pfw.214.2021.06.08.17.05.12
+ by smtp.gmail.com with ESMTPSA id x8sm471221pje.52.2021.06.08.17.12.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Jun 2021 17:05:12 -0700 (PDT)
-Date: Tue, 08 Jun 2021 17:05:12 -0700 (PDT)
-X-Google-Original-Date: Tue, 08 Jun 2021 17:05:10 PDT (-0700)
-Subject: Re: [PATCH -next v3] riscv: fix build error when CONFIG_SMP is
- disabled
-In-Reply-To: <20210529080657.18997-1-cuibixuan@huawei.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- vincent.chen@sifive.com, sunnanyong@huawei.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, cuibixuan@huawei.com
+ Tue, 08 Jun 2021 17:12:42 -0700 (PDT)
+Date: Tue, 08 Jun 2021 17:12:42 -0700 (PDT)
+X-Google-Original-Date: Tue, 08 Jun 2021 17:12:38 PDT (-0700)
+Subject: Re: [PATCH] riscv: mm: Use better bitmap_zalloc()
+In-Reply-To: <20210529111534.186534-1-wangkefeng.wang@huawei.com>
+CC: linux-riscv@lists.infradead.org, wangkefeng.wang@huawei.com,
+ Paul Walmsley <paul.walmsley@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: cuibixuan@huawei.com
-Message-ID: <mhng-ce62a50e-85c7-4fc2-9dc0-7b8a9105ab4b@palmerdabbelt-glaptop>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-c8eb7997-acf0-408a-95b4-60de80678298@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210608_170816_001546_39BAF160 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20210608_171247_902741_CD21542C 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +99,32 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 May 2021 01:06:57 PDT (-0700), cuibixuan@huawei.com wrote:
-> Fix build error when disable CONFIG_SMP:
-> mm/pgtable-generic.o: In function `.L19':
-> pgtable-generic.c:(.text+0x42): undefined reference to `flush_pmd_tlb_range'
-> mm/pgtable-generic.o: In function `pmdp_huge_clear_flush':
-> pgtable-generic.c:(.text+0x6c): undefined reference to `flush_pmd_tlb_range'
-> mm/pgtable-generic.o: In function `pmdp_invalidate':
-> pgtable-generic.c:(.text+0x162): undefined reference to `flush_pmd_tlb_range'
+On Sat, 29 May 2021 04:15:34 PDT (-0700), wangkefeng.wang@huawei.com wrote:
+> Use better bitmap_zalloc() to allocate bitmap.
 >
-> Fixes: e88b333142e4 ("riscv: mm: add THP support on 64-bit")
-> Reported-by: Hulk Robot <hulkci@huawei.com>
-> Signed-off-by: Bixuan Cui <cuibixuan@huawei.com>
-> Acked-by: Nanyong Sun <sunnanyong@huawei.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: linux-riscv@lists.infradead.org
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
-> Changes in v3:
-> Deleted the declaration of the flush_pmd_tlb_range() in the patch
+>  arch/riscv/mm/context.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 >
-> Changes in v2:
-> Move the declaration of flush_pmd_tlb_rang to tlbflush.h
+> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> index 83e7ae37675a..2aba0a6343d9 100644
+> --- a/arch/riscv/mm/context.c
+> +++ b/arch/riscv/mm/context.c
+> @@ -243,8 +243,7 @@ static int asids_init(void)
+>  	if (num_asids > (2 * num_possible_cpus())) {
+>  		atomic_long_set(&current_version, num_asids);
 >
->  arch/riscv/include/asm/pgtable.h  | 5 -----
->  arch/riscv/include/asm/tlbflush.h | 5 +++++
->  2 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 29e2c836848d..eda31002c4b1 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -622,11 +622,6 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->  {
->  	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
->  }
-> -
-> -#define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> -void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-> -			unsigned long end);
-> -
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->
->  /*
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index c84218ad7afc..801019381dea 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -33,6 +33,11 @@ void flush_tlb_mm(struct mm_struct *mm);
->  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
->  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  		     unsigned long end);
-> +#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> +#define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> +void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-> +			unsigned long end);
-> +#endif
->  #else /* CONFIG_SMP && CONFIG_MMU */
->
->  #define flush_tlb_all() local_flush_tlb_all()
+> -		context_asid_map = kcalloc(BITS_TO_LONGS(num_asids),
+> -				   sizeof(*context_asid_map), GFP_KERNEL);
+> +		context_asid_map = bitmap_zalloc(num_asids, GFP_KERNEL);
+>  		if (!context_asid_map)
+>  			panic("Failed to allocate bitmap for %lu ASIDs\n",
+>  			      num_asids);
 
 Thanks, this is on for-next.
 
