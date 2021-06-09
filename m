@@ -3,19 +3,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C851C47082
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 63145C47082
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:20:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 59BBE613AD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:13:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59BBE613AD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 25BFE61208
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Jun 2021 00:20:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 25BFE61208
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -23,66 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=9ZViEonQ72OucIov0o9p6PecrBo7g7sxFy4ucriqP00=; b=PgwejSr1lqf71/+Rm8D/ffMJS7
-	ZYVBcU3ZMUl3Qd4rWTzw7xAbeFXZ4WbXb6+Ah0n5dZNqyXn5VEW8IlpRmBn0+bEr5V5D2E2a+ThwK
-	n4EFvfIbHiOpRm8c8tV0Ucy1mKBviekcsMFH+RYSk93r5dY+OIv5M15ozDuSLJy8/SKwk6SWXT8BK
-	vmJ66R5bWF2ng0wlO5KZ271LQK0ohGkKJdgdGT/EwXN9ytNrTa8TgMKMP7VSxuJNGVfppWGV3tfgp
-	9CN9fhTqtsUnzEssBdMLHE+0Jd1SgUYH3rpCDusAnG4kKcPxx3YdD4Y0p9u0fgZdPz9/yHmw9kg7q
-	Nu/k1VEw==;
+	bh=+n8fm9paWVEdPuo/MqgaiOv+HNw29iZVXmXIH7ulC9o=; b=zbSaZgf1ElVH8lqLWu3EKF5fui
+	Cr+m/d4rI6VVJ4ioXPPouoCSaAmqLUW9qph/rUFiqmGz4Dfl4/paQwFoWYLz3ZuXFvJ8LEw2lIE4s
+	wqBr8HxbssYJ7GPOmfKoACYbTmgNCtFNOSrCCWepF55a4veoYxLHMFMmalGxI9RDRSeuzFpMGluHy
+	fTcx6mp39hRhVgvAonHDXt7V+vkY3zdFeZRE+Re+91zIssh+yOSZ/qgvzqr+H5OV8D+YV00qpXSnk
+	Cjb/CWSv/li7Gaqpd4yIIUEvpWDcYjgcWuPtiBUYj0LCgGmeiQHDmAz+wn2YGeYphXS64k/z67q0X
+	BL5sorHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lqlpz-00AqQG-6w; Wed, 09 Jun 2021 00:12:51 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1lqlwf-00ArXa-92; Wed, 09 Jun 2021 00:19:45 +0000
+Received: from mail-pf1-f181.google.com ([209.85.210.181])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lqlpv-00AqPj-RE
- for linux-riscv@lists.infradead.org; Wed, 09 Jun 2021 00:12:49 +0000
-Received: by mail-pg1-x536.google.com with SMTP id e20so5975737pgg.0
- for <linux-riscv@lists.infradead.org>; Tue, 08 Jun 2021 17:12:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1lqlwc-00ArW0-Ab
+ for linux-riscv@lists.infradead.org; Wed, 09 Jun 2021 00:19:43 +0000
+Received: by mail-pf1-f181.google.com with SMTP id d16so16986111pfn.12
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Jun 2021 17:19:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=gpshw1WRGUrOMDm1dHvWn3SBn8eQqTW1CLj/AcXBFEQ=;
- b=mOv/ug9Hykkz5Ggy2DWpWSNHozSLIFLI8GgaEfLnGrC4yJt3D//AIhJi9Y8EIHZzsu
- cNFa3JVlKL4fzzSrcPp6esJ0W0zATcsNP0hIMx3acdCF8vCCxjTsM6eZxX0Mcq6cxJ/m
- 5sr/aXUi+lx9xQsXkawA5y833gz7/50TZAsSaLbtM4G2+jK8412IKmpzrkXLQCnRWEQq
- IngKdJN/SLPS3ZPOH0QOGnesI+0cjAyBx/Ny9rv4mjiyx4Y1xD6iKz66gedqT5G5p4r4
- ahDv+zvW41IvP5tJ7/wXqpwEgcdedASFUzkhHtd2o4LP5RjzcuMAHI4KTnbBhRvCT/mb
- N/yA==
+ bh=BL8LYfLiW97gYs50mMRPWFDzO43ZPs/0nLhvyiI1l9k=;
+ b=TwN6pJqmDjnw1jUF78frKPE3sQLHszqGjFRAVBbsP15o7eht+rzG9v0aT4xjB7Oi4y
+ 4KHRy6xnA6ntzPCsKiXtaqInCJv35Uyvk1ntGoSG3vg6Cc595QGvVlcaFvyFV5/tMfnv
+ 4laIKokxgf6or5+ToPBfFxXd8B3bxeVCslRrte5JKXpVEJ6w5vGi2o0atO52gEC74K4w
+ Ay4VVIqMRCU+owvvl21mgw5JLyAFwyBKGKvEfV0KAMDi1ps/z1jCvHMZGd+AxmmRc7sl
+ j6rbVn6PQgNDpk0YEyqBG42n5dOsYMvc+Sm59ws7BqIKaEUb2AZF5wpkpvszBOpvpa8D
+ r6dQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=gpshw1WRGUrOMDm1dHvWn3SBn8eQqTW1CLj/AcXBFEQ=;
- b=hYo0Uz0Q450w2mKRSBDpdfEuBdPp0l6OIM7PN2LimJdkzf41478d90xTZ1sG5A5B2z
- 7MWSiPR3XRHvbG3xRbQEbw6eUM/82931+Cljy8betONYKvs17Zs3Qbc7VGJbpBVmV5EY
- OsvKGYb0gbjaYnbr36ikVSaPYZ/4NQl8K36CKTca2guFeWYTxU3rdYMj27mpXP8b/jj2
- FBuXZrxb/5/Orx7ZraVQnWG6LmiW23SsTFNqQQf6wR7H2sxUUdQGbT4Stlet7ma8gOW6
- Ja+IltW10SXAHfP3wDE8DqA35K3EGdBiP/utC8KSK6nhMJ8GuX1Mb8nPANeDPBJijoik
- D6Yw==
-X-Gm-Message-State: AOAM530tsEgY0Zb/CeFI+V47dO+4bIh6lw2pY0qD/yWeiokLppKlJsV3
- z/6Du0Y2ewE1ZsikVix9A7YVKdFeK9FM+2fg
-X-Google-Smtp-Source: ABdhPJywSS6XUoBLf/U+A5Boragd7qhq9DipEvt65WhCwPtu+Vxa4eR+ChWvWXaWHCcmhtmbTQNsUw==
-X-Received: by 2002:a63:d40d:: with SMTP id a13mr881986pgh.382.1623197566210; 
- Tue, 08 Jun 2021 17:12:46 -0700 (PDT)
+ bh=BL8LYfLiW97gYs50mMRPWFDzO43ZPs/0nLhvyiI1l9k=;
+ b=BR77X5AxS3IG0iYYD12nfO+t6hHez9BX+/cf48sl6/nJ0pf4SJiYFz8GqkEJ0SqRt+
+ SmXFVSETISQRPb2y/tZjVBb7hEbZUjHq730jnGDYHFTKTJUIevWwNefgi74r1DfUExiY
+ iBBoSbsiiAnCszDOb9CiWh5zu7Ozo63hUz/6FTzQ1x1rmBkebs38lGRkfnFcZ/plWjEv
+ 9u9gcz8t3szX/N840YClZdSC/83Vz2KY0xlWFd7rFobJC1uSf6cQ3+Pqi9dT6DZmXCOH
+ 3M46tr0T3qNOQ85AZKM1GIEhzAaSar3W2/W5UTYB4EJwAsDm+aZUgkkr0NxKhOdnlF/X
+ 7Qgw==
+X-Gm-Message-State: AOAM531uJlTrB9gfFMIyZcT86LUaQSosXySlVForczXSspSxuZ1egWR+
+ RMy7GI2T4H3QlwYfhfTZq3tCzw==
+X-Google-Smtp-Source: ABdhPJwmp1Lk7bsoywWHJKG1fB6e9hWnUEMNIoCQ52jVaFnQVitNhNkU5zua3Ug1Kgzuz7vqyQvFPA==
+X-Received: by 2002:a65:520a:: with SMTP id o10mr920386pgp.172.1623197918663; 
+ Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x8sm471221pje.52.2021.06.08.17.12.41
+ by smtp.gmail.com with ESMTPSA id j5sm10143402pgl.70.2021.06.08.17.18.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Jun 2021 17:12:42 -0700 (PDT)
-Date: Tue, 08 Jun 2021 17:12:42 -0700 (PDT)
-X-Google-Original-Date: Tue, 08 Jun 2021 17:12:38 PDT (-0700)
-Subject: Re: [PATCH] riscv: mm: Use better bitmap_zalloc()
-In-Reply-To: <20210529111534.186534-1-wangkefeng.wang@huawei.com>
-CC: linux-riscv@lists.infradead.org, wangkefeng.wang@huawei.com,
- Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-c8eb7997-acf0-408a-95b4-60de80678298@palmerdabbelt-glaptop>
+ Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
+Date: Tue, 08 Jun 2021 17:18:38 -0700 (PDT)
+X-Google-Original-Date: Tue, 08 Jun 2021 17:18:24 PDT (-0700)
+Subject: Re: [PATCH V2 1/2] riscv: Cleanup unused functions
+In-Reply-To: <1622350408-44875-2-git-send-email-guoren@kernel.org>
+CC: guoren@kernel.org, Anup Patel <Anup.Patel@wdc.com>,
+ Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ guoren@linux.alibaba.com
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: guoren@kernel.org
+Message-ID: <mhng-c8795d34-beda-4ef5-85fc-932ac36a726e@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210608_171247_902741_CD21542C 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20210608_171942_421610_171B67BD 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +101,45 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 May 2021 04:15:34 PDT (-0700), wangkefeng.wang@huawei.com wrote:
-> Use better bitmap_zalloc() to allocate bitmap.
+On Sat, 29 May 2021 21:53:27 PDT (-0700), guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> These functions haven't been used, so just remove them. The patch
+> has been tested with riscv.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 > ---
->  arch/riscv/mm/context.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+>  arch/riscv/include/asm/page.h | 10 ----------
+>  1 file changed, 10 deletions(-)
 >
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 83e7ae37675a..2aba0a6343d9 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -243,8 +243,7 @@ static int asids_init(void)
->  	if (num_asids > (2 * num_possible_cpus())) {
->  		atomic_long_set(&current_version, num_asids);
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 6a7761c..a1b888f 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -37,16 +37,6 @@
 >
-> -		context_asid_map = kcalloc(BITS_TO_LONGS(num_asids),
-> -				   sizeof(*context_asid_map), GFP_KERNEL);
-> +		context_asid_map = bitmap_zalloc(num_asids, GFP_KERNEL);
->  		if (!context_asid_map)
->  			panic("Failed to allocate bitmap for %lu ASIDs\n",
->  			      num_asids);
+>  #ifndef __ASSEMBLY__
+>
+> -#define PAGE_UP(addr)	(((addr)+((PAGE_SIZE)-1))&(~((PAGE_SIZE)-1)))
+> -#define PAGE_DOWN(addr)	((addr)&(~((PAGE_SIZE)-1)))
+> -
+> -/* align addr on a size boundary - adjust address up/down if needed */
+> -#define _ALIGN_UP(addr, size)	(((addr)+((size)-1))&(~((size)-1)))
+> -#define _ALIGN_DOWN(addr, size)	((addr)&(~((size)-1)))
+> -
+> -/* align addr on a size boundary - adjust address up if needed */
+> -#define _ALIGN(addr, size)	_ALIGN_UP(addr, size)
+> -
+>  #define clear_page(pgaddr)			memset((pgaddr), 0, PAGE_SIZE)
+>  #define copy_page(to, from)			memcpy((to), (from), PAGE_SIZE)
 
-Thanks, this is on for-next.
+Thanks, this is on for-next.  I'm assuming you want the other one to go 
+through the microblaze tree, and it looks like it's already been picked 
+up.
 
 _______________________________________________
 linux-riscv mailing list
