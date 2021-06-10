@@ -2,98 +2,87 @@ Return-Path: <SRS0=8YMt=LE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 441A6C47094
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jun 2021 17:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 09D3CC47094
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jun 2021 17:29:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E432C61222
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jun 2021 17:21:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E432C61222
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id AC1C2600EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Jun 2021 17:29:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC1C2600EF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uETi1uQ+rXNXxARtmEW0DW352L1EbTTev2An+QqSIIk=; b=Um1oyCxBgLMqxk
-	9tx3J7PTvNSeTE5VaUsXwvOFkjDJakIWrAH3a+FJhtqMVstLUH1j/qjcbMYBLibpNnuGap1hgzbM2
-	J3KbFswRPNWycs8+VO0eBveVaMRgkp1rfaTRdzSLtC2wLhfme1T5JaYZ3lZkBALQhXtyrhvoLA3Ne
-	fKEOAlUibiIW3ayP/YApt2TPN2jk3Dh3ygZjGp3D9xhGupOVPfvXDivEsPxUosx4Kn2dT9EMyHrE3
-	MUh1iw7qTA1okeTD7FeGBX7xcdcbXN7i1Ad9YgQywFiPhhn54AIbDNVW79Vi2rWOzbeSBo4fhIpgN
-	1jzzMB8V3q5n8CXWMXXQ==;
+	List-Owner; bh=6zcowaahKM2zErusVtFt9QVzeOHJLcYzUj6rs8XS7v4=; b=jxa4iXamerLi8v
+	qbDAbjk43OuVhUt1CN+YSmdSi64QM5WC0En5vAQiXwyMY//vtHPxYwwQau23t/m4ped7VZFdqmt+K
+	TvRN9umUv0Tf+sVUJ/WWpE21kx8m421TQiMx+sTBNYHCHSCtjnfSiWra8ZBDNYdj0+AI/AjK66ufv
+	5EaohEd2igUDVnoKJB0Uvxn7+g0hX88sHFRGybQ3oOCEVFib+8eX+eEALr43tHS2oYd2LnkQmesF0
+	p1azCeZqORQKXzg2p7gWChkG9Cl2fuzLsD/eBCI+jRmCxz/PCoL6OdeTgJ7dHHjFhu2dUSrxxOOeF
+	tJjMJvUuHN0fxB1GyAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lrONA-001uky-Ex; Thu, 10 Jun 2021 17:21:40 +0000
-Received: from mail-ot1-f51.google.com ([209.85.210.51])
+	id 1lrOUc-001vxk-BY; Thu, 10 Jun 2021 17:29:22 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lrON7-001ukA-TP
- for linux-riscv@lists.infradead.org; Thu, 10 Jun 2021 17:21:39 +0000
-Received: by mail-ot1-f51.google.com with SMTP id
- 36-20020a9d0ba70000b02902e0a0a8fe36so410025oth.8
- for <linux-riscv@lists.infradead.org>; Thu, 10 Jun 2021 10:21:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=g6SU8s5JZXBpJRY7xHwXt52gkhZm/7vIqjpkQlZi7O0=;
- b=XskWsx9d/db0Cvo+2d6zFcITph7oWit0sJgLFcCJ366DC2XAxdjdrj031Idd1JG0g9
- 8HVfEijZ9TBI0p5y9rJDU8wI/tTt3iN55nxQSwkWdwoNWWSxlrDLe/5C5IQw6Ghbafj2
- ZtjbvvcUflV4s/k2UOcjvgl63dPTj7/dCNv+25EbcHciiHbuaPGTa6F84d0Nt6W35X20
- 5r1fJJktMsh+4dyxyG/LTWX/n9F2Qh5fwR/XN/Hv5lx8+nj7WveBkyia/PcKOcyMZOjn
- WC4kRyMGKNkVfFKBnfJ5i1kQer+4mEOozAZMemLnlsiyYuwwSpP2gYgUXDeLF+TPCiaa
- I5Ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to;
- bh=g6SU8s5JZXBpJRY7xHwXt52gkhZm/7vIqjpkQlZi7O0=;
- b=jbxbV7Ou3QP5vRXjX8nJ/CCeq83pq9s01QA4L9FRsoPBzQddLQ4sFDNrsnDYM2lXmR
- 6D3pq3cQizEztXKPlmR36HQpEkL/UiGvC4I0sU9zbrrywTEFg9JEgegXGe8/jVcw/AYF
- tGIODAnmBuZlIqVSoNpUdMJyoXutvL1PstmRUIXi/rahv6tCFGwKU6OVsq+R+P13lVC7
- uGR9K+ztd+YzqHB8q6EN29djqkbK08OtD12BDgjAkL5uBUiKl1qZeVtgsXgO6I1q4Lwk
- pXxLkepF2WsvNzoUtkcJdaXx90NznQcmF7iRSTBjPJ1hWYLMcqBjiG70u42dqt05l73l
- x+mg==
-X-Gm-Message-State: AOAM533P7ap2cbOr75BKoLaZcIBcbJmlLZSR/K7jSk4N/LXApUxTM2J6
- YM4Eh2DztlPTDjbEaaD14j1hg5LA8tQ=
-X-Google-Smtp-Source: ABdhPJwwYHm+SgYEfCq2WkycRNl6JVPdshm4tyzMX1ooyqkhQpHuvr1tl5O15Ig2i59bbURiL2Bkzg==
-X-Received: by 2002:a9d:7282:: with SMTP id t2mr3382022otj.288.1623345636778; 
- Thu, 10 Jun 2021 10:20:36 -0700 (PDT)
-Received: from localhost ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id o2sm634382oom.26.2021.06.10.10.20.35
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Jun 2021 10:20:36 -0700 (PDT)
-Date: Thu, 10 Jun 2021 10:20:35 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Alex Ghiti <alex@ghiti.fr>, Palmer Dabbelt <palmer@dabbelt.com>,
- corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
- aryabinin@virtuozzo.com, glider@google.com, dvyukov@google.com,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
- linux-arch@vger.kernel.org, linux-mm@kvack.org
+ id 1lrOUZ-001vxQ-OB
+ for linux-riscv@lists.infradead.org; Thu, 10 Jun 2021 17:29:21 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4G19vK6D7Jz1qt3l;
+ Thu, 10 Jun 2021 19:29:17 +0200 (CEST)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4G19vK4RQLz1qr46;
+ Thu, 10 Jun 2021 19:29:17 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id vO5Y0XBKtwZ2; Thu, 10 Jun 2021 19:29:16 +0200 (CEST)
+X-Auth-Info: 2HRiD3r3sBASgyEoh1SHqVlhb3EFoSQZduKD2H4uGNLGPC7SubTmYAn+NLEyWCf+
+Received: from igel.home (ppp-46-244-161-203.dynamic.mnet-online.de
+ [46.244.161.203])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Thu, 10 Jun 2021 19:29:16 +0200 (CEST)
+Received: by igel.home (Postfix, from userid 1000)
+ id 83A702C36A1; Thu, 10 Jun 2021 19:29:15 +0200 (CEST)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Alex Ghiti <alex@ghiti.fr>,  Palmer Dabbelt <palmer@dabbelt.com>,
+ corbet@lwn.net,  Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu,  Arnd Bergmann <arnd@arndb.de>,
+ aryabinin@virtuozzo.com,  glider@google.com,  dvyukov@google.com,
+ linux-doc@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,  kasan-dev@googlegroups.com,
+ linux-arch@vger.kernel.org,  linux-mm@kvack.org
 Subject: Re: [PATCH v5 1/3] riscv: Move kernel mapping outside of linear
  mapping
-Message-ID: <20210610172035.GA3862815@roeck-us.net>
 References: <mhng-90fff6bd-5a70-4927-98c1-a515a7448e71@palmerdabbelt-glaptop>
  <76353fc0-f734-db47-0d0c-f0f379763aa0@ghiti.fr>
  <a58c4616-572f-4a0b-2ce9-fd00735843be@ghiti.fr>
  <7b647da1-b3aa-287f-7ca8-3b44c5661cb8@ghiti.fr>
  <87fsxphdx0.fsf@igel.home> <20210610171025.GA3861769@roeck-us.net>
- <87bl8dhcfp.fsf@igel.home>
+ <87bl8dhcfp.fsf@igel.home> <20210610172035.GA3862815@roeck-us.net>
+X-Yow: A shapely CATHOLIC SCHOOLGIRL is FIDGETING inside my costume..
+Date: Thu, 10 Jun 2021 19:29:15 +0200
+In-Reply-To: <20210610172035.GA3862815@roeck-us.net> (Guenter Roeck's message
+ of "Thu, 10 Jun 2021 10:20:35 -0700")
+Message-ID: <877dj1hbmc.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87bl8dhcfp.fsf@igel.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210610_102137_989833_AE8B47BB 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20210610_102919_961140_1F6C667D 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,33 +99,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 10, 2021 at 07:11:38PM +0200, Andreas Schwab wrote:
-> On Jun 10 2021, Guenter Roeck wrote:
-> 
-> > On Thu, Jun 10, 2021 at 06:39:39PM +0200, Andreas Schwab wrote:
-> >> On Apr 18 2021, Alex Ghiti wrote:
-> >> 
-> >> > To sum up, there are 3 patches that fix this series:
-> >> >
-> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210415110426.2238-1-alex@ghiti.fr/
-> >> >
-> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210417172159.32085-1-alex@ghiti.fr/
-> >> >
-> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210418112856.15078-1-alex@ghiti.fr/
-> >> 
-> >> Has this been fixed yet?  Booting is still broken here.
-> >> 
-> >
-> > In -next ?
-> 
-> No, -rc5.
-> 
-Booting v5.13-rc5 in qemu works for me for riscv32 and riscv64,
-but of course that doesn't mean much. Just wondering, not knowing
-the context - did you provide details ?
+On Jun 10 2021, Guenter Roeck wrote:
 
-Thanks,
-Guenter
+> On Thu, Jun 10, 2021 at 07:11:38PM +0200, Andreas Schwab wrote:
+>> On Jun 10 2021, Guenter Roeck wrote:
+>> 
+>> > On Thu, Jun 10, 2021 at 06:39:39PM +0200, Andreas Schwab wrote:
+>> >> On Apr 18 2021, Alex Ghiti wrote:
+>> >> 
+>> >> > To sum up, there are 3 patches that fix this series:
+>> >> >
+>> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210415110426.2238-1-alex@ghiti.fr/
+>> >> >
+>> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210417172159.32085-1-alex@ghiti.fr/
+>> >> >
+>> >> > https://patchwork.kernel.org/project/linux-riscv/patch/20210418112856.15078-1-alex@ghiti.fr/
+>> >> 
+>> >> Has this been fixed yet?  Booting is still broken here.
+>> >> 
+>> >
+>> > In -next ?
+>> 
+>> No, -rc5.
+>> 
+> Booting v5.13-rc5 in qemu works for me for riscv32 and riscv64,
+> but of course that doesn't mean much. Just wondering, not knowing
+> the context - did you provide details ?
+
+Does that work for you:
+
+https://github.com/openSUSE/kernel-source/blob/master/config/riscv64/default
+
+Andreas.
+
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
