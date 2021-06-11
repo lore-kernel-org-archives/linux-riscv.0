@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 414A0C48BD1
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Jun 2021 21:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71CF2C48BE0
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Jun 2021 21:19:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 00426611CA
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Jun 2021 21:06:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 00426611CA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brennan.io
+	by mail.kernel.org (Postfix) with ESMTPS id 1A034613C6
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Jun 2021 21:19:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A034613C6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NYYKwThnJZZkmtglSm4Y33cX52tln9RLRyPOEK53d+E=; b=cX+xZaFfsjNzBK
-	uE18LOz+XsAtvk5UoQ0ANW9S9U5HVboeWXQZewn7YkB4M0DsD1dd/j1n3Qcoxi916EHqKF5eOPnKb
-	aQVBpLLC7nKlSRtCkSCCUZLG59SMYX/iLINzjaUm0rqy7hvVYm34xydIhbVYw58Cfwdn2GlUsdUmo
-	AqJs6iZkQavfSHrLVg6RYHvv3QyJcv8ZadAJHdQqfCyWqFMmC0poHxzEhwyyAztmpTxmUQaF9/v4d
-	ODUrSU7aSiheICVoU5lGBEzkAbgCv1WfrvbZ6S+bF+aFC2AvFF/Y6gFsj8oOBasQw+/Fzxr301v2a
-	CrI42kjUorRE8LKDJKBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=eY4IxMfzKiOXSDFsRLIldMyV9M+PM1jqrvQEGEAnyyA=; b=GKzACqeOlF+Nvs1bc2UJdoZIA5
+	4uGgZmPkkWIq1I+Kt9+NP0Yk7C1Pgv5ifhXTlGL+OoEtDoq5bP2H8N+lcPJpabuh7WNqmJqmO7Q9v
+	cU6ciO94rcA1XnN/0RiNJ+JIMXOJjitmTFEbSoCWxO47ddTN0D+qgKvLBr2xNsBufGD0y6OHBY7nd
+	Ilfkf7L8CCZanwsnN4e9hTaf/8V3MDN/HlrAI5UrTPWR8CCywvrNrC89x3yFFh0va1jLiCvVUnRCs
+	xXHno3zPsaR7YnMaygZQnSe+3eykS36V5MvYZaN4Q1rX99oIbfnzcHXGzgkKE5GPSXoeRdHToZdJQ
+	qE5nKTLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lroLX-0078WJ-Uw; Fri, 11 Jun 2021 21:05:44 +0000
-Received: from sender4-of-o51.zoho.com ([136.143.188.51])
+	id 1lroYS-007BWI-0b; Fri, 11 Jun 2021 21:19:04 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lroAT-0073Q2-Co; Fri, 11 Jun 2021 20:54:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1623444841; cv=none; 
- d=zohomail.com; s=zohoarc; 
- b=ce8iv3uhoTvb6Q4mp8yAk9ByyP/ztKIi+7b/No/F5R6a8XX6yJLnV1YBkzoUycc7oJWju88UBVC3K0dYBDgPLkQtt0DqzEImhEj/R5z+8wdFbqcETjVaY1Shy9z1laYIr40k6r0T2XaSSC8qDpPn1DMwqrGJiCbn6XQyLCJBeLk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com;
- s=zohoarc; t=1623444841;
- h=Content-Type:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To;
- bh=AoiLwcmX3pbOV819C0Lo7M/WNWjoO/Lazqk1NS5j5f4=; 
- b=igDgmnMQYOE7OMpajT0d6+VpAk0is3qy1yDPiJ6VaI0g32XYdTLBW4vA2wzLDN0Fr5buSCoBFXJjIDMefERXTBCLx5jD9staWgrZl3S5UIB585+PiTcqJ+66g0aEakFC3AyMhBFBY43YTO9Kxx5kTUKFCto0CGA49vG6REfmPSI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
- dkim=pass  header.i=brennan.io;
- spf=pass  smtp.mailfrom=stephen@brennan.io;
- dmarc=pass header.from=<stephen@brennan.io>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1623444841; 
- s=selector01; d=brennan.io; i=stephen@brennan.io;
- h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
- bh=AoiLwcmX3pbOV819C0Lo7M/WNWjoO/Lazqk1NS5j5f4=;
- b=VUodxOwwNi8y2ZV9XwmfH/FLB5Dutdvekx3lJ+cc3zMogLBOrgoxpvh0Fn5PgteO
- DV4rTlIi8PRtIixHgmUQjDjasTJjwPojeggLpOcOcHRdHq3s5PanSnlFopFMJy1H+Ge
- RNuP8guFfEoTAR0L3QQgAj8N+d01mwEstQBT16Qc=
-Received: from localhost (148.87.23.10 [148.87.23.10]) by mx.zohomail.com
- with SMTPS id 1623444832045346.08477193904275;
- Fri, 11 Jun 2021 13:53:52 -0700 (PDT)
-From: Stephen Brennan <stephen@brennan.io>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Jonathan Corbet <corbet@lwn.net>, Matt Turner <mattst88@gmail.com>, Mike
- Rapoport <rppt@kernel.org>, Mike Rapoport <rppt@linux.ibm.com>, Richard
- Henderson <rth@twiddle.net>, Vineet Gupta <vgupta@synopsys.com>,
- kexec@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org
-Subject: Re: [PATCH v3 5/9] mm: remove CONFIG_DISCONTIGMEM
-In-Reply-To: <20210608091316.3622-6-rppt@kernel.org>
-References: <20210608091316.3622-1-rppt@kernel.org>
- <20210608091316.3622-6-rppt@kernel.org>
-Date: Fri, 11 Jun 2021 13:53:48 -0700
-Message-ID: <87r1h886n7.fsf@stepbren-lnx.us.oracle.com>
-MIME-Version: 1.0
-X-ZohoMailClient: External
+ id 1lroYO-007BVB-Ck
+ for linux-riscv@lists.infradead.org; Fri, 11 Jun 2021 21:19:02 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id l184so3441761pgd.8
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Jun 2021 14:18:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=oNHdkGnW4s/cwQAMvpIi4nzYrmN3D/e5k9vp4HEw1qM=;
+ b=Q1CcwLQWdKawmczlf8DL2PuNz7wFoi8dNJHProcDQR69NLxLfxB1uZl9EpcKQo1K7Q
+ jqjv/YISRHD7if+Sk2JYh9gfw55t5fPlqt9LH5FUXUGd/eBaze3p1lDU0WoBkcU7Dri0
+ 2y9wcOXOHc087Os0DzeyMFfmMdsqk890qc3SuL37DXyDfdAfRQtgXIdrOUoiUO+nUn7Q
+ mqa26C4BImYN0vCShTMm46G8cPZB5obMjEO1T8eWWQ7F2noIoPalwnvbtmr6qnVDK44i
+ OMbKF+B+XB8FMLFdPSEC1aM7UL9wMNimik0ElrdKYxKpTHwK8Vt6cwJUFPhBUNlvzvG2
+ cYBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=oNHdkGnW4s/cwQAMvpIi4nzYrmN3D/e5k9vp4HEw1qM=;
+ b=ROARvkm1EAckleF/4wGamQqMS1dPe/E/q6XzrLM5S+ZkvbVYekIfoGlJde8q9f//8p
+ D/cxJnAsWYauImVIY7BKNoZaJ+KMt6/wAq7r+6oCYSzLcUoS5PNS2viUQtrZ3+Pv27Mo
+ FkQ1MFZO7ncqN7DY7MBxH0Antiq0PXO7+jK0ejMLnJVMZ21Ojb+plFxILp/ErkmBF936
+ Yg0O5OepbCU0PQypxsUiwEc88fAyzSAY4/DqsmdDECVeJbbbmiI22tFtYaiH2LYGZ0SC
+ KJBdNLejoXgQptmYT0+GoxWyKiTRokVd2cKR85d4YYaB70swsBjYKXzJmm9odtLio8UA
+ fzrQ==
+X-Gm-Message-State: AOAM531Q6TLZPkQrTSbUNwTCvlRb+3S0g4IkpNY9nC2KYKEgN8QGXkNT
+ UFJ8uCyRkxzpiEoii2u2A9YeiIbc3bqcl44b
+X-Google-Smtp-Source: ABdhPJzfNMQXqDTRiug79ZXHSQsWcCt3E0IdcKHfct3hbEu/fDDxxPmdwfX43OXCNC5+UB2GkGxUEg==
+X-Received: by 2002:a62:ea03:0:b029:2e7:8445:243c with SMTP id
+ t3-20020a62ea030000b02902e78445243cmr10138808pfh.54.1623446339089; 
+ Fri, 11 Jun 2021 14:18:59 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 23sm5885074pjw.28.2021.06.11.14.18.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 11 Jun 2021 14:18:58 -0700 (PDT)
+Date: Fri, 11 Jun 2021 14:18:58 -0700 (PDT)
+X-Google-Original-Date: Fri, 11 Jun 2021 14:18:51 PDT (-0700)
+Subject: Re: [PATCH 2/2] riscv: Add mem kernel parameter support
+In-Reply-To: <20210602085517.127481-2-wangkefeng.wang@huawei.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ wangkefeng.wang@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-979cc98c-d1b7-4710-92b5-3d041bd27ce7@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210611_135417_507665_C7EF873C 
-X-CRM114-Status: GOOD (  30.24  )
+X-CRM114-CacheID: sfid-20210611_141901_300701_5E045E2A 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,208 +95,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Mike Rapoport <rppt@kernel.org> writes:
-> From: Mike Rapoport <rppt@linux.ibm.com>
+On Wed, 02 Jun 2021 01:55:17 PDT (-0700), wangkefeng.wang@huawei.com wrote:
+> The memblock_enforce_memory_limit() could change the memblock
+> range, so move the dram_end assignment after it in bootmem_init(),
+> then support mem= cmdline.
 >
-> There are no architectures that support DISCONTIGMEM left.
->
-> Remove the configuration option and the dead code it was guarding in the
-> generic memory management code.
->
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->  include/asm-generic/memory_model.h | 37 ++++--------------------------
->  include/linux/mmzone.h             |  8 ++++---
->  mm/Kconfig                         | 25 +++-----------------
->  mm/page_alloc.c                    | 13 -----------
->  4 files changed, 12 insertions(+), 71 deletions(-)
+>  arch/riscv/mm/init.c | 29 +++++++++++++++++++++++++----
+>  1 file changed, 25 insertions(+), 4 deletions(-)
 >
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
-> index 7637fb46ba4f..a2c8ed60233a 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -6,47 +6,18 @@
->  
->  #ifndef __ASSEMBLY__
->  
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 17f2e1da2b3d..ce61510a08c0 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -127,19 +127,39 @@ void __init mem_init(void)
+>  	print_vm_layout();
+>  }
+>
 > +/*
-> + * supports 3 memory models.
+> + * The default maximal physical memory size is -PAGE_OFFSET,
+> + * limit the memory size via mem.
 > + */
-
-This comment could either be updated to reflect 2 memory models, or
-removed entirely.
-
-Thanks,
-Stephen
-
->  #if defined(CONFIG_FLATMEM)
->  
->  #ifndef ARCH_PFN_OFFSET
->  #define ARCH_PFN_OFFSET		(0UL)
+> +static phys_addr_t memory_limit = -PAGE_OFFSET;
+> +
+> +static int __init early_mem(char *p)
+> +{
+> +	u64 size;
+> +
+> +	if (!p)
+> +		return 1;
+> +
+> +	size = memparse(p, &p) & PAGE_MASK;
+> +	memory_limit = min_t(u64, size, memory_limit);
+> +
+> +	pr_notice("Memory limited to %lldMB\n", (u64)memory_limit >> 20);
+> +
+> +	return 0;
+> +}
+> +early_param("mem", early_mem);
+> +
+>  void __init setup_bootmem(void)
+>  {
+>  	phys_addr_t vmlinux_end = __pa_symbol(&_end);
+>  	phys_addr_t vmlinux_start = __pa_symbol(&_start);
+> -	phys_addr_t dram_end = memblock_end_of_DRAM();
+>  	phys_addr_t max_mapped_addr = __pa(~(ulong)0);
+> +	phys_addr_t dram_end;
+>
+>  #ifdef CONFIG_XIP_KERNEL
+>  	vmlinux_start = __pa_symbol(&_sdata);
 >  #endif
->  
-> -#elif defined(CONFIG_DISCONTIGMEM)
 > -
-> -#ifndef arch_pfn_to_nid
-> -#define arch_pfn_to_nid(pfn)	pfn_to_nid(pfn)
-> -#endif
-> -
-> -#ifndef arch_local_page_offset
-> -#define arch_local_page_offset(pfn, nid)	\
-> -	((pfn) - NODE_DATA(nid)->node_start_pfn)
-> -#endif
-> -
-> -#endif /* CONFIG_DISCONTIGMEM */
-> -
-> -/*
-> - * supports 3 memory models.
-> - */
-> -#if defined(CONFIG_FLATMEM)
-> -
->  #define __pfn_to_page(pfn)	(mem_map + ((pfn) - ARCH_PFN_OFFSET))
->  #define __page_to_pfn(page)	((unsigned long)((page) - mem_map) + \
->  				 ARCH_PFN_OFFSET)
-> -#elif defined(CONFIG_DISCONTIGMEM)
-> -
-> -#define __pfn_to_page(pfn)			\
-> -({	unsigned long __pfn = (pfn);		\
-> -	unsigned long __nid = arch_pfn_to_nid(__pfn);  \
-> -	NODE_DATA(__nid)->node_mem_map + arch_local_page_offset(__pfn, __nid);\
-> -})
-> -
-> -#define __page_to_pfn(pg)						\
-> -({	const struct page *__pg = (pg);					\
-> -	struct pglist_data *__pgdat = NODE_DATA(page_to_nid(__pg));	\
-> -	(unsigned long)(__pg - __pgdat->node_mem_map) +			\
-> -	 __pgdat->node_start_pfn;					\
-> -})
->  
->  #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
->  
-> @@ -70,7 +41,7 @@
->  	struct mem_section *__sec = __pfn_to_section(__pfn);	\
->  	__section_mem_map_addr(__sec) + __pfn;		\
->  })
-> -#endif /* CONFIG_FLATMEM/DISCONTIGMEM/SPARSEMEM */
-> +#endif /* CONFIG_FLATMEM/SPARSEMEM */
->  
->  /*
->   * Convert a physical address to a Page Frame Number and back
-> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-> index 0d53eba1c383..700032e99419 100644
-> --- a/include/linux/mmzone.h
-> +++ b/include/linux/mmzone.h
-> @@ -738,10 +738,12 @@ struct zonelist {
->  	struct zoneref _zonerefs[MAX_ZONES_PER_ZONELIST + 1];
->  };
->  
-> -#ifndef CONFIG_DISCONTIGMEM
-> -/* The array of struct pages - for discontigmem use pgdat->lmem_map */
-> +/*
-> + * The array of struct pages for flatmem.
-> + * It must be declared for SPARSEMEM as well because there are configurations
-> + * that rely on that.
-> + */
->  extern struct page *mem_map;
-> -#endif
->  
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  struct deferred_split {
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 02d44e3420f5..218b96ccc84a 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -19,7 +19,7 @@ choice
->  
->  config FLATMEM_MANUAL
->  	bool "Flat Memory"
-> -	depends on !(ARCH_DISCONTIGMEM_ENABLE || ARCH_SPARSEMEM_ENABLE) || ARCH_FLATMEM_ENABLE
-> +	depends on !ARCH_SPARSEMEM_ENABLE || ARCH_FLATMEM_ENABLE
->  	help
->  	  This option is best suited for non-NUMA systems with
->  	  flat address space. The FLATMEM is the most efficient
-> @@ -32,21 +32,6 @@ config FLATMEM_MANUAL
->  
->  	  If unsure, choose this option (Flat Memory) over any other.
->  
-> -config DISCONTIGMEM_MANUAL
-> -	bool "Discontiguous Memory"
-> -	depends on ARCH_DISCONTIGMEM_ENABLE
-> -	help
-> -	  This option provides enhanced support for discontiguous
-> -	  memory systems, over FLATMEM.  These systems have holes
-> -	  in their physical address spaces, and this option provides
-> -	  more efficient handling of these holes.
-> -
-> -	  Although "Discontiguous Memory" is still used by several
-> -	  architectures, it is considered deprecated in favor of
-> -	  "Sparse Memory".
-> -
-> -	  If unsure, choose "Sparse Memory" over this option.
-> -
->  config SPARSEMEM_MANUAL
->  	bool "Sparse Memory"
->  	depends on ARCH_SPARSEMEM_ENABLE
-> @@ -62,17 +47,13 @@ config SPARSEMEM_MANUAL
->  
->  endchoice
->  
-> -config DISCONTIGMEM
-> -	def_bool y
-> -	depends on (!SELECT_MEMORY_MODEL && ARCH_DISCONTIGMEM_ENABLE) || DISCONTIGMEM_MANUAL
-> -
->  config SPARSEMEM
->  	def_bool y
->  	depends on (!SELECT_MEMORY_MODEL && ARCH_SPARSEMEM_ENABLE) || SPARSEMEM_MANUAL
->  
->  config FLATMEM
->  	def_bool y
-> -	depends on (!DISCONTIGMEM && !SPARSEMEM) || FLATMEM_MANUAL
-> +	depends on !SPARSEMEM || FLATMEM_MANUAL
->  
->  config FLAT_NODE_MEM_MAP
->  	def_bool y
-> @@ -85,7 +66,7 @@ config FLAT_NODE_MEM_MAP
->  #
->  config NEED_MULTIPLE_NODES
->  	def_bool y
-> -	depends on DISCONTIGMEM || NUMA
-> +	depends on NUMA
->  
->  #
->  # SPARSEMEM_EXTREME (which is the default) does some bootmem
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index aaa1655cf682..6fc22482eaa8 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -331,20 +331,7 @@ compound_page_dtor * const compound_page_dtors[NR_COMPOUND_DTORS] = {
->  
->  int min_free_kbytes = 1024;
->  int user_min_free_kbytes = -1;
-> -#ifdef CONFIG_DISCONTIGMEM
-> -/*
-> - * DiscontigMem defines memory ranges as separate pg_data_t even if the ranges
-> - * are not on separate NUMA nodes. Functionally this works but with
-> - * watermark_boost_factor, it can reclaim prematurely as the ranges can be
-> - * quite small. By default, do not boost watermarks on discontigmem as in
-> - * many cases very high-order allocations like THP are likely to be
-> - * unsupported and the premature reclaim offsets the advantage of long-term
-> - * fragmentation avoidance.
-> - */
-> -int watermark_boost_factor __read_mostly;
-> -#else
->  int watermark_boost_factor __read_mostly = 15000;
-> -#endif
->  int watermark_scale_factor = 10;
->  
->  static unsigned long nr_kernel_pages __initdata;
-> -- 
-> 2.28.0
+> -	/* The maximal physical memory size is -PAGE_OFFSET. */
+> -	memblock_enforce_memory_limit(-PAGE_OFFSET);
+> +	memblock_enforce_memory_limit(memory_limit);
+>
+>  	/*
+>  	 * Reserve from the start of the kernel to the end of the kernel
+> @@ -154,6 +174,7 @@ void __init setup_bootmem(void)
+>  #endif
+>  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+>
+> +	dram_end = memblock_end_of_DRAM();
+>  	/*
+>  	 * memblock allocator is not aware of the fact that last 4K bytes of
+>  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
+
+I'm not sure why, but this patch won't apply.  I've applied it manually, 
+it's on for-next (along with the #1).
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
