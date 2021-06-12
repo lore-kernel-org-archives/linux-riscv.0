@@ -2,19 +2,19 @@ Return-Path: <SRS0=I7Ft=LG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 192CCC48BE5
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jun 2021 03:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81A89C48BCF
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jun 2021 03:59:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C2C0C61248
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jun 2021 03:59:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C2C0C61248
+	by mail.kernel.org (Postfix) with ESMTPS id 45EBF6120A
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Jun 2021 03:59:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45EBF6120A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=GnNQW1K2cL8dquTPzj3OynV7+jpMoOb6bqUz5z9KI0A=; b=05osr/bCw5sQ1MzubKBV9vYsGY
-	kORBbfwR+BMc9/+NSarRkBs6EolUK4jcyECcvoV3peDg40N+ga3KbcFyqZ1xB6YENKpZ8rVQuNAxe
-	cBWmIzjmmZ75Lwrqr/DOGRcN/YfTL0c+YP/BRr5AoMXZpX9xlv4J3F1Zgz3FjcnSXqgtDVlT+ozNN
-	KjMYxlAswErKlqvDPQ3+ypbLIYT2+wJkZAnJdzEqSPjYUQSEvYcOC+5GNLdVtHByaOWUQtoSPDvGr
-	R6rsz9qboQ7HvMkuv7ITrQF+fhROxwNuVSI0F2ofv9A0IW/z7VcZHO4JA9wXNdJOpHmo2URoxmbTr
-	4DPLbrpQ==;
+	bh=Ud23/sDRcItTPmyHm31zsM7dI6WajXQnTaDqNWsntLg=; b=q5YcqjM+oeFrSYjbkWoL6mQt18
+	o7CU+o9G33SIjAEZc/IYTvPDKlI2mBOOjHG9ioGRe2KuZIr5QCHesNvylSABdqepqVCOjEXYYRCKW
+	amepguy7wWFkSm75RVFLRXK00rbg8/o0D88N3Z2NkSWAAtb+imtdQLAf6FMxfafV5NX25HmUjj869
+	W8yrxFMPuXeERsQRqJoEIqOGobh0AimOjuJ3qrycLrkeMIcqd/FmdPGhF6rmUapRojxNbG8Z4qh9K
+	zDQinIKv9FPa2BbQdWldBj4OCrj+MQ7Nfi4qMZVCMAvBnwntWbrayUvJwx/v1uTzrG4X+uNtto4UR
+	GZGlaTIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lrulJ-007jzb-Nj; Sat, 12 Jun 2021 03:56:45 +0000
-Received: from mail-pl1-f177.google.com ([209.85.214.177])
+	id 1lrulR-007k1v-2m; Sat, 12 Jun 2021 03:56:53 +0000
+Received: from mail-pf1-f175.google.com ([209.85.210.175])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lrulG-007jyV-Va
- for linux-riscv@lists.infradead.org; Sat, 12 Jun 2021 03:56:44 +0000
-Received: by mail-pl1-f177.google.com with SMTP id x10so3793825plg.3
- for <linux-riscv@lists.infradead.org>; Fri, 11 Jun 2021 20:56:41 -0700 (PDT)
+ id 1lrulM-007k0N-GD
+ for linux-riscv@lists.infradead.org; Sat, 12 Jun 2021 03:56:49 +0000
+Received: by mail-pf1-f175.google.com with SMTP id c12so6041493pfl.3
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Jun 2021 20:56:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=3FaZDzHblAzL8JBweWZZrBo7nK587IM5WRBAEUnGg6c=;
- b=rNklwOX3qCziQjAy4oQo5ZWjieeD2uWc/Vkb3pyYSfWd3+1Iecv2KXZyIrIXimSq55
- UPD/+cf17zzzd82uqFsN9h8j1fNOXQSzKqjo+RfefoPzB486DBEOVnFgm0VV5CENAnT/
- 50KqwvfwrNdofbzCYU9IzYxuWj5eairSbyoobLwmwWFNChDV13/QL96bvzCkEQ78rEsf
- FpRYFGDCRlIS8XyT2P9Jqva05TiBu3l/MMhNUfLKTztMxcOLcBG7/Omg02rlCD4nd4lD
- EEf4511enfGgXeUdLrVvuluDrnUWTer8f7Omgp/ib5Tik5v+gF3DqitQzJjS/17B+JSq
- stjA==
+ bh=OBgHgvMUoAyJJHJDZalDtHjcCyRI0iHp+vvdhmh2FIU=;
+ b=e1LnunDq90BOgvFBM+DkGVmeY9/YNQ2kFPstTuUNTqgVMj0TnDDbudA+9PQsIU7Hv2
+ aGWzaUUXtswWJXl9tQucg1PY6fxHIPjdenGSS2X6cvkvmvxigPNqklQwmwMggKbPANlG
+ MDSQp3dgxS3OPfsO+wkKqRjIMw4EjAKW1F0SDOAv+fVkD2XuXp+Dq7B0fHvO3vvoZq4B
+ sLo9KfE+HK/GbelfnHYJq+IRT7v6KQeIcrAtKpudKvtV3N4LEpJFXN/5iZdUcQU+VXMf
+ VwHqdfnAEPqkVLI92mjkWp8nIa99aUxTihWJECQJAcY6ND8gV/kJlpNQILCGR6hhVYrb
+ TMdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=3FaZDzHblAzL8JBweWZZrBo7nK587IM5WRBAEUnGg6c=;
- b=RbExc6QyJGTc2EqJvOnJy0AztFISX1Y/YXmvmSxeU0UGucAb0roLWyrb7/bMafGqr/
- CSFIg85cePb/NhXMWSvcCwZv+HNJvyTwsTz6CrbT23Pt+ktbEnO0u06xpvn33qTI1m/3
- e4Gftyf11jt+tAZg6+t8FlKoEWlm94Ik+Je5RfYWbVQt5AUByYRMF4uloRZOBND8shz6
- I6wyn92ywnYNaPXPjGd0RFDirGdU3gMXuElISRbmA47Ff7nkaAJJvHDr+YZWOBRvP5P6
- NRnaXBPu6n3Oeg0iFiNxo2jUXeeqJrQNy/2tBr/kTwmSP71Zwx26hqzoKIRSjOF7rj49
- DR5w==
-X-Gm-Message-State: AOAM531/tttBmd4R10o3CHjS2XgSfyJ7Anj6bykAdCrmizPZoQ2mO7XC
- s/qbJbBtmdRDEkk9/Bcnl5nrjg==
-X-Google-Smtp-Source: ABdhPJyPmv0YDhakVI+qt1MU1sO2SiUVOM15iYJNHsCtaA9Vw9ubH3wlOqitg67p36ZZ7aGhgkGYmQ==
-X-Received: by 2002:a17:90a:31c4:: with SMTP id
- j4mr12376759pjf.105.1623470140772; 
- Fri, 11 Jun 2021 20:55:40 -0700 (PDT)
+ bh=OBgHgvMUoAyJJHJDZalDtHjcCyRI0iHp+vvdhmh2FIU=;
+ b=FK0Q5ztIYgiPMWxZjYrvm8qBCpdjnv+NOLpwCcmAaoAm8TlCc5J/ByEJhI2PX7fey+
+ FLdV7Gdq17AJyhbNnBM/bdCcAIW2BqU4E1Bex9nlDULNOvRb4qVc5utL8N2FKCrJQpad
+ ih+YR/VZrJcNIBtXMkAQVea+O7sf/QifVgAK05MoZLLaCY4cxal8zSkl0smhYqPDz7uK
+ HEaq+3bENR9SO+PKr9EW9BKU7SwqB5DvHqaiTKEggRQ2ya8sqM+NPCKCL1z7fpvU8YpF
+ QzOB6ZkWgiS249IEcnECHv2MH5zrcChoAlMLMMocMaX1NtL7jg/XtAyznbTqNcKRwmSX
+ pFFQ==
+X-Gm-Message-State: AOAM5327YyEZiX1G9xW3IeyzZ0sWUCzd/lf2uvjw47ngIyt7i5S7/PVL
+ fx+FY2kcVXZ2+yWcW7nvZ0PxoA==
+X-Google-Smtp-Source: ABdhPJyypsRXQ8z0u6aFQf73imQPZN0k8d8xQMcoRVZfS5VxiexXQXbCL1WQ4EdQgwz+tmo11GKCbw==
+X-Received: by 2002:a63:dd4a:: with SMTP id g10mr6700247pgj.144.1623470147746; 
+ Fri, 11 Jun 2021 20:55:47 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v22sm6229256pff.105.2021.06.11.20.55.39
+ by smtp.gmail.com with ESMTPSA id f17sm6518738pgm.37.2021.06.11.20.55.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 11 Jun 2021 20:55:39 -0700 (PDT)
-Date: Fri, 11 Jun 2021 20:55:39 -0700 (PDT)
-X-Google-Original-Date: Fri, 11 Jun 2021 19:51:04 PDT (-0700)
-Subject: Re: [PATCH v4 0/4] riscv: Map the kernel with correct permissions the
- first time
-In-Reply-To: <20210604114950.1446390-1-alex@ghiti.fr>
+ Fri, 11 Jun 2021 20:55:47 -0700 (PDT)
+Date: Fri, 11 Jun 2021 20:55:47 -0700 (PDT)
+X-Google-Original-Date: Fri, 11 Jun 2021 20:54:39 PDT (-0700)
+Subject: Re: [PATCH] riscv: mm: Remove va_kernel_xip_pa_offset symbol from
+ !XIP case
+In-Reply-To: <20210603205237.645607ca@xhacker>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- jszhang@kernel.org, Christoph Hellwig <hch@infradead.org>, zong.li@sifive.com,
- anup@brainfault.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, alex@ghiti.fr
+ alex@ghiti.fr, vitaly.wool@konsulko.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-42d061b3-a03b-411b-9b2e-be08031661c1@palmerdabbelt-glaptop>
+To: jszhang3@mail.ustc.edu.cn
+Message-ID: <mhng-8f445bdf-66ea-44cb-8f2b-bffd3a5b76c2@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210611_205643_040681_17BCDC54 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20210611_205648_562801_8B435ED5 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,59 +101,32 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Jun 2021 04:49:46 PDT (-0700), alex@ghiti.fr wrote:
-> The kernel permissions are fixed after the kernel page table is created:
-> avoid that by mapping the kernel 'correctly' the first time.
+On Thu, 03 Jun 2021 05:52:37 PDT (-0700), jszhang3@mail.ustc.edu.cn wrote:
+> The va_kernel_xip_pa_offset is only accessed for XIP case, so make it
+> only available for XIP.
 >
-> Patch 2 is a cleanup patch on which the next patches are based on, not
-> necessary for this patchset though and relies on patch 1.
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/mm/init.c | 2 --
+>  1 file changed, 2 deletions(-)
 >
-> Patch 3 introduces a new helper to set kernel mapping permissions while
-> avoiding all the casts when using set_memory_* API.
->
-> Patch 4  is the bulk of this work and deals with mapping the kernel with
-> the right permissions.
->
-> Changes in v4:
-> * Add patch 1 as noted by Jisheng
-> * Changes patch 2 title as suggested by Anup
-> * Add Reviewed-by from Anup
->
-> Changes in v3:
-> * Add a patch that factorizes kernel address conversions
-> * Add a helper called set_kernel_memory in its own patch, as suggested by
->   Christoph
-> * Prefer IS_ENABLED over #ifdef, as suggested by Christoph
-> * Split overly long lines, as suggested by Christoph
-> * Simplify kernel mapping by mapping ALL text as readonly and taking advantage
->   of already present code that enables write for init text before
->   free_initmem_default.
->
-> Changes in v2:
-> * Rebased on top of for-next (and "riscv: mm: fix build errors caused by
->   mk_pmd()")
-> * Get rid of protect_kernel_linear_mapping_text_rodata as suggested by
->   Jisheng
-> * Improve code in general compared to previous RFC
->
-> Alexandre Ghiti (4):
->   riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED
->   riscv: Simplify xip and !xip kernel address conversion macros
->   riscv: Introduce set_kernel_memory helper
->   riscv: Map the kernel with correct permissions the first time
->
->  arch/riscv/Kconfig                  |   6 --
->  arch/riscv/include/asm/page.h       |  27 ++++----
->  arch/riscv/include/asm/pgtable.h    |   2 +
->  arch/riscv/include/asm/sections.h   |  17 +++++
->  arch/riscv/include/asm/set_memory.h |  13 ++--
->  arch/riscv/kernel/setup.c           |  11 +--
->  arch/riscv/mm/init.c                | 102 ++++++++++++----------------
->  arch/riscv/mm/pageattr.c            |  10 +++
->  8 files changed, 95 insertions(+), 93 deletions(-)
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index ae32f78207f0..ca2826778989 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -194,10 +194,8 @@ EXPORT_SYMBOL(va_kernel_pa_offset);
+>  #endif
+>  #ifdef CONFIG_XIP_KERNEL
+>  #define va_kernel_pa_offset    (*((unsigned long *)XIP_FIXUP(&va_kernel_pa_offset)))
+> -#endif
+>  unsigned long va_kernel_xip_pa_offset __ro_after_init;
+>  EXPORT_SYMBOL(va_kernel_xip_pa_offset);
+> -#ifdef CONFIG_XIP_KERNEL
+>  #define va_kernel_xip_pa_offset        (*((unsigned long *)XIP_FIXUP(&va_kernel_xip_pa_offset)))
+>  #endif
+>  unsigned long pfn_base __ro_after_init;
 
-Thanks, these are on for-next.  I had a few conflicts, let me know if 
-something went wrong.
+This is used outside of XIP now.
 
 _______________________________________________
 linux-riscv mailing list
