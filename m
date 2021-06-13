@@ -2,92 +2,86 @@ Return-Path: <SRS0=q/zc=LH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F274C48BE8
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:48:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 93D06C48BE5
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:51:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BB4566101B
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:48:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB4566101B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 15D1A61040
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:51:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 15D1A61040
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2zZomKPT9WoB8bQUP8S0KxCmRsCm9NDc6GSZ2TMjPas=; b=QsuL48KRmDZc0L
-	k0mQv3D7Osz3fsy5blLX6W7RMVo/A5SBS4d3tspSJCYHpcdtsgdqUGvx2GTSjixpS+93uvEceSCDW
-	wynlJ3lAHW9ytaKhPpbZdLkIJqi6f480yKERaAiio9brbwCac5XF/RhdDWqqCuj5ksey+LXmhLC9p
-	r7huvoHH0ANvZbwyMK088lKuZ4v0qkk8sUjI/NwxSpkwrPS4bq+lRrwpeG1vmAqzRvBB6JNT6p0wU
-	5mTM49vn4aIcxVapgfMnAX840H2MDL+/yNVaf7ofPpxHMcMJIsHtogcTpe9j/gV2tG/lwEIKjFypg
-	FG37NylHAHGVNC5BVp7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7eq3cmLDo2FzE3D1uE/QHOjiAzUNDpzAq6ZXW9UYSQM=; b=iUIhsuWrasm4mL
+	WM7pDFtQaWEDI55ofI60+V2n1CGgS/4t+VpqXs9KZgi5MZ8yJL6s150+oScgfMmq2HHCqVsdHdFy8
+	kPPqV9u3gHtxuZxP/GEB/XFavRHG0tYdkkXEaiFYu42zbkndrC14nIEEZiahzwhlfZArQDXSuhz2U
+	8Cvv53/bPqPHrR4DtCiYkhfuYBkWN5eJDorEekwLLUt0GxzCJgIjfJ/BcnWr2PRBfOWT7TpstX6tT
+	eTuiDWFa+XCmtX9OVGBODnoYngZu3y2RvKECOopwlOuCDFyLI1KQAsjP2rY4CbaBcCWCRnSCHXUXA
+	ifFkqQrelPJ4wP8Kml8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lsEI3-009Oku-H7; Sun, 13 Jun 2021 00:47:51 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lsEI0-009OkF-D5
- for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 00:47:49 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id
- go18-20020a17090b03d2b029016e4ae973f7so6984605pjb.0
- for <linux-riscv@lists.infradead.org>; Sat, 12 Jun 2021 17:47:46 -0700 (PDT)
+	id 1lsELR-009Owo-9p; Sun, 13 Jun 2021 00:51:21 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lsELN-009Ovk-Mb
+ for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 00:51:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=M1E/KqCrqBw8na7d8YIMW+xmxN0lavHYzwrAJ6gdNyE=;
- b=aJ4vaMntnYLgO+AgqInAT3oip05GQ9+gNzo1FF0RO3y0ROVmsEO59Kf6M9WRmKNexd
- Im3aqEwp2V9tWPw5sEBgAubEpA3Ugl/hA9ynMewPB7KygbAOo+im7/kZdwReYgA3EiO1
- pxfp9s5vuQAFDvv1Hm5XHiqmTrof5qiMxTFuln8RzviTRkDT8oqAiwMawXo4xej5eqdH
- aH4u9/o27P4ylT3Rd2/lmmeTIIyryMt/sTtCCk64WQa8kIFc1BUR9ATxnxxxhXMNegLQ
- E3K+D+4GZjAyoMdufCAj4/KdgoPEFGhciRSWg79FPFUUPfwnCaLXiJQYEXQKahBoWMVl
- sIKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=M1E/KqCrqBw8na7d8YIMW+xmxN0lavHYzwrAJ6gdNyE=;
- b=jopFX6NFu5joywj+2ol2lvP3CMWxSJa34mjYuef7LyDMyhfYakjBtN2HdevSER8ZTu
- GSCz4Guw2mW9kGzqq4D8MpaI1eJVckySz1R5NR2C1WsEiDfP+1acg8hBrHcmZQB1uXd2
- epDIrE8srGDIbuUTglH9PmDXFFaZSrZ1U+9F4L9n5M/miFRKAPD4s2cD3NzwXDDskYs4
- 3jjtBLWs0PoNuUyxQyfZBiUWISrMKem/r/VDhzD5mHEyx0OTXXWo+syXX6HnjJegMGsJ
- htFDX77o3yOmmxSqJpVzADz99Pl8a596slCAX21UDLABraB1MnFqkPpq4QHppyWq5jkI
- KSQQ==
-X-Gm-Message-State: AOAM5323fGPgbsrIBsD5n2f8tBg/VmSiPvIPlyx8cbugCFVtHcbsjViH
- QYU1JoPJysd90YpVE2WgIXnbLQ==
-X-Google-Smtp-Source: ABdhPJxIgIF6EZ1OZi/YZBMXsbuk9BT5FZqb5enbN/qDJXSDgc7aIaGWEWdDmWC73fybobAJGHJ9Dw==
-X-Received: by 2002:a17:902:c78a:b029:109:edbb:44de with SMTP id
- w10-20020a170902c78ab0290109edbb44demr10408698pla.6.1623545263470; 
- Sat, 12 Jun 2021 17:47:43 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q18sm8900032pfj.5.2021.06.12.17.47.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 12 Jun 2021 17:47:42 -0700 (PDT)
-Subject: [PATCH] riscv: dts: fu740: fix cache-controller interrupts
-Date: Sat, 12 Jun 2021 17:43:57 -0700
-Message-Id: <20210613004356.3503995-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.32.0.272.g935e593368-goog
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=DaZ74OPMtx5ZkV7YUIGH2vM4+SOhqjSoTZ
+ OAJpitrIc=; b=VQpmGMWoAsrhM18bRe2iu18R2BPimovNnGUEGnAslHJcLYaZCh
+ HehUrktT6mywivvl1OZDt8XMgqg0moLHESf81FWMH3K86UhKqMSXI8QFZZg1iOJr
+ E12fe9AdoHFj1C4Y2GkhCSJtxjCTFxfffAGvDB0JHVd3aVSBxe5kSAeBI=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygCH9JRZVsVg177PAA--.54070S2; 
+ Sun, 13 Jun 2021 08:50:33 +0800 (CST)
+Date: Sun, 13 Jun 2021 08:44:47 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: emil.renner.berthing@gmail.com, alex@ghiti.fr, Paul Walmsley
+ <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, jszhang@kernel.org,
+ Christoph Hellwig <hch@infradead.org>, zong.li@sifive.com,
+ anup@brainfault.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED
+Message-ID: <20210613084447.6db3cc02@xhacker>
+In-Reply-To: <mhng-dfabeabd-e6df-4035-a9d0-c16269390120@palmerdabbelt-glaptop>
+References: <CANBLGcy3HrnmrweSpnDZViVstoWJYh4sCBoaX_24AsgWd=Q9XA@mail.gmail.com>
+ <mhng-dfabeabd-e6df-4035-a9d0-c16269390120@palmerdabbelt-glaptop>
 MIME-Version: 1.0
-Cc: robh+dt@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- greentime.hu@sifive.com, lorenzo.pieralisi@arm.com, 
- yash.shah@sifive.com, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel-team@android.com,
- Palmer Dabbelt <palmerdabbelt@google.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: david.abdurachmanov@sifive.com
+X-CM-TRANSID: LkAmygCH9JRZVsVg177PAA--.54070S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ArWDuFy7XFyrKF4kJr13urg_yoW5Jr4xpw
+ s5AF4vkF15JFy8Jwsrtw18uryjyFsrC343Grn8Ga4YvFyjvF48Xw4DJw15ua4kArn8tr1x
+ Xr1rGa4I9w15J37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+ C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+ Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+ W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+ wI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
+ WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
+ 7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+ 4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4U
+ MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07beAp5UUU
+ UU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210612_174748_470332_3F9949C4 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20210612_175118_382900_C6EA897B 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +98,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Abdurachmanov <david.abdurachmanov@sifive.com>
+On Sat, 12 Jun 2021 17:23:51 -0700 (PDT)
+Palmer Dabbelt <palmer@dabbelt.com> wrote:
 
-The order of interrupt numbers is incorrect.
+> On Sat, 12 Jun 2021 16:23:03 PDT (-0700), emil.renner.berthing@gmail.com wrote:
+> > On Fri, 4 Jun 2021 at 13:51, Alexandre Ghiti <alex@ghiti.fr> wrote:  
+> >>
+> >> Make the physical RAM base address available for all kernels, not only
+> >> XIP kernels as it will allow to simplify address conversions macros.  
+> >
+> > Am I just reading it wrong or won't this patch make it so that the same kernel
+> > can't run on two chips with physical ram starting at different addresses?
 
-The order for FU740 is: DirError, DataError, DataFail, DirFail
+I mentioned this point in http://lists.infradead.org/pipermail/linux-riscv/2021-June/006840.html  
 
-From SiFive FU740-C000 Manual:
-19 - L2 Cache DirError
-20 - L2 Cache DirFail
-21 - L2 Cache DataError
-22 - L2 Cache DataFail
+> 
+> IIUC we were in that position, at least without relocatable kernels.  
+> Maybe I'm misunderstanding this, though?
 
-Signed-off-by: David Abdurachmanov <david.abdurachmanov@sifive.com>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
-Olof pointed me to
-https://raw.githubusercontent.com/sifive/meta-sifive/2021.03/recipes-kernel/linux/files/unmatched/0009-riscv-dts-fu740-fix-cache-controller-interrupts.patch
+Just my humble opinion, before this series patch, at least geneirc Image
+for RV64 + MMU + !XIP is doable.
 
-This appears necessary to make the FU740 function properly, but hasn't been
-posted on the mailing lists.  Given the age I'm hoping it's just slipped
-through the cracks somewhere, but I figured I'd send it out to give David a
-chance to comment if there's a different plan.
----
- arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks
 
-diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-index 8eef82e4199f..abbb960f90a0 100644
---- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-@@ -273,7 +273,7 @@ ccache: cache-controller@2010000 {
- 			cache-size = <2097152>;
- 			cache-unified;
- 			interrupt-parent = <&plic0>;
--			interrupts = <19 20 21 22>;
-+			interrupts = <19 21 22 20>;
- 			reg = <0x0 0x2010000 0x0 0x1000>;
- 		};
- 		gpio: gpio@10060000 {
--- 
-2.32.0.272.g935e593368-goog
+> 
+> >
+> > /Emil
+> >  
+> >> ---
+> >>  arch/riscv/Kconfig | 6 ------
+> >>  1 file changed, 6 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> >> index b58596b141fc..3d8e7e4bb45c 100644
+> >> --- a/arch/riscv/Kconfig
+> >> +++ b/arch/riscv/Kconfig
+> >> @@ -493,13 +493,8 @@ config STACKPROTECTOR_PER_TASK
+> >>         def_bool y
+> >>         depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
+> >>
+> >> -config PHYS_RAM_BASE_FIXED
+> >> -       bool "Explicitly specified physical RAM address"
+> >> -       default n
+> >> -
+> >>  config PHYS_RAM_BASE
+> >>         hex "Platform Physical RAM address"
+> >> -       depends on PHYS_RAM_BASE_FIXED
+> >>         default "0x80000000"
+> >>         help
+> >>           This is the physical address of RAM in the system. It has to be
+> >> @@ -512,7 +507,6 @@ config XIP_KERNEL
+> >>         # This prevents XIP from being enabled by all{yes,mod}config, which
+> >>         # fail to build since XIP doesn't support large kernels.
+> >>         depends on !COMPILE_TEST
+> >> -       select PHYS_RAM_BASE_FIXED
+> >>         help
+> >>           Execute-In-Place allows the kernel to run from non-volatile storage
+> >>           directly addressable by the CPU, such as NOR flash. This saves RAM
+> >> --
+> >> 2.30.2
+> >>
+> >>
+> >> _______________________________________________
+> >> linux-riscv mailing list
+> >> linux-riscv@lists.infradead.org
+> >> http://lists.infradead.org/mailman/listinfo/linux-riscv  
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
 
 _______________________________________________
