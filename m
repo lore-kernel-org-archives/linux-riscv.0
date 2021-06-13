@@ -2,20 +2,20 @@ Return-Path: <SRS0=q/zc=LH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6294EC48BE5
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7ACEDC48BE5
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:48:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E298B610E6
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:26:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E298B610E6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 26AEA61179
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 00:48:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26AEA61179
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -23,69 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=eu5ke4HX4c1Cr8w6XrtHo69FUnxGZ1AE5TVVktHtNsA=; b=rA7K7GhL0TmDPEzVpSzkZDBqMX
-	G+oZncLKiv8KSwMqfZLvih7xwP3EniZIVjizNaMUYtdcPkLW8eIqnxCpo3p7vw0HPgvfvFRB1A/tH
-	FjNrSQByyhBh83iPOxjwjclnDIg00EoZTNbJQIch6fA5tdXbQB89QHmtmC6s1qMdi98jmoXv9+G5V
-	sL82RWZzzPSwUPS0eejxWC6fK9oV7mkcEQq9oTvknuWBXD2ft9MXPFbA/jUEC3Wkj2vpsF6KOpf7u
-	6DfpaWKvjggmC9Mlmn9iokJVFuGhipSkqvYPVVdz334kmEXwn4/ttdBX3wbP4sHD2Zof9McqxP7K2
-	fcd+xsJg==;
+	bh=cVK2Cx0IwQ/TxTqhqUyC2UAva6F8HKE0bsGfPYYc6Vs=; b=uM8uUwtS1+O2hxqxAXAgkbXxDv
+	zjU6ddRaBJ4igQPh6QioyOhzyfnXP8gXDq49pswHUytSZU7BXhG0o/nM5aYj4/nca0j5PY2ytdVZO
+	W04bxOtbRMIcYZxIpdsFKf1K1V7m3GUeRuWQM+T4C2B8id7nLELevi7g1wGCp9xCMxj3hdY1x3X4f
+	+hVbhb8U7vgsCySmRK/YThCQVYZd9jpIuhYUnQTdZt/P11/V5sYyVKBS5jajen/PyRd8U9+ThhKck
+	o5L8XzcB1sxcYPo6Tv/po46cO++gNL2hhmIky9RBf/0u4ybbfptwdL7/HZlUxtIanOLmlaHVqmWx+
+	07bk0MZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lsDuw-009MPw-6I; Sun, 13 Jun 2021 00:23:58 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1lsEI5-009OlC-Qv; Sun, 13 Jun 2021 00:47:53 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lsDur-009MOV-Bn
- for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 00:23:55 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id x16so3430224pfa.13
- for <linux-riscv@lists.infradead.org>; Sat, 12 Jun 2021 17:23:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1lsEI3-009OkE-3G
+ for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 00:47:52 +0000
+Received: by mail-pg1-x536.google.com with SMTP id j12so5664076pgh.7
+ for <linux-riscv@lists.infradead.org>; Sat, 12 Jun 2021 17:47:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=RXT+8x314xSg/qjd5fCq8QVd9NxiQV34XUsXxK9d4mI=;
- b=fy4xzbpxEif9cjWESCVpB24ftJFC11FSHjybOolw4wIhf3BjMuKWCoTH3xoMdlP3G8
- ZoRdGtYiLJcieQOI0B4So8iP+jHH5wPr2FkS9gBvqW1mdTltM1gwYQ9zBHo0awQmVvlC
- li23Fl7ZJtxOog5Xkq15hPZfmYcokiGDMUbxxDGdeNA2UTj2pj0HsJf4XMIJAzzB0H/+
- BXZXr6FXdSBhluW4LFjE0zO1wEeLuCHN1uxSuicB0FzmTxZJP4caU78PEtrX38LsqYiA
- L+25MIHVbFrSGFROEov+/6/tgqoOkJ4XUsCmN4qeWSdOW7dBB6LXm6y20OQxn/vVlcNg
- V5tQ==
+ bh=4kWa26xpJIdxZYrpzpwz50JQfmVdBmBBJbvqtAaT0d8=;
+ b=wGMDSKqyMSIsHWwMFHIZjtVTUgOt2eqxw28tQu/pnFGgSW8Q2gQ3Zmta4c+K1CwyLG
+ 8SfhBIEDrSV/catxYve1qFQKJmXpGd1SAFlkMBG0r14G38NGQo6XqVdFIHLF29b9HbXj
+ tlu8JcE30UrIFAIiKVzMXA2rZdL5RWNXnzYexNKCrueknJu6/jqkVtxK4ZKBFVivkCEW
+ ituYCchaCRmZRr1kBtR8rK43kxpt7fm9Gc9OfX4+c2NUfDjgyr7VCRdXUKwSz71Ju4oe
+ tS9vpQiL9CgteFFYz7p5uRFiROi6M2Ur47nlSiVhKKw2GpsbKsjPXwiOIgsXZ6UCre1P
+ VVxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=RXT+8x314xSg/qjd5fCq8QVd9NxiQV34XUsXxK9d4mI=;
- b=P0I1jctdNQiB83bY5sMUqRoWv7nE95IfJy1eu+tFep9O4xB71al9aEx7QpdpGOi1kv
- n1eJy51dD8g8TZXYP3DQQmJBnmmZTX4iAlRZ9WzulkhYnYMX4aYQ1fhVmGA5SPIgSBi4
- OgdQjzfduBfh9V8fQURRy8JW2DPWSj/8GWG+quqSaEKX0+wczr31sKpm6fG0EWcR/7H8
- aPVKSPPX6sLaizUEyy5YF1qCe7E4qButFVtHieyGWk7p19FuBdKTAc341NpME8TQX1Gr
- 7IILUd/YpFHv4B0+d1obxm1X2gS7MCGM5ec3dEFYR05mM2uZpsjof0HfKncaPbRndCLy
- AFAQ==
-X-Gm-Message-State: AOAM532LRBYm5RwaN+AQg7CYJm2ftmekwBw9rB1L7NI5c4xWJQIKhund
- 3alvCZgmOGRiBm3HvUpRuSGwig==
-X-Google-Smtp-Source: ABdhPJz/JYl3ijdhu3ZIRn+LxZXHWdRI1iDoCU6VkYWp2irfhE5KLCD5Lu/IpLQ56OYsbmB937x6nw==
-X-Received: by 2002:a63:1d61:: with SMTP id d33mr10500807pgm.331.1623543831659; 
- Sat, 12 Jun 2021 17:23:51 -0700 (PDT)
+ bh=4kWa26xpJIdxZYrpzpwz50JQfmVdBmBBJbvqtAaT0d8=;
+ b=oiOYgMlPFJ41J/F0p7+s7LaioMbHx+N/B1TwHnVykG8D2D7S5EPEwlQFvzuY3Q0DW3
+ ySzpxZHTTcmLaFVZdEfn7fMrav74qKiXsY3ZcqQVPe2ZdviJhXdUMogilyeZ0oARz0Z4
+ ggfDDcyZpyszWyUJaooYd52ZAdGnAIexFVzSBvmEnSjeHj6agcr0griIKl98CatNl2e1
+ 3shTNjAe4d0wwDhmT6YBsATzAIpSwAsQQaVhG74ijO76F/9JOve26bcrAWPk2wfHzLae
+ Hw2ERacoD3BzTRvXMlAw6+nTZ8E6rjhcCSEIQMEzucXxWIEz48JsyU9UFCgfvPwtn3Oj
+ 4H8g==
+X-Gm-Message-State: AOAM533CXgob94T/+hTxyLCkJuxmYMYHhfXTxeVPzLFzk4DiB+JJP+SR
+ XaQkTh1Wkhbg2Bs3K1JxlO9+Og==
+X-Google-Smtp-Source: ABdhPJyEAyBXCrrdWDsx9ImGWRr9gYRZyt5nhuJJ8UPC83rSCiNYu06eyx6tcQ+qv52aMFoRrlOZXA==
+X-Received: by 2002:a62:2bc6:0:b029:2e7:a7c2:201 with SMTP id
+ r189-20020a622bc60000b02902e7a7c20201mr15247548pfr.64.1623545261587; 
+ Sat, 12 Jun 2021 17:47:41 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id h28sm8568227pfr.10.2021.06.12.17.23.50
+ by smtp.gmail.com with ESMTPSA id j12sm8903628pgs.83.2021.06.12.17.47.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 12 Jun 2021 17:23:51 -0700 (PDT)
-Date: Sat, 12 Jun 2021 17:23:51 -0700 (PDT)
-X-Google-Original-Date: Sat, 12 Jun 2021 17:23:35 PDT (-0700)
-Subject: Re: [PATCH v4 1/4] riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED
-In-Reply-To: <CANBLGcy3HrnmrweSpnDZViVstoWJYh4sCBoaX_24AsgWd=Q9XA@mail.gmail.com>
-CC: alex@ghiti.fr, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- jszhang@kernel.org, Christoph Hellwig <hch@infradead.org>, zong.li@sifive.com,
- anup@brainfault.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: emil.renner.berthing@gmail.com
-Message-ID: <mhng-dfabeabd-e6df-4035-a9d0-c16269390120@palmerdabbelt-glaptop>
+ Sat, 12 Jun 2021 17:47:41 -0700 (PDT)
+Date: Sat, 12 Jun 2021 17:47:41 -0700 (PDT)
+X-Google-Original-Date: Sat, 12 Jun 2021 17:25:37 PDT (-0700)
+Subject: Re: rebased ASID-based tlbflush
+In-Reply-To: <20210606152050.636038-1-hch@lst.de>
+CC: guoren@kernel.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Christoph Hellwig <hch@lst.de>
+Message-ID: <mhng-fe973a87-b364-4190-96f5-194895558801@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210612_172353_414528_1C517BFF 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20210612_174751_172375_72447782 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +100,13 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 12 Jun 2021 16:23:03 PDT (-0700), emil.renner.berthing@gmail.com wrote:
-> On Fri, 4 Jun 2021 at 13:51, Alexandre Ghiti <alex@ghiti.fr> wrote:
->>
->> Make the physical RAM base address available for all kernels, not only
->> XIP kernels as it will allow to simplify address conversions macros.
+On Sun, 06 Jun 2021 08:20:48 PDT (-0700), Christoph Hellwig wrote:
+> Hi all,
 >
-> Am I just reading it wrong or won't this patch make it so that the same kernel
-> can't run on two chips with physical ram starting at different addresses?
+> this is what I think is a resonable set of patches for the ASID based
+> flushing, largely based on the work from Guo and thus attributed to him.
 
-IIUC we were in that position, at least without relocatable kernels.  
-Maybe I'm misunderstanding this, though?
-
->
-> /Emil
->
->> ---
->>  arch/riscv/Kconfig | 6 ------
->>  1 file changed, 6 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index b58596b141fc..3d8e7e4bb45c 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -493,13 +493,8 @@ config STACKPROTECTOR_PER_TASK
->>         def_bool y
->>         depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
->>
->> -config PHYS_RAM_BASE_FIXED
->> -       bool "Explicitly specified physical RAM address"
->> -       default n
->> -
->>  config PHYS_RAM_BASE
->>         hex "Platform Physical RAM address"
->> -       depends on PHYS_RAM_BASE_FIXED
->>         default "0x80000000"
->>         help
->>           This is the physical address of RAM in the system. It has to be
->> @@ -512,7 +507,6 @@ config XIP_KERNEL
->>         # This prevents XIP from being enabled by all{yes,mod}config, which
->>         # fail to build since XIP doesn't support large kernels.
->>         depends on !COMPILE_TEST
->> -       select PHYS_RAM_BASE_FIXED
->>         help
->>           Execute-In-Place allows the kernel to run from non-volatile storage
->>           directly addressable by the CPU, such as NOR flash. This saves RAM
->> --
->> 2.30.2
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Thanks, these are on for-next.
 
 _______________________________________________
 linux-riscv mailing list
