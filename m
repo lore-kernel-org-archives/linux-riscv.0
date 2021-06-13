@@ -2,73 +2,94 @@ Return-Path: <SRS0=q/zc=LH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F02E0C48BCF
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 13:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C096CC48BCF
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 17:12:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B517961003
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 13:08:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B517961003
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 27E9A61107
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Jun 2021 17:12:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27E9A61107
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5tQYU7aV9lYhhhS9H7R1KJsib24c9/3KFMr+MkqvXLs=; b=Ep+FPDQsQpghvN
-	eosdm6NRiluoQXy6OiQsvFZhQLtQb8sTcpmLgGZCBqy4D4Lgkb4D8UmjezwcbUzZ07/wXNVcu2XvM
-	ZPHcg9xTh4+P/R8wn/FQ9a9OYvrkZS+X2z5HCgxid0pK99kAW3gyd2lsn/xtUEt2h2LcZqK42syvC
-	5STw7V/21qwm6tVNZOyMaVpn+POAB0fWh/+OmsFbLYKHzGC+HGwlvsVMdJRtfm9c6IAresothmuHY
-	aEhMReWLel8UQJe2z3hwviCGnsfQ3rX+orPf3DitKX8KC4PCeTVkkgR/ssTVQASFZklUOg+uuQVf0
-	o5WxhNvIc4rV6ZG19IPA==;
+	List-Owner; bh=L8TRziaErQ7VAjekALiOtJmEeNK5jLaLA/iEEPx79Lo=; b=L5rP/OfajvfYpO
+	DTTyFcj5Xj5N8WwjSJ3l0kSb5P03bkLFdoChEoJZHL2EapSLByV1mCm5PgKus+XYlHLIUX/8ftia8
+	mS4H0nlxwjQ2rOZ26rvCVLMKuj2JbPtPIzQWGbo7moewH772I/TC3GiNuUgcEpN733t0km/IgAyMw
+	k/Z9H0QopN+avHF2k+/QdsS8KD28nf4GZYeKEI+bl+mcIjzEYbjG4lQPyMDNGX5qEIjPnYgUelL79
+	qqeN5RXIILB7fRyZFVKCJ5rkYFXtsjLg7AL0wiCebYRlRbOejA4j0raFNBluVhz25mHmtBeKzBCsl
+	WtiUt9Ewl9Yl4TlVV4aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lsPqj-00AV18-4T; Sun, 13 Jun 2021 13:08:25 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lsPqd-00AV0X-GI
- for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 13:08:24 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D49FC61283
- for <linux-riscv@lists.infradead.org>; Sun, 13 Jun 2021 13:08:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623589698;
- bh=rhmjDN/EWwLhHxJpVndxkOAP7ECgZGMhUmCiHeZzXtg=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=hs3AsqXv3fYAd4w2V0Hta1OHlj0khD58w4+m/tXNaM4YiyOZs7jkyMreROi8DnX56
- grZvXS7u4XWcsKJMq0u0zO3BCcrr0pWyIMKxC9Aqlv/dJHSPHVx7vr8e/JSbcePqQS
- Hq9oNHBVyqpSWtPw2+Q+LUfziddxmaWmBxQiQ2CWOatMu4UxE0ID7YApstXPd1frDh
- wHNpZxi4SXyVo4lbGNHsAajAh6yMXijkujeJBlMP4Mglf/bov8z7Xo0jyYaG+CySY4
- lD3AcZKnoDrNW2DSSrsUJUsqsfw9FQtKM0Aa6P5bOYKk4R40yIojqKZXkUrkdYxR8i
- rUhO5BATIergg==
-Received: by mail-lj1-f172.google.com with SMTP id r16so16195856ljk.9
- for <linux-riscv@lists.infradead.org>; Sun, 13 Jun 2021 06:08:18 -0700 (PDT)
-X-Gm-Message-State: AOAM532i7N7ddhczlnpG+0FEe3mQHNFM0pbIxm0tC5yPwgVJ08TckaRl
- rWyxX1xfmnIb4neUvf1gYrqztA+Z/KEiY2OQReA=
-X-Google-Smtp-Source: ABdhPJzrOUWScEmS6w8fBw2uoLZkFYR14TWyUd5NtKDpjl9neg4QY7p5HnB7ZCVZXc0MohBZs3S6uTY4QDZ2jV/k7Z8=
-X-Received: by 2002:a2e:900f:: with SMTP id h15mr10035109ljg.285.1623589697150; 
- Sun, 13 Jun 2021 06:08:17 -0700 (PDT)
+	id 1lsTeO-00AqPn-HY; Sun, 13 Jun 2021 17:11:56 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lsTeH-00AqPR-34
+ for linux-riscv@lists.infradead.org; Sun, 13 Jun 2021 17:11:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=9YrEcNG/N2YFUqtgoD+2CSLrFOJntdnn7M
+ Cq89XsJdc=; b=oZ8DSkyl3+yzFHd/bMM1IVyZR4lHE4DiiDHKsVLWkCHYILS2SF
+ xqU3nsWL92FjLm8qwLrgL7LPMQWfHnVLRWkWOM/qBCEYJtlOiAm75Yseriobp9hY
+ u220xym9G2f7sidk/jOrCjv269pdfSloeqBcTIit4McfRTumFBZkhXhCI=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygCHj1s2PMZgI9DTAA--.35616S2; 
+ Mon, 14 Jun 2021 01:11:19 +0800 (CST)
+Date: Mon, 14 Jun 2021 01:05:46 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin
+ <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey
+ Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+ <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Luke Nelson
+ <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, netdev@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH 7/9] riscv: bpf: Avoid breaking W^X
+Message-ID: <20210614010546.7a0d5584@xhacker>
+In-Reply-To: <87bl8cqrpv.fsf@igel.home>
+References: <20210330022144.150edc6e@xhacker> <20210330022521.2a904a8c@xhacker>
+ <87o8ccqypw.fsf@igel.home> <20210612002334.6af72545@xhacker>
+ <87bl8cqrpv.fsf@igel.home>
 MIME-Version: 1.0
-References: <20210606152050.636038-1-hch@lst.de>
- <mhng-fe973a87-b364-4190-96f5-194895558801@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-fe973a87-b364-4190-96f5-194895558801@palmerdabbelt-glaptop>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 13 Jun 2021 21:08:04 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQE-PrUU8xDo8=u+V984sW84DnPb_rW=UcAOLmh4HnDrA@mail.gmail.com>
-Message-ID: <CAJF2gTQE-PrUU8xDo8=u+V984sW84DnPb_rW=UcAOLmh4HnDrA@mail.gmail.com>
-Subject: Re: rebased ASID-based tlbflush
-To: Palmer Dabbelt <palmerdabbelt@google.com>, liushixin2@huawei.com
-Cc: Christoph Hellwig <hch@lst.de>, Anup Patel <Anup.Patel@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+X-CM-TRANSID: LkAmygCHj1s2PMZgI9DTAA--.35616S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAw1fKF4UZF1fWF17XFW3Awb_yoW5XF4fpr
+ 1UCFWfKryvqr1Ig348Z3sF93Wjvw13J3sxKrsxXFyUAa1IqF1kZw1YgFW3JrnFqF4xK3y0
+ 9rW29rsava95Zw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+ C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+ Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+ W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkI
+ wI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
+ WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+ 7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+ 4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4U
+ MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07b5sjbUUU
+ UU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210613_060819_585945_D381402F 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20210613_101149_767333_E0A54630 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +106,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I've just tested your for-next, but:
+Hi,
 
- LD      .tmp_vmlinux.kallsyms1
-/home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-mm/vmalloc.o: in function `.L0 ':
-vmalloc.c:(.text+0x2bd2): undefined reference to `pud_clear_huge'
-/home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-mm/vmalloc.o: in function `.L1225':
-vmalloc.c:(.text+0x2cac): undefined reference to `pud_clear_huge'
-Makefile:1191: recipe for target 'vmlinux' failed
+On Fri, 11 Jun 2021 18:41:16 +0200
+Andreas Schwab <schwab@linux-m68k.org> wrote:
 
-I quick fixup with the simple patch:
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-index 738dc6f3530f..b1fbd575cbac 100644
---- a/arch/riscv/mm/pgtable.c
-+++ b/arch/riscv/mm/pgtable.c
-@@ -25,6 +25,14 @@ int pmd_clear_huge(pmd_t *pmd)
- }
- #endif
-
-+int pud_clear_huge(pud_t *pudp)
-+{
-+       if (!pud_leaf(READ_ONCE(*pudp)))
-+               return 0;
-+       pud_clear(pudp);
-+       return 1;
-+}
-+
- int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
- {
-        pte_t *pte;
-
-I think it's from:
-commit 14512690a16537527dacf0f5cd3d2263be317f35
-Author: Liu Shixin <liushixin2@huawei.com>
-Date:   Sat Jun 5 13:48:37 2021 +0800
-
-    riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-
-    This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
-    define the required page table functions(Currently, riscv has only
-    three-level page tables support for 64BIT).
-
-    Signed-off-by: Liu Shixin <liushixin2@huawei.com>
-    Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-On Sun, Jun 13, 2021 at 8:47 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
->
-> On Sun, 06 Jun 2021 08:20:48 PDT (-0700), Christoph Hellwig wrote:
-> > Hi all,
+> On Jun 12 2021, Jisheng Zhang wrote:
+> 
+> > I reproduced an kernel panic with the defconfig on qemu, but I'm not sure whether
+> > this is the issue you saw, I will check.
 > >
-> > this is what I think is a resonable set of patches for the ASID based
-> > flushing, largely based on the work from Guo and thus attributed to him.
->
-> Thanks, these are on for-next.
+> >     0.161959] futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+> > [    0.167028] pinctrl core: initialized pinctrl subsystem
+> > [    0.190727] Unable to handle kernel paging request at virtual address ffffffff81651bd8
+> > [    0.191361] Oops [#1]
+> > [    0.191509] Modules linked in:
+> > [    0.191814] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc5-default+ #3
+> > [    0.192179] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.192492] epc : __memset+0xc4/0xfc
+> > [    0.192712]  ra : skb_flow_dissector_init+0x22/0x86  
+> 
+> Yes, that's the same.
+> 
+> Andreas.
+> 
+
+I think I found the root cause: commit 2bfc6cd81bd ("move kernel mapping
+outside of linear mapping") moves BPF JIT region after the kernel:
+
+#define BPF_JIT_REGION_START   PFN_ALIGN((unsigned long)&_end)
+
+The &_end is unlikely aligned with PMD SIZE, so the front bpf jit region
+sits with kernel .data section in one PMD. But kenrel is mapped in PMD SIZE,
+so when bpf_jit_binary_lock_ro() is called to make the first bpf jit prog
+ROX, we will make part of kernel .data section RO too, so when we write, for example
+memset the .data section, MMU will trigger store page fault.
+
+To fix the issue, we need to make the bpf jit region PMD size aligned by either
+patch BPF_JIT_REGION_START to align on PMD size rather than PAGE SIZE, or
+something as below patch to move the BPF region before modules region:
+
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 9469f464e71a..997b894edbc2 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -31,8 +31,8 @@
+ #define BPF_JIT_REGION_SIZE	(SZ_128M)
+ #ifdef CONFIG_64BIT
+ /* KASLR should leave at least 128MB for BPF after the kernel */
+-#define BPF_JIT_REGION_START	PFN_ALIGN((unsigned long)&_end)
+-#define BPF_JIT_REGION_END	(BPF_JIT_REGION_START + BPF_JIT_REGION_SIZE)
++#define BPF_JIT_REGION_START	(BPF_JIT_REGION_END - BPF_JIT_REGION_SIZE)
++#define BPF_JIT_REGION_END	(MODULES_VADDR)
+ #else
+ #define BPF_JIT_REGION_START	(PAGE_OFFSET - BPF_JIT_REGION_SIZE)
+ #define BPF_JIT_REGION_END	(VMALLOC_END)
+@@ -40,8 +40,8 @@
+ 
+ /* Modules always live before the kernel */
+ #ifdef CONFIG_64BIT
+-#define MODULES_VADDR	(PFN_ALIGN((unsigned long)&_end) - SZ_2G)
+ #define MODULES_END	(PFN_ALIGN((unsigned long)&_start))
++#define MODULES_VADDR	(MODULES_END - SZ_128M)
+ #endif
+ 
+ 
+can you please try it? Per my test, the issue is fixed.
+
+Thanks
 
 
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
