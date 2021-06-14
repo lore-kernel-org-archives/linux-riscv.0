@@ -2,20 +2,21 @@ Return-Path: <SRS0=CnAn=LI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84F77C2B9F4
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jun 2021 13:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6225CC4743C
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jun 2021 13:34:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33ED66124B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jun 2021 13:14:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33ED66124B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 279EC6128C
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Jun 2021 13:34:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 279EC6128C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,72 +24,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sws1R0smt4fT26F9KZ/v+FarIgUX0RLjgnMkz07rK4s=; b=MBZXZbfbmv4rjL
-	Rkq8eO3/QNjjnkcSD/O1AMb4VG70ulDUCrpWbpn0DZPKTHM9A70SGf0TrLB4TyGTGDHzc655kPOJV
-	DopZRRMuObbiFxPTGBF0k8JjZ9KvhffruYW1efocl2N8J8zNEH2DED3VkPFW8/+TyJ2VnVIn3uEnL
-	KG34WYavnTmE0UhuoPYu6Ei8lw9hbQ9XcvzuxLFk81S4xnZtbN0Imlsd59jYs0qlKTX8ZptZhhNV0
-	gQgpB0KstdLMa2U+T3LG6waURvAgiinweuNZC4jF+U/04SYWsydvXUcMFfIMC2uyDFdxXJ+W+BzBd
-	nXEYVF8wnM+2/aOPm5yA==;
+	List-Owner; bh=Bh1bPGDXP8oYpm2UDIzDLUEBFCCW6JC6Jll3IngFjHE=; b=LN3CCCc4BA/BYN
+	YLIqBHWZw71uefZhzi3aYhXdJqbDHNLIL/iJYDfl+W+GdVS09yWdaUbHRvnya7S5goaPhO2cDzAOg
+	Q7TjkLEZkntsqXsK1UJweIxMFCl0v4HOYgvnvnkqxta3orrITYQiek+yb7/+NHjoiCDQqsu468yl7
+	LNWSGxczelmaB0a3kw9+80TRYEo2v+5KEMGM6hlAiLt8OnKiEKTWRyKz78G+2O+gZd7CHKt82xJjK
+	g2R7Ud4ppQZtah6DfBEETNafpac7KyY6hfzmPs1QYvtVBEjiFVGisCdwT7fxguYG0iGqnOQm50bDv
+	EqetDVYTRTn0cjnczzyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lsmPP-00EE7Z-VI; Mon, 14 Jun 2021 13:13:43 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1lsmjB-00EHwY-Kh; Mon, 14 Jun 2021 13:34:09 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lsmPM-00EE6Q-5V
- for linux-riscv@lists.infradead.org; Mon, 14 Jun 2021 13:13:43 +0000
-Received: by mail-wr1-x434.google.com with SMTP id o3so14510248wri.8
- for <linux-riscv@lists.infradead.org>; Mon, 14 Jun 2021 06:13:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ id 1lsmj9-00EHvA-62
+ for linux-riscv@lists.infradead.org; Mon, 14 Jun 2021 13:34:08 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id q21so15434672ybg.8
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Jun 2021 06:34:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=XaqFjDhdi9dIScXFDsKNQBeWGz1HwBH0TF+QCGhEDg4=;
- b=HwYvbf7w8uywUzYEqLUcnCZiAoF1NoeXpwx56KYax2Bqehbxafzv0waHhZPevrg34z
- nMVIV1K2SC/msQ0BkfdJVwOnqO7JGAR3knwH8dySAyCL6llJHF/ZBeBexlWz9Rj1w6ME
- /qsPwb9mSuOs1YXOWxV6d8fSl67TpC0S6DAu1duEPhbxAYsXpUCUufv180Y56LA+2UA2
- 7I28bWDD3lZPoygb9Mue5oUHuN2FeGyqZyD+Vg3QeMdAYFkhGqQ0om3jqjWlhXIcRStK
- cmxS9cTwwQWja5rRwcthhKqHsu/h3SifiTTuP5aWrznboqD4461X5ez91LokOV7+f/vd
- X/tQ==
+ :cc; bh=fITfy3FoCscSzBKzsabed+L5goCIl2g/5fdsym0oiY4=;
+ b=MhW8P6lVLC6p+sZK1oYqz6bb8+6FLaELyTFUYsF4bjZU3eQnYpCiMlhCpAcG8NRRcy
+ CZcIifOsGderqM9MYJO1yxZJTQcfy43sC79EhFugkaZPxm8pUKeb3/mraNpqR7CirnbI
+ GiOB0sP6df12h8M3WAxu+z4SanqoLAEQktHeaTXLuYkMwYO85pgchisFIO8Hbtz1SbGc
+ fIg4jL7F7D6FwQiqYMPVvflIY7GnDapBpUQiWp8Pj1b6/2JGAtk2LcqvYXsSkxhsi+m8
+ coz0jPd83rTTwims4dlptk1iUHWQwFeM7L+Xo3iwxw9WDFzsLmeKyw/mL6DjDxpEc6f1
+ tF2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=XaqFjDhdi9dIScXFDsKNQBeWGz1HwBH0TF+QCGhEDg4=;
- b=lKIahe71MTylOkCjW3/yQOyI7Zrpc3tWQVVDT12hbo+tW+RW1VkRyuEhYBvQ4UOQP/
- HqrwnWsmJ12aRVrg99ROqb+LfMwVIAAX+COrVUgcUKJhjxk57CoAIwFORVVBlSsU6Zhb
- dPM351hviqwm56N2InrUbzG1v2yGSlGWkiANv7mL2weVLARaKexTmJN3BhKVeJuL2oOq
- waupxp5ysqJTjw+n8IJN/tnZMN0nMGGn26kIhShDYA3wN7vlD91EAdLL02Qnp7j+e+cO
- vcueZO5wBAWy0ORuZ/mOSJG12B+YmfhEOF9MBn6ja+rKoFMa/7tkk85DATFhvkeBlGT+
- vTMA==
-X-Gm-Message-State: AOAM533yfAinBJetzxIzyMgPn/GRoQDuHaAbnPLVVZEvokkEoGWvtW/e
- P77n44UtUyfogxDmreUsxueFeWzvn2W76lSPd6tyvg==
-X-Google-Smtp-Source: ABdhPJwaIml99G0JVblKb/bJU6ZJxhC4NnG3pECobXr6p0v0dm5rhMCSciB3jhJPIU6+0Ueq2o9rrQ5zrI4HAOZY5mY=
-X-Received: by 2002:a5d:6b81:: with SMTP id n1mr18528505wrx.144.1623676416729; 
- Mon, 14 Jun 2021 06:13:36 -0700 (PDT)
+ bh=fITfy3FoCscSzBKzsabed+L5goCIl2g/5fdsym0oiY4=;
+ b=HOvcyl+t1dcb1gTNUv64OhxU1la1UpVub6mr2gOPeExxeSILfLVWmSCdvW4zC5YHOF
+ lQsGJDUteE+Ck3FE9jVOLK/drj2xKSj4WleGwgpn0Z5JFnVYpCrmhja7ltRCifbkb10z
+ feuHOwcCviVc1JqpJyrLBZ9Oe8hoDU4Bp2TqFB5+PffHMKa/jcL2vf0i4D7/6Gn90G65
+ MAEomY+7C+6lm+m8bzXF0IX01JdVnCkwiETX67BTrzADj1kClRkl+fXnSPamxxez7kZt
+ SpHo7BmakOQP9ZsiFN/s0l+DP1B1RIekp6HwD7HbLDXOW7d5xfWO6c4gep2PeZueuFrh
+ uq6Q==
+X-Gm-Message-State: AOAM533qdsmMLrVe0PLI37jwyeg1Z3dj+7/+IFakauwMSwcFvrLAl6p6
+ XfmDcsgPmtJ9Nxw9TWNhH4UZhiXqa+NUe0o2QKU=
+X-Google-Smtp-Source: ABdhPJzylP/+U5d/VxskGMW//vGfCikjF9dkGLIxiDlPbjg6s6SPPEZY32Gk5rbGsiS4HIDDCDXM9d+uuBvguiVMSX0=
+X-Received: by 2002:a25:be09:: with SMTP id h9mr25605058ybk.239.1623677646410; 
+ Mon, 14 Jun 2021 06:34:06 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210612160422.330705-1-anup.patel@wdc.com>
- <20210612160422.330705-6-anup.patel@wdc.com>
- <878s3et831.wl-maz@kernel.org>
- <CAAhSdy2e9BsgtTL3ETRC-dvHW9hgKmgRi87Gsk+vUT-kMsJ4NQ@mail.gmail.com>
- <87a6nsrdkm.wl-maz@kernel.org>
-In-Reply-To: <87a6nsrdkm.wl-maz@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 14 Jun 2021 18:43:25 +0530
-Message-ID: <CAAhSdy0jZTqZ+zTazpQLeCnbAHr99t40vEa-_GD0_UjBZsXWzg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 05/10] irqchip: Add ACLINT software interrupt driver
-To: Marc Zyngier <maz@kernel.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Thomas Gleixner <tglx@linutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ <20210612160422.330705-2-anup.patel@wdc.com>
+In-Reply-To: <20210612160422.330705-2-anup.patel@wdc.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Mon, 14 Jun 2021 21:33:53 +0800
+Message-ID: <CAEUhbmXhDZExHpZwVUEW-xz2nq_j5SXev4pZBhG4qAtPr2riCA@mail.gmail.com>
+Subject: Re: [RFC PATCH v1 01/10] RISC-V: Clear SIP bit only when using SBI
+ IPI operations
+To: Anup Patel <anup.patel@wdc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
  Rob Herring <robh+dt@kernel.org>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210614_061341_889732_CF316F1F 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20210614_063407_280469_4B089B7B 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +102,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 14, 2021 at 3:08 PM Marc Zyngier <maz@kernel.org> wrote:
+On Sun, Jun 13, 2021 at 12:07 AM Anup Patel <anup.patel@wdc.com> wrote:
 >
-> On Sun, 13 Jun 2021 13:25:40 +0100,
-> Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Sun, Jun 13, 2021 at 3:11 PM Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > I'm sorry, but this really isn't an irqchip driver. This is a piece of
-> > > arch-specific code that uses *none* of the irq subsystem abstractions
-> > > apart from the IRQCHIP_DECLARE() macro.
-> >
-> > Yes, I was not sure we can call it IRQCHIP hence the RFC PATCH.
-> >
-> > Both ACLINT MSWI and SSWI are special devices providing only IPI
-> > support so I will re-think how to fit this.
->
-> It depends on how you think of IPIs in your architecture.
->
-> arm64 (and even now 32bit) have been moved to a mode where IPIs are
-> normal interrupts, as it helps with other things such as our pseudo
-> NMIs, and reduces code duplication. MIPS has done the same for a long
-> time (they don't have dedicated HW for that).
+> The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+> S-mode but readonly for M-mode so we clear this bit only when using
 
-RISC-V is also moving in a similar direction with the RISC-V advanced
-interrupt architecture (AIA) specification which aims at defining an
-interrupt controller having MSI support, virtualization support and
-scalable for a large number of CPUs. The RISC-V AIA treats IPIs as
-normal interrupts.
+nits: read-only
 
-The RISC-V ACLINT based IPI support is for RISC-V systems which
-only need a simple interrupt controller without MSI support and
-virtualization support. These systems will not implement RISC-V AIA.
-
-Regards,
-Anup
-
+> SBI IPI operations.
 >
->         M.
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/kernel/sbi.c | 8 +++++++-
+>  arch/riscv/kernel/smp.c | 2 --
+>  2 files changed, 7 insertions(+), 3 deletions(-)
 >
-> --
-> Without deviation from the norm, progress is not possible.
+
+Otherwise,
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
