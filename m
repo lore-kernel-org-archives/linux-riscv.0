@@ -2,87 +2,88 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 36D52C48BE5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 13:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90448C48BDF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:27:27 +0000 (UTC)
 Received: from bombadil.infradead.org (unknown [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBFD461413
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 13:51:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EBFD461413
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 58F8061493
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:27:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58F8061493
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:CC:References:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=C0DcsJDXP4cKbomDrfDiDy5h+1vBBzOwoLOECIu7UOs=; b=F0HpvCzIZFTtJWkpClk/lwaiHc
-	7OeKOpUCvMzRWJPEELZfdouz2Ho+bW972TQVcdHvprzlAaJUqpL2PFXNEcXzPNfCMj2GtfDzcezfp
-	1IXZdn3bXAwYsgfIpkehoex/EtMlhCLM4/AdvpQgHjY2b3ra31kykaB4Aj6iUr4IGjOF7ynyng78a
-	LR98qK3X38fgUi6LQo6gaLmjFJSsOhV3TF0E9NIzwc0+572FcTbU0YCX+hO7qT6Ln6O8P1qDCNl+K
-	jjZWGPUPeGBt8P6RhFnmq0yNzZjggCVxYbrySyEACSxJvtlNiOvxZfOzQxecDtpTvMu8nTGHHwpsk
-	ZWSqCL2w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w12itQs4HnlODsLXc9oVJBGehsLlgdl6QT/e2JAjjbk=; b=BMYw09a0yXD2pG
+	7jwpaAH92/b7UROLtLFKbKQqoF2UZ+E0uCohe0iw5rZub0lxgClisJ1y1ZsHEU9TFy45bjZnMRjgK
+	yiwkTcn63I1YIDaEfD8ONbAr+TOdVpkmW5zJ/Dhzmo54S1N3LYbAj/9vklt+Pum8oeha7cYbZ15Pl
+	i4iSreaoCABuiYa3Jn7TSa5PeYuQU1hOeMsn3Ma8Tvrie91N/TZkSw6+8Q520rezQ+/7S8PUJcmjH
+	za44V4uJRcK2qDLYhPBoBOoebsz8O/Z90kE40BV6kjwIMiF53/0JOZlCYhUwdoheOBhpzbQps1nzV
+	j2KBmMpUhPWhDL4G3fHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lt9SU-000K03-OF; Tue, 15 Jun 2021 13:50:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ltA1R-000Zz8-AO; Tue, 15 Jun 2021 14:26:33 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lt9Fq-000DDm-Tj
- for linux-riscv@bombadil.infradead.org; Tue, 15 Jun 2021 13:37:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
- :In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:Subject:
- Sender:Reply-To:Content-ID:Content-Description;
- bh=dY4/0t04KFhfKEfeeQPY/UKc8Hz3xhT/LXpQW76N4T4=; b=QfjH4EjQv8Z0Do8bw/S018WHLi
- /V+QKHM2pak0SzJkRitDdD21fHG87Il6BlcdgAuuAdALV/jJyyzHBUGf0b/G5vPO/NamptdzP8L1E
- ruPIW6nSyxRNRIX00SiKVPqNuk3a/qYcUs+OmJlaN7XyEq0UFI/pvP82IcqlQ5yHYsMl8fDiD6fEQ
- NzOr5iyv3VIm3m1y6Z4d6LXTxFLZ3WiWChulkY/ZCalYcu4BZn1vjNeJEwOZXF/ao9Hg8mWeMSPG7
- csZn1s6F7PqfTc52AubAo0Av/Hg2AqSpFuww+R5J7sjx+yuARJ5iPnH7rkFjmwic9MwGN4sus1UBt
- I2sbL7nA==;
-Received: from szxga02-in.huawei.com ([45.249.212.188])
- by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lt77i-007lnR-76
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 11:20:59 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.57])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4G45QF4lXpz7044;
- Tue, 15 Jun 2021 19:17:41 +0800 (CST)
-Received: from dggpemm500009.china.huawei.com (7.185.36.225) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Tue, 15 Jun 2021 19:20:50 +0800
-Received: from [10.174.179.24] (10.174.179.24) by
- dggpemm500009.china.huawei.com (7.185.36.225) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Tue, 15 Jun 2021 19:20:50 +0800
-Subject: Re: rebased ASID-based tlbflush
-To: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>
-References: <20210606152050.636038-1-hch@lst.de>
- <mhng-fe973a87-b364-4190-96f5-194895558801@palmerdabbelt-glaptop>
- <CAJF2gTQE-PrUU8xDo8=u+V984sW84DnPb_rW=UcAOLmh4HnDrA@mail.gmail.com>
-CC: Christoph Hellwig <hch@lst.de>, Anup Patel <Anup.Patel@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-From: Liu Shixin <liushixin2@huawei.com>
-Message-ID: <a06ebb56-2fd7-d8f8-866e-ea235f52696b@huawei.com>
-Date: Tue, 15 Jun 2021 19:20:44 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ id 1lt9Il-000FC5-E4
+ for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 13:40:25 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id h15so20480536ybm.13
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 06:40:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=2bninJQzLYLiLyEZnoHibEA952wacAzi8eRw8B/sbgM=;
+ b=tkEyXCty7/BpQtj1Wvr1kO/TdoIz6mfhYnF3xuyQct2w+VqmXOP2h3PVtbFkvEUcvb
+ bT0GUBP3kcNDI9NxSzrz7jhTknQeri8H8fYo0+dqQekekc+gwvf1M2HFQOO3pnv83FGw
+ wA1rrCc7UrQITnD2vSl2xlSpIkopCWvSQVXdmR3LNBGl23pl3ZHknYF2wZqH55CFKKpN
+ fn2q2NOfgfw15qtqduaa89gLfbMN08bddIqkh0LLWBLve0GnyBURHAocpQCdIowF0GIl
+ AnoIB3AvOL7h53cZNkrvY45oe8pVJBD1L1O1mutkMLc8f3miUh6E7TGtZpuCeBX37dN4
+ dRww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=2bninJQzLYLiLyEZnoHibEA952wacAzi8eRw8B/sbgM=;
+ b=N/RepA7ttNPQid4QBUiYZ8nXAbptCNtTQTPWY9dW0zRwqnLdfr9qa0cHgvj+3j2Jcd
+ Du1TJvnYudDn+R+AXdCsN3e/uw/EMmljVkefq472tqG03+X3NPaZ83oe0YEi3AjPwYsi
+ 7Yr+C/SeH2U2VDLOpABL4790BZm8gFg3YHXUYt6gqw/43iuZSUzAPgIS7Si1U9G6S5vb
+ qD+pMWER04EdSJwEZTaFqHqIqy8Kl0GZF7qb+R/dYQBcPs8SpLNt3OrKHNvnxMHI/1m7
+ MJrsbEo0TXV1AHeKNN3iWBzVfGgHBfWTFDe0T7LAomVjyV58ZU/Mt9QPRxKz0vzxn64X
+ tOgQ==
+X-Gm-Message-State: AOAM531Mc8I+/22RNXQuxTMSQdQCnNXLbP6J7DjPKDc0bpIoqoWD/TkQ
+ Ik8q0HynOc1+mWFoGHpSo4hZLHVJDz8/1Qat643CA1uLSJw=
+X-Google-Smtp-Source: ABdhPJyTm2ZJXQyVMUO7d5Y5CMDVt9qLpiRiCe7z8HVFKMkCu1YnhvD6pp2syW7qpbTCcJlgi7aCj5QHIIb3vk3ptiI=
+X-Received: by 2002:a25:b701:: with SMTP id t1mr22019966ybj.517.1623764421204; 
+ Tue, 15 Jun 2021 06:40:21 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAJF2gTQE-PrUU8xDo8=u+V984sW84DnPb_rW=UcAOLmh4HnDrA@mail.gmail.com>
-X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- dggpemm500009.china.huawei.com (7.185.36.225)
-X-CFilter-Loop: Reflected
+References: <20210522232256.00003f08@garyguo.net>
+ <mhng-fdda10f7-fc83-4654-a0b2-e9c86b92c37e@palmerdabbelt-glaptop>
+ <17637b10e71b41b89126cbb1b2fa61cf@AcuMS.aculab.com>
+ <20210525153431.0000508d@garyguo.net>
+In-Reply-To: <20210525153431.0000508d@garyguo.net>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Tue, 15 Jun 2021 21:40:10 +0800
+Message-ID: <CAEUhbmXvYdVSsY3oH=XdyT2fOC1X9=-Rh0P1Q5TP1DcmzFfRrQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: fix memmove and optimise memcpy when misalign
+To: Gary Guo <gary@garyguo.net>
+Cc: David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+ "nickhu@andestech.com" <nickhu@andestech.com>,
+ "nylon7@andestech.com" <nylon7@andestech.com>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_122057_597820_8988AB44 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20210615_064023_582108_3EF01662 
+X-CRM114-Status: GOOD (  37.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +100,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/6/13 21:08, Guo Ren wrote:
-> I've just tested your for-next, but:
+On Tue, May 25, 2021 at 10:37 PM Gary Guo <gary@garyguo.net> wrote:
 >
->  LD      .tmp_vmlinux.kallsyms1
-> /home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-> mm/vmalloc.o: in function `.L0 ':
-> vmalloc.c:(.text+0x2bd2): undefined reference to `pud_clear_huge'
-> /home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-> mm/vmalloc.o: in function `.L1225':
-> vmalloc.c:(.text+0x2cac): undefined reference to `pud_clear_huge'
-> Makefile:1191: recipe for target 'vmlinux' failed
+> On Sun, 23 May 2021 17:12:23 +0000
+> David Laight <David.Laight@ACULAB.COM> wrote:
 >
-> I quick fixup with the simple patch:
-> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-> index 738dc6f3530f..b1fbd575cbac 100644
-> --- a/arch/riscv/mm/pgtable.c
-> +++ b/arch/riscv/mm/pgtable.c
-> @@ -25,6 +25,14 @@ int pmd_clear_huge(pmd_t *pmd)
->  }
->  #endif
+> > From: Palmer Dabbelt
+> > > Sent: 23 May 2021 02:47
+> > ...
+> > > IMO the right way to go here is to just move to C-based string
+> > > routines, at least until we get to the point where we're seriously
+> > > optimizing for specific processors.  We went with the C-based
+> > > string rountines in glibc as part of the upstreaming process and
+> > > found only some small performance differences when compared to the
+> > > hand-written assembly, and they're way easier to maintain.
 >
-> +int pud_clear_huge(pud_t *pudp)
-> +{
-> +       if (!pud_leaf(READ_ONCE(*pudp)))
-> +               return 0;
-> +       pud_clear(pudp);
-> +       return 1;
-> +}
-> +
->  int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
->  {
->         pte_t *pte;
+> I prefer C versions as well, and actually before commit 04091d6 we are
+> indeed using the generic C version. The issue is that 04091d6
+> introduces an assembly version that's very broken. It does not offer
+> and performance improvement to the C version, and breaks all processors
+> without hardware misalignment support (yes, firmware is expected to
+> trap and handle these, but they are painfully slow).
 >
-> I think it's from:
-> commit 14512690a16537527dacf0f5cd3d2263be317f35
-> Author: Liu Shixin <liushixin2@huawei.com>
-> Date:   Sat Jun 5 13:48:37 2021 +0800
->
->     riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
->
->     This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
->     define the required page table functions(Currently, riscv has only
->     three-level page tables support for 64BIT).
->
->     Signed-off-by: Liu Shixin <liushixin2@huawei.com>
->     Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-This commit is based on linux-next. pud_clear_huge() have been defined in pre-commit
-("mm/pgtable: add stubs for {pmd/pub}_{set/clear}_huge") which is not on for-next.
-The code is different and thus an error is reported here.
-Should I rebase the patch on for-next and resend it?
+> I noticed the issue because I ran Linux on my own firmware and found
+> that kernel couldn't boot. I didn't implement misalignment emulation at
+> that time (and just send the trap to the supervisor).
 
-thanks,
-> On Sun, Jun 13, 2021 at 8:47 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
->> On Sun, 06 Jun 2021 08:20:48 PDT (-0700), Christoph Hellwig wrote:
->>> Hi all,
->>>
->>> this is what I think is a resonable set of patches for the ASID based
->>> flushing, largely based on the work from Guo and thus attributed to him.
->> Thanks, these are on for-next.
->
->
+Similarly, I noticed exactly the same issue as what you saw on
+mainline U-Boot SPL that it suddenly does not boot on SiFive
+Unleashed. Bisect leads to the commit that brought the kernel buggy
+assembly mem* version into U-Boot.
 
+> Because 04091d6 is accepted, my assumption is that we need an assembly
+> version.
+
+That's my understanding as well. I thought kernel folks prefer
+hand-written assembly over pure C :)
+
+> So I spent some time writing, testing and optimising the assembly.
+
+Thank you for the fix!
+
+>
+> > >
+> > > IIRC Linux only has trivial C string routines in lib, I think the
+> > > best way to go about that would be to higher performance versions
+> > > in there. That will allow other ports to use them.
+> >
+> > I certainly wonder how much benefit these massively unrolled
+> > loops have on modern superscaler processors - especially those
+> > with any form of 'out of order' execution.
+> >
+> > It is often easy to write assembler where all the loop
+> > control instructions happen in parallel with the memory
+> > accesses - which cannot be avoided.
+> > Loop unrolling is so 1970s.
+> >
+> > Sometimes you need to unroll once.
+> > And maybe interleave the loads and stores.
+> > But after that you can just be trashing the i-cache.
+>
+> I didn't introduce the loop unrolling though. The loop unrolled
+> assembly is there before this patch, and I didn't even change the
+> unroll factor. I only added a path to handle misaligned case.
+>
+> There are a lot of diffs because I did made some changes to the
+> register allocation so that the code is more optimal. I also made a few
+> cleanups and added a few comments. It might be easier to review if you
+> apply the patch locally and just look at the file.
+
+I would vote to apply this patch, unless we wanted to do "git revert
+04091d6", but that would break KASAN I guess?
+
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
