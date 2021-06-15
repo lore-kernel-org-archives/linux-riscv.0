@@ -2,20 +2,19 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 90448C48BDF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C427BC48BDF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:40:14 +0000 (UTC)
 Received: from bombadil.infradead.org (unknown [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 58F8061493
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:27:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58F8061493
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8958E61490
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 14:40:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8958E61490
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,67 +22,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w12itQs4HnlODsLXc9oVJBGehsLlgdl6QT/e2JAjjbk=; b=BMYw09a0yXD2pG
-	7jwpaAH92/b7UROLtLFKbKQqoF2UZ+E0uCohe0iw5rZub0lxgClisJ1y1ZsHEU9TFy45bjZnMRjgK
-	yiwkTcn63I1YIDaEfD8ONbAr+TOdVpkmW5zJ/Dhzmo54S1N3LYbAj/9vklt+Pum8oeha7cYbZ15Pl
-	i4iSreaoCABuiYa3Jn7TSa5PeYuQU1hOeMsn3Ma8Tvrie91N/TZkSw6+8Q520rezQ+/7S8PUJcmjH
-	za44V4uJRcK2qDLYhPBoBOoebsz8O/Z90kE40BV6kjwIMiF53/0JOZlCYhUwdoheOBhpzbQps1nzV
-	j2KBmMpUhPWhDL4G3fHQ==;
+	List-Owner; bh=GJOaX3O2B6p+b/ksEiKXysqwhGD3s1NDU+dcMM3MQns=; b=hyiDV8VKBRII4G
+	9WPntswzizYJj4kvErb1uYWCKMXQK3SAbEWg7GTclXHwd+/caxgFHv3OJTDpCw6gE8ydLWxAxBTLW
+	62xnC+uaVVA8LnXbbis1MSHuBzKPf+QLRssLwueaSPnZLaYAjdHoJffJ1vjTF+hQqQR5joE8lBom0
+	FtorQHLj6iJtF8GSEuBL5YvjIC0RbwzxmvnpjUnYstc4/PSdv1MHBuxKs5SsHSyoEWdfbYzqKOh97
+	UJcEhEHKa/cSy+w7BBniZZnKKycyWpwl7DOeTG7dspGWt0LGRZ/TER21VlcbbeQ1LNSpANNCyDOvV
+	AiuHo0ccFIL9hvjYpjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltA1R-000Zz8-AO; Tue, 15 Jun 2021 14:26:33 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lt9Il-000FC5-E4
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 13:40:25 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id h15so20480536ybm.13
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 06:40:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=2bninJQzLYLiLyEZnoHibEA952wacAzi8eRw8B/sbgM=;
- b=tkEyXCty7/BpQtj1Wvr1kO/TdoIz6mfhYnF3xuyQct2w+VqmXOP2h3PVtbFkvEUcvb
- bT0GUBP3kcNDI9NxSzrz7jhTknQeri8H8fYo0+dqQekekc+gwvf1M2HFQOO3pnv83FGw
- wA1rrCc7UrQITnD2vSl2xlSpIkopCWvSQVXdmR3LNBGl23pl3ZHknYF2wZqH55CFKKpN
- fn2q2NOfgfw15qtqduaa89gLfbMN08bddIqkh0LLWBLve0GnyBURHAocpQCdIowF0GIl
- AnoIB3AvOL7h53cZNkrvY45oe8pVJBD1L1O1mutkMLc8f3miUh6E7TGtZpuCeBX37dN4
- dRww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=2bninJQzLYLiLyEZnoHibEA952wacAzi8eRw8B/sbgM=;
- b=N/RepA7ttNPQid4QBUiYZ8nXAbptCNtTQTPWY9dW0zRwqnLdfr9qa0cHgvj+3j2Jcd
- Du1TJvnYudDn+R+AXdCsN3e/uw/EMmljVkefq472tqG03+X3NPaZ83oe0YEi3AjPwYsi
- 7Yr+C/SeH2U2VDLOpABL4790BZm8gFg3YHXUYt6gqw/43iuZSUzAPgIS7Si1U9G6S5vb
- qD+pMWER04EdSJwEZTaFqHqIqy8Kl0GZF7qb+R/dYQBcPs8SpLNt3OrKHNvnxMHI/1m7
- MJrsbEo0TXV1AHeKNN3iWBzVfGgHBfWTFDe0T7LAomVjyV58ZU/Mt9QPRxKz0vzxn64X
- tOgQ==
-X-Gm-Message-State: AOAM531Mc8I+/22RNXQuxTMSQdQCnNXLbP6J7DjPKDc0bpIoqoWD/TkQ
- Ik8q0HynOc1+mWFoGHpSo4hZLHVJDz8/1Qat643CA1uLSJw=
-X-Google-Smtp-Source: ABdhPJyTm2ZJXQyVMUO7d5Y5CMDVt9qLpiRiCe7z8HVFKMkCu1YnhvD6pp2syW7qpbTCcJlgi7aCj5QHIIb3vk3ptiI=
-X-Received: by 2002:a25:b701:: with SMTP id t1mr22019966ybj.517.1623764421204; 
- Tue, 15 Jun 2021 06:40:21 -0700 (PDT)
+	id 1ltADQ-000eVa-K1; Tue, 15 Jun 2021 14:38:56 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lt9Ng-000Hn9-S2
+ for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 13:45:30 +0000
+Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com
+ [209.85.215.179])
+ by linux.microsoft.com (Postfix) with ESMTPSA id 93EA420B6C14
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 06:45:24 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 93EA420B6C14
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+ s=default; t=1623764724;
+ bh=7UULkM9VpH3Wm7vWsgwZVD3p39+NvKKLXs8u9XWsGBo=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=Oq4u01Z10/CBCJu1HPj1Vvu1ftm2kYNH8idZjB5WxkhgjgnbVMq39iDdAuuSQLAKZ
+ VpLVpJEDIigDfAepMNu7TJYWdwBEnpDnzMtuRsyP711OYly94uxU2aKOYJp+2iOD13
+ muGQXPdC0UaG2FxC5mIDCKB+7DBU9tQHsbH7EBnM=
+Received: by mail-pg1-f179.google.com with SMTP id t13so4129064pgu.11
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 06:45:24 -0700 (PDT)
+X-Gm-Message-State: AOAM531DgqhiOjJTv4ungf5gxiL7ZzzFaab0A/Wrw/5UWZgfwNNHPN8n
+ sKIf8n4ynzbRriFHl+cgC8KlHfqRaQ1hRammKek=
+X-Google-Smtp-Source: ABdhPJyzNMA1hikc4GzmgcUaRxwOH9kITpR2EgDgak8cpnVdiiCAfUiybdtEp1A5PpHdPahqGVJBiDJhevSMLxRuI3Q=
+X-Received: by 2002:a63:1703:: with SMTP id x3mr22496302pgl.421.1623764724145; 
+ Tue, 15 Jun 2021 06:45:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210522232256.00003f08@garyguo.net>
- <mhng-fdda10f7-fc83-4654-a0b2-e9c86b92c37e@palmerdabbelt-glaptop>
- <17637b10e71b41b89126cbb1b2fa61cf@AcuMS.aculab.com>
- <20210525153431.0000508d@garyguo.net>
-In-Reply-To: <20210525153431.0000508d@garyguo.net>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Tue, 15 Jun 2021 21:40:10 +0800
-Message-ID: <CAEUhbmXvYdVSsY3oH=XdyT2fOC1X9=-Rh0P1Q5TP1DcmzFfRrQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix memmove and optimise memcpy when misalign
-To: Gary Guo <gary@garyguo.net>
-Cc: David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
- "nickhu@andestech.com" <nickhu@andestech.com>,
- "nylon7@andestech.com" <nylon7@andestech.com>, 
+References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
+ <20210615023812.50885-2-mcroce@linux.microsoft.com>
+ <6cff2a895db94e6fadd4ddffb8906a73@AcuMS.aculab.com>
+ <CAEUhbmV+Vi0Ssyzq1B2RTkbjMpE21xjdj2MSKdLydgW6WuCKtA@mail.gmail.com>
+ <1632006872b04c64be828fa0c4e4eae0@AcuMS.aculab.com>
+In-Reply-To: <1632006872b04c64be828fa0c4e4eae0@AcuMS.aculab.com>
+From: Matteo Croce <mcroce@linux.microsoft.com>
+Date: Tue, 15 Jun 2021 15:44:48 +0200
+X-Gmail-Original-Message-ID: <CAFnufp208bY29Zs9w7OtMtK0vcFOs1OosO2U6tJzm6ju-Awe4g@mail.gmail.com>
+Message-ID: <CAFnufp208bY29Zs9w7OtMtK0vcFOs1OosO2U6tJzm6ju-Awe4g@mail.gmail.com>
+Subject: Re: [PATCH 1/3] riscv: optimized memcpy
+To: David Laight <David.Laight@aculab.com>
+Cc: Bin Meng <bmeng.cn@gmail.com>, 
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atish.patra@wdc.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_064023_582108_3EF01662 
-X-CRM114-Status: GOOD (  37.22  )
+X-CRM114-CacheID: sfid-20210615_064529_028697_EF73ECA3 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,80 +95,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 25, 2021 at 10:37 PM Gary Guo <gary@garyguo.net> wrote:
+On Tue, Jun 15, 2021 at 3:18 PM David Laight <David.Laight@aculab.com> wrote:
 >
-> On Sun, 23 May 2021 17:12:23 +0000
-> David Laight <David.Laight@ACULAB.COM> wrote:
->
-> > From: Palmer Dabbelt
-> > > Sent: 23 May 2021 02:47
-> > ...
-> > > IMO the right way to go here is to just move to C-based string
-> > > routines, at least until we get to the point where we're seriously
-> > > optimizing for specific processors.  We went with the C-based
-> > > string rountines in glibc as part of the upstreaming process and
-> > > found only some small performance differences when compared to the
-> > > hand-written assembly, and they're way easier to maintain.
->
-> I prefer C versions as well, and actually before commit 04091d6 we are
-> indeed using the generic C version. The issue is that 04091d6
-> introduces an assembly version that's very broken. It does not offer
-> and performance improvement to the C version, and breaks all processors
-> without hardware misalignment support (yes, firmware is expected to
-> trap and handle these, but they are painfully slow).
->
-> I noticed the issue because I ran Linux on my own firmware and found
-> that kernel couldn't boot. I didn't implement misalignment emulation at
-> that time (and just send the trap to the supervisor).
-
-Similarly, I noticed exactly the same issue as what you saw on
-mainline U-Boot SPL that it suddenly does not boot on SiFive
-Unleashed. Bisect leads to the commit that brought the kernel buggy
-assembly mem* version into U-Boot.
-
-> Because 04091d6 is accepted, my assumption is that we need an assembly
-> version.
-
-That's my understanding as well. I thought kernel folks prefer
-hand-written assembly over pure C :)
-
-> So I spent some time writing, testing and optimising the assembly.
-
-Thank you for the fix!
-
->
+> From: Bin Meng
+> > Sent: 15 June 2021 14:09
+> >
+> > On Tue, Jun 15, 2021 at 4:57 PM David Laight <David.Laight@aculab.com> wrote:
 > > >
-> > > IIRC Linux only has trivial C string routines in lib, I think the
-> > > best way to go about that would be to higher performance versions
-> > > in there. That will allow other ports to use them.
+> ...
+> > > I'm surprised that the C loop:
+> > >
+> > > > +             for (; count >= bytes_long; count -= bytes_long)
+> > > > +                     *d.ulong++ = *s.ulong++;
+> > >
+> > > ends up being faster than the ASM 'read lots' - 'write lots' loop.
 > >
-> > I certainly wonder how much benefit these massively unrolled
-> > loops have on modern superscaler processors - especially those
-> > with any form of 'out of order' execution.
-> >
-> > It is often easy to write assembler where all the loop
-> > control instructions happen in parallel with the memory
-> > accesses - which cannot be avoided.
-> > Loop unrolling is so 1970s.
-> >
-> > Sometimes you need to unroll once.
-> > And maybe interleave the loads and stores.
-> > But after that you can just be trashing the i-cache.
+> > I believe that's because the assembly version has some unaligned
+> > access cases, which end up being trap-n-emulated in the OpenSBI
+> > firmware, and that is a big overhead.
 >
-> I didn't introduce the loop unrolling though. The loop unrolled
-> assembly is there before this patch, and I didn't even change the
-> unroll factor. I only added a path to handle misaligned case.
+> Ah, that would make sense since the asm user copy code
+> was broken for misaligned copies.
+> I suspect memcpy() was broken the same way.
 >
-> There are a lot of diffs because I did made some changes to the
-> register allocation so that the code is more optimal. I also made a few
-> cleanups and added a few comments. It might be easier to review if you
-> apply the patch locally and just look at the file.
+> I'm surprised IP_NET_ALIGN isn't set to 2 to try to
+> avoid all these misaligned copies in the network stack.
+> Although avoiding 8n+4 aligned data is rather harder.
+>
 
-I would vote to apply this patch, unless we wanted to do "git revert
-04091d6", but that would break KASAN I guess?
+That's up to the network driver, indeed I have a patch already for the
+BeagleV one:
 
-Regards,
-Bin
+https://lore.kernel.org/netdev/20210615012107.577ead86@linux.microsoft.com/T/
+
+> Misaligned copies are just best avoided - really even on x86.
+> The 'real fun' is when the access crosses TLB boundaries.
+>
+
+-- 
+per aspera ad upstream
 
 _______________________________________________
 linux-riscv mailing list
