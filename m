@@ -2,82 +2,95 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD747C48BE5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 16:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 15ECCC48BE5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 16:31:39 +0000 (UTC)
 Received: from bombadil.infradead.org (unknown [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A2B386157F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 16:28:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A2B386157F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	by mail.kernel.org (Postfix) with ESMTPS id C6A5C61458
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 16:31:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6A5C61458
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Kn1wjuzOeoHZujWXa61krFfjr3tPAPvXGMKbpHHemE=; b=MnWim9vQPrDmg0
-	Symf3idcRyxHlUQNzohEFiOBS491PhI+a+MhajXset6T/mQDnkbboCezXpPFRNomvI7Vd+Jd/DoaT
-	PXN7TGhTNfoelg4XaFBjdRfT8WZZoB5O4u87ZCbWc2ke13c/OxPcYkQTo/JBYep7wWAEKUuBd7ubt
-	JXLlFzMPtmU70aMAOVQNQSNBjb9OSBBrqloQ+C0aYmgGtthj3iJrUesvtyvbgixrFsJEnKJR9NeSL
-	on/mDc0o1COjkqTiG5bqkgU1JPYB3op1sjS3ueMl6tFJLMiWgHAl1CeUj/oskGs2tVbciZdK8Z3ld
-	dIDCcMl5G8N9xnAhFrpA==;
+	List-Owner; bh=OhnoHgImGzURWNWsMVjr4vGcL+hczVbV6kIJPNxnagI=; b=j420FsKH1niTvp
+	nxy5xjoChwr/YQf4B5FXZKtCbcXAafZW3meVK1x3m7WE9852LuqyprgOM8mp+DMV4SKSZD2JuPhjk
+	/pHpBay6pvbG5ipJxA/P3SuHOeJthYYIApdKEZBd8hq6J0F/FPC1Nhu7Mh+Xmf5rQUfdo4vUuVF4+
+	cUHVn6mHk4jJmfyct5QyaO5Urt0SKX7CykegjxA5b0rKtbjp7l20kz5cyMsfYGPr+tt+KCknUhYdk
+	wcuBnd2MC0IkokkVJWt5SxFTkVYTF1R4DIls+6tsf5wtnKxZDonfcDMNLwMKbOPZKW6uGv1GEbZEU
+	mG9Q4txWGCPo/t+Lyl5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltBtt-001LVQ-4s; Tue, 15 Jun 2021 16:26:53 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1ltBxT-001N1z-RD; Tue, 15 Jun 2021 16:30:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lt9kT-000Ssc-8K
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 14:09:03 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-10-0BSCW0PNMeiUs_3ZDkVtBw-1; Tue, 15 Jun 2021 15:08:28 +0100
-X-MC-Unique: 0BSCW0PNMeiUs_3ZDkVtBw-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Tue, 15 Jun
- 2021 15:08:27 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.018; Tue, 15 Jun 2021 15:08:27 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Bin Meng' <bmeng.cn@gmail.com>, Gary Guo <gary@garyguo.net>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "nickhu@andestech.com" <nickhu@andestech.com>, "nylon7@andestech.com"
- <nylon7@andestech.com>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] riscv: fix memmove and optimise memcpy when misalign
-Thread-Topic: [PATCH] riscv: fix memmove and optimise memcpy when misalign
-Thread-Index: AQHXT3WL0lTofUR6TU66MVYMSFr0J6rxS6gAgCPtaRCAAANAsA==
-Date: Tue, 15 Jun 2021 14:08:27 +0000
-Message-ID: <44e4e70491164ef5b777d06f48b6684f@AcuMS.aculab.com>
-References: <20210522232256.00003f08@garyguo.net>
- <mhng-fdda10f7-fc83-4654-a0b2-e9c86b92c37e@palmerdabbelt-glaptop>
- <17637b10e71b41b89126cbb1b2fa61cf@AcuMS.aculab.com>
- <20210525153431.0000508d@garyguo.net>
- <CAEUhbmXvYdVSsY3oH=XdyT2fOC1X9=-Rh0P1Q5TP1DcmzFfRrQ@mail.gmail.com>
-In-Reply-To: <CAEUhbmXvYdVSsY3oH=XdyT2fOC1X9=-Rh0P1Q5TP1DcmzFfRrQ@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1lt9Pl-000DwX-TL
+ for linux-riscv@bombadil.infradead.org; Tue, 15 Jun 2021 13:47:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+ :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=B5eq+NMAoBB0mBYPYHItWOU/L9Y+dhBJjcdEFT7I1T0=; b=GBiGhVK5ov7ZwYeBwRvNHOG0Bv
+ rmMBo2wffPvzdMXBjIHJAm/kwOXr948A+udaqaanyYRVeaBvChd9RI8wIuqjGbnKZGCjJ/+8yYe1c
+ Rf2iIJft3VH9qp5ri3/9t3ntvZBylD0Q5VuexoCqZEDrDOA8kfeHsKuL3hsy+74Cui+2cNJhawq0H
+ hyVSc/iVpTJ1e4WMhexhP7fMh1cAp5prsuE3kfMDP9lVESETctVEtjMVyRL9qniHUTdf9ji+PT4oW
+ lX3cUcGMNWa7TxcEhTemtmsIWf52XFwlqAoZq37KYvb+ddiM2OsErVQduuzA2JbA13KpSDcjjL6rD
+ S8n68sGw==;
+Received: from mail-ed1-f53.google.com ([209.85.208.53])
+ by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lsyzx-007GxG-TO
+ for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 02:40:26 +0000
+Received: by mail-ed1-f53.google.com with SMTP id dj8so49026747edb.6
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Jun 2021 19:40:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=B5eq+NMAoBB0mBYPYHItWOU/L9Y+dhBJjcdEFT7I1T0=;
+ b=Hrt+LidfOVskoohmeO7dxGNnizKlX2fyWiT1uhzX8/QMGwJjdau/cr/f+vK1QLAtwP
+ 24jHlDpdmyVqjHnfE/3tX1iOmhoMIOwdNaxNImtHoQR9MmbqlpCmUOcWcIfaSwLyJmru
+ jwWEyGgL15MGOnm8hIdmiSxEN4cwxzSuXUsuvFdqOdScVbMAzffxgkLTRHQHnoRodGUq
+ P8QpVphNj3WsSXHFPC2F6dxtX6POWakDKIMSbQ3gzIjsUeiYak8SxDgxfVRCA/VLnSP+
+ SKLAInstGudpS4qO3s7HU+vWAg7bP7w5ScFnHfWs3y14dMTcChN5cFK899Nf98ui9lw1
+ SEDw==
+X-Gm-Message-State: AOAM533TXyZ/odQvDymV/K5VK6VB/idpjTXsTB4NLXnolpzWQbfonKiD
+ 5W8Tmefrg2lZmNMzF9oY0ZLtUNESnqD9Lw==
+X-Google-Smtp-Source: ABdhPJyxEl2Bki0u7t8w2cOeJo1RLJ78EgRJ98Dqw2D99S4+5PkI8ZANdpxsaExN1kz5bIyZ8ZCuvA==
+X-Received: by 2002:aa7:d590:: with SMTP id r16mr20773482edq.355.1623724823944; 
+ Mon, 14 Jun 2021 19:40:23 -0700 (PDT)
+Received: from msft-t490s.teknoraver.net
+ (net-37-119-128-179.cust.vodafonedsl.it. [37.119.128.179])
+ by smtp.gmail.com with ESMTPSA id cn25sm834966edb.69.2021.06.14.19.40.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Jun 2021 19:40:23 -0700 (PDT)
+From: Matteo Croce <mcroce@linux.microsoft.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>
+Subject: [PATCH 2/3] riscv: optimized memmove
+Date: Tue, 15 Jun 2021 04:38:11 +0200
+Message-Id: <20210615023812.50885-3-mcroce@linux.microsoft.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20210615023812.50885-1-mcroce@linux.microsoft.com>
+References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_070901_606847_58044EB8 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20210615_034024_938337_D476F2DD 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +107,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bin Meng
-> Sent: 15 June 2021 14:40
-...
-> > I prefer C versions as well, and actually before commit 04091d6 we are
-> > indeed using the generic C version. The issue is that 04091d6
-> > introduces an assembly version that's very broken. It does not offer
-> > and performance improvement to the C version, and breaks all processors
-> > without hardware misalignment support
+From: Matteo Croce <mcroce@microsoft.com>
 
-There may need to be a few C implementations for different cpu
-instruction sets.
-While the compiler might manage to DTRT (or the wrong thing given
-the right source) using a loop that matches the instruction set
-is a good idea.
+When the destination buffer is before the source one, or when the
+buffers doesn't overlap, it's safe to use memcpy() instead, which is
+optimized to use a bigger data size possible.
 
-For instance, x86 can do *(reg_1 + reg_2 * (1|2|4|8) + constant)
-so you can increment reg_2 and use it for both buffers while
-still unrolling enough to hit memory bandwidth.
+Signed-off-by: Matteo Croce <mcroce@microsoft.com>
+---
+ arch/riscv/include/asm/string.h |  6 ++--
+ arch/riscv/kernel/riscv_ksyms.c |  2 --
+ arch/riscv/lib/Makefile         |  1 -
+ arch/riscv/lib/memmove.S        | 64 ---------------------------------
+ arch/riscv/lib/string.c         | 26 ++++++++++++++
+ 5 files changed, 29 insertions(+), 70 deletions(-)
+ delete mode 100644 arch/riscv/lib/memmove.S
 
-With only *(reg_1 + constant) you need to increment both the
-source and destination addresses.
-
-OTOH you can save an instruction on x86 by adding to 'reg_2'
-until it becomes zero (so you don't need add, cmp and jmp).
-
-But a mips-like instruction set (includes riscv and nios2)
-has 'compare and branch' so you only ever need one instruction
-at the end of the loop.
-
-Having to handle misaligned copies is another distinct issue.
-For some 32bit cpu byte copies may be as fast as any shift
-and mask code.
-
-> > (yes, firmware is expected to
-> > trap and handle these, but they are painfully slow).
-
-Yes, to the point where the system should just panic and
-force you to fix the code.
-
-When I were a lad we forced everyone to fix there code
-so it would run on sparc.
-
-	David
-
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index 6b5d6fc3eab4..25d9b9078569 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -17,11 +17,11 @@ extern asmlinkage void *__memset(void *, int, size_t);
+ #define __HAVE_ARCH_MEMCPY
+ extern void *memcpy(void *dest, const void *src, size_t count);
+ extern void *__memcpy(void *dest, const void *src, size_t count);
++#define __HAVE_ARCH_MEMMOVE
++extern void *memmove(void *dest, const void *src, size_t count);
++extern void *__memmove(void *dest, const void *src, size_t count);
+ #endif
+ 
+-#define __HAVE_ARCH_MEMMOVE
+-extern asmlinkage void *memmove(void *, const void *, size_t);
+-extern asmlinkage void *__memmove(void *, const void *, size_t);
+ /* For those files which don't want to check by kasan. */
+ #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
+ #define memcpy(dst, src, len) __memcpy(dst, src, len)
+diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
+index 3f6d512a5b97..361565c4db7e 100644
+--- a/arch/riscv/kernel/riscv_ksyms.c
++++ b/arch/riscv/kernel/riscv_ksyms.c
+@@ -10,6 +10,4 @@
+  * Assembly functions that may be used (directly or indirectly) by modules
+  */
+ EXPORT_SYMBOL(memset);
+-EXPORT_SYMBOL(memmove);
+ EXPORT_SYMBOL(__memset);
+-EXPORT_SYMBOL(__memmove);
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 2ffe85d4baee..484f5ff7b508 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -1,7 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ lib-y			+= delay.o
+ lib-y			+= memset.o
+-lib-y			+= memmove.o
+ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
+diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
+deleted file mode 100644
+index 07d1d2152ba5..000000000000
+--- a/arch/riscv/lib/memmove.S
++++ /dev/null
+@@ -1,64 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
 -
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+-#include <linux/linkage.h>
+-#include <asm/asm.h>
+-
+-ENTRY(__memmove)
+-WEAK(memmove)
+-        move    t0, a0
+-        move    t1, a1
+-
+-        beq     a0, a1, exit_memcpy
+-        beqz    a2, exit_memcpy
+-        srli    t2, a2, 0x2
+-
+-        slt     t3, a0, a1
+-        beqz    t3, do_reverse
+-
+-        andi    a2, a2, 0x3
+-        li      t4, 1
+-        beqz    t2, byte_copy
+-
+-word_copy:
+-        lw      t3, 0(a1)
+-        addi    t2, t2, -1
+-        addi    a1, a1, 4
+-        sw      t3, 0(a0)
+-        addi    a0, a0, 4
+-        bnez    t2, word_copy
+-        beqz    a2, exit_memcpy
+-        j       byte_copy
+-
+-do_reverse:
+-        add     a0, a0, a2
+-        add     a1, a1, a2
+-        andi    a2, a2, 0x3
+-        li      t4, -1
+-        beqz    t2, reverse_byte_copy
+-
+-reverse_word_copy:
+-        addi    a1, a1, -4
+-        addi    t2, t2, -1
+-        lw      t3, 0(a1)
+-        addi    a0, a0, -4
+-        sw      t3, 0(a0)
+-        bnez    t2, reverse_word_copy
+-        beqz    a2, exit_memcpy
+-
+-reverse_byte_copy:
+-        addi    a0, a0, -1
+-        addi    a1, a1, -1
+-
+-byte_copy:
+-        lb      t3, 0(a1)
+-        addi    a2, a2, -1
+-        sb      t3, 0(a0)
+-        add     a1, a1, t4
+-        add     a0, a0, t4
+-        bnez    a2, byte_copy
+-
+-exit_memcpy:
+-        move a0, t0
+-        move a1, t1
+-        ret
+-END(__memmove)
+diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
+index 525f9ee25a74..bc006708f075 100644
+--- a/arch/riscv/lib/string.c
++++ b/arch/riscv/lib/string.c
+@@ -92,3 +92,29 @@ void *__memcpy(void *dest, const void *src, size_t count)
+ 	return memcpy(dest, src, count);
+ }
+ EXPORT_SYMBOL(__memcpy);
++
++/*
++ * Simply check if the buffer overlaps an call memcpy() in case,
++ * otherwise do a simple one byte at time backward copy.
++ */
++void *memmove(void *dest, const void *src, size_t count)
++{
++	if (dest < src || src + count <= dest)
++		return memcpy(dest, src, count);
++
++	if (dest > src) {
++		const char *s = src + count;
++		char *tmp = dest + count;
++
++		while (count--)
++			*--tmp = *--s;
++	}
++	return dest;
++}
++EXPORT_SYMBOL(memmove);
++
++void *__memmove(void *dest, const void *src, size_t count)
++{
++	return memmove(dest, src, count);
++}
++EXPORT_SYMBOL(__memmove);
+-- 
+2.31.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
