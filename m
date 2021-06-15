@@ -2,75 +2,86 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6D340C48BE5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 19:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF1C4C48BE5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:01:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 311D06137D
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 19:44:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 311D06137D
+	by mail.kernel.org (Postfix) with ESMTPS id 8B42A61246
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:01:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B42A61246
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=we692A/Q6Hq9xRA8TWeTzqx+H5D4DilTJBgibiofkQA=; b=xxFsGRWcvt+LVN
-	QbKnExbR5+Pd4BJElXSsKSEfqoFyIPzBufBeXYqoLdevdDDHVHImEkbHIlhfXaQARLVqrF2EXPecK
-	hB6/HbS8xivarCZ8gTCcwZnbkKjW/qwSHg4H3E9JhWHvnJ4LAv6HGTtl4rKIHTYyUBfIesYuwDc6U
-	/lKiTm3gq8kWwerjDudYYdLrRbFZJxg2r5tph45nFZ/IQvxMYR1bGWI/Aw6BrPBka97+fOLbzkLEB
-	J7J0srsJiZwennYSrDUjIP+dYMzgheaRiC74uOAyHDs97sROY6AUiM6G20J8Z7vqDUR01OYKK07YJ
-	4Z/4phBcVWaU+SHCkV/A==;
+	List-Owner; bh=77qAQmWiTPqIb4FVs75tya9GwSHqdi1MVF71R46MPL0=; b=UQXoBJvJQfJkCV
+	ft+LluHPJIB8VOwmfTMPGExnIZdkvvPAixx4tk89C/xXav/USI58DwaJa0icms6tKKYO/ASC5UvQE
+	3kU8n5LEC+GbeYwXF16WzHtOG8WleBIjq6TTcS+cEph+mzWzqH3XhUBuQ+CxkoFkVYtJA5Q+41UAU
+	ZxLHLedRcfVgy/i8Q5AWSdZFaSCJ9jWekuG4FHa5KyttX/0rSyaetCslgxU/6O0l7g4bUfOgLSqSC
+	UY+LqpNwEgkhZY+sG2fU1HnRKyZqpDs0kQA3ntI3ad9hD4H0NGIFBxe05GbXCF4lkDzi5NEn5w7G5
+	GEqxYJCZ7wJzPB0BNp5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltEyO-002XoU-FC; Tue, 15 Jun 2021 19:43:44 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1ltFFf-002e1H-Jd; Tue, 15 Jun 2021 20:01:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltAtN-000vfP-9J
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 15:22:19 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7E99261603
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 15:22:16 +0000 (UTC)
+ id 1ltBJR-00165F-Uk
+ for linux-riscv@bombadil.infradead.org; Tue, 15 Jun 2021 15:49:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+ :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=9ntoQwIrjjfCcaT+2ZYOuyIYJ02rDc+lC2p3NeRR4qw=; b=BqysKj6zmVBSjy+jvToS35EWS9
+ lvkyG0hCmFn+Mb2tN+3vGhof7/tgIysTgw7cnbeFhYcwwvayQRcxMmCi+0ZBBCuldhCz7c936VVDV
+ +elmiSaBbkIKSC52endLm14b7JxeD1oM+SAIg5x2n2T2QJRH/S7pcqSOXf7VCKg6GJv0qCnYFtAU+
+ hmO/u4B1PPzEGrwfpOzsuotKKWbFxwXAYgDIBDV7wYYImP6A/lAMKITJb7kZ5jnO1ZEteP0JvI/uC
+ JhBqwPpcWwDlmHd3iDV6qse5wtm534/Dc3zP5515ZUgwlips2THhBMo95WJM8HJrEIoGfiAopGDIC
+ f0M+9vXw==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ltBJH-0081SG-IP
+ for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 15:49:12 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1AAAA6162D;
+ Tue, 15 Jun 2021 15:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623770536;
- bh=AlychXsQ4hV7NKyEaOrryZmPJ/EpyWLjLul0kxJ1qUk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=jakd3AROF1ft7Nubuv6Do2pnZ0wDwy+DtxSoSQ//npL8QSrfl9DH16/41nNGJW1EZ
- 87zC6Bnnn5X7Cq7eq+hT4WKXEE/6FiTPh/XW9RGp3bucdX2fsdRVUguoLfXSFACDLG
- jdmjmMi4i4CU5RhUbKXj4WhlztnDWjV0294REWWnYagvK1QY0Q+2tkecEDcmPrVkjw
- skHQ18G6kWkV6oJOEIlU1KUPpmfRMcIF7/FB3P5veMfihCRqpGszAbDbA54XT9uU4b
- dcloYehXPSCcm+X0AFWHDkg1rYZX9cya7llllnzDiQNq+YO7A170ol0KepB7++odoi
- J7r9bVg92G0lQ==
-Received: by mail-lj1-f176.google.com with SMTP id n17so25653865ljg.2
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 08:22:16 -0700 (PDT)
-X-Gm-Message-State: AOAM533MvBGeymTb46lah/pqPhjA6cgAnk57bMCnyAxcrDpYaHXgWkBK
- 2TA+qa4oAVd7bLf4Q9CTm8wRYzdO5cBBFX6Sde4=
-X-Google-Smtp-Source: ABdhPJxDkjnoC70VbtRkDFevqvJDMI92fdrBnHFZEd6KAPontdSIiKKJ8Fo3I5VxjsZWS1szpxODGiSidWGF6rFfDEw=
-X-Received: by 2002:a05:651c:211d:: with SMTP id
- a29mr112343ljq.115.1623770534833; 
- Tue, 15 Jun 2021 08:22:14 -0700 (PDT)
+ s=k20201202; t=1623772145;
+ bh=v1Shj5F8hMUeW+OTytwhZYkO9DtqxbdNhawBkXHVLsI=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=d5X//9F7EIhsrUNE8dGGofy+HZbg2lfKAZh2WypH2x60l9Ag+Lix0z1FaIphbPTrA
+ 4kYrUwrKr6ikoUAKodAFQT+M3h6fZ06jn9nKtr/cE0uZJAXPniqUTqnVCtlDyEy6qx
+ leVA5R2kp86BqyC1vFtq/llNGS7j+CczS1Q48h2IkmGM2sNCFoocxdry+T30Akqs9n
+ GLpGJQ+MuLtsGMPHinB0S2yMkJZ+hRn+uFx/6qxPHL5/LWNpy/1JoSMRow3CIgYAGI
+ mholXh8Udw018Y8P9HtFN0z2qkz44+iSWBDXckZE1eDZ6VZ1MbPFIGHDlo2jKYi16N
+ u/T0k8DbtZC/g==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.12 32/33] riscv: code patching only works on
+ !XIP_KERNEL
+Date: Tue, 15 Jun 2021 11:48:23 -0400
+Message-Id: <20210615154824.62044-32-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210615154824.62044-1-sashal@kernel.org>
+References: <20210615154824.62044-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <a06ebb56-2fd7-d8f8-866e-ea235f52696b@huawei.com>
- <mhng-0e961c64-341d-4a36-863f-1eec0778a0eb@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-0e961c64-341d-4a36-863f-1eec0778a0eb@palmerdabbelt-glaptop>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 15 Jun 2021 23:22:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS5_6rXFUdTh4KhFLdUxPwbNq2D5aMpCRVQtkTCyBFVCA@mail.gmail.com>
-Message-ID: <CAJF2gTS5_6rXFUdTh4KhFLdUxPwbNq2D5aMpCRVQtkTCyBFVCA@mail.gmail.com>
-Subject: Re: rebased ASID-based tlbflush
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: liushixin2@huawei.com, Christoph Hellwig <hch@lst.de>,
- Anup Patel <Anup.Patel@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_082217_428140_B340A636 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20210615_164910_602536_A346E88F 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,89 +98,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 15, 2021 at 11:10 PM Palmer Dabbelt
-<palmerdabbelt@google.com> wrote:
->
-> On Tue, 15 Jun 2021 04:20:44 PDT (-0700), liushixin2@huawei.com wrote:
-> > On 2021/6/13 21:08, Guo Ren wrote:
-> >> I've just tested your for-next, but:
-> >>
-> >>  LD      .tmp_vmlinux.kallsyms1
-> >> /home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-> >> mm/vmalloc.o: in function `.L0 ':
-> >> vmalloc.c:(.text+0x2bd2): undefined reference to `pud_clear_huge'
-> >> /home/guoren/source/buildroot/thead_9xx_compat_5.10_glibc_br_defconfig/host/bin/riscv64-linux-ld:
-> >> mm/vmalloc.o: in function `.L1225':
-> >> vmalloc.c:(.text+0x2cac): undefined reference to `pud_clear_huge'
-> >> Makefile:1191: recipe for target 'vmlinux' failed
-> >>
-> >> I quick fixup with the simple patch:
-> >> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-> >> index 738dc6f3530f..b1fbd575cbac 100644
-> >> --- a/arch/riscv/mm/pgtable.c
-> >> +++ b/arch/riscv/mm/pgtable.c
-> >> @@ -25,6 +25,14 @@ int pmd_clear_huge(pmd_t *pmd)
-> >>  }
-> >>  #endif
-> >>
-> >> +int pud_clear_huge(pud_t *pudp)
-> >> +{
-> >> +       if (!pud_leaf(READ_ONCE(*pudp)))
-> >> +               return 0;
-> >> +       pud_clear(pudp);
-> >> +       return 1;
-> >> +}
-> >> +
-> >>  int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-> >>  {
-> >>         pte_t *pte;
-> >>
-> >> I think it's from:
-> >> commit 14512690a16537527dacf0f5cd3d2263be317f35
-> >> Author: Liu Shixin <liushixin2@huawei.com>
-> >> Date:   Sat Jun 5 13:48:37 2021 +0800
-> >>
-> >>     riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-> >>
-> >>     This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
-> >>     define the required page table functions(Currently, riscv has only
-> >>     three-level page tables support for 64BIT).
-> >>
-> >>     Signed-off-by: Liu Shixin <liushixin2@huawei.com>
-> >>     Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> > This commit is based on linux-next. pud_clear_huge() have been defined in pre-commit
-> > ("mm/pgtable: add stubs for {pmd/pub}_{set/clear}_huge") which is not on for-next.
-> > The code is different and thus an error is reported here.
-> > Should I rebase the patch on for-next and resend it?
->
-> I can't find that commit anywhere, can you send a series with the
-> dependencies?
-https://lore.kernel.org/lkml/5ac5976419350e8e048d463a64cae449eb3ba4b0.1620795204.git.christophe.leroy@csgroup.eu/
+From: Jisheng Zhang <jszhang@kernel.org>
 
->
-> I've removed the HUGE_VMAP patch from for-next.
-I've rebased my work on that patch, so hope the HUGE_VMAP patch will back soon.
+[ Upstream commit 42e0e0b453bc6ead49c573ed512502069627546b ]
 
->
-> >
-> > thanks,
-> >> On Sun, Jun 13, 2021 at 8:47 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
-> >>> On Sun, 06 Jun 2021 08:20:48 PDT (-0700), Christoph Hellwig wrote:
-> >>>> Hi all,
-> >>>>
-> >>>> this is what I think is a resonable set of patches for the ASID based
-> >>>> flushing, largely based on the work from Guo and thus attributed to him.
-> >>> Thanks, these are on for-next.
-> >>
-> >>
+Some features which need code patching such as KPROBES, DYNAMIC_FTRACE
+KGDB can only work on !XIP_KERNEL. Add dependencies for these features
+that rely on code patching.
 
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/Kconfig | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d9522fc35ca5..4f116be9152f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -54,11 +54,11 @@ config RISCV
+ 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+ 	select HANDLE_DOMAIN_IRQ
+ 	select HAVE_ARCH_AUDITSYSCALL
+-	select HAVE_ARCH_JUMP_LABEL
+-	select HAVE_ARCH_JUMP_LABEL_RELATIVE
++	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
++	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
+ 	select HAVE_ARCH_KASAN if MMU && 64BIT
+ 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
+-	select HAVE_ARCH_KGDB
++	select HAVE_ARCH_KGDB if !XIP_KERNEL
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_SECCOMP_FILTER
+@@ -73,9 +73,9 @@ config RISCV
+ 	select HAVE_GCC_PLUGINS
+ 	select HAVE_GENERIC_VDSO if MMU && 64BIT
+ 	select HAVE_IRQ_TIME_ACCOUNTING
+-	select HAVE_KPROBES
+-	select HAVE_KPROBES_ON_FTRACE
+-	select HAVE_KRETPROBES
++	select HAVE_KPROBES if !XIP_KERNEL
++	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
++	select HAVE_KRETPROBES if !XIP_KERNEL
+ 	select HAVE_PCI
+ 	select HAVE_PERF_EVENTS
+ 	select HAVE_PERF_REGS
+@@ -227,11 +227,11 @@ config ARCH_RV64I
+ 	bool "RV64I"
+ 	select 64BIT
+ 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
+-	select HAVE_DYNAMIC_FTRACE if MMU && $(cc-option,-fpatchable-function-entry=8)
++	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+-	select HAVE_FTRACE_MCOUNT_RECORD
++	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+-	select HAVE_FUNCTION_TRACER
++	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+ 	select SWIOTLB if MMU
+ 
+ endchoice
 -- 
-Best Regards
- Guo Ren
+2.30.2
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
