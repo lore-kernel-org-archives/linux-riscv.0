@@ -2,86 +2,82 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF1C4C48BE5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9ADA2C48BDF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:26:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B42A61246
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:01:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B42A61246
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D2099613B3
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 20:26:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2099613B3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=77qAQmWiTPqIb4FVs75tya9GwSHqdi1MVF71R46MPL0=; b=UQXoBJvJQfJkCV
-	ft+LluHPJIB8VOwmfTMPGExnIZdkvvPAixx4tk89C/xXav/USI58DwaJa0icms6tKKYO/ASC5UvQE
-	3kU8n5LEC+GbeYwXF16WzHtOG8WleBIjq6TTcS+cEph+mzWzqH3XhUBuQ+CxkoFkVYtJA5Q+41UAU
-	ZxLHLedRcfVgy/i8Q5AWSdZFaSCJ9jWekuG4FHa5KyttX/0rSyaetCslgxU/6O0l7g4bUfOgLSqSC
-	UY+LqpNwEgkhZY+sG2fU1HnRKyZqpDs0kQA3ntI3ad9hD4H0NGIFBxe05GbXCF4lkDzi5NEn5w7G5
-	GEqxYJCZ7wJzPB0BNp5g==;
+	List-Owner; bh=lAPpCTVX00hPuFdAI0InpnU3Zqb8voK3oGpYu6gJlkY=; b=3UgpseZ69TB05F
+	CSRWIIaFdyhoNoL0tJVAEQ4yXe8LWJPF4CTNJnwlYvC6KPGv/6wK0yG1xbSLVjq0KPH2omyooTlBi
+	cbdoGqXLNUkJ5NRGpPU2jIYdAIw1nCIJG4ZWOS7N4AJ9TD1Ol+01nJP0aFC9J3jNAFRzBFaskPrfL
+	ox0hKLQ85igXLh5d/doYJj1B13UjBgqFB9EcqfN2qDzQX4pJoe746ZBmIE+uVZNiMwB4OAyEqeamG
+	/KDoya/9jKAkcrYbJo5JZXs3b1Nai34gT/NTG7dmOObQnQJ++k4uxFrRbj+xCuhWU9V5y6+3DNlXl
+	c6KneDc78YMz0iMmL6sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltFFf-002e1H-Jd; Tue, 15 Jun 2021 20:01:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ltFdA-002mRb-Cj; Tue, 15 Jun 2021 20:25:52 +0000
+Received: from mail-yb1-f182.google.com ([209.85.219.182])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltBJR-00165F-Uk
- for linux-riscv@bombadil.infradead.org; Tue, 15 Jun 2021 15:49:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
- :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description;
- bh=9ntoQwIrjjfCcaT+2ZYOuyIYJ02rDc+lC2p3NeRR4qw=; b=BqysKj6zmVBSjy+jvToS35EWS9
- lvkyG0hCmFn+Mb2tN+3vGhof7/tgIysTgw7cnbeFhYcwwvayQRcxMmCi+0ZBBCuldhCz7c936VVDV
- +elmiSaBbkIKSC52endLm14b7JxeD1oM+SAIg5x2n2T2QJRH/S7pcqSOXf7VCKg6GJv0qCnYFtAU+
- hmO/u4B1PPzEGrwfpOzsuotKKWbFxwXAYgDIBDV7wYYImP6A/lAMKITJb7kZ5jnO1ZEteP0JvI/uC
- JhBqwPpcWwDlmHd3iDV6qse5wtm534/Dc3zP5515ZUgwlips2THhBMo95WJM8HJrEIoGfiAopGDIC
- f0M+9vXw==;
-Received: from mail.kernel.org ([198.145.29.99])
- by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltBJH-0081SG-IP
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 15:49:12 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1AAAA6162D;
- Tue, 15 Jun 2021 15:49:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623772145;
- bh=v1Shj5F8hMUeW+OTytwhZYkO9DtqxbdNhawBkXHVLsI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=d5X//9F7EIhsrUNE8dGGofy+HZbg2lfKAZh2WypH2x60l9Ag+Lix0z1FaIphbPTrA
- 4kYrUwrKr6ikoUAKodAFQT+M3h6fZ06jn9nKtr/cE0uZJAXPniqUTqnVCtlDyEy6qx
- leVA5R2kp86BqyC1vFtq/llNGS7j+CczS1Q48h2IkmGM2sNCFoocxdry+T30Akqs9n
- GLpGJQ+MuLtsGMPHinB0S2yMkJZ+hRn+uFx/6qxPHL5/LWNpy/1JoSMRow3CIgYAGI
- mholXh8Udw018Y8P9HtFN0z2qkz44+iSWBDXckZE1eDZ6VZ1MbPFIGHDlo2jKYi16N
- u/T0k8DbtZC/g==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Jisheng Zhang <jszhang@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
- linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.12 32/33] riscv: code patching only works on
- !XIP_KERNEL
-Date: Tue, 15 Jun 2021 11:48:23 -0400
-Message-Id: <20210615154824.62044-32-sashal@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210615154824.62044-1-sashal@kernel.org>
-References: <20210615154824.62044-1-sashal@kernel.org>
+ id 1ltBgE-001G4H-TA
+ for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 16:12:48 +0000
+Received: by mail-yb1-f182.google.com with SMTP id g142so21291299ybf.9
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 09:12:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=/Wv7CHWzkockHzF8pGG/3fcdtGeJKMuare4U3i4RVgA=;
+ b=mNmtymVIDgkHpbT/Ghr+E2uCfD6u+uglAetp2EHeg/ul5+WUgg8fcsznEH9ybsjuKX
+ Qh803JYeqlngrQudCC5WyC0Jc1jzVCHnybCYsxrYnkt9wJsKHo308+3iq0rYXE2qBRHG
+ Um/eSNIT9LxrKomRGTt3p37T1DCq7b712xzx8bhTjMQ8ebs+EUSMS93aJklL8eL3qOAq
+ 2FZlX/b2nKeDKcoHdrNd11KWBE6Bf+hplBMx8pDF5SLliiurlLuMy8vLcdvh70wL3C2j
+ rBQ6H6wIn2+vPH1Tnu7B0nmPmtX0ijvpnF8rgNaqfv7zVgRC+bSGjfquG8fKX2pjmGn+
+ zDQA==
+X-Gm-Message-State: AOAM5336sGBBRT3shqC2OEniIJawTOeDYqSdW+syaDmIAfJcKQsWyh7C
+ F1sCuRxuV/l62TKwNvmmF6POgTK/KVkxdHDwsmA=
+X-Google-Smtp-Source: ABdhPJzem0nOOYC0h+0gvK/9pLOrRYLo1iiurmeFo4Dna/ffTj8redI7Hw0vk+bc5/9Buy9+CHwRZcgMNeRx5wRB8ac=
+X-Received: by 2002:a5b:d11:: with SMTP id y17mr33994254ybp.18.1623773562254; 
+ Tue, 15 Jun 2021 09:12:42 -0700 (PDT)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
+ <20210615023812.50885-2-mcroce@linux.microsoft.com>
+ <6cff2a895db94e6fadd4ddffb8906a73@AcuMS.aculab.com>
+ <CAEUhbmV+Vi0Ssyzq1B2RTkbjMpE21xjdj2MSKdLydgW6WuCKtA@mail.gmail.com>
+ <1632006872b04c64be828fa0c4e4eae0@AcuMS.aculab.com>
+ <CAEUhbmU0cPkawmFfDd_sPQnc9V-cfYd32BCQo4Cis3uBKZDpXw@mail.gmail.com>
+In-Reply-To: <CAEUhbmU0cPkawmFfDd_sPQnc9V-cfYd32BCQo4Cis3uBKZDpXw@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Tue, 15 Jun 2021 18:12:31 +0200
+Message-ID: <CANBLGcxi2mEA5MnV-RL2zFpB2T+OytiHyOLKjOrMXgmAh=fHAw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] riscv: optimized memcpy
+To: Bin Meng <bmeng.cn@gmail.com>
+Cc: David Laight <David.Laight@aculab.com>, Gary Guo <gary@garyguo.net>, 
+ Matteo Croce <mcroce@linux.microsoft.com>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atish.patra@wdc.com>, Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_164910_602536_A346E88F 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210615_091246_980162_701C809D 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +94,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+On Tue, 15 Jun 2021 at 15:29, Bin Meng <bmeng.cn@gmail.com> wrote:
+> ...
+> Yes, Gary Guo sent one patch long time ago against the broken assembly
+> version, but that patch was still not applied as of today.
+> https://patchwork.kernel.org/project/linux-riscv/patch/20210216225555.4976-1-gary@garyguo.net/
+>
+> I suggest Matteo re-test using Gary's version.
 
-[ Upstream commit 42e0e0b453bc6ead49c573ed512502069627546b ]
+That's a good idea, but if you read the replies to Gary's original patch
+https://lore.kernel.org/linux-riscv/20210216225555.4976-1-gary@garyguo.net/
+.. both Gary, Palmer and David would rather like a C-based version.
+This is one attempt at providing that.
 
-Some features which need code patching such as KPROBES, DYNAMIC_FTRACE
-KGDB can only work on !XIP_KERNEL. Add dependencies for these features
-that rely on code patching.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/riscv/Kconfig | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d9522fc35ca5..4f116be9152f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -54,11 +54,11 @@ config RISCV
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
- 	select HANDLE_DOMAIN_IRQ
- 	select HAVE_ARCH_AUDITSYSCALL
--	select HAVE_ARCH_JUMP_LABEL
--	select HAVE_ARCH_JUMP_LABEL_RELATIVE
-+	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
-+	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
- 	select HAVE_ARCH_KASAN if MMU && 64BIT
- 	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
--	select HAVE_ARCH_KGDB
-+	select HAVE_ARCH_KGDB if !XIP_KERNEL
- 	select HAVE_ARCH_KGDB_QXFER_PKT
- 	select HAVE_ARCH_MMAP_RND_BITS if MMU
- 	select HAVE_ARCH_SECCOMP_FILTER
-@@ -73,9 +73,9 @@ config RISCV
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_GENERIC_VDSO if MMU && 64BIT
- 	select HAVE_IRQ_TIME_ACCOUNTING
--	select HAVE_KPROBES
--	select HAVE_KPROBES_ON_FTRACE
--	select HAVE_KRETPROBES
-+	select HAVE_KPROBES if !XIP_KERNEL
-+	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
-+	select HAVE_KRETPROBES if !XIP_KERNEL
- 	select HAVE_PCI
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_REGS
-@@ -227,11 +227,11 @@ config ARCH_RV64I
- 	bool "RV64I"
- 	select 64BIT
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
--	select HAVE_DYNAMIC_FTRACE if MMU && $(cc-option,-fpatchable-function-entry=8)
-+	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
--	select HAVE_FTRACE_MCOUNT_RECORD
-+	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
--	select HAVE_FUNCTION_TRACER
-+	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
- 	select SWIOTLB if MMU
- 
- endchoice
--- 
-2.30.2
-
+> > I'm surprised IP_NET_ALIGN isn't set to 2 to try to
+> > avoid all these misaligned copies in the network stack.
+> > Although avoiding 8n+4 aligned data is rather harder.
+> >
+> > Misaligned copies are just best avoided - really even on x86.
+> > The 'real fun' is when the access crosses TLB boundaries.
+>
+> Regards,
+> Bin
 
 _______________________________________________
 linux-riscv mailing list
