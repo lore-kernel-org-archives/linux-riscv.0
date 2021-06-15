@@ -2,100 +2,66 @@ Return-Path: <SRS0=FzV5=LJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51267C48BE5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 23:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D811C48BE8
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 23:52:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 21AAC61009
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 23:45:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 21AAC61009
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
+	by mail.kernel.org (Postfix) with ESMTPS id 2FB7161356
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Jun 2021 23:52:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FB7161356
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZVg1gHIZuRSQq5c5doUq6q1xlZ+3K3oDq8A3gC0SQE=; b=qdHTLmezjoHMxjGajqdpmzCwV1
-	rLe9O8VqzTpMbgLjT86jEUV8YExeX7uCH6WjUB1umm+Q6DZl/VUE3rzoWQYpgu9vay6FnxMup1JXX
-	jHuuqXuG0CSMmdP41m2snarLmHreJkZmJz39Yz5yfgEl2DnHCLTf4e096Qc8ca0X4hdAizBStYofv
-	vXsTh2ll7THyo0A8v/3Sb423JY0O0DrML507Exf08ZixG7ArsSY6bQuDCVkVD4IdKVBuRhBWGslj4
-	rUFjh9t2oMeK5S83cFBE2mRw+EPljSf9kl2Aj78VoY3PkFCbHW9jvDK4pMtdFQCBDX9yzOjYy/gb9
-	MGP8JGKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:To:From:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f6eZADHIfb+V+2agbkuAbWMud5+J0+KucSwQhoWyarw=; b=zRy7kaIbCGWWSZ
+	tTICXZ69psCjR3Zua7vPgneVTcUVbGVkoRGexYOyo2tjKXiQVzZyVLAmtp82j7RU1sXPjfNrTfier
+	i9lx06m/+tYZE1L3eZoWJfWLB3WwWgQtxvqYjYpF9lVJM5CpuadBtS+F4T9kGXlFAuHgaq6s01ZDL
+	LLqypjkMDvMNqiegL+pl2w4nqEmoRW7g1Byritt/wvlKzsdiBTfE7ME1codO9bpOs6wYW7//7s4eu
+	Sr7PUUdfizfSBluCJ1gd0YPWpZzuKq9qJW1+r12XOZj6LsRg8meJN4QvmJXYOf4PzyhDmy6/OMx16
+	UGsgwsDG1j2QL96w0D+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltIjq-003x1q-NU; Tue, 15 Jun 2021 23:44:58 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1ltIqt-003zWY-Gg; Tue, 15 Jun 2021 23:52:15 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltIUp-003rss-8g
- for linux-riscv@lists.infradead.org; Tue, 15 Jun 2021 23:29:29 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 15FNTP56058466
- for <linux-riscv@lists.infradead.org>; Wed, 16 Jun 2021 02:29:25 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1623799760; x=1626391760;
- h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ysvqs1/K9ONe++S7r+yMb/Oe/Rgd4xGI6L/tmzqZrik=;
- b=BmPCIklcetMBqB07S7nUkB/zCCNdq6q9TT74SEG8aIJj+UwPy9eCcJj5j48XMZiX
- AYKr30lgIDymdSumCyZ85PIJUDc/Y3tQI1bHMrr/iPbkwX/LmXPDqJtkIi4dvrlD
- 10Xh9i838pmKVpkoFQjM8oFdUoQMUxfqqOiYMnNzP13ihKCvt5jvAHTJ6EPuy0wr
- Qp0ZI3vPRfeTSTTYar9tooQMlO38NGFafmuE6Ol+055P8bF/0203SBPSYc+acNBq
- KM3xu+gSiKziOkAbwhz8JfhgJOXitxt1iO2iAABE+gdQCptk5gfNaBJKnmuvx4uP
- doxY+aS3kJdLj9yvNF/ffQ==;
-X-AuditID: 8b5b014d-962f1700000067b6-5b-60c937d07ad1
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 5D.05.26550.0D739C06; Wed, 16 Jun 2021 02:29:20 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
-MIME-Version: 1.0
-Date: Wed, 16 Jun 2021 02:29:19 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Rob Herring <robh+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Nick Kossifidis
- <mick@ics.forth.gr>, linux-riscv <linux-riscv@lists.infradead.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, "open list:OPEN
- FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v4 5/5] RISC-V: Add crash kernel support
-Organization: FORTH
-In-Reply-To: <CAL_JsqLHOmZ6az0bYGC3dg__YX3aq=+Un4_x4+R2nNksc0hM2g@mail.gmail.com>
-References: <20210419005539.22729-1-mick@ics.forth.gr>
- <20210419005539.22729-6-mick@ics.forth.gr>
- <CAMuHMdW=23SPXwqcjD+30M_d0azdze2=ChZM-PF1brf9bCNtrA@mail.gmail.com>
- <fe02eb618eee141e8bc021e8e30906fc@mailhost.ics.forth.gr>
- <CAMuHMdXtT1L3yfzkTkbhqz3zgUQj89Bcm7mqz+m126NprAsK8Q@mail.gmail.com>
- <CAL_JsqLHOmZ6az0bYGC3dg__YX3aq=+Un4_x4+R2nNksc0hM2g@mail.gmail.com>
-Message-ID: <a488d802940f7fc2ae34a4fe583ec187@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.3.16
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrELMWRmVeSWpSXmKPExsXSHT1dWfeC+ckEg+NnRCzmHznHavHs1l4m
- i8u75rBZbPvcwmbR/O4cu8XLyz3MFm2z+C1a9x5hd+DwePPyJYvHw02XmDw2repk8zh0uIPR
- Y/OSeo9LzdfZPT5vkgtgj+KySUnNySxLLdK3S+DKaLzxkq3gM2/Fzj+t7A2MT7m6GDk5JARM
- JM6+vc7SxcjFISRwlFGia9kaFoiEqcTsvZ2MIDavgKDEyZlPwOLMAhYSU6/sZ4Sw5SWat85m
- BrFZBFQlrmzbDVbDJqApMf/SQTBbREBFYsPzW8wgC5gFFjJLbGqcwgqSEBawkbi14AhYEb+A
- sMSnuxfB4pwCgRJ90/aBLRAS+Mwk0b5TCOIIF4npbz4zQRynIvHh9wP2LkYODlEge/NcpQmM
- grOQnDoLyamzkJy6gJF5FaNAYpmxXmZysV5aflFJhl560SZGcDQw+u5gvL35rd4hRiYOxkOM
- EhzMSiK8usUnEoR4UxIrq1KL8uOLSnNSiw8xSnOwKInz8upNiBcSSE8sSc1OTS1ILYLJMnFw
- SjUwWZtYB72fs+ZY+caL2j/vh7Nka6TyvfXnO3dqQkXNtQSxMrXJxTzthqcfvX0s2dicWjLn
- kepi3mXWV9VTpkxSurBKatf6/Wa8BulXNX7MXdoWHd37V4X9+4f62yyKuf8PejTuyT54dNfM
- 0+H3Nz3OWubd+SetYbH7/wKujAXf7QpmlZwuubN3/96GG32MoUI/zQp76z/GNaan9zH8z2v8
- PmVu/Ytjjf57j0RNenPi++m5f04rzujpcufRW/bg/uKc/PCt7/c95Steu9Yl9ZaAzp05xYm6
- RS3rbCIYyg7P8E5ymbBJ5JbRkv138+ey/XRYfLaWNffj1SVHkw9ucRQoLLC+Xvl0p9f2htAT
- QY7MU5RYijMSDbWYi4oTAWVGe4v1AgAA
+ id 1ltIdG-003vAD-Eh; Tue, 15 Jun 2021 23:38:13 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5EF7961350;
+ Tue, 15 Jun 2021 23:38:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+ s=korg; t=1623800289;
+ bh=rjFPyZTYipWietsDaKtPBbLddpwNP6Naf5zN4Mzp6ZY=;
+ h=Date:From:To:Subject:From;
+ b=Ln7jqkmZZrk/0sFG6viAeuDnMcO0IUoFId60q0N8MrsduG2pcKdr7YGB+6KurRWDj
+ vJbVWL+UeMd/A31+q5maYY4M96gHPzuaYbQn2UDguK7Ow6jJL9W0YFw8HrFYa/NAkh
+ NkHKPH1CJviyiNLzTGwp3tCx26ymCT4VYt1fJz6s=
+Date: Tue, 15 Jun 2021 16:38:08 -0700
+From: akpm@linux-foundation.org
+To: aneesh.kumar@linux.ibm.com, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, mm-commits@vger.kernel.org,
+ sparclinux@vger.kernel.org
+Subject: +
+ mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
+ added to -mm tree
+Message-ID: <20210615233808.hzjGO1gF2%akpm@linux-foundation.org>
+User-Agent: s-nail v14.8.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_162927_751344_F92C1784 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20210615_163810_610004_BDAC5E43 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +73,412 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zqPPhM65z4IgMjAyMS0wNi0xNSAyMjoyMSwgUm9iIEhlcnJpbmcgzq3Os8+BzrHPiM61Ogo+IE9u
-IFR1ZSwgSnVuIDE1LCAyMDIxIGF0IDEyOjQ4IFBNIEdlZXJ0IFV5dHRlcmhvZXZlbgo+IDxnZWVy
-dEBsaW51eC1tNjhrLm9yZz4gd3JvdGU6Cj4+IAo+PiBIaSBOaWNrLAo+PiAKPj4gT24gVHVlLCBK
-dW4gMTUsIDIwMjEgYXQgODoyOSBQTSBOaWNrIEtvc3NpZmlkaXMgPG1pY2tAaWNzLmZvcnRoLmdy
-PiAKPj4gd3JvdGU6Cj4+ID4gzqPPhM65z4IgMjAyMS0wNi0xNSAxNjoxOSwgR2VlcnQgVXl0dGVy
-aG9ldmVuIM6tzrPPgc6xz4jOtToKPj4gPiA+IFRoaXMgZG9lcyBub3QgbWF0Y2gKPj4gPiA+IGh0
-dHBzOi8vZ2l0aHViLmNvbS9kZXZpY2V0cmVlLW9yZy9kdC1zY2hlbWEvYmxvYi9tYXN0ZXIvc2No
-ZW1hcy9jaG9zZW4ueWFtbCNMNzc6Cj4+ID4gPgo+PiA+ID4gICAgICRyZWY6IHR5cGVzLnlhbWwj
-L2RlZmluaXRpb25zL3VpbnQ2NC1hcnJheQo+PiA+ID4gICAgIG1heEl0ZW1zOiAyCj4+ID4gPiAg
-ICAgZGVzY3JpcHRpb246Cj4+ID4gPiAgICAgICBUaGlzIHByb3BlcnR5IChjdXJyZW50bHkgdXNl
-ZCBvbmx5IG9uIGFybTY0KSBob2xkcyB0aGUgbWVtb3J5Cj4+ID4gPiByYW5nZSwKPj4gPiA+ICAg
-ICAgIHRoZSBhZGRyZXNzIGFuZCB0aGUgc2l6ZSwgb2YgdGhlIGVsZiBjb3JlIGhlYWRlciB3aGlj
-aCBtYWlubHkKPj4gPiA+IGRlc2NyaWJlcwo+PiA+ID4gICAgICAgdGhlIHBhbmlja2VkIGtlcm5l
-bFwncyBtZW1vcnkgbGF5b3V0IGFzIFBUX0xPQUQgc2VnbWVudHMgb2YgZWxmCj4+ID4gPiBmb3Jt
-YXQuCj4+ID4gPgo+PiA+ID4gSGVuY2UgImxpbnV4LGVsZmNvcmVoZHIiIHNob3VsZCBiZSBhIHBy
-b3BlcnR5IG9mIHRoZSAvY2hvc2VuIG5vZGUsCj4+ID4gPiBpbnN0ZWFkIG9mIGEgbWVtb3J5IG5v
-ZGUgd2l0aCBhIGNvbXBhdGlibGUgdmFsdWUgb2YgImxpbnV4LGVsZmNvcmVoZHIiLgo+PiA+ID4K
-Pj4gPgo+PiA+IFRoYXQncyBhIGJpbmRpbmcgZm9yIGEgcHJvcGVydHkgb24gdGhlIC9jaG9zZW4g
-bm9kZSwgdGhhdCBhcyB0aGUgdGV4dAo+PiA+IHNheXMgaXQncyBkZWZpbmVkIGZvciBhcm02NCBv
-bmx5IGFuZCB0aGUgY29kZSB0aGF0IGhhbmRsZWQgaXQgd2FzIGFsc28KPj4gCj4+IFRoYXQgZG9l
-c24ndCBtZWFuIGl0IG11c3Qgbm90IGJlIHVzZWQgb24gb3RoZXIgYXJjaGl0ZWN0dXJlcyA7LSkK
-Pj4gQXJtNjQgd2FzIGp1c3QgdGhlIGZpcnN0IG9uZSB0byB1c2UgaXQuLi4KPiAKPiBJdCBpcyB1
-c2VkIG9uIGFybTY0IGJlY2F1c2UgbWVtb3J5IGlzIG9mdGVuIHBhc3NlZCBieSBVRUZJIHRhYmxl
-cyBhbmQKPiBub3Qgd2l0aCAvbWVtb3J5IG5vZGUuIEFzIHJpc2N2IGlzIGFsc28gc3VwcG9ydGlu
-ZyBFRkksIEknZCB0aGluayB0aGV5Cj4gd291bGQgZG8gdGhlIHNhbWUuCj4gCgpXZSd2ZSBoYWQg
-dGhpcyBkaXNjdXNzaW9uIGJlZm9yZSwgcmlzY3YgdXNlcyAvbWVtb3J5IGZvciBub3cgYW5kIGV2
-ZW4gaWYgCndlIHN3aXRjaGVkIHRvIGdldHRpbmcgbWVtb3J5IGZyb20gQUNQSS9VRUZJIHRhYmxl
-cywgdGhlIGVsZiBjb3JlIGhlYWRlciAKaXMgcGFzc2VkIGZyb20gdGhlIGNyYXNoZWQga2VybmVs
-IHRvIHRoZSBrZHVtcCBrZXJuZWwsIGl0IGhhcyBub3RoaW5nIHRvIApkbyB3aXRoIFVFRkkgc2lu
-Y2UgdGhlIGJvb3Rsb2FkZXIgaXMgdGhlIGtlcm5lbCBpdHNlbGYuIEFtIEkgbWlzc2luZyAKc29t
-ZXRoaW5nID8KClJlZ2FyZHMsCk5pY2sKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+
+The patch titled
+     Subject: mm: rename pud_page_vaddr to pud_pgtable and make it return pmd_t *
+has been added to the -mm tree.  Its filename is
+     mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
+
+This patch should soon appear at
+    https://ozlabs.org/~akpm/mmots/broken-out/mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
+and later at
+    https://ozlabs.org/~akpm/mmotm/broken-out/mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
+
+Before you just go and hit "reply", please:
+   a) Consider who else should be cc'ed
+   b) Prefer to cc a suitable mailing list as well
+   c) Ideally: find the original patch on the mailing list and do a
+      reply-to-all to that, adding suitable additional cc's
+
+*** Remember to use Documentation/process/submit-checklist.rst when testing your code ***
+
+The -mm tree is included into linux-next and is updated
+there every 3-4 working days
+
+------------------------------------------------------
+From: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+Subject: mm: rename pud_page_vaddr to pud_pgtable and make it return pmd_t *
+
+No functional change in this patch.
+
+Link: https://lkml.kernel.org/r/20210615110859.320299-1-aneesh.kumar@linux.ibm.com
+Link: https://lore.kernel.org/linuxppc-dev/CAHk-=wi+J+iodze9FtjM3Zi4j4OeS+qqbKxME9QN4roxPEXH9Q@mail.gmail.com/
+Signed-off-by: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
+Cc: <linux-alpha@vger.kernel.org>
+Cc: <linux-kernel@vger.kernel.org>
+Cc: <linux-arm-kernel@lists.infradead.org>
+Cc: <linux-ia64@vger.kernel.org>
+Cc: <linux-m68k@lists.linux-m68k.org>
+Cc: <linux-mips@vger.kernel.org>
+Cc: <linux-parisc@vger.kernel.org>
+Cc: <linuxppc-dev@lists.ozlabs.org>
+Cc: <linux-riscv@lists.infradead.org>
+Cc: <linux-sh@vger.kernel.org>
+Cc: <sparclinux@vger.kernel.org>
+Cc: <linux-um@lists.infradead.org>
+Cc: <linux-arch@vger.kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ arch/alpha/include/asm/pgtable.h             |    8 +++++---
+ arch/arm/include/asm/pgtable-3level.h        |    2 +-
+ arch/arm64/include/asm/pgtable.h             |    4 ++--
+ arch/ia64/include/asm/pgtable.h              |    2 +-
+ arch/m68k/include/asm/motorola_pgtable.h     |    2 +-
+ arch/mips/include/asm/pgtable-64.h           |    4 ++--
+ arch/parisc/include/asm/pgtable.h            |    4 ++--
+ arch/powerpc/include/asm/book3s/64/pgtable.h |    6 +++++-
+ arch/powerpc/include/asm/nohash/64/pgtable.h |    6 +++++-
+ arch/powerpc/mm/book3s64/radix_pgtable.c     |    4 ++--
+ arch/powerpc/mm/pgtable_64.c                 |    2 +-
+ arch/riscv/include/asm/pgtable-64.h          |    4 ++--
+ arch/sh/include/asm/pgtable-3level.h         |    4 ++--
+ arch/sparc/include/asm/pgtable_32.h          |    4 ++--
+ arch/sparc/include/asm/pgtable_64.h          |    6 +++---
+ arch/um/include/asm/pgtable-3level.h         |    2 +-
+ arch/x86/include/asm/pgtable.h               |    4 ++--
+ arch/x86/mm/pat/set_memory.c                 |    4 ++--
+ arch/x86/mm/pgtable.c                        |    2 +-
+ include/asm-generic/pgtable-nopmd.h          |    2 +-
+ include/asm-generic/pgtable-nopud.h          |    2 +-
+ include/linux/pgtable.h                      |    2 +-
+ 22 files changed, 45 insertions(+), 35 deletions(-)
+
+--- a/arch/alpha/include/asm/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/alpha/include/asm/pgtable.h
+@@ -236,8 +236,10 @@ pmd_page_vaddr(pmd_t pmd)
+ #define pmd_page(pmd)	(pfn_to_page(pmd_val(pmd) >> 32))
+ #define pud_page(pud)	(pfn_to_page(pud_val(pud) >> 32))
+ 
+-extern inline unsigned long pud_page_vaddr(pud_t pgd)
+-{ return PAGE_OFFSET + ((pud_val(pgd) & _PFN_MASK) >> (32-PAGE_SHIFT)); }
++static inline pmd_t *pud_pgtable(pud_t pgd)
++{
++	return (pmd_t *)(PAGE_OFFSET + ((pud_val(pgd) & _PFN_MASK) >> (32-PAGE_SHIFT)));
++}
+ 
+ extern inline int pte_none(pte_t pte)		{ return !pte_val(pte); }
+ extern inline int pte_present(pte_t pte)	{ return pte_val(pte) & _PAGE_VALID; }
+@@ -287,7 +289,7 @@ extern inline pte_t pte_mkyoung(pte_t pt
+ /* Find an entry in the second-level page table.. */
+ extern inline pmd_t * pmd_offset(pud_t * dir, unsigned long address)
+ {
+-	pmd_t *ret = (pmd_t *) pud_page_vaddr(*dir) + ((address >> PMD_SHIFT) & (PTRS_PER_PAGE - 1));
++	pmd_t *ret = pud_pgtable(*dir) + ((address >> PMD_SHIFT) & (PTRS_PER_PAGE - 1));
+ 	smp_rmb(); /* see above */
+ 	return ret;
+ }
+--- a/arch/arm64/include/asm/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/arm64/include/asm/pgtable.h
+@@ -633,9 +633,9 @@ static inline phys_addr_t pud_page_paddr
+ 	return __pud_to_phys(pud);
+ }
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return (unsigned long)__va(pud_page_paddr(pud));
++	return (pmd_t *)__va(pud_page_paddr(pud));
+ }
+ 
+ /* Find an entry in the second-level page table. */
+--- a/arch/arm/include/asm/pgtable-3level.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/arm/include/asm/pgtable-3level.h
+@@ -130,7 +130,7 @@
+ 		flush_pmd_entry(pudp);	\
+ 	} while (0)
+ 
+-static inline pmd_t *pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+ 	return __va(pud_val(pud) & PHYS_MASK & (s32)PAGE_MASK);
+ }
+--- a/arch/ia64/include/asm/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/ia64/include/asm/pgtable.h
+@@ -273,7 +273,7 @@ ia64_phys_addr_valid (unsigned long addr
+ #define pud_bad(pud)			(!ia64_phys_addr_valid(pud_val(pud)))
+ #define pud_present(pud)		(pud_val(pud) != 0UL)
+ #define pud_clear(pudp)			(pud_val(*(pudp)) = 0UL)
+-#define pud_page_vaddr(pud)		((unsigned long) __va(pud_val(pud) & _PFN_MASK))
++#define pud_pgtable(pud)		((pmd_t *) __va(pud_val(pud) & _PFN_MASK))
+ #define pud_page(pud)			virt_to_page((pud_val(pud) + PAGE_OFFSET))
+ 
+ #if CONFIG_PGTABLE_LEVELS == 4
+--- a/arch/m68k/include/asm/motorola_pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/m68k/include/asm/motorola_pgtable.h
+@@ -131,7 +131,7 @@ static inline void pud_set(pud_t *pudp,
+ 
+ #define __pte_page(pte) ((unsigned long)__va(pte_val(pte) & PAGE_MASK))
+ #define pmd_page_vaddr(pmd) ((unsigned long)__va(pmd_val(pmd) & _TABLE_MASK))
+-#define pud_page_vaddr(pud) ((unsigned long)__va(pud_val(pud) & _TABLE_MASK))
++#define pud_pgtable(pud) ((pmd_t *)__va(pud_val(pud) & _TABLE_MASK))
+ 
+ 
+ #define pte_none(pte)		(!pte_val(pte))
+--- a/arch/mips/include/asm/pgtable-64.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/mips/include/asm/pgtable-64.h
+@@ -313,9 +313,9 @@ static inline void pud_clear(pud_t *pudp
+ #endif
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return pud_val(pud);
++	return (pmd_t *)pud_val(pud);
+ }
+ #define pud_phys(pud)		virt_to_phys((void *)pud_val(pud))
+ #define pud_page(pud)		(pfn_to_page(pud_phys(pud) >> PAGE_SHIFT))
+--- a/arch/parisc/include/asm/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/parisc/include/asm/pgtable.h
+@@ -322,8 +322,8 @@ static inline void pmd_clear(pmd_t *pmd)
+ 
+ 
+ #if CONFIG_PGTABLE_LEVELS == 3
+-#define pud_page_vaddr(pud) ((unsigned long) __va(pud_address(pud)))
+-#define pud_page(pud)	virt_to_page((void *)pud_page_vaddr(pud))
++#define pud_pgtable(pud) ((pmd_t *) __va(pud_address(pud)))
++#define pud_page(pud)	virt_to_page((void *)pud_pgtable(pud))
+ 
+ /* For 64 bit we have three level tables */
+ 
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -1048,9 +1048,13 @@ extern struct page *p4d_page(p4d_t p4d);
+ /* Pointers in the page table tree are physical addresses */
+ #define __pgtable_ptr_val(ptr)	__pa(ptr)
+ 
+-#define pud_page_vaddr(pud)	__va(pud_val(pud) & ~PUD_MASKED_BITS)
+ #define p4d_page_vaddr(p4d)	__va(p4d_val(p4d) & ~P4D_MASKED_BITS)
+ 
++static inline pmd_t *pud_pgtable(pud_t pud)
++{
++	return (pmd_t *)__va(pud_val(pud) & ~PUD_MASKED_BITS);
++}
++
+ #define pte_ERROR(e) \
+ 	pr_err("%s:%d: bad pte %08lx.\n", __FILE__, __LINE__, pte_val(e))
+ #define pmd_ERROR(e) \
+--- a/arch/powerpc/include/asm/nohash/64/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/powerpc/include/asm/nohash/64/pgtable.h
+@@ -162,7 +162,11 @@ static inline void pud_clear(pud_t *pudp
+ #define	pud_bad(pud)		(!is_kernel_addr(pud_val(pud)) \
+ 				 || (pud_val(pud) & PUD_BAD_BITS))
+ #define pud_present(pud)	(pud_val(pud) != 0)
+-#define pud_page_vaddr(pud)	(pud_val(pud) & ~PUD_MASKED_BITS)
++
++static inline pmd_t *pud_pgtable(pud_t pud)
++{
++	return (pmd_t *)(pud_val(pud) & ~PUD_MASKED_BITS);
++}
+ 
+ extern struct page *pud_page(pud_t pud);
+ 
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -826,7 +826,7 @@ static void __meminit remove_pud_table(p
+ 			continue;
+ 		}
+ 
+-		pmd_base = (pmd_t *)pud_page_vaddr(*pud);
++		pmd_base = pud_pgtable(*pud);
+ 		remove_pmd_table(pmd_base, addr, next);
+ 		free_pmd_table(pmd_base, pud);
+ 	}
+@@ -1111,7 +1111,7 @@ int pud_free_pmd_page(pud_t *pud, unsign
+ 	pmd_t *pmd;
+ 	int i;
+ 
+-	pmd = (pmd_t *)pud_page_vaddr(*pud);
++	pmd = pud_pgtable(*pud);
+ 	pud_clear(pud);
+ 
+ 	flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+--- a/arch/powerpc/mm/pgtable_64.c~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/powerpc/mm/pgtable_64.c
+@@ -115,7 +115,7 @@ struct page *pud_page(pud_t pud)
+ 		VM_WARN_ON(!pud_huge(pud));
+ 		return pte_page(pud_pte(pud));
+ 	}
+-	return virt_to_page(pud_page_vaddr(pud));
++	return virt_to_page(pud_pgtable(pud));
+ }
+ 
+ /*
+--- a/arch/riscv/include/asm/pgtable-64.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/riscv/include/asm/pgtable-64.h
+@@ -59,9 +59,9 @@ static inline void pud_clear(pud_t *pudp
+ 	set_pud(pudp, __pud(0));
+ }
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return (unsigned long)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
++	return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+ }
+ 
+ static inline struct page *pud_page(pud_t pud)
+--- a/arch/sh/include/asm/pgtable-3level.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/sh/include/asm/pgtable-3level.h
+@@ -32,9 +32,9 @@ typedef struct { unsigned long long pmd;
+ #define pmd_val(x)	((x).pmd)
+ #define __pmd(x)	((pmd_t) { (x) } )
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return pud_val(pud);
++	return (pmd_t *)pud_val(pud);
+ }
+ 
+ /* only used by the stubbed out hugetlb gup code, should never be called */
+--- a/arch/sparc/include/asm/pgtable_32.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/sparc/include/asm/pgtable_32.h
+@@ -151,13 +151,13 @@ static inline unsigned long pmd_page_vad
+ 	return (unsigned long)__nocache_va(v << 4);
+ }
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+ 	if (srmmu_device_memory(pud_val(pud))) {
+ 		return ~0;
+ 	} else {
+ 		unsigned long v = pud_val(pud) & SRMMU_PTD_PMASK;
+-		return (unsigned long)__nocache_va(v << 4);
++		return (pmd_t *)__nocache_va(v << 4);
+ 	}
+ }
+ 
+--- a/arch/sparc/include/asm/pgtable_64.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/sparc/include/asm/pgtable_64.h
+@@ -841,18 +841,18 @@ static inline unsigned long pmd_page_vad
+ 	return ((unsigned long) __va(pfn << PAGE_SHIFT));
+ }
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+ 	pte_t pte = __pte(pud_val(pud));
+ 	unsigned long pfn;
+ 
+ 	pfn = pte_pfn(pte);
+ 
+-	return ((unsigned long) __va(pfn << PAGE_SHIFT));
++	return ((pmd_t *) __va(pfn << PAGE_SHIFT));
+ }
+ 
+ #define pmd_page(pmd) 			virt_to_page((void *)pmd_page_vaddr(pmd))
+-#define pud_page(pud) 			virt_to_page((void *)pud_page_vaddr(pud))
++#define pud_page(pud)			virt_to_page((void *)pud_pgtable(pud))
+ #define pmd_clear(pmdp)			(pmd_val(*(pmdp)) = 0UL)
+ #define pud_present(pud)		(pud_val(pud) != 0U)
+ #define pud_clear(pudp)			(pud_val(*(pudp)) = 0UL)
+--- a/arch/um/include/asm/pgtable-3level.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/um/include/asm/pgtable-3level.h
+@@ -83,7 +83,7 @@ static inline void pud_clear (pud_t *pud
+ }
+ 
+ #define pud_page(pud) phys_to_page(pud_val(pud) & PAGE_MASK)
+-#define pud_page_vaddr(pud) ((unsigned long) __va(pud_val(pud) & PAGE_MASK))
++#define pud_pgtable(pud) ((pmd_t *) __va(pud_val(pud) & PAGE_MASK))
+ 
+ static inline unsigned long pte_pfn(pte_t pte)
+ {
+--- a/arch/x86/include/asm/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/x86/include/asm/pgtable.h
+@@ -865,9 +865,9 @@ static inline int pud_present(pud_t pud)
+ 	return pud_flags(pud) & _PAGE_PRESENT;
+ }
+ 
+-static inline unsigned long pud_page_vaddr(pud_t pud)
++static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return (unsigned long)__va(pud_val(pud) & pud_pfn_mask(pud));
++	return (pmd_t *)__va(pud_val(pud) & pud_pfn_mask(pud));
+ }
+ 
+ /*
+--- a/arch/x86/mm/pat/set_memory.c~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/x86/mm/pat/set_memory.c
+@@ -1134,7 +1134,7 @@ static void __unmap_pmd_range(pud_t *pud
+ 			      unsigned long start, unsigned long end)
+ {
+ 	if (unmap_pte_range(pmd, start, end))
+-		if (try_to_free_pmd_page((pmd_t *)pud_page_vaddr(*pud)))
++		if (try_to_free_pmd_page(pud_pgtable(*pud)))
+ 			pud_clear(pud);
+ }
+ 
+@@ -1178,7 +1178,7 @@ static void unmap_pmd_range(pud_t *pud,
+ 	 * Try again to free the PMD page if haven't succeeded above.
+ 	 */
+ 	if (!pud_none(*pud))
+-		if (try_to_free_pmd_page((pmd_t *)pud_page_vaddr(*pud)))
++		if (try_to_free_pmd_page(pud_pgtable(*pud)))
+ 			pud_clear(pud);
+ }
+ 
+--- a/arch/x86/mm/pgtable.c~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/arch/x86/mm/pgtable.c
+@@ -801,7 +801,7 @@ int pud_free_pmd_page(pud_t *pud, unsign
+ 	pte_t *pte;
+ 	int i;
+ 
+-	pmd = (pmd_t *)pud_page_vaddr(*pud);
++	pmd = pud_pgtable(*pud);
+ 	pmd_sv = (pmd_t *)__get_free_page(GFP_KERNEL);
+ 	if (!pmd_sv)
+ 		return 0;
+--- a/include/asm-generic/pgtable-nopmd.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/include/asm-generic/pgtable-nopmd.h
+@@ -51,7 +51,7 @@ static inline pmd_t * pmd_offset(pud_t *
+ #define __pmd(x)				((pmd_t) { __pud(x) } )
+ 
+ #define pud_page(pud)				(pmd_page((pmd_t){ pud }))
+-#define pud_page_vaddr(pud)			(pmd_page_vaddr((pmd_t){ pud }))
++#define pud_pgtable(pud)			((pmd_t *)(pmd_page_vaddr((pmd_t){ pud })))
+ 
+ /*
+  * allocating and freeing a pmd is trivial: the 1-entry pmd is
+--- a/include/asm-generic/pgtable-nopud.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/include/asm-generic/pgtable-nopud.h
+@@ -49,7 +49,7 @@ static inline pud_t *pud_offset(p4d_t *p
+ #define __pud(x)				((pud_t) { __p4d(x) })
+ 
+ #define p4d_page(p4d)				(pud_page((pud_t){ p4d }))
+-#define p4d_page_vaddr(p4d)			(pud_page_vaddr((pud_t){ p4d }))
++#define p4d_page_vaddr(p4d)			(pud_pgtable((pud_t){ p4d }))
+ 
+ /*
+  * allocating and freeing a pud is trivial: the 1-entry pud is
+--- a/include/linux/pgtable.h~mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t
++++ a/include/linux/pgtable.h
+@@ -106,7 +106,7 @@ static inline pte_t *pte_offset_kernel(p
+ #ifndef pmd_offset
+ static inline pmd_t *pmd_offset(pud_t *pud, unsigned long address)
+ {
+-	return (pmd_t *)pud_page_vaddr(*pud) + pmd_index(address);
++	return pud_pgtable(*pud) + pmd_index(address);
+ }
+ #define pmd_offset pmd_offset
+ #endif
+_
+
+Patches currently in -mm which might be from aneesh.kumar@linux.ibm.com are
+
+mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
+mm-rename-p4d_page_vaddr-to-p4d_pgtable-and-make-it-return-pud_t.patch
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
