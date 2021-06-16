@@ -2,80 +2,99 @@ Return-Path: <SRS0=JO3K=LK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2CED3C48BE6
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 11:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 41090C48BE6
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 11:50:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D6B066115B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 11:47:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6B066115B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 11CD161241
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 11:50:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 11CD161241
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gkbIek5Men9sbMS3zSXn7OLSKB/bp47LCnNQlMJQn+8=; b=Vi8RB6BxnIozEo
-	G9FBTR2MGNwWYHZXfYp0t6rldVcTHaSYwBclyHjN0rv92qkyxW6QjvepRu5WEXcV5aIrYGwi5gfkW
-	dncnuGixnj4E0aocs3WwqsQUmudiTcnaede2nlsZ8Rm4H63911VVYy3F533pavlGAJkUV2sljStu6
-	3lN5qrgf7ZGBzjBLC6ApRnd5ghao09ANfLMDWlKeZii/dKAFmXd3T6Q7eEIyCt6MyUUsV59KaMW/5
-	KXSJWPSUeiUHWP4MXW3HVMZmfkOujZrmxHgorldjpCVKOaPN+944+2l3x2eYoudKBvJQbZQknsEQm
-	nU4UsjJfGMzu9T5idv+Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Arj1e1e3sNdBPaqq8i5a+oO7wSpbTcO250Zcpttd9BI=; b=fJZOs3vlE69Ozo
+	L2uXFgSXkCxLfVVeZIViL+rSB1bBeKphBinaSLXCe340x8UJoCc41HEWcQgJFpIkN/6x3gxJNNGnl
+	sN4A3kKiV/MTGYgdKm6mCRIDdmlzSbqVplVuBmoaJyevaqdXMj46sDKvoIq+qyaIaLWYmtB575BIb
+	V/SeM6Jc1ugwMCExR2ib5vvI3CjfLFDLfmfsfI9LrJBIXesAXU8ZzQh8i9CIpAWURfCWh+dndhkVE
+	UOvvE+HKhCZDWxPKdQPNEQvYNAFx8XwTBbA6g4Mqmo0bXIvywoH4xDk8ho0nBAo0JcXu0teIU4xPs
+	1jq50X+a1TvlDnm8FRDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltU0M-0066dr-8x; Wed, 16 Jun 2021 11:46:46 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1ltU3N-0067nI-E8; Wed, 16 Jun 2021 11:49:53 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltU0I-0066bT-Dp
- for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 11:46:44 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 54F9261040
- for <linux-riscv@lists.infradead.org>; Wed, 16 Jun 2021 11:46:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1623844001;
- bh=4ivGHJ8D/40tMicOJyo3CcfWjreuzYEM57NqA4ib7zc=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=B7HetqJewVb8o+DcyhMKpL1EShrgL42I49PW/4dTZ1K22VMqw4kpgVnaDgZvoUw/W
- QU0PlDVqtaA+DuZsyXM/ELwISaPkYfGYs6egdy0zw9gp2/99SIe01a7Der33miQXlZ
- Q2Lj85QlbYrkxzAc1Vf/MBv5cD64RmOc5Rk6bnwj1VZy7pC0MEAdmMT/b6lvNpX8Fv
- ROXhh1cK/YxCpZDTGGUr7vvQ2/7DEtwQZbE8E1GBDf6xMzX+mH28E2+2aw1K2QjN+J
- pbVpg8JsfJlD01f35QvoZUOuZyxhFSLJUQJgtFg4qT9wSBFlelUdihYOZwF9DfMrfm
- KtTpllG00vprQ==
-Received: by mail-lj1-f171.google.com with SMTP id s22so3402480ljg.5
- for <linux-riscv@lists.infradead.org>; Wed, 16 Jun 2021 04:46:41 -0700 (PDT)
-X-Gm-Message-State: AOAM5307dGygHVxyDMpsg3HSX8FSD7cfdLwROgRs2WboVgRted6RWo4q
- zt9OukvHc4jOGHXxTGhIheAFMPWu7t1vOQa3eaA=
-X-Google-Smtp-Source: ABdhPJxDdmACAhk/dgo0OCFyGlwnxDvugMor6ZLlNvgjHyFSnIharh9WIU8sXOxm8N+zt1fC27tv/w2OOyjGbJ1XTrU=
-X-Received: by 2002:a2e:4b11:: with SMTP id y17mr4042575lja.105.1623843999378; 
- Wed, 16 Jun 2021 04:46:39 -0700 (PDT)
+ id 1ltU38-0067di-76
+ for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 11:49:40 +0000
+Received: by mail-pl1-x632.google.com with SMTP id v12so977887plo.10
+ for <linux-riscv@lists.infradead.org>; Wed, 16 Jun 2021 04:49:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=date:from:to:cc:subject:message-id:mime-version:content-disposition
+ :in-reply-to:user-agent;
+ bh=WP4w1GpdYFm/lzVMj2S/oiM+wNAIY76Q4Vr8j4h2Ac8=;
+ b=wa92YBrXbG86A9Z+067cELwEal7p07gTA7A7wsgnCbaOV0P4ed2S2onKpAtAa6YpoW
+ Alrj7n+HHFlLh4cL0E/+vh6HaHfSTX2bVhimwLq3N+4ctPqCAHpFkwMqX9MfKwPLepi2
+ N85/18jVLEznBvvqb78bkfmWMBfICgKqImLdL9QPFz2rkpym27NQHevR/NjGk8zwEna6
+ QM9/KL4jOmdrxnmcHNNmLlLuC93GgJoyoCcEMQZTcd7xxhGFEIQ0/UQm1Jzn9+Z5XLEp
+ YLIXvWj6DrJqOe4QCzTZ4zkbl7G2jU0Ez/9tYf25xw7D14jAR7EywGWy4PSJHgPhaoYK
+ To4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=WP4w1GpdYFm/lzVMj2S/oiM+wNAIY76Q4Vr8j4h2Ac8=;
+ b=Gmarm0W4BHG9vqmJJNEt+33IM8B3e1cQlD6M6hscGm+KFHdbBcmwXbAAZCCHEyDK/3
+ xtPXUt4vmOa4fpp7mg9IlZxZsXae3325rqcIgL6FuJxgctLBAR90gbbHCUFgm2KtfAMe
+ 3f6nIO9IQUYK7xlx1xKyKke8tQtrZqeYg3T5/n52JYK2v2GD1A+CYAq3YWbjlkCwdiuW
+ FeE215t43VA5OCvp9OMJjc99VIFKdPI58tJcsBU8MbMd8wDpT2T3461XlBAG/+1+Ueqw
+ 03ubM5uhIu1Ngcvp45mXsceeTu3hm3aIYVVgpCEckVHnIhWbEHZ3FjUIHQh1lge1Q6Wk
+ AUhA==
+X-Gm-Message-State: AOAM530n0VfQ06ALwcW6CbPJ+dicWU0rw8Z7tgLIzPC5iPhcMFNa6yqu
+ fU/ZKSkjdy5NUzH914xxhInkwA==
+X-Google-Smtp-Source: ABdhPJw89fpFAisJqm9uKcXQ4Bv9sFpHwtsFqHMJR6kj3kZ7z5t5WDsu0PQ7GzVDY+EnmIFrNn1Yqw==
+X-Received: by 2002:a17:90a:5401:: with SMTP id z1mr4452275pjh.7.1623844177210; 
+ Wed, 16 Jun 2021 04:49:37 -0700 (PDT)
+Received: from localhost ([136.185.134.182])
+ by smtp.gmail.com with ESMTPSA id t14sm2541701pgm.9.2021.06.16.04.49.36
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 16 Jun 2021 04:49:36 -0700 (PDT)
+Date: Wed, 16 Jun 2021 17:19:34 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: "Enrico Weigelt, metux IT consult" <info@metux.net>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowang@redhat.com>, Kees Cook <keescook@chromium.org>,
+ Anton Vorontsov <anton@enomsg.org>,
+ Colin Cross <ccross@android.com>, Tony Luck <tony.luck@intel.com>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ virtualization@lists.linux-foundation.org,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Bill Mills <bill.mills@linaro.org>,
+ Alex =?utf-8?Q?Benn=C3=A9e?= <alex.bennee@linaro.org>
+Subject: Re: [PATCH] drivers: gpio: add virtio-gpio guest driver
+Message-ID: <20210616114934.n3grzuh6c64wlaj6@vireshk-i7>
 MIME-Version: 1.0
-References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
- <20210615023812.50885-2-mcroce@linux.microsoft.com>
-In-Reply-To: <20210615023812.50885-2-mcroce@linux.microsoft.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 16 Jun 2021 19:46:27 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTreOvQYYXHBYxznB9+vMaASKg8vwA5mkqVo1T6=eVhzw@mail.gmail.com>
-Message-ID: <CAJF2gTTreOvQYYXHBYxznB9+vMaASKg8vwA5mkqVo1T6=eVhzw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] riscv: optimized memcpy
-To: Matteo Croce <mcroce@linux.microsoft.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, 
- Emil Renner Berthing <kernel@esmil.dk>,
- Akira Tsukamoto <akira.tsukamoto@gmail.com>, 
- Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CACRpkdbwLOOT6nuhpkT5x-AZVipsD2qG8Qu4xoiRotHQNknwzw@mail.gmail.com>
+User-Agent: NeoMutt/20180716-391-311a52
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210616_044642_563119_ACD2F5D8 
-X-CRM114-Status: GOOD (  42.15  )
+X-CRM114-CacheID: sfid-20210616_044938_342007_F956B8FD 
+X-CRM114-Status: GOOD (  35.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,400 +111,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Matteo,
+On 16-06-21, 10:31, Linus Walleij wrote:
+> Hi Enrico,
+> 
+> On Tue, Jun 15, 2021 at 7:49 PM Enrico Weigelt, metux IT consult
+> <info@metux.net> wrote:
+> 
+> > Introduce new GPIO driver for virtual GPIO devices via virtio.
+> >
+> > The driver implements the virtio-gpio protocol (ID 41), which can be
+> > used by either VM guests (e.g. bridging virtual gpios from the guest
+> > to real gpios in the host or attaching simulators for automatic
+> > application testing), as well as virtio-gpio hardware devices.
+> >
+> > Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+> 
+> So now there are two contesting patches for this and that creates a
+> social problem for us as maintainers. I am not too happy about that.
+> 
+> This situation activates the kernel management style document so
+> I advise involved parties to familiarize themselves with it:
+> https://www.kernel.org/doc/html/latest/process/management-style.html
+> 
+> Can we get the discussion down to actual technical points?
 
-Have you tried Glibc generic implementation code?
-ref: https://lore.kernel.org/linux-arch/20190629053641.3iBfk9-I_D29cDp9yJnIdIg7oMtHNZlDmhLQPTumhEc@z/#t
++1
 
-If Glibc codes have the same performance in your hardware, then you
-could give a generic implementation first.
+I can not agree more to this.
 
-The current Linux generic implementation is so simple in lib/string.c:
-#ifndef __HAVE_ARCH_MEMCPY
-/**
- * memcpy - Copy one area of memory to another
- * @dest: Where to copy to
- * @src: Where to copy from
- * @count: The size of the area.
- *
- * You should not use this function to access IO space, use memcpy_toio()
- * or memcpy_fromio() instead.
- */
-void *memcpy(void *dest, const void *src, size_t count)
-{
-        char *tmp = dest;
-        const char *s = src;
+> We really need a virtio GPIO driver, no doubt, so if everyone could
+> just work toward that goal and compromise with their specific pet
+> peeves that would be great.
 
-        while (count--)
-                *tmp++ = *s++;
-        return dest;
-}
-EXPORT_SYMBOL(memcpy);
-#endif
+Enrico,
 
-On Tue, Jun 15, 2021 at 10:42 AM Matteo Croce
-<mcroce@linux.microsoft.com> wrote:
->
-> From: Matteo Croce <mcroce@microsoft.com>
->
-> Write a C version of memcpy() which uses the biggest data size allowed,
-> without generating unaligned accesses.
->
-> The procedure is made of three steps:
-> First copy data one byte at time until the destination buffer is aligned
-> to a long boundary.
-> Then copy the data one long at time shifting the current and the next u8
-> to compose a long at every cycle.
-> Finally, copy the remainder one byte at time.
->
-> On a BeagleV, the TCP RX throughput increased by 45%:
->
-> before:
->
-> $ iperf3 -c beaglev
-> Connecting to host beaglev, port 5201
-> [  5] local 192.168.85.6 port 44840 connected to 192.168.85.48 port 5201
-> [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-> [  5]   0.00-1.00   sec  76.4 MBytes   641 Mbits/sec   27    624 KBytes
-> [  5]   1.00-2.00   sec  72.5 MBytes   608 Mbits/sec    0    708 KBytes
-> [  5]   2.00-3.00   sec  73.8 MBytes   619 Mbits/sec   10    451 KBytes
-> [  5]   3.00-4.00   sec  72.5 MBytes   608 Mbits/sec    0    564 KBytes
-> [  5]   4.00-5.00   sec  73.8 MBytes   619 Mbits/sec    0    658 KBytes
-> [  5]   5.00-6.00   sec  73.8 MBytes   619 Mbits/sec   14    522 KBytes
-> [  5]   6.00-7.00   sec  73.8 MBytes   619 Mbits/sec    0    621 KBytes
-> [  5]   7.00-8.00   sec  72.5 MBytes   608 Mbits/sec    0    706 KBytes
-> [  5]   8.00-9.00   sec  73.8 MBytes   619 Mbits/sec   20    580 KBytes
-> [  5]   9.00-10.00  sec  73.8 MBytes   619 Mbits/sec    0    672 KBytes
-> - - - - - - - - - - - - - - - - - - - - - - - - -
-> [ ID] Interval           Transfer     Bitrate         Retr
-> [  5]   0.00-10.00  sec   736 MBytes   618 Mbits/sec   71             sender
-> [  5]   0.00-10.01  sec   733 MBytes   615 Mbits/sec                  receiver
->
-> after:
->
-> $ iperf3 -c beaglev
-> Connecting to host beaglev, port 5201
-> [  5] local 192.168.85.6 port 44864 connected to 192.168.85.48 port 5201
-> [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-> [  5]   0.00-1.00   sec   109 MBytes   912 Mbits/sec   48    559 KBytes
-> [  5]   1.00-2.00   sec   108 MBytes   902 Mbits/sec    0    690 KBytes
-> [  5]   2.00-3.00   sec   106 MBytes   891 Mbits/sec   36    396 KBytes
-> [  5]   3.00-4.00   sec   108 MBytes   902 Mbits/sec    0    567 KBytes
-> [  5]   4.00-5.00   sec   106 MBytes   891 Mbits/sec    0    699 KBytes
-> [  5]   5.00-6.00   sec   106 MBytes   891 Mbits/sec   32    414 KBytes
-> [  5]   6.00-7.00   sec   106 MBytes   891 Mbits/sec    0    583 KBytes
-> [  5]   7.00-8.00   sec   106 MBytes   891 Mbits/sec    0    708 KBytes
-> [  5]   8.00-9.00   sec   106 MBytes   891 Mbits/sec   28    433 KBytes
-> [  5]   9.00-10.00  sec   108 MBytes   902 Mbits/sec    0    591 KBytes
-> - - - - - - - - - - - - - - - - - - - - - - - - -
-> [ ID] Interval           Transfer     Bitrate         Retr
-> [  5]   0.00-10.00  sec  1.04 GBytes   897 Mbits/sec  144             sender
-> [  5]   0.00-10.01  sec  1.04 GBytes   894 Mbits/sec                  receiver
->
-> And the decreased CPU time of the memcpy() is observable with perf top.
-> This is the `perf top -Ue task-clock` output when doing the test:
->
-> before:
->
-> Overhead  Shared O  Symbol
->   42.22%  [kernel]  [k] memcpy
->   35.00%  [kernel]  [k] __asm_copy_to_user
->    3.50%  [kernel]  [k] sifive_l2_flush64_range
->    2.30%  [kernel]  [k] stmmac_napi_poll_rx
->    1.11%  [kernel]  [k] memset
->
-> after:
->
-> Overhead  Shared O  Symbol
->   45.69%  [kernel]  [k] __asm_copy_to_user
->   29.06%  [kernel]  [k] memcpy
->    4.09%  [kernel]  [k] sifive_l2_flush64_range
->    2.77%  [kernel]  [k] stmmac_napi_poll_rx
->    1.24%  [kernel]  [k] memset
->
-> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-> ---
->  arch/riscv/include/asm/string.h |   8 ++-
->  arch/riscv/kernel/riscv_ksyms.c |   2 -
->  arch/riscv/lib/Makefile         |   2 +-
->  arch/riscv/lib/memcpy.S         | 108 --------------------------------
->  arch/riscv/lib/string.c         |  94 +++++++++++++++++++++++++++
->  5 files changed, 101 insertions(+), 113 deletions(-)
->  delete mode 100644 arch/riscv/lib/memcpy.S
->  create mode 100644 arch/riscv/lib/string.c
->
-> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> index 909049366555..6b5d6fc3eab4 100644
-> --- a/arch/riscv/include/asm/string.h
-> +++ b/arch/riscv/include/asm/string.h
-> @@ -12,9 +12,13 @@
->  #define __HAVE_ARCH_MEMSET
->  extern asmlinkage void *memset(void *, int, size_t);
->  extern asmlinkage void *__memset(void *, int, size_t);
-> +
-> +#ifdef CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
->  #define __HAVE_ARCH_MEMCPY
-> -extern asmlinkage void *memcpy(void *, const void *, size_t);
-> -extern asmlinkage void *__memcpy(void *, const void *, size_t);
-> +extern void *memcpy(void *dest, const void *src, size_t count);
-> +extern void *__memcpy(void *dest, const void *src, size_t count);
-> +#endif
-> +
->  #define __HAVE_ARCH_MEMMOVE
->  extern asmlinkage void *memmove(void *, const void *, size_t);
->  extern asmlinkage void *__memmove(void *, const void *, size_t);
-> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-> index 5ab1c7e1a6ed..3f6d512a5b97 100644
-> --- a/arch/riscv/kernel/riscv_ksyms.c
-> +++ b/arch/riscv/kernel/riscv_ksyms.c
-> @@ -10,8 +10,6 @@
->   * Assembly functions that may be used (directly or indirectly) by modules
->   */
->  EXPORT_SYMBOL(memset);
-> -EXPORT_SYMBOL(memcpy);
->  EXPORT_SYMBOL(memmove);
->  EXPORT_SYMBOL(__memset);
-> -EXPORT_SYMBOL(__memcpy);
->  EXPORT_SYMBOL(__memmove);
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 25d5c9664e57..2ffe85d4baee 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -1,9 +1,9 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  lib-y                  += delay.o
-> -lib-y                  += memcpy.o
->  lib-y                  += memset.o
->  lib-y                  += memmove.o
->  lib-$(CONFIG_MMU)      += uaccess.o
->  lib-$(CONFIG_64BIT)    += tishift.o
-> +lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
->
->  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-> diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
-> deleted file mode 100644
-> index 51ab716253fa..000000000000
-> --- a/arch/riscv/lib/memcpy.S
-> +++ /dev/null
-> @@ -1,108 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2013 Regents of the University of California
-> - */
-> -
-> -#include <linux/linkage.h>
-> -#include <asm/asm.h>
-> -
-> -/* void *memcpy(void *, const void *, size_t) */
-> -ENTRY(__memcpy)
-> -WEAK(memcpy)
-> -       move t6, a0  /* Preserve return value */
-> -
-> -       /* Defer to byte-oriented copy for small sizes */
-> -       sltiu a3, a2, 128
-> -       bnez a3, 4f
-> -       /* Use word-oriented copy only if low-order bits match */
-> -       andi a3, t6, SZREG-1
-> -       andi a4, a1, SZREG-1
-> -       bne a3, a4, 4f
-> -
-> -       beqz a3, 2f  /* Skip if already aligned */
-> -       /*
-> -        * Round to nearest double word-aligned address
-> -        * greater than or equal to start address
-> -        */
-> -       andi a3, a1, ~(SZREG-1)
-> -       addi a3, a3, SZREG
-> -       /* Handle initial misalignment */
-> -       sub a4, a3, a1
-> -1:
-> -       lb a5, 0(a1)
-> -       addi a1, a1, 1
-> -       sb a5, 0(t6)
-> -       addi t6, t6, 1
-> -       bltu a1, a3, 1b
-> -       sub a2, a2, a4  /* Update count */
-> -
-> -2:
-> -       andi a4, a2, ~((16*SZREG)-1)
-> -       beqz a4, 4f
-> -       add a3, a1, a4
-> -3:
-> -       REG_L a4,       0(a1)
-> -       REG_L a5,   SZREG(a1)
-> -       REG_L a6, 2*SZREG(a1)
-> -       REG_L a7, 3*SZREG(a1)
-> -       REG_L t0, 4*SZREG(a1)
-> -       REG_L t1, 5*SZREG(a1)
-> -       REG_L t2, 6*SZREG(a1)
-> -       REG_L t3, 7*SZREG(a1)
-> -       REG_L t4, 8*SZREG(a1)
-> -       REG_L t5, 9*SZREG(a1)
-> -       REG_S a4,       0(t6)
-> -       REG_S a5,   SZREG(t6)
-> -       REG_S a6, 2*SZREG(t6)
-> -       REG_S a7, 3*SZREG(t6)
-> -       REG_S t0, 4*SZREG(t6)
-> -       REG_S t1, 5*SZREG(t6)
-> -       REG_S t2, 6*SZREG(t6)
-> -       REG_S t3, 7*SZREG(t6)
-> -       REG_S t4, 8*SZREG(t6)
-> -       REG_S t5, 9*SZREG(t6)
-> -       REG_L a4, 10*SZREG(a1)
-> -       REG_L a5, 11*SZREG(a1)
-> -       REG_L a6, 12*SZREG(a1)
-> -       REG_L a7, 13*SZREG(a1)
-> -       REG_L t0, 14*SZREG(a1)
-> -       REG_L t1, 15*SZREG(a1)
-> -       addi a1, a1, 16*SZREG
-> -       REG_S a4, 10*SZREG(t6)
-> -       REG_S a5, 11*SZREG(t6)
-> -       REG_S a6, 12*SZREG(t6)
-> -       REG_S a7, 13*SZREG(t6)
-> -       REG_S t0, 14*SZREG(t6)
-> -       REG_S t1, 15*SZREG(t6)
-> -       addi t6, t6, 16*SZREG
-> -       bltu a1, a3, 3b
-> -       andi a2, a2, (16*SZREG)-1  /* Update count */
-> -
-> -4:
-> -       /* Handle trailing misalignment */
-> -       beqz a2, 6f
-> -       add a3, a1, a2
-> -
-> -       /* Use word-oriented copy if co-aligned to word boundary */
-> -       or a5, a1, t6
-> -       or a5, a5, a3
-> -       andi a5, a5, 3
-> -       bnez a5, 5f
-> -7:
-> -       lw a4, 0(a1)
-> -       addi a1, a1, 4
-> -       sw a4, 0(t6)
-> -       addi t6, t6, 4
-> -       bltu a1, a3, 7b
-> -
-> -       ret
-> -
-> -5:
-> -       lb a4, 0(a1)
-> -       addi a1, a1, 1
-> -       sb a4, 0(t6)
-> -       addi t6, t6, 1
-> -       bltu a1, a3, 5b
-> -6:
-> -       ret
-> -END(__memcpy)
-> diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
-> new file mode 100644
-> index 000000000000..525f9ee25a74
-> --- /dev/null
-> +++ b/arch/riscv/lib/string.c
-> @@ -0,0 +1,94 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * String functions optimized for hardware which doesn't
-> + * handle unaligned memory accesses efficiently.
-> + *
-> + * Copyright (C) 2021 Matteo Croce
-> + */
-> +
-> +#include <linux/types.h>
-> +#include <linux/module.h>
-> +
-> +/* size below a classic byte at time copy is done */
-> +#define MIN_THRESHOLD 64
-> +
-> +/* convenience types to avoid cast between different pointer types */
-> +union types {
-> +       u8 *u8;
-> +       unsigned long *ulong;
-> +       uintptr_t uptr;
-> +};
-> +
-> +union const_types {
-> +       const u8 *u8;
-> +       unsigned long *ulong;
-> +};
-> +
-> +void *memcpy(void *dest, const void *src, size_t count)
-> +{
-> +       const int bytes_long = BITS_PER_LONG / 8;
-> +#ifndef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
-> +       const int mask = bytes_long - 1;
-> +       const int distance = (src - dest) & mask;
-> +#endif
-> +       union const_types s = { .u8 = src };
-> +       union types d = { .u8 = dest };
-> +
-> +#ifndef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
-> +       if (count <= MIN_THRESHOLD)
-> +               goto copy_remainder;
-> +
-> +       /* copy a byte at time until destination is aligned */
-> +       for (; count && d.uptr & mask; count--)
-> +               *d.u8++ = *s.u8++;
-> +
-> +       if (distance) {
-> +               unsigned long last, next;
-> +
-> +               /* move s backward to the previous alignment boundary */
-> +               s.u8 -= distance;
-> +
-> +               /* 32/64 bit wide copy from s to d.
-> +                * d is aligned now but s is not, so read s alignment wise,
-> +                * and do proper shift to get the right value.
-> +                * Works only on Little Endian machines.
-> +                */
-> +               for (next = s.ulong[0]; count >= bytes_long + mask; count -= bytes_long) {
-> +                       last = next;
-> +                       next = s.ulong[1];
-> +
-> +                       d.ulong[0] = last >> (distance * 8) |
-> +                                    next << ((bytes_long - distance) * 8);
-> +
-> +                       d.ulong++;
-> +                       s.ulong++;
-> +               }
-> +
-> +               /* restore s with the original offset */
-> +               s.u8 += distance;
-> +       } else
-> +#endif
-> +       {
-> +               /* if the source and dest lower bits are the same, do a simple
-> +                * 32/64 bit wide copy.
-> +                */
-> +               for (; count >= bytes_long; count -= bytes_long)
-> +                       *d.ulong++ = *s.ulong++;
-> +       }
-> +
-> +       /* suppress warning when CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS=y */
-> +       goto copy_remainder;
-> +
-> +copy_remainder:
-> +       while (count--)
-> +               *d.u8++ = *s.u8++;
-> +
-> +       return dest;
-> +}
-> +EXPORT_SYMBOL(memcpy);
-> +
-> +void *__memcpy(void *dest, const void *src, size_t count)
-> +{
-> +       return memcpy(dest, src, count);
-> +}
-> +EXPORT_SYMBOL(__memcpy);
-> --
-> 2.31.1
->
+I am not looking to get any credits for the code or spec here. I don't
+really care about that. For the very same reason I kept you as the
+author of the 1st patch in the kernel series, so git keeps showing you
+as the original author.
 
+All I wanted to work on was the backend (in rust). This is what
+happened for I2C for example, Jie Deng (Intel) worked on the spec and
+Linux driver and I helped review it, make him fix a thing or two and
+that's all. I worked on the rust implementation for the backend then.
+
+You only ever sent 1 real versions of the Linux driver, that too
+"6-months-back", there were no real blockers anywhere and you never
+attempted to upstream anything.
+
+Similarly, you "never" sent the specification properly to the virtio
+lists for review. You sent it once as an attachment to an email, which
+no one ever received.
+
+When I tried to move this forward, invested a lot of time into making
+it better from specification to code, reviews started happening, you
+decided to start blocking it again.
+
+You should be rather happy that something that you worked on is making
+progress, specially when you didn't get time to do the same.
+
+You wrote this in your patch:
+
+> > Status:
+> >     * this driver is now field tested for about 6 month
+> >       (against KVM+Qemu as well as some HW/FPGA implementation)
+
+Linux upstream doesn't really care about this, you can ask any Linux
+Maintainer about this. If your code and specification isn't doing the
+right thing, and isn't good enough, you will be asked to update it
+upon reviews.
+
+YOU JUST CAN'T SAY I WON'T because I have products based on this
+version.
+
+This is not how any open source project works. The code and
+specification here doesn't belong to a single person or company. It is
+for everyone's use.
+
+> >     * virtio device ID officially allocated
+
+Correct.
+
+> >     * virtio spec has been submitted to virtio TC
+
+Which specification are you talking about here ? The only
+specification I can see on virtio lists is the one I sent.
+
+And the driver you tried to send isn't aligned to that for sure, and
+it takes us back from all the improvements I tried to do.
+
+I am not saying that my version of the specification is the best and
+there is no flaw in it. There surely is, but that can't be fixed by
+sending another version of it. You need to make a technical point
+about it and convince people that what you are saying is correct and
+it is required for your use-case (not existing downstream solution).
+
+There is no point going backwards now after making so much of
+progress. Even if you try to send your version, it will slowly and
+slowly reach very close to my latest version of code and spec. Because
+your version of the code and spec weren't good enough for everyone. It
+doesn't matter if you have real products on your earlier version, you
+can keep using that in your downstream solution, but Linux kernel and
+specification are going to get an improved version (from yours or
+mine, but that doesn't matter here). You need to accept that changes
+to that are inevitable since there are many users of gpio-virtio, not
+just you and me, but many more (Like Bjorn expressed his interest in
+this today for Qcom stuff).
+
+Again, it would be better if you can discuss further on technical
+merits or demerits in the currently circulated specification and give
+your invaluable suggestions on the same.
+
+Else we will end up spending few more months with just this and it
+won't get us anywhere.
+
+Thanks.
 
 -- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+viresh
 
 _______________________________________________
 linux-riscv mailing list
