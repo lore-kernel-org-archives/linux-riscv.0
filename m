@@ -2,91 +2,92 @@ Return-Path: <SRS0=JO3K=LK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F4ACC48BE5
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BA7CC48BE6
 	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:02:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3FFD061369
+	by mail.kernel.org (Postfix) with ESMTPS id 6F8E861375
 	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:02:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FFD061369
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F8E861375
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LUKV/tjBHzj89KpdHBd/H+qU4jW5D5HMN9Nv+WSRge0=; b=TlZkFuS13g0MNA
-	5Peu1C3ixQTCPdpgc2EM9ZTq0FiVmL36LzZjHeGZOH8ozGVBocUT3k/X48yLbOypK/JyRE0aH8zgM
-	MGQZjQ1AjQk6LFwam2apjr7XbmyIL0tel1/7HgFV1iZpg7iygVCgG7tSimuqktsJgO1Z6k9d920o+
-	kBZiCjt0LlHljF483scEYiMe32BDtuw+TvaPNJ/X6xXjEF/g+Pm0nQCrj/AOI6CQemfQZeTKidFEf
-	yXUTUQ14/vA/woPrfqT1pmWxLK9huh2nmjqywyEtHj5qtjm8AIa5FLJ7hLKhG/SUdX4YEh/BfwoV9
-	GEhxRlRPNlK7R0sFPY6A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GtgGRIqgNO069HltAngsCPnxoq3XS9/VdTtsAgRr5+0=; b=hgyLTXTrJG6kFf
+	BkCCons74mtAvX1RKqfejix00r2eWgjukviGGh5jy1eJzErJITsyNS7cJBHXECRChwIDm0nhshQUT
+	1SiLd612hmbflR/TI3A5RbgaQnHtcf1JuPIxRfzoa0zN7wOLM5bovSu1J5QxjfzwrJesr3uPBcfe+
+	Dhw6o6f3fUUNEHjeRLzki1QEewLKEQyPYvRSndX9vB0pCouRVBWiT4ZpDbB5gBnvEIKrq89ivdaVJ
+	XhWDl07LBGTwQEJiG4i7VaQA5vUIAod7b2+xkbrFCxyg4RgLjV6Mf2JrYosj7TX3yUydJtpkjH0yn
+	vM/aymcrEvSNMB/7z2nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltOdK-004z0n-6A; Wed, 16 Jun 2021 06:02:38 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1ltOdO-004z1x-Us; Wed, 16 Jun 2021 06:02:42 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltOdH-004yzt-CG
- for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 06:02:36 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id t7so1070601edd.5
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 23:02:34 -0700 (PDT)
+ id 1ltOdM-004z0z-75
+ for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 06:02:41 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id g20so1893172ejt.0
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 23:02:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=CMUSU6K99n6eMM6v4FzWd/f27lBpf54QdzrLJZNzXWQ=;
- b=eDN7IcteeBW4ejR5DRBrsgYhQOoiuJ445WSsziNHLbmBVvdC4qCg2bt2/k5YK60zMj
- b4Wa7iPsDjhQTII9rx36auunzXxRLRvHgADrKjQOKo+RikCRxoQYJSm6V6e/i2Jc5/rV
- b0UCGqJgiI6enMqfOXw5kA20Ye45mVpQ0mGUvkrBQEEdGIge3sILbdxX0Yv1Q+zWcgBh
- 0rKE6LbO3vexIRNGGiRgmFd45IpCgow3Y+YOWZ0bYEZDg7bY36cjsEmsJXe2R/6CHO2o
- Z7WgaTswPIpc5xsiAThSNuRZvoLr+6RmEN2dOgt8EducoCIaOEPO4Ff6R2fRtbngu7f8
- tH6w==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=dmUZFQiKZAjt3d7qJZzBsR6hutNnEwcefr5tWqFFkuo=;
+ b=cNBdmWxkePEVOxU4GERyfW7MCTkzvtfBJblvz+kQkALBJRfbl1uPPBrUdTX+iDyxyd
+ d0nEMtstHBL39SbNSkLBPyRqWKSrbX/LbSimF8p7LO3fHbcWip7YHWwiPLxeY1meqfl0
+ klcq6W4c/WR/KmTfIRON+T6MOvtCdveG+NTukNx14XbQV3cOZCAtUD3RGhnrimzxdaey
+ NrjpMOuYQbg7Y2a6Xj+LgK707xT3ClTGnuMAvi5iTHkQSmOVHOOHjtzZZ+PI5cvr9HZ/
+ +RUpkxV/itCKp5LykdWdZgt+bp4pz0kVboyeVMkycs5CuUs7Gt0WuSt5bjj7hHJP70VO
+ vpOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=CMUSU6K99n6eMM6v4FzWd/f27lBpf54QdzrLJZNzXWQ=;
- b=iB+fp34ACLOXfpfsGyC2Q/yxECWm4ZxF1r13Qud2Ss/HU52C01I3K8tZmqIvbf2Exi
- Cc3iW6R4OcW5kdU1acebKJ9hEd/f+Rg3TF+7ujE5ZjhGfeVeUijLW09LNpZwvkTcEC+Z
- FLdWuTdJw44LjmpL612WWGh6akdHWIoiNPTxUmEBGJaMAvjynw22b+2E0G9OKHbexGeT
- poGWRSS4hWVOXt6sIBszsq3WSX9wfriZH062eeLH+pvdRm+tnW2tfVu91rz5PkJfE8VS
- 5ymGKBeJk4nzb/K/XvnmrdIBM2q/zF5rdAdfJYkfOk1rMg74VNnXLA1JbTND89eIAoo9
- ewBQ==
-X-Gm-Message-State: AOAM532NxdJ87My1FqrXExzRn4Xzs5chk9BXsV+54IZv6Db+jYMRUmOE
- 0haJOVk+g+zRoA7YIBAM9zw=
-X-Google-Smtp-Source: ABdhPJxIvbVJTmCEKtkq24sb9u/ZYB59aYl7KgDmjRTDadndL9icBjx+ZhbJBmaqMhFR1S2RZfTQwg==
-X-Received: by 2002:a05:6402:49:: with SMTP id
- f9mr2113932edu.178.1623823353666; 
- Tue, 15 Jun 2021 23:02:33 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=dmUZFQiKZAjt3d7qJZzBsR6hutNnEwcefr5tWqFFkuo=;
+ b=qA6dKJ+hIsndBoIVNmfAu8ryFoo9DHMNLeuuQZsToSh4la6ffHH/pl5K86nInvN3mI
+ 5Y3TViaixllf1i20cu9vn00YZUgEJfsmofqmuLgialo5LbCLh7yK1KKRVPX/6Ys+Rf8z
+ c477SqdAkr8DUnAT4ZZIHw2MEz+YmDDSV/OykysO5rchJfbv+L0Xc3Sy96Y4DHPXaXxC
+ E/seAWlN+ZPi+rtiwKU2F0q9Cdo4K/ULIvNroKmttoFtjjz7d/FdYfrxuO/f8tmiIar7
+ ke60rCOQjXCJ+ircmYJukx/813kJJDdRvvsNvhGrpjzitllITTLs3rtZyaygCRI3Egb8
+ Rjbg==
+X-Gm-Message-State: AOAM532t6UT84s6Sr4lu5pTd7WuxDK5zroc0bvCvgc+Nwq30ZUyWcEes
+ jwCIHOQHldycB7Y8rGZkJhM=
+X-Google-Smtp-Source: ABdhPJz8f65f1DFxLdRl6kc6uEgMgLBoCFxF66MEh/Tj3iwnV3NUK5Azu7L4uj5Uj8IcYog8SKNDkw==
+X-Received: by 2002:a17:906:2e81:: with SMTP id
+ o1mr3530816eji.446.1623823358242; 
+ Tue, 15 Jun 2021 23:02:38 -0700 (PDT)
 Received: from pek-vx-bsp2.wrs.com
  (ec2-44-242-66-180.us-west-2.compute.amazonaws.com. [44.242.66.180])
- by smtp.gmail.com with ESMTPSA id ot30sm810474ejb.61.2021.06.15.23.02.29
+ by smtp.gmail.com with ESMTPSA id ot30sm810474ejb.61.2021.06.15.23.02.34
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Jun 2021 23:02:33 -0700 (PDT)
+ Tue, 15 Jun 2021 23:02:37 -0700 (PDT)
 From: Bin Meng <bmeng.cn@gmail.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 Cc: Bin Meng <bin.meng@windriver.com>
-Subject: [PATCH 1/2] riscv: dts: microchip: Drop "clock-frequency" property of
- cpu nodes
-Date: Wed, 16 Jun 2021 14:02:50 +0800
-Message-Id: <20210616060251.398444-1-bmeng.cn@gmail.com>
+Subject: [PATCH 2/2] riscv: dts: microchip: Fix wrong interrupt numbers of DMA
+Date: Wed, 16 Jun 2021 14:02:51 +0800
+Message-Id: <20210616060251.398444-2-bmeng.cn@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20210616060251.398444-1-bmeng.cn@gmail.com>
+References: <20210616060251.398444-1-bmeng.cn@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_230235_454577_370269D7 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210615_230240_299243_194A2890 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +106,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Bin Meng <bin.meng@windriver.com>
 
-The "clock-frequency" property of cpu nodes isn't required. Drop it.
+Per chapter 5.2.2, interrupt sources in the PolarFire MSS doc [1],
+the correct interrupt numbers for DMA are <5,6,...,12>.
 
+[1] https://www.microsemi.com/document-portal/doc_download/
+    1245725-polarfire-soc-fpga-mss-technical-reference-manual
+
+Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
 Signed-off-by: Bin Meng <bin.meng@windriver.com>
 ---
 
- arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 5 -----
- 1 file changed, 5 deletions(-)
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-index b9819570a7d1..ee54878b3f89 100644
+index ee54878b3f89..a00d9dc560d3 100644
 --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-@@ -17,7 +17,6 @@ cpus {
- 		#size-cells = <0>;
- 
- 		cpu@0 {
--			clock-frequency = <0>;
- 			compatible = "sifive,e51", "sifive,rocket0", "riscv";
- 			device_type = "cpu";
- 			i-cache-block-size = <64>;
-@@ -35,7 +34,6 @@ cpu0_intc: interrupt-controller {
+@@ -182,7 +182,7 @@ dma@3000000 {
+ 			compatible = "sifive,fu540-c000-pdma";
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <23 24 25 26 27 28 29 30>;
++			interrupts = <5 6 7 8 9 10 11 12>;
+ 			#dma-cells = <1>;
  		};
  
- 		cpu@1 {
--			clock-frequency = <0>;
- 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
- 			d-cache-block-size = <64>;
- 			d-cache-sets = <64>;
-@@ -62,7 +60,6 @@ cpu1_intc: interrupt-controller {
- 		};
- 
- 		cpu@2 {
--			clock-frequency = <0>;
- 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
- 			d-cache-block-size = <64>;
- 			d-cache-sets = <64>;
-@@ -89,7 +86,6 @@ cpu2_intc: interrupt-controller {
- 		};
- 
- 		cpu@3 {
--			clock-frequency = <0>;
- 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
- 			d-cache-block-size = <64>;
- 			d-cache-sets = <64>;
-@@ -116,7 +112,6 @@ cpu3_intc: interrupt-controller {
- 		};
- 
- 		cpu@4 {
--			clock-frequency = <0>;
- 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
- 			d-cache-block-size = <64>;
- 			d-cache-sets = <64>;
 -- 
 2.25.1
 
