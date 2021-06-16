@@ -2,92 +2,70 @@ Return-Path: <SRS0=JO3K=LK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BA31C48BE5
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50ABEC48BE5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:07:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 41AF76128B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:02:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41AF76128B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0092F61209
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:07:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0092F61209
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h6MQNMHMiS05uSPYKKwe7kH4pgBr0mHFKFOBnyrzcIo=; b=XnY/eIun0Ej2Kl
-	cJO6itK/czq/CvhaCzTw59XqqlwDbHaQCPOc6hdCOcYpFbEvmRQ5XEeZ2r9Z3az8FNv1Dq8k2iszc
-	cHppyM6+5Mssw9Y4BcvEvVQEAXpHtCOCvjWW5DWxnCSWGW36zYGaZC4AoLztNBXNS5tdrmkeEKqUH
-	Tq8OJIxvyQM2LfiVmRpsnD63bwo3MqKglTOumOL0HGx/Y/Fop7kWYXbzkdYTcXNJ7i1s3D7k9ckAo
-	P6N4HxAwgFpktlG7eKVaAIeMwNcsS6f6acsVi8l2agE/RuFmKcfOsnEw/M10hzJYeH79SRFC2dWxB
-	5g/DEi68pMy4G+s5gsDg==;
+	List-Owner; bh=cmzuuRmb0wGL44hXIZ9GQ9I0VtsfRD6QnkY6MxGB+vw=; b=DwOZoYHVd/9fWW
+	0H8rRqxy9ixSr5+ab8D2l+pWzsMxDoL5FV2nPsjO5xE51dV/sVy7Ac/aGcy4RUmQb/pCRa8LqLJJz
+	UtKbsYrPWz1TVoQdFkGJmt7JW4GRtj/m9Ry1AmmPpPAvZvmS7LyJFix/QKkc4e5+zpUh/T89xEA7p
+	4UAjNY3uz22g8y+Bb2nxBLSDSLXJzDejRCKdckJa01R5wxSuD4mlebzJST2g+qAbv46olkyQ9XY55
+	S7TufImFtIiH5LbUP+LBtMrFhUVV1rwvckc4Nw/Y0ubD7X5N8I4LI06l09vWeY+ceesHkajJNdXit
+	qaXdBPITY1MaFck80W0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltKs9-004Qc1-SZ; Wed, 16 Jun 2021 02:01:41 +0000
-Received: from mail-ed1-f42.google.com ([209.85.208.42])
+	id 1ltKxs-004R0V-To; Wed, 16 Jun 2021 02:07:36 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltKs6-004Qb6-80
- for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 02:01:40 +0000
-Received: by mail-ed1-f42.google.com with SMTP id z12so520310edc.1
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 19:01:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:organization:mime-version:content-transfer-encoding;
- bh=3hLHK5T+cSmgYtqFNHhD8O3b5QvMtN/O2XANsFUDnBg=;
- b=BhMh2MDRtopEJOKZu3tZNyHF5KsbkKNwCRWicFT5N9uDOGdBUiYxg8MNR29G6sKg1C
- EC96iLU5eBOZAhLBDkzhgqqYE/PLii08J8H22KYIEUYOK+JZqd8jBEJhXiyzEVAcrQWY
- R6Cl16TpOsthKFTiTdChhJAPbF7UlPBUjBBgM/e2Jaewls0NPiAPxaBIBHET0rfbJTpx
- XHQsu+B9suzqTYYb8ACdlTfrz/kQOhTX6Orf5lGXsWN/gROuH3NLTaaDpsM1iOFc7TGn
- w58NS8Wib7pNlatSWYs9KGCVT6GOP83gA18dpv6KqXdt7dikBM5g5QqkBzXBiO0c0oJh
- O/gw==
-X-Gm-Message-State: AOAM531RMC45aQ8MDo20To8zFAfSZZh9PHilVx0DxyAC7wdVtIWjZwxA
- koHebAjaOWC1GkBBblu2DkU=
-X-Google-Smtp-Source: ABdhPJzOmNvGNe5p+nSw9fh9WScgTrVq438vD4tB0PlEHyBoLHx94X3s8VSrhZL9KpBaHhqrZz+11Q==
-X-Received: by 2002:a05:6402:1801:: with SMTP id
- g1mr1202223edy.305.1623808896257; 
- Tue, 15 Jun 2021 19:01:36 -0700 (PDT)
-Received: from localhost (net-37-119-128-179.cust.vodafonedsl.it.
- [37.119.128.179])
- by smtp.gmail.com with ESMTPSA id u12sm556020edv.43.2021.06.15.19.01.34
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Jun 2021 19:01:35 -0700 (PDT)
-Date: Wed, 16 Jun 2021 04:01:32 +0200
-From: Matteo Croce <mcroce@linux.microsoft.com>
-To: Bin Meng <bmeng.cn@gmail.com>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, David Laight
- <David.Laight@aculab.com>, Gary Guo <gary@garyguo.net>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, Akira Tsukamoto
- <akira.tsukamoto@gmail.com>, Drew Fustini <drew@beagleboard.org>
-Subject: Re: [PATCH 1/3] riscv: optimized memcpy
-Message-ID: <20210616040132.7fbdf6fe@linux.microsoft.com>
-In-Reply-To: <CAEUhbmX_wsfU9FfRJoOPE0gjUX=Bp7OZWOZDyMNfO6=M-fX_0A@mail.gmail.com>
-References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
- <20210615023812.50885-2-mcroce@linux.microsoft.com>
- <6cff2a895db94e6fadd4ddffb8906a73@AcuMS.aculab.com>
- <CAEUhbmV+Vi0Ssyzq1B2RTkbjMpE21xjdj2MSKdLydgW6WuCKtA@mail.gmail.com>
- <1632006872b04c64be828fa0c4e4eae0@AcuMS.aculab.com>
- <CAEUhbmU0cPkawmFfDd_sPQnc9V-cfYd32BCQo4Cis3uBKZDpXw@mail.gmail.com>
- <CANBLGcxi2mEA5MnV-RL2zFpB2T+OytiHyOLKjOrMXgmAh=fHAw@mail.gmail.com>
- <CAEUhbmX_wsfU9FfRJoOPE0gjUX=Bp7OZWOZDyMNfO6=M-fX_0A@mail.gmail.com>
-Organization: Microsoft
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
+ id 1ltKxp-004Qzn-6y
+ for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 02:07:35 +0000
+Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.53])
+ by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4G4T330cwJz1BMxl;
+ Wed, 16 Jun 2021 10:02:23 +0800 (CST)
+Received: from dggpemm500009.china.huawei.com (7.185.36.225) by
+ dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Wed, 16 Jun 2021 10:07:20 +0800
+Received: from huawei.com (10.175.113.32) by dggpemm500009.china.huawei.com
+ (7.185.36.225) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2; Wed, 16 Jun
+ 2021 10:07:20 +0800
+From: Liu Shixin <liushixin2@huawei.com>
+To: Palmer Dabbelt <palmerdabbelt@google.com>
+CC: Guo Ren <guoren@kernel.org>, Christoph Hellwig <hch@lst.de>, Anup Patel
+ <Anup.Patel@wdc.com>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH -next 1/2] mm/pgtable: add stubs for {pmd/pub}_{set/clear}_huge
+Date: Wed, 16 Jun 2021 10:38:32 +0800
+Message-ID: <20210616023833.92471-1-liushixin2@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
+In-Reply-To: <mhng-0e961c64-341d-4a36-863f-1eec0778a0eb@palmerdabbelt-glaptop>
+References: <mhng-0e961c64-341d-4a36-863f-1eec0778a0eb@palmerdabbelt-glaptop>
 MIME-Version: 1.0
+X-Originating-IP: [10.175.113.32]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500009.china.huawei.com (7.185.36.225)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_190138_352417_97AD100C 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20210615_190733_470515_32AA6947 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,251 +82,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Jun 2021 08:33:21 +0800
-Bin Meng <bmeng.cn@gmail.com> wrote:
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
 
-> On Wed, Jun 16, 2021 at 12:12 AM Emil Renner Berthing
-> <kernel@esmil.dk> wrote:
-> >
-> > On Tue, 15 Jun 2021 at 15:29, Bin Meng <bmeng.cn@gmail.com> wrote:
-> > > ...
-> > > Yes, Gary Guo sent one patch long time ago against the broken
-> > > assembly version, but that patch was still not applied as of
-> > > today.
-> > > https://patchwork.kernel.org/project/linux-riscv/patch/20210216225555.4976-1-gary@garyguo.net/
-> > >
-> > > I suggest Matteo re-test using Gary's version.
-> >
-> > That's a good idea, but if you read the replies to Gary's original
-> > patch
-> > https://lore.kernel.org/linux-riscv/20210216225555.4976-1-gary@garyguo.net/
-> > .. both Gary, Palmer and David would rather like a C-based version.
-> > This is one attempt at providing that.
-> 
-> Yep, I prefer C as well :)
-> 
-> But if you check commit 04091d6, the assembly version was introduced
-> for KASAN. So if we are to change it back to C, please make sure KASAN
-> is not broken.
-> 
-> Regards,
-> Bin
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+For architectures with no PMD and/or no PUD, add stubs similar to what we
+have for architectures without P4D.
 
-I added a small benchmark for memcpy() and memset() in lib/test_string.c:
+Link: https://lkml.kernel.org/r/5ac5976419350e8e048d463a64cae449eb3ba4b0.1620795204.git.christophe.leroy@csgroup.eu
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Uladzislau Rezki <uladzislau.rezki@sony.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
+---
+ include/linux/pgtable.h | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-memcpy_align_selftest():
-
-#define PG_SIZE	(1 << (MAX_ORDER - 1 + PAGE_SHIFT))
-
-	page1 = alloc_pages(GFP_KERNEL, MAX_ORDER-1);
-	page2 = alloc_pages(GFP_KERNEL, MAX_ORDER-1);
-
-	for (i = 0; i < sizeof(void*); i++) {
-		t0 = ktime_get();
-		memset(dst + i, 0, PG_SIZE - i);
-		t1 = ktime_get();
-		printk("Strings selftest: memset(dst+%d): %llu Mb/s\n", i,
-			PG_SIZE * (1000000000l / 1048576l) / (t1-t0));
-	}
-
-memset_align_selftest():
-	page = alloc_pages(GFP_KERNEL, MAX_ORDER-1);
-	for (i = 0; i < sizeof(void*); i++) {
-		for (j = 0; j < sizeof(void*); j++) {
-			t0 = ktime_get();
-			memcpy(dst + j, src + i, PG_SIZE - max(i, j));
-			t1 = ktime_get();
-			printk("Strings selftest: memcpy(src+%d, dst+%d): %llu Mb/s\n",
-				i, j, PG_SIZE * (1000000000l / 1048576l) / (t1-t0));
-		}
-	}
-
-And I ran it agains the three implementations, current, Gary's assembler
-and mine in C.
-
-Current:
-[   38.980687] Strings selftest: memcpy(src+0, dst+0): 231 Mb/s
-[   39.021612] Strings selftest: memcpy(src+0, dst+1): 113 Mb/s
-[   39.062191] Strings selftest: memcpy(src+0, dst+2): 114 Mb/s
-[   39.102669] Strings selftest: memcpy(src+0, dst+3): 114 Mb/s
-[   39.127423] Strings selftest: memcpy(src+0, dst+4): 209 Mb/s
-[   39.167836] Strings selftest: memcpy(src+0, dst+5): 115 Mb/s
-[   39.208305] Strings selftest: memcpy(src+0, dst+6): 114 Mb/s
-[   39.248712] Strings selftest: memcpy(src+0, dst+7): 115 Mb/s
-[   39.288144] Strings selftest: memcpy(src+1, dst+0): 118 Mb/s
-[   39.309190] Strings selftest: memcpy(src+1, dst+1): 260 Mb/s
-[   39.349721] Strings selftest: memcpy(src+1, dst+2): 114 Mb/s
-[...]
-[   41.289423] Strings selftest: memcpy(src+7, dst+5): 114 Mb/s
-[   41.328801] Strings selftest: memcpy(src+7, dst+6): 118 Mb/s
-[   41.349907] Strings selftest: memcpy(src+7, dst+7): 259 Mb/s
-
-[   41.377735] Strings selftest: memset(dst+0): 241 Mb/s
-[   41.397882] Strings selftest: memset(dst+1): 265 Mb/s
-[   41.417666] Strings selftest: memset(dst+2): 272 Mb/s
-[   41.437169] Strings selftest: memset(dst+3): 277 Mb/s
-[   41.456656] Strings selftest: memset(dst+4): 277 Mb/s
-[   41.476125] Strings selftest: memset(dst+5): 278 Mb/s
-[   41.495555] Strings selftest: memset(dst+6): 278 Mb/s
-[   41.515002] Strings selftest: memset(dst+7): 278 Mb/s
-
-Gary's
-[   27.438112] Strings selftest: memcpy(src+0, dst+0): 232 Mb/s
-[   27.461586] Strings selftest: memcpy(src+0, dst+1): 224 Mb/s
-[   27.484691] Strings selftest: memcpy(src+0, dst+2): 229 Mb/s
-[   27.507693] Strings selftest: memcpy(src+0, dst+3): 230 Mb/s
-[   27.530758] Strings selftest: memcpy(src+0, dst+4): 229 Mb/s
-[   27.553840] Strings selftest: memcpy(src+0, dst+5): 229 Mb/s
-[   27.576793] Strings selftest: memcpy(src+0, dst+6): 231 Mb/s
-[   27.599862] Strings selftest: memcpy(src+0, dst+7): 230 Mb/s
-[   27.622888] Strings selftest: memcpy(src+1, dst+0): 230 Mb/s
-[   27.643964] Strings selftest: memcpy(src+1, dst+1): 259 Mb/s
-[   27.666926] Strings selftest: memcpy(src+1, dst+2): 231 Mb/s
-[...]
-[   28.831726] Strings selftest: memcpy(src+7, dst+5): 230 Mb/s
-[   28.854790] Strings selftest: memcpy(src+7, dst+6): 229 Mb/s
-[   28.875844] Strings selftest: memcpy(src+7, dst+7): 260 Mb/s
-
-[   28.903666] Strings selftest: memset(dst+0): 240 Mb/s
-[   28.923533] Strings selftest: memset(dst+1): 269 Mb/s
-[   28.943100] Strings selftest: memset(dst+2): 275 Mb/s
-[   28.962554] Strings selftest: memset(dst+3): 277 Mb/s
-[   28.982009] Strings selftest: memset(dst+4): 277 Mb/s
-[   29.001412] Strings selftest: memset(dst+5): 278 Mb/s
-[   29.020894] Strings selftest: memset(dst+6): 277 Mb/s
-[   29.040383] Strings selftest: memset(dst+7): 276 Mb/s
-
-Mine:
-[   33.916144] Strings selftest: memcpy(src+0, dst+0): 222 Mb/s
-[   33.939520] Strings selftest: memcpy(src+0, dst+1): 226 Mb/s
-[   33.962666] Strings selftest: memcpy(src+0, dst+2): 229 Mb/s
-[   33.985749] Strings selftest: memcpy(src+0, dst+3): 229 Mb/s
-[   34.008748] Strings selftest: memcpy(src+0, dst+4): 231 Mb/s
-[   34.031970] Strings selftest: memcpy(src+0, dst+5): 228 Mb/s
-[   34.055065] Strings selftest: memcpy(src+0, dst+6): 229 Mb/s
-[   34.078068] Strings selftest: memcpy(src+0, dst+7): 231 Mb/s
-[   34.101177] Strings selftest: memcpy(src+1, dst+0): 229 Mb/s
-[   34.122995] Strings selftest: memcpy(src+1, dst+1): 247 Mb/s
-[   34.146072] Strings selftest: memcpy(src+1, dst+2): 229 Mb/s
-[...]
-[   35.315594] Strings selftest: memcpy(src+7, dst+5): 229 Mb/s
-[   35.338617] Strings selftest: memcpy(src+7, dst+6): 230 Mb/s
-[   35.360464] Strings selftest: memcpy(src+7, dst+7): 247 Mb/s
-
-[   35.388929] Strings selftest: memset(dst+0): 232 Mb/s
-[   35.409351] Strings selftest: memset(dst+1): 260 Mb/s
-[   35.429434] Strings selftest: memset(dst+2): 266 Mb/s
-[   35.449460] Strings selftest: memset(dst+3): 267 Mb/s
-[   35.469479] Strings selftest: memset(dst+4): 267 Mb/s
-[   35.489481] Strings selftest: memset(dst+5): 268 Mb/s
-[   35.509443] Strings selftest: memset(dst+6): 269 Mb/s
-[   35.529449] Strings selftest: memset(dst+7): 268 Mb/s
-
-Leaving out the first memcpy/set of every test which is always slower, (maybe
-because of a cache miss?), the current implementation copies 260 Mb/s when
-the low order bits match, and 114 otherwise.
-Memset is stable at 278 Mb/s.
-
-Gary's implementation is much faster, copies still 260 Mb/s when euqlly placed,
-and 230 Mb/s otherwise. Memset is the same as the current one.
-
-Mine has the same speed of Gary's one when the low order bits mismatch, but
-it's slower when equally aligned, it stops at 247 Mb/s.
-Memset is slighty slower ad 269 Mb/s.
-
-
-I'm not familiar with RISC-V assembly, but looking at Gary's assembler and I
-think that he manually unrolled the loop by copying 16 uint64_t at time
-using 16 registers.
-I managed to do the same with a small change in the C code and a pragma directive:
-
-This for memcpy():
-
-	if (distance) {
-		unsigned long last, next;
-		int i;
-
-		s.u8 -= distance;
-
-		for (; count >= bytes_long * 8 + mask; count -= bytes_long * 8) {
-			next = s.ulong[0];
-			for (i = 0; i < 8; i++) {
-				last = next;
-				next = s.ulong[i + 1];
-
-				d.ulong[i] = last >> (distance * 8) |
-					next << ((bytes_long - distance) * 8);
-			}
-
-			d.ulong += 8;
-			s.ulong += 8;
-		}
-
-		s.u8 += distance;
-	} else {
-		/* 8 byte wide copy */
-		int i;
-		for (; count >= bytes_long * 8; count -= bytes_long * 8) {
-#pragma GCC unroll 8
-			for (i = 0; i < 8; i++)
-				d.ulong[i] = s.ulong[i];
-			d.ulong += 8;
-			s.ulong += 8;
-		}
-	}
-
-And this for memset:
-
-		for (; count >= bytes_long * 8; count -= bytes_long * 8) {
-#pragma GCC unroll 8
-			for (i = 0; i < 8; i++)
-				dest.ulong[i] = cu;
-
-			dest.ulong += 8;
-		}
-
-And the generated machine code is very, very similar to Gary's one!
-And these are the result:
-
-[   35.898366] Strings selftest: memcpy(src+0, dst+0): 231 Mb/s
-[   35.920942] Strings selftest: memcpy(src+0, dst+1): 236 Mb/s
-[   35.943171] Strings selftest: memcpy(src+0, dst+2): 241 Mb/s
-[   35.965291] Strings selftest: memcpy(src+0, dst+3): 242 Mb/s
-[   35.987374] Strings selftest: memcpy(src+0, dst+4): 244 Mb/s
-[   36.009554] Strings selftest: memcpy(src+0, dst+5): 242 Mb/s
-[   36.031721] Strings selftest: memcpy(src+0, dst+6): 242 Mb/s
-[   36.053881] Strings selftest: memcpy(src+0, dst+7): 242 Mb/s
-[   36.075949] Strings selftest: memcpy(src+1, dst+0): 243 Mb/s
-[   36.097084] Strings selftest: memcpy(src+1, dst+1): 258 Mb/s
-[   36.119269] Strings selftest: memcpy(src+1, dst+2): 242 Mb/s
-[...]
-[   37.242433] Strings selftest: memcpy(src+7, dst+5): 242 Mb/s
-[   37.264571] Strings selftest: memcpy(src+7, dst+6): 242 Mb/s
-[   37.285609] Strings selftest: memcpy(src+7, dst+7): 260 Mb/s
-
-[   37.313633] Strings selftest: memset(dst+0): 237 Mb/s
-[   37.333682] Strings selftest: memset(dst+1): 266 Mb/s
-[   37.353375] Strings selftest: memset(dst+2): 273 Mb/s
-[   37.373000] Strings selftest: memset(dst+3): 274 Mb/s
-[   37.392608] Strings selftest: memset(dst+4): 274 Mb/s
-[   37.412220] Strings selftest: memset(dst+5): 274 Mb/s
-[   37.431848] Strings selftest: memset(dst+6): 274 Mb/s
-[   37.451467] Strings selftest: memset(dst+7): 274 Mb/s
-
-This version is even faster than the assembly one, but it won't work for
-copies/set smaller that at least 64 bytes, or even 128. With small buffers
-it will copy bytes one at time, so I don't know if it's worth it.
-
-What is preferred in your opinion, an implementation which is always fast
-with all sizes, or one which is a bit faster but slow with small copies?
-
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 46b13780c2c8..d41474a2d255 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1371,10 +1371,34 @@ static inline int p4d_clear_huge(p4d_t *p4d)
+ }
+ #endif /* !__PAGETABLE_P4D_FOLDED */
+ 
++#ifndef __PAGETABLE_PUD_FOLDED
+ int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot);
+-int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot);
+ int pud_clear_huge(pud_t *pud);
++#else
++static inline int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
++{
++	return 0;
++}
++static inline int pud_clear_huge(pud_t *pud)
++{
++	return 0;
++}
++#endif /* !__PAGETABLE_PUD_FOLDED */
++
++#ifndef __PAGETABLE_PMD_FOLDED
++int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot);
+ int pmd_clear_huge(pmd_t *pmd);
++#else
++static inline int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
++{
++	return 0;
++}
++static inline int pmd_clear_huge(pmd_t *pmd)
++{
++	return 0;
++}
++#endif /* !__PAGETABLE_PMD_FOLDED */
++
+ int p4d_free_pud_page(p4d_t *p4d, unsigned long addr);
+ int pud_free_pmd_page(pud_t *pud, unsigned long addr);
+ int pmd_free_pte_page(pmd_t *pmd, unsigned long addr);
 -- 
-per aspera ad upstream
+2.18.0.huawei.25
+
 
 _______________________________________________
 linux-riscv mailing list
