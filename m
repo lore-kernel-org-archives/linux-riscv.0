@@ -2,70 +2,89 @@ Return-Path: <SRS0=JO3K=LK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9CC9C48BE8
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 41914C48BE5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 03:16:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 731CC61241
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 02:07:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 731CC61241
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0960560240
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 03:16:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0960560240
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ErD5dmxZMmgFScSqH1wGgKGqekPR+ViDLSD750TC0XY=; b=irBXY7AbqgF/M0
-	GLbbcKr8JJJqcIWMevRDz+XUirVx036i7vg/13qs2kbWGWQYTZShPrgXupiJIMLLKJEqBkn+vVIyd
-	obtyNgQLXGZokPj6tLqeZJBr7URQUL2JXQylNz5fLvDqKO4eSxz4Z4FN3fRCN+sa+S2H+NEkN5keh
-	tAEbSOAR+HxvaODFz1EqWvMIh7MjENja88s8+8eyn4MP1AAwHJkZOOOha2DaDB5Z3GYdIuc8o26Z2
-	8iqbMY9ETjeJEfFh6udh8ye1+NiTY+xlHzE6dUf1Y4pfmfcPCCac6katpoZs0acOfzZFOLaYZS4av
-	thXE2XvUyzgZjUzZFCsQ==;
+	List-Owner; bh=y7a6Gg8w68S7G1YKWEgw8ykQBQNm0JaIssCq9rf/AsE=; b=zjm57cO8z6rNvN
+	pLPKoRf7TFEO8tLSI8Ym0eeqtcvp4rZFH1Rq6+xIfNBxnxeqbDMo4+TX4BKhYb7upObUpOy3iFUB6
+	clXyIh9tShDGqpF4HxbjJTEwv8GLmwfC6X0yAMrSx08kd09ZqidAWrLT3k/92teJcz74w4kbgCz8Y
+	m+viNzmJlKnSjCO4R0iCk+MsGYJ6wGgUZ4HUh7lM2k17Jgbw1ChDH+/cMktbwHoxPNOTYm1brDvMj
+	onapbGh8vsUEw8wZimiV9cZwZ3LYalxU7hEJasl7jQDHrFyCVdKbyOi4dBMvvemm7Rjk2KghSW1G0
+	lpyBO/NwthM/yCzbRRKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltKxu-004R0f-6b; Wed, 16 Jun 2021 02:07:38 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1ltM2J-004Xa9-W8; Wed, 16 Jun 2021 03:16:16 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltKxp-004Qzm-L6
- for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 02:07:35 +0000
-Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.55])
- by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4G4T4G4vMvz6y5d;
- Wed, 16 Jun 2021 10:03:26 +0800 (CST)
-Received: from dggpemm500009.china.huawei.com (7.185.36.225) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Wed, 16 Jun 2021 10:07:25 +0800
-Received: from huawei.com (10.175.113.32) by dggpemm500009.china.huawei.com
- (7.185.36.225) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2; Wed, 16 Jun
- 2021 10:07:24 +0800
-From: Liu Shixin <liushixin2@huawei.com>
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-CC: Guo Ren <guoren@kernel.org>, Christoph Hellwig <hch@lst.de>, Anup Patel
- <Anup.Patel@wdc.com>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH -next 2/2] riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-Date: Wed, 16 Jun 2021 10:38:33 +0800
-Message-ID: <20210616023833.92471-2-liushixin2@huawei.com>
-X-Mailer: git-send-email 2.18.0.huawei.25
-In-Reply-To: <20210616023833.92471-1-liushixin2@huawei.com>
-References: <mhng-0e961c64-341d-4a36-863f-1eec0778a0eb@palmerdabbelt-glaptop>
- <20210616023833.92471-1-liushixin2@huawei.com>
+ id 1ltM2H-004XZK-38
+ for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 03:16:14 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id e10so892212ybb.7
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 20:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=M9xlk2ZBsShaAsqV3orNyPJJYg7Vzz29UtFHXqBDhAU=;
+ b=opAbog307i2ZykhXFdHafYS+f6jxVLUCd+pHtDaC4XBZS3dHF4cK8XN7eCsK02Ouel
+ 4H58j/iKjyoXplkV4RqPpedtDy8f+wKm9BNi+KV6vpKY3NUeSGL2vjoqT/aedzXEk2ib
+ Q23yU85p/blkIX1JwpFIuitJIsZA+G0IqLuITuOTy5YPAzc+cEPfuDa1eXXylM/gPEhm
+ R9wOCDuEXt+wQVMnf55ueYKrfu4cGJqF7K9EUdil9mJvw04DIVKFTjwUl99pdxcYxaHy
+ Wi+g8uDDEFu8zw9mlEeSV3UWo9jopBqVFmSUGrN1YZFXk9+pC+kiy6sVKp5wjcrMBkxi
+ Xjcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=M9xlk2ZBsShaAsqV3orNyPJJYg7Vzz29UtFHXqBDhAU=;
+ b=ntQGRI0096oWUkpt7Q/JuZWaH3Wdt/WjjJL+24mqhUi05IPCh80Kk8DYC7yqLLmP7m
+ Y/YCGLwk4V9hR7KVaq4ZG7H0aCb09UVCiOIok06LL4lsiMbGG3QTroAS6Ef4v8++rbsL
+ m3lgNDrA9+BftSWehk5suiSFhT2Km+9wcFlurOYslFEVWG38gqo1pAjkAnWRYfdpHWQa
+ 0XxNAhHhYsgQl8AuA0QGHmNHTfn5QE2fQm6qR318YXT4VHikPLddKHbX8N/eSiy2WN/A
+ 7k7Y91Vo4S1T0XSXr/YIb9f1seUk8GHMQUOvVXMESqAeJo0TDXdstdsc+sn3X//ybRxA
+ 0XlQ==
+X-Gm-Message-State: AOAM533+9wrOcJy/z6iDhUDBsoVtCXtyC6WQjED6kghllqzp2JHpZj8n
+ tCOD2LdZeueJ0YHiKK0qoTCXliBXnhh+WoCfeNo=
+X-Google-Smtp-Source: ABdhPJz8un0SBnoHgopqh1bk66DKwxdavj3eROY61VihfQjpDSbrsP0wUC4Y7WeIRKmBuXe6ud85NftBDyOGg1F5/ns=
+X-Received: by 2002:a25:2e43:: with SMTP id b3mr3233353ybn.152.1623813371213; 
+ Tue, 15 Jun 2021 20:16:11 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.32]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500009.china.huawei.com (7.185.36.225)
-X-CFilter-Loop: Reflected
+References: <1592308864-30205-1-git-send-email-yash.shah@sifive.com>
+ <1592308864-30205-3-git-send-email-yash.shah@sifive.com>
+In-Reply-To: <1592308864-30205-3-git-send-email-yash.shah@sifive.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Wed, 16 Jun 2021 11:16:00 +0800
+Message-ID: <CAEUhbmXKdukBwd0OL2ApOD67aQ9ytSPns3z=COtXTSP_mm3wvQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] riscv: dts: fu540-c000: define hart clocks
+To: Yash Shah <yash.shah@sifive.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Rob Herring <robh+dt@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>, 
+ sachin.ghadi@sifive.com, Albert Ou <aou@eecs.berkeley.edu>, 
+ Green Wan <green.wan@sifive.com>, Atish Patra <atish.patra@wdc.com>, 
+ Anup Patel <anup@brainfault.org>, Alistair Francis <alistair.francis@wdc.com>,
+ lollivier@baylibre.com, deepa.kernel@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_190734_062247_45A2A197 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20210615_201613_191052_49F3409A 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,114 +101,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
-define the required page table functions(Currently, riscv has only
-three-level page tables support for 64BIT).
+On Tue, Jun 16, 2020 at 8:01 PM Yash Shah <yash.shah@sifive.com> wrote:
+>
+> Declare that each hart defined in the FU540 DT data is clocked by the
+> COREPLL. This is in preparation for enabling CPUFreq for the
+> FU540-C000 SoC on the HiFive Unleashed board.
+>
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
 
-Signed-off-by: Liu Shixin <liushixin2@huawei.com>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/vmalloc.h | 12 ++++++++++
- arch/riscv/mm/Makefile           |  1 +
- arch/riscv/mm/pgtable.c          | 40 ++++++++++++++++++++++++++++++++
- 4 files changed, 54 insertions(+)
- create mode 100644 arch/riscv/mm/pgtable.c
+Any idea of why this patch was not applied?
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 1cb3280cc498..227033595994 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -60,6 +60,7 @@ config RISCV
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
- 	select HANDLE_DOMAIN_IRQ
- 	select HAVE_ARCH_AUDITSYSCALL
-+	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
- 	select HAVE_ARCH_JUMP_LABEL
- 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
- 	select HAVE_ARCH_KASAN if MMU && 64BIT
-diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-index ff9abc00d139..8f17f421f80c 100644
---- a/arch/riscv/include/asm/vmalloc.h
-+++ b/arch/riscv/include/asm/vmalloc.h
-@@ -1,4 +1,16 @@
- #ifndef _ASM_RISCV_VMALLOC_H
- #define _ASM_RISCV_VMALLOC_H
- 
-+#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
-+
-+#define IOREMAP_MAX_ORDER (PMD_SHIFT)
-+
-+#define arch_vmap_pmd_supported	arch_vmap_pmd_supported
-+static inline bool __init arch_vmap_pmd_supported(pgprot_t prot)
-+{
-+	return true;
-+}
-+
-+#endif
-+
- #endif /* _ASM_RISCV_VMALLOC_H */
-diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-index 7ebaef10ea1b..f932b4d69946 100644
---- a/arch/riscv/mm/Makefile
-+++ b/arch/riscv/mm/Makefile
-@@ -13,6 +13,7 @@ obj-y += extable.o
- obj-$(CONFIG_MMU) += fault.o pageattr.o
- obj-y += cacheflush.o
- obj-y += context.o
-+obj-y += pgtable.o
- 
- ifeq ($(CONFIG_MMU),y)
- obj-$(CONFIG_SMP) += tlbflush.o
-diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-new file mode 100644
-index 000000000000..738dc6f3530f
---- /dev/null
-+++ b/arch/riscv/mm/pgtable.c
-@@ -0,0 +1,40 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <asm/pgalloc.h>
-+#include <linux/gfp.h>
-+#include <linux/kernel.h>
-+#include <linux/pgtable.h>
-+
-+#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
-+
-+#ifndef __PAGETABLE_PMD_FOLDED
-+int pmd_set_huge(pmd_t *pmd, phys_addr_t phys, pgprot_t prot)
-+{
-+	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), prot);
-+
-+	set_pmd(pmd, new_pmd);
-+	return 1;
-+}
-+
-+int pmd_clear_huge(pmd_t *pmd)
-+{
-+	if (!pmd_leaf(READ_ONCE(*pmd)))
-+		return 0;
-+	pmd_clear(pmd);
-+	return 1;
-+}
-+#endif
-+
-+int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-+{
-+	pte_t *pte;
-+
-+	pte = (pte_t *)pmd_page_vaddr(*pmd);
-+	pmd_clear(pmd);
-+
-+	flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-+	pte_free_kernel(NULL, pte);
-+	return 1;
-+}
-+
-+#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
--- 
-2.18.0.huawei.25
-
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
