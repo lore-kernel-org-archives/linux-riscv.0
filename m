@@ -2,92 +2,105 @@ Return-Path: <SRS0=JO3K=LK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BA7CC48BE6
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE5B3C48BE5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:06:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F8E861375
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:02:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F8E861375
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 9ED0D61369
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Jun 2021 06:06:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9ED0D61369
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GtgGRIqgNO069HltAngsCPnxoq3XS9/VdTtsAgRr5+0=; b=hgyLTXTrJG6kFf
-	BkCCons74mtAvX1RKqfejix00r2eWgjukviGGh5jy1eJzErJITsyNS7cJBHXECRChwIDm0nhshQUT
-	1SiLd612hmbflR/TI3A5RbgaQnHtcf1JuPIxRfzoa0zN7wOLM5bovSu1J5QxjfzwrJesr3uPBcfe+
-	Dhw6o6f3fUUNEHjeRLzki1QEewLKEQyPYvRSndX9vB0pCouRVBWiT4ZpDbB5gBnvEIKrq89ivdaVJ
-	XhWDl07LBGTwQEJiG4i7VaQA5vUIAod7b2+xkbrFCxyg4RgLjV6Mf2JrYosj7TX3yUydJtpkjH0yn
-	vM/aymcrEvSNMB/7z2nQ==;
+	List-Owner; bh=v57b6pG0ZvvHgsyzu8u1cPhPVyZNc6HXopxkAxlnJ+4=; b=fLiCHk6hKs6b4N
+	VEEdLekum5DUqjah3LHZI2Qlt5XWIZdCA5RlQACK0UfzrfC/KGWt5vVtRIWkptX66qCcWA56T8QGc
+	xuARaWxfqlXgfimbl+qmql5/FuGZngjMJm3zLdGmx0PQEJGQdHNnFHDAgLi3w3hmb6Br/0xSE/nNP
+	HAzEpUG7UBdoWTilTV2PVrZR1S7sO0EEuw3khSlf5KHS1aImafM2TBDSHQunbDi7EujwHUBMLUpvN
+	AkbOAqRKilDY2Dl+vAV7/6MxpWYXQAQiUYnsy92tY3lMRKEua0ShYZ+Grp51tVjNrzJ5ctTg2MnH8
+	pcEKcVkJNRpxSe2PdMAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltOdO-004z1x-Us; Wed, 16 Jun 2021 06:02:42 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1ltOgc-004zZ1-PL; Wed, 16 Jun 2021 06:06:02 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltOdM-004z0z-75
- for linux-riscv@lists.infradead.org; Wed, 16 Jun 2021 06:02:41 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id g20so1893172ejt.0
- for <linux-riscv@lists.infradead.org>; Tue, 15 Jun 2021 23:02:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=dmUZFQiKZAjt3d7qJZzBsR6hutNnEwcefr5tWqFFkuo=;
- b=cNBdmWxkePEVOxU4GERyfW7MCTkzvtfBJblvz+kQkALBJRfbl1uPPBrUdTX+iDyxyd
- d0nEMtstHBL39SbNSkLBPyRqWKSrbX/LbSimF8p7LO3fHbcWip7YHWwiPLxeY1meqfl0
- klcq6W4c/WR/KmTfIRON+T6MOvtCdveG+NTukNx14XbQV3cOZCAtUD3RGhnrimzxdaey
- NrjpMOuYQbg7Y2a6Xj+LgK707xT3ClTGnuMAvi5iTHkQSmOVHOOHjtzZZ+PI5cvr9HZ/
- +RUpkxV/itCKp5LykdWdZgt+bp4pz0kVboyeVMkycs5CuUs7Gt0WuSt5bjj7hHJP70VO
- vpOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=dmUZFQiKZAjt3d7qJZzBsR6hutNnEwcefr5tWqFFkuo=;
- b=qA6dKJ+hIsndBoIVNmfAu8ryFoo9DHMNLeuuQZsToSh4la6ffHH/pl5K86nInvN3mI
- 5Y3TViaixllf1i20cu9vn00YZUgEJfsmofqmuLgialo5LbCLh7yK1KKRVPX/6Ys+Rf8z
- c477SqdAkr8DUnAT4ZZIHw2MEz+YmDDSV/OykysO5rchJfbv+L0Xc3Sy96Y4DHPXaXxC
- E/seAWlN+ZPi+rtiwKU2F0q9Cdo4K/ULIvNroKmttoFtjjz7d/FdYfrxuO/f8tmiIar7
- ke60rCOQjXCJ+ircmYJukx/813kJJDdRvvsNvhGrpjzitllITTLs3rtZyaygCRI3Egb8
- Rjbg==
-X-Gm-Message-State: AOAM532t6UT84s6Sr4lu5pTd7WuxDK5zroc0bvCvgc+Nwq30ZUyWcEes
- jwCIHOQHldycB7Y8rGZkJhM=
-X-Google-Smtp-Source: ABdhPJz8f65f1DFxLdRl6kc6uEgMgLBoCFxF66MEh/Tj3iwnV3NUK5Azu7L4uj5Uj8IcYog8SKNDkw==
-X-Received: by 2002:a17:906:2e81:: with SMTP id
- o1mr3530816eji.446.1623823358242; 
- Tue, 15 Jun 2021 23:02:38 -0700 (PDT)
-Received: from pek-vx-bsp2.wrs.com
- (ec2-44-242-66-180.us-west-2.compute.amazonaws.com. [44.242.66.180])
- by smtp.gmail.com with ESMTPSA id ot30sm810474ejb.61.2021.06.15.23.02.34
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Jun 2021 23:02:37 -0700 (PDT)
-From: Bin Meng <bmeng.cn@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
+ id 1ltOgZ-004zXG-6M; Wed, 16 Jun 2021 06:06:00 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6BD9161350;
+ Wed, 16 Jun 2021 06:05:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1623823558;
+ bh=wj+fnX135Oi/RuBZlfcRXEj82T4M+/zm2RKoeLfcdHI=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=gHZLhaFOGuJEdFzGD8ad6/WT9r+ZqPlWGvOwJoE3JRn+pqz1O74eBVMbWjjeG87Dj
+ TPvrvUCNWbz/7lixm1DsLz03lLNe9Um44ZNofR+Fgv+slwMtNQEfvKCMrcTThWdf6e
+ F+7I/PxIo72YidQoQbZHHngOc0S41uEQR6nyNaRA=
+Date: Wed, 16 Jun 2021 08:05:52 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-iio@vger.kernel.org,
+ alsa-devel@alsa-project.org, iommu@lists.linux-foundation.org,
+ linux-media@vger.kernel.org, linux-mmc@vger.kernel.org,
+ netdev@vger.kernel.org, linux-can@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-watchdog@vger.kernel.org,
+ Jens Axboe <axboe@kernel.dk>, Stephen Boyd <sboyd@kernel.org>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+ Vinod Koul <vkoul@kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Kamal Dasu <kdasu.kdev@gmail.com>, Jonathan Cameron <jic23@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Joerg Roedel <joro@8bytes.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Jakub Kicinski <kuba@kernel.org>,
+ Wolfgang Grandegger <wg@grandegger.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Kishon Vijay Abraham I <kishon@ti.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Ohad Ben-Cohen <ohad@wizery.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Bin Meng <bin.meng@windriver.com>
-Subject: [PATCH 2/2] riscv: dts: microchip: Fix wrong interrupt numbers of DMA
-Date: Wed, 16 Jun 2021 14:02:51 +0800
-Message-Id: <20210616060251.398444-2-bmeng.cn@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210616060251.398444-1-bmeng.cn@gmail.com>
-References: <20210616060251.398444-1-bmeng.cn@gmail.com>
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alessandro Zummo <a.zummo@towertech.it>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Mark Brown <broonie@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH] dt-bindings: Drop redundant minItems/maxItems
+Message-ID: <YMmUwCsdy4OaQCiU@kroah.com>
+References: <20210615191543.1043414-1-robh@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210615191543.1043414-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210615_230240_299243_194A2890 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20210615_230559_308192_AD72618A 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +112,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bin Meng <bin.meng@windriver.com>
+On Tue, Jun 15, 2021 at 01:15:43PM -0600, Rob Herring wrote:
+> If a property has an 'items' list, then a 'minItems' or 'maxItems' with t=
+he
+> same size as the list is redundant and can be dropped. Note that is DT
+> schema specific behavior and not standard json-schema behavior. The tooli=
+ng
+> will fixup the final schema adding any unspecified minItems/maxItems.
+> =
 
-Per chapter 5.2.2, interrupt sources in the PolarFire MSS doc [1],
-the correct interrupt numbers for DMA are <5,6,...,12>.
+> This condition is partially checked with the meta-schema already, but
+> only if both 'minItems' and 'maxItems' are equal to the 'items' length.
+> An improved meta-schema is pending.
+> =
 
-[1] https://www.microsemi.com/document-portal/doc_download/
-    1245725-polarfire-soc-fpga-mss-technical-reference-manual
+> Cc: Jens Axboe <axboe@kernel.dk>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Herbert Xu <herbert@gondor.apana.org.au>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: David Airlie <airlied@linux.ie>
+> Cc: Daniel Vetter <daniel@ffwll.ch>
+> Cc: Vinod Koul <vkoul@kernel.org>
+> Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>
+> Cc: Kamal Dasu <kdasu.kdev@gmail.com>
+> Cc: Jonathan Cameron <jic23@kernel.org>
+> Cc: Lars-Peter Clausen <lars@metafoo.de>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Joerg Roedel <joro@8bytes.org>
+> Cc: Jassi Brar <jassisinghbrar@gmail.com>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> Cc: Jakub Kicinski <kuba@kernel.org>
+> Cc: Wolfgang Grandegger <wg@grandegger.com>
+> Cc: Marc Kleine-Budde <mkl@pengutronix.de>
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Cc: Vivien Didelot <vivien.didelot@gmail.com>
+> Cc: Vladimir Oltean <olteanv@gmail.com>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Kishon Vijay Abraham I <kishon@ti.com>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: "Uwe Kleine-K=F6nig" <u.kleine-koenig@pengutronix.de>
+> Cc: Lee Jones <lee.jones@linaro.org>
+> Cc: Ohad Ben-Cohen <ohad@wizery.com>
+> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Alessandro Zummo <a.zummo@towertech.it>
+> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Zhang Rui <rui.zhang@intel.com>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
+> Cc: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
 
-Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
-Signed-off-by: Bin Meng <bin.meng@windriver.com>
----
-
- arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-index ee54878b3f89..a00d9dc560d3 100644
---- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-@@ -182,7 +182,7 @@ dma@3000000 {
- 			compatible = "sifive,fu540-c000-pdma";
- 			reg = <0x0 0x3000000 0x0 0x8000>;
- 			interrupt-parent = <&plic>;
--			interrupts = <23 24 25 26 27 28 29 30>;
-+			interrupts = <5 6 7 8 9 10 11 12>;
- 			#dma-cells = <1>;
- 		};
- 
--- 
-2.25.1
-
+Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 _______________________________________________
 linux-riscv mailing list
