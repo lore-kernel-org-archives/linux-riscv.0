@@ -2,76 +2,82 @@ Return-Path: <SRS0=17fP=LL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FF21C48BE8
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jun 2021 01:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C2BFBC48BE5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jun 2021 01:25:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 58F24601FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jun 2021 01:24:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58F24601FE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=canb.auug.org.au
+	by mail.kernel.org (Postfix) with ESMTPS id 7BB70601FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Jun 2021 01:25:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7BB70601FE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=67w7cICrACpfAX+H4sLiXBerECpUG+Pbwpgk4oqrGIg=; b=K4jWOi/KChasiYceLA+fW8FAkt
-	CD4UnkYFuHfFOccO6ghbEcp8GhwCkTtBFwhf6RWn1HEWgw7yfQtjl3el2qxzZHPSZsc2Vtoy596+L
-	eKbQbbRy8q5Tq2h38jlEV4FcFocq6fDq0ucSdbhRaud6fPmi9xJPU//SRslVCxfGH1rKFANKGbNRS
-	M3HShGC1Ti2XLmpN1Dcyk0rvHeZ7lwlu8nj0jkcCKGJxt7O4lHxZXOXS7QxEERGXqjVDgJe8Zdeps
-	JAwrichrGY/MW8uOeDtYypCAqgQNTEctNSjQiykSOfL1SBzG32VJAiXhH8YcILpXz6Stv/tEQKss5
-	s02RFdOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KQPNECLEeg5l11J4SJ5+4rmy04yfROkP1yJqz17cblA=; b=vYTuqQCvg0VoWD
+	RRh0h013nyG0Bh8MUrXYplm22imQ1MOrhIRmWTR/zPaHk0lvXna2sozAq/qWyHDtpAhtSM/pfB4Zn
+	vooMPJxtBGl1kqI9H7a4lejaZ42sJ4ukIvCJNBQ/jvAwdWBcPnC4HOchXXtCKjXnzswJpIE54bXSk
+	99K6UfN3Rpkq8zXaL+4XfEEicUIAGr412radi9ar4pK4m+SYfXdhUUcswT7uJ/UrmHLwM+PcXjFwR
+	B5leWW++4FZxrNDSPjNz5XHMf0BUE/l4hSUFmOgB7Kcy62Fh70lOfvO2KzG8502qlp8jpBscHaS+k
+	9KRrygfhfIPQ1QdPJuNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltglO-008Oy5-21; Thu, 17 Jun 2021 01:24:10 +0000
-Received: from ozlabs.org ([2401:3900:2:1::2])
+	id 1ltgmT-008P6y-BE; Thu, 17 Jun 2021 01:25:17 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ltglB-008Owj-Sk; Thu, 17 Jun 2021 01:23:59 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 4G547t2Dcmz9sRK;
- Thu, 17 Jun 2021 11:23:38 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=canb.auug.org.au;
- s=201702; t=1623893019;
- bh=Lcb2dMbhechCmOAsVMjFJF1Q5m5ZN1yIgPu4v2lWEzQ=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=FFuIqQ0d1IO7+8c2R7C3UaIAbs4XmgHZMW3/k0A6cst4tmWTj9zRbGKt0endBnJfv
- i+gOLWVxcLe5F6nNFxQsnf4C0RpOSfPvPfYqM31AayDVqzt5E+lsZ5mqz9xsfoqJUw
- 64tp+I+skZgMSfoaB9sXjrumzoqZ1RCW5gWRnXTD9+uNlsbta/JxUtXin7p0//9y6T
- ZliYQGiLHKP2r5dduauCHB1vQet6wt7Ln2L3PcD/WDuhbXqtivyPnecha9VHZW/wnm
- MtULaIvomxoZSUmYwSsDNBnfB4p6wi9JywyqsN8SvtDFUrD/MNK/27rsIp+PY6kJ8i
- tNGPZO4W/Facw==
-Date: Thu, 17 Jun 2021 11:23:37 +1000
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, kernel test robot
- <lkp@intel.com>, linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, kbuild-all@lists.01.org
-Subject: Re: +
- mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
- added to -mm tree
-Message-ID: <20210617112337.465c2607@canb.auug.org.au>
-In-Reply-To: <20210616160904.cf834ee8c9e7a26008aa833e@linux-foundation.org>
-References: <20210615233808.hzjGO1gF2%akpm@linux-foundation.org>
- <202106162159.MurvDMy6-lkp@intel.com>
- <87zgvpnbl7.fsf@linux.ibm.com>
- <20210616160904.cf834ee8c9e7a26008aa833e@linux-foundation.org>
+ id 1ltgmQ-008P6K-Eh
+ for linux-riscv@lists.infradead.org; Thu, 17 Jun 2021 01:25:15 +0000
+Received: by mail-ej1-f41.google.com with SMTP id ho18so6828586ejc.8
+ for <linux-riscv@lists.infradead.org>; Wed, 16 Jun 2021 18:25:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=77paSv1vfUnmhsAZFukXy1zk5MAOuc8TBznUAIk9l+0=;
+ b=TYL7hq9OHylhSpD+57TNr3tGu8rfSUSnmciRRKAkxKDxWWB38TpRFL2Ob7+GASYfjs
+ mSuZspDqpOKsRo/VZW7xYtFKvk82V6MMEvSC5WLwdDG2m83c/NCJiNv8huS2aDkxkhyl
+ b4b2rRHcUD92NcalJAgzJ3ykmszdLTI7CC493DDDI43/QChc2sGAJhZN9AoBioGjHpXx
+ chcebx9W1QY/5RIzwCudjVUp67YQTktF+ruS5nAgRG2tKm6kcbYLpsKNRuUW3TkVlVtu
+ 5EJBV+wmmGYzBrDQbXClDpaQrMLALaSomFvXOIArhqWnUH5t8lWYzjUzl2hyz9+ommiM
+ 5LgA==
+X-Gm-Message-State: AOAM531HOYYjvw+FGG7lUsCeEmqxIjlLT97N3lydX9fSXA9C5hsv9gA/
+ bm3IDjby4LCrRCUhOAhbr4Z/LMWt2AHagw==
+X-Google-Smtp-Source: ABdhPJzIDqhwqbWaknEWaMKhzG/aVdOya/Gu7PhYtIOmdbXoWZZbJ0up5/cW8MXQtJo1WIlrq0OsGQ==
+X-Received: by 2002:a17:906:dff2:: with SMTP id
+ lc18mr2364636ejc.371.1623893112431; 
+ Wed, 16 Jun 2021 18:25:12 -0700 (PDT)
+Received: from msft-t490s.teknoraver.net
+ (net-37-119-128-179.cust.vodafonedsl.it. [37.119.128.179])
+ by smtp.gmail.com with ESMTPSA id lu21sm2624721ejb.31.2021.06.16.18.25.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 16 Jun 2021 18:25:11 -0700 (PDT)
+From: Matteo Croce <mcroce@linux.microsoft.com>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>,
+ David Laight <David.Laight@aculab.com>, Guo Ren <guoren@kernel.org>
+Subject: [PATCH v2 0/3] riscv: optimized mem* functions
+Date: Thu, 17 Jun 2021 03:25:06 +0200
+Message-Id: <20210617012509.34265-1-mcroce@linux.microsoft.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210616_182358_187462_0C707E8A 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20210616_182514_554540_76F1417A 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +89,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2971817266277973654=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2971817266277973654==
-Content-Type: multipart/signed; boundary="Sig_/a/+9AWFMGRAeBWcsE/82QFB";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+From: Matteo Croce <mcroce@microsoft.com>
 
---Sig_/a/+9AWFMGRAeBWcsE/82QFB
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Replace the assembly mem{cpy,move,set} with C equivalent.
 
-Hi Andrew,
+Try to access RAM with the largest bit width possible, but without
+doing unaligned accesses.
 
-On Wed, 16 Jun 2021 16:09:04 -0700 Andrew Morton <akpm@linux-foundation.org=
-> wrote:
->
-> On Wed, 16 Jun 2021 19:41:32 +0530 "Aneesh Kumar K.V" <aneesh.kumar@linux=
-.ibm.com> wrote:
->=20
-> > We may want to fixup pgd_page_vaddr correctly later. pgd_page_vaddr() g=
-ets
-> > cast to different pointer types based on architecture. But for now this
-> > should work? This ensure we keep the pgd_page_vaddr() same as before.  =
-=20
->=20
-> I'll drop
->=20
-> mm-rename-pud_page_vaddr-to-pud_pgtable-and-make-it-return-pmd_t.patch
-> mm-rename-p4d_page_vaddr-to-p4d_pgtable-and-make-it-return-pud_t.patch   =
-      =20
->=20
-> for now.
+Tested on a BeagleV Starlight with a SiFive U74 core, where the
+improvement is noticeable.
 
-Dropped form linux-next today (along with my fix from yesterday).
+v1 -> v2:
+- reduce the threshold from 64 to 16 bytes
+- fix KASAN build
+- optimize memset
 
---=20
-Cheers,
-Stephen Rothwell
+Matteo Croce (3):
+  riscv: optimized memcpy
+  riscv: optimized memmove
+  riscv: optimized memset
 
---Sig_/a/+9AWFMGRAeBWcsE/82QFB
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
+ arch/riscv/include/asm/string.h |  18 ++--
+ arch/riscv/kernel/Makefile      |   1 -
+ arch/riscv/kernel/riscv_ksyms.c |  17 ----
+ arch/riscv/lib/Makefile         |   4 +-
+ arch/riscv/lib/memcpy.S         | 108 ---------------------
+ arch/riscv/lib/memmove.S        |  64 -------------
+ arch/riscv/lib/memset.S         | 113 ----------------------
+ arch/riscv/lib/string.c         | 162 ++++++++++++++++++++++++++++++++
+ 8 files changed, 172 insertions(+), 315 deletions(-)
+ delete mode 100644 arch/riscv/kernel/riscv_ksyms.c
+ delete mode 100644 arch/riscv/lib/memcpy.S
+ delete mode 100644 arch/riscv/lib/memmove.S
+ delete mode 100644 arch/riscv/lib/memset.S
+ create mode 100644 arch/riscv/lib/string.c
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.31.1
 
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmDKpBkACgkQAVBC80lX
-0GzE6Qf9F9328LVgfB4V5Iv/4uPQk5jfyblmoxIn6ZJqV0uqu+dplGIY4vT0wwV5
-K1aQ3HB1ESIFEAiSXffgkj3zETi5BkR8O32X08gwXq7yYbHEWZ+pQvJfSFzU6g9g
-j6xql8TjMtYUFuvNT5QWrz38nRKB5IGvAA9YDxYsJPX6RKlCjWyIkF9Iooscg5s3
-2lTSr2KZ8hUXF++sM1VXUCtksGbcZsdsugOGYpi1VBwvIT+Jc/WUSO3pp5Hrb02y
-gDFtYDryQiN/XIdjYCDqLWjhQ7cnjTZJY0q9j5pUjFvQdgrgmT/5n63BxxegqQ65
-vUoFVdDhDmKUeJ1s8LTXpvIliUuZWg==
-=zFs2
------END PGP SIGNATURE-----
-
---Sig_/a/+9AWFMGRAeBWcsE/82QFB--
-
-
---===============2971817266277973654==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2971817266277973654==--
-
