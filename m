@@ -2,20 +2,20 @@ Return-Path: <SRS0=UO3w=LM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 612B1C48BDF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2862C48BE8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:40:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B592613EC
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:40:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2B592613EC
+	by mail.kernel.org (Postfix) with ESMTPS id A22BD61369
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:40:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A22BD61369
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,66 +24,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hBtTY4AM/DcDe8t2nZV3/dHuAd+KxXgag0Re4Y+h5YM=; b=RK43Q3pylBgNlc
-	SPnv4XFWSnMfJNz/n0pI0zEsRot/ZZNIqYx3O+vgw1g4bMpKV0PVdnBWg7MVxvjkJNe1ZWt832rY/
-	OkheHsOOUYp7HwCy6wRnEcUhL02pahqItfSQBn3XqGRw4xGIH5xnxMg+Nm7JCxKpJqxDd/k8+K/Fv
-	w5keSwoNDnpGcDVBZBks7YdYRdJv6c7vqLVjIWjJ5mOsl2g93s/WCZ2rEUq6UIj8rZGkyXpqVXxPb
-	pZxZtNF3+amDj87fRdkhsMemvIYGp4Qe9tAGa35o4forWQS7fHsINyrbTe+zEsUJnFl608wqiYM6q
-	p1fwwr19NFnBWwWzsYzA==;
+	List-Owner; bh=BP7KmRvghrXSAfxlWx6m47dwvoBBwdBqQAPDxFrSOeA=; b=CGnIlnnw3WMZ/y
+	So7uqPN8lzh0Ti7mHdYpDKUnzU16kfcklsdN17rV0v5IYivqzQNVRpFr05BfyD6ZzyLBK3Z5RvTrk
+	aezoK0tF+LJtXJp10cG4S9FFjKALXZ2rG0pOYXmIKnLrqGYOly3iz9s57ZenNT8zl05GCPlp8FITQ
+	EapA36PpKef4CzrCRQz+Cm9yGnbSI4QUXtc+qvCsplbZIwzCMXk7b0c7tD1Avqp1I4TFXwONWfr9H
+	44Tqp2Re1f8OJdk2RZD7n57vghMn5kwUdZKVdbmw+o+B3LYJF3lx0/tmgL0m64d9QFERBk1ZUo6zj
+	Ewb9tQBbw/SMAry47gOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1luDmi-00E2w6-OQ; Fri, 18 Jun 2021 12:39:44 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1luDmo-00E2z2-82; Fri, 18 Jun 2021 12:39:50 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1luDma-00E2sR-Ct
- for linux-riscv@lists.infradead.org; Fri, 18 Jun 2021 12:39:39 +0000
+ id 1luDmj-00E2t8-LS
+ for linux-riscv@lists.infradead.org; Fri, 18 Jun 2021 12:39:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1624019977; x=1655555977;
+ t=1624019985; x=1655555985;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=p9SPIifpgAUMue5YIizFyxOYWdR8ULw0sXEuwEa3Ph8=;
- b=VVbiqqTjbUrZ2IKLMYXxTa5b0a6sGUIDd2+vq3qunHaKXvI8tUPCh5NO
- TvHWSAL6i7qtPqLqOo7aCkx6tzWuT6xWfP+BC5BshfioNFVniCApJBmYf
- xD2GTYr71wORKPg/HmnOeB33CuzMPk45Z5NWhQwnxBEyCBJJwhrbxcnuH
- ZzhTygc4TLd5JuysmMx0jYj2VsEvMNLoQYrAdgFBZB07Bgd0iNiY0T5Aq
- SRsWQ/RKQvQ/i5mpDmNrqDT417LgH3fALKTdyAfi3g1xO5j5eR+aFa8XM
- Peybfj5H7S7zSjJjQUsebSruavKfbn4Q0aWY0O2PGRTO+tqyYoqkl2e4n A==;
-IronPort-SDR: KIOtjBgiItoyzOyVC2aqmfGV9m+FcAUUbq8vD2K70VUs7YA0lADfSej5xlfl2JfobmfolXDQ1f
- bJVjfS1JPhuKr7wt3vFxU5PvLFXLpSmmhqPdtLHu1zE7SrgxytE0UeUyrIDfjn75czL/IDoXmm
- TsR4jFZwKGMu6VGSDGQLtCnoU2KiDdCNRJDDM4YDGSNU/Wz39O1lxGc8HtOfVqwH1dHJD5rKNG
- vouXy0A1MtD+AhQnicJnVgF0oFAjIO2fOXlR2yyaTAmCEnF3sl/tgnb7S/pu35H9hzCiD2+gW6
- zEo=
-X-IronPort-AV: E=Sophos;i="5.83,283,1616428800"; d="scan'208";a="172868582"
-Received: from mail-mw2nam12lp2046.outbound.protection.outlook.com (HELO
- NAM12-MW2-obe.outbound.protection.outlook.com) ([104.47.66.46])
- by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2021 20:39:34 +0800
+ bh=x8j3XS7e5BQGVmi1A6KneDVLcWPft9knQ19eSdgCyiM=;
+ b=FF6Sze2xpiCMXTxQSosjBVYr1S06VYNsJdvWelg5O+ACwd2LZ0lXDzLM
+ 6k3UVmWS4IJsJH+sFvhlAPM95Gq1hJDDeAEq1fZrCIUIHA3OND9FY3P5b
+ 1QVAq9ChAup/cIQD2rutSWlARLKSaBgceRyUSvuyHyLVcvZNP49xGd5uz
+ xgWKTLi9VHgSk8OuBzWrQ4RdsYpMl4tVZsiiuZrjmyeu1dAywcnxUbK3w
+ tQz0aj6rJCC4BN4px2HyBhmHdHHFJ6Io6EXE4WJ3xffjRUPOBu/dZ605h
+ eebrmIGUPo0o0yAbP0eKQojG1hRrb9/l+p7bPlW6BPX3ZnCS5HyedRZLe w==;
+IronPort-SDR: LhwP5QXbH+ZjZqewTU1bXJTP3C+x5sRutSsALAiyowbcvZm67KiPf1WrpJDz26WB1V7mvPcrtw
+ b+evy/djPmjfLfCVAaeoeDDBAHN6mRHNnGLujYrxZIUDmqikNbu2gCYJsyuEVeHIPGBRcE8cGU
+ kR0gphWLtax/FIsniOmX4xDmuivt9utbzgPeWb0Tt2CHTQCxMGDPezPEhA1BFCMDf0mpmVKHte
+ U+IwyVLkF0/rG8Jm/DzGu8hy9AHsE0Xj2jO/mwl1CYeZc1BSTXuqajYld+GqjzQKittPzIgOEg
+ X3E=
+X-IronPort-AV: E=Sophos;i="5.83,283,1616428800"; d="scan'208";a="283779317"
+Received: from mail-mw2nam12lp2043.outbound.protection.outlook.com (HELO
+ NAM12-MW2-obe.outbound.protection.outlook.com) ([104.47.66.43])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2021 20:39:44 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aMcOySct3iB4tGzrKWCsysaCamxsjav2NNaju0qT5ANkCRIJuJYHQ6BrNL+JwQTCelWyIdz7ZK5Y+4xYjgxNTeqNI5mUtSxOPtZgnUYoPz+7ckmUow7cd8iWdtRFVmU3ZwReg9swxGxUCwZwzX8PNPm3pJsqbjvKknDp8kNd01R1FSYJIKm7fNHkwhjV1RP3WaAWSfZMPJBaevMHzOQ+EfY+8lgcufnwWZJefgsg00QO3KhZtr4yTzEtcZkxdkvaZUM22KuZYwoTtTY/6NmppiLxLyVf/NejZjdf1EynT3A6SIKBnkmya8bjcOiCE1hHWU7Tl+mRnhm2ia9tmLhcFQ==
+ b=Ivc2AQN6yDhAZ/Odw1ZJ7+r2VuB0/qOZzaLGjnopNk5JBSPcNr/cBcqvRKYKtPFSDdThtFEEMEMFWId5g8+/lcwOK7wjrzO9uKG5oozbwSIbeUCqklr4kXeLvLaI6iFAKLiapVRbJwFDHNKvfl1Eyya64k9//rxFIEwl8e8Nfyt2BLaKF8RoTTU44R1Wn79c5TRX44oUyYhq9YY74y428YMPmgSRp5oRY+sILrssdXOzVcRwY0CuiQHE+sfkAXwrTAXx7LCzT01sxLhGndFeK7Bv0SVzdnX3z65B7Gc/GWxMtjwKGnA8A+OCp+e3K8F1Hfr2NuwbTiPX+Rk085Uj2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VuAeCHS8L9/8UklSJl6NJXHeOBtv2CoyzvylEjctprw=;
- b=dl0CPS3Ol8VhypRYFfjjXTf2J1cxQwmzHgM4RrYhSeflQ/ru9IG7ug1lCQhGMsIxGi/mr3MmIydlHNZVV5vuO2+gfLuRMuwHQl9MBs72yEue6tW/Lo3CKn32vHlJQgV7N3l5lYphmP4EnMVGKQHcrvtL4rehhDEcOghTp/K9g8rTXUmGXkI1U/WGvoebVAjpmif5zb90Bxl8EJQ+8UR5uXcDM6f3G8a8osxSh+RnwtEf3nXSCmrvclXG39zxMz2IHyqyEWzdSp00YkODFpGhEYk9vwHDpyM9wbR3Au6+G5h8ud3sODs5Rnqzvpib7LMxZQNfl4EkVEyurBRjELCxzg==
+ bh=ClpfWhRSFYKp1nDVf7arBAxeYy4CtucQm4R9TO82ZIA=;
+ b=ZTv+mtvErKxuMfz/ci4DITZk75CoLKvV86Nh5d0eRfp3zkcjupiZebIltFbWBOZ3iBznyHUQn7uGvT9jP2r3LnFEi57YHI58AVSGKkLfkHUuWeQGxogzPGBkbEIcvGlZfIoC6BvQy0ubs5iPJiK+aLb63wppzaFZ+pfO0/QxASY/Psn9efdTJIvO5RgT2bNsaERCrIziQJeaUTAWQKtbhIQoBUKMEg4BNu36ViyrFybQaGTSFwdR7ku0M0kuOLV64SzkHn/24r6+zjG590a1Ahnu88VQ9tFbLbf/VyZaBr3UjctDBk0eBdTOv6oSoF4J0m8H71FB0zE6849oRut98Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VuAeCHS8L9/8UklSJl6NJXHeOBtv2CoyzvylEjctprw=;
- b=DQQgcFU1MhmDiVHD9OCgp6rvCoIPDq1494VwQoPtPPj1Rbf/2OqU66U/tMpl8JTvAIQnBQsovnTaeSLdmCT9LL7pyXs9AcPdDB55EeaGl/3oAZ76GcFhSPCg7yuxHRlIPdHPWNVQfavKNJ6RSKqXHLoTtAYJ7qhCy5N3sSkU1x0=
+ bh=ClpfWhRSFYKp1nDVf7arBAxeYy4CtucQm4R9TO82ZIA=;
+ b=C5FdD0jhUqi49J2Yz4u08mowuBXPBg0BEvz4l4E9gVt3DJhPRCfN3OGY9SeDhLFvXVY+NnPLuyF1ckxvWlDsn3wSqkHZCgZEuSABNxLgx5hI6ODaPukbIuPNBo23vpbRaZx0rReN2XKhyP2Uq4OLFJpEdik9xT4mn1aIzIB4jPo=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
  by CO6PR04MB7843.namprd04.prod.outlook.com (2603:10b6:5:35f::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.19; Fri, 18 Jun
- 2021 12:39:32 +0000
+ 2021 12:39:44 +0000
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::a153:b7f8:c87f:89f8]) by CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::a153:b7f8:c87f:89f8%9]) with mapi id 15.20.4242.021; Fri, 18 Jun 2021
- 12:39:32 +0000
+ 12:39:44 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -95,10 +95,11 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v2 03/11] RISC-V: Treat IPIs as normal Linux IRQs
-Date: Fri, 18 Jun 2021 18:08:43 +0530
-Message-Id: <20210618123851.1344518-4-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
+Subject: [RFC PATCH v2 06/11] dt-bindings: interrupt-controller: Add ACLINT
+ MSWI and SSWI bindings
+Date: Fri, 18 Jun 2021 18:08:46 +0530
+Message-Id: <20210618123851.1344518-7-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210618123851.1344518-1-anup.patel@wdc.com>
 References: <20210618123851.1344518-1-anup.patel@wdc.com>
@@ -112,58 +113,58 @@ Received: from wdc.com (122.171.164.186) by
  MA1PR0101CA0025.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:22::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.15 via Frontend
- Transport; Fri, 18 Jun 2021 12:39:27 +0000
+ Transport; Fri, 18 Jun 2021 12:39:40 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: e1db70b4-2124-4873-58d2-08d932561eac
+X-MS-Office365-Filtering-Correlation-Id: 09f124e8-6982-4aa2-95ca-08d93256267d
 X-MS-TrafficTypeDiagnostic: CO6PR04MB7843:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CO6PR04MB78436A35710921E2F15770C98D0D9@CO6PR04MB7843.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <CO6PR04MB78433BF62AD8D87C07BE12B18D0D9@CO6PR04MB7843.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:146;
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: FRGyvwEpCsk/ApmlL5WsoekrB33zILDxMOy0r8K5Bw7eAbB2ezRjuijfqa+c1wUNAlzqYg3gm1uS2+eNcXi2+KY0N3tf+I5sh7R1LnAHpYo97GWMQ0hYRIgA2H78B+1AN2b9h0Nx+sDvWEHhAS9Nz47TCGleZd5FDeRSyj5nucvLGPiJMpMVhg/PaPBy7kMGB6ntH8L1FVll/6MSsFTor/anwHx0kRyKjIHiByXmRSvlcmkzq9KhQQRpUhuBjCc9IbUa3BklP4VieEKomZoyOGokT1RVOVR9+5i8BFaTJENNrJzRUFAjthwihh8glrhFNu3F2iJ0c7bAvkEveYmR4iJpqffS95KxTl6tc9TvuYOkP1Qoyl0t1m3bGbZMcXLzVwvfYpmoeR2jRp7+8304vh0sEXrUDgy+ytqurerGmcIbEbiyGh2mnAyQycUkUu4gJYFVSgf7O6QqCaNKo68eqn/ong4FWf7WqaaSayyJH9N4TgleMWuax0AeBtXwOOmhvsE1BQQnyvZLKlfHuGxc4G+2jNKwKHCwvtkcUAq+NGc33nPHhUHzfKWhcZhVnJpcpjUGCY5U7c5u+xrhBmeE/kD03m3b/5zTu4sF1Kv/uC6Dv+4y3cutBYWzsCoM43m8WzasThdaPKuwJCUBhgN8Sg==
+X-Microsoft-Antispam-Message-Info: t/MWuWzPYJccJ7obiyoPpeZwJvoPAM6ueqWfDAPXeE/dwfqEpqSWU3+VyZ6ygJvpiBNPFYveqmrAnlt2FEOk3F0TXjxLtwxXejGGQkwoPkEJpT9ToDT21AJpb1KG/HX16bXjDSkYnh2JgsVz9jf7BmdtR/W9/DSkORjXGQf18V54hMIWmdytcc9t789qmFp8Aq+Nh+vgmHmgF/6pfjnbfpbwjJNRBPZiO7KDzIOZqmVoR+gJdPoID8j/XLuBdsSwmwCYjwYPy7URFSVVzF4MJMNvhXytzpOScJtITQA/LB3oj48pzRpxEtdckCEUABB3oxQU/7l/OW3cPDzB1SCEzpMIpmgPtHTuMNNYXJOAAsKv4lce5v2/rmKf6dr8nEpt6b6kUldm5v+nrnF1HIWKLUXPhAb7UajTZsAhXFC2n/nQZialnOXkJb+MzG6XoNxtblUZSoXLoLjzYX2eYJKGk4TAoYqrwj5uY1qhhwqrBeDjjDFoNIvrVhB3HKi+yicFG3JGPeY8cNPk/c4kAdwz38ob8UoI0mUDkKteke2uFeAaO0VwF0pDknJ8lH7XsBFU8gIYuLNGpX+E7geDAGp47kiwsHqrI9Oj0BR0X/pqUavX11dxz2ieiGP81C5HYb2wAeDqqRVu0NSCUsAzYq1vALycJ4ip8zN+rS1J/h++Jx203odeMMoQRU4JL6gNzL6NbfVftsJ6x9wOFe45ieurOshoYr0rvcKWfo/fiAnWmFKMyEYu+ZCSN7p37BAVYFIEteg49Xj+HldorW7Ve6OLDV6X9ly4y+E4ig0POIhlYPjifrpg13OAqLiY/3c2fwccCyLtSqd1pnn+G0SXzXpbVw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(39860400002)(366004)(346002)(376002)(136003)(83380400001)(316002)(4326008)(16526019)(186003)(110136005)(54906003)(52116002)(26005)(55016002)(2616005)(956004)(2906002)(5660300002)(7416002)(30864003)(478600001)(38100700002)(38350700002)(8676002)(66556008)(8886007)(44832011)(86362001)(8936002)(36756003)(1076003)(66476007)(66946007)(6666004)(7696005);
+ SFS:(4636009)(396003)(366004)(346002)(376002)(136003)(39850400004)(316002)(4326008)(16526019)(186003)(110136005)(54906003)(52116002)(26005)(55016002)(2616005)(956004)(2906002)(5660300002)(7416002)(478600001)(966005)(38100700002)(38350700002)(8676002)(66556008)(8886007)(44832011)(86362001)(8936002)(36756003)(1076003)(66476007)(66946007)(7696005)(473944003);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oaJuUirsQNiNJDmGMKZmQ+Gb3o9RQZ5DR461s9aZz3XLYslFCTQq2u3Ff1cw?=
- =?us-ascii?Q?fswiKT6Wcc5oQoeZbnbFGlHYy0fZQdRHOVR/ciTu93kg9TWoT13RX3VE8Cf5?=
- =?us-ascii?Q?RhjJsTYolBKtOc5TtH7hNXhH+xsyKSQ6J93PtclVRUimlAjY+B3v2fVWi4ak?=
- =?us-ascii?Q?C7lm77h2RG8Uffa+fU2qb3HyBdoxaxDV0I5rbii6TgABnTAYcl3YiaUYEycu?=
- =?us-ascii?Q?y7fKjd8uK3rhP0q3zqU4p5ha2VL23mdS0lSsOJaqr6xj+t/zUuvj7GDIBHCT?=
- =?us-ascii?Q?ITtlq6uT+BR5QanEiO2n3R1Hz7Wjfo2kDQWauJVWOutfXF3Ua1pB/8BohFZI?=
- =?us-ascii?Q?FxCaHUk+8IjddsUkm1+5aytsuuSv8QRBVfOBA1V7avYXhMBB2FaCcGqX4Udh?=
- =?us-ascii?Q?Kln148dmEjc/G1bHfAn31ZXKbZglY80RuE5AJdhPhrjRXybwLHudt7s1sz82?=
- =?us-ascii?Q?HNAWAee9t+ExAVJVfP3fdLsGdKMxpcYTHs30w5Y3gUkR/GSz1ztvx0Ftyh2X?=
- =?us-ascii?Q?VD6wJ0sTqr40/wRdFqgY7D2BRt1aaP7tJbQ8flK/xLLXJpz1QxAc3DQihHZc?=
- =?us-ascii?Q?xIi2bM14vUIv+bWOyYkjv8zxWUHS03cqygbZSbwwplokqZlBBiuPPfFDsMEl?=
- =?us-ascii?Q?L9n+ItcYq1/NLXj/O71uB+6eqeBGP9sdt1VLR2y9LWuXdq2c2HpbXA8nD/o0?=
- =?us-ascii?Q?S0RQ8BIHfSbNmW8ycTGFvTOLVxgRTE1Mv+WJOT2w1d7rcCK3In6yuhlwFPfb?=
- =?us-ascii?Q?FwF6pV+e8/mOOLnLI9Fs/l7e+jkQ+ZSCi6ZqzeYu0k0IlJvEV82iilHaW7XP?=
- =?us-ascii?Q?mrLDTKU6cVPe9GSqKqvNIZcPQKxzQuwI87MqmO6IOi6qINhCSH9RGnOAXN+4?=
- =?us-ascii?Q?ClQICCzHn/EksZ6I2akTr6XAZhbnnqKTJRg8c3gqqhH4drXkXN5O+LYGoBOe?=
- =?us-ascii?Q?zPKcJoHWacBCR4lW08LILG/JgXq5BW8jR29RaPMtVZM4VqohyJehLrMIzTXd?=
- =?us-ascii?Q?04pMBhUMH90a0sbADgSgWoSIGUUQBd5jbih+iYseBCpISwrWa/FZ+9Z45HpZ?=
- =?us-ascii?Q?K7AK2mzONCWSnwPXuq/6hY/TRfRvtMfmelgfqtPpOtusIPlLYr0fwRCSwj/A?=
- =?us-ascii?Q?m52hrVvxUiMRLbFg5ITRAgs4BgBTTAhcLJacLi3nwkSuoPDvwRSxnxVk5JLF?=
- =?us-ascii?Q?gBQX5z3xjlmo2OTROHD4lGHmiROFHD7PDEvmmpbijgv/ZsTG+fo/PLJatRzG?=
- =?us-ascii?Q?shODwnm7BjsQ7oDU4ad2VIt+mQRl7cZevFQ4idw27J3mB8hLxElBKYk4s2Xs?=
- =?us-ascii?Q?uHq2ieE2tvIauWuGTNa12ARN?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z7au5WeEYcODJlopImJEAvqt3Ez2yBI+dHD8yTo2Nli1gzBwNTSP+BYZMRHo?=
+ =?us-ascii?Q?VwOAJbVQHEJWMnqSASHN+R2r9P3UvCbe9IENFYdiMO+sfToVa2gkEpAgH+55?=
+ =?us-ascii?Q?Cupv7B2YZoP25WdgYpS7kWVo8MBqle1fWsb+6joSomvI4ylQi9E+D+IWTd+U?=
+ =?us-ascii?Q?A6FfCpoPOcQlf/I8Z2eBcHgi3hBs2gp951RiZvgcnrHkpD5Of2mHktq43hTu?=
+ =?us-ascii?Q?S+h+iiOAvVLoHhA90s88jzAE5kpdYCO0BPXndBugVZxt4scxklvBZP5EcaNQ?=
+ =?us-ascii?Q?cSx9ndypJPea1u9Vpf/xjj5Fnwv9/B/sVmTsQ8F/hHN62DFAsVGnrgsrQkXa?=
+ =?us-ascii?Q?Lm/jtOZyGK4bTHzXPTPwuwUsqpfwdhyr0f2xr2Q75yPZ31udGtNKfb1acUYg?=
+ =?us-ascii?Q?xpXuBTnYPzVfMTtsDylj+b0Mxd82O+bqKvsd2d41BGlE0WwRUVYMxmUtyRTE?=
+ =?us-ascii?Q?qlNRXfIqYEPKGbq93C/iqdMPLQ8UJ0ZZwtUH2nL3JY88j5mv/l75TBVa5DvO?=
+ =?us-ascii?Q?xxZ0HPZdCEZGxXTi8Loe9hzfpF47/MMNzs8xpC46EMxPDjVGemPMrlj/oTXo?=
+ =?us-ascii?Q?g0yO0kGewarjF29E5euftJf0UIcZYT+1dVF05AB4Y03RuBk0HBqTnQ1bHA09?=
+ =?us-ascii?Q?Ml87dODoLzzQE6qAJ1ZbWMbP+nePpl4sTh0jfzfUYviZzAs7AzBTlWZKBCqb?=
+ =?us-ascii?Q?WVGtbYlSfIZoXwvdQhhQk+90GTohU5TOQFmR0nOgHdmij/c0mo5pzHe4BTw9?=
+ =?us-ascii?Q?cnhVDJBp0542aldJEXcFLkAA9HELplBYWQAMwCXoSy3gGw5wIR5iAy9gkV+c?=
+ =?us-ascii?Q?0AL6RGUlFigH1528N1i3zrhlzrH0VeiQyrgtRbY4U6JBSAN1yW5VfMbj0nrV?=
+ =?us-ascii?Q?ky3UzHnxd79zFxmUEPxl+NnPa9OGVLjcbpDZPUaV0VlrcYQ8A5ZpYcEcWzLN?=
+ =?us-ascii?Q?Wy2pkbFhQfoqZ0D8BcycAnUlX9kQFeoF95q5Z4niIwVNaYb6Eor0UWQdlgA7?=
+ =?us-ascii?Q?ilC0s7uXL9HnxWtht8lLsKETLPqLFE2jMWY6J635AfDJYsDsjbKU6PGVpkE0?=
+ =?us-ascii?Q?teaorHqAuAbY/OJUxlStcZpGRecDLWzf3EwrzceD7N8h7TBwYGLwPBBZBokj?=
+ =?us-ascii?Q?v5isPtO2mJdkwIr4sRBs7eGXVG+jom0LuKjne/8S3A8aU2nxVq0b+xlyYzYz?=
+ =?us-ascii?Q?af1S1bC3wBZetbeiyqD2WwSx2IkWy9YKi+XMYmnxSxQmmHhyzevh05MBL5q8?=
+ =?us-ascii?Q?qgZ7P7fW57iZrlBxlxQYQ1u1eV6Z77XCELwUmwccYdylqUiXnczZL8I0nmyT?=
+ =?us-ascii?Q?p6yEPI0EnqgKZk69t3pqwzTS?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1db70b4-2124-4873-58d2-08d932561eac
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09f124e8-6982-4aa2-95ca-08d93256267d
 X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2021 12:39:32.0828 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2021 12:39:44.5051 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Sfe+2WCvfui3dAPIRttZI3TuklbEBke7DgHEM7sLyAGCuV+HS4Mzl/2ZC4Qjs9aV1tKinzGsxmqgS1pDWGM0sg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: +beQlTpK112/5GUJYTN3hZbH++RnzmMbKH2PA0GGzQNqiL+C7EM+4Xkz5c0XMQEg7PyIJ6HOXWQYWnobf14x1Q==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210618_053936_594862_D42197FD 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20210618_053945_828284_C76F3CF8 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,830 +181,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the RISC-V kernel provides arch specific hooks (i.e.
-struct riscv_ipi_ops) to register IPI handling methods. The stats
-gathering of IPIs is also arch specific in the RISC-V kernel.
-
-Other architectures (such as ARM, ARM64, and MIPS) have moved away
-from custom arch specific IPI handling methods. Currently, these
-architectures have Linux irqchip drivers providing a range of Linux
-IRQ numbers to be used as IPIs and IPI triggering is done using
-generic IPI APIs. This approach allows architectures to treat IPIs
-as normal Linux IRQs and IPI stats gathering is done by the generic
-Linux IRQ subsystem.
-
-We extend the RISC-V IPI handling as-per above approach so that arch
-specific IPI handling methods (struct riscv_ipi_ops) can be removed
-and the IPI handling is totally contained Linux within irqchip drivers.
+We add DT bindings documentation for the ACLINT MSWI and SSWI
+devices found on RISC-V SOCs.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 ---
- arch/riscv/Kconfig                |   1 +
- arch/riscv/include/asm/sbi.h      |   2 +
- arch/riscv/include/asm/smp.h      |  34 +++--
- arch/riscv/kernel/Makefile        |   1 +
- arch/riscv/kernel/cpu-hotplug.c   |   2 +
- arch/riscv/kernel/irq.c           |   1 +
- arch/riscv/kernel/sbi-ipi.c       | 223 ++++++++++++++++++++++++++++++
- arch/riscv/kernel/sbi.c           |  21 ---
- arch/riscv/kernel/smp.c           | 157 ++++++++++-----------
- arch/riscv/kernel/smpboot.c       |   4 +-
- drivers/clocksource/timer-clint.c |  23 ---
- drivers/irqchip/irq-riscv-intc.c  |  55 ++++----
- 12 files changed, 352 insertions(+), 172 deletions(-)
- create mode 100644 arch/riscv/kernel/sbi-ipi.c
+ .../riscv,aclint-swi.yaml                     | 82 +++++++++++++++++++
+ 1 file changed, 82 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e7137d93119a..2afc9df7176f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -50,6 +50,7 @@ config RISCV
- 	select GENERIC_EARLY_IOREMAP
- 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
- 	select GENERIC_IOREMAP
-+	select GENERIC_IRQ_IPI
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 289621da4a2a..a992faeded7e 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -106,6 +106,7 @@ struct sbiret {
- };
- 
- void sbi_init(void);
-+void sbi_ipi_init(void);
- struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
- 			unsigned long arg1, unsigned long arg2,
- 			unsigned long arg3, unsigned long arg4,
-@@ -175,6 +176,7 @@ static inline unsigned long sbi_mk_version(unsigned long major,
- int sbi_err_map_linux_errno(int err);
- #else /* CONFIG_RISCV_SBI */
- static inline int sbi_remote_fence_i(const unsigned long *hart_mask) { return -1; }
-+static inline void sbi_ipi_init(void) { }
- static inline void sbi_init(void) {}
- #endif /* CONFIG_RISCV_SBI */
- #endif /* _ASM_RISCV_SBI_H */
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index a7d2811f3536..6bdaab122ffa 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -15,11 +15,6 @@
- struct seq_file;
- extern unsigned long boot_cpu_hartid;
- 
--struct riscv_ipi_ops {
--	void (*ipi_inject)(const struct cpumask *target);
--	void (*ipi_clear)(void);
--};
--
- #ifdef CONFIG_SMP
- /*
-  * Mapping between linux logical cpu index and hartid.
-@@ -33,9 +28,6 @@ void show_ipi_stats(struct seq_file *p, int prec);
- /* SMP initialization hook for setup_arch */
- void __init setup_smp(void);
- 
--/* Called from C code, this handles an IPI. */
--void handle_IPI(struct pt_regs *regs);
--
- /* Hook for the generic smp_call_function_many() routine. */
- void arch_send_call_function_ipi_mask(struct cpumask *mask);
- 
-@@ -45,11 +37,17 @@ void arch_send_call_function_single_ipi(int cpu);
- int riscv_hartid_to_cpuid(int hartid);
- void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
- 
--/* Set custom IPI operations */
--void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
-+/* Enable IPI for CPU hotplug */
-+void riscv_ipi_enable(void);
-+
-+/* Disable IPI for CPU hotplug */
-+void riscv_ipi_disable(void);
- 
--/* Clear IPI for current CPU */
--void riscv_clear_ipi(void);
-+/* Setup IPI for boot CPU */
-+void riscv_ipi_setup(void);
-+
-+/* Set the IPI interrupt numbers for arch (called by irqchip drivers) */
-+void riscv_ipi_set_virq_range(int virq, int nr_irqs);
- 
- /* Secondary hart entry */
- asmlinkage void smp_callin(void);
-@@ -92,11 +90,19 @@ static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
- 	cpumask_set_cpu(boot_cpu_hartid, out);
- }
- 
--static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
-+static inline void riscv_ipi_enable(void)
-+{
-+}
-+
-+static inline void riscv_ipi_disable(void)
-+{
-+}
-+
-+static inline void riscv_ipi_setup(void)
- {
- }
- 
--static inline void riscv_clear_ipi(void)
-+static inline void riscv_ipi_set_virq_range(int virq, int nr)
- {
- }
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index d3081e4d9600..210c783c8136 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -54,6 +54,7 @@ obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
- obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
- obj-$(CONFIG_RISCV_SBI)		+= sbi.o
-+obj-$(CONFIG_RISCV_SBI)		+= sbi-ipi.o
- ifeq ($(CONFIG_RISCV_SBI), y)
- obj-$(CONFIG_SMP) += cpu_ops_sbi.o
- endif
-diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-index df84e0c13db1..0f662b0113f3 100644
---- a/arch/riscv/kernel/cpu-hotplug.c
-+++ b/arch/riscv/kernel/cpu-hotplug.c
-@@ -13,6 +13,7 @@
- #include <asm/irq.h>
- #include <asm/cpu_ops.h>
- #include <asm/sbi.h>
-+#include <asm/smp.h>
- 
- void cpu_stop(void);
- void arch_cpu_idle_dead(void)
-@@ -47,6 +48,7 @@ int __cpu_disable(void)
- 
- 	remove_cpu_topology(cpu);
- 	set_cpu_online(cpu, false);
-+	riscv_ipi_disable();
- 	irq_migrate_all_off_this_cpu();
- 
- 	return ret;
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 7207fa08d78f..2817900a63e8 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -21,4 +21,5 @@ void __init init_IRQ(void)
- 	irqchip_init();
- 	if (!handle_arch_irq)
- 		panic("No interrupt controller found.");
-+	riscv_ipi_setup();
- }
-diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
 new file mode 100644
-index 000000000000..6cc0ea95e1af
+index 000000000000..b74025542866
 --- /dev/null
-+++ b/arch/riscv/kernel/sbi-ipi.c
-@@ -0,0 +1,223 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * SBI based IPI support.
-+ *
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ */
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
+@@ -0,0 +1,82 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/riscv,aclint-swi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#define pr_fmt(fmt) "riscv-sbi-ipi: " fmt
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/init.h>
-+#include <linux/irq.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/of.h>
-+#include <linux/smp.h>
-+#include <asm/sbi.h>
++title: RISC-V ACLINT Software Interrupt Devices
 +
-+static int intc_parent_irq __ro_after_init;
-+static struct irq_domain *sbi_ipi_domain __ro_after_init;
-+static DEFINE_PER_CPU(unsigned long, sbi_ipi_bits);
++maintainers:
++  - Anup Patel <anup.patel@wdc.com>
 +
-+static void sbi_ipi_dummy_mask_unmask(struct irq_data *d)
-+{
-+}
++description:
++  RISC-V SOCs include an implementation of the M-level software interrupt
++  (MSWI) device and the S-level software interrupt (SSWI) device defined
++  in the RISC-V Advanced Core Local Interruptor (ACLINT) specification.
 +
-+static void sbi_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
-+{
-+	int cpu;
-+	struct cpumask hartid_mask;
++  The ACLINT MSWI and SSWI devices are documented in the RISC-V ACLINT
++  specification located at
++  https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc.
 +
-+	/* Barrier before doing atomic bit update to IPI bits */
-+	smp_mb__before_atomic();
-+	for_each_cpu(cpu, mask)
-+		set_bit(d->hwirq, per_cpu_ptr(&sbi_ipi_bits, cpu));
-+	/* Barrier after doing atomic bit update to IPI bits */
-+	smp_mb__after_atomic();
++  The ACLINT MSWI and SSWI devices directly connect to the M-level and
++  S-level software interrupt lines of various HARTs (or CPUs) respectively
++  so the RISC-V per-HART (or per-CPU) local interrupt controller is the
++  parent interrupt controller for the ACLINT MSWI and SSWI devices.
 +
-+	riscv_cpuid_to_hartid_mask(mask, &hartid_mask);
++allOf:
++  - $ref: /schemas/interrupt-controller.yaml#
 +
-+	sbi_send_ipi(cpumask_bits(&hartid_mask));
-+}
++properties:
++  compatible:
++    items:
++      - enum:
++          - riscv,aclint-mswi
++          - riscv,aclint-sswi
 +
-+static struct irq_chip sbi_ipi_chip = {
-+	.name		= "RISC-V SBI IPI",
-+	.irq_mask	= sbi_ipi_dummy_mask_unmask,
-+	.irq_unmask	= sbi_ipi_dummy_mask_unmask,
-+	.ipi_send_mask	= sbi_ipi_send_mask,
-+};
++    description:
++      Should be "<vendor>,<chip>-aclint-mswi" and "riscv,aclint-mswi" OR
++      "<vendor>,<chip>-aclint-sswi" and "riscv,aclint-sswi".
 +
-+static int sbi_ipi_domain_map(struct irq_domain *d, unsigned int irq,
-+			      irq_hw_number_t hwirq)
-+{
-+	irq_set_percpu_devid(irq);
-+	irq_domain_set_info(d, irq, hwirq, &sbi_ipi_chip, d->host_data,
-+			    handle_percpu_devid_irq, NULL, NULL);
++  reg:
++    maxItems: 1
 +
-+	return 0;
-+}
++  "#interrupt-cells":
++    const: 0
 +
-+static int sbi_ipi_domain_alloc(struct irq_domain *d, unsigned int virq,
-+				unsigned int nr_irqs, void *arg)
-+{
-+	int i, ret;
-+	irq_hw_number_t hwirq;
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
++  interrupts-extended:
++    minItems: 1
 +
-+	ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
++  interrupt-controller: true
 +
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = sbi_ipi_domain_map(d, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
++additionalProperties: false
 +
-+	return 0;
-+}
++required:
++  - compatible
++  - reg
++  - interrupts-extended
++  - interrupt-controller
++  - "#interrupt-cells"
 +
-+static const struct irq_domain_ops sbi_ipi_domain_ops = {
-+	.translate	= irq_domain_translate_onecell,
-+	.alloc		= sbi_ipi_domain_alloc,
-+	.free		= irq_domain_free_irqs_top,
-+};
++examples:
++  - |
++    // Example 1 (RISC-V MSWI device used by Linux RISC-V NoMMU kernel):
 +
-+static void sbi_ipi_handle_irq(struct irq_desc *desc)
-+{
-+	int irq;
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	unsigned long irqs, *bits = this_cpu_ptr(&sbi_ipi_bits);
-+	irq_hw_number_t hwirq;
++    interrupt-controller@2000000 {
++      compatible = "riscv,aclint-mswi";
++      interrupts-extended = <&cpu1intc 3 &cpu2intc 3 &cpu3intc 3 &cpu4intc 3>;
++      reg = <0x2000000 0x4000>;
++      interrupt-controller;
++      #interrupt-cells = <0>;
++    };
 +
-+	chained_irq_enter(chip, desc);
++  - |
++    // Example 2 (RISC-V SSWI device used by Linux RISC-V MMU kernel):
 +
-+	csr_clear(CSR_IP, IE_SIE);
-+
-+	while (true) {
-+		/* Order bit clearing and data access. */
-+		mb();
-+
-+		irqs = xchg(bits, 0);
-+		if (!irqs)
-+			goto done;
-+
-+		for (hwirq = 0; hwirq < BITS_PER_LONG; hwirq++) {
-+			if (!(BIT(hwirq) & irqs))
-+				continue;
-+
-+			irq = irq_find_mapping(sbi_ipi_domain, hwirq);
-+			if (unlikely(irq <= 0))
-+				pr_warn_ratelimited(
-+					"can't find mapping for hwirq %lu\n",
-+					hwirq);
-+			else
-+				generic_handle_irq(irq);
-+		}
-+	}
-+
-+done:
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static int sbi_ipi_dying_cpu(unsigned int cpu)
-+{
-+	disable_percpu_irq(intc_parent_irq);
-+	return 0;
-+}
-+
-+static int sbi_ipi_starting_cpu(unsigned int cpu)
-+{
-+	enable_percpu_irq(intc_parent_irq,
-+			  irq_get_trigger_type(intc_parent_irq));
-+	return 0;
-+}
-+
-+static int __init sbi_ipi_set_virq(void)
-+{
-+	int virq;
-+	struct irq_fwspec ipi = {
-+		.fwnode		= sbi_ipi_domain->fwnode,
-+		.param_count	= 1,
-+		.param[0]	= 0,
-+	};
-+
-+	virq = __irq_domain_alloc_irqs(sbi_ipi_domain, -1, BITS_PER_LONG,
-+				       NUMA_NO_NODE, &ipi,
-+				       false, NULL);
-+	if (virq <= 0) {
-+		pr_err("unable to alloc IRQs from SBI IPI IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	riscv_ipi_set_virq_range(virq, BITS_PER_LONG);
-+
-+	return 0;
-+}
-+
-+static int __init sbi_ipi_domain_init(struct device_node *node,
-+					struct irq_domain *domain)
-+{
-+	struct irq_fwspec swi = {
-+		.fwnode		= domain->fwnode,
-+		.param_count	= 1,
-+		.param[0]	= RV_IRQ_SOFT,
-+	};
-+
-+	intc_parent_irq = __irq_domain_alloc_irqs(domain, -1, 1,
-+						  NUMA_NO_NODE, &swi,
-+						  false, NULL);
-+	if (intc_parent_irq <= 0) {
-+		pr_err("unable to alloc IRQ from INTC IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	irq_set_chained_handler(intc_parent_irq, sbi_ipi_handle_irq);
-+
-+	sbi_ipi_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-+						&sbi_ipi_domain_ops, NULL);
-+	if (!sbi_ipi_domain) {
-+		pr_err("unable to add SBI IPI IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-+			  "irqchip/riscv/sbi-ipi:starting",
-+			  sbi_ipi_starting_cpu, sbi_ipi_dying_cpu);
-+
-+	return sbi_ipi_set_virq();
-+}
-+
-+void __init sbi_ipi_init(void)
-+{
-+	struct irq_domain *domain = NULL;
-+	struct device_node *cpu, *child, *node = NULL;
-+
-+	for_each_of_cpu_node(cpu) {
-+		child = of_get_compatible_child(cpu, "riscv,cpu-intc");
-+		if (!child) {
-+			pr_err("failed to find INTC node [%pOF]\n", cpu);
-+			return;
-+		}
-+
-+		domain = irq_find_host(child);
-+		if (domain) {
-+			node = cpu;
-+			break;
-+		}
-+
-+		of_node_put(child);
-+	}
-+	if (!domain || !node) {
-+		pr_err("can't find INTC IRQ domain\n");
-+		return;
-+	}
-+
-+	if (sbi_ipi_domain_init(node, domain))
-+		pr_err("failed to register IPI domain\n");
-+	else
-+		pr_info("registered IPI domain\n");
-+}
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 8aeca26198f2..372aa7e181d5 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -589,25 +589,6 @@ long sbi_get_mimpid(void)
- 	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
- }
- 
--static void sbi_send_cpumask_ipi(const struct cpumask *target)
--{
--	struct cpumask hartid_mask;
--
--	riscv_cpuid_to_hartid_mask(target, &hartid_mask);
--
--	sbi_send_ipi(cpumask_bits(&hartid_mask));
--}
--
--static void sbi_ipi_clear(void)
--{
--	csr_clear(CSR_IP, IE_SIE);
--}
--
--static const struct riscv_ipi_ops sbi_ipi_ops = {
--	.ipi_inject = sbi_send_cpumask_ipi,
--	.ipi_clear = sbi_ipi_clear
--};
--
- void __init sbi_init(void)
- {
- 	int ret;
-@@ -654,6 +635,4 @@ void __init sbi_init(void)
- 		__sbi_send_ipi	= __sbi_send_ipi_v01;
- 		__sbi_rfence	= __sbi_rfence_v01;
- 	}
--
--	riscv_set_ipi_ops(&sbi_ipi_ops);
- }
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index eea0c9d11d9f..26d563615f53 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -18,6 +18,7 @@
- #include <linux/sched.h>
- #include <linux/seq_file.h>
- #include <linux/delay.h>
-+#include <linux/irq.h>
- #include <linux/irq_work.h>
- 
- #include <asm/sbi.h>
-@@ -42,11 +43,9 @@ void __init smp_setup_processor_id(void)
- 	cpuid_to_hartid_map(0) = boot_cpu_hartid;
- }
- 
--/* A collection of single bit ipi messages.  */
--static struct {
--	unsigned long stats[IPI_MAX] ____cacheline_aligned;
--	unsigned long bits ____cacheline_aligned;
--} ipi_data[NR_CPUS] __cacheline_aligned;
-+static int ipi_virq_base __ro_after_init;
-+static int nr_ipi __ro_after_init = IPI_MAX;
-+static struct irq_desc *ipi_desc[IPI_MAX] __read_mostly;
- 
- int riscv_hartid_to_cpuid(int hartid)
- {
-@@ -88,46 +87,14 @@ static void ipi_stop(void)
- 		wait_for_interrupt();
- }
- 
--static const struct riscv_ipi_ops *ipi_ops __ro_after_init;
--
--void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
--{
--	ipi_ops = ops;
--}
--EXPORT_SYMBOL_GPL(riscv_set_ipi_ops);
--
--void riscv_clear_ipi(void)
--{
--	if (ipi_ops && ipi_ops->ipi_clear)
--		ipi_ops->ipi_clear();
--}
--EXPORT_SYMBOL_GPL(riscv_clear_ipi);
--
- static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
- {
--	int cpu;
--
--	smp_mb__before_atomic();
--	for_each_cpu(cpu, mask)
--		set_bit(op, &ipi_data[cpu].bits);
--	smp_mb__after_atomic();
--
--	if (ipi_ops && ipi_ops->ipi_inject)
--		ipi_ops->ipi_inject(mask);
--	else
--		pr_warn("IPI inject method not available\n");
-+	__ipi_send_mask(ipi_desc[op], mask);
- }
- 
- static void send_ipi_single(int cpu, enum ipi_message_type op)
- {
--	smp_mb__before_atomic();
--	set_bit(op, &ipi_data[cpu].bits);
--	smp_mb__after_atomic();
--
--	if (ipi_ops && ipi_ops->ipi_inject)
--		ipi_ops->ipi_inject(cpumask_of(cpu));
--	else
--		pr_warn("IPI inject method not available\n");
-+	__ipi_send_mask(ipi_desc[op], cpumask_of(cpu));
- }
- 
- #ifdef CONFIG_IRQ_WORK
-@@ -137,62 +104,90 @@ void arch_irq_work_raise(void)
- }
- #endif
- 
--void handle_IPI(struct pt_regs *regs)
-+static irqreturn_t handle_IPI(int irq, void *data)
- {
--	struct pt_regs *old_regs = set_irq_regs(regs);
--	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
--	unsigned long *stats = ipi_data[smp_processor_id()].stats;
-+	int ipi = irq - ipi_virq_base;
-+
-+	switch (ipi) {
-+	case IPI_RESCHEDULE:
-+		scheduler_ipi();
-+		break;
-+	case IPI_CALL_FUNC:
-+		generic_smp_call_function_interrupt();
-+		break;
-+	case IPI_CPU_STOP:
-+		ipi_stop();
-+		break;
-+	case IPI_IRQ_WORK:
-+		irq_work_run();
-+		break;
-+#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
-+	case IPI_TIMER:
-+		tick_receive_broadcast();
-+		break;
-+#endif
-+	default:
-+		pr_warn("CPU%d: unhandled IPI%d\n", smp_processor_id(), ipi);
-+		break;
-+	};
- 
--	irq_enter();
-+	return IRQ_HANDLED;
-+}
- 
--	riscv_clear_ipi();
-+void riscv_ipi_enable(void)
-+{
-+	int i;
- 
--	while (true) {
--		unsigned long ops;
-+	if (WARN_ON_ONCE(!ipi_virq_base))
-+		return;
- 
--		/* Order bit clearing and data access. */
--		mb();
-+	for (i = 0; i < nr_ipi; i++)
-+		enable_percpu_irq(ipi_virq_base + i, 0);
-+}
- 
--		ops = xchg(pending_ipis, 0);
--		if (ops == 0)
--			goto done;
-+void riscv_ipi_disable(void)
-+{
-+	int i;
- 
--		if (ops & (1 << IPI_RESCHEDULE)) {
--			stats[IPI_RESCHEDULE]++;
--			scheduler_ipi();
--		}
-+	if (WARN_ON_ONCE(!ipi_virq_base))
-+		return;
- 
--		if (ops & (1 << IPI_CALL_FUNC)) {
--			stats[IPI_CALL_FUNC]++;
--			generic_smp_call_function_interrupt();
--		}
-+	for (i = 0; i < nr_ipi; i++)
-+		disable_percpu_irq(ipi_virq_base + i);
-+}
- 
--		if (ops & (1 << IPI_CPU_STOP)) {
--			stats[IPI_CPU_STOP]++;
--			ipi_stop();
--		}
-+void riscv_ipi_setup(void)
-+{
-+	int i, err;
- 
--		if (ops & (1 << IPI_IRQ_WORK)) {
--			stats[IPI_IRQ_WORK]++;
--			irq_work_run();
--		}
-+	/* SBI based IPIs is our last option */
-+	if (!ipi_virq_base)
-+		sbi_ipi_init();
- 
--#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
--		if (ops & (1 << IPI_TIMER)) {
--			stats[IPI_TIMER]++;
--			tick_receive_broadcast();
--		}
--#endif
--		BUG_ON((ops >> IPI_MAX) != 0);
-+	/* Request IPIs */
-+	for (i = 0; i < nr_ipi; i++) {
-+		err = request_percpu_irq(ipi_virq_base + i, handle_IPI,
-+					 "IPI", &ipi_virq_base);
-+		WARN_ON(err);
- 
--		/* Order data access and bit testing. */
--		mb();
-+		ipi_desc[i] = irq_to_desc(ipi_virq_base + i);
-+		irq_set_status_flags(ipi_virq_base + i, IRQ_HIDDEN);
- 	}
- 
--done:
--	irq_exit();
--	set_irq_regs(old_regs);
-+	/* Enabled IPIs for boot CPU immediately */
-+	riscv_ipi_enable();
-+}
-+
-+void riscv_ipi_set_virq_range(int virq, int nr)
-+{
-+	if (WARN_ON(ipi_virq_base))
-+		return;
-+
-+	WARN_ON(nr < IPI_MAX);
-+	nr_ipi = min(nr, IPI_MAX);
-+	ipi_virq_base = virq;
- }
-+EXPORT_SYMBOL_GPL(riscv_ipi_set_virq_range);
- 
- static const char * const ipi_names[] = {
- 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
-@@ -210,7 +205,7 @@ void show_ipi_stats(struct seq_file *p, int prec)
- 		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
- 			   prec >= 4 ? " " : "");
- 		for_each_online_cpu(cpu)
--			seq_printf(p, "%10lu ", ipi_data[cpu].stats[i]);
-+			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
- 		seq_printf(p, " %s\n", ipi_names[i]);
- 	}
- }
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 9a408e2942ac..b181d981a960 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -159,12 +159,12 @@ asmlinkage __visible void smp_callin(void)
- 	struct mm_struct *mm = &init_mm;
- 	unsigned int curr_cpuid = smp_processor_id();
- 
--	riscv_clear_ipi();
--
- 	/* All kernel threads share the same mm context.  */
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+	riscv_ipi_enable();
-+
- 	notify_cpu_starting(curr_cpuid);
- 	numa_add_cpu(curr_cpuid);
- 	update_siblings_masks(curr_cpuid);
-diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-index 6cfe2ab73eb0..3b68ed53fe4a 100644
---- a/drivers/clocksource/timer-clint.c
-+++ b/drivers/clocksource/timer-clint.c
-@@ -30,7 +30,6 @@
- #define CLINT_TIMER_VAL_OFF	0xbff8
- 
- /* CLINT manages IPI and Timer for RISC-V M-mode  */
--static u32 __iomem *clint_ipi_base;
- static u64 __iomem *clint_timer_cmp;
- static u64 __iomem *clint_timer_val;
- static unsigned long clint_timer_freq;
-@@ -41,24 +40,6 @@ u64 __iomem *clint_time_val;
- EXPORT_SYMBOL(clint_time_val);
- #endif
- 
--static void clint_send_ipi(const struct cpumask *target)
--{
--	unsigned int cpu;
--
--	for_each_cpu(cpu, target)
--		writel(1, clint_ipi_base + cpuid_to_hartid_map(cpu));
--}
--
--static void clint_clear_ipi(void)
--{
--	writel(0, clint_ipi_base + cpuid_to_hartid_map(smp_processor_id()));
--}
--
--static struct riscv_ipi_ops clint_ipi_ops = {
--	.ipi_inject = clint_send_ipi,
--	.ipi_clear = clint_clear_ipi,
--};
--
- #ifdef CONFIG_64BIT
- #define clint_get_cycles()	readq_relaxed(clint_timer_val)
- #else
-@@ -189,7 +170,6 @@ static int __init clint_timer_init_dt(struct device_node *np)
- 		return -ENODEV;
- 	}
- 
--	clint_ipi_base = base + CLINT_IPI_OFF;
- 	clint_timer_cmp = base + CLINT_TIMER_CMP_OFF;
- 	clint_timer_val = base + CLINT_TIMER_VAL_OFF;
- 	clint_timer_freq = riscv_timebase;
-@@ -228,9 +208,6 @@ static int __init clint_timer_init_dt(struct device_node *np)
- 		goto fail_free_irq;
- 	}
- 
--	riscv_set_ipi_ops(&clint_ipi_ops);
--	clint_clear_ipi();
--
- 	return 0;
- 
- fail_free_irq:
-diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index 8017f6d32d52..65d9c5b0ddb8 100644
---- a/drivers/irqchip/irq-riscv-intc.c
-+++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -26,20 +26,7 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
- 	if (unlikely(cause >= BITS_PER_LONG))
- 		panic("unexpected interrupt cause");
- 
--	switch (cause) {
--#ifdef CONFIG_SMP
--	case RV_IRQ_SOFT:
--		/*
--		 * We only use software interrupts to pass IPIs, so if a
--		 * non-SMP system gets one, then we don't know what to do.
--		 */
--		handle_IPI(regs);
--		break;
--#endif
--	default:
--		handle_domain_irq(intc_domain, cause, regs);
--		break;
--	}
-+	handle_domain_irq(intc_domain, cause, regs);
- }
- 
- /*
-@@ -59,18 +46,6 @@ static void riscv_intc_irq_unmask(struct irq_data *d)
- 	csr_set(CSR_IE, BIT(d->hwirq));
- }
- 
--static int riscv_intc_cpu_starting(unsigned int cpu)
--{
--	csr_set(CSR_IE, BIT(RV_IRQ_SOFT));
--	return 0;
--}
--
--static int riscv_intc_cpu_dying(unsigned int cpu)
--{
--	csr_clear(CSR_IE, BIT(RV_IRQ_SOFT));
--	return 0;
--}
--
- static struct irq_chip riscv_intc_chip = {
- 	.name = "RISC-V INTC",
- 	.irq_mask = riscv_intc_irq_mask,
-@@ -87,9 +62,32 @@ static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
- 	return 0;
- }
- 
-+static int riscv_intc_domain_alloc(struct irq_domain *domain,
-+				   unsigned int virq, unsigned int nr_irqs,
-+				   void *arg)
-+{
-+	int i, ret;
-+	irq_hw_number_t hwirq;
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+
-+	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = riscv_intc_domain_map(domain, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static const struct irq_domain_ops riscv_intc_domain_ops = {
- 	.map	= riscv_intc_domain_map,
- 	.xlate	= irq_domain_xlate_onecell,
-+	.alloc	= riscv_intc_domain_alloc
- };
- 
- static int __init riscv_intc_init(struct device_node *node,
-@@ -125,11 +123,6 @@ static int __init riscv_intc_init(struct device_node *node,
- 		return rc;
- 	}
- 
--	cpuhp_setup_state(CPUHP_AP_IRQ_RISCV_STARTING,
--			  "irqchip/riscv/intc:starting",
--			  riscv_intc_cpu_starting,
--			  riscv_intc_cpu_dying);
--
- 	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
- 
- 	return 0;
++    interrupt-controller@2100000 {
++      compatible = "riscv,aclint-sswi";
++      interrupts-extended = <&cpu1intc 1 &cpu2intc 1 &cpu3intc 1 &cpu4intc 1>;
++      reg = <0x2100000 0x4000>;
++      interrupt-controller;
++      #interrupt-cells = <0>;
++    };
++...
 -- 
 2.25.1
 
