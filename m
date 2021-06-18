@@ -3,87 +3,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A99D3C49361
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B082C49EA2
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:39:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 723E1613F2
+	by mail.kernel.org (Postfix) with ESMTPS id BB259613EB
 	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 12:39:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 723E1613F2
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB259613EB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6y1qP0t6EkK2MVz3kxSs3dzptcjAkBctKTwlUr2mv3U=; b=sAZ12OD2c9lBV8
-	XZXZKynHAYdzwc7Qds0rrrzjWElEan0FyQNU4HB3zyH/2v9+K2P8hCrrFaSvG0eJHPxYBCMwXAKpp
-	nzxZWY8GGIrl4mL31HE9HaQe9ImwhkxlhMF4BiTDMBDkdD7nsaypjwxnuFWnp4fugd6HkTOd+FyBj
-	76s7BYPvnNqpby3A2SHIlwfrEjrwllmDceI8wjYo4RIXIkLiFaBmU2d80Ofqzl0zJPrqkUQAMH1Ql
-	Hw6Ur2vTw9W/XC25FnPwdZ53shB1TmoUTmNdb+OHSV2dZWdlm0xvqTeg/KBYFkWstJsUplvyj+wFI
-	7QOFQM26L2RtTD6838JQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HbISebUAe7jAob82iSJDxlzw/ooLE2X6zktJrGNEQ6o=; b=NpnPn3sCTCj49K
+	il25w6tiXTfzjizG6ozlKc9JKGhG3gOr6QnHINRz3jH4iTiZIdxVe62cjDkvSEdiTmIMqjq064mkW
+	Ldy3KxKp8V6ul7EwK/dg51QdN0ESD/gdRg9n5swR3UNCg8jH4FtTwK4Z247WrwesPRa/FGzZf7sO/
+	OdiRW8COlN1FsJm6k7kwQf6UgkzuOSZV6FnVZ2Py4WVRagXroYDRzps4kY04q4iUIlb5GFpqkQe53
+	v8sK3TdaUwX3qAsy8YKukFPBQkB0bnSzzbrrIqJ5n9nfuM6rUleEWr7pIk00RM+kTcT0BeFtAqRjj
+	sjex/D5WTba0gVsSoE7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1luDmU-00E2r4-DM; Fri, 18 Jun 2021 12:39:30 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1luDmS-00E2qR-F6; Fri, 18 Jun 2021 12:39:28 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1luDmR-00E2q5-R9
- for linux-riscv@lists.infradead.org; Fri, 18 Jun 2021 12:39:29 +0000
+ id 1luDmO-00E2p8-Ib
+ for linux-riscv@lists.infradead.org; Fri, 18 Jun 2021 12:39:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1624019967; x=1655555967;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:content-transfer-encoding:mime-version;
- bh=kRFIsrXRxjx8BbYZWZU/yYhgpwiiKVcT4u/SpXRbxcE=;
- b=KqvmWp0hYmGi/U7Pg1KqsXCYcswasfaUYeg5I6BIITFVL6W4hKnTRDwN
- +7M4HnnXmGxB/11qmVPI3SikQSSPbbSTzl5q2DuiqGnI4Zxc7KwekQUci
- 1Yo4tOlnXZyFSUgKl9dAqrKrvbdvuzFFpRY2wiV5DD32uZs5n56nxs2hk
- DcR4E+uak7PJ5ad8Q4A91N4uRTL3bbs/9lyF5jDzM/t1mtbl5Lmcn6XkT
- i4/wKQFzNw0Z6jUi9ik2P39GhWvrArOzePkPCMDpZUib5eER0275xuxEv
- frK4Oumi4PXniHhbi7HOE2ec+/bjdf4apXAuGwSzvsEp750swO/9NViMv A==;
-IronPort-SDR: fKfIWruDNXnbvpF+VD77kYeEF0sOs5obVoHVwfnVp+RoMI9f7enZ1B3N6rNC4VjFIcEjYO9ric
- QnEgLVdwG2i48qL953ACXJ+6qWM+qPkNYGzM3syj3brnpJuY7TUfv9chUH0X30y5j4q5gkQBaI
- qgt0IaUx/BkSn5ZGzQB75VdblDBr8qD+XIte+AXzQUdrXZbNAxl8s06JpWdypneT5g4EfFd2fA
- ECrMarcwOcTgLFIeMSJLjzDReFRs7HrNzAEbKheBso2SwkLsx+al5xZT2Dd7otfV6zrJ9+B5S1
- 5tQ=
-X-IronPort-AV: E=Sophos;i="5.83,283,1616428800"; d="scan'208";a="283779297"
-Received: from mail-dm6nam12lp2172.outbound.protection.outlook.com (HELO
- NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.172])
- by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2021 20:39:25 +0800
+ t=1624019964; x=1655555964;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=+DbL6fU6jfXdfjWsF+oj2IJiejyYP5KKvPnRLd4jEB4=;
+ b=SXzQLFzKp8NDIcMstVJTgGNDZBbHPJJv1YY0EtgeMrloorA2SJk8gxNw
+ Y2KaAjxhjTcNgBASJ+1dyW2GYTJqOeu1ajnWwbBGpDo9H41P4l69rqoVA
+ wmIU682APHquswbfcOXpIiLJq+2aAcpnArTOqgdt4yZ2yPHJrZWU80kIb
+ BZ1O7GuhB51YPflu+ly5LV9Ne1Qk2Q/n+x7AvrQrkdOs98z5pdWZRf/q3
+ kUDqbW/WaouBeUpRomlWWM8+s1u1V8uECX33nDzjW+s1iT/JJ+n3pNz1G
+ O6nX8JeuPueaetsYIIUlVp1CIW9jOWPRANYVYBfmG5CWLpozk4RVebCTR A==;
+IronPort-SDR: +COMjjxxo5GG1+HoLD56yuhhEmJTwucXQQ1XPocTtlny7pOVgQnocm7B9/VR6ydc8CBxChCTK7
+ /XT34/Sl9BnWqq2YccJUCRLD6VGfdtA+xmpEnGWpFY7JUq2jNhQlmcTZ67k3LVCXGgEgG+fKZM
+ rewvms08qdD7D32d0YOvfBSklrw6awecvAiZo/9o6zEGNbATzLq4Kp0wJgvZhzfhHOrE2E2/zH
+ 7N067114MlNPjjQPMYMDsPl17Ga1Oj1BflBBdZXkYs1wzMZABfM1NME1oUgtCIwmdbMCxAceic
+ 4LU=
+X-IronPort-AV: E=Sophos;i="5.83,283,1616428800"; d="scan'208";a="171563499"
+Received: from mail-mw2nam08lp2177.outbound.protection.outlook.com (HELO
+ NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.177])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Jun 2021 20:39:20 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=JpTd5ML2e8DmlIKQEYg34+QJj3kom3yBX3WHsVGj2kc4RpQh7cacV8ZrH7KGgmOHpSH4VMeUkp8RstrZOHceDTHy/JdPPk77mqE86FYxAUKPuCdSx8qS81wZ20lpL7ZFwdC58wdB/1TIw/pvsVrcvz9X4Sosc9vuXg1x/aZYpk6rgIozBqlKpG0Pxy7nLhH06PinQefInBg1OFi6DWljnhagYBn4Xj5icOtSoXfywU3bFnZBXenz62SMVw2EpytNVhJkDvrbl8LpBGvAKuZdEnOpoxvIKDIHXEDawtVbdrUci1Htt/DfEiGE91ME7qIlw94X7jfdpueIFUxUFbBqGA==
+ b=hIeE031A2OsPKx3h4cdBvEdD+GSbKXLp40ys4l7Lpa9yz7+ajWwi3h8HDisqgwA3A5srqvRprgrU1NKTMwQ2DLWyhyinHBBqVKPg1q214A+tU49miD+Ew+Mi0P32KNAXAzcNGKDpfllO1Z53nVUmPZxwfH66zASkHWnN+1Cb5B1dbmbeAtvTgk5ee60apL7OmxDBPuzsoXeKKZs9Dpg+pspVjVKP1C3UKjUESkYZpSnaQm0kdYBRju3kc1JLIC1rE5XeobQenPpFhAVu9+Po1DuNl+MBOuUJq8zFYklu+H78tkzt+Pxk6YUni1wQadcpQNzaSoctO8GVJFoSijj0Og==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cOyALsSZyM5c63OvTUlUo42PR2FT1T9JpuApyyCliEY=;
- b=n69QpXxbqjDwHD+cxDwOuw+K6hsbekt0YjEGGlabzdcVqJqhPRcdLZDx1blkXM3ILkhVtsBUzaCrVTRuGx9JYm0W0NmiWVl6kYuWw80OmFzVZx0EQ6RnsvPafnnWG9L7sMK/aFvxv3PlA2g/SF6DnicqMxEWyBnpy9VA3i+DrTwVe6cAmss4+EPoEO98Vz/tNohA9fwpNQ6bj7USdLPQM62N3GRwsmp2xnOREK4fkE20kj5iUMkGcElNSDS3syZGFwPv+TletC6lgHKBNhIw+QYqvIGOIHceKOvGF2VUQVeSgBZTJwECy3+7wlFZKJ8ruvLovlGIdqoxndRegdob2w==
+ bh=kTgpaX8FOx6cZEfiQTiCJx+I24MdL0XfhNyguJ1IVrs=;
+ b=oBGPghuL1QCVYfa/NCytO1lGgA00AGNLWAFQL8Gvp89EVQ+PArhsOonlG6vLiNTYVIh11zw8aTz+naKHAd6uFPtH9PN/y4uwIR6W4sV5TfhP7PCnI+ldk9tGTXJBtTGJapu8McVpgiZWbdpMWqsyVVBiIfLnoiwqyJYnHj5pZDy5DiDQmghFPBx8UUdTPkT7Qj8yyU2j1U8c6u0fvv7gzmDMNfucG55sTEec4xW96pKGsARHu0IA8Zuohio87PFH9voPQjbxHwz37iFfT3G6pnmEbF503TkMDB+0hojoQB7sjv6CgUCa4evihpSLR5tgUcO2EMy5aRvbeyg6JVg+hQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cOyALsSZyM5c63OvTUlUo42PR2FT1T9JpuApyyCliEY=;
- b=z33MMpf2Wo8OyIxVATUeoigxyDSfJ7gR9dTPbK1YxhH5vn04iSlF/T4CiaHzi2w+ZKp5ex6ZMlJ//8DfVjCzT83axey1CZ3jmCj7ONXSkvBblCYfJfhkBubN/z4bp8dgh3qYKOoIwuGNDjd4eCh9ptHepgtuGijQB7JfICyYJ1w=
+ bh=kTgpaX8FOx6cZEfiQTiCJx+I24MdL0XfhNyguJ1IVrs=;
+ b=JtUg+m6ULJJxKKQsamiz1z7Klb2lxz0A8UFbSUiBztrusVhbNxuQlc2+T0tCjkhGwOrEwqS+twsImPydJj8ZIze6KF4JkhM5WHoeZZgCPFfsC/uYFSh2dj3HHl2prwVoxJWAF2qUsu5cfEQsOHlPgBcrQLaTSEuzZHPcI2frb/A=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
- by CO6PR04MB7857.namprd04.prod.outlook.com (2603:10b6:5:35f::13) with
+ by CO6PR04MB7859.namprd04.prod.outlook.com (2603:10b6:5:35e::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.19; Fri, 18 Jun
- 2021 12:39:23 +0000
+ 2021 12:39:19 +0000
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::a153:b7f8:c87f:89f8]) by CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::a153:b7f8:c87f:89f8%9]) with mapi id 15.20.4242.021; Fri, 18 Jun 2021
- 12:39:23 +0000
+ 12:39:19 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -95,14 +95,11 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
-Subject: [RFC PATCH v2 01/11] RISC-V: Clear SIP bit only when using SBI IPI
- operations
-Date: Fri, 18 Jun 2021 18:08:41 +0530
-Message-Id: <20210618123851.1344518-2-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>
+Subject: [RFC PATCH v2 00/11] Linux RISC-V ACLINT Support
+Date: Fri, 18 Jun 2021 18:08:40 +0530
+Message-Id: <20210618123851.1344518-1-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210618123851.1344518-1-anup.patel@wdc.com>
-References: <20210618123851.1344518-1-anup.patel@wdc.com>
 X-Originating-IP: [122.171.164.186]
 X-ClientProxiedBy: MA1PR0101CA0025.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:a00:22::11) To CO6PR04MB7812.namprd04.prod.outlook.com
@@ -113,58 +110,58 @@ Received: from wdc.com (122.171.164.186) by
  MA1PR0101CA0025.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:22::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.15 via Frontend
- Transport; Fri, 18 Jun 2021 12:39:19 +0000
+ Transport; Fri, 18 Jun 2021 12:39:15 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 6bf2af6f-5f30-42c0-2cb8-08d9325619cc
-X-MS-TrafficTypeDiagnostic: CO6PR04MB7857:
+X-MS-Office365-Filtering-Correlation-Id: 29fdd2a4-c6d5-45de-2972-08d93256174a
+X-MS-TrafficTypeDiagnostic: CO6PR04MB7859:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CO6PR04MB78572B5DC657C016295415A88D0D9@CO6PR04MB7857.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <CO6PR04MB78596420BFDC286A28D5A09E8D0D9@CO6PR04MB7859.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:4125;
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: f6FHTi06xrmLKF2ut0QiESx6E08DwiFEVnZbWoIeG0kXpKWXVX1r9T4CYBO3bXQHH68xnAzPur1HIWGlxujNHNa5S+GMVHGWnsZ8ESpAwnrkxbrTYdnLwluT+5s07xR6pQYwsHTER4j1zQnAQg7eGhc97vJoTx2jwD9r0Hecy5jZtMWbDUAFjgA5B4vx16W9d6dqOIkPfSTzOy/GO4PgLby1hB5Imimf5nQOUq15zD9Tto0TAt/n7NDde/bx2WAOKnS8aZxajlYbc3glwdBnGb79r7X1tkum53OmlguxEXipMauwtiuXmDVpGFx9k+WI8f1B7aM7d0dH2t7OsUXRkdJz1Qn5lQHvZPu6JMgGeirzguBcqMDAqxKsb4oP+hKzsIh26cGkuhjZbMTZHshrM+4DgBWNLAlFV9JS+TWxp3pUhuPQ7AaNh0rzus7w8DcCSadw1JxNVN5AWXgdhwAGk24xUBHvRxnUBfDlfeVvE8AII7RIW/gIcY0vlhhEC1fdk0q4advDb35zS3871upy7u1qKEgRTEQu+9wfZX3rFGonDbhOeqalZWs1RJDM7mPSkQBYCugXhimakNwlV6r7E4EJAiKL4xpzEXul5A0lc3SaFaK2FkKKxXYai3dsXy3D63w4RoJpMrNMic7Su5G0NYoxzDEqifPA744fYb+NzqI=
+X-Microsoft-Antispam-Message-Info: Cbin+kv/yzGmrmzHLTZIm995EV2PUw7DK4CqKIIPs8WVU6VrLezyVDTP4sRHtOAq73b1NY0r1BtRDUfEv5Ug9BuHCkihbLAllt7rJDIqAzGSsWYeNShtT7esk02cDtsEunFSPtHkKR8jMHzey3GvwmX3yuUwCjB6vNpKkL3Qd/pke5dOxuT+26O/j/rmGTe5DlzBzMmZCzRTNO2GHlCMSqdxFpzQJiJ6TXzebbrGeWtmMMO7WhhRBFABtIgnWZcuIOq7/WClzfQYTEM/0c9jFIuEBVNzPNz10KzuCIl4hzkBBZIbc/Nit2Br4yfQUBwOs+CsPU2HHwnnyUh+BKIe672dvnv2ZW6naoOoo6EnZKzrgslc63qluyEgpYQzdN4DwJzp9FrGzCA0T6A8T3vK0RJVJRcmJFPWllfm/RMR45RhNHHODfbY+DRGzpiquL6LEl9hVkZGPmC/gMKNCX5jNMqVXax/ouhkHCmZ29D35+qopEvftk9TqclQEInbDQjZMTnxASgDDHDIOV1/gpuTB1kcCGZdW0BE7UR3mEiOLuodAz0RbNQGOZ6ae5ApDMKDUJ56PzFIrrARH141dcAJ6rRPX4y+W7eKO2pkLA6RBbCD1SItLoT5sQvE4GOqDWrpYwR5AlLOtDGZ9+ixSra4L6UiCqp57yQzHjz9N4BasCO2I/n6TpWF+K1M4DZWDXmXaR7/qA5coN8g+8NUeQP1xY+X9XLyw1o8FluCEJW2rpudhx2Y+BjDIAuPYucjv+j36UfK214KU6HHeT9meyCTW7lk+DMFXYh6NpsjTGrnDuDw6A90k47KkmOvGQvdvxB7
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(346002)(396003)(366004)(39850400004)(376002)(136003)(956004)(2906002)(478600001)(316002)(86362001)(52116002)(8936002)(44832011)(2616005)(8676002)(4326008)(186003)(36756003)(5660300002)(55016002)(83380400001)(6666004)(7416002)(7696005)(110136005)(66556008)(54906003)(66476007)(66946007)(8886007)(38100700002)(1076003)(38350700002)(26005)(16526019);
+ SFS:(4636009)(366004)(346002)(376002)(39860400002)(396003)(136003)(44832011)(956004)(2616005)(7416002)(316002)(8886007)(83380400001)(26005)(1076003)(6666004)(52116002)(186003)(7696005)(66556008)(55016002)(54906003)(66946007)(2906002)(966005)(8936002)(38350700002)(38100700002)(4326008)(110136005)(8676002)(5660300002)(16526019)(86362001)(66476007)(36756003)(478600001);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nDAeVYzllXE5y7U9UwyTi61T8axKcYg4aS/w7PVhKfuq+fIBcuVy/y2ZncV6?=
- =?us-ascii?Q?V/sYtbXsxoaN3ArM4vPtF3WsGqXVjv+HluknFRfuH20S+U1yRPw/MV4mSgw4?=
- =?us-ascii?Q?YkbFTi7E+k8ixVBVBx9E3/YFvwpIIIYffalpvpwFmL0Reij5wjzj5J2pF9RL?=
- =?us-ascii?Q?wA+cMzu5Dn/aADauojtAMOPeVBnCw0jfpmSLF2kaDUR8GeNXekWDP4/q+ZBe?=
- =?us-ascii?Q?XftRrsYm7V6fq/+J+42qQx85rYNTI3iSDUVjUp+7xJSXE5nkwGZhfrGi/Ucr?=
- =?us-ascii?Q?2AgV0v6WDiDlbZrhuvVRJ/fHlkDI9ItkOrPCkBNYoK/yMGgbmRiYZiBW/DkZ?=
- =?us-ascii?Q?YOe5n4CVwIefT9W2iTgUEDXu3INrNKRq+h6ifqE7Jk66rgIZp8Ia1k25YY+7?=
- =?us-ascii?Q?I2WNtNYfdHPNiKmwlJI/BR8uvOBcR2sNZ/lMXmWoNTX5oAXMuDWhpjrrjJ8x?=
- =?us-ascii?Q?n84d0p2D1oLEtzy75/W66XeMt9GXDZ35kpAx2tHxyG+0I3YqneLW2RNJeYcE?=
- =?us-ascii?Q?9UakA8ybT1cWaa74ylOZjg0520RS2MU3bb81nWhWMNLPlQSC0AxsTDiD/yVO?=
- =?us-ascii?Q?ES9DZPJelTTrbjMgDrr4Jg6iFVim6N48I+aTR4aB12zTHibBURRyes6ckY8G?=
- =?us-ascii?Q?q5OvTtp0aPNyl8rIdrKqaLX/XwF1WslhuQlmaPdVPE2ZFeYbYhiqk4oZRehD?=
- =?us-ascii?Q?Y6idp2DNzRyZJduQnEi64r3KzZM8zW7I4g0QOjl88o2tSApJqkcZcD30QpTA?=
- =?us-ascii?Q?BzyUaY39kSetVFa+V8l9cNsqZFiXzst4owgkfuCNhCtnKh1ec0jtdWhKNC3L?=
- =?us-ascii?Q?B4eG7NaedxeHKA+iXjmeZ3qZR7B+LrzkcJnz8PUkctOh0EQlW2RIDkGw7/m3?=
- =?us-ascii?Q?riuBSV5NopB/HiWKi8W/bsDkDTfILk3YzYhU+7bDNBkeU9wDZcwc4OLRVZJT?=
- =?us-ascii?Q?ShFrvOe9iVaNeE/PU08ghn96Hy/6Og8XxKPVcfoFVBu0wpNw4RuRsZ3uOnEv?=
- =?us-ascii?Q?W0MlGnTofAAsgOJhEStJyPzLJn3m3YdY8Zlyf0TT/1anZJNEXuBnjLIzizhH?=
- =?us-ascii?Q?ZPMIE08t7ian5cf/jX9L4AXVOz8GXtBMwei7/Q4UxI2iwqevA5UOXMCmZpZD?=
- =?us-ascii?Q?nMdvz79vX9xHhBGps06rMmoksW3Nl87FFuyT3Cgm9n/xxawrnpkxD2zZNQjk?=
- =?us-ascii?Q?uRzIVsaint0Q8Ye9xHbsr7OStyV7VhDYLgkvTMFl7Fj1DtR1Fa1HenZl9Rdg?=
- =?us-ascii?Q?wSNtE/jRhCQ0MgEDyQjT8JZAzaWskGTeu5PyZbT/Q2fQUim36cFGpGlswU/r?=
- =?us-ascii?Q?WzR4iQqZRn8GXM2m33wcCh5Z?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jy53BOP4ELhAgIvekWa2eXaFmhh8A95WZp06kOSLyrxPpEt16ohyfa0SMeug?=
+ =?us-ascii?Q?S8XDXzl+EFv4WA4CdAZeLqhtECcsj+ki4QF6xx5oUp4eNTxhsM0u3wba37Zc?=
+ =?us-ascii?Q?GGSMajE/+CgW8RGbxTUQT2NIDZ3IJOyAIcZwptV5d1jBfpPOkZH6aO55IBux?=
+ =?us-ascii?Q?rsMIw8z4VcXD80uKlrjGoo1DwDEu6TWzjEXJHlWRMLCiR0mmNEIznr6Uz6Ch?=
+ =?us-ascii?Q?5Kz0z5/7AmIhmjoecGEg9tWhiTXfeeHx1lsvedT/GvRRlp+WyKQSo7RLjqZX?=
+ =?us-ascii?Q?L3S44UFZhkU7pqRiEE9O9DYgK7ACDhi6vdl0ksYIoA6mJbJt3gZidAhyGXSN?=
+ =?us-ascii?Q?PcAXORWt/JnbGq7/hHYlLkRzkZeGpRbWj24jVkTOGWCMitKox+xnvNBiGeQB?=
+ =?us-ascii?Q?LxWAqCIyj5nW7wZElPpdIiGEoI56ZKvBilEzhQ7S5DHwH4OmoTOx3dg7Ho4c?=
+ =?us-ascii?Q?DU7EbF7F9urIlj+rwfMLbLhL6ecP5opwmhx7r6YORw+UQEwyCsXLIQ+mNVNo?=
+ =?us-ascii?Q?sOQDKZ+pNRVdDfiVhDmHmi3kjxG3h0fLHbTtUdtcwjzRIftHBCgLO4AguAol?=
+ =?us-ascii?Q?Sgdg35f2oNEym+EU4sZDFh+APov0nTBYC4MJ1tP0hwhcRF4UiepcRyUi4aa2?=
+ =?us-ascii?Q?eNotXbwLXiOFsIEi71H6g7KGPr2WXN44S3IuD8dlfbyErfvio2QMdvuY4GIW?=
+ =?us-ascii?Q?CC4v0o/1EcTCung6MVGmvux4rrqvAjFzt2UGzIz48qYqnnaBqqfLdz8IrUCm?=
+ =?us-ascii?Q?HJYsK2sIXSty9E+PN3ny3MpjOFQxJSkQViG4UubyzDth+Ny8QjrL0NeBNJZk?=
+ =?us-ascii?Q?10YhjlsCKhHRw+ZYzGHB3rSBlRtmUez6LoAcnw4itsDxYlr/m1J/hqiYvPFK?=
+ =?us-ascii?Q?xWIb0VtT9wpNDLdvmHY8V52rQO2eEISNswtsx1+UdqH2nxLtgrjQU/su1LSZ?=
+ =?us-ascii?Q?lHDATN/8esBHJy9Vq6bN4TKQnLpe3HWU7lmCzb3JeMTTmPa1YDBEIJm/q1WI?=
+ =?us-ascii?Q?R46Xce/MacOCxlV3+Zp6pbfeWYeniUyVCcZzbFXhE7jgohYlbD7ZZXA3Zrcj?=
+ =?us-ascii?Q?Hd+rH6Ym48YOlgvfjq6rruon8Lt4qnJ6KCycFCfdf/k6ScxCMc+/JeFcEsE8?=
+ =?us-ascii?Q?+WjmeI67fPcHQWMkg+mtEFQCWQjOOk6/qFxiP4raA+LFJVCM3+P/bpT7ovLk?=
+ =?us-ascii?Q?YxLI6qbsif8c833UGO9Ag30QlAKRpg7bd3DtuwnXY+ovcBrP7+LaB+vVSMod?=
+ =?us-ascii?Q?PJGo2WTi2MoibVmS7p79nWj4iFqgIAC2WP+eU6AlLe7PNdOeRDVRld+Yevsx?=
+ =?us-ascii?Q?A4vIrUeQ4wWR5JtlSDMlkoTK?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6bf2af6f-5f30-42c0-2cb8-08d9325619cc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29fdd2a4-c6d5-45de-2972-08d93256174a
 X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2021 12:39:23.4129 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2021 12:39:19.1088 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E5Hts8rocOxKRCwLtFVVMNGUiMTXpQS/a3Gg2K0m6EMhTJUdLCJ8PjqWo36xHeVvMLYIHyeZ+Ps58AGiunZ5eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7857
+X-MS-Exchange-CrossTenant-UserPrincipalName: esCQxps9Xw3wZH6J4hFNQScbZ765J/dfBidcrozoD5/k+rc87/4lf3lz+1f5rbBpjxqr8dwWDLBghSMmidva+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7859
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210618_053927_930657_9F7E85A3 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20210618_053925_207071_3F481000 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,50 +178,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
-S-mode but read-only for M-mode so we clear this bit only when using
-SBI IPI operations.
+Most of the existing RISC-V platforms use SiFive CLINT to provide M-level
+timer and IPI support whereas S-level uses SBI calls for timer and IPI
+support. Also, the SiFive CLINT device is a single device providing both
+timer and IPI functionality so RISC-V platforms can't partially implement
+SiFive CLINT device and provide alternate mechanism for timer and IPI.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
-Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
----
- arch/riscv/kernel/sbi.c | 8 +++++++-
- arch/riscv/kernel/smp.c | 2 --
- 2 files changed, 7 insertions(+), 3 deletions(-)
+The RISC-V Advacned Core Local Interruptor (ACLINT) tries to address the
+limitations of SiFive CLINT by:
+1) Taking modular approach and defining timer and IPI functionality as
+   separate devices so that RISC-V platforms can include only required
+   devices
+2) Providing dedicated MMIO device for S-level IPIs so that SBI calls
+   can be avoided for IPIs in Linux RISC-V
+3) Allowing multiple instances of timer and IPI devices for a
+   multi-socket (or multi-die) NUMA systems
+4) Being backward compatible to SiFive CLINT so that existing RISC-V
+   platforms stay compliant with RISC-V ACLINT specification
 
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 9a84f0cb5175..8aeca26198f2 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -598,8 +598,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
- 	sbi_send_ipi(cpumask_bits(&hartid_mask));
- }
- 
-+static void sbi_ipi_clear(void)
-+{
-+	csr_clear(CSR_IP, IE_SIE);
-+}
-+
- static const struct riscv_ipi_ops sbi_ipi_ops = {
--	.ipi_inject = sbi_send_cpumask_ipi
-+	.ipi_inject = sbi_send_cpumask_ipi,
-+	.ipi_clear = sbi_ipi_clear
- };
- 
- void __init sbi_init(void)
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 921d9d7df400..547dc508f7d1 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -99,8 +99,6 @@ void riscv_clear_ipi(void)
- {
- 	if (ipi_ops && ipi_ops->ipi_clear)
- 		ipi_ops->ipi_clear();
--
--	csr_clear(CSR_IP, IE_SIE);
- }
- EXPORT_SYMBOL_GPL(riscv_clear_ipi);
- 
+Latest RISC-V ACLINT specification (will be frozen in a month) can be
+found at:
+https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+
+This series adds RISC-V ACLINT support and can be found in riscv_aclint_v2
+branch at:
+https://github.com/avpatel/linux
+
+To test this series, the RISC-V ACLINT support for QEMU and OpenSBI
+can be found in the riscv_aclint_v1 branch at:
+https://github.com/avpatel/qemu
+https://github.com/avpatel/opensbi
+
+Changes since v1:
+ - Added a new PATCH3 to treat IPIs as normal Linux IRQs for RISC-V kernel
+ - New SBI IPI call based irqchip driver in PATCH3 which is only initialized
+   by riscv_ipi_setup() when no Linux IRQ numbers are available for IPIs
+ - Moved DT bindings patches before corresponding driver patches
+ - Implemented ACLINT SWI driver as a irqchip driver in PATCH7
+ - Minor nit fixes pointed by Bin Meng
+
+Anup Patel (11):
+  RISC-V: Clear SIP bit only when using SBI IPI operations
+  RISC-V: Use common print prefix in smp.c
+  RISC-V: Treat IPIs as normal Linux IRQs
+  RISC-V: Allow marking IPIs as suitable for remote FENCEs
+  RISC-V: Use IPIs for remote TLB flush when possible
+  dt-bindings: interrupt-controller: Add ACLINT MSWI and SSWI bindings
+  irqchip: Add ACLINT software interrupt driver
+  RISC-V: Select ACLINT SWI driver for virt machine
+  dt-bindings: timer: Add ACLINT MTIMER bindings
+  clocksource: clint: Add support for ACLINT MTIMER device
+  MAINTAINERS: Add entry for RISC-V ACLINT drivers
+
+ .../riscv,aclint-swi.yaml                     |  82 ++++++
+ .../bindings/timer/riscv,aclint-mtimer.yaml   |  55 ++++
+ MAINTAINERS                                   |   9 +
+ arch/riscv/Kconfig                            |   1 +
+ arch/riscv/Kconfig.socs                       |   1 +
+ arch/riscv/include/asm/sbi.h                  |   2 +
+ arch/riscv/include/asm/smp.h                  |  48 +++-
+ arch/riscv/kernel/Makefile                    |   1 +
+ arch/riscv/kernel/cpu-hotplug.c               |   2 +
+ arch/riscv/kernel/irq.c                       |   1 +
+ arch/riscv/kernel/sbi-ipi.c                   | 223 ++++++++++++++
+ arch/riscv/kernel/sbi.c                       |  15 -
+ arch/riscv/kernel/smp.c                       | 171 +++++------
+ arch/riscv/kernel/smpboot.c                   |   4 +-
+ arch/riscv/mm/tlbflush.c                      |  62 +++-
+ drivers/clocksource/timer-clint.c             |  58 ++--
+ drivers/irqchip/Kconfig                       |  11 +
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-aclint-swi.c              | 271 ++++++++++++++++++
+ drivers/irqchip/irq-riscv-intc.c              |  55 ++--
+ 20 files changed, 879 insertions(+), 194 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
+ create mode 100644 Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
+ create mode 100644 arch/riscv/kernel/sbi-ipi.c
+ create mode 100644 drivers/irqchip/irq-aclint-swi.c
+
 -- 
 2.25.1
 
