@@ -2,88 +2,127 @@ Return-Path: <SRS0=UO3w=LM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50106C48BDF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 08:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80A41C48BDF
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 08:34:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 13ECC6121D
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 08:32:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 13ECC6121D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	by mail.kernel.org (Postfix) with ESMTPS id 41C1961396
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Jun 2021 08:34:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41C1961396
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=foss.st.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h8+h9Abm8zHB8zcToTmC7o1vSEJSf1EpxQkUJVPG+FM=; b=2wvhPVx0Ki5Oa8
-	hWkD2wB7tz50GuEwWuWjzdK2OV9BRQSsfS+vsIRwXnO+nU5dZT2+2o+6SkxWp2nFYfVmtPBG8jOL4
-	OlsAoP/eVNMN2+jIriaWGEaww3Q0Z03e3/jvWvfpOP2LI2BSNY9tzFeu2E55jzreu+Emb0wxl7SyC
-	KOR3HcrbPKz/pt5ZiLDm/R7O05enMM/lEvR1qLn1ZBRMnwUapttS0aYPVijw1HFBwNkU9vrDGtk4R
-	na1WgGUMLDDcrUnrycc555+e3wP+G1F+iukRFZCdoMd0FfNVwMsAQTP2X9Z3yWr6YAuhVg+4vX7z4
-	gOLHqIomFA74yKuOQIcQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=b1O3GoFaJuwjzp+cTsY9y/v7v7IPuA0EHLI7nOwG7vo=; b=AIerjTHy96zkF1g0HZIVgDwoEZ
+	NlsZ3FAQGa8veRTAQEwm/Z7GPWZ0LCpdxXfVJ5APL0nhSSJRDTKyaBarPeTOB1NG2N2WI6psIhWgD
+	6Zckx2imTYW5iTQYXAtyUDd9faSn9txveBcvMgr+5QgnvoGVdDbctguzCj8lfJdhr6fjtx13EyaSX
+	5jCgEsb++q1Grn2iMCFf9lcQq38Ul4X6jTMl+YJET7utfBnsjn0KMqtAEm5FDE7Dh8Ljxz9LGM+FG
+	J3zJcGKoKoYlvyrmJS1BDeM+msC6dxhiJcEDlqUK2yz2e5GEVNDV8DkPsl8cBCzBvgPjYzYZV3h5l
+	tl3W6RKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lu9vK-00DJcO-Dl; Fri, 18 Jun 2021 08:32:22 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1lu9wm-00DKpl-PL; Fri, 18 Jun 2021 08:33:52 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lu9vH-00DJRS-1x
- for linux-riscv@lists.infradead.org; Fri, 18 Jun 2021 08:32:20 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-11-fKdMvnO2P96mfGP2YKpuQQ-1; Fri, 18 Jun 2021 09:32:15 +0100
-X-MC-Unique: fKdMvnO2P96mfGP2YKpuQQ-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Fri, 18 Jun
- 2021 09:32:14 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.018; Fri, 18 Jun 2021 09:32:14 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Matteo Croce' <mcroce@linux.microsoft.com>
-CC: Guo Ren <guoren@kernel.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, Emil
- Renner Berthing <kernel@esmil.dk>, "Akira Tsukamoto"
- <akira.tsukamoto@gmail.com>, Drew Fustini <drew@beagleboard.org>, Bin Meng
- <bmeng.cn@gmail.com>
-Subject: RE: [PATCH 1/3] riscv: optimized memcpy
-Thread-Topic: [PATCH 1/3] riscv: optimized memcpy
-Thread-Index: AQHXYuC4XkdMIImxVUmoQbZ37iIZIqsYtSAggABBV22AAHkiQA==
-Date: Fri, 18 Jun 2021 08:32:14 +0000
-Message-ID: <0fe90e43868f49b5953afe5abba41327@AcuMS.aculab.com>
-References: <20210615023812.50885-1-mcroce@linux.microsoft.com>
- <20210615023812.50885-2-mcroce@linux.microsoft.com>
- <CAJF2gTTreOvQYYXHBYxznB9+vMaASKg8vwA5mkqVo1T6=eVhzw@mail.gmail.com>
- <CAFnufp1OHdRd-tbB+Hi0UnXARtxGPdkK6MJktnaNCNt65d3Oew@mail.gmail.com>
- <f9b78350d9504e889813fc47df41f3fe@AcuMS.aculab.com>
- <CAFnufp1CA7g=poF3UpKjX7YYz569Wxc1YORSv+uhpU5847xuXw@mail.gmail.com>
- <CAFnufp2LmXxs6+aH7cjH=T4Ye_Yo6yvJpF93JcY+HtVvXB44oQ@mail.gmail.com>
- <CAFnufp0qjJG4fr=rcAHYrZp3CVfSs0TBuDN_eAOwOM-K804yow@mail.gmail.com>
-In-Reply-To: <CAFnufp0qjJG4fr=rcAHYrZp3CVfSs0TBuDN_eAOwOM-K804yow@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1lu9wj-00DKca-PA; Fri, 18 Jun 2021 08:33:51 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
+ 15I8CmQe029461; Fri, 18 Jun 2021 10:32:46 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ h=subject : to : cc :
+ references : from : message-id : date : mime-version : in-reply-to :
+ content-type : content-transfer-encoding; s=selector1;
+ bh=tobkvdP0XEB3rizTcrRI77boeUhPqCNPjzbxlCZFFxA=;
+ b=X5X8I/QkX33NRBreeXhB2ivJwbQuY5nuHgNW56Uf80eHr1kpxFzJX/wxy30SZc3yHrRO
+ gxoRyWbYCAvnGgSb8aL8RUYEo+Lnc2jiUKv9J3aqrgQvmbAepjonsNVPl4jb5fZwrxQS
+ WRaNuhHVAs8RVOMDVNmyvf3h5FnSW9OUwOn94pr5kQC/EUAJ0ZiFwOfJLOLLnrCAYFUs
+ BZIaGP163AH9zXouCLD1bZlXEQSjs+vGTyV3+iVAhFNuSFJte2f9xJJLgimn2EW1nPti
+ xLNiTJugAuzBGR39U+LRrbT90wL6HdH/11sqQflFkResdNC8fu2/znIYJiJtvorF2b9Q Kw== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx07-00178001.pphosted.com with ESMTP id 3984bm6b8f-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 18 Jun 2021 10:32:46 +0200
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id E23E2100034;
+ Fri, 18 Jun 2021 10:32:38 +0200 (CEST)
+Received: from Webmail-eu.st.com (sfhdag2node3.st.com [10.75.127.6])
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F05B921B501;
+ Fri, 18 Jun 2021 10:32:37 +0200 (CEST)
+Received: from lmecxl0889.lme.st.com (10.75.127.50) by SFHDAG2NODE3.st.com
+ (10.75.127.6) with Microsoft SMTP Server (TLS) id 15.0.1497.2; Fri, 18 Jun
+ 2021 10:32:35 +0200
+Subject: Re: [PATCH] dt-bindings: Drop redundant minItems/maxItems
+To: Rob Herring <robh@kernel.org>, <devicetree@vger.kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-ide@vger.kernel.org>,
+ <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-crypto@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <dmaengine@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
+ <linux-iio@vger.kernel.org>, <alsa-devel@alsa-project.org>,
+ <iommu@lists.linux-foundation.org>, <linux-media@vger.kernel.org>,
+ <linux-mmc@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-can@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+ <linux-phy@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+ <linux-pwm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-rtc@vger.kernel.org>,
+ <linux-serial@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+ <linux-watchdog@vger.kernel.org>, Jens Axboe <axboe@kernel.dk>,
+ Stephen Boyd <sboyd@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+ Vinod Koul <vkoul@kernel.org>, Bartosz Golaszewski
+ <bgolaszewski@baylibre.com>, Kamal Dasu <kdasu.kdev@gmail.com>, Jonathan
+ Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Joerg Roedel
+ <joro@8bytes.org>, Jassi Brar <jassisinghbrar@gmail.com>, Mauro Carvalho
+ Chehab <mchehab@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski@canonical.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Jakub Kicinski <kuba@kernel.org>,
+ Wolfgang Grandegger <wg@grandegger.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Kishon Vijay Abraham I <kishon@ti.com>,
+ Linus Walleij <linus.walleij@linaro.org>, =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?=
+ <u.kleine-koenig@pengutronix.de>, Lee Jones <lee.jones@linaro.org>, Ohad
+ Ben-Cohen <ohad@wizery.com>, Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alessandro Zummo <a.zummo@towertech.it>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Mark Brown <broonie@kernel.org>, Zhang Rui
+ <rui.zhang@intel.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Wim Van
+ Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
+References: <20210615191543.1043414-1-robh@kernel.org>
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Message-ID: <e61633b9-48d1-81bf-9ab2-59a7b64987f3@foss.st.com>
+Date: Fri, 18 Jun 2021 10:32:35 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
+In-Reply-To: <20210615191543.1043414-1-robh@kernel.org>
 Content-Language: en-US
+X-Originating-IP: [10.75.127.50]
+X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SFHDAG2NODE3.st.com
+ (10.75.127.6)
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.790
+ definitions=2021-06-17_17:2021-06-15,
+ 2021-06-17 signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210618_013219_419170_92B093B0 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20210618_013350_137798_741E9351 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +139,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Matteo Croce
-> Sent: 18 June 2021 02:05
-...
-> > > It's running at 1 GHz.
-> > >
-> > > I get 257 Mb/s with a memcpy, a bit more with a memset,
-> > > but I get 1200 Mb/s with a cyle which just reads memory with 64 bit addressing.
-> > >
-> >
-> > Err, I forget a mlock() before accessing the memory in userspace.
+Hello ROb,
 
-What is the mlock() for?
-The data for a quick loop won't get paged out.
-You want to test cache to cache copies, so the first loop
-will always be slow.
-After that each iteration should be much the same.
-I use code like:
-	for (;;) {
-		start = read_tsc();
-		do_test();
-		histogram[(read_tsc() - start) >> n]++
-	}
-(You need to exclude outliers)
-to get a distribution for the execution times.
-Tends to be pretty stable - even though different program
-runs can give different values!
-	
-> > The real speed here is:
-> >
-> > 8 bit read: 155.42 Mb/s
-> > 64 bit read: 277.29 Mb/s
-> > 8 bit write: 138.57 Mb/s
-> > 64 bit write: 239.21 Mb/s
-> >
+On 6/15/21 9:15 PM, Rob Herring wrote:
+> If a property has an 'items' list, then a 'minItems' or 'maxItems' with the
+> same size as the list is redundant and can be dropped. Note that is DT
+> schema specific behavior and not standard json-schema behavior. The tooling
+> will fixup the final schema adding any unspecified minItems/maxItems.
 > 
-> Anyway, thanks for the info on nio2 timings.
-> If you think that an unrolled loop would help, we can achieve the same in C.
-> I think we could code something similar to a Duff device (or with jump
-> labels) to unroll the loop but at the same time doing efficient small copies.
+> This condition is partially checked with the meta-schema already, but
+> only if both 'minItems' and 'maxItems' are equal to the 'items' length.
+> An improved meta-schema is pending.
+> 
+[...]
+>  .../devicetree/bindings/iio/adc/st,stm32-dfsdm-adc.yaml     | 2 --
+[...]
+>  .../devicetree/bindings/mailbox/st,stm32-ipcc.yaml          | 2 --
+[...]
+>  .../devicetree/bindings/remoteproc/st,stm32-rproc.yaml      | 2 --
+[...]
+>  Documentation/devicetree/bindings/sound/st,stm32-sai.yaml   | 3 ---
+Reviewed-by: Arnaud Pouliquen <arnaud.pouliquen@st.com>
 
-Unrolling has to be done with care.
-It tends to improve benchmarks, but the extra code displaces
-other code from the i-cache and slows down overall performance.
-So you need 'just enough' unrolling to avoid cpu stalls.
+Thanks,
+Arnaud
 
-On your system it looks like the memory/cache subsystem
-is the bottleneck for the tests you are doing.
-I'd really expect a 1GHz cpu to be able to read/write from
-its data cache every clock.
-So I'd expect transfer rates nearer 8000 MB/s, not 250 MB/s.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
