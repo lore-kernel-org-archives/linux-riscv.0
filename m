@@ -2,94 +2,83 @@ Return-Path: <SRS0=/fWr=LN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1F9EC2B9F4
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jun 2021 11:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67615C2B9F4
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jun 2021 15:43:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7076C600D1
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jun 2021 11:43:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7076C600D1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0F9B1610CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Jun 2021 15:43:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F9B1610CC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=lmJ7dapmshvqkN6AT6Wd4S0MDJi9s0S5BU2urm58N/c=; b=a9I7fj7r1lpWU5uoSAMb3aCZiE
-	76IzQiqXCJjiwvd66/HOzFTt6d4qD7I7cMyQSgBN2Wg/IB/+a78BoIHOlZBXbfltw4F3le49ZUJnj
-	poXb1b1lBeMCmQsjOz2BnVqJBDDm6ZOrpqB+dC42aVZQs3PywIuFpasGOfjCKTPyEmDOo3sl+neei
-	r5P35+pNvqIJQcYDNhdbqbgsH1lYfLtHPqt/NPdaHZAEXjrYfCn6T4JBwiGgBA/pkZaczjCmUQpjO
-	SnhyIKsXTlBN6PqQdYI0N7LvEGa3mpHunA3+11AXJeM0wJXtyjFVPReJaq/79svqLikLxRw8yRJio
-	bbjQ4BUw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tMuaad74WK9XDGSeY+t4GvXY5QvLeY0UZCx1mRAnAN4=; b=j2SfP/7Xs/4JQn
+	uXsvlYu88h+r27721E/FeA6YSU1YaT1X2EM4bHluan6GjbGYHmqFJGJjBRIO43wVZqTtUkpkr20j1
+	S+hXBV7PyTQrZcjsih42ctTCHwq2RPJZy7wxmaSu4SOdxp7e2UL5EVd0ptbvIviBMFoXOq26lu4wK
+	AUAEP3UJ9A293y6ZNlu+GXV3Y5wpyoLTS0i6r44HW6wzlU3sK5/f9w15SxydiQfm3v4nXzLeDbfFl
+	IDw8TH5GFydETbLH2Zln0fzNkuOxoyZZlB64sf+N/w2BHGNZ7aYcTrIgivtxGjaruoq1Ih4lTs4hK
+	AAmotwT//0lzVhB3WrZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1luZNc-00GuTA-C0; Sat, 19 Jun 2021 11:43:16 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1lud7f-00HDfm-J5; Sat, 19 Jun 2021 15:43:03 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1luZNZ-00GuSk-2r
- for linux-riscv@lists.infradead.org; Sat, 19 Jun 2021 11:43:14 +0000
-Received: by mail-pf1-x429.google.com with SMTP id a127so9819668pfa.10
- for <linux-riscv@lists.infradead.org>; Sat, 19 Jun 2021 04:43:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:references:from:message-id:date:user-agent:mime-version
- :in-reply-to:content-language:content-transfer-encoding;
- bh=OgpqTQ8TRc+evfamjKBsHRPlfB6iAzq8hyJY+nFPML4=;
- b=prFuScye+Kf39AgSxdKfHdVrPldWc7GbN49YMICgpbe6UvkMdZvX4dfPKyI6NMAg3X
- U88AY3CbsGqFET6OTfoCKwLy1NOF0ruLiLVcKFzUqeNwUfXuV2fUEscciFv6ZkLievX7
- L8K19EcBbfh5NVmBui30qHIR8CH2qx8No5v4OIJSHsZPjuQGodqZjE2yEToft3CIzR0A
- 3egG60yLsv+AwcaNExycHzFw9lE1iBJItU1IGeEaiGgZ2OhDlMDbNfT+Sfk23EwUr9jd
- yQHdumfCXhAdgws+Ycs0ijY2yD/356LnTCzn1693OGttfQLPfa8gX40LixYcn+HPWTKi
- PGAA==
+ id 1lud7c-00HDfO-U9
+ for linux-riscv@lists.infradead.org; Sat, 19 Jun 2021 15:43:02 +0000
+Received: by mail-pg1-x530.google.com with SMTP id v7so10411405pgl.2
+ for <linux-riscv@lists.infradead.org>; Sat, 19 Jun 2021 08:43:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=WLt1aypUZFf0uLl5W0e4Cbr/bbAeIOctJoAlWFkvXzE=;
+ b=gRPyoOYcDOFA7sfIDglnW7bevnFKWvhANMc+VSUN47ht8jV5axsiaZLo3NeGx74sT5
+ xO7oezOz14Ryt2FjqAcHB0y3hr0Lw5VORWn8EN1AcKdTju2hatrFenYVglOPvyu0sS7X
+ HKPqxcARMBYSqc6H+PpG6/TNGM0UAcbAoLPBkOVU6kBc3AL5vadpN0QOLxBkPNAwdcM5
+ bZeqOUE57M6dZ80NjlS5aqGNZWpRdYukOZ2i75zJV85TAP0W/zmL9XmS93BDnEcZxGK0
+ oGOr7hH6v9lDHTKmdiXpvAt6GNf/LSLPHCDiIn+/uAV55UNUXzl3v//8xqeyOOJuwLyu
+ EgWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=OgpqTQ8TRc+evfamjKBsHRPlfB6iAzq8hyJY+nFPML4=;
- b=uL2PX/qs6j4n82W0T1EaH/IpWxRc8wvchqhFI+BEL8CBkeH7EHaNNzs91QrZKaEbG8
- jE/fj5cnHtCk7ZBsgmH72cUUeNiNSzHOmdboqcg1C3EGtn6V1IQrZmRm6w1GJj3mPwGe
- N+6zPJFyFMqBfG+PhAPoDmRuhQ0B1ZgOeu3o1jsz76T0ol0PCosdcE3qXVosAFMo3pH5
- 8R7x45dEUp2Jzwp8kPUGcaMk22YqLjt3pW1U7ZGYXoDSXx2mZgXShpV8cKNQYV+3xUDz
- 32sNqU+IZgwPF5TVbWW6OrkSEBOmuktfiXqzGit2mgLAU6PeCEmGy7U5ODIciw+W4PyH
- tggQ==
-X-Gm-Message-State: AOAM533kM2+FVSy65mY5pAihtMsC07yfhyfLFRCoiXUBX1zxOuRAIodz
- vzbYQSdxkvioK0yFzRCO/hXpz3x6f3nsEA==
-X-Google-Smtp-Source: ABdhPJzX5hLzSu58HgsENCBFDIdHp/AgPEgHWVxVqjft49bZ5+oO01jOZTN9Fqc5OuYGQs/tuODEnA==
-X-Received: by 2002:a63:308:: with SMTP id 8mr10453545pgd.194.1624102991565;
- Sat, 19 Jun 2021 04:43:11 -0700 (PDT)
-Received: from [192.168.1.153] (87.19.178.217.shared.user.transix.jp.
- [217.178.19.87])
- by smtp.gmail.com with ESMTPSA id l201sm10806599pfd.183.2021.06.19.04.43.09
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 19 Jun 2021 04:43:11 -0700 (PDT)
-Subject: [PATCH 5/5] riscv: __asm_to/copy_from_user: Bulk copy when both src, 
- dst are aligned
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <5a5c07ac-8c11-79d3-46a3-a255d4148f76@gmail.com>
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Message-ID: <4637f0f2-2da9-1056-37bf-17c0861b6bff@gmail.com>
-Date: Sat, 19 Jun 2021 20:43:06 +0900
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <5a5c07ac-8c11-79d3-46a3-a255d4148f76@gmail.com>
-Content-Language: en-US
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=WLt1aypUZFf0uLl5W0e4Cbr/bbAeIOctJoAlWFkvXzE=;
+ b=GKOdIKAWcQ3I8yBUer11wo77/Ddj+3sx82JpaZ3Em0f2fBue4f2YN70QNBFtRViog1
+ SCexYrBFi1Vc8sJO+Y4JcPMvYX6bnxeP+H5CF/no+8EjXaLtd2qIpfvg2//LOQ4FDDeO
+ Ujbhi0TQJye5rZq9XJ8lmh0KDHqzQ0GLkQBEVhMHQhs5qNTBLO2OXrO0IlGvooYP0PT8
+ THic+ptpgJDhX0UztCFx6E9Q3e3BvK8Eg08/UOF2kNrNvF12ci6kS2r5SgD6f6TMpVgF
+ 65tACM6fjSd5+iZUUZsxPNAeqDGmbT8wC80uYwC4ENJK0vVrVovDxjvaGEjxRcCvvHlX
+ EfxA==
+X-Gm-Message-State: AOAM533OXRtTKaoSgeyA9S1gqQdsa2dQkToC/qf8sNZjM8H3SUTRGCaX
+ JVyyUrBACUA+MmBfwB9fAEe3XeQ8ISy8NY8n
+X-Google-Smtp-Source: ABdhPJxA5FqeHFXUxAEAo2KZ9LrRDtalHguaHloHVDHAy7YM08UWIt6KnFzONUH5FP+Bje9Tkgga3Q==
+X-Received: by 2002:a05:6a00:a1e:b029:2e2:89d8:5c87 with SMTP id
+ p30-20020a056a000a1eb02902e289d85c87mr11021738pfh.73.1624117379725; 
+ Sat, 19 Jun 2021 08:42:59 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 10sm8352494pfh.174.2021.06.19.08.42.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 19 Jun 2021 08:42:59 -0700 (PDT)
+Date: Sat, 19 Jun 2021 08:42:59 -0700 (PDT)
+X-Google-Original-Date: Sat, 19 Jun 2021 08:42:55 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.13-rc7
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-768bd541-d21a-4a3e-9c92-da08277ab3ba@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210619_044313_201196_9390E863 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210619_084301_067109_9A2F2ABC 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,73 +90,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 0ddd7eaffa644baa78e247bbd220ab7195b1eed6:
 
-In the lucky situation that the both source and destination address are on
-the aligned boundary, perform load and store with register size to copy the
-data.
+  riscv: Fix BUILTIN_DTB for sifive and microchip soc (2021-06-11 21:07:09 -0700)
 
-Without the unrolling, it will reduce the speed since the next store
-instruction for the same register using from the load will stall the
-pipeline.
+are available in the Git repository at:
 
-Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
----
- arch/riscv/lib/uaccess.S | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.13-rc7
 
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index e2e57551fc76..bceb0629e440 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -67,6 +67,39 @@ ENTRY(__asm_copy_from_user)
- 	bnez	a3, .Lshift_copy
- 
- .Lword_copy:
-+        /*
-+	 * Both src and dst are aligned, unrolled word copy
-+	 *
-+	 * a0 - start of aligned dst
-+	 * a1 - start of aligned src
-+	 * a3 - a1 & mask:(SZREG-1)
-+	 * t0 - end of aligned dst
-+	 */
-+	addi	t0, t0, -(8*SZREG-1) /* not to over run */
-+2:
-+	fixup REG_L   a4,        0(a1), 10f
-+	fixup REG_L   a5,    SZREG(a1), 10f
-+	fixup REG_L   a6,  2*SZREG(a1), 10f
-+	fixup REG_L   a7,  3*SZREG(a1), 10f
-+	fixup REG_L   t1,  4*SZREG(a1), 10f
-+	fixup REG_L   t2,  5*SZREG(a1), 10f
-+	fixup REG_L   t3,  6*SZREG(a1), 10f
-+	fixup REG_L   t4,  7*SZREG(a1), 10f
-+	fixup REG_S   a4,        0(a0), 10f
-+	fixup REG_S   a5,    SZREG(a0), 10f
-+	fixup REG_S   a6,  2*SZREG(a0), 10f
-+	fixup REG_S   a7,  3*SZREG(a0), 10f
-+	fixup REG_S   t1,  4*SZREG(a0), 10f
-+	fixup REG_S   t2,  5*SZREG(a0), 10f
-+	fixup REG_S   t3,  6*SZREG(a0), 10f
-+	fixup REG_S   t4,  7*SZREG(a0), 10f
-+	addi	a0, a0, 8*SZREG
-+	addi	a1, a1, 8*SZREG
-+	bltu	a0, t0, 2b
-+
-+	addi	t0, t0, 8*SZREG-1 /* revert to original value */
-+	j	.Lbyte_copy_tail
-+
- .Lshift_copy:
- 
- 	/*
--- 
-2.17.1
+for you to fetch changes up to 7ede12b01b59dc67bef2e2035297dd2da5bfe427:
 
+  riscv: dts: fu740: fix cache-controller interrupts (2021-06-19 00:11:53 -0700)
 
+----------------------------------------------------------------
+RISC-V Fixes for 5.13-rc7
+
+* A build fix to always build modules with the medany code model, as
+  the module loader doesn't support medlow.
+* A Kconfig warning fix for the SiFive errata.
+* A pair of fixes that for regressions to the recent memory layout
+  changes.
+* A fix for the FU740 device tree.
+
+----------------------------------------------------------------
+David Abdurachmanov (1):
+      riscv: dts: fu740: fix cache-controller interrupts
+
+Jisheng Zhang (2):
+      riscv: kasan: Fix MODULES_VADDR evaluation due to local variables' name
+      riscv: Ensure BPF_JIT_REGION_START aligned with PMD size
+
+Khem Raj (1):
+      riscv32: Use medany C model for modules
+
+Randy Dunlap (1):
+      riscv: sifive: fix Kconfig errata warning
+
+ Documentation/riscv/vm-layout.rst          |  4 ++--
+ arch/riscv/Kconfig.socs                    |  1 +
+ arch/riscv/Makefile                        |  2 +-
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi |  2 +-
+ arch/riscv/include/asm/pgtable.h           |  5 ++---
+ arch/riscv/mm/kasan_init.c                 | 10 +++++-----
+ 6 files changed, 12 insertions(+), 12 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
