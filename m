@@ -2,63 +2,91 @@ Return-Path: <SRS0=Y/ze=LO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FA58C48BDF
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jun 2021 10:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DF63C48BDF
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jun 2021 12:01:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DB5936102A
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jun 2021 10:03:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB5936102A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 941EA60FE5
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Jun 2021 12:01:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 941EA60FE5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywwvJwD7Wwudmhz71qcV5rnbItw1NfM83cTwwsflEs8=; b=tf2lhKEdIX6u+sX0Pn6rR8LhNC
-	XOBVvGSNwLvX6+pmKLKa5kFln//+W6ytRCuD0EtEqqzDBw0MVkvPfx0389cHK1bgr/EHc1ai59f9D
-	LaXU5yIY/nGPpoooF8gwedyv/dyNq5JhoSoTxG0HPaTFInOTipY/nw3pe67ojB7yZmF5eZOEo9m0H
-	iSXaUWEfa51wshba2bNoC1FdgkzwanoQhrKlmMyfI72ZG2/zetY4V4XU45QzlEl4sdAywHZhYAmS4
-	XEd4I0JTY8CKJom313uiiDWrtvlIW7vOw0GDjlvLZCjwp2OUpYQ/hS436/llElvO7wPiY16O9ZuHS
-	VV34giBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=feSfAzJ598Hv92wu8IKBIZAo6WYaf1yCKTAEd/sCexM=; b=4gxs9Y+lBCqUWs
+	AF66+xIr+yNLB2wwT+S+2p5INi7oAEqnAllwVpYMv3pYn9SDeZKRK+JQDWODxmlibSWwXVB5TYRs/
+	+QANS46zZjYnzqkuwm/WHC5Er/6e0aYHH1+xJJeGkpwXMD9XpHAMzSpSak/86aoZECUnuRROh9CKU
+	nIOQIiXfXN1InFPdgxSF2m2gs3xbM89R04LcgnCVHXzrnpdpe8QtvFhLYSqnVEu88YIPRklCyoQfL
+	3uBPLlNKMMiNbGkpMZVwzzV9idpM6zBl9TpGnb3Z/fTx0hNI7RHGuwB/9qw4jdv+aKo4cS6AUJuNq
+	2IANtMJxspjKzvQ9qvxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1luuI3-000oNV-Ns; Sun, 20 Jun 2021 10:02:55 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1luw8Y-000wlU-R9; Sun, 20 Jun 2021 12:01:14 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1luuHw-000oMX-3u
- for linux-riscv@lists.infradead.org; Sun, 20 Jun 2021 10:02:49 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.18])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1luuHn-0007q2-Mg; Sun, 20 Jun 2021 11:02:39 +0100
-Subject: Re: [PATCH v2 0/5] riscv: improving uaccess with logs from network
- bench
-To: Akira Tsukamoto <akira.tsukamoto@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <5a5c07ac-8c11-79d3-46a3-a255d4148f76@gmail.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <542310bc-840d-d5c9-a7b3-40f58504e7b5@codethink.co.uk>
-Date: Sun, 20 Jun 2021 11:02:39 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.0
+ id 1luw8V-000wks-9E
+ for linux-riscv@lists.infradead.org; Sun, 20 Jun 2021 12:01:12 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id
+ 13-20020a17090a08cdb029016eed209ca4so8577276pjn.1
+ for <linux-riscv@lists.infradead.org>; Sun, 20 Jun 2021 05:01:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6RZ0t+nLN/zgwczUvk1xBr9Y/vtc658j2K3feiC0sNo=;
+ b=tvDau5NQHMgBjXtOi7u5ORM6VPuv3odxHKJVjJrovv+8UHr8iEWC3eynFLeG3eMACG
+ YThJzEn5kf2v4OqYYn6pWDFqh7HRqFMRqI/465tgrgk6GHaBh4ui0NhMaUfzO8hlAXGx
+ 9fNwsPC9MhMKKs/R4nAk8nDAR99TARH39Kx9ZJyoeO+BoSUVBsoHzRRsKiLrE5jzznM0
+ Ud2XqNdMok1U9czZknWSXU9xVCfkCDWjbmlRS6ouIb/lm9CAv2BEGclVpFe8ni8mXvLt
+ EipLBxOkfb9bCKm0UbcGCl1TDg1JVQoSAldRcPfO0aAP5vqBzz5ApIaDlMG5713K8xTg
+ Rwgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6RZ0t+nLN/zgwczUvk1xBr9Y/vtc658j2K3feiC0sNo=;
+ b=K/pD1PKdsSn+IoypaypnxRPvAVbsoAme3Jd+MOlnTOqzEAK2btmxoSXkbRQ2UJXSOG
+ ZScBVlJ1GH20cHqv7+DoQfEyEIqLhZcy1Wc5yecu8DOxrN/tvWEuoi6s1Pyx4Mr/EWhO
+ UQRPkGcBweK17IkwinMOtrxwcS6tsjfmn0kcql7VFnZ3FJS27O+FooeoNT/1wO+K3D0w
+ VilyfUwFbrLTmTIf9rPsDojPxnQFif3VC7Zdtpplh3vOjBPL5njP9lmq5g5iPfcddFzD
+ VLXjt8zW2vMUAAKLxOa4OFB2UZH2IgpW4qs8ksz0bqCGSkwvUEKDWBPOjO7/BzsWf54P
+ whQw==
+X-Gm-Message-State: AOAM531Ey3Uwjhk8lhUt18PBDUvtLXGvJ9P2jnvJrX3rxIzPCXoQLhiV
+ e63Z5DwZd8T7MZm0BKJS9Vg=
+X-Google-Smtp-Source: ABdhPJwruwTRhScqZpEyG4BVAu40s7oKqSw2bbKGu2EIdq8sgtyU+3LoY1ROsiZ+/4RM9EZGZo+hXg==
+X-Received: by 2002:a17:90b:4b49:: with SMTP id
+ mi9mr20849030pjb.187.1624190469012; 
+ Sun, 20 Jun 2021 05:01:09 -0700 (PDT)
+Received: from localhost.localdomain.localdomain
+ (n058152081086.netvigator.com. [58.152.81.86])
+ by smtp.gmail.com with ESMTPSA id z18sm9899893pfq.196.2021.06.20.05.01.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 20 Jun 2021 05:01:08 -0700 (PDT)
+From: Jeff Xie <chongguiguzi@gmail.com>
+X-Google-Original-From: Jeff Xie <huan.xie@suse.com>
+To: oleg@redhat.com
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, caou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ chongguiguzi@gmail.com, huan.xie@suse.com
+Subject: [PATCH] riscv: ptrace: add argn syntax
+Date: Sun, 20 Jun 2021 20:01:51 +0800
+Message-Id: <20210620120151.17860-1-huan.xie@suse.com>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-In-Reply-To: <5a5c07ac-8c11-79d3-46a3-a255d4148f76@gmail.com>
-Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210620_030248_208799_28B51402 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20210620_050111_365992_C6B08471 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +98,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTkvMDYvMjAyMSAxMjoyMSwgQWtpcmEgVHN1a2Ftb3RvIHdyb3RlOgo+IE9wdGltaXppbmcg
-Y29weV90b191c2VyIGFuZCBjb3B5X2Zyb21fdXNlci4KPiAKPiBJIHJld3JvdGUgdGhlIGZ1bmN0
-aW9ucyBpbiB2MiwgaGVhdmlseSBpbmZsdWVuY2VkIGJ5IEdhcnJ5J3MgbWVtY3B5Cj4gZnVuY3Rp
-b24gWzFdLgo+IFRoZSBmdW5jdGlvbnMgbXVzdCBiZSB3cml0dGVuIGluIGFzc2VtYmxlciB0byBo
-YW5kbGUgcGFnZSBmYXVsdHMgbWFudWFsbHkKPiBpbnNpZGUgdGhlIGZ1bmN0aW9uLgo+IAo+IFdp
-dGggdGhlIGNoYW5nZXMsIGltcHJvdmVzIGluIHRoZSBwZXJjZW50YWdlIHVzYWdlIGFuZCBzb21l
-IHBlcmZvcm1hbmNlCj4gb2YgbmV0d29yayBzcGVlZCBpbiBVRFAgcGFja2V0cy4KPiBPbmx5IHBh
-dGNoaW5nIGNvcHlfdXNlci4gVXNpbmcgdGhlIG9yaWdpbmFsIG1lbWNweS4KPiAKPiBBbGwgcmVz
-dWx0cyBhcmUgZnJvbSB0aGUgc2FtZSBiYXNlIGtlcm5lbCwgc2FtZSByb290ZnMgYW5kIHNhbWUK
-PiBCZWFnbGVWIGJldGEgYm9hcmQuCgpJcyB0aGVyZSBhIGdpdCB0cmVlIGZvciB0aGVzZSB0byB0
-cnkgdGhlbSBvdXQ/Cgo+IENvbXBhcmlzb24gYnkgInBlcmYgdG9wIC1VZSB0YXNrLWNsb2NrIiB3
-aGlsZSBydW5uaW5nIGlwZXJmMy4KPiAKPiAtLS0gVENQIHJlY3YgLS0tCj4gIMKgKiBCZWZvcmUK
-PiAgwqAgNDAuNDAlwqAgW2tlcm5lbF3CoCBba10gbWVtY3B5Cj4gIMKgIDMzLjA5JcKgIFtrZXJu
-ZWxdwqAgW2tdIF9fYXNtX2NvcHlfdG9fdXNlcgo+ICDCoCogQWZ0ZXIKPiAgwqAgNTAuMzUlwqAg
-W2tlcm5lbF3CoCBba10gbWVtY3B5Cj4gIMKgIDEzLjc2JcKgIFtrZXJuZWxdwqAgW2tdIF9fYXNt
-X2NvcHlfdG9fdXNlcgo+IAo+IC0tLSBUQ1Agc2VuZCAtLS0KPiAgwqAqIEJlZm9yZQo+ICDCoCAx
-OS45NiXCoCBba2VybmVsXcKgIFtrXSBtZW1jcHkKPiAgwqDCoCA5Ljg0JcKgIFtrZXJuZWxdwqAg
-W2tdIF9fYXNtX2NvcHlfdG9fdXNlcgo+ICDCoCogQWZ0ZXIKPiAgwqAgMTQuMjclwqAgW2tlcm5l
-bF3CoCBba10gbWVtY3B5Cj4gIMKgwqAgNy4zNyXCoCBba2VybmVsXcKgIFtrXSBfX2FzbV9jb3B5
-X3RvX3VzZXIKPiAKPiAtLS0gVURQIHNlbmQgLS0tCj4gIMKgKiBCZWZvcmUKPiAgwqAgMjUuMTgl
-wqAgW2tlcm5lbF3CoCBba10gbWVtY3B5Cj4gIMKgIDIyLjUwJcKgIFtrZXJuZWxdwqAgW2tdIF9f
-YXNtX2NvcHlfdG9fdXNlcgo+ICDCoCogQWZ0ZXIKPiAgwqAgMjguOTAlwqAgW2tlcm5lbF3CoCBb
-a10gbWVtY3B5Cj4gIMKgwqAgOS40OSXCoCBba2VybmVsXcKgIFtrXSBfX2FzbV9jb3B5X3RvX3Vz
-ZXIKPiAKPiAtLS0gVURQIHJlY3YgLS0tCj4gIMKgKiBCZWZvcmUKPiAgwqAgNDQuNDUlwqAgW2tl
-cm5lbF3CoCBba10gbWVtY3B5Cj4gIMKgIDMxLjA0JcKgIFtrZXJuZWxdwqAgW2tdIF9fYXNtX2Nv
-cHlfdG9fdXNlcgo+ICDCoCogQWZ0ZXIKPiAgwqAgNTUuNjIlwqAgW2tlcm5lbF3CoCBba10gbWVt
-Y3B5Cj4gIMKgIDExLjIyJcKgIFtrZXJuZWxdwqAgW2tdIF9fYXNtX2NvcHlfdG9fdXNlcgoKV2hh
-dCdzIHRoZSBtZW1jcHkgZmlndXJlIGluIHRoZSBhYm92ZT8KQ291bGQgeW91IGV4cGxhaW4gdGhl
-IGZpZ3VyZXMgcGxlYXNlPwoKPiBQcm9jZXNzaW5nIG5ldHdvcmsgcGFja2V0cyByZXF1aXJlIGEg
-bG90IG9mIHVuYWxpZ25lZCBhY2Nlc3MgZm9yIHRoZSBwYWNrZXQKPiBoZWFkZXIsIHdoaWNoIGlz
-IG5vdCBhYmxlIHRvIGNoYW5nZSB0aGUgZGVzaWduIG9mIHRoZSBoZWFkZXIgZm9ybWF0IHRvIGJl
-Cj4gYWxpZ25lZC4KCklzbid0IHRoZXJlIGFuIG9wdGlvbiB0byBhbGxvdyBwYWRkaW5nIG9mIG5l
-dHdvcmsgcGFja2V0cwppbiB0aGUgc2tidWZmIHRvIG1ha2UgdGhlIGZpZWxkcyBhbGlnbmVkIGZv
-ciBhcmNoaXRlY3R1cmVzCndoaWNoIGRvIG5vdCBoYXZlIGVmZmljaWVudCB1bmFsaWduZWQgbG9h
-ZHMgKGxvb2tpbmcgYXQgeW91CmFybTMyKS4gSGFzIHRoaXMgYmVlbiBsb29rZWQgYXQ/Cgo+IEFu
-ZCB1c2VyIGFwcGxpY2F0aW9ucyBjYWxsIHN5c3RlbSBjYWxscyB3aXRoIGEgbGFyZ2UgYnVmZmVy
-IGZvciBzZW5kL3JlY2YoKQo+IGFuZCBzZW5kdG8vcmVjdmZyb20oKSB0byByZXBlYXQgbGVzcyBm
-dW5jdGlvbiBjYWxscyBmb3IgdGhlIG9wdGltaXphdGlvbi4KPiAKPiB2MSAtPiB2MjoKPiAtIEFk
-ZGVkIHNoaWZ0IGNvcHkKPiAtIFNlcGFyYXRlZCBwYXRjaGVzIGZvciByZWFkYWJpbGl0eSBvZiBj
-aGFuZ2VzIGluIGFzc2VtYmxlcgo+IC0gVXNpbmcgcGVyZiByZXN1bHRzCj4gCj4gWzFdIGh0dHBz
-Oi8vbGttbC5vcmcvbGttbC8yMDIxLzIvMTYvNzc4Cj4gCj4gQWtpcmEgVHN1a2Ftb3RvICg1KToK
-PiAgwqAgcmlzY3Y6IF9fYXNtX3RvL2NvcHlfZnJvbV91c2VyOiBkZWxldGUgZXhpc3RpbmcgY29k
-ZQo+ICDCoCByaXNjdjogX19hc21fdG8vY29weV9mcm9tX3VzZXI6IEFkZGluZyBieXRlIGNvcHkg
-Zmlyc3QKPiAgwqAgcmlzY3Y6IF9fYXNtX3RvL2NvcHlfZnJvbV91c2VyOiBDb3B5IHVudGlsIGRz
-dCBpcyBhbGlnbmVkIGFkZHJlc3MKPiAgwqAgcmlzY3Y6IF9fYXNtX3RvL2NvcHlfZnJvbV91c2Vy
-OiBCdWxrIGNvcHkgd2hpbGUgc2hpZnRpbmcgbWlzYWxpZ25lZAo+ICDCoMKgwqAgZGF0YQo+ICDC
-oCByaXNjdjogX19hc21fdG8vY29weV9mcm9tX3VzZXI6IEJ1bGsgY29weSB3aGVuIGJvdGggc3Jj
-IGRzdCBhcmUKPiAgwqDCoMKgIGFsaWduZWQKPiAKPiAgwqBhcmNoL3Jpc2N2L2xpYi91YWNjZXNz
-LlMgfCAxODEgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCj4gIMKgMSBm
-aWxlIGNoYW5nZWQsIDE0NiBpbnNlcnRpb25zKCspLCAzNSBkZWxldGlvbnMoLSkKCkknbSBjb25j
-ZXJuZWQgdGhhdCBkZWxldGUgYW5kIHRoZW4gcmUtYWRkIGlzIGVpdGhlciBnb2luZyB0byBtYWtl
-CnRoZSBzZXJpZXMgdW4tYmlzZWN0YWJsZSBvciBsZWF2ZSBhIHBvaW50IHdoZXJlIHRoZSBrZXJu
-ZWwgaXMgdmVyeQpicm9rZW4/CgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5r
-LmNvLnVrLwpTZW5pb3IgRW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoK
-aHR0cHM6Ly93d3cuY29kZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This enables ftrace kprobe events to access kernel function
+arguments via $argN syntax.
+
+Signed-off-by: Jeff Xie <huan.xie@suse.com>
+---
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/ptrace.h | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 32 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 18ec0f9bb8d5..f9246a7d0a31 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -88,6 +88,7 @@ config RISCV
+ 	select HAVE_PERF_REGS
+ 	select HAVE_PERF_USER_STACK_DUMP
+ 	select HAVE_REGS_AND_STACK_ACCESS_API
++	select HAVE_FUNCTION_ARG_ACCESS_API
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_SYSCALL_TRACEPOINTS
+ 	select IRQ_DOMAIN
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index 09ad4e923510..fdb59ee405ee 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -141,6 +141,37 @@ static inline unsigned long regs_get_register(struct pt_regs *regs,
+ 
+ 	return *(unsigned long *)((unsigned long)regs + offset);
+ }
++
++/**
++ * regs_get_kernel_argument() - get Nth function argument in kernel
++ * @regs:       pt_regs of that context
++ * @n:          function argument number (start from 0)
++ *
++ * regs_get_argument() returns @n th argument of the function call.
++ *
++ * Note you can get the parameter correctly if the function has no
++ * more than eight arguments.
++ */
++static inline unsigned long regs_get_kernel_argument(struct pt_regs *regs,
++						unsigned int n)
++{
++#define NR_REG_ARGUMENTS 8
++	static const unsigned int argument_offs[] = {
++		offsetof(struct pt_regs, a0),
++		offsetof(struct pt_regs, a1),
++		offsetof(struct pt_regs, a2),
++		offsetof(struct pt_regs, a3),
++		offsetof(struct pt_regs, a4),
++		offsetof(struct pt_regs, a5),
++		offsetof(struct pt_regs, a6),
++		offsetof(struct pt_regs, a7),
++	};
++
++	if (n < NR_REG_ARGUMENTS)
++		return regs_get_register(regs, argument_offs[n]);
++	return 0;
++}
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_PTRACE_H */
+-- 
+2.26.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
