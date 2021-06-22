@@ -2,19 +2,19 @@ Return-Path: <SRS0=VH9+=LQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 591F9C2B9F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 04:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B615C2B9F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 04:49:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1E3C36113D
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 04:47:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1E3C36113D
+	by mail.kernel.org (Postfix) with ESMTPS id 004FD601FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 04:49:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 004FD601FE
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9LSKqe9dP8zD3H0dHPyGMRFKOPD5veRBl5ulTD1mMQQ=; b=Exe7hUWyZqAowm
-	CO5KCUPOayfZa5WKyfnIGaOdb4rXD1KsWMhyAWW5ovduwBCkiJidfa7Xp3Tmm60YPxlFkN5hiXOVi
-	yFauQ9Gf7S5rv6ryhoJUJNi9UUIKQPWuEIB+Qz0gHhH2axRAZ/hYjH5EQRIH2gKz0V+phmofz75Nv
-	POTfUboIkeTCkXBfqTz2uO17WQsJboZTCYjT7ug0yk3bu+fZTY2xMXnEwnQ3iVA+/uo3iXzD5FCgz
-	sD927ZNn3tzQop/IYKLmtDsojeRjLMXeV1LqOhq7X+q9dNK4wc2SQDzi9ybif0RWuqj2CW06fDMb4
-	/xj9Ba96KDMXYGENwJkw==;
+	List-Owner; bh=vPUC70c74TfIdz1AIyleVR1zdfYAx0guXCiLok6iHrQ=; b=CK60nGZ4403b7S
+	hze5JrJm5nT5rOwZ+o4i/+RLxjwUtOlIFtU4UmdeVwmh0sHsAZeBfKG/dWCJW6Kz4QU7pRuIBwzpc
+	EJbCR9TJHb8QuZjiQ0d7tbIJs8JNSgmJfYSMLmD1hiN35Nqr5coKWaOLelRL8mK/qHw735OJjh/Nk
+	sNfxBpnCtWShGeZ9v7kxyTnZ5Aza5jXuVr0e7NYNNHCSQ8/EY6DbyVexcvuRIIJRhub8rZmANs3lk
+	5CHM+vluviNiocilOY+8dgMfqzFxo16szikOitRDymIU9oWx4x6/98t0p6eBDypMj+RWjNBAfgaV8
+	Om5QGoqSB6G1XYUvpHSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lvYJT-005e8v-GO; Tue, 22 Jun 2021 04:47:03 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1lvYLm-005eVa-6u; Tue, 22 Jun 2021 04:49:26 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lvYJQ-005e88-BW
- for linux-riscv@lists.infradead.org; Tue, 22 Jun 2021 04:47:01 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id j2so11440334wrs.12
- for <linux-riscv@lists.infradead.org>; Mon, 21 Jun 2021 21:46:59 -0700 (PDT)
+ id 1lvYLk-005eUi-0g
+ for linux-riscv@lists.infradead.org; Tue, 22 Jun 2021 04:49:25 +0000
+Received: by mail-wr1-x430.google.com with SMTP id n7so22004346wri.3
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Jun 2021 21:49:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=09Mfm1QM7/L+YWTPoynwJ162O0xIkLcgOUTr2j77MJE=;
- b=eciAZMzp8OuK9xwqbf2bWae+j4AomXEqEH8ws5wJB4X2J8QHdnN8n+ttl0n3Zhc2w5
- aJawqO1XzErTC2bTG7IHEiJ43uOodfx86Auc9W5gLEVzj5zTZ+gxHjV/43XeP+25Gcqq
- qSxDMzos4RE1lKIrK8numyVqt5mUG0gKX/4i2w1nYpV8MhMz49v3A7qY9YBAnqADmA56
- et3XJbq3RBHQoJOjJSibanCuwaul4i5U0uo8pdit5/7wEoM3IEuTNveYwBp/4XQK8TRR
- PgJLLnkH6wE1rHqFLRrHCMUBjPsj05eiAksJ4AZsMT86tx66KAuJwT5bwwYcleyg3VOM
- mKxw==
+ :cc; bh=LZDUAnqEXjRVZWh1a1xJ1KodfKynosGX+MGHfcnE+kU=;
+ b=bH4f1th7fB3/XSYd6w/iVmgPpxVgsJ3aJmbLqWedYwp9i75zoJ/imdZCICERT9g3fF
+ YULFqKNz6F/epgqr5mdJIh8/upyxVLtWGUfYbRCK/VCu95PPVKJPY4c6VsKfGmpqKBSt
+ fln5qvXh9p+ilYo7R3rYscL4zn+fiFxs6ol9N82k4JbR0NeYyqMJ573O18CNCM+YGeoN
+ xADdUH/x4BzN63KiLgP5XXLurHCsRxXwOPZEwIUXZeyVOQUewlaS2srVZxhuWXsz/28o
+ ENV3xIu69pdHqngak3AEYJSHE07V/kUTq+c8mhLcDhI25noNGdNYh/sJLGE9WQeawOhQ
+ WU7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=09Mfm1QM7/L+YWTPoynwJ162O0xIkLcgOUTr2j77MJE=;
- b=UxRSF/v+87j/3TmlG4hHxYbOV+Ly1KzLOLQNPobad6LdYaP86bgsB9Mnx5wlWOrJQI
- mY/N1emJo4BfcKKW1XA3VKw5pSMa1UNYyJr/ZiWeOK3bK4/zweL3+CzQzzNnz/5y8Rnp
- XxjHnxKmmMfUXej/Svgj/8zpBncrpxWrA//5feoDrToYm0iD30RX0ujDCSf2raDQwNM7
- C+X5LDsXag4S/bmxpQGVqAvTfKHN6GoeUPva9bRHnSP0cgqQE433rBpS6dCdBuepbi/l
- vrOJYuG/uQZHVE/FaGU9HMKzrlRXEnssDU1kqABco6cdMf5SbHL7CdDLkEfQXv9JWxnX
- hloA==
-X-Gm-Message-State: AOAM532zIm4YPuB0V7DV8TiXixk8sJcPMqbfGB7arRnrCpXHS4vDBN/0
- o4F2pFOpCMYCJwcuv+Cry96vASG5i4JhzKJ/YfvsEg==
-X-Google-Smtp-Source: ABdhPJz878r0AELnDsJ1BHAGAJffJ+yGk/L69nROJ/0UgWAZrPJmL9WkN4lZ/FB3rLHeilxbAHF6R0vAz9+VXZnW4Ms=
-X-Received: by 2002:a5d:4a49:: with SMTP id v9mr2220857wrs.128.1624337217873; 
- Mon, 21 Jun 2021 21:46:57 -0700 (PDT)
+ bh=LZDUAnqEXjRVZWh1a1xJ1KodfKynosGX+MGHfcnE+kU=;
+ b=lq18MZ4DSzISdULwFp0GFzPD6e7Ma3B4MbEueGOIjACGpJVPy/5Ctv5zITEgCMp5bo
+ 6k2+RKmycd8pzJ5I3EHGIwnKMdEKIb+vSaxbfw2HKi/YHXcwO1sT5tHkqKrnguGpglZ6
+ tQzqmMP+k4eql7OKOI1I06LOK0z5czlN+eK04x/T5Cm6Qh9t2AwdxAL+Yv/+pwMphz8V
+ oo/64zcXFO5ZYTHhKefxyJbTEIY2NSq+mNUXZEZsEd/XBF8aqmOwEwetnQDMDHp2+yyr
+ GjEPjgDJrdcBEUziBJI1HXS2OpwRdiHczDklY/TNSthcf2HuMmn6kLE+QjNA9+uA53or
+ RgNw==
+X-Gm-Message-State: AOAM5324Bv3qHBTHnJrbZYWtWg+gD73iRWNaVmIabHihIG48or4YHWHV
+ Ce9jDPdjcMkvy0fm0ahhWR8lOL6XTPsBT3/DFso5VA==
+X-Google-Smtp-Source: ABdhPJwH28VdMClZV5cXRWjOAW5ajVp3FB9zxBUuvaVaxTUHQtU/5jIhNmSJ1wgDKuI5HeKx8JSfTJqVrJOC3H7w8IY=
+X-Received: by 2002:a5d:6e81:: with SMTP id k1mr2226740wrz.144.1624337362425; 
+ Mon, 21 Jun 2021 21:49:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210609121322.3058-1-anup.patel@wdc.com>
- <20210609121322.3058-2-anup.patel@wdc.com>
-In-Reply-To: <20210609121322.3058-2-anup.patel@wdc.com>
+References: <20210610052221.39958-1-anup.patel@wdc.com>
+In-Reply-To: <20210610052221.39958-1-anup.patel@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 22 Jun 2021 10:16:46 +0530
-Message-ID: <CAAhSdy0=XANwm4Vr5qbpvJdqwYNCfDRNTDf3cyAOGp-NuqF_Ag@mail.gmail.com>
-Subject: Re: [PATCH v7 1/1] RISC-V: Use SBI SRST extension when available
-To: Anup Patel <anup.patel@wdc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+Date: Tue, 22 Jun 2021 10:19:11 +0530
+Message-ID: <CAAhSdy00KAqg37PCAGwNXt_2HTpxGY68yTPNHDEbrSwdiLa2jw@mail.gmail.com>
+Subject: Re: [PATCH v7 0/8] RISC-V CPU Idle Support
+To: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh+dt@kernel.org>, 
+ Sandeep Tripathy <milun.tripathy@gmail.com>, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
+ DTML <devicetree@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ "open list:THERMAL" <linux-pm@vger.kernel.org>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210621_214700_482656_13FB7133 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20210621_214924_137342_8A13CF1C 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,143 +106,120 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Palmer,
 
-On Wed, Jun 9, 2021 at 5:43 PM Anup Patel <anup.patel@wdc.com> wrote:
+On Thu, Jun 10, 2021 at 10:52 AM Anup Patel <anup.patel@wdc.com> wrote:
 >
-> The SBI SRST extension provides a standard way to poweroff and
-> reboot the system irrespective to whether Linux RISC-V S-mode
-> is running natively (HS-mode) or inside Guest/VM (VS-mode).
+> This series adds RISC-V CPU Idle support using SBI HSM suspend function.
+> The RISC-V SBI CPU idle driver added by this series is highly inspired
+> from the ARM PSCI CPU idle driver.
 >
-> The SBI SRST extension is available in the SBI v0.3 specification.
-> (Refer, https://github.com/riscv/riscv-sbi-doc/releases/tag/v0.3.0-rc1)
+> At high-level, this series includes the following changes:
+> 1) Preparatory arch/riscv patches (Patches 1 to 3)
+> 2) Defines for RISC-V SBI HSM suspend (Patch 4)
+> 3) Preparatory patch to share code between RISC-V SBI CPU idle driver
+>    and ARM PSCI CPU idle driver (Patch 5)
+> 4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
+>
+> These patches can be found in riscv_sbi_hsm_suspend_v7 branch at
+> https://github.com/avpatel/linux
+>
+> Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
+> support in all above projects (RISC-V SBI specification, OpenSBI, and
+> Linux RISC-V).
+>
+> Changes since v6:
+>  - Fixed error reported by "make DT_CHECKER_FLAGS=-m dt_binding_check"
+>
+> Changes since v5:
+>  - Rebased on Linux-5.13-rc5
+>  - Removed unnecessary exports from PATCH5
+>  - Removed stray ";" from PATCH5
+>  - Moved sbi_cpuidle_pd_power_off() under "#ifdef CONFIG_DT_IDLE_GENPD"
+>    in PATCH6
+>
+> Changes since v4:
+>  - Rebased on Linux-5.13-rc2
+>  - Renamed all dt_idle_genpd functions to have "dt_idle_" prefix
+>  - Added MAINTAINERS file entry for dt_idle_genpd
+>
+> Changes since v3:
+>  - Rebased on Linux-5.13-rc2
+>  - Fixed __cpu_resume_enter() which was broken due to XIP kernel support
+>  - Removed "struct dt_idle_genpd_ops" abstraction which simplifies code
+>    sharing between ARM PSCI and RISC-V SBI drivers in PATCH5
+>
+> Changes since v2:
+>  - Rebased on Linux-5.12-rc3
+>  - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
+>    idle states
+>  - Added "additionalProperties = false" for both idle-states node and
+>    child nodes in PATCH7
+>
+> Changes since v1:
+>  - Fixex minor typo in PATCH1
+>  - Use just "idle-states" as DT node name for CPU idle states
+>  - Added documentation for "cpu-idle-states" DT property in
+>    devicetree/bindings/riscv/cpus.yaml
+>  - Added documentation for "riscv,sbi-suspend-param" DT property in
+>    devicetree/bindings/riscv/idle-states.yaml
+>
+> Anup Patel (8):
+>   RISC-V: Enable CPU_IDLE drivers
+>   RISC-V: Rename relocate() and make it global
+>   RISC-V: Add arch functions for non-retentive suspend entry/exit
+>   RISC-V: Add SBI HSM suspend related defines
+>   cpuidle: Factor-out power domain related code from PSCI domain driver
+>   cpuidle: Add RISC-V SBI CPU idle driver
+>   dt-bindings: Add common bindings for ARM and RISC-V idle states
+>   RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
 
-Can you please consider this patch for Linux-5.14-rc1 ?
+Can you please review this series ?
 
-The SBI v0.3 spec is already frozen and this patch has been
-floating on LKML for quite a few months now.
+It would be nice to consider this series for Linux-5.14.
 
 Regards,
 Anup
 
 >
-> This patch extends Linux RISC-V SBI implementation to detect
-> and use SBI SRST extension.
+>  .../bindings/arm/msm/qcom,idle-state.txt      |   2 +-
+>  .../devicetree/bindings/arm/psci.yaml         |   2 +-
+>  .../bindings/{arm => cpu}/idle-states.yaml    | 228 ++++++-
+>  .../devicetree/bindings/riscv/cpus.yaml       |   6 +
+>  MAINTAINERS                                   |  14 +
+>  arch/riscv/Kconfig                            |   7 +
+>  arch/riscv/Kconfig.socs                       |   3 +
+>  arch/riscv/configs/defconfig                  |  13 +-
+>  arch/riscv/configs/rv32_defconfig             |   6 +-
+>  arch/riscv/include/asm/asm.h                  |  17 +
+>  arch/riscv/include/asm/cpuidle.h              |  24 +
+>  arch/riscv/include/asm/sbi.h                  |  27 +-
+>  arch/riscv/include/asm/suspend.h              |  35 +
+>  arch/riscv/kernel/Makefile                    |   2 +
+>  arch/riscv/kernel/asm-offsets.c               |   3 +
+>  arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
+>  arch/riscv/kernel/head.S                      |  18 +-
+>  arch/riscv/kernel/process.c                   |   3 +-
+>  arch/riscv/kernel/suspend.c                   |  86 +++
+>  arch/riscv/kernel/suspend_entry.S             | 123 ++++
+>  drivers/cpuidle/Kconfig                       |   9 +
+>  drivers/cpuidle/Kconfig.arm                   |   1 +
+>  drivers/cpuidle/Kconfig.riscv                 |  15 +
+>  drivers/cpuidle/Makefile                      |   5 +
+>  drivers/cpuidle/cpuidle-psci-domain.c         | 138 +---
+>  drivers/cpuidle/cpuidle-psci.h                |  15 +-
+>  drivers/cpuidle/cpuidle-sbi.c                 | 626 ++++++++++++++++++
+>  drivers/cpuidle/dt_idle_genpd.c               | 177 +++++
+>  drivers/cpuidle/dt_idle_genpd.h               |  50 ++
+>  29 files changed, 1472 insertions(+), 185 deletions(-)
+>  rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
+>  create mode 100644 arch/riscv/include/asm/cpuidle.h
+>  create mode 100644 arch/riscv/include/asm/suspend.h
+>  create mode 100644 arch/riscv/kernel/suspend.c
+>  create mode 100644 arch/riscv/kernel/suspend_entry.S
+>  create mode 100644 drivers/cpuidle/Kconfig.riscv
+>  create mode 100644 drivers/cpuidle/cpuidle-sbi.c
+>  create mode 100644 drivers/cpuidle/dt_idle_genpd.c
+>  create mode 100644 drivers/cpuidle/dt_idle_genpd.h
 >
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> Reviewed-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/include/asm/sbi.h | 24 ++++++++++++++++++++++++
->  arch/riscv/kernel/sbi.c      | 35 +++++++++++++++++++++++++++++++++++
->  2 files changed, 59 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 0d42693cb65e..289621da4a2a 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -27,6 +27,7 @@ enum sbi_ext_id {
->         SBI_EXT_IPI = 0x735049,
->         SBI_EXT_RFENCE = 0x52464E43,
->         SBI_EXT_HSM = 0x48534D,
-> +       SBI_EXT_SRST = 0x53525354,
->  };
->
->  enum sbi_ext_base_fid {
-> @@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
->         SBI_HSM_HART_STATUS_STOP_PENDING,
->  };
->
-> +enum sbi_ext_srst_fid {
-> +       SBI_EXT_SRST_RESET = 0,
-> +};
-> +
-> +enum sbi_srst_reset_type {
-> +       SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
-> +       SBI_SRST_RESET_TYPE_COLD_REBOOT,
-> +       SBI_SRST_RESET_TYPE_WARM_REBOOT,
-> +};
-> +
-> +enum sbi_srst_reset_reason {
-> +       SBI_SRST_RESET_REASON_NONE = 0,
-> +       SBI_SRST_RESET_REASON_SYS_FAILURE,
-> +};
-> +
->  #define SBI_SPEC_VERSION_DEFAULT       0x1
->  #define SBI_SPEC_VERSION_MAJOR_SHIFT   24
->  #define SBI_SPEC_VERSION_MAJOR_MASK    0x7f
-> @@ -148,6 +164,14 @@ static inline unsigned long sbi_minor_version(void)
->         return sbi_spec_version & SBI_SPEC_VERSION_MINOR_MASK;
->  }
->
-> +/* Make SBI version */
-> +static inline unsigned long sbi_mk_version(unsigned long major,
-> +                                           unsigned long minor)
-> +{
-> +       return ((major & SBI_SPEC_VERSION_MAJOR_MASK) <<
-> +               SBI_SPEC_VERSION_MAJOR_SHIFT) | minor;
-> +}
-> +
->  int sbi_err_map_linux_errno(int err);
->  #else /* CONFIG_RISCV_SBI */
->  static inline int sbi_remote_fence_i(const unsigned long *hart_mask) { return -1; }
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 7402a417f38e..9a84f0cb5175 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -7,6 +7,7 @@
->
->  #include <linux/init.h>
->  #include <linux/pm.h>
-> +#include <linux/reboot.h>
->  #include <asm/sbi.h>
->  #include <asm/smp.h>
->
-> @@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
->  }
->  EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
->
-> +static void sbi_srst_reset(unsigned long type, unsigned long reason)
-> +{
-> +       sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
-> +                 0, 0, 0, 0);
-> +       pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
-> +               __func__, type, reason);
-> +}
-> +
-> +static int sbi_srst_reboot(struct notifier_block *this,
-> +                          unsigned long mode, void *cmd)
-> +{
-> +       sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-> +                      SBI_SRST_RESET_TYPE_WARM_REBOOT :
-> +                      SBI_SRST_RESET_TYPE_COLD_REBOOT,
-> +                      SBI_SRST_RESET_REASON_NONE);
-> +       return NOTIFY_DONE;
-> +}
-> +
-> +static struct notifier_block sbi_srst_reboot_nb;
-> +
-> +static void sbi_srst_power_off(void)
-> +{
-> +       sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
-> +                      SBI_SRST_RESET_REASON_NONE);
-> +}
-> +
->  /**
->   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
->   * @extid: The extension ID to be probed.
-> @@ -608,6 +635,14 @@ void __init sbi_init(void)
->                 } else {
->                         __sbi_rfence    = __sbi_rfence_v01;
->                 }
-> +               if ((sbi_spec_version >= sbi_mk_version(0, 3)) &&
-> +                   (sbi_probe_extension(SBI_EXT_SRST) > 0)) {
-> +                       pr_info("SBI SRST extension detected\n");
-> +                       pm_power_off = sbi_srst_power_off;
-> +                       sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-> +                       sbi_srst_reboot_nb.priority = 192;
-> +                       register_restart_handler(&sbi_srst_reboot_nb);
-> +               }
->         } else {
->                 __sbi_set_timer = __sbi_set_timer_v01;
->                 __sbi_send_ipi  = __sbi_send_ipi_v01;
 > --
 > 2.25.1
 >
