@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83440C2B9F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 09:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D3EDC2B9F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 09:44:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4608A601FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 09:39:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4608A601FE
+	by mail.kernel.org (Postfix) with ESMTPS id 0A7E561003
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 09:44:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A7E561003
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,53 +23,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xzb65VPazQVZ9LmsmnEu2EAwOUmm1gFTFAG+VeiBuE0=; b=L6Sg9E6JR4YuiJ
-	9W7BNZ6ye0dHkt6dZFDwnueWbWRf/Nrbq1L/KCMcSLH9CZqoCpsYjkC1vDSyxKR2ITtaqI7OMyTvS
-	rQK2O5t9EhaC3tE3OKjnnra/eadrAZggu3t01zNFCvS9KI/NmmUCraStm9e/crFe2uXDjGdELEIEq
-	aI4jigmlmxmyisDsm8aWEzWD4OBfE0gUghypV65/wGxhdVeHQfjbn6xpTVFWdpkA/PsebeYPZmS1R
-	zM4XM+JNiq9wdyDzj8jAP//iS8Wcut9sE3URepGDdaAefbvSzT5WIhH/9fNMhdruOrAyn62BD0Grz
-	l/s/bG6YYjbjzHoP5rVQ==;
+	List-Owner; bh=xzb65VPazQVZ9LmsmnEu2EAwOUmm1gFTFAG+VeiBuE0=; b=iaqDa2a4hquvWy
+	U8Qf6W5LvWa+7fhmrCnOXQd6uxH6QuMiLxVPbr+TMa+DJGkqlxHQHk/hpyDxhS3pHsEGGP05Pivgh
+	jKwa/xvClm2Yc91F/iq4RxdkgkhkFgaD5fOjJrog680icpjfCQbPOIx59IenYq//6jj665jNtvP6I
+	nQO6KgpBVxDzZWOoiA7LhIVMkJbTliptd3m6PncOv9XSZNQKBYy8F6tq69l5jqMNiDo4svtnU9m/K
+	9T4iVXCJhoIGgbkMmwSnlYd6crCSm0rrTFLlywXeMDc6S9BZbzgW10q5r/EoTznW8tjVlVuaDv52F
+	mnFgO4aygpXo7u/fiSMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lvcs4-006TPO-5u; Tue, 22 Jun 2021 09:39:04 +0000
-Received: from mga09.intel.com ([134.134.136.24])
+	id 1lvcwa-006UYS-Kg; Tue, 22 Jun 2021 09:43:44 +0000
+Received: from mga11.intel.com ([192.55.52.93])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lvcrp-006TLd-87; Tue, 22 Jun 2021 09:38:52 +0000
-IronPort-SDR: LpcK+MFjKVDBqMkuuZJmuE9dx42ha6A0fARAKuJPFjIfFCGu9sEemDNWVOmPiuTlUFc/hPTRaV
- yEOtgvgBMZXg==
-X-IronPort-AV: E=McAfee;i="6200,9189,10022"; a="206964820"
-X-IronPort-AV: E=Sophos;i="5.83,291,1616482800"; d="scan'208";a="206964820"
+ id 1lvcwH-006URz-Er; Tue, 22 Jun 2021 09:43:28 +0000
+IronPort-SDR: a9YbxE3GoMVfPmm1U9fISUT0zu1gwlWLoylGWsnO2Z4xxnVypCZW0qQyYnaV1lTdTkR8L+UMbI
+ Ain76bKrTjbA==
+X-IronPort-AV: E=McAfee;i="6200,9189,10022"; a="204013052"
+X-IronPort-AV: E=Sophos;i="5.83,291,1616482800"; d="scan'208";a="204013052"
 Received: from fmsmga005.fm.intel.com ([10.253.24.32])
- by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 22 Jun 2021 02:38:40 -0700
-IronPort-SDR: YjghSkQQhfpqXchU5FmETDRBEKjg++NYbLVqNiZ3bX2P3p3aIdtsxEvlzAZ3khA29zw8feGTq5
- hSRTxjz0q+eg==
-X-IronPort-AV: E=Sophos;i="5.83,291,1616482800"; d="scan'208";a="641599201"
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 22 Jun 2021 02:43:23 -0700
+IronPort-SDR: YT0UXablTbHFjVGOUphLdQZI3IoiFPL8yBc2UqJr8G7mpfASBqseVxlrWsQj5BcIMDyWLT+dx2
+ b78pMKFrVOjA==
+X-IronPort-AV: E=Sophos;i="5.83,291,1616482800"; d="scan'208";a="641600114"
 Received: from vmm_a4_icx.sh.intel.com (HELO localhost.localdomain)
  ([10.239.53.245])
  by fmsmga005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 22 Jun 2021 02:38:37 -0700
+ 22 Jun 2021 02:43:17 -0700
 From: Zhu Lingshan <lingshan.zhu@intel.com>
-To: lingshan.zhu@live.com
-Cc: Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+To: peterz@infradead.org,
+	pbonzini@redhat.com
+Cc: bp@alien8.de, seanjc@google.com, vkuznets@redhat.com,
+ wanpengli@tencent.com, jmattson@google.com, joro@8bytes.org,
+ weijiang.yang@intel.com, kan.liang@linux.intel.com, ak@linux.intel.com,
+ wei.w.wang@intel.com, eranian@google.com, liuxiangdong5@huawei.com,
+ linux-kernel@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+ like.xu.linux@gmail.com, Like Xu <like.xu@linux.intel.com>,
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Boris Ostrovsky <boris.ostrovsky@oracle.com>,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
  linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- xen-devel@lists.xenproject.org, Peter Zijlstra <peterz@infradead.org>,
- Zhu Lingshan <lingshan.zhu@intel.com>
+ xen-devel@lists.xenproject.org, Zhu Lingshan <lingshan.zhu@intel.com>
 Subject: [PATCH V7 01/18] perf/core: Use static_call to optimize
  perf_guest_info_callbacks
-Date: Tue, 22 Jun 2021 17:38:06 +0800
-Message-Id: <20210622093823.8215-2-lingshan.zhu@intel.com>
+Date: Tue, 22 Jun 2021 17:42:49 +0800
+Message-Id: <20210622094306.8336-2-lingshan.zhu@intel.com>
 X-Mailer: git-send-email 2.27.0
-In-Reply-To: <20210622093823.8215-1-lingshan.zhu@intel.com>
-References: <20210622093823.8215-1-lingshan.zhu@intel.com>
+In-Reply-To: <20210622094306.8336-1-lingshan.zhu@intel.com>
+References: <20210622094306.8336-1-lingshan.zhu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210622_023849_504043_52BC8817 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20210622_024325_580907_29862BDA 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
