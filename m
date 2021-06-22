@@ -2,75 +2,85 @@ Return-Path: <SRS0=VH9+=LQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C8EEC2B9F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4975C48BDF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:59:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D293361369
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:04:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D293361369
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4B3B661001
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:59:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B3B661001
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uJDvIXcjWde0YILqhi6Vo6o8/kBSx3SFwkWh9DLDQes=; b=QKlGq8kCktz9PI
-	tS6zbqtbLWgunfVQ7pP/6CeIVsOmmm+m/yPHIN/lg86tSZJps9acNN8CeYTyOisc0A+9DDwSUIHNd
-	yAOGFztvAuXamLOdO292s5ZfAzh0rcwzO7vPtSyy77rgJ+U/danpYdCakGYly57Chxy11hZGSJyON
-	E5u9G1p7DMxJmC73qMYvQOBrAYwIN09dft/n19fBLgd4x6BqN50bzNro0LVaA6PqJ0i1QZfZsOjoM
-	QwFR2uIg3+E7SB4KoQckN6YiCBAXOWuBVLzQOcTVSEqdIaqFrjEJ/KP+j+AaqmJAYsk8tLg7kxvrf
-	9Vgy6mTuTuwwpb3lNAvQ==;
+	List-Owner; bh=lD2g+jgO3c04oUwlrF+yw5iv4IDHOCm03Cn54Jthe1U=; b=nQbZuvwOxVhm7x
+	K1a0pIWUCvy4cg9662bz1UyTJEVSNfudF4wmuHw5G6BrZN9cH1tb8CeTOFXIQvAPNgM2kioxYL3H/
+	Gwx/VwbaUspD3MWLwjbaeV2TuDl48lIhsmot0sMV/zxuyu4oVwL9TWOgV6/92ZG7T3xqo5HHebBqQ
+	eNENBmNbdE5e8Jq/iGKz0K92lwwUvZ4jwxqCU2ok/M0DqTX6xknbwTzIoc5nCXmUBTYIsDezbPDDj
+	G2o4aD8Epxf4ZXlQh47A76RWJgg4voGtWPJvslr/Rtb/UBlwOaRiXH4JJRJFCzfJcDUBmc9VOh3tE
+	64U4FwFKrzuYkOdOV4Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lvh0K-007Pu8-QO; Tue, 22 Jun 2021 14:03:52 +0000
-Received: from mail-ua1-f49.google.com ([209.85.222.49])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lvh0I-007Pt9-4r
- for linux-riscv@lists.infradead.org; Tue, 22 Jun 2021 14:03:51 +0000
-Received: by mail-ua1-f49.google.com with SMTP id x22so7684794uap.0
- for <linux-riscv@lists.infradead.org>; Tue, 22 Jun 2021 07:03:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=0DhiBJqgLPI4mq7rTlL2ewwRyBrH0IFpl65vmKyq+QM=;
- b=GMg4szEsF55092GVB4eTKJjHlqI95JmoCV/TIqNLuYhx8k8I3o77ybkkfaV0NgNOvm
- yLsAKjJ2u8Qq+06xVUNcXlOvg7VFmxo/3lQSn4pxfPEwKcoPnHH+OYcSE312BSHQl19u
- wSXi7xDxbO7koOsmwa3W34Lt0aDhErDa9ciIMAgYCo5M7KDhBMxMExptn1mGdoNM1miy
- OgfkQC4qzxvUAfyCjVai8z3MUsyq9rQNgau2w6zVHk4FZ55OLyokE50IV6hS2gOwsFt/
- qSoQoAghEmqsqkHtlXlcEhFEeVaIvru2xSo3H+/zJly6Re3WH4xrBHbZb8qI8QtmAK5r
- FtUg==
-X-Gm-Message-State: AOAM530BeQ8kksu32p4nZdgBUO+/fWI9Lqri3NEjm8Vbb4DjpsfrB0cE
- a3dKPt8IUlkQhvZO1BEYdZZsrqrKzM6k3+spm5A=
-X-Google-Smtp-Source: ABdhPJzQv09D4jymRC3aBNx7ZtOolbMBnl9c7deoMJlJV4fHFTlR4u2FiwP7APo9Br/AdiKJF5V3XZTDCBRUIYDQvGw=
-X-Received: by 2002:ab0:3734:: with SMTP id s20mr3756611uag.106.1624370627124; 
- Tue, 22 Jun 2021 07:03:47 -0700 (PDT)
+	id 1lvhsH-007Zen-FB; Tue, 22 Jun 2021 14:59:37 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lvhsC-007ZZK-UZ
+ for linux-riscv@lists.infradead.org; Tue, 22 Jun 2021 14:59:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=aR8G01IJ+UceVFDgRJW6BYPthEX2HmXBea
+ Q0eDZtDvc=; b=rN9/qI/+KZUTwcPnMglDwR/DmH325OzAcRRpUGkBv94ONCmds6
+ 6g2xr9YsPWvYuurbncwEpXiKTKACK+TnKPMBNCA0Ok2hGSDkI6FR0a9222czloFq
+ l3LGBjEqQPdQ9N2gdyCsZ5AKE+woSn8YaXAJ6arwFC3vIiszvc3M+frqY=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygCHjoql+tFgLsMbAQ--.20215S2; 
+ Tue, 22 Jun 2021 22:58:45 +0800 (CST)
+Date: Tue, 22 Jun 2021 22:53:04 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang
+ <jszhang@kernel.org>, Christoph Hellwig <hch@infradead.org>, Zong Li
+ <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/2] riscv: Introduce set_kernel_memory helper
+Message-ID: <20210622225304.53d94c0b@xhacker>
+In-Reply-To: <20210622082134.2404162-2-alex@ghiti.fr>
+References: <20210622082134.2404162-1-alex@ghiti.fr>
+ <20210622082134.2404162-2-alex@ghiti.fr>
 MIME-Version: 1.0
-References: <20210617095831.2398438-1-sunnanyong@huawei.com>
-In-Reply-To: <20210617095831.2398438-1-sunnanyong@huawei.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 22 Jun 2021 16:03:35 +0200
-Message-ID: <CAMuHMdU6ngi50vXn--fNDy6BCOz=U34FDhw7iHvqKrNQqSHw-w@mail.gmail.com>
-Subject: Re: [PATCH v2 -next] riscv: mm: fix build errors caused by mk_pmd()
-To: Nanyong Sun <sunnanyong@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Atish Patra <atish.patra@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>
+X-CM-TRANSID: LkAmygCHjoql+tFgLsMbAQ--.20215S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJw17uFy3ZrWDXry3Zw4DXFb_yoW5XFy5pF
+ 48Jw4DCrWagF9rGFWI9ryq9w1xJwn5Gw1jyrW3A34DuF47XrWUCw15tw1DJr1kGFyqgF4q
+ kay5C34Duanxt3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+ 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+ WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
+ I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
+ 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+ 0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8489tUUUUU==
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210622_070350_232809_B26E5903 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20210622_075933_692187_3F5087E1 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +97,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 17, 2021 at 11:28 AM Nanyong Sun <sunnanyong@huawei.com> wrote:
-> With "riscv: mm: add THP support on 64-bit", mk_pmd() function
-> introduce build errors,
-> 1.build with CONFIG_ARCH_RV32I=y:
-> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
-> arch/riscv/include/asm/pgtable.h:513:9: error: implicit declaration of function 'pfn_pmd';
->  did you mean 'pfn_pgd'? [-Werror=implicit-function-declaration]
->
-> 2.build with CONFIG_SPARSEMEM=y && CONFIG_SPARSEMEM_VMEMMAP=n
-> arch/riscv/include/asm/pgtable.h: In function 'mk_pmd':
-> include/asm-generic/memory_model.h:64:14: error: implicit declaration of function 'page_to_section';
->  did you mean 'present_section'? [-Werror=implicit-function-declaration]
->
-> Move the definition of mk_pmd to pgtable-64.h to fix the first error.
-> Use macro definition instead of inline function for mk_pmd
-> to fix the second problem. It is similar to the mk_pte macro.
->
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Nanyong Sun <sunnanyong@huawei.com>
+Hi Alex,
 
-Thanks, this fixes my rv32 build.
-Works fine with litex-rebase on VexRiscv.
-No regression on BeagleV Starlight-beta.
+On Tue, 22 Jun 2021 10:21:33 +0200
+Alexandre Ghiti <alex@ghiti.fr> wrote:
 
-Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> This helper should be used for setting permissions to the kernel
+> mapping as it takes pointers as arguments and then avoids explicit cast
+> to unsigned long needed for the set_memory_* API.
+> 
+> Suggested-by: Christoph Hellwig <hch@infradead.org>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/include/asm/set_memory.h |  8 ++++++++
+>  arch/riscv/mm/pageattr.c            | 11 +++++++++++
+>  2 files changed, 19 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index 9d4d455726d4..4f9fc54d1806 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -16,6 +16,8 @@ int set_memory_rw(unsigned long addr, int numpages);
+>  int set_memory_x(unsigned long addr, int numpages);
+>  int set_memory_nx(unsigned long addr, int numpages);
+>  int set_memory_rw_nx(unsigned long addr, int numpages);
+> +int set_kernel_memory(char *start, char *end,
+> +		      int (*set_memory)(unsigned long start, int num_pages));
+>  void protect_kernel_text_data(void);
+>  #else
+>  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+> @@ -24,6 +26,12 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>  static inline void protect_kernel_text_data(void) {}
+>  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+> +static inline int set_kernel_memory(char *start, char *end,
+> +				    int (*set_memory)(unsigned long start,
+> +						      int num_pages))
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  #if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index 5e49e4b4a4cc..11d0b0f4c65d 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -156,6 +156,17 @@ int set_memory_nx(unsigned long addr, int numpages)
+>  	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
+>  }
+>  
+> +__always_inline int set_kernel_memory(char *startp, char *endp,
 
-Gr{oetje,eeting}s,
+If __always_inline, can it be moved to set_memory.h?
 
-                        Geert
+Thanks
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> +				      int (*set_memory)(unsigned long start,
+> +							int num_pages))
+> +{
+> +	unsigned long start = (unsigned long)startp;
+> +	unsigned long end = (unsigned long)endp;
+> +	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
+> +
+> +	return set_memory(start, num_pages);
+> +}
+> +
+>  int set_direct_map_invalid_noflush(struct page *page)
+>  {
+>  	int ret;
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
 
 _______________________________________________
 linux-riscv mailing list
