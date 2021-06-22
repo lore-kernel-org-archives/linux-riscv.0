@@ -2,85 +2,184 @@ Return-Path: <SRS0=VH9+=LQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4975C48BDF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 171D4C2B9F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 17:32:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B3B661001
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 14:59:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B3B661001
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id D137261075
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Jun 2021 17:32:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D137261075
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lD2g+jgO3c04oUwlrF+yw5iv4IDHOCm03Cn54Jthe1U=; b=nQbZuvwOxVhm7x
-	K1a0pIWUCvy4cg9662bz1UyTJEVSNfudF4wmuHw5G6BrZN9cH1tb8CeTOFXIQvAPNgM2kioxYL3H/
-	Gwx/VwbaUspD3MWLwjbaeV2TuDl48lIhsmot0sMV/zxuyu4oVwL9TWOgV6/92ZG7T3xqo5HHebBqQ
-	eNENBmNbdE5e8Jq/iGKz0K92lwwUvZ4jwxqCU2ok/M0DqTX6xknbwTzIoc5nCXmUBTYIsDezbPDDj
-	G2o4aD8Epxf4ZXlQh47A76RWJgg4voGtWPJvslr/Rtb/UBlwOaRiXH4JJRJFCzfJcDUBmc9VOh3tE
-	64U4FwFKrzuYkOdOV4Uw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=k5BRVTZm1OGZoOKOjb9PtqTBub+bQLvnq9ZV5luSsOs=; b=iphG4e/Lr5WMqrt6vkv1Oar//O
+	85h0baEIjEeVH4PT+cEiv/OjESr0zqvM6KpCaRS+1uF8ujpaVCwlPB1yWPRgkC1mKTFhk7rVBqGHD
+	VvKD3KT69XV80JB2lW5Y3cEShMw9RpUFYF1LDKPe/grWfzouSwTBlWmEld+NHwMEz2XsDTS8/Yw+I
+	gNvfimEtUlx+CyGGcdnAtMAsCShML3q2ea1OWTmQzB5eIJUnfL2GytXIhlonvo4Av/2zafL7zyEUX
+	MJiwt0sHHvhzzCCwiTpS00CTaOoHZupkOivlRV8bvD4m9wPZ3YJ8cO97xziUP3thT4at+gEWNzCHE
+	Z0JWsr+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lvhsH-007Zen-FB; Tue, 22 Jun 2021 14:59:37 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lvhsC-007ZZK-UZ
- for linux-riscv@lists.infradead.org; Tue, 22 Jun 2021 14:59:35 +0000
+	id 1lvkG9-0083Sf-FT; Tue, 22 Jun 2021 17:32:25 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lvkG6-0083Ra-W8; Tue, 22 Jun 2021 17:32:24 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+ by mx0b-00069f02.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
+ 15MHHQkU010365; Tue, 22 Jun 2021 17:32:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=subject : to : cc :
+ references : from : message-id : date : in-reply-to : content-type :
+ content-transfer-encoding : mime-version; s=corp-2020-01-29;
+ bh=sF9B9msUqlPodgpOgTK/j2ZCCIDp54oksLKTPM+GdSs=;
+ b=GykAkj2D6CJ1tsRQ7U1VWSofxSM8d0qtq5tbVgAz3NR9ESi+s2xSqxZ7fHlJxoUZvzdO
+ zWOKZDoEf67FZyRCH6bGUEgyrTtlqq0WQehb2dqdcRRyw8PCeCWcJ4+IUFWM6GsVQxW0
+ /joRjbaTUgtCAOetGkqM2mqWIEgW1/JmZHZtcnPcNBMB25IT0zYk+USrrX8jRtFaDvSc
+ SanhtuNAIxriphvb0XFdpipSnSkUnoT01gN6a9n2i5Jdn0O7Qk7xXOYvE15tXmBUieWn
+ ezebfytcPh8sEtLPo3Yf2KhVHHAndjrEFZGgfwe1WJC6uXBbf9J9Z3eEx7+eU8c35cg/ fA== 
+Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
+ by mx0b-00069f02.pphosted.com with ESMTP id 39as86ujdq-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 22 Jun 2021 17:32:04 +0000
+Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
+ by userp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 15MHFqTF173442;
+ Tue, 22 Jun 2021 17:32:03 GMT
+Received: from nam02-dm3-obe.outbound.protection.outlook.com
+ (mail-dm3nam07lp2042.outbound.protection.outlook.com [104.47.56.42])
+ by userp3020.oracle.com with ESMTP id 399tbt3d1n-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 22 Jun 2021 17:32:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CQWuFbq/lPVSfpTZw948PFpsFc3T2BkUDI1mzqDMtsGtRrFA7brLUaDstrTzwkEhtlXOY75znL7dkcnTF9hc9XwTAG5XNbAP4FfM1wMnBwwu1n8ySTGXIwZZ8zngeKaMAjAOcY2nCVmpcaytQwIR9TTstoKngxr49bbk/oq9x1Avyb0Bg0bBAfbmAVzFCtD9Fj2EtL5FeIwI58vlmBRLzda7PmFh18RM7F4wgwqoVzN24FlYSbxmpWiGSWWeRT22RxO9IMkJeSAngXE3vnJ0xr3yJgJqEN3UHt81jhchQgtM2paWUtLobpVD/eCkNXrnvk9ul/Osiv7vVxqSopLrUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sF9B9msUqlPodgpOgTK/j2ZCCIDp54oksLKTPM+GdSs=;
+ b=aRT/1LrfyMgmyC/2mSYKvai+JpoeKCOO1yPoQU8hGX6FYfXF0njmZ5eeEAxglNomlYzknMiGBub1zB/n1eH18C0Jbv8Z6V/Gu9q0tEeLuGjMmP8CxhAYjHUjX1n/ypfCwnqkglXYHsSER8MUbCHMlDEl3uClT5RGh5ujep6YV5XNSGKN/ydmiaOSoDSZorO/o2tYhUIWOLZQIwHb0h7OZN19XaVBzEQi8583VLKmWtsoRh9lnXW98P8BiH8iLuM1WyZGwilPpNDfQNIcimIFwyO2KOj7uBIjgFz6TLUgGoiHUWDFvPKAgycCvzMyE0bHEDsXqR6IQrjzsUoXzGwvPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=aR8G01IJ+UceVFDgRJW6BYPthEX2HmXBea
- Q0eDZtDvc=; b=rN9/qI/+KZUTwcPnMglDwR/DmH325OzAcRRpUGkBv94ONCmds6
- 6g2xr9YsPWvYuurbncwEpXiKTKACK+TnKPMBNCA0Ok2hGSDkI6FR0a9222czloFq
- l3LGBjEqQPdQ9N2gdyCsZ5AKE+woSn8YaXAJ6arwFC3vIiszvc3M+frqY=
-Received: from xhacker (unknown [101.86.20.15])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygCHjoql+tFgLsMbAQ--.20215S2; 
- Tue, 22 Jun 2021 22:58:45 +0800 (CST)
-Date: Tue, 22 Jun 2021 22:53:04 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang
- <jszhang@kernel.org>, Christoph Hellwig <hch@infradead.org>, Zong Li
- <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/2] riscv: Introduce set_kernel_memory helper
-Message-ID: <20210622225304.53d94c0b@xhacker>
-In-Reply-To: <20210622082134.2404162-2-alex@ghiti.fr>
-References: <20210622082134.2404162-1-alex@ghiti.fr>
- <20210622082134.2404162-2-alex@ghiti.fr>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sF9B9msUqlPodgpOgTK/j2ZCCIDp54oksLKTPM+GdSs=;
+ b=ZUhrK/s/8ExAbRgDCFHBdfTz4nzz+DgUQAsCPaQ6HhJGhVVs117vynu7uI/8p2c6TQuOsa4WlYM9MzMu5d2a6w7Q9WHtIhoBJ43r4zRMzBEHZ0k0+fzBg2gPrnJdPau2qf01SG/oh23jEXoO67DbZl2KiuMY3lSELfF3r4zyohc=
+Authentication-Results: infradead.org; dkim=none (message not signed)
+ header.d=none;infradead.org; dmarc=none action=none header.from=oracle.com;
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com (2603:10b6:208:321::10)
+ by MN2PR10MB3949.namprd10.prod.outlook.com (2603:10b6:208:186::11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4242.21; Tue, 22 Jun
+ 2021 17:32:00 +0000
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::78a3:67d:a8ca:93cf]) by BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::78a3:67d:a8ca:93cf%7]) with mapi id 15.20.4264.018; Tue, 22 Jun 2021
+ 17:32:00 +0000
+Subject: Re: [PATCH V7 01/18] perf/core: Use static_call to optimize
+ perf_guest_info_callbacks
+To: Zhu Lingshan <lingshan.zhu@intel.com>, lingshan.zhu@live.com
+Cc: Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ xen-devel@lists.xenproject.org, Peter Zijlstra <peterz@infradead.org>
+References: <20210622093823.8215-1-lingshan.zhu@intel.com>
+ <20210622093823.8215-2-lingshan.zhu@intel.com>
+From: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Message-ID: <92fdf981-68ef-92a2-b1ae-0c5f347ae460@oracle.com>
+Date: Tue, 22 Jun 2021 13:31:54 -0400
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.11.0
+In-Reply-To: <20210622093823.8215-2-lingshan.zhu@intel.com>
+Content-Language: en-US
+X-Originating-IP: [160.34.89.176]
+X-ClientProxiedBy: SA9PR13CA0177.namprd13.prod.outlook.com
+ (2603:10b6:806:28::32) To BLAPR10MB5009.namprd10.prod.outlook.com
+ (2603:10b6:208:321::10)
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygCHjoql+tFgLsMbAQ--.20215S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJw17uFy3ZrWDXry3Zw4DXFb_yoW5XFy5pF
- 48Jw4DCrWagF9rGFWI9ryq9w1xJwn5Gw1jyrW3A34DuF47XrWUCw15tw1DJr1kGFyqgF4q
- kay5C34Duanxt3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUkqb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
- 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
- WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
- I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
- 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
- 0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8489tUUUUU==
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [10.74.101.176] (160.34.89.176) by
+ SA9PR13CA0177.namprd13.prod.outlook.com (2603:10b6:806:28::32) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4264.9 via Frontend Transport; Tue, 22 Jun 2021 17:31:57 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 1ec7e3d1-b17d-488f-fd04-08d935a3a47f
+X-MS-TrafficTypeDiagnostic: MN2PR10MB3949:
+X-Microsoft-Antispam-PRVS: <MN2PR10MB3949FCEA45214EAC56C215418A099@MN2PR10MB3949.namprd10.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2887;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: S2TECVWxkXCYnj2uONAjQLYztdX2kYyeQe/02lbuR4XxwbK6hKZn7UmndvLLAtWcsAdHDngPtvDawnUE85tcIlSVyuxvtNpDKptFYxaFA8Hb/jY5oeufKf0pxmt0ALF5MVJb5k/IcVWi/1GtVy3u+TJcrXrlE0P7aMeeArHAvle+ypdnBg64A9r/rPbEOt82rNeZinqjIJ2IEyM0ij6yCJvE3n4q0ITK9GN3TeH8N+QaRIn/pq9J/WnHY9RxuiGPvsxFzrZ/Aoh/oQPLCtqKLaxbdwRLW7b/8s1xmegebER/ET0Or+XFqiGQsogZ3RETrQfT57sOEHpuy5hA/zxFlM65oUkxlqhC7ZjiLCGGcsXBgfbTmgqMf6GglOJpfmlKn9ciK3i1RMYJqzvIcfOzwV9D2rWNd9sWpLshsc85rDZAg5i4do3syTLVlvaGDUNao1epaLZ6gWJM4vgp6Qv8El+WwY6oGzctU/qotfQGmuON3ix/JS2Q5JBnvgLhyK/YibhH0JS6z5mg8PflInW7h9KLb50dCpSoDpMusKhZcR6eznzN3vCUu72wenaBe2XNTVT+naQSxJMKgj3cSsf3OH2YlEGyqZ0Pgz/6xxhRdbsWeLLYP4yq1H1XYWgVUcLLgo23B4YdYFFM1TJMEX5PDnxy4KkB2t9BthLt5dFjVeN8VnR3M5OOXLOymVGMHLjU
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BLAPR10MB5009.namprd10.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(366004)(136003)(346002)(39860400002)(396003)(376002)(2616005)(956004)(478600001)(86362001)(6486002)(31686004)(8676002)(44832011)(6666004)(5660300002)(31696002)(38100700002)(8936002)(53546011)(4744005)(16526019)(186003)(7416002)(316002)(54906003)(66946007)(2906002)(16576012)(66476007)(66556008)(26005)(36756003)(4326008)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QSs3OHlvN2hibUlOMDlteWFoaGtvaW5oVFVqUm1UZVZSUmVxckpZRzB2MGlF?=
+ =?utf-8?B?WkZmQjI3SlNaVHpTWTJCQ2tybWRaR2FzVkhLenB1TzQ1ZnRvMHRBbDZBWE9q?=
+ =?utf-8?B?bDV1K2NBalpVTjQ2TE95bzZuVTVHcm1sd0dNODVjUzJTM0pPK2Jpb2R2V1R6?=
+ =?utf-8?B?MFF4SVhsenpZa3h0bFd0U3FNMTY3ZFhxb2xXUG04Ym0xZG9aTDRmcURQN0Ju?=
+ =?utf-8?B?MGNJd3BCWURZc3hiZTVsNFFPSEdOc212dHhvR1ZpOFp4MVdQWkI1bHI0UFVt?=
+ =?utf-8?B?Yi9RZmFZTnBIZ0VKUHJVbk93Rk5YSFdrRWdZU2lnR3Y0SFE2QTIrVUZjYUJZ?=
+ =?utf-8?B?MUt6VVF4V2I2TUZRWlVnSUlvRTZwbklscTN2NnJYc1laMmdpODlIblMyQUFT?=
+ =?utf-8?B?R3l5OFNyUG9QM2xucys0N2FiSUwzeWdYOW9wbDZhWFBRTjN4dVo4R1BnSjY3?=
+ =?utf-8?B?eVBSSStEc1N4QXRuUkJreDFjNWlLVHYvNlVNb2xlUlMxd2tTUmx4eUxjQWxl?=
+ =?utf-8?B?a2tqbXhocDJLQ3VUZjBwOUJlQkxPdENYK3EzMUZBdjJsM2lXYXQ1aVFWVGRO?=
+ =?utf-8?B?WWRWSnpiTHJ5RUFMak5KUGw3ck55WlJyM3JXcWZFWnFOUnIwSmppNjFQSmc4?=
+ =?utf-8?B?N2xEOXFWSGxtMDV6UkxIU2RNWVJQbUlrNStYTVJoRXo2bmJ3bk5idHZNeFJ4?=
+ =?utf-8?B?elFLTXhMMkwzdGFVQktuZkNFZ1NTbk11YXV5aE5DbGlUdTZjVTQrYXlqWHc3?=
+ =?utf-8?B?RFN0dUJkc0h3b1UzWGp5cGxQRkF5V3EvY0c5bmFlRnEzdDhCMEk0QVRsNmQ0?=
+ =?utf-8?B?VEVCaENUaTJWQk5pSUhUQkZZUW5RbHVwN0hnVWk5ZlVWQWd2UGVYZ3dsUEM0?=
+ =?utf-8?B?Z1lYM2RNOWVHbnQ0WmpNZVFCQTBiSGZvbitPWmF0QUdNaGllSVVsVXlJVzRI?=
+ =?utf-8?B?dzNIYUZMWnVZdkZHWXdXbnVuRUQxNGdLTkJLV3NJakNZSVZYS2o1UWMxeHNq?=
+ =?utf-8?B?QThWVTM5VU4yVVNTMVBtN1ZDREJuVFdTaUFDcTNNN0g2UjFueFdPZ2pua1o4?=
+ =?utf-8?B?VFFxWDNQYkxJVGtIVGtjTlQwZndlWW5ySUMrWTEzOFZEWXovU3U5RU9qZlo3?=
+ =?utf-8?B?UzVnL2xnVFRoUXFmMnJYKzJhRHpHazMvWGgvakYvci9nU1pQSnYwcFF4c2RH?=
+ =?utf-8?B?UUI4YjdoYy9tVHpCdGdEVDBQby9oL3ovQ2hmRElGZml5WlY4S2JyMjNqdEJq?=
+ =?utf-8?B?allJbVN4aURuaGZodkxkYklrcnZLekM0SlBsbUF0ZHIyalVyVklSL013a25E?=
+ =?utf-8?B?STl2RGpES0FDQnF0aEFQWkcxTXpNcG1wVzB2cGxzYVkwbWI1Wjh6bWtWd0Nx?=
+ =?utf-8?B?c1k2WGRYaXdsM0pXUjU5eWlKTDZiQUVQR29HNzFLd1ZlVW00dExFU2hGZVlt?=
+ =?utf-8?B?Qy8rdGgrMmZlMkNRNHl2Qm01NmJMYmltZEZsMnRMN0djOXpLZ2VkdHhaQ0w3?=
+ =?utf-8?B?aXZ5TFNLeERjWUVlRjRRdFN6cksxL0FpaTdOdE9oRXNuNm9ibHhZUGNNTFFk?=
+ =?utf-8?B?MGtwN1k0M3M5S3dxTnFBYlI5OGRPRWhWNW9QUVBEdmNwRStyV3dZNFJpTUhI?=
+ =?utf-8?B?dDVwaER3WlBmWGhxUTVzS2gvVUxFdEpoVElJMjZXOWlVMTFUM2pRckh6dGU2?=
+ =?utf-8?B?SWQ5SlF1REFmL0xCY1Rta3BqYStWTitRSytOekY0eTZSNU04bGFUcW9jbDhB?=
+ =?utf-8?Q?u0hDQz4k9Jzl7q6Wd+MGKOZ7AH9+4fScol5NbUj?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ec7e3d1-b17d-488f-fd04-08d935a3a47f
+X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5009.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2021 17:32:00.7111 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3YVs+b2Nc31rMRqE2PKtH/74M4K4k0fKBthZ8m1eG3GUPyhbDbT6WoR7GkrDJjLvpoKrLDJpWNDWzXlbsmaVPIPDEkyCDRbZc7vFQYTlpow=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB3949
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=10023
+ signatures=668682
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ phishscore=0 mlxscore=0
+ spamscore=0 mlxlogscore=999 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2104190000
+ definitions=main-2106220107
+X-Proofpoint-ORIG-GUID: UXmCLfIhSmGpnCOpGGDyWcShhxKwOCv9
+X-Proofpoint-GUID: UXmCLfIhSmGpnCOpGGDyWcShhxKwOCv9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210622_075933_692187_3F5087E1 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20210622_103223_074999_46442378 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,77 +196,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
 
-On Tue, 22 Jun 2021 10:21:33 +0200
-Alexandre Ghiti <alex@ghiti.fr> wrote:
 
-> This helper should be used for setting permissions to the kernel
-> mapping as it takes pointers as arguments and then avoids explicit cast
-> to unsigned long needed for the set_memory_* API.
-> 
-> Suggested-by: Christoph Hellwig <hch@infradead.org>
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> ---
->  arch/riscv/include/asm/set_memory.h |  8 ++++++++
->  arch/riscv/mm/pageattr.c            | 11 +++++++++++
->  2 files changed, 19 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index 9d4d455726d4..4f9fc54d1806 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -16,6 +16,8 @@ int set_memory_rw(unsigned long addr, int numpages);
->  int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
->  int set_memory_rw_nx(unsigned long addr, int numpages);
-> +int set_kernel_memory(char *start, char *end,
-> +		      int (*set_memory)(unsigned long start, int num_pages));
->  void protect_kernel_text_data(void);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
-> @@ -24,6 +26,12 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
->  static inline void protect_kernel_text_data(void) {}
->  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
-> +static inline int set_kernel_memory(char *start, char *end,
-> +				    int (*set_memory)(unsigned long start,
-> +						      int num_pages))
-> +{
-> +	return 0;
-> +}
->  #endif
+On 6/22/21 5:38 AM, Zhu Lingshan wrote:
+
+> -static int xen_is_user_mode(void)
+> -{
+> -	const struct xen_pmu_data *xenpmu_data = get_xenpmu_data();
+> +	state |= PERF_GUEST_ACTIVE;
 >  
->  #if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 5e49e4b4a4cc..11d0b0f4c65d 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -156,6 +156,17 @@ int set_memory_nx(unsigned long addr, int numpages)
->  	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
->  }
->  
-> +__always_inline int set_kernel_memory(char *startp, char *endp,
+> -	if (!xenpmu_data) {
+> -		pr_warn_once("%s: pmudata not initialized\n", __func__);
+> -		return 0;
+> +	if (xenpmu_data->pmu.pmu_flags & PMU_SAMPLE_PV) {
+> +		if (xenpmu_data->pmu.pmu_flags & PMU_SAMPLE_USER)
+> +			state |= PERF_GUEST_USER;
+> +	} else {
+> +		if (!!(xenpmu_data->pmu.r.regs.cpl & 3))
+> +			state |= PERF_GUEST_USER;
 
-If __always_inline, can it be moved to set_memory.h?
 
-Thanks
 
-> +				      int (*set_memory)(unsigned long start,
-> +							int num_pages))
-> +{
-> +	unsigned long start = (unsigned long)startp;
-> +	unsigned long end = (unsigned long)endp;
-> +	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
-> +
-> +	return set_memory(start, num_pages);
-> +}
-> +
->  int set_direct_map_invalid_noflush(struct page *page)
->  {
->  	int ret;
+Please drop "!!", it's not needed here. And use "else if".
 
+
+With that, for Xen bits:
+
+Reviewed-by: Boris Ostrovsky <boris.ostrvsky@oracle.com>
+
+-boris
 
 
 _______________________________________________
