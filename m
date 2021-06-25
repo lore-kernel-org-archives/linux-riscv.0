@@ -2,110 +2,85 @@ Return-Path: <SRS0=TyRV=LT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNWANTED_LANGUAGE_BODY autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1CDDC2B9F4
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 13:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 352C8C2B9F4
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 13:35:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 614F56192F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 13:14:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 614F56192F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id C70976197C
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 13:35:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C70976197C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TZHrz3FrEw/48p8hJIVTF4Ysb+ouNf5n1Ey7siY8ryA=; b=NBlBMK0luJstwo
-	IggQwmQvfJMSu/ufqvgqL1oaduRsUwtGSbJvAENoEGIVaCRmixKmXuQGsN5ZoXhnBiI8Wg9pel9s3
-	hPn8tZh9ZLENkwSgGn1OEIKWQ1uIlWNfLKduoHSga4LcUUrXElIYEtMkDqIx3EX/uNvybcibp6RvI
-	Iv6+I40jrlU3P0MdikhDC3XSfphifKVGeS63P/Pn/JhmtjLEcjc7G7hQj/Pt+HWrby/H0wsUW4Wym
-	i1350Ds0tLuvU5QeAJpKtcKlhVKjy34F5z+J9XDDiSFqbviAlMF6p/sUDF4bkYZZL8so3uNwFMAnI
-	gE5vSF8/3oT2p/DQTq0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7zKXjquP2vpGd6t0GpkQ9UPwFDffNQsAAJNYCrzSYhw=; b=BhBaGvznVPftnR
+	sCDW5D+NvUeU5aEGZeM5u8C4lDysQKlKZBGj58IEjV70BkQpHESSNsbCbZE33o+Cr7HvCbfUzu/ez
+	H2k3bK0g2iYz87ixnFKOrqqgi8njNQKNbOgjKXDzXqyIakyqIvBkQ1mKYz+z05qsAc7tXO21LVW9Y
+	P2JG9qbkgy5EFRENuwbLLlJfC3Cm49YiNjcvsRvnjBVRfx2/3B9KN4M11BTxt9NEIigGVVHyKveDw
+	y78f8AWCFh8n1DcuQcoRKvGg9DfIApy1zvYvuophwUDVDTzrETnWEMTtRW01qqFCC0LXTg/7w7sCM
+	OoORhlnA0L51CCaPHNOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lwlfE-001cmo-C8; Fri, 25 Jun 2021 13:14:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lwlet-001cgt-Hd
- for linux-riscv@lists.infradead.org; Fri, 25 Jun 2021 13:14:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1624626850;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=s7awfWkAS5LAQERp0OJmH9ButVjjbS3AYez2f5Gw2zY=;
- b=KPCM+Z8K8tcW4yAi6gI/2RWuyTpqBqTREBmmW02H401r1nuIXJ/DJY48RiesYsFS/TXo5q
- NX7GRbOzx2QazU1D6WYdOC9rBZp3fPPBMLCmQiciAip63TXZ1VLfCyU3gcnybeUVMuplng
- PbjZVcLtAm7Sw13U92ZoR+EPad6Y4QU=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-486-XaKk1PqaPsqFDUH698fJog-1; Fri, 25 Jun 2021 09:14:09 -0400
-X-MC-Unique: XaKk1PqaPsqFDUH698fJog-1
-Received: by mail-wm1-f71.google.com with SMTP id
- j38-20020a05600c1c26b02901dbf7d18ff8so4175232wms.8
- for <linux-riscv@lists.infradead.org>; Fri, 25 Jun 2021 06:14:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=s7awfWkAS5LAQERp0OJmH9ButVjjbS3AYez2f5Gw2zY=;
- b=QL7dwg3rOs3lQ0d123otyXvYPbBDleIO7tc5eymLvy14tVJtMpP6lFNhKLqjhyJicU
- svQ/mOmvF/gxDkQI10dsnWf8ZaopOuuYTwBZDDLurr6j+vv8qYx1RNE6ALlxh5OBvs/B
- vgKJUGvMn67Ny5wT3yMg0TwBhfaT1LZyidLiisO6zk2Hepdp8MOZC5CDjVT31X8OZApT
- T72Djw3ftndJij+k8z3+hFB2dxZJHsBWpjPNt704oqehJCZUTO5veYFTzQr/4F8fkEzA
- lRkORg5UFlNHd9jyqetoJShRClwh4rim4Mpxto/HvE0ZWsqh6k8QY9iohqw2MXoVsTlk
- f5Jw==
-X-Gm-Message-State: AOAM530sUDb29vcuZ0MxvQcEkmW2/c7s45j0NHApbTBSVTALR0HVyipk
- lSZBnItTpB//fSAqaQl6s25uHVKllpiLQZbp26OwSxghSspMQbXiKlWquX7LyWThetyc/EOIyPM
- IR5h7twg2ZyEiVINVihs3VwM8WqX+
-X-Received: by 2002:a05:600c:1988:: with SMTP id
- t8mr10997079wmq.23.1624626846526; 
- Fri, 25 Jun 2021 06:14:06 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyB5nqLSDa3qF0D8gBCVt3C2KvjfgHYeT5oQ6LEZ2IVsvkiuwMuWV1U36BkCOhalF/tAJRrDw==
-X-Received: by 2002:a05:600c:1988:: with SMTP id
- t8mr10997033wmq.23.1624626846211; 
- Fri, 25 Jun 2021 06:14:06 -0700 (PDT)
-Received: from minerva.redhat.com ([92.176.231.106])
- by smtp.gmail.com with ESMTPSA id d4sm5815927wmd.42.2021.06.25.06.14.04
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 25 Jun 2021 06:14:05 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Thomas Zimmermann <tzimmermann@suse.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Russell King <linux@armlinux.org.uk>,
- linux-efi@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- Hans de Goede <hdegoede@redhat.com>, x86@kernel.org,
- Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Peter Robinson <pbrobinson@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, David Airlie <airlied@linux.ie>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Vetter <daniel@ffwll.ch>, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Atish Patra <atish.patra@wdc.com>,
- Javier Martinez Canillas <javierm@redhat.com>
-Subject: [PATCH v3 2/2] drivers/firmware: consolidate EFI framebuffer setup
- for all arches
-Date: Fri, 25 Jun 2021 15:13:59 +0200
-Message-Id: <20210625131359.1804394-1-javierm@redhat.com>
-X-Mailer: git-send-email 2.31.1
+	id 1lwlzJ-001hMx-DM; Fri, 25 Jun 2021 13:35:17 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1lwlzF-001hKc-TF
+ for linux-riscv@lists.infradead.org; Fri, 25 Jun 2021 13:35:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=fNsdP1h8nt16cy9XNDlUuz7NRuDExXgQbd
+ +Sq1hHnEI=; b=GLvTYLIzNRT77vXZvtdLVEd6b2L0EypGi9LCUXX/fgmSf4gQuc
+ zUhoTS7DVNBArsFJjeQKIoqC/Mg/D9lCyqpkTwc93G+jIQ85+dLNUBlX3kZIb/Um
+ sjaWqx9e99ZvISScOD7P2WC7fVKgU6egxLqfQQ8l4GS5fEpBXVtBWoUWg=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygA3PMB529VgZw00AQ--.11612S2; 
+ Fri, 25 Jun 2021 21:34:49 +0800 (CST)
+Date: Fri, 25 Jun 2021 21:29:02 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang
+ <jszhang@kernel.org>, Christoph Hellwig <hch@infradead.org>, Zong Li
+ <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 1/2] riscv: Introduce set_kernel_memory helper
+Message-ID: <20210625212903.4a2ff309@xhacker>
+In-Reply-To: <20210624120041.2786419-2-alex@ghiti.fr>
+References: <20210624120041.2786419-1-alex@ghiti.fr>
+ <20210624120041.2786419-2-alex@ghiti.fr>
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=javierm@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+X-CM-TRANSID: LkAmygA3PMB529VgZw00AQ--.11612S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFyDZF1fAw4DAw1fGFyUWrg_yoW8uw47pF
+ 48Jw4DCFWagF9rGFWI9r98ua4fJwn5G342yryak3s5uF47Xr4UZw15tw1DJr1kCFyv9F42
+ kay7C34Duws8t3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkqb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+ 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+ WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
+ I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
+ 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+ 0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8fwIDUUUUU==
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210625_061411_801932_F167A5EE 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20210625_063514_629810_08F6C61B 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,577 +97,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The register_gop_device() function registers an "efi-framebuffer" platform
-device to match against the efifb driver, to have an early framebuffer for
-EFI platforms.
+On Thu, 24 Jun 2021 14:00:40 +0200
+Alexandre Ghiti <alex@ghiti.fr> wrote:
 
-But there is already support to do exactly the same by the Generic System
-Framebuffers (sysfb) driver. This used to be only for X86 but it has been
-moved to drivers/firmware and could be reused by other architectures.
+> This helper should be used for setting permissions to the kernel
+> mapping as it takes pointers as arguments and then avoids explicit cast
+> to unsigned long needed for the set_memory_* API.
+> 
+> Suggested-by: Christoph Hellwig <hch@infradead.org>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
 
-Also, besides supporting registering an "efi-framebuffer", this driver can
-register a "simple-framebuffer" allowing to use the siple{fb,drm} drivers
-on non-X86 EFI platforms. For example, on aarch64 these drivers can only
-be used with DT and doesn't have code to register a "simple-frambuffer"
-platform device when booting with EFI.
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 
-For these reasons, let's remove the register_gop_device() duplicated code
-and instead move the platform specific logic that's there to sysfb driver.
+> ---
+>  arch/riscv/include/asm/set_memory.h | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index 9d4d455726d4..96e317dcab13 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -17,6 +17,16 @@ int set_memory_x(unsigned long addr, int numpages);
+>  int set_memory_nx(unsigned long addr, int numpages);
+>  int set_memory_rw_nx(unsigned long addr, int numpages);
+>  void protect_kernel_text_data(void);
+> +static __always_inline int set_kernel_memory(char *startp, char *endp,
+> +					     int (*set_memory)(unsigned long start,
+> +							       int num_pages))
+> +{
+> +	unsigned long start = (unsigned long)startp;
+> +	unsigned long end = (unsigned long)endp;
+> +	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
+> +
+> +	return set_memory(start, num_pages);
+> +}
+>  #else
+>  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+> @@ -24,6 +34,12 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>  static inline void protect_kernel_text_data(void) {}
+>  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+> +static inline int set_kernel_memory(char *startp, char *endp,
+> +				    int (*set_memory)(unsigned long start,
+> +						      int num_pages))
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  #if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
 
-Signed-off-by: Javier Martinez Canillas <javierm@redhat.com>
-Acked-by: Borislav Petkov <bp@suse.de>
----
-
-Changes in v3:
-- Also update the SYSFB_SIMPLEFB symbol name in drivers/gpu/drm/tiny/Kconfig.
-- We have a a max 100 char limit now, use it to avoid multi-line statements.
-- Figure out the platform device name before allocating the platform device.
-
-Changes in v2:
-- Use "depends on" for the supported architectures instead of selecting it.
-- Improve commit message to explain the benefits of reusing sysfb for !X86.
-
- arch/arm/include/asm/efi.h        |  5 +-
- arch/arm64/include/asm/efi.h      |  5 +-
- arch/riscv/include/asm/efi.h      |  5 +-
- drivers/firmware/Kconfig          |  8 +--
- drivers/firmware/Makefile         |  2 +-
- drivers/firmware/efi/efi-init.c   | 90 -------------------------------
- drivers/firmware/efi/sysfb_efi.c  | 76 +++++++++++++++++++++++++-
- drivers/firmware/sysfb.c          | 35 ++++++++----
- drivers/firmware/sysfb_simplefb.c | 31 +++++++----
- drivers/gpu/drm/tiny/Kconfig      |  4 +-
- include/linux/sysfb.h             | 26 ++++-----
- 11 files changed, 143 insertions(+), 144 deletions(-)
-
-diff --git a/arch/arm/include/asm/efi.h b/arch/arm/include/asm/efi.h
-index 9de7ab2ce05d..a6f3b179e8a9 100644
---- a/arch/arm/include/asm/efi.h
-+++ b/arch/arm/include/asm/efi.h
-@@ -17,6 +17,7 @@
- 
- #ifdef CONFIG_EFI
- void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- 
- int efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md);
- int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md);
-@@ -52,10 +53,6 @@ void efi_virtmap_unload(void);
- struct screen_info *alloc_screen_info(void);
- void free_screen_info(struct screen_info *si);
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- /*
-  * A reasonable upper bound for the uncompressed kernel size is 32 MBytes,
-  * so we will reserve that amount of memory. We have no easy way to tell what
-diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index 1bed37eb013a..d3e1825337be 100644
---- a/arch/arm64/include/asm/efi.h
-+++ b/arch/arm64/include/asm/efi.h
-@@ -14,6 +14,7 @@
- 
- #ifdef CONFIG_EFI
- extern void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- #else
- #define efi_init()
- #endif
-@@ -85,10 +86,6 @@ static inline void free_screen_info(struct screen_info *si)
- {
- }
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- #define EFI_ALLOC_ALIGN		SZ_64K
- 
- /*
-diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
-index 6d98cd999680..7a8f0d45b13a 100644
---- a/arch/riscv/include/asm/efi.h
-+++ b/arch/riscv/include/asm/efi.h
-@@ -13,6 +13,7 @@
- 
- #ifdef CONFIG_EFI
- extern void efi_init(void);
-+extern void efifb_setup_from_dmi(struct screen_info *si, const char *opt);
- #else
- #define efi_init()
- #endif
-@@ -39,10 +40,6 @@ static inline void free_screen_info(struct screen_info *si)
- {
- }
- 
--static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
--{
--}
--
- void efi_virtmap_load(void);
- void efi_virtmap_unload(void);
- 
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 5991071e9d7f..6822727a5e98 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -254,9 +254,9 @@ config QCOM_SCM_DOWNLOAD_MODE_DEFAULT
- config SYSFB
- 	bool
- 	default y
--	depends on X86 || COMPILE_TEST
-+	depends on X86 || ARM || ARM64 || RISCV || COMPILE_TEST
- 
--config X86_SYSFB
-+config SYSFB_SIMPLEFB
- 	bool "Mark VGA/VBE/EFI FB as generic system framebuffer"
- 	depends on SYSFB
- 	help
-@@ -264,10 +264,10 @@ config X86_SYSFB
- 	  bootloader or kernel can show basic video-output during boot for
- 	  user-guidance and debugging. Historically, x86 used the VESA BIOS
- 	  Extensions and EFI-framebuffers for this, which are mostly limited
--	  to x86.
-+	  to x86 BIOS or EFI systems.
- 	  This option, if enabled, marks VGA/VBE/EFI framebuffers as generic
- 	  framebuffers so the new generic system-framebuffer drivers can be
--	  used on x86. If the framebuffer is not compatible with the generic
-+	  used instead. If the framebuffer is not compatible with the generic
- 	  modes, it is advertised as fallback platform framebuffer so legacy
- 	  drivers like efifb, vesafb and uvesafb can pick it up.
- 	  If this option is not selected, all system framebuffers are always
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index 946dda07443d..705fabe88156 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -19,7 +19,7 @@ obj-$(CONFIG_RASPBERRYPI_FIRMWARE) += raspberrypi.o
- obj-$(CONFIG_FW_CFG_SYSFS)	+= qemu_fw_cfg.o
- obj-$(CONFIG_QCOM_SCM)		+= qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o
- obj-$(CONFIG_SYSFB)		+= sysfb.o
--obj-$(CONFIG_X86_SYSFB)		+= sysfb_simplefb.o
-+obj-$(CONFIG_SYSFB_SIMPLEFB)	+= sysfb_simplefb.o
- obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
- obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
- obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
-diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-index a552a08a1741..b19ce1a83f91 100644
---- a/drivers/firmware/efi/efi-init.c
-+++ b/drivers/firmware/efi/efi-init.c
-@@ -275,93 +275,3 @@ void __init efi_init(void)
- 	}
- #endif
- }
--
--static bool efifb_overlaps_pci_range(const struct of_pci_range *range)
--{
--	u64 fb_base = screen_info.lfb_base;
--
--	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
--		fb_base |= (u64)(unsigned long)screen_info.ext_lfb_base << 32;
--
--	return fb_base >= range->cpu_addr &&
--	       fb_base < (range->cpu_addr + range->size);
--}
--
--static struct device_node *find_pci_overlap_node(void)
--{
--	struct device_node *np;
--
--	for_each_node_by_type(np, "pci") {
--		struct of_pci_range_parser parser;
--		struct of_pci_range range;
--		int err;
--
--		err = of_pci_range_parser_init(&parser, np);
--		if (err) {
--			pr_warn("of_pci_range_parser_init() failed: %d\n", err);
--			continue;
--		}
--
--		for_each_of_pci_range(&parser, &range)
--			if (efifb_overlaps_pci_range(&range))
--				return np;
--	}
--	return NULL;
--}
--
--/*
-- * If the efifb framebuffer is backed by a PCI graphics controller, we have
-- * to ensure that this relation is expressed using a device link when
-- * running in DT mode, or the probe order may be reversed, resulting in a
-- * resource reservation conflict on the memory window that the efifb
-- * framebuffer steals from the PCIe host bridge.
-- */
--static int efifb_add_links(struct fwnode_handle *fwnode)
--{
--	struct device_node *sup_np;
--
--	sup_np = find_pci_overlap_node();
--
--	/*
--	 * If there's no PCI graphics controller backing the efifb, we are
--	 * done here.
--	 */
--	if (!sup_np)
--		return 0;
--
--	fwnode_link_add(fwnode, of_fwnode_handle(sup_np));
--	of_node_put(sup_np);
--
--	return 0;
--}
--
--static const struct fwnode_operations efifb_fwnode_ops = {
--	.add_links = efifb_add_links,
--};
--
--static struct fwnode_handle efifb_fwnode;
--
--static int __init register_gop_device(void)
--{
--	struct platform_device *pd;
--	int err;
--
--	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI)
--		return 0;
--
--	pd = platform_device_alloc("efi-framebuffer", 0);
--	if (!pd)
--		return -ENOMEM;
--
--	if (IS_ENABLED(CONFIG_PCI)) {
--		fwnode_init(&efifb_fwnode, &efifb_fwnode_ops);
--		pd->dev.fwnode = &efifb_fwnode;
--	}
--
--	err = platform_device_add_data(pd, &screen_info, sizeof(screen_info));
--	if (err)
--		return err;
--
--	return platform_device_add(pd);
--}
--subsys_initcall(register_gop_device);
-diff --git a/drivers/firmware/efi/sysfb_efi.c b/drivers/firmware/efi/sysfb_efi.c
-index 9f035b15501c..f51865e1b876 100644
---- a/drivers/firmware/efi/sysfb_efi.c
-+++ b/drivers/firmware/efi/sysfb_efi.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  *
-  * EFI Quirks Copyright (c) 2006 Edgar Hucek <gimli@dark-green.com>
-@@ -19,7 +19,9 @@
- #include <linux/init.h>
- #include <linux/kernel.h>
- #include <linux/mm.h>
-+#include <linux/of_address.h>
- #include <linux/pci.h>
-+#include <linux/platform_device.h>
- #include <linux/screen_info.h>
- #include <linux/sysfb.h>
- #include <video/vga.h>
-@@ -267,7 +269,72 @@ static const struct dmi_system_id efifb_dmi_swap_width_height[] __initconst = {
- 	{},
- };
- 
--__init void sysfb_apply_efi_quirks(void)
-+static bool efifb_overlaps_pci_range(const struct of_pci_range *range)
-+{
-+	u64 fb_base = screen_info.lfb_base;
-+
-+	if (screen_info.capabilities & VIDEO_CAPABILITY_64BIT_BASE)
-+		fb_base |= (u64)(unsigned long)screen_info.ext_lfb_base << 32;
-+
-+	return fb_base >= range->cpu_addr &&
-+	       fb_base < (range->cpu_addr + range->size);
-+}
-+
-+static struct device_node *find_pci_overlap_node(void)
-+{
-+	struct device_node *np;
-+
-+	for_each_node_by_type(np, "pci") {
-+		struct of_pci_range_parser parser;
-+		struct of_pci_range range;
-+		int err;
-+
-+		err = of_pci_range_parser_init(&parser, np);
-+		if (err) {
-+			pr_warn("of_pci_range_parser_init() failed: %d\n", err);
-+			continue;
-+		}
-+
-+		for_each_of_pci_range(&parser, &range)
-+			if (efifb_overlaps_pci_range(&range))
-+				return np;
-+	}
-+	return NULL;
-+}
-+
-+/*
-+ * If the efifb framebuffer is backed by a PCI graphics controller, we have
-+ * to ensure that this relation is expressed using a device link when
-+ * running in DT mode, or the probe order may be reversed, resulting in a
-+ * resource reservation conflict on the memory window that the efifb
-+ * framebuffer steals from the PCIe host bridge.
-+ */
-+static int efifb_add_links(struct fwnode_handle *fwnode)
-+{
-+	struct device_node *sup_np;
-+
-+	sup_np = find_pci_overlap_node();
-+
-+	/*
-+	 * If there's no PCI graphics controller backing the efifb, we are
-+	 * done here.
-+	 */
-+	if (!sup_np)
-+		return 0;
-+
-+	fwnode_link_add(fwnode, of_fwnode_handle(sup_np));
-+	of_node_put(sup_np);
-+
-+	return 0;
-+}
-+
-+static const struct fwnode_operations efifb_fwnode_ops = {
-+	.add_links = efifb_add_links,
-+};
-+
-+static struct fwnode_handle efifb_fwnode;
-+
-+__init void sysfb_apply_efi_quirks(struct platform_device *pd)
- {
- 	if (screen_info.orig_video_isVGA != VIDEO_TYPE_EFI ||
- 	    !(screen_info.capabilities & VIDEO_CAPABILITY_SKIP_QUIRKS))
-@@ -281,4 +348,9 @@ __init void sysfb_apply_efi_quirks(void)
- 		screen_info.lfb_height = temp;
- 		screen_info.lfb_linelength = 4 * screen_info.lfb_width;
- 	}
-+
-+	if (screen_info.orig_video_isVGA == VIDEO_TYPE_EFI && IS_ENABLED(CONFIG_PCI)) {
-+		fwnode_init(&efifb_fwnode, &efifb_fwnode_ops);
-+		pd->dev.fwnode = &efifb_fwnode;
-+	}
- }
-diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
-index 1337515963d5..2bfbb05f7d89 100644
---- a/drivers/firmware/sysfb.c
-+++ b/drivers/firmware/sysfb.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  */
- 
- /*
-- * Simple-Framebuffer support for x86 systems
-+ * Simple-Framebuffer support
-  * Create a platform-device for any available boot framebuffer. The
-  * simple-framebuffer platform device is already available on DT systems, so
-  * this module parses the global "screen_info" object and creates a suitable
-@@ -16,12 +16,12 @@
-  * to pick these devices up without messing with simple-framebuffer drivers.
-  * The global "screen_info" is still valid at all times.
-  *
-- * If CONFIG_X86_SYSFB is not selected, we never register "simple-framebuffer"
-+ * If CONFIG_SYSFB_SIMPLEFB is not selected, never register "simple-framebuffer"
-  * platform devices, but only use legacy framebuffer devices for
-  * backwards compatibility.
-  *
-  * TODO: We set the dev_id field of all platform-devices to 0. This allows
-- * other x86 OF/DT parsers to create such devices, too. However, they must
-+ * other OF/DT parsers to create such devices, too. However, they must
-  * start at offset 1 for this to work.
-  */
- 
-@@ -43,12 +43,10 @@ static __init int sysfb_init(void)
- 	bool compatible;
- 	int ret;
- 
--	sysfb_apply_efi_quirks();
--
- 	/* try to create a simple-framebuffer device */
--	compatible = parse_mode(si, &mode);
-+	compatible = sysfb_parse_mode(si, &mode);
- 	if (compatible) {
--		ret = create_simplefb(si, &mode);
-+		ret = sysfb_create_simplefb(si, &mode);
- 		if (!ret)
- 			return 0;
- 	}
-@@ -61,9 +59,24 @@ static __init int sysfb_init(void)
- 	else
- 		name = "platform-framebuffer";
- 
--	pd = platform_device_register_resndata(NULL, name, 0,
--					       NULL, 0, si, sizeof(*si));
--	return PTR_ERR_OR_ZERO(pd);
-+	pd = platform_device_alloc(name, 0);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	sysfb_apply_efi_quirks(pd);
-+
-+	ret = platform_device_add_data(pd, si, sizeof(*si));
-+	if (ret)
-+		goto err;
-+
-+	ret = platform_device_add(pd);
-+	if (ret)
-+		goto err;
-+
-+	return 0;
-+err:
-+	platform_device_put(pd);
-+	return ret;
- }
- 
- /* must execute after PCI subsystem for EFI quirks */
-diff --git a/drivers/firmware/sysfb_simplefb.c b/drivers/firmware/sysfb_simplefb.c
-index df892444ea17..b86761904949 100644
---- a/drivers/firmware/sysfb_simplefb.c
-+++ b/drivers/firmware/sysfb_simplefb.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Generic System Framebuffers on x86
-+ * Generic System Framebuffers
-  * Copyright (c) 2012-2013 David Herrmann <dh.herrmann@gmail.com>
-  */
- 
-@@ -23,9 +23,9 @@
- static const char simplefb_resname[] = "BOOTFB";
- static const struct simplefb_format formats[] = SIMPLEFB_FORMATS;
- 
--/* try parsing x86 screen_info into a simple-framebuffer mode struct */
--__init bool parse_mode(const struct screen_info *si,
--		       struct simplefb_platform_data *mode)
-+/* try parsing screen_info into a simple-framebuffer mode struct */
-+__init bool sysfb_parse_mode(const struct screen_info *si,
-+			     struct simplefb_platform_data *mode)
- {
- 	const struct simplefb_format *f;
- 	__u8 type;
-@@ -57,13 +57,14 @@ __init bool parse_mode(const struct screen_info *si,
- 	return false;
- }
- 
--__init int create_simplefb(const struct screen_info *si,
--			   const struct simplefb_platform_data *mode)
-+__init int sysfb_create_simplefb(const struct screen_info *si,
-+				 const struct simplefb_platform_data *mode)
- {
- 	struct platform_device *pd;
- 	struct resource res;
- 	u64 base, size;
- 	u32 length;
-+	int ret;
- 
- 	/*
- 	 * If the 64BIT_BASE capability is set, ext_lfb_base will contain the
-@@ -105,7 +106,19 @@ __init int create_simplefb(const struct screen_info *si,
- 	if (res.end <= res.start)
- 		return -EINVAL;
- 
--	pd = platform_device_register_resndata(NULL, "simple-framebuffer", 0,
--					       &res, 1, mode, sizeof(*mode));
--	return PTR_ERR_OR_ZERO(pd);
-+	pd = platform_device_alloc("simple-framebuffer", 0);
-+	if (!pd)
-+		return -ENOMEM;
-+
-+	sysfb_apply_efi_quirks(pd);
-+
-+	ret = platform_device_add_resources(pd, &res, 1);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_device_add_data(pd, mode, sizeof(*mode));
-+	if (ret)
-+		return ret;
-+
-+	return platform_device_add(pd);
- }
-diff --git a/drivers/gpu/drm/tiny/Kconfig b/drivers/gpu/drm/tiny/Kconfig
-index d46f95d9196d..3583ae598b57 100644
---- a/drivers/gpu/drm/tiny/Kconfig
-+++ b/drivers/gpu/drm/tiny/Kconfig
-@@ -51,8 +51,8 @@ config DRM_SIMPLEDRM
- 	  buffer, size, and display format must be provided via device tree,
- 	  UEFI, VESA, etc.
- 
--	  On x86 and compatible, you should also select CONFIG_X86_SYSFB to
--	  use UEFI and VESA framebuffers.
-+	  On x86 BIOS or UEFI systems, you should also select SYSFB_SIMPLEFB
-+	  to use UEFI and VESA framebuffers.
- 
- config TINYDRM_HX8357D
- 	tristate "DRM support for HX8357D display panels"
-diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
-index 3e5355769dc3..b0dcfa26d07b 100644
---- a/include/linux/sysfb.h
-+++ b/include/linux/sysfb.h
-@@ -58,37 +58,37 @@ struct efifb_dmi_info {
- #ifdef CONFIG_EFI
- 
- extern struct efifb_dmi_info efifb_dmi_list[];
--void sysfb_apply_efi_quirks(void);
-+void sysfb_apply_efi_quirks(struct platform_device *pd);
- 
- #else /* CONFIG_EFI */
- 
--static inline void sysfb_apply_efi_quirks(void)
-+static inline void sysfb_apply_efi_quirks(struct platform_device *pd)
- {
- }
- 
- #endif /* CONFIG_EFI */
- 
--#ifdef CONFIG_X86_SYSFB
-+#ifdef CONFIG_SYSFB_SIMPLEFB
- 
--bool parse_mode(const struct screen_info *si,
--		struct simplefb_platform_data *mode);
--int create_simplefb(const struct screen_info *si,
--		    const struct simplefb_platform_data *mode);
-+bool sysfb_parse_mode(const struct screen_info *si,
-+		      struct simplefb_platform_data *mode);
-+int sysfb_create_simplefb(const struct screen_info *si,
-+			  const struct simplefb_platform_data *mode);
- 
--#else /* CONFIG_X86_SYSFB */
-+#else /* CONFIG_SYSFB_SIMPLE */
- 
--static inline bool parse_mode(const struct screen_info *si,
--			      struct simplefb_platform_data *mode)
-+static inline bool sysfb_parse_mode(const struct screen_info *si,
-+				    struct simplefb_platform_data *mode)
- {
- 	return false;
- }
- 
--static inline int create_simplefb(const struct screen_info *si,
--				  const struct simplefb_platform_data *mode)
-+static inline int sysfb_create_simplefb(const struct screen_info *si,
-+					 const struct simplefb_platform_data *mode)
- {
- 	return -EINVAL;
- }
- 
--#endif /* CONFIG_X86_SYSFB */
-+#endif /* CONFIG_SYSFB_SIMPLE */
- 
- #endif /* _LINUX_SYSFB_H */
--- 
-2.31.1
 
 
 _______________________________________________
