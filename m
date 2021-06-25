@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BCD40C49EA5
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BEE7CC49EA7
 	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 01:02:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C38B6135A
+	by mail.kernel.org (Postfix) with ESMTPS id 8C9DD613B9
 	for <linux-riscv@archiver.kernel.org>; Fri, 25 Jun 2021 01:02:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C38B6135A
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C9DD613B9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,43 +23,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMz3RgL50z8N7GLVde3RL1kruVhn+lCjZ/M6E4UyPPc=; b=B/7lZzAXJqX+DH
-	Bud38LWRjouP/OhHmm9S93943PTTAjmN4nUVfgtxtD8d/UCR6EIod02MnTvxoU4yEsGCJ42uD6bZu
-	EK/AwqK9Oand3Ywyopa+DyZCC2+E726QMvz8RFRCLDtR2a5yRxKR44Es4rJ+8+/hCLjdgC1s6Xznz
-	xX3mtGhbNjBmFRUsrIeFcHF3no6enDIZM9x1GxG89mMh5iLg7ZvctvTDtdvuii9rHlHfIRyN58veo
-	xnvXPIi40O1/XejVRlMNa2/+X0RzwkJZAWrmT/d/+bmXLqS3W/0c82hvYlzVeiV3GwiRkl0ZTCWUa
-	ZQ0bja3n5ir1BAvbIjjw==;
+	List-Owner; bh=OJNSMLx/eAbsAJHHn8SAzf2E9PqxLcbTJMdj9KfpXY8=; b=AWSk6NZFH07XWN
+	pmEFkqK3fzvXDSe0lxZpnZrL0ZFoHZey8WengRscZMoZaoXVRYx/Wv04Yc3v1ptzapQyTOSMLGe2M
+	tgzcLK/Ji9VIaGh89UigQ7LH4LuEpJReVMAFcB4zOeBoPYuiNJHjhGkBzFrFovVyuvOUyo6qsB1Zq
+	Yft2KnJrfAE0XjYhb0wjvT44hxdKdx8YKsyKJvPVJZnmmfU/64RTrwolSXPs0JhLShkxsYduZ5u3V
+	qGOgdl8tp897me5Sap5geekJVAX/9aD4yPNv75Hkt00OZfZjNepUK6nIs+GevUZoqgFev7PXUriph
+	vgaDOUnouUmcwYlVls5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lwaEu-00GvtP-4m; Fri, 25 Jun 2021 01:02:36 +0000
-Received: from mail-ej1-f45.google.com ([209.85.218.45])
+	id 1lwaEr-00GvsB-K9; Fri, 25 Jun 2021 01:02:33 +0000
+Received: from mail-ej1-f53.google.com ([209.85.218.53])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lwaEq-00Gvqr-F3
- for linux-riscv@lists.infradead.org; Fri, 25 Jun 2021 01:02:34 +0000
-Received: by mail-ej1-f45.google.com with SMTP id nb6so12401222ejc.10
- for <linux-riscv@lists.infradead.org>; Thu, 24 Jun 2021 18:02:32 -0700 (PDT)
+ id 1lwaEo-00Gvpz-LW
+ for linux-riscv@lists.infradead.org; Fri, 25 Jun 2021 01:02:32 +0000
+Received: by mail-ej1-f53.google.com with SMTP id he7so12358219ejc.13
+ for <linux-riscv@lists.infradead.org>; Thu, 24 Jun 2021 18:02:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=PTl2a45oK7ererAoqlIPpBJuapGCJZ6anTugsk9TTSQ=;
- b=pTJ5YNLaQMZVJQNbMIHMZPqGTpuWLabIgCYWzok7f5nwOWqqybv/q1Js5nFYIsf/8Q
- Pni3M3xnw64FDyHl8E+MK/oxYa0TO1wGoOieKeu1LKPDrvRaMV9nVFhjrkQWhwbrSmbn
- doTN5T/1R3OL82JcuFRuw+rrA7YZcvOnVUEmseJtpnFGxlikBF8BtIwVNiF54/u5yC/I
- mBGwrbDmA1PWTgb2sGrVxXFXNc+DFSF2r2LfwGNFtOj2oj6TFRa6fV5iO435DoBQ9nfP
- M6elpZVgxKxvQbZQGPs7il59krezg37A2KxXBlhCSymsiq6UI/gLT3mNWRur42GkHa2t
- UAhA==
-X-Gm-Message-State: AOAM5322zXd6jCLZ7r45ZwT3xyQLEZcVMeUpeC7IpD4vHtaJ3KPqowEz
- JNtP467FO/kT0g3lb6XS1PA=
-X-Google-Smtp-Source: ABdhPJxVCiXfkPACT3+y9E9wzhTSnrJLbSJnilSAXh81SgJREFTyL7yrttPSEAYBAPGeBAxl1Ro+MQ==
-X-Received: by 2002:a17:906:c1d0:: with SMTP id
- bw16mr8146696ejb.146.1624582950900; 
- Thu, 24 Jun 2021 18:02:30 -0700 (PDT)
+ bh=5d1bwUaSuG/f6mTu6ru/WOtu9a5hLw1cNtYO/dabh8E=;
+ b=Kf5u1Lo3qEoUt7/Kn0Pg9+wvOtM02MSCvCOqHUTAuJz1RNOyHNcwZn4pNkEL8TTd5r
+ kP0TT3eKJ0kZcaDr5wfGM5EAmt8mbLqPDf7MzRH+sNsIRzdXQ3q6jVWYZsmflq2YrkW3
+ f+M7aNUEQy8lzU3YnLdI0vy92Km+BCOENdUK+6lV6fLp0TvcQk/NeTJjRkhDprW4yRCF
+ 2iBeCCRbAqNMuJhbhhrKgb1lUC43D6gVhEphAWbvS414+U3YFm4lVrWtl1HRfAAe8RH5
+ M1hTZR/UJauFVRxUi1LYHjCf+6VEf43VP9+2iZJK926jrkkL5rK+ZMTzJnCQ23kaqqiU
+ +FKQ==
+X-Gm-Message-State: AOAM532yAVjpe2XoPhpXu3syRIsZOOQdZ2EDNy/rbJTEUhYXJ3LiXCw6
+ kFs4ttRY8EFgy1XVLZAvU9U=
+X-Google-Smtp-Source: ABdhPJxINwo0+vWL6bmf2rOXNOQTpbhqaRuhL6BUfM1PoIYKKfYvwU+5wDopzTUQ2tk9MFuhlrmHSA==
+X-Received: by 2002:a17:906:30d0:: with SMTP id
+ b16mr8028751ejb.495.1624582949235; 
+ Thu, 24 Jun 2021 18:02:29 -0700 (PDT)
 Received: from msft-t490s.home (host-95-251-17-240.retail.telecomitalia.it.
  [95.251.17.240])
- by smtp.gmail.com with ESMTPSA id yc29sm1921909ejb.106.2021.06.24.18.02.29
+ by smtp.gmail.com with ESMTPSA id yc29sm1921909ejb.106.2021.06.24.18.02.27
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 24 Jun 2021 18:02:30 -0700 (PDT)
+ Thu, 24 Jun 2021 18:02:28 -0700 (PDT)
 From: Matteo Croce <mcroce@linux.microsoft.com>
 To: linux-kernel@vger.kernel.org, Nick Kossifidis <mick@ics.forth.gr>,
  Guo Ren <guoren@kernel.org>, Christoph Hellwig <hch@infradead.org>,
@@ -68,16 +68,16 @@ To: linux-kernel@vger.kernel.org, Nick Kossifidis <mick@ics.forth.gr>,
  Emil Renner Berthing <kernel@esmil.dk>, Drew Fustini <drew@beagleboard.org>
 Cc: linux-arch@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
  Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org
-Subject: [PATCH 3/3] lib/string: optimized memset
-Date: Fri, 25 Jun 2021 03:02:00 +0200
-Message-Id: <20210625010200.362755-4-mcroce@linux.microsoft.com>
+Subject: [PATCH 2/3] lib/string: optimized memmove
+Date: Fri, 25 Jun 2021 03:01:59 +0200
+Message-Id: <20210625010200.362755-3-mcroce@linux.microsoft.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20210625010200.362755-1-mcroce@linux.microsoft.com>
 References: <20210625010200.362755-1-mcroce@linux.microsoft.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210624_180232_555151_1CB3B248 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20210624_180230_793526_E9D1B4BE 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,61 +96,48 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Matteo Croce <mcroce@microsoft.com>
 
-The generic memset is defined as a byte at time write. This is always
-safe, but it's slower than a 4 byte or even 8 byte write.
+When the destination buffer is before the source one, or when the
+buffers doesn't overlap, it's safe to use memcpy() instead, which is
+optimized to use a bigger data size possible.
 
-Write a generic memset which fills the data one byte at time until the
-destination is aligned, then fills using the largest size allowed,
-and finally fills the remaining data one byte at time.
+This "optimization" only covers a common case. In future, proper code
+which does the same thing as memcpy() does but backwards can be done.
 
 Signed-off-by: Matteo Croce <mcroce@microsoft.com>
 ---
- lib/string.c | 30 ++++++++++++++++++++++++++++--
- 1 file changed, 28 insertions(+), 2 deletions(-)
+ lib/string.c | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
 diff --git a/lib/string.c b/lib/string.c
-index 69adec252597..598ece5434e9 100644
+index 15e906f97d9e..69adec252597 100644
 --- a/lib/string.c
 +++ b/lib/string.c
-@@ -811,10 +811,36 @@ EXPORT_SYMBOL(__sysfs_match_string);
+@@ -976,19 +976,13 @@ EXPORT_SYMBOL(memcpy);
   */
- void *memset(void *s, int c, size_t count)
+ void *memmove(void *dest, const void *src, size_t count)
  {
--	char *xs = s;
-+	union types dest = { .as_u8 = s };
+-	char *tmp;
+-	const char *s;
++	if (dest < src || src + count <= dest)
++		return memcpy(dest, src, count);
++
++	if (dest > src) {
++		const char *s = src + count;
++		char *tmp = dest + count;
  
-+	if (count >= MIN_THRESHOLD) {
-+		unsigned long cu = (unsigned long)c;
-+
-+		/* Compose an ulong with 'c' repeated 4/8 times */
-+		cu |= cu << 8;
-+		cu |= cu << 16;
-+#if BITS_PER_LONG == 64
-+		cu |= cu << 32;
-+#endif
-+
-+		if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
-+			/*
-+			 * Fill the buffer one byte at time until
-+			 * the destination is word aligned.
-+			 */
-+			for (; count && dest.as_uptr & word_mask; count--)
-+				*dest.as_u8++ = c;
-+		}
-+
-+		/* Copy using the largest size allowed */
-+		for (; count >= bytes_long; count -= bytes_long)
-+			*dest.as_ulong++ = cu;
-+	}
-+
-+	/* copy the remainder */
- 	while (count--)
--		*xs++ = c;
-+		*dest.as_u8++ = c;
-+
- 	return s;
- }
- EXPORT_SYMBOL(memset);
+-	if (dest <= src) {
+-		tmp = dest;
+-		s = src;
+-		while (count--)
+-			*tmp++ = *s++;
+-	} else {
+-		tmp = dest;
+-		tmp += count;
+-		s = src;
+-		s += count;
+ 		while (count--)
+ 			*--tmp = *--s;
+ 	}
 -- 
 2.31.1
 
