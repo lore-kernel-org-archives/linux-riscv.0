@@ -2,60 +2,90 @@ Return-Path: <SRS0=OKTc=LX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E686C11F66
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 13:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 66636C11F66
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 13:42:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7935861D8E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 13:37:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7935861D8E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 361FA61D8A
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 13:42:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 361FA61D8A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/qCmMKhSp13nVxCQ1Y/Ban9b38V18bq1pMQyI8UmXY=; b=buiaBciucaK1ZV6HzKsWUrL63J
-	nz2Z/CZ3NKWWNk6GegsCUz6Ykl8Ln3dpT8HJn/iNzhyEjKuhh0QJssFL9ik22aKwDGhBrATatvANZ
-	UeI6NyX6HtmHHgVosQIkHtqfIfOSRl8gthhxw0zhRqb1m9kcVTt/aWAt9Rj0GtbinwBciRZeK4x1a
-	0gcOIy4KDEes3iTkTE9StqPOGJ440rGVTzxDXnJ9Y7lxmbtYHQyWoh5gW17wjXyC3/zIY1lUBUY/X
-	UyxbQygmkHFeqpd+dBma8BxEmZuMisFv7ylHheE3R0k+hwVSG6iclc+DEV1eSv1eF7hpnnZMpS79c
-	g9f3scFg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2uXudcQl/8w4Tk9KYBtPNecSDh29EuvqOusRRfhwcYs=; b=HOLYNNevxUoDb+
+	G+saI0+17xrNOYretvoxslc6tKXlMJmmxfcaXPWSy+dgsVhPNYNmgJpMLp0kE57KYbbRA+artb7Wm
+	B6aD5ST/t+tSI/EJoeFrSTcvG3F1eFhuvsYTAIMGa38lddzMtfC/9VzGTkQMYT81e41YRlhsoPbx4
+	a9NekBasOgdCkqL/ov9xzQ782zGLrKywoGKtBCZ52IIhskqRz0bukN5uoVn5pLH3twbixFOpVSfkU
+	mpxQBloJiE9PLC7+ZcHx3oT0gmhLOXQH4IFIJayThlWQG6uarQP3czts+pIJznCkcUgprpAng/fwm
+	JBsuiHQsP1yEDwh6FkPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lyDuT-00B521-He; Tue, 29 Jun 2021 13:36:17 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1lyDzr-00B8MC-In; Tue, 29 Jun 2021 13:41:51 +0000
+Received: from mout.gmx.net ([212.227.17.20])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lyDMY-00AvYJ-QR
- for linux-riscv@lists.infradead.org; Tue, 29 Jun 2021 13:01:17 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id A9C21240013;
- Tue, 29 Jun 2021 13:01:05 +0000 (UTC)
-Subject: Re: [PATCH -next] riscv: mm: remove redundant trampoline PGD for 64bit
-To: Nanyong Sun <sunnanyong@huawei.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, anup.patel@wdc.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- palmerdabbelt@google.com, atish.patra@wdc.com, wangkefeng.wang@huawei.com
-References: <20210527144819.12101-1-sunnanyong@huawei.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <33f93026-cbd2-acd4-e737-c744207f82f2@ghiti.fr>
-Date: Tue, 29 Jun 2021 15:01:05 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ id 1lyDyg-00B7cV-Ak
+ for linux-riscv@lists.infradead.org; Tue, 29 Jun 2021 13:40:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1624974026;
+ bh=p5AhWvJObj5E48c5fHGcL6jXDuBVZdpgQb8yMlXS5lQ=;
+ h=X-UI-Sender-Class:From:To:Cc:Subject:Date;
+ b=kbNAu9qrfhjH8KLiI0jIC/qkXlvAf5WyXLSyNdHAHYUDGWZB2UDKqDUZHp4kCXDwE
+ 7GreXgsYkwrIovrYN8d6/PUWSVJ3HlwnQOZhRTtrP07B//BdrpL6FPD5hKZknLbSeh
+ KdKcMrGbq5DZrA7ghlvFfDFahf0FTEtGdOlIXPhY=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from LT02.fritz.box ([88.152.144.157]) by mail.gmx.net (mrgmx104
+ [212.227.17.174]) with ESMTPSA (Nemesis) id 1MIMbU-1m3iAQ26PU-00EOFS; Tue, 29
+ Jun 2021 15:40:26 +0200
+From: Heinrich Schuchardt <xypron.glpk@gmx.de>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Andreas Schwab <schwab@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, linux-efi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>
+Subject: [PATCH 1/1] RISC-V: load initrd wherever it fits into memory
+Date: Tue, 29 Jun 2021 15:40:18 +0200
+Message-Id: <20210629134018.62859-1-xypron.glpk@gmx.de>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-In-Reply-To: <20210527144819.12101-1-sunnanyong@huawei.com>
-Content-Language: fr
+X-Provags-ID: V03:K1:EgBc8Ey65V6us9wivMljuEpQjELTw45ZYekN3WeWP7EoTZQqdi9
+ lSTJfNjLwwn39LG5t+wlOV95sd/H5CVCUd2fcTQeINYy7VKpqnR5PvKUBw3tFj8vXTlLIRA
+ xdg/VFCpoGQmlBASv2EnqDMC7oyUTAD6jzc3KfeuAsAwck59dBCiQSEcBkvVgxPraBjZQWy
+ QzaGFch8Z/36PVcA2KcMQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4vb5uaMYpIE=:5sDfrtR1QE2vNvA9ao0JqE
+ QCuwt/pPqkBuNXZG6n+V0YepLxjcDmHWEkz0B/7tbDMrZGb/RnsgaYGZzPLYOEl7j+euc12aY
+ XhImlGTnVQKvO0n0d/aR83TCkr5ie+etSl2BFe1F+ten38vMmkK6dH3m2/jyZCGLM1GaGHxhG
+ /NrnWeNUlldqlRm1CjK8bTxj2fgFd2qf9zo2PXx9Ha41vtJGyMGa8KapunitBeV1AmA1QcVSU
+ XmM+G3zQLGAOYSoOynunILlEH3yhiJ8LWGjSqk7hevu+vMd+z9XZKNnCD0iNhA2ku0L1frBdG
+ RSGLwQXnMzokwwZW8PMySbic0VYy5yqGo7Fk901OokEfTHoz2GkqbSDnHid9VABbWDXBRV65+
+ aT+PUuAP/iD0QHGflYWOokZXuzh3+twCKwHMMdU5GcKw1JyEv3/7zsg2WnLUSDM2xgiGwMscW
+ Hg41CcaZbAIQMbjHQ7Tecy3Ko28hQKQ3rjid0kMd3mzIh97wARBfXgm8PJukYxEPbbe4CbSGA
+ Y/2ecd0XEp2pUcsgDuaMut2NGQYgJGkddbyucAuEKt7c0n+ekRyio0GVwoQuTJwAqRoLJUZRD
+ EeH8s20BCAd56PLxDnGjaItR8G+qr72D/GxG6h3Ga4G9ZP4cYuQpEpzz4zbD9aDOc+pHJheAT
+ uFjQGNOnG4ipeXTV0ObUibh+cGmUlVZeOnqey1oaeIcvi18+a0aziBynTRKemC1rbt7pQgxeE
+ CMTHgTVfIQIzSm0zff2ftyvvj68P73k3HiRUF7yMbrUwmOsfLjEd5nTdGLV+h3nOS3SSO1Zxj
+ hHu9PBop3QFRgmjYDwwoteERFqYfTHT619wxtfXK07JYySnYm/xcneyAcuNj8XFsKXJ94+elh
+ +/jbr4Y73K+6iBruxN4XKYdmXthtKJKdKp/wwNAppODlqcCwQsAq1vvAVJnZCT75XYdvuC5AZ
+ CUIzh8gPAHE3PyQskMkvh1Wk73ICGpPKbQ0DXKUb16f1js3XVvkTpD3LGfp8uiNcYAKk8LVT/
+ YllnIUhcVaO8EqtkpePpN58I/qAaX4j2Z4Cz/h1cz786BolNO+kNT86hIDjiIm9tH69AOOEBw
+ t4xkpPWoQ4ZF1DyrfS2jXuD5ZZu3aA08NeJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210629_060115_206576_7B0F673E 
-X-CRM114-Status: GOOD (  31.81  )
+X-CRM114-CacheID: sfid-20210629_064038_747067_A7F1A268 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,245 +97,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nanyong,
+Requiring that initrd is loaded below RAM start + 256 MiB led to failure
+to boot SUSE Linux with GRUB on QEMU, cf.
+https://lists.gnu.org/archive/html/grub-devel/2021-06/msg00037.html
 
-Le 27/05/2021 =E0 16:48, Nanyong Sun a =E9crit=A0:
-> Remove redundant trampoline PGD for 64bit and add more comment
-> for why 32bit systems need trampoline PGD.
-> =
+Remove the constraint.
 
-> There was a patch and discussion similar to this,refer to
-> the link [1][2].
-> =
+Reported-by: Andreas Schwab <schwab@linux-m68k.org>
+Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
+---
+ arch/riscv/include/asm/efi.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> The trampoline PGD is redundant for 64bit systems because:
-> 1. The early PGD covers the entire kernel mapping. Directly
-> loading early PGD can achieve the result in boot stage.
-> A more trampoline PGD makes code hard to understand.
-> 2. Directly loading early PGD is safe in 64bit systems since
-> the kernel virtual address starts as 0xFFFFxxxxxxxxxxxx,
-> which has a very big gap with RAM address.It won't fall into
-> the corner case that 32bit system worrys.
-> 3. Remove redundant trampoline PGD can benefit to code maintaince,
-> because 64bit systems have more page table levels.For example:
-> If we want to support SV48 which has 4 page table levels, we have
-> to add a trampoline_pud and insert it before trampoline_pmd.
+diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
+index 7542282f1141..649ab513dc99 100644
+--- a/arch/riscv/include/asm/efi.h
++++ b/arch/riscv/include/asm/efi.h
+@@ -33,10 +33,10 @@ static inline unsigned long efi_get_max_fdt_addr(unsigned long image_addr)
 
-I do agree with your last point about code maintenance and this would be =
+ #define ARCH_EFI_IRQ_FLAGS_MASK (SR_IE | SR_SPIE)
 
-a welcome improvement before I respin my sv48 series.
+-/* Load initrd at enough distance from DRAM start */
++/* Load initrd anywhere in system RAM */
+ static inline unsigned long efi_get_max_initrd_addr(unsigned long image_addr)
+ {
+-	return image_addr + SZ_256M;
++	return ULONG_MAX;
+ }
 
-Some comments below though.
+ #define alloc_screen_info(x...)		(&screen_info)
+--
+2.30.2
 
-> =
-
-> Reference link:
-> [1]https://lore.kernel.org/linux-riscv/20190325092234.5451-4-anup.patel@w=
-dc.com/
-> [2]https://lkml.org/lkml/2019/3/28/147
-> =
-
-> Signed-off-by: Nanyong Sun <sunnanyong@huawei.com>
-> ---
->   arch/riscv/kernel/head.S | 13 +++++++++++--
->   arch/riscv/mm/init.c     | 21 +++++++--------------
->   2 files changed, 18 insertions(+), 16 deletions(-)
-> =
-
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index 89cc58ab52b4..1897b17c5fcc 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -93,12 +93,18 @@ relocate:
->   	add a2, a2, a1
->   	csrw CSR_TVEC, a2
-
-This is not needed in 64-bit then.
-
->   =
-
-> -	/* Compute satp for kernel page tables, but don't load it yet */
-> +	/* Compute satp for kernel page tables */
->   	srl a2, a0, PAGE_SHIFT
->   	li a1, SATP_MODE
->   	or a2, a2, a1
-> -
-> +#ifdef CONFIG_64BIT
-> +	/* Load kernel page directory */
-> +	sfence.vma
-> +	csrw CSR_SATP, a2
-> +#else
->   	/*
-> +	 * 32bit system need a trampoline to handle a corner case where
-
-s/system/systems or s/need/needs.
-
-> +	 * load address range overlaps kernel virtual address range.
->   	 * Load trampoline page directory, which will cause us to trap to
->   	 * stvec if VA !=3D PA, or simply fall through if VA =3D=3D PA.  We ne=
-ed a
->   	 * full fence here because setup_vm() just wrote these PTEs and we need
-> @@ -110,6 +116,7 @@ relocate:
->   	or a0, a0, a1
->   	sfence.vma
->   	csrw CSR_SATP, a0
-> +#endif /* CONFIG_64BIT */
->   .align 2
->   1:
->   	/* Set trap vector to spin forever to help debug */
-> @@ -122,6 +129,7 @@ relocate:
->   	la gp, __global_pointer$
->   .option pop
->   =
-
-> +#ifdef CONFIG_32BIT
->   	/*
->   	 * Switch to kernel page tables.  A full fence is necessary in order to
->   	 * avoid using the trampoline translations, which are only correct for
-> @@ -130,6 +138,7 @@ relocate:
->   	 */
->   	csrw CSR_SATP, a2
->   	sfence.vma
-> +#endif /* CONFIG_32BIT */
-> =
-
-
-I would have done something like that instead, in order to avoid to copy =
-
-the code that loads the kernel page table:
-
-
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 89cc58ab52b4..1251f4d201a8 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -98,18 +98,23 @@ relocate:
-         li a1, SATP_MODE
-         or a2, a2, a1
-
-+       /*
-+        * We need a full fence here because setup_vm() just wrote these =
-
-PTEs
-+        * and we need to ensure the new translations are in use.
-+        */
-+       sfence.vma
-+
-+#ifndef CONFIG_64BIT
-         /*
-          * Load trampoline page directory, which will cause us to trap to
--        * stvec if VA !=3D PA, or simply fall through if VA =3D=3D PA.  We=
- need a
--        * full fence here because setup_vm() just wrote these PTEs and =
-
-we need
--        * to ensure the new translations are in use.
-+        * stvec if VA !=3D PA, or simply fall through if VA =3D=3D PA.
-          */
-         la a0, trampoline_pg_dir
-         XIP_FIXUP_OFFSET a0
-         srl a0, a0, PAGE_SHIFT
-         or a0, a0, a1
--       sfence.vma
-         csrw CSR_SATP, a0
-+#endif
-
-
->   	ret
->   #endif /* CONFIG_MMU */
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 11b61bea0c4d..b7226ac2d04f 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -210,13 +210,17 @@ unsigned long pfn_base __ro_after_init;
->   EXPORT_SYMBOL(pfn_base);
->   =
-
->   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> +#ifdef CONFIG_32BIT
->   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> +#endif /* CONFIG_32BIT */
->   pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
->   =
-
->   pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->   =
-
->   #ifdef CONFIG_XIP_KERNEL
-> +#ifdef CONFIG_32BIT
->   #define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
-> +#endif /* CONFIG_32BIT */
->   #define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
->   #define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
->   #endif /* CONFIG_XIP_KERNEL */
-> @@ -291,13 +295,11 @@ static void __init create_pte_mapping(pte_t *ptep,
->   =
-
->   #ifndef __PAGETABLE_PMD_FOLDED
->   =
-
-> -pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
->   pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
->   pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->   pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->   =
-
->   #ifdef CONFIG_XIP_KERNEL
-> -#define trampoline_pmd ((pmd_t *)XIP_FIXUP(trampoline_pmd))
->   #define fixmap_pmd     ((pmd_t *)XIP_FIXUP(fixmap_pmd))
->   #define early_pmd      ((pmd_t *)XIP_FIXUP(early_pmd))
->   #endif /* CONFIG_XIP_KERNEL */
-> @@ -543,21 +545,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->   	/* Setup fixmap PMD */
->   	create_pmd_mapping(fixmap_pmd, FIXADDR_START,
->   			   (uintptr_t)fixmap_pte, PMD_SIZE, PAGE_TABLE);
-> -	/* Setup trampoline PGD and PMD */
-> -	create_pgd_mapping(trampoline_pg_dir, kernel_virt_addr,
-> -			   (uintptr_t)trampoline_pmd, PGDIR_SIZE, PAGE_TABLE);
-> -#ifdef CONFIG_XIP_KERNEL
-> -	create_pmd_mapping(trampoline_pmd, kernel_virt_addr,
-> -			   xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
-> -#else
-> -	create_pmd_mapping(trampoline_pmd, kernel_virt_addr,
-> -			   load_pa, PMD_SIZE, PAGE_KERNEL_EXEC);
-> -#endif
-> -#else
-> +#endif /* __PAGETABLE_PMD_FOLDED */
-> +#ifdef CONFIG_32BIT
-
-Why did you change the #else for an #ifdef CONFIG_32BIT? =
-
-__PAGETABLE_PMD_FOLDED <=3D> CONFIG_32BIT anyway.
-
->   	/* Setup trampoline PGD */
->   	create_pgd_mapping(trampoline_pg_dir, kernel_virt_addr,
->   			   load_pa, PGDIR_SIZE, PAGE_KERNEL_EXEC);
-> -#endif
-> +#endif /* CONFIG_32BIT */
-
-If you use IS_ENABLED(CONFIG_32BIT) instead of #ifdef (and maybe rather =
-
-CONFIG_64BIT as this is the config that is widely used to distinguish =
-
-between both), that would avoid the #ifdef around trampoline_pg_dir =
-
-which would be even more readable.
-
->   =
-
->   	/*
->   	 * Setup early PGD covering entire kernel which will allow
-> =
-
-
-Thanks,
-
-Alex
 
 _______________________________________________
 linux-riscv mailing list
