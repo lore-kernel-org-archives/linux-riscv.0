@@ -7,52 +7,55 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E410C11F66
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 09:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 902ECC11F66
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 09:15:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 60E6E61DBC
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 09:14:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60E6E61DBC
+	by mail.kernel.org (Postfix) with ESMTPS id 568E061DE1
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Jun 2021 09:15:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 568E061DE1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HOWjrtHeNbcVWqQ45HVONKk9MwgPrE3T17kayYZdi6E=; b=TrKjUAztwpPTlt
-	ohCdhF67WEYXdCAvyDi59gnxAqpRBEiWB1N8KgwRDzVYmB7dtZ400Uu4YSj6fZm0CM3mTRulMM5JO
-	IZf6d/n5enwTCu62Mg7e6gA5GFRyEA6+gHIb/kK3rkPC3+DtZIwlyTdJWqr3Cy2XkiFDWIYGxOzXR
-	mXfDeTE3yHxmlK/s3Go+9Kb4js9Oybu/NF9Gp5wR7bEk4T2iQg7L/nnHaWYjZZ2qdQ93sV/Kll07E
-	+TtTSbHlxYY6SIbLp3B8H/ZjkAcwzEVAxwjPhwObJIthM5AU46RhG/7C5ocUlO9ElyOyoof1OxSbQ
-	xfF2NbBSirwjKhdov8YQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gRSJSOifXS9YUYJRBNozJqiyR2yh5+jHYBE52tks/nc=; b=Z4o2cWXSV7ZzA3
+	9sOMyOXtc19ttGcNOSjwWamSpDoM7kp50ZE2DuXLwkmu9qZ0K7WftpRr5f0M4GTulNSHb2ga92fft
+	46gfIOC1B/XTSLboTz2LstU5nhSdLkZm1Z0XgTkwsYjIRUPuDnd46BJyelg5tCJVE0PfMryWWTkn9
+	IBpkGFZV74J/hIvxUFTzuHRGE4uRnzb3qXxp9CJOzfC2y4OCjePhevJ9TM0HHXKiQN+M5xzd4fjMU
+	fP5EGmlEy+OeXdOqzk64ilzlSei+ir/Ow+wGCiYtrkANuoCYEPnNgiaNRm/RwCkZx9jlyMEbP7KFR
+	GJYo5+3Pr2MYyzMXNjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ly9om-00ALQx-JQ; Tue, 29 Jun 2021 09:14:08 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1ly9pk-00ALXJ-1q; Tue, 29 Jun 2021 09:15:08 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ly9oh-00ALQD-RB
- for linux-riscv@lists.infradead.org; Tue, 29 Jun 2021 09:14:05 +0000
+ id 1ly9ph-00ALWa-TG
+ for linux-riscv@lists.infradead.org; Tue, 29 Jun 2021 09:15:07 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id C57F724000F;
- Tue, 29 Jun 2021 09:13:56 +0000 (UTC)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 94BB6E0002;
+ Tue, 29 Jun 2021 09:14:59 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Kefeng Wang <wangkefeng.wang@huawei.com>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH 1/3] riscv: Fix memory_limit for 64-bit kernel
-Date: Tue, 29 Jun 2021 11:13:46 +0200
-Message-Id: <20210629091349.3802690-1-alex@ghiti.fr>
+Subject: [PATCH 2/3] riscv: Make sure the linear mapping does not use the
+ kernel mapping
+Date: Tue, 29 Jun 2021 11:13:47 +0200
+Message-Id: <20210629091349.3802690-2-alex@ghiti.fr>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210629091349.3802690-1-alex@ghiti.fr>
+References: <20210629091349.3802690-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210629_021404_061093_B99BBD59 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20210629_021506_122586_FD48B1B2 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,42 +72,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As described in Documentation/riscv/vm-layout.rst, the end of the
-virtual address space for 64-bit kernel is occupied by the modules/BPF/
-kernel mappings so this actually reduces the amount of memory we are able
-to map and then use in the linear mapping. So make sure this limit is
-correctly set.
+For 64-bit kernel, the end of the address space is occupied by the
+kernel mapping and currently, the functions to populate the kernel page
+tables (i.e. create_p*d_mapping) do not override existing mapping so we
+must make sure the linear mapping does not map memory in the kernel mapping
+by clipping the memory above the memory limit.
 
-Fixes: c9811e379b21 ("riscv: Add mem kernel parameter support")
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 ---
- arch/riscv/mm/init.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ arch/riscv/mm/init.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 12f956b3a674..04a5db3a9788 100644
+index 04a5db3a9788..a1a0c4afa80f 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -124,10 +124,17 @@ void __init mem_init(void)
- }
+@@ -742,6 +742,8 @@ static void __init setup_vm_final(void)
+ 		if (start <= __pa(PAGE_OFFSET) &&
+ 		    __pa(PAGE_OFFSET) < end)
+ 			start = __pa(PAGE_OFFSET);
++		if (end >= __pa(PAGE_OFFSET) + memory_limit)
++			end = __pa(PAGE_OFFSET) + memory_limit;
  
- /*
-- * The default maximal physical memory size is -PAGE_OFFSET,
-- * limit the memory size via mem.
-+ * The default maximal physical memory size is -PAGE_OFFSET for 32-bit kernel,
-+ * whereas for 64-bit kernel, the end of the virtual address space is occupied
-+ * by the modules/BPF/kernel mappings which reduces the available size of the
-+ * linear mapping.
-+ * Limit the memory size via mem.
-  */
-+#ifdef CONFIG_64BIT
-+static phys_addr_t memory_limit = -PAGE_OFFSET - SZ_4G;
-+#else
- static phys_addr_t memory_limit = -PAGE_OFFSET;
-+#endif
- 
- static int __init early_mem(char *p)
- {
+ 		map_size = best_map_size(start, end - start);
+ 		for (pa = start; pa < end; pa += map_size) {
 -- 
 2.30.2
 
