@@ -2,75 +2,75 @@ Return-Path: <SRS0=MvPY=LZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F0A0AC11F66
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jul 2021 00:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 831C8C11F66
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jul 2021 00:22:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AAB8F61451
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jul 2021 00:22:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AAB8F61451
+	by mail.kernel.org (Postfix) with ESMTPS id 4E63461452
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jul 2021 00:22:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E63461452
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=beagleboard.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRTyP82AAUDRrfDQeDiHlhmaj8Z8qgiJLNh9TBpMpL8=; b=J6xMe1NPoB7VQC
-	rHG3TwB/ujR6Bj9+Tqu4ll/IZzJqBlPsRLahHUoOuwsTjPFW3iQBQB92F6jQb7yloDBiYwY44tRHb
-	Ff1QPYEjPhdrk1+1ieok8mmwowvtxWlzt4gJDweagvcYwm5g0AdSQSZxH9lfjb6blHhy5owlZzBid
-	V3+USKHRY4LMZ65d6oXfjIpDQVtlNQLYaDtjdNzyQ+SCqA3oRJndLKXxDZm9XGPsFBmJ/6oxNJCeU
-	TzAgHms7WHj5RElI+tHNcoGaajQ/U3FXiPadb7y1w3Tc6WaEr5rHguuEywjuftOGmHxxm0nNOr2FM
-	kcXjubKS59Gz6FXMhiYA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HxF06/PenWaVku+bMet0F5xxIDBTOI3TPK9qmojU+3Q=; b=x5jieq7iJ/MYs0
+	vAzQozMqF39s9lqakocdexKuWGdw/igSJNgqgJI3ylqB2shRBaXGeGXfqG2rIK84UanJ8h5qqtC5Y
+	rjMVx5wGzkl7aaj8+st9r4f5oRrBhdyo1e4erZlKKuAHeFBUzrbz9PtjsOHzgkg8ovabpmca3eIpI
+	UIobs9lcbqRAd61y/F200kKAGWpFaifL3w+vkufYebAxc7AgM7/0KB6IjvM+5dFTx8sy6bppPgpLH
+	Rj3oRxmxj5cMswQpG8Z613g4ErFJ5Sq6wo4gpc8AM8LAjS4Xysh/IkqlPni5tr9GSyRYpk3Sss3zz
+	6d0zj4HZJXPkj/9D2MYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lykTL-00FfHp-N4; Thu, 01 Jul 2021 00:22:27 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1lykTK-00FfHc-8D; Thu, 01 Jul 2021 00:22:26 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lykTH-00FfGY-QG
- for linux-riscv@lists.infradead.org; Thu, 01 Jul 2021 00:22:25 +0000
-Received: by mail-pg1-x535.google.com with SMTP id a2so4388577pgi.6
- for <linux-riscv@lists.infradead.org>; Wed, 30 Jun 2021 17:22:23 -0700 (PDT)
+ id 1lykTH-00FfGU-C2
+ for linux-riscv@lists.infradead.org; Thu, 01 Jul 2021 00:22:24 +0000
+Received: by mail-pg1-x531.google.com with SMTP id y17so4371150pgf.12
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Jun 2021 17:22:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=beagleboard-org.20150623.gappssmtp.com; s=20150623;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=HSdm070R4SM/eRkEfUHVyZ+M0Thpoj9fAA1Eqy/QCP4=;
- b=iDwJzjkg/Cb6xXcKJDcqkbedHRnU0N//h3MMRTg1+KnfRnJ9qoHHXuILtF5nlFNPto
- iGbKzvpVlyvCYQIRO74L9lyd8SjvhqGEx/t74r5T+zwGx1ahklXn/88A2YoeJpqyyQF3
- S++9jMJ/COOuShtlkkwQ3eJWPXVj8O4lYr53RtUIMFUBgPNHJnxHtQ3piI/m5Y6pp0Hj
- MrXHcnFcFRQbIUeX9jP8zLrY3jx3xXSVvqn8Jwudz/vVTOWDJ3ss3woHtWwfUDpyEi9v
- h0/SlzMlAMIfHY0xOxhvwFfFknUwaRARZ4jZQL2bFiHWmpyNvPw5YdkOuoivOpgvC/oA
- 8tLA==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=aDnQQVopiKheNy1UmrcDKnk3g5arjbzcZ1y90JZZMEs=;
+ b=M3wYEGtW3GTTHBiLO2Frsst4YQL4Cnl39+BXgG/RQwxVotP5Sa6p9h/ATQ2/JVZtlp
+ CP3mu+tG5NrGUOI91b9fsO9nk+eXzOkzYWywp3TRvFLqtlfB5lzxdxYh7fGkAKSoOEM2
+ CSMmS06vByZZiYM+bewyGDYmzsaOUfPpd2xmpju4H3+E4wI22B0SXPkaUUddMyIjHJ+o
+ D5QUhNAPC+FTGZbqegNyctpPLY8yuKHRcRdeaByJkVb2jxikijyl6BujzqTQMaqbOxUu
+ msWn589rNB72uXXM58oR3bSxMa/r/mxx8yVHRhma3JuJgAisLMrWPJxZ8P2wkgTNs2Zs
+ gQ8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=HSdm070R4SM/eRkEfUHVyZ+M0Thpoj9fAA1Eqy/QCP4=;
- b=kZxAXnZxNRZ3mG4YaFOK5ycoWCmncC0scJfRPKNnGIzuSVVOv1cbuU5i7pbvYjvCjr
- sQ+wHuIrhzF5yfRfBqfCNO43hZq82pEFYfL+DoZwnuhLaXMMHL4of3DzIK0YE2/dGlnF
- I7mdL1pCYeFxoaOGo2/CdR0s/cWmJqZIydTGesgUALNfF/VFJC4xmh2a+St65uzwUgsI
- BKB5xv/P93P9XPu91rxJ0lMN8AsnUCnj2ynMLd3WZiKgBRSqBOyp9Rv/W3He/3MYzUgS
- LOlEB6r+V/YZ5YPb1P7pznuS7SuszRHbC/wterfTT4IEVF+mflxL+2LVSxOSydopSpdw
- aKqw==
-X-Gm-Message-State: AOAM531Cju4UI6VUz8YSi5XZZisNswJpEErsrl+1HV55ANHX6coaWBDx
- 2C6SxmKk7eYQvoiMVS8bw1nyRg==
-X-Google-Smtp-Source: ABdhPJwSc0jIQ5LQ/MzvbgRgWdx1LngPkR32e6yXQdiDE/tHcpJn4TAdr2Bfkm/OdpsyZEgOtzaDJg==
-X-Received: by 2002:a62:380c:0:b029:2f7:4057:c3ed with SMTP id
- f12-20020a62380c0000b02902f74057c3edmr38802381pfa.21.1625098943069; 
- Wed, 30 Jun 2021 17:22:23 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=aDnQQVopiKheNy1UmrcDKnk3g5arjbzcZ1y90JZZMEs=;
+ b=iMtaLATy1Vt6balQQh850X0meWpMs185olhdMy3PXHeIjyfAQS6UVmPmc0Wzr8Ssig
+ zPsOa8E8/tAb6gPp4jNx4ftQag9kJnIJvhE/WfWvEPYgVBIMUOXSHz8YE+epA0PJ2n8E
+ YWMcA89w11U86n6pdQvBtjwjaKF6rJCSAUfjbKnYHRieQ4P9OKeQ5DaqxjOpSXzlZntH
+ LWRkYWHO2ZjZwSYmCtckprFYEylUEEAHqA7i71s1KVt34Ng0bE5ideZabRYI65r7dMr+
+ VDY66hHctXYrooZ58b6qNCAieu3gONHrTspxK+MP2e1m8Yd5VHYcXAhpizjUdU6xDAut
+ tdkw==
+X-Gm-Message-State: AOAM533SGHVqfEeqkbpsUzzFwhcRSuom24/rydXO3iiGLy6diJMLbMRq
+ 5I0RLpH1jDrkPyaA3RryQary2Q==
+X-Google-Smtp-Source: ABdhPJw9dHks1Q2cYpLQ4+BAPxfbpT1UUQrH7in4l6B4aRPRkgWDW4GfL5ler7PScrKh481PnMGNDQ==
+X-Received: by 2002:a62:e309:0:b029:310:dd66:a4ba with SMTP id
+ g9-20020a62e3090000b0290310dd66a4bamr2138162pfh.13.1625098941778; 
+ Wed, 30 Jun 2021 17:22:21 -0700 (PDT)
 Received: from x1.hsd1.or.comcast.net
  ([2601:1c0:4701:ae70:8687:fcbc:6b3d:c844])
- by smtp.gmail.com with ESMTPSA id v6sm25117495pgk.33.2021.06.30.17.22.21
+ by smtp.gmail.com with ESMTPSA id v6sm25117495pgk.33.2021.06.30.17.22.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 30 Jun 2021 17:22:22 -0700 (PDT)
+ Wed, 30 Jun 2021 17:22:21 -0700 (PDT)
 From: Drew Fustini <drew@beagleboard.org>
 To: Rob Herring <robh+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -81,17 +81,17 @@ To: Rob Herring <robh+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
  Fu Wei <tekkamanninja@gmail.com>, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org
-Cc: Drew Fustini <drew@beagleboard.org>, Huan Feng <huan.feng@starfivetech.com>
-Subject: [RFC PATH 1/2] dt-bindings: gpio: add starfive,jh7100-gpio bindings
-Date: Wed, 30 Jun 2021 17:20:38 -0700
-Message-Id: <20210701002037.912625-2-drew@beagleboard.org>
+Cc: Drew Fustini <drew@beagleboard.org>
+Subject: [RFC PATH 0/2] gpio: starfive-jh7100: Add StarFive JH7100 GPIO
+ bindings and driver
+Date: Wed, 30 Jun 2021 17:20:37 -0700
+Message-Id: <20210701002037.912625-1-drew@beagleboard.org>
 X-Mailer: git-send-email 2.27.0
-In-Reply-To: <20210701002037.912625-1-drew@beagleboard.org>
-References: <20210701002037.912625-1-drew@beagleboard.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210630_172223_891977_309E0B76 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20210630_172223_505060_CDD55E3F 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +108,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the GPIO controller in the StarFive JH7100 SoC [1].
+Add device tree bindings and driver for the GPIO controller in the
+StarFive JH7100 SoC [1] used on the BeagleV Starlight JH7100 board [2].
+
+The dts using "starfive,jh7100-gpio" is in StarFive's linux repo [3] and
+is being cleaned up in preperation for submission.
 
 [1] https://github.com/starfive-tech/beaglev_doc
+[2] https://github.com/beagleboard/beaglev-starlight
+[3] https://github.com/starfive-tech/linux/blob/beaglev/arch/riscv/boot/dts/starfive/jh7100.dtsi#L262
 
-Signed-off-by: Drew Fustini <drew@beagleboard.org>
-Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
----
- .../bindings/gpio/starfive,jh7100-gpio.yaml   | 60 +++++++++++++++++++
- 1 file changed, 60 insertions(+)
+Drew Fustini (2):
+  dt-bindings: gpio: add starfive,jh7100-gpio bindings
+  gpio: starfive-jh7100: Add StarFive JH7100 GPIO driver
+
+ .../bindings/gpio/starfive,jh7100-gpio.yaml   |  60 +++
+ MAINTAINERS                                   |   8 +
+ drivers/gpio/Kconfig                          |   8 +
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-starfive-jh7100.c           | 425 ++++++++++++++++++
+ 5 files changed, 502 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/gpio/starfive,jh7100-gpio.yaml
+ create mode 100644 drivers/gpio/gpio-starfive-jh7100.c
 
-diff --git a/Documentation/devicetree/bindings/gpio/starfive,jh7100-gpio.yaml b/Documentation/devicetree/bindings/gpio/starfive,jh7100-gpio.yaml
-new file mode 100644
-index 000000000000..8c9d14d9ac3b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/gpio/starfive,jh7100-gpio.yaml
-@@ -0,0 +1,60 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/gpio/starfive,jh7100-gpio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7100 GPIO controller
-+
-+maintainers:
-+  - Huan Feng <huan.feng@starfivetech.com>
-+  - Drew Fustini <drew@beagleboard.org>
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: starfive,jh7100-gpio
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description:
-+      Interrupt mapping, one per GPIO. Maximum 32 GPIOs.
-+    minItems: 1
-+    maxItems: 32
-+
-+  gpio-controller: true
-+
-+  "#gpio-cells":
-+    const: 2
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-controller
-+  - "#interrupt-cells"
-+  - "#gpio-cells"
-+  - gpio-controller
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+      gpio@11910000 {
-+        compatible = "starfive,jh7100-gpio";
-+        reg = <0x11910000 0x10000>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+        interrupts = <32>;
-+      };
-+
-+...
 -- 
 2.27.0
 
