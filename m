@@ -2,86 +2,81 @@ Return-Path: <SRS0=3Ayx=L2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FFBBC11F68
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 11:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 79826C11F6A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 12:32:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6BD3D613F4
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 11:23:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BD3D613F4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2D3D5613F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 12:32:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D3D5613F5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kmrRmvThIPls4D9RIkoY0Gt2VUQOP+BKMdf2FIi9HzM=; b=bLrxHmKpapCsSn
-	HqKgwfW51cCNRTqUn2LP9WdsIzEH++05swulKaaBIcxo4OsWUXuQR1dRc1wzTyFuCYI5wYnCLCKta
-	BUkCe729ST2vdYWVZ8co0CNRwWB2NaDGEmbNHM8gFTVOlq6Djgt2H7R4/edOFXY+AY7vbyz45Euh6
-	qnzYwzsVsqcVk00uu3dVRPJxJr5r4eDIFUzkNZAffieBWBnf6VSytULqeqARbaYDxMSfhhphLzbCX
-	WNvRuiJnHNttp8JOgcYCY0E77KmT4UOyfu1kqP73AEJpGjv+sMmyuj1IhYJLGA37bouoCKj0aqzf9
-	1cBKUEWLXfspq6MVt+IQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wv7k4152qxCAv/rSZgIOOehfIqUgDgDLOUQoWrz1QTA=; b=PW92+J3hXFcOzQ
+	hfaWGl5q8bTwsWFoCTwFRCtXey7a98nygmwo8+nGrLm7QgcagIGlG4UiszTHMVc8iw3f1QpgUmR12
+	xspqGEMjZTJ3Zz8Z1AYc5SRL7xI+Ly3pan04TUduDgjL4/vXkO+piWATZt1pV9s4Wo2j7STPaOIe7
+	3nlbgW6niBxCFOPFKsQgC4ukMsuxTWiGVrw0P2lXAX+8qkvIX1FmKE/Vfr2itgP4e3aZFSUq+xGgg
+	cfBQcxLvDlgYTMLMgRdUGm6LGBPXwNkitIZZTEIdx1cHwrIP+gt60O3HImXpCpIGul/HyYOBUD28c
+	568h31Tr6ZG+wJ0nKnoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lzHFm-002rdt-1H; Fri, 02 Jul 2021 11:22:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1lzIL0-002ytK-MX; Fri, 02 Jul 2021 12:32:06 +0000
+Received: from mail-ej1-f50.google.com ([209.85.218.50])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lzHFW-002rcf-V9; Fri, 02 Jul 2021 11:22:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=O5Uqso+ww5amQ01DKigcD3vJJ7N3bwtD7LxAeQZ8NGo=; b=JYJbKRCaTtVjDzb/7N8Vg5ALJK
- Z9z+lgf5/nby+DFt32t6/4uiGrBJeKjTLVqqlBekOg4CgVhfQqk4bd+I/0DRjmpHrmNI77IlDRhYn
- JTJlDJI2+gb1fvdiaPk1sAjttTyO6N8hHeBFR/6wiUzGir5xO+zjr18vT2GDa7ueMv3jA0DvapxgS
- sORLkZ7+5aVcnyqMrOOh2sxuewdQjUzEt/H8Pa02qexOzNdz5irUkHr2OVQIQ7TUGNBbfjA6/qU55
- KLYzKy4dbIvNoL9okqBh6IPngAIxJ8W8lD+1vYchcUWAbhBempd1bUMgvDJN85yD8fulHZbpEdfXJ
- Z5/MAk+w==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lzHFD-00DqNT-HJ; Fri, 02 Jul 2021 11:22:03 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 43862300091;
- Fri,  2 Jul 2021 13:22:00 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id D797A20244CE2; Fri,  2 Jul 2021 13:22:00 +0200 (CEST)
-Date: Fri, 2 Jul 2021 13:22:00 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Zhu Lingshan <lingshan.zhu@intel.com>
-Cc: pbonzini@redhat.com, bp@alien8.de, seanjc@google.com,
- vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org, weijiang.yang@intel.com, kan.liang@linux.intel.com,
- ak@linux.intel.com, wei.w.wang@intel.com, eranian@google.com,
- liuxiangdong5@huawei.com, linux-kernel@vger.kernel.org,
- x86@kernel.org, kvm@vger.kernel.org, like.xu.linux@gmail.com,
- Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- xen-devel@lists.xenproject.org
-Subject: Re: [PATCH V7 01/18] perf/core: Use static_call to optimize
- perf_guest_info_callbacks
-Message-ID: <YN722HIrzc6Z2+oD@hirez.programming.kicks-ass.net>
-References: <20210622094306.8336-1-lingshan.zhu@intel.com>
- <20210622094306.8336-2-lingshan.zhu@intel.com>
+ id 1lzIKx-002ysI-C8
+ for linux-riscv@lists.infradead.org; Fri, 02 Jul 2021 12:32:05 +0000
+Received: by mail-ej1-f50.google.com with SMTP id c17so15807561ejk.13
+ for <linux-riscv@lists.infradead.org>; Fri, 02 Jul 2021 05:32:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=5kxCwLjDiZox2uq7lbOwELumWKVYmpQy6VlL3NaLiI8=;
+ b=lujHOQ8NNbSkzZ1bdDGlLD3V/LrLy4kWGhJ0vmfz6KZo8SIlEoXhYlkTeWDdTnKpCE
+ 47nVZAo+n9HbiwcXD8g3ah0BH5riNGLDDSeJCI1atJ0xi4ziN95vWulzCBUbjIE8Ix43
+ Vw0IEmrlr/LonNqceKL86FevpALjz2MhVV/4MhAamKlAyuP8EcX9jbQi0xMB9V3MMAd5
+ Q7tMkrXoBQpiT/P2c5vHEkMckbrmurpqQBU1dqSUIInHSllX4Vt4qbA9XuY+J0q1rtP4
+ NWQoVDQ+0hJ46/NjMT13zo4NL9P7VScUzxqgFbjP7/7qM9vP+gx6DE0J0b4vSXwkL9zP
+ 1hMg==
+X-Gm-Message-State: AOAM5337sgdQ53iO+bAIwVatpwprywPxLDxtWym0M5OQuiDygbuChong
+ mFpU8EvEMCuVzyyYLYDQ27U=
+X-Google-Smtp-Source: ABdhPJwp+TxUnuAhBmoh5g26KXPKy156z5RfynaIIigiBUmM5ov3S56JthwVXNRlRsSXFm3cdpoXUg==
+X-Received: by 2002:a17:907:2cc7:: with SMTP id
+ hg7mr4735818ejc.360.1625229120306; 
+ Fri, 02 Jul 2021 05:32:00 -0700 (PDT)
+Received: from msft-t490s.fritz.box
+ (host-80-182-89-242.retail.telecomitalia.it. [80.182.89.242])
+ by smtp.gmail.com with ESMTPSA id c3sm1290189edy.0.2021.07.02.05.31.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 02 Jul 2021 05:31:59 -0700 (PDT)
+From: Matteo Croce <mcroce@linux.microsoft.com>
+To: linux-kernel@vger.kernel.org, Nick Kossifidis <mick@ics.forth.gr>,
+ Guo Ren <guoren@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ David Laight <David.Laight@aculab.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Drew Fustini <drew@beagleboard.org>
+Cc: linux-arch@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/3] lib/string: optimized mem* functions
+Date: Fri,  2 Jul 2021 14:31:50 +0200
+Message-Id: <20210702123153.14093-1-mcroce@linux.microsoft.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210622094306.8336-2-lingshan.zhu@intel.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210702_053203_463247_C832F887 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +93,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 22, 2021 at 05:42:49PM +0800, Zhu Lingshan wrote:
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index 8f71dd72ef95..c71af4cfba9b 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -90,6 +90,27 @@ DEFINE_STATIC_CALL_NULL(x86_pmu_pebs_aliases, *x86_pmu.pebs_aliases);
->   */
->  DEFINE_STATIC_CALL_RET0(x86_pmu_guest_get_msrs, *x86_pmu.guest_get_msrs);
->  
-> +DEFINE_STATIC_CALL_RET0(x86_guest_state, *(perf_guest_cbs->state));
-> +DEFINE_STATIC_CALL_RET0(x86_guest_get_ip, *(perf_guest_cbs->get_ip));
-> +DEFINE_STATIC_CALL_RET0(x86_guest_handle_intel_pt_intr, *(perf_guest_cbs->handle_intel_pt_intr));
-> +
-> +void arch_perf_update_guest_cbs(void)
-> +{
-> +	static_call_update(x86_guest_state, (void *)&__static_call_return0);
-> +	static_call_update(x86_guest_get_ip, (void *)&__static_call_return0);
-> +	static_call_update(x86_guest_handle_intel_pt_intr, (void *)&__static_call_return0);
-> +
-> +	if (perf_guest_cbs && perf_guest_cbs->state)
-> +		static_call_update(x86_guest_state, perf_guest_cbs->state);
-> +
-> +	if (perf_guest_cbs && perf_guest_cbs->get_ip)
-> +		static_call_update(x86_guest_get_ip, perf_guest_cbs->get_ip);
-> +
-> +	if (perf_guest_cbs && perf_guest_cbs->handle_intel_pt_intr)
-> +		static_call_update(x86_guest_handle_intel_pt_intr,
-> +				   perf_guest_cbs->handle_intel_pt_intr);
-> +}
+From: Matteo Croce <mcroce@microsoft.com>
 
-Coding style wants { } on that last if().
+Rewrite the generic mem{cpy,move,set} so that memory is accessed with
+the widest size possible, but without doing unaligned accesses.
+
+This was originally posted as C string functions for RISC-V[1], but as
+there was no specific RISC-V code, it was proposed for the generic
+lib/string.c implementation.
+
+Tested on RISC-V and on x86_64 by undefining __HAVE_ARCH_MEM{CPY,SET,MOVE}
+and HAVE_EFFICIENT_UNALIGNED_ACCESS.
+
+These are the performances of memcpy() and memset() of a RISC-V machine
+on a 32 mbyte buffer:
+
+memcpy:
+original aligned:	 75 Mb/s
+original unaligned:	 75 Mb/s
+new aligned:		114 Mb/s
+new unaligned:		107 Mb/s
+
+memset:
+original aligned:	140 Mb/s
+original unaligned:	140 Mb/s
+new aligned:		241 Mb/s
+new unaligned:		241 Mb/s
+
+The size increase is negligible:
+
+$ scripts/bloat-o-meter vmlinux.orig vmlinux
+add/remove: 0/0 grow/shrink: 4/1 up/down: 427/-6 (421)
+Function                                     old     new   delta
+memcpy                                        29     351    +322
+memset                                        29     117     +88
+strlcat                                       68      78     +10
+strlcpy                                       50      57      +7
+memmove                                       56      50      -6
+Total: Before=8556964, After=8557385, chg +0.00%
+
+These functions will be used for RISC-V initially.
+
+[1] https://lore.kernel.org/linux-riscv/20210617152754.17960-1-mcroce@linux.microsoft.com/
+
+Matteo Croce (3):
+  lib/string: optimized memcpy
+  lib/string: optimized memmove
+  lib/string: optimized memset
+
+ lib/string.c | 130 ++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 113 insertions(+), 17 deletions(-)
+
+-- 
+2.31.1
+
 
 _______________________________________________
 linux-riscv mailing list
