@@ -2,96 +2,81 @@ Return-Path: <SRS0=3Ayx=L2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AEE41C11F68
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 15:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F907C11F68
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:01:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 63600613F7
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 15:57:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 63600613F7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
+	by mail.kernel.org (Postfix) with ESMTPS id 5787C613F7
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:01:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5787C613F7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsvcZVl4aAB/SY0FkSwZEGyAtgBr11Cxquhvygprv3M=; b=ofBjAG4DWsiIIda+e8si4Vn/Zd
-	SOAC2STBvFjN9TAYPBTZcRZEOXpncTYjpx1iBlVANZvod8KCJifZ3sLot4XNPmRQALQan6ZKMn/Ay
-	ifZDdkxfh5REuXQdlVRW71xQdrQH0o4jebKRfcpth1l1pqsrtwzudCSKXadNB0bi34M/cHuuwylYj
-	ey5EcYn94/hSSfzsEhvkSep76bnLmgPlm4yIIQcgUHu7VOhDvFm0is02XGTtcus0IESn3/tJKNlV+
-	X4DIINlku81io003NGWTeVEp4RbwpIwaouAQMatP7o7dDyWlRaOjAvkja1tdBlotXJEv7a+wouVZL
-	yiUJwKLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XPvnWpMB8XFIUudhBzTKQ0yUjw4k31WEtoxWwdfwK6g=; b=c0zfNDML0E6V9G
+	B65wuTLZ1YHo2RULlyXJA4MYf1NwMptzjVDy74ZH0MLjx0KDH1acjneaYUjDagQUExooIgyM7VAbN
+	UPhU9gbnXtlryDaOEc5k3gAHuERCdQJtY34MxblaZT8TMpxOaKB517k+VOMvTZ5f+fdqoU6CBpTdU
+	KIw3vvfHoVhuIk3wjLQl19APRkGWDzfmRCEHV/jp7dB6tVYPn8wOaB3ag9t8NJ9WI9i8sEQTinK7q
+	gZSNnPeyedvHsye1uJKxYnwfZNeDY6wKWYzVV5ASdTCpcks8CggNdIaCDyOJA7G7dcbZoS7wOHS6d
+	vKYLbRctPGGa3yS9t90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lzLXj-003TS1-GN; Fri, 02 Jul 2021 15:57:27 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1lzLb2-003U69-US; Fri, 02 Jul 2021 16:00:52 +0000
+Received: from smtprelay0249.hostedemail.com ([216.40.44.249]
+ helo=smtprelay.hostedemail.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lzLXW-003TOl-1g
- for linux-riscv@lists.infradead.org; Fri, 02 Jul 2021 15:57:16 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 162Fv1Jt051418
- for <linux-riscv@lists.infradead.org>; Fri, 2 Jul 2021 18:57:01 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1625241416; x=1627833416;
- h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t0VSE4yvqzLzoGTJTNfADyTmW4ylvlyixsQMnViMXlE=;
- b=W1poDQWGMNUQdc02AMMYJSW6C6qUeRH/acUywkO/d4MD5tgcU/o9zF5+Py8WOclL
- trm5ZmcrwwzVK4p6jn0HpS5Fu2EVOWe5rdrsVUK5f4m856HJfHqlCAdFhMIzc8Mw
- qlXFnflYUcFaIFRQLtnAtTpR/RFAVQ6p2k+US/xgkE0dRnOb1QNb3VWB1skgzSuU
- IRGY4LBskN2z22ucXLRJ1hYPbxIYMyPjjcKxCvwTAikA6OF4CSPO5UuuqhQsc+B3
- hMWF7K5VDUgEyqADTZetuUeeyG9M8AujzOnpBfW+Nde7H1TsvLDIagHEjYiRLTXO
- zYReTKkrXBgvg7WKpeXrFQ==;
-X-AuditID: 8b5b014d-96ef2700000067b6-a9-60df37486b8d
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- F8.F9.26550.8473FD06; Fri,  2 Jul 2021 18:56:56 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+ id 1lzLap-003U3Q-Rv; Fri, 02 Jul 2021 16:00:41 +0000
+Received: from omf08.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+ by smtprelay07.hostedemail.com (Postfix) with ESMTP id 5E8CE181D207E;
+ Fri,  2 Jul 2021 16:00:33 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by
+ omf08.hostedemail.com (Postfix) with ESMTPA id 850751A29F9; 
+ Fri,  2 Jul 2021 16:00:25 +0000 (UTC)
+Message-ID: <7379289718c6826dd1affec5824b749be2aee0a4.camel@perches.com>
+Subject: Re: [PATCH V7 01/18] perf/core: Use static_call to optimize
+ perf_guest_info_callbacks
+From: Joe Perches <joe@perches.com>
+To: Peter Zijlstra <peterz@infradead.org>, Zhu Lingshan
+ <lingshan.zhu@intel.com>
+Cc: pbonzini@redhat.com, bp@alien8.de, seanjc@google.com,
+ vkuznets@redhat.com,  wanpengli@tencent.com, jmattson@google.com,
+ joro@8bytes.org,  weijiang.yang@intel.com, kan.liang@linux.intel.com,
+ ak@linux.intel.com,  wei.w.wang@intel.com, eranian@google.com,
+ liuxiangdong5@huawei.com,  linux-kernel@vger.kernel.org, x86@kernel.org,
+ kvm@vger.kernel.org,  like.xu.linux@gmail.com, Like Xu
+ <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>, Marc Zyngier
+ <maz@kernel.org>, Guo Ren <guoren@kernel.org>,  Nick Hu
+ <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>,
+ linux-arm-kernel@lists.infradead.org,  kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ xen-devel@lists.xenproject.org
+Date: Fri, 02 Jul 2021 09:00:22 -0700
+In-Reply-To: <YN722HIrzc6Z2+oD@hirez.programming.kicks-ass.net>
+References: <20210622094306.8336-1-lingshan.zhu@intel.com>
+ <20210622094306.8336-2-lingshan.zhu@intel.com>
+ <YN722HIrzc6Z2+oD@hirez.programming.kicks-ass.net>
+User-Agent: Evolution 3.40.0-1 
 MIME-Version: 1.0
-Date: Fri, 02 Jul 2021 18:56:55 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: robh+dt@kernel.org, mick@ics.forth.gr, geert@linux-m68k.org, Paul
- Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- frowand.list@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] riscv: Remove non-standard linux,elfcorehdr handling
-Organization: FORTH
-In-Reply-To: <mhng-6db38728-4f82-45bd-9b17-c41da55c41e9@palmerdabbelt-glaptop>
-References: <mhng-6db38728-4f82-45bd-9b17-c41da55c41e9@palmerdabbelt-glaptop>
-Message-ID: <008ddfd79d256dcddd7c802e4eef6b5a@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.3.16
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpnkeLIzCtJLcpLzFFi42Lpjp6urOthfj/B4Mh+YYutv2exW7xf1sNo
- Mf/IOVaLmW/+s1k8u7WXyWLT42usFpd3zWGz2Pa5hc2i+d05douXl3uYLdpm8Vu07j3CbtFy
- x9SB12PNvDWMHm9evmTxONzxhd1j56y77B4PN11i8ti0qpPN49DhDkaPzUvqPS41X2f3+LxJ
- LoArissmJTUnsyy1SN8ugSvjVvNy5oJNghULWjuYGxj7+boYOTkkBEwk+tr3sXQxcnEICRxl
- lOhvuMQGkTCVmL23kxHE5hUQlDg58wkLiM0sYCEx9cp+RghbXqJ562xmEJtFQFXi2cmLYHE2
- AU2J+ZcOgtWLCKhLHHh9hxmi/iWTxK6/VSC2sICvxK+ZF9lBbH4BYYlPdy+ygticAn4SHS92
- Ad3AAXSQr8Tn6yYQJ7hI/N38lBXiNBWJD78fsIOUiALZm+cqTWAUnIXk0FlIDp2F5NAFjMyr
- GAUSy4z1MpOL9dLyi0oy9NKLNjGC44rRdwfj7c1v9Q4xMnEwHmKU4GBWEuENnXcvQYg3JbGy
- KrUoP76oNCe1+BCjNAeLkjgvr96EeCGB9MSS1OzU1ILUIpgsEwenVANT/6/LD0RTd+2v8D9Z
- 96Z3S0fekS9aMs67BYLYbdo39SwyOb71rcM7LbW/DE0f7yo+992sIJvzO3rFnXaPTc1XGXZd
- ibz3dnrZef6tL765b70Y5RJqo79CNCzt6LO95r9nch91W/XLfW3P3lJxpZUb80ILRHPFDedZ
- HLm3siqiTjDszu8nuRosz+qVGDylIr1qfLoELjG9/aGksoN58q9So0tdp1jC/EqrNnW2boiV
- TZu+hV9l9dof9b1bCs+YbHvg49p+yMV/WhnrLLvJnHuU+2/9PJX74Uhb2baj36uLJ3Nv3PSQ
- XUT/SWbUT3EG1ZvJEa+eVJ3u1J2ulHjnuyyP+okfd4OCjFuzj3pE5hUqsRRnJBpqMRcVJwIA
- 3+AlDBoDAAA=
+X-Rspamd-Queue-Id: 850751A29F9
+X-Stat-Signature: shha9bwa3wcuy6qog6sh3abeec4qbbut
+X-Rspamd-Server: rspamout03
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX18c3UUJH2LcjAG65GSZ68xha895S86OjZI=
+X-HE-Tag: 1625241625-20610
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210702_085714_483336_CF510D9A 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20210702_090039_990149_3848C779 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +88,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zqPPhM65z4IgMjAyMS0wNy0wMSAwNTo1MiwgUGFsbWVyIERhYmJlbHQgzq3Os8+BzrHPiM61Ogo+
-IE9uIFdlZCwgMTYgSnVuIDIwMjEgMDc6NDc6NDYgUERUICgtMDcwMCksIHJvYmgrZHRAa2VybmVs
-Lm9yZyB3cm90ZToKPj4gT24gV2VkLCBKdW4gMTYsIDIwMjEgYXQgNDo0MyBBTSBOaWNrIEtvc3Np
-ZmlkaXMgPG1pY2tAaWNzLmZvcnRoLmdyPiAKPj4gd3JvdGU6Cj4+PiAKPj4+IM6jz4TOuc+CIDIw
-MjEtMDYtMTYgMTA6NTYsIEdlZXJ0IFV5dHRlcmhvZXZlbiDOrc6zz4HOsc+IzrU6Cj4+PiA+Cj4+
-PiA+IEkgY2FuJ3QgY29tbWVudCBvbiB0aGUgZHVwbGljYXRpb24gb24gYXJtNjQsIGJ1dCB0byBt
-ZSwgL2Nob3Nlbgo+Pj4gPiBzb3VuZHMgbGlrZSB0aGUgbmF0dXJhbCBwbGFjZSBmb3IgYm90aCAi
-bGludXgsZWxmY29yZWhkciIgYW5kCj4+PiA+ICJsaW51eCx1c2FibGUtbWVtb3J5LXJhbmdlIi4g
-IEZpcnN0IHJ1bGUgb2YgRFQgaXMgIkRUIGRlc2NyaWJlcwo+Pj4gPiBoYXJkd2FyZSwgbm90IHNv
-ZnR3YXJlIHBvbGljeSIsIHdpdGggL2Nob3NlbiBkZXNjcmliaW5nIHNvbWUgc29mdHdhcmUKPj4+
-ID4gY29uZmlndXJhdGlvbi4KPj4+ID4KPj4+IAo+Pj4gV2UgYWxyZWFkeSBoYXZlICJsaW51eCx1
-c2FibGUtbWVtb3J5IiBvbiAvbWVtb3J5IG5vZGU6Cj4+PiBodHRwczovL2VsaXhpci5ib290bGlu
-LmNvbS9saW51eC92NS4xMy1yYzYvc291cmNlL2RyaXZlcnMvb2YvZmR0LmMjTDEwMTEKPj4+IGFu
-ZCBpdCBtYWtlcyBwZXJmZWN0IHNlbnNlIHRvIGJlIHRoZXJlIHNpbmNlIGl0IG92ZXJyaWRlcyAv
-bWVtb3J5J3MgCj4+PiByZWcKPj4+IHByb3BlcnR5Lgo+Pj4gCj4+PiBXaHkgZGVmaW5lIGFub3Ro
-ZXIgYmluZGluZyBmb3IgdGhlIHNhbWUgdGhpbmcgb24gL2Nob3NlbiA/Cj4+IAo+PiBHbyBsb29r
-IGF0IHRoZSB0aHJlYWQgYWRkaW5nICJsaW51eCx1c2FibGUtbWVtb3J5LXJhbmdlIi4gVGhlcmUg
-d2VyZQo+PiBvbmx5IDM1IHZlcnNpb25zIG9mIGl0WzFdLiBJIHdhc24ndCBoYXBweSB3aXRoIGEg
-Mm5kIHdheSBlaXRoZXIsIGJ1dAo+PiBhcyBJJ3ZlIG1lbnRpb25lZCBiZWZvcmUgd2UgZG9uJ3Qg
-YWx3YXlzIGhhdmUgL21lbW9yeSBub2RlLgo+IAo+IEkgZG9uJ3QgcmVhbGx5IHVuZGVyc3RhbmQg
-d2hhdCdzIGdvaW5nIG9uIGhlcmUsIGJ1dCBJSVVDIHdoYXQgSSBtZXJnZWQKPiBpbiA1LjEzIGRv
-ZXNuJ3QgbWF0Y2ggdGhlIGJlaGF2aW9yIHRoYXQgb3RoZXIgYXJjaGl0ZWN0dXJlcyBoYXZlLiAg
-SW4KPiB0aGF0IGNhc2UgSSdtIGhhcHB5IG1vdmluZyBSSVNDLVYgb3ZlciB0byB0aGUgbW9yZSBz
-dGFuZGFyZCB3YXkgb2YKPiBkb2luZyB0aGluZ3MgYW5kIGp1c3QgY2FsbGluZyB3aGF0IHdlIGhh
-dmUgaW4gNS4xMyBhIHNjcmV3dXAuCj4gCj4gU29ycnkgZm9yIHRoZSBjb25mdXNpb24uCgpMb25n
-IHN0b3J5IHNob3J0OgoKYSkgV2UgdXNlICJsaW51eCx1c2FibGUtbWVtb3J5IiBvbiAvbWVtb3J5
-IG5vZGUgdG8gbGltaXQgdGhlIG1lbW9yeSBvZiAKdGhlIGtkdW1wIGtlcm5lbCwgaXQncyBhIHN0
-YW5kYXJkIGJpbmRpbmcgZGVmaW5lZCBhdDoKaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGlu
-dXgvdjUuMTMtcmM2L3NvdXJjZS9kcml2ZXJzL29mL2ZkdC5jI0wxMDExCgpiKSBXZSB1c2VkIGEg
-cmVzZXJ2ZWQgcmVnaW9uIChhZ2FpbiBhIHN0YW5kYXJkIGJpbmRpbmcpIG5hbWVkIAoibGludXgs
-ZWxmY29yZWhkciIgd2hpY2ggaGFzIHRoZSBzYW1lIG5hbWUgYXMgYSBwcm9wZXJ0eSBvbiAvY2hv
-c2VuIHVzZWQgCmJ5IGFybTY0IGZvciB0aGUgc2FtZSB0aGluZy4gV2l0aCB0aGlzIHBhdGNoIHdl
-ICdsbCB1c2UgYXJtNjQncyAKYXBwcm9hY2gsIGFsdGhvdWdoIGl0J3MgYSBiaXQgd29yc2Ugc2lu
-Y2Ugd2UnbGwgbmVlZCB0byBhZGQgdGhlIHNhbWUgCnJlZ2lvbiB0d2ljZSBvbiB0aGUgZmR0IChv
-bmNlIGluIC9jaG9zZW4gYXMgYSBwcm9wZXJ0eSBhbmQgYW5vdGhlciBvbmUgCmluIHRoZSByZXNl
-cnZhdGlvbiBtYXAgc28gdGhhdCBpdCBnZXRzIHJlc2VydmVkIGR1cmluZyBlYXJseSBib290KS4K
-CkZvcnR1bmF0ZWx5IEkgKHN0aWxsKSBoYXZlbid0IHBvc3RlZCB0aGUga2V4ZWMtdG9vbHMgcGF0
-Y2hlcyBvbiB0aGUgCm1haWxpbmcgbGlzdCBzbyB3ZSBkb24ndCBicmVhayB1c2Vyc3BhY2UgYnkg
-ZG9pbmcgdGhpcy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Fri, 2021-07-02 at 13:22 +0200, Peter Zijlstra wrote:
+> On Tue, Jun 22, 2021 at 05:42:49PM +0800, Zhu Lingshan wrote:
+> > diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+[]
+> > @@ -90,6 +90,27 @@ DEFINE_STATIC_CALL_NULL(x86_pmu_pebs_aliases, *x86_p=
+mu.pebs_aliases);
+> > =A0=A0*/
+> > =A0DEFINE_STATIC_CALL_RET0(x86_pmu_guest_get_msrs, *x86_pmu.guest_get_m=
+srs);
+> > =A0
+> > =
+
+> > +DEFINE_STATIC_CALL_RET0(x86_guest_state, *(perf_guest_cbs->state));
+> > +DEFINE_STATIC_CALL_RET0(x86_guest_get_ip, *(perf_guest_cbs->get_ip));
+> > +DEFINE_STATIC_CALL_RET0(x86_guest_handle_intel_pt_intr, *(perf_guest_c=
+bs->handle_intel_pt_intr));
+> > +
+> > +void arch_perf_update_guest_cbs(void)
+> > +{
+> > +	static_call_update(x86_guest_state, (void *)&__static_call_return0);
+> > +	static_call_update(x86_guest_get_ip, (void *)&__static_call_return0);
+> > +	static_call_update(x86_guest_handle_intel_pt_intr, (void *)&__static_=
+call_return0);
+> > +
+> > +	if (perf_guest_cbs && perf_guest_cbs->state)
+> > +		static_call_update(x86_guest_state, perf_guest_cbs->state);
+> > +
+> > +	if (perf_guest_cbs && perf_guest_cbs->get_ip)
+> > +		static_call_update(x86_guest_get_ip, perf_guest_cbs->get_ip);
+> > +
+> > +	if (perf_guest_cbs && perf_guest_cbs->handle_intel_pt_intr)
+> > +		static_call_update(x86_guest_handle_intel_pt_intr,
+> > +				   perf_guest_cbs->handle_intel_pt_intr);
+> > +}
+> =
+
+> Coding style wants { } on that last if().
+
+That's just your personal preference.
+
+The coding-style document doesn't require that.
+
+It just says single statement.  It's not the number of
+vertical lines or characters required for the statement.
+
+----------------------------------
+
+Do not unnecessarily use braces where a single statement will do.
+
+.. code-block:: c
+
+	if (condition)
+		action();
+
+and
+
+.. code-block:: none
+
+	if (condition)
+		do_this();
+	else
+		do_that();
+
+This does not apply if only one branch of a conditional statement is a sing=
+le
+statement; in the latter case use braces in both branches:
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
