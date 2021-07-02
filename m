@@ -2,81 +2,94 @@ Return-Path: <SRS0=3Ayx=L2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F907C11F68
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67D2AC11F68
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:04:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5787C613F7
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:01:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5787C613F7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
+	by mail.kernel.org (Postfix) with ESMTPS id 35111613F7
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jul 2021 16:04:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 35111613F7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XPvnWpMB8XFIUudhBzTKQ0yUjw4k31WEtoxWwdfwK6g=; b=c0zfNDML0E6V9G
-	B65wuTLZ1YHo2RULlyXJA4MYf1NwMptzjVDy74ZH0MLjx0KDH1acjneaYUjDagQUExooIgyM7VAbN
-	UPhU9gbnXtlryDaOEc5k3gAHuERCdQJtY34MxblaZT8TMpxOaKB517k+VOMvTZ5f+fdqoU6CBpTdU
-	KIw3vvfHoVhuIk3wjLQl19APRkGWDzfmRCEHV/jp7dB6tVYPn8wOaB3ag9t8NJ9WI9i8sEQTinK7q
-	gZSNnPeyedvHsye1uJKxYnwfZNeDY6wKWYzVV5ASdTCpcks8CggNdIaCDyOJA7G7dcbZoS7wOHS6d
-	vKYLbRctPGGa3yS9t90w==;
+	List-Owner; bh=Uag8MR1iPSKYlkGi+qOC7SPIeDQzvdaUZUjgUOX0poI=; b=DWOBbjartIaxbA
+	75nVqBhoRYIJAw99zCtwrfOqoUvuMy/S0g9KCPAAMnrgpcMxZLi0SPtcchtireLCTKfs9c+q00fkO
+	taulcddsRVXYEtPg139+OKQFpHcBzpOdU2iKzOH8CyVGJq+BbK3x7tUevTNTepoRIOHoq/3CV34eg
+	uaBrAN0MNIN9/NyHg2lf+Yb/I2AwEsQHH1QoAdgVB/p6yxpQrvVn9RWT3kzZ4qEi8l5ZhYiO+rj6B
+	kdWmcEUkqcWtM8KK6QvpOusSIcB6Iu8tobhDUu4D4kPs4EPJ5B18rgsHjVtaQ1rHlWM+PuDJAQ9GA
+	hB6OxXgqIEDLlpaGntMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lzLb2-003U69-US; Fri, 02 Jul 2021 16:00:52 +0000
-Received: from smtprelay0249.hostedemail.com ([216.40.44.249]
- helo=smtprelay.hostedemail.com)
+	id 1lzLe8-003UnG-LL; Fri, 02 Jul 2021 16:04:04 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1lzLap-003U3Q-Rv; Fri, 02 Jul 2021 16:00:41 +0000
-Received: from omf08.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
- by smtprelay07.hostedemail.com (Postfix) with ESMTP id 5E8CE181D207E;
- Fri,  2 Jul 2021 16:00:33 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by
- omf08.hostedemail.com (Postfix) with ESMTPA id 850751A29F9; 
- Fri,  2 Jul 2021 16:00:25 +0000 (UTC)
-Message-ID: <7379289718c6826dd1affec5824b749be2aee0a4.camel@perches.com>
-Subject: Re: [PATCH V7 01/18] perf/core: Use static_call to optimize
- perf_guest_info_callbacks
-From: Joe Perches <joe@perches.com>
-To: Peter Zijlstra <peterz@infradead.org>, Zhu Lingshan
- <lingshan.zhu@intel.com>
-Cc: pbonzini@redhat.com, bp@alien8.de, seanjc@google.com,
- vkuznets@redhat.com,  wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org,  weijiang.yang@intel.com, kan.liang@linux.intel.com,
- ak@linux.intel.com,  wei.w.wang@intel.com, eranian@google.com,
- liuxiangdong5@huawei.com,  linux-kernel@vger.kernel.org, x86@kernel.org,
- kvm@vger.kernel.org,  like.xu.linux@gmail.com, Like Xu
- <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>, Marc Zyngier
- <maz@kernel.org>, Guo Ren <guoren@kernel.org>,  Nick Hu
- <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>,
- linux-arm-kernel@lists.infradead.org,  kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org,  linux-riscv@lists.infradead.org,
- xen-devel@lists.xenproject.org
-Date: Fri, 02 Jul 2021 09:00:22 -0700
-In-Reply-To: <YN722HIrzc6Z2+oD@hirez.programming.kicks-ass.net>
-References: <20210622094306.8336-1-lingshan.zhu@intel.com>
- <20210622094306.8336-2-lingshan.zhu@intel.com>
- <YN722HIrzc6Z2+oD@hirez.programming.kicks-ass.net>
-User-Agent: Evolution 3.40.0-1 
+ id 1lzLe5-003Um5-HK
+ for linux-riscv@lists.infradead.org; Fri, 02 Jul 2021 16:04:03 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id
+ p17-20020a17090b0111b02901723ab8d11fso6354986pjz.1
+ for <linux-riscv@lists.infradead.org>; Fri, 02 Jul 2021 09:03:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=+LJxKyVwoQ+McSsqpufkf/CYhmI4kyUuSVLHiImkPFk=;
+ b=KnJsFvBpqL0laNoKqrPj5CdbK3FVhLgqkbPSRmYyPg1p2wAhvTkQOQ22fwT0eXUXFd
+ 7lWVchk2oZ8YShvCcZdqdfvxzNk4FU5ZPqHK5YrEUN1opsTmHcLv24qgPJkJjNqzRkWb
+ TwuMhHwUIw561vklch5cYfbA0IQRsF+K38nz2zbM3fjApX7GsoBp/saoLrl7h7QKBS1t
+ CHls9gLe2eUz0LOcOevl8AQi2KeJjvfD8hYx7co0MFZwSh8zIgBq/hHyUCUsz91BBHEn
+ czKTssMkgy/94ip1d5kDPdD35s/WyYnXjvDe/AeYPMQ9W4CvGPOoKMNAjhRj+AqUKSXg
+ Af/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=+LJxKyVwoQ+McSsqpufkf/CYhmI4kyUuSVLHiImkPFk=;
+ b=p8L2crhFalhoWDib8SURJR1q1S6CVwrpfddJ2jvSRelXxXFQEey4B7sS7761Ilo5tj
+ /Wnmn9MVrmtHU62PFYGImQQQeQ1QicPatXDC2IBKbdNtC0QRX0o2rPamvbZDgwpWYVgR
+ UKfmDCchNFE9MYe2TcfAsMAZkYqr2qZXK/4uDTewilCcQZj+PvFU/+qLnRnBWXwysqLp
+ C3+MJTF07Gu/D5jS9lSmUsQjXQRycwmZ5SMJ9r3x2xJ12BmzUFU6bOlKeqeWfZyainOq
+ Cg0UgK0nFRBEUg1nxfyAUO2Mhjh46tsE6rKYVyd4SSeW//0mOcnOLtu8L1gQdCAVu/B+
+ JGnw==
+X-Gm-Message-State: AOAM530OtWdq7IgdI+gDKUdY4jHKs00+TJ9wCkDqrr4iGf0E4RXXQmw3
+ V5L8wPxhAAztzTyJDFzS5LztfJIU0OhrRMIGJfM=
+X-Google-Smtp-Source: ABdhPJxunKummMJzWu/tehysV7Xsz1mBbx1VNw8K62HhbO027E9yy7oOifD4dymMRm7PjyxqE1uMt4oWnIRqaEZrUQs=
+X-Received: by 2002:a17:90a:af90:: with SMTP id
+ w16mr457973pjq.129.1625241837450; 
+ Fri, 02 Jul 2021 09:03:57 -0700 (PDT)
 MIME-Version: 1.0
-X-Rspamd-Queue-Id: 850751A29F9
-X-Stat-Signature: shha9bwa3wcuy6qog6sh3abeec4qbbut
-X-Rspamd-Server: rspamout03
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX18c3UUJH2LcjAG65GSZ68xha895S86OjZI=
-X-HE-Tag: 1625241625-20610
+References: <20210701002037.912625-1-drew@beagleboard.org>
+ <20210701002037.912625-3-drew@beagleboard.org>
+In-Reply-To: <20210701002037.912625-3-drew@beagleboard.org>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Fri, 2 Jul 2021 19:03:19 +0300
+Message-ID: <CAHp75Vc7kFk_SC8MSmFE5mBt53=4yUnxpSpr=cxZ+7eA-t1r5g@mail.gmail.com>
+Subject: Re: [RFC PATH 2/2] gpio: starfive-jh7100: Add StarFive JH7100 GPIO
+ driver
+To: Drew Fustini <drew@beagleboard.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Michael Zhu <michael.zhu@starfivetech.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Fu Wei <tekkamanninja@gmail.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210702_090039_990149_3848C779 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20210702_090401_622636_F11BC4D7 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +101,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2021-07-02 at 13:22 +0200, Peter Zijlstra wrote:
-> On Tue, Jun 22, 2021 at 05:42:49PM +0800, Zhu Lingshan wrote:
-> > diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-[]
-> > @@ -90,6 +90,27 @@ DEFINE_STATIC_CALL_NULL(x86_pmu_pebs_aliases, *x86_p=
-mu.pebs_aliases);
-> > =A0=A0*/
-> > =A0DEFINE_STATIC_CALL_RET0(x86_pmu_guest_get_msrs, *x86_pmu.guest_get_m=
-srs);
-> > =A0
-> > =
+On Thu, Jul 1, 2021 at 3:23 AM Drew Fustini <drew@beagleboard.org> wrote:
+>
+> Add GPIO driver for the StarFive JH7100 SoC [1] used on the
+> BeagleV Starlight JH7100 board [2].
+>
+> [1] https://github.com/starfive-tech/beaglev_doc/
+> [2] https://github.com/beagleboard/beaglev-starlight
 
-> > +DEFINE_STATIC_CALL_RET0(x86_guest_state, *(perf_guest_cbs->state));
-> > +DEFINE_STATIC_CALL_RET0(x86_guest_get_ip, *(perf_guest_cbs->get_ip));
-> > +DEFINE_STATIC_CALL_RET0(x86_guest_handle_intel_pt_intr, *(perf_guest_c=
-bs->handle_intel_pt_intr));
-> > +
-> > +void arch_perf_update_guest_cbs(void)
-> > +{
-> > +	static_call_update(x86_guest_state, (void *)&__static_call_return0);
-> > +	static_call_update(x86_guest_get_ip, (void *)&__static_call_return0);
-> > +	static_call_update(x86_guest_handle_intel_pt_intr, (void *)&__static_=
-call_return0);
-> > +
-> > +	if (perf_guest_cbs && perf_guest_cbs->state)
-> > +		static_call_update(x86_guest_state, perf_guest_cbs->state);
-> > +
-> > +	if (perf_guest_cbs && perf_guest_cbs->get_ip)
-> > +		static_call_update(x86_guest_get_ip, perf_guest_cbs->get_ip);
-> > +
-> > +	if (perf_guest_cbs && perf_guest_cbs->handle_intel_pt_intr)
-> > +		static_call_update(x86_guest_handle_intel_pt_intr,
-> > +				   perf_guest_cbs->handle_intel_pt_intr);
-> > +}
-> =
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+> Signed-off-by: Drew Fustini <drew@beagleboard.org>
 
-> Coding style wants { } on that last if().
+Seems some Co-developed-by are missing.
 
-That's just your personal preference.
+Brief look into the code brings the Q. Can't you utilize gpio-regmap
+here? Why not?
 
-The coding-style document doesn't require that.
-
-It just says single statement.  It's not the number of
-vertical lines or characters required for the statement.
-
-----------------------------------
-
-Do not unnecessarily use braces where a single statement will do.
-
-.. code-block:: c
-
-	if (condition)
-		action();
-
-and
-
-.. code-block:: none
-
-	if (condition)
-		do_this();
-	else
-		do_that();
-
-This does not apply if only one branch of a conditional statement is a sing=
-le
-statement; in the latter case use braces in both branches:
-
-
+-- 
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
