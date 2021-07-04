@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-18.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E00D5C07E9E
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jul 2021 23:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CCBDFC07E95
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jul 2021 23:29:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A81DE6194E
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jul 2021 23:08:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A81DE6194E
+	by mail.kernel.org (Postfix) with ESMTPS id 9B721613D0
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jul 2021 23:29:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9B721613D0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,30 +23,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kb1+OL05isMJJk57JyCZ1Z7gg7P5eQuskJd5y6Tk7qs=; b=tecU2WNlSxRnAD
-	IcmDEDuGHC0SofJRz+YHYOgSXPvZ6B63RZoddQB/RMjhH9mqG1EJT+vPhXfS5i7F3POdcwBIwXYUY
-	48zmqTKtn9DvtQE+fFBbq12lMP8jDaww1lXDUdraWeOK0b7M3AigNLAzdSVPm9rVOcqiAJQs5GNbM
-	xlDcEe8jkIGJNJ1Eh69e9sslfApkvBsPRzNFLE8JE4/u/MQACqz8ZfifJQd2mK4QUTj5MT2UVHlJW
-	8IiLjN4/Aul42CYWuV9jf43kzgLbFPdp5YBYHCqNtawk7oP6AylX4gU3szPUfLrWu03zltx9AzNcZ
-	Tgm/Ynb3kQAt2H+9PhkQ==;
+	List-Owner; bh=ANZ4qvOAwdZNQCwNQDPVrcQplqLyE4s/TtXB+V2P1jU=; b=4VEBWxaLS4P4jw
+	pF29eRX8yXOS87612Op/hv4rLzMjVemsnmplmfSKOXErQ7wz77h+DbfoXXEyM9rpYgl0eYchhwbUT
+	pTlqkPNqYctxdgWhD2iJDdZBwUbvLfBQxjgcB21l8t1TM53XSWHhm9b79iSYqFp0073Oz9n2fwtw9
+	rksOUPwoAhA1xo5PM/Kv2qe4cVfC4lwU7n1iHbTeZ1bcpaJNWl0vtzq7ia4CG/YWesd5wjAVVdcn0
+	LiyvHn2V7caLail9Dn68umNXZQvq7k+YCb+B8ZZYNMU5zehILMK4BvjGuPYoFNKFRDVbhvfKu9lDk
+	8EwY5Wy1Yv64T9y0fODQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m0BD8-006ug2-6n; Sun, 04 Jul 2021 23:07:38 +0000
+	id 1m0BYB-0076Cw-HZ; Sun, 04 Jul 2021 23:29:23 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m0BAQ-006sXv-3Q; Sun, 04 Jul 2021 23:04:52 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id CC745613E5;
- Sun,  4 Jul 2021 23:04:47 +0000 (UTC)
+ id 1m0BCH-006ty7-7F; Sun, 04 Jul 2021 23:06:48 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D2FEA61416;
+ Sun,  4 Jul 2021 23:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1625439889;
- bh=igv0/uX2+3hzhKjCLzlIoW60B7tOdnXbBs8sS4J6G3o=;
+ s=k20201202; t=1625440004;
+ bh=/xQHa41ZKZkGX0X8n+DxWnLZqXEo8Hj7cdvtH/fcens=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=FXnv09L38R3dBa6HYL/5OmdkvitdshaQvEGzKQfpYX4c+PMirr6hiCM7TacVXkS+t
- DXnlWNobOsWRmKe6VaGCJn/em3GjlQBtbmtEy+Rl2MkGf7Ab6kHyAi9oqofE/MwPaJ
- IVkSi4Z7nQq4qNerO10gCWWlkAraJOuGUbFb2uWtMre+xSoVBn5Ik0s21ip6vQyQCh
- /VeOA6SCx4OPIPtqUg5wNFvrqVA8Wbbo1MnwWmNFThMJSBHxjX3FOfNorqlzHW/tOL
- 89boTkDhjVHxOCksd9y7Osl13dW5ZWbajrJ38oi0l+jIzZXoe4wIg1hc011u2JV0JP
- ICIktmTG128hA==
+ b=Tl71DN2SIUhgloD+g3B6Srhja88cRbk/MmFKbPTMu1PvltoigRWp5do5Ql0ZLERpB
+ O6QadxVBLz6lrcz1od5nd0UId2hOUeNZ9w/fzia+PCqpnv3OXajwrX/i98/Kcl1Lqp
+ aIRKUKaG1x0nu1urcPmmAiFw3NloL6wA7odC/qhWdFFLHUvif6oNUH+/L35vN/cdnl
+ FGOBG0CO7PPPPcPdyXSdR5KbGmwGbWCMGKvIjV90clUxCvKljYj1OLl7EdD+epBEvm
+ kzvg627l6TWzFRfoKj3HqR8byj04X10xMt1iX1+h7AcpAas8Tuwi+fDV2PU6Xeb/4s
+ XRIdji3a/YX2g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -60,19 +60,19 @@ Cc: Valentin Schneider <valentin.schneider@arm.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-xtensa@linux-xtensa.org, linux-arch@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.13 20/85] sched/core: Initialize the idle task with
+Subject: [PATCH AUTOSEL 5.12 20/80] sched/core: Initialize the idle task with
  preemption disabled
-Date: Sun,  4 Jul 2021 19:03:15 -0400
-Message-Id: <20210704230420.1488358-20-sashal@kernel.org>
+Date: Sun,  4 Jul 2021 19:05:16 -0400
+Message-Id: <20210704230616.1489200-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210704230420.1488358-1-sashal@kernel.org>
-References: <20210704230420.1488358-1-sashal@kernel.org>
+In-Reply-To: <20210704230616.1489200-1-sashal@kernel.org>
+References: <20210704230616.1489200-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210704_160450_218671_CCAE72A5 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20210704_160645_394247_905BFDDF 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,10 +212,10 @@ index 80e946b2abee..e83f0982b99c 100644
  
  static inline void set_preempt_need_resched(void)
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index dcd7041b2b07..6671000a8b7d 100644
+index 357590beaabb..48fd89256739 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
-@@ -224,7 +224,6 @@ asmlinkage notrace void secondary_start_kernel(void)
+@@ -223,7 +223,6 @@ asmlinkage notrace void secondary_start_kernel(void)
  		init_gic_priority_masking();
  
  	rcu_cpu_starting(cpu);
@@ -285,10 +285,10 @@ index 10227f667c8a..1405b603b91b 100644
  	flush_cache_all_local(); /* start with known state */
  	flush_tlb_all_local(NULL);
 diff --git a/arch/powerpc/kernel/smp.c b/arch/powerpc/kernel/smp.c
-index 2e05c783440a..6c6e4d934d86 100644
+index c2473e20f5f5..1d7daef1c3b6 100644
 --- a/arch/powerpc/kernel/smp.c
 +++ b/arch/powerpc/kernel/smp.c
-@@ -1547,7 +1547,6 @@ void start_secondary(void *unused)
+@@ -1530,7 +1530,6 @@ void start_secondary(void *unused)
  	smp_store_cpu_info(cpu);
  	set_dec(tb_ticks_per_jiffy);
  	rcu_cpu_starting(cpu);
@@ -297,10 +297,10 @@ index 2e05c783440a..6c6e4d934d86 100644
  
  	if (smp_ops->setup_cpu)
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 9a408e2942ac..bd82375db51a 100644
+index 5e276c25646f..1941a6ce86a1 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
-@@ -180,7 +180,6 @@ asmlinkage __visible void smp_callin(void)
+@@ -176,7 +176,6 @@ asmlinkage __visible void smp_callin(void)
  	 * Disable preemption before enabling interrupts, so we don't try to
  	 * schedule a CPU that hasn't actually started yet.
  	 */
@@ -331,10 +331,10 @@ index b49e0492842c..23ff51be7e29 100644
  
  static inline void set_preempt_need_resched(void)
 diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
-index 2fec2b80d35d..111909aeb8d2 100644
+index 58c8afa3da65..d60c7374d807 100644
 --- a/arch/s390/kernel/smp.c
 +++ b/arch/s390/kernel/smp.c
-@@ -878,7 +878,6 @@ static void smp_init_secondary(void)
+@@ -877,7 +877,6 @@ static void smp_init_secondary(void)
  	restore_access_regs(S390_lowcore.access_regs_save_area);
  	cpu_init();
  	rcu_cpu_starting(cpu);
@@ -395,7 +395,7 @@ index f8cb8af4de5c..fe5efbcba824 100644
  
  /*
 diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index 7770245cc7fa..ec2d64aa2163 100644
+index 363b36bbd791..ebc4b13b74a4 100644
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
 @@ -236,7 +236,6 @@ static void notrace start_secondary(void *unused)
@@ -432,10 +432,10 @@ index d683f5e6d791..b4d43a4af5f7 100644
  
  static __always_inline void set_preempt_need_resched(void)
 diff --git a/init/main.c b/init/main.c
-index e9c42a183e33..e6836a9400d5 100644
+index 5bd1a25f1d6f..c97d3c0247a1 100644
 --- a/init/main.c
 +++ b/init/main.c
-@@ -941,11 +941,7 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
+@@ -918,11 +918,7 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
  	 * time - but meanwhile we still have a functioning scheduler.
  	 */
  	sched_init();
@@ -449,10 +449,10 @@ index e9c42a183e33..e6836a9400d5 100644
  		 "Interrupts were enabled *very* early, fixing it\n"))
  		local_irq_disable();
 diff --git a/kernel/fork.c b/kernel/fork.c
-index 24a689df61c9..98b4bc7f0d7b 100644
+index 321a5e31d817..2654a5a9e5df 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -2407,7 +2407,7 @@ static inline void init_idle_pids(struct task_struct *idle)
+@@ -2405,7 +2405,7 @@ static inline void init_idle_pids(struct task_struct *idle)
  	}
  }
  
@@ -462,10 +462,10 @@ index 24a689df61c9..98b4bc7f0d7b 100644
  	struct task_struct *task;
  	struct kernel_clone_args args = {
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 4ca80df205ce..0a90d4d7663b 100644
+index 814200541f8f..e25b2d8ec18d 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -7433,7 +7433,7 @@ void show_state_filter(unsigned long state_filter)
+@@ -7428,7 +7428,7 @@ void show_state_filter(unsigned long state_filter)
   * NOTE: this function does not set the idle thread's NEED_RESCHED
   * flag, to make booting more robust.
   */
