@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 229CFC07E9B
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BE6EEC07E9C
 	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E019661CAA
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E019661CAA
+	by mail.kernel.org (Postfix) with ESMTPS id 69D9861C5F
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69D9861C5F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,69 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0CplPrCY0CBmTJkg85b4lueJuFW4js0FlMc36W+wT6U=; b=2o/976NZ9dWCi90C26GftfP1NS
-	ZFjsXA/8RM7zt5dI3JPYQWUSNhnTOfWua5GTan4g8QARddmaQMFuCTZ6FmL+gWym+RIsn+D08f8q7
-	kNPqdRtIqFm6CboFTNHoevp1k3aGvxg9VjMewgtAuZvvYkf2H5oyCg2v1krYQy2rJW3y5W00xbx3a
-	qZSVYf/cHHb2JaNL6Kkm1jKzp46g0mhfLoBn8M6BM2g0iWKsvCzN90lSsNWAHbWm3b8xv+4ZwKhh4
-	droAykAFTAanSfzkLjwdjMbWADdJatvpN5KrpBmn7k9/nzEzKAPkmO57SznTEmKTyllgk0xAPU2bM
-	oqd6okuA==;
+	bh=sF84B66s1cyBcq1V2QvpNICeqwPZzMvt7AppNSzNk50=; b=cVyqFFhMfUvukCFlErVl0SGqBb
+	GEeL7moqUnXDGFzjggdBU/aPXxhupjDrCX1ODBcC1MyE2U+MuKS9qU8QLfeDjnQw5sP7D9pMXMgrF
+	FK8+vUcbuEw4P3nJH9cPd1iGTarSp++Vp7m0H2u2cesZSLwXazqiR7tIE+9QsAVxKRkulMAIFYsD6
+	xJA5gjLwxUNB/HpcieK9vAs/H37zf18v3S/eu8pHtww3CL3wosmRPQSf0pOA36jbBsuq8WQBrVDFI
+	tL0E92roox2es/F7aVxCyK7165m58kmqO3vHQOK4UU5cJgLdMwLksnUuA2tGigd/o7p7DA8M0O50I
+	if6MgwQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m0uJG-00D0gh-Lb; Tue, 06 Jul 2021 23:16:58 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1m0uJF-00D0gF-8N; Tue, 06 Jul 2021 23:16:57 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m0uJE-00D0fu-Bo
- for linux-riscv@lists.infradead.org; Tue, 06 Jul 2021 23:16:57 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id b5so28077plg.2
- for <linux-riscv@lists.infradead.org>; Tue, 06 Jul 2021 16:16:56 -0700 (PDT)
+ id 1m0uJB-00D0fS-H5
+ for linux-riscv@lists.infradead.org; Tue, 06 Jul 2021 23:16:55 +0000
+Received: by mail-pf1-x432.google.com with SMTP id y2so458216pff.11
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Jul 2021 16:16:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=YB0aJ87kDhO/1B2h0F5KDySwNSSX3rvAy/FYrFFVQlc=;
- b=iSZbpF1Xsl1ngnpX0FGs6yoICy3udzry/XyJ/AIEwYcIcs/ZJ4AKAOVmCam8QH0yzf
- FRi5GfEN9HXueX1jHSjJvRHgkdFnWO193rJGFDZnCKRFftHevQ5H5snY+uNDOiWf4hZF
- tzi/CnM/aQ6KMiUKeYtSoDElHYhVWr3H/JLFXKCLpE8BauxEk1hfsmgMmxhLyDONG7iK
- 0ZxlNOc1Wy+/LgfPYHrU/4eOjmqr3ouN8id8q1nuBIm9P5EaI1dTnr0Fre4Pky5tiznY
- YKYaOwXfup6MRbBdIRmNdPUWGno9F7iEO5ATLEVo9m9oin1UGHWKbtOdfymYK0bCWMPP
- TmhQ==
+ bh=rZm6iConQ0+70rOq6SJqb5VjkIBGzrf3R88stzAGT2c=;
+ b=GORRnxNXaioJsris67tjS/YABeT7L9ucXhiTv0ymTL0guYSnACl8LHtQIPuAVee63T
+ e710dWHwKYTDQ5PYY/KI5iZ4A6KzIfil6q+4gVRW6NR+nUNFNOoGXST74NoDbXT5Ch1e
+ U5dMSS+zXgyeH2cPhxXl+8Y2sfuS+8/3njvO+5V9j7RW+pZZ4M3oWj/QWiv1Yq9JRvmN
+ gVrDqucKRjAuaN1hI6a74RFnLRapfgLrpIeWtZMHz3CvEH2oYm3piO8oAErJbMefEaj+
+ mbk8tk/gpl6f1ow9Dik77sMlJjMJ+bDpA/PTxIvPnwL3BdENy4YvJ+SgkFluZnb6qENt
+ tmzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=YB0aJ87kDhO/1B2h0F5KDySwNSSX3rvAy/FYrFFVQlc=;
- b=LfEy4/RKOC2/JjTwsM3Nbn0SJLJSMivdIkKZSZBmzjfUswrEhPqHLY2UmCP2iBWJyO
- 2DuIRVlEWRmaIgsXfZoAQHRfwqp0TdWwMSsETfngmyM3eNxSm0tGNw8U0HzKygvSsL4R
- gZo+akNRC3FQunuJhYW4FBv1KIpJ6RB3sNJUUEwD8mN2s4l+pNRPST+Y7IsTdVCxLHEQ
- K9KkH9KhkEp6/FAa9MQea1IY34w7/ngOvejEq9+u5VwpdmKq5ZzYmDmy2E5DLO0/4/Uf
- owMhTwj0OzlNjHcH8Ss0/92mHCHs2vw9VLA7/0DOjPWy2TPpYzOl8qgcFhD+qAVjVbqE
- mBOA==
-X-Gm-Message-State: AOAM5323/D0hUrPXiE+kN7lS3NuNc3mK9WqwmrcNjVuS4DZD5UldGObp
- 6gOVasFd2aRI6O25xjn//oUp3Q==
-X-Google-Smtp-Source: ABdhPJwbPQYkennidxUbwzkbwmIxPNQx7Gpxejgx5Bg4l/zKoHdMRGzrfsVL+jNN6ypruCBkhit2Dg==
-X-Received: by 2002:a17:90a:f2d7:: with SMTP id
- gt23mr2664215pjb.21.1625613415584; 
- Tue, 06 Jul 2021 16:16:55 -0700 (PDT)
+ bh=rZm6iConQ0+70rOq6SJqb5VjkIBGzrf3R88stzAGT2c=;
+ b=jUUbLm0bvCZcIaZjXln9bSNttQHtbmJ4NLIkdw86QeA0d4df7cIl7jE0ZIM6IWRG6e
+ hj53diDSK7zCIBmy2n7U/968VZYL8tOeo3NLHyKAi8zVbNo0VmN68NRHBD+4OTRpiXh5
+ MPTvQ6vvhNEqwZvmEiuIe5UNYg/tHGwOtokbaM5UAYBsNB2DAYyDbcknPPWUQZbIaCBN
+ HLql/Am9ArQlDV4ui4eNmXZw6H0KFsAdm+nnQUSy/leWto57BAgnoB+I6l4/bCus3NX5
+ IUkiBVfUjOiIlzC72zeqsS14Luz5HJY+jLWG7fHYKjIGSm/M0gQ0Pv6n8ZvLdjPLJgLU
+ Z0nA==
+X-Gm-Message-State: AOAM530i5xnJRRMRaLr6bi4ZMwEaroJ6eDg7kaS1Ck0HQEZ5hPbuuN3l
+ LMfFJAVnLwpC5+5g2hNF9OFeaA==
+X-Google-Smtp-Source: ABdhPJwx8ztbXP3bz8wfRVEjxnoHRNRIzABc3uuSeGxEOzrJWhpKCeWcodtBX21SEeb//C/TRvf5aQ==
+X-Received: by 2002:a62:2bc6:0:b029:2cc:242f:ab69 with SMTP id
+ r189-20020a622bc60000b02902cc242fab69mr22870091pfr.16.1625613412541; 
+ Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y13sm18527251pgp.16.2021.07.06.16.16.54
+ by smtp.gmail.com with ESMTPSA id a23sm16551149pff.43.2021.07.06.16.16.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 06 Jul 2021 16:16:55 -0700 (PDT)
-Date: Tue, 06 Jul 2021 16:16:55 -0700 (PDT)
-X-Google-Original-Date: Tue, 06 Jul 2021 15:52:09 PDT (-0700)
-Subject: Re: [PATCH -fixes] riscv: Fix PTDUMP output now BPF region moved back
- to module region
-In-Reply-To: <20210624121721.2828421-1-alex@ghiti.fr>
+ Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
+Date: Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
+X-Google-Original-Date: Tue, 06 Jul 2021 15:16:10 PDT (-0700)
+Subject: Re: [PATCH v3 1/1] riscv: __asm_copy_to-from_user: Optimize unaligned
+ memory access and pipeline stall
+In-Reply-To: <60c1f087-1e8b-8f22-7d25-86f5f3dcee3f@gmail.com>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- jszhang@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, alex@ghiti.fr
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-fe8bcaf3-d184-4584-99f5-6ea4b9144934@palmerdabbelt-glaptop>
+To: akira.tsukamoto@gmail.com
+Message-ID: <mhng-f4c7d64b-f4e9-491a-8868-bc1baa7a72a7@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210706_161656_447675_65B4057A 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20210706_161653_691958_7305F195 
+X-CRM114-Status: GOOD (  39.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +101,264 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Jun 2021 05:17:21 PDT (-0700), alex@ghiti.fr wrote:
-> BPF region was moved back to the region below the kernel at the end of the
-> module region in commit 3a02764c372c ("riscv: Ensure BPF_JIT_REGION_START
-> aligned with PMD size"), so reflect this change in kernel page table
-> output.
+On Wed, 23 Jun 2021 05:40:39 PDT (-0700), akira.tsukamoto@gmail.com wrote:
 >
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> This patch will reduce cpu usage dramatically in kernel space especially
+> for application which use sys-call with large buffer size, such as network
+> applications. The main reason behind this is that every unaligned memory
+> access will raise exceptions and switch between s-mode and m-mode causing
+> large overhead.
+>
+> First copy in bytes until reaches the first word aligned boundary in
+> destination memory address. This is the preparation before the bulk
+> aligned word copy.
+>
+> The destination address is aligned now, but oftentimes the source address
+> is not in an aligned boundary. To reduce the unaligned memory access, it
+> reads the data from source in aligned boundaries, which will cause the
+> data to have an offset, and then combines the data in the next iteration
+> by fixing offset with shifting before writing to destination. The majority
+> of the improving copy speed comes from this shift copy.
+>
+> In the lucky situation that the both source and destination address are on
+> the aligned boundary, perform load and store with register size to copy the
+> data. Without the unrolling, it will reduce the speed since the next store
+> instruction for the same register using from the load will stall the
+> pipeline.
+>
+> At last, copying the remainder in one byte at a time.
+>
+> Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
 > ---
->  arch/riscv/mm/ptdump.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/riscv/lib/uaccess.S | 181 +++++++++++++++++++++++++++++++--------
+>  1 file changed, 146 insertions(+), 35 deletions(-)
 >
-> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-> index 0536ac84b730..22d6555d89dc 100644
-> --- a/arch/riscv/mm/ptdump.c
-> +++ b/arch/riscv/mm/ptdump.c
-> @@ -98,8 +98,8 @@ static struct addr_marker address_markers[] = {
->  	{0, "vmalloc() end"},
->  	{0, "Linear mapping"},
->  #ifdef CONFIG_64BIT
-> -	{0, "Modules mapping"},
-> -	{0, "Kernel mapping (kernel, BPF)"},
-> +	{0, "Modules/BPF mapping"},
-> +	{0, "Kernel mapping"},
->  #endif
->  	{-1, NULL},
->  };
+> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+> index fceaeb18cc64..bceb0629e440 100644
+> --- a/arch/riscv/lib/uaccess.S
+> +++ b/arch/riscv/lib/uaccess.S
+> @@ -19,50 +19,161 @@ ENTRY(__asm_copy_from_user)
+>  	li t6, SR_SUM
+>  	csrs CSR_STATUS, t6
+>
+> -	add a3, a1, a2
+> -	/* Use word-oriented copy only if low-order bits match */
+> -	andi t0, a0, SZREG-1
+> -	andi t1, a1, SZREG-1
+> -	bne t0, t1, 2f
+> +	/* Save for return value */
+> +	mv	t5, a2
+>
+> -	addi t0, a1, SZREG-1
+> -	andi t1, a3, ~(SZREG-1)
+> -	andi t0, t0, ~(SZREG-1)
+>  	/*
+> -	 * a3: terminal address of source region
+> -	 * t0: lowest XLEN-aligned address in source
+> -	 * t1: highest XLEN-aligned address in source
+> +	 * Register allocation for code below:
+> +	 * a0 - start of uncopied dst
+> +	 * a1 - start of uncopied src
+> +	 * a2 - size
+> +	 * t0 - end of uncopied dst
+>  	 */
+> -	bgeu t0, t1, 2f
+> -	bltu a1, t0, 4f
+> +	add	t0, a0, a2
+> +	bgtu	a0, t0, 5f
+> +
+> +	/*
+> +	 * Use byte copy only if too small.
+> +	 */
+> +	li	a3, 8*SZREG /* size must be larger than size in word_copy */
+> +	bltu	a2, a3, .Lbyte_copy_tail
+> +
+> +	/*
+> +	 * Copy first bytes until dst is align to word boundary.
+> +	 * a0 - start of dst
+> +	 * t1 - start of aligned dst
+> +	 */
+> +	addi	t1, a0, SZREG-1
+> +	andi	t1, t1, ~(SZREG-1)
+> +	/* dst is already aligned, skip */
+> +	beq	a0, t1, .Lskip_first_bytes
+>  1:
+> -	fixup REG_L, t2, (a1), 10f
+> -	fixup REG_S, t2, (a0), 10f
+> -	addi a1, a1, SZREG
+> -	addi a0, a0, SZREG
+> -	bltu a1, t1, 1b
+> +	/* a5 - one byte for copying data */
+> +	fixup lb      a5, 0(a1), 10f
+> +	addi	a1, a1, 1	/* src */
+> +	fixup sb      a5, 0(a0), 10f
+> +	addi	a0, a0, 1	/* dst */
+> +	bltu	a0, t1, 1b	/* t1 - start of aligned dst */
+> +
+> +.Lskip_first_bytes:
+> +	/*
+> +	 * Now dst is aligned.
+> +	 * Use shift-copy if src is misaligned.
+> +	 * Use word-copy if both src and dst are aligned because
+> +	 * can not use shift-copy which do not require shifting
+> +	 */
+> +	/* a1 - start of src */
+> +	andi	a3, a1, SZREG-1
+> +	bnez	a3, .Lshift_copy
+> +
+> +.Lword_copy:
+> +        /*
+> +	 * Both src and dst are aligned, unrolled word copy
+> +	 *
+> +	 * a0 - start of aligned dst
+> +	 * a1 - start of aligned src
+> +	 * a3 - a1 & mask:(SZREG-1)
+> +	 * t0 - end of aligned dst
+> +	 */
+> +	addi	t0, t0, -(8*SZREG-1) /* not to over run */
+>  2:
+> -	bltu a1, a3, 5f
+> +	fixup REG_L   a4,        0(a1), 10f
+> +	fixup REG_L   a5,    SZREG(a1), 10f
+> +	fixup REG_L   a6,  2*SZREG(a1), 10f
+> +	fixup REG_L   a7,  3*SZREG(a1), 10f
+> +	fixup REG_L   t1,  4*SZREG(a1), 10f
+> +	fixup REG_L   t2,  5*SZREG(a1), 10f
+> +	fixup REG_L   t3,  6*SZREG(a1), 10f
+> +	fixup REG_L   t4,  7*SZREG(a1), 10f
+> +	fixup REG_S   a4,        0(a0), 10f
+> +	fixup REG_S   a5,    SZREG(a0), 10f
+> +	fixup REG_S   a6,  2*SZREG(a0), 10f
+> +	fixup REG_S   a7,  3*SZREG(a0), 10f
+> +	fixup REG_S   t1,  4*SZREG(a0), 10f
+> +	fixup REG_S   t2,  5*SZREG(a0), 10f
+> +	fixup REG_S   t3,  6*SZREG(a0), 10f
+> +	fixup REG_S   t4,  7*SZREG(a0), 10f
 
-Thanks, this is on for-next.
+This seems like a suspiciously large unrolling factor, at least without 
+a fallback.  My guess is that some workloads will want some smaller 
+unrolling factors, but given that we run on these single-issue in-order 
+processors it's probably best to have some big unrolling factors as well 
+since they're pretty limited WRT integer bandwidth.
+
+> +	addi	a0, a0, 8*SZREG
+> +	addi	a1, a1, 8*SZREG
+> +	bltu	a0, t0, 2b
+> +
+> +	addi	t0, t0, 8*SZREG-1 /* revert to original value */
+> +	j	.Lbyte_copy_tail
+> +
+> +.Lshift_copy:
+> +
+> +	/*
+> +	 * Word copy with shifting.
+> +	 * For misaligned copy we still perform aligned word copy, but
+> +	 * we need to use the value fetched from the previous iteration and
+> +	 * do some shifts.
+> +	 * This is safe because reading less than a word size.
+> +	 *
+> +	 * a0 - start of aligned dst
+> +	 * a1 - start of src
+> +	 * a3 - a1 & mask:(SZREG-1)
+> +	 * t0 - end of uncopied dst
+> +	 * t1 - end of aligned dst
+> +	 */
+> +	/* calculating aligned word boundary for dst */
+> +	andi	t1, t0, ~(SZREG-1)
+> +	/* Converting unaligned src to aligned arc */
+> +	andi	a1, a1, ~(SZREG-1)
+> +
+> +	/*
+> +	 * Calculate shifts
+> +	 * t3 - prev shift
+> +	 * t4 - current shift
+> +	 */
+> +	slli	t3, a3, LGREG
+> +	li	a5, SZREG*8
+> +	sub	t4, a5, t3
+> +
+> +	/* Load the first word to combine with seceond word */
+> +	fixup REG_L   a5, 0(a1), 10f
+>
+>  3:
+> +	/* Main shifting copy
+> +	 *
+> +	 * a0 - start of aligned dst
+> +	 * a1 - start of aligned src
+> +	 * t1 - end of aligned dst
+> +	 */
+> +
+> +	/* At least one iteration will be executed */
+> +	srl	a4, a5, t3
+> +	fixup REG_L   a5, SZREG(a1), 10f
+> +	addi	a1, a1, SZREG
+> +	sll	a2, a5, t4
+> +	or	a2, a2, a4
+> +	fixup REG_S   a2, 0(a0), 10f
+> +	addi	a0, a0, SZREG
+> +	bltu	a0, t1, 3b
+> +
+> +	/* Revert src to original unaligned value  */
+> +	add	a1, a1, a3
+> +
+> +.Lbyte_copy_tail:
+> +	/*
+> +	 * Byte copy anything left.
+> +	 *
+> +	 * a0 - start of remaining dst
+> +	 * a1 - start of remaining src
+> +	 * t0 - end of remaining dst
+> +	 */
+> +	bgeu	a0, t0, 5f
+> +4:
+> +	fixup lb      a5, 0(a1), 10f
+> +	addi	a1, a1, 1	/* src */
+> +	fixup sb      a5, 0(a0), 10f
+> +	addi	a0, a0, 1	/* dst */
+> +	bltu	a0, t0, 4b	/* t0 - end of dst */
+> +
+> +5:
+>  	/* Disable access to user memory */
+>  	csrc CSR_STATUS, t6
+> -	li a0, 0
+> +	li	a0, 0
+>  	ret
+> -4: /* Edge case: unalignment */
+> -	fixup lbu, t2, (a1), 10f
+> -	fixup sb, t2, (a0), 10f
+> -	addi a1, a1, 1
+> -	addi a0, a0, 1
+> -	bltu a1, t0, 4b
+> -	j 1b
+> -5: /* Edge case: remainder */
+> -	fixup lbu, t2, (a1), 10f
+> -	fixup sb, t2, (a0), 10f
+> -	addi a1, a1, 1
+> -	addi a0, a0, 1
+> -	bltu a1, a3, 5b
+> -	j 3b
+>  ENDPROC(__asm_copy_to_user)
+>  ENDPROC(__asm_copy_from_user)
+>  EXPORT_SYMBOL(__asm_copy_to_user)
+> @@ -117,7 +228,7 @@ EXPORT_SYMBOL(__clear_user)
+>  10:
+>  	/* Disable access to user memory */
+>  	csrs CSR_STATUS, t6
+> -	mv a0, a2
+> +	mv a0, t5
+>  	ret
+>  11:
+>  	csrs CSR_STATUS, t6
+
+That said, this is good enough for me.  If someone comes up with a case 
+where the extra unrolling is an issue I'm happy to take something to fix 
+it, but until then I'm fine with this as-is.  Like the string fuctions 
+it's probably best to eventually put this in C, but IIRC last time I 
+tried it was kind of a headache.
+
+This is on for-next.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
