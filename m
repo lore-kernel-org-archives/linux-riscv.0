@@ -2,19 +2,19 @@ Return-Path: <SRS0=x9rf=L6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BE6EEC07E9C
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 19FACC07E96
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 69D9861C5F
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69D9861C5F
+	by mail.kernel.org (Postfix) with ESMTPS id D1C1A61CAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jul 2021 23:17:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1C1A61CAD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=sF84B66s1cyBcq1V2QvpNICeqwPZzMvt7AppNSzNk50=; b=cVyqFFhMfUvukCFlErVl0SGqBb
-	GEeL7moqUnXDGFzjggdBU/aPXxhupjDrCX1ODBcC1MyE2U+MuKS9qU8QLfeDjnQw5sP7D9pMXMgrF
-	FK8+vUcbuEw4P3nJH9cPd1iGTarSp++Vp7m0H2u2cesZSLwXazqiR7tIE+9QsAVxKRkulMAIFYsD6
-	xJA5gjLwxUNB/HpcieK9vAs/H37zf18v3S/eu8pHtww3CL3wosmRPQSf0pOA36jbBsuq8WQBrVDFI
-	tL0E92roox2es/F7aVxCyK7165m58kmqO3vHQOK4UU5cJgLdMwLksnUuA2tGigd/o7p7DA8M0O50I
-	if6MgwQw==;
+	bh=3DKNl4vZHZmN09XIp7UaHWCxRxgingpZkcQFH3Flk4I=; b=gEjuTbvvciYMWf6p0587rCGKmk
+	CWTlYDCfCrm6+Adto6fIg+g6Ere8L3XrcKivxbxF2PaTKUYFgFNSab9Up/EQx2o5HmT11gu3MZaVh
+	lqvFqbXQ8UdiHd8evHridhVKD572Pg/SmjBFLfzbErqrh52aGbAC4shmZILnDOpH16PkqzHwaNTFj
+	cYGrNAMqDkaO18rd0m5GQFerWiN5y9B0HxVynv+2nN7/Y4jq/LDsBMTzvn4Pf4QothlLg4vo/ct79
+	TDl9bPk0zD+u5kjEe11gTMSvTSTia3q5/wBndWEOjj9rod40uvVAgggGtLXVp32mRaZZNT8F8olEu
+	rMByscWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m0uJF-00D0gF-8N; Tue, 06 Jul 2021 23:16:57 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1m0uJJ-00D0hS-27; Tue, 06 Jul 2021 23:17:01 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m0uJB-00D0fS-H5
- for linux-riscv@lists.infradead.org; Tue, 06 Jul 2021 23:16:55 +0000
-Received: by mail-pf1-x432.google.com with SMTP id y2so458216pff.11
- for <linux-riscv@lists.infradead.org>; Tue, 06 Jul 2021 16:16:53 -0700 (PDT)
+ id 1m0uJF-00D0gJ-PN
+ for linux-riscv@lists.infradead.org; Tue, 06 Jul 2021 23:16:59 +0000
+Received: by mail-pl1-x634.google.com with SMTP id c15so3452pls.13
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Jul 2021 16:16:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=rZm6iConQ0+70rOq6SJqb5VjkIBGzrf3R88stzAGT2c=;
- b=GORRnxNXaioJsris67tjS/YABeT7L9ucXhiTv0ymTL0guYSnACl8LHtQIPuAVee63T
- e710dWHwKYTDQ5PYY/KI5iZ4A6KzIfil6q+4gVRW6NR+nUNFNOoGXST74NoDbXT5Ch1e
- U5dMSS+zXgyeH2cPhxXl+8Y2sfuS+8/3njvO+5V9j7RW+pZZ4M3oWj/QWiv1Yq9JRvmN
- gVrDqucKRjAuaN1hI6a74RFnLRapfgLrpIeWtZMHz3CvEH2oYm3piO8oAErJbMefEaj+
- mbk8tk/gpl6f1ow9Dik77sMlJjMJ+bDpA/PTxIvPnwL3BdENy4YvJ+SgkFluZnb6qENt
- tmzg==
+ bh=vhWcX4wZI8Gd9j2rinjQwhp8HvDxjLKtRKdl01al6B4=;
+ b=qA3fpEsAe6jsvhZqMAy6cwl8yXzdWfXG00y18wEaoGed37IU/nSfIFlFZLqJ+/lVHW
+ mi8cOgkmwjFMQMYZ174Wqm+ZObPLCa7TZadgFajCo+wukrWzsWmRSiOQs7+sOtOjGzCK
+ oTPhS5XuCMSwsSjJNI0wLlaZHxqserpJlr1ywLWTf9+B6EYGmwMZ/9oyDCYKSLd+wYFv
+ 37T/s1Kz9X5nVDp1MncjRkNMgW1lHoPZA2Tnc7HLhFE8xFJmS3gehdrBXMG4hup/4aIw
+ LC+VBRzu32Ox/V2hhCnsFFaRGNVgb35g9NVckInof+vYLHfMpI98JywoK0zdTIMCnfPH
+ NM9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=rZm6iConQ0+70rOq6SJqb5VjkIBGzrf3R88stzAGT2c=;
- b=jUUbLm0bvCZcIaZjXln9bSNttQHtbmJ4NLIkdw86QeA0d4df7cIl7jE0ZIM6IWRG6e
- hj53diDSK7zCIBmy2n7U/968VZYL8tOeo3NLHyKAi8zVbNo0VmN68NRHBD+4OTRpiXh5
- MPTvQ6vvhNEqwZvmEiuIe5UNYg/tHGwOtokbaM5UAYBsNB2DAYyDbcknPPWUQZbIaCBN
- HLql/Am9ArQlDV4ui4eNmXZw6H0KFsAdm+nnQUSy/leWto57BAgnoB+I6l4/bCus3NX5
- IUkiBVfUjOiIlzC72zeqsS14Luz5HJY+jLWG7fHYKjIGSm/M0gQ0Pv6n8ZvLdjPLJgLU
- Z0nA==
-X-Gm-Message-State: AOAM530i5xnJRRMRaLr6bi4ZMwEaroJ6eDg7kaS1Ck0HQEZ5hPbuuN3l
- LMfFJAVnLwpC5+5g2hNF9OFeaA==
-X-Google-Smtp-Source: ABdhPJwx8ztbXP3bz8wfRVEjxnoHRNRIzABc3uuSeGxEOzrJWhpKCeWcodtBX21SEeb//C/TRvf5aQ==
-X-Received: by 2002:a62:2bc6:0:b029:2cc:242f:ab69 with SMTP id
- r189-20020a622bc60000b02902cc242fab69mr22870091pfr.16.1625613412541; 
- Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
+ bh=vhWcX4wZI8Gd9j2rinjQwhp8HvDxjLKtRKdl01al6B4=;
+ b=noTmgSVQZ3arQS/6bq+jUGOPwWZqTMoChGUlh4b5f19UXjE1hNodOX8OLJIBxggkdS
+ la0Zvoz0dlql0xxPKakn/e2SGlqaurRN1viIxAfDBDmFhUWCEbPDipYJvsEvZ9KUQBUS
+ EBp7EflKHfuY+QIymmwP3ZLmE4GkENuuWpTssZHayYWNo2yMosMCgZl4QzINQvotQpin
+ FJgvSAdGfUiGsZqCnBBn74kdkSNGO/4Y0aFRwLWOhAld2+F/3C/Iu1TWODMRDQ0cbZLu
+ 5MJUwUORbs6scrFnEeUXoKAM6Ohls2WimxuCucH4RDiRzpNkiMmOvM9QK4aNLSsWgnIZ
+ faxg==
+X-Gm-Message-State: AOAM530LcZmPHUmDURuchip8iwhvyOhrwY7FJ4UWPKIEBYk+veDERk9t
+ f0flunieuS6r/rfXWYILnAEhKg==
+X-Google-Smtp-Source: ABdhPJw+S8scqaWlE3MYzQi76RwysDGhn8KLP6B59eb0mJaDLXFWOIh5UV7dvcXMehttPkOYFKPZ6A==
+X-Received: by 2002:a17:90a:6a0e:: with SMTP id
+ t14mr5449215pjj.19.1625613416939; 
+ Tue, 06 Jul 2021 16:16:56 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a23sm16551149pff.43.2021.07.06.16.16.51
+ by smtp.gmail.com with ESMTPSA id w123sm18350483pff.152.2021.07.06.16.16.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
-Date: Tue, 06 Jul 2021 16:16:52 -0700 (PDT)
-X-Google-Original-Date: Tue, 06 Jul 2021 15:16:10 PDT (-0700)
-Subject: Re: [PATCH v3 1/1] riscv: __asm_copy_to-from_user: Optimize unaligned
- memory access and pipeline stall
-In-Reply-To: <60c1f087-1e8b-8f22-7d25-86f5f3dcee3f@gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+ Tue, 06 Jul 2021 16:16:56 -0700 (PDT)
+Date: Tue, 06 Jul 2021 16:16:56 -0700 (PDT)
+X-Google-Original-Date: Tue, 06 Jul 2021 16:16:35 PDT (-0700)
+Subject: Re: [PATCH v2] dt-bindings: riscv: add starfive jh7100 bindings
+In-Reply-To: <20210625071240.577796-1-drew@beagleboard.org>
+CC: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ michael.zhu@starfivetech.com, geert@linux-m68k.org, tekkamanninja@gmail.com,
+ kernel@esmil.dk, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, drew@beagleboard.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: akira.tsukamoto@gmail.com
-Message-ID: <mhng-f4c7d64b-f4e9-491a-8868-bc1baa7a72a7@palmerdabbelt-glaptop>
+To: drew@beagleboard.org
+Message-ID: <mhng-7fbbd583-fe4e-4f11-a028-3df3eca4ab41@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210706_161653_691958_7305F195 
-X-CRM114-Status: GOOD (  39.73  )
+X-CRM114-CacheID: sfid-20210706_161657_894531_D05F71A5 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,264 +103,91 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Jun 2021 05:40:39 PDT (-0700), akira.tsukamoto@gmail.com wrote:
+On Fri, 25 Jun 2021 00:12:42 PDT (-0700), drew@beagleboard.org wrote:
+> Add DT binding documentation for the StarFive JH7100 Soc [1] and the
+> BeagleV Starlight JH7100 board [2].
 >
-> This patch will reduce cpu usage dramatically in kernel space especially
-> for application which use sys-call with large buffer size, such as network
-> applications. The main reason behind this is that every unaligned memory
-> access will raise exceptions and switch between s-mode and m-mode causing
-> large overhead.
+> [1] https://github.com/starfive-tech/beaglev_doc
+> [2] https://github.com/beagleboard/beaglev-starlight
 >
-> First copy in bytes until reaches the first word aligned boundary in
-> destination memory address. This is the preparation before the bulk
-> aligned word copy.
->
-> The destination address is aligned now, but oftentimes the source address
-> is not in an aligned boundary. To reduce the unaligned memory access, it
-> reads the data from source in aligned boundaries, which will cause the
-> data to have an offset, and then combines the data in the next iteration
-> by fixing offset with shifting before writing to destination. The majority
-> of the improving copy speed comes from this shift copy.
->
-> In the lucky situation that the both source and destination address are on
-> the aligned boundary, perform load and store with register size to copy the
-> data. Without the unrolling, it will reduce the speed since the next store
-> instruction for the same register using from the load will stall the
-> pipeline.
->
-> At last, copying the remainder in one byte at a time.
->
-> Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
+> Signed-off-by: Drew Fustini <drew@beagleboard.org>
 > ---
->  arch/riscv/lib/uaccess.S | 181 +++++++++++++++++++++++++++++++--------
->  1 file changed, 146 insertions(+), 35 deletions(-)
+> v2 changes:
+> - removed "items:" entry that only had "const: starfive,jh7100"
+> - correct typo in Description:
 >
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index fceaeb18cc64..bceb0629e440 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -19,50 +19,161 @@ ENTRY(__asm_copy_from_user)
->  	li t6, SR_SUM
->  	csrs CSR_STATUS, t6
+> Results of running checks:
 >
-> -	add a3, a1, a2
-> -	/* Use word-oriented copy only if low-order bits match */
-> -	andi t0, a0, SZREG-1
-> -	andi t1, a1, SZREG-1
-> -	bne t0, t1, 2f
-> +	/* Save for return value */
-> +	mv	t5, a2
+>   $ make -j8 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- dt_binding_check \
+>   DT_SCHEMA_FILES=Documentation/devicetree/bindings/riscv/starfive.yaml
+>   DTEX    Documentation/devicetree/bindings/riscv/starfive.example.dts
+>   DTC     Documentation/devicetree/bindings/riscv/starfive.example.dt.yaml
+>   CHECK   Documentation/devicetree/bindings/riscv/starfive.example.dt.yaml
 >
-> -	addi t0, a1, SZREG-1
-> -	andi t1, a3, ~(SZREG-1)
-> -	andi t0, t0, ~(SZREG-1)
->  	/*
-> -	 * a3: terminal address of source region
-> -	 * t0: lowest XLEN-aligned address in source
-> -	 * t1: highest XLEN-aligned address in source
-> +	 * Register allocation for code below:
-> +	 * a0 - start of uncopied dst
-> +	 * a1 - start of uncopied src
-> +	 * a2 - size
-> +	 * t0 - end of uncopied dst
->  	 */
-> -	bgeu t0, t1, 2f
-> -	bltu a1, t0, 4f
-> +	add	t0, a0, a2
-> +	bgtu	a0, t0, 5f
-> +
-> +	/*
-> +	 * Use byte copy only if too small.
-> +	 */
-> +	li	a3, 8*SZREG /* size must be larger than size in word_copy */
-> +	bltu	a2, a3, .Lbyte_copy_tail
-> +
-> +	/*
-> +	 * Copy first bytes until dst is align to word boundary.
-> +	 * a0 - start of dst
-> +	 * t1 - start of aligned dst
-> +	 */
-> +	addi	t1, a0, SZREG-1
-> +	andi	t1, t1, ~(SZREG-1)
-> +	/* dst is already aligned, skip */
-> +	beq	a0, t1, .Lskip_first_bytes
->  1:
-> -	fixup REG_L, t2, (a1), 10f
-> -	fixup REG_S, t2, (a0), 10f
-> -	addi a1, a1, SZREG
-> -	addi a0, a0, SZREG
-> -	bltu a1, t1, 1b
-> +	/* a5 - one byte for copying data */
-> +	fixup lb      a5, 0(a1), 10f
-> +	addi	a1, a1, 1	/* src */
-> +	fixup sb      a5, 0(a0), 10f
-> +	addi	a0, a0, 1	/* dst */
-> +	bltu	a0, t1, 1b	/* t1 - start of aligned dst */
-> +
-> +.Lskip_first_bytes:
-> +	/*
-> +	 * Now dst is aligned.
-> +	 * Use shift-copy if src is misaligned.
-> +	 * Use word-copy if both src and dst are aligned because
-> +	 * can not use shift-copy which do not require shifting
-> +	 */
-> +	/* a1 - start of src */
-> +	andi	a3, a1, SZREG-1
-> +	bnez	a3, .Lshift_copy
-> +
-> +.Lword_copy:
-> +        /*
-> +	 * Both src and dst are aligned, unrolled word copy
-> +	 *
-> +	 * a0 - start of aligned dst
-> +	 * a1 - start of aligned src
-> +	 * a3 - a1 & mask:(SZREG-1)
-> +	 * t0 - end of aligned dst
-> +	 */
-> +	addi	t0, t0, -(8*SZREG-1) /* not to over run */
->  2:
-> -	bltu a1, a3, 5f
-> +	fixup REG_L   a4,        0(a1), 10f
-> +	fixup REG_L   a5,    SZREG(a1), 10f
-> +	fixup REG_L   a6,  2*SZREG(a1), 10f
-> +	fixup REG_L   a7,  3*SZREG(a1), 10f
-> +	fixup REG_L   t1,  4*SZREG(a1), 10f
-> +	fixup REG_L   t2,  5*SZREG(a1), 10f
-> +	fixup REG_L   t3,  6*SZREG(a1), 10f
-> +	fixup REG_L   t4,  7*SZREG(a1), 10f
-> +	fixup REG_S   a4,        0(a0), 10f
-> +	fixup REG_S   a5,    SZREG(a0), 10f
-> +	fixup REG_S   a6,  2*SZREG(a0), 10f
-> +	fixup REG_S   a7,  3*SZREG(a0), 10f
-> +	fixup REG_S   t1,  4*SZREG(a0), 10f
-> +	fixup REG_S   t2,  5*SZREG(a0), 10f
-> +	fixup REG_S   t3,  6*SZREG(a0), 10f
-> +	fixup REG_S   t4,  7*SZREG(a0), 10f
-
-This seems like a suspiciously large unrolling factor, at least without 
-a fallback.  My guess is that some workloads will want some smaller 
-unrolling factors, but given that we run on these single-issue in-order 
-processors it's probably best to have some big unrolling factors as well 
-since they're pretty limited WRT integer bandwidth.
-
-> +	addi	a0, a0, 8*SZREG
-> +	addi	a1, a1, 8*SZREG
-> +	bltu	a0, t0, 2b
-> +
-> +	addi	t0, t0, 8*SZREG-1 /* revert to original value */
-> +	j	.Lbyte_copy_tail
-> +
-> +.Lshift_copy:
-> +
-> +	/*
-> +	 * Word copy with shifting.
-> +	 * For misaligned copy we still perform aligned word copy, but
-> +	 * we need to use the value fetched from the previous iteration and
-> +	 * do some shifts.
-> +	 * This is safe because reading less than a word size.
-> +	 *
-> +	 * a0 - start of aligned dst
-> +	 * a1 - start of src
-> +	 * a3 - a1 & mask:(SZREG-1)
-> +	 * t0 - end of uncopied dst
-> +	 * t1 - end of aligned dst
-> +	 */
-> +	/* calculating aligned word boundary for dst */
-> +	andi	t1, t0, ~(SZREG-1)
-> +	/* Converting unaligned src to aligned arc */
-> +	andi	a1, a1, ~(SZREG-1)
-> +
-> +	/*
-> +	 * Calculate shifts
-> +	 * t3 - prev shift
-> +	 * t4 - current shift
-> +	 */
-> +	slli	t3, a3, LGREG
-> +	li	a5, SZREG*8
-> +	sub	t4, a5, t3
-> +
-> +	/* Load the first word to combine with seceond word */
-> +	fixup REG_L   a5, 0(a1), 10f
+>   $ make -j8 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- dtbs_check \
+>   DT_SCHEMA_FILES=Documentation/devicetree/bindings/riscv/starfive.yaml
+>   DTC     arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dt.yaml
+>   CHECK   arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dt.yaml
 >
->  3:
-> +	/* Main shifting copy
-> +	 *
-> +	 * a0 - start of aligned dst
-> +	 * a1 - start of aligned src
-> +	 * t1 - end of aligned dst
-> +	 */
+> The dts file is from vendor repo and is being cleaned up right now in
+> preperation for submitting to the mailing list:
+> https://github.com/starfive-tech/linux/tree/beaglev/arch/riscv/boot/dts/starfive
+>
+>  .../devicetree/bindings/riscv/starfive.yaml   | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/starfive.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> new file mode 100644
+> index 000000000000..68954d0a7108
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> @@ -0,0 +1,27 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/starfive.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	/* At least one iteration will be executed */
-> +	srl	a4, a5, t3
-> +	fixup REG_L   a5, SZREG(a1), 10f
-> +	addi	a1, a1, SZREG
-> +	sll	a2, a5, t4
-> +	or	a2, a2, a4
-> +	fixup REG_S   a2, 0(a0), 10f
-> +	addi	a0, a0, SZREG
-> +	bltu	a0, t1, 3b
+> +title: StarFive SoC-based boards
 > +
-> +	/* Revert src to original unaligned value  */
-> +	add	a1, a1, a3
+> +maintainers:
+> +  - Michael Zhu <michael.zhu@starfivetech.com>
+> +  - Drew Fustini <drew@beagleboard.org>
 > +
-> +.Lbyte_copy_tail:
-> +	/*
-> +	 * Byte copy anything left.
-> +	 *
-> +	 * a0 - start of remaining dst
-> +	 * a1 - start of remaining src
-> +	 * t0 - end of remaining dst
-> +	 */
-> +	bgeu	a0, t0, 5f
-> +4:
-> +	fixup lb      a5, 0(a1), 10f
-> +	addi	a1, a1, 1	/* src */
-> +	fixup sb      a5, 0(a0), 10f
-> +	addi	a0, a0, 1	/* dst */
-> +	bltu	a0, t0, 4b	/* t0 - end of dst */
+> +description:
+> +  StarFive SoC-based boards
 > +
-> +5:
->  	/* Disable access to user memory */
->  	csrc CSR_STATUS, t6
-> -	li a0, 0
-> +	li	a0, 0
->  	ret
-> -4: /* Edge case: unalignment */
-> -	fixup lbu, t2, (a1), 10f
-> -	fixup sb, t2, (a0), 10f
-> -	addi a1, a1, 1
-> -	addi a0, a0, 1
-> -	bltu a1, t0, 4b
-> -	j 1b
-> -5: /* Edge case: remainder */
-> -	fixup lbu, t2, (a1), 10f
-> -	fixup sb, t2, (a0), 10f
-> -	addi a1, a1, 1
-> -	addi a0, a0, 1
-> -	bltu a1, a3, 5b
-> -	j 3b
->  ENDPROC(__asm_copy_to_user)
->  ENDPROC(__asm_copy_from_user)
->  EXPORT_SYMBOL(__asm_copy_to_user)
-> @@ -117,7 +228,7 @@ EXPORT_SYMBOL(__clear_user)
->  10:
->  	/* Disable access to user memory */
->  	csrs CSR_STATUS, t6
-> -	mv a0, a2
-> +	mv a0, t5
->  	ret
->  11:
->  	csrs CSR_STATUS, t6
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: beagle,beaglev-starlight-jh7100
+> +          - const: starfive,jh7100
 
-That said, this is good enough for me.  If someone comes up with a case 
-where the extra unrolling is an issue I'm happy to take something to fix 
-it, but until then I'm fine with this as-is.  Like the string fuctions 
-it's probably best to eventually put this in C, but IIRC last time I 
-tried it was kind of a headache.
+The SiFive boards have
 
-This is on for-next.
+    oneOf:
+      - items:
+          - enum:
+              - sifive,hifive-unleashed-a00
+          - const: sifive,fu540-c000
+          - const: sifive,fu540
 
-Thanks!
+IIUC there's no practical difference between a single-option enum and 
+the const, but it does bring up the board version number.  Is there any 
+revision number on the beaglev boards?
+
+> +
+> +additionalProperties: true
+> +
+> +...
+
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+
+as I'm assuming this is targeted towards the DT tree.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
