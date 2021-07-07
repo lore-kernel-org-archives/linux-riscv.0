@@ -2,80 +2,98 @@ Return-Path: <SRS0=Ffl8=L7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 13888C07E9B
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 10:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 903D9C07E95
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 17:41:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CD42D61A06
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 10:37:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CD42D61A06
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	by mail.kernel.org (Postfix) with ESMTPS id 4693561CC8
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 17:41:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4693561CC8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MpIoxB4COOQDOCGqSI7EAFPG/5kQw21gGyXSiafivx0=; b=ZWKlb6Qgshxz5l
-	0MesTfxf2iRIQORLSVp5jskTsJowxmBijKM57X6LjdtferwS8eJjws1IGOBFhj8IzpxRorWwi9vo9
-	ukNcZpB/BLDs20QSb4djVzLCSfqgDHhKLtbT7wIS/6AM3vpvzaxOoqOLsWwzmFTUrbnNfU3MDaF5L
-	A5bHAZOxo+CB1pmtzVAIYmc8Q2nBp/s/zRrK6YLLF79ROM3vFIqdLJCbtBZt4XBYyjjlHIpVokecd
-	DIBwqZVf+x+rBC+cbR0vXx8YCq5CUgt5/8jol7K8Ff6yVYFHCnnk2itdCVVqbanV18VT0YW8vTgJL
-	m7Lk2k5IMKFE4aOVP13g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jz+XfqMvGMQs5V3V4YnqwRJs8wAqzxtvLUvq1SFTxSc=; b=RVEt5aEzVSrEsM
+	B7WXZKuqC7xdEkzAtZiVAnbY8vErCtusqA/a6AOa0l/NMQT0GWA+cOKJK2/DTRzWOb2DKO9LRwiD+
+	XwFbLr6Ew29mghDeHtrKRDvROfcDa7yk9T6sbsDQfI6T0bYAl6bUuH23drsTuttT7D16wIjJdlqTw
+	bjF96ncTHf8cSON2v2gNaRc6EE7XfQXyhpPMRy0iSIxwfs1mUIvrScWmuzcz2boIv5UOlhtOqOOmI
+	sEuBFoazVyx6/OKasUoTGLc4VnZyW5lwzc7dApmrelNL8VQ1Dsw0p8aR2PFfnuqXbFchRMBDhG3iP
+	rqnyAMaI+wda8XO8vCKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m14vr-00EVuG-5k; Wed, 07 Jul 2021 10:37:31 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([207.82.80.151])
+	id 1m1BXN-00FPSi-7s; Wed, 07 Jul 2021 17:40:41 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m14Sf-00EPBk-HB
- for linux-riscv@lists.infradead.org; Wed, 07 Jul 2021 10:07:23 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mtapsc-6-g79YA_UqNSq2doqSydWg2A-1; Wed, 07 Jul 2021 11:07:17 +0100
-X-MC-Unique: g79YA_UqNSq2doqSydWg2A-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.18; Wed, 7 Jul 2021 11:07:16 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.018; Wed, 7 Jul 2021 11:07:16 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Palmer Dabbelt' <palmer@dabbelt.com>, "akira.tsukamoto@gmail.com"
- <akira.tsukamoto@gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu"
- <aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 1/1] riscv: __asm_copy_to-from_user: Optimize unaligned
- memory access and pipeline stall
-Thread-Topic: [PATCH v3 1/1] riscv: __asm_copy_to-from_user: Optimize
- unaligned memory access and pipeline stall
-Thread-Index: AQHXcr0E9zBxyMGA8EqGz08GSOYzlas3R1qQ
-Date: Wed, 7 Jul 2021 10:07:16 +0000
-Message-ID: <7f6e56390954403fb07a1c606fbc7e6d@AcuMS.aculab.com>
-References: <60c1f087-1e8b-8f22-7d25-86f5f3dcee3f@gmail.com>
- <mhng-f4c7d64b-f4e9-491a-8868-bc1baa7a72a7@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-f4c7d64b-f4e9-491a-8868-bc1baa7a72a7@palmerdabbelt-glaptop>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1m1BXI-00FPS9-A8
+ for linux-riscv@lists.infradead.org; Wed, 07 Jul 2021 17:40:37 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id
+ p17-20020a17090b0111b02901723ab8d11fso2134619pjz.1
+ for <linux-riscv@lists.infradead.org>; Wed, 07 Jul 2021 10:40:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=BgQbhoVbzjmNN3b9sj7N5Nl4gKvJ3MMVqvNXk5zHkNo=;
+ b=bR47LD94Ihmmn+syU7HUJyHuGzItCzlwySdmlkOYI/yLYpYVon7pXNMaOD9WbOvGHh
+ SqeGoAWtPadPUZwLG9LePULyOje+tqo/OgSzMDdJii1uZfPbqeFYEmEqpHBNywGAbqHy
+ 2iQt545mtIRNxxSdHd+w2YoLimLHvy+w6F2IHU8lAiQmJenx3+5YoqnFpXT13tHetrgy
+ dlzio48/8UmsOvEgsEkA+FcqO5LKFg6wjaBPvsL9Tq+yM5THIWAKi3BkCdR5u6sX/GJd
+ fT44xrPMKQbzunyhJl/zp8JqGkmruuVmLoS7qEzyjp8Frx+5bbCDFVaAl7M64v6s00ZW
+ AvJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=BgQbhoVbzjmNN3b9sj7N5Nl4gKvJ3MMVqvNXk5zHkNo=;
+ b=B1HiYpuqQYw0Fg6HLlS3IuEvyELRfTsMqNSEz4CcrdRquTpQJQLkK4QbCXAHOMQtak
+ QrXdTEq2mGpQEbNsovnzYlqpQIwY8lxTRgcb+sfTOwrvHeYAoUMz1VmeWTkc5LMXlaC7
+ 6PhqO9il47ROASBya12qYHgi1e9H7/IxWv/pEWGxEft3who5Qv9vaX6oM+SFyaSTu9m1
+ HXg1Xbfm+9H8iEAl3yjgYESyA94foKcEK7zMIHFH4W1069/R7RjzqcOJygsLf9l0RB0L
+ DhIYJNs7GPiEiIgCnf4z0EmZo1//HOrJ8CrC/5eYtD2etfJlv4U3kWdjMfAztlkb2bHX
+ GoQA==
+X-Gm-Message-State: AOAM530NnCz04YHRazEf+DYqDtp33Kcmqaf5yJGsDGCWM9uYlg33wySm
+ dxNxfPChTiJROxUmKjRrDKo=
+X-Google-Smtp-Source: ABdhPJzCIAIXmtoc+TgNyipWd2WVTKXNqNE0xipLQsdFFIQOXHcVtnOxk+x8AeC7NNPt4aWeARXzww==
+X-Received: by 2002:a17:90a:948b:: with SMTP id
+ s11mr28015165pjo.139.1625679633694; 
+ Wed, 07 Jul 2021 10:40:33 -0700 (PDT)
+Received: from BALT-UROY.maxlinear.com ([202.8.116.91])
+ by smtp.gmail.com with ESMTPSA id r26sm15555376pfq.191.2021.07.07.10.40.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 07 Jul 2021 10:40:33 -0700 (PDT)
+From: UjjaL Roy <royujjal@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ clang-built-linux@googlegroups.com
+Subject: [PATCH] docs: bpf: Added more extension example
+Date: Wed,  7 Jul 2021 23:10:22 +0530
+Message-Id: <20210707174022.517-1-royujjal@gmail.com>
+X-Mailer: git-send-email 2.31.1.windows.1
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210707_030721_905953_C35B9EC6 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20210707_104036_405826_4741ED64 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +110,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> > +	fixup REG_L   a4,        0(a1), 10f
-> > +	fixup REG_L   a5,    SZREG(a1), 10f
-> > +	fixup REG_L   a6,  2*SZREG(a1), 10f
-> > +	fixup REG_L   a7,  3*SZREG(a1), 10f
-> > +	fixup REG_L   t1,  4*SZREG(a1), 10f
-> > +	fixup REG_L   t2,  5*SZREG(a1), 10f
-> > +	fixup REG_L   t3,  6*SZREG(a1), 10f
-> > +	fixup REG_L   t4,  7*SZREG(a1), 10f
-> > +	fixup REG_S   a4,        0(a0), 10f
-> > +	fixup REG_S   a5,    SZREG(a0), 10f
-> > +	fixup REG_S   a6,  2*SZREG(a0), 10f
-> > +	fixup REG_S   a7,  3*SZREG(a0), 10f
-> > +	fixup REG_S   t1,  4*SZREG(a0), 10f
-> > +	fixup REG_S   t2,  5*SZREG(a0), 10f
-> > +	fixup REG_S   t3,  6*SZREG(a0), 10f
-> > +	fixup REG_S   t4,  7*SZREG(a0), 10f
-> 
-> This seems like a suspiciously large unrolling factor, at least without
-> a fallback.  My guess is that some workloads will want some smaller
-> unrolling factors, but given that we run on these single-issue in-order
-> processors it's probably best to have some big unrolling factors as well
-> since they're pretty limited WRT integer bandwidth.
+From: "Roy, UjjaL" <royujjal@gmail.com>
 
-But a single-issue cpu is unlikely to have an 8 clock data delay.
-OTOH a cpu than can do concurrent memory read and write might
-not have enough 'out of order' capability to do so with the above loop.
+After reading this document observed that for new users it is
+hard to find an example of "extension" easily.
 
-You may want to interleave the reads and writes - starting with
-two or three reads (possibly with the extra ones outside the loop).
+So, added a new heading for extensions for better readability.
+Now, the new readers can easily identify "extension" examples.
+Also, added one more example of filtering interface index.
 
-I don't know the microarchitectures well enough (well at all)
-to know the exact pitfalls.
+Signed-off-by: Roy, UjjaL <royujjal@gmail.com>
+---
+ Documentation/networking/filter.rst | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
 
-The very simple cpu might have the same 'issue' the Nios2 has
-(another MIPS clone fpga soft cpu) where there can be a pipeline
-stall between a write and read.
-I doubt the non-trivial riscv have that issue though.
-
-> > +	addi	a0, a0, 8*SZREG
-> > +	addi	a1, a1, 8*SZREG
-> > +	bltu	a0, t0, 2b
-
-For a dual-issue cpu you want to move the two 'addi' higher
-up the loop so that they are 'free'.
-
-	David
-
+diff --git a/Documentation/networking/filter.rst b/Documentation/networking/filter.rst
+index 3e2221f4abe4..5f13905b12e0 100644
+--- a/Documentation/networking/filter.rst
++++ b/Documentation/networking/filter.rst
+@@ -320,13 +320,6 @@ Examples for low-level BPF:
+   ret #-1
+   drop: ret #0
+ 
+-**(Accelerated) VLAN w/ id 10**::
 -
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+-  ld vlan_tci
+-  jneq #10, drop
+-  ret #-1
+-  drop: ret #0
+-
+ **icmp random packet sampling, 1 in 4**::
+ 
+   ldh [12]
+@@ -358,6 +351,22 @@ Examples for low-level BPF:
+   bad: ret #0             /* SECCOMP_RET_KILL_THREAD */
+   good: ret #0x7fff0000   /* SECCOMP_RET_ALLOW */
+ 
++Examples for low-level BPF extension:
++
++**Packet for interface index 13**::
++
++  ld ifidx
++  jneq #13, drop
++  ret #-1
++  drop: ret #0
++
++**(Accelerated) VLAN w/ id 10**::
++
++  ld vlan_tci
++  jneq #10, drop
++  ret #-1
++  drop: ret #0
++
+ The above example code can be placed into a file (here called "foo"), and
+ then be passed to the bpf_asm tool for generating opcodes, output that xt_bpf
+ and cls_bpf understands and can directly be loaded with. Example with above
+-- 
+2.17.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
