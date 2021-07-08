@@ -1,85 +1,71 @@
-Return-Path: <SRS0=Ffl8=L7=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=GvX2=MA=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64143C07E95
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 22:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48FFBC07E95
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jul 2021 01:53:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1019061CD1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jul 2021 22:23:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1019061CD1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id BD01461C9A
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jul 2021 01:53:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD01461C9A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9qkF5Q7NwBSQ0WgUzPAK5mibvFQI949xX1yqCAlgp/4=; b=2QWoDC0xmztyeX
-	+Oq5eIPWli3iZC1Wk+DQjdcO09ENIQAlHFT+awfpvYuANfyHb04fatlluT1cQJRvG9+bCXlBezlXj
-	JJ4KzEAaq4adHBOpapPNzaPXHI7R6ipG0zZBjz+asg5123CZWmu/IC7f2w1xa6Xsk6shf0zsfkFMM
-	zXuM7/F4qKTIn88byf7EoKC6oQ5+v3NRachh2zv6DgBM/NZnGFEHOUKugflnw3JDaYsJVRIo699ha
-	Ug6QE0elrYPYq4WHKW0ahdR8um++CggJWTwwDKS9fgEpufnSNEi5LruxEYuWwbo6MzlIHSXSH1Vnz
-	CIElUjUCW7mCempeKOOg==;
+	List-Owner; bh=YbDhDhb2Sa4Dv5nttpAYydZHALglcb7cUjP0QlQ7nU8=; b=tFm0nJzvpPDSW6
+	+KFncpwxS7MeNAuBMcKU9s9LSEmgBf8eMe6i+W7xCV4pSqLW9bK7U6ZUyEoRhrwmDEteue9FpLcee
+	kL2tNhDW9LynoIq/lCzzIyD6gV0qpMovYXRcFl9X2EiHY0lf64ma9/1f93Z5Yd45A4Vi1J8dB3l2G
+	k8BHxl4IVefx6DjZF5L4BifYnBEWTdq3TI+Uw2aCzr9I3s3WitLxe5GKNvpt7XdflXxU5PnuZiR/w
+	D7Jh376XYdmMO2yVN6j/YAW7gzEwv+wnH1D3mVaVdjbh1YHvnHsz18iqQBenCZNBCTvU03zMNnvQe
+	krQ+PH+Adwba7nKhVA2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m1Fwn-00FnuB-TK; Wed, 07 Jul 2021 22:23:13 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1m1JDe-00Fx2Z-Nu; Thu, 08 Jul 2021 01:52:50 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m1Fwk-00Fnt7-PR
- for linux-riscv@lists.infradead.org; Wed, 07 Jul 2021 22:23:12 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 64EEF61CE5
- for <linux-riscv@lists.infradead.org>; Wed,  7 Jul 2021 22:23:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1625696590;
- bh=5/l44xHkURCHAD9g66CEvnyXk/coUzDcY6uOjA89jO8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=QGWKs08J3iEPfq66a6ZcCWCfINJw0ZCVJ2hPMW9SolR4r7uP1dVDosWaVyhc4nsPb
- UM+w/0nH5SnflXUqC1N0fX2O5jG0qhqKJgU7h4ZYttsHXNKXDJK1G7qNi9fbDlqd5t
- uIO81CBJwWvqou80xYV3/+ZyGeybcco/muhuDSjp6wU9OAr4qreqiqGtotzcbulkcB
- EGjQt91pwPReAaWKD+azxuXqI2MKd6hDlXbutbBfc4QcByuaPU66vnwxbEj0ulj4wC
- 7Azv/wSuXfhkCfrRzjGRAOBAGtWnX2mDSaHGQT2DE59ZFFiCtdneHM+ZX8BHkjxDav
- r6brr6DHo1PrQ==
-Received: by mail-wm1-f52.google.com with SMTP id j34so2784712wms.5
- for <linux-riscv@lists.infradead.org>; Wed, 07 Jul 2021 15:23:10 -0700 (PDT)
-X-Gm-Message-State: AOAM5331lAM+WX4m/WRY1y2BaCLst1E2++rr7KafL1NugHh1/qGLckAf
- E4CfVA4GVWzksGPCm3mxhoBpF/7biYDfHJ0wEKg=
-X-Google-Smtp-Source: ABdhPJxgRCyfXiQSAefT7VEEQVGFWK+Lz/trrhDpP0pUaDiALysArs7L/YPhbEfyOxyNvpo5bnIWhOVKA0lzjvKtmKg=
-X-Received: by 2002:a05:600c:4f53:: with SMTP id
- m19mr26994484wmq.176.1625696588806; 
- Wed, 07 Jul 2021 15:23:08 -0700 (PDT)
+ id 1m1JDZ-00Fx0q-V4
+ for linux-riscv@lists.infradead.org; Thu, 08 Jul 2021 01:52:47 +0000
+Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.53])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4GKzjx2Gg6zZrsv;
+ Thu,  8 Jul 2021 09:49:25 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Thu, 8 Jul 2021 09:52:37 +0800
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Thu, 8 Jul 2021 09:52:37 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: <palmerdabbelt@google.com>, <paul.walmsley@sifive.com>,
+ <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>
+CC: Kefeng Wang <wangkefeng.wang@huawei.com>
+Subject: [PATCH 3/3] riscv: Enable GENERIC_IRQ_SHOW_LEVEL
+Date: Thu, 8 Jul 2021 09:59:49 +0800
+Message-ID: <20210708015949.20076-4-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210708015949.20076-1-wangkefeng.wang@huawei.com>
+References: <20210708015949.20076-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
-References: <20210707174022.517-1-royujjal@gmail.com>
-In-Reply-To: <20210707174022.517-1-royujjal@gmail.com>
-From: Song Liu <song@kernel.org>
-Date: Wed, 7 Jul 2021 15:22:57 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW78LzzFL_=9LmfXWxfh9=mG1CP33+w_cko1=W8BSag+RA@mail.gmail.com>
-Message-ID: <CAPhsuW78LzzFL_=9LmfXWxfh9=mG1CP33+w_cko1=W8BSag+RA@mail.gmail.com>
-Subject: Re: [PATCH] docs: bpf: Added more extension example
-To: UjjaL Roy <royujjal@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, 
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, 
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, Networking <netdev@vger.kernel.org>,
- bpf <bpf@vger.kernel.org>, Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
- open list <linux-kernel@vger.kernel.org>, linux-riscv@lists.infradead.org, 
- clang-built-linux@googlegroups.com
+X-Originating-IP: [10.175.113.25]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210707_152310_919434_E1D10A6F 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20210707_185246_247088_1093BB2F 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +82,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 7, 2021 at 10:50 AM UjjaL Roy <royujjal@gmail.com> wrote:
->
-> From: "Roy, UjjaL" <royujjal@gmail.com>
->
-> After reading this document observed that for new users it is
-> hard to find an example of "extension" easily.
->
-> So, added a new heading for extensions for better readability.
-> Now, the new readers can easily identify "extension" examples.
-> Also, added one more example of filtering interface index.
->
-> Signed-off-by: Roy, UjjaL <royujjal@gmail.com>
+The interrupt controllers on riscv support both edge and level triggered
+interrupts, it's useful to provide that information in /proc/interrupts.
 
-Please prefix the subject with the target tree. In this case, the subject should
-say [PATCH bpf-next] xxx. Also, please revise the commit log as suggested in
-Documentation/process/submitting-patches.rst:
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Describe your changes in imperative mood, e.g. "make xyzzy do frotz"
-instead of "[This patch] makes xyzzy do frotz" or "[I] changed xyzzy
-to do frotz", as if you are giving orders to the codebase to change
-its behaviour.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c3a6d63841de..1bd3760d6bce 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -52,6 +52,7 @@ config RISCV
+ 	select GENERIC_IOREMAP
+ 	select GENERIC_IRQ_MULTI_HANDLER
+ 	select GENERIC_IRQ_SHOW
++	select GENERIC_IRQ_SHOW_LEVEL
+ 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
+ 	select GENERIC_PCI_IOMAP
+ 	select GENERIC_PTDUMP if MMU
+-- 
+2.26.2
 
-Otherwise, this change looks good to me. You can add my Acked-by
-tag in v2. (prefix v2 with [PATCH v2 bpf-next].
-
-Thanks,
-Song
-
-Acked-by: Song Liu <songliubraving@fb.com>
-
-> ---
->  Documentation/networking/filter.rst | 23 ++++++++++++++++-------
->  1 file changed, 16 insertions(+), 7 deletions(-)
->
-> diff --git a/Documentation/networking/filter.rst b/Documentation/networking/filter.rst
-> index 3e2221f4abe4..5f13905b12e0 100644
-> --- a/Documentation/networking/filter.rst
-> +++ b/Documentation/networking/filter.rst
-> @@ -320,13 +320,6 @@ Examples for low-level BPF:
->    ret #-1
->    drop: ret #0
->
-> -**(Accelerated) VLAN w/ id 10**::
-> -
-> -  ld vlan_tci
-> -  jneq #10, drop
-> -  ret #-1
-> -  drop: ret #0
-> -
->  **icmp random packet sampling, 1 in 4**::
->
->    ldh [12]
-> @@ -358,6 +351,22 @@ Examples for low-level BPF:
->    bad: ret #0             /* SECCOMP_RET_KILL_THREAD */
->    good: ret #0x7fff0000   /* SECCOMP_RET_ALLOW */
->
-> +Examples for low-level BPF extension:
-> +
-> +**Packet for interface index 13**::
-> +
-> +  ld ifidx
-> +  jneq #13, drop
-> +  ret #-1
-> +  drop: ret #0
-> +
-> +**(Accelerated) VLAN w/ id 10**::
-> +
-> +  ld vlan_tci
-> +  jneq #10, drop
-> +  ret #-1
-> +  drop: ret #0
-> +
->  The above example code can be placed into a file (here called "foo"), and
->  then be passed to the bpf_asm tool for generating opcodes, output that xt_bpf
->  and cls_bpf understands and can directly be loaded with. Example with above
-> --
-> 2.17.1
->
 
 _______________________________________________
 linux-riscv mailing list
