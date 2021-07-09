@@ -2,60 +2,93 @@ Return-Path: <SRS0=DbKB=MB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-22.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19975C07E99
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jul 2021 19:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEFFDC07E99
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jul 2021 20:17:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 54CF3613CA
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jul 2021 19:58:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54CF3613CA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 8D9AC613BD
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jul 2021 20:17:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8D9AC613BD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=beagleboard.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AkVX9xkT7OOUrhfcEH7/TBfS0QoBvO59qL3pl3cEFg=; b=d3ilJixLvPkFoCtyehspFs4LBE
-	WsKlQBJQZtIp1+cyd+ETPC5DirQEezK7N+qEtlYtHygZ9xENwcjZbRacfsyqCjIWEP55/JAsVxBNQ
-	WVuLuil/e7FdAK0Kv1qUe3Lpjn4ADChc3RjGcWcFzavarpq60d0fp/iq+lLPkZF/2cswI4/sfJ4HR
-	uUHbAImytjmcTLPnmcVqEkaUnkFE+9MMtBDsEvbkrG8YRc8cjlak4lW38x+RCPPPcshZEDE6ZHO87
-	+wbWpv5gQCaaw5U21ofiYv8x868z6LhOSdpd8wFitjJrcGB6X7/OHCEpQpzs7/3UEDVbRhucTcYuz
-	SAT0UUPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f9msU9aP4S+c8KRKGaLrrXzAuYEdJqDMQK/HnnxDhM0=; b=ag70cm/q17vvdA
+	hy9I/OWHTFH3Pyuzi4sya9bP6+wVaUQYT8WA35PDjWhg7jJ7XVF96YUjnHppHuTynnF0a37DbdlTl
+	nS/2oAoOXQ0fMacPmLsHxlF4o2Id91WgXZ58Y07+Fek1WYYYLRx0A4nJ1ELOAQYzWgxEs0jjEdSlP
+	qOKuhlpuT7yrFE5q1NrKfenywyqy4OaXBXCN38nQ+htD944OtPar1EdWOrLaSoE/euSOAKxvWEPSv
+	1sD+tjmWQF965rDkQ83hBDOU9bsk84YXu42nTme4DfqD4jdEm6cL6Ovbdd/59LRkzSJLKkzjGR8KO
+	sbAv49DtgWXAoNGlR9xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m1wdh-002QVS-CN; Fri, 09 Jul 2021 19:58:21 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1m1wvn-002Rbs-JU; Fri, 09 Jul 2021 20:17:03 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m1wdd-002QUf-Jb
- for linux-riscv@lists.infradead.org; Fri, 09 Jul 2021 19:58:20 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id 65F5C200003;
- Fri,  9 Jul 2021 19:58:11 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.14 Merge Window, Part 1
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <mhng-423e8bdb-977e-4b99-a1bb-b8c530664a51@palmerdabbelt-glaptop>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <df700c15-a7b6-5a0d-6ebd-484ecc8c7923@ghiti.fr>
-Date: Fri, 9 Jul 2021 21:58:10 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ id 1m1wvk-002Ral-Pi
+ for linux-riscv@lists.infradead.org; Fri, 09 Jul 2021 20:17:02 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id p17so5079391plf.12
+ for <linux-riscv@lists.infradead.org>; Fri, 09 Jul 2021 13:16:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=beagleboard-org.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=VE8NLNhGFPN7qXnwo6GnJohAmUIG/mEAcTOghcJ/tYw=;
+ b=unp+hSNyALKLsqd7u1qNuLrdnRW4F28Fa86NuyBD9U5wkGyTPvUDri/GTCE4t7mDZC
+ Q/7OjCgD5/FgWFcMlvH5go44vCiJ2Jnk/HbKADyCD+gbbO76ARGcN3pKmiCsQy0mYzE+
+ eqCVMtcQiruCbiWt3jWz3fTFC7aSlu9DWdF4qD6uoVaheFiCTFF5O1tfrk7DdEzl1d8U
+ v4e+KsHAGme5xnsG/V9yGJpUZY4UOBCVs7N89TBUyro83zGKhSqUqzTx3O3XgxK9Mkh7
+ bOJHukR5Iw+A4twwHfa58M5xA/sfcq1kUG2qEqmWvf8XkzQab5LpFG0f8QKipp59xgey
+ 18Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=VE8NLNhGFPN7qXnwo6GnJohAmUIG/mEAcTOghcJ/tYw=;
+ b=IzzhCXpP+odyr9epclCgnDlM1GA47P2KqtpG6NZqNoy+GnHrznV07H7OEurHh/snLP
+ N8vDeJ50zDtUWXgsrfqW8TIQso6BAbbA1NG/x5WDpA8H6fCCN5+vQW1orkwAoXELaO2U
+ guJnZaRGetEuUmTnmnVwqBaFGE15VUl5fksQWQs5xPTlpz8o4fEzbPe1tZVqRTwFQhgw
+ bD3wNkX/gt898vEW4t2L0o25+AOMrzCtVL/SmSHRneGj9nGq2PGfkp42y3SaDwU6ChwP
+ YtJrtVmuBDkAk1hzmNpdKyR+b3FLi5lQ8ZYN5aPTnVD2da9QSSV9/dZIWhmZhotmhFlF
+ eCtw==
+X-Gm-Message-State: AOAM530DvFTmbsHzJfjzkeslF+dc50zThDAt5cdUanCF8M9clBy1LAVR
+ 4G9pokT4a/iB+sZjicgu/Xtcjg==
+X-Google-Smtp-Source: ABdhPJwsTex9cKmL6LslKd5Av4q4bNdTD9L8npwNfJ6/LlhBUloj6t2hiLzE1+epl2SAUQY0ZNJgEg==
+X-Received: by 2002:a17:90a:510b:: with SMTP id
+ t11mr658578pjh.178.1625861819359; 
+ Fri, 09 Jul 2021 13:16:59 -0700 (PDT)
+Received: from localhost.localdomain ([174.127.163.79])
+ by smtp.gmail.com with ESMTPSA id w22sm7220791pfn.188.2021.07.09.13.16.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 09 Jul 2021 13:16:58 -0700 (PDT)
+From: Drew Fustini <drew@beagleboard.org>
+To: Rob Herring <robh+dt@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Wei Fu <tekkamanninja@gmail.com>, Jack Zhu <jack.zhu@starfivetech.com>,
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Drew Fustini <drew@beagleboard.org>
+Subject: [PATCH v3] dt-bindings: riscv: add starfive jh7100 bindings
+Date: Fri,  9 Jul 2021 13:16:04 -0700
+Message-Id: <20210709201603.2625664-1-drew@beagleboard.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-In-Reply-To: <mhng-423e8bdb-977e-4b99-a1bb-b8c530664a51@palmerdabbelt-glaptop>
-Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210709_125817_971949_A01F9101 
-X-CRM114-Status: GOOD (  32.81  )
+X-CRM114-CacheID: sfid-20210709_131700_958844_81160EF1 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,247 +100,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add DT binding documentation for the StarFive JH7100 Soc [1] and the
+BeagleV Starlight JH7100 board [2].
 
+[1] https://github.com/starfive-tech/beaglev_doc
+[2] https://github.com/beagleboard/beaglev-starlight
 
-Le 9/07/2021 =E0 16:53, Palmer Dabbelt a =E9crit=A0:
-> The following changes since commit 8a4102a0cf07cc76a18f373f6b49485258cc6a=
-f4:
-> =
+Signed-off-by: Drew Fustini <drew@beagleboard.org>
+---
+v3 changes:
+- added revision number for the board and soc after question from Palmer
 
->    riscv: mm: Fix W+X mappings at boot (2021-06-01 21:15:09 -0700)
-> =
+v2 changes:
+- removed "items:" entry that only had "const: starfive,jh7100"
+- correct typo in Description:
 
-> are available in the Git repository at:
-> =
+Results of running checks:
+  $ make -j8 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- dt_binding_check \
+    DT_SCHEMA_FILES=Documentation/devicetree/bindings/riscv/starfive.yaml 
+    CHKDT   Documentation/devicetree/bindings/processed-schema-examples.json
+    DTEX    Documentation/devicetree/bindings/riscv/starfive.example.dts
+    SCHEMA  Documentation/devicetree/bindings/processed-schema-examples.json
+    DTC     Documentation/devicetree/bindings/riscv/starfive.example.dt.yaml
+    CHECK   Documentation/devicetree/bindings/riscv/starfive.example.dt.yaml
+  $ make -j8 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- dtbs_check \
+    DT_SCHEMA_FILES=Documentation/devicetree/bindings/riscv/starfive.yaml 
+    SYNC    include/config/auto.conf.cmd
+    UPD     include/config/kernel.release
+    SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+    DTC     arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dtb
+    DTC     arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml
+    DTC     arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dt.yaml
+    DTC     arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dt.yaml
+    CHECK   arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml
+    CHECK   arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dt.yaml
+    CHECK   arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dt.yaml
 
->    git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/ris=
-cv-for-linus-5.14-mw0
-> =
+The dts file is from vendor repo and is being cleaned up right now in
+preperation for submitting to the mailing list:
+https://github.com/starfive-tech/linux/tree/beaglev/arch/riscv/boot/dts/starfive
 
-> for you to fetch changes up to 1958e5aef5098e28b7d6e6a2972649901ebecace:
-> =
+ .../devicetree/bindings/riscv/starfive.yaml   | 27 +++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/starfive.yaml
 
->    riscv: xip: Fix duplicate included asm/pgtable.h (2021-07-06 16:17:40 =
--0700)
-> =
-
-> ----------------------------------------------------------------
-> RISC-V Patches for the 5.14 Merge Window, Part 1
-> =
-
-> In addition to We have a handful of new features for 5.14:
-> =
-
-> * Support for transparent huge pages.
-> * Support for generic PCI resources mapping.
-> * Support for the mem=3D kernel parameter.
-> * Support for KFENCE.
-> * A handful of fixes to avoid W+X mappings in the kernel.
-> * Support for VMAP_STACK based overflow detection.
-> * An optimized copy_{to,from}_user.
-> ----------------------------------------------------------------
-> There are some Kconfig merge conflicts.  They should be pretty
-> straight-forward, but we do have a symbol out of order -- I thought I had=
- a
-> script to check for that, but I guess it doesn't work.  I just sent out a=
- patch
-> to fix it up.
-> =
-
-> diff --cc arch/riscv/Kconfig
-> index 3590eb76000e,469a70bd8da6..d36f3c5029fd
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@@ -60,12 -61,11 +61,12 @@@ config RISC
->          select GENERIC_TIME_VSYSCALL if MMU && 64BIT
->          select HANDLE_DOMAIN_IRQ
->          select HAVE_ARCH_AUDITSYSCALL
-> -       select HAVE_ARCH_JUMP_LABEL
-> -       select HAVE_ARCH_JUMP_LABEL_RELATIVE
-> +       select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
-> +       select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
->          select HAVE_ARCH_KASAN if MMU && 64BIT
->          select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
->   +      select HAVE_ARCH_KFENCE if MMU && 64BIT
-> -       select HAVE_ARCH_KGDB
-> +       select HAVE_ARCH_KGDB if !XIP_KERNEL
->          select HAVE_ARCH_KGDB_QXFER_PKT
->          select HAVE_ARCH_MMAP_RND_BITS if MMU
->          select HAVE_ARCH_SECCOMP_FILTER
-> @@@ -81,11 -80,9 +82,14 @@@
->          select HAVE_GCC_PLUGINS
->          select HAVE_GENERIC_VDSO if MMU && 64BIT
->          select HAVE_IRQ_TIME_ACCOUNTING
->   +      select HAVE_KPROBES
->   +      select HAVE_KPROBES_ON_FTRACE
->   +      select HAVE_KRETPROBES
-> +       select HAVE_KPROBES if !XIP_KERNEL
-> +       select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
-> +       select HAVE_KRETPROBES if !XIP_KERNEL
->   +      select HAVE_MOVE_PMD
->   +      select HAVE_MOVE_PUD
->          select HAVE_PCI
->          select HAVE_PERF_EVENTS
->          select HAVE_PERF_REGS
-> @@@ -108,7 -104,7 +112,8 @@@
->          select SYSCTL_EXCEPTION_TRACE
->          select THREAD_INFO_IN_TASK
->          select UACCESS_MEMCPY if !MMU
->   +      select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
-> +       select ZONE_DMA32 if 64BIT
-> =
-
->    config ARCH_MMAP_RND_BITS_MIN
->          default 18 if 64BIT
-> ----------------------------------------------------------------
-> Akira Tsukamoto (1):
->        riscv: __asm_copy_to-from_user: Optimize unaligned memory access a=
-nd pipeline stall
-> =
-
-> Alexandre Ghiti (6):
->        riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED
->        riscv: Simplify xip and !xip kernel address conversion macros
-
-@Palmer: As said in the thread of this patchset multiple times, those 2 =
-
-patches should not be merged as it assumes that the base DRAM address is =
-
-always 0x8000_0000 for all rv64 platforms: I don't think it is true, is it?
-
->        riscv: Introduce set_kernel_memory helper
->        riscv: Map the kernel with correct permissions the first time
->        riscv: Introduce structure that group all variables regarding kern=
-el mapping
->        riscv: Fix PTDUMP output now BPF region moved back to module region
-> =
-
-> Bixuan Cui (1):
->        riscv: fix build error when CONFIG_SMP is disabled
-> =
-
-> Christoph Hellwig (1):
->        riscv: pass the mm_struct to __sbi_tlb_flush_range
-> =
-
-> Guo Ren (3):
->        riscv: Use global mappings for kernel pages
->        riscv: Cleanup unused functions
->        riscv: add ASID-based tlbflushing methods
-> =
-
-> Jeff Xie (1):
->        riscv: ptrace: add argn syntax
-> =
-
-> Jiapeng Chong (1):
->        riscv: xip: Fix duplicate included asm/pgtable.h
-> =
-
-> Jisheng Zhang (7):
->        riscv: mremap speedup - enable HAVE_MOVE_PUD and HAVE_MOVE_PMD
->        riscv: mm: Remove setup_zero_page()
->        riscv: Optimize switch_mm by passing "cpu" to flush_icache_deferre=
-d()
->        riscv: Turn has_fpu into a static key if FPU=3Dy
->        riscv: kprobes: Remove redundant kprobe_step_ctx
->        riscv: Add __init section marker to some functions again
->        riscv: mm: init: Consolidate vars, functions
-> =
-
-> Kefeng Wang (5):
->        riscv: Move setup_bootmem into paging_init
->        riscv: mm: Drop redundant _sdata and _edata declaration
->        riscv: mm: Use better bitmap_zalloc()
->        riscv: Only initialize swiotlb when necessary
->        riscv: Add mem kernel parameter support
-> =
-
-> Liu Shixin (1):
->        riscv: Enable KFENCE for riscv64
-> =
-
-> Nanyong Sun (5):
->        riscv: mm: add _PAGE_LEAF macro
->        riscv: mm: make pmd_bad() check leaf condition
->        riscv: mm: add param stride for __sbi_tlb_flush_range
->        riscv: mm: add THP support on 64-bit
->        riscv: mm: fix build errors caused by mk_pmd()
-> =
-
-> Palmer Dabbelt (2):
->        RISC-V: Use asm-generic for {in,out}{bwlq}
->        Merge branch 'riscv-wx-mappings' into for-next
-> =
-
-> Randy Dunlap (1):
->        riscv: TRANSPARENT_HUGEPAGE: depends on MMU
-> =
-
-> Stanislaw Kardach (1):
->        riscv: enable generic PCI resource mapping
-> =
-
-> Tong Tiangen (1):
->        riscv: add VMAP_STACK overflow detection
-> =
-
-> Vitaly Wool (1):
->        riscv: fix typo in init.c
-> =
-
->   arch/riscv/Kconfig                      |  12 +-
->   arch/riscv/include/asm/asm-prototypes.h |   3 +
->   arch/riscv/include/asm/io.h             |  13 --
->   arch/riscv/include/asm/kfence.h         |  63 +++++++
->   arch/riscv/include/asm/kprobes.h        |   7 -
->   arch/riscv/include/asm/mmu_context.h    |   2 +
->   arch/riscv/include/asm/page.h           |  81 +++++----
->   arch/riscv/include/asm/pci.h            |   2 +
->   arch/riscv/include/asm/pgtable-64.h     |   5 +-
->   arch/riscv/include/asm/pgtable-bits.h   |   5 +
->   arch/riscv/include/asm/pgtable.h        | 171 ++++++++++++++++++-
->   arch/riscv/include/asm/ptrace.h         |  31 ++++
->   arch/riscv/include/asm/sections.h       |  17 ++
->   arch/riscv/include/asm/set_memory.h     |  24 ++-
->   arch/riscv/include/asm/switch_to.h      |  11 +-
->   arch/riscv/include/asm/thread_info.h    |  15 ++
->   arch/riscv/include/asm/tlbflush.h       |   5 +
->   arch/riscv/kernel/asm-offsets.c         |   2 +
->   arch/riscv/kernel/cpufeature.c          |   6 +-
->   arch/riscv/kernel/entry.S               | 108 ++++++++++++
->   arch/riscv/kernel/head.S                |   4 +-
->   arch/riscv/kernel/kexec_relocate.S      |   4 +-
->   arch/riscv/kernel/machine_kexec.c       |   2 +-
->   arch/riscv/kernel/probes/kprobes.c      |  40 +----
->   arch/riscv/kernel/process.c             |   2 +-
->   arch/riscv/kernel/setup.c               |  18 +-
->   arch/riscv/kernel/signal.c              |   4 +-
->   arch/riscv/kernel/traps.c               |  35 ++++
->   arch/riscv/kernel/vmlinux-xip.lds.S     |   1 -
->   arch/riscv/kernel/vmlinux.lds.S         |   2 +-
->   arch/riscv/lib/uaccess.S                | 181 ++++++++++++++++----
->   arch/riscv/mm/context.c                 |  14 +-
->   arch/riscv/mm/fault.c                   |  11 +-
->   arch/riscv/mm/init.c                    | 283 +++++++++++++++----------=
--------
->   arch/riscv/mm/physaddr.c                |   2 +-
->   arch/riscv/mm/ptdump.c                  |   6 +-
->   arch/riscv/mm/tlbflush.c                |  69 ++++++--
->   37 files changed, 901 insertions(+), 360 deletions(-)
->   create mode 100644 arch/riscv/include/asm/kfence.h
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> =
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+new file mode 100644
+index 000000000000..18d510904441
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -0,0 +1,27 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/starfive.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive SoC-based boards
++
++maintainers:
++  - Michael Zhu <michael.zhu@starfivetech.com>
++  - Drew Fustini <drew@beagleboard.org>
++
++description:
++  StarFive SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - const: beagle,beaglev-starlight-jh7100-r0
++          - const: starfive,jh7100-r0
++
++additionalProperties: true
++
++...
+-- 
+2.27.0
 
 
 _______________________________________________
