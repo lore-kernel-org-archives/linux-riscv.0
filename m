@@ -2,82 +2,77 @@ Return-Path: <SRS0=emcE=ME=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33366C07E99
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jul 2021 08:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B541C07E99
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jul 2021 11:24:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0434661414
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jul 2021 08:16:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0434661414
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	by mail.kernel.org (Postfix) with ESMTPS id 065CD610C7
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jul 2021 11:24:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 065CD610C7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IgVyAOCu5KZcjpRrqIBQh17/gRdk3e15gSgvCLLVUWk=; b=zoRDIYlF/PdC9h
-	n2W28pRBz+3nGlQTov+9rhTeAq6/7PUptztCgT/718/axP7yAScScRTrfTXvjv73Nj3ePJGWyP+n1
-	EFn7t9MV6mT0omwBpdRXH8ye7mFUUGv7dYyCStkLLojDn6b1N4Ss8vuLT1NH8lIexVmY+VhJWN8n1
-	Quvlsv9yJpKxKU+iFHrSdyd41lEkt4cmlZgOGKXjSD6dUANqi9S0Pqolc4V6429b/qMVE4TlYa/hC
-	OpC4uXQN8bRR9OzAb97L/KI/XWBQKvIhVNn1tWpLmvfMxVXVt5kvwL7mCadV22zBsyPuldGCGmNpI
-	DLI/gaDHqhxq+nzxx3AA==;
+	List-Owner; bh=SJyhzew8VcuvbBEaN3U1aB+SobeKCUS9wJXvSWPRvTM=; b=sVLIgGMdCbmCo4
+	slzPUO688gzfyHgg7Tij8J1e/Dl3WvTS/Ax9bv9s+sgkfTHYA08olmay+buLwa3oCkaWIbd3H1R+S
+	V7yp+6rGwG0v/b7fSbzNQg45/SZlq2ajdGQKf0+MiLU2kyqM27lYt64QYjTo6fQkoqfGZMkoxXrYh
+	RELPXSm8X2Elng8DW5N93/pDed3iJBmjGVRY/so3rZQsLcCDVKVExPXm/JF+loO9Ji7n1Ww/6piKr
+	RjVnRLLxCEDYFozDWGSlY3b4bhn/SiAyfchYKcUc5sF5zQnc7xWwqHXdPYmBF2m9zOu/k3fyIhG9e
+	VQ6Si4znQ3g74SvmaM3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m2r6X-006YBO-Vi; Mon, 12 Jul 2021 08:15:53 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1m2u39-00784B-PI; Mon, 12 Jul 2021 11:24:35 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m2r6U-006Y3C-Bw
- for linux-riscv@lists.infradead.org; Mon, 12 Jul 2021 08:15:52 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-172-16XOylRrMuGIO2YWwYe6Qg-1; Mon, 12 Jul 2021 09:15:43 +0100
-X-MC-Unique: 16XOylRrMuGIO2YWwYe6Qg-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.18; Mon, 12 Jul 2021 09:15:42 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.018; Mon, 12 Jul 2021 09:15:42 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Matteo Croce' <mcroce@linux.microsoft.com>, Andrew Morton
- <akpm@linux-foundation.org>
-CC: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Nick Kossifidis
- <mick@ics.forth.gr>, Guo Ren <guoren@kernel.org>, Christoph Hellwig
- <hch@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Emil Renner
- Berthing" <kernel@esmil.dk>, Drew Fustini <drew@beagleboard.org>, linux-arch
- <linux-arch@vger.kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH v2 0/3] lib/string: optimized mem* functions
-Thread-Topic: [PATCH v2 0/3] lib/string: optimized mem* functions
-Thread-Index: AQHXdeB//rSAJETS7k2opSDlamOLfqs+/N5w
-Date: Mon, 12 Jul 2021 08:15:41 +0000
-Message-ID: <af19820cd24544cd8833d6db6d38154b@AcuMS.aculab.com>
-References: <20210702123153.14093-1-mcroce@linux.microsoft.com>
- <20210710143109.fd5062902ef4d5d59e83f5bb@linux-foundation.org>
- <CAFnufp1d+FH1K5QAx+Z=KvMUvrveJAVnjJJc8xoDCn2wmzUOoQ@mail.gmail.com>
-In-Reply-To: <CAFnufp1d+FH1K5QAx+Z=KvMUvrveJAVnjJJc8xoDCn2wmzUOoQ@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1m2u37-00783f-2h
+ for linux-riscv@lists.infradead.org; Mon, 12 Jul 2021 11:24:34 +0000
+Received: by mail-vk1-f171.google.com with SMTP id az15so175261vkb.9
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Jul 2021 04:24:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wSI56+0wl/8uoFZkYYEX3Cn5WjSYU9NFzgAm+bp0lBU=;
+ b=tB3fP/8dw4kNEicV26Mc0eJ88JvZ9ngZIi1FkicY8MbxMS8NJ3Do64TdzexiSFMYf1
+ PcjiX4G9AcqSe4A2eAkGH06dNKN1eilzMOkAYQ8F0VKWgq/fqDUe8mxhTH8oFnogWHVC
+ aZykCqTP4xKWMAbPqV2d5vkHkQg6YzSLDLT3vFDeAfPLC2+VG03brryegvltd2NQOR4b
+ AzloCFoeaTUSN8foJv9vaVyHC15fBj+fekmmGpLtmD8nwHNOKU+e1+0nk+oRj1XNAH5i
+ g4i3skSxxsQ3TerVHV/MA01nmbaYEc5OUYQf/ZTaoRhWG34emboHDd3tV/Q2a+P99DFL
+ 50aQ==
+X-Gm-Message-State: AOAM5328NuSdDz7UDtV4ylNYoNkyuDwe2kbNhiXGqlMWjKlJRCF8sYvi
+ sWSlr/qOhP4ZPekUqpCIUxY55NlrL/JcdrCXPFE=
+X-Google-Smtp-Source: ABdhPJzl+b8ID+5NtPNSzacYozt9cW/uQxXEYZQYcG4NKJ5aeR9N2kMo9YCHMcaHTF4gY4uSOKuGr5NU+gxzNe5ovNo=
+X-Received: by 2002:a1f:1a41:: with SMTP id a62mr42439346vka.5.1626089070907; 
+ Mon, 12 Jul 2021 04:24:30 -0700 (PDT)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20210709201603.2625664-1-drew@beagleboard.org>
+In-Reply-To: <20210709201603.2625664-1-drew@beagleboard.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 12 Jul 2021 13:24:19 +0200
+Message-ID: <CAMuHMdVBVAzy3cZtR1pOTNq3wTgGx+0_dvUXU118XfT+rCOSrw@mail.gmail.com>
+Subject: Re: [PATCH v3] dt-bindings: riscv: add starfive jh7100 bindings
+To: Drew Fustini <drew@beagleboard.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Michael Zhu <michael.zhu@starfivetech.com>,
+ Wei Fu <tekkamanninja@gmail.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210712_011550_708492_BA2D4D8B 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20210712_042433_161871_FFCFFB7A 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +89,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Matteo Croce
-> Sent: 11 July 2021 00:08
-> 
-> On Sat, Jul 10, 2021 at 11:31 PM Andrew Morton
-> <akpm@linux-foundation.org> wrote:
-> >
-> > On Fri,  2 Jul 2021 14:31:50 +0200 Matteo Croce <mcroce@linux.microsoft.com> wrote:
-> >
-> > > From: Matteo Croce <mcroce@microsoft.com>
-> > >
-> > > Rewrite the generic mem{cpy,move,set} so that memory is accessed with
-> > > the widest size possible, but without doing unaligned accesses.
-> > >
-> > > This was originally posted as C string functions for RISC-V[1], but as
-> > > there was no specific RISC-V code, it was proposed for the generic
-> > > lib/string.c implementation.
-> > >
-> > > Tested on RISC-V and on x86_64 by undefining __HAVE_ARCH_MEM{CPY,SET,MOVE}
-> > > and HAVE_EFFICIENT_UNALIGNED_ACCESS.
-> > >
-> > > These are the performances of memcpy() and memset() of a RISC-V machine
-> > > on a 32 mbyte buffer:
-> > >
-> > > memcpy:
-> > > original aligned:      75 Mb/s
-> > > original unaligned:    75 Mb/s
-> > > new aligned:          114 Mb/s
-> > > new unaligned:                107 Mb/s
-> > >
-> > > memset:
-> > > original aligned:     140 Mb/s
-> > > original unaligned:   140 Mb/s
-> > > new aligned:          241 Mb/s
-> > > new unaligned:                241 Mb/s
-> >
-> > Did you record the x86_64 performance?
-> >
-> >
-> > Which other architectures are affected by this change?
-> 
-> x86_64 won't use these functions because it defines __HAVE_ARCH_MEMCPY
-> and has optimized implementations in arch/x86/lib.
-> Anyway, I was curious and I tested them on x86_64 too, there was zero
-> gain over the generic ones.
+Hi Drew,
 
-x86 performance (and attainable performance) does depend on the cpu
-micro-archiecture.
+On Fri, Jul 9, 2021 at 10:17 PM Drew Fustini <drew@beagleboard.org> wrote:
+> Add DT binding documentation for the StarFive JH7100 Soc [1] and the
+> BeagleV Starlight JH7100 board [2].
+>
+> [1] https://github.com/starfive-tech/beaglev_doc
+> [2] https://github.com/beagleboard/beaglev-starlight
+>
+> Signed-off-by: Drew Fustini <drew@beagleboard.org>
+> ---
+> v3 changes:
+> - added revision number for the board and soc after question from Palmer
 
-Any recent 'desktop' intel cpu will almost certainly manage to
-re-order the execution of almost any copy loop and attain 1 write per clock.
-(Even the trivial 'while (count--) *dest++ = *src++;' loop.)
+Thanks for the update!
 
-The same isn't true of the Atom based cpu that may be on small servers.
-Theses are no slouches (eg 4 cores at 2.4GHz) but only have limited
-out-of-order execution and so are much more sensitive to instruction
-ordering.
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> @@ -0,0 +1,27 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/starfive.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive SoC-based boards
+> +
+> +maintainers:
+> +  - Michael Zhu <michael.zhu@starfivetech.com>
+> +  - Drew Fustini <drew@beagleboard.org>
+> +
+> +description:
+> +  StarFive SoC-based boards
+> +
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: beagle,beaglev-starlight-jh7100-r0
+> +          - const: starfive,jh7100-r0
 
-	David
+While I can be convinced about the board revision number (probably you
+know better if there will be different board revisions that matter),
+I'm wondering if the revision number makes sense for the SoC part.
+Will there be a new revision of jh7100, or will the next revision
+be jh7110, which will use a different compatible value anyway?
+Is there an on-chip register that allows the kernel to find out the
+revision info? Might be better to use that with soc_device_register()
+and soc_device_match().
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+> +
+> +additionalProperties: true
+> +
+> +...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
