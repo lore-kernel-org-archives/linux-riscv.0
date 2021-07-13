@@ -2,100 +2,175 @@ Return-Path: <SRS0=hRw5=MF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E99F2C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 11:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 524C9C07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 15:29:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A2A61611AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 11:27:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A2A61611AB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0BA5F611AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 15:29:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0BA5F611AB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ka5rCFLAQA60Z/Cm74WP4efXnov2Dl507H91t6FexfI=; b=iltGJlzdbQHV72
-	5DsxlMi2EtJ0EkLoJe/AI0nxfgp+iMxZ1hcyd/HaVJ0k8yjdx2GJy0MohAfpRjP3+7GwOACfQKtpF
-	ZOsnC5UPJlP96yt/wn2YoM6tGdiII7gxflRXOxi+rtyt7oQJa6enc5AQWY3pdGWeNTE7FxYsjSJau
-	LLq19j8yojbe5aQNoEeAn9wQJb32p+LwsfnUfh9U0JsIxNpFodIVTEypTzJCqjQnkRp52tOjD0dAE
-	NSTPVAtJ/PEg7ECz8HNeXnEDPjUGB6yacL0N7JYmC3ZQLz75rmfbOFVXa6a1b5n6Eo2MsLuI3jBmI
-	c4hlFJxva020AkvB0ztQ==;
+	List-Owner; bh=s43ZdRbS03aGvxDDBYun5aJnwfyUsazQ5IprabKuS0M=; b=HB+KpWyLVpBYgZ
+	xz5jK5ldeBcP4ZrgdC6s/NBbFSZvklvpdzjLdkTZYCqQ0IpPhcLtjH/zP2GLoJYFI7ArsMPHtNNVb
+	X54WGhU6TrgSnL/0xFhaot/ByW7ZhiVM7LkEdz3sKTpno0/uu/dDQzCrNyi8qteuSbEXiaFCfr1dD
+	UX7SL1+jx83zGmXUuhS1Ge8Qn/rvXlUc0Vv3ZExEmw8HFv1OaDnIsCSvHsbAUBw0idIv+HYkDDd5C
+	NMWzwsSJGN4i3mwF/JnAyXyY07Ztf9T6myhTncYvHm/xn/k9BB13QucB9Lk4nqC+wKpx5OBINaH/z
+	B6MDyefjpRKWQ/w2246A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m3GZK-00ABQY-DO; Tue, 13 Jul 2021 11:27:18 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1m3KLV-00Am4b-JQ; Tue, 13 Jul 2021 15:29:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m3GQT-00A8AZ-Qg; Tue, 13 Jul 2021 11:18:14 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 37E1161288;
- Tue, 13 Jul 2021 11:18:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1626175088;
- bh=AngUU9+jd6y01vzvv76hHqD4lr+yecKXQycEwI6Sb3w=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=N1aaoKWXePISgj92rle1dWtVvJ73H/UsL7ZKeyH+0Jdo+b6meGHEi8s78itNi1PC2
- +rTmv5tHP9/Qc8+Xhbvk7E0e6Gj4xk+umOPYw3HtBbLhHQVPBcROass4sBAq/rywvy
- 7eDR0TXba0czB9Tv505GO+YOEpgTbKRCGBbcljFCyQDFCHUArwcTadRej54xe5BEY8
- vTZ9tSdxRLsVhq7I0Ci1tZCDTRUvAPwu8lUaK4QhWbZ1gmLnC2XUSpVGUpypUofwCh
- kKYhcus8xky/63UPAqyo9fZf5nWYByT8wqr8qnkrlvA4t+RMjVOYwR1sj4Hm/GgWW7
- cO0fVV3b8arwg==
-Received: by mail.kernel.org with local (Exim 4.94.2)
- (envelope-from <mchehab@kernel.org>)
- id 1m3GQL-006b3h-09; Tue, 13 Jul 2021 13:18:01 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: linuxarm@huawei.com, mauro.chehab@huawei.com,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Andy Gross <agross@kernel.org>,
- Bjorn Andersson <bjorn.andersson@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Fabio Estevam <festevam@gmail.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Jaehoon Chung <jh80.chung@samsung.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Jonathan Chocron <jonnyc@amazon.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Kevin Hilman <khilman@baylibre.com>,
- Kishon Vijay Abraham I <kishon@ti.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Lucas Stach <l.stach@pengutronix.de>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, NXP Linux Team <linux-imx@nxp.com>,
- Neil Armstrong <narmstrong@baylibre.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Richard Zhu <hongxing.zhu@nxp.com>, Rob Herring <robh+dt@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-tegra@vger.kernel.org
-Subject: [PATCH v4 3/5] dt-bindings: PCI: update references to Designware
- schema
-Date: Tue, 13 Jul 2021 13:17:53 +0200
-Message-Id: <2df0a85eaab7bae83719ca61e3fb64dda5a14a8c.1626174242.git.mchehab+huawei@kernel.org>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <cover.1626174242.git.mchehab+huawei@kernel.org>
-References: <cover.1626174242.git.mchehab+huawei@kernel.org>
+ id 1m3KLQ-00Am3I-Ui
+ for linux-riscv@lists.infradead.org; Tue, 13 Jul 2021 15:29:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1626190152; x=1657726152;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=7if/kVDl2FcZtu3lvYkyVaNW9/Nv3aIEfZqmcIi2orc=;
+ b=Lffei7dzs/WiULyG7AH4+GSp6I/FUK2WSNg1zqu6/p5cLpOTVh8D+2/w
+ 9p27f9AAObYCrx7GyeFdN3AKeuD1qR+DUHuNTtpM+2lX0Wgqp663DTtMp
+ kmQcDyAEKShgoQYeZ9sDeBt9IyE8FH1VJFPzCRIdlwc5vcjZyW6YnX8VD
+ Kw+4jATA5mOsFvFNvzEohSn1Xyx/I8OoQNJ3TGPcxvEtOGD3bIqGP+RhA
+ 8Yxux+83Y4JHSkczq31nvnd2QoAGxQ26KR6aCYj9+pY1YgTY941vq4VR6
+ BJiI8UBk2JMlLD5O7k3lsio4n5JXpCZoJizx6LYh6hoxX/JCrXgEwNrfE Q==;
+IronPort-SDR: Me46roF+JhqjHRukedxZ3vsZkrwglqWNhexXj4nCc9RBYgnkZATn4bTplKnQ5FormveD6vS+Q3
+ rJSrtFRhM0Us4JHkL4ccNKAfVPvNwVEi2l0jVmosu0Q2YXA/ecZkiMIywaArhMCeZyI8CDYXCN
+ Rfb6f+qOiFib242Kt2r7l4Gl2fV+fvDYi1c5QlWdIVCtDkwgidFnBenWysmu8aOuGlxJXBIUQk
+ koI7ULKmRfELQ3sj2mMy4/rt8gU9FehDLuJHp4iCLSvGVeuKUlZMfZ2lmUoxbw2RGrseMSirc6
+ QJE=
+X-IronPort-AV: E=Sophos;i="5.84,236,1620716400"; d="scan'208";a="62067093"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 13 Jul 2021 08:29:09 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 13 Jul 2021 08:29:08 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2
+ via Frontend Transport; Tue, 13 Jul 2021 08:29:08 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bonx1loBe9on6kJ5Rcl1iRLZr7N4wnze57culeZShNso3wAW5SvTlGR75nUqVEz8V9kpF3pRdsZSemb1+WmyC7caT1fS/lnoLuNwwiv+Z+NKBjV7BzHjfP8v8cEtxOmA8VR+/qCQDpITWhiQOjFMYjzSpvIS0oGdSWBHcEHPCNQkt/6ekXHJMibxdWSnSschOib1tCroyY/m7jukxEQnITptl0pZGaZv+eYBG81TH1mRWgvW5Jr0Di9OMZqOhSlZDssBDx1MpVL54usbutZdFSEmmieaisO0hGejdridYz2rSpP2YbUhSZl+IEVWC/APXar5Oig77UvB0SKlX38PMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7if/kVDl2FcZtu3lvYkyVaNW9/Nv3aIEfZqmcIi2orc=;
+ b=U03g4kWn+nraK6waid+nGQRpa+3QJQkKK/2sEZDhMioZOQtxpxBjrIyfZWh+TtGy3ZNSJhUbKGMwdK5RG1Ybv1DBlJB0ys4nuO/qPsXYAMVAM/nZJfMoRRer1EhBXp6ul7jIc+yqatk/xfERoizKtP4MWjfXBeqXkGV6ljX80hkXCQaJQI5zBF55Prq+ktlQhGAim1wjh/eYZykY4URx3BUF9K2VzSp0QADNLVb1DL582zj08W8b8RylfcHW8Os53nvWTHburQzHpK1nZ8sBsJl8Rr6bmj+W/DFg51z4Ezzx0QFhpFUPWswADXaLuIOXXpjFGeaFVtXvSmrJbMoHyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7if/kVDl2FcZtu3lvYkyVaNW9/Nv3aIEfZqmcIi2orc=;
+ b=Zox3deGzPb0PGjHodPjp9jj4kTPx8qY65+GiRISXRTTy532S+2FuMtszsWFR6Uv6iHAbB6g6gzQgBKlZ1RBBQ+2LaGmI/cGxC0NUSlr8ho5VIeqkSMuLpHgLphIq8swZ9UOGnTXWFlkdGFfBe8deU5c3/hDQgUctUcHXqsFriyY=
+Received: from PH0PR11MB5160.namprd11.prod.outlook.com (2603:10b6:510:3e::8)
+ by PH0PR11MB4806.namprd11.prod.outlook.com (2603:10b6:510:31::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4308.20; Tue, 13 Jul
+ 2021 15:29:07 +0000
+Received: from PH0PR11MB5160.namprd11.prod.outlook.com
+ ([fe80::a825:537d:74ba:2aaf]) by PH0PR11MB5160.namprd11.prod.outlook.com
+ ([fe80::a825:537d:74ba:2aaf%7]) with mapi id 15.20.4308.027; Tue, 13 Jul 2021
+ 15:29:07 +0000
+From: <Conor.Dooley@microchip.com>
+To: <bmeng.cn@gmail.com>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+ <atish.patra@wdc.com>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>
+CC: <bin.meng@windriver.com>
+Subject: Re: [PATCH 1/2] riscv: dts: microchip: Drop "clock-frequency"
+ property of cpu nodes
+Thread-Topic: [PATCH 1/2] riscv: dts: microchip: Drop "clock-frequency"
+ property of cpu nodes
+Thread-Index: AQHXYnVF06x5/3pZjk+WP/cBJfg+2atBMriA
+Date: Tue, 13 Jul 2021 15:29:07 +0000
+Message-ID: <32afd49a-28c4-3354-c15e-f1b0fcdd9591@microchip.com>
+References: <20210616060251.398444-1-bmeng.cn@gmail.com>
+In-Reply-To: <20210616060251.398444-1-bmeng.cn@gmail.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 20bb976f-86a5-421b-a806-08d94612f4a2
+x-ms-traffictypediagnostic: PH0PR11MB4806:
+x-microsoft-antispam-prvs: <PH0PR11MB4806CCD2B692429E436FC58F98149@PH0PR11MB4806.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:751;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: D8IbH1itUnuxPnDj3KYR49V3HuFORzXW6H/hgHZ72FyHtNEsANyjfMY2yFcKdD/9G7JgW/rSbwzMJ+rqgMPkoTC3bzEIQO5dxj9KHfajA5v9XzT2QPF2mxvKCEUt+W9nhmSroaw4vrCJ0WdAYbx6c0eTcpEfbc8kTQN0VUlRnqInmuMFWRiNW4UsJXVG+V8A1sRAhuKfMKte6nxmMaBMnAaug0i9nRVDvTeKujCjiDwgFo44kbuO689QY8LbGybMuP9+M/5+Xylgn5DbAwgC8rvRjDCKk3mG8VAedcjLR95kn+aykJdr+mvbTe/D4rQcbgHndNGowTUyDexNQV440cLcd484sd/ffsyr390lm8JwdZvfW03mzFqHVQK99BXP0mhTwz5syOorRuY5Py55tv0b/p5+f6r2KVl9GEo0p7O9OQkf7KOiUEfjvzQ00SCO7Oltag/527jFxCVge0moPJ02542dGS9EvM8/vXo69cXsnmWKaA2ATIPuv3Uqoc4rhS2B+1eOciR9R1ZWbCLrmHZp0S4WF0GSS0yWmJPOlQMgQDRv5+P1SjtFro27xi2KsQRBg1CHxpSZtmA8dxh8E1hJHcbopovtGelLGkygDZtiUMRIVp+W7GAcoNo/L3HG4ZAsNkVoTsHqgtbHA1Ts0Jm4mmZ9pCdW8to8DV+h7LosD7GYZxSUSud5GmaZk7UGXuUHXMQKTmYQzhZYJx0cLL5cP36Etd3dqgGyt5Mw6PfZN/TtTINMEBXuszrUkuGIH9n6tVvQFe1Cepm27yvW/kDkcixSFKJ7UhcAU/W4DHKOog+DaAaYhlYucZz8BF86
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:PH0PR11MB5160.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(376002)(39860400002)(366004)(396003)(136003)(346002)(83380400001)(6486002)(2616005)(6506007)(53546011)(186003)(26005)(316002)(76116006)(91956017)(110136005)(4326008)(31686004)(8936002)(86362001)(66946007)(66476007)(2906002)(31696002)(36756003)(5660300002)(71200400001)(66446008)(66556008)(64756008)(8676002)(478600001)(966005)(38100700002)(6512007)(122000001)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UVVpNiszUTNuendWSVoxdHVXWTliWWVuYXY0UW9HYmpIT2U5b1FFTnRKN3lq?=
+ =?utf-8?B?ZnIvZXkxeUIvZXlCNWsxVS8vRitxdWYxblV2VWoyM2dvTHF1U3VGNVF2NjZh?=
+ =?utf-8?B?UmJhOGhWVVRrak9XR2JhRWxhbGpzcWJrVDBsRngyMHpWQ2VYWkdPUUo4aHdM?=
+ =?utf-8?B?WkVwU28wVEdkQWtCbTNtWFBtMlJOTlMrYkI5WlBPSGZmT2l6aVRucFhXbnlB?=
+ =?utf-8?B?VThuVm4vYklLR29xYzJKcUxJUHRPZyt4cWpzVDFxT2V6Mm9YMFZrMDdtUHVj?=
+ =?utf-8?B?b3NHUXJoWUsxajBDNXhReEV6Smw5enV4VnlqNWtwb3B2bU43YlRZN2plVkxj?=
+ =?utf-8?B?bjhjZzU0Nkt4bnlmbDNvekpuOHdlTktXcHhnOGZLQTc2RnFmZkdPQW4xNFd6?=
+ =?utf-8?B?RWFTVXJsNFBJcHVQamhvK0xYNElBc1dWUjFqeGpFYk1aRGhtcGMzMmUzeHRM?=
+ =?utf-8?B?amJMeWVxUHAvYS9MTHBqMExOOGI5Q0FyRkYwclFxUmlIOHNoMmIwU2RINW8v?=
+ =?utf-8?B?WThVRUVHck8yL2lkSWtFakRmSmRlMVpUcXBUTjhFWEtFNm5YeDdicjVyWWNL?=
+ =?utf-8?B?Y0xHV2ZzMFRtOTUwZGcrOThJNGw5RjFRbFc5YjFEWGxLb0R4eXBOOFB0b1V3?=
+ =?utf-8?B?QWR1bWFHZ1ZlL2FFdHFqK1dxZHluYkYrYktqTXA1Uk9FeVJEZlNxbWdUcGFR?=
+ =?utf-8?B?UjA5MnBaelZlVGlUYmljRHRBV0trcWRSOWF2RGlzTkZLVU9wWVYyMkI4bm0v?=
+ =?utf-8?B?b0VCL0R0OGJ1bkZqVmNtTnlsOGdyNFZWV0VXTWI5WEhJNXR3emkxMzYvV0VY?=
+ =?utf-8?B?aVlWcmpiYzdJaGYrN3dmdDMwTWpSSGlLOGhnRnJPNmI3MU1pMWRWL1paenRM?=
+ =?utf-8?B?dVAyN0Vxb1JTS0txUmZ4dW81ajB5YU0yNE5mM243bWc0cEFmWlU1WmpSZ0NG?=
+ =?utf-8?B?d3UrV09VQXVpem15Z2FYMHNMMWlUWDBiS1ZIYldlMkJ3V21mQzJOUEs2RzlF?=
+ =?utf-8?B?QVdUQWxoNmpHZkdDS0d6M0R3Wjk5Q3FjNi9GNzRlMHRFWmloNUM4eDJ5M0xS?=
+ =?utf-8?B?SEV6bUdJRlpZeENBc09YLzZKdkw0Rk1sZ2hPNnBMajN0Q093Wm9zMWw2eGU5?=
+ =?utf-8?B?VmNjbDVwWC96Mkk4bUpGdTZlQWVXSGZHZjViOEFPc3VXUks1Y2xBVndGYU1J?=
+ =?utf-8?B?d2hOWnkrZzhJQWVuRTBhYm95NkVrT3I4WlB4OHBCNGZHUzFXa21BUkNSWjkz?=
+ =?utf-8?B?eUxPYmNYS2N6MHhhcW8vdzdDdDFIWWdVdjdFVCtvN01yemZ5OVBwRU5IaWY3?=
+ =?utf-8?B?OFdTRWZPYzlsTzFiYXExbE5SR1B2bElWODVUNzJ1TmpSbjVxK0FHSWt2SkRN?=
+ =?utf-8?B?MG56TzdDTXprZFpuWkxYL28vcUVBbDRTd3lrT1JRVkNWaWkyU1RjSUlKdEpT?=
+ =?utf-8?B?eDVudjFnclFadkVKeDhvTWp4ZFFobU1FTXVKOGZSckdLd2trU240UlhPOGxv?=
+ =?utf-8?B?VnFQTkV5dHlEc3p1dzZ2Z0pzK0NVWERaNEZTc2hNemd3T0lFZ0p0MmlZam1o?=
+ =?utf-8?B?UTBlSVAzV3VTcGFYbFdFNVR2Zkc4eThrNmFlOWNlZWNSb2NOL3RvYlBOREY1?=
+ =?utf-8?B?NTkxcjgxTE5aMkV6R0tiblA5N2xjRS82Z2pueUtGOTY1dVViRUU5UjhYK1ZV?=
+ =?utf-8?B?UlRkb2JtN3JlNllkdVV6MDR1RWJOMUFEMUhCRkRYUW5HQllZeWlEekJZSkVv?=
+ =?utf-8?Q?ND9RnZPK6XOkw/pJHo=3D?=
+x-ms-exchange-transport-forked: True
+Content-ID: <C2AE8CE4D4B0284B9C81FB160FEDBFDF@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5160.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20bb976f-86a5-421b-a806-08d94612f4a2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jul 2021 15:29:07.6286 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: t3/7+c51b3EIl+BXcwmSnccepZFPaARZdiNnW5k9kZJ/4LZZypauAQJdgDV5tJ+9n+ySRTLqot7F8lMRQkf037Y+C6MGEoBkZ8b4B2wfyQk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210713_041809_963239_72205573 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20210713_082913_123294_0D47E349 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,311 +187,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that its contents were converted to a DT schema, replace
-the references for the old file on existing properties.
+On 16/06/2021 07:02, Bin Meng wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>
+> From: Bin Meng <bin.meng@windriver.com>
+>
+> The "clock-frequency" property of cpu nodes isn't required. Drop it.
+>
+> Signed-off-by: Bin Meng <bin.meng@windriver.com>
+> ---
+>
+>   arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 5 -----
+>   1 file changed, 5 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+> index b9819570a7d1..ee54878b3f89 100644
+> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+> @@ -17,7 +17,6 @@ cpus {
+>                  #size-cells = <0>;
+>
+>                  cpu@0 {
+> -                       clock-frequency = <0>;
+>                          compatible = "sifive,e51", "sifive,rocket0", "riscv";
+>                          device_type = "cpu";
+>                          i-cache-block-size = <64>;
+> @@ -35,7 +34,6 @@ cpu0_intc: interrupt-controller {
+>                  };
+>
+>                  cpu@1 {
+> -                       clock-frequency = <0>;
+>                          compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+>                          d-cache-block-size = <64>;
+>                          d-cache-sets = <64>;
+> @@ -62,7 +60,6 @@ cpu1_intc: interrupt-controller {
+>                  };
+>
+>                  cpu@2 {
+> -                       clock-frequency = <0>;
+>                          compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+>                          d-cache-block-size = <64>;
+>                          d-cache-sets = <64>;
+> @@ -89,7 +86,6 @@ cpu2_intc: interrupt-controller {
+>                  };
+>
+>                  cpu@3 {
+> -                       clock-frequency = <0>;
+>                          compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+>                          d-cache-block-size = <64>;
+>                          d-cache-sets = <64>;
+> @@ -116,7 +112,6 @@ cpu3_intc: interrupt-controller {
+>                  };
+>
+>                  cpu@4 {
+> -                       clock-frequency = <0>;
+>                          compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+>                          d-cache-block-size = <64>;
+>                          d-cache-sets = <64>;
+> --
+> 2.25.1
+>
 
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
----
- .../devicetree/bindings/pci/amlogic,meson-pcie.txt |  4 ++--
- .../devicetree/bindings/pci/axis,artpec6-pcie.txt  |  2 +-
- .../devicetree/bindings/pci/fsl,imx6q-pcie.txt     |  2 +-
- .../bindings/pci/hisilicon-histb-pcie.txt          |  2 +-
- .../devicetree/bindings/pci/kirin-pcie.txt         |  2 +-
- .../devicetree/bindings/pci/layerscape-pci.txt     |  2 +-
- .../bindings/pci/nvidia,tegra194-pcie.txt          |  5 +++--
- .../devicetree/bindings/pci/pci-armada8k.txt       |  2 +-
- Documentation/devicetree/bindings/pci/pcie-al.txt  |  2 +-
- .../devicetree/bindings/pci/qcom,pcie.txt          | 14 +++++++-------
- .../bindings/pci/samsung,exynos-pcie.yaml          |  4 ++--
- .../devicetree/bindings/pci/sifive,fu740-pcie.yaml |  4 ++--
- .../bindings/pci/socionext,uniphier-pcie-ep.yaml   |  4 ++--
- Documentation/devicetree/bindings/pci/ti-pci.txt   |  4 ++--
- .../devicetree/bindings/pci/uniphier-pcie.txt      |  2 +-
- 15 files changed, 28 insertions(+), 27 deletions(-)
+Reviewed-by: conor dooley<conor.dooley@microchip.com>
 
-diff --git a/Documentation/devicetree/bindings/pci/amlogic,meson-pcie.txt b/Documentation/devicetree/bindings/pci/amlogic,meson-pcie.txt
-index b6acbe694ffb..c3a75ac6e59d 100644
---- a/Documentation/devicetree/bindings/pci/amlogic,meson-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/amlogic,meson-pcie.txt
-@@ -3,7 +3,7 @@ Amlogic Meson AXG DWC PCIE SoC controller
- Amlogic Meson PCIe host controller is based on the Synopsys DesignWare PCI core.
- It shares common functions with the PCIe DesignWare core driver and
- inherits common properties defined in
--Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- Additional properties are described here:
- 
-@@ -33,7 +33,7 @@ Required properties:
- - phy-names: must contain "pcie"
- 
- - device_type:
--	should be "pci". As specified in designware-pcie.txt
-+	should be "pci". As specified in snps,dw-pcie.yaml
- 
- 
- Example configuration:
-diff --git a/Documentation/devicetree/bindings/pci/axis,artpec6-pcie.txt b/Documentation/devicetree/bindings/pci/axis,artpec6-pcie.txt
-index 979dc7b6cfe8..cc6dcdb676b9 100644
---- a/Documentation/devicetree/bindings/pci/axis,artpec6-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/axis,artpec6-pcie.txt
-@@ -1,7 +1,7 @@
- * Axis ARTPEC-6 PCIe interface
- 
- This PCIe host controller is based on the Synopsys DesignWare PCIe IP
--and thus inherits all the common properties defined in designware-pcie.txt.
-+and thus inherits all the common properties defined in snps,dw-pcie.yaml.
- 
- Required properties:
- - compatible: "axis,artpec6-pcie", "snps,dw-pcie" for ARTPEC-6 in RC mode;
-diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.txt b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.txt
-index d8971ab99274..5e6eb44c81b5 100644
---- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.txt
-@@ -1,7 +1,7 @@
- * Freescale i.MX6 PCIe interface
- 
- This PCIe host controller is based on the Synopsys DesignWare PCIe IP
--and thus inherits all the common properties defined in designware-pcie.txt.
-+and thus inherits all the common properties defined in snps,dw-pcie.yaml.
- 
- Required properties:
- - compatible:
-diff --git a/Documentation/devicetree/bindings/pci/hisilicon-histb-pcie.txt b/Documentation/devicetree/bindings/pci/hisilicon-histb-pcie.txt
-index 760b4d740616..5f0cf6c2fef3 100644
---- a/Documentation/devicetree/bindings/pci/hisilicon-histb-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/hisilicon-histb-pcie.txt
-@@ -3,7 +3,7 @@ HiSilicon STB PCIe host bridge DT description
- The HiSilicon STB PCIe host controller is based on the DesignWare PCIe core.
- It shares common functions with the DesignWare PCIe core driver and inherits
- common properties defined in
--Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- Additional properties are described here:
- 
-diff --git a/Documentation/devicetree/bindings/pci/kirin-pcie.txt b/Documentation/devicetree/bindings/pci/kirin-pcie.txt
-index 585aadfeafd1..3a36eeb1c434 100644
---- a/Documentation/devicetree/bindings/pci/kirin-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/kirin-pcie.txt
-@@ -3,7 +3,7 @@ HiSilicon Kirin SoCs PCIe host DT description
- Kirin PCIe host controller is based on the Synopsys DesignWare PCI core.
- It shares common functions with the PCIe DesignWare core driver and
- inherits common properties defined in
--Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- Additional properties are described here:
- 
-diff --git a/Documentation/devicetree/bindings/pci/layerscape-pci.txt b/Documentation/devicetree/bindings/pci/layerscape-pci.txt
-index 6d898dd4a8e2..f36efa73a470 100644
---- a/Documentation/devicetree/bindings/pci/layerscape-pci.txt
-+++ b/Documentation/devicetree/bindings/pci/layerscape-pci.txt
-@@ -1,7 +1,7 @@
- Freescale Layerscape PCIe controller
- 
- This PCIe host controller is based on the Synopsys DesignWare PCIe IP
--and thus inherits all the common properties defined in designware-pcie.txt.
-+and thus inherits all the common properties defined in snps,dw-pcie.yaml.
- 
- This controller derives its clocks from the Reset Configuration Word (RCW)
- which is used to describe the PLL settings at the time of chip-reset.
-diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra194-pcie.txt b/Documentation/devicetree/bindings/pci/nvidia,tegra194-pcie.txt
-index bd43f3c3ece4..6a99d2aa8075 100644
---- a/Documentation/devicetree/bindings/pci/nvidia,tegra194-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/nvidia,tegra194-pcie.txt
-@@ -1,7 +1,8 @@
- NVIDIA Tegra PCIe controller (Synopsys DesignWare Core based)
- 
- This PCIe controller is based on the Synopsis Designware PCIe IP
--and thus inherits all the common properties defined in designware-pcie.txt.
-+and thus inherits all the common properties defined in snps,dw-pcie.yaml and
-+snps,dw-pcie-ep.yaml.
- Some of the controller instances are dual mode where in they can work either
- in root port mode or endpoint mode but one at a time.
- 
-@@ -22,7 +23,7 @@ Required properties:
-   property.
- - reg-names: Must include the following entries:
-   "appl": Controller's application logic registers
--  "config": As per the definition in designware-pcie.txt
-+  "config": As per the definition in snps,dw-pcie.yaml
-   "atu_dma": iATU and DMA registers. This is where the iATU (internal Address
-              Translation Unit) registers of the PCIe core are made available
-              for SW access.
-diff --git a/Documentation/devicetree/bindings/pci/pci-armada8k.txt b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
-index 7a813d0e6d63..ff25a134befa 100644
---- a/Documentation/devicetree/bindings/pci/pci-armada8k.txt
-+++ b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
-@@ -1,7 +1,7 @@
- * Marvell Armada 7K/8K PCIe interface
- 
- This PCIe host controller is based on the Synopsys DesignWare PCIe IP
--and thus inherits all the common properties defined in designware-pcie.txt.
-+and thus inherits all the common properties defined in snps,dw-pcie.yaml.
- 
- Required properties:
- - compatible: "marvell,armada8k-pcie"
-diff --git a/Documentation/devicetree/bindings/pci/pcie-al.txt b/Documentation/devicetree/bindings/pci/pcie-al.txt
-index 557a5089229d..2ad1fe466eab 100644
---- a/Documentation/devicetree/bindings/pci/pcie-al.txt
-+++ b/Documentation/devicetree/bindings/pci/pcie-al.txt
-@@ -2,7 +2,7 @@
- 
- Amazon's Annapurna Labs PCIe Host Controller is based on the Synopsys DesignWare
- PCI core. It inherits common properties defined in
--Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- Properties of the host controller node that differ from it are:
- 
-diff --git a/Documentation/devicetree/bindings/pci/qcom,pcie.txt b/Documentation/devicetree/bindings/pci/qcom,pcie.txt
-index 25f4def468bf..3f646875f8c2 100644
---- a/Documentation/devicetree/bindings/pci/qcom,pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/qcom,pcie.txt
-@@ -34,22 +34,22 @@
- - device_type:
- 	Usage: required
- 	Value type: <string>
--	Definition: Should be "pci". As specified in designware-pcie.txt
-+	Definition: Should be "pci". As specified in snps,dw-pcie.yaml
- 
- - #address-cells:
- 	Usage: required
- 	Value type: <u32>
--	Definition: Should be 3. As specified in designware-pcie.txt
-+	Definition: Should be 3. As specified in snps,dw-pcie.yaml
- 
- - #size-cells:
- 	Usage: required
- 	Value type: <u32>
--	Definition: Should be 2. As specified in designware-pcie.txt
-+	Definition: Should be 2. As specified in snps,dw-pcie.yaml
- 
- - ranges:
- 	Usage: required
- 	Value type: <prop-encoded-array>
--	Definition: As specified in designware-pcie.txt
-+	Definition: As specified in snps,dw-pcie.yaml
- 
- - interrupts:
- 	Usage: required
-@@ -64,17 +64,17 @@
- - #interrupt-cells:
- 	Usage: required
- 	Value type: <u32>
--	Definition: Should be 1. As specified in designware-pcie.txt
-+	Definition: Should be 1. As specified in snps,dw-pcie.yaml
- 
- - interrupt-map-mask:
- 	Usage: required
- 	Value type: <prop-encoded-array>
--	Definition: As specified in designware-pcie.txt
-+	Definition: As specified in snps,dw-pcie.yaml
- 
- - interrupt-map:
- 	Usage: required
- 	Value type: <prop-encoded-array>
--	Definition: As specified in designware-pcie.txt
-+	Definition: As specified in snps,dw-pcie.yaml
- 
- - clocks:
- 	Usage: required
-diff --git a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-index 1810bf722350..445eed94b53f 100644
---- a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-@@ -13,10 +13,10 @@ maintainers:
- description: |+
-   Exynos5433 SoC PCIe host controller is based on the Synopsys DesignWare
-   PCIe IP and thus inherits all the common properties defined in
--  designware-pcie.txt.
-+  snps,dw-pcie.yaml.
- 
- allOf:
--  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-index b03cbb9b6602..2b9d1d6fc661 100644
---- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-@@ -10,14 +10,14 @@ description: |+
-   SiFive FU740 PCIe host controller is based on the Synopsys DesignWare
-   PCI core. It shares common features with the PCIe DesignWare core and
-   inherits common properties defined in
--  Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- maintainers:
-   - Paul Walmsley <paul.walmsley@sifive.com>
-   - Greentime Hu <greentime.hu@sifive.com>
- 
- allOf:
--  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-index d6cf8a560ef0..144cbcd60a1c 100644
---- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-+++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-@@ -10,13 +10,13 @@ description: |
-   UniPhier PCIe endpoint controller is based on the Synopsys DesignWare
-   PCI core. It shares common features with the PCIe DesignWare core and
-   inherits common properties defined in
--  Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+  Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml.
- 
- maintainers:
-   - Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
- 
- allOf:
--  - $ref: "pci-ep.yaml#"
-+  - $ref: /schemas/pci/snps,dw-pcie-ep.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/ti-pci.txt b/Documentation/devicetree/bindings/pci/ti-pci.txt
-index d5cbfe6b0d89..8147e3e3e29b 100644
---- a/Documentation/devicetree/bindings/pci/ti-pci.txt
-+++ b/Documentation/devicetree/bindings/pci/ti-pci.txt
-@@ -12,7 +12,7 @@ PCIe DesignWare Controller
- 	       number of PHYs as specified in *phys* property.
-  - ti,hwmods : Name of the hwmod associated to the pcie, "pcie<X>",
- 	       where <X> is the instance number of the pcie from the HW spec.
-- - num-lanes as specified in ../designware-pcie.txt
-+ - num-lanes as specified in ../snps,dw-pcie.yaml
-  - ti,syscon-lane-sel : phandle/offset pair. Phandle to the system control
- 			module and the register offset to specify lane
- 			selection.
-@@ -32,7 +32,7 @@ HOST MODE
-    device_type,
-    ranges,
-    interrupt-map-mask,
--   interrupt-map : as specified in ../designware-pcie.txt
-+   interrupt-map : as specified in ../snps,dw-pcie.yaml
-  - ti,syscon-unaligned-access: phandle to the syscon DT node. The 1st argument
- 			       should contain the register offset within syscon
- 			       and the 2nd argument should contain the bit field
-diff --git a/Documentation/devicetree/bindings/pci/uniphier-pcie.txt b/Documentation/devicetree/bindings/pci/uniphier-pcie.txt
-index c4b7381733a0..359585db049f 100644
---- a/Documentation/devicetree/bindings/pci/uniphier-pcie.txt
-+++ b/Documentation/devicetree/bindings/pci/uniphier-pcie.txt
-@@ -6,7 +6,7 @@ on Socionext UniPhier SoCs.
- UniPhier PCIe host controller is based on the Synopsys DesignWare PCI core.
- It shares common functions with the PCIe DesignWare core driver and inherits
- common properties defined in
--Documentation/devicetree/bindings/pci/designware-pcie.txt.
-+Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- Required properties:
- - compatible: Should be "socionext,uniphier-pcie".
--- 
-2.31.1
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
