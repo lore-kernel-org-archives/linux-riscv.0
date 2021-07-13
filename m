@@ -2,91 +2,71 @@ Return-Path: <SRS0=hRw5=MF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2 autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 55248C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 08:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4891BC07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 11:25:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E50CA61279
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 08:32:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E50CA61279
+	by mail.kernel.org (Postfix) with ESMTPS id 1C1B561006
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jul 2021 11:25:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C1B561006
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EGmU0dTKo1D5lagHuep4ugjG8FHt8R/ZAKJEbb3MsBU=; b=QU9ZIosPue9W3p
-	cm9HpzDKPWPGRU6bALc38Qyvoi6I12sGhWv8/8igq/c45o9l4rQY2w9IJkF5ctKrNfpSSq60uf9d1
-	JN5hLx8LZO5ReyH/jjen1NIZGJj9VGdMEUP977tCVU0pMiH1IrKJfUjGniaEtCN7KVzm74hFdAOhJ
-	gaz+sRdaZJCHQiq/xivZfOqUxnNCjsuhD7jOCM4PTQCmii/RqJHHAA2cIycLwV9WrYHt8L0b1vwQR
-	GGUOViTh1niY9N57qZcbMo06OaU6US1kCR8/ucuwS2cnY/qzeNUlrW/upIDH8NcSesN0Gt9FFczm0
-	7rA429SsHywv1ZVRjiTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dIZnt0w7tA6z7OzyFbzFEob5yG32qFY8zIigSEILFCc=; b=XTOPoYSPsmP+2G
+	PZaM1jgmpgZWugvxU+vUK2adh3CZpZNDLrpSTnW968+SN4oejrHgn1yD89CvhFKLNLZy4wjkclYN/
+	905wAld/cv+Q2tLje8/EVKEITLJTYaRlM3xnm8o0aCbsrsMCXkjK5OdwdoWq6Bvi886QWxo0BUvUJ
+	zFOim3k94XEm2VibG0/v/xJi7YQr3KylVyV+mFzAoQgS4R5PIsK3k2KdYIpHCcifjn3JIKVqY6/ev
+	7DPswvjwfOUjonr8dU6D94DGrqAuPMxT7BsYfaNIy0dljY479qngc8oYhNfJ5DLvUTaWZCtDMsXvV
+	UWJtsT7zOKMsb3/Mo3IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m3Dpb-009RwL-Jb; Tue, 13 Jul 2021 08:31:55 +0000
+	id 1m3GXd-00AAnz-72; Tue, 13 Jul 2021 11:25:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m3DpN-009Rcb-4h; Tue, 13 Jul 2021 08:31:42 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 108EE6127C;
- Tue, 13 Jul 2021 08:31:30 +0000 (UTC)
+ id 1m3GQS-00A8AQ-U2; Tue, 13 Jul 2021 11:18:10 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 344AA61178;
+ Tue, 13 Jul 2021 11:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1626165100;
- bh=vCzKuNoKiBxSGIGRN6demDaGtX6onzKhSozcN6yvzxI=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=WTpIf7OCkrQI0Psl1TQDpx3ah/ff9bEvdnD8KZIITUb16hNuzoLtLaJkLz0Zgq78I
- voQW9beo0TC1xcjrumCclhy8bHBiVv27eGbKg31yKydTrD1DV7HzI2Q+NEev5je2AP
- fjfKpS3lHv0de56cycngELdDiVNqelcEwZIXctkIiRCE6k5j/BBDVh2DVZPgAJldJq
- D+p/nT9gLxqaLG76VvUN/2CgiSdy/v1WYe+ZJk9wsYJyTKEJHR/Q0Bke7fGB86ztxC
- Ik1mIgthNrw8SyAuJJWVt3DoKfiy3OMr7NnGjrlN6xLbXcejghwiIZYDzrkkQXRFUi
- SY8TbsdogwJJw==
-Date: Tue, 13 Jul 2021 10:31:27 +0200
+ s=k20201202; t=1626175088;
+ bh=G3DpPuSACBy7CTePMGBCkcBIAOUG+KzTOSbhqPO32E0=;
+ h=From:To:Cc:Subject:Date:From;
+ b=ESQW+vzQ0c21D41buSWvccNUGNN5X8LojV5B2NWlcjYl2b6wJFnmkm9KDpYL3TNL4
+ rrN9gvVBsEag7eI0F+SoyUW+J0OXR/jx+8pQ+G3L2wf0MKChDFnsWYxxs9UBsbPGb3
+ aBVcjc4QeCYJH34IodncdvAo5y3Of1z7bEwT8A1aVLwyz+qdfP6FuEeiSnp3LCwFXm
+ cFq3kW0T54mQ9bcWKq1SWiMHvSj/V/egkSpQ7K0Vqggii237AqGFUdSwVvv5vFtfNp
+ oUqISdXQa/Du+5om3X1ugLJoi8bcUNt+w74aGT3o97FhKjPGPWJ0d9lgRc7fXGeDYf
+ 468P+XCrKyARQ==
+Received: by mail.kernel.org with local (Exim 4.94.2)
+ (envelope-from <mchehab@kernel.org>)
+ id 1m3GQK-006b3Y-Rv; Tue, 13 Jul 2021 13:18:00 +0200
 From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 To: Rob Herring <robh@kernel.org>
-Cc: linuxarm@huawei.com, mauro.chehab@huawei.com, Andy Gross
- <agross@kernel.org>, Bjorn Andersson <bjorn.andersson@linaro.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Fabio Estevam <festevam@gmail.com>,
- Greentime Hu <greentime.hu@sifive.com>, Gustavo Pimentel
- <gustavo.pimentel@synopsys.com>, Jaehoon Chung <jh80.chung@samsung.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Jesper Nilsson
- <jesper.nilsson@axis.com>, Jingoo Han <jingoohan1@gmail.com>, Jonathan
- Chocron <jonnyc@amazon.com>, Jonathan Hunter <jonathanh@nvidia.com>, Kevin
- Hilman <khilman@baylibre.com>, Kishon Vijay Abraham I <kishon@ti.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, Kunihiko Hayashi
- <hayashi.kunihiko@socionext.com>, Lucas Stach <l.stach@pengutronix.de>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, NXP Linux Team <linux-imx@nxp.com>, Neil Armstrong
- <narmstrong@baylibre.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Richard Zhu <hongxing.zhu@nxp.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Thierry Reding
- <thierry.reding@gmail.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, devicetree@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: designware-pcie.txt: convert
- it to yaml
-Message-ID: <20210713103127.3891c8e9@coco.lan>
-In-Reply-To: <20210712174504.GA2158814@robh.at.kernel.org>
-References: <cover.1625838920.git.mchehab+huawei@kernel.org>
- <fa846c83165894accdac1715c3fddfbdcb060958.1625838920.git.mchehab+huawei@kernel.org>
- <20210712174504.GA2158814@robh.at.kernel.org>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
+Cc: linuxarm@huawei.com, mauro.chehab@huawei.com,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+Subject: [PATCH v4 0/5] convert designware-pcie.txt and kirin-pcie.txt to yaml
+Date: Tue, 13 Jul 2021 13:17:50 +0200
+Message-Id: <cover.1626174242.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210713_013141_278427_81E476EF 
-X-CRM114-Status: GOOD (  26.83  )
+X-CRM114-CacheID: sfid-20210713_041809_084223_F976786C 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,132 +83,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Mon, 12 Jul 2021 11:45:04 -0600
-Rob Herring <robh@kernel.org> escreveu:
+Hi Rob,
 
-> On Fri, Jul 09, 2021 at 03:57:42PM +0200, Mauro Carvalho Chehab wrote:
-> > Convert the file to DT schema.
-> > 
-> > Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+This series (in particular, the last patch) depends on this series:
+	https://lore.kernel.org/lkml/cover.1626157454.git.mchehab+huawei@kernel.org/
+
+It convert designware-pcie.txt and kirin-pcie.txt to DT schema.
+
+This series uses a different strategy than v4: after doing lots of tests and
+trying to tweak the syntax, I opted to create two files instead of one.
+
+The first one (snps,dw-pcie.yaml) uses the pci-bus.yaml schema.
+The second one (add snps,dw-pcie-ep.yaml) uses the pci-ep.yaml schema.
+
+Without splitting it into two, I was unable to find a way that would work,
+due to the need of using:
+
+	AllOf:
+	   - $ref: /schemas/pci/pci-bus.yaml#
+
+For the non-endpoint part.
+
+In order to make easier to review, I also opted to split the patch into
+4 ones:
+
+patch 1:
+   adds the Designware PCI DT schema;
+patch 2:
+   adds the Designware PCI endpoint DT schema;
+patch 3:
+   changes the existing references to point to the new schemas.
+   On yaml files, it uses the proper $ref to point to the right DT schema;
+patch 4
+   drops the old txt file.
+
+Patch5 is independent: it converts the pcie-kirin.txt to DT schema and
+adds a reference to the newly-converted DWC schema.
+
+It should be noticed that I had to make a few amends at the "reg" field
+on patches 1 and 2, in order to avoid warnings about some properties
+found on some DWC-dependent DT schemas, as some have "addr_space",
+"link", "app" and "elbi".
+
+With this change, it now passes "make dt_binding_check".
+
+Mauro Carvalho Chehab (5):
+  dt-bindings: PCI: add snps,dw-pcie.yaml
+  dt-bindings: PCI: add snps,dw-pcie-ep.yaml
+  dt-bindings: PCI: update references to Designware schema
+  dt-bindings: PCI: remove designware-pcie.txt
+  dt-bindings: PCI: kirin-pcie.txt: Convert it to yaml
+
+ .../bindings/pci/amlogic,meson-pcie.txt       |  4 +-
+ .../bindings/pci/axis,artpec6-pcie.txt        |  2 +-
+ .../bindings/pci/designware-pcie.txt          | 77 ---------------
+ .../bindings/pci/fsl,imx6q-pcie.txt           |  2 +-
+ .../bindings/pci/hisilicon,kirin-pcie.yaml    | 81 ++++++++++++++++
+ .../bindings/pci/hisilicon-histb-pcie.txt     |  2 +-
+ .../devicetree/bindings/pci/kirin-pcie.txt    | 41 --------
+ .../bindings/pci/layerscape-pci.txt           |  2 +-
+ .../bindings/pci/nvidia,tegra194-pcie.txt     |  5 +-
+ .../devicetree/bindings/pci/pci-armada8k.txt  |  2 +-
+ .../devicetree/bindings/pci/pcie-al.txt       |  2 +-
+ .../devicetree/bindings/pci/qcom,pcie.txt     | 14 +--
+ .../bindings/pci/samsung,exynos-pcie.yaml     |  4 +-
+ .../bindings/pci/sifive,fu740-pcie.yaml       |  4 +-
+ .../bindings/pci/snps,dw-pcie-ep.yaml         | 90 +++++++++++++++++
+ .../devicetree/bindings/pci/snps,dw-pcie.yaml | 96 +++++++++++++++++++
+ .../pci/socionext,uniphier-pcie-ep.yaml       |  4 +-
+ .../devicetree/bindings/pci/ti-pci.txt        |  4 +-
+ .../devicetree/bindings/pci/uniphier-pcie.txt |  2 +-
+ MAINTAINERS                                   |  5 +-
+ 20 files changed, 297 insertions(+), 146 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pci/designware-pcie.txt
+ create mode 100644 Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
+ delete mode 100644 Documentation/devicetree/bindings/pci/kirin-pcie.txt
+ create mode 100644 Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+
+-- 
+2.31.1
 
 
-> > diff --git a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-> > index 1810bf722350..3f49c8017c7a 100644
-> > --- a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-> > +++ b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-
-
-> > +  reg:
-> > +    description: |
-> > +      It should contain Data Bus Interface (dbi, dbi2) registers for all
-> > +      versions.
-> 
-> Not all versions have dbi2.
-> 
-> > +      For designware cores version < 4.80, contains the configuration
-> > +      address space. For designware core version >= 4.80,
-> > +      contains the configuration and ATU address space.
-> 
-> config space should always be present. For a brief time (around 2014), 
-> it was not required but has been since. For purposes of the schema, we 
-> can say always required.
-> 
-> ATU is optional in 4.80 or later. 
-> 
-> > +    minItems: 2
-> > +    maxItems: 4
-> > +
-> > +  reg-names:
-> > +    minItems: 2
-> > +    maxItems: 4
-> > +    items:
-> > +      contains:
-> 
-> Drop contains.
-> 
-> > +        enum: [dbi, dbi2, config, atu, addr_space]
-
-This actually generated a warning:
-
-/new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: reg-names:2: 'app' is not one of ['dbi', 'dbi2', 'config', 'atu', 'addr_space']
-
-I guess it needs to be changed to:
-
-	enum: [dbi, dbi2, config, atu, addr_space, app]
-
-or intel-gw-pcie.yaml would require an extra change.
-
-That's said, I didn't find any DTS using compatible = "intel,lgm-pcie",
-but looking at drivers/pci/controller/dwc/pcie-intel-gw.c, it seems
-that this is a mandatory register on such hardware.
-
-> > +
-> > +  num-lanes:
-> > +    $ref: '/schemas/types.yaml#/definitions/uint32'
-> > +    description: |
-> > +      number of lanes to use (this property should be specified unless
-> > +      the link is brought already up in BIOS)
-> > +    maxItems: 1
-> 
-> Drop. Not an array. 'maximum: 16' is needed though pci-bus.yaml may 
-> cover that already.
-
-It seems that num-lanes is not there at pci-bus.yaml - at least not
-at the version I'm using here (2021.7.dev1+ge5f58d415b1d).
-
-
-> > +patternProperties:
-> > +  "pcie?_ep@[0-9a-f]+$":
-> > +    type: object
-> > +    properties:
-> > +      compatible:
-> > +        contains:
-> > +          const: snps,dw-pcie-ep
-> 
-> This doesn't make sense. This is defining a child node of the DW 
-> controller with 'snps,dw-pcie-ep'.
-
-This was an attempt to silence those warnings:
-
-	From schema: /new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-/new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: '#address-cells', '#interrupt-cells', '#size-cells', 'bus-range', 'clocks', 'device_type', 'interrupt-map', 'interrupt-map-mask', 'linux,pci-domain', 'max-link-speed', 'phy-names', 'phys', 'ranges', 'reset-assert-ms', 'resets' do not match any of the regexes: 'pinctrl-[0-9]+'
-	From schema: /new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-/new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml: pcie@dfc00000: '#address-cells', '#interrupt-cells', '#size-cells', 'device_type', 'interrupts', 'ranges' do not match any of the regexes: 'pinctrl-[0-9]+'
-	From schema: /new_devel/v4l/hikey970/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-
-Somehow, dtschema is only accepting 'pinctrl-[0-9]+' regex when parsing 
-examples on this file. I've no idea how to fix it.
-
-As a reference, this is how the examples are now declared:
-
-<snip>
-examples:
-  - |
-    pcie@dfc00000 {
-      compatible = "snps,dw-pcie";
-      reg = <0xdfc00000 0x0001000>, /* IP registers */
-            <0xd0000000 0x0002000>; /* Configuration space */
-      reg-names = "dbi", "config";
-      #address-cells = <3>;
-      #size-cells = <2>;
-      device_type = "pci";
-      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
-               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
-      interrupts = <25>, <24>;
-      #interrupt-cells = <1>;
-      num-lanes = <1>;
-    };
-    pcie-ep@dfd00000 {
-      compatible = "snps,dw-pcie-ep";
-      reg = <0xdfc00000 0x0001000>, /* IP registers 1 */
-            <0xdfc01000 0x0001000>, /* IP registers 2 */
-            <0xd0000000 0x2000000>; /* Configuration space */
-      reg-names = "dbi", "dbi2", "addr_space";
-    };
-</snip>
-
-Thanks,
-Mauro
 
 _______________________________________________
 linux-riscv mailing list
