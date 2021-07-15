@@ -2,97 +2,76 @@ Return-Path: <SRS0=TeVA=MH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52C6CC07E96
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 08:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21707C07E96
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 16:22:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E47DE61106
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 08:12:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E47DE61106
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	by mail.kernel.org (Postfix) with ESMTPS id BA587613F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 16:22:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA587613F7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44atR9PBbk5wT4T/NR3RWQg+6r56ytp9t9u0tniRBHk=; b=R2Z0cZ7+n9T547VDuZDcaYVB+v
-	LKAUkRoQ7Zws+Vkqz9/pU/OTGfA8xp05J4eXQQU94nvJVfijipVgo5OuL22ppmRVrQ+O5UxXK/cyR
-	Q6fAw8+kkptFSoViDW7QA66yBREBOjGAY1ifjUCGyfW2pJUz4GnyaCQaWpqKswzEyNFuYFA8XsMsD
-	/HdEpGb2mNPacZc0ffup2s3BrXNBmV53qbaB8t15d0UdMYf6UhhFh3E5L3yeYCfMUrKG3AJFw1vEp
-	pRiAM37qnRYvSxF2zHx3P/Vl83FutpXdRYbeUKpWWBJKyzy7a0V6aXR+VqHdyrOIV6uQ9G6G+bv00
-	IVNsMYXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aS+OrKCc5h3S1MYCs8LdtvhuX6bw5gUsCKe1+cdoAH0=; b=BgnF59aOVDjSjl
+	w6oV/KDcK6UYvJh9hqugzSDTbjm06v4Qvxe0hxYFTTHBWxu7K6km+EcbnKlRl50heDOGv3PBs6tCh
+	i+vsNChC70or2p4o+HAGSdc+AHN5yqAsaSQGGXS/F1LvEob8WtUfH78U45cWaqUPdb4DRzffXhMkL
+	a9IvUsBi4otCzCHFuDymgIc2FPJenAGAcpnpj02iNzCL9aELN/g1DA4UnQY/A9KpPOarCfTHi0yfJ
+	G75cIprH6YuL8OtKNRkhlI4je7jOzqTado/jroBsbQicXuuomj385w1kPZy0hyqBHOZgrLp+fPPvO
+	kREyqb2IlgRhEcB4foJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m3wTZ-00HTZU-VA; Thu, 15 Jul 2021 08:12:09 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1m448B-001KrJ-8m; Thu, 15 Jul 2021 16:22:35 +0000
+Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m3wTL-00HTW2-MC; Thu, 15 Jul 2021 08:11:57 +0000
-Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ id 1m4487-001KpY-JG
+ for linux-riscv@lists.infradead.org; Thu, 15 Jul 2021 16:22:33 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4GQflx2N84z1sFhS;
+ Thu, 15 Jul 2021 18:22:21 +0200 (CEST)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4GQflx1VZfz1qqkP;
+ Thu, 15 Jul 2021 18:22:21 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id 6d6OuwsxCZ1H; Thu, 15 Jul 2021 18:22:20 +0200 (CEST)
+X-Auth-Info: br3tlGgw4vIUf1Ch6+xeO/8ruM6sgiE8T8bKkq2wu8SAavokerfEAnRbwSVoSWqf
+Received: from igel.home (ppp-46-244-186-22.dynamic.mnet-online.de
+ [46.244.186.22])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id ED8EC1FDE5;
- Thu, 15 Jul 2021 08:11:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1626336711; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=HqXB8FwbR4mWpXDEB856YL88ZL4zpytqwWSg0MK4Er0=;
- b=LHKTszttqznz72msYhWWLK1zPzgNrcB+dS3HiqvBes9ppU+jpyPba5y2HYbEjULgBG3/AV
- epTkUDMw1E2/4Wntdv56xMOgytYwbaPcStEJBedjAPKj+N23oSreLjdkUg36UE/xwMYH7W
- Jz+o6kupe6rb2gHOG+dtK1n/Z7UCsHM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1626336711;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=HqXB8FwbR4mWpXDEB856YL88ZL4zpytqwWSg0MK4Er0=;
- b=I2b3kJ8MW05joOEVymY6wqDkHjgqqNfRErhlTZWfvH5QGu6TP9k69zTpGDWjYpr+mE/3on
- OLuKRBgrY5YGmbCg==
-Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap1.suse-dmz.suse.de (Postfix) with ESMTPS id 459FD13AB3;
- Thu, 15 Jul 2021 08:11:51 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap1.suse-dmz.suse.de with ESMTPSA id b0TXDsft72C/agAAGKfGzw
- (envelope-from <tzimmermann@suse.de>); Thu, 15 Jul 2021 08:11:51 +0000
-Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
- non-x86 EFI platforms
-To: Javier Martinez Canillas <javierm@redhat.com>, linux-kernel@vger.kernel.org
-Cc: linux-efi@vger.kernel.org, David Airlie <airlied@linux.ie>,
- Catalin Marinas <catalin.marinas@arm.com>, dri-devel@lists.freedesktop.org,
- Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
- Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-References: <20210625130947.1803678-1-javierm@redhat.com>
- <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Message-ID: <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
-Date: Thu, 15 Jul 2021 10:11:50 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Thu, 15 Jul 2021 18:22:20 +0200 (CEST)
+Received: by igel.home (Postfix, from userid 1000)
+ id 89C322C21E9; Thu, 15 Jul 2021 18:22:19 +0200 (CEST)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: <palmerdabbelt@google.com>,  Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>,  <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH -next v2] riscv: add VMAP_STACK overflow detection
+References: <20210621032855.130650-1-tongtiangen@huawei.com>
+X-Yow: Sometime in 1993 NANCY SINATRA will lead a BLOODLESS COUP on GUAM!!
+Date: Thu, 15 Jul 2021 18:22:19 +0200
+In-Reply-To: <20210621032855.130650-1-tongtiangen@huawei.com> (Tong Tiangen's
+ message of "Mon, 21 Jun 2021 11:28:55 +0800")
+Message-ID: <87pmvjtumc.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
 MIME-Version: 1.0
-In-Reply-To: <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210715_011155_926909_C63E44CD 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20210715_092231_978910_4A13F953 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,141 +83,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8362915072296006619=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============8362915072296006619==
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="iu6zN0OFsiQ8WAhMAHq5Yk61xpQgmcPTH"
+On Jun 21 2021, Tong Tiangen wrote:
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---iu6zN0OFsiQ8WAhMAHq5Yk61xpQgmcPTH
-Content-Type: multipart/mixed; boundary="oERJS9i9SRexZTdXWB5psyaCpbIofUtkZ";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Javier Martinez Canillas <javierm@redhat.com>,
- linux-kernel@vger.kernel.org
-Cc: linux-efi@vger.kernel.org, David Airlie <airlied@linux.ie>,
- Catalin Marinas <catalin.marinas@arm.com>, dri-devel@lists.freedesktop.org,
- Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
- Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Message-ID: <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
-Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
- non-x86 EFI platforms
-References: <20210625130947.1803678-1-javierm@redhat.com>
- <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
-In-Reply-To: <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+> This patch adds stack overflow detection to riscv, usable when
+> CONFIG_VMAP_STACK=y.
 
---oERJS9i9SRexZTdXWB5psyaCpbIofUtkZ
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
+This breaks get_wchan:
 
-Hi
+[   65.609696] Unable to handle kernel paging request at virtual address ffffffd0003bbde8
+[   65.610460] Oops [#1]
+[   65.610626] Modules linked in: virtio_blk virtio_mmio rtc_goldfish btrfs blake2b_generic libcrc32c xor raid6_pq sg dm_multipath dm_mod scsi_dh_rdac scsi_dh_emc scsi_dh_alua efivarfs
+[   65.611670] CPU: 2 PID: 1 Comm: systemd Not tainted 5.14.0-rc1-1.g34fe32a-default #1 openSUSE Tumbleweed (unreleased) c62f7109153e5a0897ee58ba52393ad99b070fd2
+[   65.612334] Hardware name: riscv-virtio,qemu (DT)
+[   65.613008] epc : get_wchan+0x5c/0x88
+[   65.613334]  ra : get_wchan+0x42/0x88
+[   65.613625] epc : ffffffff800048a4 ra : ffffffff8000488a sp : ffffffd00021bb90
+[   65.614008]  gp : ffffffff817709f8 tp : ffffffe07fe91b80 t0 : 00000000000001f8
+[   65.614411]  t1 : 0000000000020000 t2 : 0000000000000000 s0 : ffffffd00021bbd0
+[   65.614818]  s1 : ffffffd0003bbdf0 a0 : 0000000000000001 a1 : 0000000000000002
+[   65.615237]  a2 : ffffffff81618008 a3 : 0000000000000000 a4 : 0000000000000000
+[   65.615637]  a5 : ffffffd0003bc000 a6 : 0000000000000002 a7 : ffffffe27d370000
+[   65.616022]  s2 : ffffffd0003bbd90 s3 : ffffffff8071a81e s4 : 0000000000003fff
+[   65.616407]  s5 : ffffffffffffc000 s6 : 0000000000000000 s7 : ffffffff81618008
+[   65.616845]  s8 : 0000000000000001 s9 : 0000000180000040 s10: 0000000000000000
+[   65.617248]  s11: 000000000000016b t3 : 000000ff00000000 t4 : 0c6aec92de5e3fd7
+[   65.617672]  t5 : fff78f60608fcfff t6 : 0000000000000078
+[   65.618088] status: 0000000000000120 badaddr: ffffffd0003bbde8 cause: 000000000000000d
+[   65.618621] [<ffffffff800048a4>] get_wchan+0x5c/0x88
+[   65.619008] [<ffffffff8022da88>] do_task_stat+0x7a2/0xa46
+[   65.619325] [<ffffffff8022e87e>] proc_tgid_stat+0xe/0x16
+[   65.619637] [<ffffffff80227dd6>] proc_single_show+0x46/0x96
+[   65.619979] [<ffffffff801ccb1e>] seq_read_iter+0x190/0x31e
+[   65.620341] [<ffffffff801ccd70>] seq_read+0xc4/0x104
+[   65.620633] [<ffffffff801a6bfe>] vfs_read+0x6a/0x112
+[   65.620922] [<ffffffff801a701c>] ksys_read+0x54/0xbe
+[   65.621206] [<ffffffff801a7094>] sys_read+0xe/0x16
+[   65.621474] [<ffffffff8000303e>] ret_from_syscall+0x0/0x2
+[   65.622169] ---[ end trace f24856ed2b8789c5 ]---
+[   65.622832] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
 
-Am 13.07.21 um 18:59 schrieb Javier Martinez Canillas:
-> On 6/25/21 3:09 PM, Javier Martinez Canillas wrote:
->> The simplefb and simpledrm drivers match against a "simple-framebuffer=
-"
->> device, but for aarch64 this is only registered when using Device Tree=
-s
->> and there's a node with a "simple-framebuffer" compatible string.
->>
->> There is no code to register a "simple-framebuffer" platform device wh=
-en
->> using EFI instead. In fact, the only platform device that's registered=
- in
->> this case is an "efi-framebuffer", which means that the efifb driver i=
-s
->> the only driver supported to have an early console with EFI on aarch64=
-=2E
->>
->> The x86 architecture platform has a Generic System Framebuffers (sysfb=
-)
->> support, that register a system frambuffer platform device. It either
->> registers a "simple-framebuffer" for the simple{fb,drm} drivers or leg=
-acy
->> VGA/EFI FB devices for the vgafb/efifb drivers.
->>
->> The sysfb is generic enough to be reused by other architectures and ca=
-n be
->> moved out of the arch/x86 directory to drivers/firmware, allowing the =
-EFI
->> logic used by non-x86 architectures to be folded into sysfb as well.
->>
->=20
-> Any more comments on this series? It would be nice for this to land so =
-the
-> simpledrm driver could be used on aarch64 EFI systems as well.
->=20
-> The patches have already been acked by x86 and DRM folks.
+Andreas.
 
-Time to get this merged, I'd say. People are asking for these patches=20
-already.
-
-Best regards
-Thomas
-
->=20
-> Best regards,
->=20
-
---=20
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Maxfeldstr. 5, 90409 N=C3=BCrnberg, Germany
-(HRB 36809, AG N=C3=BCrnberg)
-Gesch=C3=A4ftsf=C3=BChrer: Felix Imend=C3=B6rffer
-
-
---oERJS9i9SRexZTdXWB5psyaCpbIofUtkZ--
-
---iu6zN0OFsiQ8WAhMAHq5Yk61xpQgmcPTH
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmDv7cYFAwAAAAAACgkQlh/E3EQov+B8
-UxAAy4fbawz3l/323R44323T5tao9iLYrR1CirJHLwuir/wLpyBCiKntH12jR0bEROIu/rUG/KrQ
-gtMsLgxRwNOIF2VTrz6I1cTS5/J83Q5NApEuFHJE1lXT24JV9LFtZTnDjCUIrrY5Yc1X5WIkC8Yi
-KnFrEakP86onMRRc51y/B7RuGGHg+7k95LTGtbrsry4Yeu//SQyCnffr8jR3uWgF8ft3BKc51O19
-7I2KkhlafdRS0R6jxhcuemVGgTxo3NfAe439lw2HMI+7PagXjf+ZirgSt34QsNVO2JuKPT3jymW3
-m0u80hkUAv8kPc7gHL6CNN1eSKgR3s6yydi5uzlYQQR3I98v2OErLfLcBRwwjVqFpYv4lbDJqqBR
-5tCt/78LRkoa/pBN6u7E0MSWd5JyBNJxcOGvLmMWJ5TsnCK3G0i0S78YUaBXOfKcYiSvO2i1xnrs
-uzyvAJbq6Il71SL2clOXmmgstbGfBqJMewei4vjATq/O+k2SzkEZMuiksq7YyJxXU79LkbTo6PW8
-fMWVWy1pmZqfQgwKfE2BPjTzu1UwAPHVBN8vQOgu2M7CcQ3MmrjnWLYem3tDloyRAzrHnSOkZ5MY
-ZbkBlTsBqKJdTO4dA6dyJt15i30RV2k6DohnF5DCXepAF3fbWjv+Rm30/Acvs43UgtecBvWu68rh
-ofQ=
-=fW1p
------END PGP SIGNATURE-----
-
---iu6zN0OFsiQ8WAhMAHq5Yk61xpQgmcPTH--
-
-
---===============8362915072296006619==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8362915072296006619==--
-
