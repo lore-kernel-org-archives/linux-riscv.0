@@ -1,89 +1,90 @@
-Return-Path: <SRS0=1/OQ=MG=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=TeVA=MH=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D8C2EC07E9A
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jul 2021 14:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 297F6C12002
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 01:50:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 97D46613B2
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jul 2021 14:53:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 97D46613B2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D19A2613B4
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 01:50:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D19A2613B4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cCeb9/Zf7ZWwCcplsEoe1TmwauxThMGFTvbwb3FfSNs=; b=OB2VqJB/UR9tZe
-	Ooa1RTd/+3zz8Ijzf/ZBZdgYaG1ypK7zhr12zWDEXlKyaxYFnPSNbcmRx/KlWWTFmnZxjkUCxWjKn
-	v5D9TrtvzzwxTzOEYwB4kbCt0QchB3ct9VeJOvm83H3h5h7vD2SsoEjoOYrDAUeyMYzy6w5kDs0Sg
-	uPN23m3l4gKX/00PsidlpaYqaaRefw406Bqq9s4+oUM1ipzz1d3KPvVEH8PBePWNZwgiIKE7KcEPL
-	iY7ZiYj+JGSZDUUDundm327NUuy7j5hkXdW05jY0qzRbfYfX3mBW/KQhMffjsw9KInleWlRUj2G8K
-	YNXq8cwgMI3DIH7q3yHw==;
+	List-Owner; bh=s9DnyTlIqhgJ//ugtZl3WsTIDvHFAfVrZ/P05qs25Do=; b=JVad8qU28mb9aO
+	nfG7JzDAQlPMd+H9xHRmBrj0rnQbePvt1fCC4P25tClFlT99HbKE9IrcEe8v+Klqpf1IsxcFPdewc
+	KHKZYu8vAgapWQdRIG6sRqWvz8DCICCKPBROYRC7OBWt4ExD55vGkm2lAx5WigLfYr+nu2Iu7n2iB
+	nvRJjKDzYy0gWlARuVnaJyM3zFvXeYZu33S3cZXxb29+RuAEhiSuanfREqKURgTyhklaO22mwoOf0
+	icN8LtGiHNUCcE/xUBkFQP4nvgQ6q3zOI0k4jvqz5esnSf6SLLSgBFiqT5+3JbsyJ9Q25lK4RaK4J
+	4dfata3/uFq4UQJA30vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m3gGS-00DuS1-1M; Wed, 14 Jul 2021 14:53:32 +0000
-Received: from mail-io1-f41.google.com ([209.85.166.41])
+	id 1m3qVK-00GpAS-QX; Thu, 15 Jul 2021 01:49:34 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m3gGD-00DuQ5-8F; Wed, 14 Jul 2021 14:53:19 +0000
-Received: by mail-io1-f41.google.com with SMTP id k11so2434694ioa.5;
- Wed, 14 Jul 2021 07:53:14 -0700 (PDT)
+ id 1m3qVC-00Gp9g-2m
+ for linux-riscv@lists.infradead.org; Thu, 15 Jul 2021 01:49:28 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id t143so4606767oie.8
+ for <linux-riscv@lists.infradead.org>; Wed, 14 Jul 2021 18:49:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mXpNyOyXWMYKpMN1qWv5H0GBm/j+VjKgL00Ru4rlGik=;
+ b=Vc6DIqrUCFihVJxiYv2s0sz0UM6BSHgSbKh+V+vu0cDicRCA9cyGX42cXe78h983p6
+ OsFkmS6vvZnDdZxQ1H04n+cpYA38SAVzew2uMcC1rM8zogJsPG9PxyAmT5w7TMrvDJRt
+ 4OipRVeqhCpcqeGQDrKyDUgFLFdLHIGLSSJIylvoKm0Z1F4nhum3VXdUPg7cdTgFXhAz
+ qQIpUAIgTwnWkP+yiGD9hLeTIh3CvcBSTSOZ47GloE1MAqGl9UWaOycIiKBQ24y4my6o
+ DXxaj3a6Aaru9Vp9k12q3dhw8W9aMIQ3JTAF5R5TaQmo7V1xGOt+hi4K8H6K/tPehurr
+ fUNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=BwxSFbLgKWQgLIZuiUqRuKMKvZuG6jXDVbbJMI4fKZQ=;
- b=n3Mic/trjlC8Z1N6KUsDCyFKEIdq5Cpehve5d9Yp/WSK8Z+F8BRwxgm/7CtYRov3ee
- 5qeecLa3uOT4sECPLQL4Wrw5BbZpCQgTuE0ND3YCIQDCU+W1OxLSxOhw7un59VAuSXDY
- jOH5XVrCDOZxIRBZpeuMOlJD1BCdUgfh8tkF3cFB++SjWi/ytpaWuaQVPu/C4C7ugNyq
- IBXFH5Q7BeT0vQ3YhOphuDCZoKvdGA5Xsc8VaUjx8uagjQq+c8baNCWGAwbk9E5yazj7
- Scw+ljUY+eXaLeClOr0sRxXn3Y+kld0hyANNdQPIaX1mKpZewhy8opCJMGic6PpprQ7A
- PElQ==
-X-Gm-Message-State: AOAM53033y+5e/OtHDLa2yvvTjSooSM226YbXhsbzGqwpSq3QkKthi/P
- oumAOuVAftFvGFwxXJb5wA==
-X-Google-Smtp-Source: ABdhPJyH3lufhfX1XMNyJYC7/+LlYLvP6+EB8uzvbQksP2PDthAIkNWPm6H7BCQv4VXYffEHYLcH+Q==
-X-Received: by 2002:a05:6602:1544:: with SMTP id
- h4mr7531945iow.76.1626274393946; 
- Wed, 14 Jul 2021 07:53:13 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.248])
- by smtp.gmail.com with ESMTPSA id q186sm1414370ioq.1.2021.07.14.07.53.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 14 Jul 2021 07:53:13 -0700 (PDT)
-Received: (nullmailer pid 2553523 invoked by uid 1000);
- Wed, 14 Jul 2021 14:53:08 -0000
-Date: Wed, 14 Jul 2021 08:53:08 -0600
-From: Rob Herring <robh@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre <nico@fluxnic.net>,
- Ard Biesheuvel <ardb@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Frank Rowand <frowand.list@gmail.com>, Dave Young <dyoung@redhat.com>,
- Mike Rapoport <rppt@kernel.org>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org, linux-mm@kvack.org,
- linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 10/10] ARM: Parse kdump DT properties
-Message-ID: <20210714145308.GC2441138@robh.at.kernel.org>
-References: <cover.1626266516.git.geert+renesas@glider.be>
- <daaed4fcfe5ad62056cfb6f4ebea026f6b8a99f5.1626266516.git.geert+renesas@glider.be>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mXpNyOyXWMYKpMN1qWv5H0GBm/j+VjKgL00Ru4rlGik=;
+ b=r/AJhribsIw5quJxSyhlcX1otqs+57sIpBr5GqK/5jCb+ZQp4ZN/JRq6e2s/uLoWrg
+ Ht4sZRcpVLp7VB0oCj5AZ/U+Hz62MK3URNYKQPrT57SsmC4r/nTGcuIcP/REHYSr9hBD
+ Ml6c7RmwrJ6fg6IRWmvCKoakCuIJG5jM41NST7kS+niGZDbS1DZGllAtWPfzjJz9GwqO
+ P/mXqjpHNjnnUmHHz9QYRQO+57KR70XL4Bh3cqRMVeEtTVHEH2JlwpzhRk7FxC1vGbnO
+ 5CwOEhRaElTe/M1do/dJJuwoLzqe/MCeEc3jP/4kQvP6tA8X5Wd+PO/x62WgPUH4tywF
+ ZW8Q==
+X-Gm-Message-State: AOAM531tZQ2Af1pxd+smSDXstF2A8997QgBNDKf9sDeLggVWLHJ1WKoh
+ F0xcyT/StFzOHvQbeLR4iOPu6estDy+gk4zrvuI=
+X-Google-Smtp-Source: ABdhPJx19NXVJbqyKQm403NMgC5SnDwF/wFzawtpW0DalX0MU+QDEL3WSaQREI/pqg8Ih19FqAW0fEXwkuwFtNKOqVo=
+X-Received: by 2002:aca:af10:: with SMTP id y16mr5093465oie.12.1626313764133; 
+ Wed, 14 Jul 2021 18:49:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <daaed4fcfe5ad62056cfb6f4ebea026f6b8a99f5.1626266516.git.geert+renesas@glider.be>
+References: <20210701002037.912625-1-drew@beagleboard.org>
+ <20210701002037.912625-3-drew@beagleboard.org>
+In-Reply-To: <20210701002037.912625-3-drew@beagleboard.org>
+From: Ley Foon Tan <lftan.linux@gmail.com>
+Date: Thu, 15 Jul 2021 09:49:12 +0800
+Message-ID: <CAFiDJ5_mSuGx2pWm_LTitGEnScbv+MMbP1+N54CGvH8p8PE2PQ@mail.gmail.com>
+Subject: Re: [RFC PATH 2/2] gpio: starfive-jh7100: Add StarFive JH7100 GPIO
+ driver
+To: Drew Fustini <drew@beagleboard.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Michael Zhu <michael.zhu@starfivetech.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Fu Wei <tekkamanninja@gmail.com>, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ Emil Renner Berthing <kernel@esmil.dk>, Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210714_075317_370376_B9F27478 
-X-CRM114-Status: GOOD (  49.66  )
+X-CRM114-CacheID: sfid-20210714_184926_193982_390B8D91 
+X-CRM114-Status: GOOD (  28.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,199 +101,500 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 14, 2021 at 02:50:20PM +0200, Geert Uytterhoeven wrote:
-> Parse the following DT properties in the crash dump kernel, to provide a
-> modern interface between kexec and the crash dump kernel:
->   - linux,elfcorehdr: ELF core header segment, similar to the
->     "elfcorehdr=" kernel parameter.
->   - linux,usable-memory-range: Usable memory reserved for the crash dump
->     kernel.
->     This makes the memory reservation explicit.  If present, Linux no
->     longer needs to mask the program counter, and rely on the "mem="
->     kernel parameter to obtain the start and size of usable memory.
-> 
-> For backwards compatibility, the traditional method to derive the start
-> of memory is still used if "linux,usable-memory-range" is absent, and
-> the "elfcorehdr=" and "mem=" kernel parameters are still parsed.
-> 
-> Loosely based on the ARM64 version by Akashi Takahiro.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Hi Drew
+
+
+On Thu, Jul 1, 2021 at 8:25 AM Drew Fustini <drew@beagleboard.org> wrote:
+>
+> Add GPIO driver for the StarFive JH7100 SoC [1] used on the
+> BeagleV Starlight JH7100 board [2].
+>
+> [1] https://github.com/starfive-tech/beaglev_doc/
+> [2] https://github.com/beagleboard/beaglev-starlight
+>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+> Signed-off-by: Drew Fustini <drew@beagleboard.org>
 > ---
-> The corresponding patch for kexec-tools is "[PATCH] arm: kdump: Add DT
-> properties to crash dump kernel's DTB", which is still valid:
-> https://lore.kernel.org/linux-arm-kernel/20200902154129.6358-1-geert+renesas@glider.be/
-> 
-> v4:
->   - Remove references to architectures in chosen.txt, to avoid having to
->     change this again when more architectures copy kdump support,
->   - Remove the architecture-specific code for parsing
->     "linux,usable-memory-range" and "linux,elfcorehdr", as the FDT core
->     code now takes care of this,
->   - Move chosen.txt change to patch changing the FDT core,
->   - Use IS_ENABLED(CONFIG_CRASH_DUMP) instead of #ifdef,
-> 
-> v3:
->   - Rebase on top of accepted solution for DTB memory information
->     handling, which is part of v5.12-rc1,
-> 
-> v2:
->   - Rebase on top of reworked DTB memory information handling.
-> ---
->  .../arm/boot/compressed/fdt_check_mem_start.c | 48 ++++++++++++++++---
->  arch/arm/mm/init.c                            | 30 ++++++++++++
->  2 files changed, 72 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm/boot/compressed/fdt_check_mem_start.c b/arch/arm/boot/compressed/fdt_check_mem_start.c
-> index 62450d824c3ca180..9291a2661bdfe57f 100644
-> --- a/arch/arm/boot/compressed/fdt_check_mem_start.c
-> +++ b/arch/arm/boot/compressed/fdt_check_mem_start.c
-> @@ -55,16 +55,17 @@ static uint64_t get_val(const fdt32_t *cells, uint32_t ncells)
->   * DTB, and, if out-of-range, replace it by the real start address.
->   * To preserve backwards compatibility (systems reserving a block of memory
->   * at the start of physical memory, kdump, ...), the traditional method is
-> - * always used if it yields a valid address.
-> + * used if it yields a valid address, unless the "linux,usable-memory-range"
-> + * property is present.
->   *
->   * Return value: start address of physical memory to use
->   */
->  uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->  {
-> -	uint32_t addr_cells, size_cells, base;
-> +	uint32_t addr_cells, size_cells, usable_base, base;
->  	uint32_t fdt_mem_start = 0xffffffff;
-> -	const fdt32_t *reg, *endp;
-> -	uint64_t size, end;
-> +	const fdt32_t *usable, *reg, *endp;
-> +	uint64_t size, usable_end, end;
->  	const char *type;
->  	int offset, len;
->  
-> @@ -80,6 +81,27 @@ uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->  	if (addr_cells > 2 || size_cells > 2)
->  		return mem_start;
->  
-> +	/*
-> +	 * Usable memory in case of a crash dump kernel
-> +	 * This property describes a limitation: memory within this range is
-> +	 * only valid when also described through another mechanism
-> +	 */
-> +	usable = get_prop(fdt, "/chosen", "linux,usable-memory-range",
-> +			  (addr_cells + size_cells) * sizeof(fdt32_t));
-> +	if (usable) {
-> +		size = get_val(usable + addr_cells, size_cells);
-> +		if (!size)
-> +			return mem_start;
-> +
-> +		if (addr_cells > 1 && fdt32_ld(usable)) {
-> +			/* Outside 32-bit address space */
-> +			return mem_start;
-> +		}
-> +
-> +		usable_base = fdt32_ld(usable + addr_cells - 1);
-> +		usable_end = usable_base + size;
-> +	}
-> +
->  	/* Walk all memory nodes and regions */
->  	for (offset = fdt_next_node(fdt, -1, NULL); offset >= 0;
->  	     offset = fdt_next_node(fdt, offset, NULL)) {
-> @@ -107,7 +129,20 @@ uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->  
->  			base = fdt32_ld(reg + addr_cells - 1);
->  			end = base + size;
-> -			if (mem_start >= base && mem_start < end) {
-> +			if (usable) {
-> +				/*
-> +				 * Clip to usable range, which takes precedence
-> +				 * over mem_start
-> +				 */
-> +				if (base < usable_base)
-> +					base = usable_base;
-> +
-> +				if (end > usable_end)
-> +					end = usable_end;
-> +
-> +				if (end <= base)
-> +					continue;
-> +			} else if (mem_start >= base && mem_start < end) {
->  				/* Calculated address is valid, use it */
->  				return mem_start;
->  			}
-> @@ -123,7 +158,8 @@ uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->  	}
->  
->  	/*
-> -	 * The calculated address is not usable.
-> +	 * The calculated address is not usable, or was overridden by the
-> +	 * "linux,usable-memory-range" property.
->  	 * Use the lowest usable physical memory address from the DTB instead,
->  	 * and make sure this is a multiple of 2 MiB for phys/virt patching.
->  	 */
-> diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-> index 6162a070a4104a26..dfaee199554dda97 100644
-> --- a/arch/arm/mm/init.c
-> +++ b/arch/arm/mm/init.c
-> @@ -4,6 +4,7 @@
->   *
->   *  Copyright (C) 1995-2005 Russell King
->   */
-> +#include <linux/crash_dump.h>
->  #include <linux/kernel.h>
->  #include <linux/errno.h>
->  #include <linux/swap.h>
-> @@ -221,8 +222,35 @@ void check_cpu_icache_size(int cpuid)
->  }
->  #endif
->  
+>  MAINTAINERS                         |   8 +
+>  drivers/gpio/Kconfig                |   8 +
+>  drivers/gpio/Makefile               |   1 +
+>  drivers/gpio/gpio-starfive-jh7100.c | 425 ++++++++++++++++++++++++++++
+>  4 files changed, 442 insertions(+)
+>  create mode 100644 drivers/gpio/gpio-starfive-jh7100.c
+
+[...]
+
+> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
+> index d7c81e1611a4..939922eaf5f3 100644
+> --- a/drivers/gpio/Makefile
+> +++ b/drivers/gpio/Makefile
+> @@ -132,6 +132,7 @@ obj-$(CONFIG_GPIO_SAMA5D2_PIOBU)    += gpio-sama5d2-piobu.o
+>  obj-$(CONFIG_GPIO_SCH311X)             += gpio-sch311x.o
+>  obj-$(CONFIG_GPIO_SCH)                 += gpio-sch.o
+>  obj-$(CONFIG_GPIO_SIFIVE)              += gpio-sifive.o
+> +obj-$(CONFIG_GPIO_STARFIVE_JH7100)     += gpio-starfive-jh7100.o
+Sort in alphabetical order.
+
+>  obj-$(CONFIG_GPIO_SIOX)                        += gpio-siox.o
+>  obj-$(CONFIG_GPIO_SL28CPLD)            += gpio-sl28cpld.o
+>  obj-$(CONFIG_GPIO_SODAVILLE)           += gpio-sodaville.o
+> diff --git a/drivers/gpio/gpio-starfive-jh7100.c b/drivers/gpio/gpio-starfive-jh7100.c
+> new file mode 100644
+> index 000000000000..b94ebfe9eaf7
+> --- /dev/null
+> +++ b/drivers/gpio/gpio-starfive-jh7100.c
+> @@ -0,0 +1,425 @@
+> +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * reserve_elfcorehdr() - reserves memory for elf core header
+> + * GPIO driver for StarFive JH7100 SoC
 > + *
-> + * This function reserves the memory occupied by an elf core header
-> + * described in the device tree. This region contains all the
-> + * information about primary kernel's core image and is used by a dump
-> + * capture kernel to access the system memory on primary kernel.
+> + * Copyright (C) 2020 Shanghai StarFive Technology Co., Ltd.
 > + */
-> +static void __init reserve_elfcorehdr(void)
+> +
+> +#include <linux/module.h>
+> +#include <linux/gpio/driver.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spinlock.h>
+Include files sort in alphabetical orde too.
+
+> +
+> +/*
+> + * refer to Section 12. GPIO Registers in JH7100 datasheet:
+> + * https://github.com/starfive-tech/beaglev_doc
+> + */
+> +
+> +/* global enable */
+> +#define GPIO_EN                0x0
+> +
+> +/* interrupt type */
+> +#define GPIO_IS_LOW    0x10
+> +#define GPIO_IS_HIGH   0x14
+> +
+> +/* edge trigger interrupt type */
+> +#define GPIO_IBE_LOW   0x18
+> +#define GPIO_IBE_HIGH  0x1c
+> +
+> +/* edge trigger interrupt polarity */
+> +#define GPIO_IEV_LOW   0x20
+> +#define GPIO_IEV_HIGH  0x24
+> +
+> +/* interrupt max */
+> +#define GPIO_IE_LOW    0x28
+> +#define GPIO_IE_HIGH   0x2c
+> +
+> +/* clear edge-triggered interrupt */
+> +#define GPIO_IC_LOW    0x30
+> +#define GPIO_IC_HIGH   0x34
+> +
+> +/* edge-triggered interrupt status (read-only) */
+> +#define GPIO_RIS_LOW   0x38
+> +#define GPIO_RIS_HIGH  0x3c
+> +
+> +/* interrupt status after masking (read-only) */
+> +#define GPIO_MIS_LOW   0x40
+> +#define GPIO_MIS_HIGH  0x44
+> +
+> +/* data value of gpio */
+> +#define GPIO_DIN_LOW   0x48
+> +#define GPIO_DIN_HIGH  0x4c
+> +
+> +/* GPIO0_DOUT_CFG is 0x50, GPIOn_DOUT_CFG is 0x50+(n*8) */
+> +#define GPIO_DOUT_X_REG        0x50
+> +
+> +/* GPIO0_DOEN_CFG is 0x54, GPIOn_DOEN_CFG is 0x54+(n*8) */
+> +#define GPIO_DOEN_X_REG        0x54
+> +
+> +#define MAX_GPIO        64
+> +
+> +struct starfive_gpio {
+> +       raw_spinlock_t          lock;
+> +       void __iomem            *base;
+> +       struct gpio_chip        gc;
+> +       unsigned long           enabled;
+> +       unsigned int            trigger[MAX_GPIO];
+> +       unsigned int            irq_parent[MAX_GPIO];
+> +};
+> +
+> +static int starfive_direction_input(struct gpio_chip *gc, unsigned int offset)
 > +{
-> +	if (!IS_ENABLED(CONFIG_CRASH_DUMP) || !elfcorehdr_size)
-> +		return;
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       unsigned long flags;
 > +
-> +	if (memblock_is_region_reserved(elfcorehdr_addr, elfcorehdr_size)) {
-> +		pr_warn("elfcorehdr is overlapped\n");
-> +		return;
-> +	}
+> +       if (offset >= gc->ngpio)
+> +               return -EINVAL;
 > +
-> +	memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
-
-Can't this be in common code?
-
+> +       raw_spin_lock_irqsave(&chip->lock, flags);
+> +       writel_relaxed(0x1, chip->base + GPIO_DOEN_X_REG + offset * 8);
+> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
 > +
-> +	pr_info("Reserving %llu KiB of memory at 0x%llx for elfcorehdr\n",
-> +		elfcorehdr_size >> 10, elfcorehdr_addr);
+> +       return 0;
 > +}
 > +
->  void __init arm_memblock_init(const struct machine_desc *mdesc)
->  {
-> +	/* Handle linux,usable-memory-range property */
-> +	memblock_cap_memory_range(cap_mem_addr, cap_mem_size);
+> +static int starfive_direction_output(struct gpio_chip *gc, unsigned int offset, int value)
+> +{
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       unsigned long flags;
 > +
->  	/* Register the kernel text, kernel data and initrd with memblock. */
->  	memblock_reserve(__pa(KERNEL_START), KERNEL_END - KERNEL_START);
->  
-> @@ -236,6 +264,8 @@ void __init arm_memblock_init(const struct machine_desc *mdesc)
->  
->  	early_init_fdt_scan_reserved_mem();
->  
-> +	reserve_elfcorehdr();
+> +       if (offset >= gc->ngpio)
+> +               return -EINVAL;
 > +
->  	/* reserve memory for DMA contiguous allocations */
->  	dma_contiguous_reserve(arm_dma_limit);
->  
-> -- 
-> 2.25.1
-> 
-> 
+> +       raw_spin_lock_irqsave(&chip->lock, flags);
+> +       writel_relaxed(0x0, chip->base + GPIO_DOEN_X_REG + offset * 8);
+> +       writel_relaxed(value, chip->base + GPIO_DOUT_X_REG + offset * 8);
+> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
+> +
+> +       return 0;
+> +}
+> +
+> +static int starfive_get_direction(struct gpio_chip *gc, unsigned int offset)
+> +{
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +
+> +       if (offset >= gc->ngpio)
+> +               return -EINVAL;
+> +
+> +       return readl_relaxed(chip->base + GPIO_DOEN_X_REG + offset * 8) & 0x1;
+> +}
+> +
+> +static int starfive_get_value(struct gpio_chip *gc, unsigned int offset)
+> +{
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       int value;
+> +
+> +       if (offset >= gc->ngpio)
+> +               return -EINVAL;
+> +
+> +       if (offset < 32) {
+> +               value = readl_relaxed(chip->base + GPIO_DIN_LOW);
+> +               value = (value >> offset) & 0x1;
+> +       } else {
+> +               value = readl_relaxed(chip->base + GPIO_DIN_HIGH);
+> +               value = (value >> (offset - 32)) & 0x1;
+> +       }
+> +
+> +       return value;
+> +}
+> +
+> +static void starfive_set_value(struct gpio_chip *gc, unsigned int offset, int value)
+> +{
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       unsigned long flags;
+> +
+> +       if (offset >= gc->ngpio)
+> +               return;
+> +
+> +       raw_spin_lock_irqsave(&chip->lock, flags);
+> +       writel_relaxed(value, chip->base + GPIO_DOUT_X_REG + offset * 8);
+> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
+> +}
+> +
+> +static void starfive_set_ie(struct starfive_gpio *chip, int offset)
+> +{
+> +       unsigned long flags;
+> +       int old_value, new_value;
+> +       int reg_offset, index;
+> +
+> +       if (offset < 32) {
+> +               reg_offset = 0;
+> +               index = offset;
+> +       } else {
+> +               reg_offset = 4;
+> +               index = offset - 32;
+> +       }
+Quite a number of places do this checking/calculation, can move this
+to a helper function.
+
+> +       raw_spin_lock_irqsave(&chip->lock, flags);
+> +       old_value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
+> +       new_value = old_value | (1 << index);
+> +       writel_relaxed(new_value, chip->base + GPIO_IE_LOW + reg_offset);
+> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
+> +}
+> +
+> +static int starfive_irq_set_type(struct irq_data *d, unsigned int trigger)
+> +{
+> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       int offset = irqd_to_hwirq(d);
+> +       unsigned int reg_is, reg_ibe, reg_iev;
+> +       int reg_offset, index;
+> +
+> +       if (offset < 0 || offset >= gc->ngpio)
+> +               return -EINVAL;
+> +
+> +       if (offset < 32) {
+> +               reg_offset = 0;
+> +               index = offset;
+> +       } else {
+> +               reg_offset = 4;
+> +               index = offset - 32;
+> +       }
+> +
+> +       reg_is = readl_relaxed(chip->base + GPIO_IS_LOW + reg_offset);
+> +       reg_ibe = readl_relaxed(chip->base + GPIO_IBE_LOW + reg_offset);
+> +       reg_iev = readl_relaxed(chip->base + GPIO_IEV_LOW + reg_offset);
+> +
+> +       switch (trigger) {
+> +       case IRQ_TYPE_LEVEL_HIGH:
+> +               reg_is  &= ~(1 << index);
+> +               reg_ibe &= ~(1 << index);
+> +               reg_iev |= (1 << index);
+> +               break;
+> +       case IRQ_TYPE_LEVEL_LOW:
+> +               reg_is  &= ~(1 << index);
+> +               reg_ibe &= ~(1 << index);
+> +               reg_iev &= (1 << index);
+> +               break;
+> +       case IRQ_TYPE_EDGE_BOTH:
+> +               reg_is  |= ~(1 << index);
+> +               reg_ibe |= ~(1 << index);
+> +               // no need to set edge type when both
+Use /**/ comment style.
+
+> +               break;
+> +       case IRQ_TYPE_EDGE_RISING:
+> +               reg_is  |= ~(1 << index);
+> +               reg_ibe &= ~(1 << index);
+> +               reg_iev |= (1 << index);
+> +               break;
+> +       case IRQ_TYPE_EDGE_FALLING:
+> +               reg_is  |= ~(1 << index);
+> +               reg_ibe &= ~(1 << index);
+> +               reg_iev &= (1 << index);
+> +               break;
+> +       }
+> +
+> +       writel_relaxed(reg_is, chip->base + GPIO_IS_LOW + reg_offset);
+> +       writel_relaxed(reg_ibe, chip->base + GPIO_IBE_LOW + reg_offset);
+> +       writel_relaxed(reg_iev, chip->base + GPIO_IEV_LOW + reg_offset);
+> +       chip->trigger[offset] = trigger;
+> +       starfive_set_ie(chip, offset);
+> +       return 0;
+> +}
+> +
+> +/* chained_irq_{enter,exit} already mask the parent */
+> +static void starfive_irq_mask(struct irq_data *d)
+> +{
+> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       unsigned int value;
+> +       int offset = irqd_to_hwirq(d);
+> +       int reg_offset, index;
+> +
+> +       if (offset < 0 || offset >= gc->ngpio)
+> +               return;
+> +
+> +       if (offset < 32) {
+> +               reg_offset = 0;
+> +               index = offset;
+> +       } else {
+> +               reg_offset = 4;
+> +               index = offset - 32;
+> +       }
+> +
+> +       value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
+> +       value &= ~(0x1 << index);
+> +       writel_relaxed(value, chip->base + GPIO_IE_LOW + reg_offset);
+> +}
+> +
+> +static void starfive_irq_unmask(struct irq_data *d)
+> +{
+> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       unsigned int value;
+> +       int offset = irqd_to_hwirq(d);
+> +       int reg_offset, index;
+> +
+> +       if (offset < 0 || offset >= gc->ngpio)
+> +               return;
+> +
+> +       if (offset < 32) {
+> +               reg_offset = 0;
+> +               index = offset;
+> +       } else {
+> +               reg_offset = 4;
+> +               index = offset - 32;
+> +       }
+> +
+> +       value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
+> +       value |= (0x1 << index);
+> +       writel_relaxed(value, chip->base + GPIO_IE_LOW + reg_offset);
+> +}
+> +
+> +static void starfive_irq_enable(struct irq_data *d)
+> +{
+> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       int offset = irqd_to_hwirq(d);
+> +
+> +       starfive_irq_unmask(d);
+> +       assign_bit(offset, &chip->enabled, 1);
+> +}
+> +
+> +static void starfive_irq_disable(struct irq_data *d)
+> +{
+> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
+> +       int offset = irqd_to_hwirq(d) % MAX_GPIO; // must not fail
+> +
+> +       assign_bit(offset, &chip->enabled, 0);
+> +       starfive_set_ie(chip, offset);
+> +}
+> +
+> +static struct irq_chip starfive_irqchip = {
+> +       .name           = "starfive-jh7100-gpio",
+> +       .irq_set_type   = starfive_irq_set_type,
+> +       .irq_mask       = starfive_irq_mask,
+> +       .irq_unmask     = starfive_irq_unmask,
+> +       .irq_enable     = starfive_irq_enable,
+> +       .irq_disable    = starfive_irq_disable,
+> +};
+> +
+> +static irqreturn_t starfive_irq_handler(int irq, void *gc)
+> +{
+> +       int offset;
+> +       int reg_offset, index;
+> +       unsigned int value;
+> +       unsigned long flags;
+> +       struct starfive_gpio *chip = gc;
+> +
+> +       for (offset = 0; offset < MAX_GPIO; offset++) {
+> +               if (offset < 32) {
+> +                       reg_offset = 0;
+> +                       index = offset;
+> +               } else {
+> +                       reg_offset = 4;
+> +                       index = offset - 32;
+> +               }
+> +
+> +               raw_spin_lock_irqsave(&chip->lock, flags);
+> +               value = readl_relaxed(chip->base + GPIO_MIS_LOW + reg_offset);
+> +               if (value & BIT(index))
+> +                       writel_relaxed(BIT(index), chip->base + GPIO_IC_LOW +
+> +                                       reg_offset);
+> +               raw_spin_unlock_irqrestore(&chip->lock, flags);
+> +       }
+> +
+> +       return IRQ_HANDLED;
+> +}
+> +
+> +static int starfive_gpio_probe(struct platform_device *pdev)
+> +{
+> +       struct device *dev = &pdev->dev;
+> +       struct starfive_gpio *chip;
+> +       struct gpio_irq_chip *girq;
+> +       struct resource *res;
+> +       int irq, ret, ngpio;
+> +
+> +       chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
+> +       if (!chip)
+> +               return -ENOMEM;
+> +
+> +       res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +       chip->base = devm_ioremap_resource(dev, res);
+Can use device managed function devm_
+devm_platform_ioremap_resource(), then combile these 2 functions into
+1.
+
+> +       if (IS_ERR(chip->base)) {
+> +               dev_err(dev, "failed to allocate device memory\n");
+Perhaps change "allocate" to get or ioremap.
+
+> +               return PTR_ERR(chip->base);
+> +       }
+> +
+> +       irq = platform_get_irq(pdev, 0);
+> +       if (irq < 0) {
+> +               dev_err(dev, "Cannot get IRQ resource\n");
+> +               return irq;
+> +       }
+> +
+> +       raw_spin_lock_init(&chip->lock);
+> +       chip->gc.direction_input = starfive_direction_input;
+> +       chip->gc.direction_output = starfive_direction_output;
+> +       chip->gc.get_direction = starfive_get_direction;
+> +       chip->gc.get = starfive_get_value;
+> +       chip->gc.set = starfive_set_value;
+> +       chip->gc.base = 0;
+> +       chip->gc.ngpio = MAX_GPIO;
+> +       chip->gc.label = dev_name(dev);
+> +       chip->gc.parent = dev;
+> +       chip->gc.owner = THIS_MODULE;
+> +
+> +       girq = &chip->gc.irq;
+> +       girq->chip = &starfive_irqchip;
+> +       girq->parent_handler = NULL;
+> +       girq->num_parents = 0;
+> +       girq->parents = NULL;
+> +       girq->default_type = IRQ_TYPE_NONE;
+> +       girq->handler = handle_simple_irq;
+> +
+> +       ret = gpiochip_add_data(&chip->gc, chip);
+Use devm_version, devm_gpiochip_add_data().
+
+> +       if (ret) {
+> +               dev_err(dev, "gpiochip_add_data ret=%d!\n", ret);
+> +               return ret;
+> +       }
+> +
+> +       /* Disable all GPIO interrupts before enabling parent interrupts */
+Clear any pending interrupts as well when initialization.
+
+> +       iowrite32(0, chip->base + GPIO_IE_HIGH);
+> +       iowrite32(0, chip->base + GPIO_IE_LOW);
+> +       chip->enabled = 0;
+> +
+> +       ret = devm_request_irq(dev, irq, starfive_irq_handler, IRQF_SHARED,
+> +                              dev_name(dev), chip);
+> +       if (ret) {
+> +               dev_err(dev, "IRQ handler registering failed (%d)\n", ret);
+> +               return ret;
+> +       }
+> +
+> +       writel_relaxed(1, chip->base + GPIO_EN);
+> +
+> +       dev_info(dev, "StarFive GPIO chip registered %d GPIOs\n", ngpio);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct of_device_id starfive_gpio_match[] = {
+> +       { .compatible = "starfive,jh7100-gpio", },
+> +       { },
+> +};
+> +
+> +static struct platform_driver starfive_gpio_driver = {
+> +       .probe  = starfive_gpio_probe,
+> +       .driver = {
+> +               .name = "gpio_starfive_jh7100",
+> +               .of_match_table = of_match_ptr(starfive_gpio_match),
+> +       },
+> +};
+> +
+> +static int __init starfive_gpio_init(void)
+> +{
+> +       return platform_driver_register(&starfive_gpio_driver);
+> +}
+> +subsys_initcall(starfive_gpio_init);
+> +
+> +static void __exit starfive_gpio_exit(void)
+> +{
+> +       platform_driver_unregister(&starfive_gpio_driver);
+Do you expect GPIO driver can be removed?
+The driver needs proper removal, provides .remove callback.
+Example, call gpiochip_remove() , disable interrupt when removing.
+
+> +}
+> +module_exit(starfive_gpio_exit);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("Huan Feng <huan.feng@starfivetech.com>");
+> +MODULE_DESCRIPTION("StarFive JH7100 GPIO driver");
+> --
+
+Regards
+Ley Foon
 
 _______________________________________________
 linux-riscv mailing list
