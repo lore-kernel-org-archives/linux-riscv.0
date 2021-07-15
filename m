@@ -2,89 +2,99 @@ Return-Path: <SRS0=TeVA=MH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.3 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 297F6C12002
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 01:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 05A9CC07E96
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 06:20:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D19A2613B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 01:50:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D19A2613B4
+	by mail.kernel.org (Postfix) with ESMTPS id B66A961358
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jul 2021 06:20:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B66A961358
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s9DnyTlIqhgJ//ugtZl3WsTIDvHFAfVrZ/P05qs25Do=; b=JVad8qU28mb9aO
-	nfG7JzDAQlPMd+H9xHRmBrj0rnQbePvt1fCC4P25tClFlT99HbKE9IrcEe8v+Klqpf1IsxcFPdewc
-	KHKZYu8vAgapWQdRIG6sRqWvz8DCICCKPBROYRC7OBWt4ExD55vGkm2lAx5WigLfYr+nu2Iu7n2iB
-	nvRJjKDzYy0gWlARuVnaJyM3zFvXeYZu33S3cZXxb29+RuAEhiSuanfREqKURgTyhklaO22mwoOf0
-	icN8LtGiHNUCcE/xUBkFQP4nvgQ6q3zOI0k4jvqz5esnSf6SLLSgBFiqT5+3JbsyJ9Q25lK4RaK4J
-	4dfata3/uFq4UQJA30vw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Cc:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=K5DR2cEYkr+tJT7wIzacL4yIVuiqzTs13tSe5pBl3Ow=; b=XMTGpR1uJSCKZkUfn3Vo/nD40s
+	Q3EjObcyrbLlM39mz7wUqhYlNuIGoAQDBDnQU1Qw1xDu9WNV2eMYz2NYdxwVUpT3N706V3wEptfwr
+	FqHdjBo8z4BeSgNdG8NF0pPZA8Eb9t3RpqJl8c2L/HQZBqDUTSt7AvkRkNz+a4hYsbYEI9fWIlRnU
+	EURm07IHoaItGPdN0LSzGSFJ/9/TV4c73ckGzK0iE1Z70AtydXu7upl7Q/UyHvy5KuJwPmNJ4Rh6v
+	iNQdiLcZYOCQj8bFjt4/D+3Qb08GZuWQUzATSHGhmovNyW43n1Fsrs4ZnWyt2iHdnUTKo1/l343v1
+	DWSvr6PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m3qVK-00GpAS-QX; Thu, 15 Jul 2021 01:49:34 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1m3ujE-00HF4r-80; Thu, 15 Jul 2021 06:20:12 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m3qVC-00Gp9g-2m
- for linux-riscv@lists.infradead.org; Thu, 15 Jul 2021 01:49:28 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id t143so4606767oie.8
- for <linux-riscv@lists.infradead.org>; Wed, 14 Jul 2021 18:49:24 -0700 (PDT)
+ id 1m3ujB-00HF4P-C4
+ for linux-riscv@lists.infradead.org; Thu, 15 Jul 2021 06:20:10 +0000
+Received: by mail-pl1-x630.google.com with SMTP id h1so2649774plf.6
+ for <linux-riscv@lists.infradead.org>; Wed, 14 Jul 2021 23:20:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=mXpNyOyXWMYKpMN1qWv5H0GBm/j+VjKgL00Ru4rlGik=;
- b=Vc6DIqrUCFihVJxiYv2s0sz0UM6BSHgSbKh+V+vu0cDicRCA9cyGX42cXe78h983p6
- OsFkmS6vvZnDdZxQ1H04n+cpYA38SAVzew2uMcC1rM8zogJsPG9PxyAmT5w7TMrvDJRt
- 4OipRVeqhCpcqeGQDrKyDUgFLFdLHIGLSSJIylvoKm0Z1F4nhum3VXdUPg7cdTgFXhAz
- qQIpUAIgTwnWkP+yiGD9hLeTIh3CvcBSTSOZ47GloE1MAqGl9UWaOycIiKBQ24y4my6o
- DXxaj3a6Aaru9Vp9k12q3dhw8W9aMIQ3JTAF5R5TaQmo7V1xGOt+hi4K8H6K/tPehurr
- fUNA==
+ h=cc:subject:to:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=3KEYRV18inQTvxQEnqR/XVe6/C5rX+tc+VWpSwxHYPA=;
+ b=VKLtGA+Eu/71OhbovI75hGlNKv6anN9s84itIzsfFEminUCEj7EMW+9LuLjH4s8qyl
+ qbPz62Qkv/52TuLe0OxHtGpTeN5XCIlLBF5ZfnVzAyox8b8uvekArNjyzf4CFoYoVL16
+ VwtxPXcMa4pUGx5cjrofYbSvsc/QYbYXFUnZne9Q3kA5dPWAXC+UodCttN/Dl6KFh3yx
+ xy8kJMhdRkAZobISbgNz3c9Vl3M5ujsTlDb0s11C3mfnI90HlRcU4y67bTr4hvgUJaLB
+ 3aIgzEjl/18UtraL0xRGv98D2/fDEpVb+yo817YdKlcnQjqCwjr+vhIwtsE25BM085mL
+ LONQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=mXpNyOyXWMYKpMN1qWv5H0GBm/j+VjKgL00Ru4rlGik=;
- b=r/AJhribsIw5quJxSyhlcX1otqs+57sIpBr5GqK/5jCb+ZQp4ZN/JRq6e2s/uLoWrg
- Ht4sZRcpVLp7VB0oCj5AZ/U+Hz62MK3URNYKQPrT57SsmC4r/nTGcuIcP/REHYSr9hBD
- Ml6c7RmwrJ6fg6IRWmvCKoakCuIJG5jM41NST7kS+niGZDbS1DZGllAtWPfzjJz9GwqO
- P/mXqjpHNjnnUmHHz9QYRQO+57KR70XL4Bh3cqRMVeEtTVHEH2JlwpzhRk7FxC1vGbnO
- 5CwOEhRaElTe/M1do/dJJuwoLzqe/MCeEc3jP/4kQvP6tA8X5Wd+PO/x62WgPUH4tywF
- ZW8Q==
-X-Gm-Message-State: AOAM531tZQ2Af1pxd+smSDXstF2A8997QgBNDKf9sDeLggVWLHJ1WKoh
- F0xcyT/StFzOHvQbeLR4iOPu6estDy+gk4zrvuI=
-X-Google-Smtp-Source: ABdhPJx19NXVJbqyKQm403NMgC5SnDwF/wFzawtpW0DalX0MU+QDEL3WSaQREI/pqg8Ih19FqAW0fEXwkuwFtNKOqVo=
-X-Received: by 2002:aca:af10:: with SMTP id y16mr5093465oie.12.1626313764133; 
- Wed, 14 Jul 2021 18:49:24 -0700 (PDT)
+ h=x-gm-message-state:cc:subject:to:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=3KEYRV18inQTvxQEnqR/XVe6/C5rX+tc+VWpSwxHYPA=;
+ b=ao63f25aw+8FDffMyQ/srW+d0nv+M05EqAyQZvDw23cSeZHJS61v+cA8z8N1UE/l4G
+ 67a79U8BLr0g7KSo1f9cnt2Q8bUphGy/CL2NzCYX7j0xs0OnEVFK6/0JK32Uq8K0F4uE
+ IM2OTLASAqX+igcH6FA4PiZz5d6URGw0FdFk/pXsD6P8FZDtIadKWk3T6AdtyDEbqrW0
+ e+tIC2PkiQeFp8Mj8znR9E2sNZ6UJLJ4+0bEZojEhg4aZgT6/Jc0tNT3ESRZVRR5UOgZ
+ RhNz3VXbXf/9ezDLdg64j2geNP/H2+sciHQA7xX4TNbXPVLpnRJtK0TLmaYkbaT+50h7
+ fiUA==
+X-Gm-Message-State: AOAM530aljlWXTkzsz8vEx2BERtJDoSoMzu3zVQLKYNh8cxP+0MjiFWa
+ 3wInVDWgbauj2Q9+fwJLwQ4=
+X-Google-Smtp-Source: ABdhPJyqZ7oJFlKXoHbeQ6MasTn8ZV58Ycg6hIwJbWFpqbmbcmtq3SDYKcAMtWPnMxOr005WRz7Lzg==
+X-Received: by 2002:a17:90a:3e0f:: with SMTP id
+ j15mr2678681pjc.178.1626330006434; 
+ Wed, 14 Jul 2021 23:20:06 -0700 (PDT)
+Received: from [192.168.1.123] (M106072041033.v4.enabler.ne.jp. [106.72.41.33])
+ by smtp.gmail.com with ESMTPSA id u21sm4937658pfh.163.2021.07.14.23.20.04
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 14 Jul 2021 23:20:05 -0700 (PDT)
+Cc: akira.tsukamoto@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/1] riscv: __asm_copy_to-from_user: Optimize unaligned
+ memory access and pipeline stall
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Guenter Roeck <linux@roeck-us.net>
+References: <3e1dbea4-3b0f-de32-5447-2e23c6d4652a@gmail.com>
+ <60c1f087-1e8b-8f22-7d25-86f5f3dcee3f@gmail.com>
+ <20210710014915.GA149706@roeck-us.net>
+ <CAMuHMdWrrP37Kfp4yC8G5f6SvMtD6u_=JkqX-Nd97FS_mayYWQ@mail.gmail.com>
+From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
+Message-ID: <f0d06d39-3dc8-fb10-4d37-a75ef866cdc8@gmail.com>
+Date: Thu, 15 Jul 2021 15:20:03 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
 MIME-Version: 1.0
-References: <20210701002037.912625-1-drew@beagleboard.org>
- <20210701002037.912625-3-drew@beagleboard.org>
-In-Reply-To: <20210701002037.912625-3-drew@beagleboard.org>
-From: Ley Foon Tan <lftan.linux@gmail.com>
-Date: Thu, 15 Jul 2021 09:49:12 +0800
-Message-ID: <CAFiDJ5_mSuGx2pWm_LTitGEnScbv+MMbP1+N54CGvH8p8PE2PQ@mail.gmail.com>
-Subject: Re: [RFC PATH 2/2] gpio: starfive-jh7100: Add StarFive JH7100 GPIO
- driver
-To: Drew Fustini <drew@beagleboard.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Michael Zhu <michael.zhu@starfivetech.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Fu Wei <tekkamanninja@gmail.com>, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Emil Renner Berthing <kernel@esmil.dk>, Huan Feng <huan.feng@starfivetech.com>
+In-Reply-To: <CAMuHMdWrrP37Kfp4yC8G5f6SvMtD6u_=JkqX-Nd97FS_mayYWQ@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210714_184926_193982_390B8D91 
-X-CRM114-Status: GOOD (  28.64  )
+X-CRM114-CacheID: sfid-20210714_232009_478415_BF0AF8A8 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,507 +106,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew
-
-
-On Thu, Jul 1, 2021 at 8:25 AM Drew Fustini <drew@beagleboard.org> wrote:
->
-> Add GPIO driver for the StarFive JH7100 SoC [1] used on the
-> BeagleV Starlight JH7100 board [2].
->
-> [1] https://github.com/starfive-tech/beaglev_doc/
-> [2] https://github.com/beagleboard/beaglev-starlight
->
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
-> Signed-off-by: Drew Fustini <drew@beagleboard.org>
-> ---
->  MAINTAINERS                         |   8 +
->  drivers/gpio/Kconfig                |   8 +
->  drivers/gpio/Makefile               |   1 +
->  drivers/gpio/gpio-starfive-jh7100.c | 425 ++++++++++++++++++++++++++++
->  4 files changed, 442 insertions(+)
->  create mode 100644 drivers/gpio/gpio-starfive-jh7100.c
-
-[...]
-
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index d7c81e1611a4..939922eaf5f3 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -132,6 +132,7 @@ obj-$(CONFIG_GPIO_SAMA5D2_PIOBU)    += gpio-sama5d2-piobu.o
->  obj-$(CONFIG_GPIO_SCH311X)             += gpio-sch311x.o
->  obj-$(CONFIG_GPIO_SCH)                 += gpio-sch.o
->  obj-$(CONFIG_GPIO_SIFIVE)              += gpio-sifive.o
-> +obj-$(CONFIG_GPIO_STARFIVE_JH7100)     += gpio-starfive-jh7100.o
-Sort in alphabetical order.
-
->  obj-$(CONFIG_GPIO_SIOX)                        += gpio-siox.o
->  obj-$(CONFIG_GPIO_SL28CPLD)            += gpio-sl28cpld.o
->  obj-$(CONFIG_GPIO_SODAVILLE)           += gpio-sodaville.o
-> diff --git a/drivers/gpio/gpio-starfive-jh7100.c b/drivers/gpio/gpio-starfive-jh7100.c
-> new file mode 100644
-> index 000000000000..b94ebfe9eaf7
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-starfive-jh7100.c
-> @@ -0,0 +1,425 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * GPIO driver for StarFive JH7100 SoC
-> + *
-> + * Copyright (C) 2020 Shanghai StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/spinlock.h>
-Include files sort in alphabetical orde too.
-
-> +
-> +/*
-> + * refer to Section 12. GPIO Registers in JH7100 datasheet:
-> + * https://github.com/starfive-tech/beaglev_doc
-> + */
-> +
-> +/* global enable */
-> +#define GPIO_EN                0x0
-> +
-> +/* interrupt type */
-> +#define GPIO_IS_LOW    0x10
-> +#define GPIO_IS_HIGH   0x14
-> +
-> +/* edge trigger interrupt type */
-> +#define GPIO_IBE_LOW   0x18
-> +#define GPIO_IBE_HIGH  0x1c
-> +
-> +/* edge trigger interrupt polarity */
-> +#define GPIO_IEV_LOW   0x20
-> +#define GPIO_IEV_HIGH  0x24
-> +
-> +/* interrupt max */
-> +#define GPIO_IE_LOW    0x28
-> +#define GPIO_IE_HIGH   0x2c
-> +
-> +/* clear edge-triggered interrupt */
-> +#define GPIO_IC_LOW    0x30
-> +#define GPIO_IC_HIGH   0x34
-> +
-> +/* edge-triggered interrupt status (read-only) */
-> +#define GPIO_RIS_LOW   0x38
-> +#define GPIO_RIS_HIGH  0x3c
-> +
-> +/* interrupt status after masking (read-only) */
-> +#define GPIO_MIS_LOW   0x40
-> +#define GPIO_MIS_HIGH  0x44
-> +
-> +/* data value of gpio */
-> +#define GPIO_DIN_LOW   0x48
-> +#define GPIO_DIN_HIGH  0x4c
-> +
-> +/* GPIO0_DOUT_CFG is 0x50, GPIOn_DOUT_CFG is 0x50+(n*8) */
-> +#define GPIO_DOUT_X_REG        0x50
-> +
-> +/* GPIO0_DOEN_CFG is 0x54, GPIOn_DOEN_CFG is 0x54+(n*8) */
-> +#define GPIO_DOEN_X_REG        0x54
-> +
-> +#define MAX_GPIO        64
-> +
-> +struct starfive_gpio {
-> +       raw_spinlock_t          lock;
-> +       void __iomem            *base;
-> +       struct gpio_chip        gc;
-> +       unsigned long           enabled;
-> +       unsigned int            trigger[MAX_GPIO];
-> +       unsigned int            irq_parent[MAX_GPIO];
-> +};
-> +
-> +static int starfive_direction_input(struct gpio_chip *gc, unsigned int offset)
-> +{
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       unsigned long flags;
-> +
-> +       if (offset >= gc->ngpio)
-> +               return -EINVAL;
-> +
-> +       raw_spin_lock_irqsave(&chip->lock, flags);
-> +       writel_relaxed(0x1, chip->base + GPIO_DOEN_X_REG + offset * 8);
-> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
-> +
-> +       return 0;
-> +}
-> +
-> +static int starfive_direction_output(struct gpio_chip *gc, unsigned int offset, int value)
-> +{
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       unsigned long flags;
-> +
-> +       if (offset >= gc->ngpio)
-> +               return -EINVAL;
-> +
-> +       raw_spin_lock_irqsave(&chip->lock, flags);
-> +       writel_relaxed(0x0, chip->base + GPIO_DOEN_X_REG + offset * 8);
-> +       writel_relaxed(value, chip->base + GPIO_DOUT_X_REG + offset * 8);
-> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
-> +
-> +       return 0;
-> +}
-> +
-> +static int starfive_get_direction(struct gpio_chip *gc, unsigned int offset)
-> +{
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +
-> +       if (offset >= gc->ngpio)
-> +               return -EINVAL;
-> +
-> +       return readl_relaxed(chip->base + GPIO_DOEN_X_REG + offset * 8) & 0x1;
-> +}
-> +
-> +static int starfive_get_value(struct gpio_chip *gc, unsigned int offset)
-> +{
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       int value;
-> +
-> +       if (offset >= gc->ngpio)
-> +               return -EINVAL;
-> +
-> +       if (offset < 32) {
-> +               value = readl_relaxed(chip->base + GPIO_DIN_LOW);
-> +               value = (value >> offset) & 0x1;
-> +       } else {
-> +               value = readl_relaxed(chip->base + GPIO_DIN_HIGH);
-> +               value = (value >> (offset - 32)) & 0x1;
-> +       }
-> +
-> +       return value;
-> +}
-> +
-> +static void starfive_set_value(struct gpio_chip *gc, unsigned int offset, int value)
-> +{
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       unsigned long flags;
-> +
-> +       if (offset >= gc->ngpio)
-> +               return;
-> +
-> +       raw_spin_lock_irqsave(&chip->lock, flags);
-> +       writel_relaxed(value, chip->base + GPIO_DOUT_X_REG + offset * 8);
-> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
-> +}
-> +
-> +static void starfive_set_ie(struct starfive_gpio *chip, int offset)
-> +{
-> +       unsigned long flags;
-> +       int old_value, new_value;
-> +       int reg_offset, index;
-> +
-> +       if (offset < 32) {
-> +               reg_offset = 0;
-> +               index = offset;
-> +       } else {
-> +               reg_offset = 4;
-> +               index = offset - 32;
-> +       }
-Quite a number of places do this checking/calculation, can move this
-to a helper function.
-
-> +       raw_spin_lock_irqsave(&chip->lock, flags);
-> +       old_value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
-> +       new_value = old_value | (1 << index);
-> +       writel_relaxed(new_value, chip->base + GPIO_IE_LOW + reg_offset);
-> +       raw_spin_unlock_irqrestore(&chip->lock, flags);
-> +}
-> +
-> +static int starfive_irq_set_type(struct irq_data *d, unsigned int trigger)
-> +{
-> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       int offset = irqd_to_hwirq(d);
-> +       unsigned int reg_is, reg_ibe, reg_iev;
-> +       int reg_offset, index;
-> +
-> +       if (offset < 0 || offset >= gc->ngpio)
-> +               return -EINVAL;
-> +
-> +       if (offset < 32) {
-> +               reg_offset = 0;
-> +               index = offset;
-> +       } else {
-> +               reg_offset = 4;
-> +               index = offset - 32;
-> +       }
-> +
-> +       reg_is = readl_relaxed(chip->base + GPIO_IS_LOW + reg_offset);
-> +       reg_ibe = readl_relaxed(chip->base + GPIO_IBE_LOW + reg_offset);
-> +       reg_iev = readl_relaxed(chip->base + GPIO_IEV_LOW + reg_offset);
-> +
-> +       switch (trigger) {
-> +       case IRQ_TYPE_LEVEL_HIGH:
-> +               reg_is  &= ~(1 << index);
-> +               reg_ibe &= ~(1 << index);
-> +               reg_iev |= (1 << index);
-> +               break;
-> +       case IRQ_TYPE_LEVEL_LOW:
-> +               reg_is  &= ~(1 << index);
-> +               reg_ibe &= ~(1 << index);
-> +               reg_iev &= (1 << index);
-> +               break;
-> +       case IRQ_TYPE_EDGE_BOTH:
-> +               reg_is  |= ~(1 << index);
-> +               reg_ibe |= ~(1 << index);
-> +               // no need to set edge type when both
-Use /**/ comment style.
-
-> +               break;
-> +       case IRQ_TYPE_EDGE_RISING:
-> +               reg_is  |= ~(1 << index);
-> +               reg_ibe &= ~(1 << index);
-> +               reg_iev |= (1 << index);
-> +               break;
-> +       case IRQ_TYPE_EDGE_FALLING:
-> +               reg_is  |= ~(1 << index);
-> +               reg_ibe &= ~(1 << index);
-> +               reg_iev &= (1 << index);
-> +               break;
-> +       }
-> +
-> +       writel_relaxed(reg_is, chip->base + GPIO_IS_LOW + reg_offset);
-> +       writel_relaxed(reg_ibe, chip->base + GPIO_IBE_LOW + reg_offset);
-> +       writel_relaxed(reg_iev, chip->base + GPIO_IEV_LOW + reg_offset);
-> +       chip->trigger[offset] = trigger;
-> +       starfive_set_ie(chip, offset);
-> +       return 0;
-> +}
-> +
-> +/* chained_irq_{enter,exit} already mask the parent */
-> +static void starfive_irq_mask(struct irq_data *d)
-> +{
-> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       unsigned int value;
-> +       int offset = irqd_to_hwirq(d);
-> +       int reg_offset, index;
-> +
-> +       if (offset < 0 || offset >= gc->ngpio)
-> +               return;
-> +
-> +       if (offset < 32) {
-> +               reg_offset = 0;
-> +               index = offset;
-> +       } else {
-> +               reg_offset = 4;
-> +               index = offset - 32;
-> +       }
-> +
-> +       value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
-> +       value &= ~(0x1 << index);
-> +       writel_relaxed(value, chip->base + GPIO_IE_LOW + reg_offset);
-> +}
-> +
-> +static void starfive_irq_unmask(struct irq_data *d)
-> +{
-> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       unsigned int value;
-> +       int offset = irqd_to_hwirq(d);
-> +       int reg_offset, index;
-> +
-> +       if (offset < 0 || offset >= gc->ngpio)
-> +               return;
-> +
-> +       if (offset < 32) {
-> +               reg_offset = 0;
-> +               index = offset;
-> +       } else {
-> +               reg_offset = 4;
-> +               index = offset - 32;
-> +       }
-> +
-> +       value = readl_relaxed(chip->base + GPIO_IE_LOW + reg_offset);
-> +       value |= (0x1 << index);
-> +       writel_relaxed(value, chip->base + GPIO_IE_LOW + reg_offset);
-> +}
-> +
-> +static void starfive_irq_enable(struct irq_data *d)
-> +{
-> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       int offset = irqd_to_hwirq(d);
-> +
-> +       starfive_irq_unmask(d);
-> +       assign_bit(offset, &chip->enabled, 1);
-> +}
-> +
-> +static void starfive_irq_disable(struct irq_data *d)
-> +{
-> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-> +       struct starfive_gpio *chip = gpiochip_get_data(gc);
-> +       int offset = irqd_to_hwirq(d) % MAX_GPIO; // must not fail
-> +
-> +       assign_bit(offset, &chip->enabled, 0);
-> +       starfive_set_ie(chip, offset);
-> +}
-> +
-> +static struct irq_chip starfive_irqchip = {
-> +       .name           = "starfive-jh7100-gpio",
-> +       .irq_set_type   = starfive_irq_set_type,
-> +       .irq_mask       = starfive_irq_mask,
-> +       .irq_unmask     = starfive_irq_unmask,
-> +       .irq_enable     = starfive_irq_enable,
-> +       .irq_disable    = starfive_irq_disable,
-> +};
-> +
-> +static irqreturn_t starfive_irq_handler(int irq, void *gc)
-> +{
-> +       int offset;
-> +       int reg_offset, index;
-> +       unsigned int value;
-> +       unsigned long flags;
-> +       struct starfive_gpio *chip = gc;
-> +
-> +       for (offset = 0; offset < MAX_GPIO; offset++) {
-> +               if (offset < 32) {
-> +                       reg_offset = 0;
-> +                       index = offset;
-> +               } else {
-> +                       reg_offset = 4;
-> +                       index = offset - 32;
-> +               }
-> +
-> +               raw_spin_lock_irqsave(&chip->lock, flags);
-> +               value = readl_relaxed(chip->base + GPIO_MIS_LOW + reg_offset);
-> +               if (value & BIT(index))
-> +                       writel_relaxed(BIT(index), chip->base + GPIO_IC_LOW +
-> +                                       reg_offset);
-> +               raw_spin_unlock_irqrestore(&chip->lock, flags);
-> +       }
-> +
-> +       return IRQ_HANDLED;
-> +}
-> +
-> +static int starfive_gpio_probe(struct platform_device *pdev)
-> +{
-> +       struct device *dev = &pdev->dev;
-> +       struct starfive_gpio *chip;
-> +       struct gpio_irq_chip *girq;
-> +       struct resource *res;
-> +       int irq, ret, ngpio;
-> +
-> +       chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
-> +       if (!chip)
-> +               return -ENOMEM;
-> +
-> +       res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +       chip->base = devm_ioremap_resource(dev, res);
-Can use device managed function devm_
-devm_platform_ioremap_resource(), then combile these 2 functions into
-1.
-
-> +       if (IS_ERR(chip->base)) {
-> +               dev_err(dev, "failed to allocate device memory\n");
-Perhaps change "allocate" to get or ioremap.
-
-> +               return PTR_ERR(chip->base);
-> +       }
-> +
-> +       irq = platform_get_irq(pdev, 0);
-> +       if (irq < 0) {
-> +               dev_err(dev, "Cannot get IRQ resource\n");
-> +               return irq;
-> +       }
-> +
-> +       raw_spin_lock_init(&chip->lock);
-> +       chip->gc.direction_input = starfive_direction_input;
-> +       chip->gc.direction_output = starfive_direction_output;
-> +       chip->gc.get_direction = starfive_get_direction;
-> +       chip->gc.get = starfive_get_value;
-> +       chip->gc.set = starfive_set_value;
-> +       chip->gc.base = 0;
-> +       chip->gc.ngpio = MAX_GPIO;
-> +       chip->gc.label = dev_name(dev);
-> +       chip->gc.parent = dev;
-> +       chip->gc.owner = THIS_MODULE;
-> +
-> +       girq = &chip->gc.irq;
-> +       girq->chip = &starfive_irqchip;
-> +       girq->parent_handler = NULL;
-> +       girq->num_parents = 0;
-> +       girq->parents = NULL;
-> +       girq->default_type = IRQ_TYPE_NONE;
-> +       girq->handler = handle_simple_irq;
-> +
-> +       ret = gpiochip_add_data(&chip->gc, chip);
-Use devm_version, devm_gpiochip_add_data().
-
-> +       if (ret) {
-> +               dev_err(dev, "gpiochip_add_data ret=%d!\n", ret);
-> +               return ret;
-> +       }
-> +
-> +       /* Disable all GPIO interrupts before enabling parent interrupts */
-Clear any pending interrupts as well when initialization.
-
-> +       iowrite32(0, chip->base + GPIO_IE_HIGH);
-> +       iowrite32(0, chip->base + GPIO_IE_LOW);
-> +       chip->enabled = 0;
-> +
-> +       ret = devm_request_irq(dev, irq, starfive_irq_handler, IRQF_SHARED,
-> +                              dev_name(dev), chip);
-> +       if (ret) {
-> +               dev_err(dev, "IRQ handler registering failed (%d)\n", ret);
-> +               return ret;
-> +       }
-> +
-> +       writel_relaxed(1, chip->base + GPIO_EN);
-> +
-> +       dev_info(dev, "StarFive GPIO chip registered %d GPIOs\n", ngpio);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct of_device_id starfive_gpio_match[] = {
-> +       { .compatible = "starfive,jh7100-gpio", },
-> +       { },
-> +};
-> +
-> +static struct platform_driver starfive_gpio_driver = {
-> +       .probe  = starfive_gpio_probe,
-> +       .driver = {
-> +               .name = "gpio_starfive_jh7100",
-> +               .of_match_table = of_match_ptr(starfive_gpio_match),
-> +       },
-> +};
-> +
-> +static int __init starfive_gpio_init(void)
-> +{
-> +       return platform_driver_register(&starfive_gpio_driver);
-> +}
-> +subsys_initcall(starfive_gpio_init);
-> +
-> +static void __exit starfive_gpio_exit(void)
-> +{
-> +       platform_driver_unregister(&starfive_gpio_driver);
-Do you expect GPIO driver can be removed?
-The driver needs proper removal, provides .remove callback.
-Example, call gpiochip_remove() , disable interrupt when removing.
-
-> +}
-> +module_exit(starfive_gpio_exit);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Huan Feng <huan.feng@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive JH7100 GPIO driver");
-> --
-
-Regards
-Ley Foon
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA3LzE0LzIwMjEgMzoxMCBBTSwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+IEhpIEfD
+vG50ZXIsIFRzdWthbW90by1zYW4sCj4gCj4gT24gU2F0LCBKdWwgMTAsIDIwMjEgYXQgMzo1MCBB
+TSBHdWVudGVyIFJvZWNrIDxsaW51eEByb2Vjay11cy5uZXQ+IHdyb3RlOgo+PiBPbiBXZWQsIEp1
+biAyMywgMjAyMSBhdCAwOTo0MDozOVBNICswOTAwLCBBa2lyYSBUc3VrYW1vdG8gd3JvdGU6Cj4+
+PiBUaGlzIHBhdGNoIHdpbGwgcmVkdWNlIGNwdSB1c2FnZSBkcmFtYXRpY2FsbHkgaW4ga2VybmVs
+IHNwYWNlIGVzcGVjaWFsbHkKPj4+IGZvciBhcHBsaWNhdGlvbiB3aGljaCB1c2Ugc3lzLWNhbGwg
+d2l0aCBsYXJnZSBidWZmZXIgc2l6ZSwgc3VjaCBhcyBuZXR3b3JrCj4+PiBhcHBsaWNhdGlvbnMu
+IFRoZSBtYWluIHJlYXNvbiBiZWhpbmQgdGhpcyBpcyB0aGF0IGV2ZXJ5IHVuYWxpZ25lZCBtZW1v
+cnkKPj4+IGFjY2VzcyB3aWxsIHJhaXNlIGV4Y2VwdGlvbnMgYW5kIHN3aXRjaCBiZXR3ZWVuIHMt
+bW9kZSBhbmQgbS1tb2RlIGNhdXNpbmcKPj4+IGxhcmdlIG92ZXJoZWFkLgo+Pj4KPj4+IEZpcnN0
+IGNvcHkgaW4gYnl0ZXMgdW50aWwgcmVhY2hlcyB0aGUgZmlyc3Qgd29yZCBhbGlnbmVkIGJvdW5k
+YXJ5IGluCj4+PiBkZXN0aW5hdGlvbiBtZW1vcnkgYWRkcmVzcy4gVGhpcyBpcyB0aGUgcHJlcGFy
+YXRpb24gYmVmb3JlIHRoZSBidWxrCj4+PiBhbGlnbmVkIHdvcmQgY29weS4KPj4+Cj4+PiBUaGUg
+ZGVzdGluYXRpb24gYWRkcmVzcyBpcyBhbGlnbmVkIG5vdywgYnV0IG9mdGVudGltZXMgdGhlIHNv
+dXJjZSBhZGRyZXNzCj4+PiBpcyBub3QgaW4gYW4gYWxpZ25lZCBib3VuZGFyeS4gVG8gcmVkdWNl
+IHRoZSB1bmFsaWduZWQgbWVtb3J5IGFjY2VzcywgaXQKPj4+IHJlYWRzIHRoZSBkYXRhIGZyb20g
+c291cmNlIGluIGFsaWduZWQgYm91bmRhcmllcywgd2hpY2ggd2lsbCBjYXVzZSB0aGUKPj4+IGRh
+dGEgdG8gaGF2ZSBhbiBvZmZzZXQsIGFuZCB0aGVuIGNvbWJpbmVzIHRoZSBkYXRhIGluIHRoZSBu
+ZXh0IGl0ZXJhdGlvbgo+Pj4gYnkgZml4aW5nIG9mZnNldCB3aXRoIHNoaWZ0aW5nIGJlZm9yZSB3
+cml0aW5nIHRvIGRlc3RpbmF0aW9uLiBUaGUgbWFqb3JpdHkKPj4+IG9mIHRoZSBpbXByb3Zpbmcg
+Y29weSBzcGVlZCBjb21lcyBmcm9tIHRoaXMgc2hpZnQgY29weS4KPj4+Cj4+PiBJbiB0aGUgbHVj
+a3kgc2l0dWF0aW9uIHRoYXQgdGhlIGJvdGggc291cmNlIGFuZCBkZXN0aW5hdGlvbiBhZGRyZXNz
+IGFyZSBvbgo+Pj4gdGhlIGFsaWduZWQgYm91bmRhcnksIHBlcmZvcm0gbG9hZCBhbmQgc3RvcmUg
+d2l0aCByZWdpc3RlciBzaXplIHRvIGNvcHkgdGhlCj4+PiBkYXRhLiBXaXRob3V0IHRoZSB1bnJv
+bGxpbmcsIGl0IHdpbGwgcmVkdWNlIHRoZSBzcGVlZCBzaW5jZSB0aGUgbmV4dCBzdG9yZQo+Pj4g
+aW5zdHJ1Y3Rpb24gZm9yIHRoZSBzYW1lIHJlZ2lzdGVyIHVzaW5nIGZyb20gdGhlIGxvYWQgd2ls
+bCBzdGFsbCB0aGUKPj4+IHBpcGVsaW5lLgo+Pj4KPj4+IEF0IGxhc3QsIGNvcHlpbmcgdGhlIHJl
+bWFpbmRlciBpbiBvbmUgYnl0ZSBhdCBhIHRpbWUuCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogQWtp
+cmEgVHN1a2Ftb3RvIDxha2lyYS50c3VrYW1vdG9AZ21haWwuY29tPgo+Pgo+PiBUaGlzIHBhdGNo
+IGNhdXNlcyBhbGwgcmlzY3YzMiBxZW11IGVtdWxhdGlvbnMgdG8gc3RhbGwgZHVyaW5nIGJvb3Qu
+Cj4+IFRoZSBsb2cgc3VnZ2VzdHMgdGhhdCBzb21ldGhpbmcgaW4ga2VybmVsL3VzZXIgY29tbXVu
+aWNhdGlvbiBtYXkgYmUgd3JvbmcuCj4+Cj4+IEJhZCBjYXNlOgo+Pgo+PiBTdGFydGluZyBzeXNs
+b2dkOiBPSwo+PiBTdGFydGluZyBrbG9nZDogT0sKPj4gL2V0Yy9pbml0LmQvUzAyc3lzY3RsOiBs
+aW5lIDY4OiBzeW50YXggZXJyb3I6IEVPRiBpbiBiYWNrcXVvdGUgc3Vic3RpdHV0aW9uCj4+IC9l
+dGMvaW5pdC5kL1MyMHVyYW5kb206IGxpbmUgMTogc3ludGF4IGVycm9yOiB1bnRlcm1pbmF0ZWQg
+cXVvdGVkIHN0cmluZwo+PiBTdGFydGluZyBuZXR3b3JrOiAvYmluL3NoOiBzeW50YXggZXJyb3I6
+IHVudGVybWluYXRlZCBxdW90ZWQgc3RyaW5nCj4gCj4+ICMgZmlyc3QgYmFkIGNvbW1pdDogW2Nh
+NmVhYWEyMTBkZWVjMGU0MWNiZmMzODBiZjg5Y2YwNzkyMDM1NjldIHJpc2N2OiBfX2FzbV9jb3B5
+X3RvLWZyb21fdXNlcjogT3B0aW1pemUgdW5hbGlnbmVkIG1lbW9yeSBhY2Nlc3MgYW5kIHBpcGVs
+aW5lIHN0YWxsCj4gCj4gU2FtZSBoZXJlIG9uIHZleHJpc2N2LiBCaXNlY3RlZCB0byB0aGUgc2Ft
+ZSBjb21taXQuCj4gCj4gVGhlIGFjdHVhbCBzY3JpcHRzIGxvb2sgZmluZSB3aGVuIHVzaW5nICJj
+YXQiLCBidXQgY29udGFpbiBzb21lIGdhcmJhZ2UKPiB3aGVuIGV4ZWN1dGluZyB0aGVtIHVzaW5n
+ICJzaCAtdiIuCj4gCj4gVHN1a2Ftb3RvLXNhbjogZ2xhbmNpbmcgYXQgdGhlIHBhdGNoOgo+IAo+
+ICsgICAgICAgYWRkaSAgICBhMCwgYTAsIDgqU1pSRUcKPiArICAgICAgIGFkZGkgICAgYTEsIGEx
+LCA4KlNaUkVHCj4gCj4gSSB0aGluayB5b3UgZm9yZ290IGFib3V0IHJ2MzIsIHdoZXJlIHJlZ2lz
+dGVycyBjb3ZlciBvbmx5IDQKPiBieXRlcyBlYWNoPwoKVGhhbmtzIEfDvG50ZXIgYW5kIEdlZXJ0
+IGZvciB0aGUgcG9pbnRpbmcgb3V0IHRoZSBlcnJvcnMuCkkgd2lsbCBzZW5kIHRoZSBmaXhlcywg
+cHJvYmFibHkgdGhpcyB3ZWVrZW5kLgoKQWtpcmEKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
