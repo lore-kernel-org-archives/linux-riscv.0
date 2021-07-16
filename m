@@ -2,88 +2,61 @@ Return-Path: <SRS0=jfOo=MI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E9F3C07E95
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 10:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D1BC9C07E95
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 10:24:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 16168613F2
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 10:14:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16168613F2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8E5CF613F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 10:24:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E5CF613F9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E1DGdtfMSBtOpKg6ploumJrVsYfOMOQ0m8ODrK890XE=; b=XsyzSpZYDU47Gp
-	cklQjALgXSiC118C0TlSPB+Nt0HuCV4qEYvn4ry/orVmzK8BSVj7kIDCDCAW0r91dMDZEspX7HY2W
-	YeQR3zDYH0J6u3+pQmK7cjER34uSp13tX871U8YAQ9nVFOpRD3o5/TzPhqRblHE9t8lpyOyTM0G13
-	rKwsekECibfohG1hXlkokZC2delP6Rx/B0yVv/nPZ9B0vv6gPPeUhx0ctDRSO0CCK7nAGZfe//kd1
-	/BUL/3PntTeVA7aXjaeKICYcfxGHim9OhDryeCjwHvB0zUUtodYas44BTYtTFjChU6eUrdpqvviFA
-	g7Jz3gDTSMlK39Ad07Cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RRW2RDPY5fNWmGt8HHebn0eMC+brOFVMYx6hbibc52E=; b=xtyofEbhJuJ4EYHS1y9XkF5unX
+	sIGaiIpCtEk/vVbsYpvoF0Qhw8UytHZYB73C20NTW8QU7QCgEBy3Y61waIcpqWXy5nHn9o9Uj2AH5
+	UXdpBiv4ypSZZZM6mZLYBIcy5b1Bf5eyUbyD4dHtGEmWB4ywITNCCcWno+2zxBP1cZsV0WeErof/V
+	SFBfVYXGv2TeS2MEhCmKqehejbm9hGUjItd69zS+bfN79L382nD6aiO9QrJuNOLTKm3VGDv7FnuNt
+	qak5iI92r1e60ZqZkn1niakDWh0HY03YYTf/yAASwAFSsYJs0Z0jQWG+fVIMtvGhalZFAX2Z5GJuy
+	dw4NBxYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m4KrU-0042nB-AI; Fri, 16 Jul 2021 10:14:28 +0000
-Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
+	id 1m4L0l-00443o-Kx; Fri, 16 Jul 2021 10:24:03 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m4KrR-0042mJ-DU
- for linux-riscv@lists.infradead.org; Fri, 16 Jul 2021 10:14:26 +0000
-Received: by mail-yb1-xb2f.google.com with SMTP id b13so14011336ybk.4
- for <linux-riscv@lists.infradead.org>; Fri, 16 Jul 2021 03:14:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=iuGIeqokxksveNDV8VeICX98RmyrNiDBw8DitAGWHLg=;
- b=CRb+ROcYUseCzx1ggWJ4DRbmNH6qFprgQKZKyen8mr3mM8NO86kkvrltKnBN8AurhQ
- T+PQ3lbhzkSa1ovSD/3ptd/0lXtbmjqq7tqe3vcNNCMhJbjMEltG6hCsXuAGwXWCuUUV
- M8CIc/5scR/h0Vy6fOv2XP3BEXMIjYaMH0zLUfrAP5cirPjE/bxIiSnkPpY/mZ/TgCqd
- LgO77fUMDU2sIuw70aF64ytZib0Ko0/cl0YDWT7jMChslHRLzBL+dwONug8CJ6DESikQ
- WNsZWrpRLq3y4sWBHUWsjUe00SljcWCmqlYy7OcylPKOZJ0S3lvYutiSrrXHlGlU9Kp5
- JHZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=iuGIeqokxksveNDV8VeICX98RmyrNiDBw8DitAGWHLg=;
- b=So8kc8qbQxzWlj4jbukDoOgZiZzq+n4Oc0KOguAh7TnSmuEWT/vQGkI6w1hUoB85Ea
- J98A0LZo8L+rrrdF2YcKEwJzdpX7KiVXymQbwbS+dSL4xgx7sEVdA3Eu2B2HfZIU7FUk
- JBx6IC+0/7fP03kryRwJlJ2U2PuhAmoyWdLzf5l83XbT9PwW43Tj6HGWCLm3dS670bzW
- xwF8KbsWDAQvBX1Yey4+eqG9mB2T1c0G+bW2qhDAz2Mm5G3GsMt+vjDDhcgZsXpMitGk
- w1024UgFyqsHFiUaPdBfK+FSymfPY90QhB7A06NRwUrCY6TIlm5XblMX1ymdpqc+oJsz
- VTKA==
-X-Gm-Message-State: AOAM533ZIq/qUY2O+OieE1tE3wuhcKAQAVXpU7UMWPyNkG6o7YPhR9Vx
- uEeoA+tAPdTh85mGUnmqtEDOq7KlfcP0mwe9FG8=
-X-Google-Smtp-Source: ABdhPJzo88Lq7bhSroU1MJ9N1q8Wpi6VmrVvjFHrQ8OHEVTbVLlrajUJjP1mKn6mHCAsk/4Qh9gzSpSKtI6I70lOq0g=
-X-Received: by 2002:a5b:504:: with SMTP id o4mr11904798ybp.332.1626430464415; 
- Fri, 16 Jul 2021 03:14:24 -0700 (PDT)
+ id 1m4L0c-0043zK-Ei
+ for linux-riscv@lists.infradead.org; Fri, 16 Jul 2021 10:23:56 +0000
+Received: from [167.98.27.226] (helo=[10.35.5.170])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1m4L0W-0006x0-GA; Fri, 16 Jul 2021 11:23:48 +0100
+Subject: Re: [PATCH] riscv: add correct as-options for assembly in modules
+To: linux-kernel@lists.codethink.co.uk, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20210712174849.2202287-1-ben.dooks@codethink.co.uk>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <b7592b63-b17e-a9d7-e4f6-bbeb417418ed@codethink.co.uk>
+Date: Fri, 16 Jul 2021 11:23:47 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <20210702014319.1265766-1-bmeng.cn@gmail.com>
- <20210702014319.1265766-2-bmeng.cn@gmail.com>
- <CAMuHMdWpJ194jEnXiUhs5dfC-33rGUm7pE9aMHUTYoMCUdFxZA@mail.gmail.com>
-In-Reply-To: <CAMuHMdWpJ194jEnXiUhs5dfC-33rGUm7pE9aMHUTYoMCUdFxZA@mail.gmail.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Fri, 16 Jul 2021 18:14:13 +0800
-Message-ID: <CAEUhbmXrSJ2dkXYvoZXTZ+3gV3h9OBx3u0hOitwLvMDKa2A4DA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: dts: microchip: Add ethernet0 to the aliases
- node
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Lewis Hanly <lewis.hanly@microchip.com>, 
- Atish Patra <atish.patra@wdc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Bin Meng <bin.meng@windriver.com>
+In-Reply-To: <20210712174849.2202287-1-ben.dooks@codethink.co.uk>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210716_031425_515339_38643A57 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20210716_032354_569935_D207DB9F 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,56 +68,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+On 12/07/2021 18:48, Ben Dooks wrote:
+> When trying to load modules built for riscv which include assembly
+> the kernel loader errors with "unexpected relocation type 'R_RISCV_ALIGN'"
+> due to R_RISCV_ALIGN relocations being generated by the assembler.
+> 
+> In commit 7a8e7da42250138 ("RISC-V: Fixes to module loading")
+> the fix for gcc adds -mno-relax to the command line when building
+> C files. However this was never applied to assembly flags, and gcc
+> does no pass -mno-relax to gas when presented with a .S file.
+> 
+> The fix (other than making gcc always pass -mno-relax to gas) is
+> to add -Wa,-mno-relax to gcc to make sure the as is invoked with
+> the right options.
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 
-On Fri, Jul 16, 2021 at 5:23 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Bing,
->
-> On Fri, Jul 2, 2021 at 3:44 AM Bin Meng <bmeng.cn@gmail.com> wrote:
-> > From: Bin Meng <bin.meng@windriver.com>
-> >
-> > U-Boot expects this alias to be in place in order to fix up the mac
-> > address of the ethernet node.
-> >
-> > Note on the Icicle Kit board, currently only emac1 is enabled so it
-> > becomes the 'ethernet0'.
-> >
-> > Signed-off-by: Bin Meng <bin.meng@windriver.com>
->
-> Thanks for your patch!
+Just wanted to find out if anyone has had time to review this.
+If this is ok, should we also send to -stable ?
 
-Thanks for the review!
+> ---
+>   arch/riscv/Makefile | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 1f5c03082976..fca40511a8c6 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -60,6 +60,7 @@ ifeq ($(CONFIG_PERF_EVENTS),y)
+>   endif
+>   
+>   KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
+> +KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
+>   
+>   # GCC versions that support the "-mstrict-align" option default to allowing
+>   # unaligned accesses.  While unaligned accesses are explicitly allowed in the
+> 
 
->
-> > --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> > +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> > @@ -9,6 +9,10 @@ / {
-> >         model = "Microchip MPFS Icicle Kit";
-> >         compatible = "microchip,mpfs-icicle-kit";
-> >
-> > +       aliases {
-> > +               ethernet0 = &emac1;
-> > +       };
-> > +
-> >         chosen {
-> >         };
->
-> This should be added to the board DTS (microchip-mpfs-icicle-kit.dts)
-> instead.
 
-I was wondering the same thing before doing this, but when I checked
-all other DTS in arch/riscv/boot I found the aliases node is put in
-the SoC dtsi file instead of the board on so I think that's the
-convention.
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-Regards,
-Bin
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
