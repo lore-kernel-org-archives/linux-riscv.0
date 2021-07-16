@@ -2,82 +2,86 @@ Return-Path: <SRS0=jfOo=MI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6AD68C12002
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 20:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 54F2EC636CA
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 22:37:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0838761006
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 20:13:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0838761006
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
+	by mail.kernel.org (Postfix) with ESMTPS id EB74E61380
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jul 2021 22:37:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EB74E61380
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOqld9Fh85FMhyyVZk23FoZmv07cllhD2FdQXSeVbOM=; b=JOPD4DYr3mGZCYflGxNj/x5VAE
-	FKdRQP38DG98aW9ySlOW56Bko/BAjIFX9AZ8wnrdh04QRDpNGR/wDvPJHZZk4baLbUT7jyBFKDdP6
-	S283MkkCinD3isLp5YjcLFZtTswtI2j7KnCiwQEGhYp7b9b7lnF5DCX1OSY1U0lCluQp83vTHURzq
-	A1nN0uiu7oCmSom3vyn4Faha0C6cDRqklz3KLIQXgyXHNpq6R93vgxDCqRhhGU3Z8Do+3zBcAg9f2
-	2S0vx6vHnWPnBnpj8ey55SmXgZfxtOxjyOt8EpKHc3AZc+Obq4pzzp7ztocZzYb5VCxWhEpsw47kc
-	hdPtOFpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CUCcln6A/NPfU0uWQEQnfWvDv7XYMlPNqVFlaRPZcUw=; b=t14ckrz5uEb7EH
+	9mX/aZzQX4kLcCJz4Qc/EqGS2cudBVTcpvVzCCCVOJ9T3tXJzR8UI+oWhT6lhDeS7i8sjBin8P5fa
+	BuX9OSG473gYHPCDWqxF5XYMP+TssFGWez59jv5AKgNqJR0kN/D7bzq6P6zhUy/GnD0sHkPTjAS3u
+	VzvyWon2D38OyqnZJu6d1tGZBI1NWO7hko/34VagTlTmDjHZwnj73jMi7YB+qjj0XAd8pNP+mwifn
+	6YllAZjHlq37K6RlmRbxs/0ykyuRqP8V06Wg73xxX5zWBQBpphEqBF8UOcJC5x4CL5bl262AnCjvu
+	2dvdbYxARQczM4thSMMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m4UD1-005CP4-Ly; Fri, 16 Jul 2021 20:13:19 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1m4WSk-005Uuj-4j; Fri, 16 Jul 2021 22:37:42 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m4UCy-005CNe-IF
- for linux-riscv@lists.infradead.org; Fri, 16 Jul 2021 20:13:18 +0000
-Received: from sslproxy01.your-server.de ([78.46.139.224])
- by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
- id 1m4UCf-0006dK-96; Fri, 16 Jul 2021 22:12:57 +0200
-Received: from [85.5.47.65] (helo=linux.home)
- by sslproxy01.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
- id 1m4UCe-000QgN-RO; Fri, 16 Jul 2021 22:12:56 +0200
-Subject: Re: [PATCH v2 bpf-nxt] Documentation/bpf: Add heading and example for
- extensions in filter.rst
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- John Fastabend <john.fastabend@gmail.com>
-Cc: "Roy, UjjaL" <royujjal@gmail.com>, Song Liu <song@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Yonghong Song <yhs@fb.com>, KP Singh <kpsingh@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Networking <netdev@vger.kernel.org>, BPF <bpf@vger.kernel.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- open list <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
-References: <royujjal@gmail.com> <20210712173723.1597-1-royujjal@gmail.com>
- <60ee2dc76ac1c_196e22088d@john-XPS-13-9370.notmuch>
- <CAADnVQJ=DoRDcVkaXmY3EmNdLoO7gq1mkJOn5G=00wKH8qUtZQ@mail.gmail.com>
-From: Daniel Borkmann <daniel@iogearbox.net>
-Message-ID: <80579c8d-ecdb-4334-9912-c04f75f7a6d3@iogearbox.net>
-Date: Fri, 16 Jul 2021 22:12:56 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+ id 1m4WSg-005UuN-RK
+ for linux-riscv@lists.infradead.org; Fri, 16 Jul 2021 22:37:40 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id r132so17317298yba.5
+ for <linux-riscv@lists.infradead.org>; Fri, 16 Jul 2021 15:37:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=AajCcLGQreUgC8barCBgEJa8ujUXbuUEsJRU4Qb14aU=;
+ b=Sv5vIvLuksdalgYv854cCR5xM6eJew5RcXNKQwFwgbqF1Ehmn5Kd7tVcMxeIPJnyrn
+ 8SorwLdMZd6pb/iZ6PeIMTUjMHWlP3ppT+vVYF+NXORQcXt8QY9zWk0zwGMsabUoW4HJ
+ Y7fp8Etw3VJnZC+FTTI9MKjiGJgfKkVyaxJHhiOsnEf8UxoH0oexUy01NRW68E8jX7i+
+ fDPyI2wBDoZKHQYShfZgLCQvq18xsWJRQuF8UqYsRC50XJ+CWFZV2KGU6Cl/KPC+2xiu
+ fqw1l4JEeiGNRM76GYBP33Z861L+X7AcJdTxu94y1fXkVY4lscem/DaBIi6cz9VZrOME
+ 0Hpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=AajCcLGQreUgC8barCBgEJa8ujUXbuUEsJRU4Qb14aU=;
+ b=KBzMdI1dR0hl2pGuF0TiyyskkIzN9a0pww2lu8HCWxCV5e7NL5gc0sszwhNKuE09n1
+ mevpu0y8ubRoYgu8xXdudFh21AaXA+JL+w0E3brkmu/Yj+qugFBJ3/X3Ox10jD123gqX
+ 1PngfqsXtZ0lhsYJ1Fbzqks4fvQMk5RKtAobrPMwk1ErwtDsTsEevAiYSIpKMSBtul6Z
+ lA78yPP+B2+pkqNpENsv/uh+jnTJM2NjnSftKBRKeN8ySSBxoL0w597IE49dDdHCfewK
+ UWBZgK2SxtSJPQq0jGEfeNovc985nGXUv0IJdjkrZVJvXNhwTwjG4dkbyJL54M2RknYZ
+ kqyA==
+X-Gm-Message-State: AOAM5339V6hOcCeyqoFAUWt1aYOSkNVzICFITEM0uiokoVGjj4Lit0jb
+ uIstXJXls2c+W0aidKw4ADlcOyTo7DB5+5H9yJJo5jBi
+X-Google-Smtp-Source: ABdhPJwjmjTOyEafGU8JB1kr3VsLd5fMQRUpWIGYYsUyYB6b9iMnoU2I+2ryII51GLlG2/dqEdRE4j3pJN2OUpl7THQ=
+X-Received: by 2002:a25:2c01:: with SMTP id s1mr17155432ybs.387.1626475057553; 
+ Fri, 16 Jul 2021 15:37:37 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAADnVQJ=DoRDcVkaXmY3EmNdLoO7gq1mkJOn5G=00wKH8qUtZQ@mail.gmail.com>
-Content-Language: en-US
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.2/26234/Fri Jul 16 10:18:39 2021)
+References: <20210712174849.2202287-1-ben.dooks@codethink.co.uk>
+ <CAEUhbmWmrEuwdy8OPhF1p1Sb7779QiWkx-Ca1OG5VQ38dxChLw@mail.gmail.com>
+ <36a5d9d8-67be-e128-2798-5bf1989ce06d@codethink.co.uk>
+In-Reply-To: <36a5d9d8-67be-e128-2798-5bf1989ce06d@codethink.co.uk>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Sat, 17 Jul 2021 06:37:25 +0800
+Message-ID: <CAEUhbmVMc+rNs3ghu0pE_4+W8SzEgZ-ykeNDjriqPPZ6Zxhv+Q@mail.gmail.com>
+Subject: Re: [PATCH] riscv: add correct as-options for assembly in modules
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-kernel@lists.codethink.co.uk, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210716_131316_657880_0EFEA90E 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20210716_153738_948251_1E7FB4B2 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +93,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/16/21 3:48 AM, Alexei Starovoitov wrote:
-> On Tue, Jul 13, 2021 at 5:20 PM John Fastabend <john.fastabend@gmail.com> wrote:
->>
->> Roy, UjjaL wrote:
->>> [1] https://www.kernel.org/doc/html/latest/bpf/
->>>
->>> Add new heading for extensions to make it more readable. Also, add one
->>> more example of filtering interface index for better understanding.
->>>
->>> Signed-off-by: Roy, UjjaL <royujjal@gmail.com>
->>> Acked-by: Song Liu <songliubraving@fb.com>
->>
->> Looks OK to me. I thought the original was readable without the header, but
->> if it helps someone seems easy enough to do.
->>
->> Acked-by: John Fastabend <john.fastabend@gmail.com>
-> 
-> I cannot figure out how to apply this patch, because I see:
-> Applying: Documentation/bpf: Add heading and example for extensions in
-> filter.rst
-> fatal: empty ident name (for <>) not allowed
-> 
-> Any idea?
+On Fri, Jul 16, 2021 at 11:33 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>
+> On 16/07/2021 11:44, Bin Meng wrote:
+> > On Tue, Jul 13, 2021 at 2:28 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+> >>
+> >> When trying to load modules built for riscv which include assembly
+> >
+> > nits: RISC-V
+> >
+> >> the kernel loader errors with "unexpected relocation type 'R_RISCV_ALIGN'"
+> >> due to R_RISCV_ALIGN relocations being generated by the assembler.
+> >>
+> >> In commit 7a8e7da42250138 ("RISC-V: Fixes to module loading")
+> >> the fix for gcc adds -mno-relax to the command line when building
+> >> C files. However this was never applied to assembly flags, and gcc
+> >> does no pass -mno-relax to gas when presented with a .S file.
+> >
+> > does not pass
+>
+> I'll see if I can make this simpler. Should this get done for a v2?
+>
 
-Same happened on my side. Maybe not sent via git-send-email(1)? Anyway, I've
-applied manually meanwhile.
+Yes, please send v2.
+
+> > FYI
+> >
+> > The GCC bug was fixed recently via:
+> > https://github.com/gcc-mirror/gcc/commit/3b0a7d624e64eeb81e4d5e8c62c46d86ef521857
+>
+> thanks, I think it still useful to fix this in the kernel.
+>
+> >>
+> >> The fix (other than making gcc always pass -mno-relax to gas) is
+> >> to add -Wa,-mno-relax to gcc to make sure the as is invoked with
+> >> the right options.
+> >>
+> >> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> >> ---
+> >>   arch/riscv/Makefile | 1 +
+> >>   1 file changed, 1 insertion(+)
+> >>
+> >
+> > Otherwise,
+> > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
