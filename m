@@ -2,80 +2,92 @@ Return-Path: <SRS0=1tpi=MK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C599AC636C8
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jul 2021 09:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0411CC636C8
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jul 2021 11:41:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6710E61184
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jul 2021 09:32:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6710E61184
+	by mail.kernel.org (Postfix) with ESMTPS id BF03A61184
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jul 2021 11:41:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF03A61184
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=30qFPfNFs8z9U5qlZFCERcp7IPsOMZ1Wu9fYYMojpho=; b=aiDIyPoWC7SUsG
-	tFiB5j3qOhegbArYNxztzVVQzIrPAPu6UsfU5FOtBBrnmU+EgJ3xPQwTiICBZoWdFh+Fvv14cAz0h
-	F6bj0kaXTz8aE6WTdRFarTsx6uD1qj90QJyoYIW1Tvm2pSkGj5KU7q3VOy7yHnEHABI2F7wO8j/f3
-	isnzKVjXhhqGg3nKLBMUUDMmObbqN2pYnjnMTZXY+lXfEAiPGPuUnnbzs7Wex91L1xh2q3RyEgPMg
-	dXCH9Q47VGWnQOoFRR2sp6YDpP7qbMiInIhyQS9WXwyuJBYxEaYlE0XDrdF37pnWyXM66uO5dROk6
-	tye1IX9styQ15dybIGdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ECEUbujC8cFMkyP30DaxHGtMEFk6uNt488KJ70SKRxc=; b=01he2vmlosnvKn
+	fl522aUN0j/fEj4SG8yWBmYiraibnrmhjI/jBCJHKDIs/TR27j/06iwWsxkdi3Nb2pfvww9WrcKdK
+	InJHRtcPa0PQWqpqXNDgMzJRoSS/xW+g4Jnb+LnLevBbkYaFEh4Kq/uO7GaHaSkKQNSGv3Fj/f+g2
+	pHbQL3sSutzhdT8q09LKrvshdh1J4KWZFzTLKmBmI0Kbn16xsV8cPg7+8+iTUr8O2wm4A5iOw9S4b
+	jCW83pasjG6oZKHytqzqLrRRZkQo7c7PzcqaBl/KR9g1MluHvIo/RUItuvDY7OwyXUG1KuEZg39d/
+	TdlTj80EZ4oqnj+4Boeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m539k-007Wu4-I4; Sun, 18 Jul 2021 09:32:16 +0000
+	id 1m55Aa-007ddl-Ot; Sun, 18 Jul 2021 11:41:16 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5394-007WrH-PZ; Sun, 18 Jul 2021 09:31:36 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 34BC960C3F;
- Sun, 18 Jul 2021 09:31:25 +0000 (UTC)
+ id 1m55AK-007dXF-L7; Sun, 18 Jul 2021 11:41:03 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B843161184;
+ Sun, 18 Jul 2021 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1626600693;
- bh=+rDFm9FsoZ08b6sGG01ofP3oHAAfan2l2sSh1XQwSR0=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=aAJYxQFsJbdGWKQX5mdFOrV/4Mbkl/qDKVE1yIy9pxZq4HHu+AWBm7dAXBHiriHrG
- M6m8IZZlz8muKxk60d6kD7Ci0+jfD6udeh8+tb/Wjp4ehaNbxOk+whVAujiNEkYQKS
- PHKvYjq3fNIu4UVm+Z7v4s1fZPkunITPVAf1yELADkVpf4vJWy/8lOCgPU6CkkrMob
- G2A2DWUH3/st5jP+5I66EBcTvI628tSgsh/H2qXMbgg5RGPD0p0Qgg9hCd2BSvFR0S
- Mooq4W/uqRwgTonQqFVILswVYaEe6mhHurnQ/7N9BoQJY/gSkg9c01sBSpCcowA3bv
- jBJiC2NBzPWPw==
-Date: Sun, 18 Jul 2021 12:31:21 +0300
-From: Mike Rapoport <rppt@kernel.org>
+ s=k20201202; t=1626608458;
+ bh=Vegbn4flDicHKXx7lHf5cMiwPfbQHkr1Aa8q19WmyQ0=;
+ h=From:To:Cc:Subject:Date:From;
+ b=RsF3O5tv/+spITV5IChI+SHmK6QckQ44Cc0MdYNjtYTxu80psQ69MUn023cJmSHgm
+ OBg0ciYlxEN5/qLqn7XOuzcGbqrSq4n1vvyCHnSIekBu2qyloR65GksFjNoUeqIkud
+ MyG7U7eZ+XIMxGyvlQknkUq30rb1rnPNEKegK6HXX2MU6+gCoqq988RPrMkvw1QdXy
+ dTo7ac9m5MPCSVSOyiiqBsAqvAE3xAx3rgS45g6CYDowPu6dxp0/9ufSAoBQXFdK9q
+ EwUbQuX+1rhWK3jRSs8PXiD8T94MTiMYAov3GBUi7xWFilnXnPdpNSjk3y2Dsn8gDl
+ sK+IPF/mc+iXg==
+Received: by mail.kernel.org with local (Exim 4.94.2)
+ (envelope-from <mchehab@kernel.org>)
+ id 1m55AE-001Dvt-5w; Sun, 18 Jul 2021 13:40:54 +0200
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 To: Rob Herring <robh@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
- Russell King <linux@armlinux.org.uk>,
- Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>,
+Cc: linuxarm@huawei.com, mauro.chehab@huawei.com,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Andy Gross <agross@kernel.org>, Binghui Wang <wangbinghui@hisilicon.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Fabio Estevam <festevam@gmail.com>, Greentime Hu <greentime.hu@sifive.com>,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Jingoo Han <jingoohan1@gmail.com>, Jonathan Chocron <jonnyc@amazon.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Lucas Stach <l.stach@pengutronix.de>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, NXP Linux Team <linux-imx@nxp.com>,
+ Neil Armstrong <narmstrong@baylibre.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Frank Rowand <frowand.list@gmail.com>,
- Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
- linux-mm@kvack.org, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 02/10] memblock: Add variables for usable memory
- limitation
-Message-ID: <YPP06QG7hfypZgYg@kernel.org>
-References: <cover.1626266516.git.geert+renesas@glider.be>
- <04c4d231fb03a3810d72a45c8a5bc2272c5975f3.1626266516.git.geert+renesas@glider.be>
- <20210714135101.GB2441138@robh.at.kernel.org>
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Richard Zhu <hongxing.zhu@nxp.com>, Rob Herring <robh+dt@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Xiaowei Song <songxiaowei@hisilicon.com>, devicetree@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: [PATCH v5 0/5] convert designware-pcie.txt to yaml
+Date: Sun, 18 Jul 2021 13:40:47 +0200
+Message-Id: <cover.1626608375.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210714135101.GB2441138@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210718_023134_917000_4CE4B9EE 
-X-CRM114-Status: GOOD (  25.33  )
+X-CRM114-CacheID: sfid-20210718_044100_792970_50739622 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +104,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series convert designware-pcie.txt to DT schema.
 
-On Wed, Jul 14, 2021 at 07:51:01AM -0600, Rob Herring wrote:
-> On Wed, Jul 14, 2021 at 02:50:12PM +0200, Geert Uytterhoeven wrote:
-> > Add two global variables (cap_mem_addr and cap_mem_size) for storing a
-> > base address and size, describing a limited region in which memory may
-> > be considered available for use by the kernel.  If enabled, memory
-> > outside of this range is not available for use.
-> > 
-> > These variables can by filled by firmware-specific code, and used in
-> > calls to memblock_cap_memory_range() by architecture-specific code.
-> > An example user is the parser of the "linux,usable-memory-range"
-> > property in the DT "/chosen" node.
-> > 
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > This is similar to how the initial ramdisk (phys_initrd_{start,size})
-> > and ELF core headers (elfcorehdr_{addr,size})) are handled.
-> > 
-> > Does there exist a suitable place in the common memblock code to call
-> > "memblock_cap_memory_range(cap_mem_addr, cap_mem_size)", or does this
-> > have to be done in architecture-specific code?
-> 
-> Can't you just call it from early_init_dt_scan_usablemem? If the 
-> property is present, you want to call it. If the property is not 
-> present, nothing happens.
+I opted to move the pcie-kirin.txt changes out of this series. I'll submit
+it in separate, as they should come after some changes I'm doing at
+pcie-kirin.c driver.
 
-For memblock_cap_memory_range() to work properly it should be called after
-memory is detected and added to memblock with memblock_add[_node]()
+v5:
+- Addressed some issues pointed by Rob Herring:
+  Added interrupts and interrupt-cells to DT;
+  Addressed warnings generated with make dbs-check on existing
+  *.dts* files.
 
-I'm not huge fan of adding more globals to memblock so if such ordering can
-be implemented on the DT side it would be great.
+Mauro Carvalho Chehab (5):
+  dt-bindings: PCI: add snps,dw-pcie.yaml
+  dt-bindings: PCI: add snps,dw-pcie-ep.yaml
+  dt-bindings: PCI: update references to Designware schema
+  dt-bindings: PCI: remove designware-pcie.txt
+  dt-bindings: arm64: tegra: fix pcie-ep DT nodes
 
-I don't see a way to actually enforce this ordering, so maybe we'd want to
-add warning in memblock_cap_memory_range() if memblock.memory is empty.
- 
-> Rob
+ .../bindings/pci/amlogic,meson-pcie.txt       |   4 +-
+ .../bindings/pci/axis,artpec6-pcie.txt        |   2 +-
+ .../bindings/pci/designware-pcie.txt          |  77 -------------
+ .../bindings/pci/fsl,imx6q-pcie.txt           |   2 +-
+ .../bindings/pci/hisilicon-histb-pcie.txt     |   2 +-
+ .../devicetree/bindings/pci/kirin-pcie.txt    |   2 +-
+ .../bindings/pci/layerscape-pci.txt           |   2 +-
+ .../bindings/pci/nvidia,tegra194-pcie.txt     |   7 +-
+ .../devicetree/bindings/pci/pci-armada8k.txt  |   2 +-
+ .../devicetree/bindings/pci/pcie-al.txt       |   2 +-
+ .../devicetree/bindings/pci/qcom,pcie.txt     |  14 +--
+ .../bindings/pci/samsung,exynos-pcie.yaml     |   4 +-
+ .../bindings/pci/sifive,fu740-pcie.yaml       |   4 +-
+ .../bindings/pci/snps,dw-pcie-ep.yaml         |  90 ++++++++++++++++
+ .../devicetree/bindings/pci/snps,dw-pcie.yaml | 102 ++++++++++++++++++
+ .../pci/socionext,uniphier-pcie-ep.yaml       |   4 +-
+ .../devicetree/bindings/pci/ti-pci.txt        |   4 +-
+ .../devicetree/bindings/pci/uniphier-pcie.txt |   2 +-
+ MAINTAINERS                                   |   3 +-
+ .../boot/dts/nvidia/tegra194-p2972-0000.dts   |   2 +-
+ .../boot/dts/nvidia/tegra194-p3509-0000.dtsi  |   2 +-
+ arch/arm64/boot/dts/nvidia/tegra194.dtsi      |   6 +-
+ 22 files changed, 228 insertions(+), 111 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pci/designware-pcie.txt
+ create mode 100644 Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
 
 -- 
-Sincerely yours,
-Mike.
+2.31.1
+
+
 
 _______________________________________________
 linux-riscv mailing list
