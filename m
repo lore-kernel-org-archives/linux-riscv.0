@@ -2,98 +2,92 @@ Return-Path: <SRS0=/Tun=ML=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C52AEC07E9B
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 14:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 44215C07E95
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 14:43:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8026E600CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 14:25:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8026E600CC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id 037116112D
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 14:43:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 037116112D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=efficios.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:To:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFgoS8rGDA8jlNut429oDmqgpP1c89EAw0zjhqb35QM=; b=Cl/Ru2sa1UxSpuvIqRGo+EF+6O
-	HzHZw1DAM78NS+kY8i0lsclKtjWG5E8zr8uCHchYF58gcXtmP9Ud4UyVlPqUF88l7vDuMne2r2qvQ
-	p//XgK8YDgZf6zFDJKh8BDXAHoic99TgjQEg5u2iTVG73NS3K7v29/dM+x/bY/agBM/G7/AgrUpLT
-	EhR37cGV484a4aHt90CPzOkwgAnXE6OL/2YdqUn3xU5WcH8N/FQ303QCegH5rRlH/8DWhSLevcayb
-	JYM3tJ+5nqoCFy4L/fCwXZLegKp7C/vYBm7GKkvLj96jSAvJ1l8l+DroqUjQOkPS61aZtCuEgC4Jw
-	GBZVioSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=aB/Uf+6fiFb+anu9KGuoqaOdpKHG/y862bCsgo6DB5s=; b=CZ9vKZnsMM3Gr79ZWcTNgfpW1V
+	ML+nDX64q6JiQQS7C72RfvJ9iu8bDcu7FF1uTst2giXQd+9gyCtxm0em2jtIenPawkwvxS5KJEH9/
+	Y6qobVKhAGodc70vo6RjxRm098c9n/JFHsgUaAQd/9yniCcbNrQjAWIX3IooyBdInsvUPgWjy+lbZ
+	e6+wv1sg3eZ/E5pi9wKXdWW89GFP4xDvu+OGrjHHp3/tjoG4QdPBIVJDoOGsgPXfP3f9mqsyPsQ1h
+	fP3Fd84N04M8Xmh/SGO0azYmpZubgq5BwbiBv0SPL0dkREYWGPJyBZ2BZa/wf5aPstElpCUYJCNjA
+	hBi9dLBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5UCj-009rzC-M7; Mon, 19 Jul 2021 14:25:09 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1m5UUK-009wKz-IX; Mon, 19 Jul 2021 14:43:20 +0000
+Received: from mail.efficios.com ([167.114.26.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5UCP-009rrl-0W
- for linux-riscv@lists.infradead.org; Mon, 19 Jul 2021 14:24:50 +0000
-Received: by mail-ot1-x329.google.com with SMTP id
- h24-20020a9d64180000b029036edcf8f9a6so18348272otl.3
- for <linux-riscv@lists.infradead.org>; Mon, 19 Jul 2021 07:24:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:to:references:from:subject:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=7/qq3wyUV7N73BKpIHcRfvtIpGGk0m3CwLVAIa8erWo=;
- b=i+k6lzbQu/gYTazdC+tDJ+VqdJU6OFUmm3rB+LR3/2M/9mHGl/O662JrlUjlhCJc7e
- ZiJYreKouyfxkeiODkVVMvE41hTmVEAlG29kukXUrZ8czMj1LYShWI6tH+UNJvVMN3CT
- aJyhBcrwvQfiOI+nlPUAk9g0yq6Vpa3U7S/PHgQuO5sd9Gi4dD+ECGAZAwq1Xjdksqcs
- G2LR1m+G4OH60VqMYPePCoYzWde4SJdY/C+zBkr08pfbXPtpyWzEcENPmN8FnOyCClGF
- OcNw1i6IQbEKmoKfsGdXCPJYdJ8t/SPX1T7m3MADjcJwpocz2qmqSMQx7V/MnXUD5p1X
- leSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:to:references:from:subject:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=7/qq3wyUV7N73BKpIHcRfvtIpGGk0m3CwLVAIa8erWo=;
- b=VmUiR2Nw60FAgxUONNTrlLp44jDaR/4Ron7XfcVl8DxYFGcIzTjhYqgbagRz2cGWoT
- cM1g6EmJZv1WnV+Iq/odrbDlVkeFLG2fLXWZURhJePcRGKyiD+twh1AHvXqXugdj5LSA
- 9z1Wx3bEEkTDjhlx08Te5UbxCHOSdgbdLyDHix56hEfC1/Vp0SSxFhsz+z8qXVj7I2Xs
- 9Bc40fRHoc3O1BPnvc4JUHHyIgZwx0nyNcQIYKpEbsw4cYBmwN2fNMFb+dTD1Rj47u5u
- xSCfGLqSYY2rHcNHnrd2uZYawM96Xkk9vk8oVwi2zWJ1QqKlCHVtGygZPSPApNn2dAnI
- vyjw==
-X-Gm-Message-State: AOAM530rX13zVJYqo8G626WAPDYikt/txdndTUlrdRr8iwBIG7zlJW9R
- h25cqbbPpGuwX9EURNEyuz0=
-X-Google-Smtp-Source: ABdhPJx+VI2LTCuw35AamWFKyfBdlpvyzZmsV1/KxXQqjbQo5sFs3G6o6Fdv92eq+ScsT3IPzd7ANQ==
-X-Received: by 2002:a9d:638f:: with SMTP id w15mr470201otk.148.1626704686753; 
- Mon, 19 Jul 2021 07:24:46 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- 48sm3584391otf.13.2021.07.19.07.24.45
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 19 Jul 2021 07:24:46 -0700 (PDT)
-To: Akira Tsukamoto <akira.tsukamoto@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <a7a801d2-13d2-7b5b-66a5-98e7c95b00cc@gmail.com>
- <5e1b5d90-5a1e-5e9f-7b92-6c53b8589c2a@gmail.com>
- <cd14a8b0-0a27-77a8-6dc2-3268f9f09922@roeck-us.net>
- <e1bb4768-5517-8ef3-eaf3-bbfc103fa918@gmail.com>
-From: Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH v4 1/1] riscv: __asm_copy_to-from_user: Optimize unaligned
- memory access and pipeline stall
-Message-ID: <9a2bf544-2aaa-d175-bc0a-c8bcefd8141a@roeck-us.net>
-Date: Mon, 19 Jul 2021 07:24:44 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ id 1m5UUH-009wIs-VM
+ for linux-riscv@lists.infradead.org; Mon, 19 Jul 2021 14:43:19 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by mail.efficios.com (Postfix) with ESMTP id 46A85368E44;
+ Mon, 19 Jul 2021 10:43:12 -0400 (EDT)
+Received: from mail.efficios.com ([127.0.0.1])
+ by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id 26RKPd2CIvGt; Mon, 19 Jul 2021 10:43:11 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+ by mail.efficios.com (Postfix) with ESMTP id 063BC36909B;
+ Mon, 19 Jul 2021 10:43:11 -0400 (EDT)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com 063BC36909B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=default; t=1626705791;
+ bh=de0GThxO6PSlD37MzhGtHRKbYXX9HTffYP5G6p3CMdg=;
+ h=Date:From:To:Message-ID:MIME-Version;
+ b=aFjed2K3OyYgZKzXWrUAG6Jc1NXo/aeMCY8/7L/GSef5XVm2xNIM2go3EVmiQiLCJ
+ 9brYsup+v5p5VCDopV2ynTVTutKHKU7LEy2/otAMSRlQUIJXlIOlzNWwSW30ogMDcO
+ dVVfqLAAJJ866PlJb2jlBZnK5ALubPYl1EVr8HgEcmVhdeLB3ibdS8fidFkoIYkqzQ
+ eY7nBTPfPigwTTyLp1kfqCyVg7bGcBAiGssowmiKEJ83QMXC3UsoeYhhAFKiovD9Fl
+ ZtTqZZuHWXjDJAB46RBaXwb+TzkkReJTkfYxNeBrYnLut6EH80IsnNuEUUMHmN7LaF
+ xj50Ic6dgliIA==
+X-Virus-Scanned: amavisd-new at efficios.com
+Received: from mail.efficios.com ([127.0.0.1])
+ by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id sf-mVCvsc1_g; Mon, 19 Jul 2021 10:43:10 -0400 (EDT)
+Received: from mail03.efficios.com (mail03.efficios.com [167.114.26.124])
+ by mail.efficios.com (Postfix) with ESMTP id EB702368CE8;
+ Mon, 19 Jul 2021 10:43:10 -0400 (EDT)
+Date: Mon, 19 Jul 2021 10:43:10 -0400 (EDT)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Vincent Chen <vincent.chen@sifive.com>, Guo Ren <guoren@linux.alibaba.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ linux-kselftest <linux-kselftest@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <1257037909.25426.1626705790861.JavaMail.zimbra@efficios.com>
+In-Reply-To: <1583733592-22873-3-git-send-email-vincent.chen@sifive.com>
+References: <1583733592-22873-1-git-send-email-vincent.chen@sifive.com>
+ <1583733592-22873-3-git-send-email-vincent.chen@sifive.com>
+Subject: Re: [PATCH V2 2/3] riscv: Add support for restartable sequence
 MIME-Version: 1.0
-In-Reply-To: <e1bb4768-5517-8ef3-eaf3-bbfc103fa918@gmail.com>
-Content-Language: en-US
+X-Originating-IP: [167.114.26.124]
+X-Mailer: Zimbra 8.8.15_GA_4059 (ZimbraWebClient - FF89 (Linux)/8.8.15_GA_4059)
+Thread-Topic: riscv: Add support for restartable sequence
+Thread-Index: korcCokQEeN3DVoNTVQS7BBBu9PEUQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210719_072449_094083_FCF97E69 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20210719_074318_145974_360C147A 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +99,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xOS8yMSA3OjAwIEFNLCBBa2lyYSBUc3VrYW1vdG8gd3JvdGU6Cj4gCj4gT24gNy8xOS8y
-MDIxIDEwOjUxIFBNLCBHdWVudGVyIFJvZWNrIHdyb3RlOgo+PiBIaSwKPj4KPj4gT24gNy8xOS8y
-MSA1OjUzIEFNLCBBa2lyYSBUc3VrYW1vdG8gd3JvdGU6Cj4+Pgo+Pj4gVGhpcyBwYXRjaCB3aWxs
-IHJlZHVjZSBjcHUgdXNhZ2UgZHJhbWF0aWNhbGx5IGluIGtlcm5lbCBzcGFjZSBlc3BlY2lhbGx5
-Cj4+PiBmb3IgYXBwbGljYXRpb24gd2hpY2ggdXNlIHN5cy1jYWxsIHdpdGggbGFyZ2UgYnVmZmVy
-IHNpemUsIHN1Y2ggYXMKPj4+IG5ldHdvcmsgYXBwbGljYXRpb25zLiBUaGUgbWFpbiByZWFzb24g
-YmVoaW5kIHRoaXMgaXMgdGhhdCBldmVyeQo+Pj4gdW5hbGlnbmVkIG1lbW9yeSBhY2Nlc3Mgd2ls
-bCByYWlzZSBleGNlcHRpb25zIGFuZCBzd2l0Y2ggYmV0d2VlbiBzLW1vZGUKPj4+IGFuZCBtLW1v
-ZGUgY2F1c2luZyBsYXJnZSBvdmVyaGVhZC4KPj4+Cj4+Cj4+IEkgaGFkIHRvIHJldmVydCB0aGUg
-b3JpZ2luYWwgcGF0Y2ggZnJvbSB0aGUgbWFpbmxpbmUga2VybmVsIHByaW9yIHRvIGFwcGx5aW5n
-Cj4+IHRoaXMgcGF0Y2guIE9idmlvdXNseSB0aGF0IG1lYW5zIHRoYXQgdGhlcmUgbWF5IGJlIG90
-aGVyIGNoYW5nZXMgYWZmZWN0aW5nIHRoZQo+PiBvdXRjb21lLgo+Pgo+PiByaXNjdjY0IGltYWdl
-cyB3b3JrLCBidXQgcmlzY3YzMiBpbWFnZXMgc3RpbGwgZmFpbCB3aXRoIHRoaXMgcGF0Y2ggYXBw
-bGllZC4KPj4gVGhlIGVycm9yIGlzIGEgYml0IGRpZmZlcmVudCB0aGFuIGJlZm9yZSwgdGhvdWdo
-Lgo+Pgo+PiAuLi4KPj4gW8KgwqAgMTEuODk5OTc5XSBSdW4gL3NiaW4vaW5pdCBhcyBpbml0IHBy
-b2Nlc3MKPj4gW8KgwqAgMTIuMTUyNjY2XSByYW5kb206IGZhc3QgaW5pdCBkb25lCj4+IG1vdW46
-IGFwcGxldCBub3QgZm91bmQKPj4gIu+/ve+/ve+/ve+/ve+/vVbvv710OiBhcHBsZXQgbm90IGZv
-dW5kCj4+IC9iae+/ve+/ve+/ve+/ve+/vVbvv71GLTogYXBwbGV0IG5vdCBmb3VuZAo+PiBtb3Vu
-OiBhcHBsZXQgbm90IGZvdW5kCj4+IHN3YW9uOiBhcHBsZXQgbm90IGZvdW5kCj4+IGhvc3RuYW1l
-LUY6IGFwcGxldCBub3QgZm91bmQKPj4KPj4gQWZ0ZXIgdGhpcywgdGhlIGltYWdlIGhhbmdzLgo+
-Pgo+PiBGb3IgY29tcGFyaXNvbiwgdGhlIG1haW5saW5lIGtlcm5lbCAodjUuMTQtcmMyKSBmYWls
-cyBhcyBmb2xsb3dzLgo+Pgo+PiBbwqDCoCAxMC43ODgxMDVdIFJ1biAvc2Jpbi9pbml0IGFzIGlu
-aXQgcHJvY2Vzcwo+PiBTdGFydGluZyBzeXNsb2dkOiBPSwo+PiBTdGFydGluZyBrbG9nZDogT0sK
-Pj4gL2V0Yy9pbml0LmQvUzAyc3lzY3RsOiBsaW5lIDY4OiBzeW50YXggZXJyb3I6IEVPRiBpbiBi
-YWNrcXVvdGUgc3Vic3RpdHV0aW9uCj4+IC9ldGMvaW5pdC5kL1MyMHVyYW5kb206IGxpbmUgMTog
-c3ludGF4IGVycm9yOiB1bnRlcm1pbmF0ZWQgcXVvdGVkIHN0cmluZwo+PiBTdGFydGluZyBuZXR3
-b3JrOiAvYmluL3NoOiBzeW50YXggZXJyb3I6IHVudGVybWluYXRlZCBxdW90ZWQgc3RyaW5nCj4+
-IHNlZDogdW5tYXRjaGVkICcvJwo+PiAvYmluL3NoOiBzeW50YXggZXJyb3I6IHVudGVybWluYXRl
-ZCBxdW90ZWQgc3RyaW5nCj4+IEZBSUwKPj4gL2V0Yy9pbml0LmQvUzU1cnVudGVzdDogbGluZSA0
-ODogc3ludGF4IGVycm9yOiBFT0YgaW4gYmFja3F1b3RlIHN1YnN0aXR1dGlvbgo+Pgo+PiBJJ2xs
-IGJlIGhhcHB5IHRvIHByb3ZpZGUgaW5mb3JtYXRpb24gb24gaG93IHRvIHJlcHJvZHVjZSB0aGUg
-cHJvYmxlbQo+PiBpZiBuZWVkZWQuIFBsZWFzZSBsZXQgbWUga25vdy4KPiAKPiBZZXMsIEkgZG8g
-d291bGQgbGlrZSB0byBrbm93IHRoZSBwcm9jZWR1cmUgb2YgYnVpbGQgaW5zdHJ1Y3Rpb24gb2Yg
-eW91ciBydjMyIGltYWdlLgo+IFRoZW4gSSB3b3VsZCByZXByb2R1Y2UgdGhlIGVycm9yIGFuZCBs
-b29rIGludG8gaG93IHRvIGZpeCBpdC4KPiAKUGxlYXNlIGhhdmUgYSBsb29rIGF0IGh0dHA6Ly9z
-ZXJ2ZXIucm9lY2stdXMubmV0L3FlbXUvcmlzY3YzMi8KYW5kIGxldCBtZSBrbm93IGlmIHlvdSBu
-ZWVkIGFueXRoaW5nIGVsc2UuCgpUaGFua3MsCkd1ZW50ZXIKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+----- On Mar 9, 2020, at 1:59 AM, Vincent Chen vincent.chen@sifive.com wrote:
+[...]
+> --- a/arch/riscv/kernel/signal.c
+> +++ b/arch/riscv/kernel/signal.c
+> @@ -234,6 +234,7 @@ static void handle_signal(struct ksignal *ksig, struct
+> pt_regs *regs)
+> 	sigset_t *oldset = sigmask_to_save();
+> 	int ret;
+> 
+> +	rseq_signal_deliver(ksig, regs);
+> 	/* Are we from a system call? */
+> 	if (regs->cause == EXC_SYSCALL) {
+
+[...]
+
+As Al Viro pointed out on IRC, the rseq_signal_deliver() should go after syscall
+restart handling, similarly to what is done on every other supported architecture.
+
+Note that there is already an upstream commit derived on this non-upstream patch:
+
+commit 9866d141a097 ("csky: Add support for restartable sequence")
+
+which is broken in the same way.
+
+I'm not sure why I was never CC'd on the csky patch. Considering that nobody
+bothered to implement the rseq selftests for csky, I don't see how any of
+this is tested. I would favor a revert of that commit until the testing glue
+is contributed. Unfortunately, the csky commit has been upstream since v5.7.
+
+Thanks,
+
+Mathieu
+
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+http://www.efficios.com
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
