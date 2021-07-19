@@ -2,82 +2,105 @@ Return-Path: <SRS0=/Tun=ML=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 380DFC07E95
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 21:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50DF0C07E95
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 22:03:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C8FE2610C7
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 21:25:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C8FE2610C7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id DDA4A610CC
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 22:03:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DDA4A610CC
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kH9rMNvAdq67686PgaIueOc4PxqEMcLT6s6ugd+8W0c=; b=omfGoLL/trfIgq
-	HgVgZovYNAbTFcuC5pnzVYFPh37Q2jOUn7TTDY/j+OybETi8WF8xJqJRpLxiSUtOlMvVRIpG1lJL+
-	VNYYkgh/yzACof1tfFq9Rw2Bu5vogE0jaeOCILw3TK1J6KIMQ39WxYj41+j8BLVsa7u2+XLJTGk6A
-	Pu1qOpjKlBTzX3VKTQxVW/fzm5MnxEulFG5KC3IcGFoX5WKFuySfckAPx46/wOxCDB2sYBYTARFy9
-	CJVS60m91PAO8jUAwRlzCi7arYfiepx4mtVk4qBC1KxQw8SUWpuuGeKeGlP7dI7ydHlVoO2/DtTOH
-	bW0JL6y1kITRJMvoBE0w==;
+	List-Owner; bh=gr9sF9RMPC94iYeLPcjENm+xef0TVW+ppEtAT4SvB+Y=; b=lEdXTWeg/5murH
+	4h/AFTzPOKgKCcd6BVnpuFD/JEK5phiPlJJqKgyKA3uW51HzcG18nXMS3DYnwOCO7f6nMISv/d61h
+	en4S2ad1Rls0x4thqgl9vmMGsKe3MckqjQzd7uml08AR0gdKhoLM3n6QI5BHq/UsytquuQzAkJEvM
+	A1VZ534c4xZ3+kXHNeFTqTPo2tuwsZHsjf3+PgNkt+Mp3LlcwFTfC7dMeKdQHZzSAfAr0oRi7QhhI
+	ejsTbL33lQB9dIm2xkv34Ay1OZNSAqIagaSHi/UdrJfofIV/VPgbOhjwu1WFxxy37T+unrwJZxUZp
+	6LOanY6UVWNgrMt6eeGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5alU-00BMec-0V; Mon, 19 Jul 2021 21:25:28 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1m5bLe-00BNyF-8K; Mon, 19 Jul 2021 22:02:50 +0000
+Received: from mail-il1-f176.google.com ([209.85.166.176])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5alQ-00BMeJ-Hz
- for linux-riscv@lists.infradead.org; Mon, 19 Jul 2021 21:25:25 +0000
-Received: by mail-lj1-x234.google.com with SMTP id r16so28307407ljk.9
- for <linux-riscv@lists.infradead.org>; Mon, 19 Jul 2021 14:25:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Et4dge6Y/jTpFBPK+Pgbi+bw6foeZdWyNd8Covlgvm4=;
- b=n7HxxrtVtIuoqmJfsK/cbRsNFnBf+8Y1wlDam9rXSdUOf3m/aWfGYGv0Zxvzw4/chV
- mWjfwG2MEz4/+Nx5VJrzam8Txzup+4JKtc5EDtBGpKE5Cs1CO1hDrP/IgFriWqrV7j4Y
- m4xK4aF7mucUsZ1CcLOAuiT9AmtqXmiGxeUlftCflNamp3K+dcJh+wWBTNfvJF+lIKkC
- Mys5d6gQXE8GBd5FZlsOgPdEkIj4J3yYnV0Mra/BBI7I1mtFcjgIjk25eav835AtdiYP
- 6GIHJ1AfjMjX8jQhxbvjrXOpQbFyeb7jopDrTjRdKyar1A9VcWg5/zJ4uc+ry9t18ymn
- 3V2g==
+ id 1m5bLP-00BNwd-K7; Mon, 19 Jul 2021 22:02:37 +0000
+Received: by mail-il1-f176.google.com with SMTP id y6so17397247ilj.13;
+ Mon, 19 Jul 2021 15:02:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Et4dge6Y/jTpFBPK+Pgbi+bw6foeZdWyNd8Covlgvm4=;
- b=KujyqYW+Pjioo+8DnaWXpc+4spUpkA03tMDOr8kOUVZikpNSX6no11lZCoWx8QNHFm
- nQsBJ0Izi4zU/0QN7gGkVQBNqlzX3vIGb+nke/qzeSdYl2epA5+7uu3wMmvvQ0+Wz8fd
- /0N9TjYJw1BmD2snbB/qmclxAwv/dDwGS+y1GalIjbH7VgMZXnsBnqjtwo5FwGmuyBbO
- r3qHpBVdn9ZE98O4kos+LEKZlDwSbcIdnIoLNGWjGu1P5hWLvjVvf7wPV8yef+Oxelp1
- +wzbAKfok4JUH5aeBU2qAwAniDkNhWLYkIR0K7sbkVC571L/TSDFRbBjaO0j8x6cm8jW
- wvxg==
-X-Gm-Message-State: AOAM5302ae+pwclUVNNOH4OBMCnG8BNnDXPYOWJyy6aXIq+dBCq8gHp8
- RGBaJ2DuomNd+mawBKuxby82tySSNPm30lB4+/co6w==
-X-Google-Smtp-Source: ABdhPJziKgakHRk0cFr0ND5WSy57ViwPMTHLUow6+E346er/KfYWGUsZt3BYHeKorztTtAboYB3rcsJsDs8VFPXwsjI=
-X-Received: by 2002:a05:651c:329:: with SMTP id
- b9mr24396863ljp.116.1626729922093; 
- Mon, 19 Jul 2021 14:25:22 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=f1jPjrRlaCoGW6NcDg+XE1Qycqf9T6zQzCIsLWnTwZQ=;
+ b=RYUalILH+9oyxYOqXwGDyx9oPlvRyNUKV7BVPihAd75MthJHPWGQPbT/QiEKTLlHlg
+ ZIQMuxHigRdKVJJEzOrPlyP3ZWVBMKIBp+AaeCurpV9oRpDGMLjMuY9YpDSHIMwiBD8i
+ ViwylPVGOyvRlOn828eDwMkBbzEQ+XbZK55uCWsnMObcBubP4ngIOD7YKME8jOj48gHX
+ rm8k1GVli9Sh7QT1H+Gyc7JAz7g10dvCv/GZkFDd7Wcg68MkEat/RKBy/FPsTkVOl0Wo
+ F4iT/UB/GXc6/oSI1q7cqM6bzwuF/dVLHyKUOlEu8rRqkjtGnJryTsmx7xH6AEfOmA/p
+ uWfw==
+X-Gm-Message-State: AOAM532SAkJDpjGQ2W5MsXayHKwz3v3LgQfQnW8lNs/lHd7rQYAgPxiI
+ u4b/pesqdhT+E4oGKzHKXA==
+X-Google-Smtp-Source: ABdhPJw7EeICoNwI7faYsy/ynAxnzY/CYjaXAly9aLu6w9Sr0yXeF9bmNozCXqaxmtS1LZg+Uz4WKw==
+X-Received: by 2002:a92:d706:: with SMTP id m6mr17728297iln.78.1626732154753; 
+ Mon, 19 Jul 2021 15:02:34 -0700 (PDT)
+Received: from robh.at.kernel.org ([64.188.179.248])
+ by smtp.gmail.com with ESMTPSA id o13sm10372829ilq.58.2021.07.19.15.02.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 19 Jul 2021 15:02:34 -0700 (PDT)
+Received: (nullmailer pid 2677074 invoked by uid 1000);
+ Mon, 19 Jul 2021 22:02:27 -0000
+Date: Mon, 19 Jul 2021 16:02:27 -0600
+From: Rob Herring <robh@kernel.org>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Xiaowei Song <songxiaowei@hisilicon.com>,
+ mauro.chehab@huawei.com, Jonathan Hunter <jonathanh@nvidia.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Lucas Stach <l.stach@pengutronix.de>, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Kevin Hilman <khilman@baylibre.com>, 
+ Binghui Wang <wangbinghui@hisilicon.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ linux-omap@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-arm-kernel@axis.com, 
+ Rob Herring <robh+dt@kernel.org>, linux-tegra@vger.kernel.org, 
+ Andy Gross <agross@kernel.org>, linux-riscv@lists.infradead.org, 
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Jesper Nilsson <jesper.nilsson@axis.com>, 
+ linux-arm-msm@vger.kernel.org, Greentime Hu <greentime.hu@sifive.com>, 
+ Kishon Vijay Abraham I <kishon@ti.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Richard Zhu <hongxing.zhu@nxp.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+ NXP Linux Team <linux-imx@nxp.com>, Jonathan Chocron <jonnyc@amazon.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, devicetree@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, linux-pci@vger.kernel.org, 
+ Neil Armstrong <narmstrong@baylibre.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, 
+ linuxarm@huawei.com, Thierry Reding <thierry.reding@gmail.com>, 
+ Fabio Estevam <festevam@gmail.com>, Jaehoon Chung <jh80.chung@samsung.com>
+Subject: Re: [PATCH v5 3/5] dt-bindings: PCI: update references to Designware
+ schema
+Message-ID: <20210719220227.GA2676918@robh.at.kernel.org>
+References: <cover.1626608375.git.mchehab+huawei@kernel.org>
+ <dfff4d94631546c53450d1baeddc694dd26b5c36.1626608375.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
-References: <20210719205339.1023572-1-twd2.me@gmail.com>
-In-Reply-To: <20210719205339.1023572-1-twd2.me@gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Mon, 19 Jul 2021 14:25:11 -0700
-Message-ID: <CAKwvOd=H-UN7dgHYgsvubv7t82UiPaOHCF09GAi6kTvjxpT4iA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] RISC-V: build: Allow LTO to be selected
-To: Wende Tan <twd2.me@gmail.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
- linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com, 
- Nathan Chancellor <nathan@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <dfff4d94631546c53450d1baeddc694dd26b5c36.1626608375.git.mchehab+huawei@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210719_142524_656737_B793D9BB 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20210719_150235_701379_BDA78AF0 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +117,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 19, 2021 at 1:53 PM Wende Tan <twd2.me@gmail.com> wrote:
-
-Consider adding a little more detail to the commit message.
-
-In our experience with other architectures, we've hit numerous
-compiler and kernel issues especially with allyesconfigs. Has that
-been your experience with riscv?  It would be good to know if you've
-hit issues with LTO plus certain configs, so that we have confirmation
-others have seen these issues and so that we can triage fixes.
-
->
-> Signed-off-by: Wende Tan <twd2.me@gmail.com>
+On Sun, 18 Jul 2021 13:40:50 +0200, Mauro Carvalho Chehab wrote:
+> Now that its contents were converted to a DT schema, replace
+> the references for the old file on existing properties.
+> 
+> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 > ---
->  arch/riscv/Kconfig | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 8fcceb8eda07..b593e5031c79 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -34,6 +34,8 @@ config RISCV
->         select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
->         select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
->         select ARCH_SUPPORTS_HUGETLBFS if MMU
-> +       select ARCH_SUPPORTS_LTO_CLANG
-> +       select ARCH_SUPPORTS_LTO_CLANG_THIN
->         select ARCH_USE_MEMTEST
->         select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
->         select ARCH_WANT_FRAME_POINTERS
-> --
+>  .../devicetree/bindings/pci/amlogic,meson-pcie.txt |  4 ++--
+>  .../devicetree/bindings/pci/axis,artpec6-pcie.txt  |  2 +-
+>  .../devicetree/bindings/pci/fsl,imx6q-pcie.txt     |  2 +-
+>  .../bindings/pci/hisilicon-histb-pcie.txt          |  2 +-
+>  .../devicetree/bindings/pci/kirin-pcie.txt         |  2 +-
+>  .../devicetree/bindings/pci/layerscape-pci.txt     |  2 +-
+>  .../bindings/pci/nvidia,tegra194-pcie.txt          |  5 +++--
+>  .../devicetree/bindings/pci/pci-armada8k.txt       |  2 +-
+>  Documentation/devicetree/bindings/pci/pcie-al.txt  |  2 +-
+>  .../devicetree/bindings/pci/qcom,pcie.txt          | 14 +++++++-------
+>  .../bindings/pci/samsung,exynos-pcie.yaml          |  4 ++--
+>  .../devicetree/bindings/pci/sifive,fu740-pcie.yaml |  4 ++--
+>  .../bindings/pci/socionext,uniphier-pcie-ep.yaml   |  4 ++--
+>  Documentation/devicetree/bindings/pci/ti-pci.txt   |  4 ++--
+>  .../devicetree/bindings/pci/uniphier-pcie.txt      |  2 +-
+>  15 files changed, 28 insertions(+), 27 deletions(-)
+> 
 
--- 
-Thanks,
-~Nick Desaulniers
+Applied, thanks!
 
 _______________________________________________
 linux-riscv mailing list
