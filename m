@@ -2,20 +2,19 @@ Return-Path: <SRS0=/Tun=ML=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDC85C12002
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 06:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C671C12002
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 07:11:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC6EF60FF4
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 06:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC6EF60FF4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id CC92D61029
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 07:11:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC92D61029
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,67 +22,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T8qANp7N2AwlOWE+o7z4b+Rddz6YkFkFthPGcrULQmk=; b=Q7hpqekFkiBhFo
-	wW0wathc4myIdi5Dkm19P63DNZjMhcLizEAuJ7iS8FRYbZ2DZjF4fYOCAAUgFWs1gqwsW/0xflHOv
-	qReYcxUtVtXsIluz3GLS25fwezl+nrE5ycMCqufuDsBWAe3y3QVzpjFsC9OWmqed2bNjGN2K0bIVA
-	aHU7ONeT+bZZ+Q3UO2XngmnlTTfcGL76ObufkVyKADVUiOIOHRscRAKFY+Ny8d2eAMQtWohKtiNQr
-	XGRv3BT+0aDsuAxvnSlJ+PjIqGbhBkO7HRSiC2U6QnnjKhk/tc+Pvld8CdZWF0Ntrkt+fwM5M2LQd
-	XOAD2TMABmWhIvUGO6Lg==;
+	List-Owner; bh=YMYuWkXp1W39cfKxgXhSMT+PhnsblWFBEHTgvysDngg=; b=F/tcb+6MS++U/z
+	hE48SEZLBbZLi7GxpeXg5ycrYNuaFZHWrVyKZ4fGxjvw2j2jkaV+lPOxXxkKy8sskhWGDjQMd26AX
+	/GL5x2cd+4n5hoZ2mK965Yf512NXGJFYtGE+J3XTElYIDxpjmS8NGEEbTxFt34nS7nZEfAmxNy0Yn
+	JUs5MAAcAtCVq/vfPXunfvMFEIYLZ5rsXzV5iXu/eqBvv2/6sths1Lqe7flWVIzzh5ThN9Jav/+HN
+	/xjoaRaa5U6ISGfKdC+l37GKxgUR+W21uVRJkzD/seP/HQKp/JKWnRJcyu33bn6j8u+NOZeexUNvU
+	KnZDR1HbNA4SwxdIsZgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5NFS-008Wjd-Hy; Mon, 19 Jul 2021 06:59:30 +0000
-Received: from mail-vs1-f54.google.com ([209.85.217.54])
+	id 1m5NQt-008Yi0-D3; Mon, 19 Jul 2021 07:11:19 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5NFF-008Wh3-6A; Mon, 19 Jul 2021 06:59:18 +0000
-Received: by mail-vs1-f54.google.com with SMTP id a22so8856858vso.1;
- Sun, 18 Jul 2021 23:59:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=5NCNcBqTO22l3X4al8acu9AJJxnhiYKAu5aMxQckPxk=;
- b=U6+3qHqLzf7dP22muorPXDuNdMrPCfhyQbX6Grq3OrBA/u2/yZGLdFXvwsfDaGkHBA
- EHQ1pHx1+0SPrOg09yQ6H1AjIOjAeDIhp+4bCbpEjsjs6Rk6mJYQgcnFonC2yiaWQ0Xp
- Zq2RL/M5LQ8Y8eZD2x8iOsWUABd8dUSklmmay/OUvVXr82y8qVlMvBW/9VRIav21boq2
- PjOWlagU6TpmfAeI8wvm6c4v7avpt9ga8NL3122wzsHIy6CQq/xjOXxkHlsWMg8MyeQJ
- ojQyPydocR49xHhgjK+fD03C/ce0LH/ozTS+lXr1ZR2Q7znWZoSlItNW6WOdQeUkmvbd
- DC+A==
-X-Gm-Message-State: AOAM530EtvHBalDcVUj7ASLHPDW2w7XguIOcLDU6Ga7kWlgxUSj+AiKc
- wmbjRyLt1yBl5Qdc2kGDq7GBBZWbIFzXXjrXkIk=
-X-Google-Smtp-Source: ABdhPJy9IdyG2rKF5NzGOGN5xKqJm9bCibQ2pE0G8Vx99QZGQQJXSZ4tsUqw9Paisv+zNMq8pJZfaQ8xGb9dpSkzbrs=
-X-Received: by 2002:a67:1542:: with SMTP id 63mr23590649vsv.40.1626677954982; 
- Sun, 18 Jul 2021 23:59:14 -0700 (PDT)
+ id 1m5NQe-008Yf6-RR; Mon, 19 Jul 2021 07:11:06 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6F5EC6100B;
+ Mon, 19 Jul 2021 07:11:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1626678664;
+ bh=Pn/1Cj/0aZG99zqoi3ZzrECnvCBXU+18iWFv6gPyfSM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=bCW39FLNMP4SZgn5kgvw/weq+kRv4VAQe9Yl0X9IvGIET79Sv111ytlAfkeuQCy4+
+ 0auxQNNbNpcDAZM+M+AmJAooC2j7JGbdI3GtyMeTbXItwsz/o3MvlXVKYKvsrfzlAe
+ 7jHJ2Y7UFFpuEjHACQP7iXhobcygebdszESwk7tiR9tZGSToYXOe/f2ZQKwNNJfA4T
+ +WCaVuZ0r1K+eAHklgZ9MhZRHNmWZ65VuHQGHPiQOXyTpeXTvB+DriDAI2568NkFB7
+ ZTzq+bOFDk5gzVRiYpdiUuhKiM1fPVCQmHVYae8dSOnQ9xq1yNQaNcSvPR2uHEf6hh
+ XHmrehB38snjQ==
+Received: by mail-ot1-f51.google.com with SMTP id
+ h24-20020a9d64180000b029036edcf8f9a6so17308801otl.3; 
+ Mon, 19 Jul 2021 00:11:04 -0700 (PDT)
+X-Gm-Message-State: AOAM532ak6y681b0l8eKSZkGG/zODttciMxO0rVtgkwAwIxfBrW7fwDF
+ DUO6TSb+70HP3GTlyE9iYbAePtob3bXJraK3hGU=
+X-Google-Smtp-Source: ABdhPJwdHFS1KJDwdJGVFAPZ7EQmJ/6+hWchGT5fri4AF+nsIVeMNNoeRd43R/6tIlkpHhDM1d09UMCoJxuAR70rmFo=
+X-Received: by 2002:a05:6830:34a6:: with SMTP id
+ c38mr5088922otu.108.1626678663841; 
+ Mon, 19 Jul 2021 00:11:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1626266516.git.geert+renesas@glider.be>
- <04c4d231fb03a3810d72a45c8a5bc2272c5975f3.1626266516.git.geert+renesas@glider.be>
- <20210714135101.GB2441138@robh.at.kernel.org> <YPP06QG7hfypZgYg@kernel.org>
-In-Reply-To: <YPP06QG7hfypZgYg@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 19 Jul 2021 08:59:03 +0200
-Message-ID: <CAMuHMdXfFhzm48U2Hvjz8yrjPsQbagW4aC_L-QE_Q6yx1Lo=tA@mail.gmail.com>
-Subject: Re: [PATCH v4 02/10] memblock: Add variables for usable memory
- limitation
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+References: <20210625130947.1803678-1-javierm@redhat.com>
+ <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+ <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
+ <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+In-Reply-To: <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 19 Jul 2021 09:10:52 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+Message-ID: <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
+ non-x86 EFI platforms
+To: Dave Airlie <airlied@gmail.com>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+ Javier Martinez Canillas <javierm@redhat.com>, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+ linux-efi <linux-efi@vger.kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
+ David Airlie <airlied@linux.ie>, Catalin Marinas <catalin.marinas@arm.com>, 
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, 
+ dri-devel <dri-devel@lists.freedesktop.org>, Atish Patra <atish.patra@wdc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ingo Molnar <mingo@redhat.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Peter Robinson <pbrobinson@gmail.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Frank Rowand <frowand.list@gmail.com>, 
- Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, kexec@lists.infradead.org, 
- Linux MM <linux-mm@kvack.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+ linux-riscv <linux-riscv@lists.infradead.org>, Borislav Petkov <bp@suse.de>, 
+ Will Deacon <will@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210718_235917_272869_EA751271 
-X-CRM114-Status: GOOD (  38.80  )
+X-CRM114-CacheID: sfid-20210719_001104_965744_C3B2B7D8 
+X-CRM114-Status: GOOD (  32.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +101,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
-
-On Sun, Jul 18, 2021 at 11:31 AM Mike Rapoport <rppt@kernel.org> wrote:
-> On Wed, Jul 14, 2021 at 07:51:01AM -0600, Rob Herring wrote:
-> > On Wed, Jul 14, 2021 at 02:50:12PM +0200, Geert Uytterhoeven wrote:
-> > > Add two global variables (cap_mem_addr and cap_mem_size) for storing a
-> > > base address and size, describing a limited region in which memory may
-> > > be considered available for use by the kernel.  If enabled, memory
-> > > outside of this range is not available for use.
-> > >
-> > > These variables can by filled by firmware-specific code, and used in
-> > > calls to memblock_cap_memory_range() by architecture-specific code.
-> > > An example user is the parser of the "linux,usable-memory-range"
-> > > property in the DT "/chosen" node.
-> > >
-> > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > > ---
-> > > This is similar to how the initial ramdisk (phys_initrd_{start,size})
-> > > and ELF core headers (elfcorehdr_{addr,size})) are handled.
-> > >
-> > > Does there exist a suitable place in the common memblock code to call
-> > > "memblock_cap_memory_range(cap_mem_addr, cap_mem_size)", or does this
-> > > have to be done in architecture-specific code?
-> >
-> > Can't you just call it from early_init_dt_scan_usablemem? If the
-> > property is present, you want to call it. If the property is not
-> > present, nothing happens.
-
-I will have a look...
-
-> For memblock_cap_memory_range() to work properly it should be called after
-> memory is detected and added to memblock with memblock_add[_node]()
+On Mon, 19 Jul 2021 at 04:59, Dave Airlie <airlied@gmail.com> wrote:
 >
-> I'm not huge fan of adding more globals to memblock so if such ordering can
-> be implemented on the DT side it would be great.
+> On Thu, 15 Jul 2021 at 18:11, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+> >
+> > Hi
+> >
+> > Am 13.07.21 um 18:59 schrieb Javier Martinez Canillas:
+> > > On 6/25/21 3:09 PM, Javier Martinez Canillas wrote:
+> > >> The simplefb and simpledrm drivers match against a "simple-framebuffer"
+> > >> device, but for aarch64 this is only registered when using Device Trees
+> > >> and there's a node with a "simple-framebuffer" compatible string.
+> > >>
+> > >> There is no code to register a "simple-framebuffer" platform device when
+> > >> using EFI instead. In fact, the only platform device that's registered in
+> > >> this case is an "efi-framebuffer", which means that the efifb driver is
+> > >> the only driver supported to have an early console with EFI on aarch64.
+> > >>
+> > >> The x86 architecture platform has a Generic System Framebuffers (sysfb)
+> > >> support, that register a system frambuffer platform device. It either
+> > >> registers a "simple-framebuffer" for the simple{fb,drm} drivers or legacy
+> > >> VGA/EFI FB devices for the vgafb/efifb drivers.
+> > >>
+> > >> The sysfb is generic enough to be reused by other architectures and can be
+> > >> moved out of the arch/x86 directory to drivers/firmware, allowing the EFI
+> > >> logic used by non-x86 architectures to be folded into sysfb as well.
+> > >>
+> > >
+> > > Any more comments on this series? It would be nice for this to land so the
+> > > simpledrm driver could be used on aarch64 EFI systems as well.
+> > >
+> > > The patches have already been acked by x86 and DRM folks.
+> >
+> > Time to get this merged, I'd say. People are asking for these patches
+> > already.
+>
+> Can we just merge via drm-misc and make sure the acks are present and
+> I'll deal with the fallout if any.
+>
 
-Me neither ;-)
+Fine with me. Could you stick it on a separate branch so I can double
+check whether there are any issues wrt the EFI tree?
 
-> I don't see a way to actually enforce this ordering, so maybe we'd want to
-> add warning in memblock_cap_memory_range() if memblock.memory is empty.
-
-"linux,usable-memory-range" is optional, and typically used only in
-crashdump kernels, so it would be a bad idea to add such a warning.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Ard.
 
 _______________________________________________
 linux-riscv mailing list
