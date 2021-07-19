@@ -2,88 +2,81 @@ Return-Path: <SRS0=/Tun=ML=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33F97C07E9B
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 20:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8ED04C07E95
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 21:15:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DFECB60FE7
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 20:54:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFECB60FE7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 362406113A
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jul 2021 21:15:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 362406113A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sXoGAsvnrBmwpx3X2FpN/HPX2783mMkdx5mHy47VLJo=; b=TlT2bhoIY53PjY
-	Ouy2fhvlQG20i71jIg0bsdve+v8oaZMCU1C9V2FQ4Xt2nrB4bMc4xpH46mdid7p/dX9VJG4fpM+DW
-	Ll6ljUKmJyNycMgQ3nDF3wZ1YsJLkLxjhVtwSKaiEjG5wXH4fb0+1OTFvgUSEVD8U5IZKuRuMqJ7b
-	0SpZW82n1I+PvqmeDfn21ik+G/ozvVp/AJy0+Evh9swgw2Msbu9vLN1J7tTKxAasrNcTNFpNYvam3
-	CD5JZDwe083iFR1wk9CnE4xv9HIB/XwsSfEbDfSSf0ktbKS9S6Zpv4MMwr9UZRnU2Pg1VoyqNY8CT
-	T5uWtYX+U0qE1lXObA1w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EtPoAqZ7+ZS322ua7EtdV1stcHcte/zsLT8+vfVjPyY=; b=ds9JVoJ4dTsUmJ
+	8b4TKQBrvXulGqOQrby6hCy8lo1YAwO2aQTFr4k3o7JmxmZ3Q5Q5BO4runGsI3tE/JKI+dTPRF2AN
+	Op/LU3t/bMfjxik4v/kUW/3qZVwQ7eYiTCqHspX7SM0MVVJdDJmY34hjUUYhnvoeKAZo37eGvhdtu
+	zFccI8dFnuxkWD7c5+tYCx8iFJ4SqISKEnnwiQe5XG1+MXyXQ0CU62QMBNq07Ph1aAXrN/DrEwSPd
+	y3zu1YIbyeJw8rEwSxLoEcaLjKZkzWh4q2IdTkOnq5o2xmaxTB0JF4cJpDVEPxa+fH0ddOvYZpo4v
+	rzBLvk7vPy229ggtAeUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5aH9-00BK6t-7o; Mon, 19 Jul 2021 20:54:07 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1m5abe-00BM2Q-1t; Mon, 19 Jul 2021 21:15:18 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5aGm-00BJtP-WA
- for linux-riscv@lists.infradead.org; Mon, 19 Jul 2021 20:53:49 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id j3so10293329plx.7
- for <linux-riscv@lists.infradead.org>; Mon, 19 Jul 2021 13:53:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=To1VQqsP4sYw5X8oyJk6rrmdug4zweFow7cNnsopET8=;
- b=lNhr3LLsTXM94akRp7828XzwiOuQP2milj8pr2RBpTxaUvyzeufKtaQ/h9x0p86sdN
- pInK5Dm4srswz8AdqpSbpE9Lw2qXDCRUiohBhEwasrrKcH91kJwqs9cTDr9cJMd0rx7y
- uNw3hkOgcXQf0jv7NbyMqiOC07gGytUdKu7f89pA7DBdfd4HfWoqFy1oFQQDEy2nO4O/
- tewVEVrU64igwQ8mHRlmS6R6EUVJvUG0RxCG4ZCBi0JwTJH6thjIzZ1kHauYwMzGqu6Q
- CRKhbqRoIIwQPXIhn6CK2dQRI12jugEXmxijM1oDlRMkaS9t7lDSA3KQvwu2m9yOTX1X
- Htmw==
+ id 1m5aba-00BM1W-Od
+ for linux-riscv@lists.infradead.org; Mon, 19 Jul 2021 21:15:16 +0000
+Received: by mail-lf1-x132.google.com with SMTP id v6so32539767lfp.6
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Jul 2021 14:15:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=qFtdMgkLQc2YmuYFFmmTPa+0DMBOVtiSjJ3Lih49niU=;
+ b=PjN4k5YCt7OXpbK+2pKhpm3/sgq8JM1F+LN+BPin+vPlb9dwCGzD/QohlbVfOFPOa+
+ o1EcQzRiUEDt9SbNaiU27ZMxHHwkAJ95IQIozEZJk/k6ybRO1ovJne0Joiev0k02VL5G
+ 46n8bf6C98J4iNNInP6cYM4JNNDXT6hEEn6EiBkaSdlDwGSId54lLNK8X/CY8WS/6wip
+ jVcgViCXnK926ShISAWE966Hieue0qBiap3AzF4i3HfcDU/sM8ah7TvlD+PKZ5LMYAh8
+ e/pcM6VdMAzXIn+vFdlP2DDA2vxAsQh7UEBOej2sVte0qIW7YyblcT0KtgrAE4YCylVy
+ ndSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=To1VQqsP4sYw5X8oyJk6rrmdug4zweFow7cNnsopET8=;
- b=WW3TTQQqgCUgJxZx2GBebO/0aM/hPuu8Fk8+tOsXC/IGly0BbFdv4/+KpDzzKIOJjQ
- B6ST470sxC/O9n4fjfghALT3FfGUHIQohVm2SL/Ox1cxxlzQrBam3bGiSXvwiSWAf/1e
- +OyyQcMZgBt3ucnQbyhIKZhZ9yCVanwwv4j/M4DGXmLmCnL/rqM+28DmD+KjoQGPSX0L
- XE31p4nwDGhkA6KFazZYSgVsLVG/lMQp1OGocP23Lyiv3wJ6KOeQHvnfil2uO5rg72XM
- dQWtg2Y42xtPoRV1CHVny8UTl+fIjJYa2b0FAJuHhFNvKq0Z9uZtSdPce+uZJIfHP5jZ
- WETA==
-X-Gm-Message-State: AOAM532k8Pp0GsPsSRVe9u0L//leKH05Ufks9ssdT55wj13P3Lah3mmR
- StTPSbpEKNkd6EoDqJPmnPM=
-X-Google-Smtp-Source: ABdhPJxRMPZhp2P72BQeVsPGUhsFeDBZVSS9XpUyU0dz4JLNXJzYQCGypGRLuzOVdjcnLtDvENw4SQ==
-X-Received: by 2002:a17:90a:8c93:: with SMTP id
- b19mr13591410pjo.107.1626728022956; 
- Mon, 19 Jul 2021 13:53:42 -0700 (PDT)
-Received: from localhost.localdomain ([2604:a880:1:20::1f:7001])
- by smtp.gmail.com with ESMTPSA id x3sm397267pjq.6.2021.07.19.13.53.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 19 Jul 2021 13:53:42 -0700 (PDT)
-From: Wende Tan <twd2.me@gmail.com>
-To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-Cc: Wende Tan <twd2.me@gmail.com>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH 3/3] RISC-V: build: Allow LTO to be selected
-Date: Mon, 19 Jul 2021 20:53:39 +0000
-Message-Id: <20210719205339.1023572-1-twd2.me@gmail.com>
-X-Mailer: git-send-email 2.25.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qFtdMgkLQc2YmuYFFmmTPa+0DMBOVtiSjJ3Lih49niU=;
+ b=H+zm5hRkmuAj60WOkAA+WkdrYsfQnSQxRIVB2KRTwzetYir+DHLl40P+HMMj9PBfpv
+ 6ERNavVbUpS2Yh01QVV7b6evZRJcaOmuF79gm67y3KbSySE9MFdaJ7RG0nLzIbr6BZVf
+ cKfrexgNACgfC6GsG2twWnP1BMNlSXEKQJ7rmjA1bk29cOaLTpiLF4d9CkopBdaypmsp
+ 2HkjPMTljWuHg/JVJpml+0qY4LGuWuseYz0UzwKwoKK5dCBRHJ5zk+CAPf4l7W76zm64
+ +hyTB2HoMJtvcnQ8j4NZAIERbiOu5MbDWksif/RimIVBEoCGAL+WbvwtiSMM3GFZ74R+
+ a04A==
+X-Gm-Message-State: AOAM533qzwQ8PblOGBuFT5lUHVAYVAP0yzD5wGDZRt+zTcY7hINPMqxp
+ U/K/7czE3WTkfX794HQLkQleGDSq7FsdUB5NnAGlhQ==
+X-Google-Smtp-Source: ABdhPJwZTEZwg2PfbPx86qBrVr7N+QJgYAVbxrromBgvPBO1P7BqvRH7UQFyadoWHUi9Dtb947HxhWix5gbG0vQn+P0=
+X-Received: by 2002:a19:4916:: with SMTP id w22mr20358536lfa.374.1626729309240; 
+ Mon, 19 Jul 2021 14:15:09 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210719205247.1023289-1-twd2.me@gmail.com>
+In-Reply-To: <20210719205247.1023289-1-twd2.me@gmail.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 19 Jul 2021 14:14:59 -0700
+Message-ID: <CAKwvOdmNji0AbYUiOSfb5cLD+g7YCpXk4oDupa8gTfgzYmxvBg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] RISC-V: build: Pass `-mattr` to `lld`
+To: Wende Tan <twd2.me@gmail.com>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+ linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com, 
+ Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <keescook@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210719_135345_086375_33D2122E 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210719_141514_864994_57565D6C 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +93,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Wende Tan <twd2.me@gmail.com>
----
- arch/riscv/Kconfig | 2 ++
- 1 file changed, 2 insertions(+)
+On Mon, Jul 19, 2021 at 1:53 PM Wende Tan <twd2.me@gmail.com> wrote:
+>
+> Pass `-mattr` to `lld` so that it can generate proper machine code.
+> By the way, it seems that `-march` does not work well now.
+>
+> Signed-off-by: Wende Tan <twd2.me@gmail.com>
+> ---
+>  arch/riscv/Makefile | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index bc74afdbf31e..bbc186a3ab45 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -52,9 +52,16 @@ riscv-march-$(CONFIG_ARCH_RV32I)     := rv32ima
+>  riscv-march-$(CONFIG_ARCH_RV64I)       := rv64ima
+>  riscv-march-$(CONFIG_FPU)              := $(riscv-march-y)fd
+>  riscv-march-$(CONFIG_RISCV_ISA_C)      := $(riscv-march-y)c
+> +riscv-mattr-y                          := +m,+a
+> +riscv-mattr-$(CONFIG_FPU)              := $(riscv-mattr-y),+f,+d
+> +riscv-mattr-$(CONFIG_RISCV_ISA_C)      := $(riscv-mattr-y),+c
+>  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+>  KBUILD_AFLAGS += -march=$(riscv-march-y)
+>
+> +ifeq ($(CONFIG_LD_IS_LLD),y)
+> +       KBUILD_LDFLAGS += -mllvm -mattr=$(riscv-mattr-y)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8fcceb8eda07..b593e5031c79 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -34,6 +34,8 @@ config RISCV
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_SUPPORTS_HUGETLBFS if MMU
-+	select ARCH_SUPPORTS_LTO_CLANG
-+	select ARCH_SUPPORTS_LTO_CLANG_THIN
- 	select ARCH_USE_MEMTEST
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_FRAME_POINTERS
--- 
-2.25.1
+We should prevent the proliferation of the compiler internal `-mllvm`
+flags from Kbuild Makefiles; these are indicative of LLVM IR specific
+issues with regards to LTO.  Can you please file a bug against LLVM
+that `-mattr` should be encoded in the IR for LTO's sake?
 
+See also:
+commit 0236526d76b8 ("Makefile: lto: Pass -warn-stack-size only on LLD
+< 13.0.0")
+commit 2398ce80152a ("x86, lto: Pass -stack-alignment only on LLD < 13.0.0")
+
+> +endif
+> +
+>  KBUILD_CFLAGS += -mno-save-restore
+>  KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+>
+> --
+
+
+--
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
