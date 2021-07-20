@@ -2,96 +2,99 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE0BFC636C8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 15:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D584C07E9B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 15:44:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A9622610CC
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 15:01:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A9622610CC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
+	by mail.kernel.org (Postfix) with ESMTPS id B940561029
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 15:44:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B940561029
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QhyJUj/xzQtyrcbLU331f5XGBUHwqLuOSJPsq39zcmI=; b=PQSqrWsnVKSkfMjOIjRvo4mm/p
-	ztZsoTBoBcU/vgsfK5hJpGIUXHIQ+iED0zI2SBKpV65ghmwVIN9BsQ7h0+H8Gas/xyHIRB9SyOv/r
-	3eJehotAANTZmJSO1m441dyBi4luQdfmgrnyKxJSlaMWNml8yn+3sPXm+uTJG35gnc/GVFc8YolEJ
-	uX77qKWPAwpkAN1b52HJimO1rT1TKq8nOXC747UlYGPpdeoBZlJrl3fOdRRZEa3lG0JCGz33FtlMC
-	iq0KnctQR4mVjhCSxgLHjWZLdzaO8MdRijS2oLcErUMHHdRG7kklxmck3GtiboLRdVA7mY0w12uqQ
-	4SfTBSDw==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=75XT5z5YY8Ojd3b0or//Iagg1C8/1CX9N+NX5rq1xFI=; b=y4vQof+wajpjs5FyIMSxU3Aqxw
+	UFO7k4+nPrOaAzWkK1c099MA+XQgD5sqBJ3+AXiy+gnyQhp+1HR19gInfE44yBwK3aHjQd+g7UziS
+	qt1ZaRmb+/3F3o74Ky1dRMwDMK4Tc4P74exuFlpkbJ9M2YtowWYu5s/KAnpx7ug/pMr6isdq4FjmN
+	QH+gr5gzgj2OtJsR3M9ImVDIEAvnivcpWcabF5s1IVhyM9dTNWqglzot1hSO66kv3Cr9mo2taTDFZ
+	tCoE/W/bxdSmOo6mNQK4R8Y3iRhXGKODSYtGdVfjpx2ibBg9OGZN0FmuvLQAR0B6H0/BpGm5N1QhT
+	+g0gy32w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5rFA-00DK01-4O; Tue, 20 Jul 2021 15:01:12 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1m5ruO-00DSeu-Lp; Tue, 20 Jul 2021 15:43:48 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5rEY-00DJdl-3F
- for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 15:00:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1626793223;
- bh=7JdJAmzmrGsuzFEq70IzT5ECb4hmPKilGvqx9UcNLYo=;
- h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
- b=bAhOVEhG7GKzvSNt5PDL8oJBFKJfDQd9g4CJn7FAFGSvFgMW+WtlVpVF4rYvDwsfo
- UlmqdMkTFygT/gO44r5Mg385cAc6fenQqxfKUgYBCxijX5meXFVk55dYSbIKq3tykC
- shOV9MKQrVex/8a0ElxMTnnWoMShPMySl16Czr9U=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.0.189] ([88.152.144.157]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M6llE-1m22132BbC-008Gby; Tue, 20
- Jul 2021 17:00:23 +0200
-Subject: Re: [PATCH 1/1] RISC-V: load initrd wherever it fits into memory
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- linux-efi <linux-efi@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Andreas Schwab <schwab@linux-m68k.org>, Atish Patra <atishp@atishpatra.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-References: <20210629134018.62859-1-xypron.glpk@gmx.de>
- <877di3mfbe.fsf@igel.home>
- <CAOnJCUJhYZbAL9dMReJt0=y9V33Ed1DaBCXGCdwxH8iUU3bcRg@mail.gmail.com>
-From: Heinrich Schuchardt <xypron.glpk@gmx.de>
-Message-ID: <42271be6-9586-d387-0419-22e2fcc0d8a3@gmx.de>
-Date: Tue, 20 Jul 2021 17:00:21 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <CAOnJCUJhYZbAL9dMReJt0=y9V33Ed1DaBCXGCdwxH8iUU3bcRg@mail.gmail.com>
-Content-Language: en-US
-X-Provags-ID: V03:K1:PTG1MiKwTZILCTDhV5MyL3ndWlpPj7Z5tndcB4DWFM92M+/DX1/
- 2c4zaVsku/vu5nmN3zCIFC+GnmtR6+aFPf/QQBznbJ0f5qtEJgv8YPnucRjzP9ZR6uvlwj7
- es4CgIN6LYh1MUIpFw++QRb/Z8lQ574PyHCyQ8oZaMLXyPcgLVmNAzV8VbwAb/cInySmTn3
- sfX0AhdmuDJ75894uh3nA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:3tg4y7hCivo=:DCeEs/VENqXKNCQNfmAAJy
- nyGUjn2rcQ07VJlz7UA7n8iTKj1cmGWG6uHFA+KE+kikCFkE6N6udjhRs+wzmmbfDH90cBKvj
- +fdEdveFsmvij344/q08yDXS9UMcJXprSgrBwzFuhA38bZw0lt3/TY2GMiL+96ObxM+sVl7Ie
- /gT5QYSUSSuQOzkv3PDovRxBRPhCcFCiQarRA9I6w7z0++NVNBqaQxH5n98kOhi1i/F3DR/PD
- lCxLSIMJWZINJ0t6eKh2YaQ1Kc4QeBp7sz6bCxq3pDWmXqT7hzbjRTXF3bLFRqOf3dV94ePtK
- oaY8g1b3Y2pWI3sVixo8rY0unSflY/7T5/XUmTQrNpeF10QTDOfiPa35ypNESV8C2RYifu/dx
- pJIkSSAMtc7KaKPUXHwKyxmfyfE9G6Y5on/zui2zpIp/VuyV8ubgkp9GiUGFFw1c/EU4KWrUU
- U0uqOOdU6pWcT4sLeB95HMXu8iJTmLh91WPRyeXq9ou5bPNvMbkw9sXQHh2ggVahwJl6af7HF
- ufCiTZfoq0om42tJNClBbXUF0OCpEpnAPg0nbiesmxYZa5K2Wt2L6LPzC5wj4heiDYMv2NPUN
- dv2nkAqKAusXgwyHmmLoD3InntmIPJ1hXUU3O9WihHocXTsITC63h8GSBikf8sOimvuxOM4pJ
- R2bYnk1t4SrQREKX/ZBpCTlAO48yzGIZgNJUoK0FtiiO9LH910uz7ZRVm1gBuvxinKrgYz3NN
- NwVnucnHZ+9kec8u939KZfg0DFO4M1jg0v5sWGGh4EQPojsm9pMbfBDUYrJaAG96hkOKTYB84
- Mm4Jnf7NBi02YoKgNJnirCX0D8Upk7+BuATBs9WIXV6S7iKRMn/ONHaiYoeZw6r63AOSDlOAF
- RbijP1aFYlH2NdH4abgzhfrfLa7oFIz7tJLFWXZ4v0mwEJjBbxm9xaiHLruNFc2IsElE3AqpZ
- DYqeRlUCC+0w3GXIKmWpElcVzY0TBM2qjrhjJAWtBNkwNUfDd1hkXJBLa0AdU7M4H3wNTbYB3
- 1gtVAMmF6+3CuZ0rA2RyWItro3SFKXa04HJqus5eDsvW129g+4IX5Y/9x/qSXKdERyfKefxvr
- ANRbJE2qEebdZ2UYd+ldBzzywCcNjR0gipc
+ id 1m5ruM-00DSdU-7j
+ for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 15:43:47 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id a127so19890876pfa.10
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 08:43:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=pdh068ptiINg7vYsNON6+uw4KqAOssVbDMcwvukOGd0=;
+ b=dpe3XWqRXAgtIdDhfs39lSEhRtVR0xEzpdUzBAQqbnUbtk19yaGCwYaYYPltQcIhaA
+ WglRCqfVMuxfAI0AdKQeV45lkBvTHMiRUKOgjbca0BIWZkeQaCZ3uEn6yvotq6gP/XUL
+ 9ODIV7iymwfcJrCvfuJiLLu6Q4xzQEVATdFRYO3GyWm4REbYYHOsOMBQqrvIR+tWGmEA
+ 76vMqkk3IT48ZKlvOGfAYLNSKI+IEfwPTimCwG9xZSjh76iVONtsRdWg8tagak9hxFVT
+ RxE8iIgabG5Y+MfvGU/fANMRupaTYx2BbKiJvYj58kGG7idGGRJdUi7Y2qLOd46xi5tM
+ vcRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=pdh068ptiINg7vYsNON6+uw4KqAOssVbDMcwvukOGd0=;
+ b=IIAP7L1dphDRQ3aBDCQEoJCvJJdb+SvcfWg1BZ0YXuyBGBG1EBt2OV9sg9iw3L43HG
+ uyTYUvkD7oMJANJx8t3udrGk6VjAu0o8tuQu5xocePUMtvLH8SFH1KFYV6QwENCT1EHL
+ 0YFBPuxDj7T0cLUk4kz9Q3jK+cdpMqTmjCnFkL1m2pMkoHi1O/pD+NROpfXcFO5eB0Xd
+ XoQzOduapG4odDwH8wAY6OIa1aa+GD9qjkjC/zc7pZemUZrktvA8+0Za4HkX3i83X4JG
+ lY3J0NtnKjhECLpaM/Jp/n1/CzK61i1pYS54m5HJDqpaJNlhJtSA/UHegjLbP7+c4xz8
+ sH5A==
+X-Gm-Message-State: AOAM533MbcsZKm9YNdKQUt1GYd5bgrLz4CPpW2JeHYhJuKm45z6ZSSfj
+ YNtM/rIcv+BsYUwQIMmotEKN1Q==
+X-Google-Smtp-Source: ABdhPJwpGFV02DMIWb+tUmJStYOn7WgezVWEgx5CxO0+ooG8jBYIGIW/L25sLQ9lISd1D9b0VLjeYQ==
+X-Received: by 2002:aa7:9ae4:0:b029:32e:b1:78e8 with SMTP id
+ y4-20020aa79ae40000b029032e00b178e8mr31996254pfp.46.1626795824423; 
+ Tue, 20 Jul 2021 08:43:44 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id b7sm23833755pfl.195.2021.07.20.08.43.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 20 Jul 2021 08:43:43 -0700 (PDT)
+Date: Tue, 20 Jul 2021 08:43:43 -0700 (PDT)
+X-Google-Original-Date: Tue, 20 Jul 2021 08:43:39 PDT (-0700)
+Subject: Re: [PATCH v4 06/10] riscv: Remove non-standard linux,
+ elfcorehdr handling
+In-Reply-To: <170e7daa55aced148b8e57827f7c8fc65a0a8c7a.1626266516.git.geert+renesas@glider.be>
+CC: robh+dt@kernel.org, linux@armlinux.org.uk, nico@fluxnic.net,
+ ardb@kernel.org, 
+ linus.walleij@linaro.org, catalin.marinas@arm.com, will@kernel.org,
+ mick@ics.forth.gr, 
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ frowand.list@gmail.com, dyoung@redhat.com, 
+ rppt@kernel.org, bhe@redhat.com, vgoyal@redhat.com, akpm@linux-foundation.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, 
+ kexec@lists.infradead.org, linux-mm@kvack.org,
+ linux-renesas-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, geert+renesas@glider.be
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: geert+renesas@glider.be
+Message-ID: <mhng-8deebbc6-f8aa-40e3-9e00-e99f12eaac92@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_080034_511331_16E6F507 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20210720_084346_367986_E722BD97 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +111,62 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/9/21 7:14 PM, Atish Patra wrote:
-> On Tue, Jul 6, 2021 at 12:07 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
->>
->> On Jun 29 2021, Heinrich Schuchardt wrote:
->>
->>> Requiring that initrd is loaded below RAM start + 256 MiB led to failure
->>> to boot SUSE Linux with GRUB on QEMU, cf.
->>> https://lists.gnu.org/archive/html/grub-devel/2021-06/msg00037.html
->>>
->>> Remove the constraint.
->>>
->>> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
->>> Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
->>
->> With that patch the image in
->> http://download.opensuse.org/ports/riscv/tumbleweed/iso/ work again.
->>
+On Wed, 14 Jul 2021 05:50:16 PDT (-0700), geert+renesas@glider.be wrote:
+> RISC-V uses platform-specific code to locate the elf core header in
+> memory.  However, this does not conform to the standard
+> "linux,elfcorehdr" DT bindings, as it relies on a reserved memory node
+> with the "linux,elfcorehdr" compatible value, instead of on a
+> "linux,elfcorehdr" property under the "/chosen" node.
 >
-> Thanks.
-> @palmer: Can you take this one in this cycle ?
-
-@Palmer, Paul, Albert
-Ard suggested to move this patch through linux-riscv. Could you please
-review the patch available at
-
-https://lore.kernel.org/linux-riscv/20210629134018.62859-1-xypron.glpk@gmx.de/
-
-The patch is necessary to boot on QEMU with GRUB with large initrd.
-
-Best regards
-
-Heinrich
-
+> The non-compliant code can just be removed, as the standard behavior is
+> already implemented by platform-agnostic handling in the FDT core code.
 >
->> Andreas.
->>
->> --
->> Andreas Schwab, schwab@linux-m68k.org
->> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
->> "And now for something completely different."
+> Fixes: 5640975003d0234d ("RISC-V: Add crash kernel support")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v4:
+>   - No changes.
+> ---
+>  arch/riscv/mm/init.c | 20 --------------------
+>  1 file changed, 20 deletions(-)
 >
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 269fc648ef3d84b2..4aa4b6a034086df6 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -829,26 +829,6 @@ static void __init reserve_crashkernel(void)
+>  }
+>  #endif /* CONFIG_KEXEC_CORE */
 >
->
+> -#ifdef CONFIG_CRASH_DUMP
+> -/*
+> - * We keep track of the ELF core header of the crashed
+> - * kernel with a reserved-memory region with compatible
+> - * string "linux,elfcorehdr". Here we register a callback
+> - * to populate elfcorehdr_addr/size when this region is
+> - * present. Note that this region will be marked as
+> - * reserved once we call early_init_fdt_scan_reserved_mem()
+> - * later on.
+> - */
+> -static int __init elfcore_hdr_setup(struct reserved_mem *rmem)
+> -{
+> -	elfcorehdr_addr = rmem->base;
+> -	elfcorehdr_size = rmem->size;
+> -	return 0;
+> -}
+> -
+> -RESERVEDMEM_OF_DECLARE(elfcorehdr, "linux,elfcorehdr", elfcore_hdr_setup);
+> -#endif
+> -
+>  void __init paging_init(void)
+>  {
+>  	setup_bootmem();
+
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+
+LMK if you wanted me to take this series, otherwise I'm going to assume 
+it's going in via some other tree.
 
 _______________________________________________
 linux-riscv mailing list
