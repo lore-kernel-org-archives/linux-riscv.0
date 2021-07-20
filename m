@@ -2,90 +2,81 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 364B8C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 07:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BAA80C07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 08:06:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EC4896113A
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 07:24:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC4896113A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 707C6611C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 08:06:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 707C6611C1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zrEf28eX9SkXK5/til9r6nLGEtIXffTlUzw+3xotuA4=; b=efFGfdqHa5jAtO
-	pBqtuBRIcLO3nCt8SCw2TqnXIZJNZ+WELgPguGn8ybSQphG+XSJdjPpKKHYSaWV9yRcNxb0Qc819z
-	T1qSJmcNtFLDDafG3nNdwdPXkRfwYtp9+AYWTOxD16LXkALjDnDLekQImonmZemtpk0ArSr42RiCY
-	CyT8hzkf3j2/aCjf2JgCpYts8cAAMn0y/F9Jcwdkb9JkCL/yfdtI9FAiGlMvtGzNgR+wcKnysHnmP
-	LhnpFTzEmNWF69Y02arJdGvuIfru1Es+id0yt/9HMytagla21zzOCMvNQTAZeVKUlmsuNQr8434Kx
-	NJYoF408iZxB8g+PqUFw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=W0mZx14VdPSFdjYwVGg3/fu06YE5fOhTm4uc8O/mSS8=; b=4zUuMHilYD+Z660YjOu/kodShZ
+	eiAfNKLBAcdi5fOsDeVP4SkkSpsRDXVCYA6sJ6y0Xt4H6ZHFwte7ShhPoQmgvA43Z6IzT4FpUL/Go
+	fkg9zeoNxynTSEpGQceIVGr+xnXZjy4BtJI7LbKQfRLvFrHKB152SDgbhTiogYwHII54Nop+TkHuv
+	Ozk4rW+vPzMelVP9KjsKeIFVoutgh7KycvbRnf3yRv/El9jKLkxiV/BPv3hHA3dQ2POHqE8gk819p
+	lzTIgX5YTs+6BN5hZTSI0rdzYtgVvGydNmZVJZ8PUq0K7AKWonzMjig73MKSp/djz4qUAdxB+ywzl
+	DJxTdp5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5k6q-00C5Yz-KW; Tue, 20 Jul 2021 07:24:08 +0000
-Received: from mail-vk1-f180.google.com ([209.85.221.180])
+	id 1m5klC-00C9gz-0n; Tue, 20 Jul 2021 08:05:50 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5k6c-00C5XM-Uu; Tue, 20 Jul 2021 07:23:56 +0000
-Received: by mail-vk1-f180.google.com with SMTP id m23so1973862vko.4;
- Tue, 20 Jul 2021 00:23:53 -0700 (PDT)
+ id 1m5kl7-00C9ff-W3
+ for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 08:05:49 +0000
+Received: by mail-pg1-x532.google.com with SMTP id i16so4235954pgi.9
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 01:05:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+ bh=bOwgCetXqMtN52cjb0yepmtDbLxyw1F17rPFz0W08RY=;
+ b=lRwlgcGEN4w3nLy306s3JPfImMFLlYErfYeLRLK+SREXwx4Bn4Y/E1Oc798kmGvytL
+ PKVyXiQQjmW8SqboCMvgAms1sumNkcPqpoqmQ+I+SKnF7hHn0IzTEnM2g5zGU+E74mgW
+ 07Qg5IsGu1KbrVDKJ5xNIVtQUC7P/uX2kPebu3B/ED7HDOi8m2GZei8x4YdpHvMw5Cfg
+ nbzgYD6wXP+PkfFsGe/eqspn/A3mMO7aZXuJo/2NFdcftNRrGkssblTny3pycLj+eyt4
+ gxLMcASNT0UGBpAniP0ipYhxdXmYoENpsC+FeOBBt5T9GmVWo2b/mywh5i+P5kiMQGj2
+ Nz/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=oHPiE5WIZuBAQynBajx7q1K/yloXb10bOcX9t96Cp50=;
- b=WntFfebSlVKLgqqZ7M7KdJPo9JwrAY3jkPp8BTsu5qu4y/3Oe1UuWoE4kGaJ0ZOuLM
- +Pnacn2e4A3ri3xHXFmZud7uh6kCIVe6YFvgkXlmFy9gd01g2ZdmtlpF2EtEZz8xjgYm
- u0/8FgVmve4zvsNrtE16+mwuPyYRu21uSur52n4C5VCvZ9JzHl44aBlhN8tMM6yDNdd7
- KHbVxk2JG1en+RHurrbnh3I70DFgmVbCsfFiDOjMzs+ByH3DEw5DIyI6VKEpgXRbzDIt
- IIR3ac6QKQldCpZYQGvRueZ6Kza+IoLME9TaoKCR06IwC4GT2BaEIfaOuVPrHfVQPGdD
- wQEg==
-X-Gm-Message-State: AOAM530CcCsVA/H3lxk6mUcLzTejSYIPJHnf2o8OiDwt7WZLVxNwgm6m
- wrZBcfA2kPlBTn/P/A1rgeIsxgrgU3V8kjjwS9s=
-X-Google-Smtp-Source: ABdhPJxf33tE/UC6sAZ53pbsOTH+XynQf1vrWzPcAah8VYz4w/NMs8y9Z6qAKLx4GP83D3FxP9bWIDXUegsSRZB+qCI=
-X-Received: by 2002:a1f:2746:: with SMTP id n67mr24782587vkn.5.1626765832884; 
- Tue, 20 Jul 2021 00:23:52 -0700 (PDT)
+ :message-id:subject:to;
+ bh=bOwgCetXqMtN52cjb0yepmtDbLxyw1F17rPFz0W08RY=;
+ b=NBnpwz9hz+1XqK1QnQVrz0YijVv5595ussL2a0inq+UBsmLDxJJw7jz6BFbybilfXz
+ LHFLG1JUL/9AB5VmvN0r5FOl+CFyC/UwZxXDFqzeGXl0XEETp3QjyHVBPHffI3aA22RQ
+ f9T8K+CdRh+2hMCHAqOKqye7bOAOXe4FtzXEFUD5iDqk+RG46wiKudZC/mG8SNDjpeXy
+ JrF38xA1jakJPRErMMwDbvoBHTCMyGvq2ma5U7rY+ZGiHYOUnjyjEPo0d+zm/KMaF6B/
+ i9mOISM0+chfb/O7dx8XEWKj3VEeRwC3+PfGS/S1UxyyMMzASM3M6h1IQKKtlFd3adlb
+ 0AhA==
+X-Gm-Message-State: AOAM532pSWqRUWZMaN3SwOi9Elxpry2wGRHs7wNgBN4szx53NnzI02zF
+ IaYCEtpLIfBBQYPIqewkjTQqwubAHmkoDxVy2aHUjlDHMHHLig==
+X-Google-Smtp-Source: ABdhPJw6UX/SGKoqiA9QPRQWQk3b71dpJx7XgyWWWSrqaiW6WLaqpXOfYXXsVXQFVo+DDxeSFwGD+dFhIe1je/DnsNQ=
+X-Received: by 2002:a65:44c3:: with SMTP id g3mr24749810pgs.233.1626768344023; 
+ Tue, 20 Jul 2021 01:05:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1626266516.git.geert+renesas@glider.be>
- <04c4d231fb03a3810d72a45c8a5bc2272c5975f3.1626266516.git.geert+renesas@glider.be>
- <20210714135101.GB2441138@robh.at.kernel.org> <YPP06QG7hfypZgYg@kernel.org>
- <CAMuHMdXfFhzm48U2Hvjz8yrjPsQbagW4aC_L-QE_Q6yx1Lo=tA@mail.gmail.com>
- <YPZh/IawtmwaYccQ@kernel.org>
-In-Reply-To: <YPZh/IawtmwaYccQ@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 20 Jul 2021 09:23:41 +0200
-Message-ID: <CAMuHMdXO2nYY252s-tOWANF4x2ch+adDx=GO5gwV6Jfw28drgA@mail.gmail.com>
-Subject: Re: [PATCH v4 02/10] memblock: Add variables for usable memory
- limitation
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Frank Rowand <frowand.list@gmail.com>, 
- Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, kexec@lists.infradead.org, 
- Linux MM <linux-mm@kvack.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <1625800352-17846-1-git-send-email-vincent.chen@sifive.com>
+In-Reply-To: <1625800352-17846-1-git-send-email-vincent.chen@sifive.com>
+From: Vincent Chen <vincent.chen@sifive.com>
+Date: Tue, 20 Jul 2021 16:05:33 +0800
+Message-ID: <CABvJ_xg7piPyt_wy0dU97Vt1y5PN0Ets0fq09k05yZeoWdN7Hw@mail.gmail.com>
+Subject: Re: [RFC PATCH] riscv: Kconfig: do not select PCI_MSI if CONIFG_PCI
+ is enabled
+To: linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_002355_040737_89798FF8 
-X-CRM114-Status: GOOD (  47.09  )
+X-CRM114-CacheID: sfid-20210720_010546_109677_F397B9DF 
+X-CRM114-Status: GOOD (  35.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,73 +93,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+Just a gentle ping.
+Does anyone have any comments on this RFC patch? If not, I will remove
+the "note" part from the git description and resend it as a formal
+patch. Thank you.
 
-On Tue, Jul 20, 2021 at 7:41 AM Mike Rapoport <rppt@kernel.org> wrote:
-> On Mon, Jul 19, 2021 at 08:59:03AM +0200, Geert Uytterhoeven wrote:
-> > On Sun, Jul 18, 2021 at 11:31 AM Mike Rapoport <rppt@kernel.org> wrote:
-> > > On Wed, Jul 14, 2021 at 07:51:01AM -0600, Rob Herring wrote:
-> > > > On Wed, Jul 14, 2021 at 02:50:12PM +0200, Geert Uytterhoeven wrote:
-> > > > > Add two global variables (cap_mem_addr and cap_mem_size) for storing a
-> > > > > base address and size, describing a limited region in which memory may
-> > > > > be considered available for use by the kernel.  If enabled, memory
-> > > > > outside of this range is not available for use.
-> > > > >
-> > > > > These variables can by filled by firmware-specific code, and used in
-> > > > > calls to memblock_cap_memory_range() by architecture-specific code.
-> > > > > An example user is the parser of the "linux,usable-memory-range"
-> > > > > property in the DT "/chosen" node.
-> > > > >
-> > > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > > > > ---
-> > > > > This is similar to how the initial ramdisk (phys_initrd_{start,size})
-> > > > > and ELF core headers (elfcorehdr_{addr,size})) are handled.
-> > > > >
-> > > > > Does there exist a suitable place in the common memblock code to call
-> > > > > "memblock_cap_memory_range(cap_mem_addr, cap_mem_size)", or does this
-> > > > > have to be done in architecture-specific code?
-> > > >
-> > > > Can't you just call it from early_init_dt_scan_usablemem? If the
-> > > > property is present, you want to call it. If the property is not
-> > > > present, nothing happens.
-> >
-> > I will have a look...
-> >
-> > > For memblock_cap_memory_range() to work properly it should be called after
-> > > memory is detected and added to memblock with memblock_add[_node]()
-> > >
-> > > I'm not huge fan of adding more globals to memblock so if such ordering can
-> > > be implemented on the DT side it would be great.
-> >
-> > Me neither ;-)
-> >
-> > > I don't see a way to actually enforce this ordering, so maybe we'd want to
-> > > add warning in memblock_cap_memory_range() if memblock.memory is empty.
-
-Sorry, I misread "if memblock.memory is empty" as "if capmem is empty".
-
-> > "linux,usable-memory-range" is optional, and typically used only in
-> > crashdump kernels, so it would be a bad idea to add such a warning.
+On Fri, Jul 9, 2021 at 11:12 AM Vincent Chen <vincent.chen@sifive.com> wrote:
 >
-> If I remember correctly, memblock_cap_memory_range() was added to support
-> "linux,usable-memory-range" for crasdump kernels on arm64 and if it would
-> be called before memory is registered we may silently corrupt the memory
-> because the crash kernel will see all the memory as available.
->"
-> So while WARN() maybe too much a pr_warn() seems to me quite appropriate.
-
-Yes, makes perfect sense now.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> The CONFIG_PCI_MSI is used to allow device drivers to enable MSI. The MSI
+> enables a device to generate an interrupt using an inbound Memory Write
+> on its PCI bus instead of asserting a device IRQ pin. The whole mechanism
+> needs support from the PCI controller or generic interrupt controller and
+> the corresponding software driver.
+>
+> The RISC-V Kconfig file actively selects the PCI_MSI  if users enable
+> CONFIG_PCI. However, the RISC-V specification does not require every RISC-V
+> platform shall have MSI support. In other words, Kconfig enables CONFIG_PCI
+> to allow PCI devices to use MSI, but due to lack of MSI support, the kernel
+> may not have any function to deal with the MSI from PCI devices. When this
+> case happens, it leads to the following warning message displayed in
+> booting a v5.10~v5.12 kernel.
+>
+> ------------[ cut here ]------------
+> WARNING: CPU: 0 PID: 1 at include/linux/msi.h:219 __pci_enable_msix_range+0x4b6/0x50e
+> Modules linked in:
+> CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.10.34 #76
+> epc: ffffffe0004fa1e0 ra : ffffffe0004fa02e sp : ffffffe07fea7920
+>  gp : ffffffe0010e25c0 tp : ffffffe07fea8000 t0 : ffffffe0808c3180
+>  t1 : ffffffd000239000 t2 : 0000000000000400 s0 : ffffffe07fea79e0
+>  s1 : ffffffe080803000 a0 : 0000000000000000 a1 : ffffffe080803210
+>  a2 : ffffffe0808c30c0 a3 : 0000000000000101 a4 : ffffffe0808c30c0
+>  a5 : 0000000000000010 a6 : ffffffe0004dcf98 a7 : ffffffe07fe0f010
+>  s2 : 0000000000000002 s3 : 0000000000000014 s4 : 0000000000000000
+>  s5 : ffffffe080803210 s6 : 0000000000000000 s7 : ffffffe0808c3120
+>  s8 : ffffffe0808c30c0 s9 : 0000000000000000 s10: 0000000000000002
+>  s11: ffffffe0808030b0 t3 : 0000000000001000 t4 : 0000000000001000
+>  t5 : ffffffd040239000 t6 : ffffffe07ff8b2c0
+> status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+>
+> A simple reproduce way is to use defconfig to configure the 64-bit riscv
+> v5.10 ~ v5.12 kernel but disable CONFIG_PCIE_XILINX, and then booting this
+> kernel on the QEMU virt platform with virtio-mouse-pci.
+>
+> ARM's implementation may be a good sample for this case. Its Kconfig file
+> does not select CONFIG_PCI_MSI. Instead, It makes the selection of
+> CONFIG_PCI_MSI depends on the capability of the interrupt controller. This
+> way seems to be more straightforward. Therefore, this patch follows the
+> same way to remove the dependency between CONFIG_PCI and CONFIG_PCI_MSI
+> from Kconfig, which allows users to enable or disable CONFIG_PCI_MSI
+> according to the capabilities of the platform.
+>
+> (note) Why does this warning message only happen in the v5.10 to v5.12 kernel?
+> When the kernel wants to register the MSI ID of the first PCI device, if
+> the PCI device does not belong to any MSI domain and there is no valid
+> arch_setup_msi_irqs() defined by architecture or PCI controller, the
+> generic arch_setup_msi_irqs() will be called to display this warning
+> message. However, before v5.10, this flow is different. A valid and weak
+> arch_setup_msi_irqs() is defined in driver/pci/msi.c. The kernel can use
+> this arch_setup_msi_irqs() to set up the MSI. Therefore, it will not
+> encounter any problems even if the architecture and PCI controller does
+> not define it. After v5.13, the kernel uses the MSI domain to deal with
+> all the setup of MSI issues. Only some old PCI controller still uses
+> arch_setup_msi_irqs(). Through the hierarchy of the MSI domain, the kernel
+> can know the bus used by the PCI device has MSI support or not before
+> doing the MSI setup. In this condition, the kernel will return early before
+> calling the generic arch_setup_msi_irqs(), which will trigger the warning
+> message.
+>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> ---
+>  arch/riscv/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 469a70bd8da6..563d550cb682 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -97,7 +97,6 @@ config RISCV
+>         select OF_EARLY_FLATTREE
+>         select OF_IRQ
+>         select PCI_DOMAINS_GENERIC if PCI
+> -       select PCI_MSI if PCI
+>         select RISCV_INTC
+>         select RISCV_TIMER if RISCV_SBI
+>         select SPARSE_IRQ
+> --
+> 2.7.4
+>
 
 _______________________________________________
 linux-riscv mailing list
