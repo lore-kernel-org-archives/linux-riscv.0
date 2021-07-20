@@ -2,65 +2,84 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BD65C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 02:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F26E7C07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 05:42:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 287C061107
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 02:05:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 287C061107
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id B9CF861164
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 05:42:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9CF861164
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lr6d7pyAPlkTKip5dR2ANU9liIyeb5xo7txqFZpTqBs=; b=QJYs/uoHc1QIJl
-	uR2av903evnIW7KnkiJ5gY9WOvTlWm1NAJ8mIrQrxJdIVC0QQ+ew8yBTu6Je+g2JaEQySNS47sSJU
-	MzCE8rVBKYlgao+um5wiKvAvt5UQAmMjxvlrx6idBFF4ibY+Znxqh20InhW5Vpis8eb9Ukh5XVLdz
-	5KJpzlMdHy+uv4DBKyZZID2OIvOi/L2FUjNY9Km1snC+YYNG0Hno148GKjG82rBuYoCVIsAcpgrWs
-	yqE6rMbky9iJpyB4Sr3WIAPZ0a97Rdh37hRqKx5LCgGWAC5sgyFle+kBvwqEI6TcaTj3OLcUkA0A9
-	LLZJbThDDhXDBcdxqpqA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s2vVlpCXBS7YXvsByh10xNm0eoW2d2fG9VcY7qa7eXs=; b=N1OSxfNJQ0G0jT
+	N7TIvUfj4Eme2b5JXnX6SIbD7jqM686w5LFRx9dw8K8vJSMcZ0zDhDO2L1c6zR1mgj9j72Em8mqyf
+	GABWfBXJUol8657wJPGt0Epx90JlMbKoEqvtWuKOYfG0b+G14rv+tksjyG/1P6hJc0jsVlEMwr5of
+	v/R9Fglnx7HgZuQKZ9o2Hn4xBfh6ZxyeFmPnqbam7WRsy2NgGoT1Jt1wsYF+Y/dddsc5rG22Ipwql
+	kAMrJsLePVfm9TUEB912AOmq2th7vQN+g95Tt88nZqhNFxtqzV5/5gFHr8ZmkKsP46EwWrh97CbVw
+	4POx8j0cqXutzqRGvubQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5f8A-00BgFk-Rg; Tue, 20 Jul 2021 02:05:10 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1m5iVm-00BvG6-VU; Tue, 20 Jul 2021 05:41:46 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5f83-00BgCU-NI
- for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 02:05:07 +0000
-Received: from dggeme751-chm.china.huawei.com (unknown [172.30.72.56])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4GTMQ46xMvz7wQd;
- Tue, 20 Jul 2021 10:01:16 +0800 (CST)
-Received: from huawei.com (10.67.174.96) by dggeme751-chm.china.huawei.com
- (10.3.19.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2; Tue, 20
- Jul 2021 10:04:54 +0800
-From: Zhang Jianhua <chris.zjh@huawei.com>
-To: <corbet@lwn.net>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <chris.zjh@huawei.com>, <rostedt@goodmis.org>
-CC: <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH -next] trace doc: Fix the wrong example of tracepoint
-Date: Tue, 20 Jul 2021 10:06:07 +0800
-Message-ID: <20210720020607.4128715-1-chris.zjh@huawei.com>
-X-Mailer: git-send-email 2.31.0
+ id 1m5iVV-00BvDz-Id; Tue, 20 Jul 2021 05:41:30 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4F8BA6113A;
+ Tue, 20 Jul 2021 05:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1626759688;
+ bh=2GuyoMxAkXwIEuz4kB/1FJuahjlvs/F+Am1H8l4oZ6o=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=LRXfAAm56gnQU5zTzJQzg6qkcSv7yw0kl4yYFk/21Z9WHHCS/YfSY1upoAtwKv5bT
+ V2O7oZHWj0fOK1IGM3v79BAcuYxOjoQhqUOKopcwlgQBrVFYG0G449b4T5r51t4r2s
+ npYhouHieUp13RGQWPuxEopMBsodExxP0CTY5MFrJgxjN/YwdfA01vcaOtK+AEq1Yd
+ ORUPos0vJHv62sSB0+yra/zR5L77thXGC2iAERObefhp+jMpFNa8tjsBcsiHoIdhtY
+ VF31HzwBbHUtc22fybXpvdYc58q6NvDcq/5I5KrSiYstSR+a3kuydNUqoSMsfU84YV
+ 3qV/JLV27J/DQ==
+Date: Tue, 20 Jul 2021 08:41:16 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Frank Rowand <frowand.list@gmail.com>,
+ Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
+ Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ kexec@lists.infradead.org, Linux MM <linux-mm@kvack.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 02/10] memblock: Add variables for usable memory
+ limitation
+Message-ID: <YPZh/IawtmwaYccQ@kernel.org>
+References: <cover.1626266516.git.geert+renesas@glider.be>
+ <04c4d231fb03a3810d72a45c8a5bc2272c5975f3.1626266516.git.geert+renesas@glider.be>
+ <20210714135101.GB2441138@robh.at.kernel.org>
+ <YPP06QG7hfypZgYg@kernel.org>
+ <CAMuHMdXfFhzm48U2Hvjz8yrjPsQbagW4aC_L-QE_Q6yx1Lo=tA@mail.gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.96]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- dggeme751-chm.china.huawei.com (10.3.19.97)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXfFhzm48U2Hvjz8yrjPsQbagW4aC_L-QE_Q6yx1Lo=tA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210719_190504_009406_92E5C349 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210719_224129_691869_DC5C24C8 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +91,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGV4YW1wbGUgaW4gdHJhY2Vwb2ludHMucnN0IGlzIG91dCBvZiBkYXRlLCB0aGUgYnVpbGQg
-ZXJyb3IgYmVsb3cKd2lsbCBvY2N1ciBpZiBjb2RpbmcgYWNjb3JkaW5nIHRvIGV4YW1wbGUgaW4g
-dGhlIGRvY3VtZW50LgoKZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbnRjLmM6MjQ6MjQ6CmVy
-cm9yOiBtYWNybyAiREVGSU5FX1RSQUNFIiByZXF1aXJlcyAzIGFyZ3VtZW50cywgYnV0IG9ubHkg
-MSBnaXZlbgogICAyNCB8IERFRklORV9UUkFDRSh0ZXN0X2V2ZW50KTsKICAgICAgfCAgICAgICAg
-ICAgICAgICAgICAgICAgIF4KSW4gZmlsZSBpbmNsdWRlZCBmcm9tIGluY2x1ZGUvdHJhY2UvZXZl
-bnRzL3Rlc3QuaDo4LApmcm9tIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jOjIyOgpp
-bmNsdWRlL2xpbnV4L3RyYWNlcG9pbnQuaDozNjg6Cm5vdGU6IG1hY3JvICJERUZJTkVfVFJBQ0Ui
-IGRlZmluZWQgaGVyZQogIDM2OCB8ICNkZWZpbmUgREVGSU5FX1RSQUNFKG5hbWUsIHByb3RvLCBh
-cmdzKQogICAgICB8CmRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jOjI0OjE6Cndhcm5p
-bmc6IGRhdGEgZGVmaW5pdGlvbiBoYXMgbm8gdHlwZSBvciBzdG9yYWdlIGNsYXNzCiAgIDI0IHwg
-REVGSU5FX1RSQUNFKHRlc3RfZXZlbnQpOwogICAgICB8IF5+fn5+fn5+fn5+fgpkcml2ZXJzL2ly
-cWNoaXAvaXJxLXJpc2N2LWludGMuYzoyNDoxOgplcnJvcjogdHlwZSBkZWZhdWx0cyB0byDigJhp
-bnTigJkgaW4gZGVjbGFyYXRpb24gb2Yg4oCYREVGSU5FX1RSQUNF4oCZClstV2Vycm9yPWltcGxp
-Y2l0LWludF0KClRoZXJlIGFyZSB0d28gcmVhc29ucyBmb3IgdGhpcyBlcnJvci4gT24gdGhlIG9u
-ZSBoYW5kLCB0aGUgbWFjcm8gREVGSU5FX1RSQUNFCmhhcyBiZWVuIHJlZmFjdG9yZWQgaW4gY29t
-bWl0IGQyNWUzN2Q4OWRkMiAoInRyYWNlcG9pbnQ6IE9wdGltaXplIHVzaW5nCnN0YXRpY19jYWxs
-KCkiKSBmcm9tIERFRklORV9UUkFDRShuYW1lKSB0byBERUZJTkVfVFJBQ0UobmFtZSwgcHJvdG8s
-IGFyZ3MpLAphbmQgdGhlIGRvYyBpcyBub3QgdXBkYXRlZCBpbiB0aW1lLiBPbiB0aGUgb3RoZXIg
-aGFuZCwgdGhlIHRyYWNlcG9pbnQgaGFzIGJlZW4KZGVmaW5lZCBpbiBoZWFkZXIgZmlsZSwgYW5k
-IGl0IGRvZXMgbm90IG5lZWQgdG8gZGVmaW5lIHJlcGVhdGVkbHkgaW4gQyBmaWxlLgoKLS0tLS0t
-LS0KClNpZ25lZC1vZmYtYnk6IFpoYW5nIEppYW5odWEgPGNocmlzLnpqaEBodWF3ZWkuY29tPgot
-LS0KIERvY3VtZW50YXRpb24vdHJhY2UvdHJhY2Vwb2ludHMucnN0IHwgMSAtCiAxIGZpbGUgY2hh
-bmdlZCwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vdHJhY2UvdHJh
-Y2Vwb2ludHMucnN0IGIvRG9jdW1lbnRhdGlvbi90cmFjZS90cmFjZXBvaW50cy5yc3QKaW5kZXgg
-MGNiOGQ5Y2EzZDYwLi5mYmIyY2I0YWJkM2QgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vdHJh
-Y2UvdHJhY2Vwb2ludHMucnN0CisrKyBiL0RvY3VtZW50YXRpb24vdHJhY2UvdHJhY2Vwb2ludHMu
-cnN0CkBAIC02Niw3ICs2Niw2IEBAIEluIHN1YnN5cy9maWxlLmMgKHdoZXJlIHRoZSB0cmFjaW5n
-IHN0YXRlbWVudCBtdXN0IGJlIGFkZGVkKTo6CiAJI2luY2x1ZGUgPHRyYWNlL2V2ZW50cy9zdWJz
-eXMuaD4KIAogCSNkZWZpbmUgQ1JFQVRFX1RSQUNFX1BPSU5UUwotCURFRklORV9UUkFDRShzdWJz
-eXNfZXZlbnRuYW1lKTsKIAogCXZvaWQgc29tZWZjdCh2b2lkKQogCXsKLS0gCjIuMzEuMAoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Geert,
+
+On Mon, Jul 19, 2021 at 08:59:03AM +0200, Geert Uytterhoeven wrote:
+> Hi Mike,
+> 
+> On Sun, Jul 18, 2021 at 11:31 AM Mike Rapoport <rppt@kernel.org> wrote:
+> > On Wed, Jul 14, 2021 at 07:51:01AM -0600, Rob Herring wrote:
+> > > On Wed, Jul 14, 2021 at 02:50:12PM +0200, Geert Uytterhoeven wrote:
+> > > > Add two global variables (cap_mem_addr and cap_mem_size) for storing a
+> > > > base address and size, describing a limited region in which memory may
+> > > > be considered available for use by the kernel.  If enabled, memory
+> > > > outside of this range is not available for use.
+> > > >
+> > > > These variables can by filled by firmware-specific code, and used in
+> > > > calls to memblock_cap_memory_range() by architecture-specific code.
+> > > > An example user is the parser of the "linux,usable-memory-range"
+> > > > property in the DT "/chosen" node.
+> > > >
+> > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > > ---
+> > > > This is similar to how the initial ramdisk (phys_initrd_{start,size})
+> > > > and ELF core headers (elfcorehdr_{addr,size})) are handled.
+> > > >
+> > > > Does there exist a suitable place in the common memblock code to call
+> > > > "memblock_cap_memory_range(cap_mem_addr, cap_mem_size)", or does this
+> > > > have to be done in architecture-specific code?
+> > >
+> > > Can't you just call it from early_init_dt_scan_usablemem? If the
+> > > property is present, you want to call it. If the property is not
+> > > present, nothing happens.
+> 
+> I will have a look...
+> 
+> > For memblock_cap_memory_range() to work properly it should be called after
+> > memory is detected and added to memblock with memblock_add[_node]()
+> >
+> > I'm not huge fan of adding more globals to memblock so if such ordering can
+> > be implemented on the DT side it would be great.
+> 
+> Me neither ;-)
+> 
+> > I don't see a way to actually enforce this ordering, so maybe we'd want to
+> > add warning in memblock_cap_memory_range() if memblock.memory is empty.
+> 
+> "linux,usable-memory-range" is optional, and typically used only in
+> crashdump kernels, so it would be a bad idea to add such a warning.
+
+If I remember correctly, memblock_cap_memory_range() was added to support
+"linux,usable-memory-range" for crasdump kernels on arm64 and if it would
+be called before memory is registered we may silently corrupt the memory
+because the crash kernel will see all the memory as available.
+
+So while WARN() maybe too much a pr_warn() seems to me quite appropriate.
+ 
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
