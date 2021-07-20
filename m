@@ -2,105 +2,94 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D6BDC07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 18:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DFF7AC07E9B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 21:19:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B6A960C41
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 18:39:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B6A960C41
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	by mail.kernel.org (Postfix) with ESMTPS id 9352560C41
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 21:19:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9352560C41
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+ovsIbS3dxn1XHwIjOoJWYR/008M+SQHFnTRPDDfXI=; b=iTlAHkZGQbEKxIOJu6uzLDoqMP
-	pju9NpEBxC7lui+j2yUCTgHp5QS6Btkgtbx/W5bLdnQSPzQcYQI7vxe1i3mZ5aNvN2gmpJ6AUgNy5
-	gTJuEIb9+FebaiMxyaaMDyG4LohxEeilRutHVwevhyJqWnxFDx4zAfQpbRUDUFq3ChKmjiaJKfm2z
-	z/ndj2lD3tPN17M3rhjyxkfQH53wgCgC1JuTx48MHni3ysfT9L+gfAZUBSgzW+S1EQjL3AHrAKNt2
-	Wmg0oizUYv16prcZPRZg/al9/fvTJUvJSpsNjuFqYZGfq/m6l4qKICeRNkrk1jnRWGElUhhw/TYS8
-	tZNqzT3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:Cc:To:From:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=fuPeF88JiBcO971w/ABu2Hc1ik3zVIIi7o94FedzOi8=; b=Ku8xJJxQj2t0i/dJpGYB9awHKX
+	133cgvXQf4HEKR0cM+oD5NeVhV/uoT3GN3WqiU8Vt7ZKLvc9J/bRRNEdxUzVjU6J3jC01bvAD8FNH
+	3nAWR25fxqpGlunxfKETX135/zalkDVqZJg76vVwfaLfYHXXj5dY+BPuQFdOClhbokpq93WW71Bjw
+	TIzHLd7fYVumDS9x/pk7g8lSrglpi1pCbWfqNNVIyGRVqwpv8ZwSKW8JXkQ4U8yPePTmEcXKvYjG8
+	KnxN8CnarOqaj0atqAVIDTzNQ1kABBQs7ui3U5rFDXKLpS/YRvkAAM4P1Zlk9FKJyMgw1+qMjMEek
+	GeS7LSJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5udw-00DklK-5o; Tue, 20 Jul 2021 18:39:00 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1m5x8s-00DxOZ-TX; Tue, 20 Jul 2021 21:19:06 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5udj-00Dkjp-0Y; Tue, 20 Jul 2021 18:38:48 +0000
-Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id 80010202FE;
- Tue, 20 Jul 2021 18:38:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1626806323; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=Itbuyl1CzYZ7paouos+Swyo4VPUIJaRt4atAD+g7b4E=;
- b=vA6iScBn4/u/Wziq8CzkVziwPhiPjDEH98IrUR1IQ5re1rpNrSe4mS29cI54SS2WSvrFSy
- B0diseP/p9EB+bvqo8x8SyLh8r1jSGENRGf5b5/B8okkZ9MeP2gL6EWZH0QbG3GL3m8FCc
- n24nMyq14PEzxE/Mq0xGl22TrCV38jY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1626806323;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=Itbuyl1CzYZ7paouos+Swyo4VPUIJaRt4atAD+g7b4E=;
- b=1JIMXVY4pTlFUqFjyxJevhpnFGvHqQgrdOo+pkrgWpfa0IdruwQvoLQDc99O69fuLtZEtS
- nHTKbXeeMlZWEIAg==
-Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap1.suse-dmz.suse.de (Postfix) with ESMTPS id 13CD013BA3;
- Tue, 20 Jul 2021 18:38:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap1.suse-dmz.suse.de with ESMTPSA id XqtiAzMY92DSXAAAGKfGzw
- (envelope-from <tzimmermann@suse.de>); Tue, 20 Jul 2021 18:38:43 +0000
-Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
- non-x86 EFI platforms
-To: Javier Martinez Canillas <javierm@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dave Airlie <airlied@gmail.com>,
- linux-efi <linux-efi@vger.kernel.org>, David Airlie <airlied@linux.ie>,
- Catalin Marinas <catalin.marinas@arm.com>,
- dri-devel <dri-devel@lists.freedesktop.org>,
- Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon
- <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
- Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <20210625130947.1803678-1-javierm@redhat.com>
- <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
- <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
- <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
- <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
- <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
- <03f0edef-e54e-8a2a-4b50-683d3d42e249@redhat.com>
- <YPbWrV/cIODdgu6A@phenom.ffwll.local>
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Message-ID: <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
-Date: Tue, 20 Jul 2021 20:38:42 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ id 1m5x8p-00DxOC-PN
+ for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 21:19:05 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id o8so12051449plg.11
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:from:to:cc:references:message-id:date:user-agent
+ :mime-version:in-reply-to:content-transfer-encoding;
+ bh=B8o/q41XapjmWGG21qetVfphUKyjf05uB802S7fF9ZM=;
+ b=Gyu9Rp2Ezpcx5BaIxnfzn8hRTJC1EMlzn1CqHWx6Q/LOtJVOUXjk7eVdhvsqkPM7Bl
+ 7KlyvPz3twYGDgHE3fhz0rD5H1Cu9MKwgBboEOOD3svRv/leaq3mbTLTia8J9dFF1Fyq
+ 9GpJDeZiIvgcuMzqYDvyGbowGZDQMKGOV62t0Mq0QK8D8ieo5N7moHFoEJvNDgQbmrkE
+ rztnaKkryw3pM+B3WTRRGRpiBFswIKKhmhP6BQr/39WzKfDFm10qEj/aPuIb751zgmeo
+ t5x7pnFLrlMSeehgB+dzt1qZb6VR6iktr0lVnskjicaQIzN6jjnxRcTrcSMedwiaW3Du
+ goag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:from:to:cc:references:message-id:date
+ :user-agent:mime-version:in-reply-to:content-transfer-encoding;
+ bh=B8o/q41XapjmWGG21qetVfphUKyjf05uB802S7fF9ZM=;
+ b=GB0qqYWqp0B/hVFurF+hHBA5ep0qgvsvdchqS+Z/+JSfBMy5/h69NZacpLhwKt/DCU
+ 3ig8vZIQG3vKkvdePfyjj6TQbnwM6Ezn8/oHMeBaxTuEig2+lyqME0eGckehSn/c1Quo
+ 2ws9F3W0Kc+kyCST7TB2DSPv0oHk2A3rDf5GrMS/xkcugddB30OSInJY5JnOG1pafLxZ
+ 61Sr3X4rhL+9/v/rfDRb2pMuplMaD0cIOGNz6/ddMy9cAvamwawjNtEWCP/hg9u1OFTD
+ KHYmfkngTehNY53+Y1Vp4hc8jAiDL2QqCs4jIjmHMVDN6/F5PGtuLJqNnDfRrtnEzuom
+ +w+A==
+X-Gm-Message-State: AOAM533ojj9UDgqosMK33+fLnNhvqpXFm8Yujhfz5TZ70JZzX2mQenMq
+ cLSMZddAHzmAZyewigXwRb4=
+X-Google-Smtp-Source: ABdhPJxgfIaiqVJmLAxSMRgnwZnd/tJ0D4Rce5OWQuSm38SyHyViu5yH83PCzdPJruKKOQH3QRoN8A==
+X-Received: by 2002:a17:902:e807:b029:12b:43ce:18dc with SMTP id
+ u7-20020a170902e807b029012b43ce18dcmr24801837plg.70.1626815942597; 
+ Tue, 20 Jul 2021 14:19:02 -0700 (PDT)
+Received: from [0.0.0.0] (jp.bgp.twd2.net. [2a0c:b641:571::1])
+ by smtp.gmail.com with ESMTPSA id d2sm25025439pfa.84.2021.07.20.14.18.59
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 20 Jul 2021 14:19:01 -0700 (PDT)
+Subject: Re: [PATCH 3/3] RISC-V: build: Allow LTO to be selected
+From: twd2 <twd2.me@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com,
+ Nathan Chancellor <nathan@kernel.org>, arnd@arndb.de
+References: <20210719205339.1023572-1-twd2.me@gmail.com>
+ <CAKwvOd=H-UN7dgHYgsvubv7t82UiPaOHCF09GAi6kTvjxpT4iA@mail.gmail.com>
+ <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
+Message-ID: <970c36ea-c5a6-2b47-3024-7cbbf428ebfa@gmail.com>
+Date: Wed, 21 Jul 2021 05:18:56 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
 MIME-Version: 1.0
-In-Reply-To: <YPbWrV/cIODdgu6A@phenom.ffwll.local>
+In-Reply-To: <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_113847_242006_031CCF97 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20210720_141903_897990_D22E3854 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,156 +101,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3273452516441836512=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============3273452516441836512==
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="zqBJYs0jTVrrb3d3a45VU8trX1N28Y7W5"
-
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---zqBJYs0jTVrrb3d3a45VU8trX1N28Y7W5
-Content-Type: multipart/mixed; boundary="1j8k54rxJM8w24eiu5PhN408CT5BxM6T4";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Javier Martinez Canillas <javierm@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dave Airlie <airlied@gmail.com>,
- linux-efi <linux-efi@vger.kernel.org>, David Airlie <airlied@linux.ie>,
- Catalin Marinas <catalin.marinas@arm.com>,
- dri-devel <dri-devel@lists.freedesktop.org>,
- Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon
- <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
- Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-Message-ID: <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
-Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
- non-x86 EFI platforms
-References: <20210625130947.1803678-1-javierm@redhat.com>
- <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
- <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
- <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
- <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
- <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
- <03f0edef-e54e-8a2a-4b50-683d3d42e249@redhat.com>
- <YPbWrV/cIODdgu6A@phenom.ffwll.local>
-In-Reply-To: <YPbWrV/cIODdgu6A@phenom.ffwll.local>
-
---1j8k54rxJM8w24eiu5PhN408CT5BxM6T4
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-
-Hi
-
-Am 20.07.21 um 15:59 schrieb Daniel Vetter:
-> On Tue, Jul 20, 2021 at 03:42:45PM +0200, Javier Martinez Canillas wrot=
-e:
->> On 7/20/21 3:01 PM, Daniel Vetter wrote:
->>> On Mon, Jul 19, 2021 at 09:10:52AM +0200, Ard Biesheuvel wrote:
->>>> On Mon, 19 Jul 2021 at 04:59, Dave Airlie <airlied@gmail.com> wrote:=
-
->>
->> [snip]
->>
->>>>>
->>>>> Can we just merge via drm-misc and make sure the acks are present a=
-nd
->>>>> I'll deal with the fallout if any.
->>>>>
->>>>
->>>> Fine with me. Could you stick it on a separate branch so I can doubl=
-e
->>>> check whether there are any issues wrt the EFI tree?
->>>
->>> It'll pop up in linux-next for integration testing or you can pick up=
- the
->>> patch here for test-merge if you want.
->>>
->>
->> Thanks a lot Dave and Daniel!
->=20
-> Oh I haven't merged them, I'm assuming Thomas will do that. Just figure=
-d
-
-Can I simply put the patches in to drm-misc-next? There was some talk=20
-about a topic branch?
-
-Best regards
-Thomas
-
-> I'll throw my ack on top:
->=20
-> Acked-by: Daniel Vetter <daniel.vetter@ffwll.ch>
->=20
->>> And since Dave has given a blanket cheque for handling fallout he'll =
-deal
->>> with the need for fixups too if there's any.
->>
->> I also plan to look at any regression that might had been introduced b=
-y these.
->>
->> Best regards,
->> --=20
->> Javier Martinez Canillas
->> Linux Engineering
->> Red Hat
->>
->=20
-
---=20
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Maxfeldstr. 5, 90409 N=C3=BCrnberg, Germany
-(HRB 36809, AG N=C3=BCrnberg)
-Gesch=C3=A4ftsf=C3=BChrer: Felix Imend=C3=B6rffer
-
-
---1j8k54rxJM8w24eiu5PhN408CT5BxM6T4--
-
---zqBJYs0jTVrrb3d3a45VU8trX1N28Y7W5
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmD3GDIFAwAAAAAACgkQlh/E3EQov+Cy
-CA/+NPcliJKPQpDfrX9J8jEslefrqYJqDEMFIXRQUC0mvqHkXwSy2cKKK18NSQGAbLKlii82BeoM
-wCuaTJ6XUaZmBHsd6IqnkGHTBi6ytimeuGMHy9iNUqieuamxl/h3vIkUraDnAHgmeZtBxwVxSxKe
-8HX+XJI/OEtaFdNqeZCHefwD4u3FFBmcSvnJDGKYFt84Wcbyt5LsvrzwXvyVEvSixkB6VFSLjufc
-lRbdqMdtWs6At9YoxDcDsnZhnVCCnyWrCbfxptyPg77C7GfT4CM3ZF+HYby+gjNpsqKBbAgGvpxM
-pNWsJP92rucNPnCopzcuPdpo4v6IPET4QCg8BQjIZVBoWsU8JAzoz75shl0/nICkpeAiwN58sMBt
-/KtHCAcnwVgHhuTf5LR7u6la16IC7++lsuoW4qefmeKiPOCMfhIaWqWxCVz7sfo1rasobhJUw5f2
-kWd1N1ujR5pRSfxTdfDYTqjUP8HEXK57E/KINStLfI8J+ERHhN117XTmO38juIHMkhWuvwL9nyff
-Bn+E5q23QYw8j55D7KOX0MFcp8RtW18IPojaBkWjsPrNDfTdmMiPlZcLjzPuZxJahOhJhWbK1HTO
-SWPPXnZX9Sk4eDdTaKZw/MnqD60ofyvpZn5USkKKQrVps+KZcjb4rFgQVHd9nOZzT/hFWNvX1yc+
-Fh8=
-=OXq5
------END PGP SIGNATURE-----
-
---zqBJYs0jTVrrb3d3a45VU8trX1N28Y7W5--
-
-
---===============3273452516441836512==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3273452516441836512==--
-
+QWxzbywgSSB0cmllZCBgZGVmY29uZmlnYCB3aXRoIEZ1bGwvVGhpbiBMVE8uwqAgSXQgY2FuIGJv
+b3QgYW5kIHRoZQpidXN5Ym94IHNoZWxsIHdvcmtzLgoKSSdsbCBwdXQgdGhpcyBpbmZvcm1hdGlv
+biBpbnRvIHRoZSBuZXh0IHZlcnNpb24gb2YgdGhlIHBhdGNoIHNlcmllcy4KCgpUaGFua3MuCldl
+bmRlCgoKT24gMjAyMS83LzIxIDI6MjksIHR3ZDIgd3JvdGU6Cj4gSGksIEkganVzdCB0cmllZCB0
+byBjb21waWxlIHdpdGggdGhpcyBwYXRjaCBhbmQgYGFsbHllc2NvbmZpZ2AgZXhjZXB0Cj4gQ09N
+UElMRV9URVNULCBGVFJBQ0UsIEtBU0FOLCBHQ09WLCBhbmQgWEZTIFsxXS7CoCBJdCBmaW5pc2hl
+cyB3aXRoIG5vCj4gaXNzdWUsIGFuZCB0YWtlcyB+MjIgbWluIGFuZCB+MjUgR2lCLsKgIEJUVywg
+dGhlIGtlcm5lbCBwYW5pY3MgZHVyaW5nIGJvb3QKPiBldmVuIGJ1aWx0IHdpdGggR0NDLCBzbyBJ
+IGRpZG4ndCBkbyBmdXJ0aGVyIHRlc3RzIDooIC4KPgo+IENvbW1hbmQgdXNlZDogQVJDSD1yaXNj
+diBMTFZNPTEgTExWTV9JQVM9MSBtYWtlIEhPU1RDQz1nY2Mgdm1saW51eCAtajE2Cj4gS2VybmVs
+IHZlcnNpb246IGNvbW1pdCAyNzM0ZDZjMWIxYTAgKCJMaW51eCA1LjE0LXJjMiIpCj4gTExWTSB2
+ZXJzaW9uOiBjb21taXQgMWI2MWQ4MzdiOWQwICgiW0lubGluZV0gQWRkIHRlc3QgZm9yIFBSNTA1
+ODkgKE5GQykiKQo+IFRoZSBgLmNvbmZpZ2AgZmlsZSBpcyBhdHRhY2hlZC4KPgo+IFsxXSBodHRw
+czovL2dpdGh1Yi5jb20vQ2xhbmdCdWlsdExpbnV4L2xpbnV4L2lzc3Vlcy8xMjE1Cj4KPiBPbiAy
+MDIxLzcvMjAgNToyNSwgTmljayBEZXNhdWxuaWVycyB3cm90ZToKPj4gT24gTW9uLCBKdWwgMTks
+IDIwMjEgYXQgMTo1MyBQTSBXZW5kZSBUYW4gPHR3ZDIubWVAZ21haWwuY29tPiB3cm90ZToKPj4K
+Pj4gQ29uc2lkZXIgYWRkaW5nIGEgbGl0dGxlIG1vcmUgZGV0YWlsIHRvIHRoZSBjb21taXQgbWVz
+c2FnZS4KPj4KPj4gSW4gb3VyIGV4cGVyaWVuY2Ugd2l0aCBvdGhlciBhcmNoaXRlY3R1cmVzLCB3
+ZSd2ZSBoaXQgbnVtZXJvdXMKPj4gY29tcGlsZXIgYW5kIGtlcm5lbCBpc3N1ZXMgZXNwZWNpYWxs
+eSB3aXRoIGFsbHllc2NvbmZpZ3MuIEhhcyB0aGF0Cj4+IGJlZW4geW91ciBleHBlcmllbmNlIHdp
+dGggcmlzY3Y/ICBJdCB3b3VsZCBiZSBnb29kIHRvIGtub3cgaWYgeW91J3ZlCj4+IGhpdCBpc3N1
+ZXMgd2l0aCBMVE8gcGx1cyBjZXJ0YWluIGNvbmZpZ3MsIHNvIHRoYXQgd2UgaGF2ZSBjb25maXJt
+YXRpb24KPj4gb3RoZXJzIGhhdmUgc2VlbiB0aGVzZSBpc3N1ZXMgYW5kIHNvIHRoYXQgd2UgY2Fu
+IHRyaWFnZSBmaXhlcy4KPj4KPj4+IFNpZ25lZC1vZmYtYnk6IFdlbmRlIFRhbiA8dHdkMi5tZUBn
+bWFpbC5jb20+Cj4+PiAtLS0KPj4+ICBhcmNoL3Jpc2N2L0tjb25maWcgfCAyICsrCj4+PiAgMSBm
+aWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4+IGluZGV4IDhmY2NlYjhlZGEwNy4u
+YjU5M2U1MDMxYzc5IDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4+PiArKysg
+Yi9hcmNoL3Jpc2N2L0tjb25maWcKPj4+IEBAIC0zNCw2ICszNCw4IEBAIGNvbmZpZyBSSVNDVgo+
+Pj4gICAgICAgICBzZWxlY3QgQVJDSF9PUFRJT05BTF9LRVJORUxfUldYIGlmIEFSQ0hfSEFTX1NU
+UklDVF9LRVJORUxfUldYCj4+PiAgICAgICAgIHNlbGVjdCBBUkNIX09QVElPTkFMX0tFUk5FTF9S
+V1hfREVGQVVMVAo+Pj4gICAgICAgICBzZWxlY3QgQVJDSF9TVVBQT1JUU19IVUdFVExCRlMgaWYg
+TU1VCj4+PiArICAgICAgIHNlbGVjdCBBUkNIX1NVUFBPUlRTX0xUT19DTEFORwo+Pj4gKyAgICAg
+ICBzZWxlY3QgQVJDSF9TVVBQT1JUU19MVE9fQ0xBTkdfVEhJTgo+Pj4gICAgICAgICBzZWxlY3Qg
+QVJDSF9VU0VfTUVNVEVTVAo+Pj4gICAgICAgICBzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9Q
+RE9XTl9NTUFQX0xBWU9VVCBpZiBNTVUKPj4+ICAgICAgICAgc2VsZWN0IEFSQ0hfV0FOVF9GUkFN
+RV9QT0lOVEVSUwo+Pj4gLS0KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
