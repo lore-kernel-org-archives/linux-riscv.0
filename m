@@ -2,96 +2,98 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A086C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD72C07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:18:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 14CBB610C7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:10:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14CBB610C7
+	by mail.kernel.org (Postfix) with ESMTPS id 6FD65610C7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:18:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FD65610C7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:Cc:Reply-To:Content-ID:
+	Message-ID:From:References:To:Subject:Cc:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=sXwUS0rmgHp3EdkxdW9XwMsp11Lca8GHR2KZR+vcjo8=; b=fBQo7PtlSLTVYpGEAbM7i6CB9Q
-	HCLqD0+mu2T2sCwWcrkJ0c+LpfPRzeBu1BIP3g+npzr9jmkBDAzCICYNPzVdRpy4JIcx9lEbdszMr
-	qLbUIqrwBm67eIYqq4ZIP/oUXOyrq+5r38ik9nX9Wq9rkUlC1KIQkAA7s+EkzOo7hhFCKC/ItJqG3
-	q3cvX1coom3E0ufEBp21HOQlJkSf+tdbw/dX0NqVp29uJrj6SuwtjStlNrL9zTuh6f3szQkMqA6F7
-	kZxc2GtZch9dlKC5tH60t4bl0KYhv7yTNW0gzGkTvnJxy4mR8OGnpjR5UGls6uJCa2h00HxD+SWNb
-	8jYhF1Vw==;
+	bh=IdyVDB5drm+rz+N1H70D6NhdhBJPYXvt0CwN9eY4uJo=; b=4cBeXxuq66eSJyeOjr0roHhdBJ
+	gJSUcXgw3BZ+0qxs0OGXdAzOWhwfxw2tB4FFg5gBphwS7J+GMeTmOnCOUnL7Ihxjze02MTh43ikj9
+	zuh8KuugibnzvtWTPxS82ygf4SGN0Yw6E6VN79qHc46lzmakDx0yMhLObY39XARnjsnYKUNpL9Qed
+	mFwV81XHIVCydLhZffakPAsAPToDzMUJNvxbq9VrJpeKLJIDS9kxyJEp6EORgz4R7+N7QkNDwDTeG
+	A+KctUj100l9g0N7bCLO+0aRwCZxTJV8eqk+BRpLZuVu/0yIdXB/Q+Cx4XhXUYxbAIiDIJ+mOhv4e
+	51AxsTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5mi2-00CTk7-Eq; Tue, 20 Jul 2021 10:10:42 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1m5mpn-00CUwy-Aj; Tue, 20 Jul 2021 10:18:43 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5mhz-00CTjM-N4
- for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 10:10:41 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 37so22092168pgq.0
- for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 03:10:39 -0700 (PDT)
+ id 1m5mpk-00CUw8-85
+ for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 10:18:41 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id g24so13371810pji.4
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 03:18:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=cc:subject:from:to:references:message-id:date:user-agent
+ h=cc:subject:to:references:from:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=ON9ROCmxC1aHRN/SLW7yw1lyXR8Z00bQ/GTjePKJTgE=;
- b=MRonwvEmyWMwBa8NaqpGyHVm7zzwBSzrXrgMnYeR4erCWkiJf6p6KUjgvb3yr9eb9E
- VfXIEPhLXi0fvF4ETMbzCyMelCMRedb4dNDUbYjq3P+yx3jcTDTQaLaoyQ5sYTBVMSlq
- IdF7aokMXKGn9Qdnl/gs6ytx9QZcQPz3ymowJ6HTQpQkmGPwipp66QnCSbtQENdmRgBB
- ipGxEXxeBB07L2fYf9QmoJgzsL3p+nslMwJiMHdqk8LJ4dzHcD3+a2wt3UVCb9+9oH7z
- F+kqREC+dgV7LtrdYXG4uyzYWGcbHbzaBG0J8Z3f0e/j+xGYyp9nJjd5jlcqpI59dAPr
- NSfg==
+ bh=pjGXHhlsJXpMCFuAdGKhMv/rBK1kCdyMKVIj/X10+qU=;
+ b=OgMYs9wdRGDVFn92Cde46FS6HH/GLxa9ZfDpj0LDOb/LlyAk4NiJMLagfMvjuQXhld
+ bbEzaAOM5GZVAyMlN5owyX6H9AOevEu+LdEex+lJ/gCqA+kQHhNELg1LK1ds1OmbwCPV
+ YHUd6koNim1cPqx407RenfEoKPDfR9ckvI7cXlBdwTIELlXTFoSzgp0eXqu5PriqmC79
+ /lZGjilHrGbh2he7slmtTfvl4G/9oFvpu9C3HqspM8lwBIX8R8g6hh7h53Kp3cplyyCH
+ PKZ6naph/JES0YtELdXN8XkrdeoG6l3vHitnqkRha7egJYDx7Q5lVEL0zeh63Uel2NY9
+ aegw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:cc:subject:from:to:references:message-id:date
+ h=x-gm-message-state:cc:subject:to:references:from:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=ON9ROCmxC1aHRN/SLW7yw1lyXR8Z00bQ/GTjePKJTgE=;
- b=DKaVwMPBwqIO7aEvOE61Y8UvnbXSHiexg3Zf66RBY2TqQELsxZdAxv/VLn7ZIZReso
- W/OTeJy2JlJmbaGLKl6TaaxOwVedS+vhZgDDL55ncpKug3ee7aRLPTJsacXmtbOuJ+wG
- 4gGWaQ343wYbITLWL80XlMa12jrPGzxszDoyWHyotObokpgeVpN+9JxgZ6Q5imABnKRR
- jH+FcQJR+u3O6pJDs2ZTiLQPlT+BjqW/jPcOTBl5FcjSKQspor9Qsp2agVkKkThTbh9G
- 51KulIlrcw14kFBzkbRzuiO8UyGMRfm88Ov6K/KkNqky1lxL2IIRBX5EZCrNO+HmW6PH
- Banw==
-X-Gm-Message-State: AOAM533WpUTAmjmAbyytRk4HUpZSkS1v0/CjjcKAlwRt8cz9lvp20rzk
- byZiQf6aKxnb6aupO0mC9ifPKBJbCowtog==
-X-Google-Smtp-Source: ABdhPJyqv7mswHKE/HhoKkokudoWmFy07PVRg7fYeT0U1c3tTRNf+RiTnHMmNzx8f0s35Feb9VIL1g==
-X-Received: by 2002:a65:5b4d:: with SMTP id y13mr13559477pgr.84.1626775838637; 
- Tue, 20 Jul 2021 03:10:38 -0700 (PDT)
+ bh=pjGXHhlsJXpMCFuAdGKhMv/rBK1kCdyMKVIj/X10+qU=;
+ b=DYGWu8pu9V1aZeWHlIZXx6JAa6KjA6VmiydHzY7QA6lR6wOTLkVGlxI4Bz4I0ahvRW
+ a+tTapLXhOK4P9Nm4wSzii45Z/DkTgnToLsIKPsCDGdslg2887/rNFKVmYtvvYtnbtMi
+ xOnKDoqpt4ajDgq4T6mo5/NsJ/HhcDmcADHUEAq8u85SqTKe2e9dM4XzFxW5VgqQ0Od0
+ QKhtlwlSYLvQV71ZSaPPtMn+Od2qILJcn0veB/xIj7QZFm3DarKwtS+rFhpfAjedzTdc
+ DI6589wOG2qXef6B4PjB4FTsFD/1gaowcDW6Mb2RiIEHTFltotvWwiJM7yui7dAhBT6j
+ YMKw==
+X-Gm-Message-State: AOAM533o23Qo4oyQc5LgopMoMJOix6NI7UaInL6O63gC04HNHEiNyyw/
+ fcjMY1NLsCdZzSEQ05630MM=
+X-Google-Smtp-Source: ABdhPJz0teYPmNQHBdbGCNYldG1/FoD32crh2/voQ9Zgt5lnx9h6hzVS3/YS2b6hLl+U15a5jYFfvw==
+X-Received: by 2002:a17:90a:510d:: with SMTP id
+ t13mr34487868pjh.28.1626776319022; 
+ Tue, 20 Jul 2021 03:18:39 -0700 (PDT)
 Received: from [10.252.1.51]
  (ec2-52-196-129-95.ap-northeast-1.compute.amazonaws.com. [52.196.129.95])
- by smtp.gmail.com with ESMTPSA id h5sm22416929pfv.145.2021.07.20.03.10.35
+ by smtp.gmail.com with ESMTPSA id u37sm23843190pfg.140.2021.07.20.03.18.36
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 20 Jul 2021 03:10:38 -0700 (PDT)
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: __asm_copy_to-from_user: fix out of boundary
- memory copy
+ Tue, 20 Jul 2021 03:18:38 -0700 (PDT)
+Cc: akira.tsukamoto@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Guenter Roeck <linux@roeck-us.net>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/4] riscv: __asm_copy_to-from_user: Fix: fail on RV32
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+References: <37097718-c472-025a-2058-55667badc5b9@gmail.com>
+ <93a6ae3b-3271-5edb-0a1b-260ba789f3f1@gmail.com>
+ <CAMuHMdUnD58W6qAbxnT3y-BMTHb+De+z29YNGYVA3mWD0B-37g@mail.gmail.com>
 From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-To: Qiu Wenbo <qiuwenbo@kylinos.com.cn>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Guenter Roeck <linux@roeck-us.net>
-References: <20210717161213.91892-1-qiuwenbo@kylinos.com.cn>
- <7d492508-728c-2a6d-f3f8-79c519118fe2@gmail.com>
-Message-ID: <66708601-774f-3add-5c94-c1c10e6acfd0@gmail.com>
-Date: Tue, 20 Jul 2021 19:10:34 +0900
+Message-ID: <9b2bff0b-7ebd-80f4-47be-9844aaed1393@gmail.com>
+Date: Tue, 20 Jul 2021 19:18:34 +0900
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.12.0
 MIME-Version: 1.0
-In-Reply-To: <7d492508-728c-2a6d-f3f8-79c519118fe2@gmail.com>
+In-Reply-To: <CAMuHMdUnD58W6qAbxnT3y-BMTHb+De+z29YNGYVA3mWD0B-37g@mail.gmail.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_031039_819722_513BEA5D 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20210720_031840_350482_16B2A695 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +110,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Qiu,
+Hi Geert,
 
-On 7/18/2021 11:05 AM, Akira Tsukamoto wrote:
+On 7/20/2021 6:49 PM, Geert Uytterhoeven wrote:
+> Hi Tsukamoto-san,
 > 
-> On 7/18/2021 1:12 AM, Qiu Wenbo wrote:
->> The __asm_copy_to-from_user function will copy extra bytes beyond the
->> boundary when two conditions hold:
+> Thanks for your patch!
+> 
+> On Tue, Jul 20, 2021 at 10:51 AM Akira Tsukamoto
+> <akira.tsukamoto@gmail.com> wrote:
+>> Had a bug when converting bytes to bits when the cpu was rv32.
 >>
->> 1. (src - dst) & (SZREG-1) == 0
->> 2. 8*SZREG <= size < -src & (SZREG-1) + 8*SZREG
->>
->> The first condition makes the function enter the unrolled word copy code
->> path. And the second condition makes the function believe that there is
->> enough bytes to do one iteration of 8*SZREG byte copy. That is not true
->> since the available bytes is reduced by -src & (SZREG-1) byte to make
->> both src and dst aligned to SZREG.
+>> The a3 contains the number of bytes and multiple of 8
+>> would be the bits. The LGREG is holding 2 for RV32 and 3 for
+>> RV32, so to achieve multiple of 8 it must always be constant 3.
 > 
-> Thanks for analyzing the bug.
-> 
->>  	li	a3, 8*SZREG /* size must be larger than size in word_copy */
-> 
-> Changing the 8*SZREG to 9*SZREG as bellow
-> 
-> li	a3, 9*SZREG
-> 
-> would fix it but since it is going to respin the patch
-> I would like to add the word_copy when the size is in between 2*SZREG
-> 9*SZREG as Palmer have mentioned.
+> RV64
 
-I created a series to fix above on the other thread.
-It had to revise two places to fix the overrunning memory copy.
-
->> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
->> index bceb0629e440..7ab7cb96dcd9 100644
->> --- a/arch/riscv/lib/uaccess.S
->> +++ b/arch/riscv/lib/uaccess.S
->> @@ -36,6 +36,9 @@ ENTRY(__asm_copy_from_user)
->>  	 * Use byte copy only if too small.
->>  	 */
->>  	li	a3, 8*SZREG /* size must be larger than size in word_copy */
->> +	neg	t1, a0
->> +	andi	t1, t1, SZREG-1
->> +	add	a3, a3, t1
->>  	bltu	a2, a3, .Lbyte_copy_tail
-
-I chosen just using 9*SZREG instead of using fine grained three lines. 
-
-Your analysis greatly helped for creating the fixes. Please let me 
-know if it still has issue. 
-
-Thank you,
+Thanks, the LGREG is holding 2 for RV32 and 3 for RV64 (not RV32).
 
 Akira
 
