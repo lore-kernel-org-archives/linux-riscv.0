@@ -2,98 +2,129 @@ Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD72C07E95
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6CB47C07E95
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 13:02:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6FD65610C7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 10:18:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FD65610C7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2AAD36113C
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 13:02:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2AAD36113C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ffwll.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Cc:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=IdyVDB5drm+rz+N1H70D6NhdhBJPYXvt0CwN9eY4uJo=; b=4cBeXxuq66eSJyeOjr0roHhdBJ
-	gJSUcXgw3BZ+0qxs0OGXdAzOWhwfxw2tB4FFg5gBphwS7J+GMeTmOnCOUnL7Ihxjze02MTh43ikj9
-	zuh8KuugibnzvtWTPxS82ygf4SGN0Yw6E6VN79qHc46lzmakDx0yMhLObY39XARnjsnYKUNpL9Qed
-	mFwV81XHIVCydLhZffakPAsAPToDzMUJNvxbq9VrJpeKLJIDS9kxyJEp6EORgz4R7+N7QkNDwDTeG
-	A+KctUj100l9g0N7bCLO+0aRwCZxTJV8eqk+BRpLZuVu/0yIdXB/Q+Cx4XhXUYxbAIiDIJ+mOhv4e
-	51AxsTlA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6nIRO1BM9/oe13lOzljfwd1sXOmPnT9mkK1lhHW8zfI=; b=UywN3MXMM2PxKW
+	1w8v3AlBdzD5LBbP7/pbPxY7/A8sGgewLl+m9X662YAJfVnFxMh6MnpNYCYHjJEeeB3UqAvyyzMsn
+	N5/75aRl8cw21Vcq3X+uC2acz5vJErqWMpspFqUJvu4FzFzjxoJVtnXEpQB9vHJ3JwrxWiIlXMTnk
+	h/HXMOJf4rINY9SU4se8Dzmz66H7Uo/FSXcrIvlqzKfdxxwxPSOJzsX1VL4wAmhzo0Ir8mrV25FyO
+	w6kyxKKTJY/Op0Yj/J6PTsJIfU5Arx7v3GrI04VmZ/OB5AIwDu6bP6VHWR4y1tu3WbHm2iRRDy5Oe
+	CqLLVWK/fQexXYrw1juQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5mpn-00CUwy-Aj; Tue, 20 Jul 2021 10:18:43 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1m5pO5-00CscH-7c; Tue, 20 Jul 2021 13:02:17 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5mpk-00CUw8-85
- for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 10:18:41 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id g24so13371810pji.4
- for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 03:18:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=cc:subject:to:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=pjGXHhlsJXpMCFuAdGKhMv/rBK1kCdyMKVIj/X10+qU=;
- b=OgMYs9wdRGDVFn92Cde46FS6HH/GLxa9ZfDpj0LDOb/LlyAk4NiJMLagfMvjuQXhld
- bbEzaAOM5GZVAyMlN5owyX6H9AOevEu+LdEex+lJ/gCqA+kQHhNELg1LK1ds1OmbwCPV
- YHUd6koNim1cPqx407RenfEoKPDfR9ckvI7cXlBdwTIELlXTFoSzgp0eXqu5PriqmC79
- /lZGjilHrGbh2he7slmtTfvl4G/9oFvpu9C3HqspM8lwBIX8R8g6hh7h53Kp3cplyyCH
- PKZ6naph/JES0YtELdXN8XkrdeoG6l3vHitnqkRha7egJYDx7Q5lVEL0zeh63Uel2NY9
- aegw==
+ id 1m5pNN-00CsVT-5k
+ for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 13:01:34 +0000
+Received: by mail-wm1-x329.google.com with SMTP id
+ y21-20020a7bc1950000b02902161fccabf1so1456284wmi.2
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 06:01:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ffwll.ch; s=google;
+ h=date:from:to:cc:subject:message-id:mail-followup-to:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=aT7B7aLtrHA38WRCCkcWibI+OBLuTfXFqvYRJ204kL8=;
+ b=WQOOu9EUP4QZrBDWS9EctGVO+GmPjrxym15Qbs5R69qSSEdvCHmpIY1/pk31fA69bp
+ 3bhC+HD4e8CKzboAfJ+pob2QA2TRhC1Np5OjjzICbqkxEwpGsaSp5RJW4pQU+z0OC23I
+ 0sG4uqigJR5y1K6AdXcTXz1r+jHYxj5pVPrh8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:cc:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=pjGXHhlsJXpMCFuAdGKhMv/rBK1kCdyMKVIj/X10+qU=;
- b=DYGWu8pu9V1aZeWHlIZXx6JAa6KjA6VmiydHzY7QA6lR6wOTLkVGlxI4Bz4I0ahvRW
- a+tTapLXhOK4P9Nm4wSzii45Z/DkTgnToLsIKPsCDGdslg2887/rNFKVmYtvvYtnbtMi
- xOnKDoqpt4ajDgq4T6mo5/NsJ/HhcDmcADHUEAq8u85SqTKe2e9dM4XzFxW5VgqQ0Od0
- QKhtlwlSYLvQV71ZSaPPtMn+Od2qILJcn0veB/xIj7QZFm3DarKwtS+rFhpfAjedzTdc
- DI6589wOG2qXef6B4PjB4FTsFD/1gaowcDW6Mb2RiIEHTFltotvWwiJM7yui7dAhBT6j
- YMKw==
-X-Gm-Message-State: AOAM533o23Qo4oyQc5LgopMoMJOix6NI7UaInL6O63gC04HNHEiNyyw/
- fcjMY1NLsCdZzSEQ05630MM=
-X-Google-Smtp-Source: ABdhPJz0teYPmNQHBdbGCNYldG1/FoD32crh2/voQ9Zgt5lnx9h6hzVS3/YS2b6hLl+U15a5jYFfvw==
-X-Received: by 2002:a17:90a:510d:: with SMTP id
- t13mr34487868pjh.28.1626776319022; 
- Tue, 20 Jul 2021 03:18:39 -0700 (PDT)
-Received: from [10.252.1.51]
- (ec2-52-196-129-95.ap-northeast-1.compute.amazonaws.com. [52.196.129.95])
- by smtp.gmail.com with ESMTPSA id u37sm23843190pfg.140.2021.07.20.03.18.36
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 20 Jul 2021 03:18:38 -0700 (PDT)
-Cc: akira.tsukamoto@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Guenter Roeck <linux@roeck-us.net>,
- Albert Ou <aou@eecs.berkeley.edu>,
+ h=x-gm-message-state:date:from:to:cc:subject:message-id
+ :mail-followup-to:references:mime-version:content-disposition
+ :in-reply-to;
+ bh=aT7B7aLtrHA38WRCCkcWibI+OBLuTfXFqvYRJ204kL8=;
+ b=daDmxSawsVP0lxkMb1E1jmVu4saUguDPQJJ/iLLE/SsJvQpzzO6uv00Qij2nYpHp4U
+ rh8kSyCeL+ic3+AY2VrJNxzDX3+a/QaqoWzTb1k1ctnEBwbdUDLDgpe3Li7tBAdJXAzf
+ psvKSh95S5OAoj7gtVWF0zGJp7wn9clFhex13LKj/CSw8f+MOPQjb5zGVH+nGi+6j2Hi
+ XVMFLnpjMxFkd92RX4VAqYKo2nVk3DZRVHcrr7+m3cx+eT7YVVt7ppzxk2rJSyWlm5Rq
+ LVNSa52TNXvPwWEhbtKxuoVn10mD0w4lajnXaj4XiH5yz96w9E5teZwWkyytGoD5XbLF
+ m4Nw==
+X-Gm-Message-State: AOAM530AHPxkIsYjG/d3rud/HQwMCYqlYXudFI+G+FLnnAP/vSD6um+z
+ MUKwlYqG3oSRDg8mEuL5wD/s/A==
+X-Google-Smtp-Source: ABdhPJwyy66JJKeYq0Mz7cYqrI/HK2CM9a/YOzkD7Z06g/Y6R4UrwQlWLQ5wT2w19Z/rHR9fxuhTcg==
+X-Received: by 2002:a05:600c:2948:: with SMTP id
+ n8mr32984505wmd.11.1626786090699; 
+ Tue, 20 Jul 2021 06:01:30 -0700 (PDT)
+Received: from phenom.ffwll.local ([2a02:168:57f4:0:efd0:b9e5:5ae6:c2fa])
+ by smtp.gmail.com with ESMTPSA id g18sm19422048wmk.37.2021.07.20.06.01.29
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 20 Jul 2021 06:01:30 -0700 (PDT)
+Date: Tue, 20 Jul 2021 15:01:27 +0200
+From: Daniel Vetter <daniel@ffwll.ch>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Dave Airlie <airlied@gmail.com>, linux-efi <linux-efi@vger.kernel.org>,
+ David Airlie <airlied@linux.ie>, Catalin Marinas <catalin.marinas@arm.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/4] riscv: __asm_copy_to-from_user: Fix: fail on RV32
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-References: <37097718-c472-025a-2058-55667badc5b9@gmail.com>
- <93a6ae3b-3271-5edb-0a1b-260ba789f3f1@gmail.com>
- <CAMuHMdUnD58W6qAbxnT3y-BMTHb+De+z29YNGYVA3mWD0B-37g@mail.gmail.com>
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Message-ID: <9b2bff0b-7ebd-80f4-47be-9844aaed1393@gmail.com>
-Date: Tue, 20 Jul 2021 19:18:34 +0900
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ Will Deacon <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Ingo Molnar <mingo@redhat.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Borislav Petkov <bp@suse.de>,
+ Albert Ou <aou@eecs.berkeley.edu>, Hans de Goede <hdegoede@redhat.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>
+Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
+ non-x86 EFI platforms
+Message-ID: <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
+Mail-Followup-To: Ard Biesheuvel <ardb@kernel.org>,
+ Dave Airlie <airlied@gmail.com>,
+ linux-efi <linux-efi@vger.kernel.org>,
+ David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Will Deacon <will@kernel.org>,
+ the arch/x86 maintainers <x86@kernel.org>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Ingo Molnar <mingo@redhat.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Borislav Petkov <bp@suse.de>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Hans de Goede <hdegoede@redhat.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ LKML <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>
+References: <20210625130947.1803678-1-javierm@redhat.com>
+ <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+ <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
+ <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+ <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdUnD58W6qAbxnT3y-BMTHb+De+z29YNGYVA3mWD0B-37g@mail.gmail.com>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+X-Operating-System: Linux phenom 5.10.0-7-amd64 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_031840_350482_16B2A695 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20210720_060133_273033_14BBA434 
+X-CRM114-Status: GOOD (  37.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +141,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
-
-On 7/20/2021 6:49 PM, Geert Uytterhoeven wrote:
-> Hi Tsukamoto-san,
+On Mon, Jul 19, 2021 at 09:10:52AM +0200, Ard Biesheuvel wrote:
+> On Mon, 19 Jul 2021 at 04:59, Dave Airlie <airlied@gmail.com> wrote:
+> >
+> > On Thu, 15 Jul 2021 at 18:11, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+> > >
+> > > Hi
+> > >
+> > > Am 13.07.21 um 18:59 schrieb Javier Martinez Canillas:
+> > > > On 6/25/21 3:09 PM, Javier Martinez Canillas wrote:
+> > > >> The simplefb and simpledrm drivers match against a "simple-framebuffer"
+> > > >> device, but for aarch64 this is only registered when using Device Trees
+> > > >> and there's a node with a "simple-framebuffer" compatible string.
+> > > >>
+> > > >> There is no code to register a "simple-framebuffer" platform device when
+> > > >> using EFI instead. In fact, the only platform device that's registered in
+> > > >> this case is an "efi-framebuffer", which means that the efifb driver is
+> > > >> the only driver supported to have an early console with EFI on aarch64.
+> > > >>
+> > > >> The x86 architecture platform has a Generic System Framebuffers (sysfb)
+> > > >> support, that register a system frambuffer platform device. It either
+> > > >> registers a "simple-framebuffer" for the simple{fb,drm} drivers or legacy
+> > > >> VGA/EFI FB devices for the vgafb/efifb drivers.
+> > > >>
+> > > >> The sysfb is generic enough to be reused by other architectures and can be
+> > > >> moved out of the arch/x86 directory to drivers/firmware, allowing the EFI
+> > > >> logic used by non-x86 architectures to be folded into sysfb as well.
+> > > >>
+> > > >
+> > > > Any more comments on this series? It would be nice for this to land so the
+> > > > simpledrm driver could be used on aarch64 EFI systems as well.
+> > > >
+> > > > The patches have already been acked by x86 and DRM folks.
+> > >
+> > > Time to get this merged, I'd say. People are asking for these patches
+> > > already.
+> >
+> > Can we just merge via drm-misc and make sure the acks are present and
+> > I'll deal with the fallout if any.
+> >
 > 
-> Thanks for your patch!
-> 
-> On Tue, Jul 20, 2021 at 10:51 AM Akira Tsukamoto
-> <akira.tsukamoto@gmail.com> wrote:
->> Had a bug when converting bytes to bits when the cpu was rv32.
->>
->> The a3 contains the number of bytes and multiple of 8
->> would be the bits. The LGREG is holding 2 for RV32 and 3 for
->> RV32, so to achieve multiple of 8 it must always be constant 3.
-> 
-> RV64
+> Fine with me. Could you stick it on a separate branch so I can double
+> check whether there are any issues wrt the EFI tree?
 
-Thanks, the LGREG is holding 2 for RV32 and 3 for RV64 (not RV32).
+It'll pop up in linux-next for integration testing or you can pick up the
+patch here for test-merge if you want.
 
-Akira
+And since Dave has given a blanket cheque for handling fallout he'll deal
+with the need for fixups too if there's any.
+-Daniel
+-- 
+Daniel Vetter
+Software Engineer, Intel Corporation
+http://blog.ffwll.ch
 
 _______________________________________________
 linux-riscv mailing list
