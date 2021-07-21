@@ -2,90 +2,107 @@ Return-Path: <SRS0=vm5i=MN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 13E34C636C9
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 08:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF08AC07E9B
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 10:08:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C2A4860725
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 08:26:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C2A4860725
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 9347460FE7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 10:08:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9347460FE7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=PBuuE41UUvUZa9qM6s4PwmXrTu2atG/vUcuh1gmCZUA=; b=GnGSVDj8RDLcHPnCIY6VWiJxtc
-	FZnB5oXQ9FIXwztVZ6Q7++ptw3JfXpwniMV5z+vqMJOgO6shCm8GqINaoFlGiTOsm5a9QASMMdi6u
-	Zocjw2pgNPoUYbadI5e8QktceNfwfWtAwAnH42AQWqq6L6SseP2snTvq0hu6SDdhj0IP/z1s/HlLj
-	37Dvi13qC8k/6uwiiR6H3ZjnkIGlVM9Olr3xvWoMtXkx/iX8PM/U3KlaHjXiGDGtkHsoraAPnyqVm
-	2nyFUS4iNV8xA4v0N7/tnpNqZGUrN4C1RxY2ZiyNHrEQuAgDbZQFA3cUSVb3ZULTvSicEm9qoXQnY
-	RoAS5Ldw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:Reply-To:
+	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=300izhjd3zxMvmcpzi0xm5pSq2VFSVKzO7uMjw02Pmc=; b=wrvbs7zeXybCCXSOoenRqWofo2
+	eJqvX7BbRnvsLcGJ8SAUT+YpUgrmn9sf8//+7YYOnILsF3pEFgcJ8os7+SQ1xmfeimhM1lwFJ021r
+	LFpOhzF2ONpTCQtPpRThSTjSksY4xA7v4QRcW2YhmpfxfWzsxM8f4KeLGrXQhD2lQVw9mOWvXAwXi
+	4WHde9V+e9khg9Jjj98NSER7hAlCH9dtCwdQfNEah2Dce6JHlXkC4CYhb/LFTQluFbQKEAjphu8wU
+	hl4aS8tWBK2mRXhLPH7vCRdvK33OtGAicp2kB1rF2mzLOK3EZZEmyhKMY50mqJcWiIpd5Y/sjYReH
+	UJnxMCCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m67YG-00Ethj-AH; Wed, 21 Jul 2021 08:26:00 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1m6993-00FB4l-Av; Wed, 21 Jul 2021 10:08:05 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m67YC-00Etgm-FP
- for linux-riscv@lists.infradead.org; Wed, 21 Jul 2021 08:25:57 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id u14so1158299pga.11
- for <linux-riscv@lists.infradead.org>; Wed, 21 Jul 2021 01:25:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-transfer-encoding;
- bh=vBg444yi+87imAkmc8sY7qKHbhkMgnmYwiMleYRcDQA=;
- b=b5dkr5tjmBfNlEhYVPPCwpR6vPr23Iu2UbYhvvovWxTo8/q35vky3waezgPJqeWHg0
- z3fhdpI/Jd4GrKIZ2ZT5325/tdXAfgfsjoRRPBjlgQOJLt6+8Ezt2faQfaSpHJ271zPj
- 49gQXK/6I4d2XCEYpyrCZCVPX4QoNKR8r0ehdLTTi1j3Wvt8AmjPr+ac3iLGjl7p9FcG
- 3EpT+jEQJCe4EoNziCPeicv/aNffMs6EFP45eIH04Nxc0ENxN6UBqJ4Leyf1k2QTVM5N
- eW/WQ/Y5ktxQ4aD1EUr1nt5iLlQcwf8RxS4uaT4cGR7xR2oXffx6p4ZQ0BP2LdL54EYD
- g6vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-transfer-encoding;
- bh=vBg444yi+87imAkmc8sY7qKHbhkMgnmYwiMleYRcDQA=;
- b=rQKt0MY69xYmW2d9hgPfl8JCpSlav4O5Fx4BNvZx1+JjvdBByIcou4UZg3OQtCrHCY
- N7PM0nXbRZBJajs6aRnXQEmrsZcxOBVX3KpcDTzvuHxPMtZYivglC/aaoFb7WLr7V2yq
- k6bmwFBfTwkuxBDbqllyjq62i+R+Nq4S9NZqHEJGNDU+1wnExwp/cnfi3otEv/APi1qb
- eK6AIIpWtq3kWBqCykvQ2pkIc4mXNGvFgqbnvz9lKWdKeqcK4+bu6EVgYwjUxGkltdIx
- c+g6EdjywkI7zbk4lsX2lTIBwlkR6L1J5L2S7aYqQ732hC27exxNakGTkw/q5m3eSyFc
- PuDA==
-X-Gm-Message-State: AOAM53217eOdt31OG0+VACsXmOMDuTAW+CrnB5eDpt89ygd/NJtgpiHW
- oMU6T6sux1BwZYL7jhELm/g=
-X-Google-Smtp-Source: ABdhPJyp3wPifp0Z7RvBWkZXJVkbMCpMF+b+8MUImfdzOYh8IoP2yQ+sf3cBYhAMhyjPLI/eS111uQ==
-X-Received: by 2002:a63:470b:: with SMTP id u11mr34901772pga.340.1626855955411; 
- Wed, 21 Jul 2021 01:25:55 -0700 (PDT)
-Received: from [0.0.0.0] (jp.bgp.twd2.net. [2a0c:b641:571::1])
- by smtp.gmail.com with ESMTPSA id s193sm26894738pfc.183.2021.07.21.01.25.53
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 21 Jul 2021 01:25:55 -0700 (PDT)
-Subject: Re: [PATCH RESEND] riscv: stacktrace: Fix NULL pointer dereference
-To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20210716214051.32eea3a8@xhacker>
-From: twd2 <twd2.me@gmail.com>
-Message-ID: <15a3766f-6958-95a8-2cb8-601b35118d56@gmail.com>
-Date: Wed, 21 Jul 2021 16:25:50 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ id 1m698o-00FB1q-Oq; Wed, 21 Jul 2021 10:07:52 +0000
+Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by smtp-out2.suse.de (Postfix) with ESMTPS id D37A01FE8C;
+ Wed, 21 Jul 2021 10:07:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1626862068; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=C4NubWeG2ovcbxAMfkPElXnWJqbcxkLf6NbwbwLfM7M=;
+ b=MdLMMhkI7ONP/nYRE2oIl3sEKkCvlXqrzpPbqfZHjA7OPVUS2yqkubWKHmfWBdumuApQXQ
+ ShwF0quhdY4dj8l6GiGjbqOgB5aNRPDzP8eVoV6HTJBxwzd/abxH6cJJxE01qkdshGG3tV
+ HAmJWgM41DecaWuRqYe6y48+7KG5QFU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1626862068;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=C4NubWeG2ovcbxAMfkPElXnWJqbcxkLf6NbwbwLfM7M=;
+ b=4c+L9WxPOuGy6w2UomFTa+FhdQtOl3fULCm5CETfr2agEmjy6J9rRlrXIYISZAiUYUpyLI
+ axtXvFy4cxgwRFCg==
+Received: from imap1.suse-dmz.suse.de (imap1.suse-dmz.suse.de [192.168.254.73])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by imap1.suse-dmz.suse.de (Postfix) with ESMTPS id 604DE13BD3;
+ Wed, 21 Jul 2021 10:07:48 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+ by imap1.suse-dmz.suse.de with ESMTPSA id z79vFvTx92C0RwAAGKfGzw
+ (envelope-from <tzimmermann@suse.de>); Wed, 21 Jul 2021 10:07:48 +0000
+Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
+ non-x86 EFI platforms
+To: Javier Martinez Canillas <javierm@redhat.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Dave Airlie <airlied@gmail.com>,
+ linux-efi <linux-efi@vger.kernel.org>, David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon
+ <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
+ Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+References: <20210625130947.1803678-1-javierm@redhat.com>
+ <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+ <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
+ <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+ <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+ <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
+ <03f0edef-e54e-8a2a-4b50-683d3d42e249@redhat.com>
+ <YPbWrV/cIODdgu6A@phenom.ffwll.local>
+ <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
+ <44a75f18-e3a6-f764-b0ec-ce3ac05805a9@redhat.com>
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Message-ID: <1e85fae7-ef95-b2f7-3463-e90958e54684@suse.de>
+Date: Wed, 21 Jul 2021 12:07:47 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-In-Reply-To: <20210716214051.32eea3a8@xhacker>
+In-Reply-To: <44a75f18-e3a6-f764-b0ec-ce3ac05805a9@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210721_012556_588509_8E99751B 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20210721_030751_015466_54189EB7 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +114,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0092415555855743829=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tested-by: Wende Tan <twd2.me@gmail.com>
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============0092415555855743829==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="Xa3sKiKw0lskQKjLKRseqrPiBVPqH4fjs"
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--Xa3sKiKw0lskQKjLKRseqrPiBVPqH4fjs
+Content-Type: multipart/mixed; boundary="yNbR0EJmqO1B5PtZC9iiBAmy6gYhoBNLY";
+ protected-headers="v1"
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: Javier Martinez Canillas <javierm@redhat.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Dave Airlie <airlied@gmail.com>,
+ linux-efi <linux-efi@vger.kernel.org>, David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon
+ <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
+ Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+Message-ID: <1e85fae7-ef95-b2f7-3463-e90958e54684@suse.de>
+Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
+ non-x86 EFI platforms
+References: <20210625130947.1803678-1-javierm@redhat.com>
+ <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+ <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
+ <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+ <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+ <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
+ <03f0edef-e54e-8a2a-4b50-683d3d42e249@redhat.com>
+ <YPbWrV/cIODdgu6A@phenom.ffwll.local>
+ <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
+ <44a75f18-e3a6-f764-b0ec-ce3ac05805a9@redhat.com>
+In-Reply-To: <44a75f18-e3a6-f764-b0ec-ce3ac05805a9@redhat.com>
+
+--yNbR0EJmqO1B5PtZC9iiBAmy6gYhoBNLY
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+
+Hi
+
+Am 21.07.21 um 07:09 schrieb Javier Martinez Canillas:
+=2E..
+>>
+>> Can I simply put the patches in to drm-misc-next? There was some talk
+>> about a topic branch?
+>>
+>=20
+> ... which AFAIU means that there's no need for a topic branch, since th=
+e
+> patches will be present in linux-next. And the EFI folks can use that t=
+o
+> check if there are any integration issues or regressions caused by thes=
+e.
+
+Merged into drm-misc-next.
+
+Best regards
+Thomas
+
+>  =20
+>> Best regards
+>> Thomas
+>>
+>=20
+> Best regards,
+>=20
+
+--=20
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Maxfeldstr. 5, 90409 N=C3=BCrnberg, Germany
+(HRB 36809, AG N=C3=BCrnberg)
+Gesch=C3=A4ftsf=C3=BChrer: Felix Imend=C3=B6rffer
 
 
-On 2021/7/16 21:40, Jisheng Zhang wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
->
-> When CONFIG_FRAME_POINTER=y, calling dump_stack() can always trigger
-> NULL pointer dereference panic similar as below:
->
-> [    0.396060] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc5+ #47
-> [    0.396692] Hardware name: riscv-virtio,qemu (DT)
-> [    0.397176] Call Trace:
-> [    0.398191] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000960
-> [    0.399487] Oops [#1]
-> [    0.399739] Modules linked in:
-> [    0.400135] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc5+ #47
-> [    0.400570] Hardware name: riscv-virtio,qemu (DT)
-> [    0.400926] epc : walk_stackframe+0xc4/0xdc
-> [    0.401291]  ra : dump_backtrace+0x30/0x38
-> [    0.401630] epc : ffffffff80004922 ra : ffffffff8000496a sp : ffffffe000f3bd00
-> [    0.402115]  gp : ffffffff80cfdcb8 tp : ffffffe000f30000 t0 : ffffffff80d0b0cf
-> [    0.402602]  t1 : ffffffff80d0b0c0 t2 : 0000000000000000 s0 : ffffffe000f3bd60
-> [    0.403071]  s1 : ffffffff808bc2e8 a0 : 0000000000001000 a1 : 0000000000000000
-> [    0.403448]  a2 : ffffffff803d7088 a3 : ffffffff808bc2e8 a4 : 6131725dbc24d400
-> [    0.403820]  a5 : 0000000000001000 a6 : 0000000000000002 a7 : ffffffffffffffff
-> [    0.404226]  s2 : 0000000000000000 s3 : 0000000000000000 s4 : 0000000000000000
-> [    0.404634]  s5 : ffffffff803d7088 s6 : ffffffff808bc2e8 s7 : ffffffff80630650
-> [    0.405085]  s8 : ffffffff80912a80 s9 : 0000000000000008 s10: ffffffff804000fc
-> [    0.405388]  s11: 0000000000000000 t3 : 0000000000000043 t4 : ffffffffffffffff
-> [    0.405616]  t5 : 000000000000003d t6 : ffffffe000f3baa8
-> [    0.405793] status: 0000000000000100 badaddr: 0000000000000960 cause: 000000000000000d
-> [    0.406135] [<ffffffff80004922>] walk_stackframe+0xc4/0xdc
-> [    0.407032] [<ffffffff8000496a>] dump_backtrace+0x30/0x38
-> [    0.407797] [<ffffffff803d7100>] show_stack+0x40/0x4c
-> [    0.408234] [<ffffffff803d9e5c>] dump_stack+0x90/0xb6
-> [    0.409019] [<ffffffff8040423e>] ptdump_init+0x20/0xc4
-> [    0.409681] [<ffffffff800015b6>] do_one_initcall+0x4c/0x226
-> [    0.410110] [<ffffffff80401094>] kernel_init_freeable+0x1f4/0x258
-> [    0.410562] [<ffffffff803dba88>] kernel_init+0x22/0x148
-> [    0.410959] [<ffffffff800029e2>] ret_from_exception+0x0/0x14
-> [    0.412241] ---[ end trace b2ab92c901b96251 ]---
-> [    0.413099] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
->
-> The reason is the task is NULL when we finally call walk_stackframe()
-> the NULL is passed from __dump_stack():
->
-> |static void __dump_stack(void)
-> |{
-> |        dump_stack_print_info(KERN_DEFAULT);
-> |        show_stack(NULL, NULL, KERN_DEFAULT);
-> |}
->
-> Fix this issue by checking "task == NULL" case in walk_stackframe().
->
-> Fixes: eac2f3059e02 ("riscv: stacktrace: fix the riscv stacktrace when CONFIG_FRAME_POINTER enabled"
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/kernel/stacktrace.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index bde85fc53357..7bc8af75933a 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -27,7 +27,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  		fp = frame_pointer(regs);
->  		sp = user_stack_pointer(regs);
->  		pc = instruction_pointer(regs);
-> -	} else if (task == current) {
-> +	} else if (task == NULL || task == current) {
->  		fp = (unsigned long)__builtin_frame_address(1);
->  		sp = (unsigned long)__builtin_frame_address(0);
->  		pc = (unsigned long)__builtin_return_address(0);
+--yNbR0EJmqO1B5PtZC9iiBAmy6gYhoBNLY--
 
-Thanks.
-Wende
+--Xa3sKiKw0lskQKjLKRseqrPiBVPqH4fjs
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
 
+-----BEGIN PGP SIGNATURE-----
+
+wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmD38fMFAwAAAAAACgkQlh/E3EQov+A+
+gQ//cm3YmrkvVs/l/xoo2fbJXBc0h9CfisiQrI+6/Vgdc3c/PL9jM/5VoqsUajcScfXFmfpBDlZn
+6zTFAYqUVTntYMnSrTwbuaY/Tmo0Y2Unrh66bIDzlKz4ZWjYPczolpW40ke/l6C5/dSgR2wu8zRv
+FqynPxu8Y2TroBgDGHuUbUjFYNc5g80xUq7/Qvik+YOQG25iiNw3Y1QQg6y/JO8r0lbBStYchmNP
+dSmvkmjovJ/C/98FbrXAMQZtkbe9ar4Oy3lqwA/GdNEnnbCTzc4VP9WVmuVUPbI2gXsdrAttjkSJ
+7AMEbAgrrjY73g64k6TCwjZnCvBU8D9vxzjCjVLnlnxewAB4SHq5lq7Z4lucLKXs/c9xLv025Ico
+ENgkUhfGrwYBiTVqmJ9edVlgVTvLPyNNpb+J+VcbhMSfWQSeegULqjnEEuqrVxIdxYhNpajp2XXV
+pXdwJuGy19o1cZelMVYNZzdwPHjvyEPxIyBGcUxYMzwqEhZAjsk9/8Hw6t2RsiSRPaxVfWTUmATJ
+CjHmdmCMSRdp2L9KElXaQpUaXtuDiVMYgVevlFcISs4qVq2TeDX1c/f8NRZp2DQ2pgpht5WY/+/T
+WqysfHwiBKtbDY88yUtCQuna4XZm1t6HZvwsL5MGuNX8qwa1sKiAw6zezZZucfPJ/4QbdFGSihC3
+T9U=
+=OQli
+-----END PGP SIGNATURE-----
+
+--Xa3sKiKw0lskQKjLKRseqrPiBVPqH4fjs--
+
+
+--===============0092415555855743829==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0092415555855743829==--
+
