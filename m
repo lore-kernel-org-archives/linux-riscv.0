@@ -1,95 +1,95 @@
-Return-Path: <SRS0=Mekn=MM=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=vm5i=MN=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFF7AC07E9B
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 21:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CE621C636C8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 00:26:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9352560C41
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jul 2021 21:19:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9352560C41
+	by mail.kernel.org (Postfix) with ESMTPS id 7F89261019
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 00:26:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7F89261019
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:Cc:To:From:Subject:Reply-To:Content-ID:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=fuPeF88JiBcO971w/ABu2Hc1ik3zVIIi7o94FedzOi8=; b=Ku8xJJxQj2t0i/dJpGYB9awHKX
-	133cgvXQf4HEKR0cM+oD5NeVhV/uoT3GN3WqiU8Vt7ZKLvc9J/bRRNEdxUzVjU6J3jC01bvAD8FNH
-	3nAWR25fxqpGlunxfKETX135/zalkDVqZJg76vVwfaLfYHXXj5dY+BPuQFdOClhbokpq93WW71Bjw
-	TIzHLd7fYVumDS9x/pk7g8lSrglpi1pCbWfqNNVIyGRVqwpv8ZwSKW8JXkQ4U8yPePTmEcXKvYjG8
-	KnxN8CnarOqaj0atqAVIDTzNQ1kABBQs7ui3U5rFDXKLpS/YRvkAAM4P1Zlk9FKJyMgw1+qMjMEek
-	GeS7LSJA==;
+	bh=AHBey7AEcC6FqR+X2RH5SBFIfDtkgS+xhHkkte0MCFE=; b=07R0nLE1+dcOaW7H8ZYu4BatpK
+	4NMP7Lc2XyLY6lxlAvoeXvdC3ZLNoN4Z9pk8SworcZ5et3LiQzzy0fvDzviALdsRXh0Po8PlsLpKH
+	3MdDje+GFvtcZJgKjwKjLf8XQomynNQJGb7HawnzrMkf18WzhJTwJaeZU9P72Tzj8RZgzgczfvfRj
+	NBuoa81h7QcHEUhKfMgcoeXJ0I99K5QitGN/D4iVEtVsUKCKdpkrh1cL93oU9OMFAFV6c4WihfXWo
+	IK+y9usJFu+s10XNo++R0Xr0VMfFdfUWKRf7jgin9Rzwm9BJJuJqTc94qplOydAcxHChA8ryFp1uY
+	/1CCEUlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m5x8s-00DxOZ-TX; Tue, 20 Jul 2021 21:19:06 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1m604F-00EBPl-Hd; Wed, 21 Jul 2021 00:26:31 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m5x8p-00DxOC-PN
- for linux-riscv@lists.infradead.org; Tue, 20 Jul 2021 21:19:05 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id o8so12051449plg.11
- for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
+ id 1m604C-00EBOv-BO
+ for linux-riscv@lists.infradead.org; Wed, 21 Jul 2021 00:26:29 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id j4so301424pgk.5
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 17:26:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:from:to:cc:references:message-id:date:user-agent
- :mime-version:in-reply-to:content-transfer-encoding;
- bh=B8o/q41XapjmWGG21qetVfphUKyjf05uB802S7fF9ZM=;
- b=Gyu9Rp2Ezpcx5BaIxnfzn8hRTJC1EMlzn1CqHWx6Q/LOtJVOUXjk7eVdhvsqkPM7Bl
- 7KlyvPz3twYGDgHE3fhz0rD5H1Cu9MKwgBboEOOD3svRv/leaq3mbTLTia8J9dFF1Fyq
- 9GpJDeZiIvgcuMzqYDvyGbowGZDQMKGOV62t0Mq0QK8D8ieo5N7moHFoEJvNDgQbmrkE
- rztnaKkryw3pM+B3WTRRGRpiBFswIKKhmhP6BQr/39WzKfDFm10qEj/aPuIb751zgmeo
- t5x7pnFLrlMSeehgB+dzt1qZb6VR6iktr0lVnskjicaQIzN6jjnxRcTrcSMedwiaW3Du
- goag==
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=HU58CogAQohVW71EtvAZO3RqmIQLLJsZMVI5o5yTkQY=;
+ b=HqJmMupj199pureG1HeFCEVJyoCvVJ0xgDo4FnGZ72A8lhWenOCc++0epX3DZp/3fd
+ VLX0sJwBAhNlemiPWGmeNDlS2b3E2hnb4ezkmfkrbuVCMe5iMuL5wvmiAfYee0QnApnB
+ IM/OYXbjwWQOKGn2HGeTdLEfbcfAzU6NTP/6tiGjzH7kA65PtTCXZEuFMUbtBh7L0/bV
+ lkP+qq+RDICUu3SMUx13ZyCLOzkZVN5VOE6VU0vg6KWyO0madIWv5ndXIvmo54I1qqm9
+ EXBbI4nYH6Ce+bqomqfLvOiGzwPjzGS4UB1D5Kw3kJDimy6fZW+S6MgFJUNt2d1nMdWX
+ Nvsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:from:to:cc:references:message-id:date
- :user-agent:mime-version:in-reply-to:content-transfer-encoding;
- bh=B8o/q41XapjmWGG21qetVfphUKyjf05uB802S7fF9ZM=;
- b=GB0qqYWqp0B/hVFurF+hHBA5ep0qgvsvdchqS+Z/+JSfBMy5/h69NZacpLhwKt/DCU
- 3ig8vZIQG3vKkvdePfyjj6TQbnwM6Ezn8/oHMeBaxTuEig2+lyqME0eGckehSn/c1Quo
- 2ws9F3W0Kc+kyCST7TB2DSPv0oHk2A3rDf5GrMS/xkcugddB30OSInJY5JnOG1pafLxZ
- 61Sr3X4rhL+9/v/rfDRb2pMuplMaD0cIOGNz6/ddMy9cAvamwawjNtEWCP/hg9u1OFTD
- KHYmfkngTehNY53+Y1Vp4hc8jAiDL2QqCs4jIjmHMVDN6/F5PGtuLJqNnDfRrtnEzuom
- +w+A==
-X-Gm-Message-State: AOAM533ojj9UDgqosMK33+fLnNhvqpXFm8Yujhfz5TZ70JZzX2mQenMq
- cLSMZddAHzmAZyewigXwRb4=
-X-Google-Smtp-Source: ABdhPJxgfIaiqVJmLAxSMRgnwZnd/tJ0D4Rce5OWQuSm38SyHyViu5yH83PCzdPJruKKOQH3QRoN8A==
-X-Received: by 2002:a17:902:e807:b029:12b:43ce:18dc with SMTP id
- u7-20020a170902e807b029012b43ce18dcmr24801837plg.70.1626815942597; 
- Tue, 20 Jul 2021 14:19:02 -0700 (PDT)
-Received: from [0.0.0.0] (jp.bgp.twd2.net. [2a0c:b641:571::1])
- by smtp.gmail.com with ESMTPSA id d2sm25025439pfa.84.2021.07.20.14.18.59
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=HU58CogAQohVW71EtvAZO3RqmIQLLJsZMVI5o5yTkQY=;
+ b=cYeGTw/Aw/enNS6t5PGqn4yIrBly32JG6ypoMcArdpsYRBeDGAgNAkYirhZ1crZXLy
+ Bi8iXPV5ipyV/FZ9imcAxXOKroRAc1rbXOmfILqPkZXroLYhlX8W9bg6R3K+u6zFT5l0
+ Nb7b36CJbh1A4VctR9HzWxXt0a6uHa0kJFWBxRuoCwgwYqrbXT5+vc14gwEPHpFSxwln
+ fTcNuj8S3Rq8ftSm6eYRtC0aKgAVXuiPxHDpwLjyG0oNWFr/llOVBybg3GNfESLFE0bx
+ OphedjqUhzFZMDfSFpdPJo5KEHc4LNnB+rUoesJBPTXSU5oDIreLdKJl1/WPuVKqZkzK
+ /DVA==
+X-Gm-Message-State: AOAM531M5FPedEMel++ZCIigiZwxr/4ts+imAzP0K7tmxFoFo0DyUiCS
+ 4LaP7TBzrlOqKXRUcbL8adahByXQ4OA=
+X-Google-Smtp-Source: ABdhPJy+fVaJakwcWcHs5y2nAtieI+LqPS/s8YSALTVQdoR4MaYNKm8SVd6u7bEE91H6qoNf2FKz0g==
+X-Received: by 2002:aa7:80d9:0:b029:2ed:49fa:6dc5 with SMTP id
+ a25-20020aa780d90000b02902ed49fa6dc5mr33776132pfn.3.1626827186583; 
+ Tue, 20 Jul 2021 17:26:26 -0700 (PDT)
+Received: from [192.168.1.153] (M106072041033.v4.enabler.ne.jp. [106.72.41.33])
+ by smtp.gmail.com with ESMTPSA id p24sm28390770pgl.68.2021.07.20.17.26.25
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 20 Jul 2021 14:19:01 -0700 (PDT)
-Subject: Re: [PATCH 3/3] RISC-V: build: Allow LTO to be selected
-From: twd2 <twd2.me@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com,
- Nathan Chancellor <nathan@kernel.org>, arnd@arndb.de
-References: <20210719205339.1023572-1-twd2.me@gmail.com>
- <CAKwvOd=H-UN7dgHYgsvubv7t82UiPaOHCF09GAi6kTvjxpT4iA@mail.gmail.com>
- <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
-Message-ID: <970c36ea-c5a6-2b47-3024-7cbbf428ebfa@gmail.com>
-Date: Wed, 21 Jul 2021 05:18:56 +0800
+ Tue, 20 Jul 2021 17:26:26 -0700 (PDT)
+Subject: Re: Linux 5.14-rc2
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org
+References: <CAHk-=wjYghA5O+ZsWKVNApMK3j4V1EibO5P+c4MrHnqp8YhY=g@mail.gmail.com>
+ <20210719140437.GA2178213@roeck-us.net>
+ <CAHk-=wivYZGxR4oumBk_rTAstRx=WWpwBAgS7n3M5ydbd0rTzQ@mail.gmail.com>
+From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
+Message-ID: <06a1a5fa-3d3e-8037-ee6c-74acc16a0df3@gmail.com>
+Date: Wed, 21 Jul 2021 09:26:23 +0900
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.12.0
 MIME-Version: 1.0
-In-Reply-To: <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
+In-Reply-To: <CAHk-=wivYZGxR4oumBk_rTAstRx=WWpwBAgS7n3M5ydbd0rTzQ@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_141903_897990_D22E3854 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20210720_172628_452693_262CF907 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +101,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxzbywgSSB0cmllZCBgZGVmY29uZmlnYCB3aXRoIEZ1bGwvVGhpbiBMVE8uwqAgSXQgY2FuIGJv
-b3QgYW5kIHRoZQpidXN5Ym94IHNoZWxsIHdvcmtzLgoKSSdsbCBwdXQgdGhpcyBpbmZvcm1hdGlv
-biBpbnRvIHRoZSBuZXh0IHZlcnNpb24gb2YgdGhlIHBhdGNoIHNlcmllcy4KCgpUaGFua3MuCldl
-bmRlCgoKT24gMjAyMS83LzIxIDI6MjksIHR3ZDIgd3JvdGU6Cj4gSGksIEkganVzdCB0cmllZCB0
-byBjb21waWxlIHdpdGggdGhpcyBwYXRjaCBhbmQgYGFsbHllc2NvbmZpZ2AgZXhjZXB0Cj4gQ09N
-UElMRV9URVNULCBGVFJBQ0UsIEtBU0FOLCBHQ09WLCBhbmQgWEZTIFsxXS7CoCBJdCBmaW5pc2hl
-cyB3aXRoIG5vCj4gaXNzdWUsIGFuZCB0YWtlcyB+MjIgbWluIGFuZCB+MjUgR2lCLsKgIEJUVywg
-dGhlIGtlcm5lbCBwYW5pY3MgZHVyaW5nIGJvb3QKPiBldmVuIGJ1aWx0IHdpdGggR0NDLCBzbyBJ
-IGRpZG4ndCBkbyBmdXJ0aGVyIHRlc3RzIDooIC4KPgo+IENvbW1hbmQgdXNlZDogQVJDSD1yaXNj
-diBMTFZNPTEgTExWTV9JQVM9MSBtYWtlIEhPU1RDQz1nY2Mgdm1saW51eCAtajE2Cj4gS2VybmVs
-IHZlcnNpb246IGNvbW1pdCAyNzM0ZDZjMWIxYTAgKCJMaW51eCA1LjE0LXJjMiIpCj4gTExWTSB2
-ZXJzaW9uOiBjb21taXQgMWI2MWQ4MzdiOWQwICgiW0lubGluZV0gQWRkIHRlc3QgZm9yIFBSNTA1
-ODkgKE5GQykiKQo+IFRoZSBgLmNvbmZpZ2AgZmlsZSBpcyBhdHRhY2hlZC4KPgo+IFsxXSBodHRw
-czovL2dpdGh1Yi5jb20vQ2xhbmdCdWlsdExpbnV4L2xpbnV4L2lzc3Vlcy8xMjE1Cj4KPiBPbiAy
-MDIxLzcvMjAgNToyNSwgTmljayBEZXNhdWxuaWVycyB3cm90ZToKPj4gT24gTW9uLCBKdWwgMTks
-IDIwMjEgYXQgMTo1MyBQTSBXZW5kZSBUYW4gPHR3ZDIubWVAZ21haWwuY29tPiB3cm90ZToKPj4K
-Pj4gQ29uc2lkZXIgYWRkaW5nIGEgbGl0dGxlIG1vcmUgZGV0YWlsIHRvIHRoZSBjb21taXQgbWVz
-c2FnZS4KPj4KPj4gSW4gb3VyIGV4cGVyaWVuY2Ugd2l0aCBvdGhlciBhcmNoaXRlY3R1cmVzLCB3
-ZSd2ZSBoaXQgbnVtZXJvdXMKPj4gY29tcGlsZXIgYW5kIGtlcm5lbCBpc3N1ZXMgZXNwZWNpYWxs
-eSB3aXRoIGFsbHllc2NvbmZpZ3MuIEhhcyB0aGF0Cj4+IGJlZW4geW91ciBleHBlcmllbmNlIHdp
-dGggcmlzY3Y/ICBJdCB3b3VsZCBiZSBnb29kIHRvIGtub3cgaWYgeW91J3ZlCj4+IGhpdCBpc3N1
-ZXMgd2l0aCBMVE8gcGx1cyBjZXJ0YWluIGNvbmZpZ3MsIHNvIHRoYXQgd2UgaGF2ZSBjb25maXJt
-YXRpb24KPj4gb3RoZXJzIGhhdmUgc2VlbiB0aGVzZSBpc3N1ZXMgYW5kIHNvIHRoYXQgd2UgY2Fu
-IHRyaWFnZSBmaXhlcy4KPj4KPj4+IFNpZ25lZC1vZmYtYnk6IFdlbmRlIFRhbiA8dHdkMi5tZUBn
-bWFpbC5jb20+Cj4+PiAtLS0KPj4+ICBhcmNoL3Jpc2N2L0tjb25maWcgfCAyICsrCj4+PiAgMSBm
-aWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4+IGluZGV4IDhmY2NlYjhlZGEwNy4u
-YjU5M2U1MDMxYzc5IDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4+PiArKysg
-Yi9hcmNoL3Jpc2N2L0tjb25maWcKPj4+IEBAIC0zNCw2ICszNCw4IEBAIGNvbmZpZyBSSVNDVgo+
-Pj4gICAgICAgICBzZWxlY3QgQVJDSF9PUFRJT05BTF9LRVJORUxfUldYIGlmIEFSQ0hfSEFTX1NU
-UklDVF9LRVJORUxfUldYCj4+PiAgICAgICAgIHNlbGVjdCBBUkNIX09QVElPTkFMX0tFUk5FTF9S
-V1hfREVGQVVMVAo+Pj4gICAgICAgICBzZWxlY3QgQVJDSF9TVVBQT1JUU19IVUdFVExCRlMgaWYg
-TU1VCj4+PiArICAgICAgIHNlbGVjdCBBUkNIX1NVUFBPUlRTX0xUT19DTEFORwo+Pj4gKyAgICAg
-ICBzZWxlY3QgQVJDSF9TVVBQT1JUU19MVE9fQ0xBTkdfVEhJTgo+Pj4gICAgICAgICBzZWxlY3Qg
-QVJDSF9VU0VfTUVNVEVTVAo+Pj4gICAgICAgICBzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9Q
-RE9XTl9NTUFQX0xBWU9VVCBpZiBNTVUKPj4+ICAgICAgICAgc2VsZWN0IEFSQ0hfV0FOVF9GUkFN
-RV9QT0lOVEVSUwo+Pj4gLS0KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On 7/21/2021 2:24 AM, Linus Torvalds wrote:
+> Don't know if you guys saw these mainline -rc reports:
+> 
+>   https://lore.kernel.org/lkml/2c03b355-86dd-1fa6-dbaf-5857f4a45a66@roeck-us.net/
+>   https://lore.kernel.org/lkml/20210719140437.GA2178213@roeck-us.net/
+> 
+> On Mon, Jul 19, 2021 at 7:05 AM Guenter Roeck <linux@roeck-us.net> wrote:
+>>
+>> Failed builds:
+>>         riscv32:allmodconfig
+>>         riscv:allmodconfig
+>>
+>> No major change here, except that arcv2 images now build.
+>> For reference, the riscv build problem is:
+>>
+>> cc1: error: '4496' is not a valid offset in '-mstack-protector-guard-offset='
+> 
+> and from the -rc1 one from Guenter:
+> 
+>> The riscv:allmodconfig build failure is not new. It is seen if both
+>> STACKPROTECTOR_PER_TASK and GCC_PLUGIN_RANDSTRUCT are enabled.
+>> See
+>> https://patchwork.kernel.org/project/linux-riscv/patch/20210706162621.940924-1-linux@roeck-us.net/
+>> for details and a proposed fix.
+>>
+>> riscv32 images fail to boot due to commit ca6eaaa210de ("riscv:
+>> __asm_copy_to-from_user: Optimize unaligned memory access and pipeline
+>> stall"). I reported this a couple of days ago, but have not seen a reply.
+> 
+> it would be nice to have these basic tests all passing again.
+
+I have sent the fixes yesterday in my time.
+
+https://lists.infradead.org/pipermail/linux-riscv/2021-July/007621.html
+
+Guenter and Geert have confirmed the fix.
+
+https://lists.infradead.org/pipermail/linux-riscv/2021-July/007634.html
+https://lists.infradead.org/pipermail/linux-riscv/2021-July/007626.html
+
+Akira
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
