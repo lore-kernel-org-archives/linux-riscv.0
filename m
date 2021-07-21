@@ -2,84 +2,123 @@ Return-Path: <SRS0=vm5i=MN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDE06C07E9B
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 03:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 45286C07E9B
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 05:10:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9581360E0C
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 03:39:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9581360E0C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id E8BF160FED
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jul 2021 05:10:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E8BF160FED
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gUTqxzN+KVUt/8cZ3x1UO7VKdPQMh6cKlSwqNJaadoU=; b=vund6YEvqvu4AA
-	5n5ClT7IR02JyfSxx90YywdWZ+hJhjhnnjf7tAH20Vb8BbTws4588OegnTsQnBt1sC7d6eLQTFoj1
-	/4JOeGju+BpPbj5k1flXHeJxB2Jm2CipnTV7PhBiOc6Z3U+/MnznF3upbETEmsFr51Ywi6LWR16xY
-	TAb0JHIdhpe9F7ZeeDhIibb7e9ZPhtmzqteLwf8o0rB2AOYUmR0ZKHJFR+By9ho8YROc/4y181eQW
-	+cyWKG5sIYeKlCd6x9gcuLBRVVpNTtURrL8lbAlXPjUopGPMGN+6qMHtCvThOyJg4ozSV7mkezidW
-	NYlZp89HaA//VL94Fx8g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=t1pcudgIm/8/Q+ZKGBTEMGk2NYbuHPVcLqkhNc41Nks=; b=Y28ZepXQC57Uhua8MwwDK1R9km
+	9bpPA3gDbRc61dyxu1cxD82xQG4WdylNz1l03bgHcCchnVD8Jn2AGVoMVHAKHRgJm4URO63uLh1Ug
+	nAhfLqfr6mtN1njqmyXTwOLjLZFyl+BmdGsXULZ5xu2aXXp4HjvxToGmnUeHFFA1lDLOlre19IJNu
+	IMNhNekcjBoi16YzOj45HcYGc1dAvfD6F4zX3rlbBFpPOKETxw5Hc5ywMbNQHLA1dwJcVoFwGhe1V
+	dmEy78Gcuf68nO1OmWIzIOql1q6IkbDLP5Uu67JJSvmvLxuGzJxOhN/X/DLJU3a4Ql84HjaQj9iow
+	epupn5Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m634t-00EPAe-5R; Wed, 21 Jul 2021 03:39:23 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1m64UL-00ESC4-7S; Wed, 21 Jul 2021 05:09:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m634p-00EPAK-LQ
- for linux-riscv@lists.infradead.org; Wed, 21 Jul 2021 03:39:21 +0000
-Received: by mail-pf1-x433.google.com with SMTP id m83so1255548pfd.0
- for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 20:39:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id;
- bh=Angp4bCEKP4cgVmU44JkEQ57AHq9jYVme9mNnOm6/+w=;
- b=QeC2S6bOpZk/WfkRE0Wt7dqgRkXq51W6EywqHTmUjQJ1cfCVipM5I3p+JXItgqZ9SO
- 5x96mT+K93wU1mQ8w1l/a4ced5rAQuq1MA7bHKrVWIwTnGrIkyMcAa3BOrGzPwFRYI7Y
- I9d5gtZ4dcwo92Hy7hv0+cJN9UB+HuEsVngp0iLaPgQS245t8MFBOMbQvFWPpT8Lf0Fa
- OK/8WZjeQPKGA2vr1Ia24nyBxNjMG+uJecQkhl8Gq5HCdTYxcKH9OCnipbzs4rmYw4OT
- nRe40IJFGNrZtZ/7mTcMgP67qS1oHPXf5PKo9KlzvawNluHJz4xFVWNxFQn3aUcEXNq4
- M5rA==
+ id 1m64U7-00ESAK-Fs
+ for linux-riscv@lists.infradead.org; Wed, 21 Jul 2021 05:09:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1626844169;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=S+zWfy2tC40xUQfOhENAkA+DP5zrQupivowwlpIU07g=;
+ b=OKvQMBfJdOMJzGla1xXeLHAtj4kHE/ygi2s72aJf/7lRxWF/gVycMHi7Wwj8MJKvAUnRBH
+ 47oeUp6V4Uheu25aj9ej3rvcFZMRke6yRQZm04PVlHVFORP7/TMlcvBJ5URYCWi1WSQjwb
+ XdEA7jKEhWxophxmjn9EX0gKAE1LNk0=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-457-X4H9SXHZPYmvohFOCAUDKQ-1; Wed, 21 Jul 2021 01:09:27 -0400
+X-MC-Unique: X4H9SXHZPYmvohFOCAUDKQ-1
+Received: by mail-wr1-f72.google.com with SMTP id
+ a4-20020adffb840000b02901304c660e75so409965wrr.19
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Jul 2021 22:09:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=Angp4bCEKP4cgVmU44JkEQ57AHq9jYVme9mNnOm6/+w=;
- b=NRq1Jg4iHwgfqkUsqTg1vU2RnpGQyWphhPm5Jg0uE4HZ24MQl1l0PScThsWuQe9Deb
- RAjPYKa19syNCP46svF+C4HKcvLFLcLYtSjwz+abjJSAHF6mi6XS9rGNJ9k4JapIno5/
- VzqyrI+kO9paQ8GiErzFQCttgs0W9Xr/sCD8O4c0VtpE/sujTKHgkb3vWhKUotc/cgRt
- yvl0G1YzglbY6PBRe7tTNOJpjj4ufxM+ZVwdHZrz75igGw1MXXQuNX2MHkAoL653XQyF
- gzN+mvP4vwCA5Xxa5NzPVeDwTFK2Qt3Rw0OHThW/oCrh1HezxzzB4QsvQbi78BAbeB2Y
- Fnpw==
-X-Gm-Message-State: AOAM531ir/AQibCKTZScIPO4/njK/9bAS0xtK4IpqofKbjuUXJ6M3YyZ
- 12EF8Hhm7u9gg64DdOoXj1msfLvaZnT+Og==
-X-Google-Smtp-Source: ABdhPJz5y2/TNVVkkwyuBlTFZfYfz4sAV6+7c8Gi/RsD/3FitI/a8X3Y+YG76Izk4E+gk14vuZNM5Q==
-X-Received: by 2002:aa7:9626:0:b029:32a:f13b:7ab3 with SMTP id
- r6-20020aa796260000b029032af13b7ab3mr34685878pfg.43.1626838756743; 
- Tue, 20 Jul 2021 20:39:16 -0700 (PDT)
-Received: from localhost.localdomain (36-227-235-179.dynamic-ip.hinet.net.
- [36.227.235.179])
- by smtp.gmail.com with ESMTPSA id 198sm25635151pfw.21.2021.07.20.20.39.15
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 20 Jul 2021 20:39:16 -0700 (PDT)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: vincent.chen@sifive.com
-Subject: [PATCH v2] riscv: Kconfig: do not select PCI_MSI if CONIFG_PCI is
- enabled
-Date: Wed, 21 Jul 2021 11:39:12 +0800
-Message-Id: <1626838752-7013-1-git-send-email-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.7.4
+ h=x-gm-message-state:subject:to:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=S+zWfy2tC40xUQfOhENAkA+DP5zrQupivowwlpIU07g=;
+ b=IfjDoO5kT3mzrtahIAjS+PSBLTePUX3goLzyS7UuhpRWNDNkjYwn03HEJOYJ8CsS2t
+ G24RrOnYfTSPRu/URiwMHUUf3WkGoWy79VzSfyJqspZC3TPBVxjzqs0ZYQS9hkYNIOsx
+ bq8JfHUpVVoLcG7hi90JE3W1CmvKL5o3CGNB3s72E3HSclBZIYpTVbsg+TA+fobmZ1YD
+ iYLWT7sCdCTei6ad5hIPcBrNcW5BcYE4l4rog5AUPeOjsb4COaeaVk33J8nNOEp1gFCs
+ VYKXEKG55rF4dc3TWYmKR6TfQmVgEobhUadaXx34CMAyY+ESFS8Rn+AB+F2W7SImMQ1N
+ YNpg==
+X-Gm-Message-State: AOAM530xjfN6HdMBgdruyrYCLUbwfDkxlBO/3wi+P/ma4ZwQonlKoho4
+ sjtxborFoMxlUDXPPZrhItr2gO+lO0dXbZvuADCTiXjXzH82KCeKC+7QM4X821rZjFKHY6tZ/a2
+ XYzaKrxoL46+pgE1a5gdW9IFBhkht
+X-Received: by 2002:a7b:c747:: with SMTP id w7mr2031970wmk.148.1626844166634; 
+ Tue, 20 Jul 2021 22:09:26 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwCxXonukubT9gJL2Rc7x0XVeUSko96/DCQuDEhTryxASNBDgCxR12O8zMwgWe3dBuGqn9kQg==
+X-Received: by 2002:a7b:c747:: with SMTP id w7mr2031926wmk.148.1626844166269; 
+ Tue, 20 Jul 2021 22:09:26 -0700 (PDT)
+Received: from [192.168.1.101] ([92.176.231.106])
+ by smtp.gmail.com with ESMTPSA id k24sm26722409wrh.30.2021.07.20.22.09.24
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 20 Jul 2021 22:09:25 -0700 (PDT)
+Subject: Re: [PATCH v3 0/2] allow simple{fb, drm} drivers to be used on
+ non-x86 EFI platforms
+To: Thomas Zimmermann <tzimmermann@suse.de>, Ard Biesheuvel
+ <ardb@kernel.org>, Dave Airlie <airlied@gmail.com>,
+ linux-efi <linux-efi@vger.kernel.org>, David Airlie <airlied@linux.ie>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ Russell King <linux@armlinux.org.uk>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon
+ <will@kernel.org>, the arch/x86 maintainers <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Peter Robinson <pbrobinson@gmail.com>,
+ Borislav Petkov <bp@suse.de>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hans de Goede <hdegoede@redhat.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+References: <20210625130947.1803678-1-javierm@redhat.com>
+ <e61cf77c-6bff-dfcc-d3df-2fb6b48e5897@redhat.com>
+ <8dd26141-a09c-39e2-5174-4cad8d21c49c@suse.de>
+ <CAPM=9tyfNPa2f5PDBLm4w_H_riEQ5P3rEhX73YGE1y_ygRox+w@mail.gmail.com>
+ <CAMj1kXErHteZ+MKYvp=yYmwVxV3A=vjtnG351hZHV+3BPwDQvw@mail.gmail.com>
+ <YPbJJ/0tSO/fuW7a@phenom.ffwll.local>
+ <03f0edef-e54e-8a2a-4b50-683d3d42e249@redhat.com>
+ <YPbWrV/cIODdgu6A@phenom.ffwll.local>
+ <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
+From: Javier Martinez Canillas <javierm@redhat.com>
+Message-ID: <44a75f18-e3a6-f764-b0ec-ce3ac05805a9@redhat.com>
+Date: Wed, 21 Jul 2021 07:09:23 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
+MIME-Version: 1.0
+In-Reply-To: <37e05f02-b810-0cb1-cc4f-95711cd148d9@suse.de>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=javierm@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210720_203919_753454_01B8615D 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20210720_220932_196725_A5992566 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +130,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The CONFIG_PCI_MSI is used to allow device drivers to enable MSI. The MSI
-enables a device to generate an interrupt using an inbound Memory Write
-on its PCI bus instead of asserting a device IRQ pin. The whole mechanism
-needs support from the PCI controller or generic interrupt controller and
-the corresponding software driver.
+Hello Thomas,
 
-The RISC-V Kconfig file actively selects the PCI_MSI  if users enable
-CONFIG_PCI. However, the RISC-V specification does not require every RISC-V
-platform shall have MSI support. In other words, Kconfig enables CONFIG_PCI
-to allow PCI devices to use MSI, but due to lack of MSI support, the kernel
-may not have any function to deal with the MSI from PCI devices. When this
-case happens, it leads to the following warning message displayed in
-booting a v5.10~v5.12 kernel.
+On 7/20/21 8:38 PM, Thomas Zimmermann wrote:
+> Am 20.07.21 um 15:59 schrieb Daniel Vetter:
+>> On Tue, Jul 20, 2021 at 03:42:45PM +0200, Javier Martinez Canillas wrote:
+>>> On 7/20/21 3:01 PM, Daniel Vetter wrote:
+>>>> On Mon, Jul 19, 2021 at 09:10:52AM +0200, Ard Biesheuvel wrote:
+>>>>> On Mon, 19 Jul 2021 at 04:59, Dave Airlie <airlied@gmail.com> wrote:
 
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at include/linux/msi.h:219 __pci_enable_msix_range+0x4b6/0x50e
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.10.34 #76
-epc: ffffffe0004fa1e0 ra : ffffffe0004fa02e sp : ffffffe07fea7920
- gp : ffffffe0010e25c0 tp : ffffffe07fea8000 t0 : ffffffe0808c3180
- t1 : ffffffd000239000 t2 : 0000000000000400 s0 : ffffffe07fea79e0
- s1 : ffffffe080803000 a0 : 0000000000000000 a1 : ffffffe080803210
- a2 : ffffffe0808c30c0 a3 : 0000000000000101 a4 : ffffffe0808c30c0
- a5 : 0000000000000010 a6 : ffffffe0004dcf98 a7 : ffffffe07fe0f010
- s2 : 0000000000000002 s3 : 0000000000000014 s4 : 0000000000000000
- s5 : ffffffe080803210 s6 : 0000000000000000 s7 : ffffffe0808c3120
- s8 : ffffffe0808c30c0 s9 : 0000000000000000 s10: 0000000000000002
- s11: ffffffe0808030b0 t3 : 0000000000001000 t4 : 0000000000001000
- t5 : ffffffd040239000 t6 : ffffffe07ff8b2c0
-status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+[snip]
 
-A simple reproduce way is to use defconfig to configure the 64-bit riscv
-v5.10 ~ v5.12 kernel but disable CONFIG_PCIE_XILINX, and then booting this
-kernel on the QEMU virt platform with virtio-mouse-pci.
+>>>>>> Can we just merge via drm-misc and make sure the acks are present and
+>>>>>> I'll deal with the fallout if any.
+>>>>>>
+>>>>>
+>>>>> Fine with me. Could you stick it on a separate branch so I can double
+>>>>> check whether there are any issues wrt the EFI tree?
+>>>>
+>>>> It'll pop up in linux-next for integration testing or you can pick up the
+>>>> patch here for test-merge if you want.
+>>>>
 
-ARM's implementation may be a good sample for this case. Its Kconfig file
-does not select CONFIG_PCI_MSI. Instead, It makes the selection of
-CONFIG_PCI_MSI depends on the capability of the interrupt controller. This
-way seems to be more straightforward. Therefore, this patch follows the
-same way to remove the dependency between CONFIG_PCI and CONFIG_PCI_MSI
-from Kconfig, which allows users to enable or disable CONFIG_PCI_MSI
-according to the capabilities of the platform.
+This is what Daniel said...
 
-Fixes: eb01d42a7778 ("PCI: consolidate PCI config entry in drivers/pci")
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+>>>
+>>> Thanks a lot Dave and Daniel!
+>>
+>> Oh I haven't merged them, I'm assuming Thomas will do that. Just figured
+> 
+> Can I simply put the patches in to drm-misc-next? There was some talk 
+> about a topic branch?
+>
 
----
- arch/riscv/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+... which AFAIU means that there's no need for a topic branch, since the
+patches will be present in linux-next. And the EFI folks can use that to
+check if there are any integration issues or regressions caused by these.
+ 
+> Best regards
+> Thomas
+> 
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 469a70bd8da6..563d550cb682 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -97,7 +97,6 @@ config RISCV
- 	select OF_EARLY_FLATTREE
- 	select OF_IRQ
- 	select PCI_DOMAINS_GENERIC if PCI
--	select PCI_MSI if PCI
- 	select RISCV_INTC
- 	select RISCV_TIMER if RISCV_SBI
- 	select SPARSE_IRQ
+Best regards,
 -- 
-2.7.4
+Javier Martinez Canillas
+Linux Engineering
+Red Hat
 
 
 _______________________________________________
