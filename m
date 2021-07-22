@@ -2,19 +2,19 @@ Return-Path: <SRS0=ruHO=MO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60383C63793
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 06:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BDCDC6377D
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 06:12:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 29F9C60551
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 06:09:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29F9C60551
+	by mail.kernel.org (Postfix) with ESMTPS id 559DE60551
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 06:12:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 559DE60551
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,72 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=WRrTagDf2mdaiETHUoRSuQ68DR5ro7peqytBOU9b3tA=; b=oNP/I0fjrCqUhmOJGK0mYHx+LZ
-	5FkZt/tW4EWS54nOOFYSPD+yyalrksTtteOqTMQLCHGAzuH4oofQFyWfH818Q0Y6ApOmYU8jm6Uso
-	K3rzDQljeHbPUYyj1TV/anZswO1evB9M38RuDzaWCy6d5iptLI6mASFiFXnSLuPXdNTzCDzXLhsq8
-	B7ORoFtZP1w3n1rlKAEfaGA5J76xMCsPxm+bEsf7ekmNP63t1zcwsHr0eEVjU1159ya3/dLBTxEF7
-	EuW+jw/adpjNENAL4p0v5bBTiZHG3MPPmqM09X/g53vLI7f6vZHkstHFdNmdnqb1GZFEewNdr3k60
-	eqNgWBqw==;
+	bh=qZQxZQKMhICRpXIREWOg4A0vzX7xDw0xXHD7NAii88Q=; b=4QQQknGiibJ85KukKqecDgiDol
+	kTOj+2yChLUlnoEopTHdDVAzAtTN+AlvP8HBpE0Nh8FkZla3QuSsTjzKjmDpFpCrjCm+FHXLyP7MV
+	IpTy2u1gjVgFw4F7GXmmng8KoF9tSe0IqEpKRhJkp93pImpC3Jl/tOSj6TeFCM/0sxFNiGvKJfMXx
+	QfmVmHi9lZJv4N/NvH2Dy0Ul2Z8Oms8td9amN1DBfQr3+YOgLc6U8RHOzVBFgmerUjb09VVsUoMa5
+	+IIbRbGLfIqqg8/eulIGJVA4qcAWU57ighO1P8XWmt2iDCWich5uPNqs5T1vepDV9UwgEKdpWom9V
+	DdOCDh/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m6RtS-000Jnz-9B; Thu, 22 Jul 2021 06:09:14 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1m6RwW-000KMT-Vx; Thu, 22 Jul 2021 06:12:25 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m6RtO-000JlX-JS
- for linux-riscv@lists.infradead.org; Thu, 22 Jul 2021 06:09:12 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id
- i16-20020a17090acf90b02901736d9d2218so4046649pju.1
- for <linux-riscv@lists.infradead.org>; Wed, 21 Jul 2021 23:09:06 -0700 (PDT)
+ id 1m6RwT-000KLP-Sa
+ for linux-riscv@lists.infradead.org; Thu, 22 Jul 2021 06:12:23 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id
+ pf12-20020a17090b1d8cb0290175c085e7a5so2814783pjb.0
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Jul 2021 23:12:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=JGZNlAbWwH8KnKtTTLQVUHCmfrYBjCcYZGAw8CpDvDY=;
- b=1evNGewArFpgG6ErFTJdQbJ3CgYm4mc2jK3DWn0rs7MMNuV61pPUXSYiijX0XfcXeO
- Te0ApunX5CtjlgRjmzUUZGDGaa4UJZMB1cvrno8V0pXCa8BLwkYiperEM0pDWx1mB3wL
- g/ar3PmfYDbuLzviAwHxbolEbwotsdsu5Ck2R0iwGhT9dtrBeuUTJApheQ+xzmWWEmBp
- aXoLLEaGEo/MX7tPz0MoAyV7di0Ph2EpTcXoc6wIdU7LgghMLNRF3B8XjfMY6TLl9seC
- RxjPXBSy9om7Rfa5/jqspLJPCCTxxg/H7Bv8NcsRV2hmGhl54PQ6OmpYbYzP9YgWVSah
- aA+w==
+ bh=xYn9TThM+ZWcAUslBNCtRAoUyc+f1YV38quHS3ur+h0=;
+ b=e4hyMVxoP7Mk4CxoR/e0msaMox1XC/iLjHKH2aLwkAtuyB1KBkjsGBYaqOVf9H9h6G
+ iTfvQYeUsmepI1tAirhqX5+R9fzaoNiPLPO9h+z2OgtZh81Ses9TL5ud6GKwyK0NJt2r
+ BgOIfa1GMG5k4ARHSbXQw1MeKMh/tDrDMhhp7flLg71hQUFKPt1CMtbnUJrlcK5gb1uV
+ 7QDLLUFkPyUgOiZ4SvtlIkiuzgVxR5buXCLbwgfsFIDoAnkBcA8MjlEfXJLIGZJnmk6k
+ eaweuGg0DLmJnNUHPpUZYCW9NtlO/tOsfoZmbRmUPf1x101sm/tK+LLgDKUWpxd2G+JJ
+ y28Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=JGZNlAbWwH8KnKtTTLQVUHCmfrYBjCcYZGAw8CpDvDY=;
- b=X9Ufyj8Nnnmoxyr0iiW9cUEHGkG0cHCi7YzGJYYhrETssBxgazdJ9zH4/IS9mtIpVi
- 2TizM8osYfLm0lTzQ0Ffkqhr6CSaPKbTXceuNl6gVQKHp3TNxJLeCZKhNX/pD+7qB3e2
- zjngufH27izTEWKwKJb+9UJMNZv2mPVBOZEPEImQ3hd7kKMvkVon6jgJTw3Lm0M69E+s
- /vBFnvgwsg5VJ+a2VHnbsvKoupIt3s+aPMca62IDXP0ZS74ivtRa/1b+78eBCvkd5j5Q
- SmHRfKYQTBQT4b7pBbwK/XBb1VeFm3Gx1EaT9S62tK2FiE3i1OpMWCW+Zr+A10VlsQlc
- gmvQ==
-X-Gm-Message-State: AOAM5336QCPzOb4v5T1oXWK1WUv/yY1ZtQpn4R2waaK8i2PL1uq4ye62
- bMzFwCtvJp/Lb8ESYiXpMaBvaw==
-X-Google-Smtp-Source: ABdhPJwbH8JkdIu9/4V/l6vl783ox75sPe2K7cYNoJWAhro5WSE2yrNRSmzunbrlu3M2pVUVp8RyMw==
-X-Received: by 2002:a17:90a:bc84:: with SMTP id
- x4mr7324526pjr.236.1626934145393; 
- Wed, 21 Jul 2021 23:09:05 -0700 (PDT)
+ bh=xYn9TThM+ZWcAUslBNCtRAoUyc+f1YV38quHS3ur+h0=;
+ b=e0L5qpW0/uO0TlvaQiSD4FFqnaBS72kIwYyid4oA9jVjT5yrySmFqshONBLQOU+Dxf
+ obduHT7s0ZfQtrFUFrPL+IPcNHwUZoMnRbeEH7lkcqP/X1AvgUCt7uSFqYx17NFhVaXs
+ WIF/oGOqYY4JlpT7M3eByVUIgi3ZprjpSTEPJhCm3wau0pHkLZa0j1uwQorUsTCXq+S2
+ +WKHoUiKcdL8hJFptOQcksgCPXnVbE7Xj42wulNrl1pCuRTwLC+6qE5q0wPneZPyJgSg
+ rugn6u6OdWfQAl0yFcipXV6CmYoafeKFqMSFRVvwKmsw+0yr/2gNuXGmCPirpRD3rZZj
+ igdQ==
+X-Gm-Message-State: AOAM530mE3G0RkvKQ6hL1KINlk53evE+8tCrOFPg7zxy7tqt8HxuR4eb
+ 1n9/T+pvoYsYh/p6eYT/9oEcAA==
+X-Google-Smtp-Source: ABdhPJwl5nH8LRTLVmuwt3jjEf6u6wAk+fk7F9e5/kwdFuIWmjEVCSm55fbiwlWUNcV9cfrrwSJ1wQ==
+X-Received: by 2002:a63:34a:: with SMTP id 71mr4572323pgd.289.1626934340483;
+ Wed, 21 Jul 2021 23:12:20 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v69sm29927398pfc.118.2021.07.21.23.09.04
+ by smtp.gmail.com with ESMTPSA id j3sm29949764pfe.98.2021.07.21.23.12.19
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 21 Jul 2021 23:09:04 -0700 (PDT)
-Date: Wed, 21 Jul 2021 23:09:04 -0700 (PDT)
-X-Google-Original-Date: Wed, 21 Jul 2021 22:58:55 PDT (-0700)
-Subject: Re: [PATCH 1/1] RISC-V: load initrd wherever it fits into memory
-In-Reply-To: <20210629134018.62859-1-xypron.glpk@gmx.de>
-CC: ardb@kernel.org, schwab@linux-m68k.org,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- aou@eecs.berkeley.edu, Atish Patra <Atish.Patra@wdc.com>,
- linux-efi@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- xypron.glpk@gmx.de
+ Wed, 21 Jul 2021 23:12:20 -0700 (PDT)
+Date: Wed, 21 Jul 2021 23:12:20 -0700 (PDT)
+X-Google-Original-Date: Wed, 21 Jul 2021 23:12:18 PDT (-0700)
+Subject: Re: [PATCH -next v2] riscv: add VMAP_STACK overflow detection
+In-Reply-To: <87bl6yrcmd.fsf@igel.home>
+CC: tongtiangen@huawei.com, jszhang3@mail.ustc.edu.cn,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: xypron.glpk@gmx.de
-Message-ID: <mhng-34467fe7-5a31-4c88-a5ad-6dea683fcfeb@palmerdabbelt-glaptop>
+To: schwab@linux-m68k.org
+Message-ID: <mhng-e14c3232-cc4d-4146-8c93-c60ec81ed272@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210721_230910_684217_6C2EE61E 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20210721_231221_987361_06F057D6 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +101,33 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Jun 2021 06:40:18 PDT (-0700), xypron.glpk@gmx.de wrote:
-> Requiring that initrd is loaded below RAM start + 256 MiB led to failure
-> to boot SUSE Linux with GRUB on QEMU, cf.
-> https://lists.gnu.org/archive/html/grub-devel/2021-06/msg00037.html
+On Mon, 19 Jul 2021 00:23:06 PDT (-0700), schwab@linux-m68k.org wrote:
+> On Jul 19 2021, tongtiangen wrote:
 >
-> Remove the constraint.
+>> On 2021/7/17 14:55, Andreas Schwab wrote:
+>>> Please use
+>>> https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/jeos/images/openSUSE-Tumbleweed-RISC-V-JeOS-efi.riscv64.raw.xz
+>>> and run it in qemu with u-boot as kernel.
+>>>
+>>> Andreas.
+>>>
+>>
+>> Hi andreas:
+>> I used today's latest mainline code and .config provided by you, and I
+>> can't reproduce this panic.
 >
-> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
-> Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
-> ---
->  arch/riscv/include/asm/efi.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Did you test it like I said above?
 >
-> diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
-> index 7542282f1141..649ab513dc99 100644
-> --- a/arch/riscv/include/asm/efi.h
-> +++ b/arch/riscv/include/asm/efi.h
-> @@ -33,10 +33,10 @@ static inline unsigned long efi_get_max_fdt_addr(unsigned long image_addr)
->
->  #define ARCH_EFI_IRQ_FLAGS_MASK (SR_IE | SR_SPIE)
->
-> -/* Load initrd at enough distance from DRAM start */
-> +/* Load initrd anywhere in system RAM */
->  static inline unsigned long efi_get_max_initrd_addr(unsigned long image_addr)
->  {
-> -	return image_addr + SZ_256M;
-> +	return ULONG_MAX;
->  }
->
->  #define alloc_screen_info(x...)		(&screen_info)
+> Andreas.
 
-Thanks, this is on fixes.
+I'm getting this on and off, with just 
+
+CONFIG_VMAP_STACK=y
+
+on top of defconfig, when running on QEMU.  It's not showing up right 
+now: I'd thought it was an issue with that initrd patch, but it went 
+away when I re-ran the tests so I'm guessing it's something 
+non-deterministic.  I'll try to take a look if it comes back.
 
 _______________________________________________
 linux-riscv mailing list
