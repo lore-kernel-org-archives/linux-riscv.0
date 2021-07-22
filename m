@@ -2,90 +2,84 @@ Return-Path: <SRS0=ruHO=MO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C010C6377A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 02:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5BDD1C6377B
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 02:22:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DBBF361285
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 02:17:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DBBF361285
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1530F610CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jul 2021 02:22:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1530F610CC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=V8d8tqiUF1HFVUmgvozCdGp9XDYiwd90mMaBopyrnVQ=; b=PxgFsGgQptge16
-	uP/tK8ZCna2GGcpHmG+yUDVk91IchJPkFbgCj8GNXzJhC/fHT3S4v6nWUTebJhwC297zIUv06V42s
-	Cg6/zRk2NjQuckeZ1iowobtSJN770TMHYOAiEGIToPpwhgdzY1v+V/Dg7/FlQfAgUQ0RC7R5DJrKM
-	P4gg8/ULPZl5pBXqStM8oGkhDvPb3UHrOG/MocSpdQ2PFSG8SBaXvWgUqK77FKXf7Hoh25nHUQfKp
-	n/TlE3pnDsC67ZKc83cZgaYVXk78/vwt4z/RTWEa/d8hnX05beii6L3jYXaCGgyzezxAln76/+v23
-	YujkbHw4iH5ySCkNT2DQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Pzj2zD3k0TmW/sWN/qItUBCFCEM+5XvctMA2VD41ayk=; b=x8ejLqf2azf/ty
+	R78NdExn0UqB63JVFk1MTdQXwf2xrHGUjzUmV+5k4IoxonNWGUbHJKDLiYa6mh76aJx9U3BnpkYyd
+	o5jY77DW9I03wLr8s085bHDGKgClfflnKTrQ5O/GwNGX9XQ2vxxIK3BoDUs7ZGVDCzn0LdCpcFyDM
+	Io1tnD/ombjlLMBGaXpzy4hlQR4fx81Fs6hnLPUic5vRpLrFfmdt04Z92erI+dRGHP192w1nme1Jz
+	WvPIwajQxxSn/hLkr2a1BWp+HnqX1A9iCg2EkUbyo1Ho99hwzFGwTPNoLHczLAYvfX12zI2zpExv6
+	qwUQa3SOFI3f4dkwd1bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m6OHB-00Hb3F-IX; Thu, 22 Jul 2021 02:17:29 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1m6OLU-0000SH-JL; Thu, 22 Jul 2021 02:21:56 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m6OH8-00Hb1J-Fp
- for linux-riscv@lists.infradead.org; Thu, 22 Jul 2021 02:17:27 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id
- a17-20020a17090abe11b0290173ce472b8aso2107540pjs.2
- for <linux-riscv@lists.infradead.org>; Wed, 21 Jul 2021 19:17:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=07mq1tbTyL2EUpcAXYfDuJ/atzwMHIawr2ISlNOgil0=;
- b=fll3GwPr5G609VlObfTF3PBHdPewGkU5Y7oNH+VWKn/lzjN7EbWyM3Uf3+iyN2r4gj
- hgHYCiBbMCoZZOoPs2FhLDGRR1sJH7epGaZDjalcFdw8uqCd3g+/fe7sgf1+HB/1UYVB
- eHF6m8xxUGRHfhZW5GmOClGyh2JMJCnEbWSVP5qTnYQtQovVSTCUltkfNWHmkc7KHz6N
- rH+/xfr/inpgCniZt5DeTeNCKFrkWB9gJ1+G9A49LL/e4/OqqI38/ZMIXosYJGY2G4TL
- xiRDr87bZqYXe9b33xjiZcxRBgTspxxcsFZI2CJsPIs30D0FLfNW8I9mJ1u2pPjsZF+c
- L/xQ==
+ id 1m6OLS-0000Ru-1m
+ for linux-riscv@lists.infradead.org; Thu, 22 Jul 2021 02:21:55 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id
+ k4-20020a17090a5144b02901731c776526so2088343pjm.4
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Jul 2021 19:21:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=iNrbAh6Po9wFj76o5e4R4TYVxotYJ3/5ovASWumV3Ec=;
+ b=ZztpOSl92e4uWypwMcwyn/rQTEIz4B/3JIraJg/ycSOfiVdYmdrh2frPtqrbrKNlvv
+ eL+Tq+XGPvix3jxLvZRaXwa4uDvWYoWZwE5+ISEGEBVBq0BCDN9vmcu2P+hkyk4YFy0W
+ BtvqLNSfjKdDk8jnyCPP2EXKIWuboNVIsVEJKvsf9tctxiy2Uzx0fy9matcBA8hd89Xi
+ ipDKn+Qp3KZv9y9mV4BmmHEkINdkoUJ2mIth43sX6sgsg56LTa93+6cgeo1Lcomq7xM2
+ kOn9p+1It6whL4xy8cnGKMRmfxvMZ6GpcGDJKtFKphlMuCDTDilpBj2FGPXMtmndg7vZ
+ nsnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=07mq1tbTyL2EUpcAXYfDuJ/atzwMHIawr2ISlNOgil0=;
- b=uhfRSP90lISo0itV9uB2KjUbTBQamXTMqz7QPceZPXCXRJMa9NZnshZzJJirSVdr0k
- LDGC6C/G9q/JDcLLVZSap9yXGV5sLRqNUy1ihXyrZF5pexYSNTa3Jq0SNc6Q8dmI9zSM
- Zn+lfn3rPLa6DJHgsSAO/kM66At4rcFrfa9Lcg8tUqgNkESAbDPsXwQk0zdmqauUV9wo
- O0bKVXVMKIXgT/q7xCqtcvLLAMwwyGI1axpIUDlQJVJkXUAasaWZIXblS+Tw0RoSQx9D
- zbD49C4b73emFdqPDMXv68tPBb1x5ZKOfEaTzfkbTHmU93sEUeA7sBANWYesQSUWSSwe
- ypAw==
-X-Gm-Message-State: AOAM532pASjD3vp2hqSwC8Hh2kz3oUbbBZwMWoDBzyEIaeu/PBO5P4Rs
- Gu3hFAcFDzIiE2wBhjHibHM=
-X-Google-Smtp-Source: ABdhPJya/laHEhbhnkuWT6LkpVzEG5xHxaJhq+pxOP5h+XehJ/ZBHvG0mQRxtrDKApw5VAPIbLrQVg==
-X-Received: by 2002:a62:be18:0:b029:318:df2e:c17c with SMTP id
- l24-20020a62be180000b0290318df2ec17cmr40104107pff.30.1626920241309; 
- Wed, 21 Jul 2021 19:17:21 -0700 (PDT)
-Received: from vultr.guest ([141.164.41.4])
- by smtp.gmail.com with ESMTPSA id b3sm1245448pju.47.2021.07.21.19.17.19
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 21 Jul 2021 19:17:20 -0700 (PDT)
-From: Changbin Du <changbin.du@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Changbin Du <changbin.du@gmail.com>
-Subject: [PATCH] riscv: kexec: do not add '-mno-relax' flag if compiler
- doesn't support it
-Date: Thu, 22 Jul 2021 10:17:15 +0800
-Message-Id: <20210722021715.127066-1-changbin.du@gmail.com>
-X-Mailer: git-send-email 2.25.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=iNrbAh6Po9wFj76o5e4R4TYVxotYJ3/5ovASWumV3Ec=;
+ b=SnzVNlQM4FlQnEeHbnDSAuihTaJVrrlHQ9OVC8Iqpx5uRY8eO10rCj7AzznnlrUd/w
+ vcO/LLqT4ilt2/dIXksLxQPv+mGtUJHGLBFSK7xSf6wl2yhFn+bUFfNqQe8o55Q8Y/l3
+ V8PgDLNAXLCPo0HWuaXgdKSbwSzOfk4e+BMsxead8BW8t1GCGntHfH0mlqMTNtG+KcpB
+ By3Pkgwo/hoCEWUsO8gJMckojl3Eke1PQ/JDDvORl5Fe0yKLND6WT0gnOv9uGbSbOpFe
+ UvkanYgC4i9ZX+KHpqZxDkRbKzN8KCkgcWgUU0YRIWAiRdnzJpwX52iRU78Tlr+wAVaV
+ 5xFg==
+X-Gm-Message-State: AOAM531ztv4Amc/DOy7xWy1nLtlkjOHd3/itKAnCbJy8lW2jyzBNkro+
+ JNJKByd5OQ2txAclzMrAy0ltICu0/msM6ZJMF0m47w==
+X-Google-Smtp-Source: ABdhPJzG1Mo8lgrg/fhUU3wPdFa+LXzHmK56BXinruSNpK54fSQvZmVUBlmPxGtP4MdHs6MRmIZZYw7P95AgchRzr9k=
+X-Received: by 2002:a17:90a:4501:: with SMTP id
+ u1mr38445580pjg.37.1626920510472; 
+ Wed, 21 Jul 2021 19:21:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <1626838752-7013-1-git-send-email-vincent.chen@sifive.com>
+ <YPe3XuYfxBkbDzHf@infradead.org>
+In-Reply-To: <YPe3XuYfxBkbDzHf@infradead.org>
+From: Vincent Chen <vincent.chen@sifive.com>
+Date: Thu, 22 Jul 2021 10:21:39 +0800
+Message-ID: <CABvJ_xiGZ29LQ+YFnraJbTSBihKi7t7VSDF0+AXcFQzA34VvtA@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: Kconfig: do not select PCI_MSI if CONIFG_PCI is
+ enabled
+To: Christoph Hellwig <hch@infradead.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210721_191726_601456_073848A9 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210721_192154_197052_A8E93D50 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +96,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V special option '-mno-relax' which to disable linker relaxations
-is supported by GCC8+. For GCC7 and lower versions do not support this
-option.
+On Wed, Jul 21, 2021 at 1:57 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Wed, Jul 21, 2021 at 11:39:12AM +0800, Vincent Chen wrote:
+> > The CONFIG_PCI_MSI is used to allow device drivers to enable MSI. The MSI
+> > enables a device to generate an interrupt using an inbound Memory Write
+> > on its PCI bus instead of asserting a device IRQ pin. The whole mechanism
+> > needs support from the PCI controller or generic interrupt controller and
+> > the corresponding software driver.
+> >
+> > The RISC-V Kconfig file actively selects the PCI_MSI  if users enable
+> > CONFIG_PCI. However, the RISC-V specification does not require every RISC-V
+> > platform shall have MSI support. In other words, Kconfig enables CONFIG_PCI
+> > to allow PCI devices to use MSI, but due to lack of MSI support, the kernel
+> > may not have any function to deal with the MSI from PCI devices. When this
+> > case happens, it leads to the following warning message displayed in
+> > booting a v5.10~v5.12 kernel.
+>
+> So make sure the runtime detection works fine.  An x86 kernel with
+> CONFIG_PCI_MSI also works on non-MSI systems.
+>
+> NAK to this patch.
 
-Fixes: fba8a8674f ("RISC-V: Add kexec support")
-Signed-off-by: Changbin Du <changbin.du@gmail.com>
----
- arch/riscv/kernel/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for your information. I think this will be a good reference to
+solve this warning message for the v5.10~v5.12 riscv kernel. However,
+the current RISC-V does not specify that each platform must have a
+controller to support PCI_MSI. Even there is no a ratified
+specification to provide an interrupt controller to support MSI. In
+this circumstance, removing the CONFIG_PCI_MSI selection from the
+Kconfig file seems to more close to the RISC-V platform setting. I
+guess that is why most architectures, such as ARM and x86, do not add
+"select PCI_MSI if PCI" to their Kconfig file. Therefore, I prefer to
+remove the "select PCI_MSI if PCI" from the Kconfig file. Please
+correct me if I have misunderstands.
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index d3081e4d9600..3397ddac1a30 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -11,7 +11,7 @@ endif
- CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
- 
- ifdef CONFIG_KEXEC
--AFLAGS_kexec_relocate.o := -mcmodel=medany -mno-relax
-+AFLAGS_kexec_relocate.o := -mcmodel=medany $(call cc-option,-mno-relax)
- endif
- 
- extra-y += head.o
--- 
-2.26.2
-
-
+Thank you.
 
 _______________________________________________
 linux-riscv mailing list
