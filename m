@@ -2,20 +2,20 @@ Return-Path: <SRS0=o9Ga=MP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E7D0EC4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 03:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 36180C4338F
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 04:36:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C9CF60E74
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 03:22:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9C9CF60E74
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id BCC0960E95
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 04:36:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BCC0960E95
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,70 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MlmoR5WZk3De8BaN9EImz6bekc/7Co5IoE7YS4AGJdE=; b=Eh9yIj1zEQee9T
-	Kw/1iy+Ll8FIHwE7VAQ+ESHFmDhKQfSfRa8S2HS6zobKE7Td1VvUXYU//Mg6igbk0k407f/cUflxZ
-	npzvOyqAhC8fq4FbekOcoK51cvDSfCVbc6SNsoJsFrR8lyk/BU+pbCkxWV/jl9717q2cVeEuyBt7g
-	n+F+wZHzgLLp7zX9r1ymGehFCpwfuIplC0Smlcz4O3fGZOeWqbee6wMgjgTQj/8Gj7pcIsW+JPVm7
-	jPFdPLPNdxwSnvMW3AMLrPxhdkFsSLALgroy3KfnLXRPhinSz77lwRDo75h5s5WjTSu70OlBUKrUj
-	Y7F0wN9tXy123tQOK1iw==;
+	List-Owner; bh=ZeF5rNywFHDco+7Uwdb7mPSuN+AGcPJZmYVhHjK6r/w=; b=XxvFsCK2+NS0oF
+	omhQFCMRjdNFCc3Q3X6OX+D5jpgaA3z+DM+jfC/4+fYh4eMLPJW3ffV5XXQdibyFzSQhIsLf/azJ2
+	/KOg5LpLS8GHPTUd3JFNFjI9/Mz8Bprx65chXViLcvtpgtBxuYwdzKP29UTFxQ1n0knUSZWQdcP83
+	tXDj3bGHZrV3w3ivQwrJPym0L59iuYvl8VwWRErVA1CuZWkpwEG5m0jJhVU5F+YUVbPrwQ/Cr2bQM
+	rZPD0F0p9iPEm3iycUyvYot4k5BmDHDoOhWOgmbjlxp+x0f7LU/LUFi/l7wizXdP85JjPUzGalQga
+	7wkLTLK+oWGWglPS/z4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m6ll7-003BUG-0n; Fri, 23 Jul 2021 03:21:57 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m6ll3-003BTH-IZ
- for linux-riscv@lists.infradead.org; Fri, 23 Jul 2021 03:21:55 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id l19so439195pjz.0
- for <linux-riscv@lists.infradead.org>; Thu, 22 Jul 2021 20:21:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=AtH2aq8wvwftoCTnGV+K1KK/vzNnp0bnp646fBmoSDE=;
- b=cyHMsNIbm98U1YvH7gNplxcXYh8gcA1cCZMOJQ0JgXJaeg57IuoorBWZDbG/YUVY28
- TwXxTWCfjRAdjE6PZeYy2YI77QFEZizpuhMoAj1zx14uBIuHfTy8/hPR72MWf+ticmDw
- cFrcpmeeId49lZxyepNFmSh8krNnCwhCFDohr0nC0ay8mFJv5yxq6h8Dsf5yXAIYjpdh
- G3O0glsufosyTjI4fl0PEcyyjZO81lh32Ne6UrZR3fCm0GfcqoCbsMSpzB5eJ6dq0OSk
- Bc9CEQbwqEeODu6Xxy8oSyjEHRJiG05yyDt7MLk1++REYjIHY3cjVKHHvTa9p3iJ//Gy
- 1Gkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=AtH2aq8wvwftoCTnGV+K1KK/vzNnp0bnp646fBmoSDE=;
- b=HyqAg1axBQxenMtMd2VLwFhRnTV519tHBDVgJ/c9lJIVkRTrNbm+bBw5oQ4xb3Cyyn
- N1p8JrjBXPe62Gez7a0N/nrtNz12bjZi5ouCaCsTleM6dqiRcz/CzLqaFQyrE88nA0gD
- o+UbxptLMQ8slUt87ik/wnTQF29VWyhcGsocCFhnW1mDbMPacIDjTUC2Acn7zzHGJ0FY
- k3BmndtIkp2O4nGiq5UFM0BHwhToqD3/9BHHjm71mxqaRc9uW1nmGoLNdwNsK4iN79as
- XDu+cZk18XGK1P7OBxiFDp9ZR4q8amcaBQWTLPe4xRjvZgKFBmwLCu0rjl1HxezUefRP
- S24g==
-X-Gm-Message-State: AOAM533iddgJ7Jnt48LhPl9JJTKwxEFke73fTT22AlLETyLWlN1c7ltU
- aJ05gwiWtF+OwJVMlf+hc6I=
-X-Google-Smtp-Source: ABdhPJxycto0F4wvzEcYcFCyA4VIa9bbl0iMZafxaiZjoXT6mKGfiy8o1CG9QP5e+fdz6pV0Sr2yiQ==
-X-Received: by 2002:a62:e50c:0:b029:2f9:b9b1:d44f with SMTP id
- n12-20020a62e50c0000b02902f9b9b1d44fmr2773132pff.42.1627010511409; 
- Thu, 22 Jul 2021 20:21:51 -0700 (PDT)
-Received: from localhost.lan (p1284205-ipngn14601marunouchi.tokyo.ocn.ne.jp.
- [153.205.193.205])
- by smtp.gmail.com with ESMTPSA id b17sm28526637pfm.54.2021.07.22.20.21.50
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 22 Jul 2021 20:21:50 -0700 (PDT)
-Received: from localhost (localhost [IPv6:::1])
- by localhost.lan (Postfix) with ESMTPSA id B0D199011CB;
- Fri, 23 Jul 2021 03:21:48 +0000 (GMT)
-Date: Fri, 23 Jul 2021 03:21:48 +0000
-From: Vincent Pelletier <plr.vincent@gmail.com>
-To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <Atish.Patra@wdc.com>
-Cc: David Abdurachmanov <david.abdurachmanov@sifive.com>
-Subject: Re: PLIC and interrupts received while no hart enabled
-Message-ID: <20210723032148.70ad0b32@gmail.com>
-In-Reply-To: <20210704064058.79237058@vincent>
-References: <20210704064058.79237058@vincent>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1m6muu-003OfR-US; Fri, 23 Jul 2021 04:36:08 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1m6mur-003OeV-Ho
+ for linux-riscv@lists.infradead.org; Fri, 23 Jul 2021 04:36:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=QbTlxn9eNvcRhBOBCVeh2QYtVCInFts4u5
+ beNPEGQnc=; b=sSQhnsyJNfC/M5v9gQ3iNxU8w4XFxBPNG/B6MIhFsCy8GeEqg/
+ axSK/20lfKoUy+sZSpXqQtXSQBTB7PLSqa0yOwG7/ui0ibtbN37/z8BHHQjyTw4w
+ zKfzOxpG48gsxjcNgQ+ivdua9TYvTikU9d2tGdbjgkEZ+l6mgkBbyNH3U=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygB3fm4KR_pg5NUxAA--.1434S2; 
+ Fri, 23 Jul 2021 12:35:23 +0800 (CST)
+Date: Fri, 23 Jul 2021 12:29:25 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: tongtiangen <tongtiangen@huawei.com>
+Cc: Andreas Schwab <schwab@linux-m68k.org>, Atish Patra
+ <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv
+ <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH -next v2] riscv: add VMAP_STACK overflow detection
+Message-ID: <20210723122925.67a14562@xhacker>
+In-Reply-To: <52e3626a-2b40-bda6-de0e-68ea12a86dd9@huawei.com>
+References: <87bl6yrcmd.fsf@igel.home>
+ <mhng-e14c3232-cc4d-4146-8c93-c60ec81ed272@palmerdabbelt-glaptop>
+ <CAOnJCU+Ss0cO1mqr=GDVnpxV075uR+KipSnr7dN93099dAH+vQ@mail.gmail.com>
+ <20210722213724.1f12a0e7@xhacker> <87zguexslf.fsf@igel.home>
+ <20210723075432.098634a2@xhacker>
+ <52e3626a-2b40-bda6-de0e-68ea12a86dd9@huawei.com>
 MIME-Version: 1.0
+X-CM-TRANSID: LkAmygB3fm4KR_pg5NUxAA--.1434S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw45Jr1UCry5XF18tr1kKrg_yoW8Wr18pF
+ WUGay3tF4qva4xK3Z2qw18Wa409an7Ja45u3s5Xr13ZFZYg3Z5Xr4IgrWUKFW7Ww1IkayY
+ vr4FqFZ7Wrs8Ja7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyIb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+ C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+ 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+ 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
+ 6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+ I_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+ 6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
+ 0_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j
+ 6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7GYLDUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210722_202153_695603_82C8CDBC 
-X-CRM114-Status: GOOD (  43.56  )
+X-CRM114-CacheID: sfid-20210722_213606_286434_50C77E86 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,178 +96,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 4 Jul 2021 06:41:14 +0000, Vincent Pelletier <plr.vincent@gmail.com> wrote:
-> Hello,
-> 
-> I've recently purchased a sifive unmatched board, and have tried to
-> complete its devicetree using the schematics.
-> 
-> Doing so, I enabled some sub-functions of its PMIC chip (DA9063). Those
-> which matter for this email are:
-> - power button, notified by interrupt
-> - hwmon, based on an ADC which signals conversion completion with an
->   interrupt
-> 
-> The PMIC has an interrupt line, active low, connected to line 1 of the
-> GPIO controller embedded in the board's SoC (fu740).
-> Internally to the SoC, the GPIO has one interrupt line per GPIO line,
-> connected to the PLIC.
-> 
-> The issue I originally had was, which I noticed with the ADC but could
-> equally reproduce with the power button, I could only ever get a single
-> IRQ to be processed.
-> 
-> Reading the corresponding registers (with the script attached),
-> enabling IRQ and regmap tracing, I saw the output at the end of this email.
-> 
-> Here is how I read the register states:
-> - initial state:
->   The PMIC interrupt line is in its idle state (high).
->   The GPIO controller noticed the high state, and armed the
->   corresponding interrupt-pending bit - this an important first piece of
->   information.
->   As the corresponding interrupt-enable is cleared, no interrupt is
->   signalled and the PLIC does not see an interrupt pending. This is all
->   good.
-> - after one button press:
->   The PMIC interrupt line is again in its idle state, so the interrupt
->   source was cleared. I know it triggered as the power button input
->   event does fire as intended.
->   This time, the GPIO controller noticed 3 interrupt conditions on this
->   line: low, rising edge, and high. This means it was cleared *before*
->   the PMIC line went high:
->   - if it was cleared after, only "high" should be visible
->   - if is was never cleared, all low/rise/high/fall interrupt
->     conditions would be present
->   As the "low" interrupt is enabled, I believe (but cannot check) that
->   it notified the PLIC of the interrupt.
->   But like before, the PLIC does not see this interrupt being signalled.
-> 
-> As a result, the hart assigned to this interrupt (here, hart4) does not
-> get interrupted even after it gets re-assigned to the corresponding
-> PLIC line, so the GPIO interrupt pending bits are never cleared, and it
-> cannot signal any further interrupt to the PLIC.
-> Pressing the key a second time, the only difference is that the GPIO
-> controller noticed the falling edge interrupt condition, which is
-> masked so nothing happens.
-> 
-> The kernel/debug/tracing/trace buffer tells a similar story:
-> - the GPIO regmap clear writes happen first
-> - later, the PMIC interrupt source register is cleared (the write to
->   register 6)
-> 
-> Checking gpio-sifive.c and irq-sifive-plic.c, I see:
-> - the GPIO propagates irq_mask and irq_unmask to the PLIC
-> - the PLIC implements irq masking by making the interrupt line handled
->   by no hart
-> 
-> Reading the PLIC documentation, I cannot tell if this behaviour of the
-> PLIC ("losing" an interrupt if there is no hart servicing it) is
-> intended or not.
-> 
-> If it is intended, then what is the proper way of masking an
-> interrupt ?
-> Is it to lower that interrupt priority ? (which I did not try)
-> Is it to mask it outside the PLIC (so on the GPIO controller here) ?
-> 
-> I did try the latter as a quick hack, and it allows repeated
-> interrupts, fixing both the power button and the hwmon subsystems.
-> But I am not sure it is possible to do this while being certain to never
-> lose an interrupt - but I am very new to interrupt handling in Linux.
-> 
-> Traces:
-> 
->   # ./unmatched_gpio_irq_debug.py 1
->   gpio_pin=1 gpio_mask=0b10 plic_irq=24 plic_mask=0b1000000000000000000000000
->   GPIO 1: dir=in  in=1 out=0 irq_en=low irq_pending=high
->   PLIC 24: priority=1 irq_en=hart4 irq_pending=False
->   hart min prio: 1=0, 2=0, 3=0, 4=0
->   # echo 1 > /sys/kernel/debug/tracing/events/regmap/enable; echo 1 > /sys/kernel/debug/tracing/events/irq/enable
-> 
->   button pressed once here
-> 
->   # echo 0 > /sys/kernel/debug/tracing/events/regmap/enable; echo 0 > /sys/kernel/debug/tracing/events/irq/enable
->   # ./unmatched_gpio_irq_debug.py 1
->   gpio_pin=1 gpio_mask=0b10 plic_irq=24 plic_mask=0b1000000000000000000000000
->   GPIO 1: dir=in  in=1 out=0 irq_en=low irq_pending=rise,high,low
->   PLIC 24: priority=1 irq_en=hart4 irq_pending=False
->   hart min prio: 1=0, 2=0, 3=0, 4=0
-> 
-> Trace output with i2c interrupts trimmed for brevity:
->           <idle>-0       [000] d.h2   102.707972: irq_handler_entry: irq=53 name=da9063-irq
->           <idle>-0       [000] d.h2   102.707976: irq_handler_exit: irq=53 ret=handled
->           <idle>-0       [000] d.h4   102.708019: regmap_reg_write: 10060000.gpio reg=1c val=2
->           <idle>-0       [000] d.h4   102.708022: regmap_reg_write: 10060000.gpio reg=24 val=2
->           <idle>-0       [000] d.h4   102.708024: regmap_reg_write: 10060000.gpio reg=2c val=2
->           <idle>-0       [000] d.h4   102.708026: regmap_reg_write: 10060000.gpio reg=34 val=2
->  irq/53-da9063-i-140     [002] ...1   102.708072: regmap_hw_read_start: 0-0058 reg=0 count=1
->  irq/53-da9063-i-140     [002] d.h2   102.708121: irq_handler_entry: irq=5 name=riscv-timer
->  irq/53-da9063-i-140     [002] dnh2   102.708159: irq_handler_exit: irq=5 ret=handled
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.709089: regmap_hw_read_done: 0-0058 reg=0 count=1
->  irq/53-da9063-i-140     [002] ...1   102.709095: regmap_reg_read: 0-0058 reg=0 val=0
->  irq/53-da9063-i-140     [002] ...1   102.709099: regmap_hw_read_start: 0-0058 reg=6 count=4
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.709879: regmap_hw_read_done: 0-0058 reg=6 count=4
->  irq/53-da9063-i-140     [002] ...1   102.709893: regmap_hw_read_start: 0-0058 reg=0 count=1
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.710371: regmap_hw_read_done: 0-0058 reg=0 count=1
->  irq/53-da9063-i-140     [002] ...1   102.710374: regmap_reg_read: 0-0058 reg=0 val=0
->  irq/53-da9063-i-140     [002] ...1   102.710378: regmap_hw_write_start: 0-0058 reg=6 count=1
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.710763: regmap_hw_write_done: 0-0058 reg=6 count=1
->  irq/53-da9063-i-140     [002] ...1   102.710767: regmap_reg_write: 0-0058 reg=6 val=1
->  irq/53-da9063-i-140     [002] ...1   102.710783: regmap_hw_read_start: 0-0058 reg=0 count=1
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.711268: regmap_hw_read_done: 0-0058 reg=0 count=1
->  irq/53-da9063-i-140     [002] ...1   102.711271: regmap_reg_read: 0-0058 reg=0 val=0
->  irq/53-da9063-i-140     [002] ...1   102.711274: regmap_hw_read_start: 0-0058 reg=1 count=1
-> (snip)
->  irq/53-da9063-i-140     [002] ...1   102.711770: regmap_hw_read_done: 0-0058 reg=1 count=1
->  irq/53-da9063-i-140     [002] ...1   102.711773: regmap_reg_read: 0-0058 reg=1 val=0
->  irq/53-da9063-i-140     [002] d..3   102.712183: softirq_raise: vec=6 [action=TASKLET]
->      ksoftirqd/2-23      [002] ..s1   102.714162: softirq_entry: vec=6 [action=TASKLET]
->      ksoftirqd/2-23      [002] ..s1   102.714173: softirq_exit: vec=6 [action=TASKLET]
-> 
-> Regards,
-
-I have just been told that someone has the same issue on the previous
-sifive board (hifive unleashed) which uses the same GPIO and PLIC
-modules, although they were using the 5.10.42 kernel.
-
-So I would like to go forward with my RFC gpio patch,
-  https://patchwork.kernel.org/project/linux-riscv/patch/8c36c1a28ce63b5120765fd3c636944bfec8bee9.1625882423.git.plr.vincent@gmail.com/
-but before this if possible I would prefer to get feedback about the
-PLIC:
-Is the behaviour I describe above expected ?
-
-I do not find anything in the PLIC documentations (neither riscv.org
-nor sifive) which mention whether the PLIC gateways should be edge- or
-level-sensitive.
-
-I suspect in the sifive SoC it would be edge-sensitive whereas the
-embedded GPIO chip would produce a level IRQ output, something like
-  (pending && enabled)
-so both GPIO-level sensitivity types would produce an edge output when
-"pending" gets set, but level interrupts would not re-trigger. If this
-is the case, then I believe my patch works around the issue: by
-changing "enabled" at GPIO level it forces the generation of a new edge
-even on level inputs.
-
-But maybe I am missing something more fundamental about how the PLIC
-should work.
-
-Regards,
--- 
-Vincent Pelletier
-GPG fingerprint 983A E8B7 3B91 1598 7A92 3845 CAC9 3691 4257 B0C1
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyMyBKdWwgMjAyMSAwOTozNjo0NyArMDgwMAp0b25ndGlhbmdlbiA8dG9uZ3RpYW5n
+ZW5AaHVhd2VpLmNvbT4gd3JvdGU6Cgo+IE9uIDIwMjEvNy8yMyA3OjU0LCBKaXNoZW5nIFpoYW5n
+IHdyb3RlOgo+ID4gT24gVGh1LCAyMiBKdWwgMjAyMSAxNzo0Mjo1MiArMDIwMAo+ID4gQW5kcmVh
+cyBTY2h3YWIgPHNjaHdhYkBsaW51eC1tNjhrLm9yZz4gd3JvdGU6Cj4gPiAgCj4gPj4gT24gSnVs
+IDIyIDIwMjEsIEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4gPj4gIAo+ID4+PiBJIHRoaW5rIHdlIG5l
+ZWQgdG8gcGluIHRoZSBzdGFjayBiZWZvcmUgY2FsbGluZyBnZXRfd2NoYW4oKSwgY291bGQgeW91
+IHBsZWFzZQo+ID4+PiB0cnkgYmVsb3cgcGF0Y2g/ICAKPiA+Pgo+ID4+IFRoYW5rcywgdGhpcyBm
+aXhlcyB0aGUgY3Jhc2ggZm9yIG1lLgo+ID4+Cj4gPj4gQW5kcmVhcy4KPiA+PiAgCj4gPgo+ID4g
+VGhhbmtzIGZvciB0ZXN0aW5nLiBJIHdpbGwgc2VuZCBvdXQgZm9ybWFsIHBhdGNoIGxhdGVyCj4g
+Pgo+ID4gVGhhbmtzCj4gPgo+ID4gLgo+ID4gIAo+IAo+IEhpIGFsbDoKPiBJIHRyaWVkIHRvIHJl
+cHJvZHVjZWQgdGhpcyBjcmFzaCBpbiBvcGVuU1VTRSBjb2RlIHJlcG/vvIggCj4gaHR0cHM6Ly9n
+aXRodWIuY29tL29wZW5zdXNlL2tlcm5lbCDvvIksIGJ1dCBub3QgcmVwcm9kdWNlZCBzdWNjZXNz
+ZnVsbHkuCj4gCj4gIEZyb20gdGhlIHBhdGNoIG9mIHByb2JsZW0gcmVwYWlyLCB0aGUgY3Jhc2gg
+aXMgZHVlIHRvIHRhc2stPnN0YWNrIGlzIAo+IHJlbGVhc2VkIGJlZm9yZSBjYWxsaW5nIGdldF93
+Y2hhbiwgdGhlIHRhc2sgc3RhdGUgb2YgbWF5YmUgVEFTS19ERUFELgo+IAo+IFZNQVBfU1RBQ0sg
+aXMgdXNlZCB0byBkZXRlY3Qga2VybmVsIHN0YWNrIG92ZXJmbG93LCB0aGVyZSBpcyBubyAKPiBj
+b25uZWN0aW9uIGJldHdlZW4gdGhlIHR3bywgaXQgbWFrZXMgbWUgYSBsaXR0bGUgY29uZnVzZWQu
+CgpJIGJlbGlldmUgdGhlIGJ1ZyBleGlzdHMgZnJvbSB0aGUgZmlyc3QgZGF5IG9mIHJpc2N2IG1h
+aW5saW5lZC4KClNpbmNlIFRIUkVBRF9JTkZPX0lOX1RBU0s9eSBpbiByaXNjdiwgc28gd2hlbiB0
+YXNrIHN0YWNrIGNhbiBiZSBmcmVlZApiZWZvcmUgYmVpbmcgZGVzdHJveWVkLgoKV2hlbiBWTUFQ
+X1NUQUNLPW4sIHRhc2sncyBzdGFjayBpcyBhbGxvY2F0ZWQgZnJvbSBsaW5lYXIgbWFwcGluZy4g
+V2hlbgp0YXNrIHN0YWNrIGlzIGZyZWVkLCB0aGUgY29ycmVzcG9uZGluZyBtYXBwaW5nIHN0aWxs
+IGV4aXN0cywgYW5kIHNpbmNlCmdldF93Y2hhbigpIG9ubHkgcmVhZCwgbm8gaGFybSBpcyBvYnNl
+cnZlZCBzbyBmYXIuCgpXaGVuIFZNQVBfU1RBQ0s9eSwgdGFzaydzIHN0YWNrIGlzIGFsbG9jYXRl
+ZCBmcm9tIHZtYWxsb2MgYXJlYS4gV2hlbgp0YXNrIHN0YWNrIGlzIGZyZWVkLCB0aGUgY29ycmVz
+cG9uZGluZyBtYXBwaW5nIG1heSBub3QgZXhpc3QsIHNvIEkgZXhwZWN0Ck1NVSBmYXVsdCBoZXJl
+LCB0aHVzIHRoZSBrZXJuZWwgcGFuaWMuCgpJbiBzdW1tYXJ5LCB0aGUgYnVnIGlzbid0IHJlbGF0
+ZWQgd2l0aCBWTUFQX1NUQUNLLCBidXQgVk1BUF9TVEFDSyBtYWtlcwp0aGUgYnVnIG9ic2VydmFi
+bGUuCgpUaGFua3MKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
