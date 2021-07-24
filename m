@@ -1,95 +1,91 @@
-Return-Path: <SRS0=o9Ga=MP=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Dv9V=MQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 30024C432BE
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 21:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6D6D0C4338F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 00:58:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F10CE60E95
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jul 2021 21:41:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F10CE60E95
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id F232960EB5
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 00:58:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F232960EB5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RSPpR5LlXvY/ECslTXTT4/YvtNZ8lxn+d67cxTeTVHw=; b=K0pwKClM9h4a3e
-	3iux8XByILVgztlcyWCeXJud98c1c4EDRlqPeG3nmwKSi6AEfLD7yrC+Hz/ULEGIZJxHhiu27vHhk
-	msIV+U8BlmxD6X6PDOVkWaiFF1nJr7KL9X1BuyQaQBdKuFiLhp3RzXFF6sE+cnwV/2Evgjf2hGafz
-	EKQHwcdMowF6pfF9LtyPTCFfn7Afv6WYahtlWE626d9DAnZf5YYu+XXYzSDuoi+x3doo5FClEQYt9
-	77+KFVcKO0lGu5pr7F0f7z+87bT9vSbiY58s2zbWk6cBpvARzNt8eUAg2z4HRbAvgJp8eK4v21vig
-	9RE+gvdHp6HgST2BRH7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Y6dtyXoBchrvBBNCwCvs2mxP9Aosp9zDFPriMArmRu8=; b=Iw95IiJS65rquOLkE2QOpnJf2L
+	Zj8TyAEnaLyFNYL+kJafvUPagODrVFL7oojrTvSGWrC/mGyH4yYFxuYN8VYICyFYJSIPZ7g7tG9An
+	p9ThkEpYOZy0bQUx8CwXgMAe93Wsk/6t3uBl/aTYIPwRqzKONmnyMEMlDtRLdBTF8rhH1TpHBjaKP
+	CThk218Dgp/HCpGY7nR6J6f1+y6KwgbR9JhuEdWzimZsOsvfWXJMg/5DX/BrtV0PrbZjSe5XEgVHu
+	fYCqfi8qAiirMCLD2ymYW+UoMRYUnFAyxStUNzZx36U3j8s2XTn5d35F0Db6P0fy/O4GNnRbFeXoO
+	uzUZreEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m72uj-005zXW-EG; Fri, 23 Jul 2021 21:41:01 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1m75ze-006UVK-Ab; Sat, 24 Jul 2021 00:58:18 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m72uP-005zI1-JM
- for linux-riscv@lists.infradead.org; Fri, 23 Jul 2021 21:40:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1627076441; x=1658612441;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=CVn7oX0CjfibpYFFpqHWKgpHrrL7Xnf/XJqEMEbWufY=;
- b=EMSagPYB85LF3i37ucrvrqlHYrP+Lo6RcGIJdeyMR1PUA5ALlzzlYmy1
- JjYlrteoYQl8TuaXpRjH3RQCo5SpV3OotrrYS7oC677ghrVpRGlfJX/oC
- gR4mJNaan1l9tQJ6C45gb+4McmEXmI873ka62HcidJ2c3IxVG2uGxRAmJ
- bfsr1iDrq0LtzbY3kGbI4SCXUAH5+PgvV9Lu+WsIGohUUqaNZS2Om/x5p
- hEqrEcsV4BVVrqL+sTZU7PCLJXrJzglZZjx1OtWuSIJUqYqlH5Uwn8XkA
- QupiU23p6rJUq/vtFU2M1FEYTY0HYbGO7zG0zdWZzOHmExSeBuerYxWIh Q==;
-X-IronPort-AV: E=Sophos;i="5.84,265,1620662400"; d="scan'208";a="279198471"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 24 Jul 2021 05:40:38 +0800
-IronPort-SDR: sutZTjoSHyqwYJpjLcPx+Nq7MGqpWY+HX6r9FQAsq6gETnbvJLRhVU+VVgdAWGpiL1lTgSAvud
- ZdQabCEqMi0wwRDb0wRNDUFd67CktP8ggftnbL8THjpGi9AggVp/FRjs/VGxb0odSasHZTqxcn
- cvgszLD1nknJ1wooNNyhpc1FQ7eUEHY7kWaI3bEGAXElAVZaxAMnKQVyno90ekpDHmsIS0PgMu
- 5BYTWGYx6XC+uwzquw+nJJLEoHcoYnDER+pPCtcJfdOL0T4gTYm4tdTS2F+jOZhg43EuFzEjZ4
- cKzp97WFNrz5HVpEcLa1ajmG
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 23 Jul 2021 14:18:27 -0700
-IronPort-SDR: qhmdgrA1THlc1t/uoxnlsIj0rUGoMMu54qei7gUWzJ87apTwDnCvOIRNBoziAyb682Fgk8jRYW
- UcnQ0MFzhh8mMx4cCW8MaT8l+6SGuqwmTGzpjclU1SRda/TiKJfNmAERHZ7vruJbQbqj+9akst
- Zy3PrYdD05YDUud56v6fL93ksTdhe8tU/rO4Z3KZSrDBVeLvwxNigChWwMk+eKF4Kh9+8OoRpp
- HbIAUxanozLZ7K6AaSrtNE+1ypjkoxDYqn0/HSxVF48FGlduZ0tmkOcdTrI8grrvNtTC8wvyvW
- Vu0=
-WDCIronportException: Internal
-Received: from ucfbox21.ad.shared (HELO hulk.wdc.com) ([10.225.167.4])
- by uls-op-cesaip01.wdc.com with ESMTP; 23 Jul 2021 14:40:38 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christoph Hellwig <hch@lst.de>, devicetree@vger.kernel.org,
- Dmitry Vyukov <dvyukov@google.com>, Frank Rowand <frowand.list@gmail.com>,
- Guo Ren <guoren@linux.alibaba.com>, iommu@lists.linux-foundation.org,
- linux-riscv@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Tobias Klauser <tklauser@distanz.ch>
-Subject: [RFC 5/5] RISC-V: Support a new config option for non-coherent DMA
-Date: Fri, 23 Jul 2021 14:40:31 -0700
-Message-Id: <20210723214031.3251801-6-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20210723214031.3251801-1-atish.patra@wdc.com>
-References: <20210723214031.3251801-1-atish.patra@wdc.com>
-MIME-Version: 1.0
+ id 1m75zZ-006UOK-J3
+ for linux-riscv@lists.infradead.org; Sat, 24 Jul 2021 00:58:15 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id
+ e2-20020a17090a4a02b029016f3020d867so5971075pjh.3
+ for <linux-riscv@lists.infradead.org>; Fri, 23 Jul 2021 17:58:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ixp2Efw04Zmd3ojpMMirglfvU4JyFrlYnefPbpvE9qQ=;
+ b=l9EmVZ1b8261Fr7etjdogpbySpGIQb72E9mXlzLasGgTGWAJ8EtVZTKMd8zbqGSMJc
+ 7YIbBQh9V9p0HVnWd19DovMR24aEgea4rFtpb21KtqEp1fAJ1bQIsxr+Ro7Ca+XRbJti
+ AaPBqClr83WbK38H6hMlj8Ux1ezhqf6w3PM1/0f/1tSq0cHWZb7pNMI5Q0ClyXlxf41X
+ 7rqvgNVh5C4wJEO0M59w2xU8cdceEWdq6sVIY+rrJMLcVFAAFqhc2pOn6gckWmsnB9a2
+ zu+husRrFIUNK3nLfWZLOnroMNLehpEAurSlwX4ZzIJJ/GqkKknqJzQR2dJaVqeU/AQN
+ 5ESw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=ixp2Efw04Zmd3ojpMMirglfvU4JyFrlYnefPbpvE9qQ=;
+ b=i4xxVF9+1poGVTtofiXcqtr8WXh2Ry6GnIWWziM8cfn2+IzX9aTuIanExYMleXsCgT
+ AzTtZW4J0poeh0kEt7pD9JDmJ1V+V6V0vaktejzmOWFqlX+l0Jtb3aRCds2Erdmd2TeC
+ HREfG7H1den1fhFYvQ5XDYxSe/t/cbuLOVllLrO3cGKzE+XRFdgCj3ABjYWlDRDFqSNT
+ evw6jtp6hnBSRC37jqHEGTr9aZIA9I74QVl1aMvJOOjH3kq586pT2KzrZoafNMjTjq1J
+ tGphKWSN/4uTWVKWXLIdTEubIelrIsREqah+ih0x6SVATwQy6OMj91Hcu/g/b0/IVelJ
+ t2yA==
+X-Gm-Message-State: AOAM5311MyV26AddHQV4dD0E5140WFK3stChmp26YFWV6TkuVJpUn4t6
+ qk9I9mOFTvZmCbXhbUU9WQiz2g==
+X-Google-Smtp-Source: ABdhPJxSoQnZ7ArDNB+xyZSWKkPLPV63ZJuP3n9jQ2eYDIVHIqFpcrorc0FpHDVXGSt+1cbT3m/aGA==
+X-Received: by 2002:a17:902:dcd4:b029:12b:fd1:d95 with SMTP id
+ t20-20020a170902dcd4b029012b0fd10d95mr5740043pll.13.1627088292770; 
+ Fri, 23 Jul 2021 17:58:12 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id d3sm11434430pfj.17.2021.07.23.17.58.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 23 Jul 2021 17:58:12 -0700 (PDT)
+Date: Fri, 23 Jul 2021 17:58:12 -0700 (PDT)
+X-Google-Original-Date: Fri, 23 Jul 2021 17:51:10 PDT (-0700)
+Subject: Re: [PATCH 0/4] __asm_copy_to-from_user: Fixes
+In-Reply-To: <37097718-c472-025a-2058-55667badc5b9@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, linux@roeck-us.net,
+ geert@linux-m68k.org, aou@eecs.berkeley.edu, akira.tsukamoto@gmail.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: akira.tsukamoto@gmail.com
+Message-ID: <mhng-b80245ea-c042-4de9-8a2c-22b3e188434c@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210723_144041_765788_D4EC7F7D 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210723_175813_697976_1C93C2CC 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +97,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In future, there will be more RISC-V platforms with non-coherent DMA.
-Instead of selecting all the required config options in every soc, create
-a new config that selects all the required configs related non-coherent
-DMA.
+On Tue, 20 Jul 2021 01:49:42 PDT (-0700), akira.tsukamoto@gmail.com wrote:
+> These are series for the fix reported by Guenter, Geert and Qiu.
+>
+> One patch to fix overrun memory access, one patch to fix on rv32.
+> And two more for clean up and typos.
+>
+> Have tested on qemu rv32, qemu rv64 and beaglev beta board.
+>
+> Thanks for the report and instructions to reproduce the error on rv32.
+>
+> Akira
+>
+> Akira Tsukamoto (4):
+>   riscv: __asm_copy_to-from_user: Fix: overrun copy
+>   riscv: __asm_copy_to-from_user: Fix: fail on RV32
+>   riscv: __asm_copy_to-from_user: Remove unnecessary size check
+>   riscv: __asm_copy_to-from_user: Fix: Typos in comments
+>
+>  arch/riscv/lib/uaccess.S | 27 +++++++++++++--------------
+>  1 file changed, 13 insertions(+), 14 deletions(-)
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/Kconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8fcceb8eda07..931b283c8ec9 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -209,6 +209,14 @@ config PGTABLE_LEVELS
- config LOCKDEP_SUPPORT
- 	def_bool y
- 
-+config RISCV_DMA_NONCOHERENT
-+	bool
-+	select ARCH_HAS_DMA_PREP_COHERENT
-+	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
-+	select ARCH_HAS_SYNC_DMA_FOR_CPU
-+	select ARCH_HAS_SETUP_DMA_OPS
-+	select DMA_GLOBAL_POOL
-+
- source "arch/riscv/Kconfig.socs"
- source "arch/riscv/Kconfig.erratas"
- 
--- 
-2.31.1
-
+Thanks, these are on fixes.
 
 _______________________________________________
 linux-riscv mailing list
