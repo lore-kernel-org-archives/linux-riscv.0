@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15142C432BE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20E73C4320E
 	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 00:58:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CAB7C60ED7
+	by mail.kernel.org (Postfix) with ESMTPS id CAEE360EB5
 	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 00:58:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CAB7C60ED7
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CAEE360EB5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=u/HQR/t0AoQGi19yQZ9APeV6rO3F8CIDuPGOgnNFMRc=; b=W2epAPWPgUt2xRGzUurX31vF03
-	wGrlBQJG4WlN7QIrU8ug2V2XY3mp7tS2CL0vWJn6KzX8jObrTxjZIbvz+XxXxx5fiCJh8kxDwQPJT
-	5NtykWEGpoulN8AexSU1dRPvsLX/1UmFKnIYMv1/j8dCWkeiKPM3XFTvBBESdR9ySErIhEEPwzOcI
-	gB8SZxla368GCwzrNjFtUIb4nXnkcjNYOx6bV6oqidCMpa4hFny7O6KINB6yH+XByEfmI/0K/Uqhm
-	yuB0DHrs742gILBUdWKbFKx3XuVuw1iSNBD8WY/5N9cryIQTpY3+rCQn1dehnfQDbFUsFIIcYhQIO
-	kgjruaDQ==;
+	bh=WuIRVNfOTIEktK3eBT1D3VQmGZ5cscy78XtaEQ7Jrrs=; b=AeiaZsTAoN140MnHwkU9gZEpZK
+	n0uC1OGb5HLarzW4hrwyhzty9BkDMH/mDoTTP2fqQ4nluONXGFTvcU4x3M69EMAeoM23g8fYRa2wg
+	8XIihUeY4VPYUSBlAdoCucqlOqJPqtvMUXLQTmfYaN8WN17iNjDJAsiu0spfzKKaW3unUSxrwsA38
+	BEWgZWclqIexYoGNRm+8KxQDoKcDBq7UJtNzZ11rYuKP+PxQPo1geZ/MBIr4JjNPS8XPhHUbvMwOq
+	fcVL/PVBv99UhRrSB/hd6cZBIkLAqwC/ZFeNhe2ONi1Pj6RRqaRSj1ge6Vn9mUiFJagqvYreUB7Jf
+	LXhvcOnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m75zf-006UVm-SZ; Sat, 24 Jul 2021 00:58:19 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1m75zb-006UUP-5J; Sat, 24 Jul 2021 00:58:15 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m75za-006UUB-QS
- for linux-riscv@lists.infradead.org; Sat, 24 Jul 2021 00:58:16 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id
- j17-20020a17090aeb11b029017613554465so5954393pjz.4
- for <linux-riscv@lists.infradead.org>; Fri, 23 Jul 2021 17:58:14 -0700 (PDT)
+ id 1m75zX-006UIA-JV
+ for linux-riscv@lists.infradead.org; Sat, 24 Jul 2021 00:58:13 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id
+ pf12-20020a17090b1d8cb0290175c085e7a5so11350213pjb.0
+ for <linux-riscv@lists.infradead.org>; Fri, 23 Jul 2021 17:58:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=OlwUZcWU+zFAtM9hiJyMkmJtbQEHkL3Q1I7IsXb7FPU=;
- b=zk/id2ENEx5PqxL1+6dzRIQTqgm2OzCjl3e1YqmEJmSkUNm7ef5pbGC5CdB5WRfLXZ
- g2z7NXgg7LiMMHyc2IburHwZAWvOYdrfdhRS2IbDkkV+Jif1i0e7avh717Zfe5rmiXYH
- Gr0fL2dOCvNri4/oM0pZ5R3wDdfcohsT01xPjVURvHGAm/P6uOkKitsIrqv2DKineAlk
- WRuIStOxDSwd0pRBgHCYgie8I6y9I5mRHbNNDAJE5W5ZycILrtDuZ0fox6G0izjoy+nQ
- gGvoOR5gDDfDWXEUYh/q0EPIYS8G7XQwtzIZX+6kP2U+4kQB6yi1eggJ0FVnLaDCBX3p
- PBOw==
+ bh=yegDLmukDQ2JB2JCLLriIkxE39W69jFwF0gijUvKoJQ=;
+ b=UM9VFt1ES2LcfrgrnKsG91iO7iaf+jMeIpvH309u+n00IMhlXncu4w2+BKUHRzGuW/
+ RzSjMkTF8DwnZdkjER+3lt+SVuekYLwoSP+4Byq3CzRATmIj6xWriBfpM+zltxwO5yn/
+ 3kQ3q96GIs+oJ7geZ4roamYniXxpo1n1aGS8CMXfPqMXlvpIrNgcpJn8rPCTESZ62olK
+ p+piPu/eQsndv+hSbzdTq8M9mkopbBYfCKmZNDx1Ca8GRUduY+BKVQ4TVkXQ9YRHP1c/
+ Aab968IMEOnlPTEEeEoIWBqX5hB2CZBr72IZSDLKsxWFjEvFVMHxnNzdHYLTI/HU4Q90
+ uhJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=OlwUZcWU+zFAtM9hiJyMkmJtbQEHkL3Q1I7IsXb7FPU=;
- b=GL0waAs7t8Ds2l7PWhec23w+xP/w7MPIjiAVDGMTqiPkmF5o67BFUn12oBLnnBrBfA
- lSR22aLn2Y9D/zDYWnF0LgvvKdoFjFS72KrwMZ9IMOWEWDZfPvZSSpWchILd+C7Nx0sA
- xrPR9NAm2HIupXyTAk25oMrZllAph6Rdcr9Uxq19jyk/Vh1sA2JURs0IuFG4FEEnpkTc
- Y0ai/odsOBiEd1KhgB6yiTAonGnC8iHur0ndME2HL6TYQ5xPQ5FCIR/hSX9mlaM42fpK
- IHGAAQzAKRRYWPH6PgCpx1dozJvh8X6+poSoWsCtXHmGJQJuep4QEMjzFChL9M3iVEVL
- oe6w==
-X-Gm-Message-State: AOAM532K0516+QYlciQnGucCKvGtBJLr/pwa5zkTmkfs9LmqcW70vcsc
- VdJZRvjVV9VYfrrJiOP128swKA==
-X-Google-Smtp-Source: ABdhPJwwuS8XMIz5osqmii+ofeK+AxcFj6tz3jfzu4bBDrPYA1HFkK5Ffq2k+YOf3WwJ52D6argBYg==
-X-Received: by 2002:a17:90b:2246:: with SMTP id
- hk6mr3739863pjb.112.1627088294369; 
- Fri, 23 Jul 2021 17:58:14 -0700 (PDT)
+ bh=yegDLmukDQ2JB2JCLLriIkxE39W69jFwF0gijUvKoJQ=;
+ b=Y1JWo7LC9RowDMUi5sXWdFh1Q8n9L9pSzmMjy1Yiz0TQfDQVyzp8ANqiXCOBWmLH1T
+ EOaHwkVq2ccJyUk7Fwn+eEUbYY707i1VWdVrGDNOMmx+nEHIl5qcPZLCw2wywkxZczH4
+ LW6uvj4Q09C1MsJV1VIeVyIl4Qn+sIOITFvDqXXFxMYsIgrFdLWlqSMeJ0NV/gMmc8A5
+ NoYg6G9c0TBdZRCwJwVpSiFEgyDVADBZpwDY0iWgxXnnv3No9JSCw/9SAVEimePwfFOP
+ 43z5Sb6cAvvL2GGvKnPY3k/c0/RukOl+12UYSeSHajzCLTPK2OXw9PzIZuHncmSupkKN
+ xHkw==
+X-Gm-Message-State: AOAM533DQqC89kPA9+E6rEt2UuGv9XL6spV4qzp+Rje7BHA19KXQ0SMK
+ eBrCfTJ1Jbg36jLgeUcmH7jAJA==
+X-Google-Smtp-Source: ABdhPJwdm7uhTD7vpi2jUUSlUWMyAV01UNjzssdq3ewTKXSFrUrGVN6mN/1O80Z1nw8okCfncLItvA==
+X-Received: by 2002:a63:443:: with SMTP id 64mr7315283pge.375.1627088289636;
+ Fri, 23 Jul 2021 17:58:09 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 201sm14427514pgd.37.2021.07.23.17.58.13
+ by smtp.gmail.com with ESMTPSA id f15sm31888949pgv.92.2021.07.23.17.58.08
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 23 Jul 2021 17:58:13 -0700 (PDT)
-Date: Fri, 23 Jul 2021 17:58:13 -0700 (PDT)
-X-Google-Original-Date: Fri, 23 Jul 2021 17:52:41 PDT (-0700)
-Subject: Re: [PATCH] riscv: Disable STACKPROTECTOR_PER_TASK if
- GCC_PLUGIN_RANDSTRUCT is enabled
-In-Reply-To: <20210706162621.940924-1-linux@roeck-us.net>
+ Fri, 23 Jul 2021 17:58:08 -0700 (PDT)
+Date: Fri, 23 Jul 2021 17:58:08 -0700 (PDT)
+X-Google-Original-Date: Fri, 23 Jul 2021 17:32:33 PDT (-0700)
+Subject: Re: [PATCH 3/3] riscv: Make sure the kernel mapping does not overlap
+ with IS_ERR_VALUE
+In-Reply-To: <20210629091349.3802690-3-alex@ghiti.fr>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@roeck-us.net, guoren@linux.alibaba.com
+ wangkefeng.wang@huawei.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, alex@ghiti.fr
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux@roeck-us.net
-Message-ID: <mhng-1b892781-2ee8-476b-90b8-44b5cca45cf9@palmerdabbelt-glaptop>
+To: alex@ghiti.fr
+Message-ID: <mhng-bc552805-71aa-4a1e-afa7-dfd08cfba35b@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210723_175814_900489_48B7F6B3 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20210723_175811_733372_5C726912 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +102,77 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Jul 2021 09:26:21 PDT (-0700), linux@roeck-us.net wrote:
-> riscv uses the value of TSK_STACK_CANARY to set
-> stack-protector-guard-offset. With GCC_PLUGIN_RANDSTRUCT enabled, that
-> value is non-deterministic, and with riscv:allmodconfig often results
-> in build errors such as
+On Tue, 29 Jun 2021 02:13:48 PDT (-0700), alex@ghiti.fr wrote:
+> The check that is done in setup_bootmem currently only works for 32-bit
+> kernel since the kernel mapping has been moved outside of the linear
+> mapping for 64-bit kernel. So make sure that for 64-bit kernel, the kernel
+> mapping does not overlap with the last 4K of the addressable memory.
 >
-> cc1: error: '8120' is not a valid offset in '-mstack-protector-guard-offset='
->
-> Enable STACKPROTECTOR_PER_TASK only if GCC_PLUGIN_RANDSTRUCT is disabled
-> to fix the problem.
->
-> Fixes: fea2fed201ee5 ("riscv: Enable per-task stack canaries")
-> Cc: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 > ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/mm/init.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 469a70bd8da6..3afb84fa2190 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -486,6 +486,7 @@ config CC_HAVE_STACKPROTECTOR_TLS
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index a1a0c4afa80f..a90c41bc9485 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -156,7 +156,7 @@ static void __init setup_bootmem(void)
+>  {
+>  	phys_addr_t vmlinux_end = __pa_symbol(&_end);
+>  	phys_addr_t vmlinux_start = __pa_symbol(&_start);
+> -	phys_addr_t max_mapped_addr = __pa(~(ulong)0);
+> +	phys_addr_t __maybe_unused max_mapped_addr;
+>  	phys_addr_t dram_end;
 >
->  config STACKPROTECTOR_PER_TASK
->  	def_bool y
-> +	depends on !GCC_PLUGIN_RANDSTRUCT
->  	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
+>  #ifdef CONFIG_XIP_KERNEL
+> @@ -179,14 +179,20 @@ static void __init setup_bootmem(void)
+>  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
 >
->  config PHYS_RAM_BASE_FIXED
+>  	dram_end = memblock_end_of_DRAM();
+> +#ifndef CONFIG_64BIT
+>  	/*
+>  	 * memblock allocator is not aware of the fact that last 4K bytes of
+>  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
+>  	 * macro. Make sure that last 4k bytes are not usable by memblock
+> -	 * if end of dram is equal to maximum addressable memory.
+> +	 * if end of dram is equal to maximum addressable memory. For 64-bit
+> +	 * kernel, this problem can't happen here as the end of the virtual
+> +	 * address space is occupied by the kernel mapping then this check must
+> +	 * be done in create_kernel_page_table.
+>  	 */
+> +	max_mapped_addr = __pa(~(ulong)0);
+>  	if (max_mapped_addr == (dram_end - 1))
+>  		memblock_set_current_limit(max_mapped_addr - 4096);
+> +#endif
+>
+>  	min_low_pfn = PFN_UP(memblock_start_of_DRAM());
+>  	max_low_pfn = max_pfn = PFN_DOWN(dram_end);
+> @@ -556,6 +562,7 @@ static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size,
+>  	uintptr_t va, end_va;
+>
+>  	end_va = kernel_virt_addr + load_sz;
+> +
+>  	for (va = kernel_virt_addr; va < end_va; va += map_size)
+>  		create_pgd_mapping(pgdir, va,
+>  				   load_pa + (va - kernel_virt_addr),
+> @@ -602,6 +609,13 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  	/* Sanity check alignment and size */
+>  	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
+>  	BUG_ON((load_pa % map_size) != 0);
+> +#ifdef CONFIG_64BIT
+> +	/*
+> +	 * The last 4K bytes of the addressable memory can not be mapped because
+> +	 * of IS_ERR_VALUE macro.
+> +	 */
+> +	BUG_ON((kernel_virt_addr + load_sz) > ADDRESS_SPACE_END - SZ_4K);
+> +#endif
+>
+>  	pt_ops.alloc_pte = alloc_pte_early;
+>  	pt_ops.get_pte_virt = get_pte_virt_early;
 
-Thanks, this is on fixes.  I do an allmodconfig build and haven't seen 
-these failures, is there something special I need to do to get this 
-working?  I know nothing about GCC plugins...
+Thanks.  These are on fixes, with some fixes tags added.  This one had 
+some merge conflicts that I had to fix up, LMK if something went wrong.
 
 _______________________________________________
 linux-riscv mailing list
