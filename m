@@ -2,94 +2,84 @@ Return-Path: <SRS0=Dv9V=MQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99AF7C4338F
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 02:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 769A6C4338F
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 16:10:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1D30860EB5
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 02:14:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1D30860EB5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id F0AC260E8E
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jul 2021 16:10:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0AC260E8E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
-	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfinJlOA3lvFhKHbq3e8TvSH1ASle6qKbxpJbi/hV4I=; b=h1IF/Q2o7rbcd7/o3K3ofWnH/C
-	j5u+pjJIYImP70lG2f09/U8O7IXGo/NuRMumxrOFIw9JVW4AicNhzBtPbENpEqnFRbuREfRDuOOXP
-	aZ7Ug39/jRcFuypVZpklJuErDNWMC2cTUXUGS3IepZKmJf9bAKq/jcd8iFL6Rs/6gbVOD2RnYnX4j
-	bbI+lI7UtPicQLFeAvjaDaoslplKH0A+tvfzjCVmstqvqGxaRD44CESJ+OmLIO6w/MWLR7WXbK/oS
-	CdqavuvT4g2k1rk82VQBuNGq+nCnnkr0O8kFBpPI7x1EDiGrtjbg3ky2cqReR71wwwb/6RnE0rgL6
-	FbwzjKIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HCN0wMOc6urLgMDge1b0iz0su68RRMl0zb4oh7q8dwo=; b=v3ETPpoO5Ae+XD
+	9kQ3PPP8+8uCXJ/zg+g8Ntp/YUHhQ1OPb1xnZCy8yUuLeOtTSQKT2a+anf+XhxwJatnWxjDVAMALA
+	up80WxdeTTrV/i25qytIvIv2EdsLBKuW/hEOnnhkiy50QagaJpyBfzWfB2iO3gq2TpNQfTMl7ZgqA
+	+aiuMoD3WoMMBZMmG43LVKFu0qUOartxqt8YvVXO6LKmZHR09qCdX98cJCtCz+X9Nopb7n2K6P2cj
+	O8oHLIiz/IQOIPCo7nOHnzB/fJNgFSuz+syKatn+lEfkV+laNe/UJXAzM1kWnTpk/UUmXcuyW67Cp
+	pjNVKnXT/96QHvglte/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m77Aq-006ZFt-4I; Sat, 24 Jul 2021 02:13:56 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m77An-006ZFK-Gp
- for linux-riscv@lists.infradead.org; Sat, 24 Jul 2021 02:13:55 +0000
-Received: by mail-ot1-x335.google.com with SMTP id
- x15-20020a05683000cfb02904d1f8b9db81so3867698oto.12
- for <linux-riscv@lists.infradead.org>; Fri, 23 Jul 2021 19:13:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:to:cc:references:from:subject:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=3CjAkz2rbpfDTDykSfg6TYvqG+xZm+08z3kG9+FzpqQ=;
- b=PumW6vTF3OQbz4r0hupGJyZ2Ymio43RPxINIzs94H/MUmq1PRZItJYHpYjIJufqzO0
- ZUE4RnZ1+xxOMLXNrOefcBGA8YwMIT5aYzcGEv1tkoK4kpogcsRBVOpJWPFb3nJV+I/q
- 4tZeRXVga5OHfgfsCMTGsEHGpWTUa50aV/7g4HRJeFYbx+LPiRgekbghJNALAACfDfM9
- 6rDGAqiDLmItY+oMvQz8YhefuFfplrRB1eHYsSAJ6JFMoGgGKGi/7R0wpXtF9isMlkV7
- hc/G5Jx3ymX3Z1UUU+DF+M8qwgTvue0u8uH09M9AdhwublBCrFzNAj2pq7ZxoWPe3Xrn
- abMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:to:cc:references:from:subject:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=3CjAkz2rbpfDTDykSfg6TYvqG+xZm+08z3kG9+FzpqQ=;
- b=nWz3rKwT74/i3AW+d+scsTXZuDPnb7QXQBHOP5+wLTENd9i2KI4jbsLThbuRNui3i4
- uAkSJDIUdvEWwrxn+HalLkxlYa+6+8EwSAPgwFO7j0lUPqnBvPB6Ledt6Vyd4kKRsJmo
- GKFyva6or+t1T7cy17HRJM7s3r5M8Lx5iD/yKcft8eVclP7PC8eC5AjrMvJBrEvv0L4B
- lw7IAmpUIaB8+9hP5Mjm/0NSwOh8lp2P3yje5vBJiWs/VsDisMXjlDM/z+X/HsvOA5TN
- 0jUnwZtWQBi0QFly7BAnhmOzE7eC5fhFZ6THswd5EWKPJmhrAIALa7614aluul9zmnjf
- bWgQ==
-X-Gm-Message-State: AOAM532oBY6tVfzRqettvB9NldKcY2Hzr5Ev1YKme5AXv/+ioLjW9jV8
- /fkBMZi+1Vz/WzOERVpa16q3vcr0RU0=
-X-Google-Smtp-Source: ABdhPJwELDcuejERxKfOH2VhD4WeSAsv6zdHykutuSV2cLOte104DCXdH0dRCWL8+vW6fnGWy9dsAA==
-X-Received: by 2002:a05:6830:16cb:: with SMTP id
- l11mr4912645otr.209.1627092829813; 
- Fri, 23 Jul 2021 19:13:49 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- u126sm1211034ooa.23.2021.07.23.19.13.48
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 23 Jul 2021 19:13:49 -0700 (PDT)
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- guoren@linux.alibaba.com
-References: <mhng-1b892781-2ee8-476b-90b8-44b5cca45cf9@palmerdabbelt-glaptop>
-From: Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH] riscv: Disable STACKPROTECTOR_PER_TASK if
- GCC_PLUGIN_RANDSTRUCT is enabled
-Message-ID: <9b3a28fe-9f05-580d-0266-22ff9856096c@roeck-us.net>
-Date: Fri, 23 Jul 2021 19:13:47 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+	id 1m7KDr-007PDz-Fi; Sat, 24 Jul 2021 16:09:55 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1m7KDn-007PCy-30
+ for linux-riscv@lists.infradead.org; Sat, 24 Jul 2021 16:09:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=GAR4WWqAXHVgE5qg2lxEmsawH6VzLA7G6o
+ qKmn9MhG0=; b=vARQtY1nDQKC1pwGtR68vqFZtjr/vwNUZIl2fqttkiMKIBpv/6
+ j12/vL8IB7AwXjCBtD+cvfvJuyVh9VofF3OSlygCJv4t7RxoCk29vkZP5ajjd9LF
+ oXtDich8vvxMGI0i2tOr2NyXbxt4Sgz9SpO6lS0nTffYNwgybiW0z2AG8=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAnL3cdO_xgxE0+AA--.8738S2; 
+ Sun, 25 Jul 2021 00:09:01 +0800 (CST)
+Date: Sun, 25 Jul 2021 00:02:58 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv
+ <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH RESEND] riscv: stacktrace: Fix NULL pointer dereference
+Message-ID: <20210725000258.1ca59266@xhacker>
+In-Reply-To: <CAOnJCU+h9uwBP57Nhh2tX9boOeQ9eV-_jjY0zSzUqhmi2Ptd2A@mail.gmail.com>
+References: <20210716214051.32eea3a8@xhacker>
+ <CAOnJCU+h9uwBP57Nhh2tX9boOeQ9eV-_jjY0zSzUqhmi2Ptd2A@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <mhng-1b892781-2ee8-476b-90b8-44b5cca45cf9@palmerdabbelt-glaptop>
-Content-Language: en-US
+X-CM-TRANSID: LkAmygAnL3cdO_xgxE0+AA--.8738S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuryftrWUZF1DJw1xKF13twb_yoWrCrWfpF
+ 15JF17CrW8Jr1xtw17tr15ZF15Ar1DAa43Jr9xAr1FyFyUWr1UXw18tFW5WF1qyrn5Ja4x
+ trn0gws2vr4DJ3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUy2b7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26r4j6r4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+ 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+ 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
+ 6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+ I_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+ 6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
+ 0_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j
+ 6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210723_191353_641388_973C81FA 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20210724_090951_621515_EE6DB109 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +91,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy8yMy8yMSA1OjU4IFBNLCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPiBPbiBUdWUsIDA2IEp1
-bCAyMDIxIDA5OjI2OjIxIFBEVCAoLTA3MDApLCBsaW51eEByb2Vjay11cy5uZXQgd3JvdGU6Cj4+
-IHJpc2N2IHVzZXMgdGhlIHZhbHVlIG9mIFRTS19TVEFDS19DQU5BUlkgdG8gc2V0Cj4+IHN0YWNr
-LXByb3RlY3Rvci1ndWFyZC1vZmZzZXQuIFdpdGggR0NDX1BMVUdJTl9SQU5EU1RSVUNUIGVuYWJs
-ZWQsIHRoYXQKPj4gdmFsdWUgaXMgbm9uLWRldGVybWluaXN0aWMsIGFuZCB3aXRoIHJpc2N2OmFs
-bG1vZGNvbmZpZyBvZnRlbiByZXN1bHRzCj4+IGluIGJ1aWxkIGVycm9ycyBzdWNoIGFzCj4+Cj4+
-IGNjMTogZXJyb3I6ICc4MTIwJyBpcyBub3QgYSB2YWxpZCBvZmZzZXQgaW4gJy1tc3RhY2stcHJv
-dGVjdG9yLWd1YXJkLW9mZnNldD0nCj4+Cj4+IEVuYWJsZSBTVEFDS1BST1RFQ1RPUl9QRVJfVEFT
-SyBvbmx5IGlmIEdDQ19QTFVHSU5fUkFORFNUUlVDVCBpcyBkaXNhYmxlZAo+PiB0byBmaXggdGhl
-IHByb2JsZW0uCj4+Cj4+IEZpeGVzOiBmZWEyZmVkMjAxZWU1ICgicmlzY3Y6IEVuYWJsZSBwZXIt
-dGFzayBzdGFjayBjYW5hcmllcyIpCj4+IENjOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFi
-YS5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IEd1ZW50ZXIgUm9lY2sgPGxpbnV4QHJvZWNrLXVzLm5l
-dD4KPj4gLS0tCj4+IMKgYXJjaC9yaXNjdi9LY29uZmlnIHwgMSArCj4+IMKgMSBmaWxlIGNoYW5n
-ZWQsIDEgaW5zZXJ0aW9uKCspCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcg
-Yi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5kZXggNDY5YTcwYmQ4ZGE2Li4zYWZiODRmYTIxOTAg
-MTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L0tj
-b25maWcKPj4gQEAgLTQ4Niw2ICs0ODYsNyBAQCBjb25maWcgQ0NfSEFWRV9TVEFDS1BST1RFQ1RP
-Ul9UTFMKPj4KPj4gwqBjb25maWcgU1RBQ0tQUk9URUNUT1JfUEVSX1RBU0sKPj4gwqDCoMKgwqAg
-ZGVmX2Jvb2wgeQo+PiArwqDCoMKgIGRlcGVuZHMgb24gIUdDQ19QTFVHSU5fUkFORFNUUlVDVAo+
-PiDCoMKgwqDCoCBkZXBlbmRzIG9uIFNUQUNLUFJPVEVDVE9SICYmIENDX0hBVkVfU1RBQ0tQUk9U
-RUNUT1JfVExTCj4+Cj4+IMKgY29uZmlnIFBIWVNfUkFNX0JBU0VfRklYRUQKPiAKPiBUaGFua3Ms
-IHRoaXMgaXMgb24gZml4ZXMuwqAgSSBkbyBhbiBhbGxtb2Rjb25maWcgYnVpbGQgYW5kIGhhdmVu
-J3Qgc2VlbiB0aGVzZSBmYWlsdXJlcywgaXMgdGhlcmUgc29tZXRoaW5nIHNwZWNpYWwgSSBuZWVk
-IHRvIGRvIHRvIGdldCB0aGlzIHdvcmtpbmc/wqAgSSBrbm93IG5vdGhpbmcgYWJvdXQgR0NDIHBs
-dWdpbnMuLi4KClRoZSBwcm9ibGVtIGlzIHNlZW4gb25seSByYW5kb21seS4gSXQgZGVwZW5kcyBv
-biB0aGUgdmFsdWUKb2YgVFNLX1NUQUNLX0NBTkFSWSBpbiBpbmNsdWRlL2dlbmVyYXRlZC9hc20t
-b2Zmc2V0cy5oLgpUaGF0IGluIHR1cm4gZGVwZW5kcyBvbiB0aGUgbG9jYXRpb24gb2Ygc3RhY2tf
-Y2FuYXJ5CmluIHN0cnVjdCB0YXNrX3N0cnVjdC4gWW91IG1heSBoYXZlIHRvIHRyeSBzZXZlcmFs
-IHRpbWVzCmZyb20gYSBjbGVhbiB0cmVlIHRvIHNlZSB0aGUgcHJvYmxlbS4KCkd1ZW50ZXIKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi @Palmer,
+
+On Fri, 16 Jul 2021 07:07:24 -0700
+Atish Patra <atishp@atishpatra.org> wrote:
+
+> On Fri, Jul 16, 2021 at 6:47 AM Jisheng Zhang wrote:
+> >
+> > From: Jisheng Zhang <jszhang@kernel.org>
+> >
+> > When CONFIG_FRAME_POINTER=y, calling dump_stack() can always trigger
+> > NULL pointer dereference panic similar as below:
+> >
+> > [    0.396060] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc5+ #47
+> > [    0.396692] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.397176] Call Trace:
+> > [    0.398191] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000960
+> > [    0.399487] Oops [#1]
+> > [    0.399739] Modules linked in:
+> > [    0.400135] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-rc5+ #47
+> > [    0.400570] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.400926] epc : walk_stackframe+0xc4/0xdc
+> > [    0.401291]  ra : dump_backtrace+0x30/0x38
+> > [    0.401630] epc : ffffffff80004922 ra : ffffffff8000496a sp : ffffffe000f3bd00
+> > [    0.402115]  gp : ffffffff80cfdcb8 tp : ffffffe000f30000 t0 : ffffffff80d0b0cf
+> > [    0.402602]  t1 : ffffffff80d0b0c0 t2 : 0000000000000000 s0 : ffffffe000f3bd60
+> > [    0.403071]  s1 : ffffffff808bc2e8 a0 : 0000000000001000 a1 : 0000000000000000
+> > [    0.403448]  a2 : ffffffff803d7088 a3 : ffffffff808bc2e8 a4 : 6131725dbc24d400
+> > [    0.403820]  a5 : 0000000000001000 a6 : 0000000000000002 a7 : ffffffffffffffff
+> > [    0.404226]  s2 : 0000000000000000 s3 : 0000000000000000 s4 : 0000000000000000
+> > [    0.404634]  s5 : ffffffff803d7088 s6 : ffffffff808bc2e8 s7 : ffffffff80630650
+> > [    0.405085]  s8 : ffffffff80912a80 s9 : 0000000000000008 s10: ffffffff804000fc
+> > [    0.405388]  s11: 0000000000000000 t3 : 0000000000000043 t4 : ffffffffffffffff
+> > [    0.405616]  t5 : 000000000000003d t6 : ffffffe000f3baa8
+> > [    0.405793] status: 0000000000000100 badaddr: 0000000000000960 cause: 000000000000000d
+> > [    0.406135] [<ffffffff80004922>] walk_stackframe+0xc4/0xdc
+> > [    0.407032] [<ffffffff8000496a>] dump_backtrace+0x30/0x38
+> > [    0.407797] [<ffffffff803d7100>] show_stack+0x40/0x4c
+> > [    0.408234] [<ffffffff803d9e5c>] dump_stack+0x90/0xb6
+> > [    0.409019] [<ffffffff8040423e>] ptdump_init+0x20/0xc4
+> > [    0.409681] [<ffffffff800015b6>] do_one_initcall+0x4c/0x226
+> > [    0.410110] [<ffffffff80401094>] kernel_init_freeable+0x1f4/0x258
+> > [    0.410562] [<ffffffff803dba88>] kernel_init+0x22/0x148
+> > [    0.410959] [<ffffffff800029e2>] ret_from_exception+0x0/0x14
+> > [    0.412241] ---[ end trace b2ab92c901b96251 ]---
+> > [    0.413099] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> >
+> > The reason is the task is NULL when we finally call walk_stackframe()
+> > the NULL is passed from __dump_stack():
+> >
+> > |static void __dump_stack(void)
+> > |{
+> > |        dump_stack_print_info(KERN_DEFAULT);
+> > |        show_stack(NULL, NULL, KERN_DEFAULT);
+> > |}
+> >
+> > Fix this issue by checking "task == NULL" case in walk_stackframe().
+> >
+> > Fixes: eac2f3059e02 ("riscv: stacktrace: fix the riscv stacktrace when CONFIG_FRAME_POINTER enabled"
+
+Missed a ")" at the end here, do you want a resend?
+
+PS: This patch is missed for twice.
+
+Thanks
+
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/kernel/stacktrace.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> > index bde85fc53357..7bc8af75933a 100644
+> > --- a/arch/riscv/kernel/stacktrace.c
+> > +++ b/arch/riscv/kernel/stacktrace.c
+> > @@ -27,7 +27,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+> >                 fp = frame_pointer(regs);
+> >                 sp = user_stack_pointer(regs);
+> >                 pc = instruction_pointer(regs);
+> > -       } else if (task == current) {
+> > +       } else if (task == NULL || task == current) {
+> >                 fp = (unsigned long)__builtin_frame_address(1);
+> >                 sp = (unsigned long)__builtin_frame_address(0);
+> >                 pc = (unsigned long)__builtin_return_address(0);
+> > --
+> > 2.32.0
+> >
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv  
+> 
+> 
+> Reviewed-by: Atish Patra <atish.patra@wdc.com>
+> 
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
