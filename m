@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C25F6C4338F
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 06:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 810FFC4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 07:00:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5EF9460F23
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 06:58:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5EF9460F23
+	by mail.kernel.org (Postfix) with ESMTPS id 51C3560243
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 07:00:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 51C3560243
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,22 +23,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XnYzEaSvWBQ/4xV1clPlQRyCyz4tAIHDwoc9vNiLOfE=; b=nVpoCPQIg/p1rQ
-	KZHEhZ963Y66FvajiXliT7r+Bv70WSVbKMmsLU0EMv0EZDhd9LLMFzRyOi+K7dM9ZvzCD+yD/nerV
-	/PjESQCaoFWxlVXQKAIoTdP7dcuT/6/RfizdINl9NU5z1vRbkpeDAtTGn7a0sDlWg9F2DCNS1Y0kw
-	XDDEycBzgRHEDPjxw/RbGIzvI3Bx6uiHcvePr4/41sCGPtL6KbVCHDX9XZ5VnGszYq9GK9Qg/03t3
-	v+iIinjxMHjTv0GEkdQbMJM/WaI618c4yR6tNhn2D41vKaoAcl4e8mhVrHRExtoc0TlKP08AsFtTP
-	wFHJivGzNLXM4YpKuc6g==;
+	List-Owner; bh=zB6rDJt6HZUj300TOIEYhWUZMvAxq5TY1a2++22CQG8=; b=bHz9v4OsQ8o9Ce
+	JqEmYCx3vQoapOSMg9UnScLqB2ObPDRC/sNR1X/8pjbUSlSnBorTorxoaHSroKujTEYc+EstDRxUm
+	bjEtkv4we4oqMI+UfqLVzc/BGdt5jVGhc2O4y1/XxfyOQJXyywO53kJ6T00jQjy8a1wvErB1MsY1W
+	alns0HDV4Q54n3BnIs6kIYuXkmAXncVnIQHLJt/scAG58nYrHUTG7FocNX8ZlHfQvUr2Tse6h+Ykh
+	9pN/y1cX8Q9bv7VPxRkRNQ+6KmAx6bcRn7Vuv1C4zRoBnlhmB7kmkPMoKgp2Vzn/EzApjr7oblbxJ
+	7WxC3WOJpLRucz0edBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m7uY1-009nAC-4B; Mon, 26 Jul 2021 06:57:09 +0000
+	id 1m7ubP-009nt3-Rj; Mon, 26 Jul 2021 07:00:39 +0000
 Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m7uXx-009n8V-LN
- for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 06:57:07 +0000
+ id 1m7ubM-009nsE-Vt
+ for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 07:00:38 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
- id 408B168AFE; Mon, 26 Jul 2021 08:56:58 +0200 (CEST)
-Date: Mon, 26 Jul 2021 08:56:57 +0200
+ id DA9D068B05; Mon, 26 Jul 2021 09:00:30 +0200 (CEST)
+Date: Mon, 26 Jul 2021 09:00:30 +0200
 From: Christoph Hellwig <hch@lst.de>
 To: Atish Patra <atish.patra@wdc.com>
 Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
@@ -50,17 +50,18 @@ Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Robin Murphy <robin.murphy@arm.com>, Tobias Klauser <tklauser@distanz.ch>
-Subject: Re: [RFC 1/5] RISC-V: Implement arch_sync_dma* functions
-Message-ID: <20210726065657.GA9035@lst.de>
+Subject: Re: [RFC 3/5] dma-mapping: Enable global non-coherent pool support
+ for RISC-V
+Message-ID: <20210726070030.GB9035@lst.de>
 References: <20210723214031.3251801-1-atish.patra@wdc.com>
- <20210723214031.3251801-2-atish.patra@wdc.com>
+ <20210723214031.3251801-4-atish.patra@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210723214031.3251801-2-atish.patra@wdc.com>
+In-Reply-To: <20210723214031.3251801-4-atish.patra@wdc.com>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210725_235705_906126_39CB2375 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20210726_000037_212902_0425772B 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +78,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +struct riscv_dma_cache_sync {
-> +	void (*cache_invalidate)(phys_addr_t paddr, size_t size);
-> +	void (*cache_clean)(phys_addr_t paddr, size_t size);
-> +	void (*cache_flush)(phys_addr_t paddr, size_t size);
-> +};
-> +
-> +void riscv_dma_cache_sync_set(struct riscv_dma_cache_sync *ops);
-> +#endif
+On Fri, Jul 23, 2021 at 02:40:29PM -0700, Atish Patra wrote:
+> Currently, linux,dma-default is used to reserve a global non-coherent pool
+> to allocate memory for dma operations. This can be useful for RISC-V as
+> well as the ISA specification doesn't specify a method to modify PMA
+> attributes or page table entries to define non-cacheable area yet.
+> A non-cacheable memory window is an alternate options for vendors to
+> support non-coherent devices.
 
-As told a bunch of times before: doing indirect calls here is a
-performance nightmare.  Use something that actually does perform
-horribly like alternatives.  Or even delay implementing that until
-we need it and do a plain direct call for now.
+Please explain why you do not want to use the simply non-cachable
+window support using arch_dma_set_uncached as used by mips, niops2 and
+xtensa.
 
-static void __dma_sync(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> +{
-> +	if ((dir == DMA_FROM_DEVICE) && (dma_cache_sync->cache_invalidate))
-> +		dma_cache_sync->cache_invalidate(paddr, size);
-> +	else if ((dir == DMA_TO_DEVICE) && (dma_cache_sync->cache_clean))
-> +		dma_cache_sync->cache_clean(paddr, size);
-> +	else if ((dir == DMA_BIDIRECTIONAL) && dma_cache_sync->cache_flush)
-> +		dma_cache_sync->cache_flush(paddr, size);
-> +}
+> +static int __dma_init_global_coherent(phys_addr_t phys_addr, dma_addr_t device_addr, size_t size)
 
-The seletion of flush types is completely broken.  Take a look at the
-comment in arch/arc/mm/dma.c above arch_sync_dma_for_device for a good
-explanation.
 
-> +void arch_dma_prep_coherent(struct page *page, size_t size)
-> +{
-> +	void *flush_addr = page_address(page);
-> +
-> +	memset(flush_addr, 0, size);
 
-arch_dma_prep_coherent is not supposed to modify the content of
-the data.
+
+>  {
+>  	struct dma_coherent_mem *mem;
+>  
+> -	mem = dma_init_coherent_memory(phys_addr, phys_addr, size, true);
+> +	if (phys_addr == device_addr)
+> +		mem = dma_init_coherent_memory(phys_addr, device_addr, size, true);
+> +	else
+> +		mem = dma_init_coherent_memory(phys_addr, device_addr, size, false);
+
+Nak.  The phys_addr != device_addr support is goign away.  This needs
+to be filled in using dma-ranges property hanging of the struct device.
 
 _______________________________________________
 linux-riscv mailing list
