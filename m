@@ -1,85 +1,58 @@
-Return-Path: <SRS0=srnp=MR=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=HVPl=MS=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC383C4338F
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jul 2021 22:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AC54C4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 05:44:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9B39060E09
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jul 2021 22:29:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9B39060E09
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7790C60F47
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 05:44:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7790C60F47
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0K1Bt3naphx946JH7PlFj5pIatXH2kRuCTWBFkRJyY=; b=sZve2CiDTI+UC5
-	BD+8pQRh8iF8MBiB8Dtkz5lcHdvhSUctQVYn/5wcdxE72RU1S3cB9HS13j740fbvf+4wvOuzgkuvk
-	jg3wg99+wuig0pe0wAaj14ZGIivQsCygc/nGSDioDPAOjjYs/JHxMuh5Rgf4krCKDOPTmVU3g775Y
-	X6Rjpozfs8w28+QwDSksWXo0OCeGxKl/fEatUBZJQkKLTZ6klOfpIhGrKtFq7QTQ1hnika1UCNzZN
-	okUqLzoi+9DzFl9FQUDLNRXZmP6Ahg14q4SikE6xz8dV2tYCFPsPInOjjpqBKMzSwid1Dq/pz2GCn
-	5DCzPigvVW8mP2BKEbyA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dHpl+GdoiDdkOIF1POwxafKpl1PQQaXT6W1mfaGaekA=; b=qKW4xkfaozyUKW
+	mIAs10MKeCLga+15/15bzQcaSNfyk5owz5CXmENR7Q8mJnwknyntguGk3yHJ6wZ7EvDjvU3bfMY74
+	Yxs3VT7zUcxrJ9r4FFU6Sa2igfckIXGk9LtQzE6mhONf+Wj+nRbBgwboglVel9YcXBf/O6xyD8nlv
+	4jmeh3vlOmdhPGigrmm2sfOVLGXAf/lKox+DWU2EuRO8IwJ0rNZ7SEYnQR1E0ry3iXHnhazP/gOWy
+	y+lV8xJJ3TEVdONzzrLymDalHQYSiZW0QXSHPWDZjf56z/ZLAJelmVlE7MqqL7uZQwObbZ2ojpmmj
+	oItmZT8GZaD0TUx1vieg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m7mcj-009CrS-9e; Sun, 25 Jul 2021 22:29:29 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1m7tOq-009fWM-3y; Mon, 26 Jul 2021 05:43:36 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m7mcg-009Cqt-IU
- for linux-riscv@lists.infradead.org; Sun, 25 Jul 2021 22:29:27 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 85E4260F35
- for <linux-riscv@lists.infradead.org>; Sun, 25 Jul 2021 22:29:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1627252165;
- bh=LXdv3SNozGddEOtTXiweAPm33gFyubUEqk9QT+fHMHc=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=NBPZZmLXXECARRRpEYQnILLiWAelyx07J8u147xeLgLnvwVuOuCbSyWtEgjGZdGXZ
- qczGtqvXBsxZc3Az2W3EwEoNOBBYlO16DwuPkJprDfNylmKUSeVQ3oCdothZgb2Bni
- 9rQiM6bwtcPjqV3EfCv8OvpNve5f6FFEM6tPO6mUf1oWARwt2aBLkvV4tYPGnS0ifn
- reMmxDr85ZhAAxogPTTL8v3QrLWdyVkGkF5/MmZ6l9GlDyP2q3+tFQJpEqTHYN4Wqj
- lSlGFU29w6nStaab2+shG0nR9K87pYEGuvSnGCORJ80K0d5pqHvRyeMrP6BLDerHKd
- qZfasI1lM/seA==
-Received: by mail-ej1-f50.google.com with SMTP id ga41so13383114ejc.10
- for <linux-riscv@lists.infradead.org>; Sun, 25 Jul 2021 15:29:25 -0700 (PDT)
-X-Gm-Message-State: AOAM533Zwa8hRzdyJigQUd8csCUoFtpsiuH1wVYMBNDl0NnfRphfLRTy
- eSfIjS12mI4wWWOxkgA4utJlKyPeCq1sJuYjqA==
-X-Google-Smtp-Source: ABdhPJwfSEK/zGq4H+iwJok9IKltb7Tkin7X2hIbv0FMn04qW6BMg5NfENWFO8APXBMeuB8xHMIhsh3UlasWyhyEfQE=
-X-Received: by 2002:a17:906:95ce:: with SMTP id
- n14mr5509121ejy.130.1627252164182; 
- Sun, 25 Jul 2021 15:29:24 -0700 (PDT)
+ id 1m7tOL-009fV8-M2
+ for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 05:43:11 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 35CB2240002;
+ Mon, 26 Jul 2021 05:42:56 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH -fixes] riscv: Fix comment regarding kernel mapping
+ overlapping with IS_ERR_VALUE
+Date: Mon, 26 Jul 2021 07:42:54 +0200
+Message-Id: <20210726054254.21801-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-References: <20210723214031.3251801-1-atish.patra@wdc.com>
- <20210723214031.3251801-4-atish.patra@wdc.com>
-In-Reply-To: <20210723214031.3251801-4-atish.patra@wdc.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Sun, 25 Jul 2021 16:29:12 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKG9xkSAQGkBE8_BEE+O9S+z09M8C9+gWN-58aXEZWqgg@mail.gmail.com>
-Message-ID: <CAL_JsqKG9xkSAQGkBE8_BEE+O9S+z09M8C9+gWN-58aXEZWqgg@mail.gmail.com>
-Subject: Re: [RFC 3/5] dma-mapping: Enable global non-coherent pool support
- for RISC-V
-To: Atish Patra <atish.patra@wdc.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, 
- Christoph Hellwig <hch@lst.de>, devicetree@vger.kernel.org,
- Dmitry Vyukov <dvyukov@google.com>, 
- Frank Rowand <frowand.list@gmail.com>, Guo Ren <guoren@linux.alibaba.com>, 
- Linux IOMMU <iommu@lists.linux-foundation.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy <robin.murphy@arm.com>, 
- Tobias Klauser <tklauser@distanz.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210725_152926_669493_18B81A2A 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20210725_224305_918632_FA22C281 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +69,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 23, 2021 at 3:40 PM Atish Patra <atish.patra@wdc.com> wrote:
->
-> Currently, linux,dma-default is used to reserve a global non-coherent pool
-> to allocate memory for dma operations. This can be useful for RISC-V as
-> well as the ISA specification doesn't specify a method to modify PMA
-> attributes or page table entries to define non-cacheable area yet.
-> A non-cacheable memory window is an alternate options for vendors to
-> support non-coherent devices. "dma-ranges" must be used in conjunction with
-> "linux,dma-default" property to define one or more mappings between device
-> and cpu accesible memory regions.
+The current comment states that we check if the 64-bit kernel mapping
+overlaps with the last 4K of the address space that is reserved to
+error values in create_kernel_page_table, which is not the case since it
+is done in setup_vm. But anyway, remove the reference to any function
+and simply note that in 64-bit kernel, the check should be done as soon
+as the kernel mapping base address is known.
 
-'dma-ranges' applies to buses. And, well, maybe devices when the bus
-is not well defined. It is not a reserved-memory property.
+Fixes: db6b84a368b4 ("riscv: Make sure the kernel mapping does not
+overlap with IS_ERR_VALUE")
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+---
+ arch/riscv/mm/init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Rob
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index a14bf3910eec..79a2e02924e4 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -191,7 +191,7 @@ static void __init setup_bootmem(void)
+ 	 * if end of dram is equal to maximum addressable memory.  For 64-bit
+ 	 * kernel, this problem can't happen here as the end of the virtual
+ 	 * address space is occupied by the kernel mapping then this check must
+-	 * be done in create_kernel_page_table.
++	 * be done as soon as the kernel mapping base address is determined.
+ 	 */
+ 	max_mapped_addr = __pa(~(ulong)0);
+ 	if (max_mapped_addr == (dram_end - 1))
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
