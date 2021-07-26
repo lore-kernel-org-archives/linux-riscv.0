@@ -2,93 +2,67 @@ Return-Path: <SRS0=HVPl=MS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C75A0C4338F
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 16:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCB21C4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 21:44:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 778DB60E09
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 16:05:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 778DB60E09
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9A00D60F90
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 21:44:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9A00D60F90
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFQCjZxSAd9Js08PY++iVc7J/3mJWAmBF8yo9Kf3Qds=; b=wa/liFnr7d9Z7s
-	4YvUZLlHBMXBeLUfEHUoTmNAySzjXDolqFW1lIAk5W6i2vhrMizvkj406piYa9E9XTSEs7ngW0JF6
-	P1xgbpNjt/XtoOGrYzPlj4gexQ/rxGqeFjTPZ/6MU2z800t60rHZUbL1MZTmDW7uRO+qXOTzfjSVH
-	IID7vf5pxijTP/inbYg63tXwx8nQkQrJwuBx/K++OlACJc7cyyz0TCEqxChJEUIFNd21YbySZv7Zp
-	oBOoRb/XWi2HX8wVmi4lRhBXq8CTRPIxCvCzlS8GJqloUyiM/Oc9NnPjlh+AKZ+dlvnyAHBN2jL/x
-	dBxCWQYz5NKG3QCY5+cw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p5MbZzfPji+pOET+RMgiMAZlpw0fcQO92gwebjZVJ4o=; b=lXLGwrp123++6c
+	VRvJPSOvgv1L7eJOdFZnbgubMiQR65spduVbp1umEswMjGh7iN68GFrOXmNzo5L/RCVESdyfKuh7l
+	jVvYulzSpXrhojI/4ECvLZaRMeRumDXU1RpZdHOuF13JMAaF2dEb6LF1eS7ClS/iLygSzvemG0fXX
+	zlqX5ozkJweiovikkp0VWXrixta+IWvubsmmroygbko1fvVL8Yb9XS9eAafryWLmZVyUGm93Qja/X
+	lNg2mBZuqFLb5lu0I1euZCm5LmXeBZ1mZdj5EUrv0c9gEA4TDMXORgszeOoo3dfAOoYhuMs64r6Hz
+	i6gCqQY0J0JAAoBT56cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m836Y-00BtqJ-4k; Mon, 26 Jul 2021 16:05:22 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1m88O6-00CVsS-U8; Mon, 26 Jul 2021 21:43:50 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m836U-00Btpi-A3
- for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 16:05:20 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id
- l11-20020a7bc34b0000b029021f84fcaf75so8547665wmj.1
- for <linux-riscv@lists.infradead.org>; Mon, 26 Jul 2021 09:05:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=44ShJhf/K5DrTcnx1ukbeJoLz6VUL4N4swOkb5P4DBQ=;
- b=SxVLiiw888RohIYA/l/QYXa3Bxz130RuVmFjU+GeQXH0/eulEAqTlv2FNswHHVsxlA
- NKKsQQJrNoQruwMP4v1DuSsbc//iyjnB8WEjqDImiSg6s6m0o/GHbJzQcWdwd+Wz+f/r
- +6WHYDEsbxE/7+TeA75Y1GbUL4QNnA6S8SXM5FT0nQfDd/Qy+v81su1U+6/9HbXX+zpg
- IA+JxPfdQUUnxrvkeMIQl6YXSlZgvhP9DVuDzaQPIhUn3ZOFb/d9HkkzAYycQzqG/a/k
- EFS26AbWiRe7R43WfVwul6XHacRv4qgBagXWqEk9+CUS4pSgNcwIU0NNHxGnatRSnUa2
- 8LAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=44ShJhf/K5DrTcnx1ukbeJoLz6VUL4N4swOkb5P4DBQ=;
- b=qOrlGDewdOsDr1e2ztL06OFWj+WQ+AfE0Wh60bcW2FdtjHkr1Ooggq+hXzbhxKkFkE
- IQK4/ig9a55UK4hUJ8hOmQ0paaLTjcoZe900tL46pdPmMdFz4FAG53GEK/ijX3Z6YeCc
- G3jXB7pDhNhGf1CTFX/hhnswk4BrOaoC5YDwpe9Mq9FhPd4X0Pd9sFRYNI3nOLHb5FP/
- elW+Wr9X8MSkcvwvm7jokHYF0Hu6Bw9eJALsy4XOYpucqFpquCB4dlAiO84BlSo9nO+Y
- ulC62WfRettXrwMN0Eh0ZPxEgURitmkBYBF5ggZUsRuvRzSTM1b7PVW6uws0i1AcF8TH
- H+YA==
-X-Gm-Message-State: AOAM530KnMs4eZa9QzDTe9CwkKqjcPAmCfZVCp8sVQG0iiVyUVbpUuGr
- pSIR4o9TwdaCv65Ct8Tq7lxC7Dt+szw4VTKRchWY7g==
-X-Google-Smtp-Source: ABdhPJxLlBfoRxxP1o/FODQ3vQhNYpjNKlwuhqvRMXqf6KovDH85HQh1z91Zlb2+pUFdbYgmki6Rf8VFesqPtnb5HQA=
-X-Received: by 2002:a05:600c:2942:: with SMTP id
- n2mr7159614wmd.152.1627315516312; 
- Mon, 26 Jul 2021 09:05:16 -0700 (PDT)
+ id 1m88O3-00CVs6-MI
+ for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 21:43:49 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A4E5260F94;
+ Mon, 26 Jul 2021 21:43:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1627335827;
+ bh=dBX7fIHWCiOh57pPoZiCCdXb5SlCraznstvQ/Ghyeyk=;
+ h=Date:From:To:Cc:Subject:From;
+ b=BGxbg+DkR9D1cy3KQhuXS5YzIIzwWDlpwvuudr9Nnj65VZHe5NxXX/rB98+XUf1y7
+ ABdnFs5TWlxBHlqAy5NMV5xi/a5JrGgESy96kDBNXB11Ea620/9t3SuD2AdTAA4SNJ
+ ccctpJ63SGBfdmsS+4AAK92Sjh1xOXZkTLMzVFV7Kzna/QjXua8f2QRi8lLDm5Qyhf
+ NRVE3aUYn+fBGGzXAxBBNYmIrmEYk3GPxa82THGXisiQQNBXXluEDKeD9BzNhu5auw
+ fVnNnYPrTguCBtp4otVvyLNZtpS1eb2ahXtRqcBYT24Qg+KhvIIR5AQB8e49mxdh7i
+ 3Ok+urmkpYDwA==
+Date: Mon, 26 Jul 2021 16:43:45 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>
+Cc: linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+Subject: [helgaas@kernel.org: Re: aarch64 efi boot failures with qemu 6.0+]
+Message-ID: <20210726214345.GA645499@bjorn-Precision-5520>
 MIME-Version: 1.0
-References: <20210618123851.1344518-1-anup.patel@wdc.com>
- <20210618123851.1344518-8-anup.patel@wdc.com>
- <87k0lddue7.wl-maz@kernel.org>
-In-Reply-To: <87k0lddue7.wl-maz@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 26 Jul 2021 21:35:04 +0530
-Message-ID: <CAAhSdy1-AdQ84Q1mdj7cSemmMdKr3vKBHDug_fm=nkKLtVW7qg@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 07/11] irqchip: Add ACLINT software interrupt driver
-To: Marc Zyngier <maz@kernel.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Thomas Gleixner <tglx@linutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210726_090518_423155_54F07B87 
-X-CRM114-Status: GOOD (  49.03  )
+X-CRM114-CacheID: sfid-20210726_144347_814300_8EC8C290 
+X-CRM114-Status: GOOD (  42.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,442 +74,265 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 26, 2021 at 7:55 PM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Fri, 18 Jun 2021 13:38:47 +0100,
-> Anup Patel <anup.patel@wdc.com> wrote:
+Just FYI.
+
+Guenter tripped over a problem with an I/O BAR set to zero.  I think
+your arches allow that (at least they "#define PCIBIOS_MIN_IO 0"), and
+some drivers don't handle such BARs.  More details below.
+
+Note that I didn't actually cc you on the thread, mostly because I
+forgot but partly to avoid exploding the cc list with people who
+probably don't care.  If you want to respond directly to the thread,
+you can use this:
+
+https://lore.kernel.org/qemu-devel/20210724185234.GA2265457@roeck-us.net/
+
+----- Forwarded message from Bjorn Helgaas <helgaas@kernel.org> -----
+
+Date: Mon, 26 Jul 2021 16:16:29 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Philippe Mathieu-Daud=E9 <philmd@redhat.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Jiahui Cen <cenjiahui@huawei.com>, "Michael S.
+	Tsirkin" <mst@redhat.com>, Ard Biesheuvel <ardb+tianocore@kernel.org>,
+	qemu-devel@nongnu.org, Igor Mammedov <imammedo@redhat.com>, Guenter
+	Roeck <linux@roeck-us.net>
+Subject: Re: aarch64 efi boot failures with qemu 6.0+
+Message-ID: <20210726211628.GA640636@bjorn-Precision-5520>
+
+On Mon, Jul 26, 2021 at 06:00:57PM +0200, Ard Biesheuvel wrote:
+> (cc Bjorn)
+> =
+
+> On Mon, 26 Jul 2021 at 11:08, Philippe Mathieu-Daud=E9 <philmd@redhat.com=
+> wrote:
+> > On 7/26/21 12:56 AM, Guenter Roeck wrote:
+> > > On 7/25/21 3:14 PM, Michael S. Tsirkin wrote:
+> > >> On Sat, Jul 24, 2021 at 11:52:34AM -0700, Guenter Roeck wrote:
+> > >>> Hi all,
+> > >>>
+> > >>> starting with qemu v6.0, some of my aarch64 efi boot tests no longer
+> > >>> work. Analysis shows that PCI devices with IO ports do not instanti=
+ate
+> > >>> in qemu v6.0 (or v6.1-rc0) when booting through efi. The problem af=
+fects
+> > >>> (at least) ne2k_pci, tulip, dc390, and am53c974. The problem only
+> > >>> affects
+> > >>> aarch64, not x86/x86_64.
+> > >>>
+> > >>> I bisected the problem to commit 0cf8882fd0 ("acpi/gpex: Inform os =
+to
+> > >>> keep firmware resource map"). Since this commit, PCI device BAR
+> > >>> allocation has changed. Taking tulip as example, the kernel reports
+> > >>> the following PCI bar assignments when running qemu v5.2.
+> > >>>
+> > >>> [    3.921801] pci 0000:00:01.0: [1011:0019] type 00 class 0x020000
+> > >>> [    3.922207] pci 0000:00:01.0: reg 0x10: [io  0x0000-0x007f]
+> > >>> [    3.922505] pci 0000:00:01.0: reg 0x14: [mem 0x10000000-0x100000=
+7f]
+> =
+
+> IIUC, these lines are read back from the BARs
+> =
+
+> > >>> [    3.927111] pci 0000:00:01.0: BAR 0: assigned [io  0x1000-0x107f]
+> > >>> [    3.927455] pci 0000:00:01.0: BAR 1: assigned [mem
+> > >>> 0x10000000-0x1000007f]
+> > >>>
+> =
+
+> ... and this is the assignment created by the kernel.
+> =
+
+> > >>> With qemu v6.0, the assignment is reported as follows.
+> > >>>
+> > >>> [    3.922887] pci 0000:00:01.0: [1011:0019] type 00 class 0x020000
+> > >>> [    3.923278] pci 0000:00:01.0: reg 0x10: [io  0x0000-0x007f]
+> > >>> [    3.923451] pci 0000:00:01.0: reg 0x14: [mem 0x10000000-0x100000=
+7f]
+> =
+
+> The problem here is that Linux, for legacy reasons, does not support
+> I/O ports <=3D 0x1000 on PCI, so the I/O assignment created by EFI is
+> rejected.
+> =
+
+> This might make sense on x86, where legacy I/O ports may exist, but on
+> other architectures, this makes no sense.
+
+I guess this is the "#define PCIBIOS_MIN_IO 0x1000" in
+arm64/include/asm/pci.h.  From a PCI point of view, I'm not opposed to
+changing that to 0, as it is on csky, riscv, sh, sparc, um.  But it's
+really an arch question, so the arm64 folks would have to weigh in.
+
+But I don't think that would fix this.  PCIBIOS_MIN_IO is mainly used
+when we assign or reassign resources to a BAR, and if firmware tells
+us to preserve the assignments done by firmware, Linux shouldn't be
+doing any assignment or reassignment.
+
+Linux received 00:01.0 BAR 0 as [io 0x0000-0x007f], and Guenter didn't
+report any reassignment, so I assume Linux saw the
+DSM_PCI_PRESERVE_BOOT_CONFIG [1] and didn't change anything.
+
+Could this be due to drivers assuming that an I/O BAR of 0 is invalid?
+I see that at least ne2k_pci_init_one() [2] seems to assume that.  And
+tulip_init_one() [3] and pci_esp_probe_one() (am53c974.c, [4]) use
+pci_iomap() [5], which fails if the resource starts at 0.
+
+So pci_iomap() is probably already broken on the arches above that
+allow I/O BARs to be zero.  Maybe pci_iomap() should only fail on
+"!start" for *memory* BARs, e.g.,
+
+diff --git a/lib/pci_iomap.c b/lib/pci_iomap.c
+index 2d3eb1cb73b8..77455e702a3e 100644
+--- a/lib/pci_iomap.c
++++ b/lib/pci_iomap.c
+@@ -34,7 +34,9 @@ void __iomem *pci_iomap_range(struct pci_dev *dev,
+ 	resource_size_t len =3D pci_resource_len(dev, bar);
+ 	unsigned long flags =3D pci_resource_flags(dev, bar);
+ =
+
+-	if (len <=3D offset || !start)
++	if (flags & IORESOURCE_MEM && !start)
++		return NULL;
++	if (len <=3D offset)
+ 		return NULL;
+ 	len -=3D offset;
+ 	start +=3D offset;
+
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/acpi/pci_root.c?id=3Dv5.13#n915
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/net/ethernet/8390/ne2k-pci.c?id=3Dv5.13#n247
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/net/ethernet/dec/tulip/tulip_core.c?id=3Dv5.13#n1418
+[4] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/scsi/am53c974.c?id=3Dv5.13#n431
+[5] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/lib/pci_iomap.c?id=3Dv5.13#n37
+
+> > >>> and the controller does not instantiate. The problem disapears after
+> > >>> reverting commit 0cf8882fd0.
+> > >>>
+> > >>> Attached is a summary of test runs with various devices and qemu v5=
+.2
+> > >>> as well as qemu v6.0, and the command line I use for efi boots.
+> > >>>
+> > >>> Did commit 0cf8882fd0 introduce a bug, do I now need need some diff=
+erent
+> > >>> command line to instantiate PCI devices with io ports, or are such
+> > >>> devices
+> > >>> simply no longer supported if the system is booted with efi support=
+ ?
+> > >>>
+> > >>> Thanks,
+> > >>> Guenter
+> > >>
+> > >>
+> > >> So that commit basically just says don't ignore what efi did.
+> > >>
+> > >> The issue's thus likely efi.
+> > >>
+> > >
+> > > I don't see the problem with efi boots on x86 and x86_64.
+> > > Any idea why that might be the case ?
+> > >
+> > > Thanks,
+> > > Guenter
+> > >
+> > >> Cc the maintainer. Philippe can you comment pls?
 > >
-> > The RISC-V ACLINT provides MSWI and SSWI devices for M-mode and
-> > S-mode software interrupts respectively. We add irqchip driver
-> > which provide IPI operations based on ACLINT [M|S]SWI devices
-> > to the Linux RISC-V kernel.
+> > I'll have a look. Cc'ing Ard for EDK2/Aarch64.
+> =
+
+> So a potential workaround would be to use a different I/O resource
+> window for ArmVirtPkg, that starts at 0x1000. But I would prefer to
+> fix Linux instead.
+> =
+
+> =
+
+> > >>
+> > >>> ---
+> > >>> Command line (tulip network interface):
+> > >>>
+> > >>> CMDLINE=3D"root=3D/dev/vda console=3DttyAMA0"
+> > >>> ROOTFS=3D"rootfs.ext2"
+> > >>>
+> > >>> qemu-system-aarch64 -M virt -kernel arch/arm64/boot/Image -no-reboo=
+t \
+> > >>>          -m 512 -cpu cortex-a57 -no-reboot \
+> > >>>          -device tulip,netdev=3Dnet0 -netdev user,id=3Dnet0 \
+> > >>>          -bios QEMU_EFI-aarch64.fd \
+> > >>>          -snapshot \
+> > >>>          -device virtio-blk-device,drive=3Dd0 \
+> > >>>          -drive file=3D${ROOTFS},if=3Dnone,id=3Dd0,format=3Draw \
+> > >>>          -nographic -serial stdio -monitor none \
+> > >>>          --append "${CMDLINE}"
+> > >>>
+> > >>> ---
+> > >>> Boot tests with various devices known to work in qemu v5.2.
+> > >>>
+> > >>>         v5.2    v6.0    v6.0
+> > >>>         efi    non-efi    efi
+> > >>> e1000        pass    pass    pass
+> > >>> e1000-82544gc    pass    pass    pass
+> > >>> e1000-82545em    pass    pass    pass
+> > >>> e1000e        pass    pass    pass
+> > >>> i82550        pass    pass    pass
+> > >>> i82557a        pass    pass    pass
+> > >>> i82557b        pass    pass    pass
+> > >>> i82557c        pass    pass    pass
+> > >>> i82558a        pass    pass    pass
+> > >>> i82559b        pass    pass    pass
+> > >>> i82559c        pass    pass    pass
+> > >>> i82559er    pass    pass    pass
+> > >>> i82562        pass    pass    pass
+> > >>> i82801        pass    pass    pass
+> > >>> ne2k_pci    pass    pass    fail    <--
+> > >>> pcnet        pass    pass    pass
+> > >>> rtl8139        pass    pass    pass
+> > >>> tulip        pass    pass    fail    <--
+> > >>> usb-net        pass    pass    pass
+> > >>> virtio-net-device
+> > >>>         pass    pass    pass
+> > >>> virtio-net-pci    pass    pass    pass
+> > >>> virtio-net-pci-non-transitional
+> > >>>         pass    pass    pass
+> > >>>
+> > >>> usb-xhci    pass    pass    pass
+> > >>> usb-ehci    pass    pass    pass
+> > >>> usb-ohci    pass    pass    pass
+> > >>> usb-uas-xhci    pass    pass    pass
+> > >>> virtio        pass    pass    pass
+> > >>> virtio-blk-pci    pass    pass    pass
+> > >>> virtio-blk-device
+> > >>>         pass    pass    pass
+> > >>> nvme        pass    pass    pass
+> > >>> sdhci        pass    pass    pass
+> > >>> dc390        pass    pass    fail    <--
+> > >>> am53c974    pass    pass    fail    <--
+> > >>> lsi53c895ai    pass    pass    pass
+> > >>> mptsas1068    pass    pass    pass
+> > >>> lsi53c810    pass    pass    pass
+> > >>> megasas        pass    pass    pass
+> > >>> megasas-gen2    pass    pass    pass
+> > >>> virtio-scsi-device
+> > >>>         pass    pass    pass
+> > >>> virtio-scsi-pci    pass    pass    pass
+> > >>
+> > >
 > >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> >  drivers/irqchip/Kconfig          |  11 ++
-> >  drivers/irqchip/Makefile         |   1 +
-> >  drivers/irqchip/irq-aclint-swi.c | 271 +++++++++++++++++++++++++++++++
-> >  3 files changed, 283 insertions(+)
-> >  create mode 100644 drivers/irqchip/irq-aclint-swi.c
-> >
-> > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> > index 62543a4eccc0..2010d493b03b 100644
-> > --- a/drivers/irqchip/Kconfig
-> > +++ b/drivers/irqchip/Kconfig
-> > @@ -508,6 +508,17 @@ config RISCV_INTC
-> >
-> >          If you don't know what to do here, say Y.
-> >
-> > +config RISCV_ACLINT_SWI
-> > +     bool "RISC-V Advanced Core Local Interruptor Software Interrupts"
-> > +     depends on RISCV
-> > +     help
-> > +        This enables support for software interrupts using the Advanced
-> > +        Core Local Interruptor (ACLINT) found in RISC-V systems.  The
-> > +        RISC-V ACLINT provides devices for inter-process interrupt and
-> > +        timer functionality.
-> > +
-> > +        If you don't know what to do here, say Y.
->
-> Let's face it, nobody knows what to say. So instead of asking the
-> question, how about selecting it from the platform support config
-> instead?
+> =
 
-Yes, this will be mostly selected by platform support config. In fact,
-the PATCH8 already selects it for the virt machine.
 
-Let me remove this last line.
-
->
-> > +
-> >  config SIFIVE_PLIC
-> >       bool "SiFive Platform-Level Interrupt Controller"
-> >       depends on RISCV
-> > diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-> > index f88cbf36a9d2..a6edf6733c1d 100644
-> > --- a/drivers/irqchip/Makefile
-> > +++ b/drivers/irqchip/Makefile
-> > @@ -97,6 +97,7 @@ obj-$(CONFIG_QCOM_PDC)                      += qcom-pdc.o
-> >  obj-$(CONFIG_CSKY_MPINTC)            += irq-csky-mpintc.o
-> >  obj-$(CONFIG_CSKY_APB_INTC)          += irq-csky-apb-intc.o
-> >  obj-$(CONFIG_RISCV_INTC)             += irq-riscv-intc.o
-> > +obj-$(CONFIG_RISCV_ACLINT_SWI)               += irq-aclint-swi.o
-> >  obj-$(CONFIG_SIFIVE_PLIC)            += irq-sifive-plic.o
-> >  obj-$(CONFIG_IMX_IRQSTEER)           += irq-imx-irqsteer.o
-> >  obj-$(CONFIG_IMX_INTMUX)             += irq-imx-intmux.o
-> > diff --git a/drivers/irqchip/irq-aclint-swi.c b/drivers/irqchip/irq-aclint-swi.c
-> > new file mode 100644
-> > index 000000000000..a31a7fc504d1
-> > --- /dev/null
-> > +++ b/drivers/irqchip/irq-aclint-swi.c
-> > @@ -0,0 +1,271 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> > + */
-> > +
-> > +#define pr_fmt(fmt) "aclint-swi: " fmt
-> > +#include <linux/cpu.h>
-> > +#include <linux/cpumask.h>
-> > +#include <linux/io.h>
-> > +#include <linux/init.h>
-> > +#include <linux/irq.h>
-> > +#include <linux/irqchip.h>
-> > +#include <linux/irqchip/chained_irq.h>
-> > +#include <linux/irqdomain.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/of_irq.h>
-> > +#include <linux/smp.h>
-> > +
-> > +struct aclint_swi {
-> > +     void __iomem *sip_reg;
-> > +     unsigned long bits;
-> > +};
-> > +
-> > +static int aclint_swi_parent_irq __ro_after_init;
-> > +static struct irq_domain *aclint_swi_domain __ro_after_init;
-> > +static DEFINE_PER_CPU(struct aclint_swi, aclint_swis);
-> > +
-> > +static void aclint_swi_dummy_mask_unmask(struct irq_data *d)
-> > +{
-> > +}
-> > +
-> > +static void aclint_swi_send_mask(struct irq_data *d,
-> > +                               const struct cpumask *mask)
-> > +{
-> > +     int cpu;
-> > +     struct aclint_swi *swi;
-> > +
-> > +     /* Barrier before doing atomic bit update to IPI bits */
-> > +     smp_mb__before_atomic();
-> > +
-> > +     for_each_cpu(cpu, mask) {
-> > +             swi = per_cpu_ptr(&aclint_swis, cpu);
-> > +             set_bit(d->hwirq, &swi->bits);
-> > +             writel(1, swi->sip_reg);
-> > +     }
-> > +
-> > +     /* Barrier after doing atomic bit update to IPI bits */
-> > +     smp_mb__after_atomic();
-> > +}
-> > +
-> > +static struct irq_chip aclint_swi_chip = {
-> > +     .name = "RISC-V ACLINT SWI",
-> > +     .irq_mask       = aclint_swi_dummy_mask_unmask,
->
-> Please call this function something that doesn't immediately
-> contradict the callback it is assigned to.
-
-Okay, I will choose a better name for this callback.
-
->
-> > +     .irq_unmask     = aclint_swi_dummy_mask_unmask,
-> > +     .ipi_send_mask  = aclint_swi_send_mask,
-> > +};
-> > +
-> > +static int aclint_swi_domain_map(struct irq_domain *d, unsigned int irq,
-> > +                              irq_hw_number_t hwirq)
-> > +{
-> > +     irq_set_percpu_devid(irq);
-> > +     irq_domain_set_info(d, irq, hwirq, &aclint_swi_chip, d->host_data,
-> > +                         handle_percpu_devid_irq, NULL, NULL);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int aclint_swi_domain_alloc(struct irq_domain *d, unsigned int virq,
-> > +                                unsigned int nr_irqs, void *arg)
-> > +{
-> > +     int i, ret;
-> > +     irq_hw_number_t hwirq;
-> > +     unsigned int type = IRQ_TYPE_NONE;
-> > +     struct irq_fwspec *fwspec = arg;
-> > +
-> > +     ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     for (i = 0; i < nr_irqs; i++) {
-> > +             ret = aclint_swi_domain_map(d, virq + i, hwirq + i);
-> > +             if (ret)
-> > +                     return ret;
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static const struct irq_domain_ops aclint_swi_domain_ops = {
-> > +     .translate      = irq_domain_translate_onecell,
-> > +     .alloc          = aclint_swi_domain_alloc,
-> > +     .free           = irq_domain_free_irqs_top,
-> > +};
-> > +
-> > +static void aclint_swi_handle_irq(struct irq_desc *desc)
-> > +{
-> > +     int irq;
-> > +     unsigned long irqs;
-> > +     irq_hw_number_t hwirq;
-> > +     struct irq_chip *chip = irq_desc_get_chip(desc);
-> > +     struct aclint_swi *swi = this_cpu_ptr(&aclint_swis);
-> > +
-> > +     chained_irq_enter(chip, desc);
-> > +
-> > +     writel(0, swi->sip_reg);
-> > +
-> > +     while (true) {
-> > +             /* Order bit clearing and data access. */
-> > +             mb();
-> > +
-> > +             irqs = xchg(&swi->bits, 0);
-> > +             if (!irqs)
-> > +                     goto done;
-> > +
-> > +             for (hwirq = 0; hwirq < BITS_PER_LONG; hwirq++) {
-> > +                     if (!(BIT(hwirq) & irqs))
-> > +                             continue;
->
->                 for_each_set_bit(hwirq, &irqs, BITS_PER_LONG) {
-
-Sure, I will use for_each_set_bit() here.
-
->
-> > +
-> > +                     irq = irq_find_mapping(aclint_swi_domain, hwirq);
-> > +                     if (unlikely(irq <= 0))
-> > +                             pr_warn_ratelimited(
-> > +                                     "can't find mapping for hwirq %lu\n",
-> > +                                     hwirq);
-> > +                     else
-> > +                             generic_handle_irq(irq);
->
-> You can now convert this over to generic_handle_domain_irq().
-
-Sure, I will use generic_handle_domain_irq().
-
->
-> > +             }
-> > +     }
->
-> So you can loop here and consume bits forever, but only ack the
-> interrupt once? This feels sketchy.
-
-Aargh, I accidently put writel() out of the loop. We should have one
-writel() everytime we consume the bits.
-
-I will update this.
-
->
-> > +
-> > +done:
-> > +     chained_irq_exit(chip, desc);
-> > +}
-> > +
-> > +static int aclint_swi_dying_cpu(unsigned int cpu)
-> > +{
-> > +     disable_percpu_irq(aclint_swi_parent_irq);
-> > +     return 0;
-> > +}
-> > +
-> > +static int aclint_swi_starting_cpu(unsigned int cpu)
-> > +{
-> > +     enable_percpu_irq(aclint_swi_parent_irq,
-> > +                       irq_get_trigger_type(aclint_swi_parent_irq));
-> > +     return 0;
-> > +}
-> > +
-> > +static int __init aclint_swi_set_virq(void)
-> > +{
-> > +     int virq;
-> > +     struct irq_fwspec ipi = {
-> > +             .fwnode         = aclint_swi_domain->fwnode,
-> > +             .param_count    = 1,
-> > +             .param[0]       = 0,
-> > +     };
-> > +
-> > +     virq = __irq_domain_alloc_irqs(aclint_swi_domain, -1, BITS_PER_LONG,
-> > +                                    NUMA_NO_NODE, &ipi,
-> > +                                    false, NULL);
-> > +     if (virq <= 0) {
-> > +             pr_err("unable to alloc IRQs from SBI IPI IRQ domain\n");
-> > +             return -ENOMEM;
-> > +     }
-> > +
-> > +     riscv_ipi_set_virq_range(virq, BITS_PER_LONG, true);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int __init aclint_swi_domain_init(struct device_node *node)
-> > +{
-> > +     /*
-> > +      * We can have multiple ACLINT SWI devices but we only need
-> > +      * one IRQ domain for providing per-HART (or per-CPU) IPIs.
-> > +      */
-> > +     if (aclint_swi_domain)
-> > +             return 0;
-> > +
-> > +     aclint_swi_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-> > +                                             &aclint_swi_domain_ops, NULL);
-> > +     if (!aclint_swi_domain) {
-> > +             pr_err("unable to add ACLINT SWI IRQ domain\n");
-> > +             return -ENOMEM;
-> > +     }
-> > +
-> > +     return aclint_swi_set_virq();
-> > +}
-> > +
-> > +static int __init aclint_swi_init(struct device_node *node,
-> > +                               struct device_node *parent)
-> > +{
-> > +     int rc;
-> > +     void __iomem *base;
-> > +     struct aclint_swi *swi;
-> > +     u32 i, nr_irqs, nr_cpus = 0;
-> > +
-> > +     /* Map the registers */
-> > +     base = of_iomap(node, 0);
-> > +     if (!base) {
-> > +             pr_err("%pOFP: could not map registers\n", node);
-> > +             return -ENODEV;
-> > +     }
-> > +
-> > +     /* Iterarte over each target CPU connected with this ACLINT */
-> > +     nr_irqs = of_irq_count(node);
-> > +     for (i = 0; i < nr_irqs; i++) {
-> > +             struct of_phandle_args parent;
-> > +             int cpu, hartid;
-> > +
-> > +             if (of_irq_parse_one(node, i, &parent)) {
-> > +                     pr_err("%pOFP: failed to parse irq %d.\n",
-> > +                            node, i);
-> > +                     continue;
-> > +             }
-> > +
-> > +             if (parent.args[0] != RV_IRQ_SOFT) {
-> > +                     pr_err("%pOFP: invalid irq %d (hwirq %d)\n",
-> > +                            node, i, parent.args[0]);
-> > +                     continue;
-> > +             }
-> > +
-> > +             hartid = riscv_of_parent_hartid(parent.np);
-> > +             if (hartid < 0) {
-> > +                     pr_warn("failed to parse hart ID for irq %d.\n", i);
-> > +                     continue;
-> > +             }
-> > +
-> > +             cpu = riscv_hartid_to_cpuid(hartid);
-> > +             if (cpu < 0) {
-> > +                     pr_warn("Invalid cpuid for irq %d\n", i);
-> > +                     continue;
-> > +             }
-> > +
-> > +             /* Find parent domain and register chained handler */
-> > +             if (!aclint_swi_parent_irq && irq_find_host(parent.np)) {
-> > +                     aclint_swi_parent_irq = irq_of_parse_and_map(node, i);
-> > +                     if (aclint_swi_parent_irq) {
->
-> What is the point of describing all the interrupts for each and every
-> CPU if you only need *one* to establish the routing on behalf of all
-> CPUs?
-
-The parent interrupt controller for ACLINT is RISC-V local interrupt
-controller (INTC) which is within each HART (or CPU). We have one
-RISC-V INTC DT node under each CPU DT node so the RISC-V INTC
-driver registers a single IRQ domain only for the boot CPU (which could
-be HART with any HART ID not necessarily zero).
-
-The RISC-V INTC IRQ domain provides the parent IRQ for the IPI domain
-registered by the ACLINT device. The interrupts-extended property of
-ACLINT DT node points to a set of CPUs which the given ACLINT device
-targets so we loop over all the IRQs to find the RISC-V INTC IRQ domain.
-(Note: This is very similar to how SiFive PLIC driver finds parent IRQ
-domain using interrupts-extended DT property)
-
-Also, on multi-cluster (or multi-socket) platforms we will have multiple
-ACLINT devices where each ACLINT device targets different sets of
-CPUs (or HARTs).
-
-Here are ACLINT DT node examples from DT bindings patch:
-
-     // Example 1 (RISC-V MSWI device used by Linux RISC-V NoMMU kernel):
-
-    interrupt-controller@2000000 {
-      compatible = "riscv,aclint-mswi";
-      interrupts-extended = <&cpu1intc 3 &cpu2intc 3 &cpu3intc 3 &cpu4intc 3>;
-      reg = <0x2000000 0x4000>;
-      interrupt-controller;
-      #interrupt-cells = <0>;
-    };
-
-    // Example 2 (RISC-V SSWI device used by Linux RISC-V MMU kernel):
-
-    interrupt-controller@2100000 {
-      compatible = "riscv,aclint-sswi";
-      interrupts-extended = <&cpu1intc 1 &cpu2intc 1 &cpu3intc 1 &cpu4intc 1>;
-      reg = <0x2100000 0x4000>;
-      interrupt-controller;
-      #interrupt-cells = <0>;
-    };
-
->
-> > +                             irq_set_chained_handler(aclint_swi_parent_irq,
-> > +                                                     aclint_swi_handle_irq);
-> > +                             cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> > +                                     "irqchip/riscv/aclint-swi:starting",
-> > +                                     aclint_swi_starting_cpu,
-> > +                                     aclint_swi_dying_cpu);
-> > +                     }
-> > +             }
->
-> else?
->
-> > +
-> > +             swi = per_cpu_ptr(&aclint_swis, cpu);
-> > +             swi->sip_reg = base + i * sizeof(u32);
-> > +             writel(0, swi->sip_reg);
-> > +
-> > +             nr_cpus++;
-> > +     }
-> > +
-> > +     /* Create the IPI domain for ACLINT SWI device */
-> > +     rc = aclint_swi_domain_init(node);
-> > +     if (rc)
-> > +             return rc;
-> > +
-> > +     /* Announce the ACLINT SWI device */
-> > +     pr_info("%pOFP: providing IPIs for %d CPUs\n", node, nr_cpus);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +#ifdef CONFIG_RISCV_M_MODE
-> > +IRQCHIP_DECLARE(riscv_aclint_swi, "riscv,clint0", aclint_swi_init);
-> > +IRQCHIP_DECLARE(riscv_aclint_swi1, "sifive,clint0", aclint_swi_init);
-> > +IRQCHIP_DECLARE(riscv_aclint_swi2, "riscv,aclint-mswi", aclint_swi_init);
-> > +#else
-> > +IRQCHIP_DECLARE(riscv_aclint_swi, "riscv,aclint-sswi", aclint_swi_init);
-> > +#endif
-> > --
-> > 2.25.1
-> >
-> >
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
-
-Regards,
-Anup
+----- End forwarded message -----
 
 _______________________________________________
 linux-riscv mailing list
