@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,URIBL_RED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E5B45C4338F
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 21:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D3560C4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 22:48:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7538060F59
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 21:53:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7538060F59
+	by mail.kernel.org (Postfix) with ESMTPS id 997CD60F6B
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jul 2021 22:48:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 997CD60F6B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,53 +23,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bu6QOUgqHMN4YB6Haism/8/WG23dguqnMM2/SZbMxog=; b=0hGD1mHTOu4bCL
-	VPajwIvTDnK9wZEaCmGEZdF5Xwb94+yoxHrqyDxnnIj0FULuZLLK6sJRLc3ot18pvAMduHOfPCiv7
-	XaTGag0u2HsUDnAzeTgfAL36HSwnX69No5qfDycJOAPIGOHD5MWAo4hN1S37K98+a8XEkhcZHWIIZ
-	YLtEInukTGiqjtUw518TcS/r0XD2AyrqggQ1hpvWgiweXOgvTDIU8NEb1sAh2rgTsPzH1jpHKdH+o
-	8/lWJmm+jg/jIGRYLRH+UfRZeGzZxOau3clz2EYgn5i2TGil4coWveZT/DalDCf/0/3E3vwIJDMWf
-	W0ztU2/MKvPJdc1NOvLw==;
+	List-Owner; bh=6t98Y5xiff+iO/A21FAkhPpy1L4zXkIWVTXIgIY6eDY=; b=B87qIgMp0dd/F2
+	c0bCJIFqU/x+8IGquhRvekivxy4W98fvdc8HT0TQqy+Mcarb/GpJUPSy6eGsB5nF7fJyIPlFtX3R3
+	wv/Bett+QL8NQCp7FLC10QsNykDOQYsTetM6RCdoZaDr33xB2Di+rIQJ2GCQbv45dpIk9aDd8JDbw
+	VT+jf4u/i//CJKlPsQAp0OsUPcbOvJDci6A5ZId/3grstOq/qPO6ZLbEKrLMZeCZWR3KeIVs13zBl
+	e94OW6+2QBDCBnQ8KNKn0ebjbPHmqkjLMYo59K8+04OApSn/Xpf+LK5DliwUX5VUmnFiYcZLDaBqI
+	C0iV8qhPkiL3Uj5RZOxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m88XC-00CWH7-VN; Mon, 26 Jul 2021 21:53:14 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1m89OL-00CbbR-G0; Mon, 26 Jul 2021 22:48:09 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m88X9-00CWGf-RS
- for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 21:53:13 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id f26so13642199ybj.5
- for <linux-riscv@lists.infradead.org>; Mon, 26 Jul 2021 14:53:10 -0700 (PDT)
+ id 1m89OI-00Cbap-ES
+ for linux-riscv@lists.infradead.org; Mon, 26 Jul 2021 22:48:08 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id m193so17496508ybf.9
+ for <linux-riscv@lists.infradead.org>; Mon, 26 Jul 2021 15:48:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=6kBp8vg6yrbqOVIKTerlcVAvXP0g+WzVUYrd5yH/+QE=;
- b=XA6S+wcg4qscUKPhrHfs9id0ov3mJw7DOLhvASuXhtr999Q3C6XmfJvxjMDGwtF5yP
- /ROSFbhTi6Bo2WJ7XqA7thr54ZyRRqBxFGPRUUpQDwu5dtF1UF2mNn2XKy0/k6KPL5HO
- BWQQP5EMcW2boq2BtlUyF+Cwh1u74WAo1zqdI=
+ :cc; bh=BvsqUUy/O01l4CBRzfrPE1Jc7wO/JNGVxsEuCcHSCWw=;
+ b=Oj1mDz93drUb82Y4dwGcG6EgM1Z32HcAKJ4YfgJCNUqNIvF/kV3bQ3NHUCklnTy4SW
+ 1GD2cx3JJGrezXOK+L9wjvpJ96IV67qydn4ANvKcp7SDWJs80YFbIdORNMRlexi21vaX
+ bIzr8ywtm1/QqdYt2jpgnb8HNzTEWOFg+DmXI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=6kBp8vg6yrbqOVIKTerlcVAvXP0g+WzVUYrd5yH/+QE=;
- b=YxdqMX21i22X2Dvtngl8tJOWmkSV2+B3EnnPbs7MhYnuFs8DAyu5+mCxNPYwvj+0jh
- stXQrZUKFD39DLkStQUCQbgNbwdMa/ZGag3UKGIbUoMVeCJKRp9x45F7a1zO7UVD+d6O
- rwukpMoy8yvNmOh7xUc36witHF0JHrEfDcx1h7uBvFn10yJFQEnJt2oXhdi23yUvuPjf
- b7ndIcDmRKSj0HHOispb6Ty0UnStqX/xecM8+yAYLmhkR4xMyJTAMTHBXtFzj15wVC2I
- 9zjQwuybF478lozLOBrEqQHpLFvHZvRC8mYf/6ZaHp5FSv9rxfflPQbHWXWnGYZc9tTu
- 5NTA==
-X-Gm-Message-State: AOAM533c3RlAuNTTjLG+Wbkyi3K1NHJE8nUEc1Hct+wHxpb3Ecsa8pDm
- T2wEEv381d7tNJJUvPz4vCv+RjDWS2z7L+/NPjLL
-X-Google-Smtp-Source: ABdhPJw1sNKFekdI1Ln5GFGtrd+fGGKvAqudNs0O/HZL6Z2vY9+JbXh7u0IWSx+tE6iFXOzqgaQ/prFDh7B5VuUxCDI=
-X-Received: by 2002:a25:d015:: with SMTP id h21mr25548749ybg.202.1627336390145; 
- Mon, 26 Jul 2021 14:53:10 -0700 (PDT)
+ bh=BvsqUUy/O01l4CBRzfrPE1Jc7wO/JNGVxsEuCcHSCWw=;
+ b=Kav3TLpOiPQpDp8xqcd0+2louD3ZV71xPDQnf2QxqA/rro11y/Ayt1m+ktJcJDXc7f
+ 3IoEhqwWKwzP/OAtxo7b8mNLLmI7KOWXWGT7wJgrstrHTYkthdx8cyHfutmgp81TidX6
+ ax/Yj1gxs9qoOMdrMQHNMqyPEKf71yiKdJkVupuXYDh9CsZLdMnyrvh2KXlX0UYzQzG7
+ ply0/1qqtphAz20C1PLWcgkH026OCueW3N2nBumZgUKqLfjBcoouTKVptnJy/AYDPOae
+ UC2ZUmBF/eBkv9ABmpFo1SlVqqo6Fpak19AFeDnXBtTqR9+5nNze0Bmjgzvk7GVcEvuL
+ BfTw==
+X-Gm-Message-State: AOAM533ZSEiMT98vmibTVkvOsYkEcT3IdYNKNLe1Z3tAAZ0DkauzkB7a
+ Qq2DH6/DJmtIrt6cZtSTmBo/bUhB2TMBut/L9QDW
+X-Google-Smtp-Source: ABdhPJz2EUkj2zAeJLmOGn6kDSu8McU02FKdlq3ZbpM5EcX89ffvE35I5g7gwLzw3lEJ0O8h/gzUiEZysEgj2Z7EPDA=
+X-Received: by 2002:a25:3289:: with SMTP id y131mr5835871yby.317.1627339684970; 
+ Mon, 26 Jul 2021 15:48:04 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210723214031.3251801-1-atish.patra@wdc.com>
- <20210723214031.3251801-2-atish.patra@wdc.com>
- <20210726065657.GA9035@lst.de>
-In-Reply-To: <20210726065657.GA9035@lst.de>
+ <20210723214031.3251801-4-atish.patra@wdc.com>
+ <20210726070030.GB9035@lst.de>
+In-Reply-To: <20210726070030.GB9035@lst.de>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 26 Jul 2021 14:52:59 -0700
-Message-ID: <CAOnJCUJFOZsqC2F9sqJqYw5bLJK0fQS+w=Rp6PeM2ih=75Cxag@mail.gmail.com>
-Subject: Re: [RFC 1/5] RISC-V: Implement arch_sync_dma* functions
+Date: Mon, 26 Jul 2021 15:47:54 -0700
+Message-ID: <CAOnJCU+qRznBTn9Mt6t_DE6UUz6_LuaBBuOmnURS2Yh3pmpjvg@mail.gmail.com>
+Subject: Re: [RFC 3/5] dma-mapping: Enable global non-coherent pool support
+ for RISC-V
 To: Christoph Hellwig <hch@lst.de>
 Cc: Atish Patra <atish.patra@wdc.com>, devicetree <devicetree@vger.kernel.org>,
  Albert Ou <aou@eecs.berkeley.edu>, Tobias Klauser <tklauser@distanz.ch>, 
@@ -81,8 +82,8 @@ Cc: Atish Patra <atish.patra@wdc.com>, devicetree <devicetree@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Frank Rowand <frowand.list@gmail.com>, Dmitry Vyukov <dvyukov@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210726_145311_985187_E22FB783 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20210726_154806_535626_E5EBDB1B 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +100,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 25, 2021 at 11:57 PM Christoph Hellwig <hch@lst.de> wrote:
+On Mon, Jul 26, 2021 at 12:00 AM Christoph Hellwig <hch@lst.de> wrote:
 >
-> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> > +struct riscv_dma_cache_sync {
-> > +     void (*cache_invalidate)(phys_addr_t paddr, size_t size);
-> > +     void (*cache_clean)(phys_addr_t paddr, size_t size);
-> > +     void (*cache_flush)(phys_addr_t paddr, size_t size);
-> > +};
-> > +
-> > +void riscv_dma_cache_sync_set(struct riscv_dma_cache_sync *ops);
-> > +#endif
+> On Fri, Jul 23, 2021 at 02:40:29PM -0700, Atish Patra wrote:
+> > Currently, linux,dma-default is used to reserve a global non-coherent pool
+> > to allocate memory for dma operations. This can be useful for RISC-V as
+> > well as the ISA specification doesn't specify a method to modify PMA
+> > attributes or page table entries to define non-cacheable area yet.
+> > A non-cacheable memory window is an alternate options for vendors to
+> > support non-coherent devices.
 >
-> As told a bunch of times before: doing indirect calls here is a
-> performance nightmare.  Use something that actually does perform
-> horribly like alternatives.  Or even delay implementing that until
-> we need it and do a plain direct call for now.
+> Please explain why you do not want to use the simply non-cachable
+> window support using arch_dma_set_uncached as used by mips, niops2 and
+> xtensa.
 >
 
-I was initially planning to replace this with alternatives in the
-future versions. But there is no point in doing it
-until we have CMO spec finalized. We also don't have any other
-platform using these apart from sifive l2
-cache controllers for now.
+arch_dma_set_uncached works as well in this case. However, mips,
+niops2 & xtensa uses a
+fixed (via config) value for the offset. Similar approach can't be
+used here because the platform specific
+offset value has to be determined at runtime so that a single kernel
+image can boot on all platforms.
+That's why we need the following additional changes for RISC-V to make it work.
 
-I will change these to direct for now.
+1. a new DT property so that arch specific code is aware of the
+non-cacheable window offset.
+    - either under /chosen node or a completely separate node with
+multiple non-cacheable window support
+   We also need to define how it is going to referenced from
+individual device if a per-device non-cacheable
+   window support is required in future. As of now, the beagleV memory
+region lies in 0x10_0000_00000 - x17_FFFF_FFFF
+   which is mapped to start of DRAM 0x80000000. All of the
+non-coherent devices can do 32bit DMA only.
 
-> static void __dma_sync(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> > +{
-> > +     if ((dir == DMA_FROM_DEVICE) && (dma_cache_sync->cache_invalidate))
-> > +             dma_cache_sync->cache_invalidate(paddr, size);
-> > +     else if ((dir == DMA_TO_DEVICE) && (dma_cache_sync->cache_clean))
-> > +             dma_cache_sync->cache_clean(paddr, size);
-> > +     else if ((dir == DMA_BIDIRECTIONAL) && dma_cache_sync->cache_flush)
-> > +             dma_cache_sync->cache_flush(paddr, size);
-> > +}
+2. Use the dma-ranges and modify the arch_dma_set_uncached function to
+pass the struct device as an argument.
+
+Either way, we will need arch specific hook ups and additional changes
+while the global non-coherent pool
+provides a more elegant solution without any additional arch specific code.
+
+If arch_dma_set_uncached is still preferred way to solve this problem,
+I can revise the patch with either approach 1 or approach 2
+
+> > +static int __dma_init_global_coherent(phys_addr_t phys_addr, dma_addr_t device_addr, size_t size)
 >
-> The seletion of flush types is completely broken.  Take a look at the
-> comment in arch/arc/mm/dma.c above arch_sync_dma_for_device for a good
-> explanation.
 >
-
-Thanks. I will fix it.
-
-> > +void arch_dma_prep_coherent(struct page *page, size_t size)
-> > +{
-> > +     void *flush_addr = page_address(page);
-> > +
-> > +     memset(flush_addr, 0, size);
 >
-> arch_dma_prep_coherent is not supposed to modify the content of
-> the data.
+>
+> >  {
+> >       struct dma_coherent_mem *mem;
+> >
+> > -     mem = dma_init_coherent_memory(phys_addr, phys_addr, size, true);
+> > +     if (phys_addr == device_addr)
+> > +             mem = dma_init_coherent_memory(phys_addr, device_addr, size, true);
+> > +     else
+> > +             mem = dma_init_coherent_memory(phys_addr, device_addr, size, false);
+>
+> Nak.  The phys_addr != device_addr support is goign away.  This needs
 
-Sorry. This was a leftover from some experimental code. It shouldn't
-have been included.
+ok.
+
+> to be filled in using dma-ranges property hanging of the struct device.
+
+struct device is only accessible in rmem_dma_device_init. I couldn't
+find a proper way to access it during
+dma_reserved_default_memory setup under global pool.
+
+Does that mean we should use a per-device memory pool instead of a
+global non-coherent pool ?
 
 > _______________________________________________
 > iommu mailing list
