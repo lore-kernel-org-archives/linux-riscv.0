@@ -2,60 +2,75 @@ Return-Path: <SRS0=BMZi=MU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E354C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 11:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD587C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 12:54:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E1AD60F93
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 11:55:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 700C960F9E
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 12:54:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 700C960F9E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROl2WEUfTHoNTad1zYWUbDmIRpiqyBF3z1miaw/uSs8=; b=Y9uxwY6wLdAkuE/9sC4Y8+mR96
-	c2fb48pYjsCRMKJr1i3kLhyW0kxt9crDqDKDxWbZ2ez9/JfbuZ+PWI99trWVTmRWQgldNem4Mz/r6
-	v4q0HNCbhWN+vcxwuAQ90iK4ZQHpk1IckwNbdoaQbEYTvJuTwk5IqgTizkZkuCAgAOpiXFX1iBgk9
-	NalXjS8WdTOh5n1EQhOQrFGp40MhhUpOQdUqyJpK/z06h/Q0ADEEqMI2t0eb5DoqHY6a5LxLfzBCH
-	8udalMwVNQjWGkksNF2qr83qvAL7XZt+6ob2GFxsD/YBUYBwNaLClKFuhQ3UF0XY1rZyvtgJv1+Th
-	/hB/LCnw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LfmbuTja9NYuqbzpZXAVA+rF4NzA1P9rYXjMOLVnQjA=; b=B0fQVQyPFVZw+2
+	kO6ROwH0DaJDYgjTorgqevaiUQKBg4YNAzrBOIECJqsOlfZwY9DWMTG+l4MaItsW4FLPrdU7iQCvT
+	kRg4NtonWJ+m524GaePA6L5hJzAkksX5mKAF8qn/s6h9At6aEIQV2dle4TcWYbqIG5BRc6MOzCYyf
+	gKjhVyWlQFaYFBBMq1PhE0GOdIBRNC68sMYUGMYJLzHj8Uqj6zkSDNWbtAVOaA5elKVTIBjQWj/q/
+	NFU5qxjcmyctRmX6WVHdW5KWXrPFSTRrF9BHwKXeyhOvbCqw9JrwBPcaeqO8RpfPCaB0ZK0GQR0Ez
+	/rl0GbddWiC56IAPAcnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m8i9a-000Zov-M6; Wed, 28 Jul 2021 11:55:14 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1m8j3f-000jLd-Md; Wed, 28 Jul 2021 12:53:11 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m8i9W-000ZoL-B5
- for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 11:55:12 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id 2469B4000D;
- Wed, 28 Jul 2021 11:55:01 +0000 (UTC)
-Subject: Re: [PATCH v2 -next] riscv: mm: remove redundant trampoline PGD for
- 64bit
-To: Nanyong Sun <sunnanyong@huawei.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, anup.patel@wdc.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- palmerdabbelt@google.com, atish.patra@wdc.com, wangkefeng.wang@huawei.com,
- tiantao6@hisilicon.com, qiuwenbo@phytium.com.cn, rppt@kernel.org,
- jszhang@kernel.org, mick@ics.forth.gr
-References: <20210728024910.1417720-1-sunnanyong@huawei.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <3199c658-ffac-729d-d93d-8895e7d3668e@ghiti.fr>
-Date: Wed, 28 Jul 2021 13:55:01 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ id 1m8j3c-000jLK-OR
+ for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 12:53:10 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D9C2E60FC4;
+ Wed, 28 Jul 2021 12:53:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1627476788;
+ bh=uVs06J6Sp0nm7rKdLCNuLO/owrULe5dkBXVfD8Ww5vE=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=G/faYnN3UaBN3B4xIHIKWqE5hItl6PNO4fcX6B9/fhP2vRecEWniGPj/DGuP74hnz
+ NNJBFupVHrEVdCyQ19KJM0OlpQBGpgiROFQ5/6H9uvN+tFmu08+87Icn6uoQNiqjPa
+ vC4rrZheFMLK8yy5LDm3HZT5APN5gQrutrVbMLDT4RI0aKxjgiwxx19zGYUtUy4UTj
+ oimAgvdikHrUJSR0QIUaouf2fbu3c8vPX3OKZKeQVLWIojcQ5c/qITQReGJgTi94mP
+ DEMqs6HRqk3llsf2nKmASpsGOm7Ltgl+Yz/2jVJ00iGzkkwcorRHDi/Vg71IEY/AH+
+ g4KcFpr+9BA9A==
+Date: Wed, 28 Jul 2021 15:52:58 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Alex Ghiti <alex@ghiti.fr>
+Cc: Kenneth Lee <nek.in.cn@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@wdc.com>, Kenneth Lee <liguozhu@hisilicon.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Vitaly Wool <vitaly.wool@konsulko.com>, Guo Ren <guoren@linux.alibaba.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guohanjun@huawei.com, wangzhou1@hisilicon.com
+Subject: Re: [PATCH] riscv: fix the global name pfn_base confliction error
+Message-ID: <YQFTKtNmqorzsv6a@kernel.org>
+References: <20210728064318.375747-1-nek.in.cn@gmail.com>
+ <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
 MIME-Version: 1.0
-In-Reply-To: <20210728024910.1417720-1-sunnanyong@huawei.com>
-Content-Language: fr
+Content-Disposition: inline
+In-Reply-To: <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210728_045510_702942_511D8349 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20210728_055308_867081_E2C9E395 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,210 +82,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 28/07/2021 =E0 04:49, Nanyong Sun a =E9crit=A0:
-> Remove redundant trampoline PGD for 64bit and add more comment
-> for why 32bit systems need trampoline PGD.
+On Wed, Jul 28, 2021 at 09:19:16AM +0200, Alex Ghiti wrote:
+> Hi Kenneth,
 > =
 
-> There was a patch and discussion similar to this,refer to
-> the link [1][2].
+> Le 28/07/2021 =E0 08:43, Kenneth Lee a =E9crit=A0:
+> > From: Kenneth Lee <liguozhu@hisilicon.com>
+> > =
+
+> > RISCV use a global variable pfn_base for page/pfn translation. But this
+> > is a common name and will be used elsewhere. In those case,
+> > the page-pfn macro which refer this name will refer to the local/input
+> > variable of those function (such as in vfio_pin_pages_remote). This make
+> > everything wrong.
+> > =
+
+> > This patch change the name from pfn_base to riscv_global_pfn_base to fix
+> > this problem
 > =
 
-> The trampoline PGD is redundant for 64bit systems because:
-> 1. The early PGD covers the entire kernel mapping. Directly
-> loading early PGD can achieve the result in boot stage.
-> A more trampoline PGD makes code hard to understand.
-> 2. Directly loading early PGD is safe in 64bit systems since
-> the kernel virtual address starts as 0xFFFFxxxxxxxxxxxx,
-> which has a very big gap with RAM address.It won't fall into
-> the corner case that 32bit system worrys.
-> 3. Remove redundant trampoline PGD can benefit to code maintaince,
-> because 64bit systems have more page table levels.For example:
-> If we want to support SV48 which has 4 page table levels, we have
-> to add a trampoline_pud and insert it before trampoline_pmd.
+> What about removing this variable entirely and using
+> PFN_DOWN(kernel_map.phys_addr) directly in ARCH_PFN_OFFSET definition? Th=
+at
+> would remove code from mm/init.c, which is nice :)
+
+That would be nice, but such change would also change the generated code.
+Probably nothing important, but someone would have to at least check what
+size and bloat-o-meter say.
+ =
+
+> Thanks,
 > =
 
-> Reference link:
-> [1]https://lore.kernel.org/linux-riscv/20190325092234.5451-4-anup.patel@w=
-dc.com/
-> [2]https://lkml.org/lkml/2019/3/28/147
+> Alex
 > =
 
-> Signed-off-by: Nanyong Sun <sunnanyong@huawei.com>
-> Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
+> > =
 
-I have not reviewed this patch yet! :)
+> > Signed-off-by: Kenneth Lee <liguozhu@hisilicon.com>
+> > ---
+> >   arch/riscv/include/asm/page.h | 4 ++--
+> >   arch/riscv/mm/init.c          | 6 +++---
+> >   2 files changed, 5 insertions(+), 5 deletions(-)
+> > =
 
-> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Reviewed-by: weiyongjun <weiyongjun1@huawei.com>
-> ---
-> v2 changes:
->    Adjust codes based on the review suggestions from Alex Ghiti,
->    make codes more readable.
-> ---
->   arch/riscv/kernel/head.S | 46 ++++++++++++++++++++++++++--------------
->   arch/riscv/mm/init.c     | 16 ++++----------
->   2 files changed, 34 insertions(+), 28 deletions(-)
-> =
+> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/pag=
+e.h
+> > index cca8764aed83..8711e415f37c 100644
+> > --- a/arch/riscv/include/asm/page.h
+> > +++ b/arch/riscv/include/asm/page.h
+> > @@ -79,8 +79,8 @@ typedef struct page *pgtable_t;
+> >   #endif
+> >   #ifdef CONFIG_MMU
+> > -extern unsigned long pfn_base;
+> > -#define ARCH_PFN_OFFSET		(pfn_base)
+> > +extern unsigned long riscv_global_pfn_base;
+> > +#define ARCH_PFN_OFFSET		(riscv_global_pfn_base)
+> >   #else
+> >   #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
+> >   #endif /* CONFIG_MMU */
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index a14bf3910eec..2ce4e9a46ca0 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -228,8 +228,8 @@ static struct pt_alloc_ops _pt_ops __initdata;
+> >   #define pt_ops _pt_ops
+> >   #endif
+> > -unsigned long pfn_base __ro_after_init;
+> > -EXPORT_SYMBOL(pfn_base);
+> > +unsigned long riscv_global_pfn_base __ro_after_init;
+> > +EXPORT_SYMBOL(riscv_global_pfn_base);
+> >   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+> >   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+> > @@ -572,7 +572,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+> >   	kernel_map.va_kernel_pa_offset =3D kernel_map.virt_addr - kernel_map=
+.phys_addr;
+> >   #endif
+> > -	pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
+> > +	riscv_global_pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
+> >   	/*
+> >   	 * Enforce boot alignment requirements of RV32 and
+> > =
 
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index fce5184b22c3..3816aa5edc69 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -89,29 +89,52 @@ relocate:
->   	add ra, ra, a1
->   =
 
->   	/* Point stvec to virtual address of intruction after satp write */
-> -	la a2, 1f
-> +#ifdef CONFIG_64BIT
-> +	la a2, load_done
-> +#else
-> +	la a2, load_kernel_pgd
-> +#endif
->   	add a2, a2, a1
->   	csrw CSR_TVEC, a2
->   =
+-- =
 
-> -	/* Compute satp for kernel page tables, but don't load it yet */
-> +	/* Compute satp for kernel page tables.
-> +	 * For 64bit systems, load it and trap to stvec.
-> +	 * For 32bit systems, don't load it yet.
-> +	 */
->   	srl a2, a0, PAGE_SHIFT
->   	li a1, SATP_MODE
->   	or a2, a2, a1
->   =
-
->   	/*
-> +	 * Before writing satp, we need a full fence here because setup_vm() ju=
-st
-> +	 * wrote these PTEs and we need to ensure the new translations are in u=
-se.
-> +	 */
-> +	sfence.vma
-> +#ifndef CONFIG_64BIT
-> +	/*
-> +	 * 32bit systems need firstly loading a trampoline to handle a corner
-> +	 * case where load address range overlaps kernel virtual address range.
->   	 * Load trampoline page directory, which will cause us to trap to
-> -	 * stvec if VA !=3D PA, or simply fall through if VA =3D=3D PA.  We nee=
-d a
-> -	 * full fence here because setup_vm() just wrote these PTEs and we need
-> -	 * to ensure the new translations are in use.
-> +	 * stvec if VA !=3D PA, or simply fall through if VA =3D=3D PA.
->   	 */
->   	la a0, trampoline_pg_dir
->   	XIP_FIXUP_OFFSET a0
->   	srl a0, a0, PAGE_SHIFT
->   	or a0, a0, a1
-> -	sfence.vma
->   	csrw CSR_SATP, a0
-> +#endif
->   .align 2
-> -1:
-> +load_kernel_pgd:
-> +        /*
-> +         * Switch to kernel page tables.  A full fence is necessary in o=
-rder to
-> +         * avoid using the trampoline translations, which are only corre=
-ct for
-> +         * the first superpage.  Fetching the fence is guarnteed to work
-> +         * because that first superpage is translated the same way.
-> +         */
-> +        csrw CSR_SATP, a2
-> +        sfence.vma
-> +
-> +load_done:
->   	/* Set trap vector to spin forever to help debug */
->   	la a0, .Lsecondary_park
->   	csrw CSR_TVEC, a0
-> @@ -122,15 +145,6 @@ relocate:
->   	la gp, __global_pointer$
->   .option pop
->   =
-
-> -	/*
-> -	 * Switch to kernel page tables.  A full fence is necessary in order to
-> -	 * avoid using the trampoline translations, which are only correct for
-> -	 * the first superpage.  Fetching the fence is guarnteed to work
-> -	 * because that first superpage is translated the same way.
-> -	 */
-> -	csrw CSR_SATP, a2
-> -	sfence.vma
-> -
->   	ret
->   #endif /* CONFIG_MMU */
->   #ifdef CONFIG_SMP
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index ac48742fa6fc..306fcb2334fa 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -219,13 +219,17 @@ unsigned long pfn_base __ro_after_init;
->   EXPORT_SYMBOL(pfn_base);
->   =
-
->   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> +#ifndef CONFIG_64BIT
->   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> +#endif /* CONFIG_64BIT */
->   static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
->   =
-
->   pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->   =
-
->   #ifdef CONFIG_XIP_KERNEL
-> +#ifndef CONFIG_64BIT
->   #define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
-> +#endif /* CONFIG_64BIT */
->   #define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
->   #define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
->   #endif /* CONFIG_XIP_KERNEL */
-> @@ -300,13 +304,11 @@ static void __init create_pte_mapping(pte_t *ptep,
->   =
-
->   #ifndef __PAGETABLE_PMD_FOLDED
->   =
-
-> -static pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
->   static pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
->   static pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->   static pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE=
-);
->   =
-
->   #ifdef CONFIG_XIP_KERNEL
-> -#define trampoline_pmd ((pmd_t *)XIP_FIXUP(trampoline_pmd))
->   #define fixmap_pmd     ((pmd_t *)XIP_FIXUP(fixmap_pmd))
->   #define early_pmd      ((pmd_t *)XIP_FIXUP(early_pmd))
->   #endif /* CONFIG_XIP_KERNEL */
-> @@ -585,16 +587,6 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->   	/* Setup fixmap PMD */
->   	create_pmd_mapping(fixmap_pmd, FIXADDR_START,
->   			   (uintptr_t)fixmap_pte, PMD_SIZE, PAGE_TABLE);
-> -	/* Setup trampoline PGD and PMD */
-> -	create_pgd_mapping(trampoline_pg_dir, kernel_map.virt_addr,
-> -			   (uintptr_t)trampoline_pmd, PGDIR_SIZE, PAGE_TABLE);
-> -#ifdef CONFIG_XIP_KERNEL
-> -	create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
-> -			   kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
-> -#else
-> -	create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
-> -			   kernel_map.phys_addr, PMD_SIZE, PAGE_KERNEL_EXEC);
-> -#endif
->   #else
->   	/* Setup trampoline PGD */
->   	create_pgd_mapping(trampoline_pg_dir, kernel_map.virt_addr,
-> =
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
