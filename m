@@ -7,62 +7,74 @@ X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27B73C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 07:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6317BC4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 07:22:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 99C5760F00
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 07:21:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 99C5760F00
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id EAA9260F00
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 07:22:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EAA9260F00
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	CC:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2N1i/U3GN1IIReSaIcq6p8eeDxryaoaP8ZdK/VVTrtM=; b=uS4Qq+o6sXwCyspwDrg9YRTCLw
-	AnUDtT9W1cAOcOOnn6jBBz6UITq/VVc+AmbN/DJUohTJyP9zyZ7RPXxKvg8K1mT+QOXZw6CA2H+Ed
-	fk2xsRbILUajeBjy1jAMPWQLmZIUW9gt9bnqPPAFgvBOq7Iez9uXVBAih1n4hnA2mmos5S+ZbPyI8
-	/4HcGXxlO7ad3pfQctkdWneYtdcwQ8XzihnbyeXgIBhNSveuUt3D2g61nKb5vRAbRWzXWcGihOUXI
-	CaGmIgmxK/rFfR8baoxhmkI8L5x5/itbQwC8EfiEZZ+gaoKvIhJbNNqsoavsea97fBpeb2DzbpDVC
-	AAQJn3eQ==;
+	bh=BeVznmcXocWRTAwHg4+puCjfHuF3WGc78iRTYv3Xy8o=; b=ubwvNpZi+EX1Rbect+HvCR1gj3
+	TC0vS6xteUQF5JkT6ccfkB06qqbaVHIhZ2rYqeu1EjDrnxj0Y243nxBs4d+4kRM7RtYrZKIR+uARu
+	c7eNvM4PBi0QszJJKJjXJmH2hlKxndNWvEG4ybVTjopqvVt1vgbcG8EhPY1ErFeyZ/16la0Dyui2u
+	jm9E8vcan5oOTz0GqUpUPRkWlmuoeWJG4gTaP2eOmo7JagWWHIRH0wKBU1NWRd/deq6k4E+x8Nk1c
+	7iRGXl90Mj6R0JgXeP+nxM/hFw38zE/K+dnV0EV41vHipeumupmDeBIDSuReOWKiTSCw6wiPvlD6A
+	6Jr+VJ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m8dqm-00HLon-Pg; Wed, 28 Jul 2021 07:19:32 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1m8dtm-00HMV8-2y; Wed, 28 Jul 2021 07:22:38 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m8dqj-00HLnz-2E
- for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 07:19:30 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id 4CA9D4000A;
- Wed, 28 Jul 2021 07:19:17 +0000 (UTC)
+ id 1m8dtd-00HMPK-Ub
+ for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 07:22:31 +0000
+Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.57])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4GZQ276VbKzYhPw;
+ Wed, 28 Jul 2021 15:16:31 +0800 (CST)
+Received: from dggpemm500002.china.huawei.com (7.185.36.229) by
+ dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Wed, 28 Jul 2021 15:22:16 +0800
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemm500002.china.huawei.com (7.185.36.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Wed, 28 Jul 2021 15:22:13 +0800
 Subject: Re: [PATCH] riscv: fix the global name pfn_base confliction error
-To: Kenneth Lee <nek.in.cn@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>,
- Kenneth Lee <liguozhu@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Vitaly Wool <vitaly.wool@konsulko.com>, Guo Ren <guoren@linux.alibaba.com>,
- Jisheng Zhang <jszhang@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: guohanjun@huawei.com, wangzhou1@hisilicon.com
+From: Hanjun Guo <guohanjun@huawei.com>
+To: Kenneth Lee <nek.in.cn@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel
+ <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, Kenneth Lee
+ <liguozhu@hisilicon.com>, Kefeng Wang <wangkefeng.wang@huawei.com>, "Vitaly
+ Wool" <vitaly.wool@konsulko.com>, Guo Ren <guoren@linux.alibaba.com>,
+ "Jisheng Zhang" <jszhang@kernel.org>, Mike Rapoport <rppt@kernel.org>, Nick
+ Kossifidis <mick@ics.forth.gr>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+CC: <wangzhou1@hisilicon.com>
 References: <20210728064318.375747-1-nek.in.cn@gmail.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
-Date: Wed, 28 Jul 2021 09:19:16 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ <0b813cde-ca37-9b83-c0c5-ce9f6b8eab3c@huawei.com>
+Message-ID: <27b3ce52-5d88-90e3-8509-c032bda1f559@huawei.com>
+Date: Wed, 28 Jul 2021 15:22:13 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-In-Reply-To: <20210728064318.375747-1-nek.in.cn@gmail.com>
-Content-Language: fr
+In-Reply-To: <0b813cde-ca37-9b83-c0c5-ce9f6b8eab3c@huawei.com>
+Content-Language: en-GB
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500002.china.huawei.com (7.185.36.229)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210728_001929_287532_10EB77E8 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20210728_002230_391337_EAC35BD4 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +86,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Kenneth,
-
-Le 28/07/2021 =E0 08:43, Kenneth Lee a =E9crit=A0:
-> From: Kenneth Lee <liguozhu@hisilicon.com>
-> =
-
-> RISCV use a global variable pfn_base for page/pfn translation. But this
-> is a common name and will be used elsewhere. In those case,
-> the page-pfn macro which refer this name will refer to the local/input
-> variable of those function (such as in vfio_pin_pages_remote). This make
-> everything wrong.
-> =
-
-> This patch change the name from pfn_base to riscv_global_pfn_base to fix
-> this problem
-
-What about removing this variable entirely and using =
-
-PFN_DOWN(kernel_map.phys_addr) directly in ARCH_PFN_OFFSET definition? =
-
-That would remove code from mm/init.c, which is nice :)
-
-Thanks,
-
-Alex
-
-> =
-
-> Signed-off-by: Kenneth Lee <liguozhu@hisilicon.com>
-> ---
->   arch/riscv/include/asm/page.h | 4 ++--
->   arch/riscv/mm/init.c          | 6 +++---
->   2 files changed, 5 insertions(+), 5 deletions(-)
-> =
-
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index cca8764aed83..8711e415f37c 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -79,8 +79,8 @@ typedef struct page *pgtable_t;
->   #endif
->   =
-
->   #ifdef CONFIG_MMU
-> -extern unsigned long pfn_base;
-> -#define ARCH_PFN_OFFSET		(pfn_base)
-> +extern unsigned long riscv_global_pfn_base;
-> +#define ARCH_PFN_OFFSET		(riscv_global_pfn_base)
->   #else
->   #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
->   #endif /* CONFIG_MMU */
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index a14bf3910eec..2ce4e9a46ca0 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -228,8 +228,8 @@ static struct pt_alloc_ops _pt_ops __initdata;
->   #define pt_ops _pt_ops
->   #endif
->   =
-
-> -unsigned long pfn_base __ro_after_init;
-> -EXPORT_SYMBOL(pfn_base);
-> +unsigned long riscv_global_pfn_base __ro_after_init;
-> +EXPORT_SYMBOL(riscv_global_pfn_base);
->   =
-
->   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> @@ -572,7 +572,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->   	kernel_map.va_kernel_pa_offset =3D kernel_map.virt_addr - kernel_map.p=
-hys_addr;
->   #endif
->   =
-
-> -	pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
-> +	riscv_global_pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
->   =
-
->   	/*
->   	 * Enforce boot alignment requirements of RV32 and
-> =
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMS83LzI4IDE1OjEzLCBIYW5qdW4gR3VvIHdyb3RlOgo+IE9uIDIwMjEvNy8yOCAxNDo0
+MywgS2VubmV0aCBMZWUgd3JvdGU6Cj4+IEZyb206IEtlbm5ldGggTGVlIDxsaWd1b3podUBoaXNp
+bGljb24uY29tPgo+Pgo+PiBSSVNDViB1c2UgYSBnbG9iYWwgdmFyaWFibGUgcGZuX2Jhc2UgZm9y
+IHBhZ2UvcGZuIHRyYW5zbGF0aW9uLiBCdXQgdGhpcwo+PiBpcyBhIGNvbW1vbiBuYW1lIGFuZCB3
+aWxsIGJlIHVzZWQgZWxzZXdoZXJlLiBJbiB0aG9zZSBjYXNlLAo+PiB0aGUgcGFnZS1wZm4gbWFj
+cm8gd2hpY2ggcmVmZXIgdGhpcyBuYW1lIHdpbGwgcmVmZXIgdG8gdGhlIGxvY2FsL2lucHV0Cj4+
+IHZhcmlhYmxlIG9mIHRob3NlIGZ1bmN0aW9uIChzdWNoIGFzIGluIHZmaW9fcGluX3BhZ2VzX3Jl
+bW90ZSkuIFRoaXMgbWFrZQo+PiBldmVyeXRoaW5nIHdyb25nLgo+Pgo+PiBUaGlzIHBhdGNoIGNo
+YW5nZSB0aGUgbmFtZSBmcm9tIHBmbl9iYXNlIHRvIHJpc2N2X2dsb2JhbF9wZm5fYmFzZSB0byBm
+aXgKPj4gdGhpcyBwcm9ibGVtCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEtlbm5ldGggTGVlIDxsaWd1
+b3podUBoaXNpbGljb24uY29tPgo+PiAtLS0KPj4gwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+YWdlLmggfCA0ICsrLS0KPj4gwqAgYXJjaC9yaXNjdi9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKg
+wqAgfCA2ICsrKy0tLQo+PiDCoCAyIGZpbGVzIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgNSBk
+ZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFn
+ZS5oIAo+PiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCj4+IGluZGV4IGNjYTg3NjRh
+ZWQ4My4uODcxMWU0MTVmMzdjIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3BhZ2UuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+PiBAQCAtNzks
+OCArNzksOCBAQCB0eXBlZGVmIHN0cnVjdCBwYWdlICpwZ3RhYmxlX3Q7Cj4+IMKgICNlbmRpZgo+
+PiDCoCAjaWZkZWYgQ09ORklHX01NVQo+PiAtZXh0ZXJuIHVuc2lnbmVkIGxvbmcgcGZuX2Jhc2U7
+Cj4+IC0jZGVmaW5lIEFSQ0hfUEZOX09GRlNFVMKgwqDCoMKgwqDCoMKgIChwZm5fYmFzZSkKPj4g
+K2V4dGVybiB1bnNpZ25lZCBsb25nIHJpc2N2X2dsb2JhbF9wZm5fYmFzZTsKPj4gKyNkZWZpbmUg
+QVJDSF9QRk5fT0ZGU0VUwqDCoMKgwqDCoMKgwqAgKHJpc2N2X2dsb2JhbF9wZm5fYmFzZSkKPj4g
+wqAgI2Vsc2UKPj4gwqAgI2RlZmluZSBBUkNIX1BGTl9PRkZTRVTCoMKgwqDCoMKgwqDCoCAoUEFH
+RV9PRkZTRVQgPj4gUEFHRV9TSElGVCkKPj4gwqAgI2VuZGlmIC8qIENPTkZJR19NTVUgKi8KPj4g
+ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMK
+Pj4gaW5kZXggYTE0YmYzOTEwZWVjLi4yY2U0ZTlhNDZjYTAgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gv
+cmlzY3YvbW0vaW5pdC5jCj4+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+IEBAIC0yMjgs
+OCArMjI4LDggQEAgc3RhdGljIHN0cnVjdCBwdF9hbGxvY19vcHMgX3B0X29wcyBfX2luaXRkYXRh
+Owo+PiDCoCAjZGVmaW5lIHB0X29wcyBfcHRfb3BzCj4+IMKgICNlbmRpZgo+PiAtdW5zaWduZWQg
+bG9uZyBwZm5fYmFzZSBfX3JvX2FmdGVyX2luaXQ7Cj4+IC1FWFBPUlRfU1lNQk9MKHBmbl9iYXNl
+KTsKPj4gK3Vuc2lnbmVkIGxvbmcgcmlzY3ZfZ2xvYmFsX3Bmbl9iYXNlIF9fcm9fYWZ0ZXJfaW5p
+dDsKPj4gK0VYUE9SVF9TWU1CT0wocmlzY3ZfZ2xvYmFsX3Bmbl9iYXNlKTsKPiAKPiBKdXN0IG5p
+dDogSSBkaWRuJ3Qgc2VlIGFueSBkcml2ZXIgaW4ga2VybmVsIHJlZmVycyB0bwo+IHRoZSByaXNj
+dl9nbG9iYWxfcGZuX2Jhc2UsIGNhbiB3ZSBqdXN0IHJlbW92ZSB0aGUgRVhQT1JUX1NZTUJPTCgp
+77yfCgpTb3JyeSwgSSdtIHdyb25nLCB3aWxsIGJlIHVzZWQgYnkgQVJDSF9QRk5fT0ZGU0VULi4u
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
