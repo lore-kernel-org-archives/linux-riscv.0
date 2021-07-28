@@ -2,70 +2,84 @@ Return-Path: <SRS0=BMZi=MU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8F7FC4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 09:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CC270C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 09:50:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5304460187
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 09:08:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5304460187
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 8CD3B60F9C
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 09:50:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8CD3B60F9C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=walle.cc
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
+	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwnquV5zc4ZVUKWaN2ICQee3xZmjooY5OK/iEWtYeKE=; b=kZKy8U/XYM36Hdhq4ZVgaJX4E8
-	uHqjc1ZtYgls5vKXT+LZXEK3JsTP201jKu/kItdkzqRTp57tSmf90hxzbM5aj+O1CJkRCf0Q8A/Tu
-	WTlqSlK6ndo2rsoQz2EDKa0EdH8g2HNnRyu5zjGia2D4OxeuXN1QhXo/Ap2jo4xfTh4oqQCLBjJjH
-	+gaJYrpF9m4Ql4bt26nA5L3B0c1VlGnVD9LnFRgq2xSqK1zvM8q/cS+m8/3CgJORkWB+GNgXxs91C
-	o8p/hlqm7tsNqMcd8RI2AeEnbdcUAvSNH4FRtcakIYy4ceoxGwiX9voHSo1D6L2QvL5617yrhNq86
-	GIo6wnuA==;
+	bh=IowiR0cotjbHH5PYaApRXFE9OKA2X9MZl+EIeEwtI80=; b=XLOLsR7EK4+hcZ0VbZPTbMdEzZ
+	ziM+DS5LeUdhvtow03IgwoA02cxfWimDi8oVrUoA5AvzchHFD9OI5qyKFs8tVE2IFnrCGe9tAxoKE
+	zvWKqNyuBtHlwr4kMqmKrBAUNQVz3V2/tk0xsI9TvrsRSc5cwT5jcZIVGRLnCm2iCBRC+/yQWyG37
+	cwA+eb3wv0qURtWWlRqBtB0H3CHadTXA4eiOP7ZkUBbyXoGLy7kevs0CDORX+9bCUZ4+boq0UVd55
+	jzsVaO+8lAAUk30gAzFxHfnDqPM90WOUA/pSA+Bc+F9SPGzQZ8z5caIHAg6c3ZaOcxDrUF0Hq8Eq5
+	lpRd0tAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m8fY4-0005d3-F5; Wed, 28 Jul 2021 09:08:20 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1m8gCL-000GOQ-7b; Wed, 28 Jul 2021 09:49:57 +0000
+Received: from ssl.serverraum.org ([2a01:4f8:151:8464::1:2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m8fXy-0005ZV-UG
- for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 09:08:18 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id BBB541BF20A;
- Wed, 28 Jul 2021 09:08:04 +0000 (UTC)
-Subject: Re: [PATCH] riscv: fix the global name pfn_base confliction error
-To: Lee Ken <nek.in.cn@gmail.com>
-References: <20210728064318.375747-1-nek.in.cn@gmail.com>
- <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
- <CA+CqrBQPou5QuYfHUYzbe7j2AUPpmBQs1HQJgjJo5QtF51LmXw@mail.gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- moi <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@wdc.com>, Kenneth Lee <liguozhu@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Vitaly Wool <vitaly.wool@konsulko.com>, Guo Ren <guoren@linux.alibaba.com>,
- Jisheng Zhang <jszhang@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- "guohanjun@huawei.com" <guohanjun@huawei.com>,
- "wangzhou1@hisilicon.com" <wangzhou1@hisilicon.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <4da4adaf-9bd8-6463-9230-5a3a73f323ba@ghiti.fr>
-Date: Wed, 28 Jul 2021 11:08:03 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ id 1m8gCH-000GLQ-5y
+ for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 09:49:55 +0000
+Received: from ssl.serverraum.org (web.serverraum.org [172.16.0.2])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ssl.serverraum.org (Postfix) with ESMTPSA id 56EE32222E;
+ Wed, 28 Jul 2021 11:49:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc;
+ s=mail2016061301; t=1627465785;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=wSwNdWOzcxnppq8rt6ZnreiwiQj3iUz9ZFkmSObTj88=;
+ b=ZIA9+a1lDl/W8HdwSQ3giERKNld3dgV3jYmBI2BuFt6/p7954j8IvFYmqvsD3YIUWY8RH4
+ BFGBB80iJu+WU3Pevyv0R0XRHsbyMj8uE6VHz2rWWjYnd5hb/M+IY3TmuqMqoCDdzgrzC5
+ sktonDiGJAjXtGBBbuvacNvfIW3PSqs=
 MIME-Version: 1.0
-In-Reply-To: <CA+CqrBQPou5QuYfHUYzbe7j2AUPpmBQs1HQJgjJo5QtF51LmXw@mail.gmail.com>
-Content-Language: fr
+Date: Wed, 28 Jul 2021 11:49:41 +0200
+From: Michael Walle <michael@walle.cc>
+To: Drew Fustini <drew@beagleboard.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring
+ <robh+dt@kernel.org>, Bartosz Golaszewski <bgolaszewski@baylibre.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Fu Wei <tekkamanninja@gmail.com>, linux-kernel
+ <linux-kernel@vger.kernel.org>, "open list:GPIO SUBSYSTEM"
+ <linux-gpio@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Huan
+ Feng <huan.feng@starfivetech.com>
+Subject: Re: [RFC PATH 2/2] gpio: starfive-jh7100: Add StarFive JH7100 GPIO
+ driver
+In-Reply-To: <20210727052851.GA3147871@x1>
+References: <20210701002037.912625-1-drew@beagleboard.org>
+ <20210701002037.912625-3-drew@beagleboard.org>
+ <8c59105d32a9936f8806501ecd20e044@walle.cc>
+ <CACRpkdbhKsuXZiLCh_iajJQWDdQQOZ87QF3xDr5Vc66SoVCnxQ@mail.gmail.com>
+ <20210726071124.GA9184@x1> <dad13b899b69436acc1804b7c3438639@walle.cc>
+ <20210727052851.GA3147871@x1>
+User-Agent: Roundcube Webmail/1.4.11
+Message-ID: <ff76b62927e3f5f016f6c4c11ca16ccf@walle.cc>
+X-Sender: michael@walle.cc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210728_020815_306734_EBB53F69 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20210728_024953_653801_23E241AE 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,91 +91,222 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAyOC8wNy8yMDIxIMOgIDA5OjMzLCBMZWUgS2VuIGEgw6ljcml0wqA6Cj4gT24gV2VkLCBK
-dWwgMjgsIDIwMjEgYXQgMzoxOSBQTSBBbGV4IEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToK
-Pj4KPj4gSGkgS2VubmV0aCwKPj4KPj4gTGUgMjgvMDcvMjAyMSDDoCAwODo0MywgS2VubmV0aCBM
-ZWUgYSDDqWNyaXQgOgo+Pj4gRnJvbTogS2VubmV0aCBMZWUgPGxpZ3Vvemh1QGhpc2lsaWNvbi5j
-b20+Cj4+Pgo+Pj4gUklTQ1YgdXNlIGEgZ2xvYmFsIHZhcmlhYmxlIHBmbl9iYXNlIGZvciBwYWdl
-L3BmbiB0cmFuc2xhdGlvbi4gQnV0IHRoaXMKPj4+IGlzIGEgY29tbW9uIG5hbWUgYW5kIHdpbGwg
-YmUgdXNlZCBlbHNld2hlcmUuIEluIHRob3NlIGNhc2UsCj4+PiB0aGUgcGFnZS1wZm4gbWFjcm8g
-d2hpY2ggcmVmZXIgdGhpcyBuYW1lIHdpbGwgcmVmZXIgdG8gdGhlIGxvY2FsL2lucHV0Cj4+PiB2
-YXJpYWJsZSBvZiB0aG9zZSBmdW5jdGlvbiAoc3VjaCBhcyBpbiB2ZmlvX3Bpbl9wYWdlc19yZW1v
-dGUpLiBUaGlzIG1ha2UKPj4+IGV2ZXJ5dGhpbmcgd3JvbmcuCj4+Pgo+Pj4gVGhpcyBwYXRjaCBj
-aGFuZ2UgdGhlIG5hbWUgZnJvbSBwZm5fYmFzZSB0byByaXNjdl9nbG9iYWxfcGZuX2Jhc2UgdG8g
-Zml4Cj4+PiB0aGlzIHByb2JsZW0KPj4KPj4gV2hhdCBhYm91dCByZW1vdmluZyB0aGlzIHZhcmlh
-YmxlIGVudGlyZWx5IGFuZCB1c2luZwo+PiBQRk5fRE9XTihrZXJuZWxfbWFwLnBoeXNfYWRkcikg
-ZGlyZWN0bHkgaW4gQVJDSF9QRk5fT0ZGU0VUIGRlZmluaXRpb24/Cj4+IFRoYXQgd291bGQgcmVt
-b3ZlIGNvZGUgZnJvbSBtbS9pbml0LmMsIHdoaWNoIGlzIG5pY2UgOikKPj4KPj4gVGhhbmtzLAo+
-Pgo+PiBBbGV4Cj4+Cj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogS2VubmV0aCBMZWUgPGxpZ3Vvemh1
-QGhpc2lsaWNvbi5jb20+Cj4+PiAtLS0KPj4+ICAgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFn
-ZS5oIHwgNCArKy0tCj4+PiAgICBhcmNoL3Jpc2N2L21tL2luaXQuYyAgICAgICAgICB8IDYgKysr
-LS0tCj4+PiAgICAyIGZpbGVzIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgNSBkZWxldGlvbnMo
-LSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+Pj4gaW5kZXggY2NhODc2NGFlZDgzLi44NzEx
-ZTQxNWYzN2MgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+
-Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4+IEBAIC03OSw4ICs3OSw4
-IEBAIHR5cGVkZWYgc3RydWN0IHBhZ2UgKnBndGFibGVfdDsKPj4+ICAgICNlbmRpZgo+Pj4KPj4+
-ICAgICNpZmRlZiBDT05GSUdfTU1VCj4+PiAtZXh0ZXJuIHVuc2lnbmVkIGxvbmcgcGZuX2Jhc2U7
-Cj4+PiAtI2RlZmluZSBBUkNIX1BGTl9PRkZTRVQgICAgICAgICAgICAgIChwZm5fYmFzZSkKPj4+
-ICtleHRlcm4gdW5zaWduZWQgbG9uZyByaXNjdl9nbG9iYWxfcGZuX2Jhc2U7Cj4+PiArI2RlZmlu
-ZSBBUkNIX1BGTl9PRkZTRVQgICAgICAgICAgICAgIChyaXNjdl9nbG9iYWxfcGZuX2Jhc2UpCj4+
-PiAgICAjZWxzZQo+Pj4gICAgI2RlZmluZSBBUkNIX1BGTl9PRkZTRVQgICAgICAgICAgICAgKFBB
-R0VfT0ZGU0VUID4+IFBBR0VfU0hJRlQpCj4+PiAgICAjZW5kaWYgLyogQ09ORklHX01NVSAqLwo+
-Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0
-LmMKPj4+IGluZGV4IGExNGJmMzkxMGVlYy4uMmNlNGU5YTQ2Y2EwIDEwMDY0NAo+Pj4gLS0tIGEv
-YXJjaC9yaXNjdi9tbS9pbml0LmMKPj4+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+PiBA
-QCAtMjI4LDggKzIyOCw4IEBAIHN0YXRpYyBzdHJ1Y3QgcHRfYWxsb2Nfb3BzIF9wdF9vcHMgX19p
-bml0ZGF0YTsKPj4+ICAgICNkZWZpbmUgcHRfb3BzIF9wdF9vcHMKPj4+ICAgICNlbmRpZgo+Pj4K
-Pj4+IC11bnNpZ25lZCBsb25nIHBmbl9iYXNlIF9fcm9fYWZ0ZXJfaW5pdDsKPj4+IC1FWFBPUlRf
-U1lNQk9MKHBmbl9iYXNlKTsKPj4+ICt1bnNpZ25lZCBsb25nIHJpc2N2X2dsb2JhbF9wZm5fYmFz
-ZSBfX3JvX2FmdGVyX2luaXQ7Cj4+PiArRVhQT1JUX1NZTUJPTChyaXNjdl9nbG9iYWxfcGZuX2Jh
-c2UpOwo+Pj4KPj4+ICAgIHBnZF90IHN3YXBwZXJfcGdfZGlyW1BUUlNfUEVSX1BHRF0gX19wYWdl
-X2FsaWduZWRfYnNzOwo+Pj4gICAgcGdkX3QgdHJhbXBvbGluZV9wZ19kaXJbUFRSU19QRVJfUEdE
-XSBfX3BhZ2VfYWxpZ25lZF9ic3M7Cj4+PiBAQCAtNTcyLDcgKzU3Miw3IEBAIGFzbWxpbmthZ2Ug
-dm9pZCBfX2luaXQgc2V0dXBfdm0odWludHB0cl90IGR0Yl9wYSkKPj4+ICAgICAgICBrZXJuZWxf
-bWFwLnZhX2tlcm5lbF9wYV9vZmZzZXQgPSBrZXJuZWxfbWFwLnZpcnRfYWRkciAtIGtlcm5lbF9t
-YXAucGh5c19hZGRyOwo+Pj4gICAgI2VuZGlmCj4+Pgo+Pj4gLSAgICAgcGZuX2Jhc2UgPSBQRk5f
-RE9XTihrZXJuZWxfbWFwLnBoeXNfYWRkcik7Cj4+PiArICAgICByaXNjdl9nbG9iYWxfcGZuX2Jh
-c2UgPSBQRk5fRE9XTihrZXJuZWxfbWFwLnBoeXNfYWRkcik7Cj4+Pgo+Pj4gICAgICAgIC8qCj4+
-PiAgICAgICAgICogRW5mb3JjZSBib290IGFsaWdubWVudCByZXF1aXJlbWVudHMgb2YgUlYzMiBh
-bmQKPj4+Cj4gCj4gWWVzLiBJdCBpcyBhIGNob2ljZS4gQnV0IEkgdGhpbmsgaXQgaXMgdGhlIGNo
-b2ljZSBvZiB0aGUgbWFpbnRhaW5lciBvZgo+IHRoZSBtb2R1bGUuIEhlIHNob3VsZCBoYXZlIGEg
-ZnVsbCBjb25zaWRlcmF0aW9uIG9uIGhvdyB0byBleHBvc2UgdGhlCj4gaW50ZXJmYWNlLiBJJ20g
-bm93IGp1c3Qgd29ya2luZyBmb3IgVkZJTyBlbmFibGVtZW50IGluIFJJU0NWLiBJdCBpcwo+IG5v
-dCB3aXNlIHRvIGJlIHRyYXBwZWQgaW50byB0aGlzOykKPiAKCkkgdGhpbmsgdGhlcmUgaXMgYSBt
-aXN1bmRlcnN0YW5kaW5nLCBJIHN1Z2dlc3RlZCB0byBkbyB0aGUgZm9sbG93aW5nIHRvIApnZXQg
-cmlkIG9mIHBmbl9iYXNlIGVudGlyZWx5OgoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vcGFnZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKaW5kZXggYWRmNWI0
-NjcxNjg0Li44YWZiM2RiNjFlYjAgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cGFnZS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCkBAIC03OSw4ICs3OSw3
-IEBAIHR5cGVkZWYgc3RydWN0IHBhZ2UgKnBndGFibGVfdDsKICAjZW5kaWYKCiAgI2lmZGVmIENP
-TkZJR19NTVUKLWV4dGVybiB1bnNpZ25lZCBsb25nIHBmbl9iYXNlOwotI2RlZmluZSBBUkNIX1BG
-Tl9PRkZTRVQgICAgICAgICAgICAgICAgKHBmbl9iYXNlKQorI2RlZmluZSBBUkNIX1BGTl9PRkZT
-RVQgICAgICAgICAgICAgICAgKFBGTl9ET1dOKGtlcm5lbF9tYXAucGh5c19hZGRyKSkKICAjZWxz
-ZQogICNkZWZpbmUgQVJDSF9QRk5fT0ZGU0VUICAgICAgICAgICAgICAgIChQQUdFX09GRlNFVCA+
-PiBQQUdFX1NISUZUKQogICNlbmRpZiAvKiBDT05GSUdfTU1VICovCmRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCmluZGV4IGM5YTYzNjJkOGM3
-Zi4uYzUxZjBkYTAzYTYyIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYworKysgYi9h
-cmNoL3Jpc2N2L21tL2luaXQuYwpAQCAtMjExLDkgKzIxMSw2IEBAIHN0YXRpYyB2b2lkIF9faW5p
-dCBzZXR1cF9ib290bWVtKHZvaWQpCiAgI2lmZGVmIENPTkZJR19NTVUKICBzdGF0aWMgc3RydWN0
-IHB0X2FsbG9jX29wcyBwdF9vcHMgX19pbml0ZGF0YTsKCi11bnNpZ25lZCBsb25nIHBmbl9iYXNl
-IF9fcm9fYWZ0ZXJfaW5pdDsKLUVYUE9SVF9TWU1CT0wocGZuX2Jhc2UpOwotCiAgcGdkX3Qgc3dh
-cHBlcl9wZ19kaXJbUFRSU19QRVJfUEdEXSBfX3BhZ2VfYWxpZ25lZF9ic3M7CiAgcGdkX3QgdHJh
-bXBvbGluZV9wZ19kaXJbUFRSU19QRVJfUEdEXSBfX3BhZ2VfYWxpZ25lZF9ic3M7CiAgZXh0ZXJu
-IHB0ZV90IGZpeG1hcF9wdGVbUFRSU19QRVJfUFRFXTsvLyBfX3BhZ2VfYWxpZ25lZF9ic3M7CkBA
-IC02MDgsOCArNjA1LDYgQEAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRy
-X3QgZHRiX3BhKQogICAgICAgICBrZXJuZWxfbWFwLnZhX3BhX29mZnNldCA9IFBBR0VfT0ZGU0VU
-IC0ga2VybmVsX21hcC5waHlzX2FkZHI7CiAgICAgICAgIGtlcm5lbF9tYXAudmFfa2VybmVsX3Bh
-X29mZnNldCA9IGtlcm5lbF9tYXAudmlydF9hZGRyIC0gCmtlcm5lbF9tYXAucGh5c19hZGRyOwoK
-LSAgICAgICBwZm5fYmFzZSA9IFBGTl9ET1dOKGtlcm5lbF9tYXAucGh5c19hZGRyKTsKLQogICAg
-ICAgICAvKiBTYW5pdHkgY2hlY2sgYWxpZ25tZW50IGFuZCBzaXplICovCiAgICAgICAgIEJVR19P
-TigoUEFHRV9PRkZTRVQgJSBQR0RJUl9TSVpFKSAhPSAwKTsKICAgICAgICAgQlVHX09OKChrZXJu
-ZWxfbWFwLnBoeXNfYWRkciAlIFBNRF9TSVpFKSAhPSAwKTsKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Drew,
+
+Am 2021-07-27 07:28, schrieb Drew Fustini:
+[..]
+>> > > Drew please look at drivers/gpio/gpio-ftgpio010.c for an example
+>> > > of GPIO_GENERIC calling bgpio_init() in probe().
+>> >
+>> > Thank you for the suggestion. However, I am not sure that will work for
+>> > this SoC.
+>> >
+>> > The GPIO registers are described in section 12 of JH7100 datasheet [1]
+>> > and I don't think they fit the expectation of gpio-mmio.c because there
+>> > is a seperate register for each GPIO line for output data value and
+>> > output enable.
+>> >
+>> > There are 64 output data config registers which are 4 bytes wide. There
+>> > are 64 output enable config registers which are 4 bytes wide too. Output
+>> > data and output enable registers for a given GPIO pad are contiguous.
+>> > GPIO0_DOUT_CFG is 0x50 and GPIO0_DOEN_CFG is 0x54 while GPIO1_DOUT_CFG
+>> > is 0x58 and GPIO1_DOEN_CFG is 0x5C. The stride between GPIO pads is
+>> > effectively 8, which yields the formula: GPIOn_DOUT_CFG is 0x50+8n.
+>> > Similarly, GPIO0_DOEN_CFG is 0x54 and thus GPIOn_DOEN_CFG is 0x54+8n.
+>> >
+>> > However, GPIO input data does use just one bit for each line. GPIODIN_0
+>> > at 0x48 covers GPIO[31:0] and GPIODIN_1 at 0x4c covers GPIO[63:32].
+
+Mh, I'm not sure I'm understanding the datasheet/registers. _DOUT_CFG
+and _DOEN_CFG seem to specify the pad where this GPIO is mapped to.
+Shouldn't this be some kind of pinctrl then? Apparently you can map
+any GPIO number to any output pad, no? Or at least to all pads
+which are described in Table 11-2. What happens if two different GPIOs
+are mapped to the same pad? Bit 31 in these _CFG seems to be an invert
+bit, but what does it invert?
+
+Similar, the input GPIOs are connected to an output pad by all the
+GPI_*_CFG registers.
+
+To me it seems, that there two multiplexers for each GPIO, where
+you can connect any GPIOn to any input pad and output pad. Sound
+like a huge overkill. I must be missing something here.
+
+But what puzzles me the most, where do I set the actual GPIO output
+value?
+
+>> I'd say, that should work with the .reg_mask_xlate of the gpio-regmap.
+>> 
+>> -michael
+> 
+> Thanks, yes, I think trying to figure out how .reg_mask_xlate would 
+> need
+> to work this SoC.  I believe these are the only two implementations.
+> 
+> From drivers/gpio/gpio-regmap.c:
+> 
+>   static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
+> 				      unsigned int base, unsigned int offset,
+> 				      unsigned int *reg, unsigned int *mask)
+>   {
+> 	  unsigned int line = offset % gpio->ngpio_per_reg;
+> 	  unsigned int stride = offset / gpio->ngpio_per_reg;
+> 
+> 	  *reg = base + stride * gpio->reg_stride;
+> 	  *mask = BIT(line);
+> 
+> 	  return 0;
+>   }
+> 
+> From drivers/pinctrl/bcm/pinctrl-bcm63xx.c:
+> 
+>   static int bcm63xx_reg_mask_xlate(struct gpio_regmap *gpio,
+> 				    unsigned int base, unsigned int offset,
+> 				    unsigned int *reg, unsigned int *mask)
+>   {
+> 	  unsigned int line = offset % BCM63XX_BANK_GPIOS;
+> 	  unsigned int stride = offset / BCM63XX_BANK_GPIOS;
+> 
+> 	  *reg = base - stride * BCM63XX_BANK_SIZE;
+> 	  *mask = BIT(line);
+> 
+> 	  return 0;
+>   }
+> 
+> Let's say a driver calls gpio_regmap_set(chip, 0, 5) to set line 5 to
+> value 1.
+> 
+> I believe this would result in call to:
+> 
+>   gpio->reg_mask_xlate(gpio, gpio->reg_set_base, 5, &reg, &mask)
+> 
+> Then this would be called to set the register:
+> 
+>   regmap_update_bits(gpio->regmap, reg, mask, mask);
+> 
+> From datasheet section 12 [1], there are 64 output data registers which
+> are 4 bytes wide. There are 64 output enable registers which are also 4
+> bytes wide too. Output data and output enable registers for a GPIO line
+> are contiguous. Thus GPIO0_DOUT_CFG is 0x50 and GPIO0_DOEN_CFG is 0x54.
+> The forumla is GPIOn_DOUT_CFG is 0x50+8n and GPIOn_DOEN_CFG is 0x54+8n.
+> Thus for GPIO line 5:
+> 
+>   GPIO5_DOUT_CFG is 0x50 + 0x28 = 0x78
+>   GPIO5_DOEN_CFG is 0x54 + 0x28 = 0x7C
+> 
+> Enable GPIO line 5 as output by writing 0x1 to 0x7C and set output 
+> value
+> to 1 by writing 1 to 0x7C.
+> 
+> Using gpio_regmap_simple_xlate() as a template, I am thinking through
+> xlate for this gpio controller:
+> 
+> 
+> static int gpio_regmap_starfive_xlate(struct gpio_regmap *gpio,
+> 				      unsigned int base, unsigned int offset,
+> 				      unsigned int *reg, unsigned int *mask)
+> {
+> 	// reg_set_base is passed as base
+> 	// let reg_set_base = 0x50 (GPIO0_DOUT_CFG)
+> 	// let gpio->reg_stride = 8
+> 	// let offest = 5 (for gpio line 5)
+> 
+> 	*reg = base + offset * gpio->reg_stride;
+> 	// *reg = base:0x50 + offset:0x5 * reg_stride:0x8
+> 	// *reg = 0x50 + 0x28
+> 	// *reg=  0x78
+> 
+> 	// Each gpio line has a full register, not just a bit. To output
+> 	// a digital 1, then GPIO5_DOUT_CFG would be 0x1. To output
+> 	// digital 0, GPIO5_DOUT_CFG would be 0x0. Thus I think the mask
+> 	// should be the least significant bit.
+> 	*mask = BIT(1);
+> 
+> 	return 0;
+> }
+> 
+> Let's walk through what would happen if gpio_regmap_set() was the
+> caller:
+> 
+> static void gpio_regmap_set(struct gpio_chip *chip, unsigned int 
+> offset,
+> 			    int val)
+> {
+> 	// for gpio line, offset = 5
+> 	// if want to set line 5 high, then val = 1
+> 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
+> 
+> 	// reg_set_base would be set to 0x50 (GPIO0_DOUT_CFG)
+> 	unsigned int base = gpio_regmap_addr(gpio->reg_set_base);
+> 	unsigned int reg, mask;
+> 
+> 	gpio->reg_mask_xlate(gpio, base /* 0x50 */, offset /* 5 */, &reg, 
+> &mask);
+> 	if (val) /* if val is 1 */
+> 		regmap_update_bits(gpio->regmap, reg, mask, mask);
+> 		// if mask returned was 0x1, then this would set the
+> 		// bit 0 in GPIO5_DOUT_CFG
+> 	else /* if val is 0 */
+> 		regmap_update_bits(gpio->regmap, reg, mask, 0);
+> 		// if mask returned was 0x1, then this would clear
+> 		// bit 0 in GPIO5_DOUT_CFG
+> }
+> 
+> Now for the output enable register GPIO5_DOEN_CFG, the output driver is
+> active low so 0x0 is actually enables output where as 0x1 disables
+> output.  Thus maybe I need to add logic like:
+> 
+> 
+> static int gpio_regmap_starfive_xlate(struct gpio_regmap *gpio,
+> 				      unsigned int base, unsigned int offset,
+> 				      unsigned int *reg, unsigned int *mask)
+> {
+> 	<snip>
+> 	if (base == GPIO0_DOUT_CFG)
+> 		*mask = 0x1U;
+> 	else if (base == GPIO0_DOEN_CFG)
+> 		*bit = ~(0x1U);
+> 
+> 	return 0;
+> }
+> 
+> What do you think of that approach?
+
+I'm also not opposed to add a new flag to gpio-regmap which
+invert the value itself.
+
+But the idea was that you can differentiate in _xlate() by the
+base register offset, like you already did:
+
+static int gpio_regmap_starfive_xlate(struct gpio_regmap *gpio,
+				      unsigned int base, unsigned int offset,
+				      unsigned int *reg, unsigned int *mask)
+{
+	switch (base) {
+	case GPIO0_DOUT_CFG:
+		/* do some custom mapping just for DOUT_CFG */
+	case GPIO0_DOEN_CFG:
+		/* do some custom mapping just for DOEN_CFG */
+	default:
+		/* do normal mapping */
+}
+
+> Are there any other examples of regmap xlate that I missed?
+
+No there aren't much yet. Usually the simple one is enough.
+
+-michael
+
+> [1] 
+> https://github.com/starfive-tech/beaglev_doc/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
