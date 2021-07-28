@@ -2,75 +2,86 @@ Return-Path: <SRS0=BMZi=MU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD587C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 12:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C61CC4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 13:46:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 700C960F9E
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 12:54:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 700C960F9E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 986BF60EC0
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jul 2021 13:46:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 986BF60EC0
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LfmbuTja9NYuqbzpZXAVA+rF4NzA1P9rYXjMOLVnQjA=; b=B0fQVQyPFVZw+2
-	kO6ROwH0DaJDYgjTorgqevaiUQKBg4YNAzrBOIECJqsOlfZwY9DWMTG+l4MaItsW4FLPrdU7iQCvT
-	kRg4NtonWJ+m524GaePA6L5hJzAkksX5mKAF8qn/s6h9At6aEIQV2dle4TcWYbqIG5BRc6MOzCYyf
-	gKjhVyWlQFaYFBBMq1PhE0GOdIBRNC68sMYUGMYJLzHj8Uqj6zkSDNWbtAVOaA5elKVTIBjQWj/q/
-	NFU5qxjcmyctRmX6WVHdW5KWXrPFSTRrF9BHwKXeyhOvbCqw9JrwBPcaeqO8RpfPCaB0ZK0GQR0Ez
-	/rl0GbddWiC56IAPAcnw==;
+	List-Owner; bh=P2GhKC/ckTTo7zAVfSws+Luyq4p06Tnn4X0ocdNOl2I=; b=YuappD41rcYL0N
+	75O6nUa7rORQhKYumQ80/CpzIlSyFiKV8m32lT5riFFd5Dje3infzLVPS807rvDimFSmrfkj2wxzD
+	DDHT7yLBj4KFSuKSdvMNO0LPEofQXXAF+WWw1Q0uKDKUMPwx+dsFu7PF4aAIQL3kaqdIyYWVlgk+b
+	4TmMisR4k92KpYrL3EupKnOzjYyLb/L9btYbgDI1XGrbpV2JW2Ud5qa12EcuhUyPBQ+dbfkZjmrgI
+	4swhIzvuymojPfM7mBdKw/9jEtJEojdgSdheCUmBKms76L8b1bv8Ol+apOORsD0JRCT19+xM0IjtC
+	u01xG1Iv4QVLjLvHj48A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m8j3f-000jLd-Md; Wed, 28 Jul 2021 12:53:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m8j3c-000jLK-OR
- for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 12:53:10 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D9C2E60FC4;
- Wed, 28 Jul 2021 12:53:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1627476788;
- bh=uVs06J6Sp0nm7rKdLCNuLO/owrULe5dkBXVfD8Ww5vE=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=G/faYnN3UaBN3B4xIHIKWqE5hItl6PNO4fcX6B9/fhP2vRecEWniGPj/DGuP74hnz
- NNJBFupVHrEVdCyQ19KJM0OlpQBGpgiROFQ5/6H9uvN+tFmu08+87Icn6uoQNiqjPa
- vC4rrZheFMLK8yy5LDm3HZT5APN5gQrutrVbMLDT4RI0aKxjgiwxx19zGYUtUy4UTj
- oimAgvdikHrUJSR0QIUaouf2fbu3c8vPX3OKZKeQVLWIojcQ5c/qITQReGJgTi94mP
- DEMqs6HRqk3llsf2nKmASpsGOm7Ltgl+Yz/2jVJ00iGzkkwcorRHDi/Vg71IEY/AH+
- g4KcFpr+9BA9A==
-Date: Wed, 28 Jul 2021 15:52:58 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Alex Ghiti <alex@ghiti.fr>
-Cc: Kenneth Lee <nek.in.cn@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@wdc.com>, Kenneth Lee <liguozhu@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Vitaly Wool <vitaly.wool@konsulko.com>, Guo Ren <guoren@linux.alibaba.com>,
- Jisheng Zhang <jszhang@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- guohanjun@huawei.com, wangzhou1@hisilicon.com
-Subject: Re: [PATCH] riscv: fix the global name pfn_base confliction error
-Message-ID: <YQFTKtNmqorzsv6a@kernel.org>
-References: <20210728064318.375747-1-nek.in.cn@gmail.com>
- <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
+	id 1m8jsa-000pEi-Hk; Wed, 28 Jul 2021 13:45:48 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1m8jsW-000pD9-OM
+ for linux-riscv@lists.infradead.org; Wed, 28 Jul 2021 13:45:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=gSlg8rRsSXoJ0fWh8d+x+IcEx/wtHhvBcH
+ sY6dFKF0A=; b=ryb3fbKBlgKMA7reFRVg6exgROkuPU0THvFSabOvpO+g9BEPCX
+ tN1gXX639yATePUgxA9cf763wOW0BXsDGKGp5vIqIZ/VDL/51RF18sUhdf88n34S
+ CJ3CwbkrW1Jx1f7I6siaaXlQB5LQG3C3TEVFiPXfGrEt6dQhkFokIMefg=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygA3Tkx8XwFhDnNaAA--.1287S2; 
+ Wed, 28 Jul 2021 21:45:32 +0800 (CST)
+Date: Wed, 28 Jul 2021 21:39:34 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Changbin Du <changbin.du@gmail.com>
+Cc: Jisheng Zhang <Jisheng.Zhang@synaptics.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: stacktrace: fix dump_backtrace/walk_stackframe
+ with NULL task
+Message-ID: <20210728213934.5a0ee52e@xhacker>
+In-Reply-To: <20210727221656.wq3ponbzhvftfxc5@mail.google.com>
+References: <20210627092659.46193-1-changbin.du@gmail.com>
+ <20210628134404.4c470112@xhacker.debian>
+ <20210727221656.wq3ponbzhvftfxc5@mail.google.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0e81c8d2-468a-9afd-bce3-0e8211baa065@ghiti.fr>
+X-CM-TRANSID: LkAmygA3Tkx8XwFhDnNaAA--.1287S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtw17GFW5WrWrXrW8KF1Dtrb_yoW3Gwc_Xr
+ Z3A3WDCrsrZrZ7Ca93Jr13ZryDKFW8Jr4rKw4v9r95Awn8G398JrnYkF1fJF1DKrn7ua43
+ Gr9xX3WFg342vjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUbrAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+ A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+ w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+ vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
+ s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+ 1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+ JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
+ W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
+ JbIYCTnIWIevJa73UjIFyTuYvjxU7GYLDUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210728_055308_867081_E2C9E395 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20210728_064545_504463_53956211 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +93,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 28, 2021 at 09:19:16AM +0200, Alex Ghiti wrote:
-> Hi Kenneth,
-> =
+On Wed, 28 Jul 2021 06:16:56 +0800
+Changbin Du <changbin.du@gmail.com> wrote:
 
-> Le 28/07/2021 =E0 08:43, Kenneth Lee a =E9crit=A0:
-> > From: Kenneth Lee <liguozhu@hisilicon.com>
-> > =
+> On Mon, Jun 28, 2021 at 01:44:04PM +0800, Jisheng Zhang wrote:
+> > On Sun, 27 Jun 2021 17:26:59 +0800
+> > Changbin Du <changbin.du@gmail.com> wrote:
+> > 
+> >   
+> > > 
+> > > 
+> > > Some places try to show backtrace with NULL task, and expect the task is
+> > > 'current'. For example, dump_stack()->show_stack(NULL,...). So the
+> > > stacktrace code should take care of this case.  
+> > 
+> > I fixed this issue one week ago:
+> > 
+> > http://lists.infradead.org/pipermail/linux-riscv/2021-June/007258.html  
+> 
+> I still see this issue on mainline. Is your fix merged? Thanks!
 
-> > RISCV use a global variable pfn_base for page/pfn translation. But this
-> > is a common name and will be used elsewhere. In those case,
-> > the page-pfn macro which refer this name will refer to the local/input
-> > variable of those function (such as in vfio_pin_pages_remote). This make
-> > everything wrong.
-> > =
+Nope, the fix is missed twice. Palmer has added the fix patch into
+fix branch, I help it will be in next rc
 
-> > This patch change the name from pfn_base to riscv_global_pfn_base to fix
-> > this problem
-> =
+Regards
 
-> What about removing this variable entirely and using
-> PFN_DOWN(kernel_map.phys_addr) directly in ARCH_PFN_OFFSET definition? Th=
-at
-> would remove code from mm/init.c, which is nice :)
-
-That would be nice, but such change would also change the generated code.
-Probably nothing important, but someone would have to at least check what
-size and bloat-o-meter say.
- =
-
-> Thanks,
-> =
-
-> Alex
-> =
-
-> > =
-
-> > Signed-off-by: Kenneth Lee <liguozhu@hisilicon.com>
-> > ---
-> >   arch/riscv/include/asm/page.h | 4 ++--
-> >   arch/riscv/mm/init.c          | 6 +++---
-> >   2 files changed, 5 insertions(+), 5 deletions(-)
-> > =
-
-> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/pag=
-e.h
-> > index cca8764aed83..8711e415f37c 100644
-> > --- a/arch/riscv/include/asm/page.h
-> > +++ b/arch/riscv/include/asm/page.h
-> > @@ -79,8 +79,8 @@ typedef struct page *pgtable_t;
-> >   #endif
-> >   #ifdef CONFIG_MMU
-> > -extern unsigned long pfn_base;
-> > -#define ARCH_PFN_OFFSET		(pfn_base)
-> > +extern unsigned long riscv_global_pfn_base;
-> > +#define ARCH_PFN_OFFSET		(riscv_global_pfn_base)
-> >   #else
-> >   #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
-> >   #endif /* CONFIG_MMU */
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index a14bf3910eec..2ce4e9a46ca0 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -228,8 +228,8 @@ static struct pt_alloc_ops _pt_ops __initdata;
-> >   #define pt_ops _pt_ops
-> >   #endif
-> > -unsigned long pfn_base __ro_after_init;
-> > -EXPORT_SYMBOL(pfn_base);
-> > +unsigned long riscv_global_pfn_base __ro_after_init;
-> > +EXPORT_SYMBOL(riscv_global_pfn_base);
-> >   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> >   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> > @@ -572,7 +572,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >   	kernel_map.va_kernel_pa_offset =3D kernel_map.virt_addr - kernel_map=
-.phys_addr;
-> >   #endif
-> > -	pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
-> > +	riscv_global_pfn_base =3D PFN_DOWN(kernel_map.phys_addr);
-> >   	/*
-> >   	 * Enforce boot alignment requirements of RV32 and
-> > =
-
-
--- =
-
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
