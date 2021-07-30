@@ -2,97 +2,106 @@ Return-Path: <SRS0=Eoui=MW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-21.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6A22C4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 10:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AAF8C4338F
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 11:55:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B066D60462
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 10:48:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B066D60462
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
+	by mail.kernel.org (Postfix) with ESMTPS id D5AF260EE6
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 11:55:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D5AF260EE6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMqFGGjj/Zh4oo1RS/ro6OLi0TcNGGeFvmPSUkqf4X4=; b=sA0p4fH5V4O4fs
-	cC/ERGsETGichd0V6zKgaJHbePAYeJQ3JhafDvAosf+anQJ1Xv1to4Jt92yvG+eW4E9Syvdn3kFeL
-	ftZh2AXDM0aFALpI7s+habTxkl/EMMshmlkIVbA+iffi70le+U2iv7nxBSWX5QkOsTPvytMuTGCJ3
-	vMTOIjNb1D8VOuWzVYRvdZkk0Yl8ojX65/EMFqgAWrBvMisi2KnGmLkVLu8ybusoSNI5lKPJ8EdJZ
-	es8SOlred7y2Lg4tlPTJ7mwlVVpcx0+KZzi03ai+Iv5i7xr4WOEHjA7xNTett61Z9wNVQ92AVvA9L
-	Ik5Oh0wV9EmW8c8tg2+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cXSDbr5XY0JhTawZBelgbxAlFpe/i93c98ezjQ4falY=; b=SzEQK/rySlLV1MOtQCqLnNcM81
+	sN9R0YeIB+5noM2p6qGg7SF8s/hoyGtkG8bVIrpGVl4yPhXIDBt/1sR/LpZWOtXmYBDsoTPAf4n0p
+	Xo3BAuUxNTSq4dB8cjLostgYS2BRuJBxHlbaU3uXdYrjwFqArDfJGo1FgkmtqCqXUXTMhhGyuV9tu
+	rD8kOmkfv+f+gO6VgXH938c2rjLRM7JoTxdL3xilh37wiofPnCRkkpIKG9xkBayjZNqh3cueF5WsO
+	zqiyz1BAVroN4ViqKHZxas+/JE31rzS5/kyyCyoRwzM1OqykP22Zl4iz/kqpxD4FvfFMhcU2VnTIg
+	h/GlteBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m9Q3e-008BTh-9u; Fri, 30 Jul 2021 10:48:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1m9R6A-008RNl-8y; Fri, 30 Jul 2021 11:54:42 +0000
+Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m9Q3Q-008BRi-0m; Fri, 30 Jul 2021 10:47:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=WD2Ag4JED4QIsvoIQN/gUdEl19MyG+gX26ckt/2TnRM=; b=wNjsq2UUJjLuncBCL1YsnTrm0
- YXYmurFWsXKUm2L2J6I/ypUlXwg6ahaMW1adauhejdybPNoV1znnmnxnBQE7zBZc3hiHNA70er0TI
- QnYpssBHkV8KBet2y5hmFMhE39l0DvuwgvbgZ0fqc5k0GCfAVD82AU47p5lagEFMKX6EwrPmcUuQf
- 0RzJNbNT94GC9OKKBbbhwI8Po+HCAFRODBNYzP5zCse901ce9un9gcI6vTyY548AnZny/xjNRDv6s
- Lb108Ee4PLeZUMVJX0zUdAchyPz3c4fqfDYw0Cckeo3R8jGRFEZmHnrutm/pKoieeyzfQfhmhr16V
- 0fey8HIUw==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46754)
- by pandora.armlinux.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <linux@armlinux.org.uk>)
- id 1m9Q2U-0002GT-LV; Fri, 30 Jul 2021 11:46:50 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1m9Q2N-0008Nd-T1; Fri, 30 Jul 2021 11:46:43 +0100
-Date: Fri, 30 Jul 2021 11:46:43 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Frank Rowand <frowand.list@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Len Brown <lenb@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>,
- Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH] memblock: make memblock_find_in_range method private
-Message-ID: <20210730104643.GG22278@shell.armlinux.org.uk>
-References: <20210730104039.7047-1-rppt@kernel.org>
+ id 1m9R67-008RMj-E0
+ for linux-riscv@lists.infradead.org; Fri, 30 Jul 2021 11:54:41 +0000
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPS id 335A93F09C
+ for <linux-riscv@lists.infradead.org>; Fri, 30 Jul 2021 11:54:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1627646070;
+ bh=vxZKaGTC72D4nMdFDfy9Y8vyGGl2md/hp4bXxyUh9eg=;
+ h=Subject:To:Cc:References:From:Message-ID:Date:MIME-Version:
+ In-Reply-To:Content-Type;
+ b=jJA9aPkB0TmHi+2XuN3Ub9aKOe+9X6ry97Hl6ltbtlE198VJSQ9baTPr2FA1wGTVK
+ 6LWJWSvxVxpW0xatxPw3utav66/N3ZRwK5pBtZRwbInR79p2EAxk0fuMkkIfGvKVM/
+ WZAcTi1DGy5NnnkHNJK774u03qyUIBCi+Hmq6apq3dtDhcGnhiJPA0NBWrQZrxf5bp
+ bjQc7bzrq3BnjkuZLupJqK1FQNbHx+tubfOYP2WRBxVG+CxWNuVooT2OXgtCiaw7Jc
+ pLIrsPIMfDUdUkBMiqqVPOZirfFRNbJV0U68iweS2h1oROgngR8qpMGnifWX8EKCG5
+ ccT5BNQYZyceA==
+Received: by mail-wm1-f69.google.com with SMTP id
+ 25-20020a05600c0219b029024ebb12928cso3188573wmi.3
+ for <linux-riscv@lists.infradead.org>; Fri, 30 Jul 2021 04:54:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=vxZKaGTC72D4nMdFDfy9Y8vyGGl2md/hp4bXxyUh9eg=;
+ b=r/HvlhfS7YGwrfE036Jcusiso4M2rSbh9vIE3ZXPE4cnB885sZnvtOhNk42k5BINf7
+ Czp/U4e6iyZM/dMNWOHF9irtQQyEI6fJfkmFaTbDFvkr/NzrErFkg4JZkN7P3y6O/+47
+ Grwy9CJ1E7dF05mq//HIONLZNDdDcD9biI//UGsyrsp7hgho4jBexZG9UhU5IGBkhFZv
+ VaO5fMR2Ln7T/cYNNA2xi/kVRHuel5goeNx8z68/pcih/nDya2ABu9DO5Eb3e+ntg20h
+ pxXZQ8MkCzUYr/rn05tAF9/qvfI68jQZNIMrPYeo9eEZcHwoRFkIw9kPHGj/mvhysgly
+ Qeuw==
+X-Gm-Message-State: AOAM5328TO0brAJdRCfc53b0ARtojVfBg160zKRtQaAlmpUUtbW1imJj
+ RyHWXvq3SVWzajtMLui684A/8WQk67NMqjlunSyxRmSntIeEfITEtlUc9v5qgUoEDbz8AWK7Nso
+ 96hfArS8y7ziXjWu0jDWYGTu1yw5360ZNRjXkN+1a1xTcKg==
+X-Received: by 2002:adf:f4ca:: with SMTP id h10mr2606265wrp.3.1627646069875;
+ Fri, 30 Jul 2021 04:54:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyl77Bre0zUD5p1w5aA4gaGuGgf7S2hkd9tBGyLoRB4oYTPV0iJgVUh4lv1qf3zrP0t/7UNwg==
+X-Received: by 2002:adf:f4ca:: with SMTP id h10mr2606243wrp.3.1627646069686;
+ Fri, 30 Jul 2021 04:54:29 -0700 (PDT)
+Received: from [192.168.123.55] (ip-88-152-144-157.hsi03.unitymediagroup.de.
+ [88.152.144.157])
+ by smtp.gmail.com with ESMTPSA id a16sm1564502wrx.7.2021.07.30.04.54.29
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 30 Jul 2021 04:54:29 -0700 (PDT)
+Subject: Re: [PATCH] riscv: dts: fix memory size for the SiFive HiFive
+ Unmatched
+To: Vincent Pelletier <plr.vincent@gmail.com>,
+ Andreas Schwab <schwab@linux-m68k.org>
+Cc: Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ linux-riscv@lists.infradead.org
+References: <20210704083441.256097-1-qiuwenbo@kylinos.com.cn>
+ <87eece7838.fsf@linux-m68k.org> <20210704121302.3aa8eedf@gmail.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Message-ID: <de2d60b1-6b84-3d47-8fe7-3f939100b7a8@canonical.com>
+Date: Fri, 30 Jul 2021 13:54:28 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210730104039.7047-1-rppt@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20210704121302.3aa8eedf@gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210730_034748_106944_7DF9CCAF 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20210730_045439_727451_2E84F68B 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +113,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 30, 2021 at 01:40:39PM +0300, Mike Rapoport wrote:
-> diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-> index f97eb2371672..1f8ef9fd5215 100644
-> --- a/arch/arm/kernel/setup.c
-> +++ b/arch/arm/kernel/setup.c
-> @@ -1012,31 +1012,25 @@ static void __init reserve_crashkernel(void)
->  		unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
->  		if (crash_max > lowmem_max)
->  			crash_max = lowmem_max;
-> -		crash_base = memblock_find_in_range(CRASH_ALIGN, crash_max,
-> -						    crash_size, CRASH_ALIGN);
-> +
-> +		crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
-> +						       CRASH_ALIGN, crash_max);
->  		if (!crash_base) {
->  			pr_err("crashkernel reservation failed - No suitable area found.\n");
->  			return;
->  		}
->  	} else {
-> +		unsigned long long crash_max = crash_base + crash_size;
->  		unsigned long long start;
->  
-> -		start = memblock_find_in_range(crash_base,
-> -					       crash_base + crash_size,
-> -					       crash_size, SECTION_SIZE);
-> +		start = memblock_phys_alloc_range(crash_size, SECTION_SIZE,
-> +						  crash_base, crash_max);
->  		if (start != crash_base) {
-> -			pr_err("crashkernel reservation failed - memory is in use.\n");
-> +			pr_err("crashkernel reservation failed - No suitable area found.\n");
+On 04.07.21 14:13, Vincent Pelletier wrote:
+> On Sun, 04 Jul 2021 11:15:55 +0200, Andreas Schwab <schwab@linux-m68k.org> wrote:
+>> On Jul 04 2021, Qiu Wenbo wrote:
+>>
+>>> The production version of HiFive Unmatched have 16GB memory.
+>>>
+>>> Signed-off-by: Qiu Wenbo <qiuwenbo@kylinos.com.cn>
+>>> ---
+>>>   arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+>>> index b1c3c596578f..2e4ea84f27e7 100644
+>>> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+>>> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+>>> @@ -24,7 +24,7 @@ cpus {
+>>>   
+>>>   	memory@80000000 {
+>>>   		device_type = "memory";
+>>> -		reg = <0x0 0x80000000 0x2 0x00000000>;
+>>> +		reg = <0x0 0x80000000 0x4 0x00000000>;
+>>>   	};
+>>>   
+>>>   	soc {
+>>
+>> https://github.com/sifive/meta-sifive/blob/2021.06/recipes-kernel/linux/files/0003-riscv-sifive-unmatched-update-for-16GB-rev3.patch
+>> contains more changes.
+> 
+> Here is what I learned on this topic while poking at the regulator part
+> of this devicetree:
+> 
+> While these extra changes match the board's schematics, they are
+> rejected by the da9063-regulator driver:
+> - some channels are merged on the board, but the devicetree does not
+>    show that: they have different names, with different maximum current.
+>    The updated values exceed the single-channel maximum, so the driver
+>    rejects them.
+> - 3 of the regulators are further configurable in overdrive mode on the
+>    board, allowing higher maximum current, but the driver does not
+>    handle this.
+>    Similarly to previous point, the updated values exceed the
+>    non-overdrive maximum, so the driver rejects them.
+>    I've submitted a tentative fix, but its logic is backwards: it
+>    detects the overdrive bits and increases the maximums, whereas it
+>    should see the higher maximums and as a reaction enable the overdrive
+>    bits
+> - also, some voltages fall in-between possible values, which causes the
+>    driver to reject as well (ex: vdd_bperi is at 1.05V, but the chip can
+>    either do 1.04 or 1.06)
+> - ...and likewise for some current values (ex: vdd_bpro is at 2.5A, but
+>    the chip can only detect 2.4 or 2.6)
+> 
+> So from a pure system behaviour perspective, these extra changes should
+> not matter either way (at least in my understanding). At least not with
+> the driver in its current state.
+> 
+> OTOH:
+> - the changes missing here are more correct than current master
+> - not including them will probably make meta-sifive maintainer's life a
+>    bit more difficult
+> 
 
-This change to the error message is incorrect. In this code block, we
-are trying to get the exact specified memory block - it is not about
-there being "no suitable area" - the requested memory block is not
-available. So, the original message carries the exact correct meaning.
+We should not mix changes that are unrelated in a single patch. Even if 
+regulator changes are advised they should be submitted in a separate patch.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+The HiFive Unmatched shows the full available memory with this patch alone.
+
+Tested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 
 _______________________________________________
 linux-riscv mailing list
