@@ -2,68 +2,91 @@ Return-Path: <SRS0=Eoui=MW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2562BC4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 13:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E29AC4338F
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 13:51:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C390460240
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 13:06:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C390460240
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 35ED960EB5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jul 2021 13:51:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 35ED960EB5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
+	From:To:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ufw9RlXtxCpyJqu9Ls6UanX0YcilbYBy0uhjgE0om1Y=; b=yxcYwxDawfxUBB
-	SkeJwZgHAHbtxVDbmmFP0/4a6WE8khX2gGnFx2bw/QDnKPQ3gk8ziuQhUnrK0dzoQsjHkkIxw8KDq
-	jFLCsDeFCjew2tS8HhA53aOZ2qM1vOfK5sVXkns6JDyk5eAIN2ALJnFoPbcS43c9UB4iPrmZfROYj
-	SiW2EWnf4/JBdP4Tynx8z5UhmF4RdETjBIfmFazgd+Ef8PYvMzJ2AF/cPMpMIP0LiAFC83bpGiA42
-	iHNy6oSC+uLKl0Od0UhgTIM3xN+tahNQPUZY2sDUhpnc+ZLzXT7uxWdwUwMM8a2GLp7rY76UbKn/Y
-	aV5SCG9+GXDSZRAglm9w==;
+	List-Owner; bh=9HUohMMFxfHTmQFgQFhgIgGAl0hIwF+bT/z0YQgWF2k=; b=t7ntgfyEwf0nRb
+	P+xW0bwcng7e61NUMmMgbSyHsjCyHkqJMdrqpAUw3pWdunOZIXc8RabjqZJzbew2dOwqUErmsXS2G
+	NI4fLoQ7NkXfkb9gLAX+fchACJy2x479zJsnaauH6CyBX3xTqeIuiV90GK0uP6afbsBa5q2qE7jD+
+	aZJ5wxXGctBNZBQXKLY2+joaBk3blbsvp1VGFzIBEcYbM9E5ZxWOWnsP8JyRt1wL8mH/AcZLd1RV/
+	0nmS3kHK3yiE/RWNuhczdMm2mrhBNtN1Z+rSYd47mmpkmhhBWpLwtQqkf89JpK4l2KOrXF72lsgHf
+	UvzplJKorPjmGCa70LNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m9SDR-008jar-Kg; Fri, 30 Jul 2021 13:06:17 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1m9Sum-008r0E-TR; Fri, 30 Jul 2021 13:51:04 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m9SDO-008jZq-9p
- for linux-riscv@lists.infradead.org; Fri, 30 Jul 2021 13:06:15 +0000
-Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.56])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Gbncf1JlGzcfN5;
- Fri, 30 Jul 2021 21:02:42 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Fri, 30 Jul 2021 21:06:12 +0800
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Fri, 30 Jul 2021 21:06:11 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>
-CC: <palmerdabbelt@google.com>, <paul.walmsley@sifive.com>,
- <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, Kefeng Wang
- <wangkefeng.wang@huawei.com>
-Subject: [PATCH] riscv: mm: Enable PMD split page table lock for RV64
-Date: Fri, 30 Jul 2021 21:11:46 +0800
-Message-ID: <20210730131146.184208-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1m9Suj-008qyU-OR
+ for linux-riscv@lists.infradead.org; Fri, 30 Jul 2021 13:51:03 +0000
+Received: by mail-pl1-x635.google.com with SMTP id t3so9053413plg.9
+ for <linux-riscv@lists.infradead.org>; Fri, 30 Jul 2021 06:51:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=to:from:subject:message-id:date:user-agent:mime-version
+ :content-language:content-transfer-encoding;
+ bh=Fg+J3oW692Mh3cj6C7vQfzGK/Q/IMQA26Bq+Duy+a4w=;
+ b=VmcZG1GRWJrPQtzy+TCHvuVNPKTGa+BsqIntwj6ttKUN/bSbXgL70/Xodxa74Ma4p0
+ rwxlQt0RRyaJZejJxeJi8BBKEbUuPiOrHslCY+HUINYp1SJ1iolaJkON0f5eGEMyYsC/
+ 9Le3jMLov9yMGz2bDatl71kjesThyRzy7wewQhjnsafaTOnUnYfbwd438/L0Nt4KgTZW
+ 4qC6zQI1wNFf7sWKkZnojJgg6pzBK8eaPLVoFKzn7plTdUfqYk/mAYEF6HOxS0z93kjj
+ AFO9Vm2OULZA9T1QhehMkU7M6O8/p3OGEGYzj+dKxhpXYdHjwzpHkLvzGv3XAxEKXoR7
+ cyPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+ :mime-version:content-language:content-transfer-encoding;
+ bh=Fg+J3oW692Mh3cj6C7vQfzGK/Q/IMQA26Bq+Duy+a4w=;
+ b=P4A1JK8jV9ZBCxiMpqJGKLgqbmvNPcOYPnVYq2ahqlG+CodxDx2VqxnpUz5lIWhD95
+ 7asrK/aqSVVIm0za2J142kkzq6vGBTAu+K5V+Dh3PyD8cRqnI0oBXc0c0pmilqC7o+B9
+ UvyGlCtcc+lvmrahRBayMh0T5ThUcwqwJGBK/KEWRiKZDuNiykYhuzOsMc34GMuR9OJY
+ gGauY7nNamdSzdY+aoebZL0H0yBJBaQmEUOs1TisTJPnBN9BrvR0qOdq+xp+Cme4QyYC
+ HJZ42F7vJK53uWKx6/XE8+LzU+BulVTsmSMay81oKpO9PW51NiClYJJIP4sJER6mJqOO
+ fasA==
+X-Gm-Message-State: AOAM530x0nKgQWRURuuV6ceuV69D4IrDJMFIF5FGhrw+1N3QVnwuEGkC
+ PomssORSl7woxH2jyszldnQ=
+X-Google-Smtp-Source: ABdhPJw0kB2BBs33d+TllZbOUWcOrwfM9KEon9kLTtG4TWSRM1Sy3r6nfGeaiiH6RDmPosurY61KYg==
+X-Received: by 2002:a17:90a:c003:: with SMTP id
+ p3mr3212973pjt.14.1627653059822; 
+ Fri, 30 Jul 2021 06:50:59 -0700 (PDT)
+Received: from [192.168.1.153] (M106072041033.v4.enabler.ne.jp. [106.72.41.33])
+ by smtp.gmail.com with ESMTPSA id n5sm2534471pfv.29.2021.07.30.06.50.56
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 30 Jul 2021 06:50:59 -0700 (PDT)
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Guenter Roeck <linux@roeck-us.net>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Albert Ou <aou@eecs.berkeley.edu>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
+Subject: [PATCH 0/1] __asm_copy_to-from_user: Reduce more byte_copy
+Message-ID: <65f08f01-d4ce-75c2-030b-f8759003e061@gmail.com>
+Date: Fri, 30 Jul 2021 22:50:52 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210730_060614_555904_A31DC117 
-X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-CacheID: sfid-20210730_065101_864061_1130471C 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,45 +104,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit 1355c31eeb7e ("asm-generic: pgalloc: provide generic
-pmd_alloc_one() and pmd_free_one()"), it is easy to enable
-ARCH_ENABLE_SPLIT_PMD_PTLOCK for RV64.
+Adding none unrolling word_copy, which is used if the size is smaller
+than 9*SZREG.
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/riscv/Kconfig   | 1 +
- arch/riscv/mm/init.c | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+This patch is based on Palmer's past comment.
+> My guess is that some workloads will want some smaller unrolling factors,
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 8fcceb8eda07..c3e456fc7108 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,6 +12,7 @@ config 32BIT
- 
- config RISCV
- 	def_bool y
-+	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_CLOCKSOURCE_INIT
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e547e53cddd2..ce12905a0224 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -361,7 +361,8 @@ static phys_addr_t __init alloc_pmd_late(uintptr_t va)
- 	unsigned long vaddr;
- 
- 	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
-+	BUG_ON(!vaddr || !pgtable_pmd_page_ctor(virt_to_page(vaddr)));
-+
- 	return __pa(vaddr);
- }
- 
+It will reduce the number of slow byte_copy being used when the 
+size is small.
+
+Have tested on qemu rv32, qemu rv64 and beaglev beta board.
+
+In the future, I am planning to convert uaccess.S to inline assembly 
+in .c file. Then it will be easier to optimize on both in-order core and
+out-of-order core with #ifdef macro in c.
+
+Akira Tsukamoto (1):
+  riscv: __asm_copy_to-from_user: Improve using word copy if size <
+    9*SZREG
+
+ arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 42 insertions(+), 4 deletions(-)
+
 -- 
-2.26.2
-
+2.17.1
 
 _______________________________________________
 linux-riscv mailing list
