@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA7E4C4338F
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jul 2021 05:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BF45C4338F
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jul 2021 06:01:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9AA126069E
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jul 2021 05:59:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9AA126069E
+	by mail.kernel.org (Postfix) with ESMTPS id 375E86069E
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 Jul 2021 06:01:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 375E86069E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,32 +23,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O3LN3ePixj9trPwpibJKimmDhY0FAIKhCs1yche0YOM=; b=baefCiZgtmziZ5
-	sBEEVblQ9uh1Iv0MVcEsXryflRHM58jfah8+Xz/6gYx3glKTDcQbuvcfKmNGU2eoch5G3/oi6pQsU
-	mlQ3xWQhEHzK3GLFnfyrZmOpubgF0WahzO/5GNUoGr8o5maHRnWTYSWFGaNd8tnt3/h7sYjNJovVm
-	Jn6TdI7cKp2EI8TG6EpqcxIcdvEarE3cy+PvTgTYIrjqIt4+40NgWwthP3V/bMOAFD7zHLPlmQM5k
-	Rsq0hdz2Ka4yzhpLtSQGpyEaAvgcn0vFHA1Qu07kKBoXWO7zyjSunmiUAY7n3EswreV5DNd9sXNM1
-	bQXqGIZ5bMd68HEoLeTw==;
+	List-Owner; bh=MylU0+H+iXbyVw4CFClLSZhhzwiC55dBbtec79OYRxc=; b=O7WygYKm7l3xos
+	DadjNLheNQ5AiifNoXncEwKec4mSzB1qfPQNCu75nJZZurbmPwe2dT4TpuuCal6q45tNKb88DlOkX
+	hKXJntYaIoTCh7e5sggH+XfRYjcj/5O6dIILddM45AaT1NQAdYwOuXGJnD0JtXzhlRW53QvsCZnCz
+	mPXNO0248ch4BwwZNO34+jy1QMqt04MbDOtlJUnflxZpZk77FEhtv3NOV0hrjeLGbZNtN+um/14fE
+	ClHB9bzm5G+S0T8G6GJqzY+B2B5UbMaNieripULpR9yBNbMInGQvAhMiZu53AM/j6/t3ZxNSGJBAW
+	DDEJdDdbRXTr1QvFNriA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1m9i1N-00B0rZ-96; Sat, 31 Jul 2021 05:58:53 +0000
-Received: from conuserg-12.nifty.com ([210.131.2.79])
+	id 1m9i44-00B2EM-9n; Sat, 31 Jul 2021 06:01:40 +0000
+Received: from conuserg-07.nifty.com ([210.131.2.74])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1m9i1A-00B0f5-5R; Sat, 31 Jul 2021 05:58:42 +0000
+ id 1m9i3r-00B2D0-2q; Sat, 31 Jul 2021 06:01:29 +0000
 Received: from localhost.localdomain ([133.106.57.58]) (authenticated)
- by conuserg-12.nifty.com with ESMTP id 16V5vc6u023849;
- Sat, 31 Jul 2021 14:57:39 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 16V5vc6u023849
+ by conuserg-07.nifty.com with ESMTP id 16V60MNT006940;
+ Sat, 31 Jul 2021 15:00:22 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-07.nifty.com 16V60MNT006940
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1627711060;
- bh=kbgy+e6+xWYENR319IquT7ksqMD3Pp/VPUYpU/wDMsw=;
+ s=dec2015msa; t=1627711224;
+ bh=E1KYte6EKYvuOXcazzHUuX4uprDRxjj1nwZUGGg69y0=;
  h=From:To:Cc:Subject:Date:From;
- b=UMeUDmEBp7Pe6ULmffpzQdudxDWHqtyIw55ItR2H3gT3dotPu+jibOHcSlufO0sIZ
- 11TJa8ycpXmx80P2YYEbvpaBDrNtNarWAjIT6rTK3dZnNESdLyZgBr2uAPxKC3Mexd
- haACRhbGC7Z3refVuToRuN0ord/K81BZNKrnt6y2NcXNyskT8ZSBV24zRonUhPCPoS
- 8TR4V63Q/qYK7G5eZ0j+lenf4lOj7GcHwTPimFpI1bC2via80DAp5PFjvvIE5O0PB2
- lVUwZU7JJdrFHYyug8eeBgBfljg+z6PGs67mifx5eEhLmZBXXz8rUVsJlygaveGXEN
- EVeN+xghrhjrg==
+ b=Ks+HHPyiQsB4OoMywyC5471MbAfkkwSCZmNeD3PTw1B3lkQ77LuPVzltS9vjmtHEv
+ gj73bxnaUqARREufMNwMwgIeatkcHNp+6iL5DFpOkOZ05S0IRw2JTwUe+pgLfMC2L1
+ cEcFnXt4M31ltZPd8C9XlBCW/oU5ZzLVPIHyRUkUYUMicyzf043T8Yh6JSVAuLdhBk
+ cp901SEFrI1NoseIv+DFPesUZambG8FswAOb3cMqcFgucI8L/apFEImtob/q4dTCVw
+ GXnsE6nm0/tOCQrT/4SXRTAGep0guoXmym5jgKo0iB+B3ILb8JHYquSWBPqdhTHxxV
+ F030NsS4YZ7mQ==
 X-Nifty-SrcIP: [133.106.57.58]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
@@ -58,19 +58,20 @@ Cc: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Michael Ellerman <mpe@ellerman.id.au>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- linux-mips@vger.kernel.org, Paul Mackerras <paulus@samba.org>,
+ Guo Ren <guoren@kernel.org>, linux-mips@vger.kernel.org,
+ Paul Mackerras <paulus@samba.org>, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
  linuxppc-dev@lists.ozlabs.org, Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH] arch: vdso: remove if-conditionals of $(c-gettimeofday-y)
-Date: Sat, 31 Jul 2021 14:57:33 +0900
-Message-Id: <20210731055733.12332-1-masahiroy@kernel.org>
+Subject: [PATCH v2] arch: vdso: remove if-conditionals of $(c-gettimeofday-y)
+Date: Sat, 31 Jul 2021 15:00:20 +0900
+Message-Id: <20210731060020.12913-1-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210730_225840_478153_221443C1 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20210730_230127_403592_346B3704 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,8 +89,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-arm, arm64, mips, powerpc always select GENERIC_GETTIMEOFDAY, hence
-$(gettimeofday-y) never becomes empty.
+arm, arm64, csky, mips, powerpc always select GENERIC_GETTIMEOFDAY,
+hence $(gettimeofday-y) never becomes empty.
 
 riscv conditionally selects GENERIC_GETTIMEOFDAY when MMU=y && 64BIT=y,
 but arch/riscv/kernel/vdso/vgettimeofday.o is built only under that
@@ -100,14 +101,18 @@ Remove all the meaningless conditionals.
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
+Changes in v2:
+  - Fix csky as well
+
  arch/arm/vdso/Makefile              |  4 ----
  arch/arm64/kernel/vdso/Makefile     |  5 +----
  arch/arm64/kernel/vdso32/Makefile   |  3 ---
+ arch/csky/kernel/vdso/Makefile      |  4 +---
  arch/mips/vdso/Makefile             |  2 --
  arch/powerpc/kernel/vdso32/Makefile | 14 ++++++--------
  arch/powerpc/kernel/vdso64/Makefile | 14 ++++++--------
  arch/riscv/kernel/vdso/Makefile     |  5 +----
- 7 files changed, 14 insertions(+), 33 deletions(-)
+ 8 files changed, 15 insertions(+), 36 deletions(-)
 
 diff --git a/arch/arm/vdso/Makefile b/arch/arm/vdso/Makefile
 index 7c9e395b77f7..d996b57ca19d 100644
@@ -155,6 +160,21 @@ index 3dba0c4f8f42..330111046afc 100644
 -endif
  
  VDSO_CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
+ 
+diff --git a/arch/csky/kernel/vdso/Makefile b/arch/csky/kernel/vdso/Makefile
+index 0b6909f10667..432adf2c78c2 100644
+--- a/arch/csky/kernel/vdso/Makefile
++++ b/arch/csky/kernel/vdso/Makefile
+@@ -12,9 +12,7 @@ vdso-syms  += vgettimeofday
+ # Files to link into the vdso
+ obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
+ 
+-ifneq ($(c-gettimeofday-y),)
+-	CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
+-endif
++CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
+ 
+ ccflags-y := -fno-stack-protector -DBUILD_VDSO32
  
 diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
 index 1b2ea34c3d3b..c409d551972a 100644
