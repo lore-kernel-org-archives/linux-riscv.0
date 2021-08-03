@@ -2,21 +2,20 @@ Return-Path: <SRS0=9VPL=M2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E63EC4338F
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21D2CC4338F
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 05:14:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2BFFE6101D
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:43:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2BFFE6101D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id D929260EC0
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 05:14:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D929260EC0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -24,65 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DwEAPxHkiWy/Bfjguu39Ec4MLNc13rGsKiW82ZfbwBk=; b=d2X40dppuRdu1U
-	JD6XhBJRWgSDe9Fy4mZKD92ofRPVpjyW6nEm9g+OCt1a8y6m2FOYfdy+EJrbm+r9G+Exj6y5qkPhF
-	Pxi6yoh5LMOEYRDqNYpNh7sPcrV3SO43f0ps/LWSarULMkbqO5n785AMHoi79lABx3wDLR6fZ0rgq
-	W2VjWsBA/QEBmxnQ1ltoxUnqfOh1K41DIgHHbtMeTZCUVKZLnxWK7VRP1XDNfrJIEDGozcF7/2GYl
-	DD+Mll0bTZOYLMQ9uljJvHn/QFcE4tDpmgoBjr1obU50h12cW/Xa+rt+iG6JxtJOTutb383/Rkw3/
-	TgUqKtKTXGZRPMVwXM8Q==;
+	List-Owner; bh=VSySM5qt6N5gsKLgAhlBisw0hHNA799qPkw/BizPG/k=; b=rccw18VyiG0ciz
+	zRZ4E3LVLR/ta/OLmpbXlif7/rXiO86qPttKgA+vr9LIqpeMwl0aK1GIbZE4aJbDw/aOl2/HguHS9
+	Xb4w/AbOyEJyTH1kNN9VzNFfnz4HGcgaM+YpuKapOoYqjUAkKTJSMrrV8VdYx1n3AJnYjp+0Kk48a
+	T1HeuOjdEm7ZGs7fP33MlQxF6jU7ZHBtvXlTA25/MfhFo79UuLeR/cifmz2VYdWRRiwUe356IaQxi
+	2bDD0vTroFV3po+RDxCP9lyuuo3WYeil0L7Q/d3qtr1d3wmqBOOmUZw5uc9XMwtE36Mkzwcz/vRkk
+	FhOt4WEA/3BBjHx+5tNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mAjSK-000jdY-B2; Tue, 03 Aug 2021 01:42:56 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1mAml0-0019WN-PR; Tue, 03 Aug 2021 05:14:26 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mAjSH-000jcR-7K
- for linux-riscv@lists.infradead.org; Tue, 03 Aug 2021 01:42:55 +0000
-Received: by mail-qk1-x733.google.com with SMTP id az7so18554224qkb.5
- for <linux-riscv@lists.infradead.org>; Mon, 02 Aug 2021 18:42:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1mAmkR-0019Ly-3g
+ for linux-riscv@lists.infradead.org; Tue, 03 Aug 2021 05:13:52 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id z4so23858025wrv.11
+ for <linux-riscv@lists.infradead.org>; Mon, 02 Aug 2021 22:13:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=LhJekVuEhxikT2dkgVUERpPtmPxTduNhkA9B/Qb17as=;
- b=kIwwj3o6wwPZAELE5SOdYKdHZcr3NRAwGCFmSnpNErgJ+e2yLyONsr4BLnqSNYYKuk
- V4dMPHCh11tp3NMkXn+fvrVhOK49hCLHBqpKp7MnnGb+cRnwASYIVWXi4+qlctt69x8C
- 6BBLBzLeP8b0vpRIvn7ozXGJ0RDUwbJDuC/NQe3TOJ7Vcip3M5Z5pI8i6OuuivSKd5q5
- dTAFZIEq0hVIpVSR9a8ij7yAMERWrtBDsA4p0xfH405SrwC9JzSbFox0qtCoxzpAqFT6
- /EEZ3vhWhJa68JLUWfn0P75ac0CpTf4UZwrLGWmAfJcoTg+pF9ZR4W0W/wb1/7dvpxdN
- dlxw==
+ :cc; bh=xgtLvuf0owNQRuqUwX+vRIu3EEpd7ijmGPvQTuH4f1U=;
+ b=tYyI7iW0EczWyd8YKTmgkuDRNXjLNAlD6m4BaF6j/EylspqbgI+AGDzam5UjFol4vr
+ 44J6YLfJsAalzoCN61h8w2Cg4YLQ8V/kycvo+YqOT6Gs3oNNjguNUS7JMmA8/Fk9lwK1
+ dKofTPHFoJFb+7L1Oh1NzAjdVFPCqnzElpNMUSqAW4lvufx/70gKe4HjW6AT/pPqSJwB
+ kgiKd0QVwmGBO8wO9AVhv1P/4gUGi+prhZ9iHqVeJI9vI2RbKzDReaNDXHW4b9SZqsP2
+ pGzjhAayIVpPxN6pXGvtsG7l0YahlJrwQVSg2pZVZjxNTQZ24XNS95XOJqEMRbMsqdct
+ cm6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=LhJekVuEhxikT2dkgVUERpPtmPxTduNhkA9B/Qb17as=;
- b=WKco+zDCmlp4guTnE2VS/F2JUNH/fWlla57TO/YvN5xJRFheMTOZ+Uy4wOswm4Z5Pd
- lMePoUMaaOgCydzAZBC3yZaaPsiA3TrAYdRYIrMsOtV33/j88JD8PTiaKkUnIJ8iyLhD
- Ks2az3U6NMfUcZ8JlNnrV11W/+/GAUqxW1+ctYabBfDOKgDvCeIj4Jc6R2TehNQJwZhL
- cyYw21qZafFWRyNSqZRoqQRAJi3qB6hn8LabVte6p9Wj19jYzkjVdEjUEmnw0Fp38Ter
- eZo3ma7WIM/3s8w+U7OkzZIRf+KzIbmbvFHFLZc/jSNvnypCDTU04VmYjNfBY6wWiVzf
- a6Cg==
-X-Gm-Message-State: AOAM530oGAFSxistXlEwufDBBxcQLvfGZy5P8Y70Qw7uSSbSxDYLAzhc
- SGGKkjcMcJK/DCJdf9RVSSlkwnI7ETotCm8uRiU=
-X-Google-Smtp-Source: ABdhPJxGgMMVUlxSb45H8MeLcXhKO1hJwRdVOC68mZ/ef+XBALkIgBhOsLqjsugaVpWqCEmhq0uFwEDfQgOASkhy9Js=
-X-Received: by 2002:a05:620a:109a:: with SMTP id
- g26mr19016731qkk.25.1627954970697; 
- Mon, 02 Aug 2021 18:42:50 -0700 (PDT)
+ bh=xgtLvuf0owNQRuqUwX+vRIu3EEpd7ijmGPvQTuH4f1U=;
+ b=oyjX3TbD6/JgRFYh275Y5TjnQMl6FeISi2gDgPYXv5e4YfEGPDfzv3NjMPi9seFPkd
+ VBnVQkygl2UE2KvSOItJpOblh8y7DZrCR+G/dgI60BY6vV6Mhtm8ZcZoL1WpWWNLnmGZ
+ j4ZkDg3DvyGzgtF5a2IpZIicF12ghcud7mrKyjlWcGRXhdMMGp0RStryeeOdynFs6EE6
+ v+SeqyIsFO5BhfqYeJG4w4CaY/2JvMMMhb99ZTKXaB8t1+Liw+v4vlC/kvp/TTmDDJui
+ XRkSIjMKRuWy529Y76WTzq1kDAJNyimmuf1SPGA1snOPImo3hkmXC1coOnwd7vRi7Xg0
+ 7TIA==
+X-Gm-Message-State: AOAM532JStO+DKF7ALd6ysgC/LVfCveTkqoRy4ZHkYARMP7iKWzwHWoX
+ zj9qTLypHCNgxIrirOq2NSTb83QGAX2dClCGgRRvWA==
+X-Google-Smtp-Source: ABdhPJw91PoH825qQ811F77iCveefx3m5Hx5ungo+XqTTn+aFrtABkDDMkjMsjUo5kVRCjf1wKzOXgqmVdNG9ODY9MA=
+X-Received: by 2002:adf:ef0d:: with SMTP id e13mr21519185wro.390.1627967628528; 
+ Mon, 02 Aug 2021 22:13:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210802234304.3519577-1-ndesaulniers@google.com>
-In-Reply-To: <20210802234304.3519577-1-ndesaulniers@google.com>
-From: Khem Raj <raj.khem@gmail.com>
-Date: Mon, 2 Aug 2021 18:42:24 -0700
-Message-ID: <CAMKF1spr_i+GugX5Mtw8bKVAHRE=GaFK6ANF3=Ya1HQSSotRTQ@mail.gmail.com>
-Subject: Re: [PATCH] scripts/Makefile.clang: default to LLVM_IAS=1
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>, 
- Michal Marek <michal.lkml@markovi.net>, Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, clang-built-linux@googlegroups.com, 
- linux-kbuild@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <1627953123-24248-1-git-send-email-guoren@kernel.org>
+In-Reply-To: <1627953123-24248-1-git-send-email-guoren@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 3 Aug 2021 10:43:10 +0530
+Message-ID: <CAAhSdy3ExFE_bTjxiGPh157ev89GEFypMcJ0OU63TQA5CRUONw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] irqchip/sifive-plic: Fix PLIC crash on touching
+ offline CPU context
+To: Guo Ren <guoren@kernel.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210802_184253_334358_0D11522D 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20210802_221351_298439_8E0A6F1B 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,132 +97,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 2, 2021 at 4:43 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
+On Tue, Aug 3, 2021 at 6:42 AM <guoren@kernel.org> wrote:
 >
-> LLVM_IAS=1 controls enabling clang's integrated assembler via
-> -integrated-as. This was an explicit opt in until we could enable
-> assembler support in Clang for more architecures. Now we have support
-> and CI coverage of LLVM_IAS=1 for all architecures except a few more
-> bugs affecting s390 and powerpc.
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> This commit flips the default from opt in via LLVM_IAS=1 to opt out via
-> LLVM_IAS=0.  CI systems or developers that were previously doing builds
-> with CC=clang or LLVM=1 without explicitly setting LLVM_IAS must now
-> explicitly opt out via LLVM_IAS=0, otherwise they will be implicitly
-> opted-in.
+> The current plic driver would touch offline CPU context and cause
+> bus error in some chip when in CPU hotplug scenario.
 >
-> This finally shortens the command line invocation when cross compiling
-> with LLVM to simply:
+> This patch fixes up the problem and prevents plic access offline
+> CPU context in plic_init() & plic_set_affinity().
 >
-> $ make ARCH=arm64 LLVM=1
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1434
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Greentime Hu <greentime.hu@sifive.com>
+> Cc: Marc Zyngier <maz@kernel.org>
 > ---
-> Note: base is:
-> https://lore.kernel.org/lkml/20210802183910.1802120-1-ndesaulniers@google.com/
+>  drivers/irqchip/irq-sifive-plic.c | 26 +++++++++++++++++---------
+>  1 file changed, 17 insertions(+), 9 deletions(-)
 >
->  Documentation/kbuild/llvm.rst | 14 ++++++++------
->  Makefile                      |  2 +-
->  arch/riscv/Makefile           |  2 +-
->  scripts/Makefile.clang        |  6 +++---
->  4 files changed, 13 insertions(+), 11 deletions(-)
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index cf74cfa..9c9bb20 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -64,6 +64,7 @@ struct plic_priv {
+>         struct cpumask lmask;
+>         struct irq_domain *irqdomain;
+>         void __iomem *regs;
+> +       unsigned int nr_irqs;
+>  };
 >
-> diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-> index f8a360958f4c..16712fab4d3a 100644
-> --- a/Documentation/kbuild/llvm.rst
-> +++ b/Documentation/kbuild/llvm.rst
-> @@ -60,17 +60,14 @@ They can be enabled individually. The full list of the parameters: ::
->           OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
->           HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld
+>  struct plic_handler {
+> @@ -150,7 +151,7 @@ static int plic_set_affinity(struct irq_data *d,
+>         if (cpu >= nr_cpu_ids)
+>                 return -EINVAL;
 >
-> -Currently, the integrated assembler is disabled by default. You can pass
-> -``LLVM_IAS=1`` to enable it.
-> +Currently, the integrated assembler is enabled by default. You can pass
-> +``LLVM_IAS=0`` to disable it.
+> -       plic_irq_toggle(&priv->lmask, d, 0);
+> +       plic_irq_toggle(cpu_online_mask, d, 0);
+
+This breaks RISC-V multi-socket platforms with multiple PLIC instances.
+
+When we have multiple PLIC instances in a RISC-V platform, each PLIC
+instance will target a different set of HARTs. The "priv->lmask" represents
+the CPUs/HARTs targeted by a given PLIC instance.
+
+I am not sure how you are testing your patches but you certainly need to
+test more on QEMU. The QEMU virt machine support multi-socket so make
+sure any patch which can potentially affect multi-socket support is at least
+tested on QEMU virt machine multi-socket configuration.
+
+>         plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
 >
->  Omitting CROSS_COMPILE
->  ----------------------
+>         irq_data_update_effective_affinity(d, cpumask_of(cpu));
+> @@ -251,15 +252,25 @@ static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
 >
->  As explained above, ``CROSS_COMPILE`` is used to set ``--target=<triple>``.
->
-> -Unless ``LLVM_IAS=1`` is specified, ``CROSS_COMPILE`` is also used to derive
-> -``--prefix=<path>`` to search for the GNU assembler and linker.
-> -
->  If ``CROSS_COMPILE`` is not specified, the ``--target=<triple>`` is inferred
->  from ``ARCH``.
->
-> @@ -78,7 +75,12 @@ That means if you use only LLVM tools, ``CROSS_COMPILE`` becomes unnecessary.
->
->  For example, to cross-compile the arm64 kernel::
->
-> -       make ARCH=arm64 LLVM=1 LLVM_IAS=1
-> +       make ARCH=arm64 LLVM=1
+>  static int plic_dying_cpu(unsigned int cpu)
+>  {
+> +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
 > +
-> +If ``LLVM_IAS=0`` is specified, ``CROSS_COMPILE`` is also used to derive
-> +``--prefix=<path>`` to search for the GNU assembler and linker. ::
+>         if (plic_parent_irq)
+>                 disable_percpu_irq(plic_parent_irq);
+>
+> +       handler->present = false;
 > +
 
-I am not sure if LLVM_IAS should also impacts linker selection
+Drop these changes in plic_dying_cpu(), see comments below.
 
-> +       make ARCH=arm64 LLVM=1 LLVM_IAS=0 CROSS_COMPILE=aarch64-linux-gnu-
+>         return 0;
+>  }
 >
->  Supported Architectures
->  -----------------------
-> diff --git a/Makefile b/Makefile
-> index 444558e62cbc..b24b48c9ebb7 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -845,7 +845,7 @@ else
->  DEBUG_CFLAGS   += -g
->  endif
+>  static int plic_starting_cpu(unsigned int cpu)
+>  {
+>         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +       irq_hw_number_t hwirq;
+> +
+> +       handler->present = true;
+
+The "handler->present" flag indicates that we have PLIC context
+associated with the given handler. It has nothing to do with CPU
+hot-plug.
+
+> +
+> +       for (hwirq = 1; hwirq <= handler->priv->nr_irqs; hwirq++)
+> +               plic_toggle(handler, hwirq, 0);
 >
-> -ifneq ($(LLVM_IAS),1)
-> +ifeq ($(LLVM_IAS),0)
->  KBUILD_AFLAGS  += -Wa,-gdwarf-2
->  endif
+>         if (plic_parent_irq)
+>                 enable_percpu_irq(plic_parent_irq,
+> @@ -275,7 +286,6 @@ static int __init plic_init(struct device_node *node,
+>                 struct device_node *parent)
+>  {
+>         int error = 0, nr_contexts, nr_handlers = 0, i;
+> -       u32 nr_irqs;
+>         struct plic_priv *priv;
+>         struct plic_handler *handler;
 >
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index bc74afdbf31e..807f7c94bc6f 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -41,7 +41,7 @@ endif
->  ifeq ($(CONFIG_LD_IS_LLD),y)
->         KBUILD_CFLAGS += -mno-relax
->         KBUILD_AFLAGS += -mno-relax
-> -ifneq ($(LLVM_IAS),1)
-> +ifeq ($(LLVM_IAS),0)
->         KBUILD_CFLAGS += -Wa,-mno-relax
->         KBUILD_AFLAGS += -Wa,-mno-relax
->  endif
-> diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-> index 1f4e3eb70f88..3ae63bd35582 100644
-> --- a/scripts/Makefile.clang
-> +++ b/scripts/Makefile.clang
-> @@ -22,12 +22,12 @@ else
->  CLANG_FLAGS    += --target=$(notdir $(CROSS_COMPILE:%-=%))
->  endif # CROSS_COMPILE
+> @@ -290,8 +300,8 @@ static int __init plic_init(struct device_node *node,
+>         }
 >
-> -ifeq ($(LLVM_IAS),1)
-> -CLANG_FLAGS    += -integrated-as
-> -else
-> +ifeq ($(LLVM_IAS),0)
->  CLANG_FLAGS    += -no-integrated-as
->  GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
->  CLANG_FLAGS    += --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
-> +else
-> +CLANG_FLAGS    += -integrated-as
->  endif
->  CLANG_FLAGS    += -Werror=unknown-warning-option
->  KBUILD_CFLAGS  += $(CLANG_FLAGS)
+>         error = -EINVAL;
+> -       of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> -       if (WARN_ON(!nr_irqs))
+> +       of_property_read_u32(node, "riscv,ndev", &priv->nr_irqs);
+> +       if (WARN_ON(!priv->nr_irqs))
+>                 goto out_iounmap;
 >
-> base-commit: d7a86429dbc691bf540688fcc8542cc20246a85b
-> prerequisite-patch-id: 0d3072ecb5fd06ff6fd6ea81fe601f6c54c23910
-> prerequisite-patch-id: 2654829756eb8a094a0ffad1679caa75a4d86619
-> prerequisite-patch-id: a51e7885ca2376d008bbf146a5589da247806f7b
+>         nr_contexts = of_irq_count(node);
+> @@ -299,14 +309,13 @@ static int __init plic_init(struct device_node *node,
+>                 goto out_iounmap;
+>
+>         error = -ENOMEM;
+> -       priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> +       priv->irqdomain = irq_domain_add_linear(node, priv->nr_irqs + 1,
+>                         &plic_irqdomain_ops, priv);
+>         if (WARN_ON(!priv->irqdomain))
+>                 goto out_iounmap;
+>
+>         for (i = 0; i < nr_contexts; i++) {
+>                 struct of_phandle_args parent;
+> -               irq_hw_number_t hwirq;
+>                 int cpu, hartid;
+>
+>                 if (of_irq_parse_one(node, i, &parent)) {
+> @@ -354,7 +363,8 @@ static int __init plic_init(struct device_node *node,
+>                 }
+>
+>                 cpumask_set_cpu(cpu, &priv->lmask);
+> -               handler->present = true;
+> +               if (cpu == smp_processor_id())
+> +                       handler->present = true;
+
+Drop this change.
+
+>                 handler->hart_base =
+>                         priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+>                 raw_spin_lock_init(&handler->enable_lock);
+> @@ -362,8 +372,6 @@ static int __init plic_init(struct device_node *node,
+>                         priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
+>                 handler->priv = priv;
+>  done:
+> -               for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> -                       plic_toggle(handler, hwirq, 0);
+
+In plic_init(), we are bringing all interrupts of PLIC context to a known
+state which is being disabled by default. We don't need to do this every
+time a HART/CPU is brought-up but I am okay to move this to
+plic_starting_cpu() if it helps fix issues on any RISC-V platform.
+
+>                 nr_handlers++;
+>         }
+>
 > --
-> 2.32.0.554.ge1b32706d8-goog
+> 2.7.4
 >
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
