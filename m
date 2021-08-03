@@ -1,89 +1,68 @@
-Return-Path: <SRS0=JNkM=MZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=9VPL=M2=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BC2CAC4338F
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Aug 2021 23:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A686BC432BE
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:13:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 71D1D60EE3
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Aug 2021 23:43:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 71D1D60EE3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 628AB60F9E
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:13:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 628AB60F9E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Mime-Version:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=JZoqG4Dp7PIXWkp0UQ/C88wKX6fTNKF2xAJ8d+T00lA=; b=coJ
-	VK7UOItacSO4Rq28MMqPtmU4DkG28tSTKIzPQB0mVj/1DFrfavq1uvnZkiHdtHYxeyYe25aBw8eyY
-	jTEoEtrKbzXqafEmf+TULJgT2qkWRwQxCTZS81RwlmFn3i2ZuBOhZ7h9KysfdfFbnqWn6rV36MTff
-	lHMpZVoyfznXKI6HqntE3LMvM/Am1MZeuRG4Ra9Ol90434vLwnCeIsGcGuJMrULuP1fRPY6JFDXgZ
-	2PNcgMVlmFJswkmNwqXBvEhnVVMW0TAZiqQoYt22YIjPqqjCc5ZkfFExJQMHnT5uKj6NNOS5ukf4i
-	ekVdLPmgE/QGdaal7M6F4dAPN7vmDZw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I9qCdtte6UzraFVkcfTTvccAyt/aSIiZ8t7iCupzOWg=; b=2Vys7mmj9usciE
+	HH6OYLRwne11aDrXhT3Z73E9qpMqHo9pX8Gpk9HdI0pb0EPjhLVYHmBY9hrLnAi1tmtgpIGR+u5Cl
+	zy6j1AVM5pkTPeaIckRWm9KngHSqKRNSbKqBLEGeLDSrNA741ornGSO7nfRW2OYQC+R1j2iOxBGo/
+	g/11Lq3nbLFoCyC39Dm34RhnVtIUai/Th3jpuhVFTIf38OsiGA+02n3gKgNpPegDetKUWY0RLuGOV
+	7vVmpAS9QIb8W9ir2CoLhVT2cuoZv7YpwVwig1BlgM5pT7iT/PFrIMSOxgsemaiQjL5/03U6LDABk
+	4xxJQiqm8fIOZDZkmULw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mAhaZ-000c1N-Jh; Mon, 02 Aug 2021 23:43:19 +0000
-Received: from mail-qv1-xf49.google.com ([2607:f8b0:4864:20::f49])
+	id 1mAiz8-000hjH-Rv; Tue, 03 Aug 2021 01:12:46 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mAhaX-000c12-C1
- for linux-riscv@lists.infradead.org; Mon, 02 Aug 2021 23:43:19 +0000
-Received: by mail-qv1-xf49.google.com with SMTP id
- v19-20020ad455530000b029032620cab853so14196909qvy.8
- for <linux-riscv@lists.infradead.org>; Mon, 02 Aug 2021 16:43:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:message-id:mime-version:subject:from:to:cc;
- bh=yy9pyQojvK7Hdmo6VGo2Lui7HtlFWMn7Zh2eGYLAN30=;
- b=UH3CUy9t8ryrDG4F3pv3TetQOMIQtKV6Y2LYsFhy+ponF7FuzwIOeDtuKfPCeNRPz7
- qHv8bicgNi2Ms3bIMqrwpY0Md+goVKT37gdnPhhc2+yX4vG/W+X5cyUIn/dkmk2cLyF0
- MRdcgQAGixOudrNX42SWMNzXoN/NtEIZjLBCDQl4+oKI8Pl+WlHKMJloWVrWpXB5Vm7P
- Ssr1i3ElcLtqhCrLJGNmyjpeEgyd+YFIKF+sgrp6IBqZg7VKnHjNmygADAV0uwUssdse
- Gi6DioUPgJIJ+D58vtaUZ8bRm/0K+LhPuz3XJtLMDhzu/CXC+QDLi2/WPpwFQ0LZjaMX
- rd9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
- bh=yy9pyQojvK7Hdmo6VGo2Lui7HtlFWMn7Zh2eGYLAN30=;
- b=h2lgdT7KQSzrH72MAWisOqk1nyXqgkU9r7gFWJdto8sH6wWgQSg6GiK5GFrPSrwr65
- UwEiddzpNgzsfiZO2XEP/MJZoj69ZFUyftR1wcz5sVWDhQaXnTzSvcwun77OBIhBIkBh
- shrgWp9tbxiNESGG/KBCtXmiW6RV04s9Rcoc6khbOfEnYusN2wXCyHc8BhpscOZFVQ+/
- jSh54SUgULxHsX9OoT3+kCs3jy1lP4bJRxuRInFnNE9oQZ8iwNjrf38mKShmS9iFTHkh
- ykRRkNGpCRJ0WvLJfFYGwOI3OSLwN1aeWcJKszDXZXWSD+SF2x199iLnwJGBRrBdZfyY
- Psgw==
-X-Gm-Message-State: AOAM531thM0qEQo/Zq/T7Gx1yHNAzpOpX2EvnoJ5pUNVi7fuuUHRchPx
- OuiUntxrQWW7ZN+3tEbZcY72xAoQYI0jXULDbbg=
-X-Google-Smtp-Source: ABdhPJxv56UYXw0HdwPKZZQFp3/zRO8zP8qIjavfTRIKYqCH5596UCuGHqajKqMv8WCVM5UAz4HoFd32fzVH1fyJqgg=
-X-Received: from ndesaulniers1.mtv.corp.google.com
- ([2620:15c:211:202:3db0:42c:8665:a4ae])
- (user=ndesaulniers job=sendgmr) by 2002:a0c:b44b:: with SMTP id
- e11mr18946709qvf.38.1627947792748; Mon, 02 Aug 2021 16:43:12 -0700 (PDT)
-Date: Mon,  2 Aug 2021 16:43:03 -0700
-Message-Id: <20210802234304.3519577-1-ndesaulniers@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.32.0.554.ge1b32706d8-goog
-Subject: [PATCH] scripts/Makefile.clang: default to LLVM_IAS=1
-From: Nick Desaulniers <ndesaulniers@google.com>
-To: Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>
-Cc: Khem Raj <raj.khem@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
- Michal Marek <michal.lkml@markovi.net>, Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, clang-built-linux@googlegroups.com, 
- linux-kbuild@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+ id 1mAiz6-000hik-PM
+ for linux-riscv@lists.infradead.org; Tue, 03 Aug 2021 01:12:46 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9520560FA0;
+ Tue,  3 Aug 2021 01:12:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1627953164;
+ bh=7iM0o8i7IXhADmeTNf1T0a4Y5xkOFyr9BlbacP7nCAk=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=d+w1MEJC7iZC8o5B9Vnz3cW3l77UEm0eLhyuIM6O3Okse3gi9a3SBPWveD7eYFYrb
+ ljn3g+qs6GuJ/k3Sgug8voxN07+rVVkM6h9FziM55RJnjbhb5KG2MFhDhReiFVE8La
+ Lfd0Y6VFLQCthLJwg8JX19DFxjtQD3yud7inxQFnoTg6d8gnvBqstEJyQ3Esj/xmgV
+ TLgNF/EKmSf+R30kNgTda27imD5tlpt2RMfTiylSj1t9iILSqkwxNbfbb7lIkrEyfr
+ pNSIRDUqiB/u5XRhhj4O5sjEs4mEzpMlfhzhDwe7ZJe13DnYS7t2HjnTHPetICrWf2
+ 2gt7vvA8Xpdew==
+From: guoren@kernel.org
+To: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
+ tglx@linutronix.de, maz@kernel.org, guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH 2/2] riscv: Improve status in cpu sections of device-tree for
+ cpuhotplug usage
+Date: Tue,  3 Aug 2021 09:12:03 +0800
+Message-Id: <1627953123-24248-2-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1627953123-24248-1-git-send-email-guoren@kernel.org>
+References: <1627953123-24248-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210802_164317_459645_4D12FBDF 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20210802_181244_898060_353653F5 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,131 +74,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LLVM_IAS=1 controls enabling clang's integrated assembler via
--integrated-as. This was an explicit opt in until we could enable
-assembler support in Clang for more architecures. Now we have support
-and CI coverage of LLVM_IAS=1 for all architecures except a few more
-bugs affecting s390 and powerpc.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-This commit flips the default from opt in via LLVM_IAS=1 to opt out via
-LLVM_IAS=0.  CI systems or developers that were previously doing builds
-with CC=clang or LLVM=1 without explicitly setting LLVM_IAS must now
-explicitly opt out via LLVM_IAS=0, otherwise they will be implicitly
-opted-in.
+If we define cpu sections with first okay & second fail:
+        cpus {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                timebase-frequency = <3000000>;
+                cpu@0 {
+                        device_type = "cpu";
+                        reg = <0>;
+                        status = "okay";
+			...
+                };
+                cpu@1 {
+                        device_type = "cpu";
+                        reg = <1>;
+                        status = "fail";
+			...
+                };
+        };
 
-This finally shortens the command line invocation when cross compiling
-with LLVM to simply:
+Currently, we only get cpu0 without cpu1 in the shell:
+$ ls /sys/bus/cpu/devices/
+cpu0
 
-$ make ARCH=arm64 LLVM=1
+But it should be cpu0 online and cpu1 offline, then we could let
+cpu1 online later by shell. This patch fixup the problem and let
+us could make cpu1 online in the shell later after system boot:
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/1434
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+$ ls /sys/bus/cpu/devices/
+cpu0 cpu1
+$ cat /sys/bus/cpu/devices/cpu0/online
+1
+$ cat /sys/bus/cpu/devices/cpu1/online
+0
+
+$ echo 224 > /sys/bus/cpu/devices/cpu1/hotplug/target
+(cat /sys/devices/system/cpu/hotplug/states "224: online")
+$ cat /sys/bus/cpu/devices/cpu1/online
+1
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
-Note: base is:
-https://lore.kernel.org/lkml/20210802183910.1802120-1-ndesaulniers@google.com/
+ arch/riscv/kernel/cpu.c     |  5 -----
+ arch/riscv/kernel/smpboot.c | 11 +++++++++++
+ 2 files changed, 11 insertions(+), 5 deletions(-)
 
- Documentation/kbuild/llvm.rst | 14 ++++++++------
- Makefile                      |  2 +-
- arch/riscv/Makefile           |  2 +-
- scripts/Makefile.clang        |  6 +++---
- 4 files changed, 13 insertions(+), 11 deletions(-)
-
-diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-index f8a360958f4c..16712fab4d3a 100644
---- a/Documentation/kbuild/llvm.rst
-+++ b/Documentation/kbuild/llvm.rst
-@@ -60,17 +60,14 @@ They can be enabled individually. The full list of the parameters: ::
- 	  OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
- 	  HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 6d59e69..14f63fd 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -27,11 +27,6 @@ int riscv_of_processor_hartid(struct device_node *node)
+ 		return -ENODEV;
+ 	}
  
--Currently, the integrated assembler is disabled by default. You can pass
--``LLVM_IAS=1`` to enable it.
-+Currently, the integrated assembler is enabled by default. You can pass
-+``LLVM_IAS=0`` to disable it.
- 
- Omitting CROSS_COMPILE
- ----------------------
- 
- As explained above, ``CROSS_COMPILE`` is used to set ``--target=<triple>``.
- 
--Unless ``LLVM_IAS=1`` is specified, ``CROSS_COMPILE`` is also used to derive
--``--prefix=<path>`` to search for the GNU assembler and linker.
+-	if (!of_device_is_available(node)) {
+-		pr_info("CPU with hartid=%d is not available\n", hart);
+-		return -ENODEV;
+-	}
 -
- If ``CROSS_COMPILE`` is not specified, the ``--target=<triple>`` is inferred
- from ``ARCH``.
+ 	if (of_property_read_string(node, "riscv,isa", &isa)) {
+ 		pr_warn("CPU with hartid=%d has no \"riscv,isa\" property\n", hart);
+ 		return -ENODEV;
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index bd82375..c3b620b 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -37,6 +37,7 @@
+ #include "head.h"
  
-@@ -78,7 +75,12 @@ That means if you use only LLVM tools, ``CROSS_COMPILE`` becomes unnecessary.
+ static DECLARE_COMPLETION(cpu_running);
++static struct cpumask cpu_delay_available_mask = { CPU_BITS_NONE };
  
- For example, to cross-compile the arm64 kernel::
+ void __init smp_prepare_boot_cpu(void)
+ {
+@@ -99,6 +100,11 @@ void __init setup_smp(void)
+ 			break;
+ 		}
  
--	make ARCH=arm64 LLVM=1 LLVM_IAS=1
-+	make ARCH=arm64 LLVM=1
++		if (!of_device_is_available(dn))
++			pr_info("CPU with hartid=%d is not available\n", hart);
++		else
++			cpumask_set_cpu(cpuid, &cpu_delay_available_mask);
 +
-+If ``LLVM_IAS=0`` is specified, ``CROSS_COMPILE`` is also used to derive
-+``--prefix=<path>`` to search for the GNU assembler and linker. ::
+ 		cpuid_to_hartid_map(cpuid) = hart;
+ 		early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
+ 		cpuid++;
+@@ -131,6 +137,11 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 	int ret = 0;
+ 	tidle->thread_info.cpu = cpu;
+ 
++	if (!cpumask_test_cpu(cpu, &cpu_delay_available_mask)) {
++		cpumask_set_cpu(cpu, &cpu_delay_available_mask);
++		return -EIO;
++	}
 +
-+	make ARCH=arm64 LLVM=1 LLVM_IAS=0 CROSS_COMPILE=aarch64-linux-gnu-
- 
- Supported Architectures
- -----------------------
-diff --git a/Makefile b/Makefile
-index 444558e62cbc..b24b48c9ebb7 100644
---- a/Makefile
-+++ b/Makefile
-@@ -845,7 +845,7 @@ else
- DEBUG_CFLAGS	+= -g
- endif
- 
--ifneq ($(LLVM_IAS),1)
-+ifeq ($(LLVM_IAS),0)
- KBUILD_AFLAGS	+= -Wa,-gdwarf-2
- endif
- 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index bc74afdbf31e..807f7c94bc6f 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -41,7 +41,7 @@ endif
- ifeq ($(CONFIG_LD_IS_LLD),y)
- 	KBUILD_CFLAGS += -mno-relax
- 	KBUILD_AFLAGS += -mno-relax
--ifneq ($(LLVM_IAS),1)
-+ifeq ($(LLVM_IAS),0)
- 	KBUILD_CFLAGS += -Wa,-mno-relax
- 	KBUILD_AFLAGS += -Wa,-mno-relax
- endif
-diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-index 1f4e3eb70f88..3ae63bd35582 100644
---- a/scripts/Makefile.clang
-+++ b/scripts/Makefile.clang
-@@ -22,12 +22,12 @@ else
- CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
- endif # CROSS_COMPILE
- 
--ifeq ($(LLVM_IAS),1)
--CLANG_FLAGS	+= -integrated-as
--else
-+ifeq ($(LLVM_IAS),0)
- CLANG_FLAGS	+= -no-integrated-as
- GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
- CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
-+else
-+CLANG_FLAGS	+= -integrated-as
- endif
- CLANG_FLAGS	+= -Werror=unknown-warning-option
- KBUILD_CFLAGS	+= $(CLANG_FLAGS)
-
-base-commit: d7a86429dbc691bf540688fcc8542cc20246a85b
-prerequisite-patch-id: 0d3072ecb5fd06ff6fd6ea81fe601f6c54c23910
-prerequisite-patch-id: 2654829756eb8a094a0ffad1679caa75a4d86619
-prerequisite-patch-id: a51e7885ca2376d008bbf146a5589da247806f7b
+ 	ret = start_secondary_cpu(cpu, tidle);
+ 	if (!ret) {
+ 		wait_for_completion_timeout(&cpu_running,
 -- 
-2.32.0.554.ge1b32706d8-goog
+2.7.4
 
 
 _______________________________________________
