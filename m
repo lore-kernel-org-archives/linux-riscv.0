@@ -7,62 +7,61 @@ X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A686BC432BE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A661AC4338F
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:13:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 628AB60F9E
+	by mail.kernel.org (Postfix) with ESMTPS id 6257360F9C
 	for <linux-riscv@archiver.kernel.org>; Tue,  3 Aug 2021 01:13:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 628AB60F9E
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6257360F9C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I9qCdtte6UzraFVkcfTTvccAyt/aSIiZ8t7iCupzOWg=; b=2Vys7mmj9usciE
-	HH6OYLRwne11aDrXhT3Z73E9qpMqHo9pX8Gpk9HdI0pb0EPjhLVYHmBY9hrLnAi1tmtgpIGR+u5Cl
-	zy6j1AVM5pkTPeaIckRWm9KngHSqKRNSbKqBLEGeLDSrNA741ornGSO7nfRW2OYQC+R1j2iOxBGo/
-	g/11Lq3nbLFoCyC39Dm34RhnVtIUai/Th3jpuhVFTIf38OsiGA+02n3gKgNpPegDetKUWY0RLuGOV
-	7vVmpAS9QIb8W9ir2CoLhVT2cuoZv7YpwVwig1BlgM5pT7iT/PFrIMSOxgsemaiQjL5/03U6LDABk
-	4xxJQiqm8fIOZDZkmULw==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Df4LRz6m/aHZ7DYIYbRaDUcu1rItPhZYe9NWeIDcGxw=; b=3Qis9/R2AhL9Eg
+	FbP0+/wv01yllPREjuVJ4qOZnZ412DGajhD+tO+LJXIpHHNlkDL5z4OQT9yGBhawy5GyB6ASb8jT7
+	OegXWJehnfzctBm+Oor6++joPF2YqmG8SMD9/GFRdDCIojYbGvvQ7v7Qhd11qcGcqz171Uk8IGHro
+	hIWFZxucYI+WLsc8yYtDhHQK0HeYv9ibo1qjhNWF0BANe17RgSzybWnlJbsY/9s/bJGpK8U3hyOU/
+	2fU5kOaiLJoMODa8q+Xhp7Jw+9L64Zg1UmjkwQIiENT3qrrXTqhJeZ9hiIK3YiLpbWx/qcf3J0i+u
+	dAUUYMQo9aFewwV7AwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mAiz8-000hjH-Rv; Tue, 03 Aug 2021 01:12:46 +0000
+	id 1mAiz5-000hiD-CI; Tue, 03 Aug 2021 01:12:43 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mAiz6-000hik-PM
- for linux-riscv@lists.infradead.org; Tue, 03 Aug 2021 01:12:46 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9520560FA0;
- Tue,  3 Aug 2021 01:12:40 +0000 (UTC)
+ id 1mAiz2-000hhg-IE
+ for linux-riscv@lists.infradead.org; Tue, 03 Aug 2021 01:12:42 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 490FF60C41;
+ Tue,  3 Aug 2021 01:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1627953164;
- bh=7iM0o8i7IXhADmeTNf1T0a4Y5xkOFyr9BlbacP7nCAk=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=d+w1MEJC7iZC8o5B9Vnz3cW3l77UEm0eLhyuIM6O3Okse3gi9a3SBPWveD7eYFYrb
- ljn3g+qs6GuJ/k3Sgug8voxN07+rVVkM6h9FziM55RJnjbhb5KG2MFhDhReiFVE8La
- Lfd0Y6VFLQCthLJwg8JX19DFxjtQD3yud7inxQFnoTg6d8gnvBqstEJyQ3Esj/xmgV
- TLgNF/EKmSf+R30kNgTda27imD5tlpt2RMfTiylSj1t9iILSqkwxNbfbb7lIkrEyfr
- pNSIRDUqiB/u5XRhhj4O5sjEs4mEzpMlfhzhDwe7ZJe13DnYS7t2HjnTHPetICrWf2
- 2gt7vvA8Xpdew==
+ s=k20201202; t=1627953159;
+ bh=LHJKX9XXkfazkD196dtxTgqloRW9uHOklZKJq1umYDM=;
+ h=From:To:Cc:Subject:Date:From;
+ b=UlYnk+D+6hE1ZBh4pSLkaOqbIJps8rFPMKb/ksqD9l1pqTKca+X9PoRZaAB8QiSId
+ ncKaqEeRmp9+IRV5Wx3HSnVtwoFVMylG0fk3dL6F5Up6KGFP9d+lvYFBlxU8l1cAzj
+ IHk48X8jhrWm8DepGQXocLIvPozujp7IHsR6pmnoWxC+S+9EQXlalT1z7UTRRdCJGH
+ KKTYoTUqHfqLPVyS+27K/Fqn9US8YzLqFGUE8CmGHjjILwaKP+WScg1zCmYXhLTNDG
+ AzF2SSp6ZmEEd/KorXxqZXyw/LrIx68Mt/0dhnGWYjzXMC0C4YsNTQP+EzQtQ3iD0v
+ vwhcmW8XnzhuQ==
 From: guoren@kernel.org
 To: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
  tglx@linutronix.de, maz@kernel.org, guoren@kernel.org
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 2/2] riscv: Improve status in cpu sections of device-tree for
- cpuhotplug usage
-Date: Tue,  3 Aug 2021 09:12:03 +0800
-Message-Id: <1627953123-24248-2-git-send-email-guoren@kernel.org>
+ Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Greentime Hu <greentime.hu@sifive.com>
+Subject: [PATCH 1/2] irqchip/sifive-plic: Fix PLIC crash on touching offline
+ CPU context
+Date: Tue,  3 Aug 2021 09:12:02 +0800
+Message-Id: <1627953123-24248-1-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1627953123-24248-1-git-send-email-guoren@kernel.org>
-References: <1627953123-24248-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210802_181244_898060_353653F5 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20210802_181240_678839_15E06324 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,106 +81,122 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-If we define cpu sections with first okay & second fail:
-        cpus {
-                #address-cells = <1>;
-                #size-cells = <0>;
-                timebase-frequency = <3000000>;
-                cpu@0 {
-                        device_type = "cpu";
-                        reg = <0>;
-                        status = "okay";
-			...
-                };
-                cpu@1 {
-                        device_type = "cpu";
-                        reg = <1>;
-                        status = "fail";
-			...
-                };
-        };
+The current plic driver would touch offline CPU context and cause
+bus error in some chip when in CPU hotplug scenario.
 
-Currently, we only get cpu0 without cpu1 in the shell:
-$ ls /sys/bus/cpu/devices/
-cpu0
-
-But it should be cpu0 online and cpu1 offline, then we could let
-cpu1 online later by shell. This patch fixup the problem and let
-us could make cpu1 online in the shell later after system boot:
-
-$ ls /sys/bus/cpu/devices/
-cpu0 cpu1
-$ cat /sys/bus/cpu/devices/cpu0/online
-1
-$ cat /sys/bus/cpu/devices/cpu1/online
-0
-
-$ echo 224 > /sys/bus/cpu/devices/cpu1/hotplug/target
-(cat /sys/devices/system/cpu/hotplug/states "224: online")
-$ cat /sys/bus/cpu/devices/cpu1/online
-1
+This patch fixes up the problem and prevents plic access offline
+CPU context in plic_init() & plic_set_affinity().
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Anup Patel <anup@brainfault.org>
 Cc: Atish Patra <atish.patra@wdc.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Greentime Hu <greentime.hu@sifive.com>
+Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/riscv/kernel/cpu.c     |  5 -----
- arch/riscv/kernel/smpboot.c | 11 +++++++++++
- 2 files changed, 11 insertions(+), 5 deletions(-)
+ drivers/irqchip/irq-sifive-plic.c | 26 +++++++++++++++++---------
+ 1 file changed, 17 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 6d59e69..14f63fd 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -27,11 +27,6 @@ int riscv_of_processor_hartid(struct device_node *node)
- 		return -ENODEV;
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index cf74cfa..9c9bb20 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -64,6 +64,7 @@ struct plic_priv {
+ 	struct cpumask lmask;
+ 	struct irq_domain *irqdomain;
+ 	void __iomem *regs;
++	unsigned int nr_irqs;
+ };
+ 
+ struct plic_handler {
+@@ -150,7 +151,7 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
+ 
+-	plic_irq_toggle(&priv->lmask, d, 0);
++	plic_irq_toggle(cpu_online_mask, d, 0);
+ 	plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
+ 
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+@@ -251,15 +252,25 @@ static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
+ 
+ static int plic_dying_cpu(unsigned int cpu)
+ {
++	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++
+ 	if (plic_parent_irq)
+ 		disable_percpu_irq(plic_parent_irq);
+ 
++	handler->present = false;
++
+ 	return 0;
+ }
+ 
+ static int plic_starting_cpu(unsigned int cpu)
+ {
+ 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++	irq_hw_number_t hwirq;
++
++	handler->present = true;
++
++	for (hwirq = 1; hwirq <= handler->priv->nr_irqs; hwirq++)
++		plic_toggle(handler, hwirq, 0);
+ 
+ 	if (plic_parent_irq)
+ 		enable_percpu_irq(plic_parent_irq,
+@@ -275,7 +286,6 @@ static int __init plic_init(struct device_node *node,
+ 		struct device_node *parent)
+ {
+ 	int error = 0, nr_contexts, nr_handlers = 0, i;
+-	u32 nr_irqs;
+ 	struct plic_priv *priv;
+ 	struct plic_handler *handler;
+ 
+@@ -290,8 +300,8 @@ static int __init plic_init(struct device_node *node,
  	}
  
--	if (!of_device_is_available(node)) {
--		pr_info("CPU with hartid=%d is not available\n", hart);
--		return -ENODEV;
--	}
--
- 	if (of_property_read_string(node, "riscv,isa", &isa)) {
- 		pr_warn("CPU with hartid=%d has no \"riscv,isa\" property\n", hart);
- 		return -ENODEV;
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index bd82375..c3b620b 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -37,6 +37,7 @@
- #include "head.h"
+ 	error = -EINVAL;
+-	of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+-	if (WARN_ON(!nr_irqs))
++	of_property_read_u32(node, "riscv,ndev", &priv->nr_irqs);
++	if (WARN_ON(!priv->nr_irqs))
+ 		goto out_iounmap;
  
- static DECLARE_COMPLETION(cpu_running);
-+static struct cpumask cpu_delay_available_mask = { CPU_BITS_NONE };
+ 	nr_contexts = of_irq_count(node);
+@@ -299,14 +309,13 @@ static int __init plic_init(struct device_node *node,
+ 		goto out_iounmap;
  
- void __init smp_prepare_boot_cpu(void)
- {
-@@ -99,6 +100,11 @@ void __init setup_smp(void)
- 			break;
+ 	error = -ENOMEM;
+-	priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
++	priv->irqdomain = irq_domain_add_linear(node, priv->nr_irqs + 1,
+ 			&plic_irqdomain_ops, priv);
+ 	if (WARN_ON(!priv->irqdomain))
+ 		goto out_iounmap;
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+ 		struct of_phandle_args parent;
+-		irq_hw_number_t hwirq;
+ 		int cpu, hartid;
+ 
+ 		if (of_irq_parse_one(node, i, &parent)) {
+@@ -354,7 +363,8 @@ static int __init plic_init(struct device_node *node,
  		}
  
-+		if (!of_device_is_available(dn))
-+			pr_info("CPU with hartid=%d is not available\n", hart);
-+		else
-+			cpumask_set_cpu(cpuid, &cpu_delay_available_mask);
-+
- 		cpuid_to_hartid_map(cpuid) = hart;
- 		early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
- 		cpuid++;
-@@ -131,6 +137,11 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
- 	int ret = 0;
- 	tidle->thread_info.cpu = cpu;
+ 		cpumask_set_cpu(cpu, &priv->lmask);
+-		handler->present = true;
++		if (cpu == smp_processor_id())
++			handler->present = true;
+ 		handler->hart_base =
+ 			priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+ 		raw_spin_lock_init(&handler->enable_lock);
+@@ -362,8 +372,6 @@ static int __init plic_init(struct device_node *node,
+ 			priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
+ 		handler->priv = priv;
+ done:
+-		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+-			plic_toggle(handler, hwirq, 0);
+ 		nr_handlers++;
+ 	}
  
-+	if (!cpumask_test_cpu(cpu, &cpu_delay_available_mask)) {
-+		cpumask_set_cpu(cpu, &cpu_delay_available_mask);
-+		return -EIO;
-+	}
-+
- 	ret = start_secondary_cpu(cpu, tidle);
- 	if (!ret) {
- 		wait_for_completion_timeout(&cpu_running,
 -- 
 2.7.4
 
