@@ -2,19 +2,19 @@ Return-Path: <SRS0=sMkx=M3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49480C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 04:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA1ECC4338F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 04:18:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D203A60E52
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 04:18:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D203A60E52
+	by mail.kernel.org (Postfix) with ESMTPS id 7D54D60E52
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 04:18:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7D54D60E52
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ecsA/E4m16abKSEVN05xNOOtV6FbAK3ePZPtlLH3nLc=; b=Q2aPRGLWjYh5/MWWHZZxHQDJhS
-	E9c/ym7YlnHaeyv8ysPuMfbcqmrX8D2UXLJpFOCwwrjjcpjnRSgqti4I8YJkd5FD7Uzo/9CoW+dz9
-	x7FpyIvJdX3vOnjevnWZtploDRxTsDnKk8kk09Ri5Sz0GlXI6LX1ABBu7L5rCHl3PhCqB9njIaK9q
-	H7WbvPOU/b5oWJdo3vSWgKuV8kpOKiK7WrQTHZC3kU+VzRdvfF0mwm2vkBqGOC1ulN2tiVHmKbN/L
-	LipD+vrmXlKZhv5zSPYAJTlYteRCEUkFqm9WF8ih4F3ZLS/wgQP16l5jSNpOGWWi3+0BJDq+rgQft
-	dsx2jPDw==;
+	bh=zsIseqXm+LcjLdrIQvkZS4bFI8xWX7Lv3Z20qAk0d7o=; b=Mfhpu++4YBX1kBTpQDwCOjn2Aq
+	umm/s7opTh/4u9uK+20oGCD2pq86SB1of5ZMeGHzAenYc/IR5hGy8F6q9tpps8Zxt80xRIeXN8WqM
+	+NZp9Qo7Kiu+Exf5d/Bwkkm7VuQ9Uf7q+SEnzFgiJj/qEEuLaipHVTmLvheJMRYtsAuxetYwoY0hx
+	/cveSV6Jd2Gw1g2LxOo+/U81KoyThYytnUSkHfvfs+AgX11HTQbbLN1846oxWuBFpF3LERlyJHMUU
+	KssiupXklkn49h2qWBIzDn5asx4vuMMzvHxKxBFsOORDykvjq24rXpcvV+0p97KOwbDwgns5JGKs3
+	7Cof3Rqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mB8Lh-004k2J-I1; Wed, 04 Aug 2021 04:17:45 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1mB8Lg-004k27-2V; Wed, 04 Aug 2021 04:17:44 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mB8Le-004k1m-EO
- for linux-riscv@lists.infradead.org; Wed, 04 Aug 2021 04:17:44 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id j1so1178531pjv.3
- for <linux-riscv@lists.infradead.org>; Tue, 03 Aug 2021 21:17:42 -0700 (PDT)
+ id 1mB8Ld-004k1W-Gk
+ for linux-riscv@lists.infradead.org; Wed, 04 Aug 2021 04:17:42 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id j1so1178486pjv.3
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Aug 2021 21:17:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=2nhmhsD02swUNGOs+pWN1f/pBH1u3TBjPpQ5E28Bnk4=;
- b=RN2o6y4lLPWKfCm77thZdN4Dt3iOZzNyu0VRtESWaEYOSRE9WNrSD0o5YQkUv0sFlF
- 716hiNy2RGcmyjnRtIGv7Fyw+s9pMjAO5rarIBg7USE5dSSkBx/RjV3fXI17oRX0Mvnv
- 80+/lw/cJ/W1vDo3mA+qftq337E+MmRP09+h2+wcLa6++bXHpm3K80xp0tje+/tY/MzU
- cWWMsgwdAHEFathcpJUeuuJbJCCm+YAjJw+E8hQjpp+axT6GlPJhtyobyztWepotpdnT
- YYEc5H3LMUaKkuyg8UfnDP5pc4T2ASyshkX2FXKohgLoKNeYCxO083IidqGQZ58AAKt1
- B38w==
+ bh=vKtpxFfXXonzxQpVSnSTmoh4P23uDt+JR975j7vzGY4=;
+ b=or4MtC5Pa4CHAc3sHN8vhHOBNZECV0NeNG52atUIvJ97vUKZ7iKFlI7i7xyi2oWoCl
+ OLZ9Z1MyXwztCijqG5Jjc4zOlgeEeMtkXCqA9JED/mzH0JY3F1oR3EYJCmxag21gKGek
+ 24xvgcmy2Ke9tggxbTUUqWLns8bFbF1za4wLPM/FwEVUSa2g6U+Thg/IU3R5kdAPou+n
+ 0CGaRnD5rejAOKudXbqqgJBtsCgWJh/QLXTR3yg9XELegw3OADOY/BRn40MXwJVugREE
+ 7Gv5yx3UkMy4+0NU9dEpuDDUgoJXg81Igw7QbMICjaMxN6VMLWCGS0VsYK2lTjNZDuaR
+ o05Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=2nhmhsD02swUNGOs+pWN1f/pBH1u3TBjPpQ5E28Bnk4=;
- b=hLHIhxobMwNhb/b2q10ZTk01hEHpXmN19jjPDWhib51/3BcyQ9p9g7G6ZLH42d6wqJ
- P1sRzp6u2Iz2yRfJJaGmE9F5kvutkkgGK2iXDujfkVqst2mfLePUYjyn/mt1pbtpfH1w
- 7FJ0fC3cv2DO0/tvltVHULAQSzxoN6mFXudMq6Fai7FYK/0zgGQMQAx33vscg/dQqG/t
- pfu6f2axLReqBv/h47ZSyt39/HBuuZ2Ta1+mm0b0KWoPIBZJiAAMHXYqrWZAIrdJWlOg
- px5AFyS5nAyXh9Apjzg4GY0aoZ/rT8BcdPBhxkUFUon13BCZEp1dRKrR3Tj8Nnnq7rnD
- 7iWQ==
-X-Gm-Message-State: AOAM533J7pcAaTtohio1srCanywvaPf9R9urigv3lvBw1DvfxonAh5cb
- b+gSaPUuGVmD0ZCQ4BC2K4h4HQ==
-X-Google-Smtp-Source: ABdhPJz6agqeARIoaeR47VypfuIBgV5nmdECVVEwjtwqbdqo2YuBOSMSHhxZK3WMCR0nnWPwULfSqA==
-X-Received: by 2002:a62:b615:0:b029:34a:3920:a7ea with SMTP id
- j21-20020a62b6150000b029034a3920a7eamr25702160pff.21.1628050661707; 
- Tue, 03 Aug 2021 21:17:41 -0700 (PDT)
+ bh=vKtpxFfXXonzxQpVSnSTmoh4P23uDt+JR975j7vzGY4=;
+ b=tM47PWPWt6dr0Zqe0RLeGX8S9edZbBhsCptITJo44hrge+a0d7hxKaTG4KOJhaAAuF
+ S9KjEem6/eXlvr8fgaB5X+XhpheoZOgLd2LXNADsvW+y3FeOQtdK+R4NRdp6cqI9xQbV
+ dOKWHnY/9q9usSKl7nTarIIE9E0BPmkNU1bxJQ6t6QUt8ZDPFNSNfc3dNq4p/uC4f/e9
+ 7xNSs+6/qYV7sJrlJYvf+tO1oRhHBqS7uvBCww8yOi60IzeQGbQO30vyR2wdgmIgihUh
+ W5ewYrgQfqiuXOveWsSOqj+Wf9lYwwXeM46XZCWZm4dP1BQRdYyjaeJqbhpzTNiaBJHB
+ q4vg==
+X-Gm-Message-State: AOAM533BsILMK1/+JsWv9BWPvK/QDgHjiuvG/9KUFViqK3uhCAU1FHYV
+ TbRP9lmjMBOY79lLORl1lzZzXA==
+X-Google-Smtp-Source: ABdhPJxT/EuDDdw2vtXk3B6b9kWmMENSSLMKvYVu3SKC68N0WAiRQo8hVGeu4ERHg/s9uOaxjUO/bA==
+X-Received: by 2002:a05:6a00:188e:b029:3c3:1142:15f2 with SMTP id
+ x14-20020a056a00188eb02903c3114215f2mr8894882pfh.36.1628050660207; 
+ Tue, 03 Aug 2021 21:17:40 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a26sm780937pfi.29.2021.08.03.21.17.40
+ by smtp.gmail.com with ESMTPSA id k25sm751605pfa.213.2021.08.03.21.17.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Aug 2021 21:17:41 -0700 (PDT)
-Date: Tue, 03 Aug 2021 21:17:41 -0700 (PDT)
-X-Google-Original-Date: Tue, 03 Aug 2021 21:17:35 PDT (-0700)
-Subject: Re: [PATCH] riscv: dts: fix memory size for the SiFive HiFive
- Unmatched
-In-Reply-To: <de2d60b1-6b84-3d47-8fe7-3f939100b7a8@canonical.com>
-CC: plr.vincent@gmail.com, schwab@linux-m68k.org, qiuwenbo@kylinos.com.cn,
- linux-riscv@lists.infradead.org
+ Tue, 03 Aug 2021 21:17:39 -0700 (PDT)
+Date: Tue, 03 Aug 2021 21:17:39 -0700 (PDT)
+X-Google-Original-Date: Tue, 03 Aug 2021 21:13:20 PDT (-0700)
+Subject: Re: [PATCH -next] riscv: Implement thread_struct whitelist for
+ hardened usercopy
+In-Reply-To: <20210702045422.3527469-1-tongtiangen@huawei.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ tongtiangen@huawei.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: heinrich.schuchardt@canonical.com
-Message-ID: <mhng-f37a2b55-a8de-4245-9f60-6d18ab2da7e0@palmerdabbelt-glaptop>
+To: tongtiangen@huawei.com
+Message-ID: <mhng-f83de915-bef2-4624-9e0f-40fa9fd9560b@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210803_211742_528990_49178B6C 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20210803_211741_604772_B715B469 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +102,49 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Jul 2021 04:54:28 PDT (-0700), heinrich.schuchardt@canonical.com wrote:
-> On 04.07.21 14:13, Vincent Pelletier wrote:
->> On Sun, 04 Jul 2021 11:15:55 +0200, Andreas Schwab <schwab@linux-m68k.org> wrote:
->>> On Jul 04 2021, Qiu Wenbo wrote:
->>>
->>>> The production version of HiFive Unmatched have 16GB memory.
->>>>
->>>> Signed-off-by: Qiu Wenbo <qiuwenbo@kylinos.com.cn>
->>>> ---
->>>>   arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
->>>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
->>>> index b1c3c596578f..2e4ea84f27e7 100644
->>>> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
->>>> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
->>>> @@ -24,7 +24,7 @@ cpus {
->>>>
->>>>   	memory@80000000 {
->>>>   		device_type = "memory";
->>>> -		reg = <0x0 0x80000000 0x2 0x00000000>;
->>>> +		reg = <0x0 0x80000000 0x4 0x00000000>;
->>>>   	};
->>>>
->>>>   	soc {
->>>
->>> https://github.com/sifive/meta-sifive/blob/2021.06/recipes-kernel/linux/files/0003-riscv-sifive-unmatched-update-for-16GB-rev3.patch
->>> contains more changes.
->>
->> Here is what I learned on this topic while poking at the regulator part
->> of this devicetree:
->>
->> While these extra changes match the board's schematics, they are
->> rejected by the da9063-regulator driver:
->> - some channels are merged on the board, but the devicetree does not
->>    show that: they have different names, with different maximum current.
->>    The updated values exceed the single-channel maximum, so the driver
->>    rejects them.
->> - 3 of the regulators are further configurable in overdrive mode on the
->>    board, allowing higher maximum current, but the driver does not
->>    handle this.
->>    Similarly to previous point, the updated values exceed the
->>    non-overdrive maximum, so the driver rejects them.
->>    I've submitted a tentative fix, but its logic is backwards: it
->>    detects the overdrive bits and increases the maximums, whereas it
->>    should see the higher maximums and as a reaction enable the overdrive
->>    bits
->> - also, some voltages fall in-between possible values, which causes the
->>    driver to reject as well (ex: vdd_bperi is at 1.05V, but the chip can
->>    either do 1.04 or 1.06)
->> - ...and likewise for some current values (ex: vdd_bpro is at 2.5A, but
->>    the chip can only detect 2.4 or 2.6)
->>
->> So from a pure system behaviour perspective, these extra changes should
->> not matter either way (at least in my understanding). At least not with
->> the driver in its current state.
->>
->> OTOH:
->> - the changes missing here are more correct than current master
->> - not including them will probably make meta-sifive maintainer's life a
->>    bit more difficult
->>
+On Thu, 01 Jul 2021 21:54:21 PDT (-0700), tongtiangen@huawei.com wrote:
+> This whitelists the FPU register state portion of the thread_struct for
+> copying to userspace, instead of the default entire struct.
 >
-> We should not mix changes that are unrelated in a single patch. Even if
-> regulator changes are advised they should be submitted in a separate patch.
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> ---
+>  arch/riscv/Kconfig                 | 1 +
+>  arch/riscv/include/asm/processor.h | 8 ++++++++
+>  2 files changed, 9 insertions(+)
 >
-> The HiFive Unmatched shows the full available memory with this patch alone.
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 821081bdb8b8..5c26c0726944 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -70,6 +70,7 @@ config RISCV
+>  	select HAVE_ARCH_MMAP_RND_BITS if MMU
+>  	select HAVE_ARCH_SECCOMP_FILTER
+>  	select HAVE_ARCH_TRACEHOOK
+> +	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+>  	select HAVE_ASM_MODVERSIONS
+>  	select HAVE_CONTEXT_TRACKING
+>  	select HAVE_DEBUG_KMEMLEAK
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 021ed64ee608..46b492c78cbb 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -37,6 +37,14 @@ struct thread_struct {
+>  	unsigned long bad_cause;
+>  };
 >
-> Tested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> +/* Whitelist the fstate from the task_struct for hardened usercopy */
+> +static inline void arch_thread_struct_whitelist(unsigned long *offset,
+> +						unsigned long *size)
+> +{
+> +	*offset = offsetof(struct thread_struct, fstate);
+> +	*size = sizeof_field(struct thread_struct, fstate);
+> +}
+> +
+>  #define INIT_THREAD {					\
+>  	.sp = sizeof(init_stack) + (long)&init_stack,	\
+>  }
 
-Agreed.  This is on fixes, if there are more DTS fixes I'm happy to take 
-those as well.
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
