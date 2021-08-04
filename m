@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3A45C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 16:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FBA5C432BE
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 16:35:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 85C8B60525
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 16:34:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 85C8B60525
+	by mail.kernel.org (Postfix) with ESMTPS id 1650B60FC3
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Aug 2021 16:35:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1650B60FC3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gxznBaQC9/uTkngT5sn/W/NGTBfrvdhdDinXAYi9GG4=; b=iVqFfseS+lCOFg
-	gI0Jg5PGiGq9bwk8t3eovoU5YnM/V8L3WckF/+hdb3gtWlq/PoYjseX+cdBcOkO3QsvBb9Edaqjyw
-	QXke3rPs7uWQOm6X+P/eXajgQX1D9nCy75Gp62ItZ1DO12QdIeRbwUnqL12IXcY/7Bav+BHgTm5tu
-	VkZbF8RjhpdTBjqolYeOf5/nFicHcIU6Pq62cg3VAg3lJa4Iovkk/FA68GHEz6aj4op2Dad0hHmZR
-	wq6ETDRfNdMZ3fA4dcuCh/1qIdnorS//Jun0Zh/abRnWuwmskvsZk35UknYwCI3R4dYEsDTIPxyMO
-	DCKeBPGeGvOvwxyEV0zQ==;
+	List-Owner; bh=SMid9q9bDuMoldVFsAdk3OgdhqdUSZhye2SEE3idryc=; b=DEGBkJRXVHr/Va
+	a0+RyzYEbu8eSkHYpZvX1eSAcxpDA7kR8N4nUHkftMlSNw22tEwexqdscJGqZ2IYOZpbRA79cVw0w
+	Y+c3irkoHK+iV32u9AlpdOZ5ip5u7chnE5tC36CfuDn0EFFv3z+KEOxd9FLCzI2RuqoqgsFcNXwK2
+	jtvlvIdKTnb/Z6WiBJX8cybwKeksCGIiJFmnAgnZG2h3YqK5IgrVOUbvcpvHpVP+mtG0nh/H6dMmf
+	oqbdvf4xi9RGddL5UrPTYDX3UMTB6BtQSLY+CkM/uAgwdYMZsEm3SbXC3rpRjK0PuB6YviywIBVjs
+	mWvOdaHdFDAqUzCb1s/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mBJqE-006m1Q-Ca; Wed, 04 Aug 2021 16:34:02 +0000
+	id 1mBJrO-006m74-UH; Wed, 04 Aug 2021 16:35:14 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mBJqA-006m0G-LX
- for linux-riscv@lists.infradead.org; Wed, 04 Aug 2021 16:34:00 +0000
+ id 1mBJrM-006m6a-6z
+ for linux-riscv@lists.infradead.org; Wed, 04 Aug 2021 16:35:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
- bh=p6wkqSiM6eUcutE3r2QlZPPHyVU7BUrvZOHrQArYeWM=; b=b1Hh5qH3g4WOf
- KANdDOBB5z47t0gBtffuKzIszpQ0Yr4C/iKaqyGgVG27uvvXN9uCVs/2sPnd4Qhg
- dMcrgpEIGOyApiEJ8oqtBpdhr9RzZVcj3pdQQr1dxTwtSPuwdr9VvJ4m000KKmXT
- L7n8V1ZDnlad8RAkLrW4tnuwyMyyA4=
+ bh=xh604dbpsnnyAOf8SN+G2bUQr6IW6+e6nF19LETYIVw=; b=UE2pDEgw/gfbh
+ fU+0NbSEIaCrT5hqYME/yyrSBnfX9BMkfHZoAvNfcNpb4GtatGjPbBYj36jFz8TE
+ Am2Iy1HgYGMaDN+dDl0A0j2ON42A8q2UWkjP0FJkFUdq9lwWBoTfD42yTTrS1tFv
+ 3KzoC3gXt6SMJsquLEapn9ncmmRiGQ=
 Received: from xhacker (unknown [101.86.20.15])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygBHT29qwQph1eeUAA--.4949S2; 
- Thu, 05 Aug 2021 00:33:46 +0800 (CST)
-Date: Thu, 5 Aug 2021 00:27:39 +0800
+ LkAmygDHzna+wQphv+mUAA--.32067S2; 
+ Thu, 05 Aug 2021 00:35:10 +0800 (CST)
+Date: Thu, 5 Aug 2021 00:29:08 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH] Documentation/features/vm: riscv supports THP now
-Message-ID: <20210805002739.23f44d2d@xhacker>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Keep the riscv Kconfig selects sorted
+Message-ID: <20210805002908.2597836f@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygBHT29qwQph1eeUAA--.4949S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFy3Gr13XF13Jr15AFyUGFg_yoW3GFbEv3
- W3AayaqrWUt3s2vwn8JF1UCr10vw1FkrZ7Gr1Igw48A3WUZFnxKF9Fk39xA3s8urW3ur4r
- J34qgr9xta42yjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUbFAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
- C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
- Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
- W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I
- 3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxV
- WUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAF
- wI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcI
- k0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_
- Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8rcTPUUUUU==
+X-CM-TRANSID: LkAmygDHzna+wQphv+mUAA--.32067S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7GFyfCF13AFWfXF4UJFWDurg_yoW8JrWfpr
+ nYkwnrJFWjkrs5GF4Fk3y8uF1UJFn5GrW3GrW3Gay5AF93CrZrZryqqFnFqryUXaykJrn3
+ CF9Y93WUtFs8ZrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUySb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+ vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+ FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr
+ 0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC2
+ 0s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI
+ 0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
+ 14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20x
+ vaj40_Zr0_Wr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_
+ Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jnNVgUUUUU=
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210804_093359_425473_A26AAE10 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20210804_093512_744849_307BB5C6 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,27 +94,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-After commit e88b333142e4 ("riscv: mm: add THP support on 64-bit"),
-riscv can support THP.
+Move three Kconfig selects: ARCH_STACKWALK, ARCH_SUPPORTS_ATOMIC_RMW
+and ARCH_SUPPORTS_DEBUG_PAGEALLOC to the right place.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- Documentation/features/vm/THP/arch-support.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/features/vm/THP/arch-support.txt b/Documentation/features/vm/THP/arch-support.txt
-index e8238cb2a4da..7dbd6967b37e 100644
---- a/Documentation/features/vm/THP/arch-support.txt
-+++ b/Documentation/features/vm/THP/arch-support.txt
-@@ -22,7 +22,7 @@
-     |    openrisc: |  ..  |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: |  ..  |
-     |       sparc: |  ok  |
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 8fcceb8eda07..f133ac72572f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -13,9 +13,6 @@ config 32BIT
+ config RISCV
+ 	def_bool y
+ 	select ARCH_CLOCKSOURCE_INIT
+-	select ARCH_SUPPORTS_ATOMIC_RMW
+-	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+-	select ARCH_STACKWALK
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+@@ -33,6 +30,9 @@ config RISCV
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+ 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
++	select ARCH_STACKWALK
++	select ARCH_SUPPORTS_ATOMIC_RMW
++	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
 -- 
 2.32.0
 
