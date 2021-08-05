@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 466CCC4338F
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 09:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB71EC4338F
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 09:18:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DF47660E53
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 09:18:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DF47660E53
+	by mail.kernel.org (Postfix) with ESMTPS id 6A3F961078
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 09:18:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6A3F961078
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=alpha.franken.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,49 +23,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R5TpN7KJUwiazRJcpoQdFthiJhoYQAZWRleP+kmr1eA=; b=MsDWFFS2EVedaQ
-	ZomppC05h1p2Y5H0kFuj2YiTlR6e+Y3cRPSGAwkt5skr1PSwZDT3OtzU2D5tCkZ0Rwydn41MpuVnn
-	ga9wEbTXMfEaCtxnkVDgdap5HWoj18Cm4Hm9O5Ys5sb6LdUXD3U0VdqiPAGL/kW6WEp0zw4CgvjHD
-	bAEnB29xZFyKc2O8WW6ssfZy3VQ39PUr/0vcozkkyaTQjzVuK/XvBJXlPw9A1m+Dz0kfCjbmd7yON
-	NtIEzTIPWlbyKcobL8pqi1yLlMbycGbcnz39TmslcKCR0V4ty9QXUuTt2hmDmN4j+pcMTyonBzfBe
-	XDOdphxyXYO+XxdzeL+g==;
+	List-Owner; bh=h94Cm2IdoVJ0k362GKjRYhyBwxGgCJpDADYIr9356HA=; b=RSluB3kZh32QzL
+	/qeI0103dHygGCwJ3hoTmodwFTwmBu9WKlNiIqGei0DiaszWWpfEULa/s4X+T69ZOELAtlxYYwt+/
+	HGaiMEjFcvF0/7hkO50c/FagS6m81pDS+7lRjWvnX8KeqeL0lJYrcQRyftP9yzHJabVJ8AjqCc4o3
+	9aijiv+F86k2W/8tk9o/8G4eT8b63Kz0betlxwwFLgdfzzZRY5N+V9LNsyeRUKvrc+XObix2VYGS/
+	x+mlRRN0zwy+LrLOQ4vB5TMRmyENDb7JFszgrbOZUkRtaMiGV2NiBaR6Q/CRpk53vwgBn3pI2IPDn
+	Gr+P44suMZbm78TS1l6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mBZVP-008pyh-69; Thu, 05 Aug 2021 09:17:35 +0000
+	id 1mBZVm-008q97-5e; Thu, 05 Aug 2021 09:17:58 +0000
 Received: from elvis.franken.de ([193.175.24.41])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mBZVL-008pxH-TV; Thu, 05 Aug 2021 09:17:33 +0000
+ id 1mBZVe-008q50-7W; Thu, 05 Aug 2021 09:17:52 +0000
 Received: from uucp (helo=alpha)
  by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1mBZV8-0005ti-03; Thu, 05 Aug 2021 11:17:18 +0200
+ id 1mBZV8-0005ti-04; Thu, 05 Aug 2021 11:17:18 +0200
 Received: by alpha.franken.de (Postfix, from userid 1000)
- id D48DCC052F; Thu,  5 Aug 2021 11:12:18 +0200 (CEST)
-Date: Thu, 5 Aug 2021 11:12:18 +0200
+ id 92188C052F; Thu,  5 Aug 2021 11:16:03 +0200 (CEST)
+Date: Thu, 5 Aug 2021 11:16:03 +0200
 From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Michael Ellerman <mpe@ellerman.id.au>,
+To: Lee Jones <lee.jones@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@synopsys.com>,
  Catalin Marinas <catalin.marinas@arm.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Guo Ren <guoren@kernel.org>, linux-mips@vger.kernel.org,
- Paul Mackerras <paulus@samba.org>, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
- linuxppc-dev@lists.ozlabs.org, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v2] arch: vdso: remove if-conditionals of
- $(c-gettimeofday-y)
-Message-ID: <20210805091218.GD5979@alpha.franken.de>
-References: <20210731060020.12913-1-masahiroy@kernel.org>
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Brian Cain <bcain@codeaurora.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michal Simek <monstr@monstr.eu>, John Crispin <john@phrozen.org>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Rich Felker <dalias@libc.org>, "David S . Miller" <davem@davemloft.net>,
+ Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sebastian Reichel <sre@kernel.org>,
+ linux-snps-arc@lists.infradead.org, linux-csky@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 1/3] arch: Export machine_restart() instances so they can
+ be called from modules
+Message-ID: <20210805091603.GE5979@alpha.franken.de>
+References: <20210805075032.723037-1-lee.jones@linaro.org>
+ <20210805075032.723037-2-lee.jones@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210731060020.12913-1-masahiroy@kernel.org>
+In-Reply-To: <20210805075032.723037-2-lee.jones@linaro.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210805_021732_202258_4D194A52 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20210805_021750_719622_CC52B7A8 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +104,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 31, 2021 at 03:00:20PM +0900, Masahiro Yamada wrote:
-> arm, arm64, csky, mips, powerpc always select GENERIC_GETTIMEOFDAY,
-> hence $(gettimeofday-y) never becomes empty.
+On Thu, Aug 05, 2021 at 08:50:30AM +0100, Lee Jones wrote:
+> A recent attempt to convert the Power Reset Restart driver to tristate
+> failed because of the following compile error (reported once merged by
+> Stephen Rothwell via Linux Next):
 > 
-> riscv conditionally selects GENERIC_GETTIMEOFDAY when MMU=y && 64BIT=y,
-> but arch/riscv/kernel/vdso/vgettimeofday.o is built only under that
-> condition. So, you can always define CFLAGS_vgettimeofday.o
+>   ERROR: "machine_restart" [drivers/power/reset/restart-poweroff.ko] undefined!
 > 
-> Remove all the meaningless conditionals.
+> This error occurs since some of the machine_restart() instances are
+> not currently exported for use in modules.  This patch aims to rectify
+> that.
 > 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Cc: Vineet Gupta <vgupta@synopsys.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Guo Ren <guoren@kernel.org>
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Brian Cain <bcain@codeaurora.org>
+> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+> Cc: Michal Simek <monstr@monstr.eu>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: John Crispin <john@phrozen.org>
+> Cc: Ley Foon Tan <ley.foon.tan@intel.com>
+> Cc: Jonas Bonn <jonas@southpole.se>
+> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> Cc: Stafford Horne <shorne@gmail.com>
+> Cc: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Christian Borntraeger <borntraeger@de.ibm.com>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: David S. Miller <davem@davemloft.net>
+> Cc: Jeff Dike <jdike@addtoit.com>
+> Cc: Richard Weinberger <richard@nod.at>
+> Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Chris Zankel <chris@zankel.net>
+> Cc: Max Filippov <jcmvbkbc@gmail.com>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Sebastian Reichel <sre@kernel.org>
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: uclinux-h8-devel@lists.sourceforge.jp
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: openrisc@lists.librecores.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-um@lists.infradead.org
+> Cc: linux-xtensa@linux-xtensa.org
+> Signed-off-by: Lee Jones <lee.jones@linaro.org>
 > ---
 > 
-> Changes in v2:
->   - Fix csky as well
+> The 2 patches this change supports have the required Acks already.
 > 
->  [..]
->  arch/mips/vdso/Makefile             |  2 --
+> NB: If it's safe to omit some of these, let me know and I'll revise the patch.
+> 
+>  [...]
+>  arch/mips/kernel/reset.c           | 1 +
+>  arch/mips/lantiq/falcon/reset.c    | 1 +
+>  arch/mips/sgi-ip27/ip27-reset.c    | 1 +
 
 Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 
