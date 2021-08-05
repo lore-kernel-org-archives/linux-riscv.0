@@ -3,89 +3,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8753FC4338F
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 18:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 30020C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 18:41:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4389660230
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 18:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4389660230
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id EC23760F01
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Aug 2021 18:41:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EC23760F01
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mUPUC7n+YPmwvP2SOB8qppAaToqUYEOLnxBWoSRHXR8=; b=Pgik4ZB+9MoYI4
-	s0qfCH7ge+umvhI4ZSMxxm+IGWcSuftlgCoUzYbS8iOda2UbAH+/G/2akdLD6AleMy7xjjRpVvHC0
-	1bLcHVAEyrd5q0TSlxtFvMVFegmjD7aVlDATgvd8O1jjfNXKw9l3Yys3ScdFRhswZ76aS7XbkhlKH
-	F6w1rWThR1UhFETSaIujUmneFEDK5FZRHC0AuBwhpUD3o95vVjBGBLRyb6L1zab8SCnu3jrSFrMj7
-	YwLyWR36pprzVF9jz++Cu19h3jERihpM8qdC+tVKvnoUpSJgxqb9cx4VVjCxH/w+OzcPKgu7fEm8G
-	FGJzW5nxgB9wyZql36vA==;
+	List-Owner; bh=uYGq6bQsaHQm0STzX2tt9jWGG5i0U1JjygEF/rSe274=; b=CSnlBFIsul8rfx
+	OE9W4c4a6jZo5+kyXOK/dXhKCVXwvX1UZd4HTsLKcjeLjOMhEfNNrAAv34hQUkcOfCab2U2G/83ft
+	90PSNrbrJikCP9EUR9dusI7F/4TPCT/hgWFN8WIxZFa5IqpRYgCiSeoPyTvQ6DkkpyhdpmIkr83VW
+	DAWdAeH042IgbXZ1aHvBwZoYruGE3VPGr1i/H+bojHST4IIY2r2kBJX4sRiHR/QgNPcw9Hq+yLTf2
+	dEF7ttrx11AxR9g9e+7c1NZRB6aEVJsjt94qhcg93BoKghqpYRKHwA765kXdseTE1hOsYPsHHQLh5
+	VQ6iKDribogCLybVG9Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mBiIA-00AXjf-Lb; Thu, 05 Aug 2021 18:40:30 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1mBiJ9-00AXqL-8I; Thu, 05 Aug 2021 18:41:31 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mBiI7-00AXiq-Px
- for linux-riscv@lists.infradead.org; Thu, 05 Aug 2021 18:40:29 +0000
-Received: by mail-lf1-x133.google.com with SMTP id u3so12946800lff.9
- for <linux-riscv@lists.infradead.org>; Thu, 05 Aug 2021 11:40:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PIMmN8s4yzOklVrFNPAhUIzghEwqDAddYwZBgHlhoQY=;
- b=Jk7ddJUfGVWAW2ritnMlzyPA56WazGgdT9bYKCAeF8cea10/iq+6gu5FhADG0nfih3
- uweNh2YYjGYUKbEFzyrkb6j+Xh2YzwgQ3+I4Xx4DMLeoAweSMgkjqi7L1PxYh76UDNAW
- ExElvdu6nX016+ipoQ3CaGLSvqE+cWzD9SYQAfgRJKCN1LE4TgT4YtrVOyKwRgf3cNwG
- GRTlr0UMYxHWHudYO0vYXiTGwUMRM8rjcbWOyTAmMDpiSJgV6qcwhwT1JifdPRIaFdFM
- 1tYmnkT0+O6gC2408aDLeHYLF/0eN5kQbgv4DF+h8b8QJ0aS0n5HDTF63mO3w32Na8+n
- N8kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=PIMmN8s4yzOklVrFNPAhUIzghEwqDAddYwZBgHlhoQY=;
- b=aVd9xWG/IqVgd8qE1Wg6VWtnJd4yM7556FdMCtDGGScC3FPmVyJWU4hxDa0awqIBmj
- /ypiGGvg9miEg/zuBAFbrI90Y7CPwjw9lomE1Tlrnl2sCNSneufrm1rzd+I51VlP+cqr
- qkleR+F52DVQoTovq4HHeN+Qy1XzBN1BkEN4mAcb7MHWTk1r+MvQLQ7Dn2j3qLJBlgqQ
- /TpPEITsHjYQ9Z9MMSSstxIAfcsFjLKq0Ad3i/b3SwW9Q+dyZbgeKojOJQxMeDjxEwQ3
- /7lkQA1TDSxQEwILqHNmApxZcoz3TirdgcgDqSxc5tyQ8s3tJ55hfBhKQV41/JAU5u1D
- /Jqg==
-X-Gm-Message-State: AOAM531R1Pd77M4jRj9uyCVe052dYXr7ROz87AMj7OrmREib6qfAYRRC
- b1W6cbQMmNuNNIcu6xrCqQ8y+BedbQpAVbJYshe6CQ==
-X-Google-Smtp-Source: ABdhPJwKZ0bGNLeTtSOs0C2EEHN8+kzI+49yaZkYoccxWYUpb641owH5DpLRRXUpUFAvyXvR4ehtxAApRyk4oi8LQKI=
-X-Received: by 2002:a05:6512:71:: with SMTP id
- i17mr4612395lfo.368.1628188825887; 
- Thu, 05 Aug 2021 11:40:25 -0700 (PDT)
+ id 1mBiJ6-00AXpP-4e; Thu, 05 Aug 2021 18:41:29 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D0F0C60F01;
+ Thu,  5 Aug 2021 18:41:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1628188887;
+ bh=DJstyoIneDhJWe2M45tnolj4HGCE0gCrRv38Ul0FPvI=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=yLSS87676hn106VIngpXBP/rOEU9YnrWCbO+LvhheiKjxKARCwKmpPaCV3EXfwCgP
+ eswsJEhyB34IGotQMI4++5xN+H6/H2Zsa8YN4zRquACi04W3hFcBWcF1DF3HWEIxIo
+ hfvqM78wNk4u3fnnSgFl6tYnBJF7uBTAQJcXiptc=
+Date: Thu, 5 Aug 2021 20:41:23 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Lee Jones <lee.jones@linaro.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Vineet Gupta <vgupta@synopsys.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Brian Cain <bcain@codeaurora.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ John Crispin <john@phrozen.org>, Ley Foon Tan <ley.foon.tan@intel.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Rich Felker <dalias@libc.org>, "David S . Miller" <davem@davemloft.net>,
+ Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Sebastian Reichel <sre@kernel.org>,
+ linux-snps-arc@lists.infradead.org, linux-csky@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH 1/3] arch: Export machine_restart() instances so they can
+ be called from modules
+Message-ID: <YQww08x2whx/LIIT@kroah.com>
+References: <20210805075032.723037-1-lee.jones@linaro.org>
+ <20210805075032.723037-2-lee.jones@linaro.org>
+ <20210805173625.GH6719@arm.com>
 MIME-Version: 1.0
-References: <20210802234304.3519577-1-ndesaulniers@google.com>
- <CAK7LNATWm94K=UcSNn88PyPST38rfe_31vLLpDf=ERPnKnBvVA@mail.gmail.com>
-In-Reply-To: <CAK7LNATWm94K=UcSNn88PyPST38rfe_31vLLpDf=ERPnKnBvVA@mail.gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 5 Aug 2021 11:40:15 -0700
-Message-ID: <CAKwvOdkVuzD68bQuAWS7fS0tat_wdR0bxb=Eh=Te84RtoRgZ8g@mail.gmail.com>
-Subject: Re: [PATCH] scripts/Makefile.clang: default to LLVM_IAS=1
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Khem Raj <raj.khem@gmail.com>, 
- Michal Marek <michal.lkml@markovi.net>, Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, 
- clang-built-linux <clang-built-linux@googlegroups.com>, 
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
- Matthew Wilcox <willy@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20210805173625.GH6719@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210805_114027_898229_252CA8BD 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20210805_114128_243547_1BA1520D 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,69 +107,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 5, 2021 at 8:16 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> On Tue, Aug 3, 2021 at 8:43 AM Nick Desaulniers <ndesaulniers@google.com> wrote:
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 444558e62cbc..b24b48c9ebb7 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -845,7 +845,7 @@ else
-> >  DEBUG_CFLAGS   += -g
-> >  endif
-> >
-> > -ifneq ($(LLVM_IAS),1)
-> > +ifeq ($(LLVM_IAS),0)
-> >  KBUILD_AFLAGS  += -Wa,-gdwarf-2
-> >  endif
-> >
-> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > index bc74afdbf31e..807f7c94bc6f 100644
-> > --- a/arch/riscv/Makefile
-> > +++ b/arch/riscv/Makefile
-> > @@ -41,7 +41,7 @@ endif
-> >  ifeq ($(CONFIG_LD_IS_LLD),y)
-> >         KBUILD_CFLAGS += -mno-relax
-> >         KBUILD_AFLAGS += -mno-relax
-> > -ifneq ($(LLVM_IAS),1)
-> > +ifeq ($(LLVM_IAS),0)
-> >         KBUILD_CFLAGS += -Wa,-mno-relax
-> >         KBUILD_AFLAGS += -Wa,-mno-relax
-> >  endif
->
->
->
-> Please drop these two hunks.
->
-> I will apply my patch instead.
-> https://lore.kernel.org/patchwork/patch/1472580/
+On Thu, Aug 05, 2021 at 06:36:25PM +0100, Catalin Marinas wrote:
+> On Thu, Aug 05, 2021 at 08:50:30AM +0100, Lee Jones wrote:
+> > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> > index b4bb67f17a2ca..cf89ce91d7145 100644
+> > --- a/arch/arm64/kernel/process.c
+> > +++ b/arch/arm64/kernel/process.c
+> > @@ -212,6 +212,7 @@ void machine_restart(char *cmd)
+> >  	printk("Reboot failed -- System halted\n");
+> >  	while (1);
+> >  }
+> > +EXPORT_SYMBOL(machine_restart);
+> 
+> Should we make this EXPORT_SYMBOL_GPL? I suppose it's not for general
+> use by out of tree drivers and it matches the other pm_power_off symbol
+> we export in this file.
 
-Sure.  Will send a v2 with Matthew's suggestion as well.
-
-> When we negate a flag that is enabled by default,
-> which is a common way?
->  - set it to '0'
->  - set is to empty
->
->
-> So, I was wondering if we should support
-> not only LLVM_IAS=0 but also LLVM_IAS=.
->
-> What do you think?
-
-LLVM_IAS= looks weird (so I agree with Khem's response), but if it's
-common/expected then maybe if there's a way to write a concise check
-for either =<blank> or =0?  I don't feel strongly about how it's
-specified to disable the integrated assembler, but let's sort that out
-_before_ I send a v2.
-
-How can you tell the difference between `make CC=clang` and `make
-CC=clang LLVM_IAS=`? (maybe that doesn't matter here, as either imply
-"don't use clang as the assembler when compiling with clang")
--- 
-Thanks,
-~Nick Desaulniers
+Yes please.
 
 _______________________________________________
 linux-riscv mailing list
