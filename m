@@ -2,97 +2,68 @@ Return-Path: <SRS0=3V4y=M6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 103E1C4338F
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 00:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A8106C4338F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 07:15:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A6E0861167
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 00:32:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A6E0861167
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 4C34E610C7
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 07:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4C34E610C7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=cdjrlc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DkBgam/DDspCIrztqlSIDN3I2DoG6kiz+W87saCIt+M=; b=aLJLXC8yuPPnDd
-	avnuNrAnmZb35opWiCdlMqe51Gwp7l1qFqBaOMOlXCnTnTUD8QyV09QoldlYcfJQXA7QMhgUtM5Vk
-	gpoHrs+qcpnp+Kn3uJY5SooJtWv0tkK3jrlc1Ub3Uihu4L7Ff8yMn+G66GKeYwTZxhALaa8WeBQF1
-	4CBeaWyqxsTaWWUWbrDJxDIuwR7Rg405HfobZ6z1b38EYvHubigJ/ex78DOp8u8uqH9hHq4yTnp8K
-	uBVv30INib8VWAJ8pFopIxumvr2Kz3vuXSCOaXreFlBvV3d7M1nJhe2IrL8hwQtpmVibuEjN8xlXA
-	n/ftUwT14Dlh6/jTsJ5w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+lPC/2u1NusMoc9HrALY7zLEyJeZlJKYr6s7nVXp6Qc=; b=nJPxx/oCyxwND1
+	rHKyZJbaxMmybdByHcwXEWvVouMCqoNgkLlVDepsrijxN1qhR/0qC4dzhSELezwkt+rAnttXLrDTS
+	Mwl+L5qVr1LmZnJartEmBgoczK5l+wXt0lGZa8WlJUdkTkkkjz4V3polEX2zt6fR71CImZIso2kFR
+	xTvu/T5u6voceO99YQVR+wZy0aDip5MqnBCGpQzzp8deRBe+e+qju8UNiEfsoLL9rdKjIqZ3UIssL
+	qvJd4g9hLkOoX2h0Yz64IeKiQuVX2kNxk9Njxocm9OuRY4X65QfsDCGOpSaZaRmEKx/mxuHNV4oaV
+	F4cVIv3+m6JAe/JM0Aqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mCAGR-00DtjM-7x; Sat, 07 Aug 2021 00:32:35 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1mCGYG-00EHgz-4c; Sat, 07 Aug 2021 07:15:24 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mCAGE-00Dthm-GX; Sat, 07 Aug 2021 00:32:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=xfbXveP9AZ7DrJeKTchC6sa0LBUUGNHkmnU6yLgUglA=; b=S2TjmXhcln45cl7fMiNQjIyZ2
- QcyEgHwUJIysGWiljwBb4Wif6C/eOS7p1ZICf4FaHW+XkYsAI7UPDKe+CfFnxtp+SWNXtRfAx3o3z
- TTlFGdBrwAdniov/4ou3trIksj7tnOOCHB9wf2wUBthID93an5PgVcnOpRplyrwhYp13IyCBHUxK+
- XqGLZDT0YMtQXt5eKvENZHEgxuvPGdJC7oUmG1kSq/k0q2kks9ggOChscscUP3hDaDtEa1xhsN+hu
- 6fs83XPPlosF+YhqubvII+xdisMEijC/aPTjpW7RDcj/I701A+I1K6g0hMHwcBMWQ5snSF8OC2Fim
- VRYXMtFtA==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47034)
- by pandora.armlinux.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <linux@armlinux.org.uk>)
- id 1mCAFa-0003UQ-8w; Sat, 07 Aug 2021 01:31:42 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1mCAFT-0007BF-2P; Sat, 07 Aug 2021 01:31:35 +0100
-Date: Sat, 7 Aug 2021 01:31:35 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Frank Rowand <frowand.list@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Len Brown <lenb@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>,
- Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2] memblock: make memblock_find_in_range method private
-Message-ID: <20210807003134.GR22278@shell.armlinux.org.uk>
-References: <20210802063737.22733-1-rppt@kernel.org>
+ id 1mCGYC-00EHZI-AH
+ for linux-riscv@lists.infradead.org; Sat, 07 Aug 2021 07:15:22 +0000
+X-QQ-mid: bizesmtp52t1628320494tmzgl5f6
+Received: from localhost.localdomain (unknown [125.69.42.194])
+ by esmtp6.qq.com (ESMTP) with 
+ id ; Sat, 07 Aug 2021 15:14:53 +0800 (CST)
+X-QQ-SSF: 01000000002000B0C000B00A0000000
+X-QQ-FEAT: u/EYRCx6Pxjri7s2wBnB7ABwvtbuvfr2rIlKrAa4rLfhbND3DW/1Jf8lBOXDX
+ mxO+WqZOOcKwkM7uCu7Gl4Nmdzb3/WMSSFG3XwYbvB+E+hd3QYqiAf1HhSf4n4AX/irRbMs
+ aUiEba4Y442vKOJv9Uprz1CpwTgjDh7Hvd8HDWOzO/CB8JC/SU/b3j7S6yMC2xsA1mKNMdd
+ eVun3gmV2XxHWjG6GbPzKqocyV+ydDSqxrvwBOTfDN1EoWRKM22UlRgykpFJODO9K5Feulo
+ 4kH/jhBPfLYOmbKimLhm5g4RrKhoCU+AQIJVPYnXIejMPn
+X-QQ-GoodBg: 0
+From: Jason Wang <wangborong@cdjrlc.com>
+To: palmer@dabbelt.com
+Cc: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, atish.patra@wdc.com,
+ anup.patel@wdc.com, wangkefeng.wang@huawei.com, mick@ics.forth.gr,
+ alex@ghiti.fr, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jason Wang <wangborong@cdjrlc.com>
+Subject: [PATCH] riscv: use strscpy to replace strlcpy
+Date: Sat,  7 Aug 2021 15:14:27 +0800
+Message-Id: <20210807071427.59613-1-wangborong@cdjrlc.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210802063737.22733-1-rppt@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:cdjrlc.com:qybgforeign:qybgforeign7
+X-QQ-Bgrelay: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210806_173222_598703_0B02C385 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20210807_001520_698880_A2A78B13 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +80,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 02, 2021 at 09:37:37AM +0300, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> There are a lot of uses of memblock_find_in_range() along with
-> memblock_reserve() from the times memblock allocation APIs did not exist.
-> 
-> memblock_find_in_range() is the very core of memblock allocations, so any
-> future changes to its internal behaviour would mandate updates of all the
-> users outside memblock.
-> 
-> Replace the calls to memblock_find_in_range() with an equivalent calls to
-> memblock_phys_alloc() and memblock_phys_alloc_range() and make
-> memblock_find_in_range() private method of memblock.
-> 
-> This simplifies the callers, ensures that (unlikely) errors in
-> memblock_reserve() are handled and improves maintainability of
-> memblock_find_in_range().
-> 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+The strlcpy should not be used because it doesn't limit the source
+length. As linus says, it's a completely useless function if you
+can't implicitly trust the source string - but that is almost always
+why people think they should use it! All in all the BSD function
+will lead some potential bugs.
 
-Thanks.
+But the strscpy doesn't require reading memory from the src string
+beyond the specified "count" bytes, and since the return value is
+easier to error-check than strlcpy()'s. In addition, the implementation
+is robust to the string changing out from underneath it, unlike the
+current strlcpy() implementation.
 
+Thus, We prefer using strscpy instead of strlcpy.
+
+Signed-off-by: Jason Wang <wangborong@cdjrlc.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 18bd0e4bc36c..2dc62ebc0001 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -255,7 +255,7 @@ static void __init parse_dtb(void)
+ 
+ 	pr_err("No DTB passed to the kernel\n");
+ #ifdef CONFIG_CMDLINE_FORCE
+-	strlcpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
++	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+ 	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+ #endif
+ }
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+2.32.0
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
