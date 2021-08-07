@@ -1,20 +1,21 @@
-Return-Path: <SRS0=z89Q=M5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=3V4y=M6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43B4DC4320A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Aug 2021 19:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 103E1C4338F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 00:32:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F3CC1611B0
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Aug 2021 19:53:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F3CC1611B0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id A6E0861167
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 00:32:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A6E0861167
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -22,54 +23,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LawdLKH9HmOGInVloz8u0Sn++WKTvlp6gA3kCWy15es=; b=v3CNuKmIcHuUYv
-	juwJ/67TVSJBbsSTG6j480/MPuyNOb+7NheYrhOzoJxqiUJNKh6PR+SPi0PKHxEoZWBbd2IPKcAIx
-	nNw8UIC52BysgY51ajdAPRmYFI33FoIPVt/2qXC5JBdwmENNwT/VAQNEe5ZLt7Ug22OHJaXApejum
-	l5DnGeHMgFEN9VE91RcNCAdGwFG6GgaYP8chkMHwy6Au9RnwNj4VAwO6VIv22KLzo3V60RSvRxtGf
-	jGZUJE3I9JEOpgLi4u+2pEylCzXKN4FKmwO30Lo4kBBw9wrM6VAGaXdzETUYgyZfoy4cTJASQbhHh
-	PWWPZouBklj3k5jb+LtQ==;
+	List-Owner; bh=DkBgam/DDspCIrztqlSIDN3I2DoG6kiz+W87saCIt+M=; b=aLJLXC8yuPPnDd
+	avnuNrAnmZb35opWiCdlMqe51Gwp7l1qFqBaOMOlXCnTnTUD8QyV09QoldlYcfJQXA7QMhgUtM5Vk
+	gpoHrs+qcpnp+Kn3uJY5SooJtWv0tkK3jrlc1Ub3Uihu4L7Ff8yMn+G66GKeYwTZxhALaa8WeBQF1
+	4CBeaWyqxsTaWWUWbrDJxDIuwR7Rg405HfobZ6z1b38EYvHubigJ/ex78DOp8u8uqH9hHq4yTnp8K
+	uBVv30INib8VWAJ8pFopIxumvr2Kz3vuXSCOaXreFlBvV3d7M1nJhe2IrL8hwQtpmVibuEjN8xlXA
+	n/ftUwT14Dlh6/jTsJ5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mC5ty-00DNey-UF; Fri, 06 Aug 2021 19:53:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mCAGR-00DtjM-7x; Sat, 07 Aug 2021 00:32:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mC5tv-00DNdq-DZ
- for linux-riscv@lists.infradead.org; Fri, 06 Aug 2021 19:53:05 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6B09361050;
- Fri,  6 Aug 2021 19:52:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1628279582;
- bh=BcLDKj7BNKRtjpjR5WcTLxkB9iMSb4PMd3ghgcahvXc=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=BVzg6QCVo4RumqCV4MtsueL+OHKlz8ZkExb9h5a2zbbm6visuE/f+XcBNWUj7BIcP
- 2qMMvGvBMnkHNbDqR7qWxBQimBsm1PFgPDrI3/xYckDEILuPZvalxOgWqHKW7vcTun
- zByk+jQCrO3YLut3VT0AbNbX4Xt8MAwp5i+w3pdlTFH7N1/fVUc/oREBsleEVP/6bU
- 3U7JuHQj4EHpQN6GVtxHmODxmnjX6CvRInqgZx4hZPrsZ/MuIbYxDAyAkAl06u5Wa+
- 41bvylD8pQ4dXoaiTVBcbfwbwbTqy81yTYbSjcemD2fN99yGzafUOAc98k1wOwWiBr
- SbbhWhs9XLTKg==
-Date: Fri, 6 Aug 2021 12:52:56 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Khem Raj <raj.khem@gmail.com>,
- Matthew Wilcox <willy@infradead.org>,
- Michal Marek <michal.lkml@markovi.net>, Jonathan Corbet <corbet@lwn.net>,
+ id 1mCAGE-00Dthm-GX; Sat, 07 Aug 2021 00:32:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=xfbXveP9AZ7DrJeKTchC6sa0LBUUGNHkmnU6yLgUglA=; b=S2TjmXhcln45cl7fMiNQjIyZ2
+ QcyEgHwUJIysGWiljwBb4Wif6C/eOS7p1ZICf4FaHW+XkYsAI7UPDKe+CfFnxtp+SWNXtRfAx3o3z
+ TTlFGdBrwAdniov/4ou3trIksj7tnOOCHB9wf2wUBthID93an5PgVcnOpRplyrwhYp13IyCBHUxK+
+ XqGLZDT0YMtQXt5eKvENZHEgxuvPGdJC7oUmG1kSq/k0q2kks9ggOChscscUP3hDaDtEa1xhsN+hu
+ 6fs83XPPlosF+YhqubvII+xdisMEijC/aPTjpW7RDcj/I701A+I1K6g0hMHwcBMWQ5snSF8OC2Fim
+ VRYXMtFtA==;
+Received: from shell.armlinux.org.uk
+ ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47034)
+ by pandora.armlinux.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <linux@armlinux.org.uk>)
+ id 1mCAFa-0003UQ-8w; Sat, 07 Aug 2021 01:31:42 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
+ (envelope-from <linux@shell.armlinux.org.uk>)
+ id 1mCAFT-0007BF-2P; Sat, 07 Aug 2021 01:31:35 +0100
+Date: Sat, 7 Aug 2021 01:31:35 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Frank Rowand <frowand.list@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Len Brown <lenb@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2] scripts/Makefile.clang: default to LLVM_IAS=1
-Message-ID: <YQ2TGPwjvn8w4rKs@archlinux-ax161>
-References: <20210806172701.3993843-1-ndesaulniers@google.com>
+ Peter Zijlstra <peterz@infradead.org>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+ devicetree@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2] memblock: make memblock_find_in_range method private
+Message-ID: <20210807003134.GR22278@shell.armlinux.org.uk>
+References: <20210802063737.22733-1-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210806172701.3993843-1-ndesaulniers@google.com>
+In-Reply-To: <20210802063737.22733-1-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210806_125303_537700_8322F9DD 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20210806_173222_598703_0B02C385 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,137 +109,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 06, 2021 at 10:27:01AM -0700, Nick Desaulniers wrote:
-> LLVM_IAS=1 controls enabling clang's integrated assembler via
-> -integrated-as. This was an explicit opt in until we could enable
-> assembler support in Clang for more architecures. Now we have support
-> and CI coverage of LLVM_IAS=1 for all architecures except a few more
-> bugs affecting s390 and powerpc.
-
-The powerpc and s390 folks have been testing with clang, I think they
-should have been on CC for this change (done now).
-
-> This commit flips the default from opt in via LLVM_IAS=1 to opt out via
-> LLVM_IAS=0.  CI systems or developers that were previously doing builds
-> with CC=clang or LLVM=1 without explicitly setting LLVM_IAS must now
-> explicitly opt out via LLVM_IAS=0, otherwise they will be implicitly
-> opted-in.
+On Mon, Aug 02, 2021 at 09:37:37AM +0300, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> This finally shortens the command line invocation when cross compiling
-> with LLVM to simply:
+> There are a lot of uses of memblock_find_in_range() along with
+> memblock_reserve() from the times memblock allocation APIs did not exist.
 > 
-> $ make ARCH=arm64 LLVM=1
+> memblock_find_in_range() is the very core of memblock allocations, so any
+> future changes to its internal behaviour would mandate updates of all the
+> users outside memblock.
 > 
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-
-I am still not really sure how I feel about this. I would prefer not to
-break people's builds but I suppose this is inevitabile eventually.
-
-A little support matrix that I drafted up where based on ARCH and clang
-version for LLVM_IAS=1 support:
-
-             | 10.x | 11.x | 12.x | 13.x | 14.x |
-ARCH=arm     |  NO  |  NO  |  NO  |  YES |  YES |
-ARCH=arm64   |  NO  |  YES |  YES |  YES |  YES |
-ARCH=i386    |  YES |  YES |  YES |  YES |  YES |
-ARCH=mips*   |  YES |  YES |  YES |  YES |  YES |
-ARCH=powerpc |  NO  |  NO  |  NO  |  NO  |  NO  |
-ARCH=s390    |  NO  |  NO  |  NO  |  NO  |  NO  |
-ARCH=x86_64  |  NO  |  YES |  YES |  YES |  YES |
-
-The main issue that I have with this change is that all of these
-architectures work fine with CC=clang and their build commands that used
-to work fine will not with this change, as they will have to specify
-LLVM_IAS=0. I think that making this change for LLVM=1 makes sense but
-changing the default for just CC=clang feels like a bit much at this
-point in time. I would love to hear from others on this though, I am not
-going to object much further than this.
-
-Regardless of that concern, this patch does what it says so:
-
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-
-> ---
-> Changes v1 -> v2:
-> * Drop "Currently" from Documentation/, as per Matthew.
-> * Drop Makefile and riscv Makefile, rebase on
->   https://lore.kernel.org/lkml/20210805150102.131008-1-masahiroy@kernel.org/
->   as per Masahiro.
-> * Base is kbuild/for-next, plus
->   https://lore.kernel.org/lkml/20210802183910.1802120-1-ndesaulniers@google.com/
->   https://lore.kernel.org/lkml/20210805150102.131008-1-masahiroy@kernel.org/.
+> Replace the calls to memblock_find_in_range() with an equivalent calls to
+> memblock_phys_alloc() and memblock_phys_alloc_range() and make
+> memblock_find_in_range() private method of memblock.
 > 
->  Documentation/kbuild/llvm.rst | 14 ++++++++------
->  scripts/Makefile.clang        |  6 +++---
->  2 files changed, 11 insertions(+), 9 deletions(-)
+> This simplifies the callers, ensures that (unlikely) errors in
+> memblock_reserve() are handled and improves maintainability of
+> memblock_find_in_range().
 > 
-> diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-> index f8a360958f4c..e87ed5479963 100644
-> --- a/Documentation/kbuild/llvm.rst
-> +++ b/Documentation/kbuild/llvm.rst
-> @@ -60,17 +60,14 @@ They can be enabled individually. The full list of the parameters: ::
->  	  OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
->  	  HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld
->  
-> -Currently, the integrated assembler is disabled by default. You can pass
-> -``LLVM_IAS=1`` to enable it.
-> +The integrated assembler is enabled by default. You can pass ``LLVM_IAS=0`` to
-> +disable it.
->  
->  Omitting CROSS_COMPILE
->  ----------------------
->  
->  As explained above, ``CROSS_COMPILE`` is used to set ``--target=<triple>``.
->  
-> -Unless ``LLVM_IAS=1`` is specified, ``CROSS_COMPILE`` is also used to derive
-> -``--prefix=<path>`` to search for the GNU assembler and linker.
-> -
->  If ``CROSS_COMPILE`` is not specified, the ``--target=<triple>`` is inferred
->  from ``ARCH``.
->  
-> @@ -78,7 +75,12 @@ That means if you use only LLVM tools, ``CROSS_COMPILE`` becomes unnecessary.
->  
->  For example, to cross-compile the arm64 kernel::
->  
-> -	make ARCH=arm64 LLVM=1 LLVM_IAS=1
-> +	make ARCH=arm64 LLVM=1
-> +
-> +If ``LLVM_IAS=0`` is specified, ``CROSS_COMPILE`` is also used to derive
-> +``--prefix=<path>`` to search for the GNU assembler and linker. ::
-> +
-> +	make ARCH=arm64 LLVM=1 LLVM_IAS=0 CROSS_COMPILE=aarch64-linux-gnu-
->  
->  Supported Architectures
->  -----------------------
-> diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-> index 1f4e3eb70f88..3ae63bd35582 100644
-> --- a/scripts/Makefile.clang
-> +++ b/scripts/Makefile.clang
-> @@ -22,12 +22,12 @@ else
->  CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
->  endif # CROSS_COMPILE
->  
-> -ifeq ($(LLVM_IAS),1)
-> -CLANG_FLAGS	+= -integrated-as
-> -else
-> +ifeq ($(LLVM_IAS),0)
->  CLANG_FLAGS	+= -no-integrated-as
->  GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
->  CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
-> +else
-> +CLANG_FLAGS	+= -integrated-as
->  endif
->  CLANG_FLAGS	+= -Werror=unknown-warning-option
->  KBUILD_CFLAGS	+= $(CLANG_FLAGS)
-> 
-> base-commit: d7a86429dbc691bf540688fcc8542cc20246a85b
-> prerequisite-patch-id: 0d3072ecb5fd06ff6fd6ea81fe601f6c54c23910
-> prerequisite-patch-id: 2654829756eb8a094a0ffad1679caa75a4d86619
-> prerequisite-patch-id: a51e7885ca2376d008bbf146a5589da247806f7b
-> prerequisite-patch-id: 6a0342755115ec459610657edac1075f069faa3d
-> -- 
-> 2.32.0.605.g8dce9f2422-goog
-> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Acked-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
