@@ -2,89 +2,84 @@ Return-Path: <SRS0=3V4y=M6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7AEAC4338F
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 16:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 351DAC4338F
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 16:40:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C13B6069E
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 16:37:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1C13B6069E
+	by mail.kernel.org (Postfix) with ESMTPS id BD57C61042
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Aug 2021 16:40:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BD57C61042
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=TKfllvG7H/HOdlUhPz/t0+6AFhOGh3FErSgDmT3ZNb4=; b=3VY51mo3CtWKssxNbPB/Vwv+FV
-	QI3f/d18YoGy4JRGmFXShqx+/vOpVNEpWcR+P/6/DEclhB2M3geIAXMyEEULPE2VbweFz9ewp0MGS
-	j8ilzRDtroUCm0xD+sGvrmXOpx91zzw5QeNF6uT3j1j7p4Bb5TZ6aUVs+N9KjtZpwf3bavebkAe/G
-	B0R+bGxvuzk2mpktEGvZee/lGeezBSBYRbdZLb8AhfKnLmH2j2h6+7QyEDkqesuJjooVCwHztR7E1
-	lvjW8+96eZekDP3wj4ZNpOz93+b0W6NaWWR4tIEqB7royuteqvo1DODkxt6lgtFcAA9Km2vikcOxn
-	t+Kt79Pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wwCV9f2qtmDAl7KWF9vxi1SvjxcYu/bKkSXaaigmqgw=; b=tXqQ5S3RtmIiJF
+	eS28CABTulu4Nd6MrJOG98PY2XgnKIwWZLZfYOwT3jnExQ5padBoF1WQJja+5jvCc0Q77XJnaZ2u/
+	YnTqV/B3x7JDTG0rYfIVZdN4c851f0UQW7nPrFwcMlUWmbk8kYsk3SGa/CSwkSN46z9S6uQaQ2GwC
+	MkvHfn3se1eyDlrokZA8qmcfF6EgNo/rNAufsxNKz/Z4K8StwwsTIJYb33+qYhfwRoF4qcsW0UlF9
+	viE2Kz+D0cZNLqFTuozlVeU7+bJSLdd17NBYnNRMzLL0NmUHBmPRBwQpkRFtfTKzi3AytiNT8CcMr
+	B0lEy51zK7eFZ4N91Jpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mCPJb-00EyCV-G8; Sat, 07 Aug 2021 16:36:51 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1mCPMb-00EyOC-21; Sat, 07 Aug 2021 16:39:57 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mCPJX-00EyBo-HU
- for linux-riscv@lists.infradead.org; Sat, 07 Aug 2021 16:36:49 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d17so11453656plr.12
- for <linux-riscv@lists.infradead.org>; Sat, 07 Aug 2021 09:36:42 -0700 (PDT)
+ id 1mCPMY-00EyNU-9d
+ for linux-riscv@lists.infradead.org; Sat, 07 Aug 2021 16:39:55 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id
+ b1-20020a17090a8001b029017700de3903so15135823pjn.1
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Aug 2021 09:39:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=4ySF7t3f9IXZ9xCWYkjQadycnruU0kjHVud70QqSUeE=;
- b=02sy5q+gMNcB1jVOaqvUWMAySDDMU725SZ9iyRDOqgbRqzbAULDiNwyuRgNnh6R5UJ
- Na9nfm5QFDU8GS3x234s4z1+/KdtCQgkcaVWes+F3kVXw0moYOelkY2mJyxg6taIxx19
- AZOfhtim8SqpwH6PLmshrXaraHumMz6XDucxWJxg3MlbbGxFLcPkmjw0OvcTecWyQSRk
- D4GPOUB4adkzUHsqr41h7e4lEvwCXE2AEZ7X3Q7uqEVGr0MoK57KMZVntHISlk1rXCPe
- jx6KFOpvE/oG75RKrfX05/mJY4Vr76sqbBsiQ6CRcCp+SHw2LTxnqtNR7VeYXm3BWZre
- vCHQ==
+ h=date:subject:cc:from:to:message-id;
+ bh=grhFZWxTWMmC2nk3rV2w/FHZSjI97u/vyUnDNsG5W9M=;
+ b=XrkliiU5S+vfR/+wxmgI/3TIBaZ6HY2Fsy/6/i+FMVC5WUr5HeFYXlD2AAdJQVl3tJ
+ E+2EOamHW9BPOWUk7yCfIrf7jDeOAxGa0doHnl9m94NzYhkKypiSd3HEe+RgvIapvKEg
+ FQbpKqTm5gr2zim5i/olvJdo7leV21sdYSeyDaiG/a7AvYhLLPrjn4gCCAr1mBp6/oHf
+ ibbTFTbi9iQE+BD54rm14U2AwN/2VT53ZPSPJZ/tUCDQv+4Ksiy0bw/zGkirbk2n2+my
+ 9yjmHgyGrWGgypbokB53SPxsB2eq935GRM+yByOcVd9NjGue9RpyKCnelfT/yDn4KLJY
+ J3tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=4ySF7t3f9IXZ9xCWYkjQadycnruU0kjHVud70QqSUeE=;
- b=C6pyGB8emdpP7vUH6htv8XR/K9F7Y1kglXczixAuwvaNbFMf2UqPv5z5Ueb7K9ah7E
- ats50EnG7uFQ4gxS3errFELSHZrUBclqnJYEk1arDz4/O42kc0CIaDJt4Aw1wbTen7/M
- WGRxQgLIsU0ksMQk5a1Iul9iHDaYLf3VSs4Xe7+yR1YLKQFLPk2heN1oaG1oFf40r6fw
- IYCLJAZPDmQJI7h7nz32z4cxeRb0ICQt/+C4JI3cddDS9HpHxx8ABQnB1toMTkEjV77P
- PVMOlmbGAr5JBKwkG58f9K+mlQhUPCdO82cEGJjpxd0PJnnuqbS3+uDTPVf2uCWuA2Zn
- yAcg==
-X-Gm-Message-State: AOAM5315kvV53ngwVwPOnFaweWdtdQ/P0H4Dhap4wNgxKijGRSkLBUZs
- uqxhYS20XsPICJrL/JzKMP6Cjg==
-X-Google-Smtp-Source: ABdhPJx1raKBqfmBr7+x9BmuR8aifXvMifS5f2Rv15DZIAwdpV5b8Kf3DA4pPAK5KJ5nMWIUlrwZWA==
-X-Received: by 2002:a17:902:6904:b029:fb:42b6:e952 with SMTP id
- j4-20020a1709026904b02900fb42b6e952mr12653078plk.16.1628354201654; 
- Sat, 07 Aug 2021 09:36:41 -0700 (PDT)
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=grhFZWxTWMmC2nk3rV2w/FHZSjI97u/vyUnDNsG5W9M=;
+ b=FlAXk67pbWVfrEf2lzYc0WqnVDhxHpY1BulF+SZvBLirH1V0Fdx2o0b0SIqwnCMebA
+ yFGIIbRNXcyVPZ1a95dDHUN/O07bD4mr3dFX+TzHUNplEUL5Y6gT37sOCwCFE+aiI1R+
+ rKCCtY82SirCcXRlguKIH7LtMZCrpHVg4nZbJs9kzzShCfa6R4a9dDm58pxr2DNTrczp
+ 6Nt9YF+q8XSr++PXIe0W1hqlEz02GUaOCkdNqH6vD3yIuWwUVPfk+yBnk6zDzoc2A/ZY
+ T3OGEYjSPzVudaDw7nRkX+c0/mj1ygdG3H9zSjHvYa1bclMmYk/q4wL/G1CYE08vUkrR
+ gTHg==
+X-Gm-Message-State: AOAM5336XWoBXmWfSWv5EknGnSiufXgZSFD6g66gyWulnJkDkUxjmRBS
+ cL0Q2bbCWs4xhvA3pu0iXcdR2wDpocdPYA==
+X-Google-Smtp-Source: ABdhPJxD/zozsaYYd4McHQ1wf+eJJ1Tb0yRRbC4NRCqa6TfwodEcUeE1yuhQyMZx1m80QSml4bvebQ==
+X-Received: by 2002:a63:f145:: with SMTP id o5mr138042pgk.273.1628354390553;
+ Sat, 07 Aug 2021 09:39:50 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x189sm16658823pfx.99.2021.08.07.09.36.40
+ by smtp.gmail.com with ESMTPSA id j22sm16340647pgb.62.2021.08.07.09.39.49
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 07 Aug 2021 09:36:41 -0700 (PDT)
-Date: Sat, 07 Aug 2021 09:36:41 -0700 (PDT)
-X-Google-Original-Date: Fri, 06 Aug 2021 22:37:17 PDT (-0700)
-Subject: Re: [PATCH -fixes 3/3] riscv: Optimize kernel virtual address
- conversion macro
-In-Reply-To: <20210721075937.696811-4-alex@ghiti.fr>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, alex@ghiti.fr
+ Sat, 07 Aug 2021 09:39:50 -0700 (PDT)
+Date: Sat, 07 Aug 2021 09:39:50 -0700 (PDT)
+X-Google-Original-Date: Sat, 07 Aug 2021 09:39:47 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.14-rc5
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-163d949e-5efc-46d4-a5b7-c90e4745a7a3@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-bafc6421-186d-4f3b-b5bd-7c7f15bf94fe@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210807_093647_626971_D40F10BC 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20210807_093954_384576_B1DC1BA5 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +91,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jul 2021 00:59:37 PDT (-0700), alex@ghiti.fr wrote:
-> The current test in kernel_mapping_va_to_pa only applies when
-> CONFIG_XIP_KERNEL is set, so use IS_ENABLED to optimize this macro at
-> compile-time in standard kernels that do not require this test.
->
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->  arch/riscv/include/asm/page.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index b0ca5058e7ae..10dc063868f6 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -123,7 +123,7 @@ extern phys_addr_t phys_ram_base;
->  #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - kernel_map.va_pa_offset)
->  #define kernel_mapping_va_to_pa(y) ({						\
->  	unsigned long _y = y;							\
-> -	(_y < kernel_map.virt_addr + XIP_OFFSET) ?					\
-> +	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFFSET) ?	\
->  		((unsigned long)(_y) - kernel_map.va_kernel_xip_pa_offset) :		\
->  		((unsigned long)(_y) - kernel_map.va_kernel_pa_offset - XIP_OFFSET);	\
->  	})
+The following changes since commit ea196c548c0ac407afd31d142712b6da8bd00244:
 
-IIUC this isn't actually a fix?  The other two are, though, so 
-they're on fixes.
+  riscv: __asm_copy_to-from_user: Fix: Typos in comments (2021-07-23 17:49:12 -0700)
 
-Thanks!
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.14-rc5
+
+for you to fetch changes up to 867432bec1c6e7df21a361d7f12022a8c5f54022:
+
+  Revert "riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED" (2021-08-06 22:41:39 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.14-rc5
+
+* A fix to avoid dereferencing a null task pointer while walking the
+  stack.
+* A fix to the memory size in the HiFive Unleashed device tree.
+* A fix to disable stack protectors when randstruct is enabled, which
+  results in non-deterministic offsets during module builds.
+* A pair of fixes to avoid relying on a constant physical memory base
+  for the non-XIP builds.
+
+----------------------------------------------------------------
+Alexandre Ghiti (2):
+      riscv: Get rid of CONFIG_PHYS_RAM_BASE in kernel physical address conversion
+      Revert "riscv: Remove CONFIG_PHYS_RAM_BASE_FIXED"
+
+Guenter Roeck (1):
+      riscv: Disable STACKPROTECTOR_PER_TASK if GCC_PLUGIN_RANDSTRUCT is enabled
+
+Jisheng Zhang (1):
+      riscv: stacktrace: Fix NULL pointer dereference
+
+Qiu Wenbo (1):
+      riscv: dts: fix memory size for the SiFive HiFive Unmatched
+
+ arch/riscv/Kconfig                                  |  7 +++++++
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts |  2 +-
+ arch/riscv/include/asm/page.h                       |  7 ++++---
+ arch/riscv/kernel/stacktrace.c                      |  2 +-
+ arch/riscv/mm/init.c                                | 17 ++++++++++++-----
+ 5 files changed, 25 insertions(+), 10 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
