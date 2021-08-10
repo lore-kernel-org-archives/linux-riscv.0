@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A50F7C4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 01:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65789C4338F
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 02:44:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 330F360E97
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 01:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 330F360E97
+	by mail.kernel.org (Postfix) with ESMTPS id F0C2B60F25
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 02:44:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0C2B60F25
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,58 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+MDZbiF42tI03fwbS2CJn2wAqKP0fDpTrxyiPyzm/K8=; b=DuiMovsdhL5h7i
-	u1g7hNE/6lQmW6BzIdKYyW77s/aDAGhYmjARRVf77lecrHISp7Za7j6rLH+gmGDIvCXQGsOARv7yz
-	X7r1OmYAyCCm64PBX6mcj5mK32NyX3I8Zz3jysqoK98qWPYif7ZJxLKdNDw3CzioWrtwpYeXd8fz4
-	aHgUsV2kmQE/pq61yGOrgWyvsmZ7C99NWAgpKvz+8tReSkTSbCTov1fBgxJ/rhaGTCIMpfbtHdCP/
-	yl5H069MQy9wT3zlNc+wb21+PvR2YG3E6hkaEvrVgXFqbynFlu8I2Y1EOVYqdZ1J6buMbmOqsm+gx
-	yMaz7SCDrdlHC7BVx9MQ==;
+	List-Owner; bh=KCkmYtvq3h8gOF27GtZMypcSScunLL7KzRWMHlxATSw=; b=VZZoJIUFlIYTY1
+	QJhivk9nPg7wTtoFByn2H3f7wx/1pjjJu38YNCO75TO/UbBrX3EKsoswaQb4tN9CdQNEKm/iMGPCC
+	1on6WYY9l9fr0/UoRZOyOiNE8EmXxbsgpsayTZIo5dceCpIh9jx1MNKYixlviRMFChrfJn7/L9lzI
+	Jn+pbZZsWntWuuyT05bPfol/ePsW5o69mMhWIob9u+nIlBk3Mks9fVThUUvp/Ff5+nz6ylRItHK91
+	bvlsD/Ue8VINDH906pprF2+KG4SlxPy+ak9nQa6EjtJBrrndR935vnBlLcPplBdaqdsvM5YI3IIsk
+	EtWIHI17QUnP7t5uiSEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDGbR-002Drw-L5; Tue, 10 Aug 2021 01:30:49 +0000
+	id 1mDHk3-002IKF-5i; Tue, 10 Aug 2021 02:43:47 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDGbM-002Dqi-Ed
- for linux-riscv@lists.infradead.org; Tue, 10 Aug 2021 01:30:48 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 630696105A
- for <linux-riscv@lists.infradead.org>; Tue, 10 Aug 2021 01:30:43 +0000 (UTC)
+ id 1mDHjz-002IJf-Cj
+ for linux-riscv@lists.infradead.org; Tue, 10 Aug 2021 02:43:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E55F96108C
+ for <linux-riscv@lists.infradead.org>; Tue, 10 Aug 2021 02:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1628559043;
- bh=S42P87zuOxcShQBFog8uPKE6+86eeoijqysy2RGAP6Y=;
+ s=k20201202; t=1628563422;
+ bh=+u2V2+K0bj2ltsUVUXzuEDQxgXWWe8UW8DnbggYPlPE=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=oXbyQ+/6McNx6XOrHDKr9vnNwpwajhsipBglzuTLxlVf3Ypc3mRGk1PsZOp9Npmuc
- PvbQY/U9I1noVOLzCKG/Rc68/hQ3bQzc6Lh6ySXRaeAdGDQ38ubcQR6z/JiweKLOIl
- CiGArjGM7CtjEZClcLSq3t04xq/f7epiyagr/qn8VI3ddsJ1opNH1F0ruSpdznb1/F
- 33T8laf5U30ndMegErBsStj0mhEHJbfyBhLUEkEnUMqqgTgn2eCPMHYPXvDP8lHU/H
- wrnLlVxuQPHvZZsnutZ10+vPWSRPwVp2Q8yULRpV6k5tuhTW0uBc6ZQHQsoTwBiRWt
- 63UKy5f+CH75Q==
-Received: by mail-lf1-f54.google.com with SMTP id b6so21667275lff.10
- for <linux-riscv@lists.infradead.org>; Mon, 09 Aug 2021 18:30:43 -0700 (PDT)
-X-Gm-Message-State: AOAM533bM4NjLvHSmwiXIC4VN3/m3x0Gvc5ejFQoc/1yj8GtMw82O1JY
- Nv8RCn5PN83h+zRvOL/ZWJPmP1tOAo83ZcxZX7w=
-X-Google-Smtp-Source: ABdhPJw9OPdu/bMj6+nQcqx2Of0EJ7zweLdKgPop70koiNNTZpEc8HxMacnrohGa3cIHb1iRqhZg/sL2HKygJpeI0+c=
-X-Received: by 2002:ac2:454f:: with SMTP id j15mr20404372lfm.555.1628559041654; 
- Mon, 09 Aug 2021 18:30:41 -0700 (PDT)
+ b=vF5uPtgSmpsYEI3O9OJ2rNH9LIdrj+/sd/4qcFw7fJPalwrGQf06UBT53RHhl5HWV
+ wAod5Tlo7oTM6dZLXlXsqUEG51I44HrSunmUeGeJTjZdc/VY5ZPrGPfVJgeGQcwvbz
+ Rd3oJViiQYtLj6OJqkOAuoUGVm0bzMERfXZwqrIi2SG8JCPWufts2LtOVB2WCIr/Xs
+ SXCWIjgXTymDOiRzwkac5SwVMAtAWX5htlgiDzuEb5ZDZwow6ZHsnFhMUqkH9AIQto
+ azNoaqKEWJg3Rq/RrXYdj2b3cNaAwRsHu4vQL8P2i3cMf44IOcCS5iFSBAFjW5oAj2
+ iXLhmbIj2MAqg==
+Received: by mail-lf1-f49.google.com with SMTP id p38so10819134lfa.0
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Aug 2021 19:43:42 -0700 (PDT)
+X-Gm-Message-State: AOAM533NOISg3JFY6hy6I/pUgaOZg1uQCjChJ2iaSe4S6yFz22wS0WyH
+ +DPB6EJ5xhFAJu4Vdx1NBlEhYsSHtwJ8gY5+tJI=
+X-Google-Smtp-Source: ABdhPJxWNX4izk44i96wfeOUmqKIwvnCOhHcFfuVsvlvzwGSKgTdi7tE3j/qd91bNPQQpXh+dl1J2EyCxPDUvzAkqU0=
+X-Received: by 2002:a05:6512:ba9:: with SMTP id
+ b41mr20914908lfv.231.1628563421204; 
+ Mon, 09 Aug 2021 19:43:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210807145537.124744-1-xianting.tian@linux.alibaba.com>
- <20210809003044.6692ddce@xhacker>
- <6a189d9d-b35d-3a15-5bfa-172c50e60c8c@linux.alibaba.com>
-In-Reply-To: <6a189d9d-b35d-3a15-5bfa-172c50e60c8c@linux.alibaba.com>
+References: <1627953123-24248-1-git-send-email-guoren@kernel.org>
+ <CAAhSdy3ExFE_bTjxiGPh157ev89GEFypMcJ0OU63TQA5CRUONw@mail.gmail.com>
+In-Reply-To: <CAAhSdy3ExFE_bTjxiGPh157ev89GEFypMcJ0OU63TQA5CRUONw@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Tue, 10 Aug 2021 09:30:30 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTjBDF9cpN4J=ff2pCLXjc9uoBpfTzeTHhMAwg7OCShfA@mail.gmail.com>
-Message-ID: <CAJF2gTTjBDF9cpN4J=ff2pCLXjc9uoBpfTzeTHhMAwg7OCShfA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: add ARCH_DMA_MINALIGN support
-To: Xianting TIan <xianting.tian@linux.alibaba.com>
-Cc: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 10 Aug 2021 10:43:30 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQSha1vg4ta4fdbwdWhU8OJkKx+Qf__8vcmjGLQXSpx4g@mail.gmail.com>
+Message-ID: <CAJF2gTQSha1vg4ta4fdbwdWhU8OJkKx+Qf__8vcmjGLQXSpx4g@mail.gmail.com>
+Subject: Re: [PATCH 1/2] irqchip/sifive-plic: Fix PLIC crash on touching
+ offline CPU context
+To: Anup Patel <anup@brainfault.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210809_183044_568170_D3F15373 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20210809_194343_511425_CBE03DE1 
+X-CRM114-Status: GOOD (  37.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +86,194 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBdWcgOSwgMjAyMSBhdCA5OjU1IEFNIFhpYW50aW5nIFRJYW4KPHhpYW50aW5nLnRp
-YW5AbGludXguYWxpYmFiYS5jb20+IHdyb3RlOgo+Cj4KPiDlnKggMjAyMS84Lzkg5LiK5Y2IMTI6
-MzAsIEppc2hlbmcgWmhhbmcg5YaZ6YGTOgo+ID4gT24gU2F0LCAgNyBBdWcgMjAyMSAyMjo1NToz
-NyArMDgwMAo+ID4gWGlhbnRpbmcgVGlhbiA8eGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNv
-bT4gd3JvdGU6Cj4gPgo+ID4+IEludHJvZHVjZSBBUkNIX0RNQV9NSU5BTElHTiB0byByaXNjdiBh
-cmNoLgo+ID4+Cj4gPj4gU2lnbmVkLW9mZi1ieTogWGlhbnRpbmcgVGlhbiA8eGlhbnRpbmcudGlh
-bkBsaW51eC5hbGliYWJhLmNvbT4KPiA+PiAtLS0KPiA+PiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vY2FjaGUuaCB8IDIgKysKPiA+PiAgIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykK
-PiA+Pgo+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlLmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlLmgKPiA+PiBpbmRleCA5YjU4YjEwNDUuLjI5NDVi
-YmUyYiAxMDA2NDQKPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlLmgKPiA+
-PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlLmgKPiA+PiBAQCAtMTEsNiArMTEs
-OCBAQAo+ID4+Cj4gPj4gICAjZGVmaW5lIEwxX0NBQ0hFX0JZVEVTICAgICAgICAgICAgICgxIDw8
-IEwxX0NBQ0hFX1NISUZUKQo+ID4+Cj4gPj4gKyNkZWZpbmUgQVJDSF9ETUFfTUlOQUxJR04gICBM
-MV9DQUNIRV9CWVRFUwo+ID4gSXQncyBub3QgYSBnb29kIGlkZWEgdG8gYmxpbmRseSBzZXQgdGhp
-cyBmb3IgYWxsIHJpc2N2LiBGb3IgImNvaGVyZW50Igo+ID4gcGxhdGZvcm1zLCB0aGlzIGlzIG5v
-dCBuZWNlc3NhcnkgYW5kIHdpbGwgd2FzdGUgbWVtb3J5LgoKcXVvdGUgZnJvbSBzbGFiLmg6CiAq
-IFNvbWUgYXJjaHMgd2FudCB0byBwZXJmb3JtIERNQSBpbnRvIGttYWxsb2MgY2FjaGVzIGFuZCBu
-ZWVkIGEgZ3VhcmFudGVlZAogKiBhbGlnbm1lbnQgbGFyZ2VyIHRoYW4gdGhlIGFsaWdubWVudCBv
-ZiBhIDY0LWJpdCBpbnRlZ2VyLgogKiBTZXR0aW5nIEFSQ0hfS01BTExPQ19NSU5BTElHTiBpbiBh
-cmNoIGhlYWRlcnMgYWxsb3dzIHRoYXQuCgpBUkNIX0RNQV9NSU5BTElHTiBpcyBmb3IgdGhlIHdo
-b2xlIHN5c3RlbSwgbWF5YmUgd2UgY291bGQgZ2l2ZSBhCkRNQV9NSU5BTElHTiBLY29uZmlnIGVu
-dHJ5IGluIGFyY2gvcmlzY3Y/Cgo+ID4KPiB0aGFua3MgZm9yIHRoZSByZXBseSwKPgo+IFNvIHJp
-c2N2IGlzIHRoZSAiY29oZXJlbnQiIHBsYXRmb3JtPwo+Cj4gSSBzdWJtaXQgdGhpcyBwYXRjaCBh
-cyBJIGdvdCBhIGZpeCBzdWdnZXN0aW9uIG9mIGFub3RoZXIgcGF0Y2ggdG8gdXNlCj4gQVJDSF9E
-TUFfTUlOQUxJR04sIGJ1dCByaXNjdiBkb2Vzbid0IGRlZmluZSBpdC4KPgo+IGh0dHBzOi8vbGtt
-bC5vcmcvbGttbC8yMDIxLzgvNi83MjMgPGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDIxLzgvNi83
-MjM+Cj4KPiBDb25zaWRlcmluZyB0aGUgcG9ydGFiaWxpdHkgb2YgdGhlIGNvZGUsIGluIG15IG9w
-aW5pb24sIGl0IGlzIGJldHRlciB0bwo+IGRlZmluZSBpdCBmb3IgcmlzY3YgaWYgaXQgaXMgbm90
-ICJjb2hlcmVudCIgcGxhdGZvcm0uCj4KPiA+PiArCj4gPj4gICAvKgo+ID4+ICAgICogUklTQy1W
-IHJlcXVpcmVzIHRoZSBzdGFjayBwb2ludGVyIHRvIGJlIDE2LWJ5dGUgYWxpZ25lZCwgc28gZW5z
-dXJlIHRoYXQKPiA+PiAgICAqIHRoZSBmbGF0IGxvYWRlciBhbGlnbnMgaXQgYWNjb3JkaW5nbHku
-CgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCk1MOiBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9saW51eC1jc2t5LwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+ Hi Anup,
+
+Sorry for the late reply.
+
+On Tue, Aug 3, 2021 at 1:13 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Tue, Aug 3, 2021 at 6:42 AM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > The current plic driver would touch offline CPU context and cause
+> > bus error in some chip when in CPU hotplug scenario.
+> >
+> > This patch fixes up the problem and prevents plic access offline
+> > CPU context in plic_init() & plic_set_affinity().
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Anup Patel <anup@brainfault.org>
+> > Cc: Atish Patra <atish.patra@wdc.com>
+> > Cc: Greentime Hu <greentime.hu@sifive.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/irqchip/irq-sifive-plic.c | 26 +++++++++++++++++---------
+> >  1 file changed, 17 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > index cf74cfa..9c9bb20 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -64,6 +64,7 @@ struct plic_priv {
+> >         struct cpumask lmask;
+> >         struct irq_domain *irqdomain;
+> >         void __iomem *regs;
+> > +       unsigned int nr_irqs;
+> >  };
+> >
+> >  struct plic_handler {
+> > @@ -150,7 +151,7 @@ static int plic_set_affinity(struct irq_data *d,
+> >         if (cpu >= nr_cpu_ids)
+> >                 return -EINVAL;
+> >
+> > -       plic_irq_toggle(&priv->lmask, d, 0);
+> > +       plic_irq_toggle(cpu_online_mask, d, 0);
+>
+> This breaks RISC-V multi-socket platforms with multiple PLIC instances.
+Yes, I haven't considered the multi-sockets scenario.
+
+>
+> When we have multiple PLIC instances in a RISC-V platform, each PLIC
+> instance will target a different set of HARTs. The "priv->lmask" represents
+> the CPUs/HARTs targeted by a given PLIC instance.
+Okay, I would correct it with:
+ -       plic_irq_toggle(&priv->lmask, d, 0);
++       cpumask_and(&amask, &priv->lmask, cpu_online_mask);
++       plic_irq_toggle(&amask, d, 0);
+
+>
+> I am not sure how you are testing your patches but you certainly need to
+> test more on QEMU. The QEMU virt machine support multi-socket so make
+> sure any patch which can potentially affect multi-socket support is at least
+> tested on QEMU virt machine multi-socket configuration.
+The patch has been tested with our hardware platforms and qemu 4.1.
+But in that version of qemu, riscv didn't support multi-socket.
+
+I would update my qemu environment to follow your steps :)
+
+>
+> >         plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
+> >
+> >         irq_data_update_effective_affinity(d, cpumask_of(cpu));
+> > @@ -251,15 +252,25 @@ static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
+> >
+> >  static int plic_dying_cpu(unsigned int cpu)
+> >  {
+> > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +
+> >         if (plic_parent_irq)
+> >                 disable_percpu_irq(plic_parent_irq);
+> >
+> > +       handler->present = false;
+> > +
+>
+> Drop these changes in plic_dying_cpu(), see comments below.
+>
+> >         return 0;
+> >  }
+> >
+> >  static int plic_starting_cpu(unsigned int cpu)
+> >  {
+> >         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +       irq_hw_number_t hwirq;
+> > +
+> > +       handler->present = true;
+>
+> The "handler->present" flag indicates that we have PLIC context
+> associated with the given handler. It has nothing to do with CPU
+> hot-plug.
+>
+> > +
+> > +       for (hwirq = 1; hwirq <= handler->priv->nr_irqs; hwirq++)
+> > +               plic_toggle(handler, hwirq, 0);
+> >
+> >         if (plic_parent_irq)
+> >                 enable_percpu_irq(plic_parent_irq,
+> > @@ -275,7 +286,6 @@ static int __init plic_init(struct device_node *node,
+> >                 struct device_node *parent)
+> >  {
+> >         int error = 0, nr_contexts, nr_handlers = 0, i;
+> > -       u32 nr_irqs;
+> >         struct plic_priv *priv;
+> >         struct plic_handler *handler;
+> >
+> > @@ -290,8 +300,8 @@ static int __init plic_init(struct device_node *node,
+> >         }
+> >
+> >         error = -EINVAL;
+> > -       of_property_read_u32(node, "riscv,ndev", &nr_irqs);
+> > -       if (WARN_ON(!nr_irqs))
+> > +       of_property_read_u32(node, "riscv,ndev", &priv->nr_irqs);
+> > +       if (WARN_ON(!priv->nr_irqs))
+> >                 goto out_iounmap;
+> >
+> >         nr_contexts = of_irq_count(node);
+> > @@ -299,14 +309,13 @@ static int __init plic_init(struct device_node *node,
+> >                 goto out_iounmap;
+> >
+> >         error = -ENOMEM;
+> > -       priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
+> > +       priv->irqdomain = irq_domain_add_linear(node, priv->nr_irqs + 1,
+> >                         &plic_irqdomain_ops, priv);
+> >         if (WARN_ON(!priv->irqdomain))
+> >                 goto out_iounmap;
+> >
+> >         for (i = 0; i < nr_contexts; i++) {
+> >                 struct of_phandle_args parent;
+> > -               irq_hw_number_t hwirq;
+> >                 int cpu, hartid;
+> >
+> >                 if (of_irq_parse_one(node, i, &parent)) {
+> > @@ -354,7 +363,8 @@ static int __init plic_init(struct device_node *node,
+> >                 }
+> >
+> >                 cpumask_set_cpu(cpu, &priv->lmask);
+> > -               handler->present = true;
+> > +               if (cpu == smp_processor_id())
+> > +                       handler->present = true;
+>
+> Drop this change.
+>
+> >                 handler->hart_base =
+> >                         priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> >                 raw_spin_lock_init(&handler->enable_lock);
+> > @@ -362,8 +372,6 @@ static int __init plic_init(struct device_node *node,
+> >                         priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> >                 handler->priv = priv;
+> >  done:
+> > -               for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> > -                       plic_toggle(handler, hwirq, 0);
+>
+> In plic_init(), we are bringing all interrupts of PLIC context to a known
+> state which is being disabled by default. We don't need to do this every
+> time a HART/CPU is brought-up but I am okay to move this to
+> plic_starting_cpu() if it helps fix issues on any RISC-V platform.
+>
+> >                 nr_handlers++;
+> >         }
+> >
+> > --
+> > 2.7.4
+> >
+>
+> Regards,
+> Anup
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
