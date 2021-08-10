@@ -7,83 +7,81 @@ X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8077C4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 18:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AC050C4338F
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 19:08:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 770CD60F38
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 18:56:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 770CD60F38
+	by mail.kernel.org (Postfix) with ESMTPS id 6C52E60F35
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 19:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6C52E60F35
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JV4vYPnm7GHTydJDoCI6eunS3Ys7fcI31vaV3eqtnrg=; b=Ampiiu0qU3fqyF
-	otS+7D2qb223GkVEMftxJQLEbIibvglmXSSuJOj9XIIYnuJ9T3F+X3pTaT+p7nN+Vzqj7ZTN63yIk
-	pehVlple7Y9hFLPTcdENnBvVH2Q82WxOgdVbIHisdCNw8QWsTODzFuEZen5G2JuBW4GKtmHT5lRG2
-	+nJWpi0KSKGftfHlB7/DkYVExFt6ar8bIYvNbI1kcTQWnISNRUiw/XnE2c7YILs6Xzp097DVh8IUg
-	rxbRyjAihBPtdcPPbcnEryXIrrjeuiKhY+qmiLEdeSAXhK/D7ZU0q1EDPDPxM1ELdavnx8Rs4Ym+W
-	N10Z8R6lm5EmUyBjLfFA==;
+	List-Owner; bh=hHI5p+ef84z8whSF40V6fu4BWCCiU9aexe+WS2sztZU=; b=Y/ypE0g+vcHQd8
+	dD0O4+gXimfxlPVkVo2U7oVJFcXZh7n6sc0AJKfok4ubhQbfBFwfxy2n8VIzy39Rv4TCzEdPJAAVz
+	xHMSfXVeDdkmOn9Iy8ldaJwgfeKOwOzApJtcDMetbpL+TWpHh79npEkTLdZyMRgpLsAkRYpwrrG5m
+	e4nHk+Fhx5FpUJUpGkYstN+LSr4HYKBERASoxdLVVh3dkK5UlZnt9ja89UI7ArzwX5Y2ereefs8bp
+	QmvzFNZJmEMtUp/tpPspIqUneJBaYYy+wNVP7bB8YHKjxQ+cvKKnQFztrNulWglEZ3m5bPCsyyMpT
+	zpKttXTjkUwcL/7tZixg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDWuv-004lCH-6q; Tue, 10 Aug 2021 18:56:01 +0000
+	id 1mDX6n-004me5-2w; Tue, 10 Aug 2021 19:08:17 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDWuh-004lA6-L0; Tue, 10 Aug 2021 18:55:49 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A3CE160EC0;
- Tue, 10 Aug 2021 18:55:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1628621746;
- bh=F5kTOFRnzjAJrBKXolCjL+dzW0Enob7L6Qo6a9N/FIw=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=mnF0CNC25E4oa/W7CwgBWzcyamvcXR62RJwDP1+hoIvOaCnu6u6aaG77F5mBgJCO6
- 4/bGSTge8ClhoeunKJAzJ948hRgjQhIptS3R43yp9ARM8MtNPwXNGLvI8CiIj/L11a
- aS+QzDaj3VIGg6EaJg5/UnzPR69tHjLIu96HzU6VtDhhLT47ayOMpo93dX53xzQyCA
- 0uiuaEGSP5AXuhVpYg5Gv491i3avovaTEBaFIzzGVCIjksQJmFkaS+f4ZtRb2qSNYM
- 6NrahHn7t/d0xhmc6bQ/nDGDJevaDydcqBRpnmxTlLIiwMsiULeezD+vRbWUP3bIvk
- 61vSADYEw+Xnw==
-Date: Tue, 10 Aug 2021 21:55:32 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- Will Deacon <will@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ id 1mDX6N-004mdV-Rv
+ for linux-riscv@lists.infradead.org; Tue, 10 Aug 2021 19:07:53 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6ED6960F38;
+ Tue, 10 Aug 2021 19:07:50 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mDX6K-0049YK-Cu; Tue, 10 Aug 2021 20:07:48 +0100
+Date: Tue, 10 Aug 2021 20:07:47 +0100
+Message-ID: <871r71azjw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Matteo Croce <mcroce@linux.microsoft.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org,
- Frank Rowand <frowand.list@gmail.com>, kvmarm@lists.cs.columbia.edu,
- linux-s390@vger.kernel.org, linux-acpi@vger.kernel.org,
- Marc Zyngier <maz@kernel.org>, x86@kernel.org,
- Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
- devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Rob Herring <robh+dt@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v3] memblock: make memblock_find_in_range method private
-Message-ID: <YRLLpImNhZaLzs3z@kernel.org>
-References: <20210803064218.6611-1-rppt@kernel.org>
- <20210809190641.GA1176508@roeck-us.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210809190641.GA1176508@roeck-us.net>
+ Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ thierry reding <thierry.reding@gmail.com>,
+ Jon Hunter <jonathanh@nvidia.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+In-Reply-To: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mcroce@linux.microsoft.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ peppe.cavallaro@st.com, alexandre.torgue@foss.st.com, davem@davemloft.net,
+ kuba@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ drew@beagleboard.org, kernel@esmil.dk, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210810_115547_771843_B240DF01 
-X-CRM114-Status: GOOD (  32.52  )
+X-CRM114-CacheID: sfid-20210810_120751_985713_94D3A41A 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,148 +98,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 09, 2021 at 12:06:41PM -0700, Guenter Roeck wrote:
-> On Tue, Aug 03, 2021 at 09:42:18AM +0300, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > There are a lot of uses of memblock_find_in_range() along with
-> > memblock_reserve() from the times memblock allocation APIs did not exist.
-> > 
-> > memblock_find_in_range() is the very core of memblock allocations, so any
-> > future changes to its internal behaviour would mandate updates of all the
-> > users outside memblock.
-> > 
-> > Replace the calls to memblock_find_in_range() with an equivalent calls to
-> > memblock_phys_alloc() and memblock_phys_alloc_range() and make
-> > memblock_find_in_range() private method of memblock.
-> > 
-> > This simplifies the callers, ensures that (unlikely) errors in
-> > memblock_reserve() are handled and improves maintainability of
-> > memblock_find_in_range().
-> > 
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Hi all,
+
+[adding Thierry, Jon and Will to the fun]
+
+On Mon, 14 Jun 2021 03:25:04 +0100,
+Matteo Croce <mcroce@linux.microsoft.com> wrote:
 > 
-> I see a number of crashes in next-20210806 when booting x86 images from efi.
+> From: Matteo Croce <mcroce@microsoft.com>
 > 
-> [    0.000000] efi: EFI v2.70 by EDK II
-> [    0.000000] efi: SMBIOS=0x1fbcc000 ACPI=0x1fbfa000 ACPI 2.0=0x1fbfa014 MEMATTR=0x1f25f018
-> [    0.000000] SMBIOS 2.8 present.
-> [    0.000000] DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
-> [    0.000000] last_pfn = 0x1ff50 max_arch_pfn = 0x400000000
-> [    0.000000] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT
-> [    0.000000] Kernel panic - not syncing: alloc_low_pages: can not alloc memory
-> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.14.0-rc4-next-20210806 #1
-> [    0.000000] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
-> [    0.000000] Call Trace:
-> [    0.000000]  ? dump_stack_lvl+0x57/0x7d
-> [    0.000000]  ? panic+0xfc/0x2c6
-> [    0.000000]  ? alloc_low_pages+0x117/0x156
-> [    0.000000]  ? phys_pmd_init+0x234/0x342
-> [    0.000000]  ? phys_pud_init+0x171/0x337
-> [    0.000000]  ? __kernel_physical_mapping_init+0xec/0x276
-> [    0.000000]  ? init_memory_mapping+0x1ea/0x2aa
-> [    0.000000]  ? init_range_memory_mapping+0xdf/0x12e
-> [    0.000000]  ? init_mem_mapping+0x1e9/0x26f
-> [    0.000000]  ? setup_arch+0x5ff/0xb6d
-> [    0.000000]  ? start_kernel+0x71/0x6b4
-> [    0.000000]  ? secondary_startup_64_no_verify+0xc2/0xcb
+> On RX an SKB is allocated and the received buffer is copied into it.
+> But on some architectures, the memcpy() needs the source and destination
+> buffers to have the same alignment to be efficient.
 > 
-> Bisect points to this patch. Reverting it fixes the problem. Key seems to
-> be the amount of memory configured in qemu; the problem is not seen if
-> there is 1G or more of memory, but it is seen with all test boots with
-> 512M or 256M of memory. It is also seen with almost all 32-bit efi boots.
+> This is not our case, because SKB data pointer is misaligned by two bytes
+> to compensate the ethernet header.
 > 
-> The problem is not seen when booting without efi.
-
-It looks like this change uncovered a problem in
-x86::memory_map_top_down(). 
-
-The allocation in alloc_low_pages() is limited by min_pfn_mapped and
-max_pfn_mapped. The min_pfn_mapped is updated at every iteration of the
-loop in memory_map_top_down, but there is another loop in
-init_range_memory_mapping() that maps several regions below the current
-min_pfn_mapped without updating this variable.
-
-The memory layout in qemu with 256M of RAM and EFI enabled, causes
-exhaustion of the memory limited by min_pfn_mapped and max_pfn_mapped
-before min_pfn_mapped is updated.
-
-Before this commit there was unconditional "reservation" of 2M in the end
-of the memory that moved the initial min_pfn_mapped below the memory
-reserved by EFI. The addition of check for xen_domain() removed this
-reservation for !XEN and made alloc_low_pages() use the range already busy
-with EFI data.
-
-The patch below moves the update of min_pfn_mapped near the update of
-max_pfn_mapped so that every time a new range is mapped both limits will be
-updated accordingly.
-
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index 1152a29ce109..be279f6e5a0a 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -1,3 +1,4 @@
-+#define DEBUG
- #include <linux/gfp.h>
- #include <linux/initrd.h>
- #include <linux/ioport.h>
-@@ -485,6 +486,7 @@ static void add_pfn_range_mapped(unsigned long start_pfn, unsigned long end_pfn)
- 	nr_pfn_mapped = clean_sort_range(pfn_mapped, E820_MAX_ENTRIES);
- 
- 	max_pfn_mapped = max(max_pfn_mapped, end_pfn);
-+	min_pfn_mapped = min(min_pfn_mapped, start_pfn);
- 
- 	if (start_pfn < (1UL<<(32-PAGE_SHIFT)))
- 		max_low_pfn_mapped = max(max_low_pfn_mapped,
-@@ -643,7 +645,6 @@ static void __init memory_map_top_down(unsigned long map_start,
- 		mapped_ram_size += init_range_memory_mapping(start,
- 							last_start);
- 		last_start = start;
--		min_pfn_mapped = last_start >> PAGE_SHIFT;
- 		if (mapped_ram_size >= step_size)
- 			step_size = get_new_step_size(step_size);
- 	}
- 
-
-> Guenter
+> Align the RX buffer the same way as the SKB one, so the copy is faster.
+> An iperf3 RX test gives a decent improvement on a RISC-V machine:
 > 
+> before:
+> [ ID] Interval           Transfer     Bitrate         Retr
+> [  5]   0.00-10.00  sec   733 MBytes   615 Mbits/sec   88             sender
+> [  5]   0.00-10.01  sec   730 MBytes   612 Mbits/sec                  receiver
+> 
+> after:
+> [ ID] Interval           Transfer     Bitrate         Retr
+> [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec    0             sender
+> [  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec                  receiver
+> 
+> And the memcpy() overhead during the RX drops dramatically.
+> 
+> before:
+> Overhead  Shared O  Symbol
+>   43.35%  [kernel]  [k] memcpy
+>   33.77%  [kernel]  [k] __asm_copy_to_user
+>    3.64%  [kernel]  [k] sifive_l2_flush64_range
+> 
+> after:
+> Overhead  Shared O  Symbol
+>   45.40%  [kernel]  [k] __asm_copy_to_user
+>   28.09%  [kernel]  [k] memcpy
+>    4.27%  [kernel]  [k] sifive_l2_flush64_range
+> 
+> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
+
+This patch completely breaks my Jetson TX2 system, composed of 2
+Nvidia Denver and 4 Cortex-A57, in a very "funny" way.
+
+Any significant amount of traffic result in all sort of corruption
+(ssh connections get dropped, Debian packages downloaded have the
+wrong checksums) if any Denver core is involved in any significant way
+(packet processing, interrupt handling). And it is all triggered by
+this very change.
+
+The only way I have to make it work on a Denver core is to route the
+interrupt to that particular core and taskset the workload to it. Any
+other configuration involving a Denver CPU results in some sort of
+corruption. On their own, the A57s are fine.
+
+This smells of memory ordering going really wrong, which this change
+would expose. I haven't had a chance to dig into the driver yet (it
+took me long enough to bisect it), but if someone points me at what is
+supposed to synchronise the DMA when receiving an interrupt, I'll have
+a look.
+
+Thanks,
+
+	M.
+
 > ---
-> Bisect log:
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> # bad: [da454ebf578f6c542ba9f5b3ddb98db3ede109c1] Add linux-next specific files for 20210809
-> # good: [36a21d51725af2ce0700c6ebcb6b9594aac658a6] Linux 5.14-rc5
-> git bisect start 'HEAD' 'v5.14-rc5'
-> # good: [d22fda64bea5f33000e31e5b7e4ba876bca37436] Merge remote-tracking branch 'crypto/master'
-> git bisect good d22fda64bea5f33000e31e5b7e4ba876bca37436
-> # good: [b084da3a98fad27a39ed5ca64106b86df0417851] Merge remote-tracking branch 'irqchip/irq/irqchip-next'
-> git bisect good b084da3a98fad27a39ed5ca64106b86df0417851
-> # good: [a5383d1f57190a33c6afc25c62b9907d84ba2bc6] Merge remote-tracking branch 'staging/staging-next'
-> git bisect good a5383d1f57190a33c6afc25c62b9907d84ba2bc6
-> # good: [a439da3e6abeb054f4e6b0d37814e762b7340196] Merge remote-tracking branch 'seccomp/for-next/seccomp'
-> git bisect good a439da3e6abeb054f4e6b0d37814e762b7340196
-> # bad: [9801f3c0890c7b992b45a5c2afcb16c5cdc8388e] mm/idle_page_tracking: Make PG_idle reusable
-> git bisect bad 9801f3c0890c7b992b45a5c2afcb16c5cdc8388e
-> # good: [b4f7f4a9b542836683308d48ffdd18471c6f3e76] lazy-tlb-allow-lazy-tlb-mm-refcounting-to-be-configurable-fix
-> git bisect good b4f7f4a9b542836683308d48ffdd18471c6f3e76
-> # good: [e30842a48c36f094271eea0984bb861b49c49c87] mm/vmscan: add 'else' to remove check_pending label
-> git bisect good e30842a48c36f094271eea0984bb861b49c49c87
-> # bad: [65300b20a21214fb2043419d4e5da1d9947c6e15] mm/madvise: add MADV_WILLNEED to process_madvise()
-> git bisect bad 65300b20a21214fb2043419d4e5da1d9947c6e15
-> # bad: [7348da7a8c244d1a755bc5838b04cb9b1b6ee06c] memblock: make memblock_find_in_range method private
-> git bisect bad 7348da7a8c244d1a755bc5838b04cb9b1b6ee06c
-> # good: [98f8c467fe2ba8e553b450b2a3294d69f1f2027f] mm-mempolicy-convert-from-atomic_t-to-refcount_t-on-mempolicy-refcnt-fix
-> git bisect good 98f8c467fe2ba8e553b450b2a3294d69f1f2027f
-> # good: [760ded422ebe4f8899905b752d8378c44f2a78f3] mm/memplicy: add page allocation function for MPOL_PREFERRED_MANY policy
-> git bisect good 760ded422ebe4f8899905b752d8378c44f2a78f3
-> # good: [fbfa0492d9639b67119d3d94b7a6a3f85e064260] mm/mempolicy: advertise new MPOL_PREFERRED_MANY
-> git bisect good fbfa0492d9639b67119d3d94b7a6a3f85e064260
-> # good: [ff6d5759a871883aeea38309fb16d91666179328] mm/mempolicy: unify the create() func for bind/interleave/prefer-many policies
-> git bisect good ff6d5759a871883aeea38309fb16d91666179328
-> # first bad commit: [7348da7a8c244d1a755bc5838b04cb9b1b6ee06c] memblock: make memblock_find_in_range method private
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> index b6cd43eda7ac..04bdb3950d63 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> @@ -338,9 +338,9 @@ static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
+>  static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+>  {
+>  	if (stmmac_xdp_is_enabled(priv))
+> -		return XDP_PACKET_HEADROOM;
+> +		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
+>  
+> -	return 0;
+> +	return NET_SKB_PAD + NET_IP_ALIGN;
+>  }
+>  
+>  void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
+> -- 
+> 2.31.1
+> 
+> 
 
 -- 
-Sincerely yours,
-Mike.
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
