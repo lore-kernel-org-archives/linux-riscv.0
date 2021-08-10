@@ -2,63 +2,69 @@ Return-Path: <SRS0=s7xG=NB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 345E2C4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 08:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4AC8C4320A
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 13:42:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A3BB460F25
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 08:50:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A3BB460F25
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id 52BB361077
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Aug 2021 13:42:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 52BB361077
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqvOSPfDB6P7ufpvUOTt7NOZSfEt51YovsA5VttkG+A=; b=IxdCjU27Ic9ss/b9QB1q6LcWNG
-	Ha6CG234Shp7D5vY/8vD2dBpM47fEhTyaRt6in9XocGp7rbpchC/Yn/LJmNGF4i3q9VOpKKVkOdqS
-	pQDPfFMuPDgFBK77LZON4x9/YVqwhLHVHcW4xwPH8hvLYCa4aLPuif+fpHdQLcJwukC5kllVzQ3H1
-	73SO/zZkKOMxONLK+YN5jF5wLX8OBSEg83WRcB3UKe9NELhlNDGQritD9r7lqrzBP6J4JbBxEZDXA
-	jw3GYnNkT8wwRf9Rd5p0ZP4f6YlOfziRShUYQeX9vR+RczVmPJNeIFE/sU0U+IZzfwVOROYcv3iGR
-	Wsjkm6kw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EwtIxVPANlIisdG12Nx1ob8mqIYzU2N/Bt4kPjL/m4I=; b=MIIPAfh9ezcWYw
+	Qo43uu5cK2TkmDIDJhFZijlP39N234/MKvNl7gm6IhrHoPPcmnTiz5xP+OXFO0fjPovrnQrw/dGdF
+	aZ7PdGn8UF7q6ZJKj4ffvIw9H7bucQNg+8tSQXAkGUClMpfIWk4e7SVr49q77VuTpwgovZWuM6wap
+	Ocqi+vdOU/7DtESOF1o5nMG4l6BLRv8ZJgvrqXu+elUj45mwTETnOM+kb7++UaDj6f/5QifQo4QWR
+	eOHClBdS7zVUEb2viPZTLVmXiYiK6ke9g9UvwKfpI7ig4lgVmpdTPoV3YqF7HahGeKhGwAZbJTn45
+	aUCXIog+/G+pNaT8ITUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDNS1-0038zf-VF; Tue, 10 Aug 2021 08:49:34 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1mDS1Y-0042OV-6F; Tue, 10 Aug 2021 13:42:32 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDNRv-0038uQ-8o
- for linux-riscv@lists.infradead.org; Tue, 10 Aug 2021 08:49:31 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.18])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1mDNRj-0003Og-AP; Tue, 10 Aug 2021 09:49:15 +0100
-Subject: Re: [PATCH] [PATCH v2] riscv: add as-options for modules with
- assembly compontents
-To: linux-kernel@lists.codethink.co.uk, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- Bin Meng <bmeng.cn@gmail.com>
-References: <20210720144458.367954-1-ben.dooks@codethink.co.uk>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <8b110ad1-b5de-40ba-4131-faee1f9bde26@codethink.co.uk>
-Date: Tue, 10 Aug 2021 09:49:14 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ id 1mDS1U-0042MV-QU
+ for linux-riscv@lists.infradead.org; Tue, 10 Aug 2021 13:42:30 +0000
+Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.53])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4GkYtj6XbHz8477;
+ Tue, 10 Aug 2021 21:38:21 +0800 (CST)
+Received: from dggpemm500002.china.huawei.com (7.185.36.229) by
+ dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 10 Aug 2021 21:42:18 +0800
+Received: from localhost.localdomain (10.175.112.125) by
+ dggpemm500002.china.huawei.com (7.185.36.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 10 Aug 2021 21:42:17 +0800
+From: Chen Wandun <chenwandun@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <wangkefeng.wang@huawei.com>, <guohanjun@huawei.com>
+CC: Chen Wandun <chenwandun@huawei.com>
+Subject: [PATCH] riscv: add support for hugepage migration
+Date: Tue, 10 Aug 2021 21:51:05 +0800
+Message-ID: <20210810135105.2827214-1-chenwandun@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
 MIME-Version: 1.0
-In-Reply-To: <20210720144458.367954-1-ben.dooks@codethink.co.uk>
-Content-Language: en-GB
+X-Originating-IP: [10.175.112.125]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500002.china.huawei.com (7.185.36.229)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210810_014927_380845_3DE2284D 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20210810_064229_213946_4E1432DB 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,38 +76,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/07/2021 15:44, Ben Dooks wrote:
-> When trying to load modules built for RISC-V which include assembly files
-> the kernel loader errors with "unexpected relocation type 'R_RISCV_ALIGN'"
-> due to R_RISCV_ALIGN relocations being generated by the assembler.
-> 
-> The R_RISCV_ALIGN relocations can be removed at the expense of code space
-> by adding -mno-relax to gcc and as.  In commit 7a8e7da42250138
-> ("RISC-V: Fixes to module loading") -mno-relax is added to the build
-> variable KBUILD_CFLAGS_MODULE. See [1] for more info.
-> 
-> The issue is that when kbuild builds a .S file, it invokes gcc with
-> the -mno-relax flag, but this is not being passed through to the
-> assembler. Adding -Wa,-mno-relax to KBUILD_AFLAGS_MODULE ensures that
-> the assembler is invoked correctly. This may have now been fixed in
-> gcc[2] and this addition should not stop newer gcc and as from working.
-> 
-> [1] https://github.com/riscv/riscv-elf-psabi-doc/issues/183
-> [2] https://github.com/gcc-mirror/gcc/commit/3b0a7d624e64eeb81e4d5e8c62c46d86ef521857
+Generic arch_hugetlb_migration_supported can provide appropriate
+support for hugepage migration when enable ARCH_ENABLE_HUGEPAGE_MIGRATION,
+so enable it for hugepage migration in riscv.
 
-Just wanted to check v2 is fine for merging, and if so when is that
-likely to be?
+Signed-off-by: Chen Wandun <chenwandun@huawei.com>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 8ce8382748d5..8bfc89589838 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -13,6 +13,7 @@ config 32BIT
+ config RISCV
+ 	def_bool y
+ 	select ARCH_CLOCKSOURCE_INIT
++	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_STACKWALK
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+2.18.0.huawei.25
 
-https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
