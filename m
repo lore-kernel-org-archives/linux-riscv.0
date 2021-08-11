@@ -2,87 +2,87 @@ Return-Path: <SRS0=vOU+=NC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A93D1C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 14:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BDE6C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 15:36:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 46E8560FE6
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 14:16:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 46E8560FE6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5532760EB9
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 15:36:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5532760EB9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EDUTcJ6hhkhWvUX7A7vLG7NQP+TOhhAHgmlztjr54Ng=; b=ugTCuv+o8LwyCs
-	SPZxUDECjawhH9pi+3Iy2ztcWJfHjlglDuSGnoiztHmUSvsoQBSzVd6YkDcCmKxVyK2EcqBsbOx1d
-	SVOj3qqb9yRg8tMXUCreFwtYI8QsoUUH+pzGHHiLkVaY73kiAMqKcLzBdMDiNL06UnHAGOqWBb3Yo
-	fpMnlWWe2BB3ynAvNrFFVXxgnoi0CNk6CEEQvCJVQA4bliwE7GNwDT0larIM0nGErCZkktNjT1E0L
-	GxWTQNK1Frs4RADX5yte7G+DqwP4dgu+lda2oEVxAQREKwMIGvF/JmXGTpwZpInc7XzrJL1VFh55A
-	Wqd+jleJq/0ZPpH2iP7A==;
+	List-Owner; bh=KIokh3KXt0A4G/pXq/a2NHe4vJS1unpqBUigkr4YL+0=; b=3nBiScHoVsuC/T
+	QUSr7DoIAJL7h5b1T3lkFwNaAz/86cfuPryezY0fMbbDWtcFQb6pohfnYafE4BxwAbLxfIahb8Ko9
+	1BWLGRGCrZfeLezRLC+QoMBAkMwQyjo+YnbA7/LSDUvziPW281qyxwvrCFasFuk69Bj5Y8X9UBZop
+	hI5F926lA0AzBUuhrg1NUEsCmGZg8Td5du3aXfxeEF33KEgLJql1xzmgJeIJPkyrF0bqFBuWgQeWo
+	6tDxaSPq4FuQxIMbwzj4xXRDOpaDn8g/6whaGdkb7FX5BzU7yq/NBvbBh7hkk0uLdvl3jgeozGiO5
+	+6xiHIJ8lICKTLwik+RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDp1r-007ROh-VN; Wed, 11 Aug 2021 14:16:23 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mDqGl-007YuR-Tj; Wed, 11 Aug 2021 15:35:51 +0000
+Received: from mail-vs1-f52.google.com ([209.85.217.52])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDp1p-007RNy-0O
- for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 14:16:22 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7BFA760FE6;
- Wed, 11 Aug 2021 14:16:20 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mDp1m-004LwJ-Id; Wed, 11 Aug 2021 15:16:18 +0100
-Date: Wed, 11 Aug 2021 15:16:18 +0100
-Message-ID: <87o8a49idp.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Dumazet <eric.dumazet@gmail.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
- Will Deacon <will@kernel.org>
-Subject: Re: [PATCH net-next] stmmac: align RX buffers
-In-Reply-To: <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
-References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
- <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
- <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eric.dumazet@gmail.com, thierry.reding@gmail.com,
- mcroce@linux.microsoft.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- peppe.cavallaro@st.com, alexandre.torgue@foss.st.com, davem@davemloft.net,
- kuba@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- drew@beagleboard.org, kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1mDqGY-007YsU-GE; Wed, 11 Aug 2021 15:35:39 +0000
+Received: by mail-vs1-f52.google.com with SMTP id a8so1786308vsl.4;
+ Wed, 11 Aug 2021 08:35:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qe0iSj8XpU18YU856j4Cl+K1mgU1eag6gHjOJIBodYU=;
+ b=P8ioM/6aS+6ZSBGhiyt7akiAuJiSscZnECxNbEKOaRe0gagNrlxWqqo4QDdc7RsdJP
+ BLpXrhWoq+EaAShoOU5kDyM55CgSdfeWI5/TRHb3SsG8dj34IA6Ggrs49BhspKqylETg
+ SF59HHaSoW+k00/svX2D9tOR+3+A2WWLF97t6v+sysP/p5q+tEoH78lMzxhp5BldD1Ml
+ QjFMKBVVhVDbwEKBSNkHHdahBmE1cgFKVbgaOYchpdjc3F6hClR61Tg5CE0Kv/sC+ZH6
+ 2umTtefZlItt3OO8lpf6lM9BA5tOwIfM2+EOmT3iTucaMxR3tlS7Kw/qILwek9zncgWy
+ eOHw==
+X-Gm-Message-State: AOAM530Yff/apTAUomU5Qb8KubcDs7waA6OBbYzPujC47p2Pkl3fVDVh
+ kcsLM87n6Ui99fRji43IXuR90SLYchGjcAJgR3M=
+X-Google-Smtp-Source: ABdhPJyCg7XeMMJOVeEoBRA0hgH3tr2A9kDf4d5be/Soj53sLrczZ+iXFRzYK6VNuP5kM7qaaKYjO/TzUNz0MI9TmgQ=
+X-Received: by 2002:a67:8009:: with SMTP id b9mr27769636vsd.18.1628696137555; 
+ Wed, 11 Aug 2021 08:35:37 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1628670468.git.geert+renesas@glider.be>
+ <92b6718f5618d5469f67b48fbea189cca0c12f4b.1628670468.git.geert+renesas@glider.be>
+In-Reply-To: <92b6718f5618d5469f67b48fbea189cca0c12f4b.1628670468.git.geert+renesas@glider.be>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 11 Aug 2021 17:35:26 +0200
+Message-ID: <CAMuHMdVFJ_qGs0V7f+XhfD6v3WnkMJ98fO31sCRSNaeS89XXUQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/9] MIPS: Avoid future duplicate elf core header
+ reservation
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Russell King <linux@armlinux.org.uk>, Rob Herring <robh+dt@kernel.org>, 
+ Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Frank Rowand <frowand.list@gmail.com>, 
+ Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
+ Vivek Goyal <vgoyal@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ kexec@lists.infradead.org, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210811_071621_128515_174C0F5B 
-X-CRM114-Status: GOOD (  48.74  )
+X-CRM114-CacheID: sfid-20210811_083538_580745_A4D686EA 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,157 +99,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Aug 2021 13:53:59 +0100,
-Eric Dumazet <eric.dumazet@gmail.com> wrote:
-> 
-> 
-> 
-> On 8/11/21 12:28 PM, Thierry Reding wrote:
-> > On Tue, Aug 10, 2021 at 08:07:47PM +0100, Marc Zyngier wrote:
-> >> Hi all,
-> >>
-> >> [adding Thierry, Jon and Will to the fun]
-> >>
-> >> On Mon, 14 Jun 2021 03:25:04 +0100,
-> >> Matteo Croce <mcroce@linux.microsoft.com> wrote:
-> >>>
-> >>> From: Matteo Croce <mcroce@microsoft.com>
-> >>>
-> >>> On RX an SKB is allocated and the received buffer is copied into it.
-> >>> But on some architectures, the memcpy() needs the source and destination
-> >>> buffers to have the same alignment to be efficient.
-> >>>
-> >>> This is not our case, because SKB data pointer is misaligned by two bytes
-> >>> to compensate the ethernet header.
-> >>>
-> >>> Align the RX buffer the same way as the SKB one, so the copy is faster.
-> >>> An iperf3 RX test gives a decent improvement on a RISC-V machine:
-> >>>
-> >>> before:
-> >>> [ ID] Interval           Transfer     Bitrate         Retr
-> >>> [  5]   0.00-10.00  sec   733 MBytes   615 Mbits/sec   88             sender
-> >>> [  5]   0.00-10.01  sec   730 MBytes   612 Mbits/sec                  receiver
-> >>>
-> >>> after:
-> >>> [ ID] Interval           Transfer     Bitrate         Retr
-> >>> [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec    0             sender
-> >>> [  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec                  receiver
-> >>>
-> >>> And the memcpy() overhead during the RX drops dramatically.
-> >>>
-> >>> before:
-> >>> Overhead  Shared O  Symbol
-> >>>   43.35%  [kernel]  [k] memcpy
-> >>>   33.77%  [kernel]  [k] __asm_copy_to_user
-> >>>    3.64%  [kernel]  [k] sifive_l2_flush64_range
-> >>>
-> >>> after:
-> >>> Overhead  Shared O  Symbol
-> >>>   45.40%  [kernel]  [k] __asm_copy_to_user
-> >>>   28.09%  [kernel]  [k] memcpy
-> >>>    4.27%  [kernel]  [k] sifive_l2_flush64_range
-> >>>
-> >>> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-> >>
-> >> This patch completely breaks my Jetson TX2 system, composed of 2
-> >> Nvidia Denver and 4 Cortex-A57, in a very "funny" way.
-> >>
-> >> Any significant amount of traffic result in all sort of corruption
-> >> (ssh connections get dropped, Debian packages downloaded have the
-> >> wrong checksums) if any Denver core is involved in any significant way
-> >> (packet processing, interrupt handling). And it is all triggered by
-> >> this very change.
-> >>
-> >> The only way I have to make it work on a Denver core is to route the
-> >> interrupt to that particular core and taskset the workload to it. Any
-> >> other configuration involving a Denver CPU results in some sort of
-> >> corruption. On their own, the A57s are fine.
-> >>
-> >> This smells of memory ordering going really wrong, which this change
-> >> would expose. I haven't had a chance to dig into the driver yet (it
-> >> took me long enough to bisect it), but if someone points me at what is
-> >> supposed to synchronise the DMA when receiving an interrupt, I'll have
-> >> a look.
-> > 
-> > I recall that Jon was looking into a similar issue recently, though I
-> > think the failure mode was slightly different. I also vaguely recall
-> > that CPU frequency was impacting this to some degree (lower CPU
-> > frequencies would increase the chances of this happening).
-> > 
-> > Jon's currently out of office, but let me try and dig up the details
-> > on this.
-> > 
-> > Thierry
-> > 
-> >>
-> >> Thanks,
-> >>
-> >> 	M.
-> >>
-> >>> ---
-> >>>  drivers/net/ethernet/stmicro/stmmac/stmmac.h | 4 ++--
-> >>>  1 file changed, 2 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> >>> index b6cd43eda7ac..04bdb3950d63 100644
-> >>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> >>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> >>> @@ -338,9 +338,9 @@ static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
-> >>>  static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
-> >>>  {
-> >>>  	if (stmmac_xdp_is_enabled(priv))
-> >>> -		return XDP_PACKET_HEADROOM;
-> >>> +		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
-> >>>  
-> >>> -	return 0;
-> >>> +	return NET_SKB_PAD + NET_IP_ALIGN;
-> >>>  }
-> >>>  
-> >>>  void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
-> >>> -- 
-> >>> 2.31.1
-> >>>
-> >>>
-> >>
-> >> -- 
-> >> Without deviation from the norm, progress is not possible.
-> 
-> Are you sure you do not need to adjust stmmac_set_bfsize(), 
-> stmmac_rx_buf1_len() and stmmac_rx_buf2_len() ?
-> 
-> Presumably DEFAULT_BUFSIZE also want to be increased by NET_SKB_PAD
-> 
-> Patch for stmmac_rx_buf1_len() :
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 7b8404a21544cf29668e8a14240c3971e6bce0c3..041a74e7efca3436bfe3e17f972dd156173957a9 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4508,12 +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
->  
->         /* First descriptor, not last descriptor and not split header */
->         if (status & rx_not_ls)
-> -               return priv->dma_buf_sz;
-> +               return priv->dma_buf_sz - NET_SKB_PAD - NET_IP_ALIGN;
->  
->         plen = stmmac_get_rx_frame_len(priv, p, coe);
->  
->         /* First descriptor and last descriptor and not split header */
-> -       return min_t(unsigned int, priv->dma_buf_sz, plen);
-> +       return min_t(unsigned int, priv->dma_buf_sz - NET_SKB_PAD - NET_IP_ALIGN, plen);
->  }
->  
->  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+On Wed, Aug 11, 2021 at 10:51 AM Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+> Prepare for early_init_fdt_scan_reserved_mem() reserving the memory
+> occupied by an elf core header described in the device tree.
+> As arch_mem_init() calls early_init_fdt_scan_reserved_mem() before
+> mips_reserve_vmcore(), the latter needs to check if the memory has
+> already been reserved before.
+>
+> Note that mips_reserve_vmcore() cannot just be removed, as not all MIPS
+> systems use DT.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v5:
+>   - New.
+> ---
+>  arch/mips/kernel/setup.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+> index 23a140327a0bac1b..4693add05743d78b 100644
+> --- a/arch/mips/kernel/setup.c
+> +++ b/arch/mips/kernel/setup.c
+> @@ -429,7 +429,8 @@ static void __init mips_reserve_vmcore(void)
+>         pr_info("Reserving %ldKB of memory at %ldKB for kdump\n",
+>                 (unsigned long)elfcorehdr_size >> 10, (unsigned long)elfcorehdr_addr >> 10);
+>
+> -       memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
+> +       if (!memblock_is_region_reserved(elfcorehdr_addr, elfcorehdr_size)
 
-Feels like a major deficiency of the original patch. Happy to test a
-more complete patch if/when you have one.
+As pointed out by lkp, there's a closing parenthesis missing.
 
-Thanks,
+/me hides back under his rock.
 
-	M.
+> +               memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
+>  #endif
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Without deviation from the norm, progress is not possible.
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
