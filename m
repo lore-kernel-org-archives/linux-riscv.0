@@ -2,18 +2,19 @@ Return-Path: <SRS0=vOU+=NC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DCA90C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 13:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A93D1C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 14:16:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 97A3A6054F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 13:23:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 97A3A6054F
+	by mail.kernel.org (Postfix) with ESMTPS id 46E8560FE6
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 14:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 46E8560FE6
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,65 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=io8Z6xo+ZHYOIgJ18AXAsCz1WKMuuhU5DyJQhHK4D3U=; b=sMT8Ksoyuy9CtF
-	JM79xhPWxN31SnUWIlwdcAAQB64oCYZy20xSraMshngH02xR4PvHeNQu6ZRqLUCTq6coa3s4jYfYN
-	dJ+/D1CEG78AL+qS7tCl50lWIys4l8iADxuUAVvd9wrd5RUKL9FITEn2ES/lot3BmxYJ0izW00EdQ
-	tnurcJSwwcEdaI/fsACa/SFNKZW/7egH0Njftg96C4mDpvovvufsFOrhPpir2XorlFY7wrKlPLj/i
-	WV6DtHo7VCAGrCnnZGUE+X/E2FFxerEoyykFKKYy8DDGaydldVFm35pndr1sJ7ZWNA0wCNqQW3Ty2
-	6qp+F4mCRgsXWKC1gJrg==;
+	List-Owner; bh=EDUTcJ6hhkhWvUX7A7vLG7NQP+TOhhAHgmlztjr54Ng=; b=ugTCuv+o8LwyCs
+	SPZxUDECjawhH9pi+3Iy2ztcWJfHjlglDuSGnoiztHmUSvsoQBSzVd6YkDcCmKxVyK2EcqBsbOx1d
+	SVOj3qqb9yRg8tMXUCreFwtYI8QsoUUH+pzGHHiLkVaY73kiAMqKcLzBdMDiNL06UnHAGOqWBb3Yo
+	fpMnlWWe2BB3ynAvNrFFVXxgnoi0CNk6CEEQvCJVQA4bliwE7GNwDT0larIM0nGErCZkktNjT1E0L
+	GxWTQNK1Frs4RADX5yte7G+DqwP4dgu+lda2oEVxAQREKwMIGvF/JmXGTpwZpInc7XzrJL1VFh55A
+	Wqd+jleJq/0ZPpH2iP7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDoCS-007J1a-TB; Wed, 11 Aug 2021 13:23:16 +0000
+	id 1mDp1r-007ROh-VN; Wed, 11 Aug 2021 14:16:23 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDoCP-007J15-7O
- for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 13:23:14 +0000
+ id 1mDp1p-007RNy-0O
+ for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 14:16:22 +0000
 Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
  [51.254.78.96])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id BD90F6054F;
- Wed, 11 Aug 2021 13:23:12 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7BFA760FE6;
+ Wed, 11 Aug 2021 14:16:20 +0000 (UTC)
 Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
  by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
  (envelope-from <maz@kernel.org>)
- id 1mDoCM-004LE7-P4; Wed, 11 Aug 2021 14:23:10 +0100
-Date: Wed, 11 Aug 2021 14:23:10 +0100
-Message-ID: <87pmuk9ku9.wl-maz@kernel.org>
+ id 1mDp1m-004LwJ-Id; Wed, 11 Aug 2021 15:16:18 +0100
+Date: Wed, 11 Aug 2021 15:16:18 +0100
+Message-ID: <87o8a49idp.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
+To: Eric Dumazet <eric.dumazet@gmail.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Giuseppe Cavallaro <peppe.cavallaro@st.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
  "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Drew Fustini <drew@beagleboard.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Drew Fustini <drew@beagleboard.org>,
  Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
  Will Deacon <will@kernel.org>
 Subject: Re: [PATCH net-next] stmmac: align RX buffers
-In-Reply-To: <YROpd450N+n6hYt2@orome.fritz.box>
+In-Reply-To: <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
 References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
- <871r71azjw.wl-maz@kernel.org> <YROpd450N+n6hYt2@orome.fritz.box>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, mcroce@linux.microsoft.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
- alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
- kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Rcpt-To: eric.dumazet@gmail.com, thierry.reding@gmail.com,
+ mcroce@linux.microsoft.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ peppe.cavallaro@st.com, alexandre.torgue@foss.st.com, davem@davemloft.net,
+ kuba@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ drew@beagleboard.org, kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
  SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210811_062313_350533_D684D529 
-X-CRM114-Status: GOOD (  51.20  )
+X-CRM114-CacheID: sfid-20210811_071621_128515_174C0F5B 
+X-CRM114-Status: GOOD (  48.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,118 +99,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Aug 2021 11:41:59 +0100,
-Thierry Reding <thierry.reding@gmail.com> wrote:
+On Wed, 11 Aug 2021 13:53:59 +0100,
+Eric Dumazet <eric.dumazet@gmail.com> wrote:
 > 
-> On Tue, Aug 10, 2021 at 08:07:47PM +0100, Marc Zyngier wrote:
-> > Hi all,
-> > 
-> > [adding Thierry, Jon and Will to the fun]
-> > 
-> > On Mon, 14 Jun 2021 03:25:04 +0100,
-> > Matteo Croce <mcroce@linux.microsoft.com> wrote:
-> > > 
-> > > From: Matteo Croce <mcroce@microsoft.com>
-> > > 
-> > > On RX an SKB is allocated and the received buffer is copied into it.
-> > > But on some architectures, the memcpy() needs the source and destination
-> > > buffers to have the same alignment to be efficient.
-> > > 
-> > > This is not our case, because SKB data pointer is misaligned by two bytes
-> > > to compensate the ethernet header.
-> > > 
-> > > Align the RX buffer the same way as the SKB one, so the copy is faster.
-> > > An iperf3 RX test gives a decent improvement on a RISC-V machine:
-> > > 
-> > > before:
-> > > [ ID] Interval           Transfer     Bitrate         Retr
-> > > [  5]   0.00-10.00  sec   733 MBytes   615 Mbits/sec   88             sender
-> > > [  5]   0.00-10.01  sec   730 MBytes   612 Mbits/sec                  receiver
-> > > 
-> > > after:
-> > > [ ID] Interval           Transfer     Bitrate         Retr
-> > > [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec    0             sender
-> > > [  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec                  receiver
-> > > 
-> > > And the memcpy() overhead during the RX drops dramatically.
-> > > 
-> > > before:
-> > > Overhead  Shared O  Symbol
-> > >   43.35%  [kernel]  [k] memcpy
-> > >   33.77%  [kernel]  [k] __asm_copy_to_user
-> > >    3.64%  [kernel]  [k] sifive_l2_flush64_range
-> > > 
-> > > after:
-> > > Overhead  Shared O  Symbol
-> > >   45.40%  [kernel]  [k] __asm_copy_to_user
-> > >   28.09%  [kernel]  [k] memcpy
-> > >    4.27%  [kernel]  [k] sifive_l2_flush64_range
-> > > 
-> > > Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-> > 
-> > This patch completely breaks my Jetson TX2 system, composed of 2
-> > Nvidia Denver and 4 Cortex-A57, in a very "funny" way.
-> > 
-> > Any significant amount of traffic result in all sort of corruption
-> > (ssh connections get dropped, Debian packages downloaded have the
-> > wrong checksums) if any Denver core is involved in any significant way
-> > (packet processing, interrupt handling). And it is all triggered by
-> > this very change.
-> > 
-> > The only way I have to make it work on a Denver core is to route the
-> > interrupt to that particular core and taskset the workload to it. Any
-> > other configuration involving a Denver CPU results in some sort of
-> > corruption. On their own, the A57s are fine.
-> > 
-> > This smells of memory ordering going really wrong, which this change
-> > would expose. I haven't had a chance to dig into the driver yet (it
-> > took me long enough to bisect it), but if someone points me at what is
-> > supposed to synchronise the DMA when receiving an interrupt, I'll have
-> > a look.
 > 
-> One other thing that kind of rings a bell when reading DMA and
-> interrupts is a recent report (and attempt to fix this) where upon
-> resume from system suspend, the DMA descriptors would get corrupted.
 > 
-> I don't think we ever figured out what exactly the problem was, but
-> interestingly the fix for the issue immediately caused things to go
-> haywire on... Jetson TX2.
-
-I love this machine... Did this issue occur with the Denver CPUs
-disabled?
-
-> I recall looking at this a bit and couldn't find where exactly the DMA
-> was being synchronized on suspend/resume, or what the mechanism was to
-> ensure that (in transit) packets were not received after the suspension
-> of the Ethernet device. Some information about this can be found here:
+> On 8/11/21 12:28 PM, Thierry Reding wrote:
+> > On Tue, Aug 10, 2021 at 08:07:47PM +0100, Marc Zyngier wrote:
+> >> Hi all,
+> >>
+> >> [adding Thierry, Jon and Will to the fun]
+> >>
+> >> On Mon, 14 Jun 2021 03:25:04 +0100,
+> >> Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> >>>
+> >>> From: Matteo Croce <mcroce@microsoft.com>
+> >>>
+> >>> On RX an SKB is allocated and the received buffer is copied into it.
+> >>> But on some architectures, the memcpy() needs the source and destination
+> >>> buffers to have the same alignment to be efficient.
+> >>>
+> >>> This is not our case, because SKB data pointer is misaligned by two bytes
+> >>> to compensate the ethernet header.
+> >>>
+> >>> Align the RX buffer the same way as the SKB one, so the copy is faster.
+> >>> An iperf3 RX test gives a decent improvement on a RISC-V machine:
+> >>>
+> >>> before:
+> >>> [ ID] Interval           Transfer     Bitrate         Retr
+> >>> [  5]   0.00-10.00  sec   733 MBytes   615 Mbits/sec   88             sender
+> >>> [  5]   0.00-10.01  sec   730 MBytes   612 Mbits/sec                  receiver
+> >>>
+> >>> after:
+> >>> [ ID] Interval           Transfer     Bitrate         Retr
+> >>> [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec    0             sender
+> >>> [  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec                  receiver
+> >>>
+> >>> And the memcpy() overhead during the RX drops dramatically.
+> >>>
+> >>> before:
+> >>> Overhead  Shared O  Symbol
+> >>>   43.35%  [kernel]  [k] memcpy
+> >>>   33.77%  [kernel]  [k] __asm_copy_to_user
+> >>>    3.64%  [kernel]  [k] sifive_l2_flush64_range
+> >>>
+> >>> after:
+> >>> Overhead  Shared O  Symbol
+> >>>   45.40%  [kernel]  [k] __asm_copy_to_user
+> >>>   28.09%  [kernel]  [k] memcpy
+> >>>    4.27%  [kernel]  [k] sifive_l2_flush64_range
+> >>>
+> >>> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
+> >>
+> >> This patch completely breaks my Jetson TX2 system, composed of 2
+> >> Nvidia Denver and 4 Cortex-A57, in a very "funny" way.
+> >>
+> >> Any significant amount of traffic result in all sort of corruption
+> >> (ssh connections get dropped, Debian packages downloaded have the
+> >> wrong checksums) if any Denver core is involved in any significant way
+> >> (packet processing, interrupt handling). And it is all triggered by
+> >> this very change.
+> >>
+> >> The only way I have to make it work on a Denver core is to route the
+> >> interrupt to that particular core and taskset the workload to it. Any
+> >> other configuration involving a Denver CPU results in some sort of
+> >> corruption. On their own, the A57s are fine.
+> >>
+> >> This smells of memory ordering going really wrong, which this change
+> >> would expose. I haven't had a chance to dig into the driver yet (it
+> >> took me long enough to bisect it), but if someone points me at what is
+> >> supposed to synchronise the DMA when receiving an interrupt, I'll have
+> >> a look.
+> > 
+> > I recall that Jon was looking into a similar issue recently, though I
+> > think the failure mode was slightly different. I also vaguely recall
+> > that CPU frequency was impacting this to some degree (lower CPU
+> > frequencies would increase the chances of this happening).
+> > 
+> > Jon's currently out of office, but let me try and dig up the details
+> > on this.
+> > 
+> > Thierry
+> > 
+> >>
+> >> Thanks,
+> >>
+> >> 	M.
+> >>
+> >>> ---
+> >>>  drivers/net/ethernet/stmicro/stmmac/stmmac.h | 4 ++--
+> >>>  1 file changed, 2 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> >>> index b6cd43eda7ac..04bdb3950d63 100644
+> >>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> >>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> >>> @@ -338,9 +338,9 @@ static inline bool stmmac_xdp_is_enabled(struct stmmac_priv *priv)
+> >>>  static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+> >>>  {
+> >>>  	if (stmmac_xdp_is_enabled(priv))
+> >>> -		return XDP_PACKET_HEADROOM;
+> >>> +		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
+> >>>  
+> >>> -	return 0;
+> >>> +	return NET_SKB_PAD + NET_IP_ALIGN;
+> >>>  }
+> >>>  
+> >>>  void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
+> >>> -- 
+> >>> 2.31.1
+> >>>
+> >>>
+> >>
+> >> -- 
+> >> Without deviation from the norm, progress is not possible.
 > 
-> 	https://lore.kernel.org/netdev/708edb92-a5df-ecc4-3126-5ab36707e275@nvidia.com/
+> Are you sure you do not need to adjust stmmac_set_bfsize(), 
+> stmmac_rx_buf1_len() and stmmac_rx_buf2_len() ?
 > 
-> It's interesting that this happens only on Jetson TX2. Apparently on the
-> newer Jetson AGX Xavier this problem does not occur. I think Jon also
-> narrowed this down to being related to the IOMMU being enabled on Jetson
-> TX2, whereas Jetson AGX Xavier didn't have it enabled. I wasn't able to
-> find any notes on whether disabling the IOMMU on Jetson TX2 did anything
-> to improve on this, so perhaps that's something worth trying.
+> Presumably DEFAULT_BUFSIZE also want to be increased by NET_SKB_PAD
+> 
+> Patch for stmmac_rx_buf1_len() :
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 7b8404a21544cf29668e8a14240c3971e6bce0c3..041a74e7efca3436bfe3e17f972dd156173957a9 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4508,12 +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+>  
+>         /* First descriptor, not last descriptor and not split header */
+>         if (status & rx_not_ls)
+> -               return priv->dma_buf_sz;
+> +               return priv->dma_buf_sz - NET_SKB_PAD - NET_IP_ALIGN;
+>  
+>         plen = stmmac_get_rx_frame_len(priv, p, coe);
+>  
+>         /* First descriptor and last descriptor and not split header */
+> -       return min_t(unsigned int, priv->dma_buf_sz, plen);
+> +       return min_t(unsigned int, priv->dma_buf_sz - NET_SKB_PAD - NET_IP_ALIGN, plen);
+>  }
+>  
+>  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
 
-Actually, I was running with the SMMU disabled, as I use the upstream
-u-boot provided DT. Switching to the kernel one didn't change a thing
-(with passthough or not).
-
-> We have since enabled the IOMMU on Jetson AGX Xavier, and I haven't seen
-> any test reports indicating that this is causing issues. So I don't
-> think this has anything directly to do with the IOMMU support.
-
-No, it looks more like either ordering or cache management. The fact
-that this patch messes with the buffer alignment makes me favour the
-latter...
-
-> That said, if these problems are all exclusive to Jetson TX2, or rather
-> Tegra186, that could indicate that we're missing something at a more
-> fundamental level (maybe some cache maintenance quirk?).
-
-That'd be pretty annoying. Do you know if the Ethernet is a coherent
-device on this machine? or does it need active cache maintenance?
+Feels like a major deficiency of the original patch. Happy to test a
+more complete patch if/when you have one.
 
 Thanks,
 
