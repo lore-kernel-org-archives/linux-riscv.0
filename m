@@ -2,87 +2,77 @@ Return-Path: <SRS0=vOU+=NC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 380ABC4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 08:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 79BE1C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 09:12:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8EDF860EB5
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 08:12:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8EDF860EB5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 1E07D60551
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 09:12:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1E07D60551
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=glider.be
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8eGFcyxjaPI69BgUFmyerxd7uMv+hSOhwbFOuXFivsw=; b=AK5mF4Udh5M79d
-	pXnLZL002R7Nm8uahU8k+wR8c/5aOT06t9RvLcBg2TD2EV8U4mRkdd2pgPkyrFQcTzGRdg5bKWH/4
-	f35uZ7V0Tz2MhFYeAlIZUACEZbYZwP6ICVyW3wsXqMtVVgxSLsk+HGOdp9OnqZ3fZli5Ul2kad4sm
-	3+45AMrEd3heoZqYO2Kvl1SbhhYzxehIvTlSmM4qIT+8XyYyI3poVmlowiN21BblCafTw03HDDGPl
-	A3Ou++w0BSUeHA6ijjxT4QJKNi/Qqw7JYsjVlM1n3n3IUKNcl7DzmDaYcsEsTRdxyZNdyuntZGL2d
-	LavGiFA/IPNiqMFHA/kw==;
+	List-Owner; bh=7YVFl+VaQ595QQu/YCDB1HDi4EQni3tucZP+mmICdHo=; b=mfmNzdhEkHsqSE
+	yDswLNX/fGDVuVWipv9RUCgTM/cwEOsQh+5CzmiaiTbk7n/p0Z+LS+jVGVKWbj9t2btXFWmqCUPIC
+	CC9Q7cB0Vuw2hNz83HYyeCG2mIFiiC7umi3hll/Qf3H18nK47d2rrHd/S6foc7BQybkSP+bjXG6Vq
+	WhSKLAQNBKjq4S3ApfB1155WAXOnmmoZH4CacMtKhACR+1R1MsDQlCsiT+Z7C1fiTD8QFfsnHtJPS
+	csYusZd0WSzndNbyjkliAyqQDP7ngg4DYFmH3XcgUuAB/Rj+FTZqytBq8Xfl8Q3xY8GoCK6owgEFk
+	DTneInfVT6MdwvujT5ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDjLK-0060Et-FG; Wed, 11 Aug 2021 08:12:06 +0000
-Received: from mail-vs1-f41.google.com ([209.85.217.41])
+	id 1mDkHU-006DNn-Lh; Wed, 11 Aug 2021 09:12:12 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDjL1-006087-NV; Wed, 11 Aug 2021 08:11:49 +0000
-Received: by mail-vs1-f41.google.com with SMTP id f6so974230vso.5;
- Wed, 11 Aug 2021 01:11:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Tz0+jEgIobQjuTow/ARUuugSs1kLubTzwy0T9ZLI9hU=;
- b=dbwxQVhwg+bRmjrvhBft1rifFLUEn0eVqg+EKj6OoyxqXvWg/p1vjs+XFVB9oth2vM
- qrtNTD9bKl6RXFTgBtvmq81HhVhMp3CUEHoW+rtdij1d6Aj/ktyGfOMqPS7JpxKv/RKX
- /283SrDndemRp7rCQwy9od+msQPzryZS4RjgPvuV/IDUrgU5FkEhg/XG4JquSClGWHei
- XFX8d42cZ+xjdkmPUwhyrWpLGLG1Z6GAIYBUT7mbxedrEIfTjQfMnIx0drKdc0KNn45d
- /O+/VD37pda+xCv4+6nVmwV/bZeverIU08V/ZQinqHRI3fSHnxCIHoET31+nzcIJ7SZ3
- ztPw==
-X-Gm-Message-State: AOAM530vEK/qCITqjkePp3B89yidsyqSutQMxwA4h5Ai4bp6iYlZtDuA
- 4hZY0gLel0H+m74DEAhN9QziQhn4DzePwyHIxRU=
-X-Google-Smtp-Source: ABdhPJyQYdEzQ87d4q8Gjh5OGWc3XIzYeTLsfNGD+TMt1AWgMT8WjUJws7odP2IIw+RmtCkRDyil2IHyZbu6KAbZAGY=
-X-Received: by 2002:a67:ca1c:: with SMTP id z28mr17470575vsk.40.1628669506037; 
- Wed, 11 Aug 2021 01:11:46 -0700 (PDT)
+ id 1mDjxX-0067WI-T8
+ for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 08:51:40 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:438:1ff1:1071:f524])
+ by xavier.telenet-ops.be with bizsmtp
+ id g8rH2500H1gJxCh018rHUg; Wed, 11 Aug 2021 10:51:32 +0200
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1mDjxF-001yaF-1h; Wed, 11 Aug 2021 10:51:17 +0200
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1mDjxD-0058xR-F6; Wed, 11 Aug 2021 10:51:15 +0200
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Rob Herring <robh+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Kossifidis <mick@ics.forth.gr>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Frank Rowand <frowand.list@gmail.com>, Dave Young <dyoung@redhat.com>
+Cc: Baoquan He <bhe@redhat.com>, Vivek Goyal <vgoyal@redhat.com>,
+ Mike Rapoport <rppt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH v5 7/9] arm64: kdump: Remove custom linux,elfcorehdr handling
+Date: Wed, 11 Aug 2021 10:51:05 +0200
+Message-Id: <3b8f801f9b92066855e87f3079fafc153ab20f69.1628670468.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1628670468.git.geert+renesas@glider.be>
+References: <cover.1628670468.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-References: <cover.1626266516.git.geert+renesas@glider.be>
- <04c4d231fb03a3810d72a45c8a5bc2272c5975f3.1626266516.git.geert+renesas@glider.be>
- <20210714135101.GB2441138@robh.at.kernel.org>
-In-Reply-To: <20210714135101.GB2441138@robh.at.kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 11 Aug 2021 10:11:34 +0200
-Message-ID: <CAMuHMdVRPpHudj2svs_TYP9=GYkWFtJrG_+BHA7A+TVPdQ92aQ@mail.gmail.com>
-Subject: Re: [PATCH v4 02/10] memblock: Add variables for usable memory
- limitation
-To: Rob Herring <robh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre <nico@fluxnic.net>, 
- Ard Biesheuvel <ardb@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Frank Rowand <frowand.list@gmail.com>, Dave Young <dyoung@redhat.com>, 
- Mike Rapoport <rppt@kernel.org>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, kexec@lists.infradead.org, 
- Linux MM <linux-mm@kvack.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210811_011147_811209_DF04A6C8 
-X-CRM114-Status: GOOD (  32.70  )
+X-CRM114-CacheID: sfid-20210811_015136_244388_5B7F1FB6 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +89,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 14, 2021 at 3:51 PM Rob Herring <robh@kernel.org> wrote:
-> On Wed, Jul 14, 2021 at 02:50:12PM +0200, Geert Uytterhoeven wrote:
-> > Add two global variables (cap_mem_addr and cap_mem_size) for storing a
-> > base address and size, describing a limited region in which memory may
-> > be considered available for use by the kernel.  If enabled, memory
-> > outside of this range is not available for use.
-> >
-> > These variables can by filled by firmware-specific code, and used in
-> > calls to memblock_cap_memory_range() by architecture-specific code.
-> > An example user is the parser of the "linux,usable-memory-range"
-> > property in the DT "/chosen" node.
-> >
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> > This is similar to how the initial ramdisk (phys_initrd_{start,size})
-> > and ELF core headers (elfcorehdr_{addr,size})) are handled.
-> >
-> > Does there exist a suitable place in the common memblock code to call
-> > "memblock_cap_memory_range(cap_mem_addr, cap_mem_size)", or does this
-> > have to be done in architecture-specific code?
->
-> Can't you just call it from early_init_dt_scan_usablemem? If the
-> property is present, you want to call it. If the property is not
-> present, nothing happens.
+Remove the architecture-specific code for handling the
+"linux,elfcorehdr" property under the "/chosen" node in DT, as the
+platform-agnostic handling in the FDT core code already takes care of
+this.
 
-Seems to work fine when called from early_init_dt_scan_nodes().
-Hence v5 will no longer need to touch memblock.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+v5:
+  - Remove all handling, not just parsing,
 
-Gr{oetje,eeting}s,
+v4:
+  - s/handlng/parsing/ in patch description.
+---
+ arch/arm64/mm/init.c | 53 --------------------------------------------
+ 1 file changed, 53 deletions(-)
 
-                        Geert
-
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 8490ed2917ff2430..bac4f06bb7d900a2 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -124,57 +124,6 @@ static void __init reserve_crashkernel(void)
+ }
+ #endif /* CONFIG_KEXEC_CORE */
+ 
+-#ifdef CONFIG_CRASH_DUMP
+-static int __init early_init_dt_scan_elfcorehdr(unsigned long node,
+-		const char *uname, int depth, void *data)
+-{
+-	const __be32 *reg;
+-	int len;
+-
+-	if (depth != 1 || strcmp(uname, "chosen") != 0)
+-		return 0;
+-
+-	reg = of_get_flat_dt_prop(node, "linux,elfcorehdr", &len);
+-	if (!reg || (len < (dt_root_addr_cells + dt_root_size_cells)))
+-		return 1;
+-
+-	elfcorehdr_addr = dt_mem_next_cell(dt_root_addr_cells, &reg);
+-	elfcorehdr_size = dt_mem_next_cell(dt_root_size_cells, &reg);
+-
+-	return 1;
+-}
+-
+-/*
+- * reserve_elfcorehdr() - reserves memory for elf core header
+- *
+- * This function reserves the memory occupied by an elf core header
+- * described in the device tree. This region contains all the
+- * information about primary kernel's core image and is used by a dump
+- * capture kernel to access the system memory on primary kernel.
+- */
+-static void __init reserve_elfcorehdr(void)
+-{
+-	of_scan_flat_dt(early_init_dt_scan_elfcorehdr, NULL);
+-
+-	if (!elfcorehdr_size)
+-		return;
+-
+-	if (memblock_is_region_reserved(elfcorehdr_addr, elfcorehdr_size)) {
+-		pr_warn("elfcorehdr is overlapped\n");
+-		return;
+-	}
+-
+-	memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
+-
+-	pr_info("Reserving %lldKB of memory at 0x%llx for elfcorehdr\n",
+-		elfcorehdr_size >> 10, elfcorehdr_addr);
+-}
+-#else
+-static void __init reserve_elfcorehdr(void)
+-{
+-}
+-#endif /* CONFIG_CRASH_DUMP */
+-
+ /*
+  * Return the maximum physical address for a zone accessible by the given bits
+  * limit. If DRAM starts above 32-bit, expand the zone to the maximum
+@@ -395,8 +344,6 @@ void __init arm64_memblock_init(void)
+ 
+ 	early_init_fdt_scan_reserved_mem();
+ 
+-	reserve_elfcorehdr();
+-
+ 	high_memory = __va(memblock_end_of_DRAM() - 1) + 1;
+ }
+ 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.25.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
