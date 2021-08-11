@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-12.2 required=3.0 tests=BAYES_00,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0159FC4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 10:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E972FC4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 10:39:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B281F600CD
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 10:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B281F600CD
+	by mail.kernel.org (Postfix) with ESMTPS id A34B760560
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Aug 2021 10:39:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A34B760560
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,52 +24,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAEzkpeC9mISnebBnlWHOAMBDEzboiVxfQOhqFXypG4=; b=NoLCdZtlbb/MFyoQbFNVFcpPao
-	UcH8/HhrafRr/XWHRbpstyibvCFAyzx+o7cXMILDtJEtaWix6694rO4Jsxi25M6xOJMrw6MBA5XZf
-	aAe/Wlfn8MKlFo0YDtTQUgCv3aWP7ZxrgBqFsO5PfnC3SHXblYYLM9jjhG6Yvtpdjps2HbL0ECg4i
-	ylbAYBF6aNIYUABtsHuis+d9NxpY/VGt4K62mpOcnOzFlhhXrm73RhCJ2+vT/GDEF27hkbIzJnRNl
-	yyXelheQg6XUvOx7tqHuyMxhYK1fotWO/xfX0tZzm5jGHX9/FhF6d1idgYbkscZ791k8XDVfajcu9
-	1uNnXkAQ==;
+	bh=yuymfm305E2sBiJf7LzF8wqLUPzJZkEreAqeZBArCJQ=; b=spEMeixok5teDj7Qy18LTD4wy7
+	KYo384OYZmy52c8DKqDPVdbqF0lgmSpLZCjyCcSTBNbI1343yfv0ez7pYrQOQaTz7XTEDozC77xKR
+	nPEfUaa0eW2zkqeb+1jsR+jO0sYiP0FIXwCKqONTMB1sO/G/tncB9Fqw8kcl4GUoRx70Cr2OGlvmM
+	Y6mJWIUWTKoLCX8y4Fj8z5qLZrK9Knfxc9b1+cveiitT7rhU1fXl0bfJNCT8hwNWNPL/gXOAr5Us0
+	4tKUfanPeZFHShQHCxJY6DGkjB8QYaoydDAGgNC40YmSbaswhpoJd2w9m4CKl2oq4vA0L0tFbo5fd
+	Qo2cxqpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mDlQk-006cgd-8I; Wed, 11 Aug 2021 10:25:50 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1mDle9-006g1z-A0; Wed, 11 Aug 2021 10:39:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mDlQh-006cg5-JG
- for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 10:25:49 +0000
-Received: by mail-wr1-x430.google.com with SMTP id m12so2282287wru.12
- for <linux-riscv@lists.infradead.org>; Wed, 11 Aug 2021 03:25:46 -0700 (PDT)
+ id 1mDle5-006g0y-Km
+ for linux-riscv@lists.infradead.org; Wed, 11 Aug 2021 10:39:39 +0000
+Received: by mail-wm1-x336.google.com with SMTP id u15so1597803wmj.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 Aug 2021 03:39:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to:user-agent;
- bh=poD4yJ/4qKvPMZwA0eL/IpVknURnkw2HP2HyOGJX1/c=;
- b=VRwUa98g/jNOHgolhsmWJpnp+3HHGhuSlXN42pvWXGXqplB8zie7xRIWvAsfQMo0fm
- 4PqjDRpmFZxGLxtEFzTdocajMqV9+Nw7ZLdDHVNU0EXEKpJHhDlSFPrC+l7yDPf2MKop
- pzp0v+15tQnayMq+CZn0HxepBxFhbz6CCF4utUiQDy96UOBtG52JGa15iOF6oJo/85fW
- KVcQZUf5j0S8LcAZqmFRqqKIa3lYdRNrjXKeXU25g2ZmXHs7DNFXv850FHrqMbUmVeSg
- ZXr2vDnx4BlODPy3PAk9kD0soFm3IESoZ2ZjcgLswFRCRMGJuxU3EdvMiWd1V4L4nPMK
- 2HrA==
+ bh=ymQA2hHz+rJD9SJ7VV0dm8wNzfeebhRbADCOnx38kfE=;
+ b=ha0y0LkvLGzSCID92+weZcfSCpO2QSCBqSBF8ngmenW6aNq8uEOFeN/SWmOJXM9q6L
+ HzNEM0XRm+T/6a8cDfdSIm9l96X9V5JMJAKj48n2Et0m81QeGMOKWzfaYf6VZqE0U1vE
+ uPoyL9B4zhZ0LKC6D8w43W7i+klOHrTDfYoxPi+z6eyeq3Ii/2hkRxLqdrTvtYx2bJb5
+ e0O65+n+Z0T2u8PORVYA1Ra9RzmUB32ESDJZwbIBVU2R6/VD48VsUYcO0b+/xiFCeDkX
+ TdJxmCl5WXpgXGWYarhTVUzDsxlb2HhwTBh0tTxo/Qy2inYN23egtf3evgkFuNE6+pRD
+ nwHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=poD4yJ/4qKvPMZwA0eL/IpVknURnkw2HP2HyOGJX1/c=;
- b=JpOmAK0FTKvukmw9OW5lsKCpLIQRr5M0A1ViTv0/qjKAkT45JS9De0UywHCL43s5MS
- QjVfq61cGbIFCoYsaGvtGEytvW4zD07E8gbfAOWq6riUS4SHJFMuw3hT+QrvReqx0lmX
- LC+UFZmhdQKyz0gv99iDQUd6yxVi8/JIePCfqE+6yRb79uT8hJLSDJADmWyaVlfGz/7n
- Qx2HJG2Tp8z1ml+9WEwtCae0J87V9B5e6kEC5z6mSyzTk0YXMk4BLtK7oRTAUp/oiOt4
- gvTPzmj3TsDoKWF0KuVNXugaHXmyf/EceQrm7NDgQKjUjBTnwSMKDxs/5lsUVgN31ODj
- +H8Q==
-X-Gm-Message-State: AOAM532NJiV6Dxm9Dol+bkrayaHBsrOWI1ew+pAnDn7lVovs6cyiw9Y6
- u5bEqEFMs+m8Yapusl2UoeQ=
-X-Google-Smtp-Source: ABdhPJx/OVwCCR5GEZWwYZdFNS936Tx9PO+z20xUhoLro+EHeMqsO7igz7VXtNuz1NJ7/oOjKyIV0Q==
-X-Received: by 2002:adf:e0d1:: with SMTP id m17mr35220361wri.233.1628677545106; 
- Wed, 11 Aug 2021 03:25:45 -0700 (PDT)
+ bh=ymQA2hHz+rJD9SJ7VV0dm8wNzfeebhRbADCOnx38kfE=;
+ b=qGCRlJrIFUhXlNrVKI8HGuS8E7p461j+x/dewZqg4uvZ6Tu/viGcp7pucvlTZSDvRr
+ dC7xNraeXl2OusDIiJI3R8T4MELVfReTgThUbjKa/6wUW73uPlEfXAw5glLk67rtGk8x
+ qKAsVA0zd6qscb++hnUlXiiQoCjBNavTspaV0wAJWHjbwtUPP4ZN91kiBGr7y+2sUtu0
+ mqGz/WBJxIdmM/4Tx/1qmN6EU2PX+CoHhG8lGkQD9uVy3RBoV80bAadIsg3AD+Ux+BEC
+ AMhEunjFLTkOn/yRH2pVNr5q1sMjPZqbl19iizyBG39K/SKBaQ77U31m8c1uMwgxhgie
+ GzWQ==
+X-Gm-Message-State: AOAM533B4DVWinaav5kI7mvXASZvFOAb8m9xMkDh1PcoCA4jgvA9blsj
+ tQDjYh5TAnS3JUShRZuJtwk=
+X-Google-Smtp-Source: ABdhPJwnHXcd2JgwGMgS0CK0TG6AlpvrBdA68ua69ts8fe3ees0AYc9r8yx7FLdaRYbdsNmGF5pJDw==
+X-Received: by 2002:a05:600c:4ed2:: with SMTP id
+ g18mr4664530wmq.140.1628678376110; 
+ Wed, 11 Aug 2021 03:39:36 -0700 (PDT)
 Received: from localhost ([217.111.27.204])
- by smtp.gmail.com with ESMTPSA id 9sm23757021wmf.34.2021.08.11.03.25.43
+ by smtp.gmail.com with ESMTPSA id k186sm6726628wme.45.2021.08.11.03.39.34
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 Aug 2021 03:25:43 -0700 (PDT)
-Date: Wed, 11 Aug 2021 12:28:09 +0200
+ Wed, 11 Aug 2021 03:39:34 -0700 (PDT)
+Date: Wed, 11 Aug 2021 12:41:59 +0200
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
@@ -83,15 +84,15 @@ Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
  Emil Renner Berthing <kernel@esmil.dk>,
  Jon Hunter <jonathanh@nvidia.com>, Will Deacon <will@kernel.org>
 Subject: Re: [PATCH net-next] stmmac: align RX buffers
-Message-ID: <YROmOQ+4Kqukgd6z@orome.fritz.box>
+Message-ID: <YROpd450N+n6hYt2@orome.fritz.box>
 References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
  <871r71azjw.wl-maz@kernel.org>
 MIME-Version: 1.0
 In-Reply-To: <871r71azjw.wl-maz@kernel.org>
 User-Agent: Mutt/2.1.1 (e2a89abc) (2021-07-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210811_032547_705645_B41C0C0D 
-X-CRM114-Status: GOOD (  37.50  )
+X-CRM114-CacheID: sfid-20210811_033937_733597_D483610E 
+X-CRM114-Status: GOOD (  45.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,18 +104,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6963182322439513051=="
+Content-Type: multipart/mixed; boundary="===============8315398291014995193=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6963182322439513051==
+--===============8315398291014995193==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="LpFoc4PPAZtVVu++"
+	protocol="application/pgp-signature"; boundary="w9GKWoBivj0rdXcy"
 Content-Disposition: inline
 
 
---LpFoc4PPAZtVVu++
+--w9GKWoBivj0rdXcy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -190,21 +191,39 @@ eceiver
 > supposed to synchronise the DMA when receiving an interrupt, I'll have
 > a look.
 
-I recall that Jon was looking into a similar issue recently, though I
-think the failure mode was slightly different. I also vaguely recall
-that CPU frequency was impacting this to some degree (lower CPU
-frequencies would increase the chances of this happening).
+One other thing that kind of rings a bell when reading DMA and
+interrupts is a recent report (and attempt to fix this) where upon
+resume from system suspend, the DMA descriptors would get corrupted.
 
-Jon's currently out of office, but let me try and dig up the details
-on this.
+I don't think we ever figured out what exactly the problem was, but
+interestingly the fix for the issue immediately caused things to go
+haywire on... Jetson TX2.
+
+I recall looking at this a bit and couldn't find where exactly the DMA
+was being synchronized on suspend/resume, or what the mechanism was to
+ensure that (in transit) packets were not received after the suspension
+of the Ethernet device. Some information about this can be found here:
+
+	https://lore.kernel.org/netdev/708edb92-a5df-ecc4-3126-5ab36707e275@nvidia=
+=2Ecom/
+
+It's interesting that this happens only on Jetson TX2. Apparently on the
+newer Jetson AGX Xavier this problem does not occur. I think Jon also
+narrowed this down to being related to the IOMMU being enabled on Jetson
+TX2, whereas Jetson AGX Xavier didn't have it enabled. I wasn't able to
+find any notes on whether disabling the IOMMU on Jetson TX2 did anything
+to improve on this, so perhaps that's something worth trying.
+
+We have since enabled the IOMMU on Jetson AGX Xavier, and I haven't seen
+any test reports indicating that this is causing issues. So I don't
+think this has anything directly to do with the IOMMU support.
+
+That said, if these problems are all exclusive to Jetson TX2, or rather
+Tegra186, that could indicate that we're missing something at a more
+fundamental level (maybe some cache maintenance quirk?).
 
 Thierry
 
->=20
-> Thanks,
->=20
-> 	M.
->=20
 > > ---
 > >  drivers/net/ethernet/stmicro/stmmac/stmmac.h | 4 ++--
 > >  1 file changed, 2 insertions(+), 2 deletions(-)
@@ -235,30 +254,30 @@ mac_priv *priv)
 > --=20
 > Without deviation from the norm, progress is not possible.
 
---LpFoc4PPAZtVVu++
+--w9GKWoBivj0rdXcy
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmETpjYACgkQ3SOs138+
-s6FzpRAAqwF1hrrbcKXot3GUKC45t/3TCFrELCjzW4CqTpHhhxWPhEA1F7P7TKiU
-iTOLQO2Gj68Lek6KaistNi6hPdmRdh91mr1qLi8ORq94uquX9j+2Vgq7Iwb+qltE
-eKtaNUoSc5bnh5xUvKj87UVMSn690+LelT6lRiyIzghdk8Pt0RcM9UWbtL5g1VVq
-paYq7o96j3xkiY/QO+SXOObhMH4yH8ew2cQiIvUBYQnQGN7bi1jqvK11MVvZhpFq
-YyxO6SNacXjqKYUL3UDQ2o4k7dMX3HeLBDG/VTOG5FSGcSWZ5eNdaJhRc4Muy70h
-NewtkD6tAAqXjv/LugbgL2BiPt0PyZFiyACVTbClunCn+70yvpRdTSCHw2dzC1d3
-HYK3Um2yVrL6NLBEZaaSb6rX6CM6qom8OzbRPZcNQo3Xho0Cav+Ng2fRaR6a0zc7
-+tvKZ9dSxsQy2SvLaeMvF/ECc0M1Kwv98nhpXMhrPKuZCvC2UM/nrqqkm5EyQguT
-xezuFk1x63wDH5oBBeyzEniD9sa+Uht1ehoTwiw0tI+CAFSlqv0ySljWhnn6MNqO
-zwR/WPmZE1zjgqjcKUJ2NnQ97ua3DSs6H6yQK+24KEFJr9wbOmQWOanYYscWIZNf
-4GiAvgpNP4z3f2QJ8wxlesr/oGLvhDVvmcXl9x2zmrAFHz7xLA0=
-=PCp2
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmETqXQACgkQ3SOs138+
+s6FahhAAwUgDWNskZhlCOE5XS+z1+QlxbTaxOr/oMQPnrcgSs9v7Fq3qOnY+bPy7
+Xp15CY5aHjKFStZTuS/3jOkt8tdqzHdgfDoOM9OJ45csUXjj6opR3Loc/aq4W5Xe
+/TAiJfjp3HZtn0GGJfrxaYKFDyyR25lGvouWDlT6W2+DKODu0KA5Yx99FytBXVi0
+rtjzSUtJftG0sQM3t53tB8Z8hjjcimwNFmvv3DDmHbLfQFFtvb6HUKOT3XiXxhqE
+O7bQzxtUuzWs5U4OG9pTUTyTKbXIrdL8zNad2SGFbi/nA1OVSD0t2FKEbvAzewqv
+r69ZOmqg+GnpXgtOCx+tqYkWc4PX65pFnb1ES6tTENb+bOCxyrzTbcAtHZf03gFf
+cjanvPZXo3jZqdmscRblcRM9iwO48KYtZqoi/ZEP1iLOV/z99TILd9RST0E1Lmsa
+gHmdjpe7kQ/6uGu0OXN2CUqqpBycT7MVX7S9If+IgmNx04biVJlR+azfD7W3yoU5
+y7HqFqR4OShCDh4bVzkBzPqCv8TQUH/qD78LbGkmtARQNj679D7QkHNPzjv/QMrU
+sDCt7idaOWZXz0GaKn9/Uv55lNdfagrLkNG/WIhiwCUEPsbXuHgKcZVlxABq9t/V
+ua5XmcI5wHo5nr4jlUxZG9YPgR0H6GWXMRa4q3hpeUaeq34KhSw=
+=BYku
 -----END PGP SIGNATURE-----
 
---LpFoc4PPAZtVVu++--
+--w9GKWoBivj0rdXcy--
 
 
---===============6963182322439513051==
+--===============8315398291014995193==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -269,5 +288,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6963182322439513051==--
+--===============8315398291014995193==--
 
