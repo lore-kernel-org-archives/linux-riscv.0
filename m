@@ -2,90 +2,83 @@ Return-Path: <SRS0=06uo=ND=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E8BAC4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 05:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 792ADC4320E
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 06:59:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 498FA60FD7
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 05:23:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 498FA60FD7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 36F4660E76
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 06:59:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 36F4660E76
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=C7dwnyWEmftvP8OnG1qb+gOsWa3BhFTm58ifmwcv1no=; b=M9qtNQfcSsozEBY36mMBR9t1Ef
-	zIifBfbmviPh/umewYFicvKZu46X1XWrahw1X4NATDhZrJxraO6KK1+bPoz3f/scr4X0aRtcFg5rk
-	tsXbhBKhtNAxdGuddez6EoGM1Njpbe3oBE2V8Q6E8nY+in8BPEedmQTz5tcCeL2Ie173udpCJ/pTg
-	nqA1bYwrqoI/8UgiPjXtJHZgBdlttu+igW07ofRaQfrQM82IFwBNoqNZegUJvT2qFGuIfTm9O3BT2
-	T36h3N79/a65tzWT3JEY8FuZtgVajYUEAt70JltWePwzdln4zZhfSAL0m5d150hWAdzsRuwqLcoEO
-	2WnFcBpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VGENGdZmkgEzC59gHMHzCs179YbtusZXQymRxqx6EHk=; b=fnR1+AabHGvRum
+	U6vzw5UOBZ7naT/jorSMr0yxDGtfC93jlc4cepsi2SfKaPnAT/IIiQygBbnlzmGqwCb7nxzVVKyCW
+	fZl3bNXjmhnoDmNV9R3TN1LeE1o7UyAWr3mQtB8uJFEzYzlHt1Rz8J4WN9Dd/JgtOwMNESD2OBObV
+	kj738f3TGadtg3WYXOJAiVkLivqrDs2LkZviWufYKvuAYldUZ+i6nm8pgBfxm4MtcWgsirFij8DxX
+	TLbiwBagB5nCV1M8/2LzLDczaVKaNj2QLro7eyPSwiffQ5FG+f4SxzUkFCydsnKiOsiZrrp3FpmcS
+	QeTQ3ZFsMg1/SqAiaJBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mE3Bh-008gez-JK; Thu, 12 Aug 2021 05:23:29 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1mE4gg-008oNM-V4; Thu, 12 Aug 2021 06:59:34 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mE3Be-008ge5-8V
- for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 05:23:27 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id
- u21-20020a17090a8915b02901782c36f543so13381231pjn.4
- for <linux-riscv@lists.infradead.org>; Wed, 11 Aug 2021 22:23:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=bQrl411Cthqt6pIHr/hant9kt/vOifGny5MEgIFUvls=;
- b=T84Kc/z9q+vHcpHvLIkoCJUyMDs96A0EO2OHme82NSs3xI2gKCVBV7ic09BrGiaqfV
- owlWmGhzA877enYL54ze9LYMseOpAmKkSjq4XSaPVjkeYnDkpVcEXyzJQSgFCSmRG0QB
- rFbT5eYN2MY7iAJhl8WIfabRth4JLCwQP/isGczfWhSbeotdeO/NbZMrGXK4tLKA1WYf
- 1impM3Ypm18+EYY4p68OCq0GX17xBxmWHs7w1YVn8tzNKf72DygeCQX76T+9cckyjlGA
- 1yCIRLncfqyG6noT6hP4AOnIlN5O/2lhVJm6zGF1ij5VfMXV2pZcKqSSTxgj6jINhMoW
- r+Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=bQrl411Cthqt6pIHr/hant9kt/vOifGny5MEgIFUvls=;
- b=JyTuL0l1nrnT5bBD2D9XJy2RlHmz8tHYYCkI2AkSV82xJJClWy464UzwB/aUA2KCeO
- 71A5mqE3OHXTLaqBkn57UPdfjqhOxeGaPG79gmLY6AL47FsY4r2fNUja1BZw1yMRcf14
- ByAqRu5wGbji8HgY5w02DulCavaR7c64Cz701TQgmAzeKxq7AdSp4DMRuRFm5ttcel+h
- b0HdQMfG8Z3KntIEDqH9yhiUNy/Lm95Re1wZFtxSWeKxreAvW+Hj6oeiG0f7dunX0eDc
- wGHtLOeHV9/vvmGw5bPxykDJGr8b4BhfuAJxLs83y5t1fw4njKMIhHI+ClP+RU1SNwNe
- 6A3A==
-X-Gm-Message-State: AOAM5335MDrZ9rRR3w/nBVNZy5Bb0pq7m1Uw4aOEXIa0lIuo4BBVvBoG
- Yj1yQIMtuTWUIyO0oo2f0+5S1A==
-X-Google-Smtp-Source: ABdhPJx3HD960snankcmEtYZ/kpTb1TVul2ICB91HEVhe10nex0sfnUsxnhn3Cd2ImnxMgbSUIzsGA==
-X-Received: by 2002:a17:902:e8c4:b029:12d:1c9c:2e77 with SMTP id
- v4-20020a170902e8c4b029012d1c9c2e77mr2218679plg.48.1628745805478; 
- Wed, 11 Aug 2021 22:23:25 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id b9sm663873pfo.175.2021.08.11.22.23.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 Aug 2021 22:23:24 -0700 (PDT)
-Date: Wed, 11 Aug 2021 22:23:24 -0700 (PDT)
-X-Google-Original-Date: Wed, 11 Aug 2021 21:47:49 PDT (-0700)
-Subject: Re: [PATCH -fixes 3/3] riscv: Optimize kernel virtual address
- conversion macro
-In-Reply-To: <39a1fa85-1885-effe-1670-ec9cf34099f5@ghiti.fr>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-48d9e47f-a43b-4dac-808c-61078c2b77d9@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1mE4gT-008oIv-80; Thu, 12 Aug 2021 06:59:22 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id F24AA601FD;
+ Thu, 12 Aug 2021 06:59:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1628751560;
+ bh=YFMZTccB6r2mQUHMX3e0DwUnA6yRsuYhah5UQoES2qE=;
+ h=From:To:Cc:Subject:Date:From;
+ b=gqDKL6oFAWPfl+qrvP4ICkIiJuTj0zB5TnIo9v2jyftPMcesd9mebeUTOENH/WF4R
+ PBfqCrnjEHgRHt0O1dyCISfhSxmredSB9XxmW1Ns603miZy037IV2h2edGI81ldDzY
+ NqgDtvGktsfZul6wLbLg1Tgj9dX32EjsY3bdIRoj49WsQpGFdC5ZMg6zFcqteaJDkt
+ 0uruPXpJRVzqwUCwDkAf6p3Y7H3f580IbJRG6NdyUWhatq3Gxbuq0XxYssVS/sjhOA
+ hChRFrKVbGxFTcFqXajSbSnyBDOxjDPh7zY8Sk+z4WzAiR3GMcSU98BQ+MjV7C6G/L
+ np4VR2Z/7QAFw==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Andy Lutomirski <luto@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Frank Rowand <frowand.list@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Guenter Roeck <linux@roeck-us.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>, Len Brown <lenb@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
+ Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+ kvmarm@lists.cs.columbia.edu, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+Subject: [PATCH v4 0/2] memblock: make memblock_find_in_range method private
+Date: Thu, 12 Aug 2021 09:59:05 +0300
+Message-Id: <20210812065907.20046-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210811_222326_343623_E4FF6FDB 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20210811_235921_409771_3EBABD1E 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +90,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAwNyBBdWcgMjAyMSAxMjozMToyNCBQRFQgKC0wNzAwKSwgYWxleEBnaGl0aS5mciB3
-cm90ZToKPiBMZSA3LzA4LzIwMjEgw6AgMTg6MzYsIFBhbG1lciBEYWJiZWx0IGEgw6ljcml0wqA6
-Cj4+IE9uIFdlZCwgMjEgSnVsIDIwMjEgMDA6NTk6MzcgUERUICgtMDcwMCksIGFsZXhAZ2hpdGku
-ZnIgd3JvdGU6Cj4+PiBUaGUgY3VycmVudCB0ZXN0IGluIGtlcm5lbF9tYXBwaW5nX3ZhX3RvX3Bh
-IG9ubHkgYXBwbGllcyB3aGVuCj4+PiBDT05GSUdfWElQX0tFUk5FTCBpcyBzZXQsIHNvIHVzZSBJ
-U19FTkFCTEVEIHRvIG9wdGltaXplIHRoaXMgbWFjcm8gYXQKPj4+IGNvbXBpbGUtdGltZSBpbiBz
-dGFuZGFyZCBrZXJuZWxzIHRoYXQgZG8gbm90IHJlcXVpcmUgdGhpcyB0ZXN0Lgo+Pj4KPj4+IFNp
-Z25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4KPj4+IC0tLQo+Pj4g
-wqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaCB8IDIgKy0KPj4+IMKgMSBmaWxlIGNoYW5n
-ZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCj4+PiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cGFnZS5oCj4+PiBpbmRleCBiMGNhNTA1OGU3YWUuLjEwZGMwNjM4NjhmNiAxMDA2NDQKPj4+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCj4+PiArKysgYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3BhZ2UuaAo+Pj4gQEAgLTEyMyw3ICsxMjMsNyBAQCBleHRlcm4gcGh5c19hZGRy
-X3QgcGh5c19yYW1fYmFzZTsKPj4+IMKgI2RlZmluZSBsaW5lYXJfbWFwcGluZ192YV90b19wYSh4
-KcKgwqDCoCAoKHVuc2lnbmVkIGxvbmcpKHgpIC0KPj4+IGtlcm5lbF9tYXAudmFfcGFfb2Zmc2V0
-KQo+Pj4gwqAjZGVmaW5lIGtlcm5lbF9tYXBwaW5nX3ZhX3RvX3BhKHkpICh7wqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiDCoMKgwqDCoCB1bnNpZ25l
-ZCBsb25nIF95ID0geTvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgXAo+Pj4gLcKgwqDCoCAoX3kgPCBrZXJuZWxfbWFwLnZpcnRfYWRkciArIFhJ
-UF9PRkZTRVQpID/CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiAr
-wqDCoMKgIChJU19FTkFCTEVEKENPTkZJR19YSVBfS0VSTkVMKSAmJiBfeSA8IGtlcm5lbF9tYXAu
-dmlydF9hZGRyICsKPj4+IFhJUF9PRkZTRVQpID/CoMKgwqAgXAo+Pj4gwqDCoMKgwqDCoMKgwqDC
-oCAoKHVuc2lnbmVkIGxvbmcpKF95KSAtIGtlcm5lbF9tYXAudmFfa2VybmVsX3hpcF9wYV9vZmZz
-ZXQpCj4+PiA6wqDCoMKgwqDCoMKgwqAgXAo+Pj4gwqDCoMKgwqDCoMKgwqDCoCAoKHVuc2lnbmVk
-IGxvbmcpKF95KSAtIGtlcm5lbF9tYXAudmFfa2VybmVsX3BhX29mZnNldCAtCj4+PiBYSVBfT0ZG
-U0VUKTvCoMKgwqAgXAo+Pj4gwqDCoMKgwqAgfSkKPj4KPj4gSUlVQyB0aGlzIGlzbid0IGFjdHVh
-bGx5IGEgZml4P8KgIFRoZSBvdGhlciB0d28gYXJlLCB0aG91Z2gsIHNvIHRoZXkncmUKPj4gb24g
-Zml4ZXMuCj4KPiBJbmRlZWQgdGhpcyBpcyBub3QgYSBmaXgsIHRoaXMgaXMgc3ltbWV0cmljYWwg
-dG8gd2hhdCBJIGhhdmUgZG9uZSBpbgo+IHBhdGNoIDEgc28gdGhhdCBzZWVtZWQgbmF0dXJhbCB0
-byBsYW5kIGluIHRoZSBzYW1lIHBhdGNoc2V0LiBMZXQgbWUga25vdwo+IGlmIHlvdSB3YW50IG1l
-IHRvIHJlc2VuZCBpdCBvbiBpdHMgb3duLgoKVGhhdCdzIGZpbmUsIGl0IHdhcyBqdXN0IGV4cGxp
-Y2l0bHkgY2FsbGVkIG91dCBhcyBhIGZpeCBpbiB0aGUgc3ViamVjdCAKbGluZSBzbyBJIHdhbnRl
-ZCB0byBtYWtlIHN1cmUgSSB3YXNuJ3QgbWlzc2luZyBzb21ldGhpbmcuICBUaGlzIGlzIG9uIApm
-b3ItbmV4dC4KClRoYW5rcyEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+From: Mike Rapoport <rppt@linux.ibm.com>
+
+Hi,
+
+This is v4 of "memblock: make memblock_find_in_range method private" patch
+that essentially replaces memblock_find_in_range() + memblock_reserve()
+calls with equivalent calls to memblock_phys_alloc() and prevents usage of
+memblock_find_in_range() outside memblock itself.
+
+The patch uncovered an issue with top down memory mapping on x86 and this
+version has a preparation patch that addresses this issue.
+
+Guenter, I didn't add your Tested-by because the patch that addresses the
+crashes differs from the one you've tested.
+
+v4: 
+* Add patch that prevents the crashes reported by Guenter Roeck on x86/i386
+  on QEMU with 256M or 512M of memory and EFI boot enabled.
+* Add Acked-by and Reviewed-by, thanks everybidy!
+
+v3: https://lore.kernel.org/lkml/20210803064218.6611-1-rppt@kernel.org
+* simplify check for exact crash kerenl allocation on arm, per Rob
+* make crash_max unsigned long long on arm64, per Rob
+
+v2: https://lore.kernel.org/lkml/20210802063737.22733-1-rppt@kernel.org
+* don't change error message in arm::reserve_crashkernel(), per Russell
+
+v1: https://lore.kernel.org/lkml/20210730104039.7047-1-rppt@kernel.org
+
+Mike Rapoport (2):
+  x86/mm: memory_map_top_down: remove spurious reservation of upper 2M
+  memblock: make memblock_find_in_range method private
+
+ arch/arm/kernel/setup.c           | 20 +++++---------
+ arch/arm64/kvm/hyp/reserved_mem.c |  9 +++----
+ arch/arm64/mm/init.c              | 36 ++++++++-----------------
+ arch/mips/kernel/setup.c          | 14 +++++-----
+ arch/riscv/mm/init.c              | 44 ++++++++++---------------------
+ arch/s390/kernel/setup.c          | 10 ++++---
+ arch/x86/kernel/aperture_64.c     |  5 ++--
+ arch/x86/mm/init.c                | 27 +++++++------------
+ arch/x86/mm/numa.c                |  5 ++--
+ arch/x86/mm/numa_emulation.c      |  5 ++--
+ arch/x86/realmode/init.c          |  2 +-
+ drivers/acpi/tables.c             |  5 ++--
+ drivers/base/arch_numa.c          |  5 +---
+ drivers/of/of_reserved_mem.c      | 12 ++++++---
+ include/linux/memblock.h          |  2 --
+ mm/memblock.c                     |  2 +-
+ 16 files changed, 76 insertions(+), 127 deletions(-)
+
+
+base-commit: ff1176468d368232b684f75e82563369208bc371
+-- 
+2.28.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
