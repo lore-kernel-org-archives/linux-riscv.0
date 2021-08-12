@@ -7,75 +7,91 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E4D95C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 12:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DFAD3C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 12:35:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7A17A61019
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 12:32:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7A17A61019
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3EA3460724
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 12:35:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3EA3460724
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EIoKPRAijlFlwHrDq2kRfnd/ZHLoJ+gfJc+Z+hEts/s=; b=nh9GxJzkuP9nSv
-	U2+0yQJQ+reS5sX7U3o/CPHtNwORWS7k53rsvWjMA7PuzGqnkfj+7tu+MxFxOwbhmi3sUSUaltFCv
-	fsvP5VLSOxPGZkvOZKVBQkaoyCQ+z3d0IYw42Hh02plnMVAEHwFiubWdZk5NBxAUYOHYCK2ZP6WL0
-	VVayw48qL4njhGeq2CVAU/JwwrTugRp0TLCG3290+gsgr7RRCVvcll3swjxzc7gb+dIKJ8XsRyMRK
-	AfUVphc8L2doFADsFNQ3GtGRTf5P9hASRzIyT8gzIyl9ZjyT7gtvLmRqCImuldpRVq5p4X0Br+khE
-	RfhsLsXImWqP5eB/AUPA==;
+	List-Owner; bh=N/sj5h+ZSSlcHj3WbjA5ClECM35sNWaBD7G5BhXEHhs=; b=vaYdfhBfbJz/dg
+	0knipmuYkZ86te9B4GE0xIq4CvCCz097K17PEmmrNSpQl3cdpLJKYDZr5TWBK53uzGHIRKNrjJs9J
+	cd/laACPo12erDCyxZKj848kkmPZQwm0ocviK4d3DrlEpzFPKbJbzZswdHNgevnsd9yR0CrwLZbJA
+	yjox90SIBxKJDa+Ao7e8+n2JYwYfM7NyEBypBOcE9d88HmKpe8n24ErgRxpzcHGtF2oDeGz6TT89/
+	0PjEtsWN9T+tupiQYKO+g0aoxFBwgd4GzLaOzJyYoTa+wZPHEsfpDxZOTr6XeMyRnt9GspmQOh7sG
+	PidZTsdR4LL8LtNiu5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mE9rw-00A1Ng-Aa; Thu, 12 Aug 2021 12:31:32 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1mE9vP-00A2pm-Dx; Thu, 12 Aug 2021 12:35:07 +0000
+Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mE9rE-00A15B-Ss; Thu, 12 Aug 2021 12:30:51 +0000
-Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.54])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4GlmCY3sVLzcmmZ;
- Thu, 12 Aug 2021 20:27:05 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Thu, 12 Aug 2021 20:30:45 +0800
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Thu, 12 Aug 2021 20:30:44 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: <linux-snps-arc@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <uclinux-h8-devel@lists.sourceforge.jp>, <linux-hexagon@vger.kernel.org>,
- <openrisc@lists.librecores.org>, <linux-parisc@vger.kernel.org>,
- <linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
- <linux-um@lists.infradead.org>, <linux-mm@kvack.org>
-CC: Kefeng Wang <wangkefeng.wang@huawei.com>, Vineet Gupta
- <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Yoshinori Sato
- <ysato@users.sourceforge.jp>, Ley Foon Tan <ley.foon.tan@intel.com>, "Jonas
- Bonn" <jonas@southpole.se>, Stefan Kristiansson
- <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, "Helge
- Deller" <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, 
- Paul Walmsley <palmerdabbelt@google.com>, Jeff Dike <jdike@addtoit.com>,
- Richard Weinberger <richard@nod.at>, Anton Ivanov
- <anton.ivanov@cambridgegreys.com>, Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH -next] trap: Cleanup trap_init()
-Date: Thu, 12 Aug 2021 20:36:02 +0800
-Message-ID: <20210812123602.76356-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1mE9vJ-00A2mj-Mo
+ for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 12:35:06 +0000
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPS id 298CA40C98
+ for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 12:34:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1628771689;
+ bh=fXksQPpDuH6T7x4BT558ZGGix2k0x0Rejn/yRv3oga8=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=IIhG2uAXgGCTKLClJVk//cM5thqXj+TdlzM2/jqpIYBYA1N791/3SJ2bnhMEN/zbW
+ tjvF1ja4XkFs8xhGqhVwHwKt1t9WREiv7gTJaurgDysK1HueEF9TCAa3uDnU1b3kG2
+ f0d2M6EV5DxSVFoR3Y0fdFV9B2BUmyLnGbjaUhgEdbfYljrCcltdx/+3ZjhULjo5hD
+ oTVVLSj+T+/9YG0YU8bHXBuxGJVHvzi6c0vLJxicDswgdgn4lF3zI84JvV/w1ELHs0
+ PCgB1yqQxOt8H0Zq+ZvmKkYMhCOLANJPKGB8s6kIXg6dylq9R33KKQCEe19fWFtYAY
+ HSHE0fPBmsRJA==
+Received: by mail-wr1-f70.google.com with SMTP id
+ d10-20020a056000114ab02901537f048363so1784725wrx.8
+ for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 05:34:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fXksQPpDuH6T7x4BT558ZGGix2k0x0Rejn/yRv3oga8=;
+ b=qZKFbUEilHkQhTU4zYRtca2slNOKhlGEo4sO/IFnJqHF6HNPMSRU8Y2YSW8DORzX0r
+ AFZjgNmNp73oDBGAP9befnncaI3mEY4Do2rbGPT8LVyvgqB559LzfgTTsdNQ/jJ89jCe
+ 22F3o4TcE7TSqZIaFbU4NoFkoPxEPWyou+yMMjAA14tFEudgaZMkSmUGd2oU9I3J2rSJ
+ UB1QSDeFs3kC8iupbryE9Yj4V2IXAAK17QY4+EbgiZSPdf+Off/MAn/JHGQVtnuRSLko
+ vYErVjzspV03Y2W2BrW3JyeDYqHmlXUelSXfU2KLWIRIKIoMVBoNufrp7vVrNMA+f3W3
+ kZUA==
+X-Gm-Message-State: AOAM531qt4/gyxiwDHwMVFvhRbIiTRMQkuqCrEavJmWiVh97FCBdE1Ve
+ qUfwGYzEBCkXQvpfyrveVh8Of5aHKZ9qJ9zG/qOxeD35JZ6xsWWzMcjHqbClJk2tuUaF2ablcMC
+ tU8igP5HlZOpdlx5dR5BAOSAbEIWz+bwZiwbaAeca7kK82w==
+X-Received: by 2002:adf:f08e:: with SMTP id n14mr3655711wro.427.1628771688824; 
+ Thu, 12 Aug 2021 05:34:48 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyF/ZR5C1BtBNd4kJJCPmKateoDi+EtUFQPs23ytvlz7wdG1g2X3iPF4mV40XLyvZ9KL1CdDg==
+X-Received: by 2002:adf:f08e:: with SMTP id n14mr3655691wro.427.1628771688574; 
+ Thu, 12 Aug 2021 05:34:48 -0700 (PDT)
+Received: from localhost ([2a01:4b00:85fd:d700:1220:9591:5798:fefe])
+ by smtp.gmail.com with ESMTPSA id 129sm2646812wmz.26.2021.08.12.05.34.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 12 Aug 2021 05:34:48 -0700 (PDT)
+From: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+To: linux-kernel@vger.kernel.org
+Cc: Thadeu Lima de Souza Cascardo <cascardo@canonical.com>,
+ Pierce Andjelkovic <pierceandjelkovic@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Subject: [PATCH] RISC-V: prevent sbi_send_cpumask_ipi race with ftrace
+Date: Thu, 12 Aug 2021 13:34:33 +0100
+Message-Id: <20210812123433.27871-1-dimitri.ledkov@canonical.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_053049_473646_D8A74921 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20210812_053501_953581_FEA223B6 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,223 +108,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are some empty trap_init() in different ARCHs, introduce
-a new weak trap_init() function to cleanup them.
+From: Thadeu Lima de Souza Cascardo <cascardo@canonical.com>
 
-Cc: Vineet Gupta <vgupta@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Ley Foon Tan <ley.foon.tan@intel.com>
-Cc: Jonas Bonn <jonas@southpole.se>
-Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-Cc: Stafford Horne <shorne@gmail.com>
-Cc: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-Cc: Paul Mackerras <paulus@samba.org>
-Cc: Paul Walmsley <palmerdabbelt@google.com>
-Cc: Jeff Dike <jdike@addtoit.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+ftrace will patch instructions in sbi_send_cpumask_ipi, which is going to
+be used by flush_icache_range, leading to potential races and crashes like
+this:
+
+[    0.000000] ftrace: allocating 38893 entries in 152 pages
+[    0.000000] Oops - illegal instruction [#1]
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-1014-generic #14-Ubuntu
+[    0.000000] epc: ffffffe00000920e ra : ffffffe000009384 sp : ffffffe001803d30
+[    0.000000]  gp : ffffffe001a14240 tp : ffffffe00180f440 t0 : ffffffe07fe38000
+[    0.000000]  t1 : ffffffe0019cd338 t2 : 0000000000000000 s0 : ffffffe001803d70
+[    0.000000]  s1 : 0000000000000000 a0 : ffffffe0000095aa a1 : 0000000000000001
+[    0.000000]  a2 : 0000000000000002 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.000000]  a5 : 0000000000000000 a6 : 0000000000000004 a7 : 0000000052464e43
+[    0.000000]  s2 : 0000000000000002 s3 : 0000000000000001 s4 : 0000000000000000
+[    0.000000]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
+[    0.000000]  s8 : ffffffe001a170c0 s9 : 0000000000000001 s10: 0000000000000001
+[    0.000000]  s11: 00000000fffcc5d0 t3 : 0000000000000068 t4 : 000000000000000b
+[    0.000000]  t5 : ffffffe0019cd3e0 t6 : ffffffe001803cd8
+[    0.000000] status: 0000000200000100 badaddr: 000000000513f187 cause: 0000000000000002
+[    0.000000] ---[ end trace f67eb9af4d8d492b ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+
+Where ffffffe00000920e lies in the middle of sbi_send_cpumask_ipi.
+
+Reproduced on Unmatched board using Ubuntu kernels. See
+https://people.canonical.com/~xnox/lp1934548/ for sample images,
+kernels, debug symbols.
+
+BugLink: https://bugs.launchpad.net/bugs/1934548
+Reported-by: Pierce Andjelkovic <pierceandjelkovic@gmail.com>
+Signed-off-by: Thadeu Lima de Souza Cascardo <cascardo@canonical.com>
+Signed-off-by: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+cc: Paul Walmsley <paul.walmsley@sifive.com>
+cc: linux-riscv@lists.infradead.org
+cc: stable@vger.kernel.org
 ---
- arch/arc/kernel/traps.c      | 5 -----
- arch/arm/kernel/traps.c      | 5 -----
- arch/h8300/kernel/traps.c    | 4 ----
- arch/hexagon/kernel/traps.c  | 4 ----
- arch/nds32/kernel/traps.c    | 5 -----
- arch/nios2/kernel/traps.c    | 5 -----
- arch/openrisc/kernel/traps.c | 5 -----
- arch/parisc/kernel/traps.c   | 4 ----
- arch/powerpc/kernel/traps.c  | 5 -----
- arch/riscv/kernel/traps.c    | 5 -----
- arch/um/kernel/trap.c        | 4 ----
- init/main.c                  | 2 ++
- 12 files changed, 2 insertions(+), 51 deletions(-)
+ arch/riscv/kernel/sbi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arc/kernel/traps.c b/arch/arc/kernel/traps.c
-index 57235e5c0cea..6b83e3f2b41c 100644
---- a/arch/arc/kernel/traps.c
-+++ b/arch/arc/kernel/traps.c
-@@ -20,11 +20,6 @@
- #include <asm/unaligned.h>
- #include <asm/kprobes.h>
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index 7402a417f38e..158199865c68 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -562,7 +562,7 @@ long sbi_get_mimpid(void)
+ 	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+ }
  
--void __init trap_init(void)
--{
--	return;
--}
--
- void die(const char *str, struct pt_regs *regs, unsigned long address)
+-static void sbi_send_cpumask_ipi(const struct cpumask *target)
++static void notrace sbi_send_cpumask_ipi(const struct cpumask *target)
  {
- 	show_kernel_fault_diag(str, regs, address);
-diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index 64308e3a5d0c..e9b4f2b49bd8 100644
---- a/arch/arm/kernel/traps.c
-+++ b/arch/arm/kernel/traps.c
-@@ -781,11 +781,6 @@ void abort(void)
- 	panic("Oops failed to kill thread");
- }
- 
--void __init trap_init(void)
--{
--	return;
--}
--
- #ifdef CONFIG_KUSER_HELPERS
- static void __init kuser_init(void *vectors)
- {
-diff --git a/arch/h8300/kernel/traps.c b/arch/h8300/kernel/traps.c
-index 5d8b969cd8f3..bdbe988d8dbc 100644
---- a/arch/h8300/kernel/traps.c
-+++ b/arch/h8300/kernel/traps.c
-@@ -39,10 +39,6 @@ void __init base_trap_init(void)
- {
- }
- 
--void __init trap_init(void)
--{
--}
--
- asmlinkage void set_esp0(unsigned long ssp)
- {
- 	current->thread.esp0 = ssp;
-diff --git a/arch/hexagon/kernel/traps.c b/arch/hexagon/kernel/traps.c
-index 904134b37232..edfc35dafeb1 100644
---- a/arch/hexagon/kernel/traps.c
-+++ b/arch/hexagon/kernel/traps.c
-@@ -28,10 +28,6 @@
- #define TRAP_SYSCALL	1
- #define TRAP_DEBUG	0xdb
- 
--void __init trap_init(void)
--{
--}
--
- #ifdef CONFIG_GENERIC_BUG
- /* Maybe should resemble arch/sh/kernel/traps.c ?? */
- int is_valid_bugaddr(unsigned long addr)
-diff --git a/arch/nds32/kernel/traps.c b/arch/nds32/kernel/traps.c
-index ee0d9ae192a5..f06421c645af 100644
---- a/arch/nds32/kernel/traps.c
-+++ b/arch/nds32/kernel/traps.c
-@@ -183,11 +183,6 @@ void __pgd_error(const char *file, int line, unsigned long val)
- }
- 
- extern char *exception_vector, *exception_vector_end;
--void __init trap_init(void)
--{
--	return;
--}
--
- void __init early_trap_init(void)
- {
- 	unsigned long ivb = 0;
-diff --git a/arch/nios2/kernel/traps.c b/arch/nios2/kernel/traps.c
-index b172da4eb1a9..596986a74a26 100644
---- a/arch/nios2/kernel/traps.c
-+++ b/arch/nios2/kernel/traps.c
-@@ -105,11 +105,6 @@ void show_stack(struct task_struct *task, unsigned long *stack,
- 	printk("%s\n", loglvl);
- }
- 
--void __init trap_init(void)
--{
--	/* Nothing to do here */
--}
--
- /* Breakpoint handler */
- asmlinkage void breakpoint_c(struct pt_regs *fp)
- {
-diff --git a/arch/openrisc/kernel/traps.c b/arch/openrisc/kernel/traps.c
-index 4d61333c2623..aa1e709405ac 100644
---- a/arch/openrisc/kernel/traps.c
-+++ b/arch/openrisc/kernel/traps.c
-@@ -231,11 +231,6 @@ void unhandled_exception(struct pt_regs *regs, int ea, int vector)
- 	die("Oops", regs, 9);
- }
- 
--void __init trap_init(void)
--{
--	/* Nothing needs to be done */
--}
--
- asmlinkage void do_trap(struct pt_regs *regs, unsigned long address)
- {
- 	force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)regs->pc);
-diff --git a/arch/parisc/kernel/traps.c b/arch/parisc/kernel/traps.c
-index 8d8441d4562a..747c328fb886 100644
---- a/arch/parisc/kernel/traps.c
-+++ b/arch/parisc/kernel/traps.c
-@@ -859,7 +859,3 @@ void  __init early_trap_init(void)
- 
- 	initialize_ivt(&fault_vector_20);
- }
--
--void __init trap_init(void)
--{
--}
-diff --git a/arch/powerpc/kernel/traps.c b/arch/powerpc/kernel/traps.c
-index e103b89234cd..91efb5c6f2f3 100644
---- a/arch/powerpc/kernel/traps.c
-+++ b/arch/powerpc/kernel/traps.c
-@@ -2209,11 +2209,6 @@ DEFINE_INTERRUPT_HANDLER(kernel_bad_stack)
- 	die("Bad kernel stack pointer", regs, SIGABRT);
- }
- 
--void __init trap_init(void)
--{
--}
--
--
- #ifdef CONFIG_PPC_EMULATED_STATS
- 
- #define WARN_EMULATED_SETUP(type)	.type = { .name = #type }
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 0a98fd0ddfe9..0daaa3e4630d 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -199,11 +199,6 @@ int is_valid_bugaddr(unsigned long pc)
- }
- #endif /* CONFIG_GENERIC_BUG */
- 
--/* stvec & scratch is already set from head.S */
--void __init trap_init(void)
--{
--}
--
- #ifdef CONFIG_VMAP_STACK
- static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
- 		overflow_stack)__aligned(16);
-diff --git a/arch/um/kernel/trap.c b/arch/um/kernel/trap.c
-index ad12f78bda7e..3198c4767387 100644
---- a/arch/um/kernel/trap.c
-+++ b/arch/um/kernel/trap.c
-@@ -311,7 +311,3 @@ void winch(int sig, struct siginfo *unused_si, struct uml_pt_regs *regs)
- {
- 	do_IRQ(WINCH_IRQ, regs);
- }
--
--void trap_init(void)
--{
--}
-diff --git a/init/main.c b/init/main.c
-index 4b4897b791fd..863e5087263d 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -775,6 +775,8 @@ void __init __weak poking_init(void) { }
- 
- void __init __weak pgtable_cache_init(void) { }
- 
-+void __init __weak trap_init(void) { }
-+
- bool initcall_debug;
- core_param(initcall_debug, initcall_debug, bool, 0644);
+ 	struct cpumask hartid_mask;
  
 -- 
-2.26.2
+2.30.2
 
 
 _______________________________________________
