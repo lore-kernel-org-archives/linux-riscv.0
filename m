@@ -2,94 +2,88 @@ Return-Path: <SRS0=06uo=ND=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19E46C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 11:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0EA3DC4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 11:06:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AFE0260FED
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 11:01:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AFE0260FED
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id B671360EE2
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 11:06:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B671360EE2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=A9u/PJGNjPv3eaNqg9PwURR3qqmf8mYnFxhuHNTIrb8=; b=d50RhXvOHAGpIcjvCZ9JNyLSEd
-	644p7LwJVITnj1mTtXL+SaBWpiZpKt8mAj/fhPR0S/vRRcG0+6xDekupoJhoIYmdK6e54/W+pjVC8
-	ICA1hp9K2LFfZOlGH9VUf9VPyuAKUL/EKaTOP9cbuC7HLpiP+jiSaz7sbDRL+guh/yfVM60Dfa+Nc
-	cTqg02Dl0vnsorvMaN8EK33K1Cj0yRuxgoA0VlRCAF1D+0F6/2qAtOjE+3UPsB7MyFHy2sLKgQtCr
-	oxkouPoch3EQc9WFy6sTbVhvlCo94bxWqmKGV/ntfYBV4dbW5mNtX+/V56uyVyIpxilowLQb1Wfrd
-	42nvLLsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3t+kbwwG6Rt/7OPJpqiiWqBroXnutdu4CC8myvBoz2A=; b=TGkycFYKSy7aOW
+	1FpwmyzoPrm6MBIwTWyL80q+tOONp8jZAKkfYRdPXKZ2SdDRaKhBZzGL5d/n9Auyu96rKeoEx7Y4Q
+	7IQqQGrB5gzsUvjDETvO3P25hkb279RAUfFAXtWAcG80aHes1Qhcs+n4PZhSOk+1jjwjfwtXXIQXd
+	xC/G/Vd99d2rAJf53aCFk/Tffn4s21+dkIv2gX9q3vDtin0RaU40G7UwT8UtXNu3H2/Veds1KfKhy
+	isP4JvhJImiiKQj92Og6n/W0SNwHOw8xKDyzZgao7kjc3SbV/q1iw63PscHAqDhrq5yFu4jSjbbl+
+	EWpx1P3mRqIGq4lOS7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mE8Sw-009j3i-0X; Thu, 12 Aug 2021 11:01:38 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1mE8Wt-009jgb-6p; Thu, 12 Aug 2021 11:05:43 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mE8Su-009j2z-2P
- for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 11:01:37 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id l11so6799035plk.6
- for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 04:01:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:references:from:message-id:date:user-agent:mime-version
- :in-reply-to:content-language:content-transfer-encoding;
- bh=DDhtQcuUXCKgq8bSzq02Y00UE56X0SuRgSK70Eim4XM=;
- b=d4sdlcw7YE/VfJgcdlLPCBuC2gCpccfOHVU3kK6kij74jirpezO90YeAtR5Q1CIFRQ
- htiiMsgQar06AZWvqJQCfMTiLaytxaEqGCOE9eO5K5vAPWIYdOUR5L6jz16/gxLKYvR4
- hXNaBP6bM3rMR6IVH8rcCdFhQM2NK04hdskqEiF5QtP/rrU6SDvVJWAun9UY368b+Ozk
- F86drh6ecc44tL4P/Uq19ndgPbL+MJELVPtuQTgtRETtHWMNg0z0DWBdgKqIgESicRBK
- fgrxBozUc/CbSLFU8y638qymYfHXEl7anT5U7n86lhJPG2DjHRzy4aGZEmK4mgvHS7/7
- 814g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=DDhtQcuUXCKgq8bSzq02Y00UE56X0SuRgSK70Eim4XM=;
- b=FvEU0aYF9Ra0x6IbB1UGqaNHuy0ADN6r1p1gNGcixIuO/u2t4yzppH9EBN8HaiTTHW
- ERBIThr1KcvDHUMnP3HHvelWcx8tJqFyBF2Rf7BjYm25ti0dJCZdRUF2YzX+86J0HRMs
- mJKtI5e1fm2qI1dnOEdSjgZbFE2sRPgIZ26c76fBSBh5WhDExlFKA7IubviZ54jGnvFF
- 9TqVf4oZlts+WOPL+STs2hoKxXVhx0lrB1ySbK9Bn7QOWGyMYFt4kjBe/Vd+Mj4lTEew
- OGZZDiqKADEjd9rcZuKZ0r4xUeLakVz4cY3OQeVNPDp2DTawgNhj3uykVy1r3zZbI2Sq
- ecug==
-X-Gm-Message-State: AOAM533WR6TDKEApITgv/TuA8OvlFvMfnmW6RVSryILzY+vfTC/oKGCC
- K0nMC7m0xArUj4CN9UHWhQM=
-X-Google-Smtp-Source: ABdhPJwhTGWJfHP1L7Xsaom5NR39UWbE+gu2q5ngSMcRIsKLOHmQ0bilIejQVi5Bx8Cf80be8fUtPg==
-X-Received: by 2002:a17:90b:3a8e:: with SMTP id
- om14mr3750992pjb.73.1628766094047; 
- Thu, 12 Aug 2021 04:01:34 -0700 (PDT)
-Received: from [192.168.1.153] (M106072041033.v4.enabler.ne.jp. [106.72.41.33])
- by smtp.gmail.com with ESMTPSA id p21sm2915208pfo.8.2021.08.12.04.01.30
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 12 Aug 2021 04:01:32 -0700 (PDT)
-Subject: Re: [PATCH 0/1] __asm_copy_to-from_user: Reduce more byte_copy
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Guenter Roeck <linux@roeck-us.net>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <65f08f01-d4ce-75c2-030b-f8759003e061@gmail.com>
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Message-ID: <a70451d1-57ad-6b49-24c1-6408ef94a959@gmail.com>
-Date: Thu, 12 Aug 2021 20:01:29 +0900
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
-MIME-Version: 1.0
-In-Reply-To: <65f08f01-d4ce-75c2-030b-f8759003e061@gmail.com>
-Content-Language: en-US
+ id 1mE8Wr-009jfl-0H
+ for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 11:05:42 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9ECFD60EE2;
+ Thu, 12 Aug 2021 11:05:40 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mE8Wo-004XFv-JM; Thu, 12 Aug 2021 12:05:38 +0100
+Date: Thu, 12 Aug 2021 12:05:38 +0100
+Message-ID: <874kbuapod.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Matteo Croce <mcroce@linux.microsoft.com>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Giuseppe
+ Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
+ Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+In-Reply-To: <20210812121835.405d2e37@linux.microsoft.com>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
+ <87o8a49idp.wl-maz@kernel.org>
+ <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
+ <20210812121835.405d2e37@linux.microsoft.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mcroce@linux.microsoft.com, eric.dumazet@gmail.com,
+ thierry.reding@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
+ alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
+ kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_040136_185675_159DD8A0 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20210812_040541_179440_3C3DA7E6 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +100,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter, Geert and Qiu,
+On Thu, 12 Aug 2021 11:18:35 +0100,
+Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> 
+> On Thu, 12 Aug 2021 10:48:03 +0200
+> Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> 
+> > 
+> > 
+> > On 8/11/21 4:16 PM, Marc Zyngier wrote:
+> > > On Wed, 11 Aug 2021 13:53:59 +0100,
+> > > Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> > >
+> > >> Are you sure you do not need to adjust stmmac_set_bfsize(), 
+> > >> stmmac_rx_buf1_len() and stmmac_rx_buf2_len() ?
+> > >>
+> > >> Presumably DEFAULT_BUFSIZE also want to be increased by NET_SKB_PAD
+> > >>
+> > >> Patch for stmmac_rx_buf1_len() :
+> > >>
+> > >> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c index
+> > >> 7b8404a21544cf29668e8a14240c3971e6bce0c3..041a74e7efca3436bfe3e17f972dd156173957a9
+> > >> 100644 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c +++
+> > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c @@ -4508,12
+> > >> +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct
+> > >> stmmac_priv *priv, /* First descriptor, not last descriptor and
+> > >> not split header */ if (status & rx_not_ls)
+> > >> -               return priv->dma_buf_sz;
+> > >> +               return priv->dma_buf_sz - NET_SKB_PAD -
+> > >> NET_IP_ALIGN; 
+> > >>         plen = stmmac_get_rx_frame_len(priv, p, coe);
+> > >>  
+> > >>         /* First descriptor and last descriptor and not split
+> > >> header */
+> > >> -       return min_t(unsigned int, priv->dma_buf_sz, plen);
+> > >> +       return min_t(unsigned int, priv->dma_buf_sz - NET_SKB_PAD
+> > >> - NET_IP_ALIGN, plen); }
+> > >>  
+> > >>  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+> > > 
+> > > Feels like a major deficiency of the original patch. Happy to test a
+> > > more complete patch if/when you have one.
+> > 
+> > I wont have time in the immediate future.
+> > 
+> > Matteo, if you do not work on a fix, I suggest we revert
+> >  a955318fe67ec0d962760b5ee58e74bffaf649b8 stmmac: align RX buffers
+> > 
+> > before a more polished version can be submitted.
+> > 
+> 
+> Better to use stmmac_rx_offset() so to have the correct length when
+> using XDP. Also, when XDP is enabled, the offset was
+> XDP_PACKET_HEADROOM (i.e. 256 bytes) even before the change, so it
+> could be already broken. Mark, can you try on the Jetson TX2 by
+> attaching an XDP program and see if it works without my change?
 
-Would you mind testing this patch?
+Sorry, you'll have to hold my hand here, as I know exactly nothing
+about XDP....
+
+> A possible fix, which takes in account also the XDP headroom for
+> stmmac_rx_buf1_len() only could be (only compile tested, I don't have
+> the hardware now):
+
+However, this doesn't fix my issue. I still get all sort of
+corruption. Probably stmmac_rx_buf2_len() also need adjusting (it has
+a similar logic as its buf1 counterpart...)
+
+Unless you can fix it very quickly, and given that we're towards the
+end of the cycle, I'd be more comfortable if we reverted this patch.
+
 Thanks,
 
-Akira
+	M.
 
-On 7/30/2021 10:50 PM, Akira Tsukamoto wrote:
-> Adding none unrolling word_copy, which is used if the size is smaller
-> than 9*SZREG.
-> 
-> This patch is based on Palmer's past comment.
->> My guess is that some workloads will want some smaller unrolling factors,
-> 
-> It will reduce the number of slow byte_copy being used when the 
-> size is small.
-> 
-> Have tested on qemu rv32, qemu rv64 and beaglev beta board.
-> 
-> In the future, I am planning to convert uaccess.S to inline assembly 
-> in .c file. Then it will be easier to optimize on both in-order core and
-> out-of-order core with #ifdef macro in c.
-> 
-> Akira Tsukamoto (1):
->   riscv: __asm_copy_to-from_user: Improve using word copy if size <
->     9*SZREG
-> 
->  arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
->  1 file changed, 42 insertions(+), 4 deletions(-)
-> 
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
