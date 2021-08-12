@@ -2,70 +2,86 @@ Return-Path: <SRS0=06uo=ND=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1424DC4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 14:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B856C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:27:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C13086108C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 14:55:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C13086108C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lwn.net
+	by mail.kernel.org (Postfix) with ESMTPS id 30D25610A5
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:27:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 30D25610A5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y3zBna4hsLevbz29grTVRFhK3TRjUyNe1k01uT2aVOA=; b=eOywuiQT5Cp0f2
-	W/SrkLxlhZJMylRpjvlKlHWzwG609qLwJNbt+GKjk4PhPJp0wWGcgFFaApH13xV/T+sf8kMGq5az0
-	XnOZZ86NnABmY9BJJBnR1mO9Z+0wPr8NtNNndouDA/J4/KhiCNVpB6TPjJzPfdJ090D+rZ2DLybDJ
-	tIYYNdaM+kz88xMTv52YBPPeQZonaUEn2+1VVUGRe8C2f+Ec6bv7HMvuPId231NilcPE2XjHFW2OB
-	B3F/B/kYvfZPdI2FjIOCMLvmT1ZCmce1Cji28prErMXkTpD8UVj7Buv7IA0ZZxTFCj6yOScpi6GRh
-	BDaXSFIN4k4LLuiJTUJQ==;
+	List-Owner; bh=JIzXWMOhFpZbDURH8OtZalP3L/7irS3QvIjoeJEBAN0=; b=Mk8lXGYA2tv812
+	p4bwP0t+IsLaCHKzqQtTukeevvxkGR1K0nSN1nKiTIFIM8SYyWMnqdtxffqbTPpKw2tQLDAizBe0e
+	uBjE0OyOZbmltEBo2+tKIc6voDthOaWLEVAGjKr9JkrJj/aeJgjE9eD7f1OA6ps/6hiNMFJBsiMjc
+	COAnMwZkFBoDm6ZleZFikfI9OdHphRKnBohGMago731BrHn2NCncYG8BltE23fr0lz0LFv2GSCtrs
+	NXTNwos71U4zFaOoKCKqLENkiooDISiV2fdAQIj2Skg4mXSobkyMr5P4kvmmlEZxeSrXAN5HDZFNE
+	lu3KYd6IMkBFJDgs5f/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mEC72-00AV4n-RT; Thu, 12 Aug 2021 14:55:16 +0000
-Received: from ms.lwn.net ([45.79.88.28])
+	id 1mECbZ-00AYAm-2h; Thu, 12 Aug 2021 15:26:49 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mEC6x-00AV3z-6E
- for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 14:55:15 +0000
-Received: from localhost (unknown [IPv6:2601:281:8300:104d::5f6])
+ id 1mECbW-00AY9Y-04
+ for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 15:26:47 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ms.lwn.net (Postfix) with ESMTPSA id E97A244A;
- Thu, 12 Aug 2021 14:55:06 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net E97A244A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
- t=1628780107; bh=ekOBuTAaJDn7u76qWnvHEXJlMOigWhLouT/jl4jlhf4=;
- h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
- b=eKxdOnukcnevall3TFD00ONFJxVsMRZx9eXqV2qG00scnDZN09vmjqEJPnBm30DnX
- NEXXnOwY1E2jypUpICxl2bFd9gDS9/eiqpypy7GlSx0Kgfib/PsOaDFCBzQcimrf94
- LehAOs2OqljqMjpiS6eWh+dLP+7e5dHxdVPdh67fSyvC67Z5Hg4mBp8HVM9CXoRzUw
- cvA7hhTg6jkfxvzflpXRLl4672X5OkYnmer9jOOfJM3+mD1j8gcvX8dlvI34McCrzg
- HxNq0E8Wzy5JWnyoOjm+DRcYIIXhg1ogPqswCmgs1hFZ26Guul1yGBLjy8T3ZPC11W
- UbU+9Qh/p5TDQ==
-From: Jonathan Corbet <corbet@lwn.net>
-To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] Documentation/features/vm: riscv supports THP now
-In-Reply-To: <20210805002739.23f44d2d@xhacker>
-References: <20210805002739.23f44d2d@xhacker>
-Date: Thu, 12 Aug 2021 08:55:06 -0600
-Message-ID: <875ywa1zn9.fsf@meer.lwn.net>
-MIME-Version: 1.0
+ by mail.kernel.org (Postfix) with ESMTPSA id 65506610A4;
+ Thu, 12 Aug 2021 15:26:44 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mECbS-004a9P-6o; Thu, 12 Aug 2021 16:26:42 +0100
+Date: Thu, 12 Aug 2021 16:26:41 +0100
+Message-ID: <87v94a8z0u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
+ Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+In-Reply-To: <YRUwMjeQnXH5RfoB@orome.fritz.box>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROpd450N+n6hYt2@orome.fritz.box>
+ <87pmuk9ku9.wl-maz@kernel.org> <YRUwMjeQnXH5RfoB@orome.fritz.box>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, mcroce@linux.microsoft.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
+ alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
+ kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_075511_277723_83092E53 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20210812_082646_119435_D01A29BF 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +98,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jisheng Zhang <jszhang3@mail.ustc.edu.cn> writes:
+On Thu, 12 Aug 2021 15:29:06 +0100,
+Thierry Reding <thierry.reding@gmail.com> wrote:
+> 
+> On Wed, Aug 11, 2021 at 02:23:10PM +0100, Marc Zyngier wrote:
 
-> From: Jisheng Zhang <jszhang@kernel.org>
->
-> After commit e88b333142e4 ("riscv: mm: add THP support on 64-bit"),
-> riscv can support THP.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  Documentation/features/vm/THP/arch-support.txt | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/Documentation/features/vm/THP/arch-support.txt b/Documentation/features/vm/THP/arch-support.txt
-> index e8238cb2a4da..7dbd6967b37e 100644
-> --- a/Documentation/features/vm/THP/arch-support.txt
-> +++ b/Documentation/features/vm/THP/arch-support.txt
-> @@ -22,7 +22,7 @@
->      |    openrisc: |  ..  |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: |  ok  |
->      |          sh: |  ..  |
->      |       sparc: |  ok  |
+[...]
 
-Applied, thanks.
+> > I love this machine... Did this issue occur with the Denver CPUs
+> > disabled?
+> 
+> Interestingly I've been doing some work on a newer device called Jetson
+> TX2 NX (which is kind of a trimmed-down version of Jetson TX2, in the
+> spirit of the Jetson Nano) and I can't seem to reproduce these failures
+> there (tested on next-20210812).
+> 
+> I'll go dig out my Jetson TX2 to run the same tests there, because I've
+> also been using a development version of the bootloader stack and
+> flashing tools and all that, so it's possible that something was fixed
+> at that level. I don't think I've ever tried disabling the Denver CPUs,
+> but then I've also never seen these issues myself.
+> 
+> Just out of curiosity, what version of the BSP have you been using to
+> flash?
 
-jon
+I've only used the BSP for a few weeks when I got the board last
+year. The only thing I use from it is u-boot to chainload an upstream
+u-boot, and boot Debian from there.
+
+> One other thing that I ran into: there's a known issue with the PHY
+> configuration. We mark the PHY on most devices as "rgmii-id" on most
+> devices and then the Marvell PHY driver needs to be enabled. Jetson TX2
+> has phy-mode = "rgmii", so it /should/ work okay.
+> 
+> Typically what we're seeing with that misconfiguration is that the
+> device fails to get an IP address, but it might still be worth trying to
+> switch Jetson TX2 to rgmii-id and using the Marvell PHY, to see if that
+> improves anything.
+
+I never failed to get an IP address. Overall, networking has been
+solid on this machine until this patch. I'll try and mess with this
+when I get time, but that's probably going to be next week now.
+
+[...]
+
+> > That'd be pretty annoying. Do you know if the Ethernet is a coherent
+> > device on this machine? or does it need active cache maintenance?
+> 
+> I don't think Ethernet is a coherent device on Tegra186. I think
+> Tegra194 had various improvements with regard to coherency, but most
+> devices on Tegra186 do need active cache maintenance.
+> 
+> Let me dig through some old patches and mailing list threads. I vaguely
+> recall prototyping a patch that did something special for outer cache
+> flushing, but that may have been Tegra132, not Tegra186. I also don't
+> think we ended up merging that because it turned out to not be needed.
+
+ARMv8 forbid any sort of *visible* outer cache, so I really hope this
+is not required. We wouldn't be able to support it.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
