@@ -2,86 +2,81 @@ Return-Path: <SRS0=06uo=ND=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B856C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2D0AC4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:54:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 30D25610A5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:27:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 30D25610A5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7660860FC0
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 15:54:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7660860FC0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JIzXWMOhFpZbDURH8OtZalP3L/7irS3QvIjoeJEBAN0=; b=Mk8lXGYA2tv812
-	p4bwP0t+IsLaCHKzqQtTukeevvxkGR1K0nSN1nKiTIFIM8SYyWMnqdtxffqbTPpKw2tQLDAizBe0e
-	uBjE0OyOZbmltEBo2+tKIc6voDthOaWLEVAGjKr9JkrJj/aeJgjE9eD7f1OA6ps/6hiNMFJBsiMjc
-	COAnMwZkFBoDm6ZleZFikfI9OdHphRKnBohGMago731BrHn2NCncYG8BltE23fr0lz0LFv2GSCtrs
-	NXTNwos71U4zFaOoKCKqLENkiooDISiV2fdAQIj2Skg4mXSobkyMr5P4kvmmlEZxeSrXAN5HDZFNE
-	lu3KYd6IMkBFJDgs5f/g==;
+	List-Owner; bh=XjdD3aa4o6j+aJMUR6i7M1DwSuVXYmgvbbXjWBfgzRk=; b=dAoXFQTYu8yYAi
+	Gl0YzJSUhLfGo3xbbqHLtoopfKFEDPyBq6NhYjhfe94dKVlfX6WawfKP/UPnJj3l1nAnNCGPkC3sH
+	q+c3R0hVbUJ9zS1uXVqYie/vGfO7Uw5Ghquw/+nkQK3DclJ0auYYLl/77InUxjLuzjGqM7P+xqPSp
+	XYY1gozRYjUVM8S9KT5wMiiJx2Rwn26JrQepJQ+qRkNOurzQmlbGea+zFVbAm4JGNkVZX24krxxHz
+	cFuTA43DQL8kxg8gA/wgSQvYhZ/pl+/pzCwIryH+XomSHyx3fLAybJkd7ohWZoO0PU4DDLGO9mCHi
+	4RZce8jF90IcrtXl/oLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mECbZ-00AYAm-2h; Thu, 12 Aug 2021 15:26:49 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mED1u-00AbMG-6p; Thu, 12 Aug 2021 15:54:02 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mECbW-00AY9Y-04
- for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 15:26:47 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 65506610A4;
- Thu, 12 Aug 2021 15:26:44 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mECbS-004a9P-6o; Thu, 12 Aug 2021 16:26:42 +0100
-Date: Thu, 12 Aug 2021 16:26:41 +0100
-Message-ID: <87v94a8z0u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
+ id 1mED1o-00AbL9-8k
+ for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 15:54:00 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id w17so12625893ybl.11
+ for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 08:53:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=9KW2/qijRYj1BOVATRIEUb5ZBc50beMYDjvUxmZFiRc=;
+ b=LHuXb9xzqe5DwhBYGOjusfcVLJLfxSrMOqgAdsG7OgbRVJdCX8A+FCQsg0LRpoz+Tu
+ AjQGQYHovApi+hFSLDN6rtlF9wmEBgVe6WbxXYtMJhWCS2fPc01sWMQwegW07LMbYBk1
+ g4TyhI5MbyZmvOgDgZnThyIOICYEFkcpi8FSs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=9KW2/qijRYj1BOVATRIEUb5ZBc50beMYDjvUxmZFiRc=;
+ b=uZ3JGMNLbC87iU2hmMRNbVRnK2FlsC+MjMxHisbhOgc5/5B2xeGIn/9QKzYxbPtQ6/
+ 76kpZijE1QOnIOBhI7BSveZAj7TDC5JBIBzs0TFTy0f0c34/lAXzCrDJTx1lOYvdQYEy
+ tnvDy2IDZ0LVvzioVzHizh7rMKgmiH6p6RYpBrWZ/6g//peEIMMGY0fNuoiYm4zya/K9
+ pW7xRMC83QafOozbrE/jO40DeFfBlpM7Lh+ggD3h8Hs4mIP/F3o0GG3FaNfWCH8YT+Z3
+ HpvVTaDyMD5UAPO9MF6ZKndUcaq1SGKq8RZFFGlEcw2ycRCbM1wNAE3ZBekCjYcXF5nU
+ Pc9Q==
+X-Gm-Message-State: AOAM531yIkHDeWSuyUEssjaZLE9nIFC6RFSYKG4WnyQWE+7wHYubhjMj
+ whcfTCnLgtyAR0JU0gf0iRCalMOymLaB/ue02jyx
+X-Google-Smtp-Source: ABdhPJzZO0OsNFC/A2UHECLysjbKOC4vzD4gZilL/H0m8nkpIdJjITRQ2A/fHwlHwXIJYbEXwrlmPAVUpj41KqSL3h8=
+X-Received: by 2002:a25:e094:: with SMTP id x142mr5068884ybg.147.1628783634885; 
+ Thu, 12 Aug 2021 08:53:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210812123433.27871-1-dimitri.ledkov@canonical.com>
+In-Reply-To: <20210812123433.27871-1-dimitri.ledkov@canonical.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 12 Aug 2021 08:53:44 -0700
+Message-ID: <CAOnJCULTxFmRbpw4wp7SYN8EJxFhSN5J04QDE=cfxLAB01ZOFA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: prevent sbi_send_cpumask_ipi race with ftrace
+To: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ Thadeu Lima de Souza Cascardo <cascardo@canonical.com>,
+ Pierce Andjelkovic <pierceandjelkovic@gmail.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>,
- Drew Fustini <drew@beagleboard.org>,
- Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
- Will Deacon <will@kernel.org>
-Subject: Re: [PATCH net-next] stmmac: align RX buffers
-In-Reply-To: <YRUwMjeQnXH5RfoB@orome.fritz.box>
-References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
- <871r71azjw.wl-maz@kernel.org> <YROpd450N+n6hYt2@orome.fritz.box>
- <87pmuk9ku9.wl-maz@kernel.org> <YRUwMjeQnXH5RfoB@orome.fritz.box>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, mcroce@linux.microsoft.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
- alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
- kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_082646_119435_D01A29BF 
-X-CRM114-Status: GOOD (  38.65  )
+X-CRM114-CacheID: sfid-20210812_085356_379129_0E616D6A 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +93,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Aug 2021 15:29:06 +0100,
-Thierry Reding <thierry.reding@gmail.com> wrote:
-> 
-> On Wed, Aug 11, 2021 at 02:23:10PM +0100, Marc Zyngier wrote:
+On Thu, Aug 12, 2021 at 5:36 AM Dimitri John Ledkov
+<dimitri.ledkov@canonical.com> wrote:
+>
+> From: Thadeu Lima de Souza Cascardo <cascardo@canonical.com>
+>
+> ftrace will patch instructions in sbi_send_cpumask_ipi, which is going to
+> be used by flush_icache_range, leading to potential races and crashes like
+> this:
+>
+> [    0.000000] ftrace: allocating 38893 entries in 152 pages
+> [    0.000000] Oops - illegal instruction [#1]
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-1014-generic #14-Ubuntu
+> [    0.000000] epc: ffffffe00000920e ra : ffffffe000009384 sp : ffffffe001803d30
+> [    0.000000]  gp : ffffffe001a14240 tp : ffffffe00180f440 t0 : ffffffe07fe38000
+> [    0.000000]  t1 : ffffffe0019cd338 t2 : 0000000000000000 s0 : ffffffe001803d70
+> [    0.000000]  s1 : 0000000000000000 a0 : ffffffe0000095aa a1 : 0000000000000001
+> [    0.000000]  a2 : 0000000000000002 a3 : 0000000000000000 a4 : 0000000000000000
+> [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000004 a7 : 0000000052464e43
+> [    0.000000]  s2 : 0000000000000002 s3 : 0000000000000001 s4 : 0000000000000000
+> [    0.000000]  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
+> [    0.000000]  s8 : ffffffe001a170c0 s9 : 0000000000000001 s10: 0000000000000001
+> [    0.000000]  s11: 00000000fffcc5d0 t3 : 0000000000000068 t4 : 000000000000000b
+> [    0.000000]  t5 : ffffffe0019cd3e0 t6 : ffffffe001803cd8
+> [    0.000000] status: 0000000200000100 badaddr: 000000000513f187 cause: 0000000000000002
+> [    0.000000] ---[ end trace f67eb9af4d8d492b ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+>
+> Where ffffffe00000920e lies in the middle of sbi_send_cpumask_ipi.
+>
+> Reproduced on Unmatched board using Ubuntu kernels. See
+> https://people.canonical.com/~xnox/lp1934548/ for sample images,
+> kernels, debug symbols.
+>
+> BugLink: https://bugs.launchpad.net/bugs/1934548
+> Reported-by: Pierce Andjelkovic <pierceandjelkovic@gmail.com>
+> Signed-off-by: Thadeu Lima de Souza Cascardo <cascardo@canonical.com>
+> Signed-off-by: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+> cc: Paul Walmsley <paul.walmsley@sifive.com>
+> cc: linux-riscv@lists.infradead.org
+> cc: stable@vger.kernel.org
+> ---
+>  arch/riscv/kernel/sbi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 7402a417f38e..158199865c68 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -562,7 +562,7 @@ long sbi_get_mimpid(void)
+>         return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+>  }
+>
+> -static void sbi_send_cpumask_ipi(const struct cpumask *target)
+> +static void notrace sbi_send_cpumask_ipi(const struct cpumask *target)
+>  {
+>         struct cpumask hartid_mask;
+>
 
-[...]
+flush_icache_range doesn't invoke sbi_send_cpumask_ipi.
+flush_icache_range->flush_icache_all->sbi_remote_fence_i->__sbi_rfence->sbi_ecall
 
-> > I love this machine... Did this issue occur with the Denver CPUs
-> > disabled?
-> 
-> Interestingly I've been doing some work on a newer device called Jetson
-> TX2 NX (which is kind of a trimmed-down version of Jetson TX2, in the
-> spirit of the Jetson Nano) and I can't seem to reproduce these failures
-> there (tested on next-20210812).
-> 
-> I'll go dig out my Jetson TX2 to run the same tests there, because I've
-> also been using a development version of the bootloader stack and
-> flashing tools and all that, so it's possible that something was fixed
-> at that level. I don't think I've ever tried disabling the Denver CPUs,
-> but then I've also never seen these issues myself.
-> 
-> Just out of curiosity, what version of the BSP have you been using to
-> flash?
+Moreover, sbi.c should be removed from ftrace path as it is compiled
+with notrace flag after the patch [1]
 
-I've only used the BSP for a few weeks when I got the board last
-year. The only thing I use from it is u-boot to chainload an upstream
-u-boot, and boot Debian from there.
+CFLAGS_REMOVE_sbi.o   = $(CC_FLAGS_FTRACE)
 
-> One other thing that I ran into: there's a known issue with the PHY
-> configuration. We mark the PHY on most devices as "rgmii-id" on most
-> devices and then the Marvell PHY driver needs to be enabled. Jetson TX2
-> has phy-mode = "rgmii", so it /should/ work okay.
-> 
-> Typically what we're seeing with that misconfiguration is that the
-> device fails to get an IP address, but it might still be worth trying to
-> switch Jetson TX2 to rgmii-id and using the Marvell PHY, to see if that
-> improves anything.
+This solution was proposed as a result of earlier discussion [2] last year.
 
-I never failed to get an IP address. Overall, networking has been
-solid on this machine until this patch. I'll try and mess with this
-when I get time, but that's probably going to be next week now.
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/1608220905-1962-5-git-send-email-guoren@kernel.org/
+[2] https://lkml.org/lkml/2020/11/3/735
 
-[...]
+The proposed fix probably hiding the root cause somehow.
 
-> > That'd be pretty annoying. Do you know if the Ethernet is a coherent
-> > device on this machine? or does it need active cache maintenance?
-> 
-> I don't think Ethernet is a coherent device on Tegra186. I think
-> Tegra194 had various improvements with regard to coherency, but most
-> devices on Tegra186 do need active cache maintenance.
-> 
-> Let me dig through some old patches and mailing list threads. I vaguely
-> recall prototyping a patch that did something special for outer cache
-> flushing, but that may have been Tegra132, not Tegra186. I also don't
-> think we ended up merging that because it turned out to not be needed.
+Do you have the patch[1] in your kernel ?
 
-ARMv8 forbid any sort of *visible* outer cache, so I really hope this
-is not required. We wouldn't be able to support it.
 
-Thanks,
+> --
+> 2.30.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-	M.
+
 
 -- 
-Without deviation from the norm, progress is not possible.
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
