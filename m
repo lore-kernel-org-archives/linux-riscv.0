@@ -2,94 +2,98 @@ Return-Path: <SRS0=06uo=ND=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EA84C432BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 13:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D332C4320A
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 14:29:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3550460FD7
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 13:42:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3550460FD7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id CFC5E6108C
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Aug 2021 14:29:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CFC5E6108C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0mfKn2XqJspnp9Mrb9JylTxe8aJ/1xWc/zwOV/mQRFc=; b=ffPaKnKf0cd1xK
-	UDhN5h4t5z5ovaRNCPLwVEVV4ypCXERyaVFG5WVTI+FOttahvIUoQ42lsVZff90RLCQ4cV2n4F2OE
-	ydte1f++NcNeKmMf5VYEq8Tac/CHlItiZBJRLNagA+j3xk54Y5iwD1S8X5hhJFnqrQ7j9iiZwxOs3
-	4uyX7m5aa0a4EYDTYkwCn0Uj7g9qsGMdSb8C7Z78XAnEmcXWiAVRb4sFiQmWbRah9v+ZZoAuHkgq+
-	mPaRmLgDzSO+MLhYM+2bepAAX3JLHgeawPHchaL2AD2Q/nuPRMAuo00e5zF4m/uSTioEODysytlDQ
-	MzrHkQXmSvXlttZ6fOVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nZMDg141MSSFFnGwHds/k9Q8CBEM4lM0m19uuYgY/LQ=; b=REksPMNSo4wRrqwhE1S5m+nO6R
+	eKytnOVtdev7wT9vLsqBNle4luSwJQ5Jk2lK2PREES2i1QmY+jCteZXqlV1iNVy9SbSVtYIrCUQyS
+	Y6a3gak+UAlDTJ9icqdxs4rsBkAPiwQEHwLbUnCJfIWVNLTS7LpQqEV3Ea1W8c7iQ0+2T+pJzQWuE
+	s97AOa2L3yiL3ubVbvZHFC+fyFWPLz1t0y3L7J7cS+GVCXY2kMCcirDMU7PM2BiSslBwZcEAsi5JI
+	B+MXk3DCGF/WWV6DsgqthLO2o8Ii1BpX+yCOjOJN+u7jLZfPmbeSZOcZKdE02DfyjwDoITBUMNyEk
+	Dl+YT9Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mEAy0-00AHGp-QB; Thu, 12 Aug 2021 13:41:52 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1mEBhu-00ASFo-7j; Thu, 12 Aug 2021 14:29:18 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mEAxx-00AHFc-AR
- for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 13:41:50 +0000
-Received: by mail-oi1-x232.google.com with SMTP id u25so10366058oiv.5
- for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 06:41:47 -0700 (PDT)
+ id 1mEBhq-00ASEQ-6G
+ for linux-riscv@lists.infradead.org; Thu, 12 Aug 2021 14:29:16 +0000
+Received: by mail-wm1-x335.google.com with SMTP id
+ l10-20020a05600c4f0a00b002e6be174c29so1053598wmq.0
+ for <linux-riscv@lists.infradead.org>; Thu, 12 Aug 2021 07:29:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=w8ByNvmcER+djVrwXEK9pUfCYkOH6rFbdfIhJ/tSBvA=;
- b=MNipbIQlWMXcHHMJ/+LhWIi2OgJ76yGlWDEmKM/0Bjhpqrf2ZfrIV/O3VG1gs20c4o
- 0EYw/Tnt/Q4Lg1N6gTrwRaJsOsvzgPOD6e6Eq5BtewSI1ZZyWF9JqjskwJUjqXK2bHvg
- B3hJGt4+1R1Un8lVAHbXDIQ4XQCJxsbOMKWdPR98mTKJZTCIP/Faj5t+h1vQepdd2qgV
- oVRNCnpRl4SzwP0WctbMN8MytglLzukvw5/g6CbEGp8RdK2HnlnqHOkpJ0PT4TwFa/v9
- H5E7pAeX/h/QR3y7F62jTyKc4Sj6idE4suFcsW1HMpnSVEYwixuntgwctDS3LatpU9kW
- geJg==
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=qpoQw7ROBD2SDYhp7w8oAKoITp7+F7cgw9T8lXSU+WI=;
+ b=Or+KdJQXbxyaUXRVMyGr0pf4Syjb6koFTiIARM6UQIPnEPrPLVGKWW64JnWNAINmFe
+ 6/DF0W1gRaOBiPJHF+5V97Y7a+ThwmSMF1Nn43fTTNaNQuKNWmZaWJ8tZprQVkn5etDS
+ DYrC8yaG+81PwN2zVg0FdzcIJ8icsN6GkXgOR6hEGzfKLka4tH4vibB4cxIpA30A/2E9
+ ZTSXlO2Lk13uwuBOFi4SYQPWpLsZEr4pmTwUTVVPEo48dCi3DtAHU9C3XQn+c1j1Ujfb
+ hpv4Reqq0UEjpxVkMCT5pzu+dUgPGCkuN43Sg7I9gB6UTrM+/kGwWEE0xVqjXgV1oRCe
+ 4xXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to;
- bh=w8ByNvmcER+djVrwXEK9pUfCYkOH6rFbdfIhJ/tSBvA=;
- b=Qe9R0N4OjsFH0XIopjdsk7uf2Nu7iIBClnMEtXhQbZx4wehpWF8ghmFfwtTyTgarN7
- WP1H9qEEmNe0Jtk1m6x+jrufl5Ay/0dOSaymJ6bGBkPxKxy53QgmJR/VxqJQZl5Iw2Wr
- vXQvtqtinQfanefMIBqfI3Dn2ocyavY/qzlTtgikwezBVax5HrWWuTIkkZb1op/QIhic
- 4917sefDh5h9m+K89CX4HaOAbJUVGJpal9ZJeh2y2sTi/7zH20SJH8Dp7Wzu15RbiZZ3
- Z/yfj8Itpe8HL+djPu+jCRC7WQ6C2MTTfHW9vw/qMtBMFMJLMTqviCHeL/qoSsi6CcXz
- UZgg==
-X-Gm-Message-State: AOAM531FjgNeUafUoLTDrYyym/vnfagfURjdoiOnRITw62Go7UszQ2fF
- qg5eAEY19r0ION+9mLKK/aM=
-X-Google-Smtp-Source: ABdhPJxtwTGZdGVnSxCjpIEUVaQED8UOsBJIekT5sFbgESHHxcYCdesYT3483WIUoZCvGvi50HCaGw==
-X-Received: by 2002:a05:6808:144e:: with SMTP id
- x14mr3316950oiv.28.1628775707346; 
- Thu, 12 Aug 2021 06:41:47 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- z21sm613612oto.46.2021.08.12.06.41.46
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=qpoQw7ROBD2SDYhp7w8oAKoITp7+F7cgw9T8lXSU+WI=;
+ b=KnOY63whJ85bxDyqzJZclsiffSt8T/C2vtyeHKc6mXe7N4ObM0Y/blZdAe7+A9vDDT
+ dk4mp5zYUXrGjIjJ85/Y1o9/jz+085eziJ8s/R3etxokYZUIAw2d87FRLIZFUbKz6uFD
+ i9Ndb/g9p1mZmCC9jTjZ4SGM7wbC14ZMMludkNZfmAaBIZdDBSr5FzrZD8tkttzqm8xC
+ xPk0jLhCTvo/CbHD6FM9VEJB++V+cIY8AMk5HAYmZ7OPki5oD7Nta50rB4LhqpGH9lG0
+ dSF+B8G2AnKEFAjfU4yfFE8C7bP53GOKFlQz1932uMeCgB2zpqv21fdAdEq2Z87BXvIh
+ zcPw==
+X-Gm-Message-State: AOAM5317WjEaHuvR1D3Iwv7ZoHxcyOxb8ryR4QbWtmSJNJXqCrZVKq9c
+ EFoxY4pCvRe4FjJ1sZ1covs=
+X-Google-Smtp-Source: ABdhPJxCP+aCbPg0vRcVfr4udlDmGa5DWaXpmvqbmX/twmCLHWSHhjPME1TRPXHRN/PQY8yl18MU/w==
+X-Received: by 2002:a1c:1b83:: with SMTP id b125mr734908wmb.54.1628778549751; 
+ Thu, 12 Aug 2021 07:29:09 -0700 (PDT)
+Received: from localhost ([217.111.27.204])
+ by smtp.gmail.com with ESMTPSA id o34sm9095431wms.10.2021.08.12.07.29.07
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 12 Aug 2021 06:41:46 -0700 (PDT)
-Date: Thu, 12 Aug 2021 06:41:45 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Thu, 12 Aug 2021 07:29:07 -0700 (PDT)
+Date: Thu, 12 Aug 2021 16:29:06 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Matteo Croce <mcroce@linux.microsoft.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: __asm_copy_to-from_user: Improve using word
- copy if size < 9*SZREG
-Message-ID: <20210812134145.GA4132779@roeck-us.net>
-References: <65f08f01-d4ce-75c2-030b-f8759003e061@gmail.com>
- <e3e9fb3a-40b1-50f3-23cc-50bfa53baa8d@gmail.com>
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Jon Hunter <jonathanh@nvidia.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+Message-ID: <YRUwMjeQnXH5RfoB@orome.fritz.box>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROpd450N+n6hYt2@orome.fritz.box>
+ <87pmuk9ku9.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e3e9fb3a-40b1-50f3-23cc-50bfa53baa8d@gmail.com>
+In-Reply-To: <87pmuk9ku9.wl-maz@kernel.org>
+User-Agent: Mutt/2.1.1 (e2a89abc) (2021-07-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_064149_424593_667D079E 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20210812_072914_301533_5C6D7158 
+X-CRM114-Status: GOOD (  64.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,101 +105,212 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5741932655954818943=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 30, 2021 at 10:52:44PM +0900, Akira Tsukamoto wrote:
-> Reduce the number of slow byte_copy when the size is in between
-> 2*SZREG to 9*SZREG by using none unrolled word_copy.
-> 
-> Without it any size smaller than 9*SZREG will be using slow byte_copy
-> instead of none unrolled word_copy.
-> 
-> Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
 
-Tested-by: Guenter Roeck <linux@roeck-us.net>
+--===============5741932655954818943==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="sZiS2GUEevjWNuYE"
+Content-Disposition: inline
 
-> ---
->  arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
->  1 file changed, 42 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index 63bc691cff91..6a80d5517afc 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -34,8 +34,10 @@ ENTRY(__asm_copy_from_user)
->  	/*
->  	 * Use byte copy only if too small.
->  	 * SZREG holds 4 for RV32 and 8 for RV64
-> +	 * a3 - 2*SZREG is minimum size for word_copy
-> +	 *      1*SZREG for aligning dst + 1*SZREG for word_copy
->  	 */
-> -	li	a3, 9*SZREG /* size must be larger than size in word_copy */
-> +	li	a3, 2*SZREG
->  	bltu	a2, a3, .Lbyte_copy_tail
->  
->  	/*
-> @@ -66,9 +68,40 @@ ENTRY(__asm_copy_from_user)
->  	andi	a3, a1, SZREG-1
->  	bnez	a3, .Lshift_copy
->  
-> +.Lcheck_size_bulk:
-> +	/*
-> +	 * Evaluate the size if possible to use unrolled.
-> +	 * The word_copy_unlrolled requires larger than 8*SZREG
-> +	 */
-> +	li	a3, 8*SZREG
-> +	add	a4, a0, a3
-> +	bltu	a4, t0, .Lword_copy_unlrolled
-> +
->  .Lword_copy:
-> -        /*
-> -	 * Both src and dst are aligned, unrolled word copy
-> +	/*
-> +	 * Both src and dst are aligned
-> +	 * None unrolled word copy with every 1*SZREG iteration
-> +	 *
-> +	 * a0 - start of aligned dst
-> +	 * a1 - start of aligned src
-> +	 * t0 - end of aligned dst
-> +	 */
-> +	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
-> +	addi	t0, t0, -(SZREG) /* not to over run */
-> +1:
-> +	REG_L	a5, 0(a1)
-> +	addi	a1, a1, SZREG
-> +	REG_S	a5, 0(a0)
-> +	addi	a0, a0, SZREG
-> +	bltu	a0, t0, 1b
-> +
-> +	addi	t0, t0, SZREG /* revert to original value */
-> +	j	.Lbyte_copy_tail
-> +
-> +.Lword_copy_unlrolled:
-> +	/*
-> +	 * Both src and dst are aligned
-> +	 * Unrolled word copy with every 8*SZREG iteration
->  	 *
->  	 * a0 - start of aligned dst
->  	 * a1 - start of aligned src
-> @@ -97,7 +130,12 @@ ENTRY(__asm_copy_from_user)
->  	bltu	a0, t0, 2b
->  
->  	addi	t0, t0, 8*SZREG /* revert to original value */
-> -	j	.Lbyte_copy_tail
-> +
-> +	/*
-> +	 * Remaining might large enough for word_copy to reduce slow byte
-> +	 * copy
-> +	 */
-> +	j	.Lcheck_size_bulk
->  
->  .Lshift_copy:
->  
+
+--sZiS2GUEevjWNuYE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Aug 11, 2021 at 02:23:10PM +0100, Marc Zyngier wrote:
+> On Wed, 11 Aug 2021 11:41:59 +0100,
+> Thierry Reding <thierry.reding@gmail.com> wrote:
+> >=20
+> > On Tue, Aug 10, 2021 at 08:07:47PM +0100, Marc Zyngier wrote:
+> > > Hi all,
+> > >=20
+> > > [adding Thierry, Jon and Will to the fun]
+> > >=20
+> > > On Mon, 14 Jun 2021 03:25:04 +0100,
+> > > Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> > > >=20
+> > > > From: Matteo Croce <mcroce@microsoft.com>
+> > > >=20
+> > > > On RX an SKB is allocated and the received buffer is copied into it.
+> > > > But on some architectures, the memcpy() needs the source and destin=
+ation
+> > > > buffers to have the same alignment to be efficient.
+> > > >=20
+> > > > This is not our case, because SKB data pointer is misaligned by two=
+ bytes
+> > > > to compensate the ethernet header.
+> > > >=20
+> > > > Align the RX buffer the same way as the SKB one, so the copy is fas=
+ter.
+> > > > An iperf3 RX test gives a decent improvement on a RISC-V machine:
+> > > >=20
+> > > > before:
+> > > > [ ID] Interval           Transfer     Bitrate         Retr
+> > > > [  5]   0.00-10.00  sec   733 MBytes   615 Mbits/sec   88          =
+   sender
+> > > > [  5]   0.00-10.01  sec   730 MBytes   612 Mbits/sec               =
+   receiver
+> > > >=20
+> > > > after:
+> > > > [ ID] Interval           Transfer     Bitrate         Retr
+> > > > [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec    0          =
+   sender
+> > > > [  5]   0.00-10.00  sec  1.09 GBytes   940 Mbits/sec               =
+   receiver
+> > > >=20
+> > > > And the memcpy() overhead during the RX drops dramatically.
+> > > >=20
+> > > > before:
+> > > > Overhead  Shared O  Symbol
+> > > >   43.35%  [kernel]  [k] memcpy
+> > > >   33.77%  [kernel]  [k] __asm_copy_to_user
+> > > >    3.64%  [kernel]  [k] sifive_l2_flush64_range
+> > > >=20
+> > > > after:
+> > > > Overhead  Shared O  Symbol
+> > > >   45.40%  [kernel]  [k] __asm_copy_to_user
+> > > >   28.09%  [kernel]  [k] memcpy
+> > > >    4.27%  [kernel]  [k] sifive_l2_flush64_range
+> > > >=20
+> > > > Signed-off-by: Matteo Croce <mcroce@microsoft.com>
+> > >=20
+> > > This patch completely breaks my Jetson TX2 system, composed of 2
+> > > Nvidia Denver and 4 Cortex-A57, in a very "funny" way.
+> > >=20
+> > > Any significant amount of traffic result in all sort of corruption
+> > > (ssh connections get dropped, Debian packages downloaded have the
+> > > wrong checksums) if any Denver core is involved in any significant way
+> > > (packet processing, interrupt handling). And it is all triggered by
+> > > this very change.
+> > >=20
+> > > The only way I have to make it work on a Denver core is to route the
+> > > interrupt to that particular core and taskset the workload to it. Any
+> > > other configuration involving a Denver CPU results in some sort of
+> > > corruption. On their own, the A57s are fine.
+> > >=20
+> > > This smells of memory ordering going really wrong, which this change
+> > > would expose. I haven't had a chance to dig into the driver yet (it
+> > > took me long enough to bisect it), but if someone points me at what is
+> > > supposed to synchronise the DMA when receiving an interrupt, I'll have
+> > > a look.
+> >=20
+> > One other thing that kind of rings a bell when reading DMA and
+> > interrupts is a recent report (and attempt to fix this) where upon
+> > resume from system suspend, the DMA descriptors would get corrupted.
+> >=20
+> > I don't think we ever figured out what exactly the problem was, but
+> > interestingly the fix for the issue immediately caused things to go
+> > haywire on... Jetson TX2.
+>=20
+> I love this machine... Did this issue occur with the Denver CPUs
+> disabled?
+
+Interestingly I've been doing some work on a newer device called Jetson
+TX2 NX (which is kind of a trimmed-down version of Jetson TX2, in the
+spirit of the Jetson Nano) and I can't seem to reproduce these failures
+there (tested on next-20210812).
+
+I'll go dig out my Jetson TX2 to run the same tests there, because I've
+also been using a development version of the bootloader stack and
+flashing tools and all that, so it's possible that something was fixed
+at that level. I don't think I've ever tried disabling the Denver CPUs,
+but then I've also never seen these issues myself.
+
+Just out of curiosity, what version of the BSP have you been using to
+flash?
+
+One other thing that I ran into: there's a known issue with the PHY
+configuration. We mark the PHY on most devices as "rgmii-id" on most
+devices and then the Marvell PHY driver needs to be enabled. Jetson TX2
+has phy-mode =3D "rgmii", so it /should/ work okay.
+
+Typically what we're seeing with that misconfiguration is that the
+device fails to get an IP address, but it might still be worth trying to
+switch Jetson TX2 to rgmii-id and using the Marvell PHY, to see if that
+improves anything.
+
+> > I recall looking at this a bit and couldn't find where exactly the DMA
+> > was being synchronized on suspend/resume, or what the mechanism was to
+> > ensure that (in transit) packets were not received after the suspension
+> > of the Ethernet device. Some information about this can be found here:
+> >=20
+> > 	https://lore.kernel.org/netdev/708edb92-a5df-ecc4-3126-5ab36707e275@nv=
+idia.com/
+> >=20
+> > It's interesting that this happens only on Jetson TX2. Apparently on the
+> > newer Jetson AGX Xavier this problem does not occur. I think Jon also
+> > narrowed this down to being related to the IOMMU being enabled on Jetson
+> > TX2, whereas Jetson AGX Xavier didn't have it enabled. I wasn't able to
+> > find any notes on whether disabling the IOMMU on Jetson TX2 did anything
+> > to improve on this, so perhaps that's something worth trying.
+>=20
+> Actually, I was running with the SMMU disabled, as I use the upstream
+> u-boot provided DT. Switching to the kernel one didn't change a thing
+> (with passthough or not).
+>=20
+> > We have since enabled the IOMMU on Jetson AGX Xavier, and I haven't seen
+> > any test reports indicating that this is causing issues. So I don't
+> > think this has anything directly to do with the IOMMU support.
+>=20
+> No, it looks more like either ordering or cache management. The fact
+> that this patch messes with the buffer alignment makes me favour the
+> latter...
+>=20
+> > That said, if these problems are all exclusive to Jetson TX2, or rather
+> > Tegra186, that could indicate that we're missing something at a more
+> > fundamental level (maybe some cache maintenance quirk?).
+>=20
+> That'd be pretty annoying. Do you know if the Ethernet is a coherent
+> device on this machine? or does it need active cache maintenance?
+
+I don't think Ethernet is a coherent device on Tegra186. I think
+Tegra194 had various improvements with regard to coherency, but most
+devices on Tegra186 do need active cache maintenance.
+
+Let me dig through some old patches and mailing list threads. I vaguely
+recall prototyping a patch that did something special for outer cache
+flushing, but that may have been Tegra132, not Tegra186. I also don't
+think we ended up merging that because it turned out to not be needed.
+
+Thierry
+
+--sZiS2GUEevjWNuYE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmEVMC8ACgkQ3SOs138+
+s6F9Yw/9E9gZHvI7VhZn9baPhe4hNuP43xeTAXU8P1lT9PKH/foYi9Wvq244k/C/
+5GTFzB0EARGYN7ByWoiw1slb58kjlDKPYyTwAvRcvxG8Rv6ujAoXI2cDtMjRla8o
+ues+vQL2QEdsIXsdccE65cg/zOO47HHVL311oQJSZClILL62+uPaht2m75NY4HbW
+PFjvfx86W3+5UinKF/cSZT2HmHtZRE1RUMBZZWHMdv17u5B5GMRmv49YVsY2RyQ9
+r+7Gank/kBcRbT34e5mwe0qg0PwkZmKyIV/7DSpuhKQ5u1DsA3mY33sXDczFvO2Q
+zuqPoRWQmoq89EZscGmuiUt6CNOL/8hRWlUQb83QYa2gOKLZYKctwrXRLCyo6Auq
+0au9vQO6kkEEsi6k+RF+6ou3K69QDjhcM8nMb3fWEWz24CXqRJ1on/ZyGfMejxjS
+ZpPSKWBqfC3Tf0GyZSTv8T8tgWhRJ1xrKnxz/BcQigglNZEmvvU6dZ2bOgc3vHfZ
+P4DBK+lEbp9qpxiPoTyX/1rZbwIkeKIatHeKH5sPST/bcT7rFgo5LTv6ImwOWOmC
+3BfwJdjQ9O5pDBi8FGDUSBwqAtRj0OQrcvFVHQhLsW7gD910COC73EFxiPOCRlfU
+ihVfqq+ZP+LJmRXLcMKrz4E17qFfNGmxLSrcMgNgAWDq6GxI87w=
+=szNp
+-----END PGP SIGNATURE-----
+
+--sZiS2GUEevjWNuYE--
+
+
+--===============5741932655954818943==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5741932655954818943==--
+
