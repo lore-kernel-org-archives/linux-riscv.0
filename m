@@ -2,72 +2,85 @@ Return-Path: <SRS0=kDER=NE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 11AF4C4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Aug 2021 01:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3836C432BE
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Aug 2021 02:29:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C660610A4
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Aug 2021 01:47:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9C660610A4
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 79D5560F35
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Aug 2021 02:29:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 79D5560F35
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=03EeJP4IklAF6stUu0WoIfysZRnk5mgv4ISFV5d6tqw=; b=xkYJL8J5xyI7IwWPgCMpVtzXhP
-	m84lU/QZkYSL5IAMBx7jeqUS+eHzIWXEk41Fi7lU7BdqrvTS15Vul3R52yDGj98tgVrHtTJRw3Sun
-	IKb3Mb0xwtxOOilmTUvCWBDI6ZwHJZgkx8dj39DTxUUeMjBHelwu5M/Ng7msHmNyLGJuAhX/Ae9dP
-	2D/Yz4AMTmFqzbvwy+3pG0HgB9x5krrbKHqPtKyQhKM4ZDTfvWNG87rmDNHodd0LIUJRePTQoCUnA
-	kbdl4WT8dNE663IMYIl6M5qtl5HQtZzVfWyavi9hvLkf1h+pwzgdWmF9p9yBmfoEHVLhIVhw3Km4k
-	sa7ILdgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8IiswS8n6p3GpgUjo98ojKIR+iLeSRjo9QoRp93sp8w=; b=X0L1CBtVJF5YCX
+	8uAFqBcDBrERd6VPzpCajO8rUp/ex+FAFAX261ghWf5WWWz8p2wp82RkyEiH7Lyyd91qDFvlPM9UF
+	iAIUmGfXeKjJCPVzi3VqF4IvXnLVz8bKVxFDNi6EE+bPewklCgfAFnq9VF26tsesMXrFLl0aGJx6z
+	kEPO5fbVtM47+RALDFuzTBhhc/o983UI0NWOtwkcm3biobpUr+n88g5dZkcPjfKZBPQknGttKFurb
+	v2JRxaFfCTKoYVjsehxRAVkB9yIvj1ZgAWrxZJc5X3FCdyQ4VI/jToXcuc+bdoH0CT93FGBovNAR9
+	Zn4zUUKtgsqy/fyYSo6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mEMHo-00BYkL-Oj; Fri, 13 Aug 2021 01:47:04 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1mEMw1-00BaHV-A6; Fri, 13 Aug 2021 02:28:37 +0000
+Received: from bilbo.ozlabs.org ([203.11.71.1] helo=ozlabs.org)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mEMHX-00BYk1-GP
- for linux-riscv@lists.infradead.org; Fri, 13 Aug 2021 01:46:49 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.54])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Gm5xt0rJ5zYmt0;
- Fri, 13 Aug 2021 09:46:26 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Fri, 13 Aug 2021 09:46:43 +0800
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Fri, 13 Aug 2021 09:46:42 +0800
-Subject: Re: [PATCH] riscv: Improve stack randomisation on RV64
-To: <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmerdabbelt@google.com>,
- "Alexandre Ghiti" <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>
-References: <20210812114702.44936-1-wangkefeng.wang@huawei.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <cd7f3cf2-6e3e-f142-c606-001fc0bd26e9@huawei.com>
-Date: Fri, 13 Aug 2021 09:46:42 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1mEMvl-00BaG7-7o; Fri, 13 Aug 2021 02:28:26 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 4Gm6st5f1Mz9t23;
+ Fri, 13 Aug 2021 12:28:02 +1000 (AEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+ s=201909; t=1628821695;
+ bh=jlHWtsgYmZ30B2WJN0Jw5XD8BZs0Z7qm5rWOQviWRxQ=;
+ h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+ b=iQqdFqNsp0RRZI3qzmEc8DvXwIl+xP6sqn6MkAu1yNyVEEqSByPkt7fyHM+X9Mkc1
+ H5RsYWUWRX8EIeuJJ4pqVwfnttonPEDoUI6iLblU3xQm7I/dYs830ptXGtqFnm8msw
+ bQaEGG6Y/DzH1CN1Mvvb00KGwJKu//Dz61HaxwsLpsn/iRop+KxRmApjk7hRSxfG8F
+ cG79DxTOVkrHCCl0Z+JjvfFI1Us2ePvxaJcd/q1n8XQPkD29Snt/5eadLOKqEw4s5I
+ wyuWWaQ6HM0csDFNLWQbGqs6kWuET5VesHnFV3cwA2hGTS/6dU1L+U6SqYdZgv1Mhm
+ jRnaImnD2vgxw==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-hexagon@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-um@lists.infradead.org, linux-mm@kvack.org
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Vineet Gupta
+ <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, Ley Foon Tan <ley.foon.tan@intel.com>, Jonas
+ Bonn <jonas@southpole.se>, Stefan Kristiansson
+ <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
+ Deller <deller@gmx.de>, Benjamin
+ Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
+ <paulus@samba.org>, Paul Walmsley <palmerdabbelt@google.com>, Jeff Dike
+ <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Andrew Morton
+ <akpm@linux-foundation.org>
+Subject: Re: [PATCH -next] trap: Cleanup trap_init()
+In-Reply-To: <20210812123602.76356-1-wangkefeng.wang@huawei.com>
+References: <20210812123602.76356-1-wangkefeng.wang@huawei.com>
+Date: Fri, 13 Aug 2021 12:27:58 +1000
+Message-ID: <87czqim635.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-In-Reply-To: <20210812114702.44936-1-wangkefeng.wang@huawei.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210812_184647_770886_B4E5C5B4 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20210812_192822_010063_A82A6583 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +92,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+cc Jonathan
-
-On 2021/8/12 19:47, Kefeng Wang wrote:
-> 54c95a11cc1b ("riscv: make mmap allocation top-down by default") support
-> ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT, which will select ARCH_HAS_ELF_RANDOMIZE
-> from commit e7142bf5d231 ("arm64, mm: make randomization selected by generic
-> topdown mmap layout"), so riscv has support ELF ASLR feature, update the
-> documentation.
+Kefeng Wang <wangkefeng.wang@huawei.com> writes:
+> There are some empty trap_init() in different ARCHs, introduce
+> a new weak trap_init() function to cleanup them.
 >
-> And enlarge STACK_RND_MASK from 8M to 1G to increase stack randomisation
-> on RV64 like x86/arm64 does.
->
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: Vineet Gupta <vgupta@kernel.org>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Ley Foon Tan <ley.foon.tan@intel.com>
+> Cc: Jonas Bonn <jonas@southpole.se>
+> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> Cc: Stafford Horne <shorne@gmail.com>
+> Cc: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+> Cc: Paul Mackerras <paulus@samba.org>
+> Cc: Paul Walmsley <palmerdabbelt@google.com>
+> Cc: Jeff Dike <jdike@addtoit.com>
+> Cc: Richard Weinberger <richard@nod.at>
+> Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
 > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->   Documentation/features/vm/ELF-ASLR/arch-support.txt | 2 +-
->   arch/riscv/include/asm/elf.h                        | 3 +++
->   2 files changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/features/vm/ELF-ASLR/arch-support.txt b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> index 99cb6d7f5005..2949c99fbb2f 100644
-> --- a/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> +++ b/Documentation/features/vm/ELF-ASLR/arch-support.txt
-> @@ -22,7 +22,7 @@
->       |    openrisc: | TODO |
->       |      parisc: |  ok  |
->       |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->       |        s390: |  ok  |
->       |          sh: | TODO |
->       |       sparc: | TODO |
-> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> index f4b490cd0e5d..f53c40026c7a 100644
-> --- a/arch/riscv/include/asm/elf.h
-> +++ b/arch/riscv/include/asm/elf.h
-> @@ -42,6 +42,9 @@
->    */
->   #define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
->   
-> +#ifdef CONFIG_64BIT
-> +#define STACK_RND_MASK		(0x3ffff >> (PAGE_SHIFT - 12))
-> +#endif
->   /*
->    * This yields a mask that user programs can use to figure out what
->    * instruction set this CPU supports.  This could be done in user space,
+>  arch/arc/kernel/traps.c      | 5 -----
+>  arch/arm/kernel/traps.c      | 5 -----
+>  arch/h8300/kernel/traps.c    | 4 ----
+>  arch/hexagon/kernel/traps.c  | 4 ----
+>  arch/nds32/kernel/traps.c    | 5 -----
+>  arch/nios2/kernel/traps.c    | 5 -----
+>  arch/openrisc/kernel/traps.c | 5 -----
+>  arch/parisc/kernel/traps.c   | 4 ----
+>  arch/powerpc/kernel/traps.c  | 5 -----
+
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+
+cheers
 
 _______________________________________________
 linux-riscv mailing list
