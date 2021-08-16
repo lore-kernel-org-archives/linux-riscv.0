@@ -2,87 +2,178 @@ Return-Path: <SRS0=iJWH=NH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67681C4338F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 12:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 77AAAC4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 12:54:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B4B163260
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 12:27:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2B4B163260
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 310B263279
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 12:54:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 310B263279
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RmAa5RacQjCZku6AFtM5yNj3XG71Lcubd0Wj51isrx8=; b=iY4V4dAE3DHiKY
-	6SW51U1CeJ40jnZxIphFgaqYw5eo/O+EC/FeliPoOZn9RvVvCdbwj93ZrUOh1c9wxTzP8gI8kom67
-	90XX6mJttMnOyxMqY5k4JJ59Z+K+X+62xoCrcAYl+6mW77LFTMaJkZAkGLkqzmNCusb1d0j+Uul6O
-	Rjox7k3myy/vr1yL2q6XqQmBOfDpD03bxYk0VlE0EnV+fOtP9VOhAYnq/4KtUie/2sIOz+6wHEfdY
-	74UVNKVzOlT7kUe2mJbgbn52TPec2np1OvjkmY2aRISCQdnlFKrWKhkQWdcPHsTeB2XFJ8IthSsa+
-	ax/exQClHN3lSHS+E9CA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=L0u9RxE5fN8PClcOMfdeyM4WfQHdlbjkARTxu0plQtI=; b=m8JaA1Nvnvv1Qi
+	9Ll2adtxEPwgX6y8dlkz4ZBYB4tIUVvJKJN84mJ5J/LybObe43/S36kkbp6cFb7rS5+G+w+b3u5IF
+	IJn7FKW/tLimrwNyeIMJ3igj84S/LTP37q+bhTYSLXVzuPmYm5e6U9MsYbRzc+VV6GM54s3ffKRwG
+	dqEvC6BOAinm3qZf+jTJQTuRjnw2W8y7laPjf6DqTmCt2FAw1SigwOGYd6eF0phCSZaREj91PX5il
+	0ybNiTCDilm5UDsBz7dD0KzTNRuL3XmNja/seqVdzBgDruyJs41xDVUNx8R30X0l0UlwHSsmkYFXy
+	VPjxpzcW5O+85kB/3EXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mFbhh-00GwLt-Up; Mon, 16 Aug 2021 12:26:57 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mFc85-00GzjQ-PH; Mon, 16 Aug 2021 12:54:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mFbhQ-00GwIr-Bx; Mon, 16 Aug 2021 12:26:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id E14C661C19;
- Mon, 16 Aug 2021 12:26:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1629116796;
- bh=oKGepH+V+CuRpZMZ1SznskgkAaw7iXR+hlH95oGa2O8=;
- h=From:To:Cc:Subject:Date:From;
- b=RilaEPxyYfwaa78F2JInfDC366AkDMXVuYmme2b614jAkTLbko12psRUTDlW2ps7s
- 8ZcKxbQjkgJUPFCRnkxEG6a/9T9bKWwRvL+JIi2IdWYERfb+mwAEthxwWbjeVRpCGy
- nDwgxxWC933fwe+2cVj0YDuOGC+Vi3gVxta8vs5IK5Q4DGC3JgAiOnepvSF/AKv9n7
- oDHfe74RCLgHJ2q5iF+vjJVEIvSetNADYJrWFYyf+M2RXFUMrtW/hb0kgCvsdAGPio
- 9bs5z+bUf/sljHxaa0YUN2HaKLSUkexZvF9UvdmznPF4oaKNE6qMPLM6Xp10UuTS92
- lYRzzL2c745pg==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Andy Lutomirski <luto@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Frank Rowand <frowand.list@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Guenter Roeck <linux@roeck-us.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>, Len Brown <lenb@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
- kvmarm@lists.cs.columbia.edu, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- x86@kernel.org, "Kirill A . Shutemov" <kirill.shtuemov@linux.intel.com>,
- "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Nick Kossifidis <mick@ics.forth.gr>
-Subject: [PATCH v5] memblock: make memblock_find_in_range method private
-Date: Mon, 16 Aug 2021 15:26:22 +0300
-Message-Id: <20210816122622.30279-1-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
+ id 1mFc7z-00Gzi0-R7
+ for linux-riscv@lists.infradead.org; Mon, 16 Aug 2021 12:54:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1629118447; x=1660654447;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=OYLcIh/TLtJaPM2ac05g739DX7ZuUEUJFshrLsE/M34=;
+ b=FGDH8xRgUfq1se/5zFpcdE1xOXa5w28DZU44u/y7hTdvg1JKBH/eEoiT
+ 7HFvY3CtZ28NIiVU+0hP6bEBGlbDsEKUZF5MRCn1mxVsakeuvwCgbrfKy
+ g+mV6Vogesf51Vmyq6jOlZNNc3uvT9KIdzgfkornvteBIq6Dw5NomUKkN
+ JHlqYuwNtrh6Htk2t98LWyWfGUtS17W6HGKlFxNb26xEPGyN0VUlHb8yx
+ uF9QBNfXkPi2WhPX2XxGw/cp6uYtejyYkqY93zxr/MrWc+pD/vK3M8MkY
+ SczKrYhOe/N677ntHpr41HIgpDbXYvIIGltBP1l8NcwJGJxlYjZYgXIjQ A==;
+IronPort-SDR: PzWapLCzJfD8TTJCp/EaabWhg32ujco4u1oMyF/msk2P5fFLfKBYv0dVdNlVKejKo/DSV8TYvO
+ XTIfkHDln9+re+/ZtwKox1wq+KTx/7M5JGC41a04XkQlfW72i0I023wiL9BZbhMhUWiQzKIW/0
+ /IBTH7KZC3Pwi+hKHAZ22ZVWPgEvthtWqdoofcl+fSyQxM39eZ2AI6FLBBgACY0zGeQIl2q+gw
+ s5TeQGvIopw6ztnWPM5NQKeLtiOrBuutPTUFdDkNlaPzzVzqzKPNOWkAootKqsrj/jt8MDC5Vv
+ 3HLHunUQLJZXgMUPMyMNa0Yh
+X-IronPort-AV: E=Sophos;i="5.84,324,1620716400"; d="scan'208";a="140255809"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 16 Aug 2021 05:54:04 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.14; Mon, 16 Aug 2021 05:54:04 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.71) with Microsoft SMTP Server
+ (version=TLS1_2, 
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.14 via Frontend
+ Transport; Mon, 16 Aug 2021 05:54:04 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=gmhkRuatxTh6Ieb/9ioF/zwP2BxC1rDoyCbetTwB79bkDepQ8hZqsc9GLKYEYin96szrTyraI1Cnm7dmwdR+OYlCGLC7Gzc5ruDx9ku8QFHZkBpyUHft8g7fnBMlhCwXyrwe1oY+ImZKQxbBR31yxXtIrzVyNi53emgfr6Ii7z9Mp1vI0WhTDGHNC/ccun3ou+OdWbrThtB9iSW/EEgkgYofXhAi2xnx1fV2mjV5Z6+0NHfjjNtNdsyfAQsw33e28rPd5gieV+K1cl4HcW7s9fpkLLv6FEDjZ5QPld/cFlnSaC+I1pX4S5cWaFdCqUDVRfl7O4xv16aiQ3a2O2drdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OYLcIh/TLtJaPM2ac05g739DX7ZuUEUJFshrLsE/M34=;
+ b=AO+RvQkx2kraneuEE7G1ENHpr9cjyn5EGMVBCiN7/WhEDP6WLwenMxFCSLSXUj5BNbHpasL/ckO+s+GYE5FeA1ZmZnCNjInuWAgcfWkeANF+WFF9fYmLiDvDut803ndU0G9AOZSMgqvXboyau4sFPKTVFs+RTD5g8EJ1DF/sePIGNBSXa9KCHMqk45a7y43IPP5+ka5Lbrt03KErt2X7rKw/P8ZM4s55jG4bnqwk4DTOc/DBbmkY+vjf+IFWMY4P8jJ4DwZ9sqosV9TNznA1Kxgehm3p0fpT+EwAJJKp2ORfIWZmb/w6Sm8NGuF7rUzMo5s+is5JHh+zVCgsDoR+9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OYLcIh/TLtJaPM2ac05g739DX7ZuUEUJFshrLsE/M34=;
+ b=V9xyAhjxr+T1w+1FFEadizlgnwET9ryRZDrmuAoa3ppjc2MPoJc8PRf7UTHLxNe2YrwqK0t+dQ9Uji0zXwGIQ63zwUo4FSBGWoOLg8r1YJsjTCJo1vN55Xk9JRfJWVZqVE9vZKkKeaaB4b4KUayL4I26oL/TWfvnxSWQUfc9QMw=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by MWHPR1101MB2336.namprd11.prod.outlook.com (2603:10b6:300:75::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4415.16; Mon, 16 Aug
+ 2021 12:54:03 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::e821:ccab:5d1e:a168]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::e821:ccab:5d1e:a168%8]) with mapi id 15.20.4415.023; Mon, 16 Aug 2021
+ 12:54:01 +0000
+From: <Conor.Dooley@microchip.com>
+To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
+ <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <j.neuschaefer@gmx.net>, <sfr@canb.auug.org.au>
+CC: <Lewis.Hanly@microchip.com>, <Cyril.Jean@microchip.com>,
+ <Daire.McNamara@microchip.com>, <atish.patra@wdc.com>, <anup.patel@wdc.com>,
+ <david.abdurachmanov@gmail.com>
+Subject: Re: [PATCH v9 4/5] soc: add polarfire soc system controller
+Thread-Topic: [PATCH v9 4/5] soc: add polarfire soc system controller
+Thread-Index: AQHXaQoB8UnFxEPoMkOk7mwKbr+HRqt2aXwA
+Date: Mon, 16 Aug 2021 12:54:01 +0000
+Message-ID: <fdf085ef-9c88-ad3a-6033-f5a5ce48b7aa@microchip.com>
+References: <20210624150144.11590-1-conor.dooley@microchip.com>
+In-Reply-To: <20210624150144.11590-1-conor.dooley@microchip.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 4d4404a2-ac93-498f-070a-08d960b4eba3
+x-ms-traffictypediagnostic: MWHPR1101MB2336:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MWHPR1101MB233604FBFD3CE40635CB7BDF98FD9@MWHPR1101MB2336.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:8273;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: j+jnUcvTFlRDO9jvMQ9nBAF/XjnJLQSaUv2fFMV68k+vwSYwrL/pBTomeH1JADMYwv/m2CyXkK4BzYHQMp6/cHWAme+V9Gmca1cfH9WOZq6KQ6rYG/P64iRZwwg4OL69rXa9SspQj6VVvN4zUGgJwF6WuUTVP9QdKZXdQBqTKoTv5rlUzSqtlfW1OibU4ptBBcVLuTNanlkn9LlP0ohh8OhBmr6iUK7mFF3iPMmAJNYQVxsl4D6MA1i0ri9cGtD07EMgFgsuC7WUxb9vEisIEd0Aoa3/lt4Ch62P+XAeX1pciZVvzROZ6dgT6ZeckO9tBWSwQv+q1/0X+aXUm3iNGwNT3sbZbzXrxRSkbWeTwvKEqe+ts9N7/jhykSvlKvKAcy0ngvcUfZYRsqdNly2kuo2N5RbVjoQA3z59ZUwknawc53uz7t/3pUTFXDoreuzxCw/uph0gJnlnF3lLwXdKibPqd/QbzoNYdVrdKVr5DDezxEMdmGHfgz5jZRcEMRmzyUqVpwttxAipXxehbYTOXrxk2adcaHfuYiGiigqsVqOWbvcjW2sYfR5rmWhGgeSqMxo5L10f1ZGx0cLdFxtlzhDcTzL2FvtOKfCsNUSH+cKCE3qS8FdITmNXWobao2Kq2WQC8Ykcwbpsa5N9bsdJTH/2QJnruGxsJ7U6h7e5aqRcRvqK+gXCalt0zqdRfKuSyEKEFOnZ3k2LOPrTJXi0uRlPA9YeI8Ed+AG3/gi0+/6wDG/8Owcx3QyhJFLdbK/311bAo7z756hnFfUJf2a+P5XSBtW+BjSWJgd6dP1TQH0=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(346002)(376002)(136003)(39860400002)(366004)(396003)(53546011)(2616005)(6506007)(316002)(83380400001)(71200400001)(31696002)(38070700005)(26005)(186003)(86362001)(38100700002)(122000001)(8936002)(31686004)(66556008)(5660300002)(66476007)(4326008)(66946007)(36756003)(2906002)(110136005)(64756008)(7416002)(478600001)(66446008)(8676002)(76116006)(54906003)(6512007)(6486002)(921005)(91956017)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?d2JGaHU0L3hTMVhudm8wano3aEZDUGZTenBZRUY0d0dCbXUybUtRTk9tbWxF?=
+ =?utf-8?B?U2dOSHJ2RmN3TGROZ0FDWjZOckNtZVlidTY0OEJ0QXlrSjJkNUFCNkZQOHZm?=
+ =?utf-8?B?c1FDR1ZES2NLVUhWQ0tpbEtWMUtwdEE5eXVNWVVkQStrNUdmT29WVXdQVzNu?=
+ =?utf-8?B?Yzhkc1N1anFvOEUvUUZFdlYvZmk3WlVEMlNQYjJKMXVxR2Y4NTBDaVhoZTJo?=
+ =?utf-8?B?VnlsMHZoeFJRZlZXUjBHWGNQYXNYZVBNWHlEbzdvczNnZEhuWUV1VXkwd0h5?=
+ =?utf-8?B?TXJBb2VvcHFkcDZEMmhMT3NNalRoL09ReUNqc2s3V3JZcnh3SWFlQ3g2YXdE?=
+ =?utf-8?B?b3RNU1hHdkU5cVNEYmxkWjFJWHE4aXJhSVF5Y3E4SEdYR1hqdDcvZkIwMHVY?=
+ =?utf-8?B?NFZrQXFPdzNiTGJmRC9ETzM3aGxZK2psK2pJWTU4NzIyYWYyb1poK1JualJ6?=
+ =?utf-8?B?aDVXdFBCVi9xNGhFSnRLMEthMFExZ3pDN3V1K00zM1l2SkFaVm5MSU85M1E4?=
+ =?utf-8?B?QXRvWkkzMmZSV3dBTVJydDhQelNEOEd0TU4xcmJYeSs3MFh0QUZDTEJqVmhp?=
+ =?utf-8?B?K2Z5NFQ2NE9zcFlhdXFQVjNJZE9KNDl6NmpLcVpiR21WWm1PN0Y0OE4yY1ds?=
+ =?utf-8?B?NkFZckU1VENJdEkwY1ZvbWgwSCtZcmZ0bEluM0hacHV1bmd0cU56bHpsMkVO?=
+ =?utf-8?B?Vlh5UGRqZmdKU2c1SWFuUTFOdnA5c3VlajlVRVZOM0NDRENFQ3VtaE5KbUpJ?=
+ =?utf-8?B?Y3FFSDR3NkxMT2U0ZkhsZk9jbjJGeC83T05Ecyt4UU12L3MxNml0NDdxYTJL?=
+ =?utf-8?B?YUdWdVE1WmdsUDUwVnlmYjFicUpLRTgzOFFVRjhpRVo0RGVPaW1hZWpmdlN2?=
+ =?utf-8?B?RnJwNEF1VkxhU2NlaDVpaTNpTndjcjRySS8rMURDN3BJWWJXWXIrNDVTaDJK?=
+ =?utf-8?B?d3lRdnpiV3ptS2xBRGhoODFpUlBOSDJrNFc1MHBsTTREcnBCbS9qdTNyamhi?=
+ =?utf-8?B?UzZZQXBuWkhaVTk4NGJua2tiaVNJZmZJR2g3TFByMHBmV2xVb2hsVVM3SFZ0?=
+ =?utf-8?B?NllKYTZhRStYRTBoMFRvSDJXMG44aXN2THZYdEdSSkJJaFFhY1FrbXR3YStP?=
+ =?utf-8?B?T29BMDJiNE9oNjNPMXJlMnVvU1dtTGhFZ3N2ZE9yMDdnazEyWDNPN2NCd2p1?=
+ =?utf-8?B?ZEkwVU9KTlBNSzVmaTFmeXFGTjJQWFlLc0NTWFBwWk91SjJtdVVvMnU4UDhk?=
+ =?utf-8?B?TnhhNS9VaVdHUzdjZW5XNWE1K05FWW05LzZvSFR2dVltd2FYVi9zeGp0WTJs?=
+ =?utf-8?B?b2V4bDE5VXZ2RGhXejRFTHNTVk1FQ0VxZ0h3UGFqdjlZSVpveGJtT3JNZlEz?=
+ =?utf-8?B?WmdHQitaTWJxOUNnNTYyRlZub0dZS3ZjUWIyeWZwZzMwK1lRV1doUlBPV241?=
+ =?utf-8?B?UThxZXkxdGdwRXhSamRxRkpidmNFNTN1Q2JpeHdXcTd1NTRrdU04VFVKVHgy?=
+ =?utf-8?B?R1hrMUd4NXJvZWlBVi9yWk5SeVRTZlIwVUdYMXhybDJGclo1U2N5ekZFSEtE?=
+ =?utf-8?B?ZU9jRHBRTG5KdEZ2Y0ZicERocm9IdGI3S1BPY2MwRzdOYitaallhSG1XZm4w?=
+ =?utf-8?B?S1hmODQ5OXNvV0JiTXQ2Y0NRMm1KYUQ1L21sTjNmMmdCWGUvTlk4S012Ynpy?=
+ =?utf-8?B?MU91d3M2LzBkM2VEZnhEdEtUc0VMaVJtQ2N5SStWSWE3VlRmelNGTXlTei9I?=
+ =?utf-8?Q?S637/hlnW3nkR3JXO8=3D?=
+Content-ID: <0BD50CA77B548F4D9D6FC322624B2C8E@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d4404a2-ac93-498f-070a-08d960b4eba3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Aug 2021 12:54:01.2568 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OAf61PIxysWFTmfPDq1qvr/mM6GcqlAkHJczUUHR2qi8EulEylldozgPpNqf/kZpg3DBkOT6CTaYcinPlWYuq0VpFwLXl523UHScGeYfQz0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR1101MB2336
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210816_052640_473429_FACF7CEB 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20210816_055407_943966_5F232DA5 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,547 +190,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
-
-There are a lot of uses of memblock_find_in_range() along with
-memblock_reserve() from the times memblock allocation APIs did not exist.
-
-memblock_find_in_range() is the very core of memblock allocations, so any
-future changes to its internal behaviour would mandate updates of all the
-users outside memblock.
-
-Replace the calls to memblock_find_in_range() with an equivalent calls to
-memblock_phys_alloc() and memblock_phys_alloc_range() and make
-memblock_find_in_range() private method of memblock.
-
-This simplifies the callers, ensures that (unlikely) errors in
-memblock_reserve() are handled and improves maintainability of
-memblock_find_in_range().
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Kirill A. Shutemov <kirill.shtuemov@linux.intel.com>
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>	# ACPI
-Acked-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Acked-by: Nick Kossifidis <mick@ics.forth.gr>			# riscv
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>		# arm64
----
-v5:
-* restore the original behaviour on x86 with addition of more elaborate
-  comment; I will address the issue in memory_map_top_down() in a separate
-  series.
-
-v4: https://lore.kernel.org/lkml/20210812065907.20046-1-rppt@kernel.org
-* Add patch that prevents the crashes reported by Guenter Roeck on x86/i386
-  on QEMU with 256M or 512M of memory and EFI boot enabled.
-* Add Acked-by and Reviewed-by, thanks everybidy!
-
-v3: https://lore.kernel.org/lkml/20210803064218.6611-1-rppt@kernel.org
-* simplify check for exact crash kerenl allocation on arm, per Rob
-* make crash_max unsigned long long on arm64, per Rob
-
-v2: https://lore.kernel.org/lkml/20210802063737.22733-1-rppt@kernel.org
-* don't change error message in arm::reserve_crashkernel(), per Russell
-
-v1: https://lore.kernel.org/lkml/20210730104039.7047-1-rppt@kernel.org
-
-
- arch/arm/kernel/setup.c           | 20 +++++---------
- arch/arm64/kvm/hyp/reserved_mem.c |  9 +++----
- arch/arm64/mm/init.c              | 36 ++++++++-----------------
- arch/mips/kernel/setup.c          | 14 +++++-----
- arch/riscv/mm/init.c              | 44 ++++++++++---------------------
- arch/s390/kernel/setup.c          | 10 ++++---
- arch/x86/kernel/aperture_64.c     |  5 ++--
- arch/x86/mm/init.c                | 23 ++++++++++------
- arch/x86/mm/numa.c                |  5 ++--
- arch/x86/mm/numa_emulation.c      |  5 ++--
- arch/x86/realmode/init.c          |  2 +-
- drivers/acpi/tables.c             |  5 ++--
- drivers/base/arch_numa.c          |  5 +---
- drivers/of/of_reserved_mem.c      | 12 ++++++---
- include/linux/memblock.h          |  2 --
- mm/memblock.c                     |  2 +-
- 16 files changed, 81 insertions(+), 118 deletions(-)
-
-diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-index f97eb2371672..284a80c0b6e1 100644
---- a/arch/arm/kernel/setup.c
-+++ b/arch/arm/kernel/setup.c
-@@ -1012,31 +1012,25 @@ static void __init reserve_crashkernel(void)
- 		unsigned long long lowmem_max = __pa(high_memory - 1) + 1;
- 		if (crash_max > lowmem_max)
- 			crash_max = lowmem_max;
--		crash_base = memblock_find_in_range(CRASH_ALIGN, crash_max,
--						    crash_size, CRASH_ALIGN);
-+
-+		crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
-+						       CRASH_ALIGN, crash_max);
- 		if (!crash_base) {
- 			pr_err("crashkernel reservation failed - No suitable area found.\n");
- 			return;
- 		}
- 	} else {
-+		unsigned long long crash_max = crash_base + crash_size;
- 		unsigned long long start;
- 
--		start = memblock_find_in_range(crash_base,
--					       crash_base + crash_size,
--					       crash_size, SECTION_SIZE);
--		if (start != crash_base) {
-+		start = memblock_phys_alloc_range(crash_size, SECTION_SIZE,
-+						  crash_base, crash_max);
-+		if (!start) {
- 			pr_err("crashkernel reservation failed - memory is in use.\n");
- 			return;
- 		}
- 	}
- 
--	ret = memblock_reserve(crash_base, crash_size);
--	if (ret < 0) {
--		pr_warn("crashkernel reservation failed - memory is in use (0x%lx)\n",
--			(unsigned long)crash_base);
--		return;
--	}
--
- 	pr_info("Reserving %ldMB of memory at %ldMB for crashkernel (System RAM: %ldMB)\n",
- 		(unsigned long)(crash_size >> 20),
- 		(unsigned long)(crash_base >> 20),
-diff --git a/arch/arm64/kvm/hyp/reserved_mem.c b/arch/arm64/kvm/hyp/reserved_mem.c
-index d654921dd09b..578670e3f608 100644
---- a/arch/arm64/kvm/hyp/reserved_mem.c
-+++ b/arch/arm64/kvm/hyp/reserved_mem.c
-@@ -92,12 +92,10 @@ void __init kvm_hyp_reserve(void)
- 	 * this is unmapped from the host stage-2, and fallback to PAGE_SIZE.
- 	 */
- 	hyp_mem_size = hyp_mem_pages << PAGE_SHIFT;
--	hyp_mem_base = memblock_find_in_range(0, memblock_end_of_DRAM(),
--					      ALIGN(hyp_mem_size, PMD_SIZE),
--					      PMD_SIZE);
-+	hyp_mem_base = memblock_phys_alloc(ALIGN(hyp_mem_size, PMD_SIZE),
-+					   PMD_SIZE);
- 	if (!hyp_mem_base)
--		hyp_mem_base = memblock_find_in_range(0, memblock_end_of_DRAM(),
--						      hyp_mem_size, PAGE_SIZE);
-+		hyp_mem_base = memblock_phys_alloc(hyp_mem_size, PAGE_SIZE);
- 	else
- 		hyp_mem_size = ALIGN(hyp_mem_size, PMD_SIZE);
- 
-@@ -105,7 +103,6 @@ void __init kvm_hyp_reserve(void)
- 		kvm_err("Failed to reserve hyp memory\n");
- 		return;
- 	}
--	memblock_reserve(hyp_mem_base, hyp_mem_size);
- 
- 	kvm_info("Reserved %lld MiB at 0x%llx\n", hyp_mem_size >> 20,
- 		 hyp_mem_base);
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 8490ed2917ff..0bffd2d1854f 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -74,6 +74,7 @@ phys_addr_t arm64_dma_phys_limit __ro_after_init;
- static void __init reserve_crashkernel(void)
- {
- 	unsigned long long crash_base, crash_size;
-+	unsigned long long crash_max = arm64_dma_phys_limit;
- 	int ret;
- 
- 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
-@@ -84,33 +85,18 @@ static void __init reserve_crashkernel(void)
- 
- 	crash_size = PAGE_ALIGN(crash_size);
- 
--	if (crash_base == 0) {
--		/* Current arm64 boot protocol requires 2MB alignment */
--		crash_base = memblock_find_in_range(0, arm64_dma_phys_limit,
--				crash_size, SZ_2M);
--		if (crash_base == 0) {
--			pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
--				crash_size);
--			return;
--		}
--	} else {
--		/* User specifies base address explicitly. */
--		if (!memblock_is_region_memory(crash_base, crash_size)) {
--			pr_warn("cannot reserve crashkernel: region is not memory\n");
--			return;
--		}
-+	/* User specifies base address explicitly. */
-+	if (crash_base)
-+		crash_max = crash_base + crash_size;
- 
--		if (memblock_is_region_reserved(crash_base, crash_size)) {
--			pr_warn("cannot reserve crashkernel: region overlaps reserved memory\n");
--			return;
--		}
--
--		if (!IS_ALIGNED(crash_base, SZ_2M)) {
--			pr_warn("cannot reserve crashkernel: base address is not 2MB aligned\n");
--			return;
--		}
-+	/* Current arm64 boot protocol requires 2MB alignment */
-+	crash_base = memblock_phys_alloc_range(crash_size, SZ_2M,
-+					       crash_base, crash_max);
-+	if (!crash_base) {
-+		pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
-+			crash_size);
-+		return;
- 	}
--	memblock_reserve(crash_base, crash_size);
- 
- 	pr_info("crashkernel reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
- 		crash_base, crash_base + crash_size, crash_size >> 20);
-diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
-index 23a140327a0b..f979adfd4fc2 100644
---- a/arch/mips/kernel/setup.c
-+++ b/arch/mips/kernel/setup.c
-@@ -452,8 +452,9 @@ static void __init mips_parse_crashkernel(void)
- 		return;
- 
- 	if (crash_base <= 0) {
--		crash_base = memblock_find_in_range(CRASH_ALIGN, CRASH_ADDR_MAX,
--							crash_size, CRASH_ALIGN);
-+		crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
-+						       CRASH_ALIGN,
-+						       CRASH_ADDR_MAX);
- 		if (!crash_base) {
- 			pr_warn("crashkernel reservation failed - No suitable area found.\n");
- 			return;
-@@ -461,8 +462,9 @@ static void __init mips_parse_crashkernel(void)
- 	} else {
- 		unsigned long long start;
- 
--		start = memblock_find_in_range(crash_base, crash_base + crash_size,
--						crash_size, 1);
-+		start = memblock_phys_alloc_range(crash_size, 1,
-+						  crash_base,
-+						  crash_base + crash_size);
- 		if (start != crash_base) {
- 			pr_warn("Invalid memory region reserved for crash kernel\n");
- 			return;
-@@ -656,10 +658,6 @@ static void __init arch_mem_init(char **cmdline_p)
- 	mips_reserve_vmcore();
- 
- 	mips_parse_crashkernel();
--#ifdef CONFIG_KEXEC
--	if (crashk_res.start != crashk_res.end)
--		memblock_reserve(crashk_res.start, resource_size(&crashk_res));
--#endif
- 	device_tree_init();
- 
- 	/*
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index a14bf3910eec..88649337c568 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -812,38 +812,22 @@ static void __init reserve_crashkernel(void)
- 
- 	crash_size = PAGE_ALIGN(crash_size);
- 
--	if (crash_base == 0) {
--		/*
--		 * Current riscv boot protocol requires 2MB alignment for
--		 * RV64 and 4MB alignment for RV32 (hugepage size)
--		 */
--		crash_base = memblock_find_in_range(search_start, search_end,
--						    crash_size, PMD_SIZE);
--
--		if (crash_base == 0) {
--			pr_warn("crashkernel: couldn't allocate %lldKB\n",
--				crash_size >> 10);
--			return;
--		}
--	} else {
--		/* User specifies base address explicitly. */
--		if (!memblock_is_region_memory(crash_base, crash_size)) {
--			pr_warn("crashkernel: requested region is not memory\n");
--			return;
--		}
--
--		if (memblock_is_region_reserved(crash_base, crash_size)) {
--			pr_warn("crashkernel: requested region is reserved\n");
--			return;
--		}
--
-+	if (crash_base) {
-+		search_start = crash_base;
-+		search_end = crash_base + crash_size;
-+	}
- 
--		if (!IS_ALIGNED(crash_base, PMD_SIZE)) {
--			pr_warn("crashkernel: requested region is misaligned\n");
--			return;
--		}
-+	/*
-+	 * Current riscv boot protocol requires 2MB alignment for
-+	 * RV64 and 4MB alignment for RV32 (hugepage size)
-+	 */
-+	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-+					       search_start, search_end);
-+	if (crash_base == 0) {
-+		pr_warn("crashkernel: couldn't allocate %lldKB\n",
-+			crash_size >> 10);
-+		return;
- 	}
--	memblock_reserve(crash_base, crash_size);
- 
- 	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
- 		crash_base, crash_base + crash_size, crash_size >> 20);
-diff --git a/arch/s390/kernel/setup.c b/arch/s390/kernel/setup.c
-index ff0f9e838916..3d9efee0f43c 100644
---- a/arch/s390/kernel/setup.c
-+++ b/arch/s390/kernel/setup.c
-@@ -626,8 +626,9 @@ static void __init reserve_crashkernel(void)
- 			return;
- 		}
- 		low = crash_base ?: low;
--		crash_base = memblock_find_in_range(low, high, crash_size,
--						    KEXEC_CRASH_MEM_ALIGN);
-+		crash_base = memblock_phys_alloc_range(crash_size,
-+						       KEXEC_CRASH_MEM_ALIGN,
-+						       low, high);
- 	}
- 
- 	if (!crash_base) {
-@@ -636,14 +637,15 @@ static void __init reserve_crashkernel(void)
- 		return;
- 	}
- 
--	if (register_memory_notifier(&kdump_mem_nb))
-+	if (register_memory_notifier(&kdump_mem_nb)) {
-+		memblock_free(crash_base, crash_size);
- 		return;
-+	}
- 
- 	if (!OLDMEM_BASE && MACHINE_IS_VM)
- 		diag10_range(PFN_DOWN(crash_base), PFN_DOWN(crash_size));
- 	crashk_res.start = crash_base;
- 	crashk_res.end = crash_base + crash_size - 1;
--	memblock_remove(crash_base, crash_size);
- 	pr_info("Reserving %lluMB of memory at %lluMB "
- 		"for crashkernel (System RAM: %luMB)\n",
- 		crash_size >> 20, crash_base >> 20,
-diff --git a/arch/x86/kernel/aperture_64.c b/arch/x86/kernel/aperture_64.c
-index 294ed4392a0e..10562885f5fc 100644
---- a/arch/x86/kernel/aperture_64.c
-+++ b/arch/x86/kernel/aperture_64.c
-@@ -109,14 +109,13 @@ static u32 __init allocate_aperture(void)
- 	 * memory. Unfortunately we cannot move it up because that would
- 	 * make the IOMMU useless.
- 	 */
--	addr = memblock_find_in_range(GART_MIN_ADDR, GART_MAX_ADDR,
--				      aper_size, aper_size);
-+	addr = memblock_phys_alloc_range(aper_size, aper_size,
-+					 GART_MIN_ADDR, GART_MAX_ADDR);
- 	if (!addr) {
- 		pr_err("Cannot allocate aperture memory hole [mem %#010lx-%#010lx] (%uKB)\n",
- 		       addr, addr + aper_size - 1, aper_size >> 10);
- 		return 0;
- 	}
--	memblock_reserve(addr, aper_size);
- 	pr_info("Mapping aperture over RAM [mem %#010lx-%#010lx] (%uKB)\n",
- 		addr, addr + aper_size - 1, aper_size >> 10);
- 	register_nosave_region(addr >> PAGE_SHIFT,
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index 75ef19aa8903..23a14d82e783 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -127,14 +127,12 @@ __ref void *alloc_low_pages(unsigned int num)
- 		unsigned long ret = 0;
- 
- 		if (min_pfn_mapped < max_pfn_mapped) {
--			ret = memblock_find_in_range(
-+			ret = memblock_phys_alloc_range(
-+					PAGE_SIZE * num, PAGE_SIZE,
- 					min_pfn_mapped << PAGE_SHIFT,
--					max_pfn_mapped << PAGE_SHIFT,
--					PAGE_SIZE * num , PAGE_SIZE);
-+					max_pfn_mapped << PAGE_SHIFT);
- 		}
--		if (ret)
--			memblock_reserve(ret, PAGE_SIZE * num);
--		else if (can_use_brk_pgt)
-+		if (!ret && can_use_brk_pgt)
- 			ret = __pa(extend_brk(PAGE_SIZE * num, PAGE_SIZE));
- 
- 		if (!ret)
-@@ -610,8 +608,17 @@ static void __init memory_map_top_down(unsigned long map_start,
- 	unsigned long addr;
- 	unsigned long mapped_ram_size = 0;
- 
--	/* xen has big range in reserved near end of ram, skip it at first.*/
--	addr = memblock_find_in_range(map_start, map_end, PMD_SIZE, PMD_SIZE);
-+	/*
-+	 * Systems that have many reserved areas near top of the memory,
-+	 * e.g. QEMU with less than 1G RAM and EFI enabled, or Xen, will
-+	 * require lots of 4K mappings which may exhaust pgt_buf.
-+	 * Start with top-most PMD_SIZE range aligned at PMD_SIZE to ensure
-+	 * there is enough mapped memory that can be allocated from
-+	 * memblock.
-+	 */
-+	addr = memblock_phys_alloc_range(PMD_SIZE, PMD_SIZE, map_start,
-+					 map_end);
-+	memblock_free(addr, PMD_SIZE);
- 	real_end = addr + PMD_SIZE;
- 
- 	/* step_size need to be small so pgt_buf from BRK could cover it */
-diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index e94da744386f..a1b5c71099e6 100644
---- a/arch/x86/mm/numa.c
-+++ b/arch/x86/mm/numa.c
-@@ -376,15 +376,14 @@ static int __init numa_alloc_distance(void)
- 	cnt++;
- 	size = cnt * cnt * sizeof(numa_distance[0]);
- 
--	phys = memblock_find_in_range(0, PFN_PHYS(max_pfn_mapped),
--				      size, PAGE_SIZE);
-+	phys = memblock_phys_alloc_range(size, PAGE_SIZE, 0,
-+					 PFN_PHYS(max_pfn_mapped));
- 	if (!phys) {
- 		pr_warn("Warning: can't allocate distance table!\n");
- 		/* don't retry until explicitly reset */
- 		numa_distance = (void *)1LU;
- 		return -ENOMEM;
- 	}
--	memblock_reserve(phys, size);
- 
- 	numa_distance = __va(phys);
- 	numa_distance_cnt = cnt;
-diff --git a/arch/x86/mm/numa_emulation.c b/arch/x86/mm/numa_emulation.c
-index 87d77cc52f86..737491b13728 100644
---- a/arch/x86/mm/numa_emulation.c
-+++ b/arch/x86/mm/numa_emulation.c
-@@ -447,13 +447,12 @@ void __init numa_emulation(struct numa_meminfo *numa_meminfo, int numa_dist_cnt)
- 	if (numa_dist_cnt) {
- 		u64 phys;
- 
--		phys = memblock_find_in_range(0, PFN_PHYS(max_pfn_mapped),
--					      phys_size, PAGE_SIZE);
-+		phys = memblock_phys_alloc_range(phys_size, PAGE_SIZE, 0,
-+						 PFN_PHYS(max_pfn_mapped));
- 		if (!phys) {
- 			pr_warn("NUMA: Warning: can't allocate copy of distance table, disabling emulation\n");
- 			goto no_emu;
- 		}
--		memblock_reserve(phys, phys_size);
- 		phys_dist = __va(phys);
- 
- 		for (i = 0; i < numa_dist_cnt; i++)
-diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
-index 6534c92d0f83..31b5856010cb 100644
---- a/arch/x86/realmode/init.c
-+++ b/arch/x86/realmode/init.c
-@@ -28,7 +28,7 @@ void __init reserve_real_mode(void)
- 	WARN_ON(slab_is_available());
- 
- 	/* Has to be under 1M so we can execute real-mode AP code. */
--	mem = memblock_find_in_range(0, 1<<20, size, PAGE_SIZE);
-+	mem = memblock_phys_alloc_range(size, PAGE_SIZE, 0, 1<<20);
- 	if (!mem)
- 		pr_info("No sub-1M memory is available for the trampoline\n");
- 	else
-diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
-index a37a1532a575..f9383736fa0f 100644
---- a/drivers/acpi/tables.c
-+++ b/drivers/acpi/tables.c
-@@ -583,8 +583,8 @@ void __init acpi_table_upgrade(void)
- 	}
- 
- 	acpi_tables_addr =
--		memblock_find_in_range(0, ACPI_TABLE_UPGRADE_MAX_PHYS,
--				       all_tables_size, PAGE_SIZE);
-+		memblock_phys_alloc_range(all_tables_size, PAGE_SIZE,
-+					  0, ACPI_TABLE_UPGRADE_MAX_PHYS);
- 	if (!acpi_tables_addr) {
- 		WARN_ON(1);
- 		return;
-@@ -599,7 +599,6 @@ void __init acpi_table_upgrade(void)
- 	 * Both memblock_reserve and e820__range_add (via arch_reserve_mem_area)
- 	 * works fine.
- 	 */
--	memblock_reserve(acpi_tables_addr, all_tables_size);
- 	arch_reserve_mem_area(acpi_tables_addr, all_tables_size);
- 
- 	/*
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index 4cc4e117727d..46c503486e96 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -279,13 +279,10 @@ static int __init numa_alloc_distance(void)
- 	int i, j;
- 
- 	size = nr_node_ids * nr_node_ids * sizeof(numa_distance[0]);
--	phys = memblock_find_in_range(0, PFN_PHYS(max_pfn),
--				      size, PAGE_SIZE);
-+	phys = memblock_phys_alloc_range(size, PAGE_SIZE, 0, PFN_PHYS(max_pfn));
- 	if (WARN_ON(!phys))
- 		return -ENOMEM;
- 
--	memblock_reserve(phys, size);
--
- 	numa_distance = __va(phys);
- 	numa_distance_cnt = nr_node_ids;
- 
-diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-index fd3964d24224..59c1390cdf42 100644
---- a/drivers/of/of_reserved_mem.c
-+++ b/drivers/of/of_reserved_mem.c
-@@ -33,18 +33,22 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
- 	phys_addr_t *res_base)
- {
- 	phys_addr_t base;
-+	int err = 0;
- 
- 	end = !end ? MEMBLOCK_ALLOC_ANYWHERE : end;
- 	align = !align ? SMP_CACHE_BYTES : align;
--	base = memblock_find_in_range(start, end, size, align);
-+	base = memblock_phys_alloc_range(size, align, start, end);
- 	if (!base)
- 		return -ENOMEM;
- 
- 	*res_base = base;
--	if (nomap)
--		return memblock_mark_nomap(base, size);
-+	if (nomap) {
-+		err = memblock_mark_nomap(base, size);
-+		if (err)
-+			memblock_free(base, size);
-+	}
- 
--	return memblock_reserve(base, size);
-+	return err;
- }
- 
- /*
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 4a53c3ca86bd..b066024c62e3 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -99,8 +99,6 @@ void memblock_discard(void);
- static inline void memblock_discard(void) {}
- #endif
- 
--phys_addr_t memblock_find_in_range(phys_addr_t start, phys_addr_t end,
--				   phys_addr_t size, phys_addr_t align);
- void memblock_allow_resize(void);
- int memblock_add_node(phys_addr_t base, phys_addr_t size, int nid);
- int memblock_add(phys_addr_t base, phys_addr_t size);
-diff --git a/mm/memblock.c b/mm/memblock.c
-index de7b553baa50..28a813d9e955 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -315,7 +315,7 @@ static phys_addr_t __init_memblock memblock_find_in_range_node(phys_addr_t size,
-  * Return:
-  * Found address on success, 0 on failure.
-  */
--phys_addr_t __init_memblock memblock_find_in_range(phys_addr_t start,
-+static phys_addr_t __init_memblock memblock_find_in_range(phys_addr_t start,
- 					phys_addr_t end, phys_addr_t size,
- 					phys_addr_t align)
- {
-
-base-commit: ff1176468d368232b684f75e82563369208bc371
--- 
-2.28.0
+Just bumping this, rest of the series seems to have made it into 
+5.14-rc* via the mailbox tree but this patch did not.
+Assume the lack of any approvals caused it.
+On 24/06/2021 16:01, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> This driver provides an interface for other drivers to access the
+> functions of the system controller on the Microchip PolarFire SoC.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   drivers/soc/Kconfig                         |   1 +
+>   drivers/soc/Makefile                        |   1 +
+>   drivers/soc/microchip/Kconfig               |  10 ++
+>   drivers/soc/microchip/Makefile              |   1 +
+>   drivers/soc/microchip/mpfs-sys-controller.c | 121 ++++++++++++++++++++
+>   5 files changed, 134 insertions(+)
+>   create mode 100644 drivers/soc/microchip/Kconfig
+>   create mode 100644 drivers/soc/microchip/Makefile
+>   create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
+>
+> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+> index e8a30c4c5aec..b33142e020e0 100644
+> --- a/drivers/soc/Kconfig
+> +++ b/drivers/soc/Kconfig
+> @@ -12,6 +12,7 @@ source "drivers/soc/imx/Kconfig"
+>   source "drivers/soc/ixp4xx/Kconfig"
+>   source "drivers/soc/litex/Kconfig"
+>   source "drivers/soc/mediatek/Kconfig"
+> +source "drivers/soc/microchip/Kconfig"
+>   source "drivers/soc/qcom/Kconfig"
+>   source "drivers/soc/renesas/Kconfig"
+>   source "drivers/soc/rockchip/Kconfig"
+> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+> index f678e4d9e585..10cfdcd972c7 100644
+> --- a/drivers/soc/Makefile
+> +++ b/drivers/soc/Makefile
+> @@ -17,6 +17,7 @@ obj-$(CONFIG_ARCH_IXP4XX)	+= ixp4xx/
+>   obj-$(CONFIG_SOC_XWAY)		+= lantiq/
+>   obj-$(CONFIG_LITEX_SOC_CONTROLLER) += litex/
+>   obj-y				+= mediatek/
+> +obj-y				+= microchip/
+>   obj-y				+= amlogic/
+>   obj-y				+= qcom/
+>   obj-y				+= renesas/
+> diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
+> new file mode 100644
+> index 000000000000..eb656b33156b
+> --- /dev/null
+> +++ b/drivers/soc/microchip/Kconfig
+> @@ -0,0 +1,10 @@
+> +config POLARFIRE_SOC_SYS_CTRL
+> +	tristate "POLARFIRE_SOC_SYS_CTRL"
+> +	depends on POLARFIRE_SOC_MAILBOX
+> +	help
+> +	  This driver adds support for the PolarFire SoC (MPFS) system controller.
+> +
+> +	  To compile this driver as a module, choose M here. the
+> +	  module will be called mpfs_system_controller.
+> +
+> +	  If unsure, say N.
+> diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
+> new file mode 100644
+> index 000000000000..14489919fe4b
+> --- /dev/null
+> +++ b/drivers/soc/microchip/Makefile
+> @@ -0,0 +1 @@
+> +obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
+> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+> new file mode 100644
+> index 000000000000..b5c23cb5df2c
+> --- /dev/null
+> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
+> @@ -0,0 +1,121 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Microchip PolarFire SoC (MPFS) system controller driver
+> + *
+> + * Copyright (c) 2020 Microchip Corporation. All rights reserved.
+> + *
+> + * Author: Conor Dooley <conor.dooley@microchip.com>
+> + *
+> + */
+> +
+> +#include <linux/slab.h>
+> +#include <linux/module.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/platform_device.h>
+> +#include <soc/microchip/mpfs.h>
+> +
+> +static DEFINE_MUTEX(transaction_lock);
+> +
+> +struct mpfs_sys_controller {
+> +	struct mbox_client client;
+> +	struct mbox_chan *chan;
+> +	struct completion c;
+> +	u32 enabled;
+> +};
+> +
+> +int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg)
+> +{
+> +	int ret;
+> +
+> +	ret = mutex_lock_interruptible(&transaction_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	reinit_completion(&mpfs_client->c);
+> +
+> +	ret = mbox_send_message(mpfs_client->chan, msg);
+> +	if (ret >= 0) {
+> +		if (wait_for_completion_timeout(&mpfs_client->c, HZ)) {
+> +			ret = 0;
+> +		} else {
+> +			ret = -ETIMEDOUT;
+> +			dev_warn(mpfs_client->client.dev, "MPFS sys controller transaction timeout\n");
+> +		}
+> +	} else {
+> +		dev_err(mpfs_client->client.dev,
+> +			"mpfs sys controller transaction returned %d\n", ret);
+> +	}
+> +
+> +	mutex_unlock(&transaction_lock);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL(mpfs_blocking_transaction);
+> +
+> +static void rx_callback(struct mbox_client *client, void *msg)
+> +{
+> +	struct mpfs_sys_controller *mpfs_client =
+> +		container_of(client, struct mpfs_sys_controller, client);
+> +
+> +	complete(&mpfs_client->c);
+> +}
+> +
+> +static int mpfs_sys_controller_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct mpfs_sys_controller *mpfs_client;
+> +
+> +	mpfs_client = devm_kzalloc(dev, sizeof(*mpfs_client), GFP_KERNEL);
+> +	if (!mpfs_client)
+> +		return -ENOMEM;
+> +
+> +	mpfs_client->client.dev = dev;
+> +	mpfs_client->client.rx_callback = rx_callback;
+> +	mpfs_client->client.tx_block = 1U;
+> +
+> +	mpfs_client->chan = mbox_request_channel(&mpfs_client->client, 0);
+> +	if (IS_ERR(mpfs_client->chan))
+> +		return dev_err_probe(dev, PTR_ERR(mpfs_client->chan),
+> +				     "Failed to get mbox channel\n");
+> +
+> +	init_completion(&mpfs_client->c);
+> +
+> +	platform_set_drvdata(pdev, mpfs_client);
+> +
+> +	dev_info(&pdev->dev, "Registered MPFS system controller driver\n");
+> +
+> +	return 0;
+> +}
+> +
+> +struct mpfs_sys_controller *
+> +mpfs_sys_controller_get(struct device_node *mss_node)
+> +{
+> +	struct platform_device *pdev = of_find_device_by_node(mss_node);
+> +
+> +	if (!pdev)
+> +		return NULL;
+> +
+> +	return platform_get_drvdata(pdev);
+> +}
+> +EXPORT_SYMBOL(mpfs_sys_controller_get);
+> +
+> +static const struct of_device_id mpfs_sys_controller_of_match[] = {
+> +	{.compatible = "microchip,polarfire-soc-sys-controller", },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, mpfs_sys_controller_of_match);
+> +
+> +static struct platform_driver mpfs_sys_controller_driver = {
+> +	.driver = {
+> +		.name = "mpfs-sys-controller",
+> +		.of_match_table = mpfs_sys_controller_of_match,
+> +	},
+> +	.probe = mpfs_sys_controller_probe,
+> +};
+> +module_platform_driver(mpfs_sys_controller_driver);
+> +
+> +MODULE_LICENSE("GPL v2");
+> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
+> +MODULE_DESCRIPTION("MPFS system controller driver");
 
 
 _______________________________________________
