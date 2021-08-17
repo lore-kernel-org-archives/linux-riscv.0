@@ -2,93 +2,84 @@ Return-Path: <SRS0=wXHl=NI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5230DC4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 00:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7754DC4338F
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 02:55:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1553860F22
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 00:02:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1553860F22
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3222060ED5
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 02:55:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3222060ED5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCRhb4Vkxg0/7zPm/cXIUfiUr7N2zOv1cPbvvzEXjOA=; b=b0+O7T/vot5Yy2
-	62FHzJuoZEbeyv+xtHIERILqo8TFb2egGqXYME2edEQblJNMZlMXwHVvyv9TOdCEpoK5OBd0u9d8y
-	AauLU1eMgsuy81qh8/nNBEBhUWwDycIH1dPJktkx/dqah913biPwAB7i+v0XTjF6O/OJH2AMFwGNW
-	O7ELWPhsyZLZKMFZvNMYQtatilooX3yBGg4WNra7zggAELx6hvIAnTYo6DdZTvNLJ4X8CEs74seWB
-	+yMQTvmkBe8r6YHLxF68uDRGlmYnLD6UsTuxpBQrBPRhw2Oo5Qfrd9GK5dFG7g2lpb2LPYISOgtgA
-	q1IH6Th3k3M+zeoW4Rhw==;
+	List-Owner; bh=QjBZ0EMX6X1p4iWWMekDwR/tjlGpiJRyrt6TNURuhmo=; b=QYBxpN3/bNgW+6
+	61E7zU8/6Bd1sTR58/5lu7By/FBMWd6t2cMELSrEbGH704zVlXSIUoYb47CKIlYRaD4lvtYo8lfdj
+	8mjepoaKmEhYJR83yEtCPEauGilCTkrztY7+w89FBr9uRRhRHHLeO2mUXClVBn+n3DNAhSTvs6uKC
+	8i3JE4QBnHHSY5JIxywIRT7RdaTIm4raUAzSoc3WBKSMkEPB+b45SuJWxsK3L5LrWTwGXipuOznd3
+	RZxiY5C85YD9rAo5xiBvN9BhiHXhG1fmTx+ZIe71WfztZ97rih0PZJdKzpxkM2dX2ibTEzoW5Ra1J
+	daOqW8YKGl30zXVgHtFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mFmYX-000Xjr-Fg; Tue, 17 Aug 2021 00:02:13 +0000
-Received: from mail-ej1-f51.google.com ([209.85.218.51])
+	id 1mFpFI-000sA0-1o; Tue, 17 Aug 2021 02:54:32 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mFmYO-000XiJ-VM
- for linux-riscv@lists.infradead.org; Tue, 17 Aug 2021 00:02:06 +0000
-Received: by mail-ej1-f51.google.com with SMTP id lo4so34875942ejb.7
- for <linux-riscv@lists.infradead.org>; Mon, 16 Aug 2021 17:02:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:organization:mime-version:content-transfer-encoding;
- bh=K5wMGZQ9prIRh71CsiF4fL+ypemm9zRUN8YLcm2qyP4=;
- b=DWMLOLxLZM+O3PB4hyur4GeH5qJgknSZmeJaPSl+D1V+lDp+VtE/koL1WP5/YpUhKz
- pJKvADZW1O+2T6pKnG/M1R3Wh88F7hOjuVRB7FhMAqyfoZEDkwy+IzV71YLhDAdcAOEW
- va1CrHL/tJsdCVJfutANtGlmK+od5IpJXdHkrrlDPZ4IJijVHRKUkezHz+x36BKopf2K
- 1HXFQKRU8XLFpo7Wnif+MoDq7fU6SL/L9FLxHwoM3w4F3cNei7jOFTEApXUPP4iRBHrZ
- xA5ZKeyJaqZxAlZakK962i8WoWpz31wJHSrdZB8ToS5SbJq3qvyWapSLO5RJMwqgbAFw
- gSbA==
-X-Gm-Message-State: AOAM5312LwW6cZD3dHoZ95RcimqZL4oJ3N6r5CyUkuyMMs0MY4rcQK/5
- rYD07tu96b3zaItvky/nlrVG3cYrxyV95Q==
-X-Google-Smtp-Source: ABdhPJwbIAStQIsvY6nYd2xafGE+WztwQNp3Byq8JJLV82ISdOqBErzCmeSfzD0xXPsR/3+lGtA1aQ==
-X-Received: by 2002:a17:906:7095:: with SMTP id
- b21mr705327ejk.131.1629158522789; 
- Mon, 16 Aug 2021 17:02:02 -0700 (PDT)
-Received: from localhost (host-87-16-116-124.retail.telecomitalia.it.
- [87.16.116.124])
- by smtp.gmail.com with ESMTPSA id gh23sm83504ejb.27.2021.08.16.17.02.01
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 16 Aug 2021 17:02:02 -0700 (PDT)
-Date: Tue, 17 Aug 2021 02:01:57 +0200
-From: Matteo Croce <mcroce@linux.microsoft.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Eric Dumazet <eric.dumazet@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Giuseppe
- Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Drew Fustini <drew@beagleboard.org>, Emil
- Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>, Will
- Deacon <will@kernel.org>
-Subject: Re: [PATCH net-next] stmmac: align RX buffers
-Message-ID: <20210817020157.3b9d015e@linux.microsoft.com>
-In-Reply-To: <20210816081208.522ac47c@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
-References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
- <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
- <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
- <87o8a49idp.wl-maz@kernel.org>
- <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
- <20210812121835.405d2e37@linux.microsoft.com>
- <874kbuapod.wl-maz@kernel.org>
- <20210816081208.522ac47c@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
-Organization: Microsoft
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
+ id 1mFo2z-000j3J-W5
+ for linux-riscv@lists.infradead.org; Tue, 17 Aug 2021 01:37:50 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7256C60F14
+ for <linux-riscv@lists.infradead.org>; Tue, 17 Aug 2021 01:37:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1629164265;
+ bh=lyEqQ7l1Yiyq6aw60bIoBStsCKDCHydWqeO/k8C6ocA=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=O9F7swSYu7svCJQyNRlDcsBEikHRWfeS+ggbP7cvoYhC6Ltq3AZNiFh7qaGiOEPk6
+ OJxblhulbKJYPFGt2F0GZkHIMt1dFD9G6wDSp0cemKHzGLMO24stXNiGSRFiEqKUMf
+ f4O94mCejViD1KuASpxHztus7+mnMGoRBbJZhB8OsfIcYnAOqHBKkz+NkNXPkBmh+b
+ zqkcEZzZD7rOxBOEXlBzFaGZxsbMytK+8es7tsItI0ziwdAXEwRE7Im4BMZZeewC3X
+ l9/3J2Q8BVl7r+Az5NS79bI7V4XdUBrakAvQTCf/PNED2KKPJFRmgiXEgBN+U6RKpZ
+ WCKJcXTQy9ulA==
+Received: by mail-lf1-f51.google.com with SMTP id k5so10370817lfu.4
+ for <linux-riscv@lists.infradead.org>; Mon, 16 Aug 2021 18:37:45 -0700 (PDT)
+X-Gm-Message-State: AOAM530yt3p/Pg7wQUN1iE3mAdCx6qYeraFLh5t0HAfdpPvIYL5nFJ3E
+ 5X9mazTsgsH0du9IQnwMUaHHUgmAjIQVV7S14Ms=
+X-Google-Smtp-Source: ABdhPJzwjeTd12CIMnVCq48VJEcqCSSqf9a4FB/mjRjpz0oczdS+/2z6XqLkbYgRAwWKBkw3o8r1HeMMgeaurC77pvc=
+X-Received: by 2002:a19:5002:: with SMTP id e2mr508720lfb.355.1629164263759;
+ Mon, 16 Aug 2021 18:37:43 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210723214031.3251801-1-atish.patra@wdc.com>
+ <mhng-11e1ab27-21eb-4b20-9185-c256fcaaab99@palmerdabbelt-glaptop>
+ <CAOnJCU+ip1ccc9CrREi3c+15ue4Grcq+ENbQ+z_gh3CH249aAg@mail.gmail.com>
+In-Reply-To: <CAOnJCU+ip1ccc9CrREi3c+15ue4Grcq+ENbQ+z_gh3CH249aAg@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 17 Aug 2021 09:37:32 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSMtj05cduTZ6jEqDXtaG0QTY743MRQrv08B4cocZbXJQ@mail.gmail.com>
+Message-ID: <CAJF2gTSMtj05cduTZ6jEqDXtaG0QTY743MRQrv08B4cocZbXJQ@mail.gmail.com>
+Subject: Re: [RFC 0/5] Support non-coherent DMA on RISC-V using a global pool
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ devicetree <devicetree@vger.kernel.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Tobias Klauser <tklauser@distanz.ch>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, 
+ Atish Patra <Atish.Patra@wdc.com>, iommu@lists.linux-foundation.org, 
+ Guo Ren <guoren@linux.alibaba.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Frank Rowand <frowand.list@gmail.com>, 
+ Christoph Hellwig <hch@lst.de>, Dmitry Vyukov <dvyukov@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210816_170205_075490_F811871A 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20210816_183746_140693_C093C8E6 
+X-CRM114-Status: GOOD (  59.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,89 +96,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Aug 2021 08:12:08 -0700
-Jakub Kicinski <kuba@kernel.org> wrote:
+1
 
-> On Thu, 12 Aug 2021 12:05:38 +0100 Marc Zyngier wrote:
-> > > A possible fix, which takes in account also the XDP headroom for
-> > > stmmac_rx_buf1_len() only could be (only compile tested, I don't
-> > > have the hardware now):  
-> > 
-> > However, this doesn't fix my issue. I still get all sort of
-> > corruption. Probably stmmac_rx_buf2_len() also need adjusting (it
-> > has a similar logic as its buf1 counterpart...)
-> > 
-> > Unless you can fix it very quickly, and given that we're towards the
-> > end of the cycle, I'd be more comfortable if we reverted this patch.
-> 
-> Any luck investigating this one? The rc6 announcement sounds like
-> there may not be that many more rc releases for 5.14.
+On Thu, Jul 29, 2021 at 2:19 PM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Wed, Jul 28, 2021 at 9:30 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >
+> > On Fri, 23 Jul 2021 14:40:26 PDT (-0700), Atish Patra wrote:
+> > > RISC-V privilege specification doesn't define an IOMMU or any method modify
+> > > PMA attributes or PTE entries to allow non-coherent mappings yet. In
+> > > the beginning, this approach was adopted assuming that most of the RISC-V
+> > > platforms would support full cache-coherent IO. Here is excerpt from the
+> > > priv spec section 3.6.5
+> > >
+> > > "In RISC-V platforms, the use of hardware-incoherent regions is discouraged
+> > > due to software complexity, performance, and energy impacts."
+> > >
+> > > While some of the RISC-V platforms adhere to the above suggestion, not all
+> > > platforms can afford to build to fully cache-coherent I/O devices. To
+> > > address DMA for non-coherent I/O devices, we need to mark a region of memory
+> > > as non-cacheable. Some of the platforms rely on a fixed region of uncached
+> > > memory that is remapped to the system memory while some other modify
+> > > the PTE entries to achieve that.
+> > >
+> > > The patch3 solves the issue for the fist use case by using a global
+> > > pool of memory that is reserved for DMA. The device access the reserved area
+> > > of the region while corresponding CPU address will be from uncached region
+> > > As the uncached region is remapped to the beginning of the system ram, both
+> > > CPU and device get the same view.
+> > >
+> > > To facilitate streaming DMA APIs, patch 1 introduces a set of generic
+> > > cache operations. Any platform can use the generic ops to provide platform
+> > > specific cache management operations. Once the standard RISC-V CMO extension
+> > > is available, it will also use these generic ops.
+> > >
+> > > To address the second use case, Page Based Memory Attribute (PBMT) extension
+> > > is proposed. Once the extension is in good shape, we can leverage that
+> > > using CONFIG_DIRECT_REMAP. Currently, it is selected via a compile time config
+> > > option. We will probably need another arch specific hooks to know if the
+> > > platform supports direct remap at runtime. For RISC-V, it will check the
+> > > presence of PBMT extension while other arch function will simply return true
+> >
+> > IIUC this is another extension that's not yet frozen or implemented in
+> > hardware?  Is this one compatible with what's in the c906, or is it
+> > doing things its own way?
+>
+> Hi Palmer,
+> This series doesn't implement the PBMT extension which is still in discussion.
+> It simply reuse the existing non-coherent dma mapping support in
+> upstream kernel and enable
+> it for RISC-V. The current version uses a non-coherent global pool. I
+> will update it to use arch_set_uncached
+> as per Christoph's suggestion. It solves the non-coherent DMA problem
+> for beagleV and not c906.
+>
+> I briefly mentioned the PBMT extension just to provide an idea how the
+> RISC-V Linux kernel
+> can support both unached window and PBMT extension. PBMT extension is
+> planned to be frozen
+> by the end of this year and none of the hardware has implemented it.
+>
+> The implementation in c906 is a non-standard one and will not be
+> supported by the default PBMT
+> extension implementation.
+The default PBMT & c908 PBMT are similar, only BIT definitions are
+different. I propose to support default PBMT first and give the back
+door to modify the PBMT definition during boot.
+The "protection_map[] = (__P000, __P001 ..__S000, __S001)" in
+mm/mmap.c has been modified by arch/mips, arm, sparc, x86, so I think
+it's proper solution direction.
 
-Hi Jackub.
+The reset problem is how to passing custom PBMT at the very early boot
+stage. Now I'm trying to use the DTS parsing instead of boot param hdr
+which Anup objected to.
 
-Unfortunately I have only a device with stmmac, and it works fine with
-the patch. It seems that not all hardware suffers from this issue.
+ref: https://lore.kernel.org/linux-riscv/1623693067-53886-1-git-send-email-guoren@kernel.org/
 
-Also, using NET_IP_ALIGN on RX is a common pattern, I think that any
-ethernet device is doing the same to align the IPv4 header.
+Any comments are welcome.
 
-Anyway, I asked for two tests on the affected device:
-1. Change NET_IP_ALIGN with 8, to see if the DMA has problems in
-   receiving to a non word aligned address
-2. load a nop XDP program (I provided one), to see if the problem is
-   already there when XDP is used
+>
+>
+> >
+> > > if DIRECT_REMAP is enabled. This is required as arious different config
+> > > (DIRECT_REMAP, GLOBAL_POOL) will be enabled in the defconfig so that a
+> > > unified kernel image can boot on all RISC-V platforms.
+> > >
+> > > This patch series depends on Christoph's global pool support series[1].
+> > > Tested on Qemu, HiFive unleashed and beagleV. This series is also available
+> > > at [2].
+> > > This series also solves the non-coherent DMA support on beagleV but requires
+> > > additional beagleV specific patches[3] which will be upstreamed soon.
+> > >
+> > >
+> > > [1] https://lists.linuxfoundation.org/pipermail/iommu/2021-July/057266.html
+> > > [2] https://github.com/atishp04/linux/tree/riscv_nc_global_pool
+> > > [3] https://github.com/atishp04/linux/tree/wip_beaglev_dma_nc_global
+> > >
+> > > Atish Patra (5):
+> > > RISC-V: Implement arch_sync_dma* functions
+> > > of: Move of_dma_get_range to of_address.h
+> > > dma-mapping: Enable global non-coherent pool support for RISC-V
+> > > dma-direct: Allocate dma pages directly if global pool allocation
+> > > fails
+> > > RISC-V: Support a new config option for non-coherent DMA
+> > >
+> > > arch/riscv/Kconfig                       |  8 +++
+> > > arch/riscv/include/asm/dma-noncoherent.h | 19 +++++++
+> > > arch/riscv/mm/Makefile                   |  1 +
+> > > arch/riscv/mm/dma-noncoherent.c          | 66 ++++++++++++++++++++++++
+> > > drivers/of/of_private.h                  | 10 ----
+> > > include/linux/of_address.h               | 12 +++++
+> > > kernel/dma/coherent.c                    | 49 +++++++++++++++---
+> > > kernel/dma/direct.c                      |  7 ++-
+> > > 8 files changed, 152 insertions(+), 20 deletions(-)
+> > > create mode 100644 arch/riscv/include/asm/dma-noncoherent.h
+> > > create mode 100644 arch/riscv/mm/dma-noncoherent.c
+> >
+> > Can you guys please make up your minds about how this is going to be
+> > supported at the ISA level?  I get a different answer every day here:
+> > sometimes it's that these systems are not compliant, sometimes that
+> > Linux is the compliance suite, sometimes that we're doing an ISA
+> > extension, and sometimes that we're doing the SBI stuff.
+> >
+>
+> I am not sure whom you have talked to. I would be happy to set up a
+> meeting so that everybody is on
+> the same page if you are getting different answers every time.
+>
+> > I don't really care all that much about what the decision is, but it's
+> > impossible to move forward without some semblance of a plan.
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+> --
+> Regards,
+> Atish
+> _______________________________________________
+> iommu mailing list
+> iommu@lists.linux-foundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/iommu
 
-I doubt that changing also stmmac_rx_buf2_len would help,
-but it's worth a try, here is a patch:
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7b8404a21544..73d1f0ec66ff 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -93,7 +93,7 @@ static int tc = TC_DEFAULT;
- module_param(tc, int, 0644);
- MODULE_PARM_DESC(tc, "DMA threshold control value");
- 
--#define	DEFAULT_BUFSIZE	1536
-+#define	DEFAULT_BUFSIZE	1536 + XDP_PACKET_HEADROOM + NET_IP_ALIGN
- static int buf_sz = DEFAULT_BUFSIZE;
- module_param(buf_sz, int, 0644);
- MODULE_PARM_DESC(buf_sz, "DMA buffer size");
-@@ -4508,12 +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
- 
- 	/* First descriptor, not last descriptor and not split header */
- 	if (status & rx_not_ls)
--		return priv->dma_buf_sz;
-+		return priv->dma_buf_sz - stmmac_rx_offset(priv);
- 
- 	plen = stmmac_get_rx_frame_len(priv, p, coe);
- 
- 	/* First descriptor and last descriptor and not split header */
--	return min_t(unsigned int, priv->dma_buf_sz, plen);
-+	return min_t(unsigned int, priv->dma_buf_sz - stmmac_rx_offset(priv), plen);
- }
- 
- static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
-@@ -4529,12 +4529,12 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
- 
- 	/* Not last descriptor */
- 	if (status & rx_not_ls)
--		return priv->dma_buf_sz;
-+		return priv->dma_buf_sz - stmmac_rx_offset(priv);
- 
- 	plen = stmmac_get_rx_frame_len(priv, p, coe);
- 
- 	/* Last descriptor */
--	return plen - len;
-+	return plen - len - stmmac_rx_offset(priv);
- }
- 
- static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
 
 
-Regards,
 -- 
-per aspera ad upstream
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
