@@ -1,83 +1,94 @@
-Return-Path: <SRS0=iJWH=NH=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=wXHl=NI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BAC9C4338F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 19:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5230DC4338F
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 00:02:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 99ACA60F22
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Aug 2021 19:00:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 99ACA60F22
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 1553860F22
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Aug 2021 00:02:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1553860F22
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCrEh/hO3/srfkac7VSTxE7NILQlMyco0lMiqgPorYg=; b=PoN8rc4TYFDmCZ
-	t5dPiCscDYdyeMufYoG94j86Ub9I1qjPoIV7zp8kBxNEjTT5D06CkQR085N/v02UmEmwN9HOtaiho
-	PB1jWPWOVFa8qJy2Ilma/KQnR6RcjIHta8nHeC402OaxHa/9zs4i6hx4IfdBb2+qHilKj0QI+sH/S
-	ToVWegx03gyXEgSfVE31JqRwLsXnGFnIWR+dB3xyNLCRfe7teF2ptSjYSZ4XXnmO+fByyRYfOz9BP
-	qi17/0IqASx14KIat8FJQzV7nFa3wGCOOGEtWHF1GRTpYKnTIh+SkFBlyp1rUgodyMNol5CVF1+GZ
-	2G4LfmULlFcasw9mfEAg==;
+	List-Owner; bh=HCRhb4Vkxg0/7zPm/cXIUfiUr7N2zOv1cPbvvzEXjOA=; b=b0+O7T/vot5Yy2
+	62FHzJuoZEbeyv+xtHIERILqo8TFb2egGqXYME2edEQblJNMZlMXwHVvyv9TOdCEpoK5OBd0u9d8y
+	AauLU1eMgsuy81qh8/nNBEBhUWwDycIH1dPJktkx/dqah913biPwAB7i+v0XTjF6O/OJH2AMFwGNW
+	O7ELWPhsyZLZKMFZvNMYQtatilooX3yBGg4WNra7zggAELx6hvIAnTYo6DdZTvNLJ4X8CEs74seWB
+	+yMQTvmkBe8r6YHLxF68uDRGlmYnLD6UsTuxpBQrBPRhw2Oo5Qfrd9GK5dFG7g2lpb2LPYISOgtgA
+	q1IH6Th3k3M+zeoW4Rhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mFhqZ-0003ZG-UW; Mon, 16 Aug 2021 19:00:31 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1mFmYX-000Xjr-Fg; Tue, 17 Aug 2021 00:02:13 +0000
+Received: from mail-ej1-f51.google.com ([209.85.218.51])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mFhqV-0003Ts-Pr
- for linux-riscv@lists.infradead.org; Mon, 16 Aug 2021 19:00:30 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4GpNlQ4jSRz1qwGp;
- Mon, 16 Aug 2021 21:00:18 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4GpNlQ3lsxz1r6P1;
- Mon, 16 Aug 2021 21:00:18 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id C_DzlPCR5dQ3; Mon, 16 Aug 2021 21:00:17 +0200 (CEST)
-X-Auth-Info: Rw1j2hvSxw+BeG4hBnBmc2okW6IsahQRiTeFyGFwkw5fEIf7BhrTh0d9IoJAMmc+
-Received: from igel.home (ppp-46-244-185-182.dynamic.mnet-online.de
- [46.244.185.182])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Mon, 16 Aug 2021 21:00:17 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
- id C1A902C2640; Mon, 16 Aug 2021 21:00:16 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: akira.tsukamoto@gmail.com,  Paul Walmsley <paul.walmsley@sifive.com>,
- linux@roeck-us.net,  geert@linux-m68k.org,  qiuwenbo@kylinos.com.cn,
- aou@eecs.berkeley.edu,  linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: __asm_copy_to-from_user: Improve using word
- copy if size < 9*SZREG
-References: <e3e9fb3a-40b1-50f3-23cc-50bfa53baa8d@gmail.com>
- <mhng-f83b1d51-c006-4b01-830a-0f827f0c56a1@palmerdabbelt-glaptop>
-X-Yow: Now I'm having INSIPID THOUGHTS about the beautiful, round
- wives of HOLLYWOOD MOVIE MOGULS encased in PLEXIGLASS CARS
- and being approached by SMALL BOYS selling FRUIT..
-Date: Mon, 16 Aug 2021 21:00:16 +0200
-In-Reply-To: <mhng-f83b1d51-c006-4b01-830a-0f827f0c56a1@palmerdabbelt-glaptop>
- (Palmer Dabbelt's message of "Mon, 16 Aug 2021 11:09:45 -0700 (PDT)")
-Message-ID: <87zgthjjun.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
+ id 1mFmYO-000XiJ-VM
+ for linux-riscv@lists.infradead.org; Tue, 17 Aug 2021 00:02:06 +0000
+Received: by mail-ej1-f51.google.com with SMTP id lo4so34875942ejb.7
+ for <linux-riscv@lists.infradead.org>; Mon, 16 Aug 2021 17:02:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
+ :references:organization:mime-version:content-transfer-encoding;
+ bh=K5wMGZQ9prIRh71CsiF4fL+ypemm9zRUN8YLcm2qyP4=;
+ b=DWMLOLxLZM+O3PB4hyur4GeH5qJgknSZmeJaPSl+D1V+lDp+VtE/koL1WP5/YpUhKz
+ pJKvADZW1O+2T6pKnG/M1R3Wh88F7hOjuVRB7FhMAqyfoZEDkwy+IzV71YLhDAdcAOEW
+ va1CrHL/tJsdCVJfutANtGlmK+od5IpJXdHkrrlDPZ4IJijVHRKUkezHz+x36BKopf2K
+ 1HXFQKRU8XLFpo7Wnif+MoDq7fU6SL/L9FLxHwoM3w4F3cNei7jOFTEApXUPP4iRBHrZ
+ xA5ZKeyJaqZxAlZakK962i8WoWpz31wJHSrdZB8ToS5SbJq3qvyWapSLO5RJMwqgbAFw
+ gSbA==
+X-Gm-Message-State: AOAM5312LwW6cZD3dHoZ95RcimqZL4oJ3N6r5CyUkuyMMs0MY4rcQK/5
+ rYD07tu96b3zaItvky/nlrVG3cYrxyV95Q==
+X-Google-Smtp-Source: ABdhPJwbIAStQIsvY6nYd2xafGE+WztwQNp3Byq8JJLV82ISdOqBErzCmeSfzD0xXPsR/3+lGtA1aQ==
+X-Received: by 2002:a17:906:7095:: with SMTP id
+ b21mr705327ejk.131.1629158522789; 
+ Mon, 16 Aug 2021 17:02:02 -0700 (PDT)
+Received: from localhost (host-87-16-116-124.retail.telecomitalia.it.
+ [87.16.116.124])
+ by smtp.gmail.com with ESMTPSA id gh23sm83504ejb.27.2021.08.16.17.02.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 16 Aug 2021 17:02:02 -0700 (PDT)
+Date: Tue, 17 Aug 2021 02:01:57 +0200
+From: Matteo Croce <mcroce@linux.microsoft.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Eric Dumazet <eric.dumazet@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Giuseppe
+ Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Drew Fustini <drew@beagleboard.org>, Emil
+ Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>, Will
+ Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+Message-ID: <20210817020157.3b9d015e@linux.microsoft.com>
+In-Reply-To: <20210816081208.522ac47c@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
+ <87o8a49idp.wl-maz@kernel.org>
+ <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
+ <20210812121835.405d2e37@linux.microsoft.com>
+ <874kbuapod.wl-maz@kernel.org>
+ <20210816081208.522ac47c@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+Organization: Microsoft
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210816_120028_165840_4B057149 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20210816_170205_075490_F811871A 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,124 +105,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Aug 16 2021, Palmer Dabbelt wrote:
+On Mon, 16 Aug 2021 08:12:08 -0700
+Jakub Kicinski <kuba@kernel.org> wrote:
 
-> On Fri, 30 Jul 2021 06:52:44 PDT (-0700), akira.tsukamoto@gmail.com wrote:
->> Reduce the number of slow byte_copy when the size is in between
->> 2*SZREG to 9*SZREG by using none unrolled word_copy.
->>
->> Without it any size smaller than 9*SZREG will be using slow byte_copy
->> instead of none unrolled word_copy.
->>
->> Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
->> ---
->>  arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
->>  1 file changed, 42 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
->> index 63bc691cff91..6a80d5517afc 100644
->> --- a/arch/riscv/lib/uaccess.S
->> +++ b/arch/riscv/lib/uaccess.S
->> @@ -34,8 +34,10 @@ ENTRY(__asm_copy_from_user)
->>  	/*
->>  	 * Use byte copy only if too small.
->>  	 * SZREG holds 4 for RV32 and 8 for RV64
->> +	 * a3 - 2*SZREG is minimum size for word_copy
->> +	 *      1*SZREG for aligning dst + 1*SZREG for word_copy
->>  	 */
->> -	li	a3, 9*SZREG /* size must be larger than size in word_copy */
->> +	li	a3, 2*SZREG
->>  	bltu	a2, a3, .Lbyte_copy_tail
->>
->>  	/*
->> @@ -66,9 +68,40 @@ ENTRY(__asm_copy_from_user)
->>  	andi	a3, a1, SZREG-1
->>  	bnez	a3, .Lshift_copy
->>
->> +.Lcheck_size_bulk:
->> +	/*
->> +	 * Evaluate the size if possible to use unrolled.
->> +	 * The word_copy_unlrolled requires larger than 8*SZREG
->> +	 */
->> +	li	a3, 8*SZREG
->> +	add	a4, a0, a3
->> +	bltu	a4, t0, .Lword_copy_unlrolled
->> +
->>  .Lword_copy:
->> -        /*
->> -	 * Both src and dst are aligned, unrolled word copy
->> +	/*
->> +	 * Both src and dst are aligned
->> +	 * None unrolled word copy with every 1*SZREG iteration
->> +	 *
->> +	 * a0 - start of aligned dst
->> +	 * a1 - start of aligned src
->> +	 * t0 - end of aligned dst
->> +	 */
->> +	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
->> +	addi	t0, t0, -(SZREG) /* not to over run */
->> +1:
->> +	REG_L	a5, 0(a1)
->> +	addi	a1, a1, SZREG
->> +	REG_S	a5, 0(a0)
->> +	addi	a0, a0, SZREG
->> +	bltu	a0, t0, 1b
->> +
->> +	addi	t0, t0, SZREG /* revert to original value */
->> +	j	.Lbyte_copy_tail
->> +
->> +.Lword_copy_unlrolled:
->> +	/*
->> +	 * Both src and dst are aligned
->> +	 * Unrolled word copy with every 8*SZREG iteration
->>  	 *
->>  	 * a0 - start of aligned dst
->>  	 * a1 - start of aligned src
->> @@ -97,7 +130,12 @@ ENTRY(__asm_copy_from_user)
->>  	bltu	a0, t0, 2b
->>
->>  	addi	t0, t0, 8*SZREG /* revert to original value */
->> -	j	.Lbyte_copy_tail
->> +
->> +	/*
->> +	 * Remaining might large enough for word_copy to reduce slow byte
->> +	 * copy
->> +	 */
->> +	j	.Lcheck_size_bulk
->>
->>  .Lshift_copy:
->
-> I'm still not convinced that going all the way to such a large unrolling
-> factor is a net win, but this at least provides a much smoother cost 
-> curve.
->
-> That said, this is causing my 32-bit configs to hang.
+> On Thu, 12 Aug 2021 12:05:38 +0100 Marc Zyngier wrote:
+> > > A possible fix, which takes in account also the XDP headroom for
+> > > stmmac_rx_buf1_len() only could be (only compile tested, I don't
+> > > have the hardware now):  
+> > 
+> > However, this doesn't fix my issue. I still get all sort of
+> > corruption. Probably stmmac_rx_buf2_len() also need adjusting (it
+> > has a similar logic as its buf1 counterpart...)
+> > 
+> > Unless you can fix it very quickly, and given that we're towards the
+> > end of the cycle, I'd be more comfortable if we reverted this patch.
+> 
+> Any luck investigating this one? The rc6 announcement sounds like
+> there may not be that many more rc releases for 5.14.
 
-It's missing fixups for the loads in the loop.
+Hi Jackub.
 
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index a835df6bd68f..12ed1f76bd1f 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -89,9 +89,9 @@ ENTRY(__asm_copy_from_user)
- 	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
- 	addi	t0, t0, -(SZREG) /* not to over run */
- 1:
--	REG_L	a5, 0(a1)
-+	fixup REG_L	a5, 0(a1), 10f
- 	addi	a1, a1, SZREG
--	REG_S	a5, 0(a0)
-+	fixup REG_S	a5, 0(a0), 10f
- 	addi	a0, a0, SZREG
- 	bltu	a0, t0, 1b
+Unfortunately I have only a device with stmmac, and it works fine with
+the patch. It seems that not all hardware suffers from this issue.
+
+Also, using NET_IP_ALIGN on RX is a common pattern, I think that any
+ethernet device is doing the same to align the IPv4 header.
+
+Anyway, I asked for two tests on the affected device:
+1. Change NET_IP_ALIGN with 8, to see if the DMA has problems in
+   receiving to a non word aligned address
+2. load a nop XDP program (I provided one), to see if the problem is
+   already there when XDP is used
+
+I doubt that changing also stmmac_rx_buf2_len would help,
+but it's worth a try, here is a patch:
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7b8404a21544..73d1f0ec66ff 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -93,7 +93,7 @@ static int tc = TC_DEFAULT;
+ module_param(tc, int, 0644);
+ MODULE_PARM_DESC(tc, "DMA threshold control value");
  
+-#define	DEFAULT_BUFSIZE	1536
++#define	DEFAULT_BUFSIZE	1536 + XDP_PACKET_HEADROOM + NET_IP_ALIGN
+ static int buf_sz = DEFAULT_BUFSIZE;
+ module_param(buf_sz, int, 0644);
+ MODULE_PARM_DESC(buf_sz, "DMA buffer size");
+@@ -4508,12 +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+ 
+ 	/* First descriptor, not last descriptor and not split header */
+ 	if (status & rx_not_ls)
+-		return priv->dma_buf_sz;
++		return priv->dma_buf_sz - stmmac_rx_offset(priv);
+ 
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+ 	/* First descriptor and last descriptor and not split header */
+-	return min_t(unsigned int, priv->dma_buf_sz, plen);
++	return min_t(unsigned int, priv->dma_buf_sz - stmmac_rx_offset(priv), plen);
+ }
+ 
+ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+@@ -4529,12 +4529,12 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 
+ 	/* Not last descriptor */
+ 	if (status & rx_not_ls)
+-		return priv->dma_buf_sz;
++		return priv->dma_buf_sz - stmmac_rx_offset(priv);
+ 
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+ 	/* Last descriptor */
+-	return plen - len;
++	return plen - len - stmmac_rx_offset(priv);
+ }
+ 
+ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
 
-Andreas.
 
+Regards,
 -- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+per aspera ad upstream
 
 _______________________________________________
 linux-riscv mailing list
