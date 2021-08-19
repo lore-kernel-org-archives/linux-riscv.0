@@ -2,71 +2,85 @@ Return-Path: <SRS0=mZrj=NK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A945C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 02:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DC66C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 03:11:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0613610FA
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 02:58:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D0613610FA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 614C460EBD
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 03:11:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 614C460EBD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gKSnsR1XKMmAmkIETyFPAtH3BTTUulJEFm9Pt3ZmBDQ=; b=W9ogOZAyPe+AIC
-	EeODvL02cygnHp5kmC4qwsjUgng1CfslrA703dpyx02adxMI6wNNKWl0KyL9Np6GDYflgJxCIDu7o
-	RrCP6+ZhDuJnn1c6Rr4lOsaTJYQ9Ji3trfbJE1c5k0YpTTdpNLw9mov3m9Gxx8mdOo3a3ghLASm41
-	sSwJY2OGXfMf1WZw87H8awr4jWLJAAvuQ1mBP9OcjTBYW/Rq0Y0h0X+cRe2c/d0ZezKUH8QrfdPxK
-	3Rz9VS31Evh2I0/qWNwcAWXCGg2vcMcPKvV2CGNkA4GP/BvV1fda5+AHZZe+37TvZ+pV8G+Z4HAIa
-	nNOpE0X1ABrHkMZJhGQg==;
+	List-Owner; bh=vGW844FoOFbNLbUH+AGquPmqycnvMggO7wopyg7//EM=; b=NqNp/J53g6dnFl
+	lcNh+yQ+BmqTqnZ4L7i94ecRdZgK92YrLLJdFATDm2avLPVhFCLjP+KoYsvx3FpsBJPbpd0jZDtr2
+	KvQuCND+rV4ajmrYtr+1W9puSFhw4QlOLNfZzNNKgTSW1arfddctzbJIf5YkspZlGZYX++wz8C+J/
+	AGF4zlbkt7bsEpdw9X47v291ZnvwZ4Jx+YyGTiRRraTg89kjOITKYpwetMyHAWi79O2anQnfdjLSY
+	0vKiftN80IR4E6pi6Bk2w/b9XECulsJR0E2uENH3lRnPMA/T1Tcb69P4r3eofywXCM6aT4dXqyOwM
+	yAhFgmEJ5W68C/DA1OaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mGYFr-0078O8-90; Thu, 19 Aug 2021 02:58:07 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1mGYS9-0079ZZ-0u; Thu, 19 Aug 2021 03:10:49 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mGYFl-0078MM-Sr
- for linux-riscv@lists.infradead.org; Thu, 19 Aug 2021 02:58:06 +0000
-Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.53])
- by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4GqqFV5XZLz87kF;
- Thu, 19 Aug 2021 10:57:50 +0800 (CST)
-Received: from dggpemm000001.china.huawei.com (7.185.36.245) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Thu, 19 Aug 2021 10:57:48 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- dggpemm000001.china.huawei.com (7.185.36.245) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Thu, 19 Aug 2021 10:57:47 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Tong
- Tiangen" <tongtiangen@huawei.com>
-Subject: [PATCH -next 1/2] riscv/vdso: Move vdso data page up front
-Date: Thu, 19 Aug 2021 03:06:49 +0000
-Message-ID: <20210819030650.716478-2-tongtiangen@huawei.com>
-X-Mailer: git-send-email 2.18.0.huawei.25
-In-Reply-To: <20210819030650.716478-1-tongtiangen@huawei.com>
-References: <20210819030650.716478-1-tongtiangen@huawei.com>
+ id 1mGYS6-0079YG-U8
+ for linux-riscv@lists.infradead.org; Thu, 19 Aug 2021 03:10:48 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id p4so9540120yba.3
+ for <linux-riscv@lists.infradead.org>; Wed, 18 Aug 2021 20:10:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=oPimCmfapHOlzWNF2PPhKvm04+9IOZnhcwkF9fEYFus=;
+ b=XFPy4x2LjgGqBSSCHaaq0795IL9VWSfPQxX12vQ9hAPjHrkLmlkZhQTj8Y9pDsN+gg
+ hPmt+wkZzj/lJ49kzCsVrTlLv5eVcyyiRZjH4SpMDays56FkWoQJFoRcljDIQmOlQh28
+ sbWEGBRZePrhK7Gi1jT/nQVt//246rImKbAhtLgjgyJHQvRppJm9WFKxLxwp4m5ELEQe
+ /zCLJSL83Bda1dn5a1vu/qOe7jnlJOtzelEI0fwaDIXgnaGaGOY2dFqBnMh/NwhIgPHf
+ Ngwcm1DJU8MsKiDqHee96sHaWdwgknD4HmI3eSXEHcaMU/kAO3PcoTs4bgxHvXjvtSfE
+ VFUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=oPimCmfapHOlzWNF2PPhKvm04+9IOZnhcwkF9fEYFus=;
+ b=oF2HfeHUxAC/ND9Zx1+7AjJxu7PWVBAu1OfwTOnix7h+uzbANeyuPlKV6VdY3Lbelh
+ 3V/hf0+ExrRlSu+HrVWrNDtEEjQpHyXRB85qByhbVHu5DiDVnHYEh2fHhnr/KOghaPkz
+ 7QBrbvlReK30r6+BgQ/3LKUFhEdx+CLarxIJcBI3tDdePBexv402Yy7VnpD7jk0uJdXI
+ +7HXqunV27zczNVlDewqu1vCWs8/jS6oEfGjpjTUHEpAxUhRp+eHqfFBr/mMU+wtVsUW
+ 2Yt0N4x9LVzLnVV5d5pfAut+oE1+uLZDO7a6jnZftyTFUJkXkAk8Qa+tc6IwtKK+sb8v
+ KbmA==
+X-Gm-Message-State: AOAM530S/J2B+gxYDEdhdFxmOHViFGhhphLS90mS+Fx9J+KyTcamXJsI
+ e8UjjK/EfmIAxgbfocD5JejAaxcEjYkyQT8Nuis=
+X-Google-Smtp-Source: ABdhPJxmgzMx9Yye/aziYhTeoHw2LnJ80f4jTojPyOeB6B4p5MmonChI49jjg+NoCs2o5oD9aLZie2nLVCxBma9jIis=
+X-Received: by 2002:a25:e70c:: with SMTP id e12mr15959000ybh.220.1629342642961; 
+ Wed, 18 Aug 2021 20:10:42 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- dggpemm000001.china.huawei.com (7.185.36.245)
-X-CFilter-Loop: Reflected
+References: <20210804123015.807929-1-bmeng.cn@gmail.com>
+In-Reply-To: <20210804123015.807929-1-bmeng.cn@gmail.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Thu, 19 Aug 2021 11:10:31 +0800
+Message-ID: <CAEUhbmXxGJMoS-qDncjx5uPqTz7h-aE+h=gLd==tpgLt=uy7Yg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] riscv: dts: microchip: Use 'local-mac-address' for
+ emac1
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Conor Dooley <Conor.Dooley@microchip.com>, 
+ Atish Patra <atish.patra@wdc.com>, linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Bin Meng <bin.meng@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210818_195802_305812_87E65D77 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20210818_201047_017564_0A9E6FFA 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,183 +97,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As commit 601255ae3c98 ("arm64: vdso: move data page before code pages"), the
-same issue exists on riscv, testcase is shown below, make sure that vdso.so is
-bigger than page size,
+On Wed, Aug 4, 2021 at 8:30 PM Bin Meng <bmeng.cn@gmail.com> wrote:
+>
+> From: Bin Meng <bin.meng@windriver.com>
+>
+> Per the DT spec, 'local-mac-address' is used to specify MAC address
+> that was assigned to the network device, while 'mac-address' is used
+> to specify the MAC address that was last used by the boot program,
+> and shall be used only if the value differs from 'local-mac-address'
+> property value.
+>
+> Signed-off-by: Bin Meng <bin.meng@windriver.com>
+> Reviewed-by: conor dooley <conor.dooley@microchip.com>
+> ---
+>
+> (no changes since v1)
+>
+>  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
 
-  struct timespec tp;
-  clock_gettime(5, &tp);
-  printf("tv_sec: %ld, tv_nsec: %ld\n", tp.tv_sec, tp.tv_nsec);
+Ping?
 
-without this patch, test result : tv_sec: 0, tv_nsec: 0
-   with this patch, test result : tv_sec: 1629271537, tv_nsec: 748000000
+It looks like these dts patches are still not applied...
 
-Move the vdso data page in front of the VDSO area to fix the issue.
-
-In this patch, I moved the declaration of sys_riscv_flush_icache from asm/vdso.h
-to asm/syscall.h, the reason is asm/vdso.h is included in vdso.lds.S, If the
-declaration is placed here, This will introduce syntax error.
-
-Fixes: ad5d1122b82fb ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
----
- arch/riscv/include/asm/syscall.h  |  2 ++
- arch/riscv/include/asm/vdso.h     |  4 +--
- arch/riscv/kernel/vdso.c          | 47 ++++++++++++++++++-------------
- arch/riscv/kernel/vdso/vdso.lds.S |  3 +-
- 4 files changed, 33 insertions(+), 23 deletions(-)
-
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index b933b1583c9f..50704bd5ca3e 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -82,4 +82,6 @@ static inline int syscall_get_arch(struct task_struct *task)
- #endif
- }
- 
-+asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
-+
- #endif	/* _ASM_RISCV_SYSCALL_H */
-diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-index 1453a2f563bc..564741266580 100644
---- a/arch/riscv/include/asm/vdso.h
-+++ b/arch/riscv/include/asm/vdso.h
-@@ -10,6 +10,8 @@
- 
- #include <linux/types.h>
- 
-+#define __VVAR_PAGES    1
-+
- #ifndef CONFIG_GENERIC_TIME_VSYSCALL
- struct vdso_data {
- };
-@@ -29,6 +31,4 @@ struct vdso_data {
- 	(void __user *)((unsigned long)(base) + __vdso_##name);			\
- })
- 
--asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
--
- #endif /* _ASM_RISCV_VDSO_H */
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 25a3b8849599..5fecd5529eff 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -14,12 +14,18 @@
- #include <asm/page.h>
- #ifdef CONFIG_GENERIC_TIME_VSYSCALL
- #include <vdso/datapage.h>
--#else
--#include <asm/vdso.h>
- #endif
-+#include <asm/vdso.h>
- 
- extern char vdso_start[], vdso_end[];
- 
-+enum vvar_pages {
-+	VVAR_DATA_PAGE_OFFSET,
-+	VVAR_NR_PAGES,
-+};
-+
-+#define VVAR_SIZE  (VVAR_NR_PAGES << PAGE_SHIFT)
-+
- static unsigned int vdso_pages __ro_after_init;
- static struct page **vdso_pagelist __ro_after_init;
- 
-@@ -38,7 +44,7 @@ static int __init vdso_init(void)
- 
- 	vdso_pages = (vdso_end - vdso_start) >> PAGE_SHIFT;
- 	vdso_pagelist =
--		kcalloc(vdso_pages + 1, sizeof(struct page *), GFP_KERNEL);
-+		kcalloc(vdso_pages + VVAR_NR_PAGES, sizeof(struct page *), GFP_KERNEL);
- 	if (unlikely(vdso_pagelist == NULL)) {
- 		pr_err("vdso: pagelist allocation failed\n");
- 		return -ENOMEM;
-@@ -63,7 +69,9 @@ int arch_setup_additional_pages(struct linux_binprm *bprm,
- 	unsigned long vdso_base, vdso_len;
- 	int ret;
- 
--	vdso_len = (vdso_pages + 1) << PAGE_SHIFT;
-+	BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
-+
-+	vdso_len = (vdso_pages + VVAR_NR_PAGES) << PAGE_SHIFT;
- 
- 	mmap_write_lock(mm);
- 	vdso_base = get_unmapped_area(NULL, 0, vdso_len, 0, 0);
-@@ -72,29 +80,28 @@ int arch_setup_additional_pages(struct linux_binprm *bprm,
- 		goto end;
- 	}
- 
--	/*
--	 * Put vDSO base into mm struct. We need to do this before calling
--	 * install_special_mapping or the perf counter mmap tracking code
--	 * will fail to recognise it as a vDSO (since arch_vma_name fails).
--	 */
--	mm->context.vdso = (void *)vdso_base;
-+	mm->context.vdso = NULL;
-+	ret = install_special_mapping(mm, vdso_base, VVAR_SIZE,
-+		(VM_READ | VM_MAYREAD), &vdso_pagelist[vdso_pages]);
-+	if (unlikely(ret))
-+		goto end;
- 
- 	ret =
--	   install_special_mapping(mm, vdso_base, vdso_pages << PAGE_SHIFT,
-+	   install_special_mapping(mm, vdso_base + VVAR_SIZE,
-+		vdso_pages << PAGE_SHIFT,
- 		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
- 		vdso_pagelist);
- 
--	if (unlikely(ret)) {
--		mm->context.vdso = NULL;
-+	if (unlikely(ret))
- 		goto end;
--	}
- 
--	vdso_base += (vdso_pages << PAGE_SHIFT);
--	ret = install_special_mapping(mm, vdso_base, PAGE_SIZE,
--		(VM_READ | VM_MAYREAD), &vdso_pagelist[vdso_pages]);
-+	/*
-+	 * Put vDSO base into mm struct. We need to do this before calling
-+	 * install_special_mapping or the perf counter mmap tracking code
-+	 * will fail to recognise it as a vDSO (since arch_vma_name fails).
-+	 */
-+	mm->context.vdso = (void *)vdso_base + VVAR_SIZE;
- 
--	if (unlikely(ret))
--		mm->context.vdso = NULL;
- end:
- 	mmap_write_unlock(mm);
- 	return ret;
-@@ -105,7 +112,7 @@ const char *arch_vma_name(struct vm_area_struct *vma)
- 	if (vma->vm_mm && (vma->vm_start == (long)vma->vm_mm->context.vdso))
- 		return "[vdso]";
- 	if (vma->vm_mm && (vma->vm_start ==
--			   (long)vma->vm_mm->context.vdso + PAGE_SIZE))
-+			   (long)vma->vm_mm->context.vdso - VVAR_SIZE))
- 		return "[vdso_data]";
- 	return NULL;
- }
-diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index e6f558bca71b..e9111f700af0 100644
---- a/arch/riscv/kernel/vdso/vdso.lds.S
-+++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -3,12 +3,13 @@
-  * Copyright (C) 2012 Regents of the University of California
-  */
- #include <asm/page.h>
-+#include <asm/vdso.h>
- 
- OUTPUT_ARCH(riscv)
- 
- SECTIONS
- {
--	PROVIDE(_vdso_data = . + PAGE_SIZE);
-+	PROVIDE(_vdso_data = . - __VVAR_PAGES * PAGE_SIZE);
- 	. = SIZEOF_HEADERS;
- 
- 	.hash		: { *(.hash) }			:text
--- 
-2.18.0.huawei.25
-
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
