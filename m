@@ -2,111 +2,93 @@ Return-Path: <SRS0=mZrj=NK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 75D79C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 16:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52DB0C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 16:29:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3A4DF610E6
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 16:22:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3A4DF610E6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1B428610A5
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 16:29:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1B428610A5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=zVXj67G2vQL8c3TGI2TgtaT8S2QU/SzeNdFLsKIOlXk=; b=vE6ertePvpapFj7hS8wwoLabxP
-	3BurQkjbAq32AqIs2hkt+cbdYTVYRgKTaIpG6otKvFb/e589crNa015QvS704QISYNSK2EoHgQqFX
-	V5DxMBKBbSx1sQKQyyrfW4InR6go4flVjoFeiGIUMb40Z2IEZxm7cBQiEsaROzPpKzh1O9WX6WP5P
-	lJIQ1JlcSbLfWE3Aq2qxUcbKfDBYzOsCT82V8eWWNuRUCsrKyw2LNiGMxbomQtSit76AwY/mBi0ff
-	k9E+Ns+mloJnxtE/3Y+7pR6M0emdN2kZ86g0FiDiimP//I9GCX+8zPjrfghU6K7UP3lsB/iXaPlus
-	Sy//kIIA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jSZKGSjnnXzez4fOxr5/fn7kT/Z7BLrzhE0+WLNdr3w=; b=F8YK32eAoMiodk
+	uqbjtNNckwx6eO53r4AsKc+1Aook5uZ3ELqz3rUcfZR0HeXvck88gTfsnmJsFI+6yg+28OnB6/pLB
+	bZXBM1T1+UguhfMw/mNLNClsgWDeox64MKWGLErz7gxob17pVDXJEIYYMEQK9yF88XepfXXIeDuIc
+	ThVUfr0O90ejT8T3O9BqmSyvhM8PH9WSPAF+aBKVHZeEE/wZfWIhklUBu1NW+qL0sTHbGTXo7Xn3Q
+	P48qYrJE7tZ9x7wHKfxA+oEliNTY//daXiAtyycGhozsEKjy41j8hjALFYbp2M3EZw8YYLxtA1u1B
+	RwcFa4DZFUZ7A3JyoqkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mGknh-008w3q-RM; Thu, 19 Aug 2021 16:21:53 +0000
-Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
+	id 1mGkv5-008xmv-Fc; Thu, 19 Aug 2021 16:29:31 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mGknd-008w2Y-5L
- for linux-riscv@lists.infradead.org; Thu, 19 Aug 2021 16:21:53 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ id 1mGkv3-008xmK-E7
+ for linux-riscv@lists.infradead.org; Thu, 19 Aug 2021 16:29:30 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPS id B75C8411CB
- for <linux-riscv@lists.infradead.org>; Thu, 19 Aug 2021 16:21:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1629390107;
- bh=+cZtuR9o2k87pvi0rgBoRi8/bFI7YeJU/qox3v5ZI5U=;
- h=Subject:To:References:From:Message-ID:Date:MIME-Version:
- In-Reply-To:Content-Type;
- b=TnGoL60l6+xHV2u2QYgrhlcDga3uUlfW3nSfJY4N0dFtvmlPq0DIy+BdXKWGqr76w
- sfkXI3ySjRtABEQ4fGDJWXxK2AItk+1i2rnn7jEPhzBevRw15eyPUXMTRytZoTfEg5
- +Sx3W00FyMkZGEju+29T60AW27x+m2keMkDyQCBsH9KdG6cOr5EEa8yeeCSyKlI3Jw
- m9Cmra8DxF2aAyZCJdrU7Je+c/eWkjOHYrOgzNrlsWwV63MFmORFGk7MdNhTySqY2A
- QQc+fj+8U27HuW2wdmwkr2cOVdM0s6NdIhjpUKuVJ/RDo8d+O0SZ4wDzbqNvHO5zMe
- wav8AzC9TpSRg==
-Received: by mail-ej1-f72.google.com with SMTP id
- o7-20020a170906288700b005bb05cb6e25so2457513ejd.23
- for <linux-riscv@lists.infradead.org>; Thu, 19 Aug 2021 09:21:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=+cZtuR9o2k87pvi0rgBoRi8/bFI7YeJU/qox3v5ZI5U=;
- b=pPCVq1XdvnkKE3ByEFBsN1/kJKaNEW44ZypaUjZyKjU3slAgB7c2Gcf65j5iXjNhO0
- 6Xh0neTCd1oh0NwZOe2wVv6DSD71d29n9UJiRzsKGGI8pDXvlkQvSa9A7dmiY5L2tNum
- lLSBDKiFWaTF67gxdGYrbAqEAG5UfJPXxwzALksBH4O5A58v18VPgq2npaeeQKN/A0qL
- CBWCO+A88Fbsfx3F0D8VQkf8aiSo5NnrY7XIf26mrYn92WLegeR6JoJzNmwMGPR8LUPY
- JixVQW/HQtzCi9zrrVPQhz+W/1FYLVYy+I5Be9aCUFSUxihL/hZhi+h0yrh4R8HDLGZI
- NePg==
-X-Gm-Message-State: AOAM533t9kIFeYyHD1gPYPmRt+NEWntEhPkn2r1GDGTMU7qhEM43a1ot
- n7SGZ6mHb0ys+8BGAQQhnNbGXe2BlQKeJjCXzCoX6iei4CVaouikIqVjghaIGlHduxRaCGoUHov
- zimp61kmDUz04SWEDxiG52mipTkNdRvh8Hk51vOyhNKg2nw==
-X-Received: by 2002:a17:906:87c2:: with SMTP id
- zb2mr16503213ejb.322.1629390106277; 
- Thu, 19 Aug 2021 09:21:46 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxuaQqSj/y3QMWrvKAdgV8r7CJmiTSZ6zuwkSNkqhhy0AKGNuqM3cQONHkLBZcKm5Sw3vridg==
-X-Received: by 2002:a17:906:87c2:: with SMTP id
- zb2mr16503202ejb.322.1629390106161; 
- Thu, 19 Aug 2021 09:21:46 -0700 (PDT)
-Received: from [192.168.8.102] ([86.32.42.198])
- by smtp.gmail.com with ESMTPSA id j11sm1478832ejy.112.2021.08.19.09.21.44
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 19 Aug 2021 09:21:45 -0700 (PDT)
-Subject: Re: [PATCH 3/6] riscv: microchip: mpfs: drop duplicated nodes
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Piotr Sroka <piotrs@cadence.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20210819154436.117798-1-krzysztof.kozlowski@canonical.com>
- <20210819154436.117798-3-krzysztof.kozlowski@canonical.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Message-ID: <4d0d6290-8341-56d8-7902-5a8c36bc7bb5@canonical.com>
-Date: Thu, 19 Aug 2021 18:21:44 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <20210819154436.117798-3-krzysztof.kozlowski@canonical.com>
-Content-Language: en-US
+ by mail.kernel.org (Postfix) with ESMTPSA id 04C6661106;
+ Thu, 19 Aug 2021 16:29:29 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mGkv1-00619Z-1o; Thu, 19 Aug 2021 17:29:27 +0100
+Date: Thu, 19 Aug 2021 17:29:26 +0100
+Message-ID: <87wnohqty1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Matteo Croce <mcroce@linux.microsoft.com>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
+ Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+In-Reply-To: <CAFnufp2=1t2+fmxyGJ0Qu3Z+=wRwAX8faaPvrJdFpFeTS3J7Uw@mail.gmail.com>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
+ <87o8a49idp.wl-maz@kernel.org>
+ <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
+ <20210812121835.405d2e37@linux.microsoft.com>
+ <874kbuapod.wl-maz@kernel.org>
+ <CAFnufp2=1t2+fmxyGJ0Qu3Z+=wRwAX8faaPvrJdFpFeTS3J7Uw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mcroce@linux.microsoft.com, eric.dumazet@gmail.com,
+ thierry.reding@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
+ alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
+ kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210819_092149_387173_C8AF741E 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20210819_092929_555088_DC9AC8EE 
+X-CRM114-Status: GOOD (  46.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,22 +105,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2021 17:44, Krzysztof Kozlowski wrote:
-> The DTSI file defines soc node and address/size cells, so there is no
-> point in duplicating it in DTS file.
+On Thu, 12 Aug 2021 12:18:48 +0100,
+Matteo Croce <mcroce@linux.microsoft.com> wrote:
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-> ---
->  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 5 -----
->  1 file changed, 5 deletions(-)
+> [1  <text/plain; UTF-8 (7bit)>]
+> On Thu, Aug 12, 2021 at 1:05 PM Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Thu, 12 Aug 2021 11:18:35 +0100,
+> > Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> > >
+> > > On Thu, 12 Aug 2021 10:48:03 +0200
+> > > Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> > >
+> > > >
+> > > >
+> > > > On 8/11/21 4:16 PM, Marc Zyngier wrote:
+> > > > > On Wed, 11 Aug 2021 13:53:59 +0100,
+> > > > > Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> > > > >
+> > > > >> Are you sure you do not need to adjust stmmac_set_bfsize(),
+> > > > >> stmmac_rx_buf1_len() and stmmac_rx_buf2_len() ?
+> > > > >>
+> > > > >> Presumably DEFAULT_BUFSIZE also want to be increased by NET_SKB_PAD
+> > > > >>
+> > > > >> Patch for stmmac_rx_buf1_len() :
+> > > > >>
+> > > > >> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c index
+> > > > >> 7b8404a21544cf29668e8a14240c3971e6bce0c3..041a74e7efca3436bfe3e17f972dd156173957a9
+> > > > >> 100644 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c +++
+> > > > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c @@ -4508,12
+> > > > >> +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct
+> > > > >> stmmac_priv *priv, /* First descriptor, not last descriptor and
+> > > > >> not split header */ if (status & rx_not_ls)
+> > > > >> -               return priv->dma_buf_sz;
+> > > > >> +               return priv->dma_buf_sz - NET_SKB_PAD -
+> > > > >> NET_IP_ALIGN;
+> > > > >>         plen = stmmac_get_rx_frame_len(priv, p, coe);
+> > > > >>
+> > > > >>         /* First descriptor and last descriptor and not split
+> > > > >> header */
+> > > > >> -       return min_t(unsigned int, priv->dma_buf_sz, plen);
+> > > > >> +       return min_t(unsigned int, priv->dma_buf_sz - NET_SKB_PAD
+> > > > >> - NET_IP_ALIGN, plen); }
+> > > > >>
+> > > > >>  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+> > > > >
+> > > > > Feels like a major deficiency of the original patch. Happy to test a
+> > > > > more complete patch if/when you have one.
+> > > >
+> > > > I wont have time in the immediate future.
+> > > >
+> > > > Matteo, if you do not work on a fix, I suggest we revert
+> > > >  a955318fe67ec0d962760b5ee58e74bffaf649b8 stmmac: align RX buffers
+> > > >
+> > > > before a more polished version can be submitted.
+> > > >
+> > >
+> > > Better to use stmmac_rx_offset() so to have the correct length when
+> > > using XDP. Also, when XDP is enabled, the offset was
+> > > XDP_PACKET_HEADROOM (i.e. 256 bytes) even before the change, so it
+> > > could be already broken. Mark, can you try on the Jetson TX2 by
+> > > attaching an XDP program and see if it works without my change?
+> >
+> > Sorry, you'll have to hold my hand here, as I know exactly nothing
+> > about XDP....
+> >
 > 
+> Attach the attached object with:
+> 
+> ip link set eth0 xdp object passall.o
+> 
+> This is an empty XDP program, its source:
+> 
+> __attribute__((section("prog"), used))
+> int xdp_main(struct xdp_md *ctx)
+> {
+>        return XDP_PASS;
+> }
+> 
+> Every packet will pass untouched, but the offset will be shifted from
+> 0 to 256 bytes, which could trigger the problem anyway:
 
-Now I wonder whether the subject prefix should be "riscv: dts:
-microchip:" instead?
+Nope. On 5.13, which doesn't have the issue, adding this payload
+doesn't result in any problem and the whole thing is rock solid.
 
+> 
+> > > A possible fix, which takes in account also the XDP headroom for
+> > > stmmac_rx_buf1_len() only could be (only compile tested, I don't have
+> > > the hardware now):
+> >
+> > However, this doesn't fix my issue. I still get all sort of
+> > corruption. Probably stmmac_rx_buf2_len() also need adjusting (it has
+> > a similar logic as its buf1 counterpart...)
+> >
+> > Unless you can fix it very quickly, and given that we're towards the
+> > end of the cycle, I'd be more comfortable if we reverted this patch.
+> >
+> 
+> Can it be that the HW can't do DMA on an address which is not word aligned?
+> What if you replace NET_SKB_PAD with, let's say, 8?
 
-Best regards,
-Krzysztof
+With this:
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index fcdb1d20389b..244aa6579ef4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -341,7 +341,7 @@ static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+ 	if (stmmac_xdp_is_enabled(priv))
+ 		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
+ 
+-	return NET_SKB_PAD + NET_IP_ALIGN;
++	return 8 + NET_IP_ALIGN;
+ }
+ 
+ void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
+
+I don't see the system corrupting packets anymore. Is that exactly
+what you had in mind? This really seems to point to a basic buffer
+overflow.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
