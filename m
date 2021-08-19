@@ -2,107 +2,88 @@ Return-Path: <SRS0=mZrj=NK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C439C4338F
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 17:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB8B8C4338F
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 17:29:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBCBF60FE6
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 17:03:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EBCBF60FE6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id A62266108E
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Aug 2021 17:29:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A62266108E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZOJ/nC8Bw95IGdgZL4C/fMKFtm5fOukjtKe2X55AKnQ=; b=Oh7yGwqcLy9dMi
-	4i5qyjRWvJwoenen6EUpR9M99XhYV5JzfVCNJWDQqovLSN2T4uYZzzCga+spJivyDG6El/M1RHoOI
-	nIMrF7EqucagGa0ompF/+a0lFHx/6Jv+Ir2iR6DzYv6EPhV1N5J31wsNAslu+4f/uWtareLTGcDS1
-	pd5KbzxL8FuSjL6ccBt1MNDWyz7cP54bsZQRakYLIuYknvcuDmCoH0UUtqU5n8+VnH5LlhJbGbWxD
-	1RABJfHMt4LtnuMbRaykeV5rLn2jInX098xQjpg4IUTUTYeVa4VOnWnMHaJ/HpgDX/pCqmTv+KTZm
-	T4133XKRuHN0fheJIl4A==;
+	List-Owner; bh=bm3OHOgMmA9aeCvPSB5kF1n8S6fSsOkvcrhFjOwOIgU=; b=wFaKTVr1Tr3hWa
+	sRXuRwXdN/DK8xO3E5N7tbc6jR8DMsu7G0ydRV0dwlywSbT1gPd8RQcWU3fCD8TF9Werr6NiWtF0x
+	3qLMIynu0JJBfOuO7fie3OhKXMmymw4yUJBYffQs55w5J0LU3U2wC6Tw9aUm5ZZ/4F3hrJc9NkAfH
+	bWPfjfar/Bw2qhLT5LEuX3IakGTP7RPvDa0yziP7TL4PdIMrhywPZBHt34plNJ+tu8eAaAhQhH582
+	pihludnYj5+6T2nUMeRWO2rL6l4CRurlDc4CJLguhTGlr1yLJ1tYLblTWJANyYdlUQz/qwEMMrS0e
+	pjj32Vc2gx4eOog3TwHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mGlRS-0092QO-CW; Thu, 19 Aug 2021 17:02:58 +0000
-Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
+	id 1mGlqu-0098Tu-KT; Thu, 19 Aug 2021 17:29:16 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mGlO0-0091Al-H0
- for linux-riscv@lists.infradead.org; Thu, 19 Aug 2021 16:59:34 +0000
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPS id A9D8F411D1
- for <linux-riscv@lists.infradead.org>; Thu, 19 Aug 2021 16:59:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1629392360;
- bh=Y4VjdAw6i2XAmKpVIHlCuxlv3sz5tzJooO2Kj1Zm5KY=;
- h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=eDBA272Y2svg85DF9lw/MbX3WzKN4Xur5Wx2Pdx2BTgOOn4EESIj/hqlklcgYSM20
- gbzfUSfJQZdXEFEoaXQe4YoFWGZ9twXzmsXDvOMNL5SLG+sUdB3rpn9nHtom+DLikJ
- Am/wIIDUEGaP6hyzLR0axFiJflPXxiemdO7DysUHl9T4a7wvX4Nxkj1rOzCG3pm4nj
- MM5q25jHqSKMfMFBfZCW3cZPrqkwtAoTG+GcCYi+nLcy0jCENxN16H3e1RhXGC9by2
- 7FegM4hKXRBkulA+BGeBUa1BPeBj202wbgsEASQGoL92xgoTt7/Ha6YfHHmyCjG+q+
- zqPC7zwCKmXxQ==
-Received: by mail-ed1-f70.google.com with SMTP id
- o17-20020aa7d3d1000000b003beaf992d17so3127284edr.13
- for <linux-riscv@lists.infradead.org>; Thu, 19 Aug 2021 09:59:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=Y4VjdAw6i2XAmKpVIHlCuxlv3sz5tzJooO2Kj1Zm5KY=;
- b=jnmH1Cv8wGnWCZcP9zb+MdKXnsRTpD7Dc5uXalMoPxfOzmEk8zeXqpgCyDwXylylJD
- Ml+rhUC9a9fANe0Pa7iwOTmq+8BaiJmObCZnZLOoN/UKDildWfQdX1jxxOLL28cl3T4Y
- JbVuPd8WSLeOxgjX1dRXAZwunTbRqkODaOqPCjrw6aLz9RY2WA2n5jc9O1qK/JywIfUn
- F4XUgXqbuzhQQ4DhKa+O2PVtDwXGlpN1OuIJPbyw9emlkvw9t0FnwUWl68sb3onakt0G
- h3VK6lrVNZOaucplQMJP1ZAP+Klyh1z8XtXKEg9Wq9v8kza37CbRbvSYsZfTUj5A6LEe
- N6Pg==
-X-Gm-Message-State: AOAM531wXCjG4fEWTk3hLu6JhVx0vuNpba8fkx4dN+DaItPaL4/ZHnB7
- ArSZp5pje5n/yCDVKlzlVKR5R+SC39RvdHwy13GgwYIbCs2uQVBTSnaFh8aOC9J3tWEYoAPK4Bx
- kmj/lJWNCLRZs0Pnyehg1l8Ndr3Hz2bmo6HL/5b3PboSwyw==
-X-Received: by 2002:a17:907:9844:: with SMTP id
- jj4mr11566643ejc.274.1629392360423; 
- Thu, 19 Aug 2021 09:59:20 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJy43yi4cd7I0ui+CNEC5/97mRyJRHDDxkOUtMndNvJTXPpnkWSykdSV4XJEwgHTzH2mBfqKLQ==
-X-Received: by 2002:a17:907:9844:: with SMTP id
- jj4mr11566632ejc.274.1629392360273; 
- Thu, 19 Aug 2021 09:59:20 -0700 (PDT)
-Received: from localhost.localdomain ([86.32.42.198])
- by smtp.gmail.com with ESMTPSA id h8sm2023418edv.30.2021.08.19.09.59.18
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 19 Aug 2021 09:59:19 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atish.patra@wdc.com>,
- Sagar Shrikant Kadam <sagar.kadam@sifive.com>,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: [PATCH 3/5] riscv: dts: sifive: drop duplicated nodes and properties
- in sifive
-Date: Thu, 19 Aug 2021 18:59:06 +0200
-Message-Id: <20210819165908.135591-3-krzysztof.kozlowski@canonical.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210819165908.135591-1-krzysztof.kozlowski@canonical.com>
+ id 1mGlqo-0098Pi-FP; Thu, 19 Aug 2021 17:29:14 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+ by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 17JHSuqr102147;
+ Thu, 19 Aug 2021 12:28:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1629394136;
+ bh=9wm20UrD06qQHwEXtF7BbUvRLzoMUVujfUi73UTq5+4=;
+ h=Date:From:To:CC:Subject:References:In-Reply-To;
+ b=fKdtQX+V06GOSGKQgO9RivIvFwsW5j32CBCUwxDAeAEsDKz6VDZ7abpNRydEIRNtT
+ MC93+Jj6dvTI5iYc3c/qElfGyC8x5eoevn8p+7fwEKR7y3sOTv/J2mX6MkECM6Zrd+
+ Y8N5Wwj02ZNX0A3nG2LbgIQqX4lzsdJc6tv9kc0Q=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+ by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 17JHSuXq117014
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Thu, 19 Aug 2021 12:28:56 -0500
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2; Thu, 19
+ Aug 2021 12:28:56 -0500
+Received: from lelv0327.itg.ti.com (10.180.67.183) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2 via
+ Frontend Transport; Thu, 19 Aug 2021 12:28:56 -0500
+Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
+ by lelv0327.itg.ti.com (8.15.2/8.15.2) with ESMTP id 17JHStHH055693;
+ Thu, 19 Aug 2021 12:28:56 -0500
+Date: Thu, 19 Aug 2021 22:58:54 +0530
+From: Pratyush Yadav <p.yadav@ti.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+CC: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger
+ <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring
+ <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>,
+ Sagar Shrikant Kadam <sagar.kadam@sifive.com>, Tudor
+ Ambarus <tudor.ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 1/5] dt-bindings: mtd: jedec,spi-nor: document
+ issi,is25wp256
+Message-ID: <20210819172852.b26mybrdr33wso62@ti.com>
 References: <20210819165908.135591-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210819165908.135591-1-krzysztof.kozlowski@canonical.com>
+User-Agent: NeoMutt/20171215
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210819_095924_846480_2619EA3E 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20210819_102910_733611_0D97FF48 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,64 +100,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The DTSI file defines soc node and address/size cells, so there is no
-point in duplicating it in DTS file.
++ Tudor (you should be listed as a maintainer for this file IMO)
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
----
- arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 5 -----
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 5 -----
- 2 files changed, 10 deletions(-)
+On 19/08/21 06:59PM, Krzysztof Kozlowski wrote:
+> Document bindings for the issi,is25wp256 SPI NOR flash.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> ---
+>  Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> index ed590d7c6e37..0db64ac7dc33 100644
+> --- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> @@ -33,6 +33,7 @@ properties:
+>        - items:
+>            - enum:
+>                - issi,is25lp016d
+> +              - issi,is25wp256
 
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-index c960e19cfa70..ed2c2429c6c2 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-@@ -8,8 +8,6 @@
- #define RTCCLK_FREQ		1000000
- 
- / {
--	#address-cells = <2>;
--	#size-cells = <2>;
- 	model = "SiFive HiFive Unleashed A00";
- 	compatible = "sifive,hifive-unleashed-a00", "sifive,fu540-c000",
- 		     "sifive,fu540";
-@@ -27,9 +25,6 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x2 0x00000000>;
- 	};
- 
--	soc {
--	};
--
- 	hfclk: hfclk {
- 		#clock-cells = <0>;
- 		compatible = "fixed-clock";
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 2e4ea84f27e7..960d65ca5d4f 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -8,8 +8,6 @@
- #define RTCCLK_FREQ		1000000
- 
- / {
--	#address-cells = <2>;
--	#size-cells = <2>;
- 	model = "SiFive HiFive Unmatched A00";
- 	compatible = "sifive,hifive-unmatched-a00", "sifive,fu740-c000",
- 		     "sifive,fu740";
-@@ -27,9 +25,6 @@ memory@80000000 {
- 		reg = <0x0 0x80000000 0x4 0x00000000>;
- 	};
- 
--	soc {
--	};
--
- 	hfclk: hfclk {
- 		#clock-cells = <0>;
- 		compatible = "fixed-clock";
+I don't think we want to add any new flash specific compatibles. Why is 
+"jedec,spi-nor" not enough for you?
+
+>                - micron,mt25qu02g
+>                - mxicy,mx25r1635f
+>                - mxicy,mx25u6435f
+> -- 
+> 2.30.2
+> 
+> 
+> ______________________________________________________
+> Linux MTD discussion mailing list
+> http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
 -- 
-2.30.2
-
+Regards,
+Pratyush Yadav
+Texas Instruments Inc.
 
 _______________________________________________
 linux-riscv mailing list
