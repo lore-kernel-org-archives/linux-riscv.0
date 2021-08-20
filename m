@@ -2,69 +2,106 @@ Return-Path: <SRS0=APW5=NL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C0B0C4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 18:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F37FAC4338F
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 18:41:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CEDB961241
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 18:27:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CEDB961241
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id B74B660FE8
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 18:41:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B74B660FE8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tmaocl2bfCvLEoRkK7nIzxy53FFhTP+ZjXqit5g/HF0=; b=vO2zozTcBzLLcK
-	6kROjLUdVYKmlAMBWiH9Vmss6L4kn4PmzxfoNz9xpGUEXwgOQdjNqFe9X1leNk9g+TE53KxUFPA4m
-	SlDsRCyxp6RQ8QJaYZip0aS0YUBvti0X1aKNef4Lqape6vqgERm3zSXaUDT6XpzCfKsO9YgUSDmKZ
-	qsqCWRhuj5I9AUShiBN+Re4WCTLgL5Iu1Ux+/HC91X2SndIrpXjlBpWzZ+60c2Yg7w8f/dbmeQA0B
-	uK2bBaAfdDT7AL3iJ8j4qE8JGrOH9MU2qzaJBGv1+3LvYry6dsfpAxeMem/L8gAFZdcIlCatp0Kt7
-	qFrlETNEWuzrjMfnk1bw==;
+	List-Owner; bh=AP5Cu6rmYTeD6eRoe2i+OhyFSRd2fra1pSntFSbnQ/U=; b=Q69m50/Pe2/2Ep
+	NzWdp437Jmn90lKu9+B2DpD21b8WdY27K0ZtJXfFuMq69dxohZxzwKZ218YEsdYB0BCuRCAko/mug
+	oNPBolHoIZpxXgmS34m2Y1/X2h23SnBjBKWxs45mONl9oOb/kdt3NvZe4SdnvdPRDI7kx/9jvcfs/
+	vnnssnrd29T+38rgGpQd5cm5MImUGP3dCYOJy+DNRPX6hDhaPj7cOtQyabRNWbFXEkYnppNjp5FDj
+	+pu1+B0rLTPycUBcOF//CkNYlaTYJUnh+RujWqOth9p/CcZqUEPDDUoCHZHzoR6sRv9wcb6kottK2
+	pje1wYP1CGdr8vXVNClQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mH9EY-00BqQH-Ar; Fri, 20 Aug 2021 18:27:14 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1mH9Rz-00Bukh-0U; Fri, 20 Aug 2021 18:41:07 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mH9EW-00BqPT-Ng
- for linux-riscv@bombadil.infradead.org; Fri, 20 Aug 2021 18:27:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=tdQqeccCak7gZvzJh0sTAGQqu+YU4rsLzWI4kGslWng=; b=ZJbBe6oXsxX7AoqefdSkvbjVKX
- P5f7bDtiCLrra3haNmrU9N9PCmgaNVQ5s/CNFqinUSqm4Qc/Jnk9gM9hVkQzYqGyZbqN8D70oNeeE
- Xvyrwn0m9SzLjkao8fmr7ydM/5Xhiks8Z6mqMbYL+0PnJGDerVm9q+bngGnHRsXlMwzv8Wm9u/RQN
- 67qOSlYM5mos5r+CRhC630VaCVtW7wNULIkBGJDl+s+l0hkEUmzg6EzmIWL5VVWXP9t/mQJU/jihx
- RPpHOVJGWmqyuoxA/Wb2nbldQOg6ZTwjd9PxbLAjIs2N4FRTEhrAhohu3r3RVPRFZiDQTLy+wHi/A
- smy81+gg==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1mH9DC-006qfn-8u; Fri, 20 Aug 2021 18:26:17 +0000
-Date: Fri, 20 Aug 2021 19:25:50 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Joe Perches <joe@perches.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Dwaipayan Ray <dwaipayanray1@gmail.com>,
- LukasBulwahn <lukas.bulwahn@gmail.com>, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, linux-csky@vger.kernel.org
-Subject: Re: What is the oldest perl version being used with the kernel ?
- update oldest supported to 5.14 ?
-Message-ID: <YR/zrjiCwnzMMcmA@casper.infradead.org>
-References: <37ec9a36a5f7c71a8e23ab45fd3b7f20efd5da24.camel@perches.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <37ec9a36a5f7c71a8e23ab45fd3b7f20efd5da24.camel@perches.com>
+ id 1mH9Rv-00Bujr-L5
+ for linux-riscv@lists.infradead.org; Fri, 20 Aug 2021 18:41:05 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 505A760232;
+ Fri, 20 Aug 2021 18:41:03 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64]
+ helo=wait-a-minute.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mH9Rt-006GBI-8C; Fri, 20 Aug 2021 19:41:01 +0100
+Date: Fri, 20 Aug 2021 19:41:00 +0100
+Message-ID: <87bl5syn5v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Matteo Croce <mcroce@linux.microsoft.com>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, Jon Hunter <jonathanh@nvidia.com>,
+ Will Deacon <will@kernel.org>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+In-Reply-To: <CAFnufp22=M0NRvaAcXgfUVzA2HNFLwxO6Bwp+GZk56S3ycLbNQ@mail.gmail.com>
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
+ <87o8a49idp.wl-maz@kernel.org>
+ <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
+ <20210812121835.405d2e37@linux.microsoft.com>
+ <874kbuapod.wl-maz@kernel.org>
+ <CAFnufp2=1t2+fmxyGJ0Qu3Z+=wRwAX8faaPvrJdFpFeTS3J7Uw@mail.gmail.com>
+ <87wnohqty1.wl-maz@kernel.org>
+ <CAFnufp3xjYqe_iVfbmdjz4-xN2UX_oo3GUw4Z4M_q-R38EN+uQ@mail.gmail.com>
+ <87fsv4qdzm.wl-maz@kernel.org>
+ <CAFnufp2T75cvDLUx+ZyPQbkaNeY_S1OJ7KTJe=2EK-qXRNkwyw@mail.gmail.com>
+ <87mtpcyrdv.wl-maz@kernel.org>
+ <CAFnufp0N2MzaTjF95tx9Q1D33z9f9AAK6UHbhU9rhG1ue_r1ug@mail.gmail.com>
+ <87h7fkyqpv.wl-maz@kernel.org>
+ <CAFnufp3HbyeTGhxB33mej4Y4G2T2Yv5swKCx_C41zfc71Kj11A@mail.gmail.com>
+ <87fsv4ypfn.wl-maz@kernel.org>
+ <CAFnufp2qFuhMDae20u_dV+aOPfB+zpcEK8D-=8ACE6r4kDn2rw@mail.gmail.com>
+ <87eeaoyon3.wl-maz@kernel.org>
+ <CAFnufp22=M0NRvaAcXgfUVzA2HNFLwxO6Bwp+GZk56S3ycLbNQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mcroce@linux.microsoft.com, eric.dumazet@gmail.com,
+ thierry.reding@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, peppe.cavallaro@st.com,
+ alexandre.torgue@foss.st.com, davem@davemloft.net, kuba@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, drew@beagleboard.org,
+ kernel@esmil.dk, jonathanh@nvidia.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210820_114103_763195_867878D9 
+X-CRM114-Status: GOOD (  42.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +118,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 20, 2021 at 10:27:59AM -0700, Joe Perches wrote:
-> Perl 5.8 is nearly 20 years old now.
+On Fri, 20 Aug 2021 19:14:22 +0100,
+Matteo Croce <mcroce@linux.microsoft.com> wrote:
 > 
-> https://en.wikipedia.org/wiki/Perl_5_version_history
+> On Fri, Aug 20, 2021 at 8:09 PM Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Fri, 20 Aug 2021 18:56:33 +0100,
+> > Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> > >
+> > > On Fri, Aug 20, 2021 at 7:51 PM Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > On Fri, 20 Aug 2021 18:35:45 +0100,
+> > > > Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> > > > >
+> > > > > > > I think it's wrong. The original offset was 0, and to align it to the
+> > > > > > > boundary we need to add just NET_IP_ALIGN, which is two.
+> > > > > > > NET_SKB_PAD is a much bigger value, (I think 64), which is used to
+> > > > > > > reserve space to prepend an header, e.g. with tunnels.
+> > > > > >
+> > > > > > How about the other adjustments that Eric mentioned regarding the size
+> > > > > > of the buffer? Aren't they required?
+> > > > > >
+> > > > >
+> > > > > I guess that if stmmac_rx_buf1_len() needed such adjustment, it would
+> > > > > be already broken when XDP is in use.
+> > > > > When you use XDP, stmmac_rx_offset() adds a pretty big headroom of 256
+> > > > > byte, which would easily trigger an overflow if not accounted.
+> > > > > Did you try attaching a simple XDP program on a stock 5.13 kernel?
+> > > >
+> > > > Yes, as mentioned in [1], to which you replied...
+> > > >
+> > > >         M.
+> > > >
+> > > > [1] https://lore.kernel.org/r/87wnohqty1.wl-maz@kernel.org
+> > > >
+> > >
+> > > Great.
+> > > So I doubt that the adjustment is needed.
+> > > Does it work with all the frame size?
+> >
+> > I have no idea. Honestly, you are the one who should be able to answer
+> > these questions, given that you should have worked out how the buffer
+> > allocations work in this particular driver.
+> >
+> > This whole "let's try another random set of values until something
+> > sticks" is not how things ought to be done, and doesn't fill me with
+> > the utmost confidence that 5.14 (which apparently may well be cut in
+> > *two days*) is going to have a solid stmmac driver.
+> >
+> > I re-re-request that this patch gets reverted until you figure out
+> > what is wrong with the initial patch.
+> >
+> > Thanks,
+> >
 > 
-> checkpatch uses regexes that are incompatible with perl versions
-> earlier than 5.10, but these uses are currently runtime checked
-> and skipped if the perl version is too old.  This runtime checking
-> skips several useful tests.
+> I would have done it, but I'll not have the hardware until next week at least,
+> otherwise I'd have tried all these tests myself.
 > 
-> There is also some desire for tools like kernel-doc, checkpatch and
-> get_maintainer to use a common library of regexes and functions:
-> https://lore.kernel.org/lkml/YR2lexDd9N0sWxIW@casper.infradead.org/
-> 
-> It'd be useful to set the minimum perl version to something more modern.
-> 
-> I believe perl 5.14, now only a decade old, is a reasonable target.
-> 
-> Any objections or suggestions for a newer minimum version?
+> I'm sure that NET_SKB_PAD doesn't need to be there, if just removing
+> it fixes the problem, consider applying it and put a Fixes tag.
 
-Not an objection per se, but some data points.
+No, I don't think that's the right thing to do. A patch breaks a
+driver, and the author of the patch is not in a position to fix it.
+That's OK, these things happen, it's just bad timing.
 
-Oracle Linux 5 (released 2007, still under support) has perl 5.8.8
-Oracle Linux 6 (released 2011) has perl 5.10.1
-Oracle Linux 7 (released 2014) has perl 5.16.3
-Oracle Linux 8 (released 2019) has perl 5.26.3
+But I don't understand this part of the kernel well enough to submit a
+patch based on a sample of *one*, at the last minute, just because "it
+works for me", and have the confidence that it doesn't break anything
+else.
 
-I don't know that we need to be able to build on a distro from 2007
-or even from 2011.  I think it's reasonable to require updating to a
-2014 distro in order to build a 2021 kernel.
+I have now posted a revert of the original patch[1]. I'll be happy to
+work with you, with a less pressure, in order to have something that
+works for everyone in the next cycle.
 
-For comparison, we currently require gcc-4.9 to build the kernel, and
-4.9.0 was released in 2014.  So perl-5.16 wouldn't be an unreasonable
-requirement, I believe.
+Thanks,
+
+	M.
+
+[1] https://lore.kernel.org/netdev/20210820183002.457226-1-maz@kernel.org
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
