@@ -2,98 +2,90 @@ Return-Path: <SRS0=APW5=NL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46BA6C4338F
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 06:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90D01C4338F
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 10:38:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 082D461053
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 06:42:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 082D461053
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 535506056C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Aug 2021 10:38:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 535506056C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Cc:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QE1LEE3Xl2uXKPf/q8CXDVcUYnaFpAvzUeX2jjT2EWk=; b=ZENK7XPT+vXzft2ZWGp6h+utcL
-	yzvJA0vPXjO01cSs+rUZVYWsDN0YfK2Pd9ifLk3hnuIXkWzQdJihES8rkFKGpp1+c0KMiwilSXGr7
-	fBHk/qEruMzL2H4m0oRIKQKy0xASTTcF5t1GDYr9ujuVFxerqSfZTk/sivOssybAejiI2Mo2KSnw7
-	xtKrFGvkE2fKsyhB7y24IFopaKeKYECHfH8tPiy9i8bmEXELaDzuENXnbYcxfE9FZqojYG4D31fJn
-	2PQydfg3HdB/szZj1v2DdoEqDb4pBRzpftLPq+Ilo6j350oGHWdc3bOlO9UZ+CiEJkZyE3HgunyZJ
-	1o2qLfPQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vL4yy9Q+gHnqBoQpVNKkl5IdcPFwTrWBo+9SJg/3+H8=; b=0aBt6EOp3zIKE2
+	JaQy+dUF8BVk2yBkTr5UDi3wPA01PRFQmyZP6EPlYjuvW+z6ffO8w5zFoUNZqOvZrZLGxLopxDet5
+	Y+8YrBWj4FwnwGl1BYyNvd2iWygW87jzbt1hSuL7o14QwIwaMm97R5O7x6Lp6tpPKl9TvsmQZdkMu
+	yspk7JXCqgqUDyDDrqlzZv7fA16jwK3sShWJwOgS1JXW3EPmWhG6EhBjOKlO+u2qjDPcGRlC945CH
+	Fquxqqml5XcL1MGLsCcL2Ynr0GfTX2uDAP3AAeLxvsVmHeTiNY4tnW4FIluq0dtz7L2wcGDglzxCb
+	3+TaCj1RJaT3LQ1+UCHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mGyEY-00ABRJ-Mm; Fri, 20 Aug 2021 06:42:30 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mGyEV-00ABQq-Nt
- for linux-riscv@lists.infradead.org; Fri, 20 Aug 2021 06:42:29 +0000
-Received: by mail-pf1-x434.google.com with SMTP id m26so7764215pff.3
- for <linux-riscv@lists.infradead.org>; Thu, 19 Aug 2021 23:42:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=cc:subject:to:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=6hE1IwbcD/W0J8iLODxuA+fomqEuqcycOTMy2P9S7y4=;
- b=rLVGoejHlJKFNTpNrieIDupRrj/jAGb07v/vsoixmpSTO+QUfUIbGjr+doazWsETGe
- ak8sA9GNMyFJ8saeGCXn1xj1k28aWW7sCfQjSoBK/9Ky+pZBivfXQTytXZz6/F8ocfvy
- 63jtIxF9LGBtkYUAwB2F6dhEjS+fVkY6mKP11rvdcegGAjMWdxZoaSr2VrggyIEcnVm2
- RcU5HLJun/88UbrBss+6+43JaPIX53R3HRu5CrStZkZCBO51W6StugowMh5pxPT9jAT+
- 4WyJlAu8XXMwmH+JzArd6OSgxk3EJKOo05OFT21hHLqUebHfq3I+MNr3jCJtk0/qiQwi
- hgiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:cc:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=6hE1IwbcD/W0J8iLODxuA+fomqEuqcycOTMy2P9S7y4=;
- b=DH/FnwmIJ7TxcfySANLEfV0KUkfD6fX7kN4xhuKPCYEtDLPskEftioCTsIGU+OqSE2
- VRjqKWCU4OOhtfr0B7RCXSK4BMvWJZMD4uMyze80hF+WJbqSCmhp6lUoXTGGRYquJVGk
- BGLegDnwt4/bPU5+So/TFHn6Q01ruPzzhj1Yv9/YwCpzSQuhIqwVd5ErKTTyuyzTtF24
- Nm2p5APmFELYMT3JXJB4Hes+1o6OUQxTk7xODie2h8ddTfzF1AD/xEOnvF5J1Jl4drKB
- hic2C4PM2N4k5qPCjr+WMCsAwE2qZnjwYERpsMeI1Cm/44iLbf8HVXZRDj4rwAywFuph
- mXCQ==
-X-Gm-Message-State: AOAM530Z9zDpqN4vMlDJBY+kWGFDUE7zG/iBWdRtl63SES2UAidiMt5L
- 887n5cPt88Kx5ek2adhoPiY=
-X-Google-Smtp-Source: ABdhPJxDt6Hn3mdV88Z1fZn0pqd9mCs3I5QX3BaCXW1OL8QI7ryJ7oap+vwFNX6X1LyQuD6DEcMT3w==
-X-Received: by 2002:a65:62cb:: with SMTP id m11mr17342007pgv.425.1629441744057; 
- Thu, 19 Aug 2021 23:42:24 -0700 (PDT)
-Received: from [10.252.0.53]
- (ec2-54-199-237-251.ap-northeast-1.compute.amazonaws.com. [54.199.237.251])
- by smtp.gmail.com with ESMTPSA id z2sm6813828pgz.43.2021.08.19.23.42.21
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 19 Aug 2021 23:42:23 -0700 (PDT)
-Cc: akira.tsukamoto@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux@roeck-us.net, geert@linux-m68k.org, qiuwenbo@kylinos.com.cn,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: __asm_copy_to-from_user: Improve using word
- copy if size < 9*SZREG
-To: Andreas Schwab <schwab@linux-m68k.org>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <e3e9fb3a-40b1-50f3-23cc-50bfa53baa8d@gmail.com>
- <mhng-f83b1d51-c006-4b01-830a-0f827f0c56a1@palmerdabbelt-glaptop>
- <87zgthjjun.fsf@igel.home>
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-Message-ID: <ebfbcb26-5f17-2cc2-4845-6cdb24326338@gmail.com>
-Date: Fri, 20 Aug 2021 15:42:20 +0900
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+	id 1mH1uD-00AhwH-8x; Fri, 20 Aug 2021 10:37:45 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mH1uA-00AhvM-Ei
+ for linux-riscv@lists.infradead.org; Fri, 20 Aug 2021 10:37:44 +0000
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
+ [209.85.216.50])
+ by linux.microsoft.com (Postfix) with ESMTPSA id 9B4A720C3396
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Aug 2021 03:37:39 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9B4A720C3396
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+ s=default; t=1629455859;
+ bh=iZCuOLADbbT0RFS8G7uJNKKtYP+HH+o4bNtsW00FGJ0=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=mSOgJE8smxwaE9vG5d4E8Fekp43ctCKD8sFTOFnKNfzZyaRConcmUjNjAdnRC0HVk
+ N7r64P+EcCSC/wfMMLQ0uaAdl1Nm/DhrAGd2VjpemsBPwzrh+GpNVvVFPXZbJ/T5XP
+ N/DTAfvgiP1lBoiFj/7DemMsJDh0eh+Usx/Q7ff8=
+Received: by mail-pj1-f50.google.com with SMTP id mq3so6996036pjb.5
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Aug 2021 03:37:39 -0700 (PDT)
+X-Gm-Message-State: AOAM533sDhhecAabPhM5qVzojPh9nlh2hfxpsB5yrMk08qt0ZUSp/i0N
+ 8Iqi/wcjjQzww5Y8nvZgfZ4NLJWGy9O+u2q14AI=
+X-Google-Smtp-Source: ABdhPJyzdRc+FIVwfLSPCZCE1K/bGkGNbPCFuO7BPwZm5dc/PmNHPKsmvy994saRreKZsDdKndQkWHmeI8U48eO5tLI=
+X-Received: by 2002:a17:903:4095:b029:12d:315e:5f0d with SMTP id
+ z21-20020a1709034095b029012d315e5f0dmr15804610plc.19.1629455859101; Fri, 20
+ Aug 2021 03:37:39 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <87zgthjjun.fsf@igel.home>
-Content-Language: en-US
+References: <20210614022504.24458-1-mcroce@linux.microsoft.com>
+ <871r71azjw.wl-maz@kernel.org> <YROmOQ+4Kqukgd6z@orome.fritz.box>
+ <202417ef-f8ae-895d-4d07-1f9f3d89b4a4@gmail.com>
+ <87o8a49idp.wl-maz@kernel.org>
+ <fe5f99c8-5655-7fbb-a64e-b5f067c3273c@gmail.com>
+ <20210812121835.405d2e37@linux.microsoft.com>
+ <874kbuapod.wl-maz@kernel.org>
+ <CAFnufp2=1t2+fmxyGJ0Qu3Z+=wRwAX8faaPvrJdFpFeTS3J7Uw@mail.gmail.com>
+ <87wnohqty1.wl-maz@kernel.org>
+In-Reply-To: <87wnohqty1.wl-maz@kernel.org>
+From: Matteo Croce <mcroce@linux.microsoft.com>
+Date: Fri, 20 Aug 2021 12:37:03 +0200
+X-Gmail-Original-Message-ID: <CAFnufp3xjYqe_iVfbmdjz4-xN2UX_oo3GUw4Z4M_q-R38EN+uQ@mail.gmail.com>
+Message-ID: <CAFnufp3xjYqe_iVfbmdjz4-xN2UX_oo3GUw4Z4M_q-R38EN+uQ@mail.gmail.com>
+Subject: Re: [PATCH net-next] stmmac: align RX buffers
+To: Marc Zyngier <maz@kernel.org>
+Cc: Eric Dumazet <eric.dumazet@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, netdev@vger.kernel.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Drew Fustini <drew@beagleboard.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+ Jon Hunter <jonathanh@nvidia.com>, Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210819_234227_857469_A2872763 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20210820_033742_634295_870E53DE 
+X-CRM114-Status: GOOD (  48.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,128 +102,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andreas,
+On Thu, Aug 19, 2021 at 6:29 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 12 Aug 2021 12:18:48 +0100,
+> Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> >
+> > [1  <text/plain; UTF-8 (7bit)>]
+> > On Thu, Aug 12, 2021 at 1:05 PM Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Thu, 12 Aug 2021 11:18:35 +0100,
+> > > Matteo Croce <mcroce@linux.microsoft.com> wrote:
+> > > >
+> > > > On Thu, 12 Aug 2021 10:48:03 +0200
+> > > > Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> > > >
+> > > > >
+> > > > >
+> > > > > On 8/11/21 4:16 PM, Marc Zyngier wrote:
+> > > > > > On Wed, 11 Aug 2021 13:53:59 +0100,
+> > > > > > Eric Dumazet <eric.dumazet@gmail.com> wrote:
+> > > > > >
+> > > > > >> Are you sure you do not need to adjust stmmac_set_bfsize(),
+> > > > > >> stmmac_rx_buf1_len() and stmmac_rx_buf2_len() ?
+> > > > > >>
+> > > > > >> Presumably DEFAULT_BUFSIZE also want to be increased by NET_SKB_PAD
+> > > > > >>
+> > > > > >> Patch for stmmac_rx_buf1_len() :
+> > > > > >>
+> > > > > >> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c index
+> > > > > >> 7b8404a21544cf29668e8a14240c3971e6bce0c3..041a74e7efca3436bfe3e17f972dd156173957a9
+> > > > > >> 100644 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c +++
+> > > > > >> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c @@ -4508,12
+> > > > > >> +4508,12 @@ static unsigned int stmmac_rx_buf1_len(struct
+> > > > > >> stmmac_priv *priv, /* First descriptor, not last descriptor and
+> > > > > >> not split header */ if (status & rx_not_ls)
+> > > > > >> -               return priv->dma_buf_sz;
+> > > > > >> +               return priv->dma_buf_sz - NET_SKB_PAD -
+> > > > > >> NET_IP_ALIGN;
+> > > > > >>         plen = stmmac_get_rx_frame_len(priv, p, coe);
+> > > > > >>
+> > > > > >>         /* First descriptor and last descriptor and not split
+> > > > > >> header */
+> > > > > >> -       return min_t(unsigned int, priv->dma_buf_sz, plen);
+> > > > > >> +       return min_t(unsigned int, priv->dma_buf_sz - NET_SKB_PAD
+> > > > > >> - NET_IP_ALIGN, plen); }
+> > > > > >>
+> > > > > >>  static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+> > > > > >
+> > > > > > Feels like a major deficiency of the original patch. Happy to test a
+> > > > > > more complete patch if/when you have one.
+> > > > >
+> > > > > I wont have time in the immediate future.
+> > > > >
+> > > > > Matteo, if you do not work on a fix, I suggest we revert
+> > > > >  a955318fe67ec0d962760b5ee58e74bffaf649b8 stmmac: align RX buffers
+> > > > >
+> > > > > before a more polished version can be submitted.
+> > > > >
+> > > >
+> > > > Better to use stmmac_rx_offset() so to have the correct length when
+> > > > using XDP. Also, when XDP is enabled, the offset was
+> > > > XDP_PACKET_HEADROOM (i.e. 256 bytes) even before the change, so it
+> > > > could be already broken. Mark, can you try on the Jetson TX2 by
+> > > > attaching an XDP program and see if it works without my change?
+> > >
+> > > Sorry, you'll have to hold my hand here, as I know exactly nothing
+> > > about XDP....
+> > >
+> >
+> > Attach the attached object with:
+> >
+> > ip link set eth0 xdp object passall.o
+> >
+> > This is an empty XDP program, its source:
+> >
+> > __attribute__((section("prog"), used))
+> > int xdp_main(struct xdp_md *ctx)
+> > {
+> >        return XDP_PASS;
+> > }
+> >
+> > Every packet will pass untouched, but the offset will be shifted from
+> > 0 to 256 bytes, which could trigger the problem anyway:
+>
+> Nope. On 5.13, which doesn't have the issue, adding this payload
+> doesn't result in any problem and the whole thing is rock solid.
+>
+> >
+> > > > A possible fix, which takes in account also the XDP headroom for
+> > > > stmmac_rx_buf1_len() only could be (only compile tested, I don't have
+> > > > the hardware now):
+> > >
+> > > However, this doesn't fix my issue. I still get all sort of
+> > > corruption. Probably stmmac_rx_buf2_len() also need adjusting (it has
+> > > a similar logic as its buf1 counterpart...)
+> > >
+> > > Unless you can fix it very quickly, and given that we're towards the
+> > > end of the cycle, I'd be more comfortable if we reverted this patch.
+> > >
+> >
+> > Can it be that the HW can't do DMA on an address which is not word aligned?
+> > What if you replace NET_SKB_PAD with, let's say, 8?
+>
+> With this:
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> index fcdb1d20389b..244aa6579ef4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> @@ -341,7 +341,7 @@ static inline unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+>         if (stmmac_xdp_is_enabled(priv))
+>                 return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
+>
+> -       return NET_SKB_PAD + NET_IP_ALIGN;
+> +       return 8 + NET_IP_ALIGN;
+>  }
+>
+>  void stmmac_disable_rx_queue(struct stmmac_priv *priv, u32 queue);
+>
+> I don't see the system corrupting packets anymore. Is that exactly
+> what you had in mind? This really seems to point to a basic buffer
+> overflow.
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
-On 8/17/2021 4:00 AM, Andreas Schwab wrote:
-> On Aug 16 2021, Palmer Dabbelt wrote:
-> 
->> On Fri, 30 Jul 2021 06:52:44 PDT (-0700), akira.tsukamoto@gmail.com wrote:
->>> Reduce the number of slow byte_copy when the size is in between
->>> 2*SZREG to 9*SZREG by using none unrolled word_copy.
->>>
->>> Without it any size smaller than 9*SZREG will be using slow byte_copy
->>> instead of none unrolled word_copy.
->>>
->>> Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
->>> ---
->>>  arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
->>>  1 file changed, 42 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
->>> index 63bc691cff91..6a80d5517afc 100644
->>> --- a/arch/riscv/lib/uaccess.S
->>> +++ b/arch/riscv/lib/uaccess.S
->>> @@ -34,8 +34,10 @@ ENTRY(__asm_copy_from_user)
->>>  	/*
->>>  	 * Use byte copy only if too small.
->>>  	 * SZREG holds 4 for RV32 and 8 for RV64
->>> +	 * a3 - 2*SZREG is minimum size for word_copy
->>> +	 *      1*SZREG for aligning dst + 1*SZREG for word_copy
->>>  	 */
->>> -	li	a3, 9*SZREG /* size must be larger than size in word_copy */
->>> +	li	a3, 2*SZREG
->>>  	bltu	a2, a3, .Lbyte_copy_tail
->>>
->>>  	/*
->>> @@ -66,9 +68,40 @@ ENTRY(__asm_copy_from_user)
->>>  	andi	a3, a1, SZREG-1
->>>  	bnez	a3, .Lshift_copy
->>>
->>> +.Lcheck_size_bulk:
->>> +	/*
->>> +	 * Evaluate the size if possible to use unrolled.
->>> +	 * The word_copy_unlrolled requires larger than 8*SZREG
->>> +	 */
->>> +	li	a3, 8*SZREG
->>> +	add	a4, a0, a3
->>> +	bltu	a4, t0, .Lword_copy_unlrolled
->>> +
->>>  .Lword_copy:
->>> -        /*
->>> -	 * Both src and dst are aligned, unrolled word copy
->>> +	/*
->>> +	 * Both src and dst are aligned
->>> +	 * None unrolled word copy with every 1*SZREG iteration
->>> +	 *
->>> +	 * a0 - start of aligned dst
->>> +	 * a1 - start of aligned src
->>> +	 * t0 - end of aligned dst
->>> +	 */
->>> +	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
->>> +	addi	t0, t0, -(SZREG) /* not to over run */
->>> +1:
->>> +	REG_L	a5, 0(a1)
->>> +	addi	a1, a1, SZREG
->>> +	REG_S	a5, 0(a0)
->>> +	addi	a0, a0, SZREG
->>> +	bltu	a0, t0, 1b
->>> +
->>> +	addi	t0, t0, SZREG /* revert to original value */
->>> +	j	.Lbyte_copy_tail
->>> +
->>> +.Lword_copy_unlrolled:
->>> +	/*
->>> +	 * Both src and dst are aligned
->>> +	 * Unrolled word copy with every 8*SZREG iteration
->>>  	 *
->>>  	 * a0 - start of aligned dst
->>>  	 * a1 - start of aligned src
->>> @@ -97,7 +130,12 @@ ENTRY(__asm_copy_from_user)
->>>  	bltu	a0, t0, 2b
->>>
->>>  	addi	t0, t0, 8*SZREG /* revert to original value */
->>> -	j	.Lbyte_copy_tail
->>> +
->>> +	/*
->>> +	 * Remaining might large enough for word_copy to reduce slow byte
->>> +	 * copy
->>> +	 */
->>> +	j	.Lcheck_size_bulk
->>>
->>>  .Lshift_copy:
->>
->> I'm still not convinced that going all the way to such a large unrolling
->> factor is a net win, but this at least provides a much smoother cost 
->> curve.
->>
->> That said, this is causing my 32-bit configs to hang.
-> 
-> It's missing fixups for the loads in the loop.
-> 
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index a835df6bd68f..12ed1f76bd1f 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -89,9 +89,9 @@ ENTRY(__asm_copy_from_user)
->  	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
->  	addi	t0, t0, -(SZREG) /* not to over run */
->  1:
-> -	REG_L	a5, 0(a1)
-> +	fixup REG_L	a5, 0(a1), 10f
->  	addi	a1, a1, SZREG
-> -	REG_S	a5, 0(a0)
-> +	fixup REG_S	a5, 0(a0), 10f
->  	addi	a0, a0, SZREG
->  	bltu	a0, t0, 1b
+Sorry, I meant something like:
 
-Thanks, our messages crossed.
-I also made the same changes after Qiu's comment, and contacting him
-so I also could try it at my place and confirm if there are any other
-changes required or not.
+-       return NET_SKB_PAD + NET_IP_ALIGN;
++       return 8;
 
-Please give me a little more while.
+I had some hardware which DMA fails if the receive buffer was not word
+aligned, but this seems not the case, as 8 + NET_IP_ALIGN = 10, and
+it's not aligned too.
 
-Akira
+-- 
+per aspera ad upstream
 
 _______________________________________________
 linux-riscv mailing list
