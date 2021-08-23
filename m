@@ -2,18 +2,19 @@ Return-Path: <SRS0=1I3Q=NO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B46D5C432BE
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Aug 2021 10:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5CC8C4338F
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Aug 2021 10:18:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7B0FD6138B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Aug 2021 10:14:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7B0FD6138B
+	by mail.kernel.org (Postfix) with ESMTPS id 7FFFE6120A
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Aug 2021 10:18:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7FFFE6120A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,54 +23,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MytbOX436EcJqMNfBZwZ4db83kwwZ2aLU10wnFpAFYU=; b=nyrmRQFVMGsLqj
-	xTfvM8IFZD+naDm+En5qm9RKhFrgirlVTRuc2a6JXV+UAbvTNTK3KkULMhdomzrDklg9QIYkz6Rew
-	Dno6QKw6muGb14hpw2Mgfw2/vHe/eW85SH8RdT51CXeDql4DmE8hFMPMHnag/mnOfES/s09SVeocB
-	uP9oWZ4X0d+NBAqDLotOfdPd42Shs1K37sidoOhd/08Hk+PtFYwLo52cTotmAq614wwDFNvykZkUp
-	U2Pw463KddHzGOMnGjx2A247EDytWU40a6p0IzzN9Rrq6vLugYeCa0D8aQTgq9ya53cIiqnIkZ+N7
-	mPSHDmL7m11wz5ny55NQ==;
+	List-Owner; bh=wzo9SPImqxPzUJylZ/s7CopGYuTWj/tpTpQaRJUIgFg=; b=2IXPdkiYRCpwr9
+	jW2uyn3TUQ3A/yjNZSSs7e9T/RMbfW4WJTi3jqETY3Kanm0PQQKk/xcMojjRpNcc3KriP13FPF9hL
+	YhRSA9GqPJ8CLHcrQAHiXOW9eKYFeCVlhmpUWdeT/OfHOLOJBzlaPzuhqtShI7EwRWvOX45pybJQ7
+	arWncFUo4npOcY/JvvSxB7bGsNNhVlkf/n5fGwTKJVNeGiQ8Ov5zxsAILJ0PxWFfJZ4dFBiTs1KZ9
+	kmMEMgoIwaT/vkvFFpr/BIosgB/3P0lZH4LcQDxLWnVKvPPKnpPJmOVLGBg7LP65QONEENAEdipOC
+	k4EF/7j9V83BjTA7z0tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mI6xv-00GIWc-VV; Mon, 23 Aug 2021 10:14:03 +0000
-Received: from mail-vs1-f53.google.com ([209.85.217.53])
+	id 1mI723-00GK08-UA; Mon, 23 Aug 2021 10:18:19 +0000
+Received: from mail-vs1-f48.google.com ([209.85.217.48])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mI6xf-00GIPU-Oe; Mon, 23 Aug 2021 10:13:49 +0000
-Received: by mail-vs1-f53.google.com with SMTP id h29so8396976vsr.7;
- Mon, 23 Aug 2021 03:13:41 -0700 (PDT)
+ id 1mI71m-00GJuJ-Ks; Mon, 23 Aug 2021 10:18:04 +0000
+Received: by mail-vs1-f48.google.com with SMTP id v26so10783225vsa.0;
+ Mon, 23 Aug 2021 03:18:02 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=QGWlxXbqp4C9V0pOALutj8L5f0IIEa5u3E7vAfklyGo=;
- b=XTJVfyO/aJHGCAT6g0PbK9tuiMlp2mhJmVSbfa+9XF94oFs9FsMoKM7+YF+/fnxhYA
- 5VIhyO4TYxno1vuYisb3wwfHY+t6n28qsX9ZSFMCgdB9VJSX37g9FEHfAxf4Y8kkVWgB
- TF3DV6VlhXf3WlEy5JHcbrSpwPMeZvOteADMgeAbVpv8IZSNXxJt5sk2QlCiv73hjsKd
- daaTnD05Y71C1CscLQzF4fEhvz/0xSkXIQJEGer2VnSBMwF+7f+cbsUkBJz0SjgALrFv
- CrhF84LMzzpEx3AbMn+SGoRSXK57W03bwIyBV5R4i1zzubU9x+eRyKLAOM06TDhBntY/
- kJjQ==
-X-Gm-Message-State: AOAM533LXbqcbtLfsuVa3cimjPLVbklFUNQtCJjzNlPEMZNoWD6VWGJ6
- 7P1I32hCUNzQ+RBvhB1EXjXIA2ckqbfe2E1jJdo=
-X-Google-Smtp-Source: ABdhPJyH0E1pyhC89wWPYYQoaEHA/nfpaJPSksxoQnbMkworBUBLdcC7hq0D2zToet9d4s7ykx8MrywnipUtR++lG+Q=
-X-Received: by 2002:a67:6e86:: with SMTP id j128mr22666984vsc.26.1629713621125; 
- Mon, 23 Aug 2021 03:13:41 -0700 (PDT)
+ bh=fn6frUv3RQ/aTjcmQj/o89ICwJB87FoHT5MS19YzVHM=;
+ b=e34h/7YjVR2FRte3cTvzxd9X7rmnFlvB4B3rtHVa7gQpzK/5lmW6bsjZO1VgU+UjaU
+ 4bnAEGrMRhyYBfFquBuky0MhcfpBLJUkOArZpj7nWKhRJ91kDWdy5PaLORMxEhYez9LK
+ ioiH3wjgtzvksUAUIYv9vqx2x5JyrrSzk8PiZawFRjqUItx4EuMD1r53G4dcBRWIXYSE
+ PkIODrVjy1EuoP1z+hpowKlhFtd+Hk1LLlZ3ANGp7aabbPY96SXFXCphnQRw7TZEQPsW
+ noLpeadEUVGpOwoURn4Duu5D0h/2HlvCPA6gcoVQ+Ga0KMJjFHySLeoFKxH/r/vzkUcY
+ TgmQ==
+X-Gm-Message-State: AOAM531JsiTu5q5MO0l/1WGnL+TteqiW86F4lCA4nk9XXFShSxLnLNZ6
+ AxxFY/3M2y/QoYXocf0gcy6eFDo89cBT5IRtnxY=
+X-Google-Smtp-Source: ABdhPJwlCanF14EHYCKCFLIhNlaGYU+ggYsOisyFUA/DqJkwdSAMQnOyL5VqX+D7DhPY+/mopUoKoyjACSnbySpEy0c=
+X-Received: by 2002:a67:c789:: with SMTP id t9mr23378055vsk.60.1629713881619; 
+ Mon, 23 Aug 2021 03:18:01 -0700 (PDT)
 MIME-Version: 1.0
 References: <cover.1628670468.git.geert+renesas@glider.be>
- <YRkxzx/1XM3r64Ee@robh.at.kernel.org>
-In-Reply-To: <YRkxzx/1XM3r64Ee@robh.at.kernel.org>
+ <92b6718f5618d5469f67b48fbea189cca0c12f4b.1628670468.git.geert+renesas@glider.be>
+ <YRn9DHlB/pdNPJyP@kernel.org>
+In-Reply-To: <YRn9DHlB/pdNPJyP@kernel.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 23 Aug 2021 12:13:29 +0200
-Message-ID: <CAMuHMdXs0+7K4N0mg6qX6X1cr_8dBr_HdTahdfORMk76wCJcEA@mail.gmail.com>
-Subject: Re: [PATCH v5 0/9] Add generic support for kdump DT properties
-To: Rob Herring <robh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre <nico@fluxnic.net>, 
- Ard Biesheuvel <ardb@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Kossifidis <mick@ics.forth.gr>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Frank Rowand <frowand.list@gmail.com>, 
- Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
+Date: Mon, 23 Aug 2021 12:17:50 +0200
+Message-ID: <CAMuHMdVdqR7gw+2O2v=qv_BB=+X2wEXN9jXV=np=jRayadwj7g@mail.gmail.com>
+Subject: Re: [PATCH v5 1/9] MIPS: Avoid future duplicate elf core header
+ reservation
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Nicolas Pitre <nico@fluxnic.net>, Ard Biesheuvel <ardb@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Frank Rowand <frowand.list@gmail.com>, Dave Young <dyoung@redhat.com>,
+ Baoquan He <bhe@redhat.com>, Vivek Goyal <vgoyal@redhat.com>, 
  "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
  <devicetree@vger.kernel.org>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
@@ -78,8 +81,8 @@ Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre <nico@fluxnic.net>,
  kexec@lists.infradead.org, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210823_031347_875587_DF73B6FD 
-X-CRM114-Status: GOOD (  35.78  )
+X-CRM114-CacheID: sfid-20210823_031802_734547_E2FEE3A8 
+X-CRM114-Status: GOOD (  33.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +99,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi Mike,
 
-On Sun, Aug 15, 2021 at 5:25 PM Rob Herring <robh@kernel.org> wrote:
-> On Wed, Aug 11, 2021 at 10:50:58AM +0200, Geert Uytterhoeven wrote:
-> > This patch series adds generic support for parsing DT properties related
-> > to crash dump kernels ("linux,elfcorehdr" and "linux,elfcorehdr" under
-> > the "/chosen" node), makes use of it on arm32, and performs a few
-> > cleanups.  It is an evolution of the combination of [1] and [2].
+On Mon, Aug 16, 2021 at 7:52 AM Mike Rapoport <rppt@kernel.org> wrote:
+> On Wed, Aug 11, 2021 at 10:50:59AM +0200, Geert Uytterhoeven wrote:
+> > Prepare for early_init_fdt_scan_reserved_mem() reserving the memory
+> > occupied by an elf core header described in the device tree.
+> > As arch_mem_init() calls early_init_fdt_scan_reserved_mem() before
+> > mips_reserve_vmcore(), the latter needs to check if the memory has
+> > already been reserved before.
 >
-> The DT bits look fine to me. How do you expect this to be merged? I'm
-> happy to take it if arch maintainers can ack it.
+> Doing memblock_reserve() for the same region is usually fine, did you
+> encounter any issues without this patch?
 
-I had hoped you could take the series...
+Does it also work if the same region is part of an earlier larger
+reservation?  I am no memblock expert, so I don't know.
+I didn't run into any issues, as my MIPS platform is non-DT, but I
+assume arch/arm64/mm/init.c:reserve_elfcorehdr() had the check for
+a reason.
 
-> > The series consists of 6 parts:
-> >   1. Patch 1 prepares architecture-specific code (needed for MIPS only)
-> >      to avoid duplicating elf core header reservation later.
-> >   2. Patch 2 prepares the visibility of variables used to hold
-> >      information retrieved from the DT properties.
-> >   3. Patches 3-5 add support to the FDT core for handling the
-> >      properties.
-> >      This can co-exist safely with architecture-specific handling, until
-> >      the latter has been removed.
+Thanks!
+
 >
-> Looks like patch 5 doesn't have any dependencies with the series?
-
-Indeed. So you can take it independently.
-
-> >   4. Patch 6 removes the non-standard handling of "linux,elfcorehdr" on
-> >      riscv.
->
-> I thought this should be applied for 5.14?
-
-Me too, but unfortunately that hasn't happened yet...
-
-> >   5. Patches 7-8 convert arm64 to use the generic handling instead of
-> >      its own implementation.
-> >   6. Patch 9 adds support for kdump properties to arm32.
-> >      The corresponding patch for kexec-tools is "[PATCH] arm: kdump: Add
-> >      DT properties to crash dump kernel's DTB"[3], which is still valid.
->
-> This one can be applied on its own, right?
-
-While that wouldn't break anything (i.e. no regression), it still
-wouldn't work if the DT properties are present, and the now-legacy
-"mem=" kernel command line parameter is not.
+> > Note that mips_reserve_vmcore() cannot just be removed, as not all MIPS
+> > systems use DT.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > v5:
+> >   - New.
+> > ---
+> >  arch/mips/kernel/setup.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+> > index 23a140327a0bac1b..4693add05743d78b 100644
+> > --- a/arch/mips/kernel/setup.c
+> > +++ b/arch/mips/kernel/setup.c
+> > @@ -429,7 +429,8 @@ static void __init mips_reserve_vmcore(void)
+> >       pr_info("Reserving %ldKB of memory at %ldKB for kdump\n",
+> >               (unsigned long)elfcorehdr_size >> 10, (unsigned long)elfcorehdr_addr >> 10);
+> >
+> > -     memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
+> > +     if (!memblock_is_region_reserved(elfcorehdr_addr, elfcorehdr_size)
+> > +             memblock_reserve(elfcorehdr_addr, elfcorehdr_size);
+> >  #endif
+> >  }
 
 Gr{oetje,eeting}s,
 
