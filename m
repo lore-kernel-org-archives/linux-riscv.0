@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47218C4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 15:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CF6DC4338F
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 15:41:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F342060F21
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 15:38:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F342060F21
+	by mail.kernel.org (Postfix) with ESMTPS id 0766A611C8
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 15:41:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0766A611C8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=19hYX4Y6ncaCfysl4aCiUMXNJlnqZfBYVi/oPGaQdIA=; b=Ch0RM332X5TqGu
-	iGHyUZoUHRBv6ftYJNkVb/saDKGXOCtfdDf+Kr0pcreCbBY7x1wZ/QuQVADKVo6yiLyrEzKa72Vii
-	a17i7oiz8bddz7JB3Acv5IB4mWrpnoLwLhrtvd1V+tAQkqvwveiKj6oRY8abKPMXM4fTTUW5fA+w8
-	7Cjp/ae48n6sSMxCWjWY6g9BMoDlsT/ONmVFo3jSipaDnbyam7v8QHySQi7FmxjKGTKSveJkMe4GJ
-	Na0OT4aC4lLAerFBkjXvcetc3GrMcgDDo5qT6GD6kJr9vKYf3C7EoGgMzX8kzETzpCxNupmctmE17
-	wW/UKv3KYyAz+UyBrlLw==;
+	List-Owner; bh=vdyX2e1w37kUdEtdbwjYClKeyJchesV+nQw+XON7AYw=; b=saibNK6FgA+hNB
+	6OslabGu7M/lRNK2rYx3wmVNKbUnZVQxQfjwtNQzAriKHoxpNi+dhO8T7yYgQ0v5QT8rjDXvMTo0L
+	TojfIqtX9YJ0ynK+bp8ZBAz6/wFfCACtROzE0XfXl+KjzQOdFc6oEMN+qNCOJaOsrpPjzEZNY4JPk
+	XjTw6yT/IBUwEKPq2Z8mCurEzEzradKDxTm0ogkX/VtzYywmezAtBywRRC49UjFW0HuJr/aa0TYOU
+	KsGpUeq9qXuDtt3DIljLxzfQKLwh9z5uATRLoTG1I86uZV/sgVkHyrIecBfgJGBGErbzXDfXJSoPD
+	l1ccK5D9EpUUHiYpUwfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mIYUz-003lIg-LT; Tue, 24 Aug 2021 15:38:01 +0000
-Received: from mail-vk1-f182.google.com ([209.85.221.182])
+	id 1mIYYI-003m6a-1z; Tue, 24 Aug 2021 15:41:26 +0000
+Received: from mail-ua1-f53.google.com ([209.85.222.53])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mIYUx-003lH0-0a
- for linux-riscv@lists.infradead.org; Tue, 24 Aug 2021 15:38:00 +0000
-Received: by mail-vk1-f182.google.com with SMTP id d15so5630083vko.3
- for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 08:37:58 -0700 (PDT)
+ id 1mIYYF-003m5h-ST
+ for linux-riscv@lists.infradead.org; Tue, 24 Aug 2021 15:41:25 +0000
+Received: by mail-ua1-f53.google.com with SMTP id g2so5563431uad.4
+ for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 08:41:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=8W/b4Zs7QlTFiLiHqg4R1eNWEYzfOGp8NKoTU4rVhKA=;
- b=hV9fZapyztVHNZQDf64jxHEVT5+OABCHyH8QAA/5qsl9wMz0WUs8nwzs6s6nHlmhaS
- mxT1NG0DgD6FF8vBh2i0n0x7wKc7ypQ028KB0nn8bipjECu6O54VrnTCnewV3qX9VrzM
- BWtN5gDmLQDrpilJSpT8qYqoWY0/8eRPNhMfF9kngxYfML4fL1R1mhX/UTL84iX1/pWO
- OvyznjA71+nTk50D16Q+HpoZH4YHCEGEzNCJoSkIOQp21xPy8Ulsv0bjZdTizlWuvugx
- /c23dGbksuEkTPCJ/OKwzUuJtuK4V3PwGlXiQOOIpJOCprR/lTcAhlY4HvFa5EQaCa7Z
- dpdA==
-X-Gm-Message-State: AOAM530ub3njzOA4GQ0TIANEbvWTBv1u5AtcJibicTylGTQF8aWIqS20
- rw7Nf30Y7xFpbcbC9C+398BHhga29Dq3EshlYOg=
-X-Google-Smtp-Source: ABdhPJw7X4YBRuB9DCRyn1OtJxsT/kOHIFh2YwXUt+EqIC8Jx4d0sSzrsnrXnQx1sQoSqUrpfEzwwX8ZXeMi/JsubkE=
-X-Received: by 2002:a1f:2c97:: with SMTP id s145mr22706660vks.24.1629819477568; 
- Tue, 24 Aug 2021 08:37:57 -0700 (PDT)
+ bh=BpalmFczsKrzSZmLbopzpftY8pBp3iweKYlzoS1maaY=;
+ b=JycIXiSJJffAgoT9lQppUQZi4q1k7jBuiHElgUpNoPNkCEeQklzfKnqm7wUb837fsJ
+ x7M5QYY3fAmbJksDpHrypHgabgsl3YDoxw4CUZpoXyIVt5Y7V3ZyLw4Jl4QSCif4kIPG
+ PI4RggqF1/be1eEHm9uJSRxTeAjteV5D1vbseiA9Ljz+0JG2Q1BfHuOk+iNwFchrrLXi
+ iYGUPOKzxga2WZW8+998kWw3/mkCOSBjE5DUrQ1AQwjyCf9mQgL3B4UK8BMw5jU523e9
+ 8D6BxDX/WRIm2Wq71yMD7T0ckaCffeiCYzrpAxKEFZfOGcpExTqtqQS0d5qRFAGM7cYY
+ 288Q==
+X-Gm-Message-State: AOAM532RjlhUDg6MgBnYkslEhJYrAtGmIldN21X/gTRNi3zSZwIfARRq
+ PhQmConZLL5Zv9PoxHeos24GmPlooCHXAUMuo4s=
+X-Google-Smtp-Source: ABdhPJw1io8JEw5E317P/UDRY+Xnlg5WgVCTEbkuiJg8bWOm2OF8M2PQDBox+yiYfddi4T96nWlJDH8h/bkB+7j4L5U=
+X-Received: by 2002:a67:cb0a:: with SMTP id b10mr28549281vsl.9.1629819683118; 
+ Tue, 24 Aug 2021 08:41:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210819154436.117798-1-krzysztof.kozlowski@canonical.com>
- <20210819154436.117798-5-krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20210819154436.117798-5-krzysztof.kozlowski@canonical.com>
+References: <20210804123015.807929-1-bmeng.cn@gmail.com>
+In-Reply-To: <20210804123015.807929-1-bmeng.cn@gmail.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 24 Aug 2021 17:37:46 +0200
-Message-ID: <CAMuHMdWN3Y9Ca9J-iJFpmDAYKpNH5GQuf3yFdyyb2rem8z_spg@mail.gmail.com>
-Subject: Re: [PATCH 5/6] riscv: microchip: mpfs: drop duplicated MMC/SDHC node
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Piotr Sroka <piotrs@cadence.com>, 
- Linux MMC List <linux-mmc@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
+Date: Tue, 24 Aug 2021 17:41:11 +0200
+Message-ID: <CAMuHMdV3DJTii41Q4dy9XSL2zD2rd2ND6rrMwBLNiFsJz+jP3Q@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] riscv: dts: microchip: Use 'local-mac-address' for
+ emac1
+To: Bin Meng <bmeng.cn@gmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Conor Dooley <Conor.Dooley@microchip.com>, 
+ Atish Patra <atish.patra@wdc.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Bin Meng <bin.meng@windriver.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210824_083759_101859_648E4E7A 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20210824_084123_943718_633A6C7A 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,95 +88,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Bin,
 
-On Thu, Aug 19, 2021 at 5:45 PM Krzysztof Kozlowski
-<krzysztof.kozlowski@canonical.com> wrote:
-> Devicetree source is a description of hardware and hardware has only one
-> block @20008000 which can be configured either as eMMC or SDHC.  Having
-> two node for different modes is an obscure, unusual and confusing way to
-> configure it.  Instead the board file is supposed to customize the block
-> to its needs, e.g. to SDHC mode.
+On Wed, Aug 4, 2021 at 2:30 PM Bin Meng <bmeng.cn@gmail.com> wrote:
+> From: Bin Meng <bin.meng@windriver.com>
 >
-> This fixes dtbs_check warning:
->   arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: sdhc@20008000: $nodename:0: 'sdhc@20008000' does not match '^mmc(@.*)?$'
+> Per the DT spec, 'local-mac-address' is used to specify MAC address
+> that was assigned to the network device, while 'mac-address' is used
+> to specify the MAC address that was last used by the boot program,
+> and shall be used only if the value differs from 'local-mac-address'
+> property value.
 >
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> Signed-off-by: Bin Meng <bin.meng@windriver.com>
+> Reviewed-by: conor dooley <conor.dooley@microchip.com>
 
 Thanks for your patch!
 
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> @@ -43,8 +43,16 @@ &serial3 {
->         status = "okay";
->  };
+> ---
 >
-> -&sdcard {
-> +&mmc {
->         status = "okay";
-> +
-> +       disable-wp;
-> +       cap-sd-highspeed;
-> +       card-detect-delay = <200>;
-> +       sd-uhs-sdr12;
-> +       sd-uhs-sdr25;
-> +       sd-uhs-sdr50;
-> +       sd-uhs-sdr104;
->  };
+> (no changes since v1)
 >
->  &emac0 {
+>  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
 > diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> index cb54da0cc3c4..c4ccd7e4d3eb 100644
+> index 0659068b62f7..a9c558366d61 100644
 > --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 > +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> @@ -262,25 +262,7 @@ serial3: serial@20104000 {
->                         status = "disabled";
->                 };
->
-> -               emmc: mmc@20008000 {
-> -                       compatible = "cdns,sd4hc";
-> -                       reg = <0x0 0x20008000 0x0 0x1000>;
-> -                       interrupt-parent = <&plic>;
-> -                       interrupts = <88 89>;
-
-Note that the other node has only a single interrupt.
-Which one is correct?
-
-> -                       pinctrl-names = "default";
-> -                       clocks = <&clkcfg 6>;
-> -                       bus-width = <4>;
-> -                       cap-mmc-highspeed;
-> -                       mmc-ddr-3_3v;
-> -                       max-frequency = <200000000>;
-> -                       non-removable;
-> -                       no-sd;
-> -                       no-sdio;
-> -                       voltage-ranges = <3300 3300>;
-> -                       status = "disabled";
-> -               };
-> -
-> -               sdcard: sdhc@20008000 {
-> +               mmc: mmc@20008000 {
->                         compatible = "cdns,sd4hc";
->                         reg = <0x0 0x20008000 0x0 0x1000>;
+> @@ -317,7 +317,7 @@ emac1: ethernet@20112000 {
+>                         reg = <0x0 0x20112000 0x0 0x2000>;
 >                         interrupt-parent = <&plic>;
-> @@ -288,13 +270,6 @@ sdcard: sdhc@20008000 {
->                         pinctrl-names = "default";
->                         clocks = <&clkcfg 6>;
->                         bus-width = <4>;
+>                         interrupts = <70 71 72 73>;
+> -                       mac-address = [00 00 00 00 00 00];
+> +                       local-mac-address = [00 00 00 00 00 00];
 
-I think bus-width should be moved to the board .dts, too.
+Is there any point in providing an all-zeros MAC address at all?
+Can't it just be removed?
 
-> -                       disable-wp;
-> -                       cap-sd-highspeed;
-> -                       card-detect-delay = <200>;
-> -                       sd-uhs-sdr12;
-> -                       sd-uhs-sdr25;
-> -                       sd-uhs-sdr50;
-> -                       sd-uhs-sdr104;
->                         max-frequency = <200000000>;
+>                         clocks = <&clkcfg 5>, <&clkcfg 2>;
 >                         status = "disabled";
->                 };
+>                         clock-names = "pclk", "hclk";
 
 Gr{oetje,eeting}s,
 
