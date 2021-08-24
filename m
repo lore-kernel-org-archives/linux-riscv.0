@@ -2,115 +2,90 @@ Return-Path: <SRS0=qQBT=NP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D97DEC4338F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 19:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF4F3C4320A
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 22:44:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A4F6D60F8F
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 19:07:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A4F6D60F8F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 28D566128A
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Aug 2021 22:44:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 28D566128A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=t71LLiA5bJD+UXUYZeZDieKLEUUZALqhz9GmbErjtEc=; b=HhfxxyzNQLjJjdibGxbNqhUpgb
-	BA8NkMS3rcWhog/EA4QZ6P428IfuY0NYTMrzm9RZ7apitZMKxoZWRhxaloBeIXBxS43izP27SeW+6
-	LwZvLYIGHz01a1fs7aiBFtdY0Jxd2ceVQkA49IR65u+oAgz3nx/YsLyoxGH3WgAuu67wUlkwqu8uH
-	miICxisNEdWEtk1IogezNi/aF8L66yljg1nPabkGf8eJidobjv1YIWsUgyxI6tckBoXM2nBT2+x3v
-	1zjbrzwgYmECdJX59TJU1aKr46hT8+x+gEooot5UQthracKAu+8vtX9sgRrEpCGWynUmhxyKzllUV
-	uK8NK8kg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WTA6Ch1Hig6wCZP1resT9Tr/7Fg9ryvAkTrip93dHMk=; b=fdKAdehrUISfPu
+	BcpZmWWMEgN+8x1HPfWQwh2qOgsoCDUz+QNxUYvVvnN88yaDi3mNTVMWU7/Eaul9hcyHsZYn9QwbQ
+	b1chxmWQrLBD5wzX5Igwvl+DjKTv8yIsdY24yEvULMwpvuRchOhrGyRV0pA1LSXy3omNHTj42AJAP
+	SbS2fnQ1FqnO55s7OtGqxNTCZj6YPotYgJmGZy74RHFfrlxGj0Ab+EY53l/zmzAIcV+LaubaAkav6
+	BnLDedASq5llAh4bRkDlKaLxwQIWOW4nrMM+jKeP6y0qoqp1pOtdRgTUuYtjWzJBURKUPzAcLqmMH
+	TyUWcZzGuO1zJ1nTq4cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mIbld-004TkE-7e; Tue, 24 Aug 2021 19:07:25 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mIf9W-004pRt-QX; Tue, 24 Aug 2021 22:44:18 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mIblX-004Tig-RJ
- for linux-riscv@lists.infradead.org; Tue, 24 Aug 2021 19:07:23 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AB4AE40773
- for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 19:07:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1629832037;
- bh=JpRp0VKOepmJFb28VmqG/rgWxsh/ZZpFinNf4XIR7QM=;
- h=Subject:To:Cc:References:From:Message-ID:Date:MIME-Version:
- In-Reply-To:Content-Type;
- b=PlqLQpyZ7073uQZpTapVqkLdCFa65K863R/NL52Wom0vvsNNfJXYjiPQVmCnxDw8e
- SQbL3bdh4RAX5zvzaXTCsWRjbeMVAECleeNV3B966Ju+HbphX/JJM68o3Fx/ToYnlj
- fpLi8J7VMS+UuU47mgqZp1QrjYKbmEJsX1niivL+3oiBq2c4BGAaPRNIOTF/Xmo4PI
- n5xQJf7VEnnM/u29D0Epv6aTvbuLw3e3mx9Xtu1jE3LvSMxUivuo5bEBdIe/CjI/VU
- RW4PEnQvuIzVDk3ksvcJJYW7FJtG2wJSiuvbL9Z4GRdvVJUTB/t2NJLZJFvB6fxBJE
- S4M4yMu6jAMOg==
-Received: by mail-wm1-f70.google.com with SMTP id
- u14-20020a7bcb0e0000b0290248831d46e4so1268196wmj.6
- for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 12:07:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=JpRp0VKOepmJFb28VmqG/rgWxsh/ZZpFinNf4XIR7QM=;
- b=WwbOJ1QrisYDjRf+hnMEBT17z+1pzSnCKMvUlJAJnUhEcnG3xEVLj8xesRsdaRs28j
- miDwjVWvNOO7zqvjAkIWFLaNW9hk+uKlsACYE5sGI6Wmc8JEh8afVzlI4U+LWKkfPndL
- GH6U0ngKYVzWaFy489mc16h4M3UexZRoTigpKn0I6+JO+aeFix7LI8gqR2g17t2UlTtB
- fqTM7Vx7APcONygL9VprCvWqdIz+2WdlKuLHU50CEdeMU7I4CSrtMNh6fSCzpmSI7bus
- C4WMfK9g0yDjPmKD0HkocyeNe03fGDYuF3L53COdkVTYiysh0LINJHrQifwGSOwY2jx/
- Vnvg==
-X-Gm-Message-State: AOAM531cyScexBhQbzD8favNADj2NRAPquVjIz4g8CV3NhZMthD0Omb6
- p9WqW672niOgIMYbqSaVBrMzhdP+/93vcKMf9T4hpZsx7pFfipLEjOD31/Y17uwhIbhZ6+OeLid
- faaz8UJcKq6rof6j3n8lHdw1PuwAZrT1T+sTPW4A8SRz3/Q==
-X-Received: by 2002:a5d:4fc7:: with SMTP id h7mr19839329wrw.333.1629832037019; 
- Tue, 24 Aug 2021 12:07:17 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyeoMUDqGDEYSbaq1nM+F0db0NK2Q1pZrBBRtGCTmNXFAADL4Ln6NrT8uwtmhR4uFIDABktKQ==
-X-Received: by 2002:a5d:4fc7:: with SMTP id h7mr19839314wrw.333.1629832036855; 
- Tue, 24 Aug 2021 12:07:16 -0700 (PDT)
-Received: from [192.168.0.103] ([79.98.113.249])
- by smtp.gmail.com with ESMTPSA id t8sm22065855wrx.27.2021.08.24.12.07.15
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 24 Aug 2021 12:07:16 -0700 (PDT)
-Subject: Re: [PATCH 5/6] riscv: microchip: mpfs: drop duplicated MMC/SDHC node
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Piotr Sroka <piotrs@cadence.com>, Linux MMC List
- <linux-mmc@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-References: <20210819154436.117798-1-krzysztof.kozlowski@canonical.com>
- <20210819154436.117798-5-krzysztof.kozlowski@canonical.com>
- <CAMuHMdWN3Y9Ca9J-iJFpmDAYKpNH5GQuf3yFdyyb2rem8z_spg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Message-ID: <feb9b49b-9e5d-1459-f177-21b3c2ae4add@canonical.com>
-Date: Tue, 24 Aug 2021 21:07:14 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ id 1mIf9H-004pPx-TI; Tue, 24 Aug 2021 22:44:05 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 05FAD613D3;
+ Tue, 24 Aug 2021 22:44:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1629845041;
+ bh=GgSuJcA7bFVt0ybi6Nstz+q4perrXRwFyg1qNEVRquI=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=A+y3yb1gB8N4a9X3h53nIr9drqmQVq8eAqvLCie3+AHGhFLoyv5ZHeL3741dn5t+D
+ vhrMUamnAeHtLawPmPCFjQUExuJZo+Xa6/j07S8DqpouiAR7kbzoQwNvs1BWuYJumO
+ e8PjLoy/zevqg0w6JcqOXne1rleflq1oxbfioeI7yFz8nn6JpIaCY5XoUp3DwbNhjB
+ QLP1regIKQsJCxLxFqnjX3Z6nTHIh+jzAgoYId0r0siBbQerhgBTZNCAU9KxYDy6sG
+ n8pp4aNNZKKVsK12P7TEYGoL/3yYEBiBGDzHZBv3reLdAqanlFJtiPpBl+yWupe2pz
+ 2CLKUyccNc3Ig==
+Received: by mail-ej1-f47.google.com with SMTP id x11so47617226ejv.0;
+ Tue, 24 Aug 2021 15:44:00 -0700 (PDT)
+X-Gm-Message-State: AOAM533I1aThpnc+lZZdgoTjBKP4hgO+Cq7Y4PqGebm9aphtoIJOx4sy
+ Y2IreJl3t3STIokaBlmx+iGkoQELAU6kMGQg9w==
+X-Google-Smtp-Source: ABdhPJyUY2L4QJTbPsFYD+ikQSi/9Dj0VJmplebp6jADpQGcDDA3Pj3knpdqSPXaTaP34wTa4JhBo1wA1Rnk6ojOk9E=
+X-Received: by 2002:a17:906:b4d:: with SMTP id
+ v13mr12333564ejg.468.1629845039486; 
+ Tue, 24 Aug 2021 15:43:59 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdWN3Y9Ca9J-iJFpmDAYKpNH5GQuf3yFdyyb2rem8z_spg@mail.gmail.com>
-Content-Language: en-US
+References: <cover.1628670468.git.geert+renesas@glider.be>
+ <YRkxzx/1XM3r64Ee@robh.at.kernel.org>
+ <CAMuHMdXs0+7K4N0mg6qX6X1cr_8dBr_HdTahdfORMk76wCJcEA@mail.gmail.com>
+ <CAL_JsqK63hoEMafLP+5eeQR1qrhOO76J4KEQG_By6QnLfhF=dw@mail.gmail.com>
+ <CAMuHMdVNi4bh0Kp43BrVVKD8YY5ac4yi9=W3QZmw=stmwwtuiQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVNi4bh0Kp43BrVVKD8YY5ac4yi9=W3QZmw=stmwwtuiQ@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 24 Aug 2021 17:43:48 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqL_D85DWrbOEghNqbqdMaCabSJ5X7zKKJjn2uoB7=XN6g@mail.gmail.com>
+Message-ID: <CAL_JsqL_D85DWrbOEghNqbqdMaCabSJ5X7zKKJjn2uoB7=XN6g@mail.gmail.com>
+Subject: Re: [PATCH v5 0/9] Add generic support for kdump DT properties
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Russell King <linux@armlinux.org.uk>, Nicolas Pitre <nico@fluxnic.net>, 
+ Ard Biesheuvel <ardb@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Kossifidis <mick@ics.forth.gr>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Frank Rowand <frowand.list@gmail.com>, 
+ Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
+ Vivek Goyal <vgoyal@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ kexec@lists.infradead.org, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210824_120720_115004_4F133CE1 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20210824_154404_028509_A2B67F9C 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,95 +102,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/08/2021 17:37, Geert Uytterhoeven wrote:
-> Hi Krzysztof,
-> 
-> On Thu, Aug 19, 2021 at 5:45 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@canonical.com> wrote:
->> Devicetree source is a description of hardware and hardware has only one
->> block @20008000 which can be configured either as eMMC or SDHC.  Having
->> two node for different modes is an obscure, unusual and confusing way to
->> configure it.  Instead the board file is supposed to customize the block
->> to its needs, e.g. to SDHC mode.
->>
->> This fixes dtbs_check warning:
->>   arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: sdhc@20008000: $nodename:0: 'sdhc@20008000' does not match '^mmc(@.*)?$'
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-> 
-> Thanks for your patch!
-> 
->> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
->> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
->> @@ -43,8 +43,16 @@ &serial3 {
->>         status = "okay";
->>  };
->>
->> -&sdcard {
->> +&mmc {
->>         status = "okay";
->> +
->> +       disable-wp;
->> +       cap-sd-highspeed;
->> +       card-detect-delay = <200>;
->> +       sd-uhs-sdr12;
->> +       sd-uhs-sdr25;
->> +       sd-uhs-sdr50;
->> +       sd-uhs-sdr104;
->>  };
->>
->>  &emac0 {
->> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> index cb54da0cc3c4..c4ccd7e4d3eb 100644
->> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> @@ -262,25 +262,7 @@ serial3: serial@20104000 {
->>                         status = "disabled";
->>                 };
->>
->> -               emmc: mmc@20008000 {
->> -                       compatible = "cdns,sd4hc";
->> -                       reg = <0x0 0x20008000 0x0 0x1000>;
->> -                       interrupt-parent = <&plic>;
->> -                       interrupts = <88 89>;
-> 
-> Note that the other node has only a single interrupt.
-> Which one is correct?
+On Tue, Aug 24, 2021 at 6:55 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> On Mon, Aug 23, 2021 at 4:52 PM Rob Herring <robh@kernel.org> wrote:
+> > On Mon, Aug 23, 2021 at 5:13 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > On Sun, Aug 15, 2021 at 5:25 PM Rob Herring <robh@kernel.org> wrote:
+> > > > On Wed, Aug 11, 2021 at 10:50:58AM +0200, Geert Uytterhoeven wrote:
+> > > > > This patch series adds generic support for parsing DT properties related
+> > > > > to crash dump kernels ("linux,elfcorehdr" and "linux,elfcorehdr" under
+> > > > > the "/chosen" node), makes use of it on arm32, and performs a few
+> > > > > cleanups.  It is an evolution of the combination of [1] and [2].
+> > > >
+> > > > The DT bits look fine to me. How do you expect this to be merged? I'm
+> > > > happy to take it if arch maintainers can ack it.
+> > >
+> > > I had hoped you could take the series...
+> >
+> > My current thought is I'll take 2-5, 7 and 8 given that's what I have
+> > acks for and the others can be applied independently.
+>
+> Note that Palmer did ack patch 6, so you can include it.
 
-I assume the one put there initially, since it was tested (sdcard wsas
-enabled, emmc was disabled).
+Right, but Palmer should have taken it if it's for 5.14.
 
-> 
->> -                       pinctrl-names = "default";
->> -                       clocks = <&clkcfg 6>;
->> -                       bus-width = <4>;
->> -                       cap-mmc-highspeed;
->> -                       mmc-ddr-3_3v;
->> -                       max-frequency = <200000000>;
->> -                       non-removable;
->> -                       no-sd;
->> -                       no-sdio;
->> -                       voltage-ranges = <3300 3300>;
->> -                       status = "disabled";
->> -               };
->> -
->> -               sdcard: sdhc@20008000 {
->> +               mmc: mmc@20008000 {
->>                         compatible = "cdns,sd4hc";
->>                         reg = <0x0 0x20008000 0x0 0x1000>;
->>                         interrupt-parent = <&plic>;
->> @@ -288,13 +270,6 @@ sdcard: sdhc@20008000 {
->>                         pinctrl-names = "default";
->>                         clocks = <&clkcfg 6>;
->>                         bus-width = <4>;
-> 
-> I think bus-width should be moved to the board .dts, too.
+Anyways, I've now applied patches 2-8. If we want to improve the
+handling over what arm64 code did as discussed, I think that's a
+separate patch anyways.
 
-Makes sense. Thanks for review!
-
-
-Best regards,
-Krzysztof
+Rob
 
 _______________________________________________
 linux-riscv mailing list
