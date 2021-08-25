@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 742B4C4320E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 04:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 61444C4338F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 04:45:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3CF9A61374
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 04:45:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3CF9A61374
+	by mail.kernel.org (Postfix) with ESMTPS id 27E62613AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 04:45:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 27E62613AB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=9JajhCzl5wnIZIPVLVmbG9G5S/uyEQeLIqzs5N6G+zc=; b=1vWiFJB+upHgs4oNcIo6goXZNR
-	Psy3f0GVGC7yk9t27id78D7iNYXCm0KzXOZJ8+gNVM6+Ceg7eQFylzVatkrYm+WsEejqKUFSry3Gg
-	TI0AwVkP9N+shykcHaDDKB0eqVELty02pDYVDHEnGynrcUuuhZSvX5cxw5vuhu8GyLMldsb/FCRUT
-	/px+3wuhiMlMou/bfg183qL/beJcGL0lw58Y/HZIdZ5k/tpkvkxfHWZfE7ANXz5EYKfZnFn3lVO7k
-	V7q/oh7qcwY6QWgkPqn66Vbrx8czQ91E6S9Xsy2WUslo5Qj290V4w8i6/fBDogBkMtzaYs83Q03Hy
-	/Inq7jhw==;
+	bh=VkqkoGlXcdqJr8thLtv8I/ySSgGuwHXKYoVhYhBQjsc=; b=xUWbJ88crC1q7AqWb9+w2wqLNR
+	e/TvJupn0hSZQan/SyKz7AR43sHLykg0YIFuiTZpChfnpNubNwxB9pGSB9xqWv8BRBkg+SsvbpT9H
+	rkgWE80up9CXnz0ShgnskSxRURVcEPtNp4kv+yFl73fGQYwqOJWGfOp8u+/j++TWfpP9s/zWM0e6/
+	9fjKXoZnm7b1x5oe3tL5qtbUA9d8w+6L69m/qClBw3oY7N2mPCsESxDtRLZrYDaPQgmCCzRFaB8tv
+	v5NIKWiG/FPvwiqJNhB2umn1+W4tMAAp/z/dWhaHocJiQSDRmSGz88dNcGnabsMJyIMSbgiHxo+GJ
+	eCl6Mm2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mIkmL-005UUC-Me; Wed, 25 Aug 2021 04:44:45 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1mIkmO-005UUq-OQ; Wed, 25 Aug 2021 04:44:48 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mIkmH-005USv-Ns
- for linux-riscv@lists.infradead.org; Wed, 25 Aug 2021 04:44:43 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id y190so20243276pfg.7
- for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 21:44:40 -0700 (PDT)
+ id 1mIkmJ-005UTZ-AW
+ for linux-riscv@lists.infradead.org; Wed, 25 Aug 2021 04:44:44 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id
+ ot2-20020a17090b3b4200b0019127f8ed87so3216047pjb.1
+ for <linux-riscv@lists.infradead.org>; Tue, 24 Aug 2021 21:44:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=DtpgiMDdQDQ42lYOShCZSjozTn71wDq5F2+gG4jR6Mc=;
- b=0lbToYpEYOLQgZ6ilz4YoMIXEGpsubR/kTYlcrt7w3aXRixErfDBdQPwni5NYIPqXx
- MCe4cqP/zZvQDRM6fYqeLweBtHvDmuGBQTbnBTWqE+AVh8zKZiYh6e0GEyBwfqwGmVlv
- T4KUmkPDiBR60QYCYargeeujS9jdlwrd7YnrkLY72EdVE8qv/2yEfoqnhKI4JMXrRx1W
- HaqaU9g+LAj/SWct7VpLCW2Iv55cdmOjr/qPUMYeRTh/l/C5C+WZFdkWihni8dP+Fb2l
- 6MKa411jZSwIFHyY9+TsSMZyKsM5dgwiJl9PbEsshPO/kTyqVRxXwW+5YppMQrHPkylw
- gd+Q==
+ bh=HQb1qPKPVQv8i2sQtSNBJbfKt3KpoSGtp9yhja3ONfM=;
+ b=da7vg+SZq/t3BfPYQw8YZOFbshDhxnvL4qQmVe3n/Vwq+sKt2/xeRm42ZekP+MgxoZ
+ CeOeiqbyq6fugqqtRsTrsBA3/mj+qf91j6TKcpbkWS0z97waN6tzym2cnS+KeO/6tC8l
+ H+RdDqXUj18VXpRzkOz5nuBmmWgUz6LXcj920HGddbltWG38a0ffFOGx8vC8tgyyI2pk
+ GU5rK4F0r7K7az4iEO2TIELNX+q9J9bn7XrY9TPFEtpBw31fsWFWcfZR+4f4DnsaSfta
+ g/UyRr1fRQPLREpETfYfEytjNWWMSy9f0FX3t/gMHUc3St2MLSwrdot/Vjdf6m/NnI0T
+ qONQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=DtpgiMDdQDQ42lYOShCZSjozTn71wDq5F2+gG4jR6Mc=;
- b=TpLb4cgKU/T4KZMxaDfGWWmqBUGLu+KAWF+f35zQLXgZmrbT/q4/FlIkPuU9woTdye
- EfaUNncGPMnJU8wRoMpu4ojnkeozToc5iEuaEq7WcspIhmaO0PS7X6LZw3NHZNobd7/c
- WCq7nKdHIeh9nFz9G/jdjrXZf1nUcXpTg/JjMysDwpipYedNoFhCZElyRisv3TJXHGHM
- XZZaTYBGir4BOhgZGd3xMghdbms6okyEOjuMDYSkNIYhdqjhzDg7rB2mhXf4XdjSI8yZ
- QUPwKkW7HPjP7VBgtBql9lNvGXMzj1ax6b4O4cX6+hwbWbMVjcTzsHurM3ZhgbwN905/
- UWwg==
-X-Gm-Message-State: AOAM530NHzOVWaJsdUzTKz7lIT3aSif+HaLqfQvG1z7fwFKWMAJ15o0W
- tRUz4EoBd4isq6sSuzMMRaCenQ==
-X-Google-Smtp-Source: ABdhPJxyNMzZYjLDAg06MgzzGBD9gydeKGrikQEhiDcDIRog/SGk6EAyeKQbPoEQpWsk9AVcMwwR8w==
-X-Received: by 2002:a65:44c4:: with SMTP id g4mr40319781pgs.254.1629866679411; 
- Tue, 24 Aug 2021 21:44:39 -0700 (PDT)
+ bh=HQb1qPKPVQv8i2sQtSNBJbfKt3KpoSGtp9yhja3ONfM=;
+ b=t0Q2q7L1AnvZrDsMptgcbQhlUdi5XO7BiMz+1zY1rw4Lw8pmSr/O8xg8unIMUVXCWP
+ 8gNCLI4QKXhlC2wvjuCRNanOIUIRw05xziA78X98+NJ+LsMjPK28KQPCVDlPruyeZXRe
+ WONXxzno6afUTtUWCRDz4lb4RAAzgyFZgEk295HAvm6RUnmitE5In/R+eu8EUvoS5kki
+ AZJy+fB8v4WwbiRXshMYeFQmLKlb+jdYzz7F3XGD+9j9dT4D39Iv8QQD4hNup8IRTlVp
+ iO2eRRdaz0EiygLo4JZSeCtsbVbj+AdPl31jZSgY+CI0DxyYrL8A1csyWVeIyoYbSkPs
+ nxgg==
+X-Gm-Message-State: AOAM532aTWkNUsNK8Fwj/yqoEPJod/ygS/EtjFft3BjgxNqga7O0BR1n
+ mI4fq8W5g+BOq+XjE96yw1bhaQ==
+X-Google-Smtp-Source: ABdhPJxOM/2YGAEIgMwLGRY1pn58De9xkTf6LI9HnwGc+e+OCaed3fTdkvB6pVx0RQb+YRFDkn/OkQ==
+X-Received: by 2002:a17:90a:eb0d:: with SMTP id
+ j13mr6812463pjz.163.1629866682543; 
+ Tue, 24 Aug 2021 21:44:42 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a1sm19557309pgt.47.2021.08.24.21.44.38
+ by smtp.gmail.com with ESMTPSA id t42sm8940750pfg.30.2021.08.24.21.44.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 24 Aug 2021 21:44:38 -0700 (PDT)
-Date: Tue, 24 Aug 2021 21:44:38 -0700 (PDT)
-X-Google-Original-Date: Tue, 24 Aug 2021 20:57:42 PDT (-0700)
-Subject: Re: [PATCH v2 1/2] riscv: dts: microchip: Use 'local-mac-address' for
- emac1
-In-Reply-To: <20210804123015.807929-1-bmeng.cn@gmail.com>
-CC: Conor.Dooley@microchip.com, Atish Patra <Atish.Patra@wdc.com>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- geert@linux-m68k.org, bin.meng@windriver.com, conor.dooley@microchip.com
+ Tue, 24 Aug 2021 21:44:41 -0700 (PDT)
+Date: Tue, 24 Aug 2021 21:44:41 -0700 (PDT)
+X-Google-Original-Date: Tue, 24 Aug 2021 20:58:40 PDT (-0700)
+Subject: Re: [PATCH] riscv: Keep the riscv Kconfig selects sorted
+In-Reply-To: <20210805002908.2597836f@xhacker>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: bmeng.cn@gmail.com
-Message-ID: <mhng-8451ce80-2f44-40f0-945c-f2fd13a80bd7@palmerdabbelt-glaptop>
+To: jszhang3@mail.ustc.edu.cn
+Message-ID: <mhng-43c0a2a8-fbd8-47bf-a9c4-4ac01333b6b0@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210824_214441_838454_0C435B66 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20210824_214443_407901_B4863F40 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +101,43 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Aug 2021 05:30:14 PDT (-0700), bmeng.cn@gmail.com wrote:
-> From: Bin Meng <bin.meng@windriver.com>
+On Wed, 04 Aug 2021 09:29:08 PDT (-0700), jszhang3@mail.ustc.edu.cn wrote:
+> From: Jisheng Zhang <jszhang@kernel.org>
 >
-> Per the DT spec, 'local-mac-address' is used to specify MAC address
-> that was assigned to the network device, while 'mac-address' is used
-> to specify the MAC address that was last used by the boot program,
-> and shall be used only if the value differs from 'local-mac-address'
-> property value.
+> Move three Kconfig selects: ARCH_STACKWALK, ARCH_SUPPORTS_ATOMIC_RMW
+> and ARCH_SUPPORTS_DEBUG_PAGEALLOC to the right place.
 >
-> Signed-off-by: Bin Meng <bin.meng@windriver.com>
-> Reviewed-by: conor dooley <conor.dooley@microchip.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
+>  arch/riscv/Kconfig | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 >
-> (no changes since v1)
->
->  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> index 0659068b62f7..a9c558366d61 100644
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> @@ -317,7 +317,7 @@ emac1: ethernet@20112000 {
->  			reg = <0x0 0x20112000 0x0 0x2000>;
->  			interrupt-parent = <&plic>;
->  			interrupts = <70 71 72 73>;
-> -			mac-address = [00 00 00 00 00 00];
-> +			local-mac-address = [00 00 00 00 00 00];
->  			clocks = <&clkcfg 5>, <&clkcfg 2>;
->  			status = "disabled";
->  			clock-names = "pclk", "hclk";
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 8fcceb8eda07..f133ac72572f 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -13,9 +13,6 @@ config 32BIT
+>  config RISCV
+>  	def_bool y
+>  	select ARCH_CLOCKSOURCE_INIT
+> -	select ARCH_SUPPORTS_ATOMIC_RMW
+> -	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+> -	select ARCH_STACKWALK
+>  	select ARCH_HAS_BINFMT_FLAT
+>  	select ARCH_HAS_DEBUG_VM_PGTABLE
+>  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+> @@ -33,6 +30,9 @@ config RISCV
+>  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+>  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> +	select ARCH_STACKWALK
+> +	select ARCH_SUPPORTS_ATOMIC_RMW
+> +	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+>  	select ARCH_SUPPORTS_HUGETLBFS if MMU
+>  	select ARCH_USE_MEMTEST
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
 
-Thanks, these are on fixes.
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
