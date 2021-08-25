@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D24D3C4338F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 13:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF455C432BE
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 13:07:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 76D88610A6
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 13:06:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 76D88610A6
+	by mail.kernel.org (Postfix) with ESMTPS id 7268F6108F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Aug 2021 13:07:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7268F6108F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gm6iwAfBgo1c4bd0nR9ZVtcO5Qj1oM4uzXGq8wyYJeE=; b=yb937sYBdD6X8Q
-	JuScFFqhK+7f5tV/wMG+CorpwACRU72XRKbOe6bpZsCXdsXtz+7/6QpYMGQoIf2AesAIAd2cPZpfn
-	NWtz7Kn812QtNLUDqfklMkUEnR8/LJ01AKry5/2x5iDRvipknUZuIALZniPgsVJJ6TRWZh8Jqzvb9
-	5vNTWTe1BTIJT9BIWM4m3O4mSH5nhujInx++rd5Kxr48yqEtkC1742sbOCdNJO+63B1H7ayaXS5QV
-	MazTzxMfSVJVYVVjwEZPDrU1+zckNnwt6m0VWa95N5+OPx45noqLidjIrNcoMVZGoqZrBJhJ0tEnB
-	Jki8bW+NbVapCm2UokGA==;
+	List-Owner; bh=Gm6iwAfBgo1c4bd0nR9ZVtcO5Qj1oM4uzXGq8wyYJeE=; b=c3mPZeVXOghi0/
+	o7F/Krt3gyIkOVJQbG18agreB2YHagQ286ZQdE/hGVqnyh0g0EQ28v5lkgHaOLPz6CuR25viuM5OE
+	Hr1uToBUhrzJeRN1MB7Cn5m6bSrxaTWlgczBxOXhew4VuXj4YKDDM4J4tnUfCx4GzrydCiT6mBJw1
+	WhlOAuBToo6LXLojfFa3g52niZX34j0CcREpqKno7y41eK5MJAuFVRUPjUZRiUadrwToVYAw7Kl3j
+	ItFa9A5mTUQbcbg3/ybaV7NdT6y+F6K7+4sWQH4wJxUwqcKuT5cQ7nhLUyE3HyTcTaJyRQs/31T8o
+	bqLtDaD4ZjHgdi72d1/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mIsbZ-00713q-TV; Wed, 25 Aug 2021 13:06:09 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mIscX-0071L5-1J; Wed, 25 Aug 2021 13:07:09 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mIsbB-0070xi-GH
- for linux-riscv@lists.infradead.org; Wed, 25 Aug 2021 13:05:49 +0000
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72])
+ id 1mIscH-0071JD-Ke
+ for linux-riscv@lists.infradead.org; Wed, 25 Aug 2021 13:06:57 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 052994079D
- for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 13:05:36 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 69A1140763
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 13:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1629896736;
+ s=20210705; t=1629896812;
  bh=UfizrBJBT6h793qifWAMSREo4JNWpi+qoZht6aRmJGE=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=ZM4WRgEKiFu4emREJsvcpdegETCZbnTLHsMvMgsj4DUKF4e+E8tXzsBYqs8a4bpYj
- gBZZyIbV9Z0Nt8G9TzuiWRNMIna3E442zJRjcpuMr4oZ6+N7fJ3JD6CP0xt6OGCLgF
- uoh5UCwvR067+lUeBzVTNQ8kbC8BEfGMoM1cOCu+KwxiqoaHocsD5wYVcUZEIXM1kJ
- Bow4mbyrC2l1CYUU2WAcmG1fWBZ+T+yU1L6/1Elsrxl2YorXojo4QtkJynsl1HrDs+
- pEr+Ej7N/IUERoAangvQO10m/0is/wQk3iyW0TL7DRbqJVC64iUKCVEYnArWoMyCTT
- PazJpyJWlwAsA==
-Received: by mail-wr1-f72.google.com with SMTP id
- v6-20020adfe4c6000000b001574f9d8336so2610976wrm.15
- for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 06:05:36 -0700 (PDT)
+ b=F52aDyd3IE7G8cVWvkFMBsWztlEwh6L+o7LMd7WLh33m0qQXNqaY9MVMbRW0DeMs2
+ +BUPdElHzBe4Y7Yd0Dha7R1M+mwiHMLOaXl29as/UaEmrrdXs9AKGRwwvzpDj1KKNf
+ CImgSEmgSGdekbm/f7irAFtQBCgNENzkPXjWp67pHWf9M/PGZ0yO87A8fKQHNIJQNs
+ yqP6wxscVpheR2fwjkoI4XF8xBHMzaLS36LrFi2q4KFrhu0Mtz5SRV3clYYATWtV/M
+ SfGQXZoBpQdPn2DeumlWaEGrhqQGy3oMFDnQcFQSb9M6Ewb786Vx7Z7DkYSaGunq9x
+ pxsAo8GDAtjUw==
+Received: by mail-wr1-f71.google.com with SMTP id
+ h15-20020adff18f000000b001574654fbc2so3209260wro.10
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 06:06:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
  bh=UfizrBJBT6h793qifWAMSREo4JNWpi+qoZht6aRmJGE=;
- b=jBv6xAJG8fgVaH2ms486Df/6vkkR370F7cXDSavHElOEi6xQDZDPKOKmlSqfT1a6tg
- LhWgE755Nv1m8dve2VTTCWfvUvd5I9XIyiTS4c3ofklhTpKczkg2I4bjojOpEvxzR6RQ
- JUk1H8eMxEG2viVfpIbq3r78xZdRdbYLFYgDUQqoSaWluu8J+0KkNQEi35uS7ZNgyZK8
- yrUF0lSXOmQ18dnBqYDQbwz2PkfvT52a8rkkJ/IhiwIDkvDI5DtnnmLzJ30Dl9ZdBmuo
- Xa2UrERNgllRHgqTDcNO8HUhx+HyDj367AnP5z7LCvFx11odwuc7K8XCHRechF0cMuGv
- hv1w==
-X-Gm-Message-State: AOAM532wfn+w528nX2NaqyDdaF5DFi8oMnRBl3hKLlwTb8jffBXY7odt
- NB60m/vKHO0/aKwiIV0a2MVv812eKaNy+nbqzRbq+N82fuw38+ps0Pejk8p8fQRXbpv2kA+/MIc
- wtyUdzvBF8CClP24Fz+LJZRfenoxjf596XBNZ4SBX6X/Eow==
-X-Received: by 2002:a05:6000:92:: with SMTP id
- m18mr18711694wrx.293.1629896734660; 
- Wed, 25 Aug 2021 06:05:34 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwLGSV31y+kVM+3CidhWNxCQ29UIuSq21ADvfXfOGHO2Gp5VvBVX5SwObpLHLgExu1hCrgJxw==
-X-Received: by 2002:a05:6000:92:: with SMTP id
- m18mr18711663wrx.293.1629896734471; 
- Wed, 25 Aug 2021 06:05:34 -0700 (PDT)
-Received: from localhost.localdomain ([79.98.113.233])
- by smtp.gmail.com with ESMTPSA id 11sm5338828wmi.15.2021.08.25.06.05.33
+ b=XscIyEzmLbfwlOgTsrx4UAR1vG7J/59Jpe5Cd0qSmWKYd7W9p8uM2gsIuZP/kcwarw
+ cLFaK03wMpZZSOfMRBHa3RaV9UM+qjj65xb8otdXOb9d+57yVemQRobeX+6o+IKLBWb0
+ 9OTffoiKZPnpdIDF4BFGcCDiE0vEbVtQqTF9luxBpRgdC+eQyW7Lt3mhWQ48dGdMVHTL
+ tKGYX54We5tQDqP9FtJ75p7ch0IP41tUb6wmm4aVvYpfREPq8sinqRJd0X38Fc3pYFhI
+ JJ5l7OmGJUy7JNT+YMO3R+ROis81TcXD448BVZQZWBVpMTfjclkJL8BjTzaCBfPw7gWN
+ nw6g==
+X-Gm-Message-State: AOAM532nvhNz5TN8+0eX8My4Xy0sDi7RhBKDBskPpjLeZNjgUcdhYC1i
+ ymAwz39eZIoWiSpat5WQ+KoPJIEnyzlT/QKcyKvr+UIny5kMakK5GgvfVsO8dx02/esG7yqLDF3
+ fNynbhuQ6U1WwYHWdVij23Tctpk4deGmmYJzRT9S2y1fHJQ==
+X-Received: by 2002:a1c:40c:: with SMTP id 12mr9149924wme.158.1629896811089;
+ Wed, 25 Aug 2021 06:06:51 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzixd6QysPlsvWL7nertMLrUP2YTQueOD1OTVHyup8rVWyTa/PXx9YKm+yhpgfRrSNjfxxakQ==
+X-Received: by 2002:a1c:40c:: with SMTP id 12mr9149906wme.158.1629896810959;
+ Wed, 25 Aug 2021 06:06:50 -0700 (PDT)
+Received: from localhost.localdomain ([79.98.113.15])
+ by smtp.gmail.com with ESMTPSA id r20sm13300842wrr.47.2021.08.25.06.06.49
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 25 Aug 2021 06:05:34 -0700 (PDT)
+ Wed, 25 Aug 2021 06:06:50 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -91,14 +89,14 @@ To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: [PATCH v2 3/5] riscv: dts: sifive: drop duplicated nodes and
  properties in sifive
-Date: Wed, 25 Aug 2021 15:04:50 +0200
-Message-Id: <20210825130452.203407-3-krzysztof.kozlowski@canonical.com>
+Date: Wed, 25 Aug 2021 15:06:04 +0200
+Message-Id: <20210825130604.203601-1-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210825130452.203407-1-krzysztof.kozlowski@canonical.com>
 References: <20210825130452.203407-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210825_060545_745085_C6F1E208 
+X-CRM114-CacheID: sfid-20210825_060653_837884_E962FA58 
 X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
