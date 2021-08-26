@@ -2,90 +2,89 @@ Return-Path: <SRS0=v94U=NR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28830C432BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 04:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D93CFC432BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BA06060EFE
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 04:48:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BA06060EFE
+	by mail.kernel.org (Postfix) with ESMTPS id 9FF9660F91
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9FF9660F91
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=4dknoe41WwrY1iT8Vhn+0cNSueZBW6XWCNkUOI223fU=; b=yaFcATFFvKPlsVwSYvEvIj+5VJ
-	HyKinsNjpeN1d0S+q1JL6PuhUp5oBfSfqOk27yisvPFJdgZEgYlTyFc9lowbCPgn2l3NhoyY9qjcw
-	E6WWC6LtzEtMYio8gFrRZnMRkZuNtuabhVe36aEd2JdM69l6nmg512uhMtWaLA69OEu5+eV7ee25K
-	fbXmmXP5BXwjXiELeKNiIxh5YX6eUuWdlRbWbCH+Mxs7VLmLvHMvz9Roiehjpv6kbl3It6TsMN6mo
-	Qk7U7gUk6/Si8SlB26fsvX2pQwKEfBDZbNakKYQV/bdmM9elJ3rIRwL05A/4EpZH9sCfBt5+hK1/b
-	Low17TgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f8PYOC3BoPlAgbiCqUqMXZ5cZOtDUstH9mEkPROYwME=; b=h1eZRX7EYOZyS6
+	E5EIvk/9Ou1QiQqrk092SGwNtCU7bjjmoEzGQMg4NQQfmIsJPxuEUSu4m3jkglvB28O6wPGK3zcLe
+	UDyoAXy6+WJhHsw5hGb0DQgp26yqVDzdxsChXjCnm4qbyDCLelXhQkdmlU7XmcHzup8ZOH6tpL+Ym
+	rSq79g56SYKSwmj2bYBgw4gG5ArfU8ak+r15RXYoX9+8Ro53QHtrHzEHbWwVLEk1kmxhA0sA6i/D8
+	77Wypc517Q2hGc4rULgIJJuq0j8WGeRXMKmEfDLDINpJMkDB8syKeFKLIdOCmVYNS9hREHcX/2H5l
+	E6JlVZ1rk0ttXc0LsRRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJ7JT-00996N-9X; Thu, 26 Aug 2021 04:48:27 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1mJ8Yb-009GIN-Gp; Thu, 26 Aug 2021 06:08:09 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJ7JC-00995h-3v
- for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 04:48:11 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id oa17so1383623pjb.1
- for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 21:48:09 -0700 (PDT)
+ id 1mJ8YY-009GEx-Iw
+ for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 06:08:07 +0000
+Received: by mail-pg1-x533.google.com with SMTP id x4so2214106pgh.1
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 23:07:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=CVByhjP1i2oA1KBEUJykBzcIy3uSqCrwHbgIyy+OMWM=;
- b=zhQLVwXtUQ1F9xPIqwJobzGM3h5hp6Kb+jAqR0TufspBhPHjmVsD+AGl+hG/tYR4S0
- LeADLT1tE+KRKccHrTnRTbTAvwjXEkHM8RT2b3peDV1kyJ243rn8yDekCV/Qsd8dAGQq
- ndSBRt8LHCjXK131bSl7A4HgruAK5pNgjiNYHCVovnYjEPvQzTknX/2XuQ9uMo4XC/xd
- xIN7YAx5mAIPCXP8wwVvnD5GI7aVu9w5hnqyJn1sfPsrWjK3plgphoKn3wQ7qxhzgHSe
- sny85sDvMCZ9gZh9akVe7bXNh5clX+Amj8nHwO4mGXDK2poM77d+SKYpjToRrs5iUGJX
- 4BBg==
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=XSO4aTMI8L6SABu9p5nHJasdEB0/4Gj8hIYzUHhpqoI=;
+ b=uGZUttuTcwZQAXVURE4W4dhyTqswmOh9u28bv+2LfY7C5Z+u1mqJJPZ7slCgWDvnZP
+ JSFht4nC+dJSQgWNGJxAmMhAp7OBo8M8SbHl8J2N5exn+0Kygj5hM6ql0bOEh3vTHngQ
+ M/NqvIHEJMdAONtSwIxj3nDx+al1m/mCntMxggLGbdepslGiiRcd+udzkUCLTJh3RZqY
+ YfHdQV5MibWsSgWAvmvY0n9fSjn/IZNpdBI/xkr2ambsVPnjOVwpm5qJOaIAdgLmbXv1
+ +pQ+vd1hIhjRlw/bcKwRxuZPza2zqNH7QC23+S01Ts3eslpcqW2YvnQEwdgH/cdCNwC/
+ m/1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=CVByhjP1i2oA1KBEUJykBzcIy3uSqCrwHbgIyy+OMWM=;
- b=Tr8LPOS7SQJWDWfFziDRnDmujG/p4RIyZSxGxelnKytSN40Bk/G41kFJs2VM4IBgrq
- o6Z8k9xi6CVHbYu8U9tXPo6/5chc+aIogCIOkIdKyN8x9ECB+Tj+0x1K22yTqPGpPoya
- ohRxkIYl2oJJOC4YxQ5g0EO4uf/K/uTYJb01+yLKRKX/qh3ix1VdQgpdDZlU3lyNavLY
- q+ZgPFVQPgoRzfUZz2OVWvGn5pG2PbUHNbLVfuz0gRxRNLkN8Gmu5rkkHGs/sErzWNyA
- Hf1yoswXK1NYG8tpe2QVeEDA3uXe6Pr1DAjmhkMFLx5ypTXFW9/VWfwj6GUN/9EraONr
- nJVg==
-X-Gm-Message-State: AOAM531erAMwY+Q7/TMpPQpO4X59fNE7DfJoOgG/Nl/It+z6tGB76eWu
- E29ePCSy+wekiomAOCLK85xZ1A==
-X-Google-Smtp-Source: ABdhPJwW/hCGfEDMPcpzaroks8UhmWJ1z7TQk2gskjWvpBtS/EGSHzKUSsDiTTWuk0fFJ3MUQWGHMA==
-X-Received: by 2002:a17:902:f552:b029:12d:3d11:4ff1 with SMTP id
- h18-20020a170902f552b029012d3d114ff1mr1709114plf.1.1629953288396; 
- Wed, 25 Aug 2021 21:48:08 -0700 (PDT)
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=XSO4aTMI8L6SABu9p5nHJasdEB0/4Gj8hIYzUHhpqoI=;
+ b=imTOZZzw8nXLEwV4jXOx/HKbrPf9ZrbtsYyJkCDTn4K0P6jeJTatenzZtSSkqcX+h7
+ CZi+nq6F4YaRcbstcSx3GtezP2dtSVmih8XccZVztDZvgWEdkdG+c3o4HnXSAtyQbpmC
+ I2dqEcXt3lqITDX4ytGNfrk1FOMoxfu9bCFbpuErDc4QYvlpP4UUtmEoXXiHnxyBkhxm
+ XevL0KrnR6Nv/t4b7gKWg7zbSJASIxLMz5Zop4fLu3ncyCZPoYYgjnINP68Vc0Lr5QVo
+ +xHDBljOb5YMcn0cRIMUUcFRmGxzkDuwakQnWNjFSQLL6iXM0dkGDwoFqdAHDKpAMpSV
+ xEnA==
+X-Gm-Message-State: AOAM532Tuo546nOhrt5dSHmWc2+7zClmDEP8AKwiLStFSmnOnS2kAHkD
+ waPkWaGRddmkhAULFYPInf10SQ==
+X-Google-Smtp-Source: ABdhPJzW15W5p7nhvDQt3b4zFSYUvJ/8LxsZm9Z6KAltlF6bhi6uQj+Eb25pzinXJTo+sdn56L6T8w==
+X-Received: by 2002:a63:e40a:: with SMTP id a10mr1898121pgi.414.1629958074381; 
+ Wed, 25 Aug 2021 23:07:54 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q3sm1655685pgf.18.2021.08.25.21.48.07
+ by smtp.gmail.com with ESMTPSA id t10sm7203435pji.30.2021.08.25.23.07.53
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 25 Aug 2021 21:48:07 -0700 (PDT)
-Date: Wed, 25 Aug 2021 21:48:07 -0700 (PDT)
-X-Google-Original-Date: Wed, 25 Aug 2021 21:48:03 PDT (-0700)
-Subject: Re: [PATCH -next] riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-In-Reply-To: <20210805113837.805805-1-liushixin2@huawei.com>
-CC: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, liushixin2@huawei.com
+ Wed, 25 Aug 2021 23:07:53 -0700 (PDT)
+Subject: [PATCH] RISC-V: Fix VDSO build for !MMU
+Date: Wed, 25 Aug 2021 23:05:10 -0700
+Message-Id: <20210826060509.2470960-1-palmer@dabbelt.com>
+X-Mailer: git-send-email 2.33.0.259.gc128427fd7-goog
+MIME-Version: 1.0
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ aou@eecs.berkeley.edu, penberg@kernel.org, guoren@linux.alibaba.com,
+ abdulras@google.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-team@android.com, Palmer Dabbelt <palmerdabbelt@google.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: liushixin2@huawei.com
-Message-ID: <mhng-57cbc077-dfa6-48a7-a29d-b27862e1e800@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210825_214810_264875_3B2FE68A 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20210825_230806_676727_86A1DCBC 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,148 +96,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Aug 2021 04:38:37 PDT (-0700), liushixin2@huawei.com wrote:
-> This sets the HAVE_ARCH_HUGE_VMAP option. Enable pmd vmap support and
-> define the required page table functions(Currently, riscv has only
-> three-level page tables support for 64BIT).
->
-> Signed-off-by: Liu Shixin <liushixin2@huawei.com>
-> ---
->  .../features/vm/huge-vmap/arch-support.txt    |  2 +-
->  arch/riscv/Kconfig                            |  1 +
->  arch/riscv/include/asm/vmalloc.h              | 12 +++++
->  arch/riscv/mm/Makefile                        |  1 +
->  arch/riscv/mm/pgtable.c                       | 53 +++++++++++++++++++
->  5 files changed, 68 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/mm/pgtable.c
->
-> diff --git a/Documentation/features/vm/huge-vmap/arch-support.txt b/Documentation/features/vm/huge-vmap/arch-support.txt
-> index 439fd9069b8b..0ff394acc9cf 100644
-> --- a/Documentation/features/vm/huge-vmap/arch-support.txt
-> +++ b/Documentation/features/vm/huge-vmap/arch-support.txt
-> @@ -22,7 +22,7 @@
->      |    openrisc: | TODO |
->      |      parisc: | TODO |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: | TODO |
->      |          sh: | TODO |
->      |       sparc: | TODO |
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 8fcceb8eda07..94cc2a254773 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -61,6 +61,7 @@ config RISCV
->  	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
->  	select HANDLE_DOMAIN_IRQ
->  	select HAVE_ARCH_AUDITSYSCALL
-> +	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
->  	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
->  	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
->  	select HAVE_ARCH_KASAN if MMU && 64BIT
-> diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-> index ff9abc00d139..8f17f421f80c 100644
-> --- a/arch/riscv/include/asm/vmalloc.h
-> +++ b/arch/riscv/include/asm/vmalloc.h
-> @@ -1,4 +1,16 @@
->  #ifndef _ASM_RISCV_VMALLOC_H
->  #define _ASM_RISCV_VMALLOC_H
->
-> +#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
-> +
-> +#define IOREMAP_MAX_ORDER (PMD_SHIFT)
-> +
-> +#define arch_vmap_pmd_supported	arch_vmap_pmd_supported
-> +static inline bool __init arch_vmap_pmd_supported(pgprot_t prot)
-> +{
-> +	return true;
-> +}
-> +
-> +#endif
-> +
->  #endif /* _ASM_RISCV_VMALLOC_H */
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index 7ebaef10ea1b..f932b4d69946 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -13,6 +13,7 @@ obj-y += extable.o
->  obj-$(CONFIG_MMU) += fault.o pageattr.o
->  obj-y += cacheflush.o
->  obj-y += context.o
-> +obj-y += pgtable.o
->
->  ifeq ($(CONFIG_MMU),y)
->  obj-$(CONFIG_SMP) += tlbflush.o
-> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
-> new file mode 100644
-> index 000000000000..f68dd2b71dce
-> --- /dev/null
-> +++ b/arch/riscv/mm/pgtable.c
-> @@ -0,0 +1,53 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +#include <asm/pgalloc.h>
-> +#include <linux/gfp.h>
-> +#include <linux/kernel.h>
-> +#include <linux/pgtable.h>
-> +
-> +#ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
-> +
-> +int pud_set_huge(pud_t *pud, phys_addr_t phys, pgprot_t prot)
-> +{
-> +	return 0;
-> +}
-> +
-> +int pud_clear_huge(pud_t *pud)
-> +{
-> +	return 0;
-> +}
-> +
-> +int pud_free_pmd_page(pud_t *pud, unsigned long addr)
-> +{
-> +	return 0;
-> +}
+From: Palmer Dabbelt <palmerdabbelt@google.com>
 
-Do we actually need the PUD helpers?  I'd prefer to avoid adding these 
-unimplemented stubs, IIUC the other architectures are relying on the 
-generic implementations (which are themselves stubs) for configurations 
-that don't have PUDs.
+We don't have a VDSO for the !MMU configurations, so don't try to build
+one.
 
-> +int pmd_set_huge(pmd_t *pmd, phys_addr_t phys, pgprot_t prot)
-> +{
-> +	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), prot);
-> +
-> +	set_pmd(pmd, new_pmd);
-> +	return 1;
-> +}
-> +
-> +int pmd_clear_huge(pmd_t *pmd)
-> +{
-> +	if (!pmd_leaf(READ_ONCE(*pmd)))
-> +		return 0;
-> +	pmd_clear(pmd);
-> +	return 1;
-> +}
-> +
-> +int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-> +{
-> +	pte_t *pte;
-> +
-> +	pte = (pte_t *)pmd_page_vaddr(*pmd);
-> +	pmd_clear(pmd);
-> +
-> +	flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-> +	pte_free_kernel(NULL, pte);
-> +	return 1;
-> +}
-> +
-> +#endif /* CONFIG_HAVE_ARCH_HUGE_VMAP */
+Fixes: fde9c59aebaf ("riscv: explicitly use symbol offsets for VDSO")
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/Makefile           | 2 ++
+ arch/riscv/include/asm/vdso.h | 9 +++++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index e026b2d0a5a4..83ee0e71204c 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -108,9 +108,11 @@ PHONY += vdso_install
+ vdso_install:
+ 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+ 
++ifeq ($(CONFIG_MMU),y)
+ prepare: vdso_prepare
+ vdso_prepare: prepare0
+ 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
++endif
+ 
+ ifneq ($(CONFIG_XIP_KERNEL),y)
+ ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
+diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
+index d8d003c2b5a3..893e47195e30 100644
+--- a/arch/riscv/include/asm/vdso.h
++++ b/arch/riscv/include/asm/vdso.h
+@@ -8,6 +8,13 @@
+ #ifndef _ASM_RISCV_VDSO_H
+ #define _ASM_RISCV_VDSO_H
+ 
++
++/*
++ * All systems with an MMU have a VDSO, but systems without an MMU don't
++ * support shared libraries and therefor don't have one.
++ */
++#ifdef CONFIG_MMU
++
+ #include <linux/types.h>
+ #include <generated/vdso-offsets.h>
+ 
+@@ -19,6 +26,8 @@ struct vdso_data {
+ #define VDSO_SYMBOL(base, name)							\
+ 	(void __user *)((unsigned long)(base) + __vdso_##name##_offset)
+ 
++#endif /* CONFIG_MMU */
++
+ asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
+ 
+ #endif /* _ASM_RISCV_VDSO_H */
+-- 
+2.33.0.259.gc128427fd7-goog
+
 
 _______________________________________________
 linux-riscv mailing list
