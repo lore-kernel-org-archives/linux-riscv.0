@@ -2,89 +2,92 @@ Return-Path: <SRS0=v94U=NR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D93CFC432BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFC23C432BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9FF9660F91
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9FF9660F91
+	by mail.kernel.org (Postfix) with ESMTPS id 9A5A860F91
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9A5A860F91
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f8PYOC3BoPlAgbiCqUqMXZ5cZOtDUstH9mEkPROYwME=; b=h1eZRX7EYOZyS6
-	E5EIvk/9Ou1QiQqrk092SGwNtCU7bjjmoEzGQMg4NQQfmIsJPxuEUSu4m3jkglvB28O6wPGK3zcLe
-	UDyoAXy6+WJhHsw5hGb0DQgp26yqVDzdxsChXjCnm4qbyDCLelXhQkdmlU7XmcHzup8ZOH6tpL+Ym
-	rSq79g56SYKSwmj2bYBgw4gG5ArfU8ak+r15RXYoX9+8Ro53QHtrHzEHbWwVLEk1kmxhA0sA6i/D8
-	77Wypc517Q2hGc4rULgIJJuq0j8WGeRXMKmEfDLDINpJMkDB8syKeFKLIdOCmVYNS9hREHcX/2H5l
-	E6JlVZ1rk0ttXc0LsRRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=okRSQ/XBDEiffz47SeESB4Qj8fWzoXy5Pp8HEBN0Ce0=; b=yyLVSvSfIVOr30A2uaDR5YsJBi
+	JAroW2EcdZidYsIsfu5ObJDX7G7aT2ZTyxi0TxP2EVkxWoGKfpMvoCb8eclbTwUk8hO+GUc+DGaqT
+	VuxBJUPeqfczX0jfJTwLeDfV04Hr1F2DO9/GK7bvmSWSHOEGWvIBulIsLl537Nce6sg37DfpOnINr
+	v6CN0u0uyq7bPOz3WfLkBKLB9DXVsvYrZyGd2f86AU87DFReQ8mBOb6ALff7/1SE8FLSGOkajLPJH
+	VioZ779nsvMgn5no/55Rv0YW4BiV1gBANMK1FpDIUIJrbRYMb3xGb5eyic4NaYl+1d8y6gfTNyizF
+	CGCX2UAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJ8Yb-009GIN-Gp; Thu, 26 Aug 2021 06:08:09 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1mJ8YZ-009GHz-S1; Thu, 26 Aug 2021 06:08:07 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJ8YY-009GEx-Iw
- for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 06:08:07 +0000
-Received: by mail-pg1-x533.google.com with SMTP id x4so2214106pgh.1
- for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 23:07:54 -0700 (PDT)
+ id 1mJ8YX-009GGQ-0j
+ for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 06:08:06 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id
+ oc2-20020a17090b1c0200b00179e56772d6so5822179pjb.4
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 23:08:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=XSO4aTMI8L6SABu9p5nHJasdEB0/4Gj8hIYzUHhpqoI=;
- b=uGZUttuTcwZQAXVURE4W4dhyTqswmOh9u28bv+2LfY7C5Z+u1mqJJPZ7slCgWDvnZP
- JSFht4nC+dJSQgWNGJxAmMhAp7OBo8M8SbHl8J2N5exn+0Kygj5hM6ql0bOEh3vTHngQ
- M/NqvIHEJMdAONtSwIxj3nDx+al1m/mCntMxggLGbdepslGiiRcd+udzkUCLTJh3RZqY
- YfHdQV5MibWsSgWAvmvY0n9fSjn/IZNpdBI/xkr2ambsVPnjOVwpm5qJOaIAdgLmbXv1
- +pQ+vd1hIhjRlw/bcKwRxuZPza2zqNH7QC23+S01Ts3eslpcqW2YvnQEwdgH/cdCNwC/
- m/1g==
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=NNtuO05+8Dc6BRsSuMp/HZ2ZgToThCggAJvItaSKgr4=;
+ b=UfcKjyWt1UqNEnNoP5+DZEnZy48CAGB30gxlXK76kRWAGeQlgwXqYCj+UZkoChsnQS
+ 8PZnkIkfMU/5vI7oBHWqwt3xLwzZ1lqOdfrhCUx4vULc0rqUtyWZUoJReiXkHRAj/rFB
+ pbrObz6/1zif5tvGh/T4Q81xkOHXwjAiCy0UbjdWF394gHVO0VPKFyHZ7Y4faDFdj6cO
+ 0ryo8i0Dyb7ON+RVPOHlxAvkkdAuKIPU8JGXm1lODq27JjpcXA5m5RGlxtC1ny5qdhP1
+ RYAHgPpTQfE3THkwM5UgRK3xigtNRMPjJlTs4TFYxHk6cMYNMVJyyRcy+v6kki84aEOB
+ kuag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=XSO4aTMI8L6SABu9p5nHJasdEB0/4Gj8hIYzUHhpqoI=;
- b=imTOZZzw8nXLEwV4jXOx/HKbrPf9ZrbtsYyJkCDTn4K0P6jeJTatenzZtSSkqcX+h7
- CZi+nq6F4YaRcbstcSx3GtezP2dtSVmih8XccZVztDZvgWEdkdG+c3o4HnXSAtyQbpmC
- I2dqEcXt3lqITDX4ytGNfrk1FOMoxfu9bCFbpuErDc4QYvlpP4UUtmEoXXiHnxyBkhxm
- XevL0KrnR6Nv/t4b7gKWg7zbSJASIxLMz5Zop4fLu3ncyCZPoYYgjnINP68Vc0Lr5QVo
- +xHDBljOb5YMcn0cRIMUUcFRmGxzkDuwakQnWNjFSQLL6iXM0dkGDwoFqdAHDKpAMpSV
- xEnA==
-X-Gm-Message-State: AOAM532Tuo546nOhrt5dSHmWc2+7zClmDEP8AKwiLStFSmnOnS2kAHkD
- waPkWaGRddmkhAULFYPInf10SQ==
-X-Google-Smtp-Source: ABdhPJzW15W5p7nhvDQt3b4zFSYUvJ/8LxsZm9Z6KAltlF6bhi6uQj+Eb25pzinXJTo+sdn56L6T8w==
-X-Received: by 2002:a63:e40a:: with SMTP id a10mr1898121pgi.414.1629958074381; 
- Wed, 25 Aug 2021 23:07:54 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=NNtuO05+8Dc6BRsSuMp/HZ2ZgToThCggAJvItaSKgr4=;
+ b=mLi9Wlro8BisDL9kysboq7nitNsos1sTa4SrIASCOXa98V+pqUbVBfbH8fzVCw92M+
+ rm73A83NomjIddnWM/W/rOuBP5Gd3cxItGf7GOWFMOauNxbP0WUKtciVDvy0zViu330f
+ J0z6VnrZN8VAhE5DPgKueascfOaiDCpe1YWwNcMbJ+f3bjnvi2O7JMfE7HcTmrUdvLyb
+ FiSHUfRTblOrwWwFITabKEs83egE0bCZlvuZcX5Vb6qojH94j43iolp+8O5/uIB8huMg
+ dkr6szB6N6qP4xqeH6HozncQC+EhEMXaBMpKJ9kI8rT8OYb8BZM68GwhIEFvS2jGw6Jx
+ TedQ==
+X-Gm-Message-State: AOAM530hceu6J9kM3U6bzZDLjEL8t9fcH9FJcI3q8a1pj5i9oigLt3rF
+ p6kOSpAslXwDiSOhbn4vrSkyOg==
+X-Google-Smtp-Source: ABdhPJx9ctMBPCljF2Xlz8amzdSmJcEDJ+3zpshuIOv0EA3RuS6bF9bVNd10PkvIt+pqrnzJRB0vCg==
+X-Received: by 2002:a17:90a:7e8b:: with SMTP id
+ j11mr2478556pjl.210.1629958081797; 
+ Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t10sm7203435pji.30.2021.08.25.23.07.53
+ by smtp.gmail.com with ESMTPSA id j4sm2025639pgi.6.2021.08.25.23.08.01
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 25 Aug 2021 23:07:53 -0700 (PDT)
-Subject: [PATCH] RISC-V: Fix VDSO build for !MMU
-Date: Wed, 25 Aug 2021 23:05:10 -0700
-Message-Id: <20210826060509.2470960-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.33.0.259.gc128427fd7-goog
-MIME-Version: 1.0
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- aou@eecs.berkeley.edu, penberg@kernel.org, guoren@linux.alibaba.com,
- abdulras@google.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel-team@android.com, Palmer Dabbelt <palmerdabbelt@google.com>
+ Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
+Date: Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
+X-Google-Original-Date: Wed, 25 Aug 2021 23:07:59 PDT (-0700)
+Subject: Re: [PATCH] riscv: use strscpy to replace strlcpy
+In-Reply-To: <20210807071427.59613-1-wangborong@cdjrlc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
+ wangkefeng.wang@huawei.com, mick@ics.forth.gr, 
+ alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ wangborong@cdjrlc.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux-riscv@lists.infradead.org
+To: wangborong@cdjrlc.com
+Message-ID: <mhng-ec52f7a2-7fe9-4109-b326-a92af8b8205b@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210825_230806_676727_86A1DCBC 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20210825_230805_103318_F08EC8B4 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,69 +99,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmerdabbelt@google.com>
+On Sat, 07 Aug 2021 00:14:27 PDT (-0700), wangborong@cdjrlc.com wrote:
+> The strlcpy should not be used because it doesn't limit the source
+> length. As linus says, it's a completely useless function if you
+> can't implicitly trust the source string - but that is almost always
+> why people think they should use it! All in all the BSD function
+> will lead some potential bugs.
+>
+> But the strscpy doesn't require reading memory from the src string
+> beyond the specified "count" bytes, and since the return value is
+> easier to error-check than strlcpy()'s. In addition, the implementation
+> is robust to the string changing out from underneath it, unlike the
+> current strlcpy() implementation.
+>
+> Thus, We prefer using strscpy instead of strlcpy.
+>
+> Signed-off-by: Jason Wang <wangborong@cdjrlc.com>
+> ---
+>  arch/riscv/kernel/setup.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 18bd0e4bc36c..2dc62ebc0001 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -255,7 +255,7 @@ static void __init parse_dtb(void)
+>
+>  	pr_err("No DTB passed to the kernel\n");
+>  #ifdef CONFIG_CMDLINE_FORCE
+> -	strlcpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+> +	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+>  	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+>  #endif
+>  }
 
-We don't have a VDSO for the !MMU configurations, so don't try to build
-one.
-
-Fixes: fde9c59aebaf ("riscv: explicitly use symbol offsets for VDSO")
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/Makefile           | 2 ++
- arch/riscv/include/asm/vdso.h | 9 +++++++++
- 2 files changed, 11 insertions(+)
-
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index e026b2d0a5a4..83ee0e71204c 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -108,9 +108,11 @@ PHONY += vdso_install
- vdso_install:
- 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
- 
-+ifeq ($(CONFIG_MMU),y)
- prepare: vdso_prepare
- vdso_prepare: prepare0
- 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
-+endif
- 
- ifneq ($(CONFIG_XIP_KERNEL),y)
- ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
-diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-index d8d003c2b5a3..893e47195e30 100644
---- a/arch/riscv/include/asm/vdso.h
-+++ b/arch/riscv/include/asm/vdso.h
-@@ -8,6 +8,13 @@
- #ifndef _ASM_RISCV_VDSO_H
- #define _ASM_RISCV_VDSO_H
- 
-+
-+/*
-+ * All systems with an MMU have a VDSO, but systems without an MMU don't
-+ * support shared libraries and therefor don't have one.
-+ */
-+#ifdef CONFIG_MMU
-+
- #include <linux/types.h>
- #include <generated/vdso-offsets.h>
- 
-@@ -19,6 +26,8 @@ struct vdso_data {
- #define VDSO_SYMBOL(base, name)							\
- 	(void __user *)((unsigned long)(base) + __vdso_##name##_offset)
- 
-+#endif /* CONFIG_MMU */
-+
- asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
- 
- #endif /* _ASM_RISCV_VDSO_H */
--- 
-2.33.0.259.gc128427fd7-goog
-
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
