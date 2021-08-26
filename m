@@ -2,92 +2,86 @@ Return-Path: <SRS0=v94U=NR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFC23C432BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4033C432BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:21:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A5A860F91
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:08:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9A5A860F91
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 9464360F14
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 06:21:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9464360F14
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=okRSQ/XBDEiffz47SeESB4Qj8fWzoXy5Pp8HEBN0Ce0=; b=yyLVSvSfIVOr30A2uaDR5YsJBi
-	JAroW2EcdZidYsIsfu5ObJDX7G7aT2ZTyxi0TxP2EVkxWoGKfpMvoCb8eclbTwUk8hO+GUc+DGaqT
-	VuxBJUPeqfczX0jfJTwLeDfV04Hr1F2DO9/GK7bvmSWSHOEGWvIBulIsLl537Nce6sg37DfpOnINr
-	v6CN0u0uyq7bPOz3WfLkBKLB9DXVsvYrZyGd2f86AU87DFReQ8mBOb6ALff7/1SE8FLSGOkajLPJH
-	VioZ779nsvMgn5no/55Rv0YW4BiV1gBANMK1FpDIUIJrbRYMb3xGb5eyic4NaYl+1d8y6gfTNyizF
-	CGCX2UAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v0zHTtfFJ8YnmOVDPtHoVnljdopNlFJ8OswVhr4kHRw=; b=nqZiS9wrpCQHJB
+	OnmnoDAvbhnsG46IH9qRaXclskE6NT6PaSZ/x9EvQRQRdn8LCiaZLQyG63tbc4wr/4eHUCDuFqA9m
+	Ajw0SXgSXtYRZhLbc/340ivARqZHG0b4jo+Oo/i3mQY4u+ZcicWUIb6f5Nqd+TuKN+kmRRczRLcAS
+	3oJuhzSxkmJW+4Fu5bcQAI7BILbKuc6OxfBL3eKughLNXZgbK72owFX5WdvEb1xDqHf2QNWoipjJW
+	vyo6U44Wjh3hi9FTlQ8iiomfWTU1MBCAhN2t0rqTZDzeIIhVnZnCvOAWEuykJKaC62nCj4SWyxpLj
+	SuimGhLzKI9Jjkivx5yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJ8YZ-009GHz-S1; Thu, 26 Aug 2021 06:08:07 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1mJ8ki-009HZB-GJ; Thu, 26 Aug 2021 06:20:40 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJ8YX-009GGQ-0j
- for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 06:08:06 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id
- oc2-20020a17090b1c0200b00179e56772d6so5822179pjb.4
- for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 23:08:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=NNtuO05+8Dc6BRsSuMp/HZ2ZgToThCggAJvItaSKgr4=;
- b=UfcKjyWt1UqNEnNoP5+DZEnZy48CAGB30gxlXK76kRWAGeQlgwXqYCj+UZkoChsnQS
- 8PZnkIkfMU/5vI7oBHWqwt3xLwzZ1lqOdfrhCUx4vULc0rqUtyWZUoJReiXkHRAj/rFB
- pbrObz6/1zif5tvGh/T4Q81xkOHXwjAiCy0UbjdWF394gHVO0VPKFyHZ7Y4faDFdj6cO
- 0ryo8i0Dyb7ON+RVPOHlxAvkkdAuKIPU8JGXm1lODq27JjpcXA5m5RGlxtC1ny5qdhP1
- RYAHgPpTQfE3THkwM5UgRK3xigtNRMPjJlTs4TFYxHk6cMYNMVJyyRcy+v6kki84aEOB
- kuag==
+ id 1mJ8kf-009HYT-Rz
+ for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 06:20:39 +0000
+Received: by mail-ej1-x629.google.com with SMTP id lc21so3766047ejc.7
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Aug 2021 23:20:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=T99lzSum7lx0H0eLIVXXXKSQFMXc/FiDCDjfW8+qt7E=;
+ b=YDQw6YYp1Q+e3JAJKpV9SIj7NSipKUumvtRA5vDaUyUqVu1CCLC2NGhimLqq7QMf0v
+ L3ocVOOeZLwCwpW/48Hzdm8AZkEJALbzsqjgihIcJX0KvJxMghcDqWiIcQVvAioFk/72
+ O7AC3T//xi9If/k69Y1bE7j2t9INx5OZf5Z4yppNioTqpyFRqboAbs5nwZ959Aa8/WzY
+ I75w/WOU+XLuHlyFZAhj2zSVda9b4Xs4359xSfwiycM//qcFkOGeJGL13cnq6DKRc9zz
+ sF5lxFXBJNxrP9AF6jfwciaT5EuluTmkRTeoEGDQVQJMeu0rwi1FvJBx107EBg6Cva+0
+ rf0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=NNtuO05+8Dc6BRsSuMp/HZ2ZgToThCggAJvItaSKgr4=;
- b=mLi9Wlro8BisDL9kysboq7nitNsos1sTa4SrIASCOXa98V+pqUbVBfbH8fzVCw92M+
- rm73A83NomjIddnWM/W/rOuBP5Gd3cxItGf7GOWFMOauNxbP0WUKtciVDvy0zViu330f
- J0z6VnrZN8VAhE5DPgKueascfOaiDCpe1YWwNcMbJ+f3bjnvi2O7JMfE7HcTmrUdvLyb
- FiSHUfRTblOrwWwFITabKEs83egE0bCZlvuZcX5Vb6qojH94j43iolp+8O5/uIB8huMg
- dkr6szB6N6qP4xqeH6HozncQC+EhEMXaBMpKJ9kI8rT8OYb8BZM68GwhIEFvS2jGw6Jx
- TedQ==
-X-Gm-Message-State: AOAM530hceu6J9kM3U6bzZDLjEL8t9fcH9FJcI3q8a1pj5i9oigLt3rF
- p6kOSpAslXwDiSOhbn4vrSkyOg==
-X-Google-Smtp-Source: ABdhPJx9ctMBPCljF2Xlz8amzdSmJcEDJ+3zpshuIOv0EA3RuS6bF9bVNd10PkvIt+pqrnzJRB0vCg==
-X-Received: by 2002:a17:90a:7e8b:: with SMTP id
- j11mr2478556pjl.210.1629958081797; 
- Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id j4sm2025639pgi.6.2021.08.25.23.08.01
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
-Date: Wed, 25 Aug 2021 23:08:01 -0700 (PDT)
-X-Google-Original-Date: Wed, 25 Aug 2021 23:07:59 PDT (-0700)
-Subject: Re: [PATCH] riscv: use strscpy to replace strlcpy
-In-Reply-To: <20210807071427.59613-1-wangborong@cdjrlc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
- wangkefeng.wang@huawei.com, mick@ics.forth.gr, 
- alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- wangborong@cdjrlc.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangborong@cdjrlc.com
-Message-ID: <mhng-ec52f7a2-7fe9-4109-b326-a92af8b8205b@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=T99lzSum7lx0H0eLIVXXXKSQFMXc/FiDCDjfW8+qt7E=;
+ b=Ta0Gfz7Tu49kIHU4hblb2iBghc/mGo4uMnVFoj1qSv57FlXPkid+q8tdfMrQtswOyk
+ 4Lc5DzXNCm8YpLD4t1seJddS9Dg1KVxfkr8Uuz9JBBulZPQ9cvK/CUbC3mYIezQCCQVQ
+ TPfudSZRTAIfLJrwRhU1O27sNYlNJOlYEjBuCN22VxodtzlAOpEeutOiDhRJnOll6sI/
+ 9Br9poLJG0QBXjliTKpLRl2l6HFIm8+FWUG8Yal3TO+D6KtkBQxvvrW4qHR8rr8qct6m
+ lnXxwWSpR5SjwIbbR3k+i8k/4lgYu4EBbm3VPzAYTrvYGLgiXTBmji5+WorBQNRtbEyP
+ KUlQ==
+X-Gm-Message-State: AOAM532DFCB7pjnoyju5p8uDS2Nez3C9Cq2rcS7Ape34hxSw7i9GZb+d
+ WoKQLIVCq3V8qghLbch/Bt+BFyV8CUHhAVZqThg=
+X-Google-Smtp-Source: ABdhPJxRTpCTLDh6BG6miJ50+ZZxnnE6C1yC+UQeTxlO72m2FHwt/XN411Ij8QRRbVFXpEB6/fvhXunrINI5rqogxog=
+X-Received: by 2002:a17:906:3a57:: with SMTP id
+ a23mr2534109ejf.469.1629958826448; 
+ Wed, 25 Aug 2021 23:20:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210826060509.2470960-1-palmer@dabbelt.com>
+In-Reply-To: <20210826060509.2470960-1-palmer@dabbelt.com>
+From: Pekka Enberg <penberg@gmail.com>
+Date: Thu, 26 Aug 2021 09:20:10 +0300
+Message-ID: <CAOJsxLFyxKOBmzOGCojxWRsrOB1k7jy8P+kNTUtLH6DgdrOZCQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Fix VDSO build for !MMU
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Guo Ren <guoren@linux.alibaba.com>, abdulras@google.com, 
+ LKML <linux-kernel@vger.kernel.org>, kernel-team@android.com, 
+ Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210825_230805_103318_F08EC8B4 
-X-CRM114-Status: GOOD (  23.68  )
+X-CRM114-CacheID: sfid-20210825_232037_952283_0545F0B2 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +93,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 07 Aug 2021 00:14:27 PDT (-0700), wangborong@cdjrlc.com wrote:
-> The strlcpy should not be used because it doesn't limit the source
-> length. As linus says, it's a completely useless function if you
-> can't implicitly trust the source string - but that is almost always
-> why people think they should use it! All in all the BSD function
-> will lead some potential bugs.
+On Thu, Aug 26, 2021 at 9:09 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> From: Palmer Dabbelt <palmerdabbelt@google.com>
 >
-> But the strscpy doesn't require reading memory from the src string
-> beyond the specified "count" bytes, and since the return value is
-> easier to error-check than strlcpy()'s. In addition, the implementation
-> is robust to the string changing out from underneath it, unlike the
-> current strlcpy() implementation.
+> We don't have a VDSO for the !MMU configurations, so don't try to build
+> one.
 >
-> Thus, We prefer using strscpy instead of strlcpy.
->
-> Signed-off-by: Jason Wang <wangborong@cdjrlc.com>
-> ---
->  arch/riscv/kernel/setup.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 18bd0e4bc36c..2dc62ebc0001 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -255,7 +255,7 @@ static void __init parse_dtb(void)
->
->  	pr_err("No DTB passed to the kernel\n");
->  #ifdef CONFIG_CMDLINE_FORCE
-> -	strlcpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
-> +	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
->  	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
->  #endif
->  }
+> Fixes: fde9c59aebaf ("riscv: explicitly use symbol offsets for VDSO")
+> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
-Thanks, this is on for-next.
+Reviewed-by: Pekka Enberg <penberg@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
