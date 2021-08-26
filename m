@@ -2,89 +2,101 @@ Return-Path: <SRS0=v94U=NR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B969FC432BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 15:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 64289C432BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 20:00:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D5F460F58
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 15:48:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7D5F460F58
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 21D4460F4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Aug 2021 20:00:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 21D4460F4C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=1d3Mk/hMaXMkohHyAzFH/wkUtJ76xwBXvjZj5TgCO7A=; b=u/evKZOiinb0GbXwhwA2jTAjqU
-	LEwnEL8Cwz3AI87ziIFD9T98xvI/aJPtqBiHmt3SOz/ZgDUIerZuRSdMHGdP2jpmPNpjYTRW/GGMH
-	Oko8z2RkhmGC7utTShCkgpx6eP0mB1lUe6UPniBQR8tJYz0AimwVZ2DZ4aKxcB3TRg+8vS7lc5pK3
-	U8h0fKqYhOUlJkmahwDdHulTeEOTA2pxSg4hFpoZxZx6q38ADM3G4ARDbKzHPDv5fvF5yOXCfL6xz
-	Bv/xw4rjWpmo8GnwKQKCxE20+mo83s3/GsLCnXU50fcqU48tiY0U9lS10nzprVWr5pSpb61GEVXP0
-	op4RWmbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rpID/l0g2aJPAQJ448Ji6QkZgyblPPSPXoh/nLLoDyI=; b=ta/GFN+MSWbi6b
+	5jtxbK+xQsQIqmlgm8h3veN3sxBQ99b7tr2uaLukVMSex6jveUg3kxhfpx/0dHovv06pKkTGzvKH/
+	5tI7MBiawnktt436Mmz1F0Q+HvLw39+jXIv2IuB/3bhGmccgvF4dZGgZGtlOjidprk3777zMjQtCC
+	i6CpPWnU5h2a+ae4LM2itTtrphRejAsE6r7uAxjTP8VRSerQGo4ute1Gov9/iiW1VH9sxT+86fy7m
+	L3GnonBYiUKwFMuOrfDiPfEDYwvLG9MICGdzXkzK8ojT29zWxr8Y6EuHk725pOdUvqDYIFk3uTnGF
+	YzqHAa12yYwO6Kn3aaXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJHbx-00AVdB-R2; Thu, 26 Aug 2021 15:48:13 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1mJLX3-00ApvB-BV; Thu, 26 Aug 2021 19:59:25 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJHbv-00AVcr-5k
- for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 15:48:12 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id y23so3420737pgi.7
- for <linux-riscv@lists.infradead.org>; Thu, 26 Aug 2021 08:48:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=JJP+nPxJKAVqphBV0U7M3pCSiiD75owxGS4FYqm3izI=;
- b=B34DZ7GZQQP/RfYnW/796r41LR1R7dUh9UzNNn59z+K2eYT3nNiRTHL9UVBI/5GjjK
- 3TfWbQHjHI6ZF1iG6ilkCd3Tnf8CYLTTSVDTJUEoe1CQxI1jWjuJGqVXm6lTN5Ef2pyo
- jgeon94XxOvvTaUC16e7J7meXw4D/txz5Lh9vBxC5ODFBCbGZ50qET4nNP1Uiqfvu2mt
- bEpLA1W5BK/jKZ6DytuHgkwE2H7S8IESmUXCfYKGcFWidLyJXV2aSVlu0hitDWFFfCK0
- 5oMMJMJpe8mfHlDqP9O4ot49mUfirHUDOSafWxEpMLvlExgo819A3jbcTY+s3CMqnhaF
- D4Ow==
+ id 1mJLX0-00Apt6-Is
+ for linux-riscv@lists.infradead.org; Thu, 26 Aug 2021 19:59:24 +0000
+Received: by mail-pf1-x429.google.com with SMTP id g14so3704484pfm.1
+ for <linux-riscv@lists.infradead.org>; Thu, 26 Aug 2021 12:59:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=Xc1szHQOZDqB0AYr925levUtn3vNJA/QIKkPEhre7Pk=;
+ b=rAH1RZhEJy3MVfBUURq1C3iW4ra2alS9qAREXLkrJFEHcf7iDXDJip4aX5r35skET+
+ jo8PoQ7D1SWj6xQfgikhRkl1CH3MaymS1zddz++K76rpR+himQM4eRquOL09b9DEA3zi
+ k1GwvAYBbvUNls5+AXaN8glJCjF7KIFEFQhoKckGnN93S31/oYpDxN/8g8Ng4pR7mIlZ
+ 9PgGk1EPPpJEnhqaB0anqRNL1VkcMXUzqFbZwSiDCOTTGHP0JVVcjlrSX45dE9oUOrpr
+ J6hngXVZBF1o5LZ9dJoHWVzIqoA8ysZ3JGu2pnoEjug6L81eTykL5MQK90BtvdNATJv2
+ Oyzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=JJP+nPxJKAVqphBV0U7M3pCSiiD75owxGS4FYqm3izI=;
- b=rEe/ZRzDonopD5472nbG1vs+9bmPawEtzEOwo1jQFQOl2acv81JhDhGlwFTokb6qXL
- 8vRbEgQ0ufY3U17oWUNTFi7T09o5rTktOMsYjsNkZoYaUAIcympcF4nj8ZLLKyFmn4Bj
- st2R9KMl5NaWRGui4n7+XP5oEJbfM1hNWh6phA3wx9ErKZXlSy9ctpmX8XY520MOOo/Z
- CWJ9rB57JqpRoYwVfvhirCizmVkIl9fvMatXZKCKrfcRmeaq1xTxwh9IusBYM2J63QvB
- 4C+jL8/dDbaORltZwNleOF+nKIvJYCYW5dKH3kBMOBE+Xe4Ug15g8ICgLfjysSNadq8v
- FR9g==
-X-Gm-Message-State: AOAM531lKZJ2EzIRz5Bqjz5StTxPcrvwOyDbKq+Nul1FBV+84Vh+NvCR
- 9ZSFd8xZCdPOXfV2haVuKBF5IA==
-X-Google-Smtp-Source: ABdhPJxpwYj7R8tyX7ioeatO8I2WCuwy7Nep0VOM904vJ6/PF9EPA/CqBgda+W0PUJMTOMydi8w+BA==
-X-Received: by 2002:a62:e90b:0:b029:30e:4530:8dca with SMTP id
- j11-20020a62e90b0000b029030e45308dcamr4425688pfh.17.1629992889586; 
- Thu, 26 Aug 2021 08:48:09 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q18sm3530686pfj.46.2021.08.26.08.48.08
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Xc1szHQOZDqB0AYr925levUtn3vNJA/QIKkPEhre7Pk=;
+ b=A0eMZCjyFsD2ZohNiggGtx1dhXr5TXj4uaPEfejzrol4BodZT87ZA7hQ8Gb0aMCE2N
+ tyi+XoG0JbtJkik/dPwyd4CZN+SPSrzqNpSyCzB86PY+RqoKc+or0nqVwRNYKXCT78th
+ MLUiEcrhdDYt6AV9GFVBmzEK7oQd+wm76nPnBQaT5MIujtftb1KldRVUHhySrqDnOHLy
+ HIttQ9InCCILWEo1/kZqZsWZzNzjI3lf3D7zGL4+rU75l4hM/FYvt7jrwmjiulasGrjy
+ L9ZTDqxhccKgYHvdG+iYU+QZ/jPa6nIl3jGsM1dUp5qe0txo5ITw3wtBLgsqJIPrImG0
+ ezhg==
+X-Gm-Message-State: AOAM530jloSPZbYX7J5WYSOW5WRbXxH8dBFPV3C2A8MTB0UfkTBMmvpq
+ P0CatAIata/B3fDR5g5aUxdJ4A==
+X-Google-Smtp-Source: ABdhPJw2eYzVN0czVrpB+FQtPqgZRmO7Z9UXayRPLlAY9AEDiGK/tSK4hOJrAmd1TCnyunzzfHMaVw==
+X-Received: by 2002:a62:1b97:0:b0:3ed:d347:fcac with SMTP id
+ b145-20020a621b97000000b003edd347fcacmr5420756pfb.65.1630007957263; 
+ Thu, 26 Aug 2021 12:59:17 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id o9sm4017917pfh.217.2021.08.26.12.59.16
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 26 Aug 2021 08:48:09 -0700 (PDT)
-Date: Thu, 26 Aug 2021 08:48:09 -0700 (PDT)
-X-Google-Original-Date: Thu, 26 Aug 2021 08:12:37 PDT (-0700)
-Subject: Re: [PATCH] riscv: add support for hugepage migration
-In-Reply-To: <20210810135105.2827214-1-chenwandun@huawei.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wangkefeng.wang@huawei.com, guohanjun@huawei.com, chenwandun@huawei.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: chenwandun@huawei.com
-Message-ID: <mhng-d4c69614-7786-4d3a-acbe-4a51d57d7ed4@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ Thu, 26 Aug 2021 12:59:16 -0700 (PDT)
+Date: Thu, 26 Aug 2021 19:59:13 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Zhu Lingshan <lingshan.zhu@intel.com>
+Cc: peterz@infradead.org, pbonzini@redhat.com, bp@alien8.de,
+ vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
+ joro@8bytes.org, kan.liang@linux.intel.com, ak@linux.intel.com,
+ wei.w.wang@intel.com, eranian@google.com, liuxiangdong5@huawei.com,
+ linux-kernel@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+ like.xu.linux@gmail.com, boris.ostrvsky@oracle.com,
+ Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ xen-devel@lists.xenproject.org
+Subject: Re: [PATCH V10 01/18] perf/core: Use static_call to optimize
+ perf_guest_info_callbacks
+Message-ID: <YSfykbECnC6J02Yk@google.com>
+References: <20210806133802.3528-1-lingshan.zhu@intel.com>
+ <20210806133802.3528-2-lingshan.zhu@intel.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210806133802.3528-2-lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210826_084811_253092_6FBF64DE 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20210826_125922_660372_5AF78BBA 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +108,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Aug 2021 06:51:05 PDT (-0700), chenwandun@huawei.com wrote:
-> Generic arch_hugetlb_migration_supported can provide appropriate
-> support for hugepage migration when enable ARCH_ENABLE_HUGEPAGE_MIGRATION,
-> so enable it for hugepage migration in riscv.
->
-> Signed-off-by: Chen Wandun <chenwandun@huawei.com>
-> ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 8ce8382748d5..8bfc89589838 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -13,6 +13,7 @@ config 32BIT
->  config RISCV
->  	def_bool y
->  	select ARCH_CLOCKSOURCE_INIT
-> +	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->  	select ARCH_STACKWALK
+TL;DR: Please don't merge this patch, it's broken and is also built on a shoddy
+       foundation that I would like to fix.
 
-Thanks, this is on for-next.
+On Fri, Aug 06, 2021, Zhu Lingshan wrote:
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index 464917096e73..e466fc8176e1 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -6489,9 +6489,18 @@ static void perf_pending_event(struct irq_work *entry)
+>   */
+>  struct perf_guest_info_callbacks *perf_guest_cbs;
+>  
+> +/* explicitly use __weak to fix duplicate symbol error */
+> +void __weak arch_perf_update_guest_cbs(void)
+> +{
+> +}
+> +
+>  int perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+>  {
+> +	if (WARN_ON_ONCE(perf_guest_cbs))
+> +		return -EBUSY;
+> +
+>  	perf_guest_cbs = cbs;
+> +	arch_perf_update_guest_cbs();
+
+This is horribly broken, it fails to cleanup the static calls when KVM unregisters
+the callbacks, which happens when the vendor module, e.g. kvm_intel, is unloaded.
+The explosion doesn't happen until 'kvm' is unloaded because the functions are
+implemented in 'kvm', i.e. the use-after-free is deferred a bit.
+
+  BUG: unable to handle page fault for address: ffffffffa011bb90
+  #PF: supervisor instruction fetch in kernel mode
+  #PF: error_code(0x0010) - not-present page
+  PGD 6211067 P4D 6211067 PUD 6212063 PMD 102b99067 PTE 0
+  Oops: 0010 [#1] PREEMPT SMP
+  CPU: 0 PID: 1047 Comm: rmmod Not tainted 5.14.0-rc2+ #460
+  Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
+  RIP: 0010:0xffffffffa011bb90
+  Code: Unable to access opcode bytes at RIP 0xffffffffa011bb66.
+  Call Trace:
+   <NMI>
+   ? perf_misc_flags+0xe/0x50
+   ? perf_prepare_sample+0x53/0x6b0
+   ? perf_event_output_forward+0x67/0x160
+   ? kvm_clock_read+0x14/0x30
+   ? kvm_sched_clock_read+0x5/0x10
+   ? sched_clock_cpu+0xd/0xd0
+   ? __perf_event_overflow+0x52/0xf0
+   ? handle_pmi_common+0x1f2/0x2d0
+   ? __flush_tlb_all+0x30/0x30
+   ? intel_pmu_handle_irq+0xcf/0x410
+   ? nmi_handle+0x5/0x260
+   ? perf_event_nmi_handler+0x28/0x50
+   ? nmi_handle+0xc7/0x260
+   ? lock_release+0x2b0/0x2b0
+   ? default_do_nmi+0x6b/0x170
+   ? exc_nmi+0x103/0x130
+   ? end_repeat_nmi+0x16/0x1f
+   ? lock_release+0x2b0/0x2b0
+   ? lock_release+0x2b0/0x2b0
+   ? lock_release+0x2b0/0x2b0
+   </NMI>
+  Modules linked in: irqbypass [last unloaded: kvm]
+
+Even more fun, the existing perf_guest_cbs framework is also broken, though it's
+much harder to get it to fail, and probably impossible to get it to fail without
+some help.  The issue is that perf_guest_cbs is global, which means that it can
+be nullified by KVM (during module unload) while the callbacks are being accessed
+by a PMI handler on a different CPU.
+
+The bug has escaped notice because all dererfences of perf_guest_cbs follow the
+same "perf_guest_cbs && perf_guest_cbs->is_in_guest()" pattern, and AFAICT the
+compiler never reload perf_guest_cbs in this sequence.  The compiler does reload
+perf_guest_cbs for any future dereferences, but the ->is_in_guest() guard all but
+guarantees the PMI handler will win the race, e.g. to nullify perf_guest_cbs,
+KVM has to completely exit the guest and teardown down all VMs before it can be
+unloaded.
+
+But with a help, e.g. RAED_ONCE(perf_guest_cbs), unloading kvm_intel can trigger
+a NULL pointer derference, e.g. this tweak
+
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index 1eb45139fcc6..202e5ad97f82 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -2954,7 +2954,7 @@ unsigned long perf_misc_flags(struct pt_regs *regs)
+ {
+        int misc = 0;
+
+-       if (perf_guest_cbs && perf_guest_cbs->is_in_guest()) {
++       if (READ_ONCE(perf_guest_cbs) && READ_ONCE(perf_guest_cbs)->is_in_guest()) {
+                if (perf_guest_cbs->is_user_mode())
+                        misc |= PERF_RECORD_MISC_GUEST_USER;
+                else
+
+
+while spamming module load/unload leads to:
+
+  BUG: kernel NULL pointer dereference, address: 0000000000000000
+  #PF: supervisor read access in kernel mode
+  #PF: error_code(0x0000) - not-present page
+  PGD 0 P4D 0
+  Oops: 0000 [#1] PREEMPT SMP
+  CPU: 6 PID: 1825 Comm: stress Not tainted 5.14.0-rc2+ #459
+  Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
+  RIP: 0010:perf_misc_flags+0x1c/0x70
+  Call Trace:
+   perf_prepare_sample+0x53/0x6b0
+   perf_event_output_forward+0x67/0x160
+   __perf_event_overflow+0x52/0xf0
+   handle_pmi_common+0x207/0x300
+   intel_pmu_handle_irq+0xcf/0x410
+   perf_event_nmi_handler+0x28/0x50
+   nmi_handle+0xc7/0x260
+   default_do_nmi+0x6b/0x170
+   exc_nmi+0x103/0x130
+   asm_exc_nmi+0x76/0xbf
+
+
+The good news is that I have a series that should fix both the existing NULL pointer
+bug and mostly obviate the need for static calls.  The bad news is that my approach,
+making perf_guest_cbs per-CPU, likely complicates turning these into static calls,
+though I'm guessing it's still a solvable problem.
+
+Tangentially related, IMO we should make architectures opt-in to getting
+perf_guest_cbs and nuke all of the code in the below files.  Except for arm,
+which recently lost KVM support, it's all a bunch of useless copy-paste code that
+serves no purpose and just complicates cleanups like this.
+
+>  arch/arm/kernel/perf_callchain.c   | 16 +++++++-----
+>  arch/csky/kernel/perf_callchain.c  |  4 +--
+>  arch/nds32/kernel/perf_event_cpu.c | 16 +++++++-----
+>  arch/riscv/kernel/perf_callchain.c |  4 +--
 
 _______________________________________________
 linux-riscv mailing list
