@@ -2,100 +2,83 @@ Return-Path: <SRS0=rXXN=NS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-19.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D4BFDC432BE
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D6CEC432BE
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:46:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9684360FD9
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:23:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9684360FD9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3BFC060FC4
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:46:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3BFC060FC4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G3Zt5YOC+3wp1eKbYf4Aghw2xMLYilfRmhBXT/CcB0Q=; b=g27xT+PT6a0z6Q
-	NqxkQ3f8cmAOaeFEMSGE18j6UQGsICbf8OIDJlRt7ec5UX0hmcQ4RK040tq68pHR06BayS9EnZk2w
-	WfI7tBD9HTbbH1VHoNI4wH59MUeDmgfYwxIGLYZZeswl9y7PbSeftIMwlM/IKRRp53at+lldMdl4b
-	WIVc1nuJdi6iTd64MDkCipiUYIje+2ZAzMgXsn0fU2VUJPFQ0xx6RLseA5joaOc0dDxj2SHcy+srX
-	bnsJHDQ0ZwxdktbuSHSz0199yrGjcqsLfBDhyWV2Afr+avC48PpsTClYIwKLLZydKFsBN2rWc/kdn
-	SOMmCc9+/UU8U+ZHCz5Q==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0mOHd7q0SRqWI6loNMy2+oj3k/LGyIlz8j9LldnlfA4=; b=ihIyMihw0A7thW
+	xSYACmum3aL4JqU+Tjejw6UABzuuK+9ZdLvJ3IgPO11La+xdAmglj1EyRFvZzA9d/2WvhM00R4vgk
+	Lb8X5SyhEI20hEHTNL7CJUyBID+Yz1EG+awy5QMIx9265EfCPg7GfOyCeacNZkEVJHW1OeGVWnqAs
+	WKaZjD5lAnpL0uUx+XLZ+jQ31aicavbHJ4lhSwfXBdafFd9G8cERHCAllYNo4psa78Tvv+uCbDCkQ
+	TSFb83st0x/tyhdpIAwSOQT/Nl/DJLth/cyB8R1xU5MSfDcB9cReATOHVhMXR+WpjmewM5H/gXBB5
+	XmizNaXAlweWVnXfa6lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJfZS-00CsaD-9S; Fri, 27 Aug 2021 17:23:14 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1mJfvR-00Cu1n-FC; Fri, 27 Aug 2021 17:45:57 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJfZP-00CsXw-8j
- for linux-riscv@lists.infradead.org; Fri, 27 Aug 2021 17:23:12 +0000
-Received: by mail-pf1-x436.google.com with SMTP id u6so5615504pfi.0
- for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 10:23:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=pW2KRXINIECq2UqrMAjVuApe68m2StZHA9v7va6qTiU=;
- b=rYBmoVs975N+yu2934Kl7Ag8dNi2tkW5MPQBPsQWMJceqaAUViMJX5p8VTsmrLat2L
- 1kJT1N4rNPJvHYN4v8xV4LZQQiN0gVYVxxZoK0AWZMQtgbtlsholocVLBSLsdQUjTc7K
- EO/n6pcBnNhyHknntLRnjl3c7dPZnYup1ZY4k8dYXcB6+XwMELnSDRN8GScTXVD9wLYw
- 72HE/X1LKTlO7T9MyRzf3/jBybVrYz/zMXfVi26QTtQIvfOSsE3Kyet1JW3IoRhxG7Z4
- s9RsOEhsC/QREunQ94/foNgn4vxgTRk3Re13QZxXDPqu5Xx6dQ43rKJdU90h8PsbIabZ
- TDVA==
+ id 1mJfvN-00Cu0r-OZ
+ for linux-riscv@lists.infradead.org; Fri, 27 Aug 2021 17:45:55 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id h1so5044017pjs.2
+ for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 10:45:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=0WKKYjvy1TgBuyRVyCby36vMfEwiFoM9lW+Cn+bAZYk=;
+ b=P1jpkTPIwm0g455oQ17Wg9OyulzuKKRqHezM24WtFrqoP3YZvPX7++97c+d3WibR43
+ 5fIM0M0s6my48zFK8bkZvqkDa3MbFil0S1mglvJK9Hvm1rfcCzodrJTv4g6lBzzHOyap
+ C2VV8IiD5uEDA4txqR/BlvyOfCZMDL118mJbEz/5ZK9u4Q8YW4r6Q9RRb035k+lyq374
+ 1z14rWSljKX2XBwywH6bgP+gYmEOE+3wSdCi94l/yNqkyXzaB0xwW3kjDti3AgR1R1gW
+ e+SvcdXF3A5DAKdscdwcRbtv209Rnq548LnaeAFK6UwA8xCU/1FLlbnLEL3QAdnzZ44X
+ FfBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=pW2KRXINIECq2UqrMAjVuApe68m2StZHA9v7va6qTiU=;
- b=ckhQlrbbucIQEVZOIQt4ujtFTC5EIdtw9e0WzkS5p0iFbClM8xSnV8f52tp3UwRW4t
- u7smxj0zoD34oCvTYKhXsVBTGl/adwk0Gu7zSi5CGGwr9anEUU3SN/5sx+JqQzFydQSW
- qYi+eKsw449PUGeGMXJ5w/6LwO9YsttGTFo5V5bXD4znB4vnMMMiNlA33jRsviUrFI9c
- f9z+FD6Th3v8TgwIg8/vNG2NIIWd98HlsAzMYUKBS8DINo+XvJ7GUhunz5UZqeaIyXTa
- pwjIcgugAiKkAb9R1mNbrpr8BYzsqwJBL1IyOQyJH+haXgWLDY5dhYBEibxO2YIRKz7O
- IatA==
-X-Gm-Message-State: AOAM532GbL2HQ3SwSbHjtqrw88p9TnEMeZ/aH6ofxYsEC1TvdDLDyCEO
- 1k/T34fglijx+mVQds1xQSqp4Q==
-X-Google-Smtp-Source: ABdhPJz+T5dgH3sIVem/Dht2xu+EGET8qPyEg43yvrgPII1mSQTEgb7AA1JRyZkdBQMuVGObTA+XjQ==
-X-Received: by 2002:a63:ef14:: with SMTP id u20mr8773852pgh.13.1630084990019; 
- Fri, 27 Aug 2021 10:23:10 -0700 (PDT)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id n24sm7386923pgv.60.2021.08.27.10.23.09
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=0WKKYjvy1TgBuyRVyCby36vMfEwiFoM9lW+Cn+bAZYk=;
+ b=UGr5XDkRnFUn7kjl22OnbwOBxZxQL6fHzp1FqRYgCfSVQ8n5cMR/34KzebW6t+P3GN
+ pv5a3F4U/UlxbvIKtlmHiU+7+EqpWiDNlTPG2pQQ3cclzo0oSpt1IZUbuTfS3m1QZPIo
+ XyyPa1y+5ieeiAYuZZfkcwq7QyExYxxKRIigpCnJGXR8baZ8H5IVjIaFP+D8JOac36HW
+ x/Ofhqcg8YfreyPrQmenyeUAl03B67Ib1Kx8KpJvxV2brV0EMA1RgNxbXSO0rQ9ScDLn
+ 8TkNdAIN4Ck9yBeTCkxnbD1RCYGwxoeK7KS45VQfvEuatesnIsbZEyK+cf7RFU8yLgSQ
+ Ys7w==
+X-Gm-Message-State: AOAM5306BQP+WFSJXWaPGnHQEdgovP2wT57HyP1lnq5l5LC0uDM56rU/
+ 8Zv75QMF4DNggO+rO1TT+Qgr+G0UAGTSb+Gk
+X-Google-Smtp-Source: ABdhPJxVQjdKqS3vmruotXg3ZfPgtLskUbrPmpDCVWc6LiJn6CWPZ7Gqp5pi21hbbEv1Hp9pxYsTBA==
+X-Received: by 2002:a17:902:7484:b0:135:8c25:d33a with SMTP id
+ h4-20020a170902748400b001358c25d33amr9836241pll.83.1630086351869; 
+ Fri, 27 Aug 2021 10:45:51 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id s29sm7751274pgl.38.2021.08.27.10.45.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 27 Aug 2021 10:23:09 -0700 (PDT)
-Date: Fri, 27 Aug 2021 17:23:05 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Zhu Lingshan <lingshan.zhu@intel.com>
-Cc: peterz@infradead.org, pbonzini@redhat.com, bp@alien8.de,
- vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org, kan.liang@linux.intel.com, ak@linux.intel.com,
- wei.w.wang@intel.com, eranian@google.com, liuxiangdong5@huawei.com,
- linux-kernel@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
- like.xu.linux@gmail.com, boris.ostrvsky@oracle.com,
- Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- xen-devel@lists.xenproject.org
-Subject: Re: [PATCH V10 01/18] perf/core: Use static_call to optimize
- perf_guest_info_callbacks
-Message-ID: <YSkfeXcd6nUT3AOJ@google.com>
-References: <20210806133802.3528-1-lingshan.zhu@intel.com>
- <20210806133802.3528-2-lingshan.zhu@intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210806133802.3528-2-lingshan.zhu@intel.com>
+ Fri, 27 Aug 2021 10:45:51 -0700 (PDT)
+Date: Fri, 27 Aug 2021 10:45:51 -0700 (PDT)
+X-Google-Original-Date: Fri, 27 Aug 2021 10:45:47 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.14-rc8 (or 5.14)
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-f06b0a4c-f321-4c14-9378-da36fbf6212f@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210827_102311_327150_EFE55AC6 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20210827_104553_882008_88A9A74C 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,46 +90,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 06, 2021, Zhu Lingshan wrote:
-> @@ -2944,18 +2966,21 @@ static unsigned long code_segment_base(struct pt_regs *regs)
->  
->  unsigned long perf_instruction_pointer(struct pt_regs *regs)
->  {
-> -	if (perf_guest_cbs && perf_guest_cbs->is_in_guest())
-> -		return perf_guest_cbs->get_guest_ip();
-> +	unsigned long ip = static_call(x86_guest_get_ip)();
-> +
-> +	if (likely(!ip))
+The following changes since commit aa3e1ba32e553e611a58145c2eb349802feaa6eb:
 
-Pivoting on ip==0 isn't correct, it's perfectly legal for a guest to execute
-from %rip=0.  Unless there's some static_call() magic that supports this with a
-default function:
-	
-	if (unlikely(!static_call(x86_guest_get_ip)(&ip)))
-		regs->ip + code_segment_base(regs)
+  riscv: Fix a number of free'd resources in init_resources() (2021-08-20 10:15:51 -0700)
 
-	return ip;
+are available in the Git repository at:
 
-The easiest thing is keep the existing:
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.14-rc8
 
-	if (unlikely(static_call(x86_guest_state)()))
-		return static_call(x86_guest_get_ip)();
+for you to fetch changes up to 417166ddec020c4e969aea064e23822591ad54df:
 
-	return regs->ip + code_segment_base(regs);
+  riscv: dts: microchip: Add ethernet0 to the aliases node (2021-08-24 20:57:32 -0700)
 
-It's an extra call for PMIs in guest, but I don't think any of the KVM folks care
-_that_ much about the performance in this case.
+----------------------------------------------------------------
+RISC-V Fixes for 5.14-rc8 (or 5.14)
 
-> +		ip = regs->ip + code_segment_base(regs);
->  
-> -	return regs->ip + code_segment_base(regs);
-> +	return ip;
->  }
+* A pair of device tree updates for the Microsemi Polarfire development
+  kit that fix some mismatches between the u-boot and Linux enternet
+  entries.
+* A fix to ensure that the F register state is correctly reflected in
+  core dumps.
+
+----------------------------------------------------------------
+Bin Meng (2):
+      riscv: dts: microchip: Use 'local-mac-address' for emac1
+      riscv: dts: microchip: Add ethernet0 to the aliases node
+
+Vincent Chen (1):
+      riscv: Ensure the value of FP registers in the core dump file is up to date
+
+ arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 4 ++++
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi           | 2 +-
+ arch/riscv/kernel/ptrace.c                                  | 4 ++++
+ 3 files changed, 9 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
