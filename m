@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A73AC432BE
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 16:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D4BFDC432BE
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:23:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE3DE60E97
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 16:01:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EE3DE60E97
+	by mail.kernel.org (Postfix) with ESMTPS id 9684360FD9
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Aug 2021 17:23:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9684360FD9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,96 +23,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WFYOAK9h5ccVrbT95MhIzhnaeqHOkfhFA+mAMTEpobc=; b=ilZuK0aLFKiNTU
-	degXcgSPo3M+D3KUxy/TYJTNRgfpDUFJfVxsLzsiuX+ZQiV2FYAElAX9yA9qYFjB7d7NITLuOVF85
-	FcoAJ819xD0N6Ka9mwQLi+Qh5hpT5iftXdAl96MvJ+L/ZVSuQ9mXIz0k3lk/KVMqMGvi0wp+2lMFo
-	QhO2lhSkouCr4BD2felB3JRVvR2pRWVaU4fTCshr+FuUXopH70FIJlCQDiYrxH47sWfX95kDChJuH
-	vzVV/7kq5uNqZHbUAfZFmsOrDLGP0UkxIxmKimx7xsrgiHFoNEzYI+xeaKDt/W+LAzOhbyMHSt4yn
-	RsyKiQdFll+quKZD6Heg==;
+	List-Owner; bh=G3Zt5YOC+3wp1eKbYf4Aghw2xMLYilfRmhBXT/CcB0Q=; b=g27xT+PT6a0z6Q
+	NqxkQ3f8cmAOaeFEMSGE18j6UQGsICbf8OIDJlRt7ec5UX0hmcQ4RK040tq68pHR06BayS9EnZk2w
+	WfI7tBD9HTbbH1VHoNI4wH59MUeDmgfYwxIGLYZZeswl9y7PbSeftIMwlM/IKRRp53at+lldMdl4b
+	WIVc1nuJdi6iTd64MDkCipiUYIje+2ZAzMgXsn0fU2VUJPFQ0xx6RLseA5joaOc0dDxj2SHcy+srX
+	bnsJHDQ0ZwxdktbuSHSz0199yrGjcqsLfBDhyWV2Afr+avC48PpsTClYIwKLLZydKFsBN2rWc/kdn
+	SOMmCc9+/UU8U+ZHCz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJeHh-00CiRj-Cq; Fri, 27 Aug 2021 16:00:49 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1mJfZS-00CsaD-9S; Fri, 27 Aug 2021 17:23:14 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJdJf-00Cbco-1B
- for linux-riscv@lists.infradead.org; Fri, 27 Aug 2021 14:58:48 +0000
-Received: by mail-pl1-x634.google.com with SMTP id n12so4085109plk.10
- for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 07:58:39 -0700 (PDT)
+ id 1mJfZP-00CsXw-8j
+ for linux-riscv@lists.infradead.org; Fri, 27 Aug 2021 17:23:12 +0000
+Received: by mail-pf1-x436.google.com with SMTP id u6so5615504pfi.0
+ for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 10:23:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=uRFFUbAhELNbaSp6/gZa0c8lVubPxa9shGc4LpwPEKA=;
- b=LaTxPm5alTPx3ec48IA6+ZkyOejP1tGYjt5wY+p50UOfksJNBKAzDXOzoDDiJpQJ7C
- 7ZlQ2CaQrXUZrhEVe/+L/sf91LGMM0vWjp8eP3YRAXU34kmcSmT/loEOx2KY28gVVCsl
- oNwRHnusQG6CUmxymYZ58t9NT8p9wB0iZAAe71TUcHWHnrhk4i1QLthTClskPP73rEx7
- 8W5oVGVmckueDqbKs0mB5YdxIHBLQgh+JwU0k3CO0TH8YixDpwG1SB6F/loD+NPrNZ2l
- 0CosQb5gLTnLJ9MX51KpbZFvZYLNN8TvF8Ol0HP7oCHqmHClmMDvOIzUAi7IGzMuFHXf
- oANw==
+ bh=pW2KRXINIECq2UqrMAjVuApe68m2StZHA9v7va6qTiU=;
+ b=rYBmoVs975N+yu2934Kl7Ag8dNi2tkW5MPQBPsQWMJceqaAUViMJX5p8VTsmrLat2L
+ 1kJT1N4rNPJvHYN4v8xV4LZQQiN0gVYVxxZoK0AWZMQtgbtlsholocVLBSLsdQUjTc7K
+ EO/n6pcBnNhyHknntLRnjl3c7dPZnYup1ZY4k8dYXcB6+XwMELnSDRN8GScTXVD9wLYw
+ 72HE/X1LKTlO7T9MyRzf3/jBybVrYz/zMXfVi26QTtQIvfOSsE3Kyet1JW3IoRhxG7Z4
+ s9RsOEhsC/QREunQ94/foNgn4vxgTRk3Re13QZxXDPqu5Xx6dQ43rKJdU90h8PsbIabZ
+ TDVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=uRFFUbAhELNbaSp6/gZa0c8lVubPxa9shGc4LpwPEKA=;
- b=SrdtB0+lBgQmYypR/gLCpFUxZGxLviA4JA6+IHRd+uyUSUGZdDtftJNbYhzlS2GYkK
- +8AwnGD0BRqlFYrxF/4+XhhUW6JsK3P/cm2HayZeFKfwmBWDiNJYkg/7srvb9ZKFRpg6
- zIcOH9rh/39Cxo1T25CRKueAl1a69G/kSNwQGPMf6mBcovZlc9N/aHy6NYsxvSr5lFbF
- 8g63dqEZoKXEoEIcMEhRK6sSHtI5Loa5Cucg4TJGpxbAfcHhDAe/eQwUvtLQH35XXEV0
- a1yY8ue2V8Vt8fWsMdRdzR5+9ra3/A6WSqWibqjBr3DSZLIvju4j1WZ82ClN4NLaNp8b
- /1ww==
-X-Gm-Message-State: AOAM530cvSGGhfFZsTz5og+q6l2ksVqlaezqFLUKA7DWz0Oa5pBAd/Rj
- yQCOIjuenUQleL4RUA/9yGvklQ==
-X-Google-Smtp-Source: ABdhPJzgh09WISpUzNhO7TIEv2MEhpi/JDC49fmE6awwyfv/L0ffcVcqSZUNcnR7TJ7/0hyFRiQ/2g==
-X-Received: by 2002:a17:902:e20a:b0:134:221f:657d with SMTP id
- u10-20020a170902e20a00b00134221f657dmr9134631plb.78.1630076319283; 
- Fri, 27 Aug 2021 07:58:39 -0700 (PDT)
+ bh=pW2KRXINIECq2UqrMAjVuApe68m2StZHA9v7va6qTiU=;
+ b=ckhQlrbbucIQEVZOIQt4ujtFTC5EIdtw9e0WzkS5p0iFbClM8xSnV8f52tp3UwRW4t
+ u7smxj0zoD34oCvTYKhXsVBTGl/adwk0Gu7zSi5CGGwr9anEUU3SN/5sx+JqQzFydQSW
+ qYi+eKsw449PUGeGMXJ5w/6LwO9YsttGTFo5V5bXD4znB4vnMMMiNlA33jRsviUrFI9c
+ f9z+FD6Th3v8TgwIg8/vNG2NIIWd98HlsAzMYUKBS8DINo+XvJ7GUhunz5UZqeaIyXTa
+ pwjIcgugAiKkAb9R1mNbrpr8BYzsqwJBL1IyOQyJH+haXgWLDY5dhYBEibxO2YIRKz7O
+ IatA==
+X-Gm-Message-State: AOAM532GbL2HQ3SwSbHjtqrw88p9TnEMeZ/aH6ofxYsEC1TvdDLDyCEO
+ 1k/T34fglijx+mVQds1xQSqp4Q==
+X-Google-Smtp-Source: ABdhPJz+T5dgH3sIVem/Dht2xu+EGET8qPyEg43yvrgPII1mSQTEgb7AA1JRyZkdBQMuVGObTA+XjQ==
+X-Received: by 2002:a63:ef14:: with SMTP id u20mr8773852pgh.13.1630084990019; 
+ Fri, 27 Aug 2021 10:23:10 -0700 (PDT)
 Received: from google.com (157.214.185.35.bc.googleusercontent.com.
  [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id e11sm6590628pfn.49.2021.08.27.07.58.38
+ by smtp.gmail.com with ESMTPSA id n24sm7386923pgv.60.2021.08.27.10.23.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 27 Aug 2021 07:58:38 -0700 (PDT)
-Date: Fri, 27 Aug 2021 14:58:35 +0000
+ Fri, 27 Aug 2021 10:23:09 -0700 (PDT)
+Date: Fri, 27 Aug 2021 17:23:05 +0000
 From: Sean Christopherson <seanjc@google.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
+To: Zhu Lingshan <lingshan.zhu@intel.com>
+Cc: peterz@infradead.org, pbonzini@redhat.com, bp@alien8.de,
+ vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
+ joro@8bytes.org, kan.liang@linux.intel.com, ak@linux.intel.com,
+ wei.w.wang@intel.com, eranian@google.com, liuxiangdong5@huawei.com,
+ linux-kernel@vger.kernel.org, x86@kernel.org, kvm@vger.kernel.org,
+ like.xu.linux@gmail.com, boris.ostrvsky@oracle.com,
+ Like Xu <like.xu@linux.intel.com>, Will Deacon <will@kernel.org>,
  Marc Zyngier <maz@kernel.org>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- Paolo Bonzini <pbonzini@redhat.com>,
+ Nick Hu <nickhu@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
  linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
- Artem Kashkanov <artem.kashkanov@intel.com>,
- Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
-Subject: Re: [PATCH 07/15] KVM: Use dedicated flag to track if KVM is
- handling an NMI from guest
-Message-ID: <YSj9mz4F2NDSKaas@google.com>
-References: <20210827005718.585190-1-seanjc@google.com>
- <20210827005718.585190-8-seanjc@google.com>
- <YSiUnDbi/aZ3nunT@hirez.programming.kicks-ass.net>
+ xen-devel@lists.xenproject.org
+Subject: Re: [PATCH V10 01/18] perf/core: Use static_call to optimize
+ perf_guest_info_callbacks
+Message-ID: <YSkfeXcd6nUT3AOJ@google.com>
+References: <20210806133802.3528-1-lingshan.zhu@intel.com>
+ <20210806133802.3528-2-lingshan.zhu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YSiUnDbi/aZ3nunT@hirez.programming.kicks-ass.net>
+In-Reply-To: <20210806133802.3528-2-lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210827_075847_132238_1E8164F7 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20210827_102311_327150_EFE55AC6 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,37 +112,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 27, 2021, Peter Zijlstra wrote:
-> On Thu, Aug 26, 2021 at 05:57:10PM -0700, Sean Christopherson wrote:
-> > diff --git a/arch/x86/kvm/x86.h b/arch/x86/kvm/x86.h
-> > index 5cedc0e8a5d5..4c5ba4128b38 100644
-> > --- a/arch/x86/kvm/x86.h
-> > +++ b/arch/x86/kvm/x86.h
-> > @@ -395,9 +395,10 @@ static inline void kvm_unregister_perf_callbacks(void)
-> >  
-> >  DECLARE_PER_CPU(struct kvm_vcpu *, current_vcpu);
-> >  
-> > -static inline void kvm_before_interrupt(struct kvm_vcpu *vcpu)
-> > +static inline void kvm_before_interrupt(struct kvm_vcpu *vcpu, bool is_nmi)
-> >  {
-> >  	__this_cpu_write(current_vcpu, vcpu);
-> > +	WRITE_ONCE(vcpu->arch.handling_nmi_from_guest, is_nmi);
-> >  
-> >  	kvm_register_perf_callbacks();
-> >  }
-> > @@ -406,6 +407,7 @@ static inline void kvm_after_interrupt(struct kvm_vcpu *vcpu)
-> >  {
-> >  	kvm_unregister_perf_callbacks();
-> >  
-> > +	WRITE_ONCE(vcpu->arch.handling_nmi_from_guest, false);
-> >  	__this_cpu_write(current_vcpu, NULL);
-> >  }
-> 
-> Does this rely on kvm_{,un}register_perf_callback() being a function
-> call and thus implying a sequence point to order the stores? 
+On Fri, Aug 06, 2021, Zhu Lingshan wrote:
+> @@ -2944,18 +2966,21 @@ static unsigned long code_segment_base(struct pt_regs *regs)
+>  
+>  unsigned long perf_instruction_pointer(struct pt_regs *regs)
+>  {
+> -	if (perf_guest_cbs && perf_guest_cbs->is_in_guest())
+> -		return perf_guest_cbs->get_guest_ip();
+> +	unsigned long ip = static_call(x86_guest_get_ip)();
+> +
+> +	if (likely(!ip))
 
-No, I'm just terrible at remembering which macros provide what ordering guarantees,
-i.e. I was thinking WRITE_ONCE provided guarantees against compiler reordering.
+Pivoting on ip==0 isn't correct, it's perfectly legal for a guest to execute
+from %rip=0.  Unless there's some static_call() magic that supports this with a
+default function:
+	
+	if (unlikely(!static_call(x86_guest_get_ip)(&ip)))
+		regs->ip + code_segment_base(regs)
+
+	return ip;
+
+The easiest thing is keep the existing:
+
+	if (unlikely(static_call(x86_guest_state)()))
+		return static_call(x86_guest_get_ip)();
+
+	return regs->ip + code_segment_base(regs);
+
+It's an extra call for PMIs in guest, but I don't think any of the KVM folks care
+_that_ much about the performance in this case.
+
+> +		ip = regs->ip + code_segment_base(regs);
+>  
+> -	return regs->ip + code_segment_base(regs);
+> +	return ip;
+>  }
 
 _______________________________________________
 linux-riscv mailing list
