@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F1FD1C43216
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Aug 2021 00:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46C8FC432BE
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Aug 2021 00:37:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B380A61073
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Aug 2021 00:37:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B380A61073
+	by mail.kernel.org (Postfix) with ESMTPS id 0B14F60ED5
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Aug 2021 00:37:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0B14F60ED5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
-	Mime-Version:Message-Id:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=dgQe80GVEIFWp1S1aTQN5Ufqg1jMvgsjzgl9i2hDOkk=; b=gCb
-	+0e0QPytuq/1WOoWBRHORr3UGgTZBYPp/6dCRjYYu5WRy2QIXDfbNK20GUR9snG5r2ICcDESIzoBm
-	5VVI3f/VMAnQ9fQ3V3zxrztJG5nLwFPUiQwimBL9WusCJP843MzdYyFwS760NVj9AILkO+jeoovzm
-	kkqZ6MJjqfVsZip+5guVGpHRBU348VahUbxO6oHceZz1mAZwoHlmdJy0UpXAON6rsGOzZULI18+Xx
-	wNsR6/seZH3j0mD7P0UTLTeOwOkHMAgUuPfC9W6j1s4lVMvOxGKn867ZQ8nxgJR8vGZqLx6ncDLUH
-	t9t/9D65sGx+HeD8YxQlbU+JhL+cRHA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
+	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V4QeRjKQsQKaKU1m5v8u4ejuq3C1t1p4OB4RSn5jOL8=; b=B/WPNX6psHSSrd
+	mDactgtUsI0OIap7DUurpckUwCScyMQuzlycITZPcQG2DpSnVpXTVfX6IIsyoxaR+5PAfoIY7acyZ
+	lLl/R/qKSb6WPMs+fjT3xkFawI7Sb6DtWVCOzV0VIi9d0YIg/t1UxfWrMOruqTfU/huTnjIzXScZt
+	scWcjejF3lF2oxtoEYPPuH79xh7B+7oRCheqqFw5F4dsv0aEHtRq4J2DKjOGhGB3hPkLS12HLoyEV
+	BVYRUcsubTKVKSA9sUT6amn7axCRsdW1d6F0TjfQb3uh/y7WBAAtbQexERzMDcZftZwpEguN/ab5z
+	V0zGqgVM2cKBY37Er/aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mJmKn-00DQzt-F7; Sat, 28 Aug 2021 00:36:33 +0000
-Received: from mail-qv1-xf4a.google.com ([2607:f8b0:4864:20::f4a])
+	id 1mJmLe-00DRPR-8E; Sat, 28 Aug 2021 00:37:26 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mJmKj-00DQwy-Tf
- for linux-riscv@lists.infradead.org; Sat, 28 Aug 2021 00:36:31 +0000
-Received: by mail-qv1-xf4a.google.com with SMTP id
- q2-20020ad45ca2000000b00374fa0dbedfso4469407qvh.1
- for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 17:36:26 -0700 (PDT)
+ id 1mJmKl-00DQxf-HA
+ for linux-riscv@lists.infradead.org; Sat, 28 Aug 2021 00:36:35 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id
+ q13-20020a25820d000000b0059a84a55d89so8273348ybk.23
+ for <linux-riscv@lists.infradead.org>; Fri, 27 Aug 2021 17:36:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=reply-to:date:message-id:mime-version:subject:from:to:cc;
- bh=xh3b83AHgc+X5acCCZf2iVRK+ee8SLHX2uHx4t+xrBY=;
- b=FsrBDBj81I24PUYsfqY9aNe2Br6Cge4C10V9fErKyzcL9jN9JzP/kqqqUHGaBFgQcQ
- 0U9g5lP31TKw2LT3YjTlFAgoG4AS3SMwwYaB+iZ9VL+rH1PuDacZvkVF5TZDPvt+SCVp
- hoVnB9YrhsLy30buyfkioR3VRr/U9QgKrM+qQnkI0aZ8yrDkdgGSixnrY69JIAMGRumH
- CIa10muamcOBBpjShGeSCvzY0V1rXxFeRJk/BexUgt5cyg06R0PXRjlCeTWZrE9Yduwb
- tvUde2o7UVIgOctvxLjj8VW7xpdvOez/m4ccG77zN+autZ2tCUck8ZbNdlcpaKwRcScv
- Xlrg==
+ h=reply-to:date:in-reply-to:message-id:mime-version:references
+ :subject:from:to:cc;
+ bh=J1gV9tKuEUW347bCpCRKYVIA3sPFQNKnByLeTysAe1c=;
+ b=QQC9kCQqRwL40ouGUsJ6vhRZON2TPobzHX8Wq8NP7Mf7/RKw30MhddUWUdztQM8ka7
+ Ewe++e/HjV2jGw30ZO9LaCG2WpwNsAvCft0FNwp9j2VxNuY0jXVJogAA4hui8IIZ1qr9
+ T7Ay+2a4aRkadNU1ca0JCC87XvjH4ea9fD4ReM/qOgy67MxneR4EHRBEt1lUd0VOX2+/
+ aMIald+U354j6b4DBU7OSxpd/vJmRGaMfQXYZFeXtKK7qkfMyGqETcknapO+6PjS0TvX
+ f2FLBBpeqGMiBMtBIznPS2E0O9iUn3iZeMA1csLuIwLQaPaZSBmpT2biwVLtTLrwW9db
+ 1vRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:reply-to:date:message-id:mime-version:subject
- :from:to:cc;
- bh=xh3b83AHgc+X5acCCZf2iVRK+ee8SLHX2uHx4t+xrBY=;
- b=QwzRZbifWBUodVTBBKPCv2GLe99q87hA4gAat9Ov0cM7dCuZUHqgdwEGKQsMTBA9+C
- 8QMUzdHbQO0zjOa8PSJBr2aAbdPRptagNH7ujYPm/pVfB335JO97jai5X1Pw3Dnv0hmZ
- XMy/PJcmD2OWBp3Ccv+Jzj6LPPTAaUR9Suf+pAysq0fwXgYNP4GUwdwVzu8rWs+mzrZR
- zoGRMEI02EM1oA2nE2FSLRrMhprHH4qN+Z8zppo3h3S3zwaBIqxjqsgidTgnF2ItDM9a
- GrT/excY+a9GcnotwEa2xMVoUAu0UC8RlLO7K2kNkqifDqIdAYa0/tQqtEJha99STaEI
- w2lw==
-X-Gm-Message-State: AOAM531ROnjWg9U7H+n9aouL6A4AcyFdeLy7PQ4P3oUVyxSHUN9eeaTs
- AQaKdvSmcT2PnYArDpSXj2mMuVI0vuo=
-X-Google-Smtp-Source: ABdhPJzkOydjwKSx1IUjIGSvBy+QMF11RiN4xe9UgjoUhzwRgFrcyVUOeAZyVTnBYwiNIqVlWoCONvUze1Q=
+ h=x-gm-message-state:reply-to:date:in-reply-to:message-id
+ :mime-version:references:subject:from:to:cc;
+ bh=J1gV9tKuEUW347bCpCRKYVIA3sPFQNKnByLeTysAe1c=;
+ b=jR/9ehR0V7xna5Qrm0DhpHNUtIxaceI8vxl6nye3Lh5MF03e9lN8AzUYQWQDcMsCHE
+ QaZcsqcFilC/jXEL3zG8aasjacaPD3qDAMiQ/IaW9wnRdN8Cs4MGtcKO5MjSs1HmLMTX
+ cPfYl2tRwyQdYBcVuCQR+HzUI6CWDKNWqs9d/J/Pt3O0mytL+ZxFlbPblqpwQIUvnr6O
+ xJGAiHFVtlnWjns8ZeY44Qq4XhrvoVkU2C/xMCrZeLF36wLG4g3tMfoXXDTBe8yvee9j
+ zMMyH0CmbgKIT11RTC+ejJRFLjveSkPk9qLKvk4LSwCDzqWvkeGURdlHpK2IBb6YxOw7
+ J74w==
+X-Gm-Message-State: AOAM532lYDNdIV/LRgqVQoc9cFZYoDAxl9VbzivyViuHu+JL73VQH4bU
+ aWnSX/4nQJvlYOYWhrw1nU0hqR/nHjc=
+X-Google-Smtp-Source: ABdhPJycwxh1le3BAg4292rl1ZqiFoDJidbv03xd08RKtKGj0W0JQHpqPcTgq5axIHXDILJ1EM67ZM2iLac=
 X-Received: from seanjc798194.pdx.corp.google.com
  ([2620:15c:90:200:f66c:b851:7e79:7ed4])
- (user=seanjc job=sendgmr) by 2002:a05:6214:10c4:: with SMTP id
- r4mr12642407qvs.58.1630110985252; Fri, 27 Aug 2021 17:36:25 -0700 (PDT)
-Date: Fri, 27 Aug 2021 17:35:45 -0700
-Message-Id: <20210828003558.713983-1-seanjc@google.com>
+ (user=seanjc job=sendgmr) by 2002:a25:d307:: with SMTP id
+ e7mr8478177ybf.119.1630110990084; 
+ Fri, 27 Aug 2021 17:36:30 -0700 (PDT)
+Date: Fri, 27 Aug 2021 17:35:47 -0700
+In-Reply-To: <20210828003558.713983-1-seanjc@google.com>
+Message-Id: <20210828003558.713983-3-seanjc@google.com>
 Mime-Version: 1.0
+References: <20210828003558.713983-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.0.259.gc128427fd7-goog
-Subject: [PATCH v2 00/13] perf: KVM: Fix, optimize, and clean up callbacks
+Subject: [PATCH v2 02/13] KVM: x86: Register perf callbacks after calling
+ vendor's hardware_setup()
 From: Sean Christopherson <seanjc@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -100,8 +105,8 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  xen-devel@lists.xenproject.org, Artem Kashkanov <artem.kashkanov@intel.com>, 
  Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210827_173630_007745_20727C69 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20210827_173631_594228_27768503 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,98 +124,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a combination of ~2 series to fix bugs in the perf+KVM callbacks,
-optimize the callbacks by employing static_call, and do a variety of
-cleanup in both perf and KVM.
+Wait to register perf callbacks until after doing vendor hardaware setup.
+VMX's hardware_setup() configures Intel Processor Trace (PT) mode, and a
+future fix to register the Intel PT guest interrupt hook if and only if
+Intel PT is exposed to the guest will consume the configured PT mode.
 
-Patch 1 fixes a mostly-theoretical bug where perf can deref a NULL
-pointer if KVM unregisters its callbacks while they're being accessed.
-In practice, compilers tend to avoid problematic reloads of the pointer
-and the PMI handler doesn't lose the race against module unloading,
-i.e doesn't hit a use-after-free.
+Delaying registration to hardware setup is effectively a nop as KVM's perf
+hooks all pivot on the per-CPU current_vcpu, which is non-NULL only when
+KVM is handling an IRQ/NMI in a VM-Exit path.  I.e. current_vcpu will be
+NULL throughout both kvm_arch_init() and kvm_arch_hardware_setup().
 
-Patches 2 and 3 fix an Intel PT handling bug where KVM incorrectly
-eats PT interrupts when PT is supposed to be owned entirely by the host.
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Artem Kashkanov <artem.kashkanov@intel.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/x86.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-Patches 4-7 clean up perf's callback infrastructure and switch to
-static_call for arm64 and x86 (the only survivors).
-
-Patches 8-13 clean up related KVM code and unify the arm64/x86 callbacks.
-
-Based on "git://git.kernel.org/pub/scm/virt/kvm/kvm.git queue", commit
-680c7e3be6a3 ("KVM: x86: Exit to userspace ...").
-
-v2 (relatively to static_call v10)
-  - Split the patch into the semantic change (multiplexed ->state) and
-    introduction of static_call.
-  - Don't use '0' for "not a guest RIP".
-  - Handle unregister path.
-  - Drop changes for architectures that can be culled entirely.
-
-v2 (relative to v1)
-  - Drop per-cpu approach. [Peter]
-  - Fix mostly-theoretical reload and use-after-free with READ_ONCE(),
-    WRITE_ONCE(), and synchronize_rcu(). [Peter]
-  - Avoid new exports like the plague. [Peter]
-
-v1:
-  - https://lkml.kernel.org/r/20210827005718.585190-1-seanjc@google.com
-
-v10 static_call:
-  - https://lkml.kernel.org/r/20210806133802.3528-2-lingshan.zhu@intel.com
-
-Like Xu (2):
-  perf/core: Rework guest callbacks to prepare for static_call support
-  perf/core: Use static_call to optimize perf_guest_info_callbacks
-
-Sean Christopherson (11):
-  perf: Ensure perf_guest_cbs aren't reloaded between !NULL check and
-    deref
-  KVM: x86: Register perf callbacks after calling vendor's
-    hardware_setup()
-  KVM: x86: Register Processor Trace interrupt hook iff PT enabled in
-    guest
-  perf: Stop pretending that perf can handle multiple guest callbacks
-  perf: Force architectures to opt-in to guest callbacks
-  KVM: x86: Drop current_vcpu for kvm_running_vcpu + kvm_arch_vcpu
-    variable
-  KVM: x86: More precisely identify NMI from guest when handling PMI
-  KVM: Move x86's perf guest info callbacks to generic KVM
-  KVM: x86: Move Intel Processor Trace interrupt handler to vmx.c
-  KVM: arm64: Convert to the generic perf callbacks
-  KVM: arm64: Drop perf.c and fold its tiny bits of code into arm.c /
-    pmu.c
-
- arch/arm/kernel/perf_callchain.c   | 28 ++------------
- arch/arm64/Kconfig                 |  1 +
- arch/arm64/include/asm/kvm_host.h  | 13 ++++++-
- arch/arm64/kernel/perf_callchain.c | 28 +++++++++++---
- arch/arm64/kvm/Makefile            |  2 +-
- arch/arm64/kvm/arm.c               | 11 +++++-
- arch/arm64/kvm/perf.c              | 62 ------------------------------
- arch/arm64/kvm/pmu.c               |  8 ++++
- arch/csky/kernel/perf_callchain.c  | 10 -----
- arch/nds32/kernel/perf_event_cpu.c | 29 ++------------
- arch/riscv/kernel/perf_callchain.c | 10 -----
- arch/x86/Kconfig                   |  1 +
- arch/x86/events/core.c             | 36 ++++++++++++++---
- arch/x86/events/intel/core.c       |  7 ++--
- arch/x86/include/asm/kvm_host.h    |  8 +++-
- arch/x86/kvm/pmu.c                 |  2 +-
- arch/x86/kvm/svm/svm.c             |  2 +-
- arch/x86/kvm/vmx/vmx.c             | 25 +++++++++++-
- arch/x86/kvm/x86.c                 | 58 +++++-----------------------
- arch/x86/kvm/x86.h                 | 17 ++++++--
- arch/x86/xen/pmu.c                 | 32 +++++++--------
- include/kvm/arm_pmu.h              |  1 +
- include/linux/kvm_host.h           | 10 +++++
- include/linux/perf_event.h         | 26 ++++++++-----
- init/Kconfig                       |  3 ++
- kernel/events/core.c               | 24 ++++++------
- virt/kvm/kvm_main.c                | 40 +++++++++++++++++++
- 27 files changed, 245 insertions(+), 249 deletions(-)
- delete mode 100644 arch/arm64/kvm/perf.c
-
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 86539c1686fa..fb6015f97f9e 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -8426,8 +8426,6 @@ int kvm_arch_init(void *opaque)
+ 
+ 	kvm_timer_init();
+ 
+-	perf_register_guest_info_callbacks(&kvm_guest_cbs);
+-
+ 	if (boot_cpu_has(X86_FEATURE_XSAVE)) {
+ 		host_xcr0 = xgetbv(XCR_XFEATURE_ENABLED_MASK);
+ 		supported_xcr0 = host_xcr0 & KVM_SUPPORTED_XCR0;
+@@ -8461,7 +8459,6 @@ void kvm_arch_exit(void)
+ 		clear_hv_tscchange_cb();
+ #endif
+ 	kvm_lapic_exit();
+-	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
+ 
+ 	if (!boot_cpu_has(X86_FEATURE_CONSTANT_TSC))
+ 		cpufreq_unregister_notifier(&kvmclock_cpufreq_notifier_block,
+@@ -11064,6 +11061,8 @@ int kvm_arch_hardware_setup(void *opaque)
+ 	memcpy(&kvm_x86_ops, ops->runtime_ops, sizeof(kvm_x86_ops));
+ 	kvm_ops_static_call_update();
+ 
++	perf_register_guest_info_callbacks(&kvm_guest_cbs);
++
+ 	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
+ 		supported_xss = 0;
+ 
+@@ -11091,6 +11090,8 @@ int kvm_arch_hardware_setup(void *opaque)
+ 
+ void kvm_arch_hardware_unsetup(void)
+ {
++	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
++
+ 	static_call(kvm_x86_hardware_unsetup)();
+ }
+ 
 -- 
 2.33.0.259.gc128427fd7-goog
 
