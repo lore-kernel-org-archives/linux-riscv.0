@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E945C4320A
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3382C4320E
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3AF7260F6C
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3AF7260F6C
+	by mail.kernel.org (Postfix) with ESMTPS id 84E1C60F6C
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 84E1C60F6C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,61 +24,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XJ3P5PHnj+tyjJHD3JBJiSJD/xdOYdAhw6CzJ1nr56o=; b=L2GScb/hoVnk3V
-	34/Cex83RrhOloyqiSWOo1fFnLzXPO4RK4nd6EKp6PyR2VveSRk1Ye4EETKk8Q/HsfodFzaDxffWK
-	2QcGlNaS8hRQoWJeZ93z5S56jI12bs1dMtI8s2jqUxKBoL/qffmuGVJAU6sdcfllCOSGD222dgmcA
-	wQ4ozV+vyGzH1T5bsIth3J7AcA+pLQi+PH1p0Y0RTusSDd+yijm4Wohsa1Yh9MJVlv6TK5Zewr4FA
-	u+BUcZvHbPLyCQIDkOlUTTmxGL99L00/8y++NpHAsZQGCEPXxBlKCV9dHHZ2xS+mDqN92/K+ZnBdg
-	nYFic6rNS/bMJewD7ODg==;
+	List-Owner; bh=u34ZkbS0Uh7Y0gK9n/tHy11gNwhFHeO6LA37EsxCGLw=; b=M8VWPntFLIaMDQ
+	bqTsE91bZF2Yp7zo3lppDJM+BCUzmFWfjEwffOHY0Tv/BP+x0AO/7fq+RsSVmNiEhR+Sx6xGHSxFM
+	lvN8Mq3deyh8t+B3jEXfxRvyiytzNlE5CqvantDtOtk0vGk1jWqrAplZUqBcNePksX+xNcDgFBolP
+	Uyk0kdIaxRjKXXKLS+QVPUDgiN8tkz1+/JegDCeSL8STFCsb4PWk3gB4c182xugHkQGHeOBmNq+El
+	Ro40aGaiPS0+7JHloZduRQTAHnyVfvCHZZ9Eh4JS1sbQR/lHkuuw/MIoid77CM+qU/4GbY78b4LJZ
+	Oi7RVIvbh1N7x79iG4kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mKYkW-00GOQt-7q; Mon, 30 Aug 2021 04:18:20 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1mKYkn-00GOYW-2p; Mon, 30 Aug 2021 04:18:37 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mKYkO-00GOPR-Dm
- for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:16 +0000
+ id 1mKYkh-00GOVH-Iq
+ for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1630297090; x=1661833090;
+ t=1630297111; x=1661833111;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=UJUjAKryG57iCnWsRWwXKtNHMbhtu6evH99PaKTVGFg=;
- b=pAKOGJ9l+hQfXwl54mK/H3CQHbBjkyj1D/ek28SLuZM9544d/6mdQDRz
- Po6yeDsyMEFHPRxMfpp8rAaLlutBuuiMIew5CShu+wz2OAvk5vwceHjnh
- WBbl5RNG47BRHC9gRUUTzLJQVPDsvxBjtM0PPOTWx9MZgFv9GvNNRkR+m
- bk3MM8mboVPfn86F+4YkWis6zb0qmHGpA+hPTTGwM81Maa1aPPp5puTlF
- RBYJUCLIBUySbPH6AKW1IiVl4ikSk1jpaD1+QaFoQhqu4EJahgdxWHb8r
- YOTlrepjKqQk1pwX6mFFtsmVBjf+PIi/QXPI3N1DNG5DLYfo5NcLN4wxA Q==;
-X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="178734036"
-Received: from mail-mw2nam10lp2102.outbound.protection.outlook.com (HELO
- NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.102])
- by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:10 +0800
+ bh=A0RiadUwWBnN6qLQ6baUXXxCN+i01fbrXSIW3KEH9u4=;
+ b=PYZ3fWRNwMQGC0Za+ZPwwLiJ1442TEjVAIEYU/fIXJPLL7fKU37+8Rvs
+ xk6TvsGTaPkNNLW88nW7SOcpzkh1zrjHMFE+0moU1tIACx62efYH3eV7l
+ Rk6s+SZll4fwysp6dMUPLkxawU/no6DZDfQRAQUtYUH8dp4XQB6rle4W1
+ OO6rUEqkPagkUwL1uMDVbB1X6/kcfixOuoCk8cHacCbogTQ/FwAREASm3
+ 26mv3UR3I+mvJrnvX4v50RJhJnMsWUagibcYoGveCrNOV35bdiMrhe/5v
+ mQMXpjdbJtzCW36y6Ijlza39Ay7SQ29OgfwnZ4EnQu5b5FPS9rjvVYfd8 A==;
+X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="177841344"
+Received: from mail-bn8nam12lp2168.outbound.protection.outlook.com (HELO
+ NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.168])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:29 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=NCaww6P+RFI8xmKaBUU+TcPVt0zz0IMtCw9PvNC1HCmvukoKt/hEaa0CucA9Hf2tAjE4P4UXvbyVgAHk7ZOfsgXxy8zK6fvnG+5TeqtuksuMpG5eL13RgajkECxdvYsuH1ShReiiz+h3fNYlEPPYeD1ZDg5cJGa0kllcAYJx47bqs+S1tOCPibawdXgocN2lAgnMhMuE6f7b4M8nVwG37Ejbj7EaDSAmW2dEvb+Ll1teSxJhsKs6KB9m4QVG5AbYwvUEeCqDfQ8sgVpOEg9iildLP+kir9P/1+y4Cm7Lr03XQlruD5WqrLviIgYt4WcqqRag073+/x5Us5B5kfOKwg==
+ b=fUGI1i10X1BMUjREGThwhm9qm/r8d1W2XkhYEKLawk8HWwAmnXnm+dV9u+xr3nQlwzy///qyC1GwWcI305NmAC5bfhkT/JLMMeMaj5J14+HcqR9Jb5ksh9ChcVoc2hsgnkUBPH6tKuohbTv906HuaPJl34W177ULiJIt1TyRhT7nTrljE2tMZQFkyMWv/PeTyAChzw9m/o2cU3XfUL+uVzlj2tSfdixFRdEZ/NmsySAI9fkvJhRFkiWl1CeA3meBJdadi5qZZTAa/myrA1GPqhd1W9zsKgbUPnM79MX/MBVO7aK0OHEgiDL0Up7k2NZVtf+plApawEkAh1gT504cOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pqtLldnDlFw12xq5GioL7eNPoH/2m1O8s3JJ53kbu/w=;
- b=Qvwge/DBY5u9aDg5HCbRYP797081/G3g+8NKRPG38IMrdUGbo/ZVhuJSG+Ebj3KSTcD8f/AvgYre11uAR7WZi6pcGvFfEA0szecgUisEiAPdJbImJF252daVBAhRjNqAA1VD7pgz6xf/NYQLc/pD87V4YXEO1F5Hl24nfFwDYD0u3uC6voByrE6DNQt02KzyLyFGuxCSN3Q46Nc9btxq2vLsj3S4V6Pcl3TAGn9SxICri0OyXmXBuDbRp2/V93UsSLQndxJJEfk0eg4EAVqTglKxCbXlEIfJgrV7Yh52sxuz77LTZ84syPb3OSXgaTkwDeozsmjIy7Fjb1H3DloymQ==
+ bh=QIiEX1BGg/RPcL4NTR0Io5dK6z9osq7SQaNwyA2Tmeg=;
+ b=eVjnioVrMfDya6SwM4EiJS1uF0Dg/V11qZfd2c9iL1sx0WTtH3Hbdht+KGADQ3vcKRVHsfxpmfIDrH+igJcWq+5xQfUQJWC/unBxJJ6pooUcGqL3aFKHSQ/2RX4lVLsOnxuqHRrI7WAdoZeTqG88XEQmXuW/Y6TS2oW2Zp/V+bFdCZWa/xRjTKPQJTZ9rHsAwJeAqC16XEnMkzIm1ApXRkOIJh6GSeXDyAbSNO8Px1hsRu6PD7sxSjBXvtzuU9gumslz5Jk/BQvMUL0okdQ9oJ96nNzr1YLv+syZN76PIKv7bd+5DpiN2sSVfFSsGslb2eTLm7HlR68qn9rJIxihvw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pqtLldnDlFw12xq5GioL7eNPoH/2m1O8s3JJ53kbu/w=;
- b=Xcjb52u9FCxeLEBp90IN3eNRh71AY1nHSqzz9HTaw9cfdrKzTlZ02bgcxtgnzTgbPWs9/w6xdVtMQhPxC2J2xJCDjCFanRghnsm0BxUPiz6LYZDvhrvGYT6eranLs5UCqFuUgbruxANyo3tUa7nMI0Bg5mxtogr2V262YKEb4i8=
+ bh=QIiEX1BGg/RPcL4NTR0Io5dK6z9osq7SQaNwyA2Tmeg=;
+ b=yj4/q9VyAnhjRR1V32RDHpWFzggHXNnjzIlkm0ube5S6hhWnkBdlkYQvt6JbTtmT19K55aaRzy9zMcosOc1R2Bzqb1Ydd3b8rtgk6DpwO2sCaIDKuIo3lZ1TO6sCpMm6zLzhAOvGZIeRXEwg7lv02mu2nAYLlbOGKqf0IrX7+qM=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com (2603:10b6:a03:3ac::8)
- by SJ0PR04MB7823.namprd04.prod.outlook.com (2603:10b6:a03:300::17)
+ by SJ0PR04MB7870.namprd04.prod.outlook.com (2603:10b6:a03:37e::15)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.17; Mon, 30 Aug
- 2021 04:18:10 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18; Mon, 30 Aug
+ 2021 04:18:28 +0000
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514]) by SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514%8]) with mapi id 15.20.4457.024; Mon, 30 Aug 2021
- 04:18:10 +0000
+ 04:18:28 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -90,11 +90,10 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v3 04/11] RISC-V: Use IPIs for remote TLB flush when
- possible
-Date: Mon, 30 Aug 2021 09:47:22 +0530
-Message-Id: <20210830041729.237252-5-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
+Subject: [RFC PATCH v3 08/11] RISC-V: Select ACLINT SWI driver for virt machine
+Date: Mon, 30 Aug 2021 09:47:26 +0530
+Message-Id: <20210830041729.237252-9-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210830041729.237252-1-anup.patel@wdc.com>
 References: <20210830041729.237252-1-anup.patel@wdc.com>
@@ -107,59 +106,59 @@ Received: from wdc.com (122.179.63.14) by
  MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18 via Frontend
- Transport; Mon, 30 Aug 2021 04:18:07 +0000
+ Transport; Mon, 30 Aug 2021 04:18:24 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 4daa3ffa-9a0d-4243-1a74-08d96b6d2d5a
-X-MS-TrafficTypeDiagnostic: SJ0PR04MB7823:
+X-MS-Office365-Filtering-Correlation-Id: b176fd73-5e3e-4077-5d29-08d96b6d3795
+X-MS-TrafficTypeDiagnostic: SJ0PR04MB7870:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <SJ0PR04MB782388720F3803E660E1FE878DCB9@SJ0PR04MB7823.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <SJ0PR04MB7870F82A5CD058D8862CD2408DCB9@SJ0PR04MB7870.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:3631;
+X-MS-Oob-TLC-OOBClassifiers: OLM:2958;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: pnQXKgXl+vEh0Z7i174G542aVFscB24ApRxOxnzfTeFXc1xS9orrCvrYu1JppG7chvEfwWzUjM3fsO69EvzkSN1ODLzzqRcWCDzZb0FH21wDh8h4abwxfTBOa4piSvB4AzWIl0OrZakv+W3vgvxS6YfQHRGBR3WrK+MKe5q7eyWfVQ+itfP/du+/t5v9LX+YTcWCRyBB8NesAXWLf0XLPsPA94gafMUTDvipI5QxNbdQsqJHUeXnXvmdgcx6K5rG2R45uklYDc3jsYVOX/NMj+84KytQRlvDsEEuVbtvUNwexJNRH7v9WMfG7FJs7g2lqjgDnd+Dg5wwiakdF/3A8HAxW3vkstatlsTF6cRJm2zPFSjcgYRGlPc62Z2f7hwB9RlI+1aR6v0fMxQSPAr/lvn7kxxzLaoQvpvLsSVxcIj4Tp4Wf4RiJgLZUO37x4lZrnkMQbIISn8uDbkD1/1Fg0ZpucbqniSTgB3dAZr06be/TS8dDePVuS0YstxQ5VSYoCrD8th1HIKWPOL9jb5dwZ5LK4dcyzL+Oe0a55epLX2bihVRb/skIRVASnChDRB1eZjNJseTfhKVeOBAfgm4MtxpUtBAEyw/lWQo0YZrFHDkcD0a3zNzk78Lrhhv8Hsn/AGf6DsJQyQiebFTwEsGCJgfW0Jh0WzEwzAJ75fJOQuWfnCV/d9CXitKtVeL6VIpkzomEFsqAAEJl9LtgWE7Pg==
+X-Microsoft-Antispam-Message-Info: XJd2jrA6oCdps8mZdbeychFGo1XbVGs0eiqX1i8brr6rdMYxich3zxPtn+aVu0z41vQ23sZCDiBWC98y/Yn4PBU1tAJ9izz5mSv4H/K+xsbz5xy509ziBTOvm//EdtkjhC0+SH6f84cz/lRaZ1smw6VcfeSGDLHSc5Qfwi5eRlUKkPAdYKfToCuO/EOQKpFEwpnLEV5Be3HgxXIIm0yWlsjis2JgQ8IvB8YI86TPllDHwblWXIVk1/9VxBjm2rHgMSRA2gyHf8vl3s4PBXoHrVx9KORmq43UaVXeQxHn4feyLAWlQmjvwPjFyDP+pn1C3i5Jvzx6HZ6ulqewMqDsAAcOGQ8iEH7fvScpjSQY8u/5z8HL90DAznVBVgIf8ZYKqnFccAknLe0N0W5z3h9nTB1Er8bfNDLVEYq1+0VqkJoctW9Xerf3iAvzHO5cbN4pDjF+N/Ludkxa//Dct1O9GF/zQDtfkjZ5YgJ6Xzj6F8y5r0CEXLjg/37gBImLbEWj4HdRLhZedFPVBLmexF80FHi/G1y/8CkQInrTsmt/oBAMC4QCEeeN0RgUIewHKaE3fZezJCuDdCMib1/lkCCpdMw1LP37E1+6Em9yes++IBZeXGOLNCLWr84vqc46/FNLnLKZ9XkU6BtQhKUr2Tz0Lnu5yFwfqU9rBbqBqvRs1z7bw0ijC829NR8URzzRznUe
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR04MB7821.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(366004)(396003)(39860400002)(376002)(346002)(478600001)(66946007)(26005)(66556008)(2906002)(316002)(8936002)(52116002)(5660300002)(6666004)(55016002)(66476007)(1076003)(44832011)(36756003)(8676002)(956004)(7696005)(2616005)(54906003)(86362001)(7416002)(110136005)(83380400001)(186003)(38100700002)(8886007)(4326008)(38350700002);
+ SFS:(4636009)(39860400002)(376002)(346002)(396003)(366004)(136003)(55016002)(110136005)(66556008)(66476007)(54906003)(8936002)(7696005)(52116002)(956004)(316002)(66946007)(2616005)(44832011)(8676002)(2906002)(8886007)(5660300002)(186003)(86362001)(478600001)(7416002)(4326008)(38350700002)(38100700002)(26005)(4744005)(36756003)(1076003);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fB7sE3+MSoRDm6bwJf2YUNzaa9xm5bcSO2o8VDjqo2Z1UYLai8Gfbh87SI5I?=
- =?us-ascii?Q?e+ou+7jRj3IwAkGM13dL+KUAAH5DqqUYmfLl6Gchr8nLJmJIRjgvaO2qFUoG?=
- =?us-ascii?Q?NWKyxX09JHQRenoCSBHpKqPvqm/PYgHKnsLgg76YxQTVcS8sqicUxvPr3ocS?=
- =?us-ascii?Q?PtQKAPORJNHLVhiQvfYsy3knUcSKosOeZ6WGiiOie6hThmdqWDoIN7ZHvQtc?=
- =?us-ascii?Q?XsKkPnV5oiYrKOEMEaI7m9pHcJhvMnry2BrF4/Zm1cp65lQi1zEuisJa28O+?=
- =?us-ascii?Q?tkawAuikAubhPJyahA3zX5gYnjJr5F1eHdI9wT8XRhtRZAowJ7SEjOBg/OXQ?=
- =?us-ascii?Q?IW3Q94CzDyX26Ba/9RPlOdcv4ENS4GWLLiDYVsjJXfllriKGjDzO/sNztC2A?=
- =?us-ascii?Q?1Hp4NGUsZn1pmsxoEPLUab2G8vbwHTEAJLgjhqh9Tm7Y68OO8L8HnX01X6KH?=
- =?us-ascii?Q?6mvBkRHgPHueGd7YaoxtzxdjSTOI3McDH4QubvbZIqYgfF/syphf4lmnfjob?=
- =?us-ascii?Q?Q/ng/M2ei38lC3EUhy2rQhZgTkmNuZnJBURhhucPsMzjWTQpUSf7QIHPf1Zu?=
- =?us-ascii?Q?zdWKVle71+n41yhbp40TclmqEAL1vhBI8bJvhhVjaAw8Vh2mxyzqgombzJMA?=
- =?us-ascii?Q?4gr7+X78mLIAnF3a+GjoAgiPEPC90I16DnbMhuDCE+e8lrI3liRTpeW7htGs?=
- =?us-ascii?Q?+67+9xcUWgqWrMMYBywXmvAaNMKrjQx0seOdWTfqCeMtw2WBSIYGtZEPEK/H?=
- =?us-ascii?Q?2j9V/brLChYBAXzrmCvgSaG/ilDeSmzogyFuvH1Vo58++OfNPTKK8LP9oikL?=
- =?us-ascii?Q?i86UUg3vPSoFPn4KsleS/pz1Ci1LyFfb2s/SLxTyh+FAleYKfgMPPwemuF9t?=
- =?us-ascii?Q?JtTkTr7X5eAZc9n9b3KPGU4v48HMHapF41Mcl+vQo3QhKvCTuA9vba/C/4l1?=
- =?us-ascii?Q?/bLOgyQS3kwePkBtzB/3lbDPPCIlL2RfPqR95jC0EwOCGQdeLwBF4YVMjiDx?=
- =?us-ascii?Q?Z+gFT56zf1so18KRaMCb9UYROyAliD1AqrOnTAanQjraBaK5dGHeY7C0esFF?=
- =?us-ascii?Q?IviwEH/ZlzlPyuITwYsjHrOKr8KwwKkvG3cozrGqXL/lCT3Qknfle5MMAeHf?=
- =?us-ascii?Q?VSU+NF3c+pmH83Ib0cCf9DCceaNOhEYFQ0hLVN6k8pK76Gmw6jd2P6A2kaLH?=
- =?us-ascii?Q?mnh4MIBdk7ENBNEUzD37L6/+fFUrqYRdZfFRRbcPRaqt0/IFCMZEMRghCP4V?=
- =?us-ascii?Q?YXtA+IUTE5fOZDbnAbrKHKRzqu4GSXNp1kfQFRnOMeYTRY81GzbDZQmcZ74f?=
- =?us-ascii?Q?ithYGMIqEFf9gjwaK60EdnC2?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Vnvf2BJqoTbMNCQWhPIlxU60WQCriDqDvc38cI+DDDua9oAGUkkEsHRENH4X?=
+ =?us-ascii?Q?AKjTeqkaFaNEr8+9U4fB22/PJc/3pPo3nUb4D6rx3khkwJyAq5JoXx2PW//5?=
+ =?us-ascii?Q?f7v2184ObnpYtg0EQBc/W//ROSoER6GtrI07v/XMK2X4pI37S+3FyWgrGaXg?=
+ =?us-ascii?Q?6GJPUevK+19hk8rGKAnpavrHZCfxEW9OVuMPIBDqmNIy62oLnG4c5HgKv5V2?=
+ =?us-ascii?Q?0b6kTC6f2bKe9TLDZoh/hVN0THPPY/IdMSO7HM+eLa/WxxFIBl3XUeE4MaDK?=
+ =?us-ascii?Q?T6De3JPLeZloRMG+t0Ggt4iUAtGj0FCMKbnr3PQ0WKScj+i+WXduDnKqkZzY?=
+ =?us-ascii?Q?ZIsiJRrS+57/EMSkz0iYhFKZXkncuEepBQPhH0JWmyuoej0JabKATNBYmkks?=
+ =?us-ascii?Q?EuO27vdmw7tWzuJ4VsfaYPtkzTXT1fWSXelmLAiUox1JPscvP3cFbUxbSSJi?=
+ =?us-ascii?Q?FOiuRGODawr/zOpfUHKqrZT2DqDySGACrw/SevY+LD4YtuuaRJD00YWQjdxn?=
+ =?us-ascii?Q?6XvOfHSOre9shg16kzBLA+dct6cb0VNdz+k7iO2wf95YauPygQs+/FcFXucv?=
+ =?us-ascii?Q?xNrgdWdtkSG+h3EL1X6rjnLg/Nj2Jx+nASNfvLegm5XvBd1wicjwKSPDgkqD?=
+ =?us-ascii?Q?5BtdrsfhoeKwfyEaVg6wOUe/wQ1prl+56UK0kPN9DUYqVYNJw+L58Fp/6McK?=
+ =?us-ascii?Q?vvjS+h5mi0+W1rbJSfeDRTX9XVy87MtgEMU+vdiuHJlFQmGnPhAWLweK34HU?=
+ =?us-ascii?Q?owcYHruXUmbtLc9nugehV0ZZQuj74afoMZK2T6rwQT2us/fKsILF6qzUlA7j?=
+ =?us-ascii?Q?WW6DgW2+7Z6MYC2Ku8dBDSQmWZhqwSWP+rFjf+8qH8g0Y5Giqb2o95/j+XlE?=
+ =?us-ascii?Q?oBl2tIFJMLo4Bk7gMEL2b8m5yr5B8Ut4EjdTAjgfqfzHiuLVt4zOQRncXVye?=
+ =?us-ascii?Q?D2L87RCfnKQRpKtHHZyzLwqepMlWa3jx+nx3028ur3kIglnYSuCPHy230Q3q?=
+ =?us-ascii?Q?HHAQqFDZgDwx7Vn0GnpdAqLxtogp6ASgkIohbkoTGhXutS8CWE9H3BxVCpHM?=
+ =?us-ascii?Q?apuB1ZUXc4H7IuUoRZgniY7DHcSHZj84yv+dQx5daar8Js0eVV3m3uMgajUf?=
+ =?us-ascii?Q?lOoPXE7B11fF/Yx7YYl054hTr6KvoS8whFD5o+Pr01dLDvkKajOKdx9H3Jib?=
+ =?us-ascii?Q?DuVYJNEVSZGoWofk74YKwGUqlTsxkJCXSWioSGBLnbXB/Eqqqxr+QGO4ShKk?=
+ =?us-ascii?Q?R3viTR/LHEkNM4TjFnHhzm5DBE3T7VapqFTBjJbaVyptbCzbK9UJELSnlR47?=
+ =?us-ascii?Q?wzDb3RW4ZFnm+54+a2Btzj7T?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4daa3ffa-9a0d-4243-1a74-08d96b6d2d5a
+X-MS-Exchange-CrossTenant-Network-Message-Id: b176fd73-5e3e-4077-5d29-08d96b6d3795
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB7821.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:10.7845 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:28.1611 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y9t7R2SMHWQUJZCPF70cZOEEeXQbBtbs4yfiPCpl9ajv/T0VQS3zMUdYVz3AOuzuac8NmZjVTmqW+K/5sTT3rg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7823
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9PJ6JJ9blRM8DFM0r62QRPx/DyTnVB3x79aQ6zaTbBedBkwoZTZEzYKpTYZn3IaiiuGTCN6WLLEffExXILlZow==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7870
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210829_211812_536322_C877E4F3 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20210829_211831_726625_19D5D65A 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,161 +175,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If IPI calls are injected using SBI IPI calls then remote TLB flush
-using SBI RFENCE calls is much faster because using IPIs for remote
-TLB flush would still endup as SBI IPI calls with extra processing
-on kernel side.
-
-It is now possible to have specialized hardware (such as RISC-V AIA
-and RISC-V ACLINT) which allows S-mode software to directly inject
-IPIs without any assistance from M-mode runtime firmware.
-
-This patch extends remote TLB flush functions to use IPIs whenever
-underlying IPI operations are suitable for remote FENCEs.
+The QEMU virt machine has provision to emulate ACLINT SWI device
+for supervisor-mode so let's select corresponding driver from
+SOC_VIRT kconfig option.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 ---
- arch/riscv/mm/tlbflush.c | 91 +++++++++++++++++++++++++++++++---------
- 1 file changed, 72 insertions(+), 19 deletions(-)
+ arch/riscv/Kconfig.socs | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 64f8201237c2..f96f02ed29ef 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -23,13 +23,60 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
- 			: "memory");
- }
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 30676ebb16eb..651da2ed93bc 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -28,6 +28,7 @@ config SOC_VIRT
+ 	select GOLDFISH
+ 	select RTC_DRV_GOLDFISH if RTC_CLASS
+ 	select SIFIVE_PLIC
++	select RISCV_ACLINT_SWI
+ 	help
+ 	  This enables support for QEMU Virt Machine.
  
-+static inline void local_flush_tlb_range(unsigned long start,
-+		unsigned long size, unsigned long stride)
-+{
-+	if (size <= stride)
-+		local_flush_tlb_page(start);
-+	else
-+		local_flush_tlb_all();
-+}
-+
-+static inline void local_flush_tlb_range_asid(unsigned long start,
-+		unsigned long size, unsigned long stride, unsigned long asid)
-+{
-+	if (size <= stride)
-+		local_flush_tlb_page_asid(start, asid);
-+	else
-+		local_flush_tlb_all_asid(asid);
-+}
-+
-+static void __ipi_flush_tlb_all(void *info)
-+{
-+	local_flush_tlb_all();
-+}
-+
- void flush_tlb_all(void)
- {
--	sbi_remote_sfence_vma(NULL, 0, -1);
-+	if (riscv_use_ipi_for_rfence())
-+		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-+	else
-+		sbi_remote_sfence_vma(NULL, 0, -1);
-+}
-+
-+struct flush_tlb_range_data {
-+	unsigned long asid;
-+	unsigned long start;
-+	unsigned long size;
-+	unsigned long stride;
-+};
-+
-+static void __ipi_flush_tlb_range_asid(void *info)
-+{
-+	struct flush_tlb_range_data *d = info;
-+
-+	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
-+}
-+
-+static void __ipi_flush_tlb_range(void *info)
-+{
-+	struct flush_tlb_range_data *d = info;
-+
-+	local_flush_tlb_range(d->start, d->size, d->stride);
- }
- 
--static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
--				  unsigned long size, unsigned long stride)
-+static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
-+			      unsigned long size, unsigned long stride)
- {
- 	struct cpumask *cmask = mm_cpumask(mm);
- 	struct cpumask hmask;
-@@ -46,23 +93,29 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 		unsigned long asid = atomic_long_read(&mm->context.id);
- 
- 		if (broadcast) {
--			riscv_cpuid_to_hartid_mask(cmask, &hmask);
--			sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
--						   start, size, asid);
--		} else if (size <= stride) {
--			local_flush_tlb_page_asid(start, asid);
-+			if (riscv_use_ipi_for_rfence()) {
-+				on_each_cpu(__ipi_flush_tlb_range_asid,
-+					    cmask, 1);
-+			} else {
-+				riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+				sbi_remote_sfence_vma_asid(
-+							cpumask_bits(&hmask),
-+							start, size, asid);
-+			}
- 		} else {
--			local_flush_tlb_all_asid(asid);
-+			local_flush_tlb_range_asid(start, size, stride, asid);
- 		}
- 	} else {
- 		if (broadcast) {
--			riscv_cpuid_to_hartid_mask(cmask, &hmask);
--			sbi_remote_sfence_vma(cpumask_bits(&hmask),
--					      start, size);
--		} else if (size <= stride) {
--			local_flush_tlb_page(start);
-+			if (riscv_use_ipi_for_rfence()) {
-+				on_each_cpu(__ipi_flush_tlb_range, cmask, 1);
-+			} else {
-+				riscv_cpuid_to_hartid_mask(cmask, &hmask);
-+				sbi_remote_sfence_vma(cpumask_bits(&hmask),
-+						      start, size);
-+			}
- 		} else {
--			local_flush_tlb_all();
-+			local_flush_tlb_range(start, size, stride);
- 		}
- 	}
- 
-@@ -71,23 +124,23 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 
- void flush_tlb_mm(struct mm_struct *mm)
- {
--	__sbi_tlb_flush_range(mm, 0, -1, PAGE_SIZE);
-+	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
- }
- 
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
-+	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
- }
- 
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PAGE_SIZE);
-+	__flush_tlb_range(vma->vm_mm, start, end - start, PAGE_SIZE);
- }
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
-+	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
- }
- #endif
 -- 
 2.25.1
 
