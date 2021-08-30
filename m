@@ -5,17 +5,17 @@ X-Spam-Level:
 X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D492C43214
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A803C432BE
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:19:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4EA2660F57
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4EA2660F57
+	by mail.kernel.org (Postfix) with ESMTPS id 2024760F5C
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:19:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2024760F5C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,61 +24,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cfvlw3HuzUIcNAkHAbbWxSYXItgYfSMJu8BvKO9MKG4=; b=oJhVABORMDCCpF
-	gM+Hl1VvmxUPBQQY7Kh28xVPXsbJCcOOdFbSTYla2Uym8Qsr7dMngqz2rvhbrcP4Y3FXRIbn0hAgl
-	ZxAvgru1q6Zo11Btz8+8pfkhZvuBYgqhaAosNyG7w7wxZLfmX9wBOJ1WX859mQB2x2zkCP9jc3vKB
-	cd2gpaGSNyuBG5yWakIYHC61q/dbG2J1HkVna1G0wmfD5xycVLVIb3rmmC8B9wukHn4ktZN2BSx02
-	4vIU6dfWQaGotIgHW4taCw+70P9FvEKpsrHy4OXvXMyx8xaXLCoFMLgJ7i45UiQuIzNt4iIM1Y+hz
-	Ozrv5u/+3QQSSl1qGBrQ==;
+	List-Owner; bh=Sha7Nhxif41aHJFpwziD8Lpb7eZe7h1Z06HntniqIeE=; b=xTnKRBmY2f92Yk
+	BXWyUZXsEtnYUXoHkfu2/Vbj6LO/oIQG3CFsaKdHkeDWp6dT+HYKx+aiC1sQ5iChR8n5sJ95VyK2s
+	/SrH7lzhrHBd2NIM5hSajFQ06EiVVhdGJlQfE+HLNsL1FOR2zhAyla1WB8GFI9LVplHq9pil5pcBa
+	CoRSPcC/w3+E8hDi0gl6Mbtx+FX459CFNxi/A0CdC4R3++v27RZ3BogsBGTV4C9VOOXlCUelIQxcn
+	jM08oY7T601NAdhBq+d6z+Cx6KxbZFtJ4SVMtm7jOll/rk/g8DzD1LPdA5nbSzqwnOLY265S3Dbhm
+	CoxbWqY1fkV6KtQL/4Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mKYkj-00GOWH-2H; Mon, 30 Aug 2021 04:18:33 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1mKYl1-00GOif-VB; Mon, 30 Aug 2021 04:18:52 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mKYkd-00GOTB-6W
- for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:31 +0000
+ id 1mKYku-00GOdu-CA
+ for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1630297107; x=1661833107;
+ t=1630297124; x=1661833124;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=MnAyQ1HiHgbLpHJ4fcLV2lkJX2VNxilW1qn/1yH1N6w=;
- b=BwsUwZIhpK3r2Sx7EdyIs53mvnQ3wMf+xYopH7xFRkbRuniXUTtOaoEV
- Kxax7xuG6ysBUc+MzRm0hOKAcTr9w9wpFp4CFxQsgtPAlllRyzGvAdYHZ
- ba9NiqKLcc82QS5B92fDc0Y7+i/LYApl6h2Uk8/dUdrItoQH6+T61T2JY
- AjjhzvHQWueXooveDtRYnhFvkDRY9/t+XHJl+S/c1bu4g8BZOo/vSRXsH
- wKtLbmX2A7ZEobOQhovfH4ADOj7sPWEU9G2WKDHEzWYcJQ7XAZRphNLC5
- s7XsfhmlYALb5eOy+EOHlv1oOCpSK8lgozyinH+E9UrjhkWuuHcjPyLvX w==;
-X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="177841336"
-Received: from mail-bn8nam12lp2168.outbound.protection.outlook.com (HELO
- NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.168])
- by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:24 +0800
+ bh=+BkjlPEF23L6zhrbrR9PEaNEFAEa8eGcZuvBLehJCx4=;
+ b=Gz5ccZhS4D+rNnKGUu2VaEmmV5b4RJuXxGzxlZKkYcEDayajoo70DeYM
+ IgebbVHEcA33zp6hjdLwqnJTz2zNbc7f4UMCrfXbV/zF5cyxkLTW3RihL
+ XgdKHHRir59GDYDQPAKLSbhcw6jWT/mw2vbKx8lYTcmokrb8SVwbfeXLm
+ ng8mWI/DEsHJPHandTnFC/GqvoOUjdRc0xFXPqyuCAiS4Dq1oWGb0FBRw
+ cMWW2QVW3FGJ02GrUjXXnWd9koW+4LKtl6DWpCz5+JwcJKN0CC69EXYOc
+ hQ7ITXwYXfciMaC9wYm8Z+h9aWTrOIgqwN1R7QxX5NXZZBPJ+79hXH0z4 w==;
+X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="179285400"
+Received: from mail-mw2nam08lp2177.outbound.protection.outlook.com (HELO
+ NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.177])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:43 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cGm1TpNxrrEa97rvGtwOSWTExs/gCWiaA5rRgGgAdhEw0uQ7MqpIbDbtLQpLBu6YCw2M1RvU1108yHo4of3Lf3UpDGhtaXYGRhzZSDTk0uVpmiGFBq78NYcVKqrjkfjBzVjGhIE4nsentHu4ka85FMiHCfFQJOPqnpp5gyqtzh6n22E+oEmPGMs+s5A/nS2HRGkCiOn5k0ku91JwbaAZOvK0Hso95TBw8+D1IRLG74o+7ul4EEBP+pb0DNvJ+cZinB2+4cfY0/P/kJLb76PVur9oVJNmlR234iw1WobQyzf3NrGs4IIEU0XkFMr75MWliUojKXijXJZYU6VeRQXBOA==
+ b=bq+wnlAil8VAPGj2QSwo2TXlY4IMPSGeRLTqe4AvvHzaoCFO2cXnMcPwO18+YE/uIh5FZ+4Fu+OeB0Qv6djsZgmtSkrUr7PQD7M3MQFnln4Y5rOBBxc6rGR7560r77yvBLNq4DQIts87TC3vlG5mZEh/ENB2S0lAlDJ+a7f5Nex2WPGqxwjsZIBa0oC5L38QmOCD3rA20uzpZzdBJ8FCctMhs/TQk+IUqe6mB2JXRcmrug/3INn36CaI25gRzeEInoNkZN4E7ze3P2fYiVTTdx4szTY79YPRdm/sHQ+v/ZT7dcpCQy6nt32ib67ybwxWpoC6f1219ERPYkEAaNjC0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g4BiG3zHdqnY/mJM8drY3TNEtZLaRqBEhgasukGuwbw=;
- b=VUaL/XVz6xecsc1MaYC549bp+ijMwfD0FHiI7vT53yoXkZUQcAiaCDzHsqSagZOhYtTuxrGUShdO8iE58Jfs6NneRnRcqTLCH3QS3s0ZVVj2dDWRq25JAmnJWc9hpNbVqC+VxJrqHYxr1O6Q8TvIm7EY6XlmiDb5IxP80RR2UGwoMRtli7dhAU/BS1gzdvLoTkvAB6criMGKAwk5aVt7GGmS+3qY9OyZ3xesVteF7+IPR5i1PK1o4e/DmquN8Ppa0oKzaBYlVo7GfyZJBANtEESHsGYEUPT62w+nIlNrg7CsBSBCABRxDQ1Mtk8KaMkcjgFGtbxy6dXCyAnz1P6/VQ==
+ bh=WAzsfWHCL8cCPULb9LWZ2UJgjKKBiK8hBgh0aPdcAP0=;
+ b=VjKiGHzH2C42xeouf38kC1kEvioQ9OGw1YSVhd/UyiXH0kLV/J+CV57ZSGwOzLZmw95QYdGD3LCD4oDcRGaw2BpO5k59JYkrYuAzBao/Vm02XItp2fL0UhaM7YSxcuRTiZRL2I0i3zTqp2c9xSvn0rwRfx4F+UuDJpIziuIb2liqQAE87mWOABhVczodIs1pLEzpMfDhFo+Cz/QscGg6goBHcFq3gZ/GnL/Y20GowBUVyH1ZcSj5H0yLwpcAaRqUOLS0W5886auBCCwTet47qWn5zl7nR6JZz3qbiD0VGqWiqNCdja1+17N46juVMaQ6UorI8N/t+7dZ6YFHib6exQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g4BiG3zHdqnY/mJM8drY3TNEtZLaRqBEhgasukGuwbw=;
- b=zsdNcX8bWKp6h1CQYOrLqMJl2Z9Y+z2AthULbeFUd9xXH4do5Rb41plxD56gJlkkvKgEAmZ0HyuI74b1L5EH8o1saIvw8v0wc9VSGRbnZD0mtdmTkH13YGWzg976jDsdDDfsBG01/rxRoWRthCFEcydYDwW6c8bwJx1dseLYuD0=
+ bh=WAzsfWHCL8cCPULb9LWZ2UJgjKKBiK8hBgh0aPdcAP0=;
+ b=uiDANn3renouOy8sAOffCO4sp0nW9Sc6laAHk67IPh6tMIUycwrq4ErjnuJIpXnm5UtQkYf4VETPr6IyoV9QNc3YwRzGpqMkEKmf6B5Gx56cQiy7y6+rkEXHWG1KPm+JjU6R73RSZSFWfLv24H8p34GEd+KFcyf8ey/8n7+E3yU=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com (2603:10b6:a03:3ac::8)
- by SJ0PR04MB7870.namprd04.prod.outlook.com (2603:10b6:a03:37e::15)
+ by SJ0PR04MB8274.namprd04.prod.outlook.com (2603:10b6:a03:3e6::20)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18; Mon, 30 Aug
- 2021 04:18:23 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.19; Mon, 30 Aug
+ 2021 04:18:42 +0000
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514]) by SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514%8]) with mapi id 15.20.4457.024; Mon, 30 Aug 2021
- 04:18:23 +0000
+ 04:18:41 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -90,10 +90,10 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v3 07/11] irqchip: Add ACLINT software interrupt driver
-Date: Mon, 30 Aug 2021 09:47:25 +0530
-Message-Id: <20210830041729.237252-8-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
+Subject: [RFC PATCH v3 11/11] MAINTAINERS: Add entry for RISC-V ACLINT drivers
+Date: Mon, 30 Aug 2021 09:47:29 +0530
+Message-Id: <20210830041729.237252-12-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210830041729.237252-1-anup.patel@wdc.com>
 References: <20210830041729.237252-1-anup.patel@wdc.com>
@@ -106,59 +106,59 @@ Received: from wdc.com (122.179.63.14) by
  MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18 via Frontend
- Transport; Mon, 30 Aug 2021 04:18:19 +0000
+ Transport; Mon, 30 Aug 2021 04:18:37 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 9a307f43-4be3-4043-7f8e-08d96b6d3507
-X-MS-TrafficTypeDiagnostic: SJ0PR04MB7870:
+X-MS-Office365-Filtering-Correlation-Id: 42ae32cf-fd95-4e0e-9bee-08d96b6d3fa9
+X-MS-TrafficTypeDiagnostic: SJ0PR04MB8274:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <SJ0PR04MB7870BADF7B83E148FDD1CF468DCB9@SJ0PR04MB7870.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <SJ0PR04MB82742A395A0CD4E10F4E71388DCB9@SJ0PR04MB8274.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-MS-Oob-TLC-OOBClassifiers: OLM:1303;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: u9t0OKpMXRlwkjTQnFexHNMa45OCm5d8Cc/aRg50fFvZ3bbcQ2f/HQJr2tayObMI4wvpl/RUesmJTiWkE0oh5evX9tAVgYhcDnc9PaX4qKua3ag00bv4OToKOqJF1UFOLDrRakIziwO4GM/PVvyMw5XjeyMx5et7koH0Zs7co30YsSZUSYJewKQvW7fYUKLXvadrsW8/EnWgyzLn5vauXJoDLCTMlyFxPApk1pkppwTBmNUHftei+mq98Y+456FQvon2x308IKP1EjHxJC7GpRfwtHFPXrQu4dU2mHYt7gOT4H1CA/pFmTSK/JftxT/m35q5kTO6tNCJS/ZOBJ0RmUFzs2x+lBFBL387psQRDyXl2EzA7DIU8PFso33tjYBmrzjyxz5QXK3LWfxxYBTvrU3Gqs3Nzkk7JAI6LCILnPB0KgRKmg39c6AUQWUbzIodqlDbK2kR1YzMKbC4g6A88eOTel/MzNVzmtrMU8DNpIk0t7trVPE2zn+S1U1t4TOXiR2nI5WNp4RvDUjixEOXAAsquzSPnTno6bbrp7/P75RNCZMFXX+0ttVCVx77arpBgGXtbDO1dAd+8zeNJc1R2ev5NrOY1BArDKlx3xWy3ZeduEwcIVXkmCjRX2NqWErZp8BGUC96NE/tNM+DHuWTClvMvptv9odWgMBVZfidEgMH3VbH80s/G9Dk/Tlog1ctn2s9qlaAIsYdHTjEsFmXYg==
+X-Microsoft-Antispam-Message-Info: IuWjHwtEnUyWcqgIBNcPJ2nZzdX1+aaq2lX6CJJd4it4cs8fNKOBVT98PIql8Z2uMt0Fr9RjFk60SwOqEUwI68JoByAUpMTwTOUBqzqiE8xsfRGnUnOXr1gJP/Co0touQy8Ghb9sY2BEscjKhdpzCNwuDsQVhMXZ9Drim5WDVe8vzvh9c3UEQUzaG8PQQPZUtUjKqrLRUhRYAoqndCQmZ41R8/2YCOcrmrTwiJAmmoAp4t2/PEOuljIAwNfNMwC8URrYjRpc1GWQ7G5YCL6bmFQ2RyJ+u9AZ2RZ+AazWxWUx22wpreBJgPwv1hZJOLqIMcNjTE+0MV/AVq7xihfWswo3ZtO5ork5+7HE6DZ/8U5NoGl6JQTEad3LEpy6ZIRPQGnaNj4NEHYWQ2Tk1kVcwHmlQWMaDhD74iJQIkYNrisdbLkruq+JqZhVs9lQBDwyapvT+NkZGiHzob5yTXdf4LP4fJpI/gEW5Y1Rz+EW0H9PJvpabmX+r4UkRrGkZ3UsdbqgOZ6VkDdMcssuS7dPM6uAEEBfDQPfkvqOzu1sLRxtSYf14GA0vrIYpXR2nbaLwEJOQi+i1Yh3aKnMi7rdzZ9DUzhZDH3pV4aTU8h3518dEFBd2if/k/il4Y1PE2POnrBOxmviYzlBHQCVwfKRlvQXESV9I8DBe0keSftztEHeRNW9IVhj3wmNfCEinUhe01B5CzzIXUchsdyvB7CFSg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR04MB7821.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(376002)(346002)(396003)(366004)(136003)(55016002)(110136005)(66556008)(66476007)(54906003)(8936002)(7696005)(52116002)(956004)(316002)(66946007)(2616005)(44832011)(8676002)(6666004)(2906002)(8886007)(83380400001)(5660300002)(186003)(86362001)(478600001)(7416002)(4326008)(38350700002)(38100700002)(26005)(36756003)(1076003);
+ SFS:(4636009)(136003)(346002)(376002)(366004)(39860400002)(396003)(66556008)(38350700002)(2616005)(478600001)(86362001)(66476007)(38100700002)(52116002)(66946007)(7416002)(7696005)(6666004)(316002)(956004)(186003)(55016002)(4744005)(36756003)(54906003)(8886007)(110136005)(4326008)(8936002)(8676002)(26005)(1076003)(5660300002)(44832011)(2906002)(83380400001);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KlJVAmHe4IDZDpIzcHsEaHnViABhLhiaexc67XDDNRunYMQfB/0j36OGECo/?=
- =?us-ascii?Q?yWPlOKwSNA+mgK4UTNXqykpTyALAEoCANaK6AO8TT7VKcb2we6uwmhYSS3Mz?=
- =?us-ascii?Q?3ZKSzh+vf72kwjTcfc/TKHcjlfaMyxDsjhzeSleq9SZYP01fKQJdtnWLhTs7?=
- =?us-ascii?Q?Y1TPEhBUKQ4XSsS1hFkPMkUmcBKaJWOeHGlxI3TvvJyI68O25ceeum9hA7fX?=
- =?us-ascii?Q?9kApVfCadfiDLw0SctRKhbaxbxLOkI2ugY/mB8ZTbCZrub76w1rjbp2A+7F6?=
- =?us-ascii?Q?l34kwtm6Fv7HsT0htlnp987N4klBMw40C+3E/2DQTIXGrrfh2QMUUSwgIe2Z?=
- =?us-ascii?Q?L3jvqNIjdkN3JfVRMkyE3ZbB5JKHiVNYK9e3RWJ5dttaIAhVis+yUbfNmeUY?=
- =?us-ascii?Q?WvOHBgqNE5BhTgKjbu73OzGUPSRwqE/mzqEPo5gajfPlnuKfITLsqg7wQA/M?=
- =?us-ascii?Q?6cLXi9fjisIFlru0gLNx84Fpws477EiXuZhTKeWQf95nMfbekfO4+IUn8qOm?=
- =?us-ascii?Q?oGKIavjT6n6q3/jwZKYNPcsHL8BVhni993VlL7pytfqc8EfOzxIV52PFVzUH?=
- =?us-ascii?Q?T2/Bs5JEUJWDPzOKN723uLhADe6DLWmUVlQtO1sd9fkhZeH6iw56gfAoRWpE?=
- =?us-ascii?Q?ENtZ7TKJGEhunkygEMEyNTMcWRq5mACw1W/wKIdr7iorldQPVcRjdRD5TMg2?=
- =?us-ascii?Q?ay9zQlQld7oOJhTb4Te5YKg98FFjNrKAAbB+h29jQpefkyBpXnV4F/ma59ls?=
- =?us-ascii?Q?P/ZBTjIb8ZloiKBAfiG/iNcZ7HT2kY3jaEq0NdsI/0qXRtiS6WeFF3wbtubs?=
- =?us-ascii?Q?AMEqbNnFRceDfHxeuWeoObk5c8ORLztS1/S2WJ/G2m51JCs7ZnhQlo9K1s7/?=
- =?us-ascii?Q?5Hp8kz9UTPKA6gy9BzbvSDSHaii0qCg10vAq/uwnPmwb16QGe5a4bGoU9a05?=
- =?us-ascii?Q?BPi9qI0H2s2bvKUMgG0y6CA4pJpa9xoYj5UHZCWMXcxQ0zP46m4h3ze6OGwI?=
- =?us-ascii?Q?+laz6GVIUzsFAtvg8Iu4vDlHBXzprJLGnEFSpMp6C0hUdDDzYdfcFaIFW+bA?=
- =?us-ascii?Q?TB4QeVYpGEXYY1vce+6rdzahyX/iwGyH8nB7g8tPw5iwUiTgL3D5U5dL85Go?=
- =?us-ascii?Q?uIN32kUM50S+zJAuUgDOkTiSyiDaWorb7DIY/V83kXfuy6DeoJn7tef+FWQp?=
- =?us-ascii?Q?s3XwaE+HAREoNJOJMOisebtfyuxhO77/IMnRXMnYqvfU/BXUFANm2ZFCV163?=
- =?us-ascii?Q?NmyOThmdPzQuVgJYguwiGCbwKZ1IoTxESIgn04/X3q71RFb+5+5feMor4dIZ?=
- =?us-ascii?Q?stvrKJ9as7pWPdJ99ZFs7Qzr?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1LcQd+AghlLmCWHO8a1m+gDbjPQcZwvx22tFIr4vNyKZLUOctygnWrksVYei?=
+ =?us-ascii?Q?5aqso7GGu3aj5zZ3sWHaWyKaNyEwR6fgGVUm1DkSHkAqw/hp9WrAojgIa2pl?=
+ =?us-ascii?Q?6lj6oMMzjLTZ7rcqPC9RZFUbjVNWTc/gfuMoP8H4JihQOh89SG598kyhuIX/?=
+ =?us-ascii?Q?0HEgZroot73tUh47bRwH8cMpRexGTZX2+zOOThNsb+Z+ybtzLjsXfSINprWz?=
+ =?us-ascii?Q?OlmVudSEky0LDEER8llYO6k751GDKsXll0Bgl9MSn+AQUrq5UNpeD/QQgHRh?=
+ =?us-ascii?Q?we1pQmpBqu7POidMr2SJRVIEYVWWWCaVpH82fOTlLJlUpq0DwkHbE6KvKZci?=
+ =?us-ascii?Q?MBVqIcl4kQXmQ2hYMgnK1ufzhf9QiIUCSdhO/9ePhRzFX43G+AktzDHmY2j6?=
+ =?us-ascii?Q?b3ha0T+iiBlu1mY4tcIRlf26RKy24D6muYz0lt/n89qroYMuL73TgfWhhT35?=
+ =?us-ascii?Q?ptMrR6vCKRLp0jwPlqil5yaKUnDYKkAqQoRk6MQMD7r4uM65Tr27ct4P6FOz?=
+ =?us-ascii?Q?nn5flAe0KvsYHAPmrIx8uo/CVrJkJfAN9cIVb56qZKmQV/qWHdmIf/C6rW+k?=
+ =?us-ascii?Q?L1WDYzL3LYLIeejWBgC5uhYBhOtezBGAY1XsSG49wcMwaWDQu/kHvjMzLmZc?=
+ =?us-ascii?Q?LnW6pW9nlXf5WBpgSn7dHElwSwlLIEtKevdoBTCJ/iwcPloDZSu8upfg+TOo?=
+ =?us-ascii?Q?SFoKpLT1LpUrPScEWEn/Esu5fgja2WpMkhkN2R47zkr8XcB0bgIZvLh3wro7?=
+ =?us-ascii?Q?RMp5vEGaXzVFrXCeY4Nt0KIFMJOQSfrZqOeX9OfycQkGwZWn5kPl2J6vKvqi?=
+ =?us-ascii?Q?Kn97DTeBIbhF3Q7hnlI+nG61TniVqDgG0BWPERn2n6yBelPnHWFtbi1BO/wQ?=
+ =?us-ascii?Q?yYwvo1PCpAZFDchslayauHgJotY75QbXn2qrRAHvNjNA4BRsjfkjnDC66NyF?=
+ =?us-ascii?Q?3INky/6ks/6gz7nHrX8w7uY/czxOAipZFht17nTTQl55qokMwl7lJsg3zuDT?=
+ =?us-ascii?Q?SwF2xjcIPuwaBmC9cSjpUAjXv6fkkiRIbt/EwMetrSSOKBO2c9dVBwnG728T?=
+ =?us-ascii?Q?WQ8QD1cdt2uR8nRRjTApqnxok1MEGJXCleK0zqGMCkVJXU3xCGu6LTUV/v4j?=
+ =?us-ascii?Q?qxCbLMc+n9jowvUl26wRlZvo4R9EOHME9ivzfH+GuR6lpWDeINQi+Wbx10dt?=
+ =?us-ascii?Q?DabehVn4kcr0gk5U3qaR/wVUy1i0O9K1dgxJU4OpLK/YGTNnabPNbMsBk6QI?=
+ =?us-ascii?Q?dSKY346xsq1CvMGEs6LrBCjNRjInXKl5r/B+bw3+f8pwSsa0QVDKXiT+T8wF?=
+ =?us-ascii?Q?KnwERLxYTIMvgRkYklwTa2Ph?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a307f43-4be3-4043-7f8e-08d96b6d3507
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42ae32cf-fd95-4e0e-9bee-08d96b6d3fa9
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB7821.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:23.6619 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:41.7484 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 11pfm2flX8yPxDlJ/jeZqVZptyiT5NMM2fgQcO4HafpGq+pyYo3IlbRDvu+rsyh1AUYSBgL0yRta1KVywA/5lQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7870
+X-MS-Exchange-CrossTenant-UserPrincipalName: wAeiitJ663iNTYdIoHsxFD0upbIsTPfhYtSMKHH9PxDA4mIcAu2frLjwp00VcPRanzPpOJe/WBrlop146mrMRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB8274
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210829_211827_416439_EAE7C52B 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20210829_211844_515948_AE9B3D05 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,322 +175,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V ACLINT defines MSWI and SSWI devices for M-mode and
-S-mode software interrupts respectively. We add irqchip driver
-which provide IPI operations based on ACLINT [M|S]SWI devices
-to the Linux RISC-V kernel.
+Add myself as maintainer for RISC-V ACLINT drivers.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 ---
- drivers/irqchip/Kconfig                |   9 +
- drivers/irqchip/Makefile               |   1 +
- drivers/irqchip/irq-riscv-aclint-swi.c | 265 +++++++++++++++++++++++++
- 3 files changed, 275 insertions(+)
- create mode 100644 drivers/irqchip/irq-riscv-aclint-swi.c
+ MAINTAINERS | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 4d5924e9f766..4e7458c551c7 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -508,6 +508,15 @@ config RISCV_INTC
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bcc97d48249f..3bc36e30ef07 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15936,6 +15936,15 @@ S:	Maintained
+ F:	drivers/mtd/nand/raw/r852.c
+ F:	drivers/mtd/nand/raw/r852.h
  
- 	   If you don't know what to do here, say Y.
- 
-+config RISCV_ACLINT_SWI
-+	bool "RISC-V Advanced Core Local Interruptor Software Interrupts"
-+	depends on RISCV
-+	help
-+	   This enables support for software interrupts using the Advanced
-+	   Core Local Interruptor (ACLINT) found in RISC-V systems.  The
-+	   RISC-V ACLINT provides devices for inter-process interrupt and
-+	   timer functionality.
++RISC-V ACLINT DRIVERS
++M:	Anup Patel <anup.patel@wdc.com>
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++F:	Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
++F:	Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
++F:	drivers/clocksource/timer-clint.c
++F:	drivers/irqchip/irq-riscv-aclint-swi.c
 +
- config SIFIVE_PLIC
- 	bool "SiFive Platform-Level Interrupt Controller"
- 	depends on RISCV
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index f88cbf36a9d2..81306d560972 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -97,6 +97,7 @@ obj-$(CONFIG_QCOM_PDC)			+= qcom-pdc.o
- obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
- obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
- obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
-+obj-$(CONFIG_RISCV_ACLINT_SWI)		+= irq-riscv-aclint-swi.o
- obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
- obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
- obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
-diff --git a/drivers/irqchip/irq-riscv-aclint-swi.c b/drivers/irqchip/irq-riscv-aclint-swi.c
-new file mode 100644
-index 000000000000..c61987d2f823
---- /dev/null
-+++ b/drivers/irqchip/irq-riscv-aclint-swi.c
-@@ -0,0 +1,265 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-+ */
-+
-+#define pr_fmt(fmt) "aclint-swi: " fmt
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/io.h>
-+#include <linux/init.h>
-+#include <linux/irq.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_irq.h>
-+#include <linux/smp.h>
-+
-+struct aclint_swi {
-+	void __iomem *sip_reg;
-+	unsigned long bits;
-+};
-+
-+static int aclint_swi_parent_irq __ro_after_init;
-+static struct irq_domain *aclint_swi_domain __ro_after_init;
-+static DEFINE_PER_CPU(struct aclint_swi, aclint_swis);
-+
-+static void aclint_swi_dummy(struct irq_data *d)
-+{
-+}
-+
-+static void aclint_swi_send_mask(struct irq_data *d,
-+				  const struct cpumask *mask)
-+{
-+	int cpu;
-+	struct aclint_swi *swi;
-+
-+	/* Barrier before doing atomic bit update to IPI bits */
-+	smp_mb__before_atomic();
-+
-+	for_each_cpu(cpu, mask) {
-+		swi = per_cpu_ptr(&aclint_swis, cpu);
-+		set_bit(d->hwirq, &swi->bits);
-+		writel(1, swi->sip_reg);
-+	}
-+
-+	/* Barrier after doing atomic bit update to IPI bits */
-+	smp_mb__after_atomic();
-+}
-+
-+static struct irq_chip aclint_swi_chip = {
-+	.name = "RISC-V ACLINT SWI",
-+	.irq_mask	= aclint_swi_dummy,
-+	.irq_unmask	= aclint_swi_dummy,
-+	.ipi_send_mask	= aclint_swi_send_mask,
-+};
-+
-+static int aclint_swi_domain_map(struct irq_domain *d, unsigned int irq,
-+				 irq_hw_number_t hwirq)
-+{
-+	irq_set_percpu_devid(irq);
-+	irq_domain_set_info(d, irq, hwirq, &aclint_swi_chip, d->host_data,
-+			    handle_percpu_devid_irq, NULL, NULL);
-+
-+	return 0;
-+}
-+
-+static int aclint_swi_domain_alloc(struct irq_domain *d, unsigned int virq,
-+				   unsigned int nr_irqs, void *arg)
-+{
-+	int i, ret;
-+	irq_hw_number_t hwirq;
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+
-+	ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = aclint_swi_domain_map(d, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops aclint_swi_domain_ops = {
-+	.translate	= irq_domain_translate_onecell,
-+	.alloc		= aclint_swi_domain_alloc,
-+	.free		= irq_domain_free_irqs_top,
-+};
-+
-+static void aclint_swi_handle_irq(struct irq_desc *desc)
-+{
-+	int err;
-+	unsigned long irqs;
-+	irq_hw_number_t hwirq;
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	struct aclint_swi *swi = this_cpu_ptr(&aclint_swis);
-+
-+	chained_irq_enter(chip, desc);
-+
-+	while (true) {
-+#ifdef CONFIG_RISCV_M_MODE
-+		writel(0, swi->sip_reg);
-+#else
-+		csr_clear(CSR_IP, IE_SIE);
-+#endif
-+
-+		/* Order bit clearing and data access. */
-+		mb();
-+
-+		irqs = xchg(&swi->bits, 0);
-+		if (!irqs)
-+			goto done;
-+
-+		for_each_set_bit(hwirq, &irqs, BITS_PER_LONG) {
-+			err = generic_handle_domain_irq(aclint_swi_domain,
-+							hwirq);
-+			if (unlikely(err))
-+				pr_warn_ratelimited(
-+					"can't find mapping for hwirq %lu\n",
-+					hwirq);
-+		}
-+	}
-+
-+done:
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static int aclint_swi_dying_cpu(unsigned int cpu)
-+{
-+	disable_percpu_irq(aclint_swi_parent_irq);
-+	return 0;
-+}
-+
-+static int aclint_swi_starting_cpu(unsigned int cpu)
-+{
-+	enable_percpu_irq(aclint_swi_parent_irq,
-+			  irq_get_trigger_type(aclint_swi_parent_irq));
-+	return 0;
-+}
-+
-+static int __init aclint_swi_domain_init(struct device_node *node)
-+{
-+	int virq;
-+	struct irq_fwspec ipi;
-+
-+	/*
-+	 * We can have multiple ACLINT SWI devices but we only need
-+	 * one IRQ domain for providing per-HART (or per-CPU) IPIs.
-+	 */
-+	if (aclint_swi_domain)
-+		return 0;
-+
-+	aclint_swi_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-+						&aclint_swi_domain_ops, NULL);
-+	if (!aclint_swi_domain) {
-+		pr_err("unable to add ACLINT SWI IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	ipi.fwnode		= aclint_swi_domain->fwnode;
-+	ipi.param_count	= 1;
-+	ipi.param[0]		= 0;
-+	virq = __irq_domain_alloc_irqs(aclint_swi_domain, -1, BITS_PER_LONG,
-+				       NUMA_NO_NODE, &ipi,
-+				       false, NULL);
-+	if (virq <= 0) {
-+		pr_err("unable to alloc IRQs from ACLINT SWI IRQ domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	riscv_ipi_set_virq_range(virq, BITS_PER_LONG, true);
-+
-+	return 0;
-+}
-+
-+static int __init aclint_swi_init(struct device_node *node,
-+				  struct device_node *parent)
-+{
-+	int rc;
-+	void __iomem *base;
-+	struct aclint_swi *swi;
-+	u32 i, nr_irqs, nr_cpus = 0;
-+
-+	/* Map the registers */
-+	base = of_iomap(node, 0);
-+	if (!base) {
-+		pr_err("%pOFP: could not map registers\n", node);
-+		return -ENODEV;
-+	}
-+
-+	/* Iterarte over each target CPU connected with this ACLINT */
-+	nr_irqs = of_irq_count(node);
-+	for (i = 0; i < nr_irqs; i++) {
-+		struct of_phandle_args parent;
-+		int cpu, hartid;
-+
-+		if (of_irq_parse_one(node, i, &parent)) {
-+			pr_err("%pOFP: failed to parse irq %d.\n",
-+			       node, i);
-+			continue;
-+		}
-+
-+		if (parent.args[0] != RV_IRQ_SOFT) {
-+			pr_err("%pOFP: invalid irq %d (hwirq %d)\n",
-+			       node, i, parent.args[0]);
-+			continue;
-+		}
-+
-+		hartid = riscv_of_parent_hartid(parent.np);
-+		if (hartid < 0) {
-+			pr_warn("failed to parse hart ID for irq %d.\n", i);
-+			continue;
-+		}
-+
-+		cpu = riscv_hartid_to_cpuid(hartid);
-+		if (cpu < 0) {
-+			pr_warn("Invalid cpuid for irq %d\n", i);
-+			continue;
-+		}
-+
-+		/* Find parent domain and register chained handler */
-+		if (!aclint_swi_parent_irq && irq_find_host(parent.np)) {
-+			aclint_swi_parent_irq = irq_of_parse_and_map(node, i);
-+			if (aclint_swi_parent_irq) {
-+				irq_set_chained_handler(aclint_swi_parent_irq,
-+							aclint_swi_handle_irq);
-+				cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-+					"irqchip/riscv/aclint-swi:starting",
-+					aclint_swi_starting_cpu,
-+					aclint_swi_dying_cpu);
-+			}
-+		}
-+
-+		swi = per_cpu_ptr(&aclint_swis, cpu);
-+		swi->sip_reg = base + i * sizeof(u32);
-+		writel(0, swi->sip_reg);
-+
-+		nr_cpus++;
-+	}
-+
-+	/* Create the IPI domain for ACLINT SWI device */
-+	rc = aclint_swi_domain_init(node);
-+	if (rc)
-+		return rc;
-+
-+	/* Announce the ACLINT SWI device */
-+	pr_info("%pOFP: providing IPIs for %d CPUs\n", node, nr_cpus);
-+
-+	return 0;
-+}
-+
-+#ifdef CONFIG_RISCV_M_MODE
-+IRQCHIP_DECLARE(riscv_aclint_swi, "riscv,clint0", aclint_swi_init);
-+IRQCHIP_DECLARE(riscv_aclint_swi1, "sifive,clint0", aclint_swi_init);
-+IRQCHIP_DECLARE(riscv_aclint_swi2, "riscv,aclint-mswi", aclint_swi_init);
-+#else
-+IRQCHIP_DECLARE(riscv_aclint_swi, "riscv,aclint-sswi", aclint_swi_init);
-+#endif
+ RISC-V ARCHITECTURE
+ M:	Paul Walmsley <paul.walmsley@sifive.com>
+ M:	Palmer Dabbelt <palmer@dabbelt.com>
 -- 
 2.25.1
 
