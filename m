@@ -1,80 +1,165 @@
-Return-Path: <SRS0=5jhf=NU=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=zS8+=NV=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B0D8C432BE
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Aug 2021 10:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 060FEC4320A
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 31C4C60E73
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Aug 2021 10:17:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 31C4C60E73
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=mail.ru
+	by mail.kernel.org (Postfix) with ESMTPS id BC8DC60F8F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC8DC60F8F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MIBc8kwGyf/OZGaPYvQEYgwDpGFbUrXvnWQ5g+Y8bno=; b=yU+X8qge22XzlZ
-	zCHtLD1O04YAN82evIooGvjSq5zccW3+H43/++lXWSzmAktCyDtFyrePSAP+XDw3L4hdLvxZQ1Tyo
-	dtGRl1i5KLy7+vEThmhklDSFV2H9eKfpbEw1b9OwsRD3uZkdUA9V0UCljf3Ku2PShI9VB9saQFt5s
-	sW4Bguq9sFGcKO3KJsdcTu1ygR3jC5zrSpNu5LutA1ObQM1D5cAVDfHWijK0i9MnowlpTrxRnRgDU
-	7dpqwZkWH8FL3PEs3dmHuRbEhzbnxczg/g4NYKHhgjbXZBf+6StzMFqBUjL6TA1gRk4PhJqbHMdNP
-	sddcwTHn38XkWYVS5zgQ==;
+	List-Owner; bh=E/9v5YZX4I7Ip+3UyYGDh+7ZNXNQRHYodAtPvvYiCkY=; b=C152zAFlU94f46
+	oy8SvdYJddshmpU5lDVjiGzGbFQkzyQWUle4Gc/00a97sz/Zr9DnNhWQrWRLNkfFiPNe5tgpR7Uz4
+	ACN5dZFUgtJYxIV6WaTh9+Wyt9nXfOJu3KpOxHqaTheMXRMXGCTpBa+0ph8D83uXG6od3dSOE9M0M
+	kD34r6YC6pNN6B0XoMPJFXcN8rPNnZndEC6Km2TEikY9d0ybw0/2VWUBwq2/3s6j5DZxJsho6nSKB
+	5dPE5eRKNstRlTgmzcKAucWU+odPHbp/sgbylczmXowZpZMpKvFqr5fQqUKCgjZbtJumbnzPK/H4I
+	sRuPdz5t9z6S0oVIxZXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mKHs8-00FN09-Mb; Sun, 29 Aug 2021 10:17:04 +0000
-Received: from smtp48.i.mail.ru ([94.100.177.108])
+	id 1mKYkU-00GOQe-Dn; Mon, 30 Aug 2021 04:18:18 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mKHs5-00FMzD-7i
- for linux-riscv@lists.infradead.org; Sun, 29 Aug 2021 10:17:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mail.ru;
- s=mail4; 
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Subject:Content-Type:Content-Transfer-Encoding:To:Cc;
- bh=VZgNaS1mLdlvZJztEjsG9uU8c+U32c8iiPysRhjd9m4=; 
- t=1630232221;x=1630837621; 
- b=qRKz3N6BYQfnU5qs0P0VqpzrureAK5z6XTNz5m+FydZJfqxPH5OuQDtx0TVOOJYGqIYvgEkQA5h1ix0E6Pmo7svPng0JhV7xPBNB7jMZ2sMwpZY9D28TquEvbzy6kHXqMWN61qFfRkcaxX2tTs7WfG2LDe1Bwv9T/+U+uhGwAf/Movn7WS66IHIyfSEhxuw0MPiWSz9ly/zy2D8qjPXsB2C1VddRtuQOGBbMzyHxIDn1hrVHtlfgHOTc7C/HgMD9gHkeSbju77DNPEikW40/QpOuEEU4GprUjGMHVaLx7uvcHviZA4LpCGTicYQfopcMtOL+wHKGrrS8+ksW8a1ONg==;
-Received: by smtp48.i.mail.ru with esmtpa (envelope-from
- <cerg2010cerg2010@mail.ru>)
- id 1mKHs1-0002yE-1L; Sun, 29 Aug 2021 13:16:57 +0300
-Date: Sun, 29 Aug 2021 13:16:49 +0300
-From: Sergey Larin <cerg2010cerg2010@mail.ru>
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: vdso: map data page before vDSO code
-Message-ID: <YStekax6zSKApmRC@hp>
-References: <20210829094708.169037-1-cerg2010cerg2010@mail.ru>
- <02601412-6f01-f4e5-699a-e285fc3fdf3a@huawei.com>
+ id 1mKYkL-00GOOn-HY
+ for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1630297087; x=1661833087;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=UACASCCu4bZVbM9KnCDapGebG+fpRzurqhRW9zyjqrc=;
+ b=bYqrsHBzabptqzUunL5/KRYB+eNO7Exk0pwPMYwEr1QhAw21M1989K7I
+ w23p9ySkyY3oBfWT63FPXpBnEnwsHKM9H+bCmUep/21aXcQ9NG/Dc/yFp
+ +50IYUL5oHda4NtFB2GJmjoOORV2a5eQiOFAqrw4XpkjspZNRkzlTfFsP
+ 4w2it9HViO6paVeYnPCYrF9gNuLB89ij6QMeFQr98NXdj+JJfGlAiixrp
+ 3+aU2oqf6NzQYxgsUbw5YKHoyRgDmJFMP++dNaM4EH/lUSQaKCZKC2tEG
+ oUjSu1EIMO2RbvoFtD3f74F3HJtBvKNe6fPX5jRzwA7zLJAtlt55S74ru Q==;
+X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="178734032"
+Received: from mail-mw2nam10lp2100.outbound.protection.outlook.com (HELO
+ NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.100])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:06 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cs7q/zxv6PF74cOFlS5KtDtClfWW2gv+kDuamguYhHYTNIveVjutUvFYoO///WA3R9oSvOdHha9pZy98gNK3OoZVirC4ShaFc4Mt4V2v3engwF+RaHmgetLNjkaoaf0VRSOcR3m85Zs3hj1UPXHOFWVWfy7LodNpJqvgGDwzRVYtgwSsszASTQd081ZQKLejVSQgWSWEFDRvsBv4wcIczVfBerZ3zc5SmrG/XDsscX56cwTLI4n8Ls1ZyxaLtzoIjmdegScC4LTkkvY7anxRAsvShiQPJ7CvXvtl/Si0+2SBxZ4MKDYC9vscdoLGp59BHnw/M/nHh9f2e65rQyYEpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Mf6W397BRew9EELVUGZ9YLSC1OfSExrKtD+7YgpPVww=;
+ b=lQOmXvMNDGV/yRXa0g4FHXcEb8I3UTZW+fVZFtxGqMxCSmcRYAN2biI1gbsrgcWR3ITAjTdyaG70wH7R7t1+Yiv1vtPgd69jNt3MFKPbvZK8fEyYjF6R+17UwgazfdYcZwfg/HNHEuuJ/yIfzEo74AFGYZRjIT9KoxkOpl7/8jqfW4rXkcQUYab9uTawT+hKQ5nR92W1VLGJgReIk3w+XJfHDjsMkfHMVmQCOtBijMEQ2KaDID2w6P9vBeQgZENnwmQQ1YeLKSV9YBpqzEvCpGET8X9e2IxEfBPeDgUS3Izoa+btRhy7kQEy7O3XhRg5FQwyb9y2tm5SmwzphomURg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Mf6W397BRew9EELVUGZ9YLSC1OfSExrKtD+7YgpPVww=;
+ b=A+qRcnNop+FkqaAo/AkqRZP045Fw/qoN6jNsSqAq2N5m38PcON3Sy5Kwrm8ax3h/5fcrc/TYgiB5Qm63xRv34d9EnpaLl6uqoqFk3orDfeIdXV8CFe1uMu/dMfRQGueSPyy75v2L06cjJKOVykYbXhFIFeZmOFdkXSwuFeCHq7Q=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from SJ0PR04MB7821.namprd04.prod.outlook.com (2603:10b6:a03:3ac::8)
+ by SJ0PR04MB7823.namprd04.prod.outlook.com (2603:10b6:a03:300::17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.17; Mon, 30 Aug
+ 2021 04:18:06 +0000
+Received: from SJ0PR04MB7821.namprd04.prod.outlook.com
+ ([fe80::545a:34f7:53c5:6514]) by SJ0PR04MB7821.namprd04.prod.outlook.com
+ ([fe80::545a:34f7:53c5:6514%8]) with mapi id 15.20.4457.024; Mon, 30 Aug 2021
+ 04:18:06 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Rob Herring <robh+dt@kernel.org>
+Cc: Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Anup Patel <anup.patel@wdc.com>
+Subject: [RFC PATCH v3 03/11] RISC-V: Allow marking IPIs as suitable for
+ remote FENCEs
+Date: Mon, 30 Aug 2021 09:47:21 +0530
+Message-Id: <20210830041729.237252-4-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20210830041729.237252-1-anup.patel@wdc.com>
+References: <20210830041729.237252-1-anup.patel@wdc.com>
+X-ClientProxiedBy: MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:21::12) To SJ0PR04MB7821.namprd04.prod.outlook.com
+ (2603:10b6:a03:3ac::8)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <02601412-6f01-f4e5-699a-e285fc3fdf3a@huawei.com>
-Authentication-Results: smtp48.i.mail.ru;
- auth=pass smtp.auth=cerg2010cerg2010@mail.ru
- smtp.mailfrom=cerg2010cerg2010@mail.ru
-X-7564579A: 646B95376F6C166E
-X-77F55803: 4F1203BC0FB41BD92087353F0EC44DD9C4DAED859F16A63896D62C811FDE4A33182A05F5380850400EE31BA4DA85BC9891809E91445A529A4066006618D1C40D9E25B3326023DA7B
-X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE74FC7AD0AD96C1577EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F7900637829D9538242026C38638F802B75D45FF36EB9D2243A4F8B5A6FCA7DBDB1FC311F39EFFDF887939037866D6147AF826D8BE3992D3DA6F0F9073F11D206F93CADB6F9789CCF6C18C3F8528715B7D10C86878DA827A17800CE77A825AB47F0FC8649FA2833FD35BB23D9E625A9149C048EE33AC447995A7AD186FD1C55BDD38FC3FD2E47CDBA5A96583BD4B6F7A4D31EC0BC014FD901B82EE079FA2833FD35BB23D27C277FBC8AE2E8B5F0C88D684269EDEA471835C12D1D977C4224003CC836476EB9C4185024447017B076A6E789B0E975F5C1EE8F4F765FC702ADF1C0A6F83E73AA81AA40904B5D9CF19DD082D7633A078D18283394535A93AA81AA40904B5D98AA50765F7900637EDDE4FD3F6DF783AD81D268191BDAD3D698AB9A7B718F8C4D1B931868CE1C5781A620F70A64A45A98AA50765F79006372E808ACE2090B5E1725E5C173C3A84C3C5EA940A35A165FF2DBA43225CD8A89F783D6DB41994EC49CE5475246E174218B5C8C57E37DE458BEDA766A37F9254B7
-X-B7AD71C0: AC4F5C86D027EB782CDD5689AFBDA7A213B5FB47DCBC3458834459D11680B505A58435F6B5465CCF6E8D7AE0BB36E769
-X-C1DE0DAB: 0D63561A33F958A5ADA0B25F9C80F90779E9679EB5508820042D3654C38D9FF9D59269BC5F550898D99A6476B3ADF6B47008B74DF8BB9EF7333BD3B22AA88B938A852937E12ACA75438CC92D4039F4E2410CA545F18667F91A7EA1CDA0B5A7A0
-X-C8649E89: 4E36BF7865823D7055A7F0CF078B5EC49A30900B95165D34A63B03BCD35E0C0AF1593815AD0C10A101A327B40812B95BE11397FA7036B6955BEAADA9564F020D1D7E09C32AA3244C7A6454AD43A0A4B997B4CD5B2E18516E24AF4FAF06DA24FD8D5DD81C2BAB7D1D
-X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu530nj6fImhcD4MUrOEAnl0W826KZ9Q+tr5ycPtXkTV4k65bRjmOUUP8cvGozZ33TWg5HZplvhhXbhDGzqmQDTd6OAevLeAnq3Ra9uf7zvY2zzsIhlcp/Y7m53TZgf2aB4JOg4gkr2biojMpcxcuSaa4E1/55aF8zTjw==
-X-Mailru-Sender: B6CA852314BECD1116C83C047D515D65CA45700ABDFD0123026E14154E9EB39DD944A9F887ED1F5C51913ECE9F5D4CE557914126969F3D9578C09B768FF42B7F4F0A872F021F9059A8B6234B51EB8B42EAB4BC95F72C04283CDA0F3B3F5B9367
-X-Mras: Ok
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (122.179.63.14) by
+ MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18 via Frontend
+ Transport; Mon, 30 Aug 2021 04:18:02 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: f8ae5a01-d052-45b7-263b-08d96b6d2acd
+X-MS-TrafficTypeDiagnostic: SJ0PR04MB7823:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <SJ0PR04MB78238F357F6194AA516C57118DCB9@SJ0PR04MB7823.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: mggJEJsD8FliCMVS/+FEgDwv+ABIGz391fZheJW9eZ5cfa47ZL7cKWSkWwszfg24gAzPSNLIsz3oe6Dn4pzNywIrTTLwF77LH+dudyCk1YMOuxWLvAs8z9n+lZrh6T1aq4PQg7VhungG3RdGMP/HNNQKtzgP49O5e+qVzRwVlxNARtgTJ+mFx3T0A9T9poUfp4pLd6rj3qsEq5budgzykVzCh34kalltALf2KDCuDnt38yeJdBFZ5fyo03xgIxnT3XrAxVK3IudDbW4J6X/G8PtsyVx3q1OeoVOmviuPDAQOYQbrWON4U/Gy0focyBy+O6fah9XtSjcKQ/1megjQWdps5B7c4bCGsla3cFhpjpSv7/kj5HVSgjNuLPu4kzirH2XJ9cR+rkZR5/yvsK0WgzJDW82pFAA/STGNEjdAlKKbMdVd5ia+URCrLCvNTZWy4OGbXnV8tSpWkoqNWmL4nHBgxfZBmfdEWDxAgOEHgW8sJejF/xl6OZucVDg03zbvklanAJfgLRTHQ8/PsQKOupfPFz/897MkM3wlHFJMqrFEXgYZp8GLAfCqNtcfXOOhH+S2pwwEVq7wtOg2yIYqSIE3LebOWLwrQJ3IkdmSIaUsf6x3hja4QYwgAqC0sMp03oWy2+CXt/gatOzAU+an/V+ks3uKINvM+JGrwwdugEtvlrZ2RDGtjJYLigDLRM0CcPHXjoBciOMxQKkXMXTXyw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SJ0PR04MB7821.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(136003)(366004)(396003)(39860400002)(376002)(346002)(478600001)(66946007)(26005)(66556008)(2906002)(316002)(8936002)(52116002)(5660300002)(6666004)(55016002)(66476007)(1076003)(44832011)(36756003)(8676002)(956004)(7696005)(2616005)(54906003)(86362001)(7416002)(110136005)(83380400001)(186003)(38100700002)(8886007)(4326008)(38350700002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/xUxnHaoPO6rsX6cKiS/gdf4PPEbCQIuw34vvGNoiRQrhWEVoKPB2exyTB3V?=
+ =?us-ascii?Q?KqJbxqGom3OeurzIGrCCI2RgHqyIMiBauqtJ81WtDmHE7D5ZnvtrUUmQVH+2?=
+ =?us-ascii?Q?FXYqNtt2CINhzYDHrllGTWFjnYmpc4Wwk7JwqEa7N08bIRgSxLD9Y37JGDPY?=
+ =?us-ascii?Q?sqz/g79L+0FZcRa89+QJRYzAlOnUFSmfaQl7NqD5EUXIKO9nnLT78NAXNq2J?=
+ =?us-ascii?Q?DKI9ywhhNjufv7VMGNn75lpHjkvxTGnCLhM1694Xs7US80TpJ6OoQHxljFSE?=
+ =?us-ascii?Q?gXfCAvkcJuL0TqCb9vqtKjcTvsahd+ekvAUn1Ax6Y04EKxMbqxYDiBH3FMov?=
+ =?us-ascii?Q?vak4eIinIG6Nqz5PhJHtiMbM4C7CZhzY6rAaCY+9cmPEknTIf5mluRXR6ssa?=
+ =?us-ascii?Q?A0Qg4sAzBBHO3bVAdYBpUyrfrWocQMZmiznhXb0+C+WHDVSyf5L/sv9EQTmv?=
+ =?us-ascii?Q?fBqvew0p8X9Hglapy9LtXxU2qwglu5vlW8IciBwmu9SPKwBCOwDeQ84x7Mul?=
+ =?us-ascii?Q?Qalrbx34sG7LrUEkxCtJsLsSF66JigD1mRKVslPb/WDR2aN5LjraDF8kmUsI?=
+ =?us-ascii?Q?tUn5ZmnHUxFPmBfYqbfDHx4gJAkXFUe+hTueSrxmr37tGdeR1JlO5S1dtnn9?=
+ =?us-ascii?Q?AOQ7whh76xK9KoAWy/NcKr998kIv9x5EFgvF0KzvHBR2f4saCCae8TBvnpDD?=
+ =?us-ascii?Q?R6R5ggULaLEuAslSnn6girqarfW59p8RsyD5Oj127QceAM4t1dnEddqt3MgB?=
+ =?us-ascii?Q?YBtrx8d77DUmNAGsWyJe/cdYPbuwhI82uaJEO7x42XP4pqgKuQyHKpsZkRjD?=
+ =?us-ascii?Q?0lYp/0jTMfWexQZSHWW8BoFyNsBWdC1U23kFxP2HqP7cgF8RltBzcdc52jkh?=
+ =?us-ascii?Q?xobzZXmSZBmYXh1bF1BajmTTM1fUtkMesS6mM6V3wvNz+CGE/hxSrEqleIMw?=
+ =?us-ascii?Q?CER0BE7cW5/81uuXXTN5jbKto+Rll5maJwzqtcthNwtjb31samMIshT6PYau?=
+ =?us-ascii?Q?p6gCujnZOYvoLF4UHqIqikeAe5vbQpAQyCWnMAYoaqdKYD7/exCm7nxXP+oD?=
+ =?us-ascii?Q?Q8F6jBvfcvQFTl61UKwKOCHmKqXL9jfcfC1PjYrb62MrNu4O+eGiuWwpPeWI?=
+ =?us-ascii?Q?3a1KFL0tmU1kSj83RP48lKk7GYHT1689OCVMFJxGvjeTYFiA0PJiLL67rrGv?=
+ =?us-ascii?Q?iV4OKALhWAyHYebz2gvnPD3aD0yW/vqf3biAirAoyYstrBqGeEeV6ekBGnor?=
+ =?us-ascii?Q?AZXkBblyZArPvNMxrAfMg7dQ+/FqKseb54t9lIGN7kuq+GhaN+BBLN4C6Nb3?=
+ =?us-ascii?Q?oSonRFu/vpQ5pV7xZkXL6r2s?=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8ae5a01-d052-45b7-263b-08d96b6d2acd
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB7821.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:06.7054 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s9b4LtHt29aaCsCUMLnZxF3tNwaAk964Pa5CFa7t0hn2JQZvSM6cshexP47tIYFSP0h+60lsesi2W4LwVv5c4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7823
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210829_031701_676878_4031D00D 
-X-CRM114-Status: GOOD (  31.05  )
+X-CRM114-CacheID: sfid-20210829_211809_622416_039DA037 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,111 +176,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 29, 2021 at 05:59:04PM +0800, Kefeng Wang wrote:
-> Hi Sergey
-> 
-> There is already one fix,
-> 
-> https://patchwork.kernel.org/project/linux-riscv/list/?series=534877
-> 
+To do remote FENCEs (i.e. remote TLB flushes) using IPI calls on
+the RISC-V kernel, we need hardware mechanism to directly inject
+IPI from the RISC-V kernel instead of using SBI calls.
 
-Oh, I missed it. That one looks cleaner. Thanks anyway!
+The upcoming ACLINT [M|S]SWI devices and AIA IMSIC devices allow
+direct IPI injection from the RISC-V kernel. To support this, we
+extend the riscv_ipi_set_virq_range() function so that irqchip
+drivers can mark IPIs as suitable for remote FENCEs.
 
-> On 2021/8/29 17:47, Sergey Larin wrote:
-> > Current vDSO implementation assumes that the code size always fits in
-> > single page, and the data page follows it:
-> > 
-> > 	PROVIDE(_vdso_data = . + PAGE_SIZE);
-> > 
-> > However, this was not the case with my kernel build - the
-> > shared object had the size of 4800 bytes. This, obviously, is more than
-> > 4096 and requires second page for the rest of the data.
-> > 
-> > CLOCK_REALTIME_COARSE clock became broken. It was always returning 0
-> > because vDSO code was reading the second code page, not the
-> > data page. Glibc uses this clock for the time() function.
-> > 
-> > So instead of computing the offset for the data page (it is necessary to
-> > do in runtime - you can't know the size of the binary while you're
-> > building it) simply move it behind the code like the ARM does:
-> > 
-> > 	PROVIDE(_vdso_data = . - PAGE_SIZE);
-> > 
-> > This commit also fixes arch_vma_name for the data page - it was
-> > reporting the same '[vdso]' name for it in my case.
-> > 
-> > Since I don't have the real hardware, the change was debugged with KGDB
-> > in RVVM and also verified in QEMU.
-> > 
-> > Signed-off-by: Sergey Larin <cerg2010cerg2010@mail.ru>
-> > ---
-> >   arch/riscv/kernel/vdso.c          | 22 +++++++++++-----------
-> >   arch/riscv/kernel/vdso/vdso.lds.S |  2 +-
-> >   2 files changed, 12 insertions(+), 12 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-> > index 25a3b8849599..0c49390e9be3 100644
-> > --- a/arch/riscv/kernel/vdso.c
-> > +++ b/arch/riscv/kernel/vdso.c
-> > @@ -44,13 +44,13 @@ static int __init vdso_init(void)
-> >   		return -ENOMEM;
-> >   	}
-> > +	vdso_pagelist[0] = virt_to_page(vdso_data);
-> >   	for (i = 0; i < vdso_pages; i++) {
-> >   		struct page *pg;
-> >   		pg = virt_to_page(vdso_start + (i << PAGE_SHIFT));
-> > -		vdso_pagelist[i] = pg;
-> > +		vdso_pagelist[i + 1] = pg;
-> >   	}
-> > -	vdso_pagelist[i] = virt_to_page(vdso_data);
-> >   	return 0;
-> >   }
-> > @@ -77,21 +77,21 @@ int arch_setup_additional_pages(struct linux_binprm *bprm,
-> >   	 * install_special_mapping or the perf counter mmap tracking code
-> >   	 * will fail to recognise it as a vDSO (since arch_vma_name fails).
-> >   	 */
-> > -	mm->context.vdso = (void *)vdso_base;
-> > +	mm->context.vdso = (void *)vdso_base + PAGE_SIZE;
-> > -	ret =
-> > -	   install_special_mapping(mm, vdso_base, vdso_pages << PAGE_SHIFT,
-> > -		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
-> > -		vdso_pagelist);
-> > +	ret = install_special_mapping(mm, vdso_base, PAGE_SIZE,
-> > +		(VM_READ | VM_MAYREAD), &vdso_pagelist[0]);
-> >   	if (unlikely(ret)) {
-> >   		mm->context.vdso = NULL;
-> >   		goto end;
-> >   	}
-> > -	vdso_base += (vdso_pages << PAGE_SHIFT);
-> > -	ret = install_special_mapping(mm, vdso_base, PAGE_SIZE,
-> > -		(VM_READ | VM_MAYREAD), &vdso_pagelist[vdso_pages]);
-> > +	vdso_base += PAGE_SIZE;
-> > +	ret =
-> > +	   install_special_mapping(mm, vdso_base, vdso_pages << PAGE_SHIFT,
-> > +		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
-> > +		&vdso_pagelist[1]);
-> >   	if (unlikely(ret))
-> >   		mm->context.vdso = NULL;
-> > @@ -105,7 +105,7 @@ const char *arch_vma_name(struct vm_area_struct *vma)
-> >   	if (vma->vm_mm && (vma->vm_start == (long)vma->vm_mm->context.vdso))
-> >   		return "[vdso]";
-> >   	if (vma->vm_mm && (vma->vm_start ==
-> > -			   (long)vma->vm_mm->context.vdso + PAGE_SIZE))
-> > +			   (long)vma->vm_mm->context.vdso - PAGE_SIZE))
-> >   		return "[vdso_data]";
-> >   	return NULL;
-> >   }
-> > diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-> > index e6f558bca71b..fd8a31075256 100644
-> > --- a/arch/riscv/kernel/vdso/vdso.lds.S
-> > +++ b/arch/riscv/kernel/vdso/vdso.lds.S
-> > @@ -8,7 +8,7 @@ OUTPUT_ARCH(riscv)
-> >   SECTIONS
-> >   {
-> > -	PROVIDE(_vdso_data = . + PAGE_SIZE);
-> > +	PROVIDE(_vdso_data = . - PAGE_SIZE);
-> >   	. = SIZEOF_HEADERS;
-> >   	.hash		: { *(.hash) }			:text
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+---
+ arch/riscv/include/asm/smp.h | 18 ++++++++++++++++--
+ arch/riscv/kernel/sbi-ipi.c  |  2 +-
+ arch/riscv/kernel/smp.c      |  9 ++++++++-
+ 3 files changed, 25 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index 6bdaab122ffa..f4856c911335 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -16,6 +16,9 @@ struct seq_file;
+ extern unsigned long boot_cpu_hartid;
+ 
+ #ifdef CONFIG_SMP
++
++#include <linux/jump_label.h>
++
+ /*
+  * Mapping between linux logical cpu index and hartid.
+  */
+@@ -47,7 +50,12 @@ void riscv_ipi_disable(void);
+ void riscv_ipi_setup(void);
+ 
+ /* Set the IPI interrupt numbers for arch (called by irqchip drivers) */
+-void riscv_ipi_set_virq_range(int virq, int nr_irqs);
++void riscv_ipi_set_virq_range(int virq, int nr_irqs, bool use_for_rfence);
++
++/* Check if we can use IPIs for remote FENCEs */
++DECLARE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
++#define riscv_use_ipi_for_rfence() \
++	static_branch_unlikely(&riscv_ipi_for_rfence)
+ 
+ /* Secondary hart entry */
+ asmlinkage void smp_callin(void);
+@@ -102,10 +110,16 @@ static inline void riscv_ipi_setup(void)
+ {
+ }
+ 
+-static inline void riscv_ipi_set_virq_range(int virq, int nr)
++static inline void riscv_ipi_set_virq_range(int virq, int nr,
++					    bool use_for_rfence)
+ {
+ }
+ 
++static inline bool riscv_use_ipi_for_rfence(void)
++{
++	return false;
++}
++
+ #endif /* CONFIG_SMP */
+ 
+ #if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
+diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
+index dc284ad3551c..c65daf50ff1f 100644
+--- a/arch/riscv/kernel/sbi-ipi.c
++++ b/arch/riscv/kernel/sbi-ipi.c
+@@ -149,7 +149,7 @@ static int __init sbi_ipi_set_virq(void)
+ 		return -ENOMEM;
+ 	}
+ 
+-	riscv_ipi_set_virq_range(virq, BITS_PER_LONG);
++	riscv_ipi_set_virq_range(virq, BITS_PER_LONG, false);
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 6c9873b7d60e..a8ce7a0556ab 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -183,7 +183,10 @@ void riscv_ipi_setup(void)
+ 	riscv_ipi_enable();
+ }
+ 
+-void riscv_ipi_set_virq_range(int virq, int nr)
++DEFINE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
++EXPORT_SYMBOL_GPL(riscv_ipi_for_rfence);
++
++void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence)
+ {
+ 	if (WARN_ON(ipi_virq_base))
+ 		return;
+@@ -191,6 +194,10 @@ void riscv_ipi_set_virq_range(int virq, int nr)
+ 	WARN_ON(nr < IPI_MAX);
+ 	nr_ipi = min(nr, IPI_MAX);
+ 	ipi_virq_base = virq;
++	if (use_for_rfence)
++		static_branch_enable(&riscv_ipi_for_rfence);
++	else
++		static_branch_disable(&riscv_ipi_for_rfence);
+ }
+ EXPORT_SYMBOL_GPL(riscv_ipi_set_virq_range);
+ 
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
