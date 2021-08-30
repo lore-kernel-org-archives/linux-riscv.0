@@ -2,20 +2,20 @@ Return-Path: <SRS0=zS8+=NV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 792BDC25AE9
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EA8E8C19F37
 	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4BBC960F5C
+	by mail.kernel.org (Postfix) with ESMTPS id B663360F8F
 	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4BBC960F5C
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B663360F8F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,61 +24,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VY8OoZAbjidrnhLJhCG65D4rmXciUUwDdkxTXX4zxZU=; b=xMemJiGkyz7VFI
-	rnC1brtEjSjP7iG4VHKg6CZYFR59ykpZyjKCMsadBrPGlr7tBB53mRVWO48+1ZPMD5XsbblyveEaz
-	0NF3pmf6TDRbXz3ZzwibBLSdQG0BdOEwrVBnSQN7DV6wPn5Ao7MylK8a/D+Zxk/XEpQdZSGJFBn6L
-	XrLM//yL7VeDGfcpDI0XKf9duy1l3hbxynrTUt7vklM7XVPGzvPU37JkOHbDyWnYqnQepNeK3XRxe
-	Q705/3JlKWuTsEFoesson6r8tFaUwDMddMOOFFhlV2jVXvk3FPGDKWcktyBE4rlk+Zc16e8xU4mc1
-	ayKPHyELjJqJ8thWzQSA==;
+	List-Owner; bh=ic4FqOceM9dHA4r6cS3KHVnwErwzdt54BFA+L1YrlqQ=; b=jMStzSuCdxb/F0
+	4wZ3vI8t6vvrCYcug1ycZwscz6ORLAH2NYrcTojPt2GWzDy8wdNYv7H5IpoDOWxQvYmcKQ6IXroFm
+	KSVdrpkeLUO23saKWvIMuTIGX/6XaPrRpkS7X4tiR45vAGvYo7AKutceBJRINtNMcHQUUAnOmTAvc
+	bd+wFWtmXL7xymtRnrI5INIWjpheXC6vPFznaLWYd9pL8nTsIS6jJsoOgYpG9nApiGkjsP4DCEfMC
+	DDy0kqGYHTkSQfiF687CxJXPIeKEusoRI1cPEQjF2N8Kh4n5fCBHMuWAs3+PAGTuQ6dlVgWBJxKeg
+	MXZj1uVSa8Amx/64UTGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mKYkb-00GOSk-64; Mon, 30 Aug 2021 04:18:25 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1mKYkf-00GOU9-01; Mon, 30 Aug 2021 04:18:29 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mKYkW-00GOQq-6k
- for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:23 +0000
+ id 1mKYka-00GORj-7k
+ for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1630297100; x=1661833100;
+ t=1630297104; x=1661833104;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=M+d6WuhqdtGbJNlIOlqoTJqcoUdAtvCI2JyYrvh6f0Q=;
- b=Ga90qmsKOHe6SeCcpwjamyVvisS/n0/YB/Z//CDZPjvxdwBeT2mBb7qU
- R+/q/K2a3G/GHRkieq5asRNrbXyRcMlt9Ru+Um2RUC2kf7RNnpE6//N9m
- 8KDEmbUKzpZ7cgFELVjeiMGIc7teJm6vKm1vB39Cl182on2Y8NOK2xVsi
- SAskVxX6IH12fpwNxFuk6SHkgbcqArTqTM6p4nado3zBKHLWHIGdyQfGl
- DM5rfgFOkuLtcRAswNbhWv9GD3rFBnwa8eNqvXpCOy/qnjzX5LVc44JsG
- dFMz1C+++FG8Ch0sm13d4PwB7r48CglVK80lpe1e7aygZM5QNnDQuPic8 g==;
-X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="179285373"
-Received: from mail-bn7nam10lp2103.outbound.protection.outlook.com (HELO
- NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.103])
- by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:18 +0800
+ bh=C9/elSbr5yehmxx7fr0kbidIpXGbyfdwnuv+2zhvAaQ=;
+ b=RWoltD21KUaIFqPgRJ/mj5DPjb9wWBCd0/WQl4dRx3+7vWqbeVyotPBf
+ ZGvVbOHYVixxStjR91ZhhBPD9KSe8JYuQDSRmyp9MsUU0Mhf+49uXE8tZ
+ tMgF/Y9lHy/PT1guQryJdMlORUJm7RyiL2nVl060sjEh+Sn5So3yeUkOs
+ x5gQ4bH3CfrYYhzZGFnnZoQTkTEwoxwHUOaMhm+0JFNGFTLKPi3FtOjMS
+ vhiwtVJO1Z6fiSgqQ5paxCdnyILPVy9SIRZUg/HbsAQSNvUuxMGFrapLY
+ lUkYplTpTbidcVcFI6HHyTexI0voLxLnR/PhgoBezknnfWu6EV4ro5oyJ g==;
+X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="177841324"
+Received: from mail-bn8nam12lp2172.outbound.protection.outlook.com (HELO
+ NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.172])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:18:20 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TAQGrTTTCAkfCMlC9opSYaEOkA94IkZQ3/BBBrm7tBQj3FQcm0cVtVcQ59alUwQtmM61Du2+AARieMRljgNcinUHR/pcdBN+zocLUgBylMu6odPDkEnFLDuAFOIl55B2pBBj/d76E18amTCgmxvXVkmaiZWxUViSlTOx8inetC+mOR17KcFYmZ6gf8CSZAzo/A/ZfTtHCq/mkjW9yfEZsuM08RpFPhl/wGypkr1/0AnXwg/NEn21F5VBBoMOQcH/Mu7ZMwOEo6G28uLXLWfOqbejUdt3LVgZwVrECVjDWhWiPQLcmtsn1QduB1MO8WanX22TSjYknzBc+HyyL1yuzQ==
+ b=TOJv7T8E/s9LDUY1/333Oe1OX5QtySHnvKvWHga9xRfBptGF1LwrtlYOlxihDH+ccgBbA0FTVwSWOksrcaWWN14Nbud1A4A6kdNH9qevyJEJIZHRWojt9wuakst/qAc3tQDPGQQyVvE7pc3RnG1QYSH6SSg6hafl/NIoXiENjOm/gYI0z5WxwTzkktGUtO5YRjaytil6BP7sJZd+PFN2ZOztxJlhtwjlddI1odrup4UN6aOHgkan0fPp9Vn8dpUeizTM85roa/GrGrpWxm6V2ZqD3DRQ2h+IaynmDFJoKG1TvaAP0rFI8rwnMTEVV2yIbk0FRvUO08gS78ysqB8xAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sNo5Z4uBCY/aL7hdgAW7RN1Sc7UnI7LX5yYKW5Kyg+c=;
- b=ehEE9RqIl69fKhCoZup5V+gT3d0VQRDO/YI7ohnL6OXMKCjREvSv0ZlrN4b/qVCIPk64B66QdTWjX4XwiI9MfNSoUWdMqWuNGpwwVGd7FjfAY+eI0dLh4oY2lma3sCzEWDLgGnZXXuu0ZV+DsDqb3LZVDpzdNhtMaGScoFTJRBEMGw+92K4ily4OF15pBhpuFBM/ppkXd7rgif+CfNphKQOCRbAvoDxUtMsQ+jFWP+V35euUFwjcfhKBv0EyQnK40LqfP+YnCq9s8hS6fYbWXIMZ9S4AWfzE2BY76j0VVAV3HgJRwEzYeGug5oG5qcOUOFq894x1oDWiQq7Hq1uAtA==
+ bh=MRy5w8eBGhfSZgy6uQ9PYs00ukcfzSjzb5Mo08PuMjE=;
+ b=ZBFb9+JrWZ8nXt9cwwTYTJ9wU9l07DB7HrpcA6q0Jc7ZF0SYrAwCH2vqPBO5/QWtZONzGGtJUYt7IEZiscwVkNvbwDsDPktv9lCVFN/lWtoKU5gaFURO47yomhHsGQc8JX/AEJ+M97wXDG0eFbWpBoKJRvL0egXn1QHmqHMBA1MIaIlMcJqIx5+AierpzE5vNPVbt3snMUyLFdfjMGqxKx518DHK890v+9io51puSdK08nGMnXMMeynflNED95ngGRY6MZgOodnH5nDq07BCQ8U+vouPgNDJG/V6DvRtxSXQLO7g0737dF+v8gGV09H1GyhPhySVazqacBe123SPMw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sNo5Z4uBCY/aL7hdgAW7RN1Sc7UnI7LX5yYKW5Kyg+c=;
- b=tfXd5ja3mLas51hWFd8pdrmDeYDtZYyl7UeUVGYIiTHViqFny0zKwaCMd6p8OThF92x2BTAaaZHEG5BEeAe4L1wVLvAeA4YuZDjf6bT8yLUVcsseETIsLv5izQPAsbLUy2edih/RgYHCHNnIe7jEXjboRVV7iKgkjau3e3caBO8=
+ bh=MRy5w8eBGhfSZgy6uQ9PYs00ukcfzSjzb5Mo08PuMjE=;
+ b=KZPCuwGVfnnQmLxD4/EC4MBoiyZ9CzLnqK/UeyX/gQMfWteGiEQovHyaNz5Am0cNfM8o8pDoBWfHJGgAG9yTPJZW+R3DHAtzM/0Z8voF5dkegTutInjr/01cOhylaGgtm/YNIBl9tZtJI7D7BD/JVquT+42ecMEkWC/dhArY6+A=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com (2603:10b6:a03:3ac::8)
- by SJ0PR04MB8273.namprd04.prod.outlook.com (2603:10b6:a03:3e4::15)
+ by SJ0PR04MB7870.namprd04.prod.outlook.com (2603:10b6:a03:37e::15)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.23; Mon, 30 Aug
- 2021 04:18:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18; Mon, 30 Aug
+ 2021 04:18:19 +0000
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514]) by SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514%8]) with mapi id 15.20.4457.024; Mon, 30 Aug 2021
- 04:18:15 +0000
+ 04:18:19 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -90,11 +90,11 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
-Subject: [RFC PATCH v3 05/11] dt-bindings: interrupt-controller: Add ACLINT
- MSWI and SSWI bindings
-Date: Mon, 30 Aug 2021 09:47:23 +0530
-Message-Id: <20210830041729.237252-6-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>
+Subject: [RFC PATCH v3 06/11] dt-bindings: timer: Update SiFive CLINT bindings
+ for IPI support
+Date: Mon, 30 Aug 2021 09:47:24 +0530
+Message-Id: <20210830041729.237252-7-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210830041729.237252-1-anup.patel@wdc.com>
 References: <20210830041729.237252-1-anup.patel@wdc.com>
@@ -107,59 +107,59 @@ Received: from wdc.com (122.179.63.14) by
  MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18 via Frontend
- Transport; Mon, 30 Aug 2021 04:18:11 +0000
+ Transport; Mon, 30 Aug 2021 04:18:15 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: d07f3c08-3338-4d49-d492-08d96b6d2fec
-X-MS-TrafficTypeDiagnostic: SJ0PR04MB8273:
+X-MS-Office365-Filtering-Correlation-Id: e7b9bd03-85e4-4786-a1ee-08d96b6d3279
+X-MS-TrafficTypeDiagnostic: SJ0PR04MB7870:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <SJ0PR04MB82737411FF185618FFFABB728DCB9@SJ0PR04MB8273.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <SJ0PR04MB7870AF79873234FEE646532A8DCB9@SJ0PR04MB7870.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
+X-MS-Oob-TLC-OOBClassifiers: OLM:3513;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: QMD+hUWtURVnIRDqMaqZKnE6wsMoGKVHqPmslMHEhcYMFIBmNyTp94Edy24RqM0IBEKf65lGEamecyJoUkiBgr1u7KqORpceDaLQgFmY6SxPahhQav+ygS3dCavxIXVKlPiHKjs517blSOcN5hGE9R+Ljxi4jmYcoB4tAUd2p4hivKtefHQlVHWBd1q/NBGYKsS79j5eJrCwABZ1n3EQgnmIyBLRs5C6XLYg9/ORYbctXCCy9hsa+o6GJri3QWORWVZMnf9w1FqGxWWcPLmLfOJvn02rJM2JUt7UeO/ZJfe8YzWolcnu6go1dc8KpgGbRcjM2CpakTBz0lLdCcBfRKdBUY6LnBe42URYRVEOCgBgJV361AkoS5PdT3FbrfBWorrG2kUxDjNB4gfvgMLzmraXRFcyXmIQ5JiGhPd1VtCKIY6h3kQoXmzYzTYSLV85Xnqw+x39u/jsCucDhoknWXkuZLG+zWZGx7PVGK/RumICcbmw/PNTIsRnPqIJjazHkLvIt/egsjOpPgg/z+2kL7+KCJSoV+L/ngibqJVF/Ts1H/ORd5mqJDoPwq87CsvXgdOl7JbnTOaKdIwN6eSZBvVETIGEe8ozxjjqI1fzJ8uLji21/bwqRMUnpnggTDSOUrLd7uPveK/XxfeZO9Aj87PnxD1Y1ljvzcE111WxiIOwtTbRoKMhdPiSjWei69z5PZ8Ah0ogY0Cub8fHPzTUHziMecPHmWIbWzCM3zs2ymczKSCf7C7m+2mkIUr4cQit5cLAiEiddVbAIGJYh+BSEdV2dvme6Wi3WS+p+cB66reiBLZiIbddsRfqEUFNHVRp
+X-Microsoft-Antispam-Message-Info: IAgKJ7wU4VlmmdHmct2SZ4ilH8/6didw6qyPTWNiidaKVSWKZI+IJ8Z25KzFemD2uTnRqptZ78uJE7X82rj0in5cG0/rAHxOJxJfmsqxwE+ROofDClRxbQLDMQd709txau3IGhAe+aD8he+LYSi7ZqjkKX+0xzNU/5FawvX8U/BU1jwhmHM8MXhdpL5o9pOuEp6BekBqCEAfXguBffnUjBOOygxq3s4fxZVhDdnZB62QMclp+rf1p4raxHjo+TfEJJ5KVo0L7kgbxC+8byX1wj3c5RbbRliHhSE2d1u3fH/07bjunYukFa2OHDdMm0dXyqpZj5fwHLHacH+mwcnk61NBjLnwuKDalQe7Xtuh2MCDwgZeDRRMWWvMyr9emwlqTXC1bSnxHewFLfIi1RFW9A4wBCOVIlw4iVmKf9xVdidI046EyMi3n0loDMSOkcOFhTj4uljoRNQOIxReisHppmttWO2yAByzdMFj60DGv49IoMEduRyo2zDYAs+LNuUPR+LajYXMBV0OhL6p6mLAqSNvbYEWp8ZkJyQXJB/dh2rQRSlR0CIkomfSSr/2R1qshb7sJGlfwh4b/Afc9vF3nXSvVgGJjXrurvpEfwos7nh8YL659twuRObMNoD9hZzF/NqMAubqkbDok1bhQcwRgXnLKRdEnpyvFCnSMzLtEsnX9QESJOIezF1Mkrt1q18eqQV9y5Ecibti4z2H2M5hnYVeIoZpseeV5EF1yO2Kr3o=
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR04MB7821.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(376002)(136003)(346002)(396003)(366004)(2616005)(6666004)(966005)(186003)(110136005)(86362001)(316002)(66476007)(66556008)(956004)(26005)(54906003)(7416002)(36756003)(8886007)(66946007)(1076003)(44832011)(55016002)(4326008)(5660300002)(478600001)(8676002)(8936002)(38100700002)(52116002)(7696005)(2906002)(38350700002)(473944003);
+ SFS:(6029001)(4636009)(39860400002)(376002)(346002)(396003)(366004)(136003)(55016002)(110136005)(66556008)(66476007)(54906003)(8936002)(7696005)(52116002)(956004)(316002)(66946007)(2616005)(44832011)(8676002)(6666004)(2906002)(8886007)(83380400001)(5660300002)(186003)(86362001)(478600001)(7416002)(4326008)(38350700002)(38100700002)(26005)(36756003)(1076003)(473944003);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fBy0vkYC8nxGf6DltTPgnSXaMOdDvfskMrGdYeNuADS94fVdZ3ILIOk0iU1A?=
- =?us-ascii?Q?5908UaJMtTzRsHEHNYIP9FTUnLEHPFxKAO7tCaGJT5exFi/gBFC4sJPJXAHI?=
- =?us-ascii?Q?JDV8T0E91uD+cdlQukSuweHFjXC4jcK5LnjPcjbVhKWXcnCTi6Z/cTnIFP+h?=
- =?us-ascii?Q?+k+4DNjaPRs6ZueDCPZdQlz1ehxpmziqsUBE8FQO2LSm6ZeXi4ABmMUAwsX/?=
- =?us-ascii?Q?5e4xjMmhhet3C2aziR3w+D80P570AJ7F7/cox8VMXop4PddUwNn9LmNOSBpB?=
- =?us-ascii?Q?RziUmuCzRcadbayagyBpcdxyakQWxBRf9ei+W+mx4FCi1lnbngB4ExzC7dlB?=
- =?us-ascii?Q?DMdaVdDnfHW8SEMa2B2iypAs9b9ejBL1q52dlNlLFq0X//4lQdaJ+2JPuA6G?=
- =?us-ascii?Q?PViJNFIUwP8NDoPIe1wcBSv52PqvNu1BawiAfglGNgfBZROCw3nZnoJFYktB?=
- =?us-ascii?Q?ELp8kgnQgl/vU7hl27y/Yhothz0WB3G1K9lEj22JINUgqrjYIRvMRTuhYNv0?=
- =?us-ascii?Q?cDvBjZiw1XAX/tYLm8GKhwaBNTHKzUprCuw8xWyDjSW2gQIUjaPoAWL+KBiE?=
- =?us-ascii?Q?AQOxS/bkrNk6l7re+12hyxn+AQKtgwf/GnmBoCcuslvMAFebOvSgEXFhCmH3?=
- =?us-ascii?Q?hsPECpnG1mnqQwT937Qi8++9af/pHZxqtVNWGcsulaBoKWUtbP72rbBtHutC?=
- =?us-ascii?Q?l+7rvZzARA0AvU4nu1RLvnTgrD1KOkuwDJBQ4IqeTSisd3kom/krX28VQWCU?=
- =?us-ascii?Q?hbwp5VO/UF1EaB6NdTw8ITME4Fjx5HTLj4B1+Y2LxywvfuShmATlcVlRLhIq?=
- =?us-ascii?Q?jpB5kdS3xxM+Qyqju36UBqx4QZa2Qno23Tlm0tUp4/ebHZyEf1XKFqAFzAg3?=
- =?us-ascii?Q?709tWXrIQN/18aw16wy/LzRZYXlYgL+EKT9qpNs3UDlAz6xKsn7D88NxXD22?=
- =?us-ascii?Q?D6SelEyDcPRsbWtfdvAUQUzPfxtBX52fFx4ZT5mUD4YvKPug6tYA17SmNhMO?=
- =?us-ascii?Q?JunFAmgTpN6lY240zpIZJl7+UITswBFaLxnm/9HJlEfdinlDYeCB1ZvS6TCA?=
- =?us-ascii?Q?zBl/vX5zLdHfqoPE+mO+520BH/EzmmU56fRIAADJcNRjYd8zj2x3HNr2XAHF?=
- =?us-ascii?Q?kWR/QsEA1rXWKaJqNQykoXF2lU/WZlrOAwUD2FV2X0kR4wzTTznypgIeVN0H?=
- =?us-ascii?Q?rvTx3WvSYOxat+cJPL/twzdxV8dNLbLmJcHyMW5hNJRz32elDEH+W16aHB6D?=
- =?us-ascii?Q?7U2dVtDd1RuIzdZqhIS3Ilm20AypSsmtn8kgPvrdDk6TfSd4rgk+xXzb1byE?=
- =?us-ascii?Q?mDM/Jh1Yyz5ey8Z1tE9EIXtu?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aIkr+qo01DZPhMi3IKpD1uoZtSSbnepa4vqpQctoEVHuLs1eUbQPGAmDvyPE?=
+ =?us-ascii?Q?D9Wga/OKpNqCG4mEo5e1s3TZdW9GrFT8+R/4uh4+RlshiBChpSu4RQ843rUF?=
+ =?us-ascii?Q?TU4nOLT6+wjNkK+RA7pDR7UdktUTRRRCnu+PkGgSoyrsv7SMJxCSJfB7wbpV?=
+ =?us-ascii?Q?dLp6Hd8llU0N3Yoyh5dl078QOtLFxPKuxFx0OoKTS7+2Szd6QEBdkoryLceC?=
+ =?us-ascii?Q?rSIslMV88jOoT3xjT2Ujnt0emflh/oh7MRNQEeaMt29oPO4ux+71gdVUfTH0?=
+ =?us-ascii?Q?JYK4I8FRTsL0SaeY4wTrSz+sYK+fV53tCg/cTtSVF4fNI+YS07OnoWihJ19m?=
+ =?us-ascii?Q?G4WiOyMlq3h2Ts9Bc6IH6JXB9/XAf/2LNaJGAEZfTVmhITYnoceN+C8qr9ma?=
+ =?us-ascii?Q?l4KofxyRfDukvIz4GS0FqOD3aErzDsf99udSfMmtGfKAerpZ1+9RirPSejwx?=
+ =?us-ascii?Q?596c6f/etnCGiWlqcR8Gi8aFHKtkR9aHuVt7ftauADOQHTpG01EP+5tc9jox?=
+ =?us-ascii?Q?VM2QTsFaPggRs2sVdO0Ur9qvROHUd3x7Lq/bB1MelLgyWXDGXBTTDe5ByuIO?=
+ =?us-ascii?Q?UlIIbQxzrz3LbRdnXYnSfOip3PZOkxkTObeozj+Vh6glY9yJuIxNHx2/R5l0?=
+ =?us-ascii?Q?uN4smlQpdbkM54fMU8qghLgtIcVbqyYde4ovPmPGbiHOcC55MHPficBLVQ/l?=
+ =?us-ascii?Q?ZSiBHX1893gyGytgEpaui2n2QtVTNN5jAc+Gso1vNKX2gKxDOR1uLZiEYJHJ?=
+ =?us-ascii?Q?E26s1HkIWhgnxbylVFhcExZYD845E7vrEwIMUY/2fEjMnjv6rl7Tk0FQiNre?=
+ =?us-ascii?Q?Ugywy+6ZVDLDSUrm6+Fb0u8h/1x62FXPfvzZXH5FWRCW7yenbZk2M5tk0oky?=
+ =?us-ascii?Q?bsexPxx2gJRoykQ6KXFl1BokZoHS0oQ1jKvjBbmjr5Lm9BotuOFI+JdVoNuH?=
+ =?us-ascii?Q?yH5Ao5icm+RRpCz1PD4CgqE9JDKsV7Bjup6DuM1Onvm5H0ZPFS+MzgvGst5d?=
+ =?us-ascii?Q?aH6mevLWYMKcvdAw2gO1Q/qPi1RMcR41U+AkUS4ifCRlr1dBEZS2ltsg9elG?=
+ =?us-ascii?Q?pOFDkmW4xm386uPUzwSRLRrpcHXmoSVfQEfRqrkn77V2XLQxam/PkZmXVTZK?=
+ =?us-ascii?Q?33EIkEunjmdjfLL/zEWGuKvKwPL+bhPQF+HAR2fvQfx2dC2OD+g0lZSEbIYJ?=
+ =?us-ascii?Q?ZswiHzRXygHmvEFVs2FKMKHPMHkZPEVw5bj7zZ33smkDGpbG2g9X8OOOOEds?=
+ =?us-ascii?Q?uZeQ6zNWSSJUFlLw0Q9+/1dWY7mleAX6m/eOwthsF8N34CqPd9bSFqi806Ct?=
+ =?us-ascii?Q?QQCxSOkvf0jwmZZmkZh/2z55?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d07f3c08-3338-4d49-d492-08d96b6d2fec
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7b9bd03-85e4-4786-a1ee-08d96b6d3279
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB7821.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:15.2638 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:18:19.5380 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wpwXnTC65TTXPBPa4CqnwDoikJOxELaBSotBkXKGiDCmlrgaFPBdsUMtille9k+NoNpOh+B6Ec7NSki/+PeZTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB8273
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9AgkEjRa9J5qdJiLGarNYsgnygSbDaMGImKtKQO0uVUzZEMYOZJlOPuI+evPdN7RjBYCK732m18L44ZemlrzGg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7870
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210829_211820_353727_5EDC9A81 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20210829_211824_384144_AF63D798 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,117 +176,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add DT bindings documentation for the ACLINT MSWI and SSWI
-devices found on RISC-V SOCs.
+The Linux RISC-V now treats IPIs as regular per-CPU IRQs. This means
+we have to create a IPI interrupt domain to use CLINT IPI functionality
+hence requiring a "interrupt-controller" and "#interrupt-cells" DT
+property in CLINT DT nodes.
+
+Impact of this CLINT DT bindings change only affects Linux RISC-V
+NoMMU kernel and has no effect of existing M-mode runtime firmwares
+(i.e. OpenSBI).
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
-Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 ---
- .../riscv,aclint-swi.yaml                     | 95 +++++++++++++++++++
- 1 file changed, 95 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
+ .../bindings/timer/sifive,clint.yaml          | 20 ++++++++++++++-----
+ arch/riscv/boot/dts/canaan/k210.dtsi          |  2 ++
+ .../boot/dts/microchip/microchip-mpfs.dtsi    |  2 ++
+ 3 files changed, 19 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
-new file mode 100644
-index 000000000000..68563259ae24
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
-@@ -0,0 +1,95 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/riscv,aclint-swi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V ACLINT Software Interrupt Devices
-+
-+maintainers:
-+  - Anup Patel <anup.patel@wdc.com>
-+
-+description:
-+  RISC-V SOCs include an implementation of the M-level software interrupt
-+  (MSWI) device and the S-level software interrupt (SSWI) device defined
-+  in the RISC-V Advanced Core Local Interruptor (ACLINT) specification.
-+
-+  The ACLINT MSWI and SSWI devices are documented in the RISC-V ACLINT
-+  specification located at
-+  https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc.
-+
-+  The ACLINT MSWI and SSWI devices directly connect to the M-level and
-+  S-level software interrupt lines of various HARTs (or CPUs) respectively
-+  so the RISC-V per-HART (or per-CPU) local interrupt controller is the
-+  parent interrupt controller for the ACLINT MSWI and SSWI devices.
-+
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+        - enum:
-+          - riscv,aclint-mswi
-+
-+      - items:
-+        - enum:
-+          - riscv,aclint-sswi
-+
-+    description:
-+      For ACLINT MSWI devices, it should be "riscv,aclint-mswi" OR
-+      "<vendor>,<chip>-aclint-mswi".
-+      For ACLINT SSWI devices, it should be "riscv,aclint-sswi" OR
-+      "<vendor>,<chip>-aclint-sswi".
-+
-+  reg:
-+    maxItems: 1
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index a35952f48742..9c8ef9f4094f 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -43,6 +43,12 @@ properties:
+ 
+   interrupts-extended:
+     minItems: 1
++    maxItems: 4095
 +
 +  "#interrupt-cells":
 +    const: 0
 +
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 4095
-+
 +  interrupt-controller: true
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts-extended
+ 
+ additionalProperties: false
+ 
+@@ -50,15 +56,19 @@ required:
+   - compatible
+   - reg
+   - interrupts-extended
 +  - interrupt-controller
 +  - "#interrupt-cells"
-+
-+examples:
-+  - |
-+    // Example 1 (RISC-V MSWI device used by Linux RISC-V NoMMU kernel):
-+
-+    interrupt-controller@2000000 {
-+      compatible = "riscv,aclint-mswi";
-+      interrupts-extended = <&cpu1intc 3>,
-+                            <&cpu2intc 3>,
-+                            <&cpu3intc 3>,
-+                            <&cpu4intc 3>;
-+      reg = <0x2000000 0x4000>;
+ 
+ examples:
+   - |
+     timer@2000000 {
+       compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+-      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
+-                             &cpu2intc 3 &cpu2intc 7
+-                             &cpu3intc 3 &cpu3intc 7
+-                             &cpu4intc 3 &cpu4intc 7>;
+-       reg = <0x2000000 0x10000>;
++      interrupts-extended = <&cpu1intc 3>, <&cpu1intc 7>,
++                            <&cpu2intc 3>, <&cpu2intc 7>,
++                            <&cpu3intc 3>, <&cpu3intc 7>,
++                            <&cpu4intc 3>, <&cpu4intc 7>;
++      reg = <0x2000000 0x10000>;
 +      interrupt-controller;
 +      #interrupt-cells = <0>;
-+    };
-+
-+  - |
-+    // Example 2 (RISC-V SSWI device used by Linux RISC-V MMU kernel):
-+
-+    interrupt-controller@2100000 {
-+      compatible = "riscv,aclint-sswi";
-+      interrupts-extended = <&cpu1intc 1>,
-+                            <&cpu2intc 1>,
-+                            <&cpu3intc 1>,
-+                            <&cpu4intc 1>;
-+      reg = <0x2100000 0x4000>;
-+      interrupt-controller;
-+      #interrupt-cells = <0>;
-+    };
-+...
+     };
+ ...
+diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
+index 5e8ca8142482..67dcda1efadb 100644
+--- a/arch/riscv/boot/dts/canaan/k210.dtsi
++++ b/arch/riscv/boot/dts/canaan/k210.dtsi
+@@ -105,6 +105,8 @@ clint0: timer@2000000 {
+ 			reg = <0x2000000 0xC000>;
+ 			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+ 					      &cpu1_intc 3 &cpu1_intc 7>;
++			#interrupt-cells = <0>;
++			interrupt-controller;
+ 		};
+ 
+ 		plic0: interrupt-controller@c000000 {
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index b9819570a7d1..67fb41439f20 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -168,6 +168,8 @@ &cpu1_intc 3 &cpu1_intc 7
+ 						&cpu2_intc 3 &cpu2_intc 7
+ 						&cpu3_intc 3 &cpu3_intc 7
+ 						&cpu4_intc 3 &cpu4_intc 7>;
++			#interrupt-cells = <0>;
++			interrupt-controller;
+ 		};
+ 
+ 		plic: interrupt-controller@c000000 {
 -- 
 2.25.1
 
