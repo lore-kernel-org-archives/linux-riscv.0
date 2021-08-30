@@ -3,82 +3,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0AB39C4320E
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90821C43214
 	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B8CCD60F5C
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B8CCD60F5C
+	by mail.kernel.org (Postfix) with ESMTPS id 59A4A60F5C
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Aug 2021 04:18:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 59A4A60F5C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zvCPbX9d1s/XosSp46+zbQxOdVgSIsrtzCX3Pz7YWiA=; b=OgCLpClKplCUBY
-	qFoD0IDJzR9993QkDqLxV6Jev7h4LklbBOS9jtXoJG9Lfyrt0ks0s1MHWajJGg2qgUl6SEsKLMypf
-	Rw+DWIO0/wsysex250rJBBLTnEAdUPp4ivxItJWmm/fTuZZAKNSKzPhaHhh8hT3lO3240uNhF3CrK
-	eDRt1QJHWGvVJgnQmalhiFjzOYMuygrt2MDmAC8dIDj85mSiP/nFw7J8sRwy0IrE7A2tenb0KGA6r
-	YAeR20M0sZNs/ptYdSSpJzseYmTCxFULgJWfyQS5kLG20iC50U/KJ5v0JkbqdUDFgokfglB1pH322
-	GKeU6YkbAA1n3D6XbIgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6y1qP0t6EkK2MVz3kxSs3dzptcjAkBctKTwlUr2mv3U=; b=PdSZviwFZ77lhl
+	sndsmEbDcbFsqJT9+s/7DCENP9o0fO4t8kZRfMB697Ss5Ge9K9ZR+xlDxjp5CGcfugImgTr9cmjE2
+	nEXk06bC2qYkiOeWeP6gFBb73uUbkRPS8iRflapRiBWknL2+BIaMpMU3r7KdhGWJh+TmTl4kW8CtX
+	yPIdDY+u3J0jF26y1hGLQtMj/AvJFzTSz8BcaCMkWSmrK7x54Vgv1FIFvimjOytbdqm6IngEOHjKa
+	Lp0P/+LkN43tDRRxFJJFaY65CRJN4SuB8JTlURD61rt4eqtdt9lfuk/nxRJ9AZH2Zey6LeqsFcRux
+	UnMTV+tKO5b/Umo2nbVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mKYkP-00GOO5-5I; Mon, 30 Aug 2021 04:18:13 +0000
+	id 1mKYkQ-00GOPx-Ts; Mon, 30 Aug 2021 04:18:14 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mKYk9-00GOMp-Rl
- for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:01 +0000
+ id 1mKYkB-00GONP-Qq
+ for linux-riscv@lists.infradead.org; Mon, 30 Aug 2021 04:18:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1630297077; x=1661833077;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=rnbMD9CLPfahBUqf7I1nJpQUplEY6+bh467medZmRJA=;
- b=le+qK75oQD7YMUGw8yaFnCZruOPPbwJyyoCwKId+C5tAlL8ip7yBJdtX
- gyp4H2fZ/XdM61rWaPmOd3CLlfzMVSDgtbDmiySSzzVlnqT1+oyR7d6Ip
- hLijiYX0LqKaSd+zg4C2FIBqFhlnXNp3lyvZRE4nb3RDKLpPzSW+WL+b1
- 2ur1ejaimv7dfvVvCl4mctofmvbSI1NcHMZGi1NvrtENXhYPXL5TxiXoo
- 2xMWtx9higb8qwRA8XosGI7Qs2J7NzT0OV5afbasm4ABHXQa39VR5KLuY
- on65MZVT66H7G9SLN2LNI8hn5cZ1uol3X1SMLHLV0nFMrteE+8xIxtyED Q==;
-X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="290332129"
-Received: from mail-mw2nam08lp2168.outbound.protection.outlook.com (HELO
- NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.168])
- by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:17:54 +0800
+ t=1630297079; x=1661833079;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=kRFIsrXRxjx8BbYZWZU/yYhgpwiiKVcT4u/SpXRbxcE=;
+ b=pn2B7m+ID0E9oiG0BDWcZpvD/h2K36BncBlCVVo0TeV7NrCLbl/DvnYZ
+ b42raodDALLeKTBeJC4S4HbEKAMGt/l9ZfDfUMJL8+GiAcyn0GYVycAsl
+ VNUvhLeiwi4ZIwCt0T00Vr7vJuvaom7jVK6ZYusNq/T5LdXoFSPjBqUW1
+ wiq5cpSTbzzJd8EQI/HLnTHY+D03/ZMgbgk6dFZWOQ3qFt6qgTMMGGqsL
+ HsSfMSOeXA+YkeyXEvtObTc0YYPcogUZUFDz8vnlPa0hNnPQVHypcIaSv
+ ypQaStrfwiWDwk6KDbOyk3YFP77dSuZVnjKCnDksrG4nkCx0o6JH6hZXY w==;
+X-IronPort-AV: E=Sophos;i="5.84,362,1620662400"; d="scan'208";a="290332138"
+Received: from mail-mw2nam08lp2177.outbound.protection.outlook.com (HELO
+ NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.177])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Aug 2021 12:17:58 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cusflI3oxiklEHaDKzDMpehOPzr6yY24Lvg3IgVFentobD9ZxUuBnTNW5DxersbmV65xsCt5pvPeSXbqaZk+r8U/MoII+1lZ1FvTA7uqix3SVbZHp0qUwD9ItkG7W/D82G6K1Y6mR5C31vUMSg4eW9KqlcKyJ3In7E+KhJGW8hSHW0HdKrYdu0seRkdNR/kPIZD/ikIc9DazcPLiMppMv0ZLc7Dx0ddFYZsJ2UCqBJH+naMXtx8OaFBNRqaDFCMd2PahAEZXQw+52ew8jrZamM+9Y8EzQ9VX5se0kCGyL9ItB2DIKCY690aZN0IL7jQVyvIb+sYhjAM5izxM363ySw==
+ b=gfQngrDvBi5ZQGYkERaBuLCxiOEdKtiLvE7gbifb7zkFRw6ZlmKkVuYX4o8fTZm8C4DKJHt1eO8ZEueNuu33M6G/LVqr/GoqsblItmkKzkDapCVz/rRpOmUIyEdeFq7uppi0JAkKYhxZebV4iwh54S1FaNaCnIOXst1J08xN7oWwPEB6yLtpzqAYKJPrbJzZnWRgujh3mSsd7vvIy8PVC0Id0GhRvRRuB8qvrRVlJIe86glVsa0scvhoNxkYZ0DrnBnSHbvzah1lc6oZABzp98mLD0XnayZgsLhJ+6EMtFUNxtG7ia4rKGovdqaF2Ai0UNhOiuefuI9oynD2y8QP2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M0Mu6IBC7/mpjfLqlPuysyhHKQvovegDoci+AKpF8h4=;
- b=gfwJsJ/5wr6dQxkM49TWWwkcRaNLmTZzi5zxr6nuNo/oFxqZsHDDih6ix5N8Z+FbdgTxxKpskDQ3Peaab9UHen7R7fHTUuR5nZm9toSGl92ScRTFZo1/l0HEDiO1QfQyuMALZ/REyRSwUnQtKXVPY61XDLCjR88AlmXb6C4t69VpW06CDi9wmp2FSjptNIEuujVtvcbP9VW7m+Qo5RpRpeNhXgQYKJtLFxPqw2+TcYlEydiE2fLFtY+WwH9G4u+DOXcB1W7vP8fm+n9Hn9UwOMhfQ9DMeWM4ylaWyQgeGbC0r3Frxa0SPMiu1uO+fVAk0trwLPZPGfCEdHNlseBcMw==
+ bh=cOyALsSZyM5c63OvTUlUo42PR2FT1T9JpuApyyCliEY=;
+ b=Ax4bUn5DvsycuDOiROqTglEcm6ShYZXA/tItOccDoUbv90SmZ9VgeLMo7d9cvwwpUn+38f7xU60f2vgBfxIhrynXNUBRHoOTlywKUTDp8czoYbdaovNQHkQ3ExY6a7qMVXBNctDbV5YJyoKy7V+Eim2QGtsGfvHNC62p7IPoNL3+HAxeCWIXupNXZB35C+fjHqvQRhML1+OYgmvCgvy2uIJWYfhzVekK7y/ZSrWnVJ3yJOVK+7ydJrt7J2QE5paalJtjCLAX33mapKXeV+u3Obzd/3FzLUhUjRK4s83Bt0eg0jjaoibp7L/QxMKLlW1Z4Yo+XY9Y/oRP5bkiBXiwDg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M0Mu6IBC7/mpjfLqlPuysyhHKQvovegDoci+AKpF8h4=;
- b=bJS+NHIaCUIajHspb9nZalW8PoMSuHAsI5zjnqPCTCBcowJ3Bk6wrdC+ioRveK/nioGIO/3tCxNkoiM0gizgCYTeBNmxel8HYR2IKBJ1IO8gaQxoZFeySZigWbl6VVjvqY7Rt5VqIUC/nKEURdAuIaJEJz/fRxBqTAdIJYA/nWI=
+ bh=cOyALsSZyM5c63OvTUlUo42PR2FT1T9JpuApyyCliEY=;
+ b=FmnTkMcdwWpymqKtIAqVh+Nq24MKuFy1Yw6z6WRliL3pZQdD1CIgeSWDgh1vfchTG02xRi/qA7+k/pOh9rw7n4pMtgP0znrtdH747Ge7PTIzUEe8rH736PzqOV267FgajIFYNcXxpC/iFx2SCEkMd/ggo1XrbfiCu0svlmR99kU=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com (2603:10b6:a03:3ac::8)
  by SJ0PR04MB7838.namprd04.prod.outlook.com (2603:10b6:a03:3ac::12)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.20; Mon, 30 Aug
- 2021 04:17:53 +0000
+ 2021 04:17:58 +0000
 Received: from SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514]) by SJ0PR04MB7821.namprd04.prod.outlook.com
  ([fe80::545a:34f7:53c5:6514%8]) with mapi id 15.20.4457.024; Mon, 30 Aug 2021
- 04:17:53 +0000
+ 04:17:58 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -90,11 +90,14 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH v3 00/11] Linux RISC-V ACLINT Support
-Date: Mon, 30 Aug 2021 09:47:18 +0530
-Message-Id: <20210830041729.237252-1-anup.patel@wdc.com>
+ Anup Patel <anup.patel@wdc.com>, Bin Meng <bmeng.cn@gmail.com>
+Subject: [RFC PATCH v3 01/11] RISC-V: Clear SIP bit only when using SBI IPI
+ operations
+Date: Mon, 30 Aug 2021 09:47:19 +0530
+Message-Id: <20210830041729.237252-2-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20210830041729.237252-1-anup.patel@wdc.com>
+References: <20210830041729.237252-1-anup.patel@wdc.com>
 X-ClientProxiedBy: MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:a00:21::12) To SJ0PR04MB7821.namprd04.prod.outlook.com
  (2603:10b6:a03:3ac::8)
@@ -104,59 +107,59 @@ Received: from wdc.com (122.179.63.14) by
  MA1PR0101CA0002.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4457.18 via Frontend
- Transport; Mon, 30 Aug 2021 04:17:49 +0000
+ Transport; Mon, 30 Aug 2021 04:17:54 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: f4dcf21b-58cd-4131-5a89-08d96b6d22e4
+X-MS-Office365-Filtering-Correlation-Id: 12f9beab-9c82-445d-13df-08d96b6d25ba
 X-MS-TrafficTypeDiagnostic: SJ0PR04MB7838:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <SJ0PR04MB78381C4D89281D28EF9579AB8DCB9@SJ0PR04MB7838.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <SJ0PR04MB7838C0F85AB72138C7D0A71C8DCB9@SJ0PR04MB7838.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-MS-Oob-TLC-OOBClassifiers: OLM:4125;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: ZOaY74iX185WvLSPPYdiam9heANUL23augE1aDiG8K19Rbfuciv4hKqAfqiBnVZY3LZkZLMZ6Ym64uqFA1n6ZBaLEefYbDUMp+9ZpZCmVLbqBFDARjYiMPMSHCEHN/UXDSoGRnERyMfn03ZxqYVank/e1cVswGtCis+hY7/FziDV+JTYG2cYN++xBuxOqWLijvtg4M0e4A5zzTyy0InScxbr7rmUW22kOtqCH00CSbOzrMXL6jGpaC8J+aHtwPxpYcs5dPK/waF7rp0gqSaQDiZ5O8wZT6WpB5mxpFRjnoRr/b86LK6XbIDLXZK93UIhZepI/Mcxk05NWblpsjie+D3W7kh6M3eEiFBio+Js4MHZguZ9567rWH1fRSqh1zAqUJvgJUA6GHVXYM90XQd+4CnNGwoCevpS6vJ/QbBo2MTzHnFB3UDKOrr3hrOLTrrV4p/RBaeCsPxoCh0bIxw4DbZSzikJTJlLHsVGWddPfCBNrPkca8fX7OQnhNq+fxhij/7h3gGJlm34md6dWhYYw0RslHrSecF/DK/+dwnN/3laOYeHCIA7DHjamiN9Jjna6avnWHbpsM2ajs+D4fSgxBGtuVQgWrx6TA1W1fMAziK8+w72VjXWNr0UtdIiodYWYevJ5Wr0RR59Wf83ZpZHfYJvN4e/iLaRdi61JcV7tmTE14IWvOWIZMpD4z6MkVa8Q2tCmyr4MRvJEKpH+TYwJsswIbtqs8eMLl9dg0aaCPdoLhGMTohTHPtI61twms4M/77mjls2nlysEy164fd+q/dzGFCzQ7Zqf/rdFgdBxHk6aVthOqeQk5GMgItrSGfs
+X-Microsoft-Antispam-Message-Info: fI+ifOaghA2vXGua1TBMHZfQELWxR3D3PnDv/A6Nm7PWm4RQjfiUeH69YQ3OrmTFCwGcpL1X80uM6ALio7jUeT+t0I9vZNKjdi/YsYT0nox7hiNyws+sLvacKMoyHNvVTKbjVl24SN8o5SH77J33impvRo9qOVtWa1jc046oK8c9VcpAtFUiMQjZqGsRo/884CzzwtdEaxwY69ojv8k/fjQamnAnW/yw63MThYue87qUX/7GqLPVYSUD4aUGmm/t1Ka6q8YxDgRzhV4oQ5HrI0bzMTEDYpiCbmRR/YAcxs+AW10cz5nbUwaYXEK1JPBzQMRQmH1oXN3aR/9V63mUm4ZLxinjjQXiaN/HYPbMrDJ23vGkNJXsgSz9fkdbk4vrSPIk6+4Iv2NqKOY273cLfnSwBYQgqvGD96J1IyMeztoErawKOeG/KXdjk1p9rNlZ7LEgimvaYmZuk/uhzQlrorRd+hC3MRwNyjG6CIen/gF14q0//HMB1fsSKM18eKJOr1PJC0Nx4YQ5G8pfYHAQoD683BEurnUl5g7ibHr0GvOAddj8MVQaQoW9+P2J9b1tMahg91dU3g0o51TG06xe5CfYSmknx4O3AgofOBwzXexWkXS/7F4rug8S4qNpRfV8twwNPD7D/kk+RegT6DiuU5mvofdy3SM43oXjwOyrc8eTZEnS+i0+iWfElFKG0fdUEs42hIc2cmW+iDW9eJfZIg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR04MB7821.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(346002)(136003)(376002)(396003)(366004)(66946007)(8936002)(83380400001)(2906002)(966005)(86362001)(110136005)(4326008)(54906003)(186003)(36756003)(66476007)(8886007)(8676002)(7696005)(52116002)(66556008)(316002)(38350700002)(38100700002)(2616005)(55016002)(44832011)(956004)(1076003)(5660300002)(7416002)(478600001)(6666004)(26005);
+ SFS:(4636009)(39860400002)(346002)(136003)(376002)(396003)(366004)(66946007)(8936002)(83380400001)(2906002)(86362001)(110136005)(4326008)(54906003)(186003)(36756003)(66476007)(8886007)(8676002)(7696005)(52116002)(66556008)(316002)(38350700002)(38100700002)(2616005)(55016002)(44832011)(956004)(1076003)(5660300002)(7416002)(478600001)(6666004)(26005);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qP8e3anrOf7Fshwo33R4UoP1XGNEoJ1eNMdRhqad5ngJpMi46sFODulNo/tP?=
- =?us-ascii?Q?bcnYARGTUEVoot2gHC3HWHhdCIm3K4vRR3SfNEFup8cI41GDEGxtflKvVEqq?=
- =?us-ascii?Q?7Ko6MsjpIOeVX6qyxLIVKgCXQg74XeaQTPxWo7BkJC8rB7ETX8WNJKZCJyVO?=
- =?us-ascii?Q?ID/m/XETbLK5/G9Wgc4Rf8PO6ibPIg9WhkaLuiNkPillsFMBibKC83xiOnDv?=
- =?us-ascii?Q?aA98Bc59IO03PHGQlP0SSum1yT+XZEAjBpjCVyzcbjJWtitSVh0qLipZypaA?=
- =?us-ascii?Q?Tmp3vT3YYtLMcpYiTAz5DZhzYrl2Xw0/WYWzDV41gf1eJQChxc4AZ43nN84P?=
- =?us-ascii?Q?QL2rMW/iuM2i5B0KoCPgf6m4Gf52nEnv8RHVywRGSIX2y1Eg4EzqLTiumzCn?=
- =?us-ascii?Q?Qigd5ZWLP7eKEjZcnbTo1EAdyVRfTADMLpIAmHi8wWLBHEsjuqGX5N2gDaa4?=
- =?us-ascii?Q?eKjauHtlkSKQfYqNXnXSt5UMow2J0n0KI3USC7gCrRl6uCFMSoCt1B9uju+N?=
- =?us-ascii?Q?HrB5BRF/C34vSB5wnz9Ikn/mq0ExldPO/pHoeRN4PTl4Yaphz0eB/1j7JVpS?=
- =?us-ascii?Q?UKUE13U7GehdAaz8NVryr2Qgy2V55T6nKcTyzgK9mqzsCEDc8JHxbOLmc4dk?=
- =?us-ascii?Q?U7K7ewj92s1qVJrsycxosxO8LlAkJkfIsF+0LxicaXKhYXZWuyxowqIV7YXw?=
- =?us-ascii?Q?/eQ5huJZODP8jr19glRrJOYK+1JaIq2cOLI5Ka3QPxJvge17GYvOY9G95LQ3?=
- =?us-ascii?Q?SeaYT6mXK15wviySH3pDR0WpjrvP9fogixV63nN0Mxn5sv+SROV3Gks5GD0l?=
- =?us-ascii?Q?SF4L+PxBAnQkGnE92uipyJi2JtbSQkFIHhhaVCzaQBj6IFwfnwBFzr0XKOIx?=
- =?us-ascii?Q?IfdP5B7P8eokaGMwFdoCeEDDr02lrU9KMyQW3Vi93eR7p01trJC/QWMheCbv?=
- =?us-ascii?Q?WNdnQ8hsCxE/XDtxJAMharlC7Y6CSyYEWYrthkzcfSUjIFk12TiVU1x59UqQ?=
- =?us-ascii?Q?gt20ywm5R9ISThrdULDZgKbn8fgYqordtFRsWBex0X+j5XoV8zM9aSe0S1V7?=
- =?us-ascii?Q?nRkOjJ0Zl1ara6dsAgkyacFraQzd0VsRn+VIxp5jWIc8p1taWGrl3dFpUow7?=
- =?us-ascii?Q?MHqFllWLMiEarSTSfBe/yfu2cV+uJ4DZkXYS3vZg5b3ks2y5hZZiGf5UCVcX?=
- =?us-ascii?Q?yvCqtPQXjNY/vgrDuVGZfoSCh1nsOMoixIsK//vcINhZjfPkm7ruw+wz+3c9?=
- =?us-ascii?Q?23oqIsvaKmVeOHnXt/1xHvgKzBni1StjzOccKGJ4ZR0Y8fzFL1pv78lO9sPj?=
- =?us-ascii?Q?+qk4Rwv4KNaGKsrb3D4b42tA?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1V36bfYsobGKMz87kw70NsUCPboWr+6ESWElaL2x+jsS9/e22q/KujZRVkzx?=
+ =?us-ascii?Q?DM3Ivhw175xz9Hqx3WXiPF7N3cQs+I2KZK/JbgfVEVixOuvV6pbQLFIU7+NB?=
+ =?us-ascii?Q?rYjhzJKVIjoChmP9NVl0QSXeFWb9TelGoODYHtS9Fgp8J++7FWFq6r9H0SX8?=
+ =?us-ascii?Q?UsAYD6cSWfgRSOss6KewtOH3RwyjrqMvNjVRGvbOYobY1FjJs/CJhPbn/Loq?=
+ =?us-ascii?Q?jkdq9TU4wp96rHMnuZdMLa5MWnPXMQj9F+KapMpoxv8uWkpxoeinbkJUtW8X?=
+ =?us-ascii?Q?XT4AlLck6XXKassRu1A6K7ZXFGlERp6nuk/QyTDDOP5Ox9BBb83tTX49YKi8?=
+ =?us-ascii?Q?E+LdLtIdVCfo5DrVqCKOZgkwZ3nbzrD1HRzx65x5G2bvNTVx/N0usRFc86LR?=
+ =?us-ascii?Q?+yhZjndddVXLPOW/j83Fv0hEZpME+exqNa7r/rwWMtI1dlvDJDHzvOYZpZoS?=
+ =?us-ascii?Q?1Xk6QEuRICFMz2bIyal1vWILR6lCsRnwkuJXl+tCPJtLMCZCzLPp1E/r7/1C?=
+ =?us-ascii?Q?ITTkAEqaYYcw7ik6K5Z/czUN8A11jVGGO5SqSFlo4ARjGAAxgKZSEMRZI0TY?=
+ =?us-ascii?Q?emp9wL4Awu5UyzDMpM1AfdD22jMuHdkwTMhSlPhR0RD7PrUlWEs5obBH+XSQ?=
+ =?us-ascii?Q?wHEzjXGAHXx3z3EV6auqTTTuJ9z56e2ub+UbaLR0TcjrAUP9oQIX6yyJ15Z+?=
+ =?us-ascii?Q?+0IXaGuYYpEydrriZiRCU7lfjQj4eq/FqGuocoh10gL+AcWKBnahrd7VY0pp?=
+ =?us-ascii?Q?UI3Hv4iRxOcNHyno+f0axDhiSM6NYTurdkBtf13PsgkMK8mOM7AwQs5WoNC6?=
+ =?us-ascii?Q?5M1+Zyb3fu5jd6n6ZSSUauAx6zZMAOYjRuv2aPobzi9L686L/yEwoV9CxEw0?=
+ =?us-ascii?Q?U3Ohs7OwT56POaMEbKJW/Uy9G/za/SjL57Lxm7oQytNpmUHofTdfQhlWZgzB?=
+ =?us-ascii?Q?hO8E9paNQbaXD1v/8m7uhzo8+Cjm2zBcG5bMMVR/dyo1C60DEuV/uxi/tvaa?=
+ =?us-ascii?Q?kA+01mvjiJyDCPudtF0k5w3u0DG9eo9K/utTK3sNxWk05NapoU3c/N7EVEQ6?=
+ =?us-ascii?Q?cwObsQuGteHwyGa5ctEFqkFEgyB4QbhQ8uURwBucK5ZWN19SwaBL1pTsKYAt?=
+ =?us-ascii?Q?Rr6Snn+CXv+xKRihBr+Bp6RtFkQcTvW7u4HcXWKGwukZtkBRJ/JyEmw4+d2F?=
+ =?us-ascii?Q?39YBL14FNZFU2sgT0bxeG8srK+YoipZqEDKPvi5HaPXFf6iwM59JxOLfcF1a?=
+ =?us-ascii?Q?E8fb5UiuMkReaWxogBcsxu/oh4PCTQBc3vuiIuZW7asRIP7YwUQ0lRgp7pZH?=
+ =?us-ascii?Q?EUbAk59JwB8IM70OOTAEONO+?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f4dcf21b-58cd-4131-5a89-08d96b6d22e4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12f9beab-9c82-445d-13df-08d96b6d25ba
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR04MB7821.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:17:53.4815 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2021 04:17:58.2047 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: whMNTYkb517F/0/xxNCeFRD2bB+1tg6MNGj2Brp6bsabc2kxZPRpAR3BSxKLFY5IFlIN3dWElAJlX7gWaYD9Mw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: C/QQ3OTV3d8b9eoPUiYFBb2/LRt0wmct4odilOcv9K5/CVFtqkdzgpxjQcFyU3tcuLq39SDx2++DGYk8oYGf6A==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210829_211757_959346_0DAD19F3 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20210829_211759_922303_61E36F9B 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,91 +176,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Most of the existing RISC-V platforms use SiFive CLINT to provide M-level
-timer and IPI support whereas S-level uses SBI calls for timer and IPI
-support. Also, the SiFive CLINT device is a single device providing both
-timer and IPI functionality so RISC-V platforms can't partially implement
-SiFive CLINT device and provide alternate mechanism for timer and IPI.
+The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+S-mode but read-only for M-mode so we clear this bit only when using
+SBI IPI operations.
 
-The RISC-V Advacned Core Local Interruptor (ACLINT) tries to address the
-limitations of SiFive CLINT by:
-1) Taking modular approach and defining timer and IPI functionality as
-   separate devices so that RISC-V platforms can include only required
-   devices
-2) Providing dedicated MMIO device for S-level IPIs so that SBI calls
-   can be avoided for IPIs in Linux RISC-V
-3) Allowing multiple instances of timer and IPI devices for a
-   multi-socket (or multi-die) NUMA systems
-4) Being backward compatible to SiFive CLINT so that existing RISC-V
-   platforms stay compliant with RISC-V ACLINT specification
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+---
+ arch/riscv/kernel/sbi.c | 8 +++++++-
+ arch/riscv/kernel/smp.c | 2 --
+ 2 files changed, 7 insertions(+), 3 deletions(-)
 
-Latest RISC-V ACLINT specification (to be frozen soon) can be found at:
-https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
-
-This series adds RISC-V ACLINT support and can be found in the
-riscv_aclint_v3 branch at:
-https://github.com/avpatel/linux
-
-To test this series, the RISC-V ACLINT support for QEMU can be found
-in the riscv_aclint_v3 branch at:
-https://github.com/avpatel/qemu
-
-Changes since v2:
- - Addresed Rob's comments on [M|S]SWI DT bindings
- - Dropped PATCH2 because it was not a required change
- - Addressed Marc's comments on ACLINT SWI driver added by PATCH7
- - Added a separate PATCH6 to update SiFive CLINT DT bindings
-
-Changes since v1:
- - Added a new PATCH3 to treat IPIs as normal Linux IRQs for RISC-V kernel
- - New SBI IPI call based irqchip driver in PATCH3 which is only initialized
-   by riscv_ipi_setup() when no Linux IRQ numbers are available for IPIs
- - Moved DT bindings patches before corresponding driver patches
- - Implemented ACLINT SWI driver as a irqchip driver in PATCH7
- - Minor nit fixes pointed by Bin Meng
-
-Anup Patel (11):
-  RISC-V: Clear SIP bit only when using SBI IPI operations
-  RISC-V: Treat IPIs as normal Linux IRQs
-  RISC-V: Allow marking IPIs as suitable for remote FENCEs
-  RISC-V: Use IPIs for remote TLB flush when possible
-  dt-bindings: interrupt-controller: Add ACLINT MSWI and SSWI bindings
-  dt-bindings: timer: Update SiFive CLINT bindings for IPI support
-  irqchip: Add ACLINT software interrupt driver
-  RISC-V: Select ACLINT SWI driver for virt machine
-  dt-bindings: timer: Add ACLINT MTIMER bindings
-  clocksource: clint: Add support for ACLINT MTIMER device
-  MAINTAINERS: Add entry for RISC-V ACLINT drivers
-
- .../riscv,aclint-swi.yaml                     |  95 +++++++
- .../bindings/timer/riscv,aclint-mtimer.yaml   |  70 +++++
- .../bindings/timer/sifive,clint.yaml          |  20 +-
- MAINTAINERS                                   |   9 +
- arch/riscv/Kconfig                            |   1 +
- arch/riscv/Kconfig.socs                       |   1 +
- arch/riscv/boot/dts/canaan/k210.dtsi          |   2 +
- .../boot/dts/microchip/microchip-mpfs.dtsi    |   2 +
- arch/riscv/include/asm/sbi.h                  |   2 +
- arch/riscv/include/asm/smp.h                  |  48 +++-
- arch/riscv/kernel/Makefile                    |   1 +
- arch/riscv/kernel/cpu-hotplug.c               |   2 +
- arch/riscv/kernel/irq.c                       |   1 +
- arch/riscv/kernel/sbi-ipi.c                   | 215 ++++++++++++++
- arch/riscv/kernel/sbi.c                       |  15 -
- arch/riscv/kernel/smp.c                       | 172 ++++++------
- arch/riscv/kernel/smpboot.c                   |   4 +-
- arch/riscv/mm/tlbflush.c                      |  91 ++++--
- drivers/clocksource/timer-clint.c             |  69 +++--
- drivers/irqchip/Kconfig                       |   9 +
- drivers/irqchip/Makefile                      |   1 +
- drivers/irqchip/irq-riscv-aclint-swi.c        | 265 ++++++++++++++++++
- drivers/irqchip/irq-riscv-intc.c              |  55 ++--
- 23 files changed, 946 insertions(+), 204 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
- create mode 100644 Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
- create mode 100644 arch/riscv/kernel/sbi-ipi.c
- create mode 100644 drivers/irqchip/irq-riscv-aclint-swi.c
-
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index 9a84f0cb5175..8aeca26198f2 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -598,8 +598,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+ 	sbi_send_ipi(cpumask_bits(&hartid_mask));
+ }
+ 
++static void sbi_ipi_clear(void)
++{
++	csr_clear(CSR_IP, IE_SIE);
++}
++
+ static const struct riscv_ipi_ops sbi_ipi_ops = {
+-	.ipi_inject = sbi_send_cpumask_ipi
++	.ipi_inject = sbi_send_cpumask_ipi,
++	.ipi_clear = sbi_ipi_clear
+ };
+ 
+ void __init sbi_init(void)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 921d9d7df400..547dc508f7d1 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -99,8 +99,6 @@ void riscv_clear_ipi(void)
+ {
+ 	if (ipi_ops && ipi_ops->ipi_clear)
+ 		ipi_ops->ipi_clear();
+-
+-	csr_clear(CSR_IP, IE_SIE);
+ }
+ EXPORT_SYMBOL_GPL(riscv_clear_ipi);
+ 
 -- 
 2.25.1
 
