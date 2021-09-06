@@ -2,84 +2,109 @@ Return-Path: <SRS0=oCzz=N4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.6 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C85CFC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Sep 2021 18:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 289E2C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Sep 2021 20:41:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 97BC960724
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Sep 2021 18:57:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 97BC960724
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id DE25861077
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Sep 2021 20:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DE25861077
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZAKKkNRm3OHblKdXAWH2YZ2y4UJReJVDPtJZNfKMYxY=; b=4d7iubJIKqOAa7
-	YzmUc37OZRNC1o6AJHjx9yk6eRrUE84jOOg4/XdQDvXLpR8qcots4THR8rN/LlyOPAQmV35gLovRO
-	NPkaY7BuShQ1UoZ+1Hn5xAE3Ek+69l1dglCcxByOniq4gpckP53wi5R7O2ddivQUV6gejAPl7pqGu
-	+lzDkKYk4+Cru/XGRKs0UF25OEeUfyMdHQYK7YlakS+gQFIRetOzqsb1M4mMbxLTeeW9Hv+xnbYRa
-	yghr/nZNeNaiS0132HVWFTWMg5Jy9mG+THAZLYen5vR0w7UZSsNzoFoy0/QgZ6qh9NtLHXWhsgPNp
-	ip7rcL8Y35QYAl+6VtPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MDyCSAc8KU9c7F80FKsJBVAfKT6NKWf1bWzNXH2tN1M=; b=FdekJCbZVv69jdEJckMfN9Tc3g
+	AwWB1P5W0IYXK4Oav6J8rPPdQWZpQdUNFouSFYAkdm5AAJB8DyV13rjIPAqk856QAki+NzF/J8YPX
+	77oCEkm1x90gJ/8meMra4KVuryXuTuFX5vHVCYu8ZZGUhaz3heRrxQxsfKLk5/iflOsFXRfGbfw5k
+	SDksswO3Ns/X/RJ8XrI4fsnSpwfQM4X3LgQp1tc714DBnleQJPidygF3T0dFhIsdLJFDfht6K72i7
+	EoElZFoQZxs3SP6aUVnXqNkFKfh9m5S9yVOKDjV/FX6HLpzvAreaeNq1hDXtwYU/2jNHcrrYxdwUx
+	R4zDrV5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mNJnp-001eY9-9k; Mon, 06 Sep 2021 18:57:09 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1mNLPk-001uF0-NA; Mon, 06 Sep 2021 20:40:24 +0000
+Received: from mout.gmx.net ([212.227.17.22])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mNJjL-001cKV-LW
- for linux-riscv@lists.infradead.org; Mon, 06 Sep 2021 18:52:33 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id ew6so4444022qvb.5
- for <linux-riscv@lists.infradead.org>; Mon, 06 Sep 2021 11:52:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=t7mbN5z4OIJJ66nDXiL99ZjroDagAxmDDsoWbvCVp7U=;
- b=TkRgRgEogIxTuqBPkWPjMInAOmjEtJZbaefduF8XDzrUEc6+FE33MNIi8z231zNczB
- vfRMfX4FgSuQjKFPObsMK5yPmjVomeN0SEfjfIzxUtpQX14BbxIY1jUdHqNGlLZHWSHl
- NAdKAFwvabX68D044NGlZOby3yPoc/znNF+5DI+HPEIvDhG5G7Cicqgne7MfrfpwMl3x
- j8nu+nf4inKL/Jo3BOJQnRJ8CV0IBiR6hBsi9F+Fjt5ymbejh+lmWVIVMF+A3aeAaJpV
- A4FKsS5PZE9M16efB/JmkU0ZMDTlDvLnmt3NrWeHE7bZW0zUms8Br/U8Lf49FiXcOhmD
- cG1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=t7mbN5z4OIJJ66nDXiL99ZjroDagAxmDDsoWbvCVp7U=;
- b=SYeAyL4sNVMLUNfF6ytLDQGCR8T4xSZj/o9SWAu78y2eGJfu9R6koqhP+bb+nyaKZq
- iXpwzvGKdyCaqXTChfyDVL4EIbykabO1EexM2Loeq6Ez8ylcNeMXNbnTdihZzAyKerta
- JJsKVfmQij61MKhu8ORHejGduuT95Q5/NkYWvzXymVv0IprAXXzUSAXrSAqEX1QctSFl
- Q5lt3ePcb59DhF+NpDynHXDqz0D2fqhi130saN9UOmP763JMQNeUtBB0ySPNhiqpH38u
- hvE8gOjBC5C5Q4J8NsAF5vWkHGkGJoVci8HMORKZ+x0Tu+jnVD04BZOfvtawcZBt06FR
- KoDQ==
-X-Gm-Message-State: AOAM530AgMRctT2CGQcXF0qf2EhqA4QQ5pS0XwBq9AThNeOdbAZpAhy5
- jXFT1B1vxKZYqOp34oWTlFjXHg==
-X-Google-Smtp-Source: ABdhPJwIOJ89b8B9Na2q6HFhUYes9XYVePurpgFRqakDLgJYCTcsysBMsHetKZ4cGPbEzTveGV9Y4g==
-X-Received: by 2002:a0c:e983:: with SMTP id z3mr12988808qvn.1.1630954347042;
- Mon, 06 Sep 2021 11:52:27 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id h6sm5880415qtn.51.2021.09.06.11.52.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Sep 2021 11:52:26 -0700 (PDT)
-Subject: [PATCH] RISC-V: Inform checksyscalls.sh about the rv32 ABI
-Date: Mon,  6 Sep 2021 11:52:01 -0700
-Message-Id: <20210906185201.368451-1-palmerdabbelt@google.com>
-X-Mailer: git-send-email 2.33.0.153.gba50c8fa24-goog
+ id 1mNLPa-001uBa-PB; Mon, 06 Sep 2021 20:40:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1630960702;
+ bh=WevteChaVTuIJ4vpbr4/S6Dy5gJM391zvvJnoNTQzeQ=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=jgFg06yM+iwybYFpbzzkJmZm/SCTiZitHSZTAJ9C5NX2kLKqYS0y0KP2FTserSuxh
+ Eqwm30wHapagCvLCe+sfLUcjybTUJKUWLlL4N6xw1YMdd7tlspbfrymTlU7+4q3gkF
+ PE/NY5aL+n60GN8BN0jWsYWdG0hg52z5OmxZ4RNo=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.85.61] ([80.187.112.14]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MKbkC-1mfxez3TOW-00KvzB; Mon, 06
+ Sep 2021 22:38:22 +0200
+Subject: Re: [PATCH v2] ftrace: Cleanup ftrace_dyn_arch_init()
+To: Weizhao Ouyang <o451686892@gmail.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+ <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20210906111626.1259867-1-o451686892@gmail.com>
+From: Helge Deller <deller@gmx.de>
+Message-ID: <a25be752-bb65-652e-977f-312ee0b95c15@gmx.de>
+Date: Mon, 6 Sep 2021 22:36:32 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
- Alistair Francis <Alistair.Francis@wdc.com>
+In-Reply-To: <20210906111626.1259867-1-o451686892@gmail.com>
+Content-Language: en-US
+X-Provags-ID: V03:K1:r/JUrRhbvOicWGkiqogKRwFTRO8+bXkMsWJ6ArSDb2+yOaZh1Qh
+ itUnWpVNjQZtukajCgk+9dVWp5QWeY6EC68jABYr/Z/mmoBCskHSc68TkP8OFkozE08Ymto
+ RScyaWcZfFu0YeONVmfOsW0W+36044q2gtcmtnZfjB+47DPw/jElcyHxTaAN3Y7IHNV5r/H
+ jvyIgy8IibjSGnMiYxXsQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:tG48Hcn4Z5Q=:ehG9Ni/7f3QY9e3/tDaV67
+ Go/9izpDYuXjcteZfs+fw1YiYrhfZqvdhxTbPflNNETE0HdftRFgBe/CmV1CDBN5BiG25pDEG
+ 6un5Br95HIDvWvYqizxRIlseCi9E7A+jxIEc1dbkBLTKodGaWReVFzxBvn/5NRgdx4KnG/9df
+ ucNdKFNKAX4j0cSUBZ6haHrP0B2AYmLT532uicLt18v1TEEIqJVpQab+XNiRy64g6rDdkRHLF
+ aJIoXqZqxjC3+RQeQGY46xXIX+hGQFiF2xxMAfSR4Lzkz4K62aep6JYQ/f+pfOz4H8rF639YH
+ PKgC59vyttAZGVwimTOGC9niyGHMt9eXRPgE6qGTMoYCcy4mZWQuZJGefPkg9NUJZDav1pqOd
+ ZbfXhPYq8Es6bs+VONsPb/f5pHatLB4N81z5s5931+T3fQcX04KLknCYABzXJMXAFca1a/W/4
+ 67fdVs0SjW/6m3CrQVfi4xtNXP8QNJc3Ar8sqKQEbl6CJZzYke1YQ/IOAlfXLCGH8nmPgtgNU
+ t3em/d8Kjb35YHIB0PjfM7cbZw6+qNdL/sNn+lo15+rG/GHPi6LUWNZUEtZlMYNtzIg3zsYMC
+ 6Xtf20IhJzPfAX+mpJuinHgQmjMg09oXSHfLLnRrW7cnWAFPKYV/8zCcFAeVvW/5Xd8FJtNYj
+ Vk8KjlesicI96F+gJoVPyQAUfujUbzGjGzcYAb4mnPMVSnnjnDI2L6fqlqjNMMjrMYGKOXiiV
+ FOF36zyo2Ye9CUAtgUIntYMFUzTYEMA1+dNWkp8D2ToEon7wYnylwQiwa3eX4VBNPgtgbKLTl
+ SnPU+iCyrbYSep4qhUdqeqI3O7jvFcPUThaElNxhL7oh64JNICcc0oCnJ69I+DTsmdMuCDwAB
+ Z4qWUzHaETcq5zJPgtCKjptx9/07i1enT+zaXoFenEP/ien6VfMOu818AJVG7zgPCAChvvhO/
+ 3B7OkK469cs9rUvkqUjzWgdjs42P6wWz8HKmOG4h7fA+dUruy2tipPUOLvzSyWMTmrHl5yG1S
+ Vz4p4FrS45Wlm0zmdLqj3BlCIo4KZXsI5jJ3aFUoi1GkRY1W4IkespQ7JpG/CToEyVNoNNBxX
+ 8ju98M7ZjSeuEU554usU2/WnmGPp2u1TmeW6vjq1Qo+ZBY9J3/8cNFhLw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210906_115231_782408_8DBAB172 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20210906_134015_214344_EB8977A0 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +116,296 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I remember having seen some build output from this before, but didn't
-know what it meant.  These are now showing up as errors.
+On 9/6/21 1:16 PM, Weizhao Ouyang wrote:
+> Most of ARCHs use empty ftrace_dyn_arch_init(), introduce a weak common
+> ftrace_dyn_arch_init() to cleanup them.
+>
+> Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
+> Acked-by: Heiko Carstens <hca@linux.ibm.com> (s390)
 
-As far as I understand our 32-bit syscall ABI is fine, the issue here is
-simply that we don't need the syscalls in question because we never had
-the legacy versions to begin with.  One could imagine describing these
-constraints in an arch-generic way, but I'm not sure it's worth
-bothering until another arch comes along that behaves this way.
+Acked-by: Helge Deller <deller@gmx.de> # parisc
 
-Fixes: d4c08b9776b3 ("riscv: Use latest system call ABI")
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/include/asm/unistd.h | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Thanks,
+Helge
 
-diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-index 6c316093a1e5..cbc2646b4662 100644
---- a/arch/riscv/include/asm/unistd.h
-+++ b/arch/riscv/include/asm/unistd.h
-@@ -14,3 +14,17 @@
- #include <uapi/asm/unistd.h>
- 
- #define NR_syscalls (__NR_syscalls)
-+
-+#if __BITS_PER_LONG == 32
-+/*
-+ * RISC-V never had the 32-bit off/len syscall flavors, which means we don't
-+ * need the the explicit off64/len64 versions.
-+ */
-+#define __IGNORE_fstat64
-+#define __IGNORE_fstatat64
-+/*
-+ * RISC-V never had the 32-bit time_t syscall flavors, which means we don't
-+ * need the explicit 64-bit versions.
-+ */
-+#define __IGNORE_clone3
-+#endif
--- 
-2.33.0.153.gba50c8fa24-goog
+
+> ---
+>
+> Changes in v2:
+> -- correct CONFIG_DYNAMIC_FTRACE on PowerPC
+> -- add Acked-by tag
+>
+> ---
+>   arch/arm/kernel/ftrace.c          | 5 -----
+>   arch/arm64/kernel/ftrace.c        | 5 -----
+>   arch/csky/kernel/ftrace.c         | 5 -----
+>   arch/ia64/kernel/ftrace.c         | 6 ------
+>   arch/microblaze/kernel/ftrace.c   | 5 -----
+>   arch/mips/include/asm/ftrace.h    | 2 ++
+>   arch/nds32/kernel/ftrace.c        | 5 -----
+>   arch/parisc/kernel/ftrace.c       | 5 -----
+>   arch/powerpc/include/asm/ftrace.h | 4 ++++
+>   arch/riscv/kernel/ftrace.c        | 5 -----
+>   arch/s390/kernel/ftrace.c         | 5 -----
+>   arch/sh/kernel/ftrace.c           | 5 -----
+>   arch/sparc/kernel/ftrace.c        | 5 -----
+>   arch/x86/kernel/ftrace.c          | 5 -----
+>   include/linux/ftrace.h            | 1 -
+>   kernel/trace/ftrace.c             | 5 +++++
+>   16 files changed, 11 insertions(+), 62 deletions(-)
+>
+> diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
+> index 3c83b5d29697..a006585e1c09 100644
+> --- a/arch/arm/kernel/ftrace.c
+> +++ b/arch/arm/kernel/ftrace.c
+> @@ -193,11 +193,6 @@ int ftrace_make_nop(struct module *mod,
+>
+>   	return ret;
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif /* CONFIG_DYNAMIC_FTRACE */
+>
+>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+> index 7f467bd9db7a..fc62dfe73f93 100644
+> --- a/arch/arm64/kernel/ftrace.c
+> +++ b/arch/arm64/kernel/ftrace.c
+> @@ -236,11 +236,6 @@ void arch_ftrace_update_code(int command)
+>   	command |= FTRACE_MAY_SLEEP;
+>   	ftrace_modify_all_code(command);
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif /* CONFIG_DYNAMIC_FTRACE */
+>
+>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> diff --git a/arch/csky/kernel/ftrace.c b/arch/csky/kernel/ftrace.c
+> index b4a7ec1517ff..50bfcf129078 100644
+> --- a/arch/csky/kernel/ftrace.c
+> +++ b/arch/csky/kernel/ftrace.c
+> @@ -133,11 +133,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+>   				(unsigned long)func, true, true);
+>   	return ret;
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif /* CONFIG_DYNAMIC_FTRACE */
+>
+>   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> diff --git a/arch/ia64/kernel/ftrace.c b/arch/ia64/kernel/ftrace.c
+> index b2ab2d58fb30..d6360fd404ab 100644
+> --- a/arch/ia64/kernel/ftrace.c
+> +++ b/arch/ia64/kernel/ftrace.c
+> @@ -194,9 +194,3 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+>   	flush_icache_range(addr, addr + 16);
+>   	return 0;
+>   }
+> -
+> -/* run from kstop_machine */
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+> diff --git a/arch/microblaze/kernel/ftrace.c b/arch/microblaze/kernel/ftrace.c
+> index 224eea40e1ee..188749d62709 100644
+> --- a/arch/microblaze/kernel/ftrace.c
+> +++ b/arch/microblaze/kernel/ftrace.c
+> @@ -163,11 +163,6 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+>   	return ret;
+>   }
+>
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+> -
+>   int ftrace_update_ftrace_func(ftrace_func_t func)
+>   {
+>   	unsigned long ip = (unsigned long)(&ftrace_call);
+> diff --git a/arch/mips/include/asm/ftrace.h b/arch/mips/include/asm/ftrace.h
+> index b463f2aa5a61..ed013e767390 100644
+> --- a/arch/mips/include/asm/ftrace.h
+> +++ b/arch/mips/include/asm/ftrace.h
+> @@ -76,6 +76,8 @@ do {						\
+>
+>
+>   #ifdef CONFIG_DYNAMIC_FTRACE
+> +int __init ftrace_dyn_arch_init(void);
+> +
+>   static inline unsigned long ftrace_call_adjust(unsigned long addr)
+>   {
+>   	return addr;
+> diff --git a/arch/nds32/kernel/ftrace.c b/arch/nds32/kernel/ftrace.c
+> index 0e23e3a8df6b..f0ef4842d191 100644
+> --- a/arch/nds32/kernel/ftrace.c
+> +++ b/arch/nds32/kernel/ftrace.c
+> @@ -84,11 +84,6 @@ void _ftrace_caller(unsigned long parent_ip)
+>   	/* restore all state needed by the compiler epilogue */
+>   }
+>
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+> -
+>   static unsigned long gen_sethi_insn(unsigned long addr)
+>   {
+>   	unsigned long opcode = 0x46000000;
+> diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
+> index 0a1e75af5382..01581f715737 100644
+> --- a/arch/parisc/kernel/ftrace.c
+> +++ b/arch/parisc/kernel/ftrace.c
+> @@ -94,11 +94,6 @@ int ftrace_disable_ftrace_graph_caller(void)
+>   #endif
+>
+>   #ifdef CONFIG_DYNAMIC_FTRACE
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   int ftrace_update_ftrace_func(ftrace_func_t func)
+>   {
+>   	return 0;
+> diff --git a/arch/powerpc/include/asm/ftrace.h b/arch/powerpc/include/asm/ftrace.h
+> index debe8c4f7062..d59f67c0225f 100644
+> --- a/arch/powerpc/include/asm/ftrace.h
+> +++ b/arch/powerpc/include/asm/ftrace.h
+> @@ -61,6 +61,10 @@ struct dyn_arch_ftrace {
+>   };
+>   #endif /* __ASSEMBLY__ */
+>
+> +#ifdef CONFIG_DYNAMIC_FTRACE
+> +int __init ftrace_dyn_arch_init(void);
+> +#endif /* CONFIG_DYNAMIC_FTRACE */
+> +
+>   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+>   #define ARCH_SUPPORTS_FTRACE_OPS 1
+>   #endif
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index 7f1e5203de88..4716f4cdc038 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -154,11 +154,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+>
+>   	return ret;
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif
+>
+>   #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
+> index 0a464d328467..3fd80397ff52 100644
+> --- a/arch/s390/kernel/ftrace.c
+> +++ b/arch/s390/kernel/ftrace.c
+> @@ -262,11 +262,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+>   	return 0;
+>   }
+>
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+> -
+>   void arch_ftrace_update_code(int command)
+>   {
+>   	if (ftrace_shared_hotpatch_trampoline(NULL))
+> diff --git a/arch/sh/kernel/ftrace.c b/arch/sh/kernel/ftrace.c
+> index 295c43315bbe..930001bb8c6a 100644
+> --- a/arch/sh/kernel/ftrace.c
+> +++ b/arch/sh/kernel/ftrace.c
+> @@ -252,11 +252,6 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+>
+>   	return ftrace_modify_code(rec->ip, old, new);
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif /* CONFIG_DYNAMIC_FTRACE */
+>
+>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> diff --git a/arch/sparc/kernel/ftrace.c b/arch/sparc/kernel/ftrace.c
+> index 684b84ce397f..eaead3da8e03 100644
+> --- a/arch/sparc/kernel/ftrace.c
+> +++ b/arch/sparc/kernel/ftrace.c
+> @@ -82,11 +82,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+>   	new = ftrace_call_replace(ip, (unsigned long)func);
+>   	return ftrace_modify_code(ip, old, new);
+>   }
+> -
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+>   #endif
+>
+>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+> index 1b3ce3b4a2a2..23d221a9a3cd 100644
+> --- a/arch/x86/kernel/ftrace.c
+> +++ b/arch/x86/kernel/ftrace.c
+> @@ -252,11 +252,6 @@ void arch_ftrace_update_code(int command)
+>   	ftrace_modify_all_code(command);
+>   }
+>
+> -int __init ftrace_dyn_arch_init(void)
+> -{
+> -	return 0;
+> -}
+> -
+>   /* Currently only x86_64 supports dynamic trampolines */
+>   #ifdef CONFIG_X86_64
+>
+> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> index 832e65f06754..f1eca123d89d 100644
+> --- a/include/linux/ftrace.h
+> +++ b/include/linux/ftrace.h
+> @@ -573,7 +573,6 @@ ftrace_set_early_filter(struct ftrace_ops *ops, char *buf, int enable);
+>
+>   /* defined in arch */
+>   extern int ftrace_ip_converted(unsigned long ip);
+> -extern int ftrace_dyn_arch_init(void);
+>   extern void ftrace_replace_code(int enable);
+>   extern int ftrace_update_ftrace_func(ftrace_func_t func);
+>   extern void ftrace_caller(void);
+> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> index 7efbc8aaf7f6..4c090323198d 100644
+> --- a/kernel/trace/ftrace.c
+> +++ b/kernel/trace/ftrace.c
+> @@ -6846,6 +6846,11 @@ void __init ftrace_free_init_mem(void)
+>   	ftrace_free_mem(NULL, start, end);
+>   }
+>
+> +int __init __weak ftrace_dyn_arch_init(void)
+> +{
+> +	return 0;
+> +}
+> +
+>   void __init ftrace_init(void)
+>   {
+>   	extern unsigned long __start_mcount_loc[];
+>
 
 
 _______________________________________________
