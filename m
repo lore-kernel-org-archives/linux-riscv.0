@@ -2,87 +2,165 @@ Return-Path: <SRS0=0BIX=N5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C204C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Sep 2021 13:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11560C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Sep 2021 15:56:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B7F7F61101
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Sep 2021 13:48:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B7F7F61101
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9940A6108D
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Sep 2021 15:56:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9940A6108D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U40kYN3wk9YN5KFX9tBbG3ufpM4bo3+Kby0rTMjv6DQ=; b=oGMSzcyCwJIBvA
-	I7pcYHz3JRR9UddFfXhBXh10PthHTOTSV4Vg2JSiZZU6W1LHI4QwmdEBbUiEBgnW9hVlVdxOBlfUB
-	ErehqnUqC/k8hDFRGl07CTbufmeDXbM1+dbGmvwvewGa3HiJUSGLLd+DYqxkmzBgOMF8BBIWEV0aD
-	gnQmONxtreSf9YKKx16vdWcZWuF49kNjuK0HVwCzeW3ZaqDGBCJuHJudLRoSUJEeDu3DvrkDkxami
-	0d/0MxZDWYS2tU0A6lYYHHsTdy2EsjZ7bqogzH8Z+16F06Q49kdmih0KRtVkMSEtI/EuU8qIe2Nzh
-	4db7HcIOKG9oYVADDxig==;
+	List-Owner; bh=4/8VBWwTp0aWakLGEkZ4cGPmWWvCO4f0ECsmEcSOxmE=; b=X2047x+r+ZrKPz
+	TPKipreZKEVPnO1NTz0LkKsdcYucsr1s/FMQZVfOqHNpEqTCpfqpNZEffMNup109DW6V7vStW4KzO
+	KajYkjnCGnPhZLywQ0tRTtpaXv8GJw7I6KXHn6LnYx3IEv+Pbo7liUiDia8pY0nb+Nkfogx/+1U/t
+	rIMRkoCJEo3SFLkVzRUz9bNlF3cNg/1ue6vMjn4nBaFEfChVYqMLilUOxQ2pHzr9rxiqH7hMyZD01
+	y9iAADUyxayUNAMCdHQ+oLPMJAbDVZxb85HTdI1AnY8kzsPvXqM9rixkCSIPvhLbxHR+de+BrjGyh
+	jDcR6XtFReIptZ6HzuFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mNbSY-003nbk-2o; Tue, 07 Sep 2021 13:48:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mNdSD-0047DU-4y; Tue, 07 Sep 2021 15:56:09 +0000
+Received: from mail-eopbgr90082.outbound.protection.outlook.com ([40.107.9.82]
+ helo=FRA01-MR2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mNbSU-003nbL-Vy
- for linux-riscv@lists.infradead.org; Tue, 07 Sep 2021 13:48:20 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2B8D761106
- for <linux-riscv@lists.infradead.org>; Tue,  7 Sep 2021 13:48:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631022498;
- bh=ArpxA6KfyIfvsZ8d82ObTY6A8wEvx7a+tmGvpZbu1u4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=kjFgQpGggoy8m98tICr9x1g/hjx8Ox1hcrlhLrM57ioC/90iFja0mnBM3BeeeXra7
- JphW+wIgU5CgTBCD7TCnN2d829H8+hK/9F04EvWUG7EcgiBWoqEX0x/1Cp4BxXbO00
- g1m9dO0al8adpXdoAQvlQtk2A/X+AWihwQ96o6nGRto6rP0BtE5+5BZv9lBD1b28v3
- 04A3PskMinulB06flbwsREV2MJDtiWNWN9ZAkcLRSCruam2qU+0eUq9wbxclMYk0OP
- Kwq4TUZaSuQfrMGbUJ3lXBVPDJM8hJndeyPZaB2avbVoEpLx3QWOSIgkcb0aGchnUH
- 7v+Tt6cPGmMTQ==
-Received: by mail-ej1-f54.google.com with SMTP id bt14so19841639ejb.3
- for <linux-riscv@lists.infradead.org>; Tue, 07 Sep 2021 06:48:18 -0700 (PDT)
-X-Gm-Message-State: AOAM531AN6CCUzB57dRNuoeOZVmEAVW4bfN9p4Gpj98ggG8oHPL1oT8/
- d7HcLg6nLbI29NuwC+IVNhhG9DLZhfpxXmZMeg==
-X-Google-Smtp-Source: ABdhPJwiAjWbUjHP2uyVj2Z+vPdtXWFsSipWwKu5pprpfvFabFFsaLXHejznbz/SkeiF6IcWA3068Sgq+uoQxj6jDr4=
-X-Received: by 2002:a17:906:9a4e:: with SMTP id
- aj14mr18654434ejc.84.1631022496627; 
- Tue, 07 Sep 2021 06:48:16 -0700 (PDT)
+ id 1mNdS7-0047Cq-Kr; Tue, 07 Sep 2021 15:56:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Y1m3iBmNRqDSA5BzzQ53i5tAqP7kBIdW/ihRgcfldYOVPq3bNi4WnD9aprm4jfUKMWW2BgoJc5MzsNbllNofVBhql+LoU3mUQILrFCaes5vX3CM4BAPC80tOstHVgdL1ZHQJV5aNZcjJH+IHeNWg+q4VifFHXeiRQeTboZNrLWx7+zkGwKqDLMDtQv4N4DGzZLHgYcGfPNKjeg0NGjmUPZ8U/pUzGesRRJaLI75SbQRuMWSvTZ3pT8OT4QHYRlauBv6/IhB6/zvJ7mq/AqedZ/+DzTmlbgRIlH5rcHF/A5J5FwAlCRzRCJSWidedwWVCuhiHhr/nbFgAfHdKWumn9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version; 
+ bh=1JmD07sVUCFruSZxPO0UXdnlEphtIZBqTNFWmee8LQ8=;
+ b=cXol4WymK+Ox89HYoKTaRcQ1cAhW4XMWVMC5AoTmEWe3XaOf+6m18y/9FS7NfYNM9b6++KUxanFsHJQQWdi7QoJSBslTTL3IEeIHeBrDmGNlflMLBnn/UYHYoTT4UFKkeMP068/9HJ0ECoeTplbMrJEGbMXu5ng7W5EpAdu9Kitr4mVHYOl1/EhkjQh/MBRnMusDPT4wj6Wd7eG3In1w3gP06vBbeRhukKRnnlXeFgmbARJyMRHG5BWGaZP8+VmO5Sg0UtYXP2YLdhgVcaCg/f2zh0b9+m4w6hiCkp6j6J38k6RaundqmVOI9Qj8N3CuAFDCo0Jm7kn1VRWBAVvTGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=csgroup.eu; dmarc=pass action=none header.from=csgroup.eu;
+ dkim=pass header.d=csgroup.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=csgroupeu.onmicrosoft.com; s=selector1-csgroupeu-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1JmD07sVUCFruSZxPO0UXdnlEphtIZBqTNFWmee8LQ8=;
+ b=MD21JzuTaQ6eVX3ekGCS0qczgIkQB8/AaMBgVdGwloW3LfQUWP5siRH9qSrp0fkaLGvKVbEOL1RHuMdz3tHpAHtJD64P9U0VPh3jD6taF+CzSoWAuSFeiKW098aEJxD5rQTjUrvZr38K39f+H67ncTUD+vsFV805ApzOEIUv4h1T223Nyc30pkpPkp9K1iEl26rgNMK5n4F4OKHOSO6uN8m+H5bJ3GkBcXX0Blb+D/D/m5RxVr1AM4k+BPcnSZ7zj+XWikMKPNjDbOu7CQPX3HGX3l5kNPS8qQ36FLPv1L1xNldU2nXMfvDR7qAccGuB+sFen9B6m9Y4ywcbU6PvsA==
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:31::15)
+ by MRZP264MB3130.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:1b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4478.20; Tue, 7 Sep
+ 2021 15:55:58 +0000
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::a96f:bd29:7b7f:62d3]) by MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::a96f:bd29:7b7f:62d3%9]) with mapi id 15.20.4478.026; Tue, 7 Sep 2021
+ 15:55:58 +0000
+From: LEROY Christophe <christophe.leroy@csgroup.eu>
+To: Weizhao Ouyang <o451686892@gmail.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>
+CC: Rich Felker <dalias@libc.org>, "linux-ia64@vger.kernel.org"
+ <linux-ia64@vger.kernel.org>, "linux-sh@vger.kernel.org"
+ <linux-sh@vger.kernel.org>, "linux-mips@vger.kernel.org"
+ <linux-mips@vger.kernel.org>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Guo Ren <guoren@kernel.org>, "H.
+ Peter Anvin" <hpa@zytor.com>, "sparclinux@vger.kernel.org"
+ <sparclinux@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, Vincent Chen <deanbo422@gmail.com>, Will
+ Deacon <will@kernel.org>, "linux-s390@vger.kernel.org"
+ <linux-s390@vger.kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Helge Deller <deller@gmx.de>, "x86@kernel.org" <x86@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, "linux-csky@vger.kernel.org"
+ <linux-csky@vger.kernel.org>, Christian Borntraeger <borntraeger@de.ibm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, Nick Hu
+ <nickhu@andestech.com>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Mackerras <paulus@samba.org>, "linuxppc-dev@lists.ozlabs.org"
+ <linuxppc-dev@lists.ozlabs.org>, "David S. Miller" <davem@davemloft.net>
+Subject: RE: [PATCH v3] ftrace: Cleanup ftrace_dyn_arch_init()
+Thread-Topic: [PATCH v3] ftrace: Cleanup ftrace_dyn_arch_init()
+Thread-Index: AQHXo9AGcZMAst5pGUmuiVdX2ZKaD6uYuHhw
+Date: Tue, 7 Sep 2021 15:55:58 +0000
+Message-ID: <MRZP264MB298824D80E6C0ADCB5EA1D9AEDD39@MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM>
+References: <20210907100524.1454928-1-o451686892@gmail.com>
+In-Reply-To: <20210907100524.1454928-1-o451686892@gmail.com>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_ActionId=38b895cc-cc20-4ae4-8b1f-a365da158b49;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_ContentBits=0;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_Enabled=true;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_Method=Standard;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_Name=Interne;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_SetDate=2021-09-07T15:50:14Z;
+ MSIP_Label_f9bcc058-4ca5-480a-b672-6d2445a83388_SiteId=9914def7-b676-4fda-8815-5d49fb3b45c8;
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=csgroup.eu;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8ea835ca-1f0c-4abc-8db2-08d97217fc0b
+x-ms-traffictypediagnostic: MRZP264MB3130:
+x-microsoft-antispam-prvs: <MRZP264MB313038909459552331416B22EDD39@MRZP264MB3130.FRAP264.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:8882;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: QeG9cwjKfwxEX1BYFuOVsmrS+d4sAQEPqGu9OQr+gjkqZveRy0ITiiIlr2HZoDvqXHQIoSlTo11E2tuouG73uzoF8jNAZL6Q/pLorlHvvno28cU1K5xiYAaAffyxWVz9NeEFq0x7jqRPIPV37n8+XmPUxLQzz4R0J3KdE0oqBstdP8rsUG2yz78VqD0g7nUzioTSPCxmhFWJeE3UwXyRPCZJlyhyPxPzxwP7RY2tXCX8sgP3b5iPPjXanhuYr+WrRZx66uklTANSncJWcGbF2A4Ua+VBdoeHCjj8od7MumLDVjWEUt56M7RHQNB3o72rCciiahogODu5S1yznSq51YtoQE/xxSNibsXesv4KRfx7y4+b/8EFzk6SAT6wWG44NL3Sdbg7DyvEQQNoIBuR7i9gCRJ0qZ6yzJ/gBoEN17yxpJTQHPpcQr/326ERXUnURffD6IZaBB13/agb3GA5Kw7QwZM89y7Yq7yh3dfLWWFn706B327cXpKnA3RSAjC2znSl//PL031mcev6BkFXlhvMH8Vd1aH77wY7dbvizcZ1mnlghcneEuYpH7q4q+K/1O+64L0iuzdzCkdJ+5yRQdd5DH5AFgIz5RUJrPYpOXdbRvs23OFUAgbDoRPqO1DF8LVoNeYaAXkKkmU86oLiLlkpgVWptMbQHp3dskXC+AUa8/NN/AavnJRqW2Fz4FDbEBWphTO4GRnPJvhyaPCfMA==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
+ SFS:(346002)(376002)(396003)(366004)(39850400004)(136003)(7416002)(7406005)(110136005)(5660300002)(54906003)(8676002)(38070700005)(478600001)(66476007)(76116006)(66946007)(316002)(55016002)(66446008)(52536014)(64756008)(66556008)(8936002)(71200400001)(4326008)(86362001)(33656002)(26005)(38100700002)(7696005)(6506007)(186003)(9686003)(122000001)(2906002)(83380400001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?bErSP+u5P1mjJDBt33HtL/ZSjresZXxgDawQe4NFraSl/OWaezZWuTGUyA?=
+ =?iso-8859-1?Q?XFaTB6p0u7KynsqB6atrwNyujDnG6LU5E2ae2uUKmN/YvcmfpdoSD4iBy7?=
+ =?iso-8859-1?Q?eplTAPmT6SE1q2rSWOTebgpKZmfGNq3oqi9VU5ll3ip5Ui8oe/1JQCT8kx?=
+ =?iso-8859-1?Q?a/m5HF+aRRLRNRIV7cN9DXwyMrfq05inuE+Kn/XX42dbJqka4ELgejTWOV?=
+ =?iso-8859-1?Q?Y4s+xk8oiCaTKj6bTy1QE8ZetQ0hthEF/W+EWqVO1z78Iu7j9gVKEmYKEy?=
+ =?iso-8859-1?Q?aXl0zPAzmBSiwjXaPU1AO79HSSQXw/w0BmRo1d3HkaOSgFSvhZC/eFZ1/B?=
+ =?iso-8859-1?Q?ohGuweITDD0pE4UcZS9sBKuY0Jyj4WT5ClqcIeEYPe5POhIi2xyC8TQPWE?=
+ =?iso-8859-1?Q?OR+P64+dak3BHA4AeJkISjeuT0/3k1KKy30zcQePjq57NWaDaJFbx1R6EG?=
+ =?iso-8859-1?Q?o2zWMLGBuO3JaiirM7hpEM/CtFcStYqwicOGrIZGj9NScLQ4eCCRWc6bAD?=
+ =?iso-8859-1?Q?hTkftpBlwjRHlcpPeLSk80AR9ROuQMUQMn2kl2eg0emKLza8C+Skm/U6Us?=
+ =?iso-8859-1?Q?dagWpOyaGOSGlIK9B8uecrALOMoaH5gslzy2qday9VIdw6Ffmi4w96ksf5?=
+ =?iso-8859-1?Q?EoFDeuJgUeJUsRb2nuztCBfGCVN2dgatBhyxwt8JV+hALGdkKuuAUnxrcN?=
+ =?iso-8859-1?Q?/53z3wC1kIUMj8GqrWPOwqTNBKqVajRwkUBNZPvgaSjJuPWr0smO+rjcvR?=
+ =?iso-8859-1?Q?M4Ya9eQtA7oCHWLGsLxIm4KPqSBwG5P07cjOFNYzwT+Zis3hvKSdOesKn8?=
+ =?iso-8859-1?Q?KIIRUd5dcCdf2t9AcHPTnEz5nBk3/aFQ0TFtQj5hiDQlt+5Ji865FtOCLb?=
+ =?iso-8859-1?Q?jDZJDxbqwt3n4V5rwKQkbJNY9hgHZ15NKn7fuKMl4qZR65bI6Qu9wzwGCX?=
+ =?iso-8859-1?Q?ziUj8/OZeCfVG9KD6DfuSY+3GVeMYM4sayiGH7qQsF4iCQZSoEfzMARIuO?=
+ =?iso-8859-1?Q?B10uOta39c9sweC7crujMth272/WXLjY5OEJeZ34phMm/XCfRiGLbL2fIN?=
+ =?iso-8859-1?Q?K4kIgcywSwQMFZODDJf5YhKcmmPvFVBKCppMhHIuO8Q2C1OH7aMjWAJZdc?=
+ =?iso-8859-1?Q?j9NUcSNinQnzwzIWZQ1COjx+zogz/nVAp98SW2MoTeMH36QBEGDXSnFsq6?=
+ =?iso-8859-1?Q?GUVmz/bMKQguSCkXVEoIbPpXQfUT3S9AtBhNCRIAjC5ikbWDQ3M65FWYlL?=
+ =?iso-8859-1?Q?BZKt8L6ZYZ860tkFaLoNeBUoaJ3HKLftfNL5Ug++IYJ3lLoTHWhiyi9I/O?=
+ =?iso-8859-1?Q?UvI4bNfHvFi/FzZKeU3OGFggtSwqjDxylnWadsnyIKN88jtjI1TZhE40uo?=
+ =?iso-8859-1?Q?MQj0yg9el3?=
+x-ms-exchange-transport-forked: True
 MIME-Version: 1.0
-References: <20210830041729.237252-1-anup.patel@wdc.com>
- <20210830041729.237252-6-anup.patel@wdc.com>
- <YS7WTPRYJWnPu2ii@robh.at.kernel.org>
- <CAAhSdy1mttzt3_CnKc=xhpp5CKOEAasQVobTR-2L6Z26rstn+A@mail.gmail.com>
- <CAL_JsqLT3RgG0MHMWEs8BZPPtOUUcjRw27W+O4z=DNP9M=EKAw@mail.gmail.com>
- <CAAhSdy1NBNTQ5F=4MjjwLb4k_kGgB9j5iFxJ6qoGSCuGkn=66g@mail.gmail.com>
-In-Reply-To: <CAAhSdy1NBNTQ5F=4MjjwLb4k_kGgB9j5iFxJ6qoGSCuGkn=66g@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 7 Sep 2021 08:48:04 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLXnYAGY5yqVkazeVdUgOtbbOZ2DMCU0_O892suYA4d-w@mail.gmail.com>
-Message-ID: <CAL_JsqLXnYAGY5yqVkazeVdUgOtbbOZ2DMCU0_O892suYA4d-w@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 05/11] dt-bindings: interrupt-controller: Add
- ACLINT MSWI and SSWI bindings
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>, Bin Meng <bmeng.cn@gmail.com>
+X-OriginatorOrg: csgroup.eu
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ea835ca-1f0c-4abc-8db2-08d97217fc0b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Sep 2021 15:55:58.6811 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9914def7-b676-4fda-8815-5d49fb3b45c8
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zX+p+QvejYszGeEDdLVCHyAYKhGH5eshAdlUlsI3q8FdNgYX0K3efX5jODDxdDb1gbsZuiKFJoX0qzSbO54KsOWYjO+sQI+IKTsvFSBxDao=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRZP264MB3130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210907_064819_109783_8C28E656 
-X-CRM114-Status: GOOD (  39.03  )
+X-CRM114-CacheID: sfid-20210907_085603_782868_F3EC7A0F 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,133 +177,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 3, 2021 at 5:40 AM Anup Patel <anup@brainfault.org> wrote:
->
-> On Thu, Sep 2, 2021 at 6:04 AM Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Wed, Sep 1, 2021 at 6:56 AM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Wed, Sep 1, 2021 at 6:54 AM Rob Herring <robh@kernel.org> wrote:
-> > > >
-> > > > On Mon, Aug 30, 2021 at 09:47:23AM +0530, Anup Patel wrote:
-> > > > > We add DT bindings documentation for the ACLINT MSWI and SSWI
-> > > > > devices found on RISC-V SOCs.
-> > > > >
-> > > > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > > > > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
-> > > > > ---
-> > > > >  .../riscv,aclint-swi.yaml                     | 95 +++++++++++++++++++
-> > > > >  1 file changed, 95 insertions(+)
-> > > > >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
-> > > > >
-> > > > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
-> > > > > new file mode 100644
-> > > > > index 000000000000..68563259ae24
-> > > > > --- /dev/null
-> > > > > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
-> > > > > @@ -0,0 +1,95 @@
-> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > +%YAML 1.2
-> > > > > +---
-> > > > > +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aclint-swi.yaml#
-> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > +
-> > > > > +title: RISC-V ACLINT Software Interrupt Devices
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Anup Patel <anup.patel@wdc.com>
-> > > > > +
-> > > > > +description:
-> > > > > +  RISC-V SOCs include an implementation of the M-level software interrupt
-> > > > > +  (MSWI) device and the S-level software interrupt (SSWI) device defined
-> > > > > +  in the RISC-V Advanced Core Local Interruptor (ACLINT) specification.
-> > > > > +
-> > > > > +  The ACLINT MSWI and SSWI devices are documented in the RISC-V ACLINT
-> > > > > +  specification located at
-> > > > > +  https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc.
-> > > > > +
-> > > > > +  The ACLINT MSWI and SSWI devices directly connect to the M-level and
-> > > > > +  S-level software interrupt lines of various HARTs (or CPUs) respectively
-> > > > > +  so the RISC-V per-HART (or per-CPU) local interrupt controller is the
-> > > > > +  parent interrupt controller for the ACLINT MSWI and SSWI devices.
-> > > > > +
-> > > > > +allOf:
-> > > > > +  - $ref: /schemas/interrupt-controller.yaml#
-> > > > > +
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    oneOf:
-> > > > > +      - items:
-> > > > > +        - enum:
-> > > > > +          - riscv,aclint-mswi
-> > > > > +
-> > > > > +      - items:
-> > > > > +        - enum:
-> > > > > +          - riscv,aclint-sswi
-> > > >
-> > > > All this can be just:
-> > > >
-> > > > enum:
-> > > >   - riscv,aclint-mswi
-> > > >   - riscv,aclint-sswi
-> > > >
-> > > > However...
-> > > >
-> > > > > +
-> > > > > +    description:
-> > > > > +      For ACLINT MSWI devices, it should be "riscv,aclint-mswi" OR
-> > > > > +      "<vendor>,<chip>-aclint-mswi".
-> > > > > +      For ACLINT SSWI devices, it should be "riscv,aclint-sswi" OR
-> > > > > +      "<vendor>,<chip>-aclint-sswi".
-> > > >
-> > > > s/OR/AND/
-> > > >
-> > > > There must be a compatible for the implementation. Unless RiscV
-> > > > implementations of specs are complete describing all clocks, power
-> > > > domains, resets, etc. and are quirk free.
-> > > >
-> > > > But don't write free form constraints...
-> > >
-> > > It is possible that quite a few implementations (QEMU, FPGAs, and
-> > > other simulators) will not require implementation specific compatible
-> > > strings. Should we still mandate implementation specific compatible
-> > > strings in DTS for such cases?
-> >
-> > No, but the schema says you only have those cases. Are there not any
-> > actual implementations?
->
-> All existing RISC-V boards have SiFive CLINT and ACLINT is backward
-> compatible with SiFive CLINT so we do have actual implementations.
 
-So there's a SiFive compatible you can add here?
 
-> None of the existing RISC-V boards have special clocks, power domain,
-> resets etc for these devices.
+> -----Message d'origine-----
+> De : Linuxppc-dev <linuxppc-dev-
+> bounces+christophe.leroy=csgroup.eu@lists.ozlabs.org> De la part de Weizhao
+> Ouyang
 >
-> >
-> > Minimally make "<vendor>,<chip>-aclint-mswi" into a schema pattern for
-> > the first entry and perhaps a note to replace with actual strings when
-> > there are some. It's ultimately up to the RiscV maintainers to require
-> > SoC specific compatibles here. Allowing a generic one alone makes that
-> > harder because the schema can't enforce it.
+> Most of ARCHs use empty ftrace_dyn_arch_init(), introduce a weak common
+> ftrace_dyn_arch_init() to cleanup them.
 >
-> Can we have a common compatible string for QEMU, FPGAs, etc ?
+> Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
+> Acked-by: Heiko Carstens <hca@linux.ibm.com> (s390)
+> Acked-by: Helge Deller <deller@gmx.de> (parisc)
 >
-> For example,
-> compatible = "riscv,generic-aclint-mswi", "riscv,aclint-mswi";
+> ---
+> Changes in v3:
+> -- fix unrecognized opcode on PowerPC
+>
+> Changes in v2:
+> -- correct CONFIG_DYNAMIC_FTRACE on PowerPC
+> -- add Acked-by tag
+>
+> ---
+>  arch/arm/kernel/ftrace.c          | 5 -----
+>  arch/arm64/kernel/ftrace.c        | 5 -----
+>  arch/csky/kernel/ftrace.c         | 5 -----
+>  arch/ia64/kernel/ftrace.c         | 6 ------
+>  arch/microblaze/kernel/ftrace.c   | 5 -----
+>  arch/mips/include/asm/ftrace.h    | 2 ++
+>  arch/nds32/kernel/ftrace.c        | 5 -----
+>  arch/parisc/kernel/ftrace.c       | 5 -----
+>  arch/powerpc/include/asm/ftrace.h | 4 ++++
+>  arch/riscv/kernel/ftrace.c        | 5 -----
+>  arch/s390/kernel/ftrace.c         | 5 -----
+>  arch/sh/kernel/ftrace.c           | 5 -----
+>  arch/sparc/kernel/ftrace.c        | 5 -----
+>  arch/x86/kernel/ftrace.c          | 5 -----
+>  include/linux/ftrace.h            | 1 -
+>  kernel/trace/ftrace.c             | 5 +++++
+>  16 files changed, 11 insertions(+), 62 deletions(-)
+>
+> diff --git a/arch/mips/include/asm/ftrace.h b/arch/mips/include/asm/ftrace.h
+> index b463f2aa5a61..ed013e767390 100644
+> --- a/arch/mips/include/asm/ftrace.h
+> +++ b/arch/mips/include/asm/ftrace.h
+> @@ -76,6 +76,8 @@ do {                                                \
+>
+>
+>  #ifdef CONFIG_DYNAMIC_FTRACE
+> +int __init ftrace_dyn_arch_init(void);
+> +
 
-This is not any better than just allowing "riscv,aclint-mswi" by
-itself as someone could just use the above strings on their new
-implementation to avoid warnings.
+Why ?
 
-You could just not worry about the QEMU and FPGA cases. FPGAs are
-probably not upstream and if they are, don't they need specific
-compatibles tied to versions of FPGA images? QEMU generating its own
-DT doesn't run schema validation though that could change. I'm looking
-at enabling schema validation at runtime for purposes of firmware
-testing and with that QEMU generated DT may be something we test.
 
-Rob
+>  static inline unsigned long ftrace_call_adjust(unsigned long addr)
+>  {
+>       return addr;
+> diff --git a/arch/powerpc/include/asm/ftrace.h
+> b/arch/powerpc/include/asm/ftrace.h
+> index debe8c4f7062..b05c43f13a4d 100644
+> --- a/arch/powerpc/include/asm/ftrace.h
+> +++ b/arch/powerpc/include/asm/ftrace.h
+> @@ -126,6 +126,10 @@ static inline void this_cpu_enable_ftrace(void) { }
+>  static inline void this_cpu_set_ftrace_enabled(u8 ftrace_enabled) { }
+>  static inline u8 this_cpu_get_ftrace_enabled(void) { return 1; }
+>  #endif /* CONFIG_PPC64 */
+> +
+> +#ifdef CONFIG_DYNAMIC_FTRACE
+> +int __init ftrace_dyn_arch_init(void);
+> +#endif /* CONFIG_DYNAMIC_FTRACE */
+
+Why ?
+
+>  #endif /* !__ASSEMBLY__ */
+>
+>  #endif /* _ASM_POWERPC_FTRACE */
+> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> index 832e65f06754..f1eca123d89d 100644
+> --- a/include/linux/ftrace.h
+> +++ b/include/linux/ftrace.h
+> @@ -573,7 +573,6 @@ ftrace_set_early_filter(struct ftrace_ops *ops, char
+> *buf, int enable);
+>
+>  /* defined in arch */
+>  extern int ftrace_ip_converted(unsigned long ip);
+> -extern int ftrace_dyn_arch_init(void);
+
+Why removing that ?
+
+Have you tried to build kernel/trace/ftrace.o with C=2 ? It will likely tell you that the function is not declared and that it should be static
+
+We could eventually consider that in the past, this generic declaration was unrelevant because the definitions where in the arch specific sections.
+Now that you are implementing a generic weak version of this function, it would make sense to have a generic declaration as well.
+
+I really don't see the point in duplicating the declaration of the function in the arch specific headers.
+
+>  extern void ftrace_replace_code(int enable);
+>  extern int ftrace_update_ftrace_func(ftrace_func_t func);
+>  extern void ftrace_caller(void);
+
+Christophe
+
+CS Group - Document Interne
 
 _______________________________________________
 linux-riscv mailing list
