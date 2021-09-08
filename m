@@ -2,81 +2,70 @@ Return-Path: <SRS0=esFF=N6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CB5FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 15:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01A97C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:31:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F0D2661051
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 15:11:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0D2661051
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id B104161153
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:31:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B104161153
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xnv8MUefSjHAGYsP03HcOeufpIrRiFTpJKs9xuw+Kho=; b=csuf3KZvMvovka
-	yPy45wmHe4XUo/NJqjlufvkLHsdb9DdZgvBfP/SLYActEon4SwtQokYdvosnYAU1mq6B9uUSujkVw
-	pi4j2EIrM489+tuyTTpZwvxqbjCcfbHV70Nectf8aLX8SoIfVtXPuf/nsJFOOTb8sLnYGlWO0nO6u
-	RMaUssZnPhWr9DdnAIwrKTUwcIqA+ggv2n8jj8clysBQYHOgVLZl7pDuIcmKuK9nISUjkA1oXKJy/
-	2eTwZrVVh3cawVLgDKcUZ8QRfzRXfYX1TOXGcKHCom9CZNxVkVz+qNrMk/9D+D0EAsNk095mdlAQ/
-	ki7asZSjUxUj/Ht4qVGw==;
+	List-Owner; bh=3kMP0wTHtplrk1zV/nMtHzASI0VBAy+QPjfFuqn4wig=; b=wZtmNz3vI/i/Oe
+	9BSNO2LBKB+wFNz+xPfTXfr5MaSPsm2+VdPnNfjb73JndiZYVYPMZrnv4kGMX/Xvf5AGyHCJJF6f8
+	v64n+DloGmQUVNHnVbbjifj2rcQnLi3dYhRqBn9uyyVPmoaYL+OjCCSnUbhEEy5shq4LBKegWl+je
+	CYo2WfKGGulnDEZ8V2NCAAjQcOW0AVoYH+hHK+R6Cp7YCZicQq/1e5Rb1YekLRsF1FLnbT58cdIdo
+	I0dEyWLidd2X3jp+gX8ZFj9VkUgBw0KsuLc168aFKL8aWCE1Hkzx173tSiPU3M5DSIp9LCT1U8XcW
+	pkrmykif6AR++lr9mnEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mNzEF-0071e3-G9; Wed, 08 Sep 2021 15:11:11 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mNzEB-0071bd-5w
- for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 15:11:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=0C3YBGnfpbG9UOTagLlfTYYKY8tokMJAvI
- Ql9p4G3lI=; b=gT8DVp8CbcFATMUBS9fwOB0WS36+q/qdnpW8Hy5wjuZJZ/lTuM
- TPNZ/tUrqqulOn9moSy17+wIG+I5hJKVxIoeEqI9KMf9UWu6OMtZ/p/dGH7b91lr
- 9DFaPbVSbmqGqCNXsGByk514vPeG7aHtAJEMBdsBixqxj7rRL5H8Q5jLs=
-Received: from xhacker (unknown [101.86.20.15])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygAnL0t+0jhh3cACAA--.2155S2; 
- Wed, 08 Sep 2021 23:10:54 +0800 (CST)
-Date: Wed, 8 Sep 2021 23:04:27 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: enable GENERIC_FIND_FIRST_BIT
-Message-ID: <20210908230427.3a92fb87@xhacker>
-In-Reply-To: <20210718001423.6b8e1d23@xhacker>
-References: <20210718001423.6b8e1d23@xhacker>
+	id 1mO1PD-007HH3-7p; Wed, 08 Sep 2021 17:30:39 +0000
+Received: from mail.kernel.org ([198.145.29.99])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mO1PB-007HGC-2F
+ for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 17:30:38 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4F18160EBA;
+ Wed,  8 Sep 2021 17:30:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631122236;
+ bh=dZyoNTpWYDjbsMLm8FfG+sH9KNIQUkuVJuATAf0rPYc=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=jmHsHqzsXEpQfgBDool7nzhxdJsYwpg1lXSCp9rpfCbk8lTluBYfE2TFqaKklS965
+ MdTeF68cxWBqsOtWaepe/3Ngkh5dnyGFc0dVJ90t0CzENT/l3bO/qy2ccnI5DDARdx
+ mZtmgVdZF7c4jGDQT/R4ljCVodKaOkS7tNN/D4wdC6TSseQikErSQS3K4oKDnylyZO
+ araZARYK+wqglwPTkkx6nbCRT3ta6NF1W2oP2TVw0Zl+4secs09UnoUI9h6h2Lr65H
+ up/YuOE9BJjYS9V73KPDnRQP9EwjEziZBBXF+vgCOuDxZVZr8HGE2ADE0i7bh+Py5k
+ bcjg1DmDk5kvw==
+From: Vineet Gupta <vgupta@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup.patel@wdc.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@kernel.org>, Anup Patel <anup@brainfault.org>
+Subject: [PATCH v2] riscv: mm: don't advertise 1 num_asid for 0 asid bits
+Date: Wed,  8 Sep 2021 10:30:29 -0700
+Message-Id: <20210908173029.1104897-1-vgupta@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <CAAhSdy018QJ2hdqL2BSZXV81-CVbTf_g6chJSHM4UH2EhLUpCA@mail.gmail.com>
+References: <CAAhSdy018QJ2hdqL2BSZXV81-CVbTf_g6chJSHM4UH2EhLUpCA@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygAnL0t+0jhh3cACAA--.2155S2
-X-Coremail-Antispam: 1UD129KBjvJXoWrKrW8Zr1UXF15ur17XrWxCrg_yoW8JrWfpr
- 45CF1Fgr45JFyrWF1fKFy7u34xWa1fG393Kr95t3W5Xry3urZ5urn3Kr13W34UCrs5Wryf
- JFyfC34UAayYyrDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUyFb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
- 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
- WUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
- Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rV
- WrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_
- GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8v_M3UUUUU==
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_081107_919631_6CC258DB 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20210908_103037_164239_8BA93DAA 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +82,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+Even if mmu doesn't support ASID, current code calculates @num_asids=1
+which is misleading, so avoid setting any asid related variables in such
+case.
 
-On Sun, 18 Jul 2021 00:14:23 +0800
-Jisheng Zhang wrote:
+Also while here, print the number of asid bits discovered even for the
+disabled case.
 
-> From: Jisheng Zhang <jszhang@kernel.org>
-> 
-> riscv doesn't implement architecture-optimized bitsearching functions
-> such as find_first_{zero}_bit() etc.
-> 
-> When GENERIC_FIND_FIRST_BIT=n, find_first_bit() is implemented with
-> find_next_bit() which is less efficient. Enable GENERIC_FIND_FIRST_BIT
-> for riscv to get more optimized find_first_bit() implementation, an
-> initial test(lib/find_bit_benchmark) shows find_first_bit() performance
-> is improved by nearly 32%.
+Verified this on Hifive Unmatched.
 
-It seems this patch is missed. Is it possible to pick it up for 2nd 5.15-rc1 PR?
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Vineet Gupta <vgupta@kernel.org>
+---
+ arch/riscv/mm/context.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-Thanks
-
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 8fcceb8eda07..7ebc54c5c245 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -47,6 +47,7 @@ config RISCV
->  	select GENERIC_ATOMIC64 if !64BIT
->  	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
->  	select GENERIC_EARLY_IOREMAP
-> +	select GENERIC_FIND_FIRST_BIT
->  	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
->  	select GENERIC_IOREMAP
->  	select GENERIC_IRQ_MULTI_HANDLER
-
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index ee3459cb6750..ea54cc0c9106 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -233,8 +233,10 @@ static int __init asids_init(void)
+ 	local_flush_tlb_all();
+ 
+ 	/* Pre-compute ASID details */
+-	num_asids = 1 << asid_bits;
+-	asid_mask = num_asids - 1;
++	if (asid_bits) {
++		num_asids = 1 << asid_bits;
++		asid_mask = num_asids - 1;
++	}
+ 
+ 	/*
+ 	 * Use ASID allocator only if number of HW ASIDs are
+@@ -255,7 +257,7 @@ static int __init asids_init(void)
+ 		pr_info("ASID allocator using %lu bits (%lu entries)\n",
+ 			asid_bits, num_asids);
+ 	} else {
+-		pr_info("ASID allocator disabled\n");
++		pr_info("ASID allocator disabled (%lu bits)\n", asid_bits);
+ 	}
+ 
+ 	return 0;
+-- 
+2.30.2
 
 
 _______________________________________________
