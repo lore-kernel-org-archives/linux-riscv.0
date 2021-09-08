@@ -2,100 +2,101 @@ Return-Path: <SRS0=esFF=N6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9DEEC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 21:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 64BFDC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 22:00:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 76FE661131
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 21:18:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 76FE661131
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id F0F29610F8
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 21:59:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0F29610F8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EzLU1yc9MQjctbr2Iw5QmZxKI4t3VquCuEnUBEmQJmo=; b=e0WS5N98PnmBZwKONd9nhmxI9p
-	F4DzxVqDXwO9Z3tGqnruYqcWVfAYz0wuKqnWZR7ycbDcEC1Mq7V2q3GBnMwJ67DnlUamI3tAPA0C/
-	4wT4HxuDjIKBRUmqvJUpau5F3fDci+wQ+0Jh5lJE8P/JrTKxwjZIHHx1zzkM7h81tftGsqBNXbgA6
-	l2AMzYdg39dAxnHYQAtoIzCoLmdZg90k9iuuvsZUAoHMz5SJFFOgKoCy3zR0VnDDsbLlh3pdTaADz
-	svgBXiXtKnPQyJzDZGQSRlT5mvv5ryhxPKoRGE7AXNOj668BNVMcvqU1loX03iFFA0/cDpd4M7E1O
-	KedQozCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l8waARoHajC7AzR5LyEBDnG3WoR8MnWQ9/i1j357E0s=; b=iepfF2Eww4Scgu
+	lty/ShGvm3Esxl0sDsoOk27uig2GDIP24ENW/pu/7A4sLwcd8Xyh2kmOYyeXabOWbHNviv2cWWM/b
+	G0D7HVgeEtsfDqTnKShgNKIU8gx4SD5yynPjRHz4htxv+Yo+4XozSYhKwvZOwB+eUAd7ahN6G0gag
+	Z6p5aRIBHoJt/26mR4++5PLiWHIiI/e3lJ7GUE7M9PquNsiobSGJM+Nmp1OMcKje0enfpX488nctp
+	qbUWEtVjRM7tL5/VUlifFqzbVvJFPpaHm3SXaI/dRM8tr4oFX0f+0QDVrszypKcDYWc+YGsANpXPd
+	3GgoScZdHM1xtD6vLSZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mO4wr-007cNs-Hk; Wed, 08 Sep 2021 21:17:37 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1mO5b2-007fhF-1w; Wed, 08 Sep 2021 21:59:08 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mO4wp-007cN2-Ch
- for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 21:17:36 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id
- x10-20020a056830408a00b004f26cead745so4755638ott.10
- for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 14:17:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=TPlAlW9m0l3/305TAZdOn8PajEjpurMWCxqwt3GbkS4=;
- b=k5Abv4lPU09XKV+T9DT6mwM4nvhzpbp8w1z70/OHtY75Ynul9pQ6hYn5bXFmBFeMrW
- O0+919A9pdjrK0y3dcJvzhZin3ZKvXoUiyDt23xQHj/SSnlPAAi9VRQzz8a1I4ubHeF0
- 4nYBDLB8Lz6QbbDkoFiuCJHvyWUVUa3EzltHvqTW/L4+AUCf7EQWCKr68+2A7LB0C3ZB
- q4oXu0fljrYBN40kLy/hL1DYa7IAkakc0Yf4BDFQNlOFsl5vyYVrUyyUyf3OAkf0Gq/o
- aDrKuO+c9bQIEHnV0CzehyjBRrbMdQCVCf6U1wUNm2OTmqSD0tlRXzMVuymIfnAuoQV+
- izxA==
+ id 1mO5ay-007fft-N5
+ for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 21:59:06 +0000
+Received: by mail-wr1-x429.google.com with SMTP id u9so5380909wrg.8
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 14:59:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=+LR8frgXEe3ow5R83HHc128uph7ex7SBJh9j6e+S9jU=;
+ b=Db08IbxJ13EWKYQNGZ2BEuYsakhUSoIWFEo23AxCjh0j+YYZUAYir81XobnmhdiQFC
+ 1iSVB74cCVzPUS1vGu59yP4rT4pCrd4YDNYH7j7c3dsrwlrdxSnP4oy0loI6+6CtalWJ
+ LKXTNXMJVTgRiy0U9o3cqCOmJTqWvfPGpCabxpOLQ71sUgtL4uo66+t8MWgMPhYieet8
+ sbMaCQLCKSjeTPhIL7lYpAIf6SX9Jo+Y3p5sQFLYc1YSIVTP9WSd2LfIphpbBDvU1LVL
+ 4TTP9wwvFOJnOuTkfJZQqhMJ1gBJZD4IDEXw290MmI/VunlC/CDYSxsp1JwZn9nDgCqs
+ 99DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:sender:subject:to:cc:references:from:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=TPlAlW9m0l3/305TAZdOn8PajEjpurMWCxqwt3GbkS4=;
- b=5OwLxU+3uMJ6j1an2e/DuHEwa+OSCJg7IAjoXCPKaq0j71eKcM22vlo5/+weNwG53P
- +M7lp/i47JF/D85Fw4AuyUAjlnsveiHFBBbWX5BrL09siK+DBlk84UY5PDH+TWL+jskj
- mQ9Q9GHNz3kzMZZayAh5oD41dexDCKY1QRDbJuuogYczDF6nb88pQsQXOGg1JXDL72UK
- 4rI9bIlUn9KVVjM0Xx4lhIvgsdrZqFX7tW2IdWWeuFTe3HVloTR7LHeEARRIpki8Ym/Z
- fyp2TMqNtlVxs6m2upY5ik0R1q246q+JSNhb+JcavAEwcTIuIlIennJbhGOAu/xypcbj
- 7JjQ==
-X-Gm-Message-State: AOAM530SSQpDATCpf+V8vyUqXYdmmL3lALoJkTQbluxg+kQUxcGdOYyl
- e9C0J/NPhGxWdqalOlyd7jk=
-X-Google-Smtp-Source: ABdhPJxkjqUmx0EXZUtOM51rkpogDdc1elqKgJf+LSadeuZxUOTgYN8HN8JPtJWeUSz2gihbxedmdg==
-X-Received: by 2002:a9d:7f07:: with SMTP id j7mr181524otq.84.1631135853295;
- Wed, 08 Sep 2021 14:17:33 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id j8sm39523ooc.21.2021.09.08.14.16.32
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 08 Sep 2021 14:17:03 -0700 (PDT)
-Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
-To: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=+LR8frgXEe3ow5R83HHc128uph7ex7SBJh9j6e+S9jU=;
+ b=j5BXrJNINVKNHi8SyU7OmJPGZF300aDh3JW2rcFOHPouI6bCjx3xDbcbVJLFAfASn8
+ PfqB/wdCu5eXnEPbXHkfHe1x+vmivVlAl2lifQJ/aEPwO6UCawj2gWMysXuLkmDwkIrI
+ Jai4YN4+1ts+9baDQLGYS8qeEqznMlY2ClnPXH6WlzM3yVhg8xOoTOXZK4B6/HK5zYMH
+ oyecha7+85fEpxFlf5lgsKipXd7TLnwHNDewOKJMUhOxbeFVPVDVQJ6C/e9Ay2DLi56t
+ LZbuyD0izxMYGE2KpXajs+m440SihQWa8OrGXyK6X67lnpV4N0gayqEAuR6kLMwuzmI3
+ sEtw==
+X-Gm-Message-State: AOAM531eBjxGD+Hp4zBFDk9m3SfLfT/+51jtGN+ysgY9TtUCoL58eh8W
+ exlpCbdy1E4B0or5VXIaIZmPoQ==
+X-Google-Smtp-Source: ABdhPJy9LuBylSkfGDLomcMbGliUY/gfERj/SWVa0XWOQWuMBf30BqzMK/CEeBFTW6NaaPpKmnfwMg==
+X-Received: by 2002:adf:f208:: with SMTP id p8mr418298wro.379.1631138342436;
+ Wed, 08 Sep 2021 14:59:02 -0700 (PDT)
+Received: from elver.google.com ([2a00:79e0:15:13:6c42:a08d:7652:61ef])
+ by smtp.gmail.com with ESMTPSA id o10sm358689wrc.16.2021.09.08.14.59.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 08 Sep 2021 14:59:01 -0700 (PDT)
+Date: Wed, 8 Sep 2021 23:58:56 +0200
+From: Marco Elver <elver@google.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  llvm@lists.linux.dev, Nick Desaulniers <ndesaulniers@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
  Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+Message-ID: <YTkyIAevt7XOd+8j@elver.google.com>
 References: <20210906142615.GA1917503@roeck-us.net>
  <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
  <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
  <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
  <YTkjJPCdR1VGaaVm@archlinux-ax161>
-From: Guenter Roeck <linux@roeck-us.net>
-Message-ID: <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
-Date: Wed, 8 Sep 2021 14:16:28 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
 MIME-Version: 1.0
-In-Reply-To: <YTkjJPCdR1VGaaVm@archlinux-ax161>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
+User-Agent: Mutt/2.0.5 (2021-01-21)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_141735_494318_FF3EA63E 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20210908_145904_801753_BFB90D5D 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +108,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/8/21 1:55 PM, Nathan Chancellor wrote:
-> Hi Arnd,
+On Wed, Sep 08, 2021 at 02:16PM -0700, Guenter Roeck wrote:
+> On 9/8/21 1:55 PM, Nathan Chancellor wrote:
+[...]
+> > I have started taking a look at these. Most of the allmodconfig ones
+> > appear to be related to CONFIG_KASAN, which is now supported for
+> > CONFIG_ARM.
+> > 
 > 
-> On Tue, Sep 07, 2021 at 11:11:17AM +0200, Arnd Bergmann wrote:
->> On Tue, Sep 7, 2021 at 4:32 AM Nathan Chancellor <nathan@kernel.org> wrote:
->>>
->>> arm32-allmodconfig.log: crypto/wp512.c:782:13: error: stack frame size (1176) exceeds limit (1024) in function 'wp512_process_buffer' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/firmware/tegra/bpmp-debugfs.c:294:12: error: stack frame size (1256) exceeds limit (1024) in function 'bpmp_debug_show' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/firmware/tegra/bpmp-debugfs.c:357:16: error: stack frame size (1264) exceeds limit (1024) in function 'bpmp_debug_store' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: error: stack frame size (1384) exceeds limit (1024) in function 'bw_calcs' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: error: stack frame size (5560) exceeds limit (1024) in function 'calculate_bandwidth' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: error: stack frame size (1064) exceeds limit (1024) in function 'cfi_intelext_writev' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/ntb/hw/idt/ntb_hw_idt.c:1041:27: error: stack frame size (1032) exceeds limit (1024) in function 'idt_scan_mws' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/staging/fbtft/fbtft-core.c:902:12: error: stack frame size (1072) exceeds limit (1024) in function 'fbtft_init_display_from_property' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/staging/fbtft/fbtft-core.c:992:5: error: stack frame size (1064) exceeds limit (1024) in function 'fbtft_init_display' [-Werror,-Wframe-larger-than]
->>> arm32-allmodconfig.log: drivers/staging/rtl8723bs/core/rtw_security.c:1288:5: error: stack frame size (1040) exceeds limit (1024) in function 'rtw_aes_decrypt' [-Werror,-Wframe-larger-than]
->>> arm32-fedora.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: error: stack frame size (1376) exceeds limit (1024) in function 'bw_calcs' [-Werror,-Wframe-larger-than]
->>> arm32-fedora.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: error: stack frame size (5384) exceeds limit (1024) in function 'calculate_bandwidth' [-Werror,-Wframe-larger-than]
->>>
->>> Aside from the dce_calcs.c warnings, these do not seem too bad. I
->>> believe allmodconfig turns on UBSAN but it could also be aggressive
->>> inlining by clang. I intend to look at all -Wframe-large-than warnings
->>> closely later.
->>
->> I've had them close to zero in the past, but a couple of new ones came in.
->>
->> The amdgpu ones are probably not fixable unless they stop using 64-bit
->> floats in the kernel for
->> random calculations. The crypto/* ones tend to be compiler bugs, but hard to fix
-> 
-> I have started taking a look at these. Most of the allmodconfig ones
-> appear to be related to CONFIG_KASAN, which is now supported for
-> CONFIG_ARM.
-> 
+> Would it make sense to make KASAN depend on !COMPILE_TEST ?
+> After all, the point of KASAN is runtime testing, not build testing.
 
-Would it make sense to make KASAN depend on !COMPILE_TEST ?
-After all, the point of KASAN is runtime testing, not build testing.
+It'd be good to avoid. It has helped uncover build issues with KASAN in
+the past. Or at least make it dependent on the problematic architecture.
+For example if arm is a problem, something like this:
 
-Guenter
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -71,7 +71,7 @@ config ARM
+ 	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
+ 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
+ 	select HAVE_ARCH_KGDB if !CPU_ENDIAN_BE32 && MMU
+-	select HAVE_ARCH_KASAN if MMU && !XIP_KERNEL
++	select HAVE_ARCH_KASAN if MMU && !XIP_KERNEL && (!COMPILE_TEST || !CC_IS_CLANG)
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_PFN_VALID
+ 	select HAVE_ARCH_SECCOMP
+
+More generally, with clang, the problem is known and due to KASAN stack
+instrumentation (CONFIG_KASAN_STACK):
+
+ | config KASAN_STACK
+ |         bool "Enable stack instrumentation (unsafe)" if CC_IS_CLANG && !COMPILE_TEST
+ |         depends on KASAN_GENERIC || KASAN_SW_TAGS
+ |         depends on !ARCH_DISABLE_KASAN_INLINE
+ |         default y if CC_IS_GCC
+ |         help
+ |           The LLVM stack address sanitizer has a know problem that
+ |           causes excessive stack usage in a lot of functions, see
+ |           https://bugs.llvm.org/show_bug.cgi?id=38809
+ |           Disabling asan-stack makes it safe to run kernels build
+ |           with clang-8 with KASAN enabled, though it loses some of
+ |           the functionality.
+ |           This feature is always disabled when compile-testing with clang
+ |           to avoid cluttering the output in stack overflow warnings,
+ |           but clang users can still enable it for builds without
+ |           CONFIG_COMPILE_TEST.  On gcc it is assumed to always be safe
+ |           to use and enabled by default.
+ |           If the architecture disables inline instrumentation, stack
+ |           instrumentation is also disabled as it adds inline-style
+ |           instrumentation that is run unconditionally.
+
+This is already disabled if COMPILE_TEST and building with clang. As
+far as I know, there's no easy fix for clang and it's been discussed
+many times over with LLVM devs.
+
+Thanks,
+-- Marco
 
 _______________________________________________
 linux-riscv mailing list
