@@ -2,90 +2,77 @@ Return-Path: <SRS0=esFF=N6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47DDBC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DAFD1C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 20:55:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0A74D6115B
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:49:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0A74D6115B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 94B6161131
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 20:55:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 94B6161131
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k5G2RASo1mSYkQ65wQsMbKjTT/Rs8XeyO6Kpch4EcW0=; b=1mlx8rr3RKW9wi
-	chu3/BHJ3+9GUeASTNvN/cWHlycnMJZDYuqXBKcwunobeI4LQx0gufBh0cI4jFnVKpaQcO0hWRbqZ
-	9Wq9cMDZcqdJGTxophvmflLldCo7Hh3hZ6tvcxnFREOaV3vvFJGufZnEOPVE0iMAOL7WCi8ILCZH0
-	rxT7LyvAAVpauH+eI7tRFU+0axXtodpzihsNIIfxPndb8m3eScvtTZqXYpdxlP3xfW7mbRgcqz1CR
-	PtQHhzchpiYBLyyexRhOLRjfFWOz/FzY1C9DiAMV4ZauS4OiDZCRQL/+eLR+qifjOFicdffqJGv8V
-	gJkC78vYLujMT3aOKl7A==;
+	List-Owner; bh=pfCaAtN3IEj8sS/z9t41gyJMoM+qhrHSg4laCR5QQLk=; b=OsRivMQ7REFztT
+	0pbOO/RZSEwkCzSANZxbHX/DClucv3I2GcBSYSNDQDW3rVonsx+8r14v2rEUDpAXpBkTXevdn0LCa
+	iYKwu5y7ke8AZBWYq+OfenvCHoj69vmv/KesX6zcxt55EXJxmHvBYKLP+Pd7hTP6DHmLwHojJ2b+S
+	UGUZ0rEjepJx20HTa4MtTwZNOKoMYrukw2T7GbGIdCaSFLsPjtHR/e3jDSPCAZDkkunOwORUKOAaT
+	+ILsjLcvWVlE4jhmFFaizYOJ1W/RfdDDfBvpcwMIMsD6QKUyItu7FJf9PMwaHlh3Hto6WCK8UAawc
+	wTUcc/KTHMbqW7xqcc4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mO1f7-007JTQ-83; Wed, 08 Sep 2021 17:47:05 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1mO4bA-007ZqY-Sg; Wed, 08 Sep 2021 20:55:12 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mO1eB-007Iha-Sl
- for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 17:46:09 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id
- g13-20020a17090a3c8d00b00196286963b9so1862751pjc.3
- for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 10:46:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=lvYFnpE+vcL+5OVNgIPvCGE7jHqR7WMR9PRIiy6pwGg=;
- b=dfZBRHf2wrBry4B+KYNGRzOMYSdhwtCugDbMgPPWb+TUptqwNpbB9cDoPmb3Bj/rfz
- reRAK7l9gceD5ghZEnr/xwHqGN+iD7PxQHiGdvkTP/HG2TkMChvO89QCo3eBxaYG3p09
- lLM4KtdDUVIXSvLV1IAyZclec0IG5enKGS3U0RLCT2TzCAaPbSztpqSzrA8l3Xj8BAS0
- gDOcNuHjACo8RfFHoRi8Kvp8Nb/VZqpyG+hDAkCFNHhfdXOgSuD8FfcyPiKN0twBfA/1
- q00wQyzYAeYsGE3mUOBcLvNBVVGXJFR1iBXBG/O1cjkOWVYLSkOXnmTO0yk5r7sGWfKn
- LukQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=lvYFnpE+vcL+5OVNgIPvCGE7jHqR7WMR9PRIiy6pwGg=;
- b=QqaE6SY+JvtAJf3/17s+FnLL2VHlc1F5dqmfv0K+M+lpNDIjMZGsWWirrtGLat2yve
- Udak3HZaWsSHtgukCyhQnzRLcjy7pe43KZpXRpIO6/n4vFJkjBU60cOplf80slvXsENk
- j2rZfkked1sX2rJx0tgNOOtjBU1mC1hv62cgEIGNUybgM0hYIQOeZTt5MKfVMYF4KFS+
- mFeC3M2tB8SjDH3cjyCz2Lz5Wxr+gWueGkqLYM+O7LeUlqxJaurv1skaMgua2RFDWtss
- a0BX8/JGvRkfxGsPic0C3bpYrlLwjZCeNfsC3rD8Iwvwf7djJZAfoCMmixH9l4sDXvmR
- 4Vrw==
-X-Gm-Message-State: AOAM5302GuOLQqywg4wLQ+tmponjXok6PuEe9DAnB03cOOHvEb6wqHDI
- IdRBHwgMtyskzz9Vwkd1TfmkzW1FETt9Ow==
-X-Google-Smtp-Source: ABdhPJz7hteQN4ueoz3qvrw7mKi05UEduUmNHaIaV59kjVT3OB9jzRiMBIRJAcu2dSi3Mr41QhgeEg==
-X-Received: by 2002:a17:902:bf43:b0:13a:ae0:9dee with SMTP id
- u3-20020a170902bf4300b0013a0ae09deemr4063860pls.62.1631123167173; 
- Wed, 08 Sep 2021 10:46:07 -0700 (PDT)
-Received: from hsinchu16.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id b5sm3108466pfr.26.2021.09.08.10.46.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 08 Sep 2021 10:46:06 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
- vincent.chen@sifive.com
-Subject: [RFC PATCH v8 20/21] riscv: Optimize task switch codes of vector
-Date: Thu,  9 Sep 2021 01:45:32 +0800
-Message-Id: <3b2d4ff556d310ed73a6910b89566a195fc28861.1631121222.git.greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <cover.1631121222.git.greentime.hu@sifive.com>
-References: <cover.1631121222.git.greentime.hu@sifive.com>
+ id 1mO4b7-007Zpx-GK
+ for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 20:55:11 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9036F61158;
+ Wed,  8 Sep 2021 20:55:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631134506;
+ bh=qOW+3a3Dux7smy1XbXVLU/2hKyGfpH9x0I1DZ65HpVY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=GxBnw5yjqB4WfqYxEYLloni2ogPLLAwqUOSEl8oPgGQ1uEdOPEXLKyZFtEGu2BXvN
+ RUDvnIa2W1610J/TBRdKY4JTHOTvC7oHRulXeMud+pAkQGBGOQyG8nD2pQcNfGxh7L
+ 7+WWBHJ1Qs/Q1sKb/G/RJHyfmagLTHpevpJ4b/L56MGWkKln4C+e8B09eUQ6QmAVOK
+ JGF/HlSaakxxxQAbQw5gHUcelXX/GfGQt1GJ2N/DgZ1syxtzpICNloVfVhzvSeGUkn
+ enSQ6QhBEV7uD/UvVU1hSMErO764GNSs74xWxPJcG0DpC2NORcW9V+1KgQRYdV5s7v
+ qCMrqpBziSF5w==
+Date: Wed, 8 Sep 2021 13:55:00 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ llvm@lists.linux.dev, Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+Message-ID: <YTkjJPCdR1VGaaVm@archlinux-ax161>
+References: <20210906142615.GA1917503@roeck-us.net>
+ <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
+ <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
+ <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_104607_986492_6722BDEE 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210908_135509_629323_FB9EFFA1 
+X-CRM114-Status: GOOD (  30.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +89,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch replacees 2 instructions with 1 instruction to do the same thing
-. rs1=x0 with rd != x0 is a special form of the instruction that sets vl to
-MAXVL.
+Hi Arnd,
 
-Suggested-by: Andrew Waterman <andrew@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
----
- arch/riscv/kernel/vector.S | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+On Tue, Sep 07, 2021 at 11:11:17AM +0200, Arnd Bergmann wrote:
+> On Tue, Sep 7, 2021 at 4:32 AM Nathan Chancellor <nathan@kernel.org> wrote:
+> >
+> > arm32-allmodconfig.log: crypto/wp512.c:782:13: error: stack frame size (1176) exceeds limit (1024) in function 'wp512_process_buffer' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/firmware/tegra/bpmp-debugfs.c:294:12: error: stack frame size (1256) exceeds limit (1024) in function 'bpmp_debug_show' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/firmware/tegra/bpmp-debugfs.c:357:16: error: stack frame size (1264) exceeds limit (1024) in function 'bpmp_debug_store' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: error: stack frame size (1384) exceeds limit (1024) in function 'bw_calcs' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: error: stack frame size (5560) exceeds limit (1024) in function 'calculate_bandwidth' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: error: stack frame size (1064) exceeds limit (1024) in function 'cfi_intelext_writev' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/ntb/hw/idt/ntb_hw_idt.c:1041:27: error: stack frame size (1032) exceeds limit (1024) in function 'idt_scan_mws' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/staging/fbtft/fbtft-core.c:902:12: error: stack frame size (1072) exceeds limit (1024) in function 'fbtft_init_display_from_property' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/staging/fbtft/fbtft-core.c:992:5: error: stack frame size (1064) exceeds limit (1024) in function 'fbtft_init_display' [-Werror,-Wframe-larger-than]
+> > arm32-allmodconfig.log: drivers/staging/rtl8723bs/core/rtw_security.c:1288:5: error: stack frame size (1040) exceeds limit (1024) in function 'rtw_aes_decrypt' [-Werror,-Wframe-larger-than]
+> > arm32-fedora.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: error: stack frame size (1376) exceeds limit (1024) in function 'bw_calcs' [-Werror,-Wframe-larger-than]
+> > arm32-fedora.log: drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: error: stack frame size (5384) exceeds limit (1024) in function 'calculate_bandwidth' [-Werror,-Wframe-larger-than]
+> >
+> > Aside from the dce_calcs.c warnings, these do not seem too bad. I
+> > believe allmodconfig turns on UBSAN but it could also be aggressive
+> > inlining by clang. I intend to look at all -Wframe-large-than warnings
+> > closely later.
+> 
+> I've had them close to zero in the past, but a couple of new ones came in.
+> 
+> The amdgpu ones are probably not fixable unless they stop using 64-bit
+> floats in the kernel for
+> random calculations. The crypto/* ones tend to be compiler bugs, but hard to fix
 
-diff --git a/arch/riscv/kernel/vector.S b/arch/riscv/kernel/vector.S
-index 4f0c5a166e4e..f7223c81b11a 100644
---- a/arch/riscv/kernel/vector.S
-+++ b/arch/riscv/kernel/vector.S
-@@ -27,8 +27,7 @@
- #define x_vl     t2
- #define x_vcsr   t3
- #define incr     t4
--#define m_one    t5
--#define status   t6
-+#define status   t5
- 
- ENTRY(__vstate_save)
- 	li      status, SR_VS
-@@ -38,8 +37,7 @@ ENTRY(__vstate_save)
- 	csrr    x_vtype, CSR_VTYPE
- 	csrr    x_vl, CSR_VL
- 	csrr    x_vcsr, CSR_VCSR
--	li      m_one, -1
--	vsetvli incr, m_one, e8, m8
-+	vsetvli incr, x0, e8, m8
- 	vse8.v   v0, (datap)
- 	add     datap, datap, incr
- 	vse8.v   v8, (datap)
-@@ -61,8 +59,7 @@ ENTRY(__vstate_restore)
- 	li      status, SR_VS
- 	csrs    CSR_STATUS, status
- 
--	li      m_one, -1
--	vsetvli incr, m_one, e8, m8
-+	vsetvli incr, x0, e8, m8
- 	vle8.v   v0, (datap)
- 	add     datap, datap, incr
- 	vle8.v   v8, (datap)
--- 
-2.31.1
+I have started taking a look at these. Most of the allmodconfig ones
+appear to be related to CONFIG_KASAN, which is now supported for
+CONFIG_ARM.
 
+The two in bpmp-debugfs.c appear regardless of CONFIG_KASAN and it turns
+out that you actually submitted a patch for these:
+
+https://lore.kernel.org/r/20201204193714.3134651-1-arnd@kernel.org/
+
+Is it worth resending or pinging that?
+
+The dce_calcs.c ones also appear without CONFIG_KASAN, which you noted
+is probably unavoidable.
+
+The other ones only appear with CONFIG_KASAN. I have not investigated
+each instance to see exactly how much KASAN makes the stack blow up.
+Perhaps it is worth setting the default of CONFIG_FRAME_WARN to a higher
+value with clang+COMPILE_TEST+KASAN?
+
+> > It appears that both Arch Linux and Fedora define CONFIG_FRAME_WARN
+> > as 1024, below its default of 2048. I am not sure these look particurly
+> > scary (although there are some that are rather large that need to be
+> > looked at).
+> 
+> For 64-bit, you usually need 1280 bytes stack space to get a
+> reasonably clean build,
+> anything that uses more than that tends to be a bug in the code but we
+> never warned
+> about those by default as the default warning limit in defconfig is 2048.
+> 
+> I think the distros using 1024 did that because they use a common base config
+> for 32-bit and 64-bit targets.
+
+That is a fair explanation.
+
+> > I suspect this is a backend problem because these do not really appear
+> > in any other configurations (might also be something with a sanitizer?)
+> 
+> Agreed. Someone needs to bisect the .config or the compiler flags to see what
+> triggers them.
+
+For other people following along, there were a lot of
+-Wframe-larger-than instances from RISC-V allmodconfig.
+
+Turns out this is because CONFIG_KASAN_STACK is not respected with
+RISC-V. They do not set CONFIG_KASAN_SHADOW_OFFSET so following along in
+scripts/Makefile.kasan, CFLAGS_KASAN_SHADOW does not get set to
+anything, which means that only '-fsanitize=kernel-address' gets added
+to the command line, with none of the other parameters.
+
+I guess there are a couple of ways to tackle this:
+
+1. RISC-V could implement CONFIG_KASAN_SHADOW_OFFSET. They mention that
+   the logic of KASAN_SHADOW_OFFSET was taken from arm64 but they did
+   not borrow the Kconfig logic it seems.
+
+2. asan-stack could be hoisted out of the else branch so that it is
+   always enabled/disabled regardless of KASAN_SHADOW_OFFSET being
+   defined, which resolved all of these warnings for me in my testing.
+
+I am adding the KASAN and RISC-V folks to CC for this reason.
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
