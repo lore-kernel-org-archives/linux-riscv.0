@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 823B0C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28FE4C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:46:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B97D61158
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:46:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4B97D61158
+	by mail.kernel.org (Postfix) with ESMTPS id EB38761153
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 17:46:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EB38761153
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sgNo8D+V75/3JAc7x3tcLUoU005rzF1ypi66XFAqBJw=; b=Ef1hq7u4Zb7H2Z
-	hveFEI1/b+ZZopQEt6oQHaWJ+qQ13O//9MHkhVqjsX44ZXrOErt+Gl4uxuw1X4pa8C47BopBIdZrX
-	kpj7icldlwpZbFPxJI5lTyVrKAhEvADteJcp0DxfjW3pgpOmfcDQx2a6EtVNF+HGClbjUjCSNfGbS
-	GRCl72DXfdpQcwJ0OsZbx8f1U16nlLfLHtnSsoSwK5Rc+AdZ7N0thGVH3kYzIbQCfK09FV1xz3Bwz
-	uZJpEQWj74AnweWbllRCkP2a1wE+T+8cVquFAVLuc32N9qh2uPazsSk+hA5QE9ibexge8rjC1v1wZ
-	KQwQchxmgVXJWjstFYjQ==;
+	List-Owner; bh=SaOwu5aHt8b5iXB76guT58NB7M91Ny+iWPzMZRnFhcU=; b=GHsyujhvxLoAT+
+	2qbxX6es/Mly8IzN7OSzptCHLH1o/7zf2KMXAfpJ6PeGf+SO4h73dziT5UC7sr7rHN+nsRMNJhhi3
+	nkq8mj7gU87U94qEWZQgbxTBKgGHBgwwtuzSWRFb1acLD9nYjWnY6RZVPjPXdHHBz6CcVvGHzLYZ3
+	R5r2o/cN/op0f9G9ujifxH9gl/Jre0kAuDz0yDW8WF1qGkkk6jY30FvfcyCrvgjQAq4j7BqDm68xc
+	u/TuYEI5bDi74A9A6vU5n4ygsgpqsSMB4TK+Szf57a1jq12WB3v757ucMkJ6a4vgI2LIum+m5o3ob
+	KmfZZetDwDD9jF45zEGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mO1eA-007IgE-RT; Wed, 08 Sep 2021 17:46:06 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1mO1eZ-007J1U-4R; Wed, 08 Sep 2021 17:46:31 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mO1dv-007IRr-2r
- for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 17:45:53 +0000
-Received: by mail-pl1-x632.google.com with SMTP id n18so1778209plp.7
- for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 10:45:50 -0700 (PDT)
+ id 1mO1e4-007IZz-8K
+ for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 17:46:01 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id
+ u13-20020a17090abb0db0290177e1d9b3f7so1873357pjr.1
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 10:46:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=VvNs4530wqNDSqmlo/WbyGZX5SCt0lQZgeWDmbi3SpM=;
- b=Wesefn571XeGwdDDTO5qnh2KqpD5sAaH3xBDEJvMUayZcISolVSDYpsmYqEe/mnJzC
- 2SazwObHRvPVOJ57EqAFfh2SmYdLuCYdjntcK0ZsYHXMNedKKfHKCz8PCrfVBZufjoLB
- cv4o7oU0ygNWZEfWSx8F/aWRhhf/goY70TKFfkWVa85r416R5TPW6snCGItxg6V8gs4s
- OOC9c1+69cTwQd1C8YbhLzBOKwZRzUfe1avhM6fePoClfwlUfQ2/mQ3y2jBwyo4j+DJ9
- 98e84f0EOodJvBtJPXg+G7Hk5sccJeQceGBUjxK3KboJ406iqCTFkSyJuP8IOnb/Apg9
- AuFw==
+ bh=bYEb93v2edJxduQ1tKdJAFizc1jWHNKcldlmNIUxJJc=;
+ b=Fc+eGN/TbPbgtYCV0XIKvvs4j8YfYuqog4Bo8ySp4UCX+N2thheP3GvjOknBdpETOR
+ 1n1Fokqrqg7amJioOSqOCphpC8VegHsVhd8bKiyIbjVt1Khk9o3JfLGVahl43LhHGy3G
+ Dtp5Cz1Omu9YKMJe8hDKC5Ehp7R7JpwwYZEtzAHulkVyZ6URgTnYua3F/ktfOFrXm2aE
+ CwNkE/+MEINnEtchw02Um6ms0WYA+WLzMP/P0etL8YyoUyhXj+s/m0Iy+7jrSR17ymep
+ 9TgT0Ws4OO87Sn/Zw8c65/9OuTYVXZon8AVspXtkjk+b7NlDokCKid9EL5GSOlbBJ1P8
+ ltgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=VvNs4530wqNDSqmlo/WbyGZX5SCt0lQZgeWDmbi3SpM=;
- b=mDeCQFH7TEwxGB1p727m7I1oIvytDRJiYhJnGt++TTWkFldy9+5st2K9t7Sp3LA0yo
- +ZNHBB1bOo4pxk3yq3klKYa3eElvDhqNGmS8ZQtOIJnFuZrCIKi25v6IdsIdpDWeDj4x
- GF5m+JyO0m+nkx1dZ7Yc3pvJ1KXILw69dTNkps76RXlBbZfAyRFIOi6TwnFV0ePR4MRS
- FBwwcjVFMyUa72Gd/AQ6PmyCfQ7dVej8ihdmg6bPnyV4uiN4IrV03aRF/i2XuSR4+e8J
- J5CNXxHWknScY5Cpd1x1Sd8S10CueEmi3GzwzFUVOpXGV2ziG/F3zZPxN4gNdCAWiGoT
- IYGg==
-X-Gm-Message-State: AOAM533S3GRNsf7lN8cjv0JhoGBOZGgdE3AgRvqfdo5+utf++rDgPcW1
- JPLQxO0lTjJimFVr7lvJx7F8TgRtS22PdQ==
-X-Google-Smtp-Source: ABdhPJyAfQn3LslERnSEnB88OduiEI00r+estT7qFAcli8jVgAN1CKbeMjKc4xQVSdvT6sQ3zjMLIQ==
-X-Received: by 2002:a17:90b:116:: with SMTP id
- p22mr5282652pjz.67.1631123150022; 
- Wed, 08 Sep 2021 10:45:50 -0700 (PDT)
+ bh=bYEb93v2edJxduQ1tKdJAFizc1jWHNKcldlmNIUxJJc=;
+ b=0i43hIBjkWeW5CvGH4rlrFDlt+RCjV2Nv6UQvoDd/Rq853Ao/lc/8/Vt4oo10G4Y2I
+ RFTqLIAFKXFSQEVLtcIoSPCToydtbpdDYdRhsKo3p+DPXKIXJNCRZjk52wyEjhEyXySI
+ 2cbtpvDSrJkb8FVUqrwYwir+Pjcfb44yXAA0pqx2s11MkOXaPWTUUFveoC+dWl+ilfxa
+ IWl0xUkgFZXToYUiVKW1wd+kKMsvu3ItcdPveMxdsC4u4bJgupMJocgOePD/M9RZ5zxF
+ vQ4au3qe3lPmL0NnduEUpb509JcceJ1EaS0Sa+4rtIe8zubwzkTuy0G0d7BvFSGBv/ql
+ QtGQ==
+X-Gm-Message-State: AOAM5334x1hHhCafbo9mDv6OSwARdyqdqEMUUc+D/tzxlBZniJjWztRo
+ 1Cz3hSWRYQG6jnN7HDLuLKQdw6fEEb2jGA==
+X-Google-Smtp-Source: ABdhPJy4fkxyLd5n51UTYMDmSAtKZcR/1z+AtxWJY8nwKCMXlRZc/PCB2QyS1yrxUdmEFh/Lv5Touw==
+X-Received: by 2002:a17:90b:1902:: with SMTP id
+ mp2mr5443716pjb.4.1631123159339; 
+ Wed, 08 Sep 2021 10:45:59 -0700 (PDT)
 Received: from hsinchu16.internal.sifive.com
  (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id b5sm3108466pfr.26.2021.09.08.10.45.48
+ by smtp.gmail.com with ESMTPSA id b5sm3108466pfr.26.2021.09.08.10.45.58
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 08 Sep 2021 10:45:49 -0700 (PDT)
+ Wed, 08 Sep 2021 10:45:59 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
  vincent.chen@sifive.com
-Subject: [RFC PATCH v8 09/21] riscv: Add task switch support for vector
-Date: Thu,  9 Sep 2021 01:45:21 +0800
-Message-Id: <0e65c165e3d54a38cbba01603f325dca727274de.1631121222.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v8 15/21] riscv: Add vector extension XOR implementation
+Date: Thu,  9 Sep 2021 01:45:27 +0800
+Message-Id: <33c485ee595aff1e19a0e43074da59779f58d105.1631121222.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <cover.1631121222.git.greentime.hu@sifive.com>
 References: <cover.1631121222.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_104551_162934_55463057 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20210908_104600_365696_A8118253 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,292 +101,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds task switch support for vector. It supports partial lazy
-save and restore mechanism. It also supports all lengths of vlen.
+This patch adds support for vector optimized XOR it is tested in spike and
+qemu.
 
-[guoren@linux.alibaba.com: First available porting to support vector
-context switching]
-[nick.knight@sifive.com: Rewrite vector.S to support dynamic vlen, xlen and
-code refine]
-[vincent.chen@sifive.co: Fix the might_sleep issue in vstate_save,
-vstate_restore]
-Co-developed-by: Nick Knight <nick.knight@sifive.com>
-Signed-off-by: Nick Knight <nick.knight@sifive.com>
-Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Logs in spike:
+[    0.008365] xor: measuring software checksum speed
+[    0.048885]    8regs     :  1719.000 MB/sec
+[    0.089080]    32regs    :  1717.000 MB/sec
+[    0.129275]    rvv       :  7043.000 MB/sec
+[    0.129525] xor: using function: rvv (7043.000 MB/sec)
+
+Logs in qemu:
+[    0.098943] xor: measuring software checksum speed
+[    0.139391]    8regs     :  2911.000 MB/sec
+[    0.181079]    32regs    :  2813.000 MB/sec
+[    0.224260]    rvv       :    45.000 MB/sec
+[    0.225586] xor: using function: 8regs (2911.000 MB/sec)
+
+Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 ---
- arch/riscv/include/asm/switch_to.h | 66 +++++++++++++++++++++++
- arch/riscv/kernel/Makefile         |  1 +
- arch/riscv/kernel/process.c        | 38 ++++++++++++++
- arch/riscv/kernel/vector.S         | 84 ++++++++++++++++++++++++++++++
- 4 files changed, 189 insertions(+)
- create mode 100644 arch/riscv/kernel/vector.S
+ arch/riscv/include/asm/xor.h | 74 ++++++++++++++++++++++++++++++++
+ arch/riscv/lib/Makefile      |  1 +
+ arch/riscv/lib/xor.S         | 81 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 156 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index ec83770b3d98..de0573dad78f 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -7,10 +7,12 @@
- #define _ASM_RISCV_SWITCH_TO_H
- 
- #include <linux/jump_label.h>
-+#include <linux/slab.h>
- #include <linux/sched/task_stack.h>
- #include <asm/processor.h>
- #include <asm/ptrace.h>
- #include <asm/csr.h>
-+#include <asm/asm-offsets.h>
- 
- #ifdef CONFIG_FPU
- extern void __fstate_save(struct task_struct *save_to);
-@@ -68,6 +70,68 @@ static __always_inline bool has_fpu(void) { return false; }
- #define __switch_to_fpu(__prev, __next) do { } while (0)
- #endif
- 
-+#ifdef CONFIG_VECTOR
-+extern bool has_vector;
-+extern unsigned long riscv_vsize;
-+extern void __vstate_save(struct __riscv_v_state *save_to, void *datap);
-+extern void __vstate_restore(struct __riscv_v_state *restore_from, void *datap);
-+
-+static inline void __vstate_clean(struct pt_regs *regs)
-+{
-+	regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
-+}
-+
-+static inline void vstate_off(struct task_struct *task,
-+			      struct pt_regs *regs)
-+{
-+	regs->status = (regs->status & ~SR_VS) | SR_VS_OFF;
-+}
-+
-+static inline void vstate_save(struct task_struct *task,
-+			       struct pt_regs *regs)
-+{
-+	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
-+		struct __riscv_v_state *vstate = &(task->thread.vstate);
-+
-+		__vstate_save(vstate, vstate->datap);
-+		__vstate_clean(regs);
-+	}
-+}
-+
-+static inline void vstate_restore(struct task_struct *task,
-+				  struct pt_regs *regs)
-+{
-+	if ((regs->status & SR_VS) != SR_VS_OFF) {
-+		struct __riscv_v_state *vstate = &(task->thread.vstate);
-+
-+		/* Allocate space for vector registers. */
-+		if (!vstate->datap) {
-+			vstate->datap = kzalloc(riscv_vsize, GFP_ATOMIC);
-+			vstate->size = riscv_vsize;
-+		}
-+		__vstate_restore(vstate, vstate->datap);
-+		__vstate_clean(regs);
-+	}
-+}
-+
-+static inline void __switch_to_vector(struct task_struct *prev,
-+				   struct task_struct *next)
-+{
-+	struct pt_regs *regs;
-+
-+	regs = task_pt_regs(prev);
-+	if (unlikely(regs->status & SR_SD))
-+		vstate_save(prev, regs);
-+	vstate_restore(next, task_pt_regs(next));
-+}
-+
-+#else
-+#define has_vector false
-+#define vstate_save(task, regs) do { } while (0)
-+#define vstate_restore(task, regs) do { } while (0)
-+#define __switch_to_vector(__prev, __next) do { } while (0)
-+#endif
-+
- extern struct task_struct *__switch_to(struct task_struct *,
- 				       struct task_struct *);
- 
-@@ -77,6 +141,8 @@ do {							\
- 	struct task_struct *__next = (next);		\
- 	if (has_fpu())					\
- 		__switch_to_fpu(__prev, __next);	\
-+	if (has_vector)					\
-+		__switch_to_vector(__prev, __next);	\
- 	((last) = __switch_to(__prev, __next));		\
- } while (0)
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 3397ddac1a30..344078080839 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -40,6 +40,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
- obj-$(CONFIG_FPU)		+= fpu.o
-+obj-$(CONFIG_VECTOR)		+= vector.o
- obj-$(CONFIG_SMP)		+= smpboot.o
- obj-$(CONFIG_SMP)		+= smp.o
- obj-$(CONFIG_SMP)		+= cpu_ops.o
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 03ac3aa611f5..0b86e9e531c9 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -95,6 +95,16 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 		 */
- 		fstate_restore(current, regs);
- 	}
-+
-+	if (has_vector) {
-+		regs->status |= SR_VS_INITIAL;
-+		/*
-+		 * Restore the initial value to the vector register
-+		 * before starting the user program.
-+		 */
-+		vstate_restore(current, regs);
-+	}
-+
- 	regs->epc = pc;
- 	regs->sp = sp;
- }
-@@ -110,15 +120,43 @@ void flush_thread(void)
- 	fstate_off(current, task_pt_regs(current));
- 	memset(&current->thread.fstate, 0, sizeof(current->thread.fstate));
- #endif
-+#ifdef CONFIG_VECTOR
-+	/* Reset vector state */
-+	vstate_off(current, task_pt_regs(current));
-+	memset(&current->thread.vstate, 0, sizeof(current->thread.vstate));
-+#endif
- }
- 
- int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- {
- 	fstate_save(src, task_pt_regs(src));
-+	if (has_vector)
-+		/* To make sure every dirty vector context is saved. */
-+		vstate_save(src, task_pt_regs(src));
- 	*dst = *src;
-+	if (has_vector) {
-+		/* Copy vector context to the forked task from parent. */
-+		if ((task_pt_regs(src)->status & SR_VS) != SR_VS_OFF) {
-+			dst->thread.vstate.datap = kzalloc(riscv_vsize, GFP_KERNEL);
-+			/* Failed to allocate memory. */
-+			if (!dst->thread.vstate.datap)
-+				return -ENOMEM;
-+			/* Copy the src vector context to dst. */
-+			memcpy(dst->thread.vstate.datap,
-+			       src->thread.vstate.datap, riscv_vsize);
-+		}
-+	}
-+
- 	return 0;
- }
- 
-+void arch_release_task_struct(struct task_struct *tsk)
-+{
-+	/* Free the vector context of datap. */
-+	if (has_vector)
-+		kfree(tsk->thread.vstate.datap);
-+}
-+
- int copy_thread(unsigned long clone_flags, unsigned long usp, unsigned long arg,
- 		struct task_struct *p, unsigned long tls)
- {
-diff --git a/arch/riscv/kernel/vector.S b/arch/riscv/kernel/vector.S
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
 new file mode 100644
-index 000000000000..4c880b1c32aa
+index 000000000000..60ee0224913d
 --- /dev/null
-+++ b/arch/riscv/kernel/vector.S
-@@ -0,0 +1,84 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * Copyright (C) 2012 Regents of the University of California
-+ * Copyright (C) 2017 SiFive
-+ * Copyright (C) 2019 Alibaba Group Holding Limited
-+ *
-+ *   This program is free software; you can redistribute it and/or
-+ *   modify it under the terms of the GNU General Public License
-+ *   as published by the Free Software Foundation, version 2.
-+ *
-+ *   This program is distributed in the hope that it will be useful,
-+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ *   GNU General Public License for more details.
++ * Copyright (C) 2020 SiFive
 + */
 +
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_VECTOR
++#include <asm/vector.h>
++
++extern void xor_regs_2_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2);
++extern void xor_regs_3_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3);
++extern void xor_regs_4_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3,
++			unsigned long *p4);
++extern void xor_regs_5_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3, unsigned long *p4,
++			unsigned long *p5);
++
++static void xor_rvv_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
++{
++	kernel_rvv_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_3(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3)
++{
++	kernel_rvv_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_4(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3, unsigned long *p4)
++{
++	kernel_rvv_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_5(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3, unsigned long *p4, unsigned long *p5)
++{
++	kernel_rvv_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_rvv_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_rvv_2,
++	.do_3 = xor_rvv_3,
++	.do_4 = xor_rvv_4,
++	.do_5 = xor_rvv_5
++};
++
++extern bool has_vector;
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 25d5c9664e57..acd87ac86d24 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -7,3 +7,4 @@ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
++lib-$(CONFIG_VECTOR)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..de2e234c39ed
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 SiFive
++ */
 +#include <linux/linkage.h>
-+
++#include <asm-generic/export.h>
 +#include <asm/asm.h>
-+#include <asm/csr.h>
-+#include <asm/asm-offsets.h>
 +
-+#define vstatep  a0
-+#define datap    a1
-+#define x_vstart t0
-+#define x_vtype  t1
-+#define x_vl     t2
-+#define x_vcsr   t3
-+#define incr     t4
-+#define m_one    t5
-+#define status   t6
-+
-+ENTRY(__vstate_save)
-+	li      status, SR_VS
-+	csrs    sstatus, status
-+
-+	csrr    x_vstart, CSR_VSTART
-+	csrr    x_vtype, CSR_VTYPE
-+	csrr    x_vl, CSR_VL
-+	csrr    x_vcsr, CSR_VCSR
-+	li      m_one, -1
-+	vsetvli incr, m_one, e8, m8
-+	vse8.v   v0, (datap)
-+	add     datap, datap, incr
-+	vse8.v   v8, (datap)
-+	add     datap, datap, incr
-+	vse8.v   v16, (datap)
-+	add     datap, datap, incr
-+	vse8.v   v24, (datap)
-+
-+	REG_S   x_vstart, RISCV_V_STATE_VSTART(vstatep)
-+	REG_S   x_vtype, RISCV_V_STATE_VTYPE(vstatep)
-+	REG_S   x_vl, RISCV_V_STATE_VL(vstatep)
-+	REG_S   x_vcsr, RISCV_V_STATE_VCSR(vstatep)
-+
-+	csrc	sstatus, status
++ENTRY(xor_regs_2_)
++	vsetvli a3, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
 +	ret
-+ENDPROC(__vstate_save)
++END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
 +
-+ENTRY(__vstate_restore)
-+	li      status, SR_VS
-+	csrs    sstatus, status
-+
-+	li      m_one, -1
-+	vsetvli incr, m_one, e8, m8
-+	vle8.v   v0, (datap)
-+	add     datap, datap, incr
-+	vle8.v   v8, (datap)
-+	add     datap, datap, incr
-+	vle8.v   v16, (datap)
-+	add     datap, datap, incr
-+	vle8.v   v24, (datap)
-+
-+	REG_L   x_vstart, RISCV_V_STATE_VSTART(vstatep)
-+	REG_L   x_vtype, RISCV_V_STATE_VTYPE(vstatep)
-+	REG_L   x_vl, RISCV_V_STATE_VL(vstatep)
-+	REG_L   x_vcsr, RISCV_V_STATE_VCSR(vstatep)
-+	vsetvl  x0, x_vl, x_vtype
-+	csrw    CSR_VSTART, x_vstart
-+	csrw    CSR_VCSR, x_vcsr
-+
-+	csrc	sstatus, status
++ENTRY(xor_regs_3_)
++	vsetvli a4, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
 +	ret
-+ENDPROC(__vstate_restore)
++END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++ENTRY(xor_regs_4_)
++	vsetvli a5, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++ENTRY(xor_regs_5_)
++	vsetvli a6, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.31.1
 
