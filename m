@@ -5,87 +5,112 @@ X-Spam-Level:
 X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CFA7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 03:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F4F4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 04:26:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 38A7660F93
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 03:33:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 38A7660F93
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 6D93161100
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 04:26:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6D93161100
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=opensource.wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tj2CI71ym5RacCavhaXSTk1XJsCd+36gkMaq7SJ5XPM=; b=03PwauaAKj57L1
-	dawmC1FHUzUCyCi+BfpB9lT4z+/Q8NU0Fa1YOtcu9NUMiOJ9dZ8hHniuQZMOFoCxBTQfT6BSHxC0b
-	ZN9J5grhOCYbl+MK+VC0Bsqq1Hf6lpE/Rp/83jutns8Y95sHAX99BG30Z68k1tSM+UsfcX2LfB6jQ
-	hqblXlxrizbIpyJWeSEtZvcaBc1he2HVnlcG4cxBlVJwJmJQGJNRjrtDPkQWTuVwK9FSrA6bjnEM7
-	XBD373aQI3YkVi7VFmU3DmEyCxIKO4Aqcs6zpByJ2frqW92BMbqy62QdG7IQjjUXUz8j88sZDVhEr
-	fmMTCYau8voGbadXoh9A==;
+	List-Owner; bh=nNvLA4WYGyHKBDT9Z894F+xP9ZrirG3OxHo391EUyMU=; b=unx6OJke7BsqdG
+	Iu02hWPLw7dA4uEWiT9bGhKDfEvCO0/no8W2/vFc8+YJqfWySgdoXsfFAD8xIOECsKJo5QFAOWNqA
+	4TYdXzT7lwcLFBFQHxwOCu9zQT6Oi/g7agg6A2V0G+r2NCIEGZOZk/Rba1oeLPHbsSxLTJDLwYjyM
+	6NfWfOKf3p9hfWSdyXejULSQ9SiIatz2dUoHwKdBj60DSG+HguklpYL59Y2Xzx/45CARreI/W8N3X
+	yeZQ66GZIWAusBmwITFxlZhdIDuGFnWO5zMDlT68soLixcYOVI4fhXkzKZtUgefUHxDLGV/AeDqYi
+	WWOMBGxamA7Cek+8NRFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOAof-00894j-MB; Thu, 09 Sep 2021 03:33:33 +0000
-Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOAoR-008939-0a; Thu, 09 Sep 2021 03:33:21 +0000
-Received: from linux.localdomain (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9DxheVPgDlhDyYCAA--.9478S2;
- Thu, 09 Sep 2021 11:32:32 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Shubham Bansal <illusionist.neo@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Burton <paulburton@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- naveen.n.rao@linux.ibm.com, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Luke Nelson <luke.r.nels@gmail.com>,
- Xi Wang <xi.wang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- bjorn@kernel.org, davem@davemloft.net,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Chaignon <paul@cilium.io>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
-Subject: [PATCH bpf-next] bpf: Change value of MAX_TAIL_CALL_CNT from 32 to 33
-Date: Thu,  9 Sep 2021 11:32:30 +0800
-Message-Id: <1631158350-3661-1-git-send-email-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.1.0
-X-CM-TRANSID: AQAAf9DxheVPgDlhDyYCAA--.9478S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtr13GF1ftFyfWF45Zr4kCrg_yoWftF1rpr
- 18twnakrWvqw15Aa4xKayUWw4UKF4vgF47KFn8CrWSyanFvr9rWr13Kw15ZFZ0vrW8Jw4r
- WFZ0kr43C3WkXwUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUvKb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjc
- xK6I8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr
- 0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxa
- n2IY04v7MxkIecxEwVAFwVW8GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
- W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
- 1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
- C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF
- 0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxh
- VjvjDU0xZFpf9x07bz4SrUUUUU=
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+	id 1mOBdY-008Bdw-5m; Thu, 09 Sep 2021 04:26:08 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mOBdU-008BdU-HR
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 04:26:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1631161564; x=1662697564;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=uTJ4YViqTBigsFNPfbDCcZNwNeuUciwbhlEYLs8SL54=;
+ b=nGmSDfH5Ieew0yhUGKQsWjss/s/sdoHVRxxNeq0BromPevOybp6zPD9m
+ sUkdWK04utXhGNXWRJ+oGQA87qAXOYiXPyB90OMfu96Ce1O/tZNyvguDl
+ VIsCyq8/9I0F/z5FJpvkkc6FX4Fs+mGeE4ZV85ZwyUNQ1FbUfGQ8tA1v8
+ HZjvFKONUrqvlRsIdbw6YppD3NE+pYwX196DHI75QuLsNQklkhfH//hEe
+ 3zo5xGttb9DVDwG80RNQMedUF65B3zglkOOx00CqOHFlPBkgO6RQX7Fu6
+ muyOQM5VOS+A/Tday1SO5Cfro0u0UDfsROluYYZV27rrj2/ineHxVTLc5 w==;
+X-IronPort-AV: E=Sophos;i="5.85,279,1624291200"; d="scan'208";a="178635128"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Sep 2021 12:26:01 +0800
+IronPort-SDR: 2B8RajjU8nwLzBLEJ2c3uYnQ2K0oNpyVm5aFJN9rDf48ziJVcD1LlLogj2LYZdlwKLK7ggJav1
+ My8wHpKUpIcD9AM6jsdg/YzlqoJB0LpoCvU+4jII45lt2amj12nfc/boqj4OOXeYUpRX3yhwXl
+ 0E8cDyv0J6w+4oYf8Fj1NnA/peLWk0ol/H9UDFlJN3SOUwvj2wg03XfTRgd9Qpj3eJjGSYktch
+ w2zYlSk2QVCnst5T0PA2i8pTf7+ucjbhsPhYZj0sEtTRgE3ZmC4AAhhB8bf18/wH86IMUOX8vP
+ nCgoIG2T8T0WxII/QoqCSnu6
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 08 Sep 2021 21:00:57 -0700
+IronPort-SDR: Xl7StVq36f+C90bbf9NXaXOUsnclVazR0TXpS9BqqxC2RWTsT/r4E+tiZd/iXRgabe+UqvK/+Z
+ e663byChulpGxesP4v3Hsoy+HaXYRqqcCBpOZ1jPT/JIG/Zp+PZXHFqcOBhndaCa15rK4HGtKv
+ I7bBpV4qHcabvOMCqRZtsB7tPNuNwqKf6/we+mLDX236WrsNOA9Y6q4uTVvdGxuSIezSrOuUwD
+ gifeL5kFknxuZEWDn3yj9XmZmmfXieyO0ztn/dfwfXnxnf6mbUHoRJMh2+dJ6gqCNCofqi6EiW
+ ytU=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 08 Sep 2021 21:26:01 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4H4mCX6YJJz1Rvlb
+ for <linux-riscv@lists.infradead.org>; Wed,  8 Sep 2021 21:26:00 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:mime-version
+ :x-mailer:message-id:date:subject:to:from; s=dkim; t=1631161560;
+ x=1633753561; bh=uTJ4YViqTBigsFNPfbDCcZNwNeuUciwbhlEYLs8SL54=; b=
+ mVDC65s1mtlUa3zeFnC3SdKgS4EZo5AXwLCmb+tT5FqI4VLj7Fsm200/ZqLpr0FR
+ rZFBcWL5BHfRoEjrPLjyniEV4Hqr5FlKazrcntVhuwLGnJXM3muUWJYUrazAxCee
+ ByZ8vTOrLZBnplWG05M97Fv04tvUlWloIkIbI7PvkOeCgsH3FTsQokUHqkQ94iEV
+ 6b/+iFVIbSo9zJhSNzOegTWyH8Cxa5FS3lsn4VvRxK38FD6sx5xn17dwmz6V5CNA
+ Qd60H3Ax3axx2SloglCTYzTH68lX1TAU+ZDsfgnmh8Y/f306lfR5MU7VEU9m9t4n
+ +vnCUE9hXW6kaKKl6mHrDg==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id lc4mGJ7gMn_6 for <linux-riscv@lists.infradead.org>;
+ Wed,  8 Sep 2021 21:26:00 -0700 (PDT)
+Received: from toolbox.alistair23.me (unknown [10.225.165.20])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4H4mCL597Fz1RvlP;
+ Wed,  8 Sep 2021 21:25:50 -0700 (PDT)
+From: Alistair Francis <alistair.francis@opensource.wdc.com>
+To: linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, alistair23@gmail.com, namhyung@kernel.org,
+ jolsa@redhat.com, alexander.shishkin@linux.intel.com, mark.rutland@arm.com,
+ acme@kernel.org, dave@stgolabs.net, dvhart@infradead.org,
+ peterz@infradead.org, mingo@redhat.com, tglx@linutronix.de,
+ atish.patra@wdc.com, arnd@arndb.de,
+ Alistair Francis <alistair.francis@wdc.com>
+Subject: [PATCH] perf bench: Add support for 32-bit systems with 64-bit time_t
+Date: Thu,  9 Sep 2021 14:25:43 +1000
+Message-Id: <20210909042543.1982893-1-alistair.francis@opensource.wdc.com>
+X-Mailer: git-send-email 2.31.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_203319_522153_0F2BE31B 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20210908_212604_741104_283D87E5 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,278 +122,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the current code, the actual max tail call count is 33 which is greater
-than MAX_TAIL_CALL_CNT (defined as 32), the actual limit is not consistent
-with the meaning of MAX_TAIL_CALL_CNT, there is some confusion and need to
-spend some time to think the reason at the first glance.
+From: Alistair Francis <alistair.francis@wdc.com>
 
-We can see the historical evolution from commit 04fd61ab36ec ("bpf: allow
-bpf programs to tail-call other bpf programs") and commit f9dabe016b63
-("bpf: Undo off-by-one in interpreter tail call count limit").
+Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
+time_t and as such don't have the SYS_futex syscall. This patch will
+allow us to use the SYS_futex_time64 syscall on those platforms.
 
-In order to avoid changing existing behavior, the actual limit is 33 now,
-this is resonable.
+This patch does not attempt to gracefully allow 32-bit architectures
+with both SYS_futex and SYS_futex_time64 to support a 64-bit time_t.
+This patch only applies to 32-bit architectures with a 64-bit time_t.
 
-After commit 874be05f525e ("bpf, tests: Add tail call test suite"), we can
-see there exists failed testcase.
-
-On all archs when CONFIG_BPF_JIT_ALWAYS_ON is not set:
- # echo 0 > /proc/sys/net/core/bpf_jit_enable
- # modprobe test_bpf
- # dmesg | grep -w FAIL
- Tail call error path, max count reached jited:0 ret 34 != 33 FAIL
-
-On some archs:
- # echo 1 > /proc/sys/net/core/bpf_jit_enable
- # modprobe test_bpf
- # dmesg | grep -w FAIL
- Tail call error path, max count reached jited:1 ret 34 != 33 FAIL
-
-So it is necessary to change the value of MAX_TAIL_CALL_CNT from 32 to 33,
-then do some small changes of the related code.
-
-With this patch, it does not change the current limit, MAX_TAIL_CALL_CNT
-can reflect the actual max tail call count, and the above failed testcase
-can be fixed.
-
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
 ---
- arch/arm/net/bpf_jit_32.c         | 11 ++++++-----
- arch/arm64/net/bpf_jit_comp.c     |  7 ++++---
- arch/mips/net/ebpf_jit.c          |  4 ++--
- arch/powerpc/net/bpf_jit_comp32.c |  4 ++--
- arch/powerpc/net/bpf_jit_comp64.c | 12 ++++++------
- arch/riscv/net/bpf_jit_comp32.c   |  4 ++--
- arch/riscv/net/bpf_jit_comp64.c   |  4 ++--
- arch/sparc/net/bpf_jit_comp_64.c  |  8 ++++----
- include/linux/bpf.h               |  2 +-
- kernel/bpf/core.c                 |  4 ++--
- 10 files changed, 31 insertions(+), 29 deletions(-)
+ tools/perf/bench/futex.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index a951276..39d9ae9 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -1180,18 +1180,19 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx)
- 
- 	/* tmp2[0] = array, tmp2[1] = index */
- 
--	/* if (tail_call_cnt > MAX_TAIL_CALL_CNT)
--	 *	goto out;
-+	/*
- 	 * tail_call_cnt++;
-+	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-+	 *	goto out;
- 	 */
-+	tc = arm_bpf_get_reg64(tcc, tmp, ctx);
-+	emit(ARM_ADDS_I(tc[1], tc[1], 1), ctx);
-+	emit(ARM_ADC_I(tc[0], tc[0], 0), ctx);
- 	lo = (u32)MAX_TAIL_CALL_CNT;
- 	hi = (u32)((u64)MAX_TAIL_CALL_CNT >> 32);
--	tc = arm_bpf_get_reg64(tcc, tmp, ctx);
- 	emit(ARM_CMP_I(tc[0], hi), ctx);
- 	_emit(ARM_COND_EQ, ARM_CMP_I(tc[1], lo), ctx);
- 	_emit(ARM_COND_HI, ARM_B(jmp_offset), ctx);
--	emit(ARM_ADDS_I(tc[1], tc[1], 1), ctx);
--	emit(ARM_ADC_I(tc[0], tc[0], 0), ctx);
- 	arm_bpf_put_reg64(tcc, tmp, ctx);
- 
- 	/* prog = array->ptrs[index]
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 41c23f4..5d6c843 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -286,14 +286,15 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx)
- 	emit(A64_CMP(0, r3, tmp), ctx);
- 	emit(A64_B_(A64_COND_CS, jmp_offset), ctx);
- 
--	/* if (tail_call_cnt > MAX_TAIL_CALL_CNT)
--	 *     goto out;
-+	/*
- 	 * tail_call_cnt++;
-+	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-+	 *     goto out;
- 	 */
-+	emit(A64_ADD_I(1, tcc, tcc, 1), ctx);
- 	emit_a64_mov_i64(tmp, MAX_TAIL_CALL_CNT, ctx);
- 	emit(A64_CMP(1, tcc, tmp), ctx);
- 	emit(A64_B_(A64_COND_HI, jmp_offset), ctx);
--	emit(A64_ADD_I(1, tcc, tcc, 1), ctx);
- 
- 	/* prog = array->ptrs[index];
- 	 * if (prog == NULL)
-diff --git a/arch/mips/net/ebpf_jit.c b/arch/mips/net/ebpf_jit.c
-index 3a73e93..029fc34 100644
---- a/arch/mips/net/ebpf_jit.c
-+++ b/arch/mips/net/ebpf_jit.c
-@@ -617,14 +617,14 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx, int this_idx)
- 	b_off = b_imm(this_idx + 1, ctx);
- 	emit_instr(ctx, bne, MIPS_R_AT, MIPS_R_ZERO, b_off);
- 	/*
--	 * if (TCC-- < 0)
-+	 * if (--TCC < 0)
- 	 *     goto out;
- 	 */
- 	/* Delay slot */
- 	tcc_reg = (ctx->flags & EBPF_TCC_IN_V1) ? MIPS_R_V1 : MIPS_R_S4;
- 	emit_instr(ctx, daddiu, MIPS_R_T5, tcc_reg, -1);
- 	b_off = b_imm(this_idx + 1, ctx);
--	emit_instr(ctx, bltz, tcc_reg, b_off);
-+	emit_instr(ctx, bltz, MIPS_R_T5, b_off);
- 	/*
- 	 * prog = array->ptrs[index];
- 	 * if (prog == NULL)
-diff --git a/arch/powerpc/net/bpf_jit_comp32.c b/arch/powerpc/net/bpf_jit_comp32.c
-index beb12cb..b5585ad 100644
---- a/arch/powerpc/net/bpf_jit_comp32.c
-+++ b/arch/powerpc/net/bpf_jit_comp32.c
-@@ -221,12 +221,12 @@ static void bpf_jit_emit_tail_call(u32 *image, struct codegen_context *ctx, u32
- 	PPC_BCC(COND_GE, out);
- 
- 	/*
-+	 * tail_call_cnt++;
- 	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
- 	 *   goto out;
- 	 */
--	EMIT(PPC_RAW_CMPLWI(_R0, MAX_TAIL_CALL_CNT));
--	/* tail_call_cnt++; */
- 	EMIT(PPC_RAW_ADDIC(_R0, _R0, 1));
-+	EMIT(PPC_RAW_CMPLWI(_R0, MAX_TAIL_CALL_CNT));
- 	PPC_BCC(COND_GT, out);
- 
- 	/* prog = array->ptrs[index]; */
-diff --git a/arch/powerpc/net/bpf_jit_comp64.c b/arch/powerpc/net/bpf_jit_comp64.c
-index b87a63d..bb15cc4 100644
---- a/arch/powerpc/net/bpf_jit_comp64.c
-+++ b/arch/powerpc/net/bpf_jit_comp64.c
-@@ -227,6 +227,12 @@ static void bpf_jit_emit_tail_call(u32 *image, struct codegen_context *ctx, u32
- 	PPC_BCC(COND_GE, out);
- 
- 	/*
-+	 * tail_call_cnt++;
-+	 */
-+	EMIT(PPC_RAW_ADDI(b2p[TMP_REG_1], b2p[TMP_REG_1], 1));
-+	PPC_BPF_STL(b2p[TMP_REG_1], 1, bpf_jit_stack_tailcallcnt(ctx));
-+
-+	/*
- 	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
- 	 *   goto out;
- 	 */
-@@ -234,12 +240,6 @@ static void bpf_jit_emit_tail_call(u32 *image, struct codegen_context *ctx, u32
- 	EMIT(PPC_RAW_CMPLWI(b2p[TMP_REG_1], MAX_TAIL_CALL_CNT));
- 	PPC_BCC(COND_GT, out);
- 
--	/*
--	 * tail_call_cnt++;
--	 */
--	EMIT(PPC_RAW_ADDI(b2p[TMP_REG_1], b2p[TMP_REG_1], 1));
--	PPC_BPF_STL(b2p[TMP_REG_1], 1, bpf_jit_stack_tailcallcnt(ctx));
--
- 	/* prog = array->ptrs[index]; */
- 	EMIT(PPC_RAW_MULI(b2p[TMP_REG_1], b2p_index, 8));
- 	EMIT(PPC_RAW_ADD(b2p[TMP_REG_1], b2p[TMP_REG_1], b2p_bpf_array));
-diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
-index e649742..1608d94 100644
---- a/arch/riscv/net/bpf_jit_comp32.c
-+++ b/arch/riscv/net/bpf_jit_comp32.c
-@@ -800,12 +800,12 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
- 
- 	/*
- 	 * temp_tcc = tcc - 1;
--	 * if (tcc < 0)
-+	 * if (temp_tcc < 0)
- 	 *   goto out;
- 	 */
- 	emit(rv_addi(RV_REG_T1, RV_REG_TCC, -1), ctx);
- 	off = ninsns_rvoff(tc_ninsn - (ctx->ninsns - start_insn));
--	emit_bcc(BPF_JSLT, RV_REG_TCC, RV_REG_ZERO, off, ctx);
-+	emit_bcc(BPF_JSLT, RV_REG_T1, RV_REG_ZERO, off, ctx);
- 
- 	/*
- 	 * prog = array->ptrs[index];
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 3af4131..6e9ba83 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -311,12 +311,12 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
- 	off = ninsns_rvoff(tc_ninsn - (ctx->ninsns - start_insn));
- 	emit_branch(BPF_JGE, RV_REG_A2, RV_REG_T1, off, ctx);
- 
--	/* if (TCC-- < 0)
-+	/* if (--TCC < 0)
- 	 *     goto out;
- 	 */
- 	emit_addi(RV_REG_T1, tcc, -1, ctx);
- 	off = ninsns_rvoff(tc_ninsn - (ctx->ninsns - start_insn));
--	emit_branch(BPF_JSLT, tcc, RV_REG_ZERO, off, ctx);
-+	emit_branch(BPF_JSLT, RV_REG_T1, RV_REG_ZERO, off, ctx);
- 
- 	/* prog = array->ptrs[index];
- 	 * if (!prog)
-diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_comp_64.c
-index 9a2f20c..50d914c 100644
---- a/arch/sparc/net/bpf_jit_comp_64.c
-+++ b/arch/sparc/net/bpf_jit_comp_64.c
-@@ -863,6 +863,10 @@ static void emit_tail_call(struct jit_ctx *ctx)
- 	emit_branch(BGEU, ctx->idx, ctx->idx + OFFSET1, ctx);
- 	emit_nop(ctx);
- 
-+	emit_alu_K(ADD, tmp, 1, ctx);
-+	off = BPF_TAILCALL_CNT_SP_OFF;
-+	emit(ST32 | IMMED | RS1(SP) | S13(off) | RD(tmp), ctx);
-+
- 	off = BPF_TAILCALL_CNT_SP_OFF;
- 	emit(LD32 | IMMED | RS1(SP) | S13(off) | RD(tmp), ctx);
- 	emit_cmpi(tmp, MAX_TAIL_CALL_CNT, ctx);
-@@ -870,10 +874,6 @@ static void emit_tail_call(struct jit_ctx *ctx)
- 	emit_branch(BGU, ctx->idx, ctx->idx + OFFSET2, ctx);
- 	emit_nop(ctx);
- 
--	emit_alu_K(ADD, tmp, 1, ctx);
--	off = BPF_TAILCALL_CNT_SP_OFF;
--	emit(ST32 | IMMED | RS1(SP) | S13(off) | RD(tmp), ctx);
--
- 	emit_alu3_K(SLL, bpf_index, 3, tmp, ctx);
- 	emit_alu(ADD, bpf_array, tmp, ctx);
- 	off = offsetof(struct bpf_array, ptrs);
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index f4c16f1..224cc7e 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -1046,7 +1046,7 @@ struct bpf_array {
+diff --git a/tools/perf/bench/futex.h b/tools/perf/bench/futex.h
+index b3853aac3021..912342d7f594 100644
+--- a/tools/perf/bench/futex.h
++++ b/tools/perf/bench/futex.h
+@@ -27,6 +27,17 @@ struct bench_futex_parameters {
+ 	unsigned int nrequeue;
  };
  
- #define BPF_COMPLEXITY_LIMIT_INSNS      1000000 /* yes. 1M insns */
--#define MAX_TAIL_CALL_CNT 32
-+#define MAX_TAIL_CALL_CNT 33
- 
- #define BPF_F_ACCESS_MASK	(BPF_F_RDONLY |		\
- 				 BPF_F_RDONLY_PROG |	\
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 9f4636d..8edb1c3 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -1564,10 +1564,10 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
- 
- 		if (unlikely(index >= array->map.max_entries))
- 			goto out;
--		if (unlikely(tail_call_cnt > MAX_TAIL_CALL_CNT))
--			goto out;
- 
- 		tail_call_cnt++;
-+		if (unlikely(tail_call_cnt > MAX_TAIL_CALL_CNT))
-+			goto out;
- 
- 		prog = READ_ONCE(array->ptrs[index]);
- 		if (!prog)
++/**
++ * Some newer 32-bit architectures (such as RISC-V 32-bit) don't have
++ * the SYS_futex syscall and instead only have the SYS_futex_time64 call.
++ * Let's ensure that those still compile and run by just using the
++ * SYS_futex_time64 syscall. On these systems `struct timespec` will use a
++ * 64-bit time_t so the SYS_futex_time64 call will work.
++ */
++#if !defined(SYS_futex) && defined(SYS_futex_time64)
++ #define SYS_futex SYS_futex_time64
++#endif
++
+ /**
+  * futex() - SYS_futex syscall wrapper
+  * @uaddr:	address of first futex
 -- 
-2.1.0
+2.31.1
 
 
 _______________________________________________
