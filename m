@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68EE4C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 06:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E56BCC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 06:53:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 34FBE61158
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 06:13:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 34FBE61158
+	by mail.kernel.org (Postfix) with ESMTPS id A267861158
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 06:53:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A267861158
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,45 +23,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6YobG12KPddrWCKgV+6NlJ55hUDK9hiCVdqlihC/Mjk=; b=1wpeMrzE6d91Hh
-	P9waldYF2z73oDJA6t8Xd4MQSABllpW3s+YfW88Wv2D7cfyVc/ZshC8btZ8x09xgqNfgc8HydpyFZ
-	ebfVJCfITCRk1sg5sbR3Cr2VBBFFmIVFzH7yRiiK3QkWeRofYpVO/AWHdCSIjM8E0Y/B62pvgEEzy
-	GoKbvPd63yQCaqm6sXZILYnaBolvB8riZlRRyLfhFDq4z5zFWIv9a9zqQnw2l0UAQD3x+7DyLqd/m
-	a9tQzh6YR9zbmq5pGwzeA6lrhya7yxXKKovtqr9rrC1c5aWXaLUXhPHIlfu+oCcEIuebZO6JoeJQ+
-	aOQVeZcG6I31z+rt/a5w==;
+	List-Owner; bh=PRfrnW68KxTjf869ubSCDO3TJFXMI1fM3jWWM/LenEM=; b=PPWGXwdgyuFay8
+	sBO45muV16ptWvAgG4POnD3TA4y/+FKZeKgQgjk3LkmRS4BDX4IN1EU5fiJBnmKeUpEPyWF5qsQpn
+	W9SMPS7GqhWSnp6QXjW7OuoiqhGkiPjr3b2eYtiNNlrUedXpZBjtZs05YMYpaabnWLPnE4Q5rLam3
+	Yi/3C3VgInV2K6lAqCRUz2Y6aCGzA6TGJHKorShoQoKWmW3oHN3tCjDiPq2AV/BPN6FreX8fdfKx7
+	MeQE1LNqA4pjFSoV1bxbz32kaggVMz0Bk4wHVXehiphopBywwqcqXIjI5+Kc/YRa0dG7wXHfPev33
+	/wAegONN4RZQMUHRMGtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mODIp-008K5Y-3M; Thu, 09 Sep 2021 06:12:51 +0000
+	id 1mODNq-008KN1-GT; Thu, 09 Sep 2021 06:18:02 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mODIo-008K5Q-8t
- for linux-riscv@bombadil.infradead.org; Thu, 09 Sep 2021 06:12:50 +0000
+ id 1mODNp-008KMt-03
+ for linux-riscv@bombadil.infradead.org; Thu, 09 Sep 2021 06:18:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
  References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=L3wM+n0HjcXR+5rq2TCpv3fE1OymWFI2TAvgga/hDCE=; b=Xw39TMHR90bPyTmyfzGtLeJg4i
- bh/x1Er9+r0bzRBmBB1HU65DAzY2lUua3FHaklD3yGF4aaDlPrtsR0E2dJozvuvUCBSPhaiitAxv2
- ZbZBAmu1Cg/nbmQ8jCTOqbaBjfH8vetiV6gOcrGJZFb9ZDNSzyis9ufH9f1uMGxRcjllKqH8DpwNr
- pPYtBR3QC57ieJZDjd818pN//eV4ixXDMAGR/zlgqsqGma+6PVyEEXTu2Woutqm2IYol4tTj3nx8w
- 7HrGcsxeOn7DwXU61khTL0xuwhvORlsW+Jscx7l23/Ma9/BIej0J0sYUuga6jJBRgQP23tt1I0p0A
- GViGrung==;
+ bh=+rDn9niI6auN6DppWd/XkbmHQC+Jn0nMdhztebELsuk=; b=Oo0TzY1jbokYJR0ingKXUhlq6l
+ UhWoACOhKO3V2VZGvwjL51JDFzJRPk+o+2nnaef6hBL+emIGtvU9NAN7yjygkSixKAeg7uUhf0MnB
+ lU7P0lofWAlu5PdTtWalAJDMW+c3QttSNMxJam2jdRpi/UzDCZxU1PSi8if2fP53CvsBSk7G5NWKj
+ HizrY6mokzKL/Oh14aB2oQzPvqfz0pgP+6jcdEzRiV9qOqBmA9cJ+IJzjSP5RRRdy0ToQHGW9elwI
+ DVBQXxZKSGBTGg17K/fBWyTRlRkX8TQnU0yul+xHTQYhY+Aj8Pdn6FOkmOSZ/AL6CoOLhicL78A3s
+ 2dGRvgVw==;
 Received: from hch by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat
- Linux)) id 1mODIH-009XC3-Sz; Thu, 09 Sep 2021 06:12:27 +0000
-Date: Thu, 9 Sep 2021 07:12:17 +0100
+ Linux)) id 1mODNK-009XPU-0N; Thu, 09 Sep 2021 06:17:40 +0000
+Date: Thu, 9 Sep 2021 07:17:29 +0100
 From: Christoph Hellwig <hch@infradead.org>
 To: Greentime Hu <greentime.hu@sifive.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
  vincent.chen@sifive.com
-Subject: Re: [RFC PATCH v8 15/21] riscv: Add vector extension XOR
- implementation
-Message-ID: <YTmlwTlSX94tltyV@infradead.org>
+Subject: Re: [RFC PATCH v8 13/21] riscv: Add support for kernel mode vector
+Message-ID: <YTmm+ewo0WDHH9hF@infradead.org>
 References: <cover.1631121222.git.greentime.hu@sifive.com>
- <33c485ee595aff1e19a0e43074da59779f58d105.1631121222.git.greentime.hu@sifive.com>
+ <e3d94eee049fe9f3b6597e21748efbb1d4eb81de.1631121222.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <33c485ee595aff1e19a0e43074da59779f58d105.1631121222.git.greentime.hu@sifive.com>
+In-Reply-To: <e3d94eee049fe9f3b6597e21748efbb1d4eb81de.1631121222.git.greentime.hu@sifive.com>
 X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
  casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -80,28 +79,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 09, 2021 at 01:45:27AM +0800, Greentime Hu wrote:
-> +extern void xor_regs_2_(unsigned long bytes, unsigned long *p1,
-> +			unsigned long *p2);
-> +extern void xor_regs_3_(unsigned long bytes, unsigned long *p1,
-> +			unsigned long *p2, unsigned long *p3);
-> +extern void xor_regs_4_(unsigned long bytes, unsigned long *p1,
-> +			unsigned long *p2, unsigned long *p3,
-> +			unsigned long *p4);
-> +extern void xor_regs_5_(unsigned long bytes, unsigned long *p1,
-> +			unsigned long *p2, unsigned long *p3, unsigned long *p4,
-> +			unsigned long *p5);
+On Thu, Sep 09, 2021 at 01:45:25AM +0800, Greentime Hu wrote:
+> +obj-$(CONFIG_VECTOR)		+= kernel_mode_vector.o
+> +riscv-march-cflags-$(CONFIG_ARCH_RV32I)		:= rv32ima
+> +riscv-march-cflags-$(CONFIG_ARCH_RV64I)		:= rv64ima
+> +riscv-march-cflags-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-cflags-y)c
+> +riscv-march-cflags-$(CONFIG_VECTOR)		:= $(riscv-march-cflags-y)v
+> +CFLAGS_kernel_mode_vector.o	+= -march=$(riscv-march-cflags-y)
 
-There is no need for externs on function declarations ever.
+Do we need a helper in arch/riscv/Makefile to define the vector flags
+instead of open coding them where used?  Also I think the variable
+name should include vector in it.
 
-> +static void xor_rvv_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
-> +{
-> +	kernel_rvv_begin();
-> +	xor_regs_2_(bytes, p1, p2);
-> +	kernel_rvv_end();
-> +}
 
-This looks strange.  Why these wrappers?
+> +EXPORT_SYMBOL(kernel_rvv_begin);
+
+> +EXPORT_SYMBOL(kernel_rvv_end);
+
+This needs to be EXPORT_SYMBOL_GPL just like x86 kernel_fpu_begin/end
 
 _______________________________________________
 linux-riscv mailing list
