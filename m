@@ -2,89 +2,107 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C291C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 14:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 366B5C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 15:00:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5DCCE610FF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 14:02:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5DCCE610FF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id D17806113A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 15:00:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D17806113A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lJm0UfQxjEluNgEFUr9Ut2VT0thg9u4hjDM8onIvA/I=; b=kYDOoDDmO8jgzn
-	3yP7xa0bR7i1zNEH8DILda09GhG5Y9zoGSBW+cAlJJ1hZ0mVf8gT36fwwuxU8OG5+9uNEdb8fPeeg
-	c92sq4HvSuOvAC2Qs6hkqEZUUxmbt2Y/nJEG5Hsni1UPUfHTLQIgnEEwcBVE6UdHpXR94lVG2YATs
-	l/MhTIlyy28DstEpadYtuKQBbmDO+xsfRAcCCTFLkj/VsvqHVa+UHokN/5t09AtY0mtNwTvAlOATl
-	qVr8bC1tTyc/dWEZOvc1DBCwRPwvAss22maRAIfE51U2xz4qUquNqd3s6D/li/TEW1WoAArWEPwVQ
-	Xcvl5phyhXwdeRzCCWpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5nbFAK/+ieTLjgTDg4PSBzCraLnbY4fBfxA3jTYOwBo=; b=QPcZupPfz7/yghmZDRF+EffLcL
+	8kb6l2CHRxf+9cnjBOizZPeBqeGvXVPIh691rsHLqDo1hV8U1b2wLIcyzVBYJvm73bKJghg+bXZHl
+	Ro7ebcg3QXZl0Q+lQcB4MDm5WCrgrq0wT/XjSUjwgLLrVHIfB0yrqQpzNvj18uoXunrW6clsF8/F4
+	eO+NZ3UmZzxkDu8Tu5EoJBQik31pvtbklIh2StV/04iuASCQq+bndjjWuVh/V43AAmMsTgQT3p9fu
+	nxy0kjUX0cqlqlOKyDHphIKYIuee6FPZcn6tVpZcHeVbx84tyzZZPm3UOT6E0XxnOmFEfrRJd0rzi
+	/aPnEAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOKd4-00A4oy-V5; Thu, 09 Sep 2021 14:02:14 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mOLX2-00ACxD-Mf; Thu, 09 Sep 2021 15:00:04 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOKcq-00A4mx-CN; Thu, 09 Sep 2021 14:02:02 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0F2F36115A;
- Thu,  9 Sep 2021 14:02:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631196120;
- bh=VfcMtzFJq+x3oimwRfSGM3+HsOCz4ZFSYvliKSNFghI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Cx7dqUh6Rl0fzneeoP+NmUqbIDdjyAemDWc6Jz7FofANtXhofVIvSsPKycqctmSdv
- 1E7CJgPH/X94KjMai9+YdZieMvE7BK1JD0r0Vte/0F348TXS+QNE1Kc4VyrscCCzc/
- 2BCZGWPU8W7i0o2IvR83sqra3mifDTURtrqSNf0KPtgfgJf3Id4HqV/OuNoFUC42fN
- AgetbUvQWd5xPZeG7zNcSOpg1T/omv30wsORVp7jSucX8mkEhD6cN7qHdlEWRbiUVN
- T2Rr5IliCvvYno/AofHkbu9lsHxzqmkjHQqHpEXfJlyDoHSwXk8lOvYOABnZuxBlkl
- 6Zd0wKZYDwNCw==
-Received: by mail-ed1-f52.google.com with SMTP id g22so2793486edy.12;
- Thu, 09 Sep 2021 07:01:59 -0700 (PDT)
-X-Gm-Message-State: AOAM5311LeTnxJ9cmnXQylzZRYePTdb3YgqG44OFg+XUQ4cpIc9Tmb0l
- KHgfM9LYTVHNS7d8NtNUGP4HROvQPfUM4biPwQ==
-X-Google-Smtp-Source: ABdhPJwlfbFsgaLlLSIuNjQjq2JLgFOQzN2NxKhZEqmEPXIEG/ydouVOBI9d0WFnAhc3n78EUwntrE8dU1HlVQySAz0=
-X-Received: by 2002:aa7:d645:: with SMTP id v5mr3380474edr.145.1631196118501; 
- Thu, 09 Sep 2021 07:01:58 -0700 (PDT)
+ id 1mOLWz-00ACtr-46
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 15:00:03 +0000
+Received: by mail-oi1-x232.google.com with SMTP id r26so2847763oij.2
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 08:00:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=cdZ5UReirNbJCz4qtRz9jPX8lIr89503B9bA6FIRuzQ=;
+ b=jDgnkGSK/AzbQ/fvUe+F8Q6VZgBkRHWd4DcBMpA845U1VP2maB6KuDUGyL8c2z1MQ5
+ UX6S2hMX3XaL+wIg8XPiRW3uTqvaEgPp8GwPJPJByHRkVu8WdVGBxNU7ND2J8PWd6MjQ
+ 1BL0tMyxa7ZdE0Z2Q+WzTnNgCJ+YMSVMHlQ3G1GlF5G2afc7lU4RB3k5FIovm8QarUG7
+ RPmR6TFjaMcSuvD67sPx0N8yWJj2K9lVY4kxvs9O3saKM+uEhuFWmi956IZGiUFIdrmY
+ hqz6C5u3zKx731XS7IajOTZL1HWrKGy6fsTJ74ufvBqwljrPlIixlbiTt+K2g3iOZX5u
+ avbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:subject:to:cc:references:from:message-id
+ :date:user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=cdZ5UReirNbJCz4qtRz9jPX8lIr89503B9bA6FIRuzQ=;
+ b=X7NQQDTmqVn7EX/pRaAbWgnxFYBzprGQU6A1c2oT5HicZRee1JRarRf/NMqjtzMoG9
+ sCtj0ogxZDOO5oDqqfU7gZLEeqzh+O2dsJUgREuVb6607Dvssu9UKJOr/z8gV8c0iXrK
+ TIlcxkOA2U7fSd0u9qbdjAatyo2+6RYDUnyipA6fBiaEbRLSnl4vUeK1PJ1Id3R+4ouD
+ wQQVsROqh5Bd2Wz3le+MV0FU+kN5PzCz79vG5cIj5mBmU+QXL3+QYpdx0tSzcjwCwlSj
+ 2Izf/Mddserps8IvLJEq7EqWZERqKMoMH2DN6gpzZYXEMnJYVj40o+JameI6hsRZZUpC
+ Ntpw==
+X-Gm-Message-State: AOAM530Sbl9xfWNr+12wMRlfog0YqG/YJ2oPN8P/Q5yrXnxbl9SNN8za
+ qfXLMUKcM1Nqy6XLwmYuTl0=
+X-Google-Smtp-Source: ABdhPJy29+VUAR+47DHLnfifhIlBecXxb8pFnECJqaJhWQNcxsfS3c0Ish2MaEwbx71o2d1eL5rWmg==
+X-Received: by 2002:aca:1709:: with SMTP id j9mr233084oii.120.1631199599971;
+ Thu, 09 Sep 2021 07:59:59 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+ by smtp.gmail.com with ESMTPSA id
+ l44sm475368otv.81.2021.09.09.07.59.57
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 09 Sep 2021 07:59:59 -0700 (PDT)
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+To: =?UTF-8?Q?Christian_K=c3=b6nig?= <christian.koenig@amd.com>,
+ Christoph Hellwig <hch@infradead.org>, Marco Elver <elver@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ llvm@lists.linux.dev, Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com,
+ "Pan, Xinhui" <Xinhui.Pan@amd.com>, amd-gfx@lists.freedesktop.org
+References: <20210906142615.GA1917503@roeck-us.net>
+ <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
+ <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
+ <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
+ <YTkjJPCdR1VGaaVm@archlinux-ax161>
+ <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
+ <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
+ <a04c4c37-7151-ef7e-09ce-a61ac7b12106@roeck-us.net>
+ <78aeab09-de88-966f-9f03-a2d56a0a6064@amd.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Message-ID: <80a56a5a-5351-1897-b87e-3c3cd84bb13c@roeck-us.net>
+Date: Thu, 9 Sep 2021 07:59:56 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <20210904000543.2019010-1-saravanak@google.com>
- <20210904000543.2019010-2-saravanak@google.com>
- <CAMuHMdUhZy7W_HLtNJ2ECK5uQV5xHV7pDk5BXfNUpW9L68G5Aw@mail.gmail.com>
- <CAGETcx_7N3gtaT-YHGaGL+Qtkv=JOhgPcPF1A+kQ4aaDoetvSA@mail.gmail.com>
- <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
- <CAGETcx_=8yX6ObaEJk8QNSaWQPdFHsw4R74JrDFKqOL0AN-gLw@mail.gmail.com>
-In-Reply-To: <CAGETcx_=8yX6ObaEJk8QNSaWQPdFHsw4R74JrDFKqOL0AN-gLw@mail.gmail.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Thu, 9 Sep 2021 09:01:46 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJVsEj=rmExYHtphfxw_W6cq8WU45SSuYi_g2_KiUaFsg@mail.gmail.com>
-Message-ID: <CAL_JsqJVsEj=rmExYHtphfxw_W6cq8WU45SSuYi_g2_KiUaFsg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-To: Saravana Kannan <saravanak@google.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Russell King <linux@armlinux.org.uk>, 
- Neil Armstrong <narmstrong@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>,
- Android Kernel Team <kernel-team@android.com>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Lee Jones <lee.jones@linaro.org>
+In-Reply-To: <78aeab09-de88-966f-9f03-a2d56a0a6064@amd.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_070200_502175_89A6A007 
-X-CRM114-Status: GOOD (  74.90  )
+X-CRM114-CacheID: sfid-20210909_080001_177258_F3C3AE23 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,200 +114,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 8, 2021 at 7:58 PM Saravana Kannan <saravanak@google.com> wrote:
->
-> On Wed, Sep 8, 2021 at 5:16 PM Rob Herring <robh+dt@kernel.org> wrote:
-> >
-> > On Tue, Sep 7, 2021 at 2:01 AM Saravana Kannan <saravanak@google.com> wrote:
-> > >
-> > > On Mon, Sep 6, 2021 at 12:54 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > >
-> > > > Hi Saravana,
-> > > >
-> > > > Thanks for your patch!
-> > > >
-> > > > CC linux-pm, Lee (mfd)
-> > > >
-> > > > On Sat, Sep 4, 2021 at 2:05 AM Saravana Kannan <saravanak@google.com> wrote:
-> > > > > fw_devlink could end up creating device links for bus only devices.
-> > > > > However, bus only devices don't get probed and can block probe() or
-> > > > > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > > > > devices using the simple-pm-bus driver.
-> > > > >
-> > > > > However, there are instances of devices that are not simple buses (they
-> > > > > get probed by their specific drivers) that also list the "simple-bus"
-> > > > > (or other bus only compatible strings) in their compatible property to
-> > > > > automatically populate their child devices. We still want these devices
-> > > > > to get probed by their specific drivers. So, we make sure this driver
-> > > > > only probes devices that are only buses.
-> > > >
-> > > > Note that this can also be the case for buses declaring compatibility
-> > > > with "simple-pm-bus".  However, at the moment, none of such device
-> > > > nodes in upstream DTS files have device-specific drivers.
-> > >
-> > > Not sure about mfd, but I want to make sure we don't confuse busses
-> > > (which are typically added to a class) with these "simple bus" devices
-> > > that are added to platform_bus. Also if these other buses are actually
-> > > causing an issue, then then should implement their own stub driver or
-> > > use try patch[2] if they are added to classes (devices on classes
-> > > don't probe)
-> > >
-> > > [2] - https://lore.kernel.org/lkml/20210831224510.703253-1-saravanak@google.com/
-> > >
-> > > >
-> > > > > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > > > > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > > > > Tested-by: Saravana Kannan <saravanak@google.com>
-> > > >
-> > > > > --- a/drivers/bus/simple-pm-bus.c
-> > > > > +++ b/drivers/bus/simple-pm-bus.c
-> > > > > @@ -13,11 +13,26 @@
-> > > > >  #include <linux/platform_device.h>
-> > > > >  #include <linux/pm_runtime.h>
-> > > > >
-> > > > > -
-> > > > >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> > > > >  {
-> > > > > -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > > > > -       struct device_node *np = pdev->dev.of_node;
-> > > > > +       const struct device *dev = &pdev->dev;
-> > > > > +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > > > > +       struct device_node *np = dev->of_node;
-> > > > > +       const struct of_device_id *match;
-> > > > > +
-> > > > > +       match = of_match_device(dev->driver->of_match_table, dev);
-> > > > > +
-> > > > > +       /*
-> > > > > +        * These are transparent bus devices (not simple-pm-bus matches) that
-> > > > > +        * have their child nodes populated automatically.  So, don't need to
-> > > > > +        * do anything more.
-> > > > > +        */
-> > > > > +       if (match && match->data) {
-> > > > > +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > > >
-> > > > Does this work as expected? Having multiple compatible values in a
-> > > > device node does not guarantee there exist a separate driver for any
-> > > > of the device-specific compatible values.
-> > >
-> > > Right, and if they are platform devices that are equivalent to
-> > > simple-bus (meaning, they don't do anything in Linux and just have
-> > > their devices populated) we can add those to this list too.
-> >
-> > I think this needs to be a list of compatibles we have drivers for
-> > instead.
->
-> I don't think a "denylist" (devices we shouldn't probe with this
-> driver) would be a short list. As of today, literally any device that
-> has children could add a "simple-bus" to the compatible property and
-> get its child devices populated for free. If we use a denylist, we'll
-> have to update it every time someone adds "simple-bus" as a general
-> match to a DT node (new or otherwise) that isn't in the denylist. The
-> list would blow up and be a maintenance headache.
->
-> Also, a denylist won't capture any DT that isn't part of the kernel
-> repo but depends on "simple-bus" to populate the device's child nodes.
-> Keep in mind this could be true even for completely upstream drivers
-> today. And on top of that, this will also break for downstream drivers
-> and platforms in the development stage.
-
-You've got this all backwards. The list would be compatibles for which
-they have their own driver. If they have their own driver, we know
-that because there is a driver in the kernel. If you have an out of
-tree bus driver, then I guess you shouldn't be claiming compatibility
-with 'simple-bus'.
-
-> The allowlist is much smaller and manageable.
-
-I count 140 cases of 'simple-bus' with another compatible. I find
-roughly 24 of those under drivers/ that have a driver (and look,
-there's at91 pinctrl/gpio). There's some more under arch/, but I'm not
-sure if they are drivers. This is what I ran:
-
-git grep -ho '".*", "simple-bus"' -- arch/ | cut -d' ' -f1 | grep -oE
-'".+"' | grep -v '"syscon"' | sort -u > buses.txt
-git grep -f buses.txt -- drivers/
-
-I haven't looked at 'simple-mfd', but that was supposed to always mean
-'no driver'.
-
-To put it another way, let's look at 3 possibilities:
-
-'simple-bus'
-'foo,has-no-driver', 'simple-bus'
-'foo,has-a-driver', 'simple-bus'
-
-The first case is easy. The last 2 cases are not. We have no way to
-handle them differently without a list.
-
-> > A more specific compatible that the OS doesn't understand
-> > shouldn't cause a change in behavior and adding one would.
-
-Again, if a dt is modified from case 1 to case 2, there should not be
-a change in behavior. Presumably if Ulf changed his test in this way,
-it would again fail, right?
-
-
-> I think the amount of specific compatible strings that'll be added,
-> but won't have drivers added to Linux AND would want to boot with
-> Linux is much less likely than the amount of times we'd have to update
-> a denylist.
->
-> Also, if we do hit the cases you mention and we want those devices to
-> get probed anyway, with my current allowlist approach, we could use
-> "driver_override" to force this driver to match them. If you use a
-> denylist like you said, there's no way you can get the simple-pm-bus
-> to unbind and let the more specific driver to bind.
-
-Where would we set "driver_override"? Aren't we going to end up with a
-driver_override list?
-
-[...]
-
-> > > > [*] Especially if "simple-pm-bus" and "simple-bus" would be treated
-> > > >     the same.
-> > >
-> > > They are not treated the same way.
-> >
-> > I think it would be better if they were. IOW, the core code stops
-> > descending into simple-bus, etc. nodes and they are populated here.
-> > Then we just get rid of of_default_bus_match_table.
->
-> Right, I would if we could. But we can't simply stop descending the
-> simple-bus nodes in the core code because all the specific drivers
-> that used to have their child devices populated automatically would
-> stop working and would need to be updated to populate their child
-> devices. And I'm sure there are a ton more downstream kernels and
-> downstream DTs (that use upstream kernels) that we would break.
->
-> If you really want to do that go for it, but I'd rather not do all
-> this as part of trying to fix the issue Ulf reported that needs
-> simple-bus only devices probed.
-
-Agreed.
-
-> > That could cause some issues with init ordering. As I recall the at91
-> > gpio and pinctrl drivers are sensitive to this. The default call to
-> > of_platform_populate doesn't work on those systems because the devices
-> > get created later than when their machine specific call happens. It
-> > may have been a case of a parent probe assuming a child probe
-> > completed after of_platform_populate returns (also a problem for Qcom
-> > with DWC3). There's a fix for at91 somewhere in the git history after
-> > I broke it. I started trying to untangle things with at91, but never
-> > finished that.
->
-> I think it'll cause a lot of issues if we stop descending simple-bus
-> nodes in the core code. We're just scratching the surface here.
-
-Perhaps, but if there's cases which are that fragile, we should fix them.
-
-Rob
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOS85LzIxIDEyOjMwIEFNLCBDaHJpc3RpYW4gS8O2bmlnIHdyb3RlOgo+IEFtIDA5LjA5LjIx
+IHVtIDA4OjA3IHNjaHJpZWIgR3VlbnRlciBSb2VjazoKPj4gT24gOS84LzIxIDEwOjU4IFBNLCBD
+aHJpc3RvcGggSGVsbHdpZyB3cm90ZToKPj4+IE9uIFdlZCwgU2VwIDA4LCAyMDIxIGF0IDExOjU4
+OjU2UE0gKzAyMDAsIE1hcmNvIEVsdmVyIHdyb3RlOgo+Pj4+IEl0J2QgYmUgZ29vZCB0byBhdm9p
+ZC4gSXQgaGFzIGhlbHBlZCB1bmNvdmVyIGJ1aWxkIGlzc3VlcyB3aXRoIEtBU0FOIGluCj4+Pj4g
+dGhlIHBhc3QuIE9yIGF0IGxlYXN0IG1ha2UgaXQgZGVwZW5kZW50IG9uIHRoZSBwcm9ibGVtYXRp
+YyBhcmNoaXRlY3R1cmUuCj4+Pj4gRm9yIGV4YW1wbGUgaWYgYXJtIGlzIGEgcHJvYmxlbSwgc29t
+ZXRoaW5nIGxpa2UgdGhpczoKPj4+Cj4+PiBJJ20gYWxzbyBzZWVpbmcgcXVpdGUgYSBmZXcgc3Rh
+Y2sgc2l6ZSB3YXJuaW5ncyB3aXRoIEtBU0FOIG9uIHg4Nl82NAo+Pj4gd2l0aG91dCBDT01QSUxU
+X1RFU1QgdXNpbmcgZ2NjIDEwLjIuMSBmcm9tIERlYmlhbi7CoCBJbiBmYWN0IHRoZXJlIGFyZSBh
+Cj4+PiBmZXcgd2FybmluZ3Mgd2l0aG91dCBLQVNBTiwgYnV0IHdpdGggS0FTQU4gdGhlcmUgYXJl
+IGEgbG90IG1vcmUuCj4+PiBJJ2xsIHRyeSB0byBmaW5kIHNvbWUgdGltZSB0byBkaWcgaW50byB0
+aGVtLgo+Pj4KPj4+IFdoaWxlIHdlJ3JlIGF0IGl0LCB3aXRoIC1XZXJyb3Igc29tZXRoaW5nIGxp
+a2UgdGhpcyBpcyByZWFsbHkgZnV0aWxlOgo+Pj4KPj4+IGRyaXZlcnMvZ3B1L2RybS9hbWQvYW1k
+Z3B1L2FtZGdwdV9vYmplY3QuYzogSW4gZnVuY3Rpb24g4oCYYW1kZ3B1X2JvX3N1cHBvcnRfdXN3
+Y+KAmToKPj4+IGRyaXZlcnMvZ3B1L2RybS9hbWQvYW1kZ3B1L2FtZGdwdV9vYmplY3QuYzo0OTM6
+Mjogd2FybmluZzogI3dhcm5pbmcKPj4+IFBsZWFzZSBlbmFibGUgQ09ORklHX01UUlIgYW5kIENP
+TkZJR19YODZfUEFUIGZvciBiZXR0ZXIgcGVyZm9ybWFuY2UgdGhhbmtzIHRvIHdyaXRlLWNvbWJp
+bmluZyBbLVdjcHAKPj4+IMKgwqAgNDkzIHwgI3dhcm5pbmcgUGxlYXNlIGVuYWJsZSBDT05GSUdf
+TVRSUiBhbmQgQ09ORklHX1g4Nl9QQVQgZm9yIGJldHRlciBwZXJmb3JtYW5jZSBcCj4+PiDCoMKg
+wqDCoMKgwqAgfMKgIF5+fn5+fn4KPiAKPiBBaCwgeWVzIGdvb2QgcG9pbnQhCj4gCj4+Cj4+IEkg
+aGF2ZSBiZWVuIHdvbmRlcmluZyBpZiBhbGwgdGhvc2UgI3dhcm5pbmcgImVycm9ycyIgc2hvdWxk
+IGVpdGhlcgo+PiBiZSByZW1vdmVkIG9yIGJlIHJlcGxhY2VkIHdpdGggIiNwcmFnbWEgbWVzc2Fn
+ZSIuCj4gCj4gV2VsbCB3ZSBzdGFydGVkIHRvIGFkZCB0aG9zZSB3YXJuaW5ncyBiZWNhdXNlIHBl
+b3BsZSBjb21waWxlZCB0aGVpciBrZXJuZWwgd2l0aCBDT05GSUdfTVRSUiBhbmQgQ09ORklHX1g4
+Nl9QQVQgYW5kIHdhcyB0aGVuIHdvbmRlcmluZyB3aHkgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBk
+aXNwbGF5IGRyaXZlciB3YXMgc28gY3JhcHB5Lgo+IAo+IFdoZW4gdGhvc2Ugd2FybmluZyBub3cg
+Z2VuZXJhdGUgYW4gZXJyb3Igd2hpY2ggeW91IGhhdmUgdG8gZGlzYWJsZSBleHBsaWNpdGx5IHRo
+ZW4gdGhhdCBtaWdodCBub3QgYmUgYmFkIGF0IGFsbC4KPiAKPiBJdCBhdCBsZWFzdCBwb2ludHMg
+cGVvcGxlIHRvIHRoaXMgc2V0dGluZyBhbmQgbWFrZXMgaXQgcmVhbGx5IGNsZWFyIHRoYXQgdGhl
+eSBhcmUgZG9pbmcgc29tZXRoaW5nIHZlcnkgdW51c3VhbCBhbmQgbmVlZCB0byBrZWVwIGluIG1p
+bmQgdGhhdCBpdCBtaWdodCBub3QgaGF2ZSB0aGUgZGVzaXJlZCByZXN1bHQuCj4gCgpUaGF0IHNw
+ZWNpZmljIHdhcm5pbmcgaXMgc3Vycm91bmRlZCB3aXRoICIjaWZuZGVmIENPTkZJR19DT01QSUxF
+X1RFU1QiCnNvIGl0IGRvZXNuJ3QgcmVhbGx5IG1hdHRlciBiZWNhdXNlIGl0IGRvZXNuJ3QgY2F1
+c2UgdGVzdCBidWlsZCBmYWlsdXJlcy4KT2YgY291cnNlLCB3ZSBjb3VsZCBkbyB0aGUgc2FtZSBm
+b3IgYW55ICN3YXJuaW5nIHdoaWNoIGRvZXMgbm93CmNhdXNlIGEgdGVzdCBidWlsZCBmYWlsdXJl
+LgoKR3VlbnRlcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
