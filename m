@@ -2,93 +2,83 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45AA5C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5009BC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:56:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 09FC661242
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:37:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 09FC661242
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id EC39D6120F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:56:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EC39D6120F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DPQ1dv/Rs5ABwckeHM0rB/3GMAhoc3IghvoANSAao2s=; b=NYkZbB/mQt4heG
-	CN6x2mdIXyomqN897R+ifCWu6zK/GzytMX5RaykIGCWrB7fVV4gbq44x0ZTAKK4zXY/qmabIL9a3e
-	izVasnp0hck28bRTGgOWxLxiT48x19P1m8BOKyCfxR5hpvjN7j9r44FqKtpthIVNMR11UzYSmgdLA
-	dQEYgzqaRCc9Cdyr31EShhIm/i3hXLDzmsSY0dMYILVyRRrJPW3pxnotw8cjV9iAHF+0dOHF8A1MK
-	olstqkstsJgiOOFJb+jKGsbqYRqtLozHoac1vUDECd6lU3Z0mngGgRUREpWqbYi8AOxdA9GIr6m0R
-	srEwlTt/GfxdPrHsT2Lw==;
+	List-Owner; bh=lS+zkIDuKJJO4h7qMsl4CrnYylXSJ1hhMhKBdseJUa0=; b=ufAjFMBw08R7Kb
+	C9KMsPLBef42oSwBoSqJLPrIaWS/GX0/EU/XnuVdM6gN6Rw0xXPLoRmlQZPwbq0pro9JbKK2Cx8yb
+	NsbtOlwUpl/fYQBQyafv7lTyfcFDEe4XiLCDD2khSEbOEzu1LaZ6vlZsfElnkY95EpW9s4f8ciALX
+	fN/tH0OK8WTnKibuX4Ta3dchAgUZmnVl/ysLpt8/TeZEqkAA3hOTMUPbL6DyDrcWbh/2Y0i66/UvB
+	2QE8YrRb/YtMt1oWJYso1My6vnkoUxg04TAhXz5qFVBIMgNvNWieST2+Itivv8keQIft9/4rkXHBx
+	sJed4KcWTXBZUEz/zZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOKEy-009wAs-9s; Thu, 09 Sep 2021 13:37:20 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOJaY-009d6o-SV
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 12:55:37 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 753D761250
- for <linux-riscv@lists.infradead.org>; Thu,  9 Sep 2021 12:55:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631192134;
- bh=YQmcNYr+cZNJfeWxvOAqqq5sOLrBSpLtT8APgEd7LCQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=cB/PNnL/OcDRDFz5fIgBPaGsqQKZRjuQgQrYcmOZAIvi9HH/NhmrVSDetcZ96lVup
- fL98MHx3E8VsGhaKSDjl7fAlIrG9OFLd/sUPUssTkJX1e3NuH9EHNqy3D2OcW08Aeg
- cYgujanbIVF7a/Rd0OEdcclkD9nlBAmravLlHmKI4PN48xzo7F1w8r1lcJb+3cmSW6
- YdqVBWTOCUm50Hr7Z/zvBp0Wo25PpI1p7+BPAuNQuqw6U36P5p+xidVZij2cz/1Xtr
- nyPcTIcicQgwuxtX89MB1lrHbzaNqcjs/FPJVaqtJc8svQ6p1abzVx9VSOT+GC6Fuq
- Fca7e+yj0QSeQ==
-Received: by mail-wr1-f50.google.com with SMTP id v10so2437851wrd.4
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 05:55:34 -0700 (PDT)
-X-Gm-Message-State: AOAM5309qFXnaQpa+C7iYnSBvXNJO17P+Z2akEqEbvjghRTXx4KycSPc
- xd1rAv0O5+IEP2i6is4ogwhdkPwI2j5YWw/bCIA=
-X-Google-Smtp-Source: ABdhPJyTVsi87qlqI/1eHcSEVZZZYViKabS97DzZRj/RHn7Ww0YW7zgh7w8tzbCK1GPtuNjyZV+4KTFRU6DZQKEU4dc=
-X-Received: by 2002:adf:f884:: with SMTP id u4mr3278238wrp.411.1631192132894; 
- Thu, 09 Sep 2021 05:55:32 -0700 (PDT)
+	id 1mOKXE-00A2qA-W6; Thu, 09 Sep 2021 13:56:13 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mOKXA-00A2o3-U6
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 13:56:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=AS4GoMNuNsExioqPJiOWEVu+3vDbz3bR3P
+ ju384umbs=; b=Q0mP44lKzggbQhiTjNegXyJD4X+EDPSQAEquIo+Ib3iEGvj4eI
+ NDlzUEUFl04iFojHsp7XC7RKM482eu2GIYRg/tff3iXi74q9S2ba+HzQJ6gXRSWO
+ r5eWgt0Y+2rm5wn77BdY6ur8xEF2nuVkz08cGcd5L1JDelro1wRu7wE8k=
+Received: from xhacker (unknown [101.86.20.15])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygB3fgJsEjphqk0PAA--.207S2; 
+ Thu, 09 Sep 2021 21:55:56 +0800 (CST)
+Date: Thu, 9 Sep 2021 21:49:29 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: enable GENERIC_FIND_FIRST_BIT
+Message-ID: <20210909214929.7c2b9ae0@xhacker>
+In-Reply-To: <bbd220c4-b535-d024-6bd3-b620b4702ed3@huawei.com>
+References: <20210718001423.6b8e1d23@xhacker> <20210908230427.3a92fb87@xhacker>
+ <bbd220c4-b535-d024-6bd3-b620b4702ed3@huawei.com>
 MIME-Version: 1.0
-References: <20210906142615.GA1917503@roeck-us.net>
- <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
- <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
- <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
- <YTkjJPCdR1VGaaVm@archlinux-ax161>
- <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
- <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
- <CANpmjNNCVu8uyn=8=5_8rLeKM5t3h7-KzVg1aCJASxF8u_6tEQ@mail.gmail.com>
- <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
- <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
-In-Reply-To: <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Thu, 9 Sep 2021 14:55:16 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2--kfvs-+qkZdpea94ccgcY6QpdHMfVFgY0F2Z=GBhyw@mail.gmail.com>
-Message-ID: <CAK8P3a2--kfvs-+qkZdpea94ccgcY6QpdHMfVFgY0F2Z=GBhyw@mail.gmail.com>
-Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
-To: Marco Elver <elver@google.com>
-Cc: Christoph Hellwig <hch@infradead.org>, Guenter Roeck <linux@roeck-us.net>, 
- Nathan Chancellor <nathan@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
- Nick Desaulniers <ndesaulniers@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
- Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev <kasan-dev@googlegroups.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- "Pan, Xinhui" <Xinhui.Pan@amd.com>,
- amd-gfx list <amd-gfx@lists.freedesktop.org>
+X-CM-TRANSID: LkAmygB3fgJsEjphqk0PAA--.207S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF18GF4DJw1xZrW8Kr4xCrg_yoWkuFX_Wr
+ y0y3ykCw4UZrs7Aan8XayavFWqkF48W34ruw4jyrn8XrW3J3y8CF4kWF9aqayrCr40yF4U
+ KF9Iv3W5Xr97JjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUbrAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+ A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+ w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+ vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
+ s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+ 1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+ JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
+ W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
+ JbIYCTnIWIevJa73UjIFyTuYvjxU2_HUDUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_055534_995610_88D1BAAC 
-X-CRM114-Status: GOOD (  38.14  )
+X-CRM114-CacheID: sfid-20210909_065609_616757_DFDE46D2 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,163 +90,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 9, 2021 at 1:43 PM Marco Elver <elver@google.com> wrote:
-> On Thu, 9 Sept 2021 at 13:00, Arnd Bergmann <arnd@kernel.org> wrote:
-> > On Thu, Sep 9, 2021 at 12:54 PM Marco Elver <elver@google.com> wrote:
-> > > On Thu, 9 Sept 2021 at 07:59, Christoph Hellwig <hch@infradead.org> wrote:
-> > > > On Wed, Sep 08, 2021 at 11:58:56PM +0200, Marco Elver wrote:
-> > > > > It'd be good to avoid. It has helped uncover build issues with KASAN in
-> > > > > the past. Or at least make it dependent on the problematic architecture.
-> > > > > For example if arm is a problem, something like this:
-> > > >
-> > > > I'm also seeing quite a few stack size warnings with KASAN on x86_64
-> > > > without COMPILT_TEST using gcc 10.2.1 from Debian.  In fact there are a
-> > > > few warnings without KASAN, but with KASAN there are a lot more.
-> > > > I'll try to find some time to dig into them.
-> > >
-> > > Right, this reminded me that we actually at least double the real
-> > > stack size for KASAN builds, because it inherently requires more stack
-> > > space. I think we need Wframe-larger-than to match that, otherwise
-> > > we'll just keep having this problem:
-> > >
-> > > https://lkml.kernel.org/r/20210909104925.809674-1-elver@google.com
-> >
-> > The problem with this is that it completely defeats the point of the
-> > stack size warnings in allmodconfig kernels when they have KASAN
-> > enabled and end up missing obvious code bugs in drivers that put
-> > large structures on the stack. Let's not go there.
->
-> Sure, but the reality is that the real stack size is already doubled
-> for KASAN. And that should be reflected in Wframe-larger-than.
-
-I don't think "double" is an accurate description of what is going on,
-it's much more complex than this. There are some functions
-that completely explode with KASAN_STACK enabled on clang,
-and many other functions instances that don't grow much at all.
-
-I've been building randconfig kernels for a long time with KASAN_STACK
-enabled on gcc, and the limit increased to 1440 bytes for 32-bit
-and not increased beyond the normal 2048 bytes for 64-bit. I have
-some patches to address the outliers and should go through and
-resend some of those.
-
-With the same limits and patches using clang, and KASAN=y but
-KASAN_STACK=n I also get no warnings in randconfig builds,
-but KASAN_STACK on clang doesn't really seem to have a good
-limit that would make an allmodconfig kernel build with no warnings.
-
-These are the worst offenders I see based on configuration, using
-an 32-bit ARM allmodconfig with my fixups:
-
-gcc-11, KASAN, no KASAN_STACK, FRAME_WARN=1024:
-(nothing)
-
-gcc-11, KASAN_STACK:
-drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_debugfs.c:782:1:
-warning: the frame size of 1416 bytes is larger than 1024 bytes
-[-Wframe-larger-than=]
-drivers/media/dvb-frontends/mxl5xx.c:1575:1: warning: the frame size
-of 1240 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-drivers/mtd/nftlcore.c:468:1: warning: the frame size of 1232 bytes is
-larger than 1024 bytes [-Wframe-larger-than=]
-drivers/char/ipmi/ipmi_msghandler.c:4880:1: warning: the frame size of
-1232 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-drivers/mtd/chips/cfi_cmdset_0001.c:1870:1: warning: the frame size of
-1224 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-drivers/net/wireless/ath/ath9k/ar9003_paprd.c:749:1: warning: the
-frame size of 1216 bytes is larger than 1024 bytes
-[-Wframe-larger-than=]
-drivers/net/ethernet/mellanox/mlx5/core/ipoib/ipoib.c:136:1: warning:
-the frame size of 1216 bytes is larger than 1024 bytes
-[-Wframe-larger-than=]
-drivers/ntb/hw/idt/ntb_hw_idt.c:1116:1: warning: the frame size of
-1200 bytes is larger than 1024 bytes [-Wframe-larger-than=]
-net/dcb/dcbnl.c:1172:1: warning: the frame size of 1192 bytes is
-larger than 1024 bytes [-Wframe-larger-than=]
-fs/select.c:1042:1: warning: the frame size of 1192 bytes is larger
-than 1024 bytes [-Wframe-larger-than=]
-
-clang-12 KASAN, no KASAN_STACK, FRAME_WARN=1024:
-
-kernel/trace/trace_events_hist.c:4601:13: error: stack frame size 1384
-exceeds limit 1024 in function 'hist_trigger_print_key'
-[-Werror,-Wframe-larger-than]
-drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3045:6:
-error: stack frame size 1384 exceeds limit 1024 in function 'bw_calcs'
-[-Werror,-Wframe-larger-than]
-drivers/staging/fbtft/fbtft-core.c:992:5: error: stack frame size 1208
-exceeds limit 1024 in function 'fbtft_init_display'
-[-Werror,-Wframe-larger-than]
-crypto/wp512.c:782:13: error: stack frame size 1176 exceeds limit 1024
-in function 'wp512_process_buffer' [-Werror,-Wframe-larger-than]
-drivers/staging/fbtft/fbtft-core.c:902:12: error: stack frame size
-1080 exceeds limit 1024 in function 'fbtft_init_display_from_property'
-[-Werror,-Wframe-larger-than]
-drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: error: stack frame size
-1064 exceeds limit 1024 in function 'cfi_intelext_writev'
-[-Werror,-Wframe-larger-than]
-drivers/staging/rtl8723bs/core/rtw_security.c:1288:5: error: stack
-frame size 1040 exceeds limit 1024 in function 'rtw_aes_decrypt'
-[-Werror,-Wframe-larger-than]
-drivers/ntb/hw/idt/ntb_hw_idt.c:1041:27: error: stack frame size 1032
-exceeds limit 1024 in function 'idt_scan_mws'
-[-Werror,-Wframe-larger-than]
-
-clang-12, KASAN_STACK:
-
-drivers/infiniband/hw/ocrdma/ocrdma_stats.c:686:16: error: stack frame
-size 20608 exceeds limit 1024 in function 'ocrdma_dbgfs_ops_read'
-[-Werror,-Wframe-larger-than]
-lib/bitfield_kunit.c:60:20: error: stack frame size 10336 exceeds
-limit 10240 in function 'test_bitfields_constants'
-[-Werror,-Wframe-larger-than]
-drivers/net/wireless/ralink/rt2x00/rt2800lib.c:9012:13: error: stack
-frame size 9952 exceeds limit 1024 in function 'rt2800_init_rfcsr'
-[-Werror,-Wframe-larger-than]
-drivers/net/usb/r8152.c:7486:13: error: stack frame size 8768 exceeds
-limit 1024 in function 'r8156b_hw_phy_cfg'
-[-Werror,-Wframe-larger-than]
-drivers/media/dvb-frontends/nxt200x.c:915:12: error: stack frame size
-8192 exceeds limit 1024 in function 'nxt2004_init'
-[-Werror,-Wframe-larger-than]
-drivers/net/wan/slic_ds26522.c:203:12: error: stack frame size 8064
-exceeds limit 1024 in function 'slic_ds26522_probe'
-[-Werror,-Wframe-larger-than]
-drivers/firmware/broadcom/bcm47xx_sprom.c:188:13: error: stack frame
-size 8064 exceeds limit 1024 in function 'bcm47xx_sprom_fill_auto'
-[-Werror,-Wframe-larger-than]
-drivers/media/dvb-frontends/drxd_hard.c:2857:12: error: stack frame
-size 7584 exceeds limit 1024 in function 'drxd_set_frontend'
-[-Werror,-Wframe-larger-than]
-drivers/media/dvb-frontends/nxt200x.c:519:12: error: stack frame size
-6848 exceeds limit 1024 in function
-'nxt200x_setup_frontend_parameters' [-Werror,-Wframe-larger-than]
-drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:17019:13:
-error: stack frame size 6560 exceeds limit 1024 in function
-'wlc_phy_workarounds_nphy' [-Werror,-Wframe-larger-than]
-
-> Either that, or we just have to live with the occasional warning (that
-> is likely benign). But with WERROR we're now forced to make the
-> defaults as sane as possible. If the worry is allmodconfig, maybe we
-> do have to make KASAN dependent on !COMPILE_TEST, even though that's
-> not great either because it has caught real issues in the past (it'll
-> also mean doing the same for all other instrumentation-based tools,
-> like KCSAN, UBSAN, etc.).
-
-I would prefer going back to marking KASAN_STACK as broken on clang, it does
-not seem like the warnings on the symbol were enough to stop people from
-attempting to using it, and the remaining warnings seem fixable with a small
-increase of the FRAME_WARN when using KASAN with clang but no KASAN_STACK,
-or when using KASAN_STACK with gcc.
-
-      Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCA5IFNlcCAyMDIxIDA4OjU4OjMxICswODAwCktlZmVuZyBXYW5nIDx3YW5na2VmZW5n
+LndhbmdAaHVhd2VpLmNvbT4gd3JvdGU6Cgo+IE9uIDIwMjEvOS84IDIzOjA0LCBKaXNoZW5nIFpo
+YW5nIHdyb3RlOgo+ID4gSGkgUGFsbWVyLAo+ID4KPiA+IE9uIFN1biwgMTggSnVsIDIwMjEgMDA6
+MTQ6MjMgKzA4MDAKPiA+IEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4gPiAgCj4gPj4gRnJvbTogSmlz
+aGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+ID4+Cj4gPj4gcmlzY3YgZG9lc24ndCBp
+bXBsZW1lbnQgYXJjaGl0ZWN0dXJlLW9wdGltaXplZCBiaXRzZWFyY2hpbmcgZnVuY3Rpb25zCj4g
+Pj4gc3VjaCBhcyBmaW5kX2ZpcnN0X3t6ZXJvfV9iaXQoKSBldGMuCj4gPj4KPiA+PiBXaGVuIEdF
+TkVSSUNfRklORF9GSVJTVF9CSVQ9biwgZmluZF9maXJzdF9iaXQoKSBpcyBpbXBsZW1lbnRlZCB3
+aXRoCj4gPj4gZmluZF9uZXh0X2JpdCgpIHdoaWNoIGlzIGxlc3MgZWZmaWNpZW50LiBFbmFibGUg
+R0VORVJJQ19GSU5EX0ZJUlNUX0JJVAo+ID4+IGZvciByaXNjdiB0byBnZXQgbW9yZSBvcHRpbWl6
+ZWQgZmluZF9maXJzdF9iaXQoKSBpbXBsZW1lbnRhdGlvbiwgYW4KPiA+PiBpbml0aWFsIHRlc3Qo
+bGliL2ZpbmRfYml0X2JlbmNobWFyaykgc2hvd3MgZmluZF9maXJzdF9iaXQoKSBwZXJmb3JtYW5j
+ZQo+ID4+IGlzIGltcHJvdmVkIGJ5IG5lYXJseSAzMiUuICAKPiA+IEl0IHNlZW1zIHRoaXMgcGF0
+Y2ggaXMgbWlzc2VkLiBJcyBpdCBwb3NzaWJsZSB0byBwaWNrIGl0IHVwIGZvciAybmQgNS4xNS1y
+YzEgUFI/Cj4gPgo+ID4gVGhhbmtzICAKPiAKPiBJdCBpcyBlbmFibGVkIHVuY29uZGl0aW9uYWxs
+eSBieSBmb2xsb3dpbmcgY29tbWl0Cj4gCj4gY29tbWl0IGRiYmNjZmU1MDVlZjhmYWU4MDQ2Nzdh
+YmYwNTY0YzFlMDc0NzkxMDIKPiAKPiBBdXRob3I6IFl1cnkgTm9yb3YgPHl1cnkubm9yb3ZAZ21h
+aWwuY29tPgo+IERhdGU6wqDCoCBUdWUgQXVnIDI0IDA5OjU5OjU2IDIwMjEgKzEwMDAKPiAKPiAg
+wqDCoMKgIGFyY2g6IHJlbW92ZSBHRU5FUklDX0ZJTkRfRklSU1RfQklUIGVudGlyZWx5Cj4gCgpB
+aGEsIHRoYW5rcyBmb3IgdGhlIGluZm9ybWF0aW9uLiBBZnRlciBZdXJ5J3MgY29tbWl0LCB0aGlz
+IHBhdGNoCmlzIHVzZWxlc3Mgbm93LgoKdGhhbmtzCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
