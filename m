@@ -2,108 +2,98 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E45ADC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 09:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BD21AC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 10:53:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B196E61051
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 09:04:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B196E61051
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5D12260FE3
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 10:53:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5D12260FE3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XNQFvxmw682pIReGbXX7E5fWhL1zF4sb7Bku4rBAyeU=; b=VaSTJZnGUjD37Q
-	f4xmufTfS2ME4rtwdJbaEPt0F898q3AiB4yLWwy1WNCT84dcvGYClZsFnbNvMtI4HdnLwqJpUhSxL
-	xCOjMF3Uf3eNGtT476GEtOpMUX5YEKjn5DP8wI220ye08FZZdj25GnIn1inJnkCdH2w99GzVeH0tK
-	1aEA7ejPqC92mStkhYL6U3HXFJYOuNGDZCs1mg20b3Y7D7JUwxJLFIH6L7hX3953HWvlnodp9YM1Y
-	EhbUgqUNaoOA4E6rwPxehMET2Aquripc4lKk1b1ZtLW0J4mrd3Oe5iulJmmwhmNbpoCnEz/G4bs8z
-	mVQPcCQiw9ZImbmNNS5Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vEHOqbRi8O8y0lJRtyHDE/jqBD5FPOrMkWZc3gemfAk=; b=OvksRJ3ynbAozW
+	XO4TD6ws7SZt3skkhYoT2iHQcNmOzlqyOG+63KpxTjS3N7BSmD6/puMqleH7ZrJuwebgkoC5sh7Xx
+	UGCio++gS38FJOHSigkBHva03yanenO2mSvzTgXeoVgBXQUBkWUMwZs+KHzcad0b69WzwLgTyHBgW
+	D1TSqGxz2Ir90NEV5+1tAW8tkju67NiIXZt+sq//Ocid6nOM0lgLKEEwDH0kvhp5+crnkZidgYiAT
+	ck7iEkjfzTikQxQQ8gfwN97jOx0dAd+p+G1lZFP7v2JAAfmzMzfOCGVCwXALWXidX56g+FZy6nyLt
+	25lPn5GbFrnDH0mlKK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOFyv-008hZO-OX; Thu, 09 Sep 2021 09:04:29 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1mOHgI-008yHG-KH; Thu, 09 Sep 2021 10:53:22 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOFxw-008h5Z-9i; Thu, 09 Sep 2021 09:03:30 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id c6so901212pjv.1;
- Thu, 09 Sep 2021 02:03:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=oxrt0Di1Z5ok1Wnf6tUzyGoie6Gm8VDj4Nc/fyIhFs0=;
- b=ow8B+4vt1F9pLfHYV9Ij+hl6+gQr9b6FrcTZp87zzgq1QFzurdhRot3GR615SQjlCw
- Zh4RokFDllDi62GMhO7kFspujGar5GxlzpGSBRNRsZfQbQVIAbEOyPCqPhV1TBKXPJ+s
- u9zasRNTyWq8lIbx1jH8+5ssE7WtjYRbI0SxC0XjXbWBG7dNmL5jDpm04aYaqCtEHPMd
- oLMLrY6dxdb9aYvbcIz452wViyDA59FwyRhJgVKZpONOjEDjVsaSYv3vx/vOrl7m0wyK
- ghHlPZ1M7WyydtleY3pZPxr+zKPmwqTqIBcA98XBRxv6yxV4tWBWRIp7oAV3uoS7xKav
- JWeQ==
+ id 1mOHgF-008yGH-5S
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 10:53:20 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id y128so1950430oie.4
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 03:53:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=fU5ufvRRjTtfwnNvK13MR5zMOLz3I8fk1OzlUMqINLQ=;
+ b=svEsGSMujFvTtR4UMtARJNXuZvz+U/550aXRIc+7UMzXzxYASPNNCNz75C6NHgXQGg
+ dVJIPTelpAL58scaurL0kBQOQTMznlEy8QRnyHQfYxdvgW794LiM1IeQsfZLCEJ22GDQ
+ qeYJDSw9yib0rswsAY4EiMIpR09/rniDzcmwUBU47L1cdLS7q206vZncbq5ddz/unqpR
+ JjT6q7GZ3YxYt0F0WB2frZxiJ2+sILr+1ax6Ri2HSHO4/nyZOnqbiOVisCjJQDDu6QAo
+ hcv1jpLE7VOWgiP2TLIVuvoIKnrgb/YQjoBfw63Ub7F4cpzR210zw6O/4AgWl9NTv+i7
+ YCmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=oxrt0Di1Z5ok1Wnf6tUzyGoie6Gm8VDj4Nc/fyIhFs0=;
- b=nPi7bezJeJPpkyboHpZurMsvJDDfHXd55+XD1PJqLnAdLPpJgjgqJ4D7mqEDM7Jub4
- xKvPQQWvdGLB+YHRN0RszCrHFVCGchubycTguFW2eVeQdyy0Ock7S4sPLd044j0DtNvx
- o2AmfpYKLhFyCHDldwbtYPB/B+5UYfDzRZupmzQnc9q/EOoJVxJaiJUQXuOUZam4Bs05
- 2z09EMJozkYXB1flrbH+LT2BF5ZDdbfSurgS8wUIGcFhAYmaZTY9gO+NvQohu+OClyuu
- QpVO9XBytJ0yDs10ULpG43vU7XH00AyPjtPxdXDBMBAlivCNU0W4YFYOC6YYZLOejKeh
- Ie3Q==
-X-Gm-Message-State: AOAM533VOYQbAUmTFgG+ozpnZNweZIpHmkPGW40FSb2Js2JLGI7axeW2
- fplvLeXVWRXW3ioIEobV1SQ=
-X-Google-Smtp-Source: ABdhPJxHu9zJJ9FJUWJZJWQdpknTVzTkm8TBNRuaQJzThvN9YUYI4ouL8lSFHZOTHz+j9wwl1nI78w==
-X-Received: by 2002:a17:902:d486:b0:135:9335:795b with SMTP id
- c6-20020a170902d48600b001359335795bmr1692439plg.73.1631178199865; 
- Thu, 09 Sep 2021 02:03:19 -0700 (PDT)
-Received: from ownia.. ([173.248.225.217])
- by smtp.gmail.com with ESMTPSA id q126sm1600085pfc.156.2021.09.09.02.03.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 09 Sep 2021 02:03:19 -0700 (PDT)
-From: Weizhao Ouyang <o451686892@gmail.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Ingo Molnar <mingo@redhat.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, Weizhao Ouyang <o451686892@gmail.com>
-Subject: [PATCH v4] ftrace: Cleanup ftrace_dyn_arch_init()
-Date: Thu,  9 Sep 2021 17:02:16 +0800
-Message-Id: <20210909090216.1955240-1-o451686892@gmail.com>
-X-Mailer: git-send-email 2.30.2
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=fU5ufvRRjTtfwnNvK13MR5zMOLz3I8fk1OzlUMqINLQ=;
+ b=mAIv6Kv8K7Ap8IT0PCty37PBq7GpIp6Df694GD7NTqY2+zGle4OKDLfJVCL4JQzoKP
+ gXrP592III8cdYNiS5KFZ1hp+1g9ePq/HYbjy2wzNO2MS+dCrvYzL9o7YNa8n0Wn04SY
+ 9Ftx4gkXSYurPP6jjDvnppVi8mlmkdQWaasAGQb+B4hWNeWwzdB8bZwqQ+/7CbbAUcCq
+ nlwcL68jIRye4tu9vFGl3xpfazm2e4guLe+aSqoZzOvhGfelQ3qTWikueSUeFD9MwAL0
+ dwOr4UBr7w1Q+hbAVHKnGOP9lDXmdDQq8nl6sYBMai7HywBtnclgDJbIS2PB6M1qrpPJ
+ v8Sg==
+X-Gm-Message-State: AOAM530mmoruZrGEiWnsfmALfML4JEA/w8CZgQ5Y/sVDM56DpkdeJYsb
+ FKZSr8VoBX8Ov2DRelIR4XjOea8eAzGUT7DvY2T+Eg==
+X-Google-Smtp-Source: ABdhPJypirAM1jjdo9XWTXuE1r/IYJFmD049z7WphsmfidtaQM2qvedJJrF7FPI9vKRmcHUWVT9heQSyJAVB96uljac=
+X-Received: by 2002:a05:6808:21a5:: with SMTP id
+ be37mr1443831oib.172.1631184794726; 
+ Thu, 09 Sep 2021 03:53:14 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210906142615.GA1917503@roeck-us.net>
+ <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
+ <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
+ <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
+ <YTkjJPCdR1VGaaVm@archlinux-ax161>
+ <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
+ <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
+In-Reply-To: <YTmidYBdchAv/vpS@infradead.org>
+From: Marco Elver <elver@google.com>
+Date: Thu, 9 Sep 2021 12:53:03 +0200
+Message-ID: <CANpmjNNCVu8uyn=8=5_8rLeKM5t3h7-KzVg1aCJASxF8u_6tEQ@mail.gmail.com>
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Guenter Roeck <linux@roeck-us.net>, Nathan Chancellor <nathan@kernel.org>, 
+ Arnd Bergmann <arnd@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com, 
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ "Pan, Xinhui" <Xinhui.Pan@amd.com>, amd-gfx@lists.freedesktop.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_020328_434404_D1F9D035 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20210909_035319_267251_28EB3D7E 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,256 +105,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Most of ARCHs use empty ftrace_dyn_arch_init(), introduce a weak common
-ftrace_dyn_arch_init() to cleanup them.
-
-Signed-off-by: Weizhao Ouyang <o451686892@gmail.com>
-Acked-by: Heiko Carstens <hca@linux.ibm.com> (s390)
-Acked-by: Helge Deller <deller@gmx.de> (parisc)
-
----
-Changes in v4:
--- revert the generic declaration
-
-Changes in v3:
--- fix unrecognized opcode on PowerPC
-
-Changes in v2:
--- correct CONFIG_DYNAMIC_FTRACE on PowerPC
--- add Acked-by tag
-
----
- arch/arm/kernel/ftrace.c        | 5 -----
- arch/arm64/kernel/ftrace.c      | 5 -----
- arch/csky/kernel/ftrace.c       | 5 -----
- arch/ia64/kernel/ftrace.c       | 6 ------
- arch/microblaze/kernel/ftrace.c | 5 -----
- arch/nds32/kernel/ftrace.c      | 5 -----
- arch/parisc/kernel/ftrace.c     | 5 -----
- arch/riscv/kernel/ftrace.c      | 5 -----
- arch/s390/kernel/ftrace.c       | 5 -----
- arch/sh/kernel/ftrace.c         | 5 -----
- arch/sparc/kernel/ftrace.c      | 5 -----
- arch/x86/kernel/ftrace.c        | 5 -----
- kernel/trace/ftrace.c           | 5 +++++
- 13 files changed, 5 insertions(+), 61 deletions(-)
-
-diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
-index 3c83b5d29697..a006585e1c09 100644
---- a/arch/arm/kernel/ftrace.c
-+++ b/arch/arm/kernel/ftrace.c
-@@ -193,11 +193,6 @@ int ftrace_make_nop(struct module *mod,
- 
- 	return ret;
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif /* CONFIG_DYNAMIC_FTRACE */
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index 7f467bd9db7a..fc62dfe73f93 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -236,11 +236,6 @@ void arch_ftrace_update_code(int command)
- 	command |= FTRACE_MAY_SLEEP;
- 	ftrace_modify_all_code(command);
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif /* CONFIG_DYNAMIC_FTRACE */
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
-diff --git a/arch/csky/kernel/ftrace.c b/arch/csky/kernel/ftrace.c
-index b4a7ec1517ff..50bfcf129078 100644
---- a/arch/csky/kernel/ftrace.c
-+++ b/arch/csky/kernel/ftrace.c
-@@ -133,11 +133,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
- 				(unsigned long)func, true, true);
- 	return ret;
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif /* CONFIG_DYNAMIC_FTRACE */
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-diff --git a/arch/ia64/kernel/ftrace.c b/arch/ia64/kernel/ftrace.c
-index b2ab2d58fb30..d6360fd404ab 100644
---- a/arch/ia64/kernel/ftrace.c
-+++ b/arch/ia64/kernel/ftrace.c
-@@ -194,9 +194,3 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
- 	flush_icache_range(addr, addr + 16);
- 	return 0;
- }
--
--/* run from kstop_machine */
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
-diff --git a/arch/microblaze/kernel/ftrace.c b/arch/microblaze/kernel/ftrace.c
-index 224eea40e1ee..188749d62709 100644
---- a/arch/microblaze/kernel/ftrace.c
-+++ b/arch/microblaze/kernel/ftrace.c
-@@ -163,11 +163,6 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- 	return ret;
- }
- 
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
--
- int ftrace_update_ftrace_func(ftrace_func_t func)
- {
- 	unsigned long ip = (unsigned long)(&ftrace_call);
-diff --git a/arch/nds32/kernel/ftrace.c b/arch/nds32/kernel/ftrace.c
-index 0e23e3a8df6b..f0ef4842d191 100644
---- a/arch/nds32/kernel/ftrace.c
-+++ b/arch/nds32/kernel/ftrace.c
-@@ -84,11 +84,6 @@ void _ftrace_caller(unsigned long parent_ip)
- 	/* restore all state needed by the compiler epilogue */
- }
- 
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
--
- static unsigned long gen_sethi_insn(unsigned long addr)
- {
- 	unsigned long opcode = 0x46000000;
-diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
-index 0a1e75af5382..01581f715737 100644
---- a/arch/parisc/kernel/ftrace.c
-+++ b/arch/parisc/kernel/ftrace.c
-@@ -94,11 +94,6 @@ int ftrace_disable_ftrace_graph_caller(void)
- #endif
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- int ftrace_update_ftrace_func(ftrace_func_t func)
- {
- 	return 0;
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 7f1e5203de88..4716f4cdc038 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -154,11 +154,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
- 
- 	return ret;
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
-index 0a464d328467..3fd80397ff52 100644
---- a/arch/s390/kernel/ftrace.c
-+++ b/arch/s390/kernel/ftrace.c
-@@ -262,11 +262,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
- 	return 0;
- }
- 
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
--
- void arch_ftrace_update_code(int command)
- {
- 	if (ftrace_shared_hotpatch_trampoline(NULL))
-diff --git a/arch/sh/kernel/ftrace.c b/arch/sh/kernel/ftrace.c
-index 295c43315bbe..930001bb8c6a 100644
---- a/arch/sh/kernel/ftrace.c
-+++ b/arch/sh/kernel/ftrace.c
-@@ -252,11 +252,6 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- 
- 	return ftrace_modify_code(rec->ip, old, new);
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif /* CONFIG_DYNAMIC_FTRACE */
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
-diff --git a/arch/sparc/kernel/ftrace.c b/arch/sparc/kernel/ftrace.c
-index 684b84ce397f..eaead3da8e03 100644
---- a/arch/sparc/kernel/ftrace.c
-+++ b/arch/sparc/kernel/ftrace.c
-@@ -82,11 +82,6 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
- 	new = ftrace_call_replace(ip, (unsigned long)func);
- 	return ftrace_modify_code(ip, old, new);
- }
--
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
- #endif
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 1b3ce3b4a2a2..23d221a9a3cd 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -252,11 +252,6 @@ void arch_ftrace_update_code(int command)
- 	ftrace_modify_all_code(command);
- }
- 
--int __init ftrace_dyn_arch_init(void)
--{
--	return 0;
--}
--
- /* Currently only x86_64 supports dynamic trampolines */
- #ifdef CONFIG_X86_64
- 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 7efbc8aaf7f6..4c090323198d 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -6846,6 +6846,11 @@ void __init ftrace_free_init_mem(void)
- 	ftrace_free_mem(NULL, start, end);
- }
- 
-+int __init __weak ftrace_dyn_arch_init(void)
-+{
-+	return 0;
-+}
-+
- void __init ftrace_init(void)
- {
- 	extern unsigned long __start_mcount_loc[];
--- 
-2.30.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCA5IFNlcHQgMjAyMSBhdCAwNzo1OSwgQ2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBpbmZy
+YWRlYWQub3JnPiB3cm90ZToKPiBPbiBXZWQsIFNlcCAwOCwgMjAyMSBhdCAxMTo1ODo1NlBNICsw
+MjAwLCBNYXJjbyBFbHZlciB3cm90ZToKPiA+IEl0J2QgYmUgZ29vZCB0byBhdm9pZC4gSXQgaGFz
+IGhlbHBlZCB1bmNvdmVyIGJ1aWxkIGlzc3VlcyB3aXRoIEtBU0FOIGluCj4gPiB0aGUgcGFzdC4g
+T3IgYXQgbGVhc3QgbWFrZSBpdCBkZXBlbmRlbnQgb24gdGhlIHByb2JsZW1hdGljIGFyY2hpdGVj
+dHVyZS4KPiA+IEZvciBleGFtcGxlIGlmIGFybSBpcyBhIHByb2JsZW0sIHNvbWV0aGluZyBsaWtl
+IHRoaXM6Cj4KPiBJJ20gYWxzbyBzZWVpbmcgcXVpdGUgYSBmZXcgc3RhY2sgc2l6ZSB3YXJuaW5n
+cyB3aXRoIEtBU0FOIG9uIHg4Nl82NAo+IHdpdGhvdXQgQ09NUElMVF9URVNUIHVzaW5nIGdjYyAx
+MC4yLjEgZnJvbSBEZWJpYW4uICBJbiBmYWN0IHRoZXJlIGFyZSBhCj4gZmV3IHdhcm5pbmdzIHdp
+dGhvdXQgS0FTQU4sIGJ1dCB3aXRoIEtBU0FOIHRoZXJlIGFyZSBhIGxvdCBtb3JlLgo+IEknbGwg
+dHJ5IHRvIGZpbmQgc29tZSB0aW1lIHRvIGRpZyBpbnRvIHRoZW0uCgpSaWdodCwgdGhpcyByZW1p
+bmRlZCBtZSB0aGF0IHdlIGFjdHVhbGx5IGF0IGxlYXN0IGRvdWJsZSB0aGUgcmVhbApzdGFjayBz
+aXplIGZvciBLQVNBTiBidWlsZHMsIGJlY2F1c2UgaXQgaW5oZXJlbnRseSByZXF1aXJlcyBtb3Jl
+IHN0YWNrCnNwYWNlLiBJIHRoaW5rIHdlIG5lZWQgV2ZyYW1lLWxhcmdlci10aGFuIHRvIG1hdGNo
+IHRoYXQsIG90aGVyd2lzZQp3ZSdsbCBqdXN0IGtlZXAgaGF2aW5nIHRoaXMgcHJvYmxlbToKCmh0
+dHBzOi8vbGttbC5rZXJuZWwub3JnL3IvMjAyMTA5MDkxMDQ5MjUuODA5Njc0LTEtZWx2ZXJAZ29v
+Z2xlLmNvbQoKPiBXaGlsZSB3ZSdyZSBhdCBpdCwgd2l0aCAtV2Vycm9yIHNvbWV0aGluZyBsaWtl
+IHRoaXMgaXMgcmVhbGx5IGZ1dGlsZToKPgo+IGRyaXZlcnMvZ3B1L2RybS9hbWQvYW1kZ3B1L2Ft
+ZGdwdV9vYmplY3QuYzogSW4gZnVuY3Rpb24g4oCYYW1kZ3B1X2JvX3N1cHBvcnRfdXN3Y+KAmToK
+PiBkcml2ZXJzL2dwdS9kcm0vYW1kL2FtZGdwdS9hbWRncHVfb2JqZWN0LmM6NDkzOjI6IHdhcm5p
+bmc6ICN3YXJuaW5nCj4gUGxlYXNlIGVuYWJsZSBDT05GSUdfTVRSUiBhbmQgQ09ORklHX1g4Nl9Q
+QVQgZm9yIGJldHRlciBwZXJmb3JtYW5jZSB0aGFua3MgdG8gd3JpdGUtY29tYmluaW5nIFstV2Nw
+cAo+ICAgNDkzIHwgI3dhcm5pbmcgUGxlYXNlIGVuYWJsZSBDT05GSUdfTVRSUiBhbmQgQ09ORklH
+X1g4Nl9QQVQgZm9yIGJldHRlciBwZXJmb3JtYW5jZSBcCj4gICAgICAgfCAgXn5+fn5+fgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
