@@ -2,89 +2,96 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 523CBC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 07:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AC69C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 08:21:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E3BAF610C8
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 07:58:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E3BAF610C8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
+	by mail.kernel.org (Postfix) with ESMTPS id DD4566113A
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 08:21:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DD4566113A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DvlPfyZpESH3dfdoQwj3SsTC9Usj1qvG/FIBRSkO2V4=; b=lT+I589EswBvTR1qN5vy0srJ7g
-	eW1aYHa8dncvqu4e3ib5y76H4khY48g11O1pLXPdIpHnZnxo7v8xZLZmkjKiXsg7JfKnD0xwn1vDt
-	SMf5cwA2461/QpE3m2vK9kHDwAu932wOUdll5AHmISOp9jlOkdBCTxavwE/ki/G9Csa9UjsYXOvDT
-	hBC7rymOgGAk81bTKgeREPWCyNS1QQDF+3CoU77GoBxwHuT3lZqM8+BNUnZ8LA0oznGy/1ZDN5Z27
-	deX0GKHelf2SdddsrnR89bE5LFjfhurst+kPZZLXKLDLD/rLV/ut2vbNAxqQlqKzLD5DnD3gFZPy1
-	la7zHSUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SxccoBdsrvbhphkFAy84UilPONhg+L3PcHVpLOmfL+Q=; b=LOLAuhihGWLoPU
+	yy0ieHT2FXg+KtsMk7ijVSavILrGnxhT8o+7pmYVSrtQTho0eVWnjitFiHztkS6maOMNyfixOTF7K
+	4/Ut5ZsAqEBSTrGQSbJqk7bypcm+qHNcebVlPlxFMUw3p+ZZGavtycMcxyD7i9v2KQyhQNmfZPMwV
+	S8oqPOgWEURas/qaQRBtN5hu3fmuf9TIPtcY9zJ0CQw2KdMdGcVgsG+zQSebMkEjDc0YnrjjglDsm
+	+Z5q9TxARMBUdTKHPwX88x10bkf7KTTb3lfQgA9R3wOV65mGuHE7baCir2iWh+mv4v6fiE6LCCp6k
+	zKiM09T2Y73MNgCqWt7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOEwc-008V7q-Bc; Thu, 09 Sep 2021 07:58:02 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1mOFIP-008Yv6-93; Thu, 09 Sep 2021 08:20:33 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOEwN-008UyL-W5; Thu, 09 Sep 2021 07:57:50 +0000
-Received: from sslproxy01.your-server.de ([78.46.139.224])
- by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
- id 1mOEvf-0001T3-P1; Thu, 09 Sep 2021 09:57:03 +0200
-Received: from [85.5.47.65] (helo=linux.home)
- by sslproxy01.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
- id 1mOEvf-000H3n-3x; Thu, 09 Sep 2021 09:57:03 +0200
-Subject: Re: [PATCH bpf-next] bpf: Change value of MAX_TAIL_CALL_CNT from 32
- to 33
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Shubham Bansal <illusionist.neo@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Paul Burton <paulburton@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, naveen.n.rao@linux.ibm.com,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Luke Nelson <luke.r.nels@gmail.com>,
- Xi Wang <xi.wang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Chaignon <paul@cilium.io>, Networking <netdev@vger.kernel.org>,
- bpf <bpf@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- sparclinux@vger.kernel.org
-References: <1631158350-3661-1-git-send-email-yangtiezhu@loongson.cn>
- <CAEf4BzZqoVZ7keWCLmC=A5oPPwj_xMNRWDkJUcjWn9yE_z1gSg@mail.gmail.com>
-From: Daniel Borkmann <daniel@iogearbox.net>
-Message-ID: <e9063116-617a-5916-bc6f-a1e917776bd7@iogearbox.net>
-Date: Thu, 9 Sep 2021 09:57:02 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+ id 1mOFIM-008Yud-9B
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 08:20:31 +0000
+Received: from mail-wm1-f41.google.com ([209.85.128.41]) by
+ mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1N79q6-1n0bJP2EWK-017QtS for <linux-riscv@lists.infradead.org>; Thu, 09
+ Sep 2021 10:20:27 +0200
+Received: by mail-wm1-f41.google.com with SMTP id
+ l7-20020a1c2507000000b002e6be5d86b3so725667wml.3
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 01:20:27 -0700 (PDT)
+X-Gm-Message-State: AOAM533vaVovhZNYM24/CbsKkeXci2cxwrjc6B0/lH+78C73JQK4i8TA
+ IBBjZeLV3AlGF3RfG8RgeQMvr/MVgPdZiTzSeRA=
+X-Google-Smtp-Source: ABdhPJxw9darBRLOGU9T/Ai9xJXwVS9kDLiVsvTLI0kWLzOUQXjodmhRhtE0vr7opzWdpEFtiXs19dy520OXKdt0Xg4=
+X-Received: by 2002:a05:600c:896:: with SMTP id
+ l22mr1514862wmp.173.1631175626890; 
+ Thu, 09 Sep 2021 01:20:26 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAEf4BzZqoVZ7keWCLmC=A5oPPwj_xMNRWDkJUcjWn9yE_z1gSg@mail.gmail.com>
-Content-Language: en-US
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.2/26288/Wed Sep  8 10:22:21 2021)
+References: <20210909042543.1982893-1-alistair.francis@opensource.wdc.com>
+In-Reply-To: <20210909042543.1982893-1-alistair.francis@opensource.wdc.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 9 Sep 2021 10:20:10 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1Udjzy=M4Vs8pGCKdedwtv-vPRjxbTcvTL6kP=yXSs0A@mail.gmail.com>
+Message-ID: <CAK8P3a1Udjzy=M4Vs8pGCKdedwtv-vPRjxbTcvTL6kP=yXSs0A@mail.gmail.com>
+Subject: Re: [PATCH] perf bench: Add support for 32-bit systems with 64-bit
+ time_t
+To: Alistair Francis <alistair.francis@opensource.wdc.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-perf-users@vger.kernel.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Alistair Francis <alistair23@gmail.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Rutland <mark.rutland@arm.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Darren Hart <dvhart@infradead.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atish.patra@wdc.com>,
+ Arnd Bergmann <arnd@arndb.de>, Alistair Francis <alistair.francis@wdc.com>
+X-Provags-ID: V03:K1:CV1GwEajz7YLA0iimAEYIujaTMpVeEpRLPOSLIJbK+OjlcSQoYx
+ Gei2yuiaRAHRQxqj89r8BVmZF2eVIPI5ya8wnCQudKrAQMJZsAAIwdpKa9NYl/SaXcI21LR
+ UVLiU0asZuZvfSTA1NbZy+CcRDBKevur9B0rqM6E/upZi/nlmKhv/c+khNYL0NM4fMEyi82
+ Mc4LMV6A0UnAwTZ/UBwEw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4PqOV43YNOM=:pNMxFg+2RmajOwhRZet2Ro
+ ek2V3uhOx8A9T4UFxcCUuvlCJGnkT1GH41V1x9pK1p8/OcTh+6TitAo6v5/eDm1dvo4JdVQcR
+ lNksboOl7q5OKMMSg8847LrMwNcIpxlfU8RlrGKE3xR1fu1uVgnuf5HrFQ5483c1+cuvBLH0G
+ KOjHWCV7kuUbrpBaFaPAEf5heVZM2GOljGoGTFuREpl6cUeN4YkxPDMvSkKHTlmfdeejCBIZU
+ 1HKSm7s+hzKLwYAnqwzxrkHAgGu0vNpi3EyrySswM3o2LeRGJOjkEQx9ohBulhOrytH+Pb3TP
+ di6UJg5z7VPD1uhjQwwoc/lJT2IGkBpD10VHjHO1Tjev6X1Cx+lz557wS7mifBgaGyoiUctNe
+ uuIgy0yjRyYneEkMdC/Ca6CAr215iZ4ROZ5aoDiVcFtiB+Yj+vynLVMHQ2907RKneLogGtVR0
+ 5wgqnuq6pwo7hnBaDwiAR3s2ccZ0fF9a07Fc6fdH5y1PxuNLsgk7lY8QG3AXKxNUgSvq7YGLA
+ 1mB5mqhEVotYaoizCV4ZLBe1SZ0mCE90sq7D3yXMbgVkmD9JZyWFyOVbPPKPPLlztvEish0VL
+ sPW5F0n8+gZQLT48HlWaqDnAwtQFSTk27NyD5ETtEOGyjUgwfWb8fbD3wV886iq1BF2W2ySRm
+ 79Gei6wAmLrRhX29zfm5+9yvCzTRxbIUQvkI8Oq3svlumcuXFoas3+ufk/k6iqqDCu94HWwSw
+ w+IHNJPmvmUO/M9qaJTgq4mUbMkQAcWwnf1GBZJJTGUcewWAw9L0vddy/pORhoglhJwnKof6U
+ fPTpx8rM+cqG6y2sYrRfFvd7ME9DarYI00lvGtoPxQDm4p1mnsOP/ppT529Od+97F+qSumi1N
+ cl5k3DUBKs53IB84ePJA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_005748_093961_0012218A 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20210909_012030_661565_5D961894 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,105 +103,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/9/21 7:50 AM, Andrii Nakryiko wrote:
-> On Wed, Sep 8, 2021 at 8:33 PM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>
->> In the current code, the actual max tail call count is 33 which is greater
->> than MAX_TAIL_CALL_CNT (defined as 32), the actual limit is not consistent
->> with the meaning of MAX_TAIL_CALL_CNT, there is some confusion and need to
->> spend some time to think the reason at the first glance.
-> 
-> think *about* the reason
-> 
->> We can see the historical evolution from commit 04fd61ab36ec ("bpf: allow
->> bpf programs to tail-call other bpf programs") and commit f9dabe016b63
->> ("bpf: Undo off-by-one in interpreter tail call count limit").
->>
->> In order to avoid changing existing behavior, the actual limit is 33 now,
->> this is resonable.
-> 
-> typo: reasonable
-> 
->> After commit 874be05f525e ("bpf, tests: Add tail call test suite"), we can
->> see there exists failed testcase.
->>
->> On all archs when CONFIG_BPF_JIT_ALWAYS_ON is not set:
->>   # echo 0 > /proc/sys/net/core/bpf_jit_enable
->>   # modprobe test_bpf
->>   # dmesg | grep -w FAIL
->>   Tail call error path, max count reached jited:0 ret 34 != 33 FAIL
->>
->> On some archs:
->>   # echo 1 > /proc/sys/net/core/bpf_jit_enable
->>   # modprobe test_bpf
->>   # dmesg | grep -w FAIL
->>   Tail call error path, max count reached jited:1 ret 34 != 33 FAIL
->>
->> So it is necessary to change the value of MAX_TAIL_CALL_CNT from 32 to 33,
->> then do some small changes of the related code.
->>
->> With this patch, it does not change the current limit, MAX_TAIL_CALL_CNT
->> can reflect the actual max tail call count, and the above failed testcase
->> can be fixed.
->>
->> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
->> ---
-> 
-> This change breaks selftests ([0]), please fix them at the same time
-> as you are changing the kernel behavior:
+On Thu, Sep 9, 2021 at 6:25 AM Alistair Francis
+<alistair.francis@opensource.wdc.com> wrote:
+>
+> From: Alistair Francis <alistair.francis@wdc.com>
+>
+> Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
+> time_t and as such don't have the SYS_futex syscall. This patch will
+> allow us to use the SYS_futex_time64 syscall on those platforms.
+>
+> This patch does not attempt to gracefully allow 32-bit architectures
+> with both SYS_futex and SYS_futex_time64 to support a 64-bit time_t.
+> This patch only applies to 32-bit architectures with a 64-bit time_t.
+>
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
 
-The below selftests shouldn't have to change given there is no change in
-behavior intended (MAX_TAIL_CALL_CNT is bumped to 33 but counter inc'ed
-prior to the comparison). It just means that /all/ JITs must be changed
-and in particular properly _tested_.
+Hi Alistair,
 
->    test_tailcall_2:PASS:tailcall 128 nsec
->    test_tailcall_2:PASS:tailcall 128 nsec
->    test_tailcall_2:FAIL:tailcall err 0 errno 2 retval 4
->    #135/2 tailcalls/tailcall_2:FAIL
->    test_tailcall_3:PASS:tailcall 128 nsec
->    test_tailcall_3:FAIL:tailcall count err 0 errno 2 count 34
->    test_tailcall_3:PASS:tailcall 128 nsec
->    #135/3 tailcalls/tailcall_3:FAIL
->    #135/4 tailcalls/tailcall_4:OK
->    #135/5 tailcalls/tailcall_5:OK
->    #135/6 tailcalls/tailcall_bpf2bpf_1:OK
->    test_tailcall_bpf2bpf_2:PASS:tailcall 128 nsec
->    test_tailcall_bpf2bpf_2:FAIL:tailcall count err 0 errno 2 count 34
->    test_tailcall_bpf2bpf_2:PASS:tailcall 128 nsec
->    #135/7 tailcalls/tailcall_bpf2bpf_2:FAIL
->    #135/8 tailcalls/tailcall_bpf2bpf_3:OK
->    test_tailcall_bpf2bpf_4:PASS:tailcall 54 nsec
->    test_tailcall_bpf2bpf_4:FAIL:tailcall count err 0 errno 2 count 32
->    #135/9 tailcalls/tailcall_bpf2bpf_4:FAIL
->    test_tailcall_bpf2bpf_4:PASS:tailcall 54 nsec
->    test_tailcall_bpf2bpf_4:FAIL:tailcall count err 0 errno 2 count 32
->    #135/10 tailcalls/tailcall_bpf2bpf_5:FAIL
->    #135 tailcalls:FAIL
-> 
->    [0] https://github.com/kernel-patches/bpf/pull/1747/checks?check_run_id=3552002906
-> 
->>   arch/arm/net/bpf_jit_32.c         | 11 ++++++-----
->>   arch/arm64/net/bpf_jit_comp.c     |  7 ++++---
->>   arch/mips/net/ebpf_jit.c          |  4 ++--
->>   arch/powerpc/net/bpf_jit_comp32.c |  4 ++--
->>   arch/powerpc/net/bpf_jit_comp64.c | 12 ++++++------
->>   arch/riscv/net/bpf_jit_comp32.c   |  4 ++--
->>   arch/riscv/net/bpf_jit_comp64.c   |  4 ++--
->>   arch/sparc/net/bpf_jit_comp_64.c  |  8 ++++----
->>   include/linux/bpf.h               |  2 +-
->>   kernel/bpf/core.c                 |  4 ++--
->>   10 files changed, 31 insertions(+), 29 deletions(-)
->>
-> 
-> [...]
-> 
+I know you've made this mistake before and I've pointed it out
+several times. Please don't do this again, and try to fix up the
+ones you already broke!
 
+> +/**
+> + * Some newer 32-bit architectures (such as RISC-V 32-bit) don't have
+> + * the SYS_futex syscall and instead only have the SYS_futex_time64 call.
+> + * Let's ensure that those still compile and run by just using the
+> + * SYS_futex_time64 syscall. On these systems `struct timespec` will use a
+> + * 64-bit time_t so the SYS_futex_time64 call will work.
+> + */
+> +#if !defined(SYS_futex) && defined(SYS_futex_time64)
+> + #define SYS_futex SYS_futex_time64
+> +#endif
+
+This cannot work, as two system calls take different arguments: futex() takes
+a __kernel_old_timespec and futex_time64() takes a __kernel_timespec.
+
+You cannot derive anything about the ABI of the C library based on whether
+the macros are defined or not. Either you convert the arguments passed into
+the system call into the format expected by the kernel, or you pick the
+correct system call based on sizeof(struct timespec).
+
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
