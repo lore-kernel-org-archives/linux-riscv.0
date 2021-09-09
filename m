@@ -2,116 +2,93 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 30486C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 45AA5C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:37:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E1B1360555
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:29:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E1B1360555
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 09FC661242
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:37:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 09FC661242
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t3x7JnCV52bpXvp8mtYoNGjqFyN1GX9vmMmwhwGeipE=; b=tKgNbqiAGDEWYh
-	7e1FNIVSgl+DVvK1M1CUC0JuHF9gbXjWzQbnevKj90DV4LyrmLXrd7BS60y9Ri6a6Xbl0E6ItDQyy
-	xlLCEd9VLQcifA5HYNN72xmXOQWLVx94YZMJ4p3PFtZSZ7De0WBMCwnJtaTKTN87ra7cEVAECtj8h
-	LK4Y2rYrFDAJKVDWZHfRZwLeUZet8NVI1OFnn3sm534hCO+DMii/5uK6ujI9l72XzzmzZXNJdZBPx
-	pG+eyCpEDuWpRJNg73sEXH2ORB5CknW9/9KDXe/db3oFay7WY3adPeR9TbM4xKmEktJ9XxkNqQQ6P
-	0AY77LOvIj907/byzydg==;
+	List-Owner; bh=DPQ1dv/Rs5ABwckeHM0rB/3GMAhoc3IghvoANSAao2s=; b=NYkZbB/mQt4heG
+	CN6x2mdIXyomqN897R+ifCWu6zK/GzytMX5RaykIGCWrB7fVV4gbq44x0ZTAKK4zXY/qmabIL9a3e
+	izVasnp0hck28bRTGgOWxLxiT48x19P1m8BOKyCfxR5hpvjN7j9r44FqKtpthIVNMR11UzYSmgdLA
+	dQEYgzqaRCc9Cdyr31EShhIm/i3hXLDzmsSY0dMYILVyRRrJPW3pxnotw8cjV9iAHF+0dOHF8A1MK
+	olstqkstsJgiOOFJb+jKGsbqYRqtLozHoac1vUDECd6lU3Z0mngGgRUREpWqbYi8AOxdA9GIr6m0R
+	srEwlTt/GfxdPrHsT2Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOK7b-009sOc-Pe; Thu, 09 Sep 2021 13:29:43 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1mOKEy-009wAs-9s; Thu, 09 Sep 2021 13:37:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOIn8-009Fgy-IR
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 12:04:34 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id
- 196-20020a1c04cd000000b002fa489ffe1fso1265772wme.4
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 05:04:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=K3vDDlqm04DaMwsoFUUJnAu6JgMCtAyVT1spCpUheAo=;
- b=sDD09AQopSiJ3AtxBztVP873sDOz/Dm0FAdJM+v1ON/192NsLFcT7+8c5fkhkTgGRi
- 0Nd8zGb4B3fXELEQgOEbJKuJQrLwjie5Kl5kt/905SbdUrOuujw7TFNiWIzoW8hmDJuI
- /B0ZvV08VGU+EeQkhZLkbYcsNb9Zi3VPDX5NBmeKIx4NHaRZNeLehKe5LrdsDEHygrW4
- GrwVpG7zlf7ACbIZ+0ttCLiAuSA2XjfZfYzM/Q1uvzvIAR/XUa76+1HWzURzkqK3ZKm3
- jfhgVXaA/Cr4zJc4Dkvy01s+QMYr3vWpbS8vixpLf7TPigpzhiFOFksKy2njYYyJiT4U
- KKcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=K3vDDlqm04DaMwsoFUUJnAu6JgMCtAyVT1spCpUheAo=;
- b=Maa/TZ91Mo7zu6ROCeg4dYQJJLkn5R7zANsxYJ2pKKFGYbHjXTcmXC6iFUTp5zErpd
- kKB9/Ju//+bmlh6G7MROELBxUJi915ra+Cr4CWwwIg8IeCSQSvtxUiYv73kODWcAsjvV
- /Ihg30YUdWEFmSBJRRU5W0csrD/J9OKD9L3rIrqS0yG8AGmQQv3jFj5cJJYIAua3l1LG
- D5bEBgeuaBygSom+20nqT5zDPGcTz3kk2i37WiQHHi2EEE3M4IzVuwDj+OVZ50+Ngx6K
- XCMDsZbx3DcOLeq9RRG3XOEDkEXFJgAFBrtr4bZX5uZ8M+oTTzOrk2zNIUt2ETp6qNlv
- 4ABg==
-X-Gm-Message-State: AOAM530sQAeB0WlZeGo4QZ1j8ye1QkWI46dmhr2m/c5nbOVZPvrsQg7q
- iA+v6mPICsiVXKrt2wv1+EDJ6g==
-X-Google-Smtp-Source: ABdhPJz0PFpr/wZU2BJPWEvtutySCqYGxgLOifcfTS5MAcWKT7qquZYWa46Z0XYFxy5mcPeu8yVcJQ==
-X-Received: by 2002:a1c:1d42:: with SMTP id d63mr1301620wmd.55.1631189067647; 
- Thu, 09 Sep 2021 05:04:27 -0700 (PDT)
-Received: from localhost.localdomain ([95.148.6.201])
- by smtp.gmail.com with ESMTPSA id n66sm1437498wmn.2.2021.09.09.05.04.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 09 Sep 2021 05:04:27 -0700 (PDT)
-From: Lee Jones <lee.jones@linaro.org>
-To: lee.jones@linaro.org
-Cc: linux-kernel@vger.kernel.org, Vineet Gupta <vgupta@synopsys.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Brian Cain <bcain@codeaurora.org>, Michal Simek <monstr@monstr.eu>,
- John Crispin <john@phrozen.org>, Ley Foon Tan <ley.foon.tan@intel.com>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Rich Felker <dalias@libc.org>, "David S . Miller" <davem@davemloft.net>,
- Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- uclinux-h8-devel@lists.sourceforge.jp, linux-hexagon@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, Geert Uytterhoeven <geert@linux-m68k.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Subject: [PATCH v2 1/3] arch: Export machine_restart() instances so they can
- be called from modules
-Date: Thu,  9 Sep 2021 13:04:19 +0100
-Message-Id: <20210909120421.1313908-2-lee.jones@linaro.org>
-X-Mailer: git-send-email 2.33.0.153.gba50c8fa24-goog
-In-Reply-To: <20210909120421.1313908-1-lee.jones@linaro.org>
-References: <20210909120421.1313908-1-lee.jones@linaro.org>
+ id 1mOJaY-009d6o-SV
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 12:55:37 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 753D761250
+ for <linux-riscv@lists.infradead.org>; Thu,  9 Sep 2021 12:55:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631192134;
+ bh=YQmcNYr+cZNJfeWxvOAqqq5sOLrBSpLtT8APgEd7LCQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cB/PNnL/OcDRDFz5fIgBPaGsqQKZRjuQgQrYcmOZAIvi9HH/NhmrVSDetcZ96lVup
+ fL98MHx3E8VsGhaKSDjl7fAlIrG9OFLd/sUPUssTkJX1e3NuH9EHNqy3D2OcW08Aeg
+ cYgujanbIVF7a/Rd0OEdcclkD9nlBAmravLlHmKI4PN48xzo7F1w8r1lcJb+3cmSW6
+ YdqVBWTOCUm50Hr7Z/zvBp0Wo25PpI1p7+BPAuNQuqw6U36P5p+xidVZij2cz/1Xtr
+ nyPcTIcicQgwuxtX89MB1lrHbzaNqcjs/FPJVaqtJc8svQ6p1abzVx9VSOT+GC6Fuq
+ Fca7e+yj0QSeQ==
+Received: by mail-wr1-f50.google.com with SMTP id v10so2437851wrd.4
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 05:55:34 -0700 (PDT)
+X-Gm-Message-State: AOAM5309qFXnaQpa+C7iYnSBvXNJO17P+Z2akEqEbvjghRTXx4KycSPc
+ xd1rAv0O5+IEP2i6is4ogwhdkPwI2j5YWw/bCIA=
+X-Google-Smtp-Source: ABdhPJyTVsi87qlqI/1eHcSEVZZZYViKabS97DzZRj/RHn7Ww0YW7zgh7w8tzbCK1GPtuNjyZV+4KTFRU6DZQKEU4dc=
+X-Received: by 2002:adf:f884:: with SMTP id u4mr3278238wrp.411.1631192132894; 
+ Thu, 09 Sep 2021 05:55:32 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210906142615.GA1917503@roeck-us.net>
+ <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
+ <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
+ <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
+ <YTkjJPCdR1VGaaVm@archlinux-ax161>
+ <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
+ <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
+ <CANpmjNNCVu8uyn=8=5_8rLeKM5t3h7-KzVg1aCJASxF8u_6tEQ@mail.gmail.com>
+ <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
+ <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
+In-Reply-To: <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Thu, 9 Sep 2021 14:55:16 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2--kfvs-+qkZdpea94ccgcY6QpdHMfVFgY0F2Z=GBhyw@mail.gmail.com>
+Message-ID: <CAK8P3a2--kfvs-+qkZdpea94ccgcY6QpdHMfVFgY0F2Z=GBhyw@mail.gmail.com>
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+To: Marco Elver <elver@google.com>
+Cc: Christoph Hellwig <hch@infradead.org>, Guenter Roeck <linux@roeck-us.net>, 
+ Nathan Chancellor <nathan@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev <kasan-dev@googlegroups.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ "Pan, Xinhui" <Xinhui.Pan@amd.com>,
+ amd-gfx list <amd-gfx@lists.freedesktop.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_050430_685262_3B5FFF0F 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20210909_055534_995610_88D1BAAC 
+X-CRM114-Status: GOOD (  38.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,375 +105,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A recent attempt to convert the Power Reset Restart driver to tristate
-failed because of the following compile error (reported once merged by
-Stephen Rothwell via Linux Next):
+On Thu, Sep 9, 2021 at 1:43 PM Marco Elver <elver@google.com> wrote:
+> On Thu, 9 Sept 2021 at 13:00, Arnd Bergmann <arnd@kernel.org> wrote:
+> > On Thu, Sep 9, 2021 at 12:54 PM Marco Elver <elver@google.com> wrote:
+> > > On Thu, 9 Sept 2021 at 07:59, Christoph Hellwig <hch@infradead.org> wrote:
+> > > > On Wed, Sep 08, 2021 at 11:58:56PM +0200, Marco Elver wrote:
+> > > > > It'd be good to avoid. It has helped uncover build issues with KASAN in
+> > > > > the past. Or at least make it dependent on the problematic architecture.
+> > > > > For example if arm is a problem, something like this:
+> > > >
+> > > > I'm also seeing quite a few stack size warnings with KASAN on x86_64
+> > > > without COMPILT_TEST using gcc 10.2.1 from Debian.  In fact there are a
+> > > > few warnings without KASAN, but with KASAN there are a lot more.
+> > > > I'll try to find some time to dig into them.
+> > >
+> > > Right, this reminded me that we actually at least double the real
+> > > stack size for KASAN builds, because it inherently requires more stack
+> > > space. I think we need Wframe-larger-than to match that, otherwise
+> > > we'll just keep having this problem:
+> > >
+> > > https://lkml.kernel.org/r/20210909104925.809674-1-elver@google.com
+> >
+> > The problem with this is that it completely defeats the point of the
+> > stack size warnings in allmodconfig kernels when they have KASAN
+> > enabled and end up missing obvious code bugs in drivers that put
+> > large structures on the stack. Let's not go there.
+>
+> Sure, but the reality is that the real stack size is already doubled
+> for KASAN. And that should be reflected in Wframe-larger-than.
 
-  ERROR: "machine_restart" [drivers/power/reset/restart-poweroff.ko] undefined!
+I don't think "double" is an accurate description of what is going on,
+it's much more complex than this. There are some functions
+that completely explode with KASAN_STACK enabled on clang,
+and many other functions instances that don't grow much at all.
 
-This error occurs since some of the machine_restart() instances are
-not currently exported for use in modules.  This patch aims to rectify
-that.
+I've been building randconfig kernels for a long time with KASAN_STACK
+enabled on gcc, and the limit increased to 1440 bytes for 32-bit
+and not increased beyond the normal 2048 bytes for 64-bit. I have
+some patches to address the outliers and should go through and
+resend some of those.
 
-Cc: Vineet Gupta <vgupta@synopsys.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Brian Cain <bcain@codeaurora.org>
-Cc: Michal Simek <monstr@monstr.eu>
-Cc: John Crispin <john@phrozen.org>
-Cc: Ley Foon Tan <ley.foon.tan@intel.com>
-Cc: Jonas Bonn <jonas@southpole.se>
-Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-Cc: Stafford Horne <shorne@gmail.com>
-Cc: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@de.ibm.com>
-Cc: Rich Felker <dalias@libc.org>
-Cc: David S. Miller <davem@davemloft.net>
-Cc: Jeff Dike <jdike@addtoit.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Chris Zankel <chris@zankel.net>
-Cc: Max Filippov <jcmvbkbc@gmail.com>
-Cc: linux-snps-arc@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-csky@vger.kernel.org
-Cc: uclinux-h8-devel@lists.sourceforge.jp
-Cc: linux-hexagon@vger.kernel.org
-Cc: linux-m68k@lists.linux-m68k.org
-Cc: linux-mips@vger.kernel.org
-Cc: openrisc@lists.librecores.org
-Cc: linux-parisc@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-s390@vger.kernel.org
-Cc: linux-sh@vger.kernel.org
-Cc: sparclinux@vger.kernel.org
-Cc: linux-um@lists.infradead.org
-Cc: linux-xtensa@linux-xtensa.org
-Signed-off-by: Lee Jones <lee.jones@linaro.org>
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
----
- arch/arc/kernel/reset.c            | 1 +
- arch/arm/kernel/reboot.c           | 1 +
- arch/arm64/kernel/process.c        | 1 +
- arch/csky/kernel/power.c           | 1 +
- arch/h8300/kernel/process.c        | 1 +
- arch/hexagon/kernel/reset.c        | 1 +
- arch/m68k/kernel/process.c         | 1 +
- arch/microblaze/kernel/reset.c     | 1 +
- arch/mips/kernel/reset.c           | 1 +
- arch/mips/lantiq/falcon/reset.c    | 1 +
- arch/mips/sgi-ip27/ip27-reset.c    | 1 +
- arch/nds32/kernel/process.c        | 2 +-
- arch/nios2/kernel/process.c        | 1 +
- arch/openrisc/kernel/process.c     | 1 +
- arch/parisc/kernel/process.c       | 1 +
- arch/powerpc/kernel/setup-common.c | 1 +
- arch/riscv/kernel/reset.c          | 1 +
- arch/s390/kernel/setup.c           | 1 +
- arch/sh/kernel/reboot.c            | 1 +
- arch/sparc/kernel/process_32.c     | 1 +
- arch/sparc/kernel/reboot.c         | 1 +
- arch/um/kernel/reboot.c            | 1 +
- arch/x86/kernel/reboot.c           | 1 +
- arch/xtensa/kernel/setup.c         | 1 +
- 24 files changed, 24 insertions(+), 1 deletion(-)
+With the same limits and patches using clang, and KASAN=y but
+KASAN_STACK=n I also get no warnings in randconfig builds,
+but KASAN_STACK on clang doesn't really seem to have a good
+limit that would make an allmodconfig kernel build with no warnings.
 
-diff --git a/arch/arc/kernel/reset.c b/arch/arc/kernel/reset.c
-index fd6c3eb930bad..1f5d8ce532e2f 100644
---- a/arch/arc/kernel/reset.c
-+++ b/arch/arc/kernel/reset.c
-@@ -20,6 +20,7 @@ void machine_restart(char *__unused)
- 	pr_info("Put your restart handler here\n");
- 	machine_halt();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_power_off(void)
- {
-diff --git a/arch/arm/kernel/reboot.c b/arch/arm/kernel/reboot.c
-index 3044fcb8d0736..95cdcb17251af 100644
---- a/arch/arm/kernel/reboot.c
-+++ b/arch/arm/kernel/reboot.c
-@@ -146,3 +146,4 @@ void machine_restart(char *cmd)
- 	printk("Reboot failed -- System halted\n");
- 	while (1);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index c8989b999250d..d7557f649dbd6 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -148,6 +148,7 @@ void machine_restart(char *cmd)
- 	printk("Reboot failed -- System halted\n");
- 	while (1);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- #define bstr(suffix, str) [PSR_BTYPE_ ## suffix >> PSR_BTYPE_SHIFT] = str
- static const char *const btypes[] = {
-diff --git a/arch/csky/kernel/power.c b/arch/csky/kernel/power.c
-index 923ee4e381b81..1787de5b13ba6 100644
---- a/arch/csky/kernel/power.c
-+++ b/arch/csky/kernel/power.c
-@@ -28,3 +28,4 @@ void machine_restart(char *cmd)
- 	do_kernel_restart(cmd);
- 	asm volatile ("bkpt");
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
-diff --git a/arch/h8300/kernel/process.c b/arch/h8300/kernel/process.c
-index 2ac27e4248a46..f92f473a1934a 100644
---- a/arch/h8300/kernel/process.c
-+++ b/arch/h8300/kernel/process.c
-@@ -66,6 +66,7 @@ void machine_restart(char *__unused)
- 	local_irq_disable();
- 	__asm__("jmp @@0");
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/hexagon/kernel/reset.c b/arch/hexagon/kernel/reset.c
-index da36114d928f0..ed79e0e5a0318 100644
---- a/arch/hexagon/kernel/reset.c
-+++ b/arch/hexagon/kernel/reset.c
-@@ -19,6 +19,7 @@ void machine_halt(void)
- void machine_restart(char *cmd)
- {
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void (*pm_power_off)(void) = NULL;
- EXPORT_SYMBOL(pm_power_off);
-diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
-index db49f90917112..f891d9b4bdf2f 100644
---- a/arch/m68k/kernel/process.c
-+++ b/arch/m68k/kernel/process.c
-@@ -57,6 +57,7 @@ void machine_restart(char * __unused)
- 		mach_reset();
- 	for (;;);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/microblaze/kernel/reset.c b/arch/microblaze/kernel/reset.c
-index 5f4722908164d..7f47e59914c0d 100644
---- a/arch/microblaze/kernel/reset.c
-+++ b/arch/microblaze/kernel/reset.c
-@@ -41,3 +41,4 @@ void machine_restart(char *cmd)
- 	pr_emerg("Reboot failed -- System halted\n");
- 	while (1);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
-diff --git a/arch/mips/kernel/reset.c b/arch/mips/kernel/reset.c
-index 6288780b779e7..4fe2edc2d06d6 100644
---- a/arch/mips/kernel/reset.c
-+++ b/arch/mips/kernel/reset.c
-@@ -99,6 +99,7 @@ void machine_restart(char *command)
- 	pr_emerg("Reboot failed -- System halted\n");
- 	machine_hang();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/mips/lantiq/falcon/reset.c b/arch/mips/lantiq/falcon/reset.c
-index 261996c230cf6..70259dd09aaea 100644
---- a/arch/mips/lantiq/falcon/reset.c
-+++ b/arch/mips/lantiq/falcon/reset.c
-@@ -51,6 +51,7 @@ static void machine_restart(char *command)
- 		(void *)WDT_REG_BASE);
- 	unreachable();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- static void machine_halt(void)
- {
-diff --git a/arch/mips/sgi-ip27/ip27-reset.c b/arch/mips/sgi-ip27/ip27-reset.c
-index 5ac5ad6387343..35084653022ea 100644
---- a/arch/mips/sgi-ip27/ip27-reset.c
-+++ b/arch/mips/sgi-ip27/ip27-reset.c
-@@ -29,6 +29,7 @@
- #include "ip27-common.h"
- 
- void machine_restart(char *command) __noreturn;
-+EXPORT_SYMBOL_GPL(machine_restart);
- void machine_halt(void) __noreturn;
- void machine_power_off(void) __noreturn;
- 
-diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
-index 391895b54d13c..f60b70fcfaf3d 100644
---- a/arch/nds32/kernel/process.c
-+++ b/arch/nds32/kernel/process.c
-@@ -91,7 +91,7 @@ void machine_restart(char *cmd)
- 	while (1) ;
- }
- 
--EXPORT_SYMBOL(machine_restart);
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void show_regs(struct pt_regs *regs)
- {
-diff --git a/arch/nios2/kernel/process.c b/arch/nios2/kernel/process.c
-index 9ff37ba2bb603..ebc4940059de5 100644
---- a/arch/nios2/kernel/process.c
-+++ b/arch/nios2/kernel/process.c
-@@ -51,6 +51,7 @@ void machine_restart(char *__unused)
- 	: "r" (cpuinfo.reset_addr)
- 	: "r4");
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/openrisc/kernel/process.c b/arch/openrisc/kernel/process.c
-index eb62429681fc8..fba2aa6ae8470 100644
---- a/arch/openrisc/kernel/process.c
-+++ b/arch/openrisc/kernel/process.c
-@@ -61,6 +61,7 @@ void machine_restart(char *cmd)
- 	pr_emerg("Reboot failed -- System halted\n");
- 	while (1);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- /*
-  * Similar to machine_power_off, but don't shut off power.  Add code
-diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
-index 184ec3c1eae44..f39f7620d715d 100644
---- a/arch/parisc/kernel/process.c
-+++ b/arch/parisc/kernel/process.c
-@@ -96,6 +96,7 @@ void machine_restart(char *cmd)
- 	while (1) ;
- 
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void (*chassis_power_off)(void);
- 
-diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
-index aa9c2d01424af..dfd875d4f8478 100644
---- a/arch/powerpc/kernel/setup-common.c
-+++ b/arch/powerpc/kernel/setup-common.c
-@@ -158,6 +158,7 @@ void machine_restart(char *cmd)
- 
- 	machine_hang();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_power_off(void)
- {
-diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-index ee5878d968cc1..5fd0aa3e12766 100644
---- a/arch/riscv/kernel/reset.c
-+++ b/arch/riscv/kernel/reset.c
-@@ -20,6 +20,7 @@ void machine_restart(char *cmd)
- 	do_kernel_restart(cmd);
- 	while (1);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/s390/kernel/setup.c b/arch/s390/kernel/setup.c
-index ff0f9e8389162..ce8afa1cf8645 100644
---- a/arch/s390/kernel/setup.c
-+++ b/arch/s390/kernel/setup.c
-@@ -278,6 +278,7 @@ void machine_restart(char *command)
- 		console_unblank();
- 	_machine_restart(command);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/sh/kernel/reboot.c b/arch/sh/kernel/reboot.c
-index 5c33f036418be..ea4b1bdada41a 100644
---- a/arch/sh/kernel/reboot.c
-+++ b/arch/sh/kernel/reboot.c
-@@ -83,6 +83,7 @@ void machine_restart(char *cmd)
- {
- 	machine_ops.restart(cmd);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
-diff --git a/arch/sparc/kernel/process_32.c b/arch/sparc/kernel/process_32.c
-index 93983d6d431de..de9106e386919 100644
---- a/arch/sparc/kernel/process_32.c
-+++ b/arch/sparc/kernel/process_32.c
-@@ -104,6 +104,7 @@ void machine_restart(char * cmd)
- 	prom_feval ("reset");
- 	panic("Reboot failed!");
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_power_off(void)
- {
-diff --git a/arch/sparc/kernel/reboot.c b/arch/sparc/kernel/reboot.c
-index 69c1b6c047d53..faebf958c4b5a 100644
---- a/arch/sparc/kernel/reboot.c
-+++ b/arch/sparc/kernel/reboot.c
-@@ -52,4 +52,5 @@ void machine_restart(char *cmd)
- 	prom_reboot("");
- 	panic("Reboot failed!");
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
-diff --git a/arch/um/kernel/reboot.c b/arch/um/kernel/reboot.c
-index 48c0610d506e0..7ca141cf4a0af 100644
---- a/arch/um/kernel/reboot.c
-+++ b/arch/um/kernel/reboot.c
-@@ -47,6 +47,7 @@ void machine_restart(char * __unused)
- 	uml_cleanup();
- 	reboot_skas();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_power_off(void)
- {
-diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
-index ebfb911082326..d378e80a60a1b 100644
---- a/arch/x86/kernel/reboot.c
-+++ b/arch/x86/kernel/reboot.c
-@@ -733,6 +733,7 @@ static void native_machine_restart(char *__unused)
- 		machine_shutdown();
- 	__machine_emergency_restart(0);
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- static void native_machine_halt(void)
- {
-diff --git a/arch/xtensa/kernel/setup.c b/arch/xtensa/kernel/setup.c
-index ed184106e4cf9..a70c1351cd59e 100644
---- a/arch/xtensa/kernel/setup.c
-+++ b/arch/xtensa/kernel/setup.c
-@@ -564,6 +564,7 @@ void machine_restart(char * cmd)
- {
- 	platform_restart();
- }
-+EXPORT_SYMBOL_GPL(machine_restart);
- 
- void machine_halt(void)
- {
--- 
-2.33.0.153.gba50c8fa24-goog
+These are the worst offenders I see based on configuration, using
+an 32-bit ARM allmodconfig with my fixups:
 
+gcc-11, KASAN, no KASAN_STACK, FRAME_WARN=1024:
+(nothing)
+
+gcc-11, KASAN_STACK:
+drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_debugfs.c:782:1:
+warning: the frame size of 1416 bytes is larger than 1024 bytes
+[-Wframe-larger-than=]
+drivers/media/dvb-frontends/mxl5xx.c:1575:1: warning: the frame size
+of 1240 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+drivers/mtd/nftlcore.c:468:1: warning: the frame size of 1232 bytes is
+larger than 1024 bytes [-Wframe-larger-than=]
+drivers/char/ipmi/ipmi_msghandler.c:4880:1: warning: the frame size of
+1232 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+drivers/mtd/chips/cfi_cmdset_0001.c:1870:1: warning: the frame size of
+1224 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+drivers/net/wireless/ath/ath9k/ar9003_paprd.c:749:1: warning: the
+frame size of 1216 bytes is larger than 1024 bytes
+[-Wframe-larger-than=]
+drivers/net/ethernet/mellanox/mlx5/core/ipoib/ipoib.c:136:1: warning:
+the frame size of 1216 bytes is larger than 1024 bytes
+[-Wframe-larger-than=]
+drivers/ntb/hw/idt/ntb_hw_idt.c:1116:1: warning: the frame size of
+1200 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+net/dcb/dcbnl.c:1172:1: warning: the frame size of 1192 bytes is
+larger than 1024 bytes [-Wframe-larger-than=]
+fs/select.c:1042:1: warning: the frame size of 1192 bytes is larger
+than 1024 bytes [-Wframe-larger-than=]
+
+clang-12 KASAN, no KASAN_STACK, FRAME_WARN=1024:
+
+kernel/trace/trace_events_hist.c:4601:13: error: stack frame size 1384
+exceeds limit 1024 in function 'hist_trigger_print_key'
+[-Werror,-Wframe-larger-than]
+drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3045:6:
+error: stack frame size 1384 exceeds limit 1024 in function 'bw_calcs'
+[-Werror,-Wframe-larger-than]
+drivers/staging/fbtft/fbtft-core.c:992:5: error: stack frame size 1208
+exceeds limit 1024 in function 'fbtft_init_display'
+[-Werror,-Wframe-larger-than]
+crypto/wp512.c:782:13: error: stack frame size 1176 exceeds limit 1024
+in function 'wp512_process_buffer' [-Werror,-Wframe-larger-than]
+drivers/staging/fbtft/fbtft-core.c:902:12: error: stack frame size
+1080 exceeds limit 1024 in function 'fbtft_init_display_from_property'
+[-Werror,-Wframe-larger-than]
+drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: error: stack frame size
+1064 exceeds limit 1024 in function 'cfi_intelext_writev'
+[-Werror,-Wframe-larger-than]
+drivers/staging/rtl8723bs/core/rtw_security.c:1288:5: error: stack
+frame size 1040 exceeds limit 1024 in function 'rtw_aes_decrypt'
+[-Werror,-Wframe-larger-than]
+drivers/ntb/hw/idt/ntb_hw_idt.c:1041:27: error: stack frame size 1032
+exceeds limit 1024 in function 'idt_scan_mws'
+[-Werror,-Wframe-larger-than]
+
+clang-12, KASAN_STACK:
+
+drivers/infiniband/hw/ocrdma/ocrdma_stats.c:686:16: error: stack frame
+size 20608 exceeds limit 1024 in function 'ocrdma_dbgfs_ops_read'
+[-Werror,-Wframe-larger-than]
+lib/bitfield_kunit.c:60:20: error: stack frame size 10336 exceeds
+limit 10240 in function 'test_bitfields_constants'
+[-Werror,-Wframe-larger-than]
+drivers/net/wireless/ralink/rt2x00/rt2800lib.c:9012:13: error: stack
+frame size 9952 exceeds limit 1024 in function 'rt2800_init_rfcsr'
+[-Werror,-Wframe-larger-than]
+drivers/net/usb/r8152.c:7486:13: error: stack frame size 8768 exceeds
+limit 1024 in function 'r8156b_hw_phy_cfg'
+[-Werror,-Wframe-larger-than]
+drivers/media/dvb-frontends/nxt200x.c:915:12: error: stack frame size
+8192 exceeds limit 1024 in function 'nxt2004_init'
+[-Werror,-Wframe-larger-than]
+drivers/net/wan/slic_ds26522.c:203:12: error: stack frame size 8064
+exceeds limit 1024 in function 'slic_ds26522_probe'
+[-Werror,-Wframe-larger-than]
+drivers/firmware/broadcom/bcm47xx_sprom.c:188:13: error: stack frame
+size 8064 exceeds limit 1024 in function 'bcm47xx_sprom_fill_auto'
+[-Werror,-Wframe-larger-than]
+drivers/media/dvb-frontends/drxd_hard.c:2857:12: error: stack frame
+size 7584 exceeds limit 1024 in function 'drxd_set_frontend'
+[-Werror,-Wframe-larger-than]
+drivers/media/dvb-frontends/nxt200x.c:519:12: error: stack frame size
+6848 exceeds limit 1024 in function
+'nxt200x_setup_frontend_parameters' [-Werror,-Wframe-larger-than]
+drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:17019:13:
+error: stack frame size 6560 exceeds limit 1024 in function
+'wlc_phy_workarounds_nphy' [-Werror,-Wframe-larger-than]
+
+> Either that, or we just have to live with the occasional warning (that
+> is likely benign). But with WERROR we're now forced to make the
+> defaults as sane as possible. If the worry is allmodconfig, maybe we
+> do have to make KASAN dependent on !COMPILE_TEST, even though that's
+> not great either because it has caught real issues in the past (it'll
+> also mean doing the same for all other instrumentation-based tools,
+> like KCSAN, UBSAN, etc.).
+
+I would prefer going back to marking KASAN_STACK as broken on clang, it does
+not seem like the warnings on the symbol were enough to stop people from
+attempting to using it, and the remaining warnings seem fixable with a small
+increase of the FRAME_WARN when using KASAN with clang but no KASAN_STACK,
+or when using KASAN_STACK with gcc.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
