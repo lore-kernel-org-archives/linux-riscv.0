@@ -2,100 +2,109 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FBF4C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD47BC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:28:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CBF561288
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:53:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4CBF561288
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7A8D961059
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 13:28:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7A8D961059
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ApEhb5ymUQCSY4iMQHqIfQ8/DNe4Lf0AghnXzhrj2Wk=; b=f4sQkL5KOCMMXd
-	sSZ95j7VtyDjSAOhTDWgCu+e792/pkItiPXQTmRw3t8U138BhgYOm/aBirl9YF5AXODsn4nziL3IP
-	fsSbaNCJOGssFXq6c3DLVjgPG5Q7AdMG0B4huWIY1sgQYpj8AmX3jDvzc2+tQv1W2zVyfE0F+C6wG
-	WOrHnLBDR8DkitELz8x90Yf8PMRl68/I3zdGQZ3wq/GVEGczUaGL4QZCklgz7gzesyq4J6BFvSUxE
-	VGkhD3ebUe88xEOgE52z++S5AE12iyjc3TkOwkmwmP5ceW4WLt+xshDgNnTvHMbkQm/6Zt7ChvtQl
-	04WBjTeBvvyCsnBMmLsA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nQwOgkVeeTbEK8JS4S/JJ3ygJ5lvwDw3v2HgA7LQcaw=; b=RHPG8mmnuEyzAq
+	+jMmT/3obCDzA49M8J7sqfOIpyZsdH4+wWOFb51CCEK2hniny7NUwJud/2/Zw1qhVjfhXTVsGvG8e
+	rE1tgZsHqiYGN/XSiojpI3ATw31vdVxe/NrxdD4Jc+ML2bLJ7K9ibSm+6Y0kozTHxJcB4iS8Cl15n
+	t+LB1u6aOfdmRj4UknGyYk5dGmX+9mDuHqGPfGyBjq7ap2JEdtOzkw3Uj5g+qDS7rvMHB5qfs4VAn
+	bcuqNg5m9Bya4rHqpY/LlpTqpEBTkmFDS7UJZTevKJGMgsv9tHHMgf0iD/X+sNn0pNV2HeYw4WPAC
+	2zC82LlkbdENODQSpIyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOIbk-0099cm-KX; Thu, 09 Sep 2021 11:52:44 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1mOK6H-009rnT-Li; Thu, 09 Sep 2021 13:28:21 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOITF-0094Ul-MP
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 11:44:00 +0000
-Received: by mail-oi1-x236.google.com with SMTP id bd1so2102499oib.5
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 04:43:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ge0i4MysJLg7UB+Yx2AaDOSBAP1whBCQ4nJVOdEAFfQ=;
- b=AM0acIeRzwZOQ8ps3Z56Nt2NWs6+nlhrzsKcVFwKMDqqa7rDx5eL5KDD0h/BaJoTnn
- Yyyxu9wJG75huSLycWf8IDuT7DT0EULGp5e0DvypWYxR9B4SQfPU5j8Fn4XhfFEruwLE
- ClKvJyFIvmnV6Km2XZLLKRVpzmuk+CmtA15esdDv1bDunZyDxFsQlEfitpESUQeSYFJp
- 8BTH19cQVldl2Q/Q/K063Hrw0iJTbEvdUS66oLsCqTbhNgBAq0kgnGI6EB+sd5gWro4q
- 6u6ZSKDtWZTSrF4AorelJKBZfPAQkJjHlymjU+m1V7QiieTyxzEwYQ0qxBYlDgPTQOni
- 8v9g==
+ id 1mOIn6-009FfT-8F
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 12:04:30 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id u16so2204009wrn.5
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 05:04:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=TGhvxcJ5e0tWwjSJNqM6XCMaaGd6Uf1B/o2F+QC2P2E=;
+ b=G9Aqk2QIyaP4NStdJlI2W+jYyFf2cxdEkKsatz7oGDFsfmYZi9tBWCduPA4+jE5p7U
+ BOuY6gqJjmyV8v5QQKYxDwuzwKGa/5XhOO/tgHUHlhmUEBmh3zMhoy6pH4jz/X3mqm+B
+ aiFLyQdZrtcHXPQq/wBywud/Lta/EdrBpbrZgbARYUg/fOO/ZsAxLyZc7yqfUK2jqcg3
+ 720naMUmXaJh+2jyYDvtsgc7dQDFDjt/gHNTBax++79zSiiVG4xnl5N2SAU6gkjrhJJm
+ w9rVyMGtlv9iW1cuSRn5jzCsOgqZnJRO0L04W/ii+Is7cQG1OlyTaPAzvogxQD1BYjMN
+ IkgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ge0i4MysJLg7UB+Yx2AaDOSBAP1whBCQ4nJVOdEAFfQ=;
- b=sF0ONtnOiCdDxge2dcGuRb43nnlvL/DxwVJ4Y1PEdAuRaYnI9YxU71ehwa77a36mQX
- Uy0yHdW73CdwAqoVWokVQDdreLFO84MmoQMQdPenvwnN1tXorr0VPXIVG+3ZCLef8Oj8
- aVoA0HHpSAyvrSAA/shQHWxIENKokmUEDl2phFa+26rqvoSzMPP4SMfeG+ZWvziHwSL4
- l2XIkDx8q5puej2rXf3ZEjaFXZDzEev/EC0S5cpLqXMmWCoELgUMeCWrHUClQ1MmwSQh
- MRqZhpj0/OIGuxsRgK7AoM7GGqjAhPHMsLvFku5FVwCGId0SDUVP+SwVAywzbvNGOeMT
- ZewA==
-X-Gm-Message-State: AOAM533NH56Q08yu+oR1aN4mhg7bg1fEy0HEbFJ6liyBUztPRXZwhXsW
- mA6/IwSWfYwPMonG6bfq0E5vulq4JlGiJof7ZZcSlw==
-X-Google-Smtp-Source: ABdhPJz4Mhm5+vx6TwV+94c8TrEoyJnBnwuFZl9zQWVxFkMW7/1ms65QTzG16fCfVI4XNFxP1+08u3vCaxDOvTe4liM=
-X-Received: by 2002:aca:4344:: with SMTP id q65mr1645122oia.70.1631187836164; 
- Thu, 09 Sep 2021 04:43:56 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=TGhvxcJ5e0tWwjSJNqM6XCMaaGd6Uf1B/o2F+QC2P2E=;
+ b=xb1is02SnIMQgTGr7+L1Or0JzwPqPuB7BQ0NqztgBcWD3aLkz5I/jb8P7NFrc/yDW9
+ whw0FXnucTwTRIooZj5ur7MhpVmBjCAgRRv56AhMHkwpGSQBDYSKkngDg09NQM6wYavx
+ 9A95NMS2rimHErAW6l0rY8RvPS2CTnkLl/bZ83TycNfWpIMKvcvASDBAteW89C51eyKF
+ Lj7XyJW76Ux2Ez+mhqB9vyKARo4lijtRTgmPCRa2KFfe2c+iNagOZOredk3ftvU4Wth5
+ m1/7cJxthYgVhVH2vd/zmOCpC0YIIoDUhzesjWBGO41xlzMjHUe9F+1PJNuNH4MyeMYP
+ NLwQ==
+X-Gm-Message-State: AOAM5334ro0s6MKgaKSszUaTfHUj4dr/y3BMV2uh956YmMCUzZXng1eV
+ bNQDnco5OmiXIGLvt4jLZrLJKg==
+X-Google-Smtp-Source: ABdhPJwXFzB1KuSRyctCLMeToyBav6moCwvyVSJSQ2wA2Una7A66/qiHNzLd3gX+GGFxN1qUveWbMQ==
+X-Received: by 2002:adf:de8a:: with SMTP id w10mr3133483wrl.413.1631189065464; 
+ Thu, 09 Sep 2021 05:04:25 -0700 (PDT)
+Received: from localhost.localdomain ([95.148.6.201])
+ by smtp.gmail.com with ESMTPSA id n66sm1437498wmn.2.2021.09.09.05.04.23
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 09 Sep 2021 05:04:24 -0700 (PDT)
+From: Lee Jones <lee.jones@linaro.org>
+To: lee.jones@linaro.org
+Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@codeaurora.org>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Chris Zankel <chris@zankel.net>, "David S . Miller" <davem@davemloft.net>,
+ Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Helge Deller <deller@gmx.de>, Ingo Molnar <mingo@redhat.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Jeff Dike <jdike@addtoit.com>, John Crispin <john@phrozen.org>,
+ Jonas Bonn <jonas@southpole.se>, Ley Foon Tan <ley.foon.tan@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, Max Filippov <jcmvbkbc@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>,
+ openrisc@lists.librecores.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Richard Weinberger <richard@nod.at>, Rich Felker <dalias@libc.org>,
+ sparclinux@vger.kernel.org, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ uclinux-h8-devel@lists.sourceforge.jp, Vasily Gorbik <gor@linux.ibm.com>,
+ Vineet Gupta <vgupta@synopsys.com>, Will Deacon <will@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>
+Subject: [PATCH v2 0/3] power: reset: Convert Power-Off driver to tristate
+Date: Thu,  9 Sep 2021 13:04:18 +0100
+Message-Id: <20210909120421.1313908-1-lee.jones@linaro.org>
+X-Mailer: git-send-email 2.33.0.153.gba50c8fa24-goog
 MIME-Version: 1.0
-References: <20210906142615.GA1917503@roeck-us.net>
- <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
- <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
- <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
- <YTkjJPCdR1VGaaVm@archlinux-ax161>
- <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
- <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
- <CANpmjNNCVu8uyn=8=5_8rLeKM5t3h7-KzVg1aCJASxF8u_6tEQ@mail.gmail.com>
- <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
-In-Reply-To: <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
-From: Marco Elver <elver@google.com>
-Date: Thu, 9 Sep 2021 13:43:44 +0200
-Message-ID: <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
-Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, Guenter Roeck <linux@roeck-us.net>, 
- Nathan Chancellor <nathan@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
- Nick Desaulniers <ndesaulniers@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
- Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev <kasan-dev@googlegroups.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- "Pan, Xinhui" <Xinhui.Pan@amd.com>,
- amd-gfx list <amd-gfx@lists.freedesktop.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_044357_803445_AC587712 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20210909_050428_366521_8A255544 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,41 +121,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Sept 2021 at 13:00, Arnd Bergmann <arnd@kernel.org> wrote:
-> On Thu, Sep 9, 2021 at 12:54 PM Marco Elver <elver@google.com> wrote:
-> > On Thu, 9 Sept 2021 at 07:59, Christoph Hellwig <hch@infradead.org> wrote:
-> > > On Wed, Sep 08, 2021 at 11:58:56PM +0200, Marco Elver wrote:
-> > > > It'd be good to avoid. It has helped uncover build issues with KASAN in
-> > > > the past. Or at least make it dependent on the problematic architecture.
-> > > > For example if arm is a problem, something like this:
-> > >
-> > > I'm also seeing quite a few stack size warnings with KASAN on x86_64
-> > > without COMPILT_TEST using gcc 10.2.1 from Debian.  In fact there are a
-> > > few warnings without KASAN, but with KASAN there are a lot more.
-> > > I'll try to find some time to dig into them.
-> >
-> > Right, this reminded me that we actually at least double the real
-> > stack size for KASAN builds, because it inherently requires more stack
-> > space. I think we need Wframe-larger-than to match that, otherwise
-> > we'll just keep having this problem:
-> >
-> > https://lkml.kernel.org/r/20210909104925.809674-1-elver@google.com
->
-> The problem with this is that it completely defeats the point of the
-> stack size warnings in allmodconfig kernels when they have KASAN
-> enabled and end up missing obvious code bugs in drivers that put
-> large structures on the stack. Let's not go there.
+Provide support to compile the Power-Off driver as a module.
 
-Sure, but the reality is that the real stack size is already doubled
-for KASAN. And that should be reflected in Wframe-larger-than.
+v1 => v2:
+ - s/EXPORT_SYMBOL/EXPORT_SYMBOL_GPL/
+ 
+Elliot Berman (2):
+  reboot: Export reboot_mode
+  power: reset: Enable tristate on restart power-off driver
 
-Either that, or we just have to live with the occasional warning (that
-is likely benign). But with WERROR we're now forced to make the
-defaults as sane as possible. If the worry is allmodconfig, maybe we
-do have to make KASAN dependent on !COMPILE_TEST, even though that's
-not great either because it has caught real issues in the past (it'll
-also mean doing the same for all other instrumentation-based tools,
-like KCSAN, UBSAN, etc.).
+Lee Jones (1):
+  arch: Export machine_restart() instances so they can be called from
+    modules
+
+ arch/arc/kernel/reset.c            | 1 +
+ arch/arm/kernel/reboot.c           | 1 +
+ arch/arm64/kernel/process.c        | 1 +
+ arch/csky/kernel/power.c           | 1 +
+ arch/h8300/kernel/process.c        | 1 +
+ arch/hexagon/kernel/reset.c        | 1 +
+ arch/m68k/kernel/process.c         | 1 +
+ arch/microblaze/kernel/reset.c     | 1 +
+ arch/mips/kernel/reset.c           | 1 +
+ arch/mips/lantiq/falcon/reset.c    | 1 +
+ arch/mips/sgi-ip27/ip27-reset.c    | 1 +
+ arch/nds32/kernel/process.c        | 2 +-
+ arch/nios2/kernel/process.c        | 1 +
+ arch/openrisc/kernel/process.c     | 1 +
+ arch/parisc/kernel/process.c       | 1 +
+ arch/powerpc/kernel/setup-common.c | 1 +
+ arch/riscv/kernel/reset.c          | 1 +
+ arch/s390/kernel/setup.c           | 1 +
+ arch/sh/kernel/reboot.c            | 1 +
+ arch/sparc/kernel/process_32.c     | 1 +
+ arch/sparc/kernel/reboot.c         | 1 +
+ arch/um/kernel/reboot.c            | 1 +
+ arch/x86/kernel/reboot.c           | 1 +
+ arch/xtensa/kernel/setup.c         | 1 +
+ drivers/power/reset/Kconfig        | 2 +-
+ kernel/reboot.c                    | 2 ++
+ 26 files changed, 27 insertions(+), 2 deletions(-)
+
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Brian Cain <bcain@codeaurora.org>
+Cc: Christian Borntraeger <borntraeger@de.ibm.com>
+Cc: Chris Zankel <chris@zankel.net>
+Cc: David S. Miller <davem@davemloft.net>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: James E.J. Bottomley <James.Bottomley@HansenPartnership.com>
+Cc: Jeff Dike <jdike@addtoit.com>
+Cc: John Crispin <john@phrozen.org>
+Cc: Jonas Bonn <jonas@southpole.se>
+Cc: Ley Foon Tan <ley.foon.tan@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-xtensa@linux-xtensa.org
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Simek <monstr@monstr.eu>
+Cc: openrisc@lists.librecores.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Richard Weinberger <richard@nod.at>
+Cc: Rich Felker <dalias@libc.org>
+Cc: sparclinux@vger.kernel.org
+Cc: Stafford Horne <shorne@gmail.com>
+Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: uclinux-h8-devel@lists.sourceforge.jp
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Vineet Gupta <vgupta@synopsys.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+-- 
+2.33.0.153.gba50c8fa24-goog
+
 
 _______________________________________________
 linux-riscv mailing list
