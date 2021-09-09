@@ -2,20 +2,20 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 86031C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FBF4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:53:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 43BC161100
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:03:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 43BC161100
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4CBF561288
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:53:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4CBF561288
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,71 +23,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gphqRdinHCHlxJnseixx76T2Z9Ek4XT6ua8/vDPBhtU=; b=aCawZHXGiboYs3
-	nU+eJGs/rVFBz0//owfsKdZey7tThemfhcbViMhiHACxCFc6hr01IeVlz4L8eSCPBWVaE5yC5S2AA
-	WAPra9tepJFZBoI5hR52VYpgviD0T2IUypSFsc6/H6oHnemSDBalDoEv9mXdSe2ac8v2XqxqI9eMj
-	SDEmAn4VfiSdvbIqbaeA/JEpuS7G/hk/fda4GKxf4nIUB/h9XAhysGYa9xXKDAh5DCjLyjXWy6OlY
-	a9wqbbpyteLEphFbs6tPhn+gPkyICzSmiHGAk8FMdWxOdXBJxy6aC2yC+hNXFvy0nus7PB1sNG65U
-	sOxGdafxtPJ51/5VDvVA==;
+	List-Owner; bh=ApEhb5ymUQCSY4iMQHqIfQ8/DNe4Lf0AghnXzhrj2Wk=; b=f4sQkL5KOCMMXd
+	sSZ95j7VtyDjSAOhTDWgCu+e792/pkItiPXQTmRw3t8U138BhgYOm/aBirl9YF5AXODsn4nziL3IP
+	fsSbaNCJOGssFXq6c3DLVjgPG5Q7AdMG0B4huWIY1sgQYpj8AmX3jDvzc2+tQv1W2zVyfE0F+C6wG
+	WOrHnLBDR8DkitELz8x90Yf8PMRl68/I3zdGQZ3wq/GVEGczUaGL4QZCklgz7gzesyq4J6BFvSUxE
+	VGkhD3ebUe88xEOgE52z++S5AE12iyjc3TkOwkmwmP5ceW4WLt+xshDgNnTvHMbkQm/6Zt7ChvtQl
+	04WBjTeBvvyCsnBMmLsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOHpY-008z7V-Jl; Thu, 09 Sep 2021 11:02:56 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1mOIbk-0099cm-KX; Thu, 09 Sep 2021 11:52:44 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOHpL-008z3V-9G
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 11:02:44 +0000
-Received: by mail-lf1-x133.google.com with SMTP id e23so2891965lfj.9
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 04:02:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ id 1mOITF-0094Ul-MP
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 11:44:00 +0000
+Received: by mail-oi1-x236.google.com with SMTP id bd1so2102499oib.5
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 04:43:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=UuzBwp7ONK3SLRR0C5P0oUyDGhq5fqHDJWQ6GNaGd3o=;
- b=QpAtOW4UBgMtIqy3cUYtD5ENY0dY0xtpdeLfO8WJ+FDAGBU5RRD4Je0JiMzQgNI+8B
- BeRztIlXNCEHRjFLTg6RawqfpoxzoSPTLjgCRsz7j5qvrKvpOSpj8XfaBfwgwy+k5Lw/
- ZVCSWZITvtuKC3aUXmNMyAylSxPAnL7ERdMsCSV1Lxnoh0A5nB7N3GwChvjlmekHudSD
- 6oXhUXH111e8n8NVzijMeAoCPwvbibPvkfObKudCB/A7X2hy7RwdFeyWV7x3Z4Pf1lnv
- rLXFTA56iyyaDS/p2iGqCJYYEFscyTO+n2SQHS6nTIJHhw1/j7lXpx10wLJFRr3EiHxI
- uNHA==
+ :cc; bh=ge0i4MysJLg7UB+Yx2AaDOSBAP1whBCQ4nJVOdEAFfQ=;
+ b=AM0acIeRzwZOQ8ps3Z56Nt2NWs6+nlhrzsKcVFwKMDqqa7rDx5eL5KDD0h/BaJoTnn
+ Yyyxu9wJG75huSLycWf8IDuT7DT0EULGp5e0DvypWYxR9B4SQfPU5j8Fn4XhfFEruwLE
+ ClKvJyFIvmnV6Km2XZLLKRVpzmuk+CmtA15esdDv1bDunZyDxFsQlEfitpESUQeSYFJp
+ 8BTH19cQVldl2Q/Q/K063Hrw0iJTbEvdUS66oLsCqTbhNgBAq0kgnGI6EB+sd5gWro4q
+ 6u6ZSKDtWZTSrF4AorelJKBZfPAQkJjHlymjU+m1V7QiieTyxzEwYQ0qxBYlDgPTQOni
+ 8v9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=UuzBwp7ONK3SLRR0C5P0oUyDGhq5fqHDJWQ6GNaGd3o=;
- b=ErQ7qdQBm9D+YHZn5OCo9FDnKbl/KJXOQ38cB11vdLJpdaguHd5Spek7tnuI8KBYyq
- yzuXg+kFk3Tha1W9kV12NHIBtP4hH65Mr4eSwY+bBKCNTeCVcIKK0A5K23QI5hhJAzSP
- uZpc1pHLPAPRZwI/UVUbhwCGikSMipznztEyuUTF2Z4VLaXfdRnafumzYNH35Dr0RmUi
- ng+826+7VjhQYLX2ILjdaHGVnpkcUeTrmMKR1o7dlSHFShaGiVtv1WTWNqrn9gvcMQAo
- TmvyFX0e6I3FtlI3RXPew99rzIH0nEvXAPbRYc6h8BDu/uo1RTvFKD6AYqn88GT+/eG8
- j9jg==
-X-Gm-Message-State: AOAM533rW01LL9QEKaSThp4FWtoK1i5V1ajA8dmLG9Qg9dA+prDPZ50K
- 62P28OyxyFmQSHR5aTFT3AijEnLra2KIpWloiIcTGw==
-X-Google-Smtp-Source: ABdhPJy3mWn7qeyq8n17edf1tHxklevbxaO65oTUlKfBimrKR4Ud4ggJ7NUbnrmXGkBcppaDG0lVyZ/HBNZcWkTSgsI=
-X-Received: by 2002:a05:6512:31c7:: with SMTP id
- j7mr1825685lfe.373.1631185361009; 
- Thu, 09 Sep 2021 04:02:41 -0700 (PDT)
+ bh=ge0i4MysJLg7UB+Yx2AaDOSBAP1whBCQ4nJVOdEAFfQ=;
+ b=sF0ONtnOiCdDxge2dcGuRb43nnlvL/DxwVJ4Y1PEdAuRaYnI9YxU71ehwa77a36mQX
+ Uy0yHdW73CdwAqoVWokVQDdreLFO84MmoQMQdPenvwnN1tXorr0VPXIVG+3ZCLef8Oj8
+ aVoA0HHpSAyvrSAA/shQHWxIENKokmUEDl2phFa+26rqvoSzMPP4SMfeG+ZWvziHwSL4
+ l2XIkDx8q5puej2rXf3ZEjaFXZDzEev/EC0S5cpLqXMmWCoELgUMeCWrHUClQ1MmwSQh
+ MRqZhpj0/OIGuxsRgK7AoM7GGqjAhPHMsLvFku5FVwCGId0SDUVP+SwVAywzbvNGOeMT
+ ZewA==
+X-Gm-Message-State: AOAM533NH56Q08yu+oR1aN4mhg7bg1fEy0HEbFJ6liyBUztPRXZwhXsW
+ mA6/IwSWfYwPMonG6bfq0E5vulq4JlGiJof7ZZcSlw==
+X-Google-Smtp-Source: ABdhPJz4Mhm5+vx6TwV+94c8TrEoyJnBnwuFZl9zQWVxFkMW7/1ms65QTzG16fCfVI4XNFxP1+08u3vCaxDOvTe4liM=
+X-Received: by 2002:aca:4344:: with SMTP id q65mr1645122oia.70.1631187836164; 
+ Thu, 09 Sep 2021 04:43:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210904000543.2019010-1-saravanak@google.com>
- <20210904000543.2019010-3-saravanak@google.com>
-In-Reply-To: <20210904000543.2019010-3-saravanak@google.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 9 Sep 2021 13:02:03 +0200
-Message-ID: <CAPDyKFo2rHww_UmbhjeyQ=SSYE0sQwSv0Nxy=iEaK55j7i9DXQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-To: Saravana Kannan <saravanak@google.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- linux-omap <linux-omap@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+References: <20210906142615.GA1917503@roeck-us.net>
+ <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
+ <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
+ <CAK8P3a3_Tdc-XVPXrJ69j3S9048uzmVJGrNcvi0T6yr6OrHkPw@mail.gmail.com>
+ <YTkjJPCdR1VGaaVm@archlinux-ax161>
+ <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
+ <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
+ <CANpmjNNCVu8uyn=8=5_8rLeKM5t3h7-KzVg1aCJASxF8u_6tEQ@mail.gmail.com>
+ <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
+In-Reply-To: <CAK8P3a1W-13f-qCykaaAiXAr+P_F+VhjsU-9Uu=kTPUeB4b26Q@mail.gmail.com>
+From: Marco Elver <elver@google.com>
+Date: Thu, 9 Sep 2021 13:43:44 +0200
+Message-ID: <CANpmjNPBdx4b7bp=reNJPMzSNetdyrk+503_1LLoxNMYwUhSHg@mail.gmail.com>
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>, Guenter Roeck <linux@roeck-us.net>, 
+ Nathan Chancellor <nathan@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev <kasan-dev@googlegroups.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ "Pan, Xinhui" <Xinhui.Pan@amd.com>,
+ amd-gfx list <amd-gfx@lists.freedesktop.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_040243_355818_933845CF 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20210909_044357_803445_AC587712 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,141 +112,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 4 Sept 2021 at 02:05, Saravana Kannan <saravanak@google.com> wrote:
+On Thu, 9 Sept 2021 at 13:00, Arnd Bergmann <arnd@kernel.org> wrote:
+> On Thu, Sep 9, 2021 at 12:54 PM Marco Elver <elver@google.com> wrote:
+> > On Thu, 9 Sept 2021 at 07:59, Christoph Hellwig <hch@infradead.org> wrote:
+> > > On Wed, Sep 08, 2021 at 11:58:56PM +0200, Marco Elver wrote:
+> > > > It'd be good to avoid. It has helped uncover build issues with KASAN in
+> > > > the past. Or at least make it dependent on the problematic architecture.
+> > > > For example if arm is a problem, something like this:
+> > >
+> > > I'm also seeing quite a few stack size warnings with KASAN on x86_64
+> > > without COMPILT_TEST using gcc 10.2.1 from Debian.  In fact there are a
+> > > few warnings without KASAN, but with KASAN there are a lot more.
+> > > I'll try to find some time to dig into them.
+> >
+> > Right, this reminded me that we actually at least double the real
+> > stack size for KASAN builds, because it inherently requires more stack
+> > space. I think we need Wframe-larger-than to match that, otherwise
+> > we'll just keep having this problem:
+> >
+> > https://lkml.kernel.org/r/20210909104925.809674-1-elver@google.com
 >
-> The simple-pm-bus driver is mandatory for CONFIG_OF based platforms to
-> work with fw_devlink. So, always compile it in for CONFIG_OF and delete
-> the config since it's no longer necessary.
->
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
+> The problem with this is that it completely defeats the point of the
+> stack size warnings in allmodconfig kernels when they have KASAN
+> enabled and end up missing obvious code bugs in drivers that put
+> large structures on the stack. Let's not go there.
 
-Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
+Sure, but the reality is that the real stack size is already doubled
+for KASAN. And that should be reflected in Wframe-larger-than.
 
-Kind regards
-Uffe
-
-> ---
->  arch/arm/configs/multi_v7_defconfig |  1 -
->  arch/arm/configs/oxnas_v6_defconfig |  1 -
->  arch/arm/configs/shmobile_defconfig |  1 -
->  arch/arm/mach-omap2/Kconfig         |  1 -
->  arch/arm64/configs/defconfig        |  1 -
->  drivers/bus/Kconfig                 | 12 ------------
->  drivers/bus/Makefile                |  2 +-
->  drivers/soc/canaan/Kconfig          |  1 -
->  8 files changed, 1 insertion(+), 19 deletions(-)
->
-> diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-> index d9abaae118dd..362720ae8d65 100644
-> --- a/arch/arm/configs/multi_v7_defconfig
-> +++ b/arch/arm/configs/multi_v7_defconfig
-> @@ -196,7 +196,6 @@ CONFIG_PCI_EPF_TEST=m
->  CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_OMAP_OCP2SCP=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_CMDLINE_PARTS=y
->  CONFIG_MTD_BLOCK=y
-> diff --git a/arch/arm/configs/oxnas_v6_defconfig b/arch/arm/configs/oxnas_v6_defconfig
-> index cae0db6b4eaf..de37f7e90999 100644
-> --- a/arch/arm/configs/oxnas_v6_defconfig
-> +++ b/arch/arm/configs/oxnas_v6_defconfig
-> @@ -46,7 +46,6 @@ CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_DMA_CMA=y
->  CONFIG_CMA_SIZE_MBYTES=64
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_CMDLINE_PARTS=y
->  CONFIG_MTD_BLOCK=y
-> diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
-> index d9a27e4e0914..18d2a960b2d2 100644
-> --- a/arch/arm/configs/shmobile_defconfig
-> +++ b/arch/arm/configs/shmobile_defconfig
-> @@ -40,7 +40,6 @@ CONFIG_PCI_RCAR_GEN2=y
->  CONFIG_PCIE_RCAR_HOST=y
->  CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_BLOCK=y
->  CONFIG_MTD_CFI=y
-> diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
-> index 7df8f5276ddf..02f2f3157f07 100644
-> --- a/arch/arm/mach-omap2/Kconfig
-> +++ b/arch/arm/mach-omap2/Kconfig
-> @@ -112,7 +112,6 @@ config ARCH_OMAP2PLUS
->         select PM_GENERIC_DOMAINS
->         select PM_GENERIC_DOMAINS_OF
->         select RESET_CONTROLLER
-> -       select SIMPLE_PM_BUS
->         select SOC_BUS
->         select TI_SYSC
->         select OMAP_IRQCHIP
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index f423d08b9a71..474b1f2e3f06 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -245,7 +245,6 @@ CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_FW_LOADER_USER_HELPER=y
->  CONFIG_FW_LOADER_USER_HELPER_FALLBACK=y
->  CONFIG_HISILICON_LPC=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_FSL_MC_BUS=y
->  CONFIG_TEGRA_ACONNECT=m
->  CONFIG_GNSS=m
-> diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
-> index e7f7eee6ee9a..dc3801369488 100644
-> --- a/drivers/bus/Kconfig
-> +++ b/drivers/bus/Kconfig
-> @@ -141,18 +141,6 @@ config QCOM_EBI2
->           Interface 2, which can be used to connect things like NAND Flash,
->           SRAM, ethernet adapters, FPGAs and LCD displays.
->
-> -config SIMPLE_PM_BUS
-> -       tristate "Simple Power-Managed Bus Driver"
-> -       depends on OF && PM
-> -       help
-> -         Driver for transparent busses that don't need a real driver, but
-> -         where the bus controller is part of a PM domain, or under the control
-> -         of a functional clock, and thus relies on runtime PM for managing
-> -         this PM domain and/or clock.
-> -         An example of such a bus controller is the Renesas Bus State
-> -         Controller (BSC, sometimes called "LBSC within Bus Bridge", or
-> -         "External Bus Interface") as found on several Renesas ARM SoCs.
-> -
->  config SUN50I_DE2_BUS
->         bool "Allwinner A64 DE2 Bus Driver"
->           default ARM64
-> diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
-> index 397e35392bff..86aacd36a56d 100644
-> --- a/drivers/bus/Makefile
-> +++ b/drivers/bus/Makefile
-> @@ -26,7 +26,7 @@ obj-$(CONFIG_OMAP_OCP2SCP)    += omap-ocp2scp.o
->  obj-$(CONFIG_QCOM_EBI2)                += qcom-ebi2.o
->  obj-$(CONFIG_SUN50I_DE2_BUS)   += sun50i-de2.o
->  obj-$(CONFIG_SUNXI_RSB)                += sunxi-rsb.o
-> -obj-$(CONFIG_SIMPLE_PM_BUS)    += simple-pm-bus.o
-> +obj-$(CONFIG_OF)               += simple-pm-bus.o
->  obj-$(CONFIG_TEGRA_ACONNECT)   += tegra-aconnect.o
->  obj-$(CONFIG_TEGRA_GMI)                += tegra-gmi.o
->  obj-$(CONFIG_TI_PWMSS)         += ti-pwmss.o
-> diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
-> index 8179b69518b4..853096b7e84c 100644
-> --- a/drivers/soc/canaan/Kconfig
-> +++ b/drivers/soc/canaan/Kconfig
-> @@ -5,7 +5,6 @@ config SOC_K210_SYSCTL
->         depends on RISCV && SOC_CANAAN && OF
->         default SOC_CANAAN
->          select PM
-> -        select SIMPLE_PM_BUS
->          select SYSCON
->          select MFD_SYSCON
->         help
-> --
-> 2.33.0.153.gba50c8fa24-goog
->
+Either that, or we just have to live with the occasional warning (that
+is likely benign). But with WERROR we're now forced to make the
+defaults as sane as possible. If the worry is allmodconfig, maybe we
+do have to make KASAN dependent on !COMPILE_TEST, even though that's
+not great either because it has caught real issues in the past (it'll
+also mean doing the same for all other instrumentation-based tools,
+like KCSAN, UBSAN, etc.).
 
 _______________________________________________
 linux-riscv mailing list
