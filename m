@@ -2,87 +2,77 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 366B5C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 15:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F33CEC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 16:47:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D17806113A
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 15:00:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D17806113A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	by mail.kernel.org (Postfix) with ESMTPS id C106961100
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 16:47:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C106961100
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nbFAK/+ieTLjgTDg4PSBzCraLnbY4fBfxA3jTYOwBo=; b=QPcZupPfz7/yghmZDRF+EffLcL
-	8kb6l2CHRxf+9cnjBOizZPeBqeGvXVPIh691rsHLqDo1hV8U1b2wLIcyzVBYJvm73bKJghg+bXZHl
-	Ro7ebcg3QXZl0Q+lQcB4MDm5WCrgrq0wT/XjSUjwgLLrVHIfB0yrqQpzNvj18uoXunrW6clsF8/F4
-	eO+NZ3UmZzxkDu8Tu5EoJBQik31pvtbklIh2StV/04iuASCQq+bndjjWuVh/V43AAmMsTgQT3p9fu
-	nxy0kjUX0cqlqlOKyDHphIKYIuee6FPZcn6tVpZcHeVbx84tyzZZPm3UOT6E0XxnOmFEfrRJd0rzi
-	/aPnEAOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Lm7eI2V3ZWvwNLqTL2IB5ZLydKOkHZyvgVi5g5gwPsc=; b=ZX7/bl5OtQHAPS
+	KxAyp7vK8f0ENvYrdH7MkrIoDzVAkoWwvcwK8L69K/CADOwic2hk8bxxB6+34+FCnL9v11uuHHAPm
+	8gHy6n2BsMgtFdvv2TH0NhjCiLjf07S6AqRIMy2Pux0clk9vUAYypvz+3KqsQLwlcjUo1dL+IrAEw
+	MyrwZir4KmDfJHvgmsnBSRBydOfqfWSLBo4ScywO6J9F52FRcDuS+xpRb75pzTIbNbrmdLcEk8Bw+
+	fLLGqx7gSXmKARMvexkMA3s3VxOKYDJ+9MeGySJVA8Kttq7rnNmsSTNAhI2Ao6An8YETI1qJfLAMO
+	HFmeHoYKRYA2Y4mDlovQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOLX2-00ACxD-Mf; Thu, 09 Sep 2021 15:00:04 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1mONCL-00AOEp-Ls; Thu, 09 Sep 2021 16:46:49 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOLWz-00ACtr-46
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 15:00:03 +0000
-Received: by mail-oi1-x232.google.com with SMTP id r26so2847763oij.2
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 08:00:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=cdZ5UReirNbJCz4qtRz9jPX8lIr89503B9bA6FIRuzQ=;
- b=jDgnkGSK/AzbQ/fvUe+F8Q6VZgBkRHWd4DcBMpA845U1VP2maB6KuDUGyL8c2z1MQ5
- UX6S2hMX3XaL+wIg8XPiRW3uTqvaEgPp8GwPJPJByHRkVu8WdVGBxNU7ND2J8PWd6MjQ
- 1BL0tMyxa7ZdE0Z2Q+WzTnNgCJ+YMSVMHlQ3G1GlF5G2afc7lU4RB3k5FIovm8QarUG7
- RPmR6TFjaMcSuvD67sPx0N8yWJj2K9lVY4kxvs9O3saKM+uEhuFWmi956IZGiUFIdrmY
- hqz6C5u3zKx731XS7IajOTZL1HWrKGy6fsTJ74ufvBqwljrPlIixlbiTt+K2g3iOZX5u
- avbQ==
+ id 1mONCI-00AODh-El
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 16:46:47 +0000
+Received: by mail-lj1-x229.google.com with SMTP id s12so4029289ljg.0
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 09:46:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linux-foundation.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=6u9UXBJqq0DvpwbwzhX2UgLgOMc73mPLE0iuNkQUyLg=;
+ b=c3sO1BQBDxCW8APZUbAlW9nwWGjPxn+LQp0JgfliDLXRZzDRVo3j7/1R4pPWKE+xNx
+ UbgmU4XAmaM891Bx14LElamvax9VI3JEUCFywjuYbWwv0nvT93I+fRhltOoT4VSe8vnz
+ QPRBUEbBxEv21a9fqhAw650AWuxptlmMiPwqE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:sender:subject:to:cc:references:from:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=cdZ5UReirNbJCz4qtRz9jPX8lIr89503B9bA6FIRuzQ=;
- b=X7NQQDTmqVn7EX/pRaAbWgnxFYBzprGQU6A1c2oT5HicZRee1JRarRf/NMqjtzMoG9
- sCtj0ogxZDOO5oDqqfU7gZLEeqzh+O2dsJUgREuVb6607Dvssu9UKJOr/z8gV8c0iXrK
- TIlcxkOA2U7fSd0u9qbdjAatyo2+6RYDUnyipA6fBiaEbRLSnl4vUeK1PJ1Id3R+4ouD
- wQQVsROqh5Bd2Wz3le+MV0FU+kN5PzCz79vG5cIj5mBmU+QXL3+QYpdx0tSzcjwCwlSj
- 2Izf/Mddserps8IvLJEq7EqWZERqKMoMH2DN6gpzZYXEMnJYVj40o+JameI6hsRZZUpC
- Ntpw==
-X-Gm-Message-State: AOAM530Sbl9xfWNr+12wMRlfog0YqG/YJ2oPN8P/Q5yrXnxbl9SNN8za
- qfXLMUKcM1Nqy6XLwmYuTl0=
-X-Google-Smtp-Source: ABdhPJy29+VUAR+47DHLnfifhIlBecXxb8pFnECJqaJhWQNcxsfS3c0Ish2MaEwbx71o2d1eL5rWmg==
-X-Received: by 2002:aca:1709:: with SMTP id j9mr233084oii.120.1631199599971;
- Thu, 09 Sep 2021 07:59:59 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- l44sm475368otv.81.2021.09.09.07.59.57
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=6u9UXBJqq0DvpwbwzhX2UgLgOMc73mPLE0iuNkQUyLg=;
+ b=ScgRy9t8Zw3f5Ruh2kDizcBIr0BKIJRHajxXrYx1FuOMMtLUtLbh+oUU8GRFjhLSQP
+ uhoS3Ph31JDELalvcWHfQ9w52bqmzeWDTVKGRtkzPzCDe5GaEzCbrhC4pbQ2dABb1Xb3
+ Qu2z9p+0INZgWJAzsqX2bsjY7MvSSzXu+UN9y/Ge8n/Myqk9f3wqAPU4YjgwmV0GNIk6
+ aDhQRR7BshV4JjfKZafsn6aOHiB9uU5GIf55aTeIvHxSqCS+1yo6t+ZrKRaKI8Q7dfdI
+ 3emTKwh5Zk5bYjbwmipKvla57oqFgXghvzdjNVYomJjY1nOqFtPiyoOUslKrG64IWajI
+ iAjA==
+X-Gm-Message-State: AOAM530VPhuKLo1wA571yVTr79g5kWa3TsQlwxmKuvDBpEyMi1zFL+ge
+ 6IdtJs6HiP6DY1/IHdMzq6OQO6TM4/O2fkFvwL8=
+X-Google-Smtp-Source: ABdhPJwnsILDLI9ET3nwuw/mIqAuIuw7+B6o3RA3+GGVGhURKO5qpgGSyJxSz/CZdMMu1lwS2YoTjQ==
+X-Received: by 2002:a2e:9010:: with SMTP id h16mr670230ljg.484.1631206003909; 
+ Thu, 09 Sep 2021 09:46:43 -0700 (PDT)
+Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com.
+ [209.85.167.46])
+ by smtp.gmail.com with ESMTPSA id p7sm254786ljn.79.2021.09.09.09.46.41
+ for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 09 Sep 2021 07:59:59 -0700 (PDT)
-Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
-To: =?UTF-8?Q?Christian_K=c3=b6nig?= <christian.koenig@amd.com>,
- Christoph Hellwig <hch@infradead.org>, Marco Elver <elver@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- llvm@lists.linux.dev, Nick Desaulniers <ndesaulniers@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev@googlegroups.com,
- "Pan, Xinhui" <Xinhui.Pan@amd.com>, amd-gfx@lists.freedesktop.org
+ Thu, 09 Sep 2021 09:46:41 -0700 (PDT)
+Received: by mail-lf1-f46.google.com with SMTP id h16so4909320lfk.10
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 09:46:41 -0700 (PDT)
+X-Received: by 2002:a05:6512:1112:: with SMTP id
+ l18mr609222lfg.402.1631206001151; 
+ Thu, 09 Sep 2021 09:46:41 -0700 (PDT)
+MIME-Version: 1.0
 References: <20210906142615.GA1917503@roeck-us.net>
  <CAHk-=wgjTePY1v_D-jszz4NrpTso0CdvB9PcdroPS=TNU1oZMQ@mail.gmail.com>
  <YTbOs13waorzamZ6@Ryzen-9-3900X.localdomain>
@@ -90,19 +80,27 @@ References: <20210906142615.GA1917503@roeck-us.net>
  <YTkjJPCdR1VGaaVm@archlinux-ax161>
  <75a10e8b-9f11-64c4-460b-9f3ac09965e2@roeck-us.net>
  <YTkyIAevt7XOd+8j@elver.google.com> <YTmidYBdchAv/vpS@infradead.org>
- <a04c4c37-7151-ef7e-09ce-a61ac7b12106@roeck-us.net>
- <78aeab09-de88-966f-9f03-a2d56a0a6064@amd.com>
-From: Guenter Roeck <linux@roeck-us.net>
-Message-ID: <80a56a5a-5351-1897-b87e-3c3cd84bb13c@roeck-us.net>
-Date: Thu, 9 Sep 2021 07:59:56 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <78aeab09-de88-966f-9f03-a2d56a0a6064@amd.com>
-Content-Language: en-US
+In-Reply-To: <YTmidYBdchAv/vpS@infradead.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Thu, 9 Sep 2021 09:46:25 -0700
+X-Gmail-Original-Message-ID: <CAHk-=whsicuPaicXWh5je6unQYRKwoazuNLzB-9PRXpSY3CZ-g@mail.gmail.com>
+Message-ID: <CAHk-=whsicuPaicXWh5je6unQYRKwoazuNLzB-9PRXpSY3CZ-g@mail.gmail.com>
+Subject: Re: [PATCH] Enable '-Werror' by default for all kernel builds
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Marco Elver <elver@google.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, llvm@lists.linux.dev,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ Andrey Konovalov <andreyknvl@gmail.com>, kasan-dev <kasan-dev@googlegroups.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ "Pan, Xinhui" <Xinhui.Pan@amd.com>, amd-gfx@lists.freedesktop.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_080001_177258_F3C3AE23 
-X-CRM114-Status: GOOD (  22.05  )
+X-CRM114-CacheID: sfid-20210909_094646_571992_7495D31E 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,48 +112,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOS85LzIxIDEyOjMwIEFNLCBDaHJpc3RpYW4gS8O2bmlnIHdyb3RlOgo+IEFtIDA5LjA5LjIx
-IHVtIDA4OjA3IHNjaHJpZWIgR3VlbnRlciBSb2VjazoKPj4gT24gOS84LzIxIDEwOjU4IFBNLCBD
-aHJpc3RvcGggSGVsbHdpZyB3cm90ZToKPj4+IE9uIFdlZCwgU2VwIDA4LCAyMDIxIGF0IDExOjU4
-OjU2UE0gKzAyMDAsIE1hcmNvIEVsdmVyIHdyb3RlOgo+Pj4+IEl0J2QgYmUgZ29vZCB0byBhdm9p
-ZC4gSXQgaGFzIGhlbHBlZCB1bmNvdmVyIGJ1aWxkIGlzc3VlcyB3aXRoIEtBU0FOIGluCj4+Pj4g
-dGhlIHBhc3QuIE9yIGF0IGxlYXN0IG1ha2UgaXQgZGVwZW5kZW50IG9uIHRoZSBwcm9ibGVtYXRp
-YyBhcmNoaXRlY3R1cmUuCj4+Pj4gRm9yIGV4YW1wbGUgaWYgYXJtIGlzIGEgcHJvYmxlbSwgc29t
-ZXRoaW5nIGxpa2UgdGhpczoKPj4+Cj4+PiBJJ20gYWxzbyBzZWVpbmcgcXVpdGUgYSBmZXcgc3Rh
-Y2sgc2l6ZSB3YXJuaW5ncyB3aXRoIEtBU0FOIG9uIHg4Nl82NAo+Pj4gd2l0aG91dCBDT01QSUxU
-X1RFU1QgdXNpbmcgZ2NjIDEwLjIuMSBmcm9tIERlYmlhbi7CoCBJbiBmYWN0IHRoZXJlIGFyZSBh
-Cj4+PiBmZXcgd2FybmluZ3Mgd2l0aG91dCBLQVNBTiwgYnV0IHdpdGggS0FTQU4gdGhlcmUgYXJl
-IGEgbG90IG1vcmUuCj4+PiBJJ2xsIHRyeSB0byBmaW5kIHNvbWUgdGltZSB0byBkaWcgaW50byB0
-aGVtLgo+Pj4KPj4+IFdoaWxlIHdlJ3JlIGF0IGl0LCB3aXRoIC1XZXJyb3Igc29tZXRoaW5nIGxp
-a2UgdGhpcyBpcyByZWFsbHkgZnV0aWxlOgo+Pj4KPj4+IGRyaXZlcnMvZ3B1L2RybS9hbWQvYW1k
-Z3B1L2FtZGdwdV9vYmplY3QuYzogSW4gZnVuY3Rpb24g4oCYYW1kZ3B1X2JvX3N1cHBvcnRfdXN3
-Y+KAmToKPj4+IGRyaXZlcnMvZ3B1L2RybS9hbWQvYW1kZ3B1L2FtZGdwdV9vYmplY3QuYzo0OTM6
-Mjogd2FybmluZzogI3dhcm5pbmcKPj4+IFBsZWFzZSBlbmFibGUgQ09ORklHX01UUlIgYW5kIENP
-TkZJR19YODZfUEFUIGZvciBiZXR0ZXIgcGVyZm9ybWFuY2UgdGhhbmtzIHRvIHdyaXRlLWNvbWJp
-bmluZyBbLVdjcHAKPj4+IMKgwqAgNDkzIHwgI3dhcm5pbmcgUGxlYXNlIGVuYWJsZSBDT05GSUdf
-TVRSUiBhbmQgQ09ORklHX1g4Nl9QQVQgZm9yIGJldHRlciBwZXJmb3JtYW5jZSBcCj4+PiDCoMKg
-wqDCoMKgwqAgfMKgIF5+fn5+fn4KPiAKPiBBaCwgeWVzIGdvb2QgcG9pbnQhCj4gCj4+Cj4+IEkg
-aGF2ZSBiZWVuIHdvbmRlcmluZyBpZiBhbGwgdGhvc2UgI3dhcm5pbmcgImVycm9ycyIgc2hvdWxk
-IGVpdGhlcgo+PiBiZSByZW1vdmVkIG9yIGJlIHJlcGxhY2VkIHdpdGggIiNwcmFnbWEgbWVzc2Fn
-ZSIuCj4gCj4gV2VsbCB3ZSBzdGFydGVkIHRvIGFkZCB0aG9zZSB3YXJuaW5ncyBiZWNhdXNlIHBl
-b3BsZSBjb21waWxlZCB0aGVpciBrZXJuZWwgd2l0aCBDT05GSUdfTVRSUiBhbmQgQ09ORklHX1g4
-Nl9QQVQgYW5kIHdhcyB0aGVuIHdvbmRlcmluZyB3aHkgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBk
-aXNwbGF5IGRyaXZlciB3YXMgc28gY3JhcHB5Lgo+IAo+IFdoZW4gdGhvc2Ugd2FybmluZyBub3cg
-Z2VuZXJhdGUgYW4gZXJyb3Igd2hpY2ggeW91IGhhdmUgdG8gZGlzYWJsZSBleHBsaWNpdGx5IHRo
-ZW4gdGhhdCBtaWdodCBub3QgYmUgYmFkIGF0IGFsbC4KPiAKPiBJdCBhdCBsZWFzdCBwb2ludHMg
-cGVvcGxlIHRvIHRoaXMgc2V0dGluZyBhbmQgbWFrZXMgaXQgcmVhbGx5IGNsZWFyIHRoYXQgdGhl
-eSBhcmUgZG9pbmcgc29tZXRoaW5nIHZlcnkgdW51c3VhbCBhbmQgbmVlZCB0byBrZWVwIGluIG1p
-bmQgdGhhdCBpdCBtaWdodCBub3QgaGF2ZSB0aGUgZGVzaXJlZCByZXN1bHQuCj4gCgpUaGF0IHNw
-ZWNpZmljIHdhcm5pbmcgaXMgc3Vycm91bmRlZCB3aXRoICIjaWZuZGVmIENPTkZJR19DT01QSUxF
-X1RFU1QiCnNvIGl0IGRvZXNuJ3QgcmVhbGx5IG1hdHRlciBiZWNhdXNlIGl0IGRvZXNuJ3QgY2F1
-c2UgdGVzdCBidWlsZCBmYWlsdXJlcy4KT2YgY291cnNlLCB3ZSBjb3VsZCBkbyB0aGUgc2FtZSBm
-b3IgYW55ICN3YXJuaW5nIHdoaWNoIGRvZXMgbm93CmNhdXNlIGEgdGVzdCBidWlsZCBmYWlsdXJl
-LgoKR3VlbnRlcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Wed, Sep 8, 2021 at 10:59 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> While we're at it, with -Werror something like this is really futile:
+
+Yeah, I'm thinking we could do
+
+ -Wno-error=cpp
+
+to at least allow the cpp warnings to come through without being fatal.
+
+Because while they can be annoying too, they are most definitely under
+our direct control, so..
+
+I didn't actually test that, but I think it should work.
+
+That said, maybe they should just be removed. They might be better off
+just as Kconfig rules, rather than as a "hey, you screwed up your
+Kconfig" warning after the fact.
+
+             Linus
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
