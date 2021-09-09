@@ -1,21 +1,21 @@
-Return-Path: <SRS0=esFF=N6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3450EC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 22:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEEB1C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 00:17:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EA3B261132
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Sep 2021 22:03:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EA3B261132
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6BFFA610C8
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 00:17:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6BFFA610C8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,73 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rXVzOt/r3MOrhz6mqK6KSI68FoTbNEZDK6bN6dBs460=; b=uMC98sEs2V+DqJ
-	feouQSyxe/2t7dnqCD3W6LasjdA+6kdxrN/mqv+xhzpO5NS95cK68eH5w5kxqGu7Da8EX8UfrLXMc
-	3U5Qeb6M7onWkA8eorIO6Gb7UbeKVQyWI34HSFjfAJPQDxWzErsHNjncfQDHi7DICaB7ncKUXQsjo
-	/TYfa88YCHxp4qmCUHxLDgS9PfyeWcIozhMcKyU/8PXMrHcxKrl0AkR+dW0s3Y+XYz7Mdt2ZqJT3q
-	n3W8ePjkNcmfhzeiUYWK5pI1Uarau/aIykaKDOlq3wmrAJFIGoSHFiBUT1+bC7G7hLszCWJ2Eyp8/
-	mtYUWaQvRTsKrnRoysAA==;
+	List-Owner; bh=VAqZGkSO9SGMjTQXRrUoBHZe53d/KxYSCG2EPStmEt0=; b=r7GV/K31Iv7xP2
+	VVo3e5uZlVZxtwyuLCtngFC1RJs6ZCCh/LDbcLbtU0x1vy/pORbM7iv9H2A0KfmR9w7xIvsNCROsW
+	/IaDoZnAmkkiFpQd396ZrvkLriQYWm2hhrzcbwKl15Kd0BDzKQdRt9jDvi7GbMWzWjGXE54uskR/4
+	9DV9/xbEYkEx1YhMooIDWbbbRz8usIlicZ793AIccE7k2RKq2hFQIqDwDm8zF2aPW5eSWvZeDY0yK
+	rBAWSFPfsAWzCS+81rqSx/H4NO9kevVXtntxMx3RL6o7KFtnDPYpf2C27/+TYLGN7hbAqrPy7HQN7
+	KAeppC1kCqbRSS3dFD8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mO5em-007gyS-S0; Wed, 08 Sep 2021 22:03:00 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1mO7kA-007q4O-Dl; Thu, 09 Sep 2021 00:16:42 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mO5ek-007gxT-Fu
- for linux-riscv@lists.infradead.org; Wed, 08 Sep 2021 22:03:00 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id c206so7223597ybb.12
- for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 15:02:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=h/KrPoSusIWXfaxxiz6d+5SZKzgcam3GYDlFFEZnnMY=;
- b=pe7+5xlygWREYLTBPwQ4X2nvtNtdGJRqObWDRJY9EMov224EgPVX8Ha+BITykbcrHD
- pgsGo/GfwQZLxzwUvA+bnJjC95jBhDgCnzyENJs8mZKhTTXQuAXdlqFyEL/8CNVtHmrO
- n8utNK+rV2QUw0YCAaPdPBh9QbZ+uyEQXNfliHXAtJ1zTv/zI+gbbP5QD0Ker4nklmVS
- h3smtQKVGfJLnPLDpcCPwSStMR1VMU37GPu8lzuf1k4S/UEqeUm4zr8TPpmWmMoJltTf
- 7MRUz+in30TtguUqXKOYxQWfmwNGBFSYQGmksXgJF+6xmRiisHJEcGLmQZ8KcMnngO3F
- fMXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=h/KrPoSusIWXfaxxiz6d+5SZKzgcam3GYDlFFEZnnMY=;
- b=SrSuQa36gdBN6qiszwOiZ9Aib2Z35i1PP7kjnY+BB+cwo2eNlW6RCeB0hOkckI6TZK
- 1/h0CcNf9zTfGWCqQi3Lw0kSEuJf1jyuNbOBKrYo1/chTmeiJzmgjlsWezxLmbNNcqdb
- 951TlzyHnKs6LA300/FYKyQ0XSrUIdSNJJ6BrPFI57RuSoIWeNiV0Zn5dyLcNF/ogB6u
- htB/vP1zRMKXUsqp9aHQZ2lxVaL2EVXJS4t+WB54enPeaSyRc+Jhran+zpyeVNxAqy72
- c0Y0s6dKyM+5B0OMetKTglhFgfJj+NZRIByHmMEEwFuxWaLIeII8Ko/kiSIFe9wuxgAy
- J/9Q==
-X-Gm-Message-State: AOAM5322fV6u7Nqqlaty3Qw2orwUwl2NKsPk0/pdOmV33FXwNCRoidI9
- eSYst4oU1+Sv4Y/pwJlec6TVcjZ3wZBAw0bpu4U8Ow==
-X-Google-Smtp-Source: ABdhPJxClOdeLnlr90MK1KP1cTL7b5WQrlcEprzjPCW6hNsUleQfKwSjp3Z9+e8nH9EAsa8vkVGGODNF/IKN+WaxZHU=
-X-Received: by 2002:a05:6902:1201:: with SMTP id
- s1mr600170ybu.432.1631138577011; 
- Wed, 08 Sep 2021 15:02:57 -0700 (PDT)
+ id 1mO7jh-007q2f-L9; Thu, 09 Sep 2021 00:16:15 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2306C61167;
+ Thu,  9 Sep 2021 00:16:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631146571;
+ bh=3wT/77ifq2R1itJ2LaY3Uko3fH+ybrNTZbvI0BB4JbQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=tkGFAgGd5BEudCzi7QNF8qxfLm0EQHAYbwSgrZB+0TzFGp+DG1E1UMo6Vk7lQq8TD
+ U9zxNnc0x5PI7zZOT2D5dxWIxoqAr7Cco/dtaHtZ71KlF53Js0XrLOGOtck1WhJAXc
+ pUT79VbHq5I0l+4In5QIIEB2TJa3rHz1rcpmBgRjd0R6J3mn0ufxXpgVu5Hz+0K7LK
+ yJ5ksBRKDrotKhbMCMQI9g1tRiU6khOnJue++japYCI3DTNUEAaO9w/2qRkIL/zsxe
+ nTfhsEA71lmoWec165AVdzeQLlkSg16vCEiJg8Y2MbbJjkB8AldhJ+rcPGPdS7Gnqa
+ G048KetDpuhyA==
+Received: by mail-ej1-f46.google.com with SMTP id lc21so7684206ejc.7;
+ Wed, 08 Sep 2021 17:16:11 -0700 (PDT)
+X-Gm-Message-State: AOAM532nYymglodEiSR7d1ZcJm/R343CDN5Y3e+NEHcafHu5U8S1vfCH
+ GwMjChPDDFw4SIMPxmqJlXPSwbg/d1wj9bPSIw==
+X-Google-Smtp-Source: ABdhPJz14Imk476ha8K3WOAD7DkMuuT7rbeRcjoFY4GXGKHqc5FockmccC4lpgUwA6gBj0fp/p9PHV886vX/3e61W1A=
+X-Received: by 2002:a17:906:1913:: with SMTP id
+ a19mr364513eje.390.1631146569570; 
+ Wed, 08 Sep 2021 17:16:09 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210904000543.2019010-1-saravanak@google.com>
  <20210904000543.2019010-2-saravanak@google.com>
- <CAPDyKFrsKvHXMT-6CuFXKfqX+hZa3vGAu7hQz=9ZYBC7-dYS0w@mail.gmail.com>
-In-Reply-To: <CAPDyKFrsKvHXMT-6CuFXKfqX+hZa3vGAu7hQz=9ZYBC7-dYS0w@mail.gmail.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 8 Sep 2021 15:02:21 -0700
-Message-ID: <CAGETcx8xfb+mnmo9wvX_C19Ta_FFh+jn8sz2sKyx5PJY1aZCyg@mail.gmail.com>
+ <CAMuHMdUhZy7W_HLtNJ2ECK5uQV5xHV7pDk5BXfNUpW9L68G5Aw@mail.gmail.com>
+ <CAGETcx_7N3gtaT-YHGaGL+Qtkv=JOhgPcPF1A+kQ4aaDoetvSA@mail.gmail.com>
+In-Reply-To: <CAGETcx_7N3gtaT-YHGaGL+Qtkv=JOhgPcPF1A+kQ4aaDoetvSA@mail.gmail.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Wed, 8 Sep 2021 19:15:58 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
+Message-ID: <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
 Subject: Re: [PATCH v3 1/2] drivers: bus: simple-pm-bus: Add support for
  probing simple bus only devices
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
+To: Saravana Kannan <saravanak@google.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Russell King <linux@armlinux.org.uk>, 
+ Neil Armstrong <narmstrong@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>, 
  Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Android Kernel Team <kernel-team@android.com>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- linux-omap <linux-omap@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+ "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Lee Jones <lee.jones@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_150258_598189_1FB18A1D 
-X-CRM114-Status: GOOD (  32.87  )
+X-CRM114-CacheID: sfid-20210908_171613_772335_6B292B62 
+X-CRM114-Status: GOOD (  58.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,105 +100,168 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 7, 2021 at 3:41 AM Ulf Hansson <ulf.hansson@linaro.org> wrote:
+On Tue, Sep 7, 2021 at 2:01 AM Saravana Kannan <saravanak@google.com> wrote:
 >
-> On Sat, 4 Sept 2021 at 02:05, Saravana Kannan <saravanak@google.com> wrote:
+> On Mon, Sep 6, 2021 at 12:54 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 > >
-> > fw_devlink could end up creating device links for bus only devices.
-> > However, bus only devices don't get probed and can block probe() or
-> > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > devices using the simple-pm-bus driver.
+> > Hi Saravana,
 > >
-> > However, there are instances of devices that are not simple buses (they
-> > get probed by their specific drivers) that also list the "simple-bus"
-> > (or other bus only compatible strings) in their compatible property to
-> > automatically populate their child devices. We still want these devices
-> > to get probed by their specific drivers. So, we make sure this driver
-> > only probes devices that are only buses.
+> > Thanks for your patch!
 > >
-> > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > Tested-by: Saravana Kannan <saravanak@google.com>
+> > CC linux-pm, Lee (mfd)
+> >
+> > On Sat, Sep 4, 2021 at 2:05 AM Saravana Kannan <saravanak@google.com> wrote:
+> > > fw_devlink could end up creating device links for bus only devices.
+> > > However, bus only devices don't get probed and can block probe() or
+> > > sync_state() [1] call backs of other devices. To avoid this, probe these
+> > > devices using the simple-pm-bus driver.
+> > >
+> > > However, there are instances of devices that are not simple buses (they
+> > > get probed by their specific drivers) that also list the "simple-bus"
+> > > (or other bus only compatible strings) in their compatible property to
+> > > automatically populate their child devices. We still want these devices
+> > > to get probed by their specific drivers. So, we make sure this driver
+> > > only probes devices that are only buses.
+> >
+> > Note that this can also be the case for buses declaring compatibility
+> > with "simple-pm-bus".  However, at the moment, none of such device
+> > nodes in upstream DTS files have device-specific drivers.
 >
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Not sure about mfd, but I want to make sure we don't confuse busses
+> (which are typically added to a class) with these "simple bus" devices
+> that are added to platform_bus. Also if these other buses are actually
+> causing an issue, then then should implement their own stub driver or
+> use try patch[2] if they are added to classes (devices on classes
+> don't probe)
 >
-> I will run some tests as soon as I can and let you know the results.
+> [2] - https://lore.kernel.org/lkml/20210831224510.703253-1-saravanak@google.com/
+>
+> >
+> > > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
+> > > Signed-off-by: Saravana Kannan <saravanak@google.com>
+> > > Tested-by: Saravana Kannan <saravanak@google.com>
+> >
+> > > --- a/drivers/bus/simple-pm-bus.c
+> > > +++ b/drivers/bus/simple-pm-bus.c
+> > > @@ -13,11 +13,26 @@
+> > >  #include <linux/platform_device.h>
+> > >  #include <linux/pm_runtime.h>
+> > >
+> > > -
+> > >  static int simple_pm_bus_probe(struct platform_device *pdev)
+> > >  {
+> > > -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
+> > > -       struct device_node *np = pdev->dev.of_node;
+> > > +       const struct device *dev = &pdev->dev;
+> > > +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
+> > > +       struct device_node *np = dev->of_node;
+> > > +       const struct of_device_id *match;
+> > > +
+> > > +       match = of_match_device(dev->driver->of_match_table, dev);
+> > > +
+> > > +       /*
+> > > +        * These are transparent bus devices (not simple-pm-bus matches) that
+> > > +        * have their child nodes populated automatically.  So, don't need to
+> > > +        * do anything more.
+> > > +        */
+> > > +       if (match && match->data) {
+> > > +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
+> >
+> > Does this work as expected? Having multiple compatible values in a
+> > device node does not guarantee there exist a separate driver for any
+> > of the device-specific compatible values.
+>
+> Right, and if they are platform devices that are equivalent to
+> simple-bus (meaning, they don't do anything in Linux and just have
+> their devices populated) we can add those to this list too.
 
-Thanks.
+I think this needs to be a list of compatibles we have drivers for
+instead. A more specific compatible that the OS doesn't understand
+shouldn't cause a change in behavior and adding one would. I expect it
+to be a short list.
 
--Saravana
+We are guaranteed that of_match_device() returns the best match in the
+match list, so we really just need 1 list here with a boolean to bail
+or not.
 
+> > > +                       return 0;
+> > > +               else
+> > > +                       return -ENODEV;
+> >
+> > So if we get here, as both branches use "return", we skip the
+> > pm_runtime_enable() and of_platform_populate() below:
+> >   - of_platform_populate() is handled for these buses by
+> >     of_platform_default_populate(), so that's OK,
+> >   - I'm wondering if any of the simple-mfd sub-devices use Runtime
+> >     PM, but currently fail to save power because pm_runtime_enable()
+> >     is never called for the MFD container, just like with simple-bus...
 >
-> Kind regards
-> Uffe
+> But this doesn't affect simple-mfd though.
 >
-> > ---
-> >  drivers/bus/simple-pm-bus.c | 32 +++++++++++++++++++++++++++++---
-> >  1 file changed, 29 insertions(+), 3 deletions(-)
 > >
-> > diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-> > index 01a3d0cd08ed..3e086a9f34cb 100644
-> > --- a/drivers/bus/simple-pm-bus.c
-> > +++ b/drivers/bus/simple-pm-bus.c
-> > @@ -13,11 +13,26 @@
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_runtime.h>
+> > > +       }
+> > >
+> > >         dev_dbg(&pdev->dev, "%s\n", __func__);
+> > >
+> > > @@ -31,14 +46,25 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+> > >
+> > >  static int simple_pm_bus_remove(struct platform_device *pdev)
+> > >  {
+> > > +       const void *data = of_device_get_match_data(&pdev->dev);
+> > > +
+> > > +       if (data)
+> > > +               return 0;
+> > > +
+> > >         dev_dbg(&pdev->dev, "%s\n", __func__);
+> > >
+> > >         pm_runtime_disable(&pdev->dev);
+> > >         return 0;
+> > >  }
+> > >
+> > > +#define ONLY_BUS       ((void *) 1) /* Match if the device is only a bus. */
+> > > +
+> > >  static const struct of_device_id simple_pm_bus_of_match[] = {
+> > >         { .compatible = "simple-pm-bus", },
+> > > +       { .compatible = "simple-bus",   .data = ONLY_BUS },
+> > > +       { .compatible = "simple-mfd",   .data = ONLY_BUS },
+> > > +       { .compatible = "isa",          .data = ONLY_BUS },
 > >
-> > -
-> >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> >  {
-> > -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > -       struct device_node *np = pdev->dev.of_node;
-> > +       const struct device *dev = &pdev->dev;
-> > +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > +       struct device_node *np = dev->of_node;
-> > +       const struct of_device_id *match;
-> > +
-> > +       match = of_match_device(dev->driver->of_match_table, dev);
-> > +
-> > +       /*
-> > +        * These are transparent bus devices (not simple-pm-bus matches) that
-> > +        * have their child nodes populated automatically.  So, don't need to
-> > +        * do anything more.
-> > +        */
-> > +       if (match && match->data) {
-> > +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > +                       return 0;
-> > +               else
-> > +                       return -ENODEV;
-> > +       }
+> > #ifdef CONFIG_ARM_AMBA ?
+>
+> Not needed? If CONFIG_ARM_AMBA isn't enabled, the device wouldn't be
+> created in the first place.
+>
 > >
-> >         dev_dbg(&pdev->dev, "%s\n", __func__);
+> > > +       { .compatible = "arm,amba-bus", .data = ONLY_BUS },
+> > >         { /* sentinel */ }
 > >
-> > @@ -31,14 +46,25 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+> > This is now (almost[*]) the same as of_default_bus_match_table[]
+> > in drivers/of/platform.c. Perhaps it can be shared?
+>
+> I wanted this table to be expandable as needed. That's why I'm
+> intentionally not using of_default_bus_match_table[].
+>
 > >
-> >  static int simple_pm_bus_remove(struct platform_device *pdev)
-> >  {
-> > +       const void *data = of_device_get_match_data(&pdev->dev);
-> > +
-> > +       if (data)
-> > +               return 0;
-> > +
-> >         dev_dbg(&pdev->dev, "%s\n", __func__);
-> >
-> >         pm_runtime_disable(&pdev->dev);
-> >         return 0;
-> >  }
-> >
-> > +#define ONLY_BUS       ((void *) 1) /* Match if the device is only a bus. */
-> > +
-> >  static const struct of_device_id simple_pm_bus_of_match[] = {
-> >         { .compatible = "simple-pm-bus", },
-> > +       { .compatible = "simple-bus",   .data = ONLY_BUS },
-> > +       { .compatible = "simple-mfd",   .data = ONLY_BUS },
-> > +       { .compatible = "isa",          .data = ONLY_BUS },
-> > +       { .compatible = "arm,amba-bus", .data = ONLY_BUS },
-> >         { /* sentinel */ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, simple_pm_bus_of_match);
-> > --
-> > 2.33.0.153.gba50c8fa24-goog
-> >
+> > [*] Especially if "simple-pm-bus" and "simple-bus" would be treated
+> >     the same.
+>
+> They are not treated the same way.
+
+I think it would be better if they were. IOW, the core code stops
+descending into simple-bus, etc. nodes and they are populated here.
+Then we just get rid of of_default_bus_match_table.
+
+That could cause some issues with init ordering. As I recall the at91
+gpio and pinctrl drivers are sensitive to this. The default call to
+of_platform_populate doesn't work on those systems because the devices
+get created later than when their machine specific call happens. It
+may have been a case of a parent probe assuming a child probe
+completed after of_platform_populate returns (also a problem for Qcom
+with DWC3). There's a fix for at91 somewhere in the git history after
+I broke it. I started trying to untangle things with at91, but never
+finished that.
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
