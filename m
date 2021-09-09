@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8ECB5C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 86031C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:03:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F80261100
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:02:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2F80261100
+	by mail.kernel.org (Postfix) with ESMTPS id 43BC161100
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 11:03:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 43BC161100
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,55 +23,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t3DSvOc41YNH3jdT1d//u3/Bewd6LYrBU0/g/hyyKoo=; b=QPnfV6z633Uxbp
-	LUSB33D8/L6B5K4ER8mJPqwoZvdnPxLu5U2MO5+opmBNNmn6AKqaFAKl1DcH2ERcXLiE86bH0WBnF
-	lxlEgkJjjSdosFgXh9YxajyvU7va0qZtY0sPFxn8kxpaHcJGgm/f8Tw7Ukg2u8WMkYXQLccQFWPld
-	+o3VOU+JZaNK20sKLJVA21gy9KKwe1wg9Iv3frADSV5PSHAtItdoP/87kYlBFFDPZyZEjLh2m6q68
-	tQ/Qb1VrUFHHTL9mwmtCd3pAArFlwY+R1+fj8n9HsBrMHa9n35TC4ndB4SJuTem2MKYu9CZcDboOz
-	WyvZXZPTaz/ITkMpaf5g==;
+	List-Owner; bh=gphqRdinHCHlxJnseixx76T2Z9Ek4XT6ua8/vDPBhtU=; b=aCawZHXGiboYs3
+	nU+eJGs/rVFBz0//owfsKdZey7tThemfhcbViMhiHACxCFc6hr01IeVlz4L8eSCPBWVaE5yC5S2AA
+	WAPra9tepJFZBoI5hR52VYpgviD0T2IUypSFsc6/H6oHnemSDBalDoEv9mXdSe2ac8v2XqxqI9eMj
+	SDEmAn4VfiSdvbIqbaeA/JEpuS7G/hk/fda4GKxf4nIUB/h9XAhysGYa9xXKDAh5DCjLyjXWy6OlY
+	a9wqbbpyteLEphFbs6tPhn+gPkyICzSmiHGAk8FMdWxOdXBJxy6aC2yC+hNXFvy0nus7PB1sNG65U
+	sOxGdafxtPJ51/5VDvVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOHpG-008z32-2H; Thu, 09 Sep 2021 11:02:38 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1mOHpY-008z7V-Jl; Thu, 09 Sep 2021 11:02:56 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOHp3-008z0w-Ds
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 11:02:27 +0000
-Received: by mail-lj1-x231.google.com with SMTP id j12so2310834ljg.10
- for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 04:02:23 -0700 (PDT)
+ id 1mOHpL-008z3V-9G
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 11:02:44 +0000
+Received: by mail-lf1-x133.google.com with SMTP id e23so2891965lfj.9
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Sep 2021 04:02:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=HqMw/0l1kESubu2uMBYTCMZr+nbcPkWmEaa8w30Z3Ss=;
- b=xIwstDFqbjVnFK3QnzRTMN0EG2JKgfszQq2XLDgslizPmY4v6dP8UJZjjqlxKby6Mp
- 0KJgvLrdmrGWirG868pOOPdsvJJ3wvQn4HkuNGkCKL+5AK09jt8kwULq/1fFgbNj/zJh
- DgiUwA+I9ht71YaJwD+/egwug7iP8l3WAL3uG8+63AzTHLyqAsK0emCtbiYDpHZ5RD8o
- nXPP9ukAOMaLrge7iHJSN6pNxYP5rBChKHGsoNSvRzI8QMOaOhwGoS8IK0ywKlKMSqpt
- Krk1MSkR/EWsz7PKnjgqn+kK5tJouOKWILi/kPWt0Bj3Mh1o2vgfuhf0SU8aRz5NPaNQ
- j4AA==
+ :cc; bh=UuzBwp7ONK3SLRR0C5P0oUyDGhq5fqHDJWQ6GNaGd3o=;
+ b=QpAtOW4UBgMtIqy3cUYtD5ENY0dY0xtpdeLfO8WJ+FDAGBU5RRD4Je0JiMzQgNI+8B
+ BeRztIlXNCEHRjFLTg6RawqfpoxzoSPTLjgCRsz7j5qvrKvpOSpj8XfaBfwgwy+k5Lw/
+ ZVCSWZITvtuKC3aUXmNMyAylSxPAnL7ERdMsCSV1Lxnoh0A5nB7N3GwChvjlmekHudSD
+ 6oXhUXH111e8n8NVzijMeAoCPwvbibPvkfObKudCB/A7X2hy7RwdFeyWV7x3Z4Pf1lnv
+ rLXFTA56iyyaDS/p2iGqCJYYEFscyTO+n2SQHS6nTIJHhw1/j7lXpx10wLJFRr3EiHxI
+ uNHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=HqMw/0l1kESubu2uMBYTCMZr+nbcPkWmEaa8w30Z3Ss=;
- b=SkDGWAsFvPFTOe0TpjW3WNPNYqtEG3uekBLcUlrRAcH7FTzeE6yzCqqUFZwGyTgNfB
- BKN/jCOjuyoyq5QWYG5HwIZAameczW2nhQiOqRxWDuJkxXp68jjbEra3w/urvmlJMpOi
- 559z9hUpm8UqgmilWrxN99O5goxPGjsflivsCc4nZmpw34Nbr893FKJaKo3IjSj1WNau
- 3UVipw3hROQAkQo1aUSSiqs68g9UwTutnhe6BWY143XieFsq+wDmMYaiwq8yKyBi4y9H
- ia4Y+0o0L32yr4M9Mi5OdOy+7MX0rmqUZSXUJfLJA9FP8IDAWJJZkpu/ZsyW1cmOIt3t
- OwWQ==
-X-Gm-Message-State: AOAM5310Vq6Bf1Si9YwEdJhe334aX2IipeRad+7LLtarUBh4oTraMP7w
- aC/R+4STQPgSGj+qCYr81mA3lhA/W2GuduRfAYBzng==
-X-Google-Smtp-Source: ABdhPJxQvRGdQcwMRyPKe/v7I+JRraf0+2CwO4dEv14CGJ8gaECBtDJTpCm9aPScDx10Jp9Ce7uZo62Ly4MHBeb1p0s=
-X-Received: by 2002:a2e:b610:: with SMTP id r16mr1746946ljn.367.1631185342288; 
- Thu, 09 Sep 2021 04:02:22 -0700 (PDT)
+ bh=UuzBwp7ONK3SLRR0C5P0oUyDGhq5fqHDJWQ6GNaGd3o=;
+ b=ErQ7qdQBm9D+YHZn5OCo9FDnKbl/KJXOQ38cB11vdLJpdaguHd5Spek7tnuI8KBYyq
+ yzuXg+kFk3Tha1W9kV12NHIBtP4hH65Mr4eSwY+bBKCNTeCVcIKK0A5K23QI5hhJAzSP
+ uZpc1pHLPAPRZwI/UVUbhwCGikSMipznztEyuUTF2Z4VLaXfdRnafumzYNH35Dr0RmUi
+ ng+826+7VjhQYLX2ILjdaHGVnpkcUeTrmMKR1o7dlSHFShaGiVtv1WTWNqrn9gvcMQAo
+ TmvyFX0e6I3FtlI3RXPew99rzIH0nEvXAPbRYc6h8BDu/uo1RTvFKD6AYqn88GT+/eG8
+ j9jg==
+X-Gm-Message-State: AOAM533rW01LL9QEKaSThp4FWtoK1i5V1ajA8dmLG9Qg9dA+prDPZ50K
+ 62P28OyxyFmQSHR5aTFT3AijEnLra2KIpWloiIcTGw==
+X-Google-Smtp-Source: ABdhPJy3mWn7qeyq8n17edf1tHxklevbxaO65oTUlKfBimrKR4Ud4ggJ7NUbnrmXGkBcppaDG0lVyZ/HBNZcWkTSgsI=
+X-Received: by 2002:a05:6512:31c7:: with SMTP id
+ j7mr1825685lfe.373.1631185361009; 
+ Thu, 09 Sep 2021 04:02:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210904000543.2019010-1-saravanak@google.com>
- <20210904000543.2019010-2-saravanak@google.com>
-In-Reply-To: <20210904000543.2019010-2-saravanak@google.com>
+ <20210904000543.2019010-3-saravanak@google.com>
+In-Reply-To: <20210904000543.2019010-3-saravanak@google.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 9 Sep 2021 13:01:42 +0200
-Message-ID: <CAPDyKFqkvN=ZrfAnj4CqfjBu_Pj0YH9txnkP-1d=FhaEhbPrPA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
+Date: Thu, 9 Sep 2021 13:02:03 +0200
+Message-ID: <CAPDyKFo2rHww_UmbhjeyQ=SSYE0sQwSv0Nxy=iEaK55j7i9DXQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
 To: Saravana Kannan <saravanak@google.com>
 Cc: Russell King <linux@armlinux.org.uk>,
  Neil Armstrong <narmstrong@baylibre.com>, 
@@ -86,8 +86,8 @@ Cc: Russell King <linux@armlinux.org.uk>,
  linux-omap <linux-omap@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210909_040225_496972_1B189F89 
-X-CRM114-Status: GOOD (  28.34  )
+X-CRM114-CacheID: sfid-20210909_040243_355818_933845CF 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,92 +106,136 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Sat, 4 Sept 2021 at 02:05, Saravana Kannan <saravanak@google.com> wrote:
 >
-> fw_devlink could end up creating device links for bus only devices.
-> However, bus only devices don't get probed and can block probe() or
-> sync_state() [1] call backs of other devices. To avoid this, probe these
-> devices using the simple-pm-bus driver.
+> The simple-pm-bus driver is mandatory for CONFIG_OF based platforms to
+> work with fw_devlink. So, always compile it in for CONFIG_OF and delete
+> the config since it's no longer necessary.
 >
-> However, there are instances of devices that are not simple buses (they
-> get probed by their specific drivers) that also list the "simple-bus"
-> (or other bus only compatible strings) in their compatible property to
-> automatically populate their child devices. We still want these devices
-> to get probed by their specific drivers. So, we make sure this driver
-> only probes devices that are only buses.
->
-> [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
 > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> Tested-by: Saravana Kannan <saravanak@google.com>
 
 Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 
 Kind regards
 Uffe
 
-
 > ---
->  drivers/bus/simple-pm-bus.c | 32 +++++++++++++++++++++++++++++---
->  1 file changed, 29 insertions(+), 3 deletions(-)
+>  arch/arm/configs/multi_v7_defconfig |  1 -
+>  arch/arm/configs/oxnas_v6_defconfig |  1 -
+>  arch/arm/configs/shmobile_defconfig |  1 -
+>  arch/arm/mach-omap2/Kconfig         |  1 -
+>  arch/arm64/configs/defconfig        |  1 -
+>  drivers/bus/Kconfig                 | 12 ------------
+>  drivers/bus/Makefile                |  2 +-
+>  drivers/soc/canaan/Kconfig          |  1 -
+>  8 files changed, 1 insertion(+), 19 deletions(-)
 >
-> diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-> index 01a3d0cd08ed..3e086a9f34cb 100644
-> --- a/drivers/bus/simple-pm-bus.c
-> +++ b/drivers/bus/simple-pm-bus.c
-> @@ -13,11 +13,26 @@
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
+> diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+> index d9abaae118dd..362720ae8d65 100644
+> --- a/arch/arm/configs/multi_v7_defconfig
+> +++ b/arch/arm/configs/multi_v7_defconfig
+> @@ -196,7 +196,6 @@ CONFIG_PCI_EPF_TEST=m
+>  CONFIG_DEVTMPFS=y
+>  CONFIG_DEVTMPFS_MOUNT=y
+>  CONFIG_OMAP_OCP2SCP=y
+> -CONFIG_SIMPLE_PM_BUS=y
+>  CONFIG_MTD=y
+>  CONFIG_MTD_CMDLINE_PARTS=y
+>  CONFIG_MTD_BLOCK=y
+> diff --git a/arch/arm/configs/oxnas_v6_defconfig b/arch/arm/configs/oxnas_v6_defconfig
+> index cae0db6b4eaf..de37f7e90999 100644
+> --- a/arch/arm/configs/oxnas_v6_defconfig
+> +++ b/arch/arm/configs/oxnas_v6_defconfig
+> @@ -46,7 +46,6 @@ CONFIG_DEVTMPFS=y
+>  CONFIG_DEVTMPFS_MOUNT=y
+>  CONFIG_DMA_CMA=y
+>  CONFIG_CMA_SIZE_MBYTES=64
+> -CONFIG_SIMPLE_PM_BUS=y
+>  CONFIG_MTD=y
+>  CONFIG_MTD_CMDLINE_PARTS=y
+>  CONFIG_MTD_BLOCK=y
+> diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
+> index d9a27e4e0914..18d2a960b2d2 100644
+> --- a/arch/arm/configs/shmobile_defconfig
+> +++ b/arch/arm/configs/shmobile_defconfig
+> @@ -40,7 +40,6 @@ CONFIG_PCI_RCAR_GEN2=y
+>  CONFIG_PCIE_RCAR_HOST=y
+>  CONFIG_DEVTMPFS=y
+>  CONFIG_DEVTMPFS_MOUNT=y
+> -CONFIG_SIMPLE_PM_BUS=y
+>  CONFIG_MTD=y
+>  CONFIG_MTD_BLOCK=y
+>  CONFIG_MTD_CFI=y
+> diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
+> index 7df8f5276ddf..02f2f3157f07 100644
+> --- a/arch/arm/mach-omap2/Kconfig
+> +++ b/arch/arm/mach-omap2/Kconfig
+> @@ -112,7 +112,6 @@ config ARCH_OMAP2PLUS
+>         select PM_GENERIC_DOMAINS
+>         select PM_GENERIC_DOMAINS_OF
+>         select RESET_CONTROLLER
+> -       select SIMPLE_PM_BUS
+>         select SOC_BUS
+>         select TI_SYSC
+>         select OMAP_IRQCHIP
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index f423d08b9a71..474b1f2e3f06 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -245,7 +245,6 @@ CONFIG_DEVTMPFS_MOUNT=y
+>  CONFIG_FW_LOADER_USER_HELPER=y
+>  CONFIG_FW_LOADER_USER_HELPER_FALLBACK=y
+>  CONFIG_HISILICON_LPC=y
+> -CONFIG_SIMPLE_PM_BUS=y
+>  CONFIG_FSL_MC_BUS=y
+>  CONFIG_TEGRA_ACONNECT=m
+>  CONFIG_GNSS=m
+> diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
+> index e7f7eee6ee9a..dc3801369488 100644
+> --- a/drivers/bus/Kconfig
+> +++ b/drivers/bus/Kconfig
+> @@ -141,18 +141,6 @@ config QCOM_EBI2
+>           Interface 2, which can be used to connect things like NAND Flash,
+>           SRAM, ethernet adapters, FPGAs and LCD displays.
 >
+> -config SIMPLE_PM_BUS
+> -       tristate "Simple Power-Managed Bus Driver"
+> -       depends on OF && PM
+> -       help
+> -         Driver for transparent busses that don't need a real driver, but
+> -         where the bus controller is part of a PM domain, or under the control
+> -         of a functional clock, and thus relies on runtime PM for managing
+> -         this PM domain and/or clock.
+> -         An example of such a bus controller is the Renesas Bus State
+> -         Controller (BSC, sometimes called "LBSC within Bus Bridge", or
+> -         "External Bus Interface") as found on several Renesas ARM SoCs.
 > -
->  static int simple_pm_bus_probe(struct platform_device *pdev)
->  {
-> -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> -       struct device_node *np = pdev->dev.of_node;
-> +       const struct device *dev = &pdev->dev;
-> +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> +       struct device_node *np = dev->of_node;
-> +       const struct of_device_id *match;
-> +
-> +       match = of_match_device(dev->driver->of_match_table, dev);
-> +
-> +       /*
-> +        * These are transparent bus devices (not simple-pm-bus matches) that
-> +        * have their child nodes populated automatically.  So, don't need to
-> +        * do anything more.
-> +        */
-> +       if (match && match->data) {
-> +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> +                       return 0;
-> +               else
-> +                       return -ENODEV;
-> +       }
->
->         dev_dbg(&pdev->dev, "%s\n", __func__);
->
-> @@ -31,14 +46,25 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
->
->  static int simple_pm_bus_remove(struct platform_device *pdev)
->  {
-> +       const void *data = of_device_get_match_data(&pdev->dev);
-> +
-> +       if (data)
-> +               return 0;
-> +
->         dev_dbg(&pdev->dev, "%s\n", __func__);
->
->         pm_runtime_disable(&pdev->dev);
->         return 0;
->  }
->
-> +#define ONLY_BUS       ((void *) 1) /* Match if the device is only a bus. */
-> +
->  static const struct of_device_id simple_pm_bus_of_match[] = {
->         { .compatible = "simple-pm-bus", },
-> +       { .compatible = "simple-bus",   .data = ONLY_BUS },
-> +       { .compatible = "simple-mfd",   .data = ONLY_BUS },
-> +       { .compatible = "isa",          .data = ONLY_BUS },
-> +       { .compatible = "arm,amba-bus", .data = ONLY_BUS },
->         { /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, simple_pm_bus_of_match);
+>  config SUN50I_DE2_BUS
+>         bool "Allwinner A64 DE2 Bus Driver"
+>           default ARM64
+> diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
+> index 397e35392bff..86aacd36a56d 100644
+> --- a/drivers/bus/Makefile
+> +++ b/drivers/bus/Makefile
+> @@ -26,7 +26,7 @@ obj-$(CONFIG_OMAP_OCP2SCP)    += omap-ocp2scp.o
+>  obj-$(CONFIG_QCOM_EBI2)                += qcom-ebi2.o
+>  obj-$(CONFIG_SUN50I_DE2_BUS)   += sun50i-de2.o
+>  obj-$(CONFIG_SUNXI_RSB)                += sunxi-rsb.o
+> -obj-$(CONFIG_SIMPLE_PM_BUS)    += simple-pm-bus.o
+> +obj-$(CONFIG_OF)               += simple-pm-bus.o
+>  obj-$(CONFIG_TEGRA_ACONNECT)   += tegra-aconnect.o
+>  obj-$(CONFIG_TEGRA_GMI)                += tegra-gmi.o
+>  obj-$(CONFIG_TI_PWMSS)         += ti-pwmss.o
+> diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
+> index 8179b69518b4..853096b7e84c 100644
+> --- a/drivers/soc/canaan/Kconfig
+> +++ b/drivers/soc/canaan/Kconfig
+> @@ -5,7 +5,6 @@ config SOC_K210_SYSCTL
+>         depends on RISCV && SOC_CANAAN && OF
+>         default SOC_CANAAN
+>          select PM
+> -        select SIMPLE_PM_BUS
+>          select SYSCON
+>          select MFD_SYSCON
+>         help
 > --
 > 2.33.0.153.gba50c8fa24-goog
 >
