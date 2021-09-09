@@ -2,96 +2,77 @@ Return-Path: <SRS0=EjPk=N7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96636C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 00:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F0F3DC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 03:24:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5F83F61139
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 00:59:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5F83F61139
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 9BADE61131
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Sep 2021 03:24:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9BADE61131
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z84lCRh/A3wrMCtfA1GTg/cFcnySl1UtC1qmDEYFLEw=; b=TcPJ14mwLAfn2p
-	Y9QLZt2bMzVCTT25uG/RkwYilfsw5ShSwMNJuGXJv8kFr9to1NjnJVd+B+h6Jh9dUgukRKbTqI1JK
-	9sCG0tXrCKGlRWp6R3fHI8stszfEgTPP3t5mjbTLHsBsKtxbV43UdZxmFkWaVjOa+GYkSJ0bE3syS
-	3420Od0qMxzWVF64jYn5BarH0/TNDZxQzJQuzAFJc66OIi6JSrQ9nEVPhb97Z79lXjdH9bmNPAk/V
-	5UYwQwUVishKiDq9CQyjmAFFQ9K0GEv6cpPpPxl1R46MFI0ftTyANr2hzDALZc6jn5uywviuzfwCb
-	/+EEvNZSXec7QjN9X0bA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GNO/pdbRntZZZct5nilgwP6034t2Cd6ZpGIM+GQvN/I=; b=BoAhg6mZ5oQmuSADkOzc7YTcMd
+	UcIfo8ott5a9flQ7T3R6EoOsnZIGD4J0BQu58S0U6bHYEqkWPL2R2c+FwAFM8o79esG7NVOW35atu
+	HJ2WPU8LR1Y8n3lMOm6A5T2wxLP65mJMUtxYsLQbgTCIaHuzB9vLMq35n2NVGSeXlQmW7lN+hs6y/
+	+fqg1mWXTc7AWXhnFCThGpn3g/y94w5Wfq3G6JEbnH/Y/ctq/WnHdOKolnP3VKi60NyV6VzoL9cFI
+	YeZXwhpbczBQbmzny9y3BN95QT7H4y84rtsuhCNPBJzTfHPe9ffr8JtyiOGOJ/PXiCgcnJnqAfjDo
+	bY67txIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mO8OI-007shO-AG; Thu, 09 Sep 2021 00:58:10 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1mOAf5-0088k8-SZ; Thu, 09 Sep 2021 03:23:39 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mO8OE-007sgD-4G
- for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 00:58:08 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id a93so419153ybi.1
- for <linux-riscv@lists.infradead.org>; Wed, 08 Sep 2021 17:58:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yOjum71Cmq3jaSnwfyEXHMPN5UeWKD6I5Evqidwl7DE=;
- b=WtESSh9B/C2XhS+y/5pgV5ZpmpJ40Aw7RWYrR78rITZFaNl1d+MdmqPTnrz9PXnAWo
- 8qx+soMYvqgHBx3tOzmu3KYIKxBXx+jc2RAL6nbNdUyNYKAwflD3m5uUZIkueMkKIjVJ
- 9hDHy2IN9sUv7s0rhoDOBDdcarDMSASXHF8jHr/3nGIOa4B7ujrYUHbPyM+NQk2WpbKI
- lytPgCsG9OZizKHS41OySKcK+7WqTr1567zNoWqqnIKC+RkpkyCUi1r/upWJ6RuDcV0I
- 4Wommp1WxAPwfW590hcdiGh1jpEMBbOYFP+SzkxhRxc2LRd599I1CFc2kymUFE6+1LRH
- gULA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=yOjum71Cmq3jaSnwfyEXHMPN5UeWKD6I5Evqidwl7DE=;
- b=nYFy8qqpdoB6zHO8kg3y7vKY7e6skuqqnniBz+oKw+qnjnQfsv5FjNn+Q5P7B1ooOD
- X1+thiUsF+Mtw/7f0O/azBboL8v1dNRlLaGTJfY7EQCJpCqbK6rOHJOif/psN8Ryc4OF
- bQkw/2lqkXVI5hEO1LeLyhOIGMLBDDy8ggrXt0D4sy+v9AipzKak3lATg/YKt2/sIU6C
- +BWZz5bHDDxRKll5bX1UJWANFTrauE6pg5QFp56BhuL10VX3ZwRSFfXzdutAR8ga85Hx
- 4m2CPiI1B5tgyBGwnwtboFzCzeanxv3ER2/CBwAaOqq/tLH6LaIDKiimNdlloItxHmyG
- tJeA==
-X-Gm-Message-State: AOAM533tgTiwoqwTjOD/izhEZq9U5a7WFZFdgXQNWY1+lB167MtTcAWZ
- 6qQzNkjfPPBB6XPboJSlN+uVAwyB07PRiZnHjI2bew==
-X-Google-Smtp-Source: ABdhPJx6jMeZ1TPMxNnT0r8N0YE1O5XCrnypAETOvNniF5nykzWvLeL9V4Cs/QSsyKiyKuGwycwNXOjDNxsx3aj/850=
-X-Received: by 2002:a25:e0d4:: with SMTP id x203mr286478ybg.391.1631149084671; 
- Wed, 08 Sep 2021 17:58:04 -0700 (PDT)
+ id 1mOAf1-0088jj-W6
+ for linux-riscv@lists.infradead.org; Thu, 09 Sep 2021 03:23:38 +0000
+Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.54])
+ by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4H4kpt1lzlz8stp;
+ Thu,  9 Sep 2021 11:23:02 +0800 (CST)
+Received: from kwepemm600003.china.huawei.com (7.193.23.202) by
+ dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.8; Thu, 9 Sep 2021 11:23:32 +0800
+Received: from [10.174.179.79] (10.174.179.79) by
+ kwepemm600003.china.huawei.com (7.193.23.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.8; Thu, 9 Sep 2021 11:23:31 +0800
+Subject: Re: [PATCH v2 -next] riscv: mm: remove redundant trampoline PGD for
+ 64bit
+To: Alex Ghiti <alex@ghiti.fr>, Palmer Dabbelt <palmer@dabbelt.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, "Anup
+ Patel" <Anup.Patel@wdc.com>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
+ <wangkefeng.wang@huawei.com>, <tiantao6@hisilicon.com>,
+ <qiuwenbo@phytium.com.cn>, <rppt@kernel.org>, <jszhang@kernel.org>,
+ <mick@ics.forth.gr>
+References: <mhng-ea598bd7-cae0-4b60-83c5-b862a664116d@palmerdabbelt-glaptop>
+ <150d9366-c042-3119-d86f-163b579d91b4@huawei.com>
+ <13c4d471-dc3b-32d8-6535-36d3862592d4@ghiti.fr>
+From: Nanyong Sun <sunnanyong@huawei.com>
+Message-ID: <678f7a40-988a-ce60-0b7a-2a70fe28ecd1@huawei.com>
+Date: Thu, 9 Sep 2021 11:23:30 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-References: <20210904000543.2019010-1-saravanak@google.com>
- <20210904000543.2019010-2-saravanak@google.com>
- <CAMuHMdUhZy7W_HLtNJ2ECK5uQV5xHV7pDk5BXfNUpW9L68G5Aw@mail.gmail.com>
- <CAGETcx_7N3gtaT-YHGaGL+Qtkv=JOhgPcPF1A+kQ4aaDoetvSA@mail.gmail.com>
- <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 8 Sep 2021 17:57:28 -0700
-Message-ID: <CAGETcx_=8yX6ObaEJk8QNSaWQPdFHsw4R74JrDFKqOL0AN-gLw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-To: Rob Herring <robh+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Russell King <linux@armlinux.org.uk>, 
- Neil Armstrong <narmstrong@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>,
- Android Kernel Team <kernel-team@android.com>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Lee Jones <lee.jones@linaro.org>
+In-Reply-To: <13c4d471-dc3b-32d8-6535-36d3862592d4@ghiti.fr>
+X-Originating-IP: [10.174.179.79]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemm600003.china.huawei.com (7.193.23.202)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210908_175806_248648_BF6A4B7E 
-X-CRM114-Status: GOOD (  73.19  )
+X-CRM114-CacheID: sfid-20210908_202336_400020_9AAE3475 
+X-CRM114-Status: GOOD (  32.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,222 +84,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 8, 2021 at 5:16 PM Rob Herring <robh+dt@kernel.org> wrote:
->
-> On Tue, Sep 7, 2021 at 2:01 AM Saravana Kannan <saravanak@google.com> wrote:
-> >
-> > On Mon, Sep 6, 2021 at 12:54 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > >
-> > > Hi Saravana,
-> > >
-> > > Thanks for your patch!
-> > >
-> > > CC linux-pm, Lee (mfd)
-> > >
-> > > On Sat, Sep 4, 2021 at 2:05 AM Saravana Kannan <saravanak@google.com> wrote:
-> > > > fw_devlink could end up creating device links for bus only devices.
-> > > > However, bus only devices don't get probed and can block probe() or
-> > > > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > > > devices using the simple-pm-bus driver.
-> > > >
-> > > > However, there are instances of devices that are not simple buses (they
-> > > > get probed by their specific drivers) that also list the "simple-bus"
-> > > > (or other bus only compatible strings) in their compatible property to
-> > > > automatically populate their child devices. We still want these devices
-> > > > to get probed by their specific drivers. So, we make sure this driver
-> > > > only probes devices that are only buses.
-> > >
-> > > Note that this can also be the case for buses declaring compatibility
-> > > with "simple-pm-bus".  However, at the moment, none of such device
-> > > nodes in upstream DTS files have device-specific drivers.
-> >
-> > Not sure about mfd, but I want to make sure we don't confuse busses
-> > (which are typically added to a class) with these "simple bus" devices
-> > that are added to platform_bus. Also if these other buses are actually
-> > causing an issue, then then should implement their own stub driver or
-> > use try patch[2] if they are added to classes (devices on classes
-> > don't probe)
-> >
-> > [2] - https://lore.kernel.org/lkml/20210831224510.703253-1-saravanak@google.com/
-> >
-> > >
-> > > > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > > > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > > > Tested-by: Saravana Kannan <saravanak@google.com>
-> > >
-> > > > --- a/drivers/bus/simple-pm-bus.c
-> > > > +++ b/drivers/bus/simple-pm-bus.c
-> > > > @@ -13,11 +13,26 @@
-> > > >  #include <linux/platform_device.h>
-> > > >  #include <linux/pm_runtime.h>
-> > > >
-> > > > -
-> > > >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> > > >  {
-> > > > -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > > > -       struct device_node *np = pdev->dev.of_node;
-> > > > +       const struct device *dev = &pdev->dev;
-> > > > +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > > > +       struct device_node *np = dev->of_node;
-> > > > +       const struct of_device_id *match;
-> > > > +
-> > > > +       match = of_match_device(dev->driver->of_match_table, dev);
-> > > > +
-> > > > +       /*
-> > > > +        * These are transparent bus devices (not simple-pm-bus matches) that
-> > > > +        * have their child nodes populated automatically.  So, don't need to
-> > > > +        * do anything more.
-> > > > +        */
-> > > > +       if (match && match->data) {
-> > > > +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > >
-> > > Does this work as expected? Having multiple compatible values in a
-> > > device node does not guarantee there exist a separate driver for any
-> > > of the device-specific compatible values.
-> >
-> > Right, and if they are platform devices that are equivalent to
-> > simple-bus (meaning, they don't do anything in Linux and just have
-> > their devices populated) we can add those to this list too.
->
-> I think this needs to be a list of compatibles we have drivers for
-> instead.
-
-I don't think a "denylist" (devices we shouldn't probe with this
-driver) would be a short list. As of today, literally any device that
-has children could add a "simple-bus" to the compatible property and
-get its child devices populated for free. If we use a denylist, we'll
-have to update it every time someone adds "simple-bus" as a general
-match to a DT node (new or otherwise) that isn't in the denylist. The
-list would blow up and be a maintenance headache.
-
-Also, a denylist won't capture any DT that isn't part of the kernel
-repo but depends on "simple-bus" to populate the device's child nodes.
-Keep in mind this could be true even for completely upstream drivers
-today. And on top of that, this will also break for downstream drivers
-and platforms in the development stage.
-
-The allowlist is much smaller and manageable.
-
-> A more specific compatible that the OS doesn't understand
-> shouldn't cause a change in behavior and adding one would.
-
-I think the amount of specific compatible strings that'll be added,
-but won't have drivers added to Linux AND would want to boot with
-Linux is much less likely than the amount of times we'd have to update
-a denylist.
-
-Also, if we do hit the cases you mention and we want those devices to
-get probed anyway, with my current allowlist approach, we could use
-"driver_override" to force this driver to match them. If you use a
-denylist like you said, there's no way you can get the simple-pm-bus
-to unbind and let the more specific driver to bind.
-
-> I expect it to be a short list.
-
->
-> We are guaranteed that of_match_device() returns the best match in the
-> match list, so we really just need 1 list here with a boolean to bail
-> or not.
->
-> > > > +                       return 0;
-> > > > +               else
-> > > > +                       return -ENODEV;
-> > >
-> > > So if we get here, as both branches use "return", we skip the
-> > > pm_runtime_enable() and of_platform_populate() below:
-> > >   - of_platform_populate() is handled for these buses by
-> > >     of_platform_default_populate(), so that's OK,
-> > >   - I'm wondering if any of the simple-mfd sub-devices use Runtime
-> > >     PM, but currently fail to save power because pm_runtime_enable()
-> > >     is never called for the MFD container, just like with simple-bus...
-> >
-> > But this doesn't affect simple-mfd though.
-> >
-> > >
-> > > > +       }
-> > > >
-> > > >         dev_dbg(&pdev->dev, "%s\n", __func__);
-> > > >
-> > > > @@ -31,14 +46,25 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
-> > > >
-> > > >  static int simple_pm_bus_remove(struct platform_device *pdev)
-> > > >  {
-> > > > +       const void *data = of_device_get_match_data(&pdev->dev);
-> > > > +
-> > > > +       if (data)
-> > > > +               return 0;
-> > > > +
-> > > >         dev_dbg(&pdev->dev, "%s\n", __func__);
-> > > >
-> > > >         pm_runtime_disable(&pdev->dev);
-> > > >         return 0;
-> > > >  }
-> > > >
-> > > > +#define ONLY_BUS       ((void *) 1) /* Match if the device is only a bus. */
-> > > > +
-> > > >  static const struct of_device_id simple_pm_bus_of_match[] = {
-> > > >         { .compatible = "simple-pm-bus", },
-> > > > +       { .compatible = "simple-bus",   .data = ONLY_BUS },
-> > > > +       { .compatible = "simple-mfd",   .data = ONLY_BUS },
-> > > > +       { .compatible = "isa",          .data = ONLY_BUS },
-> > >
-> > > #ifdef CONFIG_ARM_AMBA ?
-> >
-> > Not needed? If CONFIG_ARM_AMBA isn't enabled, the device wouldn't be
-> > created in the first place.
-> >
-> > >
-> > > > +       { .compatible = "arm,amba-bus", .data = ONLY_BUS },
-> > > >         { /* sentinel */ }
-> > >
-> > > This is now (almost[*]) the same as of_default_bus_match_table[]
-> > > in drivers/of/platform.c. Perhaps it can be shared?
-> >
-> > I wanted this table to be expandable as needed. That's why I'm
-> > intentionally not using of_default_bus_match_table[].
-> >
-> > >
-> > > [*] Especially if "simple-pm-bus" and "simple-bus" would be treated
-> > >     the same.
-> >
-> > They are not treated the same way.
->
-> I think it would be better if they were. IOW, the core code stops
-> descending into simple-bus, etc. nodes and they are populated here.
-> Then we just get rid of of_default_bus_match_table.
-
-Right, I would if we could. But we can't simply stop descending the
-simple-bus nodes in the core code because all the specific drivers
-that used to have their child devices populated automatically would
-stop working and would need to be updated to populate their child
-devices. And I'm sure there are a ton more downstream kernels and
-downstream DTs (that use upstream kernels) that we would break.
-
-If you really want to do that go for it, but I'd rather not do all
-this as part of trying to fix the issue Ulf reported that needs
-simple-bus only devices probed.
-
-> That could cause some issues with init ordering. As I recall the at91
-> gpio and pinctrl drivers are sensitive to this. The default call to
-> of_platform_populate doesn't work on those systems because the devices
-> get created later than when their machine specific call happens. It
-> may have been a case of a parent probe assuming a child probe
-> completed after of_platform_populate returns (also a problem for Qcom
-> with DWC3). There's a fix for at91 somewhere in the git history after
-> I broke it. I started trying to untangle things with at91, but never
-> finished that.
-
-I think it'll cause a lot of issues if we stop descending simple-bus
-nodes in the core code. We're just scratching the surface here.
-
--Saravana
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjEvOS84IDE2OjU2LCBBbGV4IEdoaXRpIHdyb3RlOgo+IEhpIE5hbnlvbmcsCj4KPiBM
+ZSA4LzA5LzIwMjEgw6AgMDg6NDIsIE5hbnlvbmcgU3VuIGEgw6ljcml0wqA6Cj4+Cj4+IE9uIDIw
+MjEvOC8xNCA2OjA4LCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPj4+IE9uIE1vbiwgMDIgQXVnIDIw
+MjEgMDU6NDM6MDIgUERUICgtMDcwMCksIGFsZXhAZ2hpdGkuZnIgd3JvdGU6Cj4+Pj4gSGkgTmFu
+eW9uZywKPj4+Pgo+Pj4+IExlIDI4LzA3LzIwMjEgw6AgMTM6NTUsIEFsZXggR2hpdGkgYSDDqWNy
+aXTCoDoKPj4+Pj4KPj4+Pj4KPj4+Pj4gTGUgMjgvMDcvMjAyMSDDoCAwNDo0OSwgTmFueW9uZyBT
+dW4gYSDDqWNyaXTCoDoKPj4+Pj4+IFJlbW92ZSByZWR1bmRhbnQgdHJhbXBvbGluZSBQR0QgZm9y
+IDY0Yml0IGFuZCBhZGQgbW9yZSBjb21tZW50Cj4+Pj4+PiBmb3Igd2h5IDMyYml0IHN5c3RlbXMg
+bmVlZCB0cmFtcG9saW5lIFBHRC4KPj4+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4gK2xvYWRfa2VybmVsX3Bn
+ZDoKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCAvKgo+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqAgKiBT
+d2l0Y2ggdG8ga2VybmVsIHBhZ2UgdGFibGVzLsKgIEEgZnVsbCBmZW5jZSBpcyBuZWNlc3NhcnkK
+Pj4+Pj4+IGluIG9yZGVyIHRvCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoCAqIGF2b2lkIHVzaW5n
+IHRoZSB0cmFtcG9saW5lIHRyYW5zbGF0aW9ucywgd2hpY2ggYXJlIG9ubHkKPj4+Pj4+IGNvcnJl
+Y3QgZm9yCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoCAqIHRoZSBmaXJzdCBzdXBlcnBhZ2UuwqAg
+RmV0Y2hpbmcgdGhlIGZlbmNlIGlzIGd1YXJudGVlZCAKPj4+Pj4+IHRvIHdvcmsKPj4+Pj4+ICvC
+oMKgwqDCoMKgwqDCoMKgICogYmVjYXVzZSB0aGF0IGZpcnN0IHN1cGVycGFnZSBpcyB0cmFuc2xh
+dGVkIHRoZSBzYW1lIHdheS4KPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgICovCj4+Pj4+PiArwqDC
+oMKgwqDCoMKgwqAgY3NydyBDU1JfU0FUUCwgYTIKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoCBzZmVu
+Y2Uudm1hCj4+Pj4+PiArCj4+Pj4+PiArbG9hZF9kb25lOgo+Pj4+Pj4gwqDCoMKgwqDCoCAvKiBT
+ZXQgdHJhcCB2ZWN0b3IgdG8gc3BpbiBmb3JldmVyIHRvIGhlbHAgZGVidWcgKi8KPj4+Pj4+IMKg
+wqDCoMKgwqAgbGEgYTAsIC5Mc2Vjb25kYXJ5X3BhcmsKPj4+Pj4+IMKgwqDCoMKgwqAgY3NydyBD
+U1JfVFZFQywgYTAKPj4+Pgo+Pj4+Cj4+Pj4gSSBzdXBwb3NlIHN0dmVjIHdhcyBzZXQgdGhpcyB3
+YXkgdG8gY2F0Y2ggYW55IHByb2JsZW0gd2l0aCAKPj4+PiBlYXJseV9wZ19kaXIsCj4+Pj4geW91
+IG1vdmVkIHRoYXQgYW5kIHRoZW4gdGhpcyBkZWZlYXRzIHRoaXMgb3JpZ2luYWwgcHVycG9zZS4K
+Pj4+Cj4+IEhpIEFsZXgsCj4+Cj4+IMKgwqDCoMKgIEkgZG9uJ3QgdGhpbmsgc28sIGJlZm9yZSBz
+ZXQgZWFybHlfcGdfZGlyIHRvIHNhdHAsIGl0J3MgdGhlIAo+PiBwaHlzaWNhbCBhZGRyZXNzIHdv
+cmxkLCB3ZSBtdXN0IHNldCBzdHZlYyBhcwo+Pgo+PiB0aGUgZmlyc3QgcGxhY2UgaW4gdmlydHVh
+bCBhZGRyZXNzIHdvcmxkIHdlIHdhbnQganVtcCB0by4gQW5kIEkgZG9uJ3QgCj4+IHRoaW5rICIu
+THNlY29uZGFyeV9wYXJrICIgY2FuIGNhdGNoCj4+Cj4+IHByb2JsZW0gb2YgYmFkIGVhcmx5X3Bn
+X2RpciwgaWYgdGhlIGJhc2ljIHBhZ2UgdGFibGUgaXMgd3JvbmcsIENQVSAKPj4gYWxzbyBjYW4g
+bm90IGdvIHRvIHRoZSB2aXJ0dWFsIGFkZHJlc3Mgc3RvcmVkIGluIHN0dmVjIGNvcnJlY3RseS4K
+Pgo+IEJ1dCBJIHRoaW5rIHRoZW4gdGhhdCBpdCBsb29wcyBmb3JldmVyIGF0IHRoZSBzdHZlYyBh
+ZGRyZXNzIHdoaWNoIAo+IGFsbG93cyB0byBrbm93IHdoZXJlIHRoZSBib290IGZhaWxlZC4KCklm
+IHNhdHAgaGFkIGEgcHJvYmxlbSwgdGhlbiBjcHUgY2FuIG5vdCBmZXRjaCBpbnN0cnVjdGlvbiB3
+aGVyZSBzdHZlYyAKcG9pbnRpbmcgdG8sIGFzIHdoYXQgcGFsbWVyIHNhaWQ6IGlmIHlvdSBlbmQg
+dXAgaW4gYSBwb3NpdGlvbiB3aGVyZSB0aGUgCnByb2Nlc3NlciBpcyB1bmFibGUgdG8gY29tbWl0
+IGFuIGluc3RydWN0aW9uIHlvdSBhbHNvCgpsb3NlIHRoZSBhYmlsaXR5IHRvIGRvIGFueXRoaW5n
+IG1lYW5pbmdmdWwgd2l0aCB0aGUgZGVidWdnZXIsIHRodXMgCmVzc2VudGlhbGx5IGxvY2tpbmcg
+dXAgdGhlIHN5c3RlbS4KCj4KPj4KPj4gTW9yZSwgaW4gdGhlIG9yaWdpbmFsIGNvZGUsIGJlZm9y
+ZSBzZXQgdHJhbXBvbGluZV9wZ19kaXIsIHdoYXQgaWYgdGhlIAo+PiB0cmFtcG9saW5lX3BnX2Rp
+ciBoYWQgYSBwcm9ibGVtPwo+Cj4gWW91J3JlIHJpZ2h0IGJ1dCB0aGlzIGRlYnVnICdmZWF0dXJl
+JyB3YXMgbm90IGluc3RhbGxlZCwgSSBndWVzcyAKPiBzb21lYm9keSBoYWQgYSBoYXJkIHRpbWUg
+YXQgc29tZSBwb2ludCB3aXRoIHRoZSBlYXJseSBwYWdlIHRhYmxlIGFuZCAKPiBub3QgdGhlIHRy
+YW1wb2xpbmUgOikKPgo+IEFueXdheSwgSSB3YXMganVzdCBwb2ludGluZyB0aGF0IHlvdSAnYnJv
+a2UnIHRoZSBjdXJyZW50IHdheSB0aGluZ3MgCj4gd29yayBhbmQgdW5sZXNzIHRoaXMgaXMgZm9y
+IGFuIGV4cGxpY2l0IGdvb2QgcmVhc29uLCB0aGF0IHNob3VsZCBub3QgCj4gaGFwcGVuLgo+ClRo
+ZSBkZXNpZ24gbG9naWMgaXM6IGF0IHRoZSBmaXJzdCB0aW1lIGNwdSBjb252ZXJ0IHRvIHZpcnR1
+YWwgYWRkcmVzcyAKd29ybGQgZnJvbSBwaHlzaWNhbCB3b3JsZCwgYWN0dWFsbHkgc3R2ZWMgaXMg
+YSByZWFsICJ0cmFtcG9saW5lIizCoCBpdCAKY2FuIG5vdCBiZSBzZXQKCmFzIGEgcG9pbnRlciB0
+byBzcGluIHRyYXAsIGl0IHNob3VsZCBiZSBzZXQgdG8gdGhlIGZpcnN0IHBsYWNlIGluIAp2aXJ0
+dWFsIHdvcmxkIHdoZXJlIHdlIHdhbm5hIGdvLiBBZnRlciB0aGF0LCB0aGVuIHdlIHNldCBzdHZl
+YyBhcyBhIHNwaW4gCnRyYXAgdG8gY2F0Y2gKCmFueSBwcm9ibGVtIGluIGxhdGVyIHJ1bm5pbmcu
+CgpTbywgZm9yIDY0Yml0IHN5c3RlbSwgaWYgd2Ugd2FudCB0byBkZWxldGXCoCB0cmFtcG9saW5l
+X3BnX2RpciwgdGhlIApkZXNpZ24gcHJpbmNpcGxlIGlzIG5vdCBicm9rZW4gaGVyZS4gRm9yIDMy
+Yml0IHN5c3RlbSwgSSByZWFsbHkgbmVlZCAKY2hhbmdlIGJhY2suCgo+Pgo+Pj4gRXNzZW50aWFs
+bHkuCj4+Pgo+Pj4gVGhlIHNwZWNpZmljIGlzc3VlIGlzIHRoYXQgdGhlIEpUQUcgZGVidWcgc3Bl
+YyBpcyBkZWZpbmVkIChvciBhdCAKPj4+IGxlYXN0IHdhcyB3aGVuIEkgd2FzIHVzaW5nIGl0LCBp
+dCdzIGJlZW4geWVhcnMgc2luY2UgSSd2ZSBuZWVkZWQgdG8gCj4+PiBkbyB0aGF0KSBpbiB0ZXJt
+cyBvZiBjb21taXR0ZWQgaW5zdHJ1Y3Rpb25zLsKgIFRodXMgaWYgeW91IGVuZCB1cCBpbiAKPj4+
+IGEgcG9zaXRpb24gd2hlcmUgdGhlIHByb2Nlc3NlciBpcyB1bmFibGUgdG8gY29tbWl0IGFuIGlu
+c3RydWN0aW9uIAo+Pj4geW91IGFsc28gbG9zZSB0aGUgYWJpbGl0eSB0byBkbyBhbnl0aGluZyBt
+ZWFuaW5nZnVsIHdpdGggdGhlIAo+Pj4gZGVidWdnZXIsIHRodXMgZXNzZW50aWFsbHkgbG9ja2lu
+ZyB1cCB0aGUgc3lzdGVtLgo+Pj4KPj4+IFRoZSBtb3N0IGNvbW1vbiB3YXkgdG8gZW5kIHVwIGlu
+IGEgc2l0dWF0aW9uIHdoZXJlIHRoZSBwcm9jZXNzb3IgaXMgCj4+PiB1bmFibGUgdG8gY29tbWl0
+IGFuIGluc3RydWN0aW9uIGlzIHRvIGhhdmUgYSBmYXVsdCB3aXRoIGFuIGludmFsaWQgCj4+PiB0
+cmFwIHZlY3RvcjogbWF5YmUgZGFuZ2xpbmcgZnJvbSBNLW1vZGUsIHRoZSBsYXN0IGJvb3QsIHJl
+c2V0LCAKPj4+IHdoYXRldmVyLsKgIFRoZW4gYXMgc29vbiBhcyB5b3UgdGFrZSBhIHRyYXAgdGhl
+IHN5c3RlbSBsb2NrcyB1cC7CoCBBbnkgCj4+PiB0cmFwIGJlZm9yZSB3ZSBoYXZlIGEgd29ya2lu
+ZyB0cmFwIGhhbmRsZXIgaXMgYSBidWcsIGJ1dCBpdCdzIHdheSAKPj4+IGhhcmRlciB0byBkZWJ1
+ZyB0aGluZ3Mgd2hlbiB0aGUgZGVidWdnZXIgZG9lc24ndCBmdW5jdGlvbi4KPj4+Cj4+PiBUaGVy
+ZSBpcyBvZiBjb3Vyc2Ugbm8gd2F5IHRvIGZ1bmRhbWVudGFsbHkgcHJldmVudCB0aGVzZSBzb3J0
+IG9mIAo+Pj4gbm8tY29tbWl0YWJsZS1pbnN0cnVjdGlvbiBzaXR1YXRpb25zLCBidXQgSSBnb3Qg
+aW50byB0aGUgaGFiYml0IG9mIAo+Pj4ganVzdCBzZXR0aW5nIHVwIGEgdHJpdmlhbCB0cmFwIGVu
+dHJ5IHBvaW50IEFTQVAgLS0gaXQgcHJvYmFibHkgdG9vayAKPj4+IGEgZG96ZW4gcm91bmRzIG9m
+IHRyeWluZyB0byBkZWJ1ZyB0aGUgZGVidWdnZXIgb25seSB0byByZWFsaXplIGl0IAo+Pj4gd2Fz
+IHBlciBzcGVjIHRvIGhhbmcsIGJ1dCB0aGF0IGlkaW9tIGV2ZW50dWFsbHkgY3JlcHQgaW50byBw
+cmV0dHkgCj4+PiBtdWNoIGV2ZXJ5dGhpbmcuCj4+Pgo+Pj4gTm90IHN1cmUgaWYgdGhlIGRlYnVn
+IHNwZWMgaXMgc3RpbGwgd3JpdHRlbiB0aGlzIHdheSAob3IgaWYgCj4+PiBkZWJ1Z2dlcnMgcmVz
+cGVjdCBpdCksIGFzIEkgaGF2ZW4ndCBoYWQgdG8gdXNlIG9uZSBpbiBhIHdoaWxlLgo+Pj4KPj4+
+Pgo+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jIGIv
+YXJjaC9yaXNjdi9tbS9pbml0LmMKPj4+Pj4+IGluZGV4IGFjNDg3NDJmYTZmYy4uMzA2ZmNiMjMz
+NGZhIDEwMDY0NAo+Pj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9pbml0LmMKPj4+Pj4+ICsrKyBi
+L2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+Pj4+PiBAQCAtMjE5LDEzICsyMTksMTcgQEAgdW5zaWdu
+ZWQgbG9uZyBwZm5fYmFzZSBfX3JvX2FmdGVyX2luaXQ7Cj4+Pj4+PiDCoCBFWFBPUlRfU1lNQk9M
+KHBmbl9iYXNlKTsKPj4+Pj4+IMKgIHBnZF90IHN3YXBwZXJfcGdfZGlyW1BUUlNfUEVSX1BHRF0g
+X19wYWdlX2FsaWduZWRfYnNzOwo+Pj4+Pj4gKyNpZm5kZWYgQ09ORklHXzY0QklUCj4+Pj4+PiDC
+oCBwZ2RfdCB0cmFtcG9saW5lX3BnX2RpcltQVFJTX1BFUl9QR0RdIF9fcGFnZV9hbGlnbmVkX2Jz
+czsKPj4+Pj4+ICsjZW5kaWYgLyogQ09ORklHXzY0QklUICovCj4+Pj4KPj4+Pgo+Pj4+IEFzIHN0
+YXRlZCBpbiBEb2N1bWVudGF0aW9uL3Byb2Nlc3MvY29kaW5nLXN0eWxlLnJzdCwgaXQgaXMgYmV0
+dGVyIAo+Pj4+IHRvIHVzZQo+Pj4+IF9fbWF5YmVfdW51c2VkIHJhdGhlciB0aGFuICNpZmRlZnMu
+Cj4+Pj4KPj4+Pgo+PiBJJ20gYWZyYWlkIHRoYXQgX19tYXliZV91bnVzZWQgY2FuIG5vdCBzYXZl
+IG9uZSBwYWdlIG1lbW9yeSBoZXJlLgo+Cj4gV2hhdCBkbyB5b3UgbWVhbj8KPgpJIG1lYW4gdHJh
+bXBvbGluZV9wZ19kaXIgY29zdCA0MDk2IGJ5dGVzIGhlcmUgYW5kIF9fbWF5YmVfdW51c2VkIG9u
+bHkgCnRlbGwgY29tcGlsZXIgZG9uJ3QgcmFpc2UgYSB3YXJuaW5nLCBidXQgaXQgc3RpbGwgY29z
+dCBtZW1vcnkuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
