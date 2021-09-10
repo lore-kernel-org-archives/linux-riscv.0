@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4C5CC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76A9BC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D0EF610C7
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6D0EF610C7
+	by mail.kernel.org (Postfix) with ESMTPS id 46774610C7
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 46774610C7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,51 +23,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fvoaVW3OEWzlRKchjRu4F97s21yh7UhVdHfX5ZyeK4Q=; b=lEiihgpBC7kCpi
-	tfqycfcW2ebLYleNUnZsZsuyZWUOldhfn3AuMg4zpEjEqKtFUdM6fCkPp8KA9Ffi2RlFvQdyl4SSb
-	EywAPSRQFhEzhqjm9leNAjw8857/P2nfRrgt5khY0pCRYjcBwGT6dIIB1/GlkFlG2rRakjgYqwzBG
-	z8RNIwORC2ZX0b8y+DDsn/zTBoSW6kzapLGA+bDu9z2kdWX72ueAi+eanBzd1LDJZXVxSQBbRl51N
-	AypoU1iunIcRNPmxPz77K51mlRkgQC3x92Mt7fnwztP/DPbGbZge4MZGzDlMyDtyEf2FWHxVi1kPo
-	7uog4rTNjuSX8YAX+nKg==;
+	List-Owner; bh=wjfpE1x0osveSTpJ31jaWvIVKIFd4vYJy5lrUV9C5mg=; b=ADLe5qXTjhsAQO
+	rGmpZTPoontws/N2xWs50sa/TwCvwYWAGkMmVboXNDKY+x3YcZCzkpV6MO1+r4sXCOrdBM5LyNznc
+	fbMUNpDu/GXQN6zztN/+XrZusRwhZi1y90hy8Kje9VMkPT+0XQtt67OWCr652pmHJmgp0VsqDIxva
+	u9sYnA8W5c457gTXGYAELckeyT3bnHS3Db2OLL0BIPCNO0AMcn+2WE/5kftwmG5VlgaCIxQfHX6nL
+	ppmclpg29Qj28drGN0tdAEtbJcPMIMz2tZZFRlTC5Fpw/JcY6YPL+OXQwke6HbgkZjz2WRiXKaHCC
+	tDRhVxAvZ65ZddZ+tj0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOmCK-00DZkR-Qo; Fri, 10 Sep 2021 19:28:28 +0000
+	id 1mOmCb-00DZuh-H1; Fri, 10 Sep 2021 19:28:45 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOmCE-00DZgi-Ed
- for linux-riscv@lists.infradead.org; Fri, 10 Sep 2021 19:28:24 +0000
+ id 1mOmCK-00DZgi-Q4
+ for linux-riscv@lists.infradead.org; Fri, 10 Sep 2021 19:28:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1631302102; x=1662838102;
+ t=1631302108; x=1662838108;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=GO7omq3rVi+V+CzKbzcTcJGYp29gXK/DeiBhKM0seGs=;
- b=RylaaiGZGeDTSCyFGH6/gnluqsw1ElHiUElogWL6V60OIJC8MoKinfbQ
- ACbP+2Xi6HVvprbwhuR2CFhf/1CRsUb6wd172/MB0aIoGGCovwiLs+MzF
- ixkJ8O8y4oElgUwhD0shO+zq/+KAkSnUt/o3zAy0EjSX2srqMcwycjXuX
- BJi/x4q2feZmJDsggN7pIgGUQmsKeV0xQkTtQHInMyFlRZqK3/STkmT4S
- DVUhujxHiDaYL0Uu6d3l38XEcblbxH9m+yZUPM+FVk2FGwmeFtfF0eLwM
- qygwIavp7PD/9VXwVa05eOTZCAOdatXKd5f46q4UYNo3eHodMGvOoJH0A w==;
-X-IronPort-AV: E=Sophos;i="5.85,283,1624291200"; d="scan'208";a="283504157"
+ bh=DAp64paU3TCuJOhu7apCE+cFKSV+lH5b3Cp62qoHD/M=;
+ b=KEwQwF8EK+/ArYtdX69P9ZBTMiV99It5ToIt4wwYqaLR5d+GUPTN/R7d
+ hev1B0WrfBPGMHdvL43GTXboOboSPsmtDZu7c/Zo8jplQmQxk89akLTfu
+ dCBmxnJG6SJKbqBN9A/XqyGNOfQ+N5VZTTV3Kh1EVtHxyt2IFcP9/vKB9
+ 9v8n6vXw1K7/dr7I2lrYU1AF7Rus4BISl2XMjuxNBlP8gcoJUL/ZmvezS
+ 5fkkfrwxC7iADeVHTX0kwT3WhNtYZOVoWbYgxeGr7fVYwtckKdYosb0Cn
+ nTFwdD3Cfuj0ysoqx+ZF/D5kPZCuqnp/XvWrn1LYxjfma7EZ+AEAhz2qR g==;
+X-IronPort-AV: E=Sophos;i="5.85,283,1624291200"; d="scan'208";a="283504204"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 11 Sep 2021 03:28:20 +0800
-IronPort-SDR: 0J55W/Ky0maZJZuYZOUKhuxPyVqL0eQrEcnkRSAIOZ6GMwnWt/UM8NlDAO7V8doUz8t8RK3dru
- Mhof4gq3Lw0DnGEg0kjd2DwsTn7Uodwsn8op69Fnmp3p73FaXLZmiShKY24SFWqdyIeMAeAY2C
- PybufhS1WvdLS/sj7dJkkzui245X56xnbrun1Xu1zxm+k4l9t+GfNBEoa8AVPu8rJDSb59h9kb
- j8sHOWngbJlWvXKYS1T5fnlAMrVfxDWzbHmGcORoHSDyCpxtHFYaD+nsz2jYoyVMmjxvcJ8WkU
- WkGzyt/Mw3LOkeSH3Ug/4ggu
+ by ob1.hgst.iphmx.com with ESMTP; 11 Sep 2021 03:28:25 +0800
+IronPort-SDR: TN89cIkSxs44CQ+iAUx5w+JlE4kb1Npq6noLnzIrB8yfD4yL8MWRTIOE4TO5y1SFYbiczNmq+g
+ dgc1CBTlg90h10/x/0NAasjip97XBO8tsTve7cN5vzOLaY3R3a59o2dI3TZbyDzWiK6rCDGxMs
+ PdgpHgQ+3QI1cHyufwNzfPGMFAknp2tRQAKmAv7UlVZTcmO5trMaztjnq0KicfBaTgR8UjS6Io
+ Po5N1uLsMQIvg1WxnMX60957BReuvEhiaeC948csfG10hptAkUyNi/a26J2VFQOJmjTY0/scip
+ 0n8wPgWsA2AyRU3dbC+P8T8Y
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 10 Sep 2021 12:04:49 -0700
-IronPort-SDR: Pi5w3WBSwQLpYocu6+1OCZR4qfNgdu33q8ZyZCDQmT6KaBuyr7NQd/pmCPqgFxHF0ggFXPqWPI
- 1XWIXvtzgstTo2WYEzTBzJpELtB42UivH9fcusm3D0USH7yscN3XlCc2rnBVqP0FoMGubfyqb7
- NJD3uXeaWgrNKAIMsruMovMkq6SlZHHqVlmBm8FnN2REzSbOrdR4j7i1qtboo2oIOhkBazpQvb
- iL/OeYzGN+A/Lu/u6pzCtgREIkRcMYFlcmUZPeiwXAFwfqlTvJ91wtitQSNerq5/88AZHzSBGe
- Yqc=
+ 10 Sep 2021 12:04:55 -0700
+IronPort-SDR: Gp6nfrIAxPnXUZWBQE8ZGO4hoQRY+xfQh7dd87UsREg+elLIcD6Iov/il9cDNn8EnJdndekvqB
+ DEbII0uc7YtTV9d5KSVzCDrl8GyjA0NUplaCtybKXKPAfhubO174mcFEqvbk3ckLiuiUMmTuFe
+ 6GHn2iLGIAGriS3Zr6eGFL78P9oBvENYSoYbgCCCjXNSOl8Mww+xu/8VM2sI9cx33N4+gzjZSg
+ /GwXXH4i1FcSgdYrpWhqg4xN3mkce+RY7Hb8pQUUTn7KHiQKztMOly/ITcwOEmLLWObpRmrjSx
+ 52g=
 WDCIronportException: Internal
 Received: from unknown (HELO hulk.wdc.com) ([10.225.167.73])
- by uls-op-cesaip01.wdc.com with ESMTP; 10 Sep 2021 12:28:20 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 10 Sep 2021 12:28:25 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atish.patra@wdc.com>,
@@ -82,16 +82,16 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Vincent Chen <vincent.chen@sifive.com>
-Subject: [v3 02/10] RISC-V: Add CSR encodings for all HPMCOUNTERS
-Date: Fri, 10 Sep 2021 12:27:49 -0700
-Message-Id: <20210910192757.2309100-3-atish.patra@wdc.com>
+Subject: [v3 10/10] MAINTAINERS: Add entry for RISC-V PMU drivers
+Date: Fri, 10 Sep 2021 12:27:57 -0700
+Message-Id: <20210910192757.2309100-11-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20210910192757.2309100-1-atish.patra@wdc.com>
 References: <20210910192757.2309100-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210910_122822_595724_639394F6 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20210910_122828_956593_74F6BDBF 
+X-CRM114-Status: UNSURE (   9.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,83 +109,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add myself and Anup as maintainer for RISC-V PMU drivers.
+
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/csr.h | 58 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ MAINTAINERS | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 87ac65696871..e4d369830af4 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -89,9 +89,67 @@
- #define CSR_CYCLE		0xc00
- #define CSR_TIME		0xc01
- #define CSR_INSTRET		0xc02
-+#define CSR_HPMCOUNTER3		0xc03
-+#define CSR_HPMCOUNTER4		0xc04
-+#define CSR_HPMCOUNTER5		0xc05
-+#define CSR_HPMCOUNTER6		0xc06
-+#define CSR_HPMCOUNTER7		0xc07
-+#define CSR_HPMCOUNTER8		0xc08
-+#define CSR_HPMCOUNTER9		0xc09
-+#define CSR_HPMCOUNTER10	0xc0a
-+#define CSR_HPMCOUNTER11	0xc0b
-+#define CSR_HPMCOUNTER12	0xc0c
-+#define CSR_HPMCOUNTER13	0xc0d
-+#define CSR_HPMCOUNTER14	0xc0e
-+#define CSR_HPMCOUNTER15	0xc0f
-+#define CSR_HPMCOUNTER16	0xc10
-+#define CSR_HPMCOUNTER17	0xc11
-+#define CSR_HPMCOUNTER18	0xc12
-+#define CSR_HPMCOUNTER19	0xc13
-+#define CSR_HPMCOUNTER20	0xc14
-+#define CSR_HPMCOUNTER21	0xc15
-+#define CSR_HPMCOUNTER22	0xc16
-+#define CSR_HPMCOUNTER23	0xc17
-+#define CSR_HPMCOUNTER24	0xc18
-+#define CSR_HPMCOUNTER25	0xc19
-+#define CSR_HPMCOUNTER26	0xc1a
-+#define CSR_HPMCOUNTER27	0xc1b
-+#define CSR_HPMCOUNTER28	0xc1c
-+#define CSR_HPMCOUNTER29	0xc1d
-+#define CSR_HPMCOUNTER30	0xc1e
-+#define CSR_HPMCOUNTER31	0xc1f
- #define CSR_CYCLEH		0xc80
- #define CSR_TIMEH		0xc81
- #define CSR_INSTRETH		0xc82
-+#define CSR_HPMCOUNTER3H	0xc83
-+#define CSR_HPMCOUNTER4H	0xc84
-+#define CSR_HPMCOUNTER5H	0xc85
-+#define CSR_HPMCOUNTER6H	0xc86
-+#define CSR_HPMCOUNTER7H	0xc87
-+#define CSR_HPMCOUNTER8H	0xc88
-+#define CSR_HPMCOUNTER9H	0xc89
-+#define CSR_HPMCOUNTER10H	0xc8a
-+#define CSR_HPMCOUNTER11H	0xc8b
-+#define CSR_HPMCOUNTER12H	0xc8c
-+#define CSR_HPMCOUNTER13H	0xc8d
-+#define CSR_HPMCOUNTER14H	0xc8e
-+#define CSR_HPMCOUNTER15H	0xc8f
-+#define CSR_HPMCOUNTER16H	0xc90
-+#define CSR_HPMCOUNTER17H	0xc91
-+#define CSR_HPMCOUNTER18H	0xc92
-+#define CSR_HPMCOUNTER19H	0xc93
-+#define CSR_HPMCOUNTER20H	0xc94
-+#define CSR_HPMCOUNTER21H	0xc95
-+#define CSR_HPMCOUNTER22H	0xc96
-+#define CSR_HPMCOUNTER23H	0xc97
-+#define CSR_HPMCOUNTER24H	0xc98
-+#define CSR_HPMCOUNTER25H	0xc99
-+#define CSR_HPMCOUNTER26H	0xc9a
-+#define CSR_HPMCOUNTER27H	0xc9b
-+#define CSR_HPMCOUNTER28H	0xc9c
-+#define CSR_HPMCOUNTER29H	0xc9d
-+#define CSR_HPMCOUNTER30H	0xc9e
-+#define CSR_HPMCOUNTER31H	0xc9f
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9af529acb6a6..6a184a4162b8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16056,6 +16056,16 @@ S:	Maintained
+ F:	drivers/mtd/nand/raw/r852.c
+ F:	drivers/mtd/nand/raw/r852.h
  
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
++RISC-V PMU DRIVERS
++M:	Atish Patra <atish.patra@wdc.com>
++M:	Anup Patel <anup.patel@wdc.com>
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++F:	Documentation/devicetree/bindings/pmu/riscv,pmu.yaml
++F:	drivers/perf/riscv_pmu.c
++F:	drivers/perf/riscv_pmu_legacy.c
++F:	drivers/perf/riscv_pmu_sbi.c
++
+ RISC-V ARCHITECTURE
+ M:	Paul Walmsley <paul.walmsley@sifive.com>
+ M:	Palmer Dabbelt <palmer@dabbelt.com>
 -- 
 2.31.1
 
