@@ -2,91 +2,96 @@ Return-Path: <SRS0=Q8j1=OA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CBA26C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 15:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2D21C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7C35F60FDC
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 15:22:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7C35F60FDC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 766C8610C7
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 766C8610C7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RUsz6kW+l0xD/oPhbQgQaq38qV3tUNeOiqhOq447bBE=; b=LdHkN6eygy8uxB
-	6ELCuT4tcW2c4qWhaHEyWUWqfWLuEv+gzPA83PxQboLtv0NDCnCrt+qQjEzTf8Axki/YU+aZqYCWq
-	mdIKjd//5qtrs5p3jwjx6ijjW2PrzqWE3MgRuDPIzv3MHTW36jvwFVT8JofbP0v2etqPrfx41lCY/
-	hfhbEMyOVzx3PB5eTNPI96s6amnqOwnpKgkIIU/XoUN0fMic0yH2bzZdsxpVCQ51s0WQbx91VmmOU
-	8eDwtBOhgrHAv0PsZL9dwIE8zI64CCYw/XRXXaJdTS3eWdwPn2O76DfusPAoVboCr2lSOCn0aG5mp
-	fgB74+/TlBb8PxPz6hOQ==;
+	List-Owner; bh=HNUCu8ks2s7jSEV0HH8np3La0AmZC3FvejXdMt5N75I=; b=EWsSuwKYNTGyY7
+	6uZMEM8sGXz5nKq3kFWw4dE7UUV95gQdJVsqKRZ032KLJlEKmCREoP17VMNuaJjyuex2vPfSfYCW2
+	Wpgj4v5i/ndefRDE3tNV4yFoHeM1oGEqtTitzcLPNACxFrFV0O4MX6QKUAVtcjvAd8cm+fxPHjn7q
+	xzQFt6zVNU5fioFUfzqEIqYAa8Tk+74J1Eb9a+zdQCDhN+pnXgpQxtqKO433+4ELvHbMEHJCbZ0y0
+	ZVN6tNg4GzOMJIwi48/+bKjVZeUxcNQArDndvwTjROGjlTatDNoTC84vUHvlNE0N6h2+/iBjHEJaA
+	/ALwC8t9/NV8p7k55zQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOiLm-00D1Nr-Ff; Fri, 10 Sep 2021 15:21:58 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mOmCI-00DZiq-9p; Fri, 10 Sep 2021 19:28:26 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOiLZ-00D1JS-4B; Fri, 10 Sep 2021 15:21:47 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5E25560FDC;
- Fri, 10 Sep 2021 15:21:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631287304;
- bh=CbNz1rzoSFm00uQJz/u72u5SivwGBBDRz0qJI5QdDaM=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=V7ciEkK9mEnakSWJE3N4krO7k2vrOpmry0w+wvzAy1bZ3XMguq963vYcZcHMhbkcQ
- x7ANNcSEtGtiXr1Xj+7aiwv1E27gfX0Z50UmidA3ONuzViyH1yN4OIKthsWYkWJBLe
- hAq+Ab6ceICFi9lREoka6lp0jC8aSZViVWGgIfA05TrqgZRGbDikqgvebCxAdlNYne
- 38Hjduxvm/TEItUQUw1UNSqQjV6n+HRuJCBtwfXtpkBgWu+yuGEcmGbA/SCkbkut7w
- GJ/nZIG9xCuKxK+ZJZ5ZWvX2PhffOEa/9LD+XZiYRiv1pGFhslWj/6cmI4P6C7bPWp
- 3///swqr7VHCw==
-Received: by mail-ed1-f54.google.com with SMTP id s25so3036825edw.0;
- Fri, 10 Sep 2021 08:21:44 -0700 (PDT)
-X-Gm-Message-State: AOAM531of2m6y8YA9RmK0OJ9QocqEGm28P4l0Gs7V1mL89rzoChhOxJH
- x2cCUIYyjW0TnvtbpS4NaGNbg/hTFMk3eATVaQ==
-X-Google-Smtp-Source: ABdhPJwFDT05YgegDxpw6X9YVt8fY+sNUwfG3GBBSmEfh/3dD7dytmm4EPa4GhHvVBQlL3RBk8/aEeEOsUsyRziT54I=
-X-Received: by 2002:a05:6402:150a:: with SMTP id
- f10mr9555307edw.318.1631287302645; 
- Fri, 10 Sep 2021 08:21:42 -0700 (PDT)
+ id 1mOmCD-00DZg0-Ga
+ for linux-riscv@lists.infradead.org; Fri, 10 Sep 2021 19:28:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1631302101; x=1662838101;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=wqLKXACt1PIzgmzT2TwZgiL+g//ZbDIkd/Dfv2NWlIM=;
+ b=chwIP/+D3+lovY5gc5ONxwxsZWbKUXiqxhGSW4pxNncNHC6wgrwMYAH/
+ gX/6Pv8v0BL+iJj/rgacbX6+basuz/rjF07FNqB5YvInu04XkQB8zurU6
+ 54dJr0WdaWl/Bib/Y+mPUH+rwVyDpjCzZiw5C00YXbexaNHSB0LD1vi7O
+ aPk0j9dPCBh/dlR58BETokx4JD1n4HoZAIEgKmlc+hCGCTJqHvt1wDDXd
+ v81ndSaafNrIcn9WSuqGiOfl86Wb2zkgwP7NUV32ZJ8yWjFVvTIwKWKlC
+ R3TOsbNkRF/0tE1WZcS5W8AS1ajxl6gEbm8M9/Fzxqpu7/MVhMzgDiOgU Q==;
+X-IronPort-AV: E=Sophos;i="5.85,283,1624291200"; d="scan'208";a="283504151"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Sep 2021 03:28:19 +0800
+IronPort-SDR: UtsASffm/RhlWOjQdgHVNM2kKyzJ6UIAUpJHm4CWGV99Fy4S+c0vfrLTTDrVzSBOUnh1aBGvAw
+ OY2honavyJKDt+SY2q4R2dQ0qfwN/nbOsCTkMk0nKlQfEUIuoPCg4YNKEioZAcuOoqCAkACc6n
+ BhflVMPLVdDaypkov26Q305rmRLfX4kCpeI0RYOWAwcNCrJ9iu5JpS2aX/B4f/0ZZdi677FQex
+ kweh6e6deZ7GtNWlX2vDTasUFKNBjEoTnA071LBwFH4YFJVCC18Ie+Fp8jhv7uSNOsrm9k8BcD
+ S/w+9ycLi6yvcJcl51Aapc0V
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 10 Sep 2021 12:04:49 -0700
+IronPort-SDR: habKYCcnkmnUuv0hhcIMLkiqDjr037r/xnalpOlaOplIqZIEhkM9OiYNsFx705lxD+jMeu2edy
+ ohOA6KbYKzCVWtvtbYkC7vBPzDG2V8g0yqZzgBRsCXYOzWMDtQkR+padO2INcxKayar0HtYeCr
+ hn33m5I9Tu12QE0Ek3mrIhoMW8omXD2PBRXt9prWPWuKwnTxvAR1Ia/MxSDzHSReXWAOi2tr7i
+ WfR2CXPkZao72WhHu949z4gEua7Puc5KnkciU4jD5PfUWVlfwmlTVAIAl1g38BMuBxD9gqBFhd
+ 0Qs=
+WDCIronportException: Internal
+Received: from unknown (HELO hulk.wdc.com) ([10.225.167.73])
+ by uls-op-cesaip01.wdc.com with ESMTP; 10 Sep 2021 12:28:19 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atish.patra@wdc.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
+ "Darrick J. Wong" <djwong@kernel.org>, devicetree@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>, Jiri Olsa <jolsa@redhat.com>,
+ John Garry <john.garry@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Vincent Chen <vincent.chen@sifive.com>
+Subject: [v3 01/10] RISC-V: Remove the current perf implementation
+Date: Fri, 10 Sep 2021 12:27:48 -0700
+Message-Id: <20210910192757.2309100-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20210910192757.2309100-1-atish.patra@wdc.com>
+References: <20210910192757.2309100-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20210904000543.2019010-1-saravanak@google.com>
- <20210904000543.2019010-2-saravanak@google.com>
- <CAMuHMdUhZy7W_HLtNJ2ECK5uQV5xHV7pDk5BXfNUpW9L68G5Aw@mail.gmail.com>
- <CAGETcx_7N3gtaT-YHGaGL+Qtkv=JOhgPcPF1A+kQ4aaDoetvSA@mail.gmail.com>
- <CAL_Jsq+-DAz+80QtpX5obWWcy=MAyxmTb262VAgMiKwnn=hfxQ@mail.gmail.com>
- <CAGETcx_=8yX6ObaEJk8QNSaWQPdFHsw4R74JrDFKqOL0AN-gLw@mail.gmail.com>
- <CAL_JsqJVsEj=rmExYHtphfxw_W6cq8WU45SSuYi_g2_KiUaFsg@mail.gmail.com>
- <CAGETcx8WqGN6Dt1snbR0D7yLfAwWjhRawfX3is_xrExP3_tY1g@mail.gmail.com>
-In-Reply-To: <CAGETcx8WqGN6Dt1snbR0D7yLfAwWjhRawfX3is_xrExP3_tY1g@mail.gmail.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Fri, 10 Sep 2021 10:21:30 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJcsqjJBe8aULYYMkFtx8OTj2wHANZ=83VMMyJ=AEgReg@mail.gmail.com>
-Message-ID: <CAL_JsqJcsqjJBe8aULYYMkFtx8OTj2wHANZ=83VMMyJ=AEgReg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-To: Saravana Kannan <saravanak@google.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Russell King <linux@armlinux.org.uk>, 
- Neil Armstrong <narmstrong@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>,
- Android Kernel Team <kernel-team@android.com>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
- "open list:TI ETHERNET SWITCH DRIVER (CPSW)" <linux-omap@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Lee Jones <lee.jones@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210910_082145_257185_8F85E7A9 
-X-CRM114-Status: GOOD (  97.10  )
+X-CRM114-CacheID: sfid-20210910_122821_710471_DF790A34 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,270 +108,634 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 9, 2021 at 1:11 PM Saravana Kannan <saravanak@google.com> wrote:
->
+The current perf implementation in RISC-V is not very useful as it can not
+count any events other than cycle/instructions. Moreover, perf record
+can not be used or the events can not be started or stopped.
 
-TLDR: Read the end first...
+Remove the implementation now for a better platform driver in future
+that will implement most of the missing functionality.
 
-> On Thu, Sep 9, 2021 at 7:02 AM Rob Herring <robh+dt@kernel.org> wrote:
-> >
-> > On Wed, Sep 8, 2021 at 7:58 PM Saravana Kannan <saravanak@google.com> wrote:
-> > >
-> > > On Wed, Sep 8, 2021 at 5:16 PM Rob Herring <robh+dt@kernel.org> wrote:
-> > > >
-> > > > On Tue, Sep 7, 2021 at 2:01 AM Saravana Kannan <saravanak@google.com> wrote:
-> > > > >
-> > > > > On Mon, Sep 6, 2021 at 12:54 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > >
-> > > > > > Hi Saravana,
-> > > > > >
-> > > > > > Thanks for your patch!
-> > > > > >
-> > > > > > CC linux-pm, Lee (mfd)
-> > > > > >
-> > > > > > On Sat, Sep 4, 2021 at 2:05 AM Saravana Kannan <saravanak@google.com> wrote:
-> > > > > > > fw_devlink could end up creating device links for bus only devices.
-> > > > > > > However, bus only devices don't get probed and can block probe() or
-> > > > > > > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > > > > > > devices using the simple-pm-bus driver.
-> > > > > > >
-> > > > > > > However, there are instances of devices that are not simple buses (they
-> > > > > > > get probed by their specific drivers) that also list the "simple-bus"
-> > > > > > > (or other bus only compatible strings) in their compatible property to
-> > > > > > > automatically populate their child devices. We still want these devices
-> > > > > > > to get probed by their specific drivers. So, we make sure this driver
-> > > > > > > only probes devices that are only buses.
-> > > > > >
-> > > > > > Note that this can also be the case for buses declaring compatibility
-> > > > > > with "simple-pm-bus".  However, at the moment, none of such device
-> > > > > > nodes in upstream DTS files have device-specific drivers.
-> > > > >
-> > > > > Not sure about mfd, but I want to make sure we don't confuse busses
-> > > > > (which are typically added to a class) with these "simple bus" devices
-> > > > > that are added to platform_bus. Also if these other buses are actually
-> > > > > causing an issue, then then should implement their own stub driver or
-> > > > > use try patch[2] if they are added to classes (devices on classes
-> > > > > don't probe)
-> > > > >
-> > > > > [2] - https://lore.kernel.org/lkml/20210831224510.703253-1-saravanak@google.com/
-> > > > >
-> > > > > >
-> > > > > > > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > > > > > > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > > > > > > Tested-by: Saravana Kannan <saravanak@google.com>
-> > > > > >
-> > > > > > > --- a/drivers/bus/simple-pm-bus.c
-> > > > > > > +++ b/drivers/bus/simple-pm-bus.c
-> > > > > > > @@ -13,11 +13,26 @@
-> > > > > > >  #include <linux/platform_device.h>
-> > > > > > >  #include <linux/pm_runtime.h>
-> > > > > > >
-> > > > > > > -
-> > > > > > >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> > > > > > >  {
-> > > > > > > -       const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > > > > > > -       struct device_node *np = pdev->dev.of_node;
-> > > > > > > +       const struct device *dev = &pdev->dev;
-> > > > > > > +       const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > > > > > > +       struct device_node *np = dev->of_node;
-> > > > > > > +       const struct of_device_id *match;
-> > > > > > > +
-> > > > > > > +       match = of_match_device(dev->driver->of_match_table, dev);
-> > > > > > > +
-> > > > > > > +       /*
-> > > > > > > +        * These are transparent bus devices (not simple-pm-bus matches) that
-> > > > > > > +        * have their child nodes populated automatically.  So, don't need to
-> > > > > > > +        * do anything more.
-> > > > > > > +        */
-> > > > > > > +       if (match && match->data) {
-> > > > > > > +               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > > > > >
-> > > > > > Does this work as expected? Having multiple compatible values in a
-> > > > > > device node does not guarantee there exist a separate driver for any
-> > > > > > of the device-specific compatible values.
-> > > > >
-> > > > > Right, and if they are platform devices that are equivalent to
-> > > > > simple-bus (meaning, they don't do anything in Linux and just have
-> > > > > their devices populated) we can add those to this list too.
-> > > >
-> > > > I think this needs to be a list of compatibles we have drivers for
-> > > > instead.
-> > >
-> > > I don't think a "denylist" (devices we shouldn't probe with this
-> > > driver) would be a short list. As of today, literally any device that
-> > > has children could add a "simple-bus" to the compatible property and
-> > > get its child devices populated for free. If we use a denylist, we'll
-> > > have to update it every time someone adds "simple-bus" as a general
-> > > match to a DT node (new or otherwise) that isn't in the denylist. The
-> > > list would blow up and be a maintenance headache.
-> > >
-> > > Also, a denylist won't capture any DT that isn't part of the kernel
-> > > repo but depends on "simple-bus" to populate the device's child nodes.
-> > > Keep in mind this could be true even for completely upstream drivers
-> > > today. And on top of that, this will also break for downstream drivers
-> > > and platforms in the development stage.
-> >
-> > You've got this all backwards.
->
-> I don't think so. I got what you are saying.
->
-> > The list would be compatibles for which
-> > they have their own driver. If they have their own driver, we know
-> > that because there is a driver in the kernel. If you have an out of
-> > tree bus driver, then I guess you shouldn't be claiming compatibility
-> > with 'simple-bus'.
->
-> But it isn't just out of tree drivers though. Take for example (a
-> random compatible string with a driver in upstream)
-> "qcom,sdm845-gpucc" that has DT nodes in a couple of DTS files. It's
-> perfectly valid today today to add child nodes under it and have the
-> child nodes get populated by making the compatible property:
-> "qcom,sdm845-gpucc", "simple-bus"
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/Kconfig                  |  13 -
+ arch/riscv/include/asm/perf_event.h |  72 -----
+ arch/riscv/kernel/Makefile          |   1 -
+ arch/riscv/kernel/perf_event.c      | 485 ----------------------------
+ 4 files changed, 571 deletions(-)
+ delete mode 100644 arch/riscv/kernel/perf_event.c
 
-IMO, that is not valid and I'd reject adding 'simple-bus' to the
-schema (so we would know).
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c79955655fa4..c4afe2c8ff03 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -360,19 +360,6 @@ config RISCV_ISA_C
+ 
+ 	   If you don't know what to do here, say Y.
+ 
+-menu "supported PMU type"
+-	depends on PERF_EVENTS
+-
+-config RISCV_BASE_PMU
+-	bool "Base Performance Monitoring Unit"
+-	def_bool y
+-	help
+-	  A base PMU that serves as a reference implementation and has limited
+-	  feature of perf.  It can run on any RISC-V machines so serves as the
+-	  fallback, but this option can also be disable to reduce kernel size.
+-
+-endmenu
+-
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+index 062efd3a1d5d..d42c901f9a97 100644
+--- a/arch/riscv/include/asm/perf_event.h
++++ b/arch/riscv/include/asm/perf_event.h
+@@ -9,77 +9,5 @@
+ #define _ASM_RISCV_PERF_EVENT_H
+ 
+ #include <linux/perf_event.h>
+-#include <linux/ptrace.h>
+-#include <linux/interrupt.h>
+-
+-#ifdef CONFIG_RISCV_BASE_PMU
+-#define RISCV_BASE_COUNTERS	2
+-
+-/*
+- * The RISCV_MAX_COUNTERS parameter should be specified.
+- */
+-
+-#define RISCV_MAX_COUNTERS	2
+-
+-/*
+- * These are the indexes of bits in counteren register *minus* 1,
+- * except for cycle.  It would be coherent if it can directly mapped
+- * to counteren bit definition, but there is a *time* register at
+- * counteren[1].  Per-cpu structure is scarce resource here.
+- *
+- * According to the spec, an implementation can support counter up to
+- * mhpmcounter31, but many high-end processors has at most 6 general
+- * PMCs, we give the definition to MHPMCOUNTER8 here.
+- */
+-#define RISCV_PMU_CYCLE		0
+-#define RISCV_PMU_INSTRET	1
+-#define RISCV_PMU_MHPMCOUNTER3	2
+-#define RISCV_PMU_MHPMCOUNTER4	3
+-#define RISCV_PMU_MHPMCOUNTER5	4
+-#define RISCV_PMU_MHPMCOUNTER6	5
+-#define RISCV_PMU_MHPMCOUNTER7	6
+-#define RISCV_PMU_MHPMCOUNTER8	7
+-
+-#define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
+-
+-struct cpu_hw_events {
+-	/* # currently enabled events*/
+-	int			n_events;
+-	/* currently enabled events */
+-	struct perf_event	*events[RISCV_MAX_COUNTERS];
+-	/* vendor-defined PMU data */
+-	void			*platform;
+-};
+-
+-struct riscv_pmu {
+-	struct pmu	*pmu;
+-
+-	/* generic hw/cache events table */
+-	const int	*hw_events;
+-	const int	(*cache_events)[PERF_COUNT_HW_CACHE_MAX]
+-				       [PERF_COUNT_HW_CACHE_OP_MAX]
+-				       [PERF_COUNT_HW_CACHE_RESULT_MAX];
+-	/* method used to map hw/cache events */
+-	int		(*map_hw_event)(u64 config);
+-	int		(*map_cache_event)(u64 config);
+-
+-	/* max generic hw events in map */
+-	int		max_events;
+-	/* number total counters, 2(base) + x(general) */
+-	int		num_counters;
+-	/* the width of the counter */
+-	int		counter_width;
+-
+-	/* vendor-defined PMU features */
+-	void		*platform;
+-
+-	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
+-	int		irq;
+-};
+-
+-#endif
+-#ifdef CONFIG_PERF_EVENTS
+ #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
+-#endif
+-
+ #endif /* _ASM_RISCV_PERF_EVENT_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 3397ddac1a30..e66870a4422f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -50,7 +50,6 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+-obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+ obj-$(CONFIG_RISCV_SBI)		+= sbi.o
+diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
+deleted file mode 100644
+index c835f0362d94..000000000000
+--- a/arch/riscv/kernel/perf_event.c
++++ /dev/null
+@@ -1,485 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * Copyright (C) 2008 Thomas Gleixner <tglx@linutronix.de>
+- * Copyright (C) 2008-2009 Red Hat, Inc., Ingo Molnar
+- * Copyright (C) 2009 Jaswinder Singh Rajput
+- * Copyright (C) 2009 Advanced Micro Devices, Inc., Robert Richter
+- * Copyright (C) 2008-2009 Red Hat, Inc., Peter Zijlstra
+- * Copyright (C) 2009 Intel Corporation, <markus.t.metzger@intel.com>
+- * Copyright (C) 2009 Google, Inc., Stephane Eranian
+- * Copyright 2014 Tilera Corporation. All Rights Reserved.
+- * Copyright (C) 2018 Andes Technology Corporation
+- *
+- * Perf_events support for RISC-V platforms.
+- *
+- * Since the spec. (as of now, Priv-Spec 1.10) does not provide enough
+- * functionality for perf event to fully work, this file provides
+- * the very basic framework only.
+- *
+- * For platform portings, please check Documentations/riscv/pmu.txt.
+- *
+- * The Copyright line includes x86 and tile ones.
+- */
+-
+-#include <linux/kprobes.h>
+-#include <linux/kernel.h>
+-#include <linux/kdebug.h>
+-#include <linux/mutex.h>
+-#include <linux/bitmap.h>
+-#include <linux/irq.h>
+-#include <linux/perf_event.h>
+-#include <linux/atomic.h>
+-#include <linux/of.h>
+-#include <asm/perf_event.h>
+-
+-static const struct riscv_pmu *riscv_pmu __read_mostly;
+-static DEFINE_PER_CPU(struct cpu_hw_events, cpu_hw_events);
+-
+-/*
+- * Hardware & cache maps and their methods
+- */
+-
+-static const int riscv_hw_event_map[] = {
+-	[PERF_COUNT_HW_CPU_CYCLES]		= RISCV_PMU_CYCLE,
+-	[PERF_COUNT_HW_INSTRUCTIONS]		= RISCV_PMU_INSTRET,
+-	[PERF_COUNT_HW_CACHE_REFERENCES]	= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_CACHE_MISSES]		= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BRANCH_INSTRUCTIONS]	= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BRANCH_MISSES]		= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BUS_CYCLES]		= RISCV_OP_UNSUPP,
+-};
+-
+-#define C(x) PERF_COUNT_HW_CACHE_##x
+-static const int riscv_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+-[PERF_COUNT_HW_CACHE_OP_MAX]
+-[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
+-	[C(L1D)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(L1I)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(LL)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(DTLB)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] =  RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] =  RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(ITLB)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(BPU)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-};
+-
+-static int riscv_map_hw_event(u64 config)
+-{
+-	if (config >= riscv_pmu->max_events)
+-		return -EINVAL;
+-
+-	return riscv_pmu->hw_events[config];
+-}
+-
+-static int riscv_map_cache_decode(u64 config, unsigned int *type,
+-			   unsigned int *op, unsigned int *result)
+-{
+-	return -ENOENT;
+-}
+-
+-static int riscv_map_cache_event(u64 config)
+-{
+-	unsigned int type, op, result;
+-	int err = -ENOENT;
+-		int code;
+-
+-	err = riscv_map_cache_decode(config, &type, &op, &result);
+-	if (!riscv_pmu->cache_events || err)
+-		return err;
+-
+-	if (type >= PERF_COUNT_HW_CACHE_MAX ||
+-	    op >= PERF_COUNT_HW_CACHE_OP_MAX ||
+-	    result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
+-		return -EINVAL;
+-
+-	code = (*riscv_pmu->cache_events)[type][op][result];
+-	if (code == RISCV_OP_UNSUPP)
+-		return -EINVAL;
+-
+-	return code;
+-}
+-
+-/*
+- * Low-level functions: reading/writing counters
+- */
+-
+-static inline u64 read_counter(int idx)
+-{
+-	u64 val = 0;
+-
+-	switch (idx) {
+-	case RISCV_PMU_CYCLE:
+-		val = csr_read(CSR_CYCLE);
+-		break;
+-	case RISCV_PMU_INSTRET:
+-		val = csr_read(CSR_INSTRET);
+-		break;
+-	default:
+-		WARN_ON_ONCE(idx < 0 ||	idx > RISCV_MAX_COUNTERS);
+-		return -EINVAL;
+-	}
+-
+-	return val;
+-}
+-
+-static inline void write_counter(int idx, u64 value)
+-{
+-	/* currently not supported */
+-	WARN_ON_ONCE(1);
+-}
+-
+-/*
+- * pmu->read: read and update the counter
+- *
+- * Other architectures' implementation often have a xxx_perf_event_update
+- * routine, which can return counter values when called in the IRQ, but
+- * return void when being called by the pmu->read method.
+- */
+-static void riscv_pmu_read(struct perf_event *event)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-	u64 prev_raw_count, new_raw_count;
+-	u64 oldval;
+-	int idx = hwc->idx;
+-	u64 delta;
+-
+-	do {
+-		prev_raw_count = local64_read(&hwc->prev_count);
+-		new_raw_count = read_counter(idx);
+-
+-		oldval = local64_cmpxchg(&hwc->prev_count, prev_raw_count,
+-					 new_raw_count);
+-	} while (oldval != prev_raw_count);
+-
+-	/*
+-	 * delta is the value to update the counter we maintain in the kernel.
+-	 */
+-	delta = (new_raw_count - prev_raw_count) &
+-		((1ULL << riscv_pmu->counter_width) - 1);
+-	local64_add(delta, &event->count);
+-	/*
+-	 * Something like local64_sub(delta, &hwc->period_left) here is
+-	 * needed if there is an interrupt for perf.
+-	 */
+-}
+-
+-/*
+- * State transition functions:
+- *
+- * stop()/start() & add()/del()
+- */
+-
+-/*
+- * pmu->stop: stop the counter
+- */
+-static void riscv_pmu_stop(struct perf_event *event, int flags)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	WARN_ON_ONCE(hwc->state & PERF_HES_STOPPED);
+-	hwc->state |= PERF_HES_STOPPED;
+-
+-	if ((flags & PERF_EF_UPDATE) && !(hwc->state & PERF_HES_UPTODATE)) {
+-		riscv_pmu->pmu->read(event);
+-		hwc->state |= PERF_HES_UPTODATE;
+-	}
+-}
+-
+-/*
+- * pmu->start: start the event.
+- */
+-static void riscv_pmu_start(struct perf_event *event, int flags)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	if (WARN_ON_ONCE(!(event->hw.state & PERF_HES_STOPPED)))
+-		return;
+-
+-	if (flags & PERF_EF_RELOAD) {
+-		WARN_ON_ONCE(!(event->hw.state & PERF_HES_UPTODATE));
+-
+-		/*
+-		 * Set the counter to the period to the next interrupt here,
+-		 * if you have any.
+-		 */
+-	}
+-
+-	hwc->state = 0;
+-	perf_event_update_userpage(event);
+-
+-	/*
+-	 * Since we cannot write to counters, this serves as an initialization
+-	 * to the delta-mechanism in pmu->read(); otherwise, the delta would be
+-	 * wrong when pmu->read is called for the first time.
+-	 */
+-	local64_set(&hwc->prev_count, read_counter(hwc->idx));
+-}
+-
+-/*
+- * pmu->add: add the event to PMU.
+- */
+-static int riscv_pmu_add(struct perf_event *event, int flags)
+-{
+-	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	if (cpuc->n_events == riscv_pmu->num_counters)
+-		return -ENOSPC;
+-
+-	/*
+-	 * We don't have general conunters, so no binding-event-to-counter
+-	 * process here.
+-	 *
+-	 * Indexing using hwc->config generally not works, since config may
+-	 * contain extra information, but here the only info we have in
+-	 * hwc->config is the event index.
+-	 */
+-	hwc->idx = hwc->config;
+-	cpuc->events[hwc->idx] = event;
+-	cpuc->n_events++;
+-
+-	hwc->state = PERF_HES_UPTODATE | PERF_HES_STOPPED;
+-
+-	if (flags & PERF_EF_START)
+-		riscv_pmu->pmu->start(event, PERF_EF_RELOAD);
+-
+-	return 0;
+-}
+-
+-/*
+- * pmu->del: delete the event from PMU.
+- */
+-static void riscv_pmu_del(struct perf_event *event, int flags)
+-{
+-	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	cpuc->events[hwc->idx] = NULL;
+-	cpuc->n_events--;
+-	riscv_pmu->pmu->stop(event, PERF_EF_UPDATE);
+-	perf_event_update_userpage(event);
+-}
+-
+-/*
+- * Interrupt: a skeletion for reference.
+- */
+-
+-static DEFINE_MUTEX(pmc_reserve_mutex);
+-
+-static irqreturn_t riscv_base_pmu_handle_irq(int irq_num, void *dev)
+-{
+-	return IRQ_NONE;
+-}
+-
+-static int reserve_pmc_hardware(void)
+-{
+-	int err = 0;
+-
+-	mutex_lock(&pmc_reserve_mutex);
+-	if (riscv_pmu->irq >= 0 && riscv_pmu->handle_irq) {
+-		err = request_irq(riscv_pmu->irq, riscv_pmu->handle_irq,
+-				  IRQF_PERCPU, "riscv-base-perf", NULL);
+-	}
+-	mutex_unlock(&pmc_reserve_mutex);
+-
+-	return err;
+-}
+-
+-static void release_pmc_hardware(void)
+-{
+-	mutex_lock(&pmc_reserve_mutex);
+-	if (riscv_pmu->irq >= 0)
+-		free_irq(riscv_pmu->irq, NULL);
+-	mutex_unlock(&pmc_reserve_mutex);
+-}
+-
+-/*
+- * Event Initialization/Finalization
+- */
+-
+-static atomic_t riscv_active_events = ATOMIC_INIT(0);
+-
+-static void riscv_event_destroy(struct perf_event *event)
+-{
+-	if (atomic_dec_return(&riscv_active_events) == 0)
+-		release_pmc_hardware();
+-}
+-
+-static int riscv_event_init(struct perf_event *event)
+-{
+-	struct perf_event_attr *attr = &event->attr;
+-	struct hw_perf_event *hwc = &event->hw;
+-	int err;
+-	int code;
+-
+-	if (atomic_inc_return(&riscv_active_events) == 1) {
+-		err = reserve_pmc_hardware();
+-
+-		if (err) {
+-			pr_warn("PMC hardware not available\n");
+-			atomic_dec(&riscv_active_events);
+-			return -EBUSY;
+-		}
+-	}
+-
+-	switch (event->attr.type) {
+-	case PERF_TYPE_HARDWARE:
+-		code = riscv_pmu->map_hw_event(attr->config);
+-		break;
+-	case PERF_TYPE_HW_CACHE:
+-		code = riscv_pmu->map_cache_event(attr->config);
+-		break;
+-	case PERF_TYPE_RAW:
+-		return -EOPNOTSUPP;
+-	default:
+-		return -ENOENT;
+-	}
+-
+-	event->destroy = riscv_event_destroy;
+-	if (code < 0) {
+-		event->destroy(event);
+-		return code;
+-	}
+-
+-	/*
+-	 * idx is set to -1 because the index of a general event should not be
+-	 * decided until binding to some counter in pmu->add().
+-	 *
+-	 * But since we don't have such support, later in pmu->add(), we just
+-	 * use hwc->config as the index instead.
+-	 */
+-	hwc->config = code;
+-	hwc->idx = -1;
+-
+-	return 0;
+-}
+-
+-/*
+- * Initialization
+- */
+-
+-static struct pmu min_pmu = {
+-	.name		= "riscv-base",
+-	.event_init	= riscv_event_init,
+-	.add		= riscv_pmu_add,
+-	.del		= riscv_pmu_del,
+-	.start		= riscv_pmu_start,
+-	.stop		= riscv_pmu_stop,
+-	.read		= riscv_pmu_read,
+-};
+-
+-static const struct riscv_pmu riscv_base_pmu = {
+-	.pmu = &min_pmu,
+-	.max_events = ARRAY_SIZE(riscv_hw_event_map),
+-	.map_hw_event = riscv_map_hw_event,
+-	.hw_events = riscv_hw_event_map,
+-	.map_cache_event = riscv_map_cache_event,
+-	.cache_events = &riscv_cache_event_map,
+-	.counter_width = 63,
+-	.num_counters = RISCV_BASE_COUNTERS + 0,
+-	.handle_irq = &riscv_base_pmu_handle_irq,
+-
+-	/* This means this PMU has no IRQ. */
+-	.irq = -1,
+-};
+-
+-static const struct of_device_id riscv_pmu_of_ids[] = {
+-	{.compatible = "riscv,base-pmu",	.data = &riscv_base_pmu},
+-	{ /* sentinel value */ }
+-};
+-
+-static int __init init_hw_perf_events(void)
+-{
+-	struct device_node *node = of_find_node_by_type(NULL, "pmu");
+-	const struct of_device_id *of_id;
+-
+-	riscv_pmu = &riscv_base_pmu;
+-
+-	if (node) {
+-		of_id = of_match_node(riscv_pmu_of_ids, node);
+-
+-		if (of_id)
+-			riscv_pmu = of_id->data;
+-		of_node_put(node);
+-	}
+-
+-	perf_pmu_register(riscv_pmu->pmu, "cpu", PERF_TYPE_RAW);
+-	return 0;
+-}
+-arch_initcall(init_hw_perf_events);
+-- 
+2.31.1
 
-Also, if we had only "qcom,sdm845-gpucc" to start with, then we
-probably have a driver already.
-
-> The only thing not upstreamed in that case is the DT file. And I'm
-> fairly certain our position is not "if your DT isn't in the kernel
-> repo we won't support it". In this situation we have no way of knowing
-> we need to add "qcom,sdm845-gpucc" to the "it has a driver, don't
-> probe it" list. And even if they upstream it, this list is going to
-> blow up. And we are breaking backward compatibility that can't be
-> fixed without a kernel update (no runtime fixes possible).
->
-> > > The allowlist is much smaller and manageable.
-> >
-> > I count 140 cases of 'simple-bus' with another compatible. I find
-> > roughly 24 of those under drivers/ that have a driver (and look,
-> > there's at91 pinctrl/gpio). There's some more under arch/, but I'm not
-> > sure if they are drivers. This is what I ran:
-> >
-> > git grep -ho '".*", "simple-bus"' -- arch/ | cut -d' ' -f1 | grep -oE
-> > '".+"' | grep -v '"syscon"' | sort -u > buses.txt
-> > git grep -f buses.txt -- drivers/
-> >
-> > I haven't looked at 'simple-mfd', but that was supposed to always mean
-> > 'no driver'.
-> >
-> > To put it another way, let's look at 3 possibilities:
-> >
-> > 'simple-bus'
-> > 'foo,has-no-driver', 'simple-bus'
-> > 'foo,has-a-driver', 'simple-bus'
-> >
-> > The first case is easy. The last 2 cases are not. We have no way to
-> > handle them differently without a list.
-> >
-> > > > A more specific compatible that the OS doesn't understand
-> > > > shouldn't cause a change in behavior and adding one would.
-> >
-> > Again, if a dt is modified from case 1 to case 2, there should not be
-> > a change in behavior.
->
-> My point is that if DT is modified from 1 to 2, we'll need to add
-> "foo,has-no-driver" to the list we'll maintain. That preserves
-> backward compatibility with existing DTs and if someone modifies the
-> DT it's more likely that they can modify the kernel too. See more
-> below.
-
-I assume this list is just cases of I need to bind the simple-bus
-driver for devlinks, right?
-
-Being able to update the kernel is not a valid assumption. While the
-kernel sources may be updated, it is perfectly valid to update a dtb
-and not the kernel. This is what SUSE does (or was doing?). DTBs from
-the latest kernel (because that's the most complete h/w description,
-right?) and an LTS kernel. Think about updating your PC's OS and
-firmware. Do you want updating either of those independently to work?
-Probably so. It's the same thing with kernel and dtb(in firmware)
-updates. While specific platforms or environments (Android) may not
-care, in general we have to.
-
-However, we can cheat a little bit if the kernel update goes to stable
-kernels, but that should be the exception and I don't think we should
-rely on that. Would you want your PC to stop booting due to a firmware
-update without a stable kernel update?
-
-> > Presumably if Ulf changed his test in this way,
-> > it would again fail, right?
-> >
-> >
-> > > I think the amount of specific compatible strings that'll be added,
-> > > but won't have drivers added to Linux AND would want to boot with
-> > > Linux is much less likely than the amount of times we'd have to update
-> > > a denylist.
-> > >
-> > > Also, if we do hit the cases you mention and we want those devices to
-> > > get probed anyway, with my current allowlist approach, we could use
-> > > "driver_override" to force this driver to match them. If you use a
-> > > denylist like you said, there's no way you can get the simple-pm-bus
-> > > to unbind and let the more specific driver to bind.
-> >
-> > Where would we set "driver_override"? Aren't we going to end up with a
-> > driver_override list?
->
-> I'm not saying we maintain a list in the kernel. I'm saying if someone
-> changed their DT to add 'foo,has-no-driver', but hit the unlikely case
-> where they can update the DT but not the kernel, they can still get
-> the 'foo,has-no-driver' to probe by using the driver_override file for
-> that device in sysfs. TLDR: they can still get it to work without
-> having to modify the kernel.
-
-That doesn't seem like a great experience. How's that going to work if
-you didn't boot up enough to get to sysfs?
-
-> > [...]
-> >
-> > > > > > [*] Especially if "simple-pm-bus" and "simple-bus" would be treated
-> > > > > >     the same.
-> > > > >
-> > > > > They are not treated the same way.
-> > > >
-> > > > I think it would be better if they were. IOW, the core code stops
-> > > > descending into simple-bus, etc. nodes and they are populated here.
-> > > > Then we just get rid of of_default_bus_match_table.
-> > >
-> > > Right, I would if we could. But we can't simply stop descending the
-> > > simple-bus nodes in the core code because all the specific drivers
-> > > that used to have their child devices populated automatically would
-> > > stop working and would need to be updated to populate their child
-> > > devices. And I'm sure there are a ton more downstream kernels and
-> > > downstream DTs (that use upstream kernels) that we would break.
-> > >
-> > > If you really want to do that go for it, but I'd rather not do all
-> > > this as part of trying to fix the issue Ulf reported that needs
-> > > simple-bus only devices probed.
-> >
-> > Agreed.
->
-> I'm confused. So you are okay with this patch to merge now?
-
-No, I'm okay with the separate step of removing descending
-'simple-bus', etc. nodes out of of_platform_populate() to do it in the
-simple-bus driver.
-
-Backing up...
-
-The problem here is letting what 'simple-bus' (and simple-mfd) means
-change with the presence of another compatible and we can't determine
-if it changes or not. Has a driver or not doesn't really work. I think
-the only thing that works is 'simple-bus' can only mean child nodes
-have no dependency on the simple-bus node. If there is a dependency,
-then it is not a simple-bus. We might have some cases that violated
-this definition and they've gotten lucky so far. I think we just have
-to fix these cases as they arise. That's at least bounded by cases
-where we already have drivers and shouldn't have new cases introduced.
-
-I still like the idea that 'simple-bus' always binds to a driver, but
-I think for that to work we've got to support rebinding to a new
-driver when a better matching driver is found. We're never going to
-know for sure if/when there is a better match. There's a couple of
-cases where we need this.
-
-Rob
 
 _______________________________________________
 linux-riscv mailing list
