@@ -3,95 +3,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A29E2C43219
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A199C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 23:41:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6C8FA611B0
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 19:28:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6C8FA611B0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 14E3760ED8
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Sep 2021 23:41:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 14E3760ED8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5NUJAcRTyZKn8Lbo5kfrde489tn8ljrJtJLwI2LO/nU=; b=VFOGe+wmBh7wsX
-	0DqqdYdbWPJHzIyKv9gk0ro1peoODT/E1nZWM6uiQhSLLo/OadfNy/V81lazEEZSmoyB3Hcav9VSs
-	OrCksE+OODLZdgkEPsv9YHteqCV7YtD0kRoavVDaI5gvDr8Ns7gRh+VDVuxKbdUEhUsLVeUUnTj/X
-	n3AViX0bZTw5zFbdW28A7gtqt64DB8tjBkr8H7sH90E8By62yc+a6PrZw2ndZ0z73vBzwzt6t91kJ
-	NNIVZEobK5Z4y2VgC16ShNwA20KjAQf7LzfYTxOjE6xmNTY7+68YsmwNBrms2dKptRZgL0tm1vP94
-	nLF52ZSWmtfQaAOWdpxA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References:
+	Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=wwja34S6eyqciFUR4QXeFBygffxOXaYt4HO9AETTq3Q=; b=4w1HpIz3wIXK3IyHul0mbMkHHd
+	K4CaRviL5kZkVRAUNtyb2ZLBIbNZa1AFh2NVQqtUDx29oirdliONSEiyvkTMUALMXs2AtB0nHma/2
+	WJG35DCM0TJHc4bKWqO1/psAGBeZhARcjjCGHMHJCJcY7GrBLZnIfcP7MJIyzh847yLP+Mf/Zw2Um
+	bUAavA87XxNAsQGZE0clVQsbkhtnOm2M+aF5CxBioiIwwxb1v6BUHxHEVFRI5QVnqXr0UooBiqlNB
+	acpbGuwNmWkiLP8bzgTP8GNp8c5uAhXgQIwPdtD0e9mlkeHKeqerxvsPybgQy01df/s5kyMiYKm1z
+	TCMMc1jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOmCU-00DZpS-DY; Fri, 10 Sep 2021 19:28:38 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1mOq8p-00E0Jf-Bp; Fri, 10 Sep 2021 23:41:07 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOmCI-00DZgi-BU
- for linux-riscv@lists.infradead.org; Fri, 10 Sep 2021 19:28:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1631302106; x=1662838106;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=R2I5oDONdJ84kh/3WsvACp0zYYiSPpZJuvszHDMM+VM=;
- b=Aq7Ny+pztJOW53ovhw8UQsn1rOcxPTVCo3yD/o0qufjGOBmYeVqvM503
- 6juE9Cv/ytBVBl5kO9xfNAc64YAOlKhewj0tjphgwRlSvisd/SBWgt9u2
- +0Rw06fQPJ6iyOtt3aJYAvUy6KSQJpU0eihPnMgE1reaHpWHMLWMJSlO0
- yOSSFl2HgEt+iBWWe/RI4vnpTdOv32HCmAjn27095nLaumjGKHShjapua
- 1gT59FczkCwIK4NZ/oPgQCv0BNc1olZ0QAn9h7D6keXuWueU8VNQU8SpI
- d78/OIvjkGlg1M8LQXGwmk+bTvfs06pih7lRq1nXxysh8aVzVp+oi8OB6 g==;
-X-IronPort-AV: E=Sophos;i="5.85,283,1624291200"; d="scan'208";a="283504190"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 11 Sep 2021 03:28:24 +0800
-IronPort-SDR: lRBlgE2QVfhuvjSDul2/QAd5MKoL221/+EbhS10l8pv7FuT7fT7xmWza3trSOed4j3HUQJv38G
- Tn1InhieOHzZgo9rHpxzSWQgpZmg/wrDQur8IGjUflB8eup4jjHLZ3d8sTv7YQv31udi2ZMAey
- hKN8LubUqCjbF4EpSK5/pSQGsI+QC2OaLMDms7t46HEOTd3wGavl/uEgE4ZSNO0wC5e/TFR1zH
- ggDzLPB2fer52BguLFy9aErcD6EcVpoZi2CX0Ns5FcXb67ewLcnCWCyQzemb4PxMp5xkTYBFuz
- yDcSC88/zCxDClxgOWa7tP8u
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 10 Sep 2021 12:04:54 -0700
-IronPort-SDR: mCmcOac4UznBlGTBCl5RgoBpF7TF1ZEJcKcxpLqOgpR9QdRPjoDmBaxYm88FlbWRYgFJxbqZ5W
- hwsBxzioVBLD7lcUKXJCAQawyYVDcgZ4jbtHJQ/rq7sXxRdHi/22qmG44yloJLMGFpDM2Yx5PT
- 3lFMnOEzWUe2LW3SNh/SQxO+X8h9aNlnihMvUhkutIRT3wCXP7/zIhKTgZHTLwEwHgCISS/EIJ
- 5yY9r4NaydcOomHvmf8z45/0/NaTW7R5iJnql3sjJwGqYVaG5yYRc3dSIDxhfDYGyku3rjJpos
- kg8=
-WDCIronportException: Internal
-Received: from unknown (HELO hulk.wdc.com) ([10.225.167.73])
- by uls-op-cesaip01.wdc.com with ESMTP; 10 Sep 2021 12:28:24 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atish.patra@wdc.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
- "Darrick J. Wong" <djwong@kernel.org>, devicetree@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jiri Olsa <jolsa@redhat.com>,
- John Garry <john.garry@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Vincent Chen <vincent.chen@sifive.com>
-Subject: [v3 08/10] RISC-V: Add interrupt support for perf
-Date: Fri, 10 Sep 2021 12:27:55 -0700
-Message-Id: <20210910192757.2309100-9-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20210910192757.2309100-1-atish.patra@wdc.com>
-References: <20210910192757.2309100-1-atish.patra@wdc.com>
-MIME-Version: 1.0
+ id 1mOq8m-00E0Ik-SU
+ for linux-riscv@lists.infradead.org; Fri, 10 Sep 2021 23:41:06 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id
+ d93-20020a25a366000000b0059fff274d9aso4611619ybi.4
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Sep 2021 16:41:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+ :cc; bh=YcybJ36BhVQqnQ/Zp3BgBUwuPlp4Dytcf9sCPFcMjQI=;
+ b=YgJpLsayXI0kRA30Qyay/Kq/6VBc852ZzPTDo9EzTjJTNtF9D0UVBAUgqY/mnDPOl+
+ pGTUFD61EqoICDCAXs//AXw0PdPDQ06DEbrW0h4xmAfxhA1egiPkgqeuA7aKa8DqjerJ
+ PkrJtScmhKJbvHhlEWfI0lnnSj1rsD/G/nSp5hmtW+wkXtRhBg9B1Pr1u9QjmvKsjABP
+ 4t5hd33qwRgzZ8nO7gWCYz+rmQJH3tPDL9uozMFUhmmG0u0lAtZvjl2tiHD4Tt+my1V7
+ m0LFoef1gwGQFGCuSx+R+cF4s5MbzwcLeEGELfhig5F8S/YsXDwM6cw+dQEFKnbIgIYN
+ tP1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+ :references:subject:from:to:cc;
+ bh=YcybJ36BhVQqnQ/Zp3BgBUwuPlp4Dytcf9sCPFcMjQI=;
+ b=7HFHCEBN0OwW+yVvREcoPOw5t29bKsrX2gnk37FotCGC3fmCHfEp0Dwmw5kRwWfg0K
+ 7xM36p2rPlvQFLxw77pRwWvF2JuH7Z9/hYYlG0Gzwf9vZoNeeMmBrsmiqZRfuAuXH/v7
+ CkouDt9sfeAdA7AgIF4QtkWKkt0M95cTdw18wk3VzjZ7qNW3zptDWbSti58meraViGBD
+ gE1TRxV0YI727X60cjCVOsrtdiHsSA0RgPpFssGXcVIrTZx0mFi28UouuCytLF70yCAb
+ 03Wz+qpVbesBvNpOpcmLMp+UmKgAsp47XB2IB/Lpp28qgPCn8YfgMi60/KlM/nbnMdI7
+ FUsQ==
+X-Gm-Message-State: AOAM532dwp9Texib2JZca9SZRujUnjjAw6AV9nLZI2vTY/ZLi/LOdQAt
+ gO4Z0MbeAoxoefLXTwTtvFsIOGcf6hncjkAF+0E=
+X-Google-Smtp-Source: ABdhPJw0Jp3nHTv3ruhAHm4RkeseXcb8gI25D2fzseDBVW5d8S8nqZvDZTYEl37UNWxcGpM+JEUlWwmPxuiXFe7eVe0=
+X-Received: from ndesaulniers1.mtv.corp.google.com
+ ([2620:15c:211:202:2b76:71d3:b5fb:3734])
+ (user=ndesaulniers job=sendgmr) by 2002:a25:2302:: with SMTP id
+ j2mr315979ybj.507.1631317263067; Fri, 10 Sep 2021 16:41:03 -0700 (PDT)
+Date: Fri, 10 Sep 2021 16:40:42 -0700
+In-Reply-To: <20210910234047.1019925-1-ndesaulniers@google.com>
+Message-Id: <20210910234047.1019925-6-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <20210910234047.1019925-1-ndesaulniers@google.com>
+X-Mailer: git-send-email 2.33.0.309.g3052b89438-goog
+Subject: [PATCH 05/10] riscv: remove Kconfig check for GCC version for
+ ARCH_RV64I
+From: Nick Desaulniers <ndesaulniers@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Nathan Chancellor <nathan@kernel.org>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Joe Perches <joe@perches.com>,
+ Arnd Bergmann <arnd@kernel.org>, 
+ Stephen Rothwell <sfr@canb.auug.org.au>, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210910_122826_511899_D423FF9A 
-X-CRM114-Status: GOOD (  34.12  )
+X-CRM114-CacheID: sfid-20210910_164104_968609_3AE3C50C 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,368 +106,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Sscof extension allows counter overflow and filtering for programmable
-counters. Enable the perf driver to handle the overflow interrupt.
-Even though the perf overflow interrupt is a local one, it is parsed from
-DT for simplification. Thus, the DT node with interrupt-extended property
-is mandatory for any platform that wants event sampling.
+The minimum supported version of GCC is now 5.1. The check wasn't
+correct as written anyways since GCC_VERSION is 0 when CC=clang.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- arch/riscv/include/asm/csr.h   |   8 +-
- drivers/perf/riscv_pmu_sbi.c   | 209 ++++++++++++++++++++++++++++++---
- include/linux/perf/riscv_pmu.h |   4 +-
- 3 files changed, 204 insertions(+), 17 deletions(-)
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index e4d369830af4..8b2ac554ce9c 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -63,6 +63,7 @@
- #define IRQ_M_TIMER		7
- #define IRQ_S_EXT		9
- #define IRQ_M_EXT		11
-+#define IRQ_PMU_OVF		13
- 
- /* Exception causes */
- #define EXC_INST_MISALIGNED	0
-@@ -151,6 +152,8 @@
- #define CSR_HPMCOUNTER30H	0xc9e
- #define CSR_HPMCOUNTER31H	0xc9f
- 
-+#define CSR_SSCOUNTOVF		0xd33
-+
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
- #define CSR_STVEC		0x105
-@@ -212,7 +215,10 @@
- # define RV_IRQ_SOFT		IRQ_S_SOFT
- # define RV_IRQ_TIMER	IRQ_S_TIMER
- # define RV_IRQ_EXT		IRQ_S_EXT
--#endif /* CONFIG_RISCV_M_MODE */
-+# define RV_IRQ_PMU	IRQ_PMU_OVF
-+# define SIP_LCOFIP     (_AC(0x1, UL) << IRQ_PMU_OVF)
-+
-+#endif /* !CONFIG_RISCV_M_MODE */
- 
- /* IE/IP (Supervisor/Machine Interrupt Enable/Pending) flags */
- #define IE_SIE		(_AC(0x1, UL) << RV_IRQ_SOFT)
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index addbdd932150..0bec9926e6ef 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -11,6 +11,9 @@
- #include <linux/mod_devicetable.h>
- #include <linux/perf/riscv_pmu.h>
- #include <linux/platform_device.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/of_irq.h>
- 
- #include <asm/sbi.h>
- 
-@@ -444,33 +447,203 @@ static int pmu_sbi_get_ctrinfo(int nctr)
- 	return 0;
- }
- 
-+static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
-+{
-+	/**
-+	 * No need to check the error because we are disabling all the counters
-+	 * which may include counters that are not enabled yet.
-+	 */
-+	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
-+		  0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
-+}
-+
-+static inline void pmu_sbi_start_all(struct riscv_pmu *pmu, uint64_t *ival)
-+{
-+	int lidx;
-+	struct cpu_hw_events *hwc = this_cpu_ptr(pmu->hw_events);
-+
-+	/* Start all the enabled counters */
-+	for_each_set_bit(lidx, hwc->used_event_ctrs, RISCV_MAX_COUNTERS)
-+		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, lidx, 1, 1,
-+			  ival[lidx], ival[lidx] >> 32, 0);
-+}
-+
-+static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
-+{
-+	struct perf_sample_data data;
-+	struct pt_regs *regs;
-+	struct hw_perf_event *hw_evt;
-+	union sbi_pmu_ctr_info *info;
-+	int lidx, hidx, fidx;
-+	struct riscv_pmu *pmu;
-+	struct perf_event *event;
-+	struct cpu_hw_events *hwc = dev;
-+	unsigned long overflow = csr_read(CSR_SSCOUNTOVF);
-+	uint64_t ival[RISCV_MAX_COUNTERS] = {0};
-+
-+	/* No overflow bit is set */
-+	if (!overflow) {
-+		csr_clear(CSR_SIP, SIP_LCOFIP);
-+		return IRQ_NONE;
-+	}
-+
-+	fidx = find_first_bit(hwc->used_event_ctrs, RISCV_MAX_COUNTERS);
-+	event = hwc->events[fidx];
-+	if (!event) {
-+		csr_clear(CSR_SIP, SIP_LCOFIP);
-+		pr_warn("None of the counters are enabled\n");
-+		return IRQ_NONE;
-+	}
-+
-+	pmu = to_riscv_pmu(event->pmu);
-+	pmu_sbi_stop_all(pmu);
-+
-+	/**
-+	 * Overflow interrupt pending bit should only be cleared after stopping
-+	 * all the counters to avoid any race condition.
-+	 */
-+	regs = get_irq_regs();
-+	csr_clear(CSR_SIP, SIP_LCOFIP);
-+
-+	for_each_set_bit(lidx, hwc->used_event_ctrs, RISCV_MAX_COUNTERS) {
-+		struct perf_event *event = hwc->events[lidx];
-+
-+		if (!event)
-+			continue;
-+		info = &pmu_ctr_list[lidx];
-+		/* Firmware counter don't support overflow yet */
-+		if (!info || info->type == SBI_PMU_CTR_TYPE_FW)
-+			continue;
-+
-+		/* compute hardware counter index */
-+		hidx = info->csr - CSR_CYCLE;
-+		/* check if the corresponding bit is set in sscountovf */
-+		if (!(overflow & (1 << hidx)))
-+			continue;
-+
-+		hw_evt = &event->hw;
-+		riscv_pmu_event_update(event);
-+		perf_sample_data_init(&data, 0, hw_evt->last_period);
-+		if (!riscv_pmu_event_set_period(event, &ival[lidx]))
-+			continue;
-+
-+		/*
-+		 * Perf event overflow will queue the processing of the event as
-+		 * an irq_work which will be taken care of in the handling of
-+		 * IPI_IRQ_WORK.
-+		 */
-+		if (perf_event_overflow(event, &data, regs))
-+			pmu_sbi_ctr_stop(event, 0);
-+	}
-+	pmu_sbi_start_all(pmu, ival);
-+
-+	return IRQ_HANDLED;
-+}
-+
- static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- {
- 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
-+	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
-+	int pmu_irq;
- 
- 	/* Enable the access for TIME csr only from the user mode now */
- 	csr_write(CSR_SCOUNTEREN, 0x2);
- 
- 	/* Stop all the counters so that they can be enabled from perf */
--	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
--		  0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
--
-+	pmu_sbi_stop_all(pmu);
-+	pmu_irq = per_cpu(hw_events->irq, cpu);
-+	if (pmu_irq) {
-+		csr_clear(CSR_IP, BIT(RV_IRQ_PMU));
-+		csr_set(CSR_IE, BIT(RV_IRQ_PMU));
-+		enable_percpu_irq(pmu_irq, IRQ_TYPE_NONE);
-+	}
- 	return 0;
- }
- 
- static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
- {
-+	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
-+	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
-+	int pmu_irq;
-+
-+	pmu_irq = per_cpu(hw_events->irq, cpu);
-+	if (pmu_irq) {
-+		disable_percpu_irq(pmu_irq);
-+		csr_clear(CSR_IE, BIT(RV_IRQ_PMU));
-+	}
- 	/* Disable all counters access for user mode now */
- 	csr_write(CSR_SCOUNTEREN, 0x0);
- 
- 	return 0;
- }
- 
-+static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pdev)
-+{
-+	int i = 0, num_irqs, ret;
-+	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *node = dev->of_node;
-+
-+	num_irqs = of_irq_count(node);
-+
-+	if (num_irqs <= 0) {
-+		dev_warn(dev, "no irqs for PMU, sampling events not supported\n");
-+		return -EPERM;
-+	}
-+
-+	for (i = 0; i < num_irqs; i++) {
-+		struct of_phandle_args parent;
-+		irq_hw_number_t pmu_irq = 0;
-+		int cpu, hartid;
-+
-+		if (of_irq_parse_one(node, i, &parent)) {
-+			pr_err("%pOFP: failed to parse parent for irq %d.\n", node, i);
-+			continue;
-+		}
-+
-+		if (parent.args[0] != RV_IRQ_PMU) {
-+			pr_err("%pOFP: invalid irq %d for hwirq %d.\n", node, i, parent.args[0]);
-+			continue;
-+		}
-+
-+		hartid = riscv_of_parent_hartid(parent.np);
-+		if (hartid < 0) {
-+			pr_warn("failed to parse hart ID for irq %d.\n", i);
-+			continue;
-+		}
-+
-+		cpu = riscv_hartid_to_cpuid(hartid);
-+		if (cpu < 0) {
-+			pr_warn("Invalid cpuid for irq %d\n", i);
-+			continue;
-+		}
-+		if (!pmu_irq && irq_find_host(parent.np)) {
-+			pmu_irq = irq_of_parse_and_map(node, i);
-+			pr_err("%s: found irq %lu\n", __func__, pmu_irq);
-+			if (pmu_irq)
-+				ret = request_percpu_irq(pmu_irq, pmu_sbi_ovf_handler,
-+							 "riscv-pmu", hw_events);
-+			if (ret) {
-+				pr_err("registering percpu irq failed [%d]\n", ret);
-+				return ret;
-+			}
-+			if (per_cpu(hw_events->irq, cpu)) {
-+				pr_warn("PMU irq already set!!");
-+				return -EINVAL;
-+			}
-+			per_cpu(hw_events->irq, cpu) = pmu_irq;
-+			per_cpu(hw_events->sscof_ext_present, cpu) = true;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int pmu_sbi_device_probe(struct platform_device *pdev)
- {
- 	struct riscv_pmu *pmu = NULL;
- 	int num_counters;
--	int ret;
-+	int ret = -ENODEV;
- 
- 	pr_info("SBI PMU extension is available\n");
- 	/* Notify legacy implementation that SBI pmu is available*/
-@@ -482,13 +655,19 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	num_counters = pmu_sbi_find_num_ctrs();
- 	if (num_counters < 0) {
- 		pr_err("SBI PMU extension doesn't provide any counters\n");
--		return -ENODEV;
-+		goto out_free;
- 	}
- 
- 	/* cache all the information about counters now */
- 	if (pmu_sbi_get_ctrinfo(num_counters))
--		return -ENODEV;
-+		goto out_free;
- 
-+	ret = pmu_sbi_setup_irqs(pmu, pdev);
-+	if (ret < 0) {
-+		pr_info("Perf sampling/filtering is not supported as sscof extension is not available\n");
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
-+	}
- 	pmu->num_counters = num_counters;
- 	pmu->ctr_start = pmu_sbi_ctr_start;
- 	pmu->ctr_stop = pmu_sbi_ctr_stop;
-@@ -509,19 +688,27 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	}
- 
- 	return 0;
-+
-+out_free:
-+	kfree(pmu);
-+	return ret;
- }
- 
-+static const struct of_device_id riscv_pmu_of_device_ids[] = {
-+	{.compatible = "riscv,pmu", .data = NULL},
-+};
-+
- static struct platform_driver pmu_sbi_driver = {
- 	.probe		= pmu_sbi_device_probe,
- 	.driver		= {
- 		.name	= RISCV_PMU_PDEV_NAME,
-+		.of_match_table = riscv_pmu_of_device_ids,
- 	},
- };
- 
- static int __init pmu_sbi_devinit(void)
- {
- 	int ret;
--	struct platform_device *pdev;
- 
- 	if (((sbi_major_version() == 0) && (sbi_minor_version() < 3)) ||
- 		sbi_probe_extension(SBI_EXT_PMU) <= 0) {
-@@ -538,14 +725,6 @@ static int __init pmu_sbi_devinit(void)
- 	}
- 
- 	ret = platform_driver_register(&pmu_sbi_driver);
--	if (ret)
--		return ret;
--
--	pdev = platform_device_register_simple(RISCV_PMU_PDEV_NAME, -1, NULL, 0);
--	if (IS_ERR(pdev)) {
--		platform_driver_unregister(&pmu_sbi_driver);
--		return PTR_ERR(pdev);
--	}
- 
- 	return ret;
- }
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index f3bce79d8998..afd93840754b 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -29,10 +29,13 @@
- struct cpu_hw_events {
- 	/* currently enabled events */
- 	int			n_events;
-+	/* Counter overflow interrupt */
-+	int		irq;
- 	/* currently enabled events */
- 	struct perf_event	*events[RISCV_MAX_COUNTERS];
- 	/* currently enabled counters */
- 	DECLARE_BITMAP(used_event_ctrs, RISCV_MAX_COUNTERS);
-+	bool sscof_ext_present;
- };
- 
- struct riscv_pmu {
-@@ -40,7 +43,6 @@ struct riscv_pmu {
- 	char		*name;
- 
- 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
--	int		irq;
- 
- 	int		num_counters;
- 	u64		(*ctr_read)(struct perf_event *event);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c79955655fa4..5fc1d0cc82e1 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -235,7 +235,7 @@ config ARCH_RV32I
+ config ARCH_RV64I
+ 	bool "RV64I"
+ 	select 64BIT
+-	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
++	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
 -- 
-2.31.1
+2.33.0.309.g3052b89438-goog
 
 
 _______________________________________________
