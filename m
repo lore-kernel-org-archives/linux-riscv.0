@@ -2,84 +2,82 @@ Return-Path: <SRS0=Il0f=OB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43291C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 17:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00C1EC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 17:44:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ED06F60FED
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 17:26:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org ED06F60FED
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	by mail.kernel.org (Postfix) with ESMTPS id 9939060FA0
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 17:44:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9939060FA0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SSPGFeykMeTJeIZIxh83DywozBQFBLlxz8og7fnARHQ=; b=I/F7Bmkv9Xfoh+
-	/Pbgg3BuiYPghfmG+KX4xJUqRprQVTyLt8C0cgdehhkmwF3Gzgxvm8mDVSMdSDBAPkkyB49RByNU3
-	6CPzBhKHP8offgzysaJ5F4HnrGeEJ0Bro6uFnjEXRleDdrOHwG/OL5eugkPchwSiDNO4C/uXljaXm
-	c7MckvbLkgrNyXPmVcEvojAPMEZ+mtTll5Sc8GAFhN34LDt+KravYjwV/mz/EtbUt3ntq6RsEYBNp
-	BvQ1shexZrJvWtxUQTnLdRPkie1VCogvhr1GKxiglWe0dSx64J0S8EMIoVzZpuR7+872BAFxCX+Uk
-	R3ACctIRViSXmMGc+LXA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PyG6k+0OGdlQ9xF21qYslVNWzFLJbAI7h/UgHcrWNbY=; b=Ac8Fov/SpFrc9o
+	wXMnO03AvVGYAbdrw7XTMLUcz582Y0YJgfp2RAYcwuTK8nKdfrAEkAT1jxYUv6586jYa2XdfV+GRc
+	Caq5Dxf2o7IAVcQZtLPSNvshw93h5DyyF+ss5jIEpCm4eBRXYveysUR63TNwr+PZPQOkk7NmVA0Ap
+	CkPg11jTsno1QGvNm24ND0X4IAaH40fJWtA0/Z4CVQG339iE8uQoLZTtyt30pTJzwG5Vv8qLhDlLk
+	D/YoeND7aTVJt73ceFxq0hgdNFkzaF0QozFZBpQbUUWo9hEvnh3ysqXqFCWHJDuzPIxJCnhQ7X5b4
+	vc8nhE98LYKKqUbwfcQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mP6li-00FI25-8K; Sat, 11 Sep 2021 17:26:22 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1mP72k-00FJMY-IY; Sat, 11 Sep 2021 17:43:58 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mP6lf-00FI16-AC
- for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 17:26:21 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-87-4qc9EUa1M6qeRLmgOwokUA-1; Sat, 11 Sep 2021 18:26:13 +0100
-X-MC-Unique: 4qc9EUa1M6qeRLmgOwokUA-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.23; Sat, 11 Sep 2021 18:26:12 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.023; Sat, 11 Sep 2021 18:26:12 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Palmer Dabbelt' <palmer@dabbelt.com>, "mcroce@linux.microsoft.com"
- <mcroce@linux.microsoft.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- Atish Patra <Atish.Patra@wdc.com>, "kernel@esmil.dk" <kernel@esmil.dk>,
- "akira.tsukamoto@gmail.com" <akira.tsukamoto@gmail.com>,
- "drew@beagleboard.org" <drew@beagleboard.org>, "bmeng.cn@gmail.com"
- <bmeng.cn@gmail.com>, "guoren@kernel.org" <guoren@kernel.org>, "Christoph
- Hellwig" <hch@infradead.org>
-Subject: RE: [PATCH] riscv: use the generic string routines
-Thread-Topic: [PATCH] riscv: use the generic string routines
-Thread-Index: AQHXpr/5qgNlr7pPJkaLpUnMWph5s6ufDaMA
-Date: Sat, 11 Sep 2021 17:26:12 +0000
-Message-ID: <241c29b27c4c4acbbf893516bfa6f5aa@AcuMS.aculab.com>
-References: <CAFnufp0eVejrDJoGE900D2U5-9qi-srVEmPOc9zHC5mSH4DgLg@mail.gmail.com>
- <mhng-22e6331c-16e1-40cc-b431-4990fda46ecf@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-22e6331c-16e1-40cc-b431-4990fda46ecf@palmerdabbelt-glaptop>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+ id 1mP72h-00FJLm-46
+ for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 17:43:56 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id n18so5024771pgm.12
+ for <linux-riscv@lists.infradead.org>; Sat, 11 Sep 2021 10:43:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=3NAUD4pLhng5e+omesoYDFR9m1AaPpbXzzageJG9Ma8=;
+ b=0SizikyDizbpPDgx6+o5KlEfv5fyR4MEubK6B4qO7bCy/F4VpuVzG4JFQTenJQwGLn
+ iI/Kz/CcST+B1m273BpXw/Th9t00b2zfl5EYpVgxe6iGmURyhYxE3hnpdXA7DGMN5SA0
+ WkeS2Fq0c7oAO45s+zyvOMtAMXDSsyTyukZGUvFtXx30eiLjgelv7Uyr1Ov5IvbQHZRp
+ b0oLG3zxrR6dRhnF6qUfcQTEevKdjtGyiKxqNL4Gr1i7SHVwvK3R5FBBQXZwR2Q+uqGR
+ Fj0EFLjwI6PaujO5SHEDsawic4sJaf/QoBd8BtM+1g0vIe6WQWCENCYupCLSB3UYXuBO
+ wzUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=3NAUD4pLhng5e+omesoYDFR9m1AaPpbXzzageJG9Ma8=;
+ b=C3CfNPYhOW6wTS/4SDhoDNp+gtteaPUwZR0hQl0M1yE4RPnMZiRmlaq/kjcnjYzxTe
+ 5hQjPoR1s6U/NqzQCyYXSwQcDuh5xsoCFI3YxGfA+6LETr+v8sM5IOjNjEdcgJKLTh60
+ vNmIpTMsnk2oxKq3j1vt+70lyH1A+qo2ceTpIYBDLJ/yG2pznFCc4PLlwAg+unk0uiuA
+ qvDWvPQ6w9L4zM9brPcmPEMAC+OpQvL5BbNOTFd/pl0htGFJV/eSJEUGHnpg2qxiHabJ
+ Hs0k/tgmAAbAkkp+nP8yo6Q3Cf+8l2Xu8vUlu8szRj7aMbk2Wsg1ewDGl6uhghurlXLh
+ f7Zw==
+X-Gm-Message-State: AOAM533aZITu8rpVKMDe30oVzu0/CoQzIrH9fspl82asBXF5voS6bP2k
+ iUHD1MdJuOdgxGaG3OKrcck9sS1o0hC6qsIo
+X-Google-Smtp-Source: ABdhPJyZRmww7urXa4w267bTP9i2mnmfwpoW9SrScImCH4DhJlXpz9zAOMEg6zKyIBCWz6ekuhe44w==
+X-Received: by 2002:a63:e613:: with SMTP id g19mr3394586pgh.12.1631382228143; 
+ Sat, 11 Sep 2021 10:43:48 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id y4sm2226561pjw.57.2021.09.11.10.43.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 11 Sep 2021 10:43:47 -0700 (PDT)
+Date: Sat, 11 Sep 2021 10:43:47 -0700 (PDT)
+X-Google-Original-Date: Sat, 11 Sep 2021 10:43:37 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.15 Merge Window, Part 2
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-b2b622b6-e788-4923-8cf2-ada90a2a095f@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210911_102619_674619_01943674 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20210911_104355_211225_A6105A6F 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +89,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-..
-> These ended up getting rejected by Linus, so I'm going to hold off on
-> this for now.  If they're really out of lib/ then I'll take the C
-> routines in arch/riscv, but either way it's an issue for the next
-> release.
+merged tag 'riscv-for-linus-5.15-mw0'
+The following changes since commit 063df71a574b88e94391a3a719cf66d1b46df884:
 
-I've been half following this.
-I've not seen any comparisons between the C functions proposed
-here and the riscv asm ones that had the fix for misaligned
-transfers applied.
+  Merge tag 'riscv-for-linus-5.15-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2021-09-05 11:31:23 -0700)
 
-IIRC there is a comment in the asm ones that the unrolled
-'read lots' - 'write lots' loop is faster than the older
-(asm) read-write loop.
+are available in the Git repository at:
 
-But I've not seen any archictural discussions at all.
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.15-mw1
 
-A simple in-order single-issue cpu will execute the
-unrolled loop faster just because it has fewer instructions.
-The read-lots - write-lots almost certainly helps
-avoid read-latency delaying things if multiple reads
-can be pipelined.
-The writes are almost certainly 'posted' and pipelined,
-But a simple cpu could easily require all writes finish
-before doing a read.
+for you to fetch changes up to 6f55ab36bef505b449723300a5a445ddc76a94d7:
 
-A super-scaler (multi-issue) cpu gives you the ability
-to get the loop control instructions 'for free' with
-carefully written assembler.
-At which point a copy for 'life cache' data should be
-limited only by the cpu's cache memory bandwidth.
+  riscv: Move EXCEPTION_TABLE to RO_DATA segment (2021-09-10 23:59:48 -0700)
 
-If reads and writes can interleave then a loop that
-alternates reads and writes (read each register
-just after writing it) may mean that you always
-keep the cpu-cache interface busy.
-This would be especially true if the cpu can execute
-both a cache read and write in the same cycle.
-(Which many moderate performance cpu can.)
+----------------------------------------------------------------
+RISC-V Patches for the 5.15 Merge Window, Part 2
 
-None of the requires out-of-order execution, just
-execution to continue while a read is in progress.
+* A pair of defconfig additions, for NVMe and the EFI filesystem
+  localization options.
+* A larger address space for stack randomization.
+* A cleanup to our install rules.
+* A DTS update for the Microchip Icicle board, to fix the serial
+  console.
+* Support for build-time table sorting, which allows us to have
+  __ex_table read-only.
 
-I'm also guessing that any performance testing has been
-done with the (relatively) cheap boards that are readily
-available.
+----------------------------------------------------------------
+Geert Uytterhoeven (1):
+      riscv: dts: microchip: mpfs-icicle: Fix serial console
 
-But I've also seen references in the press to much faster
-riscv cpu that are definitely multi-issue and may have
-some simple out-of-order execution.
-Any changes ought to be tested on these faster systems.
+Heinrich Schuchardt (2):
+      riscv: defconfig: enable BLK_DEV_NVME
+      riscv: defconfig: enable NLS_CODEPAGE_437, NLS_ISO8859_1
 
-I also recall that some of the performance measurements
-were made with long buffers - they will be dominated by the
-cache to DRAM (and maybe TLB lookup) timings, not the copy
-loop.
+Jisheng Zhang (2):
+      riscv: Enable BUILDTIME_TABLE_SORT
+      riscv: Move EXCEPTION_TABLE to RO_DATA segment
 
-For a simple cpu you ought to be able to measure the
-number of cpu cycles used for a copy - and account for
-all of them.
-For something like x86 you can show that the copy is
-being limited by the cpu-cache bandwidth.
-(FWIW measurements of the inet checksum code on x86
-show it runs at half the expected speed on a lot of
-Intel cpu - no one ever measured it.)
+Kefeng Wang (1):
+      riscv: Improve stack randomisation on RV64
 
-	David
+Masahiro Yamada (1):
+      riscv: move the (z)install rules to arch/riscv/Makefile
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+ Documentation/features/vm/ELF-ASLR/arch-support.txt         | 2 +-
+ arch/riscv/Kconfig                                          | 1 +
+ arch/riscv/Makefile                                         | 7 +++++--
+ arch/riscv/boot/Makefile                                    | 8 --------
+ arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 6 +++++-
+ arch/riscv/configs/defconfig                                | 4 ++++
+ arch/riscv/include/asm/elf.h                                | 3 +++
+ arch/riscv/kernel/vmlinux-xip.lds.S                         | 1 -
+ arch/riscv/kernel/vmlinux.lds.S                             | 4 ++--
+ scripts/sorttable.c                                         | 1 +
+ 10 files changed, 22 insertions(+), 15 deletions(-)
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
