@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E5EFCC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 09:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 03010C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 09:22:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5FA961216
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 09:22:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A5FA961216
+	by mail.kernel.org (Postfix) with ESMTPS id BCBDE6121F
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 09:22:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BCBDE6121F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,31 +23,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IxL7da1q19uWtfUeR9yIbZO+3UBTTmgnZXfnD+1A7B4=; b=MpnePfD5A/EGfy
-	pXLXWkjvAtcQIfY4qhXRjU3nBRxT6mSJeddvKZzu1342H1tkWkAgWddwoJWihr4VU+33v8hqBHT26
-	u2+ERVmU7Zb935UPwp0NGT9hNK8LVmSjT1ikosrm40Osbz5yk7tUcWKkUCYbE2+AtOWysMT7ihTWf
-	Tr1/M4UYPzy0u7oPYQFb3emuKVHty3p6+OmGtmTnZcDUaofOdgkAZ8eTkoop3rFiZ+xjVXfFExi/u
-	2kyofKnA8gYI3B8v1PFKn0weENhFN/ltfdYjEVcvuKs9Ae5Nb0MpQgzEIvBcRiWNo3xIczKAZ1bwM
-	2AkkX/3VSP/Zt/cA3v3w==;
+	List-Owner; bh=OIvbQi5h0UpQhk6Ak/tkKCbftrBbuO3uFf0xK6a/xes=; b=YKVVLNnABgHWkT
+	bZLuNe83JMRwFJ/DFd41hbijInB8bfr0ZN9RKenhS/P//T/5EBBwXhRvbr4yN2BoYT1HJpwOKgS6C
+	lqC5A0pjXKhHIBgrpNen0EvOkteMqHyQvwou3810WLuULLDA/dSshMcUgdxodNGYWhE9PTPQOV1K3
+	r6ycDNE/V6bEqj+++WW8ZJhMqBrtBzV2YywmzmMNy0eR2AKbzankZXtyp2wppwyrv6ruY+JYJgDZt
+	FMZYIGTgbwjbJmCGgodKn1XqV6ye1NS/dNrdnLd6xF1/VSDCZoouE8lLhFixACeQ98hGkC+QLxOXC
+	Yllppfa4Gy/f4tiPrmvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOzDU-00Eb7I-Rt; Sat, 11 Sep 2021 09:22:32 +0000
+	id 1mOzDQ-00Eb4o-35; Sat, 11 Sep 2021 09:22:28 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOzDS-00Eb65-Ax
- for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 09:22:31 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6056761221;
- Sat, 11 Sep 2021 09:22:25 +0000 (UTC)
+ id 1mOzDN-00Eb38-4A
+ for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 09:22:26 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9D4AC61208;
+ Sat, 11 Sep 2021 09:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631352150;
- bh=cRNfFnfeWGtcYlgL0PiB2KFICmvm/APlEwTrrujZ2D4=;
+ s=k20201202; t=1631352144;
+ bh=LjAKkpiCnirsB4Y6pdvnBZ3V6hPR2NG4vhp7kebZdOg=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=DwTVSxsrXizDaf29KSNkLvVarSdmBDDs1X9JPPdiCw+yjKX+h2av4oPRu1n/F2fmB
- b77KfT4cmza+/EoQ+o5uxVYZff8Wr3WaU3N7o427j0MZmI8UpiWjR6FYn4ZKVICYlX
- HrZiFmwgslW4SKxAalSW90GoxGhe/YrmbCFHVxhSb3MI7F+QYbUQJJLyiWs6OiT3iO
- U1X53I/4wcF5qjm8Y4kIasLuAVS7LjtNS7m/uxohtGQa1pXW3Yygz9qOv7NPJA3DUc
- o/YH2LxMuKWeUrnMBDljTHk9+qu+VXNXDF8kSCboZCJuEcccTz5Pqf0DoYbVM5j+9n
- iSH6vrqlx8sZg==
+ b=rQseqkLEQnMLI8Sfk0Mox519Abj3QiSjmQtZCJBU3ctwqKIF9DUwIeLfDghYCSWpx
+ mUxS7MpliI+o/ilhDblwmTRXEooaTbRWLTgl7ij5aX0/3id0uf6OMv7I/2ETs7sfkA
+ Jd/ifC2HV04/a6vF7E8W/GQZFtl5AHIGXN9EQ8VmieGx636gOhSfffplrqcD7tnk5H
+ Z4MRewQbeAwzjH/alNr0O2dRTcNX/yERk66Tsu+bUnIlEUAB/o5kWsPSNN7DFpTX8y
+ ZzUF7tYHCc443tCBF0WvHv4g5XhJNjusSMZu97o0bvhUuNzQONwgtw4gVQQQ+FlX5w
+ S+1MPZqBE3qIg==
 From: guoren@kernel.org
 To: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
  guoren@kernel.org, christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu,
@@ -56,19 +56,17 @@ To: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
  heinrich.schuchardt@canonical.com, gordan.markus@canonical.com,
- Guo Ren <guoren@linux.alibaba.com>, Chen-Yu Tsai <wens@csie.org>,
- Maxime Ripard <maxime@cerno.tech>
-Subject: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
-Date: Sat, 11 Sep 2021 17:21:39 +0800
-Message-Id: <20210911092139.79607-7-guoren@kernel.org>
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: [RFC PATCH V4 5/6] riscv: errata: Support T-HEAD custom dcache ops
+Date: Sat, 11 Sep 2021 17:21:38 +0800
+Message-Id: <20210911092139.79607-6-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210911092139.79607-1-guoren@kernel.org>
 References: <20210911092139.79607-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210911_022230_438379_DA5700DF 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210911_022225_277831_977337FB 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +83,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Liu Shaohua <liush@allwinnertech.com>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Add Allwinner kconfig option which selects SoC specific and common
-drivers that is required for this SoC.
+Here are the DMA sync ops needed by Allwinner D1. RISC-V CMO
+extension is still in progress, and D1 is using custom CMO
+instructions:
 
-Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
-interconnect issues for dma synchronization, so we set the default
-value when SOC_SUNXI selected.
+ dcache.ipa rs1 (invalidate)
+ | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+   0000001    01010      rs1       000      00000  0001011
 
-Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
+ dcache.cpa rs1 (clean)
+ | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+   0000001    01001      rs1       000      00000  0001011
+
+ dcache.cipa rs1 (clean then invalidate)
+ | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+   0000001    01011      rs1       000      00000  0001011
+
+ sync.s (completion barrier)
+ | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+   0000000    11001     00000      000      00000  0001011
+
+TODO:
+ - Using alternative patch_text based on Atish's patch.
+
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
 Signed-off-by: Wei Fu <wefu@redhat.com>
-Cc: Anup Patel <anup.patel@wdc.com>
 Cc: Atish Patra <atish.patra@wdc.com>
 Cc: Christoph Hellwig <hch@lst.de>
-Cc: Chen-Yu Tsai <wens@csie.org>
-Cc: Drew Fustini <drew@beagleboard.org>
-Cc: Maxime Ripard <maxime@cerno.tech>
 Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Wei Wu <lazyparser@gmail.com>
+Cc: Anup Patel <anup.patel@wdc.com>
 ---
- arch/riscv/Kconfig.socs      | 15 +++++++++++++++
- arch/riscv/configs/defconfig |  1 +
- 2 files changed, 16 insertions(+)
+ arch/riscv/errata/alternative.c      |  5 +++
+ arch/riscv/errata/thead/errata.c     | 61 ++++++++++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h |  2 +
+ 3 files changed, 68 insertions(+)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 30676ebb16eb..8721c000ef23 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -70,4 +70,19 @@ config SOC_CANAAN_K210_DTB_SOURCE
- 
- endif
- 
-+config SOC_SUNXI
-+	bool "Allwinner SoCs"
-+	depends on MMU
-+	select DWMAC_GENERIC
-+	select ERRATA_THEAD
-+	select RISCV_DMA_NONCOHERENT
-+	select RISCV_ERRATA_ALTERNATIVE
-+	select SERIAL_8250
-+	select SERIAL_8250_CONSOLE
-+	select SERIAL_8250_DW
-+	select SIFIVE_PLIC
-+	select STMMAC_ETH
-+	help
-+	  This enables support for Allwinner SoC platforms like the D1.
+diff --git a/arch/riscv/errata/alternative.c b/arch/riscv/errata/alternative.c
+index b879aa546bc5..396aab1b62c2 100644
+--- a/arch/riscv/errata/alternative.c
++++ b/arch/riscv/errata/alternative.c
+@@ -46,6 +46,11 @@ static void __init init_alternative(void)
+ 	case SIFIVE_VENDOR_ID:
+ 		vendor_patch_func = sifive_errata_patch_func;
+ 		break;
++#endif
++#ifdef CONFIG_ERRATA_THEAD
++	case THEAD_VENDOR_ID:
++		vendor_patch_func = thead_errata_patch_func;
++		break;
+ #endif
+ 	default:
+ 		vendor_patch_func = NULL;
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 1f5c0f82bc23..9c0bf9b25be3 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -5,6 +5,7 @@
+ #include <linux/bug.h>
+ #include <asm/patch.h>
+ #include <asm/alternative.h>
++#include <asm/dma-noncoherent.h>
+ #include <asm/vendorid_list.h>
+ #include <asm/errata_list.h>
+ #include <asm/pgtable-bits.h>
+@@ -45,3 +46,63 @@ void __init thead_errata_setup_vm(unsigned long archid, unsigned long impid)
+ 	__riscv_pbmt.mt[MT_IO]	= _PAGE_MT_IO;
+ #endif
+ }
 +
- endmenu
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index bc68231a8fb7..a50f250fbdd8 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -15,6 +15,7 @@ CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
- CONFIG_BPF_SYSCALL=y
- CONFIG_SOC_SIFIVE=y
-+CONFIG_SOC_SUNXI=y
- CONFIG_SOC_VIRT=y
- CONFIG_SOC_MICROCHIP_POLARFIRE=y
- CONFIG_SMP=y
++#ifdef CONFIG_RISCV_DMA_NONCOHERENT
++/*
++ * dcache.ipa rs1 (invalidate)
++ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *   0000001    01010      rs1       000      00000  0001011
++ *
++ * dcache.cpa rs1 (clean)
++ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *   0000001    01001      rs1       000      00000  0001011
++ *
++ * dcache.cipa rs1 (clean then invalidate)
++ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *   0000001    01011      rs1       000      00000  0001011
++ *
++ * sync.s
++ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *   0000000    11001     00000      000      00000  0001011
++ */
++#define DCACHE_IPA_A0	".long 0x02a5000b"
++#define DCACHE_CPA_A0	".long 0x0295000b"
++#define DCACHE_CIPA_A0	".long 0x02b5000b"
++
++#define SYNC_S		".long 0x0190000b"
++
++#define CACHE_OP_RANGE(OP, start, size) \
++	register unsigned long i asm("a0") = start & ~(L1_CACHE_BYTES - 1); \
++	for (; i < ALIGN(start + size, L1_CACHE_BYTES); i += L1_CACHE_BYTES) \
++		__asm__ __volatile__(OP); \
++	 __asm__ __volatile__(SYNC_S);
++
++static void c900_cache_invalidate(phys_addr_t start, size_t size)
++{
++	CACHE_OP_RANGE(DCACHE_IPA_A0, start, size);
++}
++
++static void c900_cache_clean(phys_addr_t start, size_t size)
++{
++	CACHE_OP_RANGE(DCACHE_CPA_A0, start, size);
++}
++
++static void c900_cache_flush(phys_addr_t start, size_t size)
++{
++	CACHE_OP_RANGE(DCACHE_CIPA_A0, start, size);
++}
++
++static struct riscv_dma_cache_sync c900_dma_cache_sync = {
++	.cache_invalidate = c900_cache_invalidate,
++	.cache_clean = c900_cache_clean,
++	.cache_flush = c900_cache_flush,
++};
++#endif
++
++void __init thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++				     unsigned long archid, unsigned long impid)
++{
++#ifdef CONFIG_RISCV_DMA_NONCOHERENT
++	riscv_dma_cache_sync_set(&c900_dma_cache_sync);
++#endif
++}
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 3605894081a8..a519671fa7d1 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -35,6 +35,8 @@ struct errata_checkfunc_id {
+ 
+ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			      unsigned long archid, unsigned long impid);
++void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++			      unsigned long archid, unsigned long impid);
+ 
+ void thead_errata_setup_vm(unsigned long archid, unsigned long impid);
+ #endif
 -- 
 2.25.1
 
