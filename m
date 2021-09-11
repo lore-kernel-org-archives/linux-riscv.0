@@ -2,19 +2,19 @@ Return-Path: <SRS0=Il0f=OB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B0F8C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 03:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A29A3C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 06:04:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D167C611EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 03:49:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D167C611EF
+	by mail.kernel.org (Postfix) with ESMTPS id 52A066113A
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Sep 2021 06:04:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 52A066113A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,73 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Dc/15+M8a14Cq8/BDp5iCia55XiGpqPKIUD8iMf1Kl0=; b=IntvPeVrj3P6ZrXgizy4BKZYJ1
-	3SKkP575ip1nzYaPyCeic8i07FGG+MgcuCW/3t9fP0bD+agGB+KYf8Wn3OcMJWKJJwG0i5aUfQUT+
-	Sdumc69c5k56nz3WfFCODFzXj1k2eZLj8T66W1yBRMt57n0P7oWcsJS6KrxXCk1UuQkpW8djRJui0
-	0eISNDO6J5O2y/DtrFTsVMSffidgrcF+uJyCz6DtFsXzxknoV8k3r741UqiavI27upBvnTt6QTc+V
-	GTKtuEXRiFn0FFuDNI4MmbsUkXZNdwR9E9ZhPVqW0jaxCLIsCC7pDIR6Mo1AuMYUdP9ug5CwgnOSX
-	mA99j+iw==;
+	bh=SSToXi6PmEGyJ/DjOC3JPRkiX4FZG/+abA1hTuP64dU=; b=NzLmzG7i44ET3XXa73zv6UPggq
+	IG8MPxKZ8e/3nlGMkhAvnJSdN/utfycAMGHIWulxukl6SOM89zALP5pTRVxXOALfgG8OyP9Gxo5Oo
+	YecNcxLq0j/xIb5zfwunQZRN/1i8jDL6CMna6A5F3/JYgycW2LpFLg1sOs/H8t96wRJrqL0GvgfUB
+	H21DYFH3nCPtVgppYZTkTkQhajmssmeTAZzY1GHcuze2ejXtzkgTA46H7gLqbnwSgsVwg0ZP8TIDr
+	m7dcONP4rf/+EKdBSau4YYTy4BF/I8mpuA4EE1C8N0veA5mfrc3szxtAicZZrZXw/4oEdWAztmON0
+	4mfF2xWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mOu12-00EE1d-3r; Sat, 11 Sep 2021 03:49:20 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1mOw7T-00ELce-9Z; Sat, 11 Sep 2021 06:04:07 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mOu0o-00EDyW-BD
- for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 03:49:09 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id
- mi6-20020a17090b4b4600b00199280a31cbso2282628pjb.0
- for <linux-riscv@lists.infradead.org>; Fri, 10 Sep 2021 20:49:04 -0700 (PDT)
+ id 1mOw78-00ELbt-Vf
+ for linux-riscv@lists.infradead.org; Sat, 11 Sep 2021 06:03:48 +0000
+Received: by mail-ot1-x333.google.com with SMTP id
+ l7-20020a0568302b0700b0051c0181deebso5357612otv.12
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Sep 2021 23:03:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=QuPF5nusJlsscFj3tnGPAk3mJ/xRENxHHvXDknweP7I=;
- b=xngk7xBTC3m78+CY9I+y4G9EDAP5+nxGEUr6zZjFicXSGgU5GX6GXnR3sFk6Ks6QBc
- 1i17oG2CKO9UFB8RlY6CvORkr0z9lPI8KyUdfAcvbg0zpRgts3AjsuAgG+fmkJ9EvktC
- Mou3eFHI2zD0VbL5vGN7a6hrZA2+3uzkehA6S08/qzoP9P1IKng0wtwAJyN63Z+d53u6
- HhgD8q9URo6DIxmxLyJTaRGBGRLPTr6faChRlmrpIpH0aenlQSRf+IXyHDArqy/QdGfl
- jlub+/o3S+p99NEmXPXbFMGbyUJk/RYp4Ohoov1n0j7R7Jkubun0acdhaNL/U4+0L89b
- OAMA==
+ bh=UgmN2EKt/DWd47bpDffgHi1pS1L5lavVM0pPz8CK090=;
+ b=vCfaQUquVMJLez8VluIXcmYq5CLLVqmr1dQOTPDIhd8I0yzMvs/JDiTFM98UYBxGUg
+ DmHIxnz3QosYOqpRiQam+j70L3Lxba4McNaPDLEBE3VXz4TIUCNcawZeYhvlVxqbsbRv
+ lMN/RaHrHe+kX3gktUvbMxTWwU+BpbsRxeMOoXifPg/HuZ0+byhEeVdZYt0kh23EVtI7
+ tWeE/1HuwOLvIsRTzEktWh9cRzGU0uX9aIv8ctVZ6HBFyP8WLaunpUUvCWa5Kl1xshVX
+ BeMZC09He9qcH1BubqxyLr+0+8dD6TQHJRLQ+rbnbglcN64lvpUAw+n17xrHXDsjxp3v
+ PL3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=QuPF5nusJlsscFj3tnGPAk3mJ/xRENxHHvXDknweP7I=;
- b=TuNYBn0wYPCto7MrE8zmrkfaExuvzTC0XCP+WB6X++lnKv2sDPrUhDDFOQne4EY67g
- At6BX+MbsUoewa1JT7+OhxtvEG44TGQSDS21/3c38Lv8yBsmHVvNNHAxOH4zbOAe5klR
- zg3Cr6HD8Of4pZkfyMiRNwL2pRV3e4vlYxROa32/4E9UNu5Ru9/9a4BpBM5RIYYZ2p8O
- 9jeYL5/uwapVFqepG0ov9j23hpT5+UyWaRs48fu059jXNMh1ZPDD34W0+oHaNL34nIVQ
- ULr4VNXFCc9/EGXNaDCdEKHKfrkE7hKF2Oc11of3pgWWGOBxSjKahaWA4nstf6zv/7C3
- mLiw==
-X-Gm-Message-State: AOAM530tkjvKvtTQYR5n2QlOFvhifHgTQh+UhYM/cohNtfzE6MLRFVcH
- HMFPmE3YSYEFnfeztYyB5F/nTJRYPrlOg/ee2K4=
-X-Google-Smtp-Source: ABdhPJwQaHKrcbkiR37heGOncNK7+R+ciRsCRoCbE/k/9aYTyGD/xAi2Fb7OtqtVU9rDTpHSXnMcxg==
-X-Received: by 2002:a17:90a:fe0b:: with SMTP id
- ck11mr1099866pjb.10.1631332143174; 
- Fri, 10 Sep 2021 20:49:03 -0700 (PDT)
+ bh=UgmN2EKt/DWd47bpDffgHi1pS1L5lavVM0pPz8CK090=;
+ b=QHmtXEDhnory45lxDnM3ut1XtZFNFxnaxVkID4oMMz7W/1ugUbNx6h+qkQoaXX01Pt
+ FsrhtEPrqBcpT3jyiyNfLvZOQ40xW61R+TD+w9XDjOditk5oppbvswkCFVswhq3PMhCW
+ N7jbdusMe5jMA5B+tUAugazhUwW4o9MDVtzuDRLAESDKd8Wq2maI8/Nvzw0JZFb+DotZ
+ E4hl/lX6oywuBvGzQGxNA1pT6QcrMpyXAX49jo7oxjE3SpfEP5BBHDePvrH/zl/Kig+G
+ 4A5ojPOw/6LZnImK9oOZNBysKkuDMjbXkw7AGDmzfgNG5iCs6e4E3DYfS1/GpkX4gcMz
+ EHtQ==
+X-Gm-Message-State: AOAM530S0EkRQ1lE6nu1jEZIYH3QrW2qMCcIBPHhLvwIixyuQHfAfgvS
+ gQS34iF6UmKrX0y2+ITWSbXxVmqBUn+SPjuCHjk=
+X-Google-Smtp-Source: ABdhPJyRd0MIgayPgtVMdjDX8fX/kgXfIi474riYVHdu4gfC5dHSDQoTnGlH2JNIcxGY+lSY1ozCcA==
+X-Received: by 2002:a9d:6a4b:: with SMTP id h11mr1126032otn.5.1631340224967;
+ Fri, 10 Sep 2021 23:03:44 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id w24sm304055pjh.30.2021.09.10.20.49.01
+ by smtp.gmail.com with ESMTPSA id bf6sm247447oib.0.2021.09.10.23.03.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 10 Sep 2021 20:49:02 -0700 (PDT)
-Date: Fri, 10 Sep 2021 20:49:02 -0700 (PDT)
-X-Google-Original-Date: Fri, 10 Sep 2021 20:23:04 PDT (-0700)
-Subject: Re: [PATCH] riscv: use the generic string routines
-In-Reply-To: <CAFnufp0eVejrDJoGE900D2U5-9qi-srVEmPOc9zHC5mSH4DgLg@mail.gmail.com>
-CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- Atish Patra <Atish.Patra@wdc.com>, kernel@esmil.dk, akira.tsukamoto@gmail.com,
- drew@beagleboard.org, 
- bmeng.cn@gmail.com, David.Laight@aculab.com, guoren@kernel.org,
- Christoph Hellwig <hch@infradead.org>
+ Fri, 10 Sep 2021 23:03:44 -0700 (PDT)
+Date: Fri, 10 Sep 2021 23:03:44 -0700 (PDT)
+X-Google-Original-Date: Fri, 10 Sep 2021 21:53:28 PDT (-0700)
+Subject: Re: [PATCH 1/2] riscv: defconfig: enable BLK_DEV_NVME
+In-Reply-To: <20210812081027.9242-1-heinrich.schuchardt@canonical.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
+ xypron.glpk@gmx.de, ardb@kernel.org, 
+ sagar.kadam@sifive.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, heinrich.schuchardt@canonical.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mcroce@linux.microsoft.com
-Message-ID: <mhng-22e6331c-16e1-40cc-b431-4990fda46ecf@palmerdabbelt-glaptop>
+To: heinrich.schuchardt@canonical.com
+Message-ID: <mhng-b162953f-839f-40e9-a643-34eef24ce8b4@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210910_204906_476665_E21297BC 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20210910_230347_131030_A104C5D1 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +103,41 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Aug 2021 03:31:04 PDT (-0700), mcroce@linux.microsoft.com wrote:
-> On Wed, Aug 4, 2021 at 10:40 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Tue, 03 Aug 2021 09:54:34 PDT (-0700), mcroce@linux.microsoft.com wrote:
->> > On Mon, Jul 19, 2021 at 1:44 PM Matteo Croce <mcroce@linux.microsoft.com> wrote:
->> >>
->> >> From: Matteo Croce <mcroce@microsoft.com>
->> >>
->> >> Use the generic routines which handle alignment properly.
->> >>
->> >> These are the performances measured on a BeagleV machine for a
->> >> 32 mbyte buffer:
->> >>
->> >> memcpy:
->> >> original aligned:        75 Mb/s
->> >> original unaligned:      75 Mb/s
->> >> new aligned:            114 Mb/s
->> >> new unaligned:          107 Mb/s
->> >>
->> >> memset:
->> >> original aligned:       140 Mb/s
->> >> original unaligned:     140 Mb/s
->> >> new aligned:            241 Mb/s
->> >> new unaligned:          241 Mb/s
->> >>
->> >> TCP throughput with iperf3 gives a similar improvement as well.
->> >>
->> >> This is the binary size increase according to bloat-o-meter:
->> >>
->> >> add/remove: 0/0 grow/shrink: 4/2 up/down: 432/-36 (396)
->> >> Function                                     old     new   delta
->> >> memcpy                                        36     324    +288
->> >> memset                                        32     148    +116
->> >> strlcpy                                      116     132     +16
->> >> strscpy_pad                                   84      96     +12
->> >> strlcat                                      176     164     -12
->> >> memmove                                       76      52     -24
->> >> Total: Before=1225371, After=1225767, chg +0.03%
->> >>
->> >> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
->> >> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->> >> ---
->> >
->> > Hi,
->> >
->> > can someone have a look at this change and share opinions?
->>
->> This LGTM.  How are the generic string routines landing?  I'm happy to
->> take this into my for-next, but IIUC we need the optimized generic
->> versions first so we don't have a performance regression falling back to
->> the trivial ones for a bit.  Is there a shared tag I can pull in?
+On Thu, 12 Aug 2021 01:10:26 PDT (-0700), heinrich.schuchardt@canonical.com wrote:
+> NVMe is a non-volatile storage media attached via PCIe.
+> As NVMe has much higher throughput than other block devices like
+> SATA it is a must have for RISC-V. Enable CONFIG_BLK_DEV_NVME.
 >
-> Hi,
+> The HiFive Unmatched is a board providing M.2 slots for NVMe drives.
+> Enable CONFIG_PCIE_FU740.
 >
-> I see them only in linux-next by now.
+> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> ---
+> resent on Palmer's request due to non-matching e-mail addresses
+> https://lore.kernel.org/linux-riscv/20210726112511.78350-1-xypron.glpk@gmx.de/
+> ---
+>  arch/riscv/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 1f2be234b11c..393bf3843e5c 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -39,10 +39,12 @@ CONFIG_PCI=y
+>  CONFIG_PCIEPORTBUS=y
+>  CONFIG_PCI_HOST_GENERIC=y
+>  CONFIG_PCIE_XILINX=y
+> +CONFIG_PCIE_FU740=y
+>  CONFIG_DEVTMPFS=y
+>  CONFIG_DEVTMPFS_MOUNT=y
+>  CONFIG_BLK_DEV_LOOP=y
+>  CONFIG_VIRTIO_BLK=y
+> +CONFIG_BLK_DEV_NVME=m
+>  CONFIG_BLK_DEV_SD=y
+>  CONFIG_BLK_DEV_SR=y
+>  CONFIG_SCSI_VIRTIO=y
 
-These ended up getting rejected by Linus, so I'm going to hold off on 
-this for now.  If they're really out of lib/ then I'll take the C 
-routines in arch/riscv, but either way it's an issue for the next 
-release.
+Thanks, these are on for-next.
 
 _______________________________________________
 linux-riscv mailing list
