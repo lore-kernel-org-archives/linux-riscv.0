@@ -5,89 +5,100 @@ X-Spam-Level:
 X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 987A7C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 07:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5462CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 08:45:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F56260FF2
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 07:11:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2F56260FF2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id BC80460F58
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 08:45:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC80460F58
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cerno.tech
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sUDXCogiXmvv+YjvadjZLyQbHo7Xs1KU7q3LZGW+beE=; b=vwPLyl97GWqGbf
-	mdOR+Din3g22EAZvRuBwBVZOVsrCNnSiUBDKyWpA1Ql/f2W+1rxnwxIobBO5L9NjRc8CmljWkLMbw
-	Yqf2MFq5pONsazYRgvgAgbtP3iNeWQg4b7SHAQku+1axdeswDzt258nF9TLaXsKBRJRIWuev+iNAb
-	euN1P0qYChFhUCK7oTI+1wxISrEqZ5SYhLjujod+CIeYTPTSc3a1iy1IWH3q3dBJg1bLrgtH2CgNQ
-	jRhug3X31qLAEqN/fqFD0FDzfMBUF7sRuRuvDcmMgmDAak+/RKfeejnyn5BgW6FnW7yvtKBP29pRR
-	8Ic88X32WnJ+SJUTuN8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9mw/FyCCTGQmx2WFl73fayxbKAr4X1SIWkjTbKIbIbk=; b=i+Ff+rkLf5eyCJusBtkbE0/y2q
+	pzCow/qiSg3xoTU5EVUnbumCIb7iUHaiDVSPgoQjd6eNIE3SCZpSRB8blGo32rBdtxqH8GQYavYgO
+	jtS5iW0HJgTa/yV4ZWYP+18Zmik5MQv8YFUBVi3NsPFhjcOAIpgfVpwc3jEuRpEmidrXx+05N2PyZ
+	n0VHnnTGy6UqueVbF7MPu00NKn3EHfmxdjbNzYTPS2DU/nIFUbmkKob+Sv6d6oLOfZWOT729ZOZ7h
+	THUcde6kb3j88HZ+NXg8MtdotCFiVVB+BqJIcQ4LkOtHiYXYbqra5NM+/plthuHFH1Zbf+ttKzjTa
+	1KmFBBEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mPg7r-000VMW-TE; Mon, 13 Sep 2021 07:11:35 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1mPhai-000qqn-7h; Mon, 13 Sep 2021 08:45:28 +0000
+Received: from new2-smtp.messagingengine.com ([66.111.4.224])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mPg7m-000VLl-Oe
- for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 07:11:33 +0000
-Received: by mail-pl1-x632.google.com with SMTP id bb10so5195536plb.2
- for <linux-riscv@lists.infradead.org>; Mon, 13 Sep 2021 00:11:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fgcFuZGs41zUwPhg+w2SwpNYWnwVorlWDkXm/c0dxvk=;
- b=nSJJ5F3ifN3k5v0i8oepo2iZh4gJfpgNDgZelyyGuqF88GUYz5e1tTE2YsvKhb+3T8
- wwMesGoZWzehX+SdWWiiLi2pl4Ec6PIKzCg7mEB6eSe80HQrM8kkGE6s5RxJDCOHtc+l
- E9IqCCj551soUPm8qXH5w86oz00O5OQynmt+RqvE3lLw8uf/CNywr1K3LVGt4TcivCyP
- 6zNX/kSS6pGx8LvSNMFzbQYHNszuwTqgeh6mNeJnR5hoo19Q+f8IvCxBpkJdtnr0INdP
- fIyF4mDfQXpxjz4r21riPuNl8yNj4adVH/1CTYHSsgdeV4gyowU7YE9KQ0H+bgVKZRIc
- rFtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=fgcFuZGs41zUwPhg+w2SwpNYWnwVorlWDkXm/c0dxvk=;
- b=L2iN6SMFCIi4IydbB3BBUFdXTstdkURXKrynpfbJWwNwXNoISSwJ9xYIQHLivU8BJM
- 0HaXpq28bbntwvUuUL8o6R0qrrfOl1LHojhpR/+h9R4KIsaYuFPOUSzOgJTYetVj9R2L
- S2V0qhp4ye8UvgKLGocrnxoGPCc39uENmb7YFmspuPByL5CuaQcw+gt/xjnMTW/M4GW5
- dyS4nIrzM05UFDunLPef6Cxom/QiZhfFLctx1exGA7M66lkwYSgLOb1ApyDDGWT65+Mg
- 2CCWgT5pbBIjmOeYbrdnkuCWKD/NvX6QzrbT7vQuBJVnxWDqkAtnKE9MIc3g2dvsimND
- kWrw==
-X-Gm-Message-State: AOAM531RuRR4u20RH4UcDi0N67GCKf2MSH7Ri1etonzJczLlUjYKTvGU
- CKTyZBc1h550YdQd/F09OL1dSpYH2Gkc1eSZckmMtA==
-X-Google-Smtp-Source: ABdhPJxyoM+9ZR+pTr6AkvTOIw7Q5hfiIqu+WhBB8ABxICk3YfdEKy2bjXek4JbydlLHUgVJgxdXVlKRCMbICUKetek=
-X-Received: by 2002:a17:90a:aa87:: with SMTP id
- l7mr11397014pjq.230.1631517089248; 
- Mon, 13 Sep 2021 00:11:29 -0700 (PDT)
+ id 1mPhaf-000qpj-Gy
+ for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 08:45:27 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailnew.nyi.internal (Postfix) with ESMTP id 563CF580C64;
+ Mon, 13 Sep 2021 04:45:24 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute5.internal (MEProxy); Mon, 13 Sep 2021 04:45:24 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
+ date:from:to:cc:subject:message-id:references:mime-version
+ :content-type:in-reply-to; s=fm3; bh=3xA6WliwGm5jheo/QDh1OhhZHgC
+ 8t0qVZf0QWCOOHQY=; b=QK6e7NYjQrp3tC9TWK86Gz7Llio7+rF5/1HJVaEFRSU
+ hm2686y27TjHe+yJ37qLGYnfd4xHOdMPASf1rPnSgC7lKW7sKhsr1WGlunegHLyP
+ 1BdtwcGB+0tYCUuW7LAYIWxQ//uEIw+SvAd83lOSzzQJuHZzTjWOL7axsfxTAsaF
+ NPnxjr4s+kqB09JEzRn6eywmxALCnAw4zPqw5V9BBckKB52aufakZ9iKGufj/7aF
+ QZzB4eVRb98Z3LoCV6sQ4LeHkQIwJi9qvEgFEKcLIvUoqtooFJ2lTNU+7mbw3Rj/
+ C2WaOdVdxA3lKpBNTL9BcPTp6VQCHcMbeXCbcFb8cKQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=3xA6Wl
+ iwGm5jheo/QDh1OhhZHgC8t0qVZf0QWCOOHQY=; b=k7OjXt+/juxGGdFbWdXMNy
+ BZ5IJiEWYmT62dPp6ekQ/Mb9USqzKMaNXssS/U8ddVrj5J35CZg1+yXLxTbXv1Gz
+ z52tz7cVTBV19ptU0HlrMfr7JRRAg5zn6vyo025iWM03Zw0KlN1dJolHW5vdewOp
+ ZT+jUaYMjzm3DXWaBumhNi+HRiCdbTXeSSi1xxsi56/8/KF9Jp/nOJNW2zikUqrD
+ NZjk8+btDjxFK5hlt6U9UquOWh95iACkP/SI/a98Z5abkIz77TGgxaiiDcnZv680
+ W6OAjtsomwZd9BLvL4uO1GI/a1NpHcV5axUeKGHW0p1FUywy1WnNGO8WVKTYzqPg
+ ==
+X-ME-Sender: <xms:og8_YfeGI-H8Jzo1-4nlnDG2CzdriHN4qqJokV0kqSXQ-irHKwR49A>
+ <xme:og8_YVN9DK0SBXqSgmmCShDGwpiDISkwR1hw4RxHafOylk48FpsfISNILrzsAZOHG
+ 3P7lIgbYJyZpXvOA64>
+X-ME-Received: <xmr:og8_YYhGzmCx7aKLDWDfVwg4U0mooJAx95Yu5ICCqGSdZY2WtLYJiT7ImqTYTu_71J4DXKLjZyZMTHRvS1wrexvWgJtyYtO2DqSr>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrudegjedgtdeiucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeforgigihhm
+ vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecuggftrfgrth
+ htvghrnhepleekgeehhfdutdeljefgleejffehfffgieejhffgueefhfdtveetgeehieeh
+ gedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmh
+ grgihimhgvsegtvghrnhhordhtvggthh
+X-ME-Proxy: <xmx:og8_YQ-kdcXTlmRHsqOj73Kn8AkrFpXxTNmqxeRu7aqI6aP3C-jFtQ>
+ <xmx:og8_YbsYlEB4kfkPeHb3sKr1Vsgmhxiut0TQ0WzfaJcfhzjCijCu3Q>
+ <xmx:og8_YfElkQQNWjLF0uU1obSU68HDbbsSDil_rJUBvAiJluItFn1lgQ>
+ <xmx:pA8_YXTCZWgfiG9sLalqvJ0FGekWvOy48LUP0K_qo2D3_FbiXA5-CQ>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 13 Sep 2021 04:45:21 -0400 (EDT)
+Date: Mon, 13 Sep 2021 10:45:20 +0200
+From: Maxime Ripard <maxime@cerno.tech>
+To: guoren@kernel.org
+Cc: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
+ christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu, hch@lst.de,
+ liush@allwinnertech.com, wefu@redhat.com, lazyparser@gmail.com,
+ drew@beagleboard.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, taiten.peng@canonical.com,
+ aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com,
+ gordan.markus@canonical.com, Guo Ren <guoren@linux.alibaba.com>,
+ Chen-Yu Tsai <wens@csie.org>
+Subject: Re: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
+Message-ID: <20210913084520.kkbsupogkzv226x3@gilmour>
+References: <20210911092139.79607-1-guoren@kernel.org>
+ <20210911092139.79607-7-guoren@kernel.org>
 MIME-Version: 1.0
-References: <20210727055450.2742868-1-anup.patel@wdc.com>
- <20210727055450.2742868-14-anup.patel@wdc.com>
- <CABvJ_xgyn0yeYnbqN=xA60xmuWL6vwFtLt_b60BF_tnfd8r5cQ@mail.gmail.com>
- <CAAhSdy2zY+f1FE4hBKmvRL+ShmVfw=RwpLciG7=XhCzoOkU1hw@mail.gmail.com>
-In-Reply-To: <CAAhSdy2zY+f1FE4hBKmvRL+ShmVfw=RwpLciG7=XhCzoOkU1hw@mail.gmail.com>
-From: Vincent Chen <vincent.chen@sifive.com>
-Date: Mon, 13 Sep 2021 15:11:18 +0800
-Message-ID: <CABvJ_xiWU9d7QqbcbLUXh_3_LM9oc8A=GCD1j__v9DOUBj=arw@mail.gmail.com>
-Subject: Re: [PATCH v19 13/17] RISC-V: KVM: FP lazy save/restore
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
- Alexander Graf <graf@amazon.com>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+In-Reply-To: <20210911092139.79607-7-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210913_001130_889656_072E44B9 
-X-CRM114-Status: GOOD (  45.45  )
+X-CRM114-CacheID: sfid-20210913_014525_706680_F01091A7 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,533 +110,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3379635439452926305=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 13, 2021 at 1:04 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Mon, Sep 13, 2021 at 10:01 AM Vincent Chen <vincent.chen@sifive.com> wrote:
-> >
-> > On Tue, Jul 27, 2021 at 3:30 PM Anup Patel <anup.patel@wdc.com> wrote:
-> > >
-> > > From: Atish Patra <atish.patra@wdc.com>
-> > >
-> > > This patch adds floating point (F and D extension) context save/restore
-> > > for guest VCPUs. The FP context is saved and restored lazily only when
-> > > kernel enter/exits the in-kernel run loop and not during the KVM world
-> > > switch. This way FP save/restore has minimal impact on KVM performance.
-> > >
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > > Acked-by: Paolo Bonzini <pbonzini@redhat.com>
-> > > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-> > > Reviewed-by: Alexander Graf <graf@amazon.com>
-> > > ---
-> > >  arch/riscv/include/asm/kvm_host.h |   5 +
-> > >  arch/riscv/kernel/asm-offsets.c   |  72 +++++++++++++
-> > >  arch/riscv/kvm/vcpu.c             |  91 ++++++++++++++++
-> > >  arch/riscv/kvm/vcpu_switch.S      | 174 ++++++++++++++++++++++++++++++
-> > >  4 files changed, 342 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > > index 18b4ec1b5105..99b43229fe7a 100644
-> > > --- a/arch/riscv/include/asm/kvm_host.h
-> > > +++ b/arch/riscv/include/asm/kvm_host.h
-> > > @@ -125,6 +125,7 @@ struct kvm_cpu_context {
-> > >         unsigned long sepc;
-> > >         unsigned long sstatus;
-> > >         unsigned long hstatus;
-> > > +       union __riscv_fp_state fp;
-> > >  };
-> > >
-> > >  struct kvm_vcpu_csr {
-> > > @@ -239,6 +240,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> > >                         struct kvm_cpu_trap *trap);
-> > >
-> > >  void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch);
-> > > +void __kvm_riscv_fp_f_save(struct kvm_cpu_context *context);
-> > > +void __kvm_riscv_fp_f_restore(struct kvm_cpu_context *context);
-> > > +void __kvm_riscv_fp_d_save(struct kvm_cpu_context *context);
-> > > +void __kvm_riscv_fp_d_restore(struct kvm_cpu_context *context);
-> > >
-> > >  int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
-> > >  int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
-> > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> > > index 91c77555d914..24d3827e4837 100644
-> > > --- a/arch/riscv/kernel/asm-offsets.c
-> > > +++ b/arch/riscv/kernel/asm-offsets.c
-> > > @@ -195,6 +195,78 @@ void asm_offsets(void)
-> > >         OFFSET(KVM_ARCH_TRAP_HTVAL, kvm_cpu_trap, htval);
-> > >         OFFSET(KVM_ARCH_TRAP_HTINST, kvm_cpu_trap, htinst);
-> > >
-> > > +       /* F extension */
-> > > +
-> > > +       OFFSET(KVM_ARCH_FP_F_F0, kvm_cpu_context, fp.f.f[0]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F1, kvm_cpu_context, fp.f.f[1]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F2, kvm_cpu_context, fp.f.f[2]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F3, kvm_cpu_context, fp.f.f[3]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F4, kvm_cpu_context, fp.f.f[4]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F5, kvm_cpu_context, fp.f.f[5]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F6, kvm_cpu_context, fp.f.f[6]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F7, kvm_cpu_context, fp.f.f[7]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F8, kvm_cpu_context, fp.f.f[8]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F9, kvm_cpu_context, fp.f.f[9]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F10, kvm_cpu_context, fp.f.f[10]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F11, kvm_cpu_context, fp.f.f[11]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F12, kvm_cpu_context, fp.f.f[12]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F13, kvm_cpu_context, fp.f.f[13]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F14, kvm_cpu_context, fp.f.f[14]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F15, kvm_cpu_context, fp.f.f[15]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F16, kvm_cpu_context, fp.f.f[16]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F17, kvm_cpu_context, fp.f.f[17]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F18, kvm_cpu_context, fp.f.f[18]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F19, kvm_cpu_context, fp.f.f[19]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F20, kvm_cpu_context, fp.f.f[20]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F21, kvm_cpu_context, fp.f.f[21]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F22, kvm_cpu_context, fp.f.f[22]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F23, kvm_cpu_context, fp.f.f[23]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F24, kvm_cpu_context, fp.f.f[24]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F25, kvm_cpu_context, fp.f.f[25]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F26, kvm_cpu_context, fp.f.f[26]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F27, kvm_cpu_context, fp.f.f[27]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F28, kvm_cpu_context, fp.f.f[28]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F29, kvm_cpu_context, fp.f.f[29]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F30, kvm_cpu_context, fp.f.f[30]);
-> > > +       OFFSET(KVM_ARCH_FP_F_F31, kvm_cpu_context, fp.f.f[31]);
-> > > +       OFFSET(KVM_ARCH_FP_F_FCSR, kvm_cpu_context, fp.f.fcsr);
-> > > +
-> > > +       /* D extension */
-> > > +
-> > > +       OFFSET(KVM_ARCH_FP_D_F0, kvm_cpu_context, fp.d.f[0]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F1, kvm_cpu_context, fp.d.f[1]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F2, kvm_cpu_context, fp.d.f[2]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F3, kvm_cpu_context, fp.d.f[3]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F4, kvm_cpu_context, fp.d.f[4]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F5, kvm_cpu_context, fp.d.f[5]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F6, kvm_cpu_context, fp.d.f[6]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F7, kvm_cpu_context, fp.d.f[7]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F8, kvm_cpu_context, fp.d.f[8]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F9, kvm_cpu_context, fp.d.f[9]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F10, kvm_cpu_context, fp.d.f[10]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F11, kvm_cpu_context, fp.d.f[11]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F12, kvm_cpu_context, fp.d.f[12]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F13, kvm_cpu_context, fp.d.f[13]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F14, kvm_cpu_context, fp.d.f[14]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F15, kvm_cpu_context, fp.d.f[15]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F16, kvm_cpu_context, fp.d.f[16]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F17, kvm_cpu_context, fp.d.f[17]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F18, kvm_cpu_context, fp.d.f[18]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F19, kvm_cpu_context, fp.d.f[19]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F20, kvm_cpu_context, fp.d.f[20]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F21, kvm_cpu_context, fp.d.f[21]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F22, kvm_cpu_context, fp.d.f[22]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F23, kvm_cpu_context, fp.d.f[23]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F24, kvm_cpu_context, fp.d.f[24]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F25, kvm_cpu_context, fp.d.f[25]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F26, kvm_cpu_context, fp.d.f[26]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F27, kvm_cpu_context, fp.d.f[27]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F28, kvm_cpu_context, fp.d.f[28]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F29, kvm_cpu_context, fp.d.f[29]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F30, kvm_cpu_context, fp.d.f[30]);
-> > > +       OFFSET(KVM_ARCH_FP_D_F31, kvm_cpu_context, fp.d.f[31]);
-> > > +       OFFSET(KVM_ARCH_FP_D_FCSR, kvm_cpu_context, fp.d.fcsr);
-> > > +
-> > >         /*
-> > >          * THREAD_{F,X}* might be larger than a S-type offset can handle, but
-> > >          * these are used in performance-sensitive assembly so we can't resort
-> > > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > > index f26b249eae8e..024f2c6e7582 100644
-> > > --- a/arch/riscv/kvm/vcpu.c
-> > > +++ b/arch/riscv/kvm/vcpu.c
-> > > @@ -40,6 +40,86 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
-> > >                        sizeof(kvm_vcpu_stats_desc),
-> > >  };
-> > >
-> > > +#ifdef CONFIG_FPU
-> > > +static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +       unsigned long isa = vcpu->arch.isa;
-> > > +       struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-> > > +
-> > > +       cntx->sstatus &= ~SR_FS;
-> > > +       if (riscv_isa_extension_available(&isa, f) ||
-> > > +           riscv_isa_extension_available(&isa, d))
-> > > +               cntx->sstatus |= SR_FS_INITIAL;
-> > > +       else
-> > > +               cntx->sstatus |= SR_FS_OFF;
-> > > +}
-> > > +
-> > > +static void kvm_riscv_vcpu_fp_clean(struct kvm_cpu_context *cntx)
-> > > +{
-> > > +       cntx->sstatus &= ~SR_FS;
-> > > +       cntx->sstatus |= SR_FS_CLEAN;
-> > > +}
-> > > +
-> > > +static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-> > > +                                        unsigned long isa)
-> > > +{
-> > > +       if ((cntx->sstatus & SR_FS) == SR_FS_DIRTY) {
-> > > +               if (riscv_isa_extension_available(&isa, d))
-> > > +                       __kvm_riscv_fp_d_save(cntx);
-> > > +               else if (riscv_isa_extension_available(&isa, f))
-> > > +                       __kvm_riscv_fp_f_save(cntx);
-> > > +               kvm_riscv_vcpu_fp_clean(cntx);
-> >
-> > Hi Anup and Atish,
-> > First of all, thank you very much for contributing this patch set to
-> > add H extension support to the Linux kernel.
-> >
-> > I tried to do some development based on this patchset and encountered
-> > some strange behaviors related to FPU registers. After diagnosis, I
-> > suspect the root cause of these behaviors is in the
-> > kvm_riscv_vcpu_fp_clean().
-> > In the kvm_riscv_vcpu_fp_clean(), the sstatus.FS field of guest OS
-> > will be set to clean. It will cause the guest kernel to mistakenly
-> > believe the status of the FPU register is clean so that the guest OS
-> > will not save the value of FPU registers to the process context before
-> > this process is scheduled out. However, here the host OS only saves
-> > the FPU register to the guest OS context instead of the process
-> > context. In this case, for the process in the guest OS, the data in
-> > FPU registers may be lost due to the lack of context saving before
-> > scheduling out. Therefore, IMHO, the kvm_riscv_vcpu_fp_clean() might
-> > be unnecessary and could be removed.
->
-> Please don't confuse the Guest view of sstatus.FS with the Host view of
-> sstatus.FS.
->
-> When the Guest is running (i.e. V=1):
-> 1) The Guest access to SSTATUS CSR are mapped to VSSTATUS CSR
-> and the actual SSTATUS CSR (in background) represents Host SSTATUS.
-> 2) The FP state (OFF, INIT, CLEAN, and DIRTY) is tracked in two FS fields
-> VSSTATUS.FS (for Guest OS) and SSTATUS.FS (for Host/Hypervisor).
-> 3) The RISC-V hardware will check and update both actual SSTATUS.FS
-> and VSSTATUS.FS when running in Guest mode (i.e. V=1)
-> 4) The Hypervisor uses actual SSTATUS.FS to save/restore FP from
-> Host perspective whereas  the Guest OS uses VSSTATUS.FS to save/restore
-> FP from Guest perspective
->
-> The "cntx->sstatus" in KVM RISC-V code represents the actual Host
-> SSTATUS CSR while Guest/VM was running and does not represent
-> the Guest view of SSTATUS (which is in VSSTATUS CSR).
->
-> Another way of looking at this is, Hypervisor will save/restore FP based
-> on it's own view of SSTATUS.FS (i.e. actual SSTATUS CSR) while
-> Guest OS will save/restore FP based on it's own view of SSTATUS.FS
-> (i.e. VSSTATUS CSR). It is possible that Guest gets preempted even
-> before it got chance to save FP registers so the hypervisor ensures that
-> FP is saved-and-restored based on it's own view of SSTATUS.FS.
->
-> The above rationale also applies to V-extension.
->
-> Let us know if you still have questions related to this.
->
 
-Hi Anup,
-Thank you for the detailed explanation. I think I am really confused
-between SSTATUS and VSSTATUS. Although the strange behavior
-disappeared after I removed these two kvm_riscv_vcpu_fp_clean(), it is
-clear that the root cause is not what I said. I will continue to find
-out the root cause. Thank you.
+--===============3379635439452926305==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="p2xnpxdfevxsmmn3"
+Content-Disposition: inline
 
-Regards,
-Vincent
-> >
-> > > +       }
-> > > +}
-> > > +
-> > > +static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-> > > +                                           unsigned long isa)
-> > > +{
-> > > +       if ((cntx->sstatus & SR_FS) != SR_FS_OFF) {
-> > > +               if (riscv_isa_extension_available(&isa, d))
-> > > +                       __kvm_riscv_fp_d_restore(cntx);
-> > > +               else if (riscv_isa_extension_available(&isa, f))
-> > > +                       __kvm_riscv_fp_f_restore(cntx);
-> > > +               kvm_riscv_vcpu_fp_clean(cntx);
-> >
-> > The reason is the same as above. Here the kvm_riscv_vcpu_fp_clean()
-> > might be unnecessary and could be removed.
->
-> Please see above.
->
-> >
-> > > +}
-> > > +
-> > > +static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
-> > > +{
-> > > +       /* No need to check host sstatus as it can be modified outside */
-> > > +       if (riscv_isa_extension_available(NULL, d))
-> > > +               __kvm_riscv_fp_d_save(cntx);
-> > > +       else if (riscv_isa_extension_available(NULL, f))
-> > > +               __kvm_riscv_fp_f_save(cntx);
-> > > +}
-> > > +
-> > > +static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
-> > > +{
-> > > +       if (riscv_isa_extension_available(NULL, d))
-> > > +               __kvm_riscv_fp_d_restore(cntx);
-> > > +       else if (riscv_isa_extension_available(NULL, f))
-> > > +               __kvm_riscv_fp_f_restore(cntx);
-> > > +}
-> > > +#else
-> > > +static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +}
-> > > +static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-> > > +                                        unsigned long isa)
-> > > +{
-> > > +}
-> > > +static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-> > > +                                           unsigned long isa)
-> > > +{
-> > > +}
-> > > +static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
-> > > +{
-> > > +}
-> > > +static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
-> > > +{
-> > > +}
-> > > +#endif
-> > > +
-> > >  #define KVM_RISCV_ISA_ALLOWED  (riscv_isa_extension_mask(a) | \
-> > >                                  riscv_isa_extension_mask(c) | \
-> > >                                  riscv_isa_extension_mask(d) | \
-> > > @@ -60,6 +140,8 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
-> > >
-> > >         memcpy(cntx, reset_cntx, sizeof(*cntx));
-> > >
-> > > +       kvm_riscv_vcpu_fp_reset(vcpu);
-> > > +
-> > >         kvm_riscv_vcpu_timer_reset(vcpu);
-> > >
-> > >         WRITE_ONCE(vcpu->arch.irqs_pending, 0);
-> > > @@ -194,6 +276,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
-> > >                         vcpu->arch.isa = reg_val;
-> > >                         vcpu->arch.isa &= riscv_isa_extension_base(NULL);
-> > >                         vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
-> > > +                       kvm_riscv_vcpu_fp_reset(vcpu);
-> > >                 } else {
-> > >                         return -EOPNOTSUPP;
-> > >                 }
-> > > @@ -598,6 +681,10 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-> > >
-> > >         kvm_riscv_vcpu_timer_restore(vcpu);
-> > >
-> > > +       kvm_riscv_vcpu_host_fp_save(&vcpu->arch.host_context);
-> > > +       kvm_riscv_vcpu_guest_fp_restore(&vcpu->arch.guest_context,
-> > > +                                       vcpu->arch.isa);
-> > > +
-> > >         vcpu->cpu = cpu;
-> > >  }
-> > >
-> > > @@ -607,6 +694,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> > >
-> > >         vcpu->cpu = -1;
-> > >
-> > > +       kvm_riscv_vcpu_guest_fp_save(&vcpu->arch.guest_context,
-> > > +                                    vcpu->arch.isa);
-> > > +       kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
-> > > +
-> > >         csr_write(CSR_HGATP, 0);
-> > >
-> > >         csr->vsstatus = csr_read(CSR_VSSTATUS);
-> > > diff --git a/arch/riscv/kvm/vcpu_switch.S b/arch/riscv/kvm/vcpu_switch.S
-> > > index e22721e1b892..029a28a195c6 100644
-> > > --- a/arch/riscv/kvm/vcpu_switch.S
-> > > +++ b/arch/riscv/kvm/vcpu_switch.S
-> > > @@ -224,3 +224,177 @@ ENTRY(__kvm_riscv_unpriv_trap)
-> > >         REG_S   a1, (KVM_ARCH_TRAP_HTINST)(a0)
-> > >         sret
-> > >  ENDPROC(__kvm_riscv_unpriv_trap)
-> > > +
-> > > +#ifdef CONFIG_FPU
-> > > +       .align 3
-> > > +       .global __kvm_riscv_fp_f_save
-> > > +__kvm_riscv_fp_f_save:
-> > > +       csrr t2, CSR_SSTATUS
-> > > +       li t1, SR_FS
-> > > +       csrs CSR_SSTATUS, t1
-> > > +       frcsr t0
-> > > +       fsw f0,  KVM_ARCH_FP_F_F0(a0)
-> > > +       fsw f1,  KVM_ARCH_FP_F_F1(a0)
-> > > +       fsw f2,  KVM_ARCH_FP_F_F2(a0)
-> > > +       fsw f3,  KVM_ARCH_FP_F_F3(a0)
-> > > +       fsw f4,  KVM_ARCH_FP_F_F4(a0)
-> > > +       fsw f5,  KVM_ARCH_FP_F_F5(a0)
-> > > +       fsw f6,  KVM_ARCH_FP_F_F6(a0)
-> > > +       fsw f7,  KVM_ARCH_FP_F_F7(a0)
-> > > +       fsw f8,  KVM_ARCH_FP_F_F8(a0)
-> > > +       fsw f9,  KVM_ARCH_FP_F_F9(a0)
-> > > +       fsw f10, KVM_ARCH_FP_F_F10(a0)
-> > > +       fsw f11, KVM_ARCH_FP_F_F11(a0)
-> > > +       fsw f12, KVM_ARCH_FP_F_F12(a0)
-> > > +       fsw f13, KVM_ARCH_FP_F_F13(a0)
-> > > +       fsw f14, KVM_ARCH_FP_F_F14(a0)
-> > > +       fsw f15, KVM_ARCH_FP_F_F15(a0)
-> > > +       fsw f16, KVM_ARCH_FP_F_F16(a0)
-> > > +       fsw f17, KVM_ARCH_FP_F_F17(a0)
-> > > +       fsw f18, KVM_ARCH_FP_F_F18(a0)
-> > > +       fsw f19, KVM_ARCH_FP_F_F19(a0)
-> > > +       fsw f20, KVM_ARCH_FP_F_F20(a0)
-> > > +       fsw f21, KVM_ARCH_FP_F_F21(a0)
-> > > +       fsw f22, KVM_ARCH_FP_F_F22(a0)
-> > > +       fsw f23, KVM_ARCH_FP_F_F23(a0)
-> > > +       fsw f24, KVM_ARCH_FP_F_F24(a0)
-> > > +       fsw f25, KVM_ARCH_FP_F_F25(a0)
-> > > +       fsw f26, KVM_ARCH_FP_F_F26(a0)
-> > > +       fsw f27, KVM_ARCH_FP_F_F27(a0)
-> > > +       fsw f28, KVM_ARCH_FP_F_F28(a0)
-> > > +       fsw f29, KVM_ARCH_FP_F_F29(a0)
-> > > +       fsw f30, KVM_ARCH_FP_F_F30(a0)
-> > > +       fsw f31, KVM_ARCH_FP_F_F31(a0)
-> > > +       sw t0, KVM_ARCH_FP_F_FCSR(a0)
-> > > +       csrw CSR_SSTATUS, t2
-> > > +       ret
-> > > +
-> > > +       .align 3
-> > > +       .global __kvm_riscv_fp_d_save
-> > > +__kvm_riscv_fp_d_save:
-> > > +       csrr t2, CSR_SSTATUS
-> > > +       li t1, SR_FS
-> > > +       csrs CSR_SSTATUS, t1
-> > > +       frcsr t0
-> > > +       fsd f0,  KVM_ARCH_FP_D_F0(a0)
-> > > +       fsd f1,  KVM_ARCH_FP_D_F1(a0)
-> > > +       fsd f2,  KVM_ARCH_FP_D_F2(a0)
-> > > +       fsd f3,  KVM_ARCH_FP_D_F3(a0)
-> > > +       fsd f4,  KVM_ARCH_FP_D_F4(a0)
-> > > +       fsd f5,  KVM_ARCH_FP_D_F5(a0)
-> > > +       fsd f6,  KVM_ARCH_FP_D_F6(a0)
-> > > +       fsd f7,  KVM_ARCH_FP_D_F7(a0)
-> > > +       fsd f8,  KVM_ARCH_FP_D_F8(a0)
-> > > +       fsd f9,  KVM_ARCH_FP_D_F9(a0)
-> > > +       fsd f10, KVM_ARCH_FP_D_F10(a0)
-> > > +       fsd f11, KVM_ARCH_FP_D_F11(a0)
-> > > +       fsd f12, KVM_ARCH_FP_D_F12(a0)
-> > > +       fsd f13, KVM_ARCH_FP_D_F13(a0)
-> > > +       fsd f14, KVM_ARCH_FP_D_F14(a0)
-> > > +       fsd f15, KVM_ARCH_FP_D_F15(a0)
-> > > +       fsd f16, KVM_ARCH_FP_D_F16(a0)
-> > > +       fsd f17, KVM_ARCH_FP_D_F17(a0)
-> > > +       fsd f18, KVM_ARCH_FP_D_F18(a0)
-> > > +       fsd f19, KVM_ARCH_FP_D_F19(a0)
-> > > +       fsd f20, KVM_ARCH_FP_D_F20(a0)
-> > > +       fsd f21, KVM_ARCH_FP_D_F21(a0)
-> > > +       fsd f22, KVM_ARCH_FP_D_F22(a0)
-> > > +       fsd f23, KVM_ARCH_FP_D_F23(a0)
-> > > +       fsd f24, KVM_ARCH_FP_D_F24(a0)
-> > > +       fsd f25, KVM_ARCH_FP_D_F25(a0)
-> > > +       fsd f26, KVM_ARCH_FP_D_F26(a0)
-> > > +       fsd f27, KVM_ARCH_FP_D_F27(a0)
-> > > +       fsd f28, KVM_ARCH_FP_D_F28(a0)
-> > > +       fsd f29, KVM_ARCH_FP_D_F29(a0)
-> > > +       fsd f30, KVM_ARCH_FP_D_F30(a0)
-> > > +       fsd f31, KVM_ARCH_FP_D_F31(a0)
-> > > +       sw t0, KVM_ARCH_FP_D_FCSR(a0)
-> > > +       csrw CSR_SSTATUS, t2
-> > > +       ret
-> > > +
-> > > +       .align 3
-> > > +       .global __kvm_riscv_fp_f_restore
-> > > +__kvm_riscv_fp_f_restore:
-> > > +       csrr t2, CSR_SSTATUS
-> > > +       li t1, SR_FS
-> > > +       lw t0, KVM_ARCH_FP_F_FCSR(a0)
-> > > +       csrs CSR_SSTATUS, t1
-> > > +       flw f0,  KVM_ARCH_FP_F_F0(a0)
-> > > +       flw f1,  KVM_ARCH_FP_F_F1(a0)
-> > > +       flw f2,  KVM_ARCH_FP_F_F2(a0)
-> > > +       flw f3,  KVM_ARCH_FP_F_F3(a0)
-> > > +       flw f4,  KVM_ARCH_FP_F_F4(a0)
-> > > +       flw f5,  KVM_ARCH_FP_F_F5(a0)
-> > > +       flw f6,  KVM_ARCH_FP_F_F6(a0)
-> > > +       flw f7,  KVM_ARCH_FP_F_F7(a0)
-> > > +       flw f8,  KVM_ARCH_FP_F_F8(a0)
-> > > +       flw f9,  KVM_ARCH_FP_F_F9(a0)
-> > > +       flw f10, KVM_ARCH_FP_F_F10(a0)
-> > > +       flw f11, KVM_ARCH_FP_F_F11(a0)
-> > > +       flw f12, KVM_ARCH_FP_F_F12(a0)
-> > > +       flw f13, KVM_ARCH_FP_F_F13(a0)
-> > > +       flw f14, KVM_ARCH_FP_F_F14(a0)
-> > > +       flw f15, KVM_ARCH_FP_F_F15(a0)
-> > > +       flw f16, KVM_ARCH_FP_F_F16(a0)
-> > > +       flw f17, KVM_ARCH_FP_F_F17(a0)
-> > > +       flw f18, KVM_ARCH_FP_F_F18(a0)
-> > > +       flw f19, KVM_ARCH_FP_F_F19(a0)
-> > > +       flw f20, KVM_ARCH_FP_F_F20(a0)
-> > > +       flw f21, KVM_ARCH_FP_F_F21(a0)
-> > > +       flw f22, KVM_ARCH_FP_F_F22(a0)
-> > > +       flw f23, KVM_ARCH_FP_F_F23(a0)
-> > > +       flw f24, KVM_ARCH_FP_F_F24(a0)
-> > > +       flw f25, KVM_ARCH_FP_F_F25(a0)
-> > > +       flw f26, KVM_ARCH_FP_F_F26(a0)
-> > > +       flw f27, KVM_ARCH_FP_F_F27(a0)
-> > > +       flw f28, KVM_ARCH_FP_F_F28(a0)
-> > > +       flw f29, KVM_ARCH_FP_F_F29(a0)
-> > > +       flw f30, KVM_ARCH_FP_F_F30(a0)
-> > > +       flw f31, KVM_ARCH_FP_F_F31(a0)
-> > > +       fscsr t0
-> > > +       csrw CSR_SSTATUS, t2
-> > > +       ret
-> > > +
-> > > +       .align 3
-> > > +       .global __kvm_riscv_fp_d_restore
-> > > +__kvm_riscv_fp_d_restore:
-> > > +       csrr t2, CSR_SSTATUS
-> > > +       li t1, SR_FS
-> > > +       lw t0, KVM_ARCH_FP_D_FCSR(a0)
-> > > +       csrs CSR_SSTATUS, t1
-> > > +       fld f0,  KVM_ARCH_FP_D_F0(a0)
-> > > +       fld f1,  KVM_ARCH_FP_D_F1(a0)
-> > > +       fld f2,  KVM_ARCH_FP_D_F2(a0)
-> > > +       fld f3,  KVM_ARCH_FP_D_F3(a0)
-> > > +       fld f4,  KVM_ARCH_FP_D_F4(a0)
-> > > +       fld f5,  KVM_ARCH_FP_D_F5(a0)
-> > > +       fld f6,  KVM_ARCH_FP_D_F6(a0)
-> > > +       fld f7,  KVM_ARCH_FP_D_F7(a0)
-> > > +       fld f8,  KVM_ARCH_FP_D_F8(a0)
-> > > +       fld f9,  KVM_ARCH_FP_D_F9(a0)
-> > > +       fld f10, KVM_ARCH_FP_D_F10(a0)
-> > > +       fld f11, KVM_ARCH_FP_D_F11(a0)
-> > > +       fld f12, KVM_ARCH_FP_D_F12(a0)
-> > > +       fld f13, KVM_ARCH_FP_D_F13(a0)
-> > > +       fld f14, KVM_ARCH_FP_D_F14(a0)
-> > > +       fld f15, KVM_ARCH_FP_D_F15(a0)
-> > > +       fld f16, KVM_ARCH_FP_D_F16(a0)
-> > > +       fld f17, KVM_ARCH_FP_D_F17(a0)
-> > > +       fld f18, KVM_ARCH_FP_D_F18(a0)
-> > > +       fld f19, KVM_ARCH_FP_D_F19(a0)
-> > > +       fld f20, KVM_ARCH_FP_D_F20(a0)
-> > > +       fld f21, KVM_ARCH_FP_D_F21(a0)
-> > > +       fld f22, KVM_ARCH_FP_D_F22(a0)
-> > > +       fld f23, KVM_ARCH_FP_D_F23(a0)
-> > > +       fld f24, KVM_ARCH_FP_D_F24(a0)
-> > > +       fld f25, KVM_ARCH_FP_D_F25(a0)
-> > > +       fld f26, KVM_ARCH_FP_D_F26(a0)
-> > > +       fld f27, KVM_ARCH_FP_D_F27(a0)
-> > > +       fld f28, KVM_ARCH_FP_D_F28(a0)
-> > > +       fld f29, KVM_ARCH_FP_D_F29(a0)
-> > > +       fld f30, KVM_ARCH_FP_D_F30(a0)
-> > > +       fld f31, KVM_ARCH_FP_D_F31(a0)
-> > > +       fscsr t0
-> > > +       csrw CSR_SSTATUS, t2
-> > > +       ret
-> > > +#endif
-> > > --
-> > > 2.25.1
-> > >
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> Regards,
-> Anup
+
+--p2xnpxdfevxsmmn3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+On Sat, Sep 11, 2021 at 05:21:39PM +0800, guoren@kernel.org wrote:
+> From: Liu Shaohua <liush@allwinnertech.com>
+>=20
+> Add Allwinner kconfig option which selects SoC specific and common
+> drivers that is required for this SoC.
+>=20
+> Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
+> interconnect issues for dma synchronization, so we set the default
+> value when SOC_SUNXI selected.
+>=20
+> Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Wei Fu <wefu@redhat.com>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Chen-Yu Tsai <wens@csie.org>
+> Cc: Drew Fustini <drew@beagleboard.org>
+> Cc: Maxime Ripard <maxime@cerno.tech>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Wei Wu <lazyparser@gmail.com>
+> ---
+>  arch/riscv/Kconfig.socs      | 15 +++++++++++++++
+>  arch/riscv/configs/defconfig |  1 +
+>  2 files changed, 16 insertions(+)
+>=20
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 30676ebb16eb..8721c000ef23 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -70,4 +70,19 @@ config SOC_CANAAN_K210_DTB_SOURCE
+> =20
+>  endif
+> =20
+> +config SOC_SUNXI
+> +	bool "Allwinner SoCs"
+> +	depends on MMU
+> +	select DWMAC_GENERIC
+> +	select ERRATA_THEAD
+> +	select RISCV_DMA_NONCOHERENT
+> +	select RISCV_ERRATA_ALTERNATIVE
+> +	select SERIAL_8250
+> +	select SERIAL_8250_CONSOLE
+> +	select SERIAL_8250_DW
+> +	select SIFIVE_PLIC
+> +	select STMMAC_ETH
+> +	help
+> +	  This enables support for Allwinner SoC platforms like the D1.
+> +
+
+I'm not sure we should select the drivers there. We could very well
+imagine a board without UART, or even more so without ethernet.
+
+These options should be in the defconfig.
+
+Maxime
+
+--p2xnpxdfevxsmmn3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCYT8PoAAKCRDj7w1vZxhR
+xbVnAQCSKte+mjnWETzsLGCmouHNDj3ez50SJLr19qM4sU85pwD6AxCJ/iy45OIu
+yqt3psn20BR6AvoN5uS5dcTBkr2TLgI=
+=Tz1F
+-----END PGP SIGNATURE-----
+
+--p2xnpxdfevxsmmn3--
+
+
+--===============3379635439452926305==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3379635439452926305==--
+
