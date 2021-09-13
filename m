@@ -2,103 +2,86 @@ Return-Path: <SRS0=Pi2f=OD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5462CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 08:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3658CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 09:31:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC80460F58
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 08:45:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC80460F58
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cerno.tech
+	by mail.kernel.org (Postfix) with ESMTPS id E8AB160FC0
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 09:31:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E8AB160FC0
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mw/FyCCTGQmx2WFl73fayxbKAr4X1SIWkjTbKIbIbk=; b=i+Ff+rkLf5eyCJusBtkbE0/y2q
-	pzCow/qiSg3xoTU5EVUnbumCIb7iUHaiDVSPgoQjd6eNIE3SCZpSRB8blGo32rBdtxqH8GQYavYgO
-	jtS5iW0HJgTa/yV4ZWYP+18Zmik5MQv8YFUBVi3NsPFhjcOAIpgfVpwc3jEuRpEmidrXx+05N2PyZ
-	n0VHnnTGy6UqueVbF7MPu00NKn3EHfmxdjbNzYTPS2DU/nIFUbmkKob+Sv6d6oLOfZWOT729ZOZ7h
-	THUcde6kb3j88HZ+NXg8MtdotCFiVVB+BqJIcQ4LkOtHiYXYbqra5NM+/plthuHFH1Zbf+ttKzjTa
-	1KmFBBEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MshVJQlb2JfDwTayx+/P/b/M3awNlygV+zY1eRNW3CU=; b=YT1YEMhS9gFTRV
+	bi6H0Ic2YW7Zx/uuJX8QsNSyEA9TQVECVB2wdYM/dLAWMgsAmR4XX6p2iJFm/STDJuhiPhrwBQAyx
+	Px1YH4BVNQgCOWG00uOpQxEBycAMdMRRqcPBnhDcK38yxNlXHvxNnrzsroCz50OEJUASzn5WgIaW+
+	TfVpmG5ml5MZ2tO0eN7XXqf4eYXE3Rvc7IIWSZ7kcfisaO1Aq5J6s1MA+fz3Gu/c/kKRNRWIQQW6i
+	eO5L0HFlysSimupd9wXzrC6sl4AlbNKL3f7aH7NGlufdPqPjY1Yqh/WQ8utrM8Q0/Rk9OKRkUtOj/
+	3cnTKgbhBKggqXGzRGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mPhai-000qqn-7h; Mon, 13 Sep 2021 08:45:28 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1mPiJ9-0014Pl-EI; Mon, 13 Sep 2021 09:31:23 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mPhaf-000qpj-Gy
- for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 08:45:27 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
- by mailnew.nyi.internal (Postfix) with ESMTP id 563CF580C64;
- Mon, 13 Sep 2021 04:45:24 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute5.internal (MEProxy); Mon, 13 Sep 2021 04:45:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm3; bh=3xA6WliwGm5jheo/QDh1OhhZHgC
- 8t0qVZf0QWCOOHQY=; b=QK6e7NYjQrp3tC9TWK86Gz7Llio7+rF5/1HJVaEFRSU
- hm2686y27TjHe+yJ37qLGYnfd4xHOdMPASf1rPnSgC7lKW7sKhsr1WGlunegHLyP
- 1BdtwcGB+0tYCUuW7LAYIWxQ//uEIw+SvAd83lOSzzQJuHZzTjWOL7axsfxTAsaF
- NPnxjr4s+kqB09JEzRn6eywmxALCnAw4zPqw5V9BBckKB52aufakZ9iKGufj/7aF
- QZzB4eVRb98Z3LoCV6sQ4LeHkQIwJi9qvEgFEKcLIvUoqtooFJ2lTNU+7mbw3Rj/
- C2WaOdVdxA3lKpBNTL9BcPTp6VQCHcMbeXCbcFb8cKQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=3xA6Wl
- iwGm5jheo/QDh1OhhZHgC8t0qVZf0QWCOOHQY=; b=k7OjXt+/juxGGdFbWdXMNy
- BZ5IJiEWYmT62dPp6ekQ/Mb9USqzKMaNXssS/U8ddVrj5J35CZg1+yXLxTbXv1Gz
- z52tz7cVTBV19ptU0HlrMfr7JRRAg5zn6vyo025iWM03Zw0KlN1dJolHW5vdewOp
- ZT+jUaYMjzm3DXWaBumhNi+HRiCdbTXeSSi1xxsi56/8/KF9Jp/nOJNW2zikUqrD
- NZjk8+btDjxFK5hlt6U9UquOWh95iACkP/SI/a98Z5abkIz77TGgxaiiDcnZv680
- W6OAjtsomwZd9BLvL4uO1GI/a1NpHcV5axUeKGHW0p1FUywy1WnNGO8WVKTYzqPg
- ==
-X-ME-Sender: <xms:og8_YfeGI-H8Jzo1-4nlnDG2CzdriHN4qqJokV0kqSXQ-irHKwR49A>
- <xme:og8_YVN9DK0SBXqSgmmCShDGwpiDISkwR1hw4RxHafOylk48FpsfISNILrzsAZOHG
- 3P7lIgbYJyZpXvOA64>
-X-ME-Received: <xmr:og8_YYhGzmCx7aKLDWDfVwg4U0mooJAx95Yu5ICCqGSdZY2WtLYJiT7ImqTYTu_71J4DXKLjZyZMTHRvS1wrexvWgJtyYtO2DqSr>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrudegjedgtdeiucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeforgigihhm
- vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecuggftrfgrth
- htvghrnhepleekgeehhfdutdeljefgleejffehfffgieejhffgueefhfdtveetgeehieeh
- gedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmh
- grgihimhgvsegtvghrnhhordhtvggthh
-X-ME-Proxy: <xmx:og8_YQ-kdcXTlmRHsqOj73Kn8AkrFpXxTNmqxeRu7aqI6aP3C-jFtQ>
- <xmx:og8_YbsYlEB4kfkPeHb3sKr1Vsgmhxiut0TQ0WzfaJcfhzjCijCu3Q>
- <xmx:og8_YfElkQQNWjLF0uU1obSU68HDbbsSDil_rJUBvAiJluItFn1lgQ>
- <xmx:pA8_YXTCZWgfiG9sLalqvJ0FGekWvOy48LUP0K_qo2D3_FbiXA5-CQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 13 Sep 2021 04:45:21 -0400 (EDT)
-Date: Mon, 13 Sep 2021 10:45:20 +0200
-From: Maxime Ripard <maxime@cerno.tech>
-To: guoren@kernel.org
-Cc: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
- christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu, hch@lst.de,
- liush@allwinnertech.com, wefu@redhat.com, lazyparser@gmail.com,
- drew@beagleboard.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, taiten.peng@canonical.com,
- aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com,
- gordan.markus@canonical.com, Guo Ren <guoren@linux.alibaba.com>,
- Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
-Message-ID: <20210913084520.kkbsupogkzv226x3@gilmour>
+ id 1mPi8m-0011oV-9z
+ for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 09:20:41 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8CC0F61058
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Sep 2021 09:20:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631524838;
+ bh=tfo4VT9tevF5EcHGadDEEin7sfPHUCanQbDTfYb3Vf8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cBxOc+qtt5DHPfsNN6ZhPycytvYHxXsn2o5RkLGEUsXrdLnmmJpT6kVmMBHxgB/I4
+ 1voj1iU6JNM3dD6y4DZOArD5lGfgSDFyB4y7TKGCUTSpuYWubBlTU/z1aQZ5MDcgM9
+ mRuUf8IZoYDXTiBr8Sf7F76Zi9jFaUeE0+SkimSsIIvlxDRY0iBZkkOc8mPWL/7aPL
+ v8hqWeKjamlmw9UgIM9mDFBJua00iunE4sROQwi3489CTcciTBmKImX9itgauGK+A2
+ pxi0pmkIlBLumDKyeDV4zqhXpwe3v1K1OCZVC980O/HE42lrNkrMVj5UX4FWteq6oO
+ btDIMw74sFHrA==
+Received: by mail-lj1-f170.google.com with SMTP id o11so8544041ljp.8
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Sep 2021 02:20:38 -0700 (PDT)
+X-Gm-Message-State: AOAM533zH2MOp1HpXUHR6JLMXXGAhbz5ywEjW8g14bBodnbdOJ5kSrfa
+ p+ZQvoIa8+hHFd39UjoczO7cJYucnmRqdAhtk/0=
+X-Google-Smtp-Source: ABdhPJwUQ2Vxc3mqOt2ji6UfpEtOyKYZA5k/71ajUtuybnmHl+zIXrXWmr+nwOV4WhG4DmX+3bhYyf6UnmBUpzr76Wk=
+X-Received: by 2002:a2e:a4d1:: with SMTP id p17mr9437403ljm.82.1631524836885; 
+ Mon, 13 Sep 2021 02:20:36 -0700 (PDT)
+MIME-Version: 1.0
 References: <20210911092139.79607-1-guoren@kernel.org>
  <20210911092139.79607-7-guoren@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20210911092139.79607-7-guoren@kernel.org>
+ <20210913084520.kkbsupogkzv226x3@gilmour>
+In-Reply-To: <20210913084520.kkbsupogkzv226x3@gilmour>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 13 Sep 2021 17:20:25 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT_8VLTt0B=LxXAPWVpHaBaVxy+V0rGCjr7JZyRiO7LfQ@mail.gmail.com>
+Message-ID: <CAJF2gTT_8VLTt0B=LxXAPWVpHaBaVxy+V0rGCjr7JZyRiO7LfQ@mail.gmail.com>
+Subject: Re: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
+To: Maxime Ripard <maxime@cerno.tech>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ philipp.tomsich@vrull.eu, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, 
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, 
+ aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com, 
+ gordan.markus@canonical.com, Guo Ren <guoren@linux.alibaba.com>, 
+ Chen-Yu Tsai <wens@csie.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210913_014525_706680_F01091A7 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20210913_022040_436519_579B9D7F 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,105 +93,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3379635439452926305=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3379635439452926305==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="p2xnpxdfevxsmmn3"
-Content-Disposition: inline
-
-
---p2xnpxdfevxsmmn3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On Sat, Sep 11, 2021 at 05:21:39PM +0800, guoren@kernel.org wrote:
-> From: Liu Shaohua <liush@allwinnertech.com>
->=20
-> Add Allwinner kconfig option which selects SoC specific and common
-> drivers that is required for this SoC.
->=20
-> Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
-> interconnect issues for dma synchronization, so we set the default
-> value when SOC_SUNXI selected.
->=20
-> Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Wei Fu <wefu@redhat.com>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Chen-Yu Tsai <wens@csie.org>
-> Cc: Drew Fustini <drew@beagleboard.org>
-> Cc: Maxime Ripard <maxime@cerno.tech>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Wei Wu <lazyparser@gmail.com>
-> ---
->  arch/riscv/Kconfig.socs      | 15 +++++++++++++++
->  arch/riscv/configs/defconfig |  1 +
->  2 files changed, 16 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 30676ebb16eb..8721c000ef23 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -70,4 +70,19 @@ config SOC_CANAAN_K210_DTB_SOURCE
-> =20
->  endif
-> =20
-> +config SOC_SUNXI
-> +	bool "Allwinner SoCs"
-> +	depends on MMU
-> +	select DWMAC_GENERIC
-> +	select ERRATA_THEAD
-> +	select RISCV_DMA_NONCOHERENT
-> +	select RISCV_ERRATA_ALTERNATIVE
-> +	select SERIAL_8250
-> +	select SERIAL_8250_CONSOLE
-> +	select SERIAL_8250_DW
-> +	select SIFIVE_PLIC
-> +	select STMMAC_ETH
-> +	help
-> +	  This enables support for Allwinner SoC platforms like the D1.
-> +
-
-I'm not sure we should select the drivers there. We could very well
-imagine a board without UART, or even more so without ethernet.
-
-These options should be in the defconfig.
-
-Maxime
-
---p2xnpxdfevxsmmn3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCYT8PoAAKCRDj7w1vZxhR
-xbVnAQCSKte+mjnWETzsLGCmouHNDj3ez50SJLr19qM4sU85pwD6AxCJ/iy45OIu
-yqt3psn20BR6AvoN5uS5dcTBkr2TLgI=
-=Tz1F
------END PGP SIGNATURE-----
-
---p2xnpxdfevxsmmn3--
+On Mon, Sep 13, 2021 at 4:45 PM Maxime Ripard <maxime@cerno.tech> wrote:
+>
+> Hi,
+>
+> On Sat, Sep 11, 2021 at 05:21:39PM +0800, guoren@kernel.org wrote:
+> > From: Liu Shaohua <liush@allwinnertech.com>
+> >
+> > Add Allwinner kconfig option which selects SoC specific and common
+> > drivers that is required for this SoC.
+> >
+> > Allwinner D1 uses custom PTE attributes to solve non-coherency SOC
+> > interconnect issues for dma synchronization, so we set the default
+> > value when SOC_SUNXI selected.
+> >
+> > Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Wei Fu <wefu@redhat.com>
+> > Cc: Anup Patel <anup.patel@wdc.com>
+> > Cc: Atish Patra <atish.patra@wdc.com>
+> > Cc: Christoph Hellwig <hch@lst.de>
+> > Cc: Chen-Yu Tsai <wens@csie.org>
+> > Cc: Drew Fustini <drew@beagleboard.org>
+> > Cc: Maxime Ripard <maxime@cerno.tech>
+> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Cc: Wei Wu <lazyparser@gmail.com>
+> > ---
+> >  arch/riscv/Kconfig.socs      | 15 +++++++++++++++
+> >  arch/riscv/configs/defconfig |  1 +
+> >  2 files changed, 16 insertions(+)
+> >
+> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> > index 30676ebb16eb..8721c000ef23 100644
+> > --- a/arch/riscv/Kconfig.socs
+> > +++ b/arch/riscv/Kconfig.socs
+> > @@ -70,4 +70,19 @@ config SOC_CANAAN_K210_DTB_SOURCE
+> >
+> >  endif
+> >
+> > +config SOC_SUNXI
+> > +     bool "Allwinner SoCs"
+> > +     depends on MMU
+> > +     select DWMAC_GENERIC
+> > +     select ERRATA_THEAD
+> > +     select RISCV_DMA_NONCOHERENT
+> > +     select RISCV_ERRATA_ALTERNATIVE
+> > +     select SERIAL_8250
+> > +     select SERIAL_8250_CONSOLE
+> > +     select SERIAL_8250_DW
+> > +     select SIFIVE_PLIC
+> > +     select STMMAC_ETH
+> > +     help
+> > +       This enables support for Allwinner SoC platforms like the D1.
+> > +
+>
+> I'm not sure we should select the drivers there. We could very well
+> imagine a board without UART, or even more so without ethernet.
+We just want people could bring D1 up easier, 8250 is the basic component.
 
 
---===============3379635439452926305==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> These options should be in the defconfig.
+>
+> Maxime
+
+
+
+--
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3379635439452926305==--
-
