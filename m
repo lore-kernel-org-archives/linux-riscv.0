@@ -2,69 +2,71 @@ Return-Path: <SRS0=Pi2f=OD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27904C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 12:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 93FF3C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 12:11:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E76D460FBF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 12:11:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E76D460FBF
+	by mail.kernel.org (Postfix) with ESMTPS id 6286A60FBF
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 12:11:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6286A60FBF
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nA8alP6Svcha4oVOxqr6nv6z8Gp+r930rCs0vi/ANxI=; b=SgDVwon9KpotH9
-	8km5My06hBkb3OpU1LGJ7RjjZXjC/uJDxzIPWXD8IahDizhClOj3Am0kr8w5Um294bIvNiL3OFJP5
-	ODiG/jn7+5hTHjPzg9/CA6GUZq0NXTAQltPZRhFMkuiAITaBF96rD/tdqz0k4pCXJERnu1u0uWF68
-	5OzWcIZNXuYBUU3K9rQnYWSgnr/vn3tEuorhmF1PUmLJb2Q+Xc8TrqS/rFZ+jxUZtx1qQCNJUZdAw
-	4opNmujzs+hCJJh7/b/Cb4u/6JGnGV52XdWudfnJr0rH5UCwfZeNuV1RMDyqhpC6Gk0QMSRDnRykK
-	Efm9lAVoZjccv+cYMECg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=av1FYDZoTPA9SELde/9k+m6Eu38IC0ZlnUxsZgGkAk4=; b=uAfvuZB22iEhSI
+	5+rJYBmsftY2zo8X5gZq4EMAkv8y1bY5TJ30V5JVtA3E6JCTtH4ZH+sB4ppYfZVwQ8QtUDVj87q5F
+	PpUuZ32kQI1mj84Ut6vOP5zr2Wz86gnqn/Jgj5qiiqrhMNVG4ydnAUJJ10/Du1Ta4b03nc3FamSec
+	tn0GsJGqQM7PpcmYLxqn9g7rnablRGGjindpaJx9fDBwIZVTRNp28S7dcEwgBnj84h7cd1eFaYFQo
+	Gs6k7FliAXWrBU3N9WNWV7O6noskdqu+GoDI3uoDlW7OPVJERnKuG1kKMHskfhKaJ3WIO4Vrtjaso
+	tBs4sV5cOfSQOyQLfTGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mPko4-001Xwp-Oe; Mon, 13 Sep 2021 12:11:28 +0000
+	id 1mPko3-001XwT-87; Mon, 13 Sep 2021 12:11:27 +0000
 Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mPknz-001Xtb-71
+ id 1mPknz-001Xtj-8w
  for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 12:11:25 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.57])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4H7QFp6K86zbmT8;
- Mon, 13 Sep 2021 20:07:10 +0800 (CST)
+Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.55])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4H7QFt4YzZzbmTc;
+ Mon, 13 Sep 2021 20:07:14 +0800 (CST)
 Received: from dggema756-chm.china.huawei.com (10.1.198.198) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
+ dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.1.2308.8; Mon, 13 Sep 2021 20:11:15 +0800
+ 15.1.2308.8; Mon, 13 Sep 2021 20:11:19 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  dggema756-chm.china.huawei.com (10.1.198.198) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id
- 15.1.2308.8; Mon, 13 Sep 2021 20:11:15 +0800
+ 15.1.2308.8; Mon, 13 Sep 2021 20:11:18 +0800
 From: Chen Huang <chenhuang5@huawei.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 CC: Chen Huang <chenhuang5@huawei.com>, Kefeng Wang
  <wangkefeng.wang@huawei.com>, <linux-riscv@lists.infradead.org>,
  <linux-kernel@vger.kernel.org>
-Subject: [PATCH 0/2] riscv: improve unaligned memory accesses
-Date: Mon, 13 Sep 2021 12:19:54 +0000
-Message-ID: <20210913121956.1776656-1-chenhuang5@huawei.com>
+Subject: [PATCH 1/2] riscv: support HAVE_EFFICIENT_UNALIGNED_ACCESS
+Date: Mon, 13 Sep 2021 12:19:55 +0000
+Message-ID: <20210913121956.1776656-2-chenhuang5@huawei.com>
 X-Mailer: git-send-email 2.18.0.huawei.25
+In-Reply-To: <20210913121956.1776656-1-chenhuang5@huawei.com>
+References: <20210913121956.1776656-1-chenhuang5@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggema756-chm.china.huawei.com (10.1.198.198)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210913_051123_487203_E8327AE9 
-X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-CacheID: sfid-20210913_051123_516312_CC8A19A2 
+X-CRM114-Status: UNSURE (   8.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,18 +84,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISCV ISA can support unaligned memory accesses, so the patchset
-selects HAVE_EFFICIENT_UNALIGNED_ACCESS and supports DCACHE_WORD_ACCESS
-to improve the efficiency of unaligned memory accesses.
+The RISCV ISA can perform efficient unaligned memory accesses
+in hardware. This patch selects HAVE_EFFICIENT_UNALIGNED_ACCESS
+for that.
 
-Chen Huang (2):
-  riscv: Kconfig: select HAVE_EFFICIENT_UNALIGNED_ACCESS
-  riscv: Support DCACHE_WORD_ACCESS
+Signed-off-by: Chen Huang <chenhuang5@huawei.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
- arch/riscv/Kconfig                      |  2 ++
- arch/riscv/include/asm/word-at-a-time.h | 36 +++++++++++++++++++++++++
- 2 files changed, 38 insertions(+)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index aac669a6c3d8..6e70bf50b02a 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -81,6 +81,7 @@ config RISCV
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS if MMU
+ 	select HAVE_EBPF_JIT if MMU
++	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+ 	select HAVE_FUNCTION_ERROR_INJECTION
+ 	select HAVE_FUTEX_CMPXCHG if FUTEX
+ 	select HAVE_GCC_PLUGINS
 -- 
 2.18.0.huawei.25
 
