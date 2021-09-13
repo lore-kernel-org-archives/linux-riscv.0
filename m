@@ -2,95 +2,68 @@ Return-Path: <SRS0=Pi2f=OD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 07FEBC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 16:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 847E3C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 17:25:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C1A4E60184
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 16:24:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C1A4E60184
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	by mail.kernel.org (Postfix) with ESMTPS id 38E7560ED8
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Sep 2021 17:25:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 38E7560ED8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=muMnMxT+yhlbdbfQzlGRI73oy2mHPOnYVhSgq6o1xFY=; b=WwMSE8mnlZ6iez
-	ZbPl4ObuffeDuK/Cei+ncp8QLm/lzHoWaK6Qp7773vhQAgnGZtAmox54VGejlGNHHU0lMDTK8Opv3
-	V+1ndQCghDrDyHExO/gBhiGLJHbRGyO2gmRSMOaSGk6JkSAjXcJRdbaS0xWsbYHoPkjjmd3TRb3Fz
-	uOXAVkkhjGfaqUx7CKu2KNA5KCFHQOAu75GbPJY0w9woGmOZQmiSkyYMy2sq8OS09laMKPaPDNi7b
-	7+R/SMvl18dSR72325JUTqAyfj0XA8480zkL6hIC2P+HzDIFMxs9SvFJ+Hx3rSjKVPW8URVRZVY/p
-	oGCbYQgL0npnEaZyn1sA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P/37bYXmANsGxxABnxAaFNMOLDH3mmJ+VUd/uCnziU8=; b=VCHG7WEYvH8wWiLYKi+FdftQsn
+	histdjHbLErY9erqsX8HqMCxEjJq+16YDaCpAPC5mcCLaQ1Z83PbHlM2vLKJhgguT67iqa7qXZl2r
+	NwHNnIvpJszG013WvW0wMb+5tM1bHtKHzfDuEDZoSIPKf9F8JSLwX2R4juER3Ro9rpGke0p+Ss/sB
+	Z0sPNBbHWT5W0Pp9H8IKPooJdDiHLP++kS0FXPjTRLZi5Joyz5FFYppHHuWfp7uprzNnFL8BFHvvb
+	bXbLRERWUTsCj4/fT+RzcBLPsdKkjx/hS97Aa5SKZnlWgNipStokOM1lELJQnj1HkR4iCuZHT3sFo
+	3SYl0GvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mPokK-002MlM-6r; Mon, 13 Sep 2021 16:23:52 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1mPphU-002frx-Rg; Mon, 13 Sep 2021 17:25:00 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mPokH-002Mju-5V
- for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 16:23:50 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id oc9so6717513pjb.4
- for <linux-riscv@lists.infradead.org>; Mon, 13 Sep 2021 09:23:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=2/RkgLMSeLMdfX+PInPfTpRLPSRgorj3I7Mh0Kf9swA=;
- b=JmPq/ZgLDL/FyAXQlzN3Pxt/6RHQBe1O37S+nQ61rkmBypwaNCBZrelrqFzD38G68y
- ayLL6KmmBeXGuHjWhRWlBTWLjOa1UNjPI0bNb+dmgGb0u2BkXyd5S68cDztZayVOnRQr
- NZSmhj83kn4QL3EQNMIVRoRdS0yiL5duqY1Q8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=2/RkgLMSeLMdfX+PInPfTpRLPSRgorj3I7Mh0Kf9swA=;
- b=nWypg9k7/MVhGcnbncYZgtBpKpbaQ4RQ0bh4MzPjZcNQSZdZws687yjFko07j0NQs2
- ZzeP+s/XPRzhNe6ynvL1H3N1Q+Uim0jwNXHCN3VZRYe5cMkBQozT37Ikznl0xVVM818A
- 9x9SI06QMIC3/ip2JTIPgZ53vAkWpRyVF/ovnuT+VeIXpALos0iK0h6DW/6iAvVYzrVw
- U6qgPkf/11vhbLHuwNORAIw6HgAi/DY4YrhfTrxsIyP4MmGv8LwUjDQl6+xOBtePjwiJ
- QSCwoppeffvlIIVxX/SsY902rzMODpvyhkbMkDgly3txVuSRLe5zmcTN4mTTM0Vf5Jol
- S2Rg==
-X-Gm-Message-State: AOAM532jWBtG1zZZZdemzVoB1eHCEJvvjoLHo8YcmSEEoZ61o89VnYUd
- yObBR0MpA2fTJUVubCS5QKP8rg==
-X-Google-Smtp-Source: ABdhPJw2iVAwBpkklvDVrdBl1O3eT09j5TQwikncidkQDt4RPNA+MefgACjymKzY8c/7zuWh9A9MQA==
-X-Received: by 2002:a17:90b:f08:: with SMTP id
- br8mr301973pjb.119.1631550227353; 
- Mon, 13 Sep 2021 09:23:47 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id d3sm7597340pjc.49.2021.09.13.09.23.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 13 Sep 2021 09:23:46 -0700 (PDT)
-Date: Mon, 13 Sep 2021 09:23:45 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Nathan Chancellor <nathan@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Joe Perches <joe@perches.com>, Arnd Bergmann <arnd@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>, llvm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 05/10] riscv: remove Kconfig check for GCC version for
- ARCH_RV64I
-Message-ID: <202109130923.E294BFD5C@keescook>
-References: <20210910234047.1019925-1-ndesaulniers@google.com>
- <20210910234047.1019925-6-ndesaulniers@google.com>
+ id 1mPpbf-002e3l-OK
+ for linux-riscv@lists.infradead.org; Mon, 13 Sep 2021 17:19:02 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6C0EF610A2;
+ Mon, 13 Sep 2021 17:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631553538;
+ bh=+gCyA9IN+nwQ1UVSuEX/uymvAJMBsbv0RIzV1SdyQJ4=;
+ h=Subject:To:References:From:Date:In-Reply-To:From;
+ b=tETp2CoLq/yQMZppz/GuK5TNKpvuHmhGlaQPC/bo0EU6hqH11UMysofNNNX23ZV7T
+ wbck8rQUh20u8c6wCHjiXNijNKd75Vd1LTH9OXUI0W70OzLJrlfnZ/Q/zEFsNVUkTD
+ 88Z2kWW659xlz9hc338AhUP0oq29b4P8HUzcU62m4pD5Ld6QevXGh0odJzfXrr6gX2
+ 1jMugB3XYuEY39cn4jQe0+KucHOG9zCePknzWGFHc8Ut04aAAE2Ni2LSR42zHFtiS5
+ 4RIT2qE0GJZ7bSJ59d34keaY5T6Sc13TpX1LoBEcsHxFfjajvjBczFL+QQL14iDY6F
+ oFZplPx1kW1Iw==
+Subject: Re: [RFC PATCH v8 00/21] riscv: Add vector ISA support
+To: Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, vincent.chen@sifive.com
+References: <cover.1631121222.git.greentime.hu@sifive.com>
+From: Vineet Gupta <vgupta@kernel.org>
+Message-ID: <7719da12-31d6-ef03-1100-142348dec209@kernel.org>
+Date: Mon, 13 Sep 2021 10:18:57 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210910234047.1019925-6-ndesaulniers@google.com>
+In-Reply-To: <cover.1631121222.git.greentime.hu@sifive.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210913_092349_283583_37810787 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210913_101900_010972_4F04A598 
+X-CRM114-Status: GOOD (  33.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +75,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 10, 2021 at 04:40:42PM -0700, Nick Desaulniers wrote:
-> The minimum supported version of GCC is now 5.1. The check wasn't
-> correct as written anyways since GCC_VERSION is 0 when CC=clang.
+On 9/8/21 10:45 AM, Greentime Hu wrote:
+> This patchset is implemented based on vector 1.0-rc1 spec to add vector
+> support in riscv Linux kernel. To make this happen, we defined a new
+> structure __riscv_v_state to save the vector related registers. It is used
+> for both kernel space and user space.
 > 
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+>   - In kernel space, the datap pointer in __riscv_v_state will be allocated
+>     dynamically to save vector registers.
+>   - In user space,
+> 	- In signal handler of user space, datap will point to the address
+>            of the __riscv_v_state data structure to save vector
+>            registers in stack. We also create a __reserved[] array for
+> 	  future extensions.
+> 	- In ptrace, the data will be put in ubuf in which we use
+>         	  riscv_vr_get()/riscv_vr_set() to get or set the
+> 	  __riscv_v_state data structure from/to it, datap pointer
+> 	  would be zeroed and vector registers will be copied to the
+> 	  address right after the __riscv_v_state structure in ubuf.
+> 
+> This patchset also adds support for kernel mode vector, kernel XOR
+> implementation with vector ISA and includes several bug fixes and code
+> refinement.
+> 
+> This patchset is rebased to v5.14 and it is tested by running several
+> vector programs simultaneously. It also can get the correct ucontext_t in
+> signal handler and restore correct context after sigreturn. It is also
+> tested with ptrace() syscall to use PTRACE_GETREGSET/PTRACE_SETREGSET to
+> get/set the vector registers. I have tested vlen=128 and vlen=256 cases in
+> qemu-system-riscv64 provided by Frank Chang.
 
-Yeah, good catch for Clang too.
+Are QEMU/Spike changes available somewhere publicly for people to try this ?
 
-Reviewed-by: Kees Cook <keescook@chromium.org>
+Thx,
+-Vineet
 
--- 
-Kees Cook
+> 
+> We have sent patches to glibc mailing list for ifunc support and sigcontext
+> changes. We will send patches for vector support to glibc mailing list
+> recently.
+> 
+>   [1] https://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc
+> 
+> ---
+> Changelog V8
+>   - Rebase to v5.14
+>   - Refine struct __riscv_v_state with struct __riscv_ctx_hdr
+>   - Refine has_vector into a static key
+>   - Defined __reserved space in struct sigcontext for vector and future extensions
+> 
+> Changelog V7
+>   - Add support for kernel mode vector
+>   - Add vector extension XOR implementation
+>   - Optimize task switch codes of vector
+>   - Allocate space for vector registers in start_thread()
+>   - Fix an illegal instruction exception when accessing vlenb
+>   - Optimize vector registers initialization
+>   - Initialize vector registers with proper vsetvli then it can work normally
+>   - Refine ptrace porting due to generic API changed
+>   - Code clean up
+> 
+> Changelog V6
+>   - Replace vle.v/vse.v instructions with vle8.v/vse8.v based on 0.9 spec
+>   - Add comments based on mailinglist feedback
+>   - Fix rv32 build error
+> 
+> Changelog V5
+>   - Using regset_size() correctly in generic ptrace
+>   - Fix the ptrace porting
+>   - Fix compile warning
+> 
+> Changelog V4
+>   - Support dynamic vlen
+>   - Fix bugs: lazy save/resotre, not saving vtype
+>   - Update VS bit offset based on latest vector spec
+>   - Add new vector csr based on latest vector spec
+>   - Code refine and removed unused macros
+> 
+> Changelog V3
+>   - Rebase linux-5.6-rc3 and tested with qemu
+>   - Seperate patches with Anup's advice
+>   - Give out a ABI puzzle with unlimited vlen
+> 
+> Changelog V2
+>   - Fixup typo "vecotr, fstate_save->vstate_save".
+>   - Fixup wrong saved registers' length in vector.S.
+>   - Seperate unrelated patches from this one.
+> 
+> Greentime Hu (15):
+>    riscv: Add new csr defines related to vector extension
+>    riscv: Add has_vector/riscv_vsize to save vector features.
+>    riscv: Add vector struct and assembler definitions
+>    riscv: Add task switch support for vector
+>    riscv: Add ptrace vector support
+>    riscv: Add sigcontext save/restore for vector
+>    riscv: Add support for kernel mode vector
+>    riscv: Use CSR_STATUS to replace sstatus in vector.S
+>    riscv: Add vector extension XOR implementation
+>    riscv: Initialize vector registers with proper vsetvli then it can
+>      work normally
+>    riscv: Optimize vector registers initialization
+>    riscv: Fix an illegal instruction exception when accessing vlenb
+>      without enable vector first
+>    riscv: Allocate space for vector registers in start_thread()
+>    riscv: Optimize task switch codes of vector
+>    riscv: Turn has_vector into a static key if VECTOR=y
+> 
+> Guo Ren (5):
+>    riscv: Separate patch for cflags and aflags
+>    riscv: Rename __switch_to_aux -> fpu
+>    riscv: Extending cpufeature.c to detect V-extension
+>    riscv: Add vector feature to compile
+>    riscv: Reset vector register
+> 
+> Vincent Chen (1):
+>    riscv: signal: Report signal frame size to userspace via auxv
+> 
+>   arch/riscv/Kconfig                       |   9 ++
+>   arch/riscv/Makefile                      |  19 ++-
+>   arch/riscv/include/asm/csr.h             |  16 ++-
+>   arch/riscv/include/asm/elf.h             |  41 +++---
+>   arch/riscv/include/asm/processor.h       |   3 +
+>   arch/riscv/include/asm/switch_to.h       |  71 +++++++++-
+>   arch/riscv/include/asm/vector.h          |  16 +++
+>   arch/riscv/include/asm/xor.h             |  74 ++++++++++
+>   arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+>   arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+>   arch/riscv/include/uapi/asm/ptrace.h     |  25 ++++
+>   arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
+>   arch/riscv/kernel/Makefile               |   7 +
+>   arch/riscv/kernel/asm-offsets.c          |   8 ++
+>   arch/riscv/kernel/cpufeature.c           |  16 +++
+>   arch/riscv/kernel/entry.S                |   6 +-
+>   arch/riscv/kernel/head.S                 |  22 ++-
+>   arch/riscv/kernel/kernel_mode_vector.c   | 158 +++++++++++++++++++++
+>   arch/riscv/kernel/process.c              |  49 +++++++
+>   arch/riscv/kernel/ptrace.c               |  71 ++++++++++
+>   arch/riscv/kernel/setup.c                |   4 +
+>   arch/riscv/kernel/signal.c               | 172 ++++++++++++++++++++++-
+>   arch/riscv/kernel/vector.S               |  81 +++++++++++
+>   arch/riscv/lib/Makefile                  |   1 +
+>   arch/riscv/lib/xor.S                     |  81 +++++++++++
+>   include/uapi/linux/elf.h                 |   1 +
+>   26 files changed, 941 insertions(+), 36 deletions(-)
+>   create mode 100644 arch/riscv/include/asm/vector.h
+>   create mode 100644 arch/riscv/include/asm/xor.h
+>   create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+>   create mode 100644 arch/riscv/kernel/vector.S
+>   create mode 100644 arch/riscv/lib/xor.S
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
