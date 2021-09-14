@@ -2,19 +2,19 @@ Return-Path: <SRS0=G1RR=OE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D3A9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 15:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D348CC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 15:43:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F332761056
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 15:42:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F332761056
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+	by mail.kernel.org (Postfix) with ESMTPS id A3F3D6112D
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 15:43:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A3F3D6112D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -22,64 +22,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zPHDtWBcYu40dXSz+YgR5Mm6I39iUCKzG1wNzzrxS/s=; b=L3L8THnLym3zH1
-	i2h7scM4MZx9ncWeDg33aZARFqBrUrKM2UWdCUVJNj7Oi+TE6GYxbR5omPMxzMLYBqx7+65PDiWqz
-	vwdQA48qoQgbwSeUWJU2TbKNI1gsAjPWv6ExWM7yTyWZmSDoZn8m0ydHgten38leXmCi453qVDLWM
-	BFa0lEmijZNSc+UfSF75OBwMsSAMTmHjwgWZaV6xITHsWw3WiYm4wKGsvSi9RiIB/yvaanMAgoIPJ
-	lRnJBA8Vrr/+wa4gTIupddlfp8Enk5BDUddrCgtaY2MYdlk0fQOSYp10VTlAyGfpRxAMaV9/JD8Am
-	vFyc/ERX+RlMG/x0ZEEg==;
+	List-Owner; bh=tB3/pxR9IBkwCSWb3cpDDtEyRhJI7ktATjd7iXQYG/Y=; b=UreIYbxxxTH9fp
+	ci7VK9lCMJRxuDPBApZopYgLeQH00CfqYpZQGLULBH8dKU5WyAqtCnjpQr2jc9aZPHTT650OcHBb9
+	LGxd4JGUUsyH42K0fFXQdFHQmp59ae9zCEspgHcVwFPIRfxHHE7gPSaT1z22YfoByfhdOLgGM7Cjz
+	GyEIH2PfSJv/t2oQp/+6Ygxl0pYMIOK+r3eUjFgaLh6Hrf2HOPBP6bqpC81V472+s6ojVQ7R+BIY1
+	5g2lEtoMH+Qe3MIvHL8haAPSsiyDVMJXJgcBDjtRa8ypQPssmRCisYkymDlQqArmadziTNsQeT/aL
+	7d95/WCFZ7dkpZh78wTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQAZJ-006FHr-U8; Tue, 14 Sep 2021 15:41:57 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1mQAad-006Faf-Pk; Tue, 14 Sep 2021 15:43:19 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQAZ6-006FFz-BO
- for linux-riscv@lists.infradead.org; Tue, 14 Sep 2021 15:41:45 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id a4so29767192lfg.8
- for <linux-riscv@lists.infradead.org>; Tue, 14 Sep 2021 08:41:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linux-foundation.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=dgZDRvewpIcHvEl+aClDgx6dxTBkhTg+5FlC2P6kQVc=;
- b=BpcuMcoHH1B5L3A9rysqIc0UNfq5noiLE14zKeR1TSa0gFC85lOw2Beo8dO5honWby
- rYyCHFnHkKNi7MCpw7JrIjMcXxBeTw1cz/rDSABmNfOTKR6Ymn6YfZNGpWuykLc9dauc
- iTDBkLKWwlR9RhIlCft6lceQmUvWAku/ar3t0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=dgZDRvewpIcHvEl+aClDgx6dxTBkhTg+5FlC2P6kQVc=;
- b=tJar2GvSKE8S44ZlCQNVaFd8k6y52UvN0C9qc5bIvIht0u3/YFzU+Vsc1Tb8J+HCU1
- HpfoHcCa43xBbiz3xRKoiqlL5E0fuR0++vSbM7qNR47XLXPEvPegkECC4kbNe+Of0IJ3
- pMiTMWHQs/drydqUQgwo4cCkTFvG9GoQmz/THlOSyByQ4uR1x24S3yYE/VL/wU8wXYFk
- ByYA0YOWj93qrtJeb077DrisbN73E2Oz240QT4Xf58qqmfMMSzI5zZz875iBzfBmbMN9
- yr46EJKL6CsThqvucrZGSLflSZwg2FOr5ZolCVnX0oMEHbYyDLPSeC9SYgUi7qld4PfX
- eY+w==
-X-Gm-Message-State: AOAM532aizEmglUhAutOJ8kEsOXvpy1oROqvXTXaYBC9Yo+kowSipyfZ
- BDTmD3yV7Qrh5ktnJ03WsI5uv33Rf3G8WTYf9OY=
-X-Google-Smtp-Source: ABdhPJyaDPqyf47Mq/Zk7md50EBm0iI+RwUPzZt6D0px2E7AXAKRcEgN4oU8m3CTwBmxT0zmpy2pzA==
-X-Received: by 2002:ac2:4466:: with SMTP id y6mr8949293lfl.17.1631634102292;
- Tue, 14 Sep 2021 08:41:42 -0700 (PDT)
-Received: from mail-lf1-f52.google.com (mail-lf1-f52.google.com.
- [209.85.167.52])
- by smtp.gmail.com with ESMTPSA id c8sm1149986lfb.229.2021.09.14.08.41.40
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 14 Sep 2021 08:41:42 -0700 (PDT)
-Received: by mail-lf1-f52.google.com with SMTP id i7so13600015lfr.13
- for <linux-riscv@lists.infradead.org>; Tue, 14 Sep 2021 08:41:40 -0700 (PDT)
-X-Received: by 2002:a2e:a7d0:: with SMTP id x16mr15637818ljp.494.1631634089537; 
- Tue, 14 Sep 2021 08:41:29 -0700 (PDT)
+ id 1mQAaN-006FUh-3i; Tue, 14 Sep 2021 15:43:04 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8C4EF6112D;
+ Tue, 14 Sep 2021 15:43:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631634182;
+ bh=mvuoWRdgyktEZkP8N46MKfVzy+eYPbk3NccSIQmsP8g=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ph5ZqVPKz60iK9jbnMMHsjXBaQdrXwsBRBP/oY5ViglsSMBFV5powNMaVQ4auKrPu
+ QouXKtu79CVgLsg/mn5aflQKHJ9fUrSCeIu3pbr+WyLQjAKfPdgNS+Sjg2X/WlBO4G
+ PcjQkfG1Fcg2nBfE13CR4dyTMAxKe2ztH6ZA1Dv8eLGebuSdXy+pyZabacWreW+GXI
+ At43/HWkltAtpCwRjPg35I8OB3vlAy3GejIF+k5ffTYzztvv4KINQiZ/t7L16MrUma
+ RwKnqC1ex9R/oO5e2xfgu0pxrFVnklawppeNa6CLjU+LWNeEKGusdGDH4O/mV075PP
+ vt/m867HPNEgw==
+Received: by mail-ot1-f46.google.com with SMTP id
+ x10-20020a056830408a00b004f26cead745so19059349ott.10; 
+ Tue, 14 Sep 2021 08:43:02 -0700 (PDT)
+X-Gm-Message-State: AOAM533L42I3JpQlyyctNGy6qaPLaV7taRfa7Nnjjm49Y4exNXbAgYhK
+ 0UvL0gPz1wlhWmUU4SyL1jX31fD8Zgaq1mga1Bw=
+X-Google-Smtp-Source: ABdhPJwx57mZePF/+fKNrTKtnKV+7kzFgjzys0SKRPzR4omYEyny9bMvp54Zq3YK48l3ZGnV9SP3mhoLYT9teXG8qeY=
+X-Received: by 2002:a9d:200b:: with SMTP id n11mr15190375ota.30.1631634171520; 
+ Tue, 14 Sep 2021 08:42:51 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210914121036.3975026-1-ardb@kernel.org>
  <20210914121036.3975026-2-ardb@kernel.org>
-In-Reply-To: <20210914121036.3975026-2-ardb@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 14 Sep 2021 08:41:13 -0700
-X-Gmail-Original-Message-ID: <CAHk-=whkCzP-wyZ08r9RDJRx9cbANVHy-jy=vJAGTkSbXm50iA@mail.gmail.com>
-Message-ID: <CAHk-=whkCzP-wyZ08r9RDJRx9cbANVHy-jy=vJAGTkSbXm50iA@mail.gmail.com>
+ <CAHk-=whkCzP-wyZ08r9RDJRx9cbANVHy-jy=vJAGTkSbXm50iA@mail.gmail.com>
+In-Reply-To: <CAHk-=whkCzP-wyZ08r9RDJRx9cbANVHy-jy=vJAGTkSbXm50iA@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 14 Sep 2021 17:42:40 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHK74XKWWs4C9zckOZsJP4cD+=B8gMx8QoohYVN61CJ-g@mail.gmail.com>
+Message-ID: <CAMj1kXHK74XKWWs4C9zckOZsJP4cD+=B8gMx8QoohYVN61CJ-g@mail.gmail.com>
 Subject: Re: [RFC PATCH 1/8] arm64: add CPU field to struct thread_info
-To: Ard Biesheuvel <ardb@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
 Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  Keith Packard <keithpac@amazon.com>, 
  Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
@@ -100,8 +85,8 @@ Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  linux-s390 <linux-s390@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210914_084144_429142_BE530DCA 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20210914_084303_205386_2E222E17 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,19 +103,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 14, 2021 at 5:10 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+On Tue, 14 Sept 2021 at 17:41, Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
 >
-> The CPU field will be moved back into thread_info even when
-> THREAD_INFO_IN_TASK is enabled, so add it back to arm64's definition of
-> struct thread_info.
+> On Tue, Sep 14, 2021 at 5:10 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > The CPU field will be moved back into thread_info even when
+> > THREAD_INFO_IN_TASK is enabled, so add it back to arm64's definition of
+> > struct thread_info.
+>
+> The series looks sane to me, but it strikes me that it's inconsistent
+> - here for arm64, you make it unconditional, but for the other
+> architectures you end up putting it inside a #ifdef CONFIG_SMP.
+>
+> Was there some reason for this odd behavior?
+>
 
-The series looks sane to me, but it strikes me that it's inconsistent
-- here for arm64, you make it unconditional, but for the other
-architectures you end up putting it inside a #ifdef CONFIG_SMP.
-
-Was there some reason for this odd behavior?
-
-           Linus
+Yes. CONFIG_SMP is a 'def_bool y' on arm64.
 
 _______________________________________________
 linux-riscv mailing list
