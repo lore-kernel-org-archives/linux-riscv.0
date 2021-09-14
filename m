@@ -2,99 +2,78 @@ Return-Path: <SRS0=G1RR=OE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C3AAC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7419C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:11:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 59ED660ED8
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:10:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 59ED660ED8
+	by mail.kernel.org (Postfix) with ESMTPS id A0629610D1
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:11:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A0629610D1
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=97VgOOQwR/cS/wWWVIzLTLREfPPq59xONZRG+DFXcZY=; b=xw8mAKkpdGYh+ltYC2c2fgixjo
-	1HXnmxIomJdtLo2J1+wxMWDM+E/Kl0Eeonc1xXQfSdJINefKbX1IMC12blGa1WzHmywHJrb6vB4b1
-	yHfDu/9MxeyKlhzykutwmTDuukbqvwOpFYXTevx6wqOlsCCdjvId9VgTmA78TW1rymbD4JpWk3hyJ
-	hpiHmDuGxgjNskom/I+gaJUkdjmi4vxq+hjoKbwaJyn43dkyelZ4+lYeR2Sggj0RisnHGmdAEcBlU
-	O0YpoY1wWaOMgrbjjcZ2UUn+jMiPMnMFDzvxy1xxboQK6LIt8E4eQFeC/TT/sbZl3JsjBTSUdnORG
-	yzK3RB0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hqksczG4HzggB2CAuTW9bEkEWcDBnLP4WAKjCsGsNpA=; b=NPk1qEs/WAfSa7
+	uhZ6qZo9owgvthQOi05k+lh3v+QKtCFzSLzxDDsR9u7gj4taKcq3+c4F3QV4C3Rq4zfsC4IkK5NIY
+	6XkM7q+JkqWzVsLeX3F9wffdBxKqW+ECe8JDkQUgZawSbfM0F0AeEX2Y01gYaEaX6fxBEPoS/Ja5b
+	MTorxgSxm3YYe3PFm1l68AZDG87DtWzu75yakk/AqgL9MAaB9VXVmCCJk6Fu1tLtODRH/crqSZoyY
+	jPWHFcXKop3ogrVUIfcy7ZV52GZw9BqSa3n1/Jd4Dsa7llUELwUMRy4ZMFu3sLrUjIWCw9ZODDbgY
+	hwTEWwW7l4iO2mTiqo3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQ7GI-005YbK-U4; Tue, 14 Sep 2021 12:10:06 +0000
-Received: from mail-wm1-f53.google.com ([209.85.128.53])
+	id 1mQ7HD-005YqZ-1i; Tue, 14 Sep 2021 12:11:03 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQ7GH-005Ya7-0d
- for linux-riscv@lists.infradead.org; Tue, 14 Sep 2021 12:10:06 +0000
-Received: by mail-wm1-f53.google.com with SMTP id s24so9046112wmh.4
- for <linux-riscv@lists.infradead.org>; Tue, 14 Sep 2021 05:10:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=JC+0egzoxCxJUo8E1fbA/DfFivG3yL6BUgvb6VoV5CU=;
- b=2DJzjI6jeG1u4saHH+hrjhmqs59u08IxoFNIJe0yEkzt0WqVOKBpYN3xL6X1qpRy6H
- mgpoHPMfMCizdFpalBhxJzH4YvExSmcoXpAZl1LH5WJiv5PmwM2gllBe8gayFQf3/kRV
- +2LZVBLieWewhCzO0QRl64M3dYUT/FopjerQ8KgSFO2ZpLgJUzCrJtlZO3CnQ1DidQES
- DvoWNdZBzDscqq8LYlRTTgST8VtLar6gBqcX7UUN7JXdVCnPvQXzaBHtZoYgI4ErfvI/
- Avv59yd3Wnk7kbA0Z0gEhMO7ncAWep1cvTIMyIJJavYGZ2ad2gI6FgxCSlEX/ipSRSXs
- vTtA==
-X-Gm-Message-State: AOAM532nQRfdMOCt4Hc7+NMlDl0poA0+RkNer1BwEmHvJGl0hg98TxGN
- 1xqMN3wU5QqPTSZMWPEfsO0=
-X-Google-Smtp-Source: ABdhPJyXiOMLsQcId48736yD0d9P0Do+Tu3NqR6NebXOOXjYSNDBRPjQRirT5BlPGhLSChrAEirPWA==
-X-Received: by 2002:a1c:f00a:: with SMTP id a10mr1806704wmb.112.1631621402557; 
- Tue, 14 Sep 2021 05:10:02 -0700 (PDT)
-Received: from [192.168.3.211] (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
- [84.20.244.219])
- by smtp.googlemail.com with ESMTPSA id m29sm10925063wrb.89.2021.09.14.05.09.59
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 14 Sep 2021 05:10:01 -0700 (PDT)
-Subject: Re: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
-To: Maxime Ripard <maxime@cerno.tech>
-Cc: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt
- <palmerdabbelt@google.com>, =?UTF-8?Q?Christoph_M=c3=bcllner?=
- <christoph.muellner@vrull.eu>, philipp.tomsich@vrull.eu,
- Christoph Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>,
- wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>,
- Drew Fustini <drew@beagleboard.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
- heinrich.schuchardt@canonical.com, gordan.markus@canonical.com,
- Guo Ren <guoren@linux.alibaba.com>, Chen-Yu Tsai <wens@csie.org>
-References: <20210911092139.79607-1-guoren@kernel.org>
- <20210911092139.79607-7-guoren@kernel.org>
- <20210913084520.kkbsupogkzv226x3@gilmour>
- <CAJF2gTT_8VLTt0B=LxXAPWVpHaBaVxy+V0rGCjr7JZyRiO7LfQ@mail.gmail.com>
- <d2ac3da8-f4d5-52c1-da7f-f8260a0bb604@infradead.org>
- <CAJF2gTTVj2J6_rCXAG81PB3vJZO2TTwpD03vAE2q+K=9zh_TzQ@mail.gmail.com>
- <CAK8P3a1TY+XT1vF=wAh0XA5BXU5Z6Ab1d4DekXbVsN9aj3aL5w@mail.gmail.com>
- <CAJKOXPdH0C0CJe_oxZ2rG1UeE5G9w2mh2Thh8LynpNHQk2g1qA@mail.gmail.com>
- <20210914101327.47baun6mop3mc56j@gilmour>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Message-ID: <c9b18cf8-d432-8636-52f5-a40a342135fe@kernel.org>
-Date: Tue, 14 Sep 2021 14:09:58 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+ id 1mQ7Gx-005Ykm-DP; Tue, 14 Sep 2021 12:10:48 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id DEAA46103B;
+ Tue, 14 Sep 2021 12:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1631621446;
+ bh=1NIpBNLdfCZYb9J55l4Q8hL2EpMOVJf4F1ZP4EPic0o=;
+ h=From:To:Cc:Subject:Date:From;
+ b=Q7nvntBS2UPB7WBgtlsRmwoqulQsE1KJvhWDedyZA1BSnxb8yPU0K17QnznuiE3fU
+ mAeLUTwMZ/zeLor7nmbccDG/KPyeNo62+HOjtNdyL6iAZTQ8hEAdpJiS1bX7tvkFcd
+ pGPiYTsDjJggRDkG0PEhPZCBGyPgTAbGOdaQA2i4+t+5dTa6u/NO207XoF6tvowP1b
+ 9aNH1bsh+C4dVWnBEgC8NYYps4JsZcROJhlN5L7ekYMdg5YVNLb5X9hU6YeJP6yazc
+ i1agQJWLHvsIkA7OW0eP1CG1zoVzC6WmTMxPnhjtaVgyONkRu94OZ6YvAsEoZv4THJ
+ bFzLs/LVRpZCw==
+From: Ard Biesheuvel <ardb@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>, Keith Packard <keithpac@amazon.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Peter Zijlstra <peterz@infradead.org>,
+ Kees Cook <keescook@chromium.org>, Andy Lutomirski <luto@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+Subject: [RFC PATCH 0/8] Move task_struct::cpu back into thread_info
+Date: Tue, 14 Sep 2021 14:10:28 +0200
+Message-Id: <20210914121036.3975026-1-ardb@kernel.org>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-In-Reply-To: <20210914101327.47baun6mop3mc56j@gilmour>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210914_051005_098423_4AA52BD6 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20210914_051047_539944_49B9976A 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +90,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2021 12:13, Maxime Ripard wrote:
-> On Tue, Sep 14, 2021 at 12:07:08PM +0200, Krzysztof Kozlowski wrote:
->> On Tue, 14 Sept 2021 at 11:31, Arnd Bergmann <arnd@arndb.de> wrote:
->>> Some subsystem maintainers want drivers to be selected by the SoC
->>> option, this is why you need the 'select SIFIVE_PLIC', but usually
->>> the drivers are selectable with a 'depends on ARCH_SUNXI ||
->>> COMPILE_TEST' and enabled in the defconfig.
->>
->> I would say selecting drivers is even more useful for distros and
->> other downstream users. Especially in the ARM world where we have so
->> many different SoCs - how could a distro person know which driver is
->> necessary, important or useful? Having all main SoC drivers enabled
->> when ARCH_SUNXI=y, helps distro a lot.
-> 
-> Imply, maybe, but select is far too painful for everyone else.
+Commit c65eacbe290b ("sched/core: Allow putting thread_info into
+task_struct") mentions that, along with moving thread_info into
+task_struct, the cpu field is moved out of the former into the latter,
+but does not explain why.
 
-If we talk about UART driver, then sure - imply makes sense. But if we
-talk about core SoC components necessary for boot (e.g. timers, clocks,
-pinctrl), then select is appropriate. There is no point to enable
-ARCH_XXX without these core components.
+While collaborating with Keith on adding THREAD_INFO_IN_TASK support to
+ARM, we noticed that keeping CPU in task_struct is problematic for
+architectures that define raw_smp_processor_id() in terms of this field,
+as it requires linux/sched.h to be included, which causes a lot of pain
+in terms of circular dependencies (or 'header soup', as the original
+commit refers to it).
 
+For examples of how existing architectures work around this, please
+refer to patches #6 or #7. In the former case, it uses an awful
+asm-offsets hack to index thread_info/current without using its type
+definition. The latter approach simply keeps a copy of the task_struct
+CPU field in thread_info, and keeps it in sync at context switch time.
 
-Best regards,
-Krzysztof
+Patch #8 reverts this latter approach for ARM, but this code is still
+under review so it does not currently apply to mainline.
+
+We also discussed introducing yet another Kconfig symbol to indicate
+that the arch has THREAD_INFO_IN_TASK enabled but still prefers to keep
+its CPU field in thread_info, but simply keeping it in thread_info in
+all cases seems to be the cleanest approach here.
+
+Cc: Keith Packard <keithpac@amazon.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Christian Borntraeger <borntraeger@de.ibm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Kees Cook <keescook@chromium.org>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+
+Ard Biesheuvel (8):
+  arm64: add CPU field to struct thread_info
+  x86: add CPU field to struct thread_info
+  s390: add CPU field to struct thread_info
+  powerpc: add CPU field to struct thread_info
+  sched: move CPU field back into thread_info if THREAD_INFO_IN_TASK=y
+  powerpc: smp: remove hack to obtain offset of task_struct::cpu
+  riscv: rely on core code to keep thread_info::cpu updated
+  ARM: rely on core code to keep thread_info::cpu updated
+
+ arch/arm/include/asm/switch_to.h       | 14 --------------
+ arch/arm/kernel/smp.c                  |  3 ---
+ arch/arm64/include/asm/thread_info.h   |  1 +
+ arch/arm64/kernel/asm-offsets.c        |  2 +-
+ arch/arm64/kernel/head.S               |  2 +-
+ arch/powerpc/Makefile                  | 11 -----------
+ arch/powerpc/include/asm/smp.h         | 17 +----------------
+ arch/powerpc/include/asm/thread_info.h |  3 +++
+ arch/powerpc/kernel/asm-offsets.c      |  4 +---
+ arch/powerpc/kernel/smp.c              |  2 +-
+ arch/riscv/kernel/asm-offsets.c        |  1 -
+ arch/riscv/kernel/entry.S              |  5 -----
+ arch/riscv/kernel/head.S               |  1 -
+ arch/s390/include/asm/thread_info.h    |  1 +
+ arch/x86/include/asm/thread_info.h     |  3 +++
+ include/linux/sched.h                  |  6 +-----
+ kernel/sched/sched.h                   |  4 ----
+ 17 files changed, 14 insertions(+), 66 deletions(-)
+
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
