@@ -2,82 +2,95 @@ Return-Path: <SRS0=G1RR=OE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-22.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1B45C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F7BAC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:37:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B6B16112D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:16:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8B6B16112D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id AD86F60F92
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:37:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AD86F60F92
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Cc:
+	References:To:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+CDFJxuyw8/lvsM+o4xSxPkffefwZPdNz8+ziFwL5rE=; b=xZuM3Iw05SBf7P
-	xE44z9D8zp7RzxmekjzkEjhMy26kTI7U1ZYD4YiDg632rTF3/tceEZKj0S1gVreo1kCr2qLjC9gkl
-	ae8uSBA9w8Q2avdWzanjA3iDLd76jM6uuwO/3+iAv2oGmv1pGf1kYaRR4Gpy01awfV8h6YA2Dni0/
-	Bjujah/Dg83zC5B85xfaZiTOBkIl3GiMzrLEnkITCm1RO2mMG+x8toJ8ixThvKaCdwhN91QDcPV2/
-	ZmRB5179+FjF5jKHswAuPwrmSL2+xjrmHXST3QNtSFpK0Mof3iYieUXEJ2gRazb1UrouIvl7g8dE7
-	HECH/fMolPLL0ivM9nRw==;
+	List-Owner; bh=PCJVxUTZz36WcMnLkceppUwvRs5mYadqueuDgIrV3fE=; b=eQS4CN6ZX+k7Hz
+	Pkp7nCgM8oo1fCjKyLJ7zEogRk/kH88BMcKheeMa+c5dO9+6RjIydrgFNV4Haut2EZxWvhs5NVcD+
+	K+fSwMP024Tk3EbtqNe6AmZh13sRH90XvE0KT9ifW/jZxz4RzgReihBKBeg2/EVu2QR9UdaSyrvuw
+	Q+5ecmP994zuOOzjV8mmFdAOvUIV44VdqWCqvToY2HdHhs5SZpgqXSWSzraOK1GqQuiRMbSU7JhdH
+	FXsu2jGGGLnjnJY2DsyC1/w63kB8eWuQe24E7l2OPZElGi1vrGe9RowaPbvrZlL1KxP5/pfsXxRHs
+	K3H49DYrjEEEmBRga9sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQ7MO-005bju-Am; Tue, 14 Sep 2021 12:16:24 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQ7Hi-005Z69-Ri; Tue, 14 Sep 2021 12:11:36 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C83CF6113B;
- Tue, 14 Sep 2021 12:11:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631621494;
- bh=Un8y/D+KQ7QnI5WCuToXds/wfl/En/jtOwh4rNfj9R8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=ig+JhbgZYvBpoEkePCkGJri/drWhd/zNQud4qJwR8VAt84t30tIDeaFs97pqovpnU
- WCFrlyeMm6+1wzrVATtgyga9C5qWYHs1yX99yykHrOJ3pCi9FXJKirLieFGvLxzC0K
- Mywhpb0yr9NkpYWBDViktx8s3C+pE5TggWsvKK4IyjcPZc1m8gjUT/JKfmfVm6FX8H
- CX7KnVaCKBdHWEu2l+bHSQiZ1f1aWajC83sfiAJLI1WCxOKfU4PeSC6JVYfKKmXY+Q
- NIiIwTM/plhEKszesgnnR42HGaTtjXF+XLsz785RrqO0IDw4DjfEQpDioB90gj8vwG
- AVBFyfowsQ6nQ==
-From: Ard Biesheuvel <ardb@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>, Keith Packard <keithpac@amazon.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	id 1mQ7gT-005hqR-On; Tue, 14 Sep 2021 12:37:09 +0000
+Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mQ7gP-005hmW-GS; Tue, 14 Sep 2021 12:37:07 +0000
+Received: from [10.130.0.135] (unknown [113.200.148.30])
+ by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxn2tEl0BhhZgGAA--.14513S3; 
+ Tue, 14 Sep 2021 20:36:22 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+Subject: Re: [PATCH bpf-next v2] bpf: Change value of MAX_TAIL_CALL_CNT from
+ 32 to 33
+To: Daniel Borkmann <daniel@iogearbox.net>,
+ Shubham Bansal <illusionist.neo@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Zi Shen Lim <zlim.lnx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Paul Burton <paulburton@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, naveen.n.rao@linux.ibm.com,
  Michael Ellerman <mpe@ellerman.id.au>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ Paul Mackerras <paulus@samba.org>, Luke Nelson <luke.r.nels@gmail.com>,
+ Xi Wang <xi.wang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Peter Zijlstra <peterz@infradead.org>,
- Kees Cook <keescook@chromium.org>, Andy Lutomirski <luto@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
-Subject: [RFC PATCH 8/8] ARM: rely on core code to keep thread_info::cpu
- updated
-Date: Tue, 14 Sep 2021 14:10:36 +0200
-Message-Id: <20210914121036.3975026-9-ardb@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210914121036.3975026-1-ardb@kernel.org>
-References: <20210914121036.3975026-1-ardb@kernel.org>
+ bjorn@kernel.org, davem@davemloft.net,
+ Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+ Paul Chaignon <paul@cilium.io>
+References: <1631325361-9851-1-git-send-email-yangtiezhu@loongson.cn>
+ <0fb8d16f-67e7-7197-fce2-a4c17f1e5987@iogearbox.net>
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
+Message-ID: <9ad382ca-a254-f897-9ec6-c9b1920a6174@loongson.cn>
+Date: Tue, 14 Sep 2021 20:36:20 +0800
+User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
+ Thunderbird/45.4.0
 MIME-Version: 1.0
+In-Reply-To: <0fb8d16f-67e7-7197-fce2-a4c17f1e5987@iogearbox.net>
+X-CM-TRANSID: AQAAf9Dxn2tEl0BhhZgGAA--.14513S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxurW7Gw1DJw1UGw4xGFW3KFg_yoW5Ar43pr
+ WUJanakr4kXFyrC3ZrKa1xZay0vFZ8tryUGrWrK342yFn8Zrn5WF4xK3yFgF1UAryrta4F
+ 9ayFkr95C3WkZFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUU9Gb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+ c7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_Xr1l42xK82IYc2Ij64vIr41l4I8I3I
+ 0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
+ GVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+ v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xva
+ j40_Wr1j6rW3Jr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+ W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5lsj5UUUUU==
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210914_051134_987983_D0F9F786 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20210914_053706_042514_CFD1A49D 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +102,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the core code switched back to using thread_info::cpu to keep
-a task's CPU number, we no longer need to keep it in sync explicitly. So
-just drop the code that does this.
+On 09/14/2021 03:30 PM, Daniel Borkmann wrote:
+> On 9/11/21 3:56 AM, Tiezhu Yang wrote:
+>>
+[...]
+>> With this patch, it does not change the current limit 33, 
+>> MAX_TAIL_CALL_CNT
+>> can reflect the actual max tail call count, the tailcall selftests 
+>> can work
+>> well, and also the above failed testcase in test_bpf can be fixed for 
+>> the
+>> interpreter (all archs) and the JIT (all archs except for x86).
+>>
+>>   # uname -m
+>>   x86_64
+>>   # echo 1 > /proc/sys/net/core/bpf_jit_enable
+>>   # modprobe test_bpf
+>>   # dmesg | grep -w FAIL
+>>   Tail call error path, max count reached jited:1 ret 33 != 34 FAIL
+>
+> Could you also state in here which archs you have tested with this 
+> change? I
+> presume /every/ arch which has a JIT?
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
-This patch applies onto [0], which we hope to get merged for v5.16
+OK, will do it in v3.
+I have tested on x86 and mips.
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git/log/?h=arm32-ti-in-task-v5
+>
+>> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+>> ---
+>>
+>> v2:
+>>    -- fix the typos in the commit message and update the commit message.
+>>    -- fix the failed tailcall selftests for x86 jit.
+>>       I am not quite sure the change on x86 is proper, with this change,
+>>       tailcall selftests passed, but tailcall limit test in test_bpf.ko
+>>       failed, I do not know the reason now, I think this is another 
+>> issue,
+>>       maybe someone more versed in x86 jit could take a look.
+>
+> There should be a series from Johan coming today with regards to 
+> test_bpf.ko
+> that will fix the "tail call error path, max count reached" test which 
+> had an
+> assumption in that R0 would always be valid for the fall-through and 
+> could be
+> passed to the bpf_exit insn whereas it is not guaranteed and verifier, 
+> for
+> example, forbids a subsequent access to R0 w/o reinit. For your 
+> testing, I
+> would suggested to recheck once this series is out.
 
- arch/arm/include/asm/switch_to.h | 14 --------------
- arch/arm/kernel/smp.c            |  3 ---
- 2 files changed, 17 deletions(-)
+I will test the following patch on x86 and mips:
 
-diff --git a/arch/arm/include/asm/switch_to.h b/arch/arm/include/asm/switch_to.h
-index db2be1f6550d..61e4a3c4ca6e 100644
---- a/arch/arm/include/asm/switch_to.h
-+++ b/arch/arm/include/asm/switch_to.h
-@@ -23,23 +23,9 @@
-  */
- extern struct task_struct *__switch_to(struct task_struct *, struct thread_info *, struct thread_info *);
- 
--static inline void set_ti_cpu(struct task_struct *p)
--{
--#ifdef CONFIG_THREAD_INFO_IN_TASK
--	/*
--	 * The core code no longer maintains the thread_info::cpu field once
--	 * CONFIG_THREAD_INFO_IN_TASK is in effect, but we rely on it for
--	 * raw_smp_processor_id(), which cannot access struct task_struct*
--	 * directly for reasons of circular #inclusion hell.
--	 */
--	task_thread_info(p)->cpu = p->cpu;
--#endif
--}
--
- #define switch_to(prev,next,last)					\
- do {									\
- 	__complete_pending_tlbi();					\
--	set_ti_cpu(next);						\
- 	if (IS_ENABLED(CONFIG_CURRENT_POINTER_IN_TPIDRURO))		\
- 		__this_cpu_write(__entry_task, next);			\
- 	last = __switch_to(prev,task_thread_info(prev), task_thread_info(next));	\
-diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
-index cde5b6d8bac5..97ee6b1567e9 100644
---- a/arch/arm/kernel/smp.c
-+++ b/arch/arm/kernel/smp.c
-@@ -154,9 +154,6 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
- 	secondary_data.swapper_pg_dir = get_arch_pgd(swapper_pg_dir);
- #endif
- 	secondary_data.task = idle;
--	if (IS_ENABLED(CONFIG_THREAD_INFO_IN_TASK))
--		task_thread_info(idle)->cpu = cpu;
--
- 	sync_cache_w(&secondary_data);
- 
- 	/*
--- 
-2.30.2
+[PATCH bpf v4 13/14] bpf/tests: Fix error in tail call limit tests
+
+[...]
+
+>> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+>> index 0fe6aac..74a9e61 100644
+>> --- a/arch/x86/net/bpf_jit_comp.c
+>> +++ b/arch/x86/net/bpf_jit_comp.c
+>> @@ -402,7 +402,7 @@ static int get_pop_bytes(bool *callee_regs_used)
+>>    * ... bpf_tail_call(void *ctx, struct bpf_array *array, u64 index) 
+>> ...
+>>    *   if (index >= array->map.max_entries)
+>>    *     goto out;
+>> - *   if (++tail_call_cnt > MAX_TAIL_CALL_CNT)
+>> + *   if (tail_call_cnt++ == MAX_TAIL_CALL_CNT)
+>
+> Why such inconsistency to e.g. above with arm64 case but also compared to
+> x86 32 bit which uses JAE? If so, we should cleanly follow the reference
+> implementation (== interpreter) _everywhere_ and _not_ introduce 
+> additional
+> variants/implementations across JITs.
+
+In order tokeep consistencyand make as few changes as possible,
+<javascript:void(0);>I will modify the check condition as follows:
+
+#define MAX_TAIL_CALL_CNT 33
+(1) for x86, arm64, ... (0 ~ 32)
+tcc = 0;
+if (tcc == MAX_TAIL_CALL_CNT)
+     goto out;
+tcc++;
+
+(2) for mips, riscv (33 ~ 1)
+tcc = MAX_TAIL_CALL_CNT;
+if (tcc == 0)
+     goto out;
+tcc--;
+
+[...]
 
 
 _______________________________________________
