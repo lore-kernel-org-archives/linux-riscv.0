@@ -2,95 +2,104 @@ Return-Path: <SRS0=G1RR=OE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F7BAC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65BB5C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 13:02:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD86F60F92
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 12:37:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AD86F60F92
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 1FFFF610D1
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 13:02:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1FFFF610D1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Cc:
-	References:To:Subject:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PCJVxUTZz36WcMnLkceppUwvRs5mYadqueuDgIrV3fE=; b=eQS4CN6ZX+k7Hz
-	Pkp7nCgM8oo1fCjKyLJ7zEogRk/kH88BMcKheeMa+c5dO9+6RjIydrgFNV4Haut2EZxWvhs5NVcD+
-	K+fSwMP024Tk3EbtqNe6AmZh13sRH90XvE0KT9ifW/jZxz4RzgReihBKBeg2/EVu2QR9UdaSyrvuw
-	Q+5ecmP994zuOOzjV8mmFdAOvUIV44VdqWCqvToY2HdHhs5SZpgqXSWSzraOK1GqQuiRMbSU7JhdH
-	FXsu2jGGGLnjnJY2DsyC1/w63kB8eWuQe24E7l2OPZElGi1vrGe9RowaPbvrZlL1KxP5/pfsXxRHs
-	K3H49DYrjEEEmBRga9sA==;
+	List-Owner; bh=qqZ5/oAGhJ3dOVJyX8ixfPAyYqHH3y4JqXhAnnu7Ykw=; b=wRB6Oj91iHFY6s
+	GzzV5+RBNF+jsNY4ta+BFIwwfCXXCYoVvaIV+9hx7r2Z/k0C+FH3Djb6Oq5uwSNGUfm6qh5eBHtbJ
+	I9Qg2Ev4G2Cc1nmAQzu+qYKdLXx8CEISW6k1EQJzwJpG581QwvFJAYwVOgltYk5U1+U6HPjraPIHK
+	diaMd4J7XEuMajhHlXMv9q9vH+Sv4ZMbZnapVG4KXbWAssviLOzk4JPqCUlqyaJr+BxC8q49tzz22
+	fHxI6RvPnjZ4bHsKBC0Obv+i0a3E1cOIJLL4BfsnRLkOlTg63SUk3MezHs9uN5mmOZb+AG6mR5M12
+	MR1RhVE9xwAZJ6tBArWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQ7gT-005hqR-On; Tue, 14 Sep 2021 12:37:09 +0000
-Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQ7gP-005hmW-GS; Tue, 14 Sep 2021 12:37:07 +0000
-Received: from [10.130.0.135] (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxn2tEl0BhhZgGAA--.14513S3; 
- Tue, 14 Sep 2021 20:36:22 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH bpf-next v2] bpf: Change value of MAX_TAIL_CALL_CNT from
- 32 to 33
-To: Daniel Borkmann <daniel@iogearbox.net>,
- Shubham Bansal <illusionist.neo@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Paul Burton <paulburton@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, naveen.n.rao@linux.ibm.com,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Luke Nelson <luke.r.nels@gmail.com>,
- Xi Wang <xi.wang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- bjorn@kernel.org, davem@davemloft.net,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Chaignon <paul@cilium.io>
-References: <1631325361-9851-1-git-send-email-yangtiezhu@loongson.cn>
- <0fb8d16f-67e7-7197-fce2-a4c17f1e5987@iogearbox.net>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
-Message-ID: <9ad382ca-a254-f897-9ec6-c9b1920a6174@loongson.cn>
-Date: Tue, 14 Sep 2021 20:36:20 +0800
-User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
- Thunderbird/45.4.0
+	id 1mQ850-005ooV-0J; Tue, 14 Sep 2021 13:02:30 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mQ84x-005onL-0q
+ for linux-riscv@lists.infradead.org; Tue, 14 Sep 2021 13:02:28 +0000
+Received: from mail-wr1-f45.google.com ([209.85.221.45]) by
+ mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1N7zW7-1mvhaN1PIx-0153Rm for <linux-riscv@lists.infradead.org>; Tue, 14 Sep
+ 2021 15:02:24 +0200
+Received: by mail-wr1-f45.google.com with SMTP id d6so20067282wrc.11
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Sep 2021 06:02:23 -0700 (PDT)
+X-Gm-Message-State: AOAM531/K4wHVqfdPvOH6UVaQlqJgVvuU3HZOCbEBKwIqy/lh40J6GJ7
+ zEfY4v0JeGVZBezzbPwsTYq1Vr5OaiciO3b+boQ=
+X-Google-Smtp-Source: ABdhPJwm95UM5Q7Av+R9PlqLuMxx0U/oJySlVgb5nUIOOX/MOzSR3VFTVEUXiHX+MRSB+HYEGrwSl61hIAHxwKNWp3I=
+X-Received: by 2002:a5d:528b:: with SMTP id c11mr18133610wrv.369.1631624543694; 
+ Tue, 14 Sep 2021 06:02:23 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <0fb8d16f-67e7-7197-fce2-a4c17f1e5987@iogearbox.net>
-X-CM-TRANSID: AQAAf9Dxn2tEl0BhhZgGAA--.14513S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxurW7Gw1DJw1UGw4xGFW3KFg_yoW5Ar43pr
- WUJanakr4kXFyrC3ZrKa1xZay0vFZ8tryUGrWrK342yFn8Zrn5WF4xK3yFgF1UAryrta4F
- 9ayFkr95C3WkZFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUU9Gb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
- c7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_Xr1l42xK82IYc2Ij64vIr41l4I8I3I
- 0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
- GVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
- v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xva
- j40_Wr1j6rW3Jr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
- W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5lsj5UUUUU==
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+References: <20210911092139.79607-1-guoren@kernel.org>
+ <20210911092139.79607-7-guoren@kernel.org>
+ <20210913084520.kkbsupogkzv226x3@gilmour>
+ <CAJF2gTT_8VLTt0B=LxXAPWVpHaBaVxy+V0rGCjr7JZyRiO7LfQ@mail.gmail.com>
+ <d2ac3da8-f4d5-52c1-da7f-f8260a0bb604@infradead.org>
+ <CAJF2gTTVj2J6_rCXAG81PB3vJZO2TTwpD03vAE2q+K=9zh_TzQ@mail.gmail.com>
+ <CAK8P3a1TY+XT1vF=wAh0XA5BXU5Z6Ab1d4DekXbVsN9aj3aL5w@mail.gmail.com>
+ <CAJKOXPdH0C0CJe_oxZ2rG1UeE5G9w2mh2Thh8LynpNHQk2g1qA@mail.gmail.com>
+ <20210914101327.47baun6mop3mc56j@gilmour>
+ <c9b18cf8-d432-8636-52f5-a40a342135fe@kernel.org>
+In-Reply-To: <c9b18cf8-d432-8636-52f5-a40a342135fe@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 14 Sep 2021 15:02:07 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3ZBfTN-u1xtQx3TTFnangdyXc7B8wMtr51Mr6+aXvodA@mail.gmail.com>
+Message-ID: <CAK8P3a3ZBfTN-u1xtQx3TTFnangdyXc7B8wMtr51Mr6+aXvodA@mail.gmail.com>
+Subject: Re: [RFC PATCH V4 6/6] riscv: soc: Add Allwinner SoC kconfig option
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Maxime Ripard <maxime@cerno.tech>, Arnd Bergmann <arnd@arndb.de>,
+ Guo Ren <guoren@kernel.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ philipp.tomsich@vrull.eu, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, 
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, 
+ aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com, 
+ gordan.markus@canonical.com, Guo Ren <guoren@linux.alibaba.com>, 
+ Chen-Yu Tsai <wens@csie.org>
+X-Provags-ID: V03:K1:NjW3fz2pmXXo9XrGPPrb/rvEMFh5Jm654wwjC87bIwsVdYmJbt7
+ 5VL/JKJuotgvasc6JgCDz9mVi5X3oaXFCyCCZI18ttt7G8h85JP97gF2yPf2OI/SJhHginW
+ uIFYlb/S7JHsOiJOaJ7YgshXxRKI7NK/YQjC5Ij9Wi9gGgGFZ7UzHqRhLs/tcaiw2p65fEs
+ ni5XAV9DiAqsBvnk61k2g==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:oyt6Ytu8DbM=:PhZaioxrZyVt1SaO+PAPI3
+ Z0bAVC7OilQrCY8VSw7AQIuDi4h85TAVnXZqg7+2orK5qXmc4Jt/xkJkH6Q+UDCM3paiVA8g0
+ EpLcqc2wClagwTXUvVNkylid8JWbj3wrRg9bMOXbedfDqa28q4+nHAlZ6YstmdwJUWyQClv6M
+ uo8FmTivG14tXrrock+KwCdq2bzTi/pCKBzWOdDtUu8mVPl2zzsXtq5+m0EmhSQeuG983JD8/
+ vBcM4YRDfnVElW7MziidDSLHoljuNA5msps1glwnTy3czl0cc2laKhbh7Zuw16c5MOdSSkoDq
+ s/zsE13OZwnWdEvBFBpk1g2Yjg0+fp5+2WHHCJw6gxE00KM2jM4mhN5Fh8msVzVAyXcXuiG82
+ PlOQ+4T5wQNCXqFClNw6uje7MFm+86/7yRWLtJjpnTFDpvfbx0rPTogu/8NtmIZOgq0sCQqKe
+ QqpsJ/B4rjUY4mvTnee/4Q2iye5YfNriZWTFygAKzQifjkcp+gnygfQiUxlIMKXoM8qcmCLkD
+ uiOPWqY9HYw91EodJGctgiLMjABJEWL7rWLAYj9AzYWbk9A0GU0MHrxNzrPufWBmrPKGQNDnx
+ O4sNnhYPf/QBavSslxOthTXj7O1EiR4q7vndEPICoDYdeI7GM1NUz/+JZtGJccd1YmODDYFqR
+ A4HoLtCOubgqEFW+CqPwH2tiKvWlgJa7m+i8US828/TQVGDpEC4sOiMsOBCcWYCotuAwfp56/
+ sZwwOwebamCpvYjMp+WR8pu8r1uEQ3useYE0Ev9D7ZP3Q8mkBeR1hNin5fyE78HOVHUrCKzHW
+ tsJIGzfdy4X64Z0O9HXt2nQU+QWsP6Nmz3+j5pss4ZfblKATQvcUdAVKvVHlqUGKhDJBfKg/J
+ kePCGv3wy7RmpXkwAWZw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210914_053706_042514_CFD1A49D 
-X-CRM114-Status: GOOD (  29.05  )
+X-CRM114-CacheID: sfid-20210914_060227_406676_FA7D9C45 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,104 +111,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/14/2021 03:30 PM, Daniel Borkmann wrote:
-> On 9/11/21 3:56 AM, Tiezhu Yang wrote:
->>
-[...]
->> With this patch, it does not change the current limit 33, 
->> MAX_TAIL_CALL_CNT
->> can reflect the actual max tail call count, the tailcall selftests 
->> can work
->> well, and also the above failed testcase in test_bpf can be fixed for 
->> the
->> interpreter (all archs) and the JIT (all archs except for x86).
->>
->>   # uname -m
->>   x86_64
->>   # echo 1 > /proc/sys/net/core/bpf_jit_enable
->>   # modprobe test_bpf
->>   # dmesg | grep -w FAIL
->>   Tail call error path, max count reached jited:1 ret 33 != 34 FAIL
+On Tue, Sep 14, 2021 at 2:11 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> Could you also state in here which archs you have tested with this 
-> change? I
-> presume /every/ arch which has a JIT?
-
-OK, will do it in v3.
-I have tested on x86 and mips.
-
+> On 14/09/2021 12:13, Maxime Ripard wrote:
+> > On Tue, Sep 14, 2021 at 12:07:08PM +0200, Krzysztof Kozlowski wrote:
+> >> On Tue, 14 Sept 2021 at 11:31, Arnd Bergmann <arnd@arndb.de> wrote:
+> >>> Some subsystem maintainers want drivers to be selected by the SoC
+> >>> option, this is why you need the 'select SIFIVE_PLIC', but usually
+> >>> the drivers are selectable with a 'depends on ARCH_SUNXI ||
+> >>> COMPILE_TEST' and enabled in the defconfig.
+> >>
+> >> I would say selecting drivers is even more useful for distros and
+> >> other downstream users. Especially in the ARM world where we have so
+> >> many different SoCs - how could a distro person know which driver is
+> >> necessary, important or useful? Having all main SoC drivers enabled
+> >> when ARCH_SUNXI=y, helps distro a lot.
+> >
+> > Imply, maybe, but select is far too painful for everyone else.
 >
->> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
->> ---
->>
->> v2:
->>    -- fix the typos in the commit message and update the commit message.
->>    -- fix the failed tailcall selftests for x86 jit.
->>       I am not quite sure the change on x86 is proper, with this change,
->>       tailcall selftests passed, but tailcall limit test in test_bpf.ko
->>       failed, I do not know the reason now, I think this is another 
->> issue,
->>       maybe someone more versed in x86 jit could take a look.
->
-> There should be a series from Johan coming today with regards to 
-> test_bpf.ko
-> that will fix the "tail call error path, max count reached" test which 
-> had an
-> assumption in that R0 would always be valid for the fall-through and 
-> could be
-> passed to the bpf_exit insn whereas it is not guaranteed and verifier, 
-> for
-> example, forbids a subsequent access to R0 w/o reinit. For your 
-> testing, I
-> would suggested to recheck once this series is out.
+> If we talk about UART driver, then sure - imply makes sense. But if we
+> talk about core SoC components necessary for boot (e.g. timers, clocks,
+> pinctrl), then select is appropriate. There is no point to enable
+> ARCH_XXX without these core components.
 
-I will test the following patch on x86 and mips:
+Please never use 'imply', this is functionally the same as 'default', just
+the wrong way around, like the infamous 'comefrom' instruction
+in programming languages ;-)
 
-[PATCH bpf v4 13/14] bpf/tests: Fix error in tail call limit tests
+I still prefer using defaults and defconfig files over 'select', but I can
+see the use of select in some cases, as long as the symbol you
+are selecting is not already user visible.
 
-[...]
-
->> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
->> index 0fe6aac..74a9e61 100644
->> --- a/arch/x86/net/bpf_jit_comp.c
->> +++ b/arch/x86/net/bpf_jit_comp.c
->> @@ -402,7 +402,7 @@ static int get_pop_bytes(bool *callee_regs_used)
->>    * ... bpf_tail_call(void *ctx, struct bpf_array *array, u64 index) 
->> ...
->>    *   if (index >= array->map.max_entries)
->>    *     goto out;
->> - *   if (++tail_call_cnt > MAX_TAIL_CALL_CNT)
->> + *   if (tail_call_cnt++ == MAX_TAIL_CALL_CNT)
->
-> Why such inconsistency to e.g. above with arm64 case but also compared to
-> x86 32 bit which uses JAE? If so, we should cleanly follow the reference
-> implementation (== interpreter) _everywhere_ and _not_ introduce 
-> additional
-> variants/implementations across JITs.
-
-In order tokeep consistencyand make as few changes as possible,
-<javascript:void(0);>I will modify the check condition as follows:
-
-#define MAX_TAIL_CALL_CNT 33
-(1) for x86, arm64, ... (0 ~ 32)
-tcc = 0;
-if (tcc == MAX_TAIL_CALL_CNT)
-     goto out;
-tcc++;
-
-(2) for mips, riscv (33 ~ 1)
-tcc = MAX_TAIL_CALL_CNT;
-if (tcc == 0)
-     goto out;
-tcc--;
-
-[...]
-
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
