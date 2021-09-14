@@ -2,84 +2,85 @@ Return-Path: <SRS0=G1RR=OE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C288C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 07:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0EEEDC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 08:30:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E9B0C61029
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 07:32:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E9B0C61029
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
+	by mail.kernel.org (Postfix) with ESMTPS id CCABE604D1
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Sep 2021 08:30:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CCABE604D1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndLMCHuszZ9yYDDtRUt3nzBhBBAZLcdSXie0a5Qf+4g=; b=TF241JvM7mq3637gyN/V5MgYqd
-	1rqDGRXSv8RCYYLao0dQK3Bzg2AA46VBhjdFEsAmTqUuY9QZhHkvWP+gVjiQ1FPy/f5pUw2f/HMc/
-	bZKnBCXTuOoDHHlM5o/FPBFqB6cabXP7Bsvr4f7kPpCF70m3JVLDDETIHc9oCC2NMuuuL777sflF9
-	GqPq3bkyjTyim+3Swj6+NLzvbot5rJs62JYZ7bvG74NxjMH6I6h9NFMbR9XFbbNldfhuW8KuVMhP/
-	fPjjkLfNtkIHwoVj7k6g0PK0J0PUT1G0apw7HrPr0M031f9cejFMAfqIsQsvlWCIRrz1eVitoMHWj
-	4RmsQVDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=++GLR6LSD/l9lDNKSw3Hs8wuRUe0PWvrmohkbVSLo5s=; b=13zTaS9OE+sKqZ
+	G6VtSS5rGI6MJE15Q/5L+gJdB7qHnCmdqpLcB0d9O01O7BShm8BImQ41JG9JVU0Zpl9qZCgADhNdS
+	ULyXXWw2XyNMSZdWC9fhiuXb8L1O260RyzNjW0quutA5LruS/Qj1mV0TU6hwRkhtImMH3SQmOIOC6
+	TxL4XizXu2bjnCe2d1whoinuIupHDVXyJYlPdpp162QRlZU3+wL7Zn5FguERY9wVDixKQFgV+naqi
+	hK2w/tI6aMxyxGk+OUMuzEFCUO6CzCnM/n0v/TbbGtfdbeItB3S5RmswlfaOst4Ju3QZAbAaFhlGF
+	rzUnm1cuUfftebbuX19w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQ2vL-004UNA-U7; Tue, 14 Sep 2021 07:32:11 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1mQ3pd-004ggI-VP; Tue, 14 Sep 2021 08:30:22 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQ2v7-004UIj-G5; Tue, 14 Sep 2021 07:31:59 +0000
-Received: from sslproxy06.your-server.de ([78.46.172.3])
- by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
- id 1mQ2uD-000F8r-Bq; Tue, 14 Sep 2021 09:31:01 +0200
-Received: from [85.5.47.65] (helo=linux.home)
- by sslproxy06.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
- id 1mQ2uC-0000Sp-Kk; Tue, 14 Sep 2021 09:31:00 +0200
-Subject: Re: [PATCH bpf-next v2] bpf: Change value of MAX_TAIL_CALL_CNT from
- 32 to 33
-To: Tiezhu Yang <yangtiezhu@loongson.cn>,
- Shubham Bansal <illusionist.neo@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Zi Shen Lim <zlim.lnx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Paul Burton <paulburton@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, naveen.n.rao@linux.ibm.com,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Luke Nelson <luke.r.nels@gmail.com>,
- Xi Wang <xi.wang@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- bjorn@kernel.org, davem@davemloft.net,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Chaignon <paul@cilium.io>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org
-References: <1631325361-9851-1-git-send-email-yangtiezhu@loongson.cn>
-From: Daniel Borkmann <daniel@iogearbox.net>
-Message-ID: <0fb8d16f-67e7-7197-fce2-a4c17f1e5987@iogearbox.net>
-Date: Tue, 14 Sep 2021 09:30:59 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+ id 1mQ3pL-004gXw-Eb
+ for linux-riscv@lists.infradead.org; Tue, 14 Sep 2021 08:30:04 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id a25so11067125vso.5
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Sep 2021 01:30:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=9SfYqEgYuhGjmpKp+8qsm/+IR4JBWTK40kNQ4OdfOh0=;
+ b=csnaULio9miwWi3mxFy1WKWbVSnfdg/nwldFHmBIxPqOz1WLHX3d+SRzVG0rlV4Kyh
+ dWZ1DeqZnchItRJwwpNQfoIcxZy1zqmjMtpvHd5UQiyzk8T7LBXYZcy8ncdtcSFd6VwP
+ WpyXRbaeLyocF1/lBh577OLssYc79HO3C5y7qJh5MfKa2CrT3Di1pPJBLwpfKFHqdB+R
+ j0VUA7cqgozL8BrrNstJeaDIJ/cSunavWhABMoEXg6tNJDqiJppX57fuh754MOiGjd7h
+ evvkbHZ4P5v2njaY/Smx5tMZ6Rh8nrOfDR3cMgMH+G3kWgFh6L5oH/W9+9bSFuMZ/Fxa
+ m93A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=9SfYqEgYuhGjmpKp+8qsm/+IR4JBWTK40kNQ4OdfOh0=;
+ b=5o8/NrRMykarteijTo6NQj/FjP8vOyhzDqXdEPjIDfAFEjKwiSwJW1ZUQmMHwoWrNz
+ TeedcvLVpA3ixYAFk7eqnro6i59Shjbt3yrn3H8abWVXZhVXvMekibZNaaNEDduB8fJH
+ +QCVZuY4HyveWyMzkOe4DwGNxpfjDYE9O5+cNU5CrwKQrdRlBvKEaAgKf4oAs6lKmGHv
+ lzpXo1iUOwMHIWmFVIA44oJavEYS7XsKHTX/OgP0xLPg2ftwLrTxHWt4H17pqRl2mTOG
+ AYPlTVt6IzV8AYIgDfhWsfx2ZEj53eVEBnGp+HxdViBskvNH0iMpzZ6KX2irCF0bZyAR
+ wDUg==
+X-Gm-Message-State: AOAM533c9kefyEmYmlK4MKLtIN/MLH72PT7CEgkHLHrNIFCLSyuuKgSj
+ m37eOh6uFQJ9adB1PArUZE3HvGqd56+vDW3Q7ZI=
+X-Google-Smtp-Source: ABdhPJycHurFqjM9bo5/WXeY2QeFe7n1tG6NRMOd1bUnNb8FyWsi/Rv5pnO7Ag76m5y/XVWj3Z3VA8vOnPUPhMuNAA4=
+X-Received: by 2002:a67:ed86:: with SMTP id d6mr5241863vsp.38.1631608201390;
+ Tue, 14 Sep 2021 01:30:01 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <1631325361-9851-1-git-send-email-yangtiezhu@loongson.cn>
-Content-Language: en-US
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.2/26293/Mon Sep 13 10:23:39 2021)
+References: <cover.1631121222.git.greentime.hu@sifive.com>
+ <33c485ee595aff1e19a0e43074da59779f58d105.1631121222.git.greentime.hu@sifive.com>
+In-Reply-To: <33c485ee595aff1e19a0e43074da59779f58d105.1631121222.git.greentime.hu@sifive.com>
+From: Ley Foon Tan <lftan.linux@gmail.com>
+Date: Tue, 14 Sep 2021 16:29:50 +0800
+Message-ID: <CAFiDJ59nbV_opZRxfsv2kj8ObSguT75GJUKhA6Zd3+BpQOynjw@mail.gmail.com>
+Subject: Re: [RFC PATCH v8 15/21] riscv: Add vector extension XOR
+ implementation
+To: Greentime Hu <greentime.hu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, aou@eecs.berkeley.edu,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ vincent.chen@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210914_003157_753261_12E68C36 
-X-CRM114-Status: GOOD (  39.85  )
+X-CRM114-CacheID: sfid-20210914_013003_577192_F6191E85 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,195 +92,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/11/21 3:56 AM, Tiezhu Yang wrote:
-> In the current code, the actual max tail call count is 33 which is greater
-> than MAX_TAIL_CALL_CNT (defined as 32), the actual limit is not consistent
-> with the meaning of MAX_TAIL_CALL_CNT, there is some confusion and need to
-> spend some time to think about the reason at the first glance.
-> 
-> We can see the historical evolution from commit 04fd61ab36ec ("bpf: allow
-> bpf programs to tail-call other bpf programs") and commit f9dabe016b63
-> ("bpf: Undo off-by-one in interpreter tail call count limit").
-> 
-> In order to avoid changing existing behavior, the actual limit is 33 now,
-> this is reasonable.
-> 
-> After commit 874be05f525e ("bpf, tests: Add tail call test suite"), we can
-> see there exists failed testcase.
-> 
-> On all archs when CONFIG_BPF_JIT_ALWAYS_ON is not set:
->   # echo 0 > /proc/sys/net/core/bpf_jit_enable
->   # modprobe test_bpf
->   # dmesg | grep -w FAIL
->   Tail call error path, max count reached jited:0 ret 34 != 33 FAIL
-> 
-> On some archs:
->   # echo 1 > /proc/sys/net/core/bpf_jit_enable
->   # modprobe test_bpf
->   # dmesg | grep -w FAIL
->   Tail call error path, max count reached jited:1 ret 34 != 33 FAIL
-> 
-> So it is necessary to change the value of MAX_TAIL_CALL_CNT from 32 to 33,
-> then do some small changes of the related code.
-> 
-> With this patch, it does not change the current limit 33, MAX_TAIL_CALL_CNT
-> can reflect the actual max tail call count, the tailcall selftests can work
-> well, and also the above failed testcase in test_bpf can be fixed for the
-> interpreter (all archs) and the JIT (all archs except for x86).
-> 
->   # uname -m
->   x86_64
->   # echo 1 > /proc/sys/net/core/bpf_jit_enable
->   # modprobe test_bpf
->   # dmesg | grep -w FAIL
->   Tail call error path, max count reached jited:1 ret 33 != 34 FAIL
-
-Could you also state in here which archs you have tested with this change? I
-presume /every/ arch which has a JIT?
-
-> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+On Thu, Sep 9, 2021 at 1:49 AM Greentime Hu <greentime.hu@sifive.com> wrote:
+>
+> This patch adds support for vector optimized XOR it is tested in spike and
+> qemu.
+>
+> Logs in spike:
+> [    0.008365] xor: measuring software checksum speed
+> [    0.048885]    8regs     :  1719.000 MB/sec
+> [    0.089080]    32regs    :  1717.000 MB/sec
+> [    0.129275]    rvv       :  7043.000 MB/sec
+> [    0.129525] xor: using function: rvv (7043.000 MB/sec)
+>
+> Logs in qemu:
+> [    0.098943] xor: measuring software checksum speed
+> [    0.139391]    8regs     :  2911.000 MB/sec
+> [    0.181079]    32regs    :  2813.000 MB/sec
+> [    0.224260]    rvv       :    45.000 MB/sec
+> [    0.225586] xor: using function: 8regs (2911.000 MB/sec)
+>
+> Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 > ---
-> 
-> v2:
->    -- fix the typos in the commit message and update the commit message.
->    -- fix the failed tailcall selftests for x86 jit.
->       I am not quite sure the change on x86 is proper, with this change,
->       tailcall selftests passed, but tailcall limit test in test_bpf.ko
->       failed, I do not know the reason now, I think this is another issue,
->       maybe someone more versed in x86 jit could take a look.
+>  arch/riscv/include/asm/xor.h | 74 ++++++++++++++++++++++++++++++++
+>  arch/riscv/lib/Makefile      |  1 +
+>  arch/riscv/lib/xor.S         | 81 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 156 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/xor.h
+>  create mode 100644 arch/riscv/lib/xor.S
+>
+> diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+> new file mode 100644
+> index 000000000000..60ee0224913d
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/xor.h
+> @@ -0,0 +1,74 @@
 
-There should be a series from Johan coming today with regards to test_bpf.ko
-that will fix the "tail call error path, max count reached" test which had an
-assumption in that R0 would always be valid for the fall-through and could be
-passed to the bpf_exit insn whereas it is not guaranteed and verifier, for
-example, forbids a subsequent access to R0 w/o reinit. For your testing, I
-would suggested to recheck once this series is out.
 
->   arch/arm/net/bpf_jit_32.c         | 11 ++++++-----
->   arch/arm64/net/bpf_jit_comp.c     |  7 ++++---
->   arch/mips/net/ebpf_jit.c          |  4 ++--
->   arch/powerpc/net/bpf_jit_comp32.c |  4 ++--
->   arch/powerpc/net/bpf_jit_comp64.c | 12 ++++++------
->   arch/riscv/net/bpf_jit_comp32.c   |  4 ++--
->   arch/riscv/net/bpf_jit_comp64.c   |  4 ++--
->   arch/sparc/net/bpf_jit_comp_64.c  |  8 ++++----
->   arch/x86/net/bpf_jit_comp.c       | 10 +++++-----
->   include/linux/bpf.h               |  2 +-
->   kernel/bpf/core.c                 |  4 ++--
->   11 files changed, 36 insertions(+), 34 deletions(-)
 [...]
->   	/* prog = array->ptrs[index]
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-> index 41c23f4..5d6c843 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -286,14 +286,15 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx)
->   	emit(A64_CMP(0, r3, tmp), ctx);
->   	emit(A64_B_(A64_COND_CS, jmp_offset), ctx);
->   
-> -	/* if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-> -	 *     goto out;
-> +	/*
->   	 * tail_call_cnt++;
-> +	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-> +	 *     goto out;
->   	 */
-> +	emit(A64_ADD_I(1, tcc, tcc, 1), ctx);
->   	emit_a64_mov_i64(tmp, MAX_TAIL_CALL_CNT, ctx);
->   	emit(A64_CMP(1, tcc, tmp), ctx);
->   	emit(A64_B_(A64_COND_HI, jmp_offset), ctx);
-> -	emit(A64_ADD_I(1, tcc, tcc, 1), ctx);
->   
->   	/* prog = array->ptrs[index];
->   	 * if (prog == NULL)
-[...]
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index 0fe6aac..74a9e61 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
-> @@ -402,7 +402,7 @@ static int get_pop_bytes(bool *callee_regs_used)
->    * ... bpf_tail_call(void *ctx, struct bpf_array *array, u64 index) ...
->    *   if (index >= array->map.max_entries)
->    *     goto out;
-> - *   if (++tail_call_cnt > MAX_TAIL_CALL_CNT)
-> + *   if (tail_call_cnt++ == MAX_TAIL_CALL_CNT)
 
-Why such inconsistency to e.g. above with arm64 case but also compared to
-x86 32 bit which uses JAE? If so, we should cleanly follow the reference
-implementation (== interpreter) _everywhere_ and _not_ introduce additional
-variants/implementations across JITs.
+>
+> +extern bool has_vector;
+> +#undef XOR_TRY_TEMPLATES
+> +#define XOR_TRY_TEMPLATES           \
+> +       do {        \
+> +               xor_speed(&xor_block_8regs);    \
+> +               xor_speed(&xor_block_32regs);    \
+> +               if (has_vector) { \
+> +                       xor_speed(&xor_block_rvv);\
+> +               } \
+> +       } while (0)
+> +#endif
+>
+bool has_vector is changed to has_vector() function now, should this
+change as well?
 
->    *     goto out;
->    *   prog = array->ptrs[index];
->    *   if (prog == NULL)
-> @@ -452,13 +452,13 @@ static void emit_bpf_tail_call_indirect(u8 **pprog, bool *callee_regs_used,
->   	EMIT2(X86_JBE, OFFSET1);                  /* jbe out */
->   
->   	/*
-> -	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-> +	 * if (tail_call_cnt++ == MAX_TAIL_CALL_CNT)
->   	 *	goto out;
->   	 */
->   	EMIT2_off32(0x8B, 0x85, tcc_off);         /* mov eax, dword ptr [rbp - tcc_off] */
->   	EMIT3(0x83, 0xF8, MAX_TAIL_CALL_CNT);     /* cmp eax, MAX_TAIL_CALL_CNT */
->   #define OFFSET2 (off2 + RETPOLINE_RCX_BPF_JIT_SIZE)
-> -	EMIT2(X86_JA, OFFSET2);                   /* ja out */
-> +	EMIT2(X86_JE, OFFSET2);                   /* je out */
->   	EMIT3(0x83, 0xC0, 0x01);                  /* add eax, 1 */
->   	EMIT2_off32(0x89, 0x85, tcc_off);         /* mov dword ptr [rbp - tcc_off], eax */
->   
-> @@ -530,12 +530,12 @@ static void emit_bpf_tail_call_direct(struct bpf_jit_poke_descriptor *poke,
->   	}
->   
->   	/*
-> -	 * if (tail_call_cnt > MAX_TAIL_CALL_CNT)
-> +	 * if (tail_call_cnt++ == MAX_TAIL_CALL_CNT)
->   	 *	goto out;
->   	 */
->   	EMIT2_off32(0x8B, 0x85, tcc_off);             /* mov eax, dword ptr [rbp - tcc_off] */
->   	EMIT3(0x83, 0xF8, MAX_TAIL_CALL_CNT);         /* cmp eax, MAX_TAIL_CALL_CNT */
-> -	EMIT2(X86_JA, off1);                          /* ja out */
-> +	EMIT2(X86_JE, off1);                          /* je out */
->   	EMIT3(0x83, 0xC0, 0x01);                      /* add eax, 1 */
->   	EMIT2_off32(0x89, 0x85, tcc_off);             /* mov dword ptr [rbp - tcc_off], eax */
->   
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index f4c16f1..224cc7e 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -1046,7 +1046,7 @@ struct bpf_array {
->   };
->   
->   #define BPF_COMPLEXITY_LIMIT_INSNS      1000000 /* yes. 1M insns */
-> -#define MAX_TAIL_CALL_CNT 32
-> +#define MAX_TAIL_CALL_CNT 33
->   
->   #define BPF_F_ACCESS_MASK	(BPF_F_RDONLY |		\
->   				 BPF_F_RDONLY_PROG |	\
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index 9f4636d..8edb1c3 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -1564,10 +1564,10 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
->   
->   		if (unlikely(index >= array->map.max_entries))
->   			goto out;
-> -		if (unlikely(tail_call_cnt > MAX_TAIL_CALL_CNT))
-> -			goto out;
->   
->   		tail_call_cnt++;
-> +		if (unlikely(tail_call_cnt > MAX_TAIL_CALL_CNT))
-> +			goto out;
->   
->   		prog = READ_ONCE(array->ptrs[index]);
->   		if (!prog)
-> 
 
+Regards
+Ley Foon
 
 _______________________________________________
 linux-riscv mailing list
