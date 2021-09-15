@@ -2,63 +2,84 @@ Return-Path: <SRS0=puBH=OF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 09590C43217
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 07:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 42F9BC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:01:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CE0ED61216
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 07:50:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CE0ED61216
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	by mail.kernel.org (Postfix) with ESMTPS id D5480611C1
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:01:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D5480611C1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Se4IUhtwaZollNC/vg+UbejLScclkhTCNfNcTJRWS50=; b=rbbboZBew6Klua
-	g5er4xsPjMu6HQWLyEqReXE5EjmG6FUiGUnVBlL+ZFvP+E5AKU3lY2FuarHiENC2Eurs1z/b0se+Z
-	w5pp9xzUhPIEVvmQhsD5DIJe8xR8i5npBJM8q0Zm/ys2IY17/GkMTdKzJ3rx7BmILy//cwNRkfrSd
-	l3xH9nOboRujC+i+7pXtp+NpFQeQRWnIoBMZp1ypFec94+B6vfSKVk4y31poRquUxuT9mze/c3nlk
-	Aulk+d+ywrXBemQCqypweKxN6HValo63hqgln8wy0bmUgVtFeDc5wpbXo08Fh5G633fBPaaS/RC/r
-	GxT659OusdmAyemsl/qA==;
+	List-Owner; bh=2Hepm1IfyzHxx/AeWWWMl533zfGoTAjfzMh6ynypeDQ=; b=wHB8b89iEiFPC+
+	GmIuN/1+qmMfHqH7tcCL53v4GWvA0lO3qJU4GtXgl1En+VYgxh4C1Ag5ir3Lc7arVOxGQ4XBgEodV
+	AwDsyTWJVQsw7Q1oyZYlMIE7zyYf2m3jpc9LI9x0cbC2VUy4cnQo/tEr7qI6BTxtgdVWDQ5RrEb68
+	y70hiLspvT5ew/k6/XwhoT6Rujea5JdKcTYs0/g2OjtOBhWN2KyYXwzsJI52Ob/Sfe2+6Qx0QV42S
+	yGqBv5ZltvW8pTN9FPW6vuXcbQiFLl7Nz6lpoUBzIruP61vxDiqgcHR66oYd4sR2RwQUQT7ELvsOI
+	aAoPOnXw4Zu9icshVufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQPgK-008Lbp-IL; Wed, 15 Sep 2021 07:50:12 +0000
-Received: from verein.lst.de ([213.95.11.211])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQPgH-008LaC-I2
- for linux-riscv@lists.infradead.org; Wed, 15 Sep 2021 07:50:10 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id 7C4AC68B05; Wed, 15 Sep 2021 09:50:07 +0200 (CEST)
-Date: Wed, 15 Sep 2021 09:50:07 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: guoren@kernel.org
-Cc: anup.patel@wdc.com, atish.patra@wdc.com, palmerdabbelt@google.com,
- christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu, hch@lst.de,
- liush@allwinnertech.com, wefu@redhat.com, lazyparser@gmail.com,
- drew@beagleboard.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, taiten.peng@canonical.com,
- aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com,
- gordan.markus@canonical.com
-Subject: Re: [RFC PATCH V4 4/6] RISC-V: Implement arch_sync_dma* functions
-Message-ID: <20210915075007.GD20024@lst.de>
-References: <20210911092139.79607-1-guoren@kernel.org>
- <20210911092139.79607-5-guoren@kernel.org>
+	id 1mQVTa-009G0Y-EG; Wed, 15 Sep 2021 14:01:26 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mQVTV-009Fyb-OU; Wed, 15 Sep 2021 14:01:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=2L9JYSzARBFCFAncpekcNa31rHUDF9/m9r
+ +5y91THK4=; b=FeOwuQ62Uk/tfdPwutnlutV3ozdSAJacLK2CTSyRFeOTZ1qXfK
+ 0ytSf8OCFafr9sSEALToAWnk3ts20VDuFMWsxx7ruxYB1fDBPf6WhmEJsuUp8LIc
+ 140MZzSy3MhFs8StzHLZKTXQRdlC8xJtzIQ7ZnHpetHr/hS+i8ECxYYEc=
+Received: from xhacker (unknown [101.86.20.138])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygCX0qme_EFhlqQBAA--.880S2; 
+ Wed, 15 Sep 2021 22:01:02 +0800 (CST)
+Date: Wed, 15 Sep 2021 21:54:32 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Miles Chen <miles.chen@mediatek.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang
+ <jszhang@kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+ <wsd_upstream@mediatek.com>
+Subject: Re: [PATCH] scripts/sorttable: riscv: fix undelcred identifier
+ 'EM_RISCV' error
+Message-ID: <20210915215432.02a5e08e@xhacker>
+In-Reply-To: <20210913030625.4525-1-miles.chen@mediatek.com>
+References: <20210913030625.4525-1-miles.chen@mediatek.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210911092139.79607-5-guoren@kernel.org>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-CM-TRANSID: LkAmygCX0qme_EFhlqQBAA--.880S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Cw18JrW5CFWkuFy7tFy8AFb_yoW8Jw43pa
+ yYk345tFyrAF1xu3ZrCryrXF18Gw4vyw45GrsxWw18A3WFqFsYkr42yw1Y9FW5Wr97uryF
+ krsFg34UGa1jk37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyFb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
+ 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
+ WUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
+ Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rV
+ WrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_
+ GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8rcTPUUUUU==
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210915_005009_807278_4B726A09 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20210915_070122_529206_3A5B054B 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +96,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 11, 2021 at 05:21:37PM +0800, guoren@kernel.org wrote:
-> +static void __dma_sync(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> +{
-> +	if ((dir == DMA_FROM_DEVICE) && (dma_cache_sync->cache_invalidate))
-> +		dma_cache_sync->cache_invalidate(paddr, size);
-> +	else if ((dir == DMA_TO_DEVICE) && (dma_cache_sync->cache_clean))
-> +		dma_cache_sync->cache_clean(paddr, size);
-> +	else if ((dir == DMA_BIDIRECTIONAL) && dma_cache_sync->cache_flush)
-> +		dma_cache_sync->cache_flush(paddr, size);
-> +}
+On Mon, 13 Sep 2021 11:06:25 +0800
+Miles Chen <miles.chen@mediatek.com> wrote:
 
-Despite various snipplets this is a still pretty much the broken previous
-versions.  These need to use the CMO instructions directly which are
-about to go into review, and then your SBI can trap on those can call
-whatever non-standard mess you're using.
+> Fix the following build break by adding a conditional definition
+> of EM_RISCV in order to allow cross-compilation on machines
+> which do not have EM_RISCV definition in their host.
+> 
+> build break log from [1]:
+> scripts/sorttable.c:352:7: error: use of undeclared identifier 'EM_RISCV'
+
+Looks strange I can't reproduce it. FWICT, this may be seen with some old
+toolchains.
+
+> 
+> [1] https://lore.kernel.org/lkml/e8965b25-f15b-c7b4-748c-d207dda9c8e8@i2se.com/
+> 
+> Cc: Jisheng Zhang <jszhang@kernel.org>
+> Reported-by: Stefan Wahren <stefan.wahren@i2se.com>
+> Fixes: 54fed35fd393 ("riscv: Enable BUILDTIME_TABLE_SORT")
+> Signed-off-by: Miles Chen <miles.chen@mediatek.com>
+
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+
+> ---
+>  scripts/sorttable.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+> index f355869c65cd..6ee4fa882919 100644
+> --- a/scripts/sorttable.c
+> +++ b/scripts/sorttable.c
+> @@ -54,6 +54,10 @@
+>  #define EM_ARCV2	195
+>  #endif
+>  
+> +#ifndef EM_RISCV
+> +#define EM_RISCV	243
+> +#endif
+> +
+>  static uint32_t (*r)(const uint32_t *);
+>  static uint16_t (*r2)(const uint16_t *);
+>  static uint64_t (*r8)(const uint64_t *);
+
+
 
 _______________________________________________
 linux-riscv mailing list
