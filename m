@@ -7,78 +7,80 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ADF57C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E71FC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 16:05:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4440160EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:36:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4440160EE9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id CE66861164
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 16:05:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CE66861164
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ERpR4EY7j9jbbtHJmeXxp4wiC+5+8jI6X4GtRiH9MBc=; b=LuBzXMO7eFgaRd
-	bfQxuK50d6Bszr+bbKIyYyoR2ZW1v5c7iXOyJUHf7/SzoPm+zXWDjLiauns4Nmc3FJyC5QC59x1Cd
-	U5rL2/eLmP8mFfVIhMDk9ZECjOQzT+eQ7gNJ62sOh/1QQYxSkNnBhhmbLwFZAcLsMSR12miurDYL7
-	csHjiqzH5Aht84lgVtKQylPojTMewAaUa+HdORQj8R+tl1EoH3Ezmuo2EQOUtRfypYrjSGnG07BXe
-	bcuqAy0RsMQIjj+qAxrn/hZ9IxEHnNhLCtZ7Jt3O3x/3uR+i2hrw23kz7igeHRlh2Z8IrGChVZoK8
-	0FXgH0P34S08msGDM7Yg==;
+	List-Owner; bh=yy107xBUv8S/W6eKT+0e+AH4KLAvyIqx1cjPA3bh6ZU=; b=cFfzB5Fgcu6rRQ
+	5tukgb9X+feR4he9SwfS6t/gjp4msnznT7aAA8ctpI0864CgNxcMMWW8Y09DFI0WcdLbbfCXVbNYt
+	qiIQGnB5ZDELufCxMqqDvEV04CvFuHB4RAjWxLSSkByfIX+VVHWBOL6TqyhzYFsrm2jTEC4Q6rW10
+	hQ7C4UTNKnJzg3q1yKea/WamNVpYv7ZHNtgsqZ5tDsffW0dE9H2D7EKw+EUD93DSu+q8E/ej42bWP
+	uyqbAyQiqS1IXjwc3FJJIuPvD+58/8tww2IaIf9G0h2VokI+Fuj+99i53bMrAftN5MlYRFYUs9XMP
+	/MW3pdr0A0d6Zpj+NomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQW19-009KGK-UR; Wed, 15 Sep 2021 14:36:07 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQW17-009KFw-7A
- for linux-riscv@lists.infradead.org; Wed, 15 Sep 2021 14:36:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=H2SjBs0kBa3Umj4ph9RU8nWpMuNZomN4Wg
- +b/+m9/Js=; b=xP6BnDCDyXcNheP7K988Vr+umNnd2OPw7/0/blm/2nrzS2qd2E
- fdmDh2plhhUHFuGSHY9grC5bBSNRf9VmXNn/JxuTmifmcO+33z768DV3q6hHsEJB
- RqNeWe+0+WBoOiuCONLotc5RbUrplt1cNYS9Jx4eZawUm1zaBFrS9EkhU=
-Received: from xhacker (unknown [101.86.20.138])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDnIqrTBEJhLtIBAA--.1028S2; 
- Wed, 15 Sep 2021 22:36:03 +0800 (CST)
-Date: Wed, 15 Sep 2021 22:29:37 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Greentime Hu <greentime.hu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
- vincent.chen@sifive.com
-Subject: Re: [RFC PATCH v8 20/21] riscv: Optimize task switch codes of vector
-Message-ID: <20210915222937.49066323@xhacker>
-In-Reply-To: <3b2d4ff556d310ed73a6910b89566a195fc28861.1631121222.git.greentime.hu@sifive.com>
-References: <cover.1631121222.git.greentime.hu@sifive.com>
- <3b2d4ff556d310ed73a6910b89566a195fc28861.1631121222.git.greentime.hu@sifive.com>
+	id 1mQXPk-009VGO-Gt; Wed, 15 Sep 2021 16:05:36 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mQXPf-009VEx-S3; Wed, 15 Sep 2021 16:05:33 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out1.suse.de (Postfix) with ESMTP id 073D222296;
+ Wed, 15 Sep 2021 16:05:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+ t=1631721928; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=LdcHbBnWgBJkZLhfI91fatjdoluwa+ngRYImj4hNKsw=;
+ b=Z2CECb+HpdKgJoPke2KE6qM+CoCoBBotOugtyIC/nOe+NQrTpSmNnshRy78LREFhgDiQBv
+ i8YcCivfhW5gDUYu38PbY4u0mo1kX3tUNRjThse906PqkMQNnfHcfbPqxBYO90Yd8JE9bc
+ OYV403CIzF+YolxvC9bj31cvjhENQEM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+ s=susede2_ed25519; t=1631721928;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=LdcHbBnWgBJkZLhfI91fatjdoluwa+ngRYImj4hNKsw=;
+ b=72QXXUVdo3RcUbY60/Jor7fuRCZ/SYVWCSP0x42vgHPBahWnRmsxeRai1WgHefivyjMSif
+ 9DnJJu1IQaa8+mCA==
+Received: from lion.mk-sys.cz (unknown [10.100.200.14])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by relay2.suse.de (Postfix) with ESMTPS id CD662A3B90;
+ Wed, 15 Sep 2021 16:05:26 +0000 (UTC)
+Received: by lion.mk-sys.cz (Postfix, from userid 1000)
+ id B2BD7607E0; Wed, 15 Sep 2021 18:05:26 +0200 (CEST)
+Date: Wed, 15 Sep 2021 18:05:26 +0200
+From: Michal Kubecek <mkubecek@suse.cz>
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+Cc: Miles Chen <miles.chen@mediatek.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ wsd_upstream@mediatek.com
+Subject: Re: [PATCH] scripts/sorttable: riscv: fix undelcred identifier
+ 'EM_RISCV' error
+Message-ID: <20210915160526.tittz3fewddjrqu3@lion.mk-sys.cz>
+References: <20210913030625.4525-1-miles.chen@mediatek.com>
+ <20210915215432.02a5e08e@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDnIqrTBEJhLtIBAA--.1028S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Ar1UGw13tFyUXw1xWw4rKrg_yoW8Ww1rpr
- Z0kF98tFW8WrZ3WaySvF15Zry5G3yDWw47KF1qkw1UWr42grn5C3ZYvryDuFs0qryFkayr
- Xa4v9r1vga1DAFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUyFb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
- 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
- WUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
- Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rV
- W3JVWrJr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
- JrUvcSsGvfC2KfnxnUUI43ZEXa7IU85GYPUUUUU==
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
+Content-Disposition: inline
+In-Reply-To: <20210915215432.02a5e08e@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210915_073605_741059_FBDA89F5 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20210915_090532_105643_EEF7DA96 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,62 +97,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  9 Sep 2021 01:45:32 +0800
-Greentime Hu <greentime.hu@sifive.com> wrote:
-
-> This patch replacees 2 instructions with 1 instruction to do the same thing
-> . rs1=x0 with rd != x0 is a special form of the instruction that sets vl to
-> MAXVL.
-
-Similarly, the vector.S is newly introduced in this patch set, so could
-this optimization be folded into the __vstate_save and __vstate_restore
-introduction patch? Or it's better to keep this optimizaion in commit log?
-
+On Wed, Sep 15, 2021 at 09:54:32PM +0800, Jisheng Zhang wrote:
+> On Mon, 13 Sep 2021 11:06:25 +0800
+> Miles Chen <miles.chen@mediatek.com> wrote:
 > 
-> Suggested-by: Andrew Waterman <andrew@sifive.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  arch/riscv/kernel/vector.S | 9 +++------
->  1 file changed, 3 insertions(+), 6 deletions(-)
+> > Fix the following build break by adding a conditional definition
+> > of EM_RISCV in order to allow cross-compilation on machines
+> > which do not have EM_RISCV definition in their host.
+> > 
+> > build break log from [1]:
+> > scripts/sorttable.c:352:7: error: use of undeclared identifier 'EM_RISCV'
 > 
-> diff --git a/arch/riscv/kernel/vector.S b/arch/riscv/kernel/vector.S
-> index 4f0c5a166e4e..f7223c81b11a 100644
-> --- a/arch/riscv/kernel/vector.S
-> +++ b/arch/riscv/kernel/vector.S
-> @@ -27,8 +27,7 @@
->  #define x_vl     t2
->  #define x_vcsr   t3
->  #define incr     t4
-> -#define m_one    t5
-> -#define status   t6
-> +#define status   t5
->  
->  ENTRY(__vstate_save)
->  	li      status, SR_VS
-> @@ -38,8 +37,7 @@ ENTRY(__vstate_save)
->  	csrr    x_vtype, CSR_VTYPE
->  	csrr    x_vl, CSR_VL
->  	csrr    x_vcsr, CSR_VCSR
-> -	li      m_one, -1
-> -	vsetvli incr, m_one, e8, m8
-> +	vsetvli incr, x0, e8, m8
->  	vse8.v   v0, (datap)
->  	add     datap, datap, incr
->  	vse8.v   v8, (datap)
-> @@ -61,8 +59,7 @@ ENTRY(__vstate_restore)
->  	li      status, SR_VS
->  	csrs    CSR_STATUS, status
->  
-> -	li      m_one, -1
-> -	vsetvli incr, m_one, e8, m8
-> +	vsetvli incr, x0, e8, m8
->  	vle8.v   v0, (datap)
->  	add     datap, datap, incr
->  	vle8.v   v8, (datap)
+> Looks strange I can't reproduce it. FWICT, this may be seen with some old
+> toolchains.
 
+I checked the history and EM_RISCV was added to <elf.h> in glibc 2.24 so
+builds on systems with glibc headers < 2.24 should show this error.
 
+Michal
+
+> > [1] https://lore.kernel.org/lkml/e8965b25-f15b-c7b4-748c-d207dda9c8e8@i2se.com/
+> > 
+> > Cc: Jisheng Zhang <jszhang@kernel.org>
+> > Reported-by: Stefan Wahren <stefan.wahren@i2se.com>
+> > Fixes: 54fed35fd393 ("riscv: Enable BUILDTIME_TABLE_SORT")
+> > Signed-off-by: Miles Chen <miles.chen@mediatek.com>
+> 
+> Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> 
+> > ---
+> >  scripts/sorttable.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+> > index f355869c65cd..6ee4fa882919 100644
+> > --- a/scripts/sorttable.c
+> > +++ b/scripts/sorttable.c
+> > @@ -54,6 +54,10 @@
+> >  #define EM_ARCV2	195
+> >  #endif
+> >  
+> > +#ifndef EM_RISCV
+> > +#define EM_RISCV	243
+> > +#endif
+> > +
+> >  static uint32_t (*r)(const uint32_t *);
+> >  static uint16_t (*r2)(const uint16_t *);
+> >  static uint64_t (*r8)(const uint64_t *);
+> 
+> 
+> 
+> _______________________________________________
+> Linux-mediatek mailing list
+> Linux-mediatek@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-mediatek
 
 _______________________________________________
 linux-riscv mailing list
