@@ -2,19 +2,19 @@ Return-Path: <SRS0=puBH=OF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2F41C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00123C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:31:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3815B6113E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:20:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3815B6113E
+	by mail.kernel.org (Postfix) with ESMTPS id 4FA78600D4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Sep 2021 14:31:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4FA78600D4
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1tOJwg2SgLAkBv9LcQhVVzpFOd36cgskl150ZxsZgl4=; b=Djo56iyuECHrWM
-	KHF5+LPZSn/+Z46yYp/aTSm+G20+5eoyFGQikqex0qYFz/K8AjR9t0wTeVemD4TUhDORf5jvpGid9
-	cEWQ1Jrr5kT5xkx6dZLaO3KEu1e8d9/yp/cL1N9iX5lW2mvMRo6sZ+lYSJwu2Mnn+2fixffC18KL4
-	M2Sjm55ZRCKpAXYZbfGiKGizWzcOmmCiOxUPv+TFIP78089Qud3MJtzTIzcnApYK8GtEO0wx+iEvg
-	UgE3Rxs3Yant+Ga7dK3jSEiq8Xm1lVWUAUObIjgFsMVlWeI3kLC1JKMlwQghakCrqXrWYhrazGSlw
-	3AEl1GNAYfJfJ9U97Rzg==;
+	List-Owner; bh=WDplRGvetzhpbpaT182eay/aVpsS8+ebrudFVGwS9hU=; b=yCcA+ClZugtdvC
+	ePS1JP5r1+7Bzf68RrVHTKMTnl7AobXS0bQJnrVHmupnRMduH9CN+F6oWnyfq2F+rz861csYpvbeD
+	kyfPguZjCrcSKJGbSPr8ebtIN+5baJYtvSRmYzjz4dhFjy5708i79ftHFcGzta5DTSgz4mhCc4U0B
+	VSEwqKXZsbJ6wK43ZfuSxyZlhpYAhtIzw5STNl2qtw/bvmkrlryz2eSArro8MMt+qFpBbeZr66nGa
+	PT3FrwZ+khlSSVaHgKCjZ+5nyneQd3lm2IS7w4N68Tpws71+S0JLVQyMJoJrIFOyf6gQ149F+SJYl
+	aJBvKxjiaCj6BNzQP5Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mQVm5-009JBP-BL; Wed, 15 Sep 2021 14:20:33 +0000
+	id 1mQVwn-009Jtx-Gu; Wed, 15 Sep 2021 14:31:37 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mQVm2-009JA5-Ld
- for linux-riscv@lists.infradead.org; Wed, 15 Sep 2021 14:20:32 +0000
+ id 1mQVwi-009Jst-Gu
+ for linux-riscv@lists.infradead.org; Wed, 15 Sep 2021 14:31:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=lGE+Rv+IpTCKApNbwPrHsSYQLyTZJbmNPD
- mn7uJtvN8=; b=Qex+ZoxP/boeVGDclKNl06N/cZRKrAeUDHarEsIvo49PgzvPAF
- 5yy24cBmA8Yw/LHbyNI+7ShC38DqXw5BJ53QpfOdifnc11Cy1PtJT+n82aSYP64A
- pjbQKglgMj+lWW+22R7Y1a6xDPnli7Orm08bNP62tUoddTaFUgpZ0yGho=
+ Content-Transfer-Encoding; bh=klzs1tYjzupJFTbvmrtRCSiuF++kdvsrPO
+ lrBmiB/64=; b=SkeyUn/gti302b1GIWy5aWgXIHOPHX+oEgUz4hOj/wokCIcd4y
+ rPKN3RczNIreqog6hRSU1Y3NEarX5ycf8W2czyBh7wWdWc9T56if1qbjFaBJxv8l
+ 6a7m6ThnVvyslGQTKD6z8b5rdM0CNF7In9yqnGq1/umTpPsJLCBq42/kk=
 Received: from xhacker (unknown [101.86.20.138])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDnIqojAUJh8LsBAA--.986S2; 
- Wed, 15 Sep 2021 22:20:19 +0800 (CST)
-Date: Wed, 15 Sep 2021 22:13:52 +0800
+ LkAmygC38qm7A0JhjssBAA--.1007S2; 
+ Wed, 15 Sep 2021 22:31:23 +0800 (CST)
+Date: Wed, 15 Sep 2021 22:24:56 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Chen Huang <chenhuang5@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Kefeng Wang
- <wangkefeng.wang@huawei.com>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [SPAM] [PATCH 0/2] riscv: improve unaligned memory accesses
-Message-ID: <20210915221353.634c6a78@xhacker>
-In-Reply-To: <20210913121956.1776656-1-chenhuang5@huawei.com>
-References: <20210913121956.1776656-1-chenhuang5@huawei.com>
+To: Greentime Hu <greentime.hu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ vincent.chen@sifive.com
+Subject: Re: [RFC PATCH v8 21/21] riscv: Turn has_vector into a static key
+ if VECTOR=y
+Message-ID: <20210915222456.1de541df@xhacker>
+In-Reply-To: <56e2328d133045c79b420ecbcaf37cf9d0b2248c.1631121222.git.greentime.hu@sifive.com>
+References: <cover.1631121222.git.greentime.hu@sifive.com>
+ <56e2328d133045c79b420ecbcaf37cf9d0b2248c.1631121222.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDnIqojAUJh8LsBAA--.986S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKFyDtrWfKrykZr47Xr4UCFg_yoW3XFbEkr
- 97A34kW3y8ta18AasFqr4furyagFW8CFyYkFnFvr13JF17ZF1xG3ZYy34jqr18Ja1IvFn7
- J3s3Jw1SyryftjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUbFxYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
- A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
- w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
- vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
- s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
- 1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
- JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
- WUJVWrZr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_
- Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j189NUUUUU=
+X-CM-TRANSID: LkAmygC38qm7A0JhjssBAA--.1007S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtF48Jr1fAFyfJFyfKrykZrb_yoWxGr47pr
+ WqkFnxXrWUArs2ga43Janrur45J3s7Ww13Krn8Ja4rCrWrKr98J3WkXryjvF45WF1F9w1f
+ CasFkr1Skw47JFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyIb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
+ 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
+ WUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
+ Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rV
+ WrJr0_WFyUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j
+ 6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7eOJUUUUU
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210915_072031_184350_620DD5A3 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210915_073133_494467_5028091E 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +96,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Sep 2021 12:19:54 +0000
-Chen Huang <chenhuang5@huawei.com> wrote:
+On Thu,  9 Sep 2021 01:45:33 +0800
+Greentime Hu <greentime.hu@sifive.com> wrote:
 
-> The RISCV ISA can support unaligned memory accesses, so the patchset
-> selects HAVE_EFFICIENT_UNALIGNED_ACCESS and supports DCACHE_WORD_ACCESS
+> Just like fpu, we can use static key for has_vector.
+> The has_vector check sits at hot code path: switch_to(). Currently,
+> has_vector is a bool variable if VECTOR=y, switch_to() checks it each time,
+> we can optimize out this check by turning the has_vector into a static key.
+> 
 
-NO, per the spec, "Even when misaligned loads and stores complete
-successfully, these accesses might run extremely slowly depending on the
-implementation". it's far away from "efficient"
+has_vector is newly introduced in this patch set so I believe this patch can
+be folded into has_vector introducing patch, I.E patch 6
 
-> to improve the efficiency of unaligned memory accesses.
+
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> ---
+>  arch/riscv/include/asm/switch_to.h     | 10 +++++++---
+>  arch/riscv/kernel/cpufeature.c         |  4 ++--
+>  arch/riscv/kernel/kernel_mode_vector.c |  4 ++--
+>  arch/riscv/kernel/process.c            |  8 ++++----
+>  arch/riscv/kernel/signal.c             |  6 +++---
+>  5 files changed, 18 insertions(+), 14 deletions(-)
 > 
-> Chen Huang (2):
->   riscv: Kconfig: select HAVE_EFFICIENT_UNALIGNED_ACCESS
->   riscv: Support DCACHE_WORD_ACCESS
-> 
->  arch/riscv/Kconfig                      |  2 ++
->  arch/riscv/include/asm/word-at-a-time.h | 36 +++++++++++++++++++++++++
->  2 files changed, 38 insertions(+)
-> 
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index b48c9c974564..576204217e0f 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -71,7 +71,11 @@ static __always_inline bool has_fpu(void) { return false; }
+>  #endif
+>  
+>  #ifdef CONFIG_VECTOR
+> -extern bool has_vector;
+> +extern struct static_key_false cpu_hwcap_vector;
+> +static __always_inline bool has_vector(void)
+> +{
+> +	return static_branch_likely(&cpu_hwcap_vector);
+> +}
+>  extern unsigned long riscv_vsize;
+>  extern void __vstate_save(struct __riscv_v_state *save_to, void *datap);
+>  extern void __vstate_restore(struct __riscv_v_state *restore_from, void *datap);
+> @@ -120,7 +124,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
+>  }
+>  
+>  #else
+> -#define has_vector false
+> +static __always_inline bool has_vector(void) { return false; }
+>  #define riscv_vsize (0)
+>  #define vstate_save(task, regs) do { } while (0)
+>  #define vstate_restore(task, regs) do { } while (0)
+> @@ -136,7 +140,7 @@ do {							\
+>  	struct task_struct *__next = (next);		\
+>  	if (has_fpu())					\
+>  		__switch_to_fpu(__prev, __next);	\
+> -	if (has_vector)					\
+> +	if (has_vector())					\
+>  		__switch_to_vector(__prev, __next);	\
+>  	((last) = __switch_to(__prev, __next));		\
+>  } while (0)
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index af984f875f60..0139ec20adce 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -23,7 +23,7 @@ __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+>  #endif
+>  #ifdef CONFIG_VECTOR
+>  #include <asm/vector.h>
+> -bool has_vector __read_mostly;
+> +__ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_vector);
+>  unsigned long riscv_vsize __read_mostly;
+>  #endif
+>  
+> @@ -157,7 +157,7 @@ void __init riscv_fill_hwcap(void)
+>  
+>  #ifdef CONFIG_VECTOR
+>  	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
+> -		has_vector = true;
+> +		static_branch_enable(&cpu_hwcap_vector);
+>  		/* There are 32 vector registers with vlenb length. */
+>  		rvv_enable();
+>  		riscv_vsize = csr_read(CSR_VLENB) * 32;
+> diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+> index 0d990bd8b8dd..0d08954c30af 100644
+> --- a/arch/riscv/kernel/kernel_mode_vector.c
+> +++ b/arch/riscv/kernel/kernel_mode_vector.c
+> @@ -110,7 +110,7 @@ static void vector_flush_cpu_state(void)
+>   */
+>  void kernel_rvv_begin(void)
+>  {
+> -	if (WARN_ON(!has_vector))
+> +	if (WARN_ON(!has_vector()))
+>  		return;
+>  
+>  	WARN_ON(!may_use_vector());
+> @@ -140,7 +140,7 @@ EXPORT_SYMBOL(kernel_rvv_begin);
+>   */
+>  void kernel_rvv_end(void)
+>  {
+> -	if (WARN_ON(!has_vector))
+> +	if (WARN_ON(!has_vector()))
+>  		return;
+>  
+>  	/* Invalidate vector regs */
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 05ff5f934e7e..62540815ba1c 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -96,7 +96,7 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+>  		fstate_restore(current, regs);
+>  	}
+>  
+> -	if (has_vector) {
+> +	if (has_vector()) {
+>  		struct __riscv_v_state *vstate = &(current->thread.vstate);
+>  
+>  		/* Enable vector and allocate memory for vector registers. */
+> @@ -141,11 +141,11 @@ void flush_thread(void)
+>  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+>  {
+>  	fstate_save(src, task_pt_regs(src));
+> -	if (has_vector)
+> +	if (has_vector())
+>  		/* To make sure every dirty vector context is saved. */
+>  		vstate_save(src, task_pt_regs(src));
+>  	*dst = *src;
+> -	if (has_vector) {
+> +	if (has_vector()) {
+>  		/* Copy vector context to the forked task from parent. */
+>  		if ((task_pt_regs(src)->status & SR_VS) != SR_VS_OFF) {
+>  			dst->thread.vstate.datap = kzalloc(riscv_vsize, GFP_KERNEL);
+> @@ -164,7 +164,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+>  void arch_release_task_struct(struct task_struct *tsk)
+>  {
+>  	/* Free the vector context of datap. */
+> -	if (has_vector)
+> +	if (has_vector())
+>  		kfree(tsk->thread.vstate.datap);
+>  }
+>  
+> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+> index d30a3b588156..6a19b4b7b206 100644
+> --- a/arch/riscv/kernel/signal.c
+> +++ b/arch/riscv/kernel/signal.c
+> @@ -192,7 +192,7 @@ static long restore_sigcontext(struct pt_regs *regs,
+>  				goto invalid;
+>  			goto done;
+>  		case RVV_MAGIC:
+> -			if (!has_vector)
+> +			if (!has_vector())
+>  				goto invalid;
+>  			if (size != rvv_sc_size)
+>  				goto invalid;
+> @@ -221,7 +221,7 @@ static size_t cal_rt_frame_size(void)
+>  
+>  	frame_size = sizeof(*frame);
+>  
+> -	if (has_vector)
+> +	if (has_vector())
+>  		total_context_size += rvv_sc_size;
+>  	/* Preserved a __riscv_ctx_hdr for END signal context header. */
+>  	total_context_size += sizeof(struct __riscv_ctx_hdr);
+> @@ -288,7 +288,7 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
+>  	if (has_fpu())
+>  		err |= save_fp_state(regs, &sc->sc_fpregs);
+>  	/* Save the vector state. */
+> -	if (has_vector)
+> +	if (has_vector())
+>  		err |= save_v_state(regs, &sc_reserved_free_ptr);
+>  
+>  	/* Put END __riscv_ctx_hdr at the end. */
 
 
 
