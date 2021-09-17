@@ -3,94 +3,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 613C1C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Sep 2021 07:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 754C5C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Sep 2021 14:21:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 31C5560F48
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Sep 2021 07:33:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 31C5560F48
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	by mail.kernel.org (Postfix) with ESMTPS id 0B50560EB2
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Sep 2021 14:21:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0B50560EB2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JhCvsS6WhZLCjssDoi8tw3fuvgcORplsKDgzoIbT580=; b=PJUUafb+6bGHUB
-	tcH3Gf4LxJQXKL/e0YTpitlbBZvRB/fVh6FxagF6SEhpUaas1JxnZm29qSIBnd/dNXZ9GQoNhOFH1
-	z6TARSLDmTwzspV0fbeAvHWlyR8giolZhuaStFUs/GbGWIXH0p+nF1NWo/JIJvW7QdhH4eU5Kd3mi
-	yOhf1b8yQgzbu6KShAVr/wvOUj4Jh7BTx6x2TPfgz/bnRmUJ5yTigXOq/55w5QMIW5g7LtQD8d0JQ
-	5dH+B/ntnVJNW5uF20k+nkUWUEbRvsWoPj1tyxFUvoD+jBLwvFMyCcR1l/Kz/1W9/kDvXIJG4sPFb
-	Jyl2j1/2FsehCpV+4RnQ==;
+	List-Owner; bh=GFJnFQB1EGGBqJYz0rlU26fcapcIX+G7B1IffWlA0c4=; b=z8oqiIr+qC4aC4
+	+eUQL/cfghkTINkgwYjhcO8QlLlIZFwYEY6z1rblzLPlStG5gXG0xX/M6c6bhIJ9kz9vHs4XapdJN
+	Cbx8cgdCBRyPG05PWF6+k+3pSkYYr3MLjWRYLqQ4dKF8VfGe3y5lWp5m25ZepwaYsAkHlEV3tDuyl
+	XGIUeXzlgXvSKWwyjTKTVwsVnVDAO3uH5xg85l8BS3QYvN8ruhnfin4G1i+1JxSw0UO4yFeJ8QBV+
+	Vdg3OGEYauNGpKNd3udbZWDOQVfkj2gneEHL6HNf4GyIulPJZtl7s6/xeds7fNCwYV23HtvNI+pYk
+	xoAhjZzp9ZZdlby0+XxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mR8NL-00DRMX-KA; Fri, 17 Sep 2021 07:33:35 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mR8NI-00DRKr-NC
- for linux-riscv@lists.infradead.org; Fri, 17 Sep 2021 07:33:34 +0000
-Received: from mail-wr1-f51.google.com ([209.85.221.51]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MRSdf-1mD3TI1mNB-00NOyp for <linux-riscv@lists.infradead.org>; Fri, 17
- Sep 2021 09:33:29 +0200
-Received: by mail-wr1-f51.google.com with SMTP id g16so13587057wrb.3
- for <linux-riscv@lists.infradead.org>; Fri, 17 Sep 2021 00:33:29 -0700 (PDT)
-X-Gm-Message-State: AOAM532u9dYc2Go7ZwED3SP7LtBufPJfuulxn+Y547Imvb5rz6zeJ9Qz
- u9sT1Cob9CtRZUX4TGo7xC1+fSFyGddHhijlLK4=
-X-Google-Smtp-Source: ABdhPJyPtoZ/mG7bWsWHsydawMEYKJ4E3ECfqsk8lnBKNgqIVX5W2m+pElPlgj2gMjbI3079PSZ95Swtj4MIyk84lH8=
-X-Received: by 2002:adf:c10b:: with SMTP id r11mr10471636wre.336.1631864008841; 
- Fri, 17 Sep 2021 00:33:28 -0700 (PDT)
+	id 1mREk5-00EPHT-Cb; Fri, 17 Sep 2021 14:21:29 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mREjx-00EPGw-8l
+ for linux-riscv@lists.infradead.org; Fri, 17 Sep 2021 14:21:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=eNWjUOhlNPYKaMAtioES/rG0dxTk7gZ+ai
+ 70R1grEPw=; b=fLx9paXp1EWnCFjjfADFUp/Af7IqNSE21ZEidBrrWrsDe8Tmw7
+ DOvqEG/jWmU7AGjCRsosyasr6Gvgm6j2LYYU+sNw9Pn+CV4ATyj6ky9JAewUH0LL
+ oWxrA1Xn1kXdDYTBG5yhHKgOrURckiHFwT6nESH0KMoywASc6ZFgz2iUE=
+Received: from xhacker (unknown [101.86.20.138])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygBXW4dSpERh3mcRAA--.2969S2; 
+ Fri, 17 Sep 2021 22:21:06 +0800 (CST)
+Date: Fri, 17 Sep 2021 22:14:29 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Chen Huang <chenhuang5@huawei.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Kefeng Wang
+ <wangkefeng.wang@huawei.com>, Darius Rad <darius@bluespec.com>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/2] riscv: improve unaligned memory accesses
+Message-ID: <20210917221429.4d3a15ca@xhacker>
+In-Reply-To: <20210916130855.4054926-1-chenhuang5@huawei.com>
+References: <20210916130855.4054926-1-chenhuang5@huawei.com>
 MIME-Version: 1.0
-References: <20210917061040.2270822-1-alistair.francis@opensource.wdc.com>
- <20210917061040.2270822-2-alistair.francis@opensource.wdc.com>
-In-Reply-To: <20210917061040.2270822-2-alistair.francis@opensource.wdc.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 17 Sep 2021 09:33:12 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2kAvrKvCUOhVouHUmY661OZHVAm9sefgXuZpLHMQg7Ow@mail.gmail.com>
-Message-ID: <CAK8P3a2kAvrKvCUOhVouHUmY661OZHVAm9sefgXuZpLHMQg7Ow@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] perf bench: Add support for 32-bit systems with
- 64-bit time_t
-To: Alistair Francis <alistair.francis@opensource.wdc.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- linux-perf-users@vger.kernel.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Alistair Francis <alistair23@gmail.com>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Darren Hart <dvhart@infradead.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atish.patra@wdc.com>,
- Arnd Bergmann <arnd@arndb.de>, Alistair Francis <alistair.francis@wdc.com>
-X-Provags-ID: V03:K1:37STevigE6TzdSRJ+tDTTucfEPfwdeBGgLwvLnI2NsqfWOxeAuH
- pC6BgVSCI9U5ndG8XIA9l93ujEiLSIKTmcbiwwy3e14qdxP8DtBPlPJ9kM1kUFaTguLrBNv
- WMLFdcm2qeo6mRS8ai6KPh15Df2fi/j7QWtCcDaj+47mBsJ80KhtE/40cQIZ2ZdQpq0pq5Z
- EF/88k0a3GEEB+VSNENkg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:uyA2rZ8amVU=:hdSAoVQpHhLQ2W6EERROhl
- uSYs0SYmTig07zqoUU/4JqUrgq1S/BUrtWzRpoY+NyWcYSUfHbM0lYrDs22dMuGnueEhE3M7B
- AfzTfqhO+ylBjXhkVs8CkxAAxjXP/S9xaWjM946Nhzr/B1qClfFAIhFTITDTBcM1zKBh/fTcw
- PLZci3zwB/A460RiCUNknpapRan9GX2iOoUWFJa/OmIXfmPNHviT9YfRc3gPMa1RZqHYa+wxt
- hROMas8Tns6ecxiYGFFPX/fpjOd3R3TaoC6FMpCzd05xCEke8KYgPqRZyuMoMM2YFaqgxJhWe
- ap338Oa9YdUfRouF5u8zEFlN++UswDEXrfCnG1TLdJs0M8UW+CWzvWQeQo09QLr4tvILi5LH9
- gKTyYbOynQksW0KRTA6dm3h2jhteNMZvXyOL+qjis51ix5B7CuvX9N7cXrTY0/M7aE2pK8A2W
- CN7nbLAblvNKBNjWspb7yQ2aU/kLBH7ooJes6+Ee7n/kvAThYwpHT5bWVn6O4REhTtDCqr+De
- Fq0aY6ZoHWynaKPb0hGISOZw81EsYx4QHEPGEY8w+Gjdqexsi9UE0qD/UJFY9+IFysOp8O04f
- ZaoORSpeNgw5g8TbYuUxSAo9xrBS4coC2v9qFBLFuArOp4Ns8X5GHLILy0rxplsI71BM4rjul
- jqNOr/QKVpMWa0grPxV/Rdn/EQXdgEzBxCj1M/e/yzbmuHltheIoxSMPDT6hs7kxIKEUnXEeS
- 59KAf9m8ovvF+k6U6vPmSW7F8FzM/Rw7Wpx+HrHSTSEB36s5GveUVlrTziQjX1HA8fa3sXupl
- y7wMyK5jxv+h4vgqk9oP7CLdykRKDqBI7LBhetuNUrNUaXrf0RI0Ms7gq/maPTC7SwPcRB4Ap
- vJZBH8I2c/k+s7EMwFCg==
+X-CM-TRANSID: LkAmygBXW4dSpERh3mcRAA--.2969S2
+X-Coremail-Antispam: 1UD129KBjvJXoWrKr1xAw1fWw4kKr47Jw13Arb_yoW8JrW8pa
+ 1UCFnxurWFgrn7KF93Jwn3uF15Z3yfGF47JrW2ya4Uur1YvFy7WrWjq3WDG3srXrn7C34D
+ GrsavFnrua43Z3JanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUy2b7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+ C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+ 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+ 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s02
+ 6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+ I_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+ 6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
+ 0_WFyUJVCq3wCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j
+ 6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j189NUUUUU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210917_003333_108704_D26386C7 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20210917_072121_976083_7528E12D 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,20 +95,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 17, 2021 at 8:10 AM Alistair Francis
-<alistair.francis@opensource.wdc.com> wrote:
->
-> From: Alistair Francis <alistair.francis@wdc.com>
->
-> Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
-> time_t and as such don't have the SYS_futex syscall. This patch will
-> allow us to use the SYS_futex_time64 syscall on those platforms.
->
-> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+On Thu, 16 Sep 2021 13:08:53 +0000
+Chen Huang <chenhuang5@huawei.com> wrote:
 
-Thanks for the follow-up!
+> The patchset improves RISCV unaligned memory accesses, selects
+> HAVE_EFFICIENT_UNALIGNED_ACCESS if CPU_HAS_NO_UNALIGNED not
+> enabled and supports DCACHE_WORD_ACCESS to improve the efficiency
+> of unaligned memory accesses.
+> 
+> If CPU don't support unaligned memory accesses for now, please
+> select CONFIG_CPU_HAS_NO_UNALIGNED. For I don't know which CPU
+> don't support unaligned memory accesses, I don't choose the
+> CONFIG for them.
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+This will break unified kernel Image for riscv. Obviously, we will have
+two images for efficient unaligned access platforms and non-efficient
+unaligned access platforms. IMHO, we may need alternative mechanism or
+something else to dynamically enable related code path.
+
+Regards
+
+> 
+> Changes since v1:
+>  - As Darius Rad and Jisheng Zhang mentioned, some CPUs don't support
+>    unaligned memory accesses, add an option for CPUs to choose it or not.
+> 
+> Chen Huang (2):
+>   riscv: support HAVE_EFFICIENT_UNALIGNED_ACCESS
+>   riscv: Support DCACHE_WORD_ACCESS
+> 
+>  arch/riscv/Kconfig                      |  5 ++++
+>  arch/riscv/include/asm/word-at-a-time.h | 37 +++++++++++++++++++++++++
+>  2 files changed, 42 insertions(+)
+> 
+
+
 
 _______________________________________________
 linux-riscv mailing list
