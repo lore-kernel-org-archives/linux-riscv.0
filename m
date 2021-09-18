@@ -2,82 +2,57 @@ Return-Path: <SRS0=8Mga=OI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 380EAC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Sep 2021 14:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3459DC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Sep 2021 16:03:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BCA4D61268
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Sep 2021 14:27:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BCA4D61268
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id BE9636101C
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Sep 2021 16:03:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BE9636101C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DMGn9hrYnvH6VC1R2DYdmTcbTmM0VUeoCOAqMXB8faI=; b=DGSVsCuLEUAQai
-	06XvZJJFR83KpNPdaCIV+SlN6jUQah1DaB10jsz9M94OLpY62xViQsiJCGXUZJvUy6AX7JhaHnHr0
-	9or1nsuoLdDN5agRTmT3P4jgyfEKLpJZnEEDE6+GUfz8kRJoziURj331Ll7qc0ny0Hh77wNd2haar
-	kSh9MgUiTJsUuHg4rORgEdspVkhCmPoBkgD/EdOjfziXPGiWQGLxbhF7FiF9YOlpqR6AIN2qIjO51
-	rdTvb12V/la5hV5oa78WSq+HyWuUtH3mjwZobawuRXtQfsAdRQNVhsOR82LtU6U2qN89IxW92KWSm
-	ANk/nBMKzNTTnJoEjtZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u8ZI03XQqhgxTkQjQrqjz4Yrx24WzUyV60jkXJfuhm4=; b=pvZVLBgcbPYAC2
+	KNkP6ZKkUgUxgADR0HWJJqFdx3R6UrSABWB2SRjoO6f4g+2kDHhpxUfXN7x3LwBAS1dAFhimohPFm
+	cIYND2qjz5aprf3jf8ZK7e5TrW/Lckhu5ufBPG93BX92Thr5EAcmY5E+RvfgzEe75SLlXhvMhcsOk
+	OS8SXtTr897TxbeNHWRFp72xj7x851de1ERFn4Ps9cCeG4pORioalkVN5bSU0mpNJe+Hnf0BSlTbN
+	N4vaJSRShiDa7S4engEMO/1g/DfNlIkr4rfHXs5XDyNyAeJ8/4x2tZ/cgPIZbIpAMYL9412WBGC/f
+	AU4X6TdFtUxVeBK5TKWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mRbJJ-00FzaH-AQ; Sat, 18 Sep 2021 14:27:21 +0000
-Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mRbJF-00FzZv-Vm
- for linux-riscv@lists.infradead.org; Sat, 18 Sep 2021 14:27:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=O9s+v97slSlEz4dFwABDF3CxD3H1mOPozU
- ZugZDF7mg=; b=MnsCHbPaLklBGJv0fY0mPqCjiqjWrvbuZD6gmpahlKyR3EiM9u
- xxdBvv2zTsa78u3trd5x+B63qoLMvnZOuEaLZLJR3sT24y6gFDernEiEVaedliiW
- 1OeXpoThnmE2qBe5DtctJiOfMh5r/dSSX74KSS0mDND4ipWG/F6bpV+K8=
-Received: from xhacker (unknown [101.86.20.138])
- by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygBXX7tE90VhngEZAA--.6928S2; 
- Sat, 18 Sep 2021 22:27:16 +0800 (CST)
-Date: Sat, 18 Sep 2021 22:20:48 +0800
-From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [Request for help] issue when add relative extable support to
- riscv64
-Message-ID: <20210918222048.1e90488e@xhacker>
-In-Reply-To: <7908d27b-1042-61f5-fc8e-f5b00f623b89@huawei.com>
-References: <20210917235733.6240d6d3@xhacker> <20210918002603.58c5a030@xhacker>
- <7908d27b-1042-61f5-fc8e-f5b00f623b89@huawei.com>
+	id 1mRcnV-00G4DF-V5; Sat, 18 Sep 2021 16:02:37 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mRcnS-00G4CG-4y
+ for linux-riscv@lists.infradead.org; Sat, 18 Sep 2021 16:02:36 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 02A86E0003;
+ Sat, 18 Sep 2021 16:02:25 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <Atish.Patra@wdc.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [PATCH] riscv: Flush current cpu icache before other cpus
+Date: Sat, 18 Sep 2021 18:02:21 +0200
+Message-Id: <20210918160221.111902-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygBXX7tE90VhngEZAA--.6928S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFyxtFyrtF1DCFWxZF18Zrb_yoW8ury8pr
- y8JF1UJryUJr18Jr1Utr1UJryUJr1UJw1UGr4UJF1UJr1UJr1jqr1UXr1jgryUJr48Jw1U
- Jr1UXr1UZr1UArUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUyFb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
- 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
- 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
- Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
- 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
- WUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
- Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rV
- W3JVWrJr1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
- JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8olk3UUUUU==
-X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210918_072718_502998_E3275DE4 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20210918_090234_506482_8027DE0A 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +64,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAxOCBTZXAgMjAyMSAwOToyMzo0OCArMDgwMApLZWZlbmcgV2FuZyA8d2FuZ2tlZmVu
-Zy53YW5nQGh1YXdlaS5jb20+IHdyb3RlOgoKPiBPbiAyMDIxLzkvMTggMDoyNiwgSmlzaGVuZyBa
-aGFuZyB3cm90ZToKPiA+IE9uIEZyaSwgMTcgU2VwIDIwMjEgMjM6NTc6MzMgKzA4MDAgSmlzaGVu
-ZyBaaGFuZyB3cm90ZToKPiA+ICAKPiA+PiBIaSwKPiA+Pgo+ID4+IE5vdyB0aGUgZXh0YWJsZSBl
-bnRyeSBjb250YWlucyAxNmJ5dGVzIGZvciByaXNjdjY0IC0tIDhieXRlcyBmb3IgdGhlIGluc24g
-YW5kCj4gPj4gYW5vdGhlciA4Ynl0ZXMgZm9yIHRoZSBmaXh1cC4gVGhpcyB3YXN0ZXMgbWVtIGEg
-Yml0LiBJIHRoaW5rIHdlIGNhbiBhZGQKPiA+PiB0aGUgcmVsYXRpdmUgZXh0YWJsZSBzdXBwb3J0
-LiBBIGRyYWZ0IHBhdGNoIHB1dCBhdCB0aGUgZW5kIG9mIHRoaXMgbWFpbC4gQnV0Cj4gPj4gSSBt
-ZXQgYWJub3JtYWwgYnVpbGQgZXJyb3JzOgo+ID4+Cj4gPj4gRkFUQUw6IG1vZHBvc3Q6IFRoZSBy
-ZWxvY2F0aW9uIGF0IF9fZXhfdGFibGUrMHgwIHJlZmVyZW5jZXMKPiA+PiBzZWN0aW9uICJfX2V4
-X3RhYmxlIiB3aGljaCBpcyBub3QgZXhlY3V0YWJsZSwgSU9XCj4gPj4gaXQgaXMgbm90IHBvc3Np
-YmxlIGZvciB0aGUga2VybmVsIHRvIGZhdWx0Cj4gPj4gYXQgdGhhdCBhZGRyZXNzLiAgU29tZXRo
-aW5nIGlzIHNlcmlvdXNseSB3cm9uZwo+ID4+IGFuZCBzaG91bGQgYmUgZml4ZWQuICAKPiAKPiBJ
-IHRyeSB0aGlzIGJlZm9yZSwgYW5kIG1lZXQgdGhlIHNhbWUgaXNzdWUswqAgYW5kIGFkZCBub3Jl
-bGF4IHRvIHRoZSBsYWJlbCwKPiAKPiBidXQgaXQgd29uJ3QgZml4IHRoZSBlcnJvci4gc2VlbXMg
-dGhhdCB3ZSBjb24ndCBmaW5kIHRoZSBsYWJsZSBmcm9tIHRoZSAKPiB0ZXh0PwoKSSBhbHNvIHRy
-aWVkIGFkZGluZyAtLW5vLXJlbGF4IHRvIExERkxBR1MgYW5kIC1tbm8tcmVsYXggdG8gQUZMQUdT
-IGFuZCBDRkxBR1MKYnV0IHN0aWxsIG1ldCB0aGUgZXJyb3IuIFRoaXMgaXMgYW4gaW5zdGVyZXN0
-aW5nIGlzc3VlLgoKVGhhbmtzCgo+IAo+IAo+ICDCoDgyIGluZGV4IDFiMDBiYWRiOWY4Ny4uY2Ix
-YWNhOGU4YTIzIDEwMDY0NAo+ICDCoDgzIC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0
-ZXguaAo+ICDCoDg0ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0ZXguaAo+ICDCoDg1
-IEBAIC0yMywxNyArMjMsMTggQEAKPiAgwqA4NsKgwqDCoMKgwqDCoMKgwqAgdWludHB0cl90IHRt
-cDsgXAo+ICDCoDg3wqDCoMKgwqDCoMKgwqDCoCBfX2VuYWJsZV91c2VyX2FjY2VzcygpOyBcCj4g
-IMKgODjCoMKgwqDCoMKgwqDCoMKgIF9fYXNtX18gX192b2xhdGlsZV9fICggXAo+ICDCoDg5ICvC
-oMKgwqDCoMKgwqAgIsKgwqDCoMKgwqDCoCAub3B0aW9uIHB1c2jCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXG4iIFwKPiAgwqA5MCArwqDCoMKg
-wqDCoMKgICLCoMKgwqDCoMKgwqAgLm9wdGlvbiBub3JlbGF4wqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFxuIiBcCj4gIMKgOTEgK8KgwqDCoMKgwqDCoCAi
-wqDCoMKgwqDCoMKgIC5vcHRpb24gbm9ydmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIFxuIiBcCj4gIMKgOTLCoMKgwqDCoMKgwqDCoMKgICIxOsKg
-wqDCoMKgICIgaW5zbiAiwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgXG4iIFwKPiAgwqA5MyArwqDCoMKgwqDCoMKgICLCoMKgwqDC
-oMKgwqAgLm9wdGlvbiBwb3DCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBcbiIgXAo+ICDCoDk0wqDCoMKgwqDCoMKgwqDCoCAiMjrCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFxuIiBcCj4gCj4gCj4gCgoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On SiFive Unmatched, I recently fell onto the following BUG when booting:
+
+[    0.000000] ftrace: allocating 36610 entries in 144 pages
+[    0.000000] Oops - illegal instruction [#1]
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.13.1+ #5
+[    0.000000] Hardware name: SiFive HiFive Unmatched A00 (DT)
+[    0.000000] epc : riscv_cpuid_to_hartid_mask+0x6/0xae
+[    0.000000]  ra : __sbi_rfence_v02+0xc8/0x10a
+[    0.000000] epc : ffffffff80007240 ra : ffffffff80009964 sp : ffffffff81803e10
+[    0.000000]  gp : ffffffff81a1ea70 tp : ffffffff8180f500 t0 : ffffffe07fe30000
+[    0.000000]  t1 : 0000000000000004 t2 : 0000000000000000 s0 : ffffffff81803e60
+[    0.000000]  s1 : 0000000000000000 a0 : ffffffff81a22238 a1 : ffffffff81803e10
+[    0.000000]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.000000]  a5 : 0000000000000000 a6 : ffffffff8000989c a7 : 0000000052464e43
+[    0.000000]  s2 : ffffffff81a220c8 s3 : 0000000000000000 s4 : 0000000000000000
+[    0.000000]  s5 : 0000000000000000 s6 : 0000000200000100 s7 : 0000000000000001
+[    0.000000]  s8 : ffffffe07fe04040 s9 : ffffffff81a22c80 s10: 0000000000001000
+[    0.000000]  s11: 0000000000000004 t3 : 0000000000000001 t4 : 0000000000000008
+[    0.000000]  t5 : ffffffcf04000808 t6 : ffffffe3ffddf188
+[    0.000000] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000002
+[    0.000000] [<ffffffff80007240>] riscv_cpuid_to_hartid_mask+0x6/0xae
+[    0.000000] [<ffffffff80009474>] sbi_remote_fence_i+0x1e/0x26
+[    0.000000] [<ffffffff8000b8f4>] flush_icache_all+0x12/0x1a
+[    0.000000] [<ffffffff8000666c>] patch_text_nosync+0x26/0x32
+[    0.000000] [<ffffffff8000884e>] ftrace_init_nop+0x52/0x8c
+[    0.000000] [<ffffffff800f051e>] ftrace_process_locs.isra.0+0x29c/0x360
+[    0.000000] [<ffffffff80a0e3c6>] ftrace_init+0x80/0x130
+[    0.000000] [<ffffffff80a00f8c>] start_kernel+0x5c4/0x8f6
+[    0.000000] ---[ end trace f67eb9af4d8d492b ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+
+While ftrace is looping over a list of addresses to patch, it always failed
+when patching the same function: riscv_cpuid_to_hartid_mask. Looking at the
+backtrace, the illegal instruction is encountered in this same function.
+However, patch_text_nosync, after patching the instructions, calls
+flush_icache_range. But looking at what happens in this function:
+
+flush_icache_range -> flush_icache_all
+                   -> sbi_remote_fence_i
+                   -> __sbi_rfence_v02
+                   -> riscv_cpuid_to_hartid_mask
+
+The icache and dcache of the current cpu are never synchronized between the
+patching of riscv_cpuid_to_hartid_mask and calling this same function.
+
+So fix this by flushing the current cpu's icache before asking for the other
+cpus to do the same.
+
+Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+---
+ arch/riscv/mm/cacheflush.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index 094118663285..89f81067e09e 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -16,6 +16,8 @@ static void ipi_remote_fence_i(void *info)
+ 
+ void flush_icache_all(void)
+ {
++	local_flush_icache_all();
++
+ 	if (IS_ENABLED(CONFIG_RISCV_SBI))
+ 		sbi_remote_fence_i(NULL);
+ 	else
+-- 
+2.30.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
