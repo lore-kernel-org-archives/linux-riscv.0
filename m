@@ -2,83 +2,82 @@ Return-Path: <SRS0=UXoG=OJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6643CC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Sep 2021 19:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BAC3CC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Sep 2021 22:01:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 064F061004
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Sep 2021 19:22:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 064F061004
+	by mail.kernel.org (Postfix) with ESMTPS id 7C47D60F5B
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Sep 2021 22:01:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7C47D60F5B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yBRxoAb7OV1nGSOQ7NyN8iBADuQnHINtmlLK+qvWs/w=; b=arwRB6Bw4zwaS5
-	UMeMrdV5WZJCr+RBkTmSLjmpA2ctcdkXURBRJxSQA0FvDM1HR9vZ4e4PBJRTOMvv7DBtsHXz9+dbS
-	Xj7aCfBXuGSerCMBZWvzvDna0m4P1hXkoo3HDm3Rx2oRT/A5DQF7Upn1E21v/BnGoiyXxcx5Dfyv2
-	urMJDjS9c2ZWSDGdbJBnUm2Te2JyLgmLv+1Bar4iO9lm3g40D/7pdiVnTazZX6xqLxt7kdejLhV7U
-	ydz/f0xc+QACamKtF+bAR1yCZCguIJLwzto7PruQWsA22AiLFA8RSFHr5O9HNZK18qi0KA7bwRFad
-	mweux85s/E8XMvCbir8Q==;
+	List-Owner; bh=A39r+GSZLaNacCOHDqXoEbPVsWdIAjPRYpNrm00T/v4=; b=pqJjHHFTwmnG7B
+	x26KNXo5X7TokvWbWpSIPl82Lc9CXi2Pl2hNo5J9r3hQIfy2rx31AXVb12fkubP+HKjJ4aYllbm8p
+	+zWVgJ6EdWpddoTfRC57gzDqPbTIRm+2vE8j/fs/cLzuapyuEKCK40oicaUBM7ke0u9MkhewnFMRn
+	E3tp8PP8zf0co61CJS9lEwXHWFGEqdPQeNekiSEc94r+gysYRNKKrohSXD7lMQiSw2b+g4pDObjxn
+	FcUOviPBK7Q/YnndHqe0P5EItrE4uZXfJGiP0tb8yMLhgRUkX/XHH3LVZ6U7t41Yt3DeDG7b0UFM5
+	w2FTEdfQTSPygVgMX0jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mS2Nj-0005vl-Aq; Sun, 19 Sep 2021 19:21:43 +0000
-Received: from mail-ed1-f42.google.com ([209.85.208.42])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mS2Ne-0005uA-I7
- for linux-riscv@lists.infradead.org; Sun, 19 Sep 2021 19:21:40 +0000
-Received: by mail-ed1-f42.google.com with SMTP id v22so47813361edd.11
- for <linux-riscv@lists.infradead.org>; Sun, 19 Sep 2021 12:21:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=z/fjsp9YqZ9w10G0/lCqeb7NhPPLI/RdtJEwB09TTAk=;
- b=LWme9N+VgeSyHX793X3xItPtCUHIa/PE8VRC+UIJ+RVq4tfSkn6iFLwUarZ1ZVDqq2
- h+bJQrurQiKffiar5Q5TrUbzWquK2gIbTx5FHchlAWOdQqLEEmSVhUdDzrU3KJRgQ4av
- 4eqwtO4yDKZww0ZuJB3tw3N6plPLUgwRcQJ+gai97nbHlVh8XQHQuBq8sECsXkPUUueD
- a+s67lsSa2X985IvVvX8qL0RSjLZBVYr2ozu+jKMsyLfbuj5xkUdBppyB3s6UWDoKgCb
- 3U8+OLrFY0YRkCHgvhcubF23YHAf7h37iFSd30RX8FQqwUYef3uOLCy90Y3hHlHlIHlu
- iHOg==
-X-Gm-Message-State: AOAM5318BzmKhCPJoVIVxWEToHw+sJI1XQKUOmfbW3gfWOu9n+Zkb5Mr
- avPWvQnkAuMVcCp5VwrkydTMPYiCL5X87Q==
-X-Google-Smtp-Source: ABdhPJzYt2Fo0EfKhdlR6mPfXS+qAN4ItHUC3SNMMKejJ63uDTfQBd2mAoOJB+585fA9m+Bl+fCyaA==
-X-Received: by 2002:a50:cfc2:: with SMTP id i2mr20300768edk.72.1632079297015; 
- Sun, 19 Sep 2021 12:21:37 -0700 (PDT)
-Received: from turbo.teknoraver.net (net-2-34-36-22.cust.vodafonedsl.it.
- [2.34.36.22])
- by smtp.gmail.com with ESMTPSA id 10sm5208525eju.12.2021.09.19.12.21.35
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 19 Sep 2021 12:21:36 -0700 (PDT)
-From: Matteo Croce <mcroce@linux.microsoft.com>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atish.patra@wdc.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Akira Tsukamoto <akira.tsukamoto@gmail.com>,
- Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>,
- David Laight <David.Laight@aculab.com>, Guo Ren <guoren@kernel.org>,
- Christoph Hellwig <hch@lst.de>
-Subject: [PATCH v4 1/3] riscv: optimized memcpy
-Date: Sun, 19 Sep 2021 21:21:02 +0200
-Message-Id: <20210919192104.98592-2-mcroce@linux.microsoft.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20210919192104.98592-1-mcroce@linux.microsoft.com>
-References: <20210919192104.98592-1-mcroce@linux.microsoft.com>
+	id 1mS4sQ-000I8N-Su; Sun, 19 Sep 2021 22:01:34 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mS4sM-000I7l-TH
+ for linux-riscv@lists.infradead.org; Sun, 19 Sep 2021 22:01:32 +0000
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com
+ [209.85.216.53])
+ by linux.microsoft.com (Postfix) with ESMTPSA id 1DF0C20B6C55
+ for <linux-riscv@lists.infradead.org>; Sun, 19 Sep 2021 15:01:29 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1DF0C20B6C55
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+ s=default; t=1632088889;
+ bh=xYWIsntM1FgbDegCQy3unFGC9gPydIe+qrJh0Z0Vtc4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=TdAxIFP5QfRLlJBI4QFgRkgDe+6pmn4sD7ppVh2lsIAiDdZPpVel4ZDBcIH6ql6OB
+ xlkvtkDYOs0VnYCcs8aq0wtGUW5zpkl8Xu4KJPdkcDvauCt+0dQUQneKW3qmCUlvxa
+ UB/t4ASQqrwK/1h5/NdUPpMEQTDDiIMIjXquRWAA=
+Received: by mail-pj1-f53.google.com with SMTP id
+ f3-20020a17090a638300b00199097ddf1aso13842323pjj.0
+ for <linux-riscv@lists.infradead.org>; Sun, 19 Sep 2021 15:01:29 -0700 (PDT)
+X-Gm-Message-State: AOAM533Ck/LIYZq1SsdlX7VcVD6Z9/nOwApQJRuKAIdrENJF6pAQXAiI
+ Nn7xb56ERJ4pOaxtR50OJeFfLI1hgFCjXaeDpEY=
+X-Google-Smtp-Source: ABdhPJxAHHGLWy2uUvoOGz80IPccXw+Xczr2/1TCm0MbT3xDF9E6xQ7DemEpQaObkix7rBXkffoeXugGB0CHi3exzQo=
+X-Received: by 2002:a17:90b:254:: with SMTP id
+ fz20mr34711278pjb.20.1632088888584; 
+ Sun, 19 Sep 2021 15:01:28 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210919192104.98592-1-mcroce@linux.microsoft.com>
+In-Reply-To: <20210919192104.98592-1-mcroce@linux.microsoft.com>
+From: Matteo Croce <mcroce@linux.microsoft.com>
+Date: Mon, 20 Sep 2021 00:00:52 +0200
+X-Gmail-Original-Message-ID: <CAFnufp2CvmwRMotzkoq-ZKCMCh6vCmRFR19aQ3JwHECZznVN6A@mail.gmail.com>
+Message-ID: <CAFnufp2CvmwRMotzkoq-ZKCMCh6vCmRFR19aQ3JwHECZznVN6A@mail.gmail.com>
+Subject: Re: [PATCH v4 0/3] riscv: optimized mem* functions
+To: linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, 
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>, 
+ David Laight <David.Laight@aculab.com>, Guo Ren <guoren@kernel.org>, 
+ Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210919_122138_655508_8CA7EE10 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20210919_150131_074931_E2E5DBC7 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,356 +94,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Matteo Croce <mcroce@microsoft.com>
+On Sun, Sep 19, 2021 at 9:21 PM Matteo Croce <mcroce@linux.microsoft.com> wrote:
+>
+> From: Matteo Croce <mcroce@microsoft.com>
+>
+> Replace the assembly mem{cpy,move,set} with C equivalent.
+>
+> Try to access RAM with the largest bit width possible, but without
+> doing unaligned accesses.
+>
+> A further improvement could be to use multiple read and writes as the
+> assembly version was trying to do.
+>
+> Tested on a BeagleV Starlight with a SiFive U74 core, where the
+> improvement is noticeable.
+>
+> v3 -> v4:
+> - incorporate changes from proposed generic version:
+>   https://lore.kernel.org/lkml/20210617152754.17960-1-mcroce@linux.microsoft.com/
+>
 
-Write a C version of memcpy() which uses the biggest data size allowed,
-without generating unaligned accesses.
+Sorry, the correct link is:
 
-The procedure is made of three steps:
-First copy data one byte at time until the destination buffer is aligned
-to a long boundary.
-Then copy the data one long at time shifting the current and the next u8
-to compose a long at every cycle.
-Finally, copy the remainder one byte at time.
+https://lore.kernel.org/lkml/20210702123153.14093-1-mcroce@linux.microsoft.com/
 
-On a BeagleV, the TCP RX throughput increased by 45%:
-
-before:
-
-$ iperf3 -c beaglev
-Connecting to host beaglev, port 5201
-[  5] local 192.168.85.6 port 44840 connected to 192.168.85.48 port 5201
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  76.4 MBytes   641 Mbits/sec   27    624 KBytes
-[  5]   1.00-2.00   sec  72.5 MBytes   608 Mbits/sec    0    708 KBytes
-[  5]   2.00-3.00   sec  73.8 MBytes   619 Mbits/sec   10    451 KBytes
-[  5]   3.00-4.00   sec  72.5 MBytes   608 Mbits/sec    0    564 KBytes
-[  5]   4.00-5.00   sec  73.8 MBytes   619 Mbits/sec    0    658 KBytes
-[  5]   5.00-6.00   sec  73.8 MBytes   619 Mbits/sec   14    522 KBytes
-[  5]   6.00-7.00   sec  73.8 MBytes   619 Mbits/sec    0    621 KBytes
-[  5]   7.00-8.00   sec  72.5 MBytes   608 Mbits/sec    0    706 KBytes
-[  5]   8.00-9.00   sec  73.8 MBytes   619 Mbits/sec   20    580 KBytes
-[  5]   9.00-10.00  sec  73.8 MBytes   619 Mbits/sec    0    672 KBytes
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec   736 MBytes   618 Mbits/sec   71             sender
-[  5]   0.00-10.01  sec   733 MBytes   615 Mbits/sec                  receiver
-
-after:
-
-$ iperf3 -c beaglev
-Connecting to host beaglev, port 5201
-[  5] local 192.168.85.6 port 44864 connected to 192.168.85.48 port 5201
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec   109 MBytes   912 Mbits/sec   48    559 KBytes
-[  5]   1.00-2.00   sec   108 MBytes   902 Mbits/sec    0    690 KBytes
-[  5]   2.00-3.00   sec   106 MBytes   891 Mbits/sec   36    396 KBytes
-[  5]   3.00-4.00   sec   108 MBytes   902 Mbits/sec    0    567 KBytes
-[  5]   4.00-5.00   sec   106 MBytes   891 Mbits/sec    0    699 KBytes
-[  5]   5.00-6.00   sec   106 MBytes   891 Mbits/sec   32    414 KBytes
-[  5]   6.00-7.00   sec   106 MBytes   891 Mbits/sec    0    583 KBytes
-[  5]   7.00-8.00   sec   106 MBytes   891 Mbits/sec    0    708 KBytes
-[  5]   8.00-9.00   sec   106 MBytes   891 Mbits/sec   28    433 KBytes
-[  5]   9.00-10.00  sec   108 MBytes   902 Mbits/sec    0    591 KBytes
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec  1.04 GBytes   897 Mbits/sec  144             sender
-[  5]   0.00-10.01  sec  1.04 GBytes   894 Mbits/sec                  receiver
-
-And the decreased CPU time of the memcpy() is observable with perf top.
-This is the `perf top -Ue task-clock` output when doing the test:
-
-before:
-
-Overhead  Shared O  Symbol
-  42.22%  [kernel]  [k] memcpy
-  35.00%  [kernel]  [k] __asm_copy_to_user
-   3.50%  [kernel]  [k] sifive_l2_flush64_range
-   2.30%  [kernel]  [k] stmmac_napi_poll_rx
-   1.11%  [kernel]  [k] memset
-
-after:
-
-Overhead  Shared O  Symbol
-  45.69%  [kernel]  [k] __asm_copy_to_user
-  29.06%  [kernel]  [k] memcpy
-   4.09%  [kernel]  [k] sifive_l2_flush64_range
-   2.77%  [kernel]  [k] stmmac_napi_poll_rx
-   1.24%  [kernel]  [k] memset
-
-Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-Reported-by: kernel test robot <lkp@intel.com>
----
- arch/riscv/include/asm/string.h |   8 ++-
- arch/riscv/kernel/riscv_ksyms.c |   2 -
- arch/riscv/lib/Makefile         |   2 +-
- arch/riscv/lib/memcpy.S         | 108 --------------------------------
- arch/riscv/lib/string.c         |  90 ++++++++++++++++++++++++++
- 5 files changed, 97 insertions(+), 113 deletions(-)
- delete mode 100644 arch/riscv/lib/memcpy.S
- create mode 100644 arch/riscv/lib/string.c
-
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index 909049366555..6b5d6fc3eab4 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -12,9 +12,13 @@
- #define __HAVE_ARCH_MEMSET
- extern asmlinkage void *memset(void *, int, size_t);
- extern asmlinkage void *__memset(void *, int, size_t);
-+
-+#ifdef CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
- #define __HAVE_ARCH_MEMCPY
--extern asmlinkage void *memcpy(void *, const void *, size_t);
--extern asmlinkage void *__memcpy(void *, const void *, size_t);
-+extern void *memcpy(void *dest, const void *src, size_t count);
-+extern void *__memcpy(void *dest, const void *src, size_t count);
-+#endif
-+
- #define __HAVE_ARCH_MEMMOVE
- extern asmlinkage void *memmove(void *, const void *, size_t);
- extern asmlinkage void *__memmove(void *, const void *, size_t);
-diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-index 5ab1c7e1a6ed..3f6d512a5b97 100644
---- a/arch/riscv/kernel/riscv_ksyms.c
-+++ b/arch/riscv/kernel/riscv_ksyms.c
-@@ -10,8 +10,6 @@
-  * Assembly functions that may be used (directly or indirectly) by modules
-  */
- EXPORT_SYMBOL(memset);
--EXPORT_SYMBOL(memcpy);
- EXPORT_SYMBOL(memmove);
- EXPORT_SYMBOL(__memset);
--EXPORT_SYMBOL(__memcpy);
- EXPORT_SYMBOL(__memmove);
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 25d5c9664e57..2ffe85d4baee 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -1,9 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0-only
- lib-y			+= delay.o
--lib-y			+= memcpy.o
- lib-y			+= memset.o
- lib-y			+= memmove.o
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
-+lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
- 
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
-deleted file mode 100644
-index 51ab716253fa..000000000000
---- a/arch/riscv/lib/memcpy.S
-+++ /dev/null
-@@ -1,108 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2013 Regents of the University of California
-- */
--
--#include <linux/linkage.h>
--#include <asm/asm.h>
--
--/* void *memcpy(void *, const void *, size_t) */
--ENTRY(__memcpy)
--WEAK(memcpy)
--	move t6, a0  /* Preserve return value */
--
--	/* Defer to byte-oriented copy for small sizes */
--	sltiu a3, a2, 128
--	bnez a3, 4f
--	/* Use word-oriented copy only if low-order bits match */
--	andi a3, t6, SZREG-1
--	andi a4, a1, SZREG-1
--	bne a3, a4, 4f
--
--	beqz a3, 2f  /* Skip if already aligned */
--	/*
--	 * Round to nearest double word-aligned address
--	 * greater than or equal to start address
--	 */
--	andi a3, a1, ~(SZREG-1)
--	addi a3, a3, SZREG
--	/* Handle initial misalignment */
--	sub a4, a3, a1
--1:
--	lb a5, 0(a1)
--	addi a1, a1, 1
--	sb a5, 0(t6)
--	addi t6, t6, 1
--	bltu a1, a3, 1b
--	sub a2, a2, a4  /* Update count */
--
--2:
--	andi a4, a2, ~((16*SZREG)-1)
--	beqz a4, 4f
--	add a3, a1, a4
--3:
--	REG_L a4,       0(a1)
--	REG_L a5,   SZREG(a1)
--	REG_L a6, 2*SZREG(a1)
--	REG_L a7, 3*SZREG(a1)
--	REG_L t0, 4*SZREG(a1)
--	REG_L t1, 5*SZREG(a1)
--	REG_L t2, 6*SZREG(a1)
--	REG_L t3, 7*SZREG(a1)
--	REG_L t4, 8*SZREG(a1)
--	REG_L t5, 9*SZREG(a1)
--	REG_S a4,       0(t6)
--	REG_S a5,   SZREG(t6)
--	REG_S a6, 2*SZREG(t6)
--	REG_S a7, 3*SZREG(t6)
--	REG_S t0, 4*SZREG(t6)
--	REG_S t1, 5*SZREG(t6)
--	REG_S t2, 6*SZREG(t6)
--	REG_S t3, 7*SZREG(t6)
--	REG_S t4, 8*SZREG(t6)
--	REG_S t5, 9*SZREG(t6)
--	REG_L a4, 10*SZREG(a1)
--	REG_L a5, 11*SZREG(a1)
--	REG_L a6, 12*SZREG(a1)
--	REG_L a7, 13*SZREG(a1)
--	REG_L t0, 14*SZREG(a1)
--	REG_L t1, 15*SZREG(a1)
--	addi a1, a1, 16*SZREG
--	REG_S a4, 10*SZREG(t6)
--	REG_S a5, 11*SZREG(t6)
--	REG_S a6, 12*SZREG(t6)
--	REG_S a7, 13*SZREG(t6)
--	REG_S t0, 14*SZREG(t6)
--	REG_S t1, 15*SZREG(t6)
--	addi t6, t6, 16*SZREG
--	bltu a1, a3, 3b
--	andi a2, a2, (16*SZREG)-1  /* Update count */
--
--4:
--	/* Handle trailing misalignment */
--	beqz a2, 6f
--	add a3, a1, a2
--
--	/* Use word-oriented copy if co-aligned to word boundary */
--	or a5, a1, t6
--	or a5, a5, a3
--	andi a5, a5, 3
--	bnez a5, 5f
--7:
--	lw a4, 0(a1)
--	addi a1, a1, 4
--	sw a4, 0(t6)
--	addi t6, t6, 4
--	bltu a1, a3, 7b
--
--	ret
--
--5:
--	lb a4, 0(a1)
--	addi a1, a1, 1
--	sb a4, 0(t6)
--	addi t6, t6, 1
--	bltu a1, a3, 5b
--6:
--	ret
--END(__memcpy)
-diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
-new file mode 100644
-index 000000000000..bfc912ee23f8
---- /dev/null
-+++ b/arch/riscv/lib/string.c
-@@ -0,0 +1,90 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * String functions optimized for hardware which doesn't
-+ * handle unaligned memory accesses efficiently.
-+ *
-+ * Copyright (C) 2021 Matteo Croce
-+ */
-+
-+#include <linux/types.h>
-+#include <linux/module.h>
-+
-+/* Minimum size for a word copy to be convenient */
-+#define BYTES_LONG	sizeof(long)
-+#define WORD_MASK	(BYTES_LONG - 1)
-+#define MIN_THRESHOLD	(BYTES_LONG * 2)
-+
-+/* convenience union to avoid cast between different pointer types */
-+union types {
-+	u8 *as_u8;
-+	unsigned long *as_ulong;
-+	uintptr_t as_uptr;
-+};
-+
-+union const_types {
-+	const u8 *as_u8;
-+	unsigned long *as_ulong;
-+	uintptr_t as_uptr;
-+};
-+
-+void *__memcpy(void *dest, const void *src, size_t count)
-+{
-+	union const_types s = { .as_u8 = src };
-+	union types d = { .as_u8 = dest };
-+	int distance = 0;
-+
-+	if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
-+		if (count < MIN_THRESHOLD)
-+			goto copy_remainder;
-+
-+		/* Copy a byte at time until destination is aligned. */
-+		for (; d.as_uptr & WORD_MASK; count--)
-+			*d.as_u8++ = *s.as_u8++;
-+
-+		distance = s.as_uptr & WORD_MASK;
-+	}
-+
-+	if (distance) {
-+		unsigned long last, next;
-+
-+		/*
-+		 * s is distance bytes ahead of d, and d just reached
-+		 * the alignment boundary. Move s backward to word align it
-+		 * and shift data to compensate for distance, in order to do
-+		 * word-by-word copy.
-+		 */
-+		s.as_u8 -= distance;
-+
-+		next = s.as_ulong[0];
-+		for (; count >= BYTES_LONG; count -= BYTES_LONG) {
-+			last = next;
-+			next = s.as_ulong[1];
-+
-+			d.as_ulong[0] = last >> (distance * 8) |
-+					next << ((BYTES_LONG - distance) * 8);
-+
-+			d.as_ulong++;
-+			s.as_ulong++;
-+		}
-+
-+		/* Restore s with the original offset. */
-+		s.as_u8 += distance;
-+	} else {
-+		/*
-+		 * If the source and dest lower bits are the same, do a simple
-+		 * 32/64 bit wide copy.
-+		 */
-+		for (; count >= BYTES_LONG; count -= BYTES_LONG)
-+			*d.as_ulong++ = *s.as_ulong++;
-+	}
-+
-+copy_remainder:
-+	while (count--)
-+		*d.as_u8++ = *s.as_u8++;
-+
-+	return dest;
-+}
-+EXPORT_SYMBOL(__memcpy);
-+
-+void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
-+EXPORT_SYMBOL(memcpy);
 -- 
-2.31.1
-
+per aspera ad upstream
 
 _______________________________________________
 linux-riscv mailing list
