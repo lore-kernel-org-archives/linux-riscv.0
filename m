@@ -2,104 +2,113 @@ Return-Path: <SRS0=ZJD+=OK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8FDDC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 14:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 331F7C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:00:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82D72610CE
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 14:50:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 82D72610CE
+	by mail.kernel.org (Postfix) with ESMTPS id BF46D61077
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:00:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BF46D61077
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Mc4ynR/DSmAoKMdqZ7y4NuZ0K4l+W2ROAtakKHTdzy4=; b=jXfu6dsDB6l0tY
-	vOaYAOZlYeYfcT6wA0V95i4u1PHnYPP2TVCp7eCSPzTxZhzldgEeM5i2a4PtoXJVdkFnzIgqYMOf+
-	p8/XKFzEonOJADVgsuPZxI/1TsqGowB0u0S2MQGM8YKHEwCjdHgxQJ1I1l8BUBv2Ylxercz/jZYRH
-	UtP8FKKkkgAkF3tKkJa9mkR3BYfRhKvwrRF0bUpUY1MIzXUvCi/afgTi3DydCOPt3LyMPbj2CtcrX
-	4tEqhQgg/xY4b7g24555x++13GM7n+M7ofl+rpoEVFXdYZpy7AnG4Bd1BlAoUK25Ie00WI0HU663g
-	eNje8jjyow9TbKp4ApVQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=BL+CeW/24+/D4ihJa+UMSPRCr8+CJEfizL4k5BusKpg=; b=prVqcklr5jU7FjYG2DGWrrt++I
+	9Q9NTVO9+/72rZFS+Wykhihm43hxrnvYtAjvS7yDLQOm3doXuj4JYQpfC4k/74ZMFwTXchxBpsU/W
+	L/Y6LFtW0y3NbGdsp+VDCjmBy3RPxwPIDNjSjrGCQlix4bP4pX71TXuA4h3x8yjoWGGbJ8IyFVAx4
+	dTS4D1wtytX9sWW/SWk9/G0qq5cOhQE9JQimxowWuSTj7XipoOwGSB3oTCCD2VQP71Gmf5iFG0RLb
+	SXKSc4jYqbcb5pKo7nR/0SSJDSezeaRwbsZd1Abr0YIwt3Ow2582ATyZ67oEu1WPlPK/xlbHVEiii
+	1tN1VnHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSKcR-0022c0-Km; Mon, 20 Sep 2021 14:50:07 +0000
+	id 1mSKmH-0026jR-LM; Mon, 20 Sep 2021 15:00:17 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSKcO-0022aK-85
- for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 14:50:05 +0000
+ id 1mSKgK-0024Br-2V
+ for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 14:54:09 +0000
 Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
  [209.85.221.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C222A3FE05
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 14:50:00 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id BEF8040197
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 14:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632149400;
- bh=liJ7TqCiRENzp4AeNTdqrwOrt003yN4WGkD8VAmir74=;
- h=From:To:Subject:Date:Message-Id:MIME-Version;
- b=VtXGmrVSPU0gNXtuBRXm3WnzkGyN8XsPDN+2QgO1iqUY73aviaO6Oxb7SUjIJFkB2
- CIwvRUNvlwWszVg6GcCaeHAXxfcJD6Plf+NX3qtdf+91LrQ88WKzGf/jKgfrN5+hBJ
- 7mcyc6Nzmn8v4DHLlljOoim6EDAcMk7hGX39dSqFmcppXsEcl87LdcGl/Aor0jQyMC
- laXc8M9Z94jLVOcSDvZ/ic34U44SnRsJFsoN513sDEkAIXOh3CQo4QUZi5ZbbTtmDk
- uyWdC9QL2frMFqqFpPY2cv3wvTNTg9S/iAxNbXPRf1bK3C51AAv++mqBbLoNGjYts+
- TYqH4JsOhGOMg==
+ s=20210705; t=1632149646;
+ bh=V0X+3uidaeyp1K6mH5laK1N1lZeTwvHcyGOGgKbVfnY=;
+ h=Subject:To:Cc:References:From:Message-ID:Date:MIME-Version:
+ In-Reply-To:Content-Type;
+ b=iQ5jiAUZT3HUCVEfdHYiBjz5bV56hvPG0zI8zfqmetNVR57Cr+Y3N00m2IsbKKvtX
+ At9kUYO/rQDdEngpaLiuavnLbDbglkSwXYxDk0p3IgnQ1SUvb7PM/JwthLKWxkbhkv
+ 2cMD5n0fyJt8AMytpHFxe7s+rbw+0s9k8QqH9TTtul4zGLIlK6xEQ5F+KHBeCSLE0/
+ 1oOa0SVKTauQ23ZB0G5tkuewocRPW7hNtEjIxGu9CtDAcNQqG+A0Ea3iNtqk6Y6KoV
+ NYJWhHa9IXqCBYhyraxlMFXTkI9zrb924Wf9IxOa2pvf3yb9LOYo+2GCNygzG3S2wi
+ Q1+zdY9tjq47w==
 Received: by mail-wr1-f70.google.com with SMTP id
- k2-20020adfc702000000b0016006b2da9bso1263154wrg.1
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 07:50:00 -0700 (PDT)
+ r15-20020adfce8f000000b0015df1098ccbso6324643wrn.4
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 07:54:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=liJ7TqCiRENzp4AeNTdqrwOrt003yN4WGkD8VAmir74=;
- b=Bmvxe8RKGQgFx85Z2bl4WdAOk4tPyoqbHsDnAhkCM8g9zaTykaXkFx0IGiDekItS0J
- 0zEeYenyfrEhNjXbj4SWR6LBqU/vWzeRWguOYhEwL9UDsbBZ+cYuDRVybYb4PPGvW2XD
- JoJqWPICUPBh3Llae5l3z0IMhlQ1+oCfJsbpWFHReYQD2BcG2pIGpZ+K1bMU7Mf20usp
- olYXFCeLy0jZM8aWwyoZ7pnc3k4R7vSdx/I0ECsBW52Hx+eFOBa3ZBmBT30FhQsw5SaD
- YnjWFrFOk1O6Llk1Mon8S7Y+LsvmPujQpXy3Cr/fMw5Byp4b3WpS0RqKoJmRj43kpgEX
- AFCA==
-X-Gm-Message-State: AOAM531VgcpmAp5t8E+KqCbT4Ugo29xLWxumxiDR5AC12AtOGjG1c3W6
- XHrEdWwYpFC/pjPEl/BZfremG0oA79Y4fyHoNIXPvcyGWeRR7gQ7K3U1U1NwFJ6wPgJnQI21eky
- ox5tRLeChuTzkw6b7RlqMITTp3q5fQZrFQbmEGh5tK163/g==
-X-Received: by 2002:a05:6000:c3:: with SMTP id
- q3mr28794218wrx.361.1632149399914; 
- Mon, 20 Sep 2021 07:49:59 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwuV1/6C76PaS4ktI3Po8CjUMuAt+4cyKsUSOnJVyV0IOE5VYTpW96BNfhMsoz/jqg1evXxzg==
-X-Received: by 2002:a05:6000:c3:: with SMTP id
- q3mr28794197wrx.361.1632149399765; 
- Mon, 20 Sep 2021 07:49:59 -0700 (PDT)
-Received: from kozik-lap.lan (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
+ bh=V0X+3uidaeyp1K6mH5laK1N1lZeTwvHcyGOGgKbVfnY=;
+ b=dDlL4r8zHK/3/VBmQR8uVRzSa0JEJg7Tl6AfgOc23MEzT0z4g77pvfnmCJyFnB6vSQ
+ s2K9hKp0oCuJuZVsgaWTdWRXWiskwqyweLOntcb/o244cO6Ki8QqBDm27MWj8B/nTKv3
+ BD+2+Rgq/6Ayx1YqBnXND/igD50gg+D0K3z32tu5vRaygOVd9dDfasOGCnq5sqlhy2dU
+ GP2sj0Cwx6UhNBT9AvwG0sEyXBnvCci72I+xGnYYXl2Mv6tkmjuDT6bsmV9IGbKCTjpF
+ M9QndTsf2pRET6l2+nOA/8z5Dcib9WYcRiFoWifWWZ4GPfTqYHyiabjnPmQtbQGxLQBl
+ RbFA==
+X-Gm-Message-State: AOAM533gIXUSXsv4LiB271lhLjQGmAUIybB2Nh/MMjtcXVlJhSaV1VNz
+ weShnMTaBIrRviQvBpRagf3wEHZh6FTxea4Ou0cT7pnd63SJ0y7CGEu9canq7u5vzGYY7XqOGsl
+ Cq8iS2Sh8IAL2dpq29BgSee3TMEtjYijg5l8sypkiH/LspA==
+X-Received: by 2002:a7b:c142:: with SMTP id z2mr30489023wmi.10.1632149645795; 
+ Mon, 20 Sep 2021 07:54:05 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwKtZyLQklhvFP4E8CIP8/HFnNPR2fRGO1PTaijQfdrYO28OItWxsrb7LXGbo8xKOP7lAiUbg==
+X-Received: by 2002:a7b:c142:: with SMTP id z2mr30488997wmi.10.1632149645581; 
+ Mon, 20 Sep 2021 07:54:05 -0700 (PDT)
+Received: from [192.168.2.20] (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
  [84.20.244.219])
- by smtp.gmail.com with ESMTPSA id g131sm14752780wme.22.2021.09.20.07.49.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Sep 2021 07:49:59 -0700 (PDT)
+ by smtp.gmail.com with ESMTPSA id m18sm16064557wrn.85.2021.09.20.07.54.04
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 20 Sep 2021 07:54:05 -0700 (PDT)
+Subject: Re: [PATCH v2 4/5] riscv: dts: microchip: drop unused pinctrl-names
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <20210920132830.152802-1-krzysztof.kozlowski@canonical.com>
+ <20210920132830.152802-4-krzysztof.kozlowski@canonical.com>
+ <CAMuHMdX5vhihbKrXh4x_VyA2Cc=nR+53g_fZPHsuHVF56rBvMQ@mail.gmail.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Zong Li <zong.li@sifive.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: clock: fu740-prci: add reset-cells
-Date: Mon, 20 Sep 2021 16:49:44 +0200
-Message-Id: <20210920144944.162431-1-krzysztof.kozlowski@canonical.com>
-X-Mailer: git-send-email 2.30.2
+Message-ID: <ef5771df-86fa-524a-8a5c-c519e913330b@canonical.com>
+Date: Mon, 20 Sep 2021 16:54:03 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
+In-Reply-To: <CAMuHMdX5vhihbKrXh4x_VyA2Cc=nR+53g_fZPHsuHVF56rBvMQ@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_075004_605078_9E7EDF7A 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210920_075408_305990_4A313658 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,40 +125,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SiFive FU740 Power Reset Clock Interrupt Controller is a reset line
-provider so add respective reset-cells property to fix:
+On 20/09/2021 16:32, Geert Uytterhoeven wrote:
+> Hi Krzysztof,
+> 
+> On Mon, Sep 20, 2021 at 3:28 PM Krzysztof Kozlowski
+> <krzysztof.kozlowski@canonical.com> wrote:
+>> pinctrl-names without pinctrl-0 does not have any sense:
+>>
+>>   arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: sdhc@20008000: 'pinctrl-0' is a dependency of 'pinctrl-names'
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+>> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+>>
+>> ---
+>>
+>> Changes since v1:
+>> 1. Add review.
+> 
+>> --- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+>> +++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+>> @@ -33,6 +33,7 @@ properties:
+>>        - items:
+>>            - enum:
+>>                - issi,is25lp016d
+>> +              - issi,is25wp256
+>>                - micron,mt25qu02g
+>>                - mxicy,mx25r1635f
+>>                - mxicy,mx25u6435f
+> 
+> This one looks like an accidental addition?
 
-  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dt.yaml: clock-controller@10000000:
-    '#reset-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+Thanks, I screwed up something during rebase... I'll send a v3.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
----
- .../devicetree/bindings/clock/sifive/fu740-prci.yaml          | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/clock/sifive/fu740-prci.yaml b/Documentation/devicetree/bindings/clock/sifive/fu740-prci.yaml
-index e17143cac316..252085a0cf65 100644
---- a/Documentation/devicetree/bindings/clock/sifive/fu740-prci.yaml
-+++ b/Documentation/devicetree/bindings/clock/sifive/fu740-prci.yaml
-@@ -42,6 +42,9 @@ properties:
-   "#clock-cells":
-     const: 1
- 
-+  "#reset-cells":
-+    const: 1
-+
- required:
-   - compatible
-   - reg
-@@ -57,4 +60,5 @@ examples:
-       reg = <0x10000000 0x1000>;
-       clocks = <&hfclk>, <&rtcclk>;
-       #clock-cells = <1>;
-+      #reset-cells = <1>;
-     };
--- 
-2.30.2
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
