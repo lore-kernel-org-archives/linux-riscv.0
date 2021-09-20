@@ -2,114 +2,79 @@ Return-Path: <SRS0=ZJD+=OK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24F19C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C367EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 14:37:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D61C9601FC
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:41:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D61C9601FC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 92675610CE
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 14:37:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 92675610CE
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lDGzLqvDugfs+QLdMaWXNABJVlWPddXHZtLHeW1edKY=; b=mwuHaVwM/JARdd
-	UIenOe91ABeezcawrtMZWxLP7XQ1102k3rC19sXQGanA6l/shAcotICYwLDl/G+WKu/qdNHJiuXqX
-	dKTKD+C8vwrQpQ/5y+6zuxEc89/3GGIzEgQ0Z8LCpt8kvMN9Q0H0L4y3xogGo2qBKrA7ujpJGfKTe
-	3iiZuajMHJ+CnMivyD7QskpGZ18LsIFRhqL+1iEs0enC+fjECJO8TcePPf4s12u81fB0ZLqke9Cbm
-	kv+BwVrULhxrWzIn366tz//z6a92dGoE6KcI8qKS0IQFxXXU/xLs0sNpHhFMj1YGFaxojMXBepZ9T
-	Jfbr2wWPZtQZkXNABAvQ==;
+	List-Owner; bh=QriI+vceoyvi53boVUjOknPMIske4EHYAkgfdHlPTnI=; b=QXEB/yMaBlSQvQ
+	InSS9NGax0TEYbPHya10bdqIkYgXOLb9OcnInV7sAWxJR+qwA1RtC+qQ8hv4uHsIPz29WlKu5bMz1
+	+lBXhLheaf5x3KVPmrI0Ig53VknQlriyB7r004M8EzGAuOoTrGLxvrQ0MvIxfB42xvKZd6uv1x9jn
+	06hhGFe+E1cvuuCw0dop1ZRHQz83MVVh1+2ZX8Sph0e6io0VnOC6H5hNLRIZtX+DcbtIFCf3EpZQp
+	uD7+qA22E/mqlyO1DYU6f+aYBbjAwDDRSnIaKmI0eFGA5iWPezBlfBD+dtainQLUOlBCqNrHQGG0t
+	bdi849d5rM0dddVnk6xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSJXU-001oxo-Gn; Mon, 20 Sep 2021 13:40:56 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mSKPY-001yL5-3q; Mon, 20 Sep 2021 14:36:48 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSJXH-001ovC-4k; Mon, 20 Sep 2021 13:40:44 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 32B9260F21;
- Mon, 20 Sep 2021 13:40:42 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mSJXE-00Bm01-5z; Mon, 20 Sep 2021 14:40:40 +0100
-Date: Mon, 20 Sep 2021 14:40:39 +0100
-Message-ID: <87o88nuzzc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Sean Christopherson <seanjc@google.com>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
- Joerg Roedel <joro@8bytes.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
- Artem Kashkanov <artem.kashkanov@intel.com>,
- Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
-Subject: Re: [PATCH v2 00/13] perf: KVM: Fix, optimize, and clean up callbacks
-In-Reply-To: <7a5825d1-d6e9-8ac8-5df2-cce693525da7@redhat.com>
-References: <20210828003558.713983-1-seanjc@google.com>
- <20210828201336.GD4353@worktop.programming.kicks-ass.net>
- <YUO5J/jTMa2KGbsq@google.com>
- <YURDqVZ1UXKCiKPV@hirez.programming.kicks-ass.net>
- <662e93f9-e858-689d-d203-742731ecad2c@redhat.com>
- <87tuifv3mb.wl-maz@kernel.org>
- <7a5825d1-d6e9-8ac8-5df2-cce693525da7@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, peterz@infradead.org, seanjc@google.com,
- mingo@redhat.com, acme@kernel.org, will@kernel.org, mark.rutland@arm.com,
- catalin.marinas@arm.com, guoren@kernel.org, nickhu@andestech.com,
- green.hu@gmail.com, deanbo422@gmail.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@linutronix.de, bp@alien8.de,
- x86@kernel.org, boris.ostrovsky@oracle.com, jgross@suse.com,
- alexander.shishkin@linux.intel.com, jolsa@redhat.com, namhyung@kernel.org,
- james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com,
- hpa@zytor.com, vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org, sstabellini@kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
- xen-devel@lists.xenproject.org, artem.kashkanov@intel.com,
- like.xu.linux@gmail.com, lingsha n.zhu@intel.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1mSKLg-001wVS-B9; Mon, 20 Sep 2021 14:32:49 +0000
+Received: by mail-ua1-f44.google.com with SMTP id 109so11262726uag.13;
+ Mon, 20 Sep 2021 07:32:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=d1fA9sD4Re6cy9QvKdyaIPvjv83NrwqIwiME67fS8gw=;
+ b=uOsE6ZyzJ/ZFAJT8yYI2/STSemRpSyhfTNdPFXgv9qHMZlSHFBOm4Ux9BCrye1QkYB
+ kUzfkz20J+p7cn1O30mU5py2TX9QqmiHdWCGwzsTwMIZqKh0iXCOP1oE2lFG9tbp+8Uw
+ ZqyWjacevKPzm1kPWAVoLgHTix7w15iyeihO87C94TUFFfpYRLz+6Hyq7tJdxxWcbEoP
+ 1dUf62cg96xsr8JdR2WWMSHpF7/Ds6nIlHBc7aoZLHeUoK33ImH2cZ0zaasyi8u+ZJN2
+ 1kLqnNNC/3JusRcPpKpOZRWxw6JllAcmcMcpd1Jr5rxMFUXfNwRB2+GAR3ORCBvVnlA/
+ 2b3g==
+X-Gm-Message-State: AOAM532ecTew6w0HGrlBa9x+QO/xijAL5FSc646fpJX+wVdQZfI4jr74
+ gs7RlSV9yCT+XdblHfZBhuNxMjKDp2PFl1sJiek=
+X-Google-Smtp-Source: ABdhPJyMCIfZZUlLRlGgiTjNjprimvUPIgx9dDOJ6a13gJeOJZt/lIf4W4G47j5QN8TUNgkF0wEBIumzqn+a8381x10=
+X-Received: by 2002:ab0:311a:: with SMTP id e26mr12181930ual.122.1632148366041; 
+ Mon, 20 Sep 2021 07:32:46 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210920132830.152802-1-krzysztof.kozlowski@canonical.com>
+ <20210920132830.152802-4-krzysztof.kozlowski@canonical.com>
+In-Reply-To: <20210920132830.152802-4-krzysztof.kozlowski@canonical.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 20 Sep 2021 16:32:34 +0200
+Message-ID: <CAMuHMdX5vhihbKrXh4x_VyA2Cc=nR+53g_fZPHsuHVF56rBvMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] riscv: dts: microchip: drop unused pinctrl-names
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, 
+ MTD Maling List <linux-mtd@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_064043_300532_75C3BE88 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20210920_073248_431344_3ACB62AC 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,37 +91,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Sep 2021 14:18:30 +0100,
-Paolo Bonzini <pbonzini@redhat.com> wrote:
-> 
-> On 20/09/21 14:22, Marc Zyngier wrote:
-> >> I think that's only ARM, and even then it is only because of
-> >> limitations of the hardware which mostly apply only if VHE is not in
-> >> use.
-> >> 
-> >> If anything, it's ARM that should support module build in VHE mode
-> >> (Linux would still need to know whether it will be running at EL1 or
-> >> EL2, but KVM's functionality is as self-contained as on x86 in the VHE
-> >> case).
-> > I don't see this happening anytime soon. At least not before we
-> > declare the arm64 single kernel image policy to be obsolete.
-> 
-> --verbose please. :)  I am sure you're right, but I don't understand
-> the link between the two.
+Hi Krzysztof,
 
-To start making KVM/arm64 modular, you'd have to build it such as
-there is no support for the nVHE hypervisor anymore. Which would mean
-two different configs (one that can only work with VHE, and one for
-the rest) and contradicts the current single kernel image policy.
+On Mon, Sep 20, 2021 at 3:28 PM Krzysztof Kozlowski
+<krzysztof.kozlowski@canonical.com> wrote:
+> pinctrl-names without pinctrl-0 does not have any sense:
+>
+>   arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: sdhc@20008000: 'pinctrl-0' is a dependency of 'pinctrl-names'
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+>
+> ---
+>
+> Changes since v1:
+> 1. Add review.
 
-It is bad enough that we have to support 3 sets of page sizes.
-Doubling the validation space for the sake of being able to unload KVM
-seems a dubious prospect.
+> --- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> @@ -33,6 +33,7 @@ properties:
+>        - items:
+>            - enum:
+>                - issi,is25lp016d
+> +              - issi,is25wp256
+>                - micron,mt25qu02g
+>                - mxicy,mx25r1635f
+>                - mxicy,mx25u6435f
 
-	M.
+This one looks like an accidental addition?
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Without deviation from the norm, progress is not possible.
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
