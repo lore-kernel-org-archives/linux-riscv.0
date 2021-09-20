@@ -5,16 +5,16 @@ X-Spam-Level:
 X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A0CFC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E51BC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:30:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 603636109E
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:29:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 603636109E
+	by mail.kernel.org (Postfix) with ESMTPS id 2474360F93
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2474360F93
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,64 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WSMHeJAZFIggtwOO15UAuTy53SKn+7pNyS3OKuAX8LM=; b=hAovdE7Ox3ycWZ
-	9A506SPAtVylBZGWTWDXPGRN4dOVwVJsEihDiR0h8JtW29xaJ2UDEkwTvur9izOPYOJvPKEfCUI+6
-	vm0+OPdWmdQE7vSGCAMBPEeFfckSQIl/QxWx7VNTTQcRcou6u48pgLNhWnGvWLXAl40pkLiRd2ds9
-	DLdNvw5yMrdJTah5DJ2B/wWSq4iAkwpDBP/pYbdaCL/OnXsg1gKCGkgqEPiGt/HIAgbQt3gCYg98Q
-	l9InZZf8V+gDEb5N2HLEt6JvWRhtjGPR4MmKVdmVvoizESYX9Sri8tegSU4jrKZOOb4p4JUIDJEys
-	ZHHs9kLn3cTww1HFnwyQ==;
+	List-Owner; bh=fUKUVHBtNYnOqhUKwEluM1Ue/X0/DK4kcAYObRh2pQQ=; b=gULul2Phe7Eghr
+	J1fezcn57zVvmOnprJIcJ3A+8D5YNGVd4lNHwGkimXeKAg0+BHq2TA7cat5H6Qs2+wNN62IKi7gg0
+	pDbklNhqnhlJaI9cFLjWs8BkoVzYTE06KokZWyNjjBQ6sqT9I6LDHl+QkjkpJPJ0CuP8ezjSpm2FA
+	ZJU/bAnPzJucxz6bVlImuCp375EUmcK+eKxJq7rI1ihfNHJZOGMxqilPnuIWHSegECJ4aiJeEDwU/
+	p/hIhrcL2QZbOkAQ0QGnGh5CT+awcEeWfYh8sHqKWh6RlgDm4MAcrwtk0q/jk4DdFZBbW+WXbA3Mn
+	avISuXM2PFIIZOgeAZnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSJMP-001mAC-7y; Mon, 20 Sep 2021 13:29:29 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mSJN1-001mRE-Fa; Mon, 20 Sep 2021 13:30:07 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSJLc-001lti-Sl
- for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:28:44 +0000
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69])
+ id 1mSJLg-001lwE-9h
+ for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:28:45 +0000
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id BB969402CE
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 13:28:39 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1CF163F320
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 13:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632144519;
- bh=O+npPoECYtJ/ZpzV1HLKddQ+EXO1NtYHdY0Cec4JU10=;
+ s=20210705; t=1632144523;
+ bh=xU11jaLpUDnoKTVDhNl4Nnz5+4KkmeAKnf0UgxOYDK0=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=vrDE8ssyIHzsRuUWL7ILVAm6FDfpW9Cordy/A4pZU+3u7v6pBpY4TNYpKT0M97uvF
- q/ATgaad4CZZECJn3cRFZRzEgm59LYuhhvFkSj43pC/nEx3XWKQtPqOGvjBvUB/rEa
- am5lt6stJpHWlFgtatm9TGFfEib+H9TjGt57Iudm0a65mU0fR3nXHlxbA6bQQUcowK
- Zyp18dEZ83qMVlo1Cq0gD5y7/uNlgGIjPz3Jagc/sdyQ18aL/Hk1tqz1LdsXGN2zQK
- oKarcYjzZzOQx+SpiAGyZfY4q1EO3bRJ2fZ4CYrFNOPH40fZOSYaRJflMjuQOnkZ6f
- 4VV72AfI6kWiQ==
-Received: by mail-wr1-f69.google.com with SMTP id
- z2-20020a5d4c82000000b0015b140e0562so6100490wrs.7
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:28:39 -0700 (PDT)
+ b=qpLyJV7Y0LSL5eudECtLW4MNYCGwrihUPQDBdZzGXMPK2cbE93Jm3mC4Uriu9v8zp
+ INKVkl29hARV0ZbmF8mdPrSRX35SHhxt543t1ooj9E60WCz3JT/Px94ZJwOztq3CkV
+ v9hXY1sKcSSU22fPqQby64XhDnzWPHxRs+qBmdgCnovM9hHP0RB61HxxAypBwIs9yY
+ Ud0tKFGS52FjKm4c/s8v3dekKCPFSPdS0dzFdRmGUdiaUQpxCUF7uUsMhnqiVG8URf
+ AFI93K+nyfPE8VcuuaAXE1DT4xc0UEYhet/ZG/M6kY+4EROwPZCrgZa9Cq/+N8rnpe
+ Q79kPZ1j5q24w==
+Received: by mail-wr1-f72.google.com with SMTP id
+ v15-20020adff68f000000b0015df51efa18so6070753wrp.16
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:28:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=O+npPoECYtJ/ZpzV1HLKddQ+EXO1NtYHdY0Cec4JU10=;
- b=oUWKT4ll0po0QCZfPgLy02H6mKFJljY/p95t6G4WgIhBOw+lavtyCXXvItrpu9frrb
- /dCP1FNrc0hRXfr1ZvWbclBGXIKpa9yl2YSvlt+zrsBLqSPg2siK+gpl6wPj6JPB5/Xw
- DAFsv8LZYNQ6zRyI2GgevUqgFeT3L88MiwZ1rlEyWElN1ouDjKSSm0R/m9kr/l7fN6W3
- nvr29gsDOa4NO0gqEjHx6a/C2sPOS+ZtT23hH+aw+gDV+zbCYxriTx4KLJ6O3hwEsFOn
- xaotE/DxNK/KvUizr90/mnnbVD1ml/PC2F2G0gteH6txq2aSkhL8N5huEEbijI+RROnN
- AhPw==
-X-Gm-Message-State: AOAM533o/xdMWljRttE4Di3ZnEBhjRf7tw6pLoBo9Vv6+Sc/UwodeNsT
- PIdJrAQVUxmtG2UTKftymQ9G3ingWqN8tXmDsbJc2tiIyqPIDQkmqkMW15x5tnOlrbYv5tP4NtC
- oifL9PC9gfC2lNAD7BS+QlSylZWfzzvYL1sYIAhV5onFAjw==
-X-Received: by 2002:adf:8170:: with SMTP id 103mr28964670wrm.167.1632144519416; 
- Mon, 20 Sep 2021 06:28:39 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxU1n79MwXc4vaCAxSEjXBbGZEunmWRE3XbvJmB87c2EiwNDfExqsKDT3J4oHSVLZL0aKxDPA==
-X-Received: by 2002:adf:8170:: with SMTP id 103mr28964657wrm.167.1632144519271; 
- Mon, 20 Sep 2021 06:28:39 -0700 (PDT)
+ bh=xU11jaLpUDnoKTVDhNl4Nnz5+4KkmeAKnf0UgxOYDK0=;
+ b=oLmiaZfSbzkydsJy7Cv7El16r6u1/7zek83TiKzhl8lbuwqOtiH9XUhYh+xLgP6Bmv
+ LHKRuCJxDQDVivH9IQrDsNB70WuNAesyjkAMXVbcmjWcAIrhmypbhRDscLFCEXHcEWqN
+ g/f2a/7bzxqof9ZrP2p/u4kRN/DGyWsJno91cdFt0IOHKPYQDiZPn5PDNKdTdfnQiTYv
+ s2rkC8LlV5tfzoPTIjj4YJVdMH1uZWpNTrB50V3ffllexAei9ZwH6841dntej1ipNfbZ
+ no+myfLQULvnvB6J+a8yeoyYcZwGnHlu8OX/wt9EdFzKbRcig29ttUs2UKBlDrVSidah
+ qPHg==
+X-Gm-Message-State: AOAM530Jtqw7PMBwX9fIvaPWUYtfaXPgIjwNeVjC/7EBUDjzv1Dfqx3L
+ vXYJP8vI5b+G32CFqnP+InGqAT8OQ4NB9IxEzsRTfBV7BMD/vqZEJ3qsgpGNZh7jl1uSEg3AOZ3
+ hrF6vkFo7uqsGHeQ4ZHB4pH+mPO1ei0pjmlEWds4UahowuQ==
+X-Received: by 2002:a5d:6750:: with SMTP id l16mr28083256wrw.174.1632144522868; 
+ Mon, 20 Sep 2021 06:28:42 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJz+pvMcumgoT0ttERKgbkMAho4kf5IhwJqGeJAFaoWilhZCuHSEktQza8Pbu9In5bxiX7pNmg==
+X-Received: by 2002:a5d:6750:: with SMTP id l16mr28083236wrw.174.1632144522688; 
+ Mon, 20 Sep 2021 06:28:42 -0700 (PDT)
 Received: from kozik-lap.lan (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
  [84.20.244.219])
- by smtp.gmail.com with ESMTPSA id g1sm45429wmk.2.2021.09.20.06.28.37
+ by smtp.gmail.com with ESMTPSA id g1sm45429wmk.2.2021.09.20.06.28.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Sep 2021 06:28:38 -0700 (PDT)
+ Mon, 20 Sep 2021 06:28:42 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
@@ -91,16 +91,17 @@ To: Miquel Raynal <miquel.raynal@bootlin.com>,
  Conor Dooley <conor.dooley@microchip.com>, linux-mtd@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH v2 3/5] riscv: dts: microchip: drop duplicated MMC/SDHC node
-Date: Mon, 20 Sep 2021 15:28:28 +0200
-Message-Id: <20210920132830.152802-3-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH v2 5/5] riscv: dts: microchip: use vendor compatible for
+ Cadence SD4HC
+Date: Mon, 20 Sep 2021 15:28:30 +0200
+Message-Id: <20210920132830.152802-5-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210920132830.152802-1-krzysztof.kozlowski@canonical.com>
 References: <20210920132830.152802-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_062841_143308_53927D7E 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20210920_062844_546674_E963ACE4 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,94 +118,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Devicetree source is a description of hardware and hardware has only one
-block @20008000 which can be configured either as eMMC or SDHC.  Having
-two node for different modes is an obscure, unusual and confusing way to
-configure it.  Instead the board file is supposed to customize the block
-to its needs, e.g. to SDHC mode.
-
-This fixes dtbs_check warning:
-  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: sdhc@20008000: $nodename:0: 'sdhc@20008000' does not match '^mmc(@.*)?$'
+Licensed IP blocks should have their own vendor compatible.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
 ---
 
 Changes since v1:
-1. Move also bus-width, suggested by Geert.
+1. New patch
 ---
- .../microchip/microchip-mpfs-icicle-kit.dts   | 11 +++++++-
- .../boot/dts/microchip/microchip-mpfs.dtsi    | 28 +------------------
- 2 files changed, 11 insertions(+), 28 deletions(-)
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-index 07f1f3cab686..fc1e5869df1b 100644
---- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-@@ -51,8 +51,17 @@ &serial3 {
- 	status = "okay";
- };
- 
--&sdcard {
-+&mmc {
- 	status = "okay";
-+
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	card-detect-delay = <200>;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
- };
- 
- &emac0 {
 diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-index 5084b93188f0..83bc14860960 100644
+index 55d86b078c53..7948c4249de5 100644
 --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-@@ -262,39 +262,13 @@ serial3: serial@20104000 {
- 			status = "disabled";
+@@ -263,7 +263,7 @@ serial3: serial@20104000 {
  		};
  
--		emmc: mmc@20008000 {
+ 		mmc: mmc@20008000 {
 -			compatible = "cdns,sd4hc";
--			reg = <0x0 0x20008000 0x0 0x1000>;
--			interrupt-parent = <&plic>;
--			interrupts = <88 89>;
--			pinctrl-names = "default";
--			clocks = <&clkcfg 6>;
--			bus-width = <4>;
--			cap-mmc-highspeed;
--			mmc-ddr-3_3v;
--			max-frequency = <200000000>;
--			non-removable;
--			no-sd;
--			no-sdio;
--			voltage-ranges = <3300 3300>;
--			status = "disabled";
--		};
--
--		sdcard: sdhc@20008000 {
-+		mmc: mmc@20008000 {
- 			compatible = "cdns,sd4hc";
++			compatible = "microchip,mpfs-sd4hc", "cdns,sd4hc";
  			reg = <0x0 0x20008000 0x0 0x1000>;
  			interrupt-parent = <&plic>;
  			interrupts = <88>;
- 			pinctrl-names = "default";
- 			clocks = <&clkcfg 6>;
--			bus-width = <4>;
--			disable-wp;
--			cap-sd-highspeed;
--			card-detect-delay = <200>;
--			sd-uhs-sdr12;
--			sd-uhs-sdr25;
--			sd-uhs-sdr50;
--			sd-uhs-sdr104;
- 			max-frequency = <200000000>;
- 			status = "disabled";
- 		};
 -- 
 2.30.2
 
