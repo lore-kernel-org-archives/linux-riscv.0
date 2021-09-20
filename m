@@ -7,97 +7,98 @@ X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CAEB3C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68B79C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:04:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C2F26109E
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:04:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8C2F26109E
+	by mail.kernel.org (Postfix) with ESMTPS id 275B8610A3
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:04:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 275B8610A3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W24fUbXgkewQ6rrxhF++Gf18XuusvZVxIDTQPhr/ui8=; b=J30Q2PErGzJw4n
-	ZpcmHZuhWPiCw/LG4RKZQwZhH5w/7xh8fBz6fERSfl+Y+SqfJyE9S6H5lO55NiNeGDeq/9x17AIkx
-	YvZ0Qeg7/RIcWhXqwtLOZyLSI7/Yc/zwIU98sh/ATUfMc/K7KgDKKmY7+tasm+sVTBaV/dnREsG+5
-	KaGt/JC6h0V9FQtShfYWhhN2vKI/aGUGSvDRMbtoWpl4E3GNB1CG0Mvu3FhFx9UTe36Zo9nx8f7j0
-	sGFzQh8JB0el7eIH5vkGf1YmM1o10M5X3FXHjeuPyoXggCtO64ZRSH6dPiVq+NqzgQLIrRP8NKXUE
-	iqCG8240Fs8aFKdvGWnA==;
+	List-Owner; bh=J2nfrfH1Ijbxua9DlYBybhqMK7TiVF3/31fIin43xlQ=; b=iC64slSEw54cNt
+	siVdmR8Xeo/6jhKIsnoT4B8j8/nws5Ig2ZE63+JasgZRoNJHxC/GpNFgaNnwTVN2ED3YoSVsJX10c
+	bXMyDOFeFfrQNxOhDZ5gufHXqhg4zo5uSID2EWaL2TTXswGhe+1i2B28mphNyXJPr1b9JPHCZnpYp
+	Zgc47AdTmyh/MNzNjSEVfegdJTTfNKAgJulYrNHFcrGVYaaRA3jIJM33KrAnhIfOkA6NEXkMH6H69
+	ckhT2YeCsaHElr+JK+ilS2+kLnMYX+IAZ5yIwqbjpNWEdE5WO9sDbCbUNBEYib9Kf7w9/OWb+TPrV
+	d/3rTLLX6ylMlHPQNRZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSIy6-001ihn-JF; Mon, 20 Sep 2021 13:04:22 +0000
+	id 1mSIy4-001ih0-LL; Mon, 20 Sep 2021 13:04:20 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSIy2-001ig9-V0
- for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:04:20 +0000
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71])
+ id 1mSIy1-001ifm-Di
+ for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:04:18 +0000
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C96623F4B9
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 13:04:17 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 400CA3F048
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 13:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632143057;
- bh=KyQicLYMcvTUsuouhObsDgwfTY/CvChfVjl2/JZq64I=;
- h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
+ s=20210705; t=1632143056;
+ bh=0ATfDdcwsrHvOMt7UcUsCUZb24XVeT4uIjZC4PxjuPM=;
+ h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=hDvX46djM7ZMcjesVpGssaknlbsN/pSpc9/S3qva4wVbVWgkZob5bGjGMAnfTDwE0
- 1Q7YYQol2vEsvBlgUtvTFfSk8VxqYAMsFeWEwQ6fx1mdBXbj2C9PMzCmnNA6yf9CI5
- fuIgzME6zhZe56eEY64iVZRkTQT9HabhCuNeQF8h61TcejRqMfnSfxbbwK49OaPewy
- nUAD4gO29nYIYrdRiVs9QOVoCIvJGK8kDtdn4GitNp1lyN//QuYPBHkCz/PInY2USd
- 97K2PL+qLuiwHjniH/c3dkkqhiR7IB0AdZKRSn0g4Yf6ASnv13j6scpjfkMHcQaUfs
- xnkKPNu6FklGA==
-Received: by mail-wr1-f71.google.com with SMTP id
- x7-20020a5d6507000000b0015dada209b1so5995790wru.15
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:04:17 -0700 (PDT)
+ b=VNM9nSn84DUxsbPw8KPvsn3Ycro1jz/Amakls8NDwCw39O0DTnnOFECx8UxyQ6MXN
+ 46taKoMVlOr66xlGpaAsZ3N/9VvAlfG8v+/c9Yn5BZrfbb56hfc1TNyxsdjBw4A+LB
+ FoDLvDAaTK1WII7Tx4FW75Ijdod2rofeZ/lBlVIhq+hUynHrc7ZIIrJ3T1mxd6gWt3
+ hNJTvnpDKLtKiYchX9b0q+SqLoRu9hgSQI2sZw8+z8T7dm7ER4oz4BzmLq+CiTVCcX
+ DRnpK695UHH6WRyOUbECfYeJnrCeSDCBk8tp1inwWi6r2KzPZIqEWWTj78pbv31+/W
+ eWEYmJVRSB89w==
+Received: by mail-wr1-f72.google.com with SMTP id
+ c15-20020a5d4ccf000000b0015dff622f39so6006002wrt.21
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:04:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=KyQicLYMcvTUsuouhObsDgwfTY/CvChfVjl2/JZq64I=;
- b=7xAtcs/srTOJyCISJ/XZTGLsegQU9NolfVHDviziRKnoBPxJ0l0isQ5dtJwZwpJB6G
- ke9PQRcyYWJ+TyK1dY3XYh7jnHNvpKzVJMy3kgEjcl4bxPyFCLh2F43Ti4Cnvd6zicvX
- fRfQLy/KcqNUARVOJeDAZHwH/JfZTmXU+nXPqMNlVk1ukPHDasFG9Tx8VzVSZzrhhZeL
- Ghlfxi2UTfDszG6HezkONr22NRcg/PsoK3VREafPDcIj1StJ7AcmBnvB2Aw38GfepM3q
- C1/gYqInX5mPGXT6jrsoBDC9h6k5P0OanuRBZGSZFPky2QIVvdCuCEFdxgNuvVGPLUqk
- Pqlw==
-X-Gm-Message-State: AOAM531qyjefDaGr40Pb9ipzenz2foaNI5CUQkm4VVrZa8wEWAvbrUCM
- aPWg2bab+O8sjbRuRRwi+frvcnVSaEIkbhQ3fU0mwQ400LtHyP/V+9vAtqu67uiaBeHAj+ofbWK
- krx0V9esMTwNUbxkbu0d2DPzD++TLQbJTLV6+hvIw9V1g4w==
-X-Received: by 2002:a1c:28b:: with SMTP id 133mr24133074wmc.14.1632143057509; 
- Mon, 20 Sep 2021 06:04:17 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJypg5QGxpLH5N2pakMgq9jvpjRG8kkva5Tcgev2sXz+0gx7PhG+53e0/fOPWDZYp26XzyqyLA==
-X-Received: by 2002:a1c:28b:: with SMTP id 133mr24133048wmc.14.1632143057361; 
- Mon, 20 Sep 2021 06:04:17 -0700 (PDT)
+ bh=0ATfDdcwsrHvOMt7UcUsCUZb24XVeT4uIjZC4PxjuPM=;
+ b=F6WGKPH+iJKVtCdYiHtoPx0znaAk8+JaWeeGCCoTLqCQoRKeLclHxfzwEaoqb9BDkp
+ 0lpDXjNj33Lma4BGj7JsCHlZ6ebtOQpKhNt/trPFkt7jPtfsaI/waKGO3QS30GbWNekY
+ qI08y2bT2U9P7AJ1M4OfnhvFRVRddYwD2oVIEokIe/Zb2ykpfIeg7ARbwXxIJe9Y5pyH
+ ZFt1sOMQM33VJh0m0BxxxqBZ+coP5gaqCyyBvn7q/YB4doI1k3Ge6fNU3cQwDbYicLfQ
+ mEdciN8P1Yx3UcTIPW5D3aj6DhIrMNOgnXyo7rZu6xpBg/4K1/yWqPx5t2tvY6dug+0s
+ fhrQ==
+X-Gm-Message-State: AOAM531iPF0DN3kkgWHX7Xkwt+YQUobV+ewrKMttF3CpIX0viYKnW73V
+ 2BsiHLP3g80Mia7vw0vgj+8F7JR8fjvkIYKGaacztOoGnhBiSLYtFAexlZFQtOfpqQt4Ug6KahW
+ XzUl7seKjzyNs05ZK4tqb5+1JfTBDFHrQatAM8WGUJ9Gfng==
+X-Received: by 2002:a7b:cf35:: with SMTP id m21mr29418522wmg.19.1632143055970; 
+ Mon, 20 Sep 2021 06:04:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzcqxuu711f17EArSGcqHrFTFt+IrQxhxwvK11lX7/O4LWkLse5Xc9k93FZpJKe13HKkvmLbA==
+X-Received: by 2002:a7b:cf35:: with SMTP id m21mr29418508wmg.19.1632143055827; 
+ Mon, 20 Sep 2021 06:04:15 -0700 (PDT)
 Received: from kozik-lap.lan (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
  [84.20.244.219])
- by smtp.gmail.com with ESMTPSA id 25sm22965108wmo.9.2021.09.20.06.04.15
+ by smtp.gmail.com with ESMTPSA id 25sm22965108wmo.9.2021.09.20.06.04.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Sep 2021 06:04:16 -0700 (PDT)
+ Mon, 20 Sep 2021 06:04:15 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RESEND PATCH v2 5/5] riscv: dts: sifive: add missing compatible for
- plic
-Date: Mon, 20 Sep 2021 15:04:12 +0200
-Message-Id: <20210920130412.145231-2-krzysztof.kozlowski@canonical.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>
+Subject: [RESEND PATCH v2 4/5] riscv: dts: microchip: add missing compatibles
+ for clint and plic
+Date: Mon, 20 Sep 2021 15:04:11 +0200
+Message-Id: <20210920130412.145231-1-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
 References: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_060419_194973_D290EADC 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20210920_060417_634751_666E3362 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +115,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add proper compatible for Platform-Level Interrupt Controller to silence
-dtbs_check warnings:
+The Microchip Icicle kit uses SiFive E51 and U54 cores, so it looks that
+also Core Local Interruptor and Platform-Level Interrupt Controller are
+coming from SiFive.  Add proper compatibles to silence dtbs_check
+warnings:
 
-  interrupt-controller@c000000: compatible: ['sifive,plic-1.0.0'] is too short
+  clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'canaan,k210-clint']
+  interrupt-controller@c000000: compatible:0: 'sifive,plic-1.0.0' is not one of ['sifive,fu540-c000-plic', 'canaan,k210-plic']
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 ---
 
 Changes since v1:
 1. None
 ---
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-index 7db861053483..0655b5c4201d 100644
---- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-@@ -141,7 +141,7 @@ soc {
- 		ranges;
- 		plic0: interrupt-controller@c000000 {
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index b14275a9a59d..eb8b475b8611 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -161,7 +161,7 @@ cache-controller@2010000 {
+ 		};
+ 
+ 		clint@2000000 {
+-			compatible = "sifive,clint0";
++			compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+ 			reg = <0x0 0x2000000 0x0 0xC000>;
+ 			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+ 						&cpu1_intc 3 &cpu1_intc 7
+@@ -172,7 +172,7 @@ &cpu3_intc 3 &cpu3_intc 7
+ 
+ 		plic: interrupt-controller@c000000 {
  			#interrupt-cells = <1>;
 -			compatible = "sifive,plic-1.0.0";
 +			compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
  			reg = <0x0 0xc000000 0x0 0x4000000>;
- 			riscv,ndev = <53>;
+ 			riscv,ndev = <186>;
  			interrupt-controller;
 -- 
 2.30.2
