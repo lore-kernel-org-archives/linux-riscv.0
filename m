@@ -7,79 +7,82 @@ X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE071C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FEB7C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:09:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A06B5606A5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:09:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A06B5606A5
+	by mail.kernel.org (Postfix) with ESMTPS id 5836360F93
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 15:09:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5836360F93
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kul8InCeKXXaDHTev+M53t0Kp1UCli5RYmZkREcPX/0=; b=YR9zg9+bdrcGJe
-	4WX5KVeMVg0ZwkzGBtg4GmvPFCn/eW0vhl4OI+zvgljyyJN1HgRQSeeJipjVOtzVo3YsUrLLG+hpE
-	tvMZzpgxol8W70pJaMktpT/89osVcHd/xo/J/tppk7sEXfQA9xKdoiWu9N3FeF5Xnr3UYyDHIimdr
-	P1mv5kSM6geBxfzAsN/46ep68vsMLrfEbX6H0E5EiJU8ZEiow+MPPOWZaXzthR3QhR+bEurtQ0Ta/
-	Bfzp0DTaL97KJK34zIysb/zraoUBKiXbnKbJFGJZBfLzKlaLniU0Q8xosPVp5ahMiAr4Pl4/jvNJW
-	wBV7x8oRLNtssTyerlew==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Oz/I/IH9EIk3w2u4c3i4RFg6palMneUZgm7KKlpQLJ4=; b=V9E/4SzSKkAk13
+	6JVmS7kWAjPcfWH1DrzYW56+QySj3jjtcmeSEWXI6NnN/IfxPFkhV2fsB6nRQqmLsgptHAdjnIMIK
+	LxyNP2iWD4jhoJ8GYmdiVsi/NIcjI8yknSQxzSHj4cJ8kuMv8rr5IZ3stjBRcRyocBISFk/h6bgAW
+	bTofRvogy3I3loFe2BUiHqy1BYw1xMSZzjd/GpQD2jNcK9SYAI/j7vi5/EKHB2X4PWgh9g1RIzdgJ
+	IXaTYY32PUHLFOzTooi1oL30qOfgTq7HK08uW5T/dNxppKPuhU4EII0zSy2CquC16Q6OT2IR+KYTv
+	k2KBc0nCceAbcPboPx0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSKum-0029M5-Gw; Mon, 20 Sep 2021 15:09:04 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mSKvF-0029Vb-Gi; Mon, 20 Sep 2021 15:09:33 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSKuj-0029LR-UC
- for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 15:09:03 +0000
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70])
+ id 1mSKv5-0029Sc-RA
+ for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 15:09:26 +0000
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9C9B23F226
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 15:09:00 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 91C4F40197
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 15:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632150540;
- bh=RrUHW9qWnN4ubyMN56WONJrQMAnYJXVEP7VdjrUGoI4=;
- h=From:To:Subject:Date:Message-Id:MIME-Version;
- b=AFOM6TcHjSb05N9wnmVVk1u0W60SnXAKhn8eO5V+/9/e2NPCKMg5XylKOafVa9Lz1
- oqR+Xe/BXXVd2ooH7qnLXYTWmzLssyTv3gtDFLFkW9oDxiqQNKkg8Fj+otyeU3XPA6
- NC8T6/pqJ72uQYXFcqckXpY/yHzswwN5pL0UqXzbP+PCUqTjHzuT8AFAeHiTfjLOC6
- 5jjcMMS3wVfDCumkBtLpClI3XA2Sk2yZOBGVYUvgmXRzrlyf+CRwanKxIFoWfCZgbC
- 4JxwgZCdoQkaKUcBB3ohPQhB7rulMVndO8KmGLRIuuG6NDoUFk3HUB4WDVb8HJKPvy
- GOW0Q7R1plg4Q==
-Received: by mail-wr1-f70.google.com with SMTP id
- m18-20020adfe952000000b0015b0aa32fd6so6350930wrn.12
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 08:09:00 -0700 (PDT)
+ s=20210705; t=1632150562;
+ bh=2AzFw7QWiJnpc3+D+qC2D6oogvLnCMo5bvL1ARpYSXo=;
+ h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=GzisCl0VFyuetRRa2ZKFMqFNQd0wVpmc6HjhyxEGWjnRJcmN7kxEV6LZ5viCQqISD
+ 3/GUXGGIaUCzWKpZ2vgzXds/61Zm9C8e+ZKzYamsv8/mCPk6pC/sR2bND77mFmHRa5
+ 1SBnyRWIJi7kChZWuNM5fFj5081ws1aOfqedtZ7D7vpXMicZ8HEkgitRBkD62rj/PG
+ W6vElJofhpo/ZJ5Liaq60wNYAQgAbPDW5G1Hpmwx3KpsJ/D+HClNs/URSJDWSw57Gf
+ 4yjaIPR9qLWDkpyXDnS824n0Og1aAlooO3/pLePvAKDUmd0CFQqs4ngN7BLzOalNIt
+ 3LKNX5tfLqicg==
+Received: by mail-wr1-f69.google.com with SMTP id
+ e1-20020adfa741000000b0015e424fdd01so5893507wrd.11
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 08:09:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=RrUHW9qWnN4ubyMN56WONJrQMAnYJXVEP7VdjrUGoI4=;
- b=hi33I6vaGV2GQQYQ+UApt84AGiDanStfw7PefK8bQqfp5BrcVRoYOWEuKbtrmqCKDg
- 6ZzYlN1WHcAAFCh9r9n8bTunpvUO1dTXqJUZ69JlrBSkJfLdMZZIxropvaV1QHPb5Vt0
- PK2v6cyq2uqMQ3gRATqHVLrN/fwXea5ja3HXWsMUflCUmtp0vDZdv6rGbSR+o3kej9US
- Ax9WE6ugLs5MFEjq1HfxfKeOv4O42JiQzCCBP+m7YlknACOOaFiwx6eNLGSvQFpSKDOB
- cO81I+zPa8INhU8BAdfi00dIfpEVdoaccCEhPlyOxCElMNhirYD+Ddm/ecoONTG40JDT
- Q8tQ==
-X-Gm-Message-State: AOAM533OeJa4CkJLnxJYQlUJTEa2IzvUvUR9yJvjAgF7CGk0LaWSQkQT
- 9PqxdOeb4NPgB27uTBYt7nfptSCNLFlsH0C5Cg0urNYsG3trgTFRutFydDPXhQBSkemz2PqdoGM
- dG+SE4DQ+FEByIJAOZzqFuGfdhxY0Z+14olxUEUHZ7wS5kw==
-X-Received: by 2002:a1c:4d17:: with SMTP id o23mr23903303wmh.125.1632150540257; 
- Mon, 20 Sep 2021 08:09:00 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJy9q96BO6SmIHFGad+uos8pAFJ1J9kCDWwhrXRWKfSkT84ucEy7lcgN0Rquc/RlyJ/PH3RBzA==
-X-Received: by 2002:a1c:4d17:: with SMTP id o23mr23903276wmh.125.1632150540071; 
- Mon, 20 Sep 2021 08:09:00 -0700 (PDT)
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=2AzFw7QWiJnpc3+D+qC2D6oogvLnCMo5bvL1ARpYSXo=;
+ b=MgYsP0BBMaHoOwicDx9oVaQfQ8yjqDSgjdboX0bVpQONFPcN+4shJa93VRkqSK05qk
+ kZfsfFkJVBQJNDvF13tu/YlIbVsAGTssizAq+rksOURBx3Qs0WMOXDu5qCeOE/ugmWBQ
+ P53SDI5QbvC48l/33I5VcIR9jRpQ3cqM6F6VceU6S5rTaBJ5oko1NaCrZ+ockQxmYW3I
+ odjD7xr0rgMyTOH5sNWkxN7fK6GBsKIxSvdohVwBLiOUvmj7C354tscuJXvCe/v6+LJA
+ OpFCC17UJ1LD5oFr9D4IZHlAYf0tQZRrHOMdQkIHC7EwNEnlKbcW9p6WF9Bd7JA3FVlA
+ LnCA==
+X-Gm-Message-State: AOAM533bjgMJsBkS0o+sKIv5+c5njWw0/1o07JYBQJc5c6s8wPy4Vgkk
+ qgZw2CS1WkQ8ddLlrBWzH6eCWKXKuQu2Qss6T5nt6dtYjeDvQRgbr9A5CDIiTOmIgVRR4YzfU92
+ rgyJku56JH2Ki+EeXGjUN5aJEWrDcXGflLo1XUUmnwG6vgw==
+X-Received: by 2002:a05:600c:21c8:: with SMTP id
+ x8mr24829323wmj.163.1632150562324; 
+ Mon, 20 Sep 2021 08:09:22 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyh9HwY7qtDiYuXsvesg74JozhNdGgdehheDKBXdv1dZ+7W5s7qvmts4pXM0X21xET38Gx3ZQ==
+X-Received: by 2002:a05:600c:21c8:: with SMTP id
+ x8mr24829283wmj.163.1632150562129; 
+ Mon, 20 Sep 2021 08:09:22 -0700 (PDT)
 Received: from kozik-lap.lan (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
  [84.20.244.219])
- by smtp.gmail.com with ESMTPSA id i2sm15803136wrq.78.2021.09.20.08.08.50
+ by smtp.gmail.com with ESMTPSA id i2sm15803136wrq.78.2021.09.20.08.09.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Sep 2021 08:08:55 -0700 (PDT)
+ Mon, 20 Sep 2021 08:09:13 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>,
@@ -91,16 +94,16 @@ To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
  Piotr Sroka <piotrs@cadence.com>, linux-mmc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH v3 1/6] dt-bindings: mmc: cdns: document Microchip MPFS
- MMC/SDHCI controller
-Date: Mon, 20 Sep 2021 17:08:02 +0200
-Message-Id: <20210920150807.164673-1-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH v3 3/6] riscv: dts: microchip: fix board compatible
+Date: Mon, 20 Sep 2021 17:08:04 +0200
+Message-Id: <20210920150807.164673-3-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210920150807.164673-1-krzysztof.kozlowski@canonical.com>
+References: <20210920150807.164673-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_080902_218743_F41286F8 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210920_080924_043458_FAD77250 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,34 +120,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Microchip MPFS Icicle Kit uses Cadence SD/SDIO/eMMC Host Controller
-without any additional vendor compatible:
+According to bindings, the compatible must include microchip,mpfs.  This
+fixes dtbs_check warning:
 
-  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: mmc@20008000: compatible:0: 'cdns,sd4hc' is not one of ['socionext,uniphier-sd4hc']
-  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: mmc@20008000: compatible: ['cdns,sd4hc'] is too short
+  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: /: compatible: ['microchip,mpfs-icicle-kit'] is too short
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
 ---
 
-Changes since v2:
-1. Document vendor compatible instead of dropping it.
+Changes since v1:
+1. Use microchip,mpfs for microchip-mpfs.dtsi, suggested by Geert.
 ---
- Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 2 +-
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml b/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
-index af7442f73881..4207fed62dfe 100644
---- a/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
-+++ b/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
-@@ -17,6 +17,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - microchip,mpfs-sd4hc
-           - socionext,uniphier-sd4hc
-       - const: cdns,sd4hc
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+index 3b04ef17e8da..07f1f3cab686 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+@@ -10,7 +10,7 @@
  
+ / {
+ 	model = "Microchip PolarFire-SoC Icicle Kit";
+-	compatible = "microchip,mpfs-icicle-kit";
++	compatible = "microchip,mpfs-icicle-kit", "microchip,mpfs";
+ 
+ 	aliases {
+ 		ethernet0 = &emac1;
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index 93730afe6c58..5084b93188f0 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -7,7 +7,7 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 	model = "Microchip MPFS Icicle Kit";
+-	compatible = "microchip,mpfs-icicle-kit";
++	compatible = "microchip,mpfs";
+ 
+ 	chosen {
+ 	};
 -- 
 2.30.2
 
