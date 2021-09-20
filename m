@@ -2,130 +2,100 @@ Return-Path: <SRS0=ZJD+=OK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD1EBC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EEF4EC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:26:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 795A860EB6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:19:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 795A860EB6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id AD93360F23
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Sep 2021 13:26:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AD93360F23
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7OYf/ucHrxsnTPMMdnSDmD1HHJIC1qPLepyWI5dzHPU=; b=NwjC1ZGwlvr2pDffvazvnhR6Rk
-	NLm3Gj9nV3FiReRFuWCmNKi0OW4YJzhaCgHv2gYP1B5IqBzi4eCMSo4cRmFkYVJertMojHq9cONT/
-	Pye2BbxdPSWEqimrdBbYYbPJ3dpBEEH753Zg8zh2SrdcIK+Q0LNRfsp17SNpQ9Ugzlr63HHvflmlp
-	WlLc5EPDxA2wGrIUCBtmUlkj7rPt9rdZTX9uoi5wW1jcapxvNMD7IVSDQl3Pe164cOSfiw3Jqi9rg
-	xpdGrHpgc+Eo8pxQ91kT2rt+AB+z1hTAzcS8kXFS+h82lIqnOv8OeCsy6mlVXtotFjj+O06XAUs/k
-	R+HYw16w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m0X9cAXoPEMFAYTlnwe7edRSt2gJ5jSIW4YV+C1Nyfc=; b=ZA+sRJB099NKko
+	mjlzEze4fbn8FK80t+OWwlBGHK1HuFGO4LgsABXIWUJyGORAkRqpipwJkuG34leT5qebupyHqlhwS
+	kkP0+0dHBT/Ed0QCmxnSFqWw3AUFQ6OM2rPf0iveppa8kAp5xVfZ/YPvnpTiBmoQW22kGhG2yjXeL
+	SFv/xnIfrDvrxS7U9wpCQAjauG+6+le6fjpLQXqbioHpApW1FgleHwn5zr4DSm8W+oeuJxVquWL7p
+	utjF5UckAysvg/JaASCbzXqsxuYmX8aS9/NUzt5xsiCqHdC6+wcGiTWVa4vNLyMDD7bHFMwnkXMOu
+	0AIlWHuJoIZtkQ+6LAKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSJC0-001kRo-6t; Mon, 20 Sep 2021 13:18:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mSJJA-001lVp-Oo; Mon, 20 Sep 2021 13:26:08 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSJBt-001kQu-HZ
- for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:18:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1632143916;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=XZbiHti4vCOqgWKM54l6a3juvV92A2baM8UIqCN0ZRQ=;
- b=gBUs1cCExa5AwU18pM/5jF6Axf25NmtDAir8l1/5EPd+yjKEzXkPTZJy7jfhrLmKfv3DuP
- LNPOA/KIsr4f1c97q+3Wz2SVFHfZSNPs50Ktup5c1sXY4Vcqk/HCMAoLHu6Ag8Uj6T1Gdb
- ttj9umuCWYVoOVuZQmVrWyHGxBCZToE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-241-gWF6uuVnM4OXcBLRuZZYug-1; Mon, 20 Sep 2021 09:18:35 -0400
-X-MC-Unique: gWF6uuVnM4OXcBLRuZZYug-1
-Received: by mail-wr1-f71.google.com with SMTP id
- r9-20020a5d4989000000b0015d0fbb8823so6036400wrq.18
- for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:18:34 -0700 (PDT)
+ id 1mSJJ6-001lUx-1V
+ for linux-riscv@lists.infradead.org; Mon, 20 Sep 2021 13:26:07 +0000
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id B08D63F4B9
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 13:26:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1632144362;
+ bh=vJToJAd3e7XitzB+9QvxgrvOdQZu/cSSC1UlIYS41NQ=;
+ h=From:To:Subject:Date:Message-Id:MIME-Version;
+ b=UG4VMLXiQwYBokcSCxAmyIBJgEdC2bsVwIIsX5qzfg22GLR8K5kxjtyrre8wmpqgc
+ 1L8v4/1126STgfVd4Ehqg2yp8HaPE2p9RbTUVYVqQS6nssCBAASpl2wlLikXfJmFoV
+ MUhGRuxUO2XYH/Z8sgHM/pZApd6OlnyTAoik5Yz/lLosp8TDp+xVHFxeO4eCbDMlkf
+ 6SRmn1ODduxN0mtDwp6k4z/3JpUodDjxCW5I+v14Tz7tTZrB682FOwbwgxxNgbgOgo
+ oLK/deo5iL/dNVid86ahz1QPOAvj3Xau/c+jF4pAuxfrgJ7oMYheru00elFTIkxVDJ
+ TNj7Smbu7c/DA==
+Received: by mail-wr1-f69.google.com with SMTP id
+ x7-20020a5d6507000000b0015dada209b1so6051961wru.15
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Sep 2021 06:26:02 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
+ h=x-gm-message-state:from:to:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=XZbiHti4vCOqgWKM54l6a3juvV92A2baM8UIqCN0ZRQ=;
- b=x4Ui4E9mqTV7YEITmuIa+zaaJq5i4ID8rsKRoYKMH7h1aVTZwrZxxcRe9E6YvMPwzg
- vXSziuBC+tuG1fCKhds9ZmvbFm6Pef0UxTv199+Tm5tKnGQqU5pyCWL5jVWZabntptm/
- c61ADSwqZSBHFVUeg6KbPR4L7GfGRJAt9/XUpQBxFcTRmSvZyRpJ02QvpVSFJPeDZIgY
- zd2BiaSNmAt38FrPEqvAbseri2A6hrXWR84Ylrus9etgVlVMk6p7CTHVBPySRRz0Fkxm
- eNWslO6+9wRQKWmlDorwNZy/tSN42Bz0tbLwXqJs6p3clygchdzp5otWrhqbE/gwSBGz
- O+Og==
-X-Gm-Message-State: AOAM5321/tiTxnoUlJiXzTv4hi0q0fN/XLhhY64Y7zbtqEcG4w2fmvO2
- IRqZOVTunugv1qr/5FTdtjwIdmz3uFHbs/ngPmP+wHfYwW8JiM0B9HaJwy4CNJaj+eu2BV9yrMv
- WyZ5QWAVhdeI7wl08RK/dg2FQ5rcJ
-X-Received: by 2002:a5d:6c6d:: with SMTP id r13mr13376904wrz.439.1632143913678; 
- Mon, 20 Sep 2021 06:18:33 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJz7N3hxz36qRlOw1/rL/DwL4aDROJ8XxG8xzFR2ylC3WRZ+AXi5MycER2AoBKQtMUNziJuirw==
-X-Received: by 2002:a5d:6c6d:: with SMTP id r13mr13376850wrz.439.1632143913429; 
- Mon, 20 Sep 2021 06:18:33 -0700 (PDT)
-Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id o12sm13359543wms.15.2021.09.20.06.18.31
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 20 Sep 2021 06:18:32 -0700 (PDT)
-Subject: Re: [PATCH v2 00/13] perf: KVM: Fix, optimize, and clean up callbacks
-To: Marc Zyngier <maz@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Sean Christopherson <seanjc@google.com>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
- Artem Kashkanov <artem.kashkanov@intel.com>,
- Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
-References: <20210828003558.713983-1-seanjc@google.com>
- <20210828201336.GD4353@worktop.programming.kicks-ass.net>
- <YUO5J/jTMa2KGbsq@google.com>
- <YURDqVZ1UXKCiKPV@hirez.programming.kicks-ass.net>
- <662e93f9-e858-689d-d203-742731ecad2c@redhat.com>
- <87tuifv3mb.wl-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <7a5825d1-d6e9-8ac8-5df2-cce693525da7@redhat.com>
-Date: Mon, 20 Sep 2021 15:18:30 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+ bh=vJToJAd3e7XitzB+9QvxgrvOdQZu/cSSC1UlIYS41NQ=;
+ b=k+yafRbxaM0vaZOT0xJ3P73AS8m9HLNKIKxGbQRWXHtlBrm2w997Pkkf+X66Ba3tLM
+ ONjHidw+DOBhNbaYUvbrBIi13jlKDg6G7UBtbJWfGPi5pUXltpniHnvgkX9B+L8CrJ7q
+ yGy1FAhBvb06hRNgSF/yiNlhctsiRY/i4wMWQ7BfbgAqvIBR+MU8/73mfS4oK3ID3XUn
+ 0rlbF9X4GMAgrcdPgpG1YbNkm21GQ9UIRxJ09KeyvAV1lVNVRlgcttIuHwNBp9ZYGQLW
+ hv+gKcbKANYOaPmMRLQ+XDFr00WuAa+dSOymh5cghDEt+AYFzSg2DWeJ9A+n1xqxtqxr
+ n1wA==
+X-Gm-Message-State: AOAM531wUMpM5ym+7PkCbmfxzBQ/ivhqvzbc3maiVcltf7TKn+F5QuvW
+ XA5AsSPg8jqHM52b6au2Fv3u1+1lrT52N2NSKwomvicT5cmjRlY/Ylhd+7wnNA1igyfdisyf2Xc
+ 1tWKm4NeSMePSr+9mmCFOtddxja1WN6ZZxBfe95ZZVbqTXg==
+X-Received: by 2002:a05:6000:1287:: with SMTP id
+ f7mr29033670wrx.221.1632144362274; 
+ Mon, 20 Sep 2021 06:26:02 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJymf7l0CKsN1xSthBcoxGq3X4DmkxIw9o+QPMTz1O6EvUcCymMCo5tuwGlI5/sIFl5hOJNaIQ==
+X-Received: by 2002:a05:6000:1287:: with SMTP id
+ f7mr29033647wrx.221.1632144362053; 
+ Mon, 20 Sep 2021 06:26:02 -0700 (PDT)
+Received: from kozik-lap.lan (lk.84.20.244.219.dc.cable.static.lj-kabel.net.
+ [84.20.244.219])
+ by smtp.gmail.com with ESMTPSA id y9sm23062787wmj.36.2021.09.20.06.26.00
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 20 Sep 2021 06:26:01 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RESEND PATCH] dt-bindings: riscv: correct e51 and u54-mc CPU bindings
+Date: Mon, 20 Sep 2021 15:25:59 +0200
+Message-Id: <20210920132559.151678-1-krzysztof.kozlowski@canonical.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-In-Reply-To: <87tuifv3mb.wl-maz@kernel.org>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210920_061837_710308_C1DF8B52 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20210920_062604_334974_4014F347 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,27 +107,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/09/21 14:22, Marc Zyngier wrote:
->> I think that's only ARM, and even then it is only because of
->> limitations of the hardware which mostly apply only if VHE is not in
->> use.
->>
->> If anything, it's ARM that should support module build in VHE mode
->> (Linux would still need to know whether it will be running at EL1 or
->> EL2, but KVM's functionality is as self-contained as on x86 in the VHE
->> case).
-> I don't see this happening anytime soon. At least not before we
-> declare the arm64 single kernel image policy to be obsolete.
+All existing boards with sifive,e51 and sifive,u54-mc use it on top of
+sifive,rocket0 compatible:
 
---verbose please. :)  I am sure you're right, but I don't understand the 
-link between the two.
+  arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: cpu@0: compatible: 'oneOf' conditional failed, one must be fixed:
+    ['sifive,e51', 'sifive,rocket0', 'riscv'] is too long
+    Additional items are not allowed ('riscv' was unexpected)
+    Additional items are not allowed ('sifive,rocket0', 'riscv' were unexpected)
+    'riscv' was expected
 
-Paolo
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+
+---
+
+Hi Rob,
+
+You previously acked this patch but I think it will be easier if you
+take it directly.
+
+Best regards,
+Krzysztof
+---
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index e534f6a7cfa1..aa5fb64d57eb 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -31,9 +31,7 @@ properties:
+               - sifive,bullet0
+               - sifive,e5
+               - sifive,e7
+-              - sifive,e51
+               - sifive,e71
+-              - sifive,u54-mc
+               - sifive,u74-mc
+               - sifive,u54
+               - sifive,u74
+@@ -41,6 +39,12 @@ properties:
+               - sifive,u7
+               - canaan,k210
+           - const: riscv
++      - items:
++          - enum:
++              - sifive,e51
++              - sifive,u54-mc
++          - const: sifive,rocket0
++          - const: riscv
+       - const: riscv    # Simulator only
+     description:
+       Identifies that the hart uses the RISC-V instruction set
+-- 
+2.30.2
 
 
 _______________________________________________
