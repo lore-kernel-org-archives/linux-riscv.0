@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F5F0C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Sep 2021 11:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A225C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Sep 2021 11:34:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F0BDF60EC0
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Sep 2021 11:20:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0BDF60EC0
+	by mail.kernel.org (Postfix) with ESMTPS id 16C5961184
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Sep 2021 11:34:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 16C5961184
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,77 +23,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6DLSGBF028vB1miPhF9rOV5yVMEIAbQNCMYEgCkvZrg=; b=U+sqxk1hLsvNb6
-	Q/10YKNsT+RzeQorOC+rUGvNTUJXuWFBUgIe/XjW6eHpCc3+P5mh8Jb3BrepVD0vzVW8svjy1HllJ
-	bB8eGv1r70ABBSuN9MT28lK7dYa31u8tGXrhgvkYxBuR1t7E+Yu7jtR5HH+/+uRlKVkEAB/epm6v5
-	s8C67Xv2/StTx3gaY0Tt0N1hl1BCrsobzmws1qbZoA0VxZugsyGt/bR6xU/gerT1nNEi9YEBgCGZN
-	gqGpze+JjT4OjVG61U7TF3v5ylUuTcLMLuK4yqAS/95Ds+230UFuPjIPlIuZQXPr6pL3cksir2qg0
-	XJU3oZG7h5Wbb/mMXayg==;
+	List-Owner; bh=Geb3k4L0PHBKfFGzs5H8/1oU24jsF5YL/K46MlFkH7E=; b=q4yZc+P7+YHpeu
+	z29QEpBmSJSxY1us3dbn6872Jpo6TM7kVE5kMMR6h5Qiy71CUVOW9MG7k2FFif2by3awQj9+HtFpC
+	yeEomYE9o1dZzc+ZUYG1cgO69J1ykJ9AWW+4TR5B+MTogqRvd8n0MGS9elnV/PmgkC+guRtelFUW1
+	7MJeJdzSJaD+w1OBLkopkKTED4bPmPEcSx7q3Zo8/ET5xKorgF6usZRVTbAL4RYlIlFrNba9hWlqz
+	17pmT/RJS6Uj0gcOwtKzQBNSxog0cu+WX25LRjRby0OL6va4rAv+zZgwTBZJJusgylqi+r4SpqfCE
+	WUy+fBZSUk0gwf97QgWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSdot-004M6k-NF; Tue, 21 Sep 2021 11:20:15 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mSe24-004NH8-3o; Tue, 21 Sep 2021 11:33:52 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSdor-004M6E-17
- for linux-riscv@lists.infradead.org; Tue, 21 Sep 2021 11:20:14 +0000
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71])
+ id 1mSe20-004NGK-5Y
+ for linux-riscv@lists.infradead.org; Tue, 21 Sep 2021 11:33:50 +0000
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id CE64A3F32A
- for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 11:20:11 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id A94623F048
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 11:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632223211;
- bh=MjesVevkYIqX1GQ7DanAgbDwI571QgAHXDgwfVLZUzk=;
+ s=20210705; t=1632224025;
+ bh=46IQwAllaiUgmZjVqNNo/yi2D55M7e5XlkpRqscq5DA=;
  h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
  To:Cc:Content-Type;
- b=OyUhrziLcDFlH7MmAr5uOEFZZUXtAIS77FEtEKNx+Vkm11az0J54tFv0LRJ9wT9DN
- HJOL+H8xohwKPPqqTVr/P7lOwUt8ZHxsQdwRxNjey+IvVlo0JfTEpy3j/Z8oib3rq9
- r6FMcZG/VDN+iSqFsyHng/DDAonB7BSnE79jHRaChgckDWXsEC0m6Yy7E2v6mR1WFm
- KTs4DqMvwtser2kMDRI4C4NBRsNz/rscu7IMytNaMdrKWU3zxeaEUlbdnr5Y5blH+T
- BrtAtNs85LD4L1kHBKSdBu3v8gfwKeG8CKWt9OpqwRzysuF+qa5cnnqVrqD5AFwleK
- H6qUJcFsJkvdA==
-Received: by mail-ed1-f71.google.com with SMTP id
- s12-20020a05640217cc00b003cde58450f1so18795651edy.9
- for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 04:20:11 -0700 (PDT)
+ b=uYImOOeIhfIJNjqX3VJ72Ruok8cGw0yR3UULrtkjkOoZI0gC3Ou85il7OPEz10tzq
+ iamvlUzACp9K7mhvYD98s9Ml17j7/6WjgB6O9Fc9dFloVgHMFq/Hp7GLyelrhI6Yix
+ 9stFVveYOImy3Ka884SahGygjPhOwZHHNTFgy0YbSC7Y0ovkpXAN1U3psvem1fxVFg
+ LasJmzEVuikjuD1DFquS2PCCnVNQRpNK+lujbvBc+2sHRqrvPvmMAPKyoY8vBWOz7M
+ GkpIgk0jYa9GbdDeD2RmANljC1IPVKsVHf7s05XL0iitM79QZRA7BkTZUTYCu+DivW
+ gAWxhwPYCUBRg==
+Received: by mail-ed1-f70.google.com with SMTP id
+ b7-20020a50e787000000b003d59cb1a923so17822326edn.5
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 04:33:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=MjesVevkYIqX1GQ7DanAgbDwI571QgAHXDgwfVLZUzk=;
- b=FxE0taGfvEksVq6bkeUrBouI1A9s/OLfjnBzrSwo5aI+ItRTst48m279dtUE6Agqib
- 4kDcToUl+BkrSI8Gn8DuLHec28sWd5/6Slofc9aR+aMwUtQVpN4Nb1Xmqxz01mt/ZrmU
- chApBNNbT7osri3fMyI+nNA2eIslaM/sWbqGYy6isiGbvm8zhagvGPkKst81Z0VhngXe
- 5AhC3+22/DOMYwCO3vNTnhmnULH0qU26dF3psffCLZw0p7H+eOwjv2smyBGWH62D3AgJ
- TByt9tV7HgCmd2lOo6QTXnAA4EsqELJgeMOZSLsym7pCRe/574dXZELreDeEDO9Sg9Bw
- g2kQ==
-X-Gm-Message-State: AOAM530NszvQmcsE1gupKy/DU5IpHPwwOQ7Jhf57pmz9OlNhBm+/wjVr
- 6K16wefl3jU/SgIUXzbbjJLviAhfoqqdQsCg1B6WJ0DFrNpkP2QkV0TqBj7roozORRVOMKu8NyB
- RGUum9aihnT3qozZ1TzZ2y5fTtF/4IG5KmUEouEgcQ6nHG2bUEX5+2dZZuw8lzQ==
+ bh=46IQwAllaiUgmZjVqNNo/yi2D55M7e5XlkpRqscq5DA=;
+ b=QJvpEk6f9UveeJb2bL9eyCJvpDPEwpNgTp2mcyvyg8Ht0J03fPOhn3os9NnLsHTgxz
+ 55L7yPgQfIszn7jQ9zKy7COYt+ocbgUJYETGwnQXsOFA/n96IalVF807ZhsC/Eu1DaqD
+ 2ckcnT0klhNSpZLvtbytBpj7AGTLJBMGMJ6xQl2c8s810bbn2MFSSYFf5Igm4vsyJmxt
+ Hwo061qJ9Spchz9eotbUhR+9PsgsHPrwZ0muyj95KmLT3sbT812Le28WFUioENWImZS8
+ 8jEU3PyuQi5EEYrgSoYMoOY2yObycV07rshgF7KF7/L6T0or42wdRcGEPXLXEMlr2uEC
+ Q1Qg==
+X-Gm-Message-State: AOAM5321n2swFKetQsLATuNPzKwb08uglNAaLt15bBJNqbcHPFD6nBxU
+ QebH/KpVxF8VWKr0ytRUUPpCtBekopIbBiIoPH7bBfVOOnrlGyek9rqObGoMIsOHxNJmU2KR+De
+ NYFMV8oMkJvezu7p7sKyiWZXnf7eeWf+waY0CumlLqV1jjbKodaxz/q6E1nACsQ==
 X-Received: by 2002:a17:906:8981:: with SMTP id
- gg1mr34363650ejc.95.1632223211460; 
- Tue, 21 Sep 2021 04:20:11 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzy1Zml1lG/L7siYipoWZFKyg+Vw32nqM/rZd7PNcGFYuxpgdmkEWCLjGp8N6QGPtYWTGqstZeGuhBNqGpURJw=
+ gg1mr34434157ejc.95.1632224024944; 
+ Tue, 21 Sep 2021 04:33:44 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyBUixzvQ6yBN47UbB2xf3oeK2CqEKdGlZoKox+qhzX7J3b6qPfaKXlGw2wpfdKWi5wh+c1ui/AKExAF0LDSIA=
 X-Received: by 2002:a17:906:8981:: with SMTP id
- gg1mr34363627ejc.95.1632223211220; 
- Tue, 21 Sep 2021 04:20:11 -0700 (PDT)
+ gg1mr34434141ejc.95.1632224024710; 
+ Tue, 21 Sep 2021 04:33:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
- <CAAhSdy07KzQnTH+ad4esxtfhogzpXQagY8KeDkq1Kc81-Z33Yw@mail.gmail.com>
-In-Reply-To: <CAAhSdy07KzQnTH+ad4esxtfhogzpXQagY8KeDkq1Kc81-Z33Yw@mail.gmail.com>
+ <28072b8e-2c32-e67d-19d3-026913c0bc7f@codethink.co.uk>
+In-Reply-To: <28072b8e-2c32-e67d-19d3-026913c0bc7f@codethink.co.uk>
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Tue, 21 Sep 2021 13:20:00 +0200
-Message-ID: <CA+zEjCsFG31kcM89B6LfP32Kh7WTHxzU6zvxigmKrDheKkU2fQ@mail.gmail.com>
+Date: Tue, 21 Sep 2021 13:33:34 +0200
+Message-ID: <CA+zEjCsPwGFng73OJShEc2g6wW1SOKwX7XYFqej_vkJKKUxL0A@mail.gmail.com>
 Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
-To: Anup Patel <anup@brainfault.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
 Cc: Support Opensource <support.opensource@diasemi.com>,
  Lee Jones <lee.jones@linaro.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210921_042013_254587_1AFBA046 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20210921_043348_461508_A1C3B5BF 
+X-CRM114-Status: GOOD (  36.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,16 +109,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I chose a priority lower than the one you proposed in your SRST series
-(https://lkml.org/lkml/2021/6/9/620).
-
-Alex
-
-On Tue, Sep 21, 2021 at 12:17 PM Anup Patel <anup@brainfault.org> wrote:
+On Tue, Sep 21, 2021 at 12:25 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
 >
-> On Tue, Sep 21, 2021 at 11:04 AM Alexandre Ghiti
-> <alexandre.ghiti@canonical.com> wrote:
-> >
+> On 21/09/2021 06:33, Alexandre Ghiti wrote:
 > > The SiFive Unmatched board uses the da9063 PMIC for reset: add a restart
 > > notifier that will execute a small i2c sequence allowing to reset the
 > > board.
@@ -128,87 +120,127 @@ On Tue, Sep 21, 2021 at 12:17 PM Anup Patel <anup@brainfault.org> wrote:
 > > (https://forums.sifive.com/t/reboot-command/4721/28).
 > >
 > > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+>
+> I've got a couple of comments here, mainly is this the right place
+> and has anyone other than you tested. I tried something similar on
+> my Unmatched and it just turned the board off.
+
+Someone else in the thread I mention in the commit log tried it, but
+more feedback are welcome :)
+
+For the Unmatched, this solution will be temporary, the best place
+being openSBI which lacks i2c support for now.
+But I think this can be used by other boards using this PMIC.
+
+>
 > > ---
-> >  drivers/mfd/da9063-core.c       | 25 +++++++++++++++++++++++++
-> >  include/linux/mfd/da9063/core.h |  3 +++
-> >  2 files changed, 28 insertions(+)
+> >   drivers/mfd/da9063-core.c       | 25 +++++++++++++++++++++++++
+> >   include/linux/mfd/da9063/core.h |  3 +++
+> >   2 files changed, 28 insertions(+)
 > >
 > > diff --git a/drivers/mfd/da9063-core.c b/drivers/mfd/da9063-core.c
 > > index df407c3afce3..c87b8d611f20 100644
 > > --- a/drivers/mfd/da9063-core.c
 > > +++ b/drivers/mfd/da9063-core.c
 > > @@ -20,6 +20,7 @@
-> >  #include <linux/mutex.h>
-> >  #include <linux/mfd/core.h>
-> >  #include <linux/regmap.h>
+> >   #include <linux/mutex.h>
+> >   #include <linux/mfd/core.h>
+> >   #include <linux/regmap.h>
 > > +#include <linux/reboot.h>
 > >
-> >  #include <linux/mfd/da9063/core.h>
-> >  #include <linux/mfd/da9063/registers.h>
+> >   #include <linux/mfd/da9063/core.h>
+> >   #include <linux/mfd/da9063/registers.h>
 > > @@ -158,6 +159,18 @@ static int da9063_clear_fault_log(struct da9063 *da9063)
-> >         return ret;
-> >  }
+> >       return ret;
+> >   }
 > >
 > > +static int da9063_restart_notify(struct notifier_block *this,
-> > +                                unsigned long mode, void *cmd)
+> > +                              unsigned long mode, void *cmd)
 > > +{
-> > +       struct da9063 *da9063 = container_of(this, struct da9063, restart_handler);
+> > +     struct da9063 *da9063 = container_of(this, struct da9063, restart_handler);
 > > +
-> > +       regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
-> > +       regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
-> > +       regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
+> > +     regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
+> > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
+> > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
 > > +
-> > +       return NOTIFY_DONE;
+> > +     return NOTIFY_DONE;
 > > +}
 > > +
-> >  int da9063_device_init(struct da9063 *da9063, unsigned int irq)
-> >  {
-> >         int ret;
+>
+> Firstly, do you also need to force the AUTOBOOT (bit 3, CONTROL_C)
+> to ensure the PMIC does restart.
+
+I tried this too and actually, it seems that the value is read from
+OTP at reboot and as it is not set here, it has no effect.
+
+>
+> >   int da9063_device_init(struct da9063 *da9063, unsigned int irq)
+> >   {
+> >       int ret;
 > > @@ -197,6 +210,18 @@ int da9063_device_init(struct da9063 *da9063, unsigned int irq)
-> >                 }
-> >         }
+> >               }
+> >       }
 > >
-> > +       da9063->restart_handler.notifier_call = da9063_restart_notify;
-> > +       da9063->restart_handler.priority = 128;
->
-> How was this priority value chosen ?
->
-> I mean, we will be having SBI SRST as well so we should choose
-> a priority value lower than what we choose for SBI SRST handler.
->
-> Regards,
-> Anup
->
-> > +       ret = register_restart_handler(&da9063->restart_handler);
-> > +       if (ret) {
-> > +               dev_err(da9063->dev, "Failed to register restart handler\n");
-> > +               return ret;
-> > +       }
+> > +     da9063->restart_handler.notifier_call = da9063_restart_notify;
+> > +     da9063->restart_handler.priority = 128;
+> > +     ret = register_restart_handler(&da9063->restart_handler);
+> > +     if (ret) {
+> > +             dev_err(da9063->dev, "Failed to register restart handler\n");
+> > +             return ret;
+> > +     }
 > > +
-> > +       devm_add_action(da9063->dev,
-> > +                       (void (*)(void *))unregister_restart_handler,
-> > +                       &da9063->restart_handler);
+> > +     devm_add_action(da9063->dev,
+> > +                     (void (*)(void *))unregister_restart_handler,
+> > +                     &da9063->restart_handler);
+>
+> there's devm_register_reboot_notifier()
+
+Thanks for that!
+
+>
+>
 > > +
-> >         return ret;
-> >  }
+> >       return ret;
+> >   }
 > >
 > > diff --git a/include/linux/mfd/da9063/core.h b/include/linux/mfd/da9063/core.h
 > > index fa7a43f02f27..1b20c498e340 100644
 > > --- a/include/linux/mfd/da9063/core.h
 > > +++ b/include/linux/mfd/da9063/core.h
 > > @@ -85,6 +85,9 @@ struct da9063 {
-> >         int             chip_irq;
-> >         unsigned int    irq_base;
-> >         struct regmap_irq_chip_data *regmap_irq;
+> >       int             chip_irq;
+> >       unsigned int    irq_base;
+> >       struct regmap_irq_chip_data *regmap_irq;
 > > +
-> > +       /* Restart */
-> > +       struct notifier_block restart_handler;
-> >  };
+> > +     /* Restart */
+> > +     struct notifier_block restart_handler;
+> >   };
 > >
-> >  int da9063_device_init(struct da9063 *da9063, unsigned int irq);
-> > --
-> > 2.30.2
-> >
+> >   int da9063_device_init(struct da9063 *da9063, unsigned int irq);
+>
+> Note, the watchdog driver for the DA9063 also has a restart method
+> although it also does not set the AUTOBOOT bit either.
+>
+> The best thing is to enable the watchdog driver, the SiFive release
+> does not have either the core DA9063 or the watchdog driver for it
+> enabled.
+
+It seems that for the restart implemented here to work, the AUTOBOOT
+bit needs to be set in the OTP, which seems not to be the case with
+the chip on this board: it's been discussed here
+https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-support_tab_content
+(see the accepted answer).
+
+Thanks,
+
+Alex
+
+>
+> --
+> Ben Dooks                               http://www.codethink.co.uk/
+> Senior Engineer                         Codethink - Providing Genius
+>
+> https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
