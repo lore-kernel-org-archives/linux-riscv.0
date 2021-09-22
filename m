@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D40EDC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 893A1C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:24:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BB20611C6
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:24:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9BB20611C6
+	by mail.kernel.org (Postfix) with ESMTPS id 4CF40611B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:24:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4CF40611B0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dp4P6MdnJGGpQhY6QN2C2z24HwwjFtZhoxRwEKhVog=; b=O+evOGxG+nz98owEi3lKg7aGka
-	CkNa+QrJDcqrTI6zuwO/Pb7yFIU6JwY8Pb3lSKo+pu/obETyu9H5YQPBoy1P28X5wKTK3by/GJSkF
-	6feF9W5BZbWisfCtN4JC/HhNDBbEFHHGeel4hOrzV1pViXX03iqaGVW9wBtLnor8bII+YnLgbO3HO
-	6bOf6aJ79/RQg9RLNsUJPYkPGufhkSb2qXLcQ24o81fkkPpeLMdNBU8m4vKkCWTWQLmXpj7dbBaY5
-	h0ZigJF/E/x5kY8adbq5VRrD8TjH8fY92R6FGIvRR9rlhD3bLX7U3Kn+D5RbYyss6n+KSYfOq2wRz
-	yrEMg6oQ==;
+	bh=rSRMlZI0Rvx64r/8CMQAbIqwQiLVApRMgbP1TbdHdVs=; b=L9o+VoWJhKzSM73yoFwA5Jxr0r
+	DcgHQPI6aPlAnBbPoq4p02ARwTBwqWQyEfnRF/CxN1ni2r2TeqwcSHT90hzflA7Vg0MO6WWfeBaMv
+	tYMl0wU4IEqavsvE+KBGAKa1m6PWAXNT6D0K6KWuuN6dRASS9/7r6UgrRYoh20Hz9sYyR1s4Jd5WT
+	dD65CkgpkQRXtTKgBHvCTLak32Lk8zQsK51gPgVDX35dLPW1upjWb9Avc7LBcbcTiZJWXiAxaTHqZ
+	bBOXWys74FokEZ4+6pMM3INGDivsyD0eznr2Mcuj2A5HejmSvfsOk+moPdj11R03U+qg+HcffoSNJ
+	d8+HGp2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSvfb-0071Uc-Ov; Wed, 22 Sep 2021 06:23:51 +0000
+	id 1mSvgB-0071aW-IF; Wed, 22 Sep 2021 06:24:27 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSvfQ-0071TK-5G
- for linux-riscv@lists.infradead.org; Wed, 22 Sep 2021 06:23:42 +0000
+ id 1mSvfx-0071Wt-8K
+ for linux-riscv@lists.infradead.org; Wed, 22 Sep 2021 06:24:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1632291819;
+ s=mimecast20190719; t=1632291852;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=Zooka9gAajsg8DCKduDSvz7LupNnOu3u1TFHi7y68Yc=;
- b=ShF0BzKOCSqi/IdPbHkO8BChArWbOFIrCNMnt2/Y2nEpCQgEBO/K+qoW5xOb+/4M/CWemu
- 2huUb5qYhTmjHJEyNPrgxQJaSI7ntL//fPEkPhmvYbJYGGdNVyl7rcj6qCRqw5ZrJMbL4+
- Fo02AOquiagsE4jQDX/9YU2OVonblJM=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-125-Jwhfa9raMEukbVtdj_GeGQ-1; Wed, 22 Sep 2021 02:23:36 -0400
-X-MC-Unique: Jwhfa9raMEukbVtdj_GeGQ-1
-Received: by mail-wr1-f71.google.com with SMTP id
- x2-20020a5d54c2000000b0015dfd2b4e34so1142450wrv.6
- for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 23:23:35 -0700 (PDT)
+ bh=1o72rZ3J4EUS5ZaXq1DHK1qEjD5sQ31Ny28qqm6SkjQ=;
+ b=eMlmFzb/DnGJih4KMicfFXizrJANNVkZwnBQmjmZsx0Jp2DCDIAYnzIFFjmkf0hIMOX2Zd
+ /ayplsZCUIB70EogFzjJDmR78iJq4CLau8OBdRlOKZ8OoVuVDZGlzLkdxkNL1K1sexgUKt
+ QofZd/GGZ07GkGtyegTMYwf2KCPMxzk=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-53-291FXOOcMO6nwhdfQoMr2Q-1; Wed, 22 Sep 2021 02:24:11 -0400
+X-MC-Unique: 291FXOOcMO6nwhdfQoMr2Q-1
+Received: by mail-wr1-f69.google.com with SMTP id
+ r15-20020adfce8f000000b0015df1098ccbso1151473wrn.4
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 23:24:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:to:cc:references:from:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=Zooka9gAajsg8DCKduDSvz7LupNnOu3u1TFHi7y68Yc=;
- b=jFdMVKsFSj9yDRiAg7j3d/HiC1LoiqBQKDlHcpOAquJUD3/owZm6ZFTCTr/YwcdWus
- 9aXZV4I4ORmljwEBUnogIfPz95q6BKOqKtFgpocvDfFrDXgazXpTuH9Xau90ZwmbBUcF
- bMsj5qmb0e6fe8fkqhLBBmRJG0Kws016tp7oCBFSniW2lN9QfN2HhqmAYibVVR1RsFNa
- Nd/Z2u5evupNswcqA89vI83nxNqt2vfRaHcMSb5PVEWNvDDr6lzJsQMLicv4c46Q+MgO
- O5DSwhhSlfs23OiYdaCMspUMLSQMI2LKXjKykJP7UuZIkc4xSCBWTlAhd7UEz0wIi08U
- e6JA==
-X-Gm-Message-State: AOAM533SlGQ4gc35K7FivTByJIh8doOWx1vqxPclOGEpxK7CGnZz6ihX
- Hoxl64C1IlS9H0p3sJ/56BTu+PZLS8DPG2W0MLnCtz1mrYTcxx27QDXZUEcf3w5mYfPBsDYC5cE
- Z7g36Hzlqn3p4fvKM7sAICQ4zR0GS
-X-Received: by 2002:a7b:c3cc:: with SMTP id t12mr8423432wmj.68.1632291814964; 
- Tue, 21 Sep 2021 23:23:34 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJx4Cxl6B3FvPynsb4jNEGdd2w6uOOFopYtreXbLymB/TUbaoz5flccfGAb2LTh0HveeWZIomg==
-X-Received: by 2002:a7b:c3cc:: with SMTP id t12mr8423394wmj.68.1632291814600; 
- Tue, 21 Sep 2021 23:23:34 -0700 (PDT)
+ bh=1o72rZ3J4EUS5ZaXq1DHK1qEjD5sQ31Ny28qqm6SkjQ=;
+ b=TKKp/Nw7bQdhQcqqjnZf5sHo7FPNOi9jkfdH3yj7gKRtddSe2cNOcMmKxMe1EpEiaw
+ +OfJJy7ZqncefYiskykAbIp2QyLa+ipcBDjRFrk+tjI+wcXN5YP6vPFbfuBBdlC1Bcw2
+ k6ehYLbrhRIPU9agrVr10YFcrAps6MU+VQNHjM27omdiO1ciwFYmA1GM9fudBHDMnD1i
+ i6f34Mdfjl2PZo3qqMYuiIyyQQviDVyQlYFTAYb1VwjbTUmYDcpVewmAf1k+k+W7IHyc
+ MxvU5k8h8IjIHpuJCfPkzbgZ9k2WwIAxLs/dZyNo78CYAdXggEaNeSpkzN2XXVvhN360
+ Yp6g==
+X-Gm-Message-State: AOAM530mWPSpJuT2ipeVXXRrFE2yBYC5hatlAz3zZrz1fcj5XBKtbrLw
+ X6Tq+udolkV33+YhzeJ+ddVNS7FCgV6YX3E0sem7qYpuW+eKWywmqyY/6ZKR1P7K0nOSu3SzEzJ
+ xgXNM9Jr6cHwlWuewGJf+F4NQ2RLM
+X-Received: by 2002:a1c:448a:: with SMTP id r132mr8797097wma.105.1632291849576; 
+ Tue, 21 Sep 2021 23:24:09 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxQTq0zGwJ27i2S0Z0f0XPnoR50fJdudIkaF4OKBHHQ4AgCyC4Ha/kLdM9RRJcXFpLjepRj8g==
+X-Received: by 2002:a1c:448a:: with SMTP id r132mr8797078wma.105.1632291849339; 
+ Tue, 21 Sep 2021 23:24:09 -0700 (PDT)
 Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
  ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id o1sm1112414wru.91.2021.09.21.23.23.25
+ by smtp.gmail.com with ESMTPSA id z13sm1236395wrs.90.2021.09.21.23.24.01
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 21 Sep 2021 23:23:34 -0700 (PDT)
-Subject: Re: [PATCH v3 02/16] KVM: x86: Register perf callbacks after calling
- vendor's hardware_setup()
+ Tue, 21 Sep 2021 23:24:08 -0700 (PDT)
+Subject: Re: [PATCH v3 03/16] KVM: x86: Register Processor Trace interrupt
+ hook iff PT enabled in guest
 To: Sean Christopherson <seanjc@google.com>,
  Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -104,22 +104,22 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Artem Kashkanov <artem.kashkanov@intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
 References: <20210922000533.713300-1-seanjc@google.com>
- <20210922000533.713300-3-seanjc@google.com>
+ <20210922000533.713300-4-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <6e31f767-ae3d-ec87-9880-5a8ebc381192@redhat.com>
-Date: Wed, 22 Sep 2021 08:23:25 +0200
+Message-ID: <459f2af0-d4ea-955e-fb2b-e118140ee9bf@redhat.com>
+Date: Wed, 22 Sep 2021 08:24:00 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.11.0
 MIME-Version: 1.0
-In-Reply-To: <20210922000533.713300-3-seanjc@google.com>
+In-Reply-To: <20210922000533.713300-4-seanjc@google.com>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210921_232340_306513_0CF45573 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20210921_232413_403067_7A9BDA0C 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,63 +137,77 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 22/09/21 02:05, Sean Christopherson wrote:
-> Wait to register perf callbacks until after doing vendor hardaware setup.
-> VMX's hardware_setup() configures Intel Processor Trace (PT) mode, and a
-> future fix to register the Intel PT guest interrupt hook if and only if
-> Intel PT is exposed to the guest will consume the configured PT mode.
+> Override the Processor Trace (PT) interrupt handler for guest mode if and
+> only if PT is configured for host+guest mode, i.e. is being used
+> independently by both host and guest.  If PT is configured for system
+> mode, the host fully controls PT and must handle all events.
 > 
-> Delaying registration to hardware setup is effectively a nop as KVM's perf
-> hooks all pivot on the per-CPU current_vcpu, which is non-NULL only when
-> KVM is handling an IRQ/NMI in a VM-Exit path.  I.e. current_vcpu will be
-> NULL throughout both kvm_arch_init() and kvm_arch_hardware_setup().
-> 
-> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> Cc: Artem Kashkanov <artem.kashkanov@intel.com>
+> Fixes: 8479e04e7d6b ("KVM: x86: Inject PMI for KVM guest")
 > Cc: stable@vger.kernel.org
+> Cc: Like Xu <like.xu.linux@gmail.com>
+> Reported-by: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> Reported-by: Artem Kashkanov <artem.kashkanov@intel.com>
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->   arch/x86/kvm/x86.c | 7 ++++---
->   1 file changed, 4 insertions(+), 3 deletions(-)
+>   arch/x86/include/asm/kvm_host.h | 1 +
+>   arch/x86/kvm/vmx/vmx.c          | 1 +
+>   arch/x86/kvm/x86.c              | 5 ++++-
+>   3 files changed, 6 insertions(+), 1 deletion(-)
 > 
+> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> index 09b256db394a..1ea4943a73d7 100644
+> --- a/arch/x86/include/asm/kvm_host.h
+> +++ b/arch/x86/include/asm/kvm_host.h
+> @@ -1494,6 +1494,7 @@ struct kvm_x86_init_ops {
+>   	int (*disabled_by_bios)(void);
+>   	int (*check_processor_compatibility)(void);
+>   	int (*hardware_setup)(void);
+> +	bool (*intel_pt_intr_in_guest)(void);
+>   
+>   	struct kvm_x86_ops *runtime_ops;
+>   };
+> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> index fada1055f325..f19d72136f77 100644
+> --- a/arch/x86/kvm/vmx/vmx.c
+> +++ b/arch/x86/kvm/vmx/vmx.c
+> @@ -7896,6 +7896,7 @@ static struct kvm_x86_init_ops vmx_init_ops __initdata = {
+>   	.disabled_by_bios = vmx_disabled_by_bios,
+>   	.check_processor_compatibility = vmx_check_processor_compat,
+>   	.hardware_setup = hardware_setup,
+> +	.intel_pt_intr_in_guest = vmx_pt_mode_is_host_guest,
+>   
+>   	.runtime_ops = &vmx_x86_ops,
+>   };
 > diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 86539c1686fa..fb6015f97f9e 100644
+> index fb6015f97f9e..ffc6c2d73508 100644
 > --- a/arch/x86/kvm/x86.c
 > +++ b/arch/x86/kvm/x86.c
-> @@ -8426,8 +8426,6 @@ int kvm_arch_init(void *opaque)
+> @@ -8305,7 +8305,7 @@ static struct perf_guest_info_callbacks kvm_guest_cbs = {
+>   	.is_in_guest		= kvm_is_in_guest,
+>   	.is_user_mode		= kvm_is_user_mode,
+>   	.get_guest_ip		= kvm_get_guest_ip,
+> -	.handle_intel_pt_intr	= kvm_handle_intel_pt_intr,
+> +	.handle_intel_pt_intr	= NULL,
+>   };
 >   
->   	kvm_timer_init();
->   
-> -	perf_register_guest_info_callbacks(&kvm_guest_cbs);
-> -
->   	if (boot_cpu_has(X86_FEATURE_XSAVE)) {
->   		host_xcr0 = xgetbv(XCR_XFEATURE_ENABLED_MASK);
->   		supported_xcr0 = host_xcr0 & KVM_SUPPORTED_XCR0;
-> @@ -8461,7 +8459,6 @@ void kvm_arch_exit(void)
->   		clear_hv_tscchange_cb();
->   #endif
->   	kvm_lapic_exit();
-> -	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
->   
->   	if (!boot_cpu_has(X86_FEATURE_CONSTANT_TSC))
->   		cpufreq_unregister_notifier(&kvmclock_cpufreq_notifier_block,
-> @@ -11064,6 +11061,8 @@ int kvm_arch_hardware_setup(void *opaque)
+>   #ifdef CONFIG_X86_64
+> @@ -11061,6 +11061,8 @@ int kvm_arch_hardware_setup(void *opaque)
 >   	memcpy(&kvm_x86_ops, ops->runtime_ops, sizeof(kvm_x86_ops));
 >   	kvm_ops_static_call_update();
 >   
-> +	perf_register_guest_info_callbacks(&kvm_guest_cbs);
-> +
+> +	if (ops->intel_pt_intr_in_guest && ops->intel_pt_intr_in_guest())
+> +		kvm_guest_cbs.handle_intel_pt_intr = kvm_handle_intel_pt_intr;
+>   	perf_register_guest_info_callbacks(&kvm_guest_cbs);
+>   
 >   	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
->   		supported_xss = 0;
->   
-> @@ -11091,6 +11090,8 @@ int kvm_arch_hardware_setup(void *opaque)
->   
+> @@ -11091,6 +11093,7 @@ int kvm_arch_hardware_setup(void *opaque)
 >   void kvm_arch_hardware_unsetup(void)
 >   {
-> +	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
-> +
+>   	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
+> +	kvm_guest_cbs.handle_intel_pt_intr = NULL;
+>   
 >   	static_call(kvm_x86_hardware_unsetup)();
 >   }
->   
 > 
 
 Acked-by: Paolo Bonzini <pbonzini@redhat.com>
