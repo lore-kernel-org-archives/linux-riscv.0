@@ -2,19 +2,19 @@ Return-Path: <SRS0=6gMx=OM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C284CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5256C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:30:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C95460EE5
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:29:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8C95460EE5
+	by mail.kernel.org (Postfix) with ESMTPS id A5F9A61206
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Sep 2021 06:30:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A5F9A61206
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYTwAfjQ5P1XmqaAp6z3RmzpFpvJvmzBY4EVNIChNZk=; b=gvw3x0/ZhsU1S+Qw/L3jArRpm7
-	8xtrddAjMKJh1tn08z6kGTG6D3KEY25C3DHKiqFU5WXTfRcqGyQBMElUljYUrEEHo9vFeEsBRD823
-	yAZTqqRuOOAgrn1L3bz+ok8zYOXM7furnOUiQBLJcXinxiie0QbPGyl6kSmwU090p91R92hDhKB/b
-	naeC++vZQavWcfgAsNCBN13xeqluMm27nD7Uw8j3sHp56BI1ZWN/jzn4q/XNPmbJfBl7F31tmusTM
-	9pui3KDarJDQrn9sqBrgHJBVNJ7j4zpouxYUC7cc38NF/bdJXMCyNUsr/ZyqSANP4zezZU7gm44mC
-	qQFOJ8QQ==;
+	bh=jZb8NoEdBRGcNmbTF+xDUX0Un/xv5SvQBXZ8n2NOFI4=; b=f8QZ6bcfvrm9kyh8zD5UZ7Oseq
+	DrGoDuyhMtbHDK0hnme3pU+RP7xWrBdMH8/b2nqDl56UNTbiyGmbyZATiOFYZxfqtI9MZR0k5rDmP
+	aV0ms5horYUb2SoYhWClTOqCUq1p1jgZr2xhtxwRAZqpjKEsR0ObH1rizwwaP4tPQELC2LJyZqPlp
+	4luvDVoh3qKkqg2kfGFmJUaw1Jfj2CHqgrEjhQQMzXmVOcl04GHP3yxZE/Ru2Q7kfMqsbD6KacA9L
+	nOa04o90UMw9hUvniz013FMzfWX79gYtNsAkvhWfXTkATpNYEbm8VgMlTbP+hqSy25NrbqTuIIOzK
+	UPXiNBnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSvkq-00736t-Fj; Wed, 22 Sep 2021 06:29:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mSvlI-0073HZ-6W; Wed, 22 Sep 2021 06:29:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mSvkb-00732O-2u
- for linux-riscv@lists.infradead.org; Wed, 22 Sep 2021 06:29:03 +0000
+ id 1mSvky-00739U-F7
+ for linux-riscv@lists.infradead.org; Wed, 22 Sep 2021 06:29:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1632292139;
+ s=mimecast20190719; t=1632292163;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=pJ7mY3KGJnt0GGObf9665ZCn7DQvGIxKlz9Hgzfe7VE=;
- b=VphQDZrWgRkSUxYbkIRDJ0JXqa2y5hC8WCe6/aFxI7TfyoGqzt2sVbPMKyHzaGAKYXi41M
- Il9flX7m1T7O/fvFIjs14x2V/mNCoo8ftL0bPqVSrX6fbdhWApDj3ridN9sl4rry9hM5oZ
- ZaqBtWnw/jnwZGQPLpHTIx7crPx+jQc=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-301-Av3iFoVsPEW3f0RXUyWIvA-1; Wed, 22 Sep 2021 02:28:58 -0400
-X-MC-Unique: Av3iFoVsPEW3f0RXUyWIvA-1
-Received: by mail-wr1-f72.google.com with SMTP id
- u10-20020adfae4a000000b0016022cb0d2bso1114647wrd.19
- for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 23:28:58 -0700 (PDT)
+ bh=E/tHH9wLLtazV94QpN+BmGuu66vagS3lkpjDcUcpVzA=;
+ b=PGPf9ZzB33LZyiZilg2aozwZm5TDj5p0O5vz/gJCSjvz+UFxd649DuOMY96TZ0C7Yhswar
+ Jo7WK7EKH7drHXehvlque90NgI8miKqAqdhI8I3mYPRJ1+VBPU59VAOBjhjFTrRdyNQnyy
+ WXSIXoeyFvkhHyhwswuM+UhVvVnYRvw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-284-QFpiKEUaOZGwLah-eYb4pg-1; Wed, 22 Sep 2021 02:29:22 -0400
+X-MC-Unique: QFpiKEUaOZGwLah-eYb4pg-1
+Received: by mail-wr1-f70.google.com with SMTP id
+ m18-20020adfe952000000b0015b0aa32fd6so1137075wrn.12
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Sep 2021 23:29:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:to:cc:references:from:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=pJ7mY3KGJnt0GGObf9665ZCn7DQvGIxKlz9Hgzfe7VE=;
- b=MvsUeVHriI8cW8T1p0NkSB3jNXcnOiFU/XKIJTWEwLplQHgHi2HMxsFmLykxSDYLxl
- O8ml4NMlJacirIMWK2jzgwEb4uNMThx2kcieZv19mV/2NKN9/t2hilcMvUM5+Rv0gx+p
- oE6gNyhtFqDbAHNFE2TAmKpKtruWfVg+eOQSTsQYWoCvqVnTaQwYdOGMBJLYOwDj6G8p
- L3nhOa7bPviyc9RgScRjuuxRUjCHpKSCBO+K/NIeQJ1qnL0Pz6GUR0XdvnIyIDPYWglr
- GhdPZCDOdUpbHKUr40249zfhZZJlGriIH/1qGS3B3TJiBN+gJ30Ptb8ng857KgnfDGOi
- fRJg==
-X-Gm-Message-State: AOAM531Y1lvHhH0a+h4HmbGkIqHggu0G3orOfPzEVjA98G0kNcqK2Yjy
- KpIlHl6d4HJPZIXqmpSDc9f8l2YC+gn6lIcN/0TdmvfxfT7iNGidzHJ2KhtYO6SvX8nc/KAKeA+
- FL8xOUwtHyMlEVl4/FJi0WhzSdXXc
-X-Received: by 2002:a05:600c:3ba4:: with SMTP id
- n36mr8722446wms.35.1632292137447; 
- Tue, 21 Sep 2021 23:28:57 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzGUh0clwu4unN1cIXXPNEQKf8qlYc4JIONnRibnq73sMmW8cPrqysrS+MXk+0qjWI0DZnAvw==
-X-Received: by 2002:a05:600c:3ba4:: with SMTP id
- n36mr8722395wms.35.1632292137204; 
- Tue, 21 Sep 2021 23:28:57 -0700 (PDT)
+ bh=E/tHH9wLLtazV94QpN+BmGuu66vagS3lkpjDcUcpVzA=;
+ b=rhRXUgwOtRuwQnYZO06nJhOJoSapqwAw4Og8rH9CDM96ke2NTsWSUsdhpGn1bbmE5U
+ PDrXPpPWbNfPtC4mjqljS45hq55oLIntBrcUJkvjuUcdqo079+i6imekf/sV0rzI6Egj
+ anWQoi4skQt0CMrGNQ4RisBt91fdhmRVzqHI3i861MkfzDwyR4qPmyR5dDyHmqmNM7ae
+ r7JT57E2BL2O3KXWQsNyAJZDHe+JN+rejo0pbNN9Rq74Zs3yG0N7YWiMI1s4DdmctrPm
+ 2qQnS0ZsOkEshyYQLbnb3Q+qrrS5odM913cHSSMotTcLNBgiYtO8YJiBPcaAt7DJhhK0
+ d96g==
+X-Gm-Message-State: AOAM5332D2OsDNO9vvjlyyE3hbo7OWx6dFTy5KiyAqPhGmtPhvLlWPvo
+ BO93R3SHmUYXmWR/jh7TbPCSgcfZk8NE4m3KQAlUR2WajO3T9kM1+D39rDAbLXn6DXMQmO3U4Zp
+ SVfJOVQiMzjAlmkQNo4a4SMpTcpdX
+X-Received: by 2002:a5d:64a7:: with SMTP id m7mr39506106wrp.171.1632292161047; 
+ Tue, 21 Sep 2021 23:29:21 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyhBqcw62XwXR9WbHiblbcM9n6+4WHbybrr5/MkhCq7T4dnVdh+qdYz2KsHuqdWFBJH3F6z5Q==
+X-Received: by 2002:a5d:64a7:: with SMTP id m7mr39506073wrp.171.1632292160784; 
+ Tue, 21 Sep 2021 23:29:20 -0700 (PDT)
 Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
  ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id i18sm1136021wrn.64.2021.09.21.23.28.53
+ by smtp.gmail.com with ESMTPSA id n26sm4980232wmi.43.2021.09.21.23.29.18
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 21 Sep 2021 23:28:56 -0700 (PDT)
-Subject: Re: [PATCH v3 06/16] perf/core: Rework guest callbacks to prepare for
- static_call support
+ Tue, 21 Sep 2021 23:29:20 -0700 (PDT)
+Subject: Re: [PATCH v3 16/16] perf: Drop guest callback (un)register stubs
 To: Sean Christopherson <seanjc@google.com>,
  Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -106,22 +103,22 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Artem Kashkanov <artem.kashkanov@intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
 References: <20210922000533.713300-1-seanjc@google.com>
- <20210922000533.713300-7-seanjc@google.com>
+ <20210922000533.713300-17-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <6636ab49-e21c-601f-9d2c-34e681c14faa@redhat.com>
-Date: Wed, 22 Sep 2021 08:28:52 +0200
+Message-ID: <74d2e94f-fbd3-522e-8fc5-da5a0a575838@redhat.com>
+Date: Wed, 22 Sep 2021 08:29:17 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.11.0
 MIME-Version: 1.0
-In-Reply-To: <20210922000533.713300-7-seanjc@google.com>
+In-Reply-To: <20210922000533.713300-17-seanjc@google.com>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210921_232901_290340_FFDE7B6E 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20210921_232924_621766_49CAB50F 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,12 +136,34 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 22/09/21 02:05, Sean Christopherson wrote:
-> To prepare for using static_calls to optimize perf's guest callbacks,
-> replace ->is_in_guest and ->is_user_mode with a new multiplexed hook
-> ->state, tweak ->handle_intel_pt_intr to play nice with being called when
-> there is no active guest, and drop "guest" from ->is_in_guest.
-
-... from ->get_guest_ip.  Code-wise,
+> Drop perf's stubs for (un)registering guest callbacks now that KVM
+> registration of callbacks is hidden behind GUEST_PERF_EVENTS=y.  The only
+> other user is x86 XEN_PV, and x86 unconditionally selects PERF_EVENTS.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   include/linux/perf_event.h | 5 -----
+>   1 file changed, 5 deletions(-)
+> 
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index d582dfeb4e20..20327d1046bb 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -1505,11 +1505,6 @@ perf_sw_event(u32 event_id, u64 nr, struct pt_regs *regs, u64 addr)	{ }
+>   static inline void
+>   perf_bp_event(struct perf_event *event, void *data)			{ }
+>   
+> -static inline void perf_register_guest_info_callbacks
+> -(struct perf_guest_info_callbacks *cbs)					{ }
+> -static inline void perf_unregister_guest_info_callbacks
+> -(struct perf_guest_info_callbacks *cbs)					{ }
+> -
+>   static inline void perf_event_mmap(struct vm_area_struct *vma)		{ }
+>   
+>   typedef int (perf_ksymbol_get_name_f)(char *name, int name_len, void *data);
+> 
 
 Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
 
