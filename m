@@ -2,197 +2,97 @@ Return-Path: <SRS0=XVif=ON=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC7E5C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 12:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E58CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 13:17:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BAE2E611B0
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 12:45:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BAE2E611B0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=synopsys.com
+	by mail.kernel.org (Postfix) with ESMTPS id 275BE61090
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 13:17:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 275BE61090
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FuJgK8Eb+fcKpIeMThr4kOV22UJoA9hL2WWtPrEAW5o=; b=M1MNZfHOdAIhIN
-	Pa0gcNs3yYeByV/5jmf3JpyBPGqlGjWu12vcJ0IdnS1epa7M0W4nPJWrc3SUIPWHN3TMpT1GXFw8q
-	sRGZbkH2vO38RKxd/Q80937VTaTTzY7vqWsXp9qGuEbgg+62fXaQVCxHwnHpar/hyuR57uzxCM3kP
-	A6114vF18aSfohiC+2d5VJA2Rt5sygOFGV3H8TLmmgPZzOxauA1YWLuwhkP/R+UICAvoBRWGV34nB
-	DsbK2wael468+pGOpXLpTEIwPREy6KesByH07HiKWhXVVBN+xHmUu1nr1m4VoUKy7IWVlbxeZYegX
-	2TDLdOt4y+lcUSweJEbg==;
+	List-Owner; bh=Wp/yDS1oNmbPlMXPqy5agmk/LvMUpBLC7qzSaCZ4T7E=; b=on5SEREh6gkKb7
+	x2TiY5xFqpQkJ4mv8vWWQ1PjMIa1HvJOFh3WAXTpLFAz0n4embDDmnhPHrecKYz2aNauCABt2npB+
+	2KA8N9ozzuWr1+jczq7CuJpfWj542Bkp9xmGJJWw+I+JpSFma/LvnEQ9HcOGrVE+lYnyiyE4Y1rBy
+	cO3pVvLD+GR5WePcqXRX2mqxnP9KSjNBI8xSIARqdaRIuUEOJhvCRFUlZATTkSly9DCcA0pMhYGvh
+	1UhUD9YMNbx85wBCamIik0i6oO8w58QzghrWPY4lhhd6kAl9VPMku4NuqniSW4AmYT4T3i9pHwAuU
+	0tkTrckp8OuzPjj+YJfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTO5n-00BT91-Kn; Thu, 23 Sep 2021 12:44:47 +0000
-Received: from smtprelay-out1.synopsys.com ([149.117.73.133])
+	id 1mTOax-00BYeQ-4N; Thu, 23 Sep 2021 13:16:59 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTO5Z-00BT64-Rb; Thu, 23 Sep 2021 12:44:35 +0000
-Received: from mailhost.synopsys.com (badc-mailhost4.synopsys.com
- [10.192.0.82])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 885924151D;
- Thu, 23 Sep 2021 12:44:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1632401072; bh=p8yypIUjB8D1QtzMPOfUh/V1qIMQJPRo2PqJWZ5SYsY=;
- h=From:To:CC:Subject:Date:References:In-Reply-To:From;
- b=Gvq9P4b8YntKHRuxkqZ3tF0YGuSDOH+oVCDf+VSwXXjmaGxF2cK8X33R7WTWMZdxB
- GEf7t9gTDEWUF/5zMlhaPic0Gw9SioFA146VuyVbXAQDD0BMWeYiU9orEq2KpGk5hQ
- i5sYd3qIUy1129LF03W2RQe+YxmxznJiJIdmrk3SdS3mqJQGmbc2z3+ie826v+rXmf
- y2mWag8+iQ0DLDwtixGft2C9TjYEL1Y/KL5EtNn3IHbRSVbKs1VbfEHZw/WNdd8Ppi
- MF1tAfYhy87PyuwzOIovDHwB4mk2cbJzuZ3GcC+8Od9h1/aYntxCPPc7gvFZv9ewLf
- 2ywh1lMEodcdA==
-Received: from o365relay-in.synopsys.com (us03-o365relay3.synopsys.com
- [10.4.161.139])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (Client CN "o365relay-in.synopsys.com",
- Issuer "Entrust Certification Authority - L1K" (verified OK))
- by mailhost.synopsys.com (Postfix) with ESMTPS id DAA1AA005C;
- Thu, 23 Sep 2021 12:44:26 +0000 (UTC)
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com
- (mail-sn1anam02lp2047.outbound.protection.outlook.com [104.47.57.47])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client CN "mail.protection.outlook.com",
- Issuer "DigiCert Cloud Services CA-1" (verified OK))
- by o365relay-in.synopsys.com (Postfix) with ESMTPS id 5410280151;
- Thu, 23 Sep 2021 12:44:22 +0000 (UTC)
-Authentication-Results: o365relay-in.synopsys.com;
- dmarc=pass (p=reject dis=none) header.from=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com;
- spf=pass smtp.mailfrom=shahab@synopsys.com
-Authentication-Results: o365relay-in.synopsys.com; dkim=pass (1024-bit key;
- unprotected) header.d=synopsys.com header.i=@synopsys.com header.b="XjlMBsSZ";
- dkim-atps=neutral
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ql0OQazr/pNI1ie5lP8Ht8iY8eOUSaANgcsKDZeanbY5JGm2DYN7ViWFq0GSn7YuEdL/lqgPOUwfp6yIwIN7w682q4qOhfVMJJ030VSQuyLahcjVTcTLbj1waahXj9HMRlxKs4Vgg7OqUkLGVtxBHm8v4qbfy5zOmVpGOEgRFzdV+WPfmxr/w2EuS62IYorK7D6PicnCLwUU80cPNmSxzQBIwvJv9I4RLgCW7/OIo59UBGn6ngK54KflPmdMqyk3NB/if51/2tt090fXxKBAVjzRQMpUc9bdssSpKr5TVg7jvM9I1dvnobtwPMo1Rf+9jG2KB1ZQOFtNAl2+M4q1/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version; 
- bh=p8yypIUjB8D1QtzMPOfUh/V1qIMQJPRo2PqJWZ5SYsY=;
- b=lB/dfGY6qGnlPCzk6jrqPkumxuD6Zle3JmpqYxFguRB+KFcNp6CEFP4jl5p0h3ScILyRfGJGJ6iKV9p6EUIXLi3OjLbHITHcmB3i9qnwN5UvUJ+iHOJpN9M6l6uzRQOqvLaLkjNjU0E+Phxy2TgG8aeY9o8aw+1/5wA0gAX08oYdQXqbqMe4QzUPO3Eju5H0KcnbEjLg54k/UTSE87WlvYxpA0bDlhO5ZZxMYqTaMkGZjoBOqwIIH33tyS1+bGTyH3MjjzIeRu+PbYAUtyPAxkMPpz55xCAno4NSztx5WB43EDkbi0NVyhaRoI8RaQ+rK40gjT3/SxJpzhaG68Z+6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
- dkim=pass header.d=synopsys.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p8yypIUjB8D1QtzMPOfUh/V1qIMQJPRo2PqJWZ5SYsY=;
- b=XjlMBsSZIIeMIcn3BV4fq6QTuHKmTlq2wcWFtDSMYpHRIbCRUXHI1j/6Nvc788nfl1iWUG0VjTTkqniwaPBMQvx+hnxM47SXxJ8BHG5lMxGTgpN1OoKMXR+iJA+dKngwgvBc0glcR5Dz2K32DkEYfbZDkaHe+kbDS5mZMs/JArQ=
-Received: from CY4PR12MB1160.namprd12.prod.outlook.com (2603:10b6:903:38::12)
- by CY4PR1201MB0200.namprd12.prod.outlook.com (2603:10b6:910:1d::17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4544.15; Thu, 23 Sep
- 2021 12:44:19 +0000
-Received: from CY4PR12MB1160.namprd12.prod.outlook.com
- ([fe80::2d3a:44fe:fd31:11e2]) by CY4PR12MB1160.namprd12.prod.outlook.com
- ([fe80::2d3a:44fe:fd31:11e2%7]) with mapi id 15.20.4523.018; Thu, 23 Sep 2021
- 12:44:19 +0000
-X-SNPS-Relay: synopsys.com
-From: Shahab Vahedi <Shahab.Vahedi@synopsys.com>
-To: Mike Rapoport <rppt@kernel.org>, Linus Torvalds
- <torvalds@linux-foundation.org>
-CC: Andrew Morton <akpm@linux-foundation.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "iommu@lists.linux-foundation.org"
- <iommu@lists.linux-foundation.org>, "kasan-dev@googlegroups.com"
- <kasan-dev@googlegroups.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-efi@vger.kernel.org"
- <linux-efi@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>, Mike
- Rapoport <rppt@linux.ibm.com>
-Subject: Re: [PATCH 3/3] memblock: cleanup memblock_free interface
-Thread-Topic: [PATCH 3/3] memblock: cleanup memblock_free interface
-Thread-Index: AQHXsE7r2Z9Q1x5PbkCRzXvVc2eiLKuxkQqA
-Date: Thu, 23 Sep 2021 12:44:18 +0000
-Message-ID: <70364d6d-7569-3cd8-acce-559878ce4596@synopsys.com>
-References: <20210923074335.12583-1-rppt@kernel.org>
- <20210923074335.12583-4-rppt@kernel.org>
-In-Reply-To: <20210923074335.12583-4-rppt@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=synopsys.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c1e5f238-9c40-4f49-2da5-08d97e8fdc67
-x-ms-traffictypediagnostic: CY4PR1201MB0200:
-x-microsoft-antispam-prvs: <CY4PR1201MB02008C7112226A9E691D827CA6A39@CY4PR1201MB0200.namprd12.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:2958;
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: OamkW3UO1/WqFADz4A194HFP4oBQk8gtqnKNjVuDksrLnfE6l+GVJQhwsaegPUSH7gx9t8lMJ1FdmgYJCgJ4OZ3EhKf8RZTD3Ts0zaaHTLojOQ5TBH4ZPl6xEabh2XoGqBvwUOEEFr9uSp9MQZp9dSBW+UcQqhYiFNaSTPWozfT9nTMipLej1e9xdNsDzJwkWvc4Nqfx9vJUpUl1b2y3wVZ1oitLTB5EUrRSlKgJTGqIekv1SR1YFUhPDs3nw9WEL9bXMu/EvTL8nA8XhyS8T5AggLricxDpUq9wYUHjECvPt7tEppOAD3ENQzfE8EgYlSeEkDpjU97d+AXoZrfhgqvMnmxfIN2HYaS9mEsbHWU/v+kC/37zYn4F+xyL7BZ7yyVP3OXhFEbyRjeA1fu5yW3MacAsdznAi8uIZTlBVJnpBYFOXwFAXJRBkzH6xa4sV/7hMat8LxK4cZD3yPIhI0AN4eK6rNxYmtVdMz7h6nIy+EuGpBn1s07XirzbDNP3itQCWqt0TOrchOPjGN3ZLRqsKltq5PAMjMXOxRZdN2dqnUFCweBuWWfCwgrV5044fj0vvvSEUUfHpFWJLJRnyg4c3Eh2g6Ee+cAC9QDPHcsmAgajEJma1cFC1eRoIfuvfIe6apmOy46ssLpPZuMbub2YhBZ5/KLzyz/ik0j7m6nXwWbxN1QdS/7wnLeRcvfuaqggkqHcyct/8HQb0MRs9FG7LhwusDW07wtmQYsIsLg=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CY4PR12MB1160.namprd12.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(366004)(38100700002)(71200400001)(86362001)(2906002)(83380400001)(54906003)(31686004)(110136005)(38070700005)(91956017)(66946007)(508600001)(66446008)(64756008)(66556008)(66476007)(76116006)(7416002)(5660300002)(8676002)(186003)(8936002)(31696002)(122000001)(6512007)(4744005)(36756003)(53546011)(6506007)(6486002)(2616005)(4326008)(316002)(45980500001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Z3E1Q1p2dDJNR052VkZ1TG1nK2ZKSGJNWWxCdkIxdlgvemFlRHNZdG55SnAz?=
- =?utf-8?B?NFZnVDlEWVZHN3c5dTc1U2pCY2lTdkhTeXB3QU0xV1pocFhjTHZlUFkzSkhl?=
- =?utf-8?B?UDlnbWhORjBYYXFRUUFnNDM5ZFdHbFlZSVFEa3lIUUxnREc5d2ducFNGY0pt?=
- =?utf-8?B?V2NTVGdxdVFMNlRLemlvQ1M2VUJHMVVYL0ZkaXZ2dEVBQnc3Y0EvQVQzQmo5?=
- =?utf-8?B?dzZDbWtxejJRZnFkN210bmIwczlpMGprc0JqY3Rza01pV2JLU29CWkw0SFRJ?=
- =?utf-8?B?bnNoQVBFbzZIRnBndm5VR2tHWWo5ejdEWURZTktZbGthMkdKbU1rcFNTcWxQ?=
- =?utf-8?B?K0tyNG9pRTNuZEY5NXIxUEF6U1k3Nlg5RVlTT0hTTzlQUWYzNVdiRVlpY1ND?=
- =?utf-8?B?eHRxRmg1aHEvVE9mcTVmZU1kalNoR1NBZmwzSUZmSEFwa2xPL1ZuUWd6ZHll?=
- =?utf-8?B?TS9vNDMzNVY4SUxOVTA3S0hQVjRsODRLWC9abmp1MGg4R1c5YmhlM25sK1Jq?=
- =?utf-8?B?WE1BOEM2bWE3RDN6YWs1TUdCOUdZZm5LaW4wYUVuWVR1SFg3RVRoeXZOSTFY?=
- =?utf-8?B?MjNROHlxdHlWejJzN05uZlBQUGZPVXRSOHl5ZnRlTUFkVndJTHNyTS9CZWtn?=
- =?utf-8?B?ckYycndlMSt4bTk5TlEvZE1HOWFXZlRDRmJtOHY3MTdPZ3NhblhLVFZMYWx1?=
- =?utf-8?B?RFd1NXNBcjZCcjVYZWFyWDZGQzBTSmhzV09qZmZEUkdyOENUdFpteXNqQmFF?=
- =?utf-8?B?ejVtUldNT0swSzllQkNnc251RHhQZVJlN3JpdWlWVksyb3ZHMGZRcE0vOVJJ?=
- =?utf-8?B?U0xCQ0hnN294VDBXT1lOZXdKZEM4ZjZoOHdmVStLVnVSUElvNVZFRm1LWDBP?=
- =?utf-8?B?SVBaUjhXUHhHcEdId2hjRXorVkxiNTNISzFjTzkzb0dMMHBIRUtxZmF1aHRk?=
- =?utf-8?B?NEI0a3lZN0prRlNQTGtGTmNWT3VJSjYvVWltOWswWVAreU9BUkxaOHFhOFdq?=
- =?utf-8?B?TkZBZGdXVE9Icnlyd0YraDFNZHR5TDdrVGZmbVVJRXZDRXFtclFFc21TNEk0?=
- =?utf-8?B?WVdjOUJoRHdPdEpMY1pKMDFiK1RuMFZsbFRJMGRLVklCNTQ2bS9CanI4VENx?=
- =?utf-8?B?RkloOG1BZmU2ZnlRTmJCZjJXdDlYaFJnSzhkTFFTbFJSWFBFOGQrcS80NXVU?=
- =?utf-8?B?YjNqOHVwWVM0TkY1NktBVEVmMnVVV1ZYNWp4Z0xySVJFTC9BSm9qNkNzdmZM?=
- =?utf-8?B?MXFFOEIxWDdieU5BQ1pGZlFWWTFaZjhFbi9XUSs1Y0JHemtQUXhrNElVTzU2?=
- =?utf-8?B?K1JtOG1aQUN4UUVyR1ArNmpvbWdscWFPdlJWTi9mKytoSTN5ZUkvc2dvMDEw?=
- =?utf-8?B?c0lmWWFvcWxLRkNiUFU1VTF1QnRoMDJrVkpNK0FtN2FFUVhqKzV3ZHVVTzh4?=
- =?utf-8?B?RkxWQS9YcnZwcklycTcrZy8rWDhxSEdJalZaMllBQ0FHZEhHL1YzTTJsWUpT?=
- =?utf-8?B?MmNvbnFxYmk4ZllDcnJ5U2UycExRUHRmVEJLTEI4UHFOeDJUWjN3UjdkcU9T?=
- =?utf-8?B?RjBtOTJ0M3VPeTdNVVpSbHQxeXVsVDU3LzBMM2RnNkNCd1BuZlZEalZLbTNG?=
- =?utf-8?B?cHQwc3luVmpwc2ZJWVZEY3IzVENiRTdrRHp5NzM3b2xvRnA5LzlCcWpuTE43?=
- =?utf-8?B?ZkFzTUNlWkxVdlFGQ1NtdDBvZS95aGRTUkNaSlBIQ1NNY2FabGNSWFp5dVpr?=
- =?utf-8?Q?zxZX1W1RS474i7oyqAN1Twr11o31hFkPD6o09yZ?=
-x-ms-exchange-transport-forked: True
-Content-ID: <BEE0BCB4DA8E9D4FA42EB8E75B22E457@namprd12.prod.outlook.com>
+ id 1mTOar-00BYcf-5V
+ for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 13:16:56 +0000
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id F3ECE3F302
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 13:16:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1632403011;
+ bh=MKDfgpyx2DLaN+agqTgdGBhC7hPiB158s/GwrS6Ihlc=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=ZvGSd9mMmXrMflx0SKK+ZcNh4hzVFVNG02AWKpxAk7qAo40N+A41qCpjW0yiCoAYt
+ IPYSf7wtm0Bs3mvR+WDKC4z4L6RGPSRGy14LmoQjrrWbCk7RFYsKWJAWGdvUIFOGPq
+ lhacJiEGg0Pg8b//mvU9nSH24AAyAtM54Nz2iohHYmImntEX9VyERQpviXE3Q+cUIw
+ 6k/BcbsBi5ZBo6qZZailSSdGI+Js8sovS2660avzPZhu1fx+Kc8mRlzG3mpV+AHAbg
+ b4owXuz/cqv9hUwaliEuO2NN/WLPC6cSl0yEMukaWgkyQMHi0rtkmplIXnBggc2vxZ
+ mx+zItvl5bh9Q==
+Received: by mail-ed1-f71.google.com with SMTP id
+ m20-20020aa7c2d4000000b003d1add00b8aso6842282edp.0
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 06:16:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=MKDfgpyx2DLaN+agqTgdGBhC7hPiB158s/GwrS6Ihlc=;
+ b=e3Ksx+mGkoSyoSHTfnbvtVemZdnsNzi2rilYKn9sXNuWnXHo1IdjFdEeQVLLbuerTo
+ pnUN6hixT67s+HUDw2i/FYty945T7VDZbbn5GwMRHGBr8KJ25Mcr4PHEpk4vDKrzBt/q
+ xw9Qz7DYjCkApskvImI1hpKva2r4Kbz9Ix/dFxhnkDXssf/pDBgMrOAz2TZo2xP1eVvP
+ kcNurFjFqyitQD5R4lxOUY+GGo0AHHzr7Db8GZMLzCJQ/17kb3Yv9SW8okZ+ggZARfCm
+ 57OEofSiJ9PBLNq1Clt2Exd5gvmyLnM4TyYHkHiQQbixTUVXd+qCgE2ZmXJwD7i+bsw3
+ VDXA==
+X-Gm-Message-State: AOAM532f6pGwkQgT93afelhe9smwU0UvnGXad0ALRPwDsOLjP7uEgoD0
+ hrYav+6KbDqeEOqYHQyHD10kPXDIGox1fnoJGfk0YrRuPJFZyLVkH6sV8aCwOSjCWAjVzVBhehl
+ X125h8H2cHjrDEoq9DA1W4yJcqg9pDN2CWhZj/ZYpiFMcHMlAJNvzRrQDhPkCIw==
+X-Received: by 2002:a50:9d8e:: with SMTP id w14mr5339878ede.74.1632403011490; 
+ Thu, 23 Sep 2021 06:16:51 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyrgje9Xp2OF0gTt6J7JjXIzDOTnJlBJzaVdnqqamjZANbNh5L9aWHVmJ3gxN+QGK8XgB4V/GLiPs1Pgzoii4Q=
+X-Received: by 2002:a50:9d8e:: with SMTP id w14mr5339856ede.74.1632403011278; 
+ Thu, 23 Sep 2021 06:16:51 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: synopsys.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CY4PR12MB1160.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1e5f238-9c40-4f49-2da5-08d97e8fdc67
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2021 12:44:19.0739 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YXVpj8MQIzNFMgREFPcSyNOhb48DBCQjuuwYd+4/FTIRz+7n+fNOo/94DmdqxSrRhwhnoAWwsgrHeewqRJ+nSA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR1201MB0200
+References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
+ <28072b8e-2c32-e67d-19d3-026913c0bc7f@codethink.co.uk>
+ <CA+zEjCsPwGFng73OJShEc2g6wW1SOKwX7XYFqej_vkJKKUxL0A@mail.gmail.com>
+In-Reply-To: <CA+zEjCsPwGFng73OJShEc2g6wW1SOKwX7XYFqej_vkJKKUxL0A@mail.gmail.com>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Thu, 23 Sep 2021 15:16:40 +0200
+Message-ID: <CA+zEjCtfQwK04vGJxULrESkxk=Ko8GiE8jm4CexnJ9u6COTwrA@mail.gmail.com>
+Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Support Opensource <support.opensource@diasemi.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_054434_045130_86A36B0F 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20210923_061653_406768_22006711 
+X-CRM114-Status: GOOD (  42.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -209,34 +109,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/23/21 9:43 AM, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> For ages memblock_free() interface dealt with physical addresses even
-> despite the existence of memblock_alloc_xx() functions that return a
-> virtual pointer.
-> 
-> Introduce memblock_phys_free() for freeing physical ranges and repurpose
-> memblock_free() to free virtual pointers to make the following pairing
-> abundantly clear:
-> 
-> 	int memblock_phys_free(phys_addr_t base, phys_addr_t size);
-> 	phys_addr_t memblock_phys_alloc(phys_addr_t base, phys_addr_t size);
-> 
-> 	void *memblock_alloc(phys_addr_t size, phys_addr_t align);
-> 	void memblock_free(void *ptr, size_t size);
-> 
-> Replace intermediate memblock_free_ptr() with memblock_free() and drop
-> unnecessary aliases memblock_free_early() and memblock_free_early_nid().
-> 
-> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+On Tue, Sep 21, 2021 at 1:33 PM Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
+>
+> On Tue, Sep 21, 2021 at 12:25 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+> >
+> > On 21/09/2021 06:33, Alexandre Ghiti wrote:
+> > > The SiFive Unmatched board uses the da9063 PMIC for reset: add a restart
+> > > notifier that will execute a small i2c sequence allowing to reset the
+> > > board.
+> > >
+> > > The original implementation comes from Marcus Comstedt and Anders Montonen
+> > > (https://forums.sifive.com/t/reboot-command/4721/28).
+> > >
+> > > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> >
+> > I've got a couple of comments here, mainly is this the right place
+> > and has anyone other than you tested. I tried something similar on
+> > my Unmatched and it just turned the board off.
+>
+> Someone else in the thread I mention in the commit log tried it, but
+> more feedback are welcome :)
+>
+> For the Unmatched, this solution will be temporary, the best place
+> being openSBI which lacks i2c support for now.
+> But I think this can be used by other boards using this PMIC.
+>
+> >
+> > > ---
+> > >   drivers/mfd/da9063-core.c       | 25 +++++++++++++++++++++++++
+> > >   include/linux/mfd/da9063/core.h |  3 +++
+> > >   2 files changed, 28 insertions(+)
+> > >
+> > > diff --git a/drivers/mfd/da9063-core.c b/drivers/mfd/da9063-core.c
+> > > index df407c3afce3..c87b8d611f20 100644
+> > > --- a/drivers/mfd/da9063-core.c
+> > > +++ b/drivers/mfd/da9063-core.c
+> > > @@ -20,6 +20,7 @@
+> > >   #include <linux/mutex.h>
+> > >   #include <linux/mfd/core.h>
+> > >   #include <linux/regmap.h>
+> > > +#include <linux/reboot.h>
+> > >
+> > >   #include <linux/mfd/da9063/core.h>
+> > >   #include <linux/mfd/da9063/registers.h>
+> > > @@ -158,6 +159,18 @@ static int da9063_clear_fault_log(struct da9063 *da9063)
+> > >       return ret;
+> > >   }
+> > >
+> > > +static int da9063_restart_notify(struct notifier_block *this,
+> > > +                              unsigned long mode, void *cmd)
+> > > +{
+> > > +     struct da9063 *da9063 = container_of(this, struct da9063, restart_handler);
+> > > +
+> > > +     regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
+> > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
+> > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
+> > > +
+> > > +     return NOTIFY_DONE;
+> > > +}
+> > > +
+> >
+> > Firstly, do you also need to force the AUTOBOOT (bit 3, CONTROL_C)
+> > to ensure the PMIC does restart.
+>
+> I tried this too and actually, it seems that the value is read from
+> OTP at reboot and as it is not set here, it has no effect.
+>
+> >
+> > >   int da9063_device_init(struct da9063 *da9063, unsigned int irq)
+> > >   {
+> > >       int ret;
+> > > @@ -197,6 +210,18 @@ int da9063_device_init(struct da9063 *da9063, unsigned int irq)
+> > >               }
+> > >       }
+> > >
+> > > +     da9063->restart_handler.notifier_call = da9063_restart_notify;
+> > > +     da9063->restart_handler.priority = 128;
+> > > +     ret = register_restart_handler(&da9063->restart_handler);
+> > > +     if (ret) {
+> > > +             dev_err(da9063->dev, "Failed to register restart handler\n");
+> > > +             return ret;
+> > > +     }
+> > > +
+> > > +     devm_add_action(da9063->dev,
+> > > +                     (void (*)(void *))unregister_restart_handler,
+> > > +                     &da9063->restart_handler);
+> >
+> > there's devm_register_reboot_notifier()
+>
+> Thanks for that!
 
-arch/arc part: Reviewed-by: Shahab Vahedi <shahab@synopsys.com>
+Actually restart_notifier and reboot_notifier are not the same, see
+https://elixir.bootlin.com/linux/latest/source/kernel/reboot.c#L72.
+What we need here is restart_handler.
 
+Thanks anyway :)
 
-Thanks,
-Shahab
+Alex
+
+>
+> >
+> >
+> > > +
+> > >       return ret;
+> > >   }
+> > >
+> > > diff --git a/include/linux/mfd/da9063/core.h b/include/linux/mfd/da9063/core.h
+> > > index fa7a43f02f27..1b20c498e340 100644
+> > > --- a/include/linux/mfd/da9063/core.h
+> > > +++ b/include/linux/mfd/da9063/core.h
+> > > @@ -85,6 +85,9 @@ struct da9063 {
+> > >       int             chip_irq;
+> > >       unsigned int    irq_base;
+> > >       struct regmap_irq_chip_data *regmap_irq;
+> > > +
+> > > +     /* Restart */
+> > > +     struct notifier_block restart_handler;
+> > >   };
+> > >
+> > >   int da9063_device_init(struct da9063 *da9063, unsigned int irq);
+> >
+> > Note, the watchdog driver for the DA9063 also has a restart method
+> > although it also does not set the AUTOBOOT bit either.
+> >
+> > The best thing is to enable the watchdog driver, the SiFive release
+> > does not have either the core DA9063 or the watchdog driver for it
+> > enabled.
+>
+> It seems that for the restart implemented here to work, the AUTOBOOT
+> bit needs to be set in the OTP, which seems not to be the case with
+> the chip on this board: it's been discussed here
+> https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-support_tab_content
+> (see the accepted answer).
+>
+> Thanks,
+>
+> Alex
+>
+> >
+> > --
+> > Ben Dooks                               http://www.codethink.co.uk/
+> > Senior Engineer                         Codethink - Providing Genius
+> >
+> > https://www.codethink.co.uk/privacy.html
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
