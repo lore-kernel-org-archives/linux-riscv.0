@@ -2,106 +2,85 @@ Return-Path: <SRS0=XVif=ON=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06645C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 16:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CE825C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 17:00:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C300C60E9C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 16:02:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C300C60E9C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7FBB661241
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 17:00:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7FBB661241
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=teaUVANUGy1Wgx/CrvT2Ff3lenHp6aCIJI3f0d+mTws=; b=OQvfkA15SnIlwy
-	Be8x6tM2pXqZt5SifEt051Ees9fZuIayjDi0wPcmDYxDLLrx9vu1wfKhwzlwD5SzT4QKMnxO8NDIo
-	B6e6Pct+E/hJkoivwJhKZuHqho80Q6SUJtZqfM9vl47kZ+QZf08dJTcaIbOjppz5ZZRaV49T5wLrm
-	oHNtHf7kxYCyDp26Kp0ImTUmt0nnhvW2LVPGSyRzdRUgj3PWkFgfl35YzEPc4DeINoBbCAO0zNJpC
-	dzqwDfJkAiaWcwr7vDn3hCzmpCVJWldWPrSGCrZXOIvRuS+a6bfVKJdok8/4KLVamsnhfyeRCil77
-	F3dwTS5Aoy7ziHHk/Qyw==;
+	List-Owner; bh=94kYna0YhvEyZ/wQwqpSL0rdvldHZ+AHi/mWrxCBdGk=; b=NbfQ3X9Oqkg/Df
+	ziNYIM9/OI94D49rXa3GMEHK27K4Oq7X3kcozYIF7i+aI9wG59fmbYQRf3IDIlyCcYhJmUV0XTW7i
+	Lp4nNOq54yPUSu/F+3igg0fPkBE6Y1S/t3Ht1DJ3SN3yCuQtzZL5QXoQCL7SDcoKM4KxiDq/Sok+e
+	SKbZlsgvgjUZnoDAiFq56S8EU+XuTmKp332QaPG4bSxk15oNN+jRryQhueHM5yqy6klGEoFF3V5x3
+	1ZB7jkeEOdWDiBy7BEF8VWPFyUF2pEpJ78FKYJWUd2EDTyD6k9C/SM2aF73vcg2c/Hpe72p15TxOi
+	yH1jsopc+biu3DCx68jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTRB4-00C6mL-HF; Thu, 23 Sep 2021 16:02:26 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1mTS4P-00CD9B-VI; Thu, 23 Sep 2021 16:59:38 +0000
+Received: from mail-ot1-f53.google.com ([209.85.210.53])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTRAr-00C6kK-Va
- for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 16:02:15 +0000
-Received: by mail-lj1-x231.google.com with SMTP id a20so202074ljq.3
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 09:02:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linux-foundation.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=DLOxhnwH/JaVIhRbDcxcZPpiYGHLJbtd0CRIGAWnOsw=;
- b=QMXOiJ6n28J2emY/y7cY9+DD4h8Pn0KRvNWmJxYGi/2iw91Mhhsv5k4E/yi6SvFmH+
- cwsdxpHCcIaSp+pnaMQx9j8vfDg38b4ujoTb2lzS4jvwjrgaoWuJfcNbrdzMUshkRDfy
- wyxZpTZP4dsY0GDCSs5bbcT3wFiFu+kSB/Akk=
+ id 1mTS4N-00CD7o-JK
+ for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 16:59:36 +0000
+Received: by mail-ot1-f53.google.com with SMTP id
+ c42-20020a05683034aa00b0051f4b99c40cso9517647otu.0
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 09:59:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=DLOxhnwH/JaVIhRbDcxcZPpiYGHLJbtd0CRIGAWnOsw=;
- b=6lTxDg/FZELmLnfA8yEvnAF4km1Ry2DRqsOcjaNim+fNv77BnGzrdm6A+n0mtelwW7
- mdjqZP97m4R/RGlmsBNeG3HFiCvpmgdTcmE7wscItFnzOxwxCLDDresSMQ1M48Byj2gq
- 1ptDGXW/5Gh5QlEx31jFSuSjqEpRSLrNbwkaafDf0v+apdOpj1kplbE2WQz8NGHNElJK
- gfuDAvQyXnLOsDYjrMWNefHLiKoyX21EdgaNIOcsHGOPVGWbUrEBt0FMGfn10m50ueKA
- oDdESb1Ob5YJ5/x60Gm/ap+omYvHHj+FHjbsm9dmBW1BMDJCI1Ba24L/7iVemlR81rSv
- 6VTA==
-X-Gm-Message-State: AOAM5311zTdsTc2s3dVEAYLaEwjYaTf63ymtKxHPfY0OIhH8CyxgLDJM
- PyjuCyu8kZPRXw2Dn5VDHlk3PRdwzNdmCkCo
-X-Google-Smtp-Source: ABdhPJxzJW2IFOtAw5pin6FchlJ6gmkv1cLgjH+7US2tKGPwRf8tB7D3PbGUSPcmlROXR3h0nUlE2Q==
-X-Received: by 2002:a05:651c:2de:: with SMTP id
- f30mr6271110ljo.129.1632412931327; 
- Thu, 23 Sep 2021 09:02:11 -0700 (PDT)
-Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com.
- [209.85.208.170])
- by smtp.gmail.com with ESMTPSA id x23sm489283lfd.136.2021.09.23.09.02.02
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 23 Sep 2021 09:02:05 -0700 (PDT)
-Received: by mail-lj1-f170.google.com with SMTP id u1so201206lje.12
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 09:02:02 -0700 (PDT)
-X-Received: by 2002:a2e:3309:: with SMTP id d9mr5950451ljc.249.1632412922441; 
- Thu, 23 Sep 2021 09:02:02 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=1i+M8EOr7e57ftQjdyXXIOehi2M7Hp7GON39uqkaep4=;
+ b=FLpS1LIFvAgmk1op5QsHaNTXjdEHTOvG/pztD0cc9IuqlJKVtgMhWf3mhehD5kPrPf
+ 51NSH+9gq1ymtDmfrpH3alr56Y/qwpUJC1UDBNcfWLUvZyK8CqFy7t5c4kPzWVPiYE2v
+ Vo4LB/pQbGw+fHB9NQ0OIHRQ7OSqU45sKrk1KwXEoiDrHM3tqU7au864A4bUCr/aHxaY
+ rqV9kT5UefpLmoysbLozjK6touG9sesmXag7hdgSUwWxat+nKU83jJ7gZIvkBzQnQAK7
+ 7lEhIeP25f9AMfNARvwg7bslO6z8+tmNVht7g8aSS9WO4uZjzkSI4u0TPHTIDMFKTacu
+ sxVA==
+X-Gm-Message-State: AOAM53359EDuLna4iVKPhnilhRfCdlEyk8FTNQUOMaD7yLto7HnF3guI
+ M/DC+QKs0OwQ0d9Bv4vH3Q==
+X-Google-Smtp-Source: ABdhPJyJacfEO2U/tWDyQhP1Mzyf1Ng9ln0l9pqO8lCSU02mh5acU8WvyIVenmskQ9rvKbUnPHh2iQ==
+X-Received: by 2002:a9d:7b4f:: with SMTP id f15mr5168057oto.158.1632416374200; 
+ Thu, 23 Sep 2021 09:59:34 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id g23sm1407552otl.23.2021.09.23.09.59.32
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 23 Sep 2021 09:59:33 -0700 (PDT)
+Received: (nullmailer pid 3169434 invoked by uid 1000);
+ Thu, 23 Sep 2021 16:59:32 -0000
+Date: Thu, 23 Sep 2021 11:59:32 -0500
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Cc: Zong Li <zong.li@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Stephen Boyd <sboyd@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] dt-bindings: clock: fu740-prci: add reset-cells
+Message-ID: <YUyydGrDNzISu6JX@robh.at.kernel.org>
+References: <20210920144944.162431-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
-References: <20210923074335.12583-1-rppt@kernel.org>
-In-Reply-To: <20210923074335.12583-1-rppt@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 23 Sep 2021 09:01:46 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wiJB8H5pZz-AKaSJ7ViRtdxQGJT7eOByp8DJx2OwZSYwA@mail.gmail.com>
-Message-ID: <CAHk-=wiJB8H5pZz-AKaSJ7ViRtdxQGJT7eOByp8DJx2OwZSYwA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] memblock: cleanup memblock_free interface
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- devicetree <devicetree@vger.kernel.org>, 
- iommu <iommu@lists.linux-foundation.org>,
- kasan-dev <kasan-dev@googlegroups.com>, 
- KVM list <kvm@vger.kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-efi <linux-efi@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Linux-MM <linux-mm@kvack.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>, 
- Linux-sh list <linux-sh@vger.kernel.org>, 
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
- linux-um <linux-um@lists.infradead.org>, linux-usb@vger.kernel.org, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- linux-sparc <sparclinux@vger.kernel.org>, 
- xen-devel@lists.xenproject.org, Mike Rapoport <rppt@linux.ibm.com>
+Content-Disposition: inline
+In-Reply-To: <20210920144944.162431-1-krzysztof.kozlowski@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_090214_079128_3F2117ED 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20210923_095935_682850_DCB73F11 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,50 +97,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 23, 2021 at 12:43 AM Mike Rapoport <rppt@kernel.org> wrote:
->
-> The core change is in the third patch that makes memblock_free() a
-> counterpart of memblock_alloc() and adds memblock_phys_alloc() to be a
+On Mon, 20 Sep 2021 16:49:44 +0200, Krzysztof Kozlowski wrote:
+> The SiFive FU740 Power Reset Clock Interrupt Controller is a reset line
+> provider so add respective reset-cells property to fix:
+> 
+>   arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dt.yaml: clock-controller@10000000:
+>     '#reset-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> ---
+>  .../devicetree/bindings/clock/sifive/fu740-prci.yaml          | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-^^^^^^^^^^^^^^^^^^^
-> counterpart of memblock_phys_alloc().
-
-That should be 'memblock_phys_free()'
-
-HOWEVER.
-
-The real reason I'm replying is that this patch is horribly buggy, and
-will cause subtle problems that are nasty to debug.
-
-You need to be a LOT more careful.
-
-From a trivial check - exactly because I looked at doing it with a
-script, and decided it's not so easy - I found cases like this:
-
--               memblock_free(__pa(paca_ptrs) + new_ptrs_size,
-+               memblock_free(paca_ptrs + new_ptrs_size,
-
-which is COMPLETELY wrong.
-
-Why? Because now that addition is done as _pointer_ addition, not as
-an integer addition, and the end result is something completely
-different.
-
-pcac_ptrs is of type 'struct paca_struct **', so when you add
-new_ptrs_size to it, it will add it in terms of that many pointers,
-not that many bytes.
-
-You need to use some smarter scripting, or some way to validate it.
-
-And no, making the scripting just replace '__pa(x)' with '(void *)(x)'
-- which _would_ be mindless and get the same result - is not
-acceptable either, because it avoids one of the big improvements from
-using the right interface, namely having compiler type checking (and
-saner code that people understand).
-
-So NAK. No broken automated scripting patches.
-
-               Linus
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
