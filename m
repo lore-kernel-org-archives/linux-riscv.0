@@ -2,94 +2,118 @@ Return-Path: <SRS0=XVif=ON=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69CE9C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EA50EC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 12:01:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B94D60F41
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:53:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2B94D60F41
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id A848860F56
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 12:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A848860F56
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d9TjYrmgyBQSpSahcDwzuK43gJh2GRjGZrzzsIP7rIg=; b=jyFhDKhYB8nWzH
-	iYcyps27hHjtD5ePV7HwNZRo7qcw1xSryz2J8KAS6kCDZUwWBb15iruYA5aiawMdFmo3ctKRQwH+0
-	k2SqV/bbsFoQHIwFq/yTlNlyMIGOP2Qfix7yiMsMzTJzJXwLw3GqFjBTfNwOq0RXNlhL34Vl2Krez
-	u/zLe/O5BCzJ3W01WWo4L3SGDmmkK0ApGhl4fXRhQrtP3Mb9nRbQ+e0PY5qUS1SP9C0Cxb/BkmH8S
-	xqAfMdarwGEAA40QSkT8r+xQTCkDp0JLKD6oS32NN6Xex9RcFsKcYseJTABRD9/f3/Ld+xnr8LAp5
-	jBHhng/hcC+O3VmR3gtA==;
+	List-Owner; bh=qsI6SlYB+m1NquMklCobsV3ObH6gwJlBN8qKjizeymY=; b=bNmsfO84yL/nS8
+	1sLzUOOJFYbf+7ntP9pagfP0mp/hsOdAP6Uw64cOw32krDpKriNgs41atWMG7zp1F/0do3PZALqB1
+	orV5e2ZPbmUdHKQJxubjFmFdA4Z7F7V0FnuVVS6L8g62IO+i0dObXgTEQcFkYF/Pb5jGjTXDrcrnK
+	w7TKLBaq4qDdDMVAcikymM78oLyNCWaSkn3IPwl4HD0XnG2VS5jB5k2KI4MEN86LoWqufTA3Yxnnc
+	4+I58tcZlZDu3D8IWM4ljMnxhmZkEh+oUMXKLqhb7tlkG36agOkyU9y8u0CU8qxoI84MohcwpzqBk
+	wzqOdOi5cn646/m38Hmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTNI8-00B9td-3a; Thu, 23 Sep 2021 11:53:28 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mTNPx-00BBNT-AW; Thu, 23 Sep 2021 12:01:33 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTNI4-00B9t9-0F
- for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 11:53:26 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9E98561250
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 11:53:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1632398003;
- bh=vAqXXFdSndGKzXzrsxWG0Y/zKOj9pz6rOjfvQrnKxMM=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=C2EYLUIKlOWxZtItJtq2crL3EDUpSaImtKAa8q9Z1bCrdLA7wuIGSB09sM5mt59KX
- 3W0ghfq1QukZhTvIAJarPhRjZ8/fzGqlFkNOVBZw0T0ZBEVLyNG20S2CnYBli6PrMT
- 4gYVaNv6OzuDXFn240eXqdQLQpK9QjQPOUCkXAIQdOxlwDLQ9vUbgJ0VD1QwtHJFNd
- 6JIaysqwefVN60c2fn+Ldl8HYRxK8BMr72xCF/vG0CzKOq+ytt5WAyH+14Y/aRcKxi
- WH7FkngLOGwv5MUX/e+sA1W0gV2f9vclEA7QZmgxrzx9oRy7ig1yKM2GdMioHUNmow
- 4aNlXov3MKugQ==
-Received: by mail-ua1-f48.google.com with SMTP id i8so1942317uae.7
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 04:53:23 -0700 (PDT)
-X-Gm-Message-State: AOAM531hVNZ9QtRnsKsXt+dZYaaeXqjhm59sHXTyXoMQz3+zoDQ356Tm
- DGzrLAe27mdlZk+H5PgH5xH2HA27iU1rP/KddW4=
-X-Google-Smtp-Source: ABdhPJyWE/Su2HcTbMdsPITB9GQRFtilqy0TIBv/5pNgCe5qcT7SVzDKL0RoHxaYKq2le86tTiDN4RgN36Rtope8Jz4=
-X-Received: by 2002:ab0:689a:: with SMTP id t26mr3506279uar.57.1632398002696; 
- Thu, 23 Sep 2021 04:53:22 -0700 (PDT)
+ id 1mTNPr-00BBHW-27; Thu, 23 Sep 2021 12:01:28 +0000
+Received: from pps.filterd (m0098410.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 18NAdUcU003364; 
+ Thu, 23 Sep 2021 08:01:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ content-transfer-encoding : in-reply-to; s=pp1;
+ bh=pXzEf65A4Oe5+XzfRr8terVnfyIyuO6PQs0+F8aXgGc=;
+ b=ZCv5VVg5Axl96NC4/j5oW2leA+TyRu7PTszC85LX7OnyuvdR/QPrxFJvHee6+ph9/1Ah
+ rUd/1Dr4tZ5yXYAiKoNA4l0g4riJzCer09eV4KmKCsnovao7Ujg6/MQzQ6IVb2C5LRSL
+ 6WitPRreJzNPlii4WW55mXNNAxhzlImWjS7TBI5y3E9CuYqxTL+hR1eRpZFENX5WHVgo
+ 3bzeScRRqqA6eAdFzB/5aWdZYhNxC/HkliRolmuo1Xv4pKsUbXkIzU8GEpyYBQunYUKJ
+ 0M08Qqduz9x2e5o+taGQrQG0ce7A7g963Zzijz3wHvEhl/y43e2FXQI9OwpYg11CHmgU 9g== 
+Received: from ppma06fra.de.ibm.com (48.49.7a9f.ip4.static.sl-reverse.com
+ [159.122.73.72])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 3b8p4dcmbn-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Thu, 23 Sep 2021 08:01:14 -0400
+Received: from pps.filterd (ppma06fra.de.ibm.com [127.0.0.1])
+ by ppma06fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 18NBvwov029624;
+ Thu, 23 Sep 2021 12:01:11 GMT
+Received: from b06cxnps4074.portsmouth.uk.ibm.com
+ (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
+ by ppma06fra.de.ibm.com with ESMTP id 3b7q6ps42c-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Thu, 23 Sep 2021 12:01:11 +0000
+Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
+ [9.149.105.58])
+ by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 18NC18Jk56885734
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 23 Sep 2021 12:01:08 GMT
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 810B04C08B;
+ Thu, 23 Sep 2021 12:01:08 +0000 (GMT)
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 64DD54C089;
+ Thu, 23 Sep 2021 12:01:06 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.145.159.121])
+ by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Thu, 23 Sep 2021 12:01:06 +0000 (GMT)
+Date: Thu, 23 Sep 2021 15:01:04 +0300
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Mike Rapoport <rppt@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ devicetree@vger.kernel.org, linux-efi@vger.kernel.org,
+ kvm@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ iommu@lists.linux-foundation.org, linux-usb@vger.kernel.org,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/3] memblock: cleanup memblock_free interface
+Message-ID: <YUxsgN/uolhn1Ok+@linux.ibm.com>
+References: <20210923074335.12583-1-rppt@kernel.org>
+ <20210923074335.12583-4-rppt@kernel.org>
+ <1101e3c7-fcb7-a632-8e22-47f4a01ea02e@csgroup.eu>
 MIME-Version: 1.0
-References: <20210923072716.913826-1-guoren@kernel.org>
- <CAAhSdy3S4iH7U-4BR-pS6aQrxRZKBfYT7vyTwYmFDePpe810kQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy3S4iH7U-4BR-pS6aQrxRZKBfYT7vyTwYmFDePpe810kQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 23 Sep 2021 19:53:11 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQGyeeWX7bzZvSW6Mh9PBpBYYpnmThrT8VrtguG1OPmvQ@mail.gmail.com>
-Message-ID: <CAJF2gTQGyeeWX7bzZvSW6Mh9PBpBYYpnmThrT8VrtguG1OPmvQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Add RISC-V svpbmt extension
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>,
- liush <liush@allwinnertech.com>, 
- wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- Drew Fustini <drew@beagleboard.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- taiten.peng@canonical.com, aniket.ponkshe@canonical.com, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- gordan.markus@canonical.com, 
- Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
- Chen-Yu Tsai <wens@csie.org>, 
- Maxime Ripard <maxime@cerno.tech>, Daniel Lustig <dlustig@nvidia.com>, 
- Greg Favor <gfavor@ventanamicro.com>,
- Andrea Mondelli <andrea.mondelli@huawei.com>, 
- Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>, 
- Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>, 
- Allen Baum <allen.baum@esperantotech.com>,
- Josh Scheid <jscheid@ventanamicro.com>, 
- Richard Trauben <rtrauben@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <1101e3c7-fcb7-a632-8e22-47f4a01ea02e@csgroup.eu>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: fe2SFaLdoxw706nrVmE8bleSLkHdGrzC
+X-Proofpoint-ORIG-GUID: fe2SFaLdoxw706nrVmE8bleSLkHdGrzC
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.182.1,Aquarius:18.0.790,Hydra:6.0.391,FMLib:17.0.607.475
+ definitions=2021-09-23_04,2021-09-23_01,2020-04-07_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 mlxscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1011 bulkscore=0 spamscore=0
+ mlxlogscore=613 impostorscore=0 priorityscore=1501 malwarescore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2109200000 definitions=main-2109230076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_045324_136326_586133BC 
-X-CRM114-Status: GOOD (  43.54  )
+X-CRM114-CacheID: sfid-20210923_050127_172682_2F0B673E 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,429 +125,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 23, 2021 at 5:13 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Thu, Sep 23, 2021 at 12:57 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > This patch follows the standard pure RISC-V Svpbmt extension in
-> > privilege spec to solve the non-coherent SOC dma synchronization
-> > issues.
-> >
-> > Here is the svpbmt PTE format:
-> > | 63 | 62-61 | 60-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> >   N     MT     RSW    D   A   G   U   X   W   R   V
-> >         ^
-> >
-> > Of the Reserved bits [63:54] in a leaf PTE, the high bit is already
-> > allocated (as the N bit), so bits [62:61] are used as the MT (aka
-> > MemType) field. This field specifies one of three memory types that
-> > are close equivalents (or equivalent in effect) to the three main x86
-> > and ARMv8 memory types - as shown in the following table.
-> >
-> > RISC-V
-> > Encoding &
-> > MemType     RISC-V Description
-> > ----------  ------------------------------------------------
-> > 00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> > 01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> > 10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> > 11 - Rsvd   Reserved for future standard use
-> >
-> > The standard protection_map [] needn't be modified because the "PMA"
-> > type keeps the highest bits zero. The standard protection_map[] needn't
-> > be modified. So the whole modification is in the arch/riscv pgtable and
-> > using a global variable (__riscv_svpbmt) in the _PAGE_DMA_MASK/IO/NC
-> > for pgprot_noncached (&writecombine). We also need _PAGE_CHG_MASK to
-> > detect PFN than before.
-> >
-> > Devicetree: reuse "mmu-type" of cpu_section as a user interface to
-> > enable the feature or not:
-> >  - riscv,sv39,svpbmt
-> >  - riscv,sv48,svpbmt
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Liu Shaohua <liush@allwinnertech.com>
-> > Cc: Wei Fu <wefu@redhat.com>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Christoph Hellwig <hch@lst.de>
-> > Cc: Anup Patel <anup.patel@wdc.com>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Atish Patra <atish.patra@wdc.com>
-> > Cc: Drew Fustini <drew@beagleboard.org>
-> > Cc: Wei Fu <wefu@redhat.com>
-> > Cc: Wei Wu <lazyparser@gmail.com>
-> > Cc: Chen-Yu Tsai <wens@csie.org>
-> > Cc: Maxime Ripard <maxime@cerno.tech>
-> > Cc: Daniel Lustig <dlustig@nvidia.com>
-> > Cc: Greg Favor <gfavor@ventanamicro.com>
-> > Cc: Andrea Mondelli <andrea.mondelli@huawei.com>
-> > Cc: Jonathan Behrens <behrensj@mit.edu>
-> > Cc: Xinhaoqu (Freddie) <xinhaoqu@huawei.com>
-> > Cc: Bill Huffman <huffman@cadence.com>
-> > Cc: Nick Kossifidis <mick@ics.forth.gr>
-> > Cc: Allen Baum <allen.baum@esperantotech.com>
-> > Cc: Josh Scheid <jscheid@ventanamicro.com>
-> > Cc: Richard Trauben <rtrauben@gmail.com>
+On Thu, Sep 23, 2021 at 11:47:48AM +0200, Christophe Leroy wrote:
+> =
+
+> =
+
+> Le 23/09/2021 =E0 09:43, Mike Rapoport a =E9crit=A0:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > =
+
+> > For ages memblock_free() interface dealt with physical addresses even
+> > despite the existence of memblock_alloc_xx() functions that return a
+> > virtual pointer.
+> > =
+
+> > Introduce memblock_phys_free() for freeing physical ranges and repurpose
+> > memblock_free() to free virtual pointers to make the following pairing
+> > abundantly clear:
+> > =
+
+> > 	int memblock_phys_free(phys_addr_t base, phys_addr_t size);
+> > 	phys_addr_t memblock_phys_alloc(phys_addr_t base, phys_addr_t size);
+> > =
+
+> > 	void *memblock_alloc(phys_addr_t size, phys_addr_t align);
+> > 	void memblock_free(void *ptr, size_t size);
+> > =
+
+> > Replace intermediate memblock_free_ptr() with memblock_free() and drop
+> > unnecessary aliases memblock_free_early() and memblock_free_early_nid().
+> > =
+
+> > Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > > ---
-> >  .../devicetree/bindings/riscv/cpus.yaml       |  2 +
-> >  arch/riscv/include/asm/fixmap.h               |  2 +-
-> >  arch/riscv/include/asm/pgtable-64.h           |  8 ++--
-> >  arch/riscv/include/asm/pgtable-bits.h         | 46 ++++++++++++++++++-
-> >  arch/riscv/include/asm/pgtable.h              | 39 ++++++++++++----
-> >  arch/riscv/include/asm/processor.h            |  1 +
-> >  arch/riscv/kernel/cpufeature.c                | 23 ++++++++++
-> >  arch/riscv/kernel/setup.c                     |  2 +
-> >  arch/riscv/mm/init.c                          |  5 ++
-> >  9 files changed, 113 insertions(+), 15 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > index e534f6a7cfa1..1825cd8db0de 100644
-> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > @@ -56,7 +56,9 @@ properties:
-> >      enum:
-> >        - riscv,sv32
-> >        - riscv,sv39
-> > +      - riscv,sv39,svpbmt
-> >        - riscv,sv48
-> > +      - riscv,sv48,svpbmt
-> >        - riscv,none
->
-> I think augmenting the "mmu-type" DT property is a good approach but the
-> description of "mmu-type" DT property needs to say:
->
-> "Identifies the MMU address translation mode and page based memory
-> type used on ..."
-Okay
+> =
 
->
-> Also, DT bindings change is generally a separate patch so better to make
-> a separate patch for this.
-Okay
+> > diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
+> > index 1a04e5bdf655..37826d8c4f74 100644
+> > --- a/arch/s390/kernel/smp.c
+> > +++ b/arch/s390/kernel/smp.c
+> > @@ -723,7 +723,7 @@ void __init smp_save_dump_cpus(void)
+> >   			/* Get the CPU registers */
+> >   			smp_save_cpu_regs(sa, addr, is_boot_cpu, page);
+> >   	}
+> > -	memblock_free(page, PAGE_SIZE);
+> > +	memblock_phys_free(page, PAGE_SIZE);
+> >   	diag_amode31_ops.diag308_reset();
+> >   	pcpu_set_smt(0);
+> >   }
+> > @@ -880,7 +880,7 @@ void __init smp_detect_cpus(void)
+> >   	/* Add CPUs present at boot */
+> >   	__smp_rescan_cpus(info, true);
+> > -	memblock_free_early((unsigned long)info, sizeof(*info));
+> > +	memblock_free(info, sizeof(*info));
+> >   }
+> >   /*
+> =
 
->
-> >
-> >    riscv,isa:
-> > diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> > index 54cbf07fb4e9..5acd99d08e74 100644
-> > --- a/arch/riscv/include/asm/fixmap.h
-> > +++ b/arch/riscv/include/asm/fixmap.h
-> > @@ -43,7 +43,7 @@ enum fixed_addresses {
-> >         __end_of_fixed_addresses
-> >  };
-> >
-> > -#define FIXMAP_PAGE_IO         PAGE_KERNEL
-> > +#define FIXMAP_PAGE_IO         PAGE_IOREMAP
-> >
-> >  #define __early_set_fixmap     __set_fixmap
-> >
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> > index 228261aa9628..0b53ea67e91a 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -61,12 +61,14 @@ static inline void pud_clear(pud_t *pudp)
-> >
-> >  static inline pmd_t *pud_pgtable(pud_t pud)
-> >  {
-> > -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +       return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_CHG_MASK)
-> > +                                               >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline struct page *pud_page(pud_t pud)
-> >  {
-> > -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +       return pfn_to_page((pud_val(pud) & _PAGE_CHG_MASK)
-> > +                                               >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-> > @@ -76,7 +78,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-> >
-> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
-> >  {
-> > -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-> > +       return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
-> >  }
-> >
-> >  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
-> > diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> > index 2ee413912926..041fe4fdbafa 100644
-> > --- a/arch/riscv/include/asm/pgtable-bits.h
-> > +++ b/arch/riscv/include/asm/pgtable-bits.h
-> > @@ -7,7 +7,7 @@
-> >  #define _ASM_RISCV_PGTABLE_BITS_H
-> >
-> >  /*
-> > - * PTE format:
-> > + * rv32 PTE format:
-> >   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> >   *       PFN      reserved for SW   D   A   G   U   X   W   R   V
-> >   */
-> > @@ -24,6 +24,47 @@
-> >  #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
-> >  #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
-> >
-> > +#ifndef __ASSEMBLY__
-> > +#ifdef CONFIG_64BIT
-> > +/*
-> > + * rv64 PTE format:
-> > + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> > + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
-> > + * [62:61] Memory Type definitions:
-> > + *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> > + *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> > + *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> > + *  11 - Rsvd   Reserved for future standard use
-> > + */
-> > +#define _PAGE_MT_MASK          ((u64)0x3 << 61)
-> > +#define _PAGE_MT_PMA           ((u64)0x0 << 61)
-> > +#define _PAGE_MT_NC            ((u64)0x1 << 61)
-> > +#define _PAGE_MT_IO            ((u64)0x2 << 61)
-> > +
-> > +enum {
-> > +       MT_PMA,
-> > +       MT_NC,
-> > +       MT_IO,
-> > +       MT_MAX
-> > +};
-> > +
-> > +extern struct __riscv_svpbmt_struct {
-> > +       unsigned long mask;
-> > +       unsigned long mt[MT_MAX];
-> > +} __riscv_svpbmt;
-> > +
-> > +#define _PAGE_DMA_MASK         __riscv_svpbmt.mask
-> > +#define _PAGE_DMA_PMA          __riscv_svpbmt.mt[MT_PMA]
-> > +#define _PAGE_DMA_NC           __riscv_svpbmt.mt[MT_NC]
-> > +#define _PAGE_DMA_IO           __riscv_svpbmt.mt[MT_IO]
-> > +#else
-> > +#define _PAGE_DMA_MASK         0
-> > +#define _PAGE_DMA_PMA          0
-> > +#define _PAGE_DMA_NC           0
-> > +#define _PAGE_DMA_IO           0
-> > +#endif /* CONFIG_64BIT */
-> > +#endif /* __ASSEMBLY__ */
-> > +
-> >  #define _PAGE_SPECIAL   _PAGE_SOFT
-> >  #define _PAGE_TABLE     _PAGE_PRESENT
-> >
-> > @@ -38,7 +79,8 @@
-> >  /* Set of bits to preserve across pte_modify() */
-> >  #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ | \
-> >                                           _PAGE_WRITE | _PAGE_EXEC |    \
-> > -                                         _PAGE_USER | _PAGE_GLOBAL))
-> > +                                         _PAGE_USER | _PAGE_GLOBAL |   \
-> > +                                         _PAGE_DMA_MASK))
-> >  /*
-> >   * when all of R/W/X are zero, the PTE is a pointer to the next level
-> >   * of the page table; otherwise, it is a leaf PTE.
-> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > index 39b550310ec6..d07ba586c866 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -136,7 +136,8 @@
-> >                                 | _PAGE_PRESENT \
-> >                                 | _PAGE_ACCESSED \
-> >                                 | _PAGE_DIRTY \
-> > -                               | _PAGE_GLOBAL)
-> > +                               | _PAGE_GLOBAL \
-> > +                               | _PAGE_DMA_PMA)
-> >
-> >  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
-> >  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
-> > @@ -146,11 +147,9 @@
-> >
-> >  #define PAGE_TABLE             __pgprot(_PAGE_TABLE)
-> >
-> > -/*
-> > - * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
-> > - * change the properties of memory regions.
-> > - */
-> > -#define _PAGE_IOREMAP _PAGE_KERNEL
-> > +#define _PAGE_IOREMAP  ((_PAGE_KERNEL & ~_PAGE_DMA_MASK) | _PAGE_DMA_IO)
-> > +
-> > +#define PAGE_IOREMAP           __pgprot(_PAGE_IOREMAP)
-> >
-> >  extern pgd_t swapper_pg_dir[];
-> >
-> > @@ -230,12 +229,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
-> >
-> >  static inline struct page *pmd_page(pmd_t pmd)
-> >  {
-> > -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> > +       return pfn_to_page((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
-> >  {
-> > -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> > +       return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline pte_t pmd_pte(pmd_t pmd)
-> > @@ -251,7 +250,7 @@ static inline pte_t pud_pte(pud_t pud)
-> >  /* Yields the page frame number (PFN) of a page table entry */
-> >  static inline unsigned long pte_pfn(pte_t pte)
-> >  {
-> > -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
-> > +       return ((pte_val(pte) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  #define pte_page(x)     pfn_to_page(pte_pfn(x))
-> > @@ -490,6 +489,28 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
-> >         return ptep_test_and_clear_young(vma, address, ptep);
-> >  }
-> >
-> > +#define pgprot_noncached pgprot_noncached
-> > +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
-> > +{
-> > +       unsigned long prot = pgprot_val(_prot);
-> > +
-> > +       prot &= ~_PAGE_DMA_MASK;
-> > +       prot |= _PAGE_DMA_IO;
-> > +
-> > +       return __pgprot(prot);
-> > +}
-> > +
-> > +#define pgprot_writecombine pgprot_writecombine
-> > +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
-> > +{
-> > +       unsigned long prot = pgprot_val(_prot);
-> > +
-> > +       prot &= ~_PAGE_DMA_MASK;
-> > +       prot |= _PAGE_DMA_NC;
-> > +
-> > +       return __pgprot(prot);
-> > +}
-> > +
-> >  /*
-> >   * THP functions
-> >   */
-> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> > index 021ed64ee608..92676156cbf6 100644
-> > --- a/arch/riscv/include/asm/processor.h
-> > +++ b/arch/riscv/include/asm/processor.h
-> > @@ -70,6 +70,7 @@ struct device_node;
-> >  int riscv_of_processor_hartid(struct device_node *node);
-> >  int riscv_of_parent_hartid(struct device_node *node);
-> >
-> > +extern void riscv_svpbmt(void);
->
-> You can drop this change.
->
-> >  extern void riscv_fill_hwcap(void);
-> >  extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
-> >
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index d959d207a40d..4a2211c2c464 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -8,6 +8,7 @@
-> >
-> >  #include <linux/bitmap.h>
-> >  #include <linux/of.h>
-> > +#include <linux/pgtable.h>
-> >  #include <asm/processor.h>
-> >  #include <asm/hwcap.h>
-> >  #include <asm/smp.h>
-> > @@ -59,6 +60,28 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
-> >  }
-> >  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
-> >
-> > +void __init riscv_svpbmt(void)
->
-> Make this static function and call it from riscv_fill_hwcap().
-Okay
+> I'm a bit lost. IIUC memblock_free_early() and memblock_free() where
+> identical.
 
->
-> > +{
-> > +#ifdef CONFIG_64BIT
-> > +       struct device_node *node;
-> > +       const char *str;
-> > +
-> > +       for_each_of_cpu_node(node) {
-> > +               if (of_property_read_string(node, "mmu-type", &str)) {
-> > +                       continue;
-> > +               }
-> > +
-> > +               if (!strncmp(str + 11, "svpbmt", 6)) {
-> > +                       __riscv_svpbmt.mask       = _PAGE_MT_MASK;
-> > +                       __riscv_svpbmt.mt[MT_PMA] = _PAGE_MT_PMA;
-> > +                       __riscv_svpbmt.mt[MT_NC]  = _PAGE_MT_NC;
-> > +                       __riscv_svpbmt.mt[MT_IO]  = _PAGE_MT_IO;
-> > +                       break;
-> > +               }
->
-> I don't agree with this loop.
->
-> The __riscv_svpbmt should be updated only when all CPU nodes
-> have "svpmbt" in the "mmu-type" DT property.
-Okay
+Yes, they were, but all calls to memblock_free_early() were using
+__pa(vaddr) because they had a virtual address at hand.
 
->
-> > +       }
-> > +#endif
-> > +}
-> > +
-> >  void __init riscv_fill_hwcap(void)
-> >  {
-> >         struct device_node *node;
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index 120b2f6f71bc..e7457113b45e 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -294,6 +294,8 @@ void __init setup_arch(char **cmdline_p)
-> >         setup_smp();
-> >  #endif
-> >
-> > +       riscv_svpbmt();
-> > +
->
-> You can drop this change based on above comment.
->
-> >         riscv_fill_hwcap();
-> >  }
-> >
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 7cb4f391d106..43b2e11fd3e0 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -905,3 +905,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-> >         return vmemmap_populate_basepages(start, end, node, NULL);
-> >  }
-> >  #endif
-> > +
-> > +#ifdef CONFIG_64BIT
-> > +struct __riscv_svpbmt_struct __riscv_svpbmt __ro_after_init;
-> > +EXPORT_SYMBOL(__riscv_svpbmt);
-> > +#endif
-> > --
-> > 2.25.1
-> >
->
-> Appending "svpmb" suffix to "mmu-type" breaks print_mmu()
-> in arch/riscv/kernel/cpu.c. Please update that as well.
-Okay
+> In the first hunk memblock_free() gets replaced by memblock_phys_free()
+> In the second hunk memblock_free_early() gets replaced by memblock_free()
 
->
-> We will also need couple of Tested-by for existing boards.
->
-> Regards,
-> Anup
+In the first hunk the memory is allocated with memblock_phys_alloc() and we
+have a physical range to free. In the second hunk the memory is allocated
+with memblock_alloc() and we are freeing a virtual pointer.
+ =
 
--- 
-Best Regards
- Guo Ren
+> I think it would be easier to follow if you could split it in several
+> patches:
 
-ML: https://lore.kernel.org/linux-csky/
+It was an explicit request from Linus to make it a single commit:
+
+  but the actual commit can and should be just a single commit that just
+  fixes 'memblock_free()' to have sane interfaces.
+
+I don't feel strongly about splitting it (except my laziness really
+objects), but I don't think doing the conversion in several steps worth the
+churn.
+
+> - First patch: Create memblock_phys_free() and change all relevant
+> memblock_free() to memblock_phys_free() - Or change memblock_free() to
+> memblock_phys_free() and make memblock_free() an alias of it.
+> - Second patch: Make memblock_free_ptr() become memblock_free() and change
+> all remaining callers to the new semantics (IIUC memblock_free(__pa(ptr))
+> becomes memblock_free(ptr) and make memblock_free_ptr() an alias of
+> memblock_free()
+> - Fourth patch: Replace and drop memblock_free_ptr()
+> - Fifth patch: Drop memblock_free_early() and memblock_free_early_nid() (=
+All
+> users should have been upgraded to memblock_free_phys() in patch 1 or
+> memblock_free() in patch 2)
+> =
+
+> Christophe
+
+-- =
+
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
