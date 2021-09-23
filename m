@@ -2,20 +2,20 @@ Return-Path: <SRS0=XVif=ON=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E35AC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69CE9C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:53:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B102F60F48
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:51:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B102F60F48
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2B94D60F41
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 11:53:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2B94D60F41
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -23,98 +23,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gdS5mYSvJvwgi7pn64eBCQwa4xzOFbx5HEE6OYpdNvw=; b=N92KzrpTduLmtK
-	AsVzORGOB9dUDOLZIMxaYCwzBUrvarUJrBqGGbk9gPFHvMbYvVfQQZ0B+V6oUIKFzOcRGbBTDM4KE
-	nvWdChrtqjiWzcR3l8vzsUqolyNnMUlh3IdqYqCc2O9M1sFxxogB7NgYwIaNavkXF40C7powYsPtd
-	cBUi/ra1ujjdLSJAFU04ozIrl4DdQInrB7zja1BAT2EjSqXVtqIzxJ5UXNN/vZ96I5FuG2TBgGaQ5
-	3jJsO1ycKPmDBqpYGXgAlfy+JlCH0udAC4kih0YAAAEYm0f75wgr/rnLCyHAOxBVsE1guv+mGHxs+
-	Y6NE5EmXLMBLI5HvbNlw==;
+	List-Owner; bh=d9TjYrmgyBQSpSahcDwzuK43gJh2GRjGZrzzsIP7rIg=; b=jyFhDKhYB8nWzH
+	iYcyps27hHjtD5ePV7HwNZRo7qcw1xSryz2J8KAS6kCDZUwWBb15iruYA5aiawMdFmo3ctKRQwH+0
+	k2SqV/bbsFoQHIwFq/yTlNlyMIGOP2Qfix7yiMsMzTJzJXwLw3GqFjBTfNwOq0RXNlhL34Vl2Krez
+	u/zLe/O5BCzJ3W01WWo4L3SGDmmkK0ApGhl4fXRhQrtP3Mb9nRbQ+e0PY5qUS1SP9C0Cxb/BkmH8S
+	xqAfMdarwGEAA40QSkT8r+xQTCkDp0JLKD6oS32NN6Xex9RcFsKcYseJTABRD9/f3/Ld+xnr8LAp5
+	jBHhng/hcC+O3VmR3gtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTNG9-00B9gl-6T; Thu, 23 Sep 2021 11:51:25 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mTNI8-00B9td-3a; Thu, 23 Sep 2021 11:53:28 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTNG5-00B9fq-W1
- for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 11:51:23 +0000
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
- [209.85.167.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 66E8A40291
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 11:51:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632397875;
- bh=wGcNO2IXTBVLJmMzaDNfXw1CRQSpWdqfS3q/Z8Q4M1Y=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=NzKf99/qq7vNEHj3qY0QtOMILEif7d7AjyZt2joR8FJYjDvYKPaqJ3mGcbUsk8o3a
- kFgXwtThDwCw5EwqBA7xfScsDCI+TcVo1Oj9oc25Wb/8kA8lZxn5ilceGRlZ7kbwwi
- z2U5B6tlxsHwA3FUtcUcYxlHw8ilikzCkVvlvc12q5ay4cTCLI5AR53bnCfjPxOYaC
- izJQZtXIMvkRKbVNhwcOi+8XRYsKPH5m9PXLmbTKo8qAhdscsvh6zWXzjQud5h6ef1
- pk+XnyH/mJy8+5mkKRJpArpFwI5ayvLdTIyHkgZCxLd+pUuWJHw4iM35pnHULpBsEE
- zzahR+aTsqqnA==
-Received: by mail-lf1-f69.google.com with SMTP id
- a28-20020a056512021c00b003f5883dcd4bso5873702lfo.1
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 04:51:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=wGcNO2IXTBVLJmMzaDNfXw1CRQSpWdqfS3q/Z8Q4M1Y=;
- b=BWUmF4WlxsG+fNyF1rhd1sgLBgXt7tXvDfXdIIZ2MpT5ipLzCXcv7Mpkt3u5jdl9Xa
- FvfKJZImbSzQ4NZ0ndVMhQNIzuQ4CwqIlQ+zviti18L7jBF9YALH11JMuBA0Pzv2fsQ3
- I8lE4Q69pafXsOFJPFYZXOSTaE7JVEmrghQPFjwhIWn2vJc+glsmC01/CAVY+AcVMbUv
- wIw3Fiae6/e4P4nva6lgT/z4tgpizvmxnr41On+I1TUFW6oXAHvoBTgoF36ImR6muXnY
- OrVH1zsM3214Gop3lektIwwZmM5yyHhpmnoCvxQllGPXYjnJY1uK456tUyjg+m4MDaq8
- ytKQ==
-X-Gm-Message-State: AOAM530dq/PysI96RG7UaDlSbIJqacFCTO4RYGr9UOz20qJ4wZ36uE5W
- 6HTK56lIBjp/4sLDJjTnj+1MqPWsxp/UBXQHohnrNPtPisM4tv0OCnctU3DLaTEbFiL8b8QrrZz
- KY8M+wYUN72Mzw92P9N1xrhmIcSJj4JUWOxvy85CrkXqQT1jih+dTWGs5xfGAIg==
-X-Received: by 2002:aa7:db85:: with SMTP id u5mr4876818edt.234.1632397863963; 
- Thu, 23 Sep 2021 04:51:03 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyzN+eiUB6TLkCud6NtqS90/s5C7jzCEwCWLoZO5rT0CasG/3cmMrbqmMTzSzy8MtmxB9LUuh7ZBIDENSSGBa0=
-X-Received: by 2002:aa7:db85:: with SMTP id u5mr4876783edt.234.1632397863817; 
- Thu, 23 Sep 2021 04:51:03 -0700 (PDT)
+ id 1mTNI4-00B9t9-0F
+ for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 11:53:26 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9E98561250
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 11:53:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1632398003;
+ bh=vAqXXFdSndGKzXzrsxWG0Y/zKOj9pz6rOjfvQrnKxMM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=C2EYLUIKlOWxZtItJtq2crL3EDUpSaImtKAa8q9Z1bCrdLA7wuIGSB09sM5mt59KX
+ 3W0ghfq1QukZhTvIAJarPhRjZ8/fzGqlFkNOVBZw0T0ZBEVLyNG20S2CnYBli6PrMT
+ 4gYVaNv6OzuDXFn240eXqdQLQpK9QjQPOUCkXAIQdOxlwDLQ9vUbgJ0VD1QwtHJFNd
+ 6JIaysqwefVN60c2fn+Ldl8HYRxK8BMr72xCF/vG0CzKOq+ytt5WAyH+14Y/aRcKxi
+ WH7FkngLOGwv5MUX/e+sA1W0gV2f9vclEA7QZmgxrzx9oRy7ig1yKM2GdMioHUNmow
+ 4aNlXov3MKugQ==
+Received: by mail-ua1-f48.google.com with SMTP id i8so1942317uae.7
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 04:53:23 -0700 (PDT)
+X-Gm-Message-State: AOAM531hVNZ9QtRnsKsXt+dZYaaeXqjhm59sHXTyXoMQz3+zoDQ356Tm
+ DGzrLAe27mdlZk+H5PgH5xH2HA27iU1rP/KddW4=
+X-Google-Smtp-Source: ABdhPJyWE/Su2HcTbMdsPITB9GQRFtilqy0TIBv/5pNgCe5qcT7SVzDKL0RoHxaYKq2le86tTiDN4RgN36Rtope8Jz4=
+X-Received: by 2002:ab0:689a:: with SMTP id t26mr3506279uar.57.1632398002696; 
+ Thu, 23 Sep 2021 04:53:22 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210923072716.913826-1-guoren@kernel.org>
- <6d7b1668c1f562a5ef426bb2519f9784@mailhost.ics.forth.gr>
- <CAAhSdy0YDP3Nk8N9fnrKgS+3Rjt=5tLCh20upmUGK9SK67nNvg@mail.gmail.com>
- <0861cc74d3886e685e9aa5d13ddcd781@mailhost.ics.forth.gr>
- <16de95480d279b086cf0c612461e4235@mailhost.ics.forth.gr>
- <CAAeLtUDu0yaDBcuC06nX1WUQC9k4eNuWjvAFrpkP_h0nf5BZAw@mail.gmail.com>
- <88696248a0c19a5dff660354b837514d@mailhost.ics.forth.gr>
-In-Reply-To: <88696248a0c19a5dff660354b837514d@mailhost.ics.forth.gr>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Thu, 23 Sep 2021 13:50:52 +0200
-Message-ID: <CA+zEjCsO2CyhrfGGA4ceAH=LBOyqWF4U7F91VheTdr6wEJj1pw@mail.gmail.com>
+ <CAAhSdy3S4iH7U-4BR-pS6aQrxRZKBfYT7vyTwYmFDePpe810kQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy3S4iH7U-4BR-pS6aQrxRZKBfYT7vyTwYmFDePpe810kQ@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 23 Sep 2021 19:53:11 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQGyeeWX7bzZvSW6Mh9PBpBYYpnmThrT8VrtguG1OPmvQ@mail.gmail.com>
+Message-ID: <CAJF2gTQGyeeWX7bzZvSW6Mh9PBpBYYpnmThrT8VrtguG1OPmvQ@mail.gmail.com>
 Subject: Re: [PATCH] riscv: Add RISC-V svpbmt extension
-To: Nick Kossifidis <mick@ics.forth.gr>
-Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
- Anup Patel <anup@brainfault.org>, 
- Guo Ren <guoren@kernel.org>, Anup Patel <anup.patel@wdc.com>, 
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+To: Anup Patel <anup@brainfault.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
  =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
- Christoph Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, 
  wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
  Drew Fustini <drew@beagleboard.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- taiten.peng@canonical.com, Aniket Ponkshe <aniket.ponkshe@canonical.com>, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- Gordan Markus <gordan.markus@canonical.com>, Guo Ren <guoren@linux.alibaba.com>,
- Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
- Maxime Ripard <maxime@cerno.tech>, 
- Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>, 
- Andrea Mondelli <andrea.mondelli@huawei.com>,
- Jonathan Behrens <behrensj@mit.edu>, 
- Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>, 
+ taiten.peng@canonical.com, aniket.ponkshe@canonical.com, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ gordan.markus@canonical.com, 
+ Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, 
+ Maxime Ripard <maxime@cerno.tech>, Daniel Lustig <dlustig@nvidia.com>, 
+ Greg Favor <gfavor@ventanamicro.com>,
+ Andrea Mondelli <andrea.mondelli@huawei.com>, 
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>, 
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>, 
  Allen Baum <allen.baum@esperantotech.com>,
  Josh Scheid <jscheid@ventanamicro.com>, 
  Richard Trauben <rtrauben@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_045122_208239_83EE13F5 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20210923_045324_136326_586133BC 
+X-CRM114-Status: GOOD (  43.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,36 +101,431 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMjMsIDIwMjEgYXQgMTI6MTEgUE0gTmljayBLb3NzaWZpZGlzIDxtaWNrQGlj
-cy5mb3J0aC5ncj4gd3JvdGU6Cj4KPiDOo8+EzrnPgiAyMDIxLTA5LTIzIDEzOjA0LCBQaGlsaXBw
-IFRvbXNpY2ggzq3Os8+BzrHPiM61Ogo+ID4KPiA+IEhvdyBpZiB3ZSBleHBhbmQgdGhpcyB0byBh
-IG1tdSBzdWJub2RlIGluIGNwdUB4IGFuZCBhZGQgYSBib29sZWFucyBmb3IKPiA+IGFkb3JubWVu
-dHMgbGlrZSBzdm5hcG90IGFuZCBzdnBibXQ/Cj4gPiBUaGUgb2xkZXIgbW11LXR5cGUgY291bGQg
-dGhlbiB0cmVhdGVkIHRvIGluZGljYXRlIGEgbW11IHcvbyBhbnkKPiA+IGFkb3JubWVudHMgc3Bl
-Y2lmaWVkLiAgSSBhbSBhd2FyZSB0aGF0IHRoaXMgZ2VuZXJhdGVzIGFuIGFkZGl0aW9uYWwKPiA+
-IHBhcnNpbmctcGF0aCB0aGF0IHdpbGwgYmUgbWFpbnRhaW5lZCwgYnV0IGl0IHdpbGwgYWxsb3cg
-ZnV0dXJlCj4gPiBwcm9wZXJ0aWVzIHRvIGJlIGdyb3VwZWQuCj4gPgo+ID4gY3B1QDAgewo+ID4g
-Li4uCj4gPiBtbXUgewo+ID4gdHlwZSA9ICJyaXNjdixzdjM5IjsKPiA+IHN1cHBvcnRzLXN2cGJt
-dDsKPiA+IH0KPiA+IC4uLgo+ID4gfQo+Cj4gSSB3YXMgYWJvdXQgdG8gcHJvcG9zZSB0aGUgc2Ft
-ZSB0aGluZywgd2UgY2FuIGRvIHRoaXMgbm93IHdpdGhvdXQKPiBicmVha2luZyBiYWNrd2FyZHMg
-Y29tcGF0aWJpbGl0eSwgd2UgZG9uJ3QgcmVhbGx5IHVzZSBtbXUtdHlwZSBwcm9wZXJ0eQo+IGF0
-IHRoaXMgcG9pbnQsIHdlIGFyZSBlaXRoZXIgc3YzOSBvciBub21tdS4KCkluZGVlZCwgdGhpcyBw
-cm9wZXJ0eSBpcyBvbmx5IGluZm9ybWF0aXZlIGFuZCBub3QgdXNlZnVsIHNpbmNlIHdlIGNhbgpk
-aXJlY3RseSAiYXNrIiB0aGUgaHcgd2hhdCBpdCBzdXBwb3J0cyAoY2Ygc3Y0OCBwYXRjaHNldCku
-IEFuZCBpdApjYW5ub3QgYWN0dWFsbHkgYmUgdXNlZCB0byBmb3JjZSBhIGNlcnRhaW4gc3ZYWCBz
-aW5jZSByZWFkaW5nIHRoZQpkZXZpY2UgdHJlZSBoYXBwZW5zIHdheSB0b28gbGF0ZSBpbiB0aGUg
-Ym9vdCBwcm9jZXNzIChJIGhhdmUgdGhpcwppc3N1ZSB3aXRoIG15IHN2NDggcGF0Y2hzZXQgd2hl
-cmUgSSB1c2VkIHRvIHJlYWQgdGhlIGRldmljZSB0cmVlIHRvCnNldCB0aGUgc2l6ZSBvZiB0aGUg
-YWRkcmVzcyBzcGFjZSwgYnV0IGl0IGFjdHVhbGx5IGJyZWFrcyBLQVNBTikuCgpJc24ndCB0aGVy
-ZSBhIHdheSB0byBrbm93IGlmIGl0IHN1cHBvcnRzIHN2UEJNVCBhdCBydW50aW1lPwoKQWxleAoK
-Pgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+
-IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Sep 23, 2021 at 5:13 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Thu, Sep 23, 2021 at 12:57 PM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > This patch follows the standard pure RISC-V Svpbmt extension in
+> > privilege spec to solve the non-coherent SOC dma synchronization
+> > issues.
+> >
+> > Here is the svpbmt PTE format:
+> > | 63 | 62-61 | 60-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> >   N     MT     RSW    D   A   G   U   X   W   R   V
+> >         ^
+> >
+> > Of the Reserved bits [63:54] in a leaf PTE, the high bit is already
+> > allocated (as the N bit), so bits [62:61] are used as the MT (aka
+> > MemType) field. This field specifies one of three memory types that
+> > are close equivalents (or equivalent in effect) to the three main x86
+> > and ARMv8 memory types - as shown in the following table.
+> >
+> > RISC-V
+> > Encoding &
+> > MemType     RISC-V Description
+> > ----------  ------------------------------------------------
+> > 00 - PMA    Normal Cacheable, No change to implied PMA memory type
+> > 01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
+> > 10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+> > 11 - Rsvd   Reserved for future standard use
+> >
+> > The standard protection_map [] needn't be modified because the "PMA"
+> > type keeps the highest bits zero. The standard protection_map[] needn't
+> > be modified. So the whole modification is in the arch/riscv pgtable and
+> > using a global variable (__riscv_svpbmt) in the _PAGE_DMA_MASK/IO/NC
+> > for pgprot_noncached (&writecombine). We also need _PAGE_CHG_MASK to
+> > detect PFN than before.
+> >
+> > Devicetree: reuse "mmu-type" of cpu_section as a user interface to
+> > enable the feature or not:
+> >  - riscv,sv39,svpbmt
+> >  - riscv,sv48,svpbmt
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Liu Shaohua <liush@allwinnertech.com>
+> > Cc: Wei Fu <wefu@redhat.com>
+> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Cc: Christoph Hellwig <hch@lst.de>
+> > Cc: Anup Patel <anup.patel@wdc.com>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Atish Patra <atish.patra@wdc.com>
+> > Cc: Drew Fustini <drew@beagleboard.org>
+> > Cc: Wei Fu <wefu@redhat.com>
+> > Cc: Wei Wu <lazyparser@gmail.com>
+> > Cc: Chen-Yu Tsai <wens@csie.org>
+> > Cc: Maxime Ripard <maxime@cerno.tech>
+> > Cc: Daniel Lustig <dlustig@nvidia.com>
+> > Cc: Greg Favor <gfavor@ventanamicro.com>
+> > Cc: Andrea Mondelli <andrea.mondelli@huawei.com>
+> > Cc: Jonathan Behrens <behrensj@mit.edu>
+> > Cc: Xinhaoqu (Freddie) <xinhaoqu@huawei.com>
+> > Cc: Bill Huffman <huffman@cadence.com>
+> > Cc: Nick Kossifidis <mick@ics.forth.gr>
+> > Cc: Allen Baum <allen.baum@esperantotech.com>
+> > Cc: Josh Scheid <jscheid@ventanamicro.com>
+> > Cc: Richard Trauben <rtrauben@gmail.com>
+> > ---
+> >  .../devicetree/bindings/riscv/cpus.yaml       |  2 +
+> >  arch/riscv/include/asm/fixmap.h               |  2 +-
+> >  arch/riscv/include/asm/pgtable-64.h           |  8 ++--
+> >  arch/riscv/include/asm/pgtable-bits.h         | 46 ++++++++++++++++++-
+> >  arch/riscv/include/asm/pgtable.h              | 39 ++++++++++++----
+> >  arch/riscv/include/asm/processor.h            |  1 +
+> >  arch/riscv/kernel/cpufeature.c                | 23 ++++++++++
+> >  arch/riscv/kernel/setup.c                     |  2 +
+> >  arch/riscv/mm/init.c                          |  5 ++
+> >  9 files changed, 113 insertions(+), 15 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > index e534f6a7cfa1..1825cd8db0de 100644
+> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > @@ -56,7 +56,9 @@ properties:
+> >      enum:
+> >        - riscv,sv32
+> >        - riscv,sv39
+> > +      - riscv,sv39,svpbmt
+> >        - riscv,sv48
+> > +      - riscv,sv48,svpbmt
+> >        - riscv,none
+>
+> I think augmenting the "mmu-type" DT property is a good approach but the
+> description of "mmu-type" DT property needs to say:
+>
+> "Identifies the MMU address translation mode and page based memory
+> type used on ..."
+Okay
+
+>
+> Also, DT bindings change is generally a separate patch so better to make
+> a separate patch for this.
+Okay
+
+>
+> >
+> >    riscv,isa:
+> > diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+> > index 54cbf07fb4e9..5acd99d08e74 100644
+> > --- a/arch/riscv/include/asm/fixmap.h
+> > +++ b/arch/riscv/include/asm/fixmap.h
+> > @@ -43,7 +43,7 @@ enum fixed_addresses {
+> >         __end_of_fixed_addresses
+> >  };
+> >
+> > -#define FIXMAP_PAGE_IO         PAGE_KERNEL
+> > +#define FIXMAP_PAGE_IO         PAGE_IOREMAP
+> >
+> >  #define __early_set_fixmap     __set_fixmap
+> >
+> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> > index 228261aa9628..0b53ea67e91a 100644
+> > --- a/arch/riscv/include/asm/pgtable-64.h
+> > +++ b/arch/riscv/include/asm/pgtable-64.h
+> > @@ -61,12 +61,14 @@ static inline void pud_clear(pud_t *pudp)
+> >
+> >  static inline pmd_t *pud_pgtable(pud_t pud)
+> >  {
+> > -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> > +       return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_CHG_MASK)
+> > +                                               >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  static inline struct page *pud_page(pud_t pud)
+> >  {
+> > -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> > +       return pfn_to_page((pud_val(pud) & _PAGE_CHG_MASK)
+> > +                                               >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+> > @@ -76,7 +78,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+> >
+> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
+> >  {
+> > -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
+> > +       return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
+> >  }
+> >
+> >  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
+> > diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> > index 2ee413912926..041fe4fdbafa 100644
+> > --- a/arch/riscv/include/asm/pgtable-bits.h
+> > +++ b/arch/riscv/include/asm/pgtable-bits.h
+> > @@ -7,7 +7,7 @@
+> >  #define _ASM_RISCV_PGTABLE_BITS_H
+> >
+> >  /*
+> > - * PTE format:
+> > + * rv32 PTE format:
+> >   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> >   *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+> >   */
+> > @@ -24,6 +24,47 @@
+> >  #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
+> >  #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
+> >
+> > +#ifndef __ASSEMBLY__
+> > +#ifdef CONFIG_64BIT
+> > +/*
+> > + * rv64 PTE format:
+> > + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> > + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
+> > + * [62:61] Memory Type definitions:
+> > + *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
+> > + *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
+> > + *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+> > + *  11 - Rsvd   Reserved for future standard use
+> > + */
+> > +#define _PAGE_MT_MASK          ((u64)0x3 << 61)
+> > +#define _PAGE_MT_PMA           ((u64)0x0 << 61)
+> > +#define _PAGE_MT_NC            ((u64)0x1 << 61)
+> > +#define _PAGE_MT_IO            ((u64)0x2 << 61)
+> > +
+> > +enum {
+> > +       MT_PMA,
+> > +       MT_NC,
+> > +       MT_IO,
+> > +       MT_MAX
+> > +};
+> > +
+> > +extern struct __riscv_svpbmt_struct {
+> > +       unsigned long mask;
+> > +       unsigned long mt[MT_MAX];
+> > +} __riscv_svpbmt;
+> > +
+> > +#define _PAGE_DMA_MASK         __riscv_svpbmt.mask
+> > +#define _PAGE_DMA_PMA          __riscv_svpbmt.mt[MT_PMA]
+> > +#define _PAGE_DMA_NC           __riscv_svpbmt.mt[MT_NC]
+> > +#define _PAGE_DMA_IO           __riscv_svpbmt.mt[MT_IO]
+> > +#else
+> > +#define _PAGE_DMA_MASK         0
+> > +#define _PAGE_DMA_PMA          0
+> > +#define _PAGE_DMA_NC           0
+> > +#define _PAGE_DMA_IO           0
+> > +#endif /* CONFIG_64BIT */
+> > +#endif /* __ASSEMBLY__ */
+> > +
+> >  #define _PAGE_SPECIAL   _PAGE_SOFT
+> >  #define _PAGE_TABLE     _PAGE_PRESENT
+> >
+> > @@ -38,7 +79,8 @@
+> >  /* Set of bits to preserve across pte_modify() */
+> >  #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ | \
+> >                                           _PAGE_WRITE | _PAGE_EXEC |    \
+> > -                                         _PAGE_USER | _PAGE_GLOBAL))
+> > +                                         _PAGE_USER | _PAGE_GLOBAL |   \
+> > +                                         _PAGE_DMA_MASK))
+> >  /*
+> >   * when all of R/W/X are zero, the PTE is a pointer to the next level
+> >   * of the page table; otherwise, it is a leaf PTE.
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 39b550310ec6..d07ba586c866 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -136,7 +136,8 @@
+> >                                 | _PAGE_PRESENT \
+> >                                 | _PAGE_ACCESSED \
+> >                                 | _PAGE_DIRTY \
+> > -                               | _PAGE_GLOBAL)
+> > +                               | _PAGE_GLOBAL \
+> > +                               | _PAGE_DMA_PMA)
+> >
+> >  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
+> >  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+> > @@ -146,11 +147,9 @@
+> >
+> >  #define PAGE_TABLE             __pgprot(_PAGE_TABLE)
+> >
+> > -/*
+> > - * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
+> > - * change the properties of memory regions.
+> > - */
+> > -#define _PAGE_IOREMAP _PAGE_KERNEL
+> > +#define _PAGE_IOREMAP  ((_PAGE_KERNEL & ~_PAGE_DMA_MASK) | _PAGE_DMA_IO)
+> > +
+> > +#define PAGE_IOREMAP           __pgprot(_PAGE_IOREMAP)
+> >
+> >  extern pgd_t swapper_pg_dir[];
+> >
+> > @@ -230,12 +229,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+> >
+> >  static inline struct page *pmd_page(pmd_t pmd)
+> >  {
+> > -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> > +       return pfn_to_page((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+> >  {
+> > -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> > +       return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  static inline pte_t pmd_pte(pmd_t pmd)
+> > @@ -251,7 +250,7 @@ static inline pte_t pud_pte(pud_t pud)
+> >  /* Yields the page frame number (PFN) of a page table entry */
+> >  static inline unsigned long pte_pfn(pte_t pte)
+> >  {
+> > -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
+> > +       return ((pte_val(pte) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> > @@ -490,6 +489,28 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+> >         return ptep_test_and_clear_young(vma, address, ptep);
+> >  }
+> >
+> > +#define pgprot_noncached pgprot_noncached
+> > +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
+> > +{
+> > +       unsigned long prot = pgprot_val(_prot);
+> > +
+> > +       prot &= ~_PAGE_DMA_MASK;
+> > +       prot |= _PAGE_DMA_IO;
+> > +
+> > +       return __pgprot(prot);
+> > +}
+> > +
+> > +#define pgprot_writecombine pgprot_writecombine
+> > +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+> > +{
+> > +       unsigned long prot = pgprot_val(_prot);
+> > +
+> > +       prot &= ~_PAGE_DMA_MASK;
+> > +       prot |= _PAGE_DMA_NC;
+> > +
+> > +       return __pgprot(prot);
+> > +}
+> > +
+> >  /*
+> >   * THP functions
+> >   */
+> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> > index 021ed64ee608..92676156cbf6 100644
+> > --- a/arch/riscv/include/asm/processor.h
+> > +++ b/arch/riscv/include/asm/processor.h
+> > @@ -70,6 +70,7 @@ struct device_node;
+> >  int riscv_of_processor_hartid(struct device_node *node);
+> >  int riscv_of_parent_hartid(struct device_node *node);
+> >
+> > +extern void riscv_svpbmt(void);
+>
+> You can drop this change.
+>
+> >  extern void riscv_fill_hwcap(void);
+> >  extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+> >
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index d959d207a40d..4a2211c2c464 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -8,6 +8,7 @@
+> >
+> >  #include <linux/bitmap.h>
+> >  #include <linux/of.h>
+> > +#include <linux/pgtable.h>
+> >  #include <asm/processor.h>
+> >  #include <asm/hwcap.h>
+> >  #include <asm/smp.h>
+> > @@ -59,6 +60,28 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+> >  }
+> >  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+> >
+> > +void __init riscv_svpbmt(void)
+>
+> Make this static function and call it from riscv_fill_hwcap().
+Okay
+
+>
+> > +{
+> > +#ifdef CONFIG_64BIT
+> > +       struct device_node *node;
+> > +       const char *str;
+> > +
+> > +       for_each_of_cpu_node(node) {
+> > +               if (of_property_read_string(node, "mmu-type", &str)) {
+> > +                       continue;
+> > +               }
+> > +
+> > +               if (!strncmp(str + 11, "svpbmt", 6)) {
+> > +                       __riscv_svpbmt.mask       = _PAGE_MT_MASK;
+> > +                       __riscv_svpbmt.mt[MT_PMA] = _PAGE_MT_PMA;
+> > +                       __riscv_svpbmt.mt[MT_NC]  = _PAGE_MT_NC;
+> > +                       __riscv_svpbmt.mt[MT_IO]  = _PAGE_MT_IO;
+> > +                       break;
+> > +               }
+>
+> I don't agree with this loop.
+>
+> The __riscv_svpbmt should be updated only when all CPU nodes
+> have "svpmbt" in the "mmu-type" DT property.
+Okay
+
+>
+> > +       }
+> > +#endif
+> > +}
+> > +
+> >  void __init riscv_fill_hwcap(void)
+> >  {
+> >         struct device_node *node;
+> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > index 120b2f6f71bc..e7457113b45e 100644
+> > --- a/arch/riscv/kernel/setup.c
+> > +++ b/arch/riscv/kernel/setup.c
+> > @@ -294,6 +294,8 @@ void __init setup_arch(char **cmdline_p)
+> >         setup_smp();
+> >  #endif
+> >
+> > +       riscv_svpbmt();
+> > +
+>
+> You can drop this change based on above comment.
+>
+> >         riscv_fill_hwcap();
+> >  }
+> >
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index 7cb4f391d106..43b2e11fd3e0 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -905,3 +905,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+> >         return vmemmap_populate_basepages(start, end, node, NULL);
+> >  }
+> >  #endif
+> > +
+> > +#ifdef CONFIG_64BIT
+> > +struct __riscv_svpbmt_struct __riscv_svpbmt __ro_after_init;
+> > +EXPORT_SYMBOL(__riscv_svpbmt);
+> > +#endif
+> > --
+> > 2.25.1
+> >
+>
+> Appending "svpmb" suffix to "mmu-type" breaks print_mmu()
+> in arch/riscv/kernel/cpu.c. Please update that as well.
+Okay
+
+>
+> We will also need couple of Tested-by for existing boards.
+>
+> Regards,
+> Anup
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
