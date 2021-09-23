@@ -2,88 +2,101 @@ Return-Path: <SRS0=XVif=ON=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EBDBAC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 08:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DA4FC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 09:13:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B06C361242
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 08:15:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B06C361242
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id C36336124C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Sep 2021 09:13:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C36336124C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k6byIix2PE56yfeLQyr7ZvZI+MAJDz5bHJAyt7MFCSQ=; b=js2IFPACfH/aOwvOoRZIypO063
-	R2AYmsfGcB/HJggA2NicwKHX5Lc0XBDe2WSabqB3lGqDx7xEtS7nKLzZuvHMzaLW6qkspGvV41q+T
-	77cBzz2ZZS8qu6Z4Eihx139xShY+BrTMC7RhupF2kAErhkBbQxe88dElYdJ3+IMjqqfpLiFvBgi2g
-	zMwXg4ZaJRXsTl/bqlg49dHKe9iGFEnNTiy8bdZI9iQ1N648L0ceAoQ/fkDTU0zHNwSDaW/8s2Pz6
-	CoL7qZ6d/dT67XaQWLH178bLxudBS9TMbdclqYX3YUOsqPtDT+LQm/aVkjZiqXhTxAJgLZru87S+B
-	J+t2rVTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EE5O0Z2kzk3qD6b1VphdODVn7H2H40albYKfmWD9nEY=; b=MsWBufDPgFdNac
+	vrrdrk48IYp5RcfTiftSvOHRQDGLwuYFaTcWCjOnv86AR7n2pBTaxeabKKAV3Gcs5/D13q2QC4/G3
+	TvClFHyjlgylLM14FgvA7IFf4Mzou4hG+eEIAD/uCqWnTzS4lOzEZb9YIPQaNz9/KR54HMdRbeI57
+	bwJJv6JtIG+zvZ3DwlThjY55OVT1AI7Rx4ds0xAECLllYEZg2kacIIf1CrQNCqwX5NvrzZrAGE6lL
+	bx0ozHVtKm3UkFMR6a2yxlXzEltWrm+o1aPK36JOXGovLJyUPlKj/jRXuH7uMt8Wx5X/mfqhzlIFx
+	DSXn0hhyTrvrOcjxqGww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTJtC-00AcET-H6; Thu, 23 Sep 2021 08:15:30 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1mTKnK-00AkGY-RR; Thu, 23 Sep 2021 09:13:30 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTJsw-00Ac9C-5t; Thu, 23 Sep 2021 08:15:15 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id A60422027D;
- Thu, 23 Sep 2021 08:15:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1632384912; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=QSLhmvEk1Pq1iiswl5snzLhelQGabqOAvRi47xucKUc=;
- b=dQkZNFnVmjFTdqDDt9GU9DTIEjBGZRbIA2ofbDcmiIB8bDqVrDggJ8ZwgPcJOAAnibhKSk
- wohDp1nG/Y0sL0SW/01jfOSBK8tJNu5AzCDV/dTnleWkyjK5RMbnhh0I5Wt/IQmwJHm3zx
- ZvfeJvE8TpXAAdEAgm6wdTBm9F+eeO8=
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 13F2613DC7;
- Thu, 23 Sep 2021 08:15:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap2.suse-dmz.suse.de with ESMTPSA id ojiaA5A3TGF2FQAAMHmgww
- (envelope-from <jgross@suse.com>); Thu, 23 Sep 2021 08:15:12 +0000
-Subject: Re: [PATCH 3/3] memblock: cleanup memblock_free interface
-To: Mike Rapoport <rppt@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, devicetree@vger.kernel.org,
- iommu@lists.linux-foundation.org, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linux-usb@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mike Rapoport <rppt@linux.ibm.com>
-References: <20210923074335.12583-1-rppt@kernel.org>
- <20210923074335.12583-4-rppt@kernel.org>
-From: Juergen Gross <jgross@suse.com>
-Message-ID: <60c0d0f9-e4c6-ef66-b85b-0d091f8cba15@suse.com>
-Date: Thu, 23 Sep 2021 10:15:11 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ id 1mTKnH-00AkF4-Cf
+ for linux-riscv@lists.infradead.org; Thu, 23 Sep 2021 09:13:29 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id d6so15034678wrc.11
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 02:13:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=uX3J9dkEPi/fez/1522JWdBVkRaD5hHK1YkH0F9Smc8=;
+ b=LFd9SAE9iXhVOt7KcdDLVxmbbRntIXu2lgB334V/xMETAhlO7WVrIXVb5QfX+hiL0v
+ UdVFJOrRz03qnDBkCRaicbO6exJ5FGA7TkKZYTpSwDtwsjROkqOGclHm992iu7r6Up6w
+ BY2+WZAeJtIPBePFe2StErE2tilqNcBZb5vLUeJn8XFCYsWt1v/Q8Laj0X47aODwNhn9
+ dvWcYZDS6jJcXeUfk0os9kxp7cDlWJ/GbRXC6eUr+m+gsx87iX4GQ/mXT8UDrTfXt7Yu
+ ctZDbgws9kpFH0y/RAzHwyFyaAPLN2BXJU6cK+zSIJqRXoIkfOvmYuuEMxfAV32qd4dp
+ oHOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=uX3J9dkEPi/fez/1522JWdBVkRaD5hHK1YkH0F9Smc8=;
+ b=1o2VByIY3LZsFVez8ijJSuyYsg68BzT4UO9mpvTWNZLyS7GNe5eVkrL4ejctIYPZD9
+ aKn65XshZyKCpUD1hhqcm+t16ok1zRgDX2cP58CkrbBUZJTJl7C86GZa/7s4fttXUUdN
+ 3NDbC62FKnbBiK2i+DiANlE6Eq9B6EUzKiD62FUtCaOoUZd+cuf6r6uMBge8ptolzQ1c
+ pHMvh2k3wOwIIZxKPioY11Z7Tiqsp98443uo/huzLo7MPZbCmcimKSDF0ob6i5QMVZHz
+ mxx0Iz45+FFokSoXj+jMo7K39xN0OBh7pZ7ckpgwFHURCWsMl+tmZ5CuZf0eQvEhU4zp
+ 4CoQ==
+X-Gm-Message-State: AOAM531BpQqoBrZFgeNUMxT1mOsFU4rI5UsA9mU6en5uJXqtEpCu77lz
+ P+dBA0YMbgJZcxxg0n+BTGgRNGDi+20ksXQ/y5ZjOg==
+X-Google-Smtp-Source: ABdhPJwEV7Qk2/eNtDyb0n3QcvlCBnvlPMBLz3KQpzB848Tbp/nFSwzYG+HlLjJmfMI4qtvaTxnz4HPCKJdEOPsDaVY=
+X-Received: by 2002:a7b:cc14:: with SMTP id f20mr3234210wmh.137.1632388405395; 
+ Thu, 23 Sep 2021 02:13:25 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210923074335.12583-4-rppt@kernel.org>
+References: <20210923072716.913826-1-guoren@kernel.org>
+In-Reply-To: <20210923072716.913826-1-guoren@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 23 Sep 2021 14:43:14 +0530
+Message-ID: <CAAhSdy3S4iH7U-4BR-pS6aQrxRZKBfYT7vyTwYmFDePpe810kQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Add RISC-V svpbmt extension
+To: Guo Ren <guoren@kernel.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, 
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, aniket.ponkshe@canonical.com, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ gordan.markus@canonical.com, 
+ Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, 
+ Maxime Ripard <maxime@cerno.tech>, Daniel Lustig <dlustig@nvidia.com>, 
+ Greg Favor <gfavor@ventanamicro.com>,
+ Andrea Mondelli <andrea.mondelli@huawei.com>, 
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>, 
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>, 
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, 
+ Richard Trauben <rtrauben@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_011514_453164_D7613B83 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20210923_021327_510699_0AC6ED3D 
+X-CRM114-Status: GOOD (  39.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,205 +108,413 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3113970745163363776=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============3113970745163363776==
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="zppOVwffTjZ5Oe49Vq0wbEbRvLUF4dOID"
+On Thu, Sep 23, 2021 at 12:57 PM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> This patch follows the standard pure RISC-V Svpbmt extension in
+> privilege spec to solve the non-coherent SOC dma synchronization
+> issues.
+>
+> Here is the svpbmt PTE format:
+> | 63 | 62-61 | 60-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+>   N     MT     RSW    D   A   G   U   X   W   R   V
+>         ^
+>
+> Of the Reserved bits [63:54] in a leaf PTE, the high bit is already
+> allocated (as the N bit), so bits [62:61] are used as the MT (aka
+> MemType) field. This field specifies one of three memory types that
+> are close equivalents (or equivalent in effect) to the three main x86
+> and ARMv8 memory types - as shown in the following table.
+>
+> RISC-V
+> Encoding &
+> MemType     RISC-V Description
+> ----------  ------------------------------------------------
+> 00 - PMA    Normal Cacheable, No change to implied PMA memory type
+> 01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
+> 10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+> 11 - Rsvd   Reserved for future standard use
+>
+> The standard protection_map [] needn't be modified because the "PMA"
+> type keeps the highest bits zero. The standard protection_map[] needn't
+> be modified. So the whole modification is in the arch/riscv pgtable and
+> using a global variable (__riscv_svpbmt) in the _PAGE_DMA_MASK/IO/NC
+> for pgprot_noncached (&writecombine). We also need _PAGE_CHG_MASK to
+> detect PFN than before.
+>
+> Devicetree: reuse "mmu-type" of cpu_section as a user interface to
+> enable the feature or not:
+>  - riscv,sv39,svpbmt
+>  - riscv,sv48,svpbmt
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Liu Shaohua <liush@allwinnertech.com>
+> Cc: Wei Fu <wefu@redhat.com>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Drew Fustini <drew@beagleboard.org>
+> Cc: Wei Fu <wefu@redhat.com>
+> Cc: Wei Wu <lazyparser@gmail.com>
+> Cc: Chen-Yu Tsai <wens@csie.org>
+> Cc: Maxime Ripard <maxime@cerno.tech>
+> Cc: Daniel Lustig <dlustig@nvidia.com>
+> Cc: Greg Favor <gfavor@ventanamicro.com>
+> Cc: Andrea Mondelli <andrea.mondelli@huawei.com>
+> Cc: Jonathan Behrens <behrensj@mit.edu>
+> Cc: Xinhaoqu (Freddie) <xinhaoqu@huawei.com>
+> Cc: Bill Huffman <huffman@cadence.com>
+> Cc: Nick Kossifidis <mick@ics.forth.gr>
+> Cc: Allen Baum <allen.baum@esperantotech.com>
+> Cc: Josh Scheid <jscheid@ventanamicro.com>
+> Cc: Richard Trauben <rtrauben@gmail.com>
+> ---
+>  .../devicetree/bindings/riscv/cpus.yaml       |  2 +
+>  arch/riscv/include/asm/fixmap.h               |  2 +-
+>  arch/riscv/include/asm/pgtable-64.h           |  8 ++--
+>  arch/riscv/include/asm/pgtable-bits.h         | 46 ++++++++++++++++++-
+>  arch/riscv/include/asm/pgtable.h              | 39 ++++++++++++----
+>  arch/riscv/include/asm/processor.h            |  1 +
+>  arch/riscv/kernel/cpufeature.c                | 23 ++++++++++
+>  arch/riscv/kernel/setup.c                     |  2 +
+>  arch/riscv/mm/init.c                          |  5 ++
+>  9 files changed, 113 insertions(+), 15 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> index e534f6a7cfa1..1825cd8db0de 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -56,7 +56,9 @@ properties:
+>      enum:
+>        - riscv,sv32
+>        - riscv,sv39
+> +      - riscv,sv39,svpbmt
+>        - riscv,sv48
+> +      - riscv,sv48,svpbmt
+>        - riscv,none
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---zppOVwffTjZ5Oe49Vq0wbEbRvLUF4dOID
-Content-Type: multipart/mixed; boundary="AxmgW1XtM0JJFTzWHwG0o4gfWFl7DFvoM";
- protected-headers="v1"
-From: Juergen Gross <jgross@suse.com>
-To: Mike Rapoport <rppt@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, devicetree@vger.kernel.org,
- iommu@lists.linux-foundation.org, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- linux-usb@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mike Rapoport <rppt@linux.ibm.com>
-Message-ID: <60c0d0f9-e4c6-ef66-b85b-0d091f8cba15@suse.com>
-Subject: Re: [PATCH 3/3] memblock: cleanup memblock_free interface
-References: <20210923074335.12583-1-rppt@kernel.org>
- <20210923074335.12583-4-rppt@kernel.org>
-In-Reply-To: <20210923074335.12583-4-rppt@kernel.org>
+I think augmenting the "mmu-type" DT property is a good approach but the
+description of "mmu-type" DT property needs to say:
 
---AxmgW1XtM0JJFTzWHwG0o4gfWFl7DFvoM
-Content-Type: multipart/mixed;
- boundary="------------CFB99E0866EE66F8CFC01FC3"
-Content-Language: en-US
+"Identifies the MMU address translation mode and page based memory
+type used on ..."
 
-This is a multi-part message in MIME format.
---------------CFB99E0866EE66F8CFC01FC3
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Also, DT bindings change is generally a separate patch so better to make
+a separate patch for this.
 
-On 23.09.21 09:43, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
->=20
-> For ages memblock_free() interface dealt with physical addresses even
-> despite the existence of memblock_alloc_xx() functions that return a
-> virtual pointer.
->=20
-> Introduce memblock_phys_free() for freeing physical ranges and repurpos=
-e
-> memblock_free() to free virtual pointers to make the following pairing
-> abundantly clear:
->=20
-> 	int memblock_phys_free(phys_addr_t base, phys_addr_t size);
-> 	phys_addr_t memblock_phys_alloc(phys_addr_t base, phys_addr_t size);
->=20
-> 	void *memblock_alloc(phys_addr_t size, phys_addr_t align);
-> 	void memblock_free(void *ptr, size_t size);
->=20
-> Replace intermediate memblock_free_ptr() with memblock_free() and drop
-> unnecessary aliases memblock_free_early() and memblock_free_early_nid()=
-=2E
->=20
-> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+>
+>    riscv,isa:
+> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+> index 54cbf07fb4e9..5acd99d08e74 100644
+> --- a/arch/riscv/include/asm/fixmap.h
+> +++ b/arch/riscv/include/asm/fixmap.h
+> @@ -43,7 +43,7 @@ enum fixed_addresses {
+>         __end_of_fixed_addresses
+>  };
+>
+> -#define FIXMAP_PAGE_IO         PAGE_KERNEL
+> +#define FIXMAP_PAGE_IO         PAGE_IOREMAP
+>
+>  #define __early_set_fixmap     __set_fixmap
+>
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 228261aa9628..0b53ea67e91a 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -61,12 +61,14 @@ static inline void pud_clear(pud_t *pudp)
+>
+>  static inline pmd_t *pud_pgtable(pud_t pud)
+>  {
+> -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> +       return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_CHG_MASK)
+> +                                               >> _PAGE_PFN_SHIFT);
+>  }
+>
+>  static inline struct page *pud_page(pud_t pud)
+>  {
+> -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page((pud_val(pud) & _PAGE_CHG_MASK)
+> +                                               >> _PAGE_PFN_SHIFT);
+>  }
+>
+>  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+> @@ -76,7 +78,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+>
+>  static inline unsigned long _pmd_pfn(pmd_t pmd)
+>  {
+> -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
+> +       return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
+>  }
+>
+>  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
+> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> index 2ee413912926..041fe4fdbafa 100644
+> --- a/arch/riscv/include/asm/pgtable-bits.h
+> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> @@ -7,7 +7,7 @@
+>  #define _ASM_RISCV_PGTABLE_BITS_H
+>
+>  /*
+> - * PTE format:
+> + * rv32 PTE format:
+>   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+>   *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+>   */
+> @@ -24,6 +24,47 @@
+>  #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
+>  #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
+>
+> +#ifndef __ASSEMBLY__
+> +#ifdef CONFIG_64BIT
+> +/*
+> + * rv64 PTE format:
+> + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
+> + * [62:61] Memory Type definitions:
+> + *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
+> + *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
+> + *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
+> + *  11 - Rsvd   Reserved for future standard use
+> + */
+> +#define _PAGE_MT_MASK          ((u64)0x3 << 61)
+> +#define _PAGE_MT_PMA           ((u64)0x0 << 61)
+> +#define _PAGE_MT_NC            ((u64)0x1 << 61)
+> +#define _PAGE_MT_IO            ((u64)0x2 << 61)
+> +
+> +enum {
+> +       MT_PMA,
+> +       MT_NC,
+> +       MT_IO,
+> +       MT_MAX
+> +};
+> +
+> +extern struct __riscv_svpbmt_struct {
+> +       unsigned long mask;
+> +       unsigned long mt[MT_MAX];
+> +} __riscv_svpbmt;
+> +
+> +#define _PAGE_DMA_MASK         __riscv_svpbmt.mask
+> +#define _PAGE_DMA_PMA          __riscv_svpbmt.mt[MT_PMA]
+> +#define _PAGE_DMA_NC           __riscv_svpbmt.mt[MT_NC]
+> +#define _PAGE_DMA_IO           __riscv_svpbmt.mt[MT_IO]
+> +#else
+> +#define _PAGE_DMA_MASK         0
+> +#define _PAGE_DMA_PMA          0
+> +#define _PAGE_DMA_NC           0
+> +#define _PAGE_DMA_IO           0
+> +#endif /* CONFIG_64BIT */
+> +#endif /* __ASSEMBLY__ */
+> +
+>  #define _PAGE_SPECIAL   _PAGE_SOFT
+>  #define _PAGE_TABLE     _PAGE_PRESENT
+>
+> @@ -38,7 +79,8 @@
+>  /* Set of bits to preserve across pte_modify() */
+>  #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ | \
+>                                           _PAGE_WRITE | _PAGE_EXEC |    \
+> -                                         _PAGE_USER | _PAGE_GLOBAL))
+> +                                         _PAGE_USER | _PAGE_GLOBAL |   \
+> +                                         _PAGE_DMA_MASK))
+>  /*
+>   * when all of R/W/X are zero, the PTE is a pointer to the next level
+>   * of the page table; otherwise, it is a leaf PTE.
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 39b550310ec6..d07ba586c866 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -136,7 +136,8 @@
+>                                 | _PAGE_PRESENT \
+>                                 | _PAGE_ACCESSED \
+>                                 | _PAGE_DIRTY \
+> -                               | _PAGE_GLOBAL)
+> +                               | _PAGE_GLOBAL \
+> +                               | _PAGE_DMA_PMA)
+>
+>  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
+>  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+> @@ -146,11 +147,9 @@
+>
+>  #define PAGE_TABLE             __pgprot(_PAGE_TABLE)
+>
+> -/*
+> - * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
+> - * change the properties of memory regions.
+> - */
+> -#define _PAGE_IOREMAP _PAGE_KERNEL
+> +#define _PAGE_IOREMAP  ((_PAGE_KERNEL & ~_PAGE_DMA_MASK) | _PAGE_DMA_IO)
+> +
+> +#define PAGE_IOREMAP           __pgprot(_PAGE_IOREMAP)
+>
+>  extern pgd_t swapper_pg_dir[];
+>
+> @@ -230,12 +229,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+>
+>  static inline struct page *pmd_page(pmd_t pmd)
+>  {
+> -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+>  }
+>
+>  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  {
+> -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> +       return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+>  }
+>
+>  static inline pte_t pmd_pte(pmd_t pmd)
+> @@ -251,7 +250,7 @@ static inline pte_t pud_pte(pud_t pud)
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
+> +       return ((pte_val(pte) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+>  }
+>
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> @@ -490,6 +489,28 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+>         return ptep_test_and_clear_young(vma, address, ptep);
+>  }
+>
+> +#define pgprot_noncached pgprot_noncached
+> +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
+> +{
+> +       unsigned long prot = pgprot_val(_prot);
+> +
+> +       prot &= ~_PAGE_DMA_MASK;
+> +       prot |= _PAGE_DMA_IO;
+> +
+> +       return __pgprot(prot);
+> +}
+> +
+> +#define pgprot_writecombine pgprot_writecombine
+> +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+> +{
+> +       unsigned long prot = pgprot_val(_prot);
+> +
+> +       prot &= ~_PAGE_DMA_MASK;
+> +       prot |= _PAGE_DMA_NC;
+> +
+> +       return __pgprot(prot);
+> +}
+> +
+>  /*
+>   * THP functions
+>   */
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 021ed64ee608..92676156cbf6 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -70,6 +70,7 @@ struct device_node;
+>  int riscv_of_processor_hartid(struct device_node *node);
+>  int riscv_of_parent_hartid(struct device_node *node);
+>
+> +extern void riscv_svpbmt(void);
 
-arch/x86/xen/ parts: Reviewed-by: Juergen Gross <jgross@suse.com>
+You can drop this change.
 
+>  extern void riscv_fill_hwcap(void);
+>  extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index d959d207a40d..4a2211c2c464 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -8,6 +8,7 @@
+>
+>  #include <linux/bitmap.h>
+>  #include <linux/of.h>
+> +#include <linux/pgtable.h>
+>  #include <asm/processor.h>
+>  #include <asm/hwcap.h>
+>  #include <asm/smp.h>
+> @@ -59,6 +60,28 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+>  }
+>  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+>
+> +void __init riscv_svpbmt(void)
 
-Juergen
+Make this static function and call it from riscv_fill_hwcap().
 
---------------CFB99E0866EE66F8CFC01FC3
-Content-Type: application/pgp-keys;
- name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Transfer-Encoding: quoted-printable
-Content-Description: OpenPGP public key
-Content-Disposition: attachment;
- filename="OpenPGP_0xB0DE9DD628BF132F.asc"
+> +{
+> +#ifdef CONFIG_64BIT
+> +       struct device_node *node;
+> +       const char *str;
+> +
+> +       for_each_of_cpu_node(node) {
+> +               if (of_property_read_string(node, "mmu-type", &str)) {
+> +                       continue;
+> +               }
+> +
+> +               if (!strncmp(str + 11, "svpbmt", 6)) {
+> +                       __riscv_svpbmt.mask       = _PAGE_MT_MASK;
+> +                       __riscv_svpbmt.mt[MT_PMA] = _PAGE_MT_PMA;
+> +                       __riscv_svpbmt.mt[MT_NC]  = _PAGE_MT_NC;
+> +                       __riscv_svpbmt.mt[MT_IO]  = _PAGE_MT_IO;
+> +                       break;
+> +               }
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+I don't agree with this loop.
 
-xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOBy=
-cWx
-w3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJvedYm8O=
-f8Z
-d621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJNwQpd369y=
-9bf
-IhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvxXP3FAp2pkW0xq=
-G7/
-377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEBAAHNHEp1ZXJnZW4gR=
-3Jv
-c3MgPGpnQHBmdXBmLm5ldD7CwHkEEwECACMFAlOMcBYCGwMHCwkIBwMCAQYVCAIJCgsEFgIDA=
-QIe
-AQIXgAAKCRCw3p3WKL8TL0KdB/93FcIZ3GCNwFU0u3EjNbNjmXBKDY4FUGNQH2lvWAUy+dnyT=
-hpw
-dtF/jQ6j9RwE8VP0+NXcYpGJDWlNb9/JmYqLiX2Q3TyevpB0CA3dbBQp0OW0fgCetToGIQrg0=
-MbD
-1C/sEOv8Mr4NAfbauXjZlvTj30H2jO0u+6WGM6nHwbh2l5O8ZiHkH32iaSTfN7Eu5RnNVUJbv=
-oPH
-Z8SlM4KWm8rG+lIkGurqqu5gu8q8ZMKdsdGC4bBxdQKDKHEFExLJK/nRPFmAuGlId1E3fe10v=
-5QL
-+qHI3EIPtyfE7i9Hz6rVwi7lWKgh7pe0ZvatAudZ+JNIlBKptb64FaiIOAWDCx1SzR9KdWVyZ=
-2Vu
-IEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+wsB5BBMBAgAjBQJTjHCvAhsDBwsJCAcDAgEGFQgCC=
-QoL
-BBYCAwECHgECF4AACgkQsN6d1ii/Ey/HmQf/RtI7kv5A2PS4RF7HoZhPVPogNVbC4YA6lW7Dr=
-Wf0
-teC0RR3MzXfy6pJ+7KLgkqMlrAbN/8Dvjoz78X+5vhH/rDLa9BuZQlhFmvcGtCF8eR0T1v0nC=
-/nu
-AFVGy+67q2DH8As3KPu0344TBDpAvr2uYM4tSqxK4DURx5INz4ZZ0WNFHcqsfvlGJALDeE0Lh=
-ITT
-d9jLzdDad1pQSToCnLl6SBJZjDOX9QQcyUigZFtCXFst4dlsvddrxyqT1f17+2cFSdu7+ynLm=
-XBK
-7abQ3rwJY8SbRO2iRulogc5vr/RLMMlscDAiDkaFQWLoqHHOdfO9rURssHNN8WkMnQfvUewRz=
-80h
-SnVlcmdlbiBHcm9zcyA8amdyb3NzQG5vdmVsbC5jb20+wsB5BBMBAgAjBQJTjHDXAhsDBwsJC=
-AcD
-AgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey8PUQf/ehmgCI9jB9hlgexLvgOtf7PJn=
-FOX
-gMLdBQgBlVPO3/D9R8LtF9DBAFPNhlrsfIG/SqICoRCqUcJ96Pn3P7UUinFG/I0ECGF4EvTE1=
-jnD
-kfJZr6jrbjgyoZHiw/4BNwSTL9rWASyLgqlA8u1mf+c2yUwcGhgkRAd1gOwungxcwzwqgljf0=
-N51
-N5JfVRHRtyfwq/ge+YEkDGcTU6Y0sPOuj4Dyfm8fJzdfHNQsWq3PnczLVELStJNdapwPOoE+l=
-otu
-fe3AM2vAEYJ9rTz3Cki4JFUsgLkHFqGZarrPGi1eyQcXeluldO3m91NK/1xMI3/+8jbO0tsn1=
-tqS
-EUGIJi7ox80eSnVlcmdlbiBHcm9zcyA8amdyb3NzQHN1c2UuZGU+wsB5BBMBAgAjBQJTjHDrA=
-hsD
-BwsJCAcDAgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey+LhQf9GL45eU5vOowA2u5N3=
-g3O
-ZUEBmDHVVbqMtzwlmNC4k9Kx39r5s2vcFl4tXqW7g9/ViXYuiDXb0RfUpZiIUW89siKrkzmQ5=
-dM7
-wRqzgJpJwK8Bn2MIxAKArekWpiCKvBOB/Cc+3EXE78XdlxLyOi/NrmSGRIov0karw2RzMNOu5=
-D+j
-LRZQd1Sv27AR+IP3I8U4aqnhLpwhK7MEy9oCILlgZ1QZe49kpcumcZKORmzBTNh30FVKK1Evm=
-V2x
-AKDoaEOgQB4iFQLhJCdP1I5aSgM5IVFdn7v5YgEYuJYx37IoN1EblHI//x/e2AaIHpzK5h88N=
-Eaw
-QsaNRpNSrcfbFmAg987ATQRTjHAWAQgAyzH6AOODMBjgfWE9VeCgsrwH3exNAU32gLq2xvjpW=
-nHI
-s98ndPUDpnoxWQugJ6MpMncr0xSwFmHEgnSEjK/PAjppgmyc57BwKII3sV4on+gDVFJR6Y8ZR=
-wgn
-BC5mVM6JjQ5xDk8WRXljExRfUX9pNhdE5eBOZJrDRoLUmmjDtKzWaDhIg/+1Hzz93X4fCQkNV=
-bVF
-LELU9bMaLPBG/x5q4iYZ2k2ex6d47YE1ZFdMm6YBYMOljGkZKwYde5ldM9mo45mmwe0icXKLk=
-pEd
-IXKTZeKDO+Hdv1aqFuAcccTg9RXDQjmwhC3yEmrmcfl0+rPghO0Iv3OOImwTEe4co3c1mwARA=
-QAB
-wsBfBBgBAgAJBQJTjHAWAhsMAAoJELDendYovxMvQ/gH/1ha96vm4P/L+bQpJwrZ/dneZcmEw=
-Tbe
-8YFsw2V/Buv6Z4Mysln3nQK5ZadD534CF7TDVft7fC4tU4PONxF5D+/tvgkPfDAfF77zy2AH1=
-vJz
-Q1fOU8lYFpZXTXIHb+559UqvIB8AdgR3SAJGHHt4RKA0F7f5ipYBBrC6cyXJyyoprT10EMvU8=
-VGi
-wXvTyJz3fjoYsdFzpWPlJEBRMedCot60g5dmbdrZ5DWClAr0yau47zpWj3enf1tLWaqcsuylW=
-svi
-uGjKGw7KHQd3bxALOknAp4dN3QwBYCKuZ7AddY9yjynVaD5X7nF9nO5BjR/i1DG86lem3iBDX=
-zXs
-ZDn8R38=3D
-=3D2wuH
------END PGP PUBLIC KEY BLOCK-----
+The __riscv_svpbmt should be updated only when all CPU nodes
+have "svpmbt" in the "mmu-type" DT property.
 
---------------CFB99E0866EE66F8CFC01FC3--
+> +       }
+> +#endif
+> +}
+> +
+>  void __init riscv_fill_hwcap(void)
+>  {
+>         struct device_node *node;
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 120b2f6f71bc..e7457113b45e 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -294,6 +294,8 @@ void __init setup_arch(char **cmdline_p)
+>         setup_smp();
+>  #endif
+>
+> +       riscv_svpbmt();
+> +
 
---AxmgW1XtM0JJFTzWHwG0o4gfWFl7DFvoM--
+You can drop this change based on above comment.
 
---zppOVwffTjZ5Oe49Vq0wbEbRvLUF4dOID
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
+>         riscv_fill_hwcap();
+>  }
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 7cb4f391d106..43b2e11fd3e0 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -905,3 +905,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>         return vmemmap_populate_basepages(start, end, node, NULL);
+>  }
+>  #endif
+> +
+> +#ifdef CONFIG_64BIT
+> +struct __riscv_svpbmt_struct __riscv_svpbmt __ro_after_init;
+> +EXPORT_SYMBOL(__riscv_svpbmt);
+> +#endif
+> --
+> 2.25.1
+>
 
------BEGIN PGP SIGNATURE-----
+Appending "svpmb" suffix to "mmu-type" breaks print_mmu()
+in arch/riscv/kernel/cpu.c. Please update that as well.
 
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmFMN48FAwAAAAAACgkQsN6d1ii/Ey8D
-fwf/WV3EUVWvjXkc64q0a0it6LMGy2AtQrh8KdDecuLV8iH5bKTnqNAZOUoV6sYTeiLsSSnRTLOt
-yKKjkWsC9/gUsyuO0B8Zw/VX/zoXJqp7T57FfmW+37qcslFuLzImqvDxdU65n/jEbme+VExmw6UF
-yy1ATxxxhQIxeTDXB3SfE0f6rX4Fw1DUqQc25bFNpD1wzdp1xG6qhH31/CWUI/V/frEfuzZrrN5F
-Uimkqk3+xjrqqpYh2fb/Pwpd77LFOdIrV4gH0oyl0NA3x3QMNi+67FrbMtuRHZij1jnpwoY1RiUc
-uVxzINJ+LJh0g8836hHAkPh5tQNBjV7C6V7LXddn6g==
-=Fnkp
------END PGP SIGNATURE-----
+We will also need couple of Tested-by for existing boards.
 
---zppOVwffTjZ5Oe49Vq0wbEbRvLUF4dOID--
-
-
---===============3113970745163363776==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3113970745163363776==--
-
