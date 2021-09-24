@@ -2,96 +2,122 @@ Return-Path: <SRS0=er6D=OO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 14DFAC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 04:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C5B94C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 05:34:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BDC7961107
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 04:35:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BDC7961107
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8001F6124B
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 05:34:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8001F6124B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xb5fX9yEUqwliSUT0x32Ox/YV8Pj+KHQYC9lY5g9eZI=; b=CjUdXw2PLNEb7e
-	9Raguvlz8eansSLh0vGAolw/n0bA3l9F0uFHyPhFPeGXXWgES4ZWVo/53efRGd0aZ62ZndmyqX2yn
-	O6K3rbWbfMLW+vC0NNHBb8K1+jB7Y+QPzFhAja2QNLeixqCADodsZUEngH/wuddEV90Ix/aeN1Hj5
-	/TmjGDV0nQKglHKOxIT2CVLzPkKqtQKVyXoUAZUfwb3nXeqyTu6dT6vZFVS5cviiXk2x4rQZrUPfQ
-	xUDHBWg9Wb6g60IUUd5Y8aUrqGmT03iLx7k6TOxh+lhbEa8qE9mJTqexShOkWpfWsziNFnQ8aX60o
-	opBRUBZs//Qvztat/BPQ==;
+	List-Owner; bh=7u75OnjyRUOFtEHgw7H6gYbAdSSaNcmxP5M2en+DC/E=; b=buU8DExBxa41no
+	1vLSN4g8UGaziUm+9zn1YRDHF0dnFt913xYxke6Gq4VjxFGsRU7omCJcGPY/J+sxI9LbanblQlCAg
+	Qc4x5qtJ2L8aLXoeX3kpmVlOeDPQpj3gFPGhbbWZChNmT9JlsCa/vRgpIyPKIPpEny1oSuH+J6UIF
+	Y8BmtbjAWU6xAzhs/PiOCCM8NVQ08c89FbdJJC5UFIt1zVBQobLOuFY2wqsN9mHIxJ1xq599mcyYr
+	SULUgG+wPuDzcbrSjBTb/gqCzx5Wb9WBbRIfoJShLiEnKppNvBx8V1Gi6Cy6gTTKU8dwf5rEUURkG
+	vigLmyJPh4YzsdiM863w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTcvm-00D55h-Es; Fri, 24 Sep 2021 04:35:26 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1mTdpB-00D7VN-71; Fri, 24 Sep 2021 05:32:41 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTcvj-00D54l-4d
- for linux-riscv@lists.infradead.org; Fri, 24 Sep 2021 04:35:24 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id b10so10950764ioq.9
- for <linux-riscv@lists.infradead.org>; Thu, 23 Sep 2021 21:35:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=xcH9wYSR91fpt+5IhR8QHq5X+wHLKfuvWgni3VmGpiU=;
- b=IwQPPQ10h/E5e/e7b49Tir8b5B9hgs/Wi9m4wHV/tEVRB3SijM3j5dbrNfI70GEMmU
- cRwjbjssjw6ODT3JN0RVWcjCh8cD0Y+CxXu3DS242Uo98NLw5U6yKDmaKI7w92iroixP
- FNFPWVZtRff9VniJ6HRtLlhtjP1A+XGYVlKmmehI+WDSy6N3Vhs8UeQdDjtQZonRdhi8
- NccqO+MnV+D0g4F3ZApPzqWM7HOzosTHlI2dmcTR6jmCvjmofQQJgJHaNMaP24vhKiM1
- tuejb39zHQw4ELgt9h8JAtObelmIa1RCFZ/C+W07FW94J8bAun/3aAZVQ5CkoS+Bfp+h
- hSGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=xcH9wYSR91fpt+5IhR8QHq5X+wHLKfuvWgni3VmGpiU=;
- b=g891ajIErDxeOf0ya2qgv/rd+cxeqF7yDyYNPODWHF7NIhe1jeiOzWsTso3rw7a0we
- +H0D1SwH41wRx39BscT+87pNOGVX+/l816/bHYrpyYfWZFjH8zgYvlJg5UYdMbUaDr9I
- 5wA/W5neuYY/bUG3TKZ+3/v8W5FhxfKGuLpXqZcq3ePNYL7K+teIloFSna18dDovZhPM
- /xJgeF8vrW+5E3U2adk8voUW8MRa0C73xADDUMijWRrS+lhzHPfqlUs/tdwW4glDviyk
- 7ToWX5AB4v/jYcfRsAox68OdBhPeI3CJUtjcCrURlaxLj4Wtns2eIEAY4dpi9PUJsTv6
- wC8g==
-X-Gm-Message-State: AOAM532vYTvHnz2BRMLvxuCqHq4wxUzGtpjy2P9mbyvtkqC9zlymCl+N
- NSeN75j6WFi+bg6UgFZxN2HssPdlXPO9kHjgHek=
-X-Google-Smtp-Source: ABdhPJw0PKpy4KqW5zF42c4Or1B+70c7jdEyFtPXZxvh0z0enU/YbxlqfhfU5mkG+k5Ewtfp3z2GHTvrCk4/ot0G2y4=
-X-Received: by 2002:a02:2124:: with SMTP id e36mr7336788jaa.35.1632458122367; 
- Thu, 23 Sep 2021 21:35:22 -0700 (PDT)
+ id 1mTdp7-00D7UG-BN; Fri, 24 Sep 2021 05:32:39 +0000
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 18O4TxLE003727; 
+ Fri, 24 Sep 2021 01:32:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : content-type : in-reply-to :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=LcclFexTC3W4CGWQ05F30N7TENmKQs3CWJF8lIJhAyA=;
+ b=fM5r0pOd7rJd2mnURChsSfJfJrX/C+3BofObflhTYGzVXv/HEJS9Aw8BgIC//ggGIR4j
+ CZ5JxdcP59VcALFL5IzVij2oY4zwlRyWWbJs8bYZFXoi5eLF6aEHqAyx0sRU0twQi+Nx
+ uTzT35Ud5rz3mMLTSHcDte6njyO8gAKbwGxAXdnivxmbV3hoFkXGse9K5ImTnY3FP/yx
+ Dcg6IMAClTzZSYBturZR2pFZSHk8drui/RqjiPVFtbOoDuEmvxDYqAtOWfweNAxqZrTZ
+ HQI3Eeh+Tf3jj5APaqHV6+/E8KJV71sFQyUh51zWXPgx91EVjartcf89ESTdpFpWq0zU zQ== 
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
+ [169.51.49.98])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3b97px199p-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 24 Sep 2021 01:32:30 -0400
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+ by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 18O5WBU3010032;
+ Fri, 24 Sep 2021 05:32:28 GMT
+Received: from b06avi18878370.portsmouth.uk.ibm.com
+ (b06avi18878370.portsmouth.uk.ibm.com [9.149.26.194])
+ by ppma03ams.nl.ibm.com with ESMTP id 3b93gb1yvs-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 24 Sep 2021 05:32:28 +0000
+Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
+ [9.149.105.58])
+ by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
+ id 18O5RWr150528586
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 24 Sep 2021 05:27:32 GMT
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id A77234C04E;
+ Fri, 24 Sep 2021 05:32:25 +0000 (GMT)
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 26CB04C050;
+ Fri, 24 Sep 2021 05:32:23 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.145.159.121])
+ by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Fri, 24 Sep 2021 05:32:23 +0000 (GMT)
+Date: Fri, 24 Sep 2021 08:32:21 +0300
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Mike Rapoport <rppt@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ devicetree@vger.kernel.org, linux-efi@vger.kernel.org,
+ kvm@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ iommu@lists.linux-foundation.org, linux-usb@vger.kernel.org,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/3] memblock: cleanup memblock_free interface
+Message-ID: <YU1i5YyldfS1HH0j@linux.ibm.com>
+References: <20210923074335.12583-1-rppt@kernel.org>
+ <20210923074335.12583-4-rppt@kernel.org>
+ <1101e3c7-fcb7-a632-8e22-47f4a01ea02e@csgroup.eu>
+ <YUxsgN/uolhn1Ok+@linux.ibm.com>
+ <96e3da9f-70ff-e5c0-ef2e-cf0b636e5695@csgroup.eu>
+Content-Disposition: inline
+In-Reply-To: <96e3da9f-70ff-e5c0-ef2e-cf0b636e5695@csgroup.eu>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: EYYWPQtbK60SNKLXoEtnrAemGAQvCJn5
+X-Proofpoint-GUID: EYYWPQtbK60SNKLXoEtnrAemGAQvCJn5
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-References: <20210917061040.2270822-1-alistair.francis@opensource.wdc.com>
- <20210917061040.2270822-2-alistair.francis@opensource.wdc.com>
- <72990864-5ec6-1f73-efd9-61b667a172dd@collabora.com>
- <CAK8P3a3x_EyCiPDpMK54y=Rtm-Wb08ym2TNiuAZgXhYrThcWTw@mail.gmail.com>
-In-Reply-To: <CAK8P3a3x_EyCiPDpMK54y=Rtm-Wb08ym2TNiuAZgXhYrThcWTw@mail.gmail.com>
-From: Alistair Francis <alistair23@gmail.com>
-Date: Fri, 24 Sep 2021 14:34:56 +1000
-Message-ID: <CAKmqyKM3vy_Ob1a0=cEi_Efi6_VVAa8YfMb6+rOt3fQK_TTcmw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] perf bench: Add support for 32-bit systems with
- 64-bit time_t
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@collabora.com>, 
- Alistair Francis <alistair.francis@opensource.wdc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Namhyung Kim <namhyung@kernel.org>, 
- Jiri Olsa <jolsa@redhat.com>, linux-perf-users@vger.kernel.org, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
- Darren Hart <dvhart@infradead.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <alistair.francis@wdc.com>
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.182.1,Aquarius:18.0.790,Hydra:6.0.391,FMLib:17.0.607.475
+ definitions=2021-09-24_01,2021-09-23_01,2020-04-07_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0
+ impostorscore=0 mlxscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 mlxlogscore=856 adultscore=0 phishscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2109230001 definitions=main-2109240031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210923_213523_208200_1BB38501 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20210923_223237_536229_B87EA1D6 
+X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +129,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjEsIDIwMjEgYXQgNjowOCBQTSBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRi
-LmRlPiB3cm90ZToKPgo+IE9uIFR1ZSwgU2VwIDIxLCAyMDIxIGF0IDEyOjQ3IEFNIEFuZHLDqSBB
-bG1laWRhCj4gPGFuZHJlYWxtZWlkQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+ID4KPiA+ICNpZiBk
-ZWZpbmVkKF9faTM4Nl9fKSB8fCBfX1RJTUVTSVpFID09IDMyCj4gPiAjIGRlZmluZSBOUl9nZXR0
-aW1lNjQgX19OUl9jbG9ja19nZXR0aW1lNjQKPiA+ICNlbHNlCj4gPiAjIGRlZmluZSBOUl9nZXR0
-aW1lNjQgX19OUl9jbG9ja19nZXR0aW1lCj4gPiAjZW5kaWYKPiA+Cj4gPiBzdHJ1Y3QgdGltZXNw
-ZWM2NCB7Cj4gPiAgICAgICAgIGxvbmcgbG9uZyB0dl9zZWM7ICAgICAgIC8qIHNlY29uZHMgKi8K
-PiA+ICAgICAgICAgbG9uZyBsb25nIHR2X25zZWM7ICAgICAgLyogbmFub3NlY29uZHMgKi8KPiA+
-IH07Cj4gPgo+ID4gaW50IGdldHRpbWU2NChjbG9ja190IGNsb2NraWQsIHN0cnVjdCB0aW1lc3Bl
-YzY0ICp0dikKPiA+IHsKPiA+ICAgICAgICAgcmV0dXJuIHN5c2NhbGwoTlJfZ2V0dGltZTY0LCBj
-bG9ja2lkLCB0dik7Cj4gPiB9Cj4gPgo+ID4gVGhlbiB3ZSBjYW4ganVzdCB1c2UgJnRpbWVvdXQg
-YXQgX19OUl9mdXRleF90aW1lNjQgZm9yIDMyYml0IGFyY2ggYW5kIGF0Cj4gPiBfX05SX2Z1dGV4
-IGZvciA2NGJpdCBhcmNoLgo+Cj4gVGhpcyBpcyBzdGlsbCBicm9rZW4gd2hlbiB5b3UgZGlzYWJs
-ZSBDT05GSUdfQ09NUEFUXzMyQklUX1RJTUUsCj4gd2hpY2ggZGlzYWJsZXMgYWxsIHN5c3RlbSBj
-YWxscyB0aGF0IHRha2UgdGltZTMyIGFyZ3VtZW50cy4KPgo+ID4gVGhpcyBtaWdodCBiZSBhIHNp
-bXBsZXIgc29sdXRpb24gdG8gdGhlIHByb2JsZW0gdGhhdCB5b3UgYXJlIGZhY2luZyBidXQKPiA+
-IEknbSBub3QgZW50aXJlbHkgc3VyZS4gQWxzbywgZnV0ZXgncyBzZWxmdGVzdHMgZG8gdXNlIHRo
-ZSB0aW1lb3V0Cj4gPiBhcmd1bWVudCBhbmQgSSB0aGluayB0aGF0IHRoZXkgYWxzbyB3b24ndCBj
-b21waWxlIGluIDMyLWJpdCBSSVNDLVYsIHNvCj4gPiBtYXliZSB3ZSBjYW4gc3RhcnQgZnJvbSB0
-aGVyZSBzbyB3ZSBjYW4gYWN0dWFsbHkgdGVzdCB0aGUgdGltZW91dAo+ID4gYXJndW1lbnQgYW5k
-IGNoZWNrIGlmIGl0J3Mgd29ya2luZy4KPgo+IEkgd291bGQgbG92ZSB0byBzZWUgdGhlIHdyYXBw
-ZXIgdGhhdCBBbGlzdGFpciB3cm90ZSBhcyBwYXJ0IG9mIHNvbWUga2VybmVsCj4gdWFwaSBoZWFk
-ZXIgcHJvdmlkZWQgdG8gdXNlciBzcGFjZS4gZnV0ZXggaXMgdXNlZCBieSB0b25zIG9mIGFwcGxp
-Y2F0aW9ucywKPiBhbmQgd2UgbmV2ZXIgaGFkIGEgbGlicmFyeSBhYnN0cmFjdGlvbiBmb3IgaXQs
-IHNvIGV2ZXJ5b25lIGhhcyB0byBkbyB0aGVzZQo+IGJ5IGhhbmQsIGFuZCB0aGV5IGFsbCBnZXQg
-dGhlbSBzbGlnaHRseSB3cm9uZyBpbiBkaWZmZXJlbnQgd2F5cy4KPgo+IFdlIG5vcm1hbGx5IGRv
-bid0IGRvIHRoaXMgaW4ga2VybmVsIGhlYWRlcnMsIGJ1dCBJIHRoaW5rIHRoZSBiZW5lZml0cwo+
-IHdvdWxkIGJlIGZhciBncmVhdGVyIGNvbXBhcmVkIHRvIHRvZGF5J3Mgc2l0dWF0aW9uLgoKSSdt
-IGhhcHB5IHRvIHByZXBhcmUgYSBwYXRjaCwgaWYgb3RoZXJzIGFyZSBvbiBib2FyZCB3aXRoIGl0
-IGJlaW5nIGFjY2VwdGVkLgoKQWxpc3RhaXIKCj4KPiAgICAgICBBcm5kCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Sep 23, 2021 at 03:54:46PM +0200, Christophe Leroy wrote:
+> =
+
+> Le 23/09/2021 =E0 14:01, Mike Rapoport a =E9crit=A0:
+> > On Thu, Sep 23, 2021 at 11:47:48AM +0200, Christophe Leroy wrote:
+> > > =
+
+> > > =
+
+> > > Le 23/09/2021 =E0 09:43, Mike Rapoport a =E9crit=A0:
+> > > > From: Mike Rapoport <rppt@linux.ibm.com>
+> > > > =
+
+> > > > For ages memblock_free() interface dealt with physical addresses ev=
+en
+> > > > despite the existence of memblock_alloc_xx() functions that return a
+> > > > virtual pointer.
+> > > > =
+
+> > > > Introduce memblock_phys_free() for freeing physical ranges and repu=
+rpose
+> > > > memblock_free() to free virtual pointers to make the following pair=
+ing
+> > > > abundantly clear:
+> > > > =
+
+> > > > 	int memblock_phys_free(phys_addr_t base, phys_addr_t size);
+> > > > 	phys_addr_t memblock_phys_alloc(phys_addr_t base, phys_addr_t size=
+);
+> > > > =
+
+> > > > 	void *memblock_alloc(phys_addr_t size, phys_addr_t align);
+> > > > 	void memblock_free(void *ptr, size_t size);
+> > > > =
+
+> > > > Replace intermediate memblock_free_ptr() with memblock_free() and d=
+rop
+> > > > unnecessary aliases memblock_free_early() and memblock_free_early_n=
+id().
+> > > > =
+
+> > > > Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> > > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> > > > ---
+> > > =
+
+> > > > diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
+> > > > index 1a04e5bdf655..37826d8c4f74 100644
+> > > > --- a/arch/s390/kernel/smp.c
+> > > > +++ b/arch/s390/kernel/smp.c
+> > > > @@ -723,7 +723,7 @@ void __init smp_save_dump_cpus(void)
+> > > >    			/* Get the CPU registers */
+> > > >    			smp_save_cpu_regs(sa, addr, is_boot_cpu, page);
+> > > >    	}
+> > > > -	memblock_free(page, PAGE_SIZE);
+> > > > +	memblock_phys_free(page, PAGE_SIZE);
+> > > >    	diag_amode31_ops.diag308_reset();
+> > > >    	pcpu_set_smt(0);
+> > > >    }
+> > > > @@ -880,7 +880,7 @@ void __init smp_detect_cpus(void)
+> > > >    	/* Add CPUs present at boot */
+> > > >    	__smp_rescan_cpus(info, true);
+> > > > -	memblock_free_early((unsigned long)info, sizeof(*info));
+> > > > +	memblock_free(info, sizeof(*info));
+> > > >    }
+> > > >    /*
+> > > =
+
+> > > I'm a bit lost. IIUC memblock_free_early() and memblock_free() where
+> > > identical.
+> > =
+
+> > Yes, they were, but all calls to memblock_free_early() were using
+> > __pa(vaddr) because they had a virtual address at hand.
+> =
+
+> I'm still not following. In the above memblock_free_early() was taking
+> (unsigned long)info . Was it a bug ? =
+
+
+Not really because s390 has pa =3D=3D va:
+
+https://elixir.bootlin.com/linux/latest/source/arch/s390/include/asm/page.h=
+#L169
+
+
+-- =
+
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
