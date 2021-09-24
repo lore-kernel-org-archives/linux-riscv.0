@@ -2,15 +2,15 @@ Return-Path: <SRS0=er6D=OO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DAAEDC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 15:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 92B7EC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 16:18:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AEDA6610FD
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 15:29:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AEDA6610FD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 32DA260F4C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Sep 2021 16:18:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 32DA260F4C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,70 +18,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dA7B/i1u1qs5e88kZGDF+r5lX7KkdII/+6n5KfOVGCQ=; b=Srcv7sDpGAIeKJ
-	4BAeOHPJ3xpiTSlgP3LORPs0XrBIRYXxbGwx32j9Y49WKYAS9INe/WJ9AMNkuyPGTLVEP9JCymLr0
-	Y+AoXUFoUgcCsC0s9AAL/87M0yEauomp2gzYBXVpLO3WX2GWSckchjWicOJsf9h6IHjklKECLSu6z
-	OrGhI+VHv9EtEheYTS8+LrYA4OqDMhu14IZHWQfiQ91KG7qEedREiRV2LJ+xSOq7x75noXSUUkMXw
-	Mp/L6r7KNw1OduqsdQpwBkzgqMdtyd+gq9cjTw4PVpEBGQ5k2qn5hU+LRFmTnDKBJTxZujomXrZY8
-	e4ffDHZebZfebgXkUQow==;
+	List-Owner; bh=+jrTLJRhBgxLm26uPSLUVXwcJuUVptccnonluo2PzMU=; b=z2sHyLejPVqEy+
+	tUU7n5CH1b0N6GJs/TSXuPRX+MTbeSnGB6b9Y26c/eidRzWioZcFiQPZkZtWhcJDZa6k4jJho1On6
+	hKzZgSu1AFk9On1Use9g2HqA0ZeUJsoPXwCLezxq+q4HhujG8Xd/bxP9DC6HbIkNzeRGxh5FlVH+w
+	qdP0ZGOvZLKvt2Nij+Dh/qgtJZ0aFcDz+EPAWTkTnrBD+np7oGrKOSqjMIcKpJUf8WDZAkxeLMF8P
+	Lbgdb6ecLKp0Wtekcp6efYDAsg+8UgVc40c/Y9Ix8G+HlBikBahFJ+JbnhPN+cHj2Gu6l524sSMMN
+	6HmrC1+ZfFz2ljsCdwfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mTn8S-00ExJp-FV; Fri, 24 Sep 2021 15:29:12 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1mTntM-00F2ct-49; Fri, 24 Sep 2021 16:17:40 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mTn8Q-00ExHI-Ih
- for linux-riscv@lists.infradead.org; Fri, 24 Sep 2021 15:29:11 +0000
-Received: by mail-ed1-x533.google.com with SMTP id dj4so37607035edb.5
- for <linux-riscv@lists.infradead.org>; Fri, 24 Sep 2021 08:29:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=CQ4WoixwfLVdKjcnesh6NOhR1rMTQv8BrkQ4NsoRsXs=;
- b=OXc/hyI9GTCK+r2jZvfkIM60vIrZpMtC9u++J3SvEMaAQRrQ5m7fIAlo1oqy7psWdO
- u6TWGc77Nr3VHocHKcnAevVn2p2Ub19oWQrRpnih7yfCyR8YsyBjXveqsyaW9btPh3qw
- 0MeaQCqw1xFoZFMDAVMBFsEZqCH3XeJEXszzNBGLcbHVHgxaZtS9t97BwchXzjh87+pn
- 2MpRjZntoZxlgwVhYUebJ+CoQS+E5fv7kZSqrX1AIV/GUKXcO7Qnr/FZevJAubjUj0oK
- bL/CYLX0y/VadO6EydhFGm/K8vc3FNw7CUjgzzH38+JvEJNSheR1d3ecPpSID0rfoASS
- Y+uA==
+ id 1mTntJ-00F2c1-6R
+ for linux-riscv@lists.infradead.org; Fri, 24 Sep 2021 16:17:38 +0000
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 045FB40192
+ for <linux-riscv@lists.infradead.org>; Fri, 24 Sep 2021 16:17:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1632500251;
+ bh=KBx9ZIG9pk67r6r2VuWSGeMfVxfkgdUANVfh9snsj/w=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=dAswSHzKl0s707SiR8y4pAWH8sLZR1SHbQdcA4Sam7G0IYZZusLLbXYjs0/Tsbrab
+ eOns1KAmUJJ5hJF0GKE77IKxNVXX17LZsCIKATvK3WocfIeZK1ONyAJx3VIUmiAe4s
+ PwAjf4STtL+YYllhQa3gYx0HKlbHsE56UJHcGmUjr6c1WIXRlx4AglOqOUpwRfS/Qp
+ ZcPBjdMZ3oBaKantx/+dwIXI0Z6MPQX1nGbqQryVz72JVBQa9WO9Cx/MH+4kvEPyJ3
+ 0yz1/kvo8YIXNWp2X9EZTqshHitYkbMXgjRctRqdpGAQftPO1nNa/SiyktL64SfcCx
+ mPB0iiL3q5v8Q==
+Received: by mail-ed1-f72.google.com with SMTP id
+ w24-20020a056402071800b003cfc05329f8so10787565edx.19
+ for <linux-riscv@lists.infradead.org>; Fri, 24 Sep 2021 09:17:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=CQ4WoixwfLVdKjcnesh6NOhR1rMTQv8BrkQ4NsoRsXs=;
- b=18GhhR7BLCInKeCOnTRsRG4Evwa9GoDnNVNhpIahZaTW13jzFxqsxgq/9QvkSxVZzl
- lnGNAk0vgCxrzobV8MLacWJ9kLQhpwIqHk5m3hZuiByquvtx9bB0S6tHlyxbQokaBdDI
- POL39wiwTk53KR9QDDFpEQeNbIn0+WUhnrSCx6UKNG36e4j4B8iKt5+v6pdKorOksRu1
- SZt/CcJ+NHYKchpvqxiczs4YrwWSZcmHrCa+0JA4lmAx3b9hXYQiX7DBVkIezWN5/RMv
- Zbf+5DeC0/RFuCCBtZnYU3dwN2Lm0oIN1dPaijEZZNWqW3Nxj3tMWh/CyaIYlTGoCEMj
- sxMg==
-X-Gm-Message-State: AOAM533+q1gBUK13ggWWMRyt61Y7ij4SHR7z9Vj9M2ssWntaizzZ10l9
- ZlEPCnsglUgf4DhJzQsMXiAy4Mr/80xAS8WlJbA=
-X-Google-Smtp-Source: ABdhPJx9Y0/DcbZ4SRmB6bUv2OExliUvt7b048hk331CiDBjNZuDrACJzzX6fRthwZYVv1rbZUpHKUdHO7EpdHOvxOM=
-X-Received: by 2002:a05:6402:21d0:: with SMTP id
- bi16mr1975909edb.124.1632497344106; 
- Fri, 24 Sep 2021 08:29:04 -0700 (PDT)
+ bh=KBx9ZIG9pk67r6r2VuWSGeMfVxfkgdUANVfh9snsj/w=;
+ b=w2MKTIzilfSezNQguzuaVotgeq6xOgXCnN5vINoNGFC2Hujo2F5vE7U6u2KuNkUnlA
+ QAlw49v6qigizljPfC05P/MowB0K3l3AwLpWzZMOkI60o9sPRH7RuUelXu79cM+mHQm8
+ mc5ir2xKJk5zrEKbIzgrr534H8HkFZhHOdPBKzw0eRBFVEjX7LUHHAX/7ngWtQ/pSC10
+ nsyPA9/EhMheT+9MrzLjCmyjlUt9W/08sOcSNIuUYoFip2TMtZIZrwDDVnXsA8xgwYm2
+ qVFRpbRVOuXuCC29lhH//A7jK3ttaXqWui2YCoKu6D5c3RWW9+W+3eB0zN1UdyekweK6
+ MEAg==
+X-Gm-Message-State: AOAM530NtIBRT/UQZ+nA0YNGaxqMaQXkx8YjpE/wJytET2NHf6XgYIwM
+ ed+ZDEhtlMaVyZ1whOf83o5FxgZeV0K3t4cTiQMzfQm/CUavYsRdgZVLM55KlxQr2NTMe8ya8Lk
+ 08Z4Ig4X1MVqUAr93++w67uZ6+UkWpr8qniQu0c/UmXZBWPoBeLklma1xUUnziw==
+X-Received: by 2002:a17:906:6d9a:: with SMTP id
+ h26mr1977393ejt.96.1632500250642; 
+ Fri, 24 Sep 2021 09:17:30 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwku+XUwuiLJ01GyS7qt08lWT0BlPKeGf2p9ERVpv0HQ7csZAV1Ggp34V7Bt8BIK//306rSX3iJJt7v7/BJKo8=
+X-Received: by 2002:a17:906:6d9a:: with SMTP id
+ h26mr1977374ejt.96.1632500250436; 
+ Fri, 24 Sep 2021 09:17:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210924095542.33697-1-lmb@cloudflare.com>
- <20210924095542.33697-2-lmb@cloudflare.com>
-In-Reply-To: <20210924095542.33697-2-lmb@cloudflare.com>
-From: Luke Nelson <luke.r.nels@gmail.com>
-Date: Fri, 24 Sep 2021 08:28:53 -0700
-Message-ID: <CAB-e3NQNkzcv6hNW1ga0Zhi_DcUVr2Q88WaE1m+CCXtKhHQcmw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 1/4] bpf: define bpf_jit_alloc_exec_limit for
- riscv JIT
-To: Lorenz Bauer <lmb@cloudflare.com>
-Cc: Xi Wang <xi.wang@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- kernel-team@cloudflare.com, 
- Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
+References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
+ <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+In-Reply-To: <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Fri, 24 Sep 2021 18:17:19 +0200
+Message-ID: <CA+zEjCvKaS0sE7paCecMDvqpkw-yLM_QFHdF5pgWTAqeH0JAfA@mail.gmail.com>
+Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
+To: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+Cc: Support Opensource <Support.Opensource@diasemi.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210924_082910_639451_5FE0DECB 
-X-CRM114-Status: UNSURE (   4.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210924_091737_433594_6FFC01DC 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,13 +105,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Expose the maximum amount of useable memory from the sparcv JIT.
+Hi Adam,
 
-sparcv -> riscv?
+On Fri, Sep 24, 2021 at 5:04 PM Adam Thomson
+<Adam.Thomson.Opensource@diasemi.com> wrote:
+>
+> On 21 September 2021 06:34, Alexandre Ghiti wrote:
+>
+> > The SiFive Unmatched board uses the da9063 PMIC for reset: add a restart
+> > notifier that will execute a small i2c sequence allowing to reset the
+> > board.
+> >
+> > The original implementation comes from Marcus Comstedt and Anders
+> > Montonen
+> > (https://forums.sifive.com/t/reboot-command/4721/28).
+> >
+> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> > ---
+> >  drivers/mfd/da9063-core.c       | 25 +++++++++++++++++++++++++
+> >  include/linux/mfd/da9063/core.h |  3 +++
+> >  2 files changed, 28 insertions(+)
+> >
+> > diff --git a/drivers/mfd/da9063-core.c b/drivers/mfd/da9063-core.c
+> > index df407c3afce3..c87b8d611f20 100644
+> > --- a/drivers/mfd/da9063-core.c
+> > +++ b/drivers/mfd/da9063-core.c
+> > @@ -20,6 +20,7 @@
+> >  #include <linux/mutex.h>
+> >  #include <linux/mfd/core.h>
+> >  #include <linux/regmap.h>
+> > +#include <linux/reboot.h>
+> >
+> >  #include <linux/mfd/da9063/core.h>
+> >  #include <linux/mfd/da9063/registers.h>
+> > @@ -158,6 +159,18 @@ static int da9063_clear_fault_log(struct da9063 *da9063)
+> >       return ret;
+> >  }
+> >
+> > +static int da9063_restart_notify(struct notifier_block *this,
+> > +                              unsigned long mode, void *cmd)
+> > +{
+> > +     struct da9063 *da9063 = container_of(this, struct da9063,
+> > restart_handler);
+> > +
+> > +     regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
+> > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
+> > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
+> > +
+> > +     return NOTIFY_DONE;
+> > +}
+>
+> I will talk with our HW team to clarify, but this sequence looks to be very
+> specific to the needs of the platform in question which doesn't feel right to
+> me. As was mentioned on another thread as well, the watchdog driver already has
+> a restart function to reset the device (and thus the system), so I don't believe
+> we should have multiple of these.
 
-Otherwise lgtm!
+From the discussion that happened here
+https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-support_tab_content,
+it does not seem possible to use the watchdog on a chip whose OTP does
+not set AUTOBOOT. But anyway, I'm looking forward to hearing from the
+HW team :)
 
-Acked-by: Luke Nelson <luke.r.nels@gmail.com>
+Thanks,
+
+Alex
+
+>
+> For board specific sequences, there are machine quirks I believe which can be
+> used to handle stuff like this, if this really isn't a generic solution to fit
+> all cases.
+>
 
 _______________________________________________
 linux-riscv mailing list
