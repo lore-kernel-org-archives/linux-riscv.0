@@ -2,64 +2,76 @@ Return-Path: <SRS0=npS7=OR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BA02C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 03:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 16C99C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 10:50:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CCB0C610A2
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 03:01:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CCB0C610A2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id C9D8E60F4B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 10:50:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C9D8E60F4B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zbMT2leeRyWt7oB+7lDVh4dzC2w7L5L/iYINgLaR22c=; b=X3MKfijKWcfB49
-	TcPtOcw8FEHfSu/nEW22YbmUMNbPwRda10mBW36kv9wS/NyUhKMZIgXtu+rlxhWrem+19J7kf29re
-	rKbtdLYhDWbnZonyWfGfbgvWEFQ0w2SNDIYHNfsPaC8/l2AUHni/O93GU/sOvUaQuoqt/kf4nhIlB
-	QjNv3EgTkVoKqTJqb5uLg8lYYnaYd6lWWYExbwGnSmltnPcpCWvzUlVu/4QAe3eeD142S4bDatr64
-	mzciMxFZpvbckXZCrY7qqf8yhND6jjAsLlhMMiV1g8JPIK5mIRD2JpHUMed/lakHUgrEhDUqODBMY
-	xrT4FhzCPpuXC5Ae3SVw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tDW60Uz5JP3BhRknbtPCpDIJhHkWnHmQvOos9ddKtGs=; b=3iMw/1EmAvbcNi
+	jNc88ay4TM0rOnadmfr9zy+KvD86fN+BC/lPl+7UzPTX7XYaLM/VA9rzME6C2hPwGXZA0P72UyvdK
+	QJjyMaWNJLWDZIQkMwjIrIb87uH9LR4DOY5b3utRNO6clHhRjcq6X3UdWclhxOdoR/fA78i/3cpN4
+	uMvObe7u15zX3AEHmdBdRQ5PD/VKdvbz2Tz7S3TemYEZfh3uvsk10PsJ3CjoXDtOM5xrsNlUqi40P
+	/tovmC2RQyIW6uiw0zC/D0GAM3LF8GX054YgElSbjOW5XUQ7WaLbSR91QrR8S0fUK/Hfd2be1BENY
+	JNx1mzrWXWTTaVHo8eWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mUgt9-001U1H-55; Mon, 27 Sep 2021 03:01:07 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mUgt6-001Tzu-RT
- for linux-riscv@lists.infradead.org; Mon, 27 Sep 2021 03:01:06 +0000
-Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.56])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4HHnRP5hTdzWN0L;
- Mon, 27 Sep 2021 10:59:29 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.8; Mon, 27 Sep 2021 11:00:45 +0800
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.8; Mon, 27 Sep 2021 11:00:45 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
- <palmerdabbelt@google.com>
-CC: <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, Kefeng Wang
- <wangkefeng.wang@huawei.com>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: [PATCH v2] riscv: mm: Enable PMD split page table lock for RV64
-Date: Mon, 27 Sep 2021 11:03:25 +0800
-Message-ID: <20210927030325.167313-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+	id 1mUoCY-002LR5-BA; Mon, 27 Sep 2021 10:49:38 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mUoCV-002LQ1-0P
+ for linux-riscv@lists.infradead.org; Mon, 27 Sep 2021 10:49:36 +0000
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
+ [209.85.216.50])
+ by linux.microsoft.com (Postfix) with ESMTPSA id BA79D20B4841
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 03:49:32 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BA79D20B4841
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+ s=default; t=1632739772;
+ bh=VZvw/wIlq/UcIn6rQL0WGXaz3mDbsqOb4IhjmRl4FHY=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=Pw7JHDXW5hAtNU1o+qCli2Bl5b7+zDkuD+JHUDwagxb7XcKsBrCOm4nWD7s3RqNNx
+ T5R3SD7qZVctJCrTpSZ9BBTH0fIRnR1iZdfUEmgC6yDdg6NqqhIHApsgcHo9kTS4Ns
+ BJ0NKbmav13sVT5kQEe5hvU0jwYc7kJXpxCT1wjk=
+Received: by mail-pj1-f50.google.com with SMTP id me1so12134488pjb.4
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 03:49:32 -0700 (PDT)
+X-Gm-Message-State: AOAM532Ry5j+NWZ9IuA0SisLxs1bway0auTXy+GxGdBnq7KN1tmyAE25
+ EiSdePPnlM3aeFGRmTFW2z01odOA5MAaEKU2T3M=
+X-Google-Smtp-Source: ABdhPJwWrdUZbG6u6ik5z6zlzTdgcwT/NZeHyQQPSrmqvewNPKVfDBt9KV1cs+l0aSm29Sx+YJjL60kJr8YCPUPBr04=
+X-Received: by 2002:a17:902:7e8a:b0:13d:95e2:d9c2 with SMTP id
+ z10-20020a1709027e8a00b0013d95e2d9c2mr21933306pla.8.1632739772259; Mon, 27
+ Sep 2021 03:49:32 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+References: <20210919192104.98592-3-mcroce@linux.microsoft.com>
+ <202109200526.YYwdkOeI-lkp@intel.com>
+In-Reply-To: <202109200526.YYwdkOeI-lkp@intel.com>
+From: Matteo Croce <mcroce@linux.microsoft.com>
+Date: Mon, 27 Sep 2021 12:48:56 +0200
+X-Gmail-Original-Message-ID: <CAFnufp2bhWVd-SdSaK3ppFNkoBpJa+-0+kSrWzdxrmYNjyM+Zg@mail.gmail.com>
+Message-ID: <CAFnufp2bhWVd-SdSaK3ppFNkoBpJa+-0+kSrWzdxrmYNjyM+Zg@mail.gmail.com>
+Subject: Re: [PATCH v4 2/3] riscv: optimized memmove
+To: kernel test robot <lkp@intel.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, kbuild-all@lists.01.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, 
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210926_200105_107743_03332618 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210927_034935_203599_19717D7D 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +88,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit 1355c31eeb7e ("asm-generic: pgalloc: provide generic
-pmd_alloc_one() and pmd_free_one()"), the main part to support
-PMD split page table lock is in asm-generic/pgalloc.h.
+On Mon, Sep 20, 2021 at 12:06 AM kernel test robot <lkp@intel.com> wrote:
+>
+> Hi Matteo,
+>
+> Thank you for the patch! Yet something to improve:
+>
+> [auto build test ERROR on linux/master]
+> [also build test ERROR on linus/master v5.15-rc1 next-20210917]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
+>
+> url:    https://github.com/0day-ci/linux/commits/Matteo-Croce/riscv-optimized-mem-functions/20210920-032303
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git bdb575f872175ed0ecf2638369da1cb7a6e86a14
+> config: riscv-randconfig-r004-20210919 (attached as .config)
+> compiler: riscv64-linux-gcc (GCC) 11.2.0
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # https://github.com/0day-ci/linux/commit/9a948fd7d78a58890608e9dd0f77e5ff84f36e3e
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Matteo-Croce/riscv-optimized-mem-functions/20210920-032303
+>         git checkout 9a948fd7d78a58890608e9dd0f77e5ff84f36e3e
+>         # save the attached .config to linux build tree
+>         mkdir build_dir
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=riscv SHELL=/bin/bash
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All errors (new ones prefixed by >>):
+>
+>    arch/riscv/lib/string.c: In function '__memmove':
+> >> arch/riscv/lib/string.c:89:7: error: inlining failed in call to 'always_inline' 'memcpy': function body can be overwritten at link time
+>       89 | void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
+>          |       ^~~~~~
+>    arch/riscv/lib/string.c:99:24: note: called from here
+>       99 |                 return memcpy(dest, src, count);
+>          |                        ^~~~~~~~~~~~~~~~~~~~~~~~
+>
+>
+> vim +89 arch/riscv/lib/string.c
+>
+> 86c5866e9b7fdd Matteo Croce 2021-09-19  88
+> 86c5866e9b7fdd Matteo Croce 2021-09-19 @89  void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
+> 86c5866e9b7fdd Matteo Croce 2021-09-19  90  EXPORT_SYMBOL(memcpy);
+> 9a948fd7d78a58 Matteo Croce 2021-09-19  91
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-The only change is add pgtable_pmd_page_ctor() into alloc_pmd_late(),
-then we could enable ARCH_ENABLE_SPLIT_PMD_PTLOCK for RV64.
+How can we fix this? Maybe calling __memcpy() instead?
 
-Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
-v2:
-- rebase to v5.15-rc3, update changelog, and add RB
-
- arch/riscv/Kconfig   | 1 +
- arch/riscv/mm/init.c | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 301a54233c7e..5c4463f30eb0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -14,6 +14,7 @@ config RISCV
- 	def_bool y
- 	select ARCH_CLOCKSOURCE_INIT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
-+	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c0cddf0fc22d..1f21375ba86f 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -367,7 +367,8 @@ static phys_addr_t __init alloc_pmd_late(uintptr_t va)
- 	unsigned long vaddr;
- 
- 	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
-+	BUG_ON(!vaddr || !pgtable_pmd_page_ctor(virt_to_page(vaddr)));
-+
- 	return __pa(vaddr);
- }
- 
 -- 
-2.26.2
-
+per aspera ad upstream
 
 _______________________________________________
 linux-riscv mailing list
