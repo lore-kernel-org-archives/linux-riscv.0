@@ -2,76 +2,79 @@ Return-Path: <SRS0=npS7=OR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16C99C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 10:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7A40C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 11:14:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C9D8E60F4B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 10:50:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C9D8E60F4B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
+	by mail.kernel.org (Postfix) with ESMTPS id 85E1E60F6B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Sep 2021 11:14:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 85E1E60F6B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tDW60Uz5JP3BhRknbtPCpDIJhHkWnHmQvOos9ddKtGs=; b=3iMw/1EmAvbcNi
-	jNc88ay4TM0rOnadmfr9zy+KvD86fN+BC/lPl+7UzPTX7XYaLM/VA9rzME6C2hPwGXZA0P72UyvdK
-	QJjyMaWNJLWDZIQkMwjIrIb87uH9LR4DOY5b3utRNO6clHhRjcq6X3UdWclhxOdoR/fA78i/3cpN4
-	uMvObe7u15zX3AEHmdBdRQ5PD/VKdvbz2Tz7S3TemYEZfh3uvsk10PsJ3CjoXDtOM5xrsNlUqi40P
-	/tovmC2RQyIW6uiw0zC/D0GAM3LF8GX054YgElSbjOW5XUQ7WaLbSR91QrR8S0fUK/Hfd2be1BENY
-	JNx1mzrWXWTTaVHo8eWg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tTDWQiQRNPYpidI5Y+A0QlPmh9ZcSWOxJ87kxXtrsbk=; b=vqdeH1r/rCLG4D
+	uucH7HZiG9T5AifNGxEV6ihgekqA1zl/3vzzspwoA8tydKAxmjhuhMmuqIXN5cNjX2fnyf2pUKzPz
+	jFew0KJIuDdhW8MrlldMtUPUKzdHfjECx7jqcPnw+wCXZ4SKsefbiP1j9P4YqoT9K/KZjv7rEtA6b
+	uEurXzI3tLQp9ASNsFyg0FzKxh6bRZRPnzfZSZpnZaWEEWRTy6oAlmtNByxs8XlqwclkmLMk3Vlej
+	pdh7Gov2BgD4Qet3aB02InNK7MWXQE2l2+KQ99e3aUUg6eTRyk80At/1J0H2xVUK7ahZkrMfei/Jd
+	HNoUFh9Z+rYWoOKxuyxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mUoCY-002LR5-BA; Mon, 27 Sep 2021 10:49:38 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mUoCV-002LQ1-0P
- for linux-riscv@lists.infradead.org; Mon, 27 Sep 2021 10:49:36 +0000
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
- [209.85.216.50])
- by linux.microsoft.com (Postfix) with ESMTPSA id BA79D20B4841
- for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 03:49:32 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BA79D20B4841
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
- s=default; t=1632739772;
- bh=VZvw/wIlq/UcIn6rQL0WGXaz3mDbsqOb4IhjmRl4FHY=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Pw7JHDXW5hAtNU1o+qCli2Bl5b7+zDkuD+JHUDwagxb7XcKsBrCOm4nWD7s3RqNNx
- T5R3SD7qZVctJCrTpSZ9BBTH0fIRnR1iZdfUEmgC6yDdg6NqqhIHApsgcHo9kTS4Ns
- BJ0NKbmav13sVT5kQEe5hvU0jwYc7kJXpxCT1wjk=
-Received: by mail-pj1-f50.google.com with SMTP id me1so12134488pjb.4
- for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 03:49:32 -0700 (PDT)
-X-Gm-Message-State: AOAM532Ry5j+NWZ9IuA0SisLxs1bway0auTXy+GxGdBnq7KN1tmyAE25
- EiSdePPnlM3aeFGRmTFW2z01odOA5MAaEKU2T3M=
-X-Google-Smtp-Source: ABdhPJwWrdUZbG6u6ik5z6zlzTdgcwT/NZeHyQQPSrmqvewNPKVfDBt9KV1cs+l0aSm29Sx+YJjL60kJr8YCPUPBr04=
-X-Received: by 2002:a17:902:7e8a:b0:13d:95e2:d9c2 with SMTP id
- z10-20020a1709027e8a00b0013d95e2d9c2mr21933306pla.8.1632739772259; Mon, 27
- Sep 2021 03:49:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210919192104.98592-3-mcroce@linux.microsoft.com>
- <202109200526.YYwdkOeI-lkp@intel.com>
-In-Reply-To: <202109200526.YYwdkOeI-lkp@intel.com>
-From: Matteo Croce <mcroce@linux.microsoft.com>
-Date: Mon, 27 Sep 2021 12:48:56 +0200
-X-Gmail-Original-Message-ID: <CAFnufp2bhWVd-SdSaK3ppFNkoBpJa+-0+kSrWzdxrmYNjyM+Zg@mail.gmail.com>
-Message-ID: <CAFnufp2bhWVd-SdSaK3ppFNkoBpJa+-0+kSrWzdxrmYNjyM+Zg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/3] riscv: optimized memmove
-To: kernel test robot <lkp@intel.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, kbuild-all@lists.01.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atish.patra@wdc.com>, 
- Emil Renner Berthing <kernel@esmil.dk>,
- Akira Tsukamoto <akira.tsukamoto@gmail.com>, 
- Drew Fustini <drew@beagleboard.org>
+	id 1mUoaA-002PTU-0j; Mon, 27 Sep 2021 11:14:02 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mUoa7-002PT2-18
+ for linux-riscv@lists.infradead.org; Mon, 27 Sep 2021 11:14:00 +0000
+Received: by mail-pf1-x443.google.com with SMTP id g2so11418791pfc.6
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 04:13:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id;
+ bh=mnrf+Q0CQZ3IArFfmE9Op5GKTEhvNo2IzKK88RxVwEQ=;
+ b=DwR6bfb15nqteSsivntCrx8/k2X87Ika+piCPufYuThWThoxDwh6LF2oNOOGvak8Al
+ tosqnFRRRkXwmb+HVNHw/CL5cQcaz7U4NQbDckPqlLWWy99QaZZjYmSm1G0yYy8duwvg
+ 2+7Vuvdi1GcmHNB5chVUUYFCOYmHOd3tzh86Ht+D+Ai37CAR22LKHMgQoRngHUfOMH/i
+ n7yNFZXiWWIv2FtL4ddtg5oNja6R8RSP3HG78fHmEt6lRgpSlI0ZkIsaXLNR5jDN2M3U
+ XYXj8bffQFaLima/ulzY5ZId19makCFaFYMmZTQR7LxAY7mqZTM9C0ObH5iu6K5B5ZnJ
+ PEYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=mnrf+Q0CQZ3IArFfmE9Op5GKTEhvNo2IzKK88RxVwEQ=;
+ b=nwbOL4HCcygRwd6U5zqx18PEzExSJw9G2T1/Bxy5SENIAkvX1kYTVQ+oIajm6NO3B0
+ 3NU6VfPWvcgr1V8tr4OIGYJTd2ubDJxCi4zpvecz4Lx0dAMX2VNsMh+EICMIMwdKPhh0
+ zjwCXdmOFHqkzT8QrbzqRWqYs3BKSM5BGmij8XLCUTrgNrAwQweJQqsAWWNkeLPndu9+
+ bsdzqzyQmKX1/SfvdKImLsGKeqBVsBEuhnHwi9SphG+uRhiHwwZIfqvnfJf2n4aG42GE
+ ASeUAVNPeNpNwsxq0qt7w/S2GAcim8XUzcGZpIP/zjsfFxJCfLL6syTMV4L0cMXhmRh8
+ N43Q==
+X-Gm-Message-State: AOAM531OBD8e2bd61JFg01/IFzt79/uJFQmO+21zoKD/2rA+0lisLsZy
+ kzO7QsB0nfyOXvYEASwklAc=
+X-Google-Smtp-Source: ABdhPJzAYE8WvS5EX9DGu9QdWc2Ec1R/52AWeebUEsa5MV00l1IM+hIixKOMxNyb5Vpkzaes5eb7Ow==
+X-Received: by 2002:a62:31c5:0:b0:447:b30c:9a79 with SMTP id
+ x188-20020a6231c5000000b00447b30c9a79mr23016487pfx.67.1632741237886; 
+ Mon, 27 Sep 2021 04:13:57 -0700 (PDT)
+Received: from localhost.localdomain ([153.37.224.179])
+ by smtp.gmail.com with ESMTPSA id b2sm17139686pfr.58.2021.09.27.04.13.54
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 27 Sep 2021 04:13:57 -0700 (PDT)
+From: Jinli Zheng <zhengdbu@gmail.com>
+To: paul.walmsley@sifive.com
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, anup.patel@wdc.com,
+ sunnanyong@huawei.com, alex@ghiti.fr, jszhang@kernel.org,
+ penberg@kernel.org, guoren@linux.alibaba.com, zhengdbu@gmail.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v1 1/1] Add support for mm->mmap_legacy_base in legacy layout
+Date: Mon, 27 Sep 2021 19:11:50 +0800
+Message-Id: <20210927111150.3518-1-zhengdbu@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210927_034935_203599_19717D7D 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20210927_041359_104650_536D162E 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +86,251 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 20, 2021 at 12:06 AM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Matteo,
->
-> Thank you for the patch! Yet something to improve:
->
-> [auto build test ERROR on linux/master]
-> [also build test ERROR on linus/master v5.15-rc1 next-20210917]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Matteo-Croce/riscv-optimized-mem-functions/20210920-032303
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git bdb575f872175ed0ecf2638369da1cb7a6e86a14
-> config: riscv-randconfig-r004-20210919 (attached as .config)
-> compiler: riscv64-linux-gcc (GCC) 11.2.0
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # https://github.com/0day-ci/linux/commit/9a948fd7d78a58890608e9dd0f77e5ff84f36e3e
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Matteo-Croce/riscv-optimized-mem-functions/20210920-032303
->         git checkout 9a948fd7d78a58890608e9dd0f77e5ff84f36e3e
->         # save the attached .config to linux build tree
->         mkdir build_dir
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=riscv SHELL=/bin/bash
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    arch/riscv/lib/string.c: In function '__memmove':
-> >> arch/riscv/lib/string.c:89:7: error: inlining failed in call to 'always_inline' 'memcpy': function body can be overwritten at link time
->       89 | void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
->          |       ^~~~~~
->    arch/riscv/lib/string.c:99:24: note: called from here
->       99 |                 return memcpy(dest, src, count);
->          |                        ^~~~~~~~~~~~~~~~~~~~~~~~
->
->
-> vim +89 arch/riscv/lib/string.c
->
-> 86c5866e9b7fdd Matteo Croce 2021-09-19  88
-> 86c5866e9b7fdd Matteo Croce 2021-09-19 @89  void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
-> 86c5866e9b7fdd Matteo Croce 2021-09-19  90  EXPORT_SYMBOL(memcpy);
-> 9a948fd7d78a58 Matteo Croce 2021-09-19  91
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Add support for mm->mmap_legacy_base in the legacy layout
+of the process memory space for the riscv architecture
 
-How can we fix this? Maybe calling __memcpy() instead?
+Signed-off-by: Jinli Zheng <zhengdbu@gmail.com>
+---
+ arch/riscv/Kconfig                 |   2 +-
+ arch/riscv/include/asm/pgtable.h   |   3 +
+ arch/riscv/include/asm/processor.h |   1 +
+ arch/riscv/mm/Makefile             |   2 +-
+ arch/riscv/mm/mmap.c               | 165 +++++++++++++++++++++++++++++
+ 5 files changed, 171 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/mm/mmap.c
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 301a54233c7e..e64231592227 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -37,7 +37,7 @@ config RISCV
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+ 	select ARCH_USE_MEMTEST
+-	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
++	select ARCH_HAS_ELF_RANDOMIZE
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 39b550310ec6..107d61371272 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -700,6 +700,9 @@ void misc_mem_init(void);
+ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
+ #define ZERO_PAGE(vaddr) (virt_to_page(empty_zero_page))
+ 
++#define HAVE_ARCH_UNMAPPED_AREA
++#define HAVE_ARCH_UNMAPPED_AREA_TOPDOWN
++
+ #endif /* !__ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_PGTABLE_H */
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 46b492c78cbb..e7dc7c1f820a 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -56,6 +56,7 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ #define KSTK_EIP(tsk)		(task_pt_regs(tsk)->epc)
+ #define KSTK_ESP(tsk)		(task_pt_regs(tsk)->sp)
+ 
++#define HAVE_ARCH_PICK_MMAP_LAYOUT	1
+ 
+ /* Do necessary setup to start up a newly executed thread. */
+ extern void start_thread(struct pt_regs *regs,
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index 7ebaef10ea1b..123c67a2c24a 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -10,7 +10,7 @@ KCOV_INSTRUMENT_init.o := n
+ 
+ obj-y += init.o
+ obj-y += extable.o
+-obj-$(CONFIG_MMU) += fault.o pageattr.o
++obj-$(CONFIG_MMU) += fault.o pageattr.o mmap.o
+ obj-y += cacheflush.o
+ obj-y += context.o
+ 
+diff --git a/arch/riscv/mm/mmap.c b/arch/riscv/mm/mmap.c
+new file mode 100644
+index 000000000000..6c5818db5a65
+--- /dev/null
++++ b/arch/riscv/mm/mmap.c
+@@ -0,0 +1,165 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Legacy and flexible mmap layout support
++ *
++ * Copyright (C) 2021 Jinli Zheng <zhengdbu@gmail.com>
++ */
++
++#include <linux/personality.h>
++#include <linux/mm.h>
++#include <linux/mman.h>
++#include <linux/random.h>
++#include <linux/limits.h>
++#include <linux/security.h>
++#include <linux/compat.h>
++#include <linux/sched/mm.h>
++#include <linux/sched.h>
++#include <linux/elf-randomize.h>
++#include <asm/pgtable.h>
++#include <asm/processor.h>
++
++#define SIZE_128M	(128*1024*1024UL)
++
++/*gap between MMAP and STACK*/
++#define GAP_MIN		SIZE_128M
++#define GAP_MAX		(((TASK_SIZE)/6)*5)
++
++static unsigned long mmap_base(unsigned long rnd, struct rlimit *rlim_stack)
++{
++	unsigned long gap = rlim_stack->rlim_cur;
++
++	if (gap < GAP_MIN)
++		gap = GAP_MIN;
++	else if (gap > GAP_MAX)
++		gap = GAP_MAX;
++
++	return PAGE_ALIGN(TASK_SIZE - gap - rnd);
++}
++
++unsigned long arch_get_unmapped_area(struct file *filp, unsigned long addr,
++		unsigned long len, unsigned long pgoff, unsigned long flags)
++{
++	struct mm_struct *mm = current->mm;
++	struct vm_area_struct *vma, *prev;
++	struct vm_unmapped_area_info info;
++
++	if (len > TASK_SIZE)
++		return -ENOMEM;
++
++	if (flags & MAP_FIXED)
++		return addr;
++
++	if (addr) {
++		addr = PAGE_ALIGN(addr);
++		vma = find_vma_prev(mm, addr, &prev);
++		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
++		     (!vma || addr + len <= vm_start_gap(vma)) &&
++		     (!prev || addr >= vm_end_gap(prev)))
++			return addr;
++	}
++
++	info.flags = 0;
++	info.length = len;
++	info.low_limit = mm->mmap_legacy_base;
++	info.high_limit = TASK_SIZE;
++	info.align_mask = 0;
++	info.align_offset = 0;
++	return vm_unmapped_area(&info);
++}
++
++unsigned long arch_get_unmapped_area_topdown(struct file *filp, unsigned long addr,
++		unsigned long len, unsigned long pgoff, unsigned long flags)
++{
++	struct mm_struct *mm = current->mm;
++	struct vm_area_struct *vma, *prev;
++	struct vm_unmapped_area_info info;
++
++	if (len > TASK_SIZE)
++		return -ENOMEM;
++
++	if (flags & MAP_FIXED)
++		return addr;
++
++	if (addr) {
++		addr = PAGE_ALIGN(addr);
++		vma = find_vma_prev(mm, addr, &prev);
++		if (TASK_SIZE - len >= addr && addr >= mmap_min_addr &&
++		     (!vma || addr + len <= vm_start_gap(vma)) &&
++		     (!prev || addr >= vm_end_gap(prev)))
++			return addr;
++	}
++
++	info.flags = VM_UNMAPPED_AREA_TOPDOWN;
++	info.length = len;
++	info.low_limit = max(PAGE_SIZE, mmap_min_addr);
++	info.high_limit = mm->mmap_base;
++	info.align_mask = 0;
++	info.align_offset = 0;
++	addr = vm_unmapped_area(&info);
++
++	if (offset_in_page(addr)) {
++		VM_BUG_ON(addr != -ENOMEM);
++		info.flags = 0;
++		info.low_limit = TASK_UNMAPPED_BASE;
++		info.high_limit = TASK_SIZE;
++		addr = vm_unmapped_area(&info);
++	}
++
++	return addr;
++}
++
++unsigned long arch_mmap_rnd(void)
++{
++	unsigned long rnd;
++
++#ifdef CONFIG_HAVE_ARCH_MMAP_RND_COMPAT_BITS
++	if (is_compat_task())
++		rnd = get_random_int() & ((1UL << mmap_rnd_compat_bits) - 1);
++	else
++#endif /*CONFIG_HAVE_ARCH_MMAP_RND_COMPAT_BITS*/
++		rnd = get_random_int() & ((1UL << mmap_rnd_bits) - 1);
++
++	return rnd << PAGE_SHIFT;
++}
++
++static int mmap_is_legacy(struct rlimit *rlim_stack)
++{
++	if (current->personality & ADDR_COMPAT_LAYOUT)
++		return 1;
++
++	if (rlim_stack->rlim_cur == RLIM_INFINITY)
++		return 1;
++
++	return sysctl_legacy_va_layout;
++}
++
++static void arch_pick_mmap_base(struct mm_struct *mm, struct rlimit *rlim_stack)
++{
++	unsigned long random;
++
++	random = (current->flags & PF_RANDOMIZE) ?
++		arch_mmap_rnd() : 0UL;
++
++	if (mmap_is_legacy(rlim_stack))
++		mm->mmap_legacy_base = TASK_UNMAPPED_BASE + random;
++	else
++		mm->mmap_base = mmap_base(random, rlim_stack);
++}
++
++void arch_pick_mmap_layout(struct mm_struct *mm, struct rlimit *rlim_stack)
++{
++	if (mmap_is_legacy(rlim_stack))
++		mm->get_unmapped_area = arch_get_unmapped_area;
++	else
++		mm->get_unmapped_area = arch_get_unmapped_area_topdown;
++
++	arch_pick_mmap_base(mm, rlim_stack);
++}
++
++unsigned long arch_randomize_brk(struct mm_struct *mm)
++{
++	if (!IS_ENABLED(CONFIG_64BIT) || is_compat_task())
++		return randomize_page(mm->brk, SZ_32M);
++
++	return randomize_page(mm->brk, SZ_1G);
++}
 -- 
-per aspera ad upstream
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
