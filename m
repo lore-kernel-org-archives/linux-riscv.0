@@ -2,102 +2,100 @@ Return-Path: <SRS0=vGgu=OS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F6BDC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 09:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A21BAC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 09:45:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CD5DD61130
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 09:27:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CD5DD61130
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=opensource.cirrus.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5F0946023B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 09:45:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5F0946023B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=vrull.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6RKkpRD2SLZJ9GDQ6JW8T9hY1t7Y36akvYt5BXPE6Us=; b=PpIzB4BRPAdAZe
-	2PKSWOysTq4BQ7ZIkzOQqFgKjySblMV0P+Gg8SH64PGNd+2C6t6pzEFJWiMG9GCwtA4kDSYnQ7HUn
-	I4nbr5sGBRoEIMjw4vlYPXqjLJuPpYoa7PmWrFgerefXxMSVLAPf0j237UnNlhC9wFyMZn23L4d0g
-	91t3zraA4W/aY+gD16tG3Ylojydhp0OTvOKUqmpDVvJkTVlSdMYq29dEff3WRDhZ6AiOeOml3ZIqY
-	BVxIA2BMCvOYOnb9Q3KuqzQPptlL2yV5uX4ERZ+kiP8TQlh9kYmeRCkVCovcrd0fJwNMh1el1JVYZ
-	qCqy0U94If4IMz1opNsQ==;
+	List-Owner; bh=/maQHDapOsQSfG9SjprgbxnFKLAt+9CfEhcOfpkKyqM=; b=XFx9hKGDl+Di7p
+	XmIPSI0h3nSbt5rV8mHYdkdBAhE3QHkls6zKHqcwVpgxI1EbnOfGGwgP4OnpQkfgH1wdIivPffTT8
+	LxiOQG9vFfapDP7P88uS8Bz8WUEpHohpU/y1B2Qkrof8K/QF38kFpha5e17rOZZjvk6xlB5W2pyFD
+	cSFiL9IXBGrLobbTYatgOqdP2+vUQV4G2vDlo045MiudVQidV94HRfqEXXBMszVmr8rA1IWUuhVbl
+	XioplZe3ccV4Wipn6effSTWifxp6P5pj8uiLt6ILbtl5Zq/dB8+OaudoyHyw9+pS5XmrZBnGJVtAn
+	S/pNnXiNpyW9Tl89iAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mV9OQ-006abn-Gk; Tue, 28 Sep 2021 09:27:18 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25]
- helo=mx0b-001ae601.pphosted.com)
+	id 1mV9gE-006eXO-7F; Tue, 28 Sep 2021 09:45:42 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mV9Lu-006Zmt-DH; Tue, 28 Sep 2021 09:24:44 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
- by mx0a-001ae601.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 18S8A28M025160; 
- Tue, 28 Sep 2021 04:24:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com;
- h=date : from : to : cc
- : subject : message-id : references : mime-version : content-type :
- in-reply-to; s=PODMain02222019;
- bh=9VqIQz/1HqDmwPai2TYqvrCqYupABpAsyUut7dZ736M=;
- b=pFLUqA3rP6s9vALO1j4rVtdJ880oQlmw2WpBASjERkcmuXEDpPkdh+ZRgwwaSlJs6zie
- Ku0jyFaBkG78xmZ+YdNpQYf9Y0IvyZersPlmkBZvWSk5BWHPJhkyUWaCc2DEq07T/x2t
- c9X+xgK1iGXLPaf9qxoQAdBob6A1fkXIHKS2EFEKp1kNeOZDMcvesRyq3z4j6MP2yVX3
- xnglaL2IGW9Vuej4mAqb/8jcF23TAbO2fBwKx/ExVJ6YnKlppjFEq0DcZBYWcSO/8Len
- K3JfFxKn7BFWETUi9snqgpJ5rk+cxe1A7HLWXdcPu3PJS1nxcAWPYrcKtx3NieBHHj6A Mw== 
-Received: from ediex01.ad.cirrus.com ([87.246.76.36])
- by mx0a-001ae601.pphosted.com with ESMTP id 3bbgmygx4j-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
- Tue, 28 Sep 2021 04:24:02 -0500
-Received: from EDIEX01.ad.cirrus.com (198.61.84.80) by EDIEX01.ad.cirrus.com
- (198.61.84.80) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2242.12; Tue, 28 Sep
- 2021 10:24:00 +0100
-Received: from ediswmail.ad.cirrus.com (198.61.86.93) by EDIEX01.ad.cirrus.com
- (198.61.84.80) with Microsoft SMTP Server id 15.1.2242.12 via
- Frontend Transport; Tue, 28 Sep 2021 10:24:00 +0100
-Received: from ediswmail.ad.cirrus.com (ediswmail.ad.cirrus.com [198.61.86.93])
- by ediswmail.ad.cirrus.com (Postfix) with ESMTP id 318DD11AF;
- Tue, 28 Sep 2021 09:24:00 +0000 (UTC)
-Date: Tue, 28 Sep 2021 09:24:00 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Arnd Bergmann <arnd@kernel.org>
-CC: Bjorn Andersson <bjorn.andersson@linaro.org>, Arnd Bergmann
- <arnd@arndb.de>, Mark Brown <broonie@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Simon Trimmer <simont@opensource.cirrus.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
- <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, Paul
- Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, the arch/x86 maintainers <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Linus Walleij
- <linus.walleij@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, <linux-ia64@vger.kernel.org>, "open
- list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, Parisc List
- <linux-parisc@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 1/2] firmware: include drivers/firmware/Kconfig
- unconditionally
-Message-ID: <20210928092400.GH9223@ediswmail.ad.cirrus.com>
-References: <20210928075216.4193128-1-arnd@kernel.org>
- <20210928083751.GG9223@ediswmail.ad.cirrus.com>
- <CAK8P3a11c6eLRWKvQeSqvEicc9bMDeEEGV5fygTidoRzYf9KnQ@mail.gmail.com>
+ id 1mV9gB-006eWY-9r
+ for linux-riscv@lists.infradead.org; Tue, 28 Sep 2021 09:45:41 +0000
+Received: by mail-wm1-x335.google.com with SMTP id
+ r83-20020a1c4456000000b0030cfc00ca5fso1682311wma.2
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Sep 2021 02:45:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=vrull-eu.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=NpdgeAZE/2JJ8QTB4I+A3zPOkF3A5OHzdZD2Ya/kiJo=;
+ b=i2IZPEpAj9GVvkEurJnnx3+k7W2Jnzo8UJ1dMWzQ6eudHfwFSXfKL1WxaG0U6qdbRn
+ w/CHf5mVcsjJkYKHdyCbBLGEq0s6AwvIKX26WFoHfoEb5B8ta6P2eJS7Fp/R1Wpk8JIY
+ QJB2+IzhRoCaC0P5/nqNKoLcVxrDoI6J8Xy/dj12YBZFgMNj9aP9K1VTIA/q6D8Rb3Ob
+ tEGVSinY/kU4XwhtyV1fUlF838oO6yJZI7zYyU5IjP4mHfoW6rd44T9SEL+hy7X3wz/q
+ d+P8kMq3eHps14Xi2fuqyEjZsARReiEUVcz56eLD3HTQlscvFt3GxfH6OH3YKqrlB6wH
+ UJ5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=NpdgeAZE/2JJ8QTB4I+A3zPOkF3A5OHzdZD2Ya/kiJo=;
+ b=l0lGGzh77f4K3xJQO3o+w6hqGcU421vFSBz5QcMymR3qOg30QUY7IIYOoXORtU+WTW
+ 9mvtAzf0MPzVxwWqsNspP7Ury3iNhmOfbb8/I3dedw1kMiBN1XpoYlmz+qogSBjhiRp6
+ UsL0SVyEAt63QlhBqGzBBSHO1ZJLK+NwXtkhsqtOAwDacEqeSH2hWacX3KORS66haq/4
+ OC1nuOjCZrdkIrSgStivn+0zlMqBY2KSmHJu/5raTV/jh18lxA20vfmAwKSWnNwKVIBS
+ bZI/sgXICXa9DKcUZkHOYSa2i2FdymYN4lXLu45zMlP3i8MUnzXGvCGoLuLvBPXhiI9e
+ Mk9A==
+X-Gm-Message-State: AOAM533Bjf7D1PXej5HBxiyP7hV4tqVU4Ra3HkN5JmS6EtBoo1Xrh85U
+ oV1rADouPylals9MlpI47Y/ApVge7XIteLCyhwMq0g==
+X-Google-Smtp-Source: ABdhPJyxl9YA7ldXa+HKq5qrAL7hFQ10SkpTKprQJ9OmzU3FO+gJY3QCdkT3sgf4vE5ySZO6ORk5Q+HYv5Yt4j84rmU=
+X-Received: by 2002:a1c:7d0f:: with SMTP id y15mr3673092wmc.41.1632822336266; 
+ Tue, 28 Sep 2021 02:45:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a11c6eLRWKvQeSqvEicc9bMDeEEGV5fygTidoRzYf9KnQ@mail.gmail.com>
-User-Agent: Mutt/1.5.21 (2010-09-15)
-X-Proofpoint-ORIG-GUID: Pzx4P-PCvsYzz7bz1-hxMXEM9-0MDlJo
-X-Proofpoint-GUID: Pzx4P-PCvsYzz7bz1-hxMXEM9-0MDlJo
-X-Proofpoint-Spam-Reason: safe
+References: <20210923172107.1117604-1-guoren@kernel.org>
+ <CAOnJCUJWnDB+uRxDh=YSbGW4bf5RQvke03iCTYMYHPsw3cwnHQ@mail.gmail.com>
+ <CAOnJCULrE595ex3gBTnu4GnPazO4mg8Tkrtbv6j8iLWe+sKJSA@mail.gmail.com>
+ <CA+Qh7T=kud8AM-6JjuWNwJY0r_gkmnP6SmzVXqeE2VYxViLUoQ@mail.gmail.com>
+ <CAOnJCUJp9UatyReA8-Jq=WGY_QgV4CbL4Qs2F9rXJzOHsXeW5Q@mail.gmail.com>
+In-Reply-To: <CAOnJCUJp9UatyReA8-Jq=WGY_QgV4CbL4Qs2F9rXJzOHsXeW5Q@mail.gmail.com>
+From: Philipp Tomsich <philipp.tomsich@vrull.eu>
+Date: Tue, 28 Sep 2021 11:45:25 +0200
+Message-ID: <CAAeLtUDpHDoOKJLvjct7SexoEtFckHDoeEsLS72xOQ4JWJAUaA@mail.gmail.com>
+Subject: Re: [PATCH V2 1/2] riscv: Add RISC-V svpbmt extension
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Greg Favor <gfavor@ventanamicro.com>, Guo Ren <guoren@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ Christoph Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>,
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, aniket.ponkshe@canonical.com, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ gordan.markus@canonical.com, 
+ Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, 
+ Maxime Ripard <maxime@cerno.tech>, Daniel Lustig <dlustig@nvidia.com>, 
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, 
+ Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>, 
+ Nick Kossifidis <mick@ics.forth.gr>, Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210928_022442_490710_562D99CC 
-X-CRM114-Status: GOOD (  34.27  )
+X-CRM114-CacheID: sfid-20210928_024539_432000_598A468F 
+X-CRM114-Status: GOOD (  35.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,63 +107,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 28, 2021 at 10:51:36AM +0200, Arnd Bergmann wrote:
-> On Tue, Sep 28, 2021 at 10:37 AM Charles Keepax
-> <ckeepax@opensource.cirrus.com> wrote:
-> > I guess the question might be where else would said code go?
-> > drivers/firmware seemed most obvious, all the other locations
-> > I can think of don't really make sense. Can't really put it a bus
-> > like spi/i2c etc. because we have parts on many buses. Can't
-> > really put it in a functional subsystem (audio/input etc.) since
-> > the whole idea was to try and get some independence from that so
-> > we don't have parts including subsystems they don't use. Could
-> > maybe put it in MFD, but no hard guarantee every part using it
-> > will be an MFD device and I am fairly confident Lee will feel it
-> > isn't MFD code as it doesn't relate to managing multiple devices.
-> > Only other option I can think of would be to make some sort of
-> > drivers/dsp or maybe drivers/cs_dsp, but not clear to me that is
-> > obviously better than using drivers/firmware.
-> 
-> Other DSPs use the drivers/remoteproc/ subsystem, but that
-> is more for general-purpose DSPs that can load application
-> specific firmware rather than loading a single firmware blob
-> as you'd normally do with the request_firmware() style interface.
-> 
-> Not sure if that fits what you do. Can you point to a high-level
-> description of what this DSP does besides audio, and how
-> flexible it is? That might help find the right place for this.
-
-Hm... wasn't aware of that one, we should probably investigate that
-a little more at this end. From a quick look, seems a bit more like
-it is designed for much larger more general purpose probably memory
-mapped DSPs. I guess our code is a little more firmware parsing
-and loading, and a bit less generic remote proceedure call stuff.
-
-I am not sure there is great deal available publically on the
-DSP core. It is talked about in a few of our datasheets, see
-section 4.4 in [1]. But a basic description might be it is a
-signal processing focused, very small DSP core. If can be loaded
-with different firmwares at runtime, and indeed might be doing say
-echo cancellation in one use-case, or always on voice detect in
-another. Functionally it is very unlikely to be used for anything
-besides signal processing inside the device it is in, since it is
-typically quite integrated with that hardware and will be sitting
-behind a slow bus, like I2C or SPI.
-
-Current users are all audio, planning to upstream some haptics
-parts soon, with possible other uses in the future.
-
-[1] https://statics.cirrus.com/pubs/proDatasheet/CS48L32_DS1219F4.pdf
-
-Thanks,
-Charles
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyOCBTZXB0IDIwMjEgYXQgMDE6MDUsIEF0aXNoIFBhdHJhIDxhdGlzaHBAYXRpc2hw
+YXRyYS5vcmc+IHdyb3RlOgo+Cj4gT24gTW9uLCBTZXAgMjcsIDIwMjEgYXQgMTo1MyBQTSBHcmVn
+IEZhdm9yIDxnZmF2b3JAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gV2l0aCB0aGUg
+YmlnIGNhdmVhdCB0aGF0IEkgaGF2ZW4ndCBiZWVuIGluIHRoZSBtaWRkbGUgb2YgdGhpcyBkaXNj
+dXNzaW9uLCBpdCBzZWVtcyBsaWtlIEFsbHdpbm5lciBEMSdzIGNoYW5nZXMgcmVwcmVzZW50IGEg
+Y3VzdG9tIChhbmQgbm9uY29uZm9ybWluZykgZXh0ZW5zaW9uLgo+Cj4gQXMgcGVyIHRoZSB2MS4x
+MiBwcml2aWxlZ2Ugc3BlY2lmaWNhdGlvbiwgYml0IDYzIGlzIHJlc2VydmVkIGZvcgo+IFN2bmFw
+b3QgZXh0ZW5zaW9uIHdoaWxlIGJpdCA2MOKAkzU0IGFyZSByZXNlcnZlZCBmb3IgZnV0dXJlIHN0
+YW5kYXJkCj4gdXNlLgo+IEQxJ3MgaW1wbGVtZW50YXRpb24gdXNlcyBib3RoIDYwIGFuZCA2MyBi
+aXQgZm9yIHRoZWlyIGN1c3RvbSAiUEJNVCIKPiBleHRlbnNpb24gaW4gYWRkaXRpb24gdG8gYml0
+IDYxICYgNjIgWzFdLgo+Cj4gPiBJc24ndCB0aGlzIGp1c3QgYSBtYXR0ZXIgb2YgdGhlIHBhdGNo
+IG5lZWRpbmcgdG8gYmUgdHJlYXRlZCBhcyBmb3IgYSBSSVNDLVYgY3VzdG9tIGV4dGVuc2lvbiBw
+ZXIgdGhlIHJlY2VudGx5IGNsYXJpZmllZCBwb2xpY3kgZm9yIGhhbmRsaW5nIHVwc3RyZWFtaW5n
+L2V0Yy4gb2YgY3VzdG9tIGV4dGVuc2lvbnM/ICAoUGhpbGlwcCBjYW4gPiBzcGVhayB0byB0aGlz
+IGNsYXJpZmllZCBwb2xpY3kuKSAgT3Igd2hhdCBhbSBJIG1pc3Npbmc/Cj4KPiBMaW51eCBrZXJu
+ZWwgdXBzdHJlYW0gcG9saWN5IGlzIHlldCB0byBhZG9wdCB0aGF0IGNsYXJpZmljYXRpb24gYXMg
+aXQKPiB3YXMgcmVjZW50bHkgZGlzY3Vzc2VkIGF0IFJWSSBtZWV0aW5ncy4gSXMgdGhlcmUgYSB3
+cml0dGVuIGRlZmluaXRpb24KPiBvZiBub24tY29uZm9ybWluZy9jdXN0b20vaW5jb21wYXRpYmxl
+ID8KPiBNb3Jlb3ZlciwgYXMgcGVyIHRoZSBwbGF0Zm9ybSBzcGVjaWZpY2F0aW9uWzJdLAo+Cj4g
+QSBub24tY29uZm9ybWluZyBleHRlbnNpb24gdGhhdCBjb25mbGljdHMgd2l0aCBhIHN1cHBvcnRl
+ZCBzdGFuZGFyZAo+IGV4dGVuc2lvbnMgbXVzdCBzYXRpc2Z5IGF0IGxlYXN0IG9uZSBvZiB0aGUg
+Zm9sbG93aW5nOgo+ICAgLS0tIEl0IG11c3QgYmUgZGlzYWJsZWQgYnkgZGVmYXVsdC4KPiAgIC0t
+LSBUaGUgc3VwcG9ydGVkIHN0YW5kYXJkIGV4dGVuc2lvbiBtdXN0IGJlIGRlY2xhcmVkIGFzIHVu
+c3VwcG9ydGVkCj4gaW4gYWxsIGZlYXR1cmUgZGlzY292ZXJ5IHN0cnVjdHVyZXMgdXNlZCBieSBz
+b2Z0d2FyZS4KPiAgICAgICBUaGlzIG9wdGlvbiBpcyBhbGxvd2VkIG9ubHkgaWYgdGhlIHN0YW5k
+YXJkIGV4dGVuc2lvbiBpcyBub3QgcmVxdWlyZWQuCgpUaGUgdGVybWlub2xvZ3kgZm9yIHRob3Nl
+IGNhc2VzIChhbmQgeC10aGVhZC12IGlzIHRoZSBtZW50YWwKdGVzdC1jYXNlKSB3b3VsZCBiZSAi
+bm9uLWNvbXBsaWFudCBhbmQgbm9uLWNvbmZsaWN0aW5nIi4KVGhlICJub24tY29tcGxpYW50IiBw
+YXJ0IGNvbWVzIGZyb20gdGhlIGZhY3QgdGhhdCB0aGUgc3BlY2lmaWNhdGlvbgpoYXMgYmVlbiB2
+aW9sYXRlZDogaW4gdGhlIGNhc2Ugb2YgeC10aGVhZC12IGJ5IHVzaW5nIHRoZSByZXNlcnZlZApv
+cGNvZGUgc3BhY2UsIGluIHRoZSBjYXNlIG9mIHRoZSBQVEVzIGJ5IHVzaW5nIHJlc2VydmVkIGJp
+dHMuClRoZSAibm9uLWNvbmZsaWN0aW5nIiBpcyBiYXNlZCBvbiBhIHN5c3RlbSBzdGlsbCBiZWlu
+ZyBhYmxlIHRvIG9wZXJhdGUKYWNjb3JkaW5nIHRvIHRoZSBzcGVjaWZpY2F0aW9uLCBldmVuIGlm
+IHRoZSBub24tY29tcGxpYW50IGV4dGVuc2lvbiBpcwpzaW1wbHkgaWdub3JlZCAoZS5nLiBSVlYg
+aXMgbm90IG1hbmRhdG9yeSBhbmQgdGhlIG9wY29kZXMgZm9yIFJWViBhcmUKbm90IHJlcXVpcmVk
+IHRvIHJhaXNlIGlsbGVnYWwgaW5zbiBleGNlcHRpb25zLCBzbyB0aGVzZSBzeXN0ZW1zIHdvdWxk
+CnNpbXBseSBhcHBlYXIgYXMgbm90IGhhdmluZyBSVlYp4oCmCgpOb3csIHdpdGggdGhlaXIgImN1
+c3RvbSIgUEJNVCwgd2UgYXJlIHB1c2hpbmcgdGhlIGJvdW5kYXJpZXMgb2YgdGhlCidub24tY29u
+ZmxpY3RpbmcnIGRlZmluaXRpb24gYnV0IGFyZSBzdGlsbCB3aXRoaW4gdGhlIHNhbWUgcmVhc29u
+aW5nOgppZiB3ZSBvbmx5IHNpZ25hbCBzdjM5IGFuZCBubyBQQk1ULXN1cHBvcnQsIHRoZW4gdGhl
+IGFidXNlIG9mIHRoZSBQVEUKYml0cyBkb2VzIG5vdCBjb25mbGljdC4gIEluIHRoZSBlbmQsIHRo
+ZSAnbm9uLWNvbmZsaWN0aW5nJyBzdGF0dXMgd2lsbApoaW5nZSBvbiB3aGV0aGVyIHdlIG1ha2Ug
+c3ZwYm10IG1hbmRhdG9yeSBpbiB0aGUgUGxhdGZvcm0gKG9yIHRoZQpyZWZlcmVuY2VkIFByb2Zp
+bGUpLgoKSW4gdGhpcyBwYXJ0aWN1bGFyIGNhc2Ug4oCUIGdpdmVuIHRoZSBpbXBvcnRhbmNlIG9m
+IHRoZSBEMSBib2FyZHMgZm9yCmJvb3RzdHJhcHBpbmcgdGhlIHNvZnR3YXJlIGVjb3N5c3RlbSDi
+gJQgSSB3b3VsZCBtYWtlIHRoZSBjYXNlIHRoYXQgd2UKbmVlZCB0byBwcm92aWRlIGEgcHJvdmlz
+aW9uIGluIHRoZSBQbGF0Zm9ybXMgKGkuZS4gT1MtQSBiYXNlKSB0bwpyZXRhaW4gdGhlICdub24t
+Y29uZmxpY3RpbmcnIHN0YXR1cyAoZS5nLiBieSBtYW5kYXRpbmcgInNvbWUgcGJtdCIg4oCUCndp
+dGggYW4gYXBwbGljYXRpb24gbm90ZSBzdGF0aW5nIHRoYXQgdGhpcyB3aWxsIGJlIHJlc3RyaWN0
+ZWQgdG8Kc3ZwYm10IGluIHRoZSBuZXh0IG1ham9yIHJldmlzaW9uIG9mIHRoZSBQbGF0Zm9ybXMg
+Li4uIGFuZCBhbHJlYWR5CnJlc3RyaWN0aW5nIGl0IHRvIHN2cGJtdCBmb3IgdGhlIE9TLUEgc2Vy
+dmVyIGV4dGVuc2lvbikuCgo+IEluIHRoaXMgY2FzZSwgdGhlIGN1c3RvbSBub24tY29uZm9ybWlu
+ZyBpbXBsZW1lbnRhdGlvbiBjYW4gbm90IGJlCj4gZGlzYWJsZWQgb3IgbWFya2VkIHVuc3VwcG9y
+dGVkIGFzIGl0IGlzIGNyaXRpY2FsIGZvciBhbGwgdGhlIG5lY2Vzc2FyeQo+IEkvTyBkZXZpY2Vz
+ICh1c2IsIG1tYywgZXRoZXJuZXQpLgo+IFdpdGhvdXQgdGhpcyBjdXN0b20gaW1wbGVtZW50YXRp
+b24gc3VwcG9ydCBpbiB1cHN0cmVhbSwgd2UgY2FuIG5vdAo+IHJlYWxseSB1c2UgdGhlIG1haW5s
+aW5lIGtlcm5lbCBmb3IgQWxsd2lubmVyIEQxLgoKSSBkb24ndCBhZ3JlZSBmcm9tIGEgc3BlY2lm
+aWNhdGlvbiBzdGFuZHBvaW50IGFuZCBmcm9tIHRoZQonbm9uLWNvbmZsaWN0aW5nJyBzdGFuZHBv
+aW50OiB3aGV0aGVyIG9yIG5vdCBkZXZpY2UgZHJpdmVycyBjYW4gYmUKdXNlZCwgZG9lcyBub3Qg
+Y2hhbmdlIHRoZSAnbm9uLWNvbmZsaWN0aW5nJyBzdGF0dXMuClRoaXMgaXMgc2ltaWxhciB0byB0
+aGUgJ25vbi1jb25mbGljdGluZycgc3RhdHVzIHdpdGggeC10aGVhZC12OiB2ZWN0b3IKaW5zdHJ1
+Y3Rpb25zIChhcyBpbiAidGhlIHN0YW5kYXJkIFJWViBpbnN0cnVjdGlvbnMiKSBhbHNvIGNhbid0
+IGJlCnVzZWQgd2l0aCBhIHRvb2xjaGFpbi9saWJyYXJpZXMvT1MgdGhhdCBvbmx5IGltcGxlbWVu
+dHMgUlZWIC4uLiBidXQKbm9uZXRoZWxlc3MsIHZlbmRvci1zcGVjaWZpYyB2ZWN0b3IgaW5zdHJ1
+Y3Rpb25zIGFyZSBhdmFpbGFibGUuCgpJIHdvdWxkIGFyZ3VlIHRoZSBzYW1lIGZvciBBbGliYWJh
+J3MgUEJNVDogSS9PIGRldmljZXMgd2lsbCBub3Qgd29yaywKdW5sZXNzIGEgdmVuZG9yLXNwZWNp
+ZmljIG5vbi1jb25mbGljdGluZyBQQk1UIGlzIHVzZWQuCgpUaGUgYnJpbmdzIHVzIGJhY2sgdG8g
+dGhlIHJlcXVpcmVtZW50cyB0aGF0IEkgZGVmaW5lZCBtdWx0aXBsZSB0aW1lcwpmb3IgdGhpczog
+dGhlIGltcGxlbWVudGF0aW9uIG5lZWRzIHRvIGJlIHByb3Blcmx5IG1vZHVsYXJpemVkIGFuZApx
+dWFyYW50aW5lZCBhcyB0byBub3QgYWR2ZXJzZWx5IGltcGFjdCBjb21wbGlhbnQgaW1wbGVtZW50
+YXRpb25zLgpJZiB0aGlzIGNhbiBiZSBhc3N1cmVkLCBJIHdpbGwgYWx3YXlzIGFyZ3VlIGZvciBp
+bmNsdXNpb24gYmFzZWQgb24gdGhlCmJlbmVmaXQgdG8gdGhlIGVjb3N5c3RlbSBhbmQgcmVjb25j
+aWxpbmcgdGhlIGltbWluZW50IGZyYWdtZW50YXRpb24uCk9yIGluIG90aGVyIHdvcmRzOiBJbiB3
+aGF0IHdvcmxkIGRvZXMgaXQgbWFrZSBzZW5zZSB0byBlbmNvdXJhZ2UgYQp2ZW5kb3Igb2YgYSBi
+b2FyZCB3aXRoIHNpZ25pZmljYW50IG1hcmtldCBzaGFyZSB0byBjcmVhdGUgYQp2ZW5kb3ItZm9y
+ayBvZiB0aGUga2VybmVsLCBpZiB0aGF0IHZlbmRvciBpcyB3aWxsaW5nIHRvIHdvcmsgd2l0aCB0
+aGUKdXBzdHJlYW0/ICBOb3RlIHRoYXQgSSBub3JtYWxseSBhbSB0aGUgZmlyc3QgdG8gYXJndWUg
+b24gcHJpbmNpcGxlLApidXQgaGF2ZSBjb21lIHRvIHRoZSBjb25jbHVzaW9uIHRoYXQgd2UgYXJl
+IHJlYWxseSBiZXR3ZWVuIGEgcm9jayBhbmQKYSBoYXJkIHBsYWNlIG9uIHRoaXMgb25lIOKAlCBh
+bmQgbXkgcHJpb3JpdHkgaXMgdG8ga2VlcCB0aGUgZWNvc3lzdGVtCmZyb20gZnJhZ21lbnRpbmcu
+Cgo+PiA+PiA+IFdlIG5lZWQgdG8gZGVjaWRlIHdoZXRoZXIgd2Ugc2hvdWxkIHN1cHBvcnQgdGhl
+IHVwc3RyZWFtIGtlcm5lbCBmb3IgRDEuIEZldyB0aGluZ3MgdG8gY29uc2lkZXIuCj4gPj4gPiDi
+gJMgQ2FuIGl0IGJlIGNvbnNpZGVyZWQgYXMgYW4gZXJyYXRhID8KPiA+PiA+IOKAkyBEb2VzIGl0
+IHNldCBhIGJhZCBwcmVjZWRlbnQgYW5kIG9wZW4gY2FuIG9mIHdvcm1zIGluIGZ1dHVyZSA/Cj4g
+Pj4gPiDigJMgQ2FuIHdlIGp1c3QgaWdub3JlIEQxIGdpdmVuIHRoZSBtYXNzIHZvbHVtZSA/Cj4g
+Pj4gPgo+ID4+ID4gT25lIHNvbHV0aW9uIEkgY2FuIHRoaW5rIG9mIGlzIHRoYXQgd2UgYWxsb3cg
+dGhpcyBhcyBhbiBleGNlcHRpb24gdG8gdGhlIHBhdGNoIGFjY2VwdGFuY2UgcG9saWN5Lgo+ID4+
+ID4gV2UgbmVlZCB0byBleHBsaWNpdGx5IHNwZWNpZnkgdGhpcyBib2FyZCBhcyBhbiBleGNlcHRp
+b24gYmVjYXVzZSB0aGUgcG9saWN5IHdhcyBub3QgaW4gcGxhY2UgZHVyaW5nIHRoZSBkZXNpZ24g
+cGhhc2Ugb2YgdGhlIGhhcmR3YXJlLgo+ID4+ID4gQXQgbGVhc3QsIGl0IHByb3RlY3RzIHVzIGZy
+b20gYWNjZXB0aW5nIHRoZSBpbmNvbXBhdGlibGUgY2hhbmdlcyBpbiB0aGUgZnV0dXJlLiBBbnkg
+b3RoZXIgaWRlYXMgPwoKQW55dGhpbmcgd2UgZG8gbmVlZHMgdG8gY29uc2lkZXIgZnV0dXJlIGlt
+cGFjdCBhbmQgcHJlY2VkZW50LiAgQnV0CnRoYXQgc2hvdWxkIG5vdCBwcmVjbHVkZSB1cyBmcm9t
+IG1ha2luZyBhbiBleGNlcHRpb24sIHdoZW4gaXQgYmVuZWZpdHMKdGhlIGVjb3N5c3RlbSBieSBw
+cmV2ZW50aW5nIGZ1cnRoZXIgZnJhZ21lbnRhdGlvbi4KSSBjb25zaWRlciB0aGUgc3RhdGVkIHJl
+cXVpcmVtZW50cyBvZiBwcm9wZXIgbW9kdWxhcml6YXRpb24KKHF1YXJhbnRpbmluZyB0aGUgaW1w
+YWN0IHdpdGhpbiB0aGUgY29kZSBiYXNlKSBhbmQgYSBwcmVjb25kaXRpb24gb24KdGhlIHZlbmRv
+ciBtYWludGFpbmluZyB0aGUgY2hhbmdlcywgYXMgYSBzdHJvbmctZW5vdWdoIGRpc2NvdXJhZ2Vt
+ZW50CmZvciBhbnkgcGFydGllcyB0aGF0IG1pZ2h0IGFsc28gY29uc2lkZXIgdG8gYXBwbHkgZ3Jv
+c3MgbmVnbGlnZW5jZSB0bwp0aGUgbWVhbmluZyBvZiAncmVzZXJ2ZWQnLgoKUGhpbGlwcC4KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
