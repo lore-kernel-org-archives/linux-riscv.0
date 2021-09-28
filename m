@@ -2,111 +2,83 @@ Return-Path: <SRS0=vGgu=OS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 504D8C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 00:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34D82C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 00:43:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0B69960E05
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 00:24:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0B69960E05
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
+	by mail.kernel.org (Postfix) with ESMTPS id DF147611BD
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Sep 2021 00:43:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DF147611BD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GeKgOe06VKK9uTXPMOtIp8Q6zJmjRZszCZ3p/ipcuu8=; b=uhlN9Mm5h31ovwA9xfDl9zKiyB
-	UcqFQ0R8mRCFsZr6vESH6oFBdBJj87b9KdfDkMGsbn2uWJehubxdxDyHoke3AYyi9AFKkmuLmLSs0
-	TganOFyEIIkkxAzUUTpLfGeeqinV1CIjqp2R5lm+IIWG2IKfNcnVyHLXBGwQVXzPcWAAYbg3nygFw
-	kU84GOGIZPpunPzkw2RbOE/pb4OjFE5CV907hFnwTYEMQQN0HnBb/eIN/uKa/I54sNeZPx61TeksB
-	gK5tquOJO5t5JsGaQxsuzn4phHRB24cnk9vwwIwXhXbLFf7jqbTpk0whCCz0PFWUa31Pi6ETZrglx
-	5x3cGqog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d0VROyo2bgqi8cUb7veuzdh8ot3fKj+1kMigZs9ClRI=; b=mSDxhAvsUPKaY7
+	CK0O+C29+UnXuomcB7hI+ryl08KHHWgsxmLlmFtIEoAGp11WPTZ59S3YGWgE2RVc+puhiIImhqem/
+	WFwPNqOyjgbFZI3erfCOoNl/iWeMFbLGk5LTZ8dbhFSpmgGKaDDyPBVKsyafHc3GxnaW0M9n3T5lk
+	qUmHJytpTx0svu/5p7rjt6WiNUFQ4Y+rl85OLK6JkTi4QlPIo63TBM8n+t0qA7owlWTXImRz+dbgy
+	U3yF/+wYCfx9/KeVUwuPllUaGdXTqkn1TpQE1wOwSaEQ+apKiyw/On8LkD5nJEyH3P+F4pprTxw1W
+	OVCmDQIPj19j5QcRWQMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mV0up-0050Tk-1a; Tue, 28 Sep 2021 00:24:11 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1mV1D9-00515W-0m; Tue, 28 Sep 2021 00:43:07 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mV0ul-0050RJ-Pv
- for linux-riscv@lists.infradead.org; Tue, 28 Sep 2021 00:24:09 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 18S0NkSg077349
- for <linux-riscv@lists.infradead.org>; Tue, 28 Sep 2021 03:23:46 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1632788621; x=1635380621;
- h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=H4H4eHZ/VB5yQHB7IzcqAr0zdp0RwBZizZ+dsLp428E=;
- b=sNfQG71BU+m15ZBqpIM20Jl0Adajon9dQxJtOmnZNBc/pj49T1vSXigQGzlxXnK+
- 6dhAR78y55ml3vSJA9jXWRRlkn5ihVg+cWnaleeLXETlDLh89P4wJAnAROQN2feL
- BNwxcZ7rjSNV8Lls2mmLxXk0h7fCOOh3nKJVSquCuGhJwRNXcbKk+6HrUNYxiw71
- lbAUj5UzMvMhkugELcfTVRPBBuUCCR1AOHlzuFEzJdw2l7nptigs2esUy22FKwIV
- +zVs+/TxmAbx0+NU6CuQm6Ti9AfSXtBLkkVLCJz+XPa3jBkRg+32N5VpZZfAP9lL
- nsleE/GIT3o24n+554MhOQ==;
-X-AuditID: 8b5b014d-b84f570000005d46-96-6152608d7b89
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 92.5D.23878.D8062516; Tue, 28 Sep 2021 03:23:41 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+ id 1mV1D6-00514x-8J
+ for linux-riscv@lists.infradead.org; Tue, 28 Sep 2021 00:43:05 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5F16861206
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Sep 2021 00:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1632789783;
+ bh=ZF8e/FM0+eopT+Y8KRCcbREFQBdAT4gmwboao8jTDsM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=j5X9Mo/9sZRA8a5d+Ol0b+nU24yJqJL1tPQhFoPdaLsNKvGILqdDqvK57Zsm9Jge3
+ URoJ7ENq50jVWgzEuLKEtk2D7XLrfzEghOkWxQ3h6sFIKJX2REBkmKhigyigF9i7hm
+ MSd/je4oKSfnQCa34J+P5CW+wVzo0w/Lgv9xnW67+wvghktKpoyz6p8pPGw+AZXApI
+ 4X92egnLM89E1NFMv58bxNCdj2G2OzOcai9doXYdkHEcZRzusH6NGwLzvQg6PiZGRp
+ FoLLCfhC+bLSb2GJnUAX36+ZW8AGmc5v6mCzXb9cbsKe2Vytv9caVdCXRYLLClaP7+
+ LlJEPvEpkiWkA==
+Received: by mail-vk1-f175.google.com with SMTP id x207so7771655vke.2
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Sep 2021 17:43:03 -0700 (PDT)
+X-Gm-Message-State: AOAM530wg7FQUP37ZncuLwrzmg7n2Hd9wO30ByszAAdkmPM4D5Yxvdqd
+ bwMVNL1kdpQ27iiUvq2bHnkwMLnTbpuKJv5JbHE=
+X-Google-Smtp-Source: ABdhPJy8GldO52SnlP7VBZDhPaFIid6a1O3zfroXvQOKN+eNASjt8B0G5rE5CZs5QPVvEAUKwfO1ScPfpxWhUjXz2BI=
+X-Received: by 2002:a1f:1844:: with SMTP id 65mr2903239vky.3.1632789782389;
+ Mon, 27 Sep 2021 17:43:02 -0700 (PDT)
 MIME-Version: 1.0
-Date: Tue, 28 Sep 2021 03:23:37 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Greg Favor <gfavor@ventanamicro.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Philipp Tomsich
- <philipp.tomsich@vrull.eu>, Guo Ren <guoren@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>, Atish Patra
- <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, Christoph
- Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>, wefu@redhat.com,
- =?UTF-8?Q?Wei_Wu_=28=E5=90=B4=E4=BC=9F=29?= <lazyparser@gmail.com>, Drew
- Fustini <drew@beagleboard.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List"
- <linux-kernel@vger.kernel.org>,
- taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- gordan.markus@canonical.com, Guo Ren <guoren@linux.alibaba.com>,
- Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
- Maxime Ripard <maxime@cerno.tech>, Daniel Lustig <dlustig@nvidia.com>,
- Andrea Mondelli <andrea.mondelli@huawei.com>, Jonathan
- Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman
- <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>, Allen Baum
- <allen.baum@esperantotech.com>, Josh Scheid <jscheid@ventanamicro.com>,
- Richard Trauben <rtrauben@gmail.com>
-Subject: Re: [PATCH V2 1/2] riscv: Add RISC-V svpbmt extension
-Organization: FORTH
-In-Reply-To: <CA+Qh7T=kud8AM-6JjuWNwJY0r_gkmnP6SmzVXqeE2VYxViLUoQ@mail.gmail.com>
 References: <20210923172107.1117604-1-guoren@kernel.org>
- <CAOnJCUJWnDB+uRxDh=YSbGW4bf5RQvke03iCTYMYHPsw3cwnHQ@mail.gmail.com>
- <CAOnJCULrE595ex3gBTnu4GnPazO4mg8Tkrtbv6j8iLWe+sKJSA@mail.gmail.com>
- <CA+Qh7T=kud8AM-6JjuWNwJY0r_gkmnP6SmzVXqeE2VYxViLUoQ@mail.gmail.com>
-Message-ID: <ce3bb9f5c72f0feb1cf9a0d67edaedf6@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.3.16
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprOKsWRmVeSWpSXmKPExsXSHT1dWbc3ISjRYF6DvsWTQ+1sFtMOHGK3
- aJ2wm8XiyYeJbBZ/Jx1jt1i04juLRcc5N4slO6Ut9rzaw25xobmH0eLeimXsFrv757BYbD//
- nc3ixd5GFovjj3axWKxcfZTJ4kLjTXaLy6vnM1k8P3WMzeLSl2ssFpd3zWGz2Pa5hc1i5bpj
- zBYzfvxjtGh+d47d4uXlHmaLrRvXMVp0r6y2OLnhAKPFmqVTGS1a9k9hsfh56DyTxcLX89gd
- FD1etT1j8vj9axKjx7WOjSwe734vY/RY0/mayWNWQy+bx51z59k8Njxazerx5uVLFo//h1ay
- eOycdZfdY8GmUo+WI29ZPR5uusTksWlVJ5vHzoeWAZJRXDYpqTmZZalF+nYJXBkz33QwF1zl
- qGjeNo2lgfEbWxcjJ4eEgInE0u7HrF2MXBxCAkcZJebv/8AEkTCVmL23kxHE5hUQlDg58wkL
- iM0sYCEx9cp+RghbXqJ562xmEJtFQFVi5a4dYDabgKbE/EsHwepFBDQkTn7bxw6ygFlgF6fE
- lcONYI6EwEQmiV9XpoJNEhawk1g+byvYZn4BYYlPdy8CncTBwSkQKHFtcxrEdb1MEr9bn7BB
- XOQisendZFaIS1UkPvx+wA5SLwpkb56rNIFRaBaSu2chuXsWkrsXMDKvYhRILDPWy0wu1kvL
- LyrJ0Esv2sQITjuMvjsYb29+q3eIkYmD8RCjBAezkghvMIt/ohBvSmJlVWpRfnxRaU5q8SFG
- aQ4WJXFeXr0J8UIC6YklqdmpqQWpRTBZJg5OqQamJWsNI8MrhTznWWta7u5dcyNoY7Rdxcpn
- Jk5VN39zWctHPm/MNTvw/5zDrcurjhhHKZh/vSl45NiD+2c6ZFP4V8Uf2+9vm/2Z1UjawmRP
- 9M9bf9w1tMMiVxWpr7/0pfqjAovWtYXPVCJXzto4N2th9BWBlTnX455n3M07kn6+abuCe1nV
- PldWrrMzmNbcbRGI/rRfMHT3fb6aFS7iHCelOrfdP9/F7cjO/dapeOWB2b7p03nYLJ52C70p
- 1Egx/3ckZlG1GmO293Nh8dPp92e3Hj8m/OqTWd6EC3LSNhc04758rfxX+mv6xJf3g+ZqHNgo
- 97e5fH9A9PVX1pECQuH/z1/ftrejJGl65u7Vrzt5lFiKMxINtZiLihMBau+qEaoDAAA=
+ <20210923172107.1117604-2-guoren@kernel.org>
+ <CAOnJCU+6hUSdviwCM6uwCQr=OV3xQP=RF-BmdJFY8Tzgd_L51Q@mail.gmail.com>
+In-Reply-To: <CAOnJCU+6hUSdviwCM6uwCQr=OV3xQP=RF-BmdJFY8Tzgd_L51Q@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 28 Sep 2021 08:42:51 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSbPbVRYkhD5zaFT=UWKiRjj1-pxjfCVxL3AWgAiASp5A@mail.gmail.com>
+Message-ID: <CAJF2gTSbPbVRYkhD5zaFT=UWKiRjj1-pxjfCVxL3AWgAiASp5A@mail.gmail.com>
+Subject: Re: [PATCH V2 2/2] dt-bindings: riscv: Add svpbmt in cpu mmu-type
+ property
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, 
+ wefu@redhat.com, =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, aniket.ponkshe@canonical.com, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ gordan.markus@canonical.com, 
+ Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210927_172408_250547_3398CD71 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20210927_174304_355530_B0C53EDB 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +90,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gR3JlZywKCs6jz4TOuc+CIDIwMjEtMDktMjcgMjM6NTMsIEdyZWcgRmF2b3Igzq3Os8+B
-zrHPiM61Ogo+IFdpdGggdGhlIGJpZyBjYXZlYXQgdGhhdCBJIGhhdmVuJ3QgYmVlbiBpbiB0aGUg
-bWlkZGxlIG9mIHRoaXMgCj4gZGlzY3Vzc2lvbiwgaXQgc2VlbXMgbGlrZSBBbGx3aW5uZXIgRDEn
-cyBjaGFuZ2VzIHJlcHJlc2VudCBhIGN1c3RvbSAKPiAoYW5kIG5vbmNvbmZvcm1pbmcpIGV4dGVu
-c2lvbi4gIElzbid0IHRoaXMganVzdCBhIG1hdHRlciBvZiB0aGUgcGF0Y2ggCj4gbmVlZGluZyB0
-byBiZSB0cmVhdGVkIGFzIGZvciBhIFJJU0MtViBjdXN0b20gZXh0ZW5zaW9uIHBlciB0aGUgcmVj
-ZW50bHkgCj4gY2xhcmlmaWVkIHBvbGljeSBmb3IgaGFuZGxpbmcgdXBzdHJlYW1pbmcvZXRjLiBv
-ZiBjdXN0b20gZXh0ZW5zaW9ucz8gIAo+IChQaGlsaXBwIGNhbiBzcGVhayB0byB0aGlzIGNsYXJp
-ZmllZCBwb2xpY3kuKSAgT3Igd2hhdCBhbSBJIG1pc3Npbmc/Cj4gCgpUaGUgUHJpdi4gU3BlYy4g
-ZGVmaW5lcyBzdjM5LzQ4IHdpdGhvdXQgYWxsb3dpbmcgY3VzdG9tIHVzZSBvZiByZXNlcnZlZCAK
-cHRlIGJpdHMgYnkgaW1wbGVtZW50YXRpb25zLCBBbGx3aW5uZXIgRDEgY2xhaW1zIHRvIGJlIHN2
-MzkgYnV0IGl0IGRvZXMgCnVzZSByZXNlcnZlZCBQVEUgYml0cy4gV2hlbiB2ZW5kb3JzIHdhbnQg
-dG8gZG8gY3VzdG9tIHN0dWZmIG9uIFBURXMsIHRoZSAKc3RhbmRhcmQgc2F5cyB0aGV5IG1heSB1
-c2UgdmFsdWVzIDE0LTE1IG9uIHNhdHAubW9kZSBmb3IgdGhhdCBhbmQgZGVmaW5lIAp0aGVpciBv
-d24gTU1VIGJhc2ljYWxseS4gTWVzc2luZyB1cCB3aXRoIHRoZSBpbXBsZW1lbnRhdGlvbiBvZiBz
-djM5IGlzIApub3QgYW4gZXh0ZW5zaW9uLCBpcyB2aW9sYXRpb24gb2Ygc3YzOS4gRXZlbiB3b3Jz
-ZSB0aGlzIGltcGxlbWVudGF0aW9uIApjYW4ndCB3b3JrIGlmIHdlIGlnbm9yZSB0aGUgY3VzdG9t
-aXphdGlvbiBzaW5jZSB3aXRob3V0IHNldHRpbmcgdGhlIApyZXF1aXJlZCBiaXRzIG9uIFBURXMg
-ZG1hIChhbmQgSSBiZWxpZXZlIFNNUCBhcyB3ZWxsKSBkb2Vzbid0IHdvcmsuCgpSZWdhcmRzLApO
-aWNrCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Sep 28, 2021 at 3:32 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+>
+>
+> On Thu, Sep 23, 2021 at 10:22 AM <guoren@kernel.org> wrote:
+>>
+>> From: Guo Ren <guoren@linux.alibaba.com>
+>>
+>> Previous patch has added svpbmt in arch/riscv and changed the
+>> DT mmu-type. Update dt-bindings related property here.
+>>
+>
+> This is the first of many small ISA extensions to be added to RISC-V.
+> Should we think about a generic DT property and parsing framework for all hart related ISA extensions now instead of adding
+> to the existing mmu-type.
+Change existing mmu-type will cause a compatible problem. If we still
+keep current solution, I think it's still okay. eg:
+mmu-type = "riscv,sv39,svpbmt,svnapot,svinval";
+
+Or, if we still want to change, how:
+mmu-type = "riscv,sv39";
+mmu-type-ext = "svpbmt,svnapot,svinval"
+
+Still keep mmu-type like before.
+
+>
+> We will soon need to add the CMO extensions as well.
+>
+>>
+>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+>> Cc: Anup Patel <anup@brainfault.org>
+>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>> Cc: Rob Herring <robh+dt@kernel.org>
+>> ---
+>>  Documentation/devicetree/bindings/riscv/cpus.yaml | 9 ++++++---
+>>  1 file changed, 6 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> index e534f6a7cfa1..5eea9b47dfc6 100644
+>> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+>> @@ -48,15 +48,18 @@ properties:
+>>
+>>    mmu-type:
+>>      description:
+>> -      Identifies the MMU address translation mode used on this
+>> -      hart.  These values originate from the RISC-V Privileged
+>> -      Specification document, available from
+>> +      Identifies the MMU address translation mode and page based
+>> +      memory type used on used on this hart.  These values originate
+>> +      from the RISC-V Privileged Specification document, available
+>> +      from
+>>        https://riscv.org/specifications/
+>>      $ref: "/schemas/types.yaml#/definitions/string"
+>>      enum:
+>>        - riscv,sv32
+>>        - riscv,sv39
+>> +      - riscv,sv39,svpbmt
+>>        - riscv,sv48
+>> +      - riscv,sv48,svpbmt
+>>        - riscv,none
+>>
+>>    riscv,isa:
+>> --
+>> 2.25.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+> --
+> Regards,
+> Atish
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
