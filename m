@@ -2,109 +2,107 @@ Return-Path: <SRS0=hgxb=OT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B4C1C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 07F05C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:01:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 46FAD61406
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:00:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 46FAD61406
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id CB782613A6
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:01:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CB782613A6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FiJjTV46mjnmq/weQbsq3yyp+Wi+5fNA800PADf8T9o=; b=TT8S4GbMJ/o555
-	IfUYlCoMiv0nM5/gG2FlcvDRqxpMgwuXj4/49EmOp92h8DyRY3pB48DLB772XeM0hWj5K+UFmJ+rP
-	Uw+2nKiZ0Z6y76zhzRa9yvwbRAIObHKeUq45Rs/FpTfuDy6n3WBe4jFBw+0dhRwjTTH0Y/bL6FqTf
-	kzzJ12Hse3X0Tm7IyLlSZT/hHNHwdiozShZo0leIcIBbTiMEbZ0ATPQBFgBC881ImnxehIfgwud+h
-	Msvfo4q+aOg1o5H2v/lgrFPckwurbyf4MmvJqHEFpzbIoIICu3f3IdyZrNp8DrCiNMRW5SGei8+27
-	ucOmpY8+HRhqOXE36Uyg==;
+	List-Owner; bh=IZC6GG3I/iBFkLvlgfYI3BAiLFSwo+6R9agJV9Ilbmk=; b=BYuPNjZH5k12Ye
+	rnVSvnrizBSxTDSdQOX2RzpmkWOhHUZ5dDWpcy5PbkYsmNxOgWS62BDP552OBWjjX/aJ51cZtoOya
+	mmxmN7R6iE6A1psWDtJquatb1YUOORKmPnhBPQqc7SI8SNeFyjs24sZWKre+aPQH2SbpPQJ7uOux6
+	SG4n5QqrXMN8xGy7cMq9l2NprEzTuPOm2wHBLY8QBKqVRLXzG0No8BaXEqra0K0OcclvWMEljtPJ4
+	8PSHcm9FX4F4xzbdcdHyzoBAHL5TzWOKcAc8vF9ViGaCq0ur1ROzTdrv/NY54JeNLofDe1nLk4BMd
+	m0Y4s1PVude7CMis+06A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVb4U-00BRym-Es; Wed, 29 Sep 2021 15:00:34 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1mVb5R-00BSR7-He; Wed, 29 Sep 2021 15:01:33 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVb4S-00BRx6-9x
- for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 15:00:33 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id
- c26-20020a056830349a00b0054d96d25c1eso3197158otu.9
- for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 08:00:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=TyCjlk+pKET0YnhEJ9dBR7JvrBUso42NvxusqbVesPE=;
- b=ZRsAtTKKZkNWJDjgYxhe3J0JQ6O4p9PNnpilI5M/5ibU0Ns8JNWVFybSsX6EBzrksN
- R65R1h5hDzyJkWBSxO3Xxu/askCvW9MkdwMQeGoYWNAp/yRQTADpthmpMjax5IO0Q4WI
- ABtba/4i+sNFFRausiGclbZIeWVV4PF2DdELi3MG65Kq6dNP4mPUi67cxEZH2EnIRgh2
- 3YDUFsI25i8zD+stDMZoSIPbe7zURBUfdxGb9UdP1TCeRUrIk9n+aGAbWLeeuzYU6cgv
- YlHzJlkMzt/yCDcFfWeOtRlteCpTbVMVzBTbhRhqYzLKNUw6qhAkjCl4deGNv2Zh0TQ0
- ZoCg==
+ id 1mVb4i-00BS5x-Qx
+ for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 15:00:50 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 406FD40279
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 15:00:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1632927647;
+ bh=vJN7Ck0uNCFG+Ctq/qAp6lWVQYR8Vj2mrO3VtePHdDo=;
+ h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=CdndsxOn2Q+HxgVi+RJAQYf0h3YtqonFisO24TFMTMd3xeuqhyo3398X6/Y2eYMZb
+ t8+ZMLRPl2Y9rhk0n//d9ffe3YtUO1ugv5Cvy269sOglS5amFiITcl3ao9qNGghf57
+ lwVl87qvCCfyaWuSfgrjDRgGUr1r0VxwfpjagziSYPop+bgx6vjgWayvW0CrWLb7/q
+ F66Lcb8ndK1Y/5vNQcr2b/y/XnOfNVBUMXRZ6x8VRCEg8qzgW1RM070HqkyUqPKApR
+ lg1qksiVb4bpUcdQA0egCsdari18BmNoV2uyz3EH8urBTh96xN4FwVUlcgDYPyRtsL
+ DS0LLVif79q9Q==
+Received: by mail-wr1-f71.google.com with SMTP id
+ r15-20020adfce8f000000b0015df1098ccbso708212wrn.4
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 08:00:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=TyCjlk+pKET0YnhEJ9dBR7JvrBUso42NvxusqbVesPE=;
- b=q6+YsNZ5HrNm1iEaO27IW4V0qCpYcBgNaMe284ZKVz7l4/VXhFjo11O9dU8k93tm4z
- kR6dgMcJBOu0hpM2LBrM2EX+E4atqIc1MtPyNR1I+bUSksw5/J/dIssCFhgw0hUioCEy
- r55q36jgh1ifQMmfF8lYhEcmnYAtMeYDxU7Imf/zTL7cBboY5vf1WyAnTtQRyq+VVKGe
- GdRFENEdlihGnZ5KjkrnsX6VgbcFSP4Sa/RZAf9diBEYWDkGcoYj7KH4SAc1oxxI4K/X
- 4Cs/vRVnccyL7ibb/FjqDFO4iMRycpEfqzkB0rxn8/eaVu255nnvYWTh+nvM40p4wIKr
- WigA==
-X-Gm-Message-State: AOAM530v7JP8VJZj96Nfl50WJEel3dZQaTDgyGaf3Dov3h6/bHsNhgUC
- qkTGY+E6i+0lhtTOwjQIZyGg9g==
-X-Google-Smtp-Source: ABdhPJxvnP/V+YuEnXmU9u5fhBlMx5mvuyCq8Z16F2mnD2G8Ku4DbjlhH8TBG8+ZLm2LdxATitXYnw==
-X-Received: by 2002:a9d:3e54:: with SMTP id h20mr421968otg.236.1632927631577; 
- Wed, 29 Sep 2021 08:00:31 -0700 (PDT)
-Received: from yoga (104-57-184-186.lightspeed.austtx.sbcglobal.net.
- [104.57.184.186])
- by smtp.gmail.com with ESMTPSA id y83sm490275oia.47.2021.09.29.08.00.30
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=vJN7Ck0uNCFG+Ctq/qAp6lWVQYR8Vj2mrO3VtePHdDo=;
+ b=hMlETfNL211/hloKC++zgWK+gqNGou7r0KXvDnUs/uqP8eVMfUsB1/Y5lJdhadKRqS
+ PevZe3zIhL8/Nk9WOZ18nPPX/BwRxwbQQ58cLnPY+qpYkre6LcIlAEORke9kHmf+inny
+ fZ6jsXm04mvZmhrVuCrUZcmOiiH+UWLvnAb8Qk1BaIjUxl/0QW9q5CiBnC9cXZ9/vpYI
+ Wl4of5lpSb8nLTKWchKuwssU1g3QS+7b7c4Te8XWzNNnzbfrfZQJBZQVWAgP304DROVZ
+ b0m3RCQ1D44e/7Aj6GRJCLPX5sblbTJeBKabrOkgf1pxZ/FP46grBk5rLj2znWrrILXV
+ iq2Q==
+X-Gm-Message-State: AOAM5331h1CWtrBYYb2JdYeoErmVsLivCtNb1eQxj+mbd5kMkBG1OFC0
+ YQHqCEn1rNRScWxGFs4mqHGhHPVySDdfEPrnae5zkBRN1cbXTyyObeIu0Yjh/HgY5UizidfPPfp
+ yPdNA+ythaseQy/9x4KmI3BJrmsxihVcXBWL0CTULls1YfA==
+X-Received: by 2002:adf:d4cb:: with SMTP id w11mr327561wrk.125.1632927646707; 
+ Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzfXtNjTqRwTy6zB0yjO+6WDv1SXfe8fP/ut2QpPS8jTHw1twOX+D4X0+hshAyxExD632O4tw==
+X-Received: by 2002:adf:d4cb:: with SMTP id w11mr327526wrk.125.1632927646559; 
+ Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
+Received: from alex.home (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr. [2.7.60.249])
+ by smtp.gmail.com with ESMTPSA id e8sm142306wrr.42.2021.09.29.08.00.45
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 29 Sep 2021 08:00:30 -0700 (PDT)
-Date: Wed, 29 Sep 2021 10:00:28 -0500
-From: Bjorn Andersson <bjorn.andersson@linaro.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Simon Trimmer <simont@opensource.cirrus.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- the arch/x86 maintainers <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Linus Walleij <linus.walleij@linaro.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-ia64@vger.kernel.org,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Parisc List <linux-parisc@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 1/2] firmware: include drivers/firmware/Kconfig
- unconditionally
-Message-ID: <YVR/jMv5HZj1hxmI@yoga>
-References: <20210928075216.4193128-1-arnd@kernel.org>
- <20210928115856.GK4199@sirena.org.uk>
- <CAK8P3a05oRxgncJb04+niAKSO_2Adki03a04tnj8YuQT=Py54A@mail.gmail.com>
+ Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Christoph Hellwig <hch@lst.de>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-efi@vger.kernel.org,
+ linux-arch@vger.kernel.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH v2 09/10] riscv: Initialize thread pointer before calling C
+ functions
+Date: Wed, 29 Sep 2021 16:51:12 +0200
+Message-Id: <20210929145113.1935778-10-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210929145113.1935778-1-alexandre.ghiti@canonical.com>
+References: <20210929145113.1935778-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a05oRxgncJb04+niAKSO_2Adki03a04tnj8YuQT=Py54A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210929_080032_373203_4C7B762D 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20210929_080049_042435_D39B02AF 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,35 +119,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue 28 Sep 07:22 CDT 2021, Arnd Bergmann wrote:
+Because of the stack canary feature that reads from the current task
+structure the stack canary value, the thread pointer register "tp" must
+be set before calling any C function from head.S: by chance, setup_vm
+and all the functions that it calls does not seem to be part of the
+functions where the canary check is done, but in the following commits,
+some functions will.
 
-> On Tue, Sep 28, 2021 at 1:58 PM Mark Brown <broonie@kernel.org> wrote:
-> > On Tue, Sep 28, 2021 at 09:50:26AM +0200, Arnd Bergmann wrote:
-> >
-> > > Not sure how we'd want to merge this patch, if two other things
-> > > need it. I'd prefer to merge it along with the QCOM_SCM change
-> > > through the soc tree, but that leaves the cirrus firmware broken
-> > > unless we also merge it the same way (rather than through ASoC
-> > > as it is now).
-> >
-> > We could also merge a tag into both places.
-> 
-> I wonder if I should just take my two patches as bugfixes for 5.15,
-> after all they do address real build failures. In that case, all  you need
-> is a merge with 5.15-rc4 or higher.
-> 
+Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
+Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+---
+ arch/riscv/kernel/head.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-I'm in favor of this, better get it over with.
-With QCOM_IOMMU fixed up as well, feel free to add my
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 8f21ef339c68..892a25c6079d 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -301,6 +301,7 @@ clear_bss_done:
+ 	REG_S a0, (a2)
+ 
+ 	/* Initialize page tables and relocate to virtual addresses */
++	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	XIP_FIXUP_OFFSET sp
+ #ifdef CONFIG_BUILTIN_DTB
+-- 
+2.30.2
 
-Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
-
-on both the patches, and for the qcom_scm changes you have my
-
-Acked-by: Bjorn Andersson <bjorn.andersson@linaro.org>
-
-Thanks,
-Bjorn
 
 _______________________________________________
 linux-riscv mailing list
