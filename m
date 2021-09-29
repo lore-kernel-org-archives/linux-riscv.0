@@ -2,60 +2,58 @@ Return-Path: <SRS0=hgxb=OT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B66A7C433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A5B2C433EF
 	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 17:23:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7FAB96147F
+	by mail.kernel.org (Postfix) with ESMTPS id 34E4660E08
 	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 17:23:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7FAB96147F
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 34E4660E08
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.microsoft.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R/bxV9jRIkzayVCIMEO0NngGljTskeT5NhUk2krvDuo=; b=3wbWKGaCKPPQ1I
-	b/5RN/5DPz3UxAhG7j4e1DJ7FkSz6c0VH9Bk8Bj08VZ5VdIqnIKy0eG6PQ15Zl8mU1LcFv97yuMf5
-	adQvS8/hkNelCAgt5rfCbQ+fZw1NdYj633Dhux5HaMIuF9+YjrdAWY2tdEiS397SlXhEfgq3IwdZd
-	CfPGqnhF2rMTFG7NQfJGhNRk5/KM/YMutYz3VdkbjGESJzOWheCRdxPnOTISXLTT3LS7GIWUjH3Id
-	l6bC/1VJHoNOhfIv3dMT6TcJIcHKAtzQ8FuLTxfU1oH5T2/rJrqQXz8JRy4zWbwsb/aMr2A2sYsIg
-	5DXKqti5lTTRjnAZeD+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b481/Dxa9R5pDHyWXCGniWZLeXKy/z4qol2pf5bdE7U=; b=Okc343QA3UIDBX
+	+0JvVu+FjI655UJr3EcZLo+b/junIjBCOxoo1XS8TXFvEiJJwFjE0HrzX9dGfgCyW+VcPDcb/lEz+
+	juZBDPlgQSEVAzqTpvU93/40pPc5u93xBwer22MCv5u4/MN0IO2OWjuFxb9kapxQCLcKA2ZndfMvd
+	V4K4qa5t3akRV6YPhQVq8vZLQJkJyjnfpgYZKOZ6QYdbEQ+iR4pZ3WIri7W+fEen9HEqaoPxg3gKb
+	mf4UMLG1fKYCqgfMIECo9afDgc2DtpylBI/ZLD7UOJfmONlxRGzN2ur42Nqq6bloRhUidwYWo/9Xe
+	Q0wJKa0C/CSzRImPS4Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVdI9-00BuVi-Eo; Wed, 29 Sep 2021 17:22:49 +0000
-Received: from mail-wm1-f52.google.com ([209.85.128.52])
+	id 1mVdI5-00BuUX-BP; Wed, 29 Sep 2021 17:22:45 +0000
+Received: from mail-wm1-f45.google.com ([209.85.128.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVdI5-00BuTo-0A
- for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 17:22:46 +0000
-Received: by mail-wm1-f52.google.com with SMTP id
- f78-20020a1c1f51000000b0030cdb3d6079so2296502wmf.3
- for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 10:22:44 -0700 (PDT)
+ id 1mVdI2-00BuSr-R8
+ for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 17:22:44 +0000
+Received: by mail-wm1-f45.google.com with SMTP id b192so2437228wmb.2
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 10:22:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=AModtejiJsV+H+a/wrP3GKtlWcw4atvD2OiO2Nb+2LY=;
- b=tVEkepMxxv/xu/aWM/iFnd3Fuq0dmHvNJg/xiMeEjXIlyTrT9qVYRuYIQtSQ/3XPSt
- 38HXCf36I2dR+D3oMaSx2Pm2LrcXybpYFG46A11lsTXVKNqvJ80KKBp/f+BJSqB/+C9G
- TTFcpTQTEJtLdS7jg8EF37UQUOXFLL5DrIefFyM4wBSkL9yo3aLPh80CFXLJAES5xGWA
- j46fanMGFj79mO8ezEVoJtPMqMKkBXmr4Kc8L6Nbla+54NV13St/69fu67o6bhWOUu6v
- OAryIGBJWzH1LNyg7DIbO/YH2ksMHJpGAaEKRPQZD5tzEB/h37aPmCudsXmUYknQd2o0
- A3Rg==
-X-Gm-Message-State: AOAM531Z8b00Eh54Rt75/Lx8OptBtyhBLvo6gPG9BXDAhXWp4UqX47r5
- /uEZgNsJnjLyECI2GL9XMFp90XnME7anSg==
-X-Google-Smtp-Source: ABdhPJy+Z0R2QiwnRHjgmrlGMdrK7qerXNu9jBuv8SP6TGdQmHd0wmanHg8ejQdAMpXO0+JyORBuHw==
-X-Received: by 2002:a05:600c:321a:: with SMTP id
- r26mr10706214wmp.43.1632936162956; 
- Wed, 29 Sep 2021 10:22:42 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/wYiStrhTYDyD6KyMsoACZjcHuOdOYLgD+s4ib2mjlk=;
+ b=EXJYip1n+OeEiBTCguIJUkrCt9NFXMd1F4XBQckWflFh3TE/98Fy2S8Kdn1EAClvVG
+ 9YBjqLQO9coSIe29pCDda7i7jA9MnVNAnX5EzrWa1rmCInJkVzXJYpUCZ0aRM5kU6Nz7
+ pI6Ym0wlWQ3CFDervE+2Z/mmixz0jGWfQvQSugUhh+RnIoIlH5+vwnph5gRNMvMTvQzj
+ Rrf6hkNQg5An19lXBj3kob6LGTD7ihcWgCvu6J51EUHyfSWHdfk9h2mOKTeUxA6P410r
+ SZNjqWT9F/WNQiQMmpF2pMlczvmI/E7bWnRGQE0MvcDzXBNxBWKYAr44IuicfYmuFboJ
+ 5RRQ==
+X-Gm-Message-State: AOAM533g2F6O4BlrY5/0OHiN62hqe96KnuwHWGYsYGhyp+UjXygVClrE
+ GLbWMS7lJ4SeBPr0Ui8owGMyTz6dMR1oZg==
+X-Google-Smtp-Source: ABdhPJwj+v6Ia/1ewRH90e4P1/TPFUvE8EwF6nwIW4OtRVbDIJFo8m6XaalECnXB7TPk8E2KUUOv5Q==
+X-Received: by 2002:a7b:cde8:: with SMTP id p8mr11667995wmj.178.1632936159413; 
+ Wed, 29 Sep 2021 10:22:39 -0700 (PDT)
 Received: from msft-t490s.. (mob-31-159-120-132.net.vodafone.it.
  [31.159.120.132])
- by smtp.gmail.com with ESMTPSA id n26sm2267502wmi.43.2021.09.29.10.22.41
+ by smtp.gmail.com with ESMTPSA id n26sm2267502wmi.43.2021.09.29.10.22.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 29 Sep 2021 10:22:42 -0700 (PDT)
+ Wed, 29 Sep 2021 10:22:38 -0700 (PDT)
 From: Matteo Croce <mcroce@linux.microsoft.com>
 To: linux-riscv@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
@@ -66,16 +64,14 @@ Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>,
  David Laight <David.Laight@aculab.com>, Guo Ren <guoren@kernel.org>,
  Christoph Hellwig <hch@lst.de>
-Subject: [PATCH v5 2/3] riscv: optimized memmove
-Date: Wed, 29 Sep 2021 19:22:33 +0200
-Message-Id: <20210929172234.31620-3-mcroce@linux.microsoft.com>
+Subject: [PATCH v5 0/3] riscv: optimized mem* functions
+Date: Wed, 29 Sep 2021 19:22:31 +0200
+Message-Id: <20210929172234.31620-1-mcroce@linux.microsoft.com>
 X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20210929172234.31620-1-mcroce@linux.microsoft.com>
-References: <20210929172234.31620-1-mcroce@linux.microsoft.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210929_102245_070711_CDBA36A2 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20210929_102242_903122_76420900 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,164 +90,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Matteo Croce <mcroce@microsoft.com>
 
-When the destination buffer is before the source one, or when the
-buffers doesn't overlap, it's safe to use memcpy() instead, which is
-optimized to use a bigger data size possible.
+Replace the assembly mem{cpy,move,set} with C equivalent.
 
-Signed-off-by: Matteo Croce <mcroce@microsoft.com>
-Reported-by: kernel test robot <lkp@intel.com>
----
- arch/riscv/include/asm/string.h |  6 ++--
- arch/riscv/kernel/riscv_ksyms.c |  2 --
- arch/riscv/lib/Makefile         |  1 -
- arch/riscv/lib/memmove.S        | 64 ---------------------------------
- arch/riscv/lib/string.c         | 23 ++++++++++++
- 5 files changed, 26 insertions(+), 70 deletions(-)
+Try to access RAM with the largest bit width possible, but without
+doing unaligned accesses.
+
+A further improvement could be to use multiple read and writes as the
+assembly version was trying to do.
+
+Tested on a BeagleV Starlight with a SiFive U74 core, where the
+improvement is noticeable.
+
+v4 -> v5:
+- call __memcpy() instead of memcpy() in memmove()
+
+v3 -> v4:
+- incorporate changes from proposed generic version:
+  https://lore.kernel.org/lkml/20210702123153.14093-1-mcroce@linux.microsoft.com/
+
+v2 -> v3:
+- alias mem* to __mem* and not viceversa
+- use __alias instead of a tail call
+
+v1 -> v2:
+- reduce the threshold from 64 to 16 bytes
+- fix KASAN build
+- optimize memset
+
+Matteo Croce (3):
+  riscv: optimized memcpy
+  riscv: optimized memmove
+  riscv: optimized memset
+
+ arch/riscv/include/asm/string.h |  18 ++--
+ arch/riscv/kernel/Makefile      |   1 -
+ arch/riscv/kernel/riscv_ksyms.c |  17 ----
+ arch/riscv/lib/Makefile         |   4 +-
+ arch/riscv/lib/memcpy.S         | 108 ----------------------
+ arch/riscv/lib/memmove.S        |  64 -------------
+ arch/riscv/lib/memset.S         | 113 -----------------------
+ arch/riscv/lib/string.c         | 154 ++++++++++++++++++++++++++++++++
+ 8 files changed, 164 insertions(+), 315 deletions(-)
+ delete mode 100644 arch/riscv/kernel/riscv_ksyms.c
+ delete mode 100644 arch/riscv/lib/memcpy.S
  delete mode 100644 arch/riscv/lib/memmove.S
+ delete mode 100644 arch/riscv/lib/memset.S
+ create mode 100644 arch/riscv/lib/string.c
 
-diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-index 6b5d6fc3eab4..25d9b9078569 100644
---- a/arch/riscv/include/asm/string.h
-+++ b/arch/riscv/include/asm/string.h
-@@ -17,11 +17,11 @@ extern asmlinkage void *__memset(void *, int, size_t);
- #define __HAVE_ARCH_MEMCPY
- extern void *memcpy(void *dest, const void *src, size_t count);
- extern void *__memcpy(void *dest, const void *src, size_t count);
-+#define __HAVE_ARCH_MEMMOVE
-+extern void *memmove(void *dest, const void *src, size_t count);
-+extern void *__memmove(void *dest, const void *src, size_t count);
- #endif
- 
--#define __HAVE_ARCH_MEMMOVE
--extern asmlinkage void *memmove(void *, const void *, size_t);
--extern asmlinkage void *__memmove(void *, const void *, size_t);
- /* For those files which don't want to check by kasan. */
- #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
- #define memcpy(dst, src, len) __memcpy(dst, src, len)
-diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-index 3f6d512a5b97..361565c4db7e 100644
---- a/arch/riscv/kernel/riscv_ksyms.c
-+++ b/arch/riscv/kernel/riscv_ksyms.c
-@@ -10,6 +10,4 @@
-  * Assembly functions that may be used (directly or indirectly) by modules
-  */
- EXPORT_SYMBOL(memset);
--EXPORT_SYMBOL(memmove);
- EXPORT_SYMBOL(__memset);
--EXPORT_SYMBOL(__memmove);
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 2ffe85d4baee..484f5ff7b508 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- lib-y			+= delay.o
- lib-y			+= memset.o
--lib-y			+= memmove.o
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
-diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
-deleted file mode 100644
-index 07d1d2152ba5..000000000000
---- a/arch/riscv/lib/memmove.S
-+++ /dev/null
-@@ -1,64 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--#include <linux/linkage.h>
--#include <asm/asm.h>
--
--ENTRY(__memmove)
--WEAK(memmove)
--        move    t0, a0
--        move    t1, a1
--
--        beq     a0, a1, exit_memcpy
--        beqz    a2, exit_memcpy
--        srli    t2, a2, 0x2
--
--        slt     t3, a0, a1
--        beqz    t3, do_reverse
--
--        andi    a2, a2, 0x3
--        li      t4, 1
--        beqz    t2, byte_copy
--
--word_copy:
--        lw      t3, 0(a1)
--        addi    t2, t2, -1
--        addi    a1, a1, 4
--        sw      t3, 0(a0)
--        addi    a0, a0, 4
--        bnez    t2, word_copy
--        beqz    a2, exit_memcpy
--        j       byte_copy
--
--do_reverse:
--        add     a0, a0, a2
--        add     a1, a1, a2
--        andi    a2, a2, 0x3
--        li      t4, -1
--        beqz    t2, reverse_byte_copy
--
--reverse_word_copy:
--        addi    a1, a1, -4
--        addi    t2, t2, -1
--        lw      t3, 0(a1)
--        addi    a0, a0, -4
--        sw      t3, 0(a0)
--        bnez    t2, reverse_word_copy
--        beqz    a2, exit_memcpy
--
--reverse_byte_copy:
--        addi    a0, a0, -1
--        addi    a1, a1, -1
--
--byte_copy:
--        lb      t3, 0(a1)
--        addi    a2, a2, -1
--        sb      t3, 0(a0)
--        add     a1, a1, t4
--        add     a0, a0, t4
--        bnez    a2, byte_copy
--
--exit_memcpy:
--        move a0, t0
--        move a1, t1
--        ret
--END(__memmove)
-diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
-index bfc912ee23f8..4442ca5ef13c 100644
---- a/arch/riscv/lib/string.c
-+++ b/arch/riscv/lib/string.c
-@@ -88,3 +88,26 @@ EXPORT_SYMBOL(__memcpy);
- 
- void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
- EXPORT_SYMBOL(memcpy);
-+
-+/*
-+ * Simply check if the buffer overlaps an call memcpy() in case,
-+ * otherwise do a simple one byte at time backward copy.
-+ */
-+void *__memmove(void *dest, const void *src, size_t count)
-+{
-+	if (dest < src || src + count <= dest)
-+		return __memcpy(dest, src, count);
-+
-+	if (dest > src) {
-+		const char *s = src + count;
-+		char *tmp = dest + count;
-+
-+		while (count--)
-+			*--tmp = *--s;
-+	}
-+	return dest;
-+}
-+EXPORT_SYMBOL(__memmove);
-+
-+void *memmove(void *dest, const void *src, size_t count) __weak __alias(__memmove);
-+EXPORT_SYMBOL(memmove);
 -- 
 2.31.1
 
