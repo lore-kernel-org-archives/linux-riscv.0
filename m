@@ -2,14 +2,14 @@ Return-Path: <SRS0=hgxb=OT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 07F05C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CC8C3C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:02:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB782613A6
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:01:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CB782613A6
+	by mail.kernel.org (Postfix) with ESMTPS id 9CE3F61381
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 15:02:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9CE3F61381
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,63 +18,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IZC6GG3I/iBFkLvlgfYI3BAiLFSwo+6R9agJV9Ilbmk=; b=BYuPNjZH5k12Ye
-	rnVSvnrizBSxTDSdQOX2RzpmkWOhHUZ5dDWpcy5PbkYsmNxOgWS62BDP552OBWjjX/aJ51cZtoOya
-	mmxmN7R6iE6A1psWDtJquatb1YUOORKmPnhBPQqc7SI8SNeFyjs24sZWKre+aPQH2SbpPQJ7uOux6
-	SG4n5QqrXMN8xGy7cMq9l2NprEzTuPOm2wHBLY8QBKqVRLXzG0No8BaXEqra0K0OcclvWMEljtPJ4
-	8PSHcm9FX4F4xzbdcdHyzoBAHL5TzWOKcAc8vF9ViGaCq0ur1ROzTdrv/NY54JeNLofDe1nLk4BMd
-	m0Y4s1PVude7CMis+06A==;
+	List-Owner; bh=rO+zTh/zC0ZxobtWB1xCknm0XG2v9G2jgElK2LJNzt4=; b=pStlfgDTyHGg2+
+	XNA5o9OJIxrI7mScWJ3l6gdKqnSvZvBsZidwa1Yo1LM/qeHuHbC7+xpBK6VSz0K7rRIStme+fxO53
+	iFTYgU7cOkOiurIC0fwMZGOwPM/geFvWGiuoJv/Ycb7bUTSsNCust/ZkPAfIHBnQqz6tGQfQ281RD
+	mQpZhFx0yHYO6SVhvOdqzmeT6ceBpPbm7HkktojGrgYyHGaXBW0v3+QE2HphginVU+SiahShNxPfw
+	2me78rEUiob2A5mktjEE+apu49iGhho0w/s+UzW26SBNf20MJZu6v2PU5UmR3wW53+qSVpxwFTOLe
+	qPBgcDp0j19cfpFnpuVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVb5R-00BSR7-He; Wed, 29 Sep 2021 15:01:33 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mVb62-00BSmV-Uv; Wed, 29 Sep 2021 15:02:10 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVb4i-00BS5x-Qx
- for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 15:00:50 +0000
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71])
+ id 1mVb5i-00BSZw-W0
+ for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 15:01:52 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 406FD40279
- for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 15:00:47 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2C9A940264
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 15:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632927647;
- bh=vJN7Ck0uNCFG+Ctq/qAp6lWVQYR8Vj2mrO3VtePHdDo=;
+ s=20210705; t=1632927709;
+ bh=ZHeeeZbiilEHhtw/jMIzJY6AU5jy7F+74b86hE2E++U=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=CdndsxOn2Q+HxgVi+RJAQYf0h3YtqonFisO24TFMTMd3xeuqhyo3398X6/Y2eYMZb
- t8+ZMLRPl2Y9rhk0n//d9ffe3YtUO1ugv5Cvy269sOglS5amFiITcl3ao9qNGghf57
- lwVl87qvCCfyaWuSfgrjDRgGUr1r0VxwfpjagziSYPop+bgx6vjgWayvW0CrWLb7/q
- F66Lcb8ndK1Y/5vNQcr2b/y/XnOfNVBUMXRZ6x8VRCEg8qzgW1RM070HqkyUqPKApR
- lg1qksiVb4bpUcdQA0egCsdari18BmNoV2uyz3EH8urBTh96xN4FwVUlcgDYPyRtsL
- DS0LLVif79q9Q==
-Received: by mail-wr1-f71.google.com with SMTP id
- r15-20020adfce8f000000b0015df1098ccbso708212wrn.4
- for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 08:00:47 -0700 (PDT)
+ b=rfqJGFmkfNS3ZpZYQMuDIHCpXyI/BlSP+DyqdQkvdGUUeZ7VtNvD6rbKQSEroH2bZ
+ qST16xcQtM5R0QvL0Dp8Tq1NbtLuMhnESEL3nZYn9juEMHDsu348HdjI5hZqJxvFuD
+ fjD7fbAzxga3mENYOdaRwr/mXSZZFBn3jfNUTHCb/IkGjxjSLyIoMRfY9HGAFXrnxw
+ jmQkENNrs6CHZEccSD5WB0QZ0ZC0NJyp7va4uji3xle7/vOP0Mk27Q5D5AxKhVt9g3
+ dlvWv8kef6yAfIi/qVJm1j9nD3I1/zGGtJMC+R+rbd6HEC6YfvBHer9A5zheOdprr2
+ ajkolqGoVbZvg==
+Received: by mail-wm1-f70.google.com with SMTP id
+ y76-20020a1c7d4f000000b0030cf1eaf5cbso18558wmc.0
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 08:01:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=vJN7Ck0uNCFG+Ctq/qAp6lWVQYR8Vj2mrO3VtePHdDo=;
- b=hMlETfNL211/hloKC++zgWK+gqNGou7r0KXvDnUs/uqP8eVMfUsB1/Y5lJdhadKRqS
- PevZe3zIhL8/Nk9WOZ18nPPX/BwRxwbQQ58cLnPY+qpYkre6LcIlAEORke9kHmf+inny
- fZ6jsXm04mvZmhrVuCrUZcmOiiH+UWLvnAb8Qk1BaIjUxl/0QW9q5CiBnC9cXZ9/vpYI
- Wl4of5lpSb8nLTKWchKuwssU1g3QS+7b7c4Te8XWzNNnzbfrfZQJBZQVWAgP304DROVZ
- b0m3RCQ1D44e/7Aj6GRJCLPX5sblbTJeBKabrOkgf1pxZ/FP46grBk5rLj2znWrrILXV
- iq2Q==
-X-Gm-Message-State: AOAM5331h1CWtrBYYb2JdYeoErmVsLivCtNb1eQxj+mbd5kMkBG1OFC0
- YQHqCEn1rNRScWxGFs4mqHGhHPVySDdfEPrnae5zkBRN1cbXTyyObeIu0Yjh/HgY5UizidfPPfp
- yPdNA+ythaseQy/9x4KmI3BJrmsxihVcXBWL0CTULls1YfA==
-X-Received: by 2002:adf:d4cb:: with SMTP id w11mr327561wrk.125.1632927646707; 
- Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzfXtNjTqRwTy6zB0yjO+6WDv1SXfe8fP/ut2QpPS8jTHw1twOX+D4X0+hshAyxExD632O4tw==
-X-Received: by 2002:adf:d4cb:: with SMTP id w11mr327526wrk.125.1632927646559; 
- Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
+ bh=ZHeeeZbiilEHhtw/jMIzJY6AU5jy7F+74b86hE2E++U=;
+ b=d9JYwYKVLv1VKQ+cQij/889GdhgYAHm729qRX2YxiLVoTYrOiK+MXZHKuY6VJkXTVD
+ iXS6fcjPw2Pcb9kdT4S8M6gL8FP/mMbyH5Z6hNd/YYzPBpwJloAUaBl0cB0yF0NCJ1OY
+ mfAxnaDcoZcY5heaQbFBzm5rH/Z4WEeKZrWLyVKOSXUVOBwz0joFkIJ+fgp21mGeB56F
+ 8UUvqbyG5Sew18lspq5C6Elnmx09lTtf61vbcX9eRa2xZdy9BVnng258KgTEpl7vskMK
+ opMkyjyHw2rRD6cyrL1e5Bvls4dO/mU0yZS0WcLzprMQnkxVrCQrilCpQWEyi9AlQ8bU
+ vzsg==
+X-Gm-Message-State: AOAM5338HhHTGmy8qoUH/UQ46tX6MQm19NufBUDjJifJ17AwB0PCq8KF
+ igZLelL0Un+PY6u5STc3Bp4ILznXF2xOSMcuI6UzsP5lHOeOz20m6+9jjzdP4iDVoRnKhrA68h+
+ zv23qJtSzVe1gOS387fYSD/sHbEB+r7W5DNn5klth8pEU5w==
+X-Received: by 2002:a05:6000:2c6:: with SMTP id
+ o6mr377152wry.292.1632927708050; 
+ Wed, 29 Sep 2021 08:01:48 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy9V/fnO21N7p3bEFVhHIvHS/0Ily74/OnTsvsnaHKo/n2patag3dfQoebfGKaZ+3ZNnDo6Og==
+X-Received: by 2002:a05:6000:2c6:: with SMTP id
+ o6mr377109wry.292.1632927707834; 
+ Wed, 29 Sep 2021 08:01:47 -0700 (PDT)
 Received: from alex.home (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr. [2.7.60.249])
- by smtp.gmail.com with ESMTPSA id e8sm142306wrr.42.2021.09.29.08.00.45
+ by smtp.gmail.com with ESMTPSA id h18sm133008wrs.75.2021.09.29.08.01.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 29 Sep 2021 08:00:46 -0700 (PDT)
+ Wed, 29 Sep 2021 08:01:47 -0700 (PDT)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -92,17 +94,17 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  kasan-dev@googlegroups.com, linux-efi@vger.kernel.org,
  linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [PATCH v2 09/10] riscv: Initialize thread pointer before calling C
- functions
-Date: Wed, 29 Sep 2021 16:51:12 +0200
-Message-Id: <20210929145113.1935778-10-alexandre.ghiti@canonical.com>
+Subject: [PATCH v2 10/10] riscv: Allow user to downgrade to sv39 when hw
+ supports sv48
+Date: Wed, 29 Sep 2021 16:51:13 +0200
+Message-Id: <20210929145113.1935778-11-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210929145113.1935778-1-alexandre.ghiti@canonical.com>
 References: <20210929145113.1935778-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210929_080049_042435_D39B02AF 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20210929_080151_274439_70CBF43D 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +121,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Because of the stack canary feature that reads from the current task
-structure the stack canary value, the thread pointer register "tp" must
-be set before calling any C function from head.S: by chance, setup_vm
-and all the functions that it calls does not seem to be part of the
-functions where the canary check is done, but in the following commits,
-some functions will.
+This is made possible by using the mmu-type property of the cpu node of
+the device tree.
 
-Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
+By default, the kernel will boot with 4-level page table if the hw supports
+it but it can be interesting for the user to select 3-level page table as
+it is less memory consuming and faster since it requires less memory
+accesses in case of a TLB miss.
+
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- arch/riscv/kernel/head.S | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/mm/init.c | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 8f21ef339c68..892a25c6079d 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -301,6 +301,7 @@ clear_bss_done:
- 	REG_S a0, (a2)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index a304f2b3c178..676635f5d98a 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -641,10 +641,31 @@ static void __init disable_pgtable_l4(void)
+  * then read SATP to see if the configuration was taken into account
+  * meaning sv48 is supported.
+  */
+-static __init void set_satp_mode(void)
++static __init void set_satp_mode(uintptr_t dtb_pa)
+ {
+ 	u64 identity_satp, hw_satp;
+ 	uintptr_t set_satp_mode_pmd;
++	int cpus_node;
++
++	/* Check if the user asked for sv39 explicitly in the device tree */
++	cpus_node = fdt_path_offset((void *)dtb_pa, "/cpus");
++	if (cpus_node >= 0) {
++		int node;
++
++		fdt_for_each_subnode(node, (void *)dtb_pa, cpus_node) {
++			const char *mmu_type = fdt_getprop((void *)dtb_pa, node,
++					"mmu-type", NULL);
++			if (!mmu_type)
++				continue;
++
++			if (!strcmp(mmu_type, "riscv,sv39")) {
++				disable_pgtable_l4();
++				return;
++			}
++
++			break;
++		}
++	}
  
- 	/* Initialize page tables and relocate to virtual addresses */
-+	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
- #ifdef CONFIG_BUILTIN_DTB
+ 	set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
+ 	create_pgd_mapping(early_pg_dir,
+@@ -802,7 +823,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ 
+ #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
+-	set_satp_mode();
++	set_satp_mode(dtb_pa);
+ #endif
+ 
+ 	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
 -- 
 2.30.2
 
