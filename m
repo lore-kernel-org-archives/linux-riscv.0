@@ -2,118 +2,105 @@ Return-Path: <SRS0=hgxb=OT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C904C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 14:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 51731C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 14:52:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33A236141B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 14:51:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 33A236141B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 01CFC61440
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Sep 2021 14:52:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 01CFC61440
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x3gD15tdwfV4LbTKNgzXxZYPrq6lVbGgeXVkI8jthv8=; b=fuy8KhdzCOSdHB
-	G0rfm+qDVmYhjvOo7xojRp7ysDYYwcXC9+sVUvi0K5VO9DXczxwU09qFI/ac8LZsMKUwPNTBJbYYn
-	N6A40x7IzGganACSpu4IvsksqNXKhGGLGUHKHr+pRFIEKYGigWa+ushrUTPQKOiYJnyzup3H8aTQG
-	O+wqZwQ4HMkHX/t0Ujoywh3W4whGOEIqd1zCz8Y6XgOcGoaKX784A0QrX2P+aMx37rDp5YqUhbFIc
-	rLHoozEsxoSNvHfoxJ/icl8lknmum7lR3z13/ozYbpvgkBHAdfePss1mczYqENQHdBYkXo0eN9WYW
-	q+n5EtCgQlT/ALKis8cQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Tsi94cLj8cXACUIEMgYFNqezZsRI45XOZBiPXETkVIE=; b=vPQUu1X4utHbRo
+	jLqc3NdhCfKF19O21k/+lcSRW+fPDM9xNy2IKYpjkoTti5d+NPXda4CZDMC/9fCL53Es8EHhxTn4v
+	zkDLBbdBqFk38pOizJOg8pGQ3Q4uBZnf8hBYiwqGVD6UC2rkW8RoBOeZUB8wiBvSkpWpEfiX14GAz
+	r08s4ilg8z2EPMcijFri3IfEAfQ35aFf9EC0HLYdFLkzvm0PKO9rzSLs5jJkCXJAf9uKsBVxawFNw
+	5i/bAlmFgUNDyst6mXe5u6khKc+LLdejeESo26n459TI4FU8SELgTcg7j2/jPaGqIt21anpqN8Ny3
+	PRInuYYDCulZbZDh00lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVavP-00BOLj-90; Wed, 29 Sep 2021 14:51:11 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1mVaw6-00BOg9-DI; Wed, 29 Sep 2021 14:51:54 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVavG-00BOGY-OJ
- for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 14:51:06 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id
- r43-20020a05683044ab00b0054716b40005so3178809otv.4
- for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 07:51:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=Tm91tkfGIvi0M2qTNvmitku73dp3NNYblsvi9BFfXNs=;
- b=aD45K2qI23EDXi1OyN9HcRkACcRx5WGfxf5mRfRDDF1cHiJ2JT0O/aXogWzAWHgMeZ
- lGkVSG04v0pYg1K273+2VHBKEqT5Lg1G6a1FUeBBid5Dl5AvMGzNhLmqkwa6bmdBTGSE
- H/k1DZuwT5aHru9KNrgXF9vnC4Iw536aeLWgeaLylCFzqt8c9LxLlYXAyrN4YMFGnbdh
- /1a95goEwKtNyoLIujDG4kufm12Fao17LXc5ZcU/FzDJNnii6fpoai8WpbkLcG6WzqRT
- B6urt4QmUUBW9SVuS9fUVKIVU4dq1hUGv23MKHe1Z2PL7ioXO5TUNL9AjeLP1GeJB6vu
- titA==
+ id 1mVaw3-00BOe4-Lp
+ for linux-riscv@lists.infradead.org; Wed, 29 Sep 2021 14:51:53 +0000
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9B12F3F4BE
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 14:51:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1632927104;
+ bh=/TquUrfUmr5oNmyuO1+Qsp/eD8gniIfYD04SJchk9B4=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=V+g7psqsOYFC+4GlNHvbk+DARbf4ut8lJYDd7jPfLyrEVq+D+kCwdbb1rPyWkprB1
+ 6pbF8D9f681KfsJk9We/0Kd6V5qOZMfToTrLr0rAv68xbyiYLkJ7VOOYUGJd3GMQP+
+ ibLXdCNkUMmRqeSZnJywCj3KVzxszoeSkBR7Dr7Nn+JSA+ZeHFhowbFCMqbj+11sWr
+ mFC7PocWED16ih/RuOPQ6+q+1nioTFftWN9vWnNVarPAyAK1rpLza+b9Jo37zefOzJ
+ unaPfvkCANtvbAMNz6QnwNPSnknuFJeruFyvjTAiSTZ/YB5Xxvu8xQeoju+xCsk4Os
+ B+hLAwzX+zp7A==
+Received: by mail-wm1-f71.google.com with SMTP id
+ p63-20020a1c2942000000b0030ccf0767baso2810661wmp.6
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Sep 2021 07:51:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=Tm91tkfGIvi0M2qTNvmitku73dp3NNYblsvi9BFfXNs=;
- b=5ciz09abCvF52qqCUGfm6E2FEhIN9JSLYKWdGXmzgpLg4WWDA2XiouKr8jr0TuQMM8
- Q/3sjRV5nv5YpSKPBactGO6Olj6tRpS6PlrOpnfRxoPAc4S7IHDLCJ/ZsNeFaIVXFt8c
- WvhicO3/YDMz8h8nKvHOUVqJ1eZ/6JlyeWZ8U65efaH00cD3VNsSHaOsPh/5r9eHrs6Z
- uS8+JPySkTICq5aYP+03KVWfifijz55LxbMV6+OM9K7X8V/Mo/MH8OmvgCzpYaK9NaQE
- M3ttkPuQ33KjYq7aK6XK9PI5BnRP/dk181BK132ulmoR8bjlE6kHwz44VFENcqOj1Tqn
- 0D7w==
-X-Gm-Message-State: AOAM533BTwfse2xiTU/jqCCGWR9ZehrS1S6UijQc1zT0XtI7Mnbl9ZQy
- 9T9KBbZD6YrrkVzFFUKGerentg==
-X-Google-Smtp-Source: ABdhPJxlanevHNpfXvcrZZp77hyIhucBB0wBNtwFIdyGllVu2skfyiHdrRbk9borfFr6rvi5hDRd/g==
-X-Received: by 2002:a9d:192c:: with SMTP id j44mr375864ota.302.1632927061355; 
- Wed, 29 Sep 2021 07:51:01 -0700 (PDT)
-Received: from yoga (104-57-184-186.lightspeed.austtx.sbcglobal.net.
- [104.57.184.186])
- by smtp.gmail.com with ESMTPSA id a19sm491808oic.25.2021.09.29.07.50.59
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/TquUrfUmr5oNmyuO1+Qsp/eD8gniIfYD04SJchk9B4=;
+ b=6BvvPGfAaBJSWjlwSdLhSkAAxqzM1+tq8s+5sxvm6oSJnYPJ6cV4lTn43tyipj3wkS
+ /lpfiqrnNdlP6tifvYa3nwrmC6KPLw6oPziGw+qddRuddHkkiVgrreeGEmW6dA/s15jo
+ MRQklEnSpsbJAuqcT6TYzFkIJjVp/dljVGEX13Q9cYWIgmeurOUma+ImZY/C5EfIwjtN
+ jekAjvoXbPXmwezigoG/+/2hNoqqdtPAcOs1+7gfhorlJAfEmIDjWVO0eu5j5fqzZv5M
+ hx8WKQfe5FGPKBZY28ka48zDR9QpGxnISJGMfe3oi3ZVIcKT7VjI0q7s3Tnfm4amnkaV
+ NZQg==
+X-Gm-Message-State: AOAM533Fa2gU8Th0CS5CBRsOzoJq3YS55pGyxXhTmL5Ru72n3gwN/eVZ
+ lh9JGDNHJQV9byi9xYbrLpedqefBZ5ieZVb667YrE8u0vETGkKAb5dcIFo5FXb0wL9fkvzVe5zn
+ 0VPSe9XEnc8/5nUrkI2eg+RVCsrp0oQuVQKrTgjFCESrLLA==
+X-Received: by 2002:a05:600c:4e86:: with SMTP id
+ f6mr11084961wmq.52.1632927093809; 
+ Wed, 29 Sep 2021 07:51:33 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxy9Wf93oel0uFuiz+G/bu4P6jRU9wFw42uTqgvwTyHqxhPmb9DM6m0bHj2SXFqePSIfq7jLA==
+X-Received: by 2002:a05:600c:4e86:: with SMTP id
+ f6mr11084945wmq.52.1632927093654; 
+ Wed, 29 Sep 2021 07:51:33 -0700 (PDT)
+Received: from alex.home (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr. [2.7.60.249])
+ by smtp.gmail.com with ESMTPSA id q7sm129478wrc.55.2021.09.29.07.51.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 29 Sep 2021 07:51:00 -0700 (PDT)
-Date: Wed, 29 Sep 2021 09:50:57 -0500
-From: Bjorn Andersson <bjorn.andersson@linaro.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Simon Trimmer <simont@opensource.cirrus.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Wed, 29 Sep 2021 07:51:33 -0700 (PDT)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Linus Walleij <linus.walleij@linaro.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- Kalle Valo <kvalo@codeaurora.org>, Rob Clark <robdclark@gmail.com>,
- Sean Paul <sean@poorly.run>, David Airlie <airlied@linux.ie>,
- Daniel Vetter <daniel@ffwll.ch>, Joerg Roedel <joro@8bytes.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Alex Elder <elder@kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Andy Gross <agross@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
- dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
- iommu@lists.linux-foundation.org, linux-media@vger.kernel.org,
- linux-mmc@vger.kernel.org, netdev@vger.kernel.org,
- ath10k@lists.infradead.org, linux-wireless@vger.kernel.org,
- linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 2/2] [v2] qcom_scm: hide Kconfig symbol
-Message-ID: <YVR9UdzgUv43k5Og@yoga>
-References: <20210928075216.4193128-1-arnd@kernel.org>
- <20210928075216.4193128-2-arnd@kernel.org>
+ Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Christoph Hellwig <hch@lst.de>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-efi@vger.kernel.org,
+ linux-arch@vger.kernel.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH v2 00/10] Introduce sv48 support without relocatable kernel 
+Date: Wed, 29 Sep 2021 16:51:03 +0200
+Message-Id: <20210929145113.1935778-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210928075216.4193128-2-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210929_075102_842632_89E274C8 
-X-CRM114-Status: GOOD (  38.01  )
+X-CRM114-CacheID: sfid-20210929_075151_874270_80ED4501 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,303 +117,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue 28 Sep 02:50 CDT 2021, Arnd Bergmann wrote:
+This patchset allows to have a single kernel for sv39 and sv48 without           
+being relocatable.                                                               
+                                                                                 
+The idea comes from Arnd Bergmann who suggested to do the same as x86,           
+that is mapping the kernel to the end of the address space, which allows         
+the kernel to be linked at the same address for both sv39 and sv48 and           
+then does not require to be relocated at runtime.                                
+                                                                                 
+This implements sv48 support at runtime. The kernel will try to                  
+boot with 4-level page table and will fallback to 3-level if the HW does not     
+support it. Folding the 4th level into a 3-level page table has almost no        
+cost at runtime.                                                                 
+                                                                                 
+Tested on:                                                                       
+  - qemu rv64 sv39: OK                                                           
+  - qemu rv64 sv48: OK                                                           
+  - qemu rv64 sv39 + kasan: OK                                                   
+  - qemu rv64 sv48 + kasan: OK                                                   
+  - qemu rv32: OK                                                                
+  - Unmatched: OK                                                                
+                                                                                 
+Changes in v2:                                                                   
+  - Rebase onto for-next                                                         
+  - Fix KASAN                                                                    
+  - Fix stack canary                                                             
+  - Get completely rid of MAXPHYSMEM configs                                     
+  - Add documentation
 
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Now that SCM can be a loadable module, we have to add another
-> dependency to avoid link failures when ipa or adreno-gpu are
-> built-in:
-> 
-> aarch64-linux-ld: drivers/net/ipa/ipa_main.o: in function `ipa_probe':
-> ipa_main.c:(.text+0xfc4): undefined reference to `qcom_scm_is_available'
-> 
-> ld.lld: error: undefined symbol: qcom_scm_is_available
-> >>> referenced by adreno_gpu.c
-> >>>               gpu/drm/msm/adreno/adreno_gpu.o:(adreno_zap_shader_load) in archive drivers/built-in.a
-> 
-> This can happen when CONFIG_ARCH_QCOM is disabled and we don't select
-> QCOM_MDT_LOADER, but some other module selects QCOM_SCM. Ideally we'd
-> use a similar dependency here to what we have for QCOM_RPROC_COMMON,
-> but that causes dependency loops from other things selecting QCOM_SCM.
-> 
-> This appears to be an endless problem, so try something different this
-> time:
-> 
->  - CONFIG_QCOM_SCM becomes a hidden symbol that nothing 'depends on'
->    but that is simply selected by all of its users
-> 
->  - All the stubs in include/linux/qcom_scm.h can go away
-> 
->  - arm-smccc.h needs to provide a stub for __arm_smccc_smc() to
->    allow compile-testing QCOM_SCM on all architectures.
-> 
->  - To avoid a circular dependency chain involving RESET_CONTROLLER
->    and PINCTRL_SUNXI, drop the 'select RESET_CONTROLLER' statement.
->    According to my testing this still builds fine, and the QCOM
->    platform selects this symbol already.
-> 
-> Acked-by: Kalle Valo <kvalo@codeaurora.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> Changes in v2:
->   - drop the 'select RESET_CONTROLLER' line, rather than adding
->     more of the same
-> ---
->  drivers/firmware/Kconfig                |  5 +-
->  drivers/gpu/drm/msm/Kconfig             |  4 +-
->  drivers/iommu/Kconfig                   |  2 +-
->  drivers/media/platform/Kconfig          |  2 +-
->  drivers/mmc/host/Kconfig                |  2 +-
->  drivers/net/ipa/Kconfig                 |  1 +
->  drivers/net/wireless/ath/ath10k/Kconfig |  2 +-
->  drivers/pinctrl/qcom/Kconfig            |  3 +-
->  include/linux/arm-smccc.h               | 10 ++++
->  include/linux/qcom_scm.h                | 71 -------------------------
->  10 files changed, 20 insertions(+), 82 deletions(-)
-> 
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index 220a58cf0a44..cda7d7162cbb 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -203,10 +203,7 @@ config INTEL_STRATIX10_RSU
->  	  Say Y here if you want Intel RSU support.
->  
->  config QCOM_SCM
-> -	tristate "Qcom SCM driver"
-> -	depends on ARM || ARM64
-> -	depends on HAVE_ARM_SMCCC
-> -	select RESET_CONTROLLER
-> +	tristate
->  
->  config QCOM_SCM_DOWNLOAD_MODE_DEFAULT
->  	bool "Qualcomm download mode enabled by default"
-> diff --git a/drivers/gpu/drm/msm/Kconfig b/drivers/gpu/drm/msm/Kconfig
-> index e9c6af78b1d7..3ddf739a6f9b 100644
-> --- a/drivers/gpu/drm/msm/Kconfig
-> +++ b/drivers/gpu/drm/msm/Kconfig
-> @@ -17,7 +17,7 @@ config DRM_MSM
->  	select DRM_SCHED
->  	select SHMEM
->  	select TMPFS
-> -	select QCOM_SCM if ARCH_QCOM
-> +	select QCOM_SCM
->  	select WANT_DEV_COREDUMP
->  	select SND_SOC_HDMI_CODEC if SND_SOC
->  	select SYNC_FILE
-> @@ -55,7 +55,7 @@ config DRM_MSM_GPU_SUDO
->  
->  config DRM_MSM_HDMI_HDCP
->  	bool "Enable HDMI HDCP support in MSM DRM driver"
-> -	depends on DRM_MSM && QCOM_SCM
-> +	depends on DRM_MSM
->  	default y
->  	help
->  	  Choose this option to enable HDCP state machine
-> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-> index 124c41adeca1..989c83acbfee 100644
-> --- a/drivers/iommu/Kconfig
-> +++ b/drivers/iommu/Kconfig
-> @@ -308,7 +308,7 @@ config APPLE_DART
->  config ARM_SMMU
->  	tristate "ARM Ltd. System MMU (SMMU) Support"
->  	depends on ARM64 || ARM || (COMPILE_TEST && !GENERIC_ATOMIC64)
-> -	depends on QCOM_SCM || !QCOM_SCM #if QCOM_SCM=m this can't be =y
-> +	select QCOM_SCM
->  	select IOMMU_API
->  	select IOMMU_IO_PGTABLE_LPAE
->  	select ARM_DMA_USE_IOMMU if ARM
+Alexandre Ghiti (10):
+  riscv: Allow to dynamically define VA_BITS
+  riscv: Get rid of MAXPHYSMEM configs
+  asm-generic: Prepare for riscv use of pud_alloc_one and pud_free
+  riscv: Implement sv48 support
+  riscv: Use pgtable_l4_enabled to output mmu_type in cpuinfo
+  riscv: Explicit comment about user virtual address space size
+  riscv: Improve virtual kernel memory layout dump
+  Documentation: riscv: Add sv48 description to VM layout
+  riscv: Initialize thread pointer before calling C functions
+  riscv: Allow user to downgrade to sv39 when hw supports sv48
 
-As noted in the RFC, I think you also need to fix QCOM_IOMMU.
+ Documentation/riscv/vm-layout.rst             |  36 ++
+ arch/riscv/Kconfig                            |  35 +-
+ arch/riscv/configs/nommu_k210_defconfig       |   1 -
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   1 -
+ arch/riscv/configs/nommu_virt_defconfig       |   1 -
+ arch/riscv/include/asm/csr.h                  |   3 +-
+ arch/riscv/include/asm/fixmap.h               |   1 +
+ arch/riscv/include/asm/kasan.h                |   2 +-
+ arch/riscv/include/asm/page.h                 |  10 +
+ arch/riscv/include/asm/pgalloc.h              |  40 +++
+ arch/riscv/include/asm/pgtable-64.h           | 108 +++++-
+ arch/riscv/include/asm/pgtable.h              |  30 +-
+ arch/riscv/include/asm/sparsemem.h            |   6 +-
+ arch/riscv/kernel/cpu.c                       |  23 +-
+ arch/riscv/kernel/head.S                      |   4 +-
+ arch/riscv/mm/context.c                       |   4 +-
+ arch/riscv/mm/init.c                          | 323 +++++++++++++++---
+ arch/riscv/mm/kasan_init.c                    |  91 +++--
+ drivers/firmware/efi/libstub/efi-stub.c       |   2 +
+ include/asm-generic/pgalloc.h                 |  24 +-
+ include/linux/sizes.h                         |   1 +
+ 21 files changed, 615 insertions(+), 131 deletions(-)
 
-In particular (iirc) since all the users of the iommu might be modules,
-which would prevent QCOM_IOMMU from being selected.
+-- 
+2.30.2
 
-The rest looks good.
-
-Regards,
-Bjorn
-
-> diff --git a/drivers/media/platform/Kconfig b/drivers/media/platform/Kconfig
-> index 157c924686e4..80321e03809a 100644
-> --- a/drivers/media/platform/Kconfig
-> +++ b/drivers/media/platform/Kconfig
-> @@ -565,7 +565,7 @@ config VIDEO_QCOM_VENUS
->  	depends on VIDEO_DEV && VIDEO_V4L2 && QCOM_SMEM
->  	depends on (ARCH_QCOM && IOMMU_DMA) || COMPILE_TEST
->  	select QCOM_MDT_LOADER if ARCH_QCOM
-> -	select QCOM_SCM if ARCH_QCOM
-> +	select QCOM_SCM
->  	select VIDEOBUF2_DMA_CONTIG
->  	select V4L2_MEM2MEM_DEV
->  	help
-> diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-> index 71313961cc54..95b3511b0560 100644
-> --- a/drivers/mmc/host/Kconfig
-> +++ b/drivers/mmc/host/Kconfig
-> @@ -547,7 +547,7 @@ config MMC_SDHCI_MSM
->  	depends on MMC_SDHCI_PLTFM
->  	select MMC_SDHCI_IO_ACCESSORS
->  	select MMC_CQHCI
-> -	select QCOM_SCM if MMC_CRYPTO && ARCH_QCOM
-> +	select QCOM_SCM if MMC_CRYPTO
->  	help
->  	  This selects the Secure Digital Host Controller Interface (SDHCI)
->  	  support present in Qualcomm SOCs. The controller supports
-> diff --git a/drivers/net/ipa/Kconfig b/drivers/net/ipa/Kconfig
-> index 8f99cfa14680..d037682fb7ad 100644
-> --- a/drivers/net/ipa/Kconfig
-> +++ b/drivers/net/ipa/Kconfig
-> @@ -4,6 +4,7 @@ config QCOM_IPA
->  	depends on ARCH_QCOM || COMPILE_TEST
->  	depends on QCOM_RPROC_COMMON || (QCOM_RPROC_COMMON=n && COMPILE_TEST)
->  	select QCOM_MDT_LOADER if ARCH_QCOM
-> +	select QCOM_SCM
->  	select QCOM_QMI_HELPERS
->  	help
->  	  Choose Y or M here to include support for the Qualcomm
-> diff --git a/drivers/net/wireless/ath/ath10k/Kconfig b/drivers/net/wireless/ath/ath10k/Kconfig
-> index 741289e385d5..ca007b800f75 100644
-> --- a/drivers/net/wireless/ath/ath10k/Kconfig
-> +++ b/drivers/net/wireless/ath/ath10k/Kconfig
-> @@ -44,7 +44,7 @@ config ATH10K_SNOC
->  	tristate "Qualcomm ath10k SNOC support"
->  	depends on ATH10K
->  	depends on ARCH_QCOM || COMPILE_TEST
-> -	depends on QCOM_SCM || !QCOM_SCM #if QCOM_SCM=m this can't be =y
-> +	select QCOM_SCM
->  	select QCOM_QMI_HELPERS
->  	help
->  	  This module adds support for integrated WCN3990 chip connected
-> diff --git a/drivers/pinctrl/qcom/Kconfig b/drivers/pinctrl/qcom/Kconfig
-> index 32ea2a8ec02b..5ff4207df66e 100644
-> --- a/drivers/pinctrl/qcom/Kconfig
-> +++ b/drivers/pinctrl/qcom/Kconfig
-> @@ -3,7 +3,8 @@ if (ARCH_QCOM || COMPILE_TEST)
->  
->  config PINCTRL_MSM
->  	tristate "Qualcomm core pin controller driver"
-> -	depends on GPIOLIB && (QCOM_SCM || !QCOM_SCM) #if QCOM_SCM=m this can't be =y
-> +	depends on GPIOLIB
-> +	select QCOM_SCM
->  	select PINMUX
->  	select PINCONF
->  	select GENERIC_PINCONF
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 7d1cabe15262..63ccb5252190 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.h
-> @@ -321,10 +321,20 @@ asmlinkage unsigned long __arm_smccc_sve_check(unsigned long x0);
->   * from register 0 to 3 on return from the SMC instruction.  An optional
->   * quirk structure provides vendor specific behavior.
->   */
-> +#ifdef CONFIG_HAVE_ARM_SMCCC
->  asmlinkage void __arm_smccc_smc(unsigned long a0, unsigned long a1,
->  			unsigned long a2, unsigned long a3, unsigned long a4,
->  			unsigned long a5, unsigned long a6, unsigned long a7,
->  			struct arm_smccc_res *res, struct arm_smccc_quirk *quirk);
-> +#else
-> +static inline void __arm_smccc_smc(unsigned long a0, unsigned long a1,
-> +			unsigned long a2, unsigned long a3, unsigned long a4,
-> +			unsigned long a5, unsigned long a6, unsigned long a7,
-> +			struct arm_smccc_res *res, struct arm_smccc_quirk *quirk)
-> +{
-> +	*res = (struct arm_smccc_res){};
-> +}
-> +#endif
->  
->  /**
->   * __arm_smccc_hvc() - make HVC calls
-> diff --git a/include/linux/qcom_scm.h b/include/linux/qcom_scm.h
-> index c0475d1c9885..81cad9e1e412 100644
-> --- a/include/linux/qcom_scm.h
-> +++ b/include/linux/qcom_scm.h
-> @@ -61,7 +61,6 @@ enum qcom_scm_ice_cipher {
->  #define QCOM_SCM_PERM_RW (QCOM_SCM_PERM_READ | QCOM_SCM_PERM_WRITE)
->  #define QCOM_SCM_PERM_RWX (QCOM_SCM_PERM_RW | QCOM_SCM_PERM_EXEC)
->  
-> -#if IS_ENABLED(CONFIG_QCOM_SCM)
->  extern bool qcom_scm_is_available(void);
->  
->  extern int qcom_scm_set_cold_boot_addr(void *entry, const cpumask_t *cpus);
-> @@ -115,74 +114,4 @@ extern int qcom_scm_lmh_dcvsh(u32 payload_fn, u32 payload_reg, u32 payload_val,
->  extern int qcom_scm_lmh_profile_change(u32 profile_id);
->  extern bool qcom_scm_lmh_dcvsh_available(void);
->  
-> -#else
-> -
-> -#include <linux/errno.h>
-> -
-> -static inline bool qcom_scm_is_available(void) { return false; }
-> -
-> -static inline int qcom_scm_set_cold_boot_addr(void *entry,
-> -		const cpumask_t *cpus) { return -ENODEV; }
-> -static inline int qcom_scm_set_warm_boot_addr(void *entry,
-> -		const cpumask_t *cpus) { return -ENODEV; }
-> -static inline void qcom_scm_cpu_power_down(u32 flags) {}
-> -static inline u32 qcom_scm_set_remote_state(u32 state,u32 id)
-> -		{ return -ENODEV; }
-> -
-> -static inline int qcom_scm_pas_init_image(u32 peripheral, const void *metadata,
-> -		size_t size) { return -ENODEV; }
-> -static inline int qcom_scm_pas_mem_setup(u32 peripheral, phys_addr_t addr,
-> -		phys_addr_t size) { return -ENODEV; }
-> -static inline int qcom_scm_pas_auth_and_reset(u32 peripheral)
-> -		{ return -ENODEV; }
-> -static inline int qcom_scm_pas_shutdown(u32 peripheral) { return -ENODEV; }
-> -static inline bool qcom_scm_pas_supported(u32 peripheral) { return false; }
-> -
-> -static inline int qcom_scm_io_readl(phys_addr_t addr, unsigned int *val)
-> -		{ return -ENODEV; }
-> -static inline int qcom_scm_io_writel(phys_addr_t addr, unsigned int val)
-> -		{ return -ENODEV; }
-> -
-> -static inline bool qcom_scm_restore_sec_cfg_available(void) { return false; }
-> -static inline int qcom_scm_restore_sec_cfg(u32 device_id, u32 spare)
-> -		{ return -ENODEV; }
-> -static inline int qcom_scm_iommu_secure_ptbl_size(u32 spare, size_t *size)
-> -		{ return -ENODEV; }
-> -static inline int qcom_scm_iommu_secure_ptbl_init(u64 addr, u32 size, u32 spare)
-> -		{ return -ENODEV; }
-> -extern inline int qcom_scm_mem_protect_video_var(u32 cp_start, u32 cp_size,
-> -						 u32 cp_nonpixel_start,
-> -						 u32 cp_nonpixel_size)
-> -		{ return -ENODEV; }
-> -static inline int qcom_scm_assign_mem(phys_addr_t mem_addr, size_t mem_sz,
-> -		unsigned int *src, const struct qcom_scm_vmperm *newvm,
-> -		unsigned int dest_cnt) { return -ENODEV; }
-> -
-> -static inline bool qcom_scm_ocmem_lock_available(void) { return false; }
-> -static inline int qcom_scm_ocmem_lock(enum qcom_scm_ocmem_client id, u32 offset,
-> -		u32 size, u32 mode) { return -ENODEV; }
-> -static inline int qcom_scm_ocmem_unlock(enum qcom_scm_ocmem_client id,
-> -		u32 offset, u32 size) { return -ENODEV; }
-> -
-> -static inline bool qcom_scm_ice_available(void) { return false; }
-> -static inline int qcom_scm_ice_invalidate_key(u32 index) { return -ENODEV; }
-> -static inline int qcom_scm_ice_set_key(u32 index, const u8 *key, u32 key_size,
-> -				       enum qcom_scm_ice_cipher cipher,
-> -				       u32 data_unit_size) { return -ENODEV; }
-> -
-> -static inline bool qcom_scm_hdcp_available(void) { return false; }
-> -static inline int qcom_scm_hdcp_req(struct qcom_scm_hdcp_req *req, u32 req_cnt,
-> -		u32 *resp) { return -ENODEV; }
-> -
-> -static inline int qcom_scm_qsmmu500_wait_safe_toggle(bool en)
-> -		{ return -ENODEV; }
-> -
-> -static inline int qcom_scm_lmh_dcvsh(u32 payload_fn, u32 payload_reg, u32 payload_val,
-> -				     u64 limit_node, u32 node_id, u64 version)
-> -		{ return -ENODEV; }
-> -
-> -static inline int qcom_scm_lmh_profile_change(u32 profile_id) { return -ENODEV; }
-> -
-> -static inline bool qcom_scm_lmh_dcvsh_available(void) { return -ENODEV; }
-> -#endif
->  #endif
-> -- 
-> 2.29.2
-> 
 
 _______________________________________________
 linux-riscv mailing list
