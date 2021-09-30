@@ -2,14 +2,14 @@ Return-Path: <SRS0=9UDN=OU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD9BCC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 09:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB423C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 09:55:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67B0E61350
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 09:38:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 67B0E61350
+	by mail.kernel.org (Postfix) with ESMTPS id A3E3C615E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 09:55:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A3E3C615E2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,61 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6pZWwmsFNnz1eltKj3KEiXvEuUHWiYQA4fFopYBwFrE=; b=We9Y7uAMPh2Icn
-	2bCJ1EGAsrvEbEF67XK3G+1mOcMKJYSbXh43l2Ii40n9Hgi5haff/Z7/ePZAnSFOv0JUFGxMj1+m8
-	j265KYnaW0BY7yUVVsaw5eg9P70g2YiN7npTbNNwDzdLunVQV6bpUbnl4KjZcDK+9Do/DGvD2NZ4B
-	+LyGxdgp6hvjn8Pvh32iKRwTWpEe2niJxeHRAX5FuHC4Wpn6fFZLoOVHUP6C4NAGMoI/CFBUJWpq7
-	u2l9uUysopf0lKHh5B9dfTReDBxHZJgxrZlRUI5vtFYsUROwfLppOUmMP/j5M8hehx8SoSlgKMt4k
-	2O6SrSrpWhts7mODyxqA==;
+	List-Owner; bh=t/EydoOQWbF7On1C/8Q75uzdhXtta6I4QOSQhfSl7ow=; b=TIr16FPynv4OhZ
+	uOAqJ+kvV4kVQq0v7cNYOHBqfuQdmb1G53WqHJSBBMVIh9YbYkPVsIyJRnM1m5GK6EgiRtT+yGtIU
+	37khSlMsM5Afi8IUKwjknY0jj05ajvl5c1NgdOm1SLZMGU9qk1OyHHQ0A4lL3+1uB7kCxnS6v8OyJ
+	6jWyhVbFL8d0jEP1lp2v81t9LYvXbhM2Giq0vwcIPN+phOsljL2iTpPp9gafYqUuL108bouaQ7X4G
+	0i4VZqjnZAghADZc8bCAufv3sFRK0ZyHnN5pyLEPuAqPd8PHqx8Fs+U+E733oMkBMWHU8icbm0V1V
+	y1tZNtf+zMibKJJSHYoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVsVo-00Daqa-93; Thu, 30 Sep 2021 09:37:56 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mVsmq-00DfDY-Nh; Thu, 30 Sep 2021 09:55:32 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVsVk-00Dap6-RX
- for linux-riscv@lists.infradead.org; Thu, 30 Sep 2021 09:37:54 +0000
-Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
- [209.85.167.70])
+ id 1mVsmn-00DfBa-S5
+ for linux-riscv@lists.infradead.org; Thu, 30 Sep 2021 09:55:31 +0000
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EF1293F325
- for <linux-riscv@lists.infradead.org>; Thu, 30 Sep 2021 09:37:45 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id CD22C4028F
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Sep 2021 09:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1632994665;
- bh=4X6dQ0l1/8G9mRvlRpg8SXm7KFk/1WWtkX+qwHW3nT4=;
+ s=20210705; t=1632995727;
+ bh=pqAX+UbJIa/RMJv8j6rl+G+R+tbCZ7fA5m1R+K85bTM=;
  h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
  To:Cc:Content-Type;
- b=LvpMfooeooB2QrMsaS/LkBvKPWw7dSjEXjJOm7j7yfNvtLk9ea46/3TD3ZF49bITT
- cZFA5eZ6f2Bk3pySnGeLFLltBD7Y5uKBIB1hyx7LS/jQmLw9+Oaw/SggSkRIpWGg/L
- jvOjWHNVhe3H21FNFeWqUNV8FdlG+mHGQyYctjOniDxfDcukufSr5ZBcWY/aFOJGCI
- LBvde3hmFTo5moiiH2MJ2amhjWaADEriLQXAjgk6BP3biAM7TQAhwYSQKuX7rlJNj9
- FPwGrQ94e8X4PMEmXquTG/byrElvB8sZmIRvGuL4kw5JCyQVsPI0XwYVWBtMrTTph3
- 1pyHE7GziU0Gw==
-Received: by mail-lf1-f70.google.com with SMTP id
- d22-20020a0565123d1600b003fd0097d747so5082784lfv.2
- for <linux-riscv@lists.infradead.org>; Thu, 30 Sep 2021 02:37:45 -0700 (PDT)
+ b=Coj8IMPqpFx00+3UZ87iL3TxNl8BnxZtvCql+1ieHUWjy1QTen5UFIKh3BNHOZFlr
+ LFWfKWSHawhBVXgmq+a++aBfIiLCmQqCVsg1kOuBaCRJyN5EuhqWpZLxgvk1BjhiYm
+ d5jKTWu9vqSNG7OqFWVx1zQ7iELEf5vACdMySwmiIxxJqtpa8zNba99+R0CO/Nn4Kr
+ 4r5joUvZhwS2XnTwVktWGASPI+Q/8RUaXT9IwjM9q1dYol4YUs7LanCJRDKJkhTaHw
+ hxzlBnAL1doACEw2q1LMUNcr5rlLf7AV4VmZIRXbg1ymbQDn3ZKQjbslsetabP09Z2
+ cC7ziKreG4rBA==
+Received: by mail-ed1-f71.google.com with SMTP id
+ m20-20020aa7c2d4000000b003d1add00b8aso5752865edp.0
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Sep 2021 02:55:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=4X6dQ0l1/8G9mRvlRpg8SXm7KFk/1WWtkX+qwHW3nT4=;
- b=5sZ//cUdPieMWbrZUp8xN9JxCa7xYyXcb5QBNDihH+Pv7/Fda6ysifQoyfBZ/AAv6v
- wePs1+nWLyaQ5JEBLaA0AEzi+x3Xo81xwSjArdG9YAK9ykWozw0ND39lLZAWMMrMocFZ
- hCCj0bVx7eKhLy5lQf3jeVqEgruznhT+uGJqUG3MfuhSaDko6hrcO75okZ9n0+Q8xgx0
- SllS6QwA+M3B9Q457Ypabocjy1TucRBApNx7i+2IzbB4BOqFlBusY+G9uRbvq5vmuiSv
- nwvsWVQCYoOcd1cx8535uXLJLIzjr846pzZ9kRzIr+WZPK7iKdEPHD0lm+J0MOCjw51G
- NpoQ==
-X-Gm-Message-State: AOAM530M36x4CeJsR/kaGmkp8nNDbb66HBmOkGymMaCXiVZ16TioFFDu
- ZF5vvykWGh1ScFpXdUicdUE8xPRWP7YhqXG1sdmO9eJjoJc7/WBWeM9VSHNxBTPXpwYW7BF8/Ba
- sMWXfEFBYdLFciPRQgdxcuvgWOuRKR4ePf7yEwCFT2JhG/mVR938KTFG22q5r4w==
-X-Received: by 2002:a05:6512:32ca:: with SMTP id
- f10mr4992338lfg.498.1632994665314; 
- Thu, 30 Sep 2021 02:37:45 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxNYcDzQ7LBIUZhurzYKgr9dBeC3UWYffeeYCMH3qAHDp44YUInp/6LuwNJ9oNdspH0hPtiIv8TSR06B420Fbg=
-X-Received: by 2002:a05:6512:32ca:: with SMTP id
- f10mr4992318lfg.498.1632994665112; 
- Thu, 30 Sep 2021 02:37:45 -0700 (PDT)
+ bh=pqAX+UbJIa/RMJv8j6rl+G+R+tbCZ7fA5m1R+K85bTM=;
+ b=p+8S8cASKtHKeFDT2F4AoxIQzkQ9Ysk/14jxN7s7Ip8cVNZNWZTK6SuRe/uXomvV7C
+ mnsu/i0Zj9IWXzn6LVIDUc7ppTUckXvKzcKAxSu7bb3u2HaJCNDmK/EW9qhMOh5Eu1Cd
+ ex/EdmfngkSuhwSx4tjZAqE38n5PGbbXKvng5im5kVeYViHi8doOh8rRZ5PCr/j3JRa6
+ pbWQC15+Rjsf9DruylnhB+QhqE2KU6GV19+ZHdqSAWOrtkmsmOHFREZru72/AkMoq3rg
+ eZIDY5gAL7cx1hDK5J0YzGzLlGPO+ZBsMDsfzBwU8DdqNDfVrlaIQ9LJ4+yFymhQPhCX
+ jk/w==
+X-Gm-Message-State: AOAM533oJnVE7F3GS1UonXDQ0pdEw1lqA5e7Oi6jZ1vwMpmEHjWIpCon
+ i40ysP1oZpGcDprmaGLwh7WlwL3zsFn3h5aBzZNpI4jA1gFDVZ7N6zxz+JomhRYNSbY1Jyqq2di
+ 8WJcrncM/YS8HsqIJm/N+N7T954oTKbor6th+sR5u/Yt9MKolf9BPs7eTWJTM0g==
+X-Received: by 2002:a50:da49:: with SMTP id a9mr6069822edk.281.1632995727269; 
+ Thu, 30 Sep 2021 02:55:27 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzo+WktB+lKivY55kkL6Lpyd6wyqermcOkd7ja1F42auhV0sOF5FP4afdjG0REUJIWjOwRJCpUMRqAPVD9nKCI=
+X-Received: by 2002:a50:da49:: with SMTP id a9mr6069808edk.281.1632995727067; 
+ Thu, 30 Sep 2021 02:55:27 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
  <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
@@ -80,8 +78,8 @@ References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
  <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
 In-Reply-To: <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Thu, 30 Sep 2021 11:37:34 +0200
-Message-ID: <CA+zEjCtViMOXERby6A=wOKswQOFL60kTidc4+LY6_Y5svB_kLQ@mail.gmail.com>
+Date: Thu, 30 Sep 2021 11:55:16 +0200
+Message-ID: <CA+zEjCv8tExoZx309qRMe6KCZ=-AC+nCOV7qivJWE5gCqrd2MA@mail.gmail.com>
 Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
 To: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
 Cc: Support Opensource <Support.Opensource@diasemi.com>,
@@ -89,8 +87,8 @@ Cc: Support Opensource <Support.Opensource@diasemi.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210930_023753_118286_3DDAA7B2 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20210930_025530_148259_25B4D51F 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,6 +104,10 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+
+Hi Adam,
+
+Thank you for your answer.
 
 On Wed, Sep 29, 2021 at 3:33 PM Adam Thomson
 <Adam.Thomson.Opensource@diasemi.com> wrote:
@@ -145,6 +147,19 @@ On Wed, Sep 29, 2021 at 3:33 PM Adam Thomson
 > triggering the restart in this particular scenario? I'd be interested to
 > understand which event bits are set when the board does restart to understand
 > what did actually trigger the boot-up.
+
+After clearing all those registers and a reset as done in this patch,
+I get the following values:
+
+FAULT_LOG: 0x00
+EVENT_A: 0x10 => As per the datasheet, "Sequencer reached final
+position caused event" ?
+EVENT_B: 0x00
+EVENT_C: 0x00
+EVENT_D: 0x00
+
+Do you need any other info?
+
 >
 > Regardless of this though, the consensus right now would be to use the RTC as a
 > wake event to restart the platform. An alarm can be set for a couple of seconds
@@ -157,13 +172,7 @@ On Wed, Sep 29, 2021 at 3:33 PM Adam Thomson
 > as part of the generic MFD core of DA9063, as the timings may vary for other
 > platforms.
 
-What timings are you referring to? Is the timing you're talking to the
-time between the shutdown and the tick that wakes the device up?
-
-Because I have another series ready which uses a new device tree
-binding so that platforms that want the reset from the DA9063 can ask
-for it via the device tree. And then I could add a property "duration"
-that is platform dependent.
+Alex
 
 _______________________________________________
 linux-riscv mailing list
