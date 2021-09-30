@@ -2,74 +2,74 @@ Return-Path: <SRS0=9UDN=OU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C5D54C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 19:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 14A60C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 19:44:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9252661527
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 19:00:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9252661527
+	by mail.kernel.org (Postfix) with ESMTPS id C0C62619E7
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 19:44:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C0C62619E7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SO2XQpHYdkIt5ZNY3yWmM7hbBIxkygRqdGekSc83rHo=; b=HrnCZzFSaHo7fb
-	W42TjupP/M1IZp/QVdyobUz8YSWsdNR6i8md8KJ3Jh1nNbuhLW3QoFU9VKPH5OKYUefODTqxTL2Zj
-	bgV6KNqKzlQy6kgnc7y5IH+DEZh2bSuAHH1DNwAx73wpGHpwgDN7ERMEFQxLJ7XTGG48TlFFSOYeh
-	xyM9jJLcITB66yrRgA37b224XZ7BcsvfbASf0KA9teCd/BIfcs0FN1buooGwwZ2qfvK/h6eyc3hT/
-	KlnCuwvZLyPfoqssn+Xst6gVY0jT1FfvKOWqHGCfu+zkGSwVBWvH3UWSJKJHV8OJArN+Bo8OWQ3Q4
-	fRn0SnSV0Jjlcjzrsbew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ECH3JwFWy1Isls41twpTz1GBrOczuccE5K0Jod8NEeE=; b=VIYX07vD5zq5bvamcUrBB67zys
+	j600Ega+n0AjCgEYS5KgLshlJdcC6vVrOwxL48uD8uEBKDDvMzOtN3BlJ71BHgTr1vm2+eSIT5KPl
+	B1DNLcr5tYwkage+2bdHIsGuvPLjjKDBDxqXbRpeQyGEI9iOhyTQAXQs9Ool4dPudwYBw7SHmnkpg
+	vtyt7JzWjmMRDN/wBIavNVOWo3tUgSoPLZTwnt6vCozrxh4ybXztdTDvqku9cFSz5rv5XgHySDR5n
+	sGDeyfSnmOmCGH0843KGbKxWN0s/13Xu93ng8c8XKOfksR1XXTF98zBkzrViw7qq20ruqd+1mv2X8
+	5gI6QQ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mW1IL-00Fmke-WB; Thu, 30 Sep 2021 19:00:38 +0000
+	id 1mW1yF-00Fuj5-8d; Thu, 30 Sep 2021 19:43:55 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mW19R-00Fico-TT; Thu, 30 Sep 2021 18:51:33 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C9D6861209;
- Thu, 30 Sep 2021 18:51:17 +0000 (UTC)
+ id 1mW1yC-00FuiY-6V
+ for linux-riscv@lists.infradead.org; Thu, 30 Sep 2021 19:43:54 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E416F619E0;
+ Thu, 30 Sep 2021 19:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1633027884;
- bh=JK9jLNwOn83tFpdzsz5SWNGjwtk9QqdCPfSb8ZeVHJ8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Bqq6vS5DF/5QPQwMSg/5caCykDp4qGu0WNz6OZuOntVpri/vaYk4DPD7qZBstqQpc
- yBKMwZVZLHzYCS4qoZ2CHcBvuvSU82Rzb1xMSbQUdJ9phkjqqi5REj6uQASji/ETA/
- lhvo4thwbHBCzfvMgpHCbChiFuLrNUKBRpS2P3wLxZhQ4PiADHmQtC5G+QBcZOAZWh
- J0qJaKhs5xHST0xaxZtmkoJ11M7yzqr9KTdWJk8m11M5+3oDPbXQGANhne9SWTYDa/
- znUyN54iw3g3seQ/KCoAhzChw/r8H2PuZS71dZ8b/Lc6wXAQ2y5oMw/SZez4Rcqqg9
- PGa760fcOAZMg==
-From: Mike Rapoport <rppt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Juergen Gross <jgross@suse.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Shahab Vahedi <Shahab.Vahedi@synopsys.com>, devicetree@vger.kernel.org,
- iommu@lists.linux-foundation.org, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, linux-usb@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org
-Subject: [PATCH v2 6/6] memblock: use memblock_free for freeing virtual
- pointers
-Date: Thu, 30 Sep 2021 21:50:31 +0300
-Message-Id: <20210930185031.18648-7-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20210930185031.18648-1-rppt@kernel.org>
-References: <20210930185031.18648-1-rppt@kernel.org>
+ s=k20201202; t=1633031031;
+ bh=KOFRWme1rbqxtm5iJvA82taQU76or3dW9FLoHN55pdY=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=Ol+A9pUz3l5AU1GQ3PyMi2U313MoAs3zWBiLq+zqXGVl+iAUIv/DPWrq0CyVySjlr
+ AdDYHHN5B0GzhDvq2AO2lY7uDeqEVxx29uYBY/iwF6HOj17exGcOgdQctFC2Tr+RAw
+ YubogjCJPF0hNH23DUdIWNoaHGmWaWjA3wc0V6Ig8I1IjA4x3GH1JLmqJwRFgiLlvw
+ Fm4euTVrG1Xr7HJdvpDx5PQSrVwmpnEZ/65eIJETbWtuzidqFKjdXhMMIXTh5Wu1V0
+ Doy3lwv0r8sOqzTR9qg3ivAXedX8qzkee/mnrqg+h7CkAMWpMvRz/92skytL88HPPO
+ JSotGWISDG9xw==
+Subject: Re: [PATCH v5 1/3] riscv: optimized memcpy
+To: Matteo Croce <mcroce@linux.microsoft.com>, Guo Ren <guoren@kernel.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atish.patra@wdc.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Akira Tsukamoto <akira.tsukamoto@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>,
+ David Laight <David.Laight@aculab.com>, Christoph Hellwig <hch@lst.de>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>
+References: <20210929172234.31620-1-mcroce@linux.microsoft.com>
+ <20210929172234.31620-2-mcroce@linux.microsoft.com>
+ <CAJF2gTRSVeUOwmaUcpMJL+jOofvX5iWLRLCfMajQcut_T409qA@mail.gmail.com>
+ <CAFnufp1wHVY-yoUUDxT1mhv8HV=cmHZSwMP+8r-2CzNAYEn4DQ@mail.gmail.com>
+From: Vineet Gupta <vgupta@kernel.org>
+Message-ID: <a9ce9ea2-9e5d-0e56-d980-5dedd087f62d@kernel.org>
+Date: Thu, 30 Sep 2021 12:43:50 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
+In-Reply-To: <CAFnufp1wHVY-yoUUDxT1mhv8HV=cmHZSwMP+8r-2CzNAYEn4DQ@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210930_115126_165830_C7779A3C 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20210930_124352_350965_16AF4662 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,523 +81,401 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+On 9/29/21 6:36 PM, Matteo Croce wrote:
+> On Thu, Sep 30, 2021 at 3:25 AM Guo Ren <guoren@kernel.org> wrote:
+>>
+>> On Thu, Sep 30, 2021 at 1:22 AM Matteo Croce <mcroce@linux.microsoft.com> wrote:
+>>>
+>>> From: Matteo Croce <mcroce@microsoft.com>
+>>>
+>>> Write a C version of memcpy() which uses the biggest data size allowed,
+>>> without generating unaligned accesses.
+>>>
+>>> The procedure is made of three steps:
+>>> First copy data one byte at time until the destination buffer is aligned
+>>> to a long boundary.
+>>> Then copy the data one long at time shifting the current and the next u8
+>>> to compose a long at every cycle.
+>>> Finally, copy the remainder one byte at time.
+>>>
+>>> On a BeagleV, the TCP RX throughput increased by 45%:
+>>>
+>>> before:
+>>>
+>>> $ iperf3 -c beaglev
+>>> Connecting to host beaglev, port 5201
+>>> [  5] local 192.168.85.6 port 44840 connected to 192.168.85.48 port 5201
+>>> [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+>>> [  5]   0.00-1.00   sec  76.4 MBytes   641 Mbits/sec   27    624 KBytes
+>>> [  5]   1.00-2.00   sec  72.5 MBytes   608 Mbits/sec    0    708 KBytes
+>>> [  5]   2.00-3.00   sec  73.8 MBytes   619 Mbits/sec   10    451 KBytes
+>>> [  5]   3.00-4.00   sec  72.5 MBytes   608 Mbits/sec    0    564 KBytes
+>>> [  5]   4.00-5.00   sec  73.8 MBytes   619 Mbits/sec    0    658 KBytes
+>>> [  5]   5.00-6.00   sec  73.8 MBytes   619 Mbits/sec   14    522 KBytes
+>>> [  5]   6.00-7.00   sec  73.8 MBytes   619 Mbits/sec    0    621 KBytes
+>>> [  5]   7.00-8.00   sec  72.5 MBytes   608 Mbits/sec    0    706 KBytes
+>>> [  5]   8.00-9.00   sec  73.8 MBytes   619 Mbits/sec   20    580 KBytes
+>>> [  5]   9.00-10.00  sec  73.8 MBytes   619 Mbits/sec    0    672 KBytes
+>>> - - - - - - - - - - - - - - - - - - - - - - - - -
+>>> [ ID] Interval           Transfer     Bitrate         Retr
+>>> [  5]   0.00-10.00  sec   736 MBytes   618 Mbits/sec   71             sender
+>>> [  5]   0.00-10.01  sec   733 MBytes   615 Mbits/sec                  receiver
+>>>
+>>> after:
+>>>
+>>> $ iperf3 -c beaglev
+>>> Connecting to host beaglev, port 5201
+>>> [  5] local 192.168.85.6 port 44864 connected to 192.168.85.48 port 5201
+>>> [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+>>> [  5]   0.00-1.00   sec   109 MBytes   912 Mbits/sec   48    559 KBytes
+>>> [  5]   1.00-2.00   sec   108 MBytes   902 Mbits/sec    0    690 KBytes
+>>> [  5]   2.00-3.00   sec   106 MBytes   891 Mbits/sec   36    396 KBytes
+>>> [  5]   3.00-4.00   sec   108 MBytes   902 Mbits/sec    0    567 KBytes
+>>> [  5]   4.00-5.00   sec   106 MBytes   891 Mbits/sec    0    699 KBytes
+>>> [  5]   5.00-6.00   sec   106 MBytes   891 Mbits/sec   32    414 KBytes
+>>> [  5]   6.00-7.00   sec   106 MBytes   891 Mbits/sec    0    583 KBytes
+>>> [  5]   7.00-8.00   sec   106 MBytes   891 Mbits/sec    0    708 KBytes
+>>> [  5]   8.00-9.00   sec   106 MBytes   891 Mbits/sec   28    433 KBytes
+>>> [  5]   9.00-10.00  sec   108 MBytes   902 Mbits/sec    0    591 KBytes
+>>> - - - - - - - - - - - - - - - - - - - - - - - - -
+>>> [ ID] Interval           Transfer     Bitrate         Retr
+>>> [  5]   0.00-10.00  sec  1.04 GBytes   897 Mbits/sec  144             sender
+>>> [  5]   0.00-10.01  sec  1.04 GBytes   894 Mbits/sec                  receiver
+>>>
+>>> And the decreased CPU time of the memcpy() is observable with perf top.
+>>> This is the `perf top -Ue task-clock` output when doing the test:
+>>>
+>>> before:
+>>>
+>>> Overhead  Shared O  Symbol
+>>>    42.22%  [kernel]  [k] memcpy
+>>>    35.00%  [kernel]  [k] __asm_copy_to_user
+>>>     3.50%  [kernel]  [k] sifive_l2_flush64_range
+>>>     2.30%  [kernel]  [k] stmmac_napi_poll_rx
+>>>     1.11%  [kernel]  [k] memset
+>>>
+>>> after:
+>>>
+>>> Overhead  Shared O  Symbol
+>>>    45.69%  [kernel]  [k] __asm_copy_to_user
+>>>    29.06%  [kernel]  [k] memcpy
+>>>     4.09%  [kernel]  [k] sifive_l2_flush64_range
+>>>     2.77%  [kernel]  [k] stmmac_napi_poll_rx
+>>>     1.24%  [kernel]  [k] memset
+>>>
+>>> Signed-off-by: Matteo Croce <mcroce@microsoft.com>
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>> ---
+>>>   arch/riscv/include/asm/string.h |   8 ++-
+>>>   arch/riscv/kernel/riscv_ksyms.c |   2 -
+>>>   arch/riscv/lib/Makefile         |   2 +-
+>>>   arch/riscv/lib/memcpy.S         | 108 --------------------------------
+>>>   arch/riscv/lib/string.c         |  90 ++++++++++++++++++++++++++
+>>>   5 files changed, 97 insertions(+), 113 deletions(-)
+>>>   delete mode 100644 arch/riscv/lib/memcpy.S
+>>>   create mode 100644 arch/riscv/lib/string.c
+>>>
+>>> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+>>> index 909049366555..6b5d6fc3eab4 100644
+>>> --- a/arch/riscv/include/asm/string.h
+>>> +++ b/arch/riscv/include/asm/string.h
+>>> @@ -12,9 +12,13 @@
+>>>   #define __HAVE_ARCH_MEMSET
+>>>   extern asmlinkage void *memset(void *, int, size_t);
+>>>   extern asmlinkage void *__memset(void *, int, size_t);
+>>> +
+>>> +#ifdef CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
+>> What's the problem with the -O3 & -Os? If the user uses
+>> CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE_O3 that will cause bad performance
+>> for memcpy?
+>> Seems asm version is more compatible?
+>>
+>>>   #define __HAVE_ARCH_MEMCPY
+>>> -extern asmlinkage void *memcpy(void *, const void *, size_t);
+>>> -extern asmlinkage void *__memcpy(void *, const void *, size_t);
+>>> +extern void *memcpy(void *dest, const void *src, size_t count);
+>>> +extern void *__memcpy(void *dest, const void *src, size_t count);
+>>> +#endif
+>>> +
+>>>   #define __HAVE_ARCH_MEMMOVE
+>>>   extern asmlinkage void *memmove(void *, const void *, size_t);
+>>>   extern asmlinkage void *__memmove(void *, const void *, size_t);
+>>> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
+>>> index 5ab1c7e1a6ed..3f6d512a5b97 100644
+>>> --- a/arch/riscv/kernel/riscv_ksyms.c
+>>> +++ b/arch/riscv/kernel/riscv_ksyms.c
+>>> @@ -10,8 +10,6 @@
+>>>    * Assembly functions that may be used (directly or indirectly) by modules
+>>>    */
+>>>   EXPORT_SYMBOL(memset);
+>>> -EXPORT_SYMBOL(memcpy);
+>>>   EXPORT_SYMBOL(memmove);
+>>>   EXPORT_SYMBOL(__memset);
+>>> -EXPORT_SYMBOL(__memcpy);
+>>>   EXPORT_SYMBOL(__memmove);
+>>> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+>>> index 25d5c9664e57..2ffe85d4baee 100644
+>>> --- a/arch/riscv/lib/Makefile
+>>> +++ b/arch/riscv/lib/Makefile
+>>> @@ -1,9 +1,9 @@
+>>>   # SPDX-License-Identifier: GPL-2.0-only
+>>>   lib-y                  += delay.o
+>>> -lib-y                  += memcpy.o
+>>>   lib-y                  += memset.o
+>>>   lib-y                  += memmove.o
+>>>   lib-$(CONFIG_MMU)      += uaccess.o
+>>>   lib-$(CONFIG_64BIT)    += tishift.o
+>>> +lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
+>>>
+>>>   obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+>>> diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
+>>> deleted file mode 100644
+>>> index 51ab716253fa..000000000000
+>>> --- a/arch/riscv/lib/memcpy.S
+>>> +++ /dev/null
+>>> @@ -1,108 +0,0 @@
+>>> -/* SPDX-License-Identifier: GPL-2.0-only */
+>>> -/*
+>>> - * Copyright (C) 2013 Regents of the University of California
+>>> - */
+>>> -
+>>> -#include <linux/linkage.h>
+>>> -#include <asm/asm.h>
+>>> -
+>>> -/* void *memcpy(void *, const void *, size_t) */
+>>> -ENTRY(__memcpy)
+>>> -WEAK(memcpy)
+>>> -       move t6, a0  /* Preserve return value */
+>>> -
+>>> -       /* Defer to byte-oriented copy for small sizes */
+>>> -       sltiu a3, a2, 128
+>>> -       bnez a3, 4f
+>>> -       /* Use word-oriented copy only if low-order bits match */
+>>> -       andi a3, t6, SZREG-1
+>>> -       andi a4, a1, SZREG-1
+>>> -       bne a3, a4, 4f
+>>> -
+>>> -       beqz a3, 2f  /* Skip if already aligned */
+>>> -       /*
+>>> -        * Round to nearest double word-aligned address
+>>> -        * greater than or equal to start address
+>>> -        */
+>>> -       andi a3, a1, ~(SZREG-1)
+>>> -       addi a3, a3, SZREG
+>>> -       /* Handle initial misalignment */
+>>> -       sub a4, a3, a1
+>>> -1:
+>>> -       lb a5, 0(a1)
+>>> -       addi a1, a1, 1
+>>> -       sb a5, 0(t6)
+>>> -       addi t6, t6, 1
+>>> -       bltu a1, a3, 1b
+>>> -       sub a2, a2, a4  /* Update count */
+>>> -
+>>> -2:
+>>> -       andi a4, a2, ~((16*SZREG)-1)
+>>> -       beqz a4, 4f
+>>> -       add a3, a1, a4
+>>> -3:
+>>> -       REG_L a4,       0(a1)
+>>> -       REG_L a5,   SZREG(a1)
+>>> -       REG_L a6, 2*SZREG(a1)
+>>> -       REG_L a7, 3*SZREG(a1)
+>>> -       REG_L t0, 4*SZREG(a1)
+>>> -       REG_L t1, 5*SZREG(a1)
+>>> -       REG_L t2, 6*SZREG(a1)
+>>> -       REG_L t3, 7*SZREG(a1)
+>>> -       REG_L t4, 8*SZREG(a1)
+>>> -       REG_L t5, 9*SZREG(a1)
+>>> -       REG_S a4,       0(t6)
+>>> -       REG_S a5,   SZREG(t6)
+>>> -       REG_S a6, 2*SZREG(t6)
+>>> -       REG_S a7, 3*SZREG(t6)
+>>> -       REG_S t0, 4*SZREG(t6)
+>>> -       REG_S t1, 5*SZREG(t6)
+>>> -       REG_S t2, 6*SZREG(t6)
+>>> -       REG_S t3, 7*SZREG(t6)
+>>> -       REG_S t4, 8*SZREG(t6)
+>>> -       REG_S t5, 9*SZREG(t6)
+>>> -       REG_L a4, 10*SZREG(a1)
+>>> -       REG_L a5, 11*SZREG(a1)
+>>> -       REG_L a6, 12*SZREG(a1)
+>>> -       REG_L a7, 13*SZREG(a1)
+>>> -       REG_L t0, 14*SZREG(a1)
+>>> -       REG_L t1, 15*SZREG(a1)
+>>> -       addi a1, a1, 16*SZREG
+>>> -       REG_S a4, 10*SZREG(t6)
+>>> -       REG_S a5, 11*SZREG(t6)
+>>> -       REG_S a6, 12*SZREG(t6)
+>>> -       REG_S a7, 13*SZREG(t6)
+>>> -       REG_S t0, 14*SZREG(t6)
+>>> -       REG_S t1, 15*SZREG(t6)
+>>> -       addi t6, t6, 16*SZREG
+>>> -       bltu a1, a3, 3b
+>>> -       andi a2, a2, (16*SZREG)-1  /* Update count */
+>>> -
+>>> -4:
+>>> -       /* Handle trailing misalignment */
+>>> -       beqz a2, 6f
+>>> -       add a3, a1, a2
+>>> -
+>>> -       /* Use word-oriented copy if co-aligned to word boundary */
+>>> -       or a5, a1, t6
+>>> -       or a5, a5, a3
+>>> -       andi a5, a5, 3
+>>> -       bnez a5, 5f
+>>> -7:
+>>> -       lw a4, 0(a1)
+>>> -       addi a1, a1, 4
+>>> -       sw a4, 0(t6)
+>>> -       addi t6, t6, 4
+>>> -       bltu a1, a3, 7b
+>>> -
+>>> -       ret
+>>> -
+>>> -5:
+>>> -       lb a4, 0(a1)
+>>> -       addi a1, a1, 1
+>>> -       sb a4, 0(t6)
+>>> -       addi t6, t6, 1
+>>> -       bltu a1, a3, 5b
+>>> -6:
+>>> -       ret
+>>> -END(__memcpy)
+>>> diff --git a/arch/riscv/lib/string.c b/arch/riscv/lib/string.c
+>>> new file mode 100644
+>>> index 000000000000..bfc912ee23f8
+>>> --- /dev/null
+>>> +++ b/arch/riscv/lib/string.c
+>>> @@ -0,0 +1,90 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>> +/*
+>>> + * String functions optimized for hardware which doesn't
+>>> + * handle unaligned memory accesses efficiently.
+>>> + *
+>>> + * Copyright (C) 2021 Matteo Croce
+>>> + */
+>>> +
+>>> +#include <linux/types.h>
+>>> +#include <linux/module.h>
+>>> +
+>>> +/* Minimum size for a word copy to be convenient */
+>>> +#define BYTES_LONG     sizeof(long)
+>>> +#define WORD_MASK      (BYTES_LONG - 1)
+>>> +#define MIN_THRESHOLD  (BYTES_LONG * 2)
+>>> +
+>>> +/* convenience union to avoid cast between different pointer types */
+>>> +union types {
+>>> +       u8 *as_u8;
+>>> +       unsigned long *as_ulong;
+>>> +       uintptr_t as_uptr;
+>>> +};
+>>> +
+>>> +union const_types {
+>>> +       const u8 *as_u8;
+>>> +       unsigned long *as_ulong;
+>>> +       uintptr_t as_uptr;
+>>> +};
+>>> +
+>>> +void *__memcpy(void *dest, const void *src, size_t count)
+>> How about using __attribute__((optimize("-O2"))) here to replace your
+>> previous "#ifdef CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE"?
+>>
+>>> +{
+>>> +       union const_types s = { .as_u8 = src };
+>>> +       union types d = { .as_u8 = dest };
+>>> +       int distance = 0;
+>>> +
+>>> +       if (!IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
+>>> +               if (count < MIN_THRESHOLD)
+>>> +                       goto copy_remainder;
+>>> +
+>>> +               /* Copy a byte at time until destination is aligned. */
+>>> +               for (; d.as_uptr & WORD_MASK; count--)
+>>> +                       *d.as_u8++ = *s.as_u8++;
+>>> +
+>>> +               distance = s.as_uptr & WORD_MASK;
+>>> +       }
+>>> +
+>>> +       if (distance) {
+>>> +               unsigned long last, next;
+>>> +
+>>> +               /*
+>>> +                * s is distance bytes ahead of d, and d just reached
+>>> +                * the alignment boundary. Move s backward to word align it
+>>> +                * and shift data to compensate for distance, in order to do
+>>> +                * word-by-word copy.
+>>> +                */
+>>> +               s.as_u8 -= distance;
+>>> +
+>>> +               next = s.as_ulong[0];
+>>> +               for (; count >= BYTES_LONG; count -= BYTES_LONG) {
+>>> +                       last = next;
+>>> +                       next = s.as_ulong[1];
+>>> +
+>>> +                       d.as_ulong[0] = last >> (distance * 8) |
+>>> +                                       next << ((BYTES_LONG - distance) * 8);
+>>> +
+>>> +                       d.as_ulong++;
+>>> +                       s.as_ulong++;
+>>> +               }
+>>> +
+>>> +               /* Restore s with the original offset. */
+>>> +               s.as_u8 += distance;
+>>> +       } else {
+>>> +               /*
+>>> +                * If the source and dest lower bits are the same, do a simple
+>>> +                * 32/64 bit wide copy.
+>>> +                */
+>>> +               for (; count >= BYTES_LONG; count -= BYTES_LONG)
+>>> +                       *d.as_ulong++ = *s.as_ulong++;
+>>> +       }
+>>> +
+>>> +copy_remainder:
+>>> +       while (count--)
+>>> +               *d.as_u8++ = *s.as_u8++;
+>>> +
+>>> +       return dest;
+>>> +}
+>>> +EXPORT_SYMBOL(__memcpy);
+>>> +
+>>> +void *memcpy(void *dest, const void *src, size_t count) __weak __alias(__memcpy);
+>>> +EXPORT_SYMBOL(memcpy);
+>>> --
+>>> 2.31.1
+>>>
+>>
+>>
+>> --
+>> Best Regards
+>>   Guo Ren
+>>
+>> ML: https://lore.kernel.org/linux-csky/
+> 
+> If CONFIG_CC_OPTIMIZE_FOR_SIZE I fallback to the generic
+> implementations, which are very small.
+> It's just an optimization to save more space when -Os is used.
+> 
+> CC_OPTIMIZE_FOR_PERFORMANCE_O3 is ARC specific.
 
-Rename memblock_free_ptr() to memblock_free() and use memblock_free()
-when freeing a virtual pointer so that memblock_free() will be a
-counterpart of memblock_alloc()
+It is not. Its just that for ARC I've used -O3 as default. Historically 
+for compilers at the time some architecture had issues with -O3 builds 
+and/or compiler would inline more. But nothing in -O3 is specific to ARC.
 
-The callers are updated with the below semantic patch and manual addition
-of (void *) casting to pointers that are represented by unsigned long
-variables.
+BTW off topic (but relevant to this patchset), I strongly feel that 
+routines like memset/memcpy are better coded in assembly for really 
+water tight instruction scheduling and ease of further optimizing (e.g. 
+use of CMO.zero etc as experimented by Philipp). What is blocking you 
+from optimizing the asm version ? You are leaving the fate of these 
+critical routines in the hand of compiler - this can lead to performance 
+shenanigans on a big gcc upgrade.
 
-@@
-identifier vaddr;
-expression size;
-@@
-(
-- memblock_phys_free(__pa(vaddr), size);
-+ memblock_free(vaddr, size);
-|
-- memblock_free_ptr(vaddr, size);
-+ memblock_free(vaddr, size);
-)
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
----
- arch/alpha/kernel/core_irongate.c         | 3 +--
- arch/mips/mm/init.c                       | 2 +-
- arch/powerpc/kernel/dt_cpu_ftrs.c         | 4 ++--
- arch/powerpc/kernel/setup-common.c        | 2 +-
- arch/powerpc/kernel/setup_64.c            | 2 +-
- arch/powerpc/platforms/powernv/pci-ioda.c | 2 +-
- arch/powerpc/platforms/pseries/svm.c      | 3 +--
- arch/riscv/kernel/setup.c                 | 5 ++---
- arch/sparc/kernel/smp_64.c                | 2 +-
- arch/um/kernel/mem.c                      | 2 +-
- arch/x86/kernel/setup_percpu.c            | 2 +-
- arch/x86/mm/kasan_init_64.c               | 4 ++--
- arch/x86/mm/numa.c                        | 2 +-
- arch/x86/mm/numa_emulation.c              | 2 +-
- arch/x86/xen/mmu_pv.c                     | 2 +-
- arch/x86/xen/p2m.c                        | 2 +-
- drivers/base/arch_numa.c                  | 4 ++--
- drivers/macintosh/smu.c                   | 2 +-
- drivers/xen/swiotlb-xen.c                 | 2 +-
- include/linux/memblock.h                  | 2 +-
- init/initramfs.c                          | 2 +-
- init/main.c                               | 2 +-
- kernel/dma/swiotlb.c                      | 2 +-
- kernel/printk/printk.c                    | 4 ++--
- lib/bootconfig.c                          | 2 +-
- lib/cpumask.c                             | 2 +-
- mm/memblock.c                             | 6 +++---
- mm/percpu.c                               | 8 ++++----
- mm/sparse.c                               | 2 +-
- 29 files changed, 39 insertions(+), 42 deletions(-)
-
-diff --git a/arch/alpha/kernel/core_irongate.c b/arch/alpha/kernel/core_irongate.c
-index ee26dcc49418..6b8ed12936b6 100644
---- a/arch/alpha/kernel/core_irongate.c
-+++ b/arch/alpha/kernel/core_irongate.c
-@@ -233,8 +233,7 @@ albacore_init_arch(void)
- 			unsigned long size;
- 
- 			size = initrd_end - initrd_start;
--			memblock_phys_free(__pa(initrd_start),
--					   PAGE_ALIGN(size));
-+			memblock_free((void *)initrd_start, PAGE_ALIGN(size));
- 			if (!move_initrd(pci_mem))
- 				printk("irongate_init_arch: initrd too big "
- 				       "(%ldK)\ndisabling initrd\n",
-diff --git a/arch/mips/mm/init.c b/arch/mips/mm/init.c
-index 3be1c29084fa..325e1552cbea 100644
---- a/arch/mips/mm/init.c
-+++ b/arch/mips/mm/init.c
-@@ -529,7 +529,7 @@ static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size,
- 
- static void __init pcpu_fc_free(void *ptr, size_t size)
- {
--	memblock_phys_free(__pa(ptr), size);
-+	memblock_free(ptr, size);
- }
- 
- void __init setup_per_cpu_areas(void)
-diff --git a/arch/powerpc/kernel/dt_cpu_ftrs.c b/arch/powerpc/kernel/dt_cpu_ftrs.c
-index 42839d6bd486..ba527fb52993 100644
---- a/arch/powerpc/kernel/dt_cpu_ftrs.c
-+++ b/arch/powerpc/kernel/dt_cpu_ftrs.c
-@@ -1095,8 +1095,8 @@ static int __init dt_cpu_ftrs_scan_callback(unsigned long node, const char
- 
- 	cpufeatures_setup_finished();
- 
--	memblock_phys_free(__pa(dt_cpu_features),
--			   sizeof(struct dt_cpu_feature) * nr_dt_cpu_features);
-+	memblock_free(dt_cpu_features,
-+		      sizeof(struct dt_cpu_feature) * nr_dt_cpu_features);
- 
- 	return 0;
- }
-diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
-index 5af8993a8e6d..6b1338db8779 100644
---- a/arch/powerpc/kernel/setup-common.c
-+++ b/arch/powerpc/kernel/setup-common.c
-@@ -825,7 +825,7 @@ static void __init smp_setup_pacas(void)
- 		set_hard_smp_processor_id(cpu, cpu_to_phys_id[cpu]);
- 	}
- 
--	memblock_phys_free(__pa(cpu_to_phys_id), nr_cpu_ids * sizeof(u32));
-+	memblock_free(cpu_to_phys_id, nr_cpu_ids * sizeof(u32));
- 	cpu_to_phys_id = NULL;
- }
- #endif
-diff --git a/arch/powerpc/kernel/setup_64.c b/arch/powerpc/kernel/setup_64.c
-index 75bc294ac40d..1777e992b20b 100644
---- a/arch/powerpc/kernel/setup_64.c
-+++ b/arch/powerpc/kernel/setup_64.c
-@@ -812,7 +812,7 @@ static void * __init pcpu_alloc_bootmem(unsigned int cpu, size_t size,
- 
- static void __init pcpu_free_bootmem(void *ptr, size_t size)
- {
--	memblock_phys_free(__pa(ptr), size);
-+	memblock_free(ptr, size);
- }
- 
- static int pcpu_cpu_distance(unsigned int from, unsigned int to)
-diff --git a/arch/powerpc/platforms/powernv/pci-ioda.c b/arch/powerpc/platforms/powernv/pci-ioda.c
-index b5a9d343b720..004cd6a96c8a 100644
---- a/arch/powerpc/platforms/powernv/pci-ioda.c
-+++ b/arch/powerpc/platforms/powernv/pci-ioda.c
-@@ -2981,7 +2981,7 @@ static void __init pnv_pci_init_ioda_phb(struct device_node *np,
- 	if (!phb->hose) {
- 		pr_err("  Can't allocate PCI controller for %pOF\n",
- 		       np);
--		memblock_phys_free(__pa(phb), sizeof(struct pnv_phb));
-+		memblock_free(phb, sizeof(struct pnv_phb));
- 		return;
- 	}
- 
-diff --git a/arch/powerpc/platforms/pseries/svm.c b/arch/powerpc/platforms/pseries/svm.c
-index b7c017bb40f7..6332365d2891 100644
---- a/arch/powerpc/platforms/pseries/svm.c
-+++ b/arch/powerpc/platforms/pseries/svm.c
-@@ -56,8 +56,7 @@ void __init svm_swiotlb_init(void)
- 		return;
- 
- 
--	memblock_phys_free(__pa(vstart),
--			   PAGE_ALIGN(io_tlb_nslabs << IO_TLB_SHIFT));
-+	memblock_free(vstart, PAGE_ALIGN(io_tlb_nslabs << IO_TLB_SHIFT));
- 	panic("SVM: Cannot allocate SWIOTLB buffer");
- }
- 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 6ea7c53b82cd..b42bfdc67482 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -230,14 +230,13 @@ static void __init init_resources(void)
- 
- 	/* Clean-up any unused pre-allocated resources */
- 	if (res_idx >= 0)
--		memblock_phys_free(__pa(mem_res),
--				   (res_idx + 1) * sizeof(*mem_res));
-+		memblock_free(mem_res, (res_idx + 1) * sizeof(*mem_res));
- 	return;
- 
-  error:
- 	/* Better an empty resource tree than an inconsistent one */
- 	release_child_resources(&iomem_resource);
--	memblock_phys_free(__pa(mem_res), mem_res_sz);
-+	memblock_free(mem_res, mem_res_sz);
- }
- 
- 
-diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-index 2507549538df..b98a7bbe6728 100644
---- a/arch/sparc/kernel/smp_64.c
-+++ b/arch/sparc/kernel/smp_64.c
-@@ -1567,7 +1567,7 @@ static void * __init pcpu_alloc_bootmem(unsigned int cpu, size_t size,
- 
- static void __init pcpu_free_bootmem(void *ptr, size_t size)
- {
--	memblock_phys_free(__pa(ptr), size);
-+	memblock_free(ptr, size);
- }
- 
- static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
-diff --git a/arch/um/kernel/mem.c b/arch/um/kernel/mem.c
-index d1710ebb44f4..0039771eb01c 100644
---- a/arch/um/kernel/mem.c
-+++ b/arch/um/kernel/mem.c
-@@ -47,7 +47,7 @@ void __init mem_init(void)
- 	 */
- 	brk_end = (unsigned long) UML_ROUND_UP(sbrk(0));
- 	map_memory(brk_end, __pa(brk_end), uml_reserved - brk_end, 1, 1, 0);
--	memblock_phys_free(__pa(brk_end), uml_reserved - brk_end);
-+	memblock_free((void *)brk_end, uml_reserved - brk_end);
- 	uml_reserved = brk_end;
- 
- 	/* this will put all low memory onto the freelists */
-diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
-index 5afd98559193..7b65275544b2 100644
---- a/arch/x86/kernel/setup_percpu.c
-+++ b/arch/x86/kernel/setup_percpu.c
-@@ -135,7 +135,7 @@ static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size, size_t align)
- 
- static void __init pcpu_fc_free(void *ptr, size_t size)
- {
--	memblock_free_ptr(ptr, size);
-+	memblock_free(ptr, size);
- }
- 
- static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
-diff --git a/arch/x86/mm/kasan_init_64.c b/arch/x86/mm/kasan_init_64.c
-index ef885370719a..e7b9b464a82f 100644
---- a/arch/x86/mm/kasan_init_64.c
-+++ b/arch/x86/mm/kasan_init_64.c
-@@ -49,7 +49,7 @@ static void __init kasan_populate_pmd(pmd_t *pmd, unsigned long addr,
- 			p = early_alloc(PMD_SIZE, nid, false);
- 			if (p && pmd_set_huge(pmd, __pa(p), PAGE_KERNEL))
- 				return;
--			memblock_free_ptr(p, PMD_SIZE);
-+			memblock_free(p, PMD_SIZE);
- 		}
- 
- 		p = early_alloc(PAGE_SIZE, nid, true);
-@@ -85,7 +85,7 @@ static void __init kasan_populate_pud(pud_t *pud, unsigned long addr,
- 			p = early_alloc(PUD_SIZE, nid, false);
- 			if (p && pud_set_huge(pud, __pa(p), PAGE_KERNEL))
- 				return;
--			memblock_free_ptr(p, PUD_SIZE);
-+			memblock_free(p, PUD_SIZE);
- 		}
- 
- 		p = early_alloc(PAGE_SIZE, nid, true);
-diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index 1e9b93b088db..c6b1213086d6 100644
---- a/arch/x86/mm/numa.c
-+++ b/arch/x86/mm/numa.c
-@@ -355,7 +355,7 @@ void __init numa_reset_distance(void)
- 
- 	/* numa_distance could be 1LU marking allocation failure, test cnt */
- 	if (numa_distance_cnt)
--		memblock_free_ptr(numa_distance, size);
-+		memblock_free(numa_distance, size);
- 	numa_distance_cnt = 0;
- 	numa_distance = NULL;	/* enable table creation */
- }
-diff --git a/arch/x86/mm/numa_emulation.c b/arch/x86/mm/numa_emulation.c
-index e801e30089c4..1a02b791d273 100644
---- a/arch/x86/mm/numa_emulation.c
-+++ b/arch/x86/mm/numa_emulation.c
-@@ -517,7 +517,7 @@ void __init numa_emulation(struct numa_meminfo *numa_meminfo, int numa_dist_cnt)
- 	}
- 
- 	/* free the copied physical distance table */
--	memblock_free_ptr(phys_dist, phys_size);
-+	memblock_free(phys_dist, phys_size);
- 	return;
- 
- no_emu:
-diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
-index 3500b22ff087..0c831ad78933 100644
---- a/arch/x86/xen/mmu_pv.c
-+++ b/arch/x86/xen/mmu_pv.c
-@@ -1151,7 +1151,7 @@ static void __init xen_pagetable_p2m_free(void)
- 		xen_cleanhighmap(addr, addr + size);
- 		size = PAGE_ALIGN(xen_start_info->nr_pages *
- 				  sizeof(unsigned long));
--		memblock_phys_free(__pa(addr), size);
-+		memblock_free((void *)addr, size);
- 	} else {
- 		xen_cleanmfnmap(addr);
- 	}
-diff --git a/arch/x86/xen/p2m.c b/arch/x86/xen/p2m.c
-index 141bb9dbd2fb..58db86f7b384 100644
---- a/arch/x86/xen/p2m.c
-+++ b/arch/x86/xen/p2m.c
-@@ -197,7 +197,7 @@ static void * __ref alloc_p2m_page(void)
- static void __ref free_p2m_page(void *p)
- {
- 	if (unlikely(!slab_is_available())) {
--		memblock_free_ptr(p, PAGE_SIZE);
-+		memblock_free(p, PAGE_SIZE);
- 		return;
- 	}
- 
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index 7974913af09c..cad34cec3acc 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -165,7 +165,7 @@ static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size,
- 
- static void __init pcpu_fc_free(void *ptr, size_t size)
- {
--	memblock_phys_free(__pa(ptr), size);
-+	memblock_free(ptr, size);
- }
- 
- void __init setup_per_cpu_areas(void)
-@@ -264,7 +264,7 @@ void __init numa_free_distance(void)
- 	size = numa_distance_cnt * numa_distance_cnt *
- 		sizeof(numa_distance[0]);
- 
--	memblock_free_ptr(numa_distance, size);
-+	memblock_free(numa_distance, size);
- 	numa_distance_cnt = 0;
- 	numa_distance = NULL;
- }
-diff --git a/drivers/macintosh/smu.c b/drivers/macintosh/smu.c
-index fe63d5ee201b..f62152111236 100644
---- a/drivers/macintosh/smu.c
-+++ b/drivers/macintosh/smu.c
-@@ -570,7 +570,7 @@ int __init smu_init (void)
- fail_db_node:
- 	of_node_put(smu->db_node);
- fail_bootmem:
--	memblock_free_ptr(smu, sizeof(struct smu_device));
-+	memblock_free(smu, sizeof(struct smu_device));
- 	smu = NULL;
- fail_np:
- 	of_node_put(np);
-diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-index 4b671cc0a7ea..f083194e2634 100644
---- a/drivers/xen/swiotlb-xen.c
-+++ b/drivers/xen/swiotlb-xen.c
-@@ -241,7 +241,7 @@ void __init xen_swiotlb_init_early(void)
- 	 */
- 	rc = xen_swiotlb_fixup(start, nslabs);
- 	if (rc) {
--		memblock_phys_free(__pa(start), PAGE_ALIGN(bytes));
-+		memblock_free(start, PAGE_ALIGN(bytes));
- 		if (nslabs > 1024 && repeat--) {
- 			/* Min is 2MB */
- 			nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index d32d41709513..484650681bee 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -118,7 +118,7 @@ int memblock_mark_nomap(phys_addr_t base, phys_addr_t size);
- int memblock_clear_nomap(phys_addr_t base, phys_addr_t size);
- 
- void memblock_free_all(void);
--void memblock_free_ptr(void *ptr, size_t size);
-+void memblock_free(void *ptr, size_t size);
- void reset_node_managed_pages(pg_data_t *pgdat);
- void reset_all_zones_managed_pages(void);
- 
-diff --git a/init/initramfs.c b/init/initramfs.c
-index 1a971f070dd4..2f3d96dc3db6 100644
---- a/init/initramfs.c
-+++ b/init/initramfs.c
-@@ -607,7 +607,7 @@ void __weak __init free_initrd_mem(unsigned long start, unsigned long end)
- 	unsigned long aligned_start = ALIGN_DOWN(start, PAGE_SIZE);
- 	unsigned long aligned_end = ALIGN(end, PAGE_SIZE);
- 
--	memblock_phys_free(__pa(aligned_start), aligned_end - aligned_start);
-+	memblock_free((void *)aligned_start, aligned_end - aligned_start);
- #endif
- 
- 	free_reserved_area((void *)start, (void *)end, POISON_FREE_INITMEM,
-diff --git a/init/main.c b/init/main.c
-index 81a79a77db46..2bfcf9054f8e 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -924,7 +924,7 @@ static void __init print_unknown_bootoptions(void)
- 		end += sprintf(end, " %s", *p);
- 
- 	pr_notice("Unknown command line parameters:%s\n", unknown_options);
--	memblock_free_ptr(unknown_options, len);
-+	memblock_free(unknown_options, len);
- }
- 
- asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index b9fa173e5e56..02656d7ccbfd 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -247,7 +247,7 @@ swiotlb_init(int verbose)
- 	return;
- 
- fail_free_mem:
--	memblock_phys_free(__pa(tlb), bytes);
-+	memblock_free(tlb, bytes);
- fail:
- 	pr_warn("Cannot allocate buffer");
- }
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index a8d0a58deebc..2cae1bfa6be7 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -1166,9 +1166,9 @@ void __init setup_log_buf(int early)
- 	return;
- 
- err_free_descs:
--	memblock_free_ptr(new_descs, new_descs_size);
-+	memblock_free(new_descs, new_descs_size);
- err_free_log_buf:
--	memblock_free_ptr(new_log_buf, new_log_buf_len);
-+	memblock_free(new_log_buf, new_log_buf_len);
- }
- 
- static bool __read_mostly ignore_loglevel;
-diff --git a/lib/bootconfig.c b/lib/bootconfig.c
-index 5ae248b29373..547558d80e64 100644
---- a/lib/bootconfig.c
-+++ b/lib/bootconfig.c
-@@ -792,7 +792,7 @@ void __init xbc_destroy_all(void)
- 	xbc_data = NULL;
- 	xbc_data_size = 0;
- 	xbc_node_num = 0;
--	memblock_free_ptr(xbc_nodes, sizeof(struct xbc_node) * XBC_NODE_MAX);
-+	memblock_free(xbc_nodes, sizeof(struct xbc_node) * XBC_NODE_MAX);
- 	xbc_nodes = NULL;
- 	brace_index = 0;
- }
-diff --git a/lib/cpumask.c b/lib/cpumask.c
-index a90786b77c1c..a971a82d2f43 100644
---- a/lib/cpumask.c
-+++ b/lib/cpumask.c
-@@ -188,7 +188,7 @@ EXPORT_SYMBOL(free_cpumask_var);
-  */
- void __init free_bootmem_cpumask_var(cpumask_var_t mask)
- {
--	memblock_phys_free(__pa(mask), cpumask_size());
-+	memblock_free(mask, cpumask_size());
- }
- #endif
- 
-diff --git a/mm/memblock.c b/mm/memblock.c
-index a23baa482f3f..3b0def459f97 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -472,7 +472,7 @@ static int __init_memblock memblock_double_array(struct memblock_type *type,
- 		kfree(old_array);
- 	else if (old_array != memblock_memory_init_regions &&
- 		 old_array != memblock_reserved_init_regions)
--		memblock_free_ptr(old_array, old_alloc_size);
-+		memblock_free(old_array, old_alloc_size);
- 
- 	/*
- 	 * Reserve the new array if that comes from the memblock.  Otherwise, we
-@@ -796,14 +796,14 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
- }
- 
- /**
-- * memblock_free_ptr - free boot memory allocation
-+ * memblock_free - free boot memory allocation
-  * @ptr: starting address of the  boot memory allocation
-  * @size: size of the boot memory block in bytes
-  *
-  * Free boot memory block previously allocated by memblock_alloc_xx() API.
-  * The freeing memory will not be released to the buddy allocator.
-  */
--void __init_memblock memblock_free_ptr(void *ptr, size_t size)
-+void __init_memblock memblock_free(void *ptr, size_t size)
- {
- 	if (ptr)
- 		memblock_phys_free(__pa(ptr), size);
-diff --git a/mm/percpu.c b/mm/percpu.c
-index d65ddf6f2a35..f5b2c2ea5a54 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -2472,7 +2472,7 @@ struct pcpu_alloc_info * __init pcpu_alloc_alloc_info(int nr_groups,
-  */
- void __init pcpu_free_alloc_info(struct pcpu_alloc_info *ai)
- {
--	memblock_phys_free(__pa(ai), ai->__ai_size);
-+	memblock_free(ai, ai->__ai_size);
- }
- 
- /**
-@@ -3134,7 +3134,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- out_free:
- 	pcpu_free_alloc_info(ai);
- 	if (areas)
--		memblock_phys_free(__pa(areas), areas_size);
-+		memblock_free(areas, areas_size);
- 	return rc;
- }
- #endif /* BUILD_EMBED_FIRST_CHUNK */
-@@ -3256,7 +3256,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
- 		free_fn(page_address(pages[j]), PAGE_SIZE);
- 	rc = -ENOMEM;
- out_free_ar:
--	memblock_phys_free(__pa(pages), pages_size);
-+	memblock_free(pages, pages_size);
- 	pcpu_free_alloc_info(ai);
- 	return rc;
- }
-@@ -3286,7 +3286,7 @@ static void * __init pcpu_dfl_fc_alloc(unsigned int cpu, size_t size,
- 
- static void __init pcpu_dfl_fc_free(void *ptr, size_t size)
- {
--	memblock_phys_free(__pa(ptr), size);
-+	memblock_free(ptr, size);
- }
- 
- void __init setup_per_cpu_areas(void)
-diff --git a/mm/sparse.c b/mm/sparse.c
-index fc3ab8d3b6bc..e5c84b0cf0c9 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -451,7 +451,7 @@ static void *sparsemap_buf_end __meminitdata;
- static inline void __meminit sparse_buffer_free(unsigned long size)
- {
- 	WARN_ON(!sparsemap_buf || size == 0);
--	memblock_phys_free(__pa(sparsemap_buf), size);
-+	memblock_free(sparsemap_buf, size);
- }
- 
- static void __init sparse_buffer_init(unsigned long size, int nid)
--- 
-2.28.0
-
+-Vineet
 
 _______________________________________________
 linux-riscv mailing list
