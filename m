@@ -2,14 +2,14 @@ Return-Path: <SRS0=9UDN=OU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B66F3C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 18:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 05725C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 18:55:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 847676137A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 18:55:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 847676137A
+	by mail.kernel.org (Postfix) with ESMTPS id C2F0861209
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 18:55:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C2F0861209
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,30 +18,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nR2RS0krE+wCMq6lQryVaBerll+il3cGuujmAPIsMYo=; b=Dy9vbdr82beEpT
-	FHFP9qO4pxRvPLcfXErJNfIMDmLKQX0b44ObFUYz7acNbtx5/T0ZZ+Ax0OzKAqpslCuu3zX20Q7Ii
-	3EN9edDtkTkbjbR/KzAiEEUoE21HBcqjMU/0ygsxkPmQqmJfaZRgDutZnunMogtCm72gvP8waEzZG
-	LNty1C17Cq0hOQxY44a9YpqTonMsvnvYNYAck9JdMFxisQHpP5MaYy7b7T7NAZI3yixR9V+zzDIVe
-	uqHetWlVBelMp2v5qyAGd9ziKLi3Aw8STLor13r9sEAENErNLhA3V8n+l9kHOXvEp6lUcDc93tKJB
-	B+maITyPjDqKsN2HyKjA==;
+	List-Owner; bh=9GzX/sp7bGONFZNN5LQ6fxMCJ+mAfGFRmwbcDow7KYU=; b=IEgnUZGAeuzCGM
+	IPa9k2hLSla3Uz5ei/vW1RaDXix/EGtDrb8YpX9tHkukoK/uu01uXMrMXhOo14J7ZhpRNgOViPXjX
+	8knYqzSN64DtWmKBLwgeflmYT4dfjrmSgHz2ecN7q2ejF0qOO+sh/K6NPwmMBt5LKErXfTdcYBlB/
+	dpHvvNx4Kt3zoUrMFJBBsCCJR6YO5QwEO6mH0mN0M26yGsGsFjdzjtT+YcIEP8yHm+KbpQH+Gz1QJ
+	pgZCGFWdXEKo1jHg1vjm3uyF1FeSf1KnupRUTb0lBBFxlEJV57c7TpnHtriQXfs5uDwyNfuifuDUb
+	/jfdIznV9ix1goxEBWuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mW1Co-00Fk7h-10; Thu, 30 Sep 2021 18:54:54 +0000
+	id 1mW1Dj-00FkWn-8o; Thu, 30 Sep 2021 18:55:51 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mW18r-00FiIj-Kn; Thu, 30 Sep 2021 18:50:51 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8637261350;
- Thu, 30 Sep 2021 18:50:42 +0000 (UTC)
+ id 1mW18y-00FiNF-BF; Thu, 30 Sep 2021 18:50:57 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8841861209;
+ Thu, 30 Sep 2021 18:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1633027849;
- bh=ISUQEAeabD8TFuzFwCipkjqJm558AV8oII+raBjMcR4=;
+ s=k20201202; t=1633027856;
+ bh=UhBCHbOj9Jl5ZEx32c+R0M1PnzpsDKyF6CtjxvFScPo=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=s/nujFn9CMUdpbr325ijsunQ25k2M/i9/fhbz5LMb3fbAE+MyzkyTivG+OFV7pGA0
- 0mMCr9cL+6NMUzw1OueI7eDhpkmWrqSBHnTh+7Nay6CoC0XZhtahIjyxjuWdGb1TMY
- 1fRZO+c8HfzVCLDgD/FPrUdTCnminsC4OmaCiVgNI2Caxtuy3ub58zJW0FfPkLYG/4
- R7PbZYxgMJggZ9+WvzrbboZwD/xf9+ZJDL5nQhjHdCwwqiZtN4l9t+qSPzTUbjwwk1
- i6P2OXjm/YcqSpDPT9ALm+2hHHTDISEFV6snwAfjb4Ntj5CMY+VJ95ZP8rE0c/vFKI
- 9qAPHZmD3sE5A==
+ b=c2tPiDJenxyQCvMzIY4Em8nsDs+rtaeSgB5mPhO6rdWaZxL8dx3plalQIb93rr+g7
+ VQ8cGTHdyEbFp89BNk1xmo9SM+kleGvnBNuMMGt+h3NC2iEs3mimxx37p8Rh1Q49I1
+ dICy9rhz40FtM07iwqUokDQc+WAsE9WW38PuHUYN59W32pQcFuBqF49AW2YbxvUmMe
+ aml+AvUr5+hgysic8DOhS2c2vDqm1VwkFyfbPUhqrlF8CS9WEcfvcWhLGpQ9MtlfVo
+ xwgzIBOzSTgMKLsybKBHHglY8ZfOkRoMe48nKFLqWW35isec2qKzGOkfCDbTRn1Osu
+ LXpN7CWI+EqJw==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -59,16 +59,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-um@lists.infradead.org, linux-usb@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
  xen-devel@lists.xenproject.org
-Subject: [PATCH v2 1/6] arch_numa: simplify numa_distance allocation
-Date: Thu, 30 Sep 2021 21:50:26 +0300
-Message-Id: <20210930185031.18648-2-rppt@kernel.org>
+Subject: [PATCH v2 2/6] xen/x86: free_p2m_page: use memblock_free_ptr() to
+ free a virtual pointer
+Date: Thu, 30 Sep 2021 21:50:27 +0300
+Message-Id: <20210930185031.18648-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20210930185031.18648-1-rppt@kernel.org>
 References: <20210930185031.18648-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210930_115049_791417_E8B336FF 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20210930_115056_447049_41A1389A 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +88,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Memory allocation of numa_distance uses memblock_phys_alloc_range() without
-actual range limits, converts the returned physical address to virtual and
-then only uses the virtual address for further initialization.
+free_p2m_page() wrongly passes a virtual pointer to memblock_free() that
+treats it as a physical address.
 
-Simplify this by replacing memblock_phys_alloc_range() with
-memblock_alloc().
+Call memblock_free_ptr() instead that gets a virtual address to free the
+memory.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Reviewed-by: Juergen Gross <jgross@suse.com>
 ---
- drivers/base/arch_numa.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/x86/xen/p2m.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index 00fb4120a5b3..f6d0efd01188 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -275,15 +275,13 @@ void __init numa_free_distance(void)
- static int __init numa_alloc_distance(void)
+diff --git a/arch/x86/xen/p2m.c b/arch/x86/xen/p2m.c
+index 5e6e236977c7..141bb9dbd2fb 100644
+--- a/arch/x86/xen/p2m.c
++++ b/arch/x86/xen/p2m.c
+@@ -197,7 +197,7 @@ static void * __ref alloc_p2m_page(void)
+ static void __ref free_p2m_page(void *p)
  {
- 	size_t size;
--	u64 phys;
- 	int i, j;
+ 	if (unlikely(!slab_is_available())) {
+-		memblock_free((unsigned long)p, PAGE_SIZE);
++		memblock_free_ptr(p, PAGE_SIZE);
+ 		return;
+ 	}
  
- 	size = nr_node_ids * nr_node_ids * sizeof(numa_distance[0]);
--	phys = memblock_phys_alloc_range(size, PAGE_SIZE, 0, PFN_PHYS(max_pfn));
--	if (WARN_ON(!phys))
-+	numa_distance = memblock_alloc(size, PAGE_SIZE);
-+	if (WARN_ON(!numa_distance))
- 		return -ENOMEM;
- 
--	numa_distance = __va(phys);
- 	numa_distance_cnt = nr_node_ids;
- 
- 	/* fill with the default distances */
 -- 
 2.28.0
 
