@@ -2,156 +2,81 @@ Return-Path: <SRS0=9UDN=OU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 53B94C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 02:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B7C3CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 07:53:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 201A1617E5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 02:50:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 201A1617E5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8722A613CE
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Sep 2021 07:53:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8722A613CE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=2XavhXtNib6ocBNe2ZXrNGt6bL1Gd3Ms9fFgUqHQK60=; b=XgIq5fcIjesWzK
-	VjLQYwpN5HwO3rQFrMqSlQ+Wq5rqnM2QcnukxvVB/4p/5VruCNPtt+mXcFDtMd1AkqTOjsp1S9Rws
-	SRu9RkBHGuW6ErwxNOEOhfbVJoRRZ2DHmICmMDuoeHzC/apze8k9gMRXR3p2ffTVMut71ssp9gNq4
-	hBLaihOq1sxt7oTMJ9iCFQq5Td74HfveXBCrVP92XqfYacDnyP9wA2/KCnlCeeGPHHpi0bOgQX8IG
-	yUd8x2marBQlGUExnCvrKjjgNc0tL+INbT73CehTPeXS9mZUh95k/zXFKHbOMb/rNM+KQbE+MZ4XI
-	zyMGqABRPYtALP4lwhCQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yWCEi4LwY0nPnAMWUhaiQ9t51zLbLnp7DK+zU909jg8=; b=HIv89Z/JOoTpNY
+	BejrYP3PqLvUFjmai1dJuxO9925XmGNpbVnZH5dhQKADQjEa9LKJg/MPpKTYdrrurW1XriKZtEIZO
+	wYNz3MhMANF6v6QkY6W7hhb4ElhWISotu8Gt6M1kTEbP8W611og0LflxJxx9AbeMiiK+eJ5fwcp4N
+	WSkaId+ZhKT+8iE1TDCkoaHjucebJtqfbtFrKdhid12Rc3WU3XBa98ZepvivARfYwxQSM/jatvGLn
+	RkWgbKp5M1UHdAbii8/JkLZZ8CdYcZVK6rRyjSoHmKvxYqBT9qNCgpXExGELmZG8SSqNbc6SoWllB
+	YcbtQwuH0UvNJhG2FeuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mVm9e-00CpNI-1b; Thu, 30 Sep 2021 02:50:38 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1mVqss-00DGAE-UY; Thu, 30 Sep 2021 07:53:39 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mVm9N-00CpI3-1t; Thu, 30 Sep 2021 02:50:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1632970220; x=1664506220;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=kRCPIMyPIcHaFO3W2JZRibhvRYFEtz4YoFKUL+l7wmc=;
- b=jQ8jjmdo8/jSwvFBDhOycl5FEIOm/tcG5yTheU2XDU3QY6XDXroErQKi
- nno+oXUHwRkq65WOcXuS9Xl66nPbm+pmLdDRcLO9GErlnUAjCAu/I0mZZ
- /56jW2NEkQuxGwNptMjsNOQIlBZCHWYOoxLQT+ZuV9RgqihqQnHi/mm85
- vM3F5lGuYlpA4wEQ1zV4ypbXuWHIM4f0tVq5obMdLR+onu15FTknZIaLH
- cMKvoKdAKFGYktEn3WdozDAO/L+E4bQ9+ckGf9QVplOL6TIzRbyFFVVfD
- 5eNwYijstm8NvFT1Y2tY4zOAOhQ3AAh9cjvdPhviSLveUUDrMiSzmpqqf w==;
-X-IronPort-AV: E=Sophos;i="5.85,334,1624291200"; d="scan'208";a="181387537"
-Received: from mail-co1nam11lp2174.outbound.protection.outlook.com (HELO
- NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.174])
- by ob1.hgst.iphmx.com with ESMTP; 30 Sep 2021 10:50:16 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Am9WKF53m03lzmr4XZx7AdFnU87zXBkznJuhyFbkKTO5UUOf1ikVY6lNYFAabWO19YEfGQIKq6ODJV1gVA52vbqEI1CNJ12THF6UrQNsgv6wMYXzf7yI7PccIPmy6XsK+44nfHYCfg+txCO40B383bYxBFcLqPeRV3CgvDlzzYCRqWKXRnMtO6+ypXIUiXPGeeojMdkEITCUiORpG6vA2ie/hWtUEc0O1IF/cuSuO9P4mZSSVS+fB6DC76bkjWgq05Mcm73Ajoz0rkmS/gn4kqoDdhTXMHko7Pamf88KSE5H29rHs+Rv6d+bSxyojiy+iRmsNqFv05BP1/axVGpk+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version; 
- bh=PQbQU2DssIevzFmhF28QrI2qy/TSwYckX7lUULGRexo=;
- b=P4ruO14AFwN8wgI6HsBOfRg2xUCwK72Sl4ixNHLycNYe4VscB5cCB6JolQ8WQhuL9EdJSVLVCw0LktcFa0E9js3z2Kc9pZJlWGUN/gk2CSxcXq6oS5egunoaOhQU/hjfMfP18Z9I3f9iszox237Yhezh1gTOyBQFE2Y7VozxzyIAfSaxosY1+9RMtwLG+gJwkwMP6p+DJl7fcwWsR6SbZX+ZL5WCACwiDd2YjukB8zjghmRY1umC3EFhKY5wsSacFw2JKwB6hnI0JNqYqePVOpDJYFOGglOhQLQR4SnhpNpiirF7tqBSt+NaleGQZ3bPTcNOFeuVfVmg1hIbKfV5CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PQbQU2DssIevzFmhF28QrI2qy/TSwYckX7lUULGRexo=;
- b=YXV/RFwsKZdflGWk+fta7EVUwxBALKjiwED9dBh3IA/HZuiDoQ4NrPia7+Sup+1TT1WRuocpvsM7risb/BjA7JUzMDWg8OlHy/6NWdSY9kCe1bGAIWg16cofc2JcOtNMuxA7eiszeCO80KpPgHDObB/k/TF3E6CeliCWERFHWDI=
-Received: from DM6PR04MB7081.namprd04.prod.outlook.com (2603:10b6:5:244::21)
- by DM6PR04MB6606.namprd04.prod.outlook.com (2603:10b6:5:1b6::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4566.15; Thu, 30 Sep
- 2021 02:50:15 +0000
-Received: from DM6PR04MB7081.namprd04.prod.outlook.com
- ([fe80::7c0e:3e95:80d3:7a70]) by DM6PR04MB7081.namprd04.prod.outlook.com
- ([fe80::7c0e:3e95:80d3:7a70%8]) with mapi id 15.20.4566.014; Thu, 30 Sep 2021
- 02:50:15 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Saravana Kannan <saravanak@google.com>, Russell King
- <linux@armlinux.org.uk>, Neil Armstrong <narmstrong@baylibre.com>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>,
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- "kernel-team@android.com" <kernel-team@android.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-oxnas@groups.io"
- <linux-oxnas@groups.io>, "linux-renesas-soc@vger.kernel.org"
- <linux-renesas-soc@vger.kernel.org>, "linux-omap@vger.kernel.org"
- <linux-omap@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 0/2] Fix simple-bus issues with fw_devlink
-Thread-Topic: [PATCH v4 0/2] Fix simple-bus issues with fw_devlink
-Thread-Index: AQHXtMYHtS6fHXMugU2E5Mhb0ZTigQ==
-Date: Thu, 30 Sep 2021 02:50:15 +0000
-Message-ID: <DM6PR04MB70812E56DB9CB8CDC63C6535E7AA9@DM6PR04MB7081.namprd04.prod.outlook.com>
-References: <20210929000735.585237-1-saravanak@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: google.com; dkim=none (message not signed)
- header.d=none;google.com; dmarc=none action=none header.from=wdc.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 34049619-4b3d-4422-8742-08d983bd0809
-x-ms-traffictypediagnostic: DM6PR04MB6606:
-x-microsoft-antispam-prvs: <DM6PR04MB6606C63FCA145D7D084DE5D9E7AA9@DM6PR04MB6606.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: OQUVQQLHrwxiHe3t2MqBGq6yyEvOQ8Tmyvn//TAiZUiRKJRCMciI7EGGzQu+Y9TH96kBViVXT3aCunVKUb2sXp4Wy5+apenAPYt7WbJMwwbuPZ5y++IioemVCYpW6jMKcpJU3JxvSg0APFO/re5CpMRE6yI6kLbyCpzAu6LcFDAvG3XLz4QbOaY5S3pV9IEi3e0bcR6kBtyYbEWslsiprL9xFMQKD9jyDzMQhCX4t985a/zvhCBG7ADc1h733XCoyb/vUFRUq051HHpzsbeLAvVQEDARIzIfgxK4G2CvYJ/6m+PXwFeeIQp+a6i21QRXMegvlQ3xgDIjSMQir39xat8fvN7lp1Br0/SOF8pHLHxffn9FTfHt6UmysbBJz49vtL81Da38DR5iG0TMoS7ZTv1s8PF62pDlpc61qQPkuP8lw/Vp+nVZdcLfIVzQIq+4CSBo7AivXb1KVUFFN/bphrVlhJHni3L23dvB4Xmv4OEmZGX6N39e1a86/vVypbLfoaqzSvjxLggmLHN5Pq3rVBWa21WK7Ke/mDk8SCVIPCtptWzuHJEuy2FvYrTkjDH6/7O6sxg/6qhU/PLs/RUMQky0ZXV75VvmeP4Qe8Hl2rbov0APjFfu4rrb37SARChTCjBZxouPD4sW+71a1NgApV6KV7O9xjDsVE0dB/d5jM/7IhCkwav9CGLMHLiJY0vSaT0xh+Ms4sCS2fOHf0/sYEKE4yEBOrWSe1Ec4tjZksZ59lWf6XGE3zIBRijhX+aAeAb3hw8+PNg3JAeO4GXLc9pPHvZda1jYYhYl+ATbuus=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB7081.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(86362001)(76116006)(8936002)(66946007)(91956017)(55016002)(6506007)(66446008)(53546011)(9686003)(64756008)(66556008)(66476007)(83380400001)(186003)(7696005)(8676002)(33656002)(38070700005)(5660300002)(4326008)(38100700002)(122000001)(2906002)(966005)(7416002)(508600001)(52536014)(110136005)(71200400001)(54906003)(316002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?X06IkIwWxMM7yc2mQIHgNDQg9N4auO6KR+lBimA9/FRi7v7LV20HWLzYmZtA?=
- =?us-ascii?Q?oke97pxxbAKfLRYLWOgAM0gf3tezDH1/mU7R+a9rjVJoSytLXGXhwqV0aDFt?=
- =?us-ascii?Q?9PcHC+Vm6xOeF7aucPbRQxFJzdRBtNPzA34vPk08esOZ9U1PLvQstojthh01?=
- =?us-ascii?Q?fOFFn08yf+lI71MaTB7rwqktqiZWn2imSi++f//PKYK5tX8ntXmVlXI1Ffuz?=
- =?us-ascii?Q?oAl/9yoyVcJduAwaIrxjF4qfjE1vfwM/Xs6wonevHBcAfqFSUvKaKzdbfGVe?=
- =?us-ascii?Q?6QlWPuiyZv2DSYaq8VFVDwq09coHdkNOSaB7WLNpcRP3dewu/VCAzlPRXJul?=
- =?us-ascii?Q?UQu6U5kH2VLO/MRT+VKhb6Tsuoyq4nvPUAhYZD75mAYVtZ+lXdQBlHsbjSAs?=
- =?us-ascii?Q?aOS5EelKGXN6hXswTbVL5NXaThwNQYyKY57aT0d23SHmC5rGoin6vWnGxDQE?=
- =?us-ascii?Q?l0zC/NiYlJoR2sIQDDVfqttHO0u8FccS7B3RffbfwbiosUr3uG5bbjKkWkRq?=
- =?us-ascii?Q?bW0QHxH9bH2HZP/O2sxa+sXLCh1xFDGVGAvFMRqeSmnoz/GAyJdns2WQ2rI9?=
- =?us-ascii?Q?4fjQT85X/ZXvQq+fzpSIvc5cXLz44OR2Vvd/iD2k0fMo0yEqYefIPmYzeqb5?=
- =?us-ascii?Q?SY3Zjm4lejQOQDdnMCrkPXAaAQN1Acnjm37M3PF/3hD0Svl2Q1CD0zbu2Kt3?=
- =?us-ascii?Q?3wByf/B08heGk3oplQlErDYy9Cw1YEhkIQ/aZ7FbA1k1icdSpFjcnxLUVulc?=
- =?us-ascii?Q?DxACExBcIrj8i2HmCZ3dUypEWisZ7gLu3LrapImRABo9UrszLHX5v56aVT4i?=
- =?us-ascii?Q?AiuDUrt2O4aWTNe/UezdVfJyn7SgXt41J0Lh2m5bOmwrMpNeg/4PE8QvWdoY?=
- =?us-ascii?Q?6P8Y2Scx1UPcmi4iyi8FTcn8XcMHfx9uWYkBTVupVS9KVWZ68GNgrWHGQ7oK?=
- =?us-ascii?Q?9Kfsi9pxeLSUm8sSF8s6jgxBX1cot13yxKAY+DIhzc+G1k1X7ASlsVyCGhxC?=
- =?us-ascii?Q?xWbCvNF/HWwu8WnUz5NDKLy8+p/RbZ99xuCmBfeq37C9S0Ar0jFmNDlwxLCG?=
- =?us-ascii?Q?t1GX4V4SggCws6EyemKyEA85QA7NMJ1aTIi7HvYNRnT+jqG3yFfUuBLgvxiO?=
- =?us-ascii?Q?u7yTlHqZFq5rpbkIARiezkDj9SvVAt1YG336Wy1urZWkVXNhvmksNEyy+2aR?=
- =?us-ascii?Q?eHSEQmMD64NkHkbmLbOufPntu1KhZXGnWbVYbI7IX8i/3dh93lbfumoYhN6Z?=
- =?us-ascii?Q?UI2LpRIVfSv5nzM5oidXR1VZCAdFEuZKa10kACutokw765IM2hQnRpbRgrXH?=
- =?us-ascii?Q?IncI7Wyz37gR5C/HbF8KWaOkH2ABioClp0gMWWsgfGZCATUUeytMiTuRXW3n?=
- =?us-ascii?Q?PQ9GLakb6gnVpH1ofbIIVE0xi4FoW38YePsoTI4ksSdfyq1srQ=3D=3D?=
-x-ms-exchange-transport-forked: True
+ id 1mVqrC-00DEwb-EZ
+ for linux-riscv@lists.infradead.org; Thu, 30 Sep 2021 07:51:56 +0000
+Received: by mail-lf1-x135.google.com with SMTP id i25so21617588lfg.6
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Sep 2021 00:51:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=uOQC9qDuzBo2C8E99AFpnFMO/c5cxqQImivipJ9VOGI=;
+ b=BssjWxgqLMDsW2dxYyrsl3lvvILHX4cQ9c9yZLwNzBjc5SgAMgQKCZzg4hJLWU7t3U
+ 76Bz2XiWgqFt3q9gLHa9Ry19K9vlD6hwNwymd9Wq7WXSmaqNo/26ICRPKZo4hYWoY/ba
+ rS76bc/Lwkag6G5z50CjruSOuXwP06xZmInpG1odm+tWIhMDqykL8T7dy2cH6F90e6vr
+ 0R0v+WBq8jbMIvDYvh9kn0GpKCscVTet+M2qR6dPCUAj9CeAterrydtwF23OV+flvcgs
+ gbV+YH4fkNBbKa2b/qBde61Nm5C97/U2OIwyr/1cyOPpq54k+UPbfVzFP2Ypbst4jIla
+ ugww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=uOQC9qDuzBo2C8E99AFpnFMO/c5cxqQImivipJ9VOGI=;
+ b=Md2vNNUpJimx+wlLHhUxkYpa9saS0kofLFWI4Vmi9YN9WKtMTcT3/E/f2ThMtk5REI
+ dWbj3qnT6BJ2T9TuonQsdriRWuZAICPE6GZK6TP2XSTgCCkynlGRGcx/8Vr1E5VUOzX8
+ sNS7sZc8F87kg7b089aSSM30D17HUbR73rlwDLnjnnaG39vCLS5QIXbgyR6CwSbCE36l
+ j4xZ26Pz2tkfbnGNOUa6cVafr7zUXSYVsud/T3njJG76QoxmhhpjtXk/oXVYkhYP0iiP
+ 9jQWqYlfj7OdMxWDf5ewGl2ZYc/2VNdfo+wpKV8jyOSFHA5rRxIivOGNO4i8c7d6fc+8
+ R3ZQ==
+X-Gm-Message-State: AOAM531LvNSXUeWOWtGkuzFDy/NiooqyEQICOT37HY2WO270vQAHE4t4
+ vusgUcECOdJVQvj6eIGb2/5RAWQ8iKefABnbLec+/dxPA1c=
+X-Google-Smtp-Source: ABdhPJy00FNBVoPYXCRJLUz4fYYVw+83ZeEGkmcEpC/iUaJIqpXfTbulRfEoNcPT+cJaHx3UeT316dObwNWV9cDuJZ4=
+X-Received: by 2002:a2e:7203:: with SMTP id n3mr4604188ljc.195.1632988310174; 
+ Thu, 30 Sep 2021 00:51:50 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB7081.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34049619-4b3d-4422-8742-08d983bd0809
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Sep 2021 02:50:15.4713 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CpA65XKyKOZE+IR9oHD6IBrsjq6KUjT4cKAH7796pVnlZdabKm0hFS0U1/PEYafTTZ1Ba04o0doAOrF88N1QEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB6606
+References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
+ <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+ <CA+zEjCvKaS0sE7paCecMDvqpkw-yLM_QFHdF5pgWTAqeH0JAfA@mail.gmail.com>
+ <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+In-Reply-To: <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Thu, 30 Sep 2021 10:51:14 +0300
+Message-ID: <CAEn-LTqVd8z=kpCtWjiPbKuw24NuHLTQxWzw7g34fEJgDYrp8w@mail.gmail.com>
+Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
+To: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+ Support Opensource <Support.Opensource@diasemi.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210929_195021_182040_2EA758C0 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20210930_005154_547215_9086C994 
+X-CRM114-Status: GOOD (  35.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,64 +93,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/09/29 9:07, Saravana Kannan wrote:
-> Ulf reported an issue[1] with fw_devlink. This series tries to fix that
-> issue.
-> 
-> I replicated a similar set up on my end and I confirmed:
-> - A simple-bus only device is probed.
-> - Another device listing simple-bus as a 2nd compatible string isn't
->   probed.
-> 
-> v1->v2:
-> - Switched to probing the simple-bus device instead of marking it as
->   NEVER_PROBES.
-> 
-> v2->v3:
-> - Moved all the code into the simple-pm-bus driver
-> - Addressed Ulf's comment about the remove() code missing a check.
-> 
-> v3->v4:
-> - Added support for driver_override to accommodate the case where new
->   transparent bus compatible strings are added to DT, but the kernel hasn't
->   been updated yet.
-> - Added/updated comments to give more details.
-> - Adding Ulf's Tested-by that he have for v3 (v4 didn't change by much).
+On Wed, Sep 29, 2021 at 4:36 PM Adam Thomson
+<Adam.Thomson.Opensource@diasemi.com> wrote:
+>
+> On 24 September 2021 17:17, Alexandre Ghiti wrote:
+>
+> > > > +static int da9063_restart_notify(struct notifier_block *this,
+> > > > +                              unsigned long mode, void *cmd)
+> > > > +{
+> > > > +     struct da9063 *da9063 = container_of(this, struct da9063,
+> > > > restart_handler);
+> > > > +
+> > > > +     regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
+> > > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
+> > > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
+> > > > +
+> > > > +     return NOTIFY_DONE;
+> > > > +}
+> > >
+> > > I will talk with our HW team to clarify, but this sequence looks to be very
+> > > specific to the needs of the platform in question which doesn't feel right to
+> > > me. As was mentioned on another thread as well, the watchdog driver already
+> > has
+> > > a restart function to reset the device (and thus the system), so I don't believe
+> > > we should have multiple of these.
+> >
+> > From the discussion that happened here
+> > https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-
+> > support_tab_content,
+> > it does not seem possible to use the watchdog on a chip whose OTP does
+> > not set AUTOBOOT. But anyway, I'm looking forward to hearing from the
+> > HW team :)
+>
+> So I've discussed this internally and so far it's not completely clear how the
+> sequence you provided actually performs the reset as you suggest. It certainly
+> doesn't look like it should, so maybe this relates to an external pin somehow
+> triggering the restart in this particular scenario? I'd be interested to
+> understand which event bits are set when the board does restart to understand
+> what did actually trigger the boot-up.
+>
+> Regardless of this though, the consensus right now would be to use the RTC as a
+> wake event to restart the platform. An alarm can be set for a couple of seconds
+> into the future (or longer if required) and that would provide the event
+> required to come up from powerdown/shutdown, in the absence of AUTOBOOT being
+> set in OTP. I believe this would be the safest route to take in this case. You
+> can then just use the SHUTDOWN bit on CONTROL_F to take down the board.
 
-For riscv Kendryte K210 boards:
+Today I was looking into OpenBSD DA9063 drivers and they might be
+doing what you described for the reset.
 
-Tested-by: Damien Le Moal <damien.lemoal@wdc.com>
+dev/fdt/dapmic.c
 
-> 
-> Thanks,
-> Saravana
-> [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> 
-> Cc: Ulf Hansson <ulf.hansson@linaro.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Rob Herring <robh+dt@kernel.org>
-> 
-> Saravana Kannan (2):
->   drivers: bus: simple-pm-bus: Add support for probing simple bus only
->     devices
->   drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-> 
->  arch/arm/configs/multi_v7_defconfig |  1 -
->  arch/arm/configs/oxnas_v6_defconfig |  1 -
->  arch/arm/configs/shmobile_defconfig |  1 -
->  arch/arm/mach-omap2/Kconfig         |  1 -
->  arch/arm64/configs/defconfig        |  1 -
->  drivers/bus/Kconfig                 | 12 ---------
->  drivers/bus/Makefile                |  2 +-
->  drivers/bus/simple-pm-bus.c         | 42 ++++++++++++++++++++++++++---
->  drivers/soc/canaan/Kconfig          |  1 -
->  9 files changed, 40 insertions(+), 22 deletions(-)
-> 
+[..]
+241 void
+242 dapmic_reset(void)
+243 {
+244     struct dapmic_softc *sc = dapmic_cd.cd_devs[0];
+245     uint8_t reg;
+246
+247     /* Enable tick alarm wakeup with a one second interval. */
+248     reg = dapmic_reg_read(sc, ALARM_MO);
+249     reg &= ~ALARM_MO_TICK_TYPE;
+250     reg |= ALARM_MO_TICK_WAKE;
+251     dapmic_reg_write(sc, ALARM_MO, reg);
+252
+253     /* Enable tick function. */
+254     reg = dapmic_reg_read(sc, ALARM_Y);
+255     reg |= ALARM_Y_TICK_ON;
+256     dapmic_reg_write(sc, ALARM_Y, reg);
+257
+258     /* Clear events such that we wake up again. */
+259     dapmic_reg_write(sc, EVENT_A, dapmic_reg_read(sc, EVENT_A));
+260     dapmic_reg_write(sc, CONTROL_F, CONTROL_F_SHUTDOWN);
+261 }
+[..]
 
+>
+> To reiterate, I believe this should be made a board specific quirk, rather than
+> as part of the generic MFD core of DA9063, as the timings may vary for other
+> platforms.
 
--- 
-Damien Le Moal
-Western Digital Research
+Agree. Currently it seems Linux drivers expect DA9063 boards to have
+AUTOBOOT ON set in OTP, which is not the case for SiFive Unmatched
+(thus issues with reset and WDT).
+
+david
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
