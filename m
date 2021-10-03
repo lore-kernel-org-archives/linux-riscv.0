@@ -2,14 +2,14 @@ Return-Path: <SRS0=8Hg0=OX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB579C433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E7DEBC433FE
 	for <linux-riscv@archiver.kernel.org>; Sun,  3 Oct 2021 17:10:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5D62061A58
+	by mail.kernel.org (Postfix) with ESMTPS id 9C81761267
 	for <linux-riscv@archiver.kernel.org>; Sun,  3 Oct 2021 17:10:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5D62061A58
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9C81761267
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,71 +18,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=fuCK79GqXNlUl8STXa3KJ23Bv8A+Wlfqw+BCCgjNmEo=; b=kdbX7FAK90gnHJAIblbKRLg+pH
-	oRWPOqaFe/cCsazklvqdV69vzJVvFUGdQC5M5NN0ttyOlKYUcCE+2981NQQXiRJocZLrCQbx96Rfg
-	9Y9LCoqsERlmJW9pGZnlLPs8YUnNUd9tnwqRSmwcGPY0X90oTubamXJvaUwzAikGj7aeenyyq3dbI
-	AzM7rFbJ/4MPnBstegPudPaCTxgxuOvIMqKt0isNr+BgDFRrHu9UXNHOza6n5/zLfvQpbtzhMVxNP
-	2VQaG4wOh3FLuGHVBB45gX7mDqrHDLtVRewCEieU82JytWKg//9WWCBF7Nl+2OrXJvcymq1fKU5lg
-	OYDwxEXg==;
+	bh=x5SK2tQsLJ7b99oZbf0dtKfbbo6OKxttZeNSUIwu6y0=; b=2eWXkZX23OCNyNo7apF6JQzWa1
+	0rb7GVmCzkMjnDxTB83i18Wui5vq9S9m3HNHgRiryh2FFwR+5RJvFg91AHgaiDddW637yyvFncCJc
+	Fba/2CeqtGkjLvWu6t35RNWOwY3rISs3slH9QorMjQHIiaazZ/7cbCIukgp0b8ZKWc6fJnSjPpGGT
+	1VMf/JenR3jL5wynVcHlC2MDo9bwnBU1akAbkITnT5svCRHhsgT2Ls5RX5qgufSoM+c+0EwcHQrpg
+	l0lyXeMRN6BXjwhe0HdgWXQbPgwa5iUe8XqTpqfbcMItDB7ESUmaY9Y9H0MzI5rHLeXT/qgCtciyO
+	rdsLuQhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mX50H-0048g5-Nf; Sun, 03 Oct 2021 17:10:21 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1mX50D-0048f5-MK; Sun, 03 Oct 2021 17:10:17 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mX50F-0048eI-Ma
- for linux-riscv@lists.infradead.org; Sun, 03 Oct 2021 17:10:20 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id
- g13-20020a17090a3c8d00b00196286963b9so1056179pjc.3
- for <linux-riscv@lists.infradead.org>; Sun, 03 Oct 2021 10:10:10 -0700 (PDT)
+ id 1mX509-0048e7-JK
+ for linux-riscv@lists.infradead.org; Sun, 03 Oct 2021 17:10:16 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id
+ on12-20020a17090b1d0c00b001997c60aa29so6062097pjb.1
+ for <linux-riscv@lists.infradead.org>; Sun, 03 Oct 2021 10:10:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=XqU5xxUtbfKhmbzvtVRG2mL5cvmccHFZc23S52GP8YU=;
- b=3HhqwmyONH+HAZjlWbQ4qlMsCx3Jbe8gS1rUYF86cMkuWV61LNl35jeXbpcH5NSMpF
- sW0zU0viXMSYz1ivdfEVmSB60LEcOsvFXd163p2+K98AqPgmjf1rQkGGW0FttZo2tKlI
- p1Oz6Ox1CbitgyRs5oDXPTFKOuLwKiJj4X2bvcO1YZcSMlddiCwIWC4SpuJRbAsSde0r
- qP8PWtf5hRIUcnz9m80sLs+vpB5fbvuw65OMZiAeY7ExpJs3U2ywghS/5+o+xlovnIcX
- 2lljUN3HPFRR9Zv5XekuTTlqVGOZ2kKZaH4rmXAc44dRL+j6bwvskdWdrVMbPp4gsH2w
- EWGg==
+ bh=Ebwf//kDSCRWsaKE4C3R7KVBDklhHZsQtL6HPnfLiEs=;
+ b=GVPpTIs8wH2fgMQ0VWyPcncf99M8HLdjqwgr6454UbGZhtowCPpQMug9Nom1w81Wpl
+ dqWRAmdGLJNlb/FB2PbcPszJQEw95XgbzhJxVv5rMRjVDagzvn5eFAFTI4zbPiQ1w2qZ
+ tMtqm5Rs/yn7T4/Y1Q3zQo06g3tvU+5kcthryQ4ypuxuw2YkehJcs29+bo0rYR8gZ4G7
+ peLdlwWBBU5cqKIC8QQGxA/v3buS1ugWfqY2LHkC74U37j/DrIQIFxP1FMwevTK8mIsh
+ DBjUMmWFna/+eLV+ZlkK+k7djv9GTAkemrOlrtYKUaPtvlJTBT9ysLCzPSs7oveHRG7V
+ cvIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=XqU5xxUtbfKhmbzvtVRG2mL5cvmccHFZc23S52GP8YU=;
- b=pICND5LrpZxPCjMBIDzxQIkLVG35KifRHa+DJmbzM4O23fEX/9/xsDWZ62Q0NxRUOa
- LyfMaQsAYKIq2Ha2Cgq4izisKUL/XFhYE6c0S2+hYQy1XM5tQdBj2e3Kq6xGrh3tuchC
- 2mRz6YSe4C0z2MSerO6yeqjSs0/A24HOQbSZJ9I/6pLcb8eDo2pmhneObF3CD6Zsrkyv
- XcFO2XD9QehvlOZHxQymFYtHR6ddriYGyIYCJhmxVDbV5Gzf7GlM4c3oID/WC8tuXgom
- xgIKTajel8T5G7c/AFkvpLnyeR+UCi8bXw8iQFOYbpNnYLceLgkJMAtziwRpmShSEAs7
- A54A==
-X-Gm-Message-State: AOAM532s2VSm8MzIvERc56QE7wdjSPwSDjy+KSuYarV7CDu5JK5ObAZi
- EJsWkraoxOLq+YfpXmLXR2iG2Q==
-X-Google-Smtp-Source: ABdhPJz5wVVQBO5UVRyqKi7Bs/arqdH2MJINzBJBYNffFsOvVV+m0U3Xe2Gj32qC6yodgt2CeR4qlA==
-X-Received: by 2002:a17:902:8682:b0:13e:5d9f:1eb3 with SMTP id
- g2-20020a170902868200b0013e5d9f1eb3mr19542381plo.42.1633281010437; 
- Sun, 03 Oct 2021 10:10:10 -0700 (PDT)
+ bh=Ebwf//kDSCRWsaKE4C3R7KVBDklhHZsQtL6HPnfLiEs=;
+ b=GXNcfgfcpiQq7ka+GOzEVGE5xBjgBPTddw1jIHNXOIddWlFQ+x+0ivNyR9hN1xHe52
+ C+7xwTS7cVX2ZkCCKNDnp7qHy4T8EeacDoiHgyLJs8ps+KGJhd52vQzLKaAdkommiGG/
+ Nv39ulDWTVTrlzAG3g8VoktEwVh81xLE5nOJKgvdG8kdxeLJPqGQswCmA/gqLvw7BA36
+ FEySDy6suPYbBEGiITE+pC1KdvWxasBtzDp+jLxUEtnQx55Gb2zn92W2JutkmTnkdkEl
+ kwL9DBBiY2xqxRNNj990lYPLaoyTdwwrvMdOHWdsn8vsdozF5Zuv+uwfEfrb1xL38oY1
+ KyjQ==
+X-Gm-Message-State: AOAM532heWG3ZnfZrO+C5TuMHYfK9NjU/fFy9IpG7oEvxVk+Q4Vh3d+p
+ E77u9htbl5iG7YXcqKyWV/pjHAWoVZYcJQ==
+X-Google-Smtp-Source: ABdhPJywWTBeDxgOuo5UqA0zlwr4rsIdwHUVVHpjVrZOS42HB2BJdC5PDykZPcKAgb2G7y7mmaUvPQ==
+X-Received: by 2002:a17:902:8488:b029:129:97e8:16e7 with SMTP id
+ c8-20020a1709028488b029012997e816e7mr19458630plo.39.1633281006908; 
+ Sun, 03 Oct 2021 10:10:06 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id g22sm14079578pfj.15.2021.10.03.10.10.09
+ by smtp.gmail.com with ESMTPSA id 130sm12265255pfz.77.2021.10.03.10.10.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 03 Oct 2021 10:10:09 -0700 (PDT)
-Date: Sun, 03 Oct 2021 10:10:09 -0700 (PDT)
-X-Google-Original-Date: Sun, 03 Oct 2021 10:09:48 PDT (-0700)
-Subject: Re: [PATCH v2] riscv: mm: don't advertise 1 num_asid for 0 asid bits
-In-Reply-To: <20210908173029.1104897-1-vgupta@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- Anup Patel <Anup.Patel@wdc.com>, jszhang@kernel.org, guoren@linux.alibaba.com,
- wangkefeng.wang@huawei.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- vgupta@kernel.org, anup@brainfault.org
+ Sun, 03 Oct 2021 10:10:06 -0700 (PDT)
+Date: Sun, 03 Oct 2021 10:10:06 -0700 (PDT)
+X-Google-Original-Date: Sat, 02 Oct 2021 17:56:22 PDT (-0700)
+Subject: Re: [PATCH] riscv: set default pm_power_off to NULL
+In-Reply-To: <20210907002847.111633-1-dimitri.ledkov@canonical.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vgupta@kernel.org
-Message-ID: <mhng-b9942988-c667-4fb9-9047-7033a62dbb74@palmerdabbelt-glaptop>
+To: dimitri.ledkov@canonical.com
+Message-ID: <mhng-4f99a87e-9ed6-4d0b-a5b1-596e67198c1a@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211003_101019_765498_75A04D1F 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20211003_101013_714524_A546CFFE 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +96,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Sep 2021 10:30:29 PDT (-0700), vgupta@kernel.org wrote:
-> Even if mmu doesn't support ASID, current code calculates @num_asids=1
-> which is misleading, so avoid setting any asid related variables in such
-> case.
+On Mon, 06 Sep 2021 17:28:47 PDT (-0700), dimitri.ledkov@canonical.com wrote:
+> Set pm_power_off to NULL like on all other architectures, check if it
+> is set in machine_halt() and machine_power_off() and fallback to
+> default_power_off if no other power driver got registered.
 >
-> Also while here, print the number of asid bits discovered even for the
-> disabled case.
+> This brings riscv architecture inline with all other architectures,
+> and allows to reuse exiting power drivers unmodified.
 >
-> Verified this on Hifive Unmatched.
+> Kernels without legacy SBI v0.1 extensions (CONFIG_RISCV_SBI_V01 is
+> not set), do not set pm_power_off to sbi_shutdown(). There is no
+> support for SBI v0.3 system reset extension either. This prevents
+> using gpio_poweroff on SiFive HiFive Unmatched.
 >
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> Signed-off-by: Vineet Gupta <vgupta@kernel.org>
+> Tested on SiFive HiFive unmatched, with a dtb specifying gpio-poweroff
+> node and kernel complied without CONFIG_RISCV_SBI_V01.
+>
+> BugLink: https://bugs.launchpad.net/bugs/1942806
+> Signed-off-by: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
 > ---
->  arch/riscv/mm/context.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
+>  arch/riscv/kernel/reset.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
 >
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index ee3459cb6750..ea54cc0c9106 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -233,8 +233,10 @@ static int __init asids_init(void)
->  	local_flush_tlb_all();
+> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+> index ee5878d968..9c842c4168 100644
+> --- a/arch/riscv/kernel/reset.c
+> +++ b/arch/riscv/kernel/reset.c
+> @@ -12,7 +12,7 @@ static void default_power_off(void)
+>  		wait_for_interrupt();
+>  }
 >
->  	/* Pre-compute ASID details */
-> -	num_asids = 1 << asid_bits;
-> -	asid_mask = num_asids - 1;
-> +	if (asid_bits) {
-> +		num_asids = 1 << asid_bits;
-> +		asid_mask = num_asids - 1;
-> +	}
+> -void (*pm_power_off)(void) = default_power_off;
+> +void (*pm_power_off)(void) = NULL;
+>  EXPORT_SYMBOL(pm_power_off);
 >
->  	/*
->  	 * Use ASID allocator only if number of HW ASIDs are
-> @@ -255,7 +257,7 @@ static int __init asids_init(void)
->  		pr_info("ASID allocator using %lu bits (%lu entries)\n",
->  			asid_bits, num_asids);
->  	} else {
-> -		pr_info("ASID allocator disabled\n");
-> +		pr_info("ASID allocator disabled (%lu bits)\n", asid_bits);
->  	}
+>  void machine_restart(char *cmd)
+> @@ -23,10 +23,16 @@ void machine_restart(char *cmd)
 >
->  	return 0;
+>  void machine_halt(void)
+>  {
+> -	pm_power_off();
+> +	if (pm_power_off != NULL)
+> +		pm_power_off();
+> +	else
+> +		default_power_off();
+>  }
+>
+>  void machine_power_off(void)
+>  {
+> -	pm_power_off();
+> +	if (pm_power_off != NULL)
+> +		pm_power_off();
+> +	else
+> +		default_power_off();
+>  }
 
 Thanks, this is on for-next.
 
