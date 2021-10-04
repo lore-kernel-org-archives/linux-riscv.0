@@ -2,15 +2,15 @@ Return-Path: <SRS0=53Iy=OY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F025EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 11:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 255E8C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 12:05:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B4C9E61360
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 11:46:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B4C9E61360
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id B79F7613D5
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 12:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B79F7613D5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,71 +18,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A49bt4ru4/6r7I2OJv06jHXXtPsUeVaQe8P4HsKd3r8=; b=L6pMU6p03IPZpF
-	jU8/yqX95KB0uDkVMi2AiFihyopKwDnVakAQ09RRigYPETKgpd2pDPokgHZrwLrDvCWeRY1k4Rxat
-	n86FG4A3P12VDqFKxhw40GW63CcFf7vplm1eKTpgFqhEauHBXmUhZMQiE21quvugYRVAFj4npTgMH
-	8ld7wo7vSJQKJao+wfWObREjhx6fCOwpg8kVXE3VqvR48O5KTBUfjwf9Q5sc7ETYshHR4+mMcqdx1
-	+7KmkMDupgmZ9AV7FTQTQrGTYip385dtlx4+mqLaYp/Qrpm7Ksswo+sFF9GU1ChECnq6VltfvXomi
-	vrq0T8B8E0fslgas8+SA==;
+	List-Owner; bh=IjpjqWOrZFF8EF5WJSd9uyyv9zeMm2IJf6Y7szp4vOE=; b=gWZ0AuwgBfBujf
+	4czIeIekNIhVvRY5m943NXIUU766lIWgLHkJGayq1YnS/OZH+iTdm1XUsdUYEkyo0WmTj3049Ey5J
+	8kUY5DhdC0V4sDxg06VDobWrUieWXwE7mIMsMO3F6u06L5Z0YosLnZLMRFNVnevhbKebkqv06ACQ6
+	bxDMWOt67un70XOTkatJJraIL686FUF1Nnc7X2xwpRPNhVY4PlLogIGv/zdbfY7is9FaJRSDxZ53e
+	Cx9Ha6GbrLdZPOAdpBZP13uA6k/x4ZkNPsF/zUo5YwiMEwSqt+z9yA0pJs1umlcUXipcoke3e3cvh
+	gOKEc2hO6s5Bf4kNO5lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mXMPh-006GT6-2l; Mon, 04 Oct 2021 11:45:45 +0000
-Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
+	id 1mXMiw-006MC3-MZ; Mon, 04 Oct 2021 12:05:38 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mXMOe-006GAf-Em; Mon, 04 Oct 2021 11:44:43 +0000
-Received: by mail-ua1-x929.google.com with SMTP id i8so12061364uae.7;
- Mon, 04 Oct 2021 04:44:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=/OF3AqBYjhrSam9nstifrJUdgClm9EnRgDOOfS1lM6o=;
- b=Iq+qTy3J84qNeUzcCpJ6X8eZlJ+AjvcpWjEz+3mTfZ+Pw2HhOBQUuQL9Dqp89DAsX2
- Pa14ppkMUgTYNLf5oeQnhkjc/roLYGwS3uyWXqgyaY3zwCbTA/Pzgpmrx7xqjpGTNJvl
- WVhmose4S1OuiYhH5D7NIz5Q4ArC/J66XmRE5EQT10Hd+apBbRLo9QiI8OuK1irb6vvi
- RpD5NGyolUrn4uqu9OlH5bA3hUsFo4sP8j44GeDaebFVz9CpjDPcoLH1wSJ6TGsFozdh
- 4TDdp1jLXtc1U+Tr+ogsn+Gl/NplPefR+w7vGCL2y/8w+LDjPI/PJpf4d0moFGWEexyM
- 8sjQ==
+ id 1mXMis-006MBL-Hq
+ for linux-riscv@lists.infradead.org; Mon, 04 Oct 2021 12:05:37 +0000
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 58C853F331
+ for <linux-riscv@lists.infradead.org>; Mon,  4 Oct 2021 12:05:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1633349128;
+ bh=yk33OuLVmJWefKEhzs9+C3SahsZbMShSnLaFEJM9QYM=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=FjR4NqKp9ldOStLvJzEZbLmW/hbJMQFu1FvagKpmgZ6cDzJxfr10SZJ7eGpkj/ibb
+ XYRb5Km++2OfcgDuld8CuO/kr7ou+X0VCqKZI5HVm9WzG7hNx03UessJQi4cEqfP/U
+ UED36SVhcMfokP8SCIjBPMRiKukKfN/7DioAgD4ObC553pq3MyFaybu1Kiqa5TPBWP
+ 1PMreKF4H3Ug090LazqOQ8dlgzWszeV9uHFOBW858oe+stzaVKILljBWwV5OsoHxgk
+ ZvPIYiaAFmuzOwCpe98rG8sEmaL1KFF35E21bTOFBdXbCycdVoks81bv1ce3XUrPz3
+ wFAoQXp5OHFiQ==
+Received: by mail-ed1-f72.google.com with SMTP id
+ u17-20020a50d511000000b003daa3828c13so16949679edi.12
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Oct 2021 05:05:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=/OF3AqBYjhrSam9nstifrJUdgClm9EnRgDOOfS1lM6o=;
- b=U11AgVQwg/AIsi+2zYVdVo2EjRSXVOHaaVpp7mTMZM8e/F8enAKnKecbMofqTvdKwg
- ZZDz0SGq5W7BJ087B4gKhod3DhMQHR2yjtJwhQhnCxHJESUcPxdbenMh4hRgXccn5HJk
- 1/YQv1DFJUeE0fYWbMoW3BLKgjnsCE0AvVriqrxjSICe+cO+vzqqdSj6LwW3WjY5A2f7
- WlXsozUVRuBGLBAG2oaj1GBOoW2UBo4Me4u0ZvZJQwVSi4eCUhWHyaG4MRRvUCvH7tBs
- QLoXaTtjLwbreR6PckDKgmjG+kX3pKAWH4MgEMUQHU0AL33W1wUZPsm5wtcSfSKapXUA
- DDYg==
-X-Gm-Message-State: AOAM532wYEM3EyxDFd+UDmSaQBenBnE73V5jHr9+HpgF/tnCryk3KdMS
- k10anwOTCfbb7gmzKk/daR02bXzRWNjrZ4hDz7c=
-X-Google-Smtp-Source: ABdhPJx3da2SN8QhZw3uy/SrK6SjN8UKIqcnh6yKJSrraZt/fWjcqLmL1+PVdcmJ8uY7LzD1XrbZfVvoiEaB+Vs8I4Y=
-X-Received: by 2002:ab0:5448:: with SMTP id o8mr5703850uaa.59.1633347878905;
- Mon, 04 Oct 2021 04:44:38 -0700 (PDT)
+ bh=yk33OuLVmJWefKEhzs9+C3SahsZbMShSnLaFEJM9QYM=;
+ b=GHbDs5LWhID9vjLSs6wNgp81B12ivz1/2/DXlPoB0Y9Myhdg9HWd/YTQfodBgNehMn
+ o1+d9QgIUcr8omX4QZeetgvfYNRdCX3USphmrGbPBs405x/MLF3UytsLDAwbUKP+flcD
+ rmm9MGoEQbQ3kLlEIpGCSq9DaG3YbhybrNxDryaw39o/u0VicPKxkvsyiNyz0bkCAheq
+ ufDme1XdERpKIB0/vUIVBfDyZLt1xNwOWtmCcL/gOC1KzRnZHwKcR/wgQff62b5Vguck
+ NGqq2Rkw6ZdrHfjGd49KSwv+KR4qAhdxJH8v7Zy3yvZzONC3r7bOEz0a6qBJE/g5+v3I
+ ENYg==
+X-Gm-Message-State: AOAM5311DTuZbrgJDe6/hL9HxTzNTbdSA0rsMYMnAkehX+eQK5AiLw1s
+ exBOgc0ZYKxwFN/wj5TYCNDUwEyighMpuGeQ7RNw4q/4whyxrtMbu7UEgWySRgOouNLr9wjmPT2
+ 8A3cMWIabZUF5Dpifh2ZkQTemnlZMdLl0AXi3dTPCRgUz8hgA9Z9lucG3Wbdi9g==
+X-Received: by 2002:aa7:dbcf:: with SMTP id v15mr2176edt.243.1633349127888;
+ Mon, 04 Oct 2021 05:05:27 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy/rYt+eImhQuoGMVtko2yxHPLqYrknaRlL4bDtktcDR1TvI/BP3O1SIGNgMTynDp0FqNcwLiYGyDh5LZS7zTg=
+X-Received: by 2002:aa7:dbcf:: with SMTP id v15mr2160edt.243.1633349127673;
+ Mon, 04 Oct 2021 05:05:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210927114016.1089328-1-anup.patel@wdc.com>
- <CAAhSdy1yZ11L=A3g06GXM8tFtonBX0Cj5NDyGHQ1v44vJ8MqSA@mail.gmail.com>
- <CAFiDJ5_--KsNd3aH1gT_cgU32C+wzunzXeSKtn8HTNj_La7n5A@mail.gmail.com>
- <CAAhSdy1un6ab62LN-0ihV=oku8EH3fZ5YzbX1zzUFAEbatVAuQ@mail.gmail.com>
- <CAFiDJ5-Pew6311w7pS-_ADWQnP=H7gFEUUuU8MqhsMHEDrofdA@mail.gmail.com>
- <CAAhSdy3a6MqR5bmgA3Znwsn7RXWYhpokWzSP308JV7MQJ0NmWg@mail.gmail.com>
-In-Reply-To: <CAAhSdy3a6MqR5bmgA3Znwsn7RXWYhpokWzSP308JV7MQJ0NmWg@mail.gmail.com>
-From: Ley Foon Tan <lftan.linux@gmail.com>
-Date: Mon, 4 Oct 2021 19:44:27 +0800
-Message-ID: <CAFiDJ5-Ji6cXcT8s7YvDce0Q2=VMokNHaCGJSdAtwo+d_GcDOg@mail.gmail.com>
-Subject: Re: [PATCH v20 00/17] KVM RISC-V Support
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Graf <graf@amazon.com>, 
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, KVM General <kvm@vger.kernel.org>, 
- kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup.patel@wdc.com>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>
+References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
+ <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+ <CA+zEjCvKaS0sE7paCecMDvqpkw-yLM_QFHdF5pgWTAqeH0JAfA@mail.gmail.com>
+ <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+ <CAEn-LTqVd8z=kpCtWjiPbKuw24NuHLTQxWzw7g34fEJgDYrp8w@mail.gmail.com>
+ <CA+zEjCtQN6c8bikg620PQwoPzJ6T4wGLvzQ413iPs1tCeHif0Q@mail.gmail.com>
+In-Reply-To: <CA+zEjCtQN6c8bikg620PQwoPzJ6T4wGLvzQ413iPs1tCeHif0Q@mail.gmail.com>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Mon, 4 Oct 2021 14:05:16 +0200
+Message-ID: <CA+zEjCtVxDkg8K0iK32j4KO+Wgt+hTjXD15HdRhNeCV2Sjpckw@mail.gmail.com>
+Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
+To: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Cc: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>, 
+ Support Opensource <Support.Opensource@diasemi.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211004_044440_599093_F55AB472 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20211004_050534_823332_C3664CFB 
+X-CRM114-Status: GOOD (  51.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,98 +108,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 4, 2021 at 12:47 PM Anup Patel <anup@brainfault.org> wrote:
+On Thu, Sep 30, 2021 at 12:25 PM Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
 >
-> On Mon, Oct 4, 2021 at 7:58 AM Ley Foon Tan <lftan.linux@gmail.com> wrote:
+> Hi David,
+>
+> On Thu, Sep 30, 2021 at 9:51 AM David Abdurachmanov
+> <david.abdurachmanov@gmail.com> wrote:
 > >
-> > On Fri, Oct 1, 2021 at 6:41 PM Anup Patel <anup@brainfault.org> wrote:
+> > On Wed, Sep 29, 2021 at 4:36 PM Adam Thomson
+> > <Adam.Thomson.Opensource@diasemi.com> wrote:
 > > >
-> > > On Fri, Oct 1, 2021 at 2:33 PM Ley Foon Tan <lftan.linux@gmail.com> wrote:
+> > > On 24 September 2021 17:17, Alexandre Ghiti wrote:
+> > >
+> > > > > > +static int da9063_restart_notify(struct notifier_block *this,
+> > > > > > +                              unsigned long mode, void *cmd)
+> > > > > > +{
+> > > > > > +     struct da9063 *da9063 = container_of(this, struct da9063,
+> > > > > > restart_handler);
+> > > > > > +
+> > > > > > +     regmap_write(da9063->regmap, DA9063_REG_PAGE_CON, 0x00);
+> > > > > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_F, 0x04);
+> > > > > > +     regmap_write(da9063->regmap, DA9063_REG_CONTROL_A, 0x68);
+> > > > > > +
+> > > > > > +     return NOTIFY_DONE;
+> > > > > > +}
+> > > > >
+> > > > > I will talk with our HW team to clarify, but this sequence looks to be very
+> > > > > specific to the needs of the platform in question which doesn't feel right to
+> > > > > me. As was mentioned on another thread as well, the watchdog driver already
+> > > > has
+> > > > > a restart function to reset the device (and thus the system), so I don't believe
+> > > > > we should have multiple of these.
 > > > >
-> > > > On Mon, Sep 27, 2021 at 8:01 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > >
-> > > > > Hi Palmer, Hi Paolo,
-> > > > >
-> > > > > On Mon, Sep 27, 2021 at 5:10 PM Anup Patel <anup.patel@wdc.com> wrote:
-> > > > > >
-> > > > > > This series adds initial KVM RISC-V support. Currently, we are able to boot
-> > > > > > Linux on RV64/RV32 Guest with multiple VCPUs.
-> > > > > >
-> > > > > > Key aspects of KVM RISC-V added by this series are:
-> > > > > > 1. No RISC-V specific KVM IOCTL
-> > > > > > 2. Loadable KVM RISC-V module supported
-> > > > > > 3. Minimal possible KVM world-switch which touches only GPRs and few CSRs
-> > > > > > 4. Both RV64 and RV32 host supported
-> > > > > > 5. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
-> > > > > > 6. KVM ONE_REG interface for VCPU register access from user-space
-> > > > > > 7. PLIC emulation is done in user-space
-> > > > > > 8. Timer and IPI emuation is done in-kernel
-> > > > > > 9. Both Sv39x4 and Sv48x4 supported for RV64 host
-> > > > > > 10. MMU notifiers supported
-> > > > > > 11. Generic dirtylog supported
-> > > > > > 12. FP lazy save/restore supported
-> > > > > > 13. SBI v0.1 emulation for KVM Guest available
-> > > > > > 14. Forward unhandled SBI calls to KVM userspace
-> > > > > > 15. Hugepage support for Guest/VM
-> > > > > > 16. IOEVENTFD support for Vhost
-> > > > > >
-> > > > > > Here's a brief TODO list which we will work upon after this series:
-> > > > > > 1. KVM unit test support
-> > > > > > 2. KVM selftest support
-> > > > > > 3. SBI v0.3 emulation in-kernel
-> > > > > > 4. In-kernel PMU virtualization
-> > > > > > 5. In-kernel AIA irqchip support
-> > > > > > 6. Nested virtualizaiton
-> > > > > > 7. ..... and more .....
-> > > > > >
-> > > > > > This series can be found in riscv_kvm_v20 branch at:
-> > > > > > https//github.com/avpatel/linux.git
-> > > > > >
-> > > > > > Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v9 branch
-> > > > > > at: https//github.com/avpatel/kvmtool.git
-> > > > > >
-> > > > > > The QEMU RISC-V hypervisor emulation is done by Alistair and is available
-> > > > > > in master branch at: https://git.qemu.org/git/qemu.git
-> > > > > >
-> > > > > > To play around with KVM RISC-V, refer KVM RISC-V wiki at:
-> > > > > > https://github.com/kvm-riscv/howto/wiki
-> > > > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
-> > > > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
-> > > > > >
->
-> <snip>
->
-> > Hi Anup
+> > > > From the discussion that happened here
+> > > > https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-
+> > > > support_tab_content,
+> > > > it does not seem possible to use the watchdog on a chip whose OTP does
+> > > > not set AUTOBOOT. But anyway, I'm looking forward to hearing from the
+> > > > HW team :)
+> > >
+> > > So I've discussed this internally and so far it's not completely clear how the
+> > > sequence you provided actually performs the reset as you suggest. It certainly
+> > > doesn't look like it should, so maybe this relates to an external pin somehow
+> > > triggering the restart in this particular scenario? I'd be interested to
+> > > understand which event bits are set when the board does restart to understand
+> > > what did actually trigger the boot-up.
+> > >
+> > > Regardless of this though, the consensus right now would be to use the RTC as a
+> > > wake event to restart the platform. An alarm can be set for a couple of seconds
+> > > into the future (or longer if required) and that would provide the event
+> > > required to come up from powerdown/shutdown, in the absence of AUTOBOOT being
+> > > set in OTP. I believe this would be the safest route to take in this case. You
+> > > can then just use the SHUTDOWN bit on CONTROL_F to take down the board.
 > >
-> > It is able to boot up to kvm guest OS after change to use
-> > https://github.com/avpatel/qemu.git, riscv_aia_v2 branch.
-> > Is there dependency to AIA hardware feature for KVM?
+> > Today I was looking into OpenBSD DA9063 drivers and they might be
+> > doing what you described for the reset.
+> >
+> > dev/fdt/dapmic.c
+> >
+> > [..]
+> > 241 void
+> > 242 dapmic_reset(void)
+> > 243 {
+> > 244     struct dapmic_softc *sc = dapmic_cd.cd_devs[0];
+> > 245     uint8_t reg;
+> > 246
+> > 247     /* Enable tick alarm wakeup with a one second interval. */
+> > 248     reg = dapmic_reg_read(sc, ALARM_MO);
+> > 249     reg &= ~ALARM_MO_TICK_TYPE;
+> > 250     reg |= ALARM_MO_TICK_WAKE;
+> > 251     dapmic_reg_write(sc, ALARM_MO, reg);
+> > 252
+> > 253     /* Enable tick function. */
+> > 254     reg = dapmic_reg_read(sc, ALARM_Y);
+> > 255     reg |= ALARM_Y_TICK_ON;
+> > 256     dapmic_reg_write(sc, ALARM_Y, reg);
+> > 257
+> > 258     /* Clear events such that we wake up again. */
+> > 259     dapmic_reg_write(sc, EVENT_A, dapmic_reg_read(sc, EVENT_A));
+> > 260     dapmic_reg_write(sc, CONTROL_F, CONTROL_F_SHUTDOWN);
+> > 261 }
+> > [..]
+> >
 >
-> No, there is no dependency on AIA hardware and KVM RISC-V
-> v20 series.
+> Thanks for the pointer! I have just tested this sequence from the
+> u-boot shell, it resets the board correctly. But then if we try to
+> power down the board by a long press to the corresponding button on
+> the board within 16 seconds, it resets the board: so we cannot
+> shutdown the board in the next 16 seconds that follow this sequence.
 >
-> I quickly tried the latest QEMU master with KVM RISC-V v20 and
-> it worked perfectly fine for me.
-> (QEMU master commit 30bd1db58b09c12b68c35f041f919014b885482d)
-My last pull on master was last Thursday, last commit is
-0021c4765a6b83e5b09409b75d50c6caaa6971b9.
-After git pull again today (commit
-30bd1db58b09c12b68c35f041f919014b885482d), it can boot KVM on Qemu
-now.
+> Maybe that can be resolved by using the one-shot alarm as described by
+> Adam, I'll try to find that in the datasheet.
+
+After configuring the one-shot alarm, I still have those intempestive
+reboots if I try to power down the board by a long press within 16
+seconds. The only thing I found in the datasheet regarding this timing
+is in case of power undervoltage, not sure how this is linked to what
+I see.
+
+@Adam Thomson Any ideas?
+
+Thanks,
+
+Alex
 
 >
-> Although, I did see that VS-mode interrupts were broken in the latest
-> Spike due to some recent merge. I have sent fix PR to Spike for this.
-> (Refer, https://github.com/riscv-software-src/riscv-isa-sim/pull/822)
+> Thanks
 >
-> With Spike fix PR (above), the KVM RISC-V v20 series works fine
-> on Spike as well.
-KVM bootup successfully on Spike with this fix.
-
-Thanks.
-
-Regards
-Ley Foon
+> Alex
+>
+> > >
+> > > To reiterate, I believe this should be made a board specific quirk, rather than
+> > > as part of the generic MFD core of DA9063, as the timings may vary for other
+> > > platforms.
+> >
+> > Agree. Currently it seems Linux drivers expect DA9063 boards to have
+> > AUTOBOOT ON set in OTP, which is not the case for SiFive Unmatched
+> > (thus issues with reset and WDT).
+> >
+> > david
+> >
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
