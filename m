@@ -2,88 +2,54 @@ Return-Path: <SRS0=53Iy=OY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A390C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 04:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49DB9C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 07:16:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3787961350
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 04:47:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3787961350
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0C5766124D
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Oct 2021 07:16:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0C5766124D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ubuntu.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YHu0J5w3VVVlyrH401/4f3q9eFYMNfyRyogW7RMdcyA=; b=q69EzFzaYgjU3S
-	a3Xj9W1wD8J2hd+PBh5in/+OLTzr5yCc2/0wAn6nuhNHrmkGimIJs/3mJUJ+Rzz3ZA0Kdl6atO5Wl
-	UuTqqtKXwnmEjHDGhPCaUiYYhSYGpOuXwcmZ+kWcZKvnfaQ8ZUeQh2g8zDAxrqxtS76TPyNRHEjKd
-	ICK5oURhKP+1K+6y9sATaA6HWJA+uRqx0ucgWucy8QJ9vEGRRNE5/8kkPhenVNAGUlihaowqWfhW5
-	2n299W2jeokadL5PnfsT7ytBuyzHQMYi2N7kUASCRAsqctf6w+U52eylRA+Q+g6nc6JkwtC/zqyxF
-	AXxXxYDA2Y7D9rd+iTdQ==;
+	List-Owner; bh=d5vrSXoujNyHedVUJnFeJucJsLYeqzobuPTgFe5m8IY=; b=yQsXBwuCL5N2R9
+	5YIMOSfjExj4ZodXsXbq+z6VB79IRQchcTyWKrERWG1u1hOwWXbNn6lsDPKaPtn6ybixA2i1Hy4nq
+	85tQvmYQh7txDan1l5eML9wYTRdxndzkFoHwUu66jZtgJo6IEOV4K5q4aXRpXlR0IEOrYf9gKSK9K
+	wN1Nsa47TiE0Ef6g9Lzg41W2KrqRe4is6Sqnk20L5PMmCNchdHMtrbl3JcxX+M/qz2E72HkZ46psS
+	i3T9Svxv9DtkcT9i6f5zCZeGYTuCf+A/jrWMEun+7Ji31yelDNek2SUz/kGC0wqNpvIRemuN74ttL
+	7BgMdvxRH4x8a37ffz5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mXFsy-0055G5-04; Mon, 04 Oct 2021 04:47:32 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1mXICO-005SkL-KS; Mon, 04 Oct 2021 07:15:44 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mXFsv-0055F8-8I
- for linux-riscv@lists.infradead.org; Mon, 04 Oct 2021 04:47:30 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id r10so11973207wra.12
- for <linux-riscv@lists.infradead.org>; Sun, 03 Oct 2021 21:47:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=f4tKoSTK3inceMY79QUe3y1d0IroqdLSv2OwkWk2/A8=;
- b=vWWDVV47UEHkiIDoYrLU082WRdmSUQHbaJsK0RBGw+i4JyXd9rB/yX9KmIKfNBBgm9
- kqVPd0C9LMEc2i+5pNaKXcDDCWbt46i9W7lxZynQakH4aNdjNBs5+ST9hEs9h+4IkF7k
- zo4sMI9EwV/Y3h8sLXNIpcORk9a/qN4SlNmdlccZL2X0dIwAbpjEoYM6djVbFLGp+8ED
- K1HvhLZiW4DXx8nY3M3tc9sPnV3RNHd/O60P33ye2tcuQbhTDTXzUesV//3fymsnY6TD
- DM0GxD4TdxFNDbAXyFQateeN3vnqqyLU2JGij5IKaOn71GcK9c+QKQ36yjvCYBZwGFnR
- 1MaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=f4tKoSTK3inceMY79QUe3y1d0IroqdLSv2OwkWk2/A8=;
- b=nVvP6OM0HltCRgzMYyzkANjCLxWPs4kfJFHhROSPQBbrWqoR5WFzw+0t27cP7Rlwrq
- NUt5KoTOjFOQDHOWt4rypBT8oTfDQ6TNk9CFHA6R+TiZWEhaJe14j15w0waw7DgUzrXD
- LgUT9WLWYeBFQ0OdHYYB4qFI7Qu7ibdDz8wru8/2i/ZbObwAQuD20jUELu2YQVsf0Wfj
- 5df4qixfua7se+biC6l0loQRyno+vUoh7RTqVkB7eRI/IUuRF5P3oYRTIxt98ptiMlLH
- bhY/Yz01KFrHf9ypTHBxcvsv9aldttg16f9SCt/yp/JQxnI2KkW/nnqPLMTk6jFCJD/d
- PsUw==
-X-Gm-Message-State: AOAM532bpK05UYQEsFyttAggLmzCh8puBZtI6II7aSRdmASCCFMcAfiU
- 2kQ27uSF3KdIuCIK/4I7ewf/7nvKKI1+7JZkoLZ9dw==
-X-Google-Smtp-Source: ABdhPJx37gv7S86waNUH+xL9Pa5+R4uyJSjSCccv/5SpnP1pbD+BHOOHyD+wYk5jf+xLYyO5QKxloQtS2nSz9VCP1U4=
-X-Received: by 2002:adf:ab57:: with SMTP id r23mr12045283wrc.199.1633322844751; 
- Sun, 03 Oct 2021 21:47:24 -0700 (PDT)
+ id 1mXICL-005SjT-Mc
+ for linux-riscv@lists.infradead.org; Mon, 04 Oct 2021 07:15:42 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D3683610E6;
+ Mon,  4 Oct 2021 07:15:38 +0000 (UTC)
+Date: Mon, 4 Oct 2021 09:15:36 +0200
+From: Christian Brauner <christian.brauner@ubuntu.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ christian@brauner.io, linux-kernel@vger.kernel.org,
+ kernel-team@android.com, Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: Re: [PATCH] RISC-V: Include clone3() on rv32
+Message-ID: <20211004071536.hloqmba6y4cw3hli@wittgenstein>
+References: <20211003002120.198752-1-palmer@dabbelt.com>
 MIME-Version: 1.0
-References: <20210927114016.1089328-1-anup.patel@wdc.com>
- <CAAhSdy1yZ11L=A3g06GXM8tFtonBX0Cj5NDyGHQ1v44vJ8MqSA@mail.gmail.com>
- <CAFiDJ5_--KsNd3aH1gT_cgU32C+wzunzXeSKtn8HTNj_La7n5A@mail.gmail.com>
- <CAAhSdy1un6ab62LN-0ihV=oku8EH3fZ5YzbX1zzUFAEbatVAuQ@mail.gmail.com>
- <CAFiDJ5-Pew6311w7pS-_ADWQnP=H7gFEUUuU8MqhsMHEDrofdA@mail.gmail.com>
-In-Reply-To: <CAFiDJ5-Pew6311w7pS-_ADWQnP=H7gFEUUuU8MqhsMHEDrofdA@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 4 Oct 2021 10:17:13 +0530
-Message-ID: <CAAhSdy3a6MqR5bmgA3Znwsn7RXWYhpokWzSP308JV7MQJ0NmWg@mail.gmail.com>
-Subject: Re: [PATCH v20 00/17] KVM RISC-V Support
-To: Ley Foon Tan <lftan.linux@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Graf <graf@amazon.com>, 
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, KVM General <kvm@vger.kernel.org>, 
- kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup.patel@wdc.com>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>
+Content-Disposition: inline
+In-Reply-To: <20211003002120.198752-1-palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211003_214729_348678_1E53D372 
-X-CRM114-Status: GOOD (  23.19  )
+X-CRM114-CacheID: sfid-20211004_001541_773597_57A25B00 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,124 +66,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 4, 2021 at 7:58 AM Ley Foon Tan <lftan.linux@gmail.com> wrote:
->
-> On Fri, Oct 1, 2021 at 6:41 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Fri, Oct 1, 2021 at 2:33 PM Ley Foon Tan <lftan.linux@gmail.com> wrote:
-> > >
-> > > On Mon, Sep 27, 2021 at 8:01 PM Anup Patel <anup@brainfault.org> wrote:
-> > > >
-> > > > Hi Palmer, Hi Paolo,
-> > > >
-> > > > On Mon, Sep 27, 2021 at 5:10 PM Anup Patel <anup.patel@wdc.com> wrote:
-> > > > >
-> > > > > This series adds initial KVM RISC-V support. Currently, we are able to boot
-> > > > > Linux on RV64/RV32 Guest with multiple VCPUs.
-> > > > >
-> > > > > Key aspects of KVM RISC-V added by this series are:
-> > > > > 1. No RISC-V specific KVM IOCTL
-> > > > > 2. Loadable KVM RISC-V module supported
-> > > > > 3. Minimal possible KVM world-switch which touches only GPRs and few CSRs
-> > > > > 4. Both RV64 and RV32 host supported
-> > > > > 5. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
-> > > > > 6. KVM ONE_REG interface for VCPU register access from user-space
-> > > > > 7. PLIC emulation is done in user-space
-> > > > > 8. Timer and IPI emuation is done in-kernel
-> > > > > 9. Both Sv39x4 and Sv48x4 supported for RV64 host
-> > > > > 10. MMU notifiers supported
-> > > > > 11. Generic dirtylog supported
-> > > > > 12. FP lazy save/restore supported
-> > > > > 13. SBI v0.1 emulation for KVM Guest available
-> > > > > 14. Forward unhandled SBI calls to KVM userspace
-> > > > > 15. Hugepage support for Guest/VM
-> > > > > 16. IOEVENTFD support for Vhost
-> > > > >
-> > > > > Here's a brief TODO list which we will work upon after this series:
-> > > > > 1. KVM unit test support
-> > > > > 2. KVM selftest support
-> > > > > 3. SBI v0.3 emulation in-kernel
-> > > > > 4. In-kernel PMU virtualization
-> > > > > 5. In-kernel AIA irqchip support
-> > > > > 6. Nested virtualizaiton
-> > > > > 7. ..... and more .....
-> > > > >
-> > > > > This series can be found in riscv_kvm_v20 branch at:
-> > > > > https//github.com/avpatel/linux.git
-> > > > >
-> > > > > Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v9 branch
-> > > > > at: https//github.com/avpatel/kvmtool.git
-> > > > >
-> > > > > The QEMU RISC-V hypervisor emulation is done by Alistair and is available
-> > > > > in master branch at: https://git.qemu.org/git/qemu.git
-> > > > >
-> > > > > To play around with KVM RISC-V, refer KVM RISC-V wiki at:
-> > > > > https://github.com/kvm-riscv/howto/wiki
-> > > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
-> > > > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
-> > > > >
+On Sat, Oct 02, 2021 at 05:21:20PM -0700, Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmerdabbelt@google.com>
+> 
+> As far as I can tell this should be enabled on rv32 as well, I'm not
+> sure why it's rv64-only.  checksyscalls is complaining about our lack of
+> clone3() on rv32.
+> 
+> Fixes: 56ac5e213933 ("riscv: enable sys_clone3 syscall for rv64")
+> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> ---
 
-<snip>
-
-> Hi Anup
->
-> It is able to boot up to kvm guest OS after change to use
-> https://github.com/avpatel/qemu.git, riscv_aia_v2 branch.
-> Is there dependency to AIA hardware feature for KVM?
-
-No, there is no dependency on AIA hardware and KVM RISC-V
-v20 series.
-
-I quickly tried the latest QEMU master with KVM RISC-V v20 and
-it worked perfectly fine for me.
-(QEMU master commit 30bd1db58b09c12b68c35f041f919014b885482d)
-
-Although, I did see that VS-mode interrupts were broken in the latest
-Spike due to some recent merge. I have sent fix PR to Spike for this.
-(Refer, https://github.com/riscv-software-src/riscv-isa-sim/pull/822)
-
-With Spike fix PR (above), the KVM RISC-V v20 series works fine
-on Spike as well.
-
->
->
-> Log:
->
-> [    6.212484] Run /virt/init as init process
-> Mounting...
-> [    7.202552] random: fast init done
-> / # cat /proc/cpuinfo
-> processor : 0
-> hart : 1
-> isa : rv64imafdcsu
-> mmu : sv48
->
-> processor : 1
-> hart : 0
-> isa : rv64imafdcsu
-> mmu : sv48
->
-> / # cat /proc/interrupts
->            CPU0       CPU1
->   1:        355          0  SiFive PLIC   5 Edge      virtio0
->   2:        212          0  SiFive PLIC   6 Edge      virtio1
->   3:         11          0  SiFive PLIC   7 Edge      virtio2
->   4:        155          0  SiFive PLIC   1 Edge      ttyS0
->   5:       1150        942  RISC-V INTC   5 Edge      riscv-timer
-> IPI0:        19          5  Rescheduling interrupts
-> IPI1:        50        565  Function call interrupts
-> IPI2:         0          0  CPU stop interrupts
-> IPI3:         0          0  IRQ work interrupts
-> IPI4:         0          0  Timer broadcast interrupts
->
->
-> Thanks.
->
-> Regards
-> Ley Foon
-
-Regards,
-Anup
+Thanks!
+Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
 
 _______________________________________________
 linux-riscv mailing list
