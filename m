@@ -2,79 +2,98 @@ Return-Path: <SRS0=Z6yX=OZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26A07C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 12:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23A61C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 13:44:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DBFF86113A
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 12:47:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DBFF86113A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
+	by mail.kernel.org (Postfix) with ESMTPS id D3BF461139
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 13:44:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D3BF461139
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JgQGj1RHAYd1TT4zEf6NwCU45shcTIC4aCMpbkrE6mk=; b=jGq9TRYGDI4Bwm
-	eF5NvAw5nA2bVjDgyFTFpiPn6AKPuZm1Ny00d5wveWrXJy3PEE/pglA7dODW2+7kHUgiv9wNxtrdf
-	XMP2BFvcHzvnkz48Ql4jXD6xhkso6bim8ozsGkhLgH5ueRXZrOj2NGE2JD9xDS8fEa0Ni4Ja2ffYP
-	LfcmKnCdsvCaU8mwHzclcmR1IHb9LwyKVNdcZOux82NeaXgGhpK5dRjMEQ3jtc6ZaMVO/xx5ayOKW
-	qWeAxTfURBG/8lUd//p9d5G6BmKzjZ41KiHanaaJvAGiaU3PLvLQzoaiYV6nsAg0DG3MJA8ubivVc
-	XCdPya9P5zNM5sDQjQyg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZrgZxo+dCSUMPRWgevAFoKx4rqbM26UQaNR7DNN9yVM=; b=GvHU271oWJc7eL
+	2fiJD96OkpTQEwLhlmKLYGSOuvwg8ZD/CGR+hYQgThDQK7fTkgsmYh76CU+l0UtW6Ik1ZY86b8BLX
+	BXxPhCJU9A7u9w7JTNyIBNKOoLT/4ibMGWRVFug1DxL2LodMm+pvy29jAh59yRm1YGH9GjF3DODIP
+	WTItgNAakRm9FpREZMLHJwTu23bBK5jMm5fNcnnelYn0DSIf0hMY1c8BZGpUV3tlNLhb2YDl4ZJH6
+	ullnsGcBAvuQVodr3GaDY6/DRL4gC8dYNopu2Gub29MCHr1n49TajwmG/yTaO1+OftFhQj9w1T27e
+	aVwIiuSCnz9XM4tAMTQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mXjr8-00AUe1-7y; Tue, 05 Oct 2021 12:47:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1mXkjS-00AcAz-Dt; Tue, 05 Oct 2021 13:43:46 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mXjr3-00AUdT-Tm
- for linux-riscv@lists.infradead.org; Tue, 05 Oct 2021 12:47:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1633438053; x=1664974053;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=rtOgFxv248aHnudc9P8NHBMQuRm4FEulRAy0GmWhQmE=;
- b=iaVbLxqHVENAHOo7/8zceJxemkxWmhO0ZrGCIWMwM+lxPTcdShLVxtOn
- 2wuE6K8aE/OZ1qkArURzb/zkFXaEb/+GKVwjZUfhDx+p7JUmVT/1DDYWM
- SLNUEdxsw0NTq9Cs+C53pf381nJignuL8Qjo/y0NcGO1dZM0ImPGBMC1A
- WcW3E/H84taJZom4nuJk+v6cMS+p2WuuSx/1P9kuEZ0qrpozf9BmQNP1N
- FLXVRrlUCuRnytxzG9JCyYYZYlHV8Il3ZnxQsgNFYe6AkgoLm4I7gX6QA
- 6IMeTOmSFst812lM+/3teFH7dhYf5tgzxFaEqgLjifwePFBZU7FU4lWXG w==;
-IronPort-SDR: oLKfLHW5ETXMZ+ImHNm37CkVbxq53LeBGclTQOr/ViIYmPoGI2kdOxT3GRlLq7eWqFqSVe1g1K
- 14X2ti6G4levw7ORp/t9XmdyOFZwXXr0eqw7En+xteaXlat3gWCdwosusQDKdJ38AHu+BJ3xi5
- W2G7uptVl6TuhnMQkYF+f+nUgF6MwlE335xKVOBYDBN7p7MjyRUZgjQ1LNC7NEdWQ33YNpDcsb
- uzbjsOE7+6/Rl8lIcuH+njxLnsBs5LzMZxQxFsuNMw0V8lJsOamTgP3XmkYbEC3l44TJpranlw
- lhqCesdW5zqv9TsFc5MlrUNC
-X-IronPort-AV: E=Sophos;i="5.85,348,1624345200"; d="scan'208";a="138515803"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 05 Oct 2021 05:47:33 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.14; Tue, 5 Oct 2021 05:47:32 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2176.14 via
- Frontend Transport; Tue, 5 Oct 2021 05:47:30 -0700
-From: <conor.dooley@microchip.com>
-To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
- <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
- <linux-riscv@lists.infradead.org>, <j.neuschaefer@gmx.net>,
- <sfr@canb.auug.org.au>
-CC: <cyril.jean@microchip.com>, <daire.mcnamara@microchip.com>,
- <atish.patra@wdc.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH] soc: add polarfire soc system controller
-Date: Tue, 5 Oct 2021 13:47:43 +0100
-Message-ID: <20211005124743.7841-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.33.0
+ id 1mXkjO-00Ac9j-Ts
+ for linux-riscv@lists.infradead.org; Tue, 05 Oct 2021 13:43:45 +0000
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id BDDA83F048
+ for <linux-riscv@lists.infradead.org>; Tue,  5 Oct 2021 13:43:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1633441414;
+ bh=MQr5JvhbeTPXIzpILBDcG4ZyoASVQMlOTqtjeshmuUA=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=Sknu0kSqtQX5rf0ecDGf3CxN8oOu7Re7TXRXvJrb+7Yos0py+Q6TDoX57UeJCpvVI
+ yofsTFypeYOzhqjWsiJdsimY2ehi0vJmY/U19qX7+BQ7firQsmI0dK+/sKLNqjyB2v
+ cty0jFNpE36hwHpwyP+kBoMwW4+bpLhqSlUB6xZpgECAKfGn66Ukf1OUIIm7PaZH0L
+ 0HLMVcNb/3RzA7+k3oVyneOpRjG+mpBiWY+HKfcFxvughtnzpuTqLANe3m+AO2YPo4
+ rugdzTnHNXgIIdsKFYl3AC9GV7zXlPZAYZRyDRDWPSGS1V+gC/I9QlFf8dVvfSchKP
+ sBRvWcFE7gmDw==
+Received: by mail-ed1-f70.google.com with SMTP id
+ 14-20020a508e4e000000b003d84544f33eso20709419edx.2
+ for <linux-riscv@lists.infradead.org>; Tue, 05 Oct 2021 06:43:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=MQr5JvhbeTPXIzpILBDcG4ZyoASVQMlOTqtjeshmuUA=;
+ b=6j4/uRvSfZZzg3pXH1lau/ERi640RXPzeSPFAVIPLbVU9KUyODteYPZ4Aj068+DsvO
+ x3r+BJ+zPQNUdhDBBYnaL1A5I45QqQhDiJhvsCcnXp1PC3W3mxEz1YqzKIZPbYogvao6
+ ct7yfIL2QVWZ8xHXYKyM5jhUrAkyzYQQskMHsI3EfE0j+/h7f0cjXkhIdvIS7d+eUEDI
+ jCVsVQ1VydLQ+2mnagRFeRX5P9DN7rNUx+Zv1Vlnwz/FuO+UoT2Zqwft96x6gaMlOKwM
+ f8dsyjP+8jdT53xWqCsIyGN7HzOPJfaQAk/bSECG1KepDdcLKyhVNKjKSxiNfwD5YGr/
+ kcuQ==
+X-Gm-Message-State: AOAM531j1C5aJNCnZKVFY1oXEzh7avDr0N8OisiIFXbPcJjZenXGUDE4
+ gqI/lZEWPDu0CtlSlMqUesoWz3jj9qiX3mbo5dwWJHApAgegewNdhpO//YGo6yOxo+06i/zKISX
+ gvGs7ZO1on1vxMKtanP8DKtgAwIH1tle+BvOPut2F9hv9bSD4d5ermKdGpjvPTQ==
+X-Received: by 2002:a50:9b06:: with SMTP id o6mr26248168edi.284.1633441414437; 
+ Tue, 05 Oct 2021 06:43:34 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxE45cpl2a+b8XPh2W0hWmXiukiZgAFGqPvSyDY9pDwB6MyC5rWC0zmflwKMSa6IYu1tdvjYgYYnqb8ycx037s=
+X-Received: by 2002:a50:9b06:: with SMTP id o6mr26248152edi.284.1633441414285; 
+ Tue, 05 Oct 2021 06:43:34 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
+ <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+ <CA+zEjCvKaS0sE7paCecMDvqpkw-yLM_QFHdF5pgWTAqeH0JAfA@mail.gmail.com>
+ <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+ <CAEn-LTqVd8z=kpCtWjiPbKuw24NuHLTQxWzw7g34fEJgDYrp8w@mail.gmail.com>
+ <CA+zEjCtQN6c8bikg620PQwoPzJ6T4wGLvzQ413iPs1tCeHif0Q@mail.gmail.com>
+ <CA+zEjCtVxDkg8K0iK32j4KO+Wgt+hTjXD15HdRhNeCV2Sjpckw@mail.gmail.com>
+ <DB9PR10MB4652294AB444536BF57E320A80AE9@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+In-Reply-To: <DB9PR10MB4652294AB444536BF57E320A80AE9@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Tue, 5 Oct 2021 15:43:23 +0200
+Message-ID: <CA+zEjCsf6m8cctHNPBxJczg-J9XC-piAcdtNDO71qmtCtDj9gw@mail.gmail.com>
+Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
+To: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>, 
+ Support Opensource <Support.Opensource@diasemi.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211005_054734_047709_5B385051 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20211005_064343_302024_0E654050 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,198 +110,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Oct 4, 2021 at 5:11 PM Adam Thomson
+<Adam.Thomson.Opensource@diasemi.com> wrote:
+>
+> On 04 October 2021 13:05, Alexandre Ghiti wrote:
+>
+> > > > Today I was looking into OpenBSD DA9063 drivers and they might be
+> > > > doing what you described for the reset.
+> > > >
+> > > > dev/fdt/dapmic.c
+> > > >
+> > > > [..]
+> > > > 241 void
+> > > > 242 dapmic_reset(void)
+> > > > 243 {
+> > > > 244     struct dapmic_softc *sc = dapmic_cd.cd_devs[0];
+> > > > 245     uint8_t reg;
+> > > > 246
+> > > > 247     /* Enable tick alarm wakeup with a one second interval. */
+> > > > 248     reg = dapmic_reg_read(sc, ALARM_MO);
+> > > > 249     reg &= ~ALARM_MO_TICK_TYPE;
+> > > > 250     reg |= ALARM_MO_TICK_WAKE;
+> > > > 251     dapmic_reg_write(sc, ALARM_MO, reg);
+> > > > 252
+> > > > 253     /* Enable tick function. */
+> > > > 254     reg = dapmic_reg_read(sc, ALARM_Y);
+> > > > 255     reg |= ALARM_Y_TICK_ON;
+> > > > 256     dapmic_reg_write(sc, ALARM_Y, reg);
+> > > > 257
+> > > > 258     /* Clear events such that we wake up again. */
+> > > > 259     dapmic_reg_write(sc, EVENT_A, dapmic_reg_read(sc, EVENT_A));
+> > > > 260     dapmic_reg_write(sc, CONTROL_F, CONTROL_F_SHUTDOWN);
+> > > > 261 }
+> > > > [..]
+> > > >
+> > >
+> > > Thanks for the pointer! I have just tested this sequence from the
+> > > u-boot shell, it resets the board correctly. But then if we try to
+> > > power down the board by a long press to the corresponding button on
+> > > the board within 16 seconds, it resets the board: so we cannot
+> > > shutdown the board in the next 16 seconds that follow this sequence.
+> > >
+> > > Maybe that can be resolved by using the one-shot alarm as described by
+> > > Adam, I'll try to find that in the datasheet.
+> >
+> > After configuring the one-shot alarm, I still have those intempestive
+> > reboots if I try to power down the board by a long press within 16
+> > seconds. The only thing I found in the datasheet regarding this timing
+> > is in case of power undervoltage, not sure how this is linked to what
+> > I see.
+> >
+> > @Adam Thomson Any ideas?
+>
+> Nothing immediately springs to mind. Can you confirm this is the nONKEY long
+> press that you're attempting here, which is resetting the board rather than
+> shutting down?
 
-This driver provides an interface for other drivers to access the
-functions of the system controller on the Microchip PolarFire SoC.
+Yes, this is the nONKEY long press that, if done within ~16sec after
+the board is reset using the alarm, resets the board instead of
+shutting it down.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/soc/Kconfig                         |   1 +
- drivers/soc/Makefile                        |   1 +
- drivers/soc/microchip/Kconfig               |  10 ++
- drivers/soc/microchip/Makefile              |   1 +
- drivers/soc/microchip/mpfs-sys-controller.c | 119 ++++++++++++++++++++
- 5 files changed, 132 insertions(+)
- create mode 100644 drivers/soc/microchip/Kconfig
- create mode 100644 drivers/soc/microchip/Makefile
- create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
+>
+> Also, would you able to again provide events and fault log when this unwanted
+> reset occurs, just in case there's anything there to give a clue. Can then
+> discuss internally to see if we can ascertain what might be happening here.
 
-diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-index e8a30c4c5aec..b33142e020e0 100644
---- a/drivers/soc/Kconfig
-+++ b/drivers/soc/Kconfig
-@@ -12,6 +12,7 @@ source "drivers/soc/imx/Kconfig"
- source "drivers/soc/ixp4xx/Kconfig"
- source "drivers/soc/litex/Kconfig"
- source "drivers/soc/mediatek/Kconfig"
-+source "drivers/soc/microchip/Kconfig"
- source "drivers/soc/qcom/Kconfig"
- source "drivers/soc/renesas/Kconfig"
- source "drivers/soc/rockchip/Kconfig"
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index a05e9fbcd3e0..e3be151e391e 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -17,6 +17,7 @@ obj-y				+= ixp4xx/
- obj-$(CONFIG_SOC_XWAY)		+= lantiq/
- obj-$(CONFIG_LITEX_SOC_CONTROLLER) += litex/
- obj-y				+= mediatek/
-+obj-y				+= microchip/
- obj-y				+= amlogic/
- obj-y				+= qcom/
- obj-y				+= renesas/
-diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
-new file mode 100644
-index 000000000000..eb656b33156b
---- /dev/null
-+++ b/drivers/soc/microchip/Kconfig
-@@ -0,0 +1,10 @@
-+config POLARFIRE_SOC_SYS_CTRL
-+	tristate "POLARFIRE_SOC_SYS_CTRL"
-+	depends on POLARFIRE_SOC_MAILBOX
-+	help
-+	  This driver adds support for the PolarFire SoC (MPFS) system controller.
-+
-+	  To compile this driver as a module, choose M here. the
-+	  module will be called mpfs_system_controller.
-+
-+	  If unsure, say N.
-diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
-new file mode 100644
-index 000000000000..14489919fe4b
---- /dev/null
-+++ b/drivers/soc/microchip/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-new file mode 100644
-index 000000000000..3cfee997fa59
---- /dev/null
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -0,0 +1,119 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Microchip PolarFire SoC (MPFS) system controller driver
-+ *
-+ * Copyright (c) 2020 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ *
-+ */
-+
-+#include <linux/slab.h>
-+#include <linux/module.h>
-+#include <linux/interrupt.h>
-+#include <linux/of_platform.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/platform_device.h>
-+#include <soc/microchip/mpfs.h>
-+
-+static DEFINE_MUTEX(transaction_lock);
-+
-+struct mpfs_sys_controller {
-+	struct mbox_client client;
-+	struct mbox_chan *chan;
-+	struct completion c;
-+	u32 enabled;
-+};
-+
-+int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg)
-+{
-+	int ret;
-+
-+	mutex_lock_interruptible(&transaction_lock);
-+
-+	reinit_completion(&mpfs_client->c);
-+
-+	ret = mbox_send_message(mpfs_client->chan, msg);
-+	if (ret >= 0) {
-+		if (wait_for_completion_timeout(&mpfs_client->c, HZ)) {
-+			ret = 0;
-+		} else {
-+			ret = -ETIMEDOUT;
-+			dev_warn(mpfs_client->client.dev, "MPFS sys controller transaction timeout\n");
-+		}
-+	} else {
-+		dev_err(mpfs_client->client.dev,
-+			"mpfs sys controller transaction returned %d\n", ret);
-+	}
-+
-+	mutex_unlock(&transaction_lock);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL(mpfs_blocking_transaction);
-+
-+static void rx_callback(struct mbox_client *client, void *msg)
-+{
-+	struct mpfs_sys_controller *mpfs_client =
-+		container_of(client, struct mpfs_sys_controller, client);
-+
-+	complete(&mpfs_client->c);
-+}
-+
-+static int mpfs_sys_controller_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mpfs_sys_controller *mpfs_client;
-+
-+	mpfs_client = devm_kzalloc(dev, sizeof(*mpfs_client), GFP_KERNEL);
-+	if (!mpfs_client)
-+		return -ENOMEM;
-+
-+	mpfs_client->client.dev = dev;
-+	mpfs_client->client.rx_callback = rx_callback;
-+	mpfs_client->client.tx_block = 1U;
-+
-+	mpfs_client->chan = mbox_request_channel(&mpfs_client->client, 0);
-+	if (IS_ERR(mpfs_client->chan))
-+		return dev_err_probe(dev, PTR_ERR(mpfs_client->chan),
-+				     "Failed to get mbox channel\n");
-+
-+	init_completion(&mpfs_client->c);
-+
-+	platform_set_drvdata(pdev, mpfs_client);
-+
-+	dev_info(&pdev->dev, "Registered MPFS system controller driver\n");
-+
-+	return 0;
-+}
-+
-+struct mpfs_sys_controller *
-+mpfs_sys_controller_get(struct device_node *mss_node)
-+{
-+	struct platform_device *pdev = of_find_device_by_node(mss_node);
-+
-+	if (!pdev)
-+		return NULL;
-+
-+	return platform_get_drvdata(pdev);
-+}
-+EXPORT_SYMBOL(mpfs_sys_controller_get);
-+
-+static const struct of_device_id mpfs_sys_controller_of_match[] = {
-+	{.compatible = "microchip,polarfire-soc-sys-controller", },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, mpfs_sys_controller_of_match);
-+
-+static struct platform_driver mpfs_sys_controller_driver = {
-+	.driver = {
-+		.name = "mpfs-sys-controller",
-+		.of_match_table = mpfs_sys_controller_of_match,
-+	},
-+	.probe = mpfs_sys_controller_probe,
-+};
-+module_platform_driver(mpfs_sys_controller_driver);
-+
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_DESCRIPTION("MPFS system controller driver");
--- 
-2.33.0
+FAULT_LOG = 0x60
+EVENT_A = 0x12
+EVENT_B to EVENT_D = 0
 
+But I'm unsure of those values since they are the same after the reset
+triggered by the one-shot alarm *and* if I clear EVENT_A, the
+intempestive reboot does not appear!
+
+Thanks,
+
+Alex
 
 _______________________________________________
 linux-riscv mailing list
