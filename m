@@ -2,84 +2,83 @@ Return-Path: <SRS0=Z6yX=OZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E28C3C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 01:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65820C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 01:56:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C4DD6154B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 01:04:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9C4DD6154B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id EB0AB610A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 01:56:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EB0AB610A3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ellerman.id.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=+aoGNLB8haHCrZqgptwKbKHZJeHOcmDveGqsPB/DVy4=; b=sKmwpl/Ubzkat82Mx6J8WG150d
-	WPzipwXDCflx1bNQ+FfMaFbG0HNvc7b8NWUaam156vYtENm6BZAWQBa8rHmotoG19hvdX1EcL8dxK
-	uaLdrjDIZWNn9sie57be2BNrPF9MVMK9zljMLSQHwOSwXEAnQmqoHD+TB0t747fPLqFR5hfHCx8gd
-	90eDJzJFem3HDNmJu2tbH7mne4TCmgdQjfoawqXjlKBXBs/nHWzWUImN64sWjbyTH+0DvNti9wvxl
-	PpOBdQK1CJNgSg78EaxUcgJoo9zKyP6iIhDMBv4vFVqJvOICBAM9+LxQ61vi9tybL7mtsgWlDHQsR
-	kXo34cEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3ls3aMc0oEW7tTGH2wWHWPrQa7bjfg9EFpWmoED4/Cg=; b=WONLnv/qGEsSDv
+	L0vZGDqcwKnrYmHUZaCaVltRZ3I4y411HMUO5bHL/IpniKK6CwuORrJkf4afoA+YV5uxE3kp6cBQL
+	d41N2hFK27Wep4DnGHKlrLbf4l21KZ2Z3/jSA9DmWN2V1FPTlFyj0QKS8Sn9uMekpRpUXhA+uu6g0
+	P826SEQ6dmGct3kQYsAtUb+ycjC/aiTQ8Z8UTyarlvh9Euw2jUED/PVQEUkWnu7EP5vsD965Bqjaf
+	4mTnDpchRTqkO0scyysc816w2BNTB2y15O77+dX6TX/v3ggSjhvB+z2++d9COPH2FCt7uNMtzzZ32
+	+cSEEtpLtTUb0oBRjBUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mXYsc-008Waw-Pt; Tue, 05 Oct 2021 01:04:26 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1mXZgb-008aJs-8y; Tue, 05 Oct 2021 01:56:05 +0000
+Received: from gandalf.ozlabs.org ([2404:9400:2:0:216:3eff:fee2:21ea])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mXYsZ-008WaT-LA
- for linux-riscv@lists.infradead.org; Tue, 05 Oct 2021 01:04:25 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id q81so1558616qke.5
- for <linux-riscv@lists.infradead.org>; Mon, 04 Oct 2021 18:04:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=oebmTSxmq+zU8Utjs0yaAqanKgzPEsj+GJBxRd8logo=;
- b=V2iUDB19iERQnJXZioGUMJdM/uynjFuRplbo7a5cEjDjxHwD2V8DwueeGPziYpbB71
- Bi9liJ6HB2HHZX6lxu+oHLksFzHeBVlU+X0Nd6OowCRe7v7npgTonODB4rqmB3qVEqw/
- jPGpQidXVV8GXapY/RU2rL3Fyjj1axEjXQnoedoWQNonB6JXkWMVrpKM+o5p3m0Ycs2Q
- nkodGtZjkgnRUL5jEe95IomrgwwUY8EkQtpglV6mKWZOmXwzD/nwEuLhYOuXNG7rGVeN
- nYQTN8FwNRwge3tobOp0kDWk3Aj3ml6KVwepwzNcWTatc7yS9ioeSUidAKzg2Ffmq+zg
- vILw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=oebmTSxmq+zU8Utjs0yaAqanKgzPEsj+GJBxRd8logo=;
- b=bG2CWjfGXvEI91nASftJNMUmRYqgO61BJcEW3XOeLVRqjO3jjudvGMtFwkdBDy2OWm
- /wEBkQGxmOnsS67eCT1HyUx5HopPhcPXbzGA2h7KcgniElHf8/UnTPAyg7ah4kjiPgTQ
- +u+4njXMQGmOQ7Dj6MZwYYBc/uyiUZS+fWCaPT4SawyOVG2Pwzqn4Gq42ca5yDTsziHa
- 4BT7THBlkXFlrzoD4LpgpzY+uBzla0n2NrAfD3Wjnm/6BMgC9qnfjFggUViZcndTarso
- 5mz6pg9w9+RMEviwdBzL77xq8UY7xei2IS5dtiTkaxW8ioTY9H8pbVbwB6/2RPcFV4MG
- fW4Q==
-X-Gm-Message-State: AOAM530hlOVmitOIr8bBvDquTa2O8/xtclpIzZZdIxFgzGMtr4kpesHC
- stXBS1LiA5mBnKkhmZAr9KYhvg==
-X-Google-Smtp-Source: ABdhPJxkgUQGetwYGwiMjOMe+4nfq0UAIiYMxQuw9rxEaWWsEjAU6KlSu+C3bWRK9Yx/c927Qw6f0Q==
-X-Received: by 2002:a37:a40e:: with SMTP id n14mr12925505qke.81.1633395862031; 
- Mon, 04 Oct 2021 18:04:22 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c9sm10444214qte.16.2021.10.04.18.04.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 04 Oct 2021 18:04:21 -0700 (PDT)
-Date: Mon, 04 Oct 2021 18:04:21 -0700 (PDT)
-X-Google-Original-Date: Mon, 04 Oct 2021 18:04:17 PDT (-0700)
-Subject: Re: [PATCH v2 0/2] riscv: improve unaligned memory accesses
-In-Reply-To: <20210918221713.289f63bb@xhacker>
-CC: wangkefeng.wang@huawei.com, chenhuang5@huawei.com,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- Darius Rad <darius@bluespec.com>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang3@mail.ustc.edu.cn
-Message-ID: <mhng-3469a0a8-a337-4b56-8e4f-b5a8bc47c4e9@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1mXZgO-008ZnA-B3; Tue, 05 Oct 2021 01:55:53 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 4HNgdx17Hfz4xbX;
+ Tue,  5 Oct 2021 12:55:33 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+ s=201909; t=1633398938;
+ bh=gYlu6Qv+8m83iP3aG7acEoyr8D3DPbZlTHZ8jerl4Jw=;
+ h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+ b=oI6DgPAmrS6eid+iQKQamhFupmXA2CScxqKHRX+CJjC8/0fF1BV9+LamvP9D9eSE9
+ npjDtMfC1MNcKzde3tkhkeuyG4S9CqgWI+LezmFwIFfQSxbUaY4NuejzURphht7FGp
+ ek1oZ95ogFF9mgsmHq93KfvqDA7s9lg+SefS7Uu4jQH2xweVqk/OBZLY5w4Y8cz5FF
+ jyvaNEhNFclinElquxf3fKJ2na1IGJxwQje4Hg2exFycrlUGHsDHKTaqoiruy7a9vc
+ DhFa9QFOiNLbuIgQmTX/jgFIHs3lgRjeXXAezx290U6sPOlbkpQN1FwNvR9TVFpWGR
+ ggckHw/xPBG0Q==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Kees Cook <keescook@chromium.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Keith Packard <keithpac@amazon.com>,
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Benjamin
+ Herrenschmidt <benh@kernel.crashing.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Paul Mackerras <paulus@samba.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@de.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Peter Zijlstra
+ <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, Linus Torvalds
+ <torvalds@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, Linux ARM
+ <linux-arm-kernel@lists.infradead.org>, "open list:LINUX FOR POWERPC
+ (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, "open list:S390"
+ <linux-s390@vger.kernel.org>
+Subject: Re: [RFC PATCH 4/8] powerpc: add CPU field to struct thread_info
+In-Reply-To: <202109301045.15DDDA0B@keescook>
+References: <20210914121036.3975026-1-ardb@kernel.org>
+ <20210914121036.3975026-5-ardb@kernel.org>
+ <CAMj1kXEojbQbNzCP39KT4EzFAyW3J1Tfm_stCZ+fGo8_SO90PA@mail.gmail.com>
+ <87ee99lii7.fsf@mpe.ellerman.id.au> <87pmst1rn9.fsf@mpe.ellerman.id.au>
+ <CAMj1kXFXtbD3=L+QvCnwbyFr-qbWivZ0wRGT0N4LNxANPD8x4g@mail.gmail.com>
+ <878rzf0zmb.fsf@mpe.ellerman.id.au> <202109301045.15DDDA0B@keescook>
+Date: Tue, 05 Oct 2021 12:55:31 +1100
+Message-ID: <87ilycqlpo.fsf@mpe.ellerman.id.au>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211004_180423_743954_62A266D7 
-X-CRM114-Status: GOOD (  33.52  )
+X-CRM114-CacheID: sfid-20211004_185552_631652_F5719546 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +90,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAxOCBTZXAgMjAyMSAwNzoxNzoxMyBQRFQgKC0wNzAwKSwganN6aGFuZzNAbWFpbC51
-c3RjLmVkdS5jbiB3cm90ZToKPiBPbiBTYXQsIDE4IFNlcCAyMDIxIDA5OjE0OjA1ICswODAwCj4g
-S2VmZW5nIFdhbmcgPHdhbmdrZWZlbmcud2FuZ0BodWF3ZWkuY29tPiB3cm90ZToKPgo+PiBPbiAy
-MDIxLzkvMTcgMjI6MTQsIEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4+ID4gT24gVGh1LCAxNiBTZXAg
-MjAyMSAxMzowODo1MyArMDAwMAo+PiA+IENoZW4gSHVhbmcgPGNoZW5odWFuZzVAaHVhd2VpLmNv
-bT4gd3JvdGU6Cj4+ID4gIAo+PiA+PiBUaGUgcGF0Y2hzZXQgaW1wcm92ZXMgUklTQ1YgdW5hbGln
-bmVkIG1lbW9yeSBhY2Nlc3Nlcywgc2VsZWN0cwo+PiA+PiBIQVZFX0VGRklDSUVOVF9VTkFMSUdO
-RURfQUNDRVNTIGlmIENQVV9IQVNfTk9fVU5BTElHTkVEIG5vdAo+PiA+PiBlbmFibGVkIGFuZCBz
-dXBwb3J0cyBEQ0FDSEVfV09SRF9BQ0NFU1MgdG8gaW1wcm92ZSB0aGUgZWZmaWNpZW5jeQo+PiA+
-PiBvZiB1bmFsaWduZWQgbWVtb3J5IGFjY2Vzc2VzLgo+PiA+Pgo+PiA+PiBJZiBDUFUgZG9uJ3Qg
-c3VwcG9ydCB1bmFsaWduZWQgbWVtb3J5IGFjY2Vzc2VzIGZvciBub3csIHBsZWFzZQo+PiA+PiBz
-ZWxlY3QgQ09ORklHX0NQVV9IQVNfTk9fVU5BTElHTkVELiBGb3IgSSBkb24ndCBrbm93IHdoaWNo
-IENQVQo+PiA+PiBkb24ndCBzdXBwb3J0IHVuYWxpZ25lZCBtZW1vcnkgYWNjZXNzZXMsIEkgZG9u
-J3QgY2hvb3NlIHRoZQo+PiA+PiBDT05GSUcgZm9yIHRoZW0uICAKPj4gPiBUaGlzIHdpbGwgYnJl
-YWsgdW5pZmllZCBrZXJuZWwgSW1hZ2UgZm9yIHJpc2N2LiBPYnZpb3VzbHksIHdlIHdpbGwgaGF2
-ZQo+PiA+IHR3byBpbWFnZXMgZm9yIGVmZmljaWVudCB1bmFsaWduZWQgYWNjZXNzIHBsYXRmb3Jt
-cyBhbmQgbm9uLWVmZmljaWVudAo+PiA+IHVuYWxpZ25lZCBhY2Nlc3MgcGxhdGZvcm1zLiBJTUhP
-LCB3ZSBtYXkgbmVlZCBhbHRlcm5hdGl2ZSBtZWNoYW5pc20gb3IKPj4gPiBzb21ldGhpbmcgZWxz
-ZSB0byBkeW5hbWljYWxseSBlbmFibGUgcmVsYXRlZCBjb2RlIHBhdGguICAKPj4gCj4+IGl0IHdv
-bid0IGJyZWFrIHVuaWZpZWQga2VybmVsIEltYWdlIGZvciByaXNjdiwgaWYgb25lIFNvQyBjaG9v
-c2UKPj4gCj4+IENQVV9IQVNfTk9fVU5BTElHTkVELCB0aGUgc2luZ2xlIEltYWdlIHdvbid0IHN1
-cHBvcnQgdW5hbGlnbmVkIG1lbW9yeQo+Cj4gdGhlICJ1bmlmaWVkIiBtZWFucyB0aGUga2VybmVs
-IEltYWdlIGhhcyB0byBzdXBwb3J0IGFsbCBSVjY0R0Mgb3IgUlYzMkdDIFNvQ3MuCj4gVG8gbWFr
-ZSB0aGUgSW1hZ2Ugd29ya3MgZm9yIGJvdGggZWZmaWNpZW50IHVuYWxpZ25lZCBhY2Nlc3MgYW5k
-IGluZWZmaWNpZW50Cj4gdW5hbGlnbmVkIGFjY2VzcywgSSB0aGluayB3ZSdkIGJldHRlciBtYWtl
-ICJpbmVmZmljaWVudCB1bmFsaWduZWQgYWNjZXNzIgo+IGRlZmF1bHQgYmVoYXZpb3IsIHRoZSB1
-c2UgYWx0ZXJuYXRpdmUgZXRjLiB0ZWNoIHRvIHBhdGNoIHJlbGF0ZWQgY29kZSBwYXRoCj4gZm9y
-IGVmZmljaWVudCB1bmFsaWduZWQgYWNjZXNzLgoKSSBhZ3JlZSwgYXQgbGVhc3QgdW50aWwgd2Ug
-aGF2ZSBhIHN1ZmZpY2llbnQgYnJlYWR0aCBvZiBpbXBsZW1lbnRhdGlvbnMgCnRvIGtub3cgd2hl
-dGhlciBlZmZpY2llbnQgdW5hbGlnbmVkIGFjY2Vzc2VzIGFyZSBnb2luZyB0byBiZSBwb3NzaWJs
-ZS4KClRoZXJlIHdhcyBhbHNvIGEgcXVlc3Rpb24gYWJvdXQgd2hhdCBleGFjdGx5IHRoZSBDOTA2
-IHVuYWxpZ25lZCBhY2Nlc3MgCmhhbmRsaW5nIGxvb2tzIGxpa2Ugb24gR0NDLCBhcyB3ZWxsLiAg
-RG8geW91IGd1eXMgaGF2ZSBhbnkgc29ydCBvZiAKcGlwZWxpbmUgZGVzY3JpcHRpb24/Cgo+Cj4K
-Pj4gCj4+IGFjY2Vzc2VzLCBpbmRlZWQsIGl0IGRlcGVuZHMgb24gdGhlIENPTkZJRywgYW5kIG5v
-dywgYXJtL3Bvd2VycGMvbTY4ayBoYXMKPgo+IGxpbnV4IERpc3RyaWJ1dGlvbnMgZG9lc24ndCBo
-YXZlIGVub3VnaCBiYWNrZ3JvdW5kIG9mIHdoaWNoIGNvbmZpZyBvcHRpb25zCj4gbXVzdCBiZSBl
-bmFibGVkLgoKSSB3b3VsZG4ndCBiZSBvcHBvc2VkIHRvIGFkZGluZyB0aGlzIGFzIGEgS2NvbmZp
-ZyBvcHRpb24sIHNvbWV0aGluZyAKYWxvbmcgdGhlIGxpbmVzIG9mICJ0dW5lIGZvciBmYXN0IHVu
-YWxpZ25lZCBhY2Nlc3NlcyIgb3Igd2hhdGV2ZXIuICBJIApnZXQgdGhhdCB3ZSdyZSBzb3J0IG9m
-IGp1c3QgcHVudGluZyB0aGUgcHJvYmxlbSB0byBkaXN0cm9zLCBidXQgd2UgY291bGQgCmFkZCBh
-IEtjb25maWcuc29jcy1saWtlICh0aG91Z2ggdGhhdCBpcyBhIG1lc3MsIHNvIHdlJ2QgbmVlZCBz
-b21ldGhpbmcgCnNhbmVyKSB0dW5lIHRhcmdldCAod2hpY2ggaXMgbWF5YmUgY291cGxlZCB0byAt
-bXR1bmUsIGFzIHdlbGw/KS4gIFRoYXQgCndvdWxkIGEgbGVhc3QgbGV0IHVzIGdpdmUgdXNlcnMg
-dGhlIG9wdGlvbiBvZiBtYWtpbmcgdGhpcyBjaG9pY2UsIGFuZCAKd2hpbGUgaXQnZCBzdGlsbCBs
-aWtlbHkgYmUgYmVzdCB0byBzZXQgdGhpcyB0byBzbG93IHVuYWxpZ25lZCBhY2Nlc3NlIHRvIApz
-dGFydCB3ZSBtYXkgYmUgYWJsZSB0byBtb3JlIGVhc2lseSBzZWUgd2hhdCBkaXN0cm9zIGNob29z
-ZSBhdCB0aGlzIApwb2ludC4KCj4KPj4gCj4+IHNpbWlsYXIgY29uZmlndXJhdGlvbi4KPgo+IEkg
-aGF2ZSBsaXR0bGUga25vd2xlZGdlIG9mIHBvd2VycGMgb3IgbTY4aywgYnV0IHRoZXJlIGFyZSBz
-ZXJ2ZXJhbCBkaWZmZXJlbnQKPiBkZWZjb25maWcgZmlsZXMgZm9yIGFybSwgZm9yIGV4YW1wbGUg
-bXVsdGlfdjdfZGVmY29uZmlnIGFuZCBtdWx0aV92NV9kZWZjb25maWcuCj4gVGhlIHByZXZpb3Vz
-IHY3IHZlcnNpb24gZW5hYmxlcyBIQVZFX0VGRklDSUVOVF9VTkFMSUdORURfQUNDRVNTIHdoaWxl
-Cj4gdGhlIGxhdGVyIHY1IGRvZXNuJ3QuIFdpbGwgeW91IHBlcnN1YWRlIHJpc2N2IG1haW50YWlu
-ZXJzIHRvIGFjY2VwdCBvbmUgbW9yZQo+IGRlZmNvbmZpZyBmaWxlPwoKSSdtIG5vdCBzdXBlciB3
-b3JyaWVkIGFib3V0IGhhdmluZyBtb3JlIGRlZmNvbmZpZ3MsIGJ1dCBJJ20gbm90IHJlYWxseSAK
-c3VyZSBpdCdzIHdvcnRoIGl0IGZvciB0aGlzIG9wdGlvbiBhbG9uZS4KCj4KPiBUaGFua3MKPgo+
-PiAKPj4gWWVzLMKgIGl0IGNvdWxkIGJlIGFuIG9wdGltaXphdGlvbiB2aWEgYWx0ZXJuYXRpdmUg
-bWVjaGFuaXNtIG9yIHNvbWV0aGluZyAKPj4gZWxzZSB0bwo+PiAKPj4gZHluYW1pY2FsbHkgZW5h
-YmxlIHJlbGF0ZWQgY29kZSBwYXRoIGxhdGVyLgo+PiAKPj4gPgo+PiA+IFJlZ2FyZHMKPj4gPiAg
-Cj4+ID4+IENoYW5nZXMgc2luY2UgdjE6Cj4+ID4+ICAgLSBBcyBEYXJpdXMgUmFkIGFuZCBKaXNo
-ZW5nIFpoYW5nIG1lbnRpb25lZCwgc29tZSBDUFVzIGRvbid0IHN1cHBvcnQKPj4gPj4gICAgIHVu
-YWxpZ25lZCBtZW1vcnkgYWNjZXNzZXMsIGFkZCBhbiBvcHRpb24gZm9yIENQVXMgdG8gY2hvb3Nl
-IGl0IG9yIG5vdC4KPj4gPj4KPj4gPj4gQ2hlbiBIdWFuZyAoMik6Cj4+ID4+ICAgIHJpc2N2OiBz
-dXBwb3J0IEhBVkVfRUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NFU1MKPj4gPj4gICAgcmlzY3Y6IFN1
-cHBvcnQgRENBQ0hFX1dPUkRfQUNDRVNTCj4+ID4+Cj4+ID4+ICAgYXJjaC9yaXNjdi9LY29uZmln
-ICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKysrKwo+PiA+PiAgIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vd29yZC1hdC1hLXRpbWUuaCB8IDM3ICsrKysrKysrKysrKysrKysrKysrKysrKysKPj4g
-Pj4gICAyIGZpbGVzIGNoYW5nZWQsIDQyIGluc2VydGlvbnMoKykKPj4gPj4gIAo+PiA+Cj4+ID4g
-Lgo+PiA+ICAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Kees Cook <keescook@chromium.org> writes:
+> On Thu, Sep 30, 2021 at 08:46:04AM +1000, Michael Ellerman wrote:
+>> Ard Biesheuvel <ardb@kernel.org> writes:
+>> > On Tue, 28 Sept 2021 at 02:16, Michael Ellerman <mpe@ellerman.id.au> wrote:
+>> >>
+>> >> Michael Ellerman <mpe@ellerman.id.au> writes:
+>> >> > Ard Biesheuvel <ardb@kernel.org> writes:
+>> >> >> On Tue, 14 Sept 2021 at 14:11, Ard Biesheuvel <ardb@kernel.org> wrote:
+>> >> >>>
+>> >> >>> The CPU field will be moved back into thread_info even when
+>> >> >>> THREAD_INFO_IN_TASK is enabled, so add it back to powerpc's definition
+>> >> >>> of struct thread_info.
+>> >> >>>
+>> >> >>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>> >> >>
+>> >> >> Michael,
+>> >> >>
+>> >> >> Do you have any objections or issues with this patch or the subsequent
+>> >> >> ones cleaning up the task CPU kludge for ppc32? Christophe indicated
+>> >> >> that he was happy with it.
+>> >> >
+>> >> > No objections, it looks good to me, thanks for cleaning up that horror :)
+>> >> >
+>> >> > It didn't apply cleanly to master so I haven't tested it at all, if you can point me at a
+>> >> > git tree with the dependencies I'd be happy to run some tests over it.
+>> >>
+>> >> Actually I realised I can just drop the last patch.
+>> >>
+>> >> So that looks fine, passes my standard quick build & boot on qemu tests,
+>> >> and builds with/without stack protector enabled.
+>> >>
+>> >
+>> > Thanks.
+>> >
+>> > Do you have any opinion on how this series should be merged? Kees Cook
+>> > is willing to take them via his cross-arch tree, or you could carry
+>> > them if you prefer. Taking it via multiple trees at the same time is
+>> > going to be tricky, or take two cycles, with I'd prefer to avoid.
+>> 
+>> I don't really mind. If Kees is happy to take it then that's OK by me.
+>> 
+>> If Kees put the series in a topic branch based off rc2 then I could
+>> merge that, and avoid any conflicts.
+>
+> I've created:
+>
+> git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git for-next/thread_info/cpu
+>
+> it includes a --no-ff merge commit, which I'm not sure is desirable? Let
+> me know if I should adjust this, or if Linus will yell about this if I
+> send him a PR containing a merge commit? I'm not sure what's right here.
+
+It looks good to me.
+
+I don't think Linus will be bothered about that merge. It has useful
+information, ie. explains why you're merging it and that arch
+maintainers have acked it, and quotes Ard's cover letter.
+
+cheers
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
