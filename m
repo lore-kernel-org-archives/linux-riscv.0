@@ -2,80 +2,88 @@ Return-Path: <SRS0=Z6yX=OZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BEAFC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 09:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCC8FC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 12:14:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AA3E5613B5
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 09:18:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AA3E5613B5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=maquefel.me
+	by mail.kernel.org (Postfix) with ESMTPS id 8A68461186
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Oct 2021 12:14:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8A68461186
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tgu+Q6yEhFtrxokvJ5LOc3hZsWcH3xoyGUJpV5I5n1s=; b=N+GuZiYEpyMiNE
-	Inj2wDI9TCvD98GBaN5tbhFr3o3czIYE1THi7f9y12bhxIcnv3lEK0HEoQ22vPmkx1kleeHv1H5BQ
-	/OeXU6BOkLkWahl7TI+CzPqLvtuuMryXaEgHN8VcvwRvQ270AxLL6rtoUBWAz9TciPGRGU38qhRC2
-	RjlSTKQ6eQYAMCjlqP+1/AWhP5NT9svoF7c5AcBBZYQkEEFFJLHm6hyfRxq8fHm0uGFf/631WZnVw
-	05Pb7nF3ZLKn8NkMIxhy17PNkrt2KIEgDtsnAyTxwGZLKqzdnokHG5H770QKXBvZ9H/MVxFC6iuIf
-	o7f/wbAhYfv6v0htTCxA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:MIME-Version:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XeGWMG0EsBsCLOeVDMOzhW3xp6ZUJ2RLjPJ/WIKdjXc=; b=KQW1+8WPVROvBE
+	3OH/wkH97IsZ9ExJ6AF4bQN+/Iu/QNEP5aJMBI+3mNUKDhpQ1c9R7PVA8+PItmea9BaI1JFrRGz4v
+	7KHZc5gOYmWE0DiCaPTXaeYkZ4mlqj9jA6SeorLdt3UiUjwm3KzCcyKM8uRHiBW/LvVMoH7SL/bia
+	xSalnHORQKptk4D/KWLzS79Q9T1uMTo1sadWbmOK1Ob5P2b4BGC+idwnsnZlP9y9l3oOwaNUBGAlG
+	vXF9bMLKsXGa7xlexr5DTZaFUAN2Oxauzc/x4yxlUdvO76rFGIM87lrTRmGoCF0kcXXCKAdgR5muZ
+	Kqvwp20g2x+cmwHzg/7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mXgaI-009jiz-OU; Tue, 05 Oct 2021 09:18:02 +0000
-Received: from forward500o.mail.yandex.net ([37.140.190.195])
+	id 1mXjKZ-00AJTs-5g; Tue, 05 Oct 2021 12:13:59 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mXgaD-009jel-Ar
- for linux-riscv@lists.infradead.org; Tue, 05 Oct 2021 09:18:00 +0000
-Received: from myt5-6c0659e8c6cb.qloud-c.yandex.net
- (myt5-6c0659e8c6cb.qloud-c.yandex.net
- [IPv6:2a02:6b8:c12:271e:0:640:6c06:59e8])
- by forward500o.mail.yandex.net (Yandex) with ESMTP id A206F941E36;
- Tue,  5 Oct 2021 12:17:48 +0300 (MSK)
-Received: from myt5-ca5ec8faf378.qloud-c.yandex.net
- (2a02:6b8:c12:2514:0:640:ca5e:c8fa [2a02:6b8:c12:2514:0:640:ca5e:c8fa])
- by myt5-6c0659e8c6cb.qloud-c.yandex.net (mxback/Yandex) with ESMTP id
- IyV6tEzelD-HkDqMhNI; Tue, 05 Oct 2021 12:17:48 +0300
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail;
- t=1633425468; bh=CrnGMerQ4LBYjjGbgeqFgGHVtZrQ+QTtn5a0VX0cO1Y=;
- h=In-Reply-To:Message-ID:Subject:To:From:References:Date:Cc;
- b=dehZ7uZt+fO6YaaLE03MQykhBGAWbnTmJAz787q5v+kP+tnjCX9x7H9RnogO2XnQp
- o2LRZpnAlGHdRWJteqIyL14dh5xgLy2vRi3CnyXYsauaUBuFMzC+aXli5//Spgpk63
- AQfi00eYfDiMTtzwMWrmEkxl0sCLVfek9C7+wa9k=
-Authentication-Results: myt5-6c0659e8c6cb.qloud-c.yandex.net;
- dkim=pass header.i=@maquefel.me
-Received: by myt5-ca5ec8faf378.qloud-c.yandex.net (smtp/Yandex) with ESMTPS id
- 43frcM9OPL-HjPCRD6R; Tue, 05 Oct 2021 12:17:46 +0300
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (Client certificate not present)
-Date: Tue, 5 Oct 2021 12:17:44 +0300
-From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: Atish Patra <atish.patra@wdc.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Anup Patel <anup.patel@wdc.com>, Ard
- Biesheuvel <ardb@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>,
- devicetree@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, Heinrich
- Schuchardt <xypron.glpk@gmx.de>, Jiri Olsa <jolsa@redhat.com>, John Garry
- <john.garry@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, Vincent Chen
- <vincent.chen@sifive.com>
-Subject: Re: [v3 00/10] Improve RISC-V Perf support using SBI PMU and
- sscofpmf extension
-Message-ID: <20211005121744.728385be@redslave.neermore.group>
-In-Reply-To: <20210910192757.2309100-1-atish.patra@wdc.com>
-References: <20210910192757.2309100-1-atish.patra@wdc.com>
-X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ id 1mXjKQ-00AJLj-Dp
+ for linux-riscv@lists.infradead.org; Tue, 05 Oct 2021 12:13:52 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 195CDaMW012088
+ for <linux-riscv@lists.infradead.org>; Tue, 5 Oct 2021 15:13:36 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
+ q=dns/txt; i=@ics.forth.gr; t=1633436011; x=1636028011;
+ h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=AebaI2Opn2KDPkehW8betq17Udp5gRls6N7tILPVKdE=;
+ b=KMDZ/rH7xbXqfOwJ8A7rPVPIT9MNC9dNxDabBtR4M1cDWlKWoam//LqvePaiKJXR
+ H+TPaiyHMTojAsZL5TWy7S9DNal5iUggaf/ARI2GCBxokPs8tyoseTpJTCYNtPSj
+ kzDxzZPJOxVNpsTEPW8A4rLq+LzMDnLKW4zRLtH3Hu01Ftz/v6zKZMqJftZ8xyn6
+ anhYehK7NTsoVnYoDrL1/QKE37D8tRQho+3wPRyiOSdMrMV0wM43eX10tTdwzIo2
+ gF5bwSSF0o87RWootROYfpqu8yEYYJ2rflIuUAsFIuaEby22QBoQwBbYr/L4+/r6
+ 0NY5nSXF7NBBr/s8Z9HUxQ==;
+X-AuditID: 8b5b014d-ba8f670000005d46-88-615c416b4968
+Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ A6.62.23878.B614C516; Tue,  5 Oct 2021 15:13:31 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
 MIME-Version: 1.0
+Date: Tue, 05 Oct 2021 15:13:30 +0300
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: ebiederm@xmission.com, kexec@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ alex@ghiti.fr, rppt@kernel.org, geert+renesas@glider.be, Stephano Cetola
+ <scetola@linuxfoundation.org>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, palmer@dabbelt.com,
+ anup.patel@wdc.com, atish.patra@wdc.com
+Subject: RISC-V: patched kexec-tools on github for review/testing
+Organization: FORTH
+Message-ID: <00c521b5b872b06c9350145c7d39fe7c@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.3.16
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrLLMWRmVeSWpSXmKPExsXSHT1dWTfbMSbRoOWtisWzO19ZLZ58mMhm
+ sWjFdxaL/9ta2C3mzp7EaLH79Fcmi8u75rBZbPvcwmbx8nIPs0X3ymqLI+u3M1nM/rCExYHH
+ 483Llywe905MY/WYeFbXY9OqTjaP/XPXsHtsXlLv8XmTnMfO2w+ZPNoPdDN5TDnUzhLAFcVl
+ k5Kak1mWWqRvl8CVcbvhMXvBZOaK3ysSGxjvMHUxcnJICJhIPFt6Asjm4hASOMYosWvmM3aI
+ hKnE7L2djCA2r4CgxMmZT1i6GDk4mAWsJdr3GICEmQXkJba/ncMMYrMIqEqsnvQYrJVNQFNi
+ /qWDLCAzRQQ+M0l0XGgEmyMs4Cix8t9tMJtfQFji092LrBDzXSReP/rEBrFXReLD7wfsILtE
+ gezNc5UmMPLNQnLFLIQrZiG5YgEj8ypGgcQyY73M5GK9tPyikgy99KJNjOAYYPTdwXh781u9
+ Q4xMHIyHGCU4mJVEeK96RSYK8aYkVlalFuXHF5XmpBYfYpTmYFES5+XVmxAvJJCeWJKanZpa
+ kFoEk2Xi4JRqYMoqv2tkW7Rki6SG4Ifk8oVe59arzCx+dLv9ljCLwqJflRwXl/bwTgvUmxs9
+ e0XIpIP+Mo57Vy/36F/o/nJiejJLaJWm6b3dkWtTvl6XPBGsq7VEIX+W++P/Hq2WswN3xa/w
+ F5sYW295oCZIajPHnb+vjYVsDme8jBKtYuLdnt76npHXckLfgnXSyQp51tHezodazv5QPLaB
+ mTXxgJnz6XTevJmbTBpiZv4LEFaq0pNeFuqvGuB/8fFNqcC13Ov/Zhi8LJivmtakmla3r+vF
+ feXZR1x3Ld2zpmU750k9LobUPuHv3hf2aV6LPSyasWxHffj9si+zbJ5k8bw5EdgbobzlfI+7
+ gr711lWzT4sdUmIpzkg01GIuKk4EALq7jjfwAgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211005_021757_983427_8F8B6F61 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20211005_051350_900450_347BF985 
+X-CRM114-Status: UNSURE (   3.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,93 +96,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Sep 2021 12:27:47 -0700
-Atish Patra <atish.patra@wdc.com> wrote:
+Hello all,
 
-Hello Atish,
+I've uploaded my kexec-tools patches for riscv on github for 
+testing/review before sending them upstream.
+https://github.com/riscv-collab/kexec-tools/tree/riscv
 
-> Perf stat:
-> =========
-> 
-> [root@fedora-riscv riscv]# perf stat -e r8000000000000005 -e
-> r8000000000000007 -e r8000000000000006 -e r0000000000020002 -e
-> r0000000000020004 -e branch-misses -e cache-misses -e
-> dTLB-load-misses -e dTLB-store-misses -e iTLB-load-misses -e cycles
-> -e instructions ./hackbench -pipe 15 process Running with 15*40 (==
-> 600) tasks. Time: 6.578
-> 
->  Performance counter stats for './hackbench -pipe 15 process':
-> 
->              6,491      r8000000000000005      (52.59%) -->
-> SBI_PMU_FW_SET_TIMER 20,433      r8000000000000007      (60.74%) -->
-> SBI_PMU_FW_IPI_RECVD 21,271      r8000000000000006      (68.71%) -->
-> SBI_PMU_FW_IPI_SENT 0      r0000000000020002      (76.55%)
->      <not counted>      r0000000000020004      (0.00%)
->      <not counted>      branch-misses          (0.00%)
->      <not counted>      cache-misses           (0.00%)
->         57,537,853      dTLB-load-misses       (9.49%)
->          2,821,147      dTLB-store-misses      (18.64%)
->         52,928,130      iTLB-load-misses       (27.53%)
->     89,521,791,110      cycles                 (36.08%)
->     90,678,132,464      instructions #    1.01  insn per cycle
-> (44.44%)
-> 
->        6.975908032 seconds time elapsed
-> 
->        3.130950000 seconds user
->       24.353310000 seconds sys
-> 
+Both kexec and kdump were tested on latest rv64 qemu, using for-next 
+branch with this patch applied:
+https://patchwork.kernel.org/project/linux-riscv/patch/20211002122026.1451269-1-mick@ics.forth.gr/
 
-Tested your patch series with qemu and got results as expected:
-
-perf stat -e r8000000000000005 -e r8000000000000007 \
--e r8000000000000006 -e r0000000000020002 -e r0000000000020004 -e
-branch-misses \ -e cache-misses -e dTLB-load-misses -e
-dTLB-store-misses -e iTLB-load-misses \ -e cycles -e instructions
-./hackbench -pipe 15 process
-
-Running with 15*40 (== 600) tasks.nch -pipe 15 process
-Time: 20.027
-
- Performance counter stats for './hackbench -pipe 15 process':
-
-              4896      r8000000000000005
-                            (53.34%) 0      r8000000000000007
-                                                (61.20%) 0
-              r8000000000000006
-                  (68.88%) 0      r0000000000020002
-                                      (76.53%) <not counted>
-              r0000000000020004
-                  (0.00%) <not counted>      branch-misses
-                                                 (0.00%) <not counted>
-                  cache-misses
-                      (0.00%) 48414917      dTLB-load-misses
-                                                (9.87%) 2427413
-              dTLB-store-misses
-                  (19.43%) 46958092      iTLB-load-misses
-                                             (28.58%) 69245163600
-              cycles
-                  (37.09%) 70334279943      instructions              #
-                 1.02  insn per cycle           (45.24%)
-
-      20.895871900 seconds time elapsed
-
-       2.724942000 seconds user
-      18.126277000 seconds sys
-
-perf top/record also works.
-
-Tested-by: Nikita Shubin <n.shubin@yadro.com>
-
-Yours,
-Nikita Shubin
-
-
+Regards,
+Nick
 
 _______________________________________________
 linux-riscv mailing list
