@@ -2,14 +2,14 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1962CC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8312BC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:45:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2FBA61183
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:45:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D2FBA61183
+	by mail.kernel.org (Postfix) with ESMTPS id 51C9061175
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:45:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 51C9061175
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,42 +18,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vIoO1RfSTz5ckgaa3pczU9Hp5eGdFTzrQVhYfvNbcg8=; b=tia7IuxDMh9AjV
-	r2oWNhoeVkgDTG/rRtkcbvuKZWq1l/ehhfffFT87WacMcb9e9hUaMT4d1yB1dsnwiW4UgDMe6FrQE
-	FsxW/lDz5RGoEOeOCDrBvH1yYDLZtr3rHysNrZfLMBh2Z2WnxswdYQSM4DkAwbib4kTJBYjSIFJ5A
-	MMEhA+3r3mXfeRRfogaZa5++GrY+aaR2HcZNvn8AjMLpjNo+Hec1VRdNcph8X7NZij65JXdG3Takm
-	6JpAgPEcwVBZFsZo5BH1OnwxjXZnUTMBgxb1+txynWHK8QFpQWeplzzkhZHlKs53RvBoQbE0vM5AF
-	9XAvW/NpmugOiE1kXGWw==;
+	List-Owner; bh=eSujylSZ/PbL5M/j+Z/cE6mK+8RqorKR6CK1I89nLs8=; b=2dhvovzSE35qX4
+	2B05HorKmTBUcOs3V321XKz97G13Lc8f0n/0C18K/FrZLHMddKcRR4We9RRlqjhQUNrYZ563B+MAV
+	INzJUoPYGaPBvn3fWnwyAfJ96eAoOHIagwhl/LqFrSuNowI8eH6KCoTsrjsK8X/pfWhqrfCs4G7fo
+	EZasjnsVK7wSRnH/CKENkBHOV9HEnF06wBMVe8QxI29CIbBRgSKizQC0TL4rhUAZPnexwRw5GeBuD
+	IXK5sPy1exCVCGrNUJ5JQbx3cdrZTYZPRV0dIASrAx1xcFWEXPSYDboK+c79oglMolrd/NIyp/hlJ
+	lmcJEsrDVtJq0LghGpEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYA2T-00F2nO-R6; Wed, 06 Oct 2021 16:45:05 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+	id 1mYA2z-00F35L-Rn; Wed, 06 Oct 2021 16:45:37 +0000
+Received: from mail-oi1-f169.google.com ([209.85.167.169])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYA1A-00F25N-Bw; Wed, 06 Oct 2021 16:43:45 +0000
-Received: by mail-ot1-f46.google.com with SMTP id
- 77-20020a9d0ed3000000b00546e10e6699so3940791otj.2; 
- Wed, 06 Oct 2021 09:43:43 -0700 (PDT)
+ id 1mYA1B-00F26I-79; Wed, 06 Oct 2021 16:43:46 +0000
+Received: by mail-oi1-f169.google.com with SMTP id s69so4786094oie.13;
+ Wed, 06 Oct 2021 09:43:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=nz2VNzL+ydy4chpa3d7bE/r1R6JeAbCb1Q1l6nn9BO4=;
- b=ohnCMqSr0fdIf2iLQzrnxIw5CKF6dwDa2cnuO6FrX4XtM7Dx1cwSO8/agjFTDfBOCC
- 2I1CpjhgPfBFKCfCuvZmVR3GHCyXwLP2qjglOhHF1B+lV9+HwYJdLs5yblWoTbAnRvVQ
- gQQlp2wWwZLrMlN6E+hVp13ttTs1lXQ81k0q1dKlMLXTJcdrF22zgsT92lr3H4BX2u1K
- gTvh3Hm+HJ++9wGcUfP/TnM1Ur66mBAQeHOLqpICYq4px8A5Ld9TeavS99oWBpQCreW7
- L42bXDF6nu6Lx0sKjNigBgOpmIExArA4xrFVDaj+e7Bowcz8oDW5cjhbtUdHXTlfts/j
- 7zMQ==
-X-Gm-Message-State: AOAM533BjNotIzkXCue2LEJ+yYUL3mKjhCqAj3pz8GPlvc2kHFi4MPK+
- P7wp8JjyH+NwkgA1Zcg3WA==
-X-Google-Smtp-Source: ABdhPJzkVUe2NQ95hrntc6XfGtsZUf11mFfAeFqW0+ilFUDkOjdRegXB0ef4DYKZYBjYmsjM+kfXAg==
-X-Received: by 2002:a9d:6ac7:: with SMTP id m7mr20566678otq.49.1633538622946; 
- Wed, 06 Oct 2021 09:43:42 -0700 (PDT)
+ bh=CN2tRnfV0nmrSbuDbyHoypag3neEaofRCNv6xL7Eiog=;
+ b=nPBBNZkw5USLBYw+mFWTSqWC14IDfYJ4+U2sr+EOJqX/6yPkoij5YNvJfN/FmT7vBa
+ XQPa5p9N/aUt7QvFIOOk/Oy84PvwBMHMtR5DP/o5hgrmiN4IeMm877y2vFEkEI2hMfet
+ 3ihCxPM+ZsNr8Vbvch+ufIONz2hF/XXhzDXjHT3eVyL5JUF68Va9asy/UX7/fyF+ibcp
+ 5b+8NrzBlCaYfDEnHXsZH+cCALu31VJZP+8S66L9osRjOjqyRda1UQNYPJpvpu0+8sZx
+ /zn7khK1QT8fVXuY8cP7g4sxeuX+w0uBBMIqfZ2wnGyHXioxrftuFKQJ8c+Cx1QcgFgh
+ YRiw==
+X-Gm-Message-State: AOAM5301YESWexjrVlUMxVTSV1l292uNLUcS2Ot9Tst7YehY0VuxPmEt
+ xsEaBKm9aT+mmH3V6tu6JA==
+X-Google-Smtp-Source: ABdhPJz/z+8TSD/WdWHkwOUMUF3/lnf5Mt7uWOPSGKwTcm1xutcPl6qw5jPqaYPZiNT3CeLWfPqlWg==
+X-Received: by 2002:aca:30c9:: with SMTP id w192mr7839682oiw.93.1633538624646; 
+ Wed, 06 Oct 2021 09:43:44 -0700 (PDT)
 Received: from xps15.herring.priv (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.41
+ by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Oct 2021 09:43:42 -0700 (PDT)
+ Wed, 06 Oct 2021 09:43:44 -0700 (PDT)
 From: Rob Herring <robh@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -76,16 +75,16 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
  linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: [PATCH 04/12] arm64: Use of_get_cpu_hwid()
-Date: Wed,  6 Oct 2021 11:43:24 -0500
-Message-Id: <20211006164332.1981454-5-robh@kernel.org>
+Subject: [PATCH 05/12] csky: Use of_get_cpu_hwid()
+Date: Wed,  6 Oct 2021 11:43:25 -0500
+Message-Id: <20211006164332.1981454-6-robh@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20211006164332.1981454-1-robh@kernel.org>
 References: <20211006164332.1981454-1-robh@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_094344_426335_EBA5775A 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20211006_094345_278168_F4C46D76 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,69 +101,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the open coded parsing of CPU nodes' 'reg' property with
+Replace open coded parsing of CPU nodes 'reg' property with
 of_get_cpu_hwid().
 
-This change drops an error message for missing 'reg' property, but that
-should not be necessary as the DT tools will ensure 'reg' is present.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: linux-csky@vger.kernel.org
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- arch/arm64/kernel/smp.c | 31 ++-----------------------------
- 1 file changed, 2 insertions(+), 29 deletions(-)
+ arch/csky/kernel/smp.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 6f6ff072acbd..c5cebc406d24 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -466,33 +466,6 @@ void __init smp_prepare_boot_cpu(void)
- 	kasan_init_hw_tags();
- }
+diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
+index e2993539af8e..6bb38bc2f39b 100644
+--- a/arch/csky/kernel/smp.c
++++ b/arch/csky/kernel/smp.c
+@@ -180,15 +180,13 @@ void __init setup_smp_ipi(void)
+ void __init setup_smp(void)
+ {
+ 	struct device_node *node = NULL;
+-	int cpu;
++	unsigned int cpu;
  
--static u64 __init of_get_cpu_mpidr(struct device_node *dn)
--{
--	const __be32 *cell;
--	u64 hwid;
+ 	for_each_of_cpu_node(node) {
+ 		if (!of_device_is_available(node))
+ 			continue;
+ 
+-		if (of_property_read_u32(node, "reg", &cpu))
+-			continue;
 -
--	/*
--	 * A cpu node with missing "reg" property is
--	 * considered invalid to build a cpu_logical_map
--	 * entry.
--	 */
--	cell = of_get_property(dn, "reg", NULL);
--	if (!cell) {
--		pr_err("%pOF: missing reg property\n", dn);
--		return INVALID_HWID;
--	}
--
--	hwid = of_read_number(cell, of_n_addr_cells(dn));
--	/*
--	 * Non affinity bits must be set to 0 in the DT
--	 */
--	if (hwid & ~MPIDR_HWID_BITMASK) {
--		pr_err("%pOF: invalid reg property\n", dn);
--		return INVALID_HWID;
--	}
--	return hwid;
--}
--
- /*
-  * Duplicate MPIDRs are a recipe for disaster. Scan all initialized
-  * entries and check for duplicates. If any is found just ignore the
-@@ -656,9 +629,9 @@ static void __init of_parse_and_init_cpus(void)
- 	struct device_node *dn;
++		cpu = of_get_cpu_hwid(node, 0);
+ 		if (cpu >= NR_CPUS)
+ 			continue;
  
- 	for_each_of_cpu_node(dn) {
--		u64 hwid = of_get_cpu_mpidr(dn);
-+		u64 hwid = of_get_cpu_hwid(dn, 0);
- 
--		if (hwid == INVALID_HWID)
-+		if (hwid & ~MPIDR_HWID_BITMASK)
- 			goto next;
- 
- 		if (is_mpidr_duplicate(cpu_count, hwid)) {
 -- 
 2.30.2
 
