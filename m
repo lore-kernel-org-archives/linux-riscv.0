@@ -2,50 +2,76 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A4BFC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 21:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6AE18C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 22:38:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA30B611CC
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 21:39:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CA30B611CC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.crashing.org
+	by mail.kernel.org (Postfix) with ESMTPS id 30A90603E5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 22:38:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 30A90603E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5tTZVqwUstJHp7a6zbUCPi4ZI8pMWqLjdquVdUFtc60=; b=4LJTN4EQlxi3z/
-	/pDuqEM+Kg+8v6U21WRxAnWlKdoEwZuQUAcYO1U3XZdk3d1TgTFXIgIaQ3BAGJ2DhuI+9D3WNXSM0
-	AJwMvWizQPjxXtonIGNIDlLpSy9gw9tnaZQizFXVjBW13LBSnINuUPPQfMcBFSaFMf2dGN5bWKq1N
-	HwTsv2GelGxRemD19eysuyD1lM/pfFySwLSIj1h+PQ6l0fIqZMg/MQJ01Xrm7dPhmY5ee+B8K2fRY
-	/NKJ1AvUejlo5SBweJSrA6oHCDCpgvi1idnmZmT2F9a4NBKfFZ8z2p7dRyFPcujWe/t3tC56AajSl
-	fXhpyaaCu56E3/znZwHw==;
+	List-Owner; bh=yDpEKQxamDphPbRT70yTKL7YiTEWeyDna41t+wxzCCY=; b=XLLvpJJJQK2cya
+	Js1gq99NrCcAIjunnpKsGc+AmRc4j3ulaWCIkKd+GkON6Y9CLWQseJM8gkt9ciD84+06Rt+IdNYWR
+	HwWSwWtMLwmtX6ge0ZgnVU5Tn5VBryO0aNGROysrC6qmBFqdvs7d/etkuK27iFtQY1ENlxQPDDvdm
+	3sRHhvWURvpkoIQbu9SWe5RDLsvzJq7gGBmlnaGY+0CkPJFjV0zXJyQf5t6IcREEtD7tyoL4XAKdN
+	ZfPa4RHCW52NYjfqnC+0UUGn7NboCxS278+/fD/AHv/7Ums5bUyb1Enh23dDNHrnM7JHrnXj4L7j5
+	PbnyE1B5PmDF0nMhFGoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYEdA-00FcOU-TP; Wed, 06 Oct 2021 21:39:16 +0000
-Received: from gate.crashing.org ([63.228.1.57])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYEd7-00FcNn-Sm; Wed, 06 Oct 2021 21:39:15 +0000
-Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
- by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 196LRU0O007032;
- Wed, 6 Oct 2021 16:27:30 -0500
-Received: (from segher@localhost)
- by gate.crashing.org (8.14.1/8.14.1/Submit) id 196LRS4V007029;
- Wed, 6 Oct 2021 16:27:28 -0500
-X-Authentication-Warning: gate.crashing.org: segher set sender to
- segher@kernel.crashing.org using -f
-Date: Wed, 6 Oct 2021 16:27:28 -0500
-From: Segher Boessenkool <segher@kernel.crashing.org>
-To: Stafford Horne <shorne@gmail.com>
+	id 1mYFXm-00Fj2q-2h; Wed, 06 Oct 2021 22:37:46 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mYFXj-00Fj1u-SO; Wed, 06 Oct 2021 22:37:45 +0000
+Received: by mail-pl1-x633.google.com with SMTP id w11so2579937plz.13;
+ Wed, 06 Oct 2021 15:37:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=u2ABEJkCd1WJjIKZz+HrMsC2GEgILkJNEDXWHfmz6WM=;
+ b=FIrtOed5QowKUvESH0rG0wvV+3jKddQCuuIuBfhHRTk8T8VmPDFwv1/sTJAAFMgoXe
+ HXkN7YWXjhF/zrR2F/U+/MkjdMr28Eiiif61PM8lgdzeGlwKVNoy3cZO3oVwxlf1y4Qq
+ ML0Zxd6olLxMEd7tbUGjRpK/R7cb1ynklKOEnOsKGuHS+AR9eM3gQhrSgwrpbIXxDltH
+ O/Ru0l0Mwm5WP0mW7srNV2jrlVjnmHbcXmHAwvScFtyDBwPixATxWKZZPvwE9Leemq7b
+ /FuyLrO0jdPkAaWnvyISUJPK4unL1H92dmReVh6yyqBPX6EVv7yFmcldM3IfxchdNGsR
+ dHOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=u2ABEJkCd1WJjIKZz+HrMsC2GEgILkJNEDXWHfmz6WM=;
+ b=oqNAVvDBdWW35nKGh6JpgW2Irll/Et6sMZdEZS3o3splMbpYOe9dTb/V9VzzBOTXxm
+ Mvwn4nXB7AN37xt09aUZmQ+ReKMw5rAjo9MkdbJH15UkVnCPEbbvzXZQTZLHl1dKMHES
+ 362lZRwsyETzFcse1iFSGtrIppNHNZA2GuFVnNe+pFvlolhBUaF+rH58svFQyESk4Dqo
+ JtqCCikpL/G/5SpRtSaJAqJ7jHp34GdGcycua0VjgBs63KyvtC7tUs+Pq/TNfxMKaB6y
+ 2WruokcrZ2p9MTluhmZzqf1IXn6ORkA0sbD1Rm+Wds9DKTSRBY3F8ngc01inFRDwZMSH
+ hUHA==
+X-Gm-Message-State: AOAM530x+pr4iJwobvYsWAFEZ4QS3KCECIlBmjjNb6vRt4t4UuwxEzxi
+ u99ZC9BbW2zOqCu5Gxqm91E=
+X-Google-Smtp-Source: ABdhPJz4BaWTMOr4ZP31Nn4C5AszSnkpRS3L0Y1gfKAehJA2FRUXByCD1kztbcVi2shP0MV6GW1oQQ==
+X-Received: by 2002:a17:90b:1804:: with SMTP id
+ lw4mr830200pjb.174.1633559862671; 
+ Wed, 06 Oct 2021 15:37:42 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+ by smtp.gmail.com with ESMTPSA id c18sm20848814pge.69.2021.10.06.15.37.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 06 Oct 2021 15:37:41 -0700 (PDT)
+Date: Thu, 7 Oct 2021 07:37:39 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Segher Boessenkool <segher@kernel.crashing.org>
 Cc: Rob Herring <robh@kernel.org>, Rich Felker <dalias@libc.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Jonas Bonn <jonas@southpole.se>, Florian Fainelli <f.fainelli@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Florian Fainelli <f.fainelli@gmail.com>,
  Yoshinori Sato <ysato@users.osdn.me>, linux-sh@vger.kernel.org,
  x86@kernel.org, Russell King <linux@armlinux.org.uk>,
  linux-csky@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
@@ -59,20 +85,19 @@ Cc: Rob Herring <robh@kernel.org>, Rich Felker <dalias@libc.org>,
  Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
  Scott Branden <sbranden@broadcom.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Frank Rowand <frowand.list@gmail.com>,
- James Morse <james.morse@arm.com>, Paul Mackerras <paulus@samba.org>,
- linuxppc-dev@lists.ozlabs.org
+ Frank Rowand <frowand.list@gmail.com>, James Morse <james.morse@arm.com>,
+ Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org
 Subject: Re: [PATCH 06/12] openrisc: Use of_get_cpu_hwid()
-Message-ID: <20211006212728.GM10333@gate.crashing.org>
+Message-ID: <YV4lM/YJ4V4EAlZb@antec>
 References: <20211006164332.1981454-1-robh@kernel.org>
  <20211006164332.1981454-7-robh@kernel.org> <YV4KkAC2p9D4yCnH@antec>
-Mime-Version: 1.0
+ <20211006212728.GM10333@gate.crashing.org>
+MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YV4KkAC2p9D4yCnH@antec>
-User-Agent: Mutt/1.4.2.3i
+In-Reply-To: <20211006212728.GM10333@gate.crashing.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_143914_303599_098B6005 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20211006_153743_939972_6C946BCE 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +114,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 07, 2021 at 05:44:00AM +0900, Stafford Horne wrote:
-> You have defined of_get_cpu_hwid to return u64, will this create compiler
-> warnings when since we are storing a u64 into a u32?
+Hi Segher,
+
+On Wed, Oct 06, 2021 at 04:27:28PM -0500, Segher Boessenkool wrote:
+> On Thu, Oct 07, 2021 at 05:44:00AM +0900, Stafford Horne wrote:
+> > You have defined of_get_cpu_hwid to return u64, will this create compiler
+> > warnings when since we are storing a u64 into a u32?
+> > 
+> > It seems only if we make with W=3.
 > 
-> It seems only if we make with W=3.
+> Yes.  This is done by -Wconversion, "Warn for implicit conversions that
+> may alter a value."
 
-Yes.  This is done by -Wconversion, "Warn for implicit conversions that
-may alter a value."
+Yeah, that is what I found out when I looked into it.
 
-> I thought we usually warned on this.
+> > I thought we usually warned on this.
+> 
+> This warning is not in -Wall or -Wextra either, it suffers too much from
+> false positives.  It is very natural to just ignore the high bits of
+> modulo types (which is what "unsigned" types *are*).  Or the bits that
+> "fall off" on a conversion.  The C standard makes this required
+> behaviour, it is useful, and it is the only convenient way of getting
+> this!
 
-This warning is not in -Wall or -Wextra either, it suffers too much from
-false positives.  It is very natural to just ignore the high bits of
-modulo types (which is what "unsigned" types *are*).  Or the bits that
-"fall off" on a conversion.  The C standard makes this required
-behaviour, it is useful, and it is the only convenient way of getting
-this!
+Thanks for the background, It does make sense. I guess I was confused with java
+which requires casting when you store to a smaller size.  I.e.
 
+    Test.java:5: error: incompatible types: possible lossy conversion from int to short
+	s = i;
 
-Segher
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
