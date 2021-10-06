@@ -2,100 +2,84 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F2669C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 11:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 86743C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:43:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B185A61131
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 11:36:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B185A61131
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 4FF5A610E5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:43:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4FF5A610E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rc4jFfqF3pRWMNh+Wa6SskJuJDC5WVNT8L27n8wfrJc=; b=KZQ3+qC6n12KSu
-	oUqkI+uNcpdeHUKBI3Wrb5Zx7T205v1yrh9jaOf3dOfgCxZ2QGN6qWpAHAzTpct61HzBEQ1Pz47zp
-	QF8ZdGpz7mCXJP8l03ktF29IFf/DvJ/fx7jENLsUK9mPjsiK3wVA+7JvsS9eM8oflGiSTMjODqTKd
-	u5Kh2MmHwQoOL4qeCLiTCkir3/L7FN/hOs7qoJkcTwu0pGMfcyuJKJARDnKJvjm6apJiK6axqBRpU
-	kFqmMtfUx6oK0peLM3CIt3Ygj4r8JvAxEBHShu70SpvpGBTmBBCpn/xmLUbc/ZC9JC5zm/SE+tud8
-	kryBA34ldzjKQSo/LPig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=w1ZSQ1S++P7aZFoo87s5D6ygnBEXysJ/7Rui29thbW8=; b=N90xpshV2fBjxPTkt9C0Z1s0sL
+	/H/t8YNcZJ7otcnJ5y8lo8LBLq0sf/9DaGlUUKar9HBZj3fF8i0M4MJBYyx19uLz6jg4cyMXzsGir
+	2WjySocyJSlJMs8rQV29wQTuVdOj2pC2yZ0lk1SRVjdbMay1KWiNtR0CM0kRSal3PiNRJATTPxlaz
+	2cIk0/NxB/iCoshLJLY/XNzmwIEgujjtUaSgcWqbYu86wge27a7SDLaBaHyMEDpzfBofbNryXSwhI
+	F4o9U0VSFCcYGi4Xz95pFu3/YTUsjz38QePK9YIt3t5HnuFC6oDEsMlD7CoPgV5APz6ff8zuHHwTV
+	lagt18YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mY5DD-00E5Vw-E8; Wed, 06 Oct 2021 11:35:51 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mYA02-00F1we-17; Wed, 06 Oct 2021 16:42:34 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mY5DA-00E5Up-9u
- for linux-riscv@lists.infradead.org; Wed, 06 Oct 2021 11:35:50 +0000
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DF6593F324
- for <linux-riscv@lists.infradead.org>; Wed,  6 Oct 2021 11:35:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1633520146;
- bh=3fmM+3ryYWmUMhh0+YhTK1QvjKcGmEr05J1foyEEmgA=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=UYXbs3wtzn8T5QRsnlFdZsEW2ImEMzpzhTuMx0KKOu4z6M1TQYQ0aKSwVmzYLzsg1
- 5jVz6IvZmNUAuYvKCNHSdI8G163WX9X0DG+chXf8m0JsUWDT3pnYognWmzHyIAHzcx
- 7j0Xsn7zuoGaBzeV3wZzGOXlh/y8CpaUyj4G5tn9ba3tTCFmGV12c4z3vIDl+fVugc
- eleM5hf5AaiQU4qcQe+URFji1uLGSCaXGx0YTzPU+086AcwEIJUoLdzQXptrzg5N/c
- /47bBeH9X5JOFGPCaElMpUDh1yutaD6UEpK4CxTIGc7WriaqYz5iH63sBXZixwoe95
- 9I/4jbvrfQ3WA==
-Received: by mail-ed1-f70.google.com with SMTP id
- r11-20020aa7cfcb000000b003d4fbd652b9so324047edy.14
- for <linux-riscv@lists.infradead.org>; Wed, 06 Oct 2021 04:35:46 -0700 (PDT)
+ id 1mY9zz-00F1vd-HK
+ for linux-riscv@lists.infradead.org; Wed, 06 Oct 2021 16:42:32 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id
+ oa12-20020a17090b1bcc00b0019f715462a8so2786443pjb.3
+ for <linux-riscv@lists.infradead.org>; Wed, 06 Oct 2021 09:42:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6XDh7yWZOSqxph58yZ7yxsuGpqrzehlka27pGjt8ehg=;
+ b=OOHOSQWNf8wMGc+y8ytJyhXUzAJbHJK07BJHvFfEwQDc/OplncP12q7x7fjy4t9KOj
+ maK6QT92Aw44FZ7MOmwaC9yaQi51dClCBmhLfuPGNP1JZR1QtvfoksPmdIecZRpAht60
+ DW9iY7ZFQKncjvLIOv8DMm44/c+H5hK0DEvK2KQbIKahl3i4p2lDLiWb9vGWV1QIjtwv
+ jdWxY4ajWqguztQqo2hNQHcypPsXyJhAfKDC1F18pq2UYXGPutCxzjcw3XxPspsSgpje
+ PScDXxvTz1CPBhYhGMaxVWavKtZY5+zTDO265lE+H7ZbRe7tMiMFF2KTOJnSLqb9azZe
+ VrBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=3fmM+3ryYWmUMhh0+YhTK1QvjKcGmEr05J1foyEEmgA=;
- b=7rvCc0GIbm0kcujs/t9KlyW7cm6rCEHbQL/wp0oUKpodpZ4HR8MKvVH35BR9Hf75uL
- s8DJFvDZu+bedTUVN39rKkaZDm7lJlGMwhTUo4iBotrboNO0s0pGWZc+KKy5DYZbLANx
- woBe+2c2WMfdbdQAOwmGP1qCMLKY0P3EjFlbc93/f5iTpBRtL7p11QGsFKipeWnbpUM7
- okR2eVem5mMUqG31LqG8h/JTDmpA6H80zsa4AGRFnvdr1SwZOB+godzP2c3S1tfOtf4f
- iN/U0fGBM4M5HcA+O4llIZyLsAFiLzhZef4MJwloaarMjipT0/IMpZ7gZTXPMCsPLe/V
- MgLg==
-X-Gm-Message-State: AOAM532cgQP/vNCr4japaSiG1003phAVMn4S0+1/CqdaMlAW9U30XUfe
- CbghtGSAohApftObJHlHNgADqbZ99nz/rcG9KfB+DMJcSx86wZuc++gx3O2zucNsAQGNgWl4jHE
- CYC4htVQ5rA11SxVomOsj+9I8vQIo4+Ft8GbbSPJylVFi15ih0Re2nt9JEh9dWw==
-X-Received: by 2002:a50:da49:: with SMTP id a9mr34599523edk.281.1633520146576; 
- Wed, 06 Oct 2021 04:35:46 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxLknOWCMuxcOGH3YkviuzstqiEm0p7gGBKCgL4P7PJww+plJsVc6oPbjwAPUIL15mbEYcXZXELKgCxCT4/vqM=
-X-Received: by 2002:a50:da49:: with SMTP id a9mr34599495edk.281.1633520146393; 
- Wed, 06 Oct 2021 04:35:46 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210921053356.1705833-1-alexandre.ghiti@canonical.com>
- <DB9PR10MB465252461469340F60A8714780A49@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
- <CA+zEjCvKaS0sE7paCecMDvqpkw-yLM_QFHdF5pgWTAqeH0JAfA@mail.gmail.com>
- <DB9PR10MB46523AE6EF51D6C801B4A9BF80A99@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
- <CAEn-LTqVd8z=kpCtWjiPbKuw24NuHLTQxWzw7g34fEJgDYrp8w@mail.gmail.com>
- <CA+zEjCtQN6c8bikg620PQwoPzJ6T4wGLvzQ413iPs1tCeHif0Q@mail.gmail.com>
- <CA+zEjCtVxDkg8K0iK32j4KO+Wgt+hTjXD15HdRhNeCV2Sjpckw@mail.gmail.com>
- <DB9PR10MB4652294AB444536BF57E320A80AE9@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
- <CA+zEjCsf6m8cctHNPBxJczg-J9XC-piAcdtNDO71qmtCtDj9gw@mail.gmail.com>
- <DB9PR10MB465270EA5D6F25C44E68D1E580B09@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
-In-Reply-To: <DB9PR10MB465270EA5D6F25C44E68D1E580B09@DB9PR10MB4652.EURPRD10.PROD.OUTLOOK.COM>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Wed, 6 Oct 2021 13:35:35 +0200
-Message-ID: <CA+zEjCvFO6Tz+D42wgnstx_TLNEt=HM0eeT5g0-zwaEscGj2vQ@mail.gmail.com>
-Subject: Re: [PATCH] drivers: mfd: da9063: Add restart notifier implementation
-To: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
-Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>, 
- Support Opensource <Support.Opensource@diasemi.com>,
- Lee Jones <lee.jones@linaro.org>, 
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=6XDh7yWZOSqxph58yZ7yxsuGpqrzehlka27pGjt8ehg=;
+ b=H1gWdF87DrFJL1v6iDpStphPR9QtEefIyr/PT3sJKu+cVrtTg97DmpoQGpY2mrscEv
+ iWvnbBGP9DXmQRyEhdJeiCPw/eznSLnxEOmnncHgb6QKG8YxacXDRCVIGFlVH0p7IxI6
+ 2ao/S7c55QF8ERql2L1x4LOKeKo0y5382foCF6qwYoVbZ2BOqOY6CfbJljTmJJwm8dpo
+ SGXacuF1S1rWzT2u5p43EIuekOB9PBy8LCbaPQ9sMMGqQ00f89de1OhecgFfMhab0d7q
+ WkDi6CRjjqpd5G8tNIgEBPGpaYmHbN6p/gYxJD5MbvbWU6WWMrPIwG4tfMCmmnDJ6fZN
+ Azhg==
+X-Gm-Message-State: AOAM531rPIZLh55p9v3yJMH0WSOdGw1TaQTTGmFlPFsx7ZabFgU2E/vt
+ RCN8kXi5k6buIUW9kLAIC3DunQ==
+X-Google-Smtp-Source: ABdhPJxmKjFnl8ryjupIwAwIO54j4F/2ixuTRTwSQLU519pIpe21f0fEGVSwKkQjEzNjY54Sdqs3dw==
+X-Received: by 2002:a17:90a:6c97:: with SMTP id
+ y23mr12010887pjj.117.1633538548992; 
+ Wed, 06 Oct 2021 09:42:28 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id nn14sm1870292pjb.27.2021.10.06.09.42.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 06 Oct 2021 09:42:28 -0700 (PDT)
+Date: Wed, 06 Oct 2021 09:42:28 -0700 (PDT)
+X-Google-Original-Date: Wed, 06 Oct 2021 09:42:06 PDT (-0700)
+Subject: Re: [GIT PULL] KVM/riscv for 5.16
+In-Reply-To: <82568eff-1eff-5e63-4264-ef0c25f79fc3@redhat.com>
+CC: anup@brainfault.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: pbonzini@redhat.com
+Message-ID: <mhng-03b25a51-3491-4bb7-9e17-1b32fc97b7ff@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_043548_569783_FC94A35D 
-X-CRM114-Status: GOOD (  38.44  )
+X-CRM114-CacheID: sfid-20211006_094231_597097_E3BCDF4F 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,83 +91,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 6, 2021 at 11:30 AM Adam Thomson
-<Adam.Thomson.Opensource@diasemi.com> wrote:
+On Tue, 05 Oct 2021 01:25:41 PDT (-0700), pbonzini@redhat.com wrote:
+> On 05/10/21 09:55, Anup Patel wrote:
+>>    git://github.com/kvm-riscv/linux.git tags/kvm-riscv-5.16-1
 >
-> On 05 October 2021 14:43, Alexandre Ghiti wrote:
->
-> > > > > Thanks for the pointer! I have just tested this sequence from the
-> > > > > u-boot shell, it resets the board correctly. But then if we try to
-> > > > > power down the board by a long press to the corresponding button on
-> > > > > the board within 16 seconds, it resets the board: so we cannot
-> > > > > shutdown the board in the next 16 seconds that follow this sequence.
-> > > > >
-> > > > > Maybe that can be resolved by using the one-shot alarm as described by
-> > > > > Adam, I'll try to find that in the datasheet.
-> > > >
-> > > > After configuring the one-shot alarm, I still have those intempestive
-> > > > reboots if I try to power down the board by a long press within 16
-> > > > seconds. The only thing I found in the datasheet regarding this timing
-> > > > is in case of power undervoltage, not sure how this is linked to what
-> > > > I see.
-> > > >
-> > > > @Adam Thomson Any ideas?
-> > >
-> > > Nothing immediately springs to mind. Can you confirm this is the nONKEY long
-> > > press that you're attempting here, which is resetting the board rather than
-> > > shutting down?
-> >
-> > Yes, this is the nONKEY long press that, if done within ~16sec after
-> > the board is reset using the alarm, resets the board instead of
-> > shutting it down.
-> >
-> > >
-> > > Also, would you able to again provide events and fault log when this unwanted
-> > > reset occurs, just in case there's anything there to give a clue. Can then
-> > > discuss internally to see if we can ascertain what might be happening here.
-> >
-> > FAULT_LOG = 0x60
-> > EVENT_A = 0x12
-> > EVENT_B to EVENT_D = 0
-> >
-> > But I'm unsure of those values since they are the same after the reset
-> > triggered by the one-shot alarm *and* if I clear EVENT_A, the
-> > intempestive reboot does not appear!
->
-> Thanks for the info. So we believe, based on the event registers values
-> provided, it is the RTC event as that's not cleared by a power-cycle (it's in
-> the always-on domain). The other test would be to mask this event immediately
-> after an RTC based reboot and see if the long key-press then shuts down the
-> device. I suspect it would in that case, as per you clearing the event.
+> Pulled, thanks!
 
-Indeed if I mask the RTC alarm in IRQ_MASK_A, the intempestive reboot
-disappears. But that's not something we can do: the reset driver will
-actually be implemented in openSBI at some point where the devices are
-probed on-demand (the same applies to u-boot I think), so we cannot
-clear or mask anything at boot.
+Thanks!
 
->
-> I'm still curious as to the 16 seconds though. Would that be when the kernel
-> finally starts and masks/clears events (seems quite a long time)?
-
-No, the kernel is not up yet. Maybe 16sec is not the right value, I
-may have been influenced by the discussion here
-https://www.dialog-semiconductor.com/products/pmics?post_id=10052#tab-support_tab_content.
-
-It seems there is some consensus about having this reset driver be a
-SiFive Unmatched board specific thing: quid of the sequence I propose
-in this patch then? It does not mess with the RTC registers, it
-reboots reliably and there's no intempestive reboot: is it dangerous
-to use? Or do you have another alternative?
-
-Thanks,
-
-Alex
+IIUC how this generally works is that you pull these KVM-specific patch 
+sets and I don't, which means they'll get tested on my end as they loop 
+back through linux-next.  I'm fine with however this usually works, just 
+trying to make sure we're on the same page as this is my first time 
+being this close to another tree.
 
 _______________________________________________
 linux-riscv mailing list
