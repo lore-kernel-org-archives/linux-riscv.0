@@ -2,88 +2,103 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C4D9C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 18:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2962AC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 20:44:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C63B161130
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 18:29:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C63B161130
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id C514061152
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 20:44:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C514061152
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4K5Aiq7kV9eyU3R4p6o15Eiy99LE7pDthLh3PnErS94=; b=pBXDBs3UNOoj4K
-	Pf9uaBSxoYwKFDpct4AjGljGoN+UJjsCGJ5y5j5NsFUAUjEwKVzss/DsU55I2+lk0Op2J1YeZ5drM
-	aJatKG8RBGn1jxKeGax0d7e+oKrd/3J2AtuTYv2nAhEs+Q2guM4KByVkjWTdm7NWthoJ4Z93jYygY
-	EU7JgE47Bz1qjcAEME6cqCyCcIU6idaTtu4LlDXx8/SNvbPQVzzgWoDeFKUustGQhm/smd85xsnCu
-	KeZuBDWeo+kQ2r4stPHwSn2dcGP5HGegoNAZEUmcsYVMP+LnkAnkcetRolhJVcLZGxPghvnx1dskZ
-	3eAos2OrEmkq3X8ORbBA==;
+	List-Owner; bh=voUZwZyhrIzhbomQKfei5tEhVzglnXRN4TFyK7ymdiM=; b=E5M79JS0892zvt
+	cZoHD9zV3/F6vSWci/zup120Ra+xIZ0dHvJm1wICkEABRPuJubhNpG337YOikBEQu3lhaAgdNkEpv
+	7Ij/hv59lKa3nNWg4WKOHBkPKW78ycniAD75Vsx34PJeCjx6swH6zTdtI6vQ/Ay3iFu/Tlul5RDwY
+	YEqkJkKdv9I1V3N07zqMGdC2rsFJ9Cp4wbsvGDZnGNayjU0ocoX4vlK8tNGbzN6wtdCVxanhGTqc0
+	QsHpejDQ9C8+NK3YIGkHnl0l39oEv/7sldHJnjnw/9WVCQhgPoSQpgEUn04vfntFdEWucLgGhS0GR
+	Xac123X00nvpxp6N6/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYBex-00FJYW-5V; Wed, 06 Oct 2021 18:28:55 +0000
-Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
+	id 1mYDly-00FVW5-Uy; Wed, 06 Oct 2021 20:44:18 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYBet-00FJXr-PK
- for linux-riscv@lists.infradead.org; Wed, 06 Oct 2021 18:28:53 +0000
-Received: by mail-yb1-xb2f.google.com with SMTP id h2so7455974ybi.13
- for <linux-riscv@lists.infradead.org>; Wed, 06 Oct 2021 11:28:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=0n7XTaYuNuU3GQROpWlHveon37tQGGRs8ekBzlKCoOE=;
- b=J6lI24iVpCdHoWTtNM7a/8ZwFedTCp/QYd7FALh8Tpc0VTNH/H/a/A6zY/gO4qGFL5
- HiApsBuVnVxYyelJMV5w4M+PnZ6pKWEzylR/zFMx7qxiTGvyfr8sdCpE/Hv4O59NCf7J
- PFL/3b+ZlF7hsCL35SoZvUe1X//m/4EWglNIU=
+ id 1mYDlk-00FVUl-UI; Wed, 06 Oct 2021 20:44:06 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id oa4so2434613pjb.2;
+ Wed, 06 Oct 2021 13:44:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=uukXjZUQ/w+EOWxXqSK1+sdvRdmpSRZkmYypGawzIsM=;
+ b=QT+moIpptwRsvjJhH6SoVjzQTZZ76DE7Nw9kqS29J/CEKIqSBkKNAPsy0jT6+cMT5r
+ 0B+0+QxpzmLLa3r7jEXnwxbIQgJkwMi/us4S+81A070jhHgCr7uQ+fbqDmEae7tJyZrW
+ KXcNV8SnxYIgrHqlro0WODjOtXLW8X88ZHdiubGxyQ6s4VSefvMST/UT52GjNmBirP7J
+ vPJrn4/h0HeMwFA9oFdn+ECv8WDQE4jLb4GwOzBBu4isPwb9sn2ye3J8U1vaLKqwIt6z
+ g4sBC+3kK0eokeo5x1JO49TmdiQsp14FxekFKZ6n9Z+Jk+BJ4arhTM0CkIcl8c56mqWF
+ a5Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=0n7XTaYuNuU3GQROpWlHveon37tQGGRs8ekBzlKCoOE=;
- b=zteaGV2QYUw4XrfBDKzI4GltU2L8HXxn/xrgtfSmE2VtVJrCuG51Rrqws1baNbUuf0
- JQU8k7svCFmBysZ8OTjj0bIkdzqFv0RhAeQNfvi5TKdeS1TAOzkPvZqhFlfoTJ+ddCn4
- 1ozkVCLAiN3iKrLJRcbGlND6FkfjtvY/qvpitAPYBpqLyNhmOvWdl4iXb8I/sb9c2W8e
- G4az6v3xLUYYj/r7XmhCeVNBLyFJkyDOf5dvKkj8ot15TzR0Wkn5KXZ36UKZMK4okgoT
- Yh+p99kZNBc2GDVSyxxD1q7ujCjMy717Cb4PCftjVUlk4kAL22OnjKvZ3NMbo2KvyXMo
- bdrg==
-X-Gm-Message-State: AOAM530X6ItgoMSljIbZvGEJs6YJmu+zye5rKDYcRkOpau1UkYZpjs/9
- cBj1ZO7LuIN4PMhaMzkBn2k2VmlK5YjPQPsCR3nP
-X-Google-Smtp-Source: ABdhPJy4ghJUXe860sK/73CDH7bq+Ep1/YOkYbT2u0s7Dyc2ylF3jCsuAhbF7KTPSGqFvXAumb8QRRuDBQVZ+tVWJMo=
-X-Received: by 2002:a25:d47:: with SMTP id 68mr31232340ybn.204.1633544923738; 
- Wed, 06 Oct 2021 11:28:43 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=uukXjZUQ/w+EOWxXqSK1+sdvRdmpSRZkmYypGawzIsM=;
+ b=W4ocunwgwwlhhjMY9mIbHv/NOnWKqEa/v6GNLlMA3N6t0ddwy7w6sQyTnhHszv6zaH
+ UdXGkOdzMDyEuvQ7mDelCLSh90XChiMIxMSgjFm6KNVH2ai2KNz20T+tlspGysn8/UPu
+ dlmtstCzi+ckqhPCF4csPfTczw7OoeNyT01PebzM2TCWtTns+fYqHE6df09wEJcOz6ll
+ 4j+hQL/P/MfNgzZQx/N/lzeMYCBkV0CjvdIC7NHcIvhtkLLMuFwW7ZgHjAlHQ4ppghmv
+ VqECgHP67VEEvWBxPE2P2/MxNBAiH7DiPsw+2bNc0PlYvBX065D7dikKRyDaSVQtSpvV
+ +kTg==
+X-Gm-Message-State: AOAM530S0MgZuTMg/nQRWp6Q8dx3PSa1VFfRO8ulRHi4wux4oMjOJyei
+ QzCtMuZot47V2VO3h22YK2U=
+X-Google-Smtp-Source: ABdhPJxbN+u6234S13N4970pWpeBYhU6hjO3nALy/nZjNDvGJdvqZ+ABgTpyG64/0LL2Z6QM8DUU9w==
+X-Received: by 2002:a17:902:bb81:b0:12d:a7ec:3d85 with SMTP id
+ m1-20020a170902bb8100b0012da7ec3d85mr328965pls.17.1633553043180; 
+ Wed, 06 Oct 2021 13:44:03 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+ by smtp.gmail.com with ESMTPSA id q8sm5806904pja.52.2021.10.06.13.44.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 06 Oct 2021 13:44:02 -0700 (PDT)
+Date: Thu, 7 Oct 2021 05:44:00 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, x86@kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Frank Rowand <frowand.list@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 06/12] openrisc: Use of_get_cpu_hwid()
+Message-ID: <YV4KkAC2p9D4yCnH@antec>
+References: <20211006164332.1981454-1-robh@kernel.org>
+ <20211006164332.1981454-7-robh@kernel.org>
 MIME-Version: 1.0
-References: <20210910192757.2309100-1-atish.patra@wdc.com>
- <20211005121744.728385be@redslave.neermore.group>
-In-Reply-To: <20211005121744.728385be@redslave.neermore.group>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 6 Oct 2021 11:28:32 -0700
-Message-ID: <CAOnJCU+0=9FG+cUT0V16TEN_ar7d9F+Me_nkQtK+5mKrFFZOqg@mail.gmail.com>
-Subject: Re: [v3 00/10] Improve RISC-V Perf support using SBI PMU and sscofpmf
- extension
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: Atish Patra <atish.patra@wdc.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anup Patel <anup.patel@wdc.com>, 
- Ard Biesheuvel <ardb@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>, 
- devicetree <devicetree@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jiri Olsa <jolsa@redhat.com>, 
- John Garry <john.garry@huawei.com>, Jonathan Corbet <corbet@lwn.net>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Nick Kossifidis <mick@ics.forth.gr>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Rob Herring <robh+dt@kernel.org>, Vincent Chen <vincent.chen@sifive.com>, 
- Anish Khurana <akhurana@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20211006164332.1981454-7-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_112851_846618_6760C21C 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20211006_134405_035963_A3E4407A 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +115,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 5, 2021 at 2:18 AM Nikita Shubin <nikita.shubin@maquefel.me> wrote:
->
-> On Fri, 10 Sep 2021 12:27:47 -0700
-> Atish Patra <atish.patra@wdc.com> wrote:
->
-> Hello Atish,
->
-> > Perf stat:
-> > =========
-> >
-> > [root@fedora-riscv riscv]# perf stat -e r8000000000000005 -e
-> > r8000000000000007 -e r8000000000000006 -e r0000000000020002 -e
-> > r0000000000020004 -e branch-misses -e cache-misses -e
-> > dTLB-load-misses -e dTLB-store-misses -e iTLB-load-misses -e cycles
-> > -e instructions ./hackbench -pipe 15 process Running with 15*40 (==
-> > 600) tasks. Time: 6.578
-> >
-> >  Performance counter stats for './hackbench -pipe 15 process':
-> >
-> >              6,491      r8000000000000005      (52.59%) -->
-> > SBI_PMU_FW_SET_TIMER 20,433      r8000000000000007      (60.74%) -->
-> > SBI_PMU_FW_IPI_RECVD 21,271      r8000000000000006      (68.71%) -->
-> > SBI_PMU_FW_IPI_SENT 0      r0000000000020002      (76.55%)
-> >      <not counted>      r0000000000020004      (0.00%)
-> >      <not counted>      branch-misses          (0.00%)
-> >      <not counted>      cache-misses           (0.00%)
-> >         57,537,853      dTLB-load-misses       (9.49%)
-> >          2,821,147      dTLB-store-misses      (18.64%)
-> >         52,928,130      iTLB-load-misses       (27.53%)
-> >     89,521,791,110      cycles                 (36.08%)
-> >     90,678,132,464      instructions #    1.01  insn per cycle
-> > (44.44%)
-> >
-> >        6.975908032 seconds time elapsed
-> >
-> >        3.130950000 seconds user
-> >       24.353310000 seconds sys
-> >
->
-> Tested your patch series with qemu and got results as expected:
->
-> perf stat -e r8000000000000005 -e r8000000000000007 \
-> -e r8000000000000006 -e r0000000000020002 -e r0000000000020004 -e
-> branch-misses \ -e cache-misses -e dTLB-load-misses -e
-> dTLB-store-misses -e iTLB-load-misses \ -e cycles -e instructions
-> ./hackbench -pipe 15 process
->
-> Running with 15*40 (== 600) tasks.nch -pipe 15 process
-> Time: 20.027
->
->  Performance counter stats for './hackbench -pipe 15 process':
->
->               4896      r8000000000000005
->                             (53.34%) 0      r8000000000000007
->                                                 (61.20%) 0
->               r8000000000000006
->                   (68.88%) 0      r0000000000020002
->                                       (76.53%) <not counted>
->               r0000000000020004
->                   (0.00%) <not counted>      branch-misses
->                                                  (0.00%) <not counted>
->                   cache-misses
->                       (0.00%) 48414917      dTLB-load-misses
->                                                 (9.87%) 2427413
->               dTLB-store-misses
->                   (19.43%) 46958092      iTLB-load-misses
->                                              (28.58%) 69245163600
->               cycles
->                   (37.09%) 70334279943      instructions              #
->                  1.02  insn per cycle           (45.24%)
->
->       20.895871900 seconds time elapsed
->
->        2.724942000 seconds user
->       18.126277000 seconds sys
->
-> perf top/record also works.
->
-> Tested-by: Nikita Shubin <n.shubin@yadro.com>
->
+On Wed, Oct 06, 2021 at 11:43:26AM -0500, Rob Herring wrote:
+> Replace open coded parsing of CPU nodes' 'reg' property with
+> of_get_cpu_hwid().
+> 
+> Cc: Jonas Bonn <jonas@southpole.se>
+> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> Cc: Stafford Horne <shorne@gmail.com>
+> Cc: openrisc@lists.librecores.org
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  arch/openrisc/kernel/smp.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
+> index 415e209732a3..7d5a4f303a5a 100644
+> --- a/arch/openrisc/kernel/smp.c
+> +++ b/arch/openrisc/kernel/smp.c
+> @@ -65,11 +65,7 @@ void __init smp_init_cpus(void)
+>  	u32 cpu_id;
+>  
+>  	for_each_of_cpu_node(cpu) {
+> -		if (of_property_read_u32(cpu, "reg", &cpu_id)) {
+> -			pr_warn("%s missing reg property", cpu->full_name);
+> -			continue;
+> -		}
+> -
+> +		cpu_id = of_get_cpu_hwid(cpu);
 
-Thanks for the testing.
+You have defined of_get_cpu_hwid to return u64, will this create compiler
+warnings when since we are storing a u64 into a u32?
 
-> Yours,
-> Nikita Shubin
->
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+It seems only if we make with W=3.
 
+I thought we usually warned on this.  Oh well, for the openrisc bits.
 
+Acked-by: Stafford Horne <shorne@gmail.com>
 
--- 
-Regards,
-Atish
+>  		if (cpu_id < NR_CPUS)
+>  			set_cpu_possible(cpu_id, true);
+>  	}
+> -- 
+> 2.30.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
