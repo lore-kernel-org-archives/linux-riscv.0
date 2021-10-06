@@ -2,14 +2,14 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F93EC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32B17C43217
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:49:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 40C8C6113E
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:48:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 40C8C6113E
+	by mail.kernel.org (Postfix) with ESMTPS id 05ED860FDA
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:49:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 05ED860FDA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,43 +18,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5uU7v+T6wqtjwix+OMJTniw/gTtIgPxJRfjTIh/2PQ4=; b=nqBG8xw8S/ndru
-	zNlQmEgZ1T+WE4+44A7j9GpeKlzMQ+zOvIfHhR6m7z2qKChvx83tFw6LB5D4lESA+XaKa4K8/A9Q/
-	GTDAGITRN++p0Ja9KUTv6zdiEZ0vHDtcsitKkCp0PooYaWpxrTrLy9dJJ6ClWkL8iNbMnlbxQvhky
-	+qZH5833rWnOAc/2iVXJEuAcUI/oh3h+XerpBdpRsNw1y4XURE5AkvZBCpVUvsaDvaq7b0xg4Yflb
-	ldLhnNnsMg4NHN2d36gbxC5wlzP+QIxdlspQ/gATXHTcKVc/7czjsaGzKrZRZ2f+dFmIzfqKVgZdJ
-	hl3WEgL9bBEovLrFc3Sg==;
+	List-Owner; bh=cFFlPJzCAFIyiNlo7Ypty/G4tHq4FKcSEBWbw7vWDWQ=; b=QbMH8FbZXKFQJL
+	qbioKUXUvXndpfpJOFXodUcpxBefmu7xbcyzDzaBi8W035Ti577tC4vMzGYM1dQH9/zLJXi1wLbBl
+	WN2SFgL6uK5ZLHrU/NYonAim4/LzTcNiPI2sZmt43oL+J+OdbWIgfI3IWJEqoRTiNstCEQzO2MESY
+	ZTPRo05/kjBK3vwek2dn5Xa0q3wOX/RtIq46EElzUJc9O8NUL742FmXEGiPHnaMCHlvxBlYuhIEBW
+	tEuC/9myEHk3PqH2JNsP/OR96zI1Xavkq2KdGSbc3NEzrRZsAkTOfWYV12xmTw4pEBroOthJuBJGC
+	ONLOln6/FWURV07R+1Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYA5d-00F4Vd-23; Wed, 06 Oct 2021 16:48:21 +0000
-Received: from mail-ot1-f48.google.com ([209.85.210.48])
+	id 1mYA6K-00F4qr-3W; Wed, 06 Oct 2021 16:49:04 +0000
+Received: from mail-oo1-f43.google.com ([209.85.161.43])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYA1I-00F29P-EQ; Wed, 06 Oct 2021 16:43:53 +0000
-Received: by mail-ot1-f48.google.com with SMTP id
- h16-20020a9d3e50000000b0054e25708f41so3071853otg.0; 
- Wed, 06 Oct 2021 09:43:51 -0700 (PDT)
+ id 1mYA1K-00F2AT-Bn; Wed, 06 Oct 2021 16:43:55 +0000
+Received: by mail-oo1-f43.google.com with SMTP id
+ w6-20020a4aa446000000b002b5795cca03so1019054ool.6; 
+ Wed, 06 Oct 2021 09:43:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=YhacG1oflfweV+ZMxYJrdhD3dQtCOWEVKc3UA01qLrg=;
- b=On9lb0qpU4T+GkzVFtR1tWY1IuKmyYcQFHmlskPm4zvsiIIvEaU4VolgqeDMJP9Ws5
- bvYl41ehRSZdfnGjGUoLwRWwg4sQ9grL4esV5YexDXu6D3wSQsNQWBnAFA4xg8exJdLF
- f0O67j7DM3pDcFqGHlwDrtP+v+oEe+TLqZwNwAmu2LAfdU0CkdP8bRg4huCd9TxZgiEe
- iFLhe51/S107Zi6Vx4O/xRgBIX0Ft8nX6iqKatXpEM+WRuxmYy1Q9wBrGPn1lEFWN81g
- bH7u5i1Mj2KwUiByOpVqDYHCcZhMrhvpMBSDIFWv+5nceQLM8PBIO5GQRB//EWkQyPmq
- kjjg==
-X-Gm-Message-State: AOAM533s2u6+9fxriBBahUX0bcnYuLNahy81bh8VozVNKEfftg8L8HxZ
- 9Jf/RVSyGqvcV4uHwn86+Q==
-X-Google-Smtp-Source: ABdhPJzJQ2R5CEfp/bAtXtoCRQDaDF5B6RqZA1flXSsxFu0kVfpgeNfjZq0OKrhuVdseg2/0PDqWlg==
-X-Received: by 2002:a05:6830:455:: with SMTP id
- d21mr20503877otc.300.1633538631080; 
- Wed, 06 Oct 2021 09:43:51 -0700 (PDT)
+ bh=qVDBxu87TJi7lJ0TsvF77hW6cToukGJnTBFK4bAPEHE=;
+ b=ErP6xKV+ALlmtyXriN1EaAi0d2nXxaNoWiTfPt61DFyIJqR+a3bmDeThgXvfUQJu5A
+ mAkt8RnqRNypTfjm9RinH1U3Mm7rWvIgrcic3y/04JECec27nwjhKBZN/VT1puKnMa8l
+ gX8tezSHUdQFqXNH4l0XL4HN8sNUxx2sNHNIr4EdtqsWrZi7PR6c9ohDosI1/RuHK/DF
+ vTSQUtw6Q3tH8oG7CPzWPZCxILtp0vfNlFVTDMaRxoPuAu+BLDbcN8Q2o2bo/ki/v9nQ
+ iEQh0+G2dE6+GRd1SN/uuLu8fxo/XNbNi3v3H5ymu5YVU1Ttk2g6KaiPclck5qv3uriD
+ Bg9w==
+X-Gm-Message-State: AOAM5324y7CRl1e+ikMTQtPESLl0wlnzjrM0pm/g4xuZVwiyW/APcOda
+ EmHXBs3v1CNRs7SAuBa1/w==
+X-Google-Smtp-Source: ABdhPJwSo3vtevHig5e6wcfYzHn+p/9LVu6izXiBqHPOZc+ml50aXK5vctwJYkE3EswfiMHjHBf9ng==
+X-Received: by 2002:a4a:e597:: with SMTP id o23mr6391984oov.96.1633538632948; 
+ Wed, 06 Oct 2021 09:43:52 -0700 (PDT)
 Received: from xps15.herring.priv (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.48
+ by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Oct 2021 09:43:49 -0700 (PDT)
+ Wed, 06 Oct 2021 09:43:52 -0700 (PDT)
 From: Rob Herring <robh@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -77,16 +76,16 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
  linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: [PATCH 08/12] riscv: Use of_get_cpu_hwid()
-Date: Wed,  6 Oct 2021 11:43:28 -0500
-Message-Id: <20211006164332.1981454-9-robh@kernel.org>
+Subject: [PATCH 09/12] sh: Use of_get_cpu_hwid()
+Date: Wed,  6 Oct 2021 11:43:29 -0500
+Message-Id: <20211006164332.1981454-10-robh@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20211006164332.1981454-1-robh@kernel.org>
 References: <20211006164332.1981454-1-robh@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_094352_495029_F4CBE6E7 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20211006_094354_435626_0AE98087 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,29 +105,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Replace open coded parsing of CPU nodes' 'reg' property with
 of_get_cpu_hwid().
 
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Cc: linux-sh@vger.kernel.org
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- arch/riscv/kernel/cpu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/sh/boards/of-generic.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 6d59e6906fdd..f13b2c9ea912 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -22,7 +22,8 @@ int riscv_of_processor_hartid(struct device_node *node)
- 		return -ENODEV;
- 	}
+diff --git a/arch/sh/boards/of-generic.c b/arch/sh/boards/of-generic.c
+index 921d76fc3358..f7f3e618e85b 100644
+--- a/arch/sh/boards/of-generic.c
++++ b/arch/sh/boards/of-generic.c
+@@ -62,9 +62,8 @@ static void sh_of_smp_probe(void)
+ 	init_cpu_possible(cpumask_of(0));
  
--	if (of_property_read_u32(node, "reg", &hart)) {
-+	hart = of_get_cpu_hwid(node, 0);
-+	if (hart == ~0U) {
- 		pr_warn("Found CPU without hart ID\n");
- 		return -ENODEV;
- 	}
+ 	for_each_of_cpu_node(np) {
+-		const __be32 *cell = of_get_property(np, "reg", NULL);
+-		u64 id = -1;
+-		if (cell) id = of_read_number(cell, of_n_addr_cells(np));
++		u64 id = of_get_cpu_hwid(np, 0);
++
+ 		if (id < NR_CPUS) {
+ 			if (!method)
+ 				of_property_read_string(np, "enable-method", &method);
 -- 
 2.30.2
 
