@@ -2,14 +2,14 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 17BD9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1DADFC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D3563610E5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D3563610E5
+	by mail.kernel.org (Postfix) with ESMTPS id DECEA6103E
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DECEA6103E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,41 +18,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qQ7YonY7iswaatSXUVnWWUzqAXCLTy2ymiFJCPvVqLs=; b=fqYizs11Wu5/+F
-	DGvqZ6tSXH1Bg0R4dTLZtp9WktegmhyhzHDwsIAYtMlrLBnpzr7t+mjpaSS/NyJLwf+FXRxdm+tlS
-	I6HMU3zwUhCHt66N6TrVHE2lmxw5VTzg/+yxAr44crQi1xQmhrXcYLFz8h/7oaZR15ZIKhSeCEGzL
-	zXz4THAVYlJ+Vbg8oguCzMTk0Ha2AFGhZHF211TBaiU/jZ2cS87m1qbyBIV/8JxS5jnLA5AljDfAa
-	EDSIXL3cfuv4FQL4u7WXFI9D6Oa5+GXxEucOTwvkwgIynhNJn+dEKihiPILE5pvtKsPtIORbM1ak+
-	JNqItmONx27wcYGHcwfg==;
+	List-Owner; bh=RfQ0FxuOqSXJWQZSoQYXQhKbs1FdlJkXxELk1V630Dw=; b=gkJhpvA5XHXBAD
+	GZKqBj5J6IwzJfW7nTOMr+UPpOCvsS+BYFaYr8y4kyxKgUwvgE8AGN6LP97n2SE7kyTiiLgWSYwAL
+	3bSQ4TVazcAeJT/qU7g2+UUl1Ilqwr3z7jpq8mg1jNEE/gNS+U7V4G3hrKKXIwu8T98SXrTFQ9wZv
+	2cHQjC74D1IPv2rdfqP8pNT4HQC+cgdAihuFGpzmbpmUYVj254bXxpBPDA/ulTgJ9iFVT1rXMOwdA
+	uwwEwMdehkdxW30GezsjtUYx0yB8lXBvBYj9aHneOYNy4W092PhDyYAydVHXAG0y5LJTyubhULug4
+	lLGanh2vOISbkQNEHbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYA9R-00F6nt-1l; Wed, 06 Oct 2021 16:52:17 +0000
-Received: from mail-oi1-f176.google.com ([209.85.167.176])
+	id 1mYA9Y-00F6vz-B4; Wed, 06 Oct 2021 16:52:24 +0000
+Received: from mail-ot1-f52.google.com ([209.85.210.52])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYA1P-00F2Cl-2x; Wed, 06 Oct 2021 16:44:01 +0000
-Received: by mail-oi1-f176.google.com with SMTP id y207so1680701oia.11;
- Wed, 06 Oct 2021 09:43:57 -0700 (PDT)
+ id 1mYA1P-00F2Dm-CV; Wed, 06 Oct 2021 16:44:01 +0000
+Received: by mail-ot1-f52.google.com with SMTP id
+ 77-20020a9d0ed3000000b00546e10e6699so3941904otj.2; 
+ Wed, 06 Oct 2021 09:43:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=hDUPVdWmFpBgvCkQTCBoljrAdHSMkkZBVQWsyUTyf5E=;
- b=GvZ5Fy/iFeGNvSMYH1fVc6erd7JIgAKmhL6VXkuRrKpdnxjPzFusLcZFt7t5cLnF+w
- /45JrZwEboWkgcVWHjeVfDHg9ppmLgbPlYnS/8rIrEa2G95YHLUXNPtFToRAT+QoVatz
- jvDvHlWjxJtZb7BIgvwyCWbaaWx1w4BfFbVjoOseoz7Ofy7uwDi1K1ub9HM2OASYiwtR
- jkQ0K06rztmL3eksq53a8iYd1xe67u79ZkhpvO079R6uPs56BmipEEn2sswNxVYIz6YF
- /Eb2FgHZOkGm29f7Vf/zD6E/SqiP+674XtktvSvoCguyrjzTejUHdGoN1zEu6nF+cH1G
- PfOw==
-X-Gm-Message-State: AOAM533h5THYG/3jgFRcTO1VD2uMNbX51pjjvHDrJv8xxlS0FtyO+1fw
- N9y4jwcuyRC+UusXewMznw==
-X-Google-Smtp-Source: ABdhPJzdKu+vPdU6QOPaibRhZZ8V3BXWev73rJIyB9NkWGThVarWr5zcXuesMdXl3XDSlz8SwXuIcg==
-X-Received: by 2002:a54:4f8f:: with SMTP id g15mr7727342oiy.178.1633538636692; 
- Wed, 06 Oct 2021 09:43:56 -0700 (PDT)
+ bh=ODdwkiH4tXq9GvyXH7/gt65PfkKCS+62hrrbhfBOAKY=;
+ b=qJiFOc1ArbMuHfPh2zWcwGEUrnOYgIsQcb8hxwpwThzPeW9Q02DoKVoeVCNsCHHLUN
+ wYFnc3mUSJnjnUiTONQhU4WszbS/F5XME+TCG71e6QP/Wxox05a6hjMW5odFujvL3Rrd
+ QfOtgAKOMjnuXb20K9AvKJQk9Y+nIe5tRwUvPCdbC4exZeRUJtR7A2btLaGHAbifsXd4
+ tRA4eCSth7cPs9cdmFHuUU5DKdKbnn8JQPsrLtb5E7U/HbIwqno2uDXLdIA2zti6pVwf
+ r5MLXBfrob9nkLLMrjdO3MLHmZXM8G4mcnOQsZMn5jXzOdCMmbmPBTPJbszVDMO9PxJp
+ clOQ==
+X-Gm-Message-State: AOAM533AmPtO0gwTBotitVxbLuvSpUQNIeYC9qYhgDxty8ces9/bGgTJ
+ cVG217eHVZ25K9X5JNn6Hg==
+X-Google-Smtp-Source: ABdhPJyKbg8/vmyrEytsmwBD61hnJT/KfL8RD1L+0+jj33vwvFOqRG7dPOrAYWXK5lnk+W9TvgzSoQ==
+X-Received: by 2002:a05:6830:1ad3:: with SMTP id
+ r19mr19253078otc.98.1633538638626; 
+ Wed, 06 Oct 2021 09:43:58 -0700 (PDT)
 Received: from xps15.herring.priv (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.55
+ by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Oct 2021 09:43:56 -0700 (PDT)
+ Wed, 06 Oct 2021 09:43:57 -0700 (PDT)
 From: Rob Herring <robh@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -75,16 +77,16 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
  linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: [PATCH 11/12] cacheinfo: Allow for >32-bit cache 'id'
-Date: Wed,  6 Oct 2021 11:43:31 -0500
-Message-Id: <20211006164332.1981454-12-robh@kernel.org>
+Subject: [PATCH 12/12] cacheinfo: Set cache 'id' based on DT data
+Date: Wed,  6 Oct 2021 11:43:32 -0500
+Message-Id: <20211006164332.1981454-13-robh@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20211006164332.1981454-1-robh@kernel.org>
 References: <20211006164332.1981454-1-robh@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_094359_188629_CA39818B 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20211006_094359_476284_8EC7D590 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +103,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation to set the cache 'id' based on the CPU h/w ids, allow for
-64-bit bit 'id' value. The only case that needs this is arm64, so
-unsigned long is sufficient.
+Use the minimum CPU h/w id of the CPUs associated with the cache for the
+cache 'id'. This will provide a stable id value for a given system. As
+we need to check all possible CPUs, we can't use the shared_cpu_map
+which is just online CPUs. As there's not a cache to CPUs mapping in DT,
+we have to walk all CPU nodes and then walk cache levels.
 
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- drivers/base/cacheinfo.c  | 8 +++++++-
- include/linux/cacheinfo.h | 2 +-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ drivers/base/cacheinfo.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
 diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index dad296229161..66d10bdb863b 100644
+index 66d10bdb863b..44547fd96f72 100644
 --- a/drivers/base/cacheinfo.c
 +++ b/drivers/base/cacheinfo.c
-@@ -366,13 +366,19 @@ static ssize_t file_name##_show(struct device *dev,		\
- 	return sysfs_emit(buf, "%u\n", this_leaf->object);	\
+@@ -136,6 +136,31 @@ static bool cache_node_is_unified(struct cacheinfo *this_leaf,
+ 	return of_property_read_bool(np, "cache-unified");
  }
  
--show_one(id, id);
- show_one(level, level);
- show_one(coherency_line_size, coherency_line_size);
- show_one(number_of_sets, number_of_sets);
- show_one(physical_line_partition, physical_line_partition);
- show_one(ways_of_associativity, ways_of_associativity);
- 
-+static ssize_t id_show(struct device *dev, struct device_attribute *attr, char *buf)
++static void cache_of_set_id(struct cacheinfo *this_leaf, struct device_node *np)
 +{
-+	struct cacheinfo *this_leaf = dev_get_drvdata(dev);
++	struct device_node *cpu;
++	unsigned long min_id = ~0UL;
 +
-+	return sysfs_emit(buf, "%lu\n", this_leaf->id);
++	for_each_of_cpu_node(cpu) {
++		struct device_node *cache_node = cpu;
++		u64 id = of_get_cpu_hwid(cache_node, 0);
++
++		while ((cache_node = of_find_next_cache_node(cache_node))) {
++			if ((cache_node == np) && (id < min_id)) {
++				min_id = id;
++				of_node_put(cache_node);
++				break;
++			}
++			of_node_put(cache_node);
++		}
++	}
++
++	if (min_id != ~0UL) {
++		this_leaf->id = min_id;
++		this_leaf->attributes |= CACHE_ID;
++	}
 +}
 +
- static ssize_t size_show(struct device *dev,
- 			 struct device_attribute *attr, char *buf)
+ static void cache_of_set_props(struct cacheinfo *this_leaf,
+ 			       struct device_node *np)
  {
-diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
-index 2f909ed084c6..b2e7f3e40204 100644
---- a/include/linux/cacheinfo.h
-+++ b/include/linux/cacheinfo.h
-@@ -48,7 +48,7 @@ extern unsigned int coherency_max_size;
-  * keeping, the remaining members form the core properties of the cache
-  */
- struct cacheinfo {
--	unsigned int id;
-+	unsigned long id;
- 	enum cache_type type;
- 	unsigned int level;
- 	unsigned int coherency_line_size;
+@@ -151,6 +176,7 @@ static void cache_of_set_props(struct cacheinfo *this_leaf,
+ 	cache_get_line_size(this_leaf, np);
+ 	cache_nr_sets(this_leaf, np);
+ 	cache_associativity(this_leaf);
++	cache_of_set_id(this_leaf, np);
+ }
+ 
+ static int cache_setup_of_node(unsigned int cpu)
 -- 
 2.30.2
 
