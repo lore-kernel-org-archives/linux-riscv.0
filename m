@@ -2,14 +2,14 @@ Return-Path: <SRS0=kkwt=O2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD6E2C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 17BD9C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7F8296113E
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:50:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7F8296113E
+	by mail.kernel.org (Postfix) with ESMTPS id D3563610E5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Oct 2021 16:52:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D3563610E5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,41 +18,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HQdckqn78NWZIhcDaHkltkftg5Eiq97I0SjhR0cHcOI=; b=LqLZeqQANfF6Cs
-	IBdhIRNdhYEqnQD3+imccmMhv50igKYa7ARW1qym1UMX6Gk+NloNUVqqxamjULHhmO5+Un0MmX2qL
-	3SkGG7uugXeptz0FtDk4HIzyYO5RtYzxkejXv61ss1EKz4rUhKGpbs5cmpxPiDjY3Tfqev71ZwSob
-	2irldU5i9WVEWuDD/wSXBcyZOBy0ZSge/y3xgp3z6eCS4D7m+jQB8Cxexu4pHla6WvmgIuvjmyJir
-	0DEEtTQfDOAr6NKq/FrT1AOL7m4XMbRHVxZ5XV6CWL1RvyvNEu98klLw7B7+TF5s6CV73fkSW5KF9
-	pD3HfL6ZWfffKB4zXYzg==;
+	List-Owner; bh=qQ7YonY7iswaatSXUVnWWUzqAXCLTy2ymiFJCPvVqLs=; b=fqYizs11Wu5/+F
+	DGvqZ6tSXH1Bg0R4dTLZtp9WktegmhyhzHDwsIAYtMlrLBnpzr7t+mjpaSS/NyJLwf+FXRxdm+tlS
+	I6HMU3zwUhCHt66N6TrVHE2lmxw5VTzg/+yxAr44crQi1xQmhrXcYLFz8h/7oaZR15ZIKhSeCEGzL
+	zXz4THAVYlJ+Vbg8oguCzMTk0Ha2AFGhZHF211TBaiU/jZ2cS87m1qbyBIV/8JxS5jnLA5AljDfAa
+	EDSIXL3cfuv4FQL4u7WXFI9D6Oa5+GXxEucOTwvkwgIynhNJn+dEKihiPILE5pvtKsPtIORbM1ak+
+	JNqItmONx27wcYGHcwfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYA7D-00F5HV-Hu; Wed, 06 Oct 2021 16:49:59 +0000
-Received: from mail-oi1-f181.google.com ([209.85.167.181])
+	id 1mYA9R-00F6nt-1l; Wed, 06 Oct 2021 16:52:17 +0000
+Received: from mail-oi1-f176.google.com ([209.85.167.176])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYA1M-00F2Bh-AU; Wed, 06 Oct 2021 16:43:57 +0000
-Received: by mail-oi1-f181.google.com with SMTP id s24so4841196oij.8;
- Wed, 06 Oct 2021 09:43:55 -0700 (PDT)
+ id 1mYA1P-00F2Cl-2x; Wed, 06 Oct 2021 16:44:01 +0000
+Received: by mail-oi1-f176.google.com with SMTP id y207so1680701oia.11;
+ Wed, 06 Oct 2021 09:43:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=J13zoIHrX4tLH3WneJUTeWV7jFKNgk6/LfnJOFSAv7E=;
- b=1svU/8hVX2CNvpLo+G903jRUDZUeQClJ2Xz++gohAOhTl/yz0mh3CHF9Yz/2xemHrB
- pjvQaiLC2hcEcDs/KBZYLdBwaxwbX5LMLvkwMd82mUM1+Qz0batKRiXEEKD5HhsuzRLH
- PEr0lWJlBJHz5KWwhYyuHlyqmO2+8LA2+gbv/7KRHpW3ZfUS+vW6toYaZnUdT89M8VAy
- cFjnz03MRC/vbWp8Dj0s370wMOLx6pOED4/46vOE6L8AolRGE7l7s4rmK77xh2dWRCg+
- 74nhLJDNNcoA4TMk66ejF3wgDKc6FkYdEhJI/X3Al7e3P28zZy4gyPF8VL74Wo1Tytb3
- gvJA==
-X-Gm-Message-State: AOAM531aXmQ+M+vSJpfEqIev5wEtZtX6LUv018TtmROClDGOfm9GGy/j
- /N8ybobXXXFa6eST+AOBCg==
-X-Google-Smtp-Source: ABdhPJzsmLqvAc8ULa8uzHfFQAR3YkQa63E6ZsBRL9k77fBu+BE8j4mODwWxFxPISSskaMe8DkKEfw==
-X-Received: by 2002:aca:c288:: with SMTP id s130mr7509039oif.138.1633538634953; 
- Wed, 06 Oct 2021 09:43:54 -0700 (PDT)
+ bh=hDUPVdWmFpBgvCkQTCBoljrAdHSMkkZBVQWsyUTyf5E=;
+ b=GvZ5Fy/iFeGNvSMYH1fVc6erd7JIgAKmhL6VXkuRrKpdnxjPzFusLcZFt7t5cLnF+w
+ /45JrZwEboWkgcVWHjeVfDHg9ppmLgbPlYnS/8rIrEa2G95YHLUXNPtFToRAT+QoVatz
+ jvDvHlWjxJtZb7BIgvwyCWbaaWx1w4BfFbVjoOseoz7Ofy7uwDi1K1ub9HM2OASYiwtR
+ jkQ0K06rztmL3eksq53a8iYd1xe67u79ZkhpvO079R6uPs56BmipEEn2sswNxVYIz6YF
+ /Eb2FgHZOkGm29f7Vf/zD6E/SqiP+674XtktvSvoCguyrjzTejUHdGoN1zEu6nF+cH1G
+ PfOw==
+X-Gm-Message-State: AOAM533h5THYG/3jgFRcTO1VD2uMNbX51pjjvHDrJv8xxlS0FtyO+1fw
+ N9y4jwcuyRC+UusXewMznw==
+X-Google-Smtp-Source: ABdhPJzdKu+vPdU6QOPaibRhZZ8V3BXWev73rJIyB9NkWGThVarWr5zcXuesMdXl3XDSlz8SwXuIcg==
+X-Received: by 2002:a54:4f8f:: with SMTP id g15mr7727342oiy.178.1633538636692; 
+ Wed, 06 Oct 2021 09:43:56 -0700 (PDT)
 Received: from xps15.herring.priv (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.53
+ by smtp.googlemail.com with ESMTPSA id s29sm4236628otg.60.2021.10.06.09.43.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Oct 2021 09:43:54 -0700 (PDT)
+ Wed, 06 Oct 2021 09:43:56 -0700 (PDT)
 From: Rob Herring <robh@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -75,16 +75,16 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
  linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: [PATCH 10/12] x86: dt: Use of_get_cpu_hwid()
-Date: Wed,  6 Oct 2021 11:43:30 -0500
-Message-Id: <20211006164332.1981454-11-robh@kernel.org>
+Subject: [PATCH 11/12] cacheinfo: Allow for >32-bit cache 'id'
+Date: Wed,  6 Oct 2021 11:43:31 -0500
+Message-Id: <20211006164332.1981454-12-robh@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20211006164332.1981454-1-robh@kernel.org>
 References: <20211006164332.1981454-1-robh@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_094356_410927_26C40E50 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20211006_094359_188629_CA39818B 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +101,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace open coded parsing of CPU nodes' 'reg' property with
-of_get_cpu_hwid().
+In preparation to set the cache 'id' based on the CPU h/w ids, allow for
+64-bit bit 'id' value. The only case that needs this is arm64, so
+unsigned long is sufficient.
 
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: x86@kernel.org
-Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>
 Signed-off-by: Rob Herring <robh@kernel.org>
 ---
- arch/x86/kernel/devicetree.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/base/cacheinfo.c  | 8 +++++++-
+ include/linux/cacheinfo.h | 2 +-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kernel/devicetree.c b/arch/x86/kernel/devicetree.c
-index 6a4cb71c2498..3aa1e99df2a9 100644
---- a/arch/x86/kernel/devicetree.c
-+++ b/arch/x86/kernel/devicetree.c
-@@ -139,12 +139,11 @@ static void __init dtb_cpu_setup(void)
- {
- 	struct device_node *dn;
- 	u32 apic_id, version;
--	int ret;
+diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+index dad296229161..66d10bdb863b 100644
+--- a/drivers/base/cacheinfo.c
++++ b/drivers/base/cacheinfo.c
+@@ -366,13 +366,19 @@ static ssize_t file_name##_show(struct device *dev,		\
+ 	return sysfs_emit(buf, "%u\n", this_leaf->object);	\
+ }
  
- 	version = GET_APIC_VERSION(apic_read(APIC_LVR));
- 	for_each_of_cpu_node(dn) {
--		ret = of_property_read_u32(dn, "reg", &apic_id);
--		if (ret < 0) {
-+		apic_id = of_get_cpu_hwid(dn, 0);
-+		if (apic_id == ~0U) {
- 			pr_warn("%pOF: missing local APIC ID\n", dn);
- 			continue;
- 		}
+-show_one(id, id);
+ show_one(level, level);
+ show_one(coherency_line_size, coherency_line_size);
+ show_one(number_of_sets, number_of_sets);
+ show_one(physical_line_partition, physical_line_partition);
+ show_one(ways_of_associativity, ways_of_associativity);
+ 
++static ssize_t id_show(struct device *dev, struct device_attribute *attr, char *buf)
++{
++	struct cacheinfo *this_leaf = dev_get_drvdata(dev);
++
++	return sysfs_emit(buf, "%lu\n", this_leaf->id);
++}
++
+ static ssize_t size_show(struct device *dev,
+ 			 struct device_attribute *attr, char *buf)
+ {
+diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+index 2f909ed084c6..b2e7f3e40204 100644
+--- a/include/linux/cacheinfo.h
++++ b/include/linux/cacheinfo.h
+@@ -48,7 +48,7 @@ extern unsigned int coherency_max_size;
+  * keeping, the remaining members form the core properties of the cache
+  */
+ struct cacheinfo {
+-	unsigned int id;
++	unsigned long id;
+ 	enum cache_type type;
+ 	unsigned int level;
+ 	unsigned int coherency_line_size;
 -- 
 2.30.2
 
