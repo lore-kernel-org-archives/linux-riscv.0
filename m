@@ -2,14 +2,14 @@ Return-Path: <SRS0=uA0y=O3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A11AEC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 02:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C6B2C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 02:25:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 529A261248
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 02:25:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 529A261248
+	by mail.kernel.org (Postfix) with ESMTPS id 2437061215
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 02:25:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2437061215
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eot50sJhUDdamm0EifpVNNg/tIUmJXCGlR5HT1iPnTU=; b=MjtLhfbaI1BBup
-	OQ/tRok0Uh8xKxxsHjGtv1IFxV5mBVYNCAOBB9Bn5tn2eZRdMRKEY2Y+tNd5JN6nqqkY6hutLs/+c
-	2QSUio+qqGQOfEYjJnY9KSqevv4ohfWNX4kb6cnwqwFFpvs8omVmioptWpqzjnAJ7zkMgctc+AuT/
-	1eJf1RzAr8yK/DD9uLAXmcPb5L14VlnGourex3991Hl6DRNCNHBXIBdQ8sAj9lz3mU2SbLUCjpe63
-	NsaL/oeYYt5K3gnYQcIzpuI6Eba8Y3nSPrRlygESdgG6FDuEVrSmtgkxaR0WGpADLJ7HTRUGV6Ii0
-	9pWunCHatuEe/oqteWwg==;
+	List-Owner; bh=ZBkOlEQqwlAjBaHID4o2R2C/xdrTymc6xdSEYXvKDf0=; b=a+r3VOVinpFESE
+	xOJ1yPiY61+0CmRQtPwoqaNOB9aAMkNvHha4lLzXNvvc+sd3j/Fs4tImEFoegdFFYdAtGDkOKX8MP
+	cZYzuAuK8zVyEoWRuFzf+Hb+hsAZI9ebE7yIzyxW/4xAhP8XlXS3/l7vDW11UWc0Gc9Mj4f6gK6VS
+	LKq1Ktd4+V1k72+fgIrvEAtRKCRYyKYORoQThT4ishzErs1QDxJFXxQu2syW3eKw0tH3W96Z+JKsf
+	iL5oyXEahSQKI053WwI8NXEEce34InNhQUp1ibC/mjRJJiVDxNkFfH344+O5c17JNuGlej/lbFx76
+	9cBMnJlJbMdxC5rYWgcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYJ6F-00FzvR-1P; Thu, 07 Oct 2021 02:25:35 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1mYJ63-00Fzu7-DV; Thu, 07 Oct 2021 02:25:23 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYJ5w-00Fzst-41; Thu, 07 Oct 2021 02:25:17 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id b22so2946160pls.1;
- Wed, 06 Oct 2021 19:25:15 -0700 (PDT)
+ id 1mYJ5q-00Fzrq-VH; Thu, 07 Oct 2021 02:25:12 +0000
+Received: by mail-pg1-x529.google.com with SMTP id a73so4258795pge.0;
+ Wed, 06 Oct 2021 19:25:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=message-id:date:mime-version:user-agent:subject:content-language:to
  :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=wdvJk6D1ViEBYH6uB0AwglzPFWNo7cbOO7fkxMbJ9dA=;
- b=Sp/MggvYZ1fkKseKOIqheZEqgIYO9U7l3Fb+F7r4AF1HJvKza55doAM4VFHekfLjFx
- l0h9QKBGfCRkc0EqNboiOVTNmHzg/SEEuLqwArpOJayKxQme+kLkxEIGqZgvnMWmieNx
- fhuC+ZFrD2D0fjMPYFbqmZAg8gVdJN6nAW585b1RLttDiggeBCq69kYRXGKHA2qSZytw
- hSaCB+BvsDGvSowzyJ3w/Myei9Krute/Mf+n+VyS3y75NZoqIH2HR+hkZeD1eiqFJV9a
- +rouVDBNrFLQuldI1V/ceTpSLwESV/R60I9q1ajynvnJIpy9PEOAXakMQE5+aA6KEYjv
- CNsw==
+ bh=6Fbp2oLqg5VLyJhPP2UoprEyUpjt3vE+k1k8NDwLMpk=;
+ b=fVpVXChAwZh74Yak5ikdgyaoheURY4K/ccbznO6zTnIB1AbJR+bIgOAW5/cSxWFoOZ
+ cY0eBdVYRQP1/jK52zezVr0uzpqaKqL4UT7RQvBZyhmKIcoiByFnE72l/T/lAzTh60PX
+ 2ZZ2YfXaMMnXi99HoWBLG5uUJUaMAp+mwPmSs0A9L0wSZq5MBqIGrLe/fQpBMPOxvPnK
+ 4rfWTUo7RKXBeIwus/mUrNTfwOqbla5PIcLbJRJuwd6IvqLGvZcPe9NmM60QdmCBRqmR
+ sMF0mjWUQFOWNx2GTwfCL5Ktgovulw8+KnJ+87QvW6vVfTE6IVfRZKsoah2Gd8VJ0NWK
+ +Eww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=wdvJk6D1ViEBYH6uB0AwglzPFWNo7cbOO7fkxMbJ9dA=;
- b=ePKlKAg570jHMbwrZmPaOuzdKUidZvU6PDot/9GBJgemrqGwA6xzRxbSBuNY418WuJ
- 4qpw3nlNfo8u/WD30TXdEMdu9R7WMU1fXV95nZtIrXxf/yFmrGFOGMZFR83hk2dePnSM
- o58BI1vK+eVLSh/4RWkyYT6ibVXPMTh0f8fMtN0ywbmRw53j05+nuDX/zliRykz1qsVf
- o++20BE32DlZk/UP2jJAg4wvFCl4f/AguggNLPO/VRctekTMfNh7GFoWvbX1ufAVDrDy
- MewXfbhkbft6SzMvWvxV704p9I/bGkCAly+hGvSAWIuuYcU8rAat0sSGr/IuqzLJ/eqB
- H9Mg==
-X-Gm-Message-State: AOAM530JCypOnGOd+eq9rNY1DxFySwKMCX7e2ItPllhKkgUV5nfx1Fl2
- mYJTzeOwUGXhhlfnHq3VQfA=
-X-Google-Smtp-Source: ABdhPJwHRb5SJb8sNMUH9CwZYyScBHBUSvA5u2yjHWxgkKCOzGkTQ5PtC45GQtM+mqCrbUx1dMutLQ==
-X-Received: by 2002:a17:90a:8b8d:: with SMTP id
- z13mr2492694pjn.214.1633573515375; 
- Wed, 06 Oct 2021 19:25:15 -0700 (PDT)
+ bh=6Fbp2oLqg5VLyJhPP2UoprEyUpjt3vE+k1k8NDwLMpk=;
+ b=fc2Sg+q+QsJS/qDk2iu85RJMLdl4MI9CiAaWyTDHjHi5hBwZuBIkQI+OhxbwCK4nAd
+ qvxnFYtAeoGNjtGykxN8K3RzYj0Loc8N/d4aSDY6xqegroGXdK3jqr5bTxvvBZsXj5EF
+ itVvSDB9/vHwgoL+dVd9oDptk/UrP/zpbrYZIPXCxFfcJwURaumDbLxrgZlezDL5/sCx
+ sMZMqqLNKxCoEyLG+WfqGnEkkHe2/tH7YMUspbq0aK+riDAzWsmoQl/Knh/uYYhOJpJz
+ qMBx0rRU5BZoxhKpCQs0OlHVKv8fvZfZHMeCESa3iQcIkXL4pm6W0jWiprDBOAe/p73b
+ 6qdw==
+X-Gm-Message-State: AOAM530fX3+0KUqrkZcei+zztd4iBvAl9oAvZjTdDUyivmv/TT5C+5X7
+ D1KTBDYGgJvVxn9DqaEcLo8=
+X-Google-Smtp-Source: ABdhPJys1HdOqewyun+C+iToAvx9hnErbBSMfwtBGQraooU+JJaijDbgzG5Y0UhUonum+9KpDmz8JA==
+X-Received: by 2002:a63:ed4a:: with SMTP id m10mr1303051pgk.448.1633573509317; 
+ Wed, 06 Oct 2021 19:25:09 -0700 (PDT)
 Received: from [10.230.29.137] ([192.19.223.252])
- by smtp.gmail.com with ESMTPSA id k14sm22015549pgg.92.2021.10.06.19.25.01
+ by smtp.gmail.com with ESMTPSA id g23sm22285369pfu.71.2021.10.06.19.24.54
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 06 Oct 2021 19:25:14 -0700 (PDT)
-Message-ID: <ad0c1e14-62f9-0b9c-0b84-d31a213d53de@gmail.com>
-Date: Wed, 6 Oct 2021 19:24:58 -0700
+ Wed, 06 Oct 2021 19:25:08 -0700 (PDT)
+Message-ID: <1a15bbef-cf3d-33c6-b6c1-3dd607d71d1d@gmail.com>
+Date: Wed, 6 Oct 2021 19:24:50 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
  Thunderbird/91.1.2
-Subject: Re: [PATCH 03/12] ARM: broadcom: Use of_get_cpu_hwid()
+Subject: Re: [PATCH 00/12] DT: CPU h/w id parsing clean-ups and cacheinfo id
+ support
 Content-Language: en-US
 To: Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
  James Morse <james.morse@arm.com>, Catalin Marinas
@@ -93,13 +93,11 @@ Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  devicetree@vger.kernel.org
 References: <20211006164332.1981454-1-robh@kernel.org>
- <20211006164332.1981454-4-robh@kernel.org>
 From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <20211006164332.1981454-4-robh@kernel.org>
+In-Reply-To: <20211006164332.1981454-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211006_192516_201943_D33F3915 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211006_192511_061531_C76B2519 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,17 +117,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 10/6/2021 9:43 AM, Rob Herring wrote:
-> Replace open coded parsing of CPU nodes 'reg' property with
-> of_get_cpu_hwid().
+> The first 10 patches add a new function, of_get_cpu_hwid(), which parses
+> CPU DT node 'reg' property, and then use it to replace all the open
+> coded versions of parsing CPU node 'reg' properties.
 > 
-> Cc: Florian Fainelli <f.fainelli@gmail.com>
-> Cc: Ray Jui <rjui@broadcom.com>
-> Cc: Scott Branden <sbranden@broadcom.com>
-> Cc: bcm-kernel-feedback-list@broadcom.com
-> Cc: Russell King <linux@armlinux.org.uk>
-> Signed-off-by: Rob Herring <robh@kernel.org>
+> The last 2 patches add support for populating the cacheinfo 'id' on DT
+> platforms. The minimum associated CPU hwid is used for the id. The id is
+> optional, but necessary for resctrl which is being adapted for Arm MPAM.
+> 
+> Tested on arm64. Compile tested on arm, x86 and powerpc.
 
-Acked-by: Florian Fainelli <f.fainelli@gmail.com>
+On ARM and ARM64:
+
+Tested-by: Florian Fainelli <f.fainelli@gmail.com>
+
+lscpu -C continues to work on ARM64 as before with cache properties 
+provided in the FDT.
 -- 
 Florian
 
