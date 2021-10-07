@@ -2,79 +2,71 @@ Return-Path: <SRS0=uA0y=O3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC57CC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 14:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E809EC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 15:11:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AB6BA60F9D
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 14:31:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AB6BA60F9D
+	by mail.kernel.org (Postfix) with ESMTPS id ADD3261139
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Oct 2021 15:11:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org ADD3261139
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2o+Clo/C4NmaNVVxWWlr8TuCPN7+LQfEzy6g6BLyZeg=; b=j984YRB9dYdXlo
-	hpR+rCrMXxWclwNXxU/aLgi7CfuUGMYsU7QG76lshFAYzu0WNl8Cx443AA9oaoZHfZ6aBhry86sQa
-	g8DL48DZrSESi9i5Zhtb7ECFKjIxuFPyPuX8bqnHDWf6YasJQW5+UdBmBCJR+hpSVJudkyfvdIV02
-	9dHPqNkbusFhIXA/l7poxTeRUVks+IgzmY7clmFf36JUP6utkSAgn/msmS7ilOCvXGYKGLIH+fm8m
-	16+GgLR5z/OCXmpxflT0nlGc8Hmx/AqW6BUA3qq34ooxyCT7l9hR/QLDcra7Hgkjppmu0SuAVo4DW
-	uffSN1OfE0hvl3cm7LCA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=a/v5AsD59faGeAieocWDGJxJ7IRkHBLcD5KBwo3nTVA=; b=2QWLbsmSQ2oW8C
+	olQItzGeQQDfvCSONVRY9KCzqkUXxvh4jloBCdItDxxQrwSCq1wYhoA7BVIa88whOlxU3VWd69x0b
+	wBUNvyH3ja790kjVr1+eLDxx/O+wCVUPzWgjQJ7G7/KED8xv+RfpVXNLwet3zU2uoNm9VNn/Cox/u
+	f1wB4QFIRo+k83fePPB2zAchuj+MwqEZPp38Sczs7iMHAN38XbWBvU9lXDJbQAcBrVSPWUskiq+Dm
+	A4l27TN59yGs7JQjcwnWKMZsLA9ySe8ElLENP1LrRaiUQv07Zlvb0ahvxmplfYZFamtzgqaIxFeD4
+	ULtaMlhu5LBOjrGMhY9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYUQe-0000sn-1E; Thu, 07 Oct 2021 14:31:24 +0000
+	id 1mYV2f-0006jI-T7; Thu, 07 Oct 2021 15:10:41 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYUQZ-0000rZ-FG; Thu, 07 Oct 2021 14:31:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A3DBD61130;
- Thu,  7 Oct 2021 14:31:18 +0000 (UTC)
+ id 1mYV2P-0006cc-64; Thu, 07 Oct 2021 15:10:26 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4B0B26113E;
+ Thu,  7 Oct 2021 15:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1633617078;
- bh=G5QGXuUSAupy+VJFK/ASbt6dneUo7G2ezdkfkdf/3Ms=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=UKtuVnapVD/TMuzj5Cv7LV5MGQthbXxubGewIbpJi8LciacUadBpz8e0xS5liFOek
- ZJCiKaJGYMOAtIzEhRlK+MxCAIqfRzh8iM/e29e0nBjtJkHE9+PuUBpPD+hWPANoJD
- or3cbvBBWGezvDC7YEfWruIVioM0uZkxbEvZrWOK7tB2rIWS9H2EyMUxS4EoXyjIIk
- IEKPQqgyU3kcxChZ1FTXibve2vcOnxw6krV0vgU2DW60FW96/Laphb9h5h9UEeqexe
- STdJ/HrU6lNiX1frRSbv5z3hUk/dRyFUEK+XVlLHhIf2STCDLvptarp2x5cSTn7j/E
- dx9hwZNvttklg==
-Received: by mail-ua1-f44.google.com with SMTP id b34so4424509uad.8;
- Thu, 07 Oct 2021 07:31:18 -0700 (PDT)
-X-Gm-Message-State: AOAM530EggnsJQcfYeXXXm+yAnxjux4V6M9Akjlh1AtfEe8ifeRPlHzr
- 9JkAVMrxvqtPhK213l7ARr84JtKRvbefDnAsKGI=
-X-Google-Smtp-Source: ABdhPJyRzmpnKcOveFDsMr+uRuhzKm2Mmd5h6GhA1OFwLrY5HPzALRBwB1IcQcZDBMFUJ8e8Ky0nBnE6uV/BU91EyjQ=
-X-Received: by 2002:a05:6130:426:: with SMTP id
- ba38mr5108993uab.108.1633617077371; 
- Thu, 07 Oct 2021 07:31:17 -0700 (PDT)
+ s=k20201202; t=1633619423;
+ bh=6XparVng5W/AReJHiKchmXlIe9lsC3Z91YzkLUlPNCg=;
+ h=From:To:Cc:Subject:Date:From;
+ b=uGBU3w5ZPcovOtfzM/FIsHTD7h3JxuPJygqvsc/Akx8WIgRCpgs3UgXZBZTV82I1O
+ pW+TIPVurN88xf3WvDzFDkgp4KUNa7HpHH0yruRMhNm5135jx5bqq+/CKSzQGvE9Do
+ ViwsXF7lFqxOsI6bHhr9Jy2jv4XcchqTsLVaQi+z5d/b1rYbgoS7hR41kw3y30v3an
+ GfXh2Vp3SSFv+/Ic2Yauk4D9evUCiGVqN10/ZzGkA3ER8QQimEVtKd0+OTGa/g7KUM
+ 0ggiEgI2DrGim19ev5P6YtxGkOvCy0ZLC7gw6ICyGtfCMR5AINWv1keeKoUptUyCZ3
+ OdUDZ2/BTlnCQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+ iommu@lists.linux-foundation.org, linux-media@vger.kernel.org,
+ linux-mmc@vger.kernel.org, netdev@vger.kernel.org,
+ ath10k@lists.infradead.org, linux-wireless@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Simon Trimmer <simont@opensource.cirrus.com>,
+ Michael Ellerman <mpe@ellerman.id.au>
+Subject: [PATCH v2 1/2] firmware: include drivers/firmware/Kconfig
+ unconditionally
+Date: Thu,  7 Oct 2021 17:10:09 +0200
+Message-Id: <20211007151010.333516-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-References: <20210927114016.1089328-1-anup.patel@wdc.com>
- <CAJF2gTRrMYUmG7ZWtcK1QauqRDLhvuY_KhKkkuOriBXK4AFSGQ@mail.gmail.com>
- <CAOnJCUJXXbZJFassuTNr9fU98TpkLAXNoC_7KmakoCxv=xs3Gg@mail.gmail.com>
-In-Reply-To: <CAOnJCUJXXbZJFassuTNr9fU98TpkLAXNoC_7KmakoCxv=xs3Gg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 7 Oct 2021 22:31:06 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRoZ8PWk-PAYDDZ+7SA+x_RqhPQX1T0yg1p2RYsiuMvwQ@mail.gmail.com>
-Message-ID: <CAJF2gTRoZ8PWk-PAYDDZ+7SA+x_RqhPQX1T0yg1p2RYsiuMvwQ@mail.gmail.com>
-Subject: Re: [PATCH v20 00/17] KVM RISC-V Support
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
- Alexander Graf <graf@amazon.com>, Atish Patra <atish.patra@wdc.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, 
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211007_073119_607257_498E4447 
-X-CRM114-Status: GOOD (  43.41  )
+X-CRM114-CacheID: sfid-20211007_081025_307313_5C710EBF 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,353 +83,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 5, 2021 at 1:46 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Mon, Oct 4, 2021 at 9:15 AM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > Tested-by: Guo Ren <guoren@kernel.org>
-> >
-> > qemu: commit 8880cc4362fde4ecdac0b2092318893118206fcf (HEAD -> master,
-> > qemu/master)
-> > kvmtool: commit 31627784e671d86fcc6f4754888b03dc83d3ec4a (HEAD ->
-> > riscv_v9, avpatel/riscv_v9)
-> > linux: commit 3940bf8c7e029e86beb82817708bc9c2c8781379 (HEAD ->
-> > riscv_kvm_v20, avpatel/riscv_kvm_v20)
-> > opensbi: commit 754d51192b6bf6a4afd9d46c5f736a9f6dd1b404 (HEAD ->
-> > master, origin/master, origin/HEAD)
-> >
-> > Find a small issue:
-> >
-> > [    4.743119] Freeing unused kernel image (initmem) memory: 2144K
-> > [    4.778912] Run /virt/init as init process
-> > Mounting...
-> > [    5.276235] random: fast init done
-> > / # poweroff
-> > / #
-> >   # KVM session ended normally.
-> > Using ctrl + a, ctrl + a, x could exit, but poweroff has no effect.
->
-> You probably don't have the follow up kvm patch series that adds SRST
-> support in kvm
-> https://patchwork.kernel.org/project/kvm/patch/20210204053239.1609558-7-atish.patra@wdc.com/
-Yes, and thx for the explanation.
+From: Arnd Bergmann <arnd@arndb.de>
 
->
-> FYI: I will rebase the entire series and send it once the base kvm
-> series is available online.
->
-> >
-> > On Mon, Sep 27, 2021 at 7:40 PM Anup Patel <anup.patel@wdc.com> wrote:
-> > >
-> > > This series adds initial KVM RISC-V support. Currently, we are able to boot
-> > > Linux on RV64/RV32 Guest with multiple VCPUs.
-> > >
-> > > Key aspects of KVM RISC-V added by this series are:
-> > > 1. No RISC-V specific KVM IOCTL
-> > > 2. Loadable KVM RISC-V module supported
-> > > 3. Minimal possible KVM world-switch which touches only GPRs and few CSRs
-> > > 4. Both RV64 and RV32 host supported
-> > > 5. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure
-> > > 6. KVM ONE_REG interface for VCPU register access from user-space
-> > > 7. PLIC emulation is done in user-space
-> > > 8. Timer and IPI emuation is done in-kernel
-> > > 9. Both Sv39x4 and Sv48x4 supported for RV64 host
-> > > 10. MMU notifiers supported
-> > > 11. Generic dirtylog supported
-> > > 12. FP lazy save/restore supported
-> > > 13. SBI v0.1 emulation for KVM Guest available
-> > > 14. Forward unhandled SBI calls to KVM userspace
-> > > 15. Hugepage support for Guest/VM
-> > > 16. IOEVENTFD support for Vhost
-> > >
-> > > Here's a brief TODO list which we will work upon after this series:
-> > > 1. KVM unit test support
-> > > 2. KVM selftest support
-> > > 3. SBI v0.3 emulation in-kernel
-> > > 4. In-kernel PMU virtualization
-> > > 5. In-kernel AIA irqchip support
-> > > 6. Nested virtualizaiton
-> > > 7. ..... and more .....
-> > >
-> > > This series can be found in riscv_kvm_v20 branch at:
-> > > https//github.com/avpatel/linux.git
-> > >
-> > > Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v9 branch
-> > > at: https//github.com/avpatel/kvmtool.git
-> > >
-> > > The QEMU RISC-V hypervisor emulation is done by Alistair and is available
-> > > in master branch at: https://git.qemu.org/git/qemu.git
-> > >
-> > > To play around with KVM RISC-V, refer KVM RISC-V wiki at:
-> > > https://github.com/kvm-riscv/howto/wiki
-> > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
-> > > https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-Spike
-> > >
-> > > Changes since v19:
-> > >  - Rebased on Linux-5.15-rc3
-> > >  - Converted kvm_err() to kvm_debug() in kvm_set_spte_gfn() function
-> > >    added by PATCH11
-> > >
-> > > Changes since v18:
-> > >  - Rebased on Linux-5.14-rc3
-> > >  - Moved to new KVM debugfs interface
-> > >  - Dropped PATCH17 of v18 series for having KVM RISC-V in drivers/staging
-> > >
-> > > Changes since v17:
-> > >  - Rebased on Linux-5.13-rc2
-> > >  - Moved to new KVM MMU notifier APIs
-> > >  - Removed redundant kvm_arch_vcpu_uninit()
-> > >  - Moved KVM RISC-V sources to drivers/staging for compliance with
-> > >    Linux RISC-V patch acceptance policy
-> > >
-> > > Changes since v16:
-> > >  - Rebased on Linux-5.12-rc5
-> > >  - Remove redundant kvm_arch_create_memslot(), kvm_arch_vcpu_setup(),
-> > >    kvm_arch_vcpu_init(), kvm_arch_has_vcpu_debugfs(), and
-> > >    kvm_arch_create_vcpu_debugfs() from PATCH5
-> > >  - Make stage2_wp_memory_region() and stage2_ioremap() as static
-> > >    in PATCH13
-> > >
-> > > Changes since v15:
-> > >  - Rebased on Linux-5.11-rc3
-> > >  - Fixed kvm_stage2_map() to use gfn_to_pfn_prot() for determing
-> > >    writeability of a host pfn.
-> > >  - Use "__u64" in-place of "u64" and "__u32" in-place of "u32" for
-> > >    uapi/asm/kvm.h
-> > >
-> > > Changes since v14:
-> > >  - Rebased on Linux-5.10-rc3
-> > >  - Fixed Stage2 (G-stage) PDG allocation to ensure it is 16KB aligned
-> > >
-> > > Changes since v13:
-> > >  - Rebased on Linux-5.9-rc3
-> > >  - Fixed kvm_riscv_vcpu_set_reg_csr() for SIP updation in PATCH5
-> > >  - Fixed instruction length computation in PATCH7
-> > >  - Added ioeventfd support in PATCH7
-> > >  - Ensure HSTATUS.SPVP is set to correct value before using HLV/HSV
-> > >    intructions in PATCH7
-> > >  - Fixed stage2_map_page() to set PTE 'A' and 'D' bits correctly
-> > >    in PATCH10
-> > >  - Added stage2 dirty page logging in PATCH10
-> > >  - Allow KVM user-space to SET/GET SCOUNTER CSR in PATCH5
-> > >  - Save/restore SCOUNTEREN in PATCH6
-> > >  - Reduced quite a few instructions for __kvm_riscv_switch_to() by
-> > >    using CSR swap instruction in PATCH6
-> > >  - Detect and use Sv48x4 when available in PATCH10
-> > >
-> > > Changes since v12:
-> > >  - Rebased patches on Linux-5.8-rc4
-> > >  - By default enable all counters in HCOUNTEREN
-> > >  - RISC-V H-Extension v0.6.1 spec support
-> > >
-> > > Changes since v11:
-> > >  - Rebased patches on Linux-5.7-rc3
-> > >  - Fixed typo in typecast of stage2_map_size define
-> > >  - Introduced struct kvm_cpu_trap to represent trap details and
-> > >    use it as function parameter wherever applicable
-> > >  - Pass memslot to kvm_riscv_stage2_map() for supporing dirty page
-> > >    logging in future
-> > >  - RISC-V H-Extension v0.6 spec support
-> > >  - Send-out first three patches as separate series so that it can
-> > >    be taken by Palmer for Linux RISC-V
-> > >
-> > > Changes since v10:
-> > >  - Rebased patches on Linux-5.6-rc5
-> > >  - Reduce RISCV_ISA_EXT_MAX from 256 to 64
-> > >  - Separate PATCH for removing N-extension related defines
-> > >  - Added comments as requested by Palmer
-> > >  - Fixed HIDELEG CSR programming
-> > >
-> > > Changes since v9:
-> > >  - Rebased patches on Linux-5.5-rc3
-> > >  - Squash PATCH19 and PATCH20 into PATCH5
-> > >  - Squash PATCH18 into PATCH11
-> > >  - Squash PATCH17 into PATCH16
-> > >  - Added ONE_REG interface for VCPU timer in PATCH13
-> > >  - Use HTIMEDELTA for VCPU timer in PATCH13
-> > >  - Updated KVM RISC-V mailing list in MAINTAINERS entry
-> > >  - Update KVM kconfig option to depend on RISCV_SBI and MMU
-> > >  - Check for SBI v0.2 and SBI v0.2 RFENCE extension at boot-time
-> > >  - Use SBI v0.2 RFENCE extension in VMID implementation
-> > >  - Use SBI v0.2 RFENCE extension in Stage2 MMU implementation
-> > >  - Use SBI v0.2 RFENCE extension in SBI implementation
-> > >  - Moved to RISC-V Hypervisor v0.5 draft spec
-> > >  - Updated Documentation/virt/kvm/api.txt for timer ONE_REG interface
-> > >
-> > > Changes since v8:
-> > >  - Rebased series on Linux-5.4-rc3 and Atish's SBI v0.2 patches
-> > >  - Use HRTIMER_MODE_REL instead of HRTIMER_MODE_ABS in timer emulation
-> > >  - Fixed kvm_riscv_stage2_map() to handle hugepages
-> > >  - Added patch to forward unhandled SBI calls to user-space
-> > >  - Added patch for iterative/recursive stage2 page table programming
-> > >  - Added patch to remove per-CPU vsip_shadow variable
-> > >  - Added patch to fix race-condition in kvm_riscv_vcpu_sync_interrupts()
-> > >
-> > > Changes since v7:
-> > >  - Rebased series on Linux-5.4-rc1 and Atish's SBI v0.2 patches
-> > >  - Removed PATCH1, PATCH3, and PATCH20 because these already merged
-> > >  - Use kernel doc style comments for ISA bitmap functions
-> > >  - Don't parse X, Y, and Z extension in riscv_fill_hwcap() because it will
-> > >    be added in-future
-> > >  - Mark KVM RISC-V kconfig option as EXPERIMENTAL
-> > >  - Typo fix in commit description of PATCH6 of v7 series
-> > >  - Use separate structs for CORE and CSR registers of ONE_REG interface
-> > >  - Explicitly include asm/sbi.h in kvm/vcpu_sbi.c
-> > >  - Removed implicit switch-case fall-through in kvm_riscv_vcpu_exit()
-> > >  - No need to set VSSTATUS.MXR bit in kvm_riscv_vcpu_unpriv_read()
-> > >  - Removed register for instruction length in kvm_riscv_vcpu_unpriv_read()
-> > >  - Added defines for checking/decoding instruction length
-> > >  - Added separate patch to forward unhandled SBI calls to userspace tool
-> > >
-> > > Changes since v6:
-> > >  - Rebased patches on Linux-5.3-rc7
-> > >  - Added "return_handled" in struct kvm_mmio_decode to ensure that
-> > >    kvm_riscv_vcpu_mmio_return() updates SEPC only once
-> > >  - Removed trap_stval parameter from kvm_riscv_vcpu_unpriv_read()
-> > >  - Updated git repo URL in MAINTAINERS entry
-> > >
-> > > Changes since v5:
-> > >  - Renamed KVM_REG_RISCV_CONFIG_TIMEBASE register to
-> > >    KVM_REG_RISCV_CONFIG_TBFREQ register in ONE_REG interface
-> > >  - Update SPEC in kvm_riscv_vcpu_mmio_return() for MMIO exits
-> > >  - Use switch case instead of illegal instruction opcode table for simplicity
-> > >  - Improve comments in stage2_remote_tlb_flush() for a potential remote TLB
-> > >   flush optimization
-> > >  - Handle all unsupported SBI calls in default case of
-> > >    kvm_riscv_vcpu_sbi_ecall() function
-> > >  - Fixed kvm_riscv_vcpu_sync_interrupts() for software interrupts
-> > >  - Improved unprivilege reads to handle traps due to Guest stage1 page table
-> > >  - Added separate patch to document RISC-V specific things in
-> > >    Documentation/virt/kvm/api.txt
-> > >
-> > > Changes since v4:
-> > >  - Rebased patches on Linux-5.3-rc5
-> > >  - Added Paolo's Acked-by and Reviewed-by
-> > >  - Updated mailing list in MAINTAINERS entry
-> > >
-> > > Changes since v3:
-> > >  - Moved patch for ISA bitmap from KVM prep series to this series
-> > >  - Make vsip_shadow as run-time percpu variable instead of compile-time
-> > >  - Flush Guest TLBs on all Host CPUs whenever we run-out of VMIDs
-> > >
-> > > Changes since v2:
-> > >  - Removed references of KVM_REQ_IRQ_PENDING from all patches
-> > >  - Use kvm->srcu within in-kernel KVM run loop
-> > >  - Added percpu vsip_shadow to track last value programmed in VSIP CSR
-> > >  - Added comments about irqs_pending and irqs_pending_mask
-> > >  - Used kvm_arch_vcpu_runnable() in-place-of kvm_riscv_vcpu_has_interrupt()
-> > >    in system_opcode_insn()
-> > >  - Removed unwanted smp_wmb() in kvm_riscv_stage2_vmid_update()
-> > >  - Use kvm_flush_remote_tlbs() in kvm_riscv_stage2_vmid_update()
-> > >  - Use READ_ONCE() in kvm_riscv_stage2_update_hgatp() for vmid
-> > >
-> > > Changes since v1:
-> > >  - Fixed compile errors in building KVM RISC-V as module
-> > >  - Removed unused kvm_riscv_halt_guest() and kvm_riscv_resume_guest()
-> > >  - Set KVM_CAP_SYNC_MMU capability only after MMU notifiers are implemented
-> > >  - Made vmid_version as unsigned long instead of atomic
-> > >  - Renamed KVM_REQ_UPDATE_PGTBL to KVM_REQ_UPDATE_HGATP
-> > >  - Renamed kvm_riscv_stage2_update_pgtbl() to kvm_riscv_stage2_update_hgatp()
-> > >  - Configure HIDELEG and HEDELEG in kvm_arch_hardware_enable()
-> > >  - Updated ONE_REG interface for CSR access to user-space
-> > >  - Removed irqs_pending_lock and use atomic bitops instead
-> > >  - Added separate patch for FP ONE_REG interface
-> > >  - Added separate patch for updating MAINTAINERS file
-> > >
-> > > Anup Patel (13):
-> > >   RISC-V: Add hypervisor extension related CSR defines
-> > >   RISC-V: Add initial skeletal KVM support
-> > >   RISC-V: KVM: Implement VCPU create, init and destroy functions
-> > >   RISC-V: KVM: Implement VCPU interrupts and requests handling
-> > >   RISC-V: KVM: Implement KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
-> > >   RISC-V: KVM: Implement VCPU world-switch
-> > >   RISC-V: KVM: Handle MMIO exits for VCPU
-> > >   RISC-V: KVM: Handle WFI exits for VCPU
-> > >   RISC-V: KVM: Implement VMID allocator
-> > >   RISC-V: KVM: Implement stage2 page table programming
-> > >   RISC-V: KVM: Implement MMU notifiers
-> > >   RISC-V: KVM: Document RISC-V specific parts of KVM API
-> > >   RISC-V: KVM: Add MAINTAINERS entry
-> > >
-> > > Atish Patra (4):
-> > >   RISC-V: KVM: Add timer functionality
-> > >   RISC-V: KVM: FP lazy save/restore
-> > >   RISC-V: KVM: Implement ONE REG interface for FP registers
-> > >   RISC-V: KVM: Add SBI v0.1 support
-> > >
-> > >  Documentation/virt/kvm/api.rst          | 193 ++++-
-> > >  MAINTAINERS                             |  12 +
-> > >  arch/riscv/Kconfig                      |   1 +
-> > >  arch/riscv/Makefile                     |   1 +
-> > >  arch/riscv/include/asm/csr.h            |  87 +++
-> > >  arch/riscv/include/asm/kvm_host.h       | 266 +++++++
-> > >  arch/riscv/include/asm/kvm_types.h      |   7 +
-> > >  arch/riscv/include/asm/kvm_vcpu_timer.h |  44 ++
-> > >  arch/riscv/include/uapi/asm/kvm.h       | 128 +++
-> > >  arch/riscv/kernel/asm-offsets.c         | 156 ++++
-> > >  arch/riscv/kvm/Kconfig                  |  36 +
-> > >  arch/riscv/kvm/Makefile                 |  25 +
-> > >  arch/riscv/kvm/main.c                   | 118 +++
-> > >  arch/riscv/kvm/mmu.c                    | 802 +++++++++++++++++++
-> > >  arch/riscv/kvm/tlb.S                    |  74 ++
-> > >  arch/riscv/kvm/vcpu.c                   | 997 ++++++++++++++++++++++++
-> > >  arch/riscv/kvm/vcpu_exit.c              | 701 +++++++++++++++++
-> > >  arch/riscv/kvm/vcpu_sbi.c               | 185 +++++
-> > >  arch/riscv/kvm/vcpu_switch.S            | 400 ++++++++++
-> > >  arch/riscv/kvm/vcpu_timer.c             | 225 ++++++
-> > >  arch/riscv/kvm/vm.c                     |  97 +++
-> > >  arch/riscv/kvm/vmid.c                   | 120 +++
-> > >  drivers/clocksource/timer-riscv.c       |   9 +
-> > >  include/clocksource/timer-riscv.h       |  16 +
-> > >  include/uapi/linux/kvm.h                |   8 +
-> > >  25 files changed, 4699 insertions(+), 9 deletions(-)
-> > >  create mode 100644 arch/riscv/include/asm/kvm_host.h
-> > >  create mode 100644 arch/riscv/include/asm/kvm_types.h
-> > >  create mode 100644 arch/riscv/include/asm/kvm_vcpu_timer.h
-> > >  create mode 100644 arch/riscv/include/uapi/asm/kvm.h
-> > >  create mode 100644 arch/riscv/kvm/Kconfig
-> > >  create mode 100644 arch/riscv/kvm/Makefile
-> > >  create mode 100644 arch/riscv/kvm/main.c
-> > >  create mode 100644 arch/riscv/kvm/mmu.c
-> > >  create mode 100644 arch/riscv/kvm/tlb.S
-> > >  create mode 100644 arch/riscv/kvm/vcpu.c
-> > >  create mode 100644 arch/riscv/kvm/vcpu_exit.c
-> > >  create mode 100644 arch/riscv/kvm/vcpu_sbi.c
-> > >  create mode 100644 arch/riscv/kvm/vcpu_switch.S
-> > >  create mode 100644 arch/riscv/kvm/vcpu_timer.c
-> > >  create mode 100644 arch/riscv/kvm/vm.c
-> > >  create mode 100644 arch/riscv/kvm/vmid.c
-> > >  create mode 100644 include/clocksource/timer-riscv.h
-> > >
-> > > --
-> > > 2.25.1
-> > >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
->
-> --
-> Regards,
-> Atish
+Compile-testing drivers that require access to a firmware layer
+fails when that firmware symbol is unavailable. This happened
+twice this week:
 
+ - My proposed to change to rework the QCOM_SCM firmware symbol
+   broke on ppc64 and others.
 
+ - The cs_dsp firmware patch added device specific firmware loader
+   into drivers/firmware, which broke on the same set of
+   architectures.
 
+We should probably do the same thing for other subsystems as well,
+but fix this one first as this is a dependency for other patches
+getting merged.
+
+Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Acked-by: Will Deacon <will@kernel.org>
+Acked-by: Bjorn Andersson <bjorn.andersson@linaro.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>
+Cc: Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: Simon Trimmer <simont@opensource.cirrus.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+No changes in v2, but it's now queued in my asm-generic
+tree for v5.15
+
+ arch/arm/Kconfig    | 2 --
+ arch/arm64/Kconfig  | 2 --
+ arch/ia64/Kconfig   | 2 --
+ arch/mips/Kconfig   | 2 --
+ arch/parisc/Kconfig | 2 --
+ arch/riscv/Kconfig  | 2 --
+ arch/x86/Kconfig    | 2 --
+ drivers/Kconfig     | 2 ++
+ 8 files changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index fc196421b2ce..59baf6c132a7 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1989,8 +1989,6 @@ config ARCH_HIBERNATION_POSSIBLE
+ 
+ endmenu
+ 
+-source "drivers/firmware/Kconfig"
+-
+ if CRYPTO
+ source "arch/arm/crypto/Kconfig"
+ endif
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 077f2ec4eeb2..407b4addea36 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1931,8 +1931,6 @@ source "drivers/cpufreq/Kconfig"
+ 
+ endmenu
+ 
+-source "drivers/firmware/Kconfig"
+-
+ source "drivers/acpi/Kconfig"
+ 
+ source "arch/arm64/kvm/Kconfig"
+diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+index 045792cde481..1e33666fa679 100644
+--- a/arch/ia64/Kconfig
++++ b/arch/ia64/Kconfig
+@@ -388,8 +388,6 @@ config CRASH_DUMP
+ 	  help
+ 	    Generate crash dump after being started by kexec.
+ 
+-source "drivers/firmware/Kconfig"
+-
+ endmenu
+ 
+ menu "Power management and ACPI options"
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 771ca53af06d..6b8f591c5054 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -3316,8 +3316,6 @@ source "drivers/cpuidle/Kconfig"
+ 
+ endmenu
+ 
+-source "drivers/firmware/Kconfig"
+-
+ source "arch/mips/kvm/Kconfig"
+ 
+ source "arch/mips/vdso/Kconfig"
+diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+index 4742b6f169b7..27a8b49af11f 100644
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -384,6 +384,4 @@ config KEXEC_FILE
+ 
+ endmenu
+ 
+-source "drivers/firmware/Kconfig"
+-
+ source "drivers/parisc/Kconfig"
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c3f3fd583e04..8bc71ab143e3 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -561,5 +561,3 @@ menu "Power management options"
+ source "kernel/power/Kconfig"
+ 
+ endmenu
+-
+-source "drivers/firmware/Kconfig"
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4e001bbbb425..4dca39744ee9 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -2828,8 +2828,6 @@ config HAVE_ATOMIC_IOMAP
+ 	def_bool y
+ 	depends on X86_32
+ 
+-source "drivers/firmware/Kconfig"
+-
+ source "arch/x86/kvm/Kconfig"
+ 
+ source "arch/x86/Kconfig.assembler"
+diff --git a/drivers/Kconfig b/drivers/Kconfig
+index 30d2db37cc87..0d399ddaa185 100644
+--- a/drivers/Kconfig
++++ b/drivers/Kconfig
+@@ -17,6 +17,8 @@ source "drivers/bus/Kconfig"
+ 
+ source "drivers/connector/Kconfig"
+ 
++source "drivers/firmware/Kconfig"
++
+ source "drivers/gnss/Kconfig"
+ 
+ source "drivers/mtd/Kconfig"
 -- 
-Best Regards
- Guo Ren
+2.29.2
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
