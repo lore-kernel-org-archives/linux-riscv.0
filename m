@@ -2,85 +2,86 @@ Return-Path: <SRS0=Gszz=O4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7902C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 03:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 82A2FC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 05:47:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8DD9560FE3
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 03:21:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8DD9560FE3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 31EE0610E5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 05:47:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 31EE0610E5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WF7XmrEtSP3GjcgjDKXK0GllBc7UWta36NhrsUTwNG0=; b=kcdtrkmdZGFs0v
-	pCvgvRYZ39A69ZhiyOhB0ngACDEkoACFHCwdfrQkADFpKmZzTPS9DGdXb35o5EVH0k4CIJ7wE5C/u
-	iY+vPcacV6EraPNkC+Xb80oZ0A2CY6sdIYrIW0GWC9ml3C7eKaoccZ5UJ/p2ES5njgWuLa9CSptzz
-	/N2sgmoFvzgZjT7nvSZFWCjeC7ZqPUpVOwwdZbwvymiaQiA/sfoWRJ+GNIaMHdtyy81sYXygSJz3c
-	HLekFy3Y1BT7sfgYbf0trZulTa94nMdOyZ2b88qbNyJwFZ5wK6r7yqmdm1LtS7az3FosZxUroo7mr
-	/Pu0GUfyFVCVPxhItenQ==;
+	List-Owner; bh=Dt2uPELuvSEomQsjNzXhw+LV2b4bjQ5vWu8jUw9fPec=; b=nTaEAn0nzXkUg+
+	JjYeG3jzwyxwQxLrBELgyZjGPF/t05upgtPDrhX+S+RfcSNwHhh9nnp2szmgXeW0DMpx7m9D2QveA
+	+S6BEtQo3NHvJho4FIGza/zPl92TKy9IpSD9qkFNgWABBWUdDau75MAo87Se7ZrZhfEgQ1becdfYE
+	YrX9QKtLNQlgdqOLV3lyMK8SeAKx4oB6/45NLso+Tz71PQiTorRPUurfo0TxGr6t7idnrVe9ouCLC
+	2MM9yRRo91lyA6AA3gJLTq94zOzo+5nia5eGjC63lm6KAwVSrwNl6fdEkg+PDomXAc7hPX1QJf/QV
+	5QV7OVysx+AuNjPCId9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYgRC-001PVA-EU; Fri, 08 Oct 2021 03:20:46 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1mYiiv-001e0Q-1u; Fri, 08 Oct 2021 05:47:13 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYgR6-001PSJ-Rn; Fri, 08 Oct 2021 03:20:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1633663239; x=1665199239;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=wYr3tPPA33uGMGpjWZVhQiedgL+oUfLO1SRIQkQYMgk=;
- b=m6b0kOndX/8F6R9atv3ChytyApLXb0BocJCsgZbiXByEBlyIyQCABDsm
- KhsIFmJ58L7om65pd+Tn/IIAJbAsMWscpmdTriwNJGJZG5XGmm3aO+2+C
- nlZC4/kIzeyMhvqR+wpWk1wag5uLUopql+wnR2ez0oOFZjdWZPEAyqK+u
- QK+hFF+BJ5YdlKCkbEUHygqc6IfYoWXtmRpO22zlnybJrJuBShfXG5pT4
- Io7QdTtD9JvUHSiPcqh8Ns98d4Nv3XXtr0zwRAuaqxUR0GU6QCZZCJwVL
- +uuJi5o40YJbboa07GmSORNr2AY+JgSc95xYXDvSNTk83CKUuHEaw0icz w==;
-X-IronPort-AV: E=Sophos;i="5.85,356,1624291200"; d="scan'208";a="187014417"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 08 Oct 2021 11:20:38 +0800
-IronPort-SDR: uaFIsTANgOIyXDAcNTkUH8G39mw9vQbGQhHuVqBv8jPmrEx6WcvpMMs2LopeTUiCpPpTXdJOTi
- pziD3BCte0n8Nvj18qXHasncFdxbdznLKBsWlEEKvX/I5qIePPrM1EU0tWR4QKBm8Nk8a1zPaT
- Yd7Qa0/s7NhTR5nTnWTwWx5v9muUtDcY+buomd3iSmJLzx4LHjl9WUJ+f6BztwgI/lHE/1XL6s
- 2NLDoSYvr3MFS++DYjJF7XyPDNUfBtAa5YD+qhlm9bcViaXLNx/JT3l26p8qci0pRuRwcbWO5k
- Uul93YMQhS+bj8g0pX6FJTYi
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 07 Oct 2021 19:54:59 -0700
-IronPort-SDR: IVMrjxXp4jRmsecw2VkeMShfiPMxJ1gTNoz0F2uwqxkRANkYekDCJQrZKkUtzOFuo3XJXhAnWK
- XKgEFoj/Ig3lEMTrv0XN6m64PilvCWHRltylKxZAHccACO1nFM9Ukrs8KOTCYOrNzPb9skhF26
- TVe5pMo/hc4f1Yj0BOaF6opIrCxI1YpzjfovcYBE6hpWuJucGizX9CrvdJvbG/mEda07j/g55g
- hamO5LG/10TCRVxUfQo3gyyqTD8rzHZvszQFHdvq8J+i2bocU6qpI0cS1RpYISyeVV8XUPVhzF
- 5rA=
-WDCIronportException: Internal
-Received: from unknown (HELO hulk.wdc.com) ([10.225.167.125])
- by uls-op-cesaip02.wdc.com with ESMTP; 07 Oct 2021 20:20:40 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atish.patra@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Anup Patel <anup.patel@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v3 1/5] RISC-V: Mark the existing SBI v0.1 implementation as
- legacy
-Date: Thu,  7 Oct 2021 20:20:32 -0700
-Message-Id: <20211008032036.2201971-2-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20211008032036.2201971-1-atish.patra@wdc.com>
-References: <20211008032036.2201971-1-atish.patra@wdc.com>
+ id 1mYiis-001dzh-Bo
+ for linux-riscv@lists.infradead.org; Fri, 08 Oct 2021 05:47:11 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id i12so13385604wrb.7
+ for <linux-riscv@lists.infradead.org>; Thu, 07 Oct 2021 22:47:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=BUO+bDpipbeRKMmW8/mqCgbraNQzAhGi9jrXbZZyXSo=;
+ b=c6ulsXPTlsw6nXgIwQt10rczsK1NI/1HT0KEiJljF6wIuUKNaMiMH6PwZiJyg+KLhR
+ eeTh+XLRXzY1gCid7f998gRTRuaiiP44ynrs0Q5gtmfoQj8ZrCGZcYF+Z+FnFbvbUHRm
+ WHrLYjJvJaHpOEo56YJ1iSHpj8a63WLdIxeObYIhVs8v4MUjJJJO0KVEmVBbyL4vR3bS
+ RYOZkgNqLhLpfFh3gltneN9oK30ej4VfotD/1UEkRzZm2oY8QjeML1/AWdhquNmF+3ij
+ riF2c8RBnq8yLiUC/tUvgeCBWIOkz0YvGG2CUrreuURZYKL7R5Xc0wmsuCRiXcTXnIOP
+ hicA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=BUO+bDpipbeRKMmW8/mqCgbraNQzAhGi9jrXbZZyXSo=;
+ b=6kOBXutZzPkloQ8Me4se2u7kT8ARatX2LLyytOw11jJCjpKp7g1ZXTgwZ62R4S+JNW
+ 6oG68ssl5D1+Z2nL28cEJ+KVT+ImTVJ4t/KIQCA5hV5dJFqwLlu32edsI4oDBXrg4aBW
+ JGHnGLAQieuR1h7E2fqm6QgMOKvnmcyKeZGpC/0+IGLCfjE3NLGx5/zL44oX4qMMoCEk
+ rKUt1wZ4oAwveaCW7HLfUbUhauOJn8zvKKK7MjUjetrxjKcN0mK4mFpGuSteZJb2XmpP
+ jAb6y75k/8ZboF8NQxuJnzfJUx67wBRbTSRK6PQSMwFx1aJcckh/4IVDqRevju2E0YfB
+ LnEg==
+X-Gm-Message-State: AOAM531gPH1MUpZQSBNk3SLZ26alBA7My0qVnLmKgiQBpp8f5xs3Ceee
+ MgIWIfhvFiq7ohBiHb9YRUUME1FA2x1VLqagc9ah9g==
+X-Google-Smtp-Source: ABdhPJxVe1g7+6FuGdJEE0Z8tFx3XyHA4eOQMHsm6VHXPE5LFkXY71ABHoAVSmqLpRgdyU7INpagtuuvpQidMoRpUBc=
+X-Received: by 2002:a7b:cb04:: with SMTP id u4mr1338090wmj.176.1633672028067; 
+ Thu, 07 Oct 2021 22:47:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20211007123632.697666-1-anup.patel@wdc.com>
+ <20211007123632.697666-6-anup.patel@wdc.com>
+ <1633661172.595534.1409590.nullmailer@robh.at.kernel.org>
+In-Reply-To: <1633661172.595534.1409590.nullmailer@robh.at.kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 8 Oct 2021 11:16:56 +0530
+Message-ID: <CAAhSdy2fBgA5xymwp=276qodB9mkNVOg+b6FhN1mxvm_s2KbOQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 05/10] dt-bindings: interrupt-controller: Add
+ ACLINT MSWI and SSWI bindings
+To: Rob Herring <robh@kernel.org>
+Cc: Anup Patel <anup.patel@wdc.com>, DTML <devicetree@vger.kernel.org>, 
+ Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atish.patra@wdc.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, Bin Meng <bmeng.cn@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211007_202040_935004_5DA5CBF0 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20211007_224710_488092_5F6292EA 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,288 +98,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The existing SBI specification impelementation follows v0.1 or legacy
-specification. The latest specification known as v0.2 allows more
-scalability and performance improvements.
+On Fri, Oct 8, 2021 at 8:16 AM Rob Herring <robh@kernel.org> wrote:
+>
+> On Thu, 07 Oct 2021 18:06:27 +0530, Anup Patel wrote:
+> > We add DT bindings documentation for the ACLINT MSWI and SSWI
+> > devices found on RISC-V SOCs.
+> >
+> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+> > ---
+> >  .../riscv,aclint-swi.yaml                     | 97 +++++++++++++++++++
+> >  1 file changed, 97 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
+> >
+>
+> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+> on your patch (DT_CHECKER_FLAGS is new in v5.13):
+>
+> yamllint warnings/errors:
+> ./Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml:34:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+> ./Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml:39:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+>
+> dtschema/dtc warnings/errors:
+>
+> doc reference errors (make refcheckdocs):
+>
+> See https://patchwork.ozlabs.org/patch/1537678
+>
+> This check can fail if there are any dependencies. The base for a patch
+> series is generally the most recent rc1.
+>
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
 
-Rename the existing implementation as legacy and provide a way to allow
-future extensions.
+Ahh, I did not have "yamllint" installed. I am able to reproduce this
+warning with "yamllint". This will be fixed in v5.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  29 +++++
- arch/riscv/kvm/vcpu_sbi.c             | 149 ++++++++++++++++++++------
- 2 files changed, 148 insertions(+), 30 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_vcpu_sbi.h
+Let me know if you have any other comments apart from this.
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-new file mode 100644
-index 000000000000..1a4cb0db2d0b
---- /dev/null
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/**
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ *
-+ * Authors:
-+ *     Atish Patra <atish.patra@wdc.com>
-+ */
-+
-+#ifndef __RISCV_KVM_VCPU_SBI_H__
-+#define __RISCV_KVM_VCPU_SBI_H__
-+
-+#define KVM_SBI_VERSION_MAJOR 0
-+#define KVM_SBI_VERSION_MINOR 2
-+
-+struct kvm_vcpu_sbi_extension {
-+	unsigned long extid_start;
-+	unsigned long extid_end;
-+	/**
-+	 * SBI extension handler. It can be defined for a given extension or group of
-+	 * extension. But it should always return linux error codes rather than SBI
-+	 * specific error codes.
-+	 */
-+	int (*handler)(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+		       unsigned long *out_val, struct kvm_cpu_trap *utrap,
-+		       bool *exit);
-+};
-+
-+const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid);
-+#endif /* __RISCV_KVM_VCPU_SBI_H__ */
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index ebdcdbade9c6..8c168d305763 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -12,9 +12,25 @@
- #include <asm/csr.h>
- #include <asm/sbi.h>
- #include <asm/kvm_vcpu_timer.h>
-+#include <asm/kvm_vcpu_sbi.h>
- 
--#define SBI_VERSION_MAJOR			0
--#define SBI_VERSION_MINOR			1
-+static int kvm_linux_err_map_sbi(int err)
-+{
-+	switch (err) {
-+	case 0:
-+		return SBI_SUCCESS;
-+	case -EPERM:
-+		return SBI_ERR_DENIED;
-+	case -EINVAL:
-+		return SBI_ERR_INVALID_PARAM;
-+	case -EFAULT:
-+		return SBI_ERR_INVALID_ADDRESS;
-+	case -EOPNOTSUPP:
-+		return SBI_ERR_NOT_SUPPORTED;
-+	default:
-+		return SBI_ERR_FAILURE;
-+	};
-+}
- 
- static void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu,
- 				       struct kvm_run *run)
-@@ -72,16 +88,17 @@ static void kvm_sbi_system_shutdown(struct kvm_vcpu *vcpu,
- 	run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
- }
- 
--int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
-+static int kvm_sbi_ext_legacy_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				      unsigned long *out_val,
-+				      struct kvm_cpu_trap *utrap,
-+				      bool *exit)
- {
- 	ulong hmask;
--	int i, ret = 1;
-+	int i, ret = 0;
- 	u64 next_cycle;
- 	struct kvm_vcpu *rvcpu;
--	bool next_sepc = true;
- 	struct cpumask cm, hm;
- 	struct kvm *kvm = vcpu->kvm;
--	struct kvm_cpu_trap utrap = { 0 };
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
- 
- 	if (!cp)
-@@ -95,8 +112,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 		 * handled in kernel so we forward these to user-space
- 		 */
- 		kvm_riscv_vcpu_sbi_forward(vcpu, run);
--		next_sepc = false;
--		ret = 0;
-+		*exit = true;
- 		break;
- 	case SBI_EXT_0_1_SET_TIMER:
- #if __riscv_xlen == 32
-@@ -104,47 +120,42 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
- #else
- 		next_cycle = (u64)cp->a0;
- #endif
--		kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
-+		ret = kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
- 		break;
- 	case SBI_EXT_0_1_CLEAR_IPI:
--		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
-+		ret = kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
- 		break;
- 	case SBI_EXT_0_1_SEND_IPI:
- 		if (cp->a0)
- 			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
--							   &utrap);
-+							   utrap);
- 		else
- 			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
--		if (utrap.scause) {
--			utrap.sepc = cp->sepc;
--			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
--			next_sepc = false;
-+		if (utrap->scause)
- 			break;
--		}
-+
- 		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
- 			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
--			kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
-+			ret = kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
-+			if (ret < 0)
-+				break;
- 		}
- 		break;
- 	case SBI_EXT_0_1_SHUTDOWN:
- 		kvm_sbi_system_shutdown(vcpu, run, KVM_SYSTEM_EVENT_SHUTDOWN);
--		next_sepc = false;
--		ret = 0;
-+		*exit = true;
- 		break;
- 	case SBI_EXT_0_1_REMOTE_FENCE_I:
- 	case SBI_EXT_0_1_REMOTE_SFENCE_VMA:
- 	case SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID:
- 		if (cp->a0)
- 			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
--							   &utrap);
-+							   utrap);
- 		else
- 			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
--		if (utrap.scause) {
--			utrap.sepc = cp->sepc;
--			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
--			next_sepc = false;
-+		if (utrap->scause)
- 			break;
--		}
-+
- 		cpumask_clear(&cm);
- 		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
- 			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
-@@ -154,22 +165,100 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 		}
- 		riscv_cpuid_to_hartid_mask(&cm, &hm);
- 		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
--			sbi_remote_fence_i(cpumask_bits(&hm));
-+			ret = sbi_remote_fence_i(cpumask_bits(&hm));
- 		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
--			sbi_remote_hfence_vvma(cpumask_bits(&hm),
-+			ret = sbi_remote_hfence_vvma(cpumask_bits(&hm),
- 						cp->a1, cp->a2);
- 		else
--			sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
-+			ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
- 						cp->a1, cp->a2, cp->a3);
- 		break;
- 	default:
--		/* Return error for unsupported SBI calls */
--		cp->a0 = SBI_ERR_NOT_SUPPORTED;
-+		ret = -EINVAL;
- 		break;
- 	};
- 
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_legacy = {
-+	.extid_start = SBI_EXT_0_1_SET_TIMER,
-+	.extid_end = SBI_EXT_0_1_SHUTDOWN,
-+	.handler = kvm_sbi_ext_legacy_handler,
-+};
-+
-+static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
-+	&vcpu_sbi_ext_legacy,
-+};
-+
-+const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid)
-+{
-+	int i = 0;
-+
-+	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-+		if (sbi_ext[i]->extid_start <= extid &&
-+		    sbi_ext[i]->extid_end >= extid)
-+			return sbi_ext[i];
-+	}
-+
-+	return NULL;
-+}
-+
-+int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
-+{
-+	int ret = 1;
-+	bool next_sepc = true;
-+	bool userspace_exit = false;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	const struct kvm_vcpu_sbi_extension *sbi_ext;
-+	struct kvm_cpu_trap utrap = { 0 };
-+	unsigned long out_val = 0;
-+	bool ext_is_v01 = false;
-+
-+	if (!cp)
-+		return -EINVAL;
-+
-+	sbi_ext = kvm_vcpu_sbi_find_ext(cp->a7);
-+	if (sbi_ext && sbi_ext->handler) {
-+		if (cp->a7 >= SBI_EXT_0_1_SET_TIMER &&
-+		    cp->a7 <= SBI_EXT_0_1_SHUTDOWN)
-+			ext_is_v01 = true;
-+		ret = sbi_ext->handler(vcpu, run, &out_val, &utrap, &userspace_exit);
-+	} else {
-+		/* Return error for unsupported SBI calls */
-+		cp->a0 = SBI_ERR_NOT_SUPPORTED;
-+		goto ecall_done;
-+	}
-+
-+	/* Handle special error cases i.e trap, exit or userspace forward */
-+	if (utrap.scause) {
-+		/* No need to increment sepc or exit ioctl loop */
-+		ret = 1;
-+		utrap.sepc = cp->sepc;
-+		kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-+		next_sepc = false;
-+		goto ecall_done;
-+	}
-+
-+	/* Exit ioctl loop or Propagate the error code the guest */
-+	if (userspace_exit) {
-+		next_sepc = false;
-+		ret = 0;
-+	} else {
-+		/**
-+		 * SBI extension handler always returns an Linux error code. Convert
-+		 * it to the SBI specific error code that can be propagated the SBI
-+		 * caller.
-+		 */
-+		ret = kvm_linux_err_map_sbi(ret);
-+		cp->a0 = ret;
-+		ret = 1;
-+	}
-+ecall_done:
- 	if (next_sepc)
- 		cp->sepc += 4;
-+	if (!ext_is_v01)
-+		cp->a1 = out_val;
- 
- 	return ret;
- }
--- 
-2.31.1
+Regards,
+Anup
 
+>
+> pip3 install dtschema --upgrade
+>
+> Please check and re-submit.
+>
 
 _______________________________________________
 linux-riscv mailing list
