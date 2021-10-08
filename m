@@ -2,14 +2,14 @@ Return-Path: <SRS0=Gszz=O4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D032C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 02:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B62ECC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 02:47:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4D94260FC2
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 02:46:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4D94260FC2
+	by mail.kernel.org (Postfix) with ESMTPS id 822AF60FC2
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 02:47:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 822AF60FC2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,64 +18,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pz597H4ka8pdc+AcpC9MadQFKeMmDLSKajG4zSoHd74=; b=YG3UkxiNQqqDxD
-	tPV/M2gz8QC5G0sIE7mMvwXTllEfY82WkNmrK5t++TIfUcwt+MEHjZ+DD6I2SIzdifhewzycT2wbh
-	J5oPnWGUqTxYJ87h/zPhOv60ivFiuozWon5T2X4V9mtXE0kn+mqnaJqcodjirullDxac+cGeUvN2G
-	RwxldPtSpeuwAtoxugvy16cIkr6YK7929YOnalr6hrPaVK21adrUVPm1Kb+ZZ904Bg+l5Lo08ULWo
-	arSOtFFHQf+qRn+Q3Me71I7qdw3AI3jHp0gDKn/MDBDSHPPwZ7UD4VDXWRhvmxTiy1a4a/pJ6KQpB
-	/0t10uAnzpd5ShVJKPSw==;
+	List-Owner; bh=D0P3RD2aIJhNeo+nGnMlGMU8WKWf9Rl3FerDv7OUe+0=; b=F02+XQ5ek1+9Aq
+	Ajn8YUn29Q5vHPjWBXADUg3chylILi1Rq3TosewsXrXL06k2EFDoNChSQIbHYK0mmn4bzXXC21rTn
+	j1iKit27m9i2FvNdz1GxF1jUnpLVk2jkccU/FxHlA/qZfVQDb/pFbjdI+xS4fr2qJNX9H8ZYV/5AZ
+	1mkZgjaWxj+V26xEqPkKNzwL+vPT3sLWCngplb7Bt9w1jiJznlSWvhQDWXngyHKbyr2bOdPmMH8dZ
+	iNgOWduBQa3AnAFzKg94IS6Zpqh1F6jfaqzbQeAGr6A+I0IIxS8q2ajY1IdjvivxIZkTeEfaS+9D6
+	jI5QBg+rI03ORFdEZ2Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYfu9-001Lgp-8T; Fri, 08 Oct 2021 02:46:37 +0000
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
+	id 1mYfuM-001Ll5-4a; Fri, 08 Oct 2021 02:46:50 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYftt-001Lbi-S6
- for linux-riscv@lists.infradead.org; Fri, 08 Oct 2021 02:46:23 +0000
-Received: by mail-ot1-f53.google.com with SMTP id
- g62-20020a9d2dc4000000b0054752cfbc59so10071199otb.1
- for <linux-riscv@lists.infradead.org>; Thu, 07 Oct 2021 19:46:14 -0700 (PDT)
+ id 1mYftu-001Lcy-Ib
+ for linux-riscv@lists.infradead.org; Fri, 08 Oct 2021 02:46:24 +0000
+Received: by mail-oi1-f177.google.com with SMTP id v10so11793943oic.12
+ for <linux-riscv@lists.infradead.org>; Thu, 07 Oct 2021 19:46:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
  :message-id;
- bh=ZiN7i9gSKdNstbHdeYWwXVbEFyTvnEpUijhN0u+SjzA=;
- b=p6wD+oSQSxFxi+Xva56ahVKlbbmn6Pa5EeaUVQNRo65WDBR5P4zYfBv2X3rdaRu4zQ
- X58jooAYw5NfXXfPjbVxq8GMJR1OFcW9gq9qugyyDIlgNVEBoMtUcZ3CUh9YlX8Dl9wO
- lnIvPs6Nao8JAGrVpRujklfGVZImqHZ2E23h7GflzMsELNrkouXzV/hSCNZKkhp61R6e
- 5IuESSIvAfiMeviJ6szIlpMmQLaeSfxBCvnqd2B0mpjf8XK9Q+CkreB8lVJdqIA4Pshp
- 3togTWd3LLvqJ/atk8aH1yP6CwvajpWNbvbrykcCY3L9C0+aQNp6Xx4uGkrETydqh34J
- q/GQ==
-X-Gm-Message-State: AOAM5327eRTwv4XvA+rXMmXO6dORYx0Q2ksl9HIaGdvZIS1ZLWWuRaWj
- 7oxpgNQ2IjHTHSLlTf6odQ==
-X-Google-Smtp-Source: ABdhPJyIx2Q9OE86cxQ0eVI2Glqtq0+kpx6vwhQ0UPF5Nvt73XPVNCEaryUeqd8Gmb2c/5tTSaJKVQ==
-X-Received: by 2002:a9d:5a8e:: with SMTP id w14mr6830870oth.322.1633661174072; 
- Thu, 07 Oct 2021 19:46:14 -0700 (PDT)
+ bh=d/DSBmhRsznzpWcfTu9Dz3MGhzpb5fEj4AuhwcCUbk8=;
+ b=jcC7GuzOLYUCMLZ3Xb3KebbZlpGSfgJU377yCk8CrLhTm5VgQxmjWpKW93vlHuAawg
+ xWpkBnyRxi3KBtfi3HlF2QFcPK4Pcvzj5hfznQhgn0J7AZyJW4OK/3mCJsFyvk6NULYU
+ VAj7xgil2A8OViitv5XxopONPCEFftjRfQM6hhRR0RT4Oc8lfQ6K4aH1UjbtTqwliCbv
+ EL3eTC0ZknpST8pP5gIzIjGQ/1WGbGpMKLwip4RJY1LU1M67l7+EUzEIsoRl9RBTy9Qj
+ yn6HGSgUV26YjWLFwV2KKRw/yfFFU6fu8lyASLRweUjm5k/JaBoIFQ90FbFwlhQFppV6
+ XO6g==
+X-Gm-Message-State: AOAM530LAdBP6dTPfXJosvQViUdcIYYpA/Ppa7BoKdK2RES3+CokVdA0
+ gewirdDvv1eiM01Upz7EmA==
+X-Google-Smtp-Source: ABdhPJy1cC5Nx8AhMq2wtMPWY6DFxKO81NZcudRZwFFA99IYTe+JunWd29Ow26kJPmmMtcTTjhUixw==
+X-Received: by 2002:aca:32c5:: with SMTP id
+ y188mr13937282oiy.163.1633661181481; 
+ Thu, 07 Oct 2021 19:46:21 -0700 (PDT)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id d26sm305260oij.49.2021.10.07.19.46.12
+ by smtp.gmail.com with ESMTPSA id a1sm259305otr.33.2021.10.07.19.46.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 07 Oct 2021 19:46:13 -0700 (PDT)
-Received: (nullmailer pid 1409591 invoked by uid 1000);
+ Thu, 07 Oct 2021 19:46:20 -0700 (PDT)
+Received: (nullmailer pid 1409594 invoked by uid 1000);
  Fri, 08 Oct 2021 02:46:12 -0000
 From: Rob Herring <robh@kernel.org>
 To: Anup Patel <anup.patel@wdc.com>
-Cc: devicetree@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>,
- Atish Patra <atish.patra@wdc.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- linux-kernel@vger.kernel.org, Alistair Francis <Alistair.Francis@wdc.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Bin Meng <bmeng.cn@gmail.com>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Rob Herring <robh+dt@kernel.org>, linux-riscv@lists.infradead.org
-In-Reply-To: <20211007123632.697666-6-anup.patel@wdc.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, devicetree@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org,
+ Anup Patel <anup@brainfault.org>, Bin Meng <bmeng.cn@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>
+In-Reply-To: <20211007123632.697666-9-anup.patel@wdc.com>
 References: <20211007123632.697666-1-anup.patel@wdc.com>
- <20211007123632.697666-6-anup.patel@wdc.com>
-Subject: Re: [RFC PATCH v4 05/10] dt-bindings: interrupt-controller: Add
- ACLINT MSWI and SSWI bindings
+ <20211007123632.697666-9-anup.patel@wdc.com>
+Subject: Re: [RFC PATCH v4 08/10] dt-bindings: timer: Add ACLINT MTIMER
+ bindings
 Date: Thu, 07 Oct 2021 21:46:12 -0500
-Message-Id: <1633661172.595534.1409590.nullmailer@robh.at.kernel.org>
+Message-Id: <1633661172.604098.1409593.nullmailer@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211007_194621_931142_14F68C60 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20211007_194622_648220_16EE8028 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +94,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Oct 2021 18:06:27 +0530, Anup Patel wrote:
-> We add DT bindings documentation for the ACLINT MSWI and SSWI
-> devices found on RISC-V SOCs.
+On Thu, 07 Oct 2021 18:06:30 +0530, Anup Patel wrote:
+> We add DT bindings documentation for the ACLINT MTIMER device
+> found on RISC-V SOCs.
 > 
 > Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 > ---
->  .../riscv,aclint-swi.yaml                     | 97 +++++++++++++++++++
->  1 file changed, 97 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml
+>  .../bindings/timer/riscv,aclint-mtimer.yaml   | 67 +++++++++++++++++++
+>  1 file changed, 67 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml
 > 
 
 My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
 on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
 yamllint warnings/errors:
-./Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml:34:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/interrupt-controller/riscv,aclint-swi.yaml:39:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+./Documentation/devicetree/bindings/timer/riscv,aclint-mtimer.yaml:31:10: [warning] wrong indentation: expected 10 but found 9 (indentation)
 
 dtschema/dtc warnings/errors:
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/patch/1537678
+See https://patchwork.ozlabs.org/patch/1537679
 
 This check can fail if there are any dependencies. The base for a patch
 series is generally the most recent rc1.
