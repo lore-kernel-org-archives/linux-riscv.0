@@ -1,86 +1,95 @@
-Return-Path: <SRS0=Gszz=O4=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=s3kv=O5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FC10C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 20:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4512C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:13:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E3DA060F44
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Oct 2021 20:57:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E3DA060F44
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5731160F5E
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:13:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5731160F5E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=el4MLUL2uSfmjZCjuvBxtIUoFLFBP8yceKJH/CxbLKQ=; b=pYmTOvAIg9+hfY
-	rJkXAQcYfONvDpMqvBWtvavqN1WfsCE3Rd4WH50SvzjyB0SoOzIw6CLE+LEXhKzcz0rhZmBKP1XiG
-	S1xZw4XodyuwNWpnBWJhUrlq5y5jRcXGD1w2bBf90LJiLZBX+9umGUoisHoUHoqhrJHiK2ccBbEA5
-	lvTnBi7F/MnSflc5Grptjjt08G2JKVGWBkgtifQJhtuikJDlwAbZujtqF3XdOH3W7jT/rex0L9SwL
-	gAw46sT01UQ9O6+APHvnJd13EJzz7bwIRtxipnlUDyu3wPZ07OTGLEM5OiVUJBuvHdLXV0zLq364C
-	7uPb0vYgokG04ZyZrNbQ==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
+	Mime-Version:Message-Id:Date:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=6zRwz0k+NWDAw64nLzBP2c4pgZ/nJq3eVpr8Yzzp9tk=; b=ojr
+	kjp2B/5N+by84/vxpD2xBC5V9xy3SLvJwPsoMw174gLoGtGgNVj1b6kTYYvfAmj3zLiZHn8UQkaVw
+	QxTEXZwoKrqat0zSacCZZxh+3f4DcDkSSn1qmca8goWSVNaWKcT/ax2URTqORIfSYkO2vMEVYq8gr
+	t3ncIOYMxZ5LGUtCJWpB5aXlVDaoIVLCht5bizq+mtIoW1Htpd27vIY0OdQQb5QePlRU4jxtSYbJb
+	FCakswT18XmPUt5owU+kHszaOZrOapoGy4cSJqFbguqbIbhA0sx2+ep9T6IhQ+OrgXcgjtqm0vP3K
+	YcADtzjQq37B+qTnZh5UABQZl9dWhpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mYwv7-004AQf-L3; Fri, 08 Oct 2021 20:56:45 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1mZ1qw-004TmT-Mz; Sat, 09 Oct 2021 02:12:46 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mYwv4-004API-1e
- for linux-riscv@lists.infradead.org; Fri, 08 Oct 2021 20:56:43 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id r17so5490301qtx.10
- for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 13:56:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=VAGXdnd+R7a1uOjvv7U4cHxnCIdxxrnrbgKVS0Ct3A8=;
- b=A+csej6uLv80o4wTGan2mG4ZLOzEjOanuFUK6K53Z1Y6lrWhgyU/ALd26NtaUGfWr4
- M57WaZv8jLAIx/efmgH0b1i4bVJVQn7Xd4xCCtCuufbbTynD5yVDQr5TBMFEwMXUPhcr
- UtSVNObqxbjeODL74rr/oQpKESk5CPwpxRu6UL/pxVguS5Psxxwhtzg3A6ixeK5FjkM6
- vJO9OryJKEpRVYuvrRaUdfHO3FqMNBGfzq0yalPNaRD0Y0IkXKWBsenXjy2h8Nsk+AQz
- jiyKTvCnxcVKA4x2ki3fBLBx+K6G8pdqQyPvUz2qRTNv7jODnEODSH7Aei2OgSjcv48T
- IumQ==
+ id 1mZ1qt-004Tkh-Nb
+ for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:12:45 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id
+ b9-20020a5b07890000b0290558245b7eabso15002560ybq.10
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:12:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=reply-to:date:message-id:mime-version:subject:from:to:cc;
+ bh=cS1lb71+JIYOSor7OwJgk2gnjH1VOs8uFvRzBEpw+bQ=;
+ b=EYM8SrcNO1Csv5h/cAGhb86L7GGVUu/ZmEz7+V+AGrx+oVzewDqxj0wLNTU/xH6TNY
+ N+FoJL8OJNuYof1Wa+yyqbM3Az9BEVljXvmvjmheCO9+baWSytH2Od7jpLSRuGkenjFq
+ SWm+dSeSY1sryFqxTXdHds/BNzcbaZQxJWKJakz5ZC1hzhOUvNqg2MVhVJFcJ+pDmMyn
+ Z0JnLSQRsdLSZgotZ2BYpbu02wXl1yrgFTIEju5mQmsle7w1VnuD8Dj1V67lIQ1QfN5I
+ 48JtSMNIe7dXvP0dpfRomToMbuDi+IDLjLvZ3UscgjGgeWh4dpuSDl952WD6dDs/gFZG
+ 0IwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=VAGXdnd+R7a1uOjvv7U4cHxnCIdxxrnrbgKVS0Ct3A8=;
- b=N2HTywYYyMUkj5Y2KQQX5dATbE0h85WLnmCHbIBCH8hg/RzeOqQ2xRsxBi48yJiI+a
- bLEQgmENW0F6fNNd78C1a28EP1oEdeE3/WggP+jRvrC6QBSDdv9CUo+FyBbtUg+dPIBQ
- JnNTlzxHBOnDuXreJ6yvT3RCBgkhwHaAy16Ciq8eclOv+B8ojcolWOlf6CFQGuaa069C
- BdFlZPb1bqHGeAP6r3Sq91hmQeZUm3r/0JD8yZQo5dAc2yPGWFFSu7bw2khRSyCvS7MI
- Mhxd21ukSyrj8bLc6KzQabLCrSTZAZlCN9ysD/34x0QB/qrUOxQuwOgEHMB3M7l6QT+8
- nEkg==
-X-Gm-Message-State: AOAM533HyEZIp5dHP39V8GJ0G08YPzDzaqgnW/TL7psWkkfKnmNj0Ajg
- DE/ucb98a9WLuIXnyJ/WmCU=
-X-Google-Smtp-Source: ABdhPJxNl5Sd6V+Nq1FcBxRySYlXVe4dztQe6PQ1smgj5xvxYhX+8P/0aqRT4wkPyviuVLa+FWq0mA==
-X-Received: by 2002:ac8:1e9e:: with SMTP id c30mr632019qtm.238.1633726600300; 
- Fri, 08 Oct 2021 13:56:40 -0700 (PDT)
-Received: from dan-XPS-15-9570.lan
- (2603-6080-6a07-6dd1-a8f2-a380-3d8d-1528.res6.spectrum.com.
- [2603:6080:6a07:6dd1:a8f2:a380:3d8d:1528])
- by smtp.gmail.com with ESMTPSA id 9sm403010qkn.84.2021.10.08.13.56.39
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 08 Oct 2021 13:56:39 -0700 (PDT)
-From: hasheddan <georgedanielmangum@gmail.com>
-To: 
-Cc: georgedanielmangum@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atish.patra@wdc.com>, Peter Zijlstra <peterz@infradead.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: cacheinfo: fix typo of homogenous
-Date: Fri,  8 Oct 2021 16:56:25 -0400
-Message-Id: <20211008205628.3073014-1-georgedanielmangum@gmail.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+ h=x-gm-message-state:reply-to:date:message-id:mime-version:subject
+ :from:to:cc;
+ bh=cS1lb71+JIYOSor7OwJgk2gnjH1VOs8uFvRzBEpw+bQ=;
+ b=YmVj2XnWVxeqfJ535KV4yoZjYsBeRyxnQPI3D4Hz/NUqaZfohEO2s2FwmgCQQCcL0X
+ vmcEXWNVwIvWhPKHvw8V0SymVHPKRVI2ylAJJSjbyvMUrVpVl1g1H77E/v+gbovnoOMD
+ Rm41s/ePxkTNStle7eP96WK+byDxrn8oWNflLFGEd9ixbgtTlJCrN9QEJGeGvF7i+wes
+ MLRtSp36cdVcFXbJ2YUem1DEjeqW7eO6fsLm3FdQrKxJxEn+tGLOLRQTcOUyFq7dIkBi
+ sDWJB8/iUEj2JMqRIXXqpEdKDy5HUjrmXAnPaPiakkRvYdls8Wn4lAMJjqbDIUpcCDQn
+ ZmXQ==
+X-Gm-Message-State: AOAM532/+GDlzXG89wDMLT4hgtdb2CRer9GES2pNwMEgQw5z0XTUg0kW
+ 8+d/1bbI08Ay14Vs+XFZqkBuXzRoicU=
+X-Google-Smtp-Source: ABdhPJzl93S733o8ZxchIrko0AydsKa+w/gF7Yyof3UCHWikEoxKTRDZmabSLPZBYZUolde90hyK7YjFH8Q=
+X-Received: from seanjc798194.pdx.corp.google.com
+ ([2620:15c:90:200:e39b:6333:b001:cb])
+ (user=seanjc job=sendgmr) by 2002:a05:6902:114a:: with SMTP id
+ p10mr7381719ybu.91.1633745561743; Fri, 08 Oct 2021 19:12:41 -0700 (PDT)
+Date: Fri,  8 Oct 2021 19:11:53 -0700
+Message-Id: <20211009021236.4122790-1-seanjc@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.33.0.882.g93a45727a2-goog
+Subject: [PATCH v2 00/43] KVM: Halt-polling and x86 APICv overhaul
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, 
+ Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, 
+ David Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Sean Christopherson <seanjc@google.com>, 
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>, 
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+ Oliver Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211008_135642_116376_7FBEFF70 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20211008_191243_783191_E6209D60 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,33 +101,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Updates 'homonogenous' to 'homogenous' in comment.
+This is basically two series smushed into one.  The first "half" aims
+to differentiate between "halt" and a more generic "block", where "halt"
+aligns with x86's HLT instruction, the halt-polling mechanisms, and
+associated stats, and "block" means any guest action that causes the vCPU
+to block/wait.
 
-Signed-off-by: hasheddan <georgedanielmangum@gmail.com>
----
- arch/riscv/kernel/cacheinfo.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The second "half" overhauls x86's APIC virtualization code (Posted
+Interrupts on Intel VMX, AVIC on AMD SVM) to do their updates in response
+to vCPU (un)blocking in the vcpu_load/put() paths, keying off of the
+vCPU's rcuwait status to determine when a blocking vCPU is being put and
+reloaded.  This idea comes from arm64's kvm_timer_vcpu_put(), which I
+stumbled across when diving into the history of arm64's (un)blocking hooks.
 
-diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index 90deabfe63ea..ff98546b1152 100644
---- a/arch/riscv/kernel/cacheinfo.c
-+++ b/arch/riscv/kernel/cacheinfo.c
-@@ -29,7 +29,7 @@ static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
- 	/*
- 	 * Using raw_smp_processor_id() elides a preemptability check, but this
- 	 * is really indicative of a larger problem: the cacheinfo UABI assumes
--	 * that cores have a homonogenous view of the cache hierarchy.  That
-+	 * that cores have a homogenous view of the cache hierarchy.  That
- 	 * happens to be the case for the current set of RISC-V systems, but
- 	 * likely won't be true in general.  Since there's no way to provide
- 	 * correct information for these systems via the current UABI we're
+The x86 APICv overhaul allows for killing off several sets of hooks in
+common KVM and in x86 KVM (to the vendor code).  Moving everything to
+vcpu_put/load() also realizes nice cleanups, especially for the Posted
+Interrupt code, which required some impressive mental gymnastics to
+understand how vCPU task migration interacted with vCPU blocking.
+
+Non-x86 folks, sorry for the noise.  I'm hoping the common parts can get
+applied without much fuss so that future versions can be x86-only.
+
+v2:
+ - Collect reviews. [Christian, David]
+ - Add patch to move arm64 WFI functionality out of hooks. [Marc]
+ - Add RISC-V to the fun.
+ - Add all the APICv fun.
+
+v1: https://lkml.kernel.org/r/20210925005528.1145584-1-seanjc@google.com
+
+Jing Zhang (1):
+  KVM: stats: Add stat to detect if vcpu is currently blocking
+
+Sean Christopherson (42):
+  KVM: VMX: Don't unblock vCPU w/ Posted IRQ if IRQs are disabled in
+    guest
+  KVM: SVM: Ensure target pCPU is read once when signalling AVIC
+    doorbell
+  KVM: s390: Ensure kvm_arch_no_poll() is read once when blocking vCPU
+  KVM: Force PPC to define its own rcuwait object
+  KVM: Update halt-polling stats if and only if halt-polling was
+    attempted
+  KVM: Refactor and document halt-polling stats update helper
+  KVM: Reconcile discrepancies in halt-polling stats
+  KVM: s390: Clear valid_wakeup in kvm_s390_handle_wait(), not in arch
+    hook
+  KVM: Drop obsolete kvm_arch_vcpu_block_finish()
+  KVM: arm64: Move vGIC v4 handling for WFI out arch callback hook
+  KVM: Don't block+unblock when halt-polling is successful
+  KVM: x86: Tweak halt emulation helper names to free up kvm_vcpu_halt()
+  KVM: Rename kvm_vcpu_block() => kvm_vcpu_halt()
+  KVM: Split out a kvm_vcpu_block() helper from kvm_vcpu_halt()
+  KVM: Don't redo ktime_get() when calculating halt-polling
+    stop/deadline
+  KVM: x86: Directly block (instead of "halting") UNINITIALIZED vCPUs
+  KVM: x86: Invoke kvm_vcpu_block() directly for non-HALTED wait states
+  KVM: Add helpers to wake/query blocking vCPU
+  KVM: VMX: Skip Posted Interrupt updates if APICv is hard disabled
+  KVM: VMX: Clean up PI pre/post-block WARNs
+  KVM: VMX: Drop unnecessary PI logic to handle impossible conditions
+  KVM: VMX: Use boolean returns for Posted Interrupt "test" helpers
+  KVM: VMX: Drop pointless PI.NDST update when blocking
+  KVM: VMX: Save/restore IRQs (instead of CLI/STI) during PI pre/post
+    block
+  KVM: VMX: Read Posted Interrupt "control" exactly once per loop
+    iteration
+  KVM: VMX: Move Posted Interrupt ndst computation out of write loop
+  KVM: VMX: Remove vCPU from PI wakeup list before updating PID.NV
+  KVM: VMX: Handle PI wakeup shenanigans during vcpu_put/load
+  KVM: Drop unused kvm_vcpu.pre_pcpu field
+  KVM: Move x86 VMX's posted interrupt list_head to vcpu_vmx
+  KVM: VMX: Move preemption timer <=> hrtimer dance to common x86
+  KVM: x86: Unexport LAPIC's switch_to_{hv,sw}_timer() helpers
+  KVM: x86: Remove defunct pre_block/post_block kvm_x86_ops hooks
+  KVM: SVM: Signal AVIC doorbell iff vCPU is in guest mode
+  KVM: SVM: Don't bother checking for "running" AVIC when kicking for
+    IPIs
+  KVM: SVM: Unconditionally mark AVIC as running on vCPU load (with
+    APICv)
+  KVM: Drop defunct kvm_arch_vcpu_(un)blocking() hooks
+  KVM: VMX: Don't do full kick when triggering posted interrupt "fails"
+  KVM: VMX: Wake vCPU when delivering posted IRQ even if vCPU == this
+    vCPU
+  KVM: VMX: Pass desired vector instead of bool for triggering posted
+    IRQ
+  KVM: VMX: Fold fallback path into triggering posted IRQ helper
+  KVM: VMX: Don't do full kick when handling posted interrupt wakeup
+
+ arch/arm64/include/asm/kvm_emulate.h |   2 +
+ arch/arm64/include/asm/kvm_host.h    |   1 -
+ arch/arm64/kvm/arch_timer.c          |   5 +-
+ arch/arm64/kvm/arm.c                 |  60 +++---
+ arch/arm64/kvm/handle_exit.c         |   5 +-
+ arch/arm64/kvm/psci.c                |   2 +-
+ arch/mips/include/asm/kvm_host.h     |   3 -
+ arch/mips/kvm/emulate.c              |   2 +-
+ arch/powerpc/include/asm/kvm_host.h  |   4 +-
+ arch/powerpc/kvm/book3s_pr.c         |   2 +-
+ arch/powerpc/kvm/book3s_pr_papr.c    |   2 +-
+ arch/powerpc/kvm/booke.c             |   2 +-
+ arch/powerpc/kvm/powerpc.c           |   5 +-
+ arch/riscv/include/asm/kvm_host.h    |   1 -
+ arch/riscv/kvm/vcpu_exit.c           |   2 +-
+ arch/s390/include/asm/kvm_host.h     |   4 -
+ arch/s390/kvm/interrupt.c            |   3 +-
+ arch/s390/kvm/kvm-s390.c             |   7 +-
+ arch/x86/include/asm/kvm-x86-ops.h   |   4 -
+ arch/x86/include/asm/kvm_host.h      |  29 +--
+ arch/x86/kvm/lapic.c                 |   4 +-
+ arch/x86/kvm/svm/avic.c              |  95 ++++-----
+ arch/x86/kvm/svm/svm.c               |   8 -
+ arch/x86/kvm/svm/svm.h               |  14 --
+ arch/x86/kvm/vmx/nested.c            |   2 +-
+ arch/x86/kvm/vmx/posted_intr.c       | 279 ++++++++++++---------------
+ arch/x86/kvm/vmx/posted_intr.h       |  14 +-
+ arch/x86/kvm/vmx/vmx.c               |  63 +++---
+ arch/x86/kvm/vmx/vmx.h               |   3 +
+ arch/x86/kvm/x86.c                   |  55 ++++--
+ include/linux/kvm_host.h             |  27 ++-
+ include/linux/kvm_types.h            |   1 +
+ virt/kvm/async_pf.c                  |   2 +-
+ virt/kvm/kvm_main.c                  | 138 +++++++------
+ 34 files changed, 413 insertions(+), 437 deletions(-)
+
 -- 
-2.25.1
+2.33.0.882.g93a45727a2-goog
 
 
 _______________________________________________
