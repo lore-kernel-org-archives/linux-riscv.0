@@ -2,14 +2,14 @@ Return-Path: <SRS0=s3kv=O5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E8FD0C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49843C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:36:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B213960D07
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:34:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B213960D07
+	by mail.kernel.org (Postfix) with ESMTPS id 1BEA760F5A
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:36:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1BEA760F5A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rBjwk73OU576BDbD6/0vubfuX4RYpnBVUSFc5Z7BRlA=; b=zNVQVG1xYAYhN7
-	Qz1y8NB/R3Y3/7O3S/TxP+I1LbbBCXGctADaF65rowU4cXigGMnnq8BoHW7EY5L294+csfpmfy8rh
-	UPBsV/MfdAaJyKTveaLsYFpX9rOaaWNDCNKxF15d1Rh8+mlk7LBy+sXtofV49vsNQ/wsgj0I3Za5f
-	FUn6a8cXbVEEGURmhmajdr9Tv1IlCLDxDeT9R/hcUIm2Sw31+X3JP8b1Z+onb2HNJlJYUOfvJMqu2
-	TSig6YsqQ5xSeXS2oD73/kn5mLTf7oVvo6OyjXZ772O0Eesop+Cn9wYhc6nyy+kYNgbuVMQbXwPDD
-	TwKa9Jm3kgXuc48Hq4gw==;
+	List-Owner; bh=eGkbSkDYoPNx5qy3m0ZJwWl2izhhrs4VdFiQRpMOVgs=; b=Uo+ofDPSgm2rga
+	8dNMwRVdzasz1qegXXe7QTxgEPMZLCbszp9Zdbh/wCtkvuAYVk55XThVNbtkw6uh5R/y2TfRwkQPK
+	ZQjoAy1FSrBFgpwszy3aP+9UXfwG9HJNXkEm2Q9drCa6oKQCVDYiIdWO6jQZwzRyqvH5E5cOs3eBb
+	Bih0qJCzGi7wpPLnne8z/z33cBOhTyU1bv94utprYp8oW1UJ20ALeKcEqmUuNwVY9D3cMxmOV04Og
+	qnm2pPA5b8BOPHHOnQAfF4Iy55UQPi4RW3AzfyEucBDv2rGbyhPMWMTVM3EIWyGt/6LIt1x+hzBRa
+	UVbGkBYncXKdlMEtaWtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZ2Bi-004d2P-1x; Sat, 09 Oct 2021 02:34:14 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1mZ2Dh-004dnt-Qt; Sat, 09 Oct 2021 02:36:17 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZ1rj-004UGV-8g
- for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:13:37 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id
- f8-20020a2585480000b02905937897e3daso15198830ybn.2
- for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:13:34 -0700 (PDT)
+ id 1mZ1rl-004UIP-LH
+ for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:13:39 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id
+ s66-20020a252c45000000b005ba35261459so14458919ybs.7
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:13:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=pLGnZNeCj1eofs1Tna8HvgfHGGH+OqNXhSkcDhwkBIw=;
- b=VRo08TCu54WXCeWvaUHt/sk2e0vGE+t23O2jGFtKJrC8szlW29PyUVg9qa1gFeA7l/
- xEskdCWXRSlglDPxzwJpI+hnS34D4TzLDKLZZJDH+vXneZUjJrJ2p6jMQ4+6yNusBF7P
- 6CJ8/rSwneH/NW0dEbzJkjR/ZnaiFW04wA6ydEJsYBVq9hwfsxkAk8UtewwAEpUXkOH2
- gElF5Vx854/uDHSVGxe/9WkMnKTFMH6pK6EPC77dq53/WUYVeZkuMvVYcngIplHzpqzD
- mk15NWKmGwkAbgPYO3UA0b2d7qx8J738ZHLocYz+9s5CV0wLJv0e5T4wx+Q9y63P5xIW
- pwMQ==
+ bh=SdOYPzkyfZrBWx1GJeur2Vwb7zEvl7JYNbVbQ0SB2Gg=;
+ b=aUvGN/4AFgJcKIBF9LBWgDwhCHQZYEJ03JrconxIXHeAq0mSobvx5eFsN2IhEk7hMF
+ 07jWDFM9e+ezgnVy0PqTHsU8wjkF0Sq/uHjyc0w84aIFVqAcJRuuc8LQH3WxNpDQiA8J
+ 1gOwXo6k1Mjhlm2dzNYz4rr2omGOTIv9FMsD0TA3lqfU/1iEz7W8Tub84Aqukc87X1xM
+ piXJImDfP3oyBzKVi6TuZiCoM21cARPSFti7XJOcRw2PuPbisGedjpLV+YL9vQi2purC
+ N3om2H5mKJxeus7ZcbgIF+EPMNOHqwS7dYW8kbDAw9PWlIpsbYSk0g7cYENwS5oOjCiw
+ mX3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=pLGnZNeCj1eofs1Tna8HvgfHGGH+OqNXhSkcDhwkBIw=;
- b=GueUs5+ywvG6tQa5v7bSddeIhYdYrvTBCkt6vIg3svWRxCPwljSBFz6tuSd3pXivAF
- HJJ/baVD3Ot8FLOCv7LARBfhQVha/vAdWeM3TmS19Zuj24/tnYL+UL0aWFLETDyRjhoL
- H+PcljuaOpMTvwbgYCRnAd48x7yJQGQnkLNoEMx17VXKfmftJ1K4oMGiFo2s1AtN1Lzp
- irI4fzKcrZhrKx/DkDeTQW5jPyQyfkJRaauc28gH0zThdRMY4IyeXmWSu3aCzCeulxzP
- cHOCxpgNbe1iUaUp8XSEHRuoyikUaIKCCG6lQXc2Y1dMVA1vV9J6nqOsqdGyQiluHHP/
- YYKw==
-X-Gm-Message-State: AOAM533xwnMWVtRWgjITlGt76ZCIDyoWD3ORinVUjPeTfiOR6xCdQIBW
- AZcoQ8ZLaHhKnArsqwz//g0ZVfH9+0M=
-X-Google-Smtp-Source: ABdhPJz4iSAfPQRljp1PNlRsP2+bvwjiNJU4qxRXVZchtwSA9sdFFYFZ7ZvHA8l7ONDMJR0uzV+kR3cYKVg=
+ bh=SdOYPzkyfZrBWx1GJeur2Vwb7zEvl7JYNbVbQ0SB2Gg=;
+ b=ufPCZFePswg4nsUl26gKMhVmodxqEB4XyU8DU0DkvvF/WYGqiX+D7Udo9e1lWvjEco
+ ASBlfGt6ty1fPCTtf4X5BvWJUv9PE1+gkmNBY4Alv6i45my5gFLltD4qFcx0LrlpsiaW
+ 6Xx0YWlHEjywVWM26mNtGae7wb1GKM8sqd2pCo0RL3+mIZ/lr0557yXOIa3STcQn5/Cu
+ c2kVNlR7VaIiuD/omzw89j3zcFpH3GxvncjrpuHqRyxwrnrPBhufq4fjGQx+cQgfz9JD
+ BhlFUodSrSzJEIWq4TCyrxX2ZHQu5bFPdUJFTr/3VGCI63Afd+3dzxQZ+bGaT969lEpQ
+ MWOw==
+X-Gm-Message-State: AOAM531Z1BfovLFqAik6uYhJQKZwkW343fqGvIi7TQKxwL2y8LwY3yCb
+ 8idfmxoVvbAHD4SzPf/b1p3K9z2nXyc=
+X-Google-Smtp-Source: ABdhPJxYoBKdyJNsrFu59iAPxlEnyIVO9cffUZpeFin68SfrlNt2dK+2hwMzncpFoR3FTBopTnOtfheDhwY=
 X-Received: from seanjc798194.pdx.corp.google.com
  ([2620:15c:90:200:e39b:6333:b001:cb])
- (user=seanjc job=sendgmr) by 2002:a25:1b86:: with SMTP id
- b128mr7765690ybb.20.1633745613685; 
- Fri, 08 Oct 2021 19:13:33 -0700 (PDT)
-Date: Fri,  8 Oct 2021 19:12:14 -0700
+ (user=seanjc job=sendgmr) by 2002:a25:6e06:: with SMTP id
+ j6mr7636609ybc.311.1633745615988; 
+ Fri, 08 Oct 2021 19:13:35 -0700 (PDT)
+Date: Fri,  8 Oct 2021 19:12:15 -0700
 In-Reply-To: <20211009021236.4122790-1-seanjc@google.com>
-Message-Id: <20211009021236.4122790-22-seanjc@google.com>
+Message-Id: <20211009021236.4122790-23-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211009021236.4122790-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.0.882.g93a45727a2-goog
-Subject: [PATCH v2 21/43] KVM: VMX: Clean up PI pre/post-block WARNs
+Subject: [PATCH v2 22/43] KVM: VMX: Drop unnecessary PI logic to handle
+ impossible conditions
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -92,8 +93,9 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
  Oliver Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211008_191335_358833_9312BCFF 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20211008_191337_790564_4F2A7735 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,56 +113,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the WARN sanity checks out of the PI descriptor update loop so as
-not to spam the kernel log if the condition is violated and the update
-takes multiple attempts due to another writer.  This also eliminates a
-few extra uops from the retry path.
+Drop sanity checks on the validity of the previous pCPU when handling
+vCPU block/unlock for posted interrupts.  Barring a code bug or memory
+corruption, the sanity checks will never fire, and any code bug that does
+trip the WARN is all but guaranteed to completely break posted interrupts,
+i.e. should never get anywhere near production.
 
-Technically not checking every attempt could mean KVM will now fail to
-WARN in a scenario that would have failed before, but any such failure
-would be inherently racy as some other agent (CPU or device) would have
-to concurrent modify the PI descriptor.
+This is the first of several steps toward eliminating kvm_vcpu.pre_cpu.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/posted_intr.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/x86/kvm/vmx/posted_intr.c | 24 ++++++++++--------------
+ 1 file changed, 10 insertions(+), 14 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
-index 351666c41bbc..67cbe6ab8f66 100644
+index 67cbe6ab8f66..6c2110d91b06 100644
 --- a/arch/x86/kvm/vmx/posted_intr.c
 +++ b/arch/x86/kvm/vmx/posted_intr.c
-@@ -100,10 +100,11 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
- 	struct pi_desc old, new;
- 	unsigned int dest;
+@@ -118,12 +118,10 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
+ 	} while (cmpxchg64(&pi_desc->control, old.control,
+ 			   new.control) != old.control);
  
-+	WARN(pi_desc->nv != POSTED_INTR_WAKEUP_VECTOR,
-+	     "Wakeup handler not enabled while the vCPU was blocking");
+-	if (!WARN_ON_ONCE(vcpu->pre_pcpu == -1)) {
+-		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+-		list_del(&vcpu->blocked_vcpu_list);
+-		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+-		vcpu->pre_pcpu = -1;
+-	}
++	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
++	list_del(&vcpu->blocked_vcpu_list);
++	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
++	vcpu->pre_pcpu = -1;
+ }
+ 
+ /*
+@@ -153,14 +151,12 @@ int pi_pre_block(struct kvm_vcpu *vcpu)
+ 
+ 	WARN_ON(irqs_disabled());
+ 	local_irq_disable();
+-	if (!WARN_ON_ONCE(vcpu->pre_pcpu != -1)) {
+-		vcpu->pre_pcpu = vcpu->cpu;
+-		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+-		list_add_tail(&vcpu->blocked_vcpu_list,
+-			      &per_cpu(blocked_vcpu_on_cpu,
+-				       vcpu->pre_pcpu));
+-		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+-	}
 +
- 	do {
- 		old.control = new.control = pi_desc->control;
--		WARN(old.nv != POSTED_INTR_WAKEUP_VECTOR,
--		     "Wakeup handler not enabled while the VCPU is blocked\n");
++	vcpu->pre_pcpu = vcpu->cpu;
++	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
++	list_add_tail(&vcpu->blocked_vcpu_list,
++		      &per_cpu(blocked_vcpu_on_cpu, vcpu->pre_pcpu));
++	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
  
- 		dest = cpu_physical_id(vcpu->cpu);
- 
-@@ -161,13 +162,12 @@ int pi_pre_block(struct kvm_vcpu *vcpu)
- 		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
- 	}
- 
-+	WARN(pi_desc->sn == 1,
-+	     "Posted Interrupt Suppress Notification set before blocking");
-+
- 	do {
- 		old.control = new.control = pi_desc->control;
- 
--		WARN((pi_desc->sn == 1),
--		     "Warning: SN field of posted-interrupts "
--		     "is set before blocking\n");
--
- 		/*
- 		 * Since vCPU can be preempted during this process,
- 		 * vcpu->cpu could be different with pre_pcpu, we
+ 	WARN(pi_desc->sn == 1,
+ 	     "Posted Interrupt Suppress Notification set before blocking");
 -- 
 2.33.0.882.g93a45727a2-goog
 
