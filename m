@@ -2,14 +2,14 @@ Return-Path: <SRS0=s3kv=O5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D571CC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27172C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:16:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A488560F51
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:15:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A488560F51
+	by mail.kernel.org (Postfix) with ESMTPS id E1C9D60FD7
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:16:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E1C9D60FD7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4AeeqVRn6m54jvnB8PVxyfvy3UN+24Rjybu9AgaV16I=; b=XlVb75Ukbdph2q
-	kTNMCDAK5R7BK+twdEHvypUKExPjkLl+hQmLb7bjGPdLhStZ5WuwEBnddJBjf8z+c8/kofkVdumoW
-	8oTlY4cRczumFqMciSycCSRUGtPce/ShjjguaeMBA44y8JOzGD10ayie4iTDWAJRF2mqC29RvSJps
-	lit6Pav+bU2gIEf5uXc6zOPYA5lU06E0RvgZY11sumHWuP3ivm4CPD8pUKp45Wb+PyH2minEfX5mZ
-	CwvTcLaN+K9tCETJDJOFKmhJmi7zwSYJ8PquZ/nrjxaYGI/9vgOSju8oLHDN58CZgLcMaXV1a9eUN
-	mEDTv041G/jsFEFp3NYQ==;
+	List-Owner; bh=CWQJiekFVv79b6TjUCihLVR+zyGHluhU8kxUIISgxtU=; b=JHdIocKeT+hAIt
+	xlNMLIQrWvtxBBkLSGtXss/Vx2EJAZYDGvcdqSiNmEWJVV0/zr7NdBeXlKdR84hwC505FCeXeEmLv
+	GxvYpa+mqOeAyJb8e/rZ47ok5FP/6Tz4FjNVAF0BJXiRqlLjksEusLh3DuCVvLPvcQCLY3kWH1Dt1
+	TCS3DOwvazjZK+uXBv6IUBuIYgVjKPgY9JzToJ+cNmncCWXUcanlegU9LUBMYytXV7ZvDcDbMYj0o
+	YGenhSQLrZ3uW7eb2NMzLIwRVl0Xx+/UuGUNqccZ3VSzdLDhn0SMeLdOHwNYeH9guJ4gWykOpkQYa
+	62AnXUZY50MbEl9CWtBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZ1tZ-004VPe-Lw; Sat, 09 Oct 2021 02:15:29 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1mZ1uF-004Vow-Fm; Sat, 09 Oct 2021 02:16:11 +0000
+Received: from mail-qk1-x749.google.com ([2607:f8b0:4864:20::749])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZ1r5-004TqZ-PR
- for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:12:57 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id
- x15-20020a056902102f00b005ba71cd7dbfso4952719ybt.8
- for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:12:55 -0700 (PDT)
+ id 1mZ1r8-004Ts7-OZ
+ for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:13:00 +0000
+Received: by mail-qk1-x749.google.com with SMTP id
+ r5-20020a05620a298500b0045dac5fb940so9782723qkp.17
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:12:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=OSahwrCOM8hvTCjGSN0bryGWa8lO1ktrkgbUtpkiWTU=;
- b=M5Nnc+p8tzrX3sNy50+q4rLjDSCqSRYtbN8NDtIMtL5lz0M1RLPaDK9QbmYeZ771j6
- iFkLbm77/+6Yc0cSHxabd0QyOohOgtVklZfs3Cn2dN0a1ZwfX67QbT1JAQNLhjpc4+uO
- vi9O60Ie3T48wyOT5Z4Gu0fSaeBm6K+RcT5Zaus4zoWDP/z2bfzcS0MRP6qrM18VmvI1
- q2TtwZL4vCj4M6FLDBiRgBUXmYKIdxYeZUm1TBqJ6arSG1KgtQu+aFJsGYHUTkfjGQof
- tTaWlTLEfPIrKFJvjF0monIrG5PmtaBKUx6Tf3cXwYd6T3mEDwvkPUW8UU30Bw8nBP9y
- 0gDw==
+ bh=duVCxds/Xk54aU09i5UIkyaIUq0yJMQJZI9wZA2YDlA=;
+ b=Wv/kcG4ULQxV2PKupeA3o9viF1KOUTbF8+9gkKByWbWPMHCHTm+TZZg7F5whB1kJEv
+ 00RE4Q8btFY4lrjbmtjP6hVSSAYJJdql8WRFW8k/FQZNMBqfykiFr2BiQA+wfe28C543
+ SWlusb4mpYdymW6ZMpaM7mrIbRvVwIrPb/jvum8yisSKEvO7UFeRbl7H6trZAhauAzQD
+ a1bpHkCHoYH6NJt8GSDU7cMPxIgXQRKLxIkS2NtUm9+Lov6n2e8PGJQvej1YmfsKCffW
+ TihOARLN4ummUTvbvoWa2j+nguD9Os55BuiemMJ8jed6VNGgNVOfE7xoH5rBJNb4aOyN
+ lvIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=OSahwrCOM8hvTCjGSN0bryGWa8lO1ktrkgbUtpkiWTU=;
- b=6mb0AYwEAatio3CRQRd+TDxPpOxkQ+WqLTX7fFwTXy7E/UaFscTjm+BFski5w0UCWY
- djrR3XjuVq9/+W5/8zf2nsZknwWgKVYPEmfDKbUO3gijeLXokLBCc9xwoFWFNkTuiBNp
- xF8x9QmZaKtkZDiTdvWvdK2jeUgXuBmj1WEHuMMPp4/n07IgKTm3gTUQyRNG9ZGrrNX7
- 2mtN+sp6C5/5EJ609r5pJdj9W2Q3Z1dZ7A9yBf/BDYeBaEhP4c/RyJ82smSvuuhM4mla
- McGQ4LmFuAbxJNYEAFy+aCv6fbEzVRCvX+ibzRTjDUAEjdlAkOkV/AzILuEhh0WsBtqm
- gbTA==
-X-Gm-Message-State: AOAM530QFzZYIhzgI2Xfc2TsJwCTVdNFR8CbOTxc9w413L4JmJPPONv8
- La6QDe0HbhJi9qQkuC4oEzvVi2zvuwE=
-X-Google-Smtp-Source: ABdhPJx08F+X6N2reeGnFXth9S6Ys93QnEjCYVn+7HtsQKARH+T/4QlHmLInc1/XQW7XkZX+0RcLTuK00A4=
+ bh=duVCxds/Xk54aU09i5UIkyaIUq0yJMQJZI9wZA2YDlA=;
+ b=BjFug/F99RGEb5l0dQCaNv/T3jBO6Y29G9ojea9LJpV4ZcxlTPU6aOqMLReA40ItQS
+ MfsHA2JgLFUp/POKGaJOEyryAYMXqEDiv2LMmoHtEJOKpAOmbv6bicd6jaBQ0FiUhBP+
+ 6jKhaW+LmP95xIUypuh9a83zs67d49+diPD6Ck4E2qUsP8znw89i8egErJd6dwPUZtUi
+ qKmY5nez39zlyos2FUZJsRE1qCML0ysLqU3WzHdKrmBTL173WqLhzgWP6gPqLbCDToz7
+ g48yo/+FnoKR8FT3yfHNid/fdBR35mbZ5Ne3NttaTzp0g3qwkmoIdrOMumzT3Rs+f6s6
+ XG4A==
+X-Gm-Message-State: AOAM533Pv7cnGTr9yrjQ7D4PbwwqwgxDf6K7TJPPM1ZKN0BsuoRrW/I1
+ rRbEeleO+aH96GjPPGDvIFbpHHxc6mE=
+X-Google-Smtp-Source: ABdhPJzReckbemypX4PIoTmT2KiRT9pVyd7dG9YNXxxpVcLBpBPcyP9Rkq3/2bNbj++4tivC2JpyLGM9nrE=
 X-Received: from seanjc798194.pdx.corp.google.com
  ([2620:15c:90:200:e39b:6333:b001:cb])
- (user=seanjc job=sendgmr) by 2002:a05:6902:124e:: with SMTP id
- t14mr2047183ybu.221.1633745574354; Fri, 08 Oct 2021 19:12:54 -0700 (PDT)
-Date: Fri,  8 Oct 2021 19:11:58 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:622a:1055:: with SMTP id
+ f21mr1892047qte.24.1633745576813; Fri, 08 Oct 2021 19:12:56 -0700 (PDT)
+Date: Fri,  8 Oct 2021 19:11:59 -0700
 In-Reply-To: <20211009021236.4122790-1-seanjc@google.com>
-Message-Id: <20211009021236.4122790-6-seanjc@google.com>
+Message-Id: <20211009021236.4122790-7-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211009021236.4122790-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.0.882.g93a45727a2-goog
-Subject: [PATCH v2 05/43] KVM: Update halt-polling stats if and only if
- halt-polling was attempted
+Subject: [PATCH v2 06/43] KVM: Refactor and document halt-polling stats update
+ helper
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -92,8 +92,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
  Oliver Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211008_191255_857033_FEB6C51E 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20211008_191258_840560_ED948B49 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +111,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't update halt-polling stats if halt-polling wasn't attempted.  This
-is a nop as @poll_ns is guaranteed to be '0' (poll_end == start), but it
-will allow a future patch to move the histogram stats into the helper to
-resolve a discrepancy in what is considered a "successful" halt-poll.
+Add a comment to document that halt-polling is considered successful even
+if the polling loop itself didn't detect a wake event, i.e. if a wake
+event was detect in the final kvm_vcpu_check_block().  Invert the param
+to update helper so that the helper is a dumb function that is "told"
+whether or not polling was successful, as opposed to determining success
+based on blocking behavior.
+
+Opportunistically tweak the params to the update helper to reduce the
+line length for the call site so that it fits on a single line, and so
+that the prototype conforms to the more traditional kernel style.
 
 No functional change intended.
 
 Reviewed-by: David Matlack <dmatlack@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ virt/kvm/kvm_main.c | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 5d4a90032277..6156719bcbbc 100644
+index 6156719bcbbc..4dfcd736b274 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -3217,6 +3217,7 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+@@ -3201,13 +3201,15 @@ static int kvm_vcpu_check_block(struct kvm_vcpu *vcpu)
+ 	return ret;
+ }
+ 
+-static inline void
+-update_halt_poll_stats(struct kvm_vcpu *vcpu, u64 poll_ns, bool waited)
++static inline void update_halt_poll_stats(struct kvm_vcpu *vcpu, ktime_t start,
++					  ktime_t end, bool success)
  {
- 	struct rcuwait *wait = kvm_arch_vcpu_get_wait(vcpu);
- 	bool halt_poll_allowed = !kvm_arch_no_poll(vcpu);
-+	bool do_halt_poll = halt_poll_allowed && vcpu->halt_poll_ns;
- 	ktime_t start, cur, poll_end;
- 	bool waited = false;
- 	u64 block_ns;
-@@ -3224,7 +3225,7 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
- 	kvm_arch_vcpu_blocking(vcpu);
+-	if (waited)
+-		vcpu->stat.generic.halt_poll_fail_ns += poll_ns;
+-	else
++	u64 poll_ns = ktime_to_ns(ktime_sub(end, start));
++
++	if (success)
+ 		vcpu->stat.generic.halt_poll_success_ns += poll_ns;
++	else
++		vcpu->stat.generic.halt_poll_fail_ns += poll_ns;
+ }
  
- 	start = cur = poll_end = ktime_get();
--	if (vcpu->halt_poll_ns && halt_poll_allowed) {
-+	if (do_halt_poll) {
- 		ktime_t stop = ktime_add_ns(ktime_get(), vcpu->halt_poll_ns);
- 
- 		++vcpu->stat.generic.halt_attempted_poll;
-@@ -3276,8 +3277,9 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+ /*
+@@ -3277,9 +3279,13 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
  	kvm_arch_vcpu_unblocking(vcpu);
  	block_ns = ktime_to_ns(cur) - ktime_to_ns(start);
  
--	update_halt_poll_stats(
--		vcpu, ktime_to_ns(ktime_sub(poll_end, start)), waited);
-+	if (do_halt_poll)
-+		update_halt_poll_stats(
-+			vcpu, ktime_to_ns(ktime_sub(poll_end, start)), waited);
++	/*
++	 * Note, halt-polling is considered successful so long as the vCPU was
++	 * never actually scheduled out, i.e. even if the wake event arrived
++	 * after of the halt-polling loop itself, but before the full wait.
++	 */
+ 	if (do_halt_poll)
+-		update_halt_poll_stats(
+-			vcpu, ktime_to_ns(ktime_sub(poll_end, start)), waited);
++		update_halt_poll_stats(vcpu, start, poll_end, !waited);
  
  	if (halt_poll_allowed) {
  		if (!vcpu_valid_wakeup(vcpu)) {
