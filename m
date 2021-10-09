@@ -2,14 +2,14 @@ Return-Path: <SRS0=s3kv=O5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 334F2C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 14600C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:55:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EB60160F9D
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:53:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EB60160F9D
+	by mail.kernel.org (Postfix) with ESMTPS id CCBDD60F6D
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Oct 2021 02:55:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CCBDD60F6D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cfsHq9GF0qCfsmYn45EJYUqdivU9/xiD5HraGedoQiA=; b=44RgzRUGrpkuu2
-	gjOCaLd3cxd7XSmg30c9eQf7VLHTNNbQfRtajB6lLesrFK3ROFHe5ESEyRF3/rZfNJYMiAu7/t1/P
-	NE/EpXxT8Cb/5PtDUkXk4yFAVD6jhdKNKX2kPsxopHvFupkt3942+ckS+n2Zuxu0tmkkTCvdICCLJ
-	a0K8rbOxd4hllfxKA5FQYm8DSWqXvXl9uIJbvp5ztmRRmht3SZmEBCNjhOGOlW2xfkgPWpKPsTNBh
-	PnHfehQKcmEwEnkIeXRWKJRL0FSMZ4M12hlsnl/bH+SX0R+FQW6SYtvowlickGSS+lplr9cXZAQas
-	D9CK1UfAK8Y4I0xb+UXg==;
+	List-Owner; bh=3phgwXlEXUiVrUNIWxN0m3aLPn4vBSHzP4w/JXQgs2Y=; b=2mjGwMtOroi8Io
+	RwVh1VgyapmNG4CKdG559YIdDtHUS1ZS7inQemNoBD2S5VQrwV9qqiYgw93dtlc0ji0Xm38a9xp2u
+	uSlnMca0BjLkTa8SWTKRQrrMVvpHUufg6Nu6OosDgRuFXIYrIPHqSxJoD1tzOFKeTT/R27gFTRg7Y
+	rVcHAaHvF6AiU/0MyGdYaYIuq3SboTWn+Taa7MJYldKEXVbVxjFEqptNG0aTS9S7B+TotZf1H+Yz7
+	Y6RqPkeIbXtperBgtDaEZ/50XaZ8nrCT19zwVICrlhF1aP8vAIzyKdybOoGcRxYDhoyC2vaMiNm21
+	orrxQjeKTeIbQLlWQLHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZ2UL-004kFG-Cf; Sat, 09 Oct 2021 02:53:29 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1mZ2VY-004khj-1G; Sat, 09 Oct 2021 02:54:44 +0000
+Received: from mail-qt1-x849.google.com ([2607:f8b0:4864:20::849])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZ1sM-004Uj7-6E
- for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:14:16 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id
- z2-20020a254c02000000b005b68ef4fe24so15044045yba.11
- for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:14:13 -0700 (PDT)
+ id 1mZ1sO-004UfS-1n
+ for linux-riscv@lists.infradead.org; Sat, 09 Oct 2021 02:14:17 +0000
+Received: by mail-qt1-x849.google.com with SMTP id
+ t9-20020a05622a180900b002a71f83a1cdso8810708qtc.17
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Oct 2021 19:14:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=EO1DdjrhtpmWzjh1EvgBT+lYKJFtXbnNZvFnyTdrLr4=;
- b=SgQ6bc6sO/D2BDTT6qtx0WAi/ReMNLqD/ixklFc6XJsme6RvEAyibaoCcZ+6xQ5OkI
- ktC+f/9gaqy4GxqOHggOKkREje58nPcOr+Pu+vPxOlkYQMNw78hFOqCmgpg1tqeYBceP
- M02XL4PQM1TiYW71SKXsn2Ur2YlXd0iyCAEhOd4fAvr/JazoIpUsKNmjyf0Ni6JCCcKO
- 7pxB0Pn+7ZUH5KunCEUOb6F/O+SJ9Gms308Iz4L/bVBrKppOYhyW2loCqRXdzIS5KBo7
- R+hLo/RYtlg4VS+ZdP6EH23BDWdpgqinGPjzLjDVYfoK7og0eyFX+gDYPLeJnrZbmP2N
- MJcw==
+ bh=vARluonyUKpRy8G9DjKrfNHNdAc1HGSYAf2sHJRtsxE=;
+ b=dDNQpdZfL83I4Xoa9PZ3E5EsYnabe1TnFcUqC0GiE/0/lo3YBI4SgbGlytEWdsCvOf
+ LL61F+TPG4wVAi+hBDwL0hYJr0Sf/hDhYBcY7jqTws2bL+a5fPjX5OLlspq9+auO8uLB
+ LlWM6ttM2AIBOgSzLaGHfzimLEgh21na9pO5BUmiCsH43tkGQwDiPq/uFgoyBvKjufM1
+ qqm6SRzQMrUy4KCFfX/YOo+AIQIUXaJKY/DR/AD2RJh1k/DEWqufdKKiBjO5+vKlBr1h
+ rts7eeL0kCC8yhrzj1lM+laL06N4oAUmGKJnSLoqoH7hEPeImUfW3S7INsYE4a0g/dn5
+ bbFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=EO1DdjrhtpmWzjh1EvgBT+lYKJFtXbnNZvFnyTdrLr4=;
- b=wy8QdGnq441ooZhMhT+/c+3K0z1hjUc59MgTCZ6yxnMxmDvE/f1c0RRuaP9+z07vpa
- zLpyYX+LEs04EqF9MlMp9S/me7zqvvypxhkkgku5LL9ZL4FDjUxzVWOCRZso6mRKVxKe
- +tl2CkRDt2i90xJSX9H7pyM4jCOruQTwSsQn+UudvCx3Fsu0g/v9m/bX6RefcO/yZY9x
- J3xI4ZJLdRyEsstGKvqq4UhVnAmHqJ/lIOLrfjDX//wewhzkGxtfrnuL/5c1sj45s9Yk
- ndFVZlk2UC7pNzuAaTgem9AlVB6ugSbJeaBQXkjkHLld1rv+HqohF2BJZNs+i3NgXrxd
- d0xw==
-X-Gm-Message-State: AOAM5338wwraBnJiIrf4dJDvxtsfu+CXA1vEhF9flj1reIoNXZST1JvF
- VKk3qP/kRGHWpNKJj9k/bBhaPepacVI=
-X-Google-Smtp-Source: ABdhPJxzzIeOZb6NcqAHHKw15hpgOp6kx7Tgw+3WfUCiAT/0ER9Qq3B+94h2kbS9kEsVCOMb8KmVqa9KyAg=
+ bh=vARluonyUKpRy8G9DjKrfNHNdAc1HGSYAf2sHJRtsxE=;
+ b=1TJjx6IWRX12TJfCg/ZM36k1SnE+hwsuoxyEn3YhLR5V2UVFZeuH7n8YgzLtowpQVa
+ Z1Timc4WtOuK/4QpKJDPJX1EDat7YBPY5lmyCC+WkQPzJSQZ5LbI3JSmjdBKsbjQAKzb
+ GAqX4F62U1a2F7X7zS//HzQfCEyGTbnMWUY8L7NeQDR+ahSSDRxsy2YZEsynuEnA48EB
+ tFNOc1eKPOeOeMsS+lkWcgW1zPT9VmMQzbApaKLk5jfaFhbkUFn3n9jd33R1u5n+GBuI
+ 85B4BdAnTaO7jUXz55n/qk7kXaGWKqIlvXVhChoSNXHhheTossT3IhwbbpOw3aNiUPqf
+ CZHA==
+X-Gm-Message-State: AOAM531SOqwpBslyfrvPdoE9PhfitSAVivgYHSFilTBRoDXTUan4Efid
+ tCAhFjtG39sqBeuQ3aEJ+a2QF1Eu2QM=
+X-Google-Smtp-Source: ABdhPJz6N4BKMo0pT3bkNnK0CxX1fpn8ACkILDo1YTK4hK+oppBaD3kzEAa1dfJV1AQiV4D0k1Eht0uMACM=
 X-Received: from seanjc798194.pdx.corp.google.com
  ([2620:15c:90:200:e39b:6333:b001:cb])
- (user=seanjc job=sendgmr) by 2002:a25:22d7:: with SMTP id
- i206mr7801852ybi.355.1633745652715; 
- Fri, 08 Oct 2021 19:14:12 -0700 (PDT)
-Date: Fri,  8 Oct 2021 19:12:30 -0700
+ (user=seanjc job=sendgmr) by 2002:ac8:7010:: with SMTP id
+ x16mr1970027qtm.136.1633745647867; 
+ Fri, 08 Oct 2021 19:14:07 -0700 (PDT)
+Date: Fri,  8 Oct 2021 19:12:28 -0700
 In-Reply-To: <20211009021236.4122790-1-seanjc@google.com>
-Message-Id: <20211009021236.4122790-38-seanjc@google.com>
+Message-Id: <20211009021236.4122790-36-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211009021236.4122790-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.0.882.g93a45727a2-goog
-Subject: [PATCH v2 37/43] KVM: SVM: Unconditionally mark AVIC as running on
- vCPU load (with APICv)
+Subject: [PATCH v2 35/43] KVM: SVM: Signal AVIC doorbell iff vCPU is in guest
+ mode
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -93,8 +93,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
  Oliver Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211008_191414_311403_67A7E1C7 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20211008_191416_161706_C279FC9E 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,153 +112,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Always mark the AVIC as "running" on vCPU load when the AVIC is enabled and
-drop the vcpu_blocking/unblocking hooks that toggle "running".  There is no
-harm in keeping the flag set for a wee bit longer when a vCPU is blocking,
-i.e. between the start of blocking and being scheduled out.  At worst, an
-agent in the host will unnecessarily signal the doorbell, but that's
-already the status quo in KVM as the "running" flag is set the entire time
-a vCPU is loaded, not just when it's actively running the guest.
+Signal the AVIC doorbell iff the vCPU is running in the guest.  If the vCPU
+is not IN_GUEST_MODE, it's guaranteed to pick up any pending IRQs on the
+next VMRUN, which unconditionally processes the vIRR.
 
-In addition to simplifying the code, keeping the "running" flag set longer
-can reduce the number of VM-Exits due to incomplete IPI delivery.
+Add comments to document the logic.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/avic.c | 53 +++++++++++++----------------------------
- arch/x86/kvm/svm/svm.c  |  8 -------
- arch/x86/kvm/svm/svm.h  |  3 ---
- 3 files changed, 17 insertions(+), 47 deletions(-)
+ arch/x86/kvm/svm/avic.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
 diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-index b43b05610ade..213f5223f63e 100644
+index 208c5c71e827..cbf02e7e20d0 100644
 --- a/arch/x86/kvm/svm/avic.c
 +++ b/arch/x86/kvm/svm/avic.c
-@@ -967,6 +967,15 @@ void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	int h_physical_id = kvm_cpu_get_apicid(cpu);
- 	struct vcpu_svm *svm = to_svm(vcpu);
+@@ -674,7 +674,12 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
+ 	kvm_lapic_set_irr(vec, vcpu->arch.apic);
+ 	smp_mb__after_atomic();
  
-+	/* TODO: Document why the unblocking path checks for updates. */
-+	if (kvm_vcpu_is_blocking(vcpu) &&
-+	    kvm_check_request(KVM_REQ_APICV_UPDATE, vcpu)) {
-+		kvm_vcpu_update_apicv(vcpu);
-+
-+		if (!kvm_vcpu_apicv_active(vcpu))
-+			return;
-+	}
-+
- 	/*
- 	 * Since the host physical APIC id is 8 bits,
- 	 * we can support host APIC ID upto 255.
-@@ -974,19 +983,21 @@ void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	if (WARN_ON(h_physical_id > AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK))
- 		return;
- 
+-	if (avic_vcpu_is_running(vcpu)) {
 +	/*
-+	 * Unconditionally mark the AVIC as "running", even if the vCPU is in
-+	 * kvm_vcpu_block().  kvm_vcpu_check_block() will detect pending IRQs
-+	 * and bail out of the block loop, and if not, avic_vcpu_put() will
-+	 * set the AVIC back to "not running" when the vCPU is scheduled out.
++	 * Signal the doorbell to tell hardware to inject the IRQ if the vCPU
++	 * is in the guest.  If the vCPU is not in the guest, hardware will
++	 * automatically process AVIC interrupts at VMRUN.
 +	 */
- 	entry = READ_ONCE(*(svm->avic_physical_id_cache));
- 	WARN_ON(entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK);
++	if (vcpu->mode == IN_GUEST_MODE) {
+ 		int cpu = READ_ONCE(vcpu->cpu);
  
- 	entry &= ~AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK;
- 	entry |= (h_physical_id & AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK);
--
--	entry &= ~AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK;
--	if (svm->avic_is_running)
--		entry |= AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK;
-+	entry |= AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK;
+ 		/*
+@@ -687,8 +692,13 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
+ 		if (cpu != get_cpu())
+ 			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpu));
+ 		put_cpu();
+-	} else
++	} else {
++		/*
++		 * Wake the vCPU if it was blocking.  KVM will then detect the
++		 * pending IRQ when checking if the vCPU has a wake event.
++		 */
+ 		kvm_vcpu_wake_up(vcpu);
++	}
  
- 	WRITE_ONCE(*(svm->avic_physical_id_cache), entry);
--	avic_update_iommu_vcpu_affinity(vcpu, h_physical_id,
--					svm->avic_is_running);
-+	avic_update_iommu_vcpu_affinity(vcpu, h_physical_id, true);
+ 	return 0;
  }
- 
- void avic_vcpu_put(struct kvm_vcpu *vcpu)
-@@ -1001,33 +1012,3 @@ void avic_vcpu_put(struct kvm_vcpu *vcpu)
- 	entry &= ~AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK;
- 	WRITE_ONCE(*(svm->avic_physical_id_cache), entry);
- }
--
--/*
-- * This function is called during VCPU halt/unhalt.
-- */
--static void avic_set_running(struct kvm_vcpu *vcpu, bool is_run)
--{
--	struct vcpu_svm *svm = to_svm(vcpu);
--
--	svm->avic_is_running = is_run;
--
--	if (!kvm_vcpu_apicv_active(vcpu))
--		return;
--
--	if (is_run)
--		avic_vcpu_load(vcpu, vcpu->cpu);
--	else
--		avic_vcpu_put(vcpu);
--}
--
--void svm_vcpu_blocking(struct kvm_vcpu *vcpu)
--{
--	avic_set_running(vcpu, false);
--}
--
--void svm_vcpu_unblocking(struct kvm_vcpu *vcpu)
--{
--	if (kvm_check_request(KVM_REQ_APICV_UPDATE, vcpu))
--		kvm_vcpu_update_apicv(vcpu);
--	avic_set_running(vcpu, true);
--}
-diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-index 89077160d463..a1ca5707f2c8 100644
---- a/arch/x86/kvm/svm/svm.c
-+++ b/arch/x86/kvm/svm/svm.c
-@@ -1433,12 +1433,6 @@ static int svm_create_vcpu(struct kvm_vcpu *vcpu)
- 	if (err)
- 		goto error_free_vmsa_page;
- 
--	/* We initialize this flag to true to make sure that the is_running
--	 * bit would be set the first time the vcpu is loaded.
--	 */
--	if (irqchip_in_kernel(vcpu->kvm) && kvm_apicv_activated(vcpu->kvm))
--		svm->avic_is_running = true;
--
- 	svm->msrpm = svm_vcpu_alloc_msrpm();
- 	if (!svm->msrpm) {
- 		err = -ENOMEM;
-@@ -4597,8 +4591,6 @@ static struct kvm_x86_ops svm_x86_ops __initdata = {
- 	.prepare_guest_switch = svm_prepare_guest_switch,
- 	.vcpu_load = svm_vcpu_load,
- 	.vcpu_put = svm_vcpu_put,
--	.vcpu_blocking = svm_vcpu_blocking,
--	.vcpu_unblocking = svm_vcpu_unblocking,
- 
- 	.update_exception_bitmap = svm_update_exception_bitmap,
- 	.get_msr_feature = svm_get_msr_feature,
-diff --git a/arch/x86/kvm/svm/svm.h b/arch/x86/kvm/svm/svm.h
-index 7f5b01bbee29..652d71acfb6c 100644
---- a/arch/x86/kvm/svm/svm.h
-+++ b/arch/x86/kvm/svm/svm.h
-@@ -169,7 +169,6 @@ struct vcpu_svm {
- 	u32 dfr_reg;
- 	struct page *avic_backing_page;
- 	u64 *avic_physical_id_cache;
--	bool avic_is_running;
- 
- 	/*
- 	 * Per-vcpu list of struct amd_svm_iommu_ir:
-@@ -529,8 +528,6 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec);
- bool svm_dy_apicv_has_pending_interrupt(struct kvm_vcpu *vcpu);
- int svm_update_pi_irte(struct kvm *kvm, unsigned int host_irq,
- 		       uint32_t guest_irq, bool set);
--void svm_vcpu_blocking(struct kvm_vcpu *vcpu);
--void svm_vcpu_unblocking(struct kvm_vcpu *vcpu);
- 
- /* sev.c */
- 
 -- 
 2.33.0.882.g93a45727a2-goog
 
