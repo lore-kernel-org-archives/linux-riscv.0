@@ -2,103 +2,94 @@ Return-Path: <SRS0=mni0=O7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD0A7C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 09:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1399AC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 09:51:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9352960EE2
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 09:47:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9352960EE2
+	by mail.kernel.org (Postfix) with ESMTPS id D18DB60F24
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 09:51:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D18DB60F24
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r7HOaExVc1MIfpbFa/P0zNa6yf5onFtF9OgwiPZ6D44=; b=rjhrae3eg3NmTx
-	I5S1kvaSUmwp2R95Ri1PReQLN07uIG4AjMUMLyjp+7AVAilML4oHEnXs8JHrW/0u2LavBGclRxZ08
-	r0uoqpWwWHWr8FtUuze7OKt1411yg79WPScu8GJJDKRADHigzwRE6TBXPNS5wcMiyCzP33ZoRkGQr
-	CrHImkxfN/oBLR5dYWHfIYYgLk4aAFDDI/GNvP2nqypv7pRbtcC1genWX0+uMEyV4DleeZrAbCWdb
-	Bis2SyAHtq59/jyHtTt5IOdfBsy1QcfCeyahyttQD342jnM4uGe8rfUlezs0PmW78SRUDziMfHmTx
-	TLuFj5fODazDqq23i6wg==;
+	List-Owner; bh=hcNy27zvOc5SkP/vUNgEtGpAFhqeccdvPRXbfDG1yjY=; b=HMuOg6K7PlvnFx
+	V2bFI0Cfs2T07T103nSMbOexu9RqHvIMgx1OImtwY++ugewjraX06/VFQHeaBhdyqgRrJWOnOMIXm
+	Xk7dFzh5qJ9E7Qx8VDAuv0vqBC/dbZR3+O8k8zuu3Hd2pgs/ac/Mae8R2BO4DeZZHIjnzQ9KcJQKg
+	jQKglAHf4y5o0/fkHVTxV0iGXdgX5R3zkIRLJA5exXZMXoQUmv+6LbmDXeTzWLIJP8iFHSPSJk91t
+	LwHBoLUywOf3LMTxxUshiXfxzKWQYe8lr7/J24VzIKQZo8nmjtdFDDTjUhJ6C12YmebQCa+eyIsbS
+	Ylq5xH9RNcZwmshhlumw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZruD-008cuq-6r; Mon, 11 Oct 2021 09:47:37 +0000
+	id 1mZrwo-008eBt-Sb; Mon, 11 Oct 2021 09:50:18 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZrri-008bed-3W; Mon, 11 Oct 2021 09:45:05 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id F3FEA60F43;
- Mon, 11 Oct 2021 09:45:00 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mZrrf-00FyZ3-2U; Mon, 11 Oct 2021 10:44:59 +0100
-Date: Mon, 11 Oct 2021 10:44:58 +0100
-Message-ID: <87tuhnq4it.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
- Artem Kashkanov <artem.kashkanov@intel.com>,
- Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
-Subject: Re: [PATCH v3 15/16] KVM: arm64: Drop perf.c and fold its tiny bits
- of code into arm.c / pmu.c
-In-Reply-To: <20210922000533.713300-16-seanjc@google.com>
-References: <20210922000533.713300-1-seanjc@google.com>
- <20210922000533.713300-16-seanjc@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seanjc@google.com, peterz@infradead.org, mingo@redhat.com,
- acme@kernel.org, will@kernel.org, mark.rutland@arm.com, guoren@kernel.org,
- nickhu@andestech.com, green.hu@gmail.com, deanbo422@gmail.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- pbonzini@redhat.com, boris.ostrovsky@oracle.com, jgross@suse.com,
- alexander.shishkin@linux.intel.com, jolsa@redhat.com, namhyung@kernel.org,
- james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com,
- vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org, sstabellini@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
- xen-devel@lists.xenproject.org, artem.kashkanov@intel.com,
- like.xu.linux@gmail.com, lingshan.zhu@intel.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1mZrst-008cF0-Rf; Mon, 11 Oct 2021 09:46:17 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7FA7560F92;
+ Mon, 11 Oct 2021 09:46:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1633945575;
+ bh=qRyh8ehsFmtn9ig4J8UbiRrew6heVcGUFCDbxxmKZf8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=hR14YdOBybFf5arZDs0f5DTqL6oR83P1/SqbLyNrJwFHJBLTWaQazeIMc9uvTN1P8
+ hAJqlZo6mlDfyVaItk+Gi7YQ6+xNmx+znUVD17u7+ezaHXrH34IV6jliAyYty27gK6
+ 2mJ0yYTHSWgVF+AO4LndCnRGcw4aDl9YdAaPanPAX3GDErqHtLO7iqAtTk0e2u7D6d
+ 7XHOe1RxkdihQ8rXcjEn1LyF918Jy6+gc6Tia4YX9/YFhMiQYAATwHxBriDyPRaPet
+ xFver0G8OWX4Feq7uBsjBvSONLORuv0Fvdhgu6mrQdkDyNHT/6mP5a5/9dczhqsYKi
+ kUx/6+qsAs0Cg==
+Received: by mail-ed1-f52.google.com with SMTP id a25so49560917edx.8;
+ Mon, 11 Oct 2021 02:46:15 -0700 (PDT)
+X-Gm-Message-State: AOAM530DxhD3fwLezliWEqaZwUj4HVmq54WMg2I/DUvLWlQeDzbGdEsV
+ 5hNA0naR6/fBVNdcyKUX4LYnYWxA08K2iR/dSY8=
+X-Google-Smtp-Source: ABdhPJyHs3mE6IoiFv5FE4vcliRHFQyxAEDWB/Wlg8v0WqzlUPkK8zWA+LhRJS54ay+HCTZiOLGsUmbAhjIFcqWae2k=
+X-Received: by 2002:adf:b1c4:: with SMTP id r4mr23576993wra.428.1633945563612; 
+ Mon, 11 Oct 2021 02:46:03 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210928075216.4193128-1-arnd@kernel.org>
+ <9dedf9bb-5377-9f2c-cbb1-2a57b40493da@molgen.mpg.de>
+ <CAMuHMdXspk27xd95YAsXa73ES8rfKxii3RUEtsBtxQTk9qLztA@mail.gmail.com>
+In-Reply-To: <CAMuHMdXspk27xd95YAsXa73ES8rfKxii3RUEtsBtxQTk9qLztA@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Mon, 11 Oct 2021 11:45:47 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3s5tu8MfdtXpoCeA8rrAUD3sscCMqLaoUVdUY9G-9AvQ@mail.gmail.com>
+Message-ID: <CAK8P3a3s5tu8MfdtXpoCeA8rrAUD3sscCMqLaoUVdUY9G-9AvQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] firmware: include drivers/firmware/Kconfig
+ unconditionally
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Charles Keepax <ckeepax@opensource.cirrus.com>, 
+ Simon Trimmer <simont@opensource.cirrus.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Andrew Morton <akpm@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211011_024502_308834_15DEA5A9 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20211011_024615_947196_B289D49B 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,152 +106,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Sep 2021 01:05:32 +0100,
-Sean Christopherson <seanjc@google.com> wrote:
-> 
-> Call KVM's (un)register perf callbacks helpers directly from arm.c, and
-> move the PMU bits into pmu.c and rename the related helper accordingly.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h |  3 ---
->  arch/arm64/kvm/Makefile           |  2 +-
->  arch/arm64/kvm/arm.c              |  6 ++++--
->  arch/arm64/kvm/perf.c             | 27 ---------------------------
->  arch/arm64/kvm/pmu.c              |  8 ++++++++
->  include/kvm/arm_pmu.h             |  1 +
->  6 files changed, 14 insertions(+), 33 deletions(-)
->  delete mode 100644 arch/arm64/kvm/perf.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 828b6eaa2c56..f141ac65f4f1 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -670,9 +670,6 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
->  int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
->  int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
->  
-> -void kvm_perf_init(void);
-> -void kvm_perf_teardown(void);
-> -
->  #ifdef CONFIG_GUEST_PERF_EVENTS
->  static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
->  {
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 989bb5dad2c8..0bcc378b7961 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -12,7 +12,7 @@ obj-$(CONFIG_KVM) += hyp/
->  
->  kvm-y := $(KVM)/kvm_main.o $(KVM)/coalesced_mmio.o $(KVM)/eventfd.o \
->  	 $(KVM)/vfio.o $(KVM)/irqchip.o $(KVM)/binary_stats.o \
-> -	 arm.o mmu.o mmio.o psci.o perf.o hypercalls.o pvtime.o \
-> +	 arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->  	 inject_fault.o va_layout.o handle_exit.o \
->  	 guest.o debug.o reset.o sys_regs.o \
->  	 vgic-sys-reg-v3.o fpsimd.o pmu.o \
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 2b542fdc237e..48f89d80f464 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1744,7 +1744,9 @@ static int init_subsystems(void)
->  	if (err)
->  		goto out;
->  
-> -	kvm_perf_init();
-> +	kvm_pmu_init();
-> +	kvm_register_perf_callbacks(NULL);
-> +
->  	kvm_sys_reg_table_init();
->  
->  out:
-> @@ -2160,7 +2162,7 @@ int kvm_arch_init(void *opaque)
->  /* NOP: Compiling as a module not supported */
->  void kvm_arch_exit(void)
->  {
-> -	kvm_perf_teardown();
-> +	kvm_unregister_perf_callbacks();
->  }
->  
->  static int __init early_kvm_mode_cfg(char *arg)
-> diff --git a/arch/arm64/kvm/perf.c b/arch/arm64/kvm/perf.c
-> deleted file mode 100644
-> index 0b902e0d5b5d..000000000000
-> --- a/arch/arm64/kvm/perf.c
-> +++ /dev/null
-> @@ -1,27 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0-only
-> -/*
-> - * Based on the x86 implementation.
-> - *
-> - * Copyright (C) 2012 ARM Ltd.
-> - * Author: Marc Zyngier <marc.zyngier@arm.com>
-> - */
-> -
-> -#include <linux/perf_event.h>
-> -#include <linux/kvm_host.h>
-> -
-> -#include <asm/kvm_emulate.h>
-> -
-> -DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
-> -
-> -void kvm_perf_init(void)
-> -{
-> -	if (kvm_pmu_probe_pmuver() != 0xf && !is_protected_kvm_enabled())
-> -		static_branch_enable(&kvm_arm_pmu_available);
-> -
-> -	kvm_register_perf_callbacks(NULL);
-> -}
-> -
-> -void kvm_perf_teardown(void)
-> -{
-> -	kvm_unregister_perf_callbacks();
-> -}
-> diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
-> index 03a6c1f4a09a..d98b57a17043 100644
-> --- a/arch/arm64/kvm/pmu.c
-> +++ b/arch/arm64/kvm/pmu.c
-> @@ -7,6 +7,14 @@
->  #include <linux/perf_event.h>
->  #include <asm/kvm_hyp.h>
->  
-> +DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
-> +
-> +void kvm_pmu_init(void)
-> +{
-> +	if (kvm_pmu_probe_pmuver() != 0xf && !is_protected_kvm_enabled())
-> +		static_branch_enable(&kvm_arm_pmu_available);
-> +}
-> +
->  /*
->   * Given the perf event attributes and system type, determine
->   * if we are going to need to switch counters at guest entry/exit.
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index 864b9997efb2..42270676498d 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -14,6 +14,7 @@
->  #define ARMV8_PMU_MAX_COUNTER_PAIRS	((ARMV8_PMU_MAX_COUNTERS + 1) >> 1)
->  
->  DECLARE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
-> +void kvm_pmu_init(void);
->  
->  static __always_inline bool kvm_arm_support_pmu_v3(void)
->  {
+On Mon, Oct 11, 2021 at 10:42 AM Geert Uytterhoeven
+<geert@linux-m68k.org> wrote:
+> On Sat, Oct 9, 2021 at 11:24 AM Paul Menzel <pmenzel@molgen.mpg.de> wrote:
+> > Am 28.09.21 um 09:50 schrieb Arnd Bergmann:
+> > > From: Arnd Bergmann <arnd@arndb.de>
+> > +#
+> > +# ARM System Control and Management Interface Protocol
+> > +#
+> > +# end of ARM System Control and Management Interface Protocol
+> > +
+> > +# CONFIG_FIRMWARE_MEMMAP is not set
+> > +# CONFIG_GOOGLE_FIRMWARE is not set
+> > +
+> > +#
+> > +# Tegra firmware driver
+> > +#
+> > +# end of Tegra firmware driver
+> > +# end of Firmware Drivers
+> > +
+> >   # CONFIG_GNSS is not set
+> >   CONFIG_MTD=m
+> >   # CONFIG_MTD_TESTS is not set
+> > ```
+> >
+> > No idea if the entries could be hidden for platforms not supporting them.
+> >
+> >          ARM System Control and Management Interface Protocol  ----
+> >      [ ] Add firmware-provided memory map to sysfs
+> >      [ ] Google Firmware Drivers  ----
+> >          Tegra firmware driver  ----
+>
+> GOOGLE_FIRMWARE should probably depend on something.
+> I highly doubt Google is running servers on e.g. h8300 and nds32.
 
-Note that this patch is now conflicting with e840f42a4992 ("KVM:
-arm64: Fix PMU probe ordering"), which was merged in -rc4. Moving the
-static key definition to arch/arm64/kvm/pmu-emul.c and getting rid of
-kvm_pmu_init() altogether should be enough to resolve it.
+GOOGLE_FIRMWARE is only the 'menuconfig' option that contains
+the other options, but on architectures that have neither CONFIG_OF
+nor CONFIG_ACPI, this is empty.  Most architectures of course
+do support or require CONFIG_OF, so it's unclear whether we should
+show the options for coreboot. Since it's a software-only driver, I
+would tend to keep showing it, given that coreboot can be ported
+to every architecture. The DT binding [1] seems to be neither
+Google nor Arm specific.
 
-With that,
+CONFIG_FIRMWARE_MEMMAP in turn can be used for
+anything that has memory hotplug, and in theory additional
+drivers that register with this interface.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+I'd lean towards "leave as is" for both, to avoid having to
+change the dependencies again whenever something else
+can use these.
 
-	M.
+        Arnd
 
--- 
-Without deviation from the norm, progress is not possible.
+[1] Documentation/devicetree/bindings/firmware/coreboot.txt
 
 _______________________________________________
 linux-riscv mailing list
