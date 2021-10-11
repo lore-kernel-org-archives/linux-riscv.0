@@ -2,81 +2,104 @@ Return-Path: <SRS0=mni0=O7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8772C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 88F69C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:34:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 952AE60E78
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:02:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 952AE60E78
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 50FC560E52
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:34:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 50FC560E52
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EfEnzwM9MUNvF/xtK/im5IZrTN74DSMnPp+YEE/+YBY=; b=0xp005DklvifZ5
-	uCENA3D4qk2pERzPrv2eQCARX/1RyWF4NpLCbr2t592zY75++VkQCYLt0Uw+ew6gdevoS1u1HKPTs
-	3Ur7DCIgkzpVk9BTRHMkafxdj77n2pTRFDGbwe+oos4eQbtIGY02Q0xKKc83yHM0+EhLyRhot8von
-	CIUR131n50IlfNroXdQdnwr6e+Sn1wersghE7qYqCHis0yXJL3Lib/PLx0Feh+wqOpVxRXASN06qV
-	op+LpAqfNUcIcgdbyUN32KxN3vhw6r+Z/eUgMjSKqNTgQQwD0eBgL8ItRgAWs1xK6RkQvu+F9gCsZ
-	2IXEv9EIk7o5eql/qiuQ==;
+	List-Owner; bh=EZNmTDONXGzVHoS+apt6DVrlvw8nfVuqCKK7mq0CvLk=; b=KGl97gjkF4+/n/
+	9MANznYJKBOZy2b1DaolfvDZEymwY47P+SnJpe+Yij5jSh6CVdWwiwyVDmX/YjSyVYylaNEq62TYd
+	Lv/giwWj80t2NjwZskO2P3Pf6XPWhpnD7IGMsyqxcLvM7z+VLXFY9xYiFf1C1EVphB/4Ajtg00H3e
+	87gd8ZKDjXqhq8hSLdBt3E9jSHFUdXFdf0O+t/ouGhYPfkxZ1CpqNYiJ70N3p1+eHf1f6CZCIFO3d
+	LBdV2UZLXcMKsh51rd3svITDpXMOrxow6TeZszn1qAfflU8AZ6oBUop7GsZITSk3vuBaEyfS2cfNY
+	Y6Ap+c+bwMmMwhBnk0NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZwoZ-009sa9-E6; Mon, 11 Oct 2021 15:02:07 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1mZxJD-009vb3-NY; Mon, 11 Oct 2021 15:33:47 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZwoX-009sZB-Et
- for linux-riscv@lists.infradead.org; Mon, 11 Oct 2021 15:02:06 +0000
-Received: by mail-wr1-x436.google.com with SMTP id e3so23588887wrc.11
- for <linux-riscv@lists.infradead.org>; Mon, 11 Oct 2021 08:02:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=gVndUYssrhT1+TAmUJh5faXD018hrwwoKVlYhzJy80Q=;
- b=FasKWF+h3LWJMaLN9s630gc2WwMKFbazr2bx1CBPqgeqwfOwdjCMhq/eJK01cwpTAJ
- gB8eBvjRtQ7DrkC1Pw7bEukO2eMxmZmV7FhMS+skZ52kcwWF5sWZje0+PMK2g6GyB8Ka
- TqkHo+8i+n7NaNRdpF3aWWvcutEamrnuFNpTujN2YpbK6Jj8d1X8jYvKECFZbeyM4Z8s
- NCefVt60WsaJtrUa3kpAlqlf6AERtFxyn8FdgkLfRhEwm59XGqk6jfzG7v25CnfrNhCI
- 2Wkf5d7Dred82bLPRErYscWqFyOMb1VIdZt3tZPtF05D4GU4KSdxxbWFqDihZHcAQE9u
- tdeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=gVndUYssrhT1+TAmUJh5faXD018hrwwoKVlYhzJy80Q=;
- b=vcSh0TC6LMIb7VRKZuZKlA1ci4df2zQUaxP3/a1BsnZShyZumbE3kXjngEphbcEMRh
- C8D+P+SFyDgvvrHNzuONNRo/ff7G++5uJ7tzcyq3thxldDRolUDuNQkdcMfjLzGzjOT7
- gXjYjYOz9Sam07P+O5WecIzcsECT2774YiP1pKtZEUkwmnHQ+/982nwj/qc/3I9GtjZ1
- TGU85lKYvCTHV8jQ/Uzks4ON5XB7aaZx21ln7T0jp33FlpRskkll6Mbek3oFD7pXtwST
- Ifi+AaeJ9G1Yw1CaWcy9yPy0woInhz2eh27iyLLaied6mTqHVcTXRvMuJcLse+/PwFKP
- SFYQ==
-X-Gm-Message-State: AOAM533NmKpi55ZgA9VQ2BxcwcXW11FqorGDBZyOimZ+Ej2KJiDil8tn
- S/g9EtWrZhnmccI+NBMbe1baBTIG6Nog40ZOia/tgg==
-X-Google-Smtp-Source: ABdhPJzLl/vVPAkLeynPMkJbCDqObfBfXCwKXMgwbPIBrrMIJpi3K/CBDE3cWw6gazA8Yyn82prufGMxb89OHd2ycRg=
-X-Received: by 2002:a05:6000:1acc:: with SMTP id
- i12mr24854107wry.249.1633964523086; 
- Mon, 11 Oct 2021 08:02:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211011132431.2792797-1-guoren@kernel.org>
-In-Reply-To: <20211011132431.2792797-1-guoren@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 11 Oct 2021 20:31:51 +0530
-Message-ID: <CAAhSdy1xjRE0TJ_Nd9fdz4RAK2J5FskQYbWDVXO7jhfcZsFm_g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] irqchip/sifive-plic: Fix duplicate mask/unmask for
- claim/complete
-To: Guo Ren <guoren@kernel.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
+ id 1mZxJ1-009vZL-JN; Mon, 11 Oct 2021 15:33:36 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3481760C49;
+ Mon, 11 Oct 2021 15:33:35 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mZxIy-00G3oP-Qe; Mon, 11 Oct 2021 16:33:33 +0100
+Date: Mon, 11 Oct 2021 16:33:31 +0100
+Message-ID: <87lf2zpodw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paolo Bonzini <pbonzini@redhat.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
+Subject: Re: [PATCH v3 12/16] KVM: Move x86's perf guest info callbacks to
+ generic KVM
+In-Reply-To: <YWROQSGPuPf3wfC9@google.com>
+References: <20210922000533.713300-1-seanjc@google.com>
+ <20210922000533.713300-13-seanjc@google.com>
+ <87wnmjq4y3.wl-maz@kernel.org> <YWROQSGPuPf3wfC9@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, peterz@infradead.org, mingo@redhat.com,
+ acme@kernel.org, will@kernel.org, mark.rutland@arm.com, guoren@kernel.org,
+ nickhu@andestech.com, green.hu@gmail.com, deanbo422@gmail.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ pbonzini@redhat.com, boris.ostrovsky@oracle.com, jgross@suse.com,
+ alexander.shishkin@linux.intel.com, jolsa@redhat.com, namhyung@kernel.org,
+ james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com,
+ vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
+ joro@8bytes.org, sstabellini@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org, artem.kashkanov@intel.com,
+ like.xu.linux@gmail.com, lingshan.zhu@intel.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211011_080205_534319_C856A76B 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20211011_083335_695051_909D2FF8 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,109 +116,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 11, 2021 at 6:54 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> PLIC only has enable-registers not mask/unmask registers. Mixing
-> mask/unmask with irq_eoi is wrong, because readl(claim) could mask
+On Mon, 11 Oct 2021 15:46:25 +0100,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> On Mon, Oct 11, 2021, Marc Zyngier wrote:
+> > On Wed, 22 Sep 2021 01:05:29 +0100, Sean Christopherson <seanjc@google.com> wrote:
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > index ed940aec89e0..828b6eaa2c56 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -673,6 +673,14 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
+> > >  void kvm_perf_init(void);
+> > >  void kvm_perf_teardown(void);
+> > >  
+> > > +#ifdef CONFIG_GUEST_PERF_EVENTS
+> > > +static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
+> > 
+> > Pardon my x86 ignorance, what is PMI? PMU Interrupt?
+> 
+> Ya, Performance Monitoring Interrupt.  I didn't realize the term wasn't
+> common perf terminology.  Maybe kvm_arch_perf_events_in_guest() to be
+> less x86-centric?
 
-This is an incorrect assumption about readl(claim). When SW does
-read(claim) the HW updates internal state that IRQ has been claimed.
-The HW can still get same (already claimed) IRQ again before
-writel(claim) which will be delivered after writel(claim).
+Up to you. I would be happy with just a comment.
 
-> irq by hardware. We only need mask/unmask to fixup the hardware
-> which couldn't claim + mask correctly.
+> 
+> > > +{
+> > > +	/* Any callback while a vCPU is loaded is considered to be in guest. */
+> > > +	return !!vcpu;
+> > > +}
+> > > +#endif
+> > 
+> > Do you really need this #ifdef?
+> 
+> Nope, should compile fine without it, though simply dropping the #ifdef
+> would make make the semantics of the function wrong, even if nothing
+> consumes it.  Tweak it to use IS_ENABLED()?
+> 
+> 	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
 
-The handle_fasteoi_irq() only calls unmask_irq() mostly when the
-underlying IRQ is threaded. Is there any other case ?
+LGTM.
 
-Another fact is that all irqchip drivers using handle_fasteoi_irq()
-implement irq_mask/unmask().
+	M.
 
-Regards,
-Anup
-
->
-> If hardware supports claim + mask, it would cause unnecessary
-> mask/umak operations.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index cf74cfa82045..0fa46912f452 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -64,6 +64,7 @@ struct plic_priv {
->         struct cpumask lmask;
->         struct irq_domain *irqdomain;
->         void __iomem *regs;
-> +       bool claim_mask_support;
->  };
->
->  struct plic_handler {
-> @@ -111,7 +112,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
->         }
->  }
->
-> -static void plic_irq_unmask(struct irq_data *d)
-> +static void plic_irq_enable(struct irq_data *d)
->  {
->         struct cpumask amask;
->         unsigned int cpu;
-> @@ -125,7 +126,7 @@ static void plic_irq_unmask(struct irq_data *d)
->         plic_irq_toggle(cpumask_of(cpu), d, 1);
->  }
->
-> -static void plic_irq_mask(struct irq_data *d)
-> +static void plic_irq_disable(struct irq_data *d)
->  {
->         struct plic_priv *priv = irq_data_get_irq_chip_data(d);
->
-> @@ -168,8 +169,8 @@ static void plic_irq_eoi(struct irq_data *d)
->
->  static struct irq_chip plic_chip = {
->         .name           = "SiFive PLIC",
-> -       .irq_mask       = plic_irq_mask,
-> -       .irq_unmask     = plic_irq_unmask,
-> +       .irq_enable     = plic_irq_enable,
-> +       .irq_disable    = plic_irq_disable,
->         .irq_eoi        = plic_irq_eoi,
->  #ifdef CONFIG_SMP
->         .irq_set_affinity = plic_set_affinity,
-> @@ -181,6 +182,11 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->  {
->         struct plic_priv *priv = d->host_data;
->
-> +       if (!priv->claim_mask_support) {
-> +               plic_chip.irq_mask      = plic_irq_disable;
-> +               plic_chip.irq_unmask    = plic_irq_enable;
-> +       }
-> +
->         irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
->                             handle_fasteoi_irq, NULL, NULL);
->         irq_set_noprobe(irq);
-> @@ -298,6 +304,8 @@ static int __init plic_init(struct device_node *node,
->         if (WARN_ON(!nr_contexts))
->                 goto out_iounmap;
->
-> +       priv->claim_mask_support = of_property_read_bool(node, "claim-mask-support");
-> +
->         error = -ENOMEM;
->         priv->irqdomain = irq_domain_add_linear(node, nr_irqs + 1,
->                         &plic_irqdomain_ops, priv);
-> --
-> 2.25.1
->
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
