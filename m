@@ -2,104 +2,64 @@ Return-Path: <SRS0=mni0=O7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88F69C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B2C9C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 22:05:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 50FC560E52
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 15:34:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 50FC560E52
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 13F9F60EB4
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Oct 2021 22:05:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 13F9F60EB4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EZNmTDONXGzVHoS+apt6DVrlvw8nfVuqCKK7mq0CvLk=; b=KGl97gjkF4+/n/
-	9MANznYJKBOZy2b1DaolfvDZEymwY47P+SnJpe+Yij5jSh6CVdWwiwyVDmX/YjSyVYylaNEq62TYd
-	Lv/giwWj80t2NjwZskO2P3Pf6XPWhpnD7IGMsyqxcLvM7z+VLXFY9xYiFf1C1EVphB/4Ajtg00H3e
-	87gd8ZKDjXqhq8hSLdBt3E9jSHFUdXFdf0O+t/ouGhYPfkxZ1CpqNYiJ70N3p1+eHf1f6CZCIFO3d
-	LBdV2UZLXcMKsh51rd3svITDpXMOrxow6TeZszn1qAfflU8AZ6oBUop7GsZITSk3vuBaEyfS2cfNY
-	Y6Ap+c+bwMmMwhBnk0NA==;
+	List-Owner; bh=XIVcIYoUdomxauEvqdtLIL2keOtjfLfvygBRcEi5bbU=; b=eyjiTxFTSvGrN2
+	E9uI7Z3JKXxMCgXcpEkZOb9jIMnFhoxv5Vrk2xWGX9yq/Celxb8XreLYMXle5sT8U9J0cuqGBJkXv
+	oreeLqbXXN7rPlAQe4CQlCGS1YdNS4t+2udbF1hrWzdYv2MC8DHr9o5BJMDPloqsgt7laEoxEf5HU
+	a3N7SB7V/Wtr0ntxdeIZk/bqWIt5VwC1qjslEa60JnHIEmKoS7+R402TwKc6oh/vrXRHdxtUFXz7a
+	oqRq3DOpnlJbvVltd0AEoKWcFHu0ztx+u9lYbhr49Rq880ZeKwIzBGC4eLnweS9lLkXHQIlgpSU9u
+	t8/MCgdadiNONYUnnWFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mZxJD-009vb3-NY; Mon, 11 Oct 2021 15:33:47 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1ma3Pf-00Aq8Y-Fr; Mon, 11 Oct 2021 22:04:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mZxJ1-009vZL-JN; Mon, 11 Oct 2021 15:33:36 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 3481760C49;
- Mon, 11 Oct 2021 15:33:35 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mZxIy-00G3oP-Qe; Mon, 11 Oct 2021 16:33:33 +0100
-Date: Mon, 11 Oct 2021 16:33:31 +0100
-Message-ID: <87lf2zpodw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
- Artem Kashkanov <artem.kashkanov@intel.com>,
- Like Xu <like.xu.linux@gmail.com>, Zhu Lingshan <lingshan.zhu@intel.com>
-Subject: Re: [PATCH v3 12/16] KVM: Move x86's perf guest info callbacks to
- generic KVM
-In-Reply-To: <YWROQSGPuPf3wfC9@google.com>
-References: <20210922000533.713300-1-seanjc@google.com>
- <20210922000533.713300-13-seanjc@google.com>
- <87wnmjq4y3.wl-maz@kernel.org> <YWROQSGPuPf3wfC9@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seanjc@google.com, peterz@infradead.org, mingo@redhat.com,
- acme@kernel.org, will@kernel.org, mark.rutland@arm.com, guoren@kernel.org,
- nickhu@andestech.com, green.hu@gmail.com, deanbo422@gmail.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- pbonzini@redhat.com, boris.ostrovsky@oracle.com, jgross@suse.com,
- alexander.shishkin@linux.intel.com, jolsa@redhat.com, namhyung@kernel.org,
- james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com,
- vkuznets@redhat.com, wanpengli@tencent.com, jmattson@google.com,
- joro@8bytes.org, sstabellini@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
- xen-devel@lists.xenproject.org, artem.kashkanov@intel.com,
- like.xu.linux@gmail.com, lingshan.zhu@intel.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1ma3Pc-00Aq7Z-Li; Mon, 11 Oct 2021 22:04:50 +0000
+Received: from ip5f5a6e92.dynamic.kabel-deutschland.de ([95.90.110.146]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1ma3PM-00016Q-QT; Tue, 12 Oct 2021 00:04:32 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
+ Pavel Machek <pavel@ucw.cz>, Rob Herring <robh+dt@kernel.org>,
+ linux-riscv@lists.infradead.org
+Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>,
+ Anup Patel <anup.patel@wdc.com>
+Subject: Re: [PATCH v8 1/8] RISC-V: Enable CPU_IDLE drivers
+Date: Tue, 12 Oct 2021 00:04:31 +0200
+Message-ID: <30695639.mNO2d7px6N@diego>
+In-Reply-To: <20211011081820.1135261-2-anup.patel@wdc.com>
+References: <20211011081820.1135261-1-anup.patel@wdc.com>
+ <20211011081820.1135261-2-anup.patel@wdc.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211011_083335_695051_909D2FF8 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20211011_150448_751946_75035C81 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +76,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Oct 2021 15:46:25 +0100,
-Sean Christopherson <seanjc@google.com> wrote:
-> 
-> On Mon, Oct 11, 2021, Marc Zyngier wrote:
-> > On Wed, 22 Sep 2021 01:05:29 +0100, Sean Christopherson <seanjc@google.com> wrote:
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index ed940aec89e0..828b6eaa2c56 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -673,6 +673,14 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
-> > >  void kvm_perf_init(void);
-> > >  void kvm_perf_teardown(void);
-> > >  
-> > > +#ifdef CONFIG_GUEST_PERF_EVENTS
-> > > +static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
-> > 
-> > Pardon my x86 ignorance, what is PMI? PMU Interrupt?
-> 
-> Ya, Performance Monitoring Interrupt.  I didn't realize the term wasn't
-> common perf terminology.  Maybe kvm_arch_perf_events_in_guest() to be
-> less x86-centric?
+Hi Anup,
 
-Up to you. I would be happy with just a comment.
-
+Am Montag, 11. Oktober 2021, 10:18:13 CEST schrieb Anup Patel:
+> We force select CPU_PM and provide asm/cpuidle.h so that we can
+> use CPU IDLE drivers for Linux RISC-V kernel.
 > 
-> > > +{
-> > > +	/* Any callback while a vCPU is loaded is considered to be in guest. */
-> > > +	return !!vcpu;
-> > > +}
-> > > +#endif
-> > 
-> > Do you really need this #ifdef?
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/Kconfig                |  7 +++++++
+>  arch/riscv/configs/defconfig      |  1 +
+>  arch/riscv/configs/rv32_defconfig |  1 +
+>  arch/riscv/include/asm/cpuidle.h  | 24 ++++++++++++++++++++++++
+>  arch/riscv/kernel/process.c       |  3 ++-
+>  5 files changed, 35 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/cpuidle.h
 > 
-> Nope, should compile fine without it, though simply dropping the #ifdef
-> would make make the semantics of the function wrong, even if nothing
-> consumes it.  Tweak it to use IS_ENABLED()?
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 8de2afb460f7..d02f1f5a2431 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -46,6 +46,7 @@ config RISCV
+>  	select CLONE_BACKWARDS
+>  	select CLINT_TIMER if !MMU
+>  	select COMMON_CLK
+> +	select CPU_PM if CPU_IDLE
+>  	select EDAC_SUPPORT
+>  	select GENERIC_ARCH_TOPOLOGY if SMP
+>  	select GENERIC_ATOMIC64 if !64BIT
+> @@ -564,5 +565,11 @@ source "kernel/power/Kconfig"
+>  
+>  endmenu
+>  
+> +menu "CPU Power Management"
+> +
+> +source "drivers/cpuidle/Kconfig"
+> +
+> +endmenu
+> +
+>  source "arch/riscv/kvm/Kconfig"
+>  source "drivers/firmware/Kconfig"
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index be21f54e9b91..39b4c32e7997 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -20,6 +20,7 @@ CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_CPU_IDLE=y
+>  CONFIG_VIRTUALIZATION=y
+>  CONFIG_KVM=y
+>  CONFIG_JUMP_LABEL=y
+
+This doesn't apply.
+
+In the history of your tree that you referenced in the cover-letter
+I found "RISC-V: Enable KVM for RV64 and RV32"
+with that nice "DO NOT UPSTREAM !!!!!" message in caps in it ;-)
+
+This of course makes this not apply on the main riscv tree.
+
+So you might want to base your series on top of a clean "for-next"
+branch of Palmer's tree instead of collecting other stuff below it.
+
+Same for rv32_defconfig below.
+
+
+Heiko
+
+
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index ad01f50c98f1..fed827c82a9e 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -20,6 +20,7 @@ CONFIG_SOC_VIRT=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_CPU_IDLE=y
+>  CONFIG_VIRTUALIZATION=y
+>  CONFIG_KVM=y
+>  CONFIG_JUMP_LABEL=y
+> diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
+> new file mode 100644
+> index 000000000000..71fdc607d4bc
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/cpuidle.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2021 Allwinner Ltd
+> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> + */
+> +
+> +#ifndef _ASM_RISCV_CPUIDLE_H
+> +#define _ASM_RISCV_CPUIDLE_H
+> +
+> +#include <asm/barrier.h>
+> +#include <asm/processor.h>
+> +
+> +static inline void cpu_do_idle(void)
+> +{
+> +	/*
+> +	 * Add mb() here to ensure that all
+> +	 * IO/MEM accesses are completed prior
+> +	 * to entering WFI.
+> +	 */
+> +	mb();
+> +	wait_for_interrupt();
+> +}
+> +
+> +#endif
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 03ac3aa611f5..504b496787aa 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -23,6 +23,7 @@
+>  #include <asm/string.h>
+>  #include <asm/switch_to.h>
+>  #include <asm/thread_info.h>
+> +#include <asm/cpuidle.h>
+>  
+>  register unsigned long gp_in_global __asm__("gp");
+>  
+> @@ -37,7 +38,7 @@ extern asmlinkage void ret_from_kernel_thread(void);
+>  
+>  void arch_cpu_idle(void)
+>  {
+> -	wait_for_interrupt();
+> +	cpu_do_idle();
+>  	raw_local_irq_enable();
+>  }
+>  
 > 
-> 	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
 
-LGTM.
 
-	M.
 
--- 
-Without deviation from the norm, progress is not possible.
+
 
 _______________________________________________
 linux-riscv mailing list
