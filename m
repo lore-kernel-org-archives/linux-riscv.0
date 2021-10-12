@@ -2,71 +2,99 @@ Return-Path: <SRS0=CTJ+=PA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0AF3AC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 12:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 794FCC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 13:42:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 96C4A61039
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 12:43:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 96C4A61039
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5037660F3A
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 13:42:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5037660F3A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d2ryQGagpPCdqiIaKM5BD4Ft0lWocHHZvqKiBPHJ6qw=; b=zVH2DaBFivDBUz
-	2M1yibwENomZZ4QawafzHbJ0bE45O3NxdE9a235EIVEH7vdwfJxlE/4ecHeqViJ8+QqPRIgsoYwte
-	9r3web0k2aUqtKRSQgu48jmZ3X7FAwHAeAcaNrKpCmg4FsEU31esf0YtVuu9gqfShpPzdH1oiKQaH
-	CF5YHlUgOrtPPgLfX7qgOH9ZEmwbAziHZvdY9Oyujkhh70jPHJd2IUlmbjB7FgXu/pvFxuXrXfZhY
-	4aqlh2U7EdVXA5Zh/4zGrTG2F3WKAnj8IOfDBN71elW+o5MbGe65jEp/N7AWfUUMlGXHjkL5KA0GU
-	MUI0NdXI2dq+BsC2Ab9w==;
+	List-Owner; bh=ub6MS3tOxWHiIjaH8hINi7/Meu3VIBlWb9MAJaxXpA8=; b=1NB/gGiH6KVRfq
+	34dUSQ+yvf8QdMex5EVVYDbg+nOG4F7j8BeQ+SvxbLiNgTfKgKrPUS7CWLXWOPDMeP5o15wGVRMmp
+	tqCOg1Q0PxFntkk0ce5Sfswcz9oXCYze9cx/a6p+oj/wAuIX5vYBpmXBi3ECRGvmdtGY1TTNfFXgA
+	28l2V3k9ERVphPkTPakcji4yMj2zvWLdHjs74WdfSBm/L18NTMBvXT3d7BsdBcEBZFSc9UPQEBMdH
+	ZrZFQuwlE8zD4ACIA6phm4IU5SEQF9csHsCdW1FCB/127LT2elXjizEjUX3FkgGmXMENhtxqeI2Zn
+	5vcsdu28hjox89EsZceg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maH86-00Cmmu-Ko; Tue, 12 Oct 2021 12:43:38 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1maI2M-00D2Ot-VF; Tue, 12 Oct 2021 13:41:47 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maH83-00CmlS-QE
- for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 12:43:37 +0000
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A316660E97;
- Tue, 12 Oct 2021 12:43:32 +0000 (UTC)
-Date: Tue, 12 Oct 2021 08:43:31 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
-Cc: Guo Ren <guoren@kernel.org>, Ingo Molnar <mingo@redhat.com>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
- <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Benjamin
- Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
- <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
- Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf
- <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>, Miroslav Benes
- <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
- <joe.lawrence@redhat.com>, Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, "Peter Zijlstra (Intel)"
- <peterz@infradead.org>, Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang
- <jszhang@kernel.org>, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- live-patching@vger.kernel.org
-Subject: Re: [PATCH 1/2] ftrace: disable preemption on the testing of recursion
-Message-ID: <20211012084331.06b8dd23@gandalf.local.home>
-In-Reply-To: <a8756482-024c-c858-b3d1-1ffa9a5eb3f7@linux.alibaba.com>
-References: <8c7de46d-9869-aa5e-2bb9-5dbc2eda395e@linux.alibaba.com>
- <a8756482-024c-c858-b3d1-1ffa9a5eb3f7@linux.alibaba.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ id 1maI2H-00D2Lo-TI
+ for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 13:41:43 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id y26so88693482lfa.11
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 06:41:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=OUqIN3jc1B7BdFYR/xAZI4s+PXfJnAOSswOrC3XOxaI=;
+ b=JX957KK70swcK0wo0oRZPHmqn1EqjQPunB5Xi190+LnnPvBt5EXaW4WYvIVkRRFQMk
+ 6vfZmlkECojgEAsIk8I6eTHCHuUZtqNpkzkSbP8NwHyErFVJ0auHbi7s8UbLjNKNowUn
+ JnuOAh4FhmZfOJZ7RvEu8DJ6Esxn6VsV9eD8Mpk3FNDhD3GkeGvnt5mfnxwiDHFp4t7i
+ ewmICEjsgCu8gXGrABq8+mIFf788Iz6/WgYTtvV2wBgt0v+e+BEnqhZSNJGuTZMt7j19
+ s6TlVuSVH8k4POreUux2vCkj+lOSgIWpnV+qYkBbLWcxHS8K9qUe5NnV+/9mdm1GnBkM
+ LV6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :in-reply-to:references:mime-version:content-transfer-encoding;
+ bh=OUqIN3jc1B7BdFYR/xAZI4s+PXfJnAOSswOrC3XOxaI=;
+ b=LZFOegh3NHZJJGCqNMPieJLHGeN0yDR/daF7NT2mw8XrB+GGkf6QOHtpJiDuVG1x7y
+ MMNC12byGTo5IsSXqI5pEgBotyUDqvuHtNcsGjPsrDaRUpfRMGuW9x+Hza1G317Qf4UA
+ //DVzJZ9oF6PGZWRvhGRCQ1A3j0pJkfWG7+BSruCClMAETBnJoqb8x26yqd57ffb+7/A
+ q3xbrRX+vjYywHVzDlYKTNBUpwCMAvR4NTLT6OUUDaYBA/HhecTtmRBxoQmOmdvtpfRH
+ CsNodBNfNqYS8YiP0uD0TiCAFb6j0q6a9dI+0mWmaL6b1tPl8kVfiwp6XW0NbR5zDT1d
+ cn3Q==
+X-Gm-Message-State: AOAM531r3yaqi2nSMBjdHOP/Dg5tnV8cJwFEiGUAc+RRt2NIu8otjmZX
+ 8R/99ubbAM9ROUZ4LVNdTN+DUIN4lVitjw==
+X-Google-Smtp-Source: ABdhPJxl+/GExB5aaKfbaejroG2VgMWLxTTJdKqsHEHslti8Xgz78fqrcqYoelG3mgFGK0tT0M9eMQ==
+X-Received: by 2002:a05:6512:32c5:: with SMTP id
+ f5mr14915902lfg.340.1634046100219; 
+ Tue, 12 Oct 2021 06:41:40 -0700 (PDT)
+Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
+ by smtp.gmail.com with ESMTPSA id k16sm1033761lfo.219.2021.10.12.06.41.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 12 Oct 2021 06:41:39 -0700 (PDT)
+From: Emil Renner Berthing <kernel@esmil.dk>
+To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-serial@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Maximilian Luz <luzmaximilian@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v1 01/16] RISC-V: Add StarFive SoC Kconfig option
+Date: Tue, 12 Oct 2021 15:40:12 +0200
+Message-Id: <20211012134027.684712-2-kernel@esmil.dk>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20211012134027.684712-1-kernel@esmil.dk>
+References: <20211012134027.684712-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_054335_893947_F36C7377 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20211012_064141_977405_CD233C3D 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +106,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAxMiBPY3QgMjAyMSAxMzo0MDowOCArMDgwMArnjovotIcgPHl1bi53YW5nQGxpbnV4
-LmFsaWJhYmEuY29tPiB3cm90ZToKCj4gLS0tIGEvaW5jbHVkZS9saW51eC90cmFjZV9yZWN1cnNp
-b24uaAo+ICsrKyBiL2luY2x1ZGUvbGludXgvdHJhY2VfcmVjdXJzaW9uLmgKPiBAQCAtMjE0LDcg
-KzIxNCwxNCBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIHZvaWQgdHJhY2VfY2xlYXJfcmVjdXJz
-aW9uKGludCBiaXQpCj4gIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgaW50IGZ0cmFjZV90ZXN0X3Jl
-Y3Vyc2lvbl90cnlsb2NrKHVuc2lnbmVkIGxvbmcgaXAsCj4gIAkJCQkJCQkgdW5zaWduZWQgbG9u
-ZyBwYXJlbnRfaXApCj4gIHsKPiAtCXJldHVybiB0cmFjZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9u
-KGlwLCBwYXJlbnRfaXAsIFRSQUNFX0ZUUkFDRV9TVEFSVCwgVFJBQ0VfRlRSQUNFX01BWCk7Cj4g
-KwlpbnQgYml0Owo+ICsKPiArCXByZWVtcHRfZGlzYWJsZV9ub3RyYWNlKCk7CgpUaGUgcmVjdXJz
-aW9uIHRlc3QgZG9lcyBub3QgcmVxdWlyZSBwcmVlbXB0aW9uIGRpc2FibGVkLCBpdCB1c2VzIHRo
-ZSB0YXNrCnN0cnVjdCwgbm90IHBlcl9jcHUgdmFyaWFibGVzLCBzbyB5b3Ugc2hvdWxkIG5vdCBk
-aXNhYmxlIGl0IGJlZm9yZSB0aGUgdGVzdC4KCgliaXQgPSB0cmFjZV90ZXN0X2FuZF9zZXRfcmVj
-dXJzaW9uKGlwLCBwYXJlbnRfaXAsIFRSQUNFX0ZUUkFDRV9TVEFSVCwgVFJBQ0VfRlRSQUNFX01B
-WCk7CglpZiAoYml0ID49IDApCgkJcHJlZW1wdF9kaXNhYmxlX25vdHJhY2UoKTsKCkFuZCBpZiB0
-aGUgYml0IGlzIHplcm8sIGl0IG1lYW5zIGEgcmVjdXJzaW9uIGNoZWNrIHdhcyBhbHJlYWR5IGRv
-bmUgYnkKYW5vdGhlciBjYWxsZXIgKGZ0cmFjZSBoYW5kbGVyIGRvZXMgdGhlIGNoZWNrLCBmb2xs
-b3dlZCBieSBjYWxsaW5nIHBlcmYpLAphbmQgeW91IHJlYWxseSBkb24ndCBldmVuIG5lZWQgdG8g
-ZGlzYWJsZSBwcmVlbXB0aW9uIGluIHRoYXQgY2FzZS4KCglpZiAoYml0ID4gMCkKCQlwcmVlbXB0
-X2Rpc2FibGVfbm90cmFjZSgpOwoKQW5kIG9uIHRoZSB1bmxvY2ssIGhhdmU6Cgogc3RhdGljIF9f
-YWx3YXlzX2lubGluZSB2b2lkIGZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2soaW50IGJpdCkK
-IHsKCWlmIChiaXQpCgkJcHJlZW1wdF9lbmFibGVfbm90cmFjZSgpOwogCXRyYWNlX2NsZWFyX3Jl
-Y3Vyc2lvbihiaXQpOwogfQoKQnV0IG1heWJlIHRoYXQncyBvdmVyIG9wdGltaXppbmcgOy0pCgot
-LSBTdGV2ZQoKCj4gKwliaXQgPSB0cmFjZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9uKGlwLCBwYXJl
-bnRfaXAsIFRSQUNFX0ZUUkFDRV9TVEFSVCwgVFJBQ0VfRlRSQUNFX01BWCk7Cj4gKwlpZiAoYml0
-IDwgMCkKPiArCQlwcmVlbXB0X2VuYWJsZV9ub3RyYWNlKCk7Cj4gKwo+ICsJcmV0dXJuIGJpdDsK
-PiAgfQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add StarFive Kconfig option to select SoC specific and common drivers
+required for these SoCs.
+
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+---
+ arch/riscv/Kconfig.socs | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 30676ebb16eb..725e9a1b1ab6 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -19,6 +19,14 @@ config SOC_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+ 
++config SOC_STARFIVE
++	bool "StarFive SoCs"
++	select SERIAL_8250_DW
++	select SIFIVE_PLIC
++	select PINCTRL
++	help
++	  This enables support for StarFive SoC platform hardware.
++
+ config SOC_VIRT
+ 	bool "QEMU Virt Machine"
+ 	select CLINT_TIMER if RISCV_M_MODE
+-- 
+2.33.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
