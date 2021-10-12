@@ -2,85 +2,77 @@ Return-Path: <SRS0=CTJ+=PA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A0A12C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 14:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D23E2C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 14:06:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 64AF461040
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 14:00:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 64AF461040
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=cloudflare.com
+	by mail.kernel.org (Postfix) with ESMTPS id A444060EBB
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 14:06:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A444060EBB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LYIwVgxKVHCH1CZEv9IjFLhnPJzG3hWBFMBaVJXu5Q4=; b=yTwI+eW6FwS/jN
-	uaYfK5sHoFWFru6WuUtRx5Sz7XijFzKUWbbfeoE0q4peMq41faLvwRKUAlgy4Up/f9DFl/R8kKk3G
-	CexYNcSWgakULeGMa76jDBEtPqIhZI83sywJeQSUJ5dzXNAu2CY3X0RY5/cCt3nWxuIiKhv1LZLnJ
-	gY/s9KDVbMzI5idIb6De9qpwgZOSOqmDfWL5FIOocFGWilMkQPlmyZpY+neVJTjPyfH3Q/Kcd91DU
-	Ich9FZRbVPRr+Y+mgio4mIA12SzUbClZ8IlsVkGDvE7Ur40msLV/nwNJcWCxsLaE5M2+u3OEFKj9+
-	1zQl8hctPAS1ZRPmGRZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qNsqbMib8pUchLwNs6uDuX7kQpucCusBbJMzFKuOgOI=; b=clLLp2213V65JH
+	7qgvzue6mKb5rjtYj4hsBYfLo4GuJYRha6gfecyIW0ebOXBOtc9i8isetny8/Qd740EFCvclaL5yc
+	jEKUz1waoMg8KOTeTvla29DlOLHg2LH+YEyxTS9AVVzeqht13Pl7qYPiHptmgnlVoN1FGoIKO8xAs
+	dt5+80BnAOxLSJPS+uWUHYPwOTIqnj34475BgS7y6/L1M8CJm64VRS7IVB0DB/ULfBoMUKMbS9c6w
+	VLife3hHM+gjoBkhc8sKgjIoKpHcrcUUShrZQ/r3NOwFsDo2hUSRYuxCX2PyztuseKnKpF0mxCh4P
+	g5A6IHEzuxzofXFDuB5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maIJo-00D6jo-Dq; Tue, 12 Oct 2021 13:59:48 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1maIQ5-00D7fD-5o; Tue, 12 Oct 2021 14:06:17 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maIJm-00D6iP-4S
- for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 13:59:47 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id i12so54572397wrb.7
- for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 06:59:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cloudflare.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=J+GuIj3aWc+P2iq5KRg3Ocnb9emA6/eo+vt5L54uAB8=;
- b=taW16PAyESJ5O3dRnEWjPJa2DMMYr4oAUH/8HAG7iqZRv+eV4Cjf1Vja1t2FiBAFev
- flYbmHkQH1G19nooWHG3uyVLv/fvw2QSE/dasax6pbqw2Y2DrrlvlCgZqEXoogfR+xqS
- EWYIHrd/cnopoVB+lFVq+N1XNgCBrAfkX76OA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=J+GuIj3aWc+P2iq5KRg3Ocnb9emA6/eo+vt5L54uAB8=;
- b=7RBcgUeznVxNw0aE/fVMH5cbygTEnvj4Ck22GxlJ2sPEgT1yu7b0uPZM+AAwqKLUTV
- q6nJp/N2BVJkiWkKgd6sZX+jqleKFjueQvHHTnF4YPk+fkMuFT8uC6uG0HSB1gY9Czce
- enmzQX+beir4RO+X/kYGXzWfqiD+eR8nrg4o8damEibj1Cv01eOvT5TEUCnCg1ERGaxe
- ynyDPQYEd4UvWD99hED4XJi3Q0yhE7OBiPfXig6KUQwXrqdrFb6lqzEFtlC72QVFAclv
- tibBtkwzMbJIp4BN+g+AWdVpJ7S/UhT3leMWlg/wajjRn4AN7Vs3jygELz/ZDLWSeHgC
- 1FDA==
-X-Gm-Message-State: AOAM532KtL5niYSvtoEj1WdaJMMY5p8q8JDSfSX9lGy9dqw+9UuGPB2K
- w7Zp4jsruffcmQ+PMctf9glV0w==
-X-Google-Smtp-Source: ABdhPJzEvONrPWYpm0JwryJr3pc0eUlNhggqvqv4BA1FliYf1tYhBkyS6nLO5ZstlXnqog5GloEXcg==
-X-Received: by 2002:adf:aa04:: with SMTP id p4mr32712587wrd.67.1634047182565; 
- Tue, 12 Oct 2021 06:59:42 -0700 (PDT)
-Received: from antares..
- (d.5.b.3.f.b.d.4.c.0.9.7.6.8.3.1.f.f.6.2.a.5.a.7.0.b.8.0.1.0.0.2.ip6.arpa.
- [2001:8b0:7a5a:26ff:1386:790c:4dbf:3b5d])
- by smtp.gmail.com with ESMTPSA id o6sm14875894wri.49.2021.10.12.06.59.41
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 12 Oct 2021 06:59:42 -0700 (PDT)
-From: Lorenz Bauer <lmb@cloudflare.com>
-To: nicolas.dichtel@6wind.com, luke.r.nels@gmail.com,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>
-Cc: kernel-team@cloudflare.com, Lorenz Bauer <lmb@cloudflare.com>,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org
-Subject: [PATCH v2 0/4] Fix up bpf_jit_limit some more
-Date: Tue, 12 Oct 2021 14:59:31 +0100
-Message-Id: <20211012135935.37054-1-lmb@cloudflare.com>
-X-Mailer: git-send-email 2.30.2
+ id 1maIQ2-00D7ee-4k
+ for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 14:06:15 +0000
+Received: from lupine.hi.pengutronix.de
+ ([2001:67c:670:100:3ad5:47ff:feaf:1a17] helo=lupine)
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <p.zabel@pengutronix.de>)
+ id 1maIQ0-0006DE-Q2; Tue, 12 Oct 2021 16:06:12 +0200
+Received: from pza by lupine with local (Exim 4.92)
+ (envelope-from <p.zabel@pengutronix.de>)
+ id 1maIPx-0002gx-Jv; Tue, 12 Oct 2021 16:06:09 +0200
+Message-ID: <9446163d07a2ff135965c7bff249f76bd0da5fb8.camel@pengutronix.de>
+Subject: Re: [PATCH v1 09/16] reset: starfive-jh7100: Add StarFive JH7100
+ reset driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Emil Renner Berthing <kernel@esmil.dk>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,  Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Jiri Slaby
+ <jirislaby@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>, Sagar
+ Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Anup Patel <anup.patel@wdc.com>, Atish
+ Patra <atish.patra@wdc.com>,  Matteo Croce <mcroce@microsoft.com>,
+ linux-kernel@vger.kernel.org
+Date: Tue, 12 Oct 2021 16:06:09 +0200
+In-Reply-To: <20211012134027.684712-10-kernel@esmil.dk>
+References: <20211012134027.684712-1-kernel@esmil.dk>
+ <20211012134027.684712-10-kernel@esmil.dk>
+User-Agent: Evolution 3.30.5-1.1 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2001:67c:670:100:3ad5:47ff:feaf:1a17
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_065946_208658_AFCD7701 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211012_070614_205342_BE67209B 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +89,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some more cleanups around bpf_jit_limit to make it readable via sysctl.
+Hi Emil,
 
-Jakub raised the point that a sysctl toggle is UAPI and therefore
-can't be easily changed later on. I tried to find another place to stick
-the info, but couldn't find a good one. All the current BPF knobs are in
-sysctl.
+On Tue, 2021-10-12 at 15:40 +0200, Emil Renner Berthing wrote:
+> Add a driver for the StarFive JH7100 reset controller.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> ---
+>  MAINTAINERS                           |   7 ++
+>  drivers/reset/Kconfig                 |   8 ++
+>  drivers/reset/Makefile                |   1 +
+>  drivers/reset/reset-starfive-jh7100.c | 164 ++++++++++++++++++++++++++
+>  4 files changed, 180 insertions(+)
+>  create mode 100644 drivers/reset/reset-starfive-jh7100.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index d2b95b96f0ec..f7883377895e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -17854,6 +17854,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
+>  F:	drivers/clk/starfive/clk-starfive-jh7100.c
+>  F:	include/dt-bindings/clock/starfive-jh7100.h
+>  
+> +STARFIVE JH7100 RESET CONTROLLER DRIVER
+> +M:	Emil Renner Berthing <kernel@esmil.dk>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+> +F:	drivers/reset/reset-starfive-jh7100.c
+> +F:	include/dt-bindings/reset/starfive-jh7100.h
+> +
+>  STATIC BRANCH/CALL
+>  M:	Peter Zijlstra <peterz@infradead.org>
+>  M:	Josh Poimboeuf <jpoimboe@redhat.com>
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index be799a5abf8a..8345521744b3 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -92,6 +92,14 @@ config RESET_INTEL_GW
+>  	  Say Y to control the reset signals provided by reset controller.
+>  	  Otherwise, say N.
+>  
+> +config RESET_STARFIVE_JH7100
+> +	bool "StarFive JH7100 Reset Driver"
+> +	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on OF
+> +	default SOC_STARFIVE
+> +	help
+> +	  This enables the reset controller driver for the StarFive JH7100 SoC.
+> +
 
-There are examples of read only sysctls:
-$ sudo find /proc/sys -perm 0444 | wc -l
-90
+Please keep these in alphabetical (config symbol name) order.
 
-There are no examples of sysctls with mode 0400 however:
-$ sudo find /proc/sys -perm 0400 | wc -l
-0
-
-Thoughts?
-
-Changes in v2:
-* riscv not sparcv (Luke)
-* Expose bpf_jit_current in bytes, not pages (Nicholas)
-
-Lorenz Bauer (4):
-  bpf: define bpf_jit_alloc_exec_limit for riscv JIT
-  bpf: define bpf_jit_alloc_exec_limit for arm64 JIT
-  bpf: prevent increasing bpf_jit_limit above max
-  bpf: export bpf_jit_current
-
- Documentation/admin-guide/sysctl/net.rst |  6 ++++++
- arch/arm64/net/bpf_jit_comp.c            |  5 +++++
- arch/riscv/net/bpf_jit_core.c            |  5 +++++
- include/linux/filter.h                   |  2 ++
- kernel/bpf/core.c                        |  7 ++++---
- net/core/sysctl_net_core.c               | 26 +++++++++++++++++++++++-
- 6 files changed, 47 insertions(+), 4 deletions(-)
-
--- 
-2.30.2
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
