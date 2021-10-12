@@ -2,80 +2,96 @@ Return-Path: <SRS0=CTJ+=PA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24214C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 16:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BDB8EC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 16:46:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C678F61050
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 16:41:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C678F61050
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7E32560F21
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 16:46:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7E32560F21
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8yBvTz/r+R2EoLnExjL+EDq40bCDjDrUm0TIqdsww04=; b=y9TyDYgCSiLDkY
-	IImfcMtjJCaFarAFsXqjDbqYFKnergYfBwAD2FU3etMBniwyeAuvaAjgIU/XbHLOqbgKI7pbw0E2r
-	gNcusRSphSfoSKAh8B9AOV/1wTWrGckzss9tH4BokWibeLlUU5qcxpdyR/zi09GeOYyMHJD0WDwve
-	z+k2tySzqm4BGmUAQPH1Gpe93Ths4Myo98LwwSDF1Ykyu1ZrzEdGqcwQcHgM14V/8o8a/PcDLK12b
-	sYNB9QSnXcZAoYREUna/l5rFdoRd7qxYhc0K+GG5cytSoKIRxCOqyxccHnSytzi7/jSlMFpSjZJfd
-	SH8AXqmpWjKEboJRE7ow==;
+	List-Owner; bh=bykS85ZSHa+PIhmac04glNLHVwXeQGfdgS1hqzDFnPA=; b=sJKOxqVcsgjn+e
+	G56E9AxcqCr1qZXuBtARP26PNg6yybqhNbsUdecSEn5zJvsbiBnKaOndzLlVcNFRjxSnxmrjR7lLl
+	Cami13za9vSi1ksYoBswwUwuEdiQf9ydxQxsjHUmEa4DJq04FrpFu/A137pDnekTlg9VHUtsTJkk2
+	cpITpZoACvIx+YLTyehFzJnZA0FmdGl6nkAdzYQgjevDHz732GzmE6/NxrW3w082fZDx2245yDBIC
+	Tnn7PzdWuUf5htzbyFEHAtUFEuLm0CzztyQtJJNHpI+n2beFhgXeHQiwWB/xjo6iRAtG+CBW2lrcC
+	nYwx8DCZfRjf5YXXEQvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maKpW-00DX04-Pq; Tue, 12 Oct 2021 16:40:42 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1maKut-00DY5g-6w; Tue, 12 Oct 2021 16:46:15 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maKpU-00DWzY-15
- for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 16:40:41 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id k7so68583943wrd.13
- for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 09:40:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=DyQ0FnQ11AjdF2tqrPUXu5b7mdoj6pFrq0SdLPzJPkw=;
- b=rGHKljQqqx6UUOEcCaCWB0mvux/wtJzhPa0mghK9VK59QDdZPMz+EFlcsGbt4sNk6I
- dyldHIawBSm6ujxvuZQgJCz0zMNfCvOKL4zgkMjVYJSKoYONsRcTxTZCi9AQa93iuJho
- hfGhw74lHfAaNG0aF3VIVCN5W1cISpGNmyb3zpexwL3FOnoxpaQvoNZeOqBzbEUhIB8Q
- 76l5LY7ol3rFh1MLE3P8JOdFCrq9CnLEvd6y88QbBm3TmD48mTL6R3XviQQlA3TUhz/L
- 21s2u3NFXKUpgikwV0d0bd0nWuBMwOs94/5Fi4bWjuAT+NDi8u//Eco6c600cpOLUiM6
- n0uA==
+ id 1maKuq-00DY4c-6H
+ for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 16:46:13 +0000
+Received: by mail-pg1-x533.google.com with SMTP id r201so14401624pgr.4
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 09:46:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=WxtJ6kTMjB335FQT7eQ0eT+70TQDiMjlEAzZlxMqe30=;
+ b=bKOflXsLFzC3VU2LBpYLCOQSqWZeASP6ZYpwtMXyXCQ24DvBTaHGYfF64wgjZDKsla
+ LpPBv3FFCMFYsmS+evB4X2EmqUiQKWI7oaGecXjhcm4t10DJpJr2vmOVqhi9jQY9eJXi
+ 9a6BmBu4332+d7Ju7hIbBp1ZnLa2LGcKGoTyDvfvwICGsr9y4cx2bX3A4DiwdeDSleK6
+ ADuM4LSQ5VFYhTx9WO6iia8tKPWVl1qqkwJiMW8Bt/75nqycZwR4exTh/O2RXjV8cMPx
+ kBII7YI8Dhm4R3Hr2cD4FnOV4Ddw1flpexyUS8KyOwUiN8m8eaoqUtQ2eqAhi9HeeGkk
+ 8HoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=DyQ0FnQ11AjdF2tqrPUXu5b7mdoj6pFrq0SdLPzJPkw=;
- b=QH9gKmnYwqr1R9tijTcjeASCrFpNce7J4kXTsJuYNSL3Gqura72BSFnFnUWR3cIlb5
- vPPH4qQdLZrJO58aXVY/11a7F3McxgayyKNrae4JpFra5SHGRg/IgR6sTLTtyIRjDkIk
- 6WK4HDp4LDg4F6cEH6dmzQU0YZTGWqtHTh0yaLnpFHzSQcblN6fzBTKvLljbRWRqdo2p
- M3DddBKoIlzgAtaEyoYiy6mCO4yexRemNATT+Y/QJq9sMNPBhwStbOTD085qYUqazGDa
- Lu84W+o4VASrRGkhSbiM5BS3mVSdncjTQaUQNWTB2y8TFX68bh59TCohLiOCfzfRcAMw
- RqcA==
-X-Gm-Message-State: AOAM5310J3XxrmbKLsaOiBDYTkwEK2vuJbGp9330+Cod7cbDsfD1aFsS
- HuWXMy0JVZ60IKe4cd/BWP5w4dQgZRHDS4th2s0YMw==
-X-Google-Smtp-Source: ABdhPJwz57L/hHGultmk7g4qhHuJAITX4mG0H7WBkqWl+rfltPL7ZABp7P53IBf5A2LbjaPfp5hc8flDHi7u07YjGAA=
-X-Received: by 2002:adf:ab57:: with SMTP id r23mr34064613wrc.199.1634056837790; 
- Tue, 12 Oct 2021 09:40:37 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=WxtJ6kTMjB335FQT7eQ0eT+70TQDiMjlEAzZlxMqe30=;
+ b=qEM1QT2AGwpEf0Hvjm/sPEruGw+f6apXYFw0dfaagXuFzw5eyLQR0ASwUM1k2+ZW+f
+ yhvvh5UL7h79l4lA7XYssLr78V1OukejT9CmdoJVTbGZRjf2lLPx9EYpNY6VtC9US3aG
+ NSdvoP07xFzdmmbnUzqcirmkpQfbE8NORqnpZVmR/CgJlD1XD4sOfMhsu2ejkWO38bXI
+ /dheLvTGWt4Mkjh7b3ltKgUnQBGByc9e1Gpntr5snOJ3NeeCQ5weXcx9WXjV+3UBmYaR
+ A73sbximgI1GD7SXX7JfpZcuMAdMNBapJgARQYeKXKNI/tLR5mFvabal+9WX5uAeWsV9
+ sJqA==
+X-Gm-Message-State: AOAM531Xkwb2/p0abF4H9SrrkcgR2G5uqGzCqEYwNCFDIYZGiWcZhAGq
+ GAd0tvFpxeOSv4nIXI+SET6L5g==
+X-Google-Smtp-Source: ABdhPJwqjQYiIu9GVaeWoRMdEp/IOLk9KZQUl3zIehqyu0N4NWB1pHgyw7wIiEOvLESAmyrDCLnUww==
+X-Received: by 2002:a63:564a:: with SMTP id g10mr23601412pgm.199.1634057168886; 
+ Tue, 12 Oct 2021 09:46:08 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id z19sm11467471pfj.156.2021.10.12.09.46.08
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 12 Oct 2021 09:46:08 -0700 (PDT)
+Date: Tue, 12 Oct 2021 16:46:04 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Atish Patra <Atish.Patra@wdc.com>
+Cc: "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "vincent.chen@sifive.com" <vincent.chen@sifive.com>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 5/5] RISC-V: Add SBI HSM extension in KVM
+Message-ID: <YWW7zGWUpqXLXE/4@google.com>
+References: <20211008032036.2201971-1-atish.patra@wdc.com>
+ <20211008032036.2201971-6-atish.patra@wdc.com>
+ <YWBdbCNQdikbhhBq@google.com>
+ <0383b5cacb25e9dc293d891284df9f4cbc06ee3a.camel@wdc.com>
+ <YWRLBknWXjzPnF1w@google.com>
+ <a762f0263090d7e818e58873d63139d7b6829d87.camel@wdc.com>
 MIME-Version: 1.0
-References: <20211012153432.2817285-1-guoren@kernel.org>
- <20211012153432.2817285-2-guoren@kernel.org>
-In-Reply-To: <20211012153432.2817285-2-guoren@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 12 Oct 2021 22:10:26 +0530
-Message-ID: <CAAhSdy32wkwH5k3iwdUNDsXjUNX8icQwcz_h2E6UixH7ZmD5KQ@mail.gmail.com>
-Subject: Re: [PATCH V2 2/2] irqchip/sifive-plic: Add thead,c9xx-plic support
-To: Guo Ren <guoren@kernel.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <a762f0263090d7e818e58873d63139d7b6829d87.camel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_094040_163657_9BA94EC7 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20211012_094612_258890_497AE58D 
+X-CRM114-Status: GOOD (  29.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,96 +103,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 12, 2021 at 9:04 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> thead,c9xx-plic would mask IRQ with readl(claim), so it needn't
-> mask/unmask which needed in RISC-V PLIC.
->
-> When in IRQS_ONESHOT & IRQCHIP_EOI_THREADED path, unnecessary mask
-> operation would cause a blocking irq bug in thead,c9xx-plic. Because
-> when IRQ is disabled in c9xx, writel(hwirq, claim) would be invalid.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Atish Patra <atish.patra@wdc.com>
->
-> ---
->
-> Changes since V2:
->  - Add a separate compatible string "thead,c9xx-plic"
->  - set irq_mask/unmask of "plic_chip" to NULL and point
->    irq_enable/disable of "plic_chip" to plic_irq_mask/unmask
->  - Add a detailed comment block in plic_init() about the
->    differences in Claim/Completion process of RISC-V PLIC and C9xx
->    PLIC.
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
->
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index cf74cfa82045..3756b1c147c3 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -79,6 +79,7 @@ struct plic_handler {
->  };
->  static int plic_parent_irq __ro_after_init;
->  static bool plic_cpuhp_setup_done __ro_after_init;
-> +static bool disable_mask_unmask __ro_after_init;
->  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
->
->  static inline void plic_toggle(struct plic_handler *handler,
-> @@ -181,6 +182,13 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->  {
->         struct plic_priv *priv = d->host_data;
->
-> +       if (disable_mask_unmask) {
-> +               plic_chip.irq_mask      = NULL;
-> +               plic_chip.irq_unmask    = NULL;
-> +               plic_chip.irq_enable    = plic_irq_unmask;
-> +               plic_chip.irq_disable   = plic_irq_mask;
-> +       }
-> +
->         irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
->                             handle_fasteoi_irq, NULL, NULL);
->         irq_set_noprobe(irq);
-> @@ -390,5 +398,14 @@ static int __init plic_init(struct device_node *node,
->         return error;
->  }
->
-> +static int __init thead_c9xx_plic_init(struct device_node *node,
-> +               struct device_node *parent)
-> +{
-> +       disable_mask_unmask = true;
+On Mon, Oct 11, 2021, Atish Patra wrote:
+> On Mon, 2021-10-11 at 14:32 +0000, Sean Christopherson wrote:
+> > On Mon, Oct 11, 2021, Atish Patra wrote:
+> > > On Fri, 2021-10-08 at 15:02 +0000, Sean Christopherson wrote:
+> > > > On Thu, Oct 07, 2021, Atish Patra wrote:
+> > > > > +=A0=A0=A0=A0=A0=A0=A0preempt_disable();
+> > > > > +=A0=A0=A0=A0=A0=A0=A0loaded =3D (vcpu->cpu !=3D -1);
+> > > > > +=A0=A0=A0=A0=A0=A0=A0if (loaded)
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0kvm_arch_vcpu_put(v=
+cpu);
+> > > > =
 
-The plic_irqdomain_map() is called for each irq so "plic_chip"
-will be updated multiple times.
+> > > > Oof.=A0 Looks like this pattern was taken from arm64.=A0
+> > > =
 
-You can drop the disable_mask_unmask variable and instead
-directly update "plic_chip" here.
+> > > Yes. This part is similar to arm64 because the same race condition
+> > > can
+> > > happen in riscv due to save/restore of CSRs during reset.
+> > > =
 
-> +
-> +       return plic_init(node, parent);
-> +}
-> +
->  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
->  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-> +IRQCHIP_DECLARE(thead_c9xx_plic, "thead,c9xx-plic", thead_c9xx_plic_init);
-> --
-> 2.25.1
->
+> > > =
 
-Regards,
-Anup
+> > > > Is there really no better approach to handling this?=A0 I don't see
+> > > > anything =A0in kvm_riscv_reset_vcpu() that will obviously break if =
+the
+> > > > vCPU is =A0loaded.=A0 If the goal is purely to effect a CSR reset v=
+ia
+> > > > kvm_arch_vcpu_load(), then why not just factor out a helper to do
+> > > > exactly that?
+> > =
+
+> > What about the question here?
+> =
+
+> Are you suggesting to factor the csr reset part to a different function?
+
+More or less.  I'm mostly asking why putting the vCPU is necessary.
+
+> > > > > =A0void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+> > > > > =A0{
+> > > > > +=A0=A0=A0=A0=A0=A0=A0/**
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 * vcpu with id 0 is the designated boot cp=
+u.
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 * Keep all vcpus with non-zero cpu id in p=
+ower-off
+> > > > > state
+> > > > > so that they
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 * can brought to online using SBI HSM exte=
+nsion.
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 */
+> > > > > +=A0=A0=A0=A0=A0=A0=A0if (vcpu->vcpu_idx !=3D 0)
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0kvm_riscv_vcpu_powe=
+r_off(vcpu);
+> > > > =
+
+> > > > Why do this in postcreate?
+> > > > =
+
+> > > =
+
+> > > Because we need to absolutely sure that the vcpu is created. It is
+> > > cleaner in this way rather than doing this here at the end of
+> > > kvm_arch_vcpu_create. create_vcpu can also fail after
+> > > kvm_arch_vcpu_create returns.
+> > =
+
+> > But kvm_riscv_vcpu_power_off() doesn't doesn't anything outside of the
+> > vCPU.=A0 It clears vcpu->arch.power_off, makes a request, and kicks the
+> > vCPU.=A0 None of that has side effects to anything else in KVM.=A0 If t=
+he vCPU
+> > isn't created successfully, it gets deleted and nothing ever sees that
+> > state change.
+> =
+
+> I am assuming that you are suggesting to add this logic at the end of
+> the kvm_arch_vcpu_create() instead of kvm_arch_vcpu_postcreate().
+> =
+
+> vcpu_idx is assigned after kvm_arch_vcpu_create() returns in the
+> kvm_vm_ioctl_create_vcpu. kvm_arch_vcpu_postcreate() is the arch hookup
+> after vcpu_idx is assigned.
+
+Ah, it's the consumption of vcpu->vcpu_idx that's problematic.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
