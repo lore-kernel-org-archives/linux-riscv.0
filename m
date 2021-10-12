@@ -2,62 +2,92 @@ Return-Path: <SRS0=CTJ+=PA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E32BC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 15:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BB68C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 15:42:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B7856103D
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 15:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1B7856103D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id E036460E53
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 15:42:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E036460E53
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pc+3BbsK36P+3qYHyET0eGxqhVk93XS37WESnr5DAPc=; b=EPKGwU27yTuPRU
-	AMCar2hbt7OXWczfaiG3LIN/krVpAcB3UHC1STiI29KDqttdF1IdmWEGwV0jRK7XD0QTP5zK9+bDm
-	VyQR/QvZFg0IdsqOdPwA2fIHJbWAp2kaUnma1CLbrwlpKObnJHG/kdPPsSCEZE3ivIw7t59VHsPrR
-	tn9repFM1I9ErCqfAAA06lEl5hYoFe+EY3tyQ3TgQfFsqekUk9512T09HNvLF7YbZGY2YdxKDC5y6
-	/kHxLepypi25Vpy6kjL3TRZj5vJR4gCVvpXwOFRpvRzQ7Wgcnz4Xkk3MBRYcLpkS1CHSA7enNIJ6m
-	4Q9eMvb3uI3DSqjr3BfA==;
+	List-Owner; bh=nj3nATiFUklg5qeYL4VsyxT6GxOsEzH/hOMV3Eftj6k=; b=NS9mzpOw8fS6il
+	zflQdwj2rjaClnJXWbxuC86OR7PvCRe0orqk0jCKokYc02ZKGiFh7vnAAXSvsg8DKAabqe3+nb+Q8
+	FemKC1P7nj1g1tvNgjmmA2sSj5WoiGjEfb0C1AVNKO8a3bzoOB0sn3MrgWvremxU7olABgClmPF/o
+	rHt3/lDLJjS8liOE0m8DunIYWJaY9QHiNZMtUtcf98yydJjd8LDcoYKIxv6kNGpAaHmuP6HO5Pm8o
+	JGSqW1NZ0MGW8BGbi06K/MC92sETMrGeZhwO89ynYhBQwE+HKEbZcv/JcmLk11wozd03C8NwibhZI
+	Myi6bZsOPcCkwq7zDKHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maJnn-00DLtY-3x; Tue, 12 Oct 2021 15:34:51 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1maJv7-00DNt3-A4; Tue, 12 Oct 2021 15:42:25 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maJnk-00DLsa-1d
- for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 15:34:49 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D98EE61074;
- Tue, 12 Oct 2021 15:34:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634052887;
- bh=6W6iHtb0gBp1lkXoNCKov43WbKN2Zd1lRk8xkWaz6QQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=eWlwJ56npUHtTb2/do9cb/DEEJmL/Yx7tRUMtFBhd+kqagYFHTNqxKyLecJ3laX2r
- VoJB2UH2obniDyu5aNU3o0g8SU6zjrhS0UCUDgXrj5D6rnfYJFN41VWbhnyYCNWzN8
- 75odFUkGJaQVjKrKqM/rHMPQIJSlsKjTbRQYaVLvlkx9IYWOlwn1y5e+ayZ7oHuvB3
- pJo9nRcOqXgy97bH9ay28nYMQS1DOFghl+Y3lEuhOPhLWxmQ4NPaFCH9teMGEZZH2g
- 2U3HNw9sTCkMk3ExXpKqhzSuKH30oXP1loZaF0QQp3w08FlRhZj5tSvhivFBHZv79W
- K1bvAQT3y9EZg==
-From: guoren@kernel.org
-To: guoren@kernel.org, anup@brainfault.org, atish.patra@wdc.com,
- maz@kernel.org, tglx@linutronix.de, palmer@dabbelt.com
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2 2/2] irqchip/sifive-plic: Add thead,c9xx-plic support
-Date: Tue, 12 Oct 2021 23:34:32 +0800
-Message-Id: <20211012153432.2817285-2-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20211012153432.2817285-1-guoren@kernel.org>
-References: <20211012153432.2817285-1-guoren@kernel.org>
+ id 1maJtg-00DNEM-8t
+ for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 15:40:57 +0000
+Received: by mail-ed1-x531.google.com with SMTP id t16so1129642eds.9
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 08:40:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=5vws6sMTfuIUpw/tvRD3yV733Vt/oKMHzkN1nuZ1vds=;
+ b=W3xuWRdAGjqLW7kMpsg6EzCDJGX+u7T8LbQwJnFITwMyQKXIV+thrIH5pReBwQgCq7
+ ZH3X6jKa7UFFPcWtOPWMdXDrEIQfxZbduQGtKW/O1ZeJXRM+F0wPKEXurRE8B+iQzPhu
+ yG9dxc1aY8Y2KeK8Okq0cbZ1o81PJjEN7HDbJRnKeDcsH196twyl9vgszt3TrTvBMllb
+ 6sfbgEGN5xJG5zuEGjWoUvBhLhPLnXRI/u/l+xQb4n4my06ipQuykRARukvF814i8gjs
+ 0xfxNnpUv/thnQA1nh0ufzM6D/6UMWw46n3n/Zl2y6XXLnqA5DE958HXKXJgKufKp87P
+ am8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=5vws6sMTfuIUpw/tvRD3yV733Vt/oKMHzkN1nuZ1vds=;
+ b=iYmAh4jA3g2564Jgw4ZPHjd6Hpqunp/3Avvv7BKCuhS+K3PgZewUeKZHI59mF8+p5H
+ ZphFx9cDZOOzAtnwbMAYX/fXktW2f+U50PZMl/rksj67jAj3h0R6RL+x9hxMmsqBtUK7
+ QLCn1yead4uUrlcYj7ywOuRAmKBRZNUV7n2KPQpueVN3/QI3t5TfmIgH7kHkqYSSpnZ2
+ Nd3P7Qnxv5q96hqtm8+LctCKWL49dCJ/9T1ERgxMhGLrZKYKYISo7CrZesqwq9tN95RG
+ 7MSYNPr7bqRs157zZ7RC6/PXj8Cna0SI+qBKSClBalgvM30dwmYWlgaVaFxqETtRO9KN
+ GXJQ==
+X-Gm-Message-State: AOAM530+HmfbGg3JiIyxFSfl3JECvynb0L7ve23wjQFlyVYDAUUEA4bo
+ 8rf9JLfHphJ6quE5rhTBBmUL5DukL5GC2Qxql+Q=
+X-Google-Smtp-Source: ABdhPJw6b5/cDVnUDUOYGlubY3IK7TXocmkqeO4rQjOPiQyeiygR8kyVW5V7QbJJvYNkBUvVfw6qvUxO0QlwIkcVXcQ=
+X-Received: by 2002:a50:e00b:: with SMTP id e11mr651595edl.359.1634053252589; 
+ Tue, 12 Oct 2021 08:40:52 -0700 (PDT)
 MIME-Version: 1.0
+References: <20211012134027.684712-1-kernel@esmil.dk>
+ <20211012134027.684712-7-kernel@esmil.dk>
+In-Reply-To: <20211012134027.684712-7-kernel@esmil.dk>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 12 Oct 2021 21:40:05 +0300
+Message-ID: <CAHp75Vetqi=FMoRxfXHL+d1DhAXgLr+5e7ss1M_Rkhqa07H5Jg@mail.gmail.com>
+Subject: Re: [PATCH v1 06/16] clk: starfive: Add JH7100 clock generator driver
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Rob Herring <robh+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_083448_126950_985C1A37 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20211012_084056_372277_B998A18C 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,79 +104,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Tue, Oct 12, 2021 at 4:42 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+>
+> From: Geert Uytterhoeven <geert@linux-m68k.org>
+>
+> Add a driver for the StarFive JH7100 clock generator.
 
-thead,c9xx-plic would mask IRQ with readl(claim), so it needn't
-mask/unmask which needed in RISC-V PLIC.
+...
 
-When in IRQS_ONESHOT & IRQCHIP_EOI_THREADED path, unnecessary mask
-operation would cause a blocking irq bug in thead,c9xx-plic. Because
-when IRQ is disabled in c9xx, writel(hwirq, claim) would be invalid.
+> +config CLK_STARFIVE_JH7100
+> +       bool "StarFive JH7100 clock support"
+> +       depends on SOC_STARFIVE || COMPILE_TEST
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Cc: Anup Patel <anup@brainfault.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Atish Patra <atish.patra@wdc.com>
+> +       depends on OF
 
----
+Why? I haven't found a compile dependency, so you reduce the test
+scope (when COMPILE_TEST=y).
 
-Changes since V2:
- - Add a separate compatible string "thead,c9xx-plic"
- - set irq_mask/unmask of "plic_chip" to NULL and point
-   irq_enable/disable of "plic_chip" to plic_irq_mask/unmask
- - Add a detailed comment block in plic_init() about the
-   differences in Claim/Completion process of RISC-V PLIC and C9xx
-   PLIC.
----
- drivers/irqchip/irq-sifive-plic.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+...
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index cf74cfa82045..3756b1c147c3 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -79,6 +79,7 @@ struct plic_handler {
- };
- static int plic_parent_irq __ro_after_init;
- static bool plic_cpuhp_setup_done __ro_after_init;
-+static bool disable_mask_unmask __ro_after_init;
- static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
- 
- static inline void plic_toggle(struct plic_handler *handler,
-@@ -181,6 +182,13 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- {
- 	struct plic_priv *priv = d->host_data;
- 
-+	if (disable_mask_unmask) {
-+		plic_chip.irq_mask	= NULL;
-+		plic_chip.irq_unmask	= NULL;
-+		plic_chip.irq_enable	= plic_irq_unmask;
-+		plic_chip.irq_disable	= plic_irq_mask;
-+	}
-+
- 	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
- 			    handle_fasteoi_irq, NULL, NULL);
- 	irq_set_noprobe(irq);
-@@ -390,5 +398,14 @@ static int __init plic_init(struct device_node *node,
- 	return error;
- }
- 
-+static int __init thead_c9xx_plic_init(struct device_node *node,
-+		struct device_node *parent)
-+{
-+	disable_mask_unmask = true;
-+
-+	return plic_init(node, parent);
-+}
-+
- IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
- IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-+IRQCHIP_DECLARE(thead_c9xx_plic, "thead,c9xx-plic", thead_c9xx_plic_init);
+You are using
+bits.h
+mod_devicetable.h
+which are not here
+
+> +#include <linux/clk.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/debugfs.h>
+> +#include <linux/device.h>
+> +#include <linux/init.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/overflow.h>
+> +#include <linux/platform_device.h>
+
+...
+
+> +       value |= readl_relaxed(reg) & ~mask;
+
+value is not masked, is it okay?
+
+Usual pattern for this kind of operations is
+
+value = (current & ~mask) | (value & mask);
+
+> +       writel_relaxed(value, reg);
+
+...
+
+> +       if (div > max)
+> +               div = max;
+> +
+> +       return div;
+
+return min(div, max); ?
+
+...
+
+> +       rate = parent / div;
+> +       if (rate < req->min_rate && div > 1) {
+> +               div -= 1;
+> +               rate = parent / div;
+> +       }
+
+Seems like homegrown DIV_ROUND_UP() or so. Who will guarantee that
+decreasing div by 1 will satisfy the conditional again?
+
+...
+
+> +#ifdef CONFIG_DEBUG_FS
+
+Perhaps __maybe_unused?
+
+> +#else
+> +#define jh7100_clk_debug_init NULL
+> +#endif
+
+...
+
+> +       if (idx >= JH7100_CLK_END) {
+
+> +               dev_err(priv->dev, "%s: invalid index %u\n", __func__, idx);
+
+__func__ means that the message has no value on its own. Make it
+unique without using __func__, or drop completely.
+
+> +               return ERR_PTR(-EINVAL);
+> +       }
+
+...
+
+> +       for (idx = 0; idx < JH7100_CLK_PLL0_OUT; idx++) {
+> +               struct clk_init_data init = {
+> +                       .name = jh7100_clk_data[idx].name,
+> +                       .ops = jh7100_clk_data[idx].ops,
+
+> +                       .num_parents = ((jh7100_clk_data[idx].max & JH7100_CLK_MUX_MASK)
+> +                                       >> JH7100_CLK_MUX_SHIFT) + 1,
+
+With temporary variable this can be better written, or consider
+something like this
+
+                       .num_parents =
+                               ((jh7100_clk_data[idx].max &
+JH7100_CLK_MUX_MASK) >> JH7100_CLK_MUX_SHIFT) + 1,
+
+> +                       .flags = jh7100_clk_data[idx].flags,
+> +               };
+> +               struct jh7100_clk *clk = &priv->reg[idx];
+
+...
+
+> +       while (idx > 0)
+> +               clk_hw_unregister(&priv->reg[--idx].hw);
+
+The
+
+       while (idx--)
+               clk_hw_unregister(&priv->reg[idx].hw);
+
+is slightly better to read.
+
+> +       return ret;
+> +}
+
+...
+
+> +static int __init clk_starfive_jh7100_init(void)
+> +{
+> +       return platform_driver_probe(&clk_starfive_jh7100_driver,
+> +                                    clk_starfive_jh7100_probe);
+> +}
+
+> +
+
+No need to have this blank line.
+> +subsys_initcall(clk_starfive_jh7100_init);
+
+Any  explanation why subsys_initcall() is in use?
+
 -- 
-2.25.1
-
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
