@@ -2,105 +2,156 @@ Return-Path: <SRS0=CTJ+=PA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27832C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 07:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E706C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 10:00:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D19A760C49
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 07:27:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D19A760C49
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 626B360EE5
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Oct 2021 10:00:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 626B360EE5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=41pn/OBjK9Ntp/0+FHodMJjKX6sW6N9eB+N5RYUngqM=; b=nngxMOEZTemgUj6yqgXzvE3xTK
-	4BFlA02yJKlIOBlI951+IpmImxWmzxOLiW1vJkZcPuAi28zVs5BxIi8Ha7f5BOh584Yw5s85An7v4
-	YMV0k10O3pkPni9R7xvI2EZ/hqJsBLl/U8HDBgHop/T8SMchEH0y9aXVNrsPetoQhnjRokCYHUUli
-	zBEzt9v16bbtRtgXIj9eq6iNX+nverLwBpEBO1zTq6KPHZq+0TWxAX9rx5WVhebzqXhGlX0HVVeXS
-	6mK34L/m/v/YAUfGzQ9LeweSc+qCfVejxXrecyBsZrj3ZDu+VsyizNL9QXYUO4GLGPuSAJ+i1SH7+
-	iPLtYA2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YKCpern6yvdIZLzPQWWg/bw93fd9IRG8Nh5frAwRwjs=; b=CrHJOnDB+FjPxK
+	UblLdXjnn899xW5fBV+SVUoo2HMcSE+9LfLxBS+kYsVXvG36E1C0ObrX1GSAb3zjtHFenGepatXvu
+	LUtOksagdp6Ghxlp2nQHyUaXEbtLX54u3kCavFN/a6XohvaZWQFYCi/YwZC4fOShv4sYh9TAbp2Vf
+	jQ7cNTkjWqDIkmiT8jVSMnl74MeNnCpYPpxcXsmkf0L2cr47u3m9HqUiXG3rBguXGQwA/+bN5YldP
+	zIuqKDeLh8xs+1dpmsdytVSXwl3dQoofMYvadmLQ7PG/9tR8OiQPY7pXyd0BBJdC8IGNwoD2aU+bo
+	npI1LUeNuUaIWZfBcEEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maCBm-00Blw9-7L; Tue, 12 Oct 2021 07:27:06 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1maEZc-00CK6j-7D; Tue, 12 Oct 2021 09:59:52 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maCBk-00Blv3-4J
- for linux-riscv@lists.infradead.org; Tue, 12 Oct 2021 07:27:05 +0000
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
- [209.85.167.72])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6DC2E40000
- for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 07:26:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1634023618;
- bh=k2NEwJTMkdNZ/mQBT62GUXF45y2w4za6ULFuaRm133M=;
- h=Subject:To:Cc:References:From:Message-ID:Date:MIME-Version:
- In-Reply-To:Content-Type;
- b=hsSCYjtcroyuxwL45MBHQ8y2l8rmaE3oNDx9hQuhmxxzodwUd2XlbApModygJLtcz
- qTc3wwEGdpCOKIYEUwcKcEvWERH8Q6Jvjk8whx3khfjkt6vwyTrd+eXbz9pyNg+pWW
- tEFoMqdzs3lfzU2+0wZMV8gipxqKj9nvNpyYVs1SuV4IV5NB52SW1IG+HEAi5e1vhh
- zBUk6kiX0DK8PrIYLXjwW701qZyXB0tyVDMZzXPIcY1AqAfSdl1OyTPbk3U4JmB8Zz
- aFIOzvRvc56dSPkDMXPuIr9sxGnuLxx+7AbYZaxfMAsBAhn6Pl6CW1eTnPjcIT7DSW
- S1fuHK8eSOrHw==
-Received: by mail-lf1-f72.google.com with SMTP id
- bi16-20020a0565120e9000b003fd56ef5a94so13381954lfb.3
- for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 00:26:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=k2NEwJTMkdNZ/mQBT62GUXF45y2w4za6ULFuaRm133M=;
- b=MG/TfZUbb7RQvduPStien8EZBJAj/poAtmljRp8qAjZlHt1MCEQMrdpggw407Q+gEE
- n+enE1puOlsFhwK1nU6yKCWp+SAYAuIUOkTJ1DSAgzD4EJK1wTbvh1PckHdkNPIVt7/W
- XZcOAWPUEYrQQFMd2ZLWhWs6nRRGQQCNkCg7byLv20InGb39v8pICH/1qtN0GsDpCvwr
- 418Mdcw2jbVhVIQB48jS7hxlSm89hcwONBFbwha0tCVM8igylKKoD9vDOx5/MEALlFxk
- tCnNVH/Go5kx7FxNV7rs4CiQf1vuQOk709PV/LOikyifgUkb1Azll3X54NgDDZ0vJAYb
- joGg==
-X-Gm-Message-State: AOAM531NQO6RgBr0VKXDWUwQVTrRUMR4qw57ivTn6YEwb/QLZj4cuN0L
- 0clL2oJDVKw0C7onPwaX22+4CbQXnwbl4dEij1ri/h7XvFQ0LdfJcSHpmh+uMGu0pqkadkOrqV1
- F+t2yFUeCgZeLOLoynBUTp3+0JoYVbQFoZZFAPHi3hf3J+Q==
-X-Received: by 2002:a05:6512:1196:: with SMTP id
- g22mr8857292lfr.661.1634023617755; 
- Tue, 12 Oct 2021 00:26:57 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJy4GFs4SsQ3dTIrIIjTkzK2fCPWl1cJOA8SGQyTyUrED6DMlpgotr7qOq4gqkacaBZsg7BKGw==
-X-Received: by 2002:a05:6512:1196:: with SMTP id
- g22mr8857282lfr.661.1634023617586; 
- Tue, 12 Oct 2021 00:26:57 -0700 (PDT)
-Received: from [192.168.0.20] (78-11-189-27.static.ip.netia.com.pl.
- [78.11.189.27])
- by smtp.gmail.com with ESMTPSA id d26sm1185415ljj.45.2021.10.12.00.26.56
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 12 Oct 2021 00:26:56 -0700 (PDT)
-Subject: Re: [RESEND PATCH v2 1/5] riscv: dts: sifive: use only generic JEDEC
- SPI NOR flash compatible
-To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
-References: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
- <CA+zEjCtTbJnvmrM1g-CR8ZUtT375Wd-4dt0YR1zLG5nOvtDyGg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Message-ID: <9a2a01af-3e34-b454-3ec5-930eba8b435e@canonical.com>
-Date: Tue, 12 Oct 2021 09:26:56 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+ id 1maEZI-00CK2U-Ea; Tue, 12 Oct 2021 09:59:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1634032772; x=1665568772;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=wkYIXN1pAyUjrObVDmlR1Nmuqmj9mBA80EuB6lFDjME=;
+ b=D0CSn66sTvnE3QU+qqpORu1wPmhAZFiz1BJM4nTEemRwt0vG13SsOctm
+ BSbECr/fYTu7ceb9kDfBZPokNVop+GRMaMGReiibM8+HmWQ95591Mfo4d
+ pdyvpd93gJcLdg8yRnFz7eUQAPVP3HWEOGeIjjedX1WSJU4OWp5lJ8cNW
+ q8LRsD2l1c1kI5tr/fKscP9CH9nW+6x0t3s5yvzpThzsX0BpZeNydWyHg
+ t1X/UV5q13f9fKjeb2qOAnjAVnCIJJt/a4HXcWSdSaq3AEvrP2HHbYfqB
+ MMBEZtUz/yciogRaaUYW4WgZfbYKlEtcC2YaHOyz7PiPYenj8yl40EVNH w==;
+X-IronPort-AV: E=Sophos;i="5.85,367,1624291200"; d="scan'208";a="286442608"
+Received: from mail-dm6nam12lp2171.outbound.protection.outlook.com (HELO
+ NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.171])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Oct 2021 17:59:27 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=YLnnTKablQvKuIINHB8mBCutYHRL1bRmpuT3FW0QPDLKeDIwZFKIW3Km5CMVYRo7RwDFVxx4ngL9fTK7szQZumXcRh90QVG98AxamVTxJn/eXFB18C2hs2skAgtYGCpzZJOR5xpFutUwynwOJ+L5re6J+gU0Ks4PjOiNno6c/HPY6vWiTVo3FnlGfNf0623DaP6uE1VlrNUCBwRcq5dOcZyy1YV3IoFlDY3/sj6OpFymUUgOHZ6QgfEPAlgoUJkb6PEa+tn08ZOntrsrwCp1D1tOFx2fj2SXwdsgux7Qng+87x8p+VvgJmHVOOasA6lFXbtrmqFprx42QAfR9vRWIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bZJ+3rFpeS3MzTRkgj/yHSOzSxNgD4C86YF+YnHeVpY=;
+ b=IqV7XmxTft4Mb1D9wW55Rv2Wl3M/E8RwhQflg+YPIkLbuB6TDV61TFWVFxES4uoDexLeEH+WkS66D5gzthrwUcwbs0KaEchmuaRpxXQZV6CO9Y9nM8I4LD4YQl7QGFgNypxrslDvUYjI+am2xXPdcWUfhJkOPEV3y/RkLNtRGbYTEx9TlUBucUQJFx6LgjJQo65udPjibDQ9badZ6biAUYaDgKup3ghwXbJwYh8GdJsY7C7LLstWyGx9yq18nHuL39l2XOKsE1KQYzZmvxIie7lN4ls8O0B4BeUKbDgZGIV2lyD/r/O2Nw8uHyiAZrSCY41/tTpvMLGTh5eHCoG5Gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bZJ+3rFpeS3MzTRkgj/yHSOzSxNgD4C86YF+YnHeVpY=;
+ b=Tus+CaUScV/mGrvKg+rDXWASv3eXchSR+XAF7J89dwE69eL953yozSFmCWLSi0CoSbWuIAtK7Rs1kwbycjDGUEAnVxIs08PRHiQpeVeF5Y7jP2cyB1Wt0kiY9XM9FTlmDSQwtKaY4yjKLkarimhJDoDcsmNEEg4+bWZIFaOOeZs=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
+ by CO6PR04MB8348.namprd04.prod.outlook.com (2603:10b6:303:137::19)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4587.18; Tue, 12 Oct
+ 2021 09:59:26 +0000
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::8100:4308:5b21:8d97]) by CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::8100:4308:5b21:8d97%9]) with mapi id 15.20.4587.026; Tue, 12 Oct 2021
+ 09:59:26 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh+dt@kernel.org>
+Cc: Sandeep Tripathy <milun.tripathy@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Liush <liush@allwinnertech.com>, Anup Patel <anup@brainfault.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anup Patel <anup.patel@wdc.com>
+Subject: [PATCH v9 0/8] RISC-V CPU Idle Support
+Date: Tue, 12 Oct 2021 15:28:49 +0530
+Message-Id: <20211012095857.1314214-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: MAXPR01CA0106.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::24) To CO6PR04MB7812.namprd04.prod.outlook.com
+ (2603:10b6:303:138::6)
 MIME-Version: 1.0
-In-Reply-To: <CA+zEjCtTbJnvmrM1g-CR8ZUtT375Wd-4dt0YR1zLG5nOvtDyGg@mail.gmail.com>
-Content-Language: en-US
+Received: from wdc.com (122.179.114.63) by
+ MAXPR01CA0106.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4587.24 via Frontend Transport; Tue, 12 Oct 2021 09:59:21 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 8fe14d1c-7cac-404d-b9a5-08d98d66f94c
+X-MS-TrafficTypeDiagnostic: CO6PR04MB8348:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <CO6PR04MB83485D1FE36F689A216676858DB69@CO6PR04MB8348.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: fa4F4ksnjj0ZUgsWaVwV7YQuzluJ8e1Lmn1U2ZgLonkfF6Ibf7b0YgTTluWdRxty9Q2+GoBM+LCGa/12/T3aFIOhAgBz6lImyq9EW9yrEoSQHKJyxQ3GIOWiL9D0ZNONFE7hLh143RKwDjVnfHC/F4EJ+1Qef9vnNh1vEaxPsd7B/lkukUMN9I/eaWpkIgLuIELFTkTtawrq+TxrDrNG9ckreR34UrP64U0yaFkQLcnaMLq4e4YEGXMqcos5U2WcHHy91g+ngwwkrWZGtamibb17Wlt1dJtU0Ha+ITPhbx9pbeeATaNMct2wUb1eppB4hOpup6ewY3v7K2kQZcy//UtA2XuOA6F/+PUhwE4aNojMMYeLY9AMLXAl9T4KsJem0WW9drbZYdDiLWrJKd8T5otpJw7gB3l7kFOwPt93tTf3gQPnr2Uf1ytTA+Fud0VObXSyTArmtKl6WPwa4X3pfOfjkRBFTEXWFF+HPL0VuazEa5AnR+SMW3vyNgB1tDeLcsAeGy2TvDUVh2DDekoMqVkF/X+DxsVXq92UPrQQwHhxmUIh2rnAh3GeG3d3rTTlhIZBV7oQRExlIyZdpsvjWjoO5eZbprRaHTswk2+loGsUY424PvnY5PgNRmyvJ7fJF4YaVvb2xaRsiTFrugySZzBUCyti5l2rP3jjarg6YOw7q+QEOxqPWUzRZheW8VrLLS1iCaLRZGW7DB9VHMy1xyj41CAx2KEvUJVREmpsXHdZ3f35Gtfw+qmyxTREYop8ttkoZvvl+XOvpYA5oTy58EOBAg7Ubbpkx3tR8sVJ4IQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(966005)(8936002)(6666004)(1076003)(8676002)(316002)(110136005)(44832011)(7416002)(508600001)(8886007)(54906003)(4326008)(2906002)(956004)(2616005)(38100700002)(55016002)(26005)(7696005)(83380400001)(36756003)(52116002)(186003)(38350700002)(66946007)(86362001)(66556008)(66476007)(5660300002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PMTvMaVYUQJ7gDYhuQb3CKI+1xFImh0ZkHJGrSqidY6xdPApbIftyz237SBJ?=
+ =?us-ascii?Q?FWW3aSwO1bx0tEBLPi8XGUDxd0dcRpUIoFFPu5N6JctYrNUjlfdNnDIs7uON?=
+ =?us-ascii?Q?pnDm9ZREYbj2ZiQ3tZU+ezJXHJibfdx/XsZlbNzCbqOuauVDbRVTqQ83jbKo?=
+ =?us-ascii?Q?m4zqM4kY+7WzqJL3I+XKzg9DyORPwNIluHTqRdTb0/LC1BK/wFvEQPxtsGBn?=
+ =?us-ascii?Q?HWfC8jO1VI9DMzqCTU1+EaaRsOioAImxaSnP14v3W8VJu7PgsNxeMX3z7fUh?=
+ =?us-ascii?Q?SWPbLTky7FYNrzqpSgGMSb2cgio4VMXRawVpVAiZOKdOmrEMvpvdPI/S+Bud?=
+ =?us-ascii?Q?Z+6yBa+okDvdZ4OL93Lf4G+P6KNIT3n6Gw6yZxLrkjJSPmG+KgkBCw5puM2W?=
+ =?us-ascii?Q?V7Yqelb89CTKsErg6McuYraNQeWpqRnj5BC0E5P5cGvp11YTZ6qTAnPOZPa5?=
+ =?us-ascii?Q?criMjAeI8Eroj8nSfsBdUpJ0jLm3z1GvzWssEF7yMMx/nqAmO5sSJ3Gz1Nma?=
+ =?us-ascii?Q?rSgkbfHBG3/d290edEtuCOqjfLPhJNxp2IwPe4K/M5VGtV6ey0hM02YUnpcZ?=
+ =?us-ascii?Q?hd287eAm9shH1wz4xjSWOFLcFDZrDYYXYBx8Prbakbm83bVR0JFMsBTlVZA6?=
+ =?us-ascii?Q?drG/b/LgAyj5NmtsWEO3JAoLaG2s7XzxpIXuqOnop38JL9yA6sgZhWsvFX6y?=
+ =?us-ascii?Q?ItPzU9lxOgX6tKizxvaNOjyDyVEBRdzzsbYnDqU1zcHX+NAwj/lAb3qBZAka?=
+ =?us-ascii?Q?iBbe+nuzeJ2LUJBmzLXHO/jl2mF83DlT8Oz86oLaq+FVkSdhbz9NnyPnq6CM?=
+ =?us-ascii?Q?VC6dpu/Tm0FmcO0MoAZ2TCSw/VuI9xn95DHjU1DWlmsycSc4/Ph60B36t72+?=
+ =?us-ascii?Q?1Gw8ATsulWFYS7VAPi1C6sv2FM5+cx+Hgr6S75IbJM3uMSK/0Zllkx638iRV?=
+ =?us-ascii?Q?CFaYa6t5ozlMwzUGqlOLKqQV7y8/kp4tNreyyGLwRmt3n5DAzjLv2xeJo47v?=
+ =?us-ascii?Q?L1dOCPZ/d/3r5GmbqEeN6XkNCzMm6X16hLCE9VC28YpOP2CdsQbVQHwxxU+N?=
+ =?us-ascii?Q?3hvTVQ/yCHfC+14p2eoAmzSFpcsWM4Q99ov0iiMb/lh/AHd6iqbfvxXl9MvF?=
+ =?us-ascii?Q?zPfM+n8QbC/ucKMbn10ixSz3uPXfCmf00ZD317i6XO3lAv24OQC5K9O1d+vH?=
+ =?us-ascii?Q?6ef6x0CzMzKiqBjUFHLcAuHSx+35T9EtL6NDcksGwkZdO6Zs+AQC7SXm3A3h?=
+ =?us-ascii?Q?9APCxn3rVlpQSQcCAsmJYT6982tyhcphauZltjYNxpsUB0hZB/k6sQFYcGdf?=
+ =?us-ascii?Q?Tp2vtG73kPeGAPKT9G4LcQJL?=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fe14d1c-7cac-404d-b9a5-08d98d66f94c
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2021 09:59:26.1149 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QNKf0EGNB8RpuZETYixCbMuNpa+mJvRjy0ziO/V0qDl0icYwRgA5od1bRjK+qbspYSZEgrcVsfjuQDGXOyCYcg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB8348
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_002704_340104_DEA74E3C 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20211012_025932_705034_F83BA48E 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,28 +168,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/10/2021 06:29, Alexandre Ghiti wrote:
-> hi Krzysztof,
-> 
-> On Mon, Sep 20, 2021 at 3:05 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@canonical.com> wrote:
->>
->> The compatible "issi,is25wp256" is undocumented and instead only a
->> generic jedec,spi-nor should be used (if appropriate).
-> 
-> Why not do it the other way around? I mean adding this compatible to
-> the expected list: don't we lose information using the generic
-> compatible?
-> 
-> Thanks,
-> 
+This series adds RISC-V CPU Idle support using SBI HSM suspend function.
+The RISC-V SBI CPU idle driver added by this series is highly inspired
+from the ARM PSCI CPU idle driver.
 
-We discussed it:
-https://lore.kernel.org/lkml/ae4c58fe-0af5-3f1d-cc16-27b78772cbb5@microchip.com/
+At high-level, this series includes the following changes:
+1) Preparatory arch/riscv patches (Patches 1 to 3)
+2) Defines for RISC-V SBI HSM suspend (Patch 4)
+3) Preparatory patch to share code between RISC-V SBI CPU idle driver
+   and ARM PSCI CPU idle driver (Patch 5)
+4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
 
+These patches can be found in riscv_sbi_hsm_suspend_v9 branch at
+https://github.com/avpatel/linux
 
-Best regards,
-Krzysztof
+Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
+support in all above projects (RISC-V SBI specification, OpenSBI, and
+Linux RISC-V).
+
+Changes since v8:
+ - Rebased on Linux-5.15-rc5
+ - Fixed DT schema check errors in PATCH7
+
+Changes since v7:
+ - Rebased on Linux-5.15-rc3
+ - Renamed cpuidle-sbi.c to cpuidle-riscv-sbi.c in PATCH6
+
+Changes since v6:
+ - Fixed error reported by "make DT_CHECKER_FLAGS=-m dt_binding_check"
+
+Changes since v5:
+ - Rebased on Linux-5.13-rc5
+ - Removed unnecessary exports from PATCH5
+ - Removed stray ";" from PATCH5
+ - Moved sbi_cpuidle_pd_power_off() under "#ifdef CONFIG_DT_IDLE_GENPD"
+   in PATCH6
+
+Changes since v4:
+ - Rebased on Linux-5.13-rc2
+ - Renamed all dt_idle_genpd functions to have "dt_idle_" prefix
+ - Added MAINTAINERS file entry for dt_idle_genpd
+
+Changes since v3:
+ - Rebased on Linux-5.13-rc2
+ - Fixed __cpu_resume_enter() which was broken due to XIP kernel support
+ - Removed "struct dt_idle_genpd_ops" abstraction which simplifies code
+   sharing between ARM PSCI and RISC-V SBI drivers in PATCH5
+
+Changes since v2:
+ - Rebased on Linux-5.12-rc3
+ - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
+   idle states
+ - Added "additionalProperties = false" for both idle-states node and
+   child nodes in PATCH7
+
+Changes since v1:
+ - Fixex minor typo in PATCH1
+ - Use just "idle-states" as DT node name for CPU idle states
+ - Added documentation for "cpu-idle-states" DT property in
+   devicetree/bindings/riscv/cpus.yaml
+ - Added documentation for "riscv,sbi-suspend-param" DT property in
+   devicetree/bindings/riscv/idle-states.yaml
+
+Anup Patel (8):
+  RISC-V: Enable CPU_IDLE drivers
+  RISC-V: Rename relocate() and make it global
+  RISC-V: Add arch functions for non-retentive suspend entry/exit
+  RISC-V: Add SBI HSM suspend related defines
+  cpuidle: Factor-out power domain related code from PSCI domain driver
+  cpuidle: Add RISC-V SBI CPU idle driver
+  dt-bindings: Add common bindings for ARM and RISC-V idle states
+  RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
+
+ .../bindings/arm/msm/qcom,idle-state.txt      |   2 +-
+ .../devicetree/bindings/arm/psci.yaml         |   2 +-
+ .../bindings/{arm => cpu}/idle-states.yaml    | 228 ++++++-
+ .../devicetree/bindings/riscv/cpus.yaml       |   6 +
+ MAINTAINERS                                   |  14 +
+ arch/riscv/Kconfig                            |   7 +
+ arch/riscv/Kconfig.socs                       |   3 +
+ arch/riscv/configs/defconfig                  |  15 +-
+ arch/riscv/configs/rv32_defconfig             |   8 +-
+ arch/riscv/include/asm/asm.h                  |  17 +
+ arch/riscv/include/asm/cpuidle.h              |  24 +
+ arch/riscv/include/asm/sbi.h                  |  27 +-
+ arch/riscv/include/asm/suspend.h              |  35 +
+ arch/riscv/kernel/Makefile                    |   2 +
+ arch/riscv/kernel/asm-offsets.c               |   3 +
+ arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
+ arch/riscv/kernel/head.S                      |  18 +-
+ arch/riscv/kernel/process.c                   |   3 +-
+ arch/riscv/kernel/suspend.c                   |  86 +++
+ arch/riscv/kernel/suspend_entry.S             | 123 ++++
+ drivers/cpuidle/Kconfig                       |   9 +
+ drivers/cpuidle/Kconfig.arm                   |   1 +
+ drivers/cpuidle/Kconfig.riscv                 |  15 +
+ drivers/cpuidle/Makefile                      |   5 +
+ drivers/cpuidle/cpuidle-psci-domain.c         | 138 +---
+ drivers/cpuidle/cpuidle-psci.h                |  15 +-
+ drivers/cpuidle/cpuidle-riscv-sbi.c           | 626 ++++++++++++++++++
+ drivers/cpuidle/dt_idle_genpd.c               | 177 +++++
+ drivers/cpuidle/dt_idle_genpd.h               |  50 ++
+ 29 files changed, 1474 insertions(+), 187 deletions(-)
+ rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
+ create mode 100644 arch/riscv/include/asm/cpuidle.h
+ create mode 100644 arch/riscv/include/asm/suspend.h
+ create mode 100644 arch/riscv/kernel/suspend.c
+ create mode 100644 arch/riscv/kernel/suspend_entry.S
+ create mode 100644 drivers/cpuidle/Kconfig.riscv
+ create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.c
+ create mode 100644 drivers/cpuidle/dt_idle_genpd.c
+ create mode 100644 drivers/cpuidle/dt_idle_genpd.h
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
