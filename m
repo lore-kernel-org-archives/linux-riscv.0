@@ -2,82 +2,78 @@ Return-Path: <SRS0=U004=PB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B777C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 05:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BF44C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 07:29:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B71FE60184
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 05:12:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B71FE60184
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id F04DC60E53
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 07:29:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F04DC60E53
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k7mRvrx5u58RQEnNPQa1ArRkKFigVVrslWGGjEa2vZg=; b=GJMMfJz4FnlvNA
-	l+Hdf94T6uaiHMR6EtTSqwM8ChUq+OyfH5E8pF4v+rikoSwonX1cLsDuumjyibTsR6GlHDZGPwR4v
-	ZaFCSvHjtiKAGuHitU1rTr6WF6KwV/4p8lM2OGmZC5oSunp/EKgf4pp3Pbqj10hrfKY4hg1zwdmDE
-	rYFqDIba+7p8P5vIksYKoYeLAcjSMSLOwknWVAUspF7GKq16z1Gi/hwbQAWODPhlUo59MSs9lxNBg
-	cBjG3JCIrzh2yndIh8uPr69Fjpa34tR/BBNRVB5ImEny98zV2Svri/21LsZdz9BUrH23CJf8LuywB
-	TrHSO3+BmXZhyWQJ0wGw==;
+	List-Owner; bh=YyXQWc4ZswBLKOd2BjFv9HHvPKltHPRg3Wxktu56yFs=; b=4ZgyH83OOIbSfk
+	n4nOg8/8mrYf8pPZ/ltFSNkR4Q/UzeIatoEqLqBDaoukzvO+VSEuay8+dSSuxHunEzKU4z/je6VSv
+	JSsBlp+IT0IyNQZcSDDpp6hSc3jezAHO0R72+2FT1ZRulV5Xt9LrYfzRcQ+FgQJ/wgI4vrM9ppfmp
+	3l6oKj3SXGzyWjc1XTAA8B3ll/oxkqowOJUUyM1UX/fJ2ISbL+FSVqsi7d0EEzOm4fuAZE4KxHB8p
+	MwlSzdbubpi4bYM0pFK2dScPR8ZHTruQr57qQawarVcIJyk4gWvLOSbyisv1cK86GVWp61xZ7I1M6
+	97qgtraAqHNohml5tFYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1maWYd-00EsuS-E6; Wed, 13 Oct 2021 05:12:03 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1maYgY-00FMGO-KQ; Wed, 13 Oct 2021 07:28:22 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maWYa-00Essr-E8
- for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 05:12:01 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id k7so3912781wrd.13
- for <linux-riscv@lists.infradead.org>; Tue, 12 Oct 2021 22:11:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8oEFV0or7PHUMQMd5+/L2xMc0OUI7R/fEGHl3NgZeoE=;
- b=P6BmYB+k8phnQzRTC3McT5TXQ8SpqX/hpEQgWN3LcU8BGs0jrFnydtG6bmNfoEuK3v
- cosAys/VatlzBRzIkb9in8GJt4YcCKeQeUott/GfXHGoNDxCAv6nMOU6yg9mW+d6TmKv
- iH1IxjgFVNeRJsRcFwvtLuusAhjniK8m2krvcsvLmmvFUtGnR11DbNzQZfpurHHXzQFI
- p2oKSpijSJ3Kt2Qh4bhcZnChgUHkqBC34WIzr5TdBJ9ZGPZd/iqEGbi5LiT9gP5TXtlQ
- ipyxeI5zNq33H8eFNddXucBXn7mCJJMETWx5qBJTUVt/PwQB9qkNaC+jcEfD0jYSKFY/
- 378w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8oEFV0or7PHUMQMd5+/L2xMc0OUI7R/fEGHl3NgZeoE=;
- b=N2ygc3RtB63Vq3S3c1xCcOxoNg2z9wkVAZKopPrHVkXk5ieNHfxts5BzCTubCSv0mL
- lhen7Q8CdMjS8jXUG7RSetOXwATTjCHdw8xWnpGxE6gXxQ2vUzM32Z+6liv9w8G6/dMr
- 7gKBCKhwOqerdCSvNZPI2HGENxd3SqoUVWciXhERQ6kp+tMf4uD9rNnBVw08pBOsWPpS
- nPpWSeMzdG4Z85lr0S6KCFGfHiNVr+tXWUpdTngeKoexmui/3r/ot44NjBFmN3uEVV+X
- 0SA5MIMr265E9BJlD4g5tdCB/P7OVzK3fXCFhOMxw2II8eQWgLpKUVLVVM/S81eNzomy
- kUJw==
-X-Gm-Message-State: AOAM530+N2VR/jYNk5B7CcekGuaOedycg6YF3TGRBnPG12BrH5feUBEg
- +a1SeEmtTXtb8D9X3GoBVaT9fqdXNCqK7k4p1NBWcQ==
-X-Google-Smtp-Source: ABdhPJzdApIqxACjaRv7O7yKEyaAFN2tRl4Gnw+yyNwEBbof7YhRHdzOv5Ct31NM/qV+9/G7APIy6OKxcza/LQfShAc=
-X-Received: by 2002:a05:600c:4111:: with SMTP id
- j17mr10363683wmi.59.1634101918493; 
- Tue, 12 Oct 2021 22:11:58 -0700 (PDT)
+ id 1maXI8-00F3b2-Fm; Wed, 13 Oct 2021 05:59:06 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D2F5760C4A;
+ Wed, 13 Oct 2021 05:59:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1634104743;
+ bh=/qus41ilY6w21Ca2R+0Q6xIAZtlILxDno5T19N3Hbh0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=SpDIVM2VGBPZsKjcC97qrSMhyUjATK0iwjm1dmQcPw52HWoSMTiTYciSLUQ/Ss92d
+ h/EQyXwbDzuXxR5uHYtTdFICsob4rzONLe6Tgq0VLdp50etPD0ZuBDSRx3eRhtpxfH
+ FWtL2YaYFXH1YFJzanaKq6d4doBz3WR0T9JnQV5I=
+Date: Wed, 13 Oct 2021 07:58:58 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Simon Trimmer <simont@opensource.cirrus.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, linux@armlinux.org.uk,
+ catalin.marinas@arm.com, tsbogend@alpha.franken.de,
+ James.Bottomley@hansenpartnership.com, deller@gmx.de,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
+ linus.walleij@linaro.org, geert+renesas@glider.be,
+ rmk+kernel@armlinux.org.uk, akpm@linux-foundation.org,
+ anshuman.khandual@arm.com, mark.rutland@arm.com, ardb@kernel.org,
+ u.kleine-koenig@pengutronix.de, rppt@kernel.org,
+ lukas.bulwahn@gmail.com, wangkefeng.wang@huawei.com,
+ slyfox@gentoo.org, axboe@kernel.dk, ben.widawsky@intel.com,
+ dan.j.williams@intel.com, linux-arm-kernel@lists.infradead.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 5.10 11/11] firmware: include
+ drivers/firmware/Kconfig unconditionally
+Message-ID: <YWZ1om+pLmV3atTd@kroah.com>
+References: <20211013005532.700190-1-sashal@kernel.org>
+ <20211013005532.700190-11-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20211013012149.2834212-1-guoren@kernel.org>
-In-Reply-To: <20211013012149.2834212-1-guoren@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 13 Oct 2021 10:41:46 +0530
-Message-ID: <CAAhSdy042JY_Vm2j_d5t4jweS3gf51h30j1O9LXDnE6KkB8AEg@mail.gmail.com>
-Subject: Re: [PATCH V3 1/2] dt-bindings: update riscv plic compatible string
-To: Guo Ren <guoren@kernel.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Rob Herring <robh@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>
+Content-Disposition: inline
+In-Reply-To: <20211013005532.700190-11-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211012_221200_511342_85590E28 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20211012_225904_619703_5E234AFA 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,75 +90,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 13, 2021 at 6:52 AM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Add the compatible string "thead,c900-plic" to the riscv plic
-> bindings to support SOCs with thead,c9xx processor cores.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Atish Patra <atish.patra@wdc.com>
->
+On Tue, Oct 12, 2021 at 08:55:31PM -0400, Sasha Levin wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> [ Upstream commit 951cd3a0866d29cb9c01ebc1d9c17590e598226e ]
+> 
+> Compile-testing drivers that require access to a firmware layer
+> fails when that firmware symbol is unavailable. This happened
+> twice this week:
+> 
+>  - My proposed to change to rework the QCOM_SCM firmware symbol
+>    broke on ppc64 and others.
+> 
+>  - The cs_dsp firmware patch added device specific firmware loader
+>    into drivers/firmware, which broke on the same set of
+>    architectures.
+> 
+> We should probably do the same thing for other subsystems as well,
+> but fix this one first as this is a dependency for other patches
+> getting merged.
+> 
+> Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
+> Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+> Acked-by: Will Deacon <will@kernel.org>
+> Acked-by: Bjorn Andersson <bjorn.andersson@linaro.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Liam Girdwood <lgirdwood@gmail.com>
+> Cc: Charles Keepax <ckeepax@opensource.cirrus.com>
+> Cc: Simon Trimmer <simont@opensource.cirrus.com>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
 > ---
->
-> Changes since V3:
->  - Rename "c9xx" to "c900"
->  - Add thead,c900-plic in the description section
-> ---
->  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml    | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index 08d5a57ce00f..82629832e5a5 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -35,6 +35,11 @@ description:
->    contains a specific memory layout, which is documented in chapter 8 of the
->    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
->
-> +  While the "thead,c900-plic" would mask IRQ with readl(claim), so it needn't
-> +  mask/unmask which needed in RISC-V PLIC. When in IRQS_ONESHOT & IRQCHIP_EOI_THREADED
-> +  path, unnecessary mask operation would cause a blocking irq bug in thead,c900-plic.
-> +  Because when IRQ is disabled in c900, writel(hwirq, claim) would be invalid.
-
-This is a totally incorrect description of the errata required for C9xx PLIC.
-
-Please don't project non-compliance as a feature of C9xx PLIC.
-
+>  arch/arm/Kconfig    | 2 --
+>  arch/arm64/Kconfig  | 2 --
+>  arch/ia64/Kconfig   | 2 --
+>  arch/mips/Kconfig   | 2 --
+>  arch/parisc/Kconfig | 2 --
+>  arch/riscv/Kconfig  | 2 --
+>  arch/x86/Kconfig    | 2 --
+>  drivers/Kconfig     | 2 ++
+>  8 files changed, 2 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 002e0cf025f5..d4c6b95b24d7 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -2043,8 +2043,6 @@ config ARCH_HIBERNATION_POSSIBLE
+>  
+>  endmenu
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  if CRYPTO
+>  source "arch/arm/crypto/Kconfig"
+>  endif
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 5e5cf3af6351..f4809760a806 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1933,8 +1933,6 @@ source "drivers/cpufreq/Kconfig"
+>  
+>  endmenu
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  source "drivers/acpi/Kconfig"
+>  
+>  source "arch/arm64/kvm/Kconfig"
+> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+> index 39b25a5a591b..e8014d2e36c0 100644
+> --- a/arch/ia64/Kconfig
+> +++ b/arch/ia64/Kconfig
+> @@ -426,8 +426,6 @@ config CRASH_DUMP
+>  	  help
+>  	    Generate crash dump after being started by kexec.
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  endmenu
+>  
+>  menu "Power management and ACPI options"
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index 1a63f592034e..3bd3a01a2a2b 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -3328,8 +3328,6 @@ source "drivers/cpuidle/Kconfig"
+>  
+>  endmenu
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  source "arch/mips/kvm/Kconfig"
+>  
+>  source "arch/mips/vdso/Kconfig"
+> diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+> index 14f3252f2da0..ad13477fb40c 100644
+> --- a/arch/parisc/Kconfig
+> +++ b/arch/parisc/Kconfig
+> @@ -378,6 +378,4 @@ config KEXEC_FILE
+>  
+>  endmenu
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  source "drivers/parisc/Kconfig"
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index f7abd118d23d..fcb8e5da148e 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -428,5 +428,3 @@ menu "Power management options"
+>  source "kernel/power/Kconfig"
+>  
+>  endmenu
+> -
+> -source "drivers/firmware/Kconfig"
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index f3c8a8110f60..499f3cc1e62f 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -2899,8 +2899,6 @@ config HAVE_ATOMIC_IOMAP
+>  	def_bool y
+>  	depends on X86_32
+>  
+> -source "drivers/firmware/Kconfig"
+> -
+>  source "arch/x86/kvm/Kconfig"
+>  
+>  source "arch/x86/Kconfig.assembler"
+> diff --git a/drivers/Kconfig b/drivers/Kconfig
+> index dcecc9f6e33f..493ac7ffd8d0 100644
+> --- a/drivers/Kconfig
+> +++ b/drivers/Kconfig
+> @@ -16,6 +16,8 @@ source "drivers/bus/Kconfig"
+>  
+>  source "drivers/connector/Kconfig"
+>  
+> +source "drivers/firmware/Kconfig"
 > +
->  maintainers:
->    - Sagar Kadam <sagar.kadam@sifive.com>
->    - Paul Walmsley  <paul.walmsley@sifive.com>
-> @@ -46,6 +51,7 @@ properties:
->        - enum:
->            - sifive,fu540-c000-plic
->            - canaan,k210-plic
-> +          - thead,c900-plic
->        - const: sifive,plic-1.0.0
+>  source "drivers/gnss/Kconfig"
+>  
+>  source "drivers/mtd/Kconfig"
+> -- 
+> 2.33.0
+> 
 
-The PLIC DT node requires two compatible string:
-<implementation_compat>, <spec_compat>
+This isn't for stable kernels, it should be dropped from all of your
+AUTOSEL queues.
 
-The C9xx PLIC is not RISC-V PLIC so, the DT node should
-be: "thead,c900-plic", "thead,c9xx-plic"
+thanks,
 
-You need to change "- const: sifive,plic-1.0.0" to
-- enum:
-    - sifive,plic-1.0.0
-    - thead,c9xx-plic
-
->
->    reg:
-> --
-> 2.25.1
->
-
-Regards,
-Anup
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
