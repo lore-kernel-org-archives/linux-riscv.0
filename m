@@ -2,63 +2,88 @@ Return-Path: <SRS0=U004=PB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B2671C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 14:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0283C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 16:38:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 20B2760EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 14:30:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 20B2760EE9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 7044760E0C
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 16:38:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7044760E0C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=6B/tHnEoZ/hHcIb2QZw0gansMo7EQvNG05iKZbwqeSc=; b=X8W/E7+KPsrlAhjGb+PdPfa+mY
-	jQiOEvJ8JxUglsmu/zYL6Rd/WUL6GEh82YZ6I7atcb/+d1eG/BjpObnF2Vh2UKCrNghcZFHZMzY6S
-	tcgrf8LvbX8ewH5pExOZoOkcTgRFk3q/6AbJDtYmfxpAJi7RXhnpjlirIaD7C6+M97xyw6/EW46oC
-	pcB/TKDaHph5+LyiAlAPtEH2CHZAf0Wo/rp8eIRlTQ5MqyUVlBGhIIIhlddsGx8tCays0iuhbyH3T
-	EgDG/eQXGVHZnORpn5fUQROR0VePiheQX/0LY+bA+Q93hDavAifSeTGO1wGWtnK2UL+fyzHCMV91L
-	J4mjAqNw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DEN89X0/OuQjfJwtLDZ21EBTlMf6YWBGmYGXX9OI1u4=; b=Iecia9+Adu+on6
+	oe4I6QNha2xBU3lmubMl2ADDv1UuUKEiCb876guCxo/rTo87pPmFtr5n21vsRERuhpeK00iV4d6L7
+	xmjwWaC+D1P535GigU6nSR/7LUw819BoduTZQep9+tvBc6MtrrMggzbrK1QSzMw5ELmarWgCdhvjn
+	tmpv1LMevRHZ+msRSbAictapfkM0Bp4yG9dZuh13PhS7lV89njIlqpNhnt/zDaow6O6osxF0yAx6Z
+	B5qUB9BQJnulZxtCDOKTqfjMUu92uh21USM+NuQIKcp0krfGWHhVlYyxg4f65l4Zbnz3wYEjqCzLO
+	+KmW+WV6CyKczcBOKx2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mafGn-00HACT-Q9; Wed, 13 Oct 2021 14:30:13 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1mahGz-0003fp-DS; Wed, 13 Oct 2021 16:38:33 +0000
+Received: from mail-pl1-f174.google.com ([209.85.214.174])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mafGj-00HAAl-R9
- for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 14:30:12 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 61BD660002;
- Wed, 13 Oct 2021 14:30:04 +0000 (UTC)
-Subject: Re: [PATCH v1 1/1] Add support for mm->mmap_legacy_base in legacy
- layout
-To: "zhengdbu@gmail.com" <zhengdbu@gmail.com>,
- "paul.walmsley" <paul.walmsley@sifive.com>
-Cc: palmer <palmer@dabbelt.com>, aou <aou@eecs.berkeley.edu>,
- "anup.patel" <anup.patel@wdc.com>, sunnanyong <sunnanyong@huawei.com>,
- jszhang <jszhang@kernel.org>, penberg <penberg@kernel.org>,
- guoren <guoren@linux.alibaba.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-References: <20210927111150.3518-1-zhengdbu@gmail.com>
- <ca177872-8ce8-0cb7-4dbf-2debcb1ce76f@ghiti.fr>
- <2021101300034741790513@gmail.com>
-From: Alexandre ghiti <alex@ghiti.fr>
-Message-ID: <3261b5c4-c5bf-211d-d5f2-c875bcf6b5f5@ghiti.fr>
-Date: Wed, 13 Oct 2021 16:30:03 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+ id 1mahGu-0003eh-BR
+ for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 16:38:31 +0000
+Received: by mail-pl1-f174.google.com with SMTP id x4so2225821pln.5
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 09:38:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qqBBg0cpnxm6GRZe59JZnFiDqhYKmwCkzRYCtGQ6sYk=;
+ b=5BbD7tSNYXfedaBXfonrOqd4a6bIVtROUXCH92RM+9EI+qeLzqXhtZeInEeRxEBRgp
+ xVM4hsnGOtAOiTL8CLfY3oH1c/n/vtbbNQfkazmMjm4JFDxzPnQ4K/qS6A8ZK/jemXRO
+ dZOylIUsbwMKpPCtUrYnCzk4bAfbNYvYwmAbofextyQPjmyLLGdz7wtoiDBy9OEXu590
+ onixncl8bHz3qxTRwjFZhP/lSUaNXAmSnhgz7OufCgumo0px8z1zrbeEZ94x8LJtkV33
+ as/oVg+OKW8dEUsXusAPmdrSdhOhHXsmEzjj+f8pWbEfYdDQETbMKMZpFDpW7T/6rRGE
+ hmYw==
+X-Gm-Message-State: AOAM531bIPjBhgRA4Jur3AwZlBKDyeyp4YSYyblVge4Hd5VV5ZwmLJir
+ +r1Se3oUdCoPu55g62+NgUd1DrnFqizuzmZhVlo=
+X-Google-Smtp-Source: ABdhPJxl8HakLIR8XeyvOjtrMns0/XqViMpskmA7NK5K8F8XzqLcby68KlirHnm/HmbaVyE/1+jw4GjjYuhWBDjgrgA=
+X-Received: by 2002:a17:90b:694:: with SMTP id
+ m20mr14745261pjz.160.1634143105508; 
+ Wed, 13 Oct 2021 09:38:25 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <2021101300034741790513@gmail.com>
-Content-Language: en-US
+References: <20211012134027.684712-1-kernel@esmil.dk>
+ <20211012134027.684712-13-kernel@esmil.dk>
+ <CAHp75Vep+i+iyJi0LAOKuer-cUZoUoB_ZrWKcmT=EB_4hOgFGw@mail.gmail.com>
+In-Reply-To: <CAHp75Vep+i+iyJi0LAOKuer-cUZoUoB_ZrWKcmT=EB_4hOgFGw@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Wed, 13 Oct 2021 18:38:14 +0200
+Message-ID: <CANBLGczDZh+kLWM017mPenY8WO5OovH2DFUSS-shRD-aZVKa0A@mail.gmail.com>
+Subject: Re: [PATCH v1 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211013_073010_200771_48DFA5DA 
-X-CRM114-Status: GOOD (  35.24  )
+X-CRM114-CacheID: sfid-20211013_093828_434097_511BECA6 
+X-CRM114-Status: GOOD (  63.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,191 +95,667 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmlubGksCgpPbiAxMC8xMi8yMSA2OjAzIFBNLCB6aGVuZ2RidUBnbWFpbC5jb20gd3JvdGU6
-Cj4gSGkgQWxleCwKPgo+IERvIHlvdSB0aGluayBtYXBfbGVnYWN5X2Jhc2Ugc2hvdWxkIG5vdCBi
-ZSB1c2VkPyBPciBpcyAKPiB0aGUga2VybmVsIGFib3V0IHRvIGRlbGV0ZSBpdD8gSSB0aGluayBp
-dCdzIHdlaXJkIG5vdCB0byB1c2UgaXQgCj4gYmVjYXVzZSBpdCdzIGFscmVhZHkgZGVmaW5lZC4K
-CgpJIHJlbWVtYmVyIGF0IHRoZSB0aW1lIEkgcHJvcG9zZWQgdGhlIHJlbW92YWwgb2YgdGhlIG1t
-YXBfbGVnYWN5X2Jhc2UKdGhhdCBpdCBkaWQgbm90IHNlZW0gbmVjZXNzYXJ5IGF0IGFsbCwgYnV0
-IEkgc2hvdWxkIGRpdmUgYmFjayBpbnRvIHRoaXMKcGF0Y2hzZXQgdG8gbWFrZSBzdXJlIHdlIHJl
-YWxseSBkb24ndCBuZWVkIHRoaXMgZmllbGQgYW55bW9yZS4KUmVnYXJkaW5nIHlvdXIgcGF0Y2hz
-ZXQsIGNhbiB5b3UgdGVsbCBhIGJpdCBtb3JlIHdoYXQgdmFsdWUgZG9lcyBpdApicmluZyBhbmQg
-d2h5IHdlIHNob3VsZCBjb25zaWRlciBpdD8gQmVjYXVzZSBhdCBmaXJzdCBzaWdodCwgaXQgc2Vl
-bXMKbGlrZSB0aGVyZSBpcyBhIGxvdCBvZiBjb3B5IGZyb20gdGhlIGdlbmVyaWMgY29kZSB0aGF0
-IEkgcHV0IHRoZXJlIHRvCmF2b2lkIGhhdmluZyB0byBjb3B5IGl0IGluIHJpc2N2IDopCgpUaGFu
-a3MsCgpBbGV4CgoKPiBUaGFua3MsCj4KPiBKaW5saSBaaGVuZwo+Cj4KPgo+IC0tLS0tLS0tLS0t
-LS0tCj4KPgo+Cj4gemhlbmdkYnVAZ21haWwuY29tCj4KPgo+Cj4+IEhpIEppbmxpLAo+Cj4KPgo+
-Cj4+IExlIDI3LzA5LzIwMjEgw6AgMTM6MTEsIEppbmxpIFpoZW5nIGEgw6ljcml0wqA6Cj4KPgo+
-Pj4gQWRkIHN1cHBvcnQgZm9yIG1tLT5tbWFwX2xlZ2FjeV9iYXNlIGluIHRoZSBsZWdhY3kgbGF5
-b3V0Cj4KPgo+Pj4gb2YgdGhlIHByb2Nlc3MgbWVtb3J5IHNwYWNlIGZvciB0aGUgcmlzY3YgYXJj
-aGl0ZWN0dXJlCj4KPgo+Cj4KPgo+Cj4+IENhbiB5b3UgZWxhYm9yYXRlIGEgYml0IG1vcmU/IFdo
-YXQgdmFsdWUgZG9lcyBpdCBicmluZz8gSSByZW1lbWJlciBJIGhhZCAKPgo+Cj4+IHNwZW50IHNv
-bWUgdGltZSB0byBmYWN0b3JpemUgdGhpcyBjb2RlIHdpdGggYXJtNjQgdG8gb2ZmZXIgCj4KPgo+
-PiBBUkNIX1dBTlRfREVGQVVMVF9UT1BET1dOX01NQVBfTEFZT1VUIGNvbmZpZyBhbmQgSSBoYWQg
-YW5vdGhlciBwYXRjaHNldCAKPgo+Cj4+IHRvIGdldCByaWQgb2YgbW1hcF9sZWdhY3lfYmFzZSBl
-bnRpcmVseSBhdCAKPgo+Cj4+IGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDE5LzYvMTkvMTggKHdo
-aWNoIG5ldmVyIGdvdCBtZXJnZWQgdGhvdWdoKS4KPgo+Cj4KPgo+PiBUaGFua3MsCj4KPgo+Cj4K
-Pj4gQWxleAo+Cj4KPgo+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBKaW5saSBaaGVuZyA8emhlbmdkYnVA
-Z21haWwuY29tPgo+Cj4KPj4+IC0tLQo+Cj4KPj4+IMKgwqAgYXJjaC9yaXNjdi9LY29uZmlnwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMiArLQo+Cj4KPj4+IMKgwqAgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmjCoMKgIHzCoMKgIDMgKwo+Cj4KPj4+IMKgwqAg
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCB8wqDCoCAxICsKPgo+Cj4+PiDCoMKg
-IGFyY2gvcmlzY3YvbW0vTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMiAr
-LQo+Cj4KPj4+IMKgwqAgYXJjaC9yaXNjdi9tbS9tbWFwLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIHwgMTY1ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4KPgo+Pj4gwqDCoCA1
-IGZpbGVzIGNoYW5nZWQsIDE3MSBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+Cj4KPj4+
-IMKgwqAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvbW0vbW1hcC5jCj4KPgo+Cj4KPj4+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPgo+
-Cj4+PiBpbmRleCAzMDFhNTQyMzNjN2UuLmU2NDIzMTU5MjIyNyAxMDA2NDQKPgo+Cj4+PiAtLS0g
-YS9hcmNoL3Jpc2N2L0tjb25maWcKPgo+Cj4+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPgo+
-Cj4+PiBAQCAtMzcsNyArMzcsNyBAQCBjb25maWcgUklTQ1YKPgo+Cj4+PiDCoMKgIAlzZWxlY3Qg
-QVJDSF9TVVBQT1JUU19ERUJVR19QQUdFQUxMT0MgaWYgTU1VCj4KPgo+Pj4gwqDCoCAJc2VsZWN0
-IEFSQ0hfU1VQUE9SVFNfSFVHRVRMQkZTIGlmIE1NVQo+Cj4KPj4+IMKgwqAgCXNlbGVjdCBBUkNI
-X1VTRV9NRU1URVNUCj4KPgo+Pj4gLQlzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9QRE9XTl9N
-TUFQX0xBWU9VVCBpZiBNTVUKPgo+Cj4+PiArCXNlbGVjdCBBUkNIX0hBU19FTEZfUkFORE9NSVpF
-Cj4KPgo+Pj4gwqDCoCAJc2VsZWN0IEFSQ0hfV0FOVF9GUkFNRV9QT0lOVEVSUwo+Cj4KPj4+IMKg
-wqAgCXNlbGVjdCBBUkNIX1dBTlRfSFVHRV9QTURfU0hBUkUgaWYgNjRCSVQKPgo+Cj4+PiDCoMKg
-IAlzZWxlY3QgQklORk1UX0ZMQVRfTk9fREFUQV9TVEFSVF9PRkZTRVQgaWYgIU1NVQo+Cj4KPj4+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4KPgo+Pj4gaW5kZXggMzliNTUwMzEwZWM2Li4xMDdk
-NjEzNzEyNzIgMTAwNjQ0Cj4KPgo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmgKPgo+Cj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+Cj4K
-Pj4+IEBAIC03MDAsNiArNzAwLDkgQEAgdm9pZCBtaXNjX21lbV9pbml0KHZvaWQpOwo+Cj4KPj4+
-IMKgwqAgZXh0ZXJuIHVuc2lnbmVkIGxvbmcgZW1wdHlfemVyb19wYWdlW1BBR0VfU0laRSAvIHNp
-emVvZih1bnNpZ25lZCBsb25nKV07Cj4KPgo+Pj4gwqDCoCAjZGVmaW5lIFpFUk9fUEFHRSh2YWRk
-cikgKHZpcnRfdG9fcGFnZShlbXB0eV96ZXJvX3BhZ2UpKQo+Cj4KPj4+IMKgwqAgCj4KPgo+Pj4g
-KyNkZWZpbmUgSEFWRV9BUkNIX1VOTUFQUEVEX0FSRUEKPgo+Cj4+PiArI2RlZmluZSBIQVZFX0FS
-Q0hfVU5NQVBQRURfQVJFQV9UT1BET1dOCj4KPgo+Pj4gKwo+Cj4KPj4+IMKgwqAgI2VuZGlmIC8q
-ICFfX0FTU0VNQkxZX18gKi8KPgo+Cj4+PiDCoMKgIAo+Cj4KPj4+IMKgwqAgI2VuZGlmIC8qIF9B
-U01fUklTQ1ZfUEdUQUJMRV9IICovCj4KPgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vcHJvY2Vzc29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5o
-Cj4KPgo+Pj4gaW5kZXggNDZiNDkyYzc4Y2JiLi5lN2RjN2MxZjgyMGEgMTAwNjQ0Cj4KPgo+Pj4g
-LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+Cj4KPj4+ICsrKyBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKPgo+Cj4+PiBAQCAtNTYsNiArNTYsNyBA
-QCBzdGF0aWMgaW5saW5lIHZvaWQgYXJjaF90aHJlYWRfc3RydWN0X3doaXRlbGlzdCh1bnNpZ25l
-ZCBsb25nICpvZmZzZXQsCj4KPgo+Pj4gwqDCoCAjZGVmaW5lIEtTVEtfRUlQKHRzaykJCSh0YXNr
-X3B0X3JlZ3ModHNrKS0+ZXBjKQo+Cj4KPj4+IMKgwqAgI2RlZmluZSBLU1RLX0VTUCh0c2spCQko
-dGFza19wdF9yZWdzKHRzayktPnNwKQo+Cj4KPj4+IMKgwqAgCj4KPgo+Pj4gKyNkZWZpbmUgSEFW
-RV9BUkNIX1BJQ0tfTU1BUF9MQVlPVVQJMQo+Cj4KPj4+IMKgwqAgCj4KPgo+Pj4gwqDCoCAvKiBE
-byBuZWNlc3Nhcnkgc2V0dXAgdG8gc3RhcnQgdXAgYSBuZXdseSBleGVjdXRlZCB0aHJlYWQuICov
-Cj4KPgo+Pj4gwqDCoCBleHRlcm4gdm9pZCBzdGFydF90aHJlYWQoc3RydWN0IHB0X3JlZ3MgKnJl
-Z3MsCj4KPgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vTWFrZWZpbGUgYi9hcmNoL3Jp
-c2N2L21tL01ha2VmaWxlCj4KPgo+Pj4gaW5kZXggN2ViYWVmMTBlYTFiLi4xMjNjNjdhMmMyNGEg
-MTAwNjQ0Cj4KPgo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9NYWtlZmlsZQo+Cj4KPj4+ICsrKyBi
-L2FyY2gvcmlzY3YvbW0vTWFrZWZpbGUKPgo+Cj4+PiBAQCAtMTAsNyArMTAsNyBAQCBLQ09WX0lO
-U1RSVU1FTlRfaW5pdC5vIDo9IG4KPgo+Cj4+PiDCoMKgIAo+Cj4KPj4+IMKgwqAgb2JqLXkgKz0g
-aW5pdC5vCj4KPgo+Pj4gwqDCoCBvYmoteSArPSBleHRhYmxlLm8KPgo+Cj4+PiAtb2JqLSQoQ09O
-RklHX01NVSkgKz0gZmF1bHQubyBwYWdlYXR0ci5vCj4KPgo+Pj4gK29iai0kKENPTkZJR19NTVUp
-ICs9IGZhdWx0Lm8gcGFnZWF0dHIubyBtbWFwLm8KPgo+Cj4+PiDCoMKgIG9iai15ICs9IGNhY2hl
-Zmx1c2gubwo+Cj4KPj4+IMKgwqAgb2JqLXkgKz0gY29udGV4dC5vCj4KPgo+Pj4gwqDCoCAKPgo+
-Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9tbWFwLmMgYi9hcmNoL3Jpc2N2L21tL21t
-YXAuYwo+Cj4KPj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4KPgo+Pj4gaW5kZXggMDAwMDAwMDAw
-MDAwLi42YzU4MThkYjVhNjUKPgo+Cj4+PiAtLS0gL2Rldi9udWxsCj4KPgo+Pj4gKysrIGIvYXJj
-aC9yaXNjdi9tbS9tbWFwLmMKPgo+Cj4+PiBAQCAtMCwwICsxLDE2NSBAQAo+Cj4KPj4+ICsvLyBT
-UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+Cj4KPj4+ICsvKgo+Cj4KPj4+ICsgKiBM
-ZWdhY3kgYW5kIGZsZXhpYmxlIG1tYXAgbGF5b3V0IHN1cHBvcnQKPgo+Cj4+PiArICoKPgo+Cj4+
-PiArICogQ29weXJpZ2h0IChDKSAyMDIxIEppbmxpIFpoZW5nIDx6aGVuZ2RidUBnbWFpbC5jb20+
-Cj4KPgo+Pj4gKyAqLwo+Cj4KPj4+ICsKPgo+Cj4+PiArI2luY2x1ZGUgPGxpbnV4L3BlcnNvbmFs
-aXR5Lmg+Cj4KPgo+Pj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+Cj4KPj4+ICsjaW5jbHVkZSA8
-bGludXgvbW1hbi5oPgo+Cj4KPj4+ICsjaW5jbHVkZSA8bGludXgvcmFuZG9tLmg+Cj4KPgo+Pj4g
-KyNpbmNsdWRlIDxsaW51eC9saW1pdHMuaD4KPgo+Cj4+PiArI2luY2x1ZGUgPGxpbnV4L3NlY3Vy
-aXR5Lmg+Cj4KPgo+Pj4gKyNpbmNsdWRlIDxsaW51eC9jb21wYXQuaD4KPgo+Cj4+PiArI2luY2x1
-ZGUgPGxpbnV4L3NjaGVkL21tLmg+Cj4KPgo+Pj4gKyNpbmNsdWRlIDxsaW51eC9zY2hlZC5oPgo+
-Cj4KPj4+ICsjaW5jbHVkZSA8bGludXgvZWxmLXJhbmRvbWl6ZS5oPgo+Cj4KPj4+ICsjaW5jbHVk
-ZSA8YXNtL3BndGFibGUuaD4KPgo+Cj4+PiArI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KPgo+
-Cj4+PiArCj4KPgo+Pj4gKyNkZWZpbmUgU0laRV8xMjhNCSgxMjgqMTAyNCoxMDI0VUwpCj4KPgo+
-Pj4gKwo+Cj4KPj4+ICsvKmdhcCBiZXR3ZWVuIE1NQVAgYW5kIFNUQUNLKi8KPgo+Cj4+PiArI2Rl
-ZmluZSBHQVBfTUlOCQlTSVpFXzEyOE0KPgo+Cj4+PiArI2RlZmluZSBHQVBfTUFYCQkoKChUQVNL
-X1NJWkUpLzYpKjUpCj4KPgo+Pj4gKwo+Cj4KPj4+ICtzdGF0aWMgdW5zaWduZWQgbG9uZyBtbWFw
-X2Jhc2UodW5zaWduZWQgbG9uZyBybmQsIHN0cnVjdCBybGltaXQgKnJsaW1fc3RhY2spCj4KPgo+
-Pj4gK3sKPgo+Cj4+PiArCXVuc2lnbmVkIGxvbmcgZ2FwID0gcmxpbV9zdGFjay0+cmxpbV9jdXI7
-Cj4KPgo+Pj4gKwo+Cj4KPj4+ICsJaWYgKGdhcCA8IEdBUF9NSU4pCj4KPgo+Pj4gKwkJZ2FwID0g
-R0FQX01JTjsKPgo+Cj4+PiArCWVsc2UgaWYgKGdhcCA+IEdBUF9NQVgpCj4KPgo+Pj4gKwkJZ2Fw
-ID0gR0FQX01BWDsKPgo+Cj4+PiArCj4KPgo+Pj4gKwlyZXR1cm4gUEFHRV9BTElHTihUQVNLX1NJ
-WkUgLSBnYXAgLSBybmQpOwo+Cj4KPj4+ICt9Cj4KPgo+Pj4gKwo+Cj4KPj4+ICt1bnNpZ25lZCBs
-b25nIGFyY2hfZ2V0X3VubWFwcGVkX2FyZWEoc3RydWN0IGZpbGUgKmZpbHAsIHVuc2lnbmVkIGxv
-bmcgYWRkciwKPgo+Cj4+PiArCQl1bnNpZ25lZCBsb25nIGxlbiwgdW5zaWduZWQgbG9uZyBwZ29m
-ZiwgdW5zaWduZWQgbG9uZyBmbGFncykKPgo+Cj4+PiArewo+Cj4KPj4+ICsJc3RydWN0IG1tX3N0
-cnVjdCAqbW0gPSBjdXJyZW50LT5tbTsKPgo+Cj4+PiArCXN0cnVjdCB2bV9hcmVhX3N0cnVjdCAq
-dm1hLCAqcHJldjsKPgo+Cj4+PiArCXN0cnVjdCB2bV91bm1hcHBlZF9hcmVhX2luZm8gaW5mbzsK
-Pgo+Cj4+PiArCj4KPgo+Pj4gKwlpZiAobGVuID4gVEFTS19TSVpFKQo+Cj4KPj4+ICsJCXJldHVy
-biAtRU5PTUVNOwo+Cj4KPj4+ICsKPgo+Cj4+PiArCWlmIChmbGFncyAmIE1BUF9GSVhFRCkKPgo+
-Cj4+PiArCQlyZXR1cm4gYWRkcjsKPgo+Cj4+PiArCj4KPgo+Pj4gKwlpZiAoYWRkcikgewo+Cj4K
-Pj4+ICsJCWFkZHIgPSBQQUdFX0FMSUdOKGFkZHIpOwo+Cj4KPj4+ICsJCXZtYSA9IGZpbmRfdm1h
-X3ByZXYobW0sIGFkZHIsICZwcmV2KTsKPgo+Cj4+PiArCQlpZiAoVEFTS19TSVpFIC0gbGVuID49
-IGFkZHIgJiYgYWRkciA+PSBtbWFwX21pbl9hZGRyICYmCj4KPgo+Pj4gKwkJwqDCoMKgwqAgKCF2
-bWEgfHwgYWRkciArIGxlbiA8PSB2bV9zdGFydF9nYXAodm1hKSkgJiYKPgo+Cj4+PiArCQnCoMKg
-wqDCoCAoIXByZXYgfHwgYWRkciA+PSB2bV9lbmRfZ2FwKHByZXYpKSkKPgo+Cj4+PiArCQkJcmV0
-dXJuIGFkZHI7Cj4KPgo+Pj4gKwl9Cj4KPgo+Pj4gKwo+Cj4KPj4+ICsJaW5mby5mbGFncyA9IDA7
-Cj4KPgo+Pj4gKwlpbmZvLmxlbmd0aCA9IGxlbjsKPgo+Cj4+PiArCWluZm8ubG93X2xpbWl0ID0g
-bW0tPm1tYXBfbGVnYWN5X2Jhc2U7Cj4KPgo+Pj4gKwlpbmZvLmhpZ2hfbGltaXQgPSBUQVNLX1NJ
-WkU7Cj4KPgo+Pj4gKwlpbmZvLmFsaWduX21hc2sgPSAwOwo+Cj4KPj4+ICsJaW5mby5hbGlnbl9v
-ZmZzZXQgPSAwOwo+Cj4KPj4+ICsJcmV0dXJuIHZtX3VubWFwcGVkX2FyZWEoJmluZm8pOwo+Cj4K
-Pj4+ICt9Cj4KPgo+Pj4gKwo+Cj4KPj4+ICt1bnNpZ25lZCBsb25nIGFyY2hfZ2V0X3VubWFwcGVk
-X2FyZWFfdG9wZG93bihzdHJ1Y3QgZmlsZSAqZmlscCwgdW5zaWduZWQgbG9uZyBhZGRyLAo+Cj4K
-Pj4+ICsJCXVuc2lnbmVkIGxvbmcgbGVuLCB1bnNpZ25lZCBsb25nIHBnb2ZmLCB1bnNpZ25lZCBs
-b25nIGZsYWdzKQo+Cj4KPj4+ICt7Cj4KPgo+Pj4gKwlzdHJ1Y3QgbW1fc3RydWN0ICptbSA9IGN1
-cnJlbnQtPm1tOwo+Cj4KPj4+ICsJc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsICpwcmV2Owo+
-Cj4KPj4+ICsJc3RydWN0IHZtX3VubWFwcGVkX2FyZWFfaW5mbyBpbmZvOwo+Cj4KPj4+ICsKPgo+
-Cj4+PiArCWlmIChsZW4gPiBUQVNLX1NJWkUpCj4KPgo+Pj4gKwkJcmV0dXJuIC1FTk9NRU07Cj4K
-Pgo+Pj4gKwo+Cj4KPj4+ICsJaWYgKGZsYWdzICYgTUFQX0ZJWEVEKQo+Cj4KPj4+ICsJCXJldHVy
-biBhZGRyOwo+Cj4KPj4+ICsKPgo+Cj4+PiArCWlmIChhZGRyKSB7Cj4KPgo+Pj4gKwkJYWRkciA9
-IFBBR0VfQUxJR04oYWRkcik7Cj4KPgo+Pj4gKwkJdm1hID0gZmluZF92bWFfcHJldihtbSwgYWRk
-ciwgJnByZXYpOwo+Cj4KPj4+ICsJCWlmIChUQVNLX1NJWkUgLSBsZW4gPj0gYWRkciAmJiBhZGRy
-ID49IG1tYXBfbWluX2FkZHIgJiYKPgo+Cj4+PiArCQnCoMKgwqDCoCAoIXZtYSB8fCBhZGRyICsg
-bGVuIDw9IHZtX3N0YXJ0X2dhcCh2bWEpKSAmJgo+Cj4KPj4+ICsJCcKgwqDCoMKgICghcHJldiB8
-fCBhZGRyID49IHZtX2VuZF9nYXAocHJldikpKQo+Cj4KPj4+ICsJCQlyZXR1cm4gYWRkcjsKPgo+
-Cj4+PiArCX0KPgo+Cj4+PiArCj4KPgo+Pj4gKwlpbmZvLmZsYWdzID0gVk1fVU5NQVBQRURfQVJF
-QV9UT1BET1dOOwo+Cj4KPj4+ICsJaW5mby5sZW5ndGggPSBsZW47Cj4KPgo+Pj4gKwlpbmZvLmxv
-d19saW1pdCA9IG1heChQQUdFX1NJWkUsIG1tYXBfbWluX2FkZHIpOwo+Cj4KPj4+ICsJaW5mby5o
-aWdoX2xpbWl0ID0gbW0tPm1tYXBfYmFzZTsKPgo+Cj4+PiArCWluZm8uYWxpZ25fbWFzayA9IDA7
-Cj4KPgo+Pj4gKwlpbmZvLmFsaWduX29mZnNldCA9IDA7Cj4KPgo+Pj4gKwlhZGRyID0gdm1fdW5t
-YXBwZWRfYXJlYSgmaW5mbyk7Cj4KPgo+Pj4gKwo+Cj4KPj4+ICsJaWYgKG9mZnNldF9pbl9wYWdl
-KGFkZHIpKSB7Cj4KPgo+Pj4gKwkJVk1fQlVHX09OKGFkZHIgIT0gLUVOT01FTSk7Cj4KPgo+Pj4g
-KwkJaW5mby5mbGFncyA9IDA7Cj4KPgo+Pj4gKwkJaW5mby5sb3dfbGltaXQgPSBUQVNLX1VOTUFQ
-UEVEX0JBU0U7Cj4KPgo+Pj4gKwkJaW5mby5oaWdoX2xpbWl0ID0gVEFTS19TSVpFOwo+Cj4KPj4+
-ICsJCWFkZHIgPSB2bV91bm1hcHBlZF9hcmVhKCZpbmZvKTsKPgo+Cj4+PiArCX0KPgo+Cj4+PiAr
-Cj4KPgo+Pj4gKwlyZXR1cm4gYWRkcjsKPgo+Cj4+PiArfQo+Cj4KPj4+ICsKPgo+Cj4+PiArdW5z
-aWduZWQgbG9uZyBhcmNoX21tYXBfcm5kKHZvaWQpCj4KPgo+Pj4gK3sKPgo+Cj4+PiArCXVuc2ln
-bmVkIGxvbmcgcm5kOwo+Cj4KPj4+ICsKPgo+Cj4+PiArI2lmZGVmIENPTkZJR19IQVZFX0FSQ0hf
-TU1BUF9STkRfQ09NUEFUX0JJVFMKPgo+Cj4+PiArCWlmIChpc19jb21wYXRfdGFzaygpKQo+Cj4K
-Pj4+ICsJCXJuZCA9IGdldF9yYW5kb21faW50KCkgJiAoKDFVTCA8PCBtbWFwX3JuZF9jb21wYXRf
-Yml0cykgLSAxKTsKPgo+Cj4+PiArCWVsc2UKPgo+Cj4+PiArI2VuZGlmIC8qQ09ORklHX0hBVkVf
-QVJDSF9NTUFQX1JORF9DT01QQVRfQklUUyovCj4KPgo+Pj4gKwkJcm5kID0gZ2V0X3JhbmRvbV9p
-bnQoKSAmICgoMVVMIDw8IG1tYXBfcm5kX2JpdHMpIC0gMSk7Cj4KPgo+Pj4gKwo+Cj4KPj4+ICsJ
-cmV0dXJuIHJuZCA8PCBQQUdFX1NISUZUOwo+Cj4KPj4+ICt9Cj4KPgo+Pj4gKwo+Cj4KPj4+ICtz
-dGF0aWMgaW50IG1tYXBfaXNfbGVnYWN5KHN0cnVjdCBybGltaXQgKnJsaW1fc3RhY2spCj4KPgo+
-Pj4gK3sKPgo+Cj4+PiArCWlmIChjdXJyZW50LT5wZXJzb25hbGl0eSAmIEFERFJfQ09NUEFUX0xB
-WU9VVCkKPgo+Cj4+PiArCQlyZXR1cm4gMTsKPgo+Cj4+PiArCj4KPgo+Pj4gKwlpZiAocmxpbV9z
-dGFjay0+cmxpbV9jdXIgPT0gUkxJTV9JTkZJTklUWSkKPgo+Cj4+PiArCQlyZXR1cm4gMTsKPgo+
-Cj4+PiArCj4KPgo+Pj4gKwlyZXR1cm4gc3lzY3RsX2xlZ2FjeV92YV9sYXlvdXQ7Cj4KPgo+Pj4g
-K30KPgo+Cj4+PiArCj4KPgo+Pj4gK3N0YXRpYyB2b2lkIGFyY2hfcGlja19tbWFwX2Jhc2Uoc3Ry
-dWN0IG1tX3N0cnVjdCAqbW0sIHN0cnVjdCBybGltaXQgKnJsaW1fc3RhY2spCj4KPgo+Pj4gK3sK
-Pgo+Cj4+PiArCXVuc2lnbmVkIGxvbmcgcmFuZG9tOwo+Cj4KPj4+ICsKPgo+Cj4+PiArCXJhbmRv
-bSA9IChjdXJyZW50LT5mbGFncyAmIFBGX1JBTkRPTUlaRSkgPwo+Cj4KPj4+ICsJCWFyY2hfbW1h
-cF9ybmQoKSA6IDBVTDsKPgo+Cj4+PiArCj4KPgo+Pj4gKwlpZiAobW1hcF9pc19sZWdhY3kocmxp
-bV9zdGFjaykpCj4KPgo+Pj4gKwkJbW0tPm1tYXBfbGVnYWN5X2Jhc2UgPSBUQVNLX1VOTUFQUEVE
-X0JBU0UgKyByYW5kb207Cj4KPgo+Pj4gKwllbHNlCj4KPgo+Pj4gKwkJbW0tPm1tYXBfYmFzZSA9
-IG1tYXBfYmFzZShyYW5kb20sIHJsaW1fc3RhY2spOwo+Cj4KPj4+ICt9Cj4KPgo+Pj4gKwo+Cj4K
-Pj4+ICt2b2lkIGFyY2hfcGlja19tbWFwX2xheW91dChzdHJ1Y3QgbW1fc3RydWN0ICptbSwgc3Ry
-dWN0IHJsaW1pdCAqcmxpbV9zdGFjaykKPgo+Cj4+PiArewo+Cj4KPj4+ICsJaWYgKG1tYXBfaXNf
-bGVnYWN5KHJsaW1fc3RhY2spKQo+Cj4KPj4+ICsJCW1tLT5nZXRfdW5tYXBwZWRfYXJlYSA9IGFy
-Y2hfZ2V0X3VubWFwcGVkX2FyZWE7Cj4KPgo+Pj4gKwllbHNlCj4KPgo+Pj4gKwkJbW0tPmdldF91
-bm1hcHBlZF9hcmVhID0gYXJjaF9nZXRfdW5tYXBwZWRfYXJlYV90b3Bkb3duOwo+Cj4KPj4+ICsK
-Pgo+Cj4+PiArCWFyY2hfcGlja19tbWFwX2Jhc2UobW0sIHJsaW1fc3RhY2spOwo+Cj4KPj4+ICt9
-Cj4KPgo+Pj4gKwo+Cj4KPj4+ICt1bnNpZ25lZCBsb25nIGFyY2hfcmFuZG9taXplX2JyayhzdHJ1
-Y3QgbW1fc3RydWN0ICptbSkKPgo+Cj4+PiArewo+Cj4KPj4+ICsJaWYgKCFJU19FTkFCTEVEKENP
-TkZJR182NEJJVCkgfHwgaXNfY29tcGF0X3Rhc2soKSkKPgo+Cj4+PiArCQlyZXR1cm4gcmFuZG9t
-aXplX3BhZ2UobW0tPmJyaywgU1pfMzJNKTsKPgo+Cj4+PiArCj4KPgo+Pj4gKwlyZXR1cm4gcmFu
-ZG9taXplX3BhZ2UobW0tPmJyaywgU1pfMUcpOwo+Cj4KPj4+ICt9Cj4KPgo+Cj4gX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 12 Oct 2021 at 19:03, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> On Tue, Oct 12, 2021 at 4:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> >
+> > Add a combined pinctrl and gpio driver for the StarFive JH7100 SoC.
+> >
+> > For each "GPIO" there are two registers for configuring the output and
+> > output enable signals which may come from other peripherals. Among these
+> > are two special signals that are constant 0 and constant 1 respectively.
+> > Controlling the GPIOs from software is done by choosing one of these
+> > signals. In other words the same registers are used for both pinmuxing
+> > and controlling the GPIOs, which makes it easier to combine the pinctrl
+> > and gpio driver in one.
+> >
+> > I wrote the pinconf and pinmux parts, but the gpio part of the code is
+> > based on the gpio driver in the vendor tree written by Huan Feng with
+> > cleanups and fixes by Drew and me.
+>
+> s/gpio/GPIO/g
+>
+> ...
+>
+> > +config PINCTRL_STARFIVE
+>
+> > +       bool "Pinctrl and GPIO driver for the StarFive JH7100 SoC"
+>
+> Why not module?
+>
+> > +       depends on SOC_STARFIVE || COMPILE_TEST
+>
+> > +       depends on OF
+>
+> Do you really need this taking into account...
+>
+> > +       default SOC_STARFIVE
+> > +       select GENERIC_PINCTRL_GROUPS
+> > +       select GENERIC_PINMUX_FUNCTIONS
+> > +       select GENERIC_PINCONF
+> > +       select GPIOLIB
+> > +       select GPIOLIB_IRQCHIP
+>
+> > +       select OF_GPIO
+>
+> ...this one?
+>
+> ...
+>
+> bits.h ?
+>
+> > +#include <linux/clk.h>
+> > +#include <linux/gpio/driver.h>
+> > +#include <linux/io.h>
+> > +#include <linux/module.h>
+>
+>
+> mod_devicetable.h ?
+>
+> > +#include <linux/pinctrl/pinctrl.h>
+> > +#include <linux/pinctrl/pinmux.h>
+>
+> Can you move these as a group after generic linux/* ones?
+>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/reset.h>
+> > +#include <linux/spinlock.h>
+>
+> ...
+>
+> > +/*
+> > + * refer to Section 12. GPIO Registers in JH7100 datasheet:
+>
+> Be consistent in your style, here for example missed capitalization.
+>
+> > + * https://github.com/starfive-tech/StarLight_Docs
+>
+> Is it possible to have the datasheet to be provided as Datasheet: tag
+> in the commit message?
+
+Oh neat. Didn't know about that. I'll also check with StarFive if this
+is the best address for it.
+
+> > + */
+>
+> ...
+>
+> > +/*
+> > + * Global enable for GPIO interrupts, offset: 0x0, field: GPIOEN
+> > + * set to 1 if GPIO interrupts are enabled, set to 0 to disable
+> > + */
+> > +#define IRQ_GLOBAL_EN          0x0
+>
+> s/0x0/0x00/g
+>
+> ...
+>
+> > +/*
+> > + * Interrupt Type for GPIO[31:0], offset: 0x10, field: GPIOS_0
+> > + * set to 1 if edge-triggered, set to 0 for level-triggered
+> > + */
+> > +#define IRQ_TYPE_LOW           0x10
+> > +
+> > +/*
+> > + * Interrupt Type for GPIO[63:32], offset: 0x14, field: GPIOS_1
+> > + */
+> > +#define IRQ_TYPE_HIGH          0x14
+>
+> As I reviewed below, the IRQ is represented by a few registers in a
+> row, no need to define low and high separately. Ditto for the rest
+> register pairs.
+>
+> ...
+>
+> > +/*
+> > + * Interrupt Status after Masking GPIO[31:0], offset: 0x40, field: GPIOMIS_0
+> > + * status of edge-triggered or level-triggered after masking
+> > + * value of 1 means edge or level was detected, value of 0 menas not detected
+>
+> menas?!
+>
+> > + */
+>
+> ...
+>
+> > +/*
+> > + * Data Value of GPIO for GPIO[31:0], offest: 0x48, field: GPIODIN_0
+>
+> offest?!
+>
+> > + * dynamically reflects value on the GPIO pin
+> > + */
+>
+> Please, run a spellchecker.
+>
+> ...
+>
+> > +#define IO_PADSHARE_SEL                0x1a0
+>
+> Okay, make all registers to be fixed width, i.e. 0x000 for IRQ global
+> enabling and so on.
+>
+> ...
+>
+> > +#define PAD_SLEW_RATE_MASK             0xe00U
+>
+> GENMASK()
+>
+> > +#define PAD_BIAS_STRONG_PULL_UP                0x100U
+> > +#define PAD_INPUT_ENABLE               0x080U
+> > +#define PAD_INPUT_SCHMITT_ENABLE       0x040U
+> > +#define PAD_BIAS_DISABLE               0x020U
+> > +#define PAD_BIAS_PULL_DOWN             0x010U
+>
+> All above seems like BIT(_something_).
+>
+> > +#define PAD_BIAS_MASK                  0x130U
+> > +#define PAD_DRIVE_STRENGTH_MASK                0x007U
+>
+> GENMASK()
+>
+> ...
+>
+> > +#ifdef CONFIG_DEBUG_FS
+>
+> __maybe_unused ?
+
+This is the same as the clock driver. If we don't have the ifdef here
+we'll need it when populating the ops structure later or live with the
+code bloat when debugfs is not enabled. Other driver don't seem to do
+that.
+
+> > +#else
+> > +#define starfive_pin_dbg_show NULL
+> > +#endif
+>
+> ...
+>
+> > +       dout = readl_relaxed(reg);
+>
+> readl_relaxed(reg + 0x00)
+>
+> > +       reg += 4;
+>
+> > +       doen = readl_relaxed(reg);
+>
+> readl_relaxed(reg + 0x04);
+>
+> ...
+>
+> > +       seq_printf(s, "dout=%u%s doen=%u%s",
+> > +                  dout & 0xffU, (dout & 0x80000000U) ? "r" : "",
+> > +                  doen & 0xffU, (doen & 0x80000000U) ? "r" : "");
+>
+> GENMASK()
+> BIT()
+>
+> ...
+>
+> > +       for_each_child_of_node(np, child) {
+> > +               const __be32 *pinmux_list;
+> > +               const __be32 *pins_list;
+> > +               int pinmux_size;
+> > +               int pins_size;
+> > +
+> > +               pinmux_list = of_get_property(child, "pinmux", &pinmux_size);
+> > +               pins_list   = of_get_property(child, "pins",   &pins_size);
+> > +               if (pinmux_list && pins_list) {
+> > +                       dev_err(dev, "invalid pinctrl group %pOFn.%pOFn: %s\n",
+> > +                               np, child, "both pinmux and pins set");
+> > +                       of_node_put(child);
+> > +                       return -EINVAL;
+> > +               }
+> > +
+> > +               if (pinmux_list && pinmux_size > 0) {
+> > +                       nmaps += 2;
+> > +               } else if (pins_list && pins_size > 0) {
+> > +                       nmaps += 1;
+> > +               } else {
+> > +                       dev_err(dev, "invalid pinctrl group %pOFn.%pOFn: %s\n",
+> > +                               np, child, "neither pinmux nor pins set");
+> > +                       of_node_put(child);
+> > +                       return -EINVAL;
+> > +               }
+> > +               ngroups += 1;
+> > +       }
+>
+> This entire loop seems like
+> 1) it should be based on something from pin control core;
+> 2) it's using some low level APIs instead of better ones like
+> of_property_read_uXX();
+> 3) smells like unoptimized NIH.
+>
+> ...
+>
+> > +               if ((list = of_get_property(child, "pinmux", &npins))) {
+>
+> Why not of_property_read_...() ?
+>
+> ...
+>
+> > +                               u32 v = be32_to_cpu(*list++);
+>
+> My gosh!
+>
+> ...
+>
+> > +                       for (i = 0; i < npins; i++)
+> > +                               pins[i] = be32_to_cpu(*list++);
+>
+> Ditto.
+> Even for this we have something in byteorder headers.
+>
+> Summary, make sure you use much better _existing_ APIs instead of the
+> above crap.
+>
+> ...
+>
+> > +free_pinmux:
+> > +       devm_kfree(dev, pinmux);
+> > +free_pins:
+> > +       devm_kfree(dev, pins);
+> > +free_grpname:
+> > +       devm_kfree(dev, grpname);
+>
+> What the heck?!
+
+Just to be clear. You mean we don't need to explicitly free them
+because they're tied to the device right? I don't think the device
+will go away just because a single device tree entry can't be parsed,
+so on such errors this garbage would be left behind. You can still
+argue we shouldn't optimize for broken device trees, I just want to
+make it at conscious decision.
+
+> > +free_pgnames:
+> > +       devm_kfree(dev, pgnames);
+>
+> Ditto.
+>
+> ...
+>
+> > +out:
+>
+> Useless label.
+
+Hmm.. my compiler disagrees.
+
+> > +       return ret;
+>
+> ...
+>
+> > +       for (i = 0; i < group->num_pins; i++) {
+> > +               unsigned int gpio = starfive_pin_to_gpio(sfp, group->pins[i]);
+> > +               void __iomem *reg_dout;
+> > +               void __iomem *reg_doen;
+> > +               void __iomem *reg_din;
+> > +               u32 v, dout, doen, din;
+> > +               unsigned long flags;
+>
+> > +               if (dev_WARN_ONCE(dev, gpio >= MAX_GPIO,
+>
+> What?!
+>
+> > +                                 "%s: invalid gpiomux pin", group->name))
+> > +                       continue;
+> > +
+> > +               v = pinmux[i];
+> > +               dout = ((v & BIT(7)) << (31 - 7)) | ((v >> 24) & 0xffU);
+> > +               doen = ((v & BIT(6)) << (31 - 6)) | ((v >> 16) & 0xffU);
+> > +               din  = (v >> 8) & 0xffU;
+>
+> What is this voodoo for?
+
+In order to do pinmux we need the following pieces of information from
+the device tree for each pin ("GPIO" they call it):
+
+output signal: 0-133 + 1bit reverse flag
+output enable signal: 0-133 + 1bit reverse flag
+optional input signal: 0-74 + special "none" value, right now 0xff
+gpio number: 0-63
+
+As the code is now all that info is packed into a u32 for each pin
+using the GPIOMUX macro defined in the dt-binding header added in
+patch 10. There is also a diagram for how this packing is done. The
+above voodoo is for unpacking that.
+
+I'd very much like to hear if you have a better solution for how to
+convey that information from the device tree to here.
+
+> > +               if (din != 0xff)
+> > +                       reg_din = sfp->base + GPIO_IN_OFFSET + 4 * din;
+> > +               else
+> > +                       reg_din = NULL;
+>
+> This looks like you maybe use gpio-regmap instead?
+
+This was discussed at length when Drew sent in the GPIO part of this code:
+https://lore.kernel.org/linux-riscv/20210701002037.912625-1-drew@beagleboard.org/
+The conclusion was that because pinmux and controlling the pins from
+software in GPIO mode uses the same registers it is better to do a
+combined driver like this that can share the lock among other things.
+
+> ...
+>
+> > +       void __iomem *reg = sfp->padctl + 4 * (pin / 2);
+> > +       u32 value = readl_relaxed(reg);
+> > +
+> > +       if (pin & 1U)
+> > +               value >>= 16;
+> > +       return value;
+>
+> u8 shift = 16 * (pin % 2);
+>
+> return readl_relaxed() >> shift;
+>
+> ?
+>
+> Something similar for below code.
+>
+> ...
+>
+> > +#ifdef CONFIG_DEBUG_FS
+> > +static const struct pin_config_item
+> > +starfive_pinconf_custom_conf_items[ARRAY_SIZE(starfive_pinconf_custom_params)] = {
+>
+> Instead of using ARAY_SIZE() here, use static_assert().
+>
+> __maybe_unused?
+
+As above.
+
+> > +       PCONFDUMP(PIN_CONFIG_STARFIVE_STRONG_PULL_UP, "input bias strong pull-up", NULL, false),
+> > +};
+> > +#else
+> > +#define starfive_pinconf_custom_conf_items NULL
+> > +#endif
+>
+> ...
+>
+> > +static const unsigned char starfive_drive_strength[] = {
+> > +       14, 21, 28, 35, 42, 49, 56, 63,
+>
+> Why table? Can you simply use the formula?!
+
+Heh, yeah. So these are rounded values from a table and I never
+noticed that after rounding they follow a nice arithmetic progression.
+It'll probably still be nice to have an explanation in the comments
+about the formula then.
+
+> > +};
+>
+> ...
+>
+> > +       if (unlikely(!group))
+>
+> Why unlikely() Must be justified here and everywhere where you are using it.
+>
+> > +               return -EINVAL;
+> > +
+> > +       return starfive_pinconf_get(pctldev, group->pins[0], config);
+> > +}
+>
+> ...
+>
+> > +               case PIN_CONFIG_BIAS_DISABLE:
+>
+> > +                       mask |= PAD_BIAS_MASK;
+>
+> Use it...
+>
+> > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
+>
+> ...here. Ditto for the similar cases in this function and elsewhere.
+>
+> After done this, you will see how you can simplify and deduplicate the
+> switch-cases.
+>
+> ...
+>
+> > +#ifdef CONFIG_DEBUG_FS
+>
+> __maybe_unused ?
+>
+> > +#else
+> > +#define starfive_pinconf_dbg_show NULL
+> > +#endif
+>
+> ...
+>
+> > +       if (gpio < 32) {
+> > +               value = readl_relaxed(sfp->base + GPIO_DIN_LOW);
+>
+> > +               value = (value >> gpio) & 1U;
+>
+> Drop
+>
+> > +       } else {
+> > +               value = readl_relaxed(sfp->base + GPIO_DIN_HIGH);
+>
+> > +               value = (value >> (gpio - 32)) & 1U;
+>
+> Drop
+>
+> > +       }
+>
+> > +       return value;
+>
+> return !!(value & BIT(gpio % 32));
+>
+> ...
+>
+> > +               if (arg == 0)
+>
+> > +                       return -ENOTSUPP;
+>
+> Shouldn't we return something else and pin control core will change it
+> to something else if needed?
+
+The documentation include/linux/pinctrl/pinconf.h has rules for when
+to return -ENOTSUPP and -EINVAL.
+
+> > +               if (arg == 0)
+> > +                       return -ENOTSUPP;
+>
+> Ditto.
+>
+> > +       default:
+> > +               return -ENOTSUPP;
+>
+> ...
+>
+> > +       if (gpio < 0 || gpio >= MAX_GPIO)
+> > +               return;
+> > +
+> > +       if (gpio < 32) {
+> > +               ie = sfp->base + IRQ_ENABLE_LOW;
+> > +               mask = BIT(gpio);
+> > +       } else {
+> > +               ie = sfp->base + IRQ_ENABLE_HIGH;
+> > +               mask = BIT(gpio - 32);
+> > +       }
+>
+> See below. And update all occurrences of these lines accordingly and
+> everywhere. Also for IRQ may use helper functions if needed (but I
+> don't believe the high and low register have stride more than 4).
+>
+> ...
+>
+> > +       if (gpio < 0 || gpio >= MAX_GPIO)
+> > +               return -EINVAL;
+>
+> How is it possible to be ever triggered?
+>
+> ...
+>
+> > +       if (gpio < 32) {
+> > +               base = sfp->base;
+> > +               mask = BIT(gpio);
+> > +       } else {
+> > +               base = sfp->base + 4;
+> > +               mask = BIT(gpio - 32);
+> > +       }
+>
+> base = sfp_base + 4 * (gpio / 32);
+> mask = BIT(gpio % 32);
+>
+> ...
+>
+> > +               irq_set_handler_locked(d, handle_edge_irq);
+>
+> > +               irq_set_handler_locked(d, handle_edge_irq);
+>
+> Dup.
+>
+> ...
+>
+> > +               irq_set_handler_locked(d, handle_edge_irq);
+>
+> > +               irq_set_handler_locked(d, handle_level_irq);
+>
+> > +               irq_set_handler_locked(d, handle_level_irq);
+>
+> Ditto.
+>
+> ...
+>
+> > +               irq_set_handler_locked(d, handle_bad_irq);
+>
+> Why is this here? Move it to ->probe().
+
+My thinking was that if something tries to set a an unsupported irq
+type, we should make sure the caller doesn't get spurious interrupts
+because we left the handler at its old value.
+
+> ...
+>
+> > +       clk = devm_clk_get(dev, NULL);
+> > +       if (IS_ERR(clk)) {
+> > +               ret = PTR_ERR(clk);
+>
+> > +               dev_err(dev, "could not get clock: %d\n", ret);
+>
+> Thank you for spamming logs with this noise.
+>
+> > +               return ret;
+>
+> Hint: return dev_err_probe(). Ditto for the rest in this function.
+>
+> > +       }
+>
+> ...
+>
+> > +       ret = clk_prepare_enable(clk);
+> > +       if (ret) {
+>
+> > +               reset_control_deassert(rst);
+>
+> Use devm_add_action_or_reset().
+>
+> > +               dev_err(dev, "could not enable clock: %d\n", ret);
+> > +               return ret;
+> > +       }
+>
+> ...
+>
+> > +       if (!of_property_read_u32(dev->of_node, "starfive,signal-group", &value)) {
+>
+> Can be refactored without conditional. Also, why not to use
+> device_property_read_u32()?
+>
+> > +               if (value <= 6)
+> > +                       writel(value, sfp->padctl + IO_PADSHARE_SEL);
+> > +               else
+>
+> > +                       dev_err(dev, "invalid signal group %u\n", value);
+>
+> Why _err if you not bail out here?
+
+My thinking was that if the device tree specifies an invalid signal
+group we should just leave the setting alone and not break booting,
+but still be loud about it. Maybe that's too lenient and it's better
+to crash and burn immediately if someone does that.
+
+> > +       }
+>
+> ...
+>
+> > +       value = readl(sfp->padctl + IO_PADSHARE_SEL);
+> > +       switch (value) {
+> > +       case 0:
+> > +               sfp->gpios.pin_base = 0x10000;
+>
+> Magic number!
+>
+> > +               goto done;
+> > +       case 1:
+> > +               sfp->gpios.pin_base = PAD_GPIO(0);
+> > +               break;
+> > +       case 2:
+> > +               sfp->gpios.pin_base = PAD_FUNC_SHARE(72);
+> > +               break;
+> > +       case 3:
+> > +               sfp->gpios.pin_base = PAD_FUNC_SHARE(70);
+> > +               break;
+> > +       case 4: case 5: case 6:
+> > +               sfp->gpios.pin_base = PAD_FUNC_SHARE(0);
+> > +               break;
+> > +       default:
+> > +               dev_err(dev, "invalid signal group %u\n", value);
+> > +               return -EINVAL;
+> > +       }
+>
+> ...
+>
+> > +       sfp->gc.of_node = dev->of_node;
+>
+> Isn't GPIO library do this for you?
+>
+> ...
+>
+> > +       starfive_irq_chip.parent_device = dev;
+>
+> Ditto?
+>
+> ...
+>
+> > +       sfp->gc.irq.parents =
+> > +               devm_kcalloc(dev, 1, sizeof(*sfp->gc.irq.parents), GFP_KERNEL);
+>
+> 1 -> sfp->gc.irq.num_parents
+> And hence move below line up.
+>
+> > +       if (!sfp->gc.irq.parents)
+> > +               return -ENOMEM;
+>
+> > +       sfp->gc.irq.num_parents = 1;
+>
+> ...
+>
+> > +       dev_info(dev, "StarFive GPIO chip registered %d GPIOs\n", sfp->gc.ngpio);
+>
+> Redundant noise.
+>
+> ...
+>
+> > +static const struct of_device_id starfive_of_match[] = {
+> > +       { .compatible = "starfive,jh7100-pinctrl" },
+>
+> > +       { /* sentinel */ },
+>
+> No comma needed for terminator entry.
+>
+> > +};
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
