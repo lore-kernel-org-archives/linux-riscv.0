@@ -2,74 +2,58 @@ Return-Path: <SRS0=U004=PB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4351AC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 11:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BAF0C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 11:05:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0C39860F23
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 11:04:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0C39860F23
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
+	by mail.kernel.org (Postfix) with ESMTPS id C48C7610C9
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 11:05:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C48C7610C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ogrDsRm1/CJworbwl4uLZ2awrR9G+5JSZ1uziwLhlB0=; b=AgaFJU7DhdV7pw1nDppqI4lg5e
-	0qPDU151R1YKSNNqb5+QY04cYARjFA6GzonAb95MHJcHndDoljQdZ4fLffE9/9B7rvadWRp+4DrvX
-	XgixjLqOBnAvtxCgmuFGJynVPQ0jY9Ja0F0YgmUezLdqJcFzqf27UUOLDxMgcb+4USlhuy7Nntein
-	0nMSOdtKz++/T/QRO/rMjYsMfCv3HDzslaJ0nI3vYsiYziNF908TmJo9kWRwisHmBToHO41Kky7A1
-	6kdQ6bwqCAqqGSObOAFortZurpg/SpgZ4Sc5L0WTNaYoFNcniaLwLvyFhE+lGKJKeiACQUCYTkbXZ
-	JlW1ivAw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QVz/ot+pe8CvxqNzozXUndNJFCyyOXDoFCKgJ8JMLcc=; b=i9pqiusWS/irc4
+	eLPnrFsBqcaaCzDPq0xkQkGtwlRPbEFrjRnOwDSXrPR6l8UdFB+6i/7trLNZj7eYbUYYnDUGGjRTF
+	uJ/VEriqUJR7sbOgyFNL3LxlaeGqMAtszaIurw+eroxON2Og3czhEtAcuVpwEyDE/gwfDVe1GnYx0
+	YXmUm2v6V5Y9Xb+e5rZ9w0P4Xdtyj8eVVJ31yH6RJOKk2N8l/aCOBr8CtB/qyC4JNrHaf74Pg/F+r
+	1Jbxj8pS7zgdcixi4SWhcispFXwwxtS4TkuF33/7x6PRmiTileCZdwzsBf1lPc6gbCH0orWx2INKN
+	nXIySZ3cZmzW/sECeOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mac40-00GB5N-OV; Wed, 13 Oct 2021 11:04:48 +0000
-Received: from out4436.biz.mail.alibaba.com ([47.88.44.36])
+	id 1mac4Y-00GBMH-SC; Wed, 13 Oct 2021 11:05:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maZzx-00Fej9-Ch
- for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 08:52:30 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R961e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04407; MF=yun.wang@linux.alibaba.com;
- NM=1; PH=DS; RN=31; SR=0; TI=SMTPD_---0UrfYRTJ_1634115133; 
-Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
- fp:SMTPD_---0UrfYRTJ_1634115133) by smtp.aliyun-inc.com(127.0.0.1);
- Wed, 13 Oct 2021 16:52:15 +0800
-Subject: [PATCH v3 2/2] ftrace: do CPU checking after preemption disabled
-From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
-To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Ingo Molnar <mingo@redhat.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
- Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
- Joe Lawrence <joe.lawrence@redhat.com>,
- Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
- linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
-References: <609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com>
-Message-ID: <a450a935-17d0-63df-87fd-c27a409ea5de@linux.alibaba.com>
-Date: Wed, 13 Oct 2021 16:52:13 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
- Gecko/20100101 Thunderbird/78.14.0
+ id 1maa57-00Fg76-8T
+ for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 08:57:50 +0000
+Received: from ip5f5a6e92.dynamic.kabel-deutschland.de ([95.90.110.146]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1maa4z-0003gQ-6C; Wed, 13 Oct 2021 10:57:41 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Rob Herring <robh@kernel.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: Re: [PATCH V3 1/2] dt-bindings: update riscv plic compatible string
+Date: Wed, 13 Oct 2021 10:57:40 +0200
+Message-ID: <4039032.XOxOlHldtI@diego>
+In-Reply-To: <CAAhSdy042JY_Vm2j_d5t4jweS3gf51h30j1O9LXDnE6KkB8AEg@mail.gmail.com>
+References: <20211013012149.2834212-1-guoren@kernel.org>
+ <CAAhSdy042JY_Vm2j_d5t4jweS3gf51h30j1O9LXDnE6KkB8AEg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211013_015229_605127_6648B232 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20211013_015749_371430_A19B25DB 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +70,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_DEBUG_PREEMPT we observed reports like:
+Hi Anup,
 
-  BUG: using smp_processor_id() in preemptible
-  caller is perf_ftrace_function_call+0x6f/0x2e0
-  CPU: 1 PID: 680 Comm: a.out Not tainted
-  Call Trace:
-   <TASK>
-   dump_stack_lvl+0x8d/0xcf
-   check_preemption_disabled+0x104/0x110
-   ? optimize_nops.isra.7+0x230/0x230
-   ? text_poke_bp_batch+0x9f/0x310
-   perf_ftrace_function_call+0x6f/0x2e0
-   ...
-   __text_poke+0x5/0x620
-   text_poke_bp_batch+0x9f/0x310
+Am Mittwoch, 13. Oktober 2021, 07:11:46 CEST schrieb Anup Patel:
+> On Wed, Oct 13, 2021 at 6:52 AM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Add the compatible string "thead,c900-plic" to the riscv plic
+> > bindings to support SOCs with thead,c9xx processor cores.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Cc: Anup Patel <anup@brainfault.org>
+> > Cc: Atish Patra <atish.patra@wdc.com>
+> >
+> > ---
+> >
+> > Changes since V3:
+> >  - Rename "c9xx" to "c900"
+> >  - Add thead,c900-plic in the description section
+> > ---
+> >  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml    | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> > index 08d5a57ce00f..82629832e5a5 100644
+> > --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> > @@ -35,6 +35,11 @@ description:
+> >    contains a specific memory layout, which is documented in chapter 8 of the
+> >    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
+> >
+> > +  While the "thead,c900-plic" would mask IRQ with readl(claim), so it needn't
+> > +  mask/unmask which needed in RISC-V PLIC. When in IRQS_ONESHOT & IRQCHIP_EOI_THREADED
+> > +  path, unnecessary mask operation would cause a blocking irq bug in thead,c900-plic.
+> > +  Because when IRQ is disabled in c900, writel(hwirq, claim) would be invalid.
+> 
+> This is a totally incorrect description of the errata required for C9xx PLIC.
+> 
+> Please don't project non-compliance as a feature of C9xx PLIC.
+> 
+> > +
+> >  maintainers:
+> >    - Sagar Kadam <sagar.kadam@sifive.com>
+> >    - Paul Walmsley  <paul.walmsley@sifive.com>
+> > @@ -46,6 +51,7 @@ properties:
+> >        - enum:
+> >            - sifive,fu540-c000-plic
+> >            - canaan,k210-plic
+> > +          - thead,c900-plic
 
-This telling us the CPU could be changed after task is preempted, and
-the checking on CPU before preemption will be invalid.
+we still want specific SoC names in the compatible, the "c900"
+is still a sort-of placeholder.
 
-Since now ftrace_test_recursion_trylock() will help to disable the
-preemption, this patch just do the checking after trylock() to address
-the issue.
 
-CC: Steven Rostedt <rostedt@goodmis.org>
-Reported-by: Abaci <abaci@linux.alibaba.com>
-Signed-off-by: Michael Wang <yun.wang@linux.alibaba.com>
----
- kernel/trace/trace_event_perf.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+> >        - const: sifive,plic-1.0.0
+> 
+> The PLIC DT node requires two compatible string:
+> <implementation_compat>, <spec_compat>
+> 
+> The C9xx PLIC is not RISC-V PLIC so, the DT node should
+> be: "thead,c900-plic", "thead,c9xx-plic"
+> 
+> You need to change "- const: sifive,plic-1.0.0" to
+> - enum:
+>     - sifive,plic-1.0.0
+>     - thead,c9xx-plic
 
-diff --git a/kernel/trace/trace_event_perf.c b/kernel/trace/trace_event_perf.c
-index 6aed10e..fba8cb7 100644
---- a/kernel/trace/trace_event_perf.c
-+++ b/kernel/trace/trace_event_perf.c
-@@ -441,13 +441,13 @@ void perf_trace_buf_update(void *record, u16 type)
- 	if (!rcu_is_watching())
- 		return;
-
--	if ((unsigned long)ops->private != smp_processor_id())
--		return;
--
- 	bit = ftrace_test_recursion_trylock(ip, parent_ip);
- 	if (bit < 0)
- 		return;
-
-+	if ((unsigned long)ops->private != smp_processor_id())
-+		goto out;
-+
- 	event = container_of(ops, struct perf_event, ftrace_ops);
-
- 	/*
--- 
-1.8.3.1
 
 
 _______________________________________________
