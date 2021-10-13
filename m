@@ -2,85 +2,94 @@ Return-Path: <SRS0=U004=PB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8167AC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 19:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F649C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 23:32:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 412E161168
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 19:56:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 412E161168
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=cloudflare.com
+	by mail.kernel.org (Postfix) with ESMTPS id B0FBC610CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 23:32:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B0FBC610CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Ulk5Pr3qgftATadIfxTTUwG+yF9BCXR05j5LJ590KNY=; b=kHLb0YnDDtWoW+j69B6CGP3RZv
-	qsOhpMpynGP1jeFifnKoMw127Qq815SNgqkn7MAJ3PWvMKcWVyrsurwl4tdn6qYOdI2mafzHb4t5W
-	Bxu1DAsmOqVcZcrUbDHxwWY6Jx1fGEzG4W4+WFTeqYkS6qa+jgIzs/Ecu/G/j0Z9HO1ooOzVic8HN
-	bmyBNGQ58f99MUPyOEPzy7DbJ4tNCljL93uPcQ6bVVImynzwIvyBcN2odpFFh7mHOph3eMWGZjzqq
-	67YeWfh8YAnHfzWkqQWxzxCxhsxFKPIbLl3wAbk+ewGaEUmKDQj1pg3o8DWoV/8dze1u4V0ABOkIo
-	OXOpfDDQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1f7QrqNAv8OP6Cqmr5MMlYECQ5phQBUT2QrMeEeglNY=; b=TUSHDOMftn3Trf
+	M1gppbXVtPwmVbii/SQQIOqP2dgH22sXoSowZePKUOWdxvXN8DXPazFHyZqGgVn1XRfRQqFvonvS0
+	OgzvymYZ2ApBuha3ZGj96yHeBmTv3wGm6fmsUY/tn97wioV0TuHl5hCz73Se0eg3ZqJfIq4OYqcAy
+	uXUiOltyjgyhYRy2lNXurBhxEM96YdYFctfLeIKMzht/snAWCXwOPEGCWPife9OQhXHAPeNEq/8HM
+	0EJmH4WIadO+XhvVHrGEaJ3ZXbVthqx/9qtieg396GvxI4tIVYQRRsgyvxS3BopgzL/yfa4ZRA3Xu
+	rrN046mVr7zwtQgTVd2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1makMN-000TEQ-H4; Wed, 13 Oct 2021 19:56:19 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1manjU-0012oY-Fb; Wed, 13 Oct 2021 23:32:24 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1makMK-000TC6-BJ
- for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 19:56:18 +0000
-Received: by mail-lf1-x132.google.com with SMTP id u18so16598612lfd.12
- for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 12:56:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cloudflare.com; s=google;
- h=references:user-agent:from:to:cc:subject:in-reply-to:date
- :message-id:mime-version;
- bh=qKH85f/X/bTM1HBd2jb8yR7hV1r7tXpdbyJxEIUbYFg=;
- b=IrFtpUHHjhCjoRTsTIuTweLrfzJObNtGoSCXCsaLWFNHKsTRzgvJ055GYOlkux+FY2
- SL4/Ct2NU4cOXVX5KzbrkO6L4NU3buaYTu0n+RExjMKoh6AkQGFyikPxpPpxolnvDRZv
- /aLUPlSU3vyjEA+TSWAzjLCAYqNpOPqtkCQgg=
+ id 1manjS-0012nZ-0f
+ for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 23:32:23 +0000
+Received: by mail-ed1-x531.google.com with SMTP id g10so16927597edj.1
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 16:32:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Ospeyyhqw0CRqoqClIHT3mWhQW06xSFUt4wC+aB72Do=;
+ b=J0ppSYQmk6ftQ18xXBFf83hWkQjuJ0uLuFrwp5CEMTzHH9X80jUZcDhXJB4Ryq4mKF
+ M2fHKboCOtYZKFEvDiFCbJALu+OngShOiwebyHS6U2HgVMIFe6qAyjjRVan0ulHsTdP1
+ 0ztcoUX43Hkg9WoIIPCmcUtPpmq+lBFVaQdl4ZO0KpCg1RCattIhLd14HhE/o+5MZ8JM
+ ygkgNM9Hw9gOspvT9k5K1ZA9nG5u04QksrR1CFB1YgaM0CPsh7EKr76JkDhnE7oSUhPe
+ h8q5pCOZjk9UF7KmI/Pm1RKI8qF+yQXSC4Mn7bGV5CjO5Xj2UA1pNGWkFiK9MWhT10mv
+ gq9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:references:user-agent:from:to:cc:subject
- :in-reply-to:date:message-id:mime-version;
- bh=qKH85f/X/bTM1HBd2jb8yR7hV1r7tXpdbyJxEIUbYFg=;
- b=j4Q6Wo4kKV4qAmeRmhQ4CR2oOx3L5x4Hr2gNIHMOpEbhaJNzIeUW3r+CfzFDtj5z/9
- thedLjSL6YbCAL/PMHU7qIvdXxYQVjoU7uCcCOd9obc1lq98E91vhSEo3mVctQUvJFLc
- cQPFmBnkqbHQFwz0T67X02Q/+eue0J3uYkW/IErIKLniii6K0SlN163THKWJhvozKYmf
- qwOhbSpaUt1w0ZcBJ+WeKKUrD5rOTpG7RzoY5UYzGPBFXTgae0XQVq2kSCYgorZwFVvR
- 5w1gsnvzAQKn4/9jEm+o1JL10rA1zTWbYESuKwp813FnH5LPzkjrF+1pGZ6bTKdtonvA
- o2qQ==
-X-Gm-Message-State: AOAM530F4uySYYkLr1YVejF3VCrVn3NkXEtsAItCX9xQRcqQW/RpXtiA
- BmeI2h4ywrU7gkkwyhkB91AMJg==
-X-Google-Smtp-Source: ABdhPJwHphrDVmMbMJ7FNjq5CHkLWjARm6t6dQ3Imk/b5ETfBXq/2tEXlahAHUelGKMPUbS6bJZYhQ==
-X-Received: by 2002:a05:6512:4029:: with SMTP id
- br41mr961117lfb.233.1634154969452; 
- Wed, 13 Oct 2021 12:56:09 -0700 (PDT)
-Received: from cloudflare.com ([2a01:110f:480d:6f00:ff34:bf12:ef2:5071])
- by smtp.gmail.com with ESMTPSA id d19sm47867ljl.87.2021.10.13.12.56.08
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 13 Oct 2021 12:56:09 -0700 (PDT)
-References: <20211012135935.37054-1-lmb@cloudflare.com>
-User-agent: mu4e 1.1.0; emacs 27.2
-From: Jakub Sitnicki <jakub@cloudflare.com>
-To: Lorenz Bauer <lmb@cloudflare.com>
-Cc: nicolas.dichtel@6wind.com, luke.r.nels@gmail.com, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- kernel-team@cloudflare.com, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] Fix up bpf_jit_limit some more
-In-reply-to: <20211012135935.37054-1-lmb@cloudflare.com>
-Date: Wed, 13 Oct 2021 21:56:08 +0200
-Message-ID: <87wnmgg0mf.fsf@cloudflare.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Ospeyyhqw0CRqoqClIHT3mWhQW06xSFUt4wC+aB72Do=;
+ b=4GKOrNXT7T+VifI3s/kaRAsu5pIl0d7kDriVe0jay0725VToxx+7nMwZUhcm74Vy+K
+ zJpLmHw8CuKzZKkSjgqg6Tgrz437hlos51Tz9nzYDiyRLCjXH1Z6jzUDg+q8YXW/8kzV
+ Oo4cf+hV/P3hLvy6Vj/LkzUNxTQX8v8xinSp6SMYNOls7YwGag8kXsYlMqbBlfELMrks
+ k39GNqctkARzrUboCPdXwIu++1p/UywzplQicES9rWUel9vRTlbxHee88AaxfLjbgQ6a
+ tmgFktCwnI+Wu09XlWWyquulg8tx7L+gr7XWAR90M7X3m85ycjCtcf1EYRP6jXIC+A2T
+ XWnQ==
+X-Gm-Message-State: AOAM532Jz9MSQX4kN1nxtf4sEFF+xTr9FH3X2hTTjZ2/WdsFEJTQSryH
+ YQ/6WMCR7E29qAMvI5BmfiTHyWmkfz3gXl0esCZ17A==
+X-Google-Smtp-Source: ABdhPJyuIYlcFJXtQMXt4pTjgAt118n7IntyXdUFIq9VY1B2uFC6+blRjvGj0T3/x3oVRqgidcVcxpMLoAdd+OF/5zA=
+X-Received: by 2002:a05:6402:278a:: with SMTP id
+ b10mr3626283ede.134.1634167940811; 
+ Wed, 13 Oct 2021 16:32:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20211012134027.684712-1-kernel@esmil.dk>
+In-Reply-To: <20211012134027.684712-1-kernel@esmil.dk>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 14 Oct 2021 01:32:09 +0200
+Message-ID: <CACRpkdaB27Ar0a+Kxh9bmH78bUL_vFush==Suua2TDjt7wpYug@mail.gmail.com>
+Subject: Re: [PATCH v1 00/16] Basic StarFive JH7100 RISC-V SoC support
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211013_125616_437289_A37EA1E1 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20211013_163222_087974_4FABE6C2 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,302 +106,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 12, 2021 at 03:59 PM CEST, Lorenz Bauer wrote:
-> Some more cleanups around bpf_jit_limit to make it readable via sysctl.
->
-> Jakub raised the point that a sysctl toggle is UAPI and therefore
-> can't be easily changed later on. I tried to find another place to stick
-> the info, but couldn't find a good one. All the current BPF knobs are in
-> sysctl.
->
-> There are examples of read only sysctls:
-> $ sudo find /proc/sys -perm 0444 | wc -l
-> 90
->
-> There are no examples of sysctls with mode 0400 however:
-> $ sudo find /proc/sys -perm 0400 | wc -l
-> 0
->
-> Thoughts?
+On Tue, Oct 12, 2021 at 3:41 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 
-I threw this idea out there during LPC already, that it would be cool to
-use BPF iterators for that. Pinned/preloaded iterators were made for
-dumping kernel data on demand after all.
+>   dt-bindings: pinctrl: Add StarFive pinctrl definitions
+>   dt-bindings: pinctrl: Add StarFive JH7100 bindings
+>   pinctrl: starfive: Add pinctrl driver for StarFive SoCs
 
-What is missing is a BPF iterator type that would run the program just
-once (there is just one thing to print), and a BPF helper to lookup
-symbol's address.
+I'd be happy to apply these to the pinctrl tree if everybody is
+happy.
+If you prefer some other merge path:
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
 
-I thought this would require a bit of work, but actually getting a PoC
-(see below) to work was rather pleasntly straightforward.
-
-Perhaps a bit of a hack but I'd consider it as an alternative.
-
--- >8 --
-
-From bef52bec926ea08ccd32a3421d195210ae7d3b38 Mon Sep 17 00:00:00 2001
-From: Jakub Sitnicki <jakub@cloudflare.com>
-Date: Wed, 13 Oct 2021 18:54:12 +0200
-Subject: [PATCH] RFC: BPF iterator that always runs the program just once
-
-The test iterator loads the value of bpf_jit_current kernel global:
-
- # bpftool iter pin tools/testing/selftests/bpf/bpf_iter_once.o /sys/fs/bpf/bpf_jit_current
- libbpf: elf: skipping unrecognized data section(6) .rodata.str1.1
- # cat /sys/fs/bpf/bpf_jit_current
- 2
- # for ((i=0; i<10; i++)); do iptables -A OUTPUT -m bpf --bytecode '1,6 0 0 0' -j ACCEPT; done
- # cat /sys/fs/bpf/bpf_jit_current
- 12
- # iptables -F OUTPUT
- # cat /sys/fs/bpf/bpf_jit_current
- 2
-
-Signed-off-by: Jakub Sitnicki <jakub@cloudflare.com>
----
- include/uapi/linux/bpf.h                      |  7 ++
- kernel/bpf/Makefile                           |  2 +-
- kernel/bpf/helpers.c                          | 22 ++++++
- kernel/bpf/once_iter.c                        | 76 +++++++++++++++++++
- tools/include/uapi/linux/bpf.h                |  7 ++
- .../selftests/bpf/progs/bpf_iter_once.c       | 33 ++++++++
- 6 files changed, 146 insertions(+), 1 deletion(-)
- create mode 100644 kernel/bpf/once_iter.c
- create mode 100644 tools/testing/selftests/bpf/progs/bpf_iter_once.c
-
-diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
-index 6fc59d61937a..ec117ebd3d58 100644
---- a/include/uapi/linux/bpf.h
-+++ b/include/uapi/linux/bpf.h
-@@ -4909,6 +4909,12 @@ union bpf_attr {
-  *	Return
-  *		The number of bytes written to the buffer, or a negative error
-  *		in case of failure.
-+ *
-+ * long bpf_kallsyms_lookup_name(const char *name, u32 name_size)
-+ *	Description
-+ *		Lookup the address for a symbol.
-+ *	Return
-+ *		Returns 0 if not found.
-  */
- #define __BPF_FUNC_MAPPER(FN)		\
- 	FN(unspec),			\
-@@ -5089,6 +5095,7 @@ union bpf_attr {
- 	FN(task_pt_regs),		\
- 	FN(get_branch_snapshot),	\
- 	FN(trace_vprintk),		\
-+	FN(kallsyms_lookup_name),	\
- 	/* */
-
- /* integer value in 'imm' field of BPF_CALL instruction selects which helper
-diff --git a/kernel/bpf/Makefile b/kernel/bpf/Makefile
-index 7f33098ca63f..f2dc86ea0f2d 100644
---- a/kernel/bpf/Makefile
-+++ b/kernel/bpf/Makefile
-@@ -6,7 +6,7 @@ cflags-nogcse-$(CONFIG_X86)$(CONFIG_CC_IS_GCC) := -fno-gcse
- endif
- CFLAGS_core.o += $(call cc-disable-warning, override-init) $(cflags-nogcse-yy)
-
--obj-$(CONFIG_BPF_SYSCALL) += syscall.o verifier.o inode.o helpers.o tnum.o bpf_iter.o map_iter.o task_iter.o prog_iter.o
-+obj-$(CONFIG_BPF_SYSCALL) += syscall.o verifier.o inode.o helpers.o tnum.o bpf_iter.o map_iter.o task_iter.o prog_iter.o once_iter.o
- obj-$(CONFIG_BPF_SYSCALL) += hashtab.o arraymap.o percpu_freelist.o bpf_lru_list.o lpm_trie.o map_in_map.o
- obj-$(CONFIG_BPF_SYSCALL) += local_storage.o queue_stack_maps.o ringbuf.o
- obj-$(CONFIG_BPF_SYSCALL) += bpf_local_storage.o bpf_task_storage.o
-diff --git a/kernel/bpf/helpers.c b/kernel/bpf/helpers.c
-index 1ffd469c217f..d2524df54ab5 100644
---- a/kernel/bpf/helpers.c
-+++ b/kernel/bpf/helpers.c
-@@ -15,6 +15,7 @@
- #include <linux/pid_namespace.h>
- #include <linux/proc_ns.h>
- #include <linux/security.h>
-+#include <linux/kallsyms.h>
-
- #include "../../lib/kstrtox.h"
-
-@@ -1328,6 +1329,25 @@ void bpf_timer_cancel_and_free(void *val)
- 	kfree(t);
- }
-
-+BPF_CALL_2(bpf_kallsyms_lookup_name, const char *, name, u32, name_size)
-+{
-+	const char *name_end;
-+
-+	name_end = strnchr(name, name_size, 0);
-+	if (!name_end)
-+		return -EINVAL;
-+
-+	return kallsyms_lookup_name(name);
-+}
-+
-+static const struct bpf_func_proto bpf_kallsyms_lookup_name_proto = {
-+	.func		= bpf_kallsyms_lookup_name,
-+	.gpl_only	= true,
-+	.ret_type	= RET_INTEGER,
-+	.arg1_type	= ARG_PTR_TO_MEM,
-+	.arg2_type	= ARG_CONST_SIZE,
-+};
-+
- const struct bpf_func_proto bpf_get_current_task_proto __weak;
- const struct bpf_func_proto bpf_get_current_task_btf_proto __weak;
- const struct bpf_func_proto bpf_probe_read_user_proto __weak;
-@@ -1404,6 +1424,8 @@ bpf_base_func_proto(enum bpf_func_id func_id)
- 		return &bpf_timer_start_proto;
- 	case BPF_FUNC_timer_cancel:
- 		return &bpf_timer_cancel_proto;
-+	case BPF_FUNC_kallsyms_lookup_name:
-+		return &bpf_kallsyms_lookup_name_proto;
- 	default:
- 		break;
- 	}
-diff --git a/kernel/bpf/once_iter.c b/kernel/bpf/once_iter.c
-new file mode 100644
-index 000000000000..f2635f1b0043
---- /dev/null
-+++ b/kernel/bpf/once_iter.c
-@@ -0,0 +1,76 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Copyright (c) 2021 Cloudflare, Inc. */
-+
-+#include <linux/bpf.h>
-+#include <linux/init.h>
-+#include <linux/seq_file.h>
-+
-+static struct {} empty;
-+
-+static void *once_seq_start(struct seq_file *seq, loff_t *pos)
-+{
-+	if (*pos == 0)
-+		++*pos;
-+	return &empty;
-+}
-+
-+static void *once_seq_next(struct seq_file *seq, void *v, loff_t *pos)
-+{
-+	++*pos;
-+	return NULL;
-+}
-+
-+struct bpf_iter__once {
-+	__bpf_md_ptr(struct bpf_iter_meta *, meta);
-+};
-+
-+DEFINE_BPF_ITER_FUNC(once, struct bpf_iter_meta *meta)
-+
-+static int once_seq_show(struct seq_file *seq, void *v)
-+{
-+	return 0;
-+}
-+
-+static void once_seq_stop(struct seq_file *seq, void *v)
-+{
-+	struct bpf_iter_meta meta;
-+	struct bpf_iter__once ctx;
-+	struct bpf_prog *prog;
-+
-+	meta.seq = seq;
-+	prog = bpf_iter_get_info(&meta, true);
-+	if (!prog)
-+		return;
-+
-+	meta.seq = seq;
-+	ctx.meta = &meta;
-+	bpf_iter_run_prog(prog, &ctx);
-+}
-+
-+static const struct seq_operations once_seq_ops = {
-+	.start	= once_seq_start,
-+	.next	= once_seq_next,
-+	.stop	= once_seq_stop,
-+	.show	= once_seq_show,
-+};
-+
-+static const struct bpf_iter_seq_info once_seq_info = {
-+	.seq_ops		= &once_seq_ops,
-+	.init_seq_private	= NULL,
-+	.fini_seq_private	= NULL,
-+	.seq_priv_size		= 0,
-+};
-+
-+static struct bpf_iter_reg once_reg_info = {
-+	.target			= "once",
-+	.feature		= 0,
-+	.ctx_arg_info_size	= 0,
-+	.ctx_arg_info		= {},
-+	.seq_info		= &once_seq_info,
-+};
-+
-+static int __init once_iter_init(void)
-+{
-+	return bpf_iter_reg_target(&once_reg_info);
-+}
-+late_initcall(once_iter_init);
-diff --git a/tools/include/uapi/linux/bpf.h b/tools/include/uapi/linux/bpf.h
-index 6fc59d61937a..ec117ebd3d58 100644
---- a/tools/include/uapi/linux/bpf.h
-+++ b/tools/include/uapi/linux/bpf.h
-@@ -4909,6 +4909,12 @@ union bpf_attr {
-  *	Return
-  *		The number of bytes written to the buffer, or a negative error
-  *		in case of failure.
-+ *
-+ * long bpf_kallsyms_lookup_name(const char *name, u32 name_size)
-+ *	Description
-+ *		Lookup the address for a symbol.
-+ *	Return
-+ *		Returns 0 if not found.
-  */
- #define __BPF_FUNC_MAPPER(FN)		\
- 	FN(unspec),			\
-@@ -5089,6 +5095,7 @@ union bpf_attr {
- 	FN(task_pt_regs),		\
- 	FN(get_branch_snapshot),	\
- 	FN(trace_vprintk),		\
-+	FN(kallsyms_lookup_name),	\
- 	/* */
-
- /* integer value in 'imm' field of BPF_CALL instruction selects which helper
-diff --git a/tools/testing/selftests/bpf/progs/bpf_iter_once.c b/tools/testing/selftests/bpf/progs/bpf_iter_once.c
-new file mode 100644
-index 000000000000..e5e6d779eb51
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/bpf_iter_once.c
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2021 Cloudflare, Inc. */
-+
-+#include "bpf_iter.h"
-+#include <bpf/bpf_helpers.h>
-+
-+char _license[] SEC("license") = "GPL";
-+
-+SEC("iter/once")
-+int dump_once(struct bpf_iter__once *ctx)
-+{
-+	const char sym_name[] = "bpf_jit_current";
-+	struct seq_file *seq = ctx->meta->seq;
-+	unsigned long sym_addr;
-+	s64 value = 0;
-+	int err;
-+
-+	sym_addr = bpf_kallsyms_lookup_name(sym_name, sizeof(sym_name));
-+	if (!sym_addr) {
-+		BPF_SEQ_PRINTF(seq, "failed to find %s address\n", sym_name);
-+		return 0;
-+	}
-+
-+	err = bpf_probe_read_kernel(&value, sizeof(value), (void *)sym_addr);
-+	if (err) {
-+		BPF_SEQ_PRINTF(seq, "failed to read from %s address\n", sym_name);
-+		return 0;
-+	}
-+
-+	BPF_SEQ_PRINTF(seq, "%ld\n", value);
-+
-+	return 0;
-+}
---
-2.31.1
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
