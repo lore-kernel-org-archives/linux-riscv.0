@@ -2,15 +2,15 @@ Return-Path: <SRS0=U004=PB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DF6BC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 10:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0936AC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 10:46:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F387E61053
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 10:46:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F387E61053
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	by mail.kernel.org (Postfix) with ESMTPS id CFEF6610C8
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Oct 2021 10:46:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CFEF6610C8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,95 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74bytRojTdEQLRgJ6Y7hbafOdaJehX0B4J7+D48EMvk=; b=eMWo7SDrtvsa83
-	vQnClGMH7CsT+wHV+SDcS7pI5ePhrKBpGHCa4OZq7eShlkZtX4N5ILuVxfh9bsRXm2m2B1v5wgjoc
-	u+DX2vUAvK4dpylaqBfuqjOfaECSe9aJw/C0h1tun/sBl5kOgAeMXEbgOnDh2Ydie/aJ3YdcFRbB4
-	ilDdibdSCP7MAPgHVcU37A/RwpKMlwAo6YLGrrZL13flwGI0si76L1dQptS+/ULGswYAv1/j4msgK
-	lOGO089oXVG8nur50BACP+8m6BxB2Px6lv5nOUPVfqnIRHz/URuB+SEgY3fUb62wnQyUKorFoBrpS
-	2242PdFPnLb83RLqLRLA==;
+	List-Owner; bh=UJiDg9s9VzIgvKpmcyptxD3EeZlUk6ZxIdWt/cwScpM=; b=Ml50IVrWYRcrDh
+	gcQ2hnnypHip2JONpc4rEdVvjCPHkli+WV5uLaagA7xjeWfzLZXeB5yg2R9llg/2QlhUqmD28ktkf
+	etNfCFRBdgaPXs2pi5wkn/znCjEkvsQoVZcO30kFB07LlZKqxnHo5JsCTsdIgHvWkMakthdx5Lw36
+	wdoSD/4lkl5ycUgrYSoQ74X3Y9J/AExFCdyY5/iUwUyTFdvRfs4e9ZEy9aGkajLip0TzhkGmy4H+l
+	JQohFKaRaHeiBVWLt9hr9+b5djqeIQRttz4+CyIGXEMStKcW7ygfN5BAZZNMxn3k1udfLzlsOjqJx
+	xEq4YpCtGr9ndF8BXeRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mabmG-00G5Nl-Pv; Wed, 13 Oct 2021 10:46:28 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1mabmb-00G5Tl-BC; Wed, 13 Oct 2021 10:46:49 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1maZmT-00FbhO-DJ; Wed, 13 Oct 2021 08:38:35 +0000
-Received: from mail-ed1-f52.google.com ([209.85.208.52]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MQeI4-1mLmUM3jNe-00NgCh; Wed, 13 Oct 2021 10:38:28 +0200
-Received: by mail-ed1-f52.google.com with SMTP id i20so6823336edj.10;
- Wed, 13 Oct 2021 01:38:28 -0700 (PDT)
-X-Gm-Message-State: AOAM530gsgkJRuyOYNugaxLSWaK1F8GijEXob2cePwpuJo1VFute9fY6
- 3KWdv23guSkaybxap2VJd9mAU/MytKDTvcST3yU=
-X-Google-Smtp-Source: ABdhPJzERy7qzxbolOT39FrUcwqPdeh2fIURPv4ilmByKiguzqnvn/Xhapdln0hugnZ2cVo72Y7EAER3Sss3B8QKu2E=
-X-Received: by 2002:adf:a3da:: with SMTP id m26mr37292890wrb.336.1634114297720; 
- Wed, 13 Oct 2021 01:38:17 -0700 (PDT)
+ id 1maZn0-00Fbqv-Pf
+ for linux-riscv@lists.infradead.org; Wed, 13 Oct 2021 08:39:08 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 928EC6103C
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 08:39:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1634114345;
+ bh=ZNUTxDIwgSu+vOtmo4g3584XPbhlqaPhtiT514GpsXM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=hb2LFyxQJ3A9SSPuAtj8fUizWNkliuyk03zKrk/xcarnbI8zZFW8j57GJcen3452U
+ xdJCHfmmjaggYNNqmnLBZ98QkDhTwpzO5x3jaLFhphVNbkavUVfxUy/9GvFPqrpx7W
+ ux9JLWEQACcSuVMjeLcIxNZqTqZpcLRhDue0Cy/+6uLfdjQib2gIICmRs1FYbiwUSC
+ e9OXBaJv1rQDiczcK1xhgVMUNQPB6RyG/Hr+DlOzi6EXv4SFSRbxQf36lOaUS3K5OA
+ yl9PRt4qOqb8O7uxSjHCEp7YgPEfLNrUw9v9gg6MHu40pH/Pi68MKY1SY6LE8h+kNY
+ txuDox5x6HyRg==
+Received: by mail-ua1-f47.google.com with SMTP id i15so3086336uap.0
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 01:39:05 -0700 (PDT)
+X-Gm-Message-State: AOAM5301MS9xMVbz4B9Bp/ks955bDcw1RE3IK01oh59YLjG3K5+sDvpP
+ HIHbZmdXQiKmSmfYDsVX2xZVHFmm7vXwbFCSeiY=
+X-Google-Smtp-Source: ABdhPJzMzPjRx0tJntq697GnLyNdIiu+c7GL9onC6nRg14TohlFxhP/gu7b1LNwQtL/7EqE/SUsB+UpbjNLRSdbdWP0=
+X-Received: by 2002:a05:6102:537:: with SMTP id m23mr55870vsa.43.1634114344625; 
+ Wed, 13 Oct 2021 01:39:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211013005532.700190-1-sashal@kernel.org>
- <20211013005532.700190-11-sashal@kernel.org>
- <YWZ1om+pLmV3atTd@kroah.com>
-In-Reply-To: <YWZ1om+pLmV3atTd@kroah.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 13 Oct 2021 10:38:01 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2AC9-ogoxi1q+NQyBqMwrFqSZtHvZVdJ9HF+OLB3O62g@mail.gmail.com>
-Message-ID: <CAK8P3a2AC9-ogoxi1q+NQyBqMwrFqSZtHvZVdJ9HF+OLB3O62g@mail.gmail.com>
-Subject: Re: [PATCH AUTOSEL 5.10 11/11] firmware: include
- drivers/firmware/Kconfig unconditionally
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Sasha Levin <sashal@kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- "# 3.4.x" <stable@vger.kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <bjorn.andersson@linaro.org>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, Will Deacon <will@kernel.org>, 
- Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Simon Trimmer <simont@opensource.cirrus.com>,
- Michael Ellerman <mpe@ellerman.id.au>, 
- Russell King - ARM Linux <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- James Bottomley <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- "the arch/x86 maintainers" <x86@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Russell King <rmk+kernel@armlinux.org.uk>, 
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
- =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- Mike Rapoport <rppt@kernel.org>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Sergei Trofimovich <slyfox@gentoo.org>, 
- Jens Axboe <axboe@kernel.dk>, ben.widawsky@intel.com, 
- Dan Williams <dan.j.williams@intel.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- linux-ia64@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
-X-Provags-ID: V03:K1:nDi/1+LzlXbOlAPYcUCCCFBE2D5zk3Er24SieIgRdXRAoMxbOnN
- yYkbLN7cSgpgpHe73DnefMbUJGbFT+BgSR11MuFEwKXBx2gCAxDODmtOuq2Cgk/AxFTCqnA
- 8TaYvL4j09Z8DQBglPe0cF8MDPxZ4HOGHVrBU9E3QrcSm0jE3S4E4jSUgRuHL84ME+fC6Fg
- 37nd60Vhc7fScjgIYbG4w==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:jMuVZpSl+jg=:zcrxNhUhriV3mt3hV+AEwD
- rZqi4Y9V8snglMBLx8zntI2e9UZ1webnd5wEo4htC2zgG2NskjkCc9MbyshBiAyW49lmk1IND
- mglmnVkmX2ERMgXHbDYZrNCrPtnPjNSZ2xfdN5SK+2inZfrglNAi+bihJG9C8mNbaMipXqB3R
- 34zTCQ87QFo2FD4rpjf4Llwlo+kC2MxgFsR9jIB4b//HRnBWZx9QBJZJ5GuLdUErP7beDhFcn
- aWYvLwtqvaLv/yIL4m7a07MZ5NY2KiGKKuDjbPmL1bXb/TINty7NvoKdYzia6FgNg6Ceb+FW1
- WOmlvcRr82gXQlkh9zLFn8uAjvSMYUVkv9KKfIg2L5SEEa3vXGXo30TcBCNSbOfEBk/l/S0fD
- MCikAu3I0smYvCB7yqbXQmZ4Y4BjNqb2FlcmcGawqKWiGuWpTm/hpkOwpTBg7SL4KxIb8HDcn
- EPxENRDcZeAU2aysmy6oQmK9k66cbRp7fpgax/MW93ozcyM+ra4DbQHTQw66js505QGHc354f
- sZ9UXvuFo3F1C1a1AAvMT0Rg+G1fdRHBpGFs7Qyl7SxusQEQEhN0pbPxZuMy+ms127C8qR8q0
- gcuqOGU49aurpTffDw6REAwR5LNUQyjzorG5L86TUgNXVnbfUXCpg5ZGVivmP79Wgo8pByeDO
- uoZVGB9Y6hyuIb2jsAl8s61tGviAuPLMeXEdaIgr6XrUuPty4GexZC8Pr8HjPZf7jWfHkrKMN
- isntKCpNx2ONm4cPsNRHQeABkCWk8jc16rRGoiWAuK0rGiJJxcFDjvmT7+EZ3yCivASBJNjIB
- rkL2x6YomA3MeNHsamXNOeTjdkeGFoRqMNywfcN3kb1EUr6tRlUbBYrb/RKimmCoLktZt5Cze
- KZ0uwU6E5sPIYu6ua1Fw==
+References: <20211013012149.2834212-1-guoren@kernel.org>
+ <20211013012149.2834212-2-guoren@kernel.org>
+ <CAAhSdy3B9AtbeBrNoQJOBkmAcOR56s1WExGNPMXsSsF+38y8DA@mail.gmail.com>
+In-Reply-To: <CAAhSdy3B9AtbeBrNoQJOBkmAcOR56s1WExGNPMXsSsF+38y8DA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 13 Oct 2021 16:38:53 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSzz_41cLHH48C98FqstEK+AVMAi2xrdfMQbQn2=xEKcQ@mail.gmail.com>
+Message-ID: <CAJF2gTSzz_41cLHH48C98FqstEK+AVMAi2xrdfMQbQn2=xEKcQ@mail.gmail.com>
+Subject: Re: [PATCH V3 2/2] irqchip/sifive-plic: Add thead,c900-plic support
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211013_013833_758077_7F786EB6 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20211013_013906_910649_7E2482ED 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +86,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 13, 2021 at 7:58 AM Greg KH <gregkh@linuxfoundation.org> wrote:
-> On Tue, Oct 12, 2021 at 08:55:31PM -0400, Sasha Levin wrote:
+On Wed, Oct 13, 2021 at 1:04 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> This isn't for stable kernels, it should be dropped from all of your
-> AUTOSEL queues.
+> On Wed, Oct 13, 2021 at 6:52 AM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > thead,c900-plic would mask IRQ with readl(claim), so it needn't
+> > mask/unmask which needed in RISC-V PLIC.
+> >
+> > When in IRQS_ONESHOT & IRQCHIP_EOI_THREADED path, unnecessary mask
+> > operation would cause a blocking irq bug in thead,c900-plic. Because
+> > when IRQ is disabled in c900, writel(hwirq, claim) would be invalid.
+>
+> This is a totally incorrect description.
+>
+> Instead of this, the commit description should say the following:
+>
+> 1) The irq_mask/unmask() is used by handle_fasteoi_irq() is mostly
+> for ONESHOT irqs and there is no limitation in the RISC-V PLIC driver
+> due to use of irq_mask/unmask() callbacks. In fact, a lot of irqchip
+> drivers using handle_fasteoi_irq() also implement irq_mask/unmask().
+Add irq_mask/unmask in handle_fasteoi_irq() would decrease the
+performance, we also need to add this fact in the description.
+>
+> 2) The C9xx PLIC does not comply with the interrupt claim/completion
+> process defined by the RISC-V PLIC specification because C9xx PLIC
+> will mask an IRQ when it is claimed by PLIC driver (i.e. readl(claim) and
+> the IRQ will be unmasked upon completion by PLIC driver (i.e. writel(claim).
+> This behaviour breaks the handling of IRQS_ONESHOT by the generic
+> handle_fasteoi_irq() used in the PLIC driver.
+>
+> 3) This patch adds an errata fix for IRQS_ONESHOT handling on
+> C9xx PLIC by using irq_enable/disable() callbacks instead of
+> irq_mask/unmask().
+>
+> In general, non-compliance of the C9xx PLIC should be treated as
+> an errata so please don't project it as a feature.
+>
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Anup Patel <anup@brainfault.org>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Atish Patra <atish.patra@wdc.com>
+> >
+> > ---
+> >
+> > Changes since V3:
+> >  - Rename "c9xx" to "c900"
+> >  - Add sifive_plic_chip and thead_plic_chip for difference
+> >
+> > Changes since V2:
+> >  - Add a separate compatible string "thead,c9xx-plic"
+> >  - set irq_mask/unmask of "plic_chip" to NULL and point
+> >    irq_enable/disable of "plic_chip" to plic_irq_mask/unmask
+> >  - Add a detailed comment block in plic_init() about the
+> >    differences in Claim/Completion process of RISC-V PLIC and C9xx
+> >    PLIC.
+> > ---
+> >  drivers/irqchip/irq-sifive-plic.c | 25 +++++++++++++++++++++++--
+> >  1 file changed, 23 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > index cf74cfa82045..5b806d823df7 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -166,7 +166,7 @@ static void plic_irq_eoi(struct irq_data *d)
+> >         writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> >  }
+> >
+> > -static struct irq_chip plic_chip = {
+> > +static struct irq_chip sifive_plic_chip = {
+> >         .name           = "SiFive PLIC",
+> >         .irq_mask       = plic_irq_mask,
+> >         .irq_unmask     = plic_irq_unmask,
+> > @@ -176,12 +176,24 @@ static struct irq_chip plic_chip = {
+> >  #endif
+> >  };
+> >
+>
+> Please add a detailed comment block as described by point#2
+> above.
+>
+> > +static struct irq_chip thead_plic_chip = {
+> > +       .name           = "T-Head PLIC",
+> > +       .irq_disable    = plic_irq_mask,
+> > +       .irq_enable     = plic_irq_unmask,
+> > +       .irq_eoi        = plic_irq_eoi,
+> > +#ifdef CONFIG_SMP
+> > +       .irq_set_affinity = plic_set_affinity,
+> > +#endif
+> > +};
+> > +
+> > +static struct irq_chip *def_plic_chip = &sifive_plic_chip;
+> > +
+> >  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+> >                               irq_hw_number_t hwirq)
+> >  {
+> >         struct plic_priv *priv = d->host_data;
+> >
+> > -       irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
+> > +       irq_domain_set_info(d, irq, hwirq, def_plic_chip, d->host_data,
+> >                             handle_fasteoi_irq, NULL, NULL);
+> >         irq_set_noprobe(irq);
+> >         irq_set_affinity(irq, &priv->lmask);
+> > @@ -390,5 +402,14 @@ static int __init plic_init(struct device_node *node,
+> >         return error;
+> >  }
+> >
+> > +static int __init thead_c900_plic_init(struct device_node *node,
+> > +               struct device_node *parent)
+> > +{
+> > +       def_plic_chip = &thead_plic_chip;
+> > +
+> > +       return plic_init(node, parent);
+> > +}
+> > +
+> >  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+> >  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
+> > +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", thead_c900_plic_init);
+> > --
+> > 2.25.1
+> >
+>
+> Regards,
+> Anup
 
-Agreed. The second patch that depends on this does fix a (randconfig)
-build issue in stable kernels as well, but that patch is currently broken,
-and the two patches combined do feel a little too invasive for addressing
-such a minor issue in the stable kernels.
 
-If anyone runs into the QCOM_SCM link failures on stable kernels, I
-can come up with a more localized fix.
 
-       Arnd
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
