@@ -2,80 +2,86 @@ Return-Path: <SRS0=/Gqo=PC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C738EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 14:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 97A5AC43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 14:26:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9482060EDF
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 14:23:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9482060EDF
+	by mail.kernel.org (Postfix) with ESMTPS id 6A27C611CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 14:26:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6A27C611CA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=cloudflare.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ip+L37YXtz8SBNZQh0P5RvJRjJdwNNMtVcf46yItbjY=; b=rc5K5JY6nCW43V
-	PWN7s7N2VakscoHsn7FmEOkkYbp0zatqI7Izkpd2HWUIgUY1uCKAjtz8d91c81cs8yAvaYzsm2KGw
-	7Lv53/fB/h5e/fskoMBZHtrwl210k7E/SsrneUTQGcMrNQNSpjnDQXcpscUP/MVF8v7yPXOrRW2Jr
-	VKbRCsHqgJeXKvUWnuPOwx10LWGAkg3YrVyekQ6TbwzKk7w1kELTUIbUqeeZDBbF/+kf04YToOmgG
-	+scIoFCgt7gf6D59c82orDVtO2H6+bpF3Geu1Qat6/g9kzv2i+alHTix1BybFwxECWFcDTbFzFmE4
-	DUtN/abRy7sm4Z3DmjKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZM0SF3wW8obdJ9AJThvO5TMgzFZLJAfallPUmYVdCYU=; b=mUgOnmU+EaUB3k
+	66oCjJyJ0gJUnj3JyO4eBd0h3Oo77kP1WoQn4uXHtSYdQCPcioBVamJzkZmTi3B+/FP9Yoc8/VYUv
+	exfucvPk5goeLgjc6iezBcqCTAmY0itXfj2yNKPw6yQqLq5GcJ/S+4qHjWYYij3tPPH8x1sN4102U
+	YdssttaRhcO4RlDS+W1M5sYq6SO0VUXH8UDms3l+ZkxNulP9x6f0XCbyrn4UzbnD78kf8QPMgRtt4
+	Gbg1eotkhu65XSmRGcJnIEB4aqwCSOBjP462CaWSlgKkd98w6ZbWqRjWvUksVuJqp6kBqVtQsKydX
+	owxgUFxbqL2QGDYlMOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mb1dM-003QG7-Lj; Thu, 14 Oct 2021 14:23:00 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1mb1gO-003QyG-5w; Thu, 14 Oct 2021 14:26:08 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mb1dK-003QDy-L7
- for linux-riscv@lists.infradead.org; Thu, 14 Oct 2021 14:22:59 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id r19so26989666lfe.10
- for <linux-riscv@lists.infradead.org>; Thu, 14 Oct 2021 07:22:52 -0700 (PDT)
+ id 1mb1gL-003QwL-TL
+ for linux-riscv@lists.infradead.org; Thu, 14 Oct 2021 14:26:07 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id o20so20149849wro.3
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Oct 2021 07:26:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=cloudflare.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Okqf4cnxYE2FjVdlyGWzuWegB5o4GhJUuUv5TbPoZBA=;
- b=DGrABGEtP5hjLIs/K1pNqbk2y6fYRbTTyPPSrc7s4OG9i6hCAmcTe5jL1IVGbdybNm
- n0QifbSEMlrGOg4m4tPIegguFfiIUWJvHDSXCODQQ2YBybjOAwh0WVR136yqcH7zOo2W
- De5kAU5D+EBLEhVYxyJSKgs4GEFiD3QIS417M=
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=5/q19B3/R6J7BzRleBPGaijLiNuKPab4A3ikMD+aFpc=;
+ b=vkuert2c6NwOmACcKrGEBG/ZVwlGY5+xuph3roHVDxv5uGnVqsdzXobkO+AbFVLy9P
+ RT5LJdxIPpjc/91Rw9i7ruyDESi5qlbq4y+ViU3yu+Of/8gY2WLOZsB6GrizPVen7Xqt
+ 88gtCXWUIFPPmd4Tuy4BXUEcNvhRKEOKBWtf4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Okqf4cnxYE2FjVdlyGWzuWegB5o4GhJUuUv5TbPoZBA=;
- b=ymXcnicGy2RDoT0YezRw6/6IciF4yFFJ9TRScBSQyUfNAjdQYvUhmIXFG07CRhIGmN
- ur6i0jJlVvFSJQO8Y/HYx1sIRV6UH2Y19+VX3zJd+Ymm2aXRsyz30v7BCb/iGd51OkQi
- 3B61t5SSF/IVIHl3b9nRnTW0AZpb+opEYn1yRCsqITedSsk/P/7hDaIVUD8ykBinqwkv
- G1pYUkiMjoIfARniQncRIQDtwQ9HgHLiurMXqNQwOfKrlSzxcNsZNWFdpqk7nhkDHTf3
- yMrITqdKzdLH7L59eQpDrBtdRokbGvzLbfYD2VlwSDrqAsi+CS5tqrbCj4nP4xsONu5D
- LrjQ==
-X-Gm-Message-State: AOAM530EslvdDIgrA/NehpQZ/f9Fv8IUzhrT7jvLuie0B9F2U/G+HXWR
- IlvLp43cB5fxgVenFSdN3YBr4Q8utpHmauhEsmNZ7A==
-X-Google-Smtp-Source: ABdhPJwH/KSfANj7WAISJ4X/OGGDRL8CEswJt/vSOXqtZNnUmhmfUOPmS/catGq1ZLRDado7y9BjlPPYtSlde7lnKe4=
-X-Received: by 2002:a05:6512:314b:: with SMTP id
- s11mr5650906lfi.206.1634221358158; 
- Thu, 14 Oct 2021 07:22:38 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211012135935.37054-1-lmb@cloudflare.com>
- <87wnmgg0mf.fsf@cloudflare.com>
-In-Reply-To: <87wnmgg0mf.fsf@cloudflare.com>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=5/q19B3/R6J7BzRleBPGaijLiNuKPab4A3ikMD+aFpc=;
+ b=cYfqWmqLE/Ov5e0r2W3WlwsWOj/hbelM3Bse24nbvRBOvjfIbw3OBBhDViykBbn4No
+ p4Sbl0E0P43M4ZGD8zUSCUEWEjMqEqmqc5KaIuFXMbJX1OAm0iAtxSqEdXMwBx1SHuAJ
+ NO7gRpmWpZwwu9qRY3ZdfOeOADE2OZ1kzm+ng6Js2J1TZCso60eCuxEI/5AjCvNBI4Ur
+ XtqMg9RgVxKGfKmGL0Xulf9grfqX5W0oStNvgjsJpyiPKWN4VL69PT0mOeVbwdjpvaSQ
+ 4e7VIxXqJAvCFwpwFn+YDZWE6tXeGyy0XzEnregIOXDaeZHpo6v8HjLKLj4NaMNoYVN9
+ +YXw==
+X-Gm-Message-State: AOAM530jH0C0LK8/yxwt5BWg+zmxCTq05vF+sB6cX2Pmui8tgDfvxLz5
+ /4/Hdqhp583oKicrl7JtksT1bQ==
+X-Google-Smtp-Source: ABdhPJzB2mQjtO1jbM2E5FRM6Hgfz82vytUWdiGWhil+caGVdjTD7sQWZqzw2X7wsf9dE8yHVxv6Tw==
+X-Received: by 2002:a05:600c:358b:: with SMTP id
+ p11mr19459456wmq.156.1634221563632; 
+ Thu, 14 Oct 2021 07:26:03 -0700 (PDT)
+Received: from antares..
+ (4.4.a.7.5.8.b.d.d.b.6.7.4.d.a.6.f.f.6.2.a.5.a.7.0.b.8.0.1.0.0.2.ip6.arpa.
+ [2001:8b0:7a5a:26ff:6ad4:76bd:db85:7a44])
+ by smtp.gmail.com with ESMTPSA id e8sm3731111wrg.48.2021.10.14.07.26.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 14 Oct 2021 07:26:03 -0700 (PDT)
 From: Lorenz Bauer <lmb@cloudflare.com>
-Date: Thu, 14 Oct 2021 15:22:26 +0100
-Message-ID: <CACAyw99FGc_z2zXjrjP=0k3jz0vz2u6ddiGVbzD0zuTcTU4rzg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] Fix up bpf_jit_limit some more
-To: Jakub Sitnicki <jakub@cloudflare.com>
-Cc: Nicolas Dichtel <nicolas.dichtel@6wind.com>,
- Luke Nelson <luke.r.nels@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- kernel-team <kernel-team@cloudflare.com>, linux-riscv@lists.infradead.org, 
- Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
+To: nicolas.dichtel@6wind.com, luke.r.nels@gmail.com,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>
+Cc: kernel-team@cloudflare.com, Lorenz Bauer <lmb@cloudflare.com>,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org
+Subject: [PATCH v3 0/3] Fix up bpf_jit_limit some more
+Date: Thu, 14 Oct 2021 15:25:50 +0100
+Message-Id: <20211014142554.53120-1-lmb@cloudflare.com>
+X-Mailer: git-send-email 2.30.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211014_072258_739741_E88C0019 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20211014_072605_975647_9D328171 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +98,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Oct 2021 at 20:56, Jakub Sitnicki <jakub@cloudflare.com> wrote:
->
-> On Tue, Oct 12, 2021 at 03:59 PM CEST, Lorenz Bauer wrote:
-> > Some more cleanups around bpf_jit_limit to make it readable via sysctl.
-> >
-> > Jakub raised the point that a sysctl toggle is UAPI and therefore
-> > can't be easily changed later on. I tried to find another place to stick
-> > the info, but couldn't find a good one. All the current BPF knobs are in
-> > sysctl.
-> >
-> > There are examples of read only sysctls:
-> > $ sudo find /proc/sys -perm 0444 | wc -l
-> > 90
-> >
-> > There are no examples of sysctls with mode 0400 however:
-> > $ sudo find /proc/sys -perm 0400 | wc -l
-> > 0
-> >
-> > Thoughts?
->
-> I threw this idea out there during LPC already, that it would be cool to
-> use BPF iterators for that. Pinned/preloaded iterators were made for
-> dumping kernel data on demand after all.
->
-> What is missing is a BPF iterator type that would run the program just
-> once (there is just one thing to print), and a BPF helper to lookup
-> symbol's address.
->
-> I thought this would require a bit of work, but actually getting a PoC
-> (see below) to work was rather pleasntly straightforward.
->
-> Perhaps a bit of a hack but I'd consider it as an alternative.
+Fix some inconsistencies of bpf_jit_limit on non-x86 platforms.
+I've dropped exposing bpf_jit_current since we couldn't agree on
+file modes, correct names, etc.
 
-I spoke to Jakub, I won't have time to work on this myself. So I'll
-drop this patch from the series and send a v3 with just the fixes to
-bpf_jit_limit.
+Lorenz Bauer (3):
+  bpf: define bpf_jit_alloc_exec_limit for riscv JIT
+  bpf: define bpf_jit_alloc_exec_limit for arm64 JIT
+  bpf: prevent increasing bpf_jit_limit above max
+
+ arch/arm64/net/bpf_jit_comp.c | 5 +++++
+ arch/riscv/net/bpf_jit_core.c | 5 +++++
+ include/linux/filter.h        | 1 +
+ kernel/bpf/core.c             | 4 +++-
+ net/core/sysctl_net_core.c    | 2 +-
+ 5 files changed, 15 insertions(+), 2 deletions(-)
 
 -- 
-Lorenz Bauer  |  Systems Engineer
-6th Floor, County Hall/The Riverside Building, SE1 7PB, UK
+2.30.2
 
-www.cloudflare.com
 
 _______________________________________________
 linux-riscv mailing list
