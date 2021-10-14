@@ -2,107 +2,110 @@ Return-Path: <SRS0=/Gqo=PC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2429C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 04:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7768DC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 05:56:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7243861130
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 04:21:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7243861130
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sholland.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3136B610CB
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Oct 2021 05:56:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3136B610CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=opensource.wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:Subject:From:References:Cc:To:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=m3C+MC51J8xbpCQldG3rQVRATc79ubRvUWb9zvqpwRs=; b=c+otu4llrhF1/MfHlYCClqUzUC
-	8lpoiDzIUU/qxvxw3n9qgBagIUPbjKKgDJppS+tSpYsJH8DkEhPVADn2YCoRapXKjxC1Cj1wFB6Uj
-	5GXGWACxnWUYvO8mPf2f/0/u68P3KoppBZVtaobhgBspfoJkCyNtAXgzoVOR/NMYD66UAquVgXCse
-	JlO3hNDkGqnF/sioBKccgYFJAKx2O2yg3kLAWPZAJ26vjnyaZT3SOHdaZMt8qmWrExEiUeJi91rlp
-	QR17//KzsRZ/VaUyeZeoMiIcUHBCzuY+mbIdf4n0x59mhaPimHIEbnUMuM2wd38u7VBus1FMhWzC7
-	q4XFWdIw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=a/wmq+zTzcEsykqwT0x5bCBcQhMCWlAz/8tYe7kJOsU=; b=JO0ROg6EahmTKH
+	HTPre3vb++1StrWx2EPuR/xq2IeX9WOM1A0H0n9KttWeYz/0pOvpGefUTrnPvS3bagmiXULekzuGX
+	cNiR0HdAzrGr2jnhhoNT9XeGgCUyRNGBjqPJ0ez6IlemjXCE2wSL3J1Hjbu1yMCIUy2B8/+A9BFBR
+	I3OVm8HyBYvPFLha7ZLp8RC5du3flRHIhco/ydre/VFsW3Rd1l+bFnqncjT492HlrYUeewDl49Qqm
+	zRGlNvxPNFN/0qEt24jUXBp1kwwkSEVwa9MaLRNtK6qXtchN7VddMOYPBbOA/CI5Rxu4BJyJrcYk7
+	eYPQp/M4zowj3N4wj36Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1masF1-001VQZ-7u; Thu, 14 Oct 2021 04:21:15 +0000
-Received: from new1-smtp.messagingengine.com ([66.111.4.221])
+	id 1matii-001eNu-FN; Thu, 14 Oct 2021 05:56:00 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1masEy-001VPp-9p
- for linux-riscv@lists.infradead.org; Thu, 14 Oct 2021 04:21:13 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
- by mailnew.nyi.internal (Postfix) with ESMTP id 8EE74580E8C;
- Thu, 14 Oct 2021 00:21:07 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute1.internal (MEProxy); Thu, 14 Oct 2021 00:21:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- to:cc:references:from:subject:message-id:date:mime-version
- :in-reply-to:content-type:content-transfer-encoding; s=fm1; bh=u
- qzOZZz/9vc/TqZeIFjYvMXtaliYQ5uBgCj+mfMcLxk=; b=lWV2Cka9t1PKMYuyf
- ofDip9RtHUqtnB/80isuPb0hEvPO+MRhBBqmxHTnIJ6wGNlml4ZpTZgi68O3CenU
- w4J0NPIFiWgBbx/3PJcfO7dBHiO1RfV2d8JoLQvNh8i82rxsbJ8bcwpLxmuMvJ0r
- ohmOfgF92mzMP3jmgV9oxNBBYtsISjET4MHuZFgvjwLAMlCykkW3pzjEKgvYAVL4
- qnJJomscyOcyfRAlQCTvhmqqr2rNBYsMj60nbN8CK/ITILZvCdGHi9E87hPUSrZA
- KZOvT5PfE/abacvpQpBn1bZVK926Sa5qtWCnLgjtSHww5wtYiIjUO5nUb+EIfyLl
- 4dcTw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-transfer-encoding:content-type
- :date:from:in-reply-to:message-id:mime-version:references
- :subject:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm1; bh=uqzOZZz/9vc/TqZeIFjYvMXtaliYQ5uBgCj+mfMcL
- xk=; b=mfhJaY4uAJ6gAdEusHNedUEk+Mnk5hHnaGWnCSC7RiL4yTzqOISpb1iL3
- MlCLnUoMRa9XD3BHE9JIC8RSQfOTymLfi7wQ11uBMz2wzwGwS6ED/35uMIndAI4s
- jB1Pzo2V5Ck1y651ZLUcXfAA99uz+Rm0zBP47D1vVLO7fwnc4kP8zJd/RoFA6/wl
- Dr7CK/+s/9gcD6Ah6MValXgF3F2pP1qGS5w5YMob+nMU2p8UORtybjJK5Jf6pqyf
- fxaVA43lHQCp7a0SAaGoo1vwwJz0pCuS7KCBZ9i4+jQ+6Pbu/KfcHt7gO1crYT+p
- OgouDbhMs3ksZJNFq/S3cjyRppj1Q==
-X-ME-Sender: <xms:MrBnYXqgNcyfesEY5VAekg5z7i44BH7TDnBgMnW5b7vDP_0HLH9jUw>
- <xme:MrBnYRoMcSUYLI9xUg_mIJYG-uLiMgjqmV3ruiGFo-5Hm6glsB8ga8oTyluxRo3rU
- TL9Q3HVuUqXhzRgvw>
-X-ME-Received: <xmr:MrBnYUPbWS1LQhICO3HS0tfHIuAUYmqjOXQB14LqCEf1RUMtae5GIwLUA8qhTrbBzAgA748gnX8JV1WZ2hXXAvqnxVB--SIo5H9g0maNuWKUAxqYt2pB1a3iEQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvdduuddgjeeiucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepvfhfhffukffffgggjggtgfesthekredttdefjeenucfhrhhomhepufgrmhhu
- vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
- ftrfgrthhtvghrnhepvddttdejieduudfgffevteekffegffeguddtgfefkeduvedukeff
- hedtfeevuedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
- homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:MrBnYa7554oYAxmUaI9FdzofPzlq135aKSfXYxzp3ckCW3VwZCzjMw>
- <xmx:MrBnYW5nw9uYCfEtdR62N8M4oW6w_vTNm6sbeYO99ZjbGCN1qHXTjA>
- <xmx:MrBnYSh6bl-Yh5QrDDhYUs-e3j-ekfGINqEKujaemXcyRqhm_WY_tA>
- <xmx:M7BnYTyxqgHfKjg83eNpaNoeSph4PTnuP2TFQEaqCxLVaXsLck6Neg>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 14 Oct 2021 00:21:06 -0400 (EDT)
-To: Guo Ren <guoren@kernel.org>, =?UTF-8?Q?Heiko_St=c3=bcbner?=
- <heiko@sntech.de>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>,
- Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, Rob Herring <robh@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>
-References: <20211013012149.2834212-1-guoren@kernel.org>
- <4245323.jvX0RauA9x@diego>
- <CAAhSdy29WAXfBz6Ag-kAjNo_uhJO+AuC0e-UyWhwhaCmrw7pjw@mail.gmail.com>
- <4027415.QZv1u5a1DM@diego>
- <CAJF2gTTDZ0QjY9JL=U61=ubWrGWVOe2VBbW6hgzsHqsePgN0Ww@mail.gmail.com>
-From: Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH V3 1/2] dt-bindings: update riscv plic compatible string
-Message-ID: <693a609c-4278-84ab-8a9b-448936bb13d0@sholland.org>
-Date: Wed, 13 Oct 2021 23:21:05 -0500
-User-Agent: Mozilla/5.0 (X11; Linux ppc64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.2
+ id 1matif-001eNL-Nc
+ for linux-riscv@lists.infradead.org; Thu, 14 Oct 2021 05:55:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1634190957; x=1665726957;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=+HCVwpWd7xwx2tp3UxxXqvcw+GKWRQ+CHp15VqQlxB0=;
+ b=YgYEr5L5tCy0W3i1P4PpNBL7wOffuk5b+Mp3P9IOnG2Y6etfPrd21IlC
+ MzL9YwtsNZHxR69CGdgpEWwGNZEi68eAhOEkPm+HWqe8s/uo8HMA9LFv0
+ WioWbCtXYLbMTRpocIhWpkS7pvhSmX/2qgI0hprqnTYe9I9m0lTK0kZMs
+ 5aW7WL49PxS7BFb+ehDFNiyViGkOwY/ii5ky9JlPewJRl9aP/HsURjUHk
+ 9G0S06ywy2hnJIeNyM/rK3ramt5/688h8pck02zJTDVX/kstzR1AnwDVo
+ ufMNwQ0AyQ6QdwQNVnzVv4vKvi6X/fVAv9XO9ZxFs4tFwMqBGOk+msrd3 g==;
+X-IronPort-AV: E=Sophos;i="5.85,371,1624291200"; d="scan'208";a="182812870"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 14 Oct 2021 13:55:53 +0800
+IronPort-SDR: N1Xt4/oFrGkxkE5QLzjc5KQIP3DpcDCQcMRHWcKBIo4R2gMjoUDOu7x31+NmNqNf+WtMzZk1ff
+ nJji4DfD8WndHvOt/DfmdVCQSScNaBCN151xtrPVG3JjixtGVsejYui5vJpqJVPFMkMB4MGjoP
+ Z4PvUWc+M+K/HIvfbF1bTpmOcXa2qVFduimYpIr5RWsc22z8WFXsYZ54LOAbpozBv57P3dS/vO
+ CeEmfaz7s530xUeifZ4NfaIcgExXuWy1auOPJzqmifDsWcs62YpYq2RWTIiRTNtDCIG8RBSnKJ
+ awfsW9Dfj/bWQN22R+RiWrH1
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Oct 2021 22:31:39 -0700
+IronPort-SDR: Cdv67FgDPL3Kwu//yWrDw2gwQFIWp6boGBfCrXbtyVuUwnjw3PolBAew4gTlDrcRFBc6eXK6qh
+ abR2ggCCrt8pNyRohPvX6JM1kHKFACVwkjoTN3NQ9p4SACsAR13q75jeg72+gW1THUCJsZIqMN
+ 9P9Vf+uNIxgWzF5zp7oGgPDUsbaP/bI8BPdfNO6ZWIjSE667MpY3ANxd1wXGCwBrgoynQ8TrgX
+ 7UBRB31xpDqxDYzyV8CEpkvNV106Raf0rzJNizqD/ckFAtCBGdseqes4VA/7/I6gkEGlqPOnrM
+ PmY=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Oct 2021 22:55:55 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4HVJY55krXz1SHvt
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Oct 2021 22:55:53 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:mime-version
+ :x-mailer:message-id:date:subject:to:from; s=dkim; t=1634190952;
+ x=1636782953; bh=+HCVwpWd7xwx2tp3UxxXqvcw+GKWRQ+CHp15VqQlxB0=; b=
+ Oa6NANX0VpnF6AbmrgxFK0kHGtaTzTxcrWrKW24+VVua0fH4L3BZDdWiXlEuYqe/
+ ns4hM03IV66LoYvee3A21+SmPpnEnuug0mhkrI7P52PX7pbgZDcT3IPCtOCGX4gk
+ YhAAlfziW59SJ50+5RsJ4QLtTCCN6rhaef4RWuUVPv4+mFq928hwo1O0f++AeVIH
+ 05q5m7g6k4S7RW05jZcHvYnd7nN8ZHiVz3RFqOGNhq89j2LJXTe9I5go7o4JGvao
+ lxZ+/9Tjjg+e+SptyYi4pyTMFBsqRM/i8sTGfq8rvkidA2J+kP0Pe3sQlB1qK803
+ 55C6MxoOmKRIyVPA7s8lOQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id a2meP11RN8Dx for <linux-riscv@lists.infradead.org>;
+ Wed, 13 Oct 2021 22:55:52 -0700 (PDT)
+Received: from toolbox.wdc.com (unknown [10.225.165.36])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4HVJXs25dqz1RvTg;
+ Wed, 13 Oct 2021 22:55:40 -0700 (PDT)
+From: Alistair Francis <alistair.francis@opensource.wdc.com>
+To: linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, alistair23@gmail.com, namhyung@kernel.org,
+ jolsa@redhat.com, alexander.shishkin@linux.intel.com, mark.rutland@arm.com,
+ acme@kernel.org, dave@stgolabs.net, dvhart@infradead.org,
+ peterz@infradead.org, mingo@redhat.com, tglx@linutronix.de,
+ atish.patra@wdc.com, arnd@arndb.de,
+ Alistair Francis <alistair.francis@wdc.com>
+Subject: [PATCH 1/2] perf bench futex: Use a 64-bit time_t
+Date: Thu, 14 Oct 2021 15:55:26 +1000
+Message-Id: <20211014055527.1238645-1-alistair.francis@opensource.wdc.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-In-Reply-To: <CAJF2gTTDZ0QjY9JL=U61=ubWrGWVOe2VBbW6hgzsHqsePgN0Ww@mail.gmail.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211013_212112_577265_22E27914 
-X-CRM114-Status: UNSURE (   7.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211013_225557_910788_138F2BE8 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +122,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/13/21 7:49 AM, Guo Ren wrote:
->>>>>>>>        - const: sifive,plic-1.0.0
->>>>>>>
->>>>>>> The PLIC DT node requires two compatible string:
->>>>>>> <implementation_compat>, <spec_compat>
->>>>>>>
->>>>>>> The C9xx PLIC is not RISC-V PLIC so, the DT node should
->>>>>>> be: "thead,c900-plic", "thead,c9xx-plic"
->>>>>>>
->>>>>>> You need to change "- const: sifive,plic-1.0.0" to
->>>>>>> - enum:
->>>>>>>     - sifive,plic-1.0.0
->>>>>>>     - thead,c9xx-plic
->>
->> isn't XuanTie the series containing the c906 and c910?
-> XuanTie contain two CPU series:
-> riscv: c906, c910
-> csky: c807, c810, c860
-> 
->> So maybe
->>         thead,xuantie-plic
->> for the spec compatible.
->>
->> So doing in full
->>         compatible = "thead,c906-plic", "thead,xuantie-plic"
-> How about:
-> compatible = "allwinner,d1-plic", "thead,c900-plic"
+From: Alistair Francis <alistair.francis@wdc.com>
 
-To follow the <family>-<soc>-<device> pattern of existing Allwinner
-compatibles, the first string should be "allwinner,sun20i-d1-plic".
-Otherwise, this looks to me like the right thing to do.
+Convert tools/perf to only use a 64-bit time_t. On 64-bit architectures
+this isn't a functional change. On 32-bit architectures we now only
+perform 64-bit time_t syscalls (__NR_futex_time64) and use a struct
+timespec64.
 
-Regards,
-Samuel
+This won't work on kernels before 5.1, but as perf is tied to the kernel
+that's ok.
+
+This allows us to build perf for 32-bit architectures with 64-bit time_t
+like RISC-V 32-bit.
+
+Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+---
+ tools/perf/bench/futex.h | 28 ++++++++++++++++++++++------
+ 1 file changed, 22 insertions(+), 6 deletions(-)
+
+diff --git a/tools/perf/bench/futex.h b/tools/perf/bench/futex.h
+index b3853aac3021c..c1ca75657c32e 100644
+--- a/tools/perf/bench/futex.h
++++ b/tools/perf/bench/futex.h
+@@ -27,12 +27,17 @@ struct bench_futex_parameters {
+ 	unsigned int nrequeue;
+ };
+ 
++struct timespec64 {
++	long long tv_sec;       /* seconds */
++	long long tv_nsec;      /* nanoseconds */
++};
++
+ /**
+  * futex() - SYS_futex syscall wrapper
+  * @uaddr:	address of first futex
+  * @op:		futex op code
+  * @val:	typically expected value of uaddr, but varies by op
+- * @timeout:	typically an absolute struct timespec (except where noted
++ * @timeout:	typically an absolute struct timespec64 (except where noted
+  *		otherwise). Overloaded by some ops
+  * @uaddr2:	address of second futex for some ops
+  * @val3:	varies by op
+@@ -47,15 +52,26 @@ struct bench_futex_parameters {
+  * These argument descriptions are the defaults for all
+  * like-named arguments in the following wrappers except where noted below.
+  */
+-#define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
+-	syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3)
++/**
++ * We only support 64-bit time_t for the timeout.
++ * On 64-bit architectures we can use __NR_futex
++ * On 32-bit architectures we use __NR_futex_time64. This only works on kernel
++ * versions 5.1+.
++ */
++#if __BITS_PER_LONG == 64 || defined(__i386__)
++# define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
++	syscall(__NR_futex, uaddr, op | opflags, val, timeout, uaddr2, val3)
++#else
++# define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
++	syscall(__NR_futex_time64, uaddr, op | opflags, val, timeout, uaddr2, val3)
++#endif
+ 
+ /**
+  * futex_wait() - block on uaddr with optional timeout
+  * @timeout:	relative timeout
+  */
+ static inline int
+-futex_wait(u_int32_t *uaddr, u_int32_t val, struct timespec *timeout, int opflags)
++futex_wait(u_int32_t *uaddr, u_int32_t val, struct timespec64 *timeout, int opflags)
+ {
+ 	return futex(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
+ }
+@@ -74,7 +90,7 @@ futex_wake(u_int32_t *uaddr, int nr_wake, int opflags)
+  * futex_lock_pi() - block on uaddr as a PI mutex
+  */
+ static inline int
+-futex_lock_pi(u_int32_t *uaddr, struct timespec *timeout, int opflags)
++futex_lock_pi(u_int32_t *uaddr, struct timespec64 *timeout, int opflags)
+ {
+ 	return futex(uaddr, FUTEX_LOCK_PI, 0, timeout, NULL, 0, opflags);
+ }
+@@ -111,7 +127,7 @@ futex_cmp_requeue(u_int32_t *uaddr, u_int32_t val, u_int32_t *uaddr2, int nr_wak
+  */
+ static inline int
+ futex_wait_requeue_pi(u_int32_t *uaddr, u_int32_t val, u_int32_t *uaddr2,
+-		      struct timespec *timeout, int opflags)
++		      struct timespec64 *timeout, int opflags)
+ {
+ 	return futex(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
+ 		     opflags);
+-- 
+2.31.1
+
 
 _______________________________________________
 linux-riscv mailing list
