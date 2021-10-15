@@ -2,87 +2,68 @@ Return-Path: <SRS0=nroh=PD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6688C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 14:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BCDEC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 15:12:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A96E460FDA
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 14:14:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A96E460FDA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id B491F6023E
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 15:12:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B491F6023E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vPFFnAnlltVsiiIbgfzV1K6tkxHOjR5V0le68d/b3iA=; b=YEiLMF8cZbVFb5
-	zFRV8u5aA/l1kuPef2jkyZfxVQuwHa4M/xamYGqPf9iSno67pELUMVbUYo/s2hfEPrcTRi2pRAWxH
-	ZzjaQT+Ol35PpHJ+CNeR+sdf5X/5196ZsuGK9aZT9vbVHsosXMESk926b+8A9y0pkopBApKy1Cy6H
-	03hXY5quSWbO3UoPHww5s4kRLeaEA8vU4eip4XA00dacLWwakRiQqiIFPQFTOiT/b5CbZcEbD17YE
-	DPO7kX8xVEZBhbUMAEL60BiIUoI3r8h3M2Bg8o6H8Wi/9GCWtTcoreqoY8qdk9SZ3Sne7AS2kOEYA
-	555kn0Gqb3eZdUgU/T4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2lDTU6Xt1Qr33tazRxSB/TtcMw1ycfab7+WElG7Kmu0=; b=lEJB5iFTRIGxaZ
+	tpK5gvljZE/rgkRP0P6LrDeujB3G/1CwgEO71RBkxFkc8rCdBym8C46SWtNSuP9/Hl2ZKyYuCq1fI
+	liLGK7Q2v3TrybVEaCgqOtE86UdXyCDKbFkl8ljtkaDAGQABL1cZhklxjGpxtrtRVK1ndypVat87h
+	TWt54GkJxdNV0BksUQuzBtqsVypc6hVRuP1Pu8vJN+r50rpvuzlgPGL9Lejxj8litmgWbluMjrp3L
+	SZOoW/JuG8yB/v7mcMnQ8iW/OSfmb+PJSP5/tn3Ej3T0o/OYjtjz0nrU5I6/nAaOBBChb2YIkdZgU
+	xiEwnDiFazyopqXkQJKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbNyQ-007V0S-No; Fri, 15 Oct 2021 14:14:14 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1mbOsL-007qe9-Eo; Fri, 15 Oct 2021 15:12:01 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbNXI-007Lgi-Le; Fri, 15 Oct 2021 13:46:15 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id r184so4177949ybc.10;
- Fri, 15 Oct 2021 06:46:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=UMmMwoh0d9xOMBuf6Cb27qJgX9NIbwQbOxUehDVoXW4=;
- b=mSDy6QRxK1GWCZFRze2z/WPjTfj8t295fUbQbf1kfgfC1DUUqn1r6OUB82lPqEziqO
- aPvbyCh7Fdmn7+U2T9aXBbvBtchCJWUvjWlTV+h4GFPiyaj9eOjPDeaevyfDx+XswY9O
- qlsP/N0k3ISA1BsIf11JnASBHQ+NVZOu6UIordsImPMmoVJ2eY/Mu64O44OsXQNgP3Uu
- GAwVOrPFCVDcaz9D9GLZ36hsUqoxlc4cNtH0hVd6r/OJGWnboEInE6zKcQGGMklOLgBs
- 5qXHsjF3iMMJ/cwwo/tgbfTSCYNdGAYh4RpqZn+X97Ho5avE4EmgJ0pgCpZvhtcZcV2d
- nePg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=UMmMwoh0d9xOMBuf6Cb27qJgX9NIbwQbOxUehDVoXW4=;
- b=esiZeg/Kg38ot8E8GxUxwHo875scfCWM2OhH21BbubG5R8s3Mt5uMim8dvq1Q6jQ9g
- udJcD/+yOAfX4PwPUryPH5wJD6rRRm0mqu5urDSFj+/GefqTeH4W9WPeA66ae+ymeh7S
- onT8hT8G2TAybt+KvdyH+DQf4uttmXXFRR8ghH9b9nw0v03zl1ROdOnD4rTeV1ri7m3R
- uoMDf+fD8qbsBkpHkjUOZcK4VHp55NyJcd6Hml6aVAN1+lDgudxLs14/NnPfd1Mztex1
- egcNytwgyod5uhp/lUr3BofRWx42K9dKq1YXSHVaC787aOZ4YE6WmgItNG8IVU4eLVRM
- Nk9Q==
-X-Gm-Message-State: AOAM533dLsyY7NmzXhNxC44m3jFKqlRkTMWTVGxCtvHzg+W/m2czujoa
- 3WKXL0U7OhiB+YPfDBXxV/KrDJ5gC61acPs3TJw=
-X-Google-Smtp-Source: ABdhPJwfK40oo9nWMVG1fm09vk4sNWiVNDk0gjrfy78SzbWYqPeXgWz5q5WvAASkenwS0WeJTbIxH9crZgrqZMEVb7k=
-X-Received: by 2002:a25:3843:: with SMTP id f64mr12590756yba.313.1634305571737; 
- Fri, 15 Oct 2021 06:46:11 -0700 (PDT)
+ id 1mbOhN-007mPt-4R
+ for linux-riscv@lists.infradead.org; Fri, 15 Oct 2021 15:00:43 +0000
+Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
+ [66.24.58.225])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6E0FA61056;
+ Fri, 15 Oct 2021 15:00:37 +0000 (UTC)
+Date: Fri, 15 Oct 2021 11:00:35 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, "H. Peter Anvin"
+ <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina
+ <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek
+ <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, Colin Ian King
+ <colin.king@canonical.com>, Masami Hiramatsu <mhiramat@kernel.org>, "Peter
+ Zijlstra (Intel)" <peterz@infradead.org>, Nicholas Piggin
+ <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ live-patching@vger.kernel.org, =?UTF-8?B?546L6LSH?=
+ <yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
+Subject: [PATCH] tracing: Have all levels of checks prevent recursion
+Message-ID: <20211015110035.14813389@gandalf.local.home>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20211015100941.17621-1-heinrich.schuchardt@canonical.com>
- <CAEUhbmUSmi9mbiHpatBjGgRjrtyJPms9BRmyBPs5BWeVb7n1Nw@mail.gmail.com>
- <49af3dc8-0d1e-e82f-6df2-2bf8338acd3a@canonical.com>
- <D976B0F9-6AE4-4C04-8D52-75B24D6E4359@jrtc27.com>
-In-Reply-To: <D976B0F9-6AE4-4C04-8D52-75B24D6E4359@jrtc27.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Fri, 15 Oct 2021 21:46:01 +0800
-Message-ID: <CAEUhbmWFAJpVxproxX-iH3Tj7jHGqu_SwN6-tGuxqi7NXVhOhA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] dt-bindings: reg-io-width for SiFive CLINT
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Guo Ren <guoren@linux.alibaba.com>, Xiang W <wxjstz@126.com>, 
- Samuel Holland <samuel@sholland.org>, Atish Patra <atish.patra@wdc.com>, 
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>, 
- linux-kernel <linux-kernel@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- OpenSBI <opensbi@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211015_064612_773529_6E922E66 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20211015_080041_313461_E7EE8478 
+X-CRM114-Status: GOOD (  37.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +75,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMTUsIDIwMjEgYXQgODoxNSBQTSBKZXNzaWNhIENsYXJrZSA8anJ0YzI3QGpy
-dGMyNy5jb20+IHdyb3RlOgo+Cj4gT24gMTUgT2N0IDIwMjEsIGF0IDEyOjU0LCBIZWlucmljaCBT
-Y2h1Y2hhcmR0IDxoZWlucmljaC5zY2h1Y2hhcmR0QGNhbm9uaWNhbC5jb20+IHdyb3RlOgo+ID4K
-PiA+IE9uIDEwLzE1LzIxIDEyOjE0LCBCaW4gTWVuZyB3cm90ZToKPiA+PiBPbiBGcmksIE9jdCAx
-NSwgMjAyMSBhdCA2OjA5IFBNIEhlaW5yaWNoIFNjaHVjaGFyZHQKPiA+PiA8aGVpbnJpY2guc2No
-dWNoYXJkdEBjYW5vbmljYWwuY29tPiB3cm90ZToKPiA+Pj4KPiA+Pj4gVGhlIENMSU5UIGluIHRo
-ZSBULUhFQUQgOXh4IHByb2Nlc3NvcnMgZG8gbm90IHN1cHBvcnQgNjRiaXQgbW1pbyBhY2Nlc3Mg
-dG8KPiA+Pj4gdGhlIE1USU1FUiBkZXZpY2UuIFRoZSBjdXJyZW50IHNjaGVtYSBkb2VzIG5vdCBh
-bGxvdyB0byBzcGVjaWZ5IHRoaXMuCj4gPj4+Cj4gPj4+IE9wZW5TQkkgY3VycmVudGx5IHVzZXMg
-YSBwcm9wZXJ0eSAnY2xpbnQsaGFzLW5vLTY0Yml0LW1taW8nIHRvIGluZGljYXRlIHRoZQo+ID4+
-PiByZXN0cmljdGlvbi4gU2FtdWFlbCBIb2xsYW5kIHN1Z2dlc3RlZCBpbgo+ID4+PiBsaWI6IHV0
-aWxzL3RpbWVyOiBVc2Ugc3RhbmRhcmQgcHJvcGVydHkgdG8gc3BlY2lmeSAzMi1iaXQgSS9PCj4g
-Pj4+IGh0dHBzOi8vZ2l0aHViLmNvbS9zbWFldWwvb3BlbnNiaS9jb21taXQvYjk1ZTljZjdjZjkz
-YjBhZjE2ZmM4OTIwNDM3OGJjNTlmZjMwMDA4ZQo+ID4+PiB0byB1c2UgInJlZy1pby13aWR0aCA9
-IDw0PjsiIGFzIHRoZSByZWctaW8td2lkdGggcHJvcGVydHkgaXMgZ2VuZXJhbGx5IHVzZWQKPiA+
-Pj4gaW4gdGhlIGRldmljZXRyZWUgc2NoZW1hIGZvciBzdWNoIGEgY29uZGl0aW9uLgo+ID4+Pgo+
-ID4+PiBBIHJlbGVhc2UgY2FuZGlkYXRlIG9mIHRoZSBBQ0xJTlQgc3BlY2lmaWNhdGlvbiBpcyBh
-dmFpbGFibGUgYXQKPiA+Pj4gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWFjbGludC9y
-ZWxlYXNlcwo+ID4+Pgo+ID4+PiBBZGQgcmVnLWlvLXdpZHRoIGFzIG9wdGlvbmFsIHByb3BlcnR5
-IHRvIHRoZSBTaUZpdmUgQ29yZSBMb2NhbCBJbnRlcnJ1cHRvci4KPiA+Pj4KPiA+Pj4gU2lnbmVk
-LW9mZi1ieTogSGVpbnJpY2ggU2NodWNoYXJkdCA8aGVpbnJpY2guc2NodWNoYXJkdEBjYW5vbmlj
-YWwuY29tPgo+ID4+PiAtLS0KPiA+Pj4gIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
-cy90aW1lci9zaWZpdmUsY2xpbnQueWFtbCB8IDcgKysrKysrKwo+ID4+PiAgMSBmaWxlIGNoYW5n
-ZWQsIDcgaW5zZXJ0aW9ucygrKQo+ID4+Pgo+ID4+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlv
-bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1sIGIvRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1sCj4gPj4+IGlu
-ZGV4IGEzNTk1MmY0ODc0Mi4uMjY2MDEyZDg4N2I1IDEwMDY0NAo+ID4+PiAtLS0gYS9Eb2N1bWVu
-dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiA+Pj4g
-KysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGlu
-dC55YW1sCj4gPj4+IEBAIC00MSw2ICs0MSwxMyBAQCBwcm9wZXJ0aWVzOgo+ID4+PiAgICByZWc6
-Cj4gPj4+ICAgICAgbWF4SXRlbXM6IDEKPiA+Pj4KPiA+Pj4gKyAgcmVnLWlvLXdpZHRoOgo+ID4+
-PiArICAgIGRlc2NyaXB0aW9uOiB8Cj4gPj4+ICsgICAgICBTb21lIENMSU5UIGltcGxlbWVudGF0
-aW9ucywgZS5nLiBvbiB0aGUgVC1IRUFEIDl4eCwgb25seSBzdXBwb3J0Cj4gPj4+ICsgICAgICAz
-MmJpdCBhY2Nlc3MgZm9yIE1USU1FUi4KPiA+Pj4gKyAgICAkcmVmOiAvc2NoZW1hcy90eXBlcy55
-YW1sIy9kZWZpbml0aW9ucy91aW50MzIKPiA+Pj4gKyAgICBjb25zdDogNAo+ID4+IEJ1dCB0aGlz
-IGlzIG5vdCBhICJzaWZpdmUsY2xpbnQiIGFueXdheS4gU2hvdWxkIHRoZXJlIGJlIGEgbmV3Cj4g
-Pj4gZHQtYmluZGluZ3MgZm9yIFQtSGVhZCBjbGludCB2YXJpYW50Pwo+ID4KPiA+IEkgYXNzdW1l
-IGJ5IG5ldyBkdC1iaW5kaW5ncyB2YXJpYW50IHlvdSBtZWFuOiBBZGQgYSBuZXcgY29tcGF0aWJs
-ZSBzdHJpbmcgaW4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2
-ZSxjbGludC55YW1sLgo+ID4KPiA+IFRoZSB2ZW5kb3IgRGViaWFuIGltYWdlIHVzZXM6Cj4gPiBj
-b21wYXRpYmxlID0gInthbGx3aW5uZXIsc3VuMjBpLWQxLWNsaW50IiwgInNpZml2ZSxjbGludDDi
-gJ19Owo+Cj4gSSBhc3N1bWUgQmluIG1lYW5zIHRvIHN0b3AgY2FsbGluZyBpdCBhIHNpZml2ZSxj
-bGludDAgYW5kIGluc3RlYWQgaGF2ZQo+IHNvbWV0aGluZyBsaWtlCj4KPiAgICAgImFsbHdpbm5l
-cixzdW4yMGktZDEtY2xpbnQiLCAidGhlYWQsY2xpbnQwIgoKWWVwLCB0aGF0J3Mgd2hhdCBJIHdh
-bnRlZCB0byBzZWUuIFNvcnJ5IGZvciBub3QgYmVpbmcgY2xlYXIuIFRoZQpULUhlYWQgQ0xJTlQg
-aXMgZGVmaW5pdGVseSBub3QgY29tcGF0aWJsZSB3aXRoICJzaWZpdmUsY2xpbnQwIi4KCj4gYXMg
-aXMgYmVpbmcgZG9uZSBmb3IgdGhlaXIgbm9uLWNvbmZvcm1pbmcgUExJQy4gSXTigJlzIHdvcnRo
-IHBvaW50aW5nIG91dAo+IHRoYXQgdGhlIHNhbWUgaXMgdHJ1ZSBoZXJlOyB0aGUgU2lGaXZlIENM
-SU5UIHN1cHBvcnRzIDY0LWJpdCBhY2Nlc3Nlcwo+IG9uIFJWNjQsIHNvIHRoaXMgaXMgbm90IGNv
-bXBhdGlibGUgd2l0aCBhIFNpRml2ZSBDTElOVC4gTW9yZW92ZXIsIHRoZQo+IFJJU0MtViBzcGVj
-IHdhcyBjbGVhcmx5IHdyaXR0ZW4gaW4gYSB3YXkgdGhhdCBpbnRlbmRlZCA2NC1iaXQgYWNjZXNz
-ZXMKPiB0byBiZSBzdXBwb3J0ZWQgZm9yIFJWNjQsIHRob3VnaCB3YXMgbm90IGNvbXBsZXRlbHkg
-ZXhwbGljaXQgYWJvdXQKPiB0aGF0LCB3aGljaCBoYXMgbm93IGJlZW4gcmVzb2x2ZWQgKHNlZQo+
-IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1pc2EtbWFudWFsL2lzc3Vlcy82MzkpLCBz
-byB0aGlzIENMSU5UCj4gdmlvbGF0ZXMgdGhlIG9idmlvdXMgaW50ZW50IG9mIHRoZSBwcmUtMS4x
-MiBwcml2aWxlZ2VkIHNwZWNzIChzZWUKPiBBbmRyZXfigJlzIG1lc3NhZ2UgaW4gdGhlIGlzc3Vl
-LCB3aGljaCBhZ3JlZXMgd2l0aCBteSByZWFkaW5nKS4KClJlZ2FyZHMsCkJpbgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
+
+While writing an email explaining the "bit = 0" logic for a discussion on
+making ftrace_test_recursion_trylock() disable preemption, I discovered a
+path that makes the "not do the logic if bit is zero" unsafe.
+
+The recursion logic is done in hot paths like the function tracer. Thus,
+any code executed causes noticeable overhead. Thus, tricks are done to try
+to limit the amount of code executed. This included the recursion testing
+logic.
+
+Having recursion testing is important, as there are many paths that can
+end up in an infinite recursion cycle when tracing every function in the
+kernel. Thus protection is needed to prevent that from happening.
+
+Because it is OK to recurse due to different running context levels (e.g.
+an interrupt preempts a trace, and then a trace occurs in the interrupt
+handler), a set of bits are used to know which context one is in (normal,
+softirq, irq and NMI). If a recursion occurs in the same level, it is
+prevented*.
+
+Then there are infrastructure levels of recursion as well. When more than
+one callback is attached to the same function to trace, it calls a loop
+function to iterate over all the callbacks. Both the callbacks and the
+loop function have recursion protection. The callbacks use the
+"ftrace_test_recursion_trylock()" which has a "function" set of context
+bits to test, and the loop function calls the internal
+trace_test_and_set_recursion() directly, with an "internal" set of bits.
+
+If an architecture does not implement all the features supported by ftrace
+then the callbacks are never called directly, and the loop function is
+called instead, which will implement the features of ftrace.
+
+Since both the loop function and the callbacks do recursion protection, it
+was seemed unnecessary to do it in both locations. Thus, a trick was made
+to have the internal set of recursion bits at a more significant bit
+location than the function bits. Then, if any of the higher bits were set,
+the logic of the function bits could be skipped, as any new recursion
+would first have to go through the loop function.
+
+This is true for architectures that do not support all the ftrace
+features, because all functions being traced must first go through the
+loop function before going to the callbacks. But this is not true for
+architectures that support all the ftrace features. That's because the
+loop function could be called due to two callbacks attached to the same
+function, but then a recursion function inside the callback could be
+called that does not share any other callback, and it will be called
+directly.
+
+i.e.
+
+ traced_function_1: [ more than one callback tracing it ]
+   call loop_func
+
+ loop_func:
+   trace_recursion set internal bit
+   call callback
+
+ callback:
+   trace_recursion [ skipped because internal bit is set, return 0 ]
+   call traced_function_2
+
+ traced_function_2: [ only traced by above callback ]
+   call callback
+
+ callback:
+   trace_recursion [ skipped because internal bit is set, return 0 ]
+   call traced_function_2
+
+ [ wash, rinse, repeat, BOOM! out of shampoo! ]
+
+Thus, the "bit == 0 skip" trick is not safe, unless the loop function is
+call for all functions.
+
+Since we want to encourage architectures to implement all ftrace features,
+having them slow down due to this extra logic may encourage the
+maintainers to update to the latest ftrace features. And because this
+logic is only safe for them, remove it completely.
+
+ [*] There is on layer of recursion that is allowed, and that is to allow
+     for the transition between interrupt context (normal -> softirq ->
+     irq -> NMI), because a trace may occur before the context update is
+     visible to the trace recursion logic.
+
+Link: https://lore.kernel.org/all/609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com/
+
+Cc: stable@vger.kernel.org
+Fixes: edc15cafcbfa3 ("tracing: Avoid unnecessary multiple recursion checks")
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+---
+ include/linux/trace_recursion.h | 41 +++++----------------------------
+ 1 file changed, 6 insertions(+), 35 deletions(-)
+
+diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+index a9f9c5714e65..168fdf07419a 100644
+--- a/include/linux/trace_recursion.h
++++ b/include/linux/trace_recursion.h
+@@ -16,23 +16,8 @@
+  *  When function tracing occurs, the following steps are made:
+  *   If arch does not support a ftrace feature:
+  *    call internal function (uses INTERNAL bits) which calls...
+- *   If callback is registered to the "global" list, the list
+- *    function is called and recursion checks the GLOBAL bits.
+- *    then this function calls...
+  *   The function callback, which can use the FTRACE bits to
+  *    check for recursion.
+- *
+- * Now if the arch does not support a feature, and it calls
+- * the global list function which calls the ftrace callback
+- * all three of these steps will do a recursion protection.
+- * There's no reason to do one if the previous caller already
+- * did. The recursion that we are protecting against will
+- * go through the same steps again.
+- *
+- * To prevent the multiple recursion checks, if a recursion
+- * bit is set that is higher than the MAX bit of the current
+- * check, then we know that the check was made by the previous
+- * caller, and we can skip the current check.
+  */
+ enum {
+ 	/* Function recursion bits */
+@@ -40,12 +25,14 @@ enum {
+ 	TRACE_FTRACE_NMI_BIT,
+ 	TRACE_FTRACE_IRQ_BIT,
+ 	TRACE_FTRACE_SIRQ_BIT,
++	TRACE_FTRACE_TRANSITION_BIT,
+ 
+-	/* INTERNAL_BITs must be greater than FTRACE_BITs */
++	/* Internal use recursion bits */
+ 	TRACE_INTERNAL_BIT,
+ 	TRACE_INTERNAL_NMI_BIT,
+ 	TRACE_INTERNAL_IRQ_BIT,
+ 	TRACE_INTERNAL_SIRQ_BIT,
++	TRACE_INTERNAL_TRANSITION_BIT,
+ 
+ 	TRACE_BRANCH_BIT,
+ /*
+@@ -86,12 +73,6 @@ enum {
+ 	 */
+ 	TRACE_GRAPH_NOTRACE_BIT,
+ 
+-	/*
+-	 * When transitioning between context, the preempt_count() may
+-	 * not be correct. Allow for a single recursion to cover this case.
+-	 */
+-	TRACE_TRANSITION_BIT,
+-
+ 	/* Used to prevent recursion recording from recursing. */
+ 	TRACE_RECORD_RECURSION_BIT,
+ };
+@@ -132,6 +113,7 @@ enum {
+ 	TRACE_CTX_IRQ,
+ 	TRACE_CTX_SOFTIRQ,
+ 	TRACE_CTX_NORMAL,
++	TRACE_CTX_TRANSITION,
+ };
+ 
+ static __always_inline int trace_get_context_bit(void)
+@@ -165,40 +147,29 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+ 	unsigned int val = READ_ONCE(current->trace_recursion);
+ 	int bit;
+ 
+-	/* A previous recursion check was made */
+-	if ((val & TRACE_CONTEXT_MASK) > max)
+-		return 0;
+-
+ 	bit = trace_get_context_bit() + start;
+ 	if (unlikely(val & (1 << bit))) {
+ 		/*
+ 		 * It could be that preempt_count has not been updated during
+ 		 * a switch between contexts. Allow for a single recursion.
+ 		 */
+-		bit = TRACE_TRANSITION_BIT;
++		bit = TRACE_CTX_TRANSITION + start;
+ 		if (val & (1 << bit)) {
+ 			do_ftrace_record_recursion(ip, pip);
+ 			return -1;
+ 		}
+-	} else {
+-		/* Normal check passed, clear the transition to allow it again */
+-		val &= ~(1 << TRACE_TRANSITION_BIT);
+ 	}
+ 
+ 	val |= 1 << bit;
+ 	current->trace_recursion = val;
+ 	barrier();
+ 
+-	return bit + 1;
++	return bit;
+ }
+ 
+ static __always_inline void trace_clear_recursion(int bit)
+ {
+-	if (!bit)
+-		return;
+-
+ 	barrier();
+-	bit--;
+ 	trace_recursion_clear(bit);
+ }
+ 
+-- 
+2.31.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
