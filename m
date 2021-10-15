@@ -2,89 +2,86 @@ Return-Path: <SRS0=nroh=PD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F2C7C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 07:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E9D8C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 08:10:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBD1A61073
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 07:29:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EBD1A61073
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id EC48861027
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 08:10:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EC48861027
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J+WVAD8C2WCr2lST6Zxm1z40pddXQ9g+aHcoQuCfixk=; b=oxjg03tICHdsgw
-	x+1KCigoThmY9lUAM7x1yCNNdBFYzDdAwc26IoM5UzYusgiYtSBsxtKpWQkTenXBixZp2mLxKj47d
-	oDLOUdqDgG3fg2sFity0oMrQppKpCngXXnQ0RH5gKpBS/BVhQmb3FRdQ/1so2zRldKmSwkVQPXP2c
-	VZ4QWa172pHeqXSRlZEWMNb51IUxfs3j9jswffFol/iGKqDuUguLQlZb35FKi+AJpa1qNvpNXHjO6
-	Zs9SSgS1cyA7Fk69csPd8lyD5GPE40KQ4aKiRA4cFY3uohbzhbO7i+TZ9Z0U5FL+hFMVtxFD0Rz99
-	luB3aWDtTfsteNPnStdw==;
+	List-Owner; bh=gE7zrHEUfwW9UCuOgzxbMo55qyOUvzC7M5+MZjvbt3c=; b=ZSfyn3VyK0fzhZ
+	RGYQvGBHX8/8v0KkIzGZVw532XdXfVtkGGZCkpr0JUrh/4g9wbPNOI7KIidUFo3EKTnWMkPvrkGwe
+	Yw8jyKpr5YK2KTID2jMQNnVaze3xcaxd1KTmQOm54IoYPNwV5pCKcLFhzj8hWqmEgJ2CK+IVQYbfV
+	3Cy2kgc+oONLqN3s9hA5ccoqeEz4ghWSHrrC37wtcFtBig9uidUoOjxmEYuD/0GTwXVksY4SpoDZC
+	IzjdSSky0zsMBnvqAoZVQiHgskz8xQpV6Apzr56I9U95rSVG+DfyCOQSEaZ6vtAkFz5jV5z/qLq7g
+	NPHWkEPrp1eynxGTs9ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbHeO-005iGe-FS; Fri, 15 Oct 2021 07:29:08 +0000
-Received: from smtp-out1.suse.de ([195.135.220.28])
+	id 1mbIIB-005se6-1H; Fri, 15 Oct 2021 08:10:15 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbHeL-005iEp-0x
- for linux-riscv@lists.infradead.org; Fri, 15 Oct 2021 07:29:07 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
- by smtp-out1.suse.de (Postfix) with ESMTP id 8F2FE21A5F;
- Fri, 15 Oct 2021 07:29:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1634282942; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=ajbOHu+rClKJMCVN9IOrg9A779y/UiP4OhkzJFOjSQ0=;
- b=Kgq5rJkdVrVP4IDhfsKBOlKRbJj/ElwH9MtJu3TB/6DSQyKaBrnGTAZEUIHTm9Wg9/R9yP
- gS+2GjVcOOgJ8gcQFMUqXpN0t0LxD5W1VSXuJRJZSg5ELwNykVEIFOvyYognnuQg7wAlZK
- xUQAgCSdgE9t8+fHmbr613MI5spEt8o=
-Received: from suse.cz (unknown [10.100.224.162])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by relay2.suse.de (Postfix) with ESMTPS id 7FDD2A3B84;
- Fri, 15 Oct 2021 07:29:01 +0000 (UTC)
-Date: Fri, 15 Oct 2021 09:28:58 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: =?utf-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
-Cc: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Ingo Molnar <mingo@redhat.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
- Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
- Joe Lawrence <joe.lawrence@redhat.com>,
- Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Nicholas Piggin <npiggin@gmail.com>,
- Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- live-patching@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] ftrace: disable preemption between
- ftrace_test_recursion_trylock/unlock()
-Message-ID: <YWktujP6DcMnRIXT@alley>
-References: <609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com>
- <7e4738b5-21d4-c4d0-3136-a096bbb5cd2c@linux.alibaba.com>
- <YWhJP41cNwDphYsv@alley>
- <5e907ed3-806b-b0e5-518d-d2f3b265377f@linux.alibaba.com>
+ id 1mbIDC-005qvf-Gv
+ for linux-riscv@lists.infradead.org; Fri, 15 Oct 2021 08:05:08 +0000
+Received: from mail-wr1-f44.google.com ([209.85.221.44]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MSckp-1m8SoN1PT7-00SyWd for <linux-riscv@lists.infradead.org>; Fri, 15
+ Oct 2021 10:04:58 +0200
+Received: by mail-wr1-f44.google.com with SMTP id v17so24926091wrv.9
+ for <linux-riscv@lists.infradead.org>; Fri, 15 Oct 2021 01:04:57 -0700 (PDT)
+X-Gm-Message-State: AOAM5328LOKZP23s8zCCZPVfeC4+/IdFbP8ADhpGblBjMqrLCI4Fb1vC
+ PeZNnESeXDHMqEKdAnASGpu15K96HsV8SaXftN0=
+X-Google-Smtp-Source: ABdhPJyMHuHnDGl2si8ITF+4TGXXgV0nuTwHzfeF7WqCGbb9eY4i99zzKLMdO9DWc/nq3na7Ws9y9ewKPsg0Jk/Kqqs=
+X-Received: by 2002:adf:f481:: with SMTP id l1mr12016275wro.411.1634285097750; 
+ Fri, 15 Oct 2021 01:04:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5e907ed3-806b-b0e5-518d-d2f3b265377f@linux.alibaba.com>
+References: <20211015005634.2658470-1-alistair.francis@opensource.wdc.com>
+In-Reply-To: <20211015005634.2658470-1-alistair.francis@opensource.wdc.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 15 Oct 2021 10:04:41 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a28zpO5Sy78CHts=p4G5v0bhxeCJhUK41bMQ8nqYV8z_A@mail.gmail.com>
+Message-ID: <CAK8P3a28zpO5Sy78CHts=p4G5v0bhxeCJhUK41bMQ8nqYV8z_A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] perf bench futex: Use a 64-bit time_t
+To: Alistair Francis <alistair.francis@opensource.wdc.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-perf-users@vger.kernel.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Alistair Francis <alistair23@gmail.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Rutland <mark.rutland@arm.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Darren Hart <dvhart@infradead.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Atish Patra <atish.patra@wdc.com>,
+ Arnd Bergmann <arnd@arndb.de>, Alistair Francis <alistair.francis@wdc.com>
+X-Provags-ID: V03:K1:kRr1kg6nVk3cJ8a4tRi4L+CsS5j0P5saducmLoFMDrvRUrGhYJ2
+ NeBd03yj+uONRq6QQkixFnrLdVW2E918KdILUkb5QNhgSmrW8lZWVq/TEl9aFOMUO9vUn53
+ YipU907VxNDzDfdxGK/YCEW7zfNV7cM7eAP7Fu/wKs4zm/+coCJKxj563NJcPqYrnZmZcAK
+ cx/v1w7dwZ2rpeXXO0PVg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:bitLanFvvZ8=:VurQPOiot4A1uhGugC8EKc
+ 6Yhccj4PGyt/ilI6N9QZt6NphMLfL2Ei7tQJeDx6flX+f6wHewakyTkUWKba8vlD6kQP2Z8ho
+ vMUWv5mZ4aqGaniCtcIYV9qXpof52I0HmnQI7qUU1ColPU+5Euy1e9deJxzB1YpZDGFSqDP5w
+ Wk45x2GOQMHtuizT/QxinxKVSTu4SJijmHkXGUTFOIpN0xb/ZBmbqrRwnIBVi68lCTESioCaH
+ 99twCjDSb6wOt+YjiW5ArumtfS+ggWvdVsgb0n8Jflg4W+R0RGPM0fr7Oz1kyUzyhQ133/v4m
+ TEqAvcu25GrUYitSikwKj4ccNZQa9BwM+iGAK7FE0QtyfNPMNSos3uSiveifPJJEDoU+slq8M
+ E+ourYVUe4D2LgPInMm+wKHUrG/loBe53z3+Cnd54+R0mFfE0rCoXCRhwG3VQf8uujV2D1UpM
+ 5vRZzezprsjhNrA+RpbgXPCrIMV9IZH0E6wJTEg1w+XjhO9AvTlVv5P8fqCfAwsJ38YZ2dtpP
+ nsxN14VRuYBN2vP6KF87YCE+hVjJgnMNcWgWrQTT7av33dv+ZVsi9OIpCWEsTAldGuJDASGyE
+ d/od6Vxlxf4fFfojVLy7F6fT78MqXh3fkE9GBDDpAV3mJO0DwpQiXyTYKOnDGcCF6DOvBEso1
+ 4ktPohfaECw1XaHou+iOcHcobR+heGeGBbRoYrBZpk55QdVzdoth8YBKON4oU2mfRHaoTscYD
+ /CsflTAFq/jzxKLFDenvDm3XHTsfB6s1/uo9yA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211015_002905_253876_BA00DBC2 
-X-CRM114-Status: GOOD (  39.76  )
+X-CRM114-CacheID: sfid-20211015_010506_901083_6B27D969 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +93,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpIDIwMjEtMTAtMTUgMTE6MTM6MDgsIOeOi+i0hyB3cm90ZToKPiAKPiAKPiBPbiAyMDIx
-LzEwLzE0IOS4i+WNiDExOjE0LCBQZXRyIE1sYWRlayB3cm90ZToKPiBbc25pcF0KPiA+PiAtCXJl
-dHVybiB0cmFjZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9uKGlwLCBwYXJlbnRfaXAsIFRSQUNFX0ZU
-UkFDRV9TVEFSVCwgVFJBQ0VfRlRSQUNFX01BWCk7Cj4gPj4gKwlpbnQgYml0Owo+ID4+ICsKPiA+
-PiArCWJpdCA9IHRyYWNlX3Rlc3RfYW5kX3NldF9yZWN1cnNpb24oaXAsIHBhcmVudF9pcCwgVFJB
-Q0VfRlRSQUNFX1NUQVJULCBUUkFDRV9GVFJBQ0VfTUFYKTsKPiA+PiArCS8qCj4gPj4gKwkgKiBU
-aGUgemVybyBiaXQgaW5kaWNhdGUgd2UgYXJlIG5lc3RlZAo+ID4+ICsJICogaW4gYW5vdGhlciB0
-cnlsb2NrKCksIHdoaWNoIG1lYW5zIHRoZQo+ID4+ICsJICogcHJlZW1wdGlvbiBhbHJlYWR5IGRp
-c2FibGVkLgo+ID4+ICsJICovCj4gPj4gKwlpZiAoYml0ID4gMCkKPiA+PiArCQlwcmVlbXB0X2Rp
-c2FibGVfbm90cmFjZSgpOwo+ID4gCj4gPiBJcyB0aGlzIHNhZmU/IFRoZSBwcmVlbXB0aW9uIGlz
-IGRpc2FibGVkIG9ubHkgd2hlbgo+ID4gdHJhY2VfdGVzdF9hbmRfc2V0X3JlY3Vyc2lvbigpIHdh
-cyBjYWxsZWQgYnkgZnRyYWNlX3Rlc3RfcmVjdXJzaW9uX3RyeWxvY2soKS4KPiA+IAo+ID4gV2Ug
-bXVzdCBlaXRoZXIgYWx3YXlzIGRpc2FibGUgdGhlIHByZWVtdGlvbiB3aGVuIGJpdCA+PSAwLgo+
-ID4gT3Igd2UgaGF2ZSB0byBkaXNhYmxlIHRoZSBwcmVlbXRpb24gYWxyZWFkeSBpbgo+ID4gdHJh
-Y2VfdGVzdF9hbmRfc2V0X3JlY3Vyc2lvbigpLgo+IAo+IEludGVybmFsIGNhbGxpbmcgb2YgdHJh
-Y2VfdGVzdF9hbmRfc2V0X3JlY3Vyc2lvbigpIHdpbGwgZGlzYWJsZSBwcmVlbXB0aW9uCj4gb24g
-c3VjY2VlZCwgaXQgc2hvdWxkIGJlIHNhZmUuCgp0cmFjZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9u
-KCkgZG9lcyBfbm90XyBkaXNhYmxlIHByZWVtdGlvbiEKSXQgd29ya3Mgb25seSBiZWNhdXNlIGFs
-bCBjYWxsZXJzIGRpc2FibGUgdGhlIHByZWVtcHRpb24uCgpJdCBtZWFucyB0aGF0IHRoZSBjb21t
-ZW50IGlzIHdyb25nLiBJdCBpcyBub3QgZ3VhcmFudHRlZCB0aGF0IHRoZQpwcmVlbXB0aW9uIHdp
-bGwgYmUgZGlzYWJsZWQuIEl0IHdvcmtzIG9ubHkgYnkgY2hhbmNlLgoKCj4gV2UgY2FuIGFsc28g
-Y29uc2lkZXIgbW92ZSB0aGUgbG9naWNhbCBpbnRvIHRyYWNlX3Rlc3RfYW5kX3NldF9yZWN1cnNp
-b24oKQo+IGFuZCB0cmFjZV9jbGVhcl9yZWN1cnNpb24oKSwgYnV0IEknbSBub3QgdmVyeSBzdXJl
-IGFib3V0IHRoYXQuLi4gZnRyYWNlCj4gaW50ZXJuYWxseSBhbHJlYWR5IG1ha2Ugc3VyZSBwcmVl
-bXB0aW9uIGRpc2FibGVkCgpIb3c/IEJlY2F1c2UgaXQgY2FsbHMgdHJhY2VfdGVzdF9hbmRfc2V0
-X3JlY3Vyc2lvbigpIHZpYSB0aGUgdHJ5bG9jaygpIEFQST8KCgo+ICwgd2hhdCB1bmNvdmVyZWQg
-aXMgdGhvc2UgdXNlcnMgd2hvIGNhbGwgQVBJIHRyeWxvY2svdW5sb2NrLCBpc24ndAo+IGl0PwoK
-QW5kIHRoaXMgaXMgZXhhY3RseSB0aGUgcHJvYmxlbS4gdHJhY2VfdGVzdF9hbmRfc2V0X3JlY3Vy
-c2lvbigpIGlzIGluCmEgcHVibGljIGhlYWRlci4gQW55b25lIGNvdWxkIHVzZSBpdC4gQW5kIGlm
-IGFueW9uZSB1c2VzIGl0IGluIHRoZQpmdXR1cmUgd2l0aG91dCB0aGUgdHJ5bG9jaygpIGFuZCBk
-b2VzIG5vdCBkaXNhYmxlIHRoZSBwcmVlbXRpb24KZXhwbGljaXRlbHkgdGhlbiB3ZSBhcmUgbG9z
-dCBhZ2Fpbi4KCkFuZCBpdCBpcyBldmVuIG1vcmUgZGFuZ2Vyb3VzLiBUaGUgb3JpZ2luYWwgY29k
-ZSBkaXNhYmxlZCB0aGUKcHJlZW10aW9uIG9uIHZhcmlvdXMgbGF5ZXJzLiBBcyBhIHJlc3VsdCwg
-dGhlIHByZWVtdGlvbiB3YXMgZGlzYWJsZWQKc2V2ZXJhbCB0aW1lcyBmb3Igc3VyZS4gSXQgbWVh
-bnMgdGhhdCB0aGUgZGVlcGVyIGxheWVycyB3ZXJlCmFsd2F5cyBvbiB0aGUgc2FmZSBzaWRlLgoK
-V2l0aCB0aGlzIHBhdGNoLCBpZiB0aGUgZmlyc3QgdHJhY2VfdGVzdF9hbmRfc2V0X3JlY3Vyc2lv
-bigpIGNhbGxlcgpkb2VzIG5vdCBkaXNhYmxlIHByZWVtdGlvbiB0aGVuIHRyeWxvY2soKSB3aWxs
-IG5vdCBkaXNhYmxlIGl0IGVpdGhlcgphbmQgdGhlIGVudGlyZSBjb2RlIGlzIHByb2NjZWVkIHdp
-dGggcHJlZW10aW9uIGVuYWJsZWQuCgoKPiA+IEZpbmFsbHksIHRoZSBjb21tZW50IGNvbmZ1c2Vk
-IG1lIGEgbG90LiBUaGUgZGlmZmVyZW5jZSBiZXR3ZWVuIG5lc3RpbmcgYW5kCj4gPiByZWN1cnNp
-b24gaXMgZmFyIGZyb20gY2xlYXIuIEFuZCB0aGUgY29kZSBpcyB0cmlja3kgbGlreSBsaWtlIGhl
-bGwgOi0pCj4gPiBJIHByb3Bvc2UgdG8gYWRkIHNvbWUgY29tbWVudHMsIHNlZSBiZWxvdyBmb3Ig
-YSBwcm9wb3NhbC4KPiBUaGUgY29tbWVudHMgZG8gY29uZnVzaW5nLCBJJ2xsIG1ha2UgaXQgc29t
-ZXRoaW5nIGxpa2U6Cj4gCj4gVGhlIHplcm8gYml0IGluZGljYXRlIHRyYWNlIHJlY3Vyc2lvbiBo
-YXBwZW5lZCwgd2hhdGV2ZXIKPiB0aGUgcmVjdXJzaXZlbHkgY2FsbCB3YXMgbWFkZSBieSBmdHJh
-Y2UgaGFuZGxlciBvciBmdHJhY2UKPiBpdHNlbGYsIHRoZSBwcmVlbXB0aW9uIGFscmVhZHkgZGlz
-YWJsZWQuCgpJIGFtIHNvcnJ5IGJ1dCBpdCBpcyBzdGlsbCBjb25mdXNpbmcuIFdlIG5lZWQgdG8g
-ZmluZCBhIGJldHRlciB3YXkKaG93IHRvIGNsZWFybHkgZXhwbGFpbiB0aGUgZGlmZmVyZW5jZSBi
-ZXR3ZWVuIHRoZSBzYWZlIGFuZAp1bnNhZmUgcmVjdXJzaW9uLgoKTXkgdW5kZXJzdGFuZGluZyBp
-cyB0aGF0IHRoZSByZWN1cnNpb24gaXM6CgogICsgInVuc2FmZSIgd2hlbiB0aGUgdHJhY2UgY29k
-ZSByZWN1cnNpdmVseSBlbnRlcnMgdGhlIHNhbWUgdHJhY2UgcG9pbnQuCgogICsgInNhZmUiIHdo
-ZW4gZnRyYWNlX3Rlc3RfcmVjdXJzaW9uX3RyeWxvY2soKSBpcyBjYWxsZWQgcmVjdXJzaXZlbGx5
-CiAgICB3aGlsZSBzdGlsbCBwcm9jZXNzaW5nIHRoZSBzYW1lIHRyYWNlIGVudHJ5LgoKPiA+PiAr
-Cj4gPj4gKwlyZXR1cm4gYml0Owo+ID4+ICB9Cj4gPj4gIC8qKgo+ID4+IEBAIC0yMjIsOSArMjMz
-LDEzIEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgaW50IGZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl90
-cnlsb2NrKHVuc2lnbmVkIGxvbmcgaXAsCj4gPj4gICAqIEBiaXQ6IFRoZSByZXR1cm4gb2YgYSBz
-dWNjZXNzZnVsIGZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl90cnlsb2NrKCkKPiA+PiAgICoKPiA+PiAg
-ICogVGhpcyBpcyB1c2VkIGF0IHRoZSBlbmQgb2YgYSBmdHJhY2UgY2FsbGJhY2suCj4gPj4gKyAq
-Cj4gPj4gKyAqIFByZWVtcHRpb24gd2lsbCBiZSBlbmFibGVkIChpZiBpdCB3YXMgcHJldmlvdXNs
-eSBlbmFibGVkKS4KPiA+PiAgICovCj4gPj4gIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9pZCBm
-dHJhY2VfdGVzdF9yZWN1cnNpb25fdW5sb2NrKGludCBiaXQpCj4gPj4gIHsKPiA+PiArCWlmIChi
-aXQpCj4gPiAKPiA+IFRoaXMgaXMgbm90IHN5bWV0cmljIHdpdGggdHJ5bG9jaygpLiBJdCBzaG91
-bGQgYmU6Cj4gPiAKPiA+IAlpZiAoYml0ID4gMCkKPiA+IAo+ID4gQW55d2F5LCB0cmFjZV9jbGVh
-cl9yZWN1cnNpb24oKSBxdWllbnRseSBpZ25vcmVzIGJpdCAhPSAwCj4gCj4gWWVzLCBiaXQgPT0g
-MCBzaG91bGQgbm90IGhhcHBlbiBpbiBoZXJlLgoKWWVzLCBpdCAic2hvdWxkIiBub3QgaGFwcGVu
-LiBNeSBwb2ludCBpcyB0aGF0IHdlIGNvdWxkIG1ha2UgdGhlIEFQSQptb3JlIHNhZmUuIFdlIGNv
-dWxkIGRvIHRoZSByaWdodCB0aGluZyB3aGVuCmZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2so
-KSBpcyBjYWxsZWQgd2l0aCBuZWdhdGl2ZSBAYml0LgpJZGVhbGx5LCB3ZSBzaG91bGQgYWxzbyB3
-YXJuIGFib3V0IHRoZSBtaXMtdXNlLgoKCkFueXdheSwgbGV0J3Mgd2FpdCBmb3IgU3RldmVuLiBJ
-dCBzZWVtcyB0aGF0IGhlIGZvdW5kIGFub3RoZXIgcHJvYmxlbQp3aXRoIHRoZSBBUEkgdGhhdCBz
-aG91bGQgYmUgc29sdmVkIGZpcnN0LiBUaGUgZml4IHdpbGwgcHJvYmFibHkKYWxzbyBoZWxwIHRv
-IGJldHRlciB1bmRlcnN0YW5kIHRoZSAic2FmZSIgdnMgInVuc2FmZSIgcmVjdXJzaW9uLgoKQmVz
-dCBSZWdhcmRzLApQZXRyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Fri, Oct 15, 2021 at 2:56 AM Alistair Francis
+<alistair.francis@opensource.wdc.com> wrote:
+>
+> From: Alistair Francis <alistair.francis@wdc.com>
+>
+> Convert tools/perf to only use a 64-bit time_t. On 64-bit architectures
+> this isn't a functional change. On 32-bit architectures we now only
+> perform 64-bit time_t syscalls (__NR_futex_time64) and use a struct
+> timespec64.
+>
+> This won't work on kernels before 5.1, but as perf is tied to the kernel
+> that's ok.
+>
+> This allows us to build perf for 32-bit architectures with 64-bit time_t
+> like RISC-V 32-bit.
+>
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
