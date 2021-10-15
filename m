@@ -2,72 +2,83 @@ Return-Path: <SRS0=nroh=PD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19697C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 17:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06DEFC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 18:04:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AFB5C611C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 17:58:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AFB5C611C1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	by mail.kernel.org (Postfix) with ESMTPS id B57D461037
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Oct 2021 18:04:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B57D461037
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k7wKcVvQQCC56E/MI2Is1HvE1Ap+EEpwV/CegL/7CDM=; b=2owZz6t56y7RPl
-	DMyngwWTUR9p0cB5npUSnkyTQmpEUOMdFw6faT2bO2x/eQPjAajE3AhmTKaRXCR41WK0y9Xtesguh
-	Ua3ZF1iuR+MPtXkEE+RmGOSDovi7LZ36aRmmyUzsNGgCuFF/fyRS3JPMcnQ/Tqp9hI7eWE40AtNEb
-	GYGFR+wnhlvHlKvHWxhQG2hKOh9wn3W2MlliKejFWn4XwNMAAia+Pnlqnoq2NQx761y3ICeqnI9FC
-	xeeQbf0tbPSkMoLw6BQQ8gxmD4QHib/2diN4VKO9K6WTGzM/7IlFJ3FFTN0jEJsps4WU2AI2jHUBK
-	16qw+OjxFM01scycsdnA==;
+	List-Owner; bh=u8ZP0CAxifCZFpFSLuJ9o1qZQYtIvl1rYlPA8yC8jS4=; b=kN9pWmF1E316pp
+	PcZd1Jas1j2cNSPCsJfvE1TgEDdG+kNG6Rgwf/eGXd6n5tzOGVAJbLHSQhwOS7WyAnQ96GJFN95WX
+	nc9S4io2r+xH2YeE/Ya8U3zqeK+WlIoEugafmn7G7k/3PPED5Fg1hmxeXzWj0c52tAMEtNMULTB8Z
+	q+G8JH//RnDPnSIDr6ld8IvL1Sne0C56V5+f2BJNxWsf6MMyktZf/4/xB5gMxxNTJM7CFTVqsl1oq
+	LYN/ueIri/A4BNA2lVbmKpqYyVaz9ijZl+eRWC5TjcDwaE86TrZ0Rq0u7IedhkyHcM2CeLlIMtq5e
+	4ewOBBzpaOXbjTLo/6Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbRTE-008NbC-4V; Fri, 15 Oct 2021 17:58:16 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mbRZM-008OFd-CX; Fri, 15 Oct 2021 18:04:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbRTA-008NZo-CA
- for linux-riscv@lists.infradead.org; Fri, 15 Oct 2021 17:58:14 +0000
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id AF98C60F93;
- Fri, 15 Oct 2021 17:58:08 +0000 (UTC)
-Date: Fri, 15 Oct 2021 13:58:06 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Peter Zijlstra <peterz@infradead.org>
+ id 1mbRZL-008OFG-9H
+ for linux-riscv@bombadil.infradead.org; Fri, 15 Oct 2021 18:04:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=iWFwLZtUtGK6QLeN9kwkzrG0DnPld05nUJlKzTSNq1M=; b=TKkIy9uEfgJwhj+gTY4uzfwmax
+ 0baqH8O8KrNb7Doua0roTYth1ckXfoqjJX8Hv3nGZY1RCjvoWMPFgBJ34IchV6bUKqVwvl6mZ37xR
+ KPcdgndusraTnnK1v5Rfu6CofOx2h1PE0cxZ76Hd9WMDzAjpt32VjEZ2sSVF0URwEL0NThy7DPrlx
+ EykTH3PUtC5GXcI4Hz32VKVum7ZMTccNVuPV95N0AMVWs+C5ILIINZVLzx+Em8f5rR4g0d4WKFsdq
+ YD7XzC33MY60aXEZ1XypRY552W2gWeIrYFpp362bmOro2661TWvpH2L081WYfpvK81qTIbzl1CX8U
+ aGpOAyTg==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=worktop.programming.kicks-ass.net)
+ by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mbRZF-00A2dk-VJ; Fri, 15 Oct 2021 18:04:30 +0000
+Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 8542C9857C7; Fri, 15 Oct 2021 20:04:29 +0200 (CEST)
+Date: Fri, 15 Oct 2021 20:04:29 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Steven Rostedt <rostedt@goodmis.org>
 Cc: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Benjamin
- Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
- <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
- Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf
- <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>, Miroslav Benes
- <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
- <joe.lawrence@redhat.com>, Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Nicholas Piggin
- <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
- linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- live-patching@vger.kernel.org, =?UTF-8?B?546L6LSH?=
- <yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+ Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>,
+ Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org,
+ =?utf-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>,
+ Guo Ren <guoren@kernel.org>
 Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
-Message-ID: <20211015135806.72d1af23@gandalf.local.home>
-In-Reply-To: <20211015133504.6c0a9fcc@gandalf.local.home>
+Message-ID: <20211015180429.GK174703@worktop.programming.kicks-ass.net>
 References: <20211015110035.14813389@gandalf.local.home>
  <20211015161702.GF174703@worktop.programming.kicks-ass.net>
  <20211015133504.6c0a9fcc@gandalf.local.home>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ <20211015135806.72d1af23@gandalf.local.home>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211015_105812_504306_4C65A6C1 
-X-CRM114-Status: GOOD (  25.47  )
+Content-Disposition: inline
+In-Reply-To: <20211015135806.72d1af23@gandalf.local.home>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +95,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Oct 2021 13:35:04 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
+On Fri, Oct 15, 2021 at 01:58:06PM -0400, Steven Rostedt wrote:
+> Something like this:
 
-> On Fri, 15 Oct 2021 18:17:02 +0200
-> Peter Zijlstra <peterz@infradead.org> wrote:
-> 
-> > On Fri, Oct 15, 2021 at 11:00:35AM -0400, Steven Rostedt wrote:  
-> > > From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
-> > > 
-> > > While writing an email explaining the "bit = 0" logic for a discussion on    
-> >   
-> > >  	bit = trace_get_context_bit() + start;    
-> > 
-> > While there, you were also going to update that function to match/use
-> > get_recursion_context(). Because your version is still branch hell.  
-> 
-> That would probably be a separate patch. This is just a fix to a design
-> flaw, changing the context tests would be performance enhancement.
-> 
-> Thanks for the reminder (as it was on my todo list to update that code).
-
-Something like this:
-
-From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
-Subject: [PATCH] tracing: Reuse logic from perf's get_recursion_context()
-
-Instead of having branches that adds noise to the branch prediction, use
-the addition logic to set the bit for the level of interrupt context that
-the state is currently in. This copies the logic from perf's
-get_recursion_context() function.
-
-Link: https://lore.kernel.org/all/20211015161702.GF174703@worktop.programming.kicks-ass.net/
-
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
----
- include/linux/trace_recursion.h | 11 ++++++-----
- kernel/trace/ring_buffer.c      | 12 ++++++------
- 2 files changed, 12 insertions(+), 11 deletions(-)
-
-diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
-index 168fdf07419a..41f5bfd9e93f 100644
---- a/include/linux/trace_recursion.h
-+++ b/include/linux/trace_recursion.h
-@@ -119,12 +119,13 @@ enum {
- static __always_inline int trace_get_context_bit(void)
- {
- 	unsigned long pc = preempt_count();
-+	unsigned char bit = 0;
- 
--	if (!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)))
--		return TRACE_CTX_NORMAL;
--	else
--		return pc & NMI_MASK ? TRACE_CTX_NMI :
--			pc & HARDIRQ_MASK ? TRACE_CTX_IRQ : TRACE_CTX_SOFTIRQ;
-+	bit += !!(pc & (NMI_MASK));
-+	bit += !!(pc & (NMI_MASK | HARDIRQ_MASK));
-+	bit += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));
-+
-+	return TRACE_CTX_NORMAL - bit;
- }
- 
- #ifdef CONFIG_FTRACE_RECORD_RECURSION
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index c5a3fbf19617..15d4380006e3 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -3168,13 +3168,13 @@ trace_recursive_lock(struct ring_buffer_per_cpu *cpu_buffer)
- {
- 	unsigned int val = cpu_buffer->current_context;
- 	unsigned long pc = preempt_count();
--	int bit;
-+	int bit = 0;
- 
--	if (!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)))
--		bit = RB_CTX_NORMAL;
--	else
--		bit = pc & NMI_MASK ? RB_CTX_NMI :
--			pc & HARDIRQ_MASK ? RB_CTX_IRQ : RB_CTX_SOFTIRQ;
-+	bit += !!(pc & (NMI_MASK));
-+	bit += !!(pc & (NMI_MASK | HARDIRQ_MASK));
-+	bit += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));
-+
-+	bit = RB_CTX_NORMAL - bit;
- 
- 	if (unlikely(val & (1 << (bit + cpu_buffer->nest)))) {
- 		/*
--- 
-2.31.1
-
+I think having one copy of that in a header is better than having 3
+copies. But yes, something along them lines.
 
 _______________________________________________
 linux-riscv mailing list
