@@ -2,76 +2,78 @@ Return-Path: <SRS0=v6lb=PE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8262AC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 12:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EFA68C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2EED060C4B
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 12:57:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2EED060C4B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3546160F02
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3546160F02
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SWx1s7ohkaXK4MihMn2eyNOUnnqHfNTF+V6fE2tazKk=; b=tUTAEMC1qH1Zxv
-	qQbnUbVBNS1QQruCJz9GrAEDrS4ePTVSP8TuROkMpJLh4jRnMMqm6nhKAoozo1wXsI4KKEpH9WcjN
-	+k9jWGL2gEZQ9dzFWiUCyJyfpkbZp+oR81/QQcOfe61LdpAKgPRkr7JlscTmjGYBlOqaj8jdRUZko
-	Rd1aytViMfC8EBMBd2Xu/S7Sd/cmBv+AQO01hRQeDc+eXVe62FanrpghOVUg7O5C21hTK4kx2bkFe
-	E1pzPIdQFV9ASEZICotmPqPvKnFsmnXenbjwsU0FHnPwfMYu5c8uVeoiPxDJqBdkiwvM6z+J1ZPUp
-	X9pKBlRKsqb5dOLvFy4A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wkHMy66SN36arBQ7LU7p6yEbwEcCQ3mYsZjpP7IsxFM=; b=ruI4b0JM43aPvo
+	r18GWQKo97dRR6VuCuWa7CLUD/cFMTkkdgdG7WwC6PNAbO0UR9dx212KnZy6RNH4+oz9X0OB1k2SV
+	La2guykxus8yUvel68yxigEYOBZ0pHjJtm+jjU5c7OIfYldZyzm12k82yhKNItzudTWWaRpJ8pgqg
+	hN3UMZHdP6JU9ORAmhVnzBHB5dafo5ooix8dvwQ7XHTG62B25p5V4WtQNf+fX0/QNpHuQV54zMas0
+	FuaXpQkaiOHtPtz0qZdej/xCxjyfMfglJiqwlWCHGa0ek2FErJ+WgoTM9nfNRc7n/b7lpxb9fB0Jm
+	XmJyMAg/lyF0pZpUnw9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbjFK-00AbuJ-PL; Sat, 16 Oct 2021 12:57:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbjFH-00Abtq-W9
- for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 12:57:05 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3A3BD61101
- for <linux-riscv@lists.infradead.org>; Sat, 16 Oct 2021 12:57:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634389023;
- bh=NsinonKH119OjwifjZy82GsiqQzJfczn0ZJZxIQqkGQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=XeiaRhr3wF7EzNe4FIC+GtRX7tvl7cBWvk560//gRZqKY4ASIGOng+wRLQ0SOY/6F
- /XV9L6EH5L+f9X+7EzVfjunNkXPMutK+Y/Z/xBGSV2hf5CmTKBc6zkJjD1LpPC8TIo
- a2j6ePFvhAXeLQdtCARYZ3WzXvgvCzRXB6NDR8f2yFtmD/eio3BfOjkO+od390vzhs
- nQw/s0d/OEwD9qe2VDv0ayntCHIB+zUPHZLPJMBkZQ+tXh/3RoFo66NxSIh8t5MRyk
- SrOsbK3XAC3yKdXcHBqe50NjFhKuhnzS9fOBr2Sw6ojGYrluRpC9fOr9Fm0PME8L47
- 1nLPeAVCFR32w==
-Received: by mail-ua1-f51.google.com with SMTP id e10so1078164uab.3
- for <linux-riscv@lists.infradead.org>; Sat, 16 Oct 2021 05:57:03 -0700 (PDT)
-X-Gm-Message-State: AOAM531ffOHgumq6dDVb3U9QBGuzhL/v2AHCe/iUCS1Uiidzxk2bi+dz
- BNMr7B+Txqh/K/HYHfBe2/JejsSx4/I6xwLVOY8=
-X-Google-Smtp-Source: ABdhPJyYmy9I1jJUAIFP49csFzkTWJzf9NeB+lBd1HnG0jVFKArnzAC1PQl3HeHqdbMJJMM348S0sICXFBUlMYIkjsk=
-X-Received: by 2002:a05:6102:32cd:: with SMTP id
- o13mr19996599vss.50.1634389022294; 
- Sat, 16 Oct 2021 05:57:02 -0700 (PDT)
+	id 1mbmIJ-00Ax9Y-HU; Sat, 16 Oct 2021 16:12:23 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mbmIF-00Ax7u-CN
+ for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 16:12:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+ bh=kyrOcKIg6B5/9qJCrvjXWaFpBj53LVwaF/IXPCce9YQ=; b=hFl9QJ02BYmTG
+ /OHR/TBruy9lDRGBpoQJTh7vVUKWqixQU1fhbMrkoAs9oyVVH7eszz4SZ2vzOQDu
+ zIPdmoYLxaaN9zFCJP72b19dtKuJnvMIvAFAIfBs56KcZKyvltFuR4UIJMTkzdHV
+ yz0kOwE0OOcNX5weeU1bgHGnLnZ5j0=
+Received: from xhacker (unknown [101.86.20.138])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAXHwfT+WphY6c8AA--.23589S2; 
+ Sun, 17 Oct 2021 00:12:04 +0800 (CST)
+Date: Sun, 17 Oct 2021 00:04:08 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada
+ <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, Nick
+ Desaulniers <ndesaulniers@google.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+Subject: [PATCH 0/2] riscv: switch to relative extable
+Message-ID: <20211017000408.4ae9ecd6@xhacker>
 MIME-Version: 1.0
-References: <20211016032200.2869998-1-guoren@kernel.org>
- <20211016032200.2869998-3-guoren@kernel.org>
- <2216787.nSqPeTNalD@phil>
-In-Reply-To: <2216787.nSqPeTNalD@phil>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 16 Oct 2021 20:56:51 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQKc1DGcCy_sFjSs8p+VMNGHFrjO2uLZrHnjdD1pZ2RZg@mail.gmail.com>
-Message-ID: <CAJF2gTQKc1DGcCy_sFjSs8p+VMNGHFrjO2uLZrHnjdD1pZ2RZg@mail.gmail.com>
-Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
- Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
+X-CM-TRANSID: LkAmygAXHwfT+WphY6c8AA--.23589S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDXryDGry7Cr18urW8tFb_yoWDXrb_ua
+ 4IvFy8W3yxXa1fAF9rtrn5ArW0krW8tryDJF45tr47KrZrCr4DK3yqqF4Ivw18ZF45ZF4f
+ GF97JrWxtr17tjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUbrAYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+ 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+ 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
+ cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z2
+ 80aVCY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+ w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+ vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
+ s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+ 1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+ JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
+ W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
+ JbIYCTnIWIevJa73UjIFyTuYvjxU2rcTDUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211016_055704_126261_B07C6F76 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20211016_091220_121955_94157CB5 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +90,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 16, 2021 at 6:35 PM Heiko Stuebner <heiko@sntech.de> wrote:
->
-> Hi Guo,
->
-> Am Samstag, 16. Oktober 2021, 05:21:59 CEST schrieb guoren@kernel.org:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Add the compatible string "thead,c900-plic" to the riscv plic
-> > bindings to support allwinner d1 SOC which contains c906 core.
->
-> The compatible strings sound good now, but some things below
->
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Atish Patra <atish.patra@wdc.com>
-> >
-> > ---
-> >
-> > Changes since V4:
-> >  - Update description in errata style
-> >  - Update enum suggested by Anup, Heiko, Samuel
-> >
-> > Changes since V3:
-> >  - Rename "c9xx" to "c900"
-> >  - Add thead,c900-plic in the description section
-> > ---
-> >  .../interrupt-controller/sifive,plic-1.0.0.yaml       | 11 ++++++++++-
-> >  1 file changed, 10 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > index 08d5a57ce00f..272f29540135 100644
-> > --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > @@ -35,6 +35,12 @@ description:
-> >    contains a specific memory layout, which is documented in chapter 8 of the
-> >    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
-> >
-> > +  The C9xx PLIC does not comply with the interrupt claim/completion process defined
-> > +  by the RISC-V PLIC specification because C9xx PLIC will mask an IRQ when it is
-> > +  claimed by PLIC driver (i.e. readl(claim) and the IRQ will be unmasked upon
-> > +  completion by PLIC driver (i.e. writel(claim). This behaviour breaks the handling
-> > +  of IRQS_ONESHOT by the generic handle_fasteoi_irq() used in the PLIC driver.
-> > +
-> >  maintainers:
-> >    - Sagar Kadam <sagar.kadam@sifive.com>
-> >    - Paul Walmsley  <paul.walmsley@sifive.com>
-> > @@ -46,7 +52,10 @@ properties:
-> >        - enum:
-> >            - sifive,fu540-c000-plic
-> >            - canaan,k210-plic
-> > -      - const: sifive,plic-1.0.0
-> > +      - enmu:
->
->         ^ spelling enum
->
-> > +          - sifive,plic-1.0.0
-> > +          - thead,c900-plic
-> > +          - allwinner,sun20i-d1-plic
->
-> but in general I'd think that you want something like
->
->   compatible:
->     oneOf:
->       - items:
->           - enum:
->               - sifive,fu540-c000-plic
->               - canaan,k210-plic
->           - const: sifive,plic-1.0.0
->       - items:
->           - enum:
->               - allwinner,sun20i-d1-plic
->           - const: thead,c900-plic
->
-> Having only one item list would allow as valid combinations like
-> "sifive,fu540-c000-plic", "thead,c900-plic" when checking the schema.
->
-> With the oneOf and separate lists we can make sure that such
-> "illegal" combinations get flagged by the dtbs_check
->
-> [the enum with the single allwinner entry already leaves
->  room for later addition to the c900-plic variant]
-Thx, I'll fix it in the next version.
+From: Jisheng Zhang <jszhang@kernel.org>
 
-another question: Is the allwinner_sun20i_d1_plic needed to IRQCHIP_DECLARE?
+Similar as other architectures such as arm64, x86 and so on, use
+offsets relative to the exception table entry values rather than
+absolute addresses for both the exception locationand the fixup.
 
-+IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", thead_c900_plic_init);
-+IRQCHIP_DECLARE(allwinner_sun20i_d1_plic, "allwinner,sun20i-d1-plic",
-thead_c900_plic_init);
+patch1 consolidates the __ex_table construction, it's a great code
+clean up even w/o the 2nd patch.
 
->
-> Heiko
+patch2 does the real job.
 
->
->
->
+Jisheng Zhang (2):
+  riscv: consolidate __ex_table construction
+  riscv: switch to relative exception tables
+
+ arch/riscv/include/asm/Kbuild    |  1 -
+ arch/riscv/include/asm/extable.h | 25 ++++++++++++++++++++
+ arch/riscv/include/asm/futex.h   | 12 +++-------
+ arch/riscv/include/asm/uaccess.h | 40 +++++++++++---------------------
+ arch/riscv/lib/uaccess.S         |  4 ++--
+ arch/riscv/mm/extable.c          |  2 +-
+ scripts/mod/modpost.c            | 27 +++++++++++++++++++++
+ scripts/sorttable.c              |  2 +-
+ 8 files changed, 73 insertions(+), 40 deletions(-)
+ create mode 100644 arch/riscv/include/asm/extable.h
+
+-- 
+2.33.0
 
 
---
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
