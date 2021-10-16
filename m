@@ -2,77 +2,55 @@ Return-Path: <SRS0=v6lb=PE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2329C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 09:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80DF8C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 10:35:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 54586610D2
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 09:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 54586610D2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id E4C8561163
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 10:35:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E4C8561163
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F02UF2K9LZa/zqtNMWkrexhCQ6YDJfIiSHt+SYBV1zM=; b=ZXAql9xAjWxu3m
-	rn+02hUnu74Z6F/yMjEuMEPkxAMHdVmRi/31w2mSere4vHtn6N8IeHyNVIkj6WQ+4DC+E8C6yhaX3
-	21KtnB/fWSd4BXw8wzsES19dQsQh3HR6dMyMWHwsUYLJYV1zndHH1OmIfv19XbtuzSUTE3ZvaJWTW
-	ApXFIoL4feNAxTbGhjjQf2FIyzaz2AsqYEFDB5bv2JAnL0Ek0aWp2acBD1rxUec9xlB6cWyAcNCAt
-	/yE22s1mqKGqZ17Suc9TF9m+19lNfS9eIR85Bv0K3sRBqOX85Kj6noWCUx4lkVePasFeHm9Abt9Ld
-	+Qx0sIA7SROzdUYL8MRQ==;
+	List-Owner; bh=359/O6fqe6u3wiJwvVR6LaANDsXsKsWRwCykflxWvi4=; b=mXzai5MxQwe5/W
+	sQ2TAvYMHP81rxJpFzD7LIhm57L1LOumeBTGSX4W7GpdmCAMoXPMICYHFF9ivc1LtLelZCrT5ar94
+	TDpWSVj7NHTe+nXhr0PZgqnktwrh/ea1WZZQRS4mvl1JVznT0xR9xPyeKydo93Gxi2EFaibfu/Tf5
+	mYJuSK+vB2sGF3ZKpxqRZrieQDPdVsYEfRCOEtZea8QiXWIb3quvrMdAlv3lGGcfrX4mxWx99mZeo
+	RLYz2PgLqupKuMnmHU5w1OZRudUA4PtnUydNE0TyCtlV8mqeE8aeSe11YC4sM0lrJK0tSt7JFsj1V
+	ey0V1ETULTgD7vV03EvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbfoM-00AE9B-Bl; Sat, 16 Oct 2021 09:17:02 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mbh27-00AMvW-7b; Sat, 16 Oct 2021 10:35:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbfoJ-00AE8q-G2
- for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 09:17:00 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 067DF611AF
- for <linux-riscv@lists.infradead.org>; Sat, 16 Oct 2021 09:16:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634375819;
- bh=lZbCj57sS26PhhEqqLIywo2CTki+igIMS5uTDnO/RQo=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=fv+uG4YpKUa61aLECR+ZwDU85bj61IhR7WtNAoeQkPHQoUDT+UH+nfe4SF2hAZblC
- p0YE0X9ximkFMLF7Tf32S+yLabOKVX2FJ7AZvRap6xOe9iUI9pNZW3rFaa5My0QVBf
- /NW3I4/B2LSQrPbUFUujU5BmhlROMGPEg7n0lj8uDqEk656F6tr/5iWR51JY7Pf9Sy
- uryq0IPvcffWfka0R5hZUhCXumKwjN2/rIpE1IyqPgnvJEnUVyCfvJymLD+7wQsnDQ
- S7T48keqwLk1cofaYwiHbUoCV1w5ItpdEsNTqXz1YjU+a/jZlkPiVAD8iS43Q0RVP2
- Z6pFRX3XI4gfw==
-Received: by mail-vk1-f181.google.com with SMTP id l39so6284634vkd.7
- for <linux-riscv@lists.infradead.org>; Sat, 16 Oct 2021 02:16:58 -0700 (PDT)
-X-Gm-Message-State: AOAM5326iwdephi8bx1cFdHoGQFEW5WfKqjsDcf58j46O0bHVQ2nLyKs
- 6hmeLB7Hu1C6jQk4ARkocyS2nDQgQwgP47dCoi0=
-X-Google-Smtp-Source: ABdhPJy7Dr9uJZRjLPplBn0SwWTsg5Ys8p5qWK0RQe03OuCs93YEQl7H/pLcxBmeE24G/bvo7SZgWy407FkLn5kqPhM=
-X-Received: by 2002:a1f:2a4c:: with SMTP id q73mr16680462vkq.8.1634375817984; 
- Sat, 16 Oct 2021 02:16:57 -0700 (PDT)
-MIME-Version: 1.0
+ id 1mbh23-00AMu0-Q2
+ for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 10:35:17 +0000
+Received: from p508fce7c.dip0.t-ipconnect.de ([80.143.206.124]
+ helo=phil.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mbh1o-0006T3-F9; Sat, 16 Oct 2021 12:35:00 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: guoren@kernel.org, anup@brainfault.org, atish.patra@wdc.com, maz@kernel.org,
+ tglx@linutronix.de, palmer@dabbelt.com, robh@kernel.org, guoren@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Guo Ren <guoren@linux.alibaba.com>, Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
+Date: Sat, 16 Oct 2021 12:34:59 +0200
+Message-ID: <2216787.nSqPeTNalD@phil>
+In-Reply-To: <20211016032200.2869998-3-guoren@kernel.org>
 References: <20211016032200.2869998-1-guoren@kernel.org>
  <20211016032200.2869998-3-guoren@kernel.org>
- <87mtn9mor9.fsf@linux-m68k.org>
-In-Reply-To: <87mtn9mor9.fsf@linux-m68k.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 16 Oct 2021 17:16:45 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRYuo+U1wWaz1jiQTk07-6etNMg-2UBDTYmnrLKzVqH8Q@mail.gmail.com>
-Message-ID: <CAJF2gTRYuo+U1wWaz1jiQTk07-6etNMg-2UBDTYmnrLKzVqH8Q@mail.gmail.com>
-Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
- Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Rob Herring <robh@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211016_021659_577127_355379B0 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20211016_033515_906113_2B41191A 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +67,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 16, 2021 at 3:17 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
->
-> On Okt 16 2021, guoren@kernel.org wrote:
->
-> > +  The C9xx PLIC does not comply with the interrupt claim/completion process defined
-> > +  by the RISC-V PLIC specification because C9xx PLIC will mask an IRQ when it is
-> > +  claimed by PLIC driver (i.e. readl(claim) and the IRQ will be unmasked upon
-> > +  completion by PLIC driver (i.e. writel(claim). This behaviour breaks the handling
->
-> Missing close paren in both parenthetical remarks above.
-Opps, thx. I'll fix it.
+Hi Guo,
 
->
-> Andreas.
->
-> --
-> Andreas Schwab, schwab@linux-m68k.org
-> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-> "And now for something completely different."
+Am Samstag, 16. Oktober 2021, 05:21:59 CEST schrieb guoren@kernel.org:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Add the compatible string "thead,c900-plic" to the riscv plic
+> bindings to support allwinner d1 SOC which contains c906 core.
+
+The compatible strings sound good now, but some things below
+
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> 
+> ---
+> 
+> Changes since V4:
+>  - Update description in errata style
+>  - Update enum suggested by Anup, Heiko, Samuel
+> 
+> Changes since V3:
+>  - Rename "c9xx" to "c900"
+>  - Add thead,c900-plic in the description section
+> ---
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml       | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> index 08d5a57ce00f..272f29540135 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> @@ -35,6 +35,12 @@ description:
+>    contains a specific memory layout, which is documented in chapter 8 of the
+>    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
+>  
+> +  The C9xx PLIC does not comply with the interrupt claim/completion process defined
+> +  by the RISC-V PLIC specification because C9xx PLIC will mask an IRQ when it is
+> +  claimed by PLIC driver (i.e. readl(claim) and the IRQ will be unmasked upon
+> +  completion by PLIC driver (i.e. writel(claim). This behaviour breaks the handling
+> +  of IRQS_ONESHOT by the generic handle_fasteoi_irq() used in the PLIC driver.
+> +
+>  maintainers:
+>    - Sagar Kadam <sagar.kadam@sifive.com>
+>    - Paul Walmsley  <paul.walmsley@sifive.com>
+> @@ -46,7 +52,10 @@ properties:
+>        - enum:
+>            - sifive,fu540-c000-plic
+>            - canaan,k210-plic
+> -      - const: sifive,plic-1.0.0
+> +      - enmu:
+
+	^ spelling enum
+
+> +          - sifive,plic-1.0.0
+> +          - thead,c900-plic
+> +          - allwinner,sun20i-d1-plic
+
+but in general I'd think that you want something like
+
+  compatible:
+    oneOf:
+      - items:
+          - enum:
+              - sifive,fu540-c000-plic
+              - canaan,k210-plic
+          - const: sifive,plic-1.0.0
+      - items:
+          - enum:
+              - allwinner,sun20i-d1-plic
+          - const: thead,c900-plic
+
+Having only one item list would allow as valid combinations like
+"sifive,fu540-c000-plic", "thead,c900-plic" when checking the schema.
+
+With the oneOf and separate lists we can make sure that such
+"illegal" combinations get flagged by the dtbs_check
+
+[the enum with the single allwinner entry already leaves
+ room for later addition to the c900-plic variant]
+
+Heiko
 
 
 
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
