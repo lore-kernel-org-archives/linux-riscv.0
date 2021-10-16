@@ -2,47 +2,47 @@ Return-Path: <SRS0=v6lb=PE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EFA68C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D330AC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3546160F02
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3546160F02
+	by mail.kernel.org (Postfix) with ESMTPS id 5E16360C4A
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Oct 2021 16:12:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5E16360C4A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wkHMy66SN36arBQ7LU7p6yEbwEcCQ3mYsZjpP7IsxFM=; b=ruI4b0JM43aPvo
-	r18GWQKo97dRR6VuCuWa7CLUD/cFMTkkdgdG7WwC6PNAbO0UR9dx212KnZy6RNH4+oz9X0OB1k2SV
-	La2guykxus8yUvel68yxigEYOBZ0pHjJtm+jjU5c7OIfYldZyzm12k82yhKNItzudTWWaRpJ8pgqg
-	hN3UMZHdP6JU9ORAmhVnzBHB5dafo5ooix8dvwQ7XHTG62B25p5V4WtQNf+fX0/QNpHuQV54zMas0
-	FuaXpQkaiOHtPtz0qZdej/xCxjyfMfglJiqwlWCHGa0ek2FErJ+WgoTM9nfNRc7n/b7lpxb9fB0Jm
-	XmJyMAg/lyF0pZpUnw9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Tp33Yre9Ntnl9qqa/gGw47uKmdPPzYcdpH6VgxKlIrk=; b=CgjfD9mStLF9mK
+	CXbtsZ/wcY8Q40P1F/v14ioUg+3jcv+xnq+ZcE9HTOz+Dd7llIGY5uLKhS4E+nBpokH2R72lmAQRS
+	XjNQVfpOB+KGCAOsDJjLApTMEzMwZpR+7mewxUwcH3ju5kU97AzRUo6G9BPfbCUaW6wPVtG7mQIqq
+	D1LY/+oLqJaKyKbJoJcAwc0UUpvcC7SIidO8LJJh4IWdSyditQ0vOr4S83yX7uwvDTPpqyduuG/JP
+	sgoApgaupipEQl6CQSL+hOeLi1qmN0w2oJBkJQTu8kdMH62m1KxZRwK9MlaplXmyE75XfLoMZHFT4
+	D9c0klGLeFN353wZEzzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mbmIJ-00Ax9Y-HU; Sat, 16 Oct 2021 16:12:23 +0000
+	id 1mbmIM-00AxA1-Hz; Sat, 16 Oct 2021 16:12:26 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mbmIF-00Ax7u-CN
- for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 16:12:21 +0000
+ id 1mbmIG-00Ax7t-Nj
+ for linux-riscv@lists.infradead.org; Sat, 16 Oct 2021 16:12:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
- bh=kyrOcKIg6B5/9qJCrvjXWaFpBj53LVwaF/IXPCce9YQ=; b=hFl9QJ02BYmTG
- /OHR/TBruy9lDRGBpoQJTh7vVUKWqixQU1fhbMrkoAs9oyVVH7eszz4SZ2vzOQDu
- zIPdmoYLxaaN9zFCJP72b19dtKuJnvMIvAFAIfBs56KcZKyvltFuR4UIJMTkzdHV
- yz0kOwE0OOcNX5weeU1bgHGnLnZ5j0=
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=cGv0cRtIoZQv7vbgTgo11dWD1DUt5PQBZq
+ 9G1pLFOG4=; b=DhZKj002d4AgT0khKZVrRIyqV6BSTI79EA3kEjKaJxpwUyh8Ig
+ D0gVUXqEbNfBpvWVhRcIQGx58+ltrKfyH75dzI2wAWSykqNtCMjr7r9PeNezaKbd
+ i3ojOjx+0WM1G+4xi1O/2s2ejc6Gvb5gDjZLaI2qqxiZXGpok8QYfMK1k=
 Received: from xhacker (unknown [101.86.20.138])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygAXHwfT+WphY6c8AA--.23589S2; 
- Sun, 17 Oct 2021 00:12:04 +0800 (CST)
-Date: Sun, 17 Oct 2021 00:04:08 +0800
+ LkAmygAXHwfT+WphY6c8AA--.23589S3; 
+ Sun, 17 Oct 2021 00:12:05 +0800 (CST)
+Date: Sun, 17 Oct 2021 00:05:08 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada
@@ -50,30 +50,32 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  Desaulniers <ndesaulniers@google.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kbuild@vger.kernel.org
-Subject: [PATCH 0/2] riscv: switch to relative extable
-Message-ID: <20211017000408.4ae9ecd6@xhacker>
+Subject: [PATCH 2/2] riscv: switch to relative exception tables
+Message-ID: <20211017000508.38feb492@xhacker>
+In-Reply-To: <20211017000408.4ae9ecd6@xhacker>
+References: <20211017000408.4ae9ecd6@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygAXHwfT+WphY6c8AA--.23589S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDXryDGry7Cr18urW8tFb_yoWDXrb_ua
- 4IvFy8W3yxXa1fAF9rtrn5ArW0krW8tryDJF45tr47KrZrCr4DK3yqqF4Ivw18ZF45ZF4f
- GF97JrWxtr17tjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUbrAYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z2
- 80aVCY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
- w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
- vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
- s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
- 1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
- JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
- W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
- JbIYCTnIWIevJa73UjIFyTuYvjxU2rcTDUUUU
+X-CM-TRANSID: LkAmygAXHwfT+WphY6c8AA--.23589S3
+X-Coremail-Antispam: 1UD129KBjvJXoW3AFyfJFy8WF4kAFWfZry3twb_yoWxJrWUpF
+ 4DCr9YkrZ5Crn7Wa43K3yqgF1rJw4F9a45KryxWr1UZw42qrW8tws5t347ZF1DGFW8ZFyF
+ 9ryIgr1jkw4UA3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUU90b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+ 8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
+ 64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcV
+ CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY
+ 1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+ 8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+ s4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+ kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+ 67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+ CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+ MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+ VFxhVjvjDU0xZFpf9x07bOg4hUUUUU=
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211016_091220_121955_94157CB5 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211016_091221_487901_E163050A 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +98,194 @@ Similar as other architectures such as arm64, x86 and so on, use
 offsets relative to the exception table entry values rather than
 absolute addresses for both the exception locationand the fixup.
 
-patch1 consolidates the __ex_table construction, it's a great code
-clean up even w/o the 2nd patch.
+However, RISCV label difference will actually produce two relocations,
+a pair of R_RISCV_ADD32 and R_RISCV_SUB32. Take below simple code for
+example:
 
-patch2 does the real job.
+$ cat test.S
+.section .text
+1:
+        nop
+.section __ex_table,"a"
+        .balign 4
+        .long (1b - .)
+.previous
 
-Jisheng Zhang (2):
-  riscv: consolidate __ex_table construction
-  riscv: switch to relative exception tables
+$ riscv64-linux-gnu-gcc -c test.S
+$ riscv64-linux-gnu-readelf -r test.o
+Relocation section '.rela__ex_table' at offset 0x100 contains 2 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000000000  000600000023 R_RISCV_ADD32     0000000000000000 .L1^B1 + 0
+000000000000  000500000027 R_RISCV_SUB32     0000000000000000 .L0  + 0
 
+The modpost will complain the R_RISCV_SUB32 relocation, so we need to
+patch modpost.c to skip this relocation for .rela__ex_table section.
+
+After this patch, the __ex_table section size of defconfig vmlinux is
+reduced from 7072 Bytes to 3536 Bytes.
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
  arch/riscv/include/asm/Kbuild    |  1 -
- arch/riscv/include/asm/extable.h | 25 ++++++++++++++++++++
- arch/riscv/include/asm/futex.h   | 12 +++-------
- arch/riscv/include/asm/uaccess.h | 40 +++++++++++---------------------
+ arch/riscv/include/asm/extable.h | 25 +++++++++++++++++++++++++
+ arch/riscv/include/asm/uaccess.h |  4 ++--
  arch/riscv/lib/uaccess.S         |  4 ++--
  arch/riscv/mm/extable.c          |  2 +-
- scripts/mod/modpost.c            | 27 +++++++++++++++++++++
+ scripts/mod/modpost.c            | 27 +++++++++++++++++++++++++++
  scripts/sorttable.c              |  2 +-
- 8 files changed, 73 insertions(+), 40 deletions(-)
+ 7 files changed, 58 insertions(+), 7 deletions(-)
  create mode 100644 arch/riscv/include/asm/extable.h
 
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 445ccc97305a..57b86fd9916c 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -1,6 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ generic-y += early_ioremap.h
+-generic-y += extable.h
+ generic-y += flat.h
+ generic-y += kvm_para.h
+ generic-y += user.h
+diff --git a/arch/riscv/include/asm/extable.h b/arch/riscv/include/asm/extable.h
+new file mode 100644
+index 000000000000..bc439b0fdb29
+--- /dev/null
++++ b/arch/riscv/include/asm/extable.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_EXTABLE_H
++#define _ASM_RISCV_EXTABLE_H
++
++/*
++ * The exception table consists of pairs of relative offsets: the first
++ * is the relative offset to an instruction that is allowed to fault,
++ * and the second is the relative offset at which the program should
++ * continue. No registers are modified, so it is entirely up to the
++ * continuation code to figure out what to do.
++ *
++ * All the routines below use bits of fixup code that are out of line
++ * with the main instruction path.  This means when everything is well,
++ * we don't even have to jump over them.  Further, they do not intrude
++ * on our cache or tlb entries.
++ */
++
++struct exception_table_entry {
++	int insn, fixup;
++};
++
++#define ARCH_HAS_RELATIVE_EXTABLE
++
++extern int fixup_exception(struct pt_regs *regs);
++#endif
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 5e4c9a5a17c5..03e798c7b011 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -49,8 +49,8 @@
+ 
+ #define _ASM_EXTABLE(from, to)						\
+ 	"	.pushsection	__ex_table, \"a\"\n"			\
+-	"	.balign "	RISCV_SZPTR "	 \n"			\
+-	"	" RISCV_PTR	"(" #from "), (" #to ")\n"		\
++	"	.balign		4\n"					\
++	"	.long		(" #from " - .), (" #to " - .)\n"	\
+ 	"	.popsection\n"
+ 
+ /*
+diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+index 63bc691cff91..55f80f84e23f 100644
+--- a/arch/riscv/lib/uaccess.S
++++ b/arch/riscv/lib/uaccess.S
+@@ -7,8 +7,8 @@
+ 100:
+ 	\op \reg, \addr
+ 	.section __ex_table,"a"
+-	.balign RISCV_SZPTR
+-	RISCV_PTR 100b, \lbl
++	.balign 4
++	.long (100b - .), (\lbl - .)
+ 	.previous
+ 	.endm
+ 
+diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
+index 2fc729422151..6aa8ffac4be7 100644
+--- a/arch/riscv/mm/extable.c
++++ b/arch/riscv/mm/extable.c
+@@ -17,7 +17,7 @@ int fixup_exception(struct pt_regs *regs)
+ 
+ 	fixup = search_exception_tables(regs->epc);
+ 	if (fixup) {
+-		regs->epc = fixup->fixup;
++		regs->epc = (unsigned long)&fixup->fixup + fixup->fixup;
+ 		return 1;
+ 	}
+ 	return 0;
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index cb8ab7d91d30..0aa14b5bd124 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -1830,6 +1830,27 @@ static int addend_mips_rel(struct elf_info *elf, Elf_Shdr *sechdr, Elf_Rela *r)
+ 	return 0;
+ }
+ 
++#ifndef EM_RISCV
++#define EM_RISCV		243
++#endif
++
++#ifndef R_RISCV_SUB32
++#define R_RISCV_SUB32		39
++#endif
++
++static int addend_riscv_rela(struct elf_info *elf, Elf_Shdr *sechdr, Elf_Rela *r)
++{
++	unsigned int r_typ = ELF_R_TYPE(r->r_info);
++	const char *fromsec;
++
++	fromsec = sech_name(elf, sechdr);
++	fromsec += strlen(".rela");
++
++	if (!strcmp("__ex_table", fromsec) && r_typ == R_RISCV_SUB32)
++		return 1;	/* skip this */
++	return 0;
++}
++
+ static void section_rela(const char *modname, struct elf_info *elf,
+ 			 Elf_Shdr *sechdr)
+ {
+@@ -1866,6 +1887,12 @@ static void section_rela(const char *modname, struct elf_info *elf,
+ 		r_sym = ELF_R_SYM(r.r_info);
+ #endif
+ 		r.r_addend = TO_NATIVE(rela->r_addend);
++		switch (elf->hdr->e_machine) {
++		case EM_RISCV:
++			if (addend_riscv_rela(elf, sechdr, &r))
++				continue;
++			break;
++		}
+ 		sym = elf->symtab_start + r_sym;
+ 		/* Skip special sections */
+ 		if (is_shndx_special(sym->st_shndx))
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index 6ee4fa882919..39e86e4acea3 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -346,6 +346,7 @@ static int do_file(char const *const fname, void *addr)
+ 	case EM_PARISC:
+ 	case EM_PPC:
+ 	case EM_PPC64:
++	case EM_RISCV:
+ 		custom_sort = sort_relative_table;
+ 		break;
+ 	case EM_ARCOMPACT:
+@@ -353,7 +354,6 @@ static int do_file(char const *const fname, void *addr)
+ 	case EM_ARM:
+ 	case EM_MICROBLAZE:
+ 	case EM_MIPS:
+-	case EM_RISCV:
+ 	case EM_XTENSA:
+ 		break;
+ 	default:
 -- 
 2.33.0
 
