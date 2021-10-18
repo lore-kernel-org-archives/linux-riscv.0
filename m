@@ -2,106 +2,84 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C0C76C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 07:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B56FDC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 10:45:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E10560F9E
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 07:30:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7E10560F9E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8219B61002
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 10:45:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8219B61002
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWJHxkaeDFnWq13CvzyVcgC1FYyyDHaZnE8E7pOopfQ=; b=siEeHdYtQDvLDM
-	HjSPG/DrJ5Glq+ts7dvaMpfAId5dvFhodNJFh4DLLHyX/YL2YBQW/pKnQvw3rqfLqhQmDj0NuqSX7
-	BZJOxF6xx+xCpbOAF2eV416XIiXeSQQJ+pA+JmMzzsAzHhEWEWap02ljwVdNt3lChE+id0DA6+vGD
-	EDvUFZD/WxSjSePMKEIomGujvJeyhC6fzldroh4cIzBIXyizjWMZpq7L3suvnWvdQ4vXiW3DHwVqz
-	A69AtkIwpp2gGk0cBgP2LL/EV4VdY+udzKNiHXEKm9gCCKDi1iMyUUuvJDmTeYQ4CgOf8md/Eq0il
-	nVKgCiQ93y5AhZ1esgWQ==;
+	List-Owner; bh=rocRpm1K2JXGkDgdBhHxJ2N47Z9uLhTRNQQQaL8QnyA=; b=cF8y6o2mhEbh1q
+	cJGUu+xfhfLJJIvY3egLTPtuaJsRJjpJo+kodxXTaSF6Iv+FfL+ZMypMPfflweSXl8mKTrw8Cu872
+	NS3rKdR54fJpg4/EfATEpyAj3bZdkcHuEI5TdCr9Zwkrd2y+sFQ2Qowwe+Q2Ir44NzTUeT471rtyB
+	3LoBQ/Py+UGXM4vXV6Pjw/CGiLblFt57echGivbxZbeW0Qt6B3FYRvn/yhyAnZFGl+Bhv3bODFCDR
+	xAUsaSEca3aHNkqlJktftHEFPwwwMDbi5y7T8CLOPlrgdP5WHC60/pQCiw3g/4IN2tqbYTHYgQKTb
+	vROkeMsjO8320slE4XSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcN6B-00ETZD-VE; Mon, 18 Oct 2021 07:30:20 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mcQ9E-00F6GZ-S6; Mon, 18 Oct 2021 10:45:41 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcN68-00ETY2-Ig
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 07:30:18 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ id 1mcPjv-00Ey8D-MY
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 10:19:34 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out2.suse.de (Postfix) with ESMTP id 7CAE31FD79;
+ Mon, 18 Oct 2021 10:19:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1634552366; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=iOXmerCnaJwQcxrGTYNbpRPalnhSmqAzz0pWYAYZ5Qo=;
+ b=DzL9pIaLMpfOUDOV24COilkbRbw4Zz03OVIMeFIvKy0jrLRIjKjUVrYo1E6xQSlaoJiMkr
+ ivmVDcSbU982BGrV4FEhvOUv2sbqZmkoH5LdMylpFwi3HCkh9B0ni8TIAluXo2q8Ds/4G7
+ mK11rHw/9kXtIiS4yQX063c9dKeL93w=
+Received: from suse.cz (unknown [10.100.216.66])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 3F9273FFFE
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 07:30:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1634542215;
- bh=wFXVQ4KEtw8nWvUmZe9/ReIrDj2qrzV0p0234hn1yAw=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=TUakONoLSJEVL0hrnWof73bOVJjzIkn6QswUigN2imkl53sUMC9zaLaULXXmbyvvu
- 9zntkI8qcg3nAKyP+czLVZn9pc7/41e2dMR99KH1qC8ZiIGUGs27vrnSy7BKqmda4w
- F9DW99J9btEmnfNL7RqKHmBiXsu6yzqTi07xOvfkKvz4GDjDW9Z4qN4OpIbWjIMk28
- 7idIwqTNWIp6l9Ovi8ueS3knlpXkCqGEI8mrXQjeLqfQl56gpMUPSfAWJbwVfYv8C+
- QgpUaLvod8+PHMWpaxobcUlTDKMYAg2EDSAW26Z+t6LCWJEpyPo4Ay4xl9kHmdKCRG
- S53vX87R4Ii8g==
-Received: by mail-wm1-f70.google.com with SMTP id
- o196-20020a1ca5cd000000b0030dc197412aso2858899wme.0
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 00:30:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=wFXVQ4KEtw8nWvUmZe9/ReIrDj2qrzV0p0234hn1yAw=;
- b=OvDpIqefRjtSj/Ds7HsWg/00n2g1bBmM7Q1Dg9VNfgTqa3lGXN/ysFQpPe3EphyDq6
- QW6cXOU0f8HesKnT5dHetWa46Kne8MdURP67k9Piox/eoobBtTn/9l8KF3tkf7Xc9eoh
- S+0CLOgu0raqN9jGMi2yAwyjeXSkLRWf1bEcEKTVO1IFBJeJ4BQrbQsFaUD68Nq+G3uU
- eVHKj2Tso+QXH9hfCmuNuqGfEVyWzXXq7Qb3Rp1BIlswkbA9L1yQNehOR4WK+jtYLK3B
- u4RXflYRAVTEntyKpjOX2i2jKbd/bcCp0AZDBXlXUYzBuJYBvybVdJuGsTlbLGbdwVJC
- LfzA==
-X-Gm-Message-State: AOAM530rAp8cjWXr1qcO6C2tBHPSNcosnN2pEmVfaNBbKdxxQkf9QdP5
- tr9if36VdnMJNYctg+aHohQKivfJTfXElwyiY0sFBoQN/aMLGVtzlZV/uFOKdKgEcjIVpDupX3j
- u1zSl4YF0abJ+N6OFTtXpGIoFhoFUEj/7N793bfxFXSbQwg==
-X-Received: by 2002:adf:e3d0:: with SMTP id k16mr30306610wrm.385.1634542214888; 
- Mon, 18 Oct 2021 00:30:14 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxun+2EYZRd01wBMtxCIoQaC2e86t9mH9UcN0AyvQbSJarL/g5QoX3ssvsEHJB6Oa38TLHG/Q==
-X-Received: by 2002:adf:e3d0:: with SMTP id k16mr30306572wrm.385.1634542214639; 
- Mon, 18 Oct 2021 00:30:14 -0700 (PDT)
-Received: from [192.168.123.55] (ip-88-152-144-157.hsi03.unitymediagroup.de.
- [88.152.144.157])
- by smtp.gmail.com with ESMTPSA id w26sm11594434wmk.34.2021.10.18.00.30.13
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 18 Oct 2021 00:30:14 -0700 (PDT)
-Message-ID: <7361287f-9c07-8b76-d405-35f287ac1706@canonical.com>
-Date: Mon, 18 Oct 2021 09:30:13 +0200
+ by relay2.suse.de (Postfix) with ESMTPS id 136C9A3BCD;
+ Mon, 18 Oct 2021 10:19:23 +0000 (UTC)
+Date: Mon, 18 Oct 2021 12:19:20 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+ Joe Lawrence <joe.lawrence@redhat.com>,
+ Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org,
+ =?utf-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>,
+ Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
+Message-ID: <YW1KKCFallDG+E01@alley>
+References: <20211015110035.14813389@gandalf.local.home>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.1.2
-Subject: Re: [PATCH v2 1/1] dt-bindings: reg-io-width for SiFive CLINT
-Content-Language: en-US
-To: Anup Patel <anup@brainfault.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Guo Ren <guoren@linux.alibaba.com>,
- Bin Meng <bmeng.cn@gmail.com>, Xiang W <wxjstz@126.com>,
- Samuel Holland <samuel@sholland.org>, Atish Patra <atish.patra@wdc.com>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- OpenSBI <opensbi@lists.infradead.org>
-References: <20211015120735.27972-1-heinrich.schuchardt@canonical.com>
- <CAAhSdy3JU6jitTWFk4CVRG5Xc7P7ueZzd=xmnKBNpx8eGaR6hw@mail.gmail.com>
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <CAAhSdy3JU6jitTWFk4CVRG5Xc7P7ueZzd=xmnKBNpx8eGaR6hw@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20211015110035.14813389@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_003016_866241_23A0B11C 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20211018_031931_941438_ADE53E62 
+X-CRM114-Status: GOOD (  33.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,97 +91,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/18/21 06:33, Anup Patel wrote:
-> On Fri, Oct 15, 2021 at 5:37 PM Heinrich Schuchardt
-> <heinrich.schuchardt@canonical.com> wrote:
->>
->> The CLINT in the T-HEAD 9xx processors do not support 64bit mmio access to
->> the MTIMER device. The current schema does not allow to specify this.
->>
->> OpenSBI currently uses a property 'clint,has-no-64bit-mmio' to indicate the
->> restriction. Samuael Holland suggested in
->> lib: utils/timer: Use standard property to specify 32-bit I/O
->> https://github.com/smaeul/opensbi/commit/b95e9cf7cf93b0af16fc89204378bc59ff30008e
->> to use "reg-io-width = <4>;" as the reg-io-width property is generally used
->> in the devicetree schema for such a condition.
->>
->> A release candidate of the ACLINT specification is available at
->> https://github.com/riscv/riscv-aclint/releases
->>
->> Add reg-io-width as optional property to the SiFive Core Local Interruptor.
->> Add a new compatible string "allwinner,sun20i-d1-clint" for the CLINT of
->> the Allwinner D1 SoC.
->>
->> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
->> ---
->>   .../devicetree/bindings/timer/sifive,clint.yaml     | 13 +++++++++++--
->>   1 file changed, 11 insertions(+), 2 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
->> index a35952f48742..d3b4c6844e2f 100644
->> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
->> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
->> @@ -26,6 +26,7 @@ properties:
->>         - enum:
->>             - sifive,fu540-c000-clint
->>             - canaan,k210-clint
->> +          - allwinner,sun20i-d1-clint
->>         - const: sifive,clint0
->>
->>       description:
->> @@ -33,14 +34,22 @@ properties:
->>         Supported compatible strings are -
->>         "sifive,fu540-c000-clint" for the SiFive CLINT v0 as integrated
->>         onto the SiFive FU540 chip, "canaan,k210-clint" for the SiFive
->> -      CLINT v0 as integrated onto the Canaan Kendryte K210 chip, and
->> -      "sifive,clint0" for the SiFive CLINT v0 IP block with no chip
->> +      CLINT v0 as integrated onto the Canaan Kendryte K210 chip,
->> +      "allwinner,sun20i-d1-clint" for the CLINT in the Allwinner D1 SoC,
->> +      and "sifive,clint0" for the SiFive CLINT v0 IP block with no chip
->>         integration tweaks.
->>         Please refer to sifive-blocks-ip-versioning.txt for details
->>
->>     reg:
->>       maxItems: 1
->>
->> +  reg-io-width:
->> +    description: |
->> +      Some CLINT implementations, e.g. on the T-HEAD 9xx, only support
->> +      32bit access for MTIMER.
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    const: 4
->> +
+On Fri 2021-10-15 11:00:35, Steven Rostedt wrote:
+> From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 > 
-> Please drop the "reg-io-width" DT property.
+> While writing an email explaining the "bit = 0" logic for a discussion on
+> making ftrace_test_recursion_trylock() disable preemption, I discovered a
+> path that makes the "not do the logic if bit is zero" unsafe.
 > 
-> Based on discussion on ACLINT MTIMER DT bindings, Rob suggested
-> using implementation specific compatible string for detecting register IO
-> width. We should follow the same strategy here as well.
-
-Should we create a completely separated yaml document for 
-"allwinner,sun20i-d1-clint", "thead,clint0"? Or should we integrate all 
-in sifive,clint.yaml?
-
-Best regards
-
-Heinrich
-
+> Since we want to encourage architectures to implement all ftrace features,
+> having them slow down due to this extra logic may encourage the
+> maintainers to update to the latest ftrace features. And because this
+> logic is only safe for them, remove it completely.
 > 
-> Regards,
-> Anup
+>  [*] There is on layer of recursion that is allowed, and that is to allow
+>      for the transition between interrupt context (normal -> softirq ->
+>      irq -> NMI), because a trace may occur before the context update is
+>      visible to the trace recursion logic.
 > 
->>     interrupts-extended:
->>       minItems: 1
->>
->> --
->> 2.32.0
->>
+> diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+> index a9f9c5714e65..168fdf07419a 100644
+> --- a/include/linux/trace_recursion.h
+> +++ b/include/linux/trace_recursion.h
+> @@ -165,40 +147,29 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+>  	unsigned int val = READ_ONCE(current->trace_recursion);
+>  	int bit;
+>  
+> -	/* A previous recursion check was made */
+> -	if ((val & TRACE_CONTEXT_MASK) > max)
+> -		return 0;
 
+@max parameter is no longer used.
+
+> -
+>  	bit = trace_get_context_bit() + start;
+>  	if (unlikely(val & (1 << bit))) {
+>  		/*
+>  		 * It could be that preempt_count has not been updated during
+>  		 * a switch between contexts. Allow for a single recursion.
+>  		 */
+> -		bit = TRACE_TRANSITION_BIT;
+> +		bit = TRACE_CTX_TRANSITION + start;
+
+I just want to be sure that I understand it correctly.
+
+The transition bit is the same for all contexts. It will allow one
+recursion only in one context.
+
+IMHO, the same problem (not-yet-updated preempt_count) might happen
+in any transition between contexts: normal -> soft IRQ -> IRQ -> NMI.
+
+Well, I am not sure what exacly it means "preempt_count has not been
+updated during a switch between contexts."
+
+   Is it that a function in the interrupt entry code is traced before
+   preempt_count is updated?
+
+   Or that an interrupt entry is interrupted by a higher level
+   interrupt, e.g. IRQ entry code interrupted by NMI?
+
+
+I guess that it is the first case. It would mean that the above
+function allows one mistake (one traced funtion in an interrupt entry
+code before the entry code updates preempt_count).
+
+Do I get it correctly?
+Is this what we want?
+
+
+Could we please update the comment? I mean to say if it is a race
+or if we trace a function that should not get traced.
+
+>  		if (val & (1 << bit)) {
+>  			do_ftrace_record_recursion(ip, pip);
+>  			return -1;
+>  		}
+> -	} else {
+> -		/* Normal check passed, clear the transition to allow it again */
+> -		val &= ~(1 << TRACE_TRANSITION_BIT);
+>  	}
+>  
+>  	val |= 1 << bit;
+>  	current->trace_recursion = val;
+>  	barrier();
+>  
+> -	return bit + 1;
+> +	return bit;
+>  }
+>  
+>  static __always_inline void trace_clear_recursion(int bit)
+>  {
+> -	if (!bit)
+> -		return;
+> -
+>  	barrier();
+> -	bit--;
+>  	trace_recursion_clear(bit);
+>  }
+
+Otherwise, the change looks great. It simplifies that logic a lot.
+I think that I start understanding it ;-)
+
+Best Regards,
+Petr
 
 _______________________________________________
 linux-riscv mailing list
