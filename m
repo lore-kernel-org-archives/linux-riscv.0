@@ -2,75 +2,78 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 42E84C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 12:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C0BCC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:26:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F51261212
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 12:02:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0F51261212
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 1676B61362
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:26:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1676B61362
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vB/jB4uG5R0N+nHIHv9krV7sT3n2ckCjmXO7C54GBcw=; b=iX7QBTtUJwd14n
-	jvKNL1hS1F7jnvI4ArwWvQsZkBVRYeEOYM0SQFNAQQWXH2MqRT2up/7j3FGuNLNNHvUoJheGLuxeP
-	bF+MoMuumWaE1pVW/Z9S13MfdzoYko2zZkRuPfR7PxqLugZfI6yAztCS6OxBOJ4odu3MosKYDWT6z
-	49pkkbCY8C8+gcnfNkIpUminlSWjC/xwFbPw6Bt12FMwnUM1CWWTXIoFCsSDeeBaLjRrWit7bDCk7
-	FEWN6EvQ+RfGrf7Ib37if59nU7hQTD6qUT99rl9J7/dwHhqpqEDjMroldrmn7c5EWGAfIIVuEM87F
-	bVGzUWVgMBxiBvqgWHRA==;
+	List-Owner; bh=rYRkWFx+DEhU3Itss9xyLkKQ1o9lH1B6HEMAqHXzmjM=; b=jhY+1a6EIBATf/
+	+rySRPVua+t4a5VSEjcqim6bNCkzDNg+z5pn+4VXQ6fskbcMzgKGCAn8y6JFEMrnqI57HieM50LCA
+	Qignm8QoCPH/gxcNNBcqx747KRmJtXwTZfjonuzviuGWqmzJn+A9TJuDMisrcs3p+XKk8vL9wwsM5
+	858xIjDpFQiKbPQe/Yr5VfXsg+PNjTd8TVBgG+1mX+UNhzb3wdiqtK1bwBkiK2ycbOif5zqYXRpuh
+	ai3fLFgJktWgbdx15QTIoJIwbu/dquDGrRWOewzMqYEVzSzN4s3SKT61+VgOlE8Q8JcAy5Tp9cIVs
+	3boSf6WF6L0E4JbIEwsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcRLs-00FYWy-2R; Mon, 18 Oct 2021 12:02:48 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcRLo-00FYUb-NS
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 12:02:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C3F8561212
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 12:02:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634558563;
- bh=RhHPIX0Z+xg7kqXRMeJLbAlYk80ZUNDoBDg7wJ0kQjk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=CdtmhAK4faHuxSROeCvN05ix2TlfcF3YSXd854Xuj93aUmvGImqnDs2KFKOeALSYX
- I1QZMQ8lCxuISCZCRtXqQDwzve1XbqFTlzPzTfuuGLzbup0IESnCjUMYcx3WtP38oZ
- KueGA9wnot3F1AiDBlNpp0IQ4ihYOO5YtxUhTe0WWZFWjGqnZcNyzKt2+CbKqTl5qo
- Hq/t8/jawegvTLOhCi9SYmbxaLBRtkPiJtzbVe6RX3rG0cZFOfTPnpiIJYtDvCSWao
- exkNFatAkv6zhpfNgih7dIlE++g9BOMa2ZRxS3lJ1Y2WKpnpiIx9PGoYPJeuD2iCtK
- PqYjUS5741zEQ==
-Received: by mail-ed1-f43.google.com with SMTP id d3so69952632edp.3
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 05:02:43 -0700 (PDT)
-X-Gm-Message-State: AOAM532zqXtghYTXo9Glv4zjBtYszYaCDPCY1hvCZKdANX5JiHcuSCaB
- aBgnSqlr0zQsi3B6qKKDeUZIlEYvhUyj5KmHKg==
-X-Google-Smtp-Source: ABdhPJyTVojjZSVx1tOOZXPoaIiK+leRXXmuEIBk5SwNOhlQESxuVhdC/rOnY3qX4Uo9iSyYPs7eHRtNesysghWobOo=
-X-Received: by 2002:a50:da06:: with SMTP id z6mr45094962edj.355.1634558546647; 
- Mon, 18 Oct 2021 05:02:26 -0700 (PDT)
+	id 1mcSex-00Fn4t-MB; Mon, 18 Oct 2021 13:26:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mcSel-00Fn3W-FG; Mon, 18 Oct 2021 13:26:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58926101E;
+ Mon, 18 Oct 2021 06:26:15 -0700 (PDT)
+Received: from bogus (unknown [10.57.25.56])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13AC93F73D;
+ Mon, 18 Oct 2021 06:26:07 -0700 (PDT)
+Date: Mon, 18 Oct 2021 14:26:05 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, x86@kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Frank Rowand <frowand.list@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 01/12] of: Add of_get_cpu_hwid() to read hardware ID from
+ CPU nodes
+Message-ID: <20211018132605.jh2huoxmywjcr5xa@bogus>
+References: <20211006164332.1981454-1-robh@kernel.org>
+ <20211006164332.1981454-2-robh@kernel.org>
 MIME-Version: 1.0
-References: <20211016032200.2869998-1-guoren@kernel.org>
- <20211016032200.2869998-3-guoren@kernel.org>
-In-Reply-To: <20211016032200.2869998-3-guoren@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 18 Oct 2021 07:02:15 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
-Message-ID: <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
-Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
-To: Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
- Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, "heiko@sntech.de" <heiko@sntech.de>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
+Content-Disposition: inline
+In-Reply-To: <20211006164332.1981454-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_050244_815032_5DB46475 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211018_062623_585629_0AD2969F 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +90,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 15, 2021 at 10:22 PM <guoren@kernel.org> wrote:
+On Wed, Oct 06, 2021 at 11:43:21AM -0500, Rob Herring wrote:
+> There are various open coded implementions parsing the CPU node 'reg'
+> property which contains the CPU's hardware ID. Introduce a new function,
+> of_get_cpu_hwid(), to read the hardware ID.
 >
-> From: Guo Ren <guoren@linux.alibaba.com>
+> All the callers should be DT only code, so no need for an empty
+> function.
 >
-> Add the compatible string "thead,c900-plic" to the riscv plic
-> bindings to support allwinner d1 SOC which contains c906 core.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Atish Patra <atish.patra@wdc.com>
 
-Please send to the DT list so that checks run and it's in my review
-queue (IOW, use get_maintainers.pl). And run 'make dt_binding_check'
-so reviewers don't have to find your typos and other errors for you.
+Thanks for doing this. I postponed and forgot about this though I had
+planned for this when I touched code around this.
 
-Rob
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+--
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
