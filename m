@@ -2,83 +2,72 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1B3C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0521AC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 03:38:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C43660FDA
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1C43660FDA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id A209C60F9F
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 03:38:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A209C60F9F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IVst4+sa0Z1+gXTn9G0c1jNOBy0A6kVhZOPuDuoEEtQ=; b=KaUmhXiziZ9pKY
-	8S1xyv+gTwPlS5DXTlxunOvBMXz71WEzI8c9JEz7KaTdMq9AUTBitzYyZl6cInYqJ/plyBVsYxuSu
-	e3WEiuy5mQX4NV5gX7a9mHIrsHYbZ/aLvd4aLiuWMtqRnaS8g7v75DRMOFrIwNYCk8kE4NXJ5ixad
-	yd6z87o76auSmw/8ELywlIkgi8hcWxZ/D0WoKNed6kPyXMbNepZHRdGhplBcEE+vwkvUreh2stH6g
-	99ydIT2ItxK73UT4uZ2SXYhhYxlEIb9TtQ16fQ7kgW2X900Bc7HUYzUnML46bMZNkaOx/7VIz8j8N
-	rbOq5Gm4oLadPXmPOiBQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
+	From:To:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o1HH5gungJrMbaJnamxmitCP7v/sxmMdzJlhb1Z7/sQ=; b=mrmQ3XE1g2u5xZ
+	ZuYOV/fa+O4UX+9+MPKYZmrZCz3vqsC2wtiH/QnK4TZAqyIVbFz02WR5cUNW1Bq7+2gKUky6xE7r7
+	fuoBkYRXl8IG/VbcpL0SRL9rnZ//HRwV7Ox3Ywr8sT0w1H6U+NILSnbdzl/N0DQTSyGzKZDukM//m
+	0bqO8xvUil8sZ2mbunm5gJf1P+zhBSN8hpsd02nFHtptHD1bNMX+Zwy22rdoNGNt1tFVSwcdl4i8x
+	Kl1xAK5OvI1Ftpw0msXtp8jNKiVEGgMdBKZB3PtCQRspvUhT/AXP0rGeBjLNIfm04ZFh0ko1LS99j
+	u6wTL0neblpp+QZ6Jk6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcIJB-00DpRu-PL; Mon, 18 Oct 2021 02:23:25 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1mcJU1-00DuoY-D7; Mon, 18 Oct 2021 03:38:41 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcIJ8-00DpQf-Pr
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 02:23:24 +0000
-Received: by mail-pf1-x433.google.com with SMTP id t184so12675928pfd.0
- for <linux-riscv@lists.infradead.org>; Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=4bw/oHpLpCvL7ZLvo5Y2CIUzRMBpMTubDt9OnDYu2BI=;
- b=p78bWkpdNVG/DhKULp4lU/7slKd+cytVBlfHi+aahsS0YvH6fBuz+4PYfMtmMpojf0
- CqvBlUMO6iH8pCYG9cYkATIgpGGUoPsnEOALwlHwlxvgxX2Indph4Wv4aFgUakeu62/D
- OxVqs5Bje7IQ9u6YVW6/er+IsPQt1HEid74zEH16bURMgFTtN72S0QDtTyLAppiCz+Hi
- Fmt1aAt2Uh8V6Z382pxcRsfItBrlA/mxAxxu6xJ6x2GFrSo2+AD0BMPB6Qx9Q1xGkiuO
- pIApk/bsrbWPUXYaQsd7X1cHsDZJaEB8y8+KKkvRMw31Cb2IjmU02JkpzOsQCYGjC/2R
- Bp7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=4bw/oHpLpCvL7ZLvo5Y2CIUzRMBpMTubDt9OnDYu2BI=;
- b=2RqXQFdErocHBs/PwczNb+N5grQ2e3S+xh88kbgQabhmQLnuufbGhhr06ES6Nt5cW+
- hiQfR4n/sPS23vPk0ROtz0aIBDpvdvqzPOl7lvMXHrjPuPBMlpqrCAdbTDGILrZ1KBKM
- OM2RO4/ZUL/J5Il7ws7n+HXirGhItKltIu/zTX0nLozCBzsQSUmJWYIrfcwI2fgU5nsY
- NFy/Jcl0iHtPSmweD3gBStUuok/5UsXkxbAxwb3tWkVDetxMsxEY5T+42HF+S+VssGvk
- YWBr3wB9ZyK4DYERpWVIKeWloQ1rCYh6wYH7W+1ZNdNqnDo1izx48dofnFzxP3ymJIw+
- Nw8w==
-X-Gm-Message-State: AOAM5324Mdg66+2VN9kz7DN53DFM1l+BSLJMMWEP6S8SyXuYHU65nEBE
- CHMHpdiT+eYW9gs13L9mMb93mYFxiMC8jE5QB4YAZw==
-X-Google-Smtp-Source: ABdhPJzFGV+dxtRfAKzn5qPYz33DdPsC7UHAr62G2C01B2/XTLyPuIlw6RAEVnOOQq9sJkYjqCTdGQ==
-X-Received: by 2002:a63:3549:: with SMTP id c70mr6830545pga.442.1634523802443; 
- Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:bac0:23::815:bc7])
- by smtp.gmail.com with ESMTPSA id t32sm4965971pfg.29.2021.10.17.19.23.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
-From: Qinglin Pan <panqinglin00@gmail.com>
-X-Google-Original-From: Qinglin Pan <panqinglin00@163.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [RFC PATCH 4/4] mm: support Svnapot in huge vmap
-Date: Mon, 18 Oct 2021 10:22:38 +0800
-Message-Id: <20211018022238.1314220-4-panqinglin00@163.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20211018022238.1314220-1-panqinglin00@163.com>
-References: <20211018022238.1314220-1-panqinglin00@163.com>
+ id 1mcJTy-00Dun9-IC
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 03:38:40 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R171e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04357; MF=yun.wang@linux.alibaba.com;
+ NM=1; PH=DS; RN=31; SR=0; TI=SMTPD_---0UsUkvOd_1634528302; 
+Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
+ fp:SMTPD_---0UsUkvOd_1634528302) by smtp.aliyun-inc.com(127.0.0.1);
+ Mon, 18 Oct 2021 11:38:23 +0800
+To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
+ Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
+ Joe Lawrence <joe.lawrence@redhat.com>,
+ Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
+From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
+Subject: [PATCH v4 0/2] fix & prevent the missing preemption disabling
+Message-ID: <32a36348-69ee-6464-390c-3a8d6e9d2b53@linux.alibaba.com>
+Date: Mon, 18 Oct 2021 11:38:21 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211017_192322_857373_4167EF5B 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20211017_203838_832319_F4E39A50 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,110 +84,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+The testing show that perf_ftrace_function_call() are using smp_processor_id()
+with preemption enabled, all the checking on CPU could be wrong after preemption.
 
-The HAVE_ARCH_HUGE_VMAP option can be used to help implement arch
-special huge vmap size. This patch selects this option by default and
-re-writes the arch_vmap_pte_range_map_size for Svnapot 64KB size.
+As Peter point out, the section between ftrace_test_recursion_trylock/unlock()
+pair require the preemption to be disabled as 'Documentation/trace/ftrace-uses.rst'
+explained, but currently the work is done outside of the helpers.
 
-It can be tested when booting kernel in qemu with pci device, which
-will make the kernel to call pci driver using ioremap, and the
-re-written function will be called.
+And since the internal using of trace_test_and_set_recursion()
+and trace_clear_recursion() also require preemption to be disabled, we
+can just merge the logical together.
 
-Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
----
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/pgtable.h | 35 ++++++++++++++++++++++++++++++++
- arch/riscv/include/asm/vmalloc.h | 18 ++++++++++++++++
- 3 files changed, 54 insertions(+)
+Patch 1/2 will make sure preemption disabled when recursion lock succeed,
+patch 2/2 will do smp_processor_id() checking after trylock() to address the
+issue.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 0ae025686faf..4a57fd56daf8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -13,6 +13,7 @@ config 32BIT
- config RISCV
- 	def_bool y
- 	select ARCH_CLOCKSOURCE_INIT
-+  select HAVE_ARCH_HUGE_VMAP
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index adacb877433d..218d95d30bfa 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -642,6 +642,41 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
-+static inline int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
-+{
-+	return 0;
-+}
-+
-+static inline int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
-+{
-+	return 0;
-+}
-+
-+static inline int pud_clear_huge(pud_t *pud)
-+{
-+	return 0;
-+}
-+
-+static inline int pmd_clear_huge(pmd_t *pmd)
-+{
-+	return 0;
-+}
-+
-+static inline int p4d_free_pud_page(p4d_t *p4d, unsigned long addr)
-+{
-+	return 0;
-+}
-+
-+static inline int pud_free_pmd_page(pud_t *pud, unsigned long addr)
-+{
-+	return 0;
-+}
-+
-+static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-+{
-+	return 0;
-+}
-+
- /*
-  * Encode and decode a swap entry
-  *
-diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-index ff9abc00d139..fecfa24d6a13 100644
---- a/arch/riscv/include/asm/vmalloc.h
-+++ b/arch/riscv/include/asm/vmalloc.h
-@@ -1,4 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
- #ifndef _ASM_RISCV_VMALLOC_H
- #define _ASM_RISCV_VMALLOC_H
- 
-+#include <asm/pgtable-bits.h>
-+
-+#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-+static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, unsigned long end,
-+		u64 pfn, unsigned int max_page_shift)
-+{
-+	bool is_napot_addr = !(addr & NAPOT_CONT64KB_MASK);
-+	bool pfn_align_napot = !(pfn & (NAPOT_64KB_PTE_NUM - 1UL));
-+	bool space_enough = ((end - addr) >= NAPOT_CONT64KB_SIZE);
-+
-+	if (is_napot_addr && pfn_align_napot && space_enough
-+			&& max_page_shift >= NAPOT_CONT64KB_SHIFT)
-+		return NAPOT_CONT64KB_SIZE;
-+
-+	return PAGE_SIZE;
-+}
-+
- #endif /* _ASM_RISCV_VMALLOC_H */
+v1: https://lore.kernel.org/all/8c7de46d-9869-aa5e-2bb9-5dbc2eda395e@linux.alibaba.com/
+v2: https://lore.kernel.org/all/b1d7fe43-ce84-0ed7-32f7-ea1d12d0b716@linux.alibaba.com/
+v3: https://lore.kernel.org/all/609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com/
+
+Michael Wang (2):
+  ftrace: disable preemption when recursion locked
+  ftrace: do CPU checking after preemption disabled
+
+ arch/csky/kernel/probes/ftrace.c     |  2 --
+ arch/parisc/kernel/ftrace.c          |  2 --
+ arch/powerpc/kernel/kprobes-ftrace.c |  2 --
+ arch/riscv/kernel/probes/ftrace.c    |  2 --
+ arch/x86/kernel/kprobes/ftrace.c     |  2 --
+ include/linux/trace_recursion.h      | 20 +++++++++++++++++++-
+ kernel/livepatch/patch.c             | 13 +++++++------
+ kernel/trace/ftrace.c                | 15 +++++----------
+ kernel/trace/trace_event_perf.c      |  6 +++---
+ kernel/trace/trace_functions.c       |  5 -----
+ 10 files changed, 34 insertions(+), 35 deletions(-)
+
 -- 
-2.32.0
+1.8.3.1
 
 
 _______________________________________________
