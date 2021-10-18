@@ -2,90 +2,69 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA157C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 18:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 026BFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 19:51:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 913D460F93
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 18:38:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 913D460F93
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id A7333611EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 19:51:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A7333611EF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZfA37kAgxvcXMxuEHv2cLq4CtDpMI7LEXL57kEwxi6A=; b=0zgKEQREbW/dO0
-	dTyBW+D+VX317xOYbsHHBkp8CJpAfT4UMNKHGWz2OiK25AILzQnaaOeGgBoov96gg/JoU1O76/SMt
-	03bAJslg3QUSfdbfnkdptSX0p/ma9VUjL6B8J/mUl+wfmaKaArqT7cvgo4lI3zkoVRZDMeS2yHkZd
-	5cphRjg4h6BeKCGUB5/r5IbXl6ooUtvmBS62AggY8ClYp7jMDNl51Yly0ac1u1PKD4AVsAyaDAYPM
-	CWDaqMNl09ITIA+dXW84tHzS5TI4oxpZwniyY+9hYGdSRHOKLd/8J+svBIhk7vq8+0i/EwAS4Tn1x
-	qOqM+VGAX5fvHur9ad1A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iFOaoAXqwzu8dVbCOcmv6Qz6jl/Cx7Ad2SCCVZybp+o=; b=H9LiUky2MUnOvn
+	lp7Ty2hjtxZPvZLGrO8H0MDNO/Zc+OrbtZhYBqYzU6H8kxHo8X1LKgJj/Mij8Nu/UPxRBFU+Fpx7j
+	W2i6V5IFx4hngJlysYaPMWvxvb1HcyBbDqZCVYA6zQVqsR9+FdIdkM2qgrekXBNr42r/r9D4P/kCQ
+	dx1DwgffigyJ+UV71G4/uy49eT1pZD9YPyZ+iA6LM8iCb8X2IuhmdosHnkGXV6677sI1c0lOnfWeX
+	O9f6ISo/2Ekl4nvY9cwULum0TSkKOqD5ddHrEDOGyiUSSQB4BhLXpKxHlGExyjk1D5abfjpUrfFWt
+	y0ufOXtiR8vieofKc/Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcXWo-00GnGw-0k; Mon, 18 Oct 2021 18:38:30 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1mcYev-00H8fK-SM; Mon, 18 Oct 2021 19:50:57 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcXWk-00GnGP-Qg
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 18:38:28 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10141"; a="228288130"
-X-IronPort-AV: E=Sophos;i="5.85,382,1624345200"; d="scan'208";a="228288130"
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
- by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Oct 2021 11:38:21 -0700
-X-IronPort-AV: E=Sophos;i="5.85,382,1624345200"; d="scan'208";a="444203257"
-Received: from smile.fi.intel.com (HELO smile) ([10.237.72.159])
- by orsmga003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Oct 2021 11:38:15 -0700
-Received: from andy by smile with local (Exim 4.95)
- (envelope-from <andy.shevchenko@gmail.com>) id 1mcXWF-000Ide-QR;
- Mon, 18 Oct 2021 21:37:55 +0300
-Date: Mon, 18 Oct 2021 21:37:55 +0300
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Maximilian Luz <luzmaximilian@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
- Matteo Croce <mcroce@microsoft.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
-Subject: Re: [PATCH v1 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-Message-ID: <YW2/A4ZQwbFX0uPB@smile.fi.intel.com>
-References: <20211012134027.684712-1-kernel@esmil.dk>
- <20211012134027.684712-13-kernel@esmil.dk>
- <CAHp75Vep+i+iyJi0LAOKuer-cUZoUoB_ZrWKcmT=EB_4hOgFGw@mail.gmail.com>
- <CANBLGcxHD2vy0+tXYo5Pkqri9mV7aD9jikvs3ygBJRxF4ApLMA@mail.gmail.com>
- <CAHp75Vc65deoHbks-aPmnjEJzm3GdqFMfBCUqw4vVLVr=71Ncg@mail.gmail.com>
- <CANBLGcxriKLZ+CKUsj5sviW8FdHnWTF2koROwmAb=G2tbmE6vQ@mail.gmail.com>
- <CAHp75VccSDLVbs1sF_-1zghWyLKtKKV1qtxOxZZ-cS0e6S-sBA@mail.gmail.com>
- <CANBLGcw1qMB7r7TbuQEevOPHq94wAtZNs=yFQ3UP_DEREvGz6g@mail.gmail.com>
+ id 1mcYYT-00H5pA-K7
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 19:44:20 +0000
+Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
+ [66.24.58.225])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7746960F57;
+ Mon, 18 Oct 2021 19:44:14 +0000 (UTC)
+Date: Mon, 18 Oct 2021 15:44:12 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Petr Mladek
+ <pmladek@suse.com>, Ingo Molnar <mingo@redhat.com>, "James E.J. Bottomley"
+ <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, "H. Peter Anvin"
+ <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina
+ <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Joe Lawrence
+ <joe.lawrence@redhat.com>, Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, "Peter Zijlstra (Intel)"
+ <peterz@infradead.org>, Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang
+ <jszhang@kernel.org>, linux-csky@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org,
+ =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>, Guo Ren
+ <guoren@kernel.org>
+Subject: [PATCH v2] tracing: Have all levels of checks prevent recursion
+Message-ID: <20211018154412.09fcad3c@gandalf.local.home>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANBLGcw1qMB7r7TbuQEevOPHq94wAtZNs=yFQ3UP_DEREvGz6g@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_113826_953598_AD943467 
-X-CRM114-Status: GOOD (  38.00  )
+X-CRM114-CacheID: sfid-20211018_124417_793129_8087CBD5 
+X-CRM114-Status: GOOD (  44.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,112 +81,279 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 18, 2021 at 06:35:10PM +0200, Emil Renner Berthing wrote:
-> On Mon, 18 Oct 2021 at 18:24, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > On Mon, Oct 18, 2021 at 6:56 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > > On Mon, 18 Oct 2021 at 17:48, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > > > On Mon, Oct 18, 2021 at 6:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > > > > On Tue, 12 Oct 2021 at 19:03, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > > > > > On Tue, Oct 12, 2021 at 4:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+[
+   Linus,
+     I have patches that clean this up that are not marked for stable, but
+     will depend on this patch. As I already have commits in my next queue,
+     I can do one of the following:
 
-...
+    1. Cherry pick this from my urgent tree, and build everything on top.
+    2. Add this on top of the mainline tag my next branch is based on and
+       merge it.
+    3. Add this to my next branch, and have it go in at the next merge
+       window.
+]
 
-> > > > > > > +               case PIN_CONFIG_BIAS_DISABLE:
-> > > > > >
-> > > > > > > +                       mask |= PAD_BIAS_MASK;
-> > > > > >
-> > > > > > Use it...
-> > > > > >
-> > > > > > > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
-> > > > > >
-> > > > > > ...here. Ditto for the similar cases in this function and elsewhere.
-> > > > >
-> > > > > I don't follow. How do you want me to use mask? If I did value =
-> > > > > (value & ~mask) | PAD_BIAS_DISABLE; then I'd wipe the previous
-> > > > > configuration. Eg. suppose the first config is the drive strength and
-> > > > > second disables bias. Then on the 2nd loop mask =
-> > > > > PAD_DRIVE_STRENGTH_MASK | PAD_BIAS_MASK and the drive strength value
-> > > > > would be wiped.
-> > > >
-> > > > Collect masks and new values in temporary variables and apply them
-> > > > once after the loop is done, no?
-> > >
-> > > But that's exactly what the code does. It merges all the config
-> > > options into a single mask and value so we only need to do rmw on the
-> > > register once.
-> >
-> > Then masking the value makes no sense.
-> > What you should have is simply as
-> >
-> >   mask |= FOO;
-> >   value |= BAR;
-> 
-> Yeah, but then we could get into weird states if the device tree
-> specifies both bias-disable and bias-pull-up by mistake. This code is
-> written so that only the last valid state is chosen.
+From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 
-But shouldn't it be disallowed by:
- 1) DTC validator (Rob?)
- 2) GPIO / pin control (Linus, Bart?)
-?
+While writing an email explaining the "bit = 0" logic for a discussion on
+making ftrace_test_recursion_trylock() disable preemption, I discovered a
+path that makes the "not do the logic if bit is zero" unsafe.
 
-...
+The recursion logic is done in hot paths like the function tracer. Thus,
+any code executed causes noticeable overhead. Thus, tricks are done to try
+to limit the amount of code executed. This included the recursion testing
+logic.
 
-> > > > > > > +       ret = clk_prepare_enable(clk);
-> > > > > > > +       if (ret) {
-> > > > > >
-> > > > > > > +               reset_control_deassert(rst);
-> > > > > >
-> > > > > > Use devm_add_action_or_reset().
-> > > > >
-> > > > > I don't see how that is better.
-> > > >
-> > > > Pity. The rule of thumb is to either try to use devm_*() everywhere in
-> > > > the probe, or don't use it at all. Above is the more-or-less standard
-> > > > pattern where devn_add_action_or_reset() is being used in the entire
-> > > > kernel.
-> > > >
-> > > > > Then I'd first need to call that and
-> > > > > check for errors, but just on the line below enabling the clock the
-> > > > > reset line is deasserted anyway, so then the action isn't needed any
-> > > > > longer. So that 3 lines of code for devm_add_action_or_reset +
-> > > > > lingering unneeded action or code to remove it again vs. just the line
-> > > > > above.
-> > > >
-> > > > Then don't use devm_*() at all. What's the point?
-> > >
-> > > I'm confused. So you wan't an unneeded action to linger because the
-> > > probe function temporarily asserts reset for 3 lines of code?
-> >
-> > I;m talking about clk_prepare_enable().
-> 
-> Ok, you wrote your comment under the reset_control_deassert call. How
-> would devm_add_action_or_reset for clk_prepare_enable work?
+Having recursion testing is important, as there are many paths that can
+end up in an infinite recursion cycle when tracing every function in the
+kernel. Thus protection is needed to prevent that from happening.
 
-It seems both are needed to be converted, otherwise _everything_ after
-reset_assert() should not be devm_*().
+Because it is OK to recurse due to different running context levels (e.g.
+an interrupt preempts a trace, and then a trace occurs in the interrupt
+handler), a set of bits are used to know which context one is in (normal,
+softirq, irq and NMI). If a recursion occurs in the same level, it is
+prevented*.
 
-TL;DR: the rule is
-  Allowed:	devm_*() followed by non-devm_*()
-  NOT allowed:	devm_*() followed by non-devm_*() followed by devm_*()
+Then there are infrastructure levels of recursion as well. When more than
+one callback is attached to the same function to trace, it calls a loop
+function to iterate over all the callbacks. Both the callbacks and the
+loop function have recursion protection. The callbacks use the
+"ftrace_test_recursion_trylock()" which has a "function" set of context
+bits to test, and the loop function calls the internal
+trace_test_and_set_recursion() directly, with an "internal" set of bits.
 
-Of course, you may try to work the latter one, but it diminishes the whole
-idea behind it, that's why I told that may be not using devm_*() is the
-correct approach here and that what you meant (?).
+If an architecture does not implement all the features supported by ftrace
+then the callbacks are never called directly, and the loop function is
+called instead, which will implement the features of ftrace.
 
-The example how to use above mentioned API, just grep for it.
+Since both the loop function and the callbacks do recursion protection, it
+was seemed unnecessary to do it in both locations. Thus, a trick was made
+to have the internal set of recursion bits at a more significant bit
+location than the function bits. Then, if any of the higher bits were set,
+the logic of the function bits could be skipped, as any new recursion
+would first have to go through the loop function.
 
-# See [1] for the sources of the used script
-$ gl4func.sh devm_add_action_or_reset clk_prepare_enable | wc -l
-101
+This is true for architectures that do not support all the ftrace
+features, because all functions being traced must first go through the
+loop function before going to the callbacks. But this is not true for
+architectures that support all the ftrace features. That's because the
+loop function could be called due to two callbacks attached to the same
+function, but then a recursion function inside the callback could be
+called that does not share any other callback, and it will be called
+directly.
 
+i.e.
 
-[1]: https://github.com/andy-shev/home-bin-tools/blob/master/gl4func.sh
+ traced_function_1: [ more than one callback tracing it ]
+   call loop_func
 
+ loop_func:
+   trace_recursion set internal bit
+   call callback
+
+ callback:
+   trace_recursion [ skipped because internal bit is set, return 0 ]
+   call traced_function_2
+
+ traced_function_2: [ only traced by above callback ]
+   call callback
+
+ callback:
+   trace_recursion [ skipped because internal bit is set, return 0 ]
+   call traced_function_2
+
+ [ wash, rinse, repeat, BOOM! out of shampoo! ]
+
+Thus, the "bit == 0 skip" trick is not safe, unless the loop function is
+call for all functions.
+
+Since we want to encourage architectures to implement all ftrace features,
+having them slow down due to this extra logic may encourage the
+maintainers to update to the latest ftrace features. And because this
+logic is only safe for them, remove it completely.
+
+ [*] There is on layer of recursion that is allowed, and that is to allow
+     for the transition between interrupt context (normal -> softirq ->
+     irq -> NMI), because a trace may occur before the context update is
+     visible to the trace recursion logic.
+
+Link: https://lore.kernel.org/all/609b565a-ed6e-a1da-f025-166691b5d994@linux.alibaba.com/
+
+Cc: stable@vger.kernel.org
+Fixes: edc15cafcbfa3 ("tracing: Avoid unnecessary multiple recursion checks")
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+---
+Changes since v1:
+   - Removed "max" parameter (Petr Mladek)
+     Petr, I did not update the comment, because that can/should be a
+     separate patch, as the comment was there before this patch.
+
+ include/linux/trace_recursion.h | 49 ++++++---------------------------
+ kernel/trace/ftrace.c           |  4 +--
+ 2 files changed, 11 insertions(+), 42 deletions(-)
+
+diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+index a9f9c5714e65..fe95f0922526 100644
+--- a/include/linux/trace_recursion.h
++++ b/include/linux/trace_recursion.h
+@@ -16,23 +16,8 @@
+  *  When function tracing occurs, the following steps are made:
+  *   If arch does not support a ftrace feature:
+  *    call internal function (uses INTERNAL bits) which calls...
+- *   If callback is registered to the "global" list, the list
+- *    function is called and recursion checks the GLOBAL bits.
+- *    then this function calls...
+  *   The function callback, which can use the FTRACE bits to
+  *    check for recursion.
+- *
+- * Now if the arch does not support a feature, and it calls
+- * the global list function which calls the ftrace callback
+- * all three of these steps will do a recursion protection.
+- * There's no reason to do one if the previous caller already
+- * did. The recursion that we are protecting against will
+- * go through the same steps again.
+- *
+- * To prevent the multiple recursion checks, if a recursion
+- * bit is set that is higher than the MAX bit of the current
+- * check, then we know that the check was made by the previous
+- * caller, and we can skip the current check.
+  */
+ enum {
+ 	/* Function recursion bits */
+@@ -40,12 +25,14 @@ enum {
+ 	TRACE_FTRACE_NMI_BIT,
+ 	TRACE_FTRACE_IRQ_BIT,
+ 	TRACE_FTRACE_SIRQ_BIT,
++	TRACE_FTRACE_TRANSITION_BIT,
+ 
+-	/* INTERNAL_BITs must be greater than FTRACE_BITs */
++	/* Internal use recursion bits */
+ 	TRACE_INTERNAL_BIT,
+ 	TRACE_INTERNAL_NMI_BIT,
+ 	TRACE_INTERNAL_IRQ_BIT,
+ 	TRACE_INTERNAL_SIRQ_BIT,
++	TRACE_INTERNAL_TRANSITION_BIT,
+ 
+ 	TRACE_BRANCH_BIT,
+ /*
+@@ -86,12 +73,6 @@ enum {
+ 	 */
+ 	TRACE_GRAPH_NOTRACE_BIT,
+ 
+-	/*
+-	 * When transitioning between context, the preempt_count() may
+-	 * not be correct. Allow for a single recursion to cover this case.
+-	 */
+-	TRACE_TRANSITION_BIT,
+-
+ 	/* Used to prevent recursion recording from recursing. */
+ 	TRACE_RECORD_RECURSION_BIT,
+ };
+@@ -113,12 +94,10 @@ enum {
+ #define TRACE_CONTEXT_BITS	4
+ 
+ #define TRACE_FTRACE_START	TRACE_FTRACE_BIT
+-#define TRACE_FTRACE_MAX	((1 << (TRACE_FTRACE_START + TRACE_CONTEXT_BITS)) - 1)
+ 
+ #define TRACE_LIST_START	TRACE_INTERNAL_BIT
+-#define TRACE_LIST_MAX		((1 << (TRACE_LIST_START + TRACE_CONTEXT_BITS)) - 1)
+ 
+-#define TRACE_CONTEXT_MASK	TRACE_LIST_MAX
++#define TRACE_CONTEXT_MASK	((1 << (TRACE_LIST_START + TRACE_CONTEXT_BITS)) - 1)
+ 
+ /*
+  * Used for setting context
+@@ -132,6 +111,7 @@ enum {
+ 	TRACE_CTX_IRQ,
+ 	TRACE_CTX_SOFTIRQ,
+ 	TRACE_CTX_NORMAL,
++	TRACE_CTX_TRANSITION,
+ };
+ 
+ static __always_inline int trace_get_context_bit(void)
+@@ -160,45 +140,34 @@ extern void ftrace_record_recursion(unsigned long ip, unsigned long parent_ip);
+ #endif
+ 
+ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsigned long pip,
+-							int start, int max)
++							int start)
+ {
+ 	unsigned int val = READ_ONCE(current->trace_recursion);
+ 	int bit;
+ 
+-	/* A previous recursion check was made */
+-	if ((val & TRACE_CONTEXT_MASK) > max)
+-		return 0;
+-
+ 	bit = trace_get_context_bit() + start;
+ 	if (unlikely(val & (1 << bit))) {
+ 		/*
+ 		 * It could be that preempt_count has not been updated during
+ 		 * a switch between contexts. Allow for a single recursion.
+ 		 */
+-		bit = TRACE_TRANSITION_BIT;
++		bit = TRACE_CTX_TRANSITION + start;
+ 		if (val & (1 << bit)) {
+ 			do_ftrace_record_recursion(ip, pip);
+ 			return -1;
+ 		}
+-	} else {
+-		/* Normal check passed, clear the transition to allow it again */
+-		val &= ~(1 << TRACE_TRANSITION_BIT);
+ 	}
+ 
+ 	val |= 1 << bit;
+ 	current->trace_recursion = val;
+ 	barrier();
+ 
+-	return bit + 1;
++	return bit;
+ }
+ 
+ static __always_inline void trace_clear_recursion(int bit)
+ {
+-	if (!bit)
+-		return;
+-
+ 	barrier();
+-	bit--;
+ 	trace_recursion_clear(bit);
+ }
+ 
+@@ -214,7 +183,7 @@ static __always_inline void trace_clear_recursion(int bit)
+ static __always_inline int ftrace_test_recursion_trylock(unsigned long ip,
+ 							 unsigned long parent_ip)
+ {
+-	return trace_test_and_set_recursion(ip, parent_ip, TRACE_FTRACE_START, TRACE_FTRACE_MAX);
++	return trace_test_and_set_recursion(ip, parent_ip, TRACE_FTRACE_START);
+ }
+ 
+ /**
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 7efbc8aaf7f6..635fbdc9d589 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -6977,7 +6977,7 @@ __ftrace_ops_list_func(unsigned long ip, unsigned long parent_ip,
+ 	struct ftrace_ops *op;
+ 	int bit;
+ 
+-	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START, TRACE_LIST_MAX);
++	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START);
+ 	if (bit < 0)
+ 		return;
+ 
+@@ -7052,7 +7052,7 @@ static void ftrace_ops_assist_func(unsigned long ip, unsigned long parent_ip,
+ {
+ 	int bit;
+ 
+-	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START, TRACE_LIST_MAX);
++	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START);
+ 	if (bit < 0)
+ 		return;
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.31.1
 
 
 _______________________________________________
