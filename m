@@ -2,84 +2,75 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B56FDC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 10:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 42E84C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 12:02:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8219B61002
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 10:45:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8219B61002
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0F51261212
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 12:02:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0F51261212
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rocRpm1K2JXGkDgdBhHxJ2N47Z9uLhTRNQQQaL8QnyA=; b=cF8y6o2mhEbh1q
-	cJGUu+xfhfLJJIvY3egLTPtuaJsRJjpJo+kodxXTaSF6Iv+FfL+ZMypMPfflweSXl8mKTrw8Cu872
-	NS3rKdR54fJpg4/EfATEpyAj3bZdkcHuEI5TdCr9Zwkrd2y+sFQ2Qowwe+Q2Ir44NzTUeT471rtyB
-	3LoBQ/Py+UGXM4vXV6Pjw/CGiLblFt57echGivbxZbeW0Qt6B3FYRvn/yhyAnZFGl+Bhv3bODFCDR
-	xAUsaSEca3aHNkqlJktftHEFPwwwMDbi5y7T8CLOPlrgdP5WHC60/pQCiw3g/4IN2tqbYTHYgQKTb
-	vROkeMsjO8320slE4XSg==;
+	List-Owner; bh=vB/jB4uG5R0N+nHIHv9krV7sT3n2ckCjmXO7C54GBcw=; b=iX7QBTtUJwd14n
+	jvKNL1hS1F7jnvI4ArwWvQsZkBVRYeEOYM0SQFNAQQWXH2MqRT2up/7j3FGuNLNNHvUoJheGLuxeP
+	bF+MoMuumWaE1pVW/Z9S13MfdzoYko2zZkRuPfR7PxqLugZfI6yAztCS6OxBOJ4odu3MosKYDWT6z
+	49pkkbCY8C8+gcnfNkIpUminlSWjC/xwFbPw6Bt12FMwnUM1CWWTXIoFCsSDeeBaLjRrWit7bDCk7
+	FEWN6EvQ+RfGrf7Ib37if59nU7hQTD6qUT99rl9J7/dwHhqpqEDjMroldrmn7c5EWGAfIIVuEM87F
+	bVGzUWVgMBxiBvqgWHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcQ9E-00F6GZ-S6; Mon, 18 Oct 2021 10:45:41 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1mcRLs-00FYWy-2R; Mon, 18 Oct 2021 12:02:48 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcPjv-00Ey8D-MY
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 10:19:34 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
- by smtp-out2.suse.de (Postfix) with ESMTP id 7CAE31FD79;
- Mon, 18 Oct 2021 10:19:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1634552366; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=iOXmerCnaJwQcxrGTYNbpRPalnhSmqAzz0pWYAYZ5Qo=;
- b=DzL9pIaLMpfOUDOV24COilkbRbw4Zz03OVIMeFIvKy0jrLRIjKjUVrYo1E6xQSlaoJiMkr
- ivmVDcSbU982BGrV4FEhvOUv2sbqZmkoH5LdMylpFwi3HCkh9B0ni8TIAluXo2q8Ds/4G7
- mK11rHw/9kXtIiS4yQX063c9dKeL93w=
-Received: from suse.cz (unknown [10.100.216.66])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by relay2.suse.de (Postfix) with ESMTPS id 136C9A3BCD;
- Mon, 18 Oct 2021 10:19:23 +0000 (UTC)
-Date: Mon, 18 Oct 2021 12:19:20 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
- Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
- Joe Lawrence <joe.lawrence@redhat.com>,
- Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Nicholas Piggin <npiggin@gmail.com>,
- Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, live-patching@vger.kernel.org,
- =?utf-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>,
- Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
-Message-ID: <YW1KKCFallDG+E01@alley>
-References: <20211015110035.14813389@gandalf.local.home>
+ id 1mcRLo-00FYUb-NS
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 12:02:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C3F8561212
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 12:02:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1634558563;
+ bh=RhHPIX0Z+xg7kqXRMeJLbAlYk80ZUNDoBDg7wJ0kQjk=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=CdtmhAK4faHuxSROeCvN05ix2TlfcF3YSXd854Xuj93aUmvGImqnDs2KFKOeALSYX
+ I1QZMQ8lCxuISCZCRtXqQDwzve1XbqFTlzPzTfuuGLzbup0IESnCjUMYcx3WtP38oZ
+ KueGA9wnot3F1AiDBlNpp0IQ4ihYOO5YtxUhTe0WWZFWjGqnZcNyzKt2+CbKqTl5qo
+ Hq/t8/jawegvTLOhCi9SYmbxaLBRtkPiJtzbVe6RX3rG0cZFOfTPnpiIJYtDvCSWao
+ exkNFatAkv6zhpfNgih7dIlE++g9BOMa2ZRxS3lJ1Y2WKpnpiIx9PGoYPJeuD2iCtK
+ PqYjUS5741zEQ==
+Received: by mail-ed1-f43.google.com with SMTP id d3so69952632edp.3
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 05:02:43 -0700 (PDT)
+X-Gm-Message-State: AOAM532zqXtghYTXo9Glv4zjBtYszYaCDPCY1hvCZKdANX5JiHcuSCaB
+ aBgnSqlr0zQsi3B6qKKDeUZIlEYvhUyj5KmHKg==
+X-Google-Smtp-Source: ABdhPJyTVojjZSVx1tOOZXPoaIiK+leRXXmuEIBk5SwNOhlQESxuVhdC/rOnY3qX4Uo9iSyYPs7eHRtNesysghWobOo=
+X-Received: by 2002:a50:da06:: with SMTP id z6mr45094962edj.355.1634558546647; 
+ Mon, 18 Oct 2021 05:02:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211015110035.14813389@gandalf.local.home>
+References: <20211016032200.2869998-1-guoren@kernel.org>
+ <20211016032200.2869998-3-guoren@kernel.org>
+In-Reply-To: <20211016032200.2869998-3-guoren@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 18 Oct 2021 07:02:15 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
+Message-ID: <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
+Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
+To: Guo Ren <guoren@kernel.org>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
+ Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>, "heiko@sntech.de" <heiko@sntech.de>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_031931_941438_ADE53E62 
-X-CRM114-Status: GOOD (  33.52  )
+X-CRM114-CacheID: sfid-20211018_050244_815032_5DB46475 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,108 +87,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri 2021-10-15 11:00:35, Steven Rostedt wrote:
-> From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
-> 
-> While writing an email explaining the "bit = 0" logic for a discussion on
-> making ftrace_test_recursion_trylock() disable preemption, I discovered a
-> path that makes the "not do the logic if bit is zero" unsafe.
-> 
-> Since we want to encourage architectures to implement all ftrace features,
-> having them slow down due to this extra logic may encourage the
-> maintainers to update to the latest ftrace features. And because this
-> logic is only safe for them, remove it completely.
-> 
->  [*] There is on layer of recursion that is allowed, and that is to allow
->      for the transition between interrupt context (normal -> softirq ->
->      irq -> NMI), because a trace may occur before the context update is
->      visible to the trace recursion logic.
-> 
-> diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
-> index a9f9c5714e65..168fdf07419a 100644
-> --- a/include/linux/trace_recursion.h
-> +++ b/include/linux/trace_recursion.h
-> @@ -165,40 +147,29 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
->  	unsigned int val = READ_ONCE(current->trace_recursion);
->  	int bit;
->  
-> -	/* A previous recursion check was made */
-> -	if ((val & TRACE_CONTEXT_MASK) > max)
-> -		return 0;
+On Fri, Oct 15, 2021 at 10:22 PM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Add the compatible string "thead,c900-plic" to the riscv plic
+> bindings to support allwinner d1 SOC which contains c906 core.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Atish Patra <atish.patra@wdc.com>
 
-@max parameter is no longer used.
+Please send to the DT list so that checks run and it's in my review
+queue (IOW, use get_maintainers.pl). And run 'make dt_binding_check'
+so reviewers don't have to find your typos and other errors for you.
 
-> -
->  	bit = trace_get_context_bit() + start;
->  	if (unlikely(val & (1 << bit))) {
->  		/*
->  		 * It could be that preempt_count has not been updated during
->  		 * a switch between contexts. Allow for a single recursion.
->  		 */
-> -		bit = TRACE_TRANSITION_BIT;
-> +		bit = TRACE_CTX_TRANSITION + start;
-
-I just want to be sure that I understand it correctly.
-
-The transition bit is the same for all contexts. It will allow one
-recursion only in one context.
-
-IMHO, the same problem (not-yet-updated preempt_count) might happen
-in any transition between contexts: normal -> soft IRQ -> IRQ -> NMI.
-
-Well, I am not sure what exacly it means "preempt_count has not been
-updated during a switch between contexts."
-
-   Is it that a function in the interrupt entry code is traced before
-   preempt_count is updated?
-
-   Or that an interrupt entry is interrupted by a higher level
-   interrupt, e.g. IRQ entry code interrupted by NMI?
-
-
-I guess that it is the first case. It would mean that the above
-function allows one mistake (one traced funtion in an interrupt entry
-code before the entry code updates preempt_count).
-
-Do I get it correctly?
-Is this what we want?
-
-
-Could we please update the comment? I mean to say if it is a race
-or if we trace a function that should not get traced.
-
->  		if (val & (1 << bit)) {
->  			do_ftrace_record_recursion(ip, pip);
->  			return -1;
->  		}
-> -	} else {
-> -		/* Normal check passed, clear the transition to allow it again */
-> -		val &= ~(1 << TRACE_TRANSITION_BIT);
->  	}
->  
->  	val |= 1 << bit;
->  	current->trace_recursion = val;
->  	barrier();
->  
-> -	return bit + 1;
-> +	return bit;
->  }
->  
->  static __always_inline void trace_clear_recursion(int bit)
->  {
-> -	if (!bit)
-> -		return;
-> -
->  	barrier();
-> -	bit--;
->  	trace_recursion_clear(bit);
->  }
-
-Otherwise, the change looks great. It simplifies that logic a lot.
-I think that I start understanding it ;-)
-
-Best Regards,
-Petr
+Rob
 
 _______________________________________________
 linux-riscv mailing list
