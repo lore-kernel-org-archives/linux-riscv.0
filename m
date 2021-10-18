@@ -2,55 +2,75 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFC86C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 17:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA157C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 18:38:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 66D4860E90
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 17:03:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 66D4860E90
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id 913D460F93
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 18:38:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 913D460F93
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2sJUmgmXqmOemaZ9lnuFjeTLGf4l/PUC00Cnkyr+mrI=; b=j3Hlq583FxF5ZP
-	nnSyt3VWk+FfbVwpjN+f9viJ6GIAEdjvE8aqOaxHbpnE7+tz2VQ58JCgCvuLeYRKA145sPhUpN0Tz
-	tTb2JLxPpRjsaMY+qlLlhM3iaCqFzkJKXAW/KKevCJYljSQFSocDhD1LCbDpTeOOD4bFgijbl5V8O
-	hZaMRu4V5w5c1xmjrriSo7JXrcpHGDWFMQKaBQtkiDKRgWtyeedWo/hzZRzbgKT+Rfw1UkfESqmcq
-	qH51qJYhZZDvPEtaYQWXvu5D07+6mzjkHgVokfdYTUes0VC0ZDVgKTy2H/bR+MLilJUnBr2EG6iRK
-	Dlc/boaWGyFqITNz7F+Q==;
+	List-Owner; bh=ZfA37kAgxvcXMxuEHv2cLq4CtDpMI7LEXL57kEwxi6A=; b=0zgKEQREbW/dO0
+	dTyBW+D+VX317xOYbsHHBkp8CJpAfT4UMNKHGWz2OiK25AILzQnaaOeGgBoov96gg/JoU1O76/SMt
+	03bAJslg3QUSfdbfnkdptSX0p/ma9VUjL6B8J/mUl+wfmaKaArqT7cvgo4lI3zkoVRZDMeS2yHkZd
+	5cphRjg4h6BeKCGUB5/r5IbXl6ooUtvmBS62AggY8ClYp7jMDNl51Yly0ac1u1PKD4AVsAyaDAYPM
+	CWDaqMNl09ITIA+dXW84tHzS5TI4oxpZwniyY+9hYGdSRHOKLd/8J+svBIhk7vq8+0i/EwAS4Tn1x
+	qOqM+VGAX5fvHur9ad1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcW2N-00Gaht-Eu; Mon, 18 Oct 2021 17:02:59 +0000
-Received: from mail-pf1-f171.google.com ([209.85.210.171])
+	id 1mcXWo-00GnGw-0k; Mon, 18 Oct 2021 18:38:30 +0000
+Received: from mga03.intel.com ([134.134.136.65])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcW2K-00GahD-AY
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 17:02:58 +0000
-Received: by mail-pf1-f171.google.com with SMTP id q19so15215542pfl.4
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 10:02:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pncH/JsFyTOuX1MFN8WrmdDdgAe+iOiHDqyec0cvtsI=;
- b=V/QQ9Gs94S7EnpAFahT8iPsF9VVATnpjSdDurV2gDAGHuz2aQovUMJLVtCNXfWQGv7
- 7N9iB+/tbTfNNm64aS5DfeUj328Bw8xgwndGJ62OVtyh12HFhxLWIaNSWxEjIxQCOyb8
- rfcnaJ0HGve8CXptNIxZQCF6hfuSUr6juP6THbw4bvNTSFPBUD8vt6uLenVL0r5XH+gc
- gzDPrG5vQYwRHV1sQXrjz1mhNTyM75PW7DjIziyJiRKgkjYzk+xEzqR6pjGrbTU0kHa2
- 5q7F5aqSgor2rKwIx+boCmVOxd8vVhN1+EnOZYIzah52hMhn++oo6jiWALYQUwrcc958
- ZUcw==
-X-Gm-Message-State: AOAM532wyDsL4YNxRCRCP9zy0FsfRL3t79HtXwKimiOmenZeI2MGEGdj
- pU4QV1wrx6fd/YuehxNc1A5l4tyPRcTC/EALZA4=
-X-Google-Smtp-Source: ABdhPJxBbRec2jyrrXkEQANfBfNhCIEoy1Kd52kI2aZkYtXf49W7q1r7dD5sz5uKW7JBTdSKP3O7I/8meCQjtrHn/bY=
-X-Received: by 2002:a05:6a00:1707:b0:44d:47e1:9ffe with SMTP id
- h7-20020a056a00170700b0044d47e19ffemr30112553pfc.53.1634576575002; Mon, 18
- Oct 2021 10:02:55 -0700 (PDT)
-MIME-Version: 1.0
+ id 1mcXWk-00GnGP-Qg
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 18:38:28 +0000
+X-IronPort-AV: E=McAfee;i="6200,9189,10141"; a="228288130"
+X-IronPort-AV: E=Sophos;i="5.85,382,1624345200"; d="scan'208";a="228288130"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+ by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 18 Oct 2021 11:38:21 -0700
+X-IronPort-AV: E=Sophos;i="5.85,382,1624345200"; d="scan'208";a="444203257"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.72.159])
+ by orsmga003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 18 Oct 2021 11:38:15 -0700
+Received: from andy by smile with local (Exim 4.95)
+ (envelope-from <andy.shevchenko@gmail.com>) id 1mcXWF-000Ide-QR;
+ Mon, 18 Oct 2021 21:37:55 +0300
+Date: Mon, 18 Oct 2021 21:37:55 +0300
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Maximilian Luz <luzmaximilian@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
+ Matteo Croce <mcroce@microsoft.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Huan Feng <huan.feng@starfivetech.com>
+Subject: Re: [PATCH v1 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+Message-ID: <YW2/A4ZQwbFX0uPB@smile.fi.intel.com>
 References: <20211012134027.684712-1-kernel@esmil.dk>
  <20211012134027.684712-13-kernel@esmil.dk>
  <CAHp75Vep+i+iyJi0LAOKuer-cUZoUoB_ZrWKcmT=EB_4hOgFGw@mail.gmail.com>
@@ -58,37 +78,14 @@ References: <20211012134027.684712-1-kernel@esmil.dk>
  <CAHp75Vc65deoHbks-aPmnjEJzm3GdqFMfBCUqw4vVLVr=71Ncg@mail.gmail.com>
  <CANBLGcxriKLZ+CKUsj5sviW8FdHnWTF2koROwmAb=G2tbmE6vQ@mail.gmail.com>
  <CAHp75VccSDLVbs1sF_-1zghWyLKtKKV1qtxOxZZ-cS0e6S-sBA@mail.gmail.com>
- <CAHp75VcgFRGpca-pSU9T5Oo1fT4aWQJd5EQfyZscGYx0mDMJ_Q@mail.gmail.com>
-In-Reply-To: <CAHp75VcgFRGpca-pSU9T5Oo1fT4aWQJd5EQfyZscGYx0mDMJ_Q@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Mon, 18 Oct 2021 19:02:43 +0200
-Message-ID: <CANBLGcxHLQZygX9CHsXK4aYS9m4VE5OnLNROOmvP1ps5UP-xAw@mail.gmail.com>
-Subject: Re: [PATCH v1 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
+ <CANBLGcw1qMB7r7TbuQEevOPHq94wAtZNs=yFQ3UP_DEREvGz6g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CANBLGcw1qMB7r7TbuQEevOPHq94wAtZNs=yFQ3UP_DEREvGz6g@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_100256_385218_B5D81423 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20211018_113826_953598_AD943467 
+X-CRM114-Status: GOOD (  38.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +102,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Oct 2021 at 18:29, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> On Mon, Oct 18, 2021 at 7:23 PM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
+On Mon, Oct 18, 2021 at 06:35:10PM +0200, Emil Renner Berthing wrote:
+> On Mon, 18 Oct 2021 at 18:24, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 > > On Mon, Oct 18, 2021 at 6:56 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 > > > On Mon, 18 Oct 2021 at 17:48, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 > > > > On Mon, Oct 18, 2021 at 6:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 > > > > > On Tue, 12 Oct 2021 at 19:03, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 > > > > > > On Tue, Oct 12, 2021 at 4:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
->
-> ...
->
+
+...
+
+> > > > > > > +               case PIN_CONFIG_BIAS_DISABLE:
+> > > > > >
+> > > > > > > +                       mask |= PAD_BIAS_MASK;
+> > > > > >
+> > > > > > Use it...
+> > > > > >
+> > > > > > > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
+> > > > > >
+> > > > > > ...here. Ditto for the similar cases in this function and elsewhere.
+> > > > >
+> > > > > I don't follow. How do you want me to use mask? If I did value =
+> > > > > (value & ~mask) | PAD_BIAS_DISABLE; then I'd wipe the previous
+> > > > > configuration. Eg. suppose the first config is the drive strength and
+> > > > > second disables bias. Then on the 2nd loop mask =
+> > > > > PAD_DRIVE_STRENGTH_MASK | PAD_BIAS_MASK and the drive strength value
+> > > > > would be wiped.
+> > > >
+> > > > Collect masks and new values in temporary variables and apply them
+> > > > once after the loop is done, no?
+> > >
+> > > But that's exactly what the code does. It merges all the config
+> > > options into a single mask and value so we only need to do rmw on the
+> > > register once.
+> >
+> > Then masking the value makes no sense.
+> > What you should have is simply as
+> >
+> >   mask |= FOO;
+> >   value |= BAR;
+> 
+> Yeah, but then we could get into weird states if the device tree
+> specifies both bias-disable and bias-pull-up by mistake. This code is
+> written so that only the last valid state is chosen.
+
+But shouldn't it be disallowed by:
+ 1) DTC validator (Rob?)
+ 2) GPIO / pin control (Linus, Bart?)
+?
+
+...
+
 > > > > > > > +       ret = clk_prepare_enable(clk);
 > > > > > > > +       if (ret) {
 > > > > > >
@@ -143,12 +180,35 @@ On Mon, 18 Oct 2021 at 18:29, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 > > > probe function temporarily asserts reset for 3 lines of code?
 > >
 > > I;m talking about clk_prepare_enable().
->
-> Having a second look I found even problematic error paths because of
-> mixing devm_*() with non-devm_*() calls, which only assures me that
-> your ->probe() error path is broken and should be revisited.
+> 
+> Ok, you wrote your comment under the reset_control_deassert call. How
+> would devm_add_action_or_reset for clk_prepare_enable work?
 
-So do you want to expand on that now or should I send v2 first?
+It seems both are needed to be converted, otherwise _everything_ after
+reset_assert() should not be devm_*().
+
+TL;DR: the rule is
+  Allowed:	devm_*() followed by non-devm_*()
+  NOT allowed:	devm_*() followed by non-devm_*() followed by devm_*()
+
+Of course, you may try to work the latter one, but it diminishes the whole
+idea behind it, that's why I told that may be not using devm_*() is the
+correct approach here and that what you meant (?).
+
+The example how to use above mentioned API, just grep for it.
+
+# See [1] for the sources of the used script
+$ gl4func.sh devm_add_action_or_reset clk_prepare_enable | wc -l
+101
+
+
+[1]: https://github.com/andy-shev/home-bin-tools/blob/master/gl4func.sh
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
