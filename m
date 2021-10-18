@@ -2,101 +2,86 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18C53C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 14:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 503CCC43217
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 15:09:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D6AC560FC3
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 14:04:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D6AC560FC3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0FF5F60F94
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 15:09:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0FF5F60F94
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=rMl9AWqLT0f4k4yd4+/NK7ZWiIRuXEcanKmW0wZX2HM=; b=aM8yAoRNXCyNbGgsWFc0BN+3tL
-	NfSocJKeO1YhgBmnmOwqreK5rRjVOdLkF+mUtI0I9ECD3zzm49NB4ypVkOiufYi0iyytPDfAlT+Nq
-	8rQ0T7qeIqpf6vqTVYDRzxC+FRTGK4V526M9auBmeDqbrHbbrSxToAbfT6j+R9csEs/lA1wflLjpy
-	xlDy0HRHZI6ct8lbD7Z52ApM08YwY0yPAEAfzeQu0zf6DMQLm1/71NROys9QEp+/+/otKCIK0MYsO
-	ILfhoJrRaezEw5FQARm8zkBVljdAW9fu3y/qvETtgWtv/pV7QQNPiy0wPf8W7HNthF8Ck6nz9XXLM
-	qZ6CQCzQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zipAZO7/Te/1IMHHIRsZcHDAlYQX5O/LAT+oP6gALQ4=; b=CBwnlwsakzdrnw
+	MlWUXPO5e8qcNRciOrDnllK1zgxKQpygPdUrQ5Jk0PIFCid5ZXR/oMWyWnPOEuveuvdAiF2HBZ9lR
+	atLDBLownqP8Yn4lK3yVJ1Nynt1fcikWdc6mo6hrZNbILhWqpVYWv0sL/7+3xkcovZ72eVbAlJXPC
+	rEs7meOanBrRyAKqTHfFfLdSyIwbbgoOomwxgbIUbbURN3B5qbkUwKhnTHmeTH/sCQg/VhZkp43AU
+	sbeTPMkR5PXEDMG1S5YEJiHwkYSZKuIt483dynGLKFxsL5CjxkFG+WDQKA14e8ueBLQOM9qMRLR+w
+	97ntlJtOI2nAKJrDHGRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcTFh-00Fyr4-3X; Mon, 18 Oct 2021 14:04:33 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mcUGj-00GFNP-Sl; Mon, 18 Oct 2021 15:09:41 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcTCA-00Fxfa-Os
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 14:00:56 +0000
-Received: from mail-lj1-f199.google.com (mail-lj1-f199.google.com
- [209.85.208.199])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ id 1mcUGf-00GFLi-2v
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 15:09:40 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out1.suse.de (Postfix) with ESMTP id D76F821976;
+ Mon, 18 Oct 2021 15:09:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1634569774; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=Nd3ueXGeszg+Oz2rg7bdH1H47hd7UcRyoGzyxgvuWbE=;
+ b=k+XvgY66O97wrAhATaukyluGJ8nlI2mMVYR2Ljp+nN4lHstmnFKhBHA64Hiql9QhfyHFDN
+ vQU7Fo+uY3SMhJOZFTk0+XH+JTiiGsSo3m1ngcUgbmFuE2AcfDj56F+TeSOrWwVmeLeplp
+ mYBb43DaiD+hJ6LDJCsDVAayPvTe1IY=
+Received: from suse.cz (unknown [10.100.216.66])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DA0003FFE2
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 14:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1634565645;
- bh=hOmDJ63rwjyLjUsGk3cIxatC7VRnjyU/42JZ0Lta5uc=;
- h=Subject:To:References:From:Message-ID:Date:MIME-Version:
- In-Reply-To:Content-Type;
- b=kuzTUjBlNnQEpsc8mLzlNLtLydRQaaCFf93v/UAl41xYCSEtLxKZorEugDGCRMUva
- 502KsqyWkHk+W52oGYuYAYW4rIJHk2LtelTzR/7Wf47bFWZKMST9yV4Dj9fK3/zJmd
- m54E+m0I/faC6vm4l48R3p+GVQmQUpMGhQwORRW575BJG/qumWuPkFJGPL6R3vFbI8
- jfe8maKegoyhO1EMllPxOKHrkVun1TAaTdJ+X2RN/9vY18kWZvq8/IMEj+XAGDyF+J
- 8I9i0YUNz+/fk1+/BqVgcH9+dpqh+2yi4J4ZOvXPb5/84LDejm3q5Srvwy6PNaRlMb
- 98UJjLBElby0A==
-Received: by mail-lj1-f199.google.com with SMTP id
- s5-20020a2e98c5000000b002112895b3f6so1564298ljj.21
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 07:00:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=hOmDJ63rwjyLjUsGk3cIxatC7VRnjyU/42JZ0Lta5uc=;
- b=h5NRnHuPuf4YoCzjleIV9P6MGSdzN8Mgn6gEH8XOIrvWZ8+r4jkqtzW98upEV2yxNf
- IxksQ/1J7GdK7RIJITLmzDlQfAG0pp/Tvp4VGx0lylI6IxxO4PegFSfC2XVJpdsViHED
- JIr6kOmItn/aAGXIEA85V6vREjEXup8oCkmzGFGjlL+NnHpHsvSa0N3TrWzcz/9v708I
- rWkkc6zFcq4UxWD5jdQGTct3rg7SPdDiTDLi1vQWHOxG0n80tpb5PmzbQ+Y46H7H7Dv3
- zT5/UEOEcCKEAlrIZMR0LibQHMVlzXRRBqc6XDiWbMijjGWlA+jb00iW5hfQn3UvQcf1
- ze6w==
-X-Gm-Message-State: AOAM533IxWfMgQvyLeeaEv+vv9+xQ/p18Sp+BOMyUvbacxRH//j1kBo9
- dLpyglNVHqXRop9By/Kx5FhxIaODyzoOvaR3mcFmOl8p9jIUC7GO2bu9GJqc5d4EmeuL0xsTpPy
- /3GdvkR9CZ2KykoCzokqXcs7kjL6gYVVXhDPqtdE7jJVsoQ==
-X-Received: by 2002:a05:651c:1589:: with SMTP id
- h9mr34118293ljq.151.1634565645378; 
- Mon, 18 Oct 2021 07:00:45 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzGdsMC2+F7dPtQ5pAWFxgiy/MsdPyqcyjp+s7nAs9s60aNFddvh5hV8IScSftVcxS6IHnyDg==
-X-Received: by 2002:a05:651c:1589:: with SMTP id
- h9mr34118264ljq.151.1634565645191; 
- Mon, 18 Oct 2021 07:00:45 -0700 (PDT)
-Received: from [192.168.3.161] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
- by smtp.gmail.com with ESMTPSA id h6sm232919ljh.67.2021.10.18.07.00.44
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 18 Oct 2021 07:00:44 -0700 (PDT)
-Subject: Re: [RESEND PATCH v2 1/5] riscv: dts: sifive: use only generic JEDEC
- SPI NOR flash compatible
-To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Message-ID: <2b5cacd3-811e-fc4a-2257-19d968331825@canonical.com>
-Date: Mon, 18 Oct 2021 16:00:43 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+ by relay2.suse.de (Postfix) with ESMTPS id C8905A3B87;
+ Mon, 18 Oct 2021 15:09:32 +0000 (UTC)
+Date: Mon, 18 Oct 2021 17:09:29 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+ Joe Lawrence <joe.lawrence@redhat.com>,
+ Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org,
+ =?utf-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>,
+ Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
+Message-ID: <YW2OKQQmNOVvVdFm@alley>
+References: <20211015110035.14813389@gandalf.local.home>
+ <YW1KKCFallDG+E01@alley>
+ <20211018095027.52a23ff0@gandalf.local.home>
 MIME-Version: 1.0
-In-Reply-To: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20211018095027.52a23ff0@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_070055_138437_8FC035E9 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20211018_080937_463279_02858C18 
+X-CRM114-Status: GOOD (  45.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +98,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/09/2021 15:02, Krzysztof Kozlowski wrote:
-> The compatible "issi,is25wp256" is undocumented and instead only a
-> generic jedec,spi-nor should be used (if appropriate).
+On Mon 2021-10-18 09:50:27, Steven Rostedt wrote:
+> On Mon, 18 Oct 2021 12:19:20 +0200
+> Petr Mladek <pmladek@suse.com> wrote:
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> > On Fri 2021-10-15 11:00:35, Steven Rostedt wrote:
+> > > From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
+> > > 
+> > > While writing an email explaining the "bit = 0" logic for a discussion on
+> > > making ftrace_test_recursion_trylock() disable preemption, I discovered a
+> > > path that makes the "not do the logic if bit is zero" unsafe.
+> > > 
+> > > Since we want to encourage architectures to implement all ftrace features,
+> > > having them slow down due to this extra logic may encourage the
+> > > maintainers to update to the latest ftrace features. And because this
+> > > logic is only safe for them, remove it completely.
+> > > 
+> > >  [*] There is on layer of recursion that is allowed, and that is to allow
+> > >      for the transition between interrupt context (normal -> softirq ->
+> > >      irq -> NMI), because a trace may occur before the context update is
+> > >      visible to the trace recursion logic.
+> > > 
+> > > diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+> > > index a9f9c5714e65..168fdf07419a 100644
+> > > --- a/include/linux/trace_recursion.h
+> > > +++ b/include/linux/trace_recursion.h
+> > > @@ -165,40 +147,29 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+> > >  	unsigned int val = READ_ONCE(current->trace_recursion);
+> > >  	int bit;
+> > >  
+> > > -	/* A previous recursion check was made */
+> > > -	if ((val & TRACE_CONTEXT_MASK) > max)
+> > > -		return 0;  
+> > 
+> > @max parameter is no longer used.
 > 
-> ---
+> Thanks for noticing!
 > 
-> Changes since v1:
-> 1. New patch
-> ---
->  arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 2 +-
->  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > > -
+> > >  	bit = trace_get_context_bit() + start;
+> > >  	if (unlikely(val & (1 << bit))) {
+> > >  		/*
+> > >  		 * It could be that preempt_count has not been updated during
+> > >  		 * a switch between contexts. Allow for a single recursion.
+> > >  		 */
+> > > -		bit = TRACE_TRANSITION_BIT;
+> > > +		bit = TRACE_CTX_TRANSITION + start;  
+> > 
+> > I just want to be sure that I understand it correctly.
+> > 
+> > The transition bit is the same for all contexts. It will allow one
+> > recursion only in one context.
 > 
+> Right.
+> 
+> > 
+> > IMHO, the same problem (not-yet-updated preempt_count) might happen
+> > in any transition between contexts: normal -> soft IRQ -> IRQ -> NMI.
+> 
+> Yes, and then we will drop the event if it happens twice, otherwise, we
+> will need to have a 4 layer transition bit mask, and allow 4 recursions,
+> which is more than I want to allow.
 
-Hi Paul and Palmer,
+Fair enough. I am still not sure if we want to allow the recursion
+at all, see below.
 
-This set is waiting for quite a long. Do you pick DTS patches for Risc-v
-or shall I send it to Arnd/Olof directly? I can do it, but it would be
-great to have a confirmation of such merging path.
+> 
+> > 
+> > Well, I am not sure what exacly it means "preempt_count has not been
+> > updated during a switch between contexts."
+> > 
+> >    Is it that a function in the interrupt entry code is traced before
+> >    preempt_count is updated?
+> >
+> >    Or that an interrupt entry is interrupted by a higher level
+> >    interrupt, e.g. IRQ entry code interrupted by NMI?
+> 
+> Both actually ;-)
 
-Best regards,
-Krzysztof
+I see. But only one is a problem. See below.
+
+
+> There are places that can trigger a trace between the time the interrupt is
+> triggered, and the time the preempt_count updates the interrupt context it
+> is in.
+
+By other words, these locations trace a function that is called
+between entering the context and updating preempt_count.
+
+
+> Thus the tracer will still think it is in the previous context. But
+> that is OK, unless, that interrupt happened while the previous context was
+> in the middle of tracing:
+
+My understanding is that this is _not_ OK. Peter Zijlstra fixed the
+generic entry and no function should be traced there.
+
+The problem is that some architectures still allow to trace some code
+in this entry context code. And this is why you currently tolerate
+one level of recursion here. Do I get it correctly?
+
+But wait. If you tolerate the recursion, you actually tolerate
+tracing the code between entering context and setting preempt count.
+It is in your example:
+
+
+> trace() {
+>   context = get_context(preempt_count);
+>   test_and_set_bit(context)
+>       <<--- interrupt --->>>
+>       trace() {
+>           context = get_context(preempt_count);
+>           test_and_set_bit(context); <-- detects recursion!
+>       }
+>       update_preempt_count(irq_context);
+> 
+> By allowing a single recursion, it still does the above trace.
+
+This happens only when the nested trace() is tracing something in
+the IRQ entry before update_preempt_count(irq_context).
+
+My understanding is that Peter Zijlstra do _not_ want to allow
+the nested trace because this code should not get traced.
+
+The outer trace() will work even if we reject the inner trace().
+
+Let me show that interrupting context entry is fine:
+
+<<--- normal context -->>
+trace()
+  context = get_context(preempt_count);  // normal context
+  test_and_set_bit(context)
+
+       <<--- interrupt --->>>
+       interrupt_entry()
+
+	  // tracing is _not_ allowed here
+	  update_preempt_count(irq_context);
+	  // tracing should work after this point
+
+	  interrupt_handler();
+		trace()
+		context = get_context(preempt_count); // IRQ context
+		test_and_set_bit(context); // Passes; it sees IRQ context
+		// trace code is allowed
+
+	<<-- back to normal context -->
+
+// outer trace code is allowed. It sees normal context.
+
+Best Regards,
+Petr
 
 _______________________________________________
 linux-riscv mailing list
