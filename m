@@ -2,14 +2,14 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 97C7FC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1B3C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:33 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5ABF360FDA
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5ABF360FDA
+	by mail.kernel.org (Postfix) with ESMTPS id 1C43660FDA
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 02:23:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1C43660FDA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,67 +18,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKti+QYDXlVGSlaiF6NZMjkvSeFom9ogS1+GP+nYnYE=; b=xs6ALtRpH2cn80
-	DqZPYIDkMAkxFygeb3G9IvW6M/4oEqSym3nlratTkFpVVXqghOw+XCDE2EZxaHdk9okxVQWIvFxxU
-	abYDD+fb/xG7PDxkvNmUjBvL1kRYkTV9DlM+3wDSH3nObPDsjHeyMk9Pd4vdfoL9ljaFJeRXqnaR1
-	c/3Iw+wb0H230jUn/CworLILR7bACbN+jQJdKj02pJyTaTvvLBiNAcdXQD0d8BzUoMPP1Z0mBrT6D
-	8/XXx2+uV/myPe7Bdqpz0qgT8P+wu7vK0KGuyA+vm03sxlrwjDLg2xC/2K/70rbLtnF1mM3Q8ncSs
-	JPisepl/d7thJsbNfhng==;
+	List-Owner; bh=IVst4+sa0Z1+gXTn9G0c1jNOBy0A6kVhZOPuDuoEEtQ=; b=KaUmhXiziZ9pKY
+	8S1xyv+gTwPlS5DXTlxunOvBMXz71WEzI8c9JEz7KaTdMq9AUTBitzYyZl6cInYqJ/plyBVsYxuSu
+	e3WEiuy5mQX4NV5gX7a9mHIrsHYbZ/aLvd4aLiuWMtqRnaS8g7v75DRMOFrIwNYCk8kE4NXJ5ixad
+	yd6z87o76auSmw/8ELywlIkgi8hcWxZ/D0WoKNed6kPyXMbNepZHRdGhplBcEE+vwkvUreh2stH6g
+	99ydIT2ItxK73UT4uZ2SXYhhYxlEIb9TtQ16fQ7kgW2X900Bc7HUYzUnML46bMZNkaOx/7VIz8j8N
+	rbOq5Gm4oLadPXmPOiBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcIJ7-00DpQ2-0F; Mon, 18 Oct 2021 02:23:21 +0000
+	id 1mcIJB-00DpRu-PL; Mon, 18 Oct 2021 02:23:25 +0000
 Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcIJ4-00DpP5-HB
- for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 02:23:20 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d5so700507pfu.1
- for <linux-riscv@lists.infradead.org>; Sun, 17 Oct 2021 19:23:18 -0700 (PDT)
+ id 1mcIJ8-00DpQf-Pr
+ for linux-riscv@lists.infradead.org; Mon, 18 Oct 2021 02:23:24 +0000
+Received: by mail-pf1-x433.google.com with SMTP id t184so12675928pfd.0
+ for <linux-riscv@lists.infradead.org>; Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=NQEuzugfUK4Ty3ZAToh9e+0eENvZ/yGehWqj8C4n9mM=;
- b=QcoKFrUl6NbMRMAyLb7GOSX4yhfFgYEQ5DxdA8m7bJwCsSWCt1l7W6qNj5yjVisORT
- yal3pQz2hnfBZxxgznTxxgghqhAzn/6oB05hlrREDF9tz7B0kerOR0atWJARJyrnFAx+
- +7Lz2SowE8oSkDEJOoP0dxOyMSHEi93/SjUYEw0V6yejaQgMelrdsc3QkgdkzGbfWKzz
- 0FLf5QlLHSUQTum37g/XOS8vRfjBuoigrrEncFXuZScEI6ZwjN5vlhx1CU4PyVxgouGR
- c38L1qzflVbehMuDO6Bntp+XcQ4Q3V220FG0GIBG3we6O3r7ceU7O2uxc0I+5YL1gnum
- P4VA==
+ bh=4bw/oHpLpCvL7ZLvo5Y2CIUzRMBpMTubDt9OnDYu2BI=;
+ b=p78bWkpdNVG/DhKULp4lU/7slKd+cytVBlfHi+aahsS0YvH6fBuz+4PYfMtmMpojf0
+ CqvBlUMO6iH8pCYG9cYkATIgpGGUoPsnEOALwlHwlxvgxX2Indph4Wv4aFgUakeu62/D
+ OxVqs5Bje7IQ9u6YVW6/er+IsPQt1HEid74zEH16bURMgFTtN72S0QDtTyLAppiCz+Hi
+ Fmt1aAt2Uh8V6Z382pxcRsfItBrlA/mxAxxu6xJ6x2GFrSo2+AD0BMPB6Qx9Q1xGkiuO
+ pIApk/bsrbWPUXYaQsd7X1cHsDZJaEB8y8+KKkvRMw31Cb2IjmU02JkpzOsQCYGjC/2R
+ Bp7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=NQEuzugfUK4Ty3ZAToh9e+0eENvZ/yGehWqj8C4n9mM=;
- b=RtU0DCrnEifh+6aoJgmNjLmClgaSx4E8OJyR88+vPTERsYJcNpj9Nctu7TpCG5clj+
- DfupD2rr7M1q7Yt+JY5gjHmr6zIgymtEqCYSwJrdlJ0yAwCky94EisPN6UzBbo5rISA0
- lsjuEuYV9KtfRKKvG+mEuhSaReQZzHd5Q5KN+pQ1ex5LPEHIxaCpTdetPh4gtsTY36gO
- 8Ylm8r7iOSEKATVRpO3ErOgGf7H2teDzb1XzPwYhVQcznIiUyPdLaAvFOR7CVGuyWevB
- 1Sl8eCKgTLlJyw39Ym8HJNX3hBRPQDVTeXqGS1tCah3nkFt8tQsNeHFYEnCD/64QEIlW
- 9cRQ==
-X-Gm-Message-State: AOAM533kWaLiH7BKF/kWQeTJQQ0HXXSsTNMyCGa/tmdQzgaxF7ZJOpSF
- znDASjZ2646GVQSMvLth6m0=
-X-Google-Smtp-Source: ABdhPJzwhiafuP/P+X/LPBlR+vN8tgyzudI+VmYRXfAYO0siEuZ3HuM1MJeDE+zHgRuMpVNMqMrG0w==
-X-Received: by 2002:a63:6e8b:: with SMTP id j133mr11494888pgc.48.1634523797722; 
- Sun, 17 Oct 2021 19:23:17 -0700 (PDT)
+ bh=4bw/oHpLpCvL7ZLvo5Y2CIUzRMBpMTubDt9OnDYu2BI=;
+ b=2RqXQFdErocHBs/PwczNb+N5grQ2e3S+xh88kbgQabhmQLnuufbGhhr06ES6Nt5cW+
+ hiQfR4n/sPS23vPk0ROtz0aIBDpvdvqzPOl7lvMXHrjPuPBMlpqrCAdbTDGILrZ1KBKM
+ OM2RO4/ZUL/J5Il7ws7n+HXirGhItKltIu/zTX0nLozCBzsQSUmJWYIrfcwI2fgU5nsY
+ NFy/Jcl0iHtPSmweD3gBStUuok/5UsXkxbAxwb3tWkVDetxMsxEY5T+42HF+S+VssGvk
+ YWBr3wB9ZyK4DYERpWVIKeWloQ1rCYh6wYH7W+1ZNdNqnDo1izx48dofnFzxP3ymJIw+
+ Nw8w==
+X-Gm-Message-State: AOAM5324Mdg66+2VN9kz7DN53DFM1l+BSLJMMWEP6S8SyXuYHU65nEBE
+ CHMHpdiT+eYW9gs13L9mMb93mYFxiMC8jE5QB4YAZw==
+X-Google-Smtp-Source: ABdhPJzFGV+dxtRfAKzn5qPYz33DdPsC7UHAr62G2C01B2/XTLyPuIlw6RAEVnOOQq9sJkYjqCTdGQ==
+X-Received: by 2002:a63:3549:: with SMTP id c70mr6830545pga.442.1634523802443; 
+ Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
 Received: from localhost.localdomain ([2a09:bac0:23::815:bc7])
- by smtp.gmail.com with ESMTPSA id t32sm4965971pfg.29.2021.10.17.19.23.16
+ by smtp.gmail.com with ESMTPSA id t32sm4965971pfg.29.2021.10.17.19.23.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 17 Oct 2021 19:23:17 -0700 (PDT)
+ Sun, 17 Oct 2021 19:23:22 -0700 (PDT)
 From: Qinglin Pan <panqinglin00@gmail.com>
 X-Google-Original-From: Qinglin Pan <panqinglin00@163.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu
 Cc: linux-riscv@lists.infradead.org, Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [RFC PATCH 3/4] mm: support Svnapot in hugetlb page
-Date: Mon, 18 Oct 2021 10:22:37 +0800
-Message-Id: <20211018022238.1314220-3-panqinglin00@163.com>
+Subject: [RFC PATCH 4/4] mm: support Svnapot in huge vmap
+Date: Mon, 18 Oct 2021 10:22:38 +0800
+Message-Id: <20211018022238.1314220-4-panqinglin00@163.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211018022238.1314220-1-panqinglin00@163.com>
 References: <20211018022238.1314220-1-panqinglin00@163.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211017_192318_588262_6B7AC1FF 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20211017_192322_857373_4167EF5B 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,363 +97,106 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Svnapot can be used to support 64KB hugetlb page, so it can become a new
-option when using hugetlbfs. This patch adds a basic implementation of
-hugetlb page, and support 64KB as a size in it by using Svnapot.
+The HAVE_ARCH_HUGE_VMAP option can be used to help implement arch
+special huge vmap size. This patch selects this option by default and
+re-writes the arch_vmap_pte_range_map_size for Svnapot 64KB size.
 
-For test, boot kernel with command line contains "hugepagesz=64K
-hugepages=20" and run a simple test like this:
-
-int main() {
-	void *addr;
-	addr = mmap(NULL, 64 * 1024, PROT_WRITE | PROT_READ,
-			MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
-	printf("back from mmap \n");
-	long *ptr = (long *)addr;
-	unsigned int i = 0;
-	for(; i < 8 * 1024;i += 512) {
-		printf("%lp \n", ptr);
-		*ptr = 0xdeafabcd12345678;
-		ptr += 512;
-	}
-	ptr = (long *)addr;
-	i = 0;
-	for(; i < 8 * 1024;i += 512) {
-		if (*ptr != 0xdeafabcd12345678) {
-			printf("failed! 0x%lx \n", *ptr);
-			break;
-		}
-		ptr += 512;
-	}
-	if(i == 8 * 1024)
-		printf("simple test passed!\n");
-}
-
-And it should be passed.
+It can be tested when booting kernel in qemu with pci device, which
+will make the kernel to call pci driver using ioremap, and the
+re-written function will be called.
 
 Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 ---
- arch/riscv/Kconfig               |   2 +-
- arch/riscv/include/asm/hugetlb.h |  29 +++-
- arch/riscv/include/asm/page.h    |   2 +-
- arch/riscv/mm/hugetlbpage.c      | 227 +++++++++++++++++++++++++++++++
- 4 files changed, 257 insertions(+), 3 deletions(-)
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/pgtable.h | 35 ++++++++++++++++++++++++++++++++
+ arch/riscv/include/asm/vmalloc.h | 18 ++++++++++++++++
+ 3 files changed, 54 insertions(+)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 301a54233c7e..0ae025686faf 100644
+index 0ae025686faf..4a57fd56daf8 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -176,7 +176,7 @@ config ARCH_SELECT_MEMORY_MODEL
- 	def_bool ARCH_SPARSEMEM_ENABLE
- 
- config ARCH_WANT_GENERAL_HUGETLB
--	def_bool y
-+	def_bool !HUGETLB_PAGE
- 
- config ARCH_SUPPORTS_UPROBES
+@@ -13,6 +13,7 @@ config 32BIT
+ config RISCV
  	def_bool y
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index a5c2ca1d1cd8..fa99fb9226f7 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -2,7 +2,34 @@
- #ifndef _ASM_RISCV_HUGETLB_H
- #define _ASM_RISCV_HUGETLB_H
- 
--#include <asm-generic/hugetlb.h>
- #include <asm/page.h>
- 
-+extern pte_t arch_make_huge_pte(pte_t entry, unsigned int shift,
-+				       vm_flags_t flags);
-+#define arch_make_huge_pte arch_make_huge_pte
-+#define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
-+extern void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-+			    pte_t *ptep, pte_t pte);
-+#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
-+extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep);
-+#define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
-+extern void huge_ptep_clear_flush(struct vm_area_struct *vma,
-+				  unsigned long addr, pte_t *ptep);
-+#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
-+extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-+				      unsigned long addr, pte_t *ptep,
-+				      pte_t pte, int dirty);
-+#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
-+extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+				    unsigned long addr, pte_t *ptep);
-+#define __HAVE_ARCH_HUGE_PTE_CLEAR
-+extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
-+			   pte_t *ptep, unsigned long sz);
-+#define set_huge_swap_pte_at riscv_set_huge_swap_pte_at
-+extern void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
-+				 pte_t *ptep, pte_t pte, unsigned long sz);
-+
-+#include <asm-generic/hugetlb.h>
-+
- #endif /* _ASM_RISCV_HUGETLB_H */
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 109c97e991a6..e67506dbcd53 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -17,7 +17,7 @@
- #define PAGE_MASK	(~(PAGE_SIZE - 1))
- 
- #ifdef CONFIG_64BIT
--#define HUGE_MAX_HSTATE		2
-+#define HUGE_MAX_HSTATE		3
- #else
- #define HUGE_MAX_HSTATE		1
- #endif
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index 932dadfdca54..b88a8dbfec3e 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -2,6 +2,224 @@
- #include <linux/hugetlb.h>
- #include <linux/err.h>
- 
-+pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
-+			unsigned long addr, unsigned long sz)
-+{
-+	pgd_t *pgdp = pgd_offset(mm, addr);
-+	p4d_t *p4dp = p4d_alloc(mm, pgdp, addr);
-+	pud_t *pudp = pud_alloc(mm, p4dp, addr);
-+	pmd_t *pmdp = pmd_alloc(mm, pudp, addr);
-+
-+	if (sz == NAPOT_CONT64KB_SIZE) {
-+		if (!pmdp)
-+			return NULL;
-+		WARN_ON(addr & (sz - 1));
-+		return pte_alloc_map(mm, pmdp, addr);
-+	}
-+
-+	return NULL;
-+}
-+
-+pte_t *huge_pte_offset(struct mm_struct *mm,
-+		       unsigned long addr, unsigned long sz)
-+{
-+	pgd_t *pgdp;
-+	p4d_t *p4dp;
-+	pud_t *pudp;
-+	pmd_t *pmdp;
-+	pte_t *ptep = NULL;
-+
-+	pgdp = pgd_offset(mm, addr);
-+	if (!pgd_present(READ_ONCE(*pgdp)))
-+		return NULL;
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	if (!p4d_present(READ_ONCE(*p4dp)))
-+		return NULL;
-+
-+	pudp = pud_offset(p4dp, addr);
-+	if (!pud_present(READ_ONCE(*pudp)))
-+		return NULL;
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	if (!pmd_present(READ_ONCE(*pmdp)))
-+		return NULL;
-+
-+	if (sz == NAPOT_CONT64KB_SIZE)
-+		ptep = pte_offset_kernel(pmdp, (addr & ~NAPOT_CONT64KB_MASK));
-+
-+	return ptep;
-+}
-+
-+int napot_pte_num(pte_t pte)
-+{
-+	if (!(pte_val(pte) & NAPOT_64KB_MASK))
-+		return NAPOT_64KB_PTE_NUM;
-+
-+	pr_warn("%s: unrecognized napot pte size 0x%lx\n",
-+		__func__, pte_val(pte));
-+	return 1;
-+}
-+
-+static pte_t get_clear_flush(struct mm_struct *mm,
-+			     unsigned long addr,
-+			     pte_t *ptep,
-+			     unsigned long pte_num)
-+{
-+	pte_t orig_pte = huge_ptep_get(ptep);
-+	bool valid = pte_val(orig_pte);
-+	unsigned long i, saddr = addr;
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
-+		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
-+
-+		if (pte_dirty(pte))
-+			orig_pte = pte_mkdirty(orig_pte);
-+
-+		if (pte_young(pte))
-+			orig_pte = pte_mkyoung(orig_pte);
-+	}
-+
-+	if (valid) {
-+		struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
-+
-+		flush_tlb_range(&vma, saddr, addr);
-+	}
-+	return orig_pte;
-+}
-+
-+static void clear_flush(struct mm_struct *mm,
-+			     unsigned long addr,
-+			     pte_t *ptep,
-+			     unsigned long pte_num)
-+{
-+	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
-+	unsigned long i, saddr = addr;
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		pte_clear(mm, addr, ptep);
-+
-+	flush_tlb_range(&vma, saddr, addr);
-+}
-+
-+pte_t arch_make_huge_pte(pte_t entry, unsigned int shift,
-+				       vm_flags_t flags)
-+{
-+	if (shift == NAPOT_CONT64KB_SHIFT)
-+		entry = pte_mknapot(entry, NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
-+
-+	return entry;
-+}
-+
-+void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-+			    pte_t *ptep, pte_t pte)
-+{
-+	int i;
-+	int pte_num;
-+
-+	if (!pte_napot(pte)) {
-+		set_pte_at(mm, addr, ptep, pte);
-+		return;
-+	}
-+
-+	pte_num = napot_pte_num(pte);
-+	for (i = 0; i < pte_num; i++, ptep++, addr += PAGE_SIZE)
-+		set_pte_at(mm, addr, ptep, pte);
-+}
-+
-+int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-+				      unsigned long addr, pte_t *ptep,
-+				      pte_t pte, int dirty)
-+{
-+	pte_t orig_pte;
-+	int i;
-+	int pte_num;
-+
-+	if (!pte_napot(pte))
-+		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
-+
-+	pte_num = napot_pte_num(pte);
-+	ptep = huge_pte_offset(vma->vm_mm, addr, NAPOT_CONT64KB_SIZE);
-+	orig_pte = huge_ptep_get(ptep);
-+
-+	if (pte_dirty(orig_pte))
-+		pte = pte_mkdirty(pte);
-+
-+	if (pte_young(orig_pte))
-+		pte = pte_mkyoung(pte);
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		ptep_set_access_flags(vma, addr, ptep, pte, dirty);
-+
-+	return true;
-+}
-+
-+pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
-+				     unsigned long addr, pte_t *ptep)
-+{
-+	int pte_num;
-+	pte_t orig_pte = huge_ptep_get(ptep);
-+
-+	if (!pte_napot(orig_pte))
-+		return ptep_get_and_clear(mm, addr, ptep);
-+
-+	pte_num = napot_pte_num(orig_pte);
-+	return get_clear_flush(mm, addr, ptep, pte_num);
-+}
-+
-+void huge_ptep_set_wrprotect(struct mm_struct *mm,
-+				    unsigned long addr, pte_t *ptep)
-+{
-+	int i;
-+	int pte_num;
-+	pte_t pte = READ_ONCE(*ptep);
-+
-+	if (!pte_napot(pte))
-+		return ptep_set_wrprotect(mm, addr, ptep);
-+
-+	pte_num = napot_pte_num(pte);
-+	ptep = huge_pte_offset(mm, addr, NAPOT_CONT64KB_SIZE);
-+
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		ptep_set_wrprotect(mm, addr, ptep);
-+}
-+
-+void huge_ptep_clear_flush(struct vm_area_struct *vma,
-+				  unsigned long addr, pte_t *ptep)
-+{
-+	int pte_num;
-+	pte_t pte = READ_ONCE(*ptep);
-+
-+	if (!pte_napot(pte)) {
-+		ptep_clear_flush(vma, addr, ptep);
-+		return;
-+	}
-+
-+	pte_num = napot_pte_num(pte);
-+	clear_flush(vma->vm_mm, addr, ptep, pte_num);
-+}
-+
-+void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
-+			   pte_t *ptep, unsigned long sz)
-+{
-+	int i, pte_num;
-+
-+	pte_num = napot_pte_num(READ_ONCE(*ptep));
-+	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+		pte_clear(mm, addr, ptep);
-+}
-+
-+void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
-+				 pte_t *ptep, pte_t pte, unsigned long sz)
-+{
-+	int i, pte_num;
-+
-+	pte_num = napot_pte_num(READ_ONCE(*ptep));
-+
-+	for (i = 0; i < pte_num; i++, ptep++)
-+		set_pte(ptep, pte);
-+}
-+
- int pud_huge(pud_t pud)
- {
- 	return pud_leaf(pud);
-@@ -18,6 +236,8 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 		return true;
- 	else if (IS_ENABLED(CONFIG_64BIT) && size == PUD_SIZE)
- 		return true;
-+	else if (size == NAPOT_CONT64KB_SIZE)
-+		return true;
- 	else
- 		return false;
+ 	select ARCH_CLOCKSOURCE_INIT
++  select HAVE_ARCH_HUGE_VMAP
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index adacb877433d..218d95d30bfa 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -642,6 +642,41 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
  }
-@@ -32,3 +252,10 @@ static __init int gigantic_pages_init(void)
- }
- arch_initcall(gigantic_pages_init);
- #endif
-+
-+static int __init hugetlbpage_init(void)
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
++static inline int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
 +{
-+	hugetlb_add_hstate(NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
 +	return 0;
 +}
-+arch_initcall(hugetlbpage_init);
++
++static inline int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
++{
++	return 0;
++}
++
++static inline int pud_clear_huge(pud_t *pud)
++{
++	return 0;
++}
++
++static inline int pmd_clear_huge(pmd_t *pmd)
++{
++	return 0;
++}
++
++static inline int p4d_free_pud_page(p4d_t *p4d, unsigned long addr)
++{
++	return 0;
++}
++
++static inline int pud_free_pmd_page(pud_t *pud, unsigned long addr)
++{
++	return 0;
++}
++
++static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
++{
++	return 0;
++}
++
+ /*
+  * Encode and decode a swap entry
+  *
+diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
+index ff9abc00d139..fecfa24d6a13 100644
+--- a/arch/riscv/include/asm/vmalloc.h
++++ b/arch/riscv/include/asm/vmalloc.h
+@@ -1,4 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
+ #ifndef _ASM_RISCV_VMALLOC_H
+ #define _ASM_RISCV_VMALLOC_H
+ 
++#include <asm/pgtable-bits.h>
++
++#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
++static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, unsigned long end,
++		u64 pfn, unsigned int max_page_shift)
++{
++	bool is_napot_addr = !(addr & NAPOT_CONT64KB_MASK);
++	bool pfn_align_napot = !(pfn & (NAPOT_64KB_PTE_NUM - 1UL));
++	bool space_enough = ((end - addr) >= NAPOT_CONT64KB_SIZE);
++
++	if (is_napot_addr && pfn_align_napot && space_enough
++			&& max_page_shift >= NAPOT_CONT64KB_SHIFT)
++		return NAPOT_CONT64KB_SIZE;
++
++	return PAGE_SIZE;
++}
++
+ #endif /* _ASM_RISCV_VMALLOC_H */
 -- 
 2.32.0
 
