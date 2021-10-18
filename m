@@ -2,14 +2,14 @@ Return-Path: <SRS0=TYB+=PG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C0BCC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A7023C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:28:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1676B61362
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:26:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1676B61362
+	by mail.kernel.org (Postfix) with ESMTPS id 701A86135E
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Oct 2021 13:28:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 701A86135E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,25 +18,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rYRkWFx+DEhU3Itss9xyLkKQ1o9lH1B6HEMAqHXzmjM=; b=jhY+1a6EIBATf/
-	+rySRPVua+t4a5VSEjcqim6bNCkzDNg+z5pn+4VXQ6fskbcMzgKGCAn8y6JFEMrnqI57HieM50LCA
-	Qignm8QoCPH/gxcNNBcqx747KRmJtXwTZfjonuzviuGWqmzJn+A9TJuDMisrcs3p+XKk8vL9wwsM5
-	858xIjDpFQiKbPQe/Yr5VfXsg+PNjTd8TVBgG+1mX+UNhzb3wdiqtK1bwBkiK2ycbOif5zqYXRpuh
-	ai3fLFgJktWgbdx15QTIoJIwbu/dquDGrRWOewzMqYEVzSzN4s3SKT61+VgOlE8Q8JcAy5Tp9cIVs
-	3boSf6WF6L0E4JbIEwsw==;
+	List-Owner; bh=CV9WFRqbLJUDJy3z6m7lSnWFw+45v4pLPAqTu1wlwVM=; b=WB8xt1yoiUrQPA
+	2k04wqIwgXIlOhm3drFAPzTqYOKKrh2g5leplKp9bI9Hvil3FixBMqJdrEBvS8yBBrcUUqOvD1GDL
+	OYMZRb6rfO7R5CdpQwO15eQUD6dzzkh/dZxjL5BFnjYxnKn0W/KUZ0qZyvAsSs45vm/Sudjvm6Mc8
+	zpFq5fnRm9cmc0ir4WpVo0vNRRKHazYOFoCwZwYxEeBXuvJOs6HCpKS+VUtnbD3tsyvGcG8JEUIwU
+	08+ZDpiPioDJD/tduUOQ6XIEibSl+eeJWT/dNt43Zl4Z5DVUxo2DZdJjTEWrEyUIqJCd9bHLiNUYv
+	ziwR8cho/LZfvvePkGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcSex-00Fn4t-MB; Mon, 18 Oct 2021 13:26:35 +0000
+	id 1mcSgc-00Fneu-HN; Mon, 18 Oct 2021 13:28:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcSel-00Fn3W-FG; Mon, 18 Oct 2021 13:26:24 +0000
+ id 1mcSgP-00FnZU-JX; Mon, 18 Oct 2021 13:28:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58926101E;
- Mon, 18 Oct 2021 06:26:15 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 912E8106F;
+ Mon, 18 Oct 2021 06:28:03 -0700 (PDT)
 Received: from bogus (unknown [10.57.25.56])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13AC93F73D;
- Mon, 18 Oct 2021 06:26:07 -0700 (PDT)
-Date: Mon, 18 Oct 2021 14:26:05 +0100
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FC7A3F73D;
+ Mon, 18 Oct 2021 06:27:55 -0700 (PDT)
+Date: Mon, 18 Oct 2021 14:27:53 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Rob Herring <robh@kernel.org>
 Cc: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
@@ -63,17 +63,16 @@ Cc: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
  linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 01/12] of: Add of_get_cpu_hwid() to read hardware ID from
- CPU nodes
-Message-ID: <20211018132605.jh2huoxmywjcr5xa@bogus>
+Subject: Re: [PATCH 04/12] arm64: Use of_get_cpu_hwid()
+Message-ID: <20211018132753.4md4xlerul3odxji@bogus>
 References: <20211006164332.1981454-1-robh@kernel.org>
- <20211006164332.1981454-2-robh@kernel.org>
+ <20211006164332.1981454-5-robh@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211006164332.1981454-2-robh@kernel.org>
+In-Reply-To: <20211006164332.1981454-5-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_062623_585629_0AD2969F 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20211018_062805_698959_340D76F8 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +89,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 06, 2021 at 11:43:21AM -0500, Rob Herring wrote:
-> There are various open coded implementions parsing the CPU node 'reg'
-> property which contains the CPU's hardware ID. Introduce a new function,
-> of_get_cpu_hwid(), to read the hardware ID.
->
-> All the callers should be DT only code, so no need for an empty
-> function.
->
-
-Thanks for doing this. I postponed and forgot about this though I had
-planned for this when I touched code around this.
+On Wed, Oct 06, 2021 at 11:43:24AM -0500, Rob Herring wrote:
+> Replace the open coded parsing of CPU nodes' 'reg' property with
+> of_get_cpu_hwid().
+> 
+> This change drops an error message for missing 'reg' property, but that
+> should not be necessary as the DT tools will ensure 'reg' is present.
+> 
 
 Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
---
+-- 
 Regards,
 Sudeep
 
