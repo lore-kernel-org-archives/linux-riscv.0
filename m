@@ -2,91 +2,79 @@ Return-Path: <SRS0=MdyL=PH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0192BC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1200C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 10:18:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC55F611BF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:52:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC55F611BF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 690CE6137E
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 10:18:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 690CE6137E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXbysbgVhEqOz4pxlqst/BcQJNj4mpIUYBEv4kqOmOo=; b=RHeD5300VKHzt5
-	dUW55XWqCK79qO7bTm3Blw4nVvvMRr718vTxbMH4AazTqIg7YyUlJCvcwG2DWbA7cRfZomgkQpQAv
-	buk+VZ3IuhlC2y4LfM6rUsvURhbkt9aEkBbJevKfYoBE0Hyfq6Ic11aEAG0gjNgkn9EB4wl/LUKTf
-	d2eJudSg9CICGRJ401zVAlY1gbV2oS46x04dyhRhBeeFzuLLmZp64zprA7FXrSY44CKMRflSaVpQB
-	YzwGC3dhqsjWWeQAPdwOqsTblKKK+Dp3DAbKo5InM7YTCihLXoSkjn8+6obG/PxqzAmnvJ7Bfy2Md
-	Er0cshwaZZ206RJ+aeHA==;
+	List-Owner; bh=A5BETi50A9/4tMCjFqeZatVGBLBvqor7sXD7F5OyvBE=; b=ztc0o3w/JHGmJ7
+	qMM72VRkjgyZYZeHFFRzeodut/i6/MsxFO0MFtVGYMG7fwAyr0e80GCdWy+bKWIqnCXVpJGU40j3+
+	TOdveTMk5Bxa0GNC4hms0VFg5aHQx+t9xHPi9gd9P5dNvItNCefzzb4fNl2+FOq78gPLRMR2WVOTa
+	a5QNTY9OTZuAmIU6nFh9Zn4/pJdFLk/cF7geCWQLbgrWi+pHz36JsN52rTK2gYsPt4tsk1bAp437a
+	9Z97UQbcRBuZ9ubms9JO0xSBMsUBDmaHz5WIaPFyPc/siRE70mBYEOC4KIKFzU5vgeXXdt0PtGIAy
+	8DX76nzsA48bLfctJY5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mclnO-000jUx-Gq; Tue, 19 Oct 2021 09:52:34 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1mcmCR-000n7Z-MJ; Tue, 19 Oct 2021 10:18:27 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mclnL-000jUG-9i
- for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 09:52:33 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10141"; a="251939889"
-X-IronPort-AV: E=Sophos;i="5.85,384,1624345200"; d="scan'208";a="251939889"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
- by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Oct 2021 02:52:27 -0700
-X-IronPort-AV: E=Sophos;i="5.85,384,1624345200"; d="scan'208";a="531371974"
-Received: from smile.fi.intel.com (HELO smile) ([10.237.72.159])
- by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Oct 2021 02:52:21 -0700
-Received: from andy by smile with local (Exim 4.95)
- (envelope-from <andy.shevchenko@gmail.com>) id 1mclms-000SXr-2L;
- Tue, 19 Oct 2021 12:52:02 +0300
-Date: Tue, 19 Oct 2021 12:52:02 +0300
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Maximilian Luz <luzmaximilian@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
- Matteo Croce <mcroce@microsoft.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
-Subject: Re: [PATCH v1 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-Message-ID: <YW6VQutGMFOZPNlC@smile.fi.intel.com>
-References: <20211012134027.684712-1-kernel@esmil.dk>
- <20211012134027.684712-13-kernel@esmil.dk>
- <CAHp75Vep+i+iyJi0LAOKuer-cUZoUoB_ZrWKcmT=EB_4hOgFGw@mail.gmail.com>
- <CANBLGcxHD2vy0+tXYo5Pkqri9mV7aD9jikvs3ygBJRxF4ApLMA@mail.gmail.com>
- <CAHp75Vc65deoHbks-aPmnjEJzm3GdqFMfBCUqw4vVLVr=71Ncg@mail.gmail.com>
- <CANBLGcxriKLZ+CKUsj5sviW8FdHnWTF2koROwmAb=G2tbmE6vQ@mail.gmail.com>
- <CAHp75VccSDLVbs1sF_-1zghWyLKtKKV1qtxOxZZ-cS0e6S-sBA@mail.gmail.com>
- <CAHp75VcgFRGpca-pSU9T5Oo1fT4aWQJd5EQfyZscGYx0mDMJ_Q@mail.gmail.com>
- <CANBLGcxHLQZygX9CHsXK4aYS9m4VE5OnLNROOmvP1ps5UP-xAw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANBLGcxHLQZygX9CHsXK4aYS9m4VE5OnLNROOmvP1ps5UP-xAw@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+ id 1mcmCE-000n3Z-AE
+ for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 10:18:15 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id EF18B6137D;
+ Tue, 19 Oct 2021 10:18:13 +0000 (UTC)
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29]
+ helo=wait-a-minute.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mcmCB-000AqP-Mb; Tue, 19 Oct 2021 11:18:11 +0100
+Date: Tue, 19 Oct 2021 11:18:09 +0100
+Message-ID: <8735oxuxlq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Samuel Holland <samuel@sholland.org>,	Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@wdc.com>,	Thomas Gleixner <tglx@linutronix.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>,	Heiko =?UTF-8?B?U3TDvGJuZXI=?=
+ <heiko@sntech.de>,	Rob Herring <robh@kernel.org>,	Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>,	linux-riscv
+ <linux-riscv@lists.infradead.org>,	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V4 1/3] irqchip/sifive-plic: Add thead,c900-plic support
+In-Reply-To: <CAJF2gTShT8Tvk0z6B52zKEi0vq_toc-7mAKWFKj3j-zg=OhpYQ@mail.gmail.com>
+References: <20211016032200.2869998-1-guoren@kernel.org>
+ <20211016032200.2869998-2-guoren@kernel.org>
+ <8be1bdbd-365d-cd28-79d7-b924908f9e39@sholland.org>
+ <f850af365f2ac77af79ec59f92e6434a@kernel.org>
+ <CAJF2gTShT8Tvk0z6B52zKEi0vq_toc-7mAKWFKj3j-zg=OhpYQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: guoren@kernel.org, samuel@sholland.org, anup@brainfault.org,
+ atish.patra@wdc.com, tglx@linutronix.de, palmer@dabbelt.com, heiko@sntech.de,
+ robh@kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ guoren@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211019_025231_372516_46BA254C 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20211019_031814_416303_1FC36743 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +91,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 18, 2021 at 07:02:43PM +0200, Emil Renner Berthing wrote:
-> On Mon, 18 Oct 2021 at 18:29, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > On Mon, Oct 18, 2021 at 7:23 PM Andy Shevchenko
-> > <andy.shevchenko@gmail.com> wrote:
+On Tue, 19 Oct 2021 10:33:49 +0100,
+Guo Ren <guoren@kernel.org> wrote:
 
-...
+> > If you have an 'automask' behavior and yet the HW doesn't record this
+> > in a separate bit, then you need to track this by yourself in the
+> > irq_eoi() callback instead. I guess that you would skip the write to
+> > the CLAIM register in this case, though I have no idea whether this
+> > breaks
+> > the HW interrupt state or not.
+> The problem is when enable bit is 0 for that irq_number,
+> "writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM)" wouldn't affect
+> the hw state machine. Then this irq would enter in ack state and no
+> continues irqs could come in.
 
-> > Having a second look I found even problematic error paths because of
-> > mixing devm_*() with non-devm_*() calls, which only assures me that
-> > your ->probe() error path is broken and should be revisited.
+Really? This means that you cannot mask an interrupt while it is being
+handled? How great...
+
+> >
+> > There is an example of this in the Apple AIC driver.
+> Thx for the tip, I think your suggestion is:
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -163,7 +163,12 @@ static void plic_irq_eoi(struct irq_data *d)
+>  {
+>         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
 > 
-> So do you want to expand on that now or should I send v2 first?
+> -       writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +       if (irqd_irq_masked(d)) {
+> +               plic_irq_unmask(d);
+> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +               plic_irq_mask(d);
 
-Here is not enough context anymore to point out. I expect one to have done
-their homework anyway.
+This looks pretty dodgy. You are relying on interrupts being globally
+masked on the CPU, I guess. It probably works today, but man, what a
+terrible HW implementation.
+
+You'll definitely have to move this into a c900-specific callback.
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
