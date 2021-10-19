@@ -2,98 +2,84 @@ Return-Path: <SRS0=MdyL=PH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 69C21C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 62644C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:22:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3244D61373
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:01:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3244D61373
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1A5476103B
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:22:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1A5476103B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FcBZcIr6p6x9VIwQLUnQF1LPvGi8UqV5pwyfsMVrxjw=; b=xEv1PEdkki0FdJ
-	Ib2j3okcNu4jYSQo34J94PyRX71dDq3Ulbe1VRb24Df7nRlYVKP63QSH5AoXjw0ifK1dMm1tyuXRG
-	79G5uby6LXuwnsDYjZgFCb/Ou+TbmiwjswDhK2I8SjR0D7D4warseEBUnoflYWZkM5jWgHfXFEsZJ
-	0Y7IES7ALOu1GvB7dg6BmDjDHZAW3QzZDXG8H0XVMxymlBWvemeKacfRq/qepMZ4W/Sqc4HFlp2f2
-	hef2MeJA1zLD2T//lz88aK7Xz7vf5XP608rWLTJYnRvtQqsZEWD/8t9Kb0rRjOFoYoR0Gut+MZRgE
-	YbTk46tH1lk6r1sllB2g==;
+	List-Owner; bh=Adgmx7GY+/56HznwkVNbd66CApWkQjBl6a43eoVxyYc=; b=ApWSgcnzeyWvw0
+	9+eWs8D2So7HMeoJBFAV0UcarmOTXZ1HW4PRtqhR3/cwyrGcMVvSxkRWC/SnpDqgYbakpnhJqXyoC
+	GVf9B+dsY5YmCXhhQcvlEaX89PGTpp7RDcJL4lR/WTeIE8901jlfMeW/sfHpOISpJks0x99R64EBS
+	OT/Cs4HOk4CEws54Ddj8DWQJ9g+rSxuyDSU8kSvrXVl5KFK7Tej/emA8+5kDsAC8yScHmbXHDw0jL
+	sJ8InGkIqEPqXJit5WSjazuNFEgBOrUNusolEwEOuOZKwzQBJTRVwRmTOANk95vSyBjkfykprUw+X
+	tR9n/fWkOAkpb+IP/VNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mckza-000cRn-5n; Tue, 19 Oct 2021 09:01:06 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mclKU-000eoK-R4; Tue, 19 Oct 2021 09:22:42 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mckzW-000cQa-Cn
- for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 09:01:04 +0000
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
- [209.85.167.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 1925740750
- for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 09:01:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1634634061;
- bh=RMajkc4I3FVoI6+Wp3gZyvuOiuHKTewU/0j4GZxBxaQ=;
- h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version:Content-Type;
- b=gFzEK/XRGI3HivMKkmGKNMvrX0fWwBHOVT9r7ivFScNsSLvUy2nFPMGVhk/CM9/Pn
- SWOAp5oE+a8LP0ZJOZ5LpGkAuSiM3gNCIs5N0vbz3YXYHhxyNnsnrmozfAGuWVF+xW
- ZvXzPrMGwrEGgIbHX1upErC+94SvysvoiMYlPGCncYqBoJdN0RwZJmG9r1mCGmQK0r
- wRBpxhb9OQoLCy8AK/zEmrDXftf7vGjdYE7z81Qr8UxVSM6DlauGA9przTLOxx0Z2P
- estoEhJ6Vu1cfxX0S5xcHlDtIOvd6ssRWY9UH0IRLR0L5eoJCCJKjhFn/sCLyb1EbH
- ssh49c1IjznFQ==
-Received: by mail-lf1-f69.google.com with SMTP id
- i1-20020a056512340100b003fdd5b951e0so1144976lfr.22
- for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 02:01:01 -0700 (PDT)
+ id 1mclKS-000ema-7o
+ for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 09:22:41 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id v127so11216879wme.5
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 02:22:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=fptJv6XvoZk9YouChC4oUHOD/enMQbUqo6YfTUG11j8=;
+ b=qHoQS2s76kBlprES0oGRziR9C5WQdcSO2SRygtuQ+41hE/s5IDtpq3tEADGZHIJ4+U
+ VVfBkwLBJhtJHMEu+eftbbpNpZoD8Ja0+GL9GkVPJfgdFUJOhcZWpg3xINz7Yx9vMHbl
+ M45X0oYiL5fFJI0xwYBz93K8WtjDVBNuHNqF4E79yiViVTSce7jJLYc/DH1eumrLWG/V
+ puPNq7f0+ZyREiB6mbuhxEeYkrptIs6uLKgKdiKHp0mDZmbTkXzbMSy9mjz+3/7zH1cC
+ APzCsqUddfIGZ72pHIJThOZTJ/iK+1/0LiCiD3zcBeFYmdorAkDWA8HVqnijqW2g5hAc
+ /lbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=RMajkc4I3FVoI6+Wp3gZyvuOiuHKTewU/0j4GZxBxaQ=;
- b=mlyNCPy751e1LrNcuNJJJ+f7WydRI6UOoRVsW0ENKcXDTjvEFXvAhV3dME5BJpCmIc
- 9BlWWauoU7g/bowcBw3a9vxHNGnIc/Vz526w4HlnwWLTMRZDi3V4uXkgcOlLlImUd8FO
- liKbYHWQPyb8x1pdClXEzYRrU6qzlrga4lsLStIOusac+R8mRLMhomxO/glp0qpB42yo
- jk2MhLGiP/HxrrsGID7lfQRq5IjXnnPO5v2Jj1ae6ya8sWFxj49NZl0CbfPywiAUFvOe
- wwm4ixusXN4mt9dNA60NsQFmNt/L/Kt0GNB+gHs4J7L4EBLP4/vDuyLJ7pPpylTLKTVK
- qxiA==
-X-Gm-Message-State: AOAM532gKSAVfFkpnS+i3ZrFl+yF20S3TxSbUnkUq+Ek3CerORUw9OZF
- OaDyDOHGUMFrNFgl6qAwq7dgSPPYgG8iwx9U154lSXZPXYXo479t+ZScoovwv2jCrE2EzCEAfKw
- GJoUElQkpQKHXzSesXOZTyOFISirm8Ivp15Dovf25GS02oQ==
-X-Received: by 2002:ac2:5d52:: with SMTP id w18mr4990208lfd.598.1634634059732; 
- Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyWpaMw9n1ML2pcTlEiTBVS2ylCobbiDUJAMaO3ELY0TCWzs3TrxcN8V8FoKgyui+ZytbYeZg==
-X-Received: by 2002:ac2:5d52:: with SMTP id w18mr4990192lfd.598.1634634059488; 
- Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
-Received: from kozik-lap.lan (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
- by smtp.gmail.com with ESMTPSA id
- k18sm86727lfg.301.2021.10.19.02.00.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [RESEND PATCH v2 1/5] riscv: dts: sifive: use only generic JEDEC
- SPI NOR flash compatible
-Date: Tue, 19 Oct 2021 11:00:52 +0200
-Message-Id: <163463404795.23115.14748573491973282125.b4-ty@canonical.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
-References: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=fptJv6XvoZk9YouChC4oUHOD/enMQbUqo6YfTUG11j8=;
+ b=e8GCoxxkaV551Z89rH/rxGXidtVifqcXUVw8MgML83cPvrK9YGirwyTPXSfCBFg+ki
+ by7411KSvuZVt/b/BLU3niH5lti9jw8gB3wk+l9D9SE6b7jYGgSkTscbBgHib11qQrPp
+ qtGcxCuqB5vTXgNA7BmfEd9tmp/FVSBBQQaoSzYicDG5mY1AVhW9vODdQqHxpzmQXNkj
+ m4Q6J29deLaOKZpIZyUDM2cNvCgmQV4LSG6Pwb+bcIsAmv5keDiTq9e182VWfBO89mGB
+ eAW1NAKYddx3wEuyO7/CIZRXYBIQP5BA9dCyBoC32Ubi0QU/BHFw12DqZrOliiqe2l9/
+ CN6w==
+X-Gm-Message-State: AOAM533WnQG6QZ4gec0dGgX5SjfBdSj0h+MYQDhpxVfgtdwdywa3pthW
+ jblNMRdJr2MYC2dAgUSQqSQwrLTyy5RSIMyMAKcmdw==
+X-Google-Smtp-Source: ABdhPJwQXDbqWUPeLTbC5CeRI9I3z7fchT4UiWD2mQAInmdDfeB1n/lMV05DAx2AdM1cIee8iuAMlgLiMMne7h40TPg=
+X-Received: by 2002:a05:600c:354c:: with SMTP id
+ i12mr4817048wmq.59.1634635357474; 
+ Tue, 19 Oct 2021 02:22:37 -0700 (PDT)
 MIME-Version: 1.0
+References: <cover.1634630485.git.mchehab+huawei@kernel.org>
+ <1f62fdbd0dd9298a19c491447a4b415a8ef3bd69.1634630486.git.mchehab+huawei@kernel.org>
+In-Reply-To: <1f62fdbd0dd9298a19c491447a4b415a8ef3bd69.1634630486.git.mchehab+huawei@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 19 Oct 2021 14:52:26 +0530
+Message-ID: <CAAhSdy0Rp8gf_OHy-qi1aDhCouMXYe_4qcFUUZkZCs2BCRPNog@mail.gmail.com>
+Subject: Re: [PATCH v3 13/23] Documentation: update vcpu-requests.rst reference
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ kvm-riscv@lists.infradead.org, KVM General <kvm@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211019_020103_392853_80D5B8F9 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211019_022240_343456_EE3C3A40 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,28 +96,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Sep 2021 15:02:44 +0200, Krzysztof Kozlowski wrote:
-> The compatible "issi,is25wp256" is undocumented and instead only a
-> generic jedec,spi-nor should be used (if appropriate).
-> 
-> 
+On Tue, Oct 19, 2021 at 1:34 PM Mauro Carvalho Chehab
+<mchehab+huawei@kernel.org> wrote:
+>
+> Changeset 2f5947dfcaec ("Documentation: move Documentation/virtual to Documentation/virt")
+> renamed: Documentation/virtual/kvm/vcpu-requests.rst
+> to: Documentation/virt/kvm/vcpu-requests.rst.
+>
+> Update its cross-reference accordingly.
+>
+> Fixes: 2f5947dfcaec ("Documentation: move Documentation/virtual to Documentation/virt")
+> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> ---
 
-Applied, thanks!
+Looks good to me.
 
-[1/5] riscv: dts: sifive: use only generic JEDEC SPI NOR flash compatible
-      commit: 8ce936c2f1a68c3a4f46578eed016ff92a67fbc6
-[2/5] riscv: dts: sifive: fix Unleashed board compatible
-      commit: 65b2979d52ebf96ed8261d82d84c62acf737548d
-[3/5] riscv: dts: sifive: drop duplicated nodes and properties in sifive
-      commit: 20ce65bf89aab248886b80d1e7fa12277b2a0f2d
-[4/5] riscv: dts: microchip: add missing compatibles for clint and plic
-      commit: 73d3c44115514616ee9c4f356bb86d4426d0fc36
-[5/5] riscv: dts: sifive: add missing compatible for plic
-      commit: 9962a066f3c1d4588d0dd876ceac2c03ef87acf3
+Reviewed-by: Anup Patel <anup.patel@wdc.com>
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Regards,
+Anup
+
+>
+> To mailbombing on a large number of people, only mailing lists were C/C on the cover.
+> See [PATCH v3 00/23] at: https://lore.kernel.org/all/cover.1634630485.git.mchehab+huawei@kernel.org/
+>
+>  arch/riscv/kvm/vcpu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index c44cabce7dd8..260ce0779a32 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -912,7 +912,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>                  * Ensure we set mode to IN_GUEST_MODE after we disable
+>                  * interrupts and before the final VCPU requests check.
+>                  * See the comment in kvm_vcpu_exiting_guest_mode() and
+> -                * Documentation/virtual/kvm/vcpu-requests.rst
+> +                * Documentation/virt/kvm/vcpu-requests.rst
+>                  */
+>                 vcpu->mode = IN_GUEST_MODE;
+>
+> --
+> 2.31.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
