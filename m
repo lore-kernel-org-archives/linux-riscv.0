@@ -2,75 +2,71 @@ Return-Path: <SRS0=MdyL=PH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FDB1C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 00:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B439C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 02:02:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EA3AF610A1
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 00:56:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EA3AF610A1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7E0BB61057
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 02:02:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7E0BB61057
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o4pXe3aro0f1vttC+h6dAMH8l6huZCYl8Derc/rLkRY=; b=qPOUZiEDXCKVIY
-	0891W7o0xKPAl3FeebhAbDKR0V8l8wfVvN/lr2GNT1P+yNEd9xzZ79Aw3+X7XNBLFhq6L2gy7BWSF
-	eaD2DA6PKk7gdPue6uYz7zCwEpUj/s732lGDPHSeO17/65zT0fKKBB4B0L9AcxbyWlvOmv2fZcuvx
-	ciMZb1K6Ef6bd146V7G/LGbkjdAp2ckwJmFOYhPxnXeM1b3cWz3Adm2tTZZ0ihIh0SYmVexER6Vni
-	zERhSwLaipy6gm9lDAmTkYcNBPb1njauHWAL16uYuqbkP+WpRhadForCgSnJq8JaR4EcZ4ELKg+rS
-	aihMtx/B5d0IDL2PTT9A==;
+	List-Owner; bh=RDYHqvl6X5JusQlQeCymX2MAOi6XO325XsvDI0/QQjc=; b=ZiPOC9X3WqgbsU
+	mjrgIIgoHABpkVw8YP+l/q7DdlG0oNHCidsTHKdL9C+RKzoTjsLv3DV8zDX0xaSOixo5piC6aPf69
+	MuDhcFAhHuwGctAUfZD3phF9FldVJ/lxKzRD28mJkMM1Icm71Ea4ijnBoV+kvssh3nGkUZBGkzDKU
+	N9MOI0XLRK/YU0pm8+y4DAeE+zfHN+rB3q4z6ITr9h5CpXPIYRJ+iBoGPqDU0mlFz6ucq9MM30egE
+	IUvBo6hqJfGHi2DZo9PvYAgVLxlPq7IOZhMgjcTQn4M6yr+Z4FCn7MvpkEn2CBJPiXkmyfWAkTl3u
+	ChwPavfr+lIk17G1qnEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mcdQ5-00HVHK-IR; Tue, 19 Oct 2021 00:55:57 +0000
+	id 1mceSF-00HYqW-6i; Tue, 19 Oct 2021 02:02:15 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mcdQ3-00HVGz-9e
- for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 00:55:56 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 186916128E
- for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 00:55:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634604954;
- bh=cIGQRuB5/4x08XlxRDA3Ao4AUXcOHw77Zhri+XpaAOo=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=MK5K42cHFpsLhdENsE2bQgGFWcnMCoqtAdg+L386ST0mMkmkhSWDz+s2wjDXLMU/2
- UwNTddFOo85pr0yyS+C1K6GGGC7BsPvr8jZf29E15SknIHrZPdmnLbgVMb07VbqCJO
- Wc/tR0i6SQcMxoL2kxeAx0+LS3M5XkcWkcFsZa0PCsiUJF5tJhv1ycvQakl4rCBzrD
- d2MHE0Wu56KXTSvHDxihBfwq1f2rDPmFvehCJgAD5nrv7/VGyBHjeIciilz/0AE3WW
- uctcPWL2Nr+AIx9hrvO3w78XQRrkE2tuWpHWtzWmk6Zdb461yRVOSQLeQatQRWRG+I
- HyVBEqkVd6ZfA==
-Received: by mail-ua1-f52.google.com with SMTP id f4so290051uad.4
- for <linux-riscv@lists.infradead.org>; Mon, 18 Oct 2021 17:55:54 -0700 (PDT)
-X-Gm-Message-State: AOAM530+RtlBwWGKOAw475pEkI3T+JOUsBseAYXqD4F5ILe2vvijCA8C
- 4iHb9IjOrT9KlQKuimjBiZNK1vPpdkbqx82rWOA=
-X-Google-Smtp-Source: ABdhPJzwkEEBSQVzjjrkD+0CHBWKBCiLyhGhSpmTY1ODlPUy6auanc2+wSEfbPXmOII4D1ThZB9ekmQ6lgfucHgqXls=
-X-Received: by 2002:a67:d78c:: with SMTP id q12mr32242550vsj.28.1634604953132; 
- Mon, 18 Oct 2021 17:55:53 -0700 (PDT)
+ id 1mceSC-00HYpG-NT
+ for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 02:02:14 +0000
+Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
+ [66.24.58.225])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id D3B6A60ED4;
+ Tue, 19 Oct 2021 02:02:06 +0000 (UTC)
+Date: Mon, 18 Oct 2021 22:02:03 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Petr Mladek <pmladek@suse.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge
+ Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, Benjamin
+ Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
+ <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
+ Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf
+ <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>, Miroslav Benes
+ <mbenes@suse.cz>, Joe Lawrence <joe.lawrence@redhat.com>, Colin Ian King
+ <colin.king@canonical.com>, Masami Hiramatsu <mhiramat@kernel.org>, "Peter
+ Zijlstra (Intel)" <peterz@infradead.org>, Nicholas Piggin
+ <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ live-patching@vger.kernel.org, =?UTF-8?B?546L6LSH?=
+ <yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
+Message-ID: <20211018220203.064a42ed@gandalf.local.home>
+In-Reply-To: <YW1KKCFallDG+E01@alley>
+References: <20211015110035.14813389@gandalf.local.home>
+ <YW1KKCFallDG+E01@alley>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20211016032200.2869998-1-guoren@kernel.org>
- <20211016032200.2869998-3-guoren@kernel.org>
- <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+NM=jvYfvyNVsJCrizHzqaDMPe05hkBhnOWHc+JwBNig@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 19 Oct 2021 08:55:42 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRdowd_jicA+iWQ9sg5xSZA_O8KZ7q45A3CS+i0iKYicg@mail.gmail.com>
-Message-ID: <CAJF2gTRdowd_jicA+iWQ9sg5xSZA_O8KZ7q45A3CS+i0iKYicg@mail.gmail.com>
-Subject: Re: [PATCH V4 2/3] dt-bindings: update riscv plic compatible string
-To: Rob Herring <robh@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
- Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, "heiko@sntech.de" <heiko@sntech.de>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211018_175555_378373_D90A15E3 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20211018_190212_817637_B7B3C1EF 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +83,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 18, 2021 at 8:02 PM Rob Herring <robh@kernel.org> wrote:
+On Mon, 18 Oct 2021 12:19:20 +0200
+Petr Mladek <pmladek@suse.com> wrote:
+
+> > -
+> >  	bit = trace_get_context_bit() + start;
+> >  	if (unlikely(val & (1 << bit))) {
+> >  		/*
+> >  		 * It could be that preempt_count has not been updated during
+> >  		 * a switch between contexts. Allow for a single recursion.
+> >  		 */
+> > -		bit = TRACE_TRANSITION_BIT;
+> > +		bit = TRACE_CTX_TRANSITION + start;  
 >
-> On Fri, Oct 15, 2021 at 10:22 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Add the compatible string "thead,c900-plic" to the riscv plic
-> > bindings to support allwinner d1 SOC which contains c906 core.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Atish Patra <atish.patra@wdc.com>
->
-> Please send to the DT list so that checks run and it's in my review
-> queue (IOW, use get_maintainers.pl). And run 'make dt_binding_check'
-> so reviewers don't have to find your typos and other errors for you.
-Thx for the tip, I would follow that in next version.
 
->
-> Rob
+[..]
+
+> Could we please update the comment? I mean to say if it is a race
+> or if we trace a function that should not get traced.
+
+What do you think of this change?
+
+diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+index 1d8cce02c3fb..24f284eb55a7 100644
+--- a/include/linux/trace_recursion.h
++++ b/include/linux/trace_recursion.h
+@@ -168,8 +168,12 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+ 	bit = trace_get_context_bit() + start;
+ 	if (unlikely(val & (1 << bit))) {
+ 		/*
+-		 * It could be that preempt_count has not been updated during
+-		 * a switch between contexts. Allow for a single recursion.
++		 * If an interrupt occurs during a trace, and another trace
++		 * happens in that interrupt but before the preempt_count is
++		 * updated to reflect the new interrupt context, then this
++		 * will think a recursion occurred, and the event will be dropped.
++		 * Let a single instance happen via the TRANSITION_BIT to
++		 * not drop those events.
+ 		 */
+ 		bit = TRACE_TRANSITION_BIT;
+ 		if (val & (1 << bit)) {
 
 
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
