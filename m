@@ -2,78 +2,98 @@ Return-Path: <SRS0=MdyL=PH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 483D6C43219
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 08:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69C21C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:01:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 12B406112D
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 08:04:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 12B406112D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3244D61373
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Oct 2021 09:01:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3244D61373
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=er0Dc/geMCJNj0bisgapGP2JVfU7yYde4l9PGYYmn1Q=; b=22khKJiuJpSDZt
-	F+3Cgo93WCD7aTtOfiDh5xMLtvgKHKHYfHdF5z4Tl2YVVdsHAFw9GLejZHYtAzASNZ1+FaPH4ezMO
-	YvRCEjsimg8QjH73MfrXJWsdRFIQSEpU2OjsvTv3zkNgmVKrp6jg+U+F4nwMcbZwBZ+c4OIbRoNqy
-	/qZSxh+czrbjrvJuEnHNd6Dd1POTbIPIm87D+VWmo2DoVjacDgvM7aAUzBHD4pXrzX3oHNkPqUDfF
-	JzrNfuTZ+W4DKgYGBoN410G0Y2imEaYkAYsAMHcXZ7wXdEyKjfvgFnMvK2thv1rBEYbi48/pcylEo
-	evPbnUCf2b19ENOHMuNg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FcBZcIr6p6x9VIwQLUnQF1LPvGi8UqV5pwyfsMVrxjw=; b=xEv1PEdkki0FdJ
+	Ib2j3okcNu4jYSQo34J94PyRX71dDq3Ulbe1VRb24Df7nRlYVKP63QSH5AoXjw0ifK1dMm1tyuXRG
+	79G5uby6LXuwnsDYjZgFCb/Ou+TbmiwjswDhK2I8SjR0D7D4warseEBUnoflYWZkM5jWgHfXFEsZJ
+	0Y7IES7ALOu1GvB7dg6BmDjDHZAW3QzZDXG8H0XVMxymlBWvemeKacfRq/qepMZ4W/Sqc4HFlp2f2
+	hef2MeJA1zLD2T//lz88aK7Xz7vf5XP608rWLTJYnRvtQqsZEWD/8t9Kb0rRjOFoYoR0Gut+MZRgE
+	YbTk46tH1lk6r1sllB2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mck6r-000UKO-Af; Tue, 19 Oct 2021 08:04:33 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mckza-000cRn-5n; Tue, 19 Oct 2021 09:01:06 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mck6n-000UGI-2X; Tue, 19 Oct 2021 08:04:32 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id E94EB61452;
- Tue, 19 Oct 2021 08:04:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634630668;
- bh=Uvci5l/z6Xl7igGPEJw1tvb5zXG8EEBvSjZvZQvPw7o=;
- h=From:To:Cc:Subject:Date:From;
- b=rpKkaVAryy3dOHI5Z0AVHWDGL+qYu3wofMEsdn+Pc8CjxVWvhXVazy7gZrKiPAaDD
- xNVXTC8q0dsZKNR3ih1oPwNBgr4zydsOmvnv3poIDksXNNKT3SfE6lRbc6lup8jshp
- UFeWO8R7fla6iyuPrQH95m37/OifKGJ7dEFFb9jjachmzIGkjNuxHpa2sx0ZtXdKS1
- AGVBuul1FLqAXwuvTgrPKfeB7WXkylEdnmiuXkM/w4yevSt2//z+WrduhEbO7W0aHm
- qsWGPEPZWnGjrqUdazSHMDIBy5fUq5IJo3r1SYMCGrtFiTcQmrOZ5eRKUX3tYFWXRU
- 876wQqSSyZ5qw==
-Received: by mail.kernel.org with local (Exim 4.94.2)
- (envelope-from <mchehab@kernel.org>)
- id 1mck6j-001oIo-02; Tue, 19 Oct 2021 09:04:25 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- Jonathan Corbet <corbet@lwn.net>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- linux-kernel@vger.kernel.org, "J. Bruce Fields" <bfields@fieldses.org>,
- Alex Shi <alexs@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Anton Vorontsov <anton@enomsg.org>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Chen-Yu Tsai <wens@csie.org>, Colin Cross <ccross@android.com>,
- Jeff Layton <jlayton@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Kees Cook <keescook@chromium.org>,
- Linus Walleij <linus.walleij@linaro.org>, Martin KaFai Lau <kafai@fb.com>,
- Rob Herring <robh+dt@kernel.org>, Shuah Khan <shuah@kernel.org>,
- Song Liu <songliubraving@fb.com>, Tony Luck <tony.luck@intel.com>,
- Yonghong Song <yhs@fb.com>, bpf@vger.kernel.org,
- devicetree@vger.kernel.org, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- netdev@vger.kernel.org, sparmaintainer@unisys.com
-Subject: [PATCH v3 00/23] Fix some issues at documentation
-Date: Tue, 19 Oct 2021 09:03:59 +0100
-Message-Id: <cover.1634630485.git.mchehab+huawei@kernel.org>
-X-Mailer: git-send-email 2.31.1
+ id 1mckzW-000cQa-Cn
+ for linux-riscv@lists.infradead.org; Tue, 19 Oct 2021 09:01:04 +0000
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
+ [209.85.167.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 1925740750
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 09:01:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1634634061;
+ bh=RMajkc4I3FVoI6+Wp3gZyvuOiuHKTewU/0j4GZxBxaQ=;
+ h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version:Content-Type;
+ b=gFzEK/XRGI3HivMKkmGKNMvrX0fWwBHOVT9r7ivFScNsSLvUy2nFPMGVhk/CM9/Pn
+ SWOAp5oE+a8LP0ZJOZ5LpGkAuSiM3gNCIs5N0vbz3YXYHhxyNnsnrmozfAGuWVF+xW
+ ZvXzPrMGwrEGgIbHX1upErC+94SvysvoiMYlPGCncYqBoJdN0RwZJmG9r1mCGmQK0r
+ wRBpxhb9OQoLCy8AK/zEmrDXftf7vGjdYE7z81Qr8UxVSM6DlauGA9przTLOxx0Z2P
+ estoEhJ6Vu1cfxX0S5xcHlDtIOvd6ssRWY9UH0IRLR0L5eoJCCJKjhFn/sCLyb1EbH
+ ssh49c1IjznFQ==
+Received: by mail-lf1-f69.google.com with SMTP id
+ i1-20020a056512340100b003fdd5b951e0so1144976lfr.22
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 02:01:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=RMajkc4I3FVoI6+Wp3gZyvuOiuHKTewU/0j4GZxBxaQ=;
+ b=mlyNCPy751e1LrNcuNJJJ+f7WydRI6UOoRVsW0ENKcXDTjvEFXvAhV3dME5BJpCmIc
+ 9BlWWauoU7g/bowcBw3a9vxHNGnIc/Vz526w4HlnwWLTMRZDi3V4uXkgcOlLlImUd8FO
+ liKbYHWQPyb8x1pdClXEzYRrU6qzlrga4lsLStIOusac+R8mRLMhomxO/glp0qpB42yo
+ jk2MhLGiP/HxrrsGID7lfQRq5IjXnnPO5v2Jj1ae6ya8sWFxj49NZl0CbfPywiAUFvOe
+ wwm4ixusXN4mt9dNA60NsQFmNt/L/Kt0GNB+gHs4J7L4EBLP4/vDuyLJ7pPpylTLKTVK
+ qxiA==
+X-Gm-Message-State: AOAM532gKSAVfFkpnS+i3ZrFl+yF20S3TxSbUnkUq+Ek3CerORUw9OZF
+ OaDyDOHGUMFrNFgl6qAwq7dgSPPYgG8iwx9U154lSXZPXYXo479t+ZScoovwv2jCrE2EzCEAfKw
+ GJoUElQkpQKHXzSesXOZTyOFISirm8Ivp15Dovf25GS02oQ==
+X-Received: by 2002:ac2:5d52:: with SMTP id w18mr4990208lfd.598.1634634059732; 
+ Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyWpaMw9n1ML2pcTlEiTBVS2ylCobbiDUJAMaO3ELY0TCWzs3TrxcN8V8FoKgyui+ZytbYeZg==
+X-Received: by 2002:ac2:5d52:: with SMTP id w18mr4990192lfd.598.1634634059488; 
+ Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
+Received: from kozik-lap.lan (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
+ by smtp.gmail.com with ESMTPSA id
+ k18sm86727lfg.301.2021.10.19.02.00.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 19 Oct 2021 02:00:59 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [RESEND PATCH v2 1/5] riscv: dts: sifive: use only generic JEDEC
+ SPI NOR flash compatible
+Date: Tue, 19 Oct 2021 11:00:52 +0200
+Message-Id: <163463404795.23115.14748573491973282125.b4-ty@canonical.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
+References: <20210920130248.145058-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211019_010429_170680_C6494D44 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20211019_020103_392853_80D5B8F9 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +110,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jon,
+On Mon, 20 Sep 2021 15:02:44 +0200, Krzysztof Kozlowski wrote:
+> The compatible "issi,is25wp256" is undocumented and instead only a
+> generic jedec,spi-nor should be used (if appropriate).
+> 
+> 
 
-This series is against today's next (next-20211019) and addresses missing
-links to Documentation/*.
+Applied, thanks!
 
-The best would be to have the patches applied directly to the trees that
-contain the patches that moved/renamed files, and then apply the
-remaining ones either later during the merge window or just afterwards,
-whatever works best for you.
+[1/5] riscv: dts: sifive: use only generic JEDEC SPI NOR flash compatible
+      commit: 8ce936c2f1a68c3a4f46578eed016ff92a67fbc6
+[2/5] riscv: dts: sifive: fix Unleashed board compatible
+      commit: 65b2979d52ebf96ed8261d82d84c62acf737548d
+[3/5] riscv: dts: sifive: drop duplicated nodes and properties in sifive
+      commit: 20ce65bf89aab248886b80d1e7fa12277b2a0f2d
+[4/5] riscv: dts: microchip: add missing compatibles for clint and plic
+      commit: 73d3c44115514616ee9c4f356bb86d4426d0fc36
+[5/5] riscv: dts: sifive: add missing compatible for plic
+      commit: 9962a066f3c1d4588d0dd876ceac2c03ef87acf3
 
-Regards,
-Mauro
-
-Mauro Carvalho Chehab (23):
-  visorbus: fix a copyright symbol that was bad encoded
-  libbpf: update index.rst reference
-  docs: accounting: update delay-accounting.rst reference
-  MAINTAINERS: update arm,vic.yaml reference
-  MAINTAINERS: update aspeed,i2c.yaml reference
-  MAINTAINERS: update faraday,ftrtc010.yaml reference
-  MAINTAINERS: update ti,sci.yaml reference
-  MAINTAINERS: update intel,ixp46x-rng.yaml reference
-  MAINTAINERS: update nxp,imx8-jpeg.yaml reference
-  MAINTAINERS: update gemini.yaml reference
-  MAINTAINERS: update brcm,unimac-mdio.yaml reference
-  MAINTAINERS: update mtd-physmap.yaml reference
-  Documentation: update vcpu-requests.rst reference
-  bpftool: update bpftool-cgroup.rst reference
-  docs: translations: zn_CN: irq-affinity.rst: add a missing extension
-  docs: translations: zh_CN: memory-hotplug.rst: fix a typo
-  docs: fs: locks.rst: update comment about mandatory file locking
-  fs: remove a comment pointing to the removed mandatory-locking file
-  Documentation/process: fix a cross reference
-  dt-bindings: mfd: update x-powers,axp152.yaml reference
-  regulator: dt-bindings: update samsung,s2mpa01.yaml reference
-  regulator: dt-bindings: update samsung,s5m8767.yaml reference
-  dt-bindings: reserved-memory: ramoops: update ramoops.yaml references
-
- Documentation/admin-guide/ramoops.rst         |  2 +-
- Documentation/admin-guide/sysctl/kernel.rst   |  2 +-
- Documentation/bpf/index.rst                   |  2 +-
- .../devicetree/bindings/gpio/gpio-axp209.txt  |  2 +-
- .../bindings/regulator/samsung,s2mpa01.yaml   |  2 +-
- .../bindings/regulator/samsung,s5m8767.yaml   |  2 +-
- Documentation/filesystems/locks.rst           | 17 +++++-----------
- Documentation/process/submitting-patches.rst  |  4 ++--
- .../zh_CN/core-api/irq/irq-affinity.rst       |  2 +-
- .../zh_CN/core-api/memory-hotplug.rst         |  2 +-
- MAINTAINERS                                   | 20 +++++++++----------
- arch/riscv/kvm/vcpu.c                         |  2 +-
- drivers/visorbus/visorbus_main.c              |  2 +-
- fs/locks.c                                    |  1 -
- .../selftests/bpf/test_bpftool_synctypes.py   |  2 +-
- 15 files changed, 28 insertions(+), 36 deletions(-)
-
+Best regards,
 -- 
-2.31.1
-
-
+Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
 _______________________________________________
 linux-riscv mailing list
