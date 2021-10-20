@@ -2,15 +2,15 @@ Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1879AC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 01:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AFB9FC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 08:11:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA78E6112D
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 01:56:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CA78E6112D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6449061038
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 08:11:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6449061038
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,73 +18,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ye4zu2HTBf2xbECMDr7G0DZqf9+d2TVrsmgyuWLE+mo=; b=UdGIRgZDIDBo5N
-	f2cTiiI0fMpavlc8Ka4r4C2LfRug3vtIhMWS85XQO3weQpzaOqWQQJmZNWYGlum374BtR1+/Vi0vj
-	Mx4HHmOXU2xezJpFOJtyPO/uutbX0H3yqzAA6qhgk0kyVDqy1lsK74v0UqPjhS5W0ijx3GwPA5vLV
-	nTfSDMYx9DslD3T5zMfYQviCTj7JToyZy73M9qILE+b7odsGjlvbI297eVwEuMRyJNFMJnj7anj9q
-	56mWK8kFm48SDifEPC5gl4WkXh8pM5aV8W6uzhi4nCzfm3JgG0VDItr+TuslLA2I9YGWds2kAGiqy
-	RXkovgXXoo0I6y8Sldgw==;
+	List-Owner; bh=UbIRvaJrQOJUNtYYRUOrk/6ZUz8nbhx6KCAOjkNg3kg=; b=idhqQCSHu62dsP
+	gfRCruZqgw0XFYt09TQ/nZKk20kT2fBYDBIqgyyzxcz7s96ob63bDv8pvUa/OMt/iny0cBmKsCuRF
+	Elae17b9UUI3dr9fsig9229PDxhRVG0ZrNHMxZjqOLpccXFjHm4UFoMuxp9/TXKmX2l6X0NhOIoTX
+	qxuuHuqeklcV9+ZGFFzFe/B6yUFrWqtTRjxTi7nktNyLdcYd1O1yEYYYax0Xpqo4kXHl6l4AMMnXP
+	pFSiVb9Ogy7nv9U2WZPmvFxjPmDJ/VlkqvYBogUTx0XxUtmmgVPXJrb1VIakNfhnpNNfkt7gPWua+
+	WeJpRD19VmLDVDWZLAxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1md0qQ-0039wS-Al; Wed, 20 Oct 2021 01:56:42 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1md6hB-003nYc-Hh; Wed, 20 Oct 2021 08:11:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1md0qN-0039vT-Ls
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 01:56:41 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id o184so10699818iof.6
- for <linux-riscv@lists.infradead.org>; Tue, 19 Oct 2021 18:56:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=DFVDY1TJPfx7Pv2rJU4HCu/PwzjdV9E9KpImILjaAsk=;
- b=NUcLe5roZ29vnvGWcS+csTcdd3v6W8cSjAFujWc8dr4t1VqRmtvSmPRpV8mWXKdued
- tXexRLFSyJ51ctf76vfQ41AAymfkz7iT1AVmSrAonT2b2xqtN+q7qFVxEdwTDPGyE/QK
- xtAsa2N8Co0Xs9WUYEYXm80WFhq7exVuUvorFmWYYISBWRaSrh8CtlA+jVSSoZ8xwVql
- WltprzlDWEtoy/Ci1nCvndvwENwo6eYCUJn5GWICtiEcNDFttXzc07B7r7m4DTrIz6ni
- Q+PxbAiccUIdApujy66OZcfc0zvRPVwQO9G3ayAwTEJgAxaUbyjHcHRrrOeobnzh/YaP
- o8wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=DFVDY1TJPfx7Pv2rJU4HCu/PwzjdV9E9KpImILjaAsk=;
- b=s9ey54pA3TvESmuuORSZMM8Jfa5Ei4dimZLAf/crF4BSVkHsYMj/W+XvxnkfEd5x5r
- 2Rmoic7urG6qe8lFUCuprPI52IJCtR1iXn0V43oGRkB5xYNn4OrWupa93xpGHbJNlCZc
- L6YlB2REUsV9khj4zrfENLl5ip7CXRFLJycEa10eNddF1CqQim/hpIBMyLJt+PPXHnlv
- SpeF/pNddteGHSyFGhv1K2CWEALcOi1txICoPKav7r4l5DWm0M1gh9OFRYlTEI4apfIq
- wXMit3PJ7W1V+LaqK4iAI5yoW+E1CXmmfr9Nbai6UMTvdh5XFhVZBNxo7TK96aca1GbL
- 5zNQ==
-X-Gm-Message-State: AOAM530MPMreprLYH5fdluIJFFt8kQ725yedSEFdoIKO4VljswPOpTvb
- 5r/Feaf4XgVQIlyQdU5yYlSXSeIIPd75ihVwYyYGTLmnR63j5w==
-X-Google-Smtp-Source: ABdhPJwDNbtfj+34pBOJjmx8T8tmETtM9BhtTtPAPHE6GTvRprbadPwkvaoiHNh3AW9RvFjv0nA4rZLRKD2BUN7a3PY=
-X-Received: by 2002:a05:6638:1192:: with SMTP id
- f18mr6661747jas.114.1634694998856; 
- Tue, 19 Oct 2021 18:56:38 -0700 (PDT)
+ id 1md6h7-003nWj-Ir
+ for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 08:11:31 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 361366137D
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 08:11:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1634717489;
+ bh=/CVuPeGBYIKXlMWeIhGMRmFXv6djbpm3+ic5B12qPVw=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=QbjuweUzIbqya8o3XO8Zp5GdVPWUChpijTpjjamPEIkSGeACtlGCVVg4mhyFFg0wk
+ ewbgmlAaCH5LyYOxXi8KGl/hAwEWtfyKxczd9YA1sG38oMlt/c9lDFIiTtUKjDEzpf
+ yNsln9lgXeiS+9pV5O61JSceZ+xL+E4Lb9bHtKsBFcxvJLMe36L9M7EtlAyuCdLsFM
+ FJ57BRi7flblZtxJvbspgGDNkTotbJCLHE2kZWN3dClnFouL1FQkBJC8lg9TruiYn5
+ 5v8HKUkP0PxyvkBUgfMHl734ixc2QunW1ckkOOwYpyVnF6BBypMNax+fU9PbSK592h
+ gUPyb0S/nSMag==
+Received: by mail-vk1-f174.google.com with SMTP id x207so11671900vke.2
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 01:11:29 -0700 (PDT)
+X-Gm-Message-State: AOAM5330sfJWcZ65t9gkkSvBkK3ifkRZFOdt5bZEf+bqKBhq2M2obB7V
+ m+ZLGcsY7VXIEmngXadS6wL9/d/Pf5RhSk6/84U=
+X-Google-Smtp-Source: ABdhPJwwCpxgCr5hHvCeD3/4+sgEaEnEWeOS5DNtuUoDPLxaY/gNrcOiXmPbtdFmbkWdHjVidPluyRwvYcn1frs3iOU=
+X-Received: by 2002:a1f:2a4c:: with SMTP id q73mr37339239vkq.8.1634717488094; 
+ Wed, 20 Oct 2021 01:11:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211015005634.2658470-1-alistair.francis@opensource.wdc.com>
- <YW74wK03ibOS3jVZ@kernel.org>
- <CAKmqyKP6AU-9tcYOp-ERvYFP7t6DMp4kbQgDmJxD6wb0WTUy+w@mail.gmail.com>
- <0d55b0a0-dd8c-0494-a200-7acb1976e32a@collabora.com>
-In-Reply-To: <0d55b0a0-dd8c-0494-a200-7acb1976e32a@collabora.com>
-From: Alistair Francis <alistair23@gmail.com>
-Date: Wed, 20 Oct 2021 11:56:12 +1000
-Message-ID: <CAKmqyKNZAkxO_QQ2oTYp1JK0q0GxZ1iQdsmKW==mkOHbacPE1g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] perf bench futex: Use a 64-bit time_t
-To: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@collabora.com>
-Cc: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>, 
- Alistair Francis <alistair.francis@opensource.wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-perf-users@vger.kernel.org,
+References: <1622970249-50770-1-git-send-email-guoren@kernel.org>
+ <1622970249-50770-11-git-send-email-guoren@kernel.org>
+ <e926ec8a-e993-da89-3c8b-0c59272f1751@gmail.com>
+In-Reply-To: <e926ec8a-e993-da89-3c8b-0c59272f1751@gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 20 Oct 2021 16:11:17 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ4gD=8H-ML3Pkk4qTn8UGEr62e1b9+bjpe4=sZOmiPXA@mail.gmail.com>
+Message-ID: <CAJF2gTQ4gD=8H-ML3Pkk4qTn8UGEr62e1b9+bjpe4=sZOmiPXA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 07/11] riscv: cmo: Add dma-noncoherency support
+To: twd2 <twd2.me@gmail.com>
+Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
+ Maxime Ripard <maxime@cerno.tech>, 
+ Drew Fustini <drew@beagleboard.org>, liush <liush@allwinnertech.com>, 
+ =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, wefu@redhat.com, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Mark Rutland <mark.rutland@arm.com>, Davidlohr Bueso <dave@stgolabs.net>, 
- Darren Hart <dvhart@infradead.org>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
- Atish Patra <atish.patra@wdc.com>, 
- Arnd Bergmann <arnd@arndb.de>, Alistair Francis <alistair.francis@wdc.com>
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-sunxi@lists.linux.dev, Guo Ren <guoren@linux.alibaba.com>, 
+ Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211019_185639_735226_8E40E9D0 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20211020_011129_707876_05C53E22 
+X-CRM114-Status: GOOD (  39.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +85,289 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBPY3QgMjAsIDIwMjEgYXQgMTA6MDEgQU0gQW5kcsOpIEFsbWVpZGEKPGFuZHJlYWxt
-ZWlkQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+Cj4gw4BzIDIwOjE3IGRlIDE5LzEwLzIxLCBBbGlz
-dGFpciBGcmFuY2lzIGVzY3JldmV1Ogo+ID4gT24gV2VkLCBPY3QgMjAsIDIwMjEgYXQgMjo1NiBB
-TSBBcm5hbGRvIENhcnZhbGhvIGRlIE1lbG8KPiA+IDxhcm5hbGRvLm1lbG9AZ21haWwuY29tPiB3
-cm90ZToKPiA+Pgo+ID4+IEVtIEZyaSwgT2N0IDE1LCAyMDIxIGF0IDEwOjU2OjMzQU0gKzEwMDAs
-IEFsaXN0YWlyIEZyYW5jaXMgZXNjcmV2ZXU6Cj4gPj4+IEZyb206IEFsaXN0YWlyIEZyYW5jaXMg
-PGFsaXN0YWlyLmZyYW5jaXNAd2RjLmNvbT4KPiA+Pj4KPiA+Pj4gQ29udmVydCB0b29scy9wZXJm
-IHRvIG9ubHkgdXNlIGEgNjQtYml0IHRpbWVfdC4gT24gNjQtYml0IGFyY2hpdGVjdHVyZXMKPiA+
-Pj4gdGhpcyBpc24ndCBhIGZ1bmN0aW9uYWwgY2hhbmdlLiBPbiAzMi1iaXQgYXJjaGl0ZWN0dXJl
-cyB3ZSBub3cgb25seQo+ID4+PiBwZXJmb3JtIDY0LWJpdCB0aW1lX3Qgc3lzY2FsbHMgKF9fTlJf
-ZnV0ZXhfdGltZTY0KSBhbmQgdXNlIGEgc3RydWN0Cj4gPj4+IHRpbWVzcGVjNjQuCj4gPj4+Cj4g
-Pj4+IFRoaXMgd29uJ3Qgd29yayBvbiBrZXJuZWxzIGJlZm9yZSA1LjEsIGJ1dCBhcyBwZXJmIGlz
-IHRpZWQgdG8gdGhlIGtlcm5lbAo+ID4+PiB0aGF0J3Mgb2suCj4gPj4KPiA+PiBObywgcGVyZiBp
-cyBub3QgdGllZCB0byB0aGUga2VybmVsLCBvbmUgY2FuIHVzZSBhIG5ldyBwZXJmIHRvb2wgb24g
-YW55Cj4gPj4gcHJldmlvdXMga2VybmVsLCBhbmQgYW4gb2xkIHBlcmYgdG9vbCBzaG91bGQgd29y
-ayBvbiBuZXcga2VybmVscyBhcwo+ID4+IHdlbGwuCj4gPgo+ID4gKyBBbmRyw6ksIEkgd29uJ3Qg
-YmUgZG9pbmcgdGhpcyB0aGUgd2F5IHlvdSByZXF1ZXN0ZWQKPiA+Cj4KPiBPaywgdGhhbmtzIGFu
-eXdheSBmb3IgeW91ciB3b3JrIGFuZCBzb3JyeSBmb3IgdGhlIHRyb3VibGUgOikKCk5vIHdvcnJp
-ZXMhCgpBbGlzdGFpcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Sun, Oct 17, 2021 at 5:28 PM twd2 <twd2.me@gmail.com> wrote:
+>
+>
+> On 2021/6/6 17:04, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > To support DMA device in a non-coherent interconnect SOC system,
+> > we need the below facilities:
+> >  - Changing a virtual memory mapping region attributes from
+> >    cacheable to noncache + strong order which used in DMA
+> >    descriptors.
+> >  - Add noncache + weakorder virtual memory attributes for dma
+> >    mapping.
+> >  - Syncing the cache with memory before DMA start and after DMA
+> >    end with vendor custom CMO instructions.
+> >
+> > This patch enables linux kernel generic dma-noncoherency
+> > infrastructure and introduces new sbi_ecall API for dma_sync.
+> >
+> > @@ -27,6 +27,7 @@ enum sbi_ext_id {
+> > +       SBI_EXT_DMA = 0xAB150401,
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
+> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Cc: Christoph Hellwig <hch@lst.de>
+> > Cc: Anup Patel <anup.patel@wdc.com>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Drew Fustini <drew@beagleboard.org>
+> > Cc: Wei Fu <wefu@redhat.com>
+> > Cc: Wei Wu <lazyparser@gmail.com>
+> > Cc: Chen-Yu Tsai <wens@csie.org>
+> > Cc: Maxime Ripard <maxime@cerno.tech>
+> > ---
+> >  arch/riscv/Kconfig               |  5 ++++
+> >  arch/riscv/include/asm/pgtable.h | 26 ++++++++++++++++++++
+> >  arch/riscv/include/asm/sbi.h     | 15 ++++++++++++
+> >  arch/riscv/kernel/sbi.c          | 19 ++++++++++++++
+> >  arch/riscv/mm/Makefile           |  1 +
+> >  arch/riscv/mm/dma-mapping.c      | 53 ++++++++++++++++++++++++++++++++++++++++
+> >  6 files changed, 119 insertions(+)
+> >  create mode 100644 arch/riscv/mm/dma-mapping.c
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 05c4976..817a9bb 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -20,6 +20,10 @@ config RISCV
+> >       select ARCH_HAS_DEBUG_VM_PGTABLE
+> >       select ARCH_HAS_DEBUG_VIRTUAL if MMU
+> >       select ARCH_HAS_DEBUG_WX
+> > +     select ARCH_HAS_DMA_PREP_COHERENT
+> > +     select ARCH_HAS_SYNC_DMA_FOR_CPU
+> > +     select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+> > +     select ARCH_HAS_DMA_WRITE_COMBINE
+> >       select ARCH_HAS_FORTIFY_SOURCE
+> >       select ARCH_HAS_GCOV_PROFILE_ALL
+> >       select ARCH_HAS_GIGANTIC_PAGE
+> > @@ -43,6 +47,7 @@ config RISCV
+> >       select CLONE_BACKWARDS
+> >       select CLINT_TIMER if !MMU
+> >       select COMMON_CLK
+> > +     select DMA_DIRECT_REMAP
+> >       select EDAC_SUPPORT
+> >       select GENERIC_ARCH_TOPOLOGY if SMP
+> >       select GENERIC_ATOMIC64 if !64BIT
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 6ddeb49..e1a82b6 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -462,6 +462,32 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+> >       return ptep_test_and_clear_young(vma, address, ptep);
+> >  }
+> >
+> > +#define pgprot_noncached pgprot_noncached
+> > +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
+> > +{
+> > +     unsigned long prot = pgprot_val(_prot);
+> > +
+> > +     prot &= ~_PAGE_DMA_MASK;
+> > +     prot |= _PAGE_DMA_IO;
+> > +
+> > +     return __pgprot(prot);
+> > +}
+> > +
+> > +#define pgprot_writecombine pgprot_writecombine
+> > +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
+> > +{
+> > +     unsigned long prot = pgprot_val(_prot);
+> > +
+> > +     prot &= ~_PAGE_DMA_MASK;
+> > +     prot |= _PAGE_DMA_WC;
+> > +
+> > +     return __pgprot(prot);
+> > +}
+> > +
+> > +#define __HAVE_PHYS_MEM_ACCESS_PROT
+> > +extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
+> > +                                  unsigned long size, pgprot_t vma_prot);
+> > +
+> >  /*
+> >   * Encode and decode a swap entry
+> >   *
+> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> > index 0d42693..133e88a 100644
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@ -27,6 +27,7 @@ enum sbi_ext_id {
+> >       SBI_EXT_IPI = 0x735049,
+> >       SBI_EXT_RFENCE = 0x52464E43,
+> >       SBI_EXT_HSM = 0x48534D,
+> > +     SBI_EXT_DMA = 0xAB150401,
+> >  };
+> >
+> >  enum sbi_ext_base_fid {
+> > @@ -63,6 +64,17 @@ enum sbi_ext_hsm_fid {
+> >       SBI_EXT_HSM_HART_STATUS,
+> >  };
+> >
+> > +enum sbi_ext_dma_fid {
+> > +     SBI_DMA_SYNC = 0,
+> > +};
+> > +
+> > +enum sbi_dma_sync_data_direction {
+> > +     SBI_DMA_BIDIRECTIONAL = 0,
+> > +     SBI_DMA_TO_DEVICE = 1,
+> > +     SBI_DMA_FROM_DEVICE = 2,
+> > +     SBI_DMA_NONE = 3,
+> > +};
+> > +
+> >  enum sbi_hsm_hart_status {
+> >       SBI_HSM_HART_STATUS_STARTED = 0,
+> >       SBI_HSM_HART_STATUS_STOPPED,
+> > @@ -128,6 +140,9 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
+> >                               unsigned long size,
+> >                               unsigned long asid);
+> >  int sbi_probe_extension(int ext);
+> > +void sbi_dma_sync(unsigned long start,
+> > +               unsigned long size,
+> > +               enum sbi_dma_sync_data_direction dir);
+> >
+> >  /* Check if current SBI specification version is 0.1 or not */
+> >  static inline int sbi_spec_is_0_1(void)
+> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > index 7402a41..c936019 100644
+> > --- a/arch/riscv/kernel/sbi.c
+> > +++ b/arch/riscv/kernel/sbi.c
+> > @@ -521,6 +521,25 @@ int sbi_probe_extension(int extid)
+> >  }
+> >  EXPORT_SYMBOL(sbi_probe_extension);
+> >
+> > +void sbi_dma_sync(unsigned long start,
+> > +               unsigned long size,
+> > +               enum sbi_dma_sync_data_direction dir)
+> > +{
+> > +#if 0
+> > +     sbi_ecall(SBI_EXT_DMA, SBI_DMA_SYNC, start, size, dir,
+> > +               0, 0, 0);
+> > +#else
+> > +     /* Just for try, it should be in sbi ecall and will be removed before merged */
+> > +     register unsigned long i asm("a0") = start & ~(L1_CACHE_BYTES - 1);
+> > +
+> > +     for (; i < ALIGN(start + size, L1_CACHE_BYTES); i += L1_CACHE_BYTES)
+> > +             __asm__ __volatile__(".long 0x02b5000b");
+> > +
+>
+>
+> Hi, I'm trying to use this patch for my D1 board.
+>
+> Though the above code will be removed, I notice that the use of the inline assembly is wrong and `i` (i.e. `a0`) might not be correctly passed to the assembly code when we are using some other compilers.
+>
+>
+> It should be `__asm__ __volatile__(".long 0x02b5000b" : : "r"(i))`.
+Yes, I should keep "r"(I).
+
+Thx
+
+>
+>
+> Thanks,
+> Wende
+>
+>
+> > +     __asm__ __volatile__(".long 0x01b0000b");
+> > +#endif
+> > +}
+> > +EXPORT_SYMBOL(sbi_dma_sync);
+> > +
+> >  static long __sbi_base_ecall(int fid)
+> >  {
+> >       struct sbiret ret;
+> > diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> > index 7ebaef1..ca0ff90 100644
+> > --- a/arch/riscv/mm/Makefile
+> > +++ b/arch/riscv/mm/Makefile
+> > @@ -13,6 +13,7 @@ obj-y += extable.o
+> >  obj-$(CONFIG_MMU) += fault.o pageattr.o
+> >  obj-y += cacheflush.o
+> >  obj-y += context.o
+> > +obj-y += dma-mapping.o
+> >
+> >  ifeq ($(CONFIG_MMU),y)
+> >  obj-$(CONFIG_SMP) += tlbflush.o
+> > diff --git a/arch/riscv/mm/dma-mapping.c b/arch/riscv/mm/dma-mapping.c
+> > new file mode 100644
+> > index 00000000..4afd9dc
+> > --- /dev/null
+> > +++ b/arch/riscv/mm/dma-mapping.c
+> > @@ -0,0 +1,53 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +
+> > +#include <linux/dma-map-ops.h>
+> > +#include <asm/sbi.h>
+> > +
+> > +void arch_dma_prep_coherent(struct page *page, size_t size)
+> > +{
+> > +     void *ptr = page_address(page);
+> > +
+> > +     memset(ptr, 0, size);
+> > +     sbi_dma_sync(page_to_phys(page), size, SBI_DMA_BIDIRECTIONAL);
+> > +}
+> > +
+> > +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> > +             enum dma_data_direction dir)
+> > +{
+> > +     switch (dir) {
+> > +     case DMA_TO_DEVICE:
+> > +     case DMA_FROM_DEVICE:
+> > +     case DMA_BIDIRECTIONAL:
+> > +             sbi_dma_sync(paddr, size, dir);
+> > +             break;
+> > +     default:
+> > +             BUG();
+> > +     }
+> > +}
+> > +
+> > +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+> > +             enum dma_data_direction dir)
+> > +{
+> > +     switch (dir) {
+> > +     case DMA_TO_DEVICE:
+> > +             return;
+> > +     case DMA_FROM_DEVICE:
+> > +     case DMA_BIDIRECTIONAL:
+> > +             sbi_dma_sync(paddr, size, dir);
+> > +             break;
+> > +     default:
+> > +             BUG();
+> > +     }
+> > +}
+> > +
+> > +pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
+> > +                           unsigned long size, pgprot_t vma_prot)
+> > +{
+> > +     if (!pfn_valid(pfn))
+> > +             return pgprot_noncached(vma_prot);
+> > +     else if (file->f_flags & O_SYNC)
+> > +             return pgprot_writecombine(vma_prot);
+> > +
+> > +     return vma_prot;
+> > +}
+> > +EXPORT_SYMBOL(phys_mem_access_prot);
+>
+> --
+> Best wishes!
+> Sincerely,
+> twd2
+> https://twd2.me
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
