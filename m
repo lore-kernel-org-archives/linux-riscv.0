@@ -2,47 +2,47 @@ Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00554C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DEFE7C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:13:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC7C060EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC7C060EE9
+	by mail.kernel.org (Postfix) with ESMTPS id A3FA961004
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:13:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A3FA961004
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TmjOJRj731RamDVPpw2OvZlJCXFByOAqdgQqZVJbADw=; b=UJRitxHu6CtkXk
-	CQ2bvMGSNXTmYWAtMGGW3EC4hWdvNJJ1x+eJyjq99vLEVHGvzMsuIyIXhTKHosbhl+UgYF6eevHeg
-	ABNGKUtnx4V+0yAfvXD0M/zu/npMdb0syGfwWpfsS5RUCbvQK6PmSmrEc25slnSZr8B6eQu0yGHLt
-	P3jbn821RLIkwEGNX3d5EYj74DVb/cQ02xXF4QqlZ/c8gJ7QHpPzw759IaKXRM/Hrvun21aFb5uuG
-	njBiOE6+SJT4jekKzORmtUzd2IvJdSpAVjr24cNVDGDkRbbHWQNrSS37T6cdOy1EY3A2/mNa6hjOX
-	1fk1QiNGARWuBzOVaqMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xIGhqF3vI1sZ5yJ/LD/OJIHGiUANw2c6csJfZxWcAVU=; b=DQlEpa+dkSG4wv
+	OwNDWUsMaaPSXW7JCYpXP1N92Jyo7Yjmc5eeN4qoWeBpKiscMv8VcGZ5Aq85kYtUPRevZYfOPVEI9
+	eCNM1U/Ja/XyHF0iDjGjGig+k99RYD1yPyfsHrxFr04LrNkSO96wKB6yCaumilCYR13cO6+m21VKr
+	cbAv1qsFq1tcetzZYYOT5oCHHqc3RqEEi8DSOUnRYeTpNWi52+8Q2G8afSeaLUdPxllFVPsec3qhU
+	z/e0Mkax9BXk87ytlRSKZ/jDMiOv8AZQcU+ZDjE/nvb7t7hBE8bUAcrFAblms5GtzYqBH/QB5Cs23
+	NDcQLz0wQpmbsa/Ic1UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdCKL-004irL-Lh; Wed, 20 Oct 2021 14:12:21 +0000
+	id 1mdCL1-004izY-Ai; Wed, 20 Oct 2021 14:13:03 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdCKI-004iqo-St
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:12:20 +0000
+ id 1mdCKx-004iyl-Cz
+ for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:13:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
- Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
- bh=ho8quJyvUf9mH96/2UjA8Jifq8y8+C3wTRl9JpKWzIY=; b=T7nP43FyT5WYf
- BY0Wj3cqnWTyiD7XhA2sr2t3vN2oouuyd5y8Wba4/rgJ+scoeFjBtMMVEqupY3Wz
- 066MnCjM9bbQ2qklpaqW+B9atntbLHvx6RxlY7ktvWb0NL3JbotANi8Fqe1J0Vuy
- FEgLy7NV84yRpNPBRMbRqw1xBw85kQ=
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=5SGZL6ZJsdcdBDMEDIg6ZtxyfQLf5sovyU
+ i5cLJFmEs=; b=JjaYMkjxxA0MFljsOVrxGF6NZQj66o5pbr+ReVzvoAtAD1f7OD
+ pcrfstU7gxsngbRWdZYUuDveGE9A04HS4IdwNJdgaZ/G5kIfa67pD59nXflhtJXy
+ KuMSKIAFNU4XM282R0IY55D1EY7FRrzQJxw4JFeJ7wf6+6JnzOt9sgI0Q=
 Received: from xhacker (unknown [101.86.20.138])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygDn71u+I3BhHYdUAA--.36286S2; 
- Wed, 20 Oct 2021 22:12:15 +0800 (CST)
-Date: Wed, 20 Oct 2021 22:05:29 +0800
+ LkAmygC3fsznI3Bh5odUAA--.36190S2; 
+ Wed, 20 Oct 2021 22:12:55 +0800 (CST)
+Date: Wed, 20 Oct 2021 22:06:10 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt 
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada 
@@ -50,29 +50,31 @@ To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  Desaulniers <ndesaulniers@google.com>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kbuild@vger.kernel.org
-Subject: [PATCH v2 0/2] riscv: switch to relative extable
-Message-ID: <20211020220529.54ccf4e9@xhacker>
+Subject: [PATCH v2 1/2] riscv: consolidate __ex_table construction
+Message-ID: <20211020220610.25443e4c@xhacker>
+In-Reply-To: <20211020220529.54ccf4e9@xhacker>
+References: <20211020220529.54ccf4e9@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygDn71u+I3BhHYdUAA--.36286S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFyDXryDGry7Cr18urW8tFb_yoWDurX_ua
- 4IvFy8W3yxXa1fAF9rJrn5JrW0krW8tryDJF45tr47KrZrCr4DKryqqF4xZw18ZF45XF4f
- GrZ7Xr48tr17tjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUbrAYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
- A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
- w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMc
- vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
- s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
- 1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
- JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6F
- yj6rWUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4U
- JbIYCTnIWIevJa73UjIFyTuYvjxUz_MaUUUUU
+X-CM-TRANSID: LkAmygC3fsznI3Bh5odUAA--.36190S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxury3tF4DZw4ktw15CFyUJrb_yoWrXw43pw
+ srKrZ7KrW5KF18CFn7tFs7uF4vg3WDGwnIk3sxWryvgr4DA3WvyFsYkas7X3ykJa13ZF1x
+ Cw18Krn3Jrs29rUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyYb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l42xK82IYc2Ij64vIr41l4I8I3I0E
+ 4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
+ WUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
+ Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rV
+ W8JVW3JwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4U
+ JbIYCTnIWIevJa73UjIFyTuYvjxU7iSdDUUUU
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211020_071219_403031_EACC93B5 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20211020_071259_906477_DBA9BAE4 
+X-CRM114-Status: UNSURE (   7.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,33 +94,140 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Similar as other architectures such as arm64, x86 and so on, use
-offsets relative to the exception table entry values rather than
-absolute addresses for both the exception locationand the fixup.
+Consolidate all the __ex_table constuction code with a _ASM_EXTABLE
+helper.
 
-patch1 consolidates the __ex_table construction, it's a great code
-clean up even w/o the 2nd patch.
+There should be no functional change as a result of this patch.
 
-patch2 does the real job.
-
-Since v1:
-  - fix build error for NOMMU case, thank lkp@intel.com
-
-Jisheng Zhang (2):
-  riscv: consolidate __ex_table construction
-  riscv: switch to relative exception tables
-
- arch/riscv/include/asm/Kbuild    |  1 -
- arch/riscv/include/asm/extable.h | 25 ++++++++++++++++++++
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
  arch/riscv/include/asm/futex.h   | 12 +++-------
  arch/riscv/include/asm/uaccess.h | 40 +++++++++++---------------------
- arch/riscv/lib/uaccess.S         |  4 ++--
- arch/riscv/mm/extable.c          |  2 +-
- scripts/mod/modpost.c            | 27 +++++++++++++++++++++
- scripts/sorttable.c              |  2 +-
- 8 files changed, 73 insertions(+), 40 deletions(-)
- create mode 100644 arch/riscv/include/asm/extable.h
+ 2 files changed, 17 insertions(+), 35 deletions(-)
 
+diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+index 1b00badb9f87..3191574e135c 100644
+--- a/arch/riscv/include/asm/futex.h
++++ b/arch/riscv/include/asm/futex.h
+@@ -30,10 +30,7 @@
+ 	"3:	li %[r],%[e]				\n"	\
+ 	"	jump 2b,%[t]				\n"	\
+ 	"	.previous				\n"	\
+-	"	.section __ex_table,\"a\"		\n"	\
+-	"	.balign " RISCV_SZPTR "			\n"	\
+-	"	" RISCV_PTR " 1b, 3b			\n"	\
+-	"	.previous				\n"	\
++		_ASM_EXTABLE(1b, 3b)				\
+ 	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
+ 	  [u] "+m" (*uaddr), [t] "=&r" (tmp)			\
+ 	: [op] "Jr" (oparg), [e] "i" (-EFAULT)			\
+@@ -103,11 +100,8 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+ 	"4:	li %[r],%[e]				\n"
+ 	"	jump 3b,%[t]				\n"
+ 	"	.previous				\n"
+-	"	.section __ex_table,\"a\"		\n"
+-	"	.balign " RISCV_SZPTR "			\n"
+-	"	" RISCV_PTR " 1b, 4b			\n"
+-	"	" RISCV_PTR " 2b, 4b			\n"
+-	"	.previous				\n"
++		_ASM_EXTABLE(1b, 4b)			\
++		_ASM_EXTABLE(2b, 4b)			\
+ 	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
+ 	: [ov] "Jr" (oldval), [nv] "Jr" (newval), [e] "i" (-EFAULT)
+ 	: "memory");
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index f314ff44c48d..35802e72ace8 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -10,6 +10,12 @@
+ 
+ #include <asm/pgtable.h>		/* for TASK_SIZE */
+ 
++#define _ASM_EXTABLE(from, to)						\
++	"	.pushsection	__ex_table, \"a\"\n"			\
++	"	.balign "	RISCV_SZPTR "	 \n"			\
++	"	" RISCV_PTR	"(" #from "), (" #to ")\n"		\
++	"	.popsection\n"
++
+ /*
+  * User space memory access functions
+  */
+@@ -93,10 +99,7 @@ do {								\
+ 		"	li %1, 0\n"				\
+ 		"	jump 2b, %2\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 3b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 3b)			\
+ 		: "+r" (err), "=&r" (__x), "=r" (__tmp)		\
+ 		: "m" (*(ptr)), "i" (-EFAULT));			\
+ 	(x) = __x;						\
+@@ -125,11 +128,8 @@ do {								\
+ 		"	li %2, 0\n"				\
+ 		"	jump 3b, %3\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 4b\n"			\
+-		"	" RISCV_PTR " 2b, 4b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 4b)			\
++			_ASM_EXTABLE(2b, 4b)			\
+ 		: "+r" (err), "=&r" (__lo), "=r" (__hi),	\
+ 			"=r" (__tmp)				\
+ 		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),	\
+@@ -233,10 +233,7 @@ do {								\
+ 		"	li %0, %4\n"				\
+ 		"	jump 2b, %1\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 3b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 3b)			\
+ 		: "+r" (err), "=r" (__tmp), "=m" (*(ptr))	\
+ 		: "rJ" (__x), "i" (-EFAULT));			\
+ } while (0)
+@@ -262,11 +259,8 @@ do {								\
+ 		"	li %0, %6\n"				\
+ 		"	jump 3b, %1\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 4b\n"			\
+-		"	" RISCV_PTR " 2b, 4b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 4b)			\
++			_ASM_EXTABLE(2b, 4b)			\
+ 		: "+r" (err), "=r" (__tmp),			\
+ 			"=m" (__ptr[__LSW]),			\
+ 			"=m" (__ptr[__MSW])			\
+@@ -417,10 +411,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
+ 		"	li %[err], %[efault]\n"			\
+ 		"	jump 1b, %[rc]\n"			\
+ 		".previous\n"					\
+-		".section __ex_table,\"a\"\n"			\
+-		".balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 2b\n"			\
+-		".previous\n"					\
++		_ASM_EXTABLE(1b, 2b)				\
+ 			: [ret] "=&r" (__ret),			\
+ 			  [rc]  "=&r" (__rc),			\
+ 			  [ptr] "+A" (*__ptr),			\
+@@ -443,10 +434,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
+ 		"	li %[err], %[efault]\n"			\
+ 		"	jump 1b, %[rc]\n"			\
+ 		".previous\n"					\
+-		".section __ex_table,\"a\"\n"			\
+-		".balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 2b\n"			\
+-		".previous\n"					\
++		_ASM_EXTABLE(1b, 2b)				\
+ 			: [ret] "=&r" (__ret),			\
+ 			  [rc]  "=&r" (__rc),			\
+ 			  [ptr] "+A" (*__ptr),			\
 -- 
 2.33.0
 
