@@ -2,15 +2,15 @@ Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 343F9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58260C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:52:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E4839610E6
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:19:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E4839610E6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 13EA960F57
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:52:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 13EA960F57
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,38 +18,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o4O33PAW3KAapcCSt6lf0i1nX8cT91ItKliKw3BgYC0=; b=HfYgHCKtqbxo5H
-	JzbI8hL2BhqMDAPU1YVugmzUXhQlVZ6UNtOBzyanTQJIzPA3CtCJwnEnq9EC5w69FYqUK9nIrA2BN
-	pTxAVKn4jlvoEtxNGrp5SZMc5Sw/bhThWywk5VTFJx/3x2u98OX3kQxj1jmDdqdlZpasrazpCdhaJ
-	m82JulgDaTDD6jV+zxBoyqkqH95ebSGLvUBFKfMtdMi4odq9U67Z9ZQNGS7fZLX9PvxhM7h8iDiCA
-	vbtmvLfeHI2DRl3h0qu07H2owtJdzawvvUDATR0PiDaT5VMS0OCRi87h4D5PazfTXngTZ6gb2zXoP
-	hp/2KNW5+M5l9ozovrBA==;
+	List-Owner; bh=EBZNQNNbOSpzqB7EeH1FItQFLLPpT5XEAvuzB6ZYnt8=; b=lWBilnE4tyODJV
+	MoSiJMlaMlQWOTvPLR0C3dogU8Ushy3Rvqu1ApA2CnEx/wXt1dDQf3wRwD40HYIXNfPiaz18D9fcS
+	NLkqQ6aSz5IQ9c6KReiYmrhynrLRvxPmdMOEitkMm9NfyPCGYneI8jA/TGDGlWc+oXBBqjgAyJo0l
+	sVOLQ80yybtU2euCbrW6L5tbn9gwA1gbekp7fQRQaeNPQaS0eAt6SUfper5uML2h5L2yhfHjawGss
+	cjB7Yb0iHGjzbYKEOSuOjr9gxtP4JKvJztkEWrwgQ5U54AdrL+kETy+DMQjdL4T5nEJlHfTQz/Fy7
+	Wu9rJeBlB1Vp1SGUzcIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdCR8-004jYI-Jk; Wed, 20 Oct 2021 14:19:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mdCwe-004qOt-Jz; Wed, 20 Oct 2021 14:51:56 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdCR5-004jXh-1d
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:19:20 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 80D7561130
- for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 14:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634739558;
- bh=fmi+0bD2m3tiuIJS1w2in+x3YNM1wstFL0HPNrVRe8w=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=nM3r90b+dwpLL60m0jQscBK0+9Dy10kOWm8uy3/ZKXvif0JDmcnttvbMSqaGcQdLD
- 2pHlz2QbN3JzW7UNHBX4lhtaqgzf4U+qF4SQVX3zDuZ8+rVuUlWEqHDf9CPhyrNgBQ
- Xx0AId1V0cQVBKlDBQo3+/XzyWBC71teBm/ATWEkXVDIvs6Ll5RwJUtvSP/mxugprK
- 82HFFUsNi7APytpsZdVE8PQH20BU/jU8siZjU7+ozj15+Z6RWZNh7Se5vYoDj/HPzY
- ebPRveXrldpuKIXDineCR7swtCwqJSh7qhdme95Q+y+qweD8vRoWoZzrN099ojeNxO
- WucXNcR8pUNpQ==
-Received: by mail-ua1-f51.google.com with SMTP id f3so6902707uap.6
- for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 07:19:18 -0700 (PDT)
-X-Gm-Message-State: AOAM532n4nJNanx1sn/hCFdKUxGWbAIqOuXuCutT7YJbtFMynBOj039b
- u7+cKb8DMSqGClm5dlr0btfikwhW9TVaxZtJ+K0=
-X-Google-Smtp-Source: ABdhPJxZX28p4AF2/Hb9dreu2KHUeZrpaHIutQS8IPPcSp3vbwrlkYw+gqn6YZxqPEz2uCrP8JhM/gweaUQ8SVFl0Lc=
-X-Received: by 2002:ab0:5b59:: with SMTP id v25mr7354848uae.57.1634739556855; 
- Wed, 20 Oct 2021 07:19:16 -0700 (PDT)
+ id 1mdCfK-004mWo-OK
+ for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:34:04 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id
+ 67-20020a1c1946000000b0030d4c90fa87so10748381wmz.2
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 07:34:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=2cFhehtw2gzRQk7Qa6LrKMw4p/s424MMljllyART0OQ=;
+ b=AozxwGNX1yZicLViDzo3g9qk+ZLtZUTbsDbPza3yuLLX0exN8SQocXpMAs82x0J2Fj
+ ShRocDJEA4dvWf4HAr6z48A1cFOCacAAw5fAaIlnUSK4yzz2tkBKJmmM9b7VrNFkV+PL
+ lqGheu4GzqpDpXsz4JXS9FZexzPqvdbukqLcPf4+k/HhevODyvG6P70pGICcWnIRQozY
+ PolO+6ZnHvvvEBw6ADvUY///dRLh0dXNmoK3BX+xl4e7VSgS0U4mbrNq3d5BkCMxyCJD
+ flpOopZQDSR/xkCf3HoxX4DhyDvhfYEmU8ipxoq0pPanRXNzG+UdRbOHrBxxryfOhWBj
+ NzqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=2cFhehtw2gzRQk7Qa6LrKMw4p/s424MMljllyART0OQ=;
+ b=pRQHn1pPvGzEXnqNHpo0vY8f1HAc5UfJToL+NZK99FbCpSw5gcYNBMNglQB0ETf2Mq
+ 6Ax2bOmcxCtHB+YVaD+gTPg55m/hfQASeSl/xqP2KVf3KWMZtpzVPInGqEZabjrt9tsK
+ bGZ0ck4b1n5qs4XLtNaBV2ToTP1MQz4CjInFG58+PJjAYZGwqo+J2bHlAr81IP8H2ap2
+ nwnJ7wtM5kkzDxkrEngq96iCr7YkU3gipx+o8vSmZGLjP+r0EUtpYkIUwRuahGq7XulG
+ prSBFpnKgsYCn/9aMVQSvKaaKAHop/AHoLZUe9dmHaW0xU+qy70bWH/zbhvCC6hWdV3e
+ FdHQ==
+X-Gm-Message-State: AOAM532wWOoC2izlQ/GY/YIcvOX0Q3iygo5613FUT8C351Rg9cH6lisX
+ QP85Q9JTPzqHyB/Vctb++nax7eDfX/hXmeJbSotUHrRIMKZ8/w==
+X-Google-Smtp-Source: ABdhPJxOi8BJgXt9VNr5faBTIJ6D21SoWMk2EhW2bVdZhetIJAIWNF4EaEbsXB80didI86Wohcyh6UJsDvVe+okzzcU=
+X-Received: by 2002:adf:f60e:: with SMTP id t14mr68513wrp.199.1634740441250;
+ Wed, 20 Oct 2021 07:34:01 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211016032200.2869998-1-guoren@kernel.org>
  <20211016032200.2869998-2-guoren@kernel.org>
@@ -60,13 +70,12 @@ References: <20211016032200.2869998-1-guoren@kernel.org>
  <CAJF2gTSmyu9nA5M3QLeR1LdGMkeGb7jE93Z9zjixcpb_freLMw@mail.gmail.com>
  <875ytrddma.wl-maz@kernel.org>
 In-Reply-To: <875ytrddma.wl-maz@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 20 Oct 2021 22:19:06 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRfBxXnG57Y+9z0O+GfwgoB9POmb=HL=CMCpu=uwfYY3w@mail.gmail.com>
-Message-ID: <CAJF2gTRfBxXnG57Y+9z0O+GfwgoB9POmb=HL=CMCpu=uwfYY3w@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 20 Oct 2021 20:03:49 +0530
+Message-ID: <CAAhSdy0TwOjv_RDMRsKqcqTE8PSO_A_EttMGBiDbb-0PTRizZg@mail.gmail.com>
 Subject: Re: [PATCH V4 1/3] irqchip/sifive-plic: Add thead,c900-plic support
 To: Marc Zyngier <maz@kernel.org>
-Cc: Samuel Holland <samuel@sholland.org>, Anup Patel <anup@brainfault.org>, 
+Cc: Guo Ren <guoren@kernel.org>, Samuel Holland <samuel@sholland.org>, 
  Atish Patra <atish.patra@wdc.com>, Thomas Gleixner <tglx@linutronix.de>, 
  Palmer Dabbelt <palmer@dabbelt.com>,
  =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
@@ -75,8 +84,8 @@ Cc: Samuel Holland <samuel@sholland.org>, Anup Patel <anup@brainfault.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211020_071919_149513_268F46F0 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20211020_073402_831315_456F8AC9 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,7 +102,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 20, 2021 at 9:34 PM Marc Zyngier <maz@kernel.org> wrote:
+On Wed, Oct 20, 2021 at 7:04 PM Marc Zyngier <maz@kernel.org> wrote:
 >
 > On Tue, 19 Oct 2021 14:27:02 +0100,
 > Guo Ren <guoren@kernel.org> wrote:
@@ -124,31 +133,32 @@ On Wed, Oct 20, 2021 at 9:34 PM Marc Zyngier <maz@kernel.org> wrote:
 > can understand that one implementation would be broken, but if the
 > PLIC architecture itself is broken, that's far more concerning.
 
-Here is the description of Interrupt Completion in PLIC spec [1]:
+Yes, we are dealing with a broken/non-compliant PLIC
+implementation.
 
-The PLIC signals it has completed executing an interrupt handler by
-writing the interrupt ID it received from the claim to the claim/complete
-register. The PLIC does not check whether the completion ID is the same
-as the last claim ID for that target. If the completion ID does not match
-an interrupt source that is currently enabled for the target, the
-                                      ^^ ^^^^^^^^^ ^^^^^^^
-completion is silently ignored.
+The RISC-V PLIC spec defines a very different behaviour for the
+interrupt claim (i.e. readl(claim)) and interrupt completion (i.e.
+writel(claim)). The T-HEAD PLIC implementation does things
+different from what the RISC-V PLIC spec says because it will
+mask an interrupt upon interrupt claim whereas PLIC spec says
+it should only clear the interrupt pending bit (not mask the interrupt).
 
-[1] https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc
+Quoting interrupt claim process (chapter 9) from PLIC spec:
+"The PLIC can perform an interrupt claim by reading the claim/complete
+register, which returns the ID of the highest priority pending interrupt or
+zero if there is no pending interrupt. A successful claim will also atomically
+clear the corresponding pending bit on the interrupt source."
 
-Did we misunderstand the PLIC spec?
+Refer, https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc
+
+Regards,
+Anup
 
 >
 >         M.
 >
 > --
 > Without deviation from the norm, progress is not possible.
-
---
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
