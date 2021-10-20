@@ -2,88 +2,81 @@ Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70AE5C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B06C5C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:10:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2A8FB6138D
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:08:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2A8FB6138D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3D1FD6138D
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 14:10:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3D1FD6138D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6axvUJx8J8BAyX2JiOA5xfktsEU0wVubB7RPkTs3sI0=; b=G+11WGmrriP7dE
-	IOip9OfbEkf3PbVQUrAYkYI/hmx8rQJdKoK5zErF8PEdtzlOZa0JVxfrPl7cr86yGoCQGgnSyMLCz
-	v7CAwjMBIgyXWLJOSorHlaLJ3jnniirNNzwVj4xyPlRVYasSuc10b1Ls+lOBckFoyKaKEtwV1nLiO
-	h746V2hHMHOSWziq8JQhNuHRiaD7Ea2urhFi69SnwFAnTrhGtAFZ9HOaCvLm2fbrEvYn8HukUrtyx
-	ywpN6EhZ6lkDj4ah2Y+zrHFMnsTIwlExLos8wM0CVoIVQcOX93+CW24EaL9C3fewWaHwuJK44NMQX
-	O9e+woGIUJCl3OtXzJhg==;
+	List-Owner; bh=Lpmw/Z4IJ9FEtdZQY2g1V8hSUSOiUDk5ITfW5rp1hZE=; b=k2qhSsegal5ZQ1
+	DjJwq+CxhJbc8k1lrVhxHQoJqIGoUaj+OGblHwPP1zzBz8P5A/XkNE7n8/UrC6d4FVcPbXABdGMyF
+	8bT+Y6Dzumagsw3owu4mO093he1tCeA9XGwxLOJcdtlW17gbD6lzioyA0UeS0VMBvqA4K1eZC4aLe
+	pzkQiDa1QTpFj/IkWaKU/DEO8HKaUFfyCwRPyT48oyHXo9PtUPctPMl2TKaZF4eKChH1myJfs74rT
+	qWU9lSVhVS74nOgLglPG97vZQF7DIL/kX8Gix909/rx4kd/XpKDyZJBnE6D8x/tvVj9qETxVBDu4c
+	azehsgsKAG7bBzV/LsDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdCGG-004i8h-Dd; Wed, 20 Oct 2021 14:08:08 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdCGC-004i72-UV
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:08:06 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id g2so19312654wme.4
- for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 07:08:04 -0700 (PDT)
+	id 1mdCIf-004idD-7s; Wed, 20 Oct 2021 14:10:37 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mdCIa-004icE-OL
+ for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 14:10:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=9ew06yjwuliIkbH6lYJuA6F3w8EOg5w8OXaKOIf4p+0=;
- b=dYzD0fRH4jtNN6BDEwu4AtXap65tErzCKeK+JahsozMz+Gz7z/0dkg2kSDBnmkzWJo
- +h+pWoUMTgFG1ZGlHkVGiG1pU/ng0FLfAw3yDdlJr/QI9fSdnCTll9rOoypG9xGei06z
- RG5U2yJOlxmLEuxDBJv8rjqhlMXKuFatv4ci8G1QlIc8DbnOZTamYnOM0ct38gCn/gxq
- C1TrIUvlou7GSiBL+7T8lYCjdL1e0NNa1onNUKTKS4Sw/y7Ks+Qcgzx3XEZ4ZVPe3LRA
- bY55JyGrce0tTi6m/940eOEfT2o9WDcSiwq5IgYp6fYQtn8dzQ1kbAZ/TacHR1p5wVZF
- W8Yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=9ew06yjwuliIkbH6lYJuA6F3w8EOg5w8OXaKOIf4p+0=;
- b=G0eeo7FJVqVxMci9jZ6GH8tQdKpiQ5ppqqiHqBa8kc2B4OSFNJ8a0nPeGAyWRnV/OR
- 7UPsHE78tr9pP06eKNWi1OUJljpdD4Xj4HNFMKsbV8UGg3scotInGqek01ePIbAwX1Tz
- zHvWtPp/QQvtaaT86OCPO6ptQQMBXy5ILj5Zub1bZkhSB+nFDELWaLHYVXiFfOl3bgzL
- cQEbdxcLJzKEntXV1VNFWn7RXBi+0fyx+/nD8RCy5h0nec94f16zA9Fai73KWpXyZu4m
- 5TKAMg/PnPT+YjJk1VwIXYHiVhVcW4FmHz8nIt402p59SsHEn6UiXChh35qkrmELXxMe
- 6p0w==
-X-Gm-Message-State: AOAM533No/nkZW1QCPFTZaMZNpmADJ3ZAi2rLhopxWunxshmOiyF1T+R
- z5pTYPqlTBiLBemf2FSGS0+MJa8Hvhv18yVU2mNflA==
-X-Google-Smtp-Source: ABdhPJxIyLijxawg/APdOZtRPzFc4QSUBbZztjX9BXaiP9TruZK6ibE/eptNytqlQah/QvtmhsxR3xQFNnhUW6bzZFM=
-X-Received: by 2002:a05:6000:1acc:: with SMTP id
- i12mr51637732wry.249.1634738883425; 
- Wed, 20 Oct 2021 07:08:03 -0700 (PDT)
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=RJ2zK4UbE9ZurSC5Jh9RSNIdHcuuXmTemL
+ ElGthoHDk=; b=Ro1Lo5Gq0UKtvLrFpUly5yyvlsfTDqk0aaaQRc1euRF+5oi3dO
+ l2HRx+2rKlXnzxU3O7oAPRXXd/rMJCEDO+BlA8+OsGXhM/rmVURnO8SFM+mGNxlD
+ VDfzcvKa7Q4LQKASDkiIj570PDYmhJ7TmfPHM5hPTiPru+h9DMGVhOQ9g=
+Received: from xhacker (unknown [101.86.20.138])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAXHwdAI3BhuIRUAA--.29650S2; 
+ Wed, 20 Oct 2021 22:10:09 +0800 (CST)
+Date: Wed, 20 Oct 2021 22:03:19 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: kernel test robot <lkp@intel.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Masahiro Yamada
+ <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, Nick
+ Desaulniers <ndesaulniers@google.com>, llvm@lists.linux.dev,
+ kbuild-all@lists.01.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: consolidate __ex_table construction
+Message-ID: <20211020220319.41ad167f@xhacker>
+In-Reply-To: <202110180820.HH9NB6vw-lkp@intel.com>
+References: <20211017000443.4275747d@xhacker>
+ <202110180820.HH9NB6vw-lkp@intel.com>
 MIME-Version: 1.0
-References: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
- <CAAhSdy22y3gWM0Y9x7m84CdmtHKo7VsDC4+ZDY7+mhkJ9HcYyA@mail.gmail.com>
- <ff1fdb31-d739-ee85-9ce0-8386065e297f@canonical.com>
-In-Reply-To: <ff1fdb31-d739-ee85-9ce0-8386065e297f@canonical.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 20 Oct 2021 19:37:51 +0530
-Message-ID: <CAAhSdy1sTuEbjGM+XLF_Vg6=e91E31Yvh7js-h4c+Ru89DQJsw@mail.gmail.com>
-Subject: Re: [PATCH 1/1] dt-bindings: T-HEAD CLINT
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Guo Ren <guoren@linux.alibaba.com>, Bin Meng <bmeng.cn@gmail.com>,
- Xiang W <wxjstz@126.com>, 
- Samuel Holland <samuel@sholland.org>, Atish Patra <atish.patra@wdc.com>, 
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- OpenSBI <opensbi@lists.infradead.org>
+X-CM-TRANSID: LkAmygAXHwdAI3BhuIRUAA--.29650S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Ww48tw1DCr13AFW7uryDKFg_yoW7tw1DpF
+ 4Dury0q3yrXr4UCw4qk3ZFy34Utw45G342vry5Ww12v3W3tFy8Jw1DurZxKr1v9r4v9ay0
+ gr47JasYgryUXaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+ 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+ WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
+ I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
+ 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+ 0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07beAp5UUUUU=
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211020_070805_058798_C232027C 
-X-CRM114-Status: GOOD (  40.40  )
+X-CRM114-CacheID: sfid-20211020_071033_723146_4E20EA3C 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,171 +93,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 20, 2021 at 5:12 PM Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
-> On 10/20/21 13:27, Anup Patel wrote:
-> > On Wed, Oct 20, 2021 at 3:06 PM Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> >>
-> >> The CLINT in the T-HEAD 9xx CPUs is similar to the SiFive CLINT but does
-> >> not support 64bit mmio access to the MTIMER device.
-> >>
-> >> OpenSBI currently uses a property 'clint,has-no-64bit-mmio' to indicate the
-> >> restriction and the "sifive,cling0" compatible string. An OpenSBI
-> >> patch suggested to use "reg-io-width = <4>;" as the reg-io-width property
-> >> is generally used in the devicetree schema for such a condition.
-> >>
-> >> As the design is not SiFive based it is preferable to apply a compatible
-> >> string identifying T-HEAD instead.
-> >>
-> >> Add a new yaml file describing the T-HEAD CLINT.
-> >>
-> >> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> >> ---
-> >> @Palmer, @Anup
-> >> I copied you as maintainers from sifive,clint.yaml. Please, indicate if
-> >> this should be changed.
-> >>
-> >> For the prior discussion see:
-> >> https://lore.kernel.org/all/20211015100941.17621-1-heinrich.schuchardt@canonical.com/
-> >> https://lore.kernel.org/all/20211015120735.27972-1-heinrich.schuchardt@canonical.com/
-> >>
-> >> A release candidate of the ACLINT specification is available at
-> >> https://github.com/riscv/riscv-aclint/releases
-> >
-> > T-HEAD supporting only 32bit accesses to MTIME and MTIMECMP
-> > registers are totally allowed. The RISC-V privileged specification does
-> > not enforce RV64 platforms to support 64bit accesses to MTIME and
-> > MTIMECMP registers. Also, the ACLINT specification only states
-> > that MTIME and MTIMECMP registers are 64-bit wide but it does
-> > not enforce platforms to support 64-bit accesses.
-> >
-> > Here are some discussions from tech-aia mailing list:
-> > https://lists.riscv.org/g/tech-aia/message/115
-> > https://lists.riscv.org/g/tech-aia/message/119
-> > https://lists.riscv.org/g/tech-aia/message/120
-> >
-> > In other words, the T-HEAD CLINT (MTIMER+MSWI) is compliant
-> > with the RISC-V ACLINT specification.
-> >
-> > I think we should add implementation specific compatible strings
-> > for Allwinner D1 in the ACLINT MTIMER and ACLINT MSWI
-> > DT bindings.
-> >
-> > How about including the following two compatible strings in
-> > ACLINT DT bindings ?
-> > allwinner,sun20i-d1-aclint-mtimer
-> > allwinner,sun20i-d1-aclint-mswi
->
-> If the Allwinner CLINT is sufficiently compliant, this makes sense to me.
->
-> Will there be a new round of
-> [RFC PATCH v4 08/10] dt-bindings: timer: Add ACLINT MTIMER bindings
-> https://lore.kernel.org/all/20211007123632.697666-9-anup.patel@wdc.com/
-> were you could add the Allwinner device? Or is that series already merged?
+On Mon, 18 Oct 2021 08:14:28 +0800
+kernel test robot <lkp@intel.com> wrote:
 
-The Linux ACLINT series is not merged yet so there will be another patch
-revision as we get more review comments. I am hoping for more reviews.
+> Hi Jisheng,
+> 
+> I love your patch! Yet something to improve:
+> 
+> [auto build test ERROR on linus/master]
+> [also build test ERROR on v5.15-rc5 next-20211015]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
+> 
+> url:    https://github.com/0day-ci/linux/commits/Jisheng-Zhang/riscv-switch-to-relative-extable/20211017-001318
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 8fe31e0995f048d16b378b90926793a0aa4af1e5
+> config: riscv-randconfig-r032-20211017 (attached as .config)
+> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 746dd6a700931988dd9021d3d04718f1929885a5)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install riscv cross compiling tool for clang build
+>         # apt-get install binutils-riscv64-linux-gnu
+>         # https://github.com/0day-ci/linux/commit/23c273bf6ec4ca672a21dba701725087208dc784
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Jisheng-Zhang/riscv-switch-to-relative-extable/20211017-001318
+>         git checkout 23c273bf6ec4ca672a21dba701725087208dc784
+>         # save the attached .config to linux build tree
+>         mkdir build_dir
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    In file included from kernel/futex.c:36:
+>    In file included from include/linux/pagemap.h:11:
+>    In file included from include/linux/highmem.h:10:
+>    In file included from include/linux/hardirq.h:11:
+>    In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+>    In file included from include/asm-generic/hardirq.h:17:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/riscv/include/asm/io.h:136:
+>    include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            val = __raw_readb(PCI_IOBASE + addr);
+>                              ~~~~~~~~~~ ^
+>    include/asm-generic/io.h:477:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+>                                                            ~~~~~~~~~~ ^
+>    include/uapi/linux/byteorder/little_endian.h:36:51: note: expanded from macro '__le16_to_cpu'
+>    #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+>                                                      ^
+>    In file included from kernel/futex.c:36:
+>    In file included from include/linux/pagemap.h:11:
+>    In file included from include/linux/highmem.h:10:
+>    In file included from include/linux/hardirq.h:11:
+>    In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+>    In file included from include/asm-generic/hardirq.h:17:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/riscv/include/asm/io.h:136:
+>    include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+>                                                            ~~~~~~~~~~ ^
+>    include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
+>    #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+>                                                      ^
+>    In file included from kernel/futex.c:36:
+>    In file included from include/linux/pagemap.h:11:
+>    In file included from include/linux/highmem.h:10:
+>    In file included from include/linux/hardirq.h:11:
+>    In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+>    In file included from include/asm-generic/hardirq.h:17:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/riscv/include/asm/io.h:136:
+>    include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            __raw_writeb(value, PCI_IOBASE + addr);
+>                                ~~~~~~~~~~ ^
 
->
-> Should the riscv,aclint-mtimer.yaml file mention that there are
-> different access sizes and either state per compatibility string what
-> that size is or provide a parameter for that purpose?
+The warnings like this are not caused by this patch, they existed for a long
+time since NOMMU is supported. But no good solution so far.
 
-Should we just say that "some of the MTIMER implementations support
-only 32-bit accesses so this information can be derived from implementation
-specific compatible strings" ?
+>    include/asm-generic/io.h:511:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+>                                                          ~~~~~~~~~~ ^
+>    include/asm-generic/io.h:521:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+>                                                          ~~~~~~~~~~ ^
+>    include/asm-generic/io.h:1024:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>            return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+>                                                      ~~~~~~~~~~ ^
+>    In file included from kernel/futex.c:43:
+> >> arch/riscv/include/asm/futex.h:51:3: error: expected ')'  
+>                    __futex_atomic_op("amoswap.w.aqrl %[ov],%z[op],%[u]",
+>                    ^
+>    arch/riscv/include/asm/futex.h:33:3: note: expanded from macro '__futex_atomic_op'
+>                    _ASM_EXTABLE(1b, 3b)                            \
+>                    ^
 
-Regards,
-Anup
+Errors like this are caused by my patch, I missed NOMMU. Fixed in V2.
 
->
-> Best regards
->
-> Heinrich
->
-> >
-> > Regards,
-> > Anup
-> >
-> >> ---
-> >>   .../bindings/timer/thead,clint.yaml           | 62 +++++++++++++++++++
-> >>   1 file changed, 62 insertions(+)
-> >>   create mode 100644 Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/timer/thead,clint.yaml b/Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >> new file mode 100644
-> >> index 000000000000..02463fb2043a
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >> @@ -0,0 +1,62 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/timer/thead,clint.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: SiFive Core Local Interruptor
-> >> +
-> >> +maintainers:
-> >> +  - Palmer Dabbelt <palmer@dabbelt.com>
-> >> +  - Anup Patel <anup.patel@wdc.com>
-> >> +
-> >> +description:
-> >> +  T-HEAD (and other RISC-V) SOCs include an implementation of the T-HEAD
-> >> +  Core Local Interruptor (CLINT) for M-mode timer and M-mode inter-processor
-> >> +  interrupts. It directly connects to the timer and inter-processor interrupt
-> >> +  lines of various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local
-> >> +  interrupt controller is the parent interrupt controller for CLINT device.
-> >> +  The clock frequency of the CLINT is specified via "timebase-frequency" DT
-> >> +  property of "/cpus" DT node. The "timebase-frequency" DT property is
-> >> +  described in Documentation/devicetree/bindings/riscv/cpus.yaml
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    items:
-> >> +      - const:
-> >> +          - allwinner,sun20i-d1-clint
-> >> +      - const:
-> >> +          - thead,clint0
-> >> +
-> >> +    description:
-> >> +      Should be "<vendor>,<chip>-clint" and "thead,clint<version>" for
-> >> +      the T-HEAD derived CLINTs.
-> >> +      Supported compatible strings are -
-> >> +      "allwinner,sun20i-d1-clint" for the CLINT in the Allwinner D1 SoC
-> >> +      and "thead,clint0" for the T-HEAD IP block with no chip
-> >> +      integration tweaks.
-> >> +
-> >> +  reg:
-> >> +    maxItems: 1
-> >> +
-> >> +  interrupts-extended:
-> >> +    minItems: 1
-> >> +
-> >> +additionalProperties: false
-> >> +
-> >> +required:
-> >> +  - compatible
-> >> +  - reg
-> >> +  - interrupts-extended
-> >> +
-> >> +examples:
-> >> +  - |
-> >> +    timer@2000000 {
-> >> +      compatible = "allwinner,sun20i-d1-clint", "thead,clint0";
-> >> +      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
-> >> +                             &cpu2intc 3 &cpu2intc 7
-> >> +                             &cpu3intc 3 &cpu3intc 7
-> >> +                             &cpu4intc 3 &cpu4intc 7>;
-> >> +       reg = <0x2000000 0x10000>;
-> >> +    };
-> >> +...
-> >> --
-> >> 2.32.0
-> >>
->
+
+Thanks
+
 
 _______________________________________________
 linux-riscv mailing list
