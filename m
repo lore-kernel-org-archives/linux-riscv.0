@@ -2,80 +2,78 @@ Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8280CC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 13:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 37389C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 13:50:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5004C611C7
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 13:34:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5004C611C7
+	by mail.kernel.org (Postfix) with ESMTPS id E61F960F24
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 13:50:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E61F960F24
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+XWFUuxHuqpbgNzgj+dElB1ZSdBDfw0Te761clFpLio=; b=KpwiMgKp3iwBZZ
-	VZh/H+4SfRxoYeoHyXHadpcZTLe/0JZgfEIarZVVEg5N0XdYwSS4T7vMSJSDdNEn5TqvYm0jfNzRf
-	ap3YyRWRAktEOeeaTYe3V+xO0EuwAmIMtwvAQz+iQC2l26pib7XoV+8Gm9F/i4rjO/dHCp0KTgYz1
-	da3HhdGLrGQ6xfuC8G8cs9ThWy8vm58nfy7IpL2V5YOblFMRIikmLZodb4hrEoC9n8DeBOOL/0FOW
-	IumuWfdJvWLj4jamKpEqooLJovsSwvLw/yaM5LtREmkDG6sRj56FrbJsiyLVkgFSlR1Ttf7P35Gju
-	Tuqphs2L+3HWpiUsE6+Q==;
+	List-Owner; bh=9q/X0+4Z0zd7zZ3EUsIH3LSa8xYlTpHYB65HavZEvj4=; b=fByE0DqVphMd/K
+	1iZWMiJCWafAhpkmlPBtVg+NpR+z84Wxu6HA3KOEx7YJob+XNQ61PPsQYfYaWIKRaefJtvPpNthfr
+	4bWRPgDSEz7DBY3J+A85b1raJdW2ycpcXUp91ukU1MAfCYie6Ha/OPib5gKaMTscQignPiyzy6i4y
+	jEZoDCaAIYh++oIjdHuNcBUxwHB5HUQKQCqCYJPjQHHJEF5/jiTvezH9BLHv24CtwUiu6D+jdfa6a
+	9csmwOjqXl9GLYswf5lx9HRYGEENa4GwKgOuNHscFJUqGMZ15+Gu6lzuLxLFxOZA/cQ/oUf1ZsoxH
+	1BydW7hyjrYdFyRzWoFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdBjP-004cZA-85; Wed, 20 Oct 2021 13:34:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mdBzC-004flJ-Bx; Wed, 20 Oct 2021 13:50:30 +0000
+Received: from mail-ot1-f51.google.com ([209.85.210.51])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdBjM-004cY7-0r
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 13:34:09 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 99234611C6;
- Wed, 20 Oct 2021 13:34:07 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mdBjJ-000RVA-Hw; Wed, 20 Oct 2021 14:34:05 +0100
-Date: Wed, 20 Oct 2021 14:34:05 +0100
-Message-ID: <875ytrddma.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Samuel Holland <samuel@sholland.org>,	Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@wdc.com>,	Thomas Gleixner <tglx@linutronix.de>,
- Palmer Dabbelt <palmer@dabbelt.com>,	Heiko =?UTF-8?B?U3TDvGJuZXI=?=
- <heiko@sntech.de>,	Rob Herring <robh@kernel.org>,	Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>,	linux-riscv
- <linux-riscv@lists.infradead.org>,	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V4 1/3] irqchip/sifive-plic: Add thead,c900-plic support
-In-Reply-To: <CAJF2gTSmyu9nA5M3QLeR1LdGMkeGb7jE93Z9zjixcpb_freLMw@mail.gmail.com>
-References: <20211016032200.2869998-1-guoren@kernel.org>
- <20211016032200.2869998-2-guoren@kernel.org>
- <8be1bdbd-365d-cd28-79d7-b924908f9e39@sholland.org>
- <f850af365f2ac77af79ec59f92e6434a@kernel.org>
- <CAJF2gTShT8Tvk0z6B52zKEi0vq_toc-7mAKWFKj3j-zg=OhpYQ@mail.gmail.com>
- <8735oxuxlq.wl-maz@kernel.org>
- <CAJF2gTSmyu9nA5M3QLeR1LdGMkeGb7jE93Z9zjixcpb_freLMw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: guoren@kernel.org, samuel@sholland.org, anup@brainfault.org,
- atish.patra@wdc.com, tglx@linutronix.de, palmer@dabbelt.com, heiko@sntech.de,
- robh@kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- guoren@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1mdBz9-004fke-0g; Wed, 20 Oct 2021 13:50:28 +0000
+Received: by mail-ot1-f51.google.com with SMTP id
+ x27-20020a9d459b000000b0055303520cc4so8251182ote.13; 
+ Wed, 20 Oct 2021 06:50:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
+ :message-id;
+ bh=PEZXkD74SyZdIyV+d+cp0filvFd2Rp3gOD7po4nsWqk=;
+ b=p+ABOtyPHoiBIJWBNqcTZpjfgWZ5HWrOwqlmFxw7v98Qts2ZG7yhVOBVhZdlfFMZDn
+ 4MiVB04Zvnhjks9e33j1Rr00Jd47407sZb3T0zPpevQtPaqd5bkqvRUQVxHUlA/2XD3t
+ XUrSko73q4NlPmO+Mebm7gpM9pICIV0ZshsmBm3sVDyeXvZ0h9Cg3BmGFyYxFB7ch5lY
+ QbfytBN/AEF6XlLVDi5z2Wdi9K0YxZ+xnqC0O6p1e63PHACIQsa4n/IpaPWmohpACYXv
+ 8G+HYegd/+6SaAge7dyXQXUkUetrTjiFysRym7mmel8jewAyiu6RTqY99WRhiR6lKTIQ
+ HVVg==
+X-Gm-Message-State: AOAM530fLdOfALLhQgbQRt3OL1vSkVNCaMGmWPYApB5HnZ+sjsFom2xx
+ Y9RtDrX+xKBwoBvWrJx2uA==
+X-Google-Smtp-Source: ABdhPJzdpE171vomgu71sUM77D67pYolOFhrMZHKHtjQ7wm0L0/GqcC4cBU6sXFt2kOXSyTrvHgcGg==
+X-Received: by 2002:a9d:715c:: with SMTP id y28mr11044070otj.362.1634737825626; 
+ Wed, 20 Oct 2021 06:50:25 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id x12sm423235oot.6.2021.10.20.06.50.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 Oct 2021 06:50:24 -0700 (PDT)
+Received: (nullmailer pid 2259917 invoked by uid 1000);
+ Wed, 20 Oct 2021 13:50:23 -0000
+From: Rob Herring <robh@kernel.org>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Guo Ren <guoren@linux.alibaba.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ devicetree@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, opensbi@lists.infradead.org,
+ Bin Meng <bmeng.cn@gmail.com>, Rob Herring <robh+dt@kernel.org>,
+ linux-kernel@vger.kernel.org, Xiang W <wxjstz@126.com>,
+ linux-riscv@lists.infradead.org
+In-Reply-To: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
+References: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
+Subject: Re: [PATCH 1/1] dt-bindings: T-HEAD CLINT
+Date: Wed, 20 Oct 2021 08:50:23 -0500
+Message-Id: <1634737823.662456.2259916.nullmailer@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211020_063408_107792_D917E7DE 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20211020_065027_094980_C00554CA 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +85,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Oct 2021 14:27:02 +0100,
-Guo Ren <guoren@kernel.org> wrote:
+On Wed, 20 Oct 2021 11:36:03 +0200, Heinrich Schuchardt wrote:
+> The CLINT in the T-HEAD 9xx CPUs is similar to the SiFive CLINT but does
+> not support 64bit mmio access to the MTIMER device.
 > 
-> On Tue, Oct 19, 2021 at 6:18 PM Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Tue, 19 Oct 2021 10:33:49 +0100,
-> > Guo Ren <guoren@kernel.org> wrote:
-> >
-> > > > If you have an 'automask' behavior and yet the HW doesn't record this
-> > > > in a separate bit, then you need to track this by yourself in the
-> > > > irq_eoi() callback instead. I guess that you would skip the write to
-> > > > the CLAIM register in this case, though I have no idea whether this
-> > > > breaks
-> > > > the HW interrupt state or not.
-> > > The problem is when enable bit is 0 for that irq_number,
-> > > "writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM)" wouldn't affect
-> > > the hw state machine. Then this irq would enter in ack state and no
-> > > continues irqs could come in.
-> >
-> > Really? This means that you cannot mask an interrupt while it is being
-> > handled? How great...
-> If the completion ID does not match an interrupt source that is
-> currently enabled for the target, the completion is silently ignored.
-> So, C9xx completion depends on enable-bit.
+> OpenSBI currently uses a property 'clint,has-no-64bit-mmio' to indicate the
+> restriction and the "sifive,cling0" compatible string. An OpenSBI
+> patch suggested to use "reg-io-width = <4>;" as the reg-io-width property
+> is generally used in the devicetree schema for such a condition.
+> 
+> As the design is not SiFive based it is preferable to apply a compatible
+> string identifying T-HEAD instead.
+> 
+> Add a new yaml file describing the T-HEAD CLINT.
+> 
+> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> ---
+> @Palmer, @Anup
+> I copied you as maintainers from sifive,clint.yaml. Please, indicate if
+> this should be changed.
+> 
+> For the prior discussion see:
+> https://lore.kernel.org/all/20211015100941.17621-1-heinrich.schuchardt@canonical.com/
+> https://lore.kernel.org/all/20211015120735.27972-1-heinrich.schuchardt@canonical.com/
+> 
+> A release candidate of the ACLINT specification is available at
+> https://github.com/riscv/riscv-aclint/releases
+> ---
+>  .../bindings/timer/thead,clint.yaml           | 62 +++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/thead,clint.yaml
+> 
 
-Is that what the PLIC spec says? Or what your implementation does? I
-can understand that one implementation would be broken, but if the
-PLIC architecture itself is broken, that's far more concerning.
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-	M.
+yamllint warnings/errors:
 
--- 
-Without deviation from the norm, progress is not possible.
+dtschema/dtc warnings/errors:
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/timer/thead,clint.yaml: properties:compatible:items: 'oneOf' conditional failed, one must be fixed:
+	[{'const': ['allwinner,sun20i-d1-clint']}, {'const': ['thead,clint0']}] is not of type 'object'
+	['allwinner,sun20i-d1-clint'] is not of type 'string'
+	['thead,clint0'] is not of type 'string'
+	from schema $id: http://devicetree.org/meta-schemas/string-array.yaml#
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/timer/thead,clint.yaml: ignoring, error in schema: properties: compatible: items
+warning: no schema found in file: ./Documentation/devicetree/bindings/timer/thead,clint.yaml
+Documentation/devicetree/bindings/timer/thead,clint.example.dt.yaml:0:0: /example-0/timer@2000000: failed to match any schema with compatible: ['allwinner,sun20i-d1-clint', 'thead,clint0']
+Documentation/devicetree/bindings/timer/thead,clint.example.dt.yaml:0:0: /example-0/timer@2000000: failed to match any schema with compatible: ['allwinner,sun20i-d1-clint', 'thead,clint0']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/patch/1543771
+
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
+
 
 _______________________________________________
 linux-riscv mailing list
