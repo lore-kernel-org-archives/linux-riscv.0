@@ -2,15 +2,15 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D1A7C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A99FC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BA0DC613A1
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:51:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BA0DC613A1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2924860E97
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2924860E97
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,72 +18,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+1EYMdoend9DJ9sA2ToJaqBW65Ghy51qOdg6kM9wg04=; b=1CaGpqwkYOWtBX
-	WBwfcP5OnTC9iv9a2k3UMy8HhBYNAmZzt6r6KTU7RaITYhc2qefgKX7ErUZjdd5Rtuf2qDmjyPWH7
-	CyWKDvB8lVBTyr1gsVwn0r+Gg8AIm3K6jYlVCBQd7L0sDuPxQrSfAR68whOvxdd2dk6rJ4VJi5Bmb
-	RQZA9yb828SimnrmBmsfSE7m6CVcXGCEkk7zsSZP9CucqN+Zy0EMv2+VJcMUpf4ZwOgxH2dgtRKkf
-	d+yk0REvxMuW5Py42zR0q0hK7ULp0CeJ37l18zVlE+OKSV669yhPlRTeNRFfBzZRKrw/JguLwhtlW
-	dHazEvZfurWciUmHmnDg==;
+	List-Owner; bh=/Mzmcr2AfWc9oZ2vo8xitrbd57+hIMKFDOxedvMBM2Q=; b=Xx3f3juMmJbheY
+	k8FcVrkbBpJlSPraSnc/XMsPZc344GD/cnbzbvcJfabHNstue3jW2IAw1+PutU6szOo01wK0JTwFo
+	52oZ7/CIvpx0UU176OF3ZwqbXBe3bG1fKvX6oRJ/02d3+Ist8pVvun3rPSpj/05rPsp5PdzCVJjHg
+	a8HRuYBiN6i3KpphS0kndCYmgDld7TCUCL4SJ7eu2c6qsCDcY1U+bNd2SBwAyNtz8rcx3MpSWzTzD
+	1VeEfZR9zu2CPMNuk/trz7rpg4zYqI8W76REw6sw1Geo6fOAgVSDWUUzzlGZ5lsRp1DZaUpHtDg7y
+	OrmMYCjl8cJa+BbaDL7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdbIF-008QHv-3V; Thu, 21 Oct 2021 16:51:51 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1mdc5N-008WAa-I7; Thu, 21 Oct 2021 17:42:37 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdbIC-008QFT-5x
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 16:51:49 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id
- e5-20020a17090a804500b001a116ad95caso992748pjw.2
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
+ id 1mdc5K-008W8Q-83
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 17:42:36 +0000
+Received: by mail-ed1-x536.google.com with SMTP id r4so146090edi.5
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 10:42:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=utoy+jQZzvRnzA1QWeuCmlU/QiIEQT6LKCT7U63qum8=;
- b=x8/aeoXyTGmp//1afH0+pe+lHvlkIprY9l6+jEEMrD9x/aw8fI1lNPBwex0dW1q0hF
- 6GWTNfl5PefzN5QSEjiNqb/NkgWKFVXxiAY24Z2ttZN+NSPZ8ecr48c9Ep2zOFA85kDF
- PRsXpmhyhbo4GsT2Xgf9iifyDaB7045MsUQlaKHDqb5ggq8eKo9iEjG1N+5wbU11GJgn
- 9DJz9SrYhm2cuzF7hXks8UUV1T26+6Ps4Qj8FNpsQdbnZzINWDMEhHcYWxNlggdJ2FqC
- qnICeOn9KcXcf9NyUo9mGy93lBg6SKTWkmiLpn0uW95FYEWmEeFVT0ytkGNohN0BKFAy
- NNgg==
+ bh=0Hnxjoxm2iwcZipv3NbHtD4H4YAetTMMxyIE5z5T56c=;
+ b=l6q+vuyUE2OezuYKjC4R79e8L+5o05U3F1UYKTLx/NYflcaM+zCidFzvpB1zaO+iHF
+ WFXlqRwgw1wb/MdplOet4Xk6z4NRTYkO7lviyys1iYJj5ab5ULeqbGd4lFtmmgvLJXIe
+ acg326CXjdgiLlioo2sxOeJcOLyAohkVB9YVpmMnwPGx9iGooANRJuGhSEyWFCdaycDS
+ OU1ApjKRzjx/4UgfZCZL5o4+hJOrdGGYrCvRTDtB3wBHuFgOhM04fdTwMOBsP3TLqxpF
+ 4YQ6bHcN58CkecWwGtEYosqd09vIGnZpXB/19LrkAlN1qYOklVXAcLu8ZRsx/FG9qLMX
+ mW8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=utoy+jQZzvRnzA1QWeuCmlU/QiIEQT6LKCT7U63qum8=;
- b=Bv/iRyuJDN8Q566+P1dfg2/yPRiEeyt0uruxqJiaRoVqet66gal+DTDwEVAUYZzybT
- peg1q7ybNnKKAFVCj90OSNfiNSn5kRL3qjG3WNUCYZJzFBCt1j/pnymHdYr3UHWBN5Gq
- vKSPjzaCwnrfldizbtI0jpi+A2l+ThjH1/uJKivxXZ4zJ+L9S+sXhxbK1oOlTCo2OsGT
- FxRgKol3v70gH8wEOh2HX5L744RrvL7/1EUIk0saktIPb+DQ9UUULFhSfDjtZjE4Aolj
- HExlJXLpYAdJ1Kj2VGBJ1iywEp3IeKyYzla+WlCfSFMXMOh2jwd0+UUrNIDTeA/vraZ7
- ITtQ==
-X-Gm-Message-State: AOAM530+faKEG09uT60QTIswOXUtz924515nV7EU/MoWWkquG3Ga6VWc
- L3usFJbfcPhoWtuuCvS7TUe1mQ==
-X-Google-Smtp-Source: ABdhPJzPn1WnhmqY3wp2dc+1Jtbo+21IiUrqDsvcEMwzsRnJLaf4nWK/njw4aSEB0eHoBWNnGsJMGw==
-X-Received: by 2002:a17:90a:2943:: with SMTP id
- x3mr7820076pjf.71.1634835104442; 
- Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
-Received: from vineetg-ThinkPad-X1-Carbon-Gen-9.ba.rivosinc.com
- (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
- by smtp.gmail.com with ESMTPSA id y4sm7553890pfa.90.2021.10.21.09.51.43
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=0Hnxjoxm2iwcZipv3NbHtD4H4YAetTMMxyIE5z5T56c=;
+ b=LMpQiaC5yKzaB7UrhzF2EpgvFIRNYFpXcTOazJ1GyogCGRjOdqToSa8UQwOMfAxHxz
+ 2Y9TBt2k05BIKTmpMhb63JXvjKLrcBBrhH941CI1kqQx0elAyov/jWOudgMUhhuzGRc3
+ DnspcoODoXY/wDKAxgmcFNOuaDDqg1ftHv//3kxcVZ8isUH8SZnkcJfGQ6cPcjhzR9jj
+ 30Gx9iy2UGUhQ6elWpffKOtL0dH5ry1XbfEwabv9kv3RVWIyAhGmwPJsGu9umW2TbC7I
+ xQsP+S92scYodCDHrAPbj5JO0sTtbkgIv6ZdCq9SJ0mMy1EDf27qtzEZqBZSzyGKOB0Z
+ x8bw==
+X-Gm-Message-State: AOAM533Uhp4sp0GETgwp6y1fAFOFsHLjc5CS431HWDZuWKFo2vrQmxnA
+ m4V/kdurKBxXG/QqcOgT31xDM0hONa21kQ==
+X-Google-Smtp-Source: ABdhPJzcjML/TfsdQg51Kl5oV/Ck6zjteV5YqfLCQabToGl/aFKFPRE2FkvcuLHfSuM0JLjOFWoOYw==
+X-Received: by 2002:a17:906:6c83:: with SMTP id
+ s3mr9177246ejr.13.1634838152001; 
+ Thu, 21 Oct 2021 10:42:32 -0700 (PDT)
+Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
+ by smtp.gmail.com with ESMTPSA id h7sm3144847edt.37.2021.10.21.10.42.30
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
-From: Vineet Gupta <vineetg@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup.patel@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Atish Patra <atish.patra@wdc.com>, Jisheng Zhang <jszhang@kernel.org>,
- Chen Huang <chenhuang5@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Vineet Gupta <vineetg@rivosinc.com>
-Subject: [PATCH] riscv: remove code for !CONFIG_FRAME_POINTER
-Date: Thu, 21 Oct 2021 09:51:42 -0700
-Message-Id: <20211021165142.444236-1-vineetg@rivosinc.com>
-X-Mailer: git-send-email 2.30.2
+ Thu, 21 Oct 2021 10:42:31 -0700 (PDT)
+From: Emil Renner Berthing <kernel@esmil.dk>
+To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-serial@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Maximilian Luz <luzmaximilian@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v2 00/16] Basic StarFive JH7100 RISC-V SoC support
+Date: Thu, 21 Oct 2021 19:42:07 +0200
+Message-Id: <20211021174223.43310-1-kernel@esmil.dk>
+X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_095148_250045_7607A937 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20211021_104234_322385_3290574F 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +110,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-while frame pointer generates horrible code it is a necessary evil on
-RISC-V as the only way to unwind stack.
+This series adds support for the StarFive JH7100 RISC-V SoC. The SoC has
+many devices that need non-coherent dma operations to work which isn't
+upstream yet[1], so this just adds basic support to boot up, get a
+serial console, blink an LED and reboot itself. Unlike the Allwinner D1
+this chip doesn't use any extra pagetable bits, but instead the DDR RAM
+appears twice in the memory map, with and without the cache.
 
-In fact Kconfig unconditonally selects ARCH_WANT_FRAME_POINTERS, so
-any code for handling !FRAME_POINTER is essentially dead weight.
+The JH7100 is a test chip for the upcoming JH7110 and about 300 BeagleV
+Starlight Beta boards were sent out with them as part of a now cancelled
+BeagleBoard.org project. However StarFive has produced more of the
+JH7100s and more boards will be available[2] to buy. Hopefully before
+the end of the year.
 
-And while here remove redundant setting of -fno-omit-frame-pointer as
-this is enabled by generic code for CONFIG_FRAME_POINTER
+This series is also available at
+https://github.com/esmil/linux/commits/starlight-minimal
+..but a more complete kernel including drivers for non-coherent
+peripherals based on this series can be found at
+https://github.com/starfive-tech/linux/tree/starlight
 
-Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
----
- arch/riscv/Makefile            |  3 ---
- arch/riscv/kernel/stacktrace.c | 37 ++--------------------------------
- 2 files changed, 2 insertions(+), 38 deletions(-)
+[1]: https://lore.kernel.org/linux-riscv/20210723214031.3251801-2-atish.patra@wdc.com/
+[2]: https://www.linkedin.com/pulse/starfive-release-open-source-single-board-platform-q3-2021-starfive/
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index a0b8259c7098..a4329035c341 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -65,9 +65,6 @@ endif
- ifeq ($(CONFIG_CMODEL_MEDANY),y)
- 	KBUILD_CFLAGS += -mcmodel=medany
- endif
--ifeq ($(CONFIG_PERF_EVENTS),y)
--        KBUILD_CFLAGS += -fno-omit-frame-pointer
--endif
- 
- KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
- 
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 315db3d0229b..63f471278401 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -16,13 +16,13 @@
- 
- register unsigned long sp_in_global __asm__("sp");
- 
--#ifdef CONFIG_FRAME_POINTER
--
- void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			     bool (*fn)(void *, unsigned long), void *arg)
- {
- 	unsigned long fp, sp, pc;
- 
-+        BUILD_BUG_ON(!IS_ENABLED(CONFIG_FRAME_POINTER));
-+
- 	if (regs) {
- 		fp = frame_pointer(regs);
- 		sp = user_stack_pointer(regs);
-@@ -65,39 +65,6 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 	}
- }
- 
--#else /* !CONFIG_FRAME_POINTER */
--
--void notrace walk_stackframe(struct task_struct *task,
--	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
--{
--	unsigned long sp, pc;
--	unsigned long *ksp;
--
--	if (regs) {
--		sp = user_stack_pointer(regs);
--		pc = instruction_pointer(regs);
--	} else if (task == NULL || task == current) {
--		sp = sp_in_global;
--		pc = (unsigned long)walk_stackframe;
--	} else {
--		/* task blocked in __switch_to */
--		sp = task->thread.sp;
--		pc = task->thread.ra;
--	}
--
--	if (unlikely(sp & 0x7))
--		return;
--
--	ksp = (unsigned long *)sp;
--	while (!kstack_end(ksp)) {
--		if (__kernel_text_address(pc) && unlikely(!fn(arg, pc)))
--			break;
--		pc = (*ksp++) - 0x4;
--	}
--}
--
--#endif /* CONFIG_FRAME_POINTER */
--
- static bool print_trace_address(void *arg, unsigned long pc)
- {
- 	const char *loglvl = arg;
+/Emil
+
+Changes since v1:
+- Let SOC_STARFIVE select RESET_CONTROLLER but drop SERIAL_8250_DW
+- Add missing Signed-of-by to clock dt-binding header
+- Use builtin_platform_driver macro for the clock driver, add explicit
+  comment to the determine_rate callback and other small nits from Andy
+- Use reset-controller for node names in documentation and device tree
+- Use readl_poll_timeout in reset driver to avoid hanging forever if a
+  driver leaves the associated clock gated and sort Kconfig and Makefile
+  entries properly.
+- In the pinctrl driver align register names with documentation, remove
+  invalid __init tag from probe function, use of_property_* functions to
+  parse device tree, hoist pinmux unpacking into helper function to
+  better document what's going on, bail on invalid signal group in
+  device tree and fix many other nits from Andy.
+- Refactor and rebase 8250_dw quirk on tty-next
+
+
+Emil Renner Berthing (12):
+  RISC-V: Add StarFive SoC Kconfig option
+  dt-bindings: timer: Add StarFive JH7100 clint
+  dt-bindings: interrupt-controller: Add StarFive JH7100 plic
+  dt-bindings: reset: Add Starfive JH7100 reset bindings
+  reset: starfive-jh7100: Add StarFive JH7100 reset driver
+  dt-bindings: pinctrl: Add StarFive pinctrl definitions
+  dt-bindings: pinctrl: Add StarFive JH7100 bindings
+  pinctrl: starfive: Add pinctrl driver for StarFive SoCs
+  dt-bindings: serial: snps-dw-apb-uart: Add JH7100 uarts
+  serial: 8250_dw: Add skip_clk_set_rate quirk
+  RISC-V: Add initial StarFive JH7100 device tree
+  RISC-V: Add BeagleV Starlight Beta device tree
+
+Geert Uytterhoeven (4):
+  dt-bindings: clock: starfive: Add JH7100 clock definitions
+  dt-bindings: clock: starfive: Add JH7100 bindings
+  clk: starfive: Add JH7100 clock generator driver
+  dt-bindings: reset: Add StarFive JH7100 reset definitions
+
+ .../clock/starfive,jh7100-clkgen.yaml         |   56 +
+ .../sifive,plic-1.0.0.yaml                    |    1 +
+ .../pinctrl/starfive,jh7100-pinctrl.yaml      |  274 ++++
+ .../bindings/reset/starfive,jh7100-reset.yaml |   38 +
+ .../bindings/serial/snps-dw-apb-uart.yaml     |    5 +
+ .../bindings/timer/sifive,clint.yaml          |    1 +
+ MAINTAINERS                                   |   22 +
+ arch/riscv/Kconfig.socs                       |    8 +
+ arch/riscv/boot/dts/Makefile                  |    1 +
+ arch/riscv/boot/dts/starfive/Makefile         |    2 +
+ .../dts/starfive/jh7100-beaglev-starlight.dts |  162 ++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      |  228 +++
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/starfive/Kconfig                  |    9 +
+ drivers/clk/starfive/Makefile                 |    3 +
+ drivers/clk/starfive/clk-starfive-jh7100.c    |  776 +++++++++
+ drivers/pinctrl/Kconfig                       |   16 +
+ drivers/pinctrl/Makefile                      |    1 +
+ drivers/pinctrl/pinctrl-starfive.c            | 1387 +++++++++++++++++
+ drivers/reset/Kconfig                         |    8 +
+ drivers/reset/Makefile                        |    1 +
+ drivers/reset/reset-starfive-jh7100.c         |  165 ++
+ drivers/tty/serial/8250/8250_dw.c             |   19 +-
+ include/dt-bindings/clock/starfive-jh7100.h   |  202 +++
+ .../dt-bindings/pinctrl/pinctrl-starfive.h    |  274 ++++
+ include/dt-bindings/reset/starfive-jh7100.h   |  126 ++
+ 27 files changed, 3784 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+ create mode 100644 arch/riscv/boot/dts/starfive/Makefile
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100.dtsi
+ create mode 100644 drivers/clk/starfive/Kconfig
+ create mode 100644 drivers/clk/starfive/Makefile
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7100.c
+ create mode 100644 drivers/pinctrl/pinctrl-starfive.c
+ create mode 100644 drivers/reset/reset-starfive-jh7100.c
+ create mode 100644 include/dt-bindings/clock/starfive-jh7100.h
+ create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
+ create mode 100644 include/dt-bindings/reset/starfive-jh7100.h
+
 -- 
-2.30.2
+2.33.1
 
 
 _______________________________________________
