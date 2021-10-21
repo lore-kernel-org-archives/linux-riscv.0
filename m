@@ -2,81 +2,92 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDB0BC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 18:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF0E1C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 18:47:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A67AF61B02
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 18:10:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A67AF61B02
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6FBAC60EFE
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 18:47:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6FBAC60EFE
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYmFtUdOxmw62qNh/s28DHHJXZ3/+9LwSEwggj/Qqm4=; b=KIlRnEW1O7uAU89VCEQ+sxq5ad
-	CXysS/3TPQHYMUYFQhQOMaACO79gGcm6wGn7k5n1GqYzU5mUyURC25rLnJbbnc4/rb+lhjgWGrt7P
-	jWEpOTCEG6KT/xa+PkZeuxwTSHLIhorxAyLEisM7PPIbFTPBwaRljykPc/bnp0jkNkIoxQPT/Kbfs
-	vOg8QuKTLJdUUkaw3haGmS6AgV4ZJv+7Wc5Vr89SoBWJmPzwv8mvkdelwoWsAujywhRJvYs6dwGDd
-	2OfjT6vl8gPJw0zffTuhRuIXaIuOoN/lELVRiRo+syBrCWq1tQ9L9lJTkc2GppX0qwuN8k4QEQGm6
-	Biqzwrtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+HYLdorXl9pw9Djkwf/mTzT5FnqKAvaZEYXC2uH9EY4=; b=4sUsCr+vLzMfMx
+	Ou2nRbU4Cdo8xA+C/BguavmVeRQv9fe3PZn16KiI8eMBQfL/bmHG+TrceGZJt+S1RNAXMNI5TNn1q
+	xevPoLtsXGBjasDPD/jft8m19T4xYA+G3I3QvmWFKNooOsTZclQrYqYgwdYQw5kUThp7YTfgqehgr
+	+R++g+gTkMmbkqQSiVtUAemMwgN0hRWxMekbID/9S+c4m/mzM8hFVgFJUqxAKLeUsOqZh6WUd/I2x
+	Mzwl++PCDIQ9qFfbQ/FpxNQMGnAM5riGu2j4bLZIvj9yeJgqfvY1wmxOpKEArRXprSNjI7VrqTXB5
+	32P26r1ns/BWYbIVioCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdcWE-008d5G-CW; Thu, 21 Oct 2021 18:10:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1mdd65-008t0z-Ax; Thu, 21 Oct 2021 18:47:25 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdcR7-008ahi-9M
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 18:05:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1634839502;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=c0lV1SQm+A/6nuLSjE1bEl9hT+k65LUuD9ohANoqFLs=;
- b=E1MEDAaoK9HLO+3nnRk7/ZM0gIbxwhrlILqInePs0O1bR/N+KV1nAHhXU8r0S5bBKa/f/x
- IkrpLMZWKZhW/U65hyLwifDtkqD9VLGWZJAEBqzjfLJkKhcPYaH35W+nN4Enp1wnSQA2/U
- kTsriahqlO4U9Ky+5KAu8e1+lGFohzU=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-188-hZ17UqHQNxCGp75wNuNVrw-1; Thu, 21 Oct 2021 14:04:59 -0400
-X-MC-Unique: hZ17UqHQNxCGp75wNuNVrw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
- [10.5.11.23])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3846B80668D;
- Thu, 21 Oct 2021 18:04:57 +0000 (UTC)
-Received: from llong.remote.csb (unknown [10.22.18.214])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 9DD6119D9F;
- Thu, 21 Oct 2021 18:04:55 +0000 (UTC)
-Subject: Re: [PATCH] locking: Generic ticket lock
-To: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
- Boqun Feng <boqun.feng@gmail.com>, Ingo Molnar <mingo@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?Q?Christoph_M=c3=bcllner?= <christophm30@gmail.com>,
- Stafford Horne <shorne@gmail.com>
-References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-From: Waiman Long <longman@redhat.com>
-Message-ID: <4de96b16-a146-f82a-a7f2-706dba4f901f@redhat.com>
-Date: Thu, 21 Oct 2021 14:04:55 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ id 1mdcuJ-008noX-8v
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 18:35:17 +0000
+Received: from mail-wm1-f48.google.com ([209.85.128.48]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MYvTs-1m8qTv08ga-00Uo23 for <linux-riscv@lists.infradead.org>; Thu, 21 Oct
+ 2021 20:35:11 +0200
+Received: by mail-wm1-f48.google.com with SMTP id
+ y22-20020a1c7d16000000b003231ea3d705so648007wmc.4
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 11:35:10 -0700 (PDT)
+X-Gm-Message-State: AOAM531TP37jWH8hSNzHor2MX3gD6XGqGrZKER9gEfRQJH+eBnEJko2+
+ GbCp81o+FYmo9YX3bILfRAXgKo0YmnJLeLwVLN0=
+X-Google-Smtp-Source: ABdhPJxJnttZVYDDq1wT7sqVg/34xA2ViJzSZlZ8uydGsF2cMPPIn30u8q+0i/QxoA4crgnhZkdmcwVqK+m7oJgBKVg=
+X-Received: by 2002:a05:600c:1548:: with SMTP id
+ f8mr8597496wmg.35.1634841310501; 
+ Thu, 21 Oct 2021 11:35:10 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+References: <79ae46c3-c028-2c99-2428-b601e4fb03d4@microchip.com>
+ <mhng-a25d4570-1744-44ef-988b-43914d5bc17d@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-a25d4570-1744-44ef-988b-43914d5bc17d@palmerdabbelt-glaptop>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 21 Oct 2021 20:34:54 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a31Gj-0DgN+ooMZds8_iOJWwGRp4FZLD0kgo9Go=Pzyhw@mail.gmail.com>
+Message-ID: <CAK8P3a31Gj-0DgN+ooMZds8_iOJWwGRp4FZLD0kgo9Go=Pzyhw@mail.gmail.com>
+Subject: Re: [PATCH] soc: add polarfire soc system controller
+To: Palmer Dabbelt <palmer@dabbelt.com>
+List-Id: <soc.lore.kernel.org>
+Cc: Conor.Dooley@microchip.com, Arnd Bergmann <arnd@arndb.de>, 
+ Olof Johansson <olof@lixom.net>, SoC Team <soc@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, 
+ Damien Le Moal <Damien.LeMoal@wdc.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "nathan=20Neusch=C3=A4fer?=" <j.neuschaefer@gmx.net>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, Cyril.Jean@microchip.com, 
+ Daire McNamara <Daire.McNamara@microchip.com>,
+ Atish Patra <Atish.Patra@wdc.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Ludovic Desroches <ludovic.desroches@microchip.com>
+X-Provags-ID: V03:K1:47h3Z3W35bmVNBUFMr8n8sb2DhxJGqFMY4IYevEqtjFASvMAjUH
+ Q3+LKLd3RQRj2wrlO6CM4grz5f4sU5a2BF/dP6B86jrz+aL2+pRGyghwArw5ATiy9CXhzC3
+ fupEM/oXuIlAnEJuLcXHtlHp9T7ENlI6E5xWssHakrFUdEIq/EKDCVse1Kkcm2+l/xQWO6r
+ E47Wz62IDElfYdOOmtgDw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:N2HDL2WKee8=:WPYNlWYhJ8kX73oHlmFsMp
+ ikWD1CCShz1aAxz/yHBq3hwPUJBDdoLNjDr2RTxiKf3lLpjBvxvsWe3ZsPMVfYRvJO3FT/Rg5
+ ZRt546J5czJSE4CIwjCg5Y4qGeLTHKQLFu3Y7sG537mdHOktkPQEdOLjtVXOQpoP9anAPJuD4
+ 3fGdFU6rYQqrrR9yeMrqJ+z+3FtR5Tes3D+lKGz+mH7XTJS44gt0f06Uk3OdZVYaKICxEpNl7
+ ixXOw77W6pEtgMQaud9MRAF3qqerUcbC4zGko5awE2WzCkVTCGnT6y1+nG5e/AIF5imJbPjm3
+ dZ3f1Gtorg1GBjJBRIw3AfkEnTxW2UPgcyTvINRSSUzJpeAkRcmoY9BFzMDxHkjgM1JO9Y7dM
+ Jvpwnhwe80Y2zdp2VJVzh6gP0eyqwuBOKDyZ3n8CwMiKR5IIun4C7+iFPGNqlFcUqFt6SLZ2N
+ i2t479XYZfMTGIqJivYV1LUy9LzU9u6f8fCi0Q9qqfQj9husXjrC6kLvJ9/PNhV/jFMELunfF
+ bdPZ3Qa2+Eu/tEWSP6yWWnBdCa3/CRHvfFKD0r3d860e8cnHUC4pYsrojmLwecA/vaL9ztoVn
+ fru89cPTyzu0d6CQR7+I3S167zvLmkm+pbPrFSy42DcTEo/mqZVyPnMSpLTV9IxskhN1BoZRJ
+ VVVzJUWiEzzu2Bi3mOWhwsnpKFQHrFqWvzl3847/8H89yOO9A59lcY5HMdsUMMkouDe5yCPqv
+ /pQzcf9/FZ50TXlU7XRGAC3xgfwKwrMxTqX+1E5mamhSeRf51j018xp7g3Hl25KGTwo/Lp+qh
+ ERrky6uy/u09j8ZOmmx/0QasQQwzkUALN0/ZkgPV2he9gmBcTE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_110505_483078_9F717777 
-X-CRM114-Status: GOOD (  36.00  )
+X-CRM114-CacheID: sfid-20211021_113515_662382_4CB21DC6 
+X-CRM114-Status: GOOD (  35.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,205 +99,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/21/21 9:05 AM, Peter Zijlstra wrote:
-> There's currently a number of architectures that want/have graduated
-> from test-and-set locks and are looking at qspinlock.
->
-> *HOWEVER* qspinlock is very complicated and requires a lot of an
-> architecture to actually work correctly. Specifically it requires
-> forward progress between a fair number of atomic primitives, including
-> an xchg16 operation, which I've seen a fair number of fundamentally
-> broken implementations of in the tree (specifically for qspinlock no
-> less).
->
-> The benefit of qspinlock over ticket lock is also non-obvious, esp.
-> at low contention (the vast majority of cases in the kernel), and it
-> takes a fairly large number of CPUs (typically also NUMA) to make
-> qspinlock beat ticket locks.
->
-> Esp. things like ARM64's WFE can move the balance a lot in favour of
-> simpler locks by reducing the cacheline pressure due to waiters (see
-> their smp_cond_load_acquire() implementation for details).
->
-> Unless you've audited qspinlock for your architecture and found it
-> sound *and* can show actual benefit, simpler is better.
->
-> Therefore provide ticket locks, which depend on a single atomic
-> operation (fetch_add) while still providing fairness.
->
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> ---
->   include/asm-generic/qspinlock.h         |   30 +++++++++
->   include/asm-generic/ticket_lock_types.h |   11 +++
->   include/asm-generic/ticket_lock.h       |   97 ++++++++++++++++++++++++++++++++
->   3 files changed, 138 insertions(+)
->
-> --- a/include/asm-generic/qspinlock.h
-> +++ b/include/asm-generic/qspinlock.h
-> @@ -2,6 +2,36 @@
->   /*
->    * Queued spinlock
->    *
-> + * A 'generic' spinlock implementation that is based on MCS locks. An
-> + * architecture that's looking for a 'generic' spinlock, please first consider
-> + * ticket_lock.h and only come looking here when you've considered all the
-> + * constraints below and can show your hardware does actually perform better
-> + * with qspinlock.
-> + *
-> + *
-> + * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
-> + * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
-> + *
-> + * It relies on a far greater (compared to ticket_lock.h) set of atomic
-> + * operations to behave well together, please audit them carefully to ensure
-> + * they all have forward progress. Many atomic operations may default to
-> + * cmpxchg() loops which will not have good forward progress properties on
-> + * LL/SC architectures.
-> + *
-> + * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
-> + * do. Carefully read the patches that introduced
-> + * queued_fetch_set_pending_acquire().
-> + *
-> + * It also heavily relies on mixed size atomic operations, in specific it
-> + * requires architectures to have xchg16; something which many LL/SC
-> + * architectures need to implement as a 32bit and+or in order to satisfy the
-> + * forward progress guarantees mentioned above.
-> + *
-> + * Further reading on mixed size atomics that might be relevant:
-> + *
-> + *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
-> + *
-> + *
->    * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
->    * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
->    *
-> --- /dev/null
-> +++ b/include/asm-generic/ticket_lock_types.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_TYPES_H
-> +#define __ASM_GENERIC_TICKET_LOCK_TYPES_H
-> +
-> +#include <linux/types.h>
-> +typedef atomic_t arch_spinlock_t;
-> +
-> +#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_TYPES_H */
-> --- /dev/null
-> +++ b/include/asm-generic/ticket_lock.h
-> @@ -0,0 +1,97 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +/*
-> + * 'Generic' ticket lock implementation.
-> + *
-> + * It relies on atomic_fetch_add() having well defined forward progress
-> + * guarantees under contention. If your architecture cannot provide this, stick
-> + * to a test-and-set lock.
-> + *
-> + * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> + * sub-word of the value. This is generally true for anything LL/SC although
-> + * you'd be hard pressed to find anything useful in architecture specifications
-> + * about this. If your architecture cannot do this you might be better off with
-> + * a test-and-set.
-> + *
-> + * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
-> + * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
-> + *
-> + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> + * architecture has WFE like instructions to sleep instead of poll for word
-> + * modifications be sure to implement that (see ARM64 for example).
-> + *
-> + */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_H
-> +#define __ASM_GENERIC_TICKET_LOCK_H
-> +
-> +#include <linux/atomic.h>
-> +#include <asm/ticket_lock_types.h>
-> +
-> +#define ONE_TICKET	(1 << 16)
-> +#define __ticket(val)	(u16)((val) >> 16)
-> +#define __owner(val)	(u16)((val) & 0xffff)
-> +
-> +static __always_inline bool __ticket_is_locked(u32 val)
-> +{
-> +	return __ticket(val) != __owner(val);
-> +}
-> +
-> +static __always_inline void ticket_lock(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_fetch_add_acquire(ONE_TICKET, lock);
-> +	u16 ticket = __ticket(val);
-> +
-> +	if (ticket == __owner(val))
-> +		return;
-> +
-> +	atomic_cond_read_acquire(lock, ticket == __owner(VAL));
-> +}
-> +
-> +static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
-> +{
-> +	u32 old = atomic_read(lock);
-> +
-> +	if (__ticket_is_locked(old))
-> +		return false;
-> +
-> +	return atomic_try_cmpxchg_acquire(lock, &old, old + ONE_TICKET);
-> +}
-> +
-> +static __always_inline void ticket_unlock(arch_spinlock_t *lock)
-> +{
-> +	u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
-> +	u32 val = atomic_read(lock);
-> +
-> +	smp_store_release(ptr, __owner(val) + 1);
-> +}
-> +
-> +static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
-> +{
-> +	u32 val = atomic_read(lock);
-> +
-> +	return (__ticket(val) - __owner(val)) > 1;
-Nit: The left side is unsigned, but the right is signed. I think you are 
-relying on the implicit signed to unsigned conversion. It may be a bit 
-clearer if you use 1U instead.
-> +}
-> +
-> +static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
-> +{
-> +	return __ticket_is_locked(atomic_read(lock));
-> +}
-> +
-> +static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
-> +{
-> +	return !__ticket_is_locked(lock.counter);
-> +}
-> +
-> +#undef __owner
-> +#undef __ticket
-> +#undef ONE_TICKET
-> +
-> +#define arch_spin_lock(l)		ticket_lock(l)
-> +#define arch_spin_trylock(l)		ticket_trylock(l)
-> +#define arch_spin_unlock(l)		ticket_unlock(l)
-> +#define arch_spin_is_locked(l)		ticket_is_locked(l)
-> +#define arch_spin_is_contended(l)	ticket_is_contended(l)
-> +#define arch_spin_value_unlocked(l)	ticket_value_unlocked(l)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_H */
+On Thu, Oct 21, 2021 at 6:00 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> On Thu, 21 Oct 2021 06:13:35 PDT (-0700), Conor.Dooley@microchip.com wrote:
+> > On 05/10/2021 13:47, conor.dooley@microchip.com wrote:
+> >> From: Conor Dooley <conor.dooley@microchip.com>
+> >>
+> >> This driver provides an interface for other drivers to access the
+> >> functions of the system controller on the Microchip PolarFire SoC.
+> >>
+> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > Is there some extra CCs that I am missing on this patch that weren't
+> > picked up by getmaintainers, and/or am I mistaken in thinking that
+> > the soc tree is arm only?
 
-Other than the nit above, the patch looks good to me.
+We can handle non-Arm SoCs as well, though most architecture
+maintainers prefer to keep them merged through their trees.
 
-Reviewed-by: Waiman Long <longman@redhat.com>
+> +Arnd, Olof, and the SOC list.  They probably understand this better
+> than I do, we're kind of new to having SOCs in RISC-V land.
+>
+> I guess I was assuming that someone maintained drivers/soc, but from
+> poking around it seems like there's no entry for it and instead it's
+> just a bunch of entries for the sub-directories.  As a result the
+> scripts aren't picking up anyone to send these too, and I'd assuming
+> that because they're not in arch/riscv that they're not for the RISC-V
+> tree.
+>
+> That said, it looks like I put the Kendryte stuff in there (so sorry if
+> I screwed anything up).  I'm happy to take these via the RISC-V tree as
+> well, I'm assuming that means there should be a MAINTAINERS entry for
+> this new sub-directory so changes to it are less likely to get lost.
+> Sorry if I was confusing before, I guess I forgot about how this fits
+> together.
+>
+> Arnd: aside from the lack of a maintainer, these generally look fine to
+> me.  LMK if you were expecting this kind of stuff to go through the
+> RISC-V tree.
 
+It probably helps avoid merge conflicts to go through the soc tree,
+as there are generally more changes for arm specific socs in there.
+
+However, we usually take pull requests from platform maintainers,
+not individual patches. For Microchip's ARM based platforms, those
+patches would go through the AT91/SAMA5 maintainers (added to
+Cc). You can ask them if they are willing to take future patches for
+the polarfire soc as well and forward them to soc@kernel.org along
+with the other stuff.
+
+> >> +int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg)
+> >> +{
+> >> +    int ret;
+> >> +
+> >> +    mutex_lock_interruptible(&transaction_lock);
+
+When you do a mutex_lock_interruptible(), you have to check its return code and
+handle the interruption, usually by passing down -EINTR to the caller.
+
+> >> +struct mpfs_sys_controller *
+> >> +mpfs_sys_controller_get(struct device_node *mss_node)
+> >> +{
+> >> +    struct platform_device *pdev = of_find_device_by_node(mss_node);
+> >> +
+> >> +    if (!pdev)
+> >> +            return NULL;
+> >> +
+> >> +    return platform_get_drvdata(pdev);
+> >> +}
+> >> +EXPORT_SYMBOL(mpfs_sys_controller_get);
+
+There should probably be a check in here to ensure that this is actually
+a system controller and it's bound do this driver, rather than returning a
+random device's driver data.
+
+It might also help to make this take a phandle instead of a device node
+for lookup, to spare the client the extra phandle to node conversion.
+
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
