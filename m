@@ -2,15 +2,15 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5F7DC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 11:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C2F43C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 11:25:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6BF4E610A1
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 11:21:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6BF4E610A1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5B14560E9C
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 11:24:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5B14560E9C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,73 +18,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=naw6H5OfzHJxq/dx+4BoxUbPE0bSXY6V2pRmFKJA+is=; b=uO7hY+gLfY/oTb
-	wXjtebMdfB/cfobQQbzlKeAD1WK1LlE9bNnzgZFXhg+UPvj07K/N6bXCY+B0Kcjz/g9q5tyF4YRLz
-	c/DnGuDQA8zAujHwkq8LaIjhd97xiQlntNWSSIjEILTbAFdZNhUgiD7XDExViN6cr3TVz/+RP8yKD
-	CVGvA0jWScaqS9dAdPfh4cIScqiWNHIsflGK69v07St8vgqvEL5Dx/eVePzg5dm/MFy/xjarjUaEj
-	oWeuP5CXhsosc0K6nfaPGH6gPT3zXTPaoauC7HmrK1/lSG7mwYrPpaD8kiMVac0yx3QYA3I4y3x4l
-	a+Uuc8mtMR4gbcvWNrHA==;
+	List-Owner; bh=imG0OTID2jYMYJYjDO26g1krlGpDauxHswTp6vRTPkU=; b=SKo0gOduC4v9m0
+	Es/xuSvKtnPFemPUq6QvUesrwRg+U36Z8nQMHM//aypp7auDLnIVHJ1pNsfELdoQcn2Hh7GcqEufH
+	ofpml4Dk9kjZv7mntaGsxMruJId+RXKGdZT0uA2zR5RyLkk5rjUTUGzfiGf8uRDdjCjda1Eqml9gZ
+	otMxqyN4y8XTaWBtCZtOUHXeAbYkr/M7PbY3gQGZvyTBLTe849rM13CbiE1lpauEeGom1bPGTiMY0
+	AO4DI8fmOb5I4JlB6/7jrkjWxoBiSqA2jf58N5aqBOUb47lw/DHYKJgBM3NnAYt5Be7wFQLZHeg5f
+	PXrGNfg6Jqzu+d62Lmmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdW8o-007KT0-BF; Thu, 21 Oct 2021 11:21:46 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1mdWBl-007L32-92; Thu, 21 Oct 2021 11:24:49 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdW8l-007KRp-71
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 11:21:45 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id d125so401364iof.5
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 04:21:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ id 1mdWBi-007L12-6T
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 11:24:47 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id g25so578808wrb.2
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 04:24:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=hHTl0EN9dQ/dp9evKTTMpGqyp59LLT52mZlH+IIiot8=;
- b=AQ+5EHmgKNlon0JYKx/HWu5x6U66Dcgko2YsZqPv201SVAWH6nfAXCe6BrNIJTgweU
- owxFxSqSKQ9lfcUwyV5ckK+OFn0e5vmPJR0CFUWJ53fpkGyrgJFB1ZfsmNZL3iUFz8jH
- OkREspWPq5dNqwJRHY0/qL6/apmHCbOMTfg9d8moUcertONvMnP7xYWRrSx9gCe7OwYG
- J9aPVhC3YVVbEWzBVBCINMU/2Q4E8R0jUYUxzNmdIq4wj64/gJsEr1qWWjBfwL9+V238
- 0Vu3k6epCFJJEmMmYn8r3vfBt2LLoyx+84QGCYdsK46gvG0KfTTlZuBV03A344QGE1pb
- 6nOA==
+ :cc; bh=823GhYmXbttbJwIVURhuPlV/kHfvN4T6Ehf+eMAd4qg=;
+ b=nfEfrSbCk1e42MxpttkQclQWIW+uGKdG0+QuvEJZcTOkz8qazuzf5znHkZAPhC2hU8
+ fsZmSzj21VYm0rLGPCAQsri62ycKeT1JWBOvqxD0LDbgmXKOJr9z3EdntJiRNDUdYrqH
+ 4NFYkpq6ejFL8fDyiwRe932cdHINEFAe4B2BpWxcEFPZIb1T+VmZFn+vtnX1+h1PfFtC
+ Wt7h/3irpBfE4hMC6yezfWvv6EHZms1tONuiAwHoC7vpOXD4zyJ1ht7+5GXJ+Hcgco9S
+ cSOMGqXn6Sfr0iCGs+0KqHThxqQAjfZoix70tBXFaULNLMNWlETPB+BY7s6BBmDMFCjP
+ F8Hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=hHTl0EN9dQ/dp9evKTTMpGqyp59LLT52mZlH+IIiot8=;
- b=OJ7Zc83S7SqI8roBM+fi16VGQlKjfZJfAo5mz5UZyMLdtemHG+vEocYIMi0Y30Tf1G
- nWduWYqyP36hD4YeIqZ/7XT5Xo3qWyfXBqVOQeaXWQOVuIfsm4/MRU9zjCWtA88SoEvu
- wWYQycqgoya22tIZO/zn3UVpmrhf3F3Jg1+Yg5H5wPVEMZVMaqVoiWs1vvMM2La5iPcv
- 1E1GwsDDzWwJE54debX3W7ornKLvdu1qAJ136lbOFRt3u9ZgN18e/bSP5cpFfSr15sId
- kFuLrXDWI0ppS5Lt05kCms56qTy6rPkP15QNNsbPFNnn4Be5YGh+Nkyssrskwxnt811M
- VUSg==
-X-Gm-Message-State: AOAM532lxIAOscvF4xe1G7yYLGU/9uq2gP0v97E4AO/78sopDRXA7pA0
- E5NnakbNqP0dOnZyUlA2qFv57dkflKQJsiMOtSqN4A==
-X-Google-Smtp-Source: ABdhPJxMRo/M6HcJdEwh6eTZSJmNRK1zwILbTp96Xp6bcY/ASKoT49bvdtBnoUUI19JfFMMWqZN4m0P00TAN76G7v0w=
-X-Received: by 2002:a05:6638:3796:: with SMTP id
- w22mr3510784jal.25.1634815300995; 
- Thu, 21 Oct 2021 04:21:40 -0700 (PDT)
+ bh=823GhYmXbttbJwIVURhuPlV/kHfvN4T6Ehf+eMAd4qg=;
+ b=YC6UcJNqgZIgKeaZG46AGkYPZF8/u2JA5WqaCpsH0PNg+OmBrDIkMbu9sVPBFqcb2F
+ 0CxZEmd/sO5heqVfSFHwc7nfq389TFjs+p4/46/d5xgKr7RKVjKZKIl/rAHF2n/yCZ0+
+ z6ndu8pd02ZSGc3OWvpEWVHmBzvNJwxRnAWNPvQD7p3SHTdy8zayTgbsNbzgeDOECA9Q
+ VChI2roduo8+zTMq/9RUOSOyf6KEeKQ25oG5YMdK6piQ4qjyQ06bTx1OCyiIDt5xqVtC
+ J55u2NtL8nfISlaob0yCk1ypLWCexEz6k4LyGPKmoO5QNZA6la5PWBBvxJbz28/KJZvn
+ 5NGQ==
+X-Gm-Message-State: AOAM532+KTxNANPn83chDtr2noKc/wHSCDzpLhkURHsmeIKG4a9w+Y7I
+ t2bAU6iKAcXJjEKhwkQDsteVymc0aoQruHh1pYZuHw==
+X-Google-Smtp-Source: ABdhPJw4/zb4/niggRe0zyZ/ENXV882FAHY78FWAaLNgfY/JPNI0A5fpTNtqBvIEMMQ4TnCeIIlENOKE9MKEK0amVZ4=
+X-Received: by 2002:adf:e60a:: with SMTP id p10mr6498325wrm.306.1634815482401; 
+ Thu, 21 Oct 2021 04:24:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-3-saravanak@google.com>
-In-Reply-To: <20210929000735.585237-3-saravanak@google.com>
-From: Amit Pundir <amit.pundir@linaro.org>
-Date: Thu, 21 Oct 2021 16:51:04 +0530
-Message-ID: <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-To: Saravana Kannan <saravanak@google.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
- linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- John Stultz <john.stultz@linaro.org>
+References: <20211021104536.1060107-1-ran.jianping@zte.com.cn>
+In-Reply-To: <20211021104536.1060107-1-ran.jianping@zte.com.cn>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 21 Oct 2021 16:54:29 +0530
+Message-ID: <CAAhSdy3DWOux6HiDU6fPazZUq=FOor8_ZEoqh6FBZru07NyxLQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V:KVM: remove unneeded semicolon Elimate the
+ following coccinelle check warning: ./arch/riscv/kvm/vcpu_sbi.c:169:2-3:
+ Unneeded semicolon ./arch/riscv/kvm/vcpu_exit.c:397:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_exit.c:687:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_exit.c:645:2-3:
+ Unneeded semicolon ./arch/riscv/kvm/vcpu.c:247:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu.c:284:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_timer.c:123:2-3:
+ Unneeded semicolon ./arch/riscv/kvm/vcpu_timer.c:170:2-3: Unneeded semicolon
+To: cgel.zte@gmail.com
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, KVM General <kvm@vger.kernel.org>, 
+ kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ ran jianping <ran.jianping@zte.com.cn>, Zeal Robot <zealci@zte.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_042143_281840_1F18E46B 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20211021_042446_307824_6F717EAA 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,143 +100,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Saravana,
+On Thu, Oct 21, 2021 at 4:15 PM <cgel.zte@gmail.com> wrote:
+>
+> From: ran jianping <ran.jianping@zte.com.cn>
 
-This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
-I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
+Reduce the length of patch subject (preferable around 70 characters)
+and move the rest of patch subject as patch description.
 
 Regards,
-Amit Pundir
+Anup
 
-On Wed, 29 Sept 2021 at 05:37, Saravana Kannan <saravanak@google.com> wrote:
 >
-> The simple-pm-bus driver is mandatory for CONFIG_OF based platforms to work
-> with fw_devlink. So, always compile it in for CONFIG_OF and delete the
-> config since it's no longer necessary.
->
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
-> Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Reported-by: Zeal Robot <zealci@zte.com.cn>
+> Signed-off-by: ran jianping <ran.jianping@zte.com.cn>
 > ---
->  arch/arm/configs/multi_v7_defconfig |  1 -
->  arch/arm/configs/oxnas_v6_defconfig |  1 -
->  arch/arm/configs/shmobile_defconfig |  1 -
->  arch/arm/mach-omap2/Kconfig         |  1 -
->  arch/arm64/configs/defconfig        |  1 -
->  drivers/bus/Kconfig                 | 12 ------------
->  drivers/bus/Makefile                |  2 +-
->  drivers/soc/canaan/Kconfig          |  1 -
->  8 files changed, 1 insertion(+), 19 deletions(-)
+>  arch/riscv/kvm/vcpu.c       | 4 ++--
+>  arch/riscv/kvm/vcpu_exit.c  | 6 +++---
+>  arch/riscv/kvm/vcpu_sbi.c   | 2 +-
+>  arch/riscv/kvm/vcpu_timer.c | 4 ++--
+>  4 files changed, 8 insertions(+), 8 deletions(-)
 >
-> diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-> index d9abaae118dd..362720ae8d65 100644
-> --- a/arch/arm/configs/multi_v7_defconfig
-> +++ b/arch/arm/configs/multi_v7_defconfig
-> @@ -196,7 +196,6 @@ CONFIG_PCI_EPF_TEST=m
->  CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_OMAP_OCP2SCP=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_CMDLINE_PARTS=y
->  CONFIG_MTD_BLOCK=y
-> diff --git a/arch/arm/configs/oxnas_v6_defconfig b/arch/arm/configs/oxnas_v6_defconfig
-> index cae0db6b4eaf..de37f7e90999 100644
-> --- a/arch/arm/configs/oxnas_v6_defconfig
-> +++ b/arch/arm/configs/oxnas_v6_defconfig
-> @@ -46,7 +46,6 @@ CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_DMA_CMA=y
->  CONFIG_CMA_SIZE_MBYTES=64
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_CMDLINE_PARTS=y
->  CONFIG_MTD_BLOCK=y
-> diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
-> index d9a27e4e0914..18d2a960b2d2 100644
-> --- a/arch/arm/configs/shmobile_defconfig
-> +++ b/arch/arm/configs/shmobile_defconfig
-> @@ -40,7 +40,6 @@ CONFIG_PCI_RCAR_GEN2=y
->  CONFIG_PCIE_RCAR_HOST=y
->  CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_MTD=y
->  CONFIG_MTD_BLOCK=y
->  CONFIG_MTD_CFI=y
-> diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
-> index 7df8f5276ddf..02f2f3157f07 100644
-> --- a/arch/arm/mach-omap2/Kconfig
-> +++ b/arch/arm/mach-omap2/Kconfig
-> @@ -112,7 +112,6 @@ config ARCH_OMAP2PLUS
->         select PM_GENERIC_DOMAINS
->         select PM_GENERIC_DOMAINS_OF
->         select RESET_CONTROLLER
-> -       select SIMPLE_PM_BUS
->         select SOC_BUS
->         select TI_SYSC
->         select OMAP_IRQCHIP
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index f423d08b9a71..474b1f2e3f06 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -245,7 +245,6 @@ CONFIG_DEVTMPFS_MOUNT=y
->  CONFIG_FW_LOADER_USER_HELPER=y
->  CONFIG_FW_LOADER_USER_HELPER_FALLBACK=y
->  CONFIG_HISILICON_LPC=y
-> -CONFIG_SIMPLE_PM_BUS=y
->  CONFIG_FSL_MC_BUS=y
->  CONFIG_TEGRA_ACONNECT=m
->  CONFIG_GNSS=m
-> diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
-> index e7f7eee6ee9a..dc3801369488 100644
-> --- a/drivers/bus/Kconfig
-> +++ b/drivers/bus/Kconfig
-> @@ -141,18 +141,6 @@ config QCOM_EBI2
->           Interface 2, which can be used to connect things like NAND Flash,
->           SRAM, ethernet adapters, FPGAs and LCD displays.
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index c44cabce7dd8..912928586df9 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -244,7 +244,7 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+>                 break;
+>         default:
+>                 return -EINVAL;
+> -       };
+> +       }
 >
-> -config SIMPLE_PM_BUS
-> -       tristate "Simple Power-Managed Bus Driver"
-> -       depends on OF && PM
-> -       help
-> -         Driver for transparent busses that don't need a real driver, but
-> -         where the bus controller is part of a PM domain, or under the control
-> -         of a functional clock, and thus relies on runtime PM for managing
-> -         this PM domain and/or clock.
-> -         An example of such a bus controller is the Renesas Bus State
-> -         Controller (BSC, sometimes called "LBSC within Bus Bridge", or
-> -         "External Bus Interface") as found on several Renesas ARM SoCs.
-> -
->  config SUN50I_DE2_BUS
->         bool "Allwinner A64 DE2 Bus Driver"
->           default ARM64
-> diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
-> index 397e35392bff..86aacd36a56d 100644
-> --- a/drivers/bus/Makefile
-> +++ b/drivers/bus/Makefile
-> @@ -26,7 +26,7 @@ obj-$(CONFIG_OMAP_OCP2SCP)    += omap-ocp2scp.o
->  obj-$(CONFIG_QCOM_EBI2)                += qcom-ebi2.o
->  obj-$(CONFIG_SUN50I_DE2_BUS)   += sun50i-de2.o
->  obj-$(CONFIG_SUNXI_RSB)                += sunxi-rsb.o
-> -obj-$(CONFIG_SIMPLE_PM_BUS)    += simple-pm-bus.o
-> +obj-$(CONFIG_OF)               += simple-pm-bus.o
->  obj-$(CONFIG_TEGRA_ACONNECT)   += tegra-aconnect.o
->  obj-$(CONFIG_TEGRA_GMI)                += tegra-gmi.o
->  obj-$(CONFIG_TI_PWMSS)         += ti-pwmss.o
-> diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
-> index 8179b69518b4..853096b7e84c 100644
-> --- a/drivers/soc/canaan/Kconfig
-> +++ b/drivers/soc/canaan/Kconfig
-> @@ -5,7 +5,6 @@ config SOC_K210_SYSCTL
->         depends on RISCV && SOC_CANAAN && OF
->         default SOC_CANAAN
->          select PM
-> -        select SIMPLE_PM_BUS
->          select SYSCON
->          select MFD_SYSCON
->         help
+>         if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+>                 return -EFAULT;
+> @@ -281,7 +281,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+>                 break;
+>         default:
+>                 return -EINVAL;
+> -       };
+> +       }
+>
+>         return 0;
+>  }
+> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+> index 13bbc3f73713..7f2d742ae4c6 100644
+> --- a/arch/riscv/kvm/vcpu_exit.c
+> +++ b/arch/riscv/kvm/vcpu_exit.c
+> @@ -394,7 +394,7 @@ static int emulate_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>                 break;
+>         default:
+>                 return -EOPNOTSUPP;
+> -       };
+> +       }
+>
+>         /* Update MMIO details in kvm_run struct */
+>         run->mmio.is_write = true;
+> @@ -642,7 +642,7 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+>                 break;
+>         default:
+>                 return -EOPNOTSUPP;
+> -       };
+> +       }
+>
+>  done:
+>         /* Move to next instruction */
+> @@ -684,7 +684,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>                 break;
+>         default:
+>                 break;
+> -       };
+> +       }
+>
+>         /* Print details in-case of error */
+>         if (ret < 0) {
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index ebdcdbade9c6..eb3c045edf11 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -166,7 +166,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+>                 /* Return error for unsupported SBI calls */
+>                 cp->a0 = SBI_ERR_NOT_SUPPORTED;
+>                 break;
+> -       };
+> +       }
+>
+>         if (next_sepc)
+>                 cp->sepc += 4;
+> diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+> index ddd0ce727b83..5c4c37ff2d48 100644
+> --- a/arch/riscv/kvm/vcpu_timer.c
+> +++ b/arch/riscv/kvm/vcpu_timer.c
+> @@ -120,7 +120,7 @@ int kvm_riscv_vcpu_get_reg_timer(struct kvm_vcpu *vcpu,
+>                 break;
+>         default:
+>                 return -EINVAL;
+> -       };
+> +       }
+>
+>         if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+>                 return -EFAULT;
+> @@ -167,7 +167,7 @@ int kvm_riscv_vcpu_set_reg_timer(struct kvm_vcpu *vcpu,
+>         default:
+>                 ret = -EINVAL;
+>                 break;
+> -       };
+> +       }
+>
+>         return ret;
+>  }
 > --
-> 2.33.0.685.g46640cef36-goog
+> 2.25.1
 >
 
 _______________________________________________
