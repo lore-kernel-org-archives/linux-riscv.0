@@ -2,89 +2,83 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E9B8C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 19:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E49C0C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 21:51:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1D9F7610CB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 19:51:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1D9F7610CB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id 9DEAD610EA
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 21:51:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9DEAD610EA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LbtKZakmmakEplqk7X//f5qvcR0DaJD4ex0JBTHdils=; b=o+rYm3x2FP2tGt
-	DXEnD6UNVFKGJ48kPOsk/4xaM2xXE6S3zgnD9QO7K0mY64SaHGH7bnbmbf2oJkuUxO5B3vo+aJpjz
-	sPrlLTZkjyDApd332q43QR2wWphJdHQ74lVHUcIiI7Ao1L6r1LVZ/XF6ZmiMGIooH1ymXm8RxJe7S
-	eO2l+0k2hmzaF7IEceNO6z2IiVei/J8f7XUyDhZ0z7/k8ZU0gTtPWPpHim3c/G1VxcN2aKAyn+Rhl
-	1mLrxzxO8V9WY6p6aoLPCOjZZwY97y2Ny/YiGFIA3XmXXcbN/Yt6cObGK7hvclponRcYqJOd4GuJV
-	Mucwp9gUSXNV3sWMSvyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=6Nu/XYJFHh7gJaU7h2vA61de/vKZMhWmZq3TImxnAi8=; b=MgIk3Cc4KhosldLrO6DaGDgAw+
+	KWGmq0cilY3tymy+CdwXq5XjE/BK9nRUhbivOVMb1HV5Ntaz7lgMXax2gzLrE8DG5Dzc+oLpitRHq
+	+ECNXRq6Nqb+lG5xb9Ib6MNt0QpLE0TpNdZwugn7SooDJ6JNxat4Pnw9HDeFEYqc0cy3ONzPmD98h
+	ZRmofNyzQTOL79LuNdAJoLslcUAT8q2Vmqz/vYmX1BSYBwn4Cp+bi8BN6vWaRl/OiiDJYw7EHt+m8
+	xh+7EZLH9gFMasxoFbIyd74Q3pbcqkd8vB+mme97eWrirW5iBNQBbWXrZx9wytSxKMu7mIzpPxEHN
+	Jw1fzPjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mde5Z-0091Jb-Qb; Thu, 21 Oct 2021 19:50:57 +0000
-Received: from mail-pg1-f169.google.com ([209.85.215.169])
+	id 1mdfyJ-009DJJ-DW; Thu, 21 Oct 2021 21:51:35 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mde5W-0091IW-17
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 19:50:56 +0000
-Received: by mail-pg1-f169.google.com with SMTP id r2so1234767pgl.10
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 12:50:53 -0700 (PDT)
+ id 1mdfyG-009DIX-JY
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 21:51:34 +0000
+Received: by mail-pg1-x534.google.com with SMTP id t7so1481060pgl.9
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 14:51:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=iIjOjRuuF69t6HmfV6mNW7nAeVgMNixa2oJL1/ZOiQg=;
+ b=Z5m6QWz3AQaqJWA63h4Y1HANpmqTbvh8iX2KIJi1KsrNmJV61jA6eFzYvAa9OmdFr2
+ CSQDgS9+cij1C9LrSPJ1Zp5ahQyWdi2P05pyAajvpLDq9ZeA+v0xxlcNw8RfdFl7Y9TQ
+ kMp5brDQeT2CghqocReyzqfzk/18jbPr6ggOjPtmRjQdAicM2N4zAV2fHgFv2LcwRj9y
+ umFzGoS2bdMqdN75/arbJhubAmjDGhvnqe8SDGQrxyvAIOf1o+m83gzPe4NRjx7J4ogq
+ dSqjnnrSkoiLUDEjticgCK+46rTNdwXe+mfJ5Y7hZv4kBQg6FWWe6MCSSrOAQfbe3Ji9
+ vDGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=5qcBk3DeZv7+MBr+DGak5KmAIKq22H5/grJVeSCeLaw=;
- b=fy6/iEzyI3AckET5tk74se0VzYoou8m3q0JoQSAqf+fR/16ZINoype7DV3um4vTFLT
- Ss2JSQjo5opDOWC2GGi/IZhTBxfzJMVxYrFq0QHRqR2DVwXLC1Zgc+zZDCo7XUDJ75m2
- 1WCdrhlnHeqWcDuTarhm0/eRkQAvJ0bdKxYbnQNy+Wr6PJzVq1X31Xnkz4nLxUvX26aq
- Pcdh4OhdBjr0odFEosgdZJfmdLxxfu0eupAj9dmC5CNnC4nflcON6cHRnRR3gB4WvgTS
- zv88iRo0NKNsitF3RVLeYkdGUGlwkcjamrYlylPquuMu26wSeZTzFk8FlUPbZmTnAPve
- 0LNw==
-X-Gm-Message-State: AOAM5322zwdJR/5hIQFwUK84l1AbUXsFf8YwzDOt3i8hHpZy5zAjxO17
- afEPQo9hsmeCqZ1b0tiRmlianySpRv/UktZdbOg=
-X-Google-Smtp-Source: ABdhPJz2g45HVrm92zsQSGHVasZJ2oUSDzMsKNKTjLhfF9aY5UDp7p3S+/XUucIuf3UBNmD9xTaAgYYNmpQ1XqNUueI=
-X-Received: by 2002:a63:2d46:: with SMTP id t67mr5876914pgt.15.1634845853245; 
- Thu, 21 Oct 2021 12:50:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-13-kernel@esmil.dk>
- <20211021190118.GA1802180@x1>
-In-Reply-To: <20211021190118.GA1802180@x1>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Thu, 21 Oct 2021 21:50:42 +0200
-Message-ID: <CANBLGcy2WR2L_CE2FbLPBnDaHWaNgUySxyB4WyPYA1z8zsQAPQ@mail.gmail.com>
-Subject: Re: [PATCH v2 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=iIjOjRuuF69t6HmfV6mNW7nAeVgMNixa2oJL1/ZOiQg=;
+ b=sic8UUUE0VZgFVRFujcRmQe5rcWyOtCQ1qvVqwhnfYS9LOcuTPFmHtXrPPZhnw+VUr
+ twuhe1HDWtG2r+EYd4jgjTxcfAAwzu1ZBh0umL44MzvhmbQehuNmZCMo+hR4ZfrCa/zi
+ OyhEww7cZ15F/rjm3A+4g6yHKMxls+6YsrZ5yEDhf9VAGDrua2gFoileRsYziq9gDXYQ
+ hX6QIKLcOeVVubrtuJbuUB7e/HlFwV4JTQeM1lFGGKht1nnnRuOq8LXQb19sV/TntCHM
+ OfI6tm9z4kNWDoeaHxdLRB/3vL0bWUUx9BbBJUnHu64x+dJXU2kmQSY8sKJ/bMdClleL
+ 0GKQ==
+X-Gm-Message-State: AOAM533Chu9oBBBWL4sD2KSKBCIIdow3Y4IddEW7E3X2oBtPThzeAWym
+ qqpgzrnkYPbKHpnxJPhaFbXcMA==
+X-Google-Smtp-Source: ABdhPJx+KdjsmowFFTshMv4kNktiSr9Nyaw7YXblCPr5iXukUmhP3B3jLEvS4as89EdK4LJkjWJ9yg==
+X-Received: by 2002:a63:df49:: with SMTP id h9mr6314184pgj.198.1634853089868; 
+ Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
+Received: from localhost ([2620:0:1000:5e10:4ba5:eac8:81d9:3e28])
+ by smtp.gmail.com with ESMTPSA id i8sm6943807pfo.117.2021.10.21.14.51.29
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
+Date: Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
+X-Google-Original-Date: Thu, 21 Oct 2021 14:42:25 PDT (-0700)
+Subject: Re: [PATCH] serial: sifive: set pointer to NULL rather than 0.
+In-Reply-To: <20210925224726.183360-1-colin.king@canonical.com>
+CC: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-serial@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 
+ kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: colin.king@canonical.com
+Message-ID: <mhng-f84d7cb5-9eb5-40e2-bdc4-9bfdbd67f6d3@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_125054_099292_8B9F644E 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20211021_145132_671763_04A70CB5 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,110 +90,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Oct 2021 at 21:01, Drew Fustini <dfustini@baylibre.com> wrote:
-> On Thu, Oct 21, 2021 at 07:42:19PM +0200, Emil Renner Berthing wrote:
-> > +/*
-> > + * Interrupt Trigger Polarity. If set to 1 the interrupt is triggered on a
-> > + * rising edge (edge-triggered) or high level (level-triggered). If set to 0 the
-> > + * interrupt is triggered on a falling edge (edge-triggered) or low level
-> > + * (level-triggered).
-> > + */
-> > +#define GPIOIEV              0x020
-> > +
-> > +/*
-> > + * Interrupt Mask. If set to 1 the interrupt is disabled (masked). If set to 0
-> > + * the interrupt is enabled (unmasked).
-> > + */
-> > +#define GPIOIE               0x028
+On Sat, 25 Sep 2021 15:47:26 PDT (-0700), colin.king@canonical.com wrote:
+> From: Colin Ian King <colin.king@canonical.com>
 >
-> It bothered me that the datasheet used the term GPIOIE for the interrupt
-> mask register. I had used a more verbose #define name because I worried
-> someone reading GPIOIE in functions might mistake it for an interrupt
-> enable register. This happened to me when I was originally working with
-> the gpio driver.
+> Clean up the assignment of sifive_serial_console_ports[ssp->port.line],
+> this is a pointer to a struct sifive_serial_port so the assignment
+> should be a NULL rather than a integer 0.
 >
-> However I suppose the best solution would have been to get the datasheet
-> updated as I can see how it is best to have #define names in the driver
-> match the datasheet.
+> Signed-off-by: Colin Ian King <colin.king@canonical.com>
+> ---
+>  drivers/tty/serial/sifive.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> > +static void starfive_irq_mask(struct irq_data *d)
-> > +{
-> > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
-> > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
-> > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
-> > +     u32 mask = BIT(gpio % 32);
-> > +     unsigned long flags;
-> > +     u32 value;
-> > +
-> > +     raw_spin_lock_irqsave(&sfp->lock, flags);
-> > +     value = readl_relaxed(ie) & ~mask;
-> > +     writel_relaxed(value, ie);
-> > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
-> > +}
-> > +
-> > +static void starfive_irq_mask_ack(struct irq_data *d)
-> > +{
-> > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
-> > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
-> > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
-> > +     void __iomem *ic = sfp->base + GPIOIC + 4 * (gpio / 32);
-> > +     u32 mask = BIT(gpio % 32);
-> > +     unsigned long flags;
-> > +     u32 value;
-> > +
-> > +     raw_spin_lock_irqsave(&sfp->lock, flags);
-> > +     value = readl_relaxed(ie) & ~mask;
-> > +     writel_relaxed(value, ie);
-> > +     writel_relaxed(mask, ic);
-> > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
-> > +}
-> > +
-> > +static void starfive_irq_unmask(struct irq_data *d)
-> > +{
-> > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
-> > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
-> > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
-> > +     u32 mask = BIT(gpio % 32);
-> > +     unsigned long flags;
-> > +     u32 value;
-> > +
-> > +     raw_spin_lock_irqsave(&sfp->lock, flags);
-> > +     value = readl_relaxed(ie) | mask;
-> > +     writel_relaxed(value, ie);
-> > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
-> > +}
-> > +
-
-...
-
-> > +static int starfive_gpio_init_hw(struct gpio_chip *gc)
-> > +{
-> > +     struct starfive_pinctrl *sfp = starfive_from_gc(gc);
-> > +
-> > +     /* mask all GPIO interrupts */
-> > +     writel(0, sfp->base + GPIOIE + 0);
-> > +     writel(0, sfp->base + GPIOIE + 4);
+> diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+> index 0ac0371f943b..b79900d0e91a 100644
+> --- a/drivers/tty/serial/sifive.c
+> +++ b/drivers/tty/serial/sifive.c
+> @@ -887,7 +887,7 @@ static void __ssp_add_console_port(struct sifive_serial_port *ssp)
 >
-> Woudln't 0 in GPIOIE mean mask is disabled for all interrupts?
+>  static void __ssp_remove_console_port(struct sifive_serial_port *ssp)
+>  {
+> -	sifive_serial_console_ports[ssp->port.line] = 0;
+> +	sifive_serial_console_ports[ssp->port.line] = NULL;
+>  }
 >
-> In other words, wouldn't this enable all the interrupts?
+>  #define SIFIVE_SERIAL_CONSOLE	(&sifive_serial_console)
 
-Heh, you're right. The code does the exact opposite of what the
-documentation says it should be doing. However I just tried and with
-the code as it is now GPIO interrupts work fine, but with the logic
-flipped the kernel fails to boot. I'm guessing because an interrupt
-storm. So it seems to me the documentation might be wrong and GPIOIE
-is actually a good name.
+I'm assuming this was aimed at the serial tree, but LMK if someone was 
+expecting me to take it.
 
-Michael Zhu: Can you confirm if a 1 or 0 enables the interrupt in the
-GPIOIE registers?
-
-/Emil
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
 _______________________________________________
 linux-riscv mailing list
