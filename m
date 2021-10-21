@@ -2,87 +2,77 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6AE6C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 15:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68FDAC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 15:23:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A798B60F22
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 15:07:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A798B60F22
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3357761130
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 15:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3357761130
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=4MdfU9U36vK0qLTcuHAOvXfHTcSxoadyfuetW6SGuXU=; b=zlVRkVkqKnLFT1eDX89f4xM5JC
-	FfyevO0zlC0l08ztD+wjoxcWSMhHJn3C75b4byxj9XwFc79PGxkbCSe0e20TZaNvYDyVVpfIlHOXp
-	6TLSw/QUXdtKEWqiD13B3/XVP7gqPqQi4Q1FOxpI6y6bO0umcPijVlhTLjQdkzwCDO8WngaeIf1L3
-	cwg9Q3qG5ZhMTNNXBUHo23PKrBIqudRHH2H4B5+Tph5gYKQTzxdCELfFhBIK4dzxIRPO7EPtcDObd
-	k+GXod1QLNHlSk0+k624kOAR1+2abKFKx1olka1iab3N1UyathdCiKtVYs6WQOZwfdWvYLemS1CZs
-	R2taXptA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HsqiagfH+FTUKZmlMP+vtjzxwghrH/tjd6JGwykwE9I=; b=mSsPCW8olfC9Pb
+	+hnN6uO7WPbrUF0KtacJnDPBRrX49Rn05pFiP10SZ1soOfj2mSzquVasEAyegMMNmfxlKrFiwdAkn
+	zu0JEGjzmK9kDfkxzAqvj/GvSHEI3yp2qpR4YLjh4RZBkb8GdVYFFXJEQZ3XbQsHcCBfwKSPrJzG5
+	fi76Ygmd7Syxvcw4NaMteCSWToCe7TRlRxpdn4ReeluSJNtiPVzSdIJtS2NNPxBVSWDwlm1nmeqDC
+	G0uf7+d13xcOzdlIYBD3OKr+Vz3TfvxtoUZOo4WgObx7S9m7TMlso1B2Bq7rNcUFurW5GiaWD6Leo
+	f28hJBDWteDVHz3E6c4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdZev-007yB2-Gs; Thu, 21 Oct 2021 15:07:09 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1mdZup-0085Xa-7q; Thu, 21 Oct 2021 15:23:35 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdZes-007y8n-6F
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 15:07:07 +0000
-Received: by mail-pg1-x534.google.com with SMTP id m21so554705pgu.13
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 08:07:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=8J+7f2f4xuhNe3jNVdWk7a86I7pUDjUPQRras1jT8jA=;
- b=j2xqGy2XNECrbul6qEKx9SST/rdB96W/R24/Vvcb8OqiQ/EHcxnhHYfq5uycgpIPfE
- RcoveVySySpwpVV4tBCzFXMBjD2Nbo+r7Vouu3zvunyfI91UcGulu7Nf/Efg6vE0BHHv
- /LkDq7xiH7ZfRV3m5sF462W0KJ3z1wKCyuvxatQAiZ0IhNp9AB4OJO5f48RqdrwxWEXV
- mKN4COsAen3/I4rFmP2EK85hFYa8xqnSauu6h/p0/SzhsTzXY2mralghgKwja2Of6/fO
- GfDWT4tqD+WyHwETcfuO7Mci1xa1bCHrSgDFMYZySCx/rxAhmzRhX68rxf6QbT/UQcIq
- UsCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=8J+7f2f4xuhNe3jNVdWk7a86I7pUDjUPQRras1jT8jA=;
- b=FrgBApM0t2LKeNCiTLQ6Vj/xaYfjZMHr0sMUo4AihDfSGhCpn0EYieOTQydoRCCdb9
- /ihN56pcE424PWITDuKcEJtmUuA1S6vRURFx7lFmorliuBuwreJ1yl5rMJnIdq1DwuTb
- 7p4/PcANCgYLl6gZ5HMHvYy9VJcbPFVkaoyhnVBFT7+A5e13CMlUKv3RPSfB0v2TEeN7
- Z8g6/vlGks0HCuHJRUVMicjFMFuwDzpsSXVdra54kKTVvLsQRp6737yw/uSB/cxEhZ54
- hvMfecQswykc9sf2BcHzyWIvTrELs2tQgyLhBc27lGdY1Ko1YFE1FOiKe1WNibyiTSPL
- c0nA==
-X-Gm-Message-State: AOAM532Y64Yohw7dC+BTEfTTPSXDDgcYygOHMahmh5L1mxp8vFotz3d+
- vm7lK1HwGx1Wt0PrJ2pRYIh+1Q==
-X-Google-Smtp-Source: ABdhPJyz7GFpoPYi0O9X5+kNyiRMV3FyOoAIfXtYBZpu6m8G0bDaRlzBGocZrUEoxY+npHCfOUgOYA==
-X-Received: by 2002:a05:6a00:b48:b0:444:f9d4:d800 with SMTP id
- p8-20020a056a000b4800b00444f9d4d800mr6713446pfo.38.1634828820211; 
- Thu, 21 Oct 2021 08:07:00 -0700 (PDT)
-Received: from localhost ([2620:0:1000:5e10:459d:a8c7:78e4:f487])
- by smtp.gmail.com with ESMTPSA id 60sm9545333pjz.11.2021.10.21.08.06.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Oct 2021 08:06:58 -0700 (PDT)
-Date: Thu, 21 Oct 2021 08:06:58 -0700 (PDT)
-X-Google-Original-Date: Thu, 21 Oct 2021 08:06:53 PDT (-0700)
-Subject: Re: [GIT PULL] riscv: dts: few cleanups for v5.16
-In-Reply-To: <4a27b400-4fb1-bb7a-335a-ae1d084cdf73@canonical.com>
-List-Id: <soc.lore.kernel.org>
-CC: Conor.Dooley@microchip.com, Arnd Bergmann <arnd@arndb.de>,
- Olof Johansson <olof@lixom.net>, arm@kernel.org, soc@kernel.org,
- linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- krzk@kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: krzysztof.kozlowski@canonical.com
-Message-ID: <mhng-743556e6-a149-4301-8c4b-c14b3bf4d3d8@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_080706_289307_8EDC1D20 
-X-CRM114-Status: GOOD (  16.44  )
+ id 1mdZoe-00831v-R8
+ for linux-riscv@bombadil.infradead.org; Thu, 21 Oct 2021 15:17:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=NLJ71Cg5LEnHqcIFkkZXwV1AtdUcW7tx8BbmnW6dm2g=; b=LlXZjS8mpvPBPAcm9fAJMVVIEX
+ GW9IxpiIaNNbRWFpiiSrlTQAisFo2nBmhFeRJTVLmPD3snhgYjgXfnh5+Tppkpkldh2CtnayBpvZU
+ 5VHsyKd64d1lhCkh2nspl7xw3HumC1xR2FmEPtMaRFc0FuBNTaijLVDqndEt1Xt7RasRb+gxhJSve
+ tOKrfkwzfTuEfudSGXk/vzEgRdjLGuVswaaowf9Dd2xcJypZr51wI2BcTsmx0BUa1WiVCmok0aP4i
+ u+v+vQl85dvR1aFijH7mbSgbGRIpGymJSZJWNLdMavXimToVlBQVcebHmtAT3g/7GQQmVBnMZ6U42
+ 798BlBkg==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mdZmI-00DLc1-I2; Thu, 21 Oct 2021 15:15:48 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 30C283002BC;
+ Thu, 21 Oct 2021 17:14:45 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 0920B2C103FF6; Thu, 21 Oct 2021 17:14:45 +0200 (CEST)
+Date: Thu, 21 Oct 2021 17:14:44 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Ingo Molnar <mingo@kernel.org>, Waiman Long <longman@redhat.com>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
+ Stafford Horne <shorne@gmail.com>
+Subject: Re: [PATCH] locking: Generic ticket lock
+Message-ID: <YXGD5OFbI7TEDFTr@hirez.programming.kicks-ass.net>
+References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
+ <CAK8P3a2+=9jjyqN5dMOb4+bYJy=q5G3CxFaCW+=4xryz-S=zYA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a2+=9jjyqN5dMOb4+bYJy=q5G3CxFaCW+=4xryz-S=zYA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +84,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Oct 2021 06:09:50 PDT (-0700), krzysztof.kozlowski@canonical.com wrote:
-> On 21/10/2021 15:06, Conor.Dooley@microchip.com wrote:
->> On 21/10/2021 13:23, Arnd Bergmann wrote:
->>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>>
->>> On Thu, Oct 21, 2021 at 11:09 AM Krzysztof Kozlowski
->>> <krzysztof.kozlowski@canonical.com> wrote:
->>>> Hi Arnd and Olof,
->>>>
->>>> I have an old patchset for RISC-V dts cleanups which I sent to mailing lists in
->>>> August 2021 (v1, v2), resent in September and pinged two times.  They got some
->>>> review (from Alexandre Ghiti for SiFive, from Conor Dooley for Microchip) but
->>>> unfortunately Palmer (RISC-V maintainer) did not respond here.
->>
->> Out of curiosity which series is this one? Is it the one with the
->> plic/clint changes?
->> Pretty sure that I have taken them in internally, but I am going to
->> submit a bunch
->> of changes to our device tree soon (tm) and want to make sure I have the
->> right
->> dependent series listed.
->>
->
-> There is only one Microchip patch here (plic/clint). Others are for
-> SiFive. All the patches are described in the pull reqeust:
-> https://lore.kernel.org/lkml/20211021090955.115005-1-krzysztof.kozlowski@canonical.com/
->
-> I had also second set of RISC-V patches for Microchip. These were picked
-> up by Palmer:
-> https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/log/?h=for-next
+On Thu, Oct 21, 2021 at 03:49:51PM +0200, Arnd Bergmann wrote:
+> On Thu, Oct 21, 2021 at 3:05 PM Peter Zijlstra <peterz@infradead.org> wrote:
+> >
+> > Therefore provide ticket locks, which depend on a single atomic
+> > operation (fetch_add) while still providing fairness.
+> 
+> Nice!
+> 
+> Aside from the qspinlock vs ticket-lock question, can you describe the
+> tradeoffs between this generic ticket lock and a custom implementation
+> in architecture code? Should we convert most architectures over
+> to the generic code in the long run, or is there something they
+> can usually do better with an inline asm based ticket lock
 
-Sorry I missed this.  If you guys took this through the SOC tree that's 
-fine, otherwise LMK and I'll put it in the RISC-V tree.
+I think for a load-store arch this thing should generate pretty close to
+optimal code. x86 can do ticket_unlock() slightly better using a single
+INCW (or ADDW 1) on the owner subword, where this implementation will to
+separate load-add-store instructions.
+
+If that is actually measurable is something else entirely.
+
+> or a trivial test-and-set?
+
+If your SMP arch is halfway sane (no fwd progress issues etc..) then
+ticket should behave well and avoid the starvation/variablilty of TaS
+lock.
+
+The big exception there is virtualized architectures, ticket is
+absolutely horrendous for 'guests' (any fair lock is for that matter).
+
 
 _______________________________________________
 linux-riscv mailing list
