@@ -2,67 +2,73 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3FF6CC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 12:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 33D55C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 13:05:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F05F060E97
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 12:37:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F05F060E97
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atomide.com
+	by mail.kernel.org (Postfix) with ESMTPS id E5A7E611C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 13:05:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E5A7E611C7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f37WXxFPE2a+0d7ExQQn8DJHPv0dw+w0+cdIXBjxgko=; b=Xkj7PE51h1mZbA
-	S50/ARvPeyLZFGZ69KfMD4JkwUyULNLCk9yzQSFBWgjI85shEISOzCLKWrSWRGGwFFRrAdmoAlCRV
-	EPnEzFOHzOSgmxQ+15vfmYUXNd0xBh8tR7O8TrfcvR5zGVVnLrbF+0e8ud6wytnWmgf5Fj8rMrYBA
-	GutD7sYaSk2cUm6I4HOfUuH+yxjDL1r6O48r0sO817uDyseLYp/GTp3lNtZVjVm0yIJXLdLDtBmvZ
-	9p7SBgptd6v4LSB4g+a9Uf8s59QTw6no5RM4U1yxObeDJ1HmB2ofnj7/YupvusZFrOuSxZBIh/Mlg
-	ZuBP4kyqH91Mtsd3EzRw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NS5WIKRbLQNhCok0kL8ox0Q85S98FmIFBPThiVFs9T4=; b=2pefvpw9Dn87Dw
+	M3L0gv+rhph2hKypRPoE/L8Fun50DzRdxxt7SA6EiqDUpRz6vjJCCSlQxcyIsrP98Jif2xCBGeCzM
+	5H6D0U7wtnybq59ia+VoxBq7HNP73VfMRjcKCKjTvPyMOcvJfECFK+G8IY91TlcZJFJMY6nr5c3RQ
+	GeOjwSgWhvi1fXDu+ZyBgyY7LFe6qcq+kV/83Y1GztggbLZQm07i5Vo3yx27cWpfqo9b8RTdyX31z
+	mdJ0csCnBkJLrXRr18jRmR+JZOotpyQzYCrOeHG/ZWw6t6gxuycfxYMoTBQ4jOSerrcu1+YEti620
+	LgLj7ZU0mETVaGydgxWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdXKO-007WDC-Uz; Thu, 21 Oct 2021 12:37:48 +0000
-Received: from muru.com ([72.249.23.125])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdXKC-007W9e-EG; Thu, 21 Oct 2021 12:37:37 +0000
-Received: from localhost (localhost [127.0.0.1])
- by muru.com (Postfix) with ESMTPS id 738A080FC;
- Thu, 21 Oct 2021 12:38:05 +0000 (UTC)
-Date: Thu, 21 Oct 2021 15:37:30 +0300
-From: Tony Lindgren <tony@atomide.com>
-To: Amit Pundir <amit.pundir@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>,
- Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Damien Le Moal <damien.lemoal@wdc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Android Kernel Team <kernel-team@android.com>,
- linux-arm-kernel@lists.infradead.org,
- lkml <linux-kernel@vger.kernel.org>, linux-oxnas@groups.io,
- linux-renesas-soc@vger.kernel.org, linux-omap@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- John Stultz <john.stultz@linaro.org>
-Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-Message-ID: <YXFfCg4iiI0P5JgJ@atomide.com>
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-3-saravanak@google.com>
- <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
+	id 1mdXlR-007azN-41; Thu, 21 Oct 2021 13:05:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mdXlP-007azF-F8
+ for linux-riscv@bombadil.infradead.org; Thu, 21 Oct 2021 13:05:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=yLs7lohtLUQMBUgR69hUB9nLgmBz4P81eC7G2AavgVU=; b=OBTmoQzbtIGzP9wuLJ5BP2iPrV
+ nDwC/5evJUnVu35laqICruZHdWwddzr+tJE6bLs7FSoGBuSb9vtHIpnuJjm8/T7JFlcIUBfCCJ8Pc
+ im0Q5zAGzq6L9sKWiQ8I3JTdX7Ng6aBjGI1en6Bk31fADMDf2PSzMiKwcwHy95vnEBao1Q6vgeNjh
+ aFgJxXP8pFISqpRQ5X8LfCZzvrA2y7od+utirmmP2EGvFo+KFs9pRxr6+WninaDMs4Jjgel7Mhq3+
+ tujnJEabHn2SXHKPezINZLw2m3isdr7/3afpGTLa0I9U8SWi9VhzbdPvZh6V/rXg1XRPHZMlikjPC
+ GO+NkxxA==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mdXkz-00BKgz-BB; Thu, 21 Oct 2021 13:05:19 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 5D0A43002BC;
+ Thu, 21 Oct 2021 15:05:16 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id EAC13207A9AE4; Thu, 21 Oct 2021 15:05:15 +0200 (CEST)
+Date: Thu, 21 Oct 2021 15:05:15 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Ingo Molnar <mingo@kernel.org>, Waiman Long <longman@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
+ Stafford Horne <shorne@gmail.com>
+Subject: [PATCH] locking: Generic ticket lock
+Message-ID: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_053736_567972_359C0A10 
-X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +85,192 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Amit Pundir <amit.pundir@linaro.org> [211021 11:22]:
-> Hi Saravana,
-> 
-> This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
-> I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
 
-Also, I noticed we now end up with simple-pm-bus.c that does no PM
-for the legacy which was the whole idea of the driver in the first
-place :)
+There's currently a number of architectures that want/have graduated
+from test-and-set locks and are looking at qspinlock.
 
-Saravana, could you consider just adding a new simple-bus.c driver
-in addition to simple-pm-bus.c for the cases that do not call
-pm_runtime_enable()?
+*HOWEVER* qspinlock is very complicated and requires a lot of an
+architecture to actually work correctly. Specifically it requires
+forward progress between a fair number of atomic primitives, including
+an xchg16 operation, which I've seen a fair number of fundamentally
+broken implementations of in the tree (specifically for qspinlock no
+less).
 
-Thanks,
+The benefit of qspinlock over ticket lock is also non-obvious, esp.
+at low contention (the vast majority of cases in the kernel), and it
+takes a fairly large number of CPUs (typically also NUMA) to make
+qspinlock beat ticket locks.
 
-Tony
+Esp. things like ARM64's WFE can move the balance a lot in favour of
+simpler locks by reducing the cacheline pressure due to waiters (see
+their smp_cond_load_acquire() implementation for details).
+
+Unless you've audited qspinlock for your architecture and found it
+sound *and* can show actual benefit, simpler is better.
+
+Therefore provide ticket locks, which depend on a single atomic
+operation (fetch_add) while still providing fairness.
+
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+---
+ include/asm-generic/qspinlock.h         |   30 +++++++++
+ include/asm-generic/ticket_lock_types.h |   11 +++
+ include/asm-generic/ticket_lock.h       |   97 ++++++++++++++++++++++++++++++++
+ 3 files changed, 138 insertions(+)
+
+--- a/include/asm-generic/qspinlock.h
++++ b/include/asm-generic/qspinlock.h
+@@ -2,6 +2,36 @@
+ /*
+  * Queued spinlock
+  *
++ * A 'generic' spinlock implementation that is based on MCS locks. An
++ * architecture that's looking for a 'generic' spinlock, please first consider
++ * ticket_lock.h and only come looking here when you've considered all the
++ * constraints below and can show your hardware does actually perform better
++ * with qspinlock.
++ *
++ *
++ * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
++ * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
++ *
++ * It relies on a far greater (compared to ticket_lock.h) set of atomic
++ * operations to behave well together, please audit them carefully to ensure
++ * they all have forward progress. Many atomic operations may default to
++ * cmpxchg() loops which will not have good forward progress properties on
++ * LL/SC architectures.
++ *
++ * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
++ * do. Carefully read the patches that introduced
++ * queued_fetch_set_pending_acquire().
++ *
++ * It also heavily relies on mixed size atomic operations, in specific it
++ * requires architectures to have xchg16; something which many LL/SC
++ * architectures need to implement as a 32bit and+or in order to satisfy the
++ * forward progress guarantees mentioned above.
++ *
++ * Further reading on mixed size atomics that might be relevant:
++ *
++ *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
++ *
++ *
+  * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
+  * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
+  *
+--- /dev/null
++++ b/include/asm-generic/ticket_lock_types.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_GENERIC_TICKET_LOCK_TYPES_H
++#define __ASM_GENERIC_TICKET_LOCK_TYPES_H
++
++#include <linux/types.h>
++typedef atomic_t arch_spinlock_t;
++
++#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
++
++#endif /* __ASM_GENERIC_TICKET_LOCK_TYPES_H */
+--- /dev/null
++++ b/include/asm-generic/ticket_lock.h
+@@ -0,0 +1,97 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++/*
++ * 'Generic' ticket lock implementation.
++ *
++ * It relies on atomic_fetch_add() having well defined forward progress
++ * guarantees under contention. If your architecture cannot provide this, stick
++ * to a test-and-set lock.
++ *
++ * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
++ * sub-word of the value. This is generally true for anything LL/SC although
++ * you'd be hard pressed to find anything useful in architecture specifications
++ * about this. If your architecture cannot do this you might be better off with
++ * a test-and-set.
++ *
++ * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
++ * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
++ *
++ * The implementation uses smp_cond_load_acquire() to spin, so if the
++ * architecture has WFE like instructions to sleep instead of poll for word
++ * modifications be sure to implement that (see ARM64 for example).
++ *
++ */
++
++#ifndef __ASM_GENERIC_TICKET_LOCK_H
++#define __ASM_GENERIC_TICKET_LOCK_H
++
++#include <linux/atomic.h>
++#include <asm/ticket_lock_types.h>
++
++#define ONE_TICKET	(1 << 16)
++#define __ticket(val)	(u16)((val) >> 16)
++#define __owner(val)	(u16)((val) & 0xffff)
++
++static __always_inline bool __ticket_is_locked(u32 val)
++{
++	return __ticket(val) != __owner(val);
++}
++
++static __always_inline void ticket_lock(arch_spinlock_t *lock)
++{
++	u32 val = atomic_fetch_add_acquire(ONE_TICKET, lock);
++	u16 ticket = __ticket(val);
++
++	if (ticket == __owner(val))
++		return;
++
++	atomic_cond_read_acquire(lock, ticket == __owner(VAL));
++}
++
++static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
++{
++	u32 old = atomic_read(lock);
++
++	if (__ticket_is_locked(old))
++		return false;
++
++	return atomic_try_cmpxchg_acquire(lock, &old, old + ONE_TICKET);
++}
++
++static __always_inline void ticket_unlock(arch_spinlock_t *lock)
++{
++	u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
++	u32 val = atomic_read(lock);
++
++	smp_store_release(ptr, __owner(val) + 1);
++}
++
++static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
++{
++	u32 val = atomic_read(lock);
++
++	return (__ticket(val) - __owner(val)) > 1;
++}
++
++static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
++{
++	return __ticket_is_locked(atomic_read(lock));
++}
++
++static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
++{
++	return !__ticket_is_locked(lock.counter);
++}
++
++#undef __owner
++#undef __ticket
++#undef ONE_TICKET
++
++#define arch_spin_lock(l)		ticket_lock(l)
++#define arch_spin_trylock(l)		ticket_trylock(l)
++#define arch_spin_unlock(l)		ticket_unlock(l)
++#define arch_spin_is_locked(l)		ticket_is_locked(l)
++#define arch_spin_is_contended(l)	ticket_is_contended(l)
++#define arch_spin_value_unlocked(l)	ticket_value_unlocked(l)
++
++#endif /* __ASM_GENERIC_TICKET_LOCK_H */
 
 _______________________________________________
 linux-riscv mailing list
