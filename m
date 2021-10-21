@@ -2,85 +2,90 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D92B7C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 09:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65315C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 10:46:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A042603E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 09:43:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9A042603E9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 286D460E8C
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 10:46:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 286D460E8C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZRqpcJSVto2dIDIqdefBaAcwrPrrOHKqQIVVh7lDjVo=; b=BRTE33N9pdEJ/B
-	LRGdTbFjNW/9d4zZt9BAOLI78FtuLr9AiwGPIKajT7b0WWEWKNCfKRH3qy2w8bdqCDE8UEtk0rfNb
-	E/upnR2w5KaxVLPCvDhk25R1XvBIg5g9HwN7QLOTAgdT7vBz4YKB3wbCl7fITzFKfvc7ua/oRquU5
-	/6szLIJUy5YsEWCkgXc63WSCUoY/PQ3OdA60a/L84EV5eScAiCp+N8mf3y8g02UIqIoInG7OUmuie
-	bQ09sMaq+DMNsHeaIcBgEU9pMgN6EPgt/ea892p97ZotpR+NXWVvsM9EM0qB3p7RUU4iD3dv/kabE
-	sA4wa5EgM72ZuXyhDHDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=efcpO6rPFr2hIXp9gnx+GlHSIViDOTgPEWFHP9sBRZg=; b=c4zBvMRHVXbvdk
+	oxfzvdgDCca2qZZNgNyAxLP50T82Mxrdpr/zVzB1e2iCvgvsrxFGI6oo7rBVYXoyItHFQCFe2GPzs
+	6tAVcDR3nndnTnnFWQgxnedoNpMkQSDJNf8/hMvpXUZ73WNBTjyWe3+F5bnlaTuLBnGlfsEFd3Na6
+	WfhJkMCdoL45LT6EkZD1hu2rsO3pyFnbaivn0BPsa3u4c85jwl0lsKj1mn8oR9mRHz1fKo7VTkbQk
+	4Q6fvJ+MddWsA7+S6zflFPv19IadwC7kPTORv5VN8aRcpWGdz+pruIBmVR9FrAhL0geu+hqi9J4R4
+	0oHjCmbgL0GEBY0wf1nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdUbZ-0075m8-1x; Thu, 21 Oct 2021 09:43:21 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mdVa4-007HIc-5K; Thu, 21 Oct 2021 10:45:52 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdUbV-0075kk-RH
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 09:43:19 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6C689611F2
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 09:43:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634809397;
- bh=nGnXT9Y+tyayDOT1oZALWerJdakuCUP3NgvyY2jkCYM=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=RketB7iJZjFaDcoek/p83fg5zmBQ8C0I/WOdz8Cwkx79OqB/bdtku5QCkQR7RdyC0
- 61p4BAiD9Rp9spMbWeiXUSL7Fn96TjqsZu8TdXUQbWX/T5IYYgD2xGNKz+XeYnNBk+
- KT8oJA9usxbb9n9JnJI4FRu1FY8sciy+Sfqq1o2i3j7BAWkHT1zTTFxOpE7dUPwDdp
- VSIhMXPgLJbLKJAghVDerKUHis4OGVzHatMdWzV3aWDEbvXmd8AhIsWDlMy4BUSgdW
- vHo+JeyxU5zw95pRY0EmMzR7cggk/Q5CBH1p1R25j4FGy8MtCRKdKjfKIuO2P3c20b
- L2a2ZTqCgcsuw==
-Received: by mail-ua1-f50.google.com with SMTP id e10so33434uab.3
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 02:43:17 -0700 (PDT)
-X-Gm-Message-State: AOAM530nXMy0llzvmP4jTDdFTr5VBK50+ucG8e7oPE40ut+1DHO7LV+F
- CIOlysF1pLEvPq3mVmkn/1HcDw9m2Dx4JV6Y+L4=
-X-Google-Smtp-Source: ABdhPJxEaK84MgiQrY6EFgZEMZUyzwOje8910ADj5Aho0+aStfUGmGbH21vzDMQgtirhGIi60c69jylQ4ma/LXOtEQc=
-X-Received: by 2002:ab0:728e:: with SMTP id w14mr4750493uao.97.1634809396463; 
- Thu, 21 Oct 2021 02:43:16 -0700 (PDT)
+ id 1mdVa0-007HG8-N6; Thu, 21 Oct 2021 10:45:50 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id y4so153648plb.0;
+ Thu, 21 Oct 2021 03:45:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=AD2dgM0zOn+M+g2RGuvovb9BPcvRHY33KeWc/UhpNGw=;
+ b=Snj3fnFkDCt/kE5qCbarCVOnGdbw8px3rbLWF5GhXJ+Cjza+RNMQKVP5qdVC9BkfKM
+ BzgD3ew1SREru87oLgmeH7xzYSfg0CaPSDX1820dqKMSGJaz38ZDHJVoYT0Awwnckn23
+ EbfNdYChCd1lp1TELLyMLfkPl+T+gOKGpwfo+al9SFE9hmNdawJZPkf+/jCEpitKQtut
+ R9V9xPkzxkkdP4fDfZpA6yUlbtDeJ75wV4gf1rqMIrssVI0lnsBM/oPtVyHwG1nh0AsB
+ gP/u+hNuf+FzmxS4KSfOeR6nbBdHq7zNlu91Xx34+Qbe2w1qssUw+xG85ZAcYiNwLFEB
+ 1BsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=AD2dgM0zOn+M+g2RGuvovb9BPcvRHY33KeWc/UhpNGw=;
+ b=aKKYBYtUWYJEdb+U5DIu8ge+XqG1cVvtfZFr2wkmTg/uWQ4oBNRmTg7JSgb49u4uA8
+ IjSmF4Zvq2vmFUKxMpwSf3iQkN6OC2GRJmyJ+haTs9IpxmM4IeZMGVAgXsc7REg5n8rQ
+ kGoKYzbZLxaWiO8bHx0TliDpiYQ1E+Y8ssJ6h4YnSY0e9QGFDRxcJkYXt12z/AsAfl0B
+ /f3aUdNzUh+LP5qp3PZ3RNjESMIUBVIHLzvmpn2W20s9lqAB0N2ZUjqGQFbMF7J9Tlif
+ vWZTG1T03Z8xlmJqyQcBMDpSddotnIVbL5HubxWjYkGuOVJpGZQ+wWOPwPsua7Syu7xC
+ gGjQ==
+X-Gm-Message-State: AOAM5339cm2Pjzm6XuDw8+Qrgy4Ok51h7+Ps0hsjYUdOgaHMxkrOarez
+ A1EWNibbmtAIZxX7oKEHXa8=
+X-Google-Smtp-Source: ABdhPJzdNFVZFI9FIDisl3iWCkpstFXbPSPKvMlVXZy6TSnE0XsAMgeyH85X1nHC6O2Q51WGZFqDbw==
+X-Received: by 2002:a17:90a:ac14:: with SMTP id
+ o20mr5702524pjq.219.1634813147081; 
+ Thu, 21 Oct 2021 03:45:47 -0700 (PDT)
+Received: from localhost.localdomain ([193.203.214.57])
+ by smtp.gmail.com with ESMTPSA id x20sm5355438pjp.48.2021.10.21.03.45.44
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Oct 2021 03:45:46 -0700 (PDT)
+From: cgel.zte@gmail.com
+X-Google-Original-From: ran.jianping@zte.com.cn
+To: anup.patel@wdc.com
+Cc: atish.patra@wdc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ran jianping <ran.jianping@zte.com.cn>, Zeal Robot <zealci@zte.com.cn>
+Subject: [PATCH] RISC-V:KVM: remove unneeded semicolon Elimate the following
+ coccinelle check warning: ./arch/riscv/kvm/vcpu_sbi.c:169:2-3: Unneeded
+ semicolon ./arch/riscv/kvm/vcpu_exit.c:397:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_exit.c:687:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_exit.c:645:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu.c:247:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu.c:284:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_timer.c:123:2-3: Unneeded semicolon
+ ./arch/riscv/kvm/vcpu_timer.c:170:2-3: Unneeded semicolon
+Date: Thu, 21 Oct 2021 10:45:36 +0000
+Message-Id: <20211021104536.1060107-1-ran.jianping@zte.com.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20211016032200.2869998-1-guoren@kernel.org>
- <20211016032200.2869998-2-guoren@kernel.org>
- <8be1bdbd-365d-cd28-79d7-b924908f9e39@sholland.org>
- <f850af365f2ac77af79ec59f92e6434a@kernel.org>
- <CAJF2gTShT8Tvk0z6B52zKEi0vq_toc-7mAKWFKj3j-zg=OhpYQ@mail.gmail.com>
- <8735oxuxlq.wl-maz@kernel.org>
- <CAJF2gTSmyu9nA5M3QLeR1LdGMkeGb7jE93Z9zjixcpb_freLMw@mail.gmail.com>
- <875ytrddma.wl-maz@kernel.org>
- <CAAhSdy0TwOjv_RDMRsKqcqTE8PSO_A_EttMGBiDbb-0PTRizZg@mail.gmail.com>
- <871r4fd996.wl-maz@kernel.org>
- <CAJF2gTQEx9BJ6bmgrNOc9--CL3DRKBBN=1Fv_waWWmTTGj150A@mail.gmail.com>
- <87v91qbwvr.wl-maz@kernel.org>
-In-Reply-To: <87v91qbwvr.wl-maz@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 21 Oct 2021 17:43:05 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSqhFqPf0h-Z_U6OwU8ioPD6RVSzZg9TPoo5nxqfdgK4g@mail.gmail.com>
-Message-ID: <CAJF2gTSqhFqPf0h-Z_U6OwU8ioPD6RVSzZg9TPoo5nxqfdgK4g@mail.gmail.com>
-Subject: Re: [PATCH V4 1/3] irqchip/sifive-plic: Add thead,c900-plic support
-To: Marc Zyngier <maz@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>, Samuel Holland <samuel@sholland.org>, 
- Atish Patra <atish.patra@wdc.com>, Thomas Gleixner <tglx@linutronix.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Rob Herring <robh@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_024317_947740_B404015C 
-X-CRM114-Status: GOOD (  41.66  )
+X-CRM114-CacheID: sfid-20211021_034548_800000_143253C4 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,126 +102,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 21, 2021 at 4:33 PM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 21 Oct 2021 03:00:43 +0100,
-> Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Wed, Oct 20, 2021 at 11:08 PM Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Wed, 20 Oct 2021 15:33:49 +0100,
-> > > Anup Patel <anup@brainfault.org> wrote:
-> > > >
-> > > > On Wed, Oct 20, 2021 at 7:04 PM Marc Zyngier <maz@kernel.org> wrote:
-> > > > >
-> > > > > On Tue, 19 Oct 2021 14:27:02 +0100,
-> > > > > Guo Ren <guoren@kernel.org> wrote:
-> > > > > >
-> > > > > > On Tue, Oct 19, 2021 at 6:18 PM Marc Zyngier <maz@kernel.org> wrote:
-> > > > > > >
-> > > > > > > On Tue, 19 Oct 2021 10:33:49 +0100,
-> > > > > > > Guo Ren <guoren@kernel.org> wrote:
-> > > > > > >
-> > > > > > > > > If you have an 'automask' behavior and yet the HW doesn't record this
-> > > > > > > > > in a separate bit, then you need to track this by yourself in the
-> > > > > > > > > irq_eoi() callback instead. I guess that you would skip the write to
-> > > > > > > > > the CLAIM register in this case, though I have no idea whether this
-> > > > > > > > > breaks
-> > > > > > > > > the HW interrupt state or not.
-> > > > > > > > The problem is when enable bit is 0 for that irq_number,
-> > > > > > > > "writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM)" wouldn't affect
-> > > > > > > > the hw state machine. Then this irq would enter in ack state and no
-> > > > > > > > continues irqs could come in.
-> > > > > > >
-> > > > > > > Really? This means that you cannot mask an interrupt while it is being
-> > > > > > > handled? How great...
-> > > > > > If the completion ID does not match an interrupt source that is
-> > > > > > currently enabled for the target, the completion is silently ignored.
-> > > > > > So, C9xx completion depends on enable-bit.
-> > > > >
-> > > > > Is that what the PLIC spec says? Or what your implementation does? I
-> > > > > can understand that one implementation would be broken, but if the
-> > > > > PLIC architecture itself is broken, that's far more concerning.
-> > > >
-> > > > Yes, we are dealing with a broken/non-compliant PLIC
-> > > > implementation.
-> > > >
-> > > > The RISC-V PLIC spec defines a very different behaviour for the
-> > > > interrupt claim (i.e. readl(claim)) and interrupt completion (i.e.
-> > > > writel(claim)). The T-HEAD PLIC implementation does things
-> > > > different from what the RISC-V PLIC spec says because it will
-> > > > mask an interrupt upon interrupt claim whereas PLIC spec says
-> > > > it should only clear the interrupt pending bit (not mask the interrupt).
-> > > >
-> > > > Quoting interrupt claim process (chapter 9) from PLIC spec:
-> > > > "The PLIC can perform an interrupt claim by reading the claim/complete
-> > > > register, which returns the ID of the highest priority pending interrupt or
-> > > > zero if there is no pending interrupt. A successful claim will also atomically
-> > > > clear the corresponding pending bit on the interrupt source."
-> > > >
-> > > > Refer, https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc
-> > >
-> > > That's not the point I'm making. According to Guo, the PLIC (any
-> > > implementation of it) will ignore a write to claim on a masked
-> > > interrupt.
-> > >
-> > > If that's indeed correct, then a sequence such as:
-> > >
-> > > (1) irq = read(claim)
-> > > (2) mask from the interrupt handler with the right flags so that it
-> > > isn't done lazily
-> > > (3) write(irq, claim)
-> >
-> > How about letting the IRQ chip change?
-> >
-> > diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
-> > index a98bcfc4be7b..ed6ace1058ac 100644
-> > --- a/kernel/irq/chip.c
-> > +++ b/kernel/irq/chip.c
-> > @@ -444,10 +444,10 @@ void unmask_threaded_irq(struct irq_desc *desc)
-> >  {
-> >         struct irq_chip *chip = desc->irq_data.chip;
-> >
-> > +       unmask_irq(desc);
-> > +
-> >         if (chip->flags & IRQCHIP_EOI_THREADED)
-> >                 chip->irq_eoi(&desc->irq_data);
-> > -
-> > -       unmask_irq(desc);
-> >  }
-> >
-> >  /*
-> > @@ -673,8 +673,8 @@ static void cond_unmask_eoi_irq(struct irq_desc
-> > *desc, struct irq_chip *chip)
-> >          */
-> >         if (!irqd_irq_disabled(&desc->irq_data) &&
-> >             irqd_irq_masked(&desc->irq_data) && !desc->threads_oneshot) {
-> > -               chip->irq_eoi(&desc->irq_data);
-> >                 unmask_irq(desc);
-> > +               chip->irq_eoi(&desc->irq_data);
-> >         } else if (!(chip->flags & IRQCHIP_EOI_THREADED)) {
-> >                 chip->irq_eoi(&desc->irq_data);
-> >         }
->
-> No, I don't think that's acceptable, and I strongly suspect that other
-> irqchips have the opposite requirement. You'll have to keep the
-> workaround in the PLIC code and track the EOI vs unmask to do the
-> right thing in both callbacks.
-Okay...
+From: ran jianping <ran.jianping@zte.com.cn>
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Reported-by: Zeal Robot <zealci@zte.com.cn>
+Signed-off-by: ran jianping <ran.jianping@zte.com.cn>
+---
+ arch/riscv/kvm/vcpu.c       | 4 ++--
+ arch/riscv/kvm/vcpu_exit.c  | 6 +++---
+ arch/riscv/kvm/vcpu_sbi.c   | 2 +-
+ arch/riscv/kvm/vcpu_timer.c | 4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
 
-
-
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index c44cabce7dd8..912928586df9 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -244,7 +244,7 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+ 		break;
+ 	default:
+ 		return -EINVAL;
+-	};
++	}
+ 
+ 	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+ 		return -EFAULT;
+@@ -281,7 +281,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 		break;
+ 	default:
+ 		return -EINVAL;
+-	};
++	}
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 13bbc3f73713..7f2d742ae4c6 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -394,7 +394,7 @@ static int emulate_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
+-	};
++	}
+ 
+ 	/* Update MMIO details in kvm_run struct */
+ 	run->mmio.is_write = true;
+@@ -642,7 +642,7 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
+-	};
++	}
+ 
+ done:
+ 	/* Move to next instruction */
+@@ -684,7 +684,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		break;
+ 	default:
+ 		break;
+-	};
++	}
+ 
+ 	/* Print details in-case of error */
+ 	if (ret < 0) {
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index ebdcdbade9c6..eb3c045edf11 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -166,7 +166,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 		/* Return error for unsupported SBI calls */
+ 		cp->a0 = SBI_ERR_NOT_SUPPORTED;
+ 		break;
+-	};
++	}
+ 
+ 	if (next_sepc)
+ 		cp->sepc += 4;
+diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+index ddd0ce727b83..5c4c37ff2d48 100644
+--- a/arch/riscv/kvm/vcpu_timer.c
++++ b/arch/riscv/kvm/vcpu_timer.c
+@@ -120,7 +120,7 @@ int kvm_riscv_vcpu_get_reg_timer(struct kvm_vcpu *vcpu,
+ 		break;
+ 	default:
+ 		return -EINVAL;
+-	};
++	}
+ 
+ 	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
+ 		return -EFAULT;
+@@ -167,7 +167,7 @@ int kvm_riscv_vcpu_set_reg_timer(struct kvm_vcpu *vcpu,
+ 	default:
+ 		ret = -EINVAL;
+ 		break;
+-	};
++	}
+ 
+ 	return ret;
+ }
 -- 
-Best Regards
- Guo Ren
+2.25.1
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
