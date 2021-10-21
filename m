@@ -2,14 +2,14 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2016C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B37A1C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:43:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A22F460E97
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:43:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A22F460E97
+	by mail.kernel.org (Postfix) with ESMTPS id A33456112D
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:43:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A33456112D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bKtZR7aDc8QS9+1f24FdYvI0ZIMiNB2Xgp98v12Gqew=; b=E9SjYlOX/EcNZm
-	k/29j+6a/C+cOdFastN6Ul2hCW8lCrj+SPz+6esuvjj5JOmnls41B1yh1KpK1O6MJsSclUL0J914L
-	WtHLFX4FGHTA/bfjNaiMMHLmksLpgGSe7avrRlw4hPx598G77nGy1ZOTLW2NJykIpv7+Zvtb4KAb/
-	+qscO6tHkC8IyXnlKe3NYH/jonrfx2y9nZWaUTYEVcQnnRD/Bhdcetyisbv+hEKgSlhOYzAwaaspY
-	LTOMD2uwljIbesHkJm9P8y7NBeYqumAmVXxKg5i76nOGLmAhT4UKDQ3NGNpSZ5o4YEKarfeIDsHh6
-	BnG8JyASPbw7C4wd9WGg==;
+	List-Owner; bh=fjcUqh9tZu/bfdZodORw5KrLSHL7+50Nlqd458vxSKc=; b=RSNQzKjxi77iR/
+	bpNxgC955E6uStaKgGo/W+331NZ4xQ0V+5RlykOvLSwqlpyxBYAInlTtrB7VC5tNNQzMY3h6Fl/rV
+	Sk43i/r2O/mFlNMHK7FNmEg642rpUPkaLvjeyg/E9yX5rcT1953FsOGAXnmhEgjAcTqHwd/dW0xHl
+	o8y2eU95q/6XJHEbympF8c8+2y/729msnnUu7IXzenhcUzxskCG5YoipKofCDdoTlJERJwemChRGG
+	XIR+N9SDORH3Da1Eh2H5rQF1+cXLkr704XjX77K8fDRH3AjSI8P8JVWb71C6YwAXQi8VVaGS5jcQa
+	1p/fjdc+vlpxZutXYP8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdc5w-008Wb8-H2; Thu, 21 Oct 2021 17:43:12 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1mdc5z-008We9-Tr; Thu, 21 Oct 2021 17:43:15 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdc5V-008WEU-3G
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 17:42:47 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id w19so525497edd.2
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 10:42:44 -0700 (PDT)
+ id 1mdc5X-008WGl-Vb
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 17:42:50 +0000
+Received: by mail-ed1-x534.google.com with SMTP id w14so4151270edv.11
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 10:42:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=N0CZanSeQXbNwLducpnOX30ySYeNDmpJ4xZItDNJhTU=;
- b=TSsixE/iT3+A0hONPCHLcG3+7zUAl1+T8U2cTAlBeE7tXD8wfwMSo1oODEUESiaAA2
- gUmmkAUrTiWz7/QQXyxA68+NOpCo2yxMFPRamNu06T+JT1Yiy3F/JSiw8jSoLEtVT2Vl
- Lizf2c0PDwwf1vtukEVJFojldXASM7BMdXOqXgHsZAjzt90OL2aymH5J5rkRHsI26+ED
- 46b0JAUVXbwuUlhm8XSXyFJ3GRd3HQ5RQ4O3rlWMMnKMTzSBuuDGp+CjztxVkiTvldGS
- 1vLKz3bx3V/9vZGFz4PLb+P1L3dGgiP+7ciRnvqG1OpSgdohT4aJflxfM3Z/NylSNSWh
- OYCg==
+ bh=etaQItRNjj/enFUFDfmsaC1oEhl7tTCegAPe8SqnEa4=;
+ b=eIVkPoB3xWsbjt8wgQz73InY7RH6tRQRCDu7Ulm3xncO1vsHfjLwzLozB0fFeiGBA9
+ x3y24NKBXtFYw1dMJAnWDKkn2eqf81+XiiVMomxLIyM47wGjiExqCcYURsYpIdZruHG5
+ qOQR+DTAjT4TGSdsDlvNzMVP03fbTvpYYLld6PwrRx0UhRyUDcfNDXDJJpshWZFxlTS6
+ No/JOuQnJ4okkX3ZejdvOAWl8m15jK+iPXX+eILFUGuoyazDUXfp9cJsbej1hBr68ZWq
+ vtyf3iTVC4ohJrvBxcQE7iW+XVJrcHIXAK8oJbMB6n8I3mJoVFnZol5eq3Jl/+w1yDFC
+ GQcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=N0CZanSeQXbNwLducpnOX30ySYeNDmpJ4xZItDNJhTU=;
- b=HFG7wc7Ns1L+hSxntWoVFIpcDegaFkL8JRDEUcJUAKr1Zzz3K86o9wNR4lkHLo0U8B
- cntzco1n7/041Iuitm6qmT/SZHsYv3ECNLOS1Nosr+gmu9Tchmz38gE3c8FSLFjfRmMz
- sJ5HFAageO3J18IWSh1eUsiHcc6WKoPB44tIf1gC+BFE7Vhp+qigw+9vpN4u1UtZfQaW
- 1ExEsvBHkkKh6Q8IGcJt2Ss8Etazn+PB2BL4I8Lznj8Sx+t3g3KiYADp8NVldnTMO37C
- zAhVMWA7FX3sICLD17J2BFo4Gv+a3/t1NuPwPaAmUTuUC4xuu26Le3Qza/UjqM59QA7H
- Qd1Q==
-X-Gm-Message-State: AOAM5303tE5+LDYACqmw7GFbqkne/XaAJxDp32aUU8GSBYV92gaVAQeA
- JihUHMDbh4sxtIO2G7hVH+KxQNB+5+HJFQ==
-X-Google-Smtp-Source: ABdhPJwqMiGoHe9gzgq8nDKgFN3Wb6EEx+r/hnXSZuxTCVUngP4e7sMZfHAJxH63ezxNE5xr1/NcHw==
-X-Received: by 2002:a05:6402:4d1:: with SMTP id
- n17mr9586452edw.337.1634838163862; 
- Thu, 21 Oct 2021 10:42:43 -0700 (PDT)
+ bh=etaQItRNjj/enFUFDfmsaC1oEhl7tTCegAPe8SqnEa4=;
+ b=UIXwnWRbw9QlDS0NULFxZCQ4474Z/4IBZvaMf0aDL4zEcTcI/OCbdiUVl2pSeBpnGr
+ HvY5JtyLN7o5Q1UySbxXeMzVla23kegJ7gmsc2XxwfPh2LqUPZKB7i3CZzRMVDH/93WV
+ k6WgU61Tq/aA8izo6rtW60HpCKkyXbZ91HPmyWZfgajVXQDma8piPCYlGD1CGvu8J5SW
+ zoAcEDcJq75r4D5polZPG3I/uziiFLa/r6E4I9F48x9eQwCRFKRPi9gfUqsih3M2dO2b
+ NTZ9HYo6NVpKpHaRK8dQV1r+wdGYmMxUsoRH5kdLwsFvUVYN4Si0u4Noq4F6eK9zAdYp
+ y6MQ==
+X-Gm-Message-State: AOAM532kG4KcKrDiftO6oBUrUazsoBK9T9krFhQlpYPkBJPI1ASjYIJf
+ B94hpcgloyj++MOUPaNRmOiKP7+1iKIqqg==
+X-Google-Smtp-Source: ABdhPJwVll2mJspTJ9A4kA87pSHYnhNxbDLsRGZEBnQWv+H7059RHoYerbJmgK3bsHbA9nhbHCzhOg==
+X-Received: by 2002:a05:6402:4304:: with SMTP id
+ m4mr9575901edc.326.1634838166756; 
+ Thu, 21 Oct 2021 10:42:46 -0700 (PDT)
 Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
- by smtp.gmail.com with ESMTPSA id h7sm3144847edt.37.2021.10.21.10.42.42
+ by smtp.gmail.com with ESMTPSA id h7sm3144847edt.37.2021.10.21.10.42.45
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Oct 2021 10:42:43 -0700 (PDT)
+ Thu, 21 Oct 2021 10:42:46 -0700 (PDT)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
@@ -86,17 +86,16 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
  linux-kernel@vger.kernel.org
-Subject: [PATCH v2 09/16] reset: starfive-jh7100: Add StarFive JH7100 reset
- driver
-Date: Thu, 21 Oct 2021 19:42:16 +0200
-Message-Id: <20211021174223.43310-10-kernel@esmil.dk>
+Subject: [PATCH v2 11/16] dt-bindings: pinctrl: Add StarFive JH7100 bindings
+Date: Thu, 21 Oct 2021 19:42:18 +0200
+Message-Id: <20211021174223.43310-12-kernel@esmil.dk>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211021174223.43310-1-kernel@esmil.dk>
 References: <20211021174223.43310-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_104245_196970_E55952AA 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20211021_104248_107391_240B6C18 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,237 +112,294 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the StarFive JH7100 reset controller.
+Add bindings for the StarFive JH7100 GPIO/pin controller.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 ---
- MAINTAINERS                           |   7 ++
- drivers/reset/Kconfig                 |   8 ++
- drivers/reset/Makefile                |   1 +
- drivers/reset/reset-starfive-jh7100.c | 165 ++++++++++++++++++++++++++
- 4 files changed, 181 insertions(+)
- create mode 100644 drivers/reset/reset-starfive-jh7100.c
+ .../pinctrl/starfive,jh7100-pinctrl.yaml      | 274 ++++++++++++++++++
+ 1 file changed, 274 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e5a19b70dfbb..b3f3a29fc91f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17855,6 +17855,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
- F:	drivers/clk/starfive/clk-starfive-jh7100.c
- F:	include/dt-bindings/clock/starfive-jh7100.h
- 
-+STARFIVE JH7100 RESET CONTROLLER DRIVER
-+M:	Emil Renner Berthing <kernel@esmil.dk>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
-+F:	drivers/reset/reset-starfive-jh7100.c
-+F:	include/dt-bindings/reset/starfive-jh7100.h
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@redhat.com>
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index be799a5abf8a..a41fac304904 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -224,6 +224,14 @@ config RESET_SOCFPGA
- 	  This enables the reset driver for the SoCFPGA ARMv7 platforms. This
- 	  driver gets initialized early during platform init calls.
- 
-+config RESET_STARFIVE_JH7100
-+	bool "StarFive JH7100 Reset Driver"
-+	depends on SOC_STARFIVE || COMPILE_TEST
-+	depends on OF
-+	default SOC_STARFIVE
-+	help
-+	  This enables the reset controller driver for the StarFive JH7100 SoC.
-+
- config RESET_SUNXI
- 	bool "Allwinner SoCs Reset Driver" if COMPILE_TEST && !ARCH_SUNXI
- 	default ARCH_SUNXI
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 21d46d8869ff..bd0a97be18b5 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -29,6 +29,7 @@ obj-$(CONFIG_RESET_RZG2L_USBPHY_CTRL) += reset-rzg2l-usbphy-ctrl.o
- obj-$(CONFIG_RESET_SCMI) += reset-scmi.o
- obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
- obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
-+obj-$(CONFIG_RESET_STARFIVE_JH7100) += reset-starfive-jh7100.o
- obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
- obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
- obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
-diff --git a/drivers/reset/reset-starfive-jh7100.c b/drivers/reset/reset-starfive-jh7100.c
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
 new file mode 100644
-index 000000000000..ae15ed5357f1
+index 000000000000..342ecd91a3b0
 --- /dev/null
-+++ b/drivers/reset/reset-starfive-jh7100.c
-@@ -0,0 +1,165 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Reset driver for the StarFive JH7100 SoC
-+ *
-+ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
+@@ -0,0 +1,274 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jh7100-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset-controller.h>
-+#include <linux/spinlock.h>
++title: StarFive JH7100 Pin Controller Device Tree Bindings
 +
-+#include <dt-bindings/reset/starfive-jh7100.h>
++maintainers:
++  - Emil Renner Berthing <kernel@esmil.dk>
++  - Drew Fustini <drew@beagleboard.org>
 +
-+/* register offsets */
-+#define JH7100_RESET_ASSERT0	0x00
-+#define JH7100_RESET_ASSERT1	0x04
-+#define JH7100_RESET_ASSERT2	0x08
-+#define JH7100_RESET_ASSERT3	0x0c
-+#define JH7100_RESET_STATUS0	0x10
-+#define JH7100_RESET_STATUS1	0x14
-+#define JH7100_RESET_STATUS2	0x18
-+#define JH7100_RESET_STATUS3	0x1c
++properties:
++  compatible:
++    const: starfive,jh7100-pinctrl
 +
-+struct jh7100_reset {
-+	struct reset_controller_dev rcdev;
-+	/* protect registers against overlapping read-modify-write */
-+	spinlock_t lock;
-+	void __iomem *base;
-+};
++  reg:
++    minItems: 2
++    maxItems: 2
 +
-+static inline struct jh7100_reset *
-+jh7100_reset_from(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct jh7100_reset, rcdev);
-+}
++  reg-names:
++    items:
++      - const: "gpio"
++      - const: "padctl"
 +
-+static const u32 jh7100_reset_asserted[4] = {
-+	BIT(JH7100_RST_U74 % 32) |
-+	BIT(JH7100_RST_VP6_DRESET % 32) |
-+	BIT(JH7100_RST_VP6_BRESET % 32),
++  clocks:
++    maxItems: 1
 +
-+	BIT(JH7100_RST_HIFI4_DRESET % 32) |
-+	BIT(JH7100_RST_HIFI4_BRESET % 32),
++  resets:
++    maxItems: 1
 +
-+	BIT(JH7100_RST_E24 % 32)
-+};
++  gpio-controller: true
 +
-+static int jh7100_reset_update(struct reset_controller_dev *rcdev,
-+			       unsigned long id, bool assert)
-+{
-+	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	unsigned long offset = id / 32;
-+	void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + 4 * offset;
-+	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + 4 * offset;
-+	u32 mask = BIT(id % 32);
-+	u32 done = jh7100_reset_asserted[offset] & mask;
-+	unsigned long flags;
-+	u32 value;
-+	int ret;
++  "#gpio-cells":
++    const: 2
++    description: |
++      Number of cells in GPIO specifier. Since the generic GPIO
++      binding is used, the amount of cells must be specified as 2.
 +
-+	if (!assert)
-+		done ^= mask;
++  interrupts:
++    maxItems: 1
++    description: The GPIO parent interrupt.
 +
-+	spin_lock_irqsave(&data->lock, flags);
++  interrupt-controller: true
 +
-+	value = readl(reg_assert);
-+	if (assert)
-+		value |= mask;
-+	else
-+		value &= ~mask;
-+	writel(value, reg_assert);
++  "#interrupt-cells":
++    const: 2
 +
-+	/* if the associated clock is gated, deasserting might otherwise hang forever */
-+	ret = readl_poll_timeout(reg_status, value, (value & mask) == done, 0, 1000);
++  starfive,signal-group:
++    description: |
++      The SoC has a global setting selecting one of 7 different pinmux
++      configurations of the pads named GPIO[0:63] and FUNC_SHARE[0:141]. After
++      this global setting is chosen only the 64 "GPIO" pins can be further
++      muxed by configuring them to be controlled by certain peripherals rather
++      than software.
++      Note that in configuration 0 none of GPIOs are routed to pads, and only
++      in configuration 1 are the GPIOs routed to the pads named GPIO[0:63].
++      If this property is not set it defaults to the configuration already
++      chosen by the earlier boot stages.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2, 3, 4, 5, 6]
 +
-+	spin_unlock_irqrestore(&data->lock, flags);
-+	return ret;
-+}
++required:
++  - compatible
++  - reg
++  - reg-names
++  - clocks
++  - gpio-controller
++  - "#gpio-cells"
++  - interrupts
++  - interrupt-controller
++  - "#interrupt-cells"
 +
-+static int jh7100_reset_assert(struct reset_controller_dev *rcdev,
-+			       unsigned long id)
-+{
-+	dev_dbg(rcdev->dev, "assert(%lu)\n", id);
-+	return jh7100_reset_update(rcdev, id, true);
-+}
++patternProperties:
++  '-[0-9]*$':
++    type: object
++    patternProperties:
++      '-pins*$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available on the machine. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        $ref: "/schemas/pinctrl/pincfg-node.yaml"
 +
-+static int jh7100_reset_deassert(struct reset_controller_dev *rcdev,
-+				 unsigned long id)
-+{
-+	dev_dbg(rcdev->dev, "deassert(%lu)\n", id);
-+	return jh7100_reset_update(rcdev, id, false);
-+}
++        properties:
++          pins:
++            description: |
++              The list of pin identifiers that properties in the node apply to.
++              This should be set using either the PAD_GPIO or PAD_FUNC_SHARE
++              macro. Either this or "pinmux" has to be specified.
 +
-+static int jh7100_reset_reset(struct reset_controller_dev *rcdev,
-+			      unsigned long id)
-+{
-+	int ret;
++          pinmux:
++            description: |
++              The list of GPIO identifiers and their mux settings that
++              properties in the node apply to. This should be set using the
++              GPIOMUX macro. Either this or "pins" has to be specified.
 +
-+	dev_dbg(rcdev->dev, "reset(%lu)\n", id);
-+	ret = jh7100_reset_assert(rcdev, id);
-+	if (ret)
-+		return ret;
++          bias-disable: true
 +
-+	return jh7100_reset_deassert(rcdev, id);
-+}
++          bias-pull-up:
++            type: boolean
 +
-+static int jh7100_reset_status(struct reset_controller_dev *rcdev,
-+			       unsigned long id)
-+{
-+	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	unsigned long offset = id / 32;
-+	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + 4 * offset;
-+	u32 mask = BIT(id % 32);
-+	u32 value = (readl(reg_status) ^ jh7100_reset_asserted[offset]) & mask;
++          bias-pull-down:
++            type: boolean
 +
-+	dev_dbg(rcdev->dev, "status(%lu) = %d\n", id, !value);
-+	return !value;
-+}
++          drive-strength:
++            enum: [ 14, 21, 28, 35, 42, 49, 56, 63 ]
 +
-+static const struct reset_control_ops jh7100_reset_ops = {
-+	.assert		= jh7100_reset_assert,
-+	.deassert	= jh7100_reset_deassert,
-+	.reset		= jh7100_reset_reset,
-+	.status		= jh7100_reset_status,
-+};
++          input-enable: true
 +
-+static int jh7100_reset_probe(struct platform_device *pdev)
-+{
-+	struct jh7100_reset *data;
++          input-disable: true
 +
-+	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
++          input-schmitt-enable: true
 +
-+	data->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(data->base))
-+		return PTR_ERR(data->base);
++          input-schmitt-disable: true
 +
-+	data->rcdev.ops = &jh7100_reset_ops;
-+	data->rcdev.owner = THIS_MODULE;
-+	data->rcdev.nr_resets = JH7100_RSTN_END;
-+	data->rcdev.dev = &pdev->dev;
-+	data->rcdev.of_node = pdev->dev.of_node;
-+	spin_lock_init(&data->lock);
++          slew-rate:
++            maximum: 7
 +
-+	return devm_reset_controller_register(&pdev->dev, &data->rcdev);
-+}
++          starfive,strong-pull-up:
++            description: enable strong pull-up.
++            type: boolean
 +
-+static const struct of_device_id jh7100_reset_dt_ids[] = {
-+	{ .compatible = "starfive,jh7100-reset" },
-+	{ /* sentinel */ }
-+};
++        additionalProperties: false
 +
-+static struct platform_driver jh7100_reset_driver = {
-+	.probe = jh7100_reset_probe,
-+	.driver = {
-+		.name = "jh7100-reset",
-+		.of_match_table = jh7100_reset_dt_ids,
-+	},
-+};
-+builtin_platform_driver(jh7100_reset_driver);
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive-jh7100.h>
++    #include <dt-bindings/reset/starfive-jh7100.h>
++    #include <dt-bindings/pinctrl/pinctrl-starfive.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        gpio: pinctrl@11910000 {
++            compatible = "starfive,jh7100-pinctrl";
++            reg = <0x0 0x11910000 0x0 0x10000>,
++                  <0x0 0x11858000 0x0 0x1000>;
++            reg-names = "gpio", "padctl";
++            clocks = <&clkgen JH7100_CLK_GPIO_APB>;
++            resets = <&clkgen JH7100_RSTN_GPIO_APB>;
++            interrupts = <32>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            starfive,signal-group = <6>;
++
++            gmac_pins_default: gmac-0 {
++                gtxclk-pins {
++                    pins = <PAD_FUNC_SHARE(115)>;
++                    bias-pull-up;
++                    drive-strength = <35>;
++                    input-enable;
++                    input-schmitt-enable;
++                    slew-rate = <0>;
++                };
++                miitxclk-pins {
++                    pins = <PAD_FUNC_SHARE(116)>;
++                    bias-pull-up;
++                    drive-strength = <14>;
++                    input-enable;
++                    input-schmitt-disable;
++                    slew-rate = <0>;
++                };
++                tx-pins {
++                    pins = <PAD_FUNC_SHARE(117)>,
++                           <PAD_FUNC_SHARE(119)>,
++                           <PAD_FUNC_SHARE(120)>,
++                           <PAD_FUNC_SHARE(121)>,
++                           <PAD_FUNC_SHARE(122)>,
++                           <PAD_FUNC_SHARE(123)>,
++                           <PAD_FUNC_SHARE(124)>,
++                           <PAD_FUNC_SHARE(125)>,
++                           <PAD_FUNC_SHARE(126)>;
++                    bias-disable;
++                    drive-strength = <35>;
++                    input-disable;
++                    input-schmitt-disable;
++                    slew-rate = <0>;
++                };
++                rxclk-pins {
++                    pins = <PAD_FUNC_SHARE(127)>;
++                    bias-pull-up;
++                    drive-strength = <14>;
++                    input-enable;
++                    input-schmitt-disable;
++                    slew-rate = <6>;
++                };
++                rxer-pins {
++                    pins = <PAD_FUNC_SHARE(129)>;
++                    bias-pull-up;
++                    drive-strength = <14>;
++                    input-enable;
++                    input-schmitt-disable;
++                    slew-rate = <0>;
++                };
++                rx-pins {
++                    pins = <PAD_FUNC_SHARE(128)>,
++                           <PAD_FUNC_SHARE(130)>,
++                           <PAD_FUNC_SHARE(131)>,
++                           <PAD_FUNC_SHARE(132)>,
++                           <PAD_FUNC_SHARE(133)>,
++                           <PAD_FUNC_SHARE(134)>,
++                           <PAD_FUNC_SHARE(135)>,
++                           <PAD_FUNC_SHARE(136)>,
++                           <PAD_FUNC_SHARE(137)>,
++                           <PAD_FUNC_SHARE(138)>,
++                           <PAD_FUNC_SHARE(139)>,
++                           <PAD_FUNC_SHARE(140)>,
++                           <PAD_FUNC_SHARE(141)>;
++                    bias-pull-up;
++                    drive-strength = <14>;
++                    input-enable;
++                    input-schmitt-enable;
++                    slew-rate = <0>;
++                };
++            };
++
++            i2c0_pins_default: i2c0-0 {
++                i2c-pins {
++                    pinmux = <GPIOMUX(62, GPO_LOW,
++                              GPO_I2C0_PAD_SCK_OEN,
++                              GPI_I2C0_PAD_SCK_IN)>,
++                             <GPIOMUX(61, GPO_LOW,
++                              GPO_I2C0_PAD_SDA_OEN,
++                              GPI_I2C0_PAD_SDA_IN)>;
++                    bias-disable; /* external pull-up */
++                    input-enable;
++                    input-schmitt-enable;
++                };
++            };
++
++            uart3_pins_default: uart3-0 {
++                rx-pin {
++                    pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
++                              GPI_UART3_PAD_SIN)>;
++                    bias-pull-up;
++                    input-enable;
++                    input-schmitt-enable;
++                };
++                tx-pin {
++                    pinmux = <GPIOMUX(14, GPO_UART3_PAD_SOUT,
++                              GPO_ENABLE, GPI_NONE)>;
++                    bias-disable;
++                    input-disable;
++                    input-schmitt-disable;
++                };
++            };
++        };
++
++        gmac {
++            pinctrl-0 = <&gmac_pins_default>;
++            pinctrl-names = "default";
++        };
++
++        i2c0 {
++            pinctrl-0 = <&i2c0_pins_default>;
++            pinctrl-names = "default";
++        };
++
++        uart3 {
++            pinctrl-0 = <&uart3_pins_default>;
++            pinctrl-names = "default";
++        };
++    };
++
++...
 -- 
 2.33.1
 
