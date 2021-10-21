@@ -1,114 +1,91 @@
-Return-Path: <SRS0=4jtk=PI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2695BC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 22:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58770C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 01:01:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E08806121E
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Oct 2021 22:40:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E08806121E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=opensource.wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0FE5B61052
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 01:01:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0FE5B61052
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vVlnfljcsoyzAaVJIKtIvvPUai62O1sBpsfzPkZszr4=; b=vHuP+/4tLY4kw9
-	SmHGoVoMEtxuLkeBEt+frD/8xv/KXCc3Iiqfle+tsW5NuifwxMgldbloPaTMStv+dOO+3zCAB9ucc
-	Vh+iPA3h1FtbT5D+S7/hLmeevefo//Cm8v7/ctA+cRlASZrJUB9InCA/3ABSibzK+ob6pkpcAKutR
-	89cJWy8RfvdXewK4ki0QSDQz7oSHU6nNHdMnwe8uRJxFXbIjAGOoAJnKBXaWDgjSoK2G1iyRsLx9+
-	sHygPxj+zXUp+p6y4yT4Wau0evhf1dX5G9hQ1PA7AgKRrI1b+PSnyQBY90kpbW3EbpoMM9KIhANEK
-	yfwDOOwqXuJ97N9TURZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gbOLEg2LbusDqsjtjZshgHmujDOWkNPZnsOWKKpLl/c=; b=VqxvQrHx3E3bBZTCFWHg98J+3e
+	ktBluRFpAFpQwjmmUWnZp1Oyzz5tFqSxmbnmxAmYt9WBEu/DqIU5Q16vzQgdpWQITojz1ChWQi4tT
+	/mfAiLFz5fA6f7cngTZJgt0URZwLYndXyvDX/TBv2fPKxqYMlGgyOcHSQIQsbgq7IjigaZAdyiJoT
+	V6YO8Vm9kKKA4Sf6dn1Ar+5yP1bU10qayTgOKJV4PyKUYir+ydD65DZ/vVziffijlQcb1n0kHeM5p
+	h1aLAorwHlqqiPTxTbLr5lgyeNWTpW+Zf1o+8+WTTg9WnSVCcEdZBtos0g7me/wodrmEaisFyALXA
+	rEzgSrnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdKGB-005vl1-E2; Wed, 20 Oct 2021 22:40:35 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1mdMSe-006AfW-QY; Thu, 21 Oct 2021 01:01:36 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdKG9-005vj4-AM
- for linux-riscv@lists.infradead.org; Wed, 20 Oct 2021 22:40:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1634769633; x=1666305633;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=iokVJV3cYX9f/SC9Fc+lMMtmzbpnIQZDRYW/FHmCWd0=;
- b=lQwrtJEdLY/50J6ejoVcQPlIp33kTzJwDIMzBczcgs46XTU5c231rgl9
- XilkpaxhAeQZsJMfEvf4gfB81bQGFYLGzBkCSwrZ4Qiv2fx5ugQwDuV56
- 3MmZB8jBpv/w2+yWL4YmRlJSmcVoiOd6VQm/WJXYPww7wDCfmb75fV+wh
- mPkM4OQ29X2dwXzUiqlZH6mrlvcM8FqPo5F83AenjymNCci1Wk9MSgjr6
- ufj98us9ef86o//Q6Clt041vWPtnwUttyaiuhwwOqwbwVCnYWGsmmmcu/
- bILh2c0RT02B6xQ+YttUezro6qmxXyty4AYkFGlDBSFkQzt2M49cjDCi5 A==;
-X-IronPort-AV: E=Sophos;i="5.87,168,1631548800"; d="scan'208";a="295186423"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 21 Oct 2021 06:40:31 +0800
-IronPort-SDR: Yz83FomXw3JhqvFbatUoGSOi7hE1GdtJ0j95vfi0g6uo3I47UEspK07/hc/VYhQFh+S3wzZqsq
- Bl3KFh0uXDBkmimKWrKMZrIBN65qgHOrdXpujM8Y1Mlj9qYfh9vn8+KxloFI+SZGjFUoMLffs7
- Lb2kAOd/qjkOkSTy9eWuTrw+SGl7toohXU9JihCNOvxtuMgRsyV+h6yhfvbKfNFn0TowjnOyUq
- 4gnHyRC+ybs+Xoxtfb0N0g54enBLfp6w44qR+rVRGp4U8ZVA5e+DZILK23OzzIbnxcnyB/tjWQ
- CecQsBI66cVJhZCpmDAVsMUT
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 20 Oct 2021 15:16:07 -0700
-IronPort-SDR: /S4mLrI197zGXgDBPbxL8B7Cc314FBCeQXJWGBcPEQfyf1ysPybdAIXOlzUV6JiZEJUQ7zhP3i
- FsGLGf21q4vmcDoUKCtlrN+YivtvxoKxMFasM3ejw+43X9+dFYYxECwj1GWqvFj6g9yjCoFN6w
- IQHfRvgc4y2hWrojfkJ59ZuMbcLVdkapDFXz4gKpB1ecSgHQaVoHSzoEJG1K1pyiv9QvGvGxxq
- 8y/sqvpSGP2nkSIAajZKT0W46lwdYsW4fmF4BB+4iuvpblKhPTVJY73FF80shS4i9NG+AYagnB
- owo=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 20 Oct 2021 15:40:31 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4HZQYV4vj7z1Rvm1
- for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 15:40:30 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:mime-version
- :references:in-reply-to:x-mailer:message-id:date:subject:to
- :from; s=dkim; t=1634769629; x=1637361630; bh=iokVJV3cYX9f/SC9Fc
- +lMMtmzbpnIQZDRYW/FHmCWd0=; b=HbmBALspll9m4t/0EDKKGA/oB0V3treqkQ
- xIhDbAG8iqUVNKIkW2EnoBNPC3BM3gslxGNdMhJnGa2hZc8hr+8zwk5T89c9Uzo+
- jGCPEg14L1xAueenvGRHT+b7XvGOy1pE8YkTVhAAbm13dX4hbUJF1Mf4OMgplYRC
- vOxPf0dk4xYfarU+MqcVzqB8FNfRn8zM61k//SniLMk5SE8VPOoxDEvKPZGDoJad
- eI/3xWawihNjTBfbffi49TkpXnBDFaWMLnQ3kP+RE9bxFjoc4PXjB42iBY9l510Y
- xMTs0+pr2/agO5wRBUcj5rkYYQupuE/PgtS7dG2+GAWH5vqqoadg==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id o02HnATsLML2 for <linux-riscv@lists.infradead.org>;
- Wed, 20 Oct 2021 15:40:29 -0700 (PDT)
-Received: from toolbox.wdc.com (unknown [10.225.165.39])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4HZQYF5gT8z1RvlZ;
- Wed, 20 Oct 2021 15:40:16 -0700 (PDT)
-From: Alistair Francis <alistair.francis@opensource.wdc.com>
-To: linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, alistair23@gmail.com, namhyung@kernel.org,
- jolsa@redhat.com, alexander.shishkin@linux.intel.com, mark.rutland@arm.com,
- acme@kernel.org, dave@stgolabs.net, dvhart@infradead.org,
- peterz@infradead.org, mingo@redhat.com, tglx@linutronix.de,
- atish.patra@wdc.com, arnd@arndb.de,
- Alistair Francis <alistair.francis@wdc.com>
-Subject: [PATCH v4 4/4] selftests: futex: Add support for 32-bit systems with
- 64-bit time_t
-Date: Thu, 21 Oct 2021 08:39:20 +1000
-Message-Id: <20211020223920.2810727-4-alistair.francis@opensource.wdc.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20211020223920.2810727-1-alistair.francis@opensource.wdc.com>
-References: <20211020223920.2810727-1-alistair.francis@opensource.wdc.com>
+ id 1mdMSc-006Ae1-G6
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 01:01:36 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id
+ x27-20020a9d459b000000b0055303520cc4so10369053ote.13
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Oct 2021 18:01:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=date:from:to:cc:subject:in-reply-to:message-id:references
+ :mime-version; bh=/Anyro1utHkFdCbdStAnb8uXkCW4crr28fE7Heb+fl4=;
+ b=Amtjbon3DnMOGs5EEeBpR6/lkN9fxfctIJORUjFOEw7wv2hqLfR1rU9zt4iwMBryDg
+ ow+HqCTeKYqFCx12RN8FIbgdXX6tRDnBmJN7l4lyppD2TGJ4aB/Wp4Zb0fmlbwbBNaTD
+ EyvVw/oQBXfa9db+xSQQXPbfjELvgUKfjLeuEOwSdl+2xPI+TCobbk0sGTzj9Itj57mS
+ yplzHqLExBKFQcUYDszJckKixkrtKxsimewwAHaGs8jo2SuSZSTs7oyheYBMuT4pvKfk
+ Pv6ES0MwOJXBW5Jue4Z6jGYG5Ha+voXXq5TZJuywq0pLto6Qe3OfiQR7scpSFBN0P2ZR
+ ytig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:in-reply-to:message-id
+ :references:mime-version;
+ bh=/Anyro1utHkFdCbdStAnb8uXkCW4crr28fE7Heb+fl4=;
+ b=J9F55/Tf3hO8fAg71aO9ZZC/BV54VQRkAoAHdWSXZ+l/CFG81J+3ykKXEXAgUTvjfD
+ mxT5usSiU41ZClmd1LswrCxL0PgUMLB9DbDV0fKt/oQonRISONDBM2UUZ/R1IDqT8nUe
+ OZM5gSBSkWVjkheaBNCbVaNOP0fBd8MgaV7DOdXHGPb+JRpHyyBmsZVxdG0jYogptSM7
+ lM4qp4CiUWj0qPsbkS1lQlEP7+mIZGqx0yMz3FgQm1c8SUFCUFymajF4LvVtH3c+z8X3
+ NZ0hpKFbnXfEADnRbgB91QlU6o5hnVbD+31Fc456DOFkn4SVxKYn9f6KMt/zkbEoGPcm
+ qsEA==
+X-Gm-Message-State: AOAM533iqBapxU+z/yYtuSOyKiM0ksOJLP5qLeySv3gnFiByKZvVEfoC
+ CmbxuJYIyjDfYoXqGqOeqeQQSBG7jy3dSYQN
+X-Google-Smtp-Source: ABdhPJyOpc0Y/V7bNHLEaCEilxZ9yA1fSwUnP604hwHoUhi+XgICyd19Vqo6H4iUhzN1yRXLAcwYDA==
+X-Received: by 2002:a9d:728d:: with SMTP id t13mr2114142otj.66.1634778092733; 
+ Wed, 20 Oct 2021 18:01:32 -0700 (PDT)
+Received: from localhost ([2601:8c4:0:32f::a60])
+ by smtp.gmail.com with ESMTPSA id r23sm756370otg.71.2021.10.20.18.01.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 Oct 2021 18:01:31 -0700 (PDT)
+Date: Wed, 20 Oct 2021 18:01:31 -0700 (PDT)
+From: Paul Walmsley <paul.walmsley@sifive.com>
+To: Darius Rad <darius@bluespec.com>
+cc: Greentime Hu <greentime.hu@sifive.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Vincent Chen <vincent.chen@sifive.com>
+Subject: Re: [RFC PATCH v8 09/21] riscv: Add task switch support for vector
+In-Reply-To: <YVxZspMO7rAvtMBS@bruce.bluespec.com>
+Message-ID: <3c9797f6-2fd3-5530-ba34-6e4c4deec984@sifive.com>
+References: <cover.1631121222.git.greentime.hu@sifive.com>
+ <0e65c165e3d54a38cbba01603f325dca727274de.1631121222.git.greentime.hu@sifive.com>
+ <c81267bc-4c91-3978-8c1f-78925c46c78b@bluespec.com>
+ <CAHCEehJ1uuSFqFWreS1kh+fR5GFfnEycdLMe+4FHXpFsHrRUvA@mail.gmail.com>
+ <YVRp5uWFGQrwBpgf@bruce.bluespec.com>
+ <CAHCEeh+dA9243=PwNtYvyU1Myu_E8YO2g4UNACxRogQ=6UavLQ@mail.gmail.com>
+ <YVxZspMO7rAvtMBS@bruce.bluespec.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-1340494379-1634778091=:93269"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211020_154033_388234_67231BC7 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20211020_180134_576381_9CC9ADA7 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,116 +97,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alistair Francis <alistair.francis@wdc.com>
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
-time_t and as such don't have the SYS_futex syscall. This patch will
-allow us to use the SYS_futex_time64 syscall on those platforms.
+--8323329-1340494379-1634778091=:93269
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-This also converts the futex calls to be y2038 safe (when built for a
-5.1+ kernel).
+Hello Darius,
 
-Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
----
- .../futex/functional/futex_requeue_pi.c       |  2 +-
- .../selftests/futex/include/futextest.h       | 44 ++++++++++++++++++-
- 2 files changed, 43 insertions(+), 3 deletions(-)
+On Tue, 5 Oct 2021, Darius Rad wrote:
 
-diff --git a/tools/testing/selftests/futex/functional/futex_requeue_pi.c b/tools/testing/selftests/futex/functional/futex_requeue_pi.c
-index 1ee5518ee6b7f..d3673996fed4e 100644
---- a/tools/testing/selftests/futex/functional/futex_requeue_pi.c
-+++ b/tools/testing/selftests/futex/functional/futex_requeue_pi.c
-@@ -294,7 +294,7 @@ int unit_test(int broadcast, long lock, int third_party_owner, long timeout_ns)
- 		secs = (ts.tv_nsec + timeout_ns) / 1000000000;
- 		ts.tv_nsec = ((int64_t)ts.tv_nsec + timeout_ns) % 1000000000;
- 		ts.tv_sec += secs;
--		info("ts.tv_sec  = %ld\n", ts.tv_sec);
-+		info("ts.tv_sec  = %lld\n", ts.tv_sec);
- 		info("ts.tv_nsec = %ld\n", ts.tv_nsec);
- 		tsp = &ts;
- 	}
-diff --git a/tools/testing/selftests/futex/include/futextest.h b/tools/testing/selftests/futex/include/futextest.h
-index 1b133f81e9b7b..b303d0d492ff7 100644
---- a/tools/testing/selftests/futex/include/futextest.h
-+++ b/tools/testing/selftests/futex/include/futextest.h
-@@ -17,10 +17,12 @@
- #ifndef _FUTEXTEST_H
- #define _FUTEXTEST_H
- 
-+#include <errno.h>
- #include <unistd.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
- #include <linux/futex.h>
-+#include <linux/time_types.h>
- 
- typedef volatile u_int32_t futex_t;
- #define FUTEX_INITIALIZER 0
-@@ -69,14 +71,52 @@ static inline int
- futex_syscall(volatile u_int32_t *uaddr, int op, u_int32_t val, struct timespec *timeout,
- 	      volatile u_int32_t *uaddr2, int val3, int opflags)
- {
--	return syscall(SYS_futex, uaddr, op | opflags, val, ts32, uaddr2, val3);
-+#if defined(__NR_futex_time64)
-+	if (sizeof(*timeout) != sizeof(struct __kernel_old_timespec)) {
-+		int ret =  syscall(__NR_futex_time64, uaddr, op | opflags, val, timeout,
-+				   uaddr2, val3);
-+	if (ret == 0 || errno != ENOSYS)
-+		return ret;
-+	}
-+#endif
-+
-+#if defined(__NR_futex)
-+	if (sizeof(*timeout) == sizeof(struct __kernel_old_timespec))
-+		return syscall(__NR_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
-+
-+	if (timeout && timeout->tv_sec == (long)timeout->tv_sec) {
-+		struct __kernel_old_timespec ts32;
-+
-+		ts32.tv_sec = (__kernel_long_t) timeout->tv_sec;
-+		ts32.tv_nsec = (__kernel_long_t) timeout->tv_nsec;
-+
-+		return syscall(__NR_futex, uaddr, op | opflags, val, ts32, uaddr2, val3);
-+	} else if (!timeout) {
-+		return syscall(__NR_futex, uaddr, op | opflags, val, NULL, uaddr2, val3);
-+	}
-+#endif
-+
-+	errno = ENOSYS;
-+	return -1;
- }
- 
- static inline int
- futex_syscall_nr_requeue(volatile u_int32_t *uaddr, int op, u_int32_t val, int nr_requeue,
- 			 volatile u_int32_t *uaddr2, int val3, int opflags)
- {
--	return syscall(SYS_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
-+#if defined(__NR_futex_time64)
-+	int ret =  syscall(__NR_futex_time64, uaddr, op | opflags, val, nr_requeue,
-+			   uaddr2, val3);
-+	if (ret == 0 || errno != ENOSYS)
-+		return ret;
-+#endif
-+
-+#if defined(__NR_futex)
-+	return syscall(__NR_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
-+#endif
-+
-+	errno = ENOSYS;
-+	return -1;
- }
- 
- /**
--- 
-2.31.1
+> On Mon, Oct 04, 2021 at 08:36:30PM +0800, Greentime Hu wrote:
+> > Darius Rad <darius@bluespec.com> =E6=96=BC 2021=E5=B9=B49=E6=9C=8829=E6=
+=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=889:28=E5=AF=AB=E9=81=93=EF=BC=9A
+> > >
+> > > On Tue, Sep 28, 2021 at 10:56:52PM +0800, Greentime Hu wrote:
+> > > > Darius Rad <darius@bluespec.com> =E6=96=BC 2021=E5=B9=B49=E6=9C=881=
+3=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=888:21=E5=AF=AB=E9=81=93=EF=
+=BC=9A
+> > > > >
+> > > > > On 9/8/21 1:45 PM, Greentime Hu wrote:
+> > > > > > This patch adds task switch support for vector. It supports par=
+tial lazy
+> > > > > > save and restore mechanism. It also supports all lengths of vle=
+n.
 
+[ ... ]
+
+> > > > > So this will unconditionally enable vector instructions, and allo=
+cate
+> > > > > memory for vector state, for all processes, regardless of whether=
+ vector
+> > > > > instructions are used?
+> > > >
+> > > > Yes, it will enable vector if has_vector() is true. The reason that=
+ we
+> > > > choose to enable and allocate memory for user space program is beca=
+use
+> > > > we also implement some common functions in the glibc such as memcpy
+> > > > vector version and it is called very often by every process. So tha=
+t
+> > > > we assume if the user program is running in a CPU with vector ISA
+> > > > would like to use vector by default. If we disable it by default an=
+d
+> > > > make it trigger the illegal instruction, that might be a burden sin=
+ce
+> > > > almost every process will use vector glibc memcpy or something like
+> > > > that.
+> > >
+> > > Do you have any evidence to support the assertion that almost every p=
+rocess
+> > > would use vector operations?  One could easily argue that the convers=
+e is
+> > > true: no existing software uses the vector extension now, so most lik=
+ely a
+> > > process will not be using it.
+> >=20
+> > Glibc ustreaming is just starting so you didn't see software using the=
+=20
+> > vector extension now and this patchset is testing based on those=20
+> > optimized glibc too. Vincent Chen is working on the glibc vector=20
+> > support upstreaming and we will also upstream the vector version glibc=
+=20
+> > memcpy, memcmp, memchr, memmove, memset, strcmp, strlen. Then we will=
+=20
+> > see platform with vector support can use vector version mem* and str*=
+=20
+> > functions automatically based on ifunc and platform without vector=20
+> > will use the original one automatically. These could be done to select=
+=20
+> > the correct optimized glibc functions by ifunc mechanism.
+
+In your reply, I noticed that you didn't address Greentime's response=20
+here.  But this looks like the key issue.  If common library functions are=
+=20
+vector-accelerated, wouldn't it make sense that almost every process would=
+=20
+wind up using vector instructions?  And thus there wouldn't be much point=
+=20
+to skipping the vector context memory allocation?
+
+
+- Paul
+--8323329-1340494379-1634778091=:93269
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1340494379-1634778091=:93269--
+
