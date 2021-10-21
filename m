@@ -2,79 +2,88 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0FBC6C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D1A7C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:51:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BC85C613A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:28:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC85C613A0
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id BA0DC613A1
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 16:51:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BA0DC613A1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iIpNA+nt2ca7Ptpf2q7IjKFn9tAJw9TAjaYaDwEd3xo=; b=YZg//nsXDs2bd3
-	+TtooZt4TyTlgNGMLFTshg1gIHuTmWde/ALh0rjA2DKIB5bfD2S40XqMNx93WSATtzWEOtiRM2j1f
-	Pcq+OoTDAxI2Yl2DjHJbhCgAeWttc9NtoNBTS9u/R5XI6OCutrnAbP383ScDdtRhxiiJMFPrZ0Ull
-	vi4IQM2LMkowA4O5ed9xzFod+P7fVbB88NGmbQTV4K3qnFj34o0VJRs1RmDiQxhLaQAsboJnA7NDn
-	ZMSoxfbUXpY25YGu7pnUQYRl5di4Ykoyze2PXkMQFdpU4N93P4Mc550kNukESqCeFPJFkjggWCvA7
-	hW6fBmDQ4kKlKpfnHxdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+1EYMdoend9DJ9sA2ToJaqBW65Ghy51qOdg6kM9wg04=; b=1CaGpqwkYOWtBX
+	WBwfcP5OnTC9iv9a2k3UMy8HhBYNAmZzt6r6KTU7RaITYhc2qefgKX7ErUZjdd5Rtuf2qDmjyPWH7
+	CyWKDvB8lVBTyr1gsVwn0r+Gg8AIm3K6jYlVCBQd7L0sDuPxQrSfAR68whOvxdd2dk6rJ4VJi5Bmb
+	RQZA9yb828SimnrmBmsfSE7m6CVcXGCEkk7zsSZP9CucqN+Zy0EMv2+VJcMUpf4ZwOgxH2dgtRKkf
+	d+yk0REvxMuW5Py42zR0q0hK7ULp0CeJ37l18zVlE+OKSV669yhPlRTeNRFfBzZRKrw/JguLwhtlW
+	dHazEvZfurWciUmHmnDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdavf-008MGf-Cd; Thu, 21 Oct 2021 16:28:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1mdbIF-008QHv-3V; Thu, 21 Oct 2021 16:51:51 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdave-008MF9-9T
- for linux-riscv@bombadil.infradead.org; Thu, 21 Oct 2021 16:28:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=izKpVidBKcjnuLaiC7PERWVHstuq6Xy5Uk1RXaoEYd4=; b=ZW3xZCE93YXUSeTAcEhUjrHvHw
- hFeyYDKiEVFap0+KcMXtDnAbFi7LkUuTEGhmT3j/jZUpMtvfvDI2lgUYR4ULyKLva7itVMXCVknie
- +ng3U3WeyQ0nzO1qwkGpnjDLqb4TQjn/iYRS6XB305+9Uj+BNiokI2WB56S8y8k+SzidOyW0Xl2J5
- wm3QMZt49rvCVE8eLXrd68VFkIYNB7A3kt/vCNqNjBzDtJlTkJ+cjPMO1qcIPPlqQZjp9WeaWN7DZ
- y4wCsMKvn8FPNDIge/oHmXE+ehL+H6YBVxF9fQRLZy5DpGiZ/5npcgybpjDHvqrb/dpbz+3k1qYk4
- wnvzD2DA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdavY-00BMwz-1W; Thu, 21 Oct 2021 16:28:26 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id ABD5030024D;
- Thu, 21 Oct 2021 18:28:22 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 93CC92C2287A1; Thu, 21 Oct 2021 18:28:22 +0200 (CEST)
-Date: Thu, 21 Oct 2021 18:28:22 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
- Ingo Molnar <mingo@kernel.org>, Waiman Long <longman@redhat.com>,
- linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
- Stafford Horne <shorne@gmail.com>
-Subject: Re: [PATCH] locking: Generic ticket lock
-Message-ID: <YXGVJinHk3cOVyOw@hirez.programming.kicks-ass.net>
-References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
- <CAK8P3a2+=9jjyqN5dMOb4+bYJy=q5G3CxFaCW+=4xryz-S=zYA@mail.gmail.com>
- <YXGD5OFbI7TEDFTr@hirez.programming.kicks-ass.net>
- <CAK8P3a14NUvo40GFY5DfQcF28OO22=BiHJO1TzBTEMK0RAwtHg@mail.gmail.com>
+ id 1mdbIC-008QFT-5x
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 16:51:49 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id
+ e5-20020a17090a804500b001a116ad95caso992748pjw.2
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=utoy+jQZzvRnzA1QWeuCmlU/QiIEQT6LKCT7U63qum8=;
+ b=x8/aeoXyTGmp//1afH0+pe+lHvlkIprY9l6+jEEMrD9x/aw8fI1lNPBwex0dW1q0hF
+ 6GWTNfl5PefzN5QSEjiNqb/NkgWKFVXxiAY24Z2ttZN+NSPZ8ecr48c9Ep2zOFA85kDF
+ PRsXpmhyhbo4GsT2Xgf9iifyDaB7045MsUQlaKHDqb5ggq8eKo9iEjG1N+5wbU11GJgn
+ 9DJz9SrYhm2cuzF7hXks8UUV1T26+6Ps4Qj8FNpsQdbnZzINWDMEhHcYWxNlggdJ2FqC
+ qnICeOn9KcXcf9NyUo9mGy93lBg6SKTWkmiLpn0uW95FYEWmEeFVT0ytkGNohN0BKFAy
+ NNgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=utoy+jQZzvRnzA1QWeuCmlU/QiIEQT6LKCT7U63qum8=;
+ b=Bv/iRyuJDN8Q566+P1dfg2/yPRiEeyt0uruxqJiaRoVqet66gal+DTDwEVAUYZzybT
+ peg1q7ybNnKKAFVCj90OSNfiNSn5kRL3qjG3WNUCYZJzFBCt1j/pnymHdYr3UHWBN5Gq
+ vKSPjzaCwnrfldizbtI0jpi+A2l+ThjH1/uJKivxXZ4zJ+L9S+sXhxbK1oOlTCo2OsGT
+ FxRgKol3v70gH8wEOh2HX5L744RrvL7/1EUIk0saktIPb+DQ9UUULFhSfDjtZjE4Aolj
+ HExlJXLpYAdJ1Kj2VGBJ1iywEp3IeKyYzla+WlCfSFMXMOh2jwd0+UUrNIDTeA/vraZ7
+ ITtQ==
+X-Gm-Message-State: AOAM530+faKEG09uT60QTIswOXUtz924515nV7EU/MoWWkquG3Ga6VWc
+ L3usFJbfcPhoWtuuCvS7TUe1mQ==
+X-Google-Smtp-Source: ABdhPJzPn1WnhmqY3wp2dc+1Jtbo+21IiUrqDsvcEMwzsRnJLaf4nWK/njw4aSEB0eHoBWNnGsJMGw==
+X-Received: by 2002:a17:90a:2943:: with SMTP id
+ x3mr7820076pjf.71.1634835104442; 
+ Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
+Received: from vineetg-ThinkPad-X1-Carbon-Gen-9.ba.rivosinc.com
+ (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+ by smtp.gmail.com with ESMTPSA id y4sm7553890pfa.90.2021.10.21.09.51.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Oct 2021 09:51:44 -0700 (PDT)
+From: Vineet Gupta <vineetg@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup.patel@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Atish Patra <atish.patra@wdc.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Chen Huang <chenhuang5@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vineetg@rivosinc.com>
+Subject: [PATCH] riscv: remove code for !CONFIG_FRAME_POINTER
+Date: Thu, 21 Oct 2021 09:51:42 -0700
+Message-Id: <20211021165142.444236-1-vineetg@rivosinc.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a14NUvo40GFY5DfQcF28OO22=BiHJO1TzBTEMK0RAwtHg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20211021_095148_250045_7607A937 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +100,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 21, 2021 at 05:31:51PM +0200, Arnd Bergmann wrote:
-> On Thu, Oct 21, 2021 at 5:14 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> > On Thu, Oct 21, 2021 at 03:49:51PM +0200, Arnd Bergmann wrote:
-> > I think for a load-store arch this thing should generate pretty close to
-> > optimal code. x86 can do ticket_unlock() slightly better using a single
-> > INCW (or ADDW 1) on the owner subword, where this implementation will to
-> > separate load-add-store instructions.
-> >
-> > If that is actually measurable is something else entirely.
-> 
-> Ok, so I guess such an architecture could take the generic implementation
-> and override just arch_spin_unlock() or just arch_spin_lock(), if that
-> makes a difference for them.
+while frame pointer generates horrible code it is a necessary evil on
+RISC-V as the only way to unwind stack.
 
-Also, Pre EV5 Dec Alpha might have issues since it can only do 32bit
-wide accesses, and it would need an ll/sc to unlock.
+In fact Kconfig unconditonally selects ARCH_WANT_FRAME_POINTERS, so
+any code for handling !FRAME_POINTER is essentially dead weight.
 
-But yes, if/when needed we could allow overrides.
+And while here remove redundant setting of -fno-omit-frame-pointer as
+this is enabled by generic code for CONFIG_FRAME_POINTER
 
-> Should we perhaps turn your modified openrisc asm/spinlock.h
-> and asm/spin_lock_types.h the fallback in asm-generic, and
-> remove the ones for the architectures that have no overrides
-> at all?
+Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
+---
+ arch/riscv/Makefile            |  3 ---
+ arch/riscv/kernel/stacktrace.c | 37 ++--------------------------------
+ 2 files changed, 2 insertions(+), 38 deletions(-)
 
-Possibly, yes.
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index a0b8259c7098..a4329035c341 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -65,9 +65,6 @@ endif
+ ifeq ($(CONFIG_CMODEL_MEDANY),y)
+ 	KBUILD_CFLAGS += -mcmodel=medany
+ endif
+-ifeq ($(CONFIG_PERF_EVENTS),y)
+-        KBUILD_CFLAGS += -fno-omit-frame-pointer
+-endif
+ 
+ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
+ 
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 315db3d0229b..63f471278401 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -16,13 +16,13 @@
+ 
+ register unsigned long sp_in_global __asm__("sp");
+ 
+-#ifdef CONFIG_FRAME_POINTER
+-
+ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			     bool (*fn)(void *, unsigned long), void *arg)
+ {
+ 	unsigned long fp, sp, pc;
+ 
++        BUILD_BUG_ON(!IS_ENABLED(CONFIG_FRAME_POINTER));
++
+ 	if (regs) {
+ 		fp = frame_pointer(regs);
+ 		sp = user_stack_pointer(regs);
+@@ -65,39 +65,6 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 	}
+ }
+ 
+-#else /* !CONFIG_FRAME_POINTER */
+-
+-void notrace walk_stackframe(struct task_struct *task,
+-	struct pt_regs *regs, bool (*fn)(void *, unsigned long), void *arg)
+-{
+-	unsigned long sp, pc;
+-	unsigned long *ksp;
+-
+-	if (regs) {
+-		sp = user_stack_pointer(regs);
+-		pc = instruction_pointer(regs);
+-	} else if (task == NULL || task == current) {
+-		sp = sp_in_global;
+-		pc = (unsigned long)walk_stackframe;
+-	} else {
+-		/* task blocked in __switch_to */
+-		sp = task->thread.sp;
+-		pc = task->thread.ra;
+-	}
+-
+-	if (unlikely(sp & 0x7))
+-		return;
+-
+-	ksp = (unsigned long *)sp;
+-	while (!kstack_end(ksp)) {
+-		if (__kernel_text_address(pc) && unlikely(!fn(arg, pc)))
+-			break;
+-		pc = (*ksp++) - 0x4;
+-	}
+-}
+-
+-#endif /* CONFIG_FRAME_POINTER */
+-
+ static bool print_trace_address(void *arg, unsigned long pc)
+ {
+ 	const char *loglvl = arg;
+-- 
+2.30.2
 
-> > If your SMP arch is halfway sane (no fwd progress issues etc..) then
-> > ticket should behave well and avoid the starvation/variablilty of TaS
-> > lock.
-> 
-> Ok, and I guess we still need to keep the parisc and sparc32 versions
-> anyway.
-
-Yes, both those only have an xchg() (like) instruction and can
-realistically only implement TaS locks and have to build everything else
-on top of that... if only we could get rid of all that :-)
-
-> > The big exception there is virtualized architectures, ticket is
-> > absolutely horrendous for 'guests' (any fair lock is for that matter).
-> 
-> This might be useful information to put into the header, at least
-> I had no idea about this distinction.
-
-Yes indeed, I'd not thought of it until you asked.
 
 _______________________________________________
 linux-riscv mailing list
