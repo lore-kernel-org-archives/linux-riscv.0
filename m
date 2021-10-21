@@ -2,68 +2,68 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A99FC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C167C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2924860E97
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2924860E97
+	by mail.kernel.org (Postfix) with ESMTPS id 0F8A1608FB
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 17:42:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0F8A1608FB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/Mzmcr2AfWc9oZ2vo8xitrbd57+hIMKFDOxedvMBM2Q=; b=Xx3f3juMmJbheY
-	k8FcVrkbBpJlSPraSnc/XMsPZc344GD/cnbzbvcJfabHNstue3jW2IAw1+PutU6szOo01wK0JTwFo
-	52oZ7/CIvpx0UU176OF3ZwqbXBe3bG1fKvX6oRJ/02d3+Ist8pVvun3rPSpj/05rPsp5PdzCVJjHg
-	a8HRuYBiN6i3KpphS0kndCYmgDld7TCUCL4SJ7eu2c6qsCDcY1U+bNd2SBwAyNtz8rcx3MpSWzTzD
-	1VeEfZR9zu2CPMNuk/trz7rpg4zYqI8W76REw6sw1Geo6fOAgVSDWUUzzlGZ5lsRp1DZaUpHtDg7y
-	OrmMYCjl8cJa+BbaDL7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oGIWpxPxn4uy+9/yPAqkd3Jkrk+J9s+gtDo9Mxi8XvI=; b=PLtiQh1TNjg30p
+	oCqBa2u6SSEpjb6xKBU/qKAZqwBXzwbJbkS9puOEObub2XfqwrKHU0ppv/rUIBGEz2ATiA6rDxXqZ
+	PmwtxRtejyBelesycgmd2ZIKEnNagxMU4SV4jY6CFbe4xBkZRqyY/85x1BRphn+QTy62TmPk1nk8B
+	X9ahLCBQkLl0F7fM903dy+paMgCtD14XA1FFbCBY5Ohq94RqyyMrgiTpkm5uAXkmrX6v+UboIgz0/
+	k0JYbLQSlBb2MbdrIdOX2NV7aLpNBl0sdF4ET5S2M3xTKNMjULw6bn/Hgen7Sw778L+fgK4jzr3LR
+	ZZ3LFbsn/4/YAZwu4FWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdc5N-008WAa-I7; Thu, 21 Oct 2021 17:42:37 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1mdc5R-008WCR-Bc; Thu, 21 Oct 2021 17:42:41 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdc5K-008W8Q-83
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 17:42:36 +0000
-Received: by mail-ed1-x536.google.com with SMTP id r4so146090edi.5
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 10:42:33 -0700 (PDT)
+ id 1mdc5M-008W9C-IW
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 17:42:37 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id d3so2082305edp.3
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 10:42:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=0Hnxjoxm2iwcZipv3NbHtD4H4YAetTMMxyIE5z5T56c=;
- b=l6q+vuyUE2OezuYKjC4R79e8L+5o05U3F1UYKTLx/NYflcaM+zCidFzvpB1zaO+iHF
- WFXlqRwgw1wb/MdplOet4Xk6z4NRTYkO7lviyys1iYJj5ab5ULeqbGd4lFtmmgvLJXIe
- acg326CXjdgiLlioo2sxOeJcOLyAohkVB9YVpmMnwPGx9iGooANRJuGhSEyWFCdaycDS
- OU1ApjKRzjx/4UgfZCZL5o4+hJOrdGGYrCvRTDtB3wBHuFgOhM04fdTwMOBsP3TLqxpF
- 4YQ6bHcN58CkecWwGtEYosqd09vIGnZpXB/19LrkAlN1qYOklVXAcLu8ZRsx/FG9qLMX
- mW8Q==
+ h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=CMB5icMsNI9B+HlHvOZ/rsWpb2j9DPNZlwQY5zjCx08=;
+ b=mWE89sHweGOY+j+hW1QqqLKuiSPz/xmgEmzzCdXW9hBTP8EQ64s0Ulzhnf+MkDLHjm
+ KR8Yh/YYtyBFzl1p6vEe6mifgP6KedlBFOhfoaTRI47EoyWoNUWpEBd1AI1X94KTCd21
+ AGzdVVtPBGE8kptSU9ylZLKF1zX9yJPDjfNC+6R+ne11dB7ce0EUVqx8OlXBXvmcBI/I
+ jDkL7z2PeK+JJsPCCjyw/jqh3ZlcMSpLKuBVTBGLfiv7ansubYoSnYcKBF+tIwkdzjf/
+ 9lTzDQetVCj051Vgi1qEmdyveEkm7W6eBmQRVQRSkOrknLN6mANdY//cVx+6WOHK/REb
+ NFcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
- :mime-version:content-transfer-encoding;
- bh=0Hnxjoxm2iwcZipv3NbHtD4H4YAetTMMxyIE5z5T56c=;
- b=LMpQiaC5yKzaB7UrhzF2EpgvFIRNYFpXcTOazJ1GyogCGRjOdqToSa8UQwOMfAxHxz
- 2Y9TBt2k05BIKTmpMhb63JXvjKLrcBBrhH941CI1kqQx0elAyov/jWOudgMUhhuzGRc3
- DnspcoODoXY/wDKAxgmcFNOuaDDqg1ftHv//3kxcVZ8isUH8SZnkcJfGQ6cPcjhzR9jj
- 30Gx9iy2UGUhQ6elWpffKOtL0dH5ry1XbfEwabv9kv3RVWIyAhGmwPJsGu9umW2TbC7I
- xQsP+S92scYodCDHrAPbj5JO0sTtbkgIv6ZdCq9SJ0mMy1EDf27qtzEZqBZSzyGKOB0Z
- x8bw==
-X-Gm-Message-State: AOAM533Uhp4sp0GETgwp6y1fAFOFsHLjc5CS431HWDZuWKFo2vrQmxnA
- m4V/kdurKBxXG/QqcOgT31xDM0hONa21kQ==
-X-Google-Smtp-Source: ABdhPJzcjML/TfsdQg51Kl5oV/Ck6zjteV5YqfLCQabToGl/aFKFPRE2FkvcuLHfSuM0JLjOFWoOYw==
-X-Received: by 2002:a17:906:6c83:: with SMTP id
- s3mr9177246ejr.13.1634838152001; 
- Thu, 21 Oct 2021 10:42:32 -0700 (PDT)
+ :in-reply-to:references:mime-version:content-transfer-encoding;
+ bh=CMB5icMsNI9B+HlHvOZ/rsWpb2j9DPNZlwQY5zjCx08=;
+ b=CWyk8e4QalAXhjnXZwpltqPSKtCnfX8WzyRqOYWZGmnt56Be79XjWyQr60k0qWaYdd
+ LHqbjzZogT5m92q46LDlWCusSsNCQQbDpO7unpZjyWQZOIlqcQ4CUVo62UueZ/32KDqF
+ XT/kow3H3masZB/a4bjceLL6VuRYCLdbY5toYbyjQrsZQ/+eUItU/kIx71R6ufVsj4ab
+ VTOci/KNXnRJpzr24UEOwiqoJzc2V2FxFBR6Y0lWuoIPZMniOjtxc4m5rrWnaiJJWBQI
+ 4/jYB9BYHYUC4a/fI5x0trztDu/F338Y64n77HetlbrrPdrM3llk122e4F2pkhKBsVCR
+ LxhQ==
+X-Gm-Message-State: AOAM531cG/f525wvnIJpbgNiG64dgBpSGYfc6yoqKO/hqfCJ1shFEeqM
+ AB9lna8ule7yWJJCwf2QaAPH4vEpGZFN/w==
+X-Google-Smtp-Source: ABdhPJzWkkSvUs6yInTJJZYFPlu1bzWz0iSVhWp1tfIf6nvqfEmSq7afQ7b1RqTbUkWQth7PleQ67g==
+X-Received: by 2002:a17:906:4793:: with SMTP id
+ cw19mr8576035ejc.200.1634838154702; 
+ Thu, 21 Oct 2021 10:42:34 -0700 (PDT)
 Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
- by smtp.gmail.com with ESMTPSA id h7sm3144847edt.37.2021.10.21.10.42.30
+ by smtp.gmail.com with ESMTPSA id h7sm3144847edt.37.2021.10.21.10.42.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Oct 2021 10:42:31 -0700 (PDT)
+ Thu, 21 Oct 2021 10:42:34 -0700 (PDT)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
@@ -85,15 +85,18 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Michael Zhu <michael.zhu@starfivetech.com>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
- linux-kernel@vger.kernel.org
-Subject: [PATCH v2 00/16] Basic StarFive JH7100 RISC-V SoC support
-Date: Thu, 21 Oct 2021 19:42:07 +0200
-Message-Id: <20211021174223.43310-1-kernel@esmil.dk>
+ linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>
+Subject: [PATCH v2 02/16] dt-bindings: timer: Add StarFive JH7100 clint
+Date: Thu, 21 Oct 2021 19:42:09 +0200
+Message-Id: <20211021174223.43310-3-kernel@esmil.dk>
 X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20211021174223.43310-1-kernel@esmil.dk>
+References: <20211021174223.43310-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_104234_322385_3290574F 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20211021_104236_648755_20811A9D 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,110 +113,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the StarFive JH7100 RISC-V SoC. The SoC has
-many devices that need non-coherent dma operations to work which isn't
-upstream yet[1], so this just adds basic support to boot up, get a
-serial console, blink an LED and reboot itself. Unlike the Allwinner D1
-this chip doesn't use any extra pagetable bits, but instead the DDR RAM
-appears twice in the memory map, with and without the cache.
+Add compatible string for the StarFive JH7100 clint.
 
-The JH7100 is a test chip for the upcoming JH7110 and about 300 BeagleV
-Starlight Beta boards were sent out with them as part of a now cancelled
-BeagleBoard.org project. However StarFive has produced more of the
-JH7100s and more boards will be available[2] to buy. Hopefully before
-the end of the year.
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Rob Herring <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-This series is also available at
-https://github.com/esmil/linux/commits/starlight-minimal
-..but a more complete kernel including drivers for non-coherent
-peripherals based on this series can be found at
-https://github.com/starfive-tech/linux/tree/starlight
-
-[1]: https://lore.kernel.org/linux-riscv/20210723214031.3251801-2-atish.patra@wdc.com/
-[2]: https://www.linkedin.com/pulse/starfive-release-open-source-single-board-platform-q3-2021-starfive/
-
-/Emil
-
-Changes since v1:
-- Let SOC_STARFIVE select RESET_CONTROLLER but drop SERIAL_8250_DW
-- Add missing Signed-of-by to clock dt-binding header
-- Use builtin_platform_driver macro for the clock driver, add explicit
-  comment to the determine_rate callback and other small nits from Andy
-- Use reset-controller for node names in documentation and device tree
-- Use readl_poll_timeout in reset driver to avoid hanging forever if a
-  driver leaves the associated clock gated and sort Kconfig and Makefile
-  entries properly.
-- In the pinctrl driver align register names with documentation, remove
-  invalid __init tag from probe function, use of_property_* functions to
-  parse device tree, hoist pinmux unpacking into helper function to
-  better document what's going on, bail on invalid signal group in
-  device tree and fix many other nits from Andy.
-- Refactor and rebase 8250_dw quirk on tty-next
-
-
-Emil Renner Berthing (12):
-  RISC-V: Add StarFive SoC Kconfig option
-  dt-bindings: timer: Add StarFive JH7100 clint
-  dt-bindings: interrupt-controller: Add StarFive JH7100 plic
-  dt-bindings: reset: Add Starfive JH7100 reset bindings
-  reset: starfive-jh7100: Add StarFive JH7100 reset driver
-  dt-bindings: pinctrl: Add StarFive pinctrl definitions
-  dt-bindings: pinctrl: Add StarFive JH7100 bindings
-  pinctrl: starfive: Add pinctrl driver for StarFive SoCs
-  dt-bindings: serial: snps-dw-apb-uart: Add JH7100 uarts
-  serial: 8250_dw: Add skip_clk_set_rate quirk
-  RISC-V: Add initial StarFive JH7100 device tree
-  RISC-V: Add BeagleV Starlight Beta device tree
-
-Geert Uytterhoeven (4):
-  dt-bindings: clock: starfive: Add JH7100 clock definitions
-  dt-bindings: clock: starfive: Add JH7100 bindings
-  clk: starfive: Add JH7100 clock generator driver
-  dt-bindings: reset: Add StarFive JH7100 reset definitions
-
- .../clock/starfive,jh7100-clkgen.yaml         |   56 +
- .../sifive,plic-1.0.0.yaml                    |    1 +
- .../pinctrl/starfive,jh7100-pinctrl.yaml      |  274 ++++
- .../bindings/reset/starfive,jh7100-reset.yaml |   38 +
- .../bindings/serial/snps-dw-apb-uart.yaml     |    5 +
- .../bindings/timer/sifive,clint.yaml          |    1 +
- MAINTAINERS                                   |   22 +
- arch/riscv/Kconfig.socs                       |    8 +
- arch/riscv/boot/dts/Makefile                  |    1 +
- arch/riscv/boot/dts/starfive/Makefile         |    2 +
- .../dts/starfive/jh7100-beaglev-starlight.dts |  162 ++
- arch/riscv/boot/dts/starfive/jh7100.dtsi      |  228 +++
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/starfive/Kconfig                  |    9 +
- drivers/clk/starfive/Makefile                 |    3 +
- drivers/clk/starfive/clk-starfive-jh7100.c    |  776 +++++++++
- drivers/pinctrl/Kconfig                       |   16 +
- drivers/pinctrl/Makefile                      |    1 +
- drivers/pinctrl/pinctrl-starfive.c            | 1387 +++++++++++++++++
- drivers/reset/Kconfig                         |    8 +
- drivers/reset/Makefile                        |    1 +
- drivers/reset/reset-starfive-jh7100.c         |  165 ++
- drivers/tty/serial/8250/8250_dw.c             |   19 +-
- include/dt-bindings/clock/starfive-jh7100.h   |  202 +++
- .../dt-bindings/pinctrl/pinctrl-starfive.h    |  274 ++++
- include/dt-bindings/reset/starfive-jh7100.h   |  126 ++
- 27 files changed, 3784 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
- create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
- create mode 100644 arch/riscv/boot/dts/starfive/Makefile
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100.dtsi
- create mode 100644 drivers/clk/starfive/Kconfig
- create mode 100644 drivers/clk/starfive/Makefile
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7100.c
- create mode 100644 drivers/pinctrl/pinctrl-starfive.c
- create mode 100644 drivers/reset/reset-starfive-jh7100.c
- create mode 100644 include/dt-bindings/clock/starfive-jh7100.h
- create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
- create mode 100644 include/dt-bindings/reset/starfive-jh7100.h
-
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index a35952f48742..8d5f4687add9 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -25,6 +25,7 @@ properties:
+     items:
+       - enum:
+           - sifive,fu540-c000-clint
++          - starfive,jh7100-clint
+           - canaan,k210-clint
+       - const: sifive,clint0
+ 
 -- 
 2.33.1
 
