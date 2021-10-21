@@ -2,83 +2,89 @@ Return-Path: <SRS0=XH8j=PJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E49C0C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 21:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CC13CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 23:43:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DEAD610EA
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 21:51:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9DEAD610EA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 92EDF6128E
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Oct 2021 23:43:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 92EDF6128E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=6Nu/XYJFHh7gJaU7h2vA61de/vKZMhWmZq3TImxnAi8=; b=MgIk3Cc4KhosldLrO6DaGDgAw+
-	KWGmq0cilY3tymy+CdwXq5XjE/BK9nRUhbivOVMb1HV5Ntaz7lgMXax2gzLrE8DG5Dzc+oLpitRHq
-	+ECNXRq6Nqb+lG5xb9Ib6MNt0QpLE0TpNdZwugn7SooDJ6JNxat4Pnw9HDeFEYqc0cy3ONzPmD98h
-	ZRmofNyzQTOL79LuNdAJoLslcUAT8q2Vmqz/vYmX1BSYBwn4Cp+bi8BN6vWaRl/OiiDJYw7EHt+m8
-	xh+7EZLH9gFMasxoFbIyd74Q3pbcqkd8vB+mme97eWrirW5iBNQBbWXrZx9wytSxKMu7mIzpPxEHN
-	Jw1fzPjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AirHpwbe++H8iCw71Ub6CC40MsNP3H5r+EAQ/X3Kswg=; b=nBZSIVEwVwpfvS
+	OLB1j8G6tcHlW1kh9YYBVll6mqNBbdR22sIglBeutdxXao787qy6KqZpWEF3ry/nmy1kgL76XFe3R
+	CBVF5qtiKIjUeA6tlaRqlB6qX3lGQe8MQRz9cbqw5Q2QRvngvCRZiBjdBDN1cj3gubQQaqVZJFWvU
+	+GQA6KJsIAGzejyNzePt1fxtET7UZql/84InXqpeKu3uDmmeNpuQ1riCDbVDhFWBl4f6L4+2gZPWF
+	jRD4Pmfs/dpj5HbnEdG6neg3b8H+y1m+gjSsiEJyPDJRg/Y4tZ5QoKfsC6zuMuNoybCUXQxho1G7K
+	Do/aiiXs+r3lCrDyd/pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdfyJ-009DJJ-DW; Thu, 21 Oct 2021 21:51:35 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1mdhiZ-009JOP-UQ; Thu, 21 Oct 2021 23:43:28 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdfyG-009DIX-JY
- for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 21:51:34 +0000
-Received: by mail-pg1-x534.google.com with SMTP id t7so1481060pgl.9
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 14:51:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=iIjOjRuuF69t6HmfV6mNW7nAeVgMNixa2oJL1/ZOiQg=;
- b=Z5m6QWz3AQaqJWA63h4Y1HANpmqTbvh8iX2KIJi1KsrNmJV61jA6eFzYvAa9OmdFr2
- CSQDgS9+cij1C9LrSPJ1Zp5ahQyWdi2P05pyAajvpLDq9ZeA+v0xxlcNw8RfdFl7Y9TQ
- kMp5brDQeT2CghqocReyzqfzk/18jbPr6ggOjPtmRjQdAicM2N4zAV2fHgFv2LcwRj9y
- umFzGoS2bdMqdN75/arbJhubAmjDGhvnqe8SDGQrxyvAIOf1o+m83gzPe4NRjx7J4ogq
- dSqjnnrSkoiLUDEjticgCK+46rTNdwXe+mfJ5Y7hZv4kBQg6FWWe6MCSSrOAQfbe3Ji9
- vDGg==
+ id 1mdhiM-009JKw-Qo
+ for linux-riscv@lists.infradead.org; Thu, 21 Oct 2021 23:43:16 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id l201so2969007ybl.9
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 16:43:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=iItbf96vJqUXBAPNWl/S+u6NWGXbFnqP3nMjz13MqBo=;
+ b=TFl4VR+n/Tz2N//3hY0nsO9nfx6KQXwngK5dVh8zYiQrFuwtAtD1xgWfiNqrn4Shvw
+ 1JUxPOVPbUcuwvhE1OI3HYqKqDLWxoQ1WSOGRdSJw1F8LhaxoEnmEA+oqoS/AmHvrH6z
+ UNtKwsU9qRjI38BVq4xkPUsYU/9KeW+o0BzqdsD8AQjEsK8O3Q2ywuMzIV1hvf2knjMr
+ V8uyr6rzS0w+sPLRG7eZhp3iBxqsIoVIi/FKzGhcpn9YgjJwPZbRNb3qsN7A3rgwBUnw
+ cIaAwWRZZyQIjjsE4+HrK93XFrVxGV0Jog7RENlVKKDwUQGYLm7/Ii/LdwTFhq4eO2X6
+ H7zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=iIjOjRuuF69t6HmfV6mNW7nAeVgMNixa2oJL1/ZOiQg=;
- b=sic8UUUE0VZgFVRFujcRmQe5rcWyOtCQ1qvVqwhnfYS9LOcuTPFmHtXrPPZhnw+VUr
- twuhe1HDWtG2r+EYd4jgjTxcfAAwzu1ZBh0umL44MzvhmbQehuNmZCMo+hR4ZfrCa/zi
- OyhEww7cZ15F/rjm3A+4g6yHKMxls+6YsrZ5yEDhf9VAGDrua2gFoileRsYziq9gDXYQ
- hX6QIKLcOeVVubrtuJbuUB7e/HlFwV4JTQeM1lFGGKht1nnnRuOq8LXQb19sV/TntCHM
- OfI6tm9z4kNWDoeaHxdLRB/3vL0bWUUx9BbBJUnHu64x+dJXU2kmQSY8sKJ/bMdClleL
- 0GKQ==
-X-Gm-Message-State: AOAM533Chu9oBBBWL4sD2KSKBCIIdow3Y4IddEW7E3X2oBtPThzeAWym
- qqpgzrnkYPbKHpnxJPhaFbXcMA==
-X-Google-Smtp-Source: ABdhPJx+KdjsmowFFTshMv4kNktiSr9Nyaw7YXblCPr5iXukUmhP3B3jLEvS4as89EdK4LJkjWJ9yg==
-X-Received: by 2002:a63:df49:: with SMTP id h9mr6314184pgj.198.1634853089868; 
- Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
-Received: from localhost ([2620:0:1000:5e10:4ba5:eac8:81d9:3e28])
- by smtp.gmail.com with ESMTPSA id i8sm6943807pfo.117.2021.10.21.14.51.29
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
-Date: Thu, 21 Oct 2021 14:51:29 -0700 (PDT)
-X-Google-Original-Date: Thu, 21 Oct 2021 14:42:25 PDT (-0700)
-Subject: Re: [PATCH] serial: sifive: set pointer to NULL rather than 0.
-In-Reply-To: <20210925224726.183360-1-colin.king@canonical.com>
-CC: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-serial@vger.kernel.org,
- linux-riscv@lists.infradead.org, 
- kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: colin.king@canonical.com
-Message-ID: <mhng-f84d7cb5-9eb5-40e2-bdc4-9bfdbd67f6d3@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=iItbf96vJqUXBAPNWl/S+u6NWGXbFnqP3nMjz13MqBo=;
+ b=YNE4v8rpGhc12aEdQwCL1YjXBEV7w+zX74z2HB8MRZBfRtM4unc1xxorm0Y4oXES6G
+ xh+0Ir3KNPDbjsRd99T5C4YLjGpTc8bdYHVTVu3Ms+OZ7BaYwQ/e/vv6XPykdEvQS3XV
+ dYSLoG3s/bLicIMI9jxQvQnyR660Kl0GGswwt930F+E4XHUzB50EZ8z8rR0b0/2njlSr
+ 3NRfMOu4bvys6vS3tV/ksJ2G6GOpYJiYawD59HupguqAIFK0Fid0MwuujiKPYmG6DSqN
+ RH5lEJxRTHGoyG26AiagtunFqihkKn3mzLvr1FbS4ZkeKeHf9ZL4SfmyJgtNK2BV+Gv5
+ fTIA==
+X-Gm-Message-State: AOAM531RzDSwIpw7t7JkqFJ0JFB2fBc6IxRNgVLfye/Cxn31dswqIPOR
+ uN+Hn/e6IxtLQaZ0sOWK1DJ1i4O1qPGjE7V60w2pCw==
+X-Google-Smtp-Source: ABdhPJzJ2cbj29jDZQ6TyMNq0vcXWUvo5fXcSmk7cGTR2WSWJkF3T2lRwKoKyVFtQHaqRmOMZh+qPbZkggFCxWwOuBw=
+X-Received: by 2002:a25:c696:: with SMTP id k144mr8911382ybf.296.1634859790611; 
+ Thu, 21 Oct 2021 16:43:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210929000735.585237-1-saravanak@google.com>
+ <20210929000735.585237-3-saravanak@google.com>
+ <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
+In-Reply-To: <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
+From: Saravana Kannan <saravanak@google.com>
+Date: Thu, 21 Oct 2021 16:42:34 -0700
+Message-ID: <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
+To: Amit Pundir <amit.pundir@linaro.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Neil Armstrong <narmstrong@baylibre.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
+ linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
+ linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
+ linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ John Stultz <john.stultz@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_145132_671763_04A70CB5 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20211021_164314_911980_2FD7D7EA 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +96,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Sep 2021 15:47:26 PDT (-0700), colin.king@canonical.com wrote:
-> From: Colin Ian King <colin.king@canonical.com>
+On Thu, Oct 21, 2021 at 4:21 AM Amit Pundir <amit.pundir@linaro.org> wrote:
 >
-> Clean up the assignment of sifive_serial_console_ports[ssp->port.line],
-> this is a pointer to a struct sifive_serial_port so the assignment
-> should be a NULL rather than a integer 0.
+> Hi Saravana,
 >
-> Signed-off-by: Colin Ian King <colin.king@canonical.com>
-> ---
->  drivers/tty/serial/sifive.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-> index 0ac0371f943b..b79900d0e91a 100644
-> --- a/drivers/tty/serial/sifive.c
-> +++ b/drivers/tty/serial/sifive.c
-> @@ -887,7 +887,7 @@ static void __ssp_add_console_port(struct sifive_serial_port *ssp)
->
->  static void __ssp_remove_console_port(struct sifive_serial_port *ssp)
->  {
-> -	sifive_serial_console_ports[ssp->port.line] = 0;
-> +	sifive_serial_console_ports[ssp->port.line] = NULL;
->  }
->
->  #define SIFIVE_SERIAL_CONSOLE	(&sifive_serial_console)
+> This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
+> I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
 
-I'm assuming this was aimed at the serial tree, but LMK if someone was 
-expecting me to take it.
+Amit top posting? How did that happen? :)
 
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+The fact you are seeing this issue is super strange though. The driver
+literally does nothing other than allowing some sync_state() callbacks
+to happen. I also grepped for the occurence of "simple-bus" in
+arch/arm64/boot/dts/qcom/ and the only instance for 8250 is for the
+soc node.
+
+The only thing I can think of is that without my patch some
+sync_state() callbacks weren't getting called and maybe it was masking
+some other issue.
+
+Can you try to boot with this log (see log patch below) and see if the
+device hangs right after a sync_state() callback? Also, looking at the
+different sync_state() implementations in upstream, I'm guessing one
+of the devices isn't voting for interconnect bandwidth when it should
+have.
+
+Another thing you could do is boot without the simple-bus changes and
+then look for all instances of "state_synced" in /sys/devices and then
+see if any of them has the value "0" after boot up is complete.
+
+-Saravana
+
+-- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -1099,6 +1099,7 @@ static void device_links_flush_sync_list(struct
+list_head *list,
+                if (dev != dont_lock_dev)
+                        device_lock(dev);
+
++               dev_info(dev, "Calling sync_state()\n");
+                if (dev->bus->sync_state)
+                        dev->bus->sync_state(dev);
+                else if (dev->driver && dev->driver->sync_state)
 
 _______________________________________________
 linux-riscv mailing list
