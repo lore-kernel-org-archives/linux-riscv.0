@@ -2,14 +2,14 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA958C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 13:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E3116C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 13:50:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7AD66611CB
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 13:41:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7AD66611CB
+	by mail.kernel.org (Postfix) with ESMTPS id AC1256112F
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 13:50:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AC1256112F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NYZwr86YPGC04iraZxEHTxyis4mpPjetjbUY46uOlrY=; b=P43tRc/Yee2UCC
-	3pWysL6YrG8+IGMlZ4j+M2q2Ryjvm4oVxyYyMKaXEoTiAS6ug8oAwIDUZcscXPxbWSMq5pHcTRGBd
-	hV0k9Dy5F1VtRd6H7kG7SUamUNZachHs6MLTTorjRRSb1bPGT+3DmAfh/tk64YQJGszkjeWhVLfsY
-	HwynnOWSSYDZcXE4k/OcBsoIMjsdE+rcPWhUrph3GgxHJWjG92p6VL9EaM+7Z38zQWAhcbC1bESgL
-	/VSswCDS6bYMrZ2YIYNS+0l+jV6pzoQKFzKFbeAG6A4YYAy7XKbF/cAlnVx6Ojqrw7ZBkk32Jy5Ci
-	l3XLkoLzsoChBDTTlYMw==;
+	List-Owner; bh=atGVEsg9rgWVP+YD/7nmmH7314Y+Jw0k4KtQ3XTBduQ=; b=DGMJNL3ni68vdn
+	RSGJjv+aUrY5dWEhHLAr2o5ExBmY9VmF/ZwAmjfeyqbVbIQVJBmmR4DlrT2hFfQad6Vvx9DhXGlYr
+	NSQcQl9FZgMgyKfPC53Fv5nyCj8CIsnXF5m92ZzsWvSl0N27ilzwcK6ntsoLs9Ca3VDDk/kOptry4
+	hVxtPFXFirlAdJk9qvm6wesdese182IMu7K38vHTvJWaDygiCYRUjzln0Hpu0KGkjRRuUNMRPO37J
+	5A7LACT01wDMPJSFQsrEuBYxc5t9RAqaTfiofHZ7G9Rw4RvQxgrZWHL85p2ncUM73SIbsRprE+NEs
+	Qmk5DslxqmbZCKQygXMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mduno-00B8n5-Nm; Fri, 22 Oct 2021 13:41:44 +0000
-Received: from mail-pf1-f171.google.com ([209.85.210.171])
+	id 1mduwO-00BABs-FB; Fri, 22 Oct 2021 13:50:36 +0000
+Received: from mail-pj1-f54.google.com ([209.85.216.54])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdunl-00B8la-QN
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 13:41:43 +0000
-Received: by mail-pf1-f171.google.com with SMTP id t184so3714136pfd.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 06:41:39 -0700 (PDT)
+ id 1mduwK-00BAAs-Rk
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 13:50:34 +0000
+Received: by mail-pj1-f54.google.com with SMTP id oa4so3014313pjb.2
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 06:50:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=0+jUS6xI/DPxP6ZrnElaJwUrZ90DL/yMXbpKtqC1M5U=;
- b=xXQUq2bBrzBLftXLQrmDwuwKbE9tWFSLg/a2bYKkHBrktHwUGfBKClvWDlgzADIS3F
- vTOQ4jDfO+tPrO5wFvTk9YrV2H6uFCd4EHIkLTIL/qrEmNSLaqTefFrgYCw2J/5zO/zC
- tNJvP35Anp8Z+VnlVkq7uFoDWIVM3B+Va5qRg6Y2VQTG8QwK7s+ilRPcRAn3Chn/prK2
- dml6ma2L4VGPlpWo3JlBxAtbjrusUuT0a7R6/0cV/jyoymC+ECen9hagnHsPfPUAcLmr
- hhScbioJohDT3VbQ0i1JueXZCThdBIa+IGwBI29wNVXQPxFz2B2q2A/w4X4yzi+CLi/A
- dtjQ==
-X-Gm-Message-State: AOAM531LBYip8YXCMTWNirqqIKqVCHXOEW5Oc8dQC6pSYEEod67aPgpL
- um1VC7C1RqY5bR+BRjaxhcTcbZ+pNgQaJsvQ2uU=
-X-Google-Smtp-Source: ABdhPJx2bEGH38tYpjnj/Z7q11aMhmbP/LA+2K64aHqc6A0Bq7iVVU1ut4Jrlho/aCrHoSS8iE9jknaEW8LIrs98Szs=
-X-Received: by 2002:a63:7047:: with SMTP id a7mr9320545pgn.458.1634910099521; 
- Fri, 22 Oct 2021 06:41:39 -0700 (PDT)
+ bh=e4VAlxqjX7tVS4RVU1hVLMwxlt5HBKt4g0cT2A4i/lc=;
+ b=D7cMh44zYaMwvQiVvTl6A0Hs3a3uIY/LJLyypYFmbq+Zkc2gAyypdKXW/x3+LwAuA3
+ FT3lOzislLJjRJcJujD3P+lPSTOXdrrsbv9yx4PybWbiSVVAQyGcn4E2dXWV1Pxy0Jor
+ TUJ6AfnwjKrB3ruquh4BiruZHttVkAi7j0FlbZICOqIDZj0HEAciM+bO4ujtv6xhm28O
+ RUFMB2kdM71LNxhofa2k5Vyp3ghh8iHSPIBHMZQHKZT4AY0AiNqqEVVJxmNHQKv940zL
+ qqPK7ArAmEoZggMa7afZ0SRF9hGFLOFr8YL6XAhKO27U7Tx6kXAfQ5tHscHYloHTV4d/
+ fsEw==
+X-Gm-Message-State: AOAM530Mf7j/2RFFOeClg7tCvZhdSRB9++dwEkZq1PfZK0cf8FJIB3PX
+ z5tWX2ECtW490Dru51SlYEj22lOsOJB6xqZT2/c=
+X-Google-Smtp-Source: ABdhPJxD84S/qyVc64yZN7zn360JIvYLyRoTZQ+nTLW8NPOh4R0Onceuz8xIbXKjs/Zs0RMr8FooFXCbqrByMUrAzuI=
+X-Received: by 2002:a17:90b:390f:: with SMTP id
+ ob15mr13560608pjb.185.1634910632123; 
+ Fri, 22 Oct 2021 06:50:32 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211021174223.43310-1-kernel@esmil.dk>
  <20211021174223.43310-10-kernel@esmil.dk>
- <8735otjjjx.fsf@igel.home>
-In-Reply-To: <8735otjjjx.fsf@igel.home>
+ <CAHp75VcUv6WH0--FANpRExCdEOJNVo8KCtJ2Go090=FZq-Y0UQ@mail.gmail.com>
+ <CANBLGcysKdqo+FioSkhd1PZRLzPF=fRJrCTsUGR7vXcn2WpYHg@mail.gmail.com>
+ <CAHp75VditKnEcPKgqxz7NfG3ZWLZCu=pW=8qw7HS_iWePTj5Qw@mail.gmail.com>
+In-Reply-To: <CAHp75VditKnEcPKgqxz7NfG3ZWLZCu=pW=8qw7HS_iWePTj5Qw@mail.gmail.com>
 From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Fri, 22 Oct 2021 15:41:28 +0200
-Message-ID: <CANBLGcw+2MYSDmnKSjJHjPVGWo22kXngRpfQq2xrr8BYYLbhOw@mail.gmail.com>
+Date: Fri, 22 Oct 2021 15:50:21 +0200
+Message-ID: <CANBLGcxDUNib4C0mrP1bYnJSLyZn7rmV1wwJyj5tK4-nbMnu9g@mail.gmail.com>
 Subject: Re: [PATCH v2 09/16] reset: starfive-jh7100: Add StarFive JH7100
  reset driver
-To: Andreas Schwab <schwab@linux-m68k.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
 Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
  "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -82,8 +84,8 @@ Cc: linux-riscv <linux-riscv@lists.infradead.org>,
  Matteo Croce <mcroce@microsoft.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_064141_890904_C3D666FC 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20211022_065032_923253_BCC6BA72 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,22 +102,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Oct 2021 at 15:06, Andreas Schwab <schwab@linux-m68k.org> wrote:
-> On Okt 21 2021, Emil Renner Berthing wrote:
+On Fri, 22 Oct 2021 at 15:39, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> On Fri, Oct 22, 2021 at 4:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > On Fri, 22 Oct 2021 at 14:56, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > On Thu, Oct 21, 2021 at 8:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 >
-> > +config RESET_STARFIVE_JH7100
-> > +     bool "StarFive JH7100 Reset Driver"
-> > +     depends on SOC_STARFIVE || COMPILE_TEST
+> ...
 >
-> Why does it need to depend on SOC_STARFIVE?
+> > > Why all these ugly % 32 against constants?
+> >
+> > Because the JH7100_RST_ values goes higher than 31. There is a
+> > BIT_MASK macro, but that does % BITS_PER_LONG and this is a 64bit
+> > machine.
+>
+> And? It's exactly what you have to use!
 
-It strictly doesn't but most other drivers in the same Kconfig file
-also depends on ARCH_something or SOC_something. In particular
-RESET_K210 depends on SOC_CANAAN. I think this is to prevent
-overwhelming the user with useless choices if they didn't enable the
-relevant SoC, and for others there are the COMPILE_TEST option.
 
-/Emil
+> > > Can you convert this to simple
+> > >
+> > >   if (assert)
+> > >     ret = readl_...
+> > >   else
+> > >     ret = readl_...
+> > >
+> > > below?
+> >
+> > I don't see how that would work. We're using the done value in in the
+> > readl_poll_timeout. Maybe you can be a bit more explicit.
+>
+> Supply done either == mask or == ^mask. Try it.
+
+So you want this?
+if (assert)
+  ret = readl_poll_timeout_atomic(reg_status, value, (value & mask) ==
+done, 0, 1000);
+else
+  ret = readl_poll_timeout_atomic(reg_status, value, (value & mask) ==
+^done, 0, 1000);
+
+The compiler might be clever enough, but I'd worry the long body of
+the readl_poll_timeout_atomic macro is inline twice. Rather than just
+flipping the bit in `done`.
 
 _______________________________________________
 linux-riscv mailing list
