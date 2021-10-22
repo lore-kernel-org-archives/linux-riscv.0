@@ -2,96 +2,114 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C6E2EC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F15C6C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:20:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B4916112F
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:04:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8B4916112F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id B461E6112D
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:20:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B461E6112D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bDBXJ7ax1yw+vsisuOYjI6lPFmLIdZR/9q2LzJpCDjA=; b=o9xbFFL44yqBV9
-	n3eDwYPu8k1v3j6LftREfay+AnGh+a8bReaMDg8U/YigH3d8iaVP5HvsvjbmQj/nYHzO1nJO8fKn9
-	FfqFSfHDQl7NXdQ3I2OVC+yFlKPLmTgmXWr7V14eg4hw8UzIZqME277h+6xrX2G4QBfM+9egYvLGp
-	fx4eiDbaBM5ZHFWXUaM1Qs4v4QPjfcUqk9uPwoUmk0X+XSUfsIWf5K9L0bBclLC4XNCJbFliJkvnt
-	e1/87jVeSJE1KT2nOfHlPbaC4Fzy15IUvZprYB/lx4bKoEhvOnP/OY5aBHNJOpdOtyLbmI46Wf5ec
-	twKZW9Qq/2hcvPsFtIdg==;
+	List-Owner; bh=N/YKHW+ldlHm/fw3Ykp382lf4Oi7AetMb53FAiWguQM=; b=s1JnCwWf8qcUtz
+	HNJnx4ThoPbzjriv0Y+WifjMuGxXDJRi0P6QxMt9DJ8+3zCyYvhblChox4PtzQjvzcjt78yceyRwL
+	25L0a4FrQNqtXRiDVn5vV9J1AZyb+k9eQTWRNk80GnCyHJFk0Zb7GdZKk9xNoRPuWoMHG54DCMHIF
+	vykz/HWhh2YjpL59FoiVLmpACZQY648lhvmDgkwLJp5NDkvOaYKZ5CAR3HSPVTpIl0S52EkbeUHx5
+	N8KlHS5L+gwJHzO6AdNTDFLxEbDq72WZXvxHQ9twxX6s9mS7JSzwsmJyjWnbSEPxiK29jHZya50yr
+	AinMEKHB+cI2n905A8TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdw5t-00BLGe-CZ; Fri, 22 Oct 2021 15:04:29 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1mdwKo-00BOvO-Gu; Fri, 22 Oct 2021 15:19:54 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdw5d-00BL9t-N5
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 15:04:16 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id
- 193-20020a1c01ca000000b00327775075f7so3700681wmb.5
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 08:04:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=T30FlJ5UKlkIRPt0AISR9G+L/3Q8enwrJccctT6p1g8=;
- b=MBtmLDJBwdIuSEGHsWnq13enuOMwfZw4/18uAeEnchCMIre5XYu/Vt8p/tQCYzsMop
- COAHxIk3w5JxNWzKs0XdOypZWDIIC5sFJ7ESkL1QmlSMivIp/SjRWF4do7Qy5ZEEpQot
- 2zKwDwHd4DXKkSbzrAcJDcQ0n8+XwO6A2RydmoMn16Ya4tX1ZQ4jT+vP9y1HntYmUdWb
- uOg+NVoX7R+xMb3qTatR3G99+5P77NeNif+FnN9FZgOaIzhfFWIzrR1Gp+ZYjJLlI3Ow
- tPdMCc3fKgsHCPGC2/0di1W4P7SRM2YCIKidlaJVgJ5bQTcDh2TawkTyUJQS93SrKM7S
- +t/w==
+ id 1mdwKl-00BOuM-PJ
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 15:19:53 +0000
+Received: by mail-io1-xd31.google.com with SMTP id p142so5903943iod.0
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 08:19:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=edUysRKGfaZOTuM3uYR99rq4ae03o5LqY877IUKK/u4=;
+ b=OV9+U6++bii1LgELrCjulmFIWampisMJ86zIok+nNJ7XJXUfILrGKlaXTqwBgRyUTz
+ +sxGL4FGIVlFzBSamuiZADhcODjGZ36A8Pwjub6rVMGCeZi0RufSJ2xoa2XpQcJvzEeY
+ JpoKvpjMTyHfmCbel/hNNKU5kbM5rEWpLOr7OGYIX3EZccKxgFzm7YR7erBYUMBP/a+j
+ FQqxIRh28Zf/ixoUZT/Ivj59Qp2DqfSkIsWUSUmYC157rAVTDfLvk0STBFuiesHFpGgY
+ KEKtTn2LZ9o8Cyjvbyuvi7hnIDlVeo1SXRfIp1GbaO9gv81h6dU0Kyu3UVdSZd3u0ja3
+ npgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=T30FlJ5UKlkIRPt0AISR9G+L/3Q8enwrJccctT6p1g8=;
- b=GfM9yTX9OdFRVza9ZcvOrjI11w2C2HMl8RPklViQsMFCvygYZId9ByCItAnkio6IHI
- MGOGHtUR2NaxykmA+AUq/RlHDk/yyNckGm9FWljh/AYkH2FbR7xxsod1lXERkXe1QVzB
- vVAnryxlY7iAyQ8SWSGeXl/N2eIL6n5Ucm7Ur10NnxlPU/aIKNwsg7jE2/Y15+HPutWj
- 9JBGUFpSbLrIBTOY74Nw4F7IM25113j5ndCYppMekzayScQrv8PTye8qmVKvM2p0MNJk
- es3N/OLqlj2XONGRGJxPZuSf/j4ZeuAwsEMqVf6plsCHTT3lfFtkf1XHhWXZElbV/4ve
- r+fw==
-X-Gm-Message-State: AOAM533DScnQAskoZAAmHPSAojIugxBVYhj+iz9ZHslLWpofvCLGdXQT
- HcIEnKq+ZMGo44xdHFtMDWSJYzq5wEoDu8JZ/Z81FA==
-X-Google-Smtp-Source: ABdhPJztGBg8weOQ78E8KVd7ncPE7BUNSaOVfTMsmKjCcFD2swST5/UMCgrVa+WC8Aj7pEdSctUqBqmByiVW+amI3bY=
-X-Received: by 2002:a05:600c:354c:: with SMTP id
- i12mr277022wmq.59.1634915051483; 
- Fri, 22 Oct 2021 08:04:11 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-14-seanjc@google.com>
-In-Reply-To: <20211009021236.4122790-14-seanjc@google.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 22 Oct 2021 20:34:00 +0530
-Message-ID: <CAAhSdy3QgT5PhNGqMG-m+qQ78WfAwQy2W5ENjxK3KrOJ7JGeOg@mail.gmail.com>
-Subject: Re: [PATCH v2 13/43] KVM: Rename kvm_vcpu_block() => kvm_vcpu_halt()
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, 
- Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Wanpeng Li <wanpengli@tencent.com>, 
- KVM General <kvm@vger.kernel.org>, David Hildenbrand <david@redhat.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, 
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=edUysRKGfaZOTuM3uYR99rq4ae03o5LqY877IUKK/u4=;
+ b=Je/qtSS6n8TYaT9VhP/rY9kEXJ6Cr3qu33nmmHzn8BwHo6p7g9kZyDmvv51o3h7irO
+ zEh4Q2dsAO1N+DGcLzZ0wTA7TomFHlCpa7HgGYhfNLC4Gs+ibChd2eH33q4CN0OWhu5j
+ 249NRNqR8qYaOzZmEnxY8qHrFXTtcVFV4Vqbg4T/anorlLxiZI1CrEmhCu2DEvuMffex
+ Q+tiVuMnnD5/52PLwIw0clJ0aGvXY+UOAZ0cBddLpqH5GNNMWE37RhEBpN8djjAdx2E5
+ m1kLTH5KCSaAqR+azMbf/IVXl+6f+ODmJSfFkplU0TgzUqeU0bMa6J9yNS9DD1v/TabX
+ 1qsQ==
+X-Gm-Message-State: AOAM533Kj0UaEPfS4xM7g/p7TcTNmtcyPcoWAfshaPY3XP2zF8JfOqWp
+ Vl6i3Vt34D3fnpY48HJlkgE=
+X-Google-Smtp-Source: ABdhPJxSDypiYJInzx4XwEZ8NcgEsqzqv+UUXkXQDiglcxs6zTx7KjuYegOh3MB/AopBCcoAA7HNZA==
+X-Received: by 2002:a6b:ea11:: with SMTP id m17mr131844ioc.139.1634915991219; 
+ Fri, 22 Oct 2021 08:19:51 -0700 (PDT)
+Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
+ [66.111.4.228])
+ by smtp.gmail.com with ESMTPSA id x5sm4208612ioh.23.2021.10.22.08.19.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 22 Oct 2021 08:19:50 -0700 (PDT)
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+ by mailauth.nyi.internal (Postfix) with ESMTP id C689827C005A;
+ Fri, 22 Oct 2021 11:19:47 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute6.internal (MEProxy); Fri, 22 Oct 2021 11:19:47 -0400
+X-ME-Sender: <xms:ktZyYbo-0xCgktB-G4PseuSbdB9Jt05Z02dF1bg-T14I5YJtc5dPtg>
+ <xme:ktZyYVrtulvtNFpxyCy8dPYInOg33GzwqWwpawhv3APnYQ0kJ7fXGAwrA79GATjFO
+ T-NQQJrElfJ2mLcOQ>
+X-ME-Received: <xmr:ktZyYYNDLtLpl1TuebIf7Qy1jUYxqTn5sUBFe2uZsnZrcscd-oBaDRqJGhaIzw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvddvkedgjeduucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeeuohhquhhn
+ ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
+ htvghrnhepvdelieegudfggeevjefhjeevueevieetjeeikedvgfejfeduheefhffggedv
+ geejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsg
+ hoqhhunhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieeg
+ qddujeejkeehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigi
+ hmvgdrnhgrmhgv
+X-ME-Proxy: <xmx:ktZyYe7cASrg4U0TiKXQ2rge3q3yecqGfi3TysEBZCfj5c-7Wqs94g>
+ <xmx:ktZyYa6p9Nrgrcu8gycciaBtDEY3NH6MbMazqxPWS4wM29oD6xuqmQ>
+ <xmx:ktZyYWgv7duMbyE0XSyCRF3iOV3Mkymt1G8cC7xw8_rPhUuV5kJVwA>
+ <xmx:k9ZyYawABAAee3hR_-tz10XhH4UNTnbP7VaExlTqmEEn6SKe38sCaK1AzFo>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 22 Oct 2021 11:19:45 -0400 (EDT)
+Date: Fri, 22 Oct 2021 23:19:17 +0800
+From: Boqun Feng <boqun.feng@gmail.com>
+To: Waiman Long <longman@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>, 
- kvmarm@lists.cs.columbia.edu, Joerg Roedel <joro@8bytes.org>,
- kvm-ppc@vger.kernel.org, David Matlack <dmatlack@google.com>, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Jim Mattson <jmattson@google.com>, 
- Cornelia Huck <cohuck@redhat.com>, linux-mips@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, Vitaly Kuznetsov <vkuznets@redhat.com>
+ Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
+ Stafford Horne <shorne@gmail.com>
+Subject: Re: [PATCH] locking: Generic ticket lock
+Message-ID: <YXLWdVGl4NP2HBCO@boqun-archlinux>
+References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
+ <4de96b16-a146-f82a-a7f2-706dba4f901f@redhat.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <4de96b16-a146-f82a-a7f2-706dba4f901f@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_080413_788269_2FD94ED8 
-X-CRM114-Status: GOOD (  32.09  )
+X-CRM114-CacheID: sfid-20211022_081951_852528_6ADE0010 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,307 +126,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 9, 2021 at 7:43 AM Sean Christopherson <seanjc@google.com> wrote:
->
-> Rename kvm_vcpu_block() to kvm_vcpu_halt() in preparation for splitting
-> the actual "block" sequences into a separate helper (to be named
-> kvm_vcpu_block()).  x86 will use the standalone block-only path to handle
-> non-halt cases where the vCPU is not runnable.
->
-> Rename block_ns to halt_ns to match the new function name.
->
-> No functional change intended.
->
-> Reviewed-by: David Matlack <dmatlack@google.com>
-> Reviewed-by: Christian Borntraeger <borntraeger@de.ibm.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
+On Thu, Oct 21, 2021 at 02:04:55PM -0400, Waiman Long wrote:
+[...]
+> > +static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
+> > +{
+> > +	u32 val = atomic_read(lock);
+> > +
+> > +	return (__ticket(val) - __owner(val)) > 1;
+> Nit: The left side is unsigned, but the right is signed. I think you are
+> relying on the implicit signed to unsigned conversion. It may be a bit
+> clearer if you use 1U instead.
+> > +}
+> > +
+> > +static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
+> > +{
+> > +	return __ticket_is_locked(atomic_read(lock));
+> > +}
+> > +
+> > +static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
+> > +{
+> > +	return !__ticket_is_locked(lock.counter);
+> > +}
+> > +
+> > +#undef __owner
+> > +#undef __ticket
+> > +#undef ONE_TICKET
+> > +
+> > +#define arch_spin_lock(l)		ticket_lock(l)
+> > +#define arch_spin_trylock(l)		ticket_trylock(l)
+> > +#define arch_spin_unlock(l)		ticket_unlock(l)
+> > +#define arch_spin_is_locked(l)		ticket_is_locked(l)
+> > +#define arch_spin_is_contended(l)	ticket_is_contended(l)
+> > +#define arch_spin_value_unlocked(l)	ticket_value_unlocked(l)
+> > +
+> > +#endif /* __ASM_GENERIC_TICKET_LOCK_H */
+> 
+> Other than the nit above, the patch looks good to me.
+> 
+> Reviewed-by: Waiman Long <longman@redhat.com>
+> 
 
-For KVM RISC-V:
-Reviewed-by: Anup Patel <anup.patel@wdc.com>
+Same here ;-)
+
+Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
 
 Regards,
-Anup
-
->  arch/arm64/kvm/arch_timer.c       |  2 +-
->  arch/arm64/kvm/arm.c              |  2 +-
->  arch/arm64/kvm/handle_exit.c      |  2 +-
->  arch/arm64/kvm/psci.c             |  2 +-
->  arch/mips/kvm/emulate.c           |  2 +-
->  arch/powerpc/kvm/book3s_pr.c      |  2 +-
->  arch/powerpc/kvm/book3s_pr_papr.c |  2 +-
->  arch/powerpc/kvm/booke.c          |  2 +-
->  arch/powerpc/kvm/powerpc.c        |  2 +-
->  arch/riscv/kvm/vcpu_exit.c        |  2 +-
->  arch/s390/kvm/interrupt.c         |  2 +-
->  arch/x86/kvm/x86.c                | 11 +++++++++--
->  include/linux/kvm_host.h          |  2 +-
->  virt/kvm/kvm_main.c               | 20 +++++++++-----------
->  14 files changed, 30 insertions(+), 25 deletions(-)
->
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 3df67c127489..7e8396f74010 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -467,7 +467,7 @@ static void timer_save_state(struct arch_timer_context *ctx)
->  }
->
->  /*
-> - * Schedule the background timer before calling kvm_vcpu_block, so that this
-> + * Schedule the background timer before calling kvm_vcpu_halt, so that this
->   * thread is removed from its waitqueue and made runnable when there's a timer
->   * interrupt to handle.
->   */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 1346f81b34df..268b1e7bf700 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -672,7 +672,7 @@ void kvm_vcpu_wfi(struct kvm_vcpu *vcpu)
->         vgic_v4_put(vcpu, true);
->         preempt_enable();
->
-> -       kvm_vcpu_block(vcpu);
-> +       kvm_vcpu_halt(vcpu);
->         kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->
->         preempt_disable();
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index 4794563a506b..6d0baf71aa67 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -82,7 +82,7 @@ static int handle_no_fpsimd(struct kvm_vcpu *vcpu)
->   *
->   * WFE: Yield the CPU and come back to this vcpu when the scheduler
->   * decides to.
-> - * WFI: Simply call kvm_vcpu_block(), which will halt execution of
-> + * WFI: Simply call kvm_vcpu_halt(), which will halt execution of
->   * world-switches and schedule other host processes until there is an
->   * incoming IRQ or FIQ to the VM.
->   */
-> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
-> index 74c47d420253..e275b2ca08b9 100644
-> --- a/arch/arm64/kvm/psci.c
-> +++ b/arch/arm64/kvm/psci.c
-> @@ -46,7 +46,7 @@ static unsigned long kvm_psci_vcpu_suspend(struct kvm_vcpu *vcpu)
->          * specification (ARM DEN 0022A). This means all suspend states
->          * for KVM will preserve the register state.
->          */
-> -       kvm_vcpu_block(vcpu);
-> +       kvm_vcpu_halt(vcpu);
->         kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->
->         return PSCI_RET_SUCCESS;
-> diff --git a/arch/mips/kvm/emulate.c b/arch/mips/kvm/emulate.c
-> index 22e745e49b0a..b494d8d39290 100644
-> --- a/arch/mips/kvm/emulate.c
-> +++ b/arch/mips/kvm/emulate.c
-> @@ -952,7 +952,7 @@ enum emulation_result kvm_mips_emul_wait(struct kvm_vcpu *vcpu)
->         if (!vcpu->arch.pending_exceptions) {
->                 kvm_vz_lose_htimer(vcpu);
->                 vcpu->arch.wait = 1;
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->
->                 /*
->                  * We we are runnable, then definitely go off to user space to
-> diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
-> index 6bc9425acb32..0ced1b16f0e5 100644
-> --- a/arch/powerpc/kvm/book3s_pr.c
-> +++ b/arch/powerpc/kvm/book3s_pr.c
-> @@ -492,7 +492,7 @@ static void kvmppc_set_msr_pr(struct kvm_vcpu *vcpu, u64 msr)
->
->         if (msr & MSR_POW) {
->                 if (!vcpu->arch.pending_exceptions) {
-> -                       kvm_vcpu_block(vcpu);
-> +                       kvm_vcpu_halt(vcpu);
->                         kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->                         vcpu->stat.generic.halt_wakeup++;
->
-> diff --git a/arch/powerpc/kvm/book3s_pr_papr.c b/arch/powerpc/kvm/book3s_pr_papr.c
-> index ac14239f3424..1f10e7dfcdd0 100644
-> --- a/arch/powerpc/kvm/book3s_pr_papr.c
-> +++ b/arch/powerpc/kvm/book3s_pr_papr.c
-> @@ -376,7 +376,7 @@ int kvmppc_h_pr(struct kvm_vcpu *vcpu, unsigned long cmd)
->                 return kvmppc_h_pr_stuff_tce(vcpu);
->         case H_CEDE:
->                 kvmppc_set_msr_fast(vcpu, kvmppc_get_msr(vcpu) | MSR_EE);
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->                 kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->                 vcpu->stat.generic.halt_wakeup++;
->                 return EMULATE_DONE;
-> diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
-> index 977801c83aff..12abffa40cd9 100644
-> --- a/arch/powerpc/kvm/booke.c
-> +++ b/arch/powerpc/kvm/booke.c
-> @@ -718,7 +718,7 @@ int kvmppc_core_prepare_to_enter(struct kvm_vcpu *vcpu)
->
->         if (vcpu->arch.shared->msr & MSR_WE) {
->                 local_irq_enable();
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->                 kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->                 hard_irq_disable();
->
-> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-> index be22da157569..6a94545b99fc 100644
-> --- a/arch/powerpc/kvm/powerpc.c
-> +++ b/arch/powerpc/kvm/powerpc.c
-> @@ -236,7 +236,7 @@ int kvmppc_kvm_pv(struct kvm_vcpu *vcpu)
->                 break;
->         case EV_HCALL_TOKEN(EV_IDLE):
->                 r = EV_SUCCESS;
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->                 kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->                 break;
->         default:
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index 13bbc3f73713..949bb9828aa5 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -146,7 +146,7 @@ static int system_opcode_insn(struct kvm_vcpu *vcpu,
->                 vcpu->stat.wfi_exit_stat++;
->                 if (!kvm_arch_vcpu_runnable(vcpu)) {
->                         srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
-> -                       kvm_vcpu_block(vcpu);
-> +                       kvm_vcpu_halt(vcpu);
->                         vcpu->arch.srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
->                         kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->                 }
-> diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/interrupt.c
-> index 520450a7956f..10bd648170b7 100644
-> --- a/arch/s390/kvm/interrupt.c
-> +++ b/arch/s390/kvm/interrupt.c
-> @@ -1335,7 +1335,7 @@ int kvm_s390_handle_wait(struct kvm_vcpu *vcpu)
->         VCPU_EVENT(vcpu, 4, "enabled wait: %llu ns", sltime);
->  no_timer:
->         srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> -       kvm_vcpu_block(vcpu);
-> +       kvm_vcpu_halt(vcpu);
->         vcpu->valid_wakeup = false;
->         __unset_cpu_idle(vcpu);
->         vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 9c23ae1d483d..e6c17bbed25c 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -8651,6 +8651,13 @@ void kvm_arch_exit(void)
->
->  static int __kvm_emulate_halt(struct kvm_vcpu *vcpu, int state, int reason)
->  {
-> +       /*
-> +        * The vCPU has halted, e.g. executed HLT.  Update the run state if the
-> +        * local APIC is in-kernel, the run loop will detect the non-runnable
-> +        * state and halt the vCPU.  Exit to userspace if the local APIC is
-> +        * managed by userspace, in which case userspace is responsible for
-> +        * handling wake events.
-> +        */
->         ++vcpu->stat.halt_exits;
->         if (lapic_in_kernel(vcpu)) {
->                 vcpu->arch.mp_state = state;
-> @@ -9892,7 +9899,7 @@ static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
->         if (!kvm_arch_vcpu_runnable(vcpu) &&
->             (!kvm_x86_ops.pre_block || static_call(kvm_x86_pre_block)(vcpu) == 0)) {
->                 srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->                 vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
->
->                 if (kvm_x86_ops.post_block)
-> @@ -10126,7 +10133,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->                         r = -EINTR;
->                         goto out;
->                 }
-> -               kvm_vcpu_block(vcpu);
-> +               kvm_vcpu_halt(vcpu);
->                 if (kvm_apic_accept_events(vcpu) < 0) {
->                         r = 0;
->                         goto out;
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 1ced2914d9ca..c2ea4004553a 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -967,7 +967,7 @@ void kvm_vcpu_mark_page_dirty(struct kvm_vcpu *vcpu, gfn_t gfn);
->  void kvm_sigset_activate(struct kvm_vcpu *vcpu);
->  void kvm_sigset_deactivate(struct kvm_vcpu *vcpu);
->
-> -void kvm_vcpu_block(struct kvm_vcpu *vcpu);
-> +void kvm_vcpu_halt(struct kvm_vcpu *vcpu);
->  void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu);
->  void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu);
->  bool kvm_vcpu_wake_up(struct kvm_vcpu *vcpu);
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 227f6bbe0716..c13bf3367fda 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -3223,17 +3223,14 @@ static inline void update_halt_poll_stats(struct kvm_vcpu *vcpu, ktime_t start,
->         }
->  }
->
-> -/*
-> - * The vCPU has executed a HLT instruction with in-kernel mode enabled.
-> - */
-> -void kvm_vcpu_block(struct kvm_vcpu *vcpu)
-> +void kvm_vcpu_halt(struct kvm_vcpu *vcpu)
->  {
->         struct rcuwait *wait = kvm_arch_vcpu_get_wait(vcpu);
->         bool halt_poll_allowed = !kvm_arch_no_poll(vcpu);
->         bool do_halt_poll = halt_poll_allowed && vcpu->halt_poll_ns;
->         ktime_t start, cur, poll_end;
->         bool waited = false;
-> -       u64 block_ns;
-> +       u64 halt_ns;
->
->         start = cur = poll_end = ktime_get();
->         if (do_halt_poll) {
-> @@ -3275,7 +3272,8 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
->                                 ktime_to_ns(cur) - ktime_to_ns(poll_end));
->         }
->  out:
-> -       block_ns = ktime_to_ns(cur) - ktime_to_ns(start);
-> +       /* The total time the vCPU was "halted", including polling time. */
-> +       halt_ns = ktime_to_ns(cur) - ktime_to_ns(start);
->
->         /*
->          * Note, halt-polling is considered successful so long as the vCPU was
-> @@ -3289,24 +3287,24 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
->                 if (!vcpu_valid_wakeup(vcpu)) {
->                         shrink_halt_poll_ns(vcpu);
->                 } else if (vcpu->kvm->max_halt_poll_ns) {
-> -                       if (block_ns <= vcpu->halt_poll_ns)
-> +                       if (halt_ns <= vcpu->halt_poll_ns)
->                                 ;
->                         /* we had a long block, shrink polling */
->                         else if (vcpu->halt_poll_ns &&
-> -                                       block_ns > vcpu->kvm->max_halt_poll_ns)
-> +                                halt_ns > vcpu->kvm->max_halt_poll_ns)
->                                 shrink_halt_poll_ns(vcpu);
->                         /* we had a short halt and our poll time is too small */
->                         else if (vcpu->halt_poll_ns < vcpu->kvm->max_halt_poll_ns &&
-> -                                       block_ns < vcpu->kvm->max_halt_poll_ns)
-> +                                halt_ns < vcpu->kvm->max_halt_poll_ns)
->                                 grow_halt_poll_ns(vcpu);
->                 } else {
->                         vcpu->halt_poll_ns = 0;
->                 }
->         }
->
-> -       trace_kvm_vcpu_wakeup(block_ns, waited, vcpu_valid_wakeup(vcpu));
-> +       trace_kvm_vcpu_wakeup(halt_ns, waited, vcpu_valid_wakeup(vcpu));
->  }
-> -EXPORT_SYMBOL_GPL(kvm_vcpu_block);
-> +EXPORT_SYMBOL_GPL(kvm_vcpu_halt);
->
->  bool kvm_vcpu_wake_up(struct kvm_vcpu *vcpu)
->  {
-> --
-> 2.33.0.882.g93a45727a2-goog
->
-> _______________________________________________
-> kvmarm mailing list
-> kvmarm@lists.cs.columbia.edu
-> https://lists.cs.columbia.edu/mailman/listinfo/kvmarm
+Boqun
 
 _______________________________________________
 linux-riscv mailing list
