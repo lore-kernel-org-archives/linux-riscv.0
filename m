@@ -2,74 +2,109 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45754C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 02:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C639C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 02:06:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 44A2961186
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 02:05:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 44A2961186
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id C289761163
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 02:06:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C289761163
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=baylibre.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R643EZ5Igdu+zPGiOEBc4z+nX3qigJY443penfrxzC4=; b=aD4shZdUJIEqWu
-	7HHbfRGrADh9uNvYSASQQh4Q6Pjilm81kcjSdfrwTrwuhAqv/+OX8KJg0n6kFu4qSi407Am0JwpMN
-	blwyRTwAk4rRn4n9UmylNg3gHCtOGLx4GfJv8TCyuT6WuOkKBV2INjyFZNCge4wrbLgENlN9W0+Kw
-	sfZu6+JfSigSUohHyfGOb8x4pmMJ5o54rbuD5AIS3icvf7yu0ATZ2u+0Wj7VPIteT2uxLtdIp9QO1
-	R2m/XKGqQuZc+bOzykWYBktrkm4QYrbMecIB0bzBC/QfpSgfZxUUkqRQvN+wYPYKIfoIxhjdugxo/
-	FLOkoV7OGNLI+F+o/0tw==;
+	List-Owner; bh=RT9/jNAiNpqAPtiDEiuYmlnwfPl/9EZGNpmlIvag5kE=; b=i1Y8fPhPZnRooz
+	J9QkX8Ply4d5oUotjflKJ8aOABxVAusD0zgOx/q2bAoVKs7SaDakVzqvONhtwRFrlAEku2Gs0ojqO
+	od2AiCJ1YGVVP0luhPsQqm3KWi6HudxXN/MBWVkvrWRO51P+vktPa6YoB1dxE/lsBtEmsVKaMX7xX
+	nqSA1Mwp7x5NTKeK/6u0Z0S3IwI7HdlWflnmRsUE+ww1V02C0+xgvaqd0yZeZiE1CzjyDJjo/5oM2
+	cKPlRHsTuhg/qjgzxB9rgL5aYXHNkOZNI6gFnpd/dC3zrJ+l5tFbypA+7ztVrzDfyL43W1P5FbChO
+	4J9YyBsI5U39FRA+P/5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdjve-009TSC-7n; Fri, 22 Oct 2021 02:05:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mdjx5-009TeZ-6P; Fri, 22 Oct 2021 02:06:35 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdjva-009TR4-T0
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 02:05:04 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 87A2261373
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 02:05:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1634868301;
- bh=y3WecNbFeV0ytwz02XEpT0LlCwC4tZAbDX5MoNIUjAE=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=tKk6EDCa+P8WJL6nY8DF4NgZIIZ2BFOuwxuUWYQHJS/cKwHlpSIRzcVkga5VNCEQr
- Yloczu74TOFdoo5eh8MAaDTAMP2UbnOVXoPewaKltEjpd4St33Oee4aT4NuPGJThSM
- P9EHFHgXVmandXjpzFZwBG+zFnz3VvpWblTiXUXdgRMsAlPp/emYSL8Pcwa5i48DO7
- HAtVmSslLxVVQ7ra8pC7YbhlBCv89bRue5QzzYcyACAXX8GJGFHqhxwyu/sNpVO0/q
- uhXP0qed2ZvqBDSJoPGSFeyzOYg28dR7+HLWNIHEkem6RB13xgsjto24ZPlotbkPiv
- 40iGoFnHz2S0g==
-Received: by mail-ua1-f44.google.com with SMTP id k28so621672uaa.10
- for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 19:05:01 -0700 (PDT)
-X-Gm-Message-State: AOAM531aZlZuCw3OWDEN7viedIBSNdzg5YokvAb9weC+14M3c1o4tOn2
- l8wu+QVW1lryq/eCU/N2CduuAFOdE5d2i1r2HXU=
-X-Google-Smtp-Source: ABdhPJw6tqt7XtPD1oQtadfQ/HJNK5k8ey+Bn1x034g6Dm99vv/qEKLKo29ld1xI9ZJxtc/hBMZcVuA2aFPSmtM6MZg=
-X-Received: by 2002:ab0:5a93:: with SMTP id w19mr11133228uae.58.1634868300474; 
- Thu, 21 Oct 2021 19:05:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-In-Reply-To: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 22 Oct 2021 10:04:49 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTt85x66y+abT=czvqSNtbxKYneiO_ABffUg_AwOcon=Q@mail.gmail.com>
-Message-ID: <CAJF2gTTt85x66y+abT=czvqSNtbxKYneiO_ABffUg_AwOcon=Q@mail.gmail.com>
-Subject: Re: [PATCH] locking: Generic ticket lock
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
- Ingo Molnar <mingo@kernel.org>, Waiman Long <longman@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-arch <linux-arch@vger.kernel.org>, 
+ id 1mdjx1-009TdY-8p
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 02:06:33 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id s1so1660292plg.12
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Oct 2021 19:06:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20210112.gappssmtp.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=ic/jkXaDMCMZefIM+INQtLKGqHBF+RCyVHH3h2YGrKw=;
+ b=lOYDkrAgkjTYYjAVXORDOxu+X2oWJ4E99fQkCZASDeb6Bxv82OEj1GN5FK0PImm5Km
+ 1ndDDD5m1+pbmgSn1SBOKkTkmI7jOGTmPdscGaAxvuyV0qv9zrNHSWWjIacTclp7IP8m
+ blwJCsF1Eav/gdde5L8blmmtrqSfTEaSWkVhkGUJlXUKR5GLx7C9pNVdNuQpKo0hWD5q
+ r1DrR3i3eTnq/y4cVofFTn7yizNn9/14ZJ233lM7YtM+F0dJDENsEyExx68GpuYIW9j3
+ V12+w1OEyyGSREogPhp1ezeuWIo0c7S25MveUfLpDoYgyADV8XIlq8q5tptjCMaone7i
+ fdWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ic/jkXaDMCMZefIM+INQtLKGqHBF+RCyVHH3h2YGrKw=;
+ b=5UwDyGYCu7VeAHJmHGInE2KGr9+6mp33kk7kpt7VJizXpQiN2PB96mKWmwQOa5XWyn
+ c+MlCnXRbKr1yLxjf520DgTns9X0Df9mr6ZOb5nMDTnMzlkLZiWfK6FcD527AEs3wwdn
+ wfLB4A1qbDDKC06pYUwnvKafXB5NZFnnFmQmd2g5qr+oj7QF3DezA7IkE2aMCEq3bqQV
+ irhSl4O18ICm5BxnBDF3gj/lfg2A9CF82Eend1OyeVbE6HsX8Fxs2FlkCs8V4V/wFCbO
+ a/jnsQZHBh4AkfQVHt7+2RQFuTiFC86PLxh3SloNMKglhHuM4OFfmMHSfmNgf06XLdv3
+ 0OWg==
+X-Gm-Message-State: AOAM5305n2c2oNKyFtx2LkcraaD9TAxef2SkCF2KEqsnkEHsgJxTY3C3
+ /l3gpOnUxRkUx+n/BQmGXy38Ig==
+X-Google-Smtp-Source: ABdhPJyaepizqaQ/UmIrCDVyrV4BTCHFvghNob7aEx2InsVkBVoe5WCokUrJgYwitOuJP7tHnLeG1Q==
+X-Received: by 2002:a17:903:310c:b0:13f:f70e:6e8f with SMTP id
+ w12-20020a170903310c00b0013ff70e6e8fmr7335147plc.82.1634868390409; 
+ Thu, 21 Oct 2021 19:06:30 -0700 (PDT)
+Received: from x1 ([2601:1c2:1080:1950:7c59:380a:adf8:4f49])
+ by smtp.gmail.com with ESMTPSA id p4sm6260957pgc.15.2021.10.21.19.06.29
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Oct 2021 19:06:29 -0700 (PDT)
+Date: Thu, 21 Oct 2021 19:06:27 -0700
+From: Drew Fustini <dfustini@baylibre.com>
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Maximilian Luz <luzmaximilian@gmail.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Anup Patel <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?Q?Christoph_M=C3=BCllner?= <christophm30@gmail.com>, 
- Stafford Horne <shorne@gmail.com>
+ Huan Feng <huan.feng@starfivetech.com>
+Subject: Re: [PATCH v2 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+Message-ID: <20211022020627.GA1836770@x1>
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-13-kernel@esmil.dk>
+ <20211021190118.GA1802180@x1>
+ <CANBLGcy2WR2L_CE2FbLPBnDaHWaNgUySxyB4WyPYA1z8zsQAPQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CANBLGcy2WR2L_CE2FbLPBnDaHWaNgUySxyB4WyPYA1z8zsQAPQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211021_190502_997117_B88E6E81 
-X-CRM114-Status: GOOD (  30.70  )
+X-CRM114-CacheID: sfid-20211021_190631_394538_5F92D427 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,206 +121,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-C-SKY would follow this, thx.
+On Thu, Oct 21, 2021 at 09:50:42PM +0200, Emil Renner Berthing wrote:
+> On Thu, 21 Oct 2021 at 21:01, Drew Fustini <dfustini@baylibre.com> wrote:
+> > On Thu, Oct 21, 2021 at 07:42:19PM +0200, Emil Renner Berthing wrote:
+> > > +/*
+> > > + * Interrupt Trigger Polarity. If set to 1 the interrupt is triggered on a
+> > > + * rising edge (edge-triggered) or high level (level-triggered). If set to 0 the
+> > > + * interrupt is triggered on a falling edge (edge-triggered) or low level
+> > > + * (level-triggered).
+> > > + */
+> > > +#define GPIOIEV              0x020
+> > > +
+> > > +/*
+> > > + * Interrupt Mask. If set to 1 the interrupt is disabled (masked). If set to 0
+> > > + * the interrupt is enabled (unmasked).
+> > > + */
+> > > +#define GPIOIE               0x028
+> >
+> > It bothered me that the datasheet used the term GPIOIE for the interrupt
+> > mask register. I had used a more verbose #define name because I worried
+> > someone reading GPIOIE in functions might mistake it for an interrupt
+> > enable register. This happened to me when I was originally working with
+> > the gpio driver.
+> >
+> > However I suppose the best solution would have been to get the datasheet
+> > updated as I can see how it is best to have #define names in the driver
+> > match the datasheet.
+> >
+> > > +static void starfive_irq_mask(struct irq_data *d)
+> > > +{
+> > > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
+> > > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
+> > > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
+> > > +     u32 mask = BIT(gpio % 32);
+> > > +     unsigned long flags;
+> > > +     u32 value;
+> > > +
+> > > +     raw_spin_lock_irqsave(&sfp->lock, flags);
+> > > +     value = readl_relaxed(ie) & ~mask;
+> > > +     writel_relaxed(value, ie);
+> > > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> > > +}
+> > > +
+> > > +static void starfive_irq_mask_ack(struct irq_data *d)
+> > > +{
+> > > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
+> > > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
+> > > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
+> > > +     void __iomem *ic = sfp->base + GPIOIC + 4 * (gpio / 32);
+> > > +     u32 mask = BIT(gpio % 32);
+> > > +     unsigned long flags;
+> > > +     u32 value;
+> > > +
+> > > +     raw_spin_lock_irqsave(&sfp->lock, flags);
+> > > +     value = readl_relaxed(ie) & ~mask;
+> > > +     writel_relaxed(value, ie);
+> > > +     writel_relaxed(mask, ic);
+> > > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> > > +}
+> > > +
+> > > +static void starfive_irq_unmask(struct irq_data *d)
+> > > +{
+> > > +     struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
+> > > +     irq_hw_number_t gpio = irqd_to_hwirq(d);
+> > > +     void __iomem *ie = sfp->base + GPIOIE + 4 * (gpio / 32);
+> > > +     u32 mask = BIT(gpio % 32);
+> > > +     unsigned long flags;
+> > > +     u32 value;
+> > > +
+> > > +     raw_spin_lock_irqsave(&sfp->lock, flags);
+> > > +     value = readl_relaxed(ie) | mask;
+> > > +     writel_relaxed(value, ie);
+> > > +     raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> > > +}
+> > > +
+> 
+> ...
+> 
+> > > +static int starfive_gpio_init_hw(struct gpio_chip *gc)
+> > > +{
+> > > +     struct starfive_pinctrl *sfp = starfive_from_gc(gc);
+> > > +
+> > > +     /* mask all GPIO interrupts */
+> > > +     writel(0, sfp->base + GPIOIE + 0);
+> > > +     writel(0, sfp->base + GPIOIE + 4);
+> >
+> > Woudln't 0 in GPIOIE mean mask is disabled for all interrupts?
+> >
+> > In other words, wouldn't this enable all the interrupts?
+> 
+> Heh, you're right. The code does the exact opposite of what the
+> documentation says it should be doing. However I just tried and with
+> the code as it is now GPIO interrupts work fine, but with the logic
+> flipped the kernel fails to boot. I'm guessing because an interrupt
+> storm. So it seems to me the documentation might be wrong and GPIOIE
+> is actually a good name.
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
+Ah, it seems I once knew this back in July [1] but never got the
+documentation changed:
 
-On Thu, Oct 21, 2021 at 9:05 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
->
-> There's currently a number of architectures that want/have graduated
-> from test-and-set locks and are looking at qspinlock.
->
-> *HOWEVER* qspinlock is very complicated and requires a lot of an
-> architecture to actually work correctly. Specifically it requires
-> forward progress between a fair number of atomic primitives, including
-> an xchg16 operation, which I've seen a fair number of fundamentally
-> broken implementations of in the tree (specifically for qspinlock no
-> less).
->
-> The benefit of qspinlock over ticket lock is also non-obvious, esp.
-> at low contention (the vast majority of cases in the kernel), and it
-> takes a fairly large number of CPUs (typically also NUMA) to make
-> qspinlock beat ticket locks.
->
-> Esp. things like ARM64's WFE can move the balance a lot in favour of
-> simpler locks by reducing the cacheline pressure due to waiters (see
-> their smp_cond_load_acquire() implementation for details).
->
-> Unless you've audited qspinlock for your architecture and found it
-> sound *and* can show actual benefit, simpler is better.
->
-> Therefore provide ticket locks, which depend on a single atomic
-> operation (fetch_add) while still providing fairness.
->
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> ---
->  include/asm-generic/qspinlock.h         |   30 +++++++++
->  include/asm-generic/ticket_lock_types.h |   11 +++
->  include/asm-generic/ticket_lock.h       |   97 ++++++++++++++++++++++++++++++++
->  3 files changed, 138 insertions(+)
->
-> --- a/include/asm-generic/qspinlock.h
-> +++ b/include/asm-generic/qspinlock.h
-> @@ -2,6 +2,36 @@
->  /*
->   * Queued spinlock
->   *
-> + * A 'generic' spinlock implementation that is based on MCS locks. An
-> + * architecture that's looking for a 'generic' spinlock, please first consider
-> + * ticket_lock.h and only come looking here when you've considered all the
-> + * constraints below and can show your hardware does actually perform better
-> + * with qspinlock.
-> + *
-> + *
-> + * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
-> + * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
-> + *
-> + * It relies on a far greater (compared to ticket_lock.h) set of atomic
-> + * operations to behave well together, please audit them carefully to ensure
-> + * they all have forward progress. Many atomic operations may default to
-> + * cmpxchg() loops which will not have good forward progress properties on
-> + * LL/SC architectures.
-> + *
-> + * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
-> + * do. Carefully read the patches that introduced
-> + * queued_fetch_set_pending_acquire().
-> + *
-> + * It also heavily relies on mixed size atomic operations, in specific it
-> + * requires architectures to have xchg16; something which many LL/SC
-> + * architectures need to implement as a 32bit and+or in order to satisfy the
-> + * forward progress guarantees mentioned above.
-> + *
-> + * Further reading on mixed size atomics that might be relevant:
-> + *
-> + *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
-> + *
-> + *
->   * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
->   * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
->   *
-> --- /dev/null
-> +++ b/include/asm-generic/ticket_lock_types.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_TYPES_H
-> +#define __ASM_GENERIC_TICKET_LOCK_TYPES_H
-> +
-> +#include <linux/types.h>
-> +typedef atomic_t arch_spinlock_t;
-> +
-> +#define __ARCH_SPIN_LOCK_UNLOCKED      ATOMIC_INIT(0)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_TYPES_H */
-> --- /dev/null
-> +++ b/include/asm-generic/ticket_lock.h
-> @@ -0,0 +1,97 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +/*
-> + * 'Generic' ticket lock implementation.
-> + *
-> + * It relies on atomic_fetch_add() having well defined forward progress
-> + * guarantees under contention. If your architecture cannot provide this, stick
-> + * to a test-and-set lock.
-> + *
-> + * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> + * sub-word of the value. This is generally true for anything LL/SC although
-> + * you'd be hard pressed to find anything useful in architecture specifications
-> + * about this. If your architecture cannot do this you might be better off with
-> + * a test-and-set.
-> + *
-> + * It relies on smp_store_release() + atomic_*_acquire() to be RCsc (or no
-> + * weaker than RCtso if you're Power, also see smp_mb__after_unlock_lock()),
-> + *
-> + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> + * architecture has WFE like instructions to sleep instead of poll for word
-> + * modifications be sure to implement that (see ARM64 for example).
-> + *
-> + */
-> +
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_H
-> +#define __ASM_GENERIC_TICKET_LOCK_H
-> +
-> +#include <linux/atomic.h>
-> +#include <asm/ticket_lock_types.h>
-> +
-> +#define ONE_TICKET     (1 << 16)
-> +#define __ticket(val)  (u16)((val) >> 16)
-> +#define __owner(val)   (u16)((val) & 0xffff)
-> +
-> +static __always_inline bool __ticket_is_locked(u32 val)
-> +{
-> +       return __ticket(val) != __owner(val);
-> +}
-> +
-> +static __always_inline void ticket_lock(arch_spinlock_t *lock)
-> +{
-> +       u32 val = atomic_fetch_add_acquire(ONE_TICKET, lock);
-> +       u16 ticket = __ticket(val);
-> +
-> +       if (ticket == __owner(val))
-> +               return;
-> +
-> +       atomic_cond_read_acquire(lock, ticket == __owner(VAL));
-> +}
-> +
-> +static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
-> +{
-> +       u32 old = atomic_read(lock);
-> +
-> +       if (__ticket_is_locked(old))
-> +               return false;
-> +
-> +       return atomic_try_cmpxchg_acquire(lock, &old, old + ONE_TICKET);
-> +}
-> +
-> +static __always_inline void ticket_unlock(arch_spinlock_t *lock)
-> +{
-> +       u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
-> +       u32 val = atomic_read(lock);
-> +
-> +       smp_store_release(ptr, __owner(val) + 1);
-> +}
-> +
-> +static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
-> +{
-> +       u32 val = atomic_read(lock);
-> +
-> +       return (__ticket(val) - __owner(val)) > 1;
-> +}
-> +
-> +static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
-> +{
-> +       return __ticket_is_locked(atomic_read(lock));
-> +}
-> +
-> +static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
-> +{
-> +       return !__ticket_is_locked(lock.counter);
-> +}
-> +
-> +#undef __owner
-> +#undef __ticket
-> +#undef ONE_TICKET
-> +
-> +#define arch_spin_lock(l)              ticket_lock(l)
-> +#define arch_spin_trylock(l)           ticket_trylock(l)
-> +#define arch_spin_unlock(l)            ticket_unlock(l)
-> +#define arch_spin_is_locked(l)         ticket_is_locked(l)
-> +#define arch_spin_is_contended(l)      ticket_is_contended(l)
-> +#define arch_spin_value_unlocked(l)    ticket_value_unlocked(l)
-> +
-> +#endif /* __ASM_GENERIC_TICKET_LOCK_H */
+NOTE: Table 12-9 in the JH7100 datasheet is incorrect regarding fields
+GPIOIE_0 and GPIOIE_1. An interrupt is enabled (unmasked) when the bit
+is   set to 1 and it is disabled (masked) when set to 0. The datasheet
+incorrectly states the opposite. I think this is due to the datasheet
+author thinking of it as mask field which it is not, it is an enable
+field. I will raise an issue on the documentation repo.
 
 
+> 
+> Michael Zhu: Can you confirm if a 1 or 0 enables the interrupt in the
+> GPIOIE registers?
+> 
+> /Emil
 
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+[1] https://github.com/esmil/linux/pull/34/commits/e247a259e40312d0202cdbdd686dbba09afc7813
 
 _______________________________________________
 linux-riscv mailing list
