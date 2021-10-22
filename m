@@ -2,91 +2,80 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E06DC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 17:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B2AAC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 21:22:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BBF5061181
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 17:00:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BBF5061181
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id F0C8860FC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 21:22:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F0C8860FC1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I6sJJ128ULwlfoz31t21w+37wQQw8JS3SML7HSCXp44=; b=OnseazB77aBw7p
-	LwuiCQyKdV28NTKTIBaAY18OAOI56KtL0WiZylqkIj1GCgGoq7KVHJfZpzROgI5i3Lk+0cye35V2P
-	2ULXmZfJQLvjTmEh4iCeIPt4tjz+9bW2HyOWvr9C4RDv0JYjPXhD9MPbBsC7qH4fn240cSdiB+WXB
-	F8OzwzuqozlK4Jmdnqj1U9bY1wWjpKknT9Qi4y9906dNwSrxCcWFVXO510F+IDv9gcOvSXtIzNoMM
-	C6iwjJOWW/mMh3XhEnquNSKR2lBSVc0SaAPne4DjmBl46gEG5WPnxe/HwbqgZZ3thvZD1IqHC8WUN
-	eAfVKkN6/HOap5uPtfuA==;
+	List-Owner; bh=JzwM3pPm57EXh1cdwTfZUGTLNr10rAwVXvkgkt0p8mU=; b=CeJHfaTtaFp13v
+	84tb+dVyFUnENTetGrylPE0Eft0oeP4V2jTxrENFeQ0Gw879Igmfes73nxm2+Hbi9VRmThjCi1Sq5
+	P2CttveJx+ohp3jC82MaK18+MZ5sI4h/y136oxxpXMrePLMWmFuuTDl6UZcNLAR2NTnxf2PUvjCfe
+	s21F0TNXVO0FiU5lcCpTI7p1JgTYoH/aF1m1H+yzRkkya8gfUI/nrgnt2QI98XrrFRDXTvkdZO4zV
+	6rvQDkEBnhys9Dc3OXG0cS7lgPHCJEcr8owByrHZVA0Vh76sgLs/4sr7kGjoaVQUuHfXuMHUmY4CT
+	34uDmI9Rt6g4oSJiYc/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdxtx-00BZe1-CK; Fri, 22 Oct 2021 17:00:17 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1me1zd-00BzXo-RX; Fri, 22 Oct 2021 21:22:25 +0000
+Received: from mail-ot1-f42.google.com ([209.85.210.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdxtj-00BZbD-KW
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 17:00:05 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id p142so6323574iod.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 10:00:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=kTen2SJ5OXpwrB3GYaVSgs5PSr8Wl3SgV5Rb/nQHzy4=;
- b=OfBpCJAzSU6W7PZkLXvnp5uTA+iDkXVIdjqAMBeIpoljCUIE4H16rweL/sbBvPgjOz
- a7XnxBwIYdIryHPaHA7ppp+xRkuJ8ZkGtFQ917cYf6DXBKPw/S1sutxiZQufEACp4UpT
- PLnHHSzn4hQ4AhSAlnXGb0jGqcXGqNTs1nU6fnOh+AIxI5Q8oMN4iE7Fya+Xc4OOZBym
- rRn0MMZj1yiUeB/E8pchAg4wkBwHmXHOyXkKHbDeAue4CSfMCyDa4KbzZTr3JaR9+GBS
- VNmBEefGtXM9NaGbU0Rp/mPohCP047tLX02ikVEAVBUzcMC6NEhoorwouURdd7M5e8d/
- nviw==
+ id 1me1za-00BzWr-F8; Fri, 22 Oct 2021 21:22:24 +0000
+Received: by mail-ot1-f42.google.com with SMTP id
+ d21-20020a9d4f15000000b0054e677e0ac5so5890415otl.11; 
+ Fri, 22 Oct 2021 14:22:20 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=kTen2SJ5OXpwrB3GYaVSgs5PSr8Wl3SgV5Rb/nQHzy4=;
- b=i4bnFLhxjTcT09RHL2mZdF/p3XQVtw3/G7bA6xlIs7ilalm6I9tS6TwJXLimT5GCOd
- AWGpuRUzIToiZSLIV4luqH2I48SSi3HjFfPtqsEr9i/TGgH7FRK0IoHFfxOCsb++i02R
- o8kT4vvMKp3X3Sj6LJDwTtPfDaha+0pY8j/VDckWbMuTduucmQnu2204sNEcqXMMKSbX
- NmNa5q1J2zkS681JDaj/SjQ2s8wsFFSiboQt/ys7gdGte3lDZ3HVgOOgPH30cBBSO76e
- guCjffGO+KTaSemH0m4S79/OA6Bmly8O6o1nor52iJ7DOKNt4rT5DkFxVMILDfdZqrjV
- PbQA==
-X-Gm-Message-State: AOAM532o+vcAWkUZwl6/yMKok+Ra42zlMGE0j+whOrVZMggm4f/q/QtY
- zy7pzhaN/UUIubgq9Q/Cnz3fFMFzAHgbZATNBurHyA==
-X-Google-Smtp-Source: ABdhPJzxQ0fZin7R9PkqV1UP1dkqBLaE11BhnPXYcqoa5W2nV/HynKJCgyp+2iBylPP9BT6beLI8s2+3hLU0rL6J7ec=
-X-Received: by 2002:a05:6602:168f:: with SMTP id
- s15mr547913iow.178.1634922001157; 
- Fri, 22 Oct 2021 10:00:01 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=CgddvVUw2mXha4aQsq+joAmwB7SJYgDFFKT+so5ZqWc=;
+ b=0tZqb/Mu3aAzrwBVw5auAAQo4rGQQG+WpfAmnVBh0wLP748Q4Axt7QI5ElKsECj0aA
+ 6Zn0Ohl8H5RUa1+Fm0QeTBEhI4DZ9HBxB4203ZU2kf+2OefsqUduYVTURuxBHkYR4mpJ
+ HJYNGyHQyvVOzpBuZ7YP9+v00cLom3WTaiHRw0r3UDJvSE4V8CIqQTiogOqtxrbyOgPp
+ h183cnCSUcC72AI4IOL8kQRerAgE4tyrAqqbRs6CevhqF/jTE3lponoeoXwAhaiTrCTV
+ vN5Z0Qd+DC4+ZSIP0Oz4P66FZ+LU2PyszmgBqo0ToL9u3TlZsikDk21VEFfg7N0ipIpG
+ 8gWw==
+X-Gm-Message-State: AOAM530yLO+61x6ZDQnmuRjMFQByUC0g3puiLA5zpXxZM3xww+k0jbAH
+ OjToorqiQgYiHYj/m0/DGg==
+X-Google-Smtp-Source: ABdhPJy7J9nmIVAe1bK/WZgWHoAJVBT7jB213B2rYjuD6+bYmXBfbpTY0lKSrdEPyaGLpGGsaIT6/w==
+X-Received: by 2002:a9d:d52:: with SMTP id 76mr1825166oti.350.1634937739427;
+ Fri, 22 Oct 2021 14:22:19 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id d7sm1858976otl.19.2021.10.22.14.22.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 22 Oct 2021 14:22:18 -0700 (PDT)
+Received: (nullmailer pid 3192660 invoked by uid 1000);
+ Fri, 22 Oct 2021 21:22:17 -0000
+Date: Fri, 22 Oct 2021 16:22:17 -0500
+From: Rob Herring <robh@kernel.org>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Guo Ren <guoren@linux.alibaba.com>,
+ Bin Meng <bmeng.cn@gmail.com>, Xiang W <wxjstz@126.com>,
+ Samuel Holland <samuel@sholland.org>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ opensbi@lists.infradead.org
+Subject: Re: [PATCH 1/1] dt-bindings: T-HEAD CLINT
+Message-ID: <YXMriYWcOcgJSpKj@robh.at.kernel.org>
+References: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
 MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-3-saravanak@google.com>
- <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
- <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
-In-Reply-To: <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
-From: Amit Pundir <amit.pundir@linaro.org>
-Date: Fri, 22 Oct 2021 22:29:24 +0530
-Message-ID: <CAMi1Hd3M--+V6jPTV=psYGpOqi3UeQBs_FHqOg=oUf1hH-EU4w@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-To: Saravana Kannan <saravanak@google.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
- linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- John Stultz <john.stultz@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_100003_735170_BD4898F9 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20211022_142222_540766_F4CB9F42 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +92,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Oct 2021 at 05:13, Saravana Kannan <saravanak@google.com> wrote:
->
-> On Thu, Oct 21, 2021 at 4:21 AM Amit Pundir <amit.pundir@linaro.org> wrote:
-> >
-> > Hi Saravana,
-> >
-> > This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
-> > I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
->
-> Amit top posting? How did that happen? :)
->
-> The fact you are seeing this issue is super strange though. The driver
-> literally does nothing other than allowing some sync_state() callbacks
-> to happen. I also grepped for the occurence of "simple-bus" in
-> arch/arm64/boot/dts/qcom/ and the only instance for 8250 is for the
-> soc node.
->
-> The only thing I can think of is that without my patch some
-> sync_state() callbacks weren't getting called and maybe it was masking
-> some other issue.
->
-> Can you try to boot with this log (see log patch below) and see if the
-> device hangs right after a sync_state() callback? Also, looking at the
-> different sync_state() implementations in upstream, I'm guessing one
-> of the devices isn't voting for interconnect bandwidth when it should
-> have.
->
-> Another thing you could do is boot without the simple-bus changes and
-> then look for all instances of "state_synced" in /sys/devices and then
-> see if any of them has the value "0" after boot up is complete.
+On Wed, Oct 20, 2021 at 11:36:03AM +0200, Heinrich Schuchardt wrote:
+> The CLINT in the T-HEAD 9xx CPUs is similar to the SiFive CLINT but does
+> not support 64bit mmio access to the MTIMER device.
+> 
+> OpenSBI currently uses a property 'clint,has-no-64bit-mmio' to indicate the
+> restriction and the "sifive,cling0" compatible string. An OpenSBI
+> patch suggested to use "reg-io-width = <4>;" as the reg-io-width property
+> is generally used in the devicetree schema for such a condition.
+> 
+> As the design is not SiFive based it is preferable to apply a compatible
+> string identifying T-HEAD instead.
+> 
+> Add a new yaml file describing the T-HEAD CLINT.
+> 
+> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> ---
+> @Palmer, @Anup
+> I copied you as maintainers from sifive,clint.yaml. Please, indicate if
+> this should be changed.
+> 
+> For the prior discussion see:
+> https://lore.kernel.org/all/20211015100941.17621-1-heinrich.schuchardt@canonical.com/
+> https://lore.kernel.org/all/20211015120735.27972-1-heinrich.schuchardt@canonical.com/
+> 
+> A release candidate of the ACLINT specification is available at
+> https://github.com/riscv/riscv-aclint/releases
+> ---
+>  .../bindings/timer/thead,clint.yaml           | 62 +++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/thead,clint.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/timer/thead,clint.yaml b/Documentation/devicetree/bindings/timer/thead,clint.yaml
+> new file mode 100644
+> index 000000000000..02463fb2043a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/thead,clint.yaml
+> @@ -0,0 +1,62 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/thead,clint.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SiFive Core Local Interruptor
+> +
+> +maintainers:
+> +  - Palmer Dabbelt <palmer@dabbelt.com>
+> +  - Anup Patel <anup.patel@wdc.com>
+> +
+> +description:
+> +  T-HEAD (and other RISC-V) SOCs include an implementation of the T-HEAD
+> +  Core Local Interruptor (CLINT) for M-mode timer and M-mode inter-processor
+> +  interrupts. It directly connects to the timer and inter-processor interrupt
+> +  lines of various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local
+> +  interrupt controller is the parent interrupt controller for CLINT device.
+> +  The clock frequency of the CLINT is specified via "timebase-frequency" DT
+> +  property of "/cpus" DT node. The "timebase-frequency" DT property is
+> +  described in Documentation/devicetree/bindings/riscv/cpus.yaml
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const:
+> +          - allwinner,sun20i-d1-clint
+> +      - const:
+> +          - thead,clint0
+> +
+> +    description:
+> +      Should be "<vendor>,<chip>-clint" and "thead,clint<version>" for
+> +      the T-HEAD derived CLINTs.
+> +      Supported compatible strings are -
+> +      "allwinner,sun20i-d1-clint" for the CLINT in the Allwinner D1 SoC
+> +      and "thead,clint0" for the T-HEAD IP block with no chip
+> +      integration tweaks.
 
-Turned out RB5 is not even reaching up to
-device_links_flush_sync_list() and seem to be stuck somewhere in
-device_links_driver_bound(). So I added more print logs to narrow down
-to any specific lock state but those additional prints seem to have
-added enough delay to unblock that particular driver (Serial:
-8250/16550 driver if I understood the logs correctly) and I eventually
-booted to UI.
+T-HEAD uses the same versioning as SiFive? If you use version numbers in 
+compatible strings, the numbering needs to be documented and correlate 
+back to the h/w design. See [1]. IP release numbers for FPGA IP for 
+example. What it should not be is the binding author making up 0, 1, 2, 
+etc. versions.
 
-On the booted RB5 *with* and *without* the simple-bus changes, I see 4
-instances of "0" state_synced nodes at:
+Rob
 
-/sys/devices/platform/soc@0/9100000.interconnect/state_synced
-/sys/devices/platform/soc@0/1500000.interconnect/state_synced
-/sys/devices/platform/soc@0/1740000.interconnect/state_synced
-/sys/devices/platform/soc@0/163d000.interconnect/state_synced
+[1] Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
 
-Regards,
-Amit Pundir
-
->
-> -Saravana
->
-> -- a/drivers/base/core.c
-> +++ b/drivers/base/core.c
-> @@ -1099,6 +1099,7 @@ static void device_links_flush_sync_list(struct
-> list_head *list,
->                 if (dev != dont_lock_dev)
->                         device_lock(dev);
->
-> +               dev_info(dev, "Calling sync_state()\n");
->                 if (dev->bus->sync_state)
->                         dev->bus->sync_state(dev);
->                 else if (dev->driver && dev->driver->sync_state)
 
 _______________________________________________
 linux-riscv mailing list
