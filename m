@@ -2,15 +2,15 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64268C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 16:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E06DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 17:00:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBEA960F50
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:59:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EBEA960F50
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id BBF5061181
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 17:00:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BBF5061181
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,78 +18,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=31b+9wlDpwAlaPO6nstksJj5nXP355l54L6CmXEPDb0=; b=rUx1qLhcDwod9Y
-	rd/ArkQJfW6wbKaWlS9mcPuJTBwgMmqK5dcm47HE5AZdA9IkNswFwdhSKNwO7bkNEMscGsMp7VJAd
-	W8fNH2q38ZjeZVAxVHco7Hn3EKNLEiQbnUPoLtuFGE44+D33M+SYbTrNwa/zZEN8sdivrnQBSUJlI
-	3muOlT2QgmeDtZ/smIxjvvBFtiy7YfdY50FitakFnrdeKOZV7eUgPUul/IYOEaiZVWQoZI+vGspvD
-	7JJ9y4pNtVcdIxZwxSp6WPmjLxSiwym0NXtZWdNifOhIopsA69pJ1wSYG/hynx9lXdpSShr1d90UI
-	QLpNWfplPe/8HtkfFpxg==;
+	List-Owner; bh=I6sJJ128ULwlfoz31t21w+37wQQw8JS3SML7HSCXp44=; b=OnseazB77aBw7p
+	LwuiCQyKdV28NTKTIBaAY18OAOI56KtL0WiZylqkIj1GCgGoq7KVHJfZpzROgI5i3Lk+0cye35V2P
+	2ULXmZfJQLvjTmEh4iCeIPt4tjz+9bW2HyOWvr9C4RDv0JYjPXhD9MPbBsC7qH4fn240cSdiB+WXB
+	F8OzwzuqozlK4Jmdnqj1U9bY1wWjpKknT9Qi4y9906dNwSrxCcWFVXO510F+IDv9gcOvSXtIzNoMM
+	C6iwjJOWW/mMh3XhEnquNSKR2lBSVc0SaAPne4DjmBl46gEG5WPnxe/HwbqgZZ3thvZD1IqHC8WUN
+	eAfVKkN6/HOap5uPtfuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdwxR-00BTfH-HE; Fri, 22 Oct 2021 15:59:49 +0000
-Received: from mail-pf1-f170.google.com ([209.85.210.170])
+	id 1mdxtx-00BZe1-CK; Fri, 22 Oct 2021 17:00:17 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdwxO-00BTeT-8q
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 15:59:48 +0000
-Received: by mail-pf1-f170.google.com with SMTP id m14so4015077pfc.9
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 08:59:45 -0700 (PDT)
+ id 1mdxtj-00BZbD-KW
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 17:00:05 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id p142so6323574iod.0
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 10:00:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=kTen2SJ5OXpwrB3GYaVSgs5PSr8Wl3SgV5Rb/nQHzy4=;
+ b=OfBpCJAzSU6W7PZkLXvnp5uTA+iDkXVIdjqAMBeIpoljCUIE4H16rweL/sbBvPgjOz
+ a7XnxBwIYdIryHPaHA7ppp+xRkuJ8ZkGtFQ917cYf6DXBKPw/S1sutxiZQufEACp4UpT
+ PLnHHSzn4hQ4AhSAlnXGb0jGqcXGqNTs1nU6fnOh+AIxI5Q8oMN4iE7Fya+Xc4OOZBym
+ rRn0MMZj1yiUeB/E8pchAg4wkBwHmXHOyXkKHbDeAue4CSfMCyDa4KbzZTr3JaR9+GBS
+ VNmBEefGtXM9NaGbU0Rp/mPohCP047tLX02ikVEAVBUzcMC6NEhoorwouURdd7M5e8d/
+ nviw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=ve3WMv+ekDk2TdI4V72WJsoDE4qRPggIm2D4MYgIa/s=;
- b=is+D0r68gJnLmjkxA4aMiByrdRNevFhJlROpFVNoiwePg4k5gZBx8K9NthyUEttv5A
- 4tPCskrF0gbFL3YSts4YcSBwq++UDPQCW7H5vrSEnYX4Eq34ffS2UA8Z6y2aTHxTBUgV
- FJ1N+HZlWpcZI64YmmDwUW6Z39dZx87aMHXYRB808A7Fxn58o/j1+64gabB2xavCtydv
- zrYVXVZ3kW/ZN1GeHG7+xnjOLOB+4/WBai7WPiTsm9TusAqMcGKRyMs+JUZITYpedsR8
- QDk192kvnOkXEU05fExV2OaZLtHT3Ngbhei31bh0E5Dv3ogBRIpFcDUNFWWCIGEHoaoc
- Sr0w==
-X-Gm-Message-State: AOAM533ylBGwOvUreuGskTVGwKPLi/oYcsVLpUiWnX+W48LHrKc0N8hZ
- PlYiqBhFz3pcH9U8TBxlQoaZ7gFozYG3I5q/dCM=
-X-Google-Smtp-Source: ABdhPJytmeUKXJ3sdL/RoZcFfoUxkwHNf715Lzot8ru5O13Qs3evLOYJia2m3U02KPExB+40zvfLAu1iZcMn5ibdDp4=
-X-Received: by 2002:a63:2d46:: with SMTP id t67mr414276pgt.15.1634918385517;
- Fri, 22 Oct 2021 08:59:45 -0700 (PDT)
+ bh=kTen2SJ5OXpwrB3GYaVSgs5PSr8Wl3SgV5Rb/nQHzy4=;
+ b=i4bnFLhxjTcT09RHL2mZdF/p3XQVtw3/G7bA6xlIs7ilalm6I9tS6TwJXLimT5GCOd
+ AWGpuRUzIToiZSLIV4luqH2I48SSi3HjFfPtqsEr9i/TGgH7FRK0IoHFfxOCsb++i02R
+ o8kT4vvMKp3X3Sj6LJDwTtPfDaha+0pY8j/VDckWbMuTduucmQnu2204sNEcqXMMKSbX
+ NmNa5q1J2zkS681JDaj/SjQ2s8wsFFSiboQt/ys7gdGte3lDZ3HVgOOgPH30cBBSO76e
+ guCjffGO+KTaSemH0m4S79/OA6Bmly8O6o1nor52iJ7DOKNt4rT5DkFxVMILDfdZqrjV
+ PbQA==
+X-Gm-Message-State: AOAM532o+vcAWkUZwl6/yMKok+Ra42zlMGE0j+whOrVZMggm4f/q/QtY
+ zy7pzhaN/UUIubgq9Q/Cnz3fFMFzAHgbZATNBurHyA==
+X-Google-Smtp-Source: ABdhPJzxQ0fZin7R9PkqV1UP1dkqBLaE11BhnPXYcqoa5W2nV/HynKJCgyp+2iBylPP9BT6beLI8s2+3hLU0rL6J7ec=
+X-Received: by 2002:a05:6602:168f:: with SMTP id
+ s15mr547913iow.178.1634922001157; 
+ Fri, 22 Oct 2021 10:00:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-10-kernel@esmil.dk>
- <CAHp75VcUv6WH0--FANpRExCdEOJNVo8KCtJ2Go090=FZq-Y0UQ@mail.gmail.com>
- <CANBLGcysKdqo+FioSkhd1PZRLzPF=fRJrCTsUGR7vXcn2WpYHg@mail.gmail.com>
- <CAHp75VditKnEcPKgqxz7NfG3ZWLZCu=pW=8qw7HS_iWePTj5Qw@mail.gmail.com>
- <CANBLGcyaSgbOgA4u_QivUQicyZ0MuUmrSsPq56OAANsav8R=VQ@mail.gmail.com>
- <CAHp75Vf=fGn33JFa-8UwCzv7A6AgHdnvfoabKnCcuKZxOyWX2Q@mail.gmail.com>
- <CANBLGcwZG-HpMuyw0LTGY2fwOJTgcMW7V_6kb=CFhX-Y5RjQSA@mail.gmail.com>
- <CAHp75VfwmSfeUPvUXT3TTf0ZYGMfBZ0qaPoB0_SCzyR=Fb_Emw@mail.gmail.com>
- <CANBLGcwz7s5OJer-37mQC2r_H0trec04S69ovYdU2_LbiVrtYw@mail.gmail.com>
- <YXLenBb21jTZlGu0@smile.fi.intel.com>
-In-Reply-To: <YXLenBb21jTZlGu0@smile.fi.intel.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Fri, 22 Oct 2021 17:59:34 +0200
-Message-ID: <CANBLGcyOiOCeSg0ZHxHjOcpHT9HQ0X3_8Ovff4u2qOnB7BWOsw@mail.gmail.com>
-Subject: Re: [PATCH v2 09/16] reset: starfive-jh7100: Add StarFive JH7100
- reset driver
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
+References: <20210929000735.585237-1-saravanak@google.com>
+ <20210929000735.585237-3-saravanak@google.com>
+ <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
+ <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
+In-Reply-To: <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
+From: Amit Pundir <amit.pundir@linaro.org>
+Date: Fri, 22 Oct 2021 22:29:24 +0530
+Message-ID: <CAMi1Hd3M--+V6jPTV=psYGpOqi3UeQBs_FHqOg=oUf1hH-EU4w@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
+To: Saravana Kannan <saravanak@google.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Neil Armstrong <narmstrong@baylibre.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>, 
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, 
- Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>, 
- Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
+ linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
+ linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
+ linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ John Stultz <john.stultz@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_085946_337651_566B642B 
-X-CRM114-Status: GOOD (  32.01  )
+X-CRM114-CacheID: sfid-20211022_100003_735170_BD4898F9 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,91 +103,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Oct 2021 at 17:55, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> On Fri, Oct 22, 2021 at 05:36:21PM +0200, Emil Renner Berthing wrote:
-> > On Fri, 22 Oct 2021 at 17:25, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > > On Fri, Oct 22, 2021 at 5:56 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > > > On Fri, 22 Oct 2021 at 16:50, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > > > > On Fri, Oct 22, 2021 at 5:25 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+On Fri, 22 Oct 2021 at 05:13, Saravana Kannan <saravanak@google.com> wrote:
 >
-> ...
->
-> > > > > AFAICS they are sequential 4 32-bit registers.
-> > > >
-> > > > That's right, but we're on a 64bit machine, so DECLARE_BITMAP will
-> > > > give us an unsigned long array that doesn't match that.
-> > >
-> > > I didn't get it, sorry.
-> > > You will have a bitmap array which you will split to 32-bit values.
-> > > What you will probably need is to move  xgpio_get_value32() and void
-> > > xgpio_set_value32() to the one of bitmap related headers (look for
-> > > bitmap_get_value8() and friends).
-> > >
-> > > > > So bitmap is exactly what is suitable here, you are right!
-> > > > > See gpio-xilinx and gpio-pca953x on how to use bitmaps in the GPIO drivers.
-> > > >
-> > > > None of them has a pre-initialized const DECLARE_BITMAP, so they don't
-> > > > have to deal with the 4 vs. 2 commas problem.
-> > >
-> > > I believe it's well possible to refactor this to look much better with
-> > > bitmaps (as it represents the hardware very well).
+> On Thu, Oct 21, 2021 at 4:21 AM Amit Pundir <amit.pundir@linaro.org> wrote:
 > >
-> > Right, but how exactly? This works on on 64bit, but not with 32bit COMPILE_TEST:
+> > Hi Saravana,
 > >
-> > static const DECLARE_BITMAP(jh7100_reset_asserted, JH7100_RSTN_END) = {
-> >         /* STATUS0 register */
-> >         BIT_MASK(JH7100_RST_U74) |
-> >         BIT_MASK(JH7100_RST_VP6_DRESET) |
-> >         BIT_MASK(JH7100_RST_VP6_BRESET) |
-> >         /* STATUS1 register */
-> >         BIT_MASK(JH7100_RST_HIFI4_DRESET) |
-> >         BIT_MASK(JH7100_RST_HIFI4_BRESET),
-> >         /* STATUS2 register */
-> >         BIT_MASK(JH7100_RST_E24) |
-> >         /* STATUS3 register */
-> >         0,
-> > };
+> > This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
+> > I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
 >
-> BITMAP_FROM_U64() ?
+> Amit top posting? How did that happen? :)
+>
+> The fact you are seeing this issue is super strange though. The driver
+> literally does nothing other than allowing some sync_state() callbacks
+> to happen. I also grepped for the occurence of "simple-bus" in
+> arch/arm64/boot/dts/qcom/ and the only instance for 8250 is for the
+> soc node.
+>
+> The only thing I can think of is that without my patch some
+> sync_state() callbacks weren't getting called and maybe it was masking
+> some other issue.
+>
+> Can you try to boot with this log (see log patch below) and see if the
+> device hangs right after a sync_state() callback? Also, looking at the
+> different sync_state() implementations in upstream, I'm guessing one
+> of the devices isn't voting for interconnect bandwidth when it should
+> have.
+>
+> Another thing you could do is boot without the simple-bus changes and
+> then look for all instances of "state_synced" in /sys/devices and then
+> see if any of them has the value "0" after boot up is complete.
 
-So you think this is better?
+Turned out RB5 is not even reaching up to
+device_links_flush_sync_list() and seem to be stuck somewhere in
+device_links_driver_bound(). So I added more print logs to narrow down
+to any specific lock state but those additional prints seem to have
+added enough delay to unblock that particular driver (Serial:
+8250/16550 driver if I understood the logs correctly) and I eventually
+booted to UI.
 
-static const DECLARE_BITMAP(jh7100_reset_asserted, JH7100_RSTN_END) = {
-        BITMAP_FROM_U64(
-                /* STATUS0 register */
-                BIT_MASK(JH7100_RST_U74) |
-                BIT_MASK(JH7100_RST_VP6_DRESET) |
-                BIT_MASK(JH7100_RST_VP6_BRESET) |
-                /* STATUS1 register */
-                BIT_MASK(JH7100_RST_HIFI4_DRESET) |
-                BIT_MASK(JH7100_RST_HIFI4_BRESET)
-        ),
-        BITMAP_FROM_U64(
-                /* STATUS2 register */
-                BIT_MASK(JH7100_RST_E24) |
-                /* STATUS3 register */
-                0
-        ),
-};
+On the booted RB5 *with* and *without* the simple-bus changes, I see 4
+instances of "0" state_synced nodes at:
 
-> > > > > > Also is there a macro for handling that we'd then need 4 commas on
-> > > > > > 32bit COMPILE_TEST and 2 commas on 64bit?
-> > > > > > If you have some other way in mind you'll have to be a lot more explicit again.
-> > > > > >
-> > > > > > The point of the jh7100_reset_asserted array is that it exactly
-> > > > > > mirrors the values of the status registers when the lines are
-> > > > > > asserted.
+/sys/devices/platform/soc@0/9100000.interconnect/state_synced
+/sys/devices/platform/soc@0/1500000.interconnect/state_synced
+/sys/devices/platform/soc@0/1740000.interconnect/state_synced
+/sys/devices/platform/soc@0/163d000.interconnect/state_synced
+
+Regards,
+Amit Pundir
+
 >
-> --
-> With Best Regards,
-> Andy Shevchenko
+> -Saravana
 >
+> -- a/drivers/base/core.c
+> +++ b/drivers/base/core.c
+> @@ -1099,6 +1099,7 @@ static void device_links_flush_sync_list(struct
+> list_head *list,
+>                 if (dev != dont_lock_dev)
+>                         device_lock(dev);
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> +               dev_info(dev, "Calling sync_state()\n");
+>                 if (dev->bus->sync_state)
+>                         dev->bus->sync_state(dev);
+>                 else if (dev->driver && dev->driver->sync_state)
 
 _______________________________________________
 linux-riscv mailing list
