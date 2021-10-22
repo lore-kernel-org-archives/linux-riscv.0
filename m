@@ -2,15 +2,15 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C1B5C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 14:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76283C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 14:57:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33DA260F02
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 14:51:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 33DA260F02
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 41469610EA
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 14:57:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 41469610EA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,47 +18,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G5N/r9wNo7jRuGXrMmijm5uhXED93jzZ6Pgck/5X/jQ=; b=ZPAu7rut3dZho4
-	QyGmfSx/qMyN7KYOxKKugr2h+JiqUTWsy4Bh0KmrYcAUFuHbFmluFMpOZdECsl0lvpRJNlapX6PCr
-	7L+oSSUvmGQ010/kTjnpE80ro05rspIgudA72WSdfRLgtn98lTLBVjh+kv7pPyxOo65CRk30ur4UY
-	nXMFnCqNCum3Vz8Y6FEjDXYuWxOt3oOUoKMcvp7MQyIistLL6jHVerKxDj2DdNjp7GZp9lPO0zOsV
-	YxN+z/Vmzs/HTidWBmhxVsFzU7U+uN2LzAIc4ozvugT+rMV9vlJCMP8Wvm9x1RA9oVRcYvM9qsgMS
-	29cCORaJwwlAahFTjoqg==;
+	List-Owner; bh=jcpgL+QSYq549feHiJHIgo4GWiRZtWU1yIUDow8JvSk=; b=0fbLOQWxuC4Igm
+	UXE09Z6YTJf3W9Wr7va/iCcLZ6PM2orG4sFz7oWwiQ7zFKC8ZgPnqnfMrqBaZSwcd6iXpVcAzchoX
+	Qc5+NC9jQ+s/WaJ4iKMbLe5T4PqVPUVPQtnP26HtBZT2MN5YqiC1qR2jDY5Qw7qk4t+hiT0Bkv2XO
+	nRbedFSaLndGqVU3mJGCGUGcJwTobxzsg/qJdM9vP1pkgfQ0djr4uu0glfB4cbSz2I4WDAKPULxUs
+	bW3E8BBR6D3FIfqqyKiFqIgwwV6E07mA5cnLflblsio86IOAQvWYTqof2/1zR7fZcGhM9I0T3o3VS
+	WN/g27xePqBKbGT/KI4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdvtR-00BJuZ-Du; Fri, 22 Oct 2021 14:51:37 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1mdvye-00BKRp-Qq; Fri, 22 Oct 2021 14:57:00 +0000
+Received: from mail-pl1-f182.google.com ([209.85.214.182])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdvtP-00BJtt-45
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 14:51:36 +0000
-Received: by mail-ed1-x536.google.com with SMTP id u13so14947edy.10
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 07:51:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=U2zlxllI/wA4AeNFHkhcnXvhZJof18yvz4lRtA/A0Ck=;
- b=O4t+iAMSPLWSK3+8w7xF6PGGAwtgvxGdQmcmffBt8Spyk6Y9G+W4+EOcW7y51Ca0kK
- wt6rbnP8vcLn/MdTKOwRy1QRAEzWTHDOIcASOln3ZzYkt+RtjEaTNZSX+K+waaMFOaCR
- EP9FnRrb4A1y/L/LVMoSTpGfj6uMp+E9O1khixqfDXLglxUShkYXh2HIZNQLYGacsbqO
- 59XRg+blwjSxXkN/Ol5qstsGst4lnIgU3fT9S2nrWah4ggPyDkpGmyArri6Px2HdLNAs
- w2LIFhzYxGOQx1NJMvezYrw6Ls/E/G7HiG+dOfmr0YkXjdAJI3N0vblHW0o9bTptmElp
- BC6w==
+ id 1mdvyc-00BKQs-Cr
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 14:57:00 +0000
+Received: by mail-pl1-f182.google.com with SMTP id n11so2877371plf.4
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 07:56:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=U2zlxllI/wA4AeNFHkhcnXvhZJof18yvz4lRtA/A0Ck=;
- b=hXVZ9b+rgwUl6/e5rTL1V16RIbNd2KvuaH9xlAJF3cBBT4elEKqGpxE2Iq0mAKl/p3
- KspZ1QJFGpUJQspvPfUMpiFnM1gv7nWFf48maRuOnJtJ0W0t0LR4xMAqti+K1F27bZU3
- qHrvMD/XPXIAIwUC88dnwu1Gc4gIxWxLcyvjQnPs28pxx8EwRoVxqsTi/Lbyx4DgQygz
- AmM1vWxlL9cI0MyDVC6x5nHaIfHXcujh2f8m/CVrkk10ZeGf8Fd8hp2fgwvE3wj5c2YN
- 5eTQZaked4L8ps6hGDLXMkh9c5ahDvDDMvTMsd8l6vmKfttxJG+Y9p0fY4AunoL/ePzJ
- INiA==
-X-Gm-Message-State: AOAM531CnuwNwvFaVmBn4rAC+EKiNLdwDwBD11A7kaTjpb9r9kPRRFxg
- iPV5/f1bxBfR4ldzYFvDgLRhS7ZOEE06n7rUzc0=
-X-Google-Smtp-Source: ABdhPJzui1ybEtPFbAKFluoha+ME1JAVGAZslCUhtsKJWtrMojGSkFrSchg6cjyG+w3foBFnnPouMdQjjvq6ufKJHTo=
-X-Received: by 2002:a05:6402:2031:: with SMTP id
- ay17mr607386edb.240.1634914293101; 
- Fri, 22 Oct 2021 07:51:33 -0700 (PDT)
+ bh=bP/PBZ5dE4p5HX2+QicYK3rA0pH5Cba6d4G9S+AUf1E=;
+ b=1FePXxyHSULHoWKaxN0SdUoGN9DU6XS+i0U8suVLQU0q0K4vn70I2bKeQQHYQQAbF0
+ xUoCM9l3LWZdvt5Y3JdhvnkRUZ6hUBWAOwPo2qmefpgk2XQ21Un9iiUJSyhi7gE99MSg
+ azQcaVASRYKE+B3oXoLN3rdV6GnO6I+0QaEepZi6DVdh7Zw4e+NIrnuBfbbSN76ByP7B
+ d+0Cae+p5osiUz/Pnystjmb+D18l1mt98WxBvjc9fww+sTLSoQMFVLxg1NcUkIt0l5x8
+ IFj9ixLdnnMrojdGfyjEYOZZ4HqM3Izo5XeKzhtGYnUCRS48ZUzkxPa8m80wXeS+9Jx5
+ E8SA==
+X-Gm-Message-State: AOAM531hFLus2y7+uy3rYPApqU3CR/m4URYZRv8vtuDC7ZVLlVJZ/DMR
+ Ajr6D5jaL8KM7dk7HXeIkIuLbIuYkVn00NWrxlc=
+X-Google-Smtp-Source: ABdhPJwB+UUuFlxzIiKUXd5KRD9w1J7GsVmq0SJSBFy8jKVC7XgO/aG+zbPd6g7s+pWXzJt2gXXzIfD/CsG7XKZCsEc=
+X-Received: by 2002:a17:902:7783:b0:13d:fee6:8095 with SMTP id
+ o3-20020a170902778300b0013dfee68095mr453870pll.7.1634914616930; Fri, 22 Oct
+ 2021 07:56:56 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211021174223.43310-1-kernel@esmil.dk>
  <20211021174223.43310-10-kernel@esmil.dk>
@@ -68,12 +59,12 @@ References: <20211021174223.43310-1-kernel@esmil.dk>
  <CANBLGcyaSgbOgA4u_QivUQicyZ0MuUmrSsPq56OAANsav8R=VQ@mail.gmail.com>
  <CAHp75Vf=fGn33JFa-8UwCzv7A6AgHdnvfoabKnCcuKZxOyWX2Q@mail.gmail.com>
 In-Reply-To: <CAHp75Vf=fGn33JFa-8UwCzv7A6AgHdnvfoabKnCcuKZxOyWX2Q@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Fri, 22 Oct 2021 17:50:37 +0300
-Message-ID: <CAHp75Vfbc6Fj31cHsj5YoeO6Yeuz1hE+DNCu7ggVX32pCk=PqA@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Fri, 22 Oct 2021 16:56:45 +0200
+Message-ID: <CANBLGcwZG-HpMuyw0LTGY2fwOJTgcMW7V_6kb=CFhX-Y5RjQSA@mail.gmail.com>
 Subject: Re: [PATCH v2 09/16] reset: starfive-jh7100: Add StarFive JH7100
  reset driver
-To: Emil Renner Berthing <kernel@esmil.dk>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
 Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
  devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
@@ -95,9 +86,8 @@ Cc: linux-riscv <linux-riscv@lists.infradead.org>,
  Matteo Croce <mcroce@microsoft.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_075135_186157_69CBEE7F 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211022_075658_462161_5259E1AC 
+X-CRM114-Status: GOOD (  25.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,20 +104,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 22, 2021 at 5:49 PM Andy Shevchenko
-<andy.shevchenko@gmail.com> wrote:
+On Fri, 22 Oct 2021 at 16:50, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 > On Fri, Oct 22, 2021 at 5:25 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > On Fri, 22 Oct 2021 at 15:39, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > On Fri, Oct 22, 2021 at 4:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > > > On Fri, 22 Oct 2021 at 14:56, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > > > On Thu, Oct 21, 2021 at 8:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+>
+> ...
+>
+> > > > > Why all these ugly % 32 against constants?
+> > > >
+> > > > Because the JH7100_RST_ values goes higher than 31. There is a
+> > > > BIT_MASK macro, but that does % BITS_PER_LONG and this is a 64bit
+> > > > machine.
+> > >
+> > > And? It's exactly what you have to use!
+> >
+> > So you want me to use an unsigned long array or DECLARE_BITMAP and
+> > juggle two different index and bit offsets?
+>
+> What are the offsets of those status registers?
+> AFAICS they are sequential 4 32-bit registers.
 
-...
+That's right, but we're on a 64bit machine, so DECLARE_BITMAP will
+give us an unsigned long array that doesn't match that.
 
+> So bitmap is exactly what is suitable here, you are right!
 > See gpio-xilinx and gpio-pca953x on how to use bitmaps in the GPIO drivers.
 
-It might be confusing, what I meant is take that as an example on how
-the bitmaps are used in the GPIO drivers.
+None of them has a pre-initialized const DECLARE_BITMAP, so they don't
+have to deal with the 4 vs. 2 commas problem.
 
--- 
-With Best Regards,
-Andy Shevchenko
+> > Also is there a macro for handling that we'd then need 4 commas on
+> > 32bit COMPILE_TEST and 2 commas on 64bit?
+> > If you have some other way in mind you'll have to be a lot more explicit again.
+> >
+> > The point of the jh7100_reset_asserted array is that it exactly
+> > mirrors the values of the status registers when the lines are
+> > asserted. Maybe writing it like this would be more explicit:
+> >
+> > static const u32 jh7100_reset_asserted[4] = {
+> >         /* STATUS0 register */
+> >         BIT(JH7100_RST_U74 % 32) |
+> >         BIT(JH7100_RST_VP6_DRESET % 32) |
+> >         BIT(JH7100_RST_VP6_BRESET % 32),
+> >         /* STATUS1 register */
+> >         BIT(JH7100_RST_HIFI4_DRESET % 32) |
+> >         BIT(JH7100_RST_HIFI4_BRESET % 32),
+> >         /* STATUS2 register */
+> >         BIT(JH7100_RST_E24 % 32),
+> >         /* STATUS3 register */
+> >         0,
+> > };
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
