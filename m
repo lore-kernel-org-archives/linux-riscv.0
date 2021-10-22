@@ -2,114 +2,102 @@ Return-Path: <SRS0=Id5u=PK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F15C6C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D150C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:25:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B461E6112D
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:20:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B461E6112D
+	by mail.kernel.org (Postfix) with ESMTPS id 612D16112F
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Oct 2021 15:25:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 612D16112F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/YKHW+ldlHm/fw3Ykp382lf4Oi7AetMb53FAiWguQM=; b=s1JnCwWf8qcUtz
-	HNJnx4ThoPbzjriv0Y+WifjMuGxXDJRi0P6QxMt9DJ8+3zCyYvhblChox4PtzQjvzcjt78yceyRwL
-	25L0a4FrQNqtXRiDVn5vV9J1AZyb+k9eQTWRNk80GnCyHJFk0Zb7GdZKk9xNoRPuWoMHG54DCMHIF
-	vykz/HWhh2YjpL59FoiVLmpACZQY648lhvmDgkwLJp5NDkvOaYKZ5CAR3HSPVTpIl0S52EkbeUHx5
-	N8KlHS5L+gwJHzO6AdNTDFLxEbDq72WZXvxHQ9twxX6s9mS7JSzwsmJyjWnbSEPxiK29jHZya50yr
-	AinMEKHB+cI2n905A8TQ==;
+	List-Owner; bh=so4thVxgQu0/453ztwtxjfhwPlGed03k73oBTTKsM0g=; b=P3WbPpW2hdsdEH
+	cnOrdY7TyQYacGIFhgTfWMc65XzcP02oahSvzFuA0mSELkcasho1ZlEAerk3B/a+ZAFofPyOuvuoq
+	JYurhdLbFnp70J1SS1fKhdvK6iYNqwgHeSGxIEFBDLqXw+TjAa3pHWRciqgdv4pDcS+MgELDipafD
+	82rioxhjlLBIxhQRAUgXQtpZJeI9O97m0zgKEyfNJgxmQ0y66aJ7REWDp2+RWvWs6NRgg4JXjgqF2
+	GrfYw46Rl07z5N623DHZfhld4mJXvbCRKgtSyfMMJS5XqLp6fzZYhPqYbtt/iIAkHVPT+z21wKsnN
+	1OTBjXSunV302OoEPmww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mdwKo-00BOvO-Gu; Fri, 22 Oct 2021 15:19:54 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1mdwQ5-00BPfi-H4; Fri, 22 Oct 2021 15:25:21 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mdwKl-00BOuM-PJ
- for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 15:19:53 +0000
-Received: by mail-io1-xd31.google.com with SMTP id p142so5903943iod.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 08:19:51 -0700 (PDT)
+ id 1mdwQ2-00BPea-JW
+ for linux-riscv@lists.infradead.org; Fri, 22 Oct 2021 15:25:20 +0000
+Received: by mail-ed1-x532.google.com with SMTP id u13so220075edy.10
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Oct 2021 08:25:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=edUysRKGfaZOTuM3uYR99rq4ae03o5LqY877IUKK/u4=;
- b=OV9+U6++bii1LgELrCjulmFIWampisMJ86zIok+nNJ7XJXUfILrGKlaXTqwBgRyUTz
- +sxGL4FGIVlFzBSamuiZADhcODjGZ36A8Pwjub6rVMGCeZi0RufSJ2xoa2XpQcJvzEeY
- JpoKvpjMTyHfmCbel/hNNKU5kbM5rEWpLOr7OGYIX3EZccKxgFzm7YR7erBYUMBP/a+j
- FQqxIRh28Zf/ixoUZT/Ivj59Qp2DqfSkIsWUSUmYC157rAVTDfLvk0STBFuiesHFpGgY
- KEKtTn2LZ9o8Cyjvbyuvi7hnIDlVeo1SXRfIp1GbaO9gv81h6dU0Kyu3UVdSZd3u0ja3
- npgw==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=kgqxWvGntkbiXk1ztGJLZLwojodbAYgPdM6m7PSmewA=;
+ b=WdVC29wguinmC3yuoVUr5ML6+H+CS6ZdeRR/YJeyz0O/ZQo45d8T9XdWhomfnjSVHd
+ g3CJy6Nb9uiF/XGvjiN66mba5qCdBkqEstdLIlA5mrZYtzHVIJLvKck4OTuIxKhv+hy/
+ dblks/vOB4eLhuwBr6oI5p/CXr+xSl6OSzKu3H43964vdf8hW3biLDa/NgCJHzsrjfGp
+ 6KAEky8qLzFsCHVc3KJTae2k/jIPB1myunH0C7WztFrMIMLZizaa7vIkPCMOoxpTma5Q
+ pSB8OvYKauGBYkVQlMHML+/V0vENhcFHQ1rZeUbDd70KSH0cQMuoQIojhTt9Zl5QRC5l
+ Td+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=edUysRKGfaZOTuM3uYR99rq4ae03o5LqY877IUKK/u4=;
- b=Je/qtSS6n8TYaT9VhP/rY9kEXJ6Cr3qu33nmmHzn8BwHo6p7g9kZyDmvv51o3h7irO
- zEh4Q2dsAO1N+DGcLzZ0wTA7TomFHlCpa7HgGYhfNLC4Gs+ibChd2eH33q4CN0OWhu5j
- 249NRNqR8qYaOzZmEnxY8qHrFXTtcVFV4Vqbg4T/anorlLxiZI1CrEmhCu2DEvuMffex
- Q+tiVuMnnD5/52PLwIw0clJ0aGvXY+UOAZ0cBddLpqH5GNNMWE37RhEBpN8djjAdx2E5
- m1kLTH5KCSaAqR+azMbf/IVXl+6f+ODmJSfFkplU0TgzUqeU0bMa6J9yNS9DD1v/TabX
- 1qsQ==
-X-Gm-Message-State: AOAM533Kj0UaEPfS4xM7g/p7TcTNmtcyPcoWAfshaPY3XP2zF8JfOqWp
- Vl6i3Vt34D3fnpY48HJlkgE=
-X-Google-Smtp-Source: ABdhPJxSDypiYJInzx4XwEZ8NcgEsqzqv+UUXkXQDiglcxs6zTx7KjuYegOh3MB/AopBCcoAA7HNZA==
-X-Received: by 2002:a6b:ea11:: with SMTP id m17mr131844ioc.139.1634915991219; 
- Fri, 22 Oct 2021 08:19:51 -0700 (PDT)
-Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
- [66.111.4.228])
- by smtp.gmail.com with ESMTPSA id x5sm4208612ioh.23.2021.10.22.08.19.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 Oct 2021 08:19:50 -0700 (PDT)
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
- by mailauth.nyi.internal (Postfix) with ESMTP id C689827C005A;
- Fri, 22 Oct 2021 11:19:47 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute6.internal (MEProxy); Fri, 22 Oct 2021 11:19:47 -0400
-X-ME-Sender: <xms:ktZyYbo-0xCgktB-G4PseuSbdB9Jt05Z02dF1bg-T14I5YJtc5dPtg>
- <xme:ktZyYVrtulvtNFpxyCy8dPYInOg33GzwqWwpawhv3APnYQ0kJ7fXGAwrA79GATjFO
- T-NQQJrElfJ2mLcOQ>
-X-ME-Received: <xmr:ktZyYYNDLtLpl1TuebIf7Qy1jUYxqTn5sUBFe2uZsnZrcscd-oBaDRqJGhaIzw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvddvkedgjeduucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeeuohhquhhn
- ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
- htvghrnhepvdelieegudfggeevjefhjeevueevieetjeeikedvgfejfeduheefhffggedv
- geejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsg
- hoqhhunhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieeg
- qddujeejkeehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigi
- hmvgdrnhgrmhgv
-X-ME-Proxy: <xmx:ktZyYe7cASrg4U0TiKXQ2rge3q3yecqGfi3TysEBZCfj5c-7Wqs94g>
- <xmx:ktZyYa6p9Nrgrcu8gycciaBtDEY3NH6MbMazqxPWS4wM29oD6xuqmQ>
- <xmx:ktZyYWgv7duMbyE0XSyCRF3iOV3Mkymt1G8cC7xw8_rPhUuV5kJVwA>
- <xmx:k9ZyYawABAAee3hR_-tz10XhH4UNTnbP7VaExlTqmEEn6SKe38sCaK1AzFo>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 22 Oct 2021 11:19:45 -0400 (EDT)
-Date: Fri, 22 Oct 2021 23:19:17 +0800
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Waiman Long <longman@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
- Stafford Horne <shorne@gmail.com>
-Subject: Re: [PATCH] locking: Generic ticket lock
-Message-ID: <YXLWdVGl4NP2HBCO@boqun-archlinux>
-References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
- <4de96b16-a146-f82a-a7f2-706dba4f901f@redhat.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=kgqxWvGntkbiXk1ztGJLZLwojodbAYgPdM6m7PSmewA=;
+ b=tQT1dXxibqFaZq9ObMdZRd+eKWcb57YaVb6esEUaN8jP9L5LTCE6ItBpp01hqR+ddB
+ gfw7RwhrI1Fj6/tfE1RcERCywGxckrvDI8+hBEfnMiFI1AsPHLXY7aIRRPQyFAANDCiH
+ c1DuiPaMv1HPpoydHARxu66YLlwvnyGtqaDInfL4eFx+/FBwrElqSJwE7sxrJgodN+Dy
+ OAvwjX67J9pSYuCqAUBe4qQZg/Y/NoP7+m6qQ1IRkN1bdOzEoxeEX2gLvBbJVTTriKp3
+ wElbVxysp4EHzNwXEQJ7D2wBsdkJf+nMnkCzbRKCLvYBzbP0MwDTwoqOOGd+DZckVS9/
+ f5Og==
+X-Gm-Message-State: AOAM5311zj1XUmFa2E+lPFkbzMZH8YyaeZTo3p82zIvXvyl97Ufn/kbE
+ 8g8olg0VGxuoH57Lf0jGw1BL/H6LToeEKGJSCQI=
+X-Google-Smtp-Source: ABdhPJwutL0TpkILUaJQpT9WTYSqqjzAMw3LFuNwxPeej7qk+YCVJ8tGy2Wz/Dne2ys3IkY8MRAys3VYHZ2n+YrKIm4=
+X-Received: by 2002:a17:906:eb86:: with SMTP id
+ mh6mr254287ejb.141.1634916316641; 
+ Fri, 22 Oct 2021 08:25:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4de96b16-a146-f82a-a7f2-706dba4f901f@redhat.com>
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-10-kernel@esmil.dk>
+ <CAHp75VcUv6WH0--FANpRExCdEOJNVo8KCtJ2Go090=FZq-Y0UQ@mail.gmail.com>
+ <CANBLGcysKdqo+FioSkhd1PZRLzPF=fRJrCTsUGR7vXcn2WpYHg@mail.gmail.com>
+ <CAHp75VditKnEcPKgqxz7NfG3ZWLZCu=pW=8qw7HS_iWePTj5Qw@mail.gmail.com>
+ <CANBLGcyaSgbOgA4u_QivUQicyZ0MuUmrSsPq56OAANsav8R=VQ@mail.gmail.com>
+ <CAHp75Vf=fGn33JFa-8UwCzv7A6AgHdnvfoabKnCcuKZxOyWX2Q@mail.gmail.com>
+ <CANBLGcwZG-HpMuyw0LTGY2fwOJTgcMW7V_6kb=CFhX-Y5RjQSA@mail.gmail.com>
+In-Reply-To: <CANBLGcwZG-HpMuyw0LTGY2fwOJTgcMW7V_6kb=CFhX-Y5RjQSA@mail.gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Fri, 22 Oct 2021 18:24:20 +0300
+Message-ID: <CAHp75VfwmSfeUPvUXT3TTf0ZYGMfBZ0qaPoB0_SCzyR=Fb_Emw@mail.gmail.com>
+Subject: Re: [PATCH v2 09/16] reset: starfive-jh7100: Add StarFive JH7100
+ reset driver
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211022_081951_852528_6ADE0010 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20211022_082518_687919_0F3A0B9E 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,52 +114,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 21, 2021 at 02:04:55PM -0400, Waiman Long wrote:
-[...]
-> > +static __always_inline int ticket_is_contended(arch_spinlock_t *lock)
-> > +{
-> > +	u32 val = atomic_read(lock);
-> > +
-> > +	return (__ticket(val) - __owner(val)) > 1;
-> Nit: The left side is unsigned, but the right is signed. I think you are
-> relying on the implicit signed to unsigned conversion. It may be a bit
-> clearer if you use 1U instead.
-> > +}
-> > +
-> > +static __always_inline int ticket_is_locked(arch_spinlock_t *lock)
-> > +{
-> > +	return __ticket_is_locked(atomic_read(lock));
-> > +}
-> > +
-> > +static __always_inline int ticket_value_unlocked(arch_spinlock_t lock)
-> > +{
-> > +	return !__ticket_is_locked(lock.counter);
-> > +}
-> > +
-> > +#undef __owner
-> > +#undef __ticket
-> > +#undef ONE_TICKET
-> > +
-> > +#define arch_spin_lock(l)		ticket_lock(l)
-> > +#define arch_spin_trylock(l)		ticket_trylock(l)
-> > +#define arch_spin_unlock(l)		ticket_unlock(l)
-> > +#define arch_spin_is_locked(l)		ticket_is_locked(l)
-> > +#define arch_spin_is_contended(l)	ticket_is_contended(l)
-> > +#define arch_spin_value_unlocked(l)	ticket_value_unlocked(l)
-> > +
-> > +#endif /* __ASM_GENERIC_TICKET_LOCK_H */
-> 
-> Other than the nit above, the patch looks good to me.
-> 
-> Reviewed-by: Waiman Long <longman@redhat.com>
-> 
+On Fri, Oct 22, 2021 at 5:56 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> On Fri, 22 Oct 2021 at 16:50, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > On Fri, Oct 22, 2021 at 5:25 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > > On Fri, 22 Oct 2021 at 15:39, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > > On Fri, Oct 22, 2021 at 4:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > > > > On Fri, 22 Oct 2021 at 14:56, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > > > > On Thu, Oct 21, 2021 at 8:43 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 
-Same here ;-)
+...
 
-Reviewed-by: Boqun Feng <boqun.feng@gmail.com>
+> > > > > > Why all these ugly % 32 against constants?
+> > > > >
+> > > > > Because the JH7100_RST_ values goes higher than 31. There is a
+> > > > > BIT_MASK macro, but that does % BITS_PER_LONG and this is a 64bit
+> > > > > machine.
+> > > >
+> > > > And? It's exactly what you have to use!
+> > >
+> > > So you want me to use an unsigned long array or DECLARE_BITMAP and
+> > > juggle two different index and bit offsets?
+> >
+> > What are the offsets of those status registers?
+> > AFAICS they are sequential 4 32-bit registers.
+>
+> That's right, but we're on a 64bit machine, so DECLARE_BITMAP will
+> give us an unsigned long array that doesn't match that.
 
-Regards,
-Boqun
+I didn't get it, sorry.
+You will have a bitmap array which you will split to 32-bit values.
+What you will probably need is to move  xgpio_get_value32() and void
+xgpio_set_value32() to the one of bitmap related headers (look for
+bitmap_get_value8() and friends).
+
+> > So bitmap is exactly what is suitable here, you are right!
+> > See gpio-xilinx and gpio-pca953x on how to use bitmaps in the GPIO drivers.
+>
+> None of them has a pre-initialized const DECLARE_BITMAP, so they don't
+> have to deal with the 4 vs. 2 commas problem.
+
+I believe it's well possible to refactor this to look much better with
+bitmaps (as it represents the hardware very well).
+
+> > > Also is there a macro for handling that we'd then need 4 commas on
+> > > 32bit COMPILE_TEST and 2 commas on 64bit?
+> > > If you have some other way in mind you'll have to be a lot more explicit again.
+> > >
+> > > The point of the jh7100_reset_asserted array is that it exactly
+> > > mirrors the values of the status registers when the lines are
+> > > asserted. Maybe writing it like this would be more explicit:
+> > >
+> > > static const u32 jh7100_reset_asserted[4] = {
+> > >         /* STATUS0 register */
+> > >         BIT(JH7100_RST_U74 % 32) |
+> > >         BIT(JH7100_RST_VP6_DRESET % 32) |
+> > >         BIT(JH7100_RST_VP6_BRESET % 32),
+> > >         /* STATUS1 register */
+> > >         BIT(JH7100_RST_HIFI4_DRESET % 32) |
+> > >         BIT(JH7100_RST_HIFI4_BRESET % 32),
+> > >         /* STATUS2 register */
+> > >         BIT(JH7100_RST_E24 % 32),
+> > >         /* STATUS3 register */
+> > >         0,
+> > > };
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
