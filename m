@@ -2,89 +2,83 @@ Return-Path: <SRS0=+XCi=PL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C4ADC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Oct 2021 18:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CCA5C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Oct 2021 20:14:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A118760F4F
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Oct 2021 18:46:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A118760F4F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id F354D60F4B
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Oct 2021 20:14:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F354D60F4B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UnHW6K1ZnugYIRTTKrhlo3uOjBzzUgMYoTvhTCOEi4k=; b=TRBlXJP6pEaDHt
-	Ovod55G7MXRcyPVMA9sFAk+ae/Tzklxek9XxHrRbjZ6/Prd57A7Gv2tOj1bm87Dhlr/DqTToAAn1y
-	kQoFK0PYda+fz3id+J2++Jdn+lnEtPiPQxNOEcbbac+i4K7n1vQ0er7nHT6LvPnBx+gGn5XgXnvHk
-	tjMrc3ToGVnDV9ShSkitNIkiIm+CFQrBLdcb2HvK8kuupUB8TcPAROvFBHqKE7I8DNhOQKL0aY2Ry
-	q5dp1jZgxql/KwFBARCjOPNyrap5k7iSG7R9f7wpR7U2blO09o2PXHI/Rd7IWE5+Oocf2ZRw2NFBE
-	xlNHNDHeoMvp7SQoU9TQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=w3zTy4wIMiL5EdijSh6MsbED1ijZxnxgeAm1sK4yj9Y=; b=T3kknhe4m4dLoUAkFvcTkR4+je
+	IVKYW4Y6nI8ARwiW++X995J77RqtQ52x9EGvUpidsVIzg19pyTaOniyMEQTxpj+OY8zaPhs4o6aj2
+	xn6ZYB9IuUXUforinVGsULPmyD1g1etsSCaSsS72yLihsECQFNPqE1vjf3IMhsMy8bJzopAmtl8jO
+	2lhEU6bi8Ei6gsqobT9w/4WFS6M5aJ0fN4qmpCPNQWW6kAlN0y5X7RuqxCLv7yaevXkgGFDg1jjAf
+	uqMbZpz+PwZavdDe9a/9bSJYEXQcg1ogsqW+pal/51UAVAKcWLrGTURRxp19ZMEL2CJq0QcdXU/lF
+	+RxjWrmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1meM25-00D5hJ-JK; Sat, 23 Oct 2021 18:46:17 +0000
-Received: from mail-pf1-f179.google.com ([209.85.210.179])
+	id 1meNPE-00DFDF-JC; Sat, 23 Oct 2021 20:14:16 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1meM21-00D5gL-FR
- for linux-riscv@lists.infradead.org; Sat, 23 Oct 2021 18:46:15 +0000
-Received: by mail-pf1-f179.google.com with SMTP id o133so6644473pfg.7
- for <linux-riscv@lists.infradead.org>; Sat, 23 Oct 2021 11:46:10 -0700 (PDT)
+ id 1meNPB-00DFCC-CG
+ for linux-riscv@lists.infradead.org; Sat, 23 Oct 2021 20:14:14 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d9so6778372pfl.6
+ for <linux-riscv@lists.infradead.org>; Sat, 23 Oct 2021 13:14:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=2q2Ai1W7zLMeyRuJVIqJmYh8Gpg5gJL9O2P05Fxiya8=;
+ b=jDXIeRw2lMvP9QXCRDr98k0E3NG6kVLbc6ibvQMLhmNJyYeTgi4pPlxhZcjbZJk4i0
+ IyQm7LA87ns61cISjW228eZeKxZX/ER4AgwIF/+WHCjuXZfUYFPEKppPOzh2aZ+d694B
+ 3ha3oMnfaNs0Bg9g9NZ/V5ReGH7gGeb5VROrVGM5yVuv044NomMEUZvHZtLJ0ZoJvJCf
+ oyf1uFtcZVb2eFeH5yDs9W4QWqBC9p05Tzmf2LP6bEws0Zyyg/7aofj26QQ+Qd4Tyz4s
+ 9gNeXHwZtVHL59ZDzTVkUHqn3ofTNxjOG4GQv4x7Z+P6uh311NhS3FBoydSMXNvB/WWK
+ GkdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=aEAs776K6p8lZTPzkmuLZOOmJgVbRulxd0di0mx4cQo=;
- b=58K+lPY/BGCzo5KqcOtT6SFPBThXQKnHtI9V3qxNjomMX90HWRh2EiA5BqzLKItbsP
- LzUpQ3MnR84XCAQPTix2IpGFJehmjmoajS/8fS28fOqjXZJrZzpeZNAEQSoRmBEh+pYf
- acgfDFHqb5HxRsyrZve635JMHmSWgWgfEyct4PYepcAEMk0tGbMqb4W85+t7CalPWzrb
- 3SJYsNsAX+JLTENgFg9EPez/SqTLhjK/DxMcmgdd0QIHJ3tFwp+UeDKoY0T4Xwmg5JqW
- ICJgwuAgXXnfLDQI2eJKg0iCVlclHlowPZ9Iognhvc4UF6hSm4SkJkAkH0zkvoBxW7j4
- rakg==
-X-Gm-Message-State: AOAM5312X2uzWOZHKdHgfJ5xuC/T3qE2uMLnByBP5DnXZdJ3D7Pnsqoe
- ZTmqTrAQ9fv5XQBFfl1AHMRsnnrS+3oR61+H2H4=
-X-Google-Smtp-Source: ABdhPJwUUFlKXvpsn91+TjHUhvKesdVA98hRAzasAzXJWFUk833ncJyUVkE0wix0yH6ytJf6E1aavF8F7rHyHiD+TzA=
-X-Received: by 2002:a05:6a00:1707:b0:44d:47e1:9ffe with SMTP id
- h7-20020a056a00170700b0044d47e19ffemr7898940pfc.53.1635014770164; Sat, 23 Oct
- 2021 11:46:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-13-kernel@esmil.dk>
- <CAHp75Vf3yNoKxguHP3EPcRV_3tG++Fd=FVM0MXqW4_SmLA6HEw@mail.gmail.com>
-In-Reply-To: <CAHp75Vf3yNoKxguHP3EPcRV_3tG++Fd=FVM0MXqW4_SmLA6HEw@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Sat, 23 Oct 2021 20:45:58 +0200
-Message-ID: <CANBLGcxEwkcZn2CC69zLaVqL8ocS6r6HDaaoUF09gg1mpDxFzg@mail.gmail.com>
-Subject: Re: [PATCH v2 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=2q2Ai1W7zLMeyRuJVIqJmYh8Gpg5gJL9O2P05Fxiya8=;
+ b=APsEYsWudlawYoC/suJB5t6f5uVCn28hvART4vKXC+rYwNR9d0iNtQE1CDXjswt8HV
+ XIl96wNUNLSMILTfF+5XirQMneBUiecC0lwDB2at0ALjbQM4F8fIzRdM4JG9ddMynnHq
+ K+1UeEYO3LFr8iLzoj8i1lHRXat7Bu/zzFZLLHXrr26XdsW3HqWRtCNjQj8/r38Kzeny
+ 9M/rW5tANETBVb9Rme7M30l/z5MiYxXsUfhnEwZpwT6yTikAsDDPIJa7EUq0v6xD1DXR
+ x3vYuaIB0bOX8aCf1Qm5uFiTCZoGUuJTYeOJ16ytUal4bJYhS68cLJglC4F1EG7TXIkQ
+ JRtg==
+X-Gm-Message-State: AOAM5333DN+17PesatmgIyXYg0cBEk+x9510fLP41Dr3qp7AX+Cnpmk7
+ ehUKRBPhAzS4s38Jcxs//BLitQ==
+X-Google-Smtp-Source: ABdhPJw4wq16pwdD9R69riGYv3v4DtTpscpbmhP+5/EUwMF5d/exuQRw/i3eOSBVVEhc8KDGM0yrrQ==
+X-Received: by 2002:a63:7e42:: with SMTP id o2mr6020435pgn.296.1635020051809; 
+ Sat, 23 Oct 2021 13:14:11 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id a11sm15191155pfv.11.2021.10.23.13.14.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 23 Oct 2021 13:14:11 -0700 (PDT)
+Date: Sat, 23 Oct 2021 13:14:11 -0700 (PDT)
+X-Google-Original-Date: Sat, 23 Oct 2021 13:13:38 PDT (-0700)
+Subject: Re: [PATCH] riscv: Don't use va_pa_offset on kdump
+In-Reply-To: <ae122f06f0de1075cf266b639ce36da3@mailhost.ics.forth.gr>
+CC: alexandre.ghiti@canonical.com, mick@ics.forth.gr,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mick@ics.forth.gr
+Message-ID: <mhng-b28fa0cb-24ee-40d1-9f02-619605a4cc9a@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211023_114613_561914_445FAB4D 
-X-CRM114-Status: GOOD (  40.71  )
+X-CRM114-CacheID: sfid-20211023_131413_490148_4296CE98 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,323 +90,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Oct 2021 at 15:32, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> On Thu, Oct 21, 2021 at 8:44 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > +       for_each_child_of_node(np, child) {
-> > +               int npins;
-> > +               int i;
-> > +
-> > +               ret = -ENOMEM;
-> > +               grpname = devm_kasprintf(dev, GFP_KERNEL, "%s.%s", np->name, child->name);
-> > +               if (!grpname)
-> > +                       goto put_child;
-> > +
-> > +               pgnames[ngroups++] = grpname;
-> > +
-> > +               if ((npins = of_property_count_u32_elems(child, "pinmux")) > 0) {
-> > +                       pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
-> > +                       if (!pins)
-> > +                               goto free_grpname;
-> > +
-> > +                       pinmux = devm_kcalloc(dev, npins, sizeof(*pinmux), GFP_KERNEL);
-> > +                       if (!pinmux)
-> > +                               goto free_pins;
-> > +
-> > +                       for (i = 0; i < npins; i++) {
-> > +                               u32 v;
-> > +
-> > +                               ret = of_property_read_u32_index(child, "pinmux", i, &v);
-> > +                               if (ret)
-> > +                                       goto free_pinmux;
-> > +                               pins[i] = starfive_gpio_to_pin(sfp, starfive_pinmux_to_gpio(v));
-> > +                               pinmux[i] = v;
-> > +                       }
->
-> Why you can't use of_property_read_u32_array() APIs?
-
-I can here, but..
-
-> > +                       map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
-> > +                       map[nmaps].data.mux.function = np->name;
-> > +                       map[nmaps].data.mux.group = grpname;
-> > +                       nmaps += 1;
-> > +               } else if ((npins = of_property_count_u32_elems(child, "pins")) > 0) {
-> > +                       pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
-> > +                       if (!pins)
-> > +                               goto free_grpname;
-> > +
-> > +                       pinmux = NULL;
-> > +
-> > +                       for (i = 0; i < npins; i++) {
-> > +                               u32 v;
-> > +
-> > +                               ret = of_property_read_u32_index(child, "pins", i, &v);
-> > +                               if (ret)
-> > +                                       goto free_pins;
-> > +                               pins[i] = v;
-> > +                       }
->
-> NIH _array() APIs.
-
-.. here the pins array is an int array and not u32 array. I can cast
-it and and hope Linux will never run on a machine where sizeof(int) !=
-4 if you think that's better?
-
-> > +               } else {
-> > +                       ret = -EINVAL;
-> > +                       goto free_grpname;
-> > +               }
-> > +
-> > +               ret = pinctrl_generic_add_group(pctldev, grpname, pins, npins, pinmux);
-> > +               if (ret < 0) {
-> > +                       dev_err(dev, "error adding group %pOFn.%pOFn: %d\n",
-> > +                               np, child, ret);
-> > +                       goto free_pinmux;
-> > +               }
-> > +
-> > +               ret = pinconf_generic_parse_dt_config(child, pctldev,
-> > +                                                     &map[nmaps].data.configs.configs,
-> > +                                                     &map[nmaps].data.configs.num_configs);
-> > +               if (ret) {
-> > +                       dev_err(dev, "invalid pinctrl group %pOFn.%pOFn: %s\n",
-> > +                               np, child, "error parsing pin config");
-> > +                       goto put_child;
-> > +               }
-> > +
-> > +               /* don't create a map if there are no pinconf settings */
-> > +               if (map[nmaps].data.configs.num_configs == 0)
-> > +                       continue;
-> > +
-> > +               map[nmaps].type = PIN_MAP_TYPE_CONFIGS_GROUP;
-> > +               map[nmaps].data.configs.group_or_pin = grpname;
-> > +               nmaps += 1;
-> > +       }
->
-> ...
->
-> > +free_pinmux:
-> > +       devm_kfree(dev, pinmux);
-> > +free_pins:
-> > +       devm_kfree(dev, pins);
-> > +free_grpname:
-> > +       devm_kfree(dev, grpname);
->
-> > +free_pgnames:
-> > +       devm_kfree(dev, pgnames);
->
-> Just no, please get rid of them either way as I explained in previous reviews.
-
-So I asked you if you thought it was better to leave these unused
-allocations when parsing the device tree node fails but you never
-answered that. I didn't want put words in your mouth so I could only
-assume you didn't. I'd really like a straight answer to that so I have
-something to refer to when people ask why this driver doesn't do the
-same as fx. the pinctrl-single. So just to be clear: do you think it's
-better to leave this unused garbage allocated if parsing the device
-tree node fails?
-
-> > +               raw_spin_lock_irqsave(&sfp->lock, flags);
-> > +               writel_relaxed(dout, reg_dout);
-> > +               writel_relaxed(doen, reg_doen);
-> > +               if (reg_din)
-> > +                       writel_relaxed(gpio + 2, reg_din);
->
-> Why 0 can't be written?
-
-Because signal 0 is a special "always 0" signal and signal 1 is a
-special "always 1" signal, and after that signal n is the input value
-of GPIO n - 2. We don't want to overwrite the PoR defaults.
-
-> > +       mask = 0;
-> > +       value = 0;
-> > +       for (i = 0; i < num_configs; i++) {
-> > +               int param = pinconf_to_config_param(configs[i]);
-> > +               u32 arg = pinconf_to_config_argument(configs[i]);
-> >
-> +
-> > +               switch (param) {
-> > +               case PIN_CONFIG_BIAS_DISABLE:
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
->
-> Okay, I have got why you are masking on each iteration, but here is
-> the question, shouldn't you apply the cnages belonged to each of the
-> group of options as it's requested by the user? Here you basically
-> ignore all previous changes to bias.
->
-> I would expect that you have something like
->
-> for () {
->   switch (type) {
->   case BIAS*:
->     return apply_bias();
->   ...other types...
->   default:
->     return err;
->   }
-> }
-
-I such cases where you get conflicting PIN_CONFIG_BIAS_* settings I
-don't see why it's better to do the rmw on the padctl register for the
-first bias setting only to then change the bits again a few
-microseconds later when the loop encounters the second bias setting.
-After the loop is done the end result would still be just the last
-bias setting.
-
-> > +                       break;
-> > +               case PIN_CONFIG_BIAS_PULL_DOWN:
-> > +                       if (arg == 0)
-> > +                               return -ENOTSUPP;
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_PULL_DOWN;
-> > +                       break;
-> > +               case PIN_CONFIG_BIAS_PULL_UP:
-> > +                       if (arg == 0)
-> > +                               return -ENOTSUPP;
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = value & ~PAD_BIAS_MASK;
-> > +                       break;
-> > +               case PIN_CONFIG_DRIVE_STRENGTH:
-> > +                       mask |= PAD_DRIVE_STRENGTH_MASK;
-> > +                       value = (value & ~PAD_DRIVE_STRENGTH_MASK) |
-> > +                               starfive_drive_strength_from_max_mA(arg);
-> > +                       break;
-> > +               case PIN_CONFIG_INPUT_ENABLE:
-> > +                       mask |= PAD_INPUT_ENABLE;
-> > +                       if (arg)
-> > +                               value |= PAD_INPUT_ENABLE;
-> > +                       else
-> > +                               value &= ~PAD_INPUT_ENABLE;
-> > +                       break;
-> > +               case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-> > +                       mask |= PAD_INPUT_SCHMITT_ENABLE;
-> > +                       if (arg)
-> > +                               value |= PAD_INPUT_SCHMITT_ENABLE;
-> > +                       else
-> > +                               value &= ~PAD_INPUT_SCHMITT_ENABLE;
-> > +                       break;
-> > +               case PIN_CONFIG_SLEW_RATE:
-> > +                       mask |= PAD_SLEW_RATE_MASK;
-> > +                       value = (value & ~PAD_SLEW_RATE_MASK) |
-> > +                               ((arg << PAD_SLEW_RATE_POS) & PAD_SLEW_RATE_MASK);
-> > +                       break;
-> > +               case PIN_CONFIG_STARFIVE_STRONG_PULL_UP:
-> > +                       if (arg) {
-> > +                               mask |= PAD_BIAS_MASK;
-> > +                               value = (value & ~PAD_BIAS_MASK) |
-> > +                                       PAD_BIAS_STRONG_PULL_UP;
-> > +                       } else {
-> > +                               mask |= PAD_BIAS_STRONG_PULL_UP;
-> > +                               value = value & ~PAD_BIAS_STRONG_PULL_UP;
-> > +                       }
-> > +                       break;
-> > +               default:
-> > +                       return -ENOTSUPP;
-> > +               }
-> > +       }
->
-> ...
->
-> > +static int starfive_gpio_request(struct gpio_chip *gc, unsigned int gpio)
-> > +{
-> > +       return pinctrl_gpio_request(gc->base + gpio);
-> > +}
-> > +
-> > +static void starfive_gpio_free(struct gpio_chip *gc, unsigned int gpio)
-> > +{
-> > +       pinctrl_gpio_free(gc->base + gpio);
-> > +}
->
-> Point of having these function is...?
-
-These calls tells the pinctrl system that a certain pin is now used
-for GPIO. Conversely it'll also prevent fx. userspace from doing GPIO
-on a pin that's already used by I2C, a UART or some other peripheral.
-
-> > +       /* enable input and schmitt trigger */
->
-> Use capitalization consistently.
-
-I am?
-
-> > +       case IRQ_TYPE_EDGE_RISING:
-> > +               irq_type  = mask; /* 1: edge triggered */
-> > +               edge_both = 0;    /* 0: single edge */
-> > +               polarity  = mask; /* 1: rising edge */
-> > +               handler   = handle_edge_irq;
-> > +               break;
-> > +       case IRQ_TYPE_EDGE_FALLING:
-> > +               irq_type  = mask; /* 1: edge triggered */
-> > +               edge_both = 0;    /* 0: single edge */
-> > +               polarity  = 0;    /* 0: falling edge */
-> > +               handler   = handle_edge_irq
-> > +               break;
-> > +       case IRQ_TYPE_EDGE_BOTH:
-> > +               irq_type  = mask; /* 1: edge triggered */
-> > +               edge_both = mask; /* 1: both edges */
-> > +               polarity  = 0;    /* 0: ignored */
-> > +               handler   = handle_edge_irq;
->
-> Dup. You may do it once without any temporary variable.
-> I haven't got why you haven't addressed this.
-
-So you want two switches on the trigger variable, one for irq_type,
-edge_both and polarity, and one for the handler? If this is not what
-you have in mind please be a lot more explicit. Trying to guess what
-you mean gets really old.
-
-> > +               break;
-> > +       case IRQ_TYPE_LEVEL_HIGH:
-> > +               irq_type  = 0;    /* 0: level triggered */
-> > +               edge_both = 0;    /* 0: ignored */
-> > +               polarity  = mask; /* 1: high level */
-> > +               handler   = handle_level_irq;
-> > +               break;
-> > +       case IRQ_TYPE_LEVEL_LOW:
-> > +               irq_type  = 0;    /* 0: level triggered */
-> > +               edge_both = 0;    /* 0: ignored */
-> > +               polarity  = 0;    /* 0: low level */
-> > +               handler   = handle_level_irq;
->
-> Ditto.
->
-> > +               break;
->
-> ...
->
-> > +       clk = devm_clk_get(dev, NULL);
-> > +       if (IS_ERR(clk)) {
->
-> > +               ret = PTR_ERR(clk);
->
-> Inline into below.
->
-> > +               return dev_err_probe(dev, ret, "could not get clock: %d\n", ret);
-> > +       }
->
-> Ditto for all other similar cases.
-
-So you would rather want this?
-  return dev_err_probe(dev, PTR_ERR(clk), "could not get clock: %d\n",
-PTR_ERR(clk));
-or just not tell why getting the clock failed?
-
-> > +       if (!device_property_read_u32(dev, "starfive,signal-group", &value)) {
->
-> Since you are using of_property_* elsewhere, makes sense to use same
-> here, or otherwise, use device_*() APIs there.
-
-Wait, so now you want of_property_read_u32(dev->of_node, ...) here
-again, is that right?
-
-/Emil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCAwOSBPY3QgMjAyMSAwNjoxODo0OCBQRFQgKC0wNzAwKSwgbWlja0BpY3MuZm9ydGgu
+Z3Igd3JvdGU6Cj4gzqPPhM65z4IgMjAyMS0xMC0wNiAxNDoxMywgQWxleGFuZHJlIEdoaXRpIM6t
+zrPPgc6xz4jOtToKPj4+ICsKPj4+ICsgICAgICAgLyogVGhpcyB3aWxsIHRyaWdnZXIgYSBqdW1w
+IHRvIENTUl9TVFZFQyBhbnl3YXkgKi8KPj4+ICAgICAgICAgamFsciAgICB6ZXJvLCBhMiwgMAo+
+Pgo+PiBUaGUgbGFzdCBqdW1wIHRvIGEyIGNhbiBiZSByZW1vdmVkIHNpbmNlIHRoZSBmYXVsdCB3
+aWxsIGJlIHRyaWdnZXJlZAo+PiBiZWZvcmUgZXZlbiByZWFjaGluZyB0aGlzIGluc3RydWN0aW9u
+Lgo+Pgo+Cj4gSnVzdCBzd2l0Y2hpbmcgU0FUUCB0byB6ZXJvIGRvZXNuJ3QgZ2VuZXJhdGUgYSB0
+cmFwIHVubGVzcyBtc3RhdHVzLlRWTQo+IGlzIHNldCAoZm9yIHZpc3VhbGl6YXRpb24gcHVycG9z
+ZXMpLiBUaGUgaGFydCB3aWxsIHRyeSBhbmQgZXhlY3V0ZSB0aGUKPiBuZXh0IGluc3RydWN0aW9u
+IGJ1dCBpdCdzIG5vdCBjbGVhciBpbiB0aGUgc3BlYyB3aGF0IGhhcHBlbnMgaW4gY2FzZSB0aGUK
+PiBjb2RlIGlzIGNhY2hlZCwgSSBkb24ndCB3YW50IHRvIHJlbHkgc29sZWx5IG9uIFNUVkVDLiBJ
+IHByZWZlciBoYXZpbmcKPiB0aGlzIGluc3RydWN0aW9uIHRoZXJlLCBub3RlIHRoYXQgc29tZSBl
+YXJsaWVyIFFFTVUgdmVyc2lvbnMgYWxzbyBoYWQKPiB0aGlzIGJlaGF2aW9yICh0aGUgb3JpZ2lu
+YWwga2R1bXAgcGF0Y2ggZGlkbid0IHNldCBTVFZFQyBhbmQgaXQgd29ya2VkCj4gZmluZSBhZnRl
+ciBzZXR0aW5nIFNBVFAgdG8gemVybykuCgpJSVJDIHRoaXMgY2FtZSBkb3duIHRvIHNvbWUgdmVy
+eSBzcGVjaWZpYyB3b3JkaW5nIGluIHRoZSBzcGVjLiAgClNvbWV0aGluZyBhbG9uZyB0aGUgbGlu
+ZXMgb2YgdGhlIDAgaW4gU0FUUCBtZWFuaW5nICJubyB0cmFuc2xhdGlvbiIsIApTRkVOQ0UuVk1B
+IG9yZGVyaW5nIHRyYW5zbGF0aW9ucywgYW5kIHRoZSBnZW5lcmFsICJpZiB0aGUgc3BlYyBkb2Vz
+bid0IAptZW50aW9uIGl0IHRoZW4gaXQgaGFzIHRvIHdvcmsiIGxvZ2ljLiAgSSB0aG91Z2h0IEkg
+b3BlbmVkIGEgc3BlYyBpc3N1ZSAKYWJvdXQgdGhpcyBmb3IgY2xhcmlmaWNhdGlvbiwgYnV0IEkg
+Y2FuJ3QgZmluZCBpdC4KClRoYXQgc2FpZCwgSSdtIHBlcmZlY3RseSBmaW5lIHRha2luZyB0aGUg
+c2FmZSBhcHByb2FjaCBoZXJlIGFzIGl0J3Mgbm90IApsaWtlIHRoZSBwZXJmb3JtYW5jZSBtYXR0
+ZXJzIGhlcmUuICBXYXJyYW50cyBhIGNvbW1lbnQsIHRob3VnaC4KCj4KPj4KPj4gVGhpcyBwYXRj
+aCBmaXhlcyBhIHJlZ3Jlc3Npb24gaW50cm9kdWNlZCB3aGVuIG1vdmluZyB0aGUga2VybmVsIHRv
+IHRoZQo+PiBlbmQgb2YgdGhlIGFkZHJlc3Mgc3BhY2UsIHNvIHdlIHNob3VsZCBhZGQ6Cj4+IEZp
+eGVzOiAyYmZjNmNkODFiZDEgKCJyaXNjdjogTW92ZSBrZXJuZWwgbWFwcGluZyBvdXRzaWRlIG9m
+IGxpbmVhcgo+PiBtYXBwaW5nIikKPj4KPj4gQW5kIGl0IHNob3VsZCBiZSBiYWNrcG9ydGVkIHRv
+IDUuMTMgYW5kIDUuMTQuIEl0IHNlZW1zIHRoYXQgdGhlCj4+IGZvbGxvd2luZyB0YWdzIHNob3Vs
+ZCBiZSBlbm91Z2g6Cj4+Cj4+IENjOiA8c3RhYmxlQHZnZXIua2VybmVsLm9yZz4gIyA1LjEzCj4+
+IENjOiA8c3RhYmxlQHZnZXIua2VybmVsLm9yZz4gIyA1LjE0Cj4+Cj4+IEFuZCBmaW5hbGx5LCB5
+b3UgY2FuIGFkZDoKPj4KPj4gUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0
+aS5mcj4KPj4KPgo+IEFDSywgdGhhbmtzICEgSSdsbCByZXNlbmQgdGhlIHBhdGNoIHdpdGggdGhl
+IHRhZ3MgeW91IG1lbnRpb25lZC4KCkkgZG9uJ3QgaGF2ZSBhIHYyIGluIG15IGluYm94LCBkaWQg
+SSBtaXNzIHNvbWV0aGluZz8gIEFsc28sIGlmIGl0J3MganVzdCAKdGhlIHRhZ3MgdGhlbiBpdCdz
+IGdlbmVyYWxseSBub3QgbmVjZXNzYXJ5IHRvIHJlLXNlbmQgc29tZXRoaW5nLiAgVGhlIApjb21t
+ZW50IGRvZXMsIHRob3VnaC4KCkxNSyBpZiB5b3Ugd2FudCBtZSB0byBkZWFsIHdpdGggdGhpcywg
+b3IgaWYgdGhlcmUncyBnb2luZyB0byBiZSBhIHYyLgoKVGhhbmtzIQoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
