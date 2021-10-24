@@ -2,15 +2,15 @@ Return-Path: <SRS0=WjcT=PM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 327CBC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 05:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0B15C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 07:35:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BFF0E60F21
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 05:05:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BFF0E60F21
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4F8E46054F
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 07:35:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4F8E46054F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,62 +18,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cNCNHFPkbrQNWceuAGdzKgxXkK202KvhqvFDKGbbQU8=; b=TWg2zCeSU8l+PW
-	8S7kxd7jRXuzTRgwF0RRBQ1g2u+iCfVtt6SLrfY7xDWzB9I7GVohsVLquvb5qTH769C+ZYQVsmGUf
-	q/B8OZlidFxDPz8gntC9tALb1ZuJeUJ/1mi0YRHkUPPfuoBC1/M6GZBzwRgVQ4FRF5jzqGy+q/Y4i
-	6O18i7DNMEFss3KeCHJHLuRHga2TSAzKya3TV5xBG7wUw5Jnj9wBNflm5Ksa84zNwyYLd8FQUhikp
-	9yrxgP2tAVDrUbeBvhhd3H1JsTDEnZVeMCIpDAFgwO51EAX4FL3xKsFtmlVmBfW5nR6DM+i9b11Ib
-	LcrKuwY5AHfO7+EX2oLg==;
+	List-Owner; bh=6HlNmGWgUNltAHkF0YVonG4ko7oceA674UEA14G6HnE=; b=bULh154wq3nqoO
+	tlTmwdgIEHE5X00hU8t6uRa9iiJzl+HMSPfHuWsloLtlTDaZNzJYfba8kEZvcahwo+NvuqWght6DH
+	25Dylgv+EfEQpWE6HO1TGp7ar9PRi4tptnkPo/PhMmEQjQeBPHAYqEa+2t3xrb1V3wAFlrmMqGlV8
+	gpdGiaUUb8ZBiYBfDSn8qmbCnfrxq+OKrun6et5GpO9lUxgebZdRUEgOeZ6vkWVpBz3x62YdQvWNU
+	HvCwI9aWbAb+bd3VN73vmjFiOFiyaB7sXP25ToAiZ+8xyYBWyRu3kq1hbQUNeyuhcPQLRqmcBvnXz
+	9ezb9deGfL4OUYHeAlyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1meVgr-00DhND-PU; Sun, 24 Oct 2021 05:05:01 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1meY2P-00DlZk-Ak; Sun, 24 Oct 2021 07:35:25 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1meVgo-00DhMK-0D; Sun, 24 Oct 2021 05:04:59 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5B25760F93;
- Sun, 24 Oct 2021 05:04:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635051897;
- bh=XPjRlyX01tPN+GDrTIw56jlzqIOPkkWonyHeLOcnpE0=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=cfLAqPB70XnUy0FGTSdeWBIV9kMPxVkHx/Yfx2sPpurdkhorzqOQojtrEaAsm8PB9
- xvm90JuGxOk8W5KvEQuQ6MJW3ujW2Ytvrov07fESirWI2iClc4Z2ox3UNwJPmz38x2
- uROogCBlpIb3G4PBOguDNgG2TSqd6OBI4/CAXR4KG+tJO+WTt3SP3gr17WL4a6iHcu
- RW2XznDpySWROLXVpUimxXPvqPF/Qj7XuIT8xix4NT+aRwG6+xxnLxk8G7NG+ERE+g
- TLeKzIOPS/F0cWyb/mvlkA+AHSfUAV7ej1bf593imVwyN34tRywOJ3uAxTElC10RtW
- sutrPq2PlDsWg==
-Received: by mail-ua1-f41.google.com with SMTP id q13so15625680uaq.2;
- Sat, 23 Oct 2021 22:04:57 -0700 (PDT)
-X-Gm-Message-State: AOAM530vpN9yJK7ug40PpNxGXok09Qn7/s1St3xQcn74SASuGeRUF73w
- Fp0i2APiZTq2PMAM1DRvujFbBDSs934CYxjSZsY=
-X-Google-Smtp-Source: ABdhPJw1CJYlZm9uEwdRySScVK62eInO9uZQTLTlhSFUVGULNnIKZAhTOYkg9gev9SXm9l8KZSKnKJg8beINwFI0BQ0=
-X-Received: by 2002:a05:6102:c4d:: with SMTP id
- y13mr9426070vss.33.1635051896426; 
- Sat, 23 Oct 2021 22:04:56 -0700 (PDT)
+ id 1meY2M-00DlZO-EI
+ for linux-riscv@lists.infradead.org; Sun, 24 Oct 2021 07:35:24 +0000
+Received: by mail-wm1-x329.google.com with SMTP id
+ 71-20020a1c014a000000b0032cafd23b1dso2138851wmb.4
+ for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 00:35:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=qRIE383vJ698wFSfRg03sNhcy6U9VEEBxhS9bVA3ruI=;
+ b=2wdtSeVNGcC/Sq/OZxMtMFcS0g8vqaownUF5dmjDU3fCv7l1R2zIR2362HFm2QvGqL
+ veYW9G1TlYOd538YOmhuUIzCxh8seWgHzRZmnYwPjUeuufYIxI33lKpEOdmrC1oiw69M
+ 37d0Ih2mXnpXphTbjZa9yQpIfPUvddXJRJyQ93RiJnglDrxtbAowydCdDWs7zHcJmb4Q
+ rXCPEoCXVKZc8bNOdzEJjYErDpIJuznrXaBOZIEn6+NNU7ddMsg5/4AupIPv4KMgMgwQ
+ i3x8I7x5SHYiB/pGTj+D9jN6a/BJGy/k2udCTEYJhXuKNMNcE2FbQvvvuJdVqVNIdBgb
+ FLrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qRIE383vJ698wFSfRg03sNhcy6U9VEEBxhS9bVA3ruI=;
+ b=IuXdKRyKwddQOVZ5qDbVTgKRrIkV1eXbM9BSy5Kx8uTl8X4mc5yboLdY9MOhmLndQi
+ lOCauzUhIEKIfaNwGq90L955ii63WV66rNO3syJWZwUjqcMm435WOSAJjK84+SF04JSX
+ fx9JJeA/5CAkJx4izortou64STyrhsS03HUFUpqqm+hURCzzObkxdmBp9lKVQh/FiDog
+ ZiMmKNKrO4eS6YfjDhCL3D8U3slzK2iJ+lj6AnGXXiAQ63szDl4QNVGKfu/Jo4xAT6wr
+ P1l1RsogQpciw9iZfM6ZOJulCm3n7z9Vw9abGwcnSw0LKSun+ux7kra7RdreNY0otscy
+ Hh0w==
+X-Gm-Message-State: AOAM532n0Juhbzwe/Rn0e2klLM8zUrk6OF+KA4czKdGSE+5CwGunVAYh
+ w+Vc/jktZAcYhAi0iwxEcHfln3mGn0UB4qOXv4I3MA==
+X-Google-Smtp-Source: ABdhPJzoIR/OM0dQJ3Lg7NvMpsZq65ugnqjiaD36e/5z4YMD47mYsLKL+ZwN2SOfBg5479U8bWBd1r1MuQK+SRFUKbI=
+X-Received: by 2002:a1c:7201:: with SMTP id n1mr40201749wmc.176.1635060920075; 
+ Sun, 24 Oct 2021 00:35:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211020093603.28653-1-heinrich.schuchardt@canonical.com>
- <YXMriYWcOcgJSpKj@robh.at.kernel.org>
- <6d642c10-27b1-72bd-a38e-f966ae8831f0@canonical.com>
-In-Reply-To: <6d642c10-27b1-72bd-a38e-f966ae8831f0@canonical.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 24 Oct 2021 13:04:45 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSzXwLmFskhGb2dAqAtOA7Ok_O66NCoDSh1h-bWAqdoDA@mail.gmail.com>
-Message-ID: <CAJF2gTSzXwLmFskhGb2dAqAtOA7Ok_O66NCoDSh1h-bWAqdoDA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] dt-bindings: T-HEAD CLINT
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Rob Herring <robh@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Guo Ren <guoren@linux.alibaba.com>, 
- Bin Meng <bmeng.cn@gmail.com>, Xiang W <wxjstz@126.com>, 
- Samuel Holland <samuel@sholland.org>, Atish Patra <atish.patra@wdc.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Anup Patel <anup.patel@wdc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>, 
+References: <20211024013303.3499461-1-guoren@kernel.org>
+ <20211024013303.3499461-3-guoren@kernel.org>
+In-Reply-To: <20211024013303.3499461-3-guoren@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 24 Oct 2021 13:05:08 +0530
+Message-ID: <CAAhSdy2a2XgjOpezoq=SvX2XTcAWhceKF9X9v3z7xyO9Z4DMPQ@mail.gmail.com>
+Subject: Re: [PATCH V5 2/3] dt-bindings: update riscv plic compatible string
+To: Guo Ren <guoren@kernel.org>
+Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Rob Herring <robh@kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>,
- OpenSBI <opensbi@lists.infradead.org>
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211023_220458_116083_9D3A09F0 
-X-CRM114-Status: GOOD (  35.79  )
+X-CRM114-CacheID: sfid-20211024_003522_576383_307442EB 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,129 +96,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 23, 2021 at 8:03 AM Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
+On Sun, Oct 24, 2021 at 7:03 AM <guoren@kernel.org> wrote:
 >
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
+> Add the compatible string "thead,c900-plic" to the riscv plic
+> bindings to support allwinner d1 SOC which contains c906 core.
 >
-> On 10/22/21 23:22, Rob Herring wrote:
-> > On Wed, Oct 20, 2021 at 11:36:03AM +0200, Heinrich Schuchardt wrote:
-> >> The CLINT in the T-HEAD 9xx CPUs is similar to the SiFive CLINT but does
-> >> not support 64bit mmio access to the MTIMER device.
-> >>
-> >> OpenSBI currently uses a property 'clint,has-no-64bit-mmio' to indicate the
-> >> restriction and the "sifive,cling0" compatible string. An OpenSBI
-> >> patch suggested to use "reg-io-width = <4>;" as the reg-io-width property
-> >> is generally used in the devicetree schema for such a condition.
-> >>
-> >> As the design is not SiFive based it is preferable to apply a compatible
-> >> string identifying T-HEAD instead.
-> >>
-> >> Add a new yaml file describing the T-HEAD CLINT.
-> >>
-> >> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> >> ---
-> >> @Palmer, @Anup
-> >> I copied you as maintainers from sifive,clint.yaml. Please, indicate if
-> >> this should be changed.
-> >>
-> >> For the prior discussion see:
-> >> https://lore.kernel.org/all/20211015100941.17621-1-heinrich.schuchardt@canonical.com/
-> >> https://lore.kernel.org/all/20211015120735.27972-1-heinrich.schuchardt@canonical.com/
-> >>
-> >> A release candidate of the ACLINT specification is available at
-> >> https://github.com/riscv/riscv-aclint/releases
-> >> ---
-> >>   .../bindings/timer/thead,clint.yaml           | 62 +++++++++++++++++++
-> >>   1 file changed, 62 insertions(+)
-> >>   create mode 100644 Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/timer/thead,clint.yaml b/Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >> new file mode 100644
-> >> index 000000000000..02463fb2043a
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/timer/thead,clint.yaml
-> >> @@ -0,0 +1,62 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/timer/thead,clint.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: SiFive Core Local Interruptor
-> >> +
-> >> +maintainers:
-> >> +  - Palmer Dabbelt <palmer@dabbelt.com>
-> >> +  - Anup Patel <anup.patel@wdc.com>
-> >> +
-> >> +description:
-> >> +  T-HEAD (and other RISC-V) SOCs include an implementation of the T-HEAD
-> >> +  Core Local Interruptor (CLINT) for M-mode timer and M-mode inter-processor
-> >> +  interrupts. It directly connects to the timer and inter-processor interrupt
-> >> +  lines of various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local
-> >> +  interrupt controller is the parent interrupt controller for CLINT device.
-> >> +  The clock frequency of the CLINT is specified via "timebase-frequency" DT
-> >> +  property of "/cpus" DT node. The "timebase-frequency" DT property is
-> >> +  described in Documentation/devicetree/bindings/riscv/cpus.yaml
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    items:
-> >> +      - const:
-> >> +          - allwinner,sun20i-d1-clint
-> >> +      - const:
-> >> +          - thead,clint0
-> >> +
-> >> +    description:
-> >> +      Should be "<vendor>,<chip>-clint" and "thead,clint<version>" for
-> >> +      the T-HEAD derived CLINTs.
-> >> +      Supported compatible strings are -
-> >> +      "allwinner,sun20i-d1-clint" for the CLINT in the Allwinner D1 SoC
-> >> +      and "thead,clint0" for the T-HEAD IP block with no chip
-> >> +      integration tweaks.
-> >
-> > T-HEAD uses the same versioning as SiFive? If you use version numbers in
-> > compatible strings, the numbering needs to be documented and correlate
-> > back to the h/w design. See [1]. IP release numbers for FPGA IP for
-> > example. What it should not be is the binding author making up 0, 1, 2,
-> > etc. versions.
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Rob Herring <robh+dt@kernel.org>
+> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 >
-> The only publicly available information on the IP block is:
+> ---
 >
-> https://github.com/T-head-Semi/openc906/blob/main/doc/%E7%8E%84%E9%93%81C906%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+> Changes since V5:
+>  - Add DT list
+>  - Fixup compatible string
+>  - Remove allwinner-d1 compatible
+>  - make dt_binding_check
 >
-> Page 3 has a version number for the whole document. Chapter 9 does not
-> have any version number for the CLINT. So should we simply call the
-> block "thead,clint" without any version number?
+> Changes since V4:
+>  - Update description in errata style
+>  - Update enum suggested by Anup, Heiko, Samuel
 >
-> @Guo: do you have more information accessible?
-We didn't define the version of "thead,clint", and it belonged to the
-CPU implementation version. We usually use "thead,clint0" at first,
-and update it to "thead,clintX" when we update it.
+> Changes since V3:
+>  - Rename "c9xx" to "c900"
+>  - Add thead,c900-plic in the description section
+> ---
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml   | 15 ++++++++++++---
+>  1 file changed, 12 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> index 08d5a57ce00f..18b97bfd7954 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> @@ -35,6 +35,10 @@ description:
+>    contains a specific memory layout, which is documented in chapter 8 of the
+>    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
+>
+> +  The thead,c900-plic couldn't complete masked irq source which has been disabled in
+> +  enable register. Add thead_plic_chip which fix up c906-plic irq source completion
+> +  problem by unmask/mask wrapper.
+> +
 
+This is an incomplete description about how T-HEAD PLIC is different from
+RISC-V PLIC.
+
+I would suggest the following:
+
+The T-HEAD C9xx SoC implements a modified/custom T-HEAD PLIC specification
+which will mask current IRQ upon read to CLAIM register and will unmask the IRQ
+upon write to CLAIM register. The thead,c900-plic compatible string
+represents the
+custom T-HEAD PLIC specification.
+
+Regards,
+Anup
+
+>  maintainers:
+>    - Sagar Kadam <sagar.kadam@sifive.com>
+>    - Paul Walmsley  <paul.walmsley@sifive.com>
+> @@ -42,11 +46,16 @@ maintainers:
 >
-> Best regards
+>  properties:
+>    compatible:
+> -    items:
+> +   oneOf:
+> +    - items:
+>        - enum:
+> -          - sifive,fu540-c000-plic
+> -          - canaan,k210-plic
+> +        - sifive,fu540-c000-plic
+> +        - canaan,k210-plic
+>        - const: sifive,plic-1.0.0
+> +    - items:
+> +      - enum:
+> +        - allwinner,sun20i-d1-plic
+> +      - const: thead,c900-plic
 >
-> Heinrich
->
-> >
-> > Rob
-> >
-> > [1] Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
-> >
->
+>    reg:
+>      maxItems: 1
 > --
-> opensbi mailing list
-> opensbi@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/opensbi
-
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
