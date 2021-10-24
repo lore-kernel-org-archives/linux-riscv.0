@@ -2,15 +2,15 @@ Return-Path: <SRS0=WjcT=PM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 03B60C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 09:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABB7FC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 09:29:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A721160F57
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 09:19:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A721160F57
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 26D8660EBC
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 09:29:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 26D8660EBC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,69 +18,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lQ8Mbyue82G9/dpPUkRH6eETSm/A6Fv3jMDHSt3jGz0=; b=dBrI7HNt40dDql
-	p+uoBuIBuN4T/AasqEKAVI7ysZpAVJLiekRNxcQFBtQjztdiReMCwr3dhF5AGUXMwOeWkZfgvZlyh
-	WNkJlSv1QJOzNY3IC+wsfW6Gac/DPF77i131OccMrJOpbhR5utoyzXn99XU8sdySlEr3SGtho6zYy
-	FF/sVLC4sQe5XKt6wlVltmeqeWmJhjwUDtoH3lDRaeiUohJlSyX5STK7/fZn8KgvRAUdRF5ktINQs
-	GW9fo8sLCiOZ457daubQ2SMs8h7fJf4OswjptO9IqVnsvGA9+Gdk9wG0w+1gue/4AFYeVEZLF6/eU
-	3K5rjQylYfa1wCRTepVA==;
+	List-Owner; bh=0DaRnvpXHN8R8QOVTG8yo7DL4pfu5bOd57jL7scNrQo=; b=3NxcFGIYUoLNQZ
+	HaP+aTtHZ2PGy9ykkdP78nokaQzi9/brhbGhwtNgQY++cfM+mOWm5uY1Meixf++km04pvMjjSwm8h
+	4ale/m5AQtH7etl89y2NYJMHLrCL/LimC3ebAhHX/6yCduOppR/XmbY9xwxx2Zv/on6OQUCrH1igb
+	+IIrZ3xhA7Jjxak5dedsEeJNcHiRZ0Say7ATeyMvokkhWqJLILW2Dhr6CVcRzFilptCpYSSCmMPcD
+	5aMv1QBQUm41qlZxB2noZHDDEkcLW+6NBp6N1wjAEDJugY4Mf/ub19u8ylxUmiPmaoLLjhnWYV13b
+	xLiLSjfgRC9itMV0ZR1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1meZeY-00Dq0p-Np; Sun, 24 Oct 2021 09:18:54 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1meZoc-00DqLd-Nc; Sun, 24 Oct 2021 09:29:18 +0000
+Received: from mail-pj1-f50.google.com ([209.85.216.50])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1meZeV-00Dpzs-OE
- for linux-riscv@lists.infradead.org; Sun, 24 Oct 2021 09:18:53 +0000
-Received: by mail-wm1-x334.google.com with SMTP id p21so7514440wmq.1
- for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 02:18:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ZgyiV7a56jcfc4Zgoz6RZ06xgGpfIBQ1EcTEps9MZjg=;
- b=XKSV0mMdPBwyMtpoB+nMYnoMrQWo7jtJYxcm9fM447tgOmbpzq2q1uBMTJ6OCoqJsa
- xUaNmOpA6PXlO5DIHHercncaA7oEyh/taIXVaw9rhbaccLMFTbX/Ei+55vl1/xWraSW8
- iHxKtOzpHQaJIsXtzifgJd67lg3/C7/WbYhGJLUwcoAqEJnp96yfLaRXYOKDYdExgWKj
- BOa3XPKe+0LaX8JPO8BjVK1KVaQAF+265jypGC5JHayXfgy23HJyUqyrg2p6pU9ssjDz
- bmygz1sfZtTKR7XjStPG5terbAPdKGJnGJ2nOx1jp3H01BUhYyEpKImZ8hMDC0UWei/U
- QpYw==
+ id 1meZoY-00DqKy-Uj
+ for linux-riscv@lists.infradead.org; Sun, 24 Oct 2021 09:29:17 +0000
+Received: by mail-pj1-f50.google.com with SMTP id
+ na16-20020a17090b4c1000b0019f5bb661f9so6178296pjb.0
+ for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 02:29:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=ZgyiV7a56jcfc4Zgoz6RZ06xgGpfIBQ1EcTEps9MZjg=;
- b=RE5HBmU7pdrf3prjAJZLTQSJRvqKXuQ6cd5CJa4BNmkIO1sZroKTfeJYly1E79Eh48
- xTtmbn2zhV17Ikig9y+9FfuDK1HsYVQw2x+K0eWIiPKFVtTL7llcZ3yCDSiOn1sOMBEv
- 1LieEJKEpMdv747+0TmILEFqadDzPgX+/0Qo3HWq6nGPuVReYMKWAdShTbPv8h+GRX4/
- xl3zKkUN+0dpo3u3Dmj4Z5nOKxM50Ev+S5dQ/zM5zF+3jGJ9FzVSpU+HVeapwM9dtnu6
- JRzCkPswJAiT8Khnh2YPmIqcLTzyJLtSELnLRuAm2gOr51BeD/X5C/8lmhxLLR6YwjGc
- HO5Q==
-X-Gm-Message-State: AOAM533mzibDcKlyWy64p8Yk1Y5/NjYJoljI8By11/vqVaf1Dbkq5iMS
- CKbNv8LIuY9O04hTTDlV8B2CAdI1hO2pgeH33X2fOQ==
-X-Google-Smtp-Source: ABdhPJxdU+4zeuFzfRihPM9WedFMwnx5jYQEiDfGFR2NApNSgsTeKpCU8nbwhdPVkMLvdUDFBZDWn1zlnN+yOpiVVf0=
-X-Received: by 2002:a1c:7918:: with SMTP id l24mr11879021wme.137.1635067129520; 
- Sun, 24 Oct 2021 02:18:49 -0700 (PDT)
+ bh=AtnhJDg1yXoN87a6f65ZXajgyzKarXRMIiguSWzzW8o=;
+ b=T6ePnBT8Kkn+SETkKL+sJebYFDxTo2wQtFn/Bra+TCBhtjt+QSe/CxNhVd0oNyhbWD
+ von/Cdqr+8pPnOTQ6b4jAbfVjZL1p7EelPzuh7yce6w3t+NfoZ1yhfcjA8Y7YtQXtpOz
+ V23s8CZmjb/dTVAqtSl4T8xV4t34C7vBaBO+MReCOHzRuwL4zX/ZllyUbcByt7oqUD/4
+ rfdZzn8d4RXWczIe/3eQp5Wu6eQYb3LTwsR9u6bQWniZ86bVP4qPfRtECegtYLqfXVIA
+ a4jHrcc69XclhxBS1Ye8/WZ+fSITuAzgZjDfH9HluWMTFU/6Y5cX1N4wI/rcfTpo16yz
+ DeqQ==
+X-Gm-Message-State: AOAM533sYUL3I34/3u9tX6YHB1FZTnv74S/3F5ogFXBbVUhE7xrBdFpP
+ OnNKs3fzIMOaP9PMwZ5ecbKregXWsvI2XnyI1KZZ7qeSebc=
+X-Google-Smtp-Source: ABdhPJz/lfKDFYDalcNbEuT9HXlt+qKuPzUIloGK4jMf0z9sSyZLZVrBF5kFG87Y6hx3GLBuxXgcfEV+akBG6htbcZo=
+X-Received: by 2002:a17:90b:390f:: with SMTP id
+ ob15mr26111167pjb.185.1635067753381; 
+ Sun, 24 Oct 2021 02:29:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211024013303.3499461-1-guoren@kernel.org>
- <20211024013303.3499461-3-guoren@kernel.org>
- <CAAhSdy2a2XgjOpezoq=SvX2XTcAWhceKF9X9v3z7xyO9Z4DMPQ@mail.gmail.com>
- <CAJF2gTTKJXY6DAq=-ajAiTEY7hpMT1bqnvNndW=5EnD5EEP-cw@mail.gmail.com>
-In-Reply-To: <CAJF2gTTKJXY6DAq=-ajAiTEY7hpMT1bqnvNndW=5EnD5EEP-cw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 24 Oct 2021 14:48:38 +0530
-Message-ID: <CAAhSdy1FfMGPWBExEVe9Vdh2s_fNP43Rp7jNdEMNmP1nmPZL_Q@mail.gmail.com>
-Subject: Re: [PATCH V5 2/3] dt-bindings: update riscv plic compatible string
-To: Guo Ren <guoren@kernel.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Rob Herring <robh@kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-13-kernel@esmil.dk>
+ <CAHp75Vf3yNoKxguHP3EPcRV_3tG++Fd=FVM0MXqW4_SmLA6HEw@mail.gmail.com>
+ <CANBLGcxEwkcZn2CC69zLaVqL8ocS6r6HDaaoUF09gg1mpDxFzg@mail.gmail.com>
+ <CAHp75Vc5-Sg-0kKN=OMs_2iJbtc+D9=f0-Sp+SpY5O3roU3XdA@mail.gmail.com>
+ <CANBLGcxnmt4Ki4EHAXeoJX5mJMyeioZXhGaDsKm_wk86D4js3Q@mail.gmail.com>
+In-Reply-To: <CANBLGcxnmt4Ki4EHAXeoJX5mJMyeioZXhGaDsKm_wk86D4js3Q@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Sun, 24 Oct 2021 11:29:02 +0200
+Message-ID: <CANBLGcyOfo3r0Viidf9kyW0Q9yD4uqTLm90+7O=T49v7ZHurfA@mail.gmail.com>
+Subject: Re: [PATCH v2 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211024_021851_875316_6B5944A3 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20211024_022915_037180_EE8B6936 
+X-CRM114-Status: GOOD (  46.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,125 +105,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 24, 2021 at 2:31 PM Guo Ren <guoren@kernel.org> wrote:
+On Sat, 23 Oct 2021 at 23:02, Emil Renner Berthing <kernel@esmil.dk> wrote:
+> On Sat, 23 Oct 2021 at 22:29, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > On Sat, Oct 23, 2021 at 9:46 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > > On Fri, 22 Oct 2021 at 15:32, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > > On Thu, Oct 21, 2021 at 8:44 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > > So I asked you if you thought it was better to leave these unused
+> > > allocations when parsing the device tree node fails but you never
+> > > answered that. I didn't want put words in your mouth so I could only
+> > > assume you didn't. I'd really like a straight answer to that so I have
+> > > something to refer to when people ask why this driver doesn't do the
+> > > same as fx. the pinctrl-single. So just to be clear: do you think it's
+> > > better to leave this unused garbage allocated if parsing the device
+> > > tree node fails?
+> >
+> > If it's only one time use, I don't think it's good to have it hanging
+> > around, BUT at the same time devm_*() is not suitable for such
+> > allocations.
 >
-> On Sun, Oct 24, 2021 at 3:35 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Sun, Oct 24, 2021 at 7:03 AM <guoren@kernel.org> wrote:
-> > >
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > >
-> > > Add the compatible string "thead,c900-plic" to the riscv plic
-> > > bindings to support allwinner d1 SOC which contains c906 core.
-> > >
-> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > Cc: Anup Patel <anup@brainfault.org>
-> > > Cc: Atish Patra <atish.patra@wdc.com>
-> > > Cc: Heiko Stuebner <heiko@sntech.de>
-> > > Cc: Rob Herring <robh@kernel.org>
-> > > Cc: Rob Herring <robh+dt@kernel.org>
-> > > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > >
-> > > ---
-> > >
-> > > Changes since V5:
-> > >  - Add DT list
-> > >  - Fixup compatible string
-> > >  - Remove allwinner-d1 compatible
-> > >  - make dt_binding_check
-> > >
-> > > Changes since V4:
-> > >  - Update description in errata style
-> > >  - Update enum suggested by Anup, Heiko, Samuel
-> > >
-> > > Changes since V3:
-> > >  - Rename "c9xx" to "c900"
-> > >  - Add thead,c900-plic in the description section
-> > > ---
-> > >  .../interrupt-controller/sifive,plic-1.0.0.yaml   | 15 ++++++++++++---
-> > >  1 file changed, 12 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > index 08d5a57ce00f..18b97bfd7954 100644
-> > > --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > @@ -35,6 +35,10 @@ description:
-> > >    contains a specific memory layout, which is documented in chapter 8 of the
-> > >    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
-> > >
-> > > +  The thead,c900-plic couldn't complete masked irq source which has been disabled in
-> > > +  enable register. Add thead_plic_chip which fix up c906-plic irq source completion
-> > > +  problem by unmask/mask wrapper.
-> > > +
-> >
-> > This is an incomplete description about how T-HEAD PLIC is different from
-> > RISC-V PLIC.
-> >
-> > I would suggest the following:
-> >
-> > The T-HEAD C9xx SoC implements a modified/custom T-HEAD PLIC specification
-> > which will mask current IRQ upon read to CLAIM register and will unmask the IRQ
-> > upon write to CLAIM register. The thead,c900-plic compatible string
-> > represents the
-> > custom T-HEAD PLIC specification.
-> The patch fixup the problem that when "thead,c900-plic" couldn't
-> complete masked irq source which has been disabled.
->
-> This patch is different from the last one in that there is no
-> relationship with the auto-mask feature.
+> So is that a yes or a no to my question? It's not clear to me.
 
-This patch adds compatible string for T-HEAD PLIC so it
-should describe how T-HEAD PLIC is different from RISC-V
-PLIC. The DT bindings document describes HW and not
-the software work-around implemented using DT bindings.
+I see now that you've probably misunderstood what the code does. It's
+not one time use. The function parses the device tree and dynamically
+registers groups and functions with the pinctrl framework. Each group
+needs a string name, an int array of pins and optionally the pinmux
+data. Once the group is registered those pieces of data needs to live
+with the group until the drive is unloaded. But if the device tree
+parsing fails before the group is registered then those allocations
+would never be referenced and just hang around as garbage until the
+driver is unloaded. In such cases fx. pinctrl-single uses devm_free to
+free them again.
 
-Your irqchip patch uses T-HEAD PLIC compatible string to
-implement a work-around.
-
-In other words, this patch is different from the irqchip patch.
-
-Regards,
-Anup
-
->
+> > > > > +               if (reg_din)
+> > > > > +                       writel_relaxed(gpio + 2, reg_din);
+> > > >
+> > > > Why 0 can't be written?
+> > >
+> > > Because signal 0 is a special "always 0" signal and signal 1 is a
+> > > special "always 1" signal, and after that signal n is the input value
+> > > of GPIO n - 2. We don't want to overwrite the PoR defaults.
 > >
-> > Regards,
-> > Anup
+> > Okay, this, perhaps, needs a comment (if I have not missed the existing one).
 > >
-> > >  maintainers:
-> > >    - Sagar Kadam <sagar.kadam@sifive.com>
-> > >    - Paul Walmsley  <paul.walmsley@sifive.com>
-> > > @@ -42,11 +46,16 @@ maintainers:
+> > And what about checking for reg_din? Do you have some blocks output-only?
+>
+> I don't know know what you mean by the first question, but yes fx. the
+> uart tx pins would be an example of pins that have their output signal
+> set to the uart peripheral, the output enable set to the special
+> "always enabled" signal, and no input signal is set to any of the tx
+> pins.
+>
+> > > > > +               case PIN_CONFIG_BIAS_DISABLE:
+> > > > > +                       mask |= PAD_BIAS_MASK;
+> > > > > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
+> > > >
+> > > > Okay, I have got why you are masking on each iteration, but here is
+> > > > the question, shouldn't you apply the cnages belonged to each of the
+> > > > group of options as it's requested by the user? Here you basically
+> > > > ignore all previous changes to bias.
+> > > >
+> > > > I would expect that you have something like
+> > > >
+> > > > for () {
+> > > >   switch (type) {
+> > > >   case BIAS*:
+> > > >     return apply_bias();
+> > > >   ...other types...
+> > > >   default:
+> > > >     return err;
+> > > >   }
+> > > > }
 > > >
-> > >  properties:
-> > >    compatible:
-> > > -    items:
-> > > +   oneOf:
-> > > +    - items:
-> > >        - enum:
-> > > -          - sifive,fu540-c000-plic
-> > > -          - canaan,k210-plic
-> > > +        - sifive,fu540-c000-plic
-> > > +        - canaan,k210-plic
-> > >        - const: sifive,plic-1.0.0
-> > > +    - items:
-> > > +      - enum:
-> > > +        - allwinner,sun20i-d1-plic
-> > > +      - const: thead,c900-plic
-> > >
-> > >    reg:
-> > >      maxItems: 1
-> > > --
-> > > 2.25.1
-> > >
+> > > I such cases where you get conflicting PIN_CONFIG_BIAS_* settings I
+> > > don't see why it's better to do the rmw on the padctl register for the
+> > > first bias setting only to then change the bits again a few
+> > > microseconds later when the loop encounters the second bias setting.
+> > > After the loop is done the end result would still be just the last
+> > > bias setting.
+> >
+> > It could be bias X followed by something else followed by bias Y. You
+> > will write something else with bias Y. I admit I don't know this
+> > hardware and you and maintainers are supposed to decide what's better,
+> > but my guts are telling me that current algo is buggy.
 >
->
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
+> So there is only one padctl register pr. pin. I don't see why first
+> setting the bias bits to X, then setting some other bits, and then
+> setting the bias bits to Y would be different from just setting all
+> the bits in one go. Except for during that little microsecond window
+> during the loop that I actually think it's better to avoid.
+
+Maybe an example is in order. Suppose we get strong pull-up, drive
+strength 3 and pull-down config flags (the strong pull-up and pull
+down flags conflict) and the padctl value is 0x0c0 (pull-up, input and
+schmitt trigger enabled). With your solution of just altering the
+padctl bits immediately we'd call starfive_padctl_rmw 3 times in rapid
+succession like this:
+
+starfive_padctl_rmw(pin, 0x130, 0x100);
+starfive_padctl_rmw(pin, 0x007, 0x003);
+starfive_padctl_rmw(pin, 0x130, 0x010);
+
+..and the end result would be 0x0d3, although the strong pull-up would
+be enabled for the microseconds between the 1st and 3nd call.
+As the code is now it'd just directly do
+
+starfive_padctl_rmw(pin, 0x137, 0x013)
+
+..which again results in 0x0d3, only without the microsecond blink of
+the strong pull-up.
 
 _______________________________________________
 linux-riscv mailing list
