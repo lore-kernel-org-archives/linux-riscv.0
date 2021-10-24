@@ -2,15 +2,15 @@ Return-Path: <SRS0=WjcT=PM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05CE3C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 10:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49843C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 23:11:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 80C5260FC3
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 10:05:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 80C5260FC3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0C69560F9C
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Oct 2021 23:11:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0C69560F9C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,64 +18,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/sZ9FePVo2eVvRyC3/gEiQCjhec4HOzAJB006wfNIU=; b=hOkyMNre1SfNO8
-	Hh55lQfXqIiKiu3acXIjipphQeWkffvhRAMXa+X2gPpYN/4RyFYHaAvNvwhnAXOT7PZ+2oHD0oi1P
-	P7qqGH0X3tI2WnGSoGUrRwvZ0ECFA4d2mMROzAmJ8nG24aLoCZqQLttrencaQkwUiiqt0wXJrVSAr
-	Q7A5+cynDcc6HHIVk8q40kBYdtcO2bj+6PtZhBqeR9pwBeC2xDS8jG1jJX9SLq4jRKyNnuqs1YR5E
-	UqxTstpGnstHGbSYrYbSskIDyvCSURiC19RinIP0mQgoXDB+p0lLboi71DZFdXBf+xCve5V2inJ+c
-	uaf5amEzrRAenqSt6w2g==;
+	List-Owner; bh=aERFc8lsofJXpqZXFg2Z1budoXDCzC0SNXXknanCbg8=; b=2vmyhulPfW7NgT
+	xqmhpwS3iOUx1NrhSICLBNy/cAv+TG7I5K2pI5RfeFxcOg38e/Wezwvm5LYRgVE1AfomQkwNgAC7Q
+	K6IxLCyv98RWZ17rRGvPZrZzWI+Qej09JMtdBdQ6SgFWNewmGJK5f6e1ZSoR0O9fMvtPHeuNXAINh
+	xLIwoa4s1/LJqC8272Xemn5no6s+O1SJt4AdcApJ/I8Qd0Nt/x/EsiCemwcqbUWl8+kp9RokxUA4h
+	Lg7Emeu8nl9xFGWIO4h+pGe+PV/gP5xhiHDbyNIw+jWkjpOCjXT+2BcIuUS4ywhref6j2y8OgrrRt
+	rUbhcCCtRT6bJ2OjZnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1meaNI-00Du2N-76; Sun, 24 Oct 2021 10:05:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1memeB-00EkRV-N6; Sun, 24 Oct 2021 23:11:23 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1meaNE-00Du23-NB
- for linux-riscv@lists.infradead.org; Sun, 24 Oct 2021 10:05:06 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3D02A6101D
- for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 10:05:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635069904;
- bh=FouihXTAlUKDdV44bkvCaKVcaK2k/2Yt3weSyr3OdkI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=ZYYdsyEdD/h6kbTezR2Kqj8G7aVGekAzhvT106t1EfHGSUvdcwrrTF5GXEGhQMLcl
- Xh18cq6CIs7gZ1CguX995qLVZy2w9yUVmhsNvujSLXpC7dSSVhp+rYT9VfewZscvuO
- Cgqz1syDL3mPRgK6U4PLFzkQFJDGVd1u3Z3YAqMhyGtm905UUf/rHmAGAYmkIRYUOz
- jPpUADncF2esXR6j1+CNJRmC5+ZpkHO1PyXgRRQmVMtFktzPFNNnh9GM0OZQLM6Vek
- fg/BNzWVQ0N94UiP6wFbabnBFhCfNKsg8+TPhKjEeRoDWWGCFns+24ZAW7SbSqNF4d
- 9EloaIuWzKebA==
-Received: by mail-ua1-f48.google.com with SMTP id e10so16319001uab.3
- for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 03:05:04 -0700 (PDT)
-X-Gm-Message-State: AOAM531s6Rut2I0m0Crz1zdBFPk5D25EZwq4sCd5lnJFN4wyK30qrlfj
- CddJWIgcrqn8OtpyFEdnPWrp2rcCJq/RYPTP+js=
-X-Google-Smtp-Source: ABdhPJyK+agFqTBGO/d+LZGb2WbJ2T363XhMw87qNPKQPhukoSKeca/pt31DkUHhGhQRqnoLsiFBHUfw5rEbl57dJ6E=
-X-Received: by 2002:a67:fa93:: with SMTP id f19mr9721142vsq.43.1635069903168; 
- Sun, 24 Oct 2021 03:05:03 -0700 (PDT)
+ id 1meme8-00EkRB-3j
+ for linux-riscv@lists.infradead.org; Sun, 24 Oct 2021 23:11:22 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id f16so3491264ljo.12
+ for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 16:11:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=1vsRSHd5ol8s+6s2RmI1HSUriW3Srp1b0zXswHBU7Sk=;
+ b=Fbe4EIds06j7G15aUzedORb13lKIjQ6UiPypMt2r3Za3UkwMy3eZjMeqrH72ZYFrTs
+ r8q7Xz0FkqCRKj57sd4OSEzXDwuhh3wq32AKWpty61ch5UA/SFwkpc+7dDPJEdkrrbAE
+ mVDrQsy3h3IongKhzglUoxh8y3AIsZA27Fq6xk2oaDprAjT9vW1Xox4IaQisRGixQYr5
+ OqySCDG5ZsJMLA8aSr6+JqAwIRDuHGCbAlt4SA3g6LphVfONBIDlGoYC7VW/MfBllOq+
+ yZt55HEO30faBn4r38/QxRyweFJ9NRLRmVtzqWNka692YwBWW15nQAEUQ8dEWs9C18+9
+ FtPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=1vsRSHd5ol8s+6s2RmI1HSUriW3Srp1b0zXswHBU7Sk=;
+ b=wTA+OarM/oN7dDoPgmNMRzsarIQfUOtuJ6qxPeMFZRA6EaXwybAzKIetRmMgUC5lqA
+ B8WDjnfAiMxDAzk6aDaoaM0usQRmJaeMZJVbYNFK3ZfbkyScJRR/jhdh7AWsnKVWMtHE
+ iULiKa0cvjPDrpRbQPKftSKvXnNqS4PeAbfdle0yDB6TUW0l6X31Y+7qCm8mCuKPt3/3
+ PrJD9vy3T88cl7lgp80DPxJ47DjiQwXUxutgTcA1rY2wkEwHZy81tf9P9RQn/pWrdiKy
+ tJ7vR/PmUh1+IgS1R6xkt12NQk04ML5CRugW8YDTXlV+G3G+TdA06pbDDkMZzQWm8yzS
+ +UeQ==
+X-Gm-Message-State: AOAM533G5dgVoAOwP30hYIYfWBVo2Yu12Wh0ZYKRnJYRafhLPblOTHpK
+ IINuH2KiygvDFXxiDqKNHXiZWpKXDDQWX44ikdlvPg==
+X-Google-Smtp-Source: ABdhPJxpFfDTust0osAQmfxwkSpS6S7VhiwJS8EWyFLBIURethZXfMtoI8uRXG2acFxprQg+kqMuagHZV9BMfu8ocAA=
+X-Received: by 2002:a05:651c:111:: with SMTP id
+ a17mr14808602ljb.145.1635117078094; 
+ Sun, 24 Oct 2021 16:11:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211024013303.3499461-1-guoren@kernel.org>
- <20211024013303.3499461-3-guoren@kernel.org>
- <CAAhSdy2a2XgjOpezoq=SvX2XTcAWhceKF9X9v3z7xyO9Z4DMPQ@mail.gmail.com>
- <CAJF2gTTKJXY6DAq=-ajAiTEY7hpMT1bqnvNndW=5EnD5EEP-cw@mail.gmail.com>
- <CAAhSdy1FfMGPWBExEVe9Vdh2s_fNP43Rp7jNdEMNmP1nmPZL_Q@mail.gmail.com>
- <CAJF2gTTevdrtqphqtHDx1pmypwjUSG7fZz5Znr-iDNsn1QNu3Q@mail.gmail.com>
- <CAAhSdy1a8HH=n7obuAeeChfr2dVPDTWuLdCoTUE1d5Lud=vGMA@mail.gmail.com>
-In-Reply-To: <CAAhSdy1a8HH=n7obuAeeChfr2dVPDTWuLdCoTUE1d5Lud=vGMA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 24 Oct 2021 18:04:52 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS8Z+6Ewy0D5+0X_h2Jz4BqsJp7wEC5F0iNaDsSpiE2aw@mail.gmail.com>
-Message-ID: <CAJF2gTS8Z+6Ewy0D5+0X_h2Jz4BqsJp7wEC5F0iNaDsSpiE2aw@mail.gmail.com>
-Subject: Re: [PATCH V5 2/3] dt-bindings: update riscv plic compatible string
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Rob Herring <robh@kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-12-kernel@esmil.dk>
+In-Reply-To: <20211021174223.43310-12-kernel@esmil.dk>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 25 Oct 2021 01:11:06 +0200
+Message-ID: <CACRpkdYZzKtFcBUM8sV4uze2T_EbfOGG=QkO9miDKKq=1mws_A@mail.gmail.com>
+Subject: Re: [PATCH v2 11/16] dt-bindings: pinctrl: Add StarFive JH7100
+ bindings
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211024_030504_827496_0C18792F 
-X-CRM114-Status: GOOD (  37.63  )
+X-CRM114-CacheID: sfid-20211024_161120_215155_6B18FFDA 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,181 +108,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 24, 2021 at 5:53 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Sun, Oct 24, 2021 at 3:05 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Sun, Oct 24, 2021 at 5:18 PM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Sun, Oct 24, 2021 at 2:31 PM Guo Ren <guoren@kernel.org> wrote:
-> > > >
-> > > > On Sun, Oct 24, 2021 at 3:35 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > >
-> > > > > On Sun, Oct 24, 2021 at 7:03 AM <guoren@kernel.org> wrote:
-> > > > > >
-> > > > > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > > > >
-> > > > > > Add the compatible string "thead,c900-plic" to the riscv plic
-> > > > > > bindings to support allwinner d1 SOC which contains c906 core.
-> > > > > >
-> > > > > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > > > > Cc: Anup Patel <anup@brainfault.org>
-> > > > > > Cc: Atish Patra <atish.patra@wdc.com>
-> > > > > > Cc: Heiko Stuebner <heiko@sntech.de>
-> > > > > > Cc: Rob Herring <robh@kernel.org>
-> > > > > > Cc: Rob Herring <robh+dt@kernel.org>
-> > > > > > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > > > > >
-> > > > > > ---
-> > > > > >
-> > > > > > Changes since V5:
-> > > > > >  - Add DT list
-> > > > > >  - Fixup compatible string
-> > > > > >  - Remove allwinner-d1 compatible
-> > > > > >  - make dt_binding_check
-> > > > > >
-> > > > > > Changes since V4:
-> > > > > >  - Update description in errata style
-> > > > > >  - Update enum suggested by Anup, Heiko, Samuel
-> > > > > >
-> > > > > > Changes since V3:
-> > > > > >  - Rename "c9xx" to "c900"
-> > > > > >  - Add thead,c900-plic in the description section
-> > > > > > ---
-> > > > > >  .../interrupt-controller/sifive,plic-1.0.0.yaml   | 15 ++++++++++++---
-> > > > > >  1 file changed, 12 insertions(+), 3 deletions(-)
-> > > > > >
-> > > > > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > > > > index 08d5a57ce00f..18b97bfd7954 100644
-> > > > > > --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > > > > +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> > > > > > @@ -35,6 +35,10 @@ description:
-> > > > > >    contains a specific memory layout, which is documented in chapter 8 of the
-> > > > > >    SiFive U5 Coreplex Series Manual <https://static.dev.sifive.com/U54-MC-RVCoreIP.pdf>.
-> > > > > >
-> > > > > > +  The thead,c900-plic couldn't complete masked irq source which has been disabled in
-> > > > > > +  enable register. Add thead_plic_chip which fix up c906-plic irq source completion
-> > > > > > +  problem by unmask/mask wrapper.
-> > > > > > +
-> > > > >
-> > > > > This is an incomplete description about how T-HEAD PLIC is different from
-> > > > > RISC-V PLIC.
-> > > > >
-> > > > > I would suggest the following:
-> > > > >
-> > > > > The T-HEAD C9xx SoC implements a modified/custom T-HEAD PLIC specification
-> > > > > which will mask current IRQ upon read to CLAIM register and will unmask the IRQ
-> > > > > upon write to CLAIM register. The thead,c900-plic compatible string
-> > > > > represents the
-> > > > > custom T-HEAD PLIC specification.
-> > > > The patch fixup the problem that when "thead,c900-plic" couldn't
-> > > > complete masked irq source which has been disabled.
-> > > >
-> > > > This patch is different from the last one in that there is no
-> > > > relationship with the auto-mask feature.
-> > >
-> > > This patch adds compatible string for T-HEAD PLIC so it
-> > > should describe how T-HEAD PLIC is different from RISC-V
-> > > PLIC. The DT bindings document describes HW and not
-> > > the software work-around implemented using DT bindings.
-> > >
-> > > Your irqchip patch uses T-HEAD PLIC compatible string to
-> > > implement a work-around.
-> > >
-> > > In other words, this patch is different from the irqchip patch.
-> >
-> > How about below:
-> >
-> > The thead,c900-plic compatible string represents the custom T-HEAD
-> > PLIC specification.
-> >  - It couldn't complete masked irq source which has been disabled in
-> > enable register. Add thead_plic_chip which fix up c906-plic irq source
-> > completion problem by unmask/mask wrapper.
->
-> This first bullet is not required because it describes how it is used
-> in irqchip driver to fix issues. This info has to go in your driver fix
-> patch.
->
-> >  - It implements a modified/custom T-HEAD PLIC specification which
-> > will mask current IRQ upon read to CLAIM register and will unmask the
-> > IRQ upon write to CLAIM register. But the feature wasn't utilized by
-> > software.
->
-> Please don't advertise non-compliance with RISC-V PLIC spec as feature.
->
-> What I had suggest before seems better.
-Okay, just put these in the description in the next version.
+On Thu, Oct 21, 2021 at 7:42 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 
-The T-HEAD C9xx SoC implements a modified/custom T-HEAD PLIC
-specification which will mask current IRQ upon read to CLAIM register
-and will unmask the IRQ upon write to CLAIM register. The
-thead,c900-plic compatible string represents the custom T-HEAD PLIC
-specification.
-
+> Add bindings for the StarFive JH7100 GPIO/pin controller.
 >
-> Regards,
-> Anup
->
-> >
-> > >
-> > > Regards,
-> > > Anup
-> > >
-> > > >
-> > > > >
-> > > > > Regards,
-> > > > > Anup
-> > > > >
-> > > > > >  maintainers:
-> > > > > >    - Sagar Kadam <sagar.kadam@sifive.com>
-> > > > > >    - Paul Walmsley  <paul.walmsley@sifive.com>
-> > > > > > @@ -42,11 +46,16 @@ maintainers:
-> > > > > >
-> > > > > >  properties:
-> > > > > >    compatible:
-> > > > > > -    items:
-> > > > > > +   oneOf:
-> > > > > > +    - items:
-> > > > > >        - enum:
-> > > > > > -          - sifive,fu540-c000-plic
-> > > > > > -          - canaan,k210-plic
-> > > > > > +        - sifive,fu540-c000-plic
-> > > > > > +        - canaan,k210-plic
-> > > > > >        - const: sifive,plic-1.0.0
-> > > > > > +    - items:
-> > > > > > +      - enum:
-> > > > > > +        - allwinner,sun20i-d1-plic
-> > > > > > +      - const: thead,c900-plic
-> > > > > >
-> > > > > >    reg:
-> > > > > >      maxItems: 1
-> > > > > > --
-> > > > > > 2.25.1
-> > > > > >
-> > > >
-> > > >
-> > > >
-> > > > --
-> > > > Best Regards
-> > > >  Guo Ren
-> > > >
-> > > > ML: https://lore.kernel.org/linux-csky/
-> >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 
+That is a very terse commit message for an entirely new
+SoC, please put a little blurb about this silicon there.
+Like mention that it is RISC-V at least.
 
+Overall quite interesting!
 
--- 
-Best Regards
- Guo Ren
+> +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7100-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7100 Pin Controller Device Tree Bindings
+> +
+> +maintainers:
+> +  - Emil Renner Berthing <kernel@esmil.dk>
+> +  - Drew Fustini <drew@beagleboard.org>
 
-ML: https://lore.kernel.org/linux-csky/
+Add description: talking about that this is a RISC-V SoC
+and other implicit things that are really good to know.
+
+> +  starfive,signal-group:
+> +    description: |
+> +      The SoC has a global setting selecting one of 7 different pinmux
+> +      configurations of the pads named GPIO[0:63] and FUNC_SHARE[0:141]. After
+> +      this global setting is chosen only the 64 "GPIO" pins can be further
+> +      muxed by configuring them to be controlled by certain peripherals rather
+> +      than software.
+> +      Note that in configuration 0 none of GPIOs are routed to pads, and only
+> +      in configuration 1 are the GPIOs routed to the pads named GPIO[0:63].
+> +      If this property is not set it defaults to the configuration already
+> +      chosen by the earlier boot stages.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2, 3, 4, 5, 6]
+
+This still is hard for me to understand. Does it mean that 0..6 define
+how the direct-to-peripheral-pins are set up?
+
+Then it would make sense to describe what happens for 0, 1, 2 ...6
+i.e. what the different set-ups are.
+
+Actually this is what we call group-based pin multiplexing in Linux,
+this property seems to avoid using that concept.
+See for example:
+Documentation/devicetree/bindings/pinctrl/cortina,gemini-pinctrl.txt
+
+> +    patternProperties:
+> +      '-pins*$':
+> +        type: object
+> +        description: |
+> +          A pinctrl node should contain at least one subnode representing the
+> +          pinctrl groups available on the machine. Each subnode will list the
+> +          pins it needs, and how they should be configured, with regard to
+> +          muxer configuration, bias, input enable/disable, input schmitt
+> +          trigger enable/disable, slew-rate and drive strength.
+> +        $ref: "/schemas/pinctrl/pincfg-node.yaml"
+
+Nice that you use pincfg-node.yaml
+
+> +        properties:
+> +          pins:
+> +            description: |
+> +              The list of pin identifiers that properties in the node apply to.
+> +              This should be set using either the PAD_GPIO or PAD_FUNC_SHARE
+> +              macro. Either this or "pinmux" has to be specified.
+> +
+> +          pinmux:
+> +            description: |
+> +              The list of GPIO identifiers and their mux settings that
+> +              properties in the node apply to. This should be set using the
+> +              GPIOMUX macro. Either this or "pins" has to be specified.
+
+What about referencing
+Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml
+for this?
+
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
