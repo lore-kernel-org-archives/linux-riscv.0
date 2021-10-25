@@ -2,14 +2,14 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD974C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 29154C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:54:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6C6056058D
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:48:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6C6056058D
+	by mail.kernel.org (Postfix) with ESMTPS id D896360EC0
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:54:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D896360EC0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,68 +18,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fiwOGjvATe7srF79NQCZLHjuv0peD7LkMaDZMM8k1kQ=; b=GJsohQ7pjWscM7
-	nlSTsNsMSFUBCjmB9RlQDmib2Nk7gNYQBHcIcMim7hgnM4bhdDE/Pv7xZJC5Aoo0qCGJMhZxE4SsF
-	KOfcdYi3d+yWVI4jS4z11Mlblg5MjYFleJQZj3nmOQ9uQWXhTdS2lUtLORbS5dpFe96WIfI/0/swp
-	B8hgJdPeNpwyWSbjcuIOV1GF3B67SdCmGLbB+oyaDxW0YShi0OSjOMSgL1lqpMjvSmuo59ds24TvT
-	UhbTL84yYsoozJ9NQywImtE1OB6TSL2cnvOcmYru7f3drfBAGxDZOgCy/1U5V7YPJg7WrfuU16pCW
-	CB8CeQ3bQzb8CDwIiZbQ==;
+	List-Owner; bh=9WwYzZG25/NRbD2JzaUxdhRsBXsfE9TshAROYYj8rZc=; b=XUTv5l52Ma+cOi
+	kYQ+h++mX3XYfMjT5+7zed7k559nIo26BkLuC/CP89oC9woEbUusxKb1PxTYGx0GCVVSEuR1m0BiK
+	NwUS7CZYJL9+w0SWywJlUM/8vJ7oxG02hIKR0V7ni40v/vPURSmr+x/mSBXqbxVw1j5cJAJgJO8EQ
+	K3vi1lu6uwO7cH5LxVE/ef0XmIJZj1RuM6jj84/YlXqD3OqXSXk0IiBQupycSC7fsVo0qPrayNdsp
+	7LW791cPjjl0giIW7TLJb6LjfOYTvbONKzW2x60p8iWatNJ9t1eCiOOm+9p9QI7sAdloZiggGy2eh
+	F3qE8pAKzvek4MCEZ3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf0LB-00GaBC-73; Mon, 25 Oct 2021 13:48:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mf0QQ-00GbHE-KU; Mon, 25 Oct 2021 13:54:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf0Ky-00Ga86-DD
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 13:48:29 +0000
+ id 1mf0QA-00GbDi-Mh
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 13:53:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635169706;
+ s=mimecast20190719; t=1635170029;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=rAI1rvJIZVwx71e91km04CwkX5jtmNRsQSKYM+y4LQM=;
- b=RcUN7h3/KVcwB6CG2nyXxa0de24df0g3VfDOZrfqH/ynGLyLyDFmXnYkvZkf3l/Xy192Bw
- RupD1Y+KicOlz2O5kjHiwx3bttaThZ8ePhvcgYr++8Hf/XUpwmyXUFODZ+DX+NCwXtd/Hm
- eQB4dxnagmpWvuZtwsyzT1JmL8TEMXs=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-339-ldtTqyYMP2WzpNoe2TFQpg-1; Mon, 25 Oct 2021 09:48:24 -0400
-X-MC-Unique: ldtTqyYMP2WzpNoe2TFQpg-1
-Received: by mail-wm1-f72.google.com with SMTP id
- z17-20020a7bc7d1000000b0032cafafaf79so4893wmk.5
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 06:48:24 -0700 (PDT)
+ bh=ldvB0XPe33TqQvODn/mAyWJW6RTodpHfwe2FHTdvAFU=;
+ b=GXXFhEzliPEcJLvvZzh2shwmCdmugPPyjAFuSYTsiTvYCYYFX5h8IzKurdQ7NgbL/4jHE+
+ 6uCNHLVbNt2NQZGVgXIKUvUW9VOM34Qlyq+qWvr6sPqANxm3NfqJ8FkrSUJSNBzcVur770
+ t1Z1Mf6r6cH5IQWNHrvwOQLEtF9w8lM=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-170-141aO_3tOrSqJI8zN8gxuQ-1; Mon, 25 Oct 2021 09:53:48 -0400
+X-MC-Unique: 141aO_3tOrSqJI8zN8gxuQ-1
+Received: by mail-wm1-f71.google.com with SMTP id
+ m1-20020a1ca301000000b003231d5b3c4cso3536946wme.5
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 06:53:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=rAI1rvJIZVwx71e91km04CwkX5jtmNRsQSKYM+y4LQM=;
- b=FFZNtOesmD9yZDDqyW8DAQYIfGSgoHecbk3eQb89hJm0FaG2asquD0yfbXg+j+iaje
- yBkxYHC4tWPPQru2G/4xwaXGW+J36fZtGm+dXwgMC582UjOT6qUlp9X6hieFodULPi8A
- nCv4uUExI/PN7TbLzBWE0Q9YbQeKzBWoVG45cc0YZIM1jotbJKBVHO6k4dXCSxElV7cF
- 9J6YOsYnmoov0dUsSqW+d95awrCuTAGlN2CjmZ2E/NBmPHEV01e+d2elCQl/i8/nSyQH
- wAnMJyqhqvn4AOmf5Rggsc92PI7N0jTJh8lWQYLaWsXSqZfVW0lgsvEjnnWbEdo2CA0m
- ZAgQ==
-X-Gm-Message-State: AOAM531MQRc4nYkNBEvy7NBkFS10yUP3rjoTcF3mSD010TvdQu/fVei1
- YfbBpwC1emSQuqy2bUomDAFKJSc+u5SgGoI3l0bQzN52B4rgGOtFRwI3Ia/LTMq/ALmLpbclzAJ
- 3NOLlWp+2Rt9aX6aYAwvCS4xYRB+g
-X-Received: by 2002:adf:d1ee:: with SMTP id g14mr24355619wrd.264.1635169703585; 
- Mon, 25 Oct 2021 06:48:23 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxvh4UiZag1iqCL0Yxmhmh7ghHaPzeCY1G7nZe+NYuublJxNb7HJYi3GJafbpt4P4VqHirR5w==
-X-Received: by 2002:adf:d1ee:: with SMTP id g14mr24355558wrd.264.1635169703285; 
- Mon, 25 Oct 2021 06:48:23 -0700 (PDT)
+ bh=ldvB0XPe33TqQvODn/mAyWJW6RTodpHfwe2FHTdvAFU=;
+ b=FBv7hVczX/s+1d5aMOFycsVlw6TqmRjgnRmR1K4VAbVdaHxTh6dzzMnlgdbs6mISd9
+ R6HdRctMUZZnP6+VSi7xbtu6r2Wkg7+QPeCVz7PbYilSqqGUrtcU8OxOD+47fupEwK6R
+ Swqy5KasuWfgK7X0F7613W/Xtm4+SoWNXoHN7bsIUbPBTIpcXDUFn80y/jz4XXco7TgG
+ QIleeRr6jZUlL5coe2jUBJ904M1Trdde2wLIF3ciZPgvLomoTQniB5Zkv1CgM8qqn8x6
+ hLNmQp2Fn7VlWp9jvWwzYEFTWmnuVPTu+eXcwXS1VSXhUaQo6f7WrsSXTTxnDwa/7ZV/
+ OpXQ==
+X-Gm-Message-State: AOAM531U5a2R0v2o8eIl0JKVavNoDae3tyCk7VZBwvUeHhThXR5nw/X0
+ 2/+voEs0JmsIlZyga0Sabq4Bg3SUvX7WgrxXNydanWKcflYl+O17qPnO6ODTyel8msIGJ6jW8uN
+ OEs8QyOSiQMUqBxt/W+PFZppSf8G5
+X-Received: by 2002:a5d:4a0a:: with SMTP id m10mr23196001wrq.8.1635170027187; 
+ Mon, 25 Oct 2021 06:53:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzEcYontEfeBK4K4y+WBxRPdIWb2mvxosMQ7CiN54IG+B17uliVNi9fSUiTsG9r0hC4umYIPQ==
+X-Received: by 2002:a5d:4a0a:: with SMTP id m10mr23195965wrq.8.1635170026960; 
+ Mon, 25 Oct 2021 06:53:46 -0700 (PDT)
 Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
  ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id m12sm3661638wrq.69.2021.10.25.06.48.21
+ by smtp.gmail.com with ESMTPSA id l20sm21932937wmq.42.2021.10.25.06.53.06
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 25 Oct 2021 06:48:22 -0700 (PDT)
-Message-ID: <1537b693-80ee-4f9e-2c4e-6e1c62ccca92@redhat.com>
-Date: Mon, 25 Oct 2021 15:48:20 +0200
+ Mon, 25 Oct 2021 06:53:46 -0700 (PDT)
+Message-ID: <acfdf0f5-0a18-162a-c785-fa0a520e3364@redhat.com>
+Date: Mon, 25 Oct 2021 15:53:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.1.0
-Subject: Re: [PATCH v2 20/43] KVM: VMX: Skip Posted Interrupt updates if APICv
- is hard disabled
+Subject: Re: [PATCH v2 22/43] KVM: VMX: Drop unnecessary PI logic to handle
+ impossible conditions
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Huacai Chen <chenhuacai@kernel.org>,
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -102,18 +102,17 @@ Cc: James Morse <james.morse@arm.com>,
  David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
  Jing Zhang <jingzhangos@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-21-seanjc@google.com>
+ <20211009021236.4122790-23-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20211009021236.4122790-21-seanjc@google.com>
+In-Reply-To: <20211009021236.4122790-23-seanjc@google.com>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_064828_559565_BF084843 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211025_065350_861884_DB6BC54E 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,15 +130,68 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 09/10/21 04:12, Sean Christopherson wrote:
-> +	/* Nothing to do if PI.SN==0 and the vCPU isn't being migrated. */
->   	if (!pi_test_sn(pi_desc) && vcpu->cpu == cpu)
->   		return;
+> Drop sanity checks on the validity of the previous pCPU when handling
+> vCPU block/unlock for posted interrupts.  Barring a code bug or memory
+> corruption, the sanity checks will never fire, and any code bug that does
+> trip the WARN is all but guaranteed to completely break posted interrupts,
+> i.e. should never get anywhere near production.
+> 
+> This is the first of several steps toward eliminating kvm_vcpu.pre_cpu.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   arch/x86/kvm/vmx/posted_intr.c | 24 ++++++++++--------------
+>   1 file changed, 10 insertions(+), 14 deletions(-)
 
-This does not quite say "why", so:
-
-         /* Nothing to do if PI.SN and PI.NDST both have the desired value. */
+The idea here is to avoid making things worse by not making the list 
+inconsistent.  But that's impossible to do if pre_pcpu goes away, so 
+fair enough.
 
 Paolo
+
+> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
+> index 67cbe6ab8f66..6c2110d91b06 100644
+> --- a/arch/x86/kvm/vmx/posted_intr.c
+> +++ b/arch/x86/kvm/vmx/posted_intr.c
+> @@ -118,12 +118,10 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
+>   	} while (cmpxchg64(&pi_desc->control, old.control,
+>   			   new.control) != old.control);
+>   
+> -	if (!WARN_ON_ONCE(vcpu->pre_pcpu == -1)) {
+> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		list_del(&vcpu->blocked_vcpu_list);
+> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		vcpu->pre_pcpu = -1;
+> -	}
+> +	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	list_del(&vcpu->blocked_vcpu_list);
+> +	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	vcpu->pre_pcpu = -1;
+>   }
+>   
+>   /*
+> @@ -153,14 +151,12 @@ int pi_pre_block(struct kvm_vcpu *vcpu)
+>   
+>   	WARN_ON(irqs_disabled());
+>   	local_irq_disable();
+> -	if (!WARN_ON_ONCE(vcpu->pre_pcpu != -1)) {
+> -		vcpu->pre_pcpu = vcpu->cpu;
+> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		list_add_tail(&vcpu->blocked_vcpu_list,
+> -			      &per_cpu(blocked_vcpu_on_cpu,
+> -				       vcpu->pre_pcpu));
+> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -	}
+> +
+> +	vcpu->pre_pcpu = vcpu->cpu;
+> +	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	list_add_tail(&vcpu->blocked_vcpu_list,
+> +		      &per_cpu(blocked_vcpu_on_cpu, vcpu->pre_pcpu));
+> +	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+>   
+>   	WARN(pi_desc->sn == 1,
+>   	     "Posted Interrupt Suppress Notification set before blocking");
+> 
 
 
 _______________________________________________
