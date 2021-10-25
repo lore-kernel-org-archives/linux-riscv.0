@@ -2,14 +2,14 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 514E7C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D09EC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 16109604DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 16109604DA
+	by mail.kernel.org (Postfix) with ESMTPS id 4B58C604DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4B58C604DA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Y/ytXK4ULBDLibr3uv5MelKfVkUEoG4XlJk/NreLUM=; b=xg0xsmJcWvhIL7
-	mnkorij5S9RmWbYfDCOTJDVOZN34SCGTIi/UKXO70UC3L3/0pCg4prJV+Ry4WvkMInFG2u8ODU01W
-	cUuLQ/kxrarEfHCmZhh+CyspDI6lfaFrw3hgpa6bYy/TVQiuAKf68aOhL8n79pBVdCCh6UgnOrXRF
-	DRAa1HxYmLTnv1gteYQfr7IRmEX31J4qEhCrQkJIQIkPOgLiPZ95bVUj3xIA/nYQ8NGMd7npSpNOC
-	mLMs78fSgWsgmeSHvRwnWIK6pXYSqN5p390PZWbGIdlmdkjcFG7NPLFVhF6SckCI2u7HVgB+CuAml
-	+E1tnmZIc2MwGuGPN1lQ==;
+	List-Owner; bh=p1d8m/GS+6KbFAPLbyx1+Wa9FMaCP8u6/q4Cev0x9XM=; b=ZSckQPQSh8xO+r
+	0hChzjTNhrcmI8GZ/xh5xNu2nSAUXefuelrUE+4hNp6E7lT5as867sy0MG4t59hX5TSsPAMmJyWla
+	VCN+IVTxet4xQhIg93DhAMrCxa8JuFWRGHx0zVU3j9JFFEigs0beskvPffukEP53KxO1BYMw0p+up
+	PVSQjaosn+pbMCFVIJH85n72g2d8aHi/e06QweWCvZGpEhPl7qwKvMZ9BoBLFBA04tvKnrzbpwf0t
+	oErYt66CNh/g55GNVl1CSj8L4KC2M5kex2V8NxDu1zSOds0U14tPZe+ecWjW1WARZfGOpHOfFBQ4Z
+	KFKpAoDaN/fVK+s5f+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf62q-00HVKK-Ty; Mon, 25 Oct 2021 19:54:08 +0000
+	id 1mf62t-00HVLL-2m; Mon, 25 Oct 2021 19:54:11 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf62h-00HVBf-Hf
+ id 1mf62f-00HVCI-Km
  for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 19:54:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1635191639; x=1666727639;
+ t=1635191637; x=1666727637;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=DuPSUb7mLjAKpGhZiKY+keHuZZBigTliJx8ob9s9tVI=;
- b=bxtC1IuTYn2W3JVADoxcWi4psWxiYlQ5CfW5HfnfVXIQGTd0q9QPdUBv
- 7nuOhFfV3sfYHdpL3PxvP8pzrpy4St0DMjkFd+FLNeLP7mgBOZEytx8ni
- rk7CGTBRWCyX39L0qvp4z0muiWl4jxu9X41GZborFffYb5EwrGV96srij
- YMqUqOLIVWZoMDl19P6TPg4VubL2pvFX8YulAKBsSCM/Ms+KU39iQA7Ps
- 8oEnfzY6V07nOcJ817uKGpSWOsc3oLvBHXjk7Is1isbRx58V7E2hAMwX1
- ht940li4HYiX7hv7AS0r8Z4ycROAN5asuS8LqDKFxKORSOOdyY6zifxYp g==;
-X-IronPort-AV: E=Sophos;i="5.87,181,1631548800"; d="scan'208";a="287682867"
+ bh=z5EmETjcUsdznDx+lrKC1Kike2243E7vchcD/Zvrv9k=;
+ b=F6PWNuKN2rLbWnmqotu23GhE9pZii4L0pM7Oc2FPIze9/+veK+t52Jv1
+ u9hFUDFiNvDnSVrIsU67Ax2ZQenlx+C29SFXXGQq4mF3bM/7fHFlMb2sB
+ juAsSPTM85GVekzsM++HB8ro9XL1PJdJ1uBW907lzKYdbzymDF7IP6swm
+ 7jeMpO791Ft+sNFiJtXCTD1tthv6wBJZN0ezXothq+putJb/T8JhU1CKP
+ arKHwE53vEEDZjCJzfzBqVWlHNVt8On5lKBsjUsQbWpGCGCAS/HYZNM7g
+ WIszJAxEPWFK2H6IpqydRAj3Y+c1QZnrLXiLChW4OUh8/uTuoJ6WLttlI A==;
+X-IronPort-AV: E=Sophos;i="5.87,181,1631548800"; d="scan'208";a="287682864"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 26 Oct 2021 03:53:57 +0800
-IronPort-SDR: GmmTtKYPbE6OF8ZQpbOgX+DyxgsuK/8w0wYQlENqgkz/SI5c9Ei+MpqHyfRJnIxNxQkSe6LtbU
- HOaUo0W26bdmrgSaIAAZ9JgZoa/qVGjwO4bk7l/LGqvYbmjLuP5hYYv+Ptendeme9Y5L90ibUH
- KlyOMWr80HEtsiqxxDrFDji34ToJBRJ6Kqv6aPozm24KOnesEHXPP5tYmO9/aIY9BNR6z+2nVP
- RTgiuV1t0JBX5VIk7japCt8EJoNL5OQZdQZIhpZjulhytEmWx5Ycfk+qDmaO2aamq1FKUs6fwX
- x2vhv/eDGXtujtWcGHsfAwGy
+ by ob1.hgst.iphmx.com with ESMTP; 26 Oct 2021 03:53:55 +0800
+IronPort-SDR: bRYMipOviGXPnuTH4jg/fgSr7ZGVC3X7AU3RyYo9F9y5U/3+VisN07JfrgYijYBwW2HWcFEWYR
+ cp8b+fabPs4n+lojBz/mr3S/dyZ22hnHoJgwTqVySlnkEGn+l9Tra6ZYBZxqD+JJvVO1IC5zuW
+ WEh+59unGoD6NzLsjTnk584Irr+amlozGwUKPt/P2fYlPyZruR8wgqP6jXaIbL4x2xIi90v8Iy
+ 3//cTHYwGctIe7hbInFChTHI5xnnElXhMlG+e554tqbKgxrP7Dz6u/AVrSWhcu0Z5HXWxhZ4dn
+ wVD95L+HoQb0DRvOoc+LVNBh
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 25 Oct 2021 12:29:27 -0700
-IronPort-SDR: 8QVMRPnAb949JxVnTbapzRtaEnHxjqkVTznWI80pViqktCf9eyPSiPFey1393D/B8SmFY9/9Qi
- UMWGZ/vCWb34XxZdvCOSmQBpmC8ga2fS0O6AeviI/4DTl+OrXMnHThb0UxUwLtBb+krqQ4F2Gi
- fisVMtTqJrlyV6H5vpijZu30Fb0uCdccDww/rBtyejZ+wIQIXzLbsQcQvOU8X1YNwqyOC4DKfs
- siDBQKRfyO5WGM/sfs8uH3GusAQPPUeMTJqs+zbzuUVQtJ17dwTcqNxGIb3cq2TX30XicQIXgY
- NUs=
+ 25 Oct 2021 12:29:26 -0700
+IronPort-SDR: nluRUXP+94rZNP16XBZdEhCLN6DIIu1IHF83+zN11b7EFzqjl2R/X+UTCYMCpipfKZA3hgyDWy
+ pX2PHweUs04Z1eK/KTu2w2AV2olfIIKxI9PdykI3eHediBA15RbFSoiH3iOj2ave9J/ReB/PdK
+ iG7Ge75nVY3oZa/iiDL243CcXmhYT+EU3lFSH0HJ2L+BzJAK8RKOqAD2VjnrJbztxJM+MsDH0l
+ uhumV0UXHTszt28DzhpeE0JMmp2Yhcc5zTmmSVieNvt1+6dQs0n20BFT1y0FOeEKIr8+2G3PLM
+ wFg=
 WDCIronportException: Internal
 Received: from unknown (HELO hulk.wdc.com) ([10.225.167.27])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Oct 2021 12:53:57 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Oct 2021 12:53:56 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
@@ -75,16 +75,16 @@ Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Vincent Chen <vincent.chen@sifive.com>
-Subject: [v4 05/11] RISC-V: Add RISC-V SBI PMU extension definitions
-Date: Mon, 25 Oct 2021 12:53:44 -0700
-Message-Id: <20211025195350.242914-6-atish.patra@wdc.com>
+Subject: [v4 03/11] RISC-V: Add a perf core library for pmu drivers
+Date: Mon, 25 Oct 2021 12:53:42 -0700
+Message-Id: <20211025195350.242914-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20211025195350.242914-1-atish.patra@wdc.com>
 References: <20211025195350.242914-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_125359_683343_FDDEF297 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20211025_125357_808052_9053C7BB 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,135 +101,474 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds all the definitions defined by the SBI PMU extension.
+Implement a perf core library that can support all the essential perf
+features in future. It can also accommodate any type of PMU implementation
+in future. Currently, both SBI based perf driver and legacy driver
+implemented uses the library. Most of the common perf functionalities
+are kept in this core library wile PMU specific driver can implement PMU
+specific features. For example, the SBI specific functionality will be
+implemented in the SBI specific driver.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/sbi.h | 97 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+ drivers/perf/Kconfig           |   8 +
+ drivers/perf/Makefile          |   1 +
+ drivers/perf/riscv_pmu.c       | 329 +++++++++++++++++++++++++++++++++
+ include/linux/cpuhotplug.h     |   1 +
+ include/linux/perf/riscv_pmu.h |  65 +++++++
+ 5 files changed, 404 insertions(+)
+ create mode 100644 drivers/perf/riscv_pmu.c
+ create mode 100644 include/linux/perf/riscv_pmu.h
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 0d42693cb65e..7a14ca06ba8f 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -27,6 +27,7 @@ enum sbi_ext_id {
- 	SBI_EXT_IPI = 0x735049,
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
-+	SBI_EXT_PMU = 0x504D55,
- };
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index 77522e5efe11..fc42ab613ea0 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -56,6 +56,14 @@ config ARM_PMU
+ 	  Say y if you want to use CPU performance monitors on ARM-based
+ 	  systems.
  
- enum sbi_ext_base_fid {
-@@ -70,6 +71,99 @@ enum sbi_hsm_hart_status {
- 	SBI_HSM_HART_STATUS_STOP_PENDING,
- };
- 
++config RISCV_PMU
++	depends on RISCV
++	bool "RISC-V PMU framework"
++	default y
++	help
++	  Say y if you want to use CPU performance monitors on RISCV-based
++	  systems.
 +
-+enum sbi_ext_pmu_fid {
-+	SBI_EXT_PMU_NUM_COUNTERS = 0,
-+	SBI_EXT_PMU_COUNTER_GET_INFO,
-+	SBI_EXT_PMU_COUNTER_CFG_MATCH,
-+	SBI_EXT_PMU_COUNTER_START,
-+	SBI_EXT_PMU_COUNTER_STOP,
-+	SBI_EXT_PMU_COUNTER_FW_READ,
-+};
-+
-+#define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-+#define RISCV_PMU_RAW_EVENT_IDX 0x20000
-+
-+/** General pmu event codes specified in SBI PMU extension */
-+enum sbi_pmu_hw_generic_events_t {
-+	SBI_PMU_HW_NO_EVENT			= 0,
-+	SBI_PMU_HW_CPU_CYCLES			= 1,
-+	SBI_PMU_HW_INSTRUCTIONS			= 2,
-+	SBI_PMU_HW_CACHE_REFERENCES		= 3,
-+	SBI_PMU_HW_CACHE_MISSES			= 4,
-+	SBI_PMU_HW_BRANCH_INSTRUCTIONS		= 5,
-+	SBI_PMU_HW_BRANCH_MISSES		= 6,
-+	SBI_PMU_HW_BUS_CYCLES			= 7,
-+	SBI_PMU_HW_STALLED_CYCLES_FRONTEND	= 8,
-+	SBI_PMU_HW_STALLED_CYCLES_BACKEND	= 9,
-+	SBI_PMU_HW_REF_CPU_CYCLES		= 10,
-+
-+	SBI_PMU_HW_GENERAL_MAX,
-+};
-+
-+/**
-+ * Special "firmware" events provided by the firmware, even if the hardware
-+ * does not support performance events. These events are encoded as a raw
-+ * event type in Linux kernel perf framework.
+ config ARM_PMU_ACPI
+ 	depends on ARM_PMU && ACPI
+ 	def_bool y
+diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+index 5260b116c7da..76e5c50e24bb 100644
+--- a/drivers/perf/Makefile
++++ b/drivers/perf/Makefile
+@@ -10,6 +10,7 @@ obj-$(CONFIG_FSL_IMX8_DDR_PMU) += fsl_imx8_ddr_perf.o
+ obj-$(CONFIG_HISI_PMU) += hisilicon/
+ obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
+ obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
++obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
+ obj-$(CONFIG_THUNDERX2_PMU) += thunderx2_pmu.o
+ obj-$(CONFIG_XGENE_PMU) += xgene_pmu.o
+ obj-$(CONFIG_ARM_SPE_PMU) += arm_spe_pmu.o
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+new file mode 100644
+index 000000000000..9c4ebcabca6e
+--- /dev/null
++++ b/drivers/perf/riscv_pmu.c
+@@ -0,0 +1,329 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RISC-V performance counter support.
++ *
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ *
++ * This implementation is based on old RISC-V perf and ARM perf event code
++ * which are in turn based on sparc64 and x86 code.
 + */
-+enum sbi_pmu_fw_generic_events_t {
-+	SBI_PMU_FW_MISALIGNED_LOAD	= 0,
-+	SBI_PMU_FW_MISALIGNED_STORE	= 1,
-+	SBI_PMU_FW_ACCESS_LOAD		= 2,
-+	SBI_PMU_FW_ACCESS_STORE		= 3,
-+	SBI_PMU_FW_ILLEGAL_INSN		= 4,
-+	SBI_PMU_FW_SET_TIMER		= 5,
-+	SBI_PMU_FW_IPI_SENT		= 6,
-+	SBI_PMU_FW_IPI_RECVD		= 7,
-+	SBI_PMU_FW_FENCE_I_SENT		= 8,
-+	SBI_PMU_FW_FENCE_I_RECVD	= 9,
-+	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
-+	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
-+	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
-+	SBI_PMU_FW_SFENCE_VMA_ASID_RCVD	= 13,
 +
-+	SBI_PMU_FW_HFENCE_GVMA_SENT	= 14,
-+	SBI_PMU_FW_HFENCE_GVMA_RCVD	= 15,
-+	SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
-+	SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
++#include <linux/cpumask.h>
++#include <linux/irq.h>
++#include <linux/irqdesc.h>
++#include <linux/perf/riscv_pmu.h>
++#include <linux/printk.h>
++#include <linux/smp.h>
 +
-+	SBI_PMU_FW_HFENCE_VVMA_SENT	= 18,
-+	SBI_PMU_FW_HFENCE_VVMA_RCVD	= 19,
-+	SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
-+	SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
-+	SBI_PMU_FW_MAX,
++static unsigned long csr_read_num(int csr_num)
++{
++#define switchcase_csr_read(__csr_num, __val)		{\
++	case __csr_num:					\
++		__val = csr_read(__csr_num);		\
++		break; }
++#define switchcase_csr_read_2(__csr_num, __val)		{\
++	switchcase_csr_read(__csr_num + 0, __val)	 \
++	switchcase_csr_read(__csr_num + 1, __val)}
++#define switchcase_csr_read_4(__csr_num, __val)		{\
++	switchcase_csr_read_2(__csr_num + 0, __val)	 \
++	switchcase_csr_read_2(__csr_num + 2, __val)}
++#define switchcase_csr_read_8(__csr_num, __val)		{\
++	switchcase_csr_read_4(__csr_num + 0, __val)	 \
++	switchcase_csr_read_4(__csr_num + 4, __val)}
++#define switchcase_csr_read_16(__csr_num, __val)	{\
++	switchcase_csr_read_8(__csr_num + 0, __val)	 \
++	switchcase_csr_read_8(__csr_num + 8, __val)}
++#define switchcase_csr_read_32(__csr_num, __val)	{\
++	switchcase_csr_read_16(__csr_num + 0, __val)	 \
++	switchcase_csr_read_16(__csr_num + 16, __val)}
++
++	unsigned long ret = 0;
++
++	switch (csr_num) {
++	switchcase_csr_read_32(CSR_CYCLE, ret)
++	switchcase_csr_read_32(CSR_CYCLEH, ret)
++	default :
++		break;
++	}
++
++	return ret;
++#undef switchcase_csr_read_32
++#undef switchcase_csr_read_16
++#undef switchcase_csr_read_8
++#undef switchcase_csr_read_4
++#undef switchcase_csr_read_2
++#undef switchcase_csr_read
++}
++
++/*
++ * Read the CSR of a corresponding counter.
++ */
++unsigned long riscv_pmu_ctr_read_csr(unsigned long csr)
++{
++	if (csr < CSR_CYCLE || csr > CSR_HPMCOUNTER31H ||
++	   (csr > CSR_HPMCOUNTER31 && csr < CSR_CYCLEH)) {
++		pr_err("Invalid performance counter csr %lx\n", csr);
++		return -EINVAL;
++	}
++
++	return csr_read_num(csr);
++}
++
++static uint64_t riscv_pmu_ctr_get_mask(struct perf_event *event)
++{
++	int cwidth;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++
++	if (!rvpmu->ctr_get_width)
++	/**
++	 * If the pmu driver doesn't support counter width, set it to default maximum
++	 * allowed by the specification.
++	 */
++		cwidth = 63;
++	else {
++		if (hwc->idx == -1)
++			/* Handle init case where idx is not initialized yet */
++			cwidth = rvpmu->ctr_get_width(0);
++		else
++			cwidth = rvpmu->ctr_get_width(hwc->idx);
++	}
++
++	return GENMASK_ULL(cwidth, 0);
++}
++
++u64 riscv_pmu_event_update(struct perf_event *event)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	u64 prev_raw_count, new_raw_count;
++	unsigned long cmask;
++	u64 oldval, delta;
++
++	if (!rvpmu->ctr_read)
++		return 0;
++
++	cmask = riscv_pmu_ctr_get_mask(event);
++
++	do {
++		prev_raw_count = local64_read(&hwc->prev_count);
++		new_raw_count = rvpmu->ctr_read(event);
++		oldval = local64_cmpxchg(&hwc->prev_count, prev_raw_count,
++					 new_raw_count);
++	} while (oldval != prev_raw_count);
++
++	delta = (new_raw_count - prev_raw_count) & cmask;
++	local64_add(delta, &event->count);
++	local64_sub(delta, &hwc->period_left);
++
++	return delta;
++}
++
++static void riscv_pmu_stop(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++
++	WARN_ON_ONCE(hwc->state & PERF_HES_STOPPED);
++
++	if (!(hwc->state & PERF_HES_STOPPED)) {
++		if (rvpmu->ctr_stop) {
++			rvpmu->ctr_stop(event, 0);
++			hwc->state |= PERF_HES_STOPPED;
++		}
++		riscv_pmu_event_update(event);
++		hwc->state |= PERF_HES_UPTODATE;
++	}
++}
++
++int riscv_pmu_event_set_period(struct perf_event *event, u64 *init_val)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	s64 left = local64_read(&hwc->period_left);
++	s64 period = hwc->sample_period;
++	u64 max_period;
++	int ret = 0;
++	uint64_t cmask = riscv_pmu_ctr_get_mask(event);
++
++	max_period = cmask;
++	if (unlikely(left <= -period)) {
++		left = period;
++		local64_set(&hwc->period_left, left);
++		hwc->last_period = period;
++		ret = 1;
++	}
++
++	if (unlikely(left <= 0)) {
++		left += period;
++		local64_set(&hwc->period_left, left);
++		hwc->last_period = period;
++		ret = 1;
++	}
++
++	/*
++	 * Limit the maximum period to prevent the counter value
++	 * from overtaking the one we are about to program. In
++	 * effect we are reducing max_period to account for
++	 * interrupt latency (and we are being very conservative).
++	 */
++	if (left > (max_period >> 1))
++		left = (max_period >> 1);
++
++	local64_set(&hwc->prev_count, (u64)-left);
++	*init_val = (u64)(-left) & max_period;
++	perf_event_update_userpage(event);
++
++	return ret;
++}
++
++static void riscv_pmu_start(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	u64 init_val;
++
++	if (WARN_ON_ONCE(!(event->hw.state & PERF_HES_STOPPED)))
++		return;
++
++	if (flags & PERF_EF_RELOAD) {
++		WARN_ON_ONCE(!(event->hw.state & PERF_HES_UPTODATE));
++
++		/*
++		 * Set the counter to the period to the next interrupt here,
++		 * if you have any.
++		 */
++	}
++
++	hwc->state = 0;
++	riscv_pmu_event_set_period(event, &init_val);
++	rvpmu->ctr_start(event, init_val);
++	perf_event_update_userpage(event);
++}
++
++static int riscv_pmu_add(struct perf_event *event, int flags)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
++	struct hw_perf_event *hwc = &event->hw;
++	int idx;
++
++	idx = rvpmu->ctr_get_idx(event);
++	if (idx < 0)
++		return idx;
++
++	hwc->idx = idx;
++	cpuc->events[idx] = event;
++	cpuc->n_events++;
++	hwc->state = PERF_HES_UPTODATE | PERF_HES_STOPPED;
++	if (flags & PERF_EF_START)
++		riscv_pmu_start(event, PERF_EF_RELOAD);
++
++	/* Propagate our changes to the userspace mapping. */
++	perf_event_update_userpage(event);
++
++	return 0;
++}
++
++static void riscv_pmu_del(struct perf_event *event, int flags)
++{
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
++	struct hw_perf_event *hwc = &event->hw;
++
++	riscv_pmu_stop(event, PERF_EF_UPDATE);
++	cpuc->events[hwc->idx] = NULL;
++	/* The firmware need to reset the counter mapping */
++	if (rvpmu->ctr_stop)
++		rvpmu->ctr_stop(event, RISCV_PMU_STOP_FLAG_RESET);
++	cpuc->n_events--;
++	if (rvpmu->ctr_clear_idx)
++		rvpmu->ctr_clear_idx(event);
++	perf_event_update_userpage(event);
++	hwc->idx = -1;
++}
++
++static void riscv_pmu_read(struct perf_event *event)
++{
++	riscv_pmu_event_update(event);
++}
++
++static int riscv_pmu_event_init(struct perf_event *event)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	int mapped_event;
++	u64 event_config = 0;
++	uint64_t cmask;
++
++	hwc->flags = 0;
++	mapped_event = rvpmu->event_map(event, &event_config);
++	if (mapped_event < 0) {
++		pr_debug("event %x:%llx not supported\n", event->attr.type,
++			 event->attr.config);
++		return mapped_event;
++	}
++
++	/*
++	 * idx is set to -1 because the index of a general event should not be
++	 * decided until binding to some counter in pmu->add().
++	 * config will contain the information about counter CSR
++	 * the idx will contain the counter index
++	 */
++	hwc->config = event_config;
++	hwc->idx = -1;
++	hwc->event_base = mapped_event;
++
++	if (!is_sampling_event(event)) {
++		/*
++		 * For non-sampling runs, limit the sample_period to half
++		 * of the counter width. That way, the new counter value
++		 * is far less likely to overtake the previous one unless
++		 * you have some serious IRQ latency issues.
++		 */
++		cmask = riscv_pmu_ctr_get_mask(event);
++		hwc->sample_period  =  cmask >> 1;
++		hwc->last_period    = hwc->sample_period;
++		local64_set(&hwc->period_left, hwc->sample_period);
++	}
++
++	return 0;
++}
++
++struct riscv_pmu *riscv_pmu_alloc(void)
++{
++	struct riscv_pmu *pmu;
++	int cpuid, i;
++	struct cpu_hw_events *cpuc;
++
++	pmu = kzalloc(sizeof(*pmu), GFP_KERNEL);
++	if (!pmu)
++		goto out;
++
++	pmu->hw_events = alloc_percpu_gfp(struct cpu_hw_events, GFP_KERNEL);
++	if (!pmu->hw_events) {
++		pr_info("failed to allocate per-cpu PMU data.\n");
++		goto out_free_pmu;
++	}
++
++	for_each_possible_cpu(cpuid) {
++		cpuc = per_cpu_ptr(pmu->hw_events, cpuid);
++		cpuc->n_events = 0;
++		for (i = 0; i < RISCV_MAX_COUNTERS; i++)
++			cpuc->events[i] = NULL;
++	}
++	pmu->pmu = (struct pmu) {
++		.event_init	= riscv_pmu_event_init,
++		.add		= riscv_pmu_add,
++		.del		= riscv_pmu_del,
++		.start		= riscv_pmu_start,
++		.stop		= riscv_pmu_stop,
++		.read		= riscv_pmu_read,
++	};
++
++	return pmu;
++
++out_free_pmu:
++	kfree(pmu);
++out:
++	return NULL;
++}
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 39cf84a30b9f..1743b8a4624d 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -123,6 +123,7 @@ enum cpuhp_state {
+ 	CPUHP_AP_PERF_ARM_HW_BREAKPOINT_STARTING,
+ 	CPUHP_AP_PERF_ARM_ACPI_STARTING,
+ 	CPUHP_AP_PERF_ARM_STARTING,
++	CPUHP_AP_PERF_RISCV_STARTING,
+ 	CPUHP_AP_ARM_L2X0_STARTING,
+ 	CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING,
+ 	CPUHP_AP_ARM_ARCH_TIMER_STARTING,
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+new file mode 100644
+index 000000000000..564129839e19
+--- /dev/null
++++ b/include/linux/perf/riscv_pmu.h
+@@ -0,0 +1,65 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2018 SiFive
++ * Copyright (C) 2018 Andes Technology Corporation
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ *
++ */
++
++#ifndef _ASM_RISCV_PERF_EVENT_H
++#define _ASM_RISCV_PERF_EVENT_H
++
++#include <linux/perf_event.h>
++#include <linux/ptrace.h>
++#include <linux/interrupt.h>
++
++#ifdef CONFIG_RISCV_PMU
++
++/*
++ * The RISCV_MAX_COUNTERS parameter should be specified.
++ */
++
++#define RISCV_MAX_COUNTERS	64
++#define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
++#define RISCV_PMU_PDEV_NAME	"riscv-pmu"
++
++#define RISCV_PMU_STOP_FLAG_RESET 1
++
++struct cpu_hw_events {
++	/* currently enabled events */
++	int			n_events;
++	/* currently enabled events */
++	struct perf_event	*events[RISCV_MAX_COUNTERS];
++	/* currently enabled counters */
++	DECLARE_BITMAP(used_event_ctrs, RISCV_MAX_COUNTERS);
 +};
 +
-+/* SBI PMU event types */
-+enum sbi_pmu_event_type {
-+	SBI_PMU_EVENT_TYPE_HW = 0x0,
-+	SBI_PMU_EVENT_TYPE_CACHE = 0x1,
-+	SBI_PMU_EVENT_TYPE_RAW = 0x2,
-+	SBI_PMU_EVENT_TYPE_FW = 0xf,
++struct riscv_pmu {
++	struct pmu	pmu;
++	char		*name;
++
++	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
++	int		irq;
++
++	int		num_counters;
++	u64		(*ctr_read)(struct perf_event *event);
++	int		(*ctr_get_idx)(struct perf_event *event);
++	int		(*ctr_get_width)(int idx);
++	void		(*ctr_clear_idx)(struct perf_event *event);
++	void		(*ctr_start)(struct perf_event *event, u64 init_val);
++	void		(*ctr_stop)(struct perf_event *event, unsigned long flag);
++	int		(*event_map)(struct perf_event *event, u64 *config);
++
++	struct cpu_hw_events	__percpu *hw_events;
++	struct hlist_node	node;
 +};
 +
-+/* SBI PMU event types */
-+enum sbi_pmu_ctr_type {
-+	SBI_PMU_CTR_TYPE_HW = 0x0,
-+	SBI_PMU_CTR_TYPE_FW,
-+};
++#define to_riscv_pmu(p) (container_of(p, struct riscv_pmu, pmu))
++unsigned long riscv_pmu_ctr_read_csr(unsigned long csr);
++int riscv_pmu_event_set_period(struct perf_event *event, u64 *init_val);
++u64 riscv_pmu_event_update(struct perf_event *event);
++struct riscv_pmu *riscv_pmu_alloc(void);
 +
-+/* Flags defined for config matching function */
-+#define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
-+#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
-+#define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
-+#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 3)
-+#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 4)
-+#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
-+#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 6)
-+#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 7)
++#endif /* CONFIG_RISCV_PMU */
 +
-+/* Flags defined for counter start function */
-+#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
-+
-+/* Flags defined for counter stop function */
-+#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-+
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-@@ -82,6 +176,9 @@ enum sbi_hsm_hart_status {
- #define SBI_ERR_INVALID_PARAM	-3
- #define SBI_ERR_DENIED		-4
- #define SBI_ERR_INVALID_ADDRESS	-5
-+#define SBI_ERR_ALREADY_AVAILABLE -6
-+#define SBI_ERR_ALREADY_STARTED -7
-+#define SBI_ERR_ALREADY_STOPPED -8
- 
- extern unsigned long sbi_spec_version;
- struct sbiret {
++#endif /* _ASM_RISCV_PERF_EVENT_H */
 -- 
 2.31.1
 
