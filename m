@@ -2,77 +2,118 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6CD34C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD974C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:48:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3186760C49
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:33:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3186760C49
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 6C6056058D
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:48:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6C6056058D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZgldHhwAZW3YWS5++/10Qdkhj3+OiSmY6m2TD9p/yN8=; b=Yiu0C9APSUlVeg
-	IaBco8zUiDFUOikAu5slXpcJoIDmggY5rtsXIkUNy08emUE8oho6kwowhrQUjn+Y1OERSACBRH7de
-	RYieasEjGOUI9Z8wJjL8ydHMG9hAus6iX2GBpwZTpufdWjXtKy0Pa6iwyRKS2H5XlnUqRJbT7kI+Y
-	3Z1EbTVh1pVHl7YQp353/Dq5e30waLh95LXysnbfLvjB9OnFqO6aJtQ1UN0/7ttj2g9NbtsY4YD6d
-	6GDQLWZSK0/IakKTTxlj75mUPxfU+QBYv0eTyc33kZuIVS86AdX7j/PNScLSrrqxapZXhm8a6LuOR
-	+H4EpaVKYYSIpiX0ef5g==;
+	List-Owner; bh=fiwOGjvATe7srF79NQCZLHjuv0peD7LkMaDZMM8k1kQ=; b=GJsohQ7pjWscM7
+	nlSTsNsMSFUBCjmB9RlQDmib2Nk7gNYQBHcIcMim7hgnM4bhdDE/Pv7xZJC5Aoo0qCGJMhZxE4SsF
+	KOfcdYi3d+yWVI4jS4z11Mlblg5MjYFleJQZj3nmOQ9uQWXhTdS2lUtLORbS5dpFe96WIfI/0/swp
+	B8hgJdPeNpwyWSbjcuIOV1GF3B67SdCmGLbB+oyaDxW0YShi0OSjOMSgL1lqpMjvSmuo59ds24TvT
+	UhbTL84yYsoozJ9NQywImtE1OB6TSL2cnvOcmYru7f3drfBAGxDZOgCy/1U5V7YPJg7WrfuU16pCW
+	CB8CeQ3bQzb8CDwIiZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf06g-00GY1q-CX; Mon, 25 Oct 2021 13:33:42 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mf0LB-00GaBC-73; Mon, 25 Oct 2021 13:48:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf06e-00GY0y-63
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 13:33:41 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9EB0E60FE8
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 13:33:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635168819;
- bh=EJ45t84sWIEH4MsSQhX2PuBQrfefoAybdOzP/rNZ+W0=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=OombQE/tLFdXcoqTbOKCFBEoPkjNSZACFBrDM2ZUyFWNwvqMk5D9UcGaRRacva9y2
- JEkF5mg0tyglX17CJpImlDl71pFmOoDhemZlk35I4pLE3UhWOvGoUfp4RQU/q3zEGf
- 88BHvNtZCfKIA5r7/3qm5FQg63dxvzRQTU4f/Ry9f2o9BP0535VjbcAvT1AfRKp2EP
- 0qgiakvfCle5yZB2Lq3hIKKAw+GK3uDKotmIcRxy//YjAghnBu2aEJFCLdRmTMNPHZ
- 7mgOU1C+q/2KuTGKSed2+/wCipyItHdlnXzsTpqIR7cNa1VyVYKvgZCSu+pT7U17q6
- WXdiCVfJJTxBg==
-Received: by mail-vk1-f182.google.com with SMTP id d130so719120vke.0
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 06:33:39 -0700 (PDT)
-X-Gm-Message-State: AOAM533KD/wOgOmPatja0YN8Fgw2SEohRIdhDgt7Hhmjv8EAiPRDlelf
- NL0STWBVUqCo8gr9LwxMaYvbQkgCIVUnUxkyUPI=
-X-Google-Smtp-Source: ABdhPJwdtSXSO9me5cbpVx8umGxqAOBbaLGaFF8sdWMN1yxlQDvJkj80Gy8e7N7zebHiShNk+776CXMa7XvtZT+wyo8=
-X-Received: by 2002:a05:6122:788:: with SMTP id
- k8mr14826563vkr.8.1635168818708; 
- Mon, 25 Oct 2021 06:33:38 -0700 (PDT)
+ id 1mf0Ky-00Ga86-DD
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 13:48:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635169706;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=rAI1rvJIZVwx71e91km04CwkX5jtmNRsQSKYM+y4LQM=;
+ b=RcUN7h3/KVcwB6CG2nyXxa0de24df0g3VfDOZrfqH/ynGLyLyDFmXnYkvZkf3l/Xy192Bw
+ RupD1Y+KicOlz2O5kjHiwx3bttaThZ8ePhvcgYr++8Hf/XUpwmyXUFODZ+DX+NCwXtd/Hm
+ eQB4dxnagmpWvuZtwsyzT1JmL8TEMXs=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-339-ldtTqyYMP2WzpNoe2TFQpg-1; Mon, 25 Oct 2021 09:48:24 -0400
+X-MC-Unique: ldtTqyYMP2WzpNoe2TFQpg-1
+Received: by mail-wm1-f72.google.com with SMTP id
+ z17-20020a7bc7d1000000b0032cafafaf79so4893wmk.5
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 06:48:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=rAI1rvJIZVwx71e91km04CwkX5jtmNRsQSKYM+y4LQM=;
+ b=FFZNtOesmD9yZDDqyW8DAQYIfGSgoHecbk3eQb89hJm0FaG2asquD0yfbXg+j+iaje
+ yBkxYHC4tWPPQru2G/4xwaXGW+J36fZtGm+dXwgMC582UjOT6qUlp9X6hieFodULPi8A
+ nCv4uUExI/PN7TbLzBWE0Q9YbQeKzBWoVG45cc0YZIM1jotbJKBVHO6k4dXCSxElV7cF
+ 9J6YOsYnmoov0dUsSqW+d95awrCuTAGlN2CjmZ2E/NBmPHEV01e+d2elCQl/i8/nSyQH
+ wAnMJyqhqvn4AOmf5Rggsc92PI7N0jTJh8lWQYLaWsXSqZfVW0lgsvEjnnWbEdo2CA0m
+ ZAgQ==
+X-Gm-Message-State: AOAM531MQRc4nYkNBEvy7NBkFS10yUP3rjoTcF3mSD010TvdQu/fVei1
+ YfbBpwC1emSQuqy2bUomDAFKJSc+u5SgGoI3l0bQzN52B4rgGOtFRwI3Ia/LTMq/ALmLpbclzAJ
+ 3NOLlWp+2Rt9aX6aYAwvCS4xYRB+g
+X-Received: by 2002:adf:d1ee:: with SMTP id g14mr24355619wrd.264.1635169703585; 
+ Mon, 25 Oct 2021 06:48:23 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxvh4UiZag1iqCL0Yxmhmh7ghHaPzeCY1G7nZe+NYuublJxNb7HJYi3GJafbpt4P4VqHirR5w==
+X-Received: by 2002:adf:d1ee:: with SMTP id g14mr24355558wrd.264.1635169703285; 
+ Mon, 25 Oct 2021 06:48:23 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
+ ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
+ by smtp.gmail.com with ESMTPSA id m12sm3661638wrq.69.2021.10.25.06.48.21
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 25 Oct 2021 06:48:22 -0700 (PDT)
+Message-ID: <1537b693-80ee-4f9e-2c4e-6e1c62ccca92@redhat.com>
+Date: Mon, 25 Oct 2021 15:48:20 +0200
 MIME-Version: 1.0
-References: <20211024013303.3499461-1-guoren@kernel.org>
- <20211024013303.3499461-4-guoren@kernel.org>
- <87a6ixbcse.wl-maz@kernel.org>
-In-Reply-To: <87a6ixbcse.wl-maz@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 25 Oct 2021 21:33:27 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTw136y8tzwOJQcNymGGWA2Zz127ozFEnGrRXwQUU7o8Q@mail.gmail.com>
-Message-ID: <CAJF2gTTw136y8tzwOJQcNymGGWA2Zz127ozFEnGrRXwQUU7o8Q@mail.gmail.com>
-Subject: Re: [PATCH V5 3/3] irqchip/sifive-plic: Fixup thead,c900-plic
- request_threaded_irq with ONESHOT
-To: Marc Zyngier <maz@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@wdc.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Rob Herring <robh@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.1.0
+Subject: Re: [PATCH v2 20/43] KVM: VMX: Skip Posted Interrupt updates if APICv
+ is hard disabled
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>
+Cc: James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra
+ <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
+ Jing Zhang <jingzhangos@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-21-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <20211009021236.4122790-21-seanjc@google.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_063340_288713_3937DC21 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20211025_064828_559565_BF084843 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +125,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 25, 2021 at 6:48 PM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Sun, 24 Oct 2021 02:33:03 +0100,
-> guoren@kernel.org wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > When using "devm_request_threaded_irq(,,,,IRQF_ONESHOT,,)" in the driver,
-> > only the first interrupt could be handled, and continue irq is blocked by
-> > hw. Because the thead,c900-plic couldn't complete masked irq source which
-> > has been disabled in enable register. Add thead_plic_chip which fix up
-> > c906-plic irq source completion problem by unmask/mask wrapper.
-> >
-> > Here is the description of Interrupt Completion in PLIC spec [1]:
-> >
-> > The PLIC signals it has completed executing an interrupt handler by
-> > writing the interrupt ID it received from the claim to the claim/complete
-> > register. The PLIC does not check whether the completion ID is the same
-> > as the last claim ID for that target. If the completion ID does not match
-> > an interrupt source that is currently enabled for the target, the
-> >                          ^^ ^^^^^^^^^ ^^^^^^^
-> > completion is silently ignored.
->
-> Given this bit of the spec...
->
-> > +static void plic_thead_irq_eoi(struct irq_data *d)
-> > +{
-> > +     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> > +
-> > +     if (irqd_irq_masked(d)) {
-> > +             plic_irq_unmask(d);
-> > +             writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> > +             plic_irq_mask(d);
-> > +     } else {
-> > +             writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> > +     }
-> > +}
-> > +
->
-> ... it isn't obvious to me why this cannot happen on an SiFive PLIC.
-I'm not sure about SiFive PLIC. Maybe they didn't follow that to implement.
+On 09/10/21 04:12, Sean Christopherson wrote:
+> +	/* Nothing to do if PI.SN==0 and the vCPU isn't being migrated. */
+>   	if (!pi_test_sn(pi_desc) && vcpu->cpu == cpu)
+>   		return;
 
->
-> And it isn't only for threaded interrupts in oneshot mode. Any driver
-> can mask an interrupt from its handler after having set the
-> IRQ_DISABLE_UNLAZY flag, and the interrupt would need the exact same
-> treatment.
-Thx for mentioned here, and I'll add it in the comment of next version patch.
+This does not quite say "why", so:
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+         /* Nothing to do if PI.SN and PI.NDST both have the desired value. */
 
+Paolo
 
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
