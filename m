@@ -2,87 +2,88 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFDD5C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 00:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C82C9C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 01:00:46 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 58B9960FD7
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 00:36:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 58B9960FD7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id 7949560EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 01:00:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7949560EE9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LixhibFg7Ha0qNsjnpueUkiAtB599Vfd9eZ0Qe/57QI=; b=xJsznQvwP1wOTx
-	rfZ5Uh5+UmnzOAiMf3LEzPdWuoGQiZDRqLRYFtci9h7Ttjv/3SiX1aeN3ESCGEAUq6iZbAFwQ/SUM
-	6bAm9HVrRgCLUAFfoWWwCDttGsANZCM2biap7Q5346mVVjxWxnUrllpq+rKi/fYGSVOzGU8dX93ME
-	uWZHitu+tgn1xbPCF3O4y1nEBy/IJf40EIJp/eaKZwOuCnjxoQZNb/T5EElf2iVJ2pt5a0G4iNtCh
-	/SkPRhUwTXnfVXTDCvjljwuLRSZS2bQlVlNrG/+ynbjtM+oGVyInHjqxsaPvFrvMNXWmtmTzAoVxS
-	+yZ4G4qAURZw4A1aaC4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
+	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KopUQ3qanmgiWD8BBdHrP+Xec3WoaS2jGsgOt+7dC6k=; b=wqVuGswk4Xk623HHagbJkhRw5P
+	RcS94jtfBY/BS76zXrXepejl4ZfIKPpBvt2PFOhgL/njge0U2DI/Iy4H1H/xiVXdW6Cgplc6HYLit
+	Pnwe1xB7Dy1osDiU2rvrrZQT15LXhLVXZZ4OYgrONYrbanvMVhhSXUV9SgEWPv3WVgrlH2Xyp2suI
+	NL8MQitgrgYOAkJ3IQDBzWX/O+QQQXP4RBfSmKEbrArNiRe7GpyDoGhaOwwvf9P+IvInJj4IetzNN
+	qFw4/nhtnZwxLfP680G5XzLkxWrraRcykIHDU21FyPUjqwrySJv9mPHSSYNIBmdzKDmXQjoYWMn8i
+	1ioRnRmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1menyC-00Epyy-JE; Mon, 25 Oct 2021 00:36:08 +0000
-Received: from mail-pf1-f175.google.com ([209.85.210.175])
+	id 1meoLp-00EquM-MR; Mon, 25 Oct 2021 01:00:33 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1meny8-00EpyX-WF
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 00:36:07 +0000
-Received: by mail-pf1-f175.google.com with SMTP id d9so9101029pfl.6
- for <linux-riscv@lists.infradead.org>; Sun, 24 Oct 2021 17:36:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=2qH0EkjmGBqZqzNWAd5xakY+DAqcPlo0/17L+watSFo=;
- b=qegpaTaBR/cYQNKKJzup5iDThYpGQk6pQpZGkCfSre79LRf2P+mOxX5TUfpit1uTLc
- EX7ppoD1Bcti9iMLU+6jNnb1cw2pyCz4uGvn0nks7IcGiXxxL+Y5sgXKSEYMSIrKp1vw
- 7neK7y8WG28KKRCCX9qLcIIDX+EqVEBxo2w9YVi+UyovmhDNqGhpNhDAnMnQEEuNsRVc
- Y1mNzs9Ql5ATTlkuljLbrLOa1AmxqRMEkKJxF130bYikBKYeYCT0ZwzKHrOEsFC0dJqo
- gumj3OUlGXBfSdj4MomtKQpaO2Hi3KnSgqDjAGb/GKCmKI0cSOtSNDW3S6rvhCv7uhjR
- ZXLQ==
-X-Gm-Message-State: AOAM532PSSD4Eo/2wk9j0xyJK1dlzmWWr6XZJE5mbD8Tu6CXtZTYvcRA
- LKcGuAdXvCJBVdb3v1FMQat/fblY9vk/fByDxCA=
-X-Google-Smtp-Source: ABdhPJzl54zpKV3sQ8JY+vUbzNFdI4ziqWls7u/hP7OYNEq6resMPJD1kH5xqGf6CGbcj8bF7QSTME7U2/JD7t9HACg=
-X-Received: by 2002:a63:b11:: with SMTP id 17mr11021028pgl.51.1635122163670;
- Sun, 24 Oct 2021 17:36:03 -0700 (PDT)
+ id 1meoLm-00EqtN-IZ
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 01:00:32 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 19P10IPO011050
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 04:00:18 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
+ q=dns/txt; i=@ics.forth.gr; t=1635123612; x=1637715612;
+ h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=XtAEwQrbUN1uwXWUYNCihcDeraLw6hJkJMDHwdBjgI0=;
+ b=BCsuHO4bwRTp/6cww4IdJEe8KQPnWkY+Xw4wow8V3Vt3n3gOT/OH29TSSO2oGSlD
+ liuKCKg/MKSq3nX1HXFg7su9tQg4KCWzzSx/MciSnUHALwTYe2uRN7NzAEK5TOAM
+ qrnpHxZ7OD53Xzw9s1LXaSxpv77Jgsh3av1i8G7RqYtV0r7snqvu99R3k+8e5+ob
+ zjwYeizB9nXS3fVTUncsFi/HLO63tTbtvw2LWOLuzQS9p3EkejPCq1ft4E3AEmYR
+ OT3yzLn/14GeRjPT+6D8Y9BmYWwftuCrq/yLp6uZTnP9VH1UodbQrAM3K+7Bp5xl
+ P203uvRH9I6EdOgJKv7MMA==;
+X-AuditID: 8b5b014d-ba8f670000005d46-1f-6176019c5f81
+Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ A2.49.23878.C9106716; Mon, 25 Oct 2021 04:00:12 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
 MIME-Version: 1.0
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-12-kernel@esmil.dk>
- <CACRpkdYZzKtFcBUM8sV4uze2T_EbfOGG=QkO9miDKKq=1mws_A@mail.gmail.com>
-In-Reply-To: <CACRpkdYZzKtFcBUM8sV4uze2T_EbfOGG=QkO9miDKKq=1mws_A@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Mon, 25 Oct 2021 02:35:52 +0200
-Message-ID: <CANBLGczuVgT30OGDSN=4WcX8AgpoTQc5goUg23YY859T8axkRQ@mail.gmail.com>
-Subject: Re: [PATCH v2 11/16] dt-bindings: pinctrl: Add StarFive JH7100
- bindings
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>,
- linux-kernel <linux-kernel@vger.kernel.org>
+Date: Mon, 25 Oct 2021 04:00:12 +0300
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: mick@ics.forth.gr, alexandre.ghiti@canonical.com, Paul Walmsley
+ <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Don't use va_pa_offset on kdump
+Organization: FORTH
+In-Reply-To: <mhng-b28fa0cb-24ee-40d1-9f02-619605a4cc9a@palmerdabbelt-glaptop>
+References: <mhng-b28fa0cb-24ee-40d1-9f02-619605a4cc9a@palmerdabbelt-glaptop>
+Message-ID: <d4d0d13c9fda686575f1040cd16b516f@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.3.16
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrDLMWRmVeSWpSXmKPExsXSHT1dWXcOY1miwdw2c4t1iy6wWmz9PYvd
+ 4vKuOWwW2z63sFk0vzvHbvHycg+zRdssfgd2j1kNvWweb16+ZPE43PGF3ePhpktMHpuX1Htc
+ ar7O7vF5k1wAexSXTUpqTmZZapG+XQJXxrrGfYwFRwQq1vwVb2D8ytPFyMkhIWAisXH5XaYu
+ Ri4OIYGjjBKv1ixhg0iYSsze28kIYvMKCEqcnPmEBcRmFrCQmHplPyOELS/RvHU2M4jNIqAq
+ sfX7TLA4m4CmxPxLB8HqRQTUJQ68vsMMsoBZ4ASjxJSDH8AWCAtYS3T8eswOYvMLCEt8unuR
+ FcTmFPCT6JizGKxGSMBX4uDB5+wQR7hIfGxpY4I4TkXiw+8HQHEODlEge/NcpQmMgrOQnDoL
+ yamzkJy6gJF5FaNAYpmxXmZysV5aflFJhl560SZGcAQw+u5gvL35rd4hRiYOxkOMEhzMSiK8
+ Np9KEoV4UxIrq1KL8uOLSnNSiw8xSnOwKInz8upNiBcSSE8sSc1OTS1ILYLJMnFwSjUwhauK
+ vnnZcHT6dPtAL8ZjO5xedvxh2qs84/7DZb+/Ne1NCr7Rmjvp+SKdFXvmn/x4RnPq9mUGbJ/P
+ 2/dxpcbxnz2d5CF1afeL6Vw/LoYZXFisqlu7okXmuF1hjdet087FkqULpRgWuTzbqP3W3Z7B
+ 3tNxRleG8hYHDjMXnsU7rt3vfCourlO8w+Kp6LGFJznj3/7Nq/midElipZDbhDmzLlqVzNe5
+ K6mxSerNzQUpaecv5z88lj9fmefMI7nI673XPvGzJuQLMn212fGpbef/SVM1Q1xu85aLbr7i
+ d2//A0+VxP0tOvn57Qsf7r/lFuHbYdq71b+96F558JmYmb/WpkyS68w83FLRXq/77tDmN0os
+ xRmJhlrMRcWJAGSMRAzvAgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211024_173605_068050_E447CAAF 
-X-CRM114-Status: GOOD (  37.60  )
+X-CRM114-CacheID: sfid-20211024_180031_007657_C1211881 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,137 +95,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Oct 2021 at 01:11, Linus Walleij <linus.walleij@linaro.org> wrote:
-> On Thu, Oct 21, 2021 at 7:42 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
->
-> > Add bindings for the StarFive JH7100 GPIO/pin controller.
-> >
-> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->
-> That is a very terse commit message for an entirely new
-> SoC, please put a little blurb about this silicon there.
-> Like mention that it is RISC-V at least.
-
-Will do!
-
-> Overall quite interesting!
->
-> > +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7100-pinctrl.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: StarFive JH7100 Pin Controller Device Tree Bindings
-> > +
-> > +maintainers:
-> > +  - Emil Renner Berthing <kernel@esmil.dk>
-> > +  - Drew Fustini <drew@beagleboard.org>
->
-> Add description: talking about that this is a RISC-V SoC
-> and other implicit things that are really good to know.
-
-Gotcha.
-
-> > +  starfive,signal-group:
-> > +    description: |
-> > +      The SoC has a global setting selecting one of 7 different pinmux
-> > +      configurations of the pads named GPIO[0:63] and FUNC_SHARE[0:141]. After
-> > +      this global setting is chosen only the 64 "GPIO" pins can be further
-> > +      muxed by configuring them to be controlled by certain peripherals rather
-> > +      than software.
-> > +      Note that in configuration 0 none of GPIOs are routed to pads, and only
-> > +      in configuration 1 are the GPIOs routed to the pads named GPIO[0:63].
-> > +      If this property is not set it defaults to the configuration already
-> > +      chosen by the earlier boot stages.
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    enum: [0, 1, 2, 3, 4, 5, 6]
->
-> This still is hard for me to understand. Does it mean that 0..6 define
-> how the direct-to-peripheral-pins are set up?
-
-Yeah, so the SoC has many pins, but only the pins named GPIO[0:63] and
-FUNC_SHARE[0:141] can be muxed. To do that you first select one of 7
-different "signal groups". This is a global setting. There is just a
-single register on the whole SoC where you write either 0, 1, .., or
-6. As an example signal group 6 maps LCD output to FUNC_SHARE[40:97],
-ethernet phy connection to FUNC_SHARE[115:141], MIPI to GPIO[0:60] and
-confusingly it maps "GPIO0", "GPIO1", ..., "GPIO63" to pins
-FUNC_SHARE[0:63]. So the pin names doesn't necessarily match the
-function. In fact only signal group 1 maps GPIO0-63 to pins
-GPIO[0:63]. See table 11-1 starting on page 62 of this PDF:
-https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
-
-GPIO0-63 can of course be used as GPIOs, but they can also have their
-output value and output enable controlled by certain (slow)
-peripherals like UARTs, I2C, SPI, PWM etc. These can be chosen freely.
-So once you've chosen signal group 6, you can have any of GPIO0-GPIO63
-(that is any of pins FUNC_SHARE[0:63]) be controlled by the UART0 TX
-signal fx.
-
-So for each of GPIO0 to GPIO63 there is a register to select the
-output value signal and a register to select its output enable signal.
-You can see the list of signals to choose from in the header
-introduced in the previous patch.
-
-Input from GPIO0-63 to peripherals works the other way around. Here
-there is a register for each input signal, where you can select which
-(if any) of GPIO0-63 is routed to the peripheral.
-
-> Then it would make sense to describe what happens for 0, 1, 2 ...6
-> i.e. what the different set-ups are.
-
-Yeah, so how much of table 11-1 does it make sense to write out.
-Certainly I can list how GPIO0-63 are mapped to pins for each of the 7
-signal groups, but should I also list LCD, ethernet, interconnect,
-mipi etc. for each of the 7 signal groups?
-
-> Actually this is what we call group-based pin multiplexing in Linux,
-> this property seems to avoid using that concept.
-> See for example:
-> Documentation/devicetree/bindings/pinctrl/cortina,gemini-pinctrl.txt
-
-I don't think this is the same, but hope you can tell me after reading
-the description above.
-
-> > +    patternProperties:
-> > +      '-pins*$':
-> > +        type: object
-> > +        description: |
-> > +          A pinctrl node should contain at least one subnode representing the
-> > +          pinctrl groups available on the machine. Each subnode will list the
-> > +          pins it needs, and how they should be configured, with regard to
-> > +          muxer configuration, bias, input enable/disable, input schmitt
-> > +          trigger enable/disable, slew-rate and drive strength.
-> > +        $ref: "/schemas/pinctrl/pincfg-node.yaml"
->
-> Nice that you use pincfg-node.yaml
->
-> > +        properties:
-> > +          pins:
-> > +            description: |
-> > +              The list of pin identifiers that properties in the node apply to.
-> > +              This should be set using either the PAD_GPIO or PAD_FUNC_SHARE
-> > +              macro. Either this or "pinmux" has to be specified.
-> > +
-> > +          pinmux:
-> > +            description: |
-> > +              The list of GPIO identifiers and their mux settings that
-> > +              properties in the node apply to. This should be set using the
-> > +              GPIOMUX macro. Either this or "pins" has to be specified.
->
-> What about referencing
-> Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml
-> for this?
-
-Sure. You just mean adding $ref: like above right?
-
-Thanks!
-/Emil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+zqPPhM65z4IgMjAyMS0xMC0yMyAyMzoxNCwgUGFsbWVyIERhYmJlbHQgzq3Os8+BzrHPiM61Ogo+
+IE9uIFNhdCwgMDkgT2N0IDIwMjEgMDY6MTg6NDggUERUICgtMDcwMCksIG1pY2tAaWNzLmZvcnRo
+LmdyIHdyb3RlOgo+PiDOo8+EzrnPgiAyMDIxLTEwLTA2IDE0OjEzLCBBbGV4YW5kcmUgR2hpdGkg
+zq3Os8+BzrHPiM61Ogo+Pj4+ICsKPj4+PiArICAgICAgIC8qIFRoaXMgd2lsbCB0cmlnZ2VyIGEg
+anVtcCB0byBDU1JfU1RWRUMgYW55d2F5ICovCj4+Pj4gICAgICAgICBqYWxyICAgIHplcm8sIGEy
+LCAwCj4+PiAKPj4+IFRoZSBsYXN0IGp1bXAgdG8gYTIgY2FuIGJlIHJlbW92ZWQgc2luY2UgdGhl
+IGZhdWx0IHdpbGwgYmUgdHJpZ2dlcmVkCj4+PiBiZWZvcmUgZXZlbiByZWFjaGluZyB0aGlzIGlu
+c3RydWN0aW9uLgo+Pj4gCj4+IAo+PiBKdXN0IHN3aXRjaGluZyBTQVRQIHRvIHplcm8gZG9lc24n
+dCBnZW5lcmF0ZSBhIHRyYXAgdW5sZXNzIG1zdGF0dXMuVFZNCj4+IGlzIHNldCAoZm9yIHZpc3Vh
+bGl6YXRpb24gcHVycG9zZXMpLiBUaGUgaGFydCB3aWxsIHRyeSBhbmQgZXhlY3V0ZSB0aGUKPj4g
+bmV4dCBpbnN0cnVjdGlvbiBidXQgaXQncyBub3QgY2xlYXIgaW4gdGhlIHNwZWMgd2hhdCBoYXBw
+ZW5zIGluIGNhc2UgCj4+IHRoZQo+PiBjb2RlIGlzIGNhY2hlZCwgSSBkb24ndCB3YW50IHRvIHJl
+bHkgc29sZWx5IG9uIFNUVkVDLiBJIHByZWZlciBoYXZpbmcKPj4gdGhpcyBpbnN0cnVjdGlvbiB0
+aGVyZSwgbm90ZSB0aGF0IHNvbWUgZWFybGllciBRRU1VIHZlcnNpb25zIGFsc28gaGFkCj4+IHRo
+aXMgYmVoYXZpb3IgKHRoZSBvcmlnaW5hbCBrZHVtcCBwYXRjaCBkaWRuJ3Qgc2V0IFNUVkVDIGFu
+ZCBpdCB3b3JrZWQKPj4gZmluZSBhZnRlciBzZXR0aW5nIFNBVFAgdG8gemVybykuCj4gCj4gSUlS
+QyB0aGlzIGNhbWUgZG93biB0byBzb21lIHZlcnkgc3BlY2lmaWMgd29yZGluZyBpbiB0aGUgc3Bl
+Yy4KPiBTb21ldGhpbmcgYWxvbmcgdGhlIGxpbmVzIG9mIHRoZSAwIGluIFNBVFAgbWVhbmluZyAi
+bm8gdHJhbnNsYXRpb24iLAo+IFNGRU5DRS5WTUEgb3JkZXJpbmcgdHJhbnNsYXRpb25zLCBhbmQg
+dGhlIGdlbmVyYWwgImlmIHRoZSBzcGVjIGRvZXNuJ3QKPiBtZW50aW9uIGl0IHRoZW4gaXQgaGFz
+IHRvIHdvcmsiIGxvZ2ljLiAgSSB0aG91Z2h0IEkgb3BlbmVkIGEgc3BlYwo+IGlzc3VlIGFib3V0
+IHRoaXMgZm9yIGNsYXJpZmljYXRpb24sIGJ1dCBJIGNhbid0IGZpbmQgaXQuCj4gCgpJIGd1ZXNz
+IHlvdSBtZWFuIHRoaXMgb25lOgpodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtaXNhLW1h
+bnVhbC9pc3N1ZXMvNTM4CgpJIGNvdWxkbid0IGZpbmQgYW55dGhpbmcgdGhvdWdoIHJlZ2FyZGlu
+ZyBjYWNoZWQgY29kZSwgaXQncyBub3QgdGhhdCAKdGhlcmUncyBnb2luZyB0byBiZSBhIGxvYWQg
+YWZ0ZXIgc2V0dGluZyBzYXRwIHRvIDAgaWYgdGhlIGNvZGUgaGFzIGJlZW4gCmNhY2hlZCwgc28g
+ZXZlbiBpZiB0aGUgdHJhbnNsYXRpb24gaXMgY2FjaGVkIHdlIGRvbid0IGhhdmUgYSBndWFyYW50
+ZWUgCnRoYXQgdGhlIG5leHQgaW5zdHJ1Y3Rpb24gd2lsbCByZXN1bHQgYSB0cmFwLgoKPiBUaGF0
+IHNhaWQsIEknbSBwZXJmZWN0bHkgZmluZSB0YWtpbmcgdGhlIHNhZmUgYXBwcm9hY2ggaGVyZSBh
+cyBpdCdzCj4gbm90IGxpa2UgdGhlIHBlcmZvcm1hbmNlIG1hdHRlcnMgaGVyZS4gIFdhcnJhbnRz
+IGEgY29tbWVudCwgdGhvdWdoLgo+IAoKQUNLCgo+IAo+IEkgZG9uJ3QgaGF2ZSBhIHYyIGluIG15
+IGluYm94LCBkaWQgSSBtaXNzIHNvbWV0aGluZz8gIEFsc28sIGlmIGl0J3MKPiBqdXN0IHRoZSB0
+YWdzIHRoZW4gaXQncyBnZW5lcmFsbHkgbm90IG5lY2Vzc2FyeSB0byByZS1zZW5kIHNvbWV0aGlu
+Zy4KPiBUaGUgY29tbWVudCBkb2VzLCB0aG91Z2guCj4gCj4gTE1LIGlmIHlvdSB3YW50IG1lIHRv
+IGRlYWwgd2l0aCB0aGlzLCBvciBpZiB0aGVyZSdzIGdvaW5nIHRvIGJlIGEgdjIuCj4gCj4gVGhh
+bmtzIQoKSSdsbCBzZW5kIGEgdjIgd2l0aCB0aGUgdGFncyBhbmQgdGhlIGNvbW1lbnQuCgpSZWdh
+cmRzLApOaWNrCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
