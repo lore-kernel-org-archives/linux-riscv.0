@@ -2,15 +2,15 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64372C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 10:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F70BC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:22:27 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2ACF7604AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 10:58:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2ACF7604AC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 02E046054F
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 13:22:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 02E046054F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=vrull.eu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,76 +18,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IBkigSTqW9/i1dE5TQDRYVbfCDPRg3YYKaF+SxwGLo8=; b=mqoKBdvHLjDzVZ
-	FaRU8ZDUoAtIBIaNJJV35M0L5iR6b9PxIFjGagNMPwCElAhQ6BdhEiAO42aXsimpYPkQg2ep6lIiy
-	Y5riO4wQwAb1CUe9Mz++wXQ81pihF+AGxY/9rK0ftHlbjBnz6Ba98BTfiFnMOP8TQXZQvFj07eL7Z
-	Lc+qGgTK3igZRgewqjM01eP5GPAZcJWmJ5CD/Kf6yRJjAA+ADAGeD6GatCtoC0/oRbstmQNzkdhkM
-	/djXO+r5vD3vPXmpQDIbL4t6OCjw0YwSs8THlvlLJN/0qRGcoXGb27C/i6SewSfLuXtJo/YO4VOjm
-	vinHnM/qnN/3SxvrUzJg==;
+	List-Owner; bh=Ycbm5bXRRKLsz9nafcATlA2rKmXcdzIZj6ncuwyWEkQ=; b=I7ZO54G0i3Bv+R
+	UHkPwQrZXsE5tPvsxqZgZ6k6zs6jFb4qwIzcyt1oXPckwtD4bpTtfuIFzOn0XyuOYrdn7eqb+R5Xs
+	mR4tCXeVbGwPXQzWPNZE8V04nyHQcVX6RuBTXaKlzkhDoZJGCrDS5t+MHGLK7DMZDQJ1vkN+RO5Ho
+	wyIMP7pZI3vk2Fdd5EOeS1a8bG+BJ5/WfDDDBc1+45yQ7GhT/qDjWNr1rx5arGQDGYJO7KtcnX4fb
+	4d5AzTDx4L3t27ocz6zUKFV6jjcYwF3wa+ghqvHv0AkiPObQMQoFJGqh62Qbugw/2vxkTaRS9FLBZ
+	jzpnKsK+vegbpq3Xs+/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mexgX-00GAYd-I7; Mon, 25 Oct 2021 10:58:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mezvY-00GWHT-3Y; Mon, 25 Oct 2021 13:22:12 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mexdZ-00G97S-FL
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 10:55:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635159327;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=l9r/2xnQluktoJQNTVnyYXdf7iQ2Ry5qJeSjDsQ0D0w=;
- b=NS0JWknUPLQkUutR/Nv4AqUIkPHlS5Uri1+ZLX1mPz3v4lCC/bNNnnY8Pe/xRFCDG45pBv
- ChfT0vU1SwJAx0Xt0gRMDVIYGJfED+/Pgq/4KmeLsXFp46lx7GhaaiROF8Tphwt1omLBE6
- dsIzXCLbLXPLbYm/MxCOL03+JirR9Zk=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-537-4RGhOU4zPsm7Yvxu9v0j8A-1; Mon, 25 Oct 2021 06:55:22 -0400
-X-MC-Unique: 4RGhOU4zPsm7Yvxu9v0j8A-1
-Received: by mail-ed1-f71.google.com with SMTP id
- o22-20020a056402439600b003dd4f228451so3007584edc.16
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 03:55:21 -0700 (PDT)
+ id 1mezvV-00GWFs-Jq
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 13:22:11 +0000
+Received: by mail-wr1-x430.google.com with SMTP id s19so12720108wra.2
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 06:22:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=vrull-eu.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=dHr5OHD5jpaUHwRPw9aH93bpMTz/ijSR6iNj3HeWX0s=;
+ b=dBywuSgiJPi0D1S2vr4DoJq7T77YxIGCJ4mMgfU1wZFg1NE4zAn8AmG4mPRPFf7+qc
+ ZSJrUumbL0079syfoR2CyAKgq0q+MCS43Gx7PO5URbNHdhHO8GneCUDG1Emf/f0qNPv/
+ 5Z1Z3YVsJ4l/RG7K8OZ5BQkGwcdA5qFpwDMMqiFPs8Ecaxj+fd8D5EAxTblxG6n5tGh7
+ Ep/f7hyzQOg+IBVCR2VqteZC+cYAD35O3VSXUQIn8daTgVBg2706ggFDQwTt46LFT8vG
+ z0ZrDRWWZb40w2oS1LN7rkqp5TC5HrQLvm42Fyk5y8oRZYeUsgrj6UHxG+300x8oz3QB
+ /tEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=l9r/2xnQluktoJQNTVnyYXdf7iQ2Ry5qJeSjDsQ0D0w=;
- b=MF8iZ8HBTglg4GQJr8jIeHakERBb1uGPL0kG/3L22AAatYnfPnehu6aLPsGdso1FNd
- qrgE7stlRhNEcttM7bZTiei69VZDQ1daf+fEnSbPr7H6MRmPW0crerDbg8LKwfmzwR/E
- 2IRPiEEPcagLRYopdCClNFVyOWrRmbjZpfyGc9SQ8LwvOsLkOH5Odk6HARSOxedo8lJw
- 8K5WKO7/SNfrO3ozhewlXkWwlUrF/DNIjPR4dawN9GLQJ3pho3DBrfWymLA2/eVCNrKg
- ZAFH3oZDK9jZeFMd5t2vjK0ORzFLuUGYZipU6osT73VJUauJ8FLqJJh7ddOlA6TeSBSz
- JOPA==
-X-Gm-Message-State: AOAM531OR7D+i5yZXOUKSj/ykHZOrwVxDD8X+BjUlUVMY615I+EkKSYu
- /zZC8FIeMwhBkgFdwJcvvYTtB/t5K1jiQ76c7GyyeniCfNmHauQActmlj1LXq28wKtqt3/kFf6O
- d2xUBeffxmMoHttS2x31Dx+5Osowxb8P7edkXKIRA5Qv2
-X-Received: by 2002:a17:906:4452:: with SMTP id
- i18mr20707037ejp.374.1635159320507; 
- Mon, 25 Oct 2021 03:55:20 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzHvjGx1o/l6cvWtLlt1bGcsJAK4tj98GXlzcrNu3As9Dt3iN96hZKCL/C9ae8LCUWJQ5rLjfsX6KSXF7IsaAQ=
-X-Received: by 2002:a17:906:4452:: with SMTP id
- i18mr20707017ejp.374.1635159320347; 
- Mon, 25 Oct 2021 03:55:20 -0700 (PDT)
+ bh=dHr5OHD5jpaUHwRPw9aH93bpMTz/ijSR6iNj3HeWX0s=;
+ b=VqNvAS0PWTLzR+Cg3cew2QAw5STLQ6GXIduiuD/9jwYFL2zJ9idMLz98nTVxMCOm0X
+ CBLJiZ7ssXNLJIu9f/jaUjYkmFs3MGAAxQffDvMIue4+RxVfrNRs3PFLGV+4QBHfOXXj
+ FjOpGWSs5dzRrfrOT3ScN3qRCqANksAEP9zs1T7fX96oxKCVcKG++p09jERXaaQonctr
+ f7cJWy62CvhrcXd4Q+TkxMrhAUTTcqXKuxy//PgwuY+g5hKJGLmjzE9W+NSesdYUD1FE
+ vfTp63+vNJCjAxwL9xeP2uUw8MZxxKBbTMZ33YMvcHg34KEmCHVId8Ao5ThVqKsZohN4
+ xh4Q==
+X-Gm-Message-State: AOAM5315r31NvPiKMeiIXiBXg8ZdbO0+T0Od3Vp3aM92aEBjrL9qBe8J
+ xo+HUlx/TTOGfUJ6RhVcCWKeJs+ecm+8Yzda1Ke7TQ==
+X-Google-Smtp-Source: ABdhPJz5nKuH/w0FKB9WEVD82bBCnHRd2n8YsgxSr40uZXV9aVLRM0MQ++QJYWyVgoVf8kfjPS6XpV7zEbHEnScn5dc=
+X-Received: by 2002:adf:c183:: with SMTP id x3mr21329364wre.90.1635168127135; 
+ Mon, 25 Oct 2021 06:22:07 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211025040607.92786-1-wefu@redhat.com>
- <20211025040607.92786-3-wefu@redhat.com>
- <YXZU/3/YmRGFrOXK@infradead.org>
-In-Reply-To: <YXZU/3/YmRGFrOXK@infradead.org>
-From: Wei Fu <wefu@redhat.com>
-Date: Mon, 25 Oct 2021 18:55:09 +0800
-Message-ID: <CA+YCwKkX64A8p9vfLJHC3+LqOWyDg99eDBR0mjfB=H45BOyJLQ@mail.gmail.com>
-Subject: Re: [RESEND PATCH V3 2/2] riscv: add RISC-V Svpbmt extension supports
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, guoren@kernel.org,
- christoph.muellner@vrull.eu, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>, 
- Liu Shaohua <liush@allwinnertech.com>,
+ <20211025040607.92786-2-wefu@redhat.com>
+ <CAAhSdy1N-UQFnbFc7PSwf62y=gbvX7pK=vwUaG8m_KzdWx3AgQ@mail.gmail.com>
+ <CAJF2gTT9T-TwTmGsfDH0Y05LO6dF6nGUUSGZW=RSackM0fUUyg@mail.gmail.com>
+ <CAAhSdy1ZuQyWdVY5dmrnNVHe3oOYxhieW1upAhbnDvuxNL=YyA@mail.gmail.com>
+In-Reply-To: <CAAhSdy1ZuQyWdVY5dmrnNVHe3oOYxhieW1upAhbnDvuxNL=YyA@mail.gmail.com>
+From: Philipp Tomsich <philipp.tomsich@vrull.eu>
+Date: Mon, 25 Oct 2021 15:21:56 +0200
+Message-ID: <CAAeLtUCM=01oue8hZQ_hTgzRDXu1qdgtyqyKBG5kOzXCbbUxYQ@mail.gmail.com>
+Subject: Re: [RESEND PATCH V3 1/2] dt-bindings: riscv: add mmu-supports-svpbmt
+ for Svpbmt
+To: Anup Patel <anup@brainfault.org>
+Cc: Guo Ren <guoren@kernel.org>, Wei Fu <wefu@redhat.com>,
+ Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+ =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
+ Christoph Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>, 
  =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- Drew Fustini <drew@beagleboard.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, taiten.peng@canonical.com, 
- aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com, 
- gordan.markus@canonical.com, guoren@linux.alibaba.com, 
+ Drew Fustini <drew@beagleboard.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, Aniket Ponkshe <aniket.ponkshe@canonical.com>, 
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+ Gordan Markus <gordan.markus@canonical.com>, Guo Ren <guoren@linux.alibaba.com>,
  Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
  Maxime Ripard <maxime@cerno.tech>, 
  Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>, 
@@ -95,14 +91,11 @@ Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
  Jonathan Behrens <behrensj@mit.edu>, 
  Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>, 
  Nick Kossifidis <mick@ics.forth.gr>, Allen Baum <allen.baum@esperantotech.com>,
- Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=wefu@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_035529_693717_7C508A71 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20211025_062209_686972_1D086E3D 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,85 +112,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
-
-Great thanks for your review.
-
-On Mon, Oct 25, 2021 at 2:57 PM Christoph Hellwig <hch@infradead.org> wrote:
+On Mon, 25 Oct 2021 at 08:08, Anup Patel <anup@brainfault.org> wrote:
 >
-> On Mon, Oct 25, 2021 at 12:06:07PM +0800, wefu@redhat.com wrote:
-> >  static inline pmd_t *pud_pgtable(pud_t pud)
-> >  {
-> > -     return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +     return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_CHG_MASK)
-> > +                                             >> _PAGE_PFN_SHIFT);
-> >  }
+> On Mon, Oct 25, 2021 at 11:30 AM Guo Ren <guoren@kernel.org> wrote:
 > >
-> >  static inline struct page *pud_page(pud_t pud)
-> >  {
-> > -     return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +     return pfn_to_page((pud_val(pud) & _PAGE_CHG_MASK)
-> > +                                             >> _PAGE_PFN_SHIFT);
+> > On Mon, Oct 25, 2021 at 12:17 PM Anup Patel <anup@brainfault.org> wrote:
+> > >
+> > > On Mon, Oct 25, 2021 at 9:36 AM <wefu@redhat.com> wrote:
+> > > >
+> > > > From: Wei Fu <wefu@redhat.com>
+> > > >
+> > > > Previous patch has added svpbmt in arch/riscv and changed the
+> > > > DT mmu-type. Update dt-bindings related property here.
+> > > >
+> > > > Signed-off-by: Wei Fu <wefu@redhat.com>
+> > > > Co-developed-by: Guo Ren <guoren@kernel.org>
+> > > > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > > > Cc: Anup Patel <anup@brainfault.org>
+> > > > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > > > Cc: Rob Herring <robh+dt@kernel.org>
+> > > > ---
+> > > >  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 +++++
+> > > >  1 file changed, 5 insertions(+)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > > index e534f6a7cfa1..76f324d85e12 100644
+> > > > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > > @@ -59,6 +59,11 @@ properties:
+> > > >        - riscv,sv48
+> > > >        - riscv,none
+> > > >
+> > > > +  mmu-supports-svpbmt:
+> > > > +    description:
+> > > > +      Describes the CPU's mmu-supports-svpbmt support
+> > > > +    $ref: '/schemas/types.yaml#/definitions/phandle'
+> > >
+> > > There were various proposals from different folks in the previous
+> > > email threads.
+> > >
+> > > I think most of us were converging on:
+> > > 1) Don't modify "mmu-type" DT property for backward
+> > > compatibility
+> > I agree. FuWei has followed that in the patch.
+> >
+> > > 2) Add boolean DT property "riscv,svpmbt" under
+> > > "mmu" child DT node of each CPU DT node. Same will apply
+> > > to boolean DT property "riscv,svnapot" as well.
+> > We have various proposals here:
+> > @Philipp suggests firstly, but break the backward compatibility:
+> >  cpu@0 {
+> >     ...
+> >     mmu {
+> >        type = "riscv,sv39";
+> >        supports-svpbmt;
+> >        supports-svnapot;
+> >     };
+> >
+> > @guoren suggests reusing the mmu-type, but seems not clean.
+> > cpu@0 {
+> >    ...
+> >    mmu-type = "riscv,sv39,svpbmt,svnapot";
+> >
+> >
+> > @fuwei suggests simple name property in CPU section:
+> > cpu@0 {
+> >    ...
+> >    mmu-type = "riscv,sv39";
+> >    mmu-supports-svpbmt;
+> >    mmu-supports-svnapot;
+> >
+> > @Anup suggests:
+> > cpu@0 {
+> >    ...
+> >     mmu-type = "riscv,sv39";
+> >     mmu {
+> >        supports-svpbmt;
+> >        supports-svnapot;
+> >     };
+> >
+> > Any other suggestions? Thx.
+> >
+> > >
+> > > We also have bitmanip and vector broken down into smaller
+> > > extensions so grouping related extensions as separate DT node
+> > > under each CPU node will be more readable and easy to parse.
+> > Do you mean combine mmu extensions with them together?
+> > cpu@0 {
+> >     ...
+> >     extensions {
+> >         supports-svpbmt;
+> >         supports-svnapot;
+> >         supports-bitmanip;
+> >         supports-vector-v0p7;
+> >     };
 >
-> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
-> >  {
-> > -     return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-> > +     return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
-> >  }
+> I meant separate group nodes like this:
 >
-> The "(pud_val(pud) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT" expression begs
-> for readable and well-documented helper.
+> cpu@0 {
+>     ...
+>     mmu-type = "riscv,sv39";
+>     mmu { /* Only considered when mmu-type is present and mmu-type !=
+> "riscv,sv32" */
+>         riscv,svpmbt;
+>         riscv,svnapot;
+>     };
 >
-> > +#define _SVPBMT_PMA          ((unsigned long)0x0 << 61)
-> > +#define _SVPBMT_NC           ((unsigned long)0x1 << 61)
-> > +#define _SVPBMT_IO           ((unsigned long)0x2 << 61)
->
-> 0UL << 61
-> 1UL << 61
+>     bitmanip { /* Only considered when "B" is present in the ISA string */
+>         ...
+>     };
 
-How about this macro:
-#define _SVPBMT_PMA         0x0UL
-#define _SVPBMT_NC         BIT(61)
-#define _SVPBMT_IO         BIT(62)
-#define _SVPBMT_MASK         GENMASK(62, 61)
+Please disregard this comment regarding bitmanip/B.
+The B bit in the misa CSR is not used for any signalling regarding
+Zb[abcs] (or the other Zb-extensions), so this entire node is not
+needed and B in the ISA string is not related to any of the Zb*
+extensions).
+All Zb* extensions are directly visible from the ISA string.
 
-> ...
+>    vector { /* Only considered when "V" is present in the ISA string */
+>        ...
+>    };
+>     ...
+> };
 >
-> > +#define _SVPBMT_MASK         (_SVPBMT_PMA | _SVPBMT_NC | _SVPBMT_IO)
-> > +
-> > +extern struct __riscv_svpbmt_struct {
-> > +     unsigned long mask;
-> > +     unsigned long mt_pma;
-> > +     unsigned long mt_nc;
-> > +     unsigned long mt_io;
-> > +} __riscv_svpbmt;
-> > +
-> > +#define _PAGE_MT_MASK                __riscv_svpbmt.mask
-> > +#define _PAGE_MT_PMA         __riscv_svpbmt.mt_pma
-> > +#define _PAGE_MT_NC          __riscv_svpbmt.mt_nc
-> > +#define _PAGE_MT_IO          __riscv_svpbmt.mt_io
+> Regards,
+> Anup
 >
-> Using a struct over individual variables seems a little odd here.
->
-> Also why not use the standard names for these _PAGE bits used by
-> most other architectures?
-
-Which names are you suggesting? Would you mind providing an example ?
-_PAGE_BIT_   for _PAGE_KERNEL_ ??
-
->
-> > -     return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> > +     return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
->
-> Overly long line, could use a helper.  Btw, what is the point in having
-> this _PAGE_PFN_SHIFT macro to start with?
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-
+> >
+> > >
+> > > Regards,
+> > > Anup
+> > >
+> > > > +
+> > > >    riscv,isa:
+> > > >      description:
+> > > >        Identifies the specific RISC-V instruction set architecture
+> > > > --
+> > > > 2.25.4
+> > > >
+> >
+> >
+> >
+> > --
+> > Best Regards
+> >  Guo Ren
+> >
+> > ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
