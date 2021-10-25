@@ -2,14 +2,14 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15AD9C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 224F2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D506760C41
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D506760C41
+	by mail.kernel.org (Postfix) with ESMTPS id DB82960187
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DB82960187
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EAY6njC7VvFblsqTeGsafEhTs5u/z5ENTZsRkbun05E=; b=NbRYYIwJJe5UqJ
-	4elAgmz3CwYnCWayHEPZ3RbqBScEhqq9sUrX5v2sdwnhqjoxShpBiefygxQl3W5uAiJVDpmLw1PfW
-	hUzAM/rX01uGYOJpGkxBRfGmvguXxBhl8Na2mPQpVLeDcV+xEbIp0R2wPHGeysWeQSiWgd1JPY6wT
-	C+iQsM1r32BsWj2QGNig/ir19s38EL2IO1oTUDyoLQ7NxhCL2Rvuzu3uFakCrCcmYB+tO2FVXRK2p
-	PDcQT3CvYQ7VSsS+YdJwcmq4i/eZFGE27ykq8VcCsda1kxmpYzMugftM0K7EMmIBMM71KLQHLWeX2
-	1GMbOrf7qB7O36xytnhA==;
+	List-Owner; bh=3Bo6F7A3vNdz31z1SGOAfGzqDDiIeM1TZlYKncswJCY=; b=HMdHlqA39RJq0O
+	h4C7iNVto91Rg4WK3z95edlpNtPSttAJmHNtGb9rEMFLy415XG8t/XGqI/fjyPcr1G23Nc8x2acKa
+	3/x9flStt/yeWct10aQcwJTaZLCbPJ/auM4YyP2QY5g96W3uH72G8cC4OSrprqQOuHj+a/KnSUUZi
+	lmytWtYHf8XpBqliua9vQYybs0EimyyFXPJGMnHt4aOKur1Cb70H8Va+Y+eo3g6yJxg3Yonj81qFL
+	Dt8clYKmyTf0zKnEgY/pP7yyj32QpBf6lMikkdkuldyEXam4sREVgRR3+SUO3NWtZH4VqdGL7dsnC
+	FlINufXZJdGlQBHp9d1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf635-00HVV7-G8; Mon, 25 Oct 2021 19:54:23 +0000
+	id 1mf63A-00HVZw-CQ; Mon, 25 Oct 2021 19:54:28 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf62m-00HVCI-GJ
+ id 1mf62l-00HVBN-6s
  for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 19:54:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1635191644; x=1666727644;
+ t=1635191642; x=1666727642;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=xCy3IumqXQBouXXEPa6nxFODZXMtRI4XUvf0Po2mZLM=;
- b=TUoIzqF1Z1lWCItDW0fYWWEQ30sCtuWbA0ui9WzKAZMlFApTO3TBMpR8
- x7aOI5Do4aAs9UtMcFb2PeVQYgYjldlr16mN3zM4jVIFInJCF5j9s1BWM
- f1NlvXsPCbNvDiQHp3i2zpt2/MYo3HOCnGi1ues45aCDgjbNb0AJ2seKr
- 3QHHp0rnsBXODNsy946h+3a3/HJvCFviUHxvP+lcs/uex4uBHibTcHVfT
- Y3R8n2vAcW3BA+6NlD0Tj6jdvKTGRmgoENPju7gGLTNC2mNiJmYZz30Wk
- 98wIRcRsKOyJ0kwE6GD+eiw5C0LzV4dvosY8mgjw6D5ONnKPS9lRE6Jvs g==;
-X-IronPort-AV: E=Sophos;i="5.87,181,1631548800"; d="scan'208";a="287682873"
+ bh=q2V9Q7JDdr/hGwd6eGuR3hrlueZwImzGlorh5Us6dxs=;
+ b=p03XUR9s0sid3/rRPVf5vk7Ik1Eq+DFokO3pYyVKrHufi6oKs4g3AOgf
+ 0QrXXXpl9JK75YJpvygM+nWNl9pqpMWrFC/u/pQbjaQThB2fa6euKNYwi
+ QjzFWj4aGLv8o8cGM7FSr5T6sk7/Wt2OdVH5voER+lxWoUCopHerYL+NE
+ xbQUC2y2s5Zl7Yao8XnZRCPFCOoQuEj/MtQZXipgyDA7wtzZ4Ds8E52fN
+ nMxBRasGmz7iOaAcHltdMkS8+rgjvm+9x56kU8nH9B3r0EuwZ6QahruXB
+ U6t5uNCn42WY6b2sbqNGTmp1xsdLCDtVeo2l5B3JRwzFQdoWvqQMHduVF w==;
+X-IronPort-AV: E=Sophos;i="5.87,181,1631548800"; d="scan'208";a="287682872"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 26 Oct 2021 03:53:59 +0800
-IronPort-SDR: UCQsdv0R9dvtdE6ImVwUW8AOt4ABccCKx/D86dJoU16aR6KHNhxQrtZPRi6IYz40v5fqq4OH3Z
- GbejK1lQBu7WH76YmIAIeAgZlcAMgt/5rJUPKV0Uc9yW5ICW6x8zQP7UsOftE1VQsYiBNcSoA8
- UshxGKhQd0sw/jfFPz9O6WWUbHP0elahYY+oTn6jPT19kp/L7pl7MRUQOF4faLT6Zw5+9y/BN8
- TNLbbnr6r9tkmBqIwAfq7/MXaof+J8Xpaxlij/YjRLkNchmZwVhx64KZn/o3yg3/keEgRMyt3e
- TtW9AJWiTDEV9iamYINRbCvP
+ by ob1.hgst.iphmx.com with ESMTP; 26 Oct 2021 03:53:58 +0800
+IronPort-SDR: XcAhY0sszEKXFLNHQp2HTVjrH+FpQevKFaJxGTWLsDEGswG5RvYSxoASwRZJLz/64AWlvdbW1+
+ Mt7rklvRRK7P3Ns7qsjD2eXwKJBH9YGaMzYfjMLe7pkxkGcy+3Ww1fuYUTxsiKRWwgjy4DjPh+
+ 3yxOOGMj0Cqwdh4v6G88/YlChPpAZ0I+WNY3VdwcBeYzmjCWeKSLWCeBX0/99Eo19JV4qiubjm
+ wDoUoEz8BGpK/V8Knze3jo4BXVwC7kbJzxedigaIOnpem9GHnmHnhioTVhyIVVBloVjE6rOjnK
+ YouuJXb2QHQeHyYr94t8EzD0
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 25 Oct 2021 12:29:30 -0700
-IronPort-SDR: aCtzHnd6pbCvl4fpTnR1j83yaKX8pxZjmksZIRBZqTfD7aLv+ZCH3yAu1XSEW8YQ28LglwCBOm
- mfodnMO14DtBzyQzDZYTvPXQRdmYHVFoejY6Cttr2RXGNbo5AkdwXavvz5GDlj4AdinWNw+kJh
- oK2RSfawvyy1SSCPvlPCBOSAGYfnv26uC7fjog1wwy2sygjLKa60GOyAshiYdg/snBVeEU9SPd
- NWMuXmL92f1u9xbbyf2FeHlMIcNRQWAwZqeNuaX1RhiID97nEOWj3hOvQQXTjXLTpW4DxlvVUa
- tQw=
+ 25 Oct 2021 12:29:29 -0700
+IronPort-SDR: V15GmEtc+wEHXZ9xQwTrS8UcpbQ62fT5qXw8I/8mht1YIY77i86YO/Q1J1FnWdgND/n4/+VFjB
+ RgxVLXDRJSmBfq71SUyWftB9pW7DNhwHtnR9bjwaOZN2L5W2/36eZgOLzeVudugB6y4nk9EDK7
+ kFoVppwJky4mlgaGzzRBVqsf++mZ3PQkIfELRIJOWCkTUS8JU3f4RhLAA/kuTQ2LIMGmoiz9Lp
+ 8A2pqskK3qIyLoF96cPkxGODJu/iFxGkXi7vSm5B9zQihWvEyRxLrxnuaU/jPXxFSgSXfnn4Vt
+ 7b4=
 WDCIronportException: Internal
 Received: from unknown (HELO hulk.wdc.com) ([10.225.167.27])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Oct 2021 12:54:00 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Oct 2021 12:53:59 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
@@ -75,16 +75,16 @@ Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Vincent Chen <vincent.chen@sifive.com>
-Subject: [v4 10/11] riscv: dts: fu740: Add pmu node
-Date: Mon, 25 Oct 2021 12:53:49 -0700
-Message-Id: <20211025195350.242914-11-atish.patra@wdc.com>
+Subject: [v4 09/11] Documentation: riscv: Remove the old documentation
+Date: Mon, 25 Oct 2021 12:53:48 -0700
+Message-Id: <20211025195350.242914-10-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20211025195350.242914-1-atish.patra@wdc.com>
 References: <20211025195350.242914-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_125404_685075_796BADC6 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20211025_125403_377475_9CE3CC06 
+X-CRM114-Status: GOOD (  36.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +101,280 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HiFive unmatched supports HPMCounters but does not implement mcountinhibit
-or sscof extension. Thus, perf monitoring can be used on the unmatched
-board without sampling.
+The existing pmu documentation describes the limitation of perf infrastructure
+in RISC-V ISA and limited feature set of perf in RISC-V.
 
-Add the PMU node with compatible string so that Linux perf driver can
-utilize this to enable PMU.
+However, SBI PMU extension and sscofpmf extension(ISA extension) allows to
+implement most of the required features of perf. Remove the old documentation
+which is not accurate anymore.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/riscv/pmu.rst | 255 ------------------------------------
+ 1 file changed, 255 deletions(-)
+ delete mode 100644 Documentation/riscv/pmu.rst
 
-diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-index abbb960f90a0..b35b96b58820 100644
---- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-@@ -140,6 +140,9 @@ soc {
- 		#size-cells = <2>;
- 		compatible = "simple-bus";
- 		ranges;
-+		pmu {
-+			compatible = "riscv,pmu";
-+		};
- 		plic0: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
- 			#address-cells = <0>;
+diff --git a/Documentation/riscv/pmu.rst b/Documentation/riscv/pmu.rst
+deleted file mode 100644
+index acb216b99c26..000000000000
+--- a/Documentation/riscv/pmu.rst
++++ /dev/null
+@@ -1,255 +0,0 @@
+-===================================
+-Supporting PMUs on RISC-V platforms
+-===================================
+-
+-Alan Kao <alankao@andestech.com>, Mar 2018
+-
+-Introduction
+-------------
+-
+-As of this writing, perf_event-related features mentioned in The RISC-V ISA
+-Privileged Version 1.10 are as follows:
+-(please check the manual for more details)
+-
+-* [m|s]counteren
+-* mcycle[h], cycle[h]
+-* minstret[h], instret[h]
+-* mhpeventx, mhpcounterx[h]
+-
+-With such function set only, porting perf would require a lot of work, due to
+-the lack of the following general architectural performance monitoring features:
+-
+-* Enabling/Disabling counters
+-  Counters are just free-running all the time in our case.
+-* Interrupt caused by counter overflow
+-  No such feature in the spec.
+-* Interrupt indicator
+-  It is not possible to have many interrupt ports for all counters, so an
+-  interrupt indicator is required for software to tell which counter has
+-  just overflowed.
+-* Writing to counters
+-  There will be an SBI to support this since the kernel cannot modify the
+-  counters [1].  Alternatively, some vendor considers to implement
+-  hardware-extension for M-S-U model machines to write counters directly.
+-
+-This document aims to provide developers a quick guide on supporting their
+-PMUs in the kernel.  The following sections briefly explain perf' mechanism
+-and todos.
+-
+-You may check previous discussions here [1][2].  Also, it might be helpful
+-to check the appendix for related kernel structures.
+-
+-
+-1. Initialization
+------------------
+-
+-*riscv_pmu* is a global pointer of type *struct riscv_pmu*, which contains
+-various methods according to perf's internal convention and PMU-specific
+-parameters.  One should declare such instance to represent the PMU.  By default,
+-*riscv_pmu* points to a constant structure *riscv_base_pmu*, which has very
+-basic support to a baseline QEMU model.
+-
+-Then he/she can either assign the instance's pointer to *riscv_pmu* so that
+-the minimal and already-implemented logic can be leveraged, or invent his/her
+-own *riscv_init_platform_pmu* implementation.
+-
+-In other words, existing sources of *riscv_base_pmu* merely provide a
+-reference implementation.  Developers can flexibly decide how many parts they
+-can leverage, and in the most extreme case, they can customize every function
+-according to their needs.
+-
+-
+-2. Event Initialization
+------------------------
+-
+-When a user launches a perf command to monitor some events, it is first
+-interpreted by the userspace perf tool into multiple *perf_event_open*
+-system calls, and then each of them calls to the body of *event_init*
+-member function that was assigned in the previous step.  In *riscv_base_pmu*'s
+-case, it is *riscv_event_init*.
+-
+-The main purpose of this function is to translate the event provided by user
+-into bitmap, so that HW-related control registers or counters can directly be
+-manipulated.  The translation is based on the mappings and methods provided in
+-*riscv_pmu*.
+-
+-Note that some features can be done in this stage as well:
+-
+-(1) interrupt setting, which is stated in the next section;
+-(2) privilege level setting (user space only, kernel space only, both);
+-(3) destructor setting.  Normally it is sufficient to apply *riscv_destroy_event*;
+-(4) tweaks for non-sampling events, which will be utilized by functions such as
+-    *perf_adjust_period*, usually something like the follows::
+-
+-      if (!is_sampling_event(event)) {
+-              hwc->sample_period = x86_pmu.max_period;
+-              hwc->last_period = hwc->sample_period;
+-              local64_set(&hwc->period_left, hwc->sample_period);
+-      }
+-
+-In the case of *riscv_base_pmu*, only (3) is provided for now.
+-
+-
+-3. Interrupt
+-------------
+-
+-3.1. Interrupt Initialization
+-
+-This often occurs at the beginning of the *event_init* method. In common
+-practice, this should be a code segment like::
+-
+-  int x86_reserve_hardware(void)
+-  {
+-        int err = 0;
+-
+-        if (!atomic_inc_not_zero(&pmc_refcount)) {
+-                mutex_lock(&pmc_reserve_mutex);
+-                if (atomic_read(&pmc_refcount) == 0) {
+-                        if (!reserve_pmc_hardware())
+-                                err = -EBUSY;
+-                        else
+-                                reserve_ds_buffers();
+-                }
+-                if (!err)
+-                        atomic_inc(&pmc_refcount);
+-                mutex_unlock(&pmc_reserve_mutex);
+-        }
+-
+-        return err;
+-  }
+-
+-And the magic is in *reserve_pmc_hardware*, which usually does atomic
+-operations to make implemented IRQ accessible from some global function pointer.
+-*release_pmc_hardware* serves the opposite purpose, and it is used in event
+-destructors mentioned in previous section.
+-
+-(Note: From the implementations in all the architectures, the *reserve/release*
+-pair are always IRQ settings, so the *pmc_hardware* seems somehow misleading.
+-It does NOT deal with the binding between an event and a physical counter,
+-which will be introduced in the next section.)
+-
+-3.2. IRQ Structure
+-
+-Basically, a IRQ runs the following pseudo code::
+-
+-  for each hardware counter that triggered this overflow
+-
+-      get the event of this counter
+-
+-      // following two steps are defined as *read()*,
+-      // check the section Reading/Writing Counters for details.
+-      count the delta value since previous interrupt
+-      update the event->count (# event occurs) by adding delta, and
+-                 event->hw.period_left by subtracting delta
+-
+-      if the event overflows
+-          sample data
+-          set the counter appropriately for the next overflow
+-
+-          if the event overflows again
+-              too frequently, throttle this event
+-          fi
+-      fi
+-
+-  end for
+-
+-However as of this writing, none of the RISC-V implementations have designed an
+-interrupt for perf, so the details are to be completed in the future.
+-
+-4. Reading/Writing Counters
+----------------------------
+-
+-They seem symmetric but perf treats them quite differently.  For reading, there
+-is a *read* interface in *struct pmu*, but it serves more than just reading.
+-According to the context, the *read* function not only reads the content of the
+-counter (event->count), but also updates the left period to the next interrupt
+-(event->hw.period_left).
+-
+-But the core of perf does not need direct write to counters.  Writing counters
+-is hidden behind the abstraction of 1) *pmu->start*, literally start counting so one
+-has to set the counter to a good value for the next interrupt; 2) inside the IRQ
+-it should set the counter to the same resonable value.
+-
+-Reading is not a problem in RISC-V but writing would need some effort, since
+-counters are not allowed to be written by S-mode.
+-
+-
+-5. add()/del()/start()/stop()
+------------------------------
+-
+-Basic idea: add()/del() adds/deletes events to/from a PMU, and start()/stop()
+-starts/stop the counter of some event in the PMU.  All of them take the same
+-arguments: *struct perf_event *event* and *int flag*.
+-
+-Consider perf as a state machine, then you will find that these functions serve
+-as the state transition process between those states.
+-Three states (event->hw.state) are defined:
+-
+-* PERF_HES_STOPPED:	the counter is stopped
+-* PERF_HES_UPTODATE:	the event->count is up-to-date
+-* PERF_HES_ARCH:	arch-dependent usage ... we don't need this for now
+-
+-A normal flow of these state transitions are as follows:
+-
+-* A user launches a perf event, resulting in calling to *event_init*.
+-* When being context-switched in, *add* is called by the perf core, with a flag
+-  PERF_EF_START, which means that the event should be started after it is added.
+-  At this stage, a general event is bound to a physical counter, if any.
+-  The state changes to PERF_HES_STOPPED and PERF_HES_UPTODATE, because it is now
+-  stopped, and the (software) event count does not need updating.
+-
+-  - *start* is then called, and the counter is enabled.
+-    With flag PERF_EF_RELOAD, it writes an appropriate value to the counter (check
+-    previous section for detail).
+-    Nothing is written if the flag does not contain PERF_EF_RELOAD.
+-    The state now is reset to none, because it is neither stopped nor updated
+-    (the counting already started)
+-
+-* When being context-switched out, *del* is called.  It then checks out all the
+-  events in the PMU and calls *stop* to update their counts.
+-
+-  - *stop* is called by *del*
+-    and the perf core with flag PERF_EF_UPDATE, and it often shares the same
+-    subroutine as *read* with the same logic.
+-    The state changes to PERF_HES_STOPPED and PERF_HES_UPTODATE, again.
+-
+-  - Life cycle of these two pairs: *add* and *del* are called repeatedly as
+-    tasks switch in-and-out; *start* and *stop* is also called when the perf core
+-    needs a quick stop-and-start, for instance, when the interrupt period is being
+-    adjusted.
+-
+-Current implementation is sufficient for now and can be easily extended to
+-features in the future.
+-
+-A. Related Structures
+----------------------
+-
+-* struct pmu: include/linux/perf_event.h
+-* struct riscv_pmu: arch/riscv/include/asm/perf_event.h
+-
+-  Both structures are designed to be read-only.
+-
+-  *struct pmu* defines some function pointer interfaces, and most of them take
+-  *struct perf_event* as a main argument, dealing with perf events according to
+-  perf's internal state machine (check kernel/events/core.c for details).
+-
+-  *struct riscv_pmu* defines PMU-specific parameters.  The naming follows the
+-  convention of all other architectures.
+-
+-* struct perf_event: include/linux/perf_event.h
+-* struct hw_perf_event
+-
+-  The generic structure that represents perf events, and the hardware-related
+-  details.
+-
+-* struct riscv_hw_events: arch/riscv/include/asm/perf_event.h
+-
+-  The structure that holds the status of events, has two fixed members:
+-  the number of events and the array of the events.
+-
+-References
+-----------
+-
+-[1] https://github.com/riscv/riscv-linux/pull/124
+-
+-[2] https://groups.google.com/a/groups.riscv.org/forum/#!topic/sw-dev/f19TmCNP6yA
 -- 
 2.31.1
 
