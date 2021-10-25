@@ -2,87 +2,89 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6CC8CC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 18:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 020B6C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3024660FDC
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 18:28:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3024660FDC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id BC9F060D43
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 19:54:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BC9F060D43
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3uit+r5pR/VhhlRqKCYExWJb3Fhdluza/ZHMXDa6Tnk=; b=v3CzWLd1/jiTlp
-	gbJ+gXFP4ghlWmrHChM7Cn0lKzhQVYw9KuXZWendRJzJ51qx2Dc3nHfEEoeXmGGnLdvrGnYE/3el1
-	XmalXUv7XQIN+7wML01XVKGZq3K+njQ8GXxTu38U8cy9nepAJtbNZvTjdboLvuamqrQ1QTNMej3ih
-	lzIfdAzv8RtfeiSrTkDlBnIV2IqKjLYIXvJGr6nA68PjblicnBU9BrB59wh1wWyNm+MSwnB8ROt6u
-	CzMCGsmXiINMPWjX/9FeYiqWgEBT0HFVD4hsANSRiQjUIL3Oks18ar1DT+8vKHrUMjIrHn74GEgQE
-	+xQxOHPYDR7E6Reqy1hw==;
+	List-Owner; bh=HNUCu8ks2s7jSEV0HH8np3La0AmZC3FvejXdMt5N75I=; b=es11NPY+QX1bpQ
+	dbGJq95JRO3ps3z/Dirv6ubdXB9gbtBbri5VXKr71ktFTaF0lgzt6S83vgQRwLZPRGQwhYaL9ceSm
+	PXg6bR+RO9K4bhEzvyqge7PVTEaLKlzfXL3tIhA7yApN00hzQdXyW984/r053PusCOcFwW15o59NB
+	9nL0f16otvJPow/HDLBgNjV2jz3UCITrd1YJsvNzqSEc+V2e3QxkghztNt9VHcITipn9wd+rTq9qt
+	J9Aj63Xg2sscETa8zx5Y+IzxFMD/LL+H3+XBk64pSUIFtvhRmZ5TDbzu9BulkJcLpiOkI8pwv+xUz
+	lhL0Rvl0W/d3V5x/bdtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf4hK-00HLpa-K5; Mon, 25 Oct 2021 18:27:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1mf62l-00HVFp-Hb; Mon, 25 Oct 2021 19:54:03 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf4hH-00HLo4-7n
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 18:27:49 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id
- 71-20020a1c014a000000b0032cafd23b1dso829256wmb.4
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 11:27:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=OyfSUTjxeHms5poLBJl6tylyEWbiHe67CT09WIuAMsU=;
- b=DRTJojekLcsN6KFnGL2Muvwux70aPo8ynLFl1g9pAHIDED9bCdqk3Ls2hmflxph9ro
- Zi63v7mIel1mCnNEzi82f9ld94pEDGGswxRaBqTGE1nv0lijVV90U9j4aits7iCAhdYH
- spR+nhwMene3t8+389CcOLl45h5g9wVHyYtfnKNcwZYLa6WwpkLd+fu22L3NJJEMu/Y6
- TNeTKxZlTRp67xlXGzqlyEhVn21cIREnRPX4U6+54R6PZJKXemWqmNBIQe0e4kA5PYf6
- JY4I5ao3n6Ds6FOBc09ERwXhExoqXAKEDDU/Ns09ReKGl+BgCjF0PND3xHp/2A8BK9Hw
- fLAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=OyfSUTjxeHms5poLBJl6tylyEWbiHe67CT09WIuAMsU=;
- b=joSFy1naa0hqMvgT2zwbNJiWF74cVymgaNXdbeBhVac6+CkVYqvuOSHPnh71WF3/ct
- yMeIrqeOC4dFlVlUUIm7iU5JB20VoBatNB2+KicGvNhF7eoVP7VU3xq9XWvWnAob/7KD
- NdgL7DCj4DN5t5bhH4QqFxe2xTa6aex2EXZ/u08BciG30KaUteRzuztvtYQ9coiCaalt
- V3yZkyK2wqrnFiUOLNRIsjydVvD8dKsx6vCBZla8xWJkFAxWmMdjm6pYrOa9fEsrm6Yj
- 2j/FUg2aH2D873gPc41w1gZkkZeSnZsLqQJ+9EJbhQzJrlRAiCl3tUUt4Cb/gWE4a3V3
- jSkg==
-X-Gm-Message-State: AOAM532N/sDSI8z8qFTFF0IXDTXlbsrNo9scW5LN79N7zMuumXIcgdTU
- q5vYkwHATm+KDFyeFVIV8HsiPX5kxl8CacicWD0=
-X-Google-Smtp-Source: ABdhPJzwTHv9KLpOQ7QaVP0ILYfQpXNWwQQ2vSvHgF424O3LFhwj3NRPR+DaIjoeCD5AWDXYd9nYdVBMWSjA1J4zZ1I=
-X-Received: by 2002:a1c:740e:: with SMTP id p14mr50233220wmc.109.1635186463919; 
- Mon, 25 Oct 2021 11:27:43 -0700 (PDT)
+ id 1mf62e-00HVBf-IF
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 19:53:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1635191636; x=1666727636;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=wqLKXACt1PIzgmzT2TwZgiL+g//ZbDIkd/Dfv2NWlIM=;
+ b=TWjizF7ej3HWIvRtM8zZ1F7xoMUNkOwLXLBhPB14u3/CgCM23ZPjaPfo
+ zwpd/JH7OQCBEUr/+kRVaqZJyO84Os2fWOvL+kbf1yVBKLXEwrSHbym9o
+ udge/LfNNMCvOtUOmMdDzh3qr36OTUEoxOcSYLENrQRnDbcEXEsAUvpJm
+ DJWy+Mp0FuHunAbKcJnjn5KM/V+WPYSC2hGOGK9M8h5fELMvdAb3Ce78l
+ o+9yetGtUDjOZgEgsAQIrOGlv5ckaQPBA7lMBDGoL8SuNQiMLgYCX+ioL
+ SUsnK3UAjs5EjJvj6Hm1bC/CxwyIYtJ53qkD3r61JPHctmrEgi5uXL7fR A==;
+X-IronPort-AV: E=Sophos;i="5.87,181,1631548800"; d="scan'208";a="287682862"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 26 Oct 2021 03:53:54 +0800
+IronPort-SDR: Ao4x6U3FvsSYUtz/58GCFhxdtdFko2l1qV1ZiJ2qb4Azkm5KbY8T19p7laObedGkFKLoFufpQb
+ x6qwKc2Syl+f75y2pdVqDGqVV5Ia3c3MvkFSOqqb5+DRcCyXmJOehx/8ALl4SRN3xzYFc77Htl
+ jyThDsWGhnu6CqxTaZpr7OdEPLdc+7MWxg9nOzwXeMJA9O1mcaVKm8U4VLUriNIoO2FpOT38h/
+ Asrg1HRMTC/3gLlKNIS9YuLp0NGpzSuTc1z2EXkwWzBrQKevVaSnbDrJEu4HyQv4nH5cVJEyVy
+ Q/9sdRd7cQUNFaXyqaJy6OR1
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 25 Oct 2021 12:29:25 -0700
+IronPort-SDR: JssRlr2dkH2tJpSWi0KAzm6V83qcpnOCuxvDKY7pjiw4XWulK6pwiowZyOj/GeeCFGZQi00GZ3
+ zys2gHbesbOJVMra4HRHGikL79EBCO41G7ldeuO4q+HM23+RufLTgNNspbioBGXWH+I66efPN4
+ YyvA5sg2mKzBTivVdDYcbqeuO0RImiogO6TbMgcBRWnGDOyPuhZOd9AJC78Ulfd5LW/dVi0Bwx
+ K7UwxNE9iyKF5FLjAH/ap1X3+IZooW0sxrvSmL/+2KkkmtRY695B0k47HvJ0CpVgtE9Emc+Fba
+ wnI=
+WDCIronportException: Internal
+Received: from unknown (HELO hulk.wdc.com) ([10.225.167.27])
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Oct 2021 12:53:55 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ devicetree@vger.kernel.org, Greentime Hu <greentime.hu@sifive.com>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Vincent Chen <vincent.chen@sifive.com>
+Subject: [v4 01/11] RISC-V: Remove the current perf implementation
+Date: Mon, 25 Oct 2021 12:53:40 -0700
+Message-Id: <20211025195350.242914-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20211025195350.242914-1-atish.patra@wdc.com>
+References: <20211025195350.242914-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20211025035324.517263-1-tongtiangen@huawei.com>
-In-Reply-To: <20211025035324.517263-1-tongtiangen@huawei.com>
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Mon, 25 Oct 2021 20:27:32 +0200
-Message-ID: <CAJ+HfNgSVSs5BxVdDHuGNXnC9dxTuZVtx5RiPX=O8okTJZwsPw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next,v2] riscv, bpf: Add BPF exception tables
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, 
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>, 
- Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_112747_321909_DCE03A28 
-X-CRM114-Status: GOOD (  36.19  )
+X-CRM114-CacheID: sfid-20211025_125356_768654_332C75AF 
+X-CRM114-Status: GOOD (  30.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,300 +96,641 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyNSBPY3QgMjAyMSBhdCAwNTozOCwgVG9uZyBUaWFuZ2VuIDx0b25ndGlhbmdlbkBo
-dWF3ZWkuY29tPiB3cm90ZToKPgo+IFdoZW4gYSB0cmFjaW5nIEJQRiBwcm9ncmFtIGF0dGVtcHRz
-IHRvIHJlYWQgbWVtb3J5IHdpdGhvdXQgdXNpbmcgdGhlCj4gYnBmX3Byb2JlX3JlYWQoKSBoZWxw
-ZXIsIHRoZSB2ZXJpZmllciBtYXJrcyB0aGUgbG9hZCBpbnN0cnVjdGlvbiB3aXRoCj4gdGhlIEJQ
-Rl9QUk9CRV9NRU0gZmxhZy4gU2luY2UgdGhlIHJpc2N2IEpJVCBkb2VzIG5vdCBjdXJyZW50bHkg
-cmVjb2duaXplCj4gdGhpcyBmbGFnIGl0IGZhbGxzIGJhY2sgdG8gdGhlIGludGVycHJldGVyLgo+
-Cj4gQWRkIHN1cHBvcnQgZm9yIEJQRl9QUk9CRV9NRU0sIGJ5IGFwcGVuZGluZyBhbiBleGNlcHRp
-b24gdGFibGUgdG8gdGhlCj4gQlBGIHByb2dyYW0uIElmIHRoZSBsb2FkIGluc3RydWN0aW9uIGNh
-dXNlcyBhIGRhdGEgYWJvcnQsIHRoZSBmaXh1cAo+IGluZnJhc3RydWN0dXJlIGZpbmRzIHRoZSBl
-eGNlcHRpb24gdGFibGUgYW5kIGZpeGVzIHVwIHRoZSBmYXVsdCwgYnkKPiBjbGVhcmluZyB0aGUg
-ZGVzdGluYXRpb24gcmVnaXN0ZXIgYW5kIGp1bXBpbmcgb3ZlciB0aGUgZmF1bHRpbmcKPiBpbnN0
-cnVjdGlvbi4KPgo+IEEgbW9yZSBnZW5lcmljIHNvbHV0aW9uIHdvdWxkIGFkZCBhICJoYW5kbGVy
-IiBmaWVsZCB0byB0aGUgdGFibGUgZW50cnksCj4gbGlrZSBvbiB4ODYgYW5kIHMzOTAuCj4KPiBU
-aGUgc2FtZSBpc3N1ZSBpbiBBUk02NCBpcyBmaXhlZCBpbjoKPiBjb21taXQgODAwODM0Mjg1MzYx
-ICgiYnBmLCBhcm02NDogQWRkIEJQRiBleGNlcHRpb24gdGFibGVzIikKPgo+IFNpZ25lZC1vZmYt
-Ynk6IFRvbmcgVGlhbmdlbiA8dG9uZ3RpYW5nZW5AaHVhd2VpLmNvbT4KPiBUZXN0ZWQtYnk6IFB1
-IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4gLS0tCj4gdjI6Cj4gTW9kaWZ5IGFjY29yZGlu
-ZyB0byBCasO2cm4ncyBjb21tZW50cywgbWFpbmx5IHJlbW92ZXMgcmVkdW5kYW50IGhlYWQgZmls
-ZXMKPiBleHRhYmxlLmggYW5kIHNvbWUgY29kZSBzdHlsZSBpc3N1ZXMuCj4KClRoYW5rcyBUb25n
-ISBJIGhhdmVuJ3QgZ290IGFyb3VuZCB0byB0YWtlIGl0IGZvciBhIHNwaW4geWV0LgoKSG93ZXZl
-ciwgc29tZSBtb3JlIG1pbm9yIG5pdHMsIGFuZCBzb21lIG90aGVyIGNvbW1lbnRzLgoKPiAgYXJj
-aC9yaXNjdi9tbS9leHRhYmxlLmMgICAgICAgICB8ICAyNyArKysrLQo+ICBhcmNoL3Jpc2N2L25l
-dC9icGZfaml0LmggICAgICAgIHwgICAxICsKPiAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21w
-NjQuYyB8IDE4NSArKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLQo+ICBhcmNoL3Jpc2N2
-L25ldC9icGZfaml0X2NvcmUuYyAgIHwgIDE4ICsrKy0KPiAgNCBmaWxlcyBjaGFuZ2VkLCAxODUg
-aW5zZXJ0aW9ucygrKSwgNDYgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
-di9tbS9leHRhYmxlLmMgYi9hcmNoL3Jpc2N2L21tL2V4dGFibGUuYwo+IGluZGV4IDJmYzcyOTQy
-MjE1MS4uNDQyNjk1MzkzMTMxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbW0vZXh0YWJsZS5j
-Cj4gKysrIGIvYXJjaC9yaXNjdi9tbS9leHRhYmxlLmMKPiBAQCAtMTEsMTQgKzExLDMxIEBACj4g
-ICNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3VhY2Nlc3MuaD4K
-Pgo+ICsjaWZkZWYgQ09ORklHX0JQRl9KSVQKPiArc3RhdGljIGlubGluZSBib29sIGluX2JwZl9q
-aXQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gK3sKPiArICAgICAgIGlmICghSVNfRU5BQkxFRChD
-T05GSUdfQlBGX0pJVCkpCj4gKyAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKClRoZSB3aG9s
-ZSBmdW5jdGlvbiBpcyBnYXRlZCBieSB0aGUgaWZkZWYuIE5vIG5lZWQgZm9yIHRoaXMgY2hlY2su
-IFBsZWFzZSByZW1vdmUhCgo+ICsKPiArICAgICAgIHJldHVybiByZWdzLT5lcGMgPj0gQlBGX0pJ
-VF9SRUdJT05fU1RBUlQgJiYgcmVncy0+ZXBjIDwgQlBGX0pJVF9SRUdJT05fRU5EOwo+ICt9Cj4g
-Kwo+ICtpbnQgcnZfYnBmX2ZpeHVwX2V4Y2VwdGlvbihjb25zdCBzdHJ1Y3QgZXhjZXB0aW9uX3Rh
-YmxlX2VudHJ5ICpleCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+ICsjZW5kaWYKPiArCj4gIGlu
-dCBmaXh1cF9leGNlcHRpb24oc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gIHsKPiAgICAgICAgIGNv
-bnN0IHN0cnVjdCBleGNlcHRpb25fdGFibGVfZW50cnkgKmZpeHVwOwo+Cj4gICAgICAgICBmaXh1
-cCA9IHNlYXJjaF9leGNlcHRpb25fdGFibGVzKHJlZ3MtPmVwYyk7Cj4gLSAgICAgICBpZiAoZml4
-dXApIHsKPiAtICAgICAgICAgICAgICAgcmVncy0+ZXBjID0gZml4dXAtPmZpeHVwOwo+IC0gICAg
-ICAgICAgICAgICByZXR1cm4gMTsKPiAtICAgICAgIH0KPiAtICAgICAgIHJldHVybiAwOwo+ICsg
-ICAgICAgaWYgKCFmaXh1cCkKPiArICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4gKwo+ICsjaWZk
-ZWYgQ09ORklHX0JQRl9KSVQKPiArICAgICAgIGlmIChpbl9icGZfaml0KHJlZ3MpKQo+ICsgICAg
-ICAgICAgICAgICByZXR1cm4gcnZfYnBmX2ZpeHVwX2V4Y2VwdGlvbihmaXh1cCwgcmVncyk7Cj4g
-KyNlbmRpZgo+ICsKPiArICAgICAgIHJlZ3MtPmVwYyA9IGZpeHVwLT5maXh1cDsKPiArICAgICAg
-IHJldHVybiAxOwo+ICB9Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaCBi
-L2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaAo+IGluZGV4IDc1YzFlOTk5Njg2Ny4uOGYyZTU2NzBj
-MWFhIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaAo+ICsrKyBiL2FyY2gv
-cmlzY3YvbmV0L2JwZl9qaXQuaAo+IEBAIC03MSw2ICs3MSw3IEBAIHN0cnVjdCBydl9qaXRfY29u
-dGV4dCB7Cj4gICAgICAgICBpbnQgbmluc25zOwo+ICAgICAgICAgaW50IGVwaWxvZ3VlX29mZnNl
-dDsKPiAgICAgICAgIGludCAqb2Zmc2V0OyAgICAgICAgICAgIC8qIEJQRiB0byBSViAqLwo+ICsg
-ICAgICAgaW50IG5leGVudHJ5czsKCk5pdDogU3BlbGxpbmc6IGVudHJpZXMsIG5vdCBlbnRyeXMu
-Cgo+ICAgICAgICAgdW5zaWduZWQgbG9uZyBmbGFnczsKPiAgICAgICAgIGludCBzdGFja19zaXpl
-Owo+ICB9Owo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jIGIv
-YXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IGluZGV4IDNhZjQxMzFjMjJjNy4uYTFi
-OWZlMTRlYWQzIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMK
-PiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4gQEAgLTUsNiArNSw3IEBA
-Cj4gICAqCj4gICAqLwo+Cj4gKyNpbmNsdWRlIDxsaW51eC9iaXRmaWVsZC5oPgo+ICAjaW5jbHVk
-ZSA8bGludXgvYnBmLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9maWx0ZXIuaD4KPiAgI2luY2x1ZGUg
-ImJwZl9qaXQuaCIKPiBAQCAtMjcsNiArMjgsMjEgQEAgc3RhdGljIGNvbnN0IGludCByZWdtYXBb
-XSA9IHsKPiAgICAgICAgIFtCUEZfUkVHX0FYXSA9ICBSVl9SRUdfVDAsCj4gIH07Cj4KPiArc3Rh
-dGljIGNvbnN0IGludCBwdF9yZWdtYXBbXSA9IHsKPiArICAgICAgIFtSVl9SRUdfQTVdID0gb2Zm
-c2V0b2Yoc3RydWN0IHB0X3JlZ3MsIGE1KSwKCk5pdDogUGxlYXNlIHBsYWNlIHRoZSBBNSAqdW5k
-ZXIqIEE0LgoKPiArICAgICAgIFtSVl9SRUdfQTBdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3Ms
-IGEwKSwKPiArICAgICAgIFtSVl9SRUdfQTFdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIGEx
-KSwKPiArICAgICAgIFtSVl9SRUdfQTJdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIGEyKSwK
-PiArICAgICAgIFtSVl9SRUdfQTNdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIGEzKSwKPiAr
-ICAgICAgIFtSVl9SRUdfQTRdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIGE0KSwKPiArICAg
-ICAgIFtSVl9SRUdfUzFdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHMxKSwKPiArICAgICAg
-IFtSVl9SRUdfUzJdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHMyKSwKPiArICAgICAgIFtS
-Vl9SRUdfUzNdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHMzKSwKPiArICAgICAgIFtSVl9S
-RUdfUzRdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHM0KSwKPiArICAgICAgIFtSVl9SRUdf
-UzVdID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHM1KSwKPiArICAgICAgIFtSVl9SRUdfVDBd
-ID0gb2Zmc2V0b2Yoc3RydWN0IHB0X3JlZ3MsIHQwKSwKPiArfTsKPiArCj4gIGVudW0gewo+ICAg
-ICAgICAgUlZfQ1RYX0ZfU0VFTl9UQUlMX0NBTEwgPSAgICAgICAwLAo+ICAgICAgICAgUlZfQ1RY
-X0ZfU0VFTl9DQUxMID0gICAgICAgICAgICBSVl9SRUdfUkEsCj4gQEAgLTQ0MCw2ICs0NTYsNjkg
-QEAgc3RhdGljIGludCBlbWl0X2NhbGwoYm9vbCBmaXhlZCwgdTY0IGFkZHIsIHN0cnVjdCBydl9q
-aXRfY29udGV4dCAqY3R4KQo+ICAgICAgICAgcmV0dXJuIDA7Cj4gIH0KPgo+ICsjZGVmaW5lIEJQ
-Rl9GSVhVUF9PRkZTRVRfTUFTSyAgIEdFTk1BU0soMjYsIDApCj4gKyNkZWZpbmUgQlBGX0ZJWFVQ
-X1JFR19NQVNLICAgICAgR0VOTUFTSygzMSwgMjcpCj4gKwo+ICtpbnQgcnZfYnBmX2ZpeHVwX2V4
-Y2VwdGlvbihjb25zdCBzdHJ1Y3QgZXhjZXB0aW9uX3RhYmxlX2VudHJ5ICpleCwKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICt7Cj4gKyAg
-ICAgICBvZmZfdCBvZmZzZXQgPSBGSUVMRF9HRVQoQlBGX0ZJWFVQX09GRlNFVF9NQVNLLCBleC0+
-Zml4dXApOwo+ICsgICAgICAgaW50IHJlZ3Nfb2Zmc2V0ID0gRklFTERfR0VUKEJQRl9GSVhVUF9S
-RUdfTUFTSywgZXgtPmZpeHVwKTsKPiArCj4gKyAgICAgICAqKHVuc2lnbmVkIGxvbmcgKikoKHVu
-c2lnbmVkIGNoYXIgKilyZWdzICsgcHRfcmVnbWFwW3JlZ3Nfb2Zmc2V0XSkgPSAwOwoKTml0OiBJ
-bmNvbnNpc3RlbmN5LiBTb21ldGltZXMgeW91IHVzZSAodm9pZCAqKSBjYXN0IGZvciBieXRlIGFj
-Y2VzcywKc29tZXRpbWVzICh1bnNpZ25lZCBjaGFyICopLiAgSSdkIGNoYW5nZSBpdCB0byB2b2lk
-ICogaGVyZSwgYW5kIGtlZXAKdGhlICh2b2lkICopIGJlbG93LgoKPiArICAgICAgIHJlZ3MtPmVw
-YyA9ICh1bnNpZ25lZCBsb25nKSZleC0+Zml4dXAgLSBvZmZzZXQ7Cj4gKwo+ICsgICAgICAgcmV0
-dXJuIDE7Cj4gK30KPiArCj4gKy8qIEZvciBhY2Nlc3NlcyB0byBCVEYgcG9pbnRlcnMsIGFkZCBh
-biBlbnRyeSB0byB0aGUgZXhjZXB0aW9uIHRhYmxlICovCj4gK3N0YXRpYyBpbnQgYWRkX2V4Y2Vw
-dGlvbl9oYW5kbGVyKGNvbnN0IHN0cnVjdCBicGZfaW5zbiAqaW5zbiwKPiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCwKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBpbnQgZHN0X3JlZywgaW50IGluc25fbGVuKQo+ICt7
-Cj4gKyAgICAgICBzdHJ1Y3QgZXhjZXB0aW9uX3RhYmxlX2VudHJ5ICpleDsKPiArICAgICAgIHVu
-c2lnbmVkIGxvbmcgcGM7Cj4gKyAgICAgICBvZmZfdCBvZmZzZXQ7Cj4gKwo+ICsgICAgICAgaWYg
-KCFjdHgtPmluc25zIHx8ICFjdHgtPnByb2ctPmF1eC0+ZXh0YWJsZSB8fCBCUEZfTU9ERShpbnNu
-LT5jb2RlKSAhPSBCUEZfUFJPQkVfTUVNKQo+ICsgICAgICAgICAgICAgICByZXR1cm4gMDsKPiAr
-Cj4gKyAgICAgICBpZiAoV0FSTl9PTl9PTkNFKGN0eC0+bmV4ZW50cnlzID49IGN0eC0+cHJvZy0+
-YXV4LT5udW1fZXhlbnRyaWVzKSkKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7Cj4g
-Kwo+ICsgICAgICAgaWYgKFdBUk5fT05fT05DRShpbnNuX2xlbiA+IGN0eC0+bmluc25zKSkKPiAr
-ICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7Cj4gKwo+ICsgICAgICAgaWYgKFdBUk5fT05f
-T05DRSghcnZjX2VuYWJsZWQoKSAmJiBpbnNuX2xlbiA9PSAxKSkKPiArICAgICAgICAgICAgICAg
-cmV0dXJuIC1FSU5WQUw7Cj4gKwo+ICsgICAgICAgZXggPSAmY3R4LT5wcm9nLT5hdXgtPmV4dGFi
-bGVbY3R4LT5uZXhlbnRyeXNdOwo+ICsgICAgICAgcGMgPSAodW5zaWduZWQgbG9uZykmY3R4LT5p
-bnNuc1tjdHgtPm5pbnNucyAtIGluc25fbGVuXTsKPiArCj4gKyAgICAgICBvZmZzZXQgPSBwYyAt
-IChsb25nKSZleC0+aW5zbjsKPiArICAgICAgIGlmIChXQVJOX09OX09OQ0Uob2Zmc2V0ID49IDAg
-fHwgb2Zmc2V0IDwgSU5UX01JTikpCj4gKyAgICAgICAgICAgICAgIHJldHVybiAtRVJBTkdFOwo+
-ICsgICAgICAgZXgtPmluc24gPSBwYzsKPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogU2lu
-Y2UgdGhlIGV4dGFibGUgZm9sbG93cyB0aGUgcHJvZ3JhbSwgdGhlIGZpeHVwIG9mZnNldCBpcyBh
-bHdheXMKPiArICAgICAgICAqIG5lZ2F0aXZlIGFuZCBsaW1pdGVkIHRvIEJQRl9KSVRfUkVHSU9O
-X1NJWkUuIFN0b3JlIGEgcG9zaXRpdmUgdmFsdWUKPiArICAgICAgICAqIHRvIGtlZXAgdGhpbmdz
-IHNpbXBsZSwgYW5kIHB1dCB0aGUgZGVzdGluYXRpb24gcmVnaXN0ZXIgaW4gdGhlIHVwcGVyCj4g
-KyAgICAgICAgKiBiaXRzLiBXZSBkb24ndCBuZWVkIHRvIHdvcnJ5IGFib3V0IGJ1aWxkdGltZSBv
-ciBydW50aW1lIHNvcnQKPiArICAgICAgICAqIG1vZGlmeWluZyB0aGUgdXBwZXIgYml0cyBiZWNh
-dXNlIHRoZSB0YWJsZSBpcyBhbHJlYWR5IHNvcnRlZCwgYW5kCj4gKyAgICAgICAgKiBpc24ndCBw
-YXJ0IG9mIHRoZSBtYWluIGV4Y2VwdGlvbiB0YWJsZS4KPiArICAgICAgICAqLwo+ICsgICAgICAg
-b2Zmc2V0ID0gKGxvbmcpJmV4LT5maXh1cCAtIChwYyArIGluc25fbGVuICogc2l6ZW9mKHUxNikp
-Owo+ICsgICAgICAgaWYgKCFGSUVMRF9GSVQoQlBGX0ZJWFVQX09GRlNFVF9NQVNLLCBvZmZzZXQp
-KQo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVSQU5HRTsKPiArCj4gKyAgICAgICBleC0+Zml4
-dXAgPSBGSUVMRF9QUkVQKEJQRl9GSVhVUF9PRkZTRVRfTUFTSywgb2Zmc2V0KSB8Cj4gKyAgICAg
-ICAgICAgICAgIEZJRUxEX1BSRVAoQlBGX0ZJWFVQX1JFR19NQVNLLCBkc3RfcmVnKTsKPiArCj4g
-KyAgICAgICBjdHgtPm5leGVudHJ5cysrOwo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiArCj4g
-IGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2luc24gKmluc24sIHN0cnVj
-dCBydl9qaXRfY29udGV4dCAqY3R4LAo+ICAgICAgICAgICAgICAgICAgICAgICBib29sIGV4dHJh
-X3Bhc3MpCj4gIHsKPiBAQCAtODkzLDUyICs5NzIsODYgQEAgaW50IGJwZl9qaXRfZW1pdF9pbnNu
-KGNvbnN0IHN0cnVjdCBicGZfaW5zbiAqaW5zbiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgs
-Cj4KPiAgICAgICAgIC8qIExEWDogZHN0ID0gKihzaXplICopKHNyYyArIG9mZikgKi8KPiAgICAg
-ICAgIGNhc2UgQlBGX0xEWCB8IEJQRl9NRU0gfCBCUEZfQjoKPiAtICAgICAgICAgICAgICAgaWYg
-KGlzXzEyYl9pbnQob2ZmKSkgewo+IC0gICAgICAgICAgICAgICAgICAgICAgIGVtaXQocnZfbGJ1
-KHJkLCBvZmYsIHJzKSwgY3R4KTsKPiArICAgICAgIGNhc2UgQlBGX0xEWCB8IEJQRl9NRU0gfCBC
-UEZfSDoKPiArICAgICAgIGNhc2UgQlBGX0xEWCB8IEJQRl9NRU0gfCBCUEZfVzoKPiArICAgICAg
-IGNhc2UgQlBGX0xEWCB8IEJQRl9NRU0gfCBCUEZfRFc6Cj4gKyAgICAgICBjYXNlIEJQRl9MRFgg
-fCBCUEZfUFJPQkVfTUVNIHwgQlBGX0I6Cj4gKyAgICAgICBjYXNlIEJQRl9MRFggfCBCUEZfUFJP
-QkVfTUVNIHwgQlBGX0g6Cj4gKyAgICAgICBjYXNlIEJQRl9MRFggfCBCUEZfUFJPQkVfTUVNIHwg
-QlBGX1c6Cj4gKyAgICAgICBjYXNlIEJQRl9MRFggfCBCUEZfUFJPQkVfTUVNIHwgQlBGX0RXOgo+
-ICsgICAgICAgewo+ICsgICAgICAgICAgICAgICBpbnQgaW5zbl9sZW4sIGluc25zX3N0YXJ0Owo+
-ICsKPiArICAgICAgICAgICAgICAgc3dpdGNoIChCUEZfU0laRShjb2RlKSkgewo+ICsgICAgICAg
-ICAgICAgICBjYXNlIEJQRl9COgo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmIChpc18xMmJf
-aW50KG9mZikpIHsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluc25zX3N0YXJ0
-ID0gY3R4LT5uaW5zbnM7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbWl0KHJ2
-X2xidShyZCwgb2ZmLCBycyksIGN0eCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBpbnNuX2xlbiA9IGN0eC0+bmluc25zIC0gaW5zbnNfc3RhcnQ7Cj4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBicmVhazsKPiArICAgICAgICAgICAgICAgICAgICAgICB9Cj4gKwo+
-ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfaW1tKFJWX1JFR19UMSwgb2ZmLCBjdHgpOwo+
-ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfYWRkKFJWX1JFR19UMSwgUlZfUkVHX1QxLCBy
-cywgY3R4KTsKPiArICAgICAgICAgICAgICAgICAgICAgICBpbnNuc19zdGFydCA9IGN0eC0+bmlu
-c25zOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXQocnZfbGJ1KHJkLCAwLCBSVl9SRUdf
-VDEpLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGluc25fbGVuID0gY3R4LT5uaW5z
-bnMgLSBpbnNuc19zdGFydDsKPiArICAgICAgICAgICAgICAgICAgICAgICBpZiAoaW5zbl9pc196
-ZXh0KCZpbnNuWzFdKSkKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAx
-Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+IC0gICAgICAgICAgICAgICB9Cj4g
-KyAgICAgICAgICAgICAgIGNhc2UgQlBGX0g6Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYg
-KGlzXzEyYl9pbnQob2ZmKSkgewo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW5z
-bnNfc3RhcnQgPSBjdHgtPm5pbnNuczsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IGVtaXQocnZfbGh1KHJkLCBvZmYsIHJzKSwgY3R4KTsKPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIGluc25fbGVuID0gY3R4LT5uaW5zbnMgLSBpbnNuc19zdGFydDsKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ICsgICAgICAgICAgICAgICAgICAgICAg
-IH0KPgo+IC0gICAgICAgICAgICAgICBlbWl0X2ltbShSVl9SRUdfVDEsIG9mZiwgY3R4KTsKPiAt
-ICAgICAgICAgICAgICAgZW1pdF9hZGQoUlZfUkVHX1QxLCBSVl9SRUdfVDEsIHJzLCBjdHgpOwo+
-IC0gICAgICAgICAgICAgICBlbWl0KHJ2X2xidShyZCwgMCwgUlZfUkVHX1QxKSwgY3R4KTsKPiAt
-ICAgICAgICAgICAgICAgaWYgKGluc25faXNfemV4dCgmaW5zblsxXSkpCj4gLSAgICAgICAgICAg
-ICAgICAgICAgICAgcmV0dXJuIDE7Cj4gLSAgICAgICAgICAgICAgIGJyZWFrOwo+IC0gICAgICAg
-Y2FzZSBCUEZfTERYIHwgQlBGX01FTSB8IEJQRl9IOgo+IC0gICAgICAgICAgICAgICBpZiAoaXNf
-MTJiX2ludChvZmYpKSB7Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgZW1pdChydl9saHUocmQs
-IG9mZiwgcnMpLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfaW1tKFJWX1JF
-R19UMSwgb2ZmLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfYWRkKFJWX1JF
-R19UMSwgUlZfUkVHX1QxLCBycywgY3R4KTsKPiArICAgICAgICAgICAgICAgICAgICAgICBpbnNu
-c19zdGFydCA9IGN0eC0+bmluc25zOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGVtaXQocnZf
-bGh1KHJkLCAwLCBSVl9SRUdfVDEpLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlu
-c25fbGVuID0gY3R4LT5uaW5zbnMgLSBpbnNuc19zdGFydDsKPiArICAgICAgICAgICAgICAgICAg
-ICAgICBpZiAoaW5zbl9pc196ZXh0KCZpbnNuWzFdKSkKPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHJldHVybiAxOwo+ICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+IC0g
-ICAgICAgICAgICAgICB9Cj4gKyAgICAgICAgICAgICAgIGNhc2UgQlBGX1c6Cj4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgaWYgKGlzXzEyYl9pbnQob2ZmKSkgewo+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgaW5zbnNfc3RhcnQgPSBjdHgtPm5pbnNuczsKPiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIGVtaXQocnZfbHd1KHJkLCBvZmYsIHJzKSwgY3R4KTsKPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluc25fbGVuID0gY3R4LT5uaW5zbnMgLSBpbnNu
-c19zdGFydDsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ICsgICAg
-ICAgICAgICAgICAgICAgICAgIH0KPgo+IC0gICAgICAgICAgICAgICBlbWl0X2ltbShSVl9SRUdf
-VDEsIG9mZiwgY3R4KTsKPiAtICAgICAgICAgICAgICAgZW1pdF9hZGQoUlZfUkVHX1QxLCBSVl9S
-RUdfVDEsIHJzLCBjdHgpOwo+IC0gICAgICAgICAgICAgICBlbWl0KHJ2X2xodShyZCwgMCwgUlZf
-UkVHX1QxKSwgY3R4KTsKPiAtICAgICAgICAgICAgICAgaWYgKGluc25faXNfemV4dCgmaW5zblsx
-XSkpCj4gLSAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDE7Cj4gLSAgICAgICAgICAgICAg
-IGJyZWFrOwo+IC0gICAgICAgY2FzZSBCUEZfTERYIHwgQlBGX01FTSB8IEJQRl9XOgo+IC0gICAg
-ICAgICAgICAgICBpZiAoaXNfMTJiX2ludChvZmYpKSB7Cj4gLSAgICAgICAgICAgICAgICAgICAg
-ICAgZW1pdChydl9sd3UocmQsIG9mZiwgcnMpLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAg
-ICAgIGVtaXRfaW1tKFJWX1JFR19UMSwgb2ZmLCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAg
-ICAgIGVtaXRfYWRkKFJWX1JFR19UMSwgUlZfUkVHX1QxLCBycywgY3R4KTsKPiArICAgICAgICAg
-ICAgICAgICAgICAgICBpbnNuc19zdGFydCA9IGN0eC0+bmluc25zOwo+ICsgICAgICAgICAgICAg
-ICAgICAgICAgIGVtaXQocnZfbHd1KHJkLCAwLCBSVl9SRUdfVDEpLCBjdHgpOwo+ICsgICAgICAg
-ICAgICAgICAgICAgICAgIGluc25fbGVuID0gY3R4LT5uaW5zbnMgLSBpbnNuc19zdGFydDsKPiAr
-ICAgICAgICAgICAgICAgICAgICAgICBpZiAoaW5zbl9pc196ZXh0KCZpbnNuWzFdKSkKPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAxOwo+ICAgICAgICAgICAgICAgICAg
-ICAgICAgIGJyZWFrOwo+IC0gICAgICAgICAgICAgICB9Cj4gKyAgICAgICAgICAgICAgIGNhc2Ug
-QlBGX0RXOgo+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmIChpc18xMmJfaW50KG9mZikpIHsK
-PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluc25zX3N0YXJ0ID0gY3R4LT5uaW5z
-bnM7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbWl0X2xkKHJkLCBvZmYsIHJz
-LCBjdHgpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW5zbl9sZW4gPSBjdHgt
-Pm5pbnNucyAtIGluc25zX3N0YXJ0Owo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-YnJlYWs7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgfQo+Cj4gLSAgICAgICAgICAgICAgIGVt
-aXRfaW1tKFJWX1JFR19UMSwgb2ZmLCBjdHgpOwo+IC0gICAgICAgICAgICAgICBlbWl0X2FkZChS
-Vl9SRUdfVDEsIFJWX1JFR19UMSwgcnMsIGN0eCk7Cj4gLSAgICAgICAgICAgICAgIGVtaXQocnZf
-bHd1KHJkLCAwLCBSVl9SRUdfVDEpLCBjdHgpOwo+IC0gICAgICAgICAgICAgICBpZiAoaW5zbl9p
-c196ZXh0KCZpbnNuWzFdKSkKPiAtICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gMTsKPiAt
-ICAgICAgICAgICAgICAgYnJlYWs7Cj4gLSAgICAgICBjYXNlIEJQRl9MRFggfCBCUEZfTUVNIHwg
-QlBGX0RXOgo+IC0gICAgICAgICAgICAgICBpZiAoaXNfMTJiX2ludChvZmYpKSB7Cj4gLSAgICAg
-ICAgICAgICAgICAgICAgICAgZW1pdF9sZChyZCwgb2ZmLCBycywgY3R4KTsKPiArICAgICAgICAg
-ICAgICAgICAgICAgICBlbWl0X2ltbShSVl9SRUdfVDEsIG9mZiwgY3R4KTsKPiArICAgICAgICAg
-ICAgICAgICAgICAgICBlbWl0X2FkZChSVl9SRUdfVDEsIFJWX1JFR19UMSwgcnMsIGN0eCk7Cj4g
-KyAgICAgICAgICAgICAgICAgICAgICAgaW5zbnNfc3RhcnQgPSBjdHgtPm5pbnNuczsKPiArICAg
-ICAgICAgICAgICAgICAgICAgICBlbWl0X2xkKHJkLCAwLCBSVl9SRUdfVDEsIGN0eCk7Cj4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgaW5zbl9sZW4gPSBjdHgtPm5pbnNucyAtIGluc25zX3N0YXJ0
-Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ICAgICAgICAgICAgICAgICB9Cj4K
-PiAtICAgICAgICAgICAgICAgZW1pdF9pbW0oUlZfUkVHX1QxLCBvZmYsIGN0eCk7Cj4gLSAgICAg
-ICAgICAgICAgIGVtaXRfYWRkKFJWX1JFR19UMSwgUlZfUkVHX1QxLCBycywgY3R4KTsKPiAtICAg
-ICAgICAgICAgICAgZW1pdF9sZChyZCwgMCwgUlZfUkVHX1QxLCBjdHgpOwo+ICsgICAgICAgICAg
-ICAgICByZXQgPSBhZGRfZXhjZXB0aW9uX2hhbmRsZXIoaW5zbiwgY3R4LCByZCwgaW5zbl9sZW4p
-Owo+ICsgICAgICAgICAgICAgICBpZiAocmV0KQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHJl
-dHVybiByZXQ7Cj4gICAgICAgICAgICAgICAgIGJyZWFrOwo+IC0KPiArICAgICAgIH0KPiAgICAg
-ICAgIC8qIHNwZWN1bGF0aW9uIGJhcnJpZXIgKi8KPiAgICAgICAgIGNhc2UgQlBGX1NUIHwgQlBG
-X05PU1BFQzoKPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
-Y3YvbmV0L2JwZl9qaXRfY29yZS5jIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb3JlLmMKPiBp
-bmRleCBmZWQ4NmY0MmRmYmUuLjVmMmE4NDJlYzZmMyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
-L25ldC9icGZfaml0X2NvcmUuYwo+ICsrKyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29yZS5j
-Cj4gQEAgLTQxLDEyICs0MSwxMiBAQCBib29sIGJwZl9qaXRfbmVlZHNfemV4dCh2b2lkKQo+Cj4g
-IHN0cnVjdCBicGZfcHJvZyAqYnBmX2ludF9qaXRfY29tcGlsZShzdHJ1Y3QgYnBmX3Byb2cgKnBy
-b2cpCj4gIHsKPiArICAgICAgIHVuc2lnbmVkIGludCBpbWFnZV9zaXplLCBwcm9nX3NpemUsIGV4
-dGFibGVfc2l6ZTsKPiAgICAgICAgIGJvb2wgdG1wX2JsaW5kZWQgPSBmYWxzZSwgZXh0cmFfcGFz
-cyA9IGZhbHNlOwo+ICAgICAgICAgc3RydWN0IGJwZl9wcm9nICp0bXAsICpvcmlnX3Byb2cgPSBw
-cm9nOwo+ICAgICAgICAgaW50IHBhc3MgPSAwLCBwcmV2X25pbnNucyA9IDAsIGk7Cj4gICAgICAg
-ICBzdHJ1Y3QgcnZfaml0X2RhdGEgKmppdF9kYXRhOwo+ICAgICAgICAgc3RydWN0IHJ2X2ppdF9j
-b250ZXh0ICpjdHg7Cj4gLSAgICAgICB1bnNpZ25lZCBpbnQgaW1hZ2Vfc2l6ZSA9IDA7CgpIbW0s
-IGltYWdlX3NpemUgaXMgbm93IHRoZSAqcHJvZ3JhbSBzaXplKiBwbHVzIHRoZSBleHRhYmxlLiBT
-bywKcHJvZ19zaXplIGlzIHdoYXQgaW1hZ2Vfc2l6ZSB3YXMuIElmIG15IG1lbW9yeSBpcyBub3Qg
-ZmFpbGluZyBJCip0aGluayogdGhhdCB0aGUgaW1hZ2Vfc2l6ZSBoYXMgdG8gYmUgaW5pdGlhbGl6
-ZWQgdG8gemVybyAsIGlmIHNvIHRoaXMKbmV3IHByb2dfc2l6ZSBoYXMgdG8gYmUgaW5pdGlhbGl6
-ZWQgdG8gemVyby4gSSBtaWdodCBiZSB3cm9uZy4gSSBqdXN0CndhbnQgdG8gbWFrZSBzdXJlIHRo
-YXQgd2UncmUgbm90IGludHJvZHVjaW5nIHVuaW5pdGlhbGl6ZWQgZGF0YQphY2Nlc3MuCgpTYW1l
-IHF1ZXN0aW9uIGZvciB0aGUgZXh0YWJsZV9zaXplLiBJIHNlZSBpdCdzIGJlaW5nIHVzZWQgb3V0
-c2lkZSB0aGUKZm9yLWxvb3AgYmVsb3cuCgpUbyBtZSBpdCBsb29rcyBsaWtlIGJvdGggcHJvZ19z
-aXplIGFuZCBleHRhYmxlX3NpemUgbmVlZHMgdG8gYmUKaW5pdGlhbGl6ZWQgdG8gemVyby4KCj4K
-PiAgICAgICAgIGlmICghcHJvZy0+aml0X3JlcXVlc3RlZCkKPiAgICAgICAgICAgICAgICAgcmV0
-dXJuIG9yaWdfcHJvZzsKPiBAQCAtNzMsNyArNzMsNyBAQCBzdHJ1Y3QgYnBmX3Byb2cgKmJwZl9p
-bnRfaml0X2NvbXBpbGUoc3RydWN0IGJwZl9wcm9nICpwcm9nKQo+Cj4gICAgICAgICBpZiAoY3R4
-LT5vZmZzZXQpIHsKPiAgICAgICAgICAgICAgICAgZXh0cmFfcGFzcyA9IHRydWU7Cj4gLSAgICAg
-ICAgICAgICAgIGltYWdlX3NpemUgPSBzaXplb2YoKmN0eC0+aW5zbnMpICogY3R4LT5uaW5zbnM7
-Cj4gKyAgICAgICAgICAgICAgIHByb2dfc2l6ZSA9IHNpemVvZigqY3R4LT5pbnNucykgKiBjdHgt
-Pm5pbnNuczsKPiAgICAgICAgICAgICAgICAgZ290byBza2lwX2luaXRfY3R4Owo+ICAgICAgICAg
-fQo+Cj4gQEAgLTEwMiw4ICsxMDIsMTIgQEAgc3RydWN0IGJwZl9wcm9nICpicGZfaW50X2ppdF9j
-b21waWxlKHN0cnVjdCBicGZfcHJvZyAqcHJvZykKPiAgICAgICAgICAgICAgICAgaWYgKGN0eC0+
-bmluc25zID09IHByZXZfbmluc25zKSB7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGpp
-dF9kYXRhLT5oZWFkZXIpCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsK
-PiArICAgICAgICAgICAgICAgICAgICAgICAvKiBvYnRhaW4gdGhlIGFjdHVhbCBpbWFnZSBzaXpl
-ICovCj4gKyAgICAgICAgICAgICAgICAgICAgICAgZXh0YWJsZV9zaXplID0gcHJvZy0+YXV4LT5u
-dW1fZXhlbnRyaWVzICoKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNpemVvZihz
-dHJ1Y3QgZXhjZXB0aW9uX3RhYmxlX2VudHJ5KTsKPiArICAgICAgICAgICAgICAgICAgICAgICBw
-cm9nX3NpemUgPSBzaXplb2YoKmN0eC0+aW5zbnMpICogY3R4LT5uaW5zbnM7Cj4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgaW1hZ2Vfc2l6ZSA9IHByb2dfc2l6ZSArIGV4dGFibGVfc2l6ZTsKCmlt
-YWdlX3NpemUgaXMgb25seSB1c2VkIGluIHRoZSBjYWxsIHRvIGJwZl9qaXRfYmluYXJ5X2FsbG9j
-KCkuIEknZApyZW1vdmUgaXQgYW5kIG9ubHkgdXNlIHByb2dfc2l6ZSArIGV4dGFibGVfc2l6ZSBp
-biB0aGUgY2FsbC4gT3IgbW92ZQppdCBpbnRvIHRoZSBpZi1zdGF0ZW1lbnQuCgo+Cj4gLSAgICAg
-ICAgICAgICAgICAgICAgICAgaW1hZ2Vfc2l6ZSA9IHNpemVvZigqY3R4LT5pbnNucykgKiBjdHgt
-Pm5pbnNuczsKPiAgICAgICAgICAgICAgICAgICAgICAgICBqaXRfZGF0YS0+aGVhZGVyID0KPiAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJwZl9qaXRfYmluYXJ5X2FsbG9jKGltYWdl
-X3NpemUsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAmaml0X2RhdGEtPmltYWdlLAo+IEBAIC0xMzAsOSArMTM0LDEzIEBAIHN0cnVjdCBicGZf
-cHJvZyAqYnBmX2ludF9qaXRfY29tcGlsZShzdHJ1Y3QgYnBmX3Byb2cgKnByb2cpCj4gICAgICAg
-ICAgICAgICAgIGdvdG8gb3V0X29mZnNldDsKPiAgICAgICAgIH0KPgo+ICsgICAgICAgaWYgKGV4
-dGFibGVfc2l6ZSkKPiArICAgICAgICAgICAgICAgcHJvZy0+YXV4LT5leHRhYmxlID0gKHZvaWQg
-KiljdHgtPmluc25zICsgcHJvZ19zaXplOwoKKFRoaXMgd2FzIHRoZSB2b2lkKi1jYXN0IEkgd2Fz
-IHRhbGtpbmcgYWJvdXQpCgoKPiBza2lwX2luaXRfY3R4Ogo+ICAgICAgICAgcGFzcysrOwo+ICAg
-ICAgICAgY3R4LT5uaW5zbnMgPSAwOwo+ICsgICAgICAgY3R4LT5uZXhlbnRyeXMgPSAwOwo+Cj4g
-ICAgICAgICBicGZfaml0X2J1aWxkX3Byb2xvZ3VlKGN0eCk7Cj4gICAgICAgICBpZiAoYnVpbGRf
-Ym9keShjdHgsIGV4dHJhX3Bhc3MsIE5VTEwpKSB7Cj4gQEAgLTE0MywxMSArMTUxLDExIEBAIHN0
-cnVjdCBicGZfcHJvZyAqYnBmX2ludF9qaXRfY29tcGlsZShzdHJ1Y3QgYnBmX3Byb2cgKnByb2cp
-Cj4gICAgICAgICBicGZfaml0X2J1aWxkX2VwaWxvZ3VlKGN0eCk7Cj4KPiAgICAgICAgIGlmIChi
-cGZfaml0X2VuYWJsZSA+IDEpCj4gLSAgICAgICAgICAgICAgIGJwZl9qaXRfZHVtcChwcm9nLT5s
-ZW4sIGltYWdlX3NpemUsIHBhc3MsIGN0eC0+aW5zbnMpOwo+ICsgICAgICAgICAgICAgICBicGZf
-aml0X2R1bXAocHJvZy0+bGVuLCBwcm9nX3NpemUsIHBhc3MsIGN0eC0+aW5zbnMpOwo+Cj4gICAg
-ICAgICBwcm9nLT5icGZfZnVuYyA9ICh2b2lkICopY3R4LT5pbnNuczsKPiAgICAgICAgIHByb2ct
-PmppdGVkID0gMTsKPiAtICAgICAgIHByb2ctPmppdGVkX2xlbiA9IGltYWdlX3NpemU7Cj4gKyAg
-ICAgICBwcm9nLT5qaXRlZF9sZW4gPSBwcm9nX3NpemU7Cj4KPiAgICAgICAgIGJwZl9mbHVzaF9p
-Y2FjaGUoaml0X2RhdGEtPmhlYWRlciwgY3R4LT5pbnNucyArIGN0eC0+bmluc25zKTsKPgo+IC0t
-Cj4gMi4yNS4xCgoKCkFnYWluLCB0aGFuayB5b3UgZm9yIGhhY2tpbmcgb24gdGhpcyEKCgpDaGVl
-cnMsCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+The current perf implementation in RISC-V is not very useful as it can not
+count any events other than cycle/instructions. Moreover, perf record
+can not be used or the events can not be started or stopped.
+
+Remove the implementation now for a better platform driver in future
+that will implement most of the missing functionality.
+
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/Kconfig                  |  13 -
+ arch/riscv/include/asm/perf_event.h |  72 -----
+ arch/riscv/kernel/Makefile          |   1 -
+ arch/riscv/kernel/perf_event.c      | 485 ----------------------------
+ 4 files changed, 571 deletions(-)
+ delete mode 100644 arch/riscv/kernel/perf_event.c
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c79955655fa4..c4afe2c8ff03 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -360,19 +360,6 @@ config RISCV_ISA_C
+ 
+ 	   If you don't know what to do here, say Y.
+ 
+-menu "supported PMU type"
+-	depends on PERF_EVENTS
+-
+-config RISCV_BASE_PMU
+-	bool "Base Performance Monitoring Unit"
+-	def_bool y
+-	help
+-	  A base PMU that serves as a reference implementation and has limited
+-	  feature of perf.  It can run on any RISC-V machines so serves as the
+-	  fallback, but this option can also be disable to reduce kernel size.
+-
+-endmenu
+-
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+index 062efd3a1d5d..d42c901f9a97 100644
+--- a/arch/riscv/include/asm/perf_event.h
++++ b/arch/riscv/include/asm/perf_event.h
+@@ -9,77 +9,5 @@
+ #define _ASM_RISCV_PERF_EVENT_H
+ 
+ #include <linux/perf_event.h>
+-#include <linux/ptrace.h>
+-#include <linux/interrupt.h>
+-
+-#ifdef CONFIG_RISCV_BASE_PMU
+-#define RISCV_BASE_COUNTERS	2
+-
+-/*
+- * The RISCV_MAX_COUNTERS parameter should be specified.
+- */
+-
+-#define RISCV_MAX_COUNTERS	2
+-
+-/*
+- * These are the indexes of bits in counteren register *minus* 1,
+- * except for cycle.  It would be coherent if it can directly mapped
+- * to counteren bit definition, but there is a *time* register at
+- * counteren[1].  Per-cpu structure is scarce resource here.
+- *
+- * According to the spec, an implementation can support counter up to
+- * mhpmcounter31, but many high-end processors has at most 6 general
+- * PMCs, we give the definition to MHPMCOUNTER8 here.
+- */
+-#define RISCV_PMU_CYCLE		0
+-#define RISCV_PMU_INSTRET	1
+-#define RISCV_PMU_MHPMCOUNTER3	2
+-#define RISCV_PMU_MHPMCOUNTER4	3
+-#define RISCV_PMU_MHPMCOUNTER5	4
+-#define RISCV_PMU_MHPMCOUNTER6	5
+-#define RISCV_PMU_MHPMCOUNTER7	6
+-#define RISCV_PMU_MHPMCOUNTER8	7
+-
+-#define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
+-
+-struct cpu_hw_events {
+-	/* # currently enabled events*/
+-	int			n_events;
+-	/* currently enabled events */
+-	struct perf_event	*events[RISCV_MAX_COUNTERS];
+-	/* vendor-defined PMU data */
+-	void			*platform;
+-};
+-
+-struct riscv_pmu {
+-	struct pmu	*pmu;
+-
+-	/* generic hw/cache events table */
+-	const int	*hw_events;
+-	const int	(*cache_events)[PERF_COUNT_HW_CACHE_MAX]
+-				       [PERF_COUNT_HW_CACHE_OP_MAX]
+-				       [PERF_COUNT_HW_CACHE_RESULT_MAX];
+-	/* method used to map hw/cache events */
+-	int		(*map_hw_event)(u64 config);
+-	int		(*map_cache_event)(u64 config);
+-
+-	/* max generic hw events in map */
+-	int		max_events;
+-	/* number total counters, 2(base) + x(general) */
+-	int		num_counters;
+-	/* the width of the counter */
+-	int		counter_width;
+-
+-	/* vendor-defined PMU features */
+-	void		*platform;
+-
+-	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
+-	int		irq;
+-};
+-
+-#endif
+-#ifdef CONFIG_PERF_EVENTS
+ #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
+-#endif
+-
+ #endif /* _ASM_RISCV_PERF_EVENT_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 3397ddac1a30..e66870a4422f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -50,7 +50,6 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+-obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+ obj-$(CONFIG_RISCV_SBI)		+= sbi.o
+diff --git a/arch/riscv/kernel/perf_event.c b/arch/riscv/kernel/perf_event.c
+deleted file mode 100644
+index c835f0362d94..000000000000
+--- a/arch/riscv/kernel/perf_event.c
++++ /dev/null
+@@ -1,485 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * Copyright (C) 2008 Thomas Gleixner <tglx@linutronix.de>
+- * Copyright (C) 2008-2009 Red Hat, Inc., Ingo Molnar
+- * Copyright (C) 2009 Jaswinder Singh Rajput
+- * Copyright (C) 2009 Advanced Micro Devices, Inc., Robert Richter
+- * Copyright (C) 2008-2009 Red Hat, Inc., Peter Zijlstra
+- * Copyright (C) 2009 Intel Corporation, <markus.t.metzger@intel.com>
+- * Copyright (C) 2009 Google, Inc., Stephane Eranian
+- * Copyright 2014 Tilera Corporation. All Rights Reserved.
+- * Copyright (C) 2018 Andes Technology Corporation
+- *
+- * Perf_events support for RISC-V platforms.
+- *
+- * Since the spec. (as of now, Priv-Spec 1.10) does not provide enough
+- * functionality for perf event to fully work, this file provides
+- * the very basic framework only.
+- *
+- * For platform portings, please check Documentations/riscv/pmu.txt.
+- *
+- * The Copyright line includes x86 and tile ones.
+- */
+-
+-#include <linux/kprobes.h>
+-#include <linux/kernel.h>
+-#include <linux/kdebug.h>
+-#include <linux/mutex.h>
+-#include <linux/bitmap.h>
+-#include <linux/irq.h>
+-#include <linux/perf_event.h>
+-#include <linux/atomic.h>
+-#include <linux/of.h>
+-#include <asm/perf_event.h>
+-
+-static const struct riscv_pmu *riscv_pmu __read_mostly;
+-static DEFINE_PER_CPU(struct cpu_hw_events, cpu_hw_events);
+-
+-/*
+- * Hardware & cache maps and their methods
+- */
+-
+-static const int riscv_hw_event_map[] = {
+-	[PERF_COUNT_HW_CPU_CYCLES]		= RISCV_PMU_CYCLE,
+-	[PERF_COUNT_HW_INSTRUCTIONS]		= RISCV_PMU_INSTRET,
+-	[PERF_COUNT_HW_CACHE_REFERENCES]	= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_CACHE_MISSES]		= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BRANCH_INSTRUCTIONS]	= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BRANCH_MISSES]		= RISCV_OP_UNSUPP,
+-	[PERF_COUNT_HW_BUS_CYCLES]		= RISCV_OP_UNSUPP,
+-};
+-
+-#define C(x) PERF_COUNT_HW_CACHE_##x
+-static const int riscv_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+-[PERF_COUNT_HW_CACHE_OP_MAX]
+-[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
+-	[C(L1D)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(L1I)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(LL)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(DTLB)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] =  RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] =  RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(ITLB)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-	[C(BPU)] = {
+-		[C(OP_READ)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_WRITE)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-		[C(OP_PREFETCH)] = {
+-			[C(RESULT_ACCESS)] = RISCV_OP_UNSUPP,
+-			[C(RESULT_MISS)] = RISCV_OP_UNSUPP,
+-		},
+-	},
+-};
+-
+-static int riscv_map_hw_event(u64 config)
+-{
+-	if (config >= riscv_pmu->max_events)
+-		return -EINVAL;
+-
+-	return riscv_pmu->hw_events[config];
+-}
+-
+-static int riscv_map_cache_decode(u64 config, unsigned int *type,
+-			   unsigned int *op, unsigned int *result)
+-{
+-	return -ENOENT;
+-}
+-
+-static int riscv_map_cache_event(u64 config)
+-{
+-	unsigned int type, op, result;
+-	int err = -ENOENT;
+-		int code;
+-
+-	err = riscv_map_cache_decode(config, &type, &op, &result);
+-	if (!riscv_pmu->cache_events || err)
+-		return err;
+-
+-	if (type >= PERF_COUNT_HW_CACHE_MAX ||
+-	    op >= PERF_COUNT_HW_CACHE_OP_MAX ||
+-	    result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
+-		return -EINVAL;
+-
+-	code = (*riscv_pmu->cache_events)[type][op][result];
+-	if (code == RISCV_OP_UNSUPP)
+-		return -EINVAL;
+-
+-	return code;
+-}
+-
+-/*
+- * Low-level functions: reading/writing counters
+- */
+-
+-static inline u64 read_counter(int idx)
+-{
+-	u64 val = 0;
+-
+-	switch (idx) {
+-	case RISCV_PMU_CYCLE:
+-		val = csr_read(CSR_CYCLE);
+-		break;
+-	case RISCV_PMU_INSTRET:
+-		val = csr_read(CSR_INSTRET);
+-		break;
+-	default:
+-		WARN_ON_ONCE(idx < 0 ||	idx > RISCV_MAX_COUNTERS);
+-		return -EINVAL;
+-	}
+-
+-	return val;
+-}
+-
+-static inline void write_counter(int idx, u64 value)
+-{
+-	/* currently not supported */
+-	WARN_ON_ONCE(1);
+-}
+-
+-/*
+- * pmu->read: read and update the counter
+- *
+- * Other architectures' implementation often have a xxx_perf_event_update
+- * routine, which can return counter values when called in the IRQ, but
+- * return void when being called by the pmu->read method.
+- */
+-static void riscv_pmu_read(struct perf_event *event)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-	u64 prev_raw_count, new_raw_count;
+-	u64 oldval;
+-	int idx = hwc->idx;
+-	u64 delta;
+-
+-	do {
+-		prev_raw_count = local64_read(&hwc->prev_count);
+-		new_raw_count = read_counter(idx);
+-
+-		oldval = local64_cmpxchg(&hwc->prev_count, prev_raw_count,
+-					 new_raw_count);
+-	} while (oldval != prev_raw_count);
+-
+-	/*
+-	 * delta is the value to update the counter we maintain in the kernel.
+-	 */
+-	delta = (new_raw_count - prev_raw_count) &
+-		((1ULL << riscv_pmu->counter_width) - 1);
+-	local64_add(delta, &event->count);
+-	/*
+-	 * Something like local64_sub(delta, &hwc->period_left) here is
+-	 * needed if there is an interrupt for perf.
+-	 */
+-}
+-
+-/*
+- * State transition functions:
+- *
+- * stop()/start() & add()/del()
+- */
+-
+-/*
+- * pmu->stop: stop the counter
+- */
+-static void riscv_pmu_stop(struct perf_event *event, int flags)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	WARN_ON_ONCE(hwc->state & PERF_HES_STOPPED);
+-	hwc->state |= PERF_HES_STOPPED;
+-
+-	if ((flags & PERF_EF_UPDATE) && !(hwc->state & PERF_HES_UPTODATE)) {
+-		riscv_pmu->pmu->read(event);
+-		hwc->state |= PERF_HES_UPTODATE;
+-	}
+-}
+-
+-/*
+- * pmu->start: start the event.
+- */
+-static void riscv_pmu_start(struct perf_event *event, int flags)
+-{
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	if (WARN_ON_ONCE(!(event->hw.state & PERF_HES_STOPPED)))
+-		return;
+-
+-	if (flags & PERF_EF_RELOAD) {
+-		WARN_ON_ONCE(!(event->hw.state & PERF_HES_UPTODATE));
+-
+-		/*
+-		 * Set the counter to the period to the next interrupt here,
+-		 * if you have any.
+-		 */
+-	}
+-
+-	hwc->state = 0;
+-	perf_event_update_userpage(event);
+-
+-	/*
+-	 * Since we cannot write to counters, this serves as an initialization
+-	 * to the delta-mechanism in pmu->read(); otherwise, the delta would be
+-	 * wrong when pmu->read is called for the first time.
+-	 */
+-	local64_set(&hwc->prev_count, read_counter(hwc->idx));
+-}
+-
+-/*
+- * pmu->add: add the event to PMU.
+- */
+-static int riscv_pmu_add(struct perf_event *event, int flags)
+-{
+-	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	if (cpuc->n_events == riscv_pmu->num_counters)
+-		return -ENOSPC;
+-
+-	/*
+-	 * We don't have general conunters, so no binding-event-to-counter
+-	 * process here.
+-	 *
+-	 * Indexing using hwc->config generally not works, since config may
+-	 * contain extra information, but here the only info we have in
+-	 * hwc->config is the event index.
+-	 */
+-	hwc->idx = hwc->config;
+-	cpuc->events[hwc->idx] = event;
+-	cpuc->n_events++;
+-
+-	hwc->state = PERF_HES_UPTODATE | PERF_HES_STOPPED;
+-
+-	if (flags & PERF_EF_START)
+-		riscv_pmu->pmu->start(event, PERF_EF_RELOAD);
+-
+-	return 0;
+-}
+-
+-/*
+- * pmu->del: delete the event from PMU.
+- */
+-static void riscv_pmu_del(struct perf_event *event, int flags)
+-{
+-	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+-	struct hw_perf_event *hwc = &event->hw;
+-
+-	cpuc->events[hwc->idx] = NULL;
+-	cpuc->n_events--;
+-	riscv_pmu->pmu->stop(event, PERF_EF_UPDATE);
+-	perf_event_update_userpage(event);
+-}
+-
+-/*
+- * Interrupt: a skeletion for reference.
+- */
+-
+-static DEFINE_MUTEX(pmc_reserve_mutex);
+-
+-static irqreturn_t riscv_base_pmu_handle_irq(int irq_num, void *dev)
+-{
+-	return IRQ_NONE;
+-}
+-
+-static int reserve_pmc_hardware(void)
+-{
+-	int err = 0;
+-
+-	mutex_lock(&pmc_reserve_mutex);
+-	if (riscv_pmu->irq >= 0 && riscv_pmu->handle_irq) {
+-		err = request_irq(riscv_pmu->irq, riscv_pmu->handle_irq,
+-				  IRQF_PERCPU, "riscv-base-perf", NULL);
+-	}
+-	mutex_unlock(&pmc_reserve_mutex);
+-
+-	return err;
+-}
+-
+-static void release_pmc_hardware(void)
+-{
+-	mutex_lock(&pmc_reserve_mutex);
+-	if (riscv_pmu->irq >= 0)
+-		free_irq(riscv_pmu->irq, NULL);
+-	mutex_unlock(&pmc_reserve_mutex);
+-}
+-
+-/*
+- * Event Initialization/Finalization
+- */
+-
+-static atomic_t riscv_active_events = ATOMIC_INIT(0);
+-
+-static void riscv_event_destroy(struct perf_event *event)
+-{
+-	if (atomic_dec_return(&riscv_active_events) == 0)
+-		release_pmc_hardware();
+-}
+-
+-static int riscv_event_init(struct perf_event *event)
+-{
+-	struct perf_event_attr *attr = &event->attr;
+-	struct hw_perf_event *hwc = &event->hw;
+-	int err;
+-	int code;
+-
+-	if (atomic_inc_return(&riscv_active_events) == 1) {
+-		err = reserve_pmc_hardware();
+-
+-		if (err) {
+-			pr_warn("PMC hardware not available\n");
+-			atomic_dec(&riscv_active_events);
+-			return -EBUSY;
+-		}
+-	}
+-
+-	switch (event->attr.type) {
+-	case PERF_TYPE_HARDWARE:
+-		code = riscv_pmu->map_hw_event(attr->config);
+-		break;
+-	case PERF_TYPE_HW_CACHE:
+-		code = riscv_pmu->map_cache_event(attr->config);
+-		break;
+-	case PERF_TYPE_RAW:
+-		return -EOPNOTSUPP;
+-	default:
+-		return -ENOENT;
+-	}
+-
+-	event->destroy = riscv_event_destroy;
+-	if (code < 0) {
+-		event->destroy(event);
+-		return code;
+-	}
+-
+-	/*
+-	 * idx is set to -1 because the index of a general event should not be
+-	 * decided until binding to some counter in pmu->add().
+-	 *
+-	 * But since we don't have such support, later in pmu->add(), we just
+-	 * use hwc->config as the index instead.
+-	 */
+-	hwc->config = code;
+-	hwc->idx = -1;
+-
+-	return 0;
+-}
+-
+-/*
+- * Initialization
+- */
+-
+-static struct pmu min_pmu = {
+-	.name		= "riscv-base",
+-	.event_init	= riscv_event_init,
+-	.add		= riscv_pmu_add,
+-	.del		= riscv_pmu_del,
+-	.start		= riscv_pmu_start,
+-	.stop		= riscv_pmu_stop,
+-	.read		= riscv_pmu_read,
+-};
+-
+-static const struct riscv_pmu riscv_base_pmu = {
+-	.pmu = &min_pmu,
+-	.max_events = ARRAY_SIZE(riscv_hw_event_map),
+-	.map_hw_event = riscv_map_hw_event,
+-	.hw_events = riscv_hw_event_map,
+-	.map_cache_event = riscv_map_cache_event,
+-	.cache_events = &riscv_cache_event_map,
+-	.counter_width = 63,
+-	.num_counters = RISCV_BASE_COUNTERS + 0,
+-	.handle_irq = &riscv_base_pmu_handle_irq,
+-
+-	/* This means this PMU has no IRQ. */
+-	.irq = -1,
+-};
+-
+-static const struct of_device_id riscv_pmu_of_ids[] = {
+-	{.compatible = "riscv,base-pmu",	.data = &riscv_base_pmu},
+-	{ /* sentinel value */ }
+-};
+-
+-static int __init init_hw_perf_events(void)
+-{
+-	struct device_node *node = of_find_node_by_type(NULL, "pmu");
+-	const struct of_device_id *of_id;
+-
+-	riscv_pmu = &riscv_base_pmu;
+-
+-	if (node) {
+-		of_id = of_match_node(riscv_pmu_of_ids, node);
+-
+-		if (of_id)
+-			riscv_pmu = of_id->data;
+-		of_node_put(node);
+-	}
+-
+-	perf_pmu_register(riscv_pmu->pmu, "cpu", PERF_TYPE_RAW);
+-	return 0;
+-}
+-arch_initcall(init_hw_perf_events);
+-- 
+2.31.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
