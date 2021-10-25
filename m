@@ -2,119 +2,107 @@ Return-Path: <SRS0=nFT5=PN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C324EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 14:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A6E31C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 14:50:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8AD7A60720
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 14:35:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8AD7A60720
+	by mail.kernel.org (Postfix) with ESMTPS id 7318B60C40
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Oct 2021 14:50:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7318B60C40
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q0/tgo9oZ0R4ubCZGy07lZphxuWyfh/LNNMqSJo6L2o=; b=OTV2QBeTTiJFQG
-	op4qx3a5yLsaM618LRz3QLgbZPDchZwfmy4HTv1I+UsvIYuLM3/AIbHnxJYRZALDChTNbYeuxRDYJ
-	CTFw/xzeORGxkebjGKswKpVTKs1oEoolx/ZwcS7+mn0fZfBRtAXv6ff+XTR1P7DIniqXqK4Bq2125
-	0aGB4pSY7f7S4hzJjbEBV5h1Mk8GWXqhtyoZuu1H+Ctn3H0fUyrEuCxlEtEqQjKTgRaD6NjxDF8Se
-	ReoSgjF/n3Vkwk5p2ouybZMnCnb2JRUtVxW2OiVoTCbDTEyl6XT7YUS6Mg9WQBQaNFQP00TlwgtsE
-	KzdLwc2Vldx4jQ+GqxVw==;
+	List-Owner; bh=q68Nh4qkyV1JAu5hcmgQ7S0gCiz6f41EHQnVUsUt+IQ=; b=KJDEx2Bko/GTqQ
+	YCEaEHDWMKMQaCJOqs1lp4nfdGOutwJNyrXY3Bq2gRR9+RuyFla43kVV54xhlpYVKtTnVghnnMkT3
+	hCnM31yNwSBsoayXzDOp+2wqqDfmwbOAM0Qp+7EJk0FYCtgGjRT5Jo8iRdKX/6HD0TkcOFebSENMv
+	nLlsMkljCT8V+SUi9AzPtPbW2iuZ5GN9zfKxAywKhoqJrVrQQ5c52C2X/T50E7f4AEchEe7HJSKql
+	Vuk3lkv+3jkmu+PCuZr20kVBuzul2iy2Egpncwg2Lnp1mzq6N3QbVlSN2DuV+edYr0SF14zuKrMHd
+	EQcK9mJGBE3TM/M8f6xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mf141-00GiRJ-Ki; Mon, 25 Oct 2021 14:35:01 +0000
+	id 1mf1IS-00GlTI-T4; Mon, 25 Oct 2021 14:49:56 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mf13y-00GiQ0-5J
- for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 14:34:59 +0000
+ id 1mf1I3-00GlCL-6Q
+ for linux-riscv@lists.infradead.org; Mon, 25 Oct 2021 14:49:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635172497;
+ s=mimecast20190719; t=1635173370;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=gyRr+oxbdq+D1XVZyshzBJhdWV6eJMpRCL2oDxsSBbM=;
- b=SQBkGLBaOxog2hLaf6YXCS+UY/ndEWjokIqxk8Ws8KqvyTEE0Co3Z7LtBTIp697U1HlcgV
- DbTijGyr0ZSgkptCt4zGUrPXkUOcf8Ijn+i1BCLw8Bp7+I2iJW+Lhv0qI9q2PEV85OkVUT
- aMLTaFhNymZBkzU0xhx83l44CfHd3SE=
+ bh=+fQIV8R9EVwqjc2F+5+VNaVeJn8YGGw0zb5KvsfSTOE=;
+ b=EyxXK3NL34GKbkabfASCUZxOHmDizQl3wmY2Lj3OpC0kZbASigldALEiN1zBJzexXqAap3
+ 749vvLz8Z9ZpjF0Qkd/w1AOzZp8wMYE2HrXtJRJtEd1OkxeKS3wVO3GKdh9cjaR9BzhFuJ
+ 02ntDEvxSmV3a5c60rMlBmj0f0B1l0o=
 Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
  [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-410-WKlQVSmUP_K_gcCq2_cwEw-1; Mon, 25 Oct 2021 10:34:56 -0400
-X-MC-Unique: WKlQVSmUP_K_gcCq2_cwEw-1
+ us-mta-68-nsph0B9YONKHPPfEdjVaUA-1; Mon, 25 Oct 2021 10:49:24 -0400
+X-MC-Unique: nsph0B9YONKHPPfEdjVaUA-1
 Received: by mail-ed1-f72.google.com with SMTP id
- c25-20020a056402143900b003dc19782ea8so10158363edx.3
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 07:34:55 -0700 (PDT)
+ v9-20020a50d849000000b003dcb31eabaaso10168093edj.13
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 07:49:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=gyRr+oxbdq+D1XVZyshzBJhdWV6eJMpRCL2oDxsSBbM=;
- b=CIDlaDt6EQtKSQCQUl8hs5TES3s2kebzgQlcjh8q4g6iXfWvVnKCe9ck4l/HfTgScz
- 3h2Mk48dapSSe9/wDJQuWFTqNGJB5jMHjut60Y47AEqx9eitZwWQQwVMULI6jgds68uO
- yOIdbDv3c9A6twRWJuCIhA1NmMwycCniF3vdou4CCk0rUmhl7VSCfiGAQnqTyeNGHAW8
- VVEVWyXE9wd/hMBq0VKRQ3MIEi6bD0CiJdgqVLAI3IVbpJkJfRuBLNhICuf6qQKJF8FB
- YQw7TluluA8le/vlRl4UF7EnbMdxd0I/xDAS/POYO8yftcAM5jvOlE0PA9OMD66yjh5o
- ctcw==
-X-Gm-Message-State: AOAM532VKa0HOjZVKSS3RYxnGqmxOwVrMCBrluXka/6bhZgEnc1NiA8Q
- VtaPr/4ASJ4ALmG8eAFFBmyqWkY8UBXHU4shqVJhBz50sxUyYgvA4fpZM9H1XG20TuuAUIYrWI+
- INhLIlZd6c3JXWbNhOtcoPESSS3D6
-X-Received: by 2002:a05:6402:5112:: with SMTP id
- m18mr26543462edd.101.1635172494815; 
- Mon, 25 Oct 2021 07:34:54 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJw1PVpqtFTaT+fZx+ngmF47w1xHlBRHe6pB6EMZ006WM53WXRFnHCfF7AOxx4PQB6o6e4saOQ==
-X-Received: by 2002:a05:6402:5112:: with SMTP id
- m18mr26543421edd.101.1635172494578; 
- Mon, 25 Oct 2021 07:34:54 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id m15sm10124432edd.5.2021.10.25.07.34.44
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 25 Oct 2021 07:34:53 -0700 (PDT)
-Message-ID: <335822ac-b98b-1eec-4911-34e4d0e99907@redhat.com>
-Date: Mon, 25 Oct 2021 16:34:43 +0200
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=+fQIV8R9EVwqjc2F+5+VNaVeJn8YGGw0zb5KvsfSTOE=;
+ b=czAApmzrK55Tt6Ole3RQARIhHR63QCJOBdavhokZHSvRkpt0kDuyKq1PDlNQpf6yxE
+ N1BZoe1DfbdMfLca0H3+LIJuEq2X1yKmqtDBQgY2AGRev6fgI0ZGGhugeZOwaWYKdjRb
+ 2mSnEKa7zE/kPcWG5wYBwBvNa1NpxnEVm6L/dFXlebGr2NPOywyBDKTlWjYIH+K5TLME
+ tfwyDWzZ5Nj6z0/bsnEi/Rj5l4c/Wh/2ec++3CqrLBfrpor8L0ldiagob8zCcd4jEj60
+ WYgjSsq6B1CxWwoRa9/HdweejTIl1zimJ/NyL67H1a0C3NOd9LfKcDYXofj5p9ZW0ZLh
+ C8HA==
+X-Gm-Message-State: AOAM530T9NXyb/U9XCRZh/sCl6hkweUNwxS5Fu1TDuwIl0XabM8csnU5
+ 95qumyfN/hQHK9qQ9n4ycl+DmzxeT10X88GzS0GPDx76wtnZCh+t93IjzIzJ4i0iMu2gus8IBrm
+ X7Mg25p8XDEkrtx4RI/QY4xXnZOGhXBjECzBghBilDuko
+X-Received: by 2002:a05:6402:55:: with SMTP id
+ f21mr27200732edu.8.1635173363358; 
+ Mon, 25 Oct 2021 07:49:23 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw/3Iij3j6rCMHEZLZ0laZvPfZAeKNcI+Q2GLVeBfeMLuYto9Is0QQTiujMiPil6Vzeuyp3IRplt1X+mCUlfx4=
+X-Received: by 2002:a05:6402:55:: with SMTP id
+ f21mr27200658edu.8.1635173362997; 
+ Mon, 25 Oct 2021 07:49:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.1.0
-Subject: Re: [PATCH v2 39/43] KVM: VMX: Don't do full kick when triggering
- posted interrupt "fails"
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>
-Cc: James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra
- <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
- <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
- Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
- kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
- Jing Zhang <jingzhangos@google.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-40-seanjc@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20211009021236.4122790-40-seanjc@google.com>
+References: <20211025040607.92786-1-wefu@redhat.com>
+ <20211025040607.92786-3-wefu@redhat.com>
+ <YXZU/3/YmRGFrOXK@infradead.org>
+In-Reply-To: <YXZU/3/YmRGFrOXK@infradead.org>
+From: Wei Fu <wefu@redhat.com>
+Date: Mon, 25 Oct 2021 22:49:11 +0800
+Message-ID: <CA+YCwKn1VA8=NSa=bdhP99jfpokYGHBvqVSKvZmdndQOz6UUPA@mail.gmail.com>
+Subject: Re: [RESEND PATCH V3 2/2] riscv: add RISC-V Svpbmt extension supports
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, guoren@kernel.org,
+ christoph.muellner@vrull.eu, 
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>, 
+ Liu Shaohua <liush@allwinnertech.com>,
+ =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Drew Fustini <drew@beagleboard.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, taiten.peng@canonical.com, 
+ aniket.ponkshe@canonical.com, heinrich.schuchardt@canonical.com, 
+ gordan.markus@canonical.com, guoren@linux.alibaba.com, 
+ Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
+ Maxime Ripard <maxime@cerno.tech>, 
+ Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>, 
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, 
+ Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>, 
+ Nick Kossifidis <mick@ics.forth.gr>, Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>
 Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=wefu@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_073458_316231_94CD5B4C 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20211025_074931_353859_43527128 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,54 +114,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/10/21 04:12, Sean Christopherson wrote:
-> +		/*
-> +		 * The smp_wmb() in kvm_make_request() pairs with the smp_mb_*()
-> +		 * after setting vcpu->mode in vcpu_enter_guest(), thus the vCPU
-> +		 * is guaranteed to see the event request if triggering a posted
-> +		 * interrupt "fails" because vcpu->mode != IN_GUEST_MODE.
+Hi Christoph,
 
-This explanation doesn't make much sense to me.  This is just the usual 
-request/kick pattern explained in 
-Documentation/virt/kvm/vcpu-requests.rst; except that we don't bother 
-with a "kick" out of guest mode because the entry always goes through 
-kvm_check_request (in the nVMX case) or sync_pir_to_irr (if non-nested) 
-and completes the delivery itself.
+I hope I understand this correctly,
 
-In other word, it is a similar idea as patch 43/43.
+On Mon, Oct 25, 2021 at 2:57 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Mon, Oct 25, 2021 at 12:06:07PM +0800, wefu@redhat.com wrote:
+> >  static inline pmd_t *pud_pgtable(pud_t pud)
+> >  {
+> > -     return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> > +     return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_CHG_MASK)
+> > +                                             >> _PAGE_PFN_SHIFT);
+> >  }
+> >
+> >  static inline struct page *pud_page(pud_t pud)
+> >  {
+> > -     return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> > +     return pfn_to_page((pud_val(pud) & _PAGE_CHG_MASK)
+> > +                                             >> _PAGE_PFN_SHIFT);
+>
+> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
+> >  {
+> > -     return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
+> > +     return (pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT;
+> >  }
+>
+> The "(pud_val(pud) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT" expression begs
+> for readable and well-documented helper.
 
-What this smp_wmb() pair with, is the smp_mb__after_atomic in 
-kvm_check_request(KVM_REQ_EVENT, vcpu).  Setting the interrupt in the 
-PIR orders before kvm_make_request in this thread, and orders after 
-kvm_make_request in the vCPU thread.
+How about these:
+#define _chg_of_pmd(pmd)  (pmd_val(pmd) & _PAGE_CHG_MASK)
+#define _chg_of_pud(pud)  (pud_val(pud) & _PAGE_CHG_MASK)
 
-Here, instead:
+>
+> > +#define _SVPBMT_PMA          ((unsigned long)0x0 << 61)
+> > +#define _SVPBMT_NC           ((unsigned long)0x1 << 61)
+> > +#define _SVPBMT_IO           ((unsigned long)0x2 << 61)
+>
+> 0UL << 61
+> 1UL << 61
+> ...
+>
+> > +#define _SVPBMT_MASK         (_SVPBMT_PMA | _SVPBMT_NC | _SVPBMT_IO)
+> > +
+> > +extern struct __riscv_svpbmt_struct {
+> > +     unsigned long mask;
+> > +     unsigned long mt_pma;
+> > +     unsigned long mt_nc;
+> > +     unsigned long mt_io;
+> > +} __riscv_svpbmt;
+> > +
+> > +#define _PAGE_MT_MASK                __riscv_svpbmt.mask
+> > +#define _PAGE_MT_PMA         __riscv_svpbmt.mt_pma
+> > +#define _PAGE_MT_NC          __riscv_svpbmt.mt_nc
+> > +#define _PAGE_MT_IO          __riscv_svpbmt.mt_io
+>
+> Using a struct over individual variables seems a little odd here.
+>
 
-> +	/*
-> +	 * The implied barrier in pi_test_and_set_on() pairs with the smp_mb_*()
-> +	 * after setting vcpu->mode in vcpu_enter_guest(), thus the vCPU is
-> +	 * guaranteed to see PID.ON=1 and sync the PIR to IRR if triggering a
-> +	 * posted interrupt "fails" because vcpu->mode != IN_GUEST_MODE.
-> +	 */
->  	if (vcpu != kvm_get_running_vcpu() &&
->  	    !kvm_vcpu_trigger_posted_interrupt(vcpu, false))
-> -		kvm_vcpu_kick(vcpu);
-> +		kvm_vcpu_wake_up(vcpu);
->  
+How about :
 
-it pairs with the smp_mb__after_atomic in vmx_sync_pir_to_irr().  As 
-explained again in vcpu-requests.rst, the ON bit has the same function 
-as vcpu->request in the previous case.
+extern unsigned long  _svpbmt_mask
+extern unsigned long _svpbmt_mt_pma
+extern unsigned long _svpbmt_mt_nc
+extern unsigned long _svpbmt_mt_io
 
-Paolo
+#define _PAGE_MT_MASK              _svpbmt_mask
+#define _PAGE_MT_PMA        _svpbmt_mt_pma
+#define _PAGE_MT_NC          _svpbmt_mt_nc
+#define _PAGE_MT_IO           _svpbmt_mt_io
 
-> +		 */
->   		kvm_make_request(KVM_REQ_EVENT, vcpu);
+> Also why not use the standard names for these _PAGE bits used by
+> most other architectures?
+>
+> > -     return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> > +     return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_CHG_MASK) >> _PAGE_PFN_SHIFT);
+>
+> Overly long line, could use a helper.  Btw, what is the point in having
+> this _PAGE_PFN_SHIFT macro to start with?
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
 
 
 _______________________________________________
