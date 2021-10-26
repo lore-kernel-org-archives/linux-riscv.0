@@ -2,15 +2,15 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1C6CC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 23:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BF3CC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 23:48:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 779D261078
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 23:48:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 779D261078
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0B7F36103B
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 23:48:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0B7F36103B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -18,78 +18,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=1XH83Fltg1tAPxvV1Al7M9RrkB64abDxZhmnXUM4MDk=; b=q9AA8C8c6mjNyP5paFzKZ6qQTZ
-	xvPi81UF8Cv5rOTZsivE4gKOmiVBGrwj0aWhoSNR5Ao6sgIM+nYfat/KCHLLY2CZQ+PJSFg710usV
-	27u9yC52MYF4Luj7GmZq2mzyCYxvc2lfh6omNJYR3EnEaKleGEdWitZeOq/1hf7rK8J8Zq3H8xxMM
-	IBg3+qrMFqHL72PrSq0eflqLaWu2M6zs1WKbIouRt9NIfpd/qI13u8knpQnTJDIEEwy/WnCxEQk5g
-	c3Yth8Yitjo8TVTwsN2zcAZ8u/fBACxwSw5RlKd2QIq3XULKe49ZO8YzKduBLt3hq8Pn7tXK7GmAG
-	vuTSgKtQ==;
+	bh=uHdBBDHVRgPjG9boiPveN9lOptVxSeagnrddTuMLGXI=; b=YKAnc6uRmawNFMMhjJaho6Djlo
+	jzn944cjN6D5NS3wgfqpTrPO3fdoQWl2Vs4QBT3sGnD/k2MoTzznzHzrCQS3sF38Pq2bOYwRCsFEa
+	gsdRd9ZBHusY2MuoYGi/r8yxfWnL9FXKlKUx/wq5pbuhnuUispm80D03rIts1pkHOtW/ltLSEwFTM
+	tzc48nss1VJacrbaNGpFvk5uFa23Ck3yUNjn93SHSdXzEcP7DnzyCqETLjVcO5l5UsXokrLv6D7X5
+	j69vtcIKqcngcaWkBSZZLozyA9+vlDDk0lQTfqvpccVqjyQ6GKH+VhEL7ITxAur5DZu52VsnPF9BU
+	Y9I6eFxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfWAx-003HxA-Mo; Tue, 26 Oct 2021 23:48:15 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1mfWBA-003I0L-1Q; Tue, 26 Oct 2021 23:48:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfWAu-003Hv5-90
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 23:48:14 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id n18so711456plc.2
- for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 16:48:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ id 1mfWAv-003HvU-Iv
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 23:48:15 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id x66so925337pfx.13
+ for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 16:48:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=njkqslFi81CJdgjpKZ7lE+Q4NAM4QezMjn79c9rwW5I=;
- b=yFhDg/St14S+JDyXq1zwYeKBE7rKhdYF5Zw3ZgGu4s1uaqfuZ0/bYQX1NECpjNzGq4
- wAM2ynstuBaRQAZx5AXhAWAKiSpv5XwruTRmn0f6EDokEdhN1eeLaYi7lJs7mDbopAaz
- 7sCQUnYsUbUJ5YFDwl1acbZCre3GkfxoIzyZBoJ2YDbnxCbe9j6X+eFDAjWcZI/Po8Do
- EykTs0QggjLE4JX+GkQ6825B038xMW+JIUUeBtpKTyevs0tgoDRRWRi/vHX8g2B34AyJ
- GZTz43gHVYLExc9thO9e6wAs1nLbTFz1Xvs2R6LkqhyTk4Id1tTnoJC5bOz/lNb0aCGu
- KmKg==
+ bh=xwza6UlzVfIQQLUuHstHSQWG0hE12xpERozbdrPW5Tg=;
+ b=bL5UUtVmpGXr2E5Swk1wrnFLDjzAL5Db5e0u7N0mi/tqyGsx6+GlK/MkA1PeZ0MiBH
+ UqtEMnzlp4JbqIrOHDLM0X7xwdqxm+Q8XxYRc+jEfslnKpP7/aHhW6qvSVnH6excYZDb
+ VC1IQvQSDaBfc7R44xET+k4hlApI/RL63bhahOqKT9YDZN693dpwNfoCBN4inVtOaevB
+ bGax5fOJWR8FUq3dAHHrM5qU9UXizjS8YLq3e8e4Djy65nS3ZC+ArzwuQMAMNOH12B7A
+ 7el8VdsFddT3cD4ORzpcSHthBAHXQqBYYrDgxbVUSfbV3/tcjwQrnBfO5l8NcMVRwpXV
+ V10g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=njkqslFi81CJdgjpKZ7lE+Q4NAM4QezMjn79c9rwW5I=;
- b=fGPJVn8Y+VZq6RKPi6QLuBDAi2KK44RAw97t7hg50fnB1So5ZqU3xJ7OF5uDPSpFmU
- cWmfVgR+6w82N2dedftZilw9J2rX1uT9IKdOgtyRzh2HEm03DMr+LL/SXM1+TnWO7LMG
- GwqVZQZCsr1C3NYBXUBXf91/F1wJo4hCbFhNNz2oowL4XRqcwxjrEsXUiUmVl3Oo1gyM
- fhIXC0gvTeXo1jZVlIDWY5VjAMEXtA7hJh6ZwnA0VVS3hjCmNdUF8+g70/t9lkDSIaDU
- WVUfPn9FIuz6dWcoRwCIAJcZYpAivQU8JPLga66rZlSfVTjhsHZyTyonXTsdMthFOIsF
- VGsA==
-X-Gm-Message-State: AOAM530AscdSVw9uBGyzHNVQtgsrO/jUm2DGazwRKVMxvjf/XFAS/+Sg
- V+IodjoGzl/v4brxLsY1NjEf+w==
-X-Google-Smtp-Source: ABdhPJyuv44a0itknKhOqmu4SkSph1yjSLOlDm2TgYU9DxwigHNlYFAslzREtZoefsT/F90ImhvUvQ==
-X-Received: by 2002:a17:90a:4b85:: with SMTP id
- i5mr2110945pjh.25.1635292091032; 
- Tue, 26 Oct 2021 16:48:11 -0700 (PDT)
+ bh=xwza6UlzVfIQQLUuHstHSQWG0hE12xpERozbdrPW5Tg=;
+ b=zWhXk6TfoI3BBTiwz8gNAsKexxiHez2RApHR0gynzWSrbYsaFrIK8XDAEzACAElo6c
+ b1z41FXgAU7PXCtxoZIjSGuXklGwEtPFvX3Kc+4Db+pftso3uDKQmL5I+FjmdEcohTMB
+ HO4K2bf4l7aYtTHm+D7xIvOfsnxJVC1wOX4TINktI0l4cPISLL2aSHkTYZF0Dw2+5IEA
+ fcq51ak2d6VJYyV0lvQq5+GS4otmgy65M2RYdigTYuf7gH5TuML+GH1kt7A96cqyUrjz
+ E6pvUhe6EyQkCDi8hsNBEMUGDJPxYuGhjKZnlo1ghPOFw23RX7UybvD4Xvjh4fCpT4OQ
+ W22w==
+X-Gm-Message-State: AOAM532eUZ/vdtx/PrS1U/40z44PRBS3MzNUZyOAl+w7RMBZ2Gap+x3R
+ tG2m0mV2Y8uhnPK2lhcDW9C7Wg==
+X-Google-Smtp-Source: ABdhPJyRkUu4Ob775r7anWlvMiPOtSlIC4kpnedNkEQ7aHSpYHADrjTrcPXKvv/WmHKLJfAYPq7/Ng==
+X-Received: by 2002:a63:8243:: with SMTP id w64mr16130369pgd.18.1635292092131; 
+ Tue, 26 Oct 2021 16:48:12 -0700 (PDT)
 Received: from localhost ([2620:0:1000:5e10:676c:ab93:f48d:23ae])
- by smtp.gmail.com with ESMTPSA id i5sm20437959pgo.36.2021.10.26.16.48.10
+ by smtp.gmail.com with ESMTPSA id ls7sm1981133pjb.16.2021.10.26.16.48.11
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 26 Oct 2021 16:48:10 -0700 (PDT)
-Date: Tue, 26 Oct 2021 16:48:10 -0700 (PDT)
-X-Google-Original-Date: Tue, 26 Oct 2021 16:24:16 PDT (-0700)
-Subject: Re: [PATCH 0/2] ftrace: make sure preemption disabled on recursion
- testing
-In-Reply-To: <8c7de46d-9869-aa5e-2bb9-5dbc2eda395e@linux.alibaba.com>
-CC: guoren@kernel.org, rostedt@goodmis.org, mingo@redhat.com,
- James.Bottomley@HansenPartnership.com, deller@gmx.de, mpe@ellerman.id.au,
- benh@kernel.crashing.org, paulus@samba.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- tglx@linutronix.de, bp@alien8.de, x86@kernel.org, 
- hpa@zytor.com, jpoimboe@redhat.com, jikos@kernel.org, mbenes@suse.cz,
- pmladek@suse.com, 
- joe.lawrence@redhat.com, colin.king@canonical.com, mhiramat@kernel.org,
- peterz@infradead.org, 
- npiggin@gmail.com, jszhang@kernel.org, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, 
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yun.wang@linux.alibaba.com
-Message-ID: <mhng-95994d12-e1d9-43b3-bef0-c5c844ffcf86@palmerdabbelt-glaptop>
+ Tue, 26 Oct 2021 16:48:11 -0700 (PDT)
+Date: Tue, 26 Oct 2021 16:48:11 -0700 (PDT)
+X-Google-Original-Date: Tue, 26 Oct 2021 16:48:02 PDT (-0700)
+Subject: Re: [PATCH v9 0/8] RISC-V CPU Idle Support
+In-Reply-To: <20211012095857.1314214-1-anup.patel@wdc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ daniel.lezcano@linaro.org, ulf.hansson@linaro.org, rjw@rjwysocki.net,
+ pavel@ucw.cz, robh+dt@kernel.org, 
+ milun.tripathy@gmail.com, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, 
+ liush@allwinnertech.com, anup@brainfault.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Anup Patel <Anup.Patel@wdc.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-63e8dc0c-278d-46e3-a617-abe1d68fcc6d@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_164812_439451_19D87EF4 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20211026_164813_668771_56240DDC 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +99,130 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Oct 2021 22:39:16 PDT (-0700), yun.wang@linux.alibaba.com wrote:
-> The testing show that perf_ftrace_function_call() are using
-> smp_processor_id() with preemption enabled, all the checking
-> on CPU could be wrong after preemption, PATCH 1/2 will fix
-> that.
->
-> Besides, as Peter point out, the testing of recursion within
-> the section between ftrace_test_recursion_trylock()/_unlock()
-> pair also need the preemption disabled as the documentation
-> explained, PATCH 2/2 will make sure on that.
->
-> Michael Wang (2):
->   ftrace: disable preemption on the testing of recursion
->   ftrace: prevent preemption in perf_ftrace_function_call()
->
->  arch/csky/kernel/probes/ftrace.c     |  2 --
->  arch/parisc/kernel/ftrace.c          |  2 --
->  arch/powerpc/kernel/kprobes-ftrace.c |  2 --
->  arch/riscv/kernel/probes/ftrace.c    |  2 --
->  arch/x86/kernel/kprobes/ftrace.c     |  2 --
->  include/linux/trace_recursion.h      | 10 +++++++++-
->  kernel/livepatch/patch.c             |  6 ------
->  kernel/trace/trace_event_perf.c      | 17 +++++++++++++----
->  kernel/trace/trace_functions.c       |  5 -----
->  9 files changed, 22 insertions(+), 26 deletions(-)
+On Tue, 12 Oct 2021 02:58:49 PDT (-0700), Anup Patel wrote:
+> This series adds RISC-V CPU Idle support using SBI HSM suspend function.
 
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com> # RISC-V
+This all generally looks good to me, I'm just not sure what the spec 
+status is.  If one of you guys says it's frozen then that's good enough 
+for me, please just either point me to something where that's been 
+publicly said or just post here.
+
+> The RISC-V SBI CPU idle driver added by this series is highly inspired
+> from the ARM PSCI CPU idle driver.
+>
+> At high-level, this series includes the following changes:
+> 1) Preparatory arch/riscv patches (Patches 1 to 3)
+> 2) Defines for RISC-V SBI HSM suspend (Patch 4)
+> 3) Preparatory patch to share code between RISC-V SBI CPU idle driver
+>    and ARM PSCI CPU idle driver (Patch 5)
+> 4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
+>
+> These patches can be found in riscv_sbi_hsm_suspend_v9 branch at
+> https://github.com/avpatel/linux
+>
+> Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
+> support in all above projects (RISC-V SBI specification, OpenSBI, and
+> Linux RISC-V).
+>
+> Changes since v8:
+>  - Rebased on Linux-5.15-rc5
+>  - Fixed DT schema check errors in PATCH7
+>
+> Changes since v7:
+>  - Rebased on Linux-5.15-rc3
+>  - Renamed cpuidle-sbi.c to cpuidle-riscv-sbi.c in PATCH6
+>
+> Changes since v6:
+>  - Fixed error reported by "make DT_CHECKER_FLAGS=-m dt_binding_check"
+>
+> Changes since v5:
+>  - Rebased on Linux-5.13-rc5
+>  - Removed unnecessary exports from PATCH5
+>  - Removed stray ";" from PATCH5
+>  - Moved sbi_cpuidle_pd_power_off() under "#ifdef CONFIG_DT_IDLE_GENPD"
+>    in PATCH6
+>
+> Changes since v4:
+>  - Rebased on Linux-5.13-rc2
+>  - Renamed all dt_idle_genpd functions to have "dt_idle_" prefix
+>  - Added MAINTAINERS file entry for dt_idle_genpd
+>
+> Changes since v3:
+>  - Rebased on Linux-5.13-rc2
+>  - Fixed __cpu_resume_enter() which was broken due to XIP kernel support
+>  - Removed "struct dt_idle_genpd_ops" abstraction which simplifies code
+>    sharing between ARM PSCI and RISC-V SBI drivers in PATCH5
+>
+> Changes since v2:
+>  - Rebased on Linux-5.12-rc3
+>  - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
+>    idle states
+>  - Added "additionalProperties = false" for both idle-states node and
+>    child nodes in PATCH7
+>
+> Changes since v1:
+>  - Fixex minor typo in PATCH1
+>  - Use just "idle-states" as DT node name for CPU idle states
+>  - Added documentation for "cpu-idle-states" DT property in
+>    devicetree/bindings/riscv/cpus.yaml
+>  - Added documentation for "riscv,sbi-suspend-param" DT property in
+>    devicetree/bindings/riscv/idle-states.yaml
+>
+> Anup Patel (8):
+>   RISC-V: Enable CPU_IDLE drivers
+>   RISC-V: Rename relocate() and make it global
+>   RISC-V: Add arch functions for non-retentive suspend entry/exit
+>   RISC-V: Add SBI HSM suspend related defines
+>   cpuidle: Factor-out power domain related code from PSCI domain driver
+>   cpuidle: Add RISC-V SBI CPU idle driver
+>   dt-bindings: Add common bindings for ARM and RISC-V idle states
+>   RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
+>
+>  .../bindings/arm/msm/qcom,idle-state.txt      |   2 +-
+>  .../devicetree/bindings/arm/psci.yaml         |   2 +-
+>  .../bindings/{arm => cpu}/idle-states.yaml    | 228 ++++++-
+>  .../devicetree/bindings/riscv/cpus.yaml       |   6 +
+>  MAINTAINERS                                   |  14 +
+>  arch/riscv/Kconfig                            |   7 +
+>  arch/riscv/Kconfig.socs                       |   3 +
+>  arch/riscv/configs/defconfig                  |  15 +-
+>  arch/riscv/configs/rv32_defconfig             |   8 +-
+>  arch/riscv/include/asm/asm.h                  |  17 +
+>  arch/riscv/include/asm/cpuidle.h              |  24 +
+>  arch/riscv/include/asm/sbi.h                  |  27 +-
+>  arch/riscv/include/asm/suspend.h              |  35 +
+>  arch/riscv/kernel/Makefile                    |   2 +
+>  arch/riscv/kernel/asm-offsets.c               |   3 +
+>  arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
+>  arch/riscv/kernel/head.S                      |  18 +-
+>  arch/riscv/kernel/process.c                   |   3 +-
+>  arch/riscv/kernel/suspend.c                   |  86 +++
+>  arch/riscv/kernel/suspend_entry.S             | 123 ++++
+>  drivers/cpuidle/Kconfig                       |   9 +
+>  drivers/cpuidle/Kconfig.arm                   |   1 +
+>  drivers/cpuidle/Kconfig.riscv                 |  15 +
+>  drivers/cpuidle/Makefile                      |   5 +
+>  drivers/cpuidle/cpuidle-psci-domain.c         | 138 +---
+>  drivers/cpuidle/cpuidle-psci.h                |  15 +-
+>  drivers/cpuidle/cpuidle-riscv-sbi.c           | 626 ++++++++++++++++++
+>  drivers/cpuidle/dt_idle_genpd.c               | 177 +++++
+>  drivers/cpuidle/dt_idle_genpd.h               |  50 ++
+
+Some of the patches that touch drivers/cpuidle don't have Acks from the 
+subsystem maintainers.  I'm OK taking this through the RISC-V tree, but 
+I'd prefer to have acks first.  I'm also fine doing something like a 
+shared tag between the trees, if that's better for folks.
+
+>  29 files changed, 1474 insertions(+), 187 deletions(-)
+>  rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
+>  create mode 100644 arch/riscv/include/asm/cpuidle.h
+>  create mode 100644 arch/riscv/include/asm/suspend.h
+>  create mode 100644 arch/riscv/kernel/suspend.c
+>  create mode 100644 arch/riscv/kernel/suspend_entry.S
+>  create mode 100644 drivers/cpuidle/Kconfig.riscv
+>  create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.c
+>  create mode 100644 drivers/cpuidle/dt_idle_genpd.c
+>  create mode 100644 drivers/cpuidle/dt_idle_genpd.h
 
 _______________________________________________
 linux-riscv mailing list
