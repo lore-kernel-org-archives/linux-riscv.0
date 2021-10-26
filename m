@@ -2,93 +2,81 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F66EC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F02EC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 18:03:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2605161040
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:50:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2605161040
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id C52B160EFF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 18:03:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C52B160EFF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KlUlfhMpH60+Dx9mkBUQL4/43/gG3s89mhPfN8kSI1w=; b=bNgOINJlr3SRhQ
-	C5RK2wuyg+7A0/HeyV5cwFUPwFvSpvKl5nGz18LNlbIc3Cl63y3HBe0qvqf2XOAF6inoGZe8Oiwmm
-	zbXrgOLtgCvtT/C/c7RXMjjYdIq7V6GqPc/aRBnkfb63FZLDsolBfDb94zDdiN+2/VqcaISnL9NUp
-	IBBKqYrteVTtjFcwFogkgDDNXKrVtQMnoCAYS16N2T1vox2nS/uMg2S3sLclXeX2YCKTRBlgMEmD3
-	6R/BBGwNkUtWQCihf8CrC8/yCgeqa4RMRAeUvcXqK0fjjByhIB/HKLuWrtZ6R7skkaEsbG3Pb/x+z
-	+6aPIrgiZfEso7iwrcUg==;
+	List-Owner; bh=5RgJXqqldmnmWJicGIZ/bCa4/mAD8/OMnD8Jc7CJYQM=; b=GeCAcOgBRcVKGx
+	1r1DjAWpo+sPCQX0cXdnYcuXWfrfpUc7pYim/wxATA3e5BSzLEqewZKHh8OhGNopJ2WUAK1axph+k
+	23kMk1+zYkpqQBtV+b1SMVbcHvTYpOxqiDVlXRw3oGWFLp1YPBUYbDq5kKkifBYGb3rLeXUN1bwCc
+	YZJhfXbbw6vBsJ2naQEXgO9dt+MbxsdNeGoUBhPtseyDAalVZVqBfqezGbYABa2fzb0y3Ee/VTeQD
+	bl8wBQAKhZHej0wAgZosETfL+7fp7JWsBl0MDvKbpqLuP1PhH5Vt6p2d2E2PrXYKmrLkcf9+Ptdyx
+	GuJKMeQyRiIGR+h7X0/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfQax-002fHo-AY; Tue, 26 Oct 2021 17:50:43 +0000
-Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
+	id 1mfQnb-002hkQ-7t; Tue, 26 Oct 2021 18:03:47 +0000
+Received: from mail-oo1-f42.google.com ([209.85.161.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfQaj-002fF6-9c
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 17:50:31 +0000
-Received: by mail-io1-xd32.google.com with SMTP id i14so292379ioa.13
- for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 10:50:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=55Wiuk+vhFEgZhWSKqhr8aUkCrc+H/l8H2FxgeE5N1M=;
- b=K9pKZk0C5IuwGpuBt3P8vlDuOIoL2vOXpa4HXaUHePCmealB43zHzS9+Abd804Gou5
- AX1Ko0Hgr+IqrHTHlDpPvZyWwd+IHOwkRNGe7sWr+tlqO+qnhGQBXnoi35g7DhUboVdw
- jEE8031QquN7g17K4I7/vnj+ZHRtelq3SlCn8oZ8/UTlKNOLYWgM7tClJsAooXWCwOM5
- eg0erGB9Km5hSC0T2+FhmppSX3AukPqDcEUOWatA7MzYZRw4zabKa6ZaMH14zL7y8iWt
- j4xtTAC5UcS3J3DTseib3xOYME0gcib9b1rtSRmqx+LGWtwfSA/ROovpzcOUYVLUKnxt
- d5Uw==
+ id 1mfQnU-002hgJ-Fo
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 18:03:42 +0000
+Received: by mail-oo1-f42.google.com with SMTP id
+ w10-20020a4a274a000000b002b6e972caa1so1535oow.11
+ for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 11:03:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=55Wiuk+vhFEgZhWSKqhr8aUkCrc+H/l8H2FxgeE5N1M=;
- b=Nka8RMmk2YQ0Yi4KeHxkkEgFRyJWJ9L14Xww1tONejB76D8a3jrx3jctHxFf9EbCbN
- CgxFFjuOIIRDBNH970r6bROO2f50/1rW4WHVuAIL8Smy9vBnYEh4HEyczrit6B7REo8x
- CdkiS23R00YH+HqinJ5YKJ+BPSiThcTf0zB7f9awQG442ndy9RzKXjsoi9CrQgjvS41P
- 9JEEZMP6Y6A1ji4dBgjGy7SFS8F0pxHtejqsT+HGDXdHav9XseZnN3bGffjQMaieqwWj
- svmpotfrZFncEZe4kdLpW7crCxMdFcZzGSYxxrK4OtElk4m9x40eULbI+Nqof2/ZwUUn
- qhNw==
-X-Gm-Message-State: AOAM530ai+M+Ox9z2UbOIQKohtvWUTDCrGo2TVelp2rMZD2d6wHYdvBT
- KCbEJKRAEfsClLZ2cJs1AHSmXfKO+F5HHb7LRxOOCQ==
-X-Google-Smtp-Source: ABdhPJxveY0oywA1uEFOsixzZAWNxGoGo9GT3NayQjT+kzpJD6taj+8m/BPE1pbuTZZr1AsC5LrElvmVs4XKlZpQs/8=
-X-Received: by 2002:a05:6638:d84:: with SMTP id
- l4mr16445923jaj.30.1635270627599; 
- Tue, 26 Oct 2021 10:50:27 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-3-saravanak@google.com>
- <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
- <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
- <CAMi1Hd3M--+V6jPTV=psYGpOqi3UeQBs_FHqOg=oUf1hH-EU4w@mail.gmail.com>
- <CAGETcx9U130Oq-umrvXME4JhEpO0Wadoki3kNxx=0-YvTR6PtQ@mail.gmail.com>
-In-Reply-To: <CAGETcx9U130Oq-umrvXME4JhEpO0Wadoki3kNxx=0-YvTR6PtQ@mail.gmail.com>
-From: Amit Pundir <amit.pundir@linaro.org>
-Date: Tue, 26 Oct 2021 23:19:50 +0530
-Message-ID: <CAMi1Hd1gR0nRqQ9CKopc=veQXjtaS-CUxz-j48KEs8pHC6Ni=w@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-To: Saravana Kannan <saravanak@google.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
- linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- John Stultz <john.stultz@linaro.org>
+ h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
+ :message-id;
+ bh=MYaZzPsql9ylVu0bAh9A9jNKkz/9F195FCssTtA7QOA=;
+ b=p0jecnXBpG3o6R49q2O6s/dXrD6lbU84dZ4bd0gkBRkYTfd2buptG+kcLV/9QWjjAo
+ 9wwnM96BoGpUClA6p4G+I7XAUn5o4WVgav2mJteweAlRjzj0IFLYtJET4L8GK6aw8VvW
+ zQqcYZ/jMGkfcw2QTQtfM6z/OSbOGiE0lszqB8COP9LEE3C/Dsu1z/VhfCfa7esN2/iL
+ QjFZSU46+nvp+Y92s3Y8tN5ztqXooeU+xQHAruB7QNlQXTH55pNlsNZ/cWxw+y/Atz6P
+ JrmXmdf1Q1XCDa79xkaqJI4vrSFSDEv6Hl6ImjTd9wOaAOOXwBHt73zqX/S1vCrb8yIv
+ EZXw==
+X-Gm-Message-State: AOAM531qL5bIje0iHiOfjj46sZS8P/V3L/smMgRR8wia5Y3RKIngxG3y
+ IRDzCZKY81vB2yICvSEg+Q==
+X-Google-Smtp-Source: ABdhPJxjWOBTKuVo96eUaTsi5lRNizXIavvqz64LU5NRPwTjcl0iUd+GSv9jSGpt9Yt4n83bnz5g1Q==
+X-Received: by 2002:a4a:b109:: with SMTP id a9mr18430444ooo.73.1635271411807; 
+ Tue, 26 Oct 2021 11:03:31 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id a13sm4761104oiy.9.2021.10.26.11.03.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 26 Oct 2021 11:03:31 -0700 (PDT)
+Received: (nullmailer pid 2939410 invoked by uid 1000);
+ Tue, 26 Oct 2021 18:03:29 -0000
+From: Rob Herring <robh@kernel.org>
+To: Atish Patra <atish.patra@wdc.com>
+Cc: Rob Herring <robh+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Guo Ren <guoren@linux.alibaba.com>, Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ linux-kernel@vger.kernel.org, Greentime Hu <greentime.hu@sifive.com>,
+ linux-doc@vger.kernel.org, Nick Kossifidis <mick@ics.forth.gr>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-perf-users@vger.kernel.org,
+ devicetree@vger.kernel.org, Vincent Chen <vincent.chen@sifive.com>,
+ Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
+In-Reply-To: <20211025195350.242914-7-atish.patra@wdc.com>
+References: <20211025195350.242914-1-atish.patra@wdc.com>
+ <20211025195350.242914-7-atish.patra@wdc.com>
+Subject: Re: [v4 06/11] dt-binding: pmu: Add RISC-V PMU DT bindings
+Date: Tue, 26 Oct 2021 13:03:29 -0500
+Message-Id: <1635271409.185787.2939409.nullmailer@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_105029_371245_BE35F242 
-X-CRM114-Status: GOOD (  41.69  )
+X-CRM114-CacheID: sfid-20211026_110340_564417_1B93DBB0 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,102 +88,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Oct 2021 at 06:00, Saravana Kannan <saravanak@google.com> wrote:
->
-> On Fri, Oct 22, 2021 at 10:00 AM Amit Pundir <amit.pundir@linaro.org> wrote:
-> >
-> > On Fri, 22 Oct 2021 at 05:13, Saravana Kannan <saravanak@google.com> wrote:
-> > >
-> > > On Thu, Oct 21, 2021 at 4:21 AM Amit Pundir <amit.pundir@linaro.org> wrote:
-> > > >
-> > > > Hi Saravana,
-> > > >
-> > > > This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
-> > > > I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
-> > >
-> > > Amit top posting? How did that happen? :)
-> > >
-> > > The fact you are seeing this issue is super strange though. The driver
-> > > literally does nothing other than allowing some sync_state() callbacks
-> > > to happen. I also grepped for the occurence of "simple-bus" in
-> > > arch/arm64/boot/dts/qcom/ and the only instance for 8250 is for the
-> > > soc node.
-> > >
-> > > The only thing I can think of is that without my patch some
-> > > sync_state() callbacks weren't getting called and maybe it was masking
-> > > some other issue.
-> > >
-> > > Can you try to boot with this log (see log patch below) and see if the
-> > > device hangs right after a sync_state() callback? Also, looking at the
-> > > different sync_state() implementations in upstream, I'm guessing one
-> > > of the devices isn't voting for interconnect bandwidth when it should
-> > > have.
-> > >
-> > > Another thing you could do is boot without the simple-bus changes and
-> > > then look for all instances of "state_synced" in /sys/devices and then
-> > > see if any of them has the value "0" after boot up is complete.
-> >
-> > Turned out RB5 is not even reaching up to
-> > device_links_flush_sync_list() and seem to be stuck somewhere in
-> > device_links_driver_bound(). So I added more print logs to narrow down
-> > to any specific lock state but those additional prints seem to have
-> > added enough delay to unblock that particular driver (Serial:
-> > 8250/16550 driver if I understood the logs correctly) and I eventually
-> > booted to UI.
->
-> Ugh... I think I know what's going on. It popped into my head over the weekend.
->
-> Couple of ways to confirm my theory:
-> 1. After it finishes booting in both cases, can you compare the output
-> of the command below? I'm expecting to see a significant drop in the
-> number of device links.
-> ls -l /sys/class/devlink | wc -l
->
+On Mon, 25 Oct 2021 12:53:45 -0700, Atish Patra wrote:
+> This patch adds the DT bindings for RISC-V PMU driver. It also defines
+> the interrupt related properties to allow counter overflow interrupt.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  .../devicetree/bindings/perf/riscv,pmu.yaml   | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+> 
 
-On a successful boot with debug prints:
-rb5:/ $ ls -l /sys/class/devlink | wc -l
-245
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-Booting with this SIMPLE_PM_BUS patch reverted:
-rb5:/ $ ls -l /sys/class/devlink | wc -l
-248
+yamllint warnings/errors:
 
-> 2. Can you try out this terrible hack patch (not final fix, no code
-> reviews please) on top of Tot to see if it fixes your issue without
-> having to add hacky logs?
->
+dtschema/dtc warnings/errors:
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/perf/riscv,pmu.yaml: 'optional' is not one of ['$id', '$schema', 'title', 'description', 'examples', 'required', 'allOf', 'anyOf', 'oneOf', 'definitions', '$defs', 'additionalProperties', 'dependencies', 'patternProperties', 'properties', 'if', 'then', 'else', 'unevaluatedProperties', 'deprecated', 'maintainers', 'select']
+	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
+./Documentation/devicetree/bindings/perf/riscv,pmu.yaml: $id: relative path/filename doesn't match actual path or filename
+	expected: http://devicetree.org/schemas/perf/riscv,pmu.yaml#
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/perf/riscv,pmu.yaml: ignoring, error in schema: 
+warning: no schema found in file: ./Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+Documentation/devicetree/bindings/perf/riscv,pmu.example.dt.yaml:0:0: /example-0/pmu: failed to match any schema with compatible: ['riscv,pmu']
 
-No luck booting with the following hack patch either.
+doc reference errors (make refcheckdocs):
 
-Regards,
-Amit Pundir
+See https://patchwork.ozlabs.org/patch/1545970
 
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
 
-> Thanks,
-> Saravana
->
-> --- a/drivers/bus/simple-pm-bus.c
-> +++ b/drivers/bus/simple-pm-bus.c
-> @@ -38,10 +38,12 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
->          * a device that has a more specific driver.
->          */
->         if (match && match->data) {
-> -               if (of_property_match_string(np, "compatible",
-> match->compatible) == 0)
-> +               if (of_property_match_string(np, "compatible",
-> match->compatible) == 0) {
-> +                       of_platform_populate(np, NULL, lookup, &pdev->dev);
->                         return 0;
-> -               else
-> +               } else {
->                         return -ENODEV;
-> +               }
->         }
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
+
 
 _______________________________________________
 linux-riscv mailing list
