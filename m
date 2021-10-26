@@ -2,76 +2,76 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DFEA0C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E1126C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:04:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A818160F92
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:04:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A818160F92
+	by mail.kernel.org (Postfix) with ESMTPS id A1B7C60E08
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 17:04:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A1B7C60E08
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4eIAIbMrArmvxks1oIFXt+uiVPFdQBatMbeyjwBmFF8=; b=iL6k7cTRiI07u0
-	1jZjFuuhAyQbDf0yFLQTnaW1BPTTnEX4zPaUkmfWYQ7DMlBqUijp+73ehvO0uoPPtWsuq8DGxmOHd
-	5F6j28BC/kSEqdSipBTZ0mCAXLn90rFpw9fXxzwjTpmXoVJfTcm/PiCSfglD9Jo4gClGYyHuTG5JJ
-	zOf++/SBeyCCwlypRFUY4OmkP6hTUB0P1B5hFcuV8e5ohmpWNXvtciTljIgPz1cyZ6cwPTwDSnhBE
-	Evkwf0x61Nm2D0rGnRWaZly4UqtaPGK0IcsSNz7ed63JDyMdb57kvS3EWZhkFGuBfHGmodCJMtk+L
-	/hpUH+GW0r5jKxMtLHng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CZvn33qfXVMdtz3gYL2DPhU/mGDZ8JiB9QIT6LKuNWE=; b=cxqByo2OACIhR3
+	VtkGNajoCfLUTHVV9gYZ5xn4TvHDPvpBEpWw8aBHFLK/bl0oggLMcswWTWDgyU3ehgzk321PgZ99+
+	Q8HT6NMEpD4JLEwZjdSYh7AurSRahuPtgce6g/L4s6yylVpHXLqgXo6VphN4EuPWMcbaMbmE0qMwE
+	5mCPq2QqC+VmLzyNNiFDJ7i5JF8wGVpPdCteeSB8sWg+hiacU+5Zn2NArcQUQ+7CRQd9K0j7y9G/+
+	+XIwPExNLfQjXAAUOHGSg+ZfwXdikeZSaFBj/ibi5vh4SbHDq64PLhA4EyncAfWgcsfHV9GUUFzdf
+	0s4HQ8XlVD4bfXVyco+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfPrg-002Z59-Jg; Tue, 26 Oct 2021 17:03:56 +0000
+	id 1mfPrr-002ZAr-6c; Tue, 26 Oct 2021 17:04:07 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfPre-002Z3o-3U; Tue, 26 Oct 2021 17:03:55 +0000
+ id 1mfPri-002Z3o-P9; Tue, 26 Oct 2021 17:04:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1635267833; x=1666803833;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=9ucWaaESS2CsdgeNVZ34STd8kfV1gwN6Hz4NHkKn+zo=;
- b=JWCngO2GEyvcgw4WAOQb0RRy9HkAisfWRgHL8WTnAtgGDywUhw/dK1qE
- Xqj5F2l1IDgcDAe0hViBJlW3LNQq4dbh/MDuNkd8ivuKa/W/aU/qlav0x
- Qa+kdsR1eFOzWNNIFx5WKHA+B1+N5smcsAqUGfwYYweYnTFB9woqrSKUo
- Eg0VYCRecViE8IfwS2e2ZKTRVla0r2IJEfDfQDpZbJ75yZmXb5K2rgLjf
- Yq/MpO3CQGGLlsWinIvVtPFK04PwSQRj7H+9CA+sTkZEzAiwowBcVX8+A
- v8Jqc339a6DbfOdmKn3zsZupmzu9gSt0+3jqpyBGfE/OnYUHmcUWe5Vzb Q==;
-X-IronPort-AV: E=Sophos;i="5.87,184,1631548800"; d="scan'208";a="295633709"
+ t=1635267838; x=1666803838;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=PA7GDKwlJLasY2W15B0xa6XkFtxK+ChuG2avB4JYV78=;
+ b=Deyo/N7pvQMrPuw8/dlHofPrFNx5wLMv00f/Y/gmO+62MU70f8JgHYI+
+ 8pPeyaKWp5ddSj2Uuvak7I42Vfvk6GuKTl7nIZIRAnX+R9Ry3vuUp29BR
+ QPXk1BVWc14TAmKpQ2PGSICELcvHO0JwPoPzkbj+67TvYNQBu45raTPJ8
+ RPIoehVJ3EZHDKCg4eJTTWABzcqdFn6RvPLNh1RxXxkmX20Z4MGHlQu4n
+ BN1eseRuYofK/C++Gk01XPAemQPEJyvCmvycQKMw4TTcNuQeHV5Hpeuku
+ NFU5Ei5EWIxlDZI+THOKG5iQVlqOk8VtkfxuyDAzk3hCPWJBQNEGMFCxC w==;
+X-IronPort-AV: E=Sophos;i="5.87,184,1631548800"; d="scan'208";a="295633729"
 Received: from mail-bn8nam12lp2175.outbound.protection.outlook.com (HELO
  NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.175])
- by ob1.hgst.iphmx.com with ESMTP; 27 Oct 2021 01:03:01 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 27 Oct 2021 01:03:15 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=agEbAJVtlsYKiJ/+0Xj8DEwDbUttgrm+iWIiiGY4zdkzH8cFQOKW/GsudR5QYpUhenIF8ipvBo/Qai4+aNFqL6f9aNbHVI8aFLOAKceEG7tEsVRKGLAlhp5AUKGx9z1PYGAWfZ2qk+NH2UqypYj3wFztqwVD2gCiPlX71CEykb2RPj1l+IOaFVKQX9wOHxb+btdnZSO6XCUZ5Qf/TK8zDhefM3i2uQ96NmAZ3vg2upAvCzh4jc5Wv0+KPgbZO7dOmQy2VJlWhE73KuLZHYsMi4+xsprYIR+PdD0KMUJ1LYkCPvklLvUHh5PPNv4XROqCgz7IDUtJZVD6eFUYHPyKRw==
+ b=MqVKOLNu+CzxnVINFJNTSbxv55zc+tuKvnGhISvEYbJouCpFmM1tkQ+X8cpU2pvezWCFSTismw0BwQdfKLySkkhkKxHqy26EiOFfl70bW7KKjyfY9OQgq84EHROriF4XUh6awc2BJgzR1Wf2LIHAeOSgI5CmINReqI/WivmcQKFQX67W9NCXy8DK8+weH83wHiweCFidPuC/fqA/M68wll/ZPVB/4x+DZJrn4LanGk3QPjsIPxyEEvvnaPVpAzIVLgs2foPVgYzzS1fVTfH2FVQQCG/pJkjwsBunefiK03wQhBSBY4HcPGkrZKzOa77FfQinSBeqsbQg96Vn+/S7EA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQfcLXej1QKeheX2IshEZ0/P5+ML7Vd669XAu9BsiuY=;
- b=Buaa7EUaD4KXgzpP0W8FaUJFinEbbS5BXj8iqP+o1qnktLay9XvDpNzjKENHP8xSe75JXNAFumFzc81TYgS1tpS/0WnhbNeWtXz/utfdGJGu3LfqoC4bshUr9luWd4C1/Kkzlosm3SH56Jl3KH0bo2C+h0nlxUGtp2KaKSZ7gp3Ks+hDotG/RkMlf1c1SMY5nFUc7vOpzx4VGI0gIFs5+a7AQN+b7R80l0peL7eC3xNopQWMJ8oDPWtYZGwSoJb+7+bFtvYoDacvCl0YJOhaKISgYZ1vWojKtDNeGLWld3CLtqWvCVCBba7b1d5IdFcg06SH8mMnJ+kthluurZWZFQ==
+ bh=ZDvVFN0WnJt3ekSdSDQMcdfVH2f3SVMHcPQS/onQ5ME=;
+ b=e4TTAMAIITw5DW8r0sBJz11oVnxfUtGRiLFMLcF+OO0ZwsHzQIYstHZjhM/5bE5vOkSuBAawAgObaqd8d44JGHFXq7IdElmFQhjQQiGjUfcVyz3W5HIlPHe9n/QgOO2ffAQ/Oya4v2KSpBPzjsp1Whj6TqJ6xVTDH8bsSZdoW9GMx2UiQ5LX4wnj6dsCBkDrJH/2ElQlqf42NhALGrs0cPtUi7XOcoL8J2nlYLhumZPGKLv7pBHV7BqdSA69bW9MU3npzp8keKDh+91PyCQbmZNiCGvPUzBz14vFOXaPlmU2QhU/Ql9m93L2x4cwUcF6T92hm4n23CPefwtiPASAIw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQfcLXej1QKeheX2IshEZ0/P5+ML7Vd669XAu9BsiuY=;
- b=XAECyDUDAXi36O0w3Y2tgde9ru2GWXk6ofJXuRKIsJnmjKBkCQQ8fhJeyU+xQ8oNBRDMPrYACHe97IZa1kiN8zDNJt/5+luWgw9YAv5GyC/1/ONTbK5AjHvta6AHrc2GRk6P4x6jh69yfnvLs4naoANiULkAnPMzhwzSfDs63Xw=
+ bh=ZDvVFN0WnJt3ekSdSDQMcdfVH2f3SVMHcPQS/onQ5ME=;
+ b=u/MJxyqKtB52sz0ScIQEuAUbW7qcDg76bjmJr07ycXYOPSHgwvOZdZivevjwQR4NMBhXx9+5asj/srEdAlLZHN6/lx30JFbesuPaTeRsNqUsXO6LsBMskoOaN+e59Jt3Bqyb3r8VhylxDmg6ZrNlMmyfKt7hufsdrVGM0ZcWKQ4=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
  by CO6PR04MB8314.namprd04.prod.outlook.com (2603:10b6:303:135::20)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4649.13; Tue, 26 Oct
- 2021 17:02:59 +0000
+ 2021 17:03:07 +0000
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::8100:4308:5b21:8d97]) by CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::8100:4308:5b21:8d97%8]) with mapi id 15.20.4649.014; Tue, 26 Oct 2021
- 17:02:59 +0000
+ 17:03:07 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
@@ -80,10 +80,13 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atish.patra@wdc.com>,
  Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>
-Subject: [PATCH 0/3] RISC-V: KVM: Few assorted changes
-Date: Tue, 26 Oct 2021 22:31:33 +0530
-Message-Id: <20211026170136.2147619-1-anup.patel@wdc.com>
+Subject: [PATCH 2/3] RISC-V: KVM: Factor-out FP virtualization into separate
+ sources
+Date: Tue, 26 Oct 2021 22:31:35 +0530
+Message-Id: <20211026170136.2147619-3-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20211026170136.2147619-1-anup.patel@wdc.com>
+References: <20211026170136.2147619-1-anup.patel@wdc.com>
 X-ClientProxiedBy: MA1PR0101CA0018.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:a00:21::28) To CO6PR04MB7812.namprd04.prod.outlook.com
  (2603:10b6:303:138::6)
@@ -92,63 +95,63 @@ Received: from wdc.com (122.162.126.221) by
  MA1PR0101CA0018.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:21::28) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4628.18 via Frontend
- Transport; Tue, 26 Oct 2021 17:02:56 +0000
+ Transport; Tue, 26 Oct 2021 17:03:03 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 9a0c20d0-1f3a-4d02-f976-08d998a27685
+X-MS-Office365-Filtering-Correlation-Id: 1f37afe9-468a-4f17-93bf-08d998a27b38
 X-MS-TrafficTypeDiagnostic: CO6PR04MB8314:
-X-Microsoft-Antispam-PRVS: <CO6PR04MB8314EFFC2F3AB5019E5DB4C18D849@CO6PR04MB8314.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <CO6PR04MB8314B048AD72D9B199C72DB28D849@CO6PR04MB8314.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
+X-MS-Oob-TLC-OOBClassifiers: OLM:2733;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 06dOmV1e0EdELHTyRzijvsWYwMkLVTFbIFei1u3Z4Kso9VwfE/m4Hwe1KfOLMU+olJ1qTt73FEi9R4dagr8ZHlVX3I33PX+2inzISsdvXb2MIuEEjMABaZkS6Cp/XKPXIDI4iVo/Xb1vG2adcjR0XoVeGnle7cO0wvLFWD6gY1cj9kJ+F4xwPQdMq84FeOv0XrKnB9mx/gFaSaWIja7APB70gpcVAUbo+k5PdksZf5mkwFT6Zmry4U6uyR2mC1q6Oo73kgzEPPjYmN8a/0O/wqPzPQiXpR2ckzcWts4W2FDmFegAb4BOfh5dcCWFs5s1gBXklcoUT+XmUQFjAVAlxG/xhYSMCI5kqW+8VC1fgSwU/ZqBa8T9Zcf6sR7cTSG70EE0iIPQGwlnsfmkB589iyinJCiTvWfKdkuxYACR56Hf+u2GLCV4w8nkwMdi1C9Q984z2NyM8DnY3xs1mCRrqbzvA9At3E0zlRtxk4Xj8uA/ZusUhYc+MyxV65P2kU3FuKtrBKmYrxOCpIymkypnLCCjswl7vPYRgPcS1gP9nVXLLS5PilhuqdX08c55cAGgrxyboC9jKgCH2fUFtYAmx3iO7LwPaIKyUbu5ZTJdLIX780K/jc0IDUmOx5Id1/7xAVNFSi730BsVSMICl0wVM+vJS0r/owvWNLs+zVt1JuhaA6uxb8EGlmG6s/64Dvyx6sPwnDmNvLcsLSJ2tPjuZ3VB0gU0QotJmliFH/nSz+GjOxzPvVtdDIf3fSAj2QSUIGiem4kiUP1deU6zIVsM5jPNf+Xethyx3FKY5nvJRk8=
+X-Microsoft-Antispam-Message-Info: s0vqPY3xWOZJ8JeWg9bQrLkDX+ktL5LU2LOx7JNPMOTsJHUicZT/7ib7ckeZefKsyKbNfdELi1oM2PZzyRxIoHLMjSV03mIQi+M11VLoEnrNKdVXD6fVG6u6I5tH7PSJKEcJxAqlAAhCsOGvpF14j20NqQNYu5cbcrBaGtyYmsg1tpvv7UcZxvbSLdzcIa+ronqy5IRCJV1xUReL6oJXgimqMKplL5w7oD2VN6fv5SB2qQMS7Y9EfdI7inh0KFQOxXqUgGgXyIEvke73gL0bIs7mYJz/yaOEZkYISUz5HU+LqDhce6R5Z3D786gi8uXXLJeA5rr1agtyYVmRjZWw8OKgNcl0izv/dXl9q3JaAeeyNXT9Bu+idoYxlqTibXIyezvdbu9cjtXeLnVy2c90kPLx85EyPC+EgkY0kvE4urjulWliQrKKnfvM64/cDnaGOOqY3A86yRxp8PvhcqTcv0MAaWqxYahuQSh+4vpQ56Ung8AKGKgt2ZV8V96dBE1WnuYzbwG6MiUoc52JrB7I+YouXAlYDBHyPldxmsQhTmMq8xWYan1K2vaI3yfC8xGkSQjfHZuR1NJdkJqjEx+qOyazNx5iyNwkes/7z6JyN14tifDWV/vX+xC5UPM0GZIWJAIiWz3q5ydD5qAebx20l5pOc9+UJU+kpFnH7nG+HbwPb1xPZbMLn+tQHXn0tdPQdlPtWmwxfIETc/tq98LgXQ==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(6666004)(4326008)(5660300002)(26005)(44832011)(2906002)(956004)(966005)(52116002)(2616005)(8886007)(38350700002)(7696005)(55016002)(83380400001)(186003)(4744005)(38100700002)(82960400001)(54906003)(110136005)(316002)(8676002)(8936002)(7416002)(36756003)(86362001)(66556008)(508600001)(66476007)(66946007)(1076003);
+ SFS:(4636009)(366004)(6666004)(4326008)(5660300002)(26005)(44832011)(2906002)(956004)(52116002)(2616005)(8886007)(38350700002)(7696005)(55016002)(83380400001)(186003)(38100700002)(82960400001)(30864003)(54906003)(110136005)(316002)(8676002)(8936002)(7416002)(36756003)(86362001)(66556008)(508600001)(66476007)(66946007)(1076003);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bQAtJvZuuYecxMLr1DELn7bK6x1I2myf5O419kFv0xfib7BzlRzSl5CqcEDN?=
- =?us-ascii?Q?z44JvNNu/LQOztJIKTAh3wQW2mImDr39E2LhV925FirxoJ1/HM8kR74pX2y/?=
- =?us-ascii?Q?oIAce5us0s6Zbvrt5DBnxwU5ETDuSxNWKmJURWm0FcU8G/3N/9Ji0NAS82oU?=
- =?us-ascii?Q?i5RhXcoaCX6yi783CvkBXKu/4r4uXoytkPgx0WzUUktlusQ9VxcxYPUo3R0A?=
- =?us-ascii?Q?Zr1qp8W8yj/cGjP04h0lhWFXAErI+JMrircFamz07yQuK/wv6+znQ7QYhjLf?=
- =?us-ascii?Q?u+ZKM3ru1ugOHyXyYK/AyayoFmyGa0neEAc6Xf8zdYFpbPgYSM/p9l6aIs5A?=
- =?us-ascii?Q?j5F5CZ3NPQjlwZ548XnHG0HB7r2SCM4YHb8iuyWbvs8uUGVEPmWYzPV7AIYO?=
- =?us-ascii?Q?WuQcQFwcHOJSI10qjRLf3JgTFaH8cvVyfc2VWXLkYBlUikRGzPO1pEln+Ezu?=
- =?us-ascii?Q?1rrzaLUy54ES8biQexbOpHOwXSY+dtViymNG5FE7UmbLi4BHGQkth1w4fQsD?=
- =?us-ascii?Q?aNV1r97AAchiuiSOmQnKWbQWJ6DeaL97nRa7xXrT+h8tkwsIDzDxCHbKbIWJ?=
- =?us-ascii?Q?u54tqfqJwFphytiVrRRzQgBcfflLDrQ8XfZ04+ORHpUD5jrfMSUdu3/7reKi?=
- =?us-ascii?Q?KGc5ceG6bntMRZ+7+ihgbsos6oVYXPYOTJxsjyBMS+a9ANo4jdHCnlwZIoBX?=
- =?us-ascii?Q?hplFRudTWyPM9VriSIpvjoSAOZc7RzSwlPtixrqRkWJjkZLTN4lR9z37/1H3?=
- =?us-ascii?Q?uTqunHRDSLMOPbaDiNwM7UCOkxqr303dxVH2oLyxIVzGy65vLxBR6Fiw6XYm?=
- =?us-ascii?Q?0hN9r3tTcQXdg+Q9H7KQejJF/dl/raeUibI2Mglk7rgvcsLEj2mwE27BSO5T?=
- =?us-ascii?Q?ThJ+7ZhQJUKyAULZgH9dqPyP0b7FV/riZ3iGh6i898hIG9oW3ZuluOzaOP4E?=
- =?us-ascii?Q?KkqD93C96zBi/cT5qQzrRIeOprTX7yHPL+KLrKqkSyl8ei271W1qLWIlPOMn?=
- =?us-ascii?Q?tTCm7WQuZ+dkMFkf38pELpb3LD3R6rk1vCng9ag+3vPnET+rfbVMErU+TvaJ?=
- =?us-ascii?Q?WDKgV4ucYZjBZ3ZsOhXuvGDAW2zHjknF9yn21I2KHgRALLkehWvJqaJvVRIr?=
- =?us-ascii?Q?Tb/n8JEfi9TY8Z2KCOTm04BcUbX2EY1o8bfIj/deePUv3yULYIyklrxv6SA4?=
- =?us-ascii?Q?ToLmnYlh5gvpXbL0Bs1SpxqhaR4+6O8qcUSXSkZXmqyVgMCjT6OwCqddPnma?=
- =?us-ascii?Q?2YT3W3xQfm92/Buct1gRjRiDrHuO11VeJSdZJtLO0jSb6pYVBLA3Tl4eThce?=
- =?us-ascii?Q?WJitkkk5MgV9KhFG8cqDYp20EFl+CtNoz2+K7awk+JJ9EbVKY7GjAOQNWMmU?=
- =?us-ascii?Q?5k/HO46eMebCVl+o/7EZXFkXtlkZ+HPnvKfHyfWmLAzxmsuUD/2eZKoAa0Y/?=
- =?us-ascii?Q?BVdSF7ce8NYnygw1whASH9j+3iqqt+ixe9KE8oyUHZtQKEibXiDXXpJ5o/cT?=
- =?us-ascii?Q?RAMSxegiKznZaZ4Gko9Ci/hdMzC8CNBpG5UQfjt+64lrAnH3KW9s1v6wJ97L?=
- =?us-ascii?Q?M1CxtWbdlzzkYgF42puqu3dwQoqad7JhcABJcqVOR4eTA6+7tAFffBdPNdPs?=
- =?us-ascii?Q?gS0aWXMFiqXrPO5+DPyjQ7s=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S3QqgXJGcOavHhc/55lWN+pOd05nD8ZGWHE0QiteCEw4unEsEcqIykYmaThk?=
+ =?us-ascii?Q?xXEBM3F9r1aWkFiypFy7TKBFZzoPMLa15yW6hJ63LWwpIVIXxfkzntw1gePM?=
+ =?us-ascii?Q?hscaZR7p106lH5/PBq2JhSGyjbXEARJcUP+IhavYjQuN3GWw1FqiEh8FoymN?=
+ =?us-ascii?Q?5NNmxCnZ1e+Zf/YJSBF7kKuApmtuz7fWQmX7AqR64c1NPj9alHK/4eMgU4y8?=
+ =?us-ascii?Q?XalP3oFmlwdrg3xRtouIQT3FU9lddQiNzTjLtnCPX4983BAvIs9EPX07zqMC?=
+ =?us-ascii?Q?zokP9UTax+zk33gxzyt8IEwR/ndDTWdL2zjlwxoyAShJYVik228+708MouEb?=
+ =?us-ascii?Q?ZiYbHKVdS6jll70CQXe0JSiAccymz56iITlA7otZmWAiQvg0iMmZLoUcfGof?=
+ =?us-ascii?Q?RrkMFnyXNaYxwfyEuhfnrbTVYOI9d7pPZeMAoimoIGnn0e/QIlYfSSUjzoqw?=
+ =?us-ascii?Q?pAr/y+mY9oA40gkP88FZEqwI1WwuWy7jTHHJpUplyhfExdPOZxx2Hm67snQq?=
+ =?us-ascii?Q?cwptqdcnJC2daetbZBnOhdKoaiw9upytjzWjyZaMucJ9fTFZAbWGxzsHRKDs?=
+ =?us-ascii?Q?as85BfjqjAeoiYRHkkUOly5KB1g9qNdof8azxQWroAFtyQjIS8rD6FztXG+a?=
+ =?us-ascii?Q?d3P/DdnT5n/AbPX7GH2PQ4wme0KvOz/eh0E97c3Ey9ZdqpjUYaMVspd+THjt?=
+ =?us-ascii?Q?LD76ruMYokJD96MdKB2N5zriSNSzaxpWjtp4Jh+dt9CoQkbI3lO4YW4/Coe/?=
+ =?us-ascii?Q?jEk5IzkHK+c/D/YhnIPuHOj6xREvXxcCBWfVzloDHhcndEYdAI+j7ioV3LXo?=
+ =?us-ascii?Q?Kz2RNvyg6IOicEzYnzBPsLz6WTwTA7BKsaXG9EtUOcG5PJnFKajay+IF+mOW?=
+ =?us-ascii?Q?qJrFjViMH2i46NRxE54zo25Zz3CyJTX8l51QNbc/YrPKMmsadhiB9vHHkp8p?=
+ =?us-ascii?Q?Nt/ddfdEFWLgyqZ9qdLFPG14wHnd4MSfC1odxqtQSfvUynrsqv9zbgIDHXqv?=
+ =?us-ascii?Q?73lkkESJLVZLvNmOOvxfTslCjnl1O6JMh43krMBeT+1qwzCUopwKFFEGhcHV?=
+ =?us-ascii?Q?yL3ilcNHJxKHK3sPlbZUIwwwxZf2R6XpyQWrnKKXfJloyg0oDviNgS10wHmJ?=
+ =?us-ascii?Q?prEokUootVyZYpTp14B4zUmSO/YXpQ2b7PK8NWZnz7eeQe1lPjXEHlnqL2YV?=
+ =?us-ascii?Q?x6UBz6uHads2fz7w+BhBP3oQkCfPoTPz+mlxOEScc0Z/My+UPU3WVHY/np1z?=
+ =?us-ascii?Q?aM/9llynWzJQ/q9V//TUCR9BG7jJdv2UpnECrBL4IITjeU1J6nzLHAyBOOst?=
+ =?us-ascii?Q?Jbdwv9KO3v5P6I9WSnU2NmPU4qiKf2P+VYo2l8iShd9eO1En2hAAcZR4b3Aj?=
+ =?us-ascii?Q?0GmKqS4M8w0Wv/7WMt2zXAoo5mRE5MQNsVVsEPcckiGgEjafX1Qig8Bps1mV?=
+ =?us-ascii?Q?KGBV83/LPBR3wYD8cdedc36WR8onpdItRUJkfwR/p/Vlo8W6wuMl1EPXf10I?=
+ =?us-ascii?Q?9RnjEzqI5ZLNZEX8/rR75911GAl/uGCd64aJYwN/mmoXGrVow1mGqigeQd3P?=
+ =?us-ascii?Q?VVrKGHSKDaIKO9lsWCDfribyoOxQuO5pcIM49FROBj017586P4T4R5Tk7K17?=
+ =?us-ascii?Q?xIJpKb4VYTq7g1WCyxe7RLE=3D?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a0c20d0-1f3a-4d02-f976-08d998a27685
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f37afe9-468a-4f17-93bf-08d998a27b38
 X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2021 17:02:59.4343 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2021 17:03:07.2629 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0gh24R0bMZG0LLZOgZ1kXJKI31cyAFKL6V7c04XVwUfqkuzL/QFKhziQRa1FB4OYkfHpUr2NFeCcCT0bnMemEw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: B2AvkFkvFSuZtxPTw9TDbt4Zj6zzMcEZswTtAj/7LTH7/DhQMiyLb9ARjZIi7ZVt125jROnJHefsW1SlWUBO9w==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB8314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_100354_226446_2B06675D 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20211026_100358_936503_BBF6E523 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,29 +168,487 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I had a few assorted KVM RISC-V changes which I wanted to sent after
-KVM RISC-V was merged hence this series.
+The timer and SBI virtualization is already in separate sources.
+In future, we will have vector and AIA virtualization also added
+as separate sources.
 
-These patches can also be found in riscv_kvm_assorted_v1 branch at:
-https://github.com/avpatel/linux.git
+To align with above described modularity, we factor-out FP
+virtualization into separate sources.
 
-Anup Patel (3):
-  RISC-V: Enable KVM in RV64 and RV32 defconfigs as a module
-  RISC-V: KVM: Factor-out FP virtualization into separate sources
-  RISC-V: KVM: Fix GPA passed to __kvm_riscv_hfence_gvma_xyz() functions
-
- arch/riscv/configs/defconfig         |  15 ++-
- arch/riscv/configs/rv32_defconfig    |   8 +-
- arch/riscv/include/asm/kvm_host.h    |  10 +-
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+---
+ arch/riscv/include/asm/kvm_host.h    |   5 +-
  arch/riscv/include/asm/kvm_vcpu_fp.h |  59 +++++++++
  arch/riscv/kvm/Makefile              |   1 +
- arch/riscv/kvm/tlb.S                 |   4 +-
  arch/riscv/kvm/vcpu.c                | 172 ---------------------------
  arch/riscv/kvm/vcpu_fp.c             | 167 ++++++++++++++++++++++++++
- 8 files changed, 244 insertions(+), 192 deletions(-)
+ 5 files changed, 228 insertions(+), 176 deletions(-)
  create mode 100644 arch/riscv/include/asm/kvm_vcpu_fp.h
  create mode 100644 arch/riscv/kvm/vcpu_fp.c
 
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index d7e1696cd2ec..d27878d6adf9 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -12,6 +12,7 @@
+ #include <linux/types.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_types.h>
++#include <asm/kvm_vcpu_fp.h>
+ #include <asm/kvm_vcpu_timer.h>
+ 
+ #ifdef CONFIG_64BIT
+@@ -247,10 +248,6 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			struct kvm_cpu_trap *trap);
+ 
+ void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch);
+-void __kvm_riscv_fp_f_save(struct kvm_cpu_context *context);
+-void __kvm_riscv_fp_f_restore(struct kvm_cpu_context *context);
+-void __kvm_riscv_fp_d_save(struct kvm_cpu_context *context);
+-void __kvm_riscv_fp_d_restore(struct kvm_cpu_context *context);
+ 
+ int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
+ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
+diff --git a/arch/riscv/include/asm/kvm_vcpu_fp.h b/arch/riscv/include/asm/kvm_vcpu_fp.h
+new file mode 100644
+index 000000000000..4da9b8e0f050
+--- /dev/null
++++ b/arch/riscv/include/asm/kvm_vcpu_fp.h
+@@ -0,0 +1,59 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ *
++ * Authors:
++ *     Atish Patra <atish.patra@wdc.com>
++ *     Anup Patel <anup.patel@wdc.com>
++ */
++
++#ifndef __KVM_VCPU_RISCV_FP_H
++#define __KVM_VCPU_RISCV_FP_H
++
++#include <linux/types.h>
++
++struct kvm_cpu_context;
++
++#ifdef CONFIG_FPU
++void __kvm_riscv_fp_f_save(struct kvm_cpu_context *context);
++void __kvm_riscv_fp_f_restore(struct kvm_cpu_context *context);
++void __kvm_riscv_fp_d_save(struct kvm_cpu_context *context);
++void __kvm_riscv_fp_d_restore(struct kvm_cpu_context *context);
++
++void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu);
++void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
++				  unsigned long isa);
++void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
++				     unsigned long isa);
++void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx);
++void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx);
++#else
++static inline void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
++{
++}
++static inline void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
++						unsigned long isa)
++{
++}
++static inline void kvm_riscv_vcpu_guest_fp_restore(
++					struct kvm_cpu_context *cntx,
++					unsigned long isa)
++{
++}
++static inline void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
++{
++}
++static inline void kvm_riscv_vcpu_host_fp_restore(
++					struct kvm_cpu_context *cntx)
++{
++}
++#endif
++
++int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
++			      const struct kvm_one_reg *reg,
++			      unsigned long rtype);
++int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
++			      const struct kvm_one_reg *reg,
++			      unsigned long rtype);
++
++#endif
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 3226696b8340..30cdd1df0098 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -20,6 +20,7 @@ kvm-y += tlb.o
+ kvm-y += mmu.o
+ kvm-y += vcpu.o
+ kvm-y += vcpu_exit.o
++kvm-y += vcpu_fp.o
+ kvm-y += vcpu_switch.o
+ kvm-y += vcpu_sbi.o
+ kvm-y += vcpu_timer.o
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 912928586df9..e3d3aed46184 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -38,86 +38,6 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+ 		       sizeof(kvm_vcpu_stats_desc),
+ };
+ 
+-#ifdef CONFIG_FPU
+-static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
+-{
+-	unsigned long isa = vcpu->arch.isa;
+-	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+-
+-	cntx->sstatus &= ~SR_FS;
+-	if (riscv_isa_extension_available(&isa, f) ||
+-	    riscv_isa_extension_available(&isa, d))
+-		cntx->sstatus |= SR_FS_INITIAL;
+-	else
+-		cntx->sstatus |= SR_FS_OFF;
+-}
+-
+-static void kvm_riscv_vcpu_fp_clean(struct kvm_cpu_context *cntx)
+-{
+-	cntx->sstatus &= ~SR_FS;
+-	cntx->sstatus |= SR_FS_CLEAN;
+-}
+-
+-static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
+-					 unsigned long isa)
+-{
+-	if ((cntx->sstatus & SR_FS) == SR_FS_DIRTY) {
+-		if (riscv_isa_extension_available(&isa, d))
+-			__kvm_riscv_fp_d_save(cntx);
+-		else if (riscv_isa_extension_available(&isa, f))
+-			__kvm_riscv_fp_f_save(cntx);
+-		kvm_riscv_vcpu_fp_clean(cntx);
+-	}
+-}
+-
+-static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
+-					    unsigned long isa)
+-{
+-	if ((cntx->sstatus & SR_FS) != SR_FS_OFF) {
+-		if (riscv_isa_extension_available(&isa, d))
+-			__kvm_riscv_fp_d_restore(cntx);
+-		else if (riscv_isa_extension_available(&isa, f))
+-			__kvm_riscv_fp_f_restore(cntx);
+-		kvm_riscv_vcpu_fp_clean(cntx);
+-	}
+-}
+-
+-static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
+-{
+-	/* No need to check host sstatus as it can be modified outside */
+-	if (riscv_isa_extension_available(NULL, d))
+-		__kvm_riscv_fp_d_save(cntx);
+-	else if (riscv_isa_extension_available(NULL, f))
+-		__kvm_riscv_fp_f_save(cntx);
+-}
+-
+-static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
+-{
+-	if (riscv_isa_extension_available(NULL, d))
+-		__kvm_riscv_fp_d_restore(cntx);
+-	else if (riscv_isa_extension_available(NULL, f))
+-		__kvm_riscv_fp_f_restore(cntx);
+-}
+-#else
+-static void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
+-{
+-}
+-static void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
+-					 unsigned long isa)
+-{
+-}
+-static void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
+-					    unsigned long isa)
+-{
+-}
+-static void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
+-{
+-}
+-static void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
+-{
+-}
+-#endif
+-
+ #define KVM_RISCV_ISA_ALLOWED	(riscv_isa_extension_mask(a) | \
+ 				 riscv_isa_extension_mask(c) | \
+ 				 riscv_isa_extension_mask(d) | \
+@@ -414,98 +334,6 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+ 	return 0;
+ }
+ 
+-static int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
+-				     const struct kvm_one_reg *reg,
+-				     unsigned long rtype)
+-{
+-	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+-	unsigned long isa = vcpu->arch.isa;
+-	unsigned long __user *uaddr =
+-			(unsigned long __user *)(unsigned long)reg->addr;
+-	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+-					    KVM_REG_SIZE_MASK |
+-					    rtype);
+-	void *reg_val;
+-
+-	if ((rtype == KVM_REG_RISCV_FP_F) &&
+-	    riscv_isa_extension_available(&isa, f)) {
+-		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+-			return -EINVAL;
+-		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
+-			reg_val = &cntx->fp.f.fcsr;
+-		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31]))
+-			reg_val = &cntx->fp.f.f[reg_num];
+-		else
+-			return -EINVAL;
+-	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
+-		   riscv_isa_extension_available(&isa, d)) {
+-		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+-				return -EINVAL;
+-			reg_val = &cntx->fp.d.fcsr;
+-		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
+-			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
+-				return -EINVAL;
+-			reg_val = &cntx->fp.d.f[reg_num];
+-		} else
+-			return -EINVAL;
+-	} else
+-		return -EINVAL;
+-
+-	if (copy_to_user(uaddr, reg_val, KVM_REG_SIZE(reg->id)))
+-		return -EFAULT;
+-
+-	return 0;
+-}
+-
+-static int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
+-				     const struct kvm_one_reg *reg,
+-				     unsigned long rtype)
+-{
+-	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
+-	unsigned long isa = vcpu->arch.isa;
+-	unsigned long __user *uaddr =
+-			(unsigned long __user *)(unsigned long)reg->addr;
+-	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
+-					    KVM_REG_SIZE_MASK |
+-					    rtype);
+-	void *reg_val;
+-
+-	if ((rtype == KVM_REG_RISCV_FP_F) &&
+-	    riscv_isa_extension_available(&isa, f)) {
+-		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+-			return -EINVAL;
+-		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
+-			reg_val = &cntx->fp.f.fcsr;
+-		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
+-			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31]))
+-			reg_val = &cntx->fp.f.f[reg_num];
+-		else
+-			return -EINVAL;
+-	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
+-		   riscv_isa_extension_available(&isa, d)) {
+-		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
+-				return -EINVAL;
+-			reg_val = &cntx->fp.d.fcsr;
+-		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
+-			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
+-			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
+-				return -EINVAL;
+-			reg_val = &cntx->fp.d.f[reg_num];
+-		} else
+-			return -EINVAL;
+-	} else
+-		return -EINVAL;
+-
+-	if (copy_from_user(reg_val, uaddr, KVM_REG_SIZE(reg->id)))
+-		return -EFAULT;
+-
+-	return 0;
+-}
+-
+ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+ 				  const struct kvm_one_reg *reg)
+ {
+diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
+new file mode 100644
+index 000000000000..1b070152578f
+--- /dev/null
++++ b/arch/riscv/kvm/vcpu_fp.c
+@@ -0,0 +1,167 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ *
++ * Authors:
++ *     Atish Patra <atish.patra@wdc.com>
++ *     Anup Patel <anup.patel@wdc.com>
++ */
++
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/kvm_host.h>
++#include <linux/uaccess.h>
++
++#ifdef CONFIG_FPU
++void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
++{
++	unsigned long isa = vcpu->arch.isa;
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++
++	cntx->sstatus &= ~SR_FS;
++	if (riscv_isa_extension_available(&isa, f) ||
++	    riscv_isa_extension_available(&isa, d))
++		cntx->sstatus |= SR_FS_INITIAL;
++	else
++		cntx->sstatus |= SR_FS_OFF;
++}
++
++void kvm_riscv_vcpu_fp_clean(struct kvm_cpu_context *cntx)
++{
++	cntx->sstatus &= ~SR_FS;
++	cntx->sstatus |= SR_FS_CLEAN;
++}
++
++void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
++				  unsigned long isa)
++{
++	if ((cntx->sstatus & SR_FS) == SR_FS_DIRTY) {
++		if (riscv_isa_extension_available(&isa, d))
++			__kvm_riscv_fp_d_save(cntx);
++		else if (riscv_isa_extension_available(&isa, f))
++			__kvm_riscv_fp_f_save(cntx);
++		kvm_riscv_vcpu_fp_clean(cntx);
++	}
++}
++
++void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
++				     unsigned long isa)
++{
++	if ((cntx->sstatus & SR_FS) != SR_FS_OFF) {
++		if (riscv_isa_extension_available(&isa, d))
++			__kvm_riscv_fp_d_restore(cntx);
++		else if (riscv_isa_extension_available(&isa, f))
++			__kvm_riscv_fp_f_restore(cntx);
++		kvm_riscv_vcpu_fp_clean(cntx);
++	}
++}
++
++void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
++{
++	/* No need to check host sstatus as it can be modified outside */
++	if (riscv_isa_extension_available(NULL, d))
++		__kvm_riscv_fp_d_save(cntx);
++	else if (riscv_isa_extension_available(NULL, f))
++		__kvm_riscv_fp_f_save(cntx);
++}
++
++void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx)
++{
++	if (riscv_isa_extension_available(NULL, d))
++		__kvm_riscv_fp_d_restore(cntx);
++	else if (riscv_isa_extension_available(NULL, f))
++		__kvm_riscv_fp_f_restore(cntx);
++}
++#endif
++
++int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
++			      const struct kvm_one_reg *reg,
++			      unsigned long rtype)
++{
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	unsigned long isa = vcpu->arch.isa;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    rtype);
++	void *reg_val;
++
++	if ((rtype == KVM_REG_RISCV_FP_F) &&
++	    riscv_isa_extension_available(&isa, f)) {
++		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
++			return -EINVAL;
++		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
++			reg_val = &cntx->fp.f.fcsr;
++		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
++			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31]))
++			reg_val = &cntx->fp.f.f[reg_num];
++		else
++			return -EINVAL;
++	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
++		   riscv_isa_extension_available(&isa, d)) {
++		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
++			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
++				return -EINVAL;
++			reg_val = &cntx->fp.d.fcsr;
++		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
++			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
++			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
++				return -EINVAL;
++			reg_val = &cntx->fp.d.f[reg_num];
++		} else
++			return -EINVAL;
++	} else
++		return -EINVAL;
++
++	if (copy_to_user(uaddr, reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
++			      const struct kvm_one_reg *reg,
++			      unsigned long rtype)
++{
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++	unsigned long isa = vcpu->arch.isa;
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    rtype);
++	void *reg_val;
++
++	if ((rtype == KVM_REG_RISCV_FP_F) &&
++	    riscv_isa_extension_available(&isa, f)) {
++		if (KVM_REG_SIZE(reg->id) != sizeof(u32))
++			return -EINVAL;
++		if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
++			reg_val = &cntx->fp.f.fcsr;
++		else if ((KVM_REG_RISCV_FP_F_REG(f[0]) <= reg_num) &&
++			  reg_num <= KVM_REG_RISCV_FP_F_REG(f[31]))
++			reg_val = &cntx->fp.f.f[reg_num];
++		else
++			return -EINVAL;
++	} else if ((rtype == KVM_REG_RISCV_FP_D) &&
++		   riscv_isa_extension_available(&isa, d)) {
++		if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
++			if (KVM_REG_SIZE(reg->id) != sizeof(u32))
++				return -EINVAL;
++			reg_val = &cntx->fp.d.fcsr;
++		} else if ((KVM_REG_RISCV_FP_D_REG(f[0]) <= reg_num) &&
++			   reg_num <= KVM_REG_RISCV_FP_D_REG(f[31])) {
++			if (KVM_REG_SIZE(reg->id) != sizeof(u64))
++				return -EINVAL;
++			reg_val = &cntx->fp.d.f[reg_num];
++		} else
++			return -EINVAL;
++	} else
++		return -EINVAL;
++
++	if (copy_from_user(reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
 -- 
 2.25.1
 
