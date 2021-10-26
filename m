@@ -2,58 +2,98 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4121C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 14:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 10C88C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 15:41:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8EBEE60EBD
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 14:59:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8EBEE60EBD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
+	by mail.kernel.org (Postfix) with ESMTPS id D0C9161090
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 15:41:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D0C9161090
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xDUnuFXABI3740+O2TqDgbgEToXzpTeqyLdZK6Qzxas=; b=Yn4VquwAYvSTM6
-	BKAwVaLeZRAVR31IUFUDslu+gVE972ptPt/Rsf0ebpdxO25aSU98u8CzmW2QS4NGABXTVjWK3gouU
-	64YBmk0oeYEyyq8nQHHi2Sk+0O3y2oS+b2i9dZTN0sl88AUqS+iBnaCL12dDCUfDRsQJblzAwtwtQ
-	HQGN1y2gyMj+3lhIPV0ExBDYQDB3Y50ACzyWGQ2ZhzeSWGsISc7lue+KbqPPSbqcts3waw2weCAQi
-	BqDOA9L6YPuGs+4Z737h2qUSIJK8x9hxga8yKjHefNkMFBDLd/ULaSw7PnHs5m3+3rxkvjaWWRbT5
-	1pjqHz5UoYS1t6JXlqGA==;
+	List-Owner; bh=pUWb37opQ3po6i2pzWVLftB48mK6YqzK/Uq9iSVj/+g=; b=FjWwCooUEB5Q/L
+	4a0j0+96KbqLaUeKChljc9tT1sCr7LRfdHJPA4HMwL9vOmrBH50XKlH5ZR1NK2pSrphyVRB0uOYl8
+	w2Rz3bSM3FNfiyrV+fAMQK0OgTdDENvB2v73ipeOfxW0G80Ma+NoPL2eVM9OH1LN+ujy2cp5DogoG
+	xX0/+fjpOWuSZC4ZtQPisZD6IlEGLkIW6hQX6FIQ3XAYMKOLNWwvCnD1EPfefoTa08SrbVkTJAhpu
+	BuHPj++mcHJ+m1v63OgRG24zcN0OoG0v0Zsb7OTELfPBF2U3Y8iI1nIsmjhlLKRFad9zW0Ffn6q1y
+	iF3CC/k0PFT3IAfcQJ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfNur-0025yS-EI; Tue, 26 Oct 2021 14:59:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1mfOa2-002DC9-2i; Tue, 26 Oct 2021 15:41:38 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfNuo-0025xZ-EA
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 14:59:04 +0000
-Received: from ip5f5a6e92.dynamic.kabel-deutschland.de ([95.90.110.146]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1mfNuj-0006FX-DV; Tue, 26 Oct 2021 16:58:57 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Vincent Chen <vincent.chen@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [RFC PATCH v8 09/21] riscv: Add task switch support for vector
-Date: Tue, 26 Oct 2021 16:58:56 +0200
-Message-ID: <1915012.4NSqcpqsIS@diego>
-In-Reply-To: <YXKVLtT2U2g3JDrm@bruce.bluespec.com>
-References: <cover.1631121222.git.greentime.hu@sifive.com>
- <CABvJ_xjMyZ3HDLinMvY88HtKywb=cwhQNOOCZYTEeL407Gyz2A@mail.gmail.com>
- <YXKVLtT2U2g3JDrm@bruce.bluespec.com>
-MIME-Version: 1.0
+ id 1mfOZY-002CxQ-Vg; Tue, 26 Oct 2021 15:41:10 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9634460EFF;
+ Tue, 26 Oct 2021 15:41:08 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mfOZW-001iWu-7f; Tue, 26 Oct 2021 16:41:06 +0100
+Date: Tue, 26 Oct 2021 16:41:05 +0100
+Message-ID: <875ytjbxpq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra
+ <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>,
+ Oliver Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Subject: Re: [PATCH v2 10/43] KVM: arm64: Move vGIC v4 handling for WFI out
+ arch callback hook
+In-Reply-To: <9236e715-c471-e1c8-6117-6f37b908a6bd@redhat.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-11-seanjc@google.com>
+ <9236e715-c471-e1c8-6117-6f37b908a6bd@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, seanjc@google.com,
+ chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, paulus@ozlabs.org,
+ anup.patel@wdc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, borntraeger@de.ibm.com, frankja@linux.ibm.com,
+ james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com,
+ atish.patra@wdc.com, david@redhat.com, cohuck@redhat.com,
+ imbrenda@linux.ibm.com, vkuznets@redhat.com, wanpengli@tencent.com,
+ jmattson@google.com, joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dmatlack@google.com, oupton@google.com, jingzhangos@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_075902_507046_A46DEA05 
-X-CRM114-Status: GOOD (  50.13  )
+X-CRM114-CacheID: sfid-20211026_084109_091794_540AB0DB 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,109 +105,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgRGFyaXVzLAoKQW0gRnJlaXRhZywgMjIuIE9rdG9iZXIgMjAyMSwgMTI6NDA6NDYgQ0VTVCBz
-Y2hyaWViIERhcml1cyBSYWQ6Cj4gT24gRnJpLCBPY3QgMjIsIDIwMjEgYXQgMTE6NTI6MDFBTSAr
-MDgwMCwgVmluY2VudCBDaGVuIHdyb3RlOgo+ID4gT24gVGh1LCBPY3QgMjEsIDIwMjEgYXQgNjo1
-MCBQTSBEYXJpdXMgUmFkIDxkYXJpdXNAYmx1ZXNwZWMuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4g
-T24gV2VkLCBPY3QgMjAsIDIwMjEgYXQgMDY6MDE6MzFQTSAtMDcwMCwgUGF1bCBXYWxtc2xleSB3
-cm90ZToKPiA+ID4gPiBIZWxsbyBEYXJpdXMsCj4gPiA+ID4KPiA+ID4gPiBPbiBUdWUsIDUgT2N0
-IDIwMjEsIERhcml1cyBSYWQgd3JvdGU6Cj4gPiA+ID4KPiA+ID4gPiA+IE9uIE1vbiwgT2N0IDA0
-LCAyMDIxIGF0IDA4OjM2OjMwUE0gKzA4MDAsIEdyZWVudGltZSBIdSB3cm90ZToKPiA+ID4gPiA+
-ID4gRGFyaXVzIFJhZCA8ZGFyaXVzQGJsdWVzcGVjLmNvbT4g5pa8IDIwMjHlubQ55pyIMjnml6Ug
-6YCx5LiJIOS4i+WNiDk6Mjjlr6vpgZPvvJoKPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IE9u
-IFR1ZSwgU2VwIDI4LCAyMDIxIGF0IDEwOjU2OjUyUE0gKzA4MDAsIEdyZWVudGltZSBIdSB3cm90
-ZToKPiA+ID4gPiA+ID4gPiA+IERhcml1cyBSYWQgPGRhcml1c0BibHVlc3BlYy5jb20+IOaWvCAy
-MDIx5bm0OeaciDEz5pelIOmAseS4gCDkuIvljYg4OjIx5a+r6YGT77yaCj4gPiA+ID4gPiA+ID4g
-PiA+Cj4gPiA+ID4gPiA+ID4gPiA+IE9uIDkvOC8yMSAxOjQ1IFBNLCBHcmVlbnRpbWUgSHUgd3Jv
-dGU6Cj4gPiA+ID4gPiA+ID4gPiA+ID4gVGhpcyBwYXRjaCBhZGRzIHRhc2sgc3dpdGNoIHN1cHBv
-cnQgZm9yIHZlY3Rvci4gSXQgc3VwcG9ydHMgcGFydGlhbCBsYXp5Cj4gPiA+ID4gPiA+ID4gPiA+
-ID4gc2F2ZSBhbmQgcmVzdG9yZSBtZWNoYW5pc20uIEl0IGFsc28gc3VwcG9ydHMgYWxsIGxlbmd0
-aHMgb2Ygdmxlbi4KPiA+ID4gPgo+ID4gPiA+IFsgLi4uIF0KPiA+ID4gPgo+ID4gPiA+ID4gPiA+
-ID4gPiBTbyB0aGlzIHdpbGwgdW5jb25kaXRpb25hbGx5IGVuYWJsZSB2ZWN0b3IgaW5zdHJ1Y3Rp
-b25zLCBhbmQgYWxsb2NhdGUKPiA+ID4gPiA+ID4gPiA+ID4gbWVtb3J5IGZvciB2ZWN0b3Igc3Rh
-dGUsIGZvciBhbGwgcHJvY2Vzc2VzLCByZWdhcmRsZXNzIG9mIHdoZXRoZXIgdmVjdG9yCj4gPiA+
-ID4gPiA+ID4gPiA+IGluc3RydWN0aW9ucyBhcmUgdXNlZD8KPiA+ID4gPiA+ID4gPiA+Cj4gPiA+
-ID4gPiA+ID4gPiBZZXMsIGl0IHdpbGwgZW5hYmxlIHZlY3RvciBpZiBoYXNfdmVjdG9yKCkgaXMg
-dHJ1ZS4gVGhlIHJlYXNvbiB0aGF0IHdlCj4gPiA+ID4gPiA+ID4gPiBjaG9vc2UgdG8gZW5hYmxl
-IGFuZCBhbGxvY2F0ZSBtZW1vcnkgZm9yIHVzZXIgc3BhY2UgcHJvZ3JhbSBpcyBiZWNhdXNlCj4g
-PiA+ID4gPiA+ID4gPiB3ZSBhbHNvIGltcGxlbWVudCBzb21lIGNvbW1vbiBmdW5jdGlvbnMgaW4g
-dGhlIGdsaWJjIHN1Y2ggYXMgbWVtY3B5Cj4gPiA+ID4gPiA+ID4gPiB2ZWN0b3IgdmVyc2lvbiBh
-bmQgaXQgaXMgY2FsbGVkIHZlcnkgb2Z0ZW4gYnkgZXZlcnkgcHJvY2Vzcy4gU28gdGhhdAo+ID4g
-PiA+ID4gPiA+ID4gd2UgYXNzdW1lIGlmIHRoZSB1c2VyIHByb2dyYW0gaXMgcnVubmluZyBpbiBh
-IENQVSB3aXRoIHZlY3RvciBJU0EKPiA+ID4gPiA+ID4gPiA+IHdvdWxkIGxpa2UgdG8gdXNlIHZl
-Y3RvciBieSBkZWZhdWx0LiBJZiB3ZSBkaXNhYmxlIGl0IGJ5IGRlZmF1bHQgYW5kCj4gPiA+ID4g
-PiA+ID4gPiBtYWtlIGl0IHRyaWdnZXIgdGhlIGlsbGVnYWwgaW5zdHJ1Y3Rpb24sIHRoYXQgbWln
-aHQgYmUgYSBidXJkZW4gc2luY2UKPiA+ID4gPiA+ID4gPiA+IGFsbW9zdCBldmVyeSBwcm9jZXNz
-IHdpbGwgdXNlIHZlY3RvciBnbGliYyBtZW1jcHkgb3Igc29tZXRoaW5nIGxpa2UKPiA+ID4gPiA+
-ID4gPiA+IHRoYXQuCj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBEbyB5b3UgaGF2ZSBhbnkg
-ZXZpZGVuY2UgdG8gc3VwcG9ydCB0aGUgYXNzZXJ0aW9uIHRoYXQgYWxtb3N0IGV2ZXJ5IHByb2Nl
-c3MKPiA+ID4gPiA+ID4gPiB3b3VsZCB1c2UgdmVjdG9yIG9wZXJhdGlvbnM/ICBPbmUgY291bGQg
-ZWFzaWx5IGFyZ3VlIHRoYXQgdGhlIGNvbnZlcnNlIGlzCj4gPiA+ID4gPiA+ID4gdHJ1ZTogbm8g
-ZXhpc3Rpbmcgc29mdHdhcmUgdXNlcyB0aGUgdmVjdG9yIGV4dGVuc2lvbiBub3csIHNvIG1vc3Qg
-bGlrZWx5IGEKPiA+ID4gPiA+ID4gPiBwcm9jZXNzIHdpbGwgbm90IGJlIHVzaW5nIGl0Lgo+ID4g
-PiA+ID4gPgo+ID4gPiA+ID4gPiBHbGliYyB1c3RyZWFtaW5nIGlzIGp1c3Qgc3RhcnRpbmcgc28g
-eW91IGRpZG4ndCBzZWUgc29mdHdhcmUgdXNpbmcgdGhlCj4gPiA+ID4gPiA+IHZlY3RvciBleHRl
-bnNpb24gbm93IGFuZCB0aGlzIHBhdGNoc2V0IGlzIHRlc3RpbmcgYmFzZWQgb24gdGhvc2UKPiA+
-ID4gPiA+ID4gb3B0aW1pemVkIGdsaWJjIHRvby4gVmluY2VudCBDaGVuIGlzIHdvcmtpbmcgb24g
-dGhlIGdsaWJjIHZlY3Rvcgo+ID4gPiA+ID4gPiBzdXBwb3J0IHVwc3RyZWFtaW5nIGFuZCB3ZSB3
-aWxsIGFsc28gdXBzdHJlYW0gdGhlIHZlY3RvciB2ZXJzaW9uIGdsaWJjCj4gPiA+ID4gPiA+IG1l
-bWNweSwgbWVtY21wLCBtZW1jaHIsIG1lbW1vdmUsIG1lbXNldCwgc3RyY21wLCBzdHJsZW4uIFRo
-ZW4gd2Ugd2lsbAo+ID4gPiA+ID4gPiBzZWUgcGxhdGZvcm0gd2l0aCB2ZWN0b3Igc3VwcG9ydCBj
-YW4gdXNlIHZlY3RvciB2ZXJzaW9uIG1lbSogYW5kIHN0cioKPiA+ID4gPiA+ID4gZnVuY3Rpb25z
-IGF1dG9tYXRpY2FsbHkgYmFzZWQgb24gaWZ1bmMgYW5kIHBsYXRmb3JtIHdpdGhvdXQgdmVjdG9y
-Cj4gPiA+ID4gPiA+IHdpbGwgdXNlIHRoZSBvcmlnaW5hbCBvbmUgYXV0b21hdGljYWxseS4gVGhl
-c2UgY291bGQgYmUgZG9uZSB0byBzZWxlY3QKPiA+ID4gPiA+ID4gdGhlIGNvcnJlY3Qgb3B0aW1p
-emVkIGdsaWJjIGZ1bmN0aW9ucyBieSBpZnVuYyBtZWNoYW5pc20uCj4gPiA+ID4KPiA+ID4gPiBJ
-biB5b3VyIHJlcGx5LCBJIG5vdGljZWQgdGhhdCB5b3UgZGlkbid0IGFkZHJlc3MgR3JlZW50aW1l
-J3MgcmVzcG9uc2UKPiA+ID4gPiBoZXJlLiAgQnV0IHRoaXMgbG9va3MgbGlrZSB0aGUga2V5IGlz
-c3VlLiAgSWYgY29tbW9uIGxpYnJhcnkgZnVuY3Rpb25zIGFyZQo+ID4gPiA+IHZlY3Rvci1hY2Nl
-bGVyYXRlZCwgd291bGRuJ3QgaXQgbWFrZSBzZW5zZSB0aGF0IGFsbW9zdCBldmVyeSBwcm9jZXNz
-IHdvdWxkCj4gPiA+ID4gd2luZCB1cCB1c2luZyB2ZWN0b3IgaW5zdHJ1Y3Rpb25zPyAgQW5kIHRo
-dXMgdGhlcmUgd291bGRuJ3QgYmUgbXVjaCBwb2ludAo+ID4gPiA+IHRvIHNraXBwaW5nIHRoZSB2
-ZWN0b3IgY29udGV4dCBtZW1vcnkgYWxsb2NhdGlvbj8KPiA+ID4gPgo+ID4gPgo+ID4gPiBUaGlz
-IGlzc3VlIHdhcyBhZGRyZXNzZWQgaW4gdGhlIHRocmVhZCByZWdhcmRpbmcgSW50ZWwgQU1YIEkg
-bGlua2VkIHRvIGluIGEKPiA+ID4gcHJldmlvdXMgbWVzc2FnZS4gIEkgZG9uJ3QgYWdyZWUgdGhh
-dCB0aGlzIGlzIHRoZSBrZXkgaXNzdWU7IGl0IGlzIG9uZSBvZiBhCj4gPiA+IG51bWJlciBvZiBp
-c3N1ZXMuICBXaGF0IGlmIEkgZG9uJ3Qgd2FudCB0byB0YWtlIHRoZSBwb3RlbnRpYWwKPiA+ID4g
-cG93ZXIvZnJlcXVlbmN5IGhpdCBmb3IgdGhlIHZlY3RvciB1bml0IGZvciBhIHdvcmtsb2FkIHRo
-YXQsIGF0IGJlc3QsIHVzZXMKPiA+ID4gaXQgZm9yIHRoZSBvY2Nhc2lvbmFsIG1lbWNweT8gIFdo
-YXQgaWYgdGhlIGFsbG9jYXRpb24gZmFpbHMsIGhvdyB3aWxsIHRoYXQKPiA+IAo+ID4gSGkgRGFy
-aXVzLAo+ID4gVGhlIG1lbWNweSBmdW5jdGlvbiBzZWVtcyBub3QgdG8gYmUgb2NjYXNpb25hbGx5
-IHVzZWQgaW4gdGhlIHByb2dyYW1zCj4gPiBiZWNhdXNlIG1hbnkgZnVuY3Rpb25zIGluIEdsaWJj
-IHVzZSBtZW1jcHkoKSB0byBjb21wbGV0ZSB0aGUgbWVtb3J5Cj4gPiBjb3B5LiBJIHVzZSB0aGUg
-Zm9sbG93aW5nIHNpbXBsZSBjYXNlIGFzIGFuIGV4YW1wbGUuCj4gPiB0ZXN0LmMKPiA+IHZvaWQg
-bWFpbih2b2lkKSB7Cj4gPiAgICAgcmV0dXJuOwo+ID4gfQo+ID4gVGhlbiwgd2UgY29tcGlsZSBp
-dCBieSAiZ2NjIHRlc3QuYyAtbyBhLm91dCIgYW5kIGV4ZWN1dGUgaXQuIEluIHRoZQo+ID4gZXhl
-Y3V0aW9uLCB0aGUgbWVtY3B5KCkgaGFzIGJlZW4gY2FsbGVkIHVuZXhwZWN0ZWRseS4gSXQgaXMg
-YmVjYXVzZQo+ID4gbWFueSBsaWJjIGluaXRpYWxpemVkIGZ1bmN0aW9ucyB3aWxsIGJlIGV4ZWN1
-dGVkIGJlZm9yZSBlbnRlcmluZyB0aGUKPiA+IHVzZXItZGVmaW5lZCBtYWluIGZ1bmN0aW9uLiBP
-bmUgb2YgdGhlIGV4YW1wbGUgaXMgX19saWJjX3NldHVwX3RscygpLAo+ID4gd2hpY2ggaXMgY2Fs
-bGVkIGJ5IF9fbGliY19zdGFydF9tYWluKCkuIFRoZSBfX2xpYmNfc2V0dXBfdGxzKCkgd2lsbAo+
-ID4gdXNlIG1lbWNweSgpIGR1cmluZyB0aGUgcHJvY2VzcyBvZiBjcmVhdGluZyB0aGUgRHluYW1p
-YyBUaHJlYWQgVmVjdG9yCj4gPiAoRFRWKS4KPiA+IAo+ID4gVGhlcmVmb3JlLCBJIHRoaW5rIHRo
-ZSBtZW1jcHkoKSBpcyB3aWRlbHkgdXNlZCBpbiBtb3N0IHByb2dyYW1zLgo+ID4gCj4gCj4gWW91
-J3JlIG1pc3NpbmcgbXkgcG9pbnQuICBOb3QgZXZlcnkgKGFueT8pIHByb2dyYW0gc3BlbmRzIGEg
-bWFqb3JpdHkgb2YgdGhlCj4gdGltZSBkb2luZyBtZW1jcHkoKSwgYW5kIGV2ZW4gaWYgYSBwcm9n
-cmFtIGRpZCwgYWxsIG9mIG15IHBvaW50cyBhcmUgc3RpbGwKPiB2YWxpZC4KPiAKPiBQbGVhc2Ug
-cmVhZCB0aGUgZGlzY3Vzc2lvbiBpbiB0aGUgdGhyZWFkIEkgcmVmZXJlbmNlZCBhbmQgdGhlIHF1
-ZXN0aW9ucyBpbgo+IG15IHByaW9yIG1lc3NhZ2UuCgpmb3IgcGVvcGxlIHJlYWRpbmcgYWxvbmcg
-YXQgaG9tZSwgZG8gaGF2ZSBhIGRpZmZlcmVudCBsaW5rIGJ5IGNoYW5jZT8KCkkuZS4gdGhlIGxp
-bmsgdG8KCWh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvQ0FMQ0VUclcyUUhhMlRMdm5VdVZ4
-QUFoZXFjYlNaLTVfV1JYdERTQUdjYkc4TitndGRRLUpzb0F3VUlzWG9zTitCcVE5ckJFVWdAcHVi
-bGljLmdtYW5lLm9yZy8KaXMgbm90IGEga25vd24gbWVzc2FnZS1pZCBvbiBsb3JlLmtlcm5lbC5v
-cmcgaXQgc2VlbXMuCgoKVGhhbmtzCkhlaWtvCgo+ID4gPiBnZXQgcmVwb3J0ZWQgdG8gdXNlciBz
-cGFjZSAoaGludDogbm90IHdlbGwpPyAgQWNjb3JkaW5nIHRvIEdyZWVudGltZSwKPiA+ID4gUklT
-Qy1WIHZlY3RvciBpcyBzaW1pbGFyIHRvIEFSTSBTVkUsIHdoaWNoIGFsbG9jYXRlcyBtZW1vcnkg
-Zm9yIGNvbnRleHQKPiA+ID4gc3RhdGUgb24gZmlyc3QgdXNlIGFuZCBub3QgdW5jb25kaXRpb25h
-bGx5IGZvciBhbGwgcHJvY2Vzc2VzLgo+ID4gPgo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiAKCgoKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 25 Oct 2021 14:31:48 +0100,
+Paolo Bonzini <pbonzini@redhat.com> wrote:
+> 
+> On 09/10/21 04:12, Sean Christopherson wrote:
+> > Move the put and reload of the vGIC out of the block/unblock callbacks
+> > and into a dedicated WFI helper.  Functionally, this is nearly a nop as
+> > the block hook is called at the very beginning of kvm_vcpu_block(), and
+> > the only code in kvm_vcpu_block() after the unblock hook is to update the
+> > halt-polling controls, i.e. can only affect the next WFI.
+> > 
+> > Back when the arch (un)blocking hooks were added by commits 3217f7c25bca
+> > ("KVM: Add kvm_arch_vcpu_{un}blocking callbacks) and d35268da6687
+> > ("arm/arm64: KVM: arch_timer: Only schedule soft timer on vcpu_block"),
+> > the hooks were invoked only when KVM was about to "block", i.e. schedule
+> > out the vCPU.  The use case at the time was to schedule a timer in the
+> > host based on the earliest timer in the guest in order to wake the
+> > blocking vCPU when the emulated guest timer fired.  Commit accb99bcd0ca
+> > ("KVM: arm/arm64: Simplify bg_timer programming") reworked the timer
+> > logic to be even more precise, by waiting until the vCPU was actually
+> > scheduled out, and so move the timer logic from the (un)blocking hooks to
+> > vcpu_load/put.
+> > 
+> > In the meantime, the hooks gained usage for enabling vGIC v4 doorbells in
+> > commit df9ba95993b9 ("KVM: arm/arm64: GICv4: Use the doorbell interrupt
+> > as an unblocking source"), and added related logic for the VMCR in commit
+> > 5eeaf10eec39 ("KVM: arm/arm64: Sync ICH_VMCR_EL2 back when about to block").
+> > 
+> > Finally, commit 07ab0f8d9a12 ("KVM: Call kvm_arch_vcpu_blocking early
+> > into the blocking sequence") hoisted the (un)blocking hooks so that they
+> > wrapped KVM's halt-polling logic in addition to the core "block" logic.
+> > 
+> > In other words, the original need for arch hooks to take action _only_
+> > in the block path is long since gone.
+> > 
+> > Cc: Oliver Upton <oupton@google.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> 
+> This needs a word on why kvm_psci_vcpu_suspend does not need the
+> hooks.  Or it needs to be changed to also use kvm_vcpu_wfi in the PSCI
+> code, I don't know.
+> 
+> Marc, can you review and/or advise?
+
+I was looking at that over the weekend, and that's a pre-existing
+bug. I would have addressed it independently, but it looks like you
+already have queued the patch.
+
+I guess I'll have to revisit this once the whole thing lands
+somewhere.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
