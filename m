@@ -2,100 +2,102 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 58605C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 12:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 91595C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 14:48:22 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E10660EBD
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 12:31:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0E10660EBD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 4942A603E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 14:48:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4942A603E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x9ZMEeTZV7fou4RvLXlTGJuNEBzFHEjol9+JLs55P8Y=; b=dyHpiCAA0+fAjE
-	tf1S9CSkmm2Niwi3JzQGr1KNlJe3isDMUCEKTwJTVFC6EwU16pMQZ8hZOjGKhQkiMaRjlbE+Pf89U
-	x5WrQ1EFAxVx03ciYlvv4dVKRFTkQ+Tayv4Rgv1mp3p0+cylrQO4jsYrdcX2FtoIVPTVLZF2GME14
-	KNRCt6rxCOMncHcfiOCmPMyaUzsqAulqadRmRCZghaPyW9AceZDtRAPoZOb+Jn/OeXcPO9sIuGMdD
-	R6MAaKLTUKK/4zB6NS0eaZxMPCw4qKoB5oh58iFvdiTfGUVsV7415EBhHkYEgVQ0AKQwVMt2aIoah
-	sYPx9p0dPAxIajOA4Mgg==;
+	List-Owner; bh=9ot4dwqfRWHwcfZf2s9d5d4mTvVIgd9cbYA5aVN1nyM=; b=nmngw/3RtQgYLo
+	vLwB7og23Kr8J2uUaG6REPcNFC74j0K2CCln1MVpEwTYPXeGO42WHCnRhbGysD6BclFr3mN8lPSSb
+	5gbTHuoXkj7Crlw+dn3W3zFZunv5ke1YOC3i5MaO3HJ6CR8MV3dOTYGAPS1PTJJ+ZDnIh3jKJKHcI
+	WvyA50pezT7BwLxGDN8ubOzZDPs/d1p3eIetMlvD5HeyC2jnObatodO5OpsbzH3SdrzW/A3Zw76cZ
+	XIr7xNP7r8AdGkUG89Z8TQ/JczjoGXwP0KkMuT1suVs4jW8ctXkbTSMdB1w+tp1JAouqXPJPlUnS+
+	VhZMlzp+rN4sr9ZvbbgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfLbT-001nB7-KL; Tue, 26 Oct 2021 12:30:55 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1mfNkI-0023KE-UM; Tue, 26 Oct 2021 14:48:10 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfLbG-001n8A-H3; Tue, 26 Oct 2021 12:30:43 +0000
-Received: by mail-ed1-x535.google.com with SMTP id u13so13500437edy.10;
- Tue, 26 Oct 2021 05:30:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=LpU1v1dCuk7vKXavVtDbZayvAGEHB3SBMD5EXFZtZ6k=;
- b=fe46ol5lw3cD3afFUi2Umx428YjXhXauuaDDsblgAAw+0aRcBFpXqFGN8XMdJKeeuo
- KHF9cj6Pkok3CbwZzy/6edsBY5G++LMIOvs73daqx1UiQh/VmFsm1OPd0G/H5Kv0yyAd
- AxF+97+un7EqZWPCTtNfS0D0kzAGJCZhfx8iGyp2e3PT4xtlKSSe3zLjWghPNm1/O7Zh
- QlzuaVqJTGHF7A0Pn4aUiRsQNjFUNwQ/EzbMXEQLbzLDzL6Kqm0yhDtWgb7BGwOMU2PM
- pftDvA69DC+Q15tP5ZMlCilyigE8oGVblNNTzs3ZOk7IHqQMZE5GAx5RJsIIHOTnBQSM
- ZUAA==
+ id 1mfNkG-0023Ij-2B
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 14:48:09 +0000
+Received: by mail-pl1-x633.google.com with SMTP id n11so10498905plf.4
+ for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 07:48:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=t+GavL7jaDIOLO9+HWOF0JpCL4n+9982OXgOJJO3B68=;
+ b=mMtlNqAGEx5moOXiuoulPA91tzGA7QXfJoC+FMrgS7kXKDaeQEPhlrtU0/6hIAVeF6
+ 4XgOag3S8f64bxtieFkoj/CBTBoyg71uy6bYxr2fBQK7J8y0qvj3yp4nxsZiGo0ugwoy
+ chqWhQbdF2M/ss8dRD5cMeGRjF2i7TFbnWAE4XD/Gn+/ew4eCp8tBNWFi6mKqTjGiuSB
+ 4K+eMtDT8TA09mAfuKwzPO/bGE/KLqBK8ggRwFAk21MDpCSdzSupIOVWDECUMDk9Gucp
+ WDZDdD8wswuh2DToiC42rEb1Gvw+Zc82wwd7L/2Pn0t+7EwhXqTAcJo8pcrg6fGfmqKg
+ 9NUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=LpU1v1dCuk7vKXavVtDbZayvAGEHB3SBMD5EXFZtZ6k=;
- b=BPjUVCKsCzssmeRmWdVXa3j/+LuNRqECVV9pFP9gAksRHy1M2izwzcvKiO3yvH8j/A
- 41eaczCab6UUxdhcNqm4mpZJ9yJSTkzpVBikPkug9UKtZcYVYTRv9DPh2CiM1GgyRVIW
- zPRu1LiCA2Fbz5sbotpSBJgahh0ROLMqun5s+mmA5NculZV2DF6sGXAA4P6O1/p6phkD
- VXCOAZs8rgM6oSFGyVYVW0EdjMwZRbw53Z21Gvo1PAH7k2/c5/8mA/rWyEz/M8zmcOPM
- HUTBinaWVP2UyEKa805jUHJeCaf/leJEJuD43Y/ay0NQpN+j3mIIOtvxQJjET/SLmFKR
- XUBg==
-X-Gm-Message-State: AOAM530zO96kxfPrDG9bK27EwD8jTVCA6QnqYAbzgCgzXf//AAHuYCnn
- +qIo0CG0n9yH9edeuByXlgneNXHbndR9OeicX4Q=
-X-Google-Smtp-Source: ABdhPJw0HwSHJV1o+S4gqxwSQ2Ruk381U5XPFNCv7XzCLwUlUVolOdGkUhptgIdDY6mQTWN+g8ZKQaN/RBZ1IjUziGY=
-X-Received: by 2002:a05:6402:5194:: with SMTP id
- q20mr4402850edd.294.1635251437780; 
- Tue, 26 Oct 2021 05:30:37 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=t+GavL7jaDIOLO9+HWOF0JpCL4n+9982OXgOJJO3B68=;
+ b=CG0p5V/wjNklCt4z5qLa2LUo4eYwUenNv8T+saoW4mdt5xoJErx4vBF0C4GdglmgOC
+ nqDxgeywgCIaP9Uvx8UJCM7IulcliSHGSnpqA6OYxy0s468v1WEVFLIcsCJk5nVlYOBk
+ N30OXRozoWkrYAJ4DChqazxiWFXK4kBfNdwDW+DlI+zAd18k+mqEiA0hK5xaqNscN+Es
+ /v0zVx9if3x6Z3qMQvscFoKi+Uic/KViNOKRUXTB1XlbB+GyFbyRgtYfudIWwjsa/Pn8
+ YhPY++K6WdtjKgp8eZ1wCro82n/IbouAv4hN8t9ujqMaXTBAn0hGx/D/YAOG4pytSXCi
+ +1Kg==
+X-Gm-Message-State: AOAM531yDgtr6l+YqZlGjfgIlOJwVfUGsXOziSKKDcFOxQ29bdw9uDyP
+ TPhtKhmiZ0LRqlKoxuooFu80Gw==
+X-Google-Smtp-Source: ABdhPJwehmwFySoaS1hi2p+T+LiAO8upF6izWYrpOOMtkZkPW5L2hiCqpK0gC/Rhqd0TA7qN0BGQqw==
+X-Received: by 2002:a17:902:e88a:b0:140:25a7:4a1b with SMTP id
+ w10-20020a170902e88a00b0014025a74a1bmr22402882plg.67.1635259687236; 
+ Tue, 26 Oct 2021 07:48:07 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id fy8sm186294pjb.47.2021.10.26.07.48.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 26 Oct 2021 07:48:06 -0700 (PDT)
+Date: Tue, 26 Oct 2021 14:48:02 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Christian Borntraeger <borntraeger@de.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
+ Jing Zhang <jingzhangos@google.com>
+Subject: Re: [PATCH v2 00/43] KVM: Halt-polling and x86 APICv overhaul
+Message-ID: <YXgVIvYhABnrP2Jo@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <04b1a72e-47b4-4bde-eb9e-ba36c156ff0d@de.ibm.com>
 MIME-Version: 1.0
-References: <20211026100432.1730393-1-arnd@kernel.org>
- <20211026100432.1730393-2-arnd@kernel.org>
-In-Reply-To: <20211026100432.1730393-2-arnd@kernel.org>
-From: Max Filippov <jcmvbkbc@gmail.com>
-Date: Tue, 26 Oct 2021 05:30:26 -0700
-Message-ID: <CAMo8BfLN0Q+_K2fP9KVBPyqAMahtCSZB1MwLBRtQYcK3R35N7Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] futex: remove futex_cmpxchg detection
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
- Vineet Gupta <vgupta@kernel.org>, 
- Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, Chris Zankel <chris@zankel.net>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
- =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@collabora.com>, 
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- linux-snps-arc@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
- "open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>,
- linux-riscv@lists.infradead.org, linux-s390 <linux-s390@vger.kernel.org>,
- "open list:SUPERH" <linux-sh@vger.kernel.org>, 
- linux-um@lists.infradead.org, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
+Content-Disposition: inline
+In-Reply-To: <04b1a72e-47b4-4bde-eb9e-ba36c156ff0d@de.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_053042_589599_41E7B1B1 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20211026_074808_145533_D342EFF6 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +114,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 26, 2021 at 3:06 AM Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Now that all architectures have a working futex implementation
-> in any configuration, remove the runtime detection code.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arc/Kconfig              |  1 -
->  arch/arm/Kconfig              |  1 -
->  arch/arm64/Kconfig            |  1 -
->  arch/csky/Kconfig             |  1 -
->  arch/m68k/Kconfig             |  1 -
->  arch/riscv/Kconfig            |  1 -
->  arch/s390/Kconfig             |  1 -
->  arch/sh/Kconfig               |  1 -
->  arch/um/Kconfig               |  1 -
->  arch/um/kernel/skas/uaccess.c |  1 -
->  arch/xtensa/Kconfig           |  1 -
->  init/Kconfig                  |  8 --------
->  kernel/futex/core.c           | 35 -----------------------------------
->  kernel/futex/futex.h          |  6 ------
->  kernel/futex/syscalls.c       | 22 ----------------------
->  15 files changed, 82 deletions(-)
+On Tue, Oct 26, 2021, Christian Borntraeger wrote:
+> Am 09.10.21 um 04:11 schrieb Sean Christopherson:
+> > This is basically two series smushed into one.  The first "half" aims
+> > to differentiate between "halt" and a more generic "block", where "halt"
+> > aligns with x86's HLT instruction, the halt-polling mechanisms, and
+> > associated stats, and "block" means any guest action that causes the vCPU
+> > to block/wait.
+> > 
+> > The second "half" overhauls x86's APIC virtualization code (Posted
+> > Interrupts on Intel VMX, AVIC on AMD SVM) to do their updates in response
+> > to vCPU (un)blocking in the vcpu_load/put() paths, keying off of the
+> > vCPU's rcuwait status to determine when a blocking vCPU is being put and
+> > reloaded.  This idea comes from arm64's kvm_timer_vcpu_put(), which I
+> > stumbled across when diving into the history of arm64's (un)blocking hooks.
+> > 
+> > The x86 APICv overhaul allows for killing off several sets of hooks in
+> > common KVM and in x86 KVM (to the vendor code).  Moving everything to
+> > vcpu_put/load() also realizes nice cleanups, especially for the Posted
+> > Interrupt code, which required some impressive mental gymnastics to
+> > understand how vCPU task migration interacted with vCPU blocking.
+> > 
+> > Non-x86 folks, sorry for the noise.  I'm hoping the common parts can get
+> > applied without much fuss so that future versions can be x86-only.
+> > 
+> > v2:
+> >   - Collect reviews. [Christian, David]
+> >   - Add patch to move arm64 WFI functionality out of hooks. [Marc]
+> >   - Add RISC-V to the fun.
+> >   - Add all the APICv fun.
+> 
+> Have we actually followed up on the regression regarding halt_poll_ns=0 no longer disabling
+> polling for running systems?
 
-For xtensa:
-Acked-by: Max Filippov <jcmvbkbc@gmail.com>
-
--- 
-Thanks.
--- Max
+No, I have that conversation flagged but haven't gotten back to it.  I still like
+the idea of special casing halt_poll_ns=0 to override the capability.  I can send
+a proper patch for that unless there's a different/better idea?
 
 _______________________________________________
 linux-riscv mailing list
