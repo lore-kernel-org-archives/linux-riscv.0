@@ -2,85 +2,86 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CE29AC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 21:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 722C5C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 22:36:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 928E460EB4
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 21:29:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 928E460EB4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 92DB46109D
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 22:36:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 92DB46109D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=vy7goL+NCOEE+alUSURHL1WiytehagktbXpIZuERrTY=; b=LuViJWS9g3YHP52pDmgXeZWBLr
-	9Cx1nY91VF+lqzF4oEgTNUDeQXKh/v1oqK20p0f0pWfzR6H+Zs2r+LyoY/TbOA/605UQ8yycpcgjC
-	YMVSdIogKIOQIUYqpZ9WLAwxfwqL5sxLjYyAI5kVLKP8arqm2bsQbdH+/hJO5y93FU8kTfkWfkwOC
-	XzvxejPiUEOrXbk138JLEMCdW7ehUyylEp4wzmu9OwmK9odK2cAPnwYTSJVuh8lgZc8uhfpgv/n+X
-	oh78JPLFDKS397hQujP/dkTuTF/lh0+UcsrXMq8BFdMg1v0D3tNUk1ZuENL/UF5glwV6OlRMKjAiI
-	EpEbYtDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H5SqFouEBPuJ71dIz15MtQFoM3BkmdB5lxGjs8UjyQA=; b=BWQEw2+laB4Wq/
+	9XZXSSkPZtFQnquuR74NMAtEe7+ccEvcKFJx9UT3im/GskTyQH7vXlxW1lVo5MGaOSUyozhhBb9Ni
+	XDINH06RSVkdn10nScV4VoUz5nTXKIIFXM7u2IhKnbGoEV+5h7RxDKaff7NXZYQJfGfwH6CJGRUhJ
+	7ACyVnP7IFVeSNeonhcax14Fi/knlt7pKeza9YjjVbTHOPFQrCYXpzfkQyHf6wvVaBGaLN1vogmQc
+	JYS+j2CFExmg+dp7gw49zVrrRqd/QNUQOtpiItpHQ8ToaMjT1isCFEJhYznMyEcpMoN/hlB0ga2Vz
+	Phr4o6gW9GtIMO9kPbPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfU0c-0038KA-C1; Tue, 26 Oct 2021 21:29:26 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1mfV2v-003EQF-02; Tue, 26 Oct 2021 22:35:53 +0000
+Received: from mail-pg1-f172.google.com ([209.85.215.172])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfU0Y-0038Hg-0B
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 21:29:23 +0000
-Received: by mail-pl1-x631.google.com with SMTP id t11so463418plq.11
- for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 14:29:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=X1yvw8v24V21j1qpd79GOJAEoT3+gpiT6E0yn3IC3aQ=;
- b=HREgEwX3YODOMwk/WNLZ7ZIO2/xIygXyA8hdxDnbBKI+Iussc5tpqWaujep5MCHTKP
- pFhEYZZOAkBEBO6pfKukEL7+TEwDeN9OHUiBIS255udGXxSOrE27K5avVtBi/XkUjgGa
- ti36HIpRS43TWHhk2yUcRFL4cgXLkdqXlzqc99aE/uRdpE6U9efsqR2Sh6RDo7jUG8UO
- 1q+rEkuyyX0vQe/4b4fZQ5ARUuwYg6ccePdTSm2n4NdGPrzRZ+w6Si82jGRXpgpbPNnm
- DKs6slEjNbhMPdSMEECbCvpp9nbygugjZAyrf4p+YSKbdAsSdydHB9Us7HSP0Lkakzlt
- Brtg==
+ id 1mfV2q-003EPw-Mv
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 22:35:51 +0000
+Received: by mail-pg1-f172.google.com with SMTP id 75so973109pga.3
+ for <linux-riscv@lists.infradead.org>; Tue, 26 Oct 2021 15:35:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=X1yvw8v24V21j1qpd79GOJAEoT3+gpiT6E0yn3IC3aQ=;
- b=ExMLaZCIXoe2Ruber/KDQ5tvCVgUl61jqYBUN3/UTM5aM17cCMwndt9RvGWpl2f4Ys
- HyqSFieHj5DaLrHkLHjfFqvBCc1PrkJ8LaqP5d0hRTloQQoaTifi49Ro8R4Svlmj3D8K
- c44YLsjbbGA/e+A4DnmyF7VG+ZaQvLTPKQL2+xxu8K05LcA4tmYReyPyefc6KvALhkJR
- 0Ud2FKpysYLZUA4v7FmeOEyRS/XuljrYKEPwCaNA773otqdnBlDgq+QjII4+579KaMMc
- uOAmWZIThgH8lZGP9jte6qmWvOTklC0Y40jh+Twxf17AJMtDS9IrDbOoTyHFvBgmRi/4
- ogCg==
-X-Gm-Message-State: AOAM531+aJbwGYSZ64yhXPKd0aK2VvQXcvoif8yZzUl/Q1SLlzm1VaCN
- BJmjDgHClJr1/pkAHuervYRSeOg/1jjrZw==
-X-Google-Smtp-Source: ABdhPJwCyMI37tlKgyWmHooK2rsZ7SwWPtD6Ua1Foe/rbIK89fOyQw/XJiD6R2idUIMZifknivljFw==
-X-Received: by 2002:a17:902:8690:b0:13f:ffd6:6c63 with SMTP id
- g16-20020a170902869000b0013fffd66c63mr24777918plo.23.1635283757728; 
- Tue, 26 Oct 2021 14:29:17 -0700 (PDT)
-Received: from localhost ([2620:0:1000:5e10:676c:ab93:f48d:23ae])
- by smtp.gmail.com with ESMTPSA id p9sm23030680pfn.7.2021.10.26.14.29.16
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 26 Oct 2021 14:29:17 -0700 (PDT)
-Date: Tue, 26 Oct 2021 14:29:17 -0700 (PDT)
-X-Google-Original-Date: Sat, 23 Oct 2021 16:23:32 PDT (-0700)
-Subject: Re: [PATCH v7 1/3] riscv: Introduce CONFIG_RELOCATABLE
-In-Reply-To: <a6223864-7263-5450-0890-0f05a137d8c2@ghiti.fr>
-CC: alexandre.ghiti@canonical.com, mpe@ellerman.id.au, benh@kernel.crashing.org,
- paulus@samba.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-4d503326-d18d-4155-a595-91dc15cfb4f1@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=d6h96/Jo2WtjwhxBq3mNE5FgfNp/ARtOfBk0X+jX7S8=;
+ b=m4cEuqRczQxfPMPft81tN8CsE/yJC4tO18RJqzNl7RIRW7Y10Ckd/iSS2D5ktgMA23
+ 8H1vHS3xfXn2FbdBUSKCCCWGdrgjDdVi0bLatuUDIvag5NiZ9lJz/VUAsFSskLcT8dBH
+ Engcr/vctoXnY9rwnuDz5aD9EHntRYS5Min0+Brsl+hruP1Dpmh9zkzZt0AtS4TVAotu
+ ZiGMcLpX5DRC3IvbSkz8zU7ah/V5fHiXFaTxx2ld/stLRYBW6jntodPs0i9gJ/K7+AXB
+ jZnFQkX4ObqRWBB7XdtW8+ThI7T1dR4Pkc3rk5cLruqDWl9uSfwebbN9e2pJfnlao9q8
+ 9kRA==
+X-Gm-Message-State: AOAM533KjzjEH8VZqNQCiHxJZMF0b6d282liyNYpcVbhE1+quJUsPdj+
+ 8+V58e9rAtUMwFOdHrZzIR9Obm+f44A/c9YazJA=
+X-Google-Smtp-Source: ABdhPJw1C/QG5nQ3YLmvMldi5B4xw59S59BGDtrGj7JRvJJ2ycAP7raEhAPArufCRGDFacVqdgHvT3VvNglAq5njeSg=
+X-Received: by 2002:a63:b11:: with SMTP id 17mr21053404pgl.51.1635287747352;
+ Tue, 26 Oct 2021 15:35:47 -0700 (PDT)
+MIME-Version: 1.0
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-7-kernel@esmil.dk>
+ <163527959276.15791.14765586510805526101@swboyd.mtv.corp.google.com>
+In-Reply-To: <163527959276.15791.14765586510805526101@swboyd.mtv.corp.google.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Wed, 27 Oct 2021 00:35:36 +0200
+Message-ID: <CANBLGcyYb3yNit=GCy4w2zf2=CRtCJP7aCisR8=9n1f7okfCSg@mail.gmail.com>
+Subject: Re: [PATCH v2 06/16] clk: starfive: Add JH7100 clock generator driver
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Rob Herring <robh+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Michael Zhu <michael.zhu@starfivetech.com>,
+ Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_142922_078731_C39EC9EC 
-X-CRM114-Status: GOOD (  34.17  )
+X-CRM114-CacheID: sfid-20211026_153548_808707_CF5BB07F 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,214 +93,479 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 09 Oct 2021 10:20:20 PDT (-0700), alex@ghiti.fr wrote:
-> Arf, I have sent this patchset with the wrong email address. @Palmer
-> tell me if you want me to resend it correctly.
-
-Sorry for being kind of slow here.  It's fine: there's a "From:" in the 
-patch, and git picks those up so it'll match the signed-off-by line.  I 
-send pretty much all my patches that way, as I never managed to get my 
-Google address working correctly.
-
+On Tue, 26 Oct 2021 at 22:20, Stephen Boyd <sboyd@kernel.org> wrote:
+> Quoting Emil Renner Berthing (2021-10-21 10:42:13)
+> > +struct jh7100_clk {
+> > +       struct clk_hw hw;
+> > +       unsigned int idx;
+> > +       u32 max;
 >
-> Thanks,
+> Why u32?
+
+The idea here was to mirror the configuration register when all valid
+fields are set to their maximum value, so that the clk_ops methods
+could check which features of this clock was enabled. But you're right
+none of the methods actually need that and only the dividers use this
+to know the maximum divider value, so it might as well be an unsigned
+int max_div.
+
+> > +};
+> > +
+> > +struct clk_starfive_jh7100_priv {
+> > +       /* protect registers against overlapping read-modify-write */
+> > +       spinlock_t rmw_lock;
 >
-> Alex
+> Does overlapping mean concurrent?
+
+Yes, sorry.
+
+> Do different clks share the same registers?
+
+No, each clock has their own register, but they use that register both
+to gate the clock and other configuration. The Locking chapter of
+Documentation/driver-api/clk.rst talks about the prepare lock and the
+enable lock and then says:
+"However, access to resources that are shared between operations of
+the two groups needs to be protected by the drivers. An example of
+such a resource would be a register that controls both the clock rate
+and the clock enable/disable state."
+
+> > +       struct device *dev;
+> > +       void __iomem *base;
+> > +       struct clk_hw *pll[3];
+> > +       struct jh7100_clk reg[JH7100_CLK_PLL0_OUT];
+> > +};
+> > +
+> > +static int jh7100_clk_is_enabled(struct clk_hw *hw)
+> > +{
+> > +       struct jh7100_clk *clk = jh7100_clk_from(hw);
+> > +
+> > +       return !!(jh7100_clk_reg_get(clk) & JH7100_CLK_ENABLE);
+> > +}
+> > +
+> > +static int jh7100_clk_is_parent_enabled(struct clk_hw *hw)
+> > +{
+> > +       return clk_hw_is_enabled(clk_hw_get_parent(hw));
 >
-> On 10/9/21 7:12 PM, Alexandre Ghiti wrote:
->> From: Alexandre Ghiti <alex@ghiti.fr>
->>
->> This config allows to compile 64b kernel as PIE and to relocate it at
->> any virtual address at runtime: this paves the way to KASLR.
->> Runtime relocation is possible since relocation metadata are embedded into
->> the kernel.
+> Why do we need this function? The parent being enabled implies this clk
+> is enabled if this clk can't gate itself but then knowing this clk is
+> enabled is useful for what?
 
-IMO this should really be user selectable, at a bare minimum so it's testable.
-I just sent along a patch to do that (my power's off at home, so email is a bit
-wacky right now).
+Probably only useful to me getting an overview of which clocks were
+actually enabled by grepping clk_summary. I'll delete it.
 
-I haven't put this on for-next yet as I'm not sure if you had a fix for the
-kasan issue (which IIUC would conflict with this).
+...
 
->> Note that relocating at runtime introduces an overhead even if the
->> kernel is loaded at the same address it was linked at and that the compiler
->> options are those used in arm64 which uses the same RELA relocation
->> format.
->>
->> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
->> ---
->>  arch/riscv/Kconfig              | 12 ++++++++
->>  arch/riscv/Makefile             |  7 +++--
->>  arch/riscv/kernel/vmlinux.lds.S |  6 ++++
->>  arch/riscv/mm/Makefile          |  4 +++
->>  arch/riscv/mm/init.c            | 54 ++++++++++++++++++++++++++++++++-
->>  5 files changed, 80 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index ea16fa2dd768..043ba92559fa 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -213,6 +213,18 @@ config PGTABLE_LEVELS
->>  config LOCKDEP_SUPPORT
->>  	def_bool y
->>
->> +config RELOCATABLE
->> +	bool
->> +	depends on MMU && 64BIT && !XIP_KERNEL
->> +	help
->> +          This builds a kernel as a Position Independent Executable (PIE),
->> +          which retains all relocation metadata required to relocate the
->> +          kernel binary at runtime to a different virtual address than the
->> +          address it was linked at.
->> +          Since RISCV uses the RELA relocation format, this requires a
->> +          relocation pass at runtime even if the kernel is loaded at the
->> +          same address it was linked at.
->> +
->>  source "arch/riscv/Kconfig.socs"
->>  source "arch/riscv/Kconfig.erratas"
->>
->> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
->> index 0eb4568fbd29..2f509915f246 100644
->> --- a/arch/riscv/Makefile
->> +++ b/arch/riscv/Makefile
->> @@ -9,9 +9,12 @@
->>  #
->>
->>  OBJCOPYFLAGS    := -O binary
->> -LDFLAGS_vmlinux :=
->> +ifeq ($(CONFIG_RELOCATABLE),y)
->> +	LDFLAGS_vmlinux += -shared -Bsymbolic -z notext -z norelro
->> +	KBUILD_CFLAGS += -fPIE
->> +endif
->>  ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
->> -	LDFLAGS_vmlinux := --no-relax
->> +	LDFLAGS_vmlinux += --no-relax
->>  	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
->>  	CC_FLAGS_FTRACE := -fpatchable-function-entry=8
->>  endif
->> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
->> index 5104f3a871e3..862a8c09723c 100644
->> --- a/arch/riscv/kernel/vmlinux.lds.S
->> +++ b/arch/riscv/kernel/vmlinux.lds.S
->> @@ -133,6 +133,12 @@ SECTIONS
->>
->>  	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
->>
->> +	.rela.dyn : ALIGN(8) {
->> +		__rela_dyn_start = .;
->> +		*(.rela .rela*)
->> +		__rela_dyn_end = .;
->> +	}
->> +
->>  #ifdef CONFIG_EFI
->>  	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
->>  	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
->> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
->> index 7ebaef10ea1b..2d33ec574bbb 100644
->> --- a/arch/riscv/mm/Makefile
->> +++ b/arch/riscv/mm/Makefile
->> @@ -1,6 +1,10 @@
->>  # SPDX-License-Identifier: GPL-2.0-only
->>
->>  CFLAGS_init.o := -mcmodel=medany
->> +ifdef CONFIG_RELOCATABLE
->> +CFLAGS_init.o += -fno-pie
->> +endif
->> +
->>  ifdef CONFIG_FTRACE
->>  CFLAGS_REMOVE_init.o = $(CC_FLAGS_FTRACE)
->>  CFLAGS_REMOVE_cacheflush.o = $(CC_FLAGS_FTRACE)
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index c0cddf0fc22d..42041c12d496 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -20,6 +20,9 @@
->>  #include <linux/dma-map-ops.h>
->>  #include <linux/crash_dump.h>
->>  #include <linux/hugetlb.h>
->> +#ifdef CONFIG_RELOCATABLE
->> +#include <linux/elf.h>
->> +#endif
->>
->>  #include <asm/fixmap.h>
->>  #include <asm/tlbflush.h>
->> @@ -103,7 +106,7 @@ static void __init print_vm_layout(void)
->>  	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
->>  		  (unsigned long)high_memory);
->>  #ifdef CONFIG_64BIT
->> -	print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
->> +	print_mlm("kernel", (unsigned long)kernel_map.virt_addr,
->>  		  (unsigned long)ADDRESS_SPACE_END);
->>  #endif
->>  }
->> @@ -518,6 +521,44 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
->>  #error "setup_vm() is called from head.S before relocate so it should not use absolute addressing."
->>  #endif
->>
->> +#ifdef CONFIG_RELOCATABLE
->> +extern unsigned long __rela_dyn_start, __rela_dyn_end;
->> +
->> +static void __init relocate_kernel(void)
->> +{
->> +	Elf64_Rela *rela = (Elf64_Rela *)&__rela_dyn_start;
->> +	/*
->> +	 * This holds the offset between the linked virtual address and the
->> +	 * relocated virtual address.
->> +	 */
->> +	uintptr_t reloc_offset = kernel_map.virt_addr - KERNEL_LINK_ADDR;
->> +	/*
->> +	 * This holds the offset between kernel linked virtual address and
->> +	 * physical address.
->> +	 */
->> +	uintptr_t va_kernel_link_pa_offset = KERNEL_LINK_ADDR - kernel_map.phys_addr;
->> +
->> +	for ( ; rela < (Elf64_Rela *)&__rela_dyn_end; rela++) {
->> +		Elf64_Addr addr = (rela->r_offset - va_kernel_link_pa_offset);
->> +		Elf64_Addr relocated_addr = rela->r_addend;
->> +
->> +		if (rela->r_info != R_RISCV_RELATIVE)
->> +			continue;
->> +
->> +		/*
->> +		 * Make sure to not relocate vdso symbols like rt_sigreturn
->> +		 * which are linked from the address 0 in vmlinux since
->> +		 * vdso symbol addresses are actually used as an offset from
->> +		 * mm->context.vdso in VDSO_OFFSET macro.
->> +		 */
->> +		if (relocated_addr >= KERNEL_LINK_ADDR)
->> +			relocated_addr += reloc_offset;
->> +
->> +		*(Elf64_Addr *)addr = relocated_addr;
->> +	}
->> +}
->> +#endif /* CONFIG_RELOCATABLE */
->> +
->>  #ifdef CONFIG_XIP_KERNEL
->>  static void __init create_kernel_page_table(pgd_t *pgdir,
->>  					    __always_unused bool early)
->> @@ -625,6 +666,17 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>  	BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
->>  #endif
->>
->> +#ifdef CONFIG_RELOCATABLE
->> +	/*
->> +	 * Early page table uses only one PGDIR, which makes it possible
->> +	 * to map PGDIR_SIZE aligned on PGDIR_SIZE: if the relocation offset
->> +	 * makes the kernel cross over a PGDIR_SIZE boundary, raise a bug
->> +	 * since a part of the kernel would not get mapped.
->> +	 */
->> +	BUG_ON(PGDIR_SIZE - (kernel_map.virt_addr & (PGDIR_SIZE - 1)) < kernel_map.size);
->> +	relocate_kernel();
->> +#endif
->> +
->>  	pt_ops.alloc_pte = alloc_pte_early;
->>  	pt_ops.get_pte_virt = get_pte_virt_early;
->>  #ifndef __PAGETABLE_PMD_FOLDED
+> > +static int jh7100_clk_set_parent(struct clk_hw *hw, u8 index)
+> > +{
+> > +       struct jh7100_clk *clk = jh7100_clk_from(hw);
+> > +       u32 value = (u32)index << JH7100_CLK_MUX_SHIFT;
+> > +
+> > +       dev_dbg(jh7100_priv_from(clk)->dev, "set_parent(%s, %u)\n",
+> > +               clk_hw_get_name(&clk->hw), index);
+>
+> Please remove these dev_dbg() messages. We have tracepoints for general
+> clk operations and the driver shouldn't duplicate that.
+
+Gotcha.
+
+> > +
+> > +static const struct clk_ops jh7100_clk_inv_ops = {
+> > +       .is_enabled = jh7100_clk_is_parent_enabled,
+> > +       .get_phase = jh7100_clk_get_phase,
+> > +       .set_phase = jh7100_clk_set_phase,
+> > +       .debug_init = jh7100_clk_debug_init,
+> > +};
+> > +
+> > +#define JH7100_GATE(_idx, _name, _parent, _flags) [_idx] = { \
+>
+> Typical macro style is to tab out the \ to a single column
+
+Ah, thanks. Will fix.
+
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_gate_ops, \
+> > +       .parent = _parent, \
+> > +       .flags = CLK_SET_RATE_PARENT | (_flags), \
+> > +       .max = JH7100_CLK_ENABLE, \
+> > +}
+> > +
+> > +#define JH7100__DIV(_idx, _name, _parent, _max) [_idx] = { \
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_div_ops, \
+> > +       .parent = _parent, \
+> > +       .flags = 0, \
+> > +       .max = _max, \
+> > +}
+> > +
+> > +#define JH7100_GDIV(_idx, _name, _parent, _max, _flags) [_idx] = { \
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_gdiv_ops, \
+> > +       .parent = _parent, \
+> > +       .flags = (_flags), \
+> > +       .max = JH7100_CLK_ENABLE | (_max), \
+> > +}
+> > +
+> > +#define JH7100__MUX(_idx, _name, _parents) [_idx] = { \
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_mux_ops, \
+> > +       .parents = _parents, \
+> > +       .flags = 0, \
+> > +       .max = (ARRAY_SIZE(_parents) - 1) << JH7100_CLK_MUX_SHIFT, \
+> > +}
+> > +
+> > +#define JH7100_GMUX(_idx, _name, _parents, _flags) [_idx] = { \
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_gmux_ops, \
+> > +       .parents = _parents, \
+> > +       .flags = (_flags), \
+> > +       .max = JH7100_CLK_ENABLE | \
+> > +               ((ARRAY_SIZE(_parents) - 1) << JH7100_CLK_MUX_SHIFT), \
+> > +}
+> > +
+> > +#define JH7100__INV(_idx, _name, _parent) [_idx] = { \
+> > +       .name = _name, \
+> > +       .ops = &jh7100_clk_inv_ops, \
+> > +       .parent = _parent, \
+> > +       .flags = CLK_SET_RATE_PARENT, \
+> > +       .max = JH7100_CLK_INVERT, \
+> > +}
+> > +
+> > +static const struct {
+> > +       const char *name;
+> > +       const struct clk_ops *ops;
+> > +       union {
+> > +               const char *parent;
+> > +               const char *const *parents;
+> > +       };
+> > +       unsigned long flags;
+> > +       u32 max;
+> > +} jh7100_clk_data[] __initconst = {
+> > +       JH7100__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", cpundbus_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_DLA_ROOT, "dla_root", dla_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_DSP_ROOT, "dsp_root", dsp_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_GMACUSB_ROOT, "gmacusb_root", gmacusb_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_PERH0_ROOT, "perh0_root", perh0_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_PERH1_ROOT, "perh1_root", perh1_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_VIN_ROOT, "vin_root", vin_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_VOUT_ROOT, "vout_root", vout_root_sels),
+> > +       JH7100_GDIV(JH7100_CLK_AUDIO_ROOT, "audio_root", "pll0_out", 8, 0),
+> > +       JH7100__MUX(JH7100_CLK_CDECHIFI4_ROOT, "cdechifi4_root", cdechifi4_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_CDEC_ROOT, "cdec_root", cdec_root_sels),
+> > +       JH7100__MUX(JH7100_CLK_VOUTBUS_ROOT, "voutbus_root", voutbus_root_sels),
+> > +       JH7100__DIV(JH7100_CLK_CPUNBUS_ROOT_DIV, "cpunbus_root_div", "cpundbus_root", 2),
+> > +       JH7100__DIV(JH7100_CLK_DSP_ROOT_DIV, "dsp_root_div", "dsp_root", 4),
+> > +       JH7100__DIV(JH7100_CLK_PERH0_SRC, "perh0_src", "perh0_root", 4),
+> > +       JH7100__DIV(JH7100_CLK_PERH1_SRC, "perh1_src", "perh1_root", 4),
+> > +       JH7100_GDIV(JH7100_CLK_PLL0_TESTOUT, "pll0_testout", "perh0_src", 31, 0),
+> > +       JH7100_GDIV(JH7100_CLK_PLL1_TESTOUT, "pll1_testout", "dla_root", 31, 0),
+> > +       JH7100_GDIV(JH7100_CLK_PLL2_TESTOUT, "pll2_testout", "perh1_src", 31, 0),
+> > +       JH7100__MUX(JH7100_CLK_PLL2_REF, "pll2_refclk", pll2_refclk_sels),
+> > +       JH7100__DIV(JH7100_CLK_CPU_CORE, "cpu_core", "cpunbus_root_div", 8),
+> > +       JH7100__DIV(JH7100_CLK_CPU_AXI, "cpu_axi", "cpu_core", 8),
+> > +       JH7100__DIV(JH7100_CLK_AHB_BUS, "ahb_bus", "cpunbus_root_div", 8),
+> > +       JH7100__DIV(JH7100_CLK_APB1_BUS, "apb1_bus", "ahb_bus", 8),
+> > +       JH7100__DIV(JH7100_CLK_APB2_BUS, "apb2_bus", "ahb_bus", 8),
+> > +       JH7100_GATE(JH7100_CLK_DOM3AHB_BUS, "dom3ahb_bus", "ahb_bus", CLK_IGNORE_UNUSED),
+> > +       JH7100_GATE(JH7100_CLK_DOM7AHB_BUS, "dom7ahb_bus", "ahb_bus", CLK_IGNORE_UNUSED),
+> > +       JH7100_GATE(JH7100_CLK_U74_CORE0, "u74_core0", "cpu_core", CLK_IGNORE_UNUSED),
+> > +       JH7100_GDIV(JH7100_CLK_U74_CORE1, "u74_core1", "cpu_core", 8, CLK_IGNORE_UNUSED),
+> > +       JH7100_GATE(JH7100_CLK_U74_AXI, "u74_axi", "cpu_axi", CLK_IGNORE_UNUSED),
+> > +       JH7100_GATE(JH7100_CLK_U74RTC_TOGGLE, "u74rtc_toggle", "osc_sys", CLK_IGNORE_UNUSED),
+> > +       JH7100_GATE(JH7100_CLK_SGDMA2P_AXI, "sgdma2p_axi", "cpu_axi", 0),
+> > +       JH7100_GATE(JH7100_CLK_DMA2PNOC_AXI, "dma2pnoc_axi", "cpu_axi", 0),
+> > +       JH7100_GATE(JH7100_CLK_SGDMA2P_AHB, "sgdma2p_ahb", "ahb_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_DLA_BUS, "dla_bus", "dla_root", 4),
+> > +       JH7100_GATE(JH7100_CLK_DLA_AXI, "dla_axi", "dla_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DLANOC_AXI, "dlanoc_axi", "dla_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DLA_APB, "dla_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_VP6_CORE, "vp6_core", "dsp_root_div", 4, 0),
+> > +       JH7100__DIV(JH7100_CLK_VP6BUS_SRC, "vp6bus_src", "dsp_root", 4),
+> > +       JH7100_GDIV(JH7100_CLK_VP6_AXI, "vp6_axi", "vp6bus_src", 4, 0),
+> > +       JH7100__DIV(JH7100_CLK_VCDECBUS_SRC, "vcdecbus_src", "cdechifi4_root", 4),
+> > +       JH7100__DIV(JH7100_CLK_VDEC_BUS, "vdec_bus", "vcdecbus_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_VDEC_AXI, "vdec_axi", "vdec_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_VDECBRG_MAIN, "vdecbrg_mainclk", "vdec_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_VDEC_BCLK, "vdec_bclk", "vcdecbus_src", 8, 0),
+> > +       JH7100_GDIV(JH7100_CLK_VDEC_CCLK, "vdec_cclk", "cdec_root", 8, 0),
+> > +       JH7100_GATE(JH7100_CLK_VDEC_APB, "vdec_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_JPEG_AXI, "jpeg_axi", "cpunbus_root_div", 8, 0),
+> > +       JH7100_GDIV(JH7100_CLK_JPEG_CCLK, "jpeg_cclk", "cpunbus_root_div", 8, 0),
+> > +       JH7100_GATE(JH7100_CLK_JPEG_APB, "jpeg_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_GC300_2X, "gc300_2x", "cdechifi4_root", 8, 0),
+> > +       JH7100_GATE(JH7100_CLK_GC300_AHB, "gc300_ahb", "ahb_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_JPCGC300_AXIBUS, "jpcgc300_axibus", "vcdecbus_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_GC300_AXI, "gc300_axi", "jpcgc300_axibus", 0),
+> > +       JH7100_GATE(JH7100_CLK_JPCGC300_MAIN, "jpcgc300_mainclk", "jpcgc300_axibus", 0),
+> > +       JH7100__DIV(JH7100_CLK_VENC_BUS, "venc_bus", "vcdecbus_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_VENC_AXI, "venc_axi", "venc_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_VENCBRG_MAIN, "vencbrg_mainclk", "venc_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_VENC_BCLK, "venc_bclk", "vcdecbus_src", 8, 0),
+> > +       JH7100_GDIV(JH7100_CLK_VENC_CCLK, "venc_cclk", "cdec_root", 8, 0),
+> > +       JH7100_GATE(JH7100_CLK_VENC_APB, "venc_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_DDRPLL_DIV2, "ddrpll_div2", "pll1_out", 2, CLK_IGNORE_UNUSED),
+> > +       JH7100_GDIV(JH7100_CLK_DDRPLL_DIV4, "ddrpll_div4", "ddrpll_div2", 2, CLK_IGNORE_UNUSED),
+> > +       JH7100_GDIV(JH7100_CLK_DDRPLL_DIV8, "ddrpll_div8", "ddrpll_div4", 2, CLK_IGNORE_UNUSED),
+> > +       JH7100_GDIV(JH7100_CLK_DDROSC_DIV2, "ddrosc_div2", "osc_sys", 2, CLK_IGNORE_UNUSED),
+> > +       JH7100_GMUX(JH7100_CLK_DDRC0, "ddrc0", ddrc0_sels, CLK_IGNORE_UNUSED),
+> > +       JH7100_GMUX(JH7100_CLK_DDRC1, "ddrc1", ddrc1_sels, CLK_IGNORE_UNUSED),
+>
+> Is it really unused? Or it is CLK_IS_CRITICAL?
+
+Ah no. CLK_IS_CRITICAL is exactly what they are, thanks.
+
+> > +       JH7100_GATE(JH7100_CLK_DDRPHY_APB, "ddrphy_apb", "apb1_bus", CLK_IGNORE_UNUSED),
+> > +       JH7100__DIV(JH7100_CLK_NOC_ROB, "noc_rob", "cpunbus_root_div", 8),
+> > +       JH7100__DIV(JH7100_CLK_NOC_COG, "noc_cog", "dla_root", 8),
+> > +       JH7100_GATE(JH7100_CLK_NNE_AHB, "nne_ahb", "ahb_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_NNEBUS_SRC1, "nnebus_src1", "dsp_root", 4),
+> > +       JH7100__MUX(JH7100_CLK_NNE_BUS, "nne_bus", nne_bus_sels),
+> > +       JH7100_GATE(JH7100_CLK_NNE_AXI, "nne_axi", "nne_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_NNENOC_AXI, "nnenoc_axi", "nne_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DLASLV_AXI, "dlaslv_axi", "nne_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DSPX2C_AXI, "dspx2c_axi", "nne_bus", CLK_IGNORE_UNUSED),
+> > +       JH7100__DIV(JH7100_CLK_HIFI4_SRC, "hifi4_src", "cdechifi4_root", 4),
+> > +       JH7100__DIV(JH7100_CLK_HIFI4_COREFREE, "hifi4_corefree", "hifi4_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_HIFI4_CORE, "hifi4_core", "hifi4_corefree", 0),
+> > +       JH7100__DIV(JH7100_CLK_HIFI4_BUS, "hifi4_bus", "hifi4_corefree", 8),
+> > +       JH7100_GATE(JH7100_CLK_HIFI4_AXI, "hifi4_axi", "hifi4_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_HIFI4NOC_AXI, "hifi4noc_axi", "hifi4_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_SGDMA1P_BUS, "sgdma1p_bus", "cpunbus_root_div", 8),
+> > +       JH7100_GATE(JH7100_CLK_SGDMA1P_AXI, "sgdma1p_axi", "sgdma1p_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DMA1P_AXI, "dma1p_axi", "sgdma1p_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_X2C_AXI, "x2c_axi", "cpunbus_root_div", 8, CLK_IGNORE_UNUSED),
+> > +       JH7100__DIV(JH7100_CLK_USB_BUS, "usb_bus", "cpunbus_root_div", 8),
+> > +       JH7100_GATE(JH7100_CLK_USB_AXI, "usb_axi", "usb_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_USBNOC_AXI, "usbnoc_axi", "usb_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_USBPHY_ROOTDIV, "usbphy_rootdiv", "gmacusb_root", 4),
+> > +       JH7100_GDIV(JH7100_CLK_USBPHY_125M, "usbphy_125m", "usbphy_rootdiv", 8, 0),
+> > +       JH7100_GDIV(JH7100_CLK_USBPHY_PLLDIV25M, "usbphy_plldiv25m", "usbphy_rootdiv", 32, 0),
+> > +       JH7100__MUX(JH7100_CLK_USBPHY_25M, "usbphy_25m", usbphy_25m_sels),
+> > +       JH7100__DIV(JH7100_CLK_AUDIO_DIV, "audio_div", "audio_root", 131072),
+> > +       JH7100_GATE(JH7100_CLK_AUDIO_SRC, "audio_src", "audio_div", 0),
+> > +       JH7100_GATE(JH7100_CLK_AUDIO_12288, "audio_12288", "osc_aud", 0),
+> > +       JH7100_GDIV(JH7100_CLK_VIN_SRC, "vin_src", "vin_root", 4, 0),
+> > +       JH7100__DIV(JH7100_CLK_ISP0_BUS, "isp0_bus", "vin_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_ISP0_AXI, "isp0_axi", "isp0_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_ISP0NOC_AXI, "isp0noc_axi", "isp0_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_ISPSLV_AXI, "ispslv_axi", "isp0_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_ISP1_BUS, "isp1_bus", "vin_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_ISP1_AXI, "isp1_axi", "isp1_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_ISP1NOC_AXI, "isp1noc_axi", "isp1_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_VIN_BUS, "vin_bus", "vin_src", 8),
+> > +       JH7100_GATE(JH7100_CLK_VIN_AXI, "vin_axi", "vin_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_VINNOC_AXI, "vinnoc_axi", "vin_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_VOUT_SRC, "vout_src", "vout_root", 4, 0),
+> > +       JH7100__DIV(JH7100_CLK_DISPBUS_SRC, "dispbus_src", "voutbus_root", 4),
+> > +       JH7100__DIV(JH7100_CLK_DISP_BUS, "disp_bus", "dispbus_src", 4),
+> > +       JH7100_GATE(JH7100_CLK_DISP_AXI, "disp_axi", "disp_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_DISPNOC_AXI, "dispnoc_axi", "disp_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_SDIO0_AHB, "sdio0_ahb", "ahb_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SDIO0_CCLKINT, "sdio0_cclkint", "perh0_src", 24, 0),
+> > +       JH7100__INV(JH7100_CLK_SDIO0_CCLKINT_INV, "sdio0_cclkint_inv", "sdio0_cclkint"),
+> > +       JH7100_GATE(JH7100_CLK_SDIO1_AHB, "sdio1_ahb", "ahb_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SDIO1_CCLKINT, "sdio1_cclkint", "perh1_src", 24, 0),
+> > +       JH7100__INV(JH7100_CLK_SDIO1_CCLKINT_INV, "sdio1_cclkint_inv", "sdio1_cclkint"),
+> > +       JH7100_GATE(JH7100_CLK_GMAC_AHB, "gmac_ahb", "ahb_bus", 0),
+> > +       JH7100__DIV(JH7100_CLK_GMAC_ROOT_DIV, "gmac_root_div", "gmacusb_root", 8),
+> > +       JH7100_GDIV(JH7100_CLK_GMAC_PTP_REF, "gmac_ptp_refclk", "gmac_root_div", 31, 0),
+> > +       JH7100_GDIV(JH7100_CLK_GMAC_GTX, "gmac_gtxclk", "gmac_root_div", 255, 0),
+> > +       JH7100_GDIV(JH7100_CLK_GMAC_RMII_TX, "gmac_rmii_txclk", "gmac_rmii_ref", 8, 0),
+> > +       JH7100_GDIV(JH7100_CLK_GMAC_RMII_RX, "gmac_rmii_rxclk", "gmac_rmii_ref", 8, 0),
+> > +       JH7100__MUX(JH7100_CLK_GMAC_TX, "gmac_tx", gmac_tx_sels),
+> > +       JH7100__INV(JH7100_CLK_GMAC_TX_INV, "gmac_tx_inv", "gmac_tx"),
+> > +       JH7100__MUX(JH7100_CLK_GMAC_RX_PRE, "gmac_rx_pre", gmac_rx_pre_sels),
+> > +       JH7100__INV(JH7100_CLK_GMAC_RX_INV, "gmac_rx_inv", "gmac_rx_pre"),
+> > +       JH7100_GATE(JH7100_CLK_GMAC_RMII, "gmac_rmii", "gmac_rmii_ref", 0),
+> > +       JH7100_GDIV(JH7100_CLK_GMAC_TOPHYREF, "gmac_tophyref", "gmac_root_div", 127, 0),
+> > +       JH7100_GATE(JH7100_CLK_SPI2AHB_AHB, "spi2ahb_ahb", "ahb_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SPI2AHB_CORE, "spi2ahb_core", "perh0_src", 31, 0),
+> > +       JH7100_GATE(JH7100_CLK_EZMASTER_AHB, "ezmaster_ahb", "ahb_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_E24_AHB, "e24_ahb", "ahb_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_E24RTC_TOGGLE, "e24rtc_toggle", "osc_sys", 0),
+> > +       JH7100_GATE(JH7100_CLK_QSPI_AHB, "qspi_ahb", "ahb_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_QSPI_APB, "qspi_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_QSPI_REF, "qspi_refclk", "perh0_src", 31, 0),
+> > +       JH7100_GATE(JH7100_CLK_SEC_AHB, "sec_ahb", "ahb_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_AES, "aes_clk", "sec_ahb", 0),
+> > +       JH7100_GATE(JH7100_CLK_SHA, "sha_clk", "sec_ahb", 0),
+> > +       JH7100_GATE(JH7100_CLK_PKA, "pka_clk", "sec_ahb", 0),
+> > +       JH7100_GATE(JH7100_CLK_TRNG_APB, "trng_apb", "apb1_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_OTP_APB, "otp_apb", "apb1_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_UART0_APB, "uart0_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_UART0_CORE, "uart0_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_UART1_APB, "uart1_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_UART1_CORE, "uart1_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_SPI0_APB, "spi0_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SPI0_CORE, "spi0_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_SPI1_APB, "spi1_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SPI1_CORE, "spi1_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_I2C0_APB, "i2c0_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_I2C0_CORE, "i2c0_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_I2C1_APB, "i2c1_apb", "apb1_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_I2C1_CORE, "i2c1_core", "perh1_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_GPIO_APB, "gpio_apb", "apb1_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_UART2_APB, "uart2_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_UART2_CORE, "uart2_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_UART3_APB, "uart3_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_UART3_CORE, "uart3_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_SPI2_APB, "spi2_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SPI2_CORE, "spi2_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_SPI3_APB, "spi3_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_SPI3_CORE, "spi3_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_I2C2_APB, "i2c2_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_I2C2_CORE, "i2c2_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_I2C3_APB, "i2c3_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_I2C3_CORE, "i2c3_core", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_WDTIMER_APB, "wdtimer_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_WDT_CORE, "wdt_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER0_CORE, "timer0_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER1_CORE, "timer1_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER2_CORE, "timer2_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER3_CORE, "timer3_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER4_CORE, "timer4_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER5_CORE, "timer5_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GDIV(JH7100_CLK_TIMER6_CORE, "timer6_coreclk", "perh0_src", 63, 0),
+> > +       JH7100_GATE(JH7100_CLK_VP6INTC_APB, "vp6intc_apb", "apb2_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_PWM_APB, "pwm_apb", "apb2_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_MSI_APB, "msi_apb", "apb2_bus", 0),
+> > +       JH7100_GATE(JH7100_CLK_TEMP_APB, "temp_apb", "apb2_bus", 0),
+> > +       JH7100_GDIV(JH7100_CLK_TEMP_SENSE, "temp_sense", "osc_sys", 31, 0),
+> > +       JH7100_GATE(JH7100_CLK_SYSERR_APB, "syserr_apb", "apb2_bus", 0),
+> > +};
+> > +
+> > +static struct clk_hw *clk_starfive_jh7100_get(struct of_phandle_args *clkspec, void *data)
+> > +{
+> > +       struct clk_starfive_jh7100_priv *priv = data;
+> > +       unsigned int idx = clkspec->args[0];
+> > +
+> > +       if (idx >= JH7100_CLK_END) {
+> > +               dev_err(priv->dev, "invalid clock index %u\n", idx);
+>
+> We should pull this sort of error message up into the core instead of
+> have it in every driver. It also doesn't look very meaningful to print
+> the name of the device that's providing the clks vs. the name of the
+> device that's requesting the clk that can't be found.
+
+Makes sense. I'll just remove the message then.
+
+> > +               return ERR_PTR(-EINVAL);
+> > +       }
+> > +
+> > +       if (idx >= JH7100_CLK_PLL0_OUT)
+> > +               return priv->pll[idx - JH7100_CLK_PLL0_OUT];
+> > +
+> > +       return &priv->reg[idx].hw;
+> > +}
+> > +
+> > +static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
+>
+> Drop __init as this can be called after kernel init is over.
+
+Oh interesting, I'd like to know when that can happen. The comment for
+the builtin_platform_driver macro says it's just a wrapper for
+device_initcall.
+
+Won't we then need to remove all the __initconst tags too since the
+probe function walks through jh7100_clk_data which eventually
+references all __initconst data?
+
+> > +{
+> > +       struct clk_starfive_jh7100_priv *priv;
+> > +       unsigned int idx;
+> > +       int ret;
+> > +
+> > +       priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+> > +       if (!priv)
+> > +               return -ENOMEM;
+> > +
+> > +       spin_lock_init(&priv->rmw_lock);
+> > +       priv->dev = &pdev->dev;
+> > +       priv->base = devm_platform_ioremap_resource(pdev, 0);
+> > +       if (IS_ERR(priv->base))
+> > +               return PTR_ERR(priv->base);
+> > +
+> > +       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+> > +                                                        "osc_sys", 0, 40, 1);
+> > +       if (IS_ERR(priv->pll[0]))
+> > +               return PTR_ERR(priv->pll[0]);
+> > +
+> > +       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+> > +                                                        "osc_sys", 0, 64, 1);
+> > +       if (IS_ERR(priv->pll[1]))
+> > +               return PTR_ERR(priv->pll[1]);
+> > +
+> > +       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+> > +                                                        "pll2_refclk", 0, 55, 1);
+> > +       if (IS_ERR(priv->pll[2]))
+> > +               return PTR_ERR(priv->pll[2]);
+> > +
+> > +       for (idx = 0; idx < JH7100_CLK_PLL0_OUT; idx++) {
+> > +               u32 max_parent = (jh7100_clk_data[idx].max & JH7100_CLK_MUX_MASK) >>
+> > +                                JH7100_CLK_MUX_SHIFT;
+> > +               struct clk_init_data init = {
+> > +                       .name = jh7100_clk_data[idx].name,
+> > +                       .ops = jh7100_clk_data[idx].ops,
+> > +                       .num_parents = max_parent + 1,
+> > +                       .flags = jh7100_clk_data[idx].flags,
+> > +               };
+> > +               struct jh7100_clk *clk = &priv->reg[idx];
+> > +
+> > +               if (init.num_parents > 1)
+> > +                       init.parent_names = jh7100_clk_data[idx].parents;
+> > +               else
+> > +                       init.parent_names = &jh7100_clk_data[idx].parent;
+>
+> Can you use clk_parent_data instead of parent_names? To make the object
+> size even smaller you can use the DT index instead of the .fw_name
+> field.
+
+Ah cool. I'll look into that.
+
+> > +
+> > +               clk->hw.init = &init;
+> > +               clk->idx = idx;
+> > +               clk->max = jh7100_clk_data[idx].max;
+> > +
+> > +               ret = clk_hw_register(priv->dev, &clk->hw);
+>
+> Why not use devm_clk_hw_register()?
+
+I probably could. Just for my understanding that's just to avoid the
+loop on error below, because as a builtin driver the device won't
+otherwise go away, right?
+
+> > +               if (ret)
+> > +                       goto err;
+> > +       }
+> > +
+> > +       ret = devm_of_clk_add_hw_provider(priv->dev, clk_starfive_jh7100_get, priv);
+> > +       if (ret)
+> > +               goto err;
+> > +
+> > +       return 0;
+> > +err:
+> > +       while (idx)
+> > +               clk_hw_unregister(&priv->reg[--idx].hw);
+> > +       return ret;
+> > +}
+> > +
+> > +static const struct of_device_id clk_starfive_jh7100_match[] = {
+> > +       { .compatible = "starfive,jh7100-clkgen" },
+> > +       { /* sentinel */ }
+> > +};
+>
+> Please add MODULE_DEVICE_TABLE()
+
+Will do!
+
+Thank you.
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
