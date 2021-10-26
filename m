@@ -2,92 +2,74 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ED1DC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4FB20C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 02:11:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B5B0060E8B
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:37:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B5B0060E8B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
+	by mail.kernel.org (Postfix) with ESMTPS id 0EC396103C
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 02:11:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0EC396103C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ppf/ULG/H3opvSywOJvnqS4NiIH+iA6saxiUHJduraU=; b=js0mNPTt7XixR6Q5DFO7dKtBmN
-	l6BZZCjCMIsg1fj6ZOPvr4e3AM5cHevSNErQrtkq9PVa16M7SicNKVVkppP1IrHDQ1ldPbz6aXlxX
-	FQNXzosbWR4fTLvHh+SVr5tio9y8GdDNRLFayzBK5XYctffvqqKzNLuuttZE1bDeR17r8Ajqa/LXf
-	GFg+MokCYeaAeA+pd/i9zU0FKm2Z1cbJ4E985sUGIMqpA6xZC569lkQdJT/psCEmmg38C3lC+BPZ4
-	o88kaevYhnhPyA/eUjhLrcMHR28a9K5Amv/bj0T503hYF3ybr0eOjyOhzxbYH/hiJCgtI/w1cWkPB
-	lqsaF/Jg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:To:From:Subject:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=i+U6MFqBm/ggGAwcYBMbR0T0WT17qL3KYWlVkiiO4Xk=; b=EhaD8Kf1+1b3hU/J8tXjKDkW3M
+	19j7E2A8HMsjKKcPbyk1LdotLK42LNbWm49S5BON/V1cTJdUJNDNTJ1wCI9KIuDACP2co6CIE7po+
+	P9SI0zBk8nDlDNoO1tBgDcjLl0Wi3F6ycNVfGYXusXZLhR2m5NfX9/3goc525aYUCgrUmIdCV60FC
+	6q0oIDE92xWXjQzqA2acxTb7y8iQHbPMCI9scHCByFFXrF3J8Bh6Ab9TitonJk5zoub+HR4AyhzGI
+	q/fHrM2DT7es50IWwkTh7TKg3fnYLz2cZjhM6hsv0vKAnsjPZYtLa2oKNYCoNI4Nz1sXblmTi8r7S
+	BB6+ronQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfAT0-000N6K-E9; Tue, 26 Oct 2021 00:37:26 +0000
-Received: from gateway21.websitewelcome.com ([192.185.45.95])
+	id 1mfBvp-000TTi-Jt; Tue, 26 Oct 2021 02:11:17 +0000
+Received: from out4436.biz.mail.alibaba.com ([47.88.44.36])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfASw-000N4G-HY
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 00:37:24 +0000
-Received: from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8])
- by gateway21.websitewelcome.com (Postfix) with ESMTP id CD6EC400CD782
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 19:37:09 -0500 (CDT)
-Received: from box5620.bluehost.com ([162.241.219.59]) by cmsmtp with SMTP
- id fASjmhnWaOnCIfASjmMkmp; Mon, 25 Oct 2021 19:37:09 -0500
-X-Authority-Reason: nr=8
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
- s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
- Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=MXJyqQhA26LKDF72Wrnv1ROPWPI8gDzTAufAwrckO7o=; b=TmSfcxUK1xUugzT6nQ63ywy/Nz
- rIrcQAgZM/kaqTH7J5xu5/XOQurH89EIqsgSh35X5hgjd9lrP4bnflIyRXGaFjbSqZbVqYrMyt4Wz
- XkwrHGWfTULOx/7g1jO2krGMX;
-Received: from c-73-158-190-127.hsd1.ca.comcast.net ([73.158.190.127]:39272
- helo=[10.0.1.23]) by box5620.bluehost.com with esmtpsa (TLS1.2) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <re@w6rz.net>)
- id 1mfASj-004ORv-DX; Mon, 25 Oct 2021 18:37:09 -0600
-Subject: Re: Out-of-bounds access when hartid >= NR_CPUS
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-References: <CAMuHMdUPWOjJfJohxLJefHOrJBtXZ0xfHQt4=hXpUXnasiN+AQ@mail.gmail.com>
-From: Ron Economos <re@w6rz.net>
-Message-ID: <830eda64-6e66-c61b-ceaa-57be87783b2c@w6rz.net>
-Date: Mon, 25 Oct 2021 17:37:08 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+ id 1mfBvl-000TSh-HC
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 02:11:15 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R201e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e01424; MF=yun.wang@linux.alibaba.com;
+ NM=1; PH=DS; RN=31; SR=0; TI=SMTPD_---0UtjMs7q_1635214264; 
+Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
+ fp:SMTPD_---0UtjMs7q_1635214264) by smtp.aliyun-inc.com(127.0.0.1);
+ Tue, 26 Oct 2021 10:11:06 +0800
+Subject: Re: [PATCH v4 0/2] fix & prevent the missing preemption disabling
+From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
+To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
+ Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
+ Joe Lawrence <joe.lawrence@redhat.com>,
+ Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
+References: <32a36348-69ee-6464-390c-3a8d6e9d2b53@linux.alibaba.com>
+Message-ID: <71c21f78-9c44-fdb2-f8e2-d8544b3421bd@linux.alibaba.com>
+Date: Tue, 26 Oct 2021 10:09:12 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdUPWOjJfJohxLJefHOrJBtXZ0xfHQt4=hXpUXnasiN+AQ@mail.gmail.com>
+In-Reply-To: <32a36348-69ee-6464-390c-3a8d6e9d2b53@linux.alibaba.com>
 Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
- please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.158.190.127
-X-Source-L: No
-X-Exim-ID: 1mfASj-004ORv-DX
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-158-190-127.hsd1.ca.comcast.net ([10.0.1.23])
- [73.158.190.127]:39272
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 5
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_173722_787352_8C1B44CC 
-X-CRM114-Status: GOOD (  32.16  )
+X-CRM114-CacheID: sfid-20211025_191113_762243_362C929D 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,113 +81,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/25/21 8:54 AM, Geert Uytterhoeven wrote:
-
-> Hi all,
->
-> When booting a kernel with CONFIG_NR_CPUS=4 on Microchip PolarFire,
-> the 4th CPU either fails to come online, or the system crashes.
->
-> This happens because PolarFire has 5 CPU cores: hart 0 is an e51,
-> and harts 1-4 are u54s, with the latter becoming CPUs 0-3 in Linux:
->    - unused core has hartid 0 (sifive,e51),
->    - processor 0 has hartid 1 (sifive,u74-mc),
->    - processor 1 has hartid 2 (sifive,u74-mc),
->    - processor 2 has hartid 3 (sifive,u74-mc),
->    - processor 3 has hartid 4 (sifive,u74-mc).
->
-> I assume the same issue is present on the SiFive fu540 and fu740
-> SoCs, but I don't have access to these.  The issue is not present
-> on StarFive JH7100, as processor 0 has hartid 1, and processor 1 has
-> hartid 0.
->
-> arch/riscv/kernel/cpu_ops.c has:
->
->      void *__cpu_up_stack_pointer[NR_CPUS] __section(".data");
->      void *__cpu_up_task_pointer[NR_CPUS] __section(".data");
->
->      void cpu_update_secondary_bootdata(unsigned int cpuid,
->                                         struct task_struct *tidle)
->      {
->              int hartid = cpuid_to_hartid_map(cpuid);
->
->              /* Make sure tidle is updated */
->              smp_mb();
->              WRITE_ONCE(__cpu_up_stack_pointer[hartid],
->                         task_stack_page(tidle) + THREAD_SIZE);
->              WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
->
-> The above two writes cause out-of-bound accesses beyond
-> __cpu_up_{stack,pointer}_pointer[] if hartid >= CONFIG_NR_CPUS.
->
->      }
->
-> arch/riscv/kernel/smpboot.c:setup_smp(void) detects CPUs like this:
->
->      for_each_of_cpu_node(dn) {
->              hart = riscv_of_processor_hartid(dn);
->              if (hart < 0)
->                      continue;
->
->              if (hart == cpuid_to_hartid_map(0)) {
->                      BUG_ON(found_boot_cpu);
->                      found_boot_cpu = 1;
->                      early_map_cpu_to_node(0, of_node_to_nid(dn));
->                      continue;
->              }
->              if (cpuid >= NR_CPUS) {
->                      pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
->                              cpuid, hart);
->                      break;
->              }
->
->              cpuid_to_hartid_map(cpuid) = hart;
->              early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
->              cpuid++;
->      }
->
-> So cpuid >= CONFIG_NR_CPUS (too many CPU cores) is already rejected.
->
-> How to fix this?
->
-> We could skip hartids >= NR_CPUS, but that feels strange to me, as
-> you need NR_CPUS to be larger (much larger if the first usable hartid
-> is a large number) than the number of CPUs used.
-The Ubuntu distro config for HiFive Unmatched set this to CONFIG_NR_CPUS=8.
->
-> We could store the minimum hartid, and always subtract that when
-> accessing __cpu_up_{stack,pointer}_pointer[] (also in
-> arch/riscv/kernel/head.S), but that means unused cores cannot be in the
-> middle of the hartid range.
->
-> Are hartids guaranteed to be continuous? If not, we have no choice but
-> to index __cpu_up_{stack,pointer}_pointer[] by cpuid instead, which
-> needs a more expensive conversion in arch/riscv/kernel/head.S.
->
-> Thanks for your comments!
->
-> Gr{oetje,eeting}s,
->
->                          Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                  -- Linus Torvalds
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SnVzdCBhIHBpbmcsIHRvIHNlZSBpZiB0aGVyZSBhcmUgYW55IG1vcmUgY29tbWVudHMgOi1QCgpS
+ZWdhcmRzLApNaWNoYWVsIFdhbmcKCk9uIDIwMjEvMTAvMTgg5LiK5Y2IMTE6MzgsIOeOi+i0hyB3
+cm90ZToKPiBUaGUgdGVzdGluZyBzaG93IHRoYXQgcGVyZl9mdHJhY2VfZnVuY3Rpb25fY2FsbCgp
+IGFyZSB1c2luZyBzbXBfcHJvY2Vzc29yX2lkKCkKPiB3aXRoIHByZWVtcHRpb24gZW5hYmxlZCwg
+YWxsIHRoZSBjaGVja2luZyBvbiBDUFUgY291bGQgYmUgd3JvbmcgYWZ0ZXIgcHJlZW1wdGlvbi4K
+PiAKPiBBcyBQZXRlciBwb2ludCBvdXQsIHRoZSBzZWN0aW9uIGJldHdlZW4gZnRyYWNlX3Rlc3Rf
+cmVjdXJzaW9uX3RyeWxvY2svdW5sb2NrKCkKPiBwYWlyIHJlcXVpcmUgdGhlIHByZWVtcHRpb24g
+dG8gYmUgZGlzYWJsZWQgYXMgJ0RvY3VtZW50YXRpb24vdHJhY2UvZnRyYWNlLXVzZXMucnN0Jwo+
+IGV4cGxhaW5lZCwgYnV0IGN1cnJlbnRseSB0aGUgd29yayBpcyBkb25lIG91dHNpZGUgb2YgdGhl
+IGhlbHBlcnMuCj4gCj4gQW5kIHNpbmNlIHRoZSBpbnRlcm5hbCB1c2luZyBvZiB0cmFjZV90ZXN0
+X2FuZF9zZXRfcmVjdXJzaW9uKCkKPiBhbmQgdHJhY2VfY2xlYXJfcmVjdXJzaW9uKCkgYWxzbyBy
+ZXF1aXJlIHByZWVtcHRpb24gdG8gYmUgZGlzYWJsZWQsIHdlCj4gY2FuIGp1c3QgbWVyZ2UgdGhl
+IGxvZ2ljYWwgdG9nZXRoZXIuCj4gCj4gUGF0Y2ggMS8yIHdpbGwgbWFrZSBzdXJlIHByZWVtcHRp
+b24gZGlzYWJsZWQgd2hlbiByZWN1cnNpb24gbG9jayBzdWNjZWVkLAo+IHBhdGNoIDIvMiB3aWxs
+IGRvIHNtcF9wcm9jZXNzb3JfaWQoKSBjaGVja2luZyBhZnRlciB0cnlsb2NrKCkgdG8gYWRkcmVz
+cyB0aGUKPiBpc3N1ZS4KPiAKPiB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzhjN2Rl
+NDZkLTk4NjktYWE1ZS0yYmI5LTVkYmMyZWRhMzk1ZUBsaW51eC5hbGliYWJhLmNvbS8KPiB2Mjog
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL2IxZDdmZTQzLWNlODQtMGVkNy0zMmY3LWVhMWQx
+MmQwYjcxNkBsaW51eC5hbGliYWJhLmNvbS8KPiB2MzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+YWxsLzYwOWI1NjVhLWVkNmUtYTFkYS1mMDI1LTE2NjY5MWI1ZDk5NEBsaW51eC5hbGliYWJhLmNv
+bS8KPiAKPiBNaWNoYWVsIFdhbmcgKDIpOgo+ICAgZnRyYWNlOiBkaXNhYmxlIHByZWVtcHRpb24g
+d2hlbiByZWN1cnNpb24gbG9ja2VkCj4gICBmdHJhY2U6IGRvIENQVSBjaGVja2luZyBhZnRlciBw
+cmVlbXB0aW9uIGRpc2FibGVkCj4gCj4gIGFyY2gvY3NreS9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5j
+ICAgICB8ICAyIC0tCj4gIGFyY2gvcGFyaXNjL2tlcm5lbC9mdHJhY2UuYyAgICAgICAgICB8ICAy
+IC0tCj4gIGFyY2gvcG93ZXJwYy9rZXJuZWwva3Byb2Jlcy1mdHJhY2UuYyB8ICAyIC0tCj4gIGFy
+Y2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9mdHJhY2UuYyAgICB8ICAyIC0tCj4gIGFyY2gveDg2L2tl
+cm5lbC9rcHJvYmVzL2Z0cmFjZS5jICAgICB8ICAyIC0tCj4gIGluY2x1ZGUvbGludXgvdHJhY2Vf
+cmVjdXJzaW9uLmggICAgICB8IDIwICsrKysrKysrKysrKysrKysrKystCj4gIGtlcm5lbC9saXZl
+cGF0Y2gvcGF0Y2guYyAgICAgICAgICAgICB8IDEzICsrKysrKystLS0tLS0KPiAga2VybmVsL3Ry
+YWNlL2Z0cmFjZS5jICAgICAgICAgICAgICAgIHwgMTUgKysrKystLS0tLS0tLS0tCj4gIGtlcm5l
+bC90cmFjZS90cmFjZV9ldmVudF9wZXJmLmMgICAgICB8ICA2ICsrKy0tLQo+ICBrZXJuZWwvdHJh
+Y2UvdHJhY2VfZnVuY3Rpb25zLmMgICAgICAgfCAgNSAtLS0tLQo+ICAxMCBmaWxlcyBjaGFuZ2Vk
+LCAzNCBpbnNlcnRpb25zKCspLCAzNSBkZWxldGlvbnMoLSkKPiAKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
