@@ -2,91 +2,92 @@ Return-Path: <SRS0=5fxH=PO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89266C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ED1DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:37:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CD5C660F70
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:31:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CD5C660F70
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id B5B0060E8B
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Oct 2021 00:37:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B5B0060E8B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cvoC+Kj7OdnXES/iMo1sEHtUBeKrbnc+eTdyxjyCLbs=; b=zRbhQlbVZEvLM8
-	gGEozvqrvoPLf5YoF81u8j/mhEJs18AtazFsUtaKqjUSGXEaGqb742/fXNHoi+mn3xsNLbEP6VbMp
-	UNKBZlnu03kCLUeostRCR266tLqGJyM+NTDWh9lTBI5GIF++uQcp5PlsiJT6HeC2pY2hm8paoBMeg
-	GyktTdomZozVZA2dABAjv1DTt2QpDpLWHgSXo0jvT/s5rsbfHUJ7GDVy/35p//tCLlsIoaF5VY8hF
-	W0YHBy2DK3z2RYyCACrnDt8xbOpArev5XEt/U//vBNO6P77P989sU4gb2ksQUCtLgPF+eLRODzNXK
-	VNIcw6pIRcUVjHftwqKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ppf/ULG/H3opvSywOJvnqS4NiIH+iA6saxiUHJduraU=; b=js0mNPTt7XixR6Q5DFO7dKtBmN
+	l6BZZCjCMIsg1fj6ZOPvr4e3AM5cHevSNErQrtkq9PVa16M7SicNKVVkppP1IrHDQ1ldPbz6aXlxX
+	FQNXzosbWR4fTLvHh+SVr5tio9y8GdDNRLFayzBK5XYctffvqqKzNLuuttZE1bDeR17r8Ajqa/LXf
+	GFg+MokCYeaAeA+pd/i9zU0FKm2Z1cbJ4E985sUGIMqpA6xZC569lkQdJT/psCEmmg38C3lC+BPZ4
+	o88kaevYhnhPyA/eUjhLrcMHR28a9K5Amv/bj0T503hYF3ybr0eOjyOhzxbYH/hiJCgtI/w1cWkPB
+	lqsaF/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfAMY-000MMh-Bz; Tue, 26 Oct 2021 00:30:46 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1mfAT0-000N6K-E9; Tue, 26 Oct 2021 00:37:26 +0000
+Received: from gateway21.websitewelcome.com ([192.185.45.95])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfAMV-000MLA-Ub
- for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 00:30:45 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id i9so30337908ybi.8
- for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 17:30:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=GKpt6gbUiUnxRUWu5oj6hwoD4Hy59PUSCVuLvc1dxEQ=;
- b=RXv66RKwy6UqpmJo42NU6ImPtA0hhG8/Hy8v1NimoQYcVrEDXumRbWrcFjH1xV+Ock
- bXfHSE1/Aa52wxOkNcAfIoezAMn3Lpd9TvcFaLmUkm9YSD1ViBQO3RTcfNLjsQAEVwPO
- Sr04OJMjHKpOMiakJvt4bqsOkwBFejrv5vw1+yiMxdDWuSGB3dwrLvEHrZHaBDAxQ3uA
- mA+d2EtJEqyxDpUIrllz7ZzNwH/TJ1a18W6GZtWTatTAtJkG5uU+3x0kjP5oP99JIRpK
- 8UWvswhWCiyJQ6Wipr1qNVQ4eL1Iq7g7upvvOrcQcLjJqw8VVQGfniWrGznluMgNzjyV
- XYgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=GKpt6gbUiUnxRUWu5oj6hwoD4Hy59PUSCVuLvc1dxEQ=;
- b=bdeoHISghY0luGAao2e5ndQxJ9T9QlVN5bM5IHbmM7GOa5MtzFS1L5dZu02tbUP0R7
- pZbGntjvvRzgJS5QXA0MCX320lUOtextJzI182Be+Y2d2qw0zzEySHqizAvV4HAYN01R
- vVVUpr8bRYMnQ+Q6EpbfCFiB9IU5L6Pq0mq9fqgNaXrap4rpfOvHfZ4urZduhCoE2jd1
- BMfR5nB7AHcgt8OvOc64MVPpL0hcDF5k+SdbulpO6xoXCdQaigHAZQ79vw8tEt04LKDb
- c6xw16j0MHJbOvspAcxY87VguInhj2u2hcwq05xU9pYgtwmvTWe7LFCpnU8EDSjiEiZw
- EePw==
-X-Gm-Message-State: AOAM533r2FxrGxPawBSTBcXz6c8uYH1ZYaJ2pVs6hEdhZogUsZao3f7d
- +O50Hk2INq8FhpMZeLH6MpUAQJ/av07h9SqzckLcdw==
-X-Google-Smtp-Source: ABdhPJwkdfRIKjhmBppLm+T21H0QPHoD4LXXiPIYhqq5jQAumISBbcpXVG/c3VSAYycVKUykbWB0N2n0Rav/D4MlbEo=
-X-Received: by 2002:a5b:cce:: with SMTP id e14mr20273877ybr.486.1635208238648; 
- Mon, 25 Oct 2021 17:30:38 -0700 (PDT)
+ id 1mfASw-000N4G-HY
+ for linux-riscv@lists.infradead.org; Tue, 26 Oct 2021 00:37:24 +0000
+Received: from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8])
+ by gateway21.websitewelcome.com (Postfix) with ESMTP id CD6EC400CD782
+ for <linux-riscv@lists.infradead.org>; Mon, 25 Oct 2021 19:37:09 -0500 (CDT)
+Received: from box5620.bluehost.com ([162.241.219.59]) by cmsmtp with SMTP
+ id fASjmhnWaOnCIfASjmMkmp; Mon, 25 Oct 2021 19:37:09 -0500
+X-Authority-Reason: nr=8
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+ s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
+ Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=MXJyqQhA26LKDF72Wrnv1ROPWPI8gDzTAufAwrckO7o=; b=TmSfcxUK1xUugzT6nQ63ywy/Nz
+ rIrcQAgZM/kaqTH7J5xu5/XOQurH89EIqsgSh35X5hgjd9lrP4bnflIyRXGaFjbSqZbVqYrMyt4Wz
+ XkwrHGWfTULOx/7g1jO2krGMX;
+Received: from c-73-158-190-127.hsd1.ca.comcast.net ([73.158.190.127]:39272
+ helo=[10.0.1.23]) by box5620.bluehost.com with esmtpsa (TLS1.2) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <re@w6rz.net>)
+ id 1mfASj-004ORv-DX; Mon, 25 Oct 2021 18:37:09 -0600
+Subject: Re: Out-of-bounds access when hartid >= NR_CPUS
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <CAMuHMdUPWOjJfJohxLJefHOrJBtXZ0xfHQt4=hXpUXnasiN+AQ@mail.gmail.com>
+From: Ron Economos <re@w6rz.net>
+Message-ID: <830eda64-6e66-c61b-ceaa-57be87783b2c@w6rz.net>
+Date: Mon, 25 Oct 2021 17:37:08 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-3-saravanak@google.com>
- <CAMi1Hd0HvPOT277mx8hNTU9NQH2ti7h5qc5+rxOkRWwbfrhyQQ@mail.gmail.com>
- <CAGETcx_YZOd05Gg53ZR8mfVhFUzwQWo4MrrWF8JHF_DCwEtunw@mail.gmail.com>
- <CAMi1Hd3M--+V6jPTV=psYGpOqi3UeQBs_FHqOg=oUf1hH-EU4w@mail.gmail.com>
-In-Reply-To: <CAMi1Hd3M--+V6jPTV=psYGpOqi3UeQBs_FHqOg=oUf1hH-EU4w@mail.gmail.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Mon, 25 Oct 2021 17:30:02 -0700
-Message-ID: <CAGETcx9U130Oq-umrvXME4JhEpO0Wadoki3kNxx=0-YvTR6PtQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] drivers: bus: Delete CONFIG_SIMPLE_PM_BUS
-To: Amit Pundir <amit.pundir@linaro.org>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, Android Kernel Team <kernel-team@android.com>,
- linux-arm-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- John Stultz <john.stultz@linaro.org>
+In-Reply-To: <CAMuHMdUPWOjJfJohxLJefHOrJBtXZ0xfHQt4=hXpUXnasiN+AQ@mail.gmail.com>
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse,
+ please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.158.190.127
+X-Source-L: No
+X-Exim-ID: 1mfASj-004ORv-DX
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-158-190-127.hsd1.ca.comcast.net ([10.0.1.23])
+ [73.158.190.127]:39272
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 5
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211025_173044_017161_6C792A21 
-X-CRM114-Status: GOOD (  34.76  )
+X-CRM114-CacheID: sfid-20211025_173722_787352_8C1B44CC 
+X-CRM114-Status: GOOD (  32.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,84 +99,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 22, 2021 at 10:00 AM Amit Pundir <amit.pundir@linaro.org> wrote:
+On 10/25/21 8:54 AM, Geert Uytterhoeven wrote:
+
+> Hi all,
 >
-> On Fri, 22 Oct 2021 at 05:13, Saravana Kannan <saravanak@google.com> wrote:
-> >
-> > On Thu, Oct 21, 2021 at 4:21 AM Amit Pundir <amit.pundir@linaro.org> wrote:
-> > >
-> > > Hi Saravana,
-> > >
-> > > This patch broke v5.15-rc6 on RB5 (sm8250 | qcom/qrb5165-rb5.dts).
-> > > I can't boot past this point https://www.irccloud.com/pastebin/raw/Nv6ZwHmW.
-> >
-> > Amit top posting? How did that happen? :)
-> >
-> > The fact you are seeing this issue is super strange though. The driver
-> > literally does nothing other than allowing some sync_state() callbacks
-> > to happen. I also grepped for the occurence of "simple-bus" in
-> > arch/arm64/boot/dts/qcom/ and the only instance for 8250 is for the
-> > soc node.
-> >
-> > The only thing I can think of is that without my patch some
-> > sync_state() callbacks weren't getting called and maybe it was masking
-> > some other issue.
-> >
-> > Can you try to boot with this log (see log patch below) and see if the
-> > device hangs right after a sync_state() callback? Also, looking at the
-> > different sync_state() implementations in upstream, I'm guessing one
-> > of the devices isn't voting for interconnect bandwidth when it should
-> > have.
-> >
-> > Another thing you could do is boot without the simple-bus changes and
-> > then look for all instances of "state_synced" in /sys/devices and then
-> > see if any of them has the value "0" after boot up is complete.
+> When booting a kernel with CONFIG_NR_CPUS=4 on Microchip PolarFire,
+> the 4th CPU either fails to come online, or the system crashes.
 >
-> Turned out RB5 is not even reaching up to
-> device_links_flush_sync_list() and seem to be stuck somewhere in
-> device_links_driver_bound(). So I added more print logs to narrow down
-> to any specific lock state but those additional prints seem to have
-> added enough delay to unblock that particular driver (Serial:
-> 8250/16550 driver if I understood the logs correctly) and I eventually
-> booted to UI.
-
-Ugh... I think I know what's going on. It popped into my head over the weekend.
-
-Couple of ways to confirm my theory:
-1. After it finishes booting in both cases, can you compare the output
-of the command below? I'm expecting to see a significant drop in the
-number of device links.
-ls -l /sys/class/devlink | wc -l
-
-2. Can you try out this terrible hack patch (not final fix, no code
-reviews please) on top of Tot to see if it fixes your issue without
-having to add hacky logs?
-
-Thanks,
-Saravana
-
---- a/drivers/bus/simple-pm-bus.c
-+++ b/drivers/bus/simple-pm-bus.c
-@@ -38,10 +38,12 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
-         * a device that has a more specific driver.
-         */
-        if (match && match->data) {
--               if (of_property_match_string(np, "compatible",
-match->compatible) == 0)
-+               if (of_property_match_string(np, "compatible",
-match->compatible) == 0) {
-+                       of_platform_populate(np, NULL, lookup, &pdev->dev);
-                        return 0;
--               else
-+               } else {
-                        return -ENODEV;
-+               }
-        }
+> This happens because PolarFire has 5 CPU cores: hart 0 is an e51,
+> and harts 1-4 are u54s, with the latter becoming CPUs 0-3 in Linux:
+>    - unused core has hartid 0 (sifive,e51),
+>    - processor 0 has hartid 1 (sifive,u74-mc),
+>    - processor 1 has hartid 2 (sifive,u74-mc),
+>    - processor 2 has hartid 3 (sifive,u74-mc),
+>    - processor 3 has hartid 4 (sifive,u74-mc).
+>
+> I assume the same issue is present on the SiFive fu540 and fu740
+> SoCs, but I don't have access to these.  The issue is not present
+> on StarFive JH7100, as processor 0 has hartid 1, and processor 1 has
+> hartid 0.
+>
+> arch/riscv/kernel/cpu_ops.c has:
+>
+>      void *__cpu_up_stack_pointer[NR_CPUS] __section(".data");
+>      void *__cpu_up_task_pointer[NR_CPUS] __section(".data");
+>
+>      void cpu_update_secondary_bootdata(unsigned int cpuid,
+>                                         struct task_struct *tidle)
+>      {
+>              int hartid = cpuid_to_hartid_map(cpuid);
+>
+>              /* Make sure tidle is updated */
+>              smp_mb();
+>              WRITE_ONCE(__cpu_up_stack_pointer[hartid],
+>                         task_stack_page(tidle) + THREAD_SIZE);
+>              WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
+>
+> The above two writes cause out-of-bound accesses beyond
+> __cpu_up_{stack,pointer}_pointer[] if hartid >= CONFIG_NR_CPUS.
+>
+>      }
+>
+> arch/riscv/kernel/smpboot.c:setup_smp(void) detects CPUs like this:
+>
+>      for_each_of_cpu_node(dn) {
+>              hart = riscv_of_processor_hartid(dn);
+>              if (hart < 0)
+>                      continue;
+>
+>              if (hart == cpuid_to_hartid_map(0)) {
+>                      BUG_ON(found_boot_cpu);
+>                      found_boot_cpu = 1;
+>                      early_map_cpu_to_node(0, of_node_to_nid(dn));
+>                      continue;
+>              }
+>              if (cpuid >= NR_CPUS) {
+>                      pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
+>                              cpuid, hart);
+>                      break;
+>              }
+>
+>              cpuid_to_hartid_map(cpuid) = hart;
+>              early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
+>              cpuid++;
+>      }
+>
+> So cpuid >= CONFIG_NR_CPUS (too many CPU cores) is already rejected.
+>
+> How to fix this?
+>
+> We could skip hartids >= NR_CPUS, but that feels strange to me, as
+> you need NR_CPUS to be larger (much larger if the first usable hartid
+> is a large number) than the number of CPUs used.
+The Ubuntu distro config for HiFive Unmatched set this to CONFIG_NR_CPUS=8.
+>
+> We could store the minimum hartid, and always subtract that when
+> accessing __cpu_up_{stack,pointer}_pointer[] (also in
+> arch/riscv/kernel/head.S), but that means unused cores cannot be in the
+> middle of the hartid range.
+>
+> Are hartids guaranteed to be continuous? If not, we have no choice but
+> to index __cpu_up_{stack,pointer}_pointer[] by cpuid instead, which
+> needs a more expensive conversion in arch/riscv/kernel/head.S.
+>
+> Thanks for your comments!
+>
+> Gr{oetje,eeting}s,
+>
+>                          Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                  -- Linus Torvalds
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
