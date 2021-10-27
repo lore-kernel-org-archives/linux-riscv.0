@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 779BBC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B91C4C4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:22:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 407406113E
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:21:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 407406113E
+	by mail.kernel.org (Postfix) with ESMTPS id 894576023F
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:22:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 894576023F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B4AvsM3BHy8scl4OJhq/Bfugm1vCBEZj1/2eKdLcgzg=; b=zpyXKuD3zoRkxW
-	ev0CPLCvg+frWm9fWSHfowK2IZ464C4EFXZxcGMpgikcArOOW3GiTNqlAeaUqZSWbbmVFxrLlxpTF
-	ovuHLUMXKICZoA0hQzR4Y9fUrxNheCuwA43icLnzEG5Mp6ivbS5xbefkOpYgfR2Hr1lrJr39kDdkR
-	IfbZIBnknwu5QnrXjC1GRcHz0KwgvKStaw7xhS2mO8oikAsLY6wdMYUY/+5WcuPNPkgNbeBVR2EM0
-	K+W9JU0QIX1Vx9q9OyBUi9Ct8RWyzW5ZvcSAAi6/RDEbZCqWDY4i85G6Jxx7hg/VO1VwmXkXad8SB
-	Csq+VeiPbvRMzk5xtnlg==;
+	List-Owner; bh=sP+jzTSsbU7tBLDPsCy63L1khUP90LJQuFodY1BumjY=; b=yxGb+qJVsA3qxc
+	pSweeSGiH3dhsu+5/RqhkZTYgBQv2nlYTVto33VJs5LEFOwyIzyLTeATToAKu9zWSc8YhsLVQu/TW
+	VAL7wVgyUgQdvlprWieZ8+XhsZoHfywJ5cnAF+l4BaLvzcuhcuFIn3yfmYEhn6dttqHcckqpisabs
+	XqIiNW/dBtjBo/xtEz700bk0faJzqBqgkylP2+bgycP6AZ4ffExBuZjBMhiBUMCYuJl2l4VDEGk9w
+	r0yM4VVA0juWAFUks+tZxOsCqnGHOcxWonomlokpxUfqQhcD0+sDlxZkFZ8RwFnIEDj7jqo0J1pb3
+	KdL2JZcvVNxgFXMnVrgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqMb-006Cbf-LC; Wed, 27 Oct 2021 21:21:37 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1mfqMz-006Cru-LO; Wed, 27 Oct 2021 21:22:01 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqJd-006Aip-Na; Wed, 27 Oct 2021 21:18:39 +0000
-Received: by mail-lf1-x130.google.com with SMTP id bq11so8955565lfb.10;
- Wed, 27 Oct 2021 14:18:33 -0700 (PDT)
+ id 1mfqJh-006AlG-EK; Wed, 27 Oct 2021 21:18:40 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id y26so8915147lfa.11;
+ Wed, 27 Oct 2021 14:18:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=guWA5fFZeGPtiBZOYoQcCwu2VFdVsVhLW9/JhrymZ0g=;
- b=Y3ajD9hSFiO6I4QqBgfg35JQ5CG9aR8SawQdCZ/PvBPpTrKpea4VQPEYGG2e2LlPNw
- INBF/7ltt3G3417Dh9CdQfPTHSkRg6FMpjv8P1ntJFwpZqSV1uSTE4GmrYnNoXeajbha
- R/xICM0awt4oVDfnXFmFRQIZuNOfUQCww36nBDR3iRSiJcFpUgR7ytoBp8ilJAXX1BoV
- q3WrRdzyqUShxUhnVnyU+VPDZDBm93MNtu5SNFBPibM7EM2q+6x7IVUVp7KS5HkYIUo5
- 6/azutWfWLEZTqcTTzvxBwc0sMsrgJicmN8uMy0n0bR+IWtSXzppNigQSpvDusN76BYk
- OmuA==
+ bh=rTg0c6UJkUtA3xox9iyqZdpwaCfteR79knUJVekTw18=;
+ b=IOOovw4HthrHOXjOs46Y3yITm9+R54zah3HqdDtgfe0CoTVx3Ny/qQfSWJECq3va5v
+ POFxHfUV4nFfAVF/2xQmQF0GAuAxqBjz1BtRvOKx4MR0EfN6IoGEZZUqz+WUpBWyPywt
+ GrOnqTwA95eu+J8qffyJd/WsYZnQLcqOy0MiUotidUtoWBtzitEMBsbvSCmIUhOFOmfU
+ TN0N1IIFJs2PwhqjyrirBl5OZM0AJ4ETZ7OvQijCQBnaCq4fjrrAiLoAARG8gCOMWpFL
+ isJ90k/kflRmNXJGxu4rOU7Ttcg3V2boCXpvP5Lo62Urd2fuc4VonqYdYqPHg73Ap8Wn
+ SfNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=guWA5fFZeGPtiBZOYoQcCwu2VFdVsVhLW9/JhrymZ0g=;
- b=liNbCV7uqdQsyVY1V31/xs36p1d/IKzZ92RGTM4w+QdH6ZVJo/+D3EdHbULM90RnPC
- h6tGb36drsxbnD/l32tpcLJeuABu3werM6ZYyBev2/zkevfI8lMdh5JT6//wr5VNTM3V
- 6J0aNloC0hu3RAWtVF+ggShaki3XBwkKjGfY11HKrvG3OM3bf9NcRU2WQinFbr9lJmTE
- 0rDKxxkJRSoVoOzc36VTEDZNMA1NVgABdhVYMcmYRzvRNHSef1T8GMYQtZsx+fX1W3eG
- tfaFU9gXW1BKivBJnk1r80RGX5aw3j0Tu3sYGBk2svl8A+BzgSMc/nx7uvpdu7hNEQZi
- /HWg==
-X-Gm-Message-State: AOAM532FTkADeVxEoISwjVYoRx61IYf4ewyU+hIi2RUr4s+93yqnmYRo
- a+64TBrMgzNsVi183rja7yo=
-X-Google-Smtp-Source: ABdhPJw9hBA3rUBC1cmHCV5isZVZ9pveXdrJpcvckt2xCHU4v9xkBuaEqDJVomXcVNELr8shz4+44g==
-X-Received: by 2002:a05:6512:324d:: with SMTP id
- c13mr91026lfr.349.1635369512043; 
- Wed, 27 Oct 2021 14:18:32 -0700 (PDT)
+ bh=rTg0c6UJkUtA3xox9iyqZdpwaCfteR79knUJVekTw18=;
+ b=4dDksl39kEHLG46Vd383HClfGm3P6FbNv3O0Z0CpcDoOo02m2gXBgG0c1+H/+gkONr
+ ZYIiopxwdAw5MML1e63nsqShYNu1cVmlB3i1CMLWnDD1+prvnF/zA1491AT54+qZlEeo
+ L4Nkh1v6qmKeyLAu3rTw97BhahiemNd/XgFc+2s93ChUi5VuHERf3lfPFQrq32jK6Mlq
+ 9iV+WEHhkqzgutooSmr9gAIDf67E0qTsHG1ZnVHIN6zkvOFo8+oHzOvw3GFBQa4IzzTY
+ EO3yh1ymFk4Cy8sIaiZlPieqckimhbVG9DeZsYPXNYLWlRzZb8qOgBrzqQfNYi6bwcu7
+ h8IA==
+X-Gm-Message-State: AOAM533WXbEjOEQ8IT8Tya4dOGro0YWR9q+dPdtHJbhRgLP5hNRPLz9U
+ NQ5N9GWtGtPzY3g8H07ivHM=
+X-Google-Smtp-Source: ABdhPJxFzFVD2w1ioavz6oJ1REfrGLdo1ULxWozIc4isKil/5p3npr9c6ZJggbEvwegyiOXfsqbr2g==
+X-Received: by 2002:a05:6512:3699:: with SMTP id
+ d25mr132127lfs.380.1635369515664; 
+ Wed, 27 Oct 2021 14:18:35 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.30
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:18:31 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:35 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -110,16 +110,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 21/45] m68k: Switch to new power-handler API
-Date: Thu, 28 Oct 2021 00:16:51 +0300
-Message-Id: <20211027211715.12671-22-digetx@gmail.com>
+Subject: [PATCH v2 23/45] ACPI: power: Switch to power-handler API
+Date: Thu, 28 Oct 2021 00:16:53 +0300
+Message-Id: <20211027211715.12671-24-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141833_908020_FA3C501F 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20211027_141837_609336_55D4DB60 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,132 +136,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel now supports chained power-off handlers. Use
-register_power_off_handler() that registers power-off handlers and
-do_kernel_power_off() that invokes chained power-off handlers. Legacy
-pm_power_off() will be removed once all drivers will be converted to
-the new power-off API.
-
-Normally arch code should adopt only the do_kernel_power_off() at first,
-but m68k is a special case because it uses pm_power_off() "inside out",
-i.e. pm_power_off() invokes machine_power_off() [in fact it does nothing],
-while it's machine_power_off() that should invoke the pm_power_off(), and
-thus, we can't convert platforms to the new API separately. There are only
-two platforms changed here, so it's not a big deal.
+Switch to power-handler API that replaces legacy pm_power_off callbacks.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/m68k/emu/natfeat.c         | 3 ++-
- arch/m68k/include/asm/machdep.h | 1 -
- arch/m68k/kernel/process.c      | 5 ++---
- arch/m68k/kernel/setup_mm.c     | 1 -
- arch/m68k/kernel/setup_no.c     | 1 -
- arch/m68k/mac/config.c          | 4 +++-
- 6 files changed, 7 insertions(+), 8 deletions(-)
+ drivers/acpi/sleep.c | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
 
-diff --git a/arch/m68k/emu/natfeat.c b/arch/m68k/emu/natfeat.c
-index 71b78ecee75c..b19dc00026d9 100644
---- a/arch/m68k/emu/natfeat.c
-+++ b/arch/m68k/emu/natfeat.c
-@@ -15,6 +15,7 @@
- #include <linux/string.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/reboot.h>
- #include <linux/io.h>
- #include <asm/machdep.h>
- #include <asm/natfeat.h>
-@@ -90,5 +91,5 @@ void __init nf_init(void)
- 	pr_info("NatFeats found (%s, %lu.%lu)\n", buf, version >> 16,
- 		version & 0xffff);
- 
--	mach_power_off = nf_poweroff;
-+	register_platform_power_off(nf_poweroff);
+diff --git a/drivers/acpi/sleep.c b/drivers/acpi/sleep.c
+index 3023224515ab..41b3ea867f8f 100644
+--- a/drivers/acpi/sleep.c
++++ b/drivers/acpi/sleep.c
+@@ -47,19 +47,11 @@ static void acpi_sleep_tts_switch(u32 acpi_state)
+ 	}
  }
-diff --git a/arch/m68k/include/asm/machdep.h b/arch/m68k/include/asm/machdep.h
-index 8fd80ef1b77e..8d8c3ee2069f 100644
---- a/arch/m68k/include/asm/machdep.h
-+++ b/arch/m68k/include/asm/machdep.h
-@@ -24,7 +24,6 @@ extern int (*mach_get_rtc_pll)(struct rtc_pll_info *);
- extern int (*mach_set_rtc_pll)(struct rtc_pll_info *);
- extern void (*mach_reset)( void );
- extern void (*mach_halt)( void );
--extern void (*mach_power_off)( void );
- extern unsigned long (*mach_hd_init) (unsigned long, unsigned long);
- extern void (*mach_hd_setup)(char *, int *);
- extern void (*mach_heartbeat) (int);
-diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
-index a6030dbaa089..e160a7c57bd3 100644
---- a/arch/m68k/kernel/process.c
-+++ b/arch/m68k/kernel/process.c
-@@ -67,12 +67,11 @@ void machine_halt(void)
  
- void machine_power_off(void)
+-static int tts_notify_reboot(struct notifier_block *this,
+-			unsigned long code, void *x)
++static void tts_reboot_prepare(struct reboot_prep_data *data)
  {
--	if (mach_power_off)
--		mach_power_off();
-+	do_kernel_power_off();
- 	for (;;);
+ 	acpi_sleep_tts_switch(ACPI_STATE_S5);
+-	return NOTIFY_DONE;
  }
  
--void (*pm_power_off)(void) = machine_power_off;
-+void (*pm_power_off)(void);
- EXPORT_SYMBOL(pm_power_off);
+-static struct notifier_block tts_notifier = {
+-	.notifier_call	= tts_notify_reboot,
+-	.next		= NULL,
+-	.priority	= 0,
+-};
+-
+ static int acpi_sleep_prepare(u32 acpi_state)
+ {
+ #ifdef CONFIG_ACPI_SLEEP
+@@ -1016,7 +1008,7 @@ static void acpi_sleep_hibernate_setup(void)
+ static inline void acpi_sleep_hibernate_setup(void) {}
+ #endif /* !CONFIG_HIBERNATION */
  
- void show_regs(struct pt_regs * regs)
-diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
-index 4b51bfd38e5f..50f4f120a4ff 100644
---- a/arch/m68k/kernel/setup_mm.c
-+++ b/arch/m68k/kernel/setup_mm.c
-@@ -98,7 +98,6 @@ EXPORT_SYMBOL(mach_get_rtc_pll);
- EXPORT_SYMBOL(mach_set_rtc_pll);
- void (*mach_reset)( void );
- void (*mach_halt)( void );
--void (*mach_power_off)( void );
- #ifdef CONFIG_HEARTBEAT
- void (*mach_heartbeat) (int);
- EXPORT_SYMBOL(mach_heartbeat);
-diff --git a/arch/m68k/kernel/setup_no.c b/arch/m68k/kernel/setup_no.c
-index 5e4104f07a44..00bf82258233 100644
---- a/arch/m68k/kernel/setup_no.c
-+++ b/arch/m68k/kernel/setup_no.c
-@@ -55,7 +55,6 @@ int (*mach_hwclk) (int, struct rtc_time*);
- /* machine dependent reboot functions */
- void (*mach_reset)(void);
- void (*mach_halt)(void);
--void (*mach_power_off)(void);
+-static void acpi_power_off_prepare(void)
++static void acpi_power_off_prepare(struct power_off_prep_data *data)
+ {
+ 	/* Prepare to power off the system */
+ 	acpi_sleep_prepare(ACPI_STATE_S5);
+@@ -1024,7 +1016,7 @@ static void acpi_power_off_prepare(void)
+ 	acpi_os_wait_events_complete();
+ }
  
- #ifdef CONFIG_M68000
- #if defined(CONFIG_M68328)
-diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
-index 5d16f9b47aa9..727320dedf08 100644
---- a/arch/m68k/mac/config.c
-+++ b/arch/m68k/mac/config.c
-@@ -12,6 +12,7 @@
+-static void acpi_power_off(void)
++static void acpi_power_off(struct power_off_data *data)
+ {
+ 	/* acpi_sleep_prepare(ACPI_STATE_S5) should have already been called */
+ 	pr_debug("%s called\n", __func__);
+@@ -1032,6 +1024,11 @@ static void acpi_power_off(void)
+ 	acpi_enter_sleep_state(ACPI_STATE_S5);
+ }
  
- #include <linux/errno.h>
- #include <linux/module.h>
-+#include <linux/reboot.h>
- #include <linux/types.h>
- #include <linux/mm.h>
- #include <linux/tty.h>
-@@ -139,7 +140,6 @@ void __init config_mac(void)
- 	mach_hwclk = mac_hwclk;
- 	mach_reset = mac_reset;
- 	mach_halt = mac_poweroff;
--	mach_power_off = mac_poweroff;
- #if IS_ENABLED(CONFIG_INPUT_M68K_BEEP)
- 	mach_beep = mac_mksound;
- #endif
-@@ -159,6 +159,8 @@ void __init config_mac(void)
- 
- 	if (macintosh_config->ident == MAC_MODEL_IICI)
- 		mach_l2_flush = via_l2_flush;
++static struct power_handler acpi_power_handler = {
++	.power_off_priority = POWEROFF_PRIO_FIRMWARE,
++	.reboot_prepare_cb = tts_reboot_prepare,
++};
 +
-+	register_platform_power_off(mac_poweroff);
+ int __init acpi_sleep_init(void)
+ {
+ 	char supported[ACPI_S_STATE_COUNT * 3 + 1];
+@@ -1048,8 +1045,8 @@ int __init acpi_sleep_init(void)
+ 
+ 	if (acpi_sleep_state_supported(ACPI_STATE_S5)) {
+ 		sleep_states[ACPI_STATE_S5] = 1;
+-		pm_power_off_prepare = acpi_power_off_prepare;
+-		pm_power_off = acpi_power_off;
++		acpi_power_handler.power_off_cb = acpi_power_off;
++		acpi_power_handler.power_off_prepare_cb = acpi_power_off_prepare;
+ 	} else {
+ 		acpi_no_s5 = true;
+ 	}
+@@ -1065,6 +1062,6 @@ int __init acpi_sleep_init(void)
+ 	 * Register the tts_notifier to reboot notifier list so that the _TTS
+ 	 * object can also be evaluated when the system enters S5.
+ 	 */
+-	register_reboot_notifier(&tts_notifier);
++	register_power_handler(&acpi_power_handler);
+ 	return 0;
  }
- 
- 
 -- 
 2.33.1
 
