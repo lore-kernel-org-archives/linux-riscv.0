@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28116C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A75A7C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:25:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BE4D460551
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:12:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BE4D460551
+	by mail.kernel.org (Postfix) with ESMTPS id 20B306023F
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:25:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 20B306023F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -19,26 +19,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:References:To:From:Subject:Reply-To:Cc:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=hDxNJAy+oJ+dOGJvcXsqypWTlOpvxY3zUwpYF1gCJj0=; b=4eEQUuptneZqdFI7JPd79+wQ9U
-	KxGxnZF3aJxb/IBS8ntjA4NBHgXWl0N5Ed8dmMN9CJG8V+xIOATQWq9zuaKebdYZXsZqF04ie0ws9
-	5IDXulunkJrUPVqwPSOJmzGjJSJoknarX3Tj9wHAMC1nSkYhLsFsPOzqO8dOSgjwiOpZYna6E9XjI
-	ff2RUhPdPnGcHcS61RUEFvlhwPBw7ENi2SlvARplowlBdbPDviEcBguX+5cgp0aqXeTiDZqX2SpTG
-	JKj6Y4mXU9bMSEQxpxskOwJ2MrEcY7Q7EFT+BjkKUW+8gmIkhCOScodND3ayPQy2yvjafCZn7i1za
-	5GQkcsEQ==;
+	bh=YG2Pt+H/p+og5kgrh/UUifDYaioyNnUefLRVrlf2Dig=; b=gqflZgFZA4hxb6WxuKcE3CA3fB
+	UKKPN0UOTJWaq8aL9ihlWeS5eEHwCrTfO5ge2M+Vrp8Weh//ZN3aTYT1RkLF+1FowbV4Ol+p0aeOu
+	XDpiqYzDudcEKO98wA6PeW83B4Em5uGsmr2cBNlXazP7i44DqdKfjbYGAAqwzgAmaxSfxTcHrg+Jd
+	1ishK2yEqmWOs0spCVd/r3PQq0yAb2xBgQ+9H4hZr9Q7Dfzp39b+ix7U4UkL6FHSkpnDubtJddbXf
+	0gbH9MR61WIpg1pGXPJFcXZR9UzCpDbIjnXzak1j3m+Ccy/4zJNVd9uz/mHCU+wOUe5g5h9CfLNWV
+	WaDHZrhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfYQL-003Z0m-CY; Wed, 27 Oct 2021 02:12:17 +0000
-Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
+	id 1mfYcg-003aaM-Ur; Wed, 27 Oct 2021 02:25:02 +0000
+Received: from out30-57.freemail.mail.aliyun.com ([115.124.30.57])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfYQI-003Yyu-0Q
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 02:12:16 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R151e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04394; MF=yun.wang@linux.alibaba.com;
- NM=1; PH=DS; RN=30; SR=0; TI=SMTPD_---0UtpxIGg_1635300725; 
+ id 1mfYcc-003aYo-Iw
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 02:25:00 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R181e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04426; MF=yun.wang@linux.alibaba.com;
+ NM=1; PH=DS; RN=30; SR=0; TI=SMTPD_---0UtqDAWD_1635301492; 
 Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
- fp:SMTPD_---0UtpxIGg_1635300725) by smtp.aliyun-inc.com(127.0.0.1);
- Wed, 27 Oct 2021 10:12:06 +0800
-Subject: [PATCH v6] ftrace: disable preemption when recursion locked
+ fp:SMTPD_---0UtqDAWD_1635301492) by smtp.aliyun-inc.com(127.0.0.1);
+ Wed, 27 Oct 2021 10:24:54 +0800
+Subject: Re: [PATCH v6] ftrace: disable preemption when recursion locked
 From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
 To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
  Ingo Molnar <mingo@redhat.com>,
@@ -60,16 +60,17 @@ To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
  linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
 References: <3ca92dc9-ea04-ddc2-71cd-524bfa5a5721@linux.alibaba.com>
  <333cecfe-3045-8e0a-0c08-64ff590845ab@linux.alibaba.com>
-Message-ID: <1d876d3f-b844-4e99-6043-af0b062dc315@linux.alibaba.com>
-Date: Wed, 27 Oct 2021 10:11:07 +0800
+ <1d876d3f-b844-4e99-6043-af0b062dc315@linux.alibaba.com>
+Message-ID: <9990f8c6-1d50-8be1-f2e3-eb2ad477527d@linux.alibaba.com>
+Date: Wed, 27 Oct 2021 10:24:52 +0800
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
  Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <333cecfe-3045-8e0a-0c08-64ff590845ab@linux.alibaba.com>
+In-Reply-To: <1d876d3f-b844-4e99-6043-af0b062dc315@linux.alibaba.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_191214_257067_D90BBBC4 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20211026_192458_808632_9E197CA8 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,310 +82,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the documentation explained, ftrace_test_recursion_trylock()
-and ftrace_test_recursion_unlock() were supposed to disable and
-enable preemption properly, however currently this work is done
-outside of the function, which could be missing by mistake.
-
-And since the internal using of trace_test_and_set_recursion()
-and trace_clear_recursion() also require preemption disabled, we
-can just merge the logical.
-
-This patch will make sure the preemption has been disabled when
-trace_test_and_set_recursion() return bit >= 0, and
-trace_clear_recursion() will enable the preemption if previously
-enabled.
-
-CC: Petr Mladek <pmladek@suse.com>
-CC: Steven Rostedt <rostedt@goodmis.org>
-CC: Miroslav Benes <mbenes@suse.cz>
-Reported-by: Abaci <abaci@linux.alibaba.com>
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Michael Wang <yun.wang@linux.alibaba.com>
----
- arch/csky/kernel/probes/ftrace.c     |  2 --
- arch/parisc/kernel/ftrace.c          |  2 --
- arch/powerpc/kernel/kprobes-ftrace.c |  2 --
- arch/riscv/kernel/probes/ftrace.c    |  2 --
- arch/x86/kernel/kprobes/ftrace.c     |  2 --
- include/linux/trace_recursion.h      | 13 ++++++++++++-
- kernel/livepatch/patch.c             | 13 +++++++------
- kernel/trace/ftrace.c                | 15 +++++----------
- kernel/trace/trace_functions.c       |  5 -----
- 9 files changed, 24 insertions(+), 32 deletions(-)
-
-diff --git a/arch/csky/kernel/probes/ftrace.c b/arch/csky/kernel/probes/ftrace.c
-index b388228..834cffc 100644
---- a/arch/csky/kernel/probes/ftrace.c
-+++ b/arch/csky/kernel/probes/ftrace.c
-@@ -17,7 +17,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 		return;
-
- 	regs = ftrace_get_regs(fregs);
--	preempt_disable_notrace();
- 	p = get_kprobe((kprobe_opcode_t *)ip);
- 	if (!p) {
- 		p = get_kprobe((kprobe_opcode_t *)(ip - MCOUNT_INSN_SIZE));
-@@ -57,7 +56,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 		__this_cpu_write(current_kprobe, NULL);
- 	}
- out:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
- NOKPROBE_SYMBOL(kprobe_ftrace_handler);
-diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
-index 7d14242..90c4345 100644
---- a/arch/parisc/kernel/ftrace.c
-+++ b/arch/parisc/kernel/ftrace.c
-@@ -210,7 +210,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 		return;
-
- 	regs = ftrace_get_regs(fregs);
--	preempt_disable_notrace();
- 	p = get_kprobe((kprobe_opcode_t *)ip);
- 	if (unlikely(!p) || kprobe_disabled(p))
- 		goto out;
-@@ -239,7 +238,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 	}
- 	__this_cpu_write(current_kprobe, NULL);
- out:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
- NOKPROBE_SYMBOL(kprobe_ftrace_handler);
-diff --git a/arch/powerpc/kernel/kprobes-ftrace.c b/arch/powerpc/kernel/kprobes-ftrace.c
-index 7154d58..072ebe7 100644
---- a/arch/powerpc/kernel/kprobes-ftrace.c
-+++ b/arch/powerpc/kernel/kprobes-ftrace.c
-@@ -26,7 +26,6 @@ void kprobe_ftrace_handler(unsigned long nip, unsigned long parent_nip,
- 		return;
-
- 	regs = ftrace_get_regs(fregs);
--	preempt_disable_notrace();
- 	p = get_kprobe((kprobe_opcode_t *)nip);
- 	if (unlikely(!p) || kprobe_disabled(p))
- 		goto out;
-@@ -61,7 +60,6 @@ void kprobe_ftrace_handler(unsigned long nip, unsigned long parent_nip,
- 		__this_cpu_write(current_kprobe, NULL);
- 	}
- out:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
- NOKPROBE_SYMBOL(kprobe_ftrace_handler);
-diff --git a/arch/riscv/kernel/probes/ftrace.c b/arch/riscv/kernel/probes/ftrace.c
-index aab85a8..7142ec4 100644
---- a/arch/riscv/kernel/probes/ftrace.c
-+++ b/arch/riscv/kernel/probes/ftrace.c
-@@ -15,7 +15,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 	if (bit < 0)
- 		return;
-
--	preempt_disable_notrace();
- 	p = get_kprobe((kprobe_opcode_t *)ip);
- 	if (unlikely(!p) || kprobe_disabled(p))
- 		goto out;
-@@ -52,7 +51,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 		__this_cpu_write(current_kprobe, NULL);
- 	}
- out:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
- NOKPROBE_SYMBOL(kprobe_ftrace_handler);
-diff --git a/arch/x86/kernel/kprobes/ftrace.c b/arch/x86/kernel/kprobes/ftrace.c
-index 596de2f..dd2ec14 100644
---- a/arch/x86/kernel/kprobes/ftrace.c
-+++ b/arch/x86/kernel/kprobes/ftrace.c
-@@ -25,7 +25,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 	if (bit < 0)
- 		return;
-
--	preempt_disable_notrace();
- 	p = get_kprobe((kprobe_opcode_t *)ip);
- 	if (unlikely(!p) || kprobe_disabled(p))
- 		goto out;
-@@ -59,7 +58,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
- 		__this_cpu_write(current_kprobe, NULL);
- 	}
- out:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
- NOKPROBE_SYMBOL(kprobe_ftrace_handler);
-diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
-index abe1a50..64c03ee 100644
---- a/include/linux/trace_recursion.h
-+++ b/include/linux/trace_recursion.h
-@@ -135,6 +135,9 @@ static __always_inline int trace_get_context_bit(void)
- # define do_ftrace_record_recursion(ip, pip)	do { } while (0)
- #endif
-
-+/*
-+ * Preemption is promised to be disabled when return bit >= 0.
-+ */
- static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsigned long pip,
- 							int start)
- {
-@@ -162,11 +165,19 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
- 	current->trace_recursion = val;
- 	barrier();
-
-+	preempt_disable_notrace();
-+
- 	return bit;
- }
-
-+/*
-+ * Preemption will be enabled (if it was previously enabled).
-+ */
- static __always_inline void trace_clear_recursion(int bit)
- {
-+	WARN_ON_ONCE(bit < 0);
-+
-+	preempt_enable_notrace();
- 	barrier();
- 	trace_recursion_clear(bit);
- }
-@@ -178,7 +189,7 @@ static __always_inline void trace_clear_recursion(int bit)
-  * tracing recursed in the same context (normal vs interrupt),
-  *
-  * Returns: -1 if a recursion happened.
-- *           >= 0 if no recursion
-+ *           >= 0 if no recursion.
-  */
- static __always_inline int ftrace_test_recursion_trylock(unsigned long ip,
- 							 unsigned long parent_ip)
-diff --git a/kernel/livepatch/patch.c b/kernel/livepatch/patch.c
-index e8029ae..b8d75fb 100644
---- a/kernel/livepatch/patch.c
-+++ b/kernel/livepatch/patch.c
-@@ -49,14 +49,16 @@ static void notrace klp_ftrace_handler(unsigned long ip,
-
- 	ops = container_of(fops, struct klp_ops, fops);
-
-+	/*
-+	 *
-+	 * The ftrace_test_recursion_trylock() will disable preemption,
-+	 * which is required for the variant of synchronize_rcu() that is
-+	 * used to allow patching functions where RCU is not watching.
-+	 * See klp_synchronize_transition() for more details.
-+	 */
- 	bit = ftrace_test_recursion_trylock(ip, parent_ip);
- 	if (WARN_ON_ONCE(bit < 0))
- 		return;
--	/*
--	 * A variant of synchronize_rcu() is used to allow patching functions
--	 * where RCU is not watching, see klp_synchronize_transition().
--	 */
--	preempt_disable_notrace();
-
- 	func = list_first_or_null_rcu(&ops->func_stack, struct klp_func,
- 				      stack_node);
-@@ -120,7 +122,6 @@ static void notrace klp_ftrace_handler(unsigned long ip,
- 	klp_arch_set_pc(fregs, (unsigned long)func->new_func);
-
- unlock:
--	preempt_enable_notrace();
- 	ftrace_test_recursion_unlock(bit);
- }
-
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index b7be1df..7392bc7 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -7198,16 +7198,15 @@ void ftrace_reset_array_ops(struct trace_array *tr)
- 	struct ftrace_ops *op;
- 	int bit;
-
-+	/*
-+	 * The ftrace_test_and_set_recursion() will disable preemption,
-+	 * which is required since some of the ops may be dynamically
-+	 * allocated, they must be freed after a synchronize_rcu().
-+	 */
- 	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START);
- 	if (bit < 0)
- 		return;
-
--	/*
--	 * Some of the ops may be dynamically allocated,
--	 * they must be freed after a synchronize_rcu().
--	 */
--	preempt_disable_notrace();
--
- 	do_for_each_ftrace_op(op, ftrace_ops_list) {
- 		/* Stub functions don't need to be called nor tested */
- 		if (op->flags & FTRACE_OPS_FL_STUB)
-@@ -7231,7 +7230,6 @@ void ftrace_reset_array_ops(struct trace_array *tr)
- 		}
- 	} while_for_each_ftrace_op(op);
- out:
--	preempt_enable_notrace();
- 	trace_clear_recursion(bit);
- }
-
-@@ -7279,12 +7277,9 @@ static void ftrace_ops_assist_func(unsigned long ip, unsigned long parent_ip,
- 	if (bit < 0)
- 		return;
-
--	preempt_disable_notrace();
--
- 	if (!(op->flags & FTRACE_OPS_FL_RCU) || rcu_is_watching())
- 		op->func(ip, parent_ip, op, fregs);
-
--	preempt_enable_notrace();
- 	trace_clear_recursion(bit);
- }
- NOKPROBE_SYMBOL(ftrace_ops_assist_func);
-diff --git a/kernel/trace/trace_functions.c b/kernel/trace/trace_functions.c
-index 1f0e63f..9f1bfbe 100644
---- a/kernel/trace/trace_functions.c
-+++ b/kernel/trace/trace_functions.c
-@@ -186,7 +186,6 @@ static void function_trace_start(struct trace_array *tr)
- 		return;
-
- 	trace_ctx = tracing_gen_ctx();
--	preempt_disable_notrace();
-
- 	cpu = smp_processor_id();
- 	data = per_cpu_ptr(tr->array_buffer.data, cpu);
-@@ -194,7 +193,6 @@ static void function_trace_start(struct trace_array *tr)
- 		trace_function(tr, ip, parent_ip, trace_ctx);
-
- 	ftrace_test_recursion_unlock(bit);
--	preempt_enable_notrace();
- }
-
- #ifdef CONFIG_UNWINDER_ORC
-@@ -298,8 +296,6 @@ static inline void process_repeats(struct trace_array *tr,
- 	if (bit < 0)
- 		return;
-
--	preempt_disable_notrace();
--
- 	cpu = smp_processor_id();
- 	data = per_cpu_ptr(tr->array_buffer.data, cpu);
- 	if (atomic_read(&data->disabled))
-@@ -324,7 +320,6 @@ static inline void process_repeats(struct trace_array *tr,
-
- out:
- 	ftrace_test_recursion_unlock(bit);
--	preempt_enable_notrace();
- }
-
- static void
--- 
-1.8.3.1
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFN0ZXZlbiwgTWlyb3NsYXYKClNob3VsZCBoYXZlIGZpeGVkIHRoZSBjb21tZW50cyBhYm91
+dCBiaXQgdmFsdWUsIGJlc2lkZXMsIGFkZAphIHdhcm4gaW4gdHJhY2VfY2xlYXJfcmVjdXJzaW9u
+KCkgdG8gbWFrZSBzdXJlIHRoZSBiaXQgPCAwCmFidXNpbmcgY2FzZSB3aWxsIGdldCBub3RpZmll
+ZC4KClBsZWFzZSBsZXQgbWUga25vdyBpZiB0aGVyZSBhcmUgYW55IG90aGVyIGlzc3VlcyA6LSkK
+ClJlZ2FyZHMsCk1pY2hhZWwgV2FuZwoKT24gMjAyMS8xMC8yNyDkuIrljYgxMDoxMSwg546L6LSH
+IHdyb3RlOgo+IEFzIHRoZSBkb2N1bWVudGF0aW9uIGV4cGxhaW5lZCwgZnRyYWNlX3Rlc3RfcmVj
+dXJzaW9uX3RyeWxvY2soKQo+IGFuZCBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdW5sb2NrKCkgd2Vy
+ZSBzdXBwb3NlZCB0byBkaXNhYmxlIGFuZAo+IGVuYWJsZSBwcmVlbXB0aW9uIHByb3Blcmx5LCBo
+b3dldmVyIGN1cnJlbnRseSB0aGlzIHdvcmsgaXMgZG9uZQo+IG91dHNpZGUgb2YgdGhlIGZ1bmN0
+aW9uLCB3aGljaCBjb3VsZCBiZSBtaXNzaW5nIGJ5IG1pc3Rha2UuCj4gCj4gQW5kIHNpbmNlIHRo
+ZSBpbnRlcm5hbCB1c2luZyBvZiB0cmFjZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9uKCkKPiBhbmQg
+dHJhY2VfY2xlYXJfcmVjdXJzaW9uKCkgYWxzbyByZXF1aXJlIHByZWVtcHRpb24gZGlzYWJsZWQs
+IHdlCj4gY2FuIGp1c3QgbWVyZ2UgdGhlIGxvZ2ljYWwuCj4gCj4gVGhpcyBwYXRjaCB3aWxsIG1h
+a2Ugc3VyZSB0aGUgcHJlZW1wdGlvbiBoYXMgYmVlbiBkaXNhYmxlZCB3aGVuCj4gdHJhY2VfdGVz
+dF9hbmRfc2V0X3JlY3Vyc2lvbigpIHJldHVybiBiaXQgPj0gMCwgYW5kCj4gdHJhY2VfY2xlYXJf
+cmVjdXJzaW9uKCkgd2lsbCBlbmFibGUgdGhlIHByZWVtcHRpb24gaWYgcHJldmlvdXNseQo+IGVu
+YWJsZWQuCj4gCj4gQ0M6IFBldHIgTWxhZGVrIDxwbWxhZGVrQHN1c2UuY29tPgo+IENDOiBTdGV2
+ZW4gUm9zdGVkdCA8cm9zdGVkdEBnb29kbWlzLm9yZz4KPiBDQzogTWlyb3NsYXYgQmVuZXMgPG1i
+ZW5lc0BzdXNlLmN6Pgo+IFJlcG9ydGVkLWJ5OiBBYmFjaSA8YWJhY2lAbGludXguYWxpYmFiYS5j
+b20+Cj4gU3VnZ2VzdGVkLWJ5OiBQZXRlciBaaWpsc3RyYSA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+
+Cj4gU2lnbmVkLW9mZi1ieTogTWljaGFlbCBXYW5nIDx5dW4ud2FuZ0BsaW51eC5hbGliYWJhLmNv
+bT4KPiAtLS0KPiAgYXJjaC9jc2t5L2tlcm5lbC9wcm9iZXMvZnRyYWNlLmMgICAgIHwgIDIgLS0K
+PiAgYXJjaC9wYXJpc2Mva2VybmVsL2Z0cmFjZS5jICAgICAgICAgIHwgIDIgLS0KPiAgYXJjaC9w
+b3dlcnBjL2tlcm5lbC9rcHJvYmVzLWZ0cmFjZS5jIHwgIDIgLS0KPiAgYXJjaC9yaXNjdi9rZXJu
+ZWwvcHJvYmVzL2Z0cmFjZS5jICAgIHwgIDIgLS0KPiAgYXJjaC94ODYva2VybmVsL2twcm9iZXMv
+ZnRyYWNlLmMgICAgIHwgIDIgLS0KPiAgaW5jbHVkZS9saW51eC90cmFjZV9yZWN1cnNpb24uaCAg
+ICAgIHwgMTMgKysrKysrKysrKysrLQo+ICBrZXJuZWwvbGl2ZXBhdGNoL3BhdGNoLmMgICAgICAg
+ICAgICAgfCAxMyArKysrKysrLS0tLS0tCj4gIGtlcm5lbC90cmFjZS9mdHJhY2UuYyAgICAgICAg
+ICAgICAgICB8IDE1ICsrKysrLS0tLS0tLS0tLQo+ICBrZXJuZWwvdHJhY2UvdHJhY2VfZnVuY3Rp
+b25zLmMgICAgICAgfCAgNSAtLS0tLQo+ICA5IGZpbGVzIGNoYW5nZWQsIDI0IGluc2VydGlvbnMo
+KyksIDMyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL2Nza3kva2VybmVsL3By
+b2Jlcy9mdHJhY2UuYyBiL2FyY2gvY3NreS9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCj4gaW5kZXgg
+YjM4ODIyOC4uODM0Y2ZmYyAxMDA2NDQKPiAtLS0gYS9hcmNoL2Nza3kva2VybmVsL3Byb2Jlcy9m
+dHJhY2UuYwo+ICsrKyBiL2FyY2gvY3NreS9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCj4gQEAgLTE3
+LDcgKzE3LDYgQEAgdm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwg
+dW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4gIAkJcmV0dXJuOwo+IAo+ICAJcmVncyA9IGZ0cmFj
+ZV9nZXRfcmVncyhmcmVncyk7Cj4gLQlwcmVlbXB0X2Rpc2FibGVfbm90cmFjZSgpOwo+ICAJcCA9
+IGdldF9rcHJvYmUoKGtwcm9iZV9vcGNvZGVfdCAqKWlwKTsKPiAgCWlmICghcCkgewo+ICAJCXAg
+PSBnZXRfa3Byb2JlKChrcHJvYmVfb3Bjb2RlX3QgKikoaXAgLSBNQ09VTlRfSU5TTl9TSVpFKSk7
+Cj4gQEAgLTU3LDcgKzU2LDYgQEAgdm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQg
+bG9uZyBpcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4gIAkJX190aGlzX2NwdV93cml0ZShj
+dXJyZW50X2twcm9iZSwgTlVMTCk7Cj4gIAl9Cj4gIG91dDoKPiAtCXByZWVtcHRfZW5hYmxlX25v
+dHJhY2UoKTsKPiAgCWZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2soYml0KTsKPiAgfQo+ICBO
+T0tQUk9CRV9TWU1CT0woa3Byb2JlX2Z0cmFjZV9oYW5kbGVyKTsKPiBkaWZmIC0tZ2l0IGEvYXJj
+aC9wYXJpc2Mva2VybmVsL2Z0cmFjZS5jIGIvYXJjaC9wYXJpc2Mva2VybmVsL2Z0cmFjZS5jCj4g
+aW5kZXggN2QxNDI0Mi4uOTBjNDM0NSAxMDA2NDQKPiAtLS0gYS9hcmNoL3BhcmlzYy9rZXJuZWwv
+ZnRyYWNlLmMKPiArKysgYi9hcmNoL3BhcmlzYy9rZXJuZWwvZnRyYWNlLmMKPiBAQCAtMjEwLDcg
+KzIxMCw2IEBAIHZvaWQga3Byb2JlX2Z0cmFjZV9oYW5kbGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVu
+c2lnbmVkIGxvbmcgcGFyZW50X2lwLAo+ICAJCXJldHVybjsKPiAKPiAgCXJlZ3MgPSBmdHJhY2Vf
+Z2V0X3JlZ3MoZnJlZ3MpOwo+IC0JcHJlZW1wdF9kaXNhYmxlX25vdHJhY2UoKTsKPiAgCXAgPSBn
+ZXRfa3Byb2JlKChrcHJvYmVfb3Bjb2RlX3QgKilpcCk7Cj4gIAlpZiAodW5saWtlbHkoIXApIHx8
+IGtwcm9iZV9kaXNhYmxlZChwKSkKPiAgCQlnb3RvIG91dDsKPiBAQCAtMjM5LDcgKzIzOCw2IEBA
+IHZvaWQga3Byb2JlX2Z0cmFjZV9oYW5kbGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxv
+bmcgcGFyZW50X2lwLAo+ICAJfQo+ICAJX190aGlzX2NwdV93cml0ZShjdXJyZW50X2twcm9iZSwg
+TlVMTCk7Cj4gIG91dDoKPiAtCXByZWVtcHRfZW5hYmxlX25vdHJhY2UoKTsKPiAgCWZ0cmFjZV90
+ZXN0X3JlY3Vyc2lvbl91bmxvY2soYml0KTsKPiAgfQo+ICBOT0tQUk9CRV9TWU1CT0woa3Byb2Jl
+X2Z0cmFjZV9oYW5kbGVyKTsKPiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2tlcm5lbC9rcHJv
+YmVzLWZ0cmFjZS5jIGIvYXJjaC9wb3dlcnBjL2tlcm5lbC9rcHJvYmVzLWZ0cmFjZS5jCj4gaW5k
+ZXggNzE1NGQ1OC4uMDcyZWJlNyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Bvd2VycGMva2VybmVsL2tw
+cm9iZXMtZnRyYWNlLmMKPiArKysgYi9hcmNoL3Bvd2VycGMva2VybmVsL2twcm9iZXMtZnRyYWNl
+LmMKPiBAQCAtMjYsNyArMjYsNiBAQCB2b2lkIGtwcm9iZV9mdHJhY2VfaGFuZGxlcih1bnNpZ25l
+ZCBsb25nIG5pcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfbmlwLAo+ICAJCXJldHVybjsKPiAKPiAg
+CXJlZ3MgPSBmdHJhY2VfZ2V0X3JlZ3MoZnJlZ3MpOwo+IC0JcHJlZW1wdF9kaXNhYmxlX25vdHJh
+Y2UoKTsKPiAgCXAgPSBnZXRfa3Byb2JlKChrcHJvYmVfb3Bjb2RlX3QgKiluaXApOwo+ICAJaWYg
+KHVubGlrZWx5KCFwKSB8fCBrcHJvYmVfZGlzYWJsZWQocCkpCj4gIAkJZ290byBvdXQ7Cj4gQEAg
+LTYxLDcgKzYwLDYgQEAgdm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBu
+aXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50X25pcCwKPiAgCQlfX3RoaXNfY3B1X3dyaXRlKGN1cnJl
+bnRfa3Byb2JlLCBOVUxMKTsKPiAgCX0KPiAgb3V0Ogo+IC0JcHJlZW1wdF9lbmFibGVfbm90cmFj
+ZSgpOwo+ICAJZnRyYWNlX3Rlc3RfcmVjdXJzaW9uX3VubG9jayhiaXQpOwo+ICB9Cj4gIE5PS1BS
+T0JFX1NZTUJPTChrcHJvYmVfZnRyYWNlX2hhbmRsZXIpOwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9wcm9iZXMvZnRyYWNlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZnRy
+YWNlLmMKPiBpbmRleCBhYWI4NWE4Li43MTQyZWM0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3Byb2Jlcy9mdHJhY2UuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9m
+dHJhY2UuYwo+IEBAIC0xNSw3ICsxNSw2IEBAIHZvaWQga3Byb2JlX2Z0cmFjZV9oYW5kbGVyKHVu
+c2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50X2lwLAo+ICAJaWYgKGJpdCA8IDAp
+Cj4gIAkJcmV0dXJuOwo+IAo+IC0JcHJlZW1wdF9kaXNhYmxlX25vdHJhY2UoKTsKPiAgCXAgPSBn
+ZXRfa3Byb2JlKChrcHJvYmVfb3Bjb2RlX3QgKilpcCk7Cj4gIAlpZiAodW5saWtlbHkoIXApIHx8
+IGtwcm9iZV9kaXNhYmxlZChwKSkKPiAgCQlnb3RvIG91dDsKPiBAQCAtNTIsNyArNTEsNiBAQCB2
+b2lkIGtwcm9iZV9mdHJhY2VfaGFuZGxlcih1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25n
+IHBhcmVudF9pcCwKPiAgCQlfX3RoaXNfY3B1X3dyaXRlKGN1cnJlbnRfa3Byb2JlLCBOVUxMKTsK
+PiAgCX0KPiAgb3V0Ogo+IC0JcHJlZW1wdF9lbmFibGVfbm90cmFjZSgpOwo+ICAJZnRyYWNlX3Rl
+c3RfcmVjdXJzaW9uX3VubG9jayhiaXQpOwo+ICB9Cj4gIE5PS1BST0JFX1NZTUJPTChrcHJvYmVf
+ZnRyYWNlX2hhbmRsZXIpOwo+IGRpZmYgLS1naXQgYS9hcmNoL3g4Ni9rZXJuZWwva3Byb2Jlcy9m
+dHJhY2UuYyBiL2FyY2gveDg2L2tlcm5lbC9rcHJvYmVzL2Z0cmFjZS5jCj4gaW5kZXggNTk2ZGUy
+Zi4uZGQyZWMxNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3g4Ni9rZXJuZWwva3Byb2Jlcy9mdHJhY2Uu
+Ywo+ICsrKyBiL2FyY2gveDg2L2tlcm5lbC9rcHJvYmVzL2Z0cmFjZS5jCj4gQEAgLTI1LDcgKzI1
+LDYgQEAgdm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwgdW5zaWdu
+ZWQgbG9uZyBwYXJlbnRfaXAsCj4gIAlpZiAoYml0IDwgMCkKPiAgCQlyZXR1cm47Cj4gCj4gLQlw
+cmVlbXB0X2Rpc2FibGVfbm90cmFjZSgpOwo+ICAJcCA9IGdldF9rcHJvYmUoKGtwcm9iZV9vcGNv
+ZGVfdCAqKWlwKTsKPiAgCWlmICh1bmxpa2VseSghcCkgfHwga3Byb2JlX2Rpc2FibGVkKHApKQo+
+ICAJCWdvdG8gb3V0Owo+IEBAIC01OSw3ICs1OCw2IEBAIHZvaWQga3Byb2JlX2Z0cmFjZV9oYW5k
+bGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50X2lwLAo+ICAJCV9fdGhp
+c19jcHVfd3JpdGUoY3VycmVudF9rcHJvYmUsIE5VTEwpOwo+ICAJfQo+ICBvdXQ6Cj4gLQlwcmVl
+bXB0X2VuYWJsZV9ub3RyYWNlKCk7Cj4gIAlmdHJhY2VfdGVzdF9yZWN1cnNpb25fdW5sb2NrKGJp
+dCk7Cj4gIH0KPiAgTk9LUFJPQkVfU1lNQk9MKGtwcm9iZV9mdHJhY2VfaGFuZGxlcik7Cj4gZGlm
+ZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvdHJhY2VfcmVjdXJzaW9uLmggYi9pbmNsdWRlL2xpbnV4
+L3RyYWNlX3JlY3Vyc2lvbi5oCj4gaW5kZXggYWJlMWE1MC4uNjRjMDNlZSAxMDA2NDQKPiAtLS0g
+YS9pbmNsdWRlL2xpbnV4L3RyYWNlX3JlY3Vyc2lvbi5oCj4gKysrIGIvaW5jbHVkZS9saW51eC90
+cmFjZV9yZWN1cnNpb24uaAo+IEBAIC0xMzUsNiArMTM1LDkgQEAgc3RhdGljIF9fYWx3YXlzX2lu
+bGluZSBpbnQgdHJhY2VfZ2V0X2NvbnRleHRfYml0KHZvaWQpCj4gICMgZGVmaW5lIGRvX2Z0cmFj
+ZV9yZWNvcmRfcmVjdXJzaW9uKGlwLCBwaXApCWRvIHsgfSB3aGlsZSAoMCkKPiAgI2VuZGlmCj4g
+Cj4gKy8qCj4gKyAqIFByZWVtcHRpb24gaXMgcHJvbWlzZWQgdG8gYmUgZGlzYWJsZWQgd2hlbiBy
+ZXR1cm4gYml0ID49IDAuCj4gKyAqLwo+ICBzdGF0aWMgX19hbHdheXNfaW5saW5lIGludCB0cmFj
+ZV90ZXN0X2FuZF9zZXRfcmVjdXJzaW9uKHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcg
+cGlwLAo+ICAJCQkJCQkJaW50IHN0YXJ0KQo+ICB7Cj4gQEAgLTE2MiwxMSArMTY1LDE5IEBAIHN0
+YXRpYyBfX2Fsd2F5c19pbmxpbmUgaW50IHRyYWNlX3Rlc3RfYW5kX3NldF9yZWN1cnNpb24odW5z
+aWduZWQgbG9uZyBpcCwgdW5zaWduCj4gIAljdXJyZW50LT50cmFjZV9yZWN1cnNpb24gPSB2YWw7
+Cj4gIAliYXJyaWVyKCk7Cj4gCj4gKwlwcmVlbXB0X2Rpc2FibGVfbm90cmFjZSgpOwo+ICsKPiAg
+CXJldHVybiBiaXQ7Cj4gIH0KPiAKPiArLyoKPiArICogUHJlZW1wdGlvbiB3aWxsIGJlIGVuYWJs
+ZWQgKGlmIGl0IHdhcyBwcmV2aW91c2x5IGVuYWJsZWQpLgo+ICsgKi8KPiAgc3RhdGljIF9fYWx3
+YXlzX2lubGluZSB2b2lkIHRyYWNlX2NsZWFyX3JlY3Vyc2lvbihpbnQgYml0KQo+ICB7Cj4gKwlX
+QVJOX09OX09OQ0UoYml0IDwgMCk7Cj4gKwo+ICsJcHJlZW1wdF9lbmFibGVfbm90cmFjZSgpOwo+
+ICAJYmFycmllcigpOwo+ICAJdHJhY2VfcmVjdXJzaW9uX2NsZWFyKGJpdCk7Cj4gIH0KPiBAQCAt
+MTc4LDcgKzE4OSw3IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9pZCB0cmFjZV9jbGVhcl9y
+ZWN1cnNpb24oaW50IGJpdCkKPiAgICogdHJhY2luZyByZWN1cnNlZCBpbiB0aGUgc2FtZSBjb250
+ZXh0IChub3JtYWwgdnMgaW50ZXJydXB0KSwKPiAgICoKPiAgICogUmV0dXJuczogLTEgaWYgYSBy
+ZWN1cnNpb24gaGFwcGVuZWQuCj4gLSAqICAgICAgICAgICA+PSAwIGlmIG5vIHJlY3Vyc2lvbgo+
+ICsgKiAgICAgICAgICAgPj0gMCBpZiBubyByZWN1cnNpb24uCj4gICAqLwo+ICBzdGF0aWMgX19h
+bHdheXNfaW5saW5lIGludCBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9jayh1bnNpZ25lZCBs
+b25nIGlwLAo+ICAJCQkJCQkJIHVuc2lnbmVkIGxvbmcgcGFyZW50X2lwKQo+IGRpZmYgLS1naXQg
+YS9rZXJuZWwvbGl2ZXBhdGNoL3BhdGNoLmMgYi9rZXJuZWwvbGl2ZXBhdGNoL3BhdGNoLmMKPiBp
+bmRleCBlODAyOWFlLi5iOGQ3NWZiIDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9saXZlcGF0Y2gvcGF0
+Y2guYwo+ICsrKyBiL2tlcm5lbC9saXZlcGF0Y2gvcGF0Y2guYwo+IEBAIC00OSwxNCArNDksMTYg
+QEAgc3RhdGljIHZvaWQgbm90cmFjZSBrbHBfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBp
+cCwKPiAKPiAgCW9wcyA9IGNvbnRhaW5lcl9vZihmb3BzLCBzdHJ1Y3Qga2xwX29wcywgZm9wcyk7
+Cj4gCj4gKwkvKgo+ICsJICoKPiArCSAqIFRoZSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9j
+aygpIHdpbGwgZGlzYWJsZSBwcmVlbXB0aW9uLAo+ICsJICogd2hpY2ggaXMgcmVxdWlyZWQgZm9y
+IHRoZSB2YXJpYW50IG9mIHN5bmNocm9uaXplX3JjdSgpIHRoYXQgaXMKPiArCSAqIHVzZWQgdG8g
+YWxsb3cgcGF0Y2hpbmcgZnVuY3Rpb25zIHdoZXJlIFJDVSBpcyBub3Qgd2F0Y2hpbmcuCj4gKwkg
+KiBTZWUga2xwX3N5bmNocm9uaXplX3RyYW5zaXRpb24oKSBmb3IgbW9yZSBkZXRhaWxzLgo+ICsJ
+ICovCj4gIAliaXQgPSBmdHJhY2VfdGVzdF9yZWN1cnNpb25fdHJ5bG9jayhpcCwgcGFyZW50X2lw
+KTsKPiAgCWlmIChXQVJOX09OX09OQ0UoYml0IDwgMCkpCj4gIAkJcmV0dXJuOwo+IC0JLyoKPiAt
+CSAqIEEgdmFyaWFudCBvZiBzeW5jaHJvbml6ZV9yY3UoKSBpcyB1c2VkIHRvIGFsbG93IHBhdGNo
+aW5nIGZ1bmN0aW9ucwo+IC0JICogd2hlcmUgUkNVIGlzIG5vdCB3YXRjaGluZywgc2VlIGtscF9z
+eW5jaHJvbml6ZV90cmFuc2l0aW9uKCkuCj4gLQkgKi8KPiAtCXByZWVtcHRfZGlzYWJsZV9ub3Ry
+YWNlKCk7Cj4gCj4gIAlmdW5jID0gbGlzdF9maXJzdF9vcl9udWxsX3JjdSgmb3BzLT5mdW5jX3N0
+YWNrLCBzdHJ1Y3Qga2xwX2Z1bmMsCj4gIAkJCQkgICAgICBzdGFja19ub2RlKTsKPiBAQCAtMTIw
+LDcgKzEyMiw2IEBAIHN0YXRpYyB2b2lkIG5vdHJhY2Uga2xwX2Z0cmFjZV9oYW5kbGVyKHVuc2ln
+bmVkIGxvbmcgaXAsCj4gIAlrbHBfYXJjaF9zZXRfcGMoZnJlZ3MsICh1bnNpZ25lZCBsb25nKWZ1
+bmMtPm5ld19mdW5jKTsKPiAKPiAgdW5sb2NrOgo+IC0JcHJlZW1wdF9lbmFibGVfbm90cmFjZSgp
+Owo+ICAJZnRyYWNlX3Rlc3RfcmVjdXJzaW9uX3VubG9jayhiaXQpOwo+ICB9Cj4gCj4gZGlmZiAt
+LWdpdCBhL2tlcm5lbC90cmFjZS9mdHJhY2UuYyBiL2tlcm5lbC90cmFjZS9mdHJhY2UuYwo+IGlu
+ZGV4IGI3YmUxZGYuLjczOTJiYzcgMTAwNjQ0Cj4gLS0tIGEva2VybmVsL3RyYWNlL2Z0cmFjZS5j
+Cj4gKysrIGIva2VybmVsL3RyYWNlL2Z0cmFjZS5jCj4gQEAgLTcxOTgsMTYgKzcxOTgsMTUgQEAg
+dm9pZCBmdHJhY2VfcmVzZXRfYXJyYXlfb3BzKHN0cnVjdCB0cmFjZV9hcnJheSAqdHIpCj4gIAlz
+dHJ1Y3QgZnRyYWNlX29wcyAqb3A7Cj4gIAlpbnQgYml0Owo+IAo+ICsJLyoKPiArCSAqIFRoZSBm
+dHJhY2VfdGVzdF9hbmRfc2V0X3JlY3Vyc2lvbigpIHdpbGwgZGlzYWJsZSBwcmVlbXB0aW9uLAo+
+ICsJICogd2hpY2ggaXMgcmVxdWlyZWQgc2luY2Ugc29tZSBvZiB0aGUgb3BzIG1heSBiZSBkeW5h
+bWljYWxseQo+ICsJICogYWxsb2NhdGVkLCB0aGV5IG11c3QgYmUgZnJlZWQgYWZ0ZXIgYSBzeW5j
+aHJvbml6ZV9yY3UoKS4KPiArCSAqLwo+ICAJYml0ID0gdHJhY2VfdGVzdF9hbmRfc2V0X3JlY3Vy
+c2lvbihpcCwgcGFyZW50X2lwLCBUUkFDRV9MSVNUX1NUQVJUKTsKPiAgCWlmIChiaXQgPCAwKQo+
+ICAJCXJldHVybjsKPiAKPiAtCS8qCj4gLQkgKiBTb21lIG9mIHRoZSBvcHMgbWF5IGJlIGR5bmFt
+aWNhbGx5IGFsbG9jYXRlZCwKPiAtCSAqIHRoZXkgbXVzdCBiZSBmcmVlZCBhZnRlciBhIHN5bmNo
+cm9uaXplX3JjdSgpLgo+IC0JICovCj4gLQlwcmVlbXB0X2Rpc2FibGVfbm90cmFjZSgpOwo+IC0K
+PiAgCWRvX2Zvcl9lYWNoX2Z0cmFjZV9vcChvcCwgZnRyYWNlX29wc19saXN0KSB7Cj4gIAkJLyog
+U3R1YiBmdW5jdGlvbnMgZG9uJ3QgbmVlZCB0byBiZSBjYWxsZWQgbm9yIHRlc3RlZCAqLwo+ICAJ
+CWlmIChvcC0+ZmxhZ3MgJiBGVFJBQ0VfT1BTX0ZMX1NUVUIpCj4gQEAgLTcyMzEsNyArNzIzMCw2
+IEBAIHZvaWQgZnRyYWNlX3Jlc2V0X2FycmF5X29wcyhzdHJ1Y3QgdHJhY2VfYXJyYXkgKnRyKQo+
+ICAJCX0KPiAgCX0gd2hpbGVfZm9yX2VhY2hfZnRyYWNlX29wKG9wKTsKPiAgb3V0Ogo+IC0JcHJl
+ZW1wdF9lbmFibGVfbm90cmFjZSgpOwo+ICAJdHJhY2VfY2xlYXJfcmVjdXJzaW9uKGJpdCk7Cj4g
+IH0KPiAKPiBAQCAtNzI3OSwxMiArNzI3Nyw5IEBAIHN0YXRpYyB2b2lkIGZ0cmFjZV9vcHNfYXNz
+aXN0X2Z1bmModW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4gIAlp
+ZiAoYml0IDwgMCkKPiAgCQlyZXR1cm47Cj4gCj4gLQlwcmVlbXB0X2Rpc2FibGVfbm90cmFjZSgp
+Owo+IC0KPiAgCWlmICghKG9wLT5mbGFncyAmIEZUUkFDRV9PUFNfRkxfUkNVKSB8fCByY3VfaXNf
+d2F0Y2hpbmcoKSkKPiAgCQlvcC0+ZnVuYyhpcCwgcGFyZW50X2lwLCBvcCwgZnJlZ3MpOwo+IAo+
+IC0JcHJlZW1wdF9lbmFibGVfbm90cmFjZSgpOwo+ICAJdHJhY2VfY2xlYXJfcmVjdXJzaW9uKGJp
+dCk7Cj4gIH0KPiAgTk9LUFJPQkVfU1lNQk9MKGZ0cmFjZV9vcHNfYXNzaXN0X2Z1bmMpOwo+IGRp
+ZmYgLS1naXQgYS9rZXJuZWwvdHJhY2UvdHJhY2VfZnVuY3Rpb25zLmMgYi9rZXJuZWwvdHJhY2Uv
+dHJhY2VfZnVuY3Rpb25zLmMKPiBpbmRleCAxZjBlNjNmLi45ZjFiZmJlIDEwMDY0NAo+IC0tLSBh
+L2tlcm5lbC90cmFjZS90cmFjZV9mdW5jdGlvbnMuYwo+ICsrKyBiL2tlcm5lbC90cmFjZS90cmFj
+ZV9mdW5jdGlvbnMuYwo+IEBAIC0xODYsNyArMTg2LDYgQEAgc3RhdGljIHZvaWQgZnVuY3Rpb25f
+dHJhY2Vfc3RhcnQoc3RydWN0IHRyYWNlX2FycmF5ICp0cikKPiAgCQlyZXR1cm47Cj4gCj4gIAl0
+cmFjZV9jdHggPSB0cmFjaW5nX2dlbl9jdHgoKTsKPiAtCXByZWVtcHRfZGlzYWJsZV9ub3RyYWNl
+KCk7Cj4gCj4gIAljcHUgPSBzbXBfcHJvY2Vzc29yX2lkKCk7Cj4gIAlkYXRhID0gcGVyX2NwdV9w
+dHIodHItPmFycmF5X2J1ZmZlci5kYXRhLCBjcHUpOwo+IEBAIC0xOTQsNyArMTkzLDYgQEAgc3Rh
+dGljIHZvaWQgZnVuY3Rpb25fdHJhY2Vfc3RhcnQoc3RydWN0IHRyYWNlX2FycmF5ICp0cikKPiAg
+CQl0cmFjZV9mdW5jdGlvbih0ciwgaXAsIHBhcmVudF9pcCwgdHJhY2VfY3R4KTsKPiAKPiAgCWZ0
+cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2soYml0KTsKPiAtCXByZWVtcHRfZW5hYmxlX25vdHJh
+Y2UoKTsKPiAgfQo+IAo+ICAjaWZkZWYgQ09ORklHX1VOV0lOREVSX09SQwo+IEBAIC0yOTgsOCAr
+Mjk2LDYgQEAgc3RhdGljIGlubGluZSB2b2lkIHByb2Nlc3NfcmVwZWF0cyhzdHJ1Y3QgdHJhY2Vf
+YXJyYXkgKnRyLAo+ICAJaWYgKGJpdCA8IDApCj4gIAkJcmV0dXJuOwo+IAo+IC0JcHJlZW1wdF9k
+aXNhYmxlX25vdHJhY2UoKTsKPiAtCj4gIAljcHUgPSBzbXBfcHJvY2Vzc29yX2lkKCk7Cj4gIAlk
+YXRhID0gcGVyX2NwdV9wdHIodHItPmFycmF5X2J1ZmZlci5kYXRhLCBjcHUpOwo+ICAJaWYgKGF0
+b21pY19yZWFkKCZkYXRhLT5kaXNhYmxlZCkpCj4gQEAgLTMyNCw3ICszMjAsNiBAQCBzdGF0aWMg
+aW5saW5lIHZvaWQgcHJvY2Vzc19yZXBlYXRzKHN0cnVjdCB0cmFjZV9hcnJheSAqdHIsCj4gCj4g
+IG91dDoKPiAgCWZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2soYml0KTsKPiAtCXByZWVtcHRf
+ZW5hYmxlX25vdHJhY2UoKTsKPiAgfQo+IAo+ICBzdGF0aWMgdm9pZAo+IAoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
