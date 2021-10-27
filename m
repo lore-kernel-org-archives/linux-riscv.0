@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 20E11C43219
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5B2FC4167D
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:18:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E54A6610FC
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:18:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E54A6610FC
+	by mail.kernel.org (Postfix) with ESMTPS id 85EFB610CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:18:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 85EFB610CB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pK+4EBAa0SXOutsm8WJ+m6BjV0BZmyVmIa9nKTXDcPQ=; b=iSrgrd8kE6Nfot
-	8b/wsHDAMNGDV+mypQunBwJ8PYM8FqIsiWjBvIL/w7L76RclD1JyfEnZTZ31Xbp4JzH9cIGumx0fR
-	G0rfNtp9k5bFF/lbJJEgVmrYgyzHP8sxkspMAubWvxkn7b+SXEj+OjbtvV/i/mVl/KQGle/9SVyL9
-	2pG3t5O7Jj4vkKkv78iOoSHdFelE6GcfyctzV2fbXwaSUdMVLeyUK8C1wqLpgQSsZ9w00Q8v5OqqG
-	SofMJ0asVpBNROkiGv4NAmtwSo6xv1wjlIiUhRA091WvqKTbwMWq6EiJxJYJxlPcLpATiz6q+Capk
-	hFqXbcLXd8794O3VG8iQ==;
+	List-Owner; bh=w9z/5qsRZ3jFJvO1UnVd2V34+T8QCsfPmdbRRQPYqgo=; b=DsFSqB1Ti9g5+f
+	uwpJY2qyvkHnG0dfOZD9XUWt3QzxvgOPmT4kpIoseZfT2wCXIiUgRCO9FrUYmnqX9yc6Qt1Kpoew4
+	sML2R6SMi9i9UFOjT8BOOLMehKfHCe07mHttmYmaONu3ClYvieTm7ERh8FFxF3sS/U759hCYw6Cw3
+	Sd1++X1xG+J3QBKwAiAD1PfyJDPvPds/D1vpLIXj8M+O0D7ACktp0o2n6HC5rlbGMBmBYuxcEMvpH
+	0ECUbaRw5p+mz3nXBT+VyHK32zFLp3cBOulCtWtjIiAod4Dd46gxnwQ8FKEZAtWVF+P78k5WNsAqM
+	n/PsulHqreEpDmkKrixQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqJW-006Ad3-5t; Wed, 27 Oct 2021 21:18:26 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1mfqJZ-006Ag5-Tn; Wed, 27 Oct 2021 21:18:30 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqJC-006AKm-Aq; Wed, 27 Oct 2021 21:18:08 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 17so3837660ljq.0;
- Wed, 27 Oct 2021 14:18:01 -0700 (PDT)
+ id 1mfqJB-006AN1-86; Wed, 27 Oct 2021 21:18:07 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id bp15so9012012lfb.4;
+ Wed, 27 Oct 2021 14:18:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=TugVlbRXpFiQ9yttEJ2CYhwYKdBA8PSz6pBjqNjtqe8=;
- b=LxdZEWQx3suPqkadhSlrIg8Y/wBbCgZ19oaPbtBfHJRBGXgu8OvRhmKtGBeiAtGOi+
- liDoShgJoGfChatXJvVHlGfhJqZTZfaSa614IMYrTFjYDb/peXO5oxQ8SJntz+ROu8lH
- ob1M7/DUPmtXRrZcD8cMolSz0IhB48FDFGrv8rmurlnFUtz5GHTwT3bfswp5rSRPgw7Q
- Bzriun3on2U4+nPpGH/7v8uRLlN52ALrwjKmwn0fNW7IfodPJ5+z4OBz44Q0tz7qr3AI
- hQkqoobZyhuG5/zdS6+8c5M7BaM8ouPopuZJKxbxjokH3QVc4vnRaK15kTyz9igV7eYm
- 7uUg==
+ bh=iOJthmuPEC7IB5L8OM1uajmE3s/Ei+DiZXNIsEtdoSk=;
+ b=M6DsUnX+Dqnnl5/0WkKsChXFOe/dRyATOHCL/N/d/DYRaMuFNhNXN2y8l/5KKDdvO8
+ HePUBv3ijZ6wA1hQMS8r/8Dy8p8fDstfsgPNvYzogEnoiN08aVSWSCzuevGifeB4Cbsl
+ JU+F7xYiyB1f3JwKGti4sTNyf7tgTKcPyJdN2KeBPBno+Y11B21cmAzeN1UTCPeELLZl
+ qo9vl+NLInil/J95xFZK38OdgQBYthlLceqQb/6Zg0gcqPneeFesfA544/Mc5a4V8TTa
+ vBfOArxwV6NLDS9FtxVb4oHCbiHa9QgKi34nHbfFFiWQfKG+GQY4kpTfJykuXmLPssEZ
+ NnyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=TugVlbRXpFiQ9yttEJ2CYhwYKdBA8PSz6pBjqNjtqe8=;
- b=PuepJUJDfr5ZCLBGJf03JwZNiL8e/920KYZ1ov53G3fu+/m4mi4tUs1dU3+StFBCr5
- F9JZxe1yTfW9xfT7+kAEM8KL9IshA8PuuQtVyVtL3DR1bSmp2iOolcMx76Bir3I4kkF6
- lpAnHsfUprRrRPCWM1w0huXoJsCGR+5ounSeh7M8rPRPxG2n32+VO+3OWH7J4Gp3Z03c
- SUfLtB8gzmadBp7zm/rA5Dlq7dTLjbfUHBhPMUfo1oAsH2m/9UMPrJozfWt5C3PtJS3f
- PxiDp+QbdtX1rXaQkMI69d7RzIy02hLSKjyuj+Sbsutw+xCUeI+AMmpL3y0dkZMD9XKN
- KdWw==
-X-Gm-Message-State: AOAM530MsjHSa9nS6maL1ywANnoYVJMUDylwYPpPENQZxtBC75saUbM7
- rEn2TRQ6U4tSh90IQABAaWo=
-X-Google-Smtp-Source: ABdhPJzuqmviV3vutEjHAVvh6ry+9Hwrmd//Nm2QPeCY1TzVEUwjdrrEOpdr1ds5exnt/bZhRUUrMg==
-X-Received: by 2002:a2e:a5c8:: with SMTP id n8mr301030ljp.307.1635369480150;
- Wed, 27 Oct 2021 14:18:00 -0700 (PDT)
+ bh=iOJthmuPEC7IB5L8OM1uajmE3s/Ei+DiZXNIsEtdoSk=;
+ b=RHwjfVmbc5zAmP0rdLmFQwFB2gujg6Ru/2J+4Cg+sIkqSSFNc3hiODSCw46ysHgyOg
+ 2xgg6y5LLZrEnBd0rNtCucsWYXgq/UzvkvrXryU2fBVUC1Oc/utjj4aEf5bq/1Bvsq0f
+ 8QGJJan2EQ9YF9vFsr+kVY3tIVTOg8JV3GvEWSad9aI7YZ/YB6hgKsdzRRnpTRoX0FNz
+ DeCXuGaL0LYj1870cqUoKJrwy1lizX/T6ZyP61AnZSYHBzgMs7MXJVEUO8Bd0x1cOa/u
+ 5DCXtFXl0G8Ycyg3jNA+VDLA8uBPioy9sIw8iHxX0ivqUCsZux4iN2anBO93omnDE4WV
+ ihUQ==
+X-Gm-Message-State: AOAM530pqndHQ/4qZU35Yj9yC+19NXh0reCt8QiBKY5j6/KQE1t6AEMe
+ pP2aHLnoaggVsJOUFTs8LVw=
+X-Google-Smtp-Source: ABdhPJySbOm+27yOjORJjCzB1RrKvb62o79gukvdjDZzwYphfPzvlvqWgT3cY5UK3KGllNbg7CmL+w==
+X-Received: by 2002:a05:6512:344a:: with SMTP id
+ j10mr74981lfr.653.1635369483872; 
+ Wed, 27 Oct 2021 14:18:03 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.17.58
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.02
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:17:59 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:03 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -109,16 +110,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 04/45] reboot: Correct typo in a comment
-Date: Thu, 28 Oct 2021 00:16:34 +0300
-Message-Id: <20211027211715.12671-5-digetx@gmail.com>
+Subject: [PATCH v2 06/45] reboot: Warn if unregister_restart_handler() fails
+Date: Thu, 28 Oct 2021 00:16:36 +0300
+Message-Id: <20211027211715.12671-7-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141806_449782_00051FEF 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20211027_141805_333276_DA06973C 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,26 +136,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Correct s/implemenations/implementations/ in <reboot.h>.
+Emit warning if unregister_restart_handler() fails since it never should
+fail. This will ease further API development by catching mistakes early.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- include/linux/reboot.h | 2 +-
+ kernel/reboot.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/reboot.h b/include/linux/reboot.h
-index af907a3d68d1..7c288013a3ca 100644
---- a/include/linux/reboot.h
-+++ b/include/linux/reboot.h
-@@ -63,7 +63,7 @@ struct pt_regs;
- extern void machine_crash_shutdown(struct pt_regs *);
- 
- /*
-- * Architecture independent implemenations of sys_reboot commands.
-+ * Architecture independent implementations of sys_reboot commands.
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index d39e599c3c99..291d44082f42 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -210,7 +210,7 @@ EXPORT_SYMBOL(register_restart_handler);
   */
+ int unregister_restart_handler(struct notifier_block *nb)
+ {
+-	return atomic_notifier_chain_unregister(&restart_handler_list, nb);
++	return WARN_ON(atomic_notifier_chain_unregister(&restart_handler_list, nb));
+ }
+ EXPORT_SYMBOL(unregister_restart_handler);
  
- extern void kernel_restart_prepare(char *cmd);
 -- 
 2.33.1
 
