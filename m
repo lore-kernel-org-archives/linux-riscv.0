@@ -2,74 +2,91 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEDBAC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 13:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AC5EFC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 13:41:14 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 92EA66023D
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 13:27:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 92EA66023D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6883B60F92
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 13:41:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6883B60F92
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qNXKbw9WvmRjc/gOnLunXWDUDhcd6dBbP5nlhZlM8ug=; b=VNUqkpK75ogCopPaWzweFxa+bw
-	vYqkRNITKCEuGB+VeaVLOMA6N5GEI2HqjcI5SeIt2IS3dpN139b/ioRNraTS4DtK5aW8kG2k2nAp+
-	iijDTHVeBYBGLRK+aR+bq8oeXchxIqiRTixvvHlRBI7e5eoHgi1QKcshZ5Fqizw5G0eUdvEyz1kxv
-	OumLtV533ajZTrbvBCCxaW4ku4BjNBmPwV7WProTh+tE6S111XB/DEFcLIbNDguZFBokmlNFISUst
-	hEtzfB79MA/f79n8iFrwTu78na+hVm7dIIm2D6oBDtfiZ9aagaMDF6ZPjAYsCXH7kRmj2sIBlkk3S
-	ButDDpbw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=efl+5RFgv/q2tYyu1RNPScP1s67zQCbRRMRoCreme7o=; b=2i0svA/ecaO9He
+	7MWzYGtJoClI8GfscuP1i4U0CSXL/mpxTCbHOWxJ7Qg340PZZwdeIu8bkC5hCOmNtwkjeVk+drMZ9
+	nIyW/MG4PVTnLHWHDQSly1ulUDqdEs7AMqKXvLs5s/SfnKs03vP5oMd16atD+pq/9rpWUNahwgxn9
+	cGj7jdqiz4X1Tn40J9/KEpUCpxcDvAV0jOY6j7EyJ6c2n1IpSZZluYB8qFI3TwqP7SfAiPCoduDFe
+	FE1u9eKgwVbtruH1/JcH3cPAE+gntR34CqG7oyZjblq1qM3etAkN5UYlVUD6Xx75LfacCHF2SPZIU
+	yvfZtLcVqHZs4AEUPNKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfixJ-004yXR-ES; Wed, 27 Oct 2021 13:27:01 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1mfjAv-0050ky-Na; Wed, 27 Oct 2021 13:41:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfixF-004yUk-Ib
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 13:27:00 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.57])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4HfTr45YthzbhN1;
- Wed, 27 Oct 2021 21:22:12 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.15; Wed, 27 Oct 2021 21:26:40 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.15; Wed, 27 Oct 2021 21:26:39 +0800
-Subject: Re: [PATCH bpf-next,v3] riscv, bpf: Add BPF exception tables
-To: Mark Rutland <mark.rutland@arm.com>
-References: <20211027111822.3801679-1-tongtiangen@huawei.com>
- <20211027115043.GB54628@C02TD0UTHF1T.local>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
- <aou@eecs.berkeley.edu>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- "Andrii Nakryiko" <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song
- Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
-From: tongtiangen <tongtiangen@huawei.com>
-Message-ID: <8ad6338b-b02c-8488-c725-f522435c8916@huawei.com>
-Date: Wed, 27 Oct 2021 21:26:38 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ id 1mfjAs-0050jE-Dw
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 13:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635342061;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=/no10Aa/zZ1ucVFb2s+gZiK3uB9pJ6W+0T89aCEE3wg=;
+ b=RNzq9IYdV4VMTBm8nPZjhJqZkJEifW4zngBPKy3tqVxbb0gocrFdj3CenZy3rh08FxyFZt
+ /h+tde7vyYdZeW2jb2l94kxMUrDsitUnZsdVLP9qmdo6GcS32Jj6R+6kPLtYqrTjN/qpVB
+ KrdHQ4sEt+KL2rNuM2Z14w60vJ96Elc=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-309-SCIw7oS_OWK-BwM7oLJx0w-1; Wed, 27 Oct 2021 09:40:58 -0400
+X-MC-Unique: SCIw7oS_OWK-BwM7oLJx0w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2F7711966320;
+ Wed, 27 Oct 2021 13:40:54 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 4809F5DF35;
+ Wed, 27 Oct 2021 13:40:41 +0000 (UTC)
+Message-ID: <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
+Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
+ successful
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Wed, 27 Oct 2021 16:40:40 +0300
+In-Reply-To: <20211009021236.4122790-12-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-12-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-In-Reply-To: <20211027115043.GB54628@C02TD0UTHF1T.local>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_062658_207050_345BD83A 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20211027_064102_555469_A55FEF4E 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +98,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Invoke the arch hooks for block+unblock if and only if KVM actually
+> attempts to block the vCPU.  The only non-nop implementation is on x86,
+> specifically SVM's AVIC, and there is no need to put the AVIC prior to
+> halt-polling as KVM x86's kvm_vcpu_has_events() will scour the full vIRR
+> to find pending IRQs regardless of whether the AVIC is loaded/"running".
+> 
+> The primary motivation is to allow future cleanup to split out "block"
+> from "halt", but this is also likely a small performance boost on x86 SVM
+> when halt-polling is successful.
+> 
+> Adjust the post-block path to update "cur" after unblocking, i.e. include
+> AVIC load time in halt_wait_ns and halt_wait_hist, so that the behavior
+> is consistent.  Moving just the pre-block arch hook would result in only
+> the AVIC put latency being included in the halt_wait stats.  There is no
+> obvious evidence that one way or the other is correct, so just ensure KVM
+> is consistent.
+> 
+> Note, x86 has two separate paths for handling APICv with respect to vCPU
+> blocking.  VMX uses hooks in x86's vcpu_block(), while SVM uses the arch
+> hooks in kvm_vcpu_block().  Prior to this path, the two paths were more
+> or less functionally identical.  That is very much not the case after
+> this patch, as the hooks used by VMX _must_ fire before halt-polling.
+> x86's entire mess will be cleaned up in future patches.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  virt/kvm/kvm_main.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index f90b3ed05628..227f6bbe0716 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -3235,8 +3235,6 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  	bool waited = false;
+>  	u64 block_ns;
+>  
+> -	kvm_arch_vcpu_blocking(vcpu);
+> -
+>  	start = cur = poll_end = ktime_get();
+>  	if (do_halt_poll) {
+>  		ktime_t stop = ktime_add_ns(ktime_get(), vcpu->halt_poll_ns);
+> @@ -3253,6 +3251,7 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  		} while (kvm_vcpu_can_poll(cur, stop));
+>  	}
+>  
+> +	kvm_arch_vcpu_blocking(vcpu);
+>  
+>  	prepare_to_rcuwait(wait);
+>  	for (;;) {
+> @@ -3265,6 +3264,9 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  		schedule();
+>  	}
+>  	finish_rcuwait(wait);
+> +
+> +	kvm_arch_vcpu_unblocking(vcpu);
+> +
+>  	cur = ktime_get();
+>  	if (waited) {
+>  		vcpu->stat.generic.halt_wait_ns +=
+> @@ -3273,7 +3275,6 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  				ktime_to_ns(cur) - ktime_to_ns(poll_end));
+>  	}
+>  out:
+> -	kvm_arch_vcpu_unblocking(vcpu);
+>  	block_ns = ktime_to_ns(cur) - ktime_to_ns(start);
+>  
+>  	/*
 
+Makes sense.
 
-On 2021/10/27 19:50, Mark Rutland wrote:
-> On Wed, Oct 27, 2021 at 11:18:22AM +0000, Tong Tiangen wrote:
->> When a tracing BPF program attempts to read memory without using the
->> bpf_probe_read() helper, the verifier marks the load instruction with
->> the BPF_PROBE_MEM flag. Since the riscv JIT does not currently recognize
->> this flag it falls back to the interpreter.
->>
->> Add support for BPF_PROBE_MEM, by appending an exception table to the
->> BPF program. If the load instruction causes a data abort, the fixup
->> infrastructure finds the exception table and fixes up the fault, by
->> clearing the destination register and jumping over the faulting
->> instruction.
->>
->> A more generic solution would add a "handler" field to the table entry,
->> like on x86 and s390.
->>
->> The same issue in ARM64 is fixed in:
->> commit 800834285361 ("bpf, arm64: Add BPF exception tables")
->
->> +#ifdef CONFIG_BPF_JIT
->> +int rv_bpf_fixup_exception(const struct exception_table_entry *ex, struct pt_regs *regs);
->> +#endif
->> +
->>  int fixup_exception(struct pt_regs *regs)
->>  {
->>  	const struct exception_table_entry *fixup;
->>
->>  	fixup = search_exception_tables(regs->epc);
->> -	if (fixup) {
->> -		regs->epc = fixup->fixup;
->> -		return 1;
->> -	}
->> -	return 0;
->> +	if (!fixup)
->> +		return 0;
->> +
->> +#ifdef CONFIG_BPF_JIT
->> +	if (regs->epc >= BPF_JIT_REGION_START && regs->epc < BPF_JIT_REGION_END)
->> +		return rv_bpf_fixup_exception(fixup, regs);
->> +#endif
->> +
->> +	regs->epc = fixup->fixup;
->> +	return 1;
->>  }
->
-> As a heads-up, on the extable front, both arm64 and x86 are moving to
-> having an enumerated "type" field to select the handler:
->
-> x86:
->
->   https://lore.kernel.org/lkml/20210908132525.211958725@linutronix.de/
->
-> arm64:
->
->   https://lore.kernel.org/linux-arm-kernel/20211019160219.5202-11-mark.rutland@arm.com/
->
-> ... and going forwards, riscv might want to do likewise.
->
-> Thanks,
-> Mark.
-> .
->
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
-Thanks mark, I'm very interested in this change.
+Best regards,
+	Maxim Levitsky
+
 
 _______________________________________________
 linux-riscv mailing list
