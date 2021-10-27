@@ -2,45 +2,45 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5E84C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 01:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28116C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:12:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 624D060E76
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 01:55:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 624D060E76
+	by mail.kernel.org (Postfix) with ESMTPS id BE4D460551
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 02:12:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BE4D460551
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Message-ID:References:To:From:Subject:Reply-To:Cc:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=n9fa+R0qhNj8CfTpf4Ii+vYKtAInGf04GBezoP1kQfI=; b=AOdOwUGfWW9Xgx7gk78tnrt6ut
-	5Lif55391kHOOl15FcQbLaTbE8Po+SivFqRZUgXh5SvCAVdGQ61KTNn+OvdVyRQyh0XcqXeXQYCnH
-	ntXeCK56vCV8rY2o2ejP36Uc0Ce5tChNmTxjMERPLKlRwJdkDPj6cWfA4GQuY/mpaTp4/1mvU6knA
-	/WsQIFs6szh/RtBw2tF2d2OZvhcgmIECFoYrpDO6TA4yXVQ5oyYDwJaBzK0+1xOZwE+3/eopZfrg0
-	uJUYv2to/ARV3D04aPF8g2ZeBbkTz5E6tL1EFlNzKdohe0GRUtKgSJOJ8oLygmxk2UcfzM1lY1NiQ
-	bH1ddVvA==;
+	bh=hDxNJAy+oJ+dOGJvcXsqypWTlOpvxY3zUwpYF1gCJj0=; b=4eEQUuptneZqdFI7JPd79+wQ9U
+	KxGxnZF3aJxb/IBS8ntjA4NBHgXWl0N5Ed8dmMN9CJG8V+xIOATQWq9zuaKebdYZXsZqF04ie0ws9
+	5IDXulunkJrUPVqwPSOJmzGjJSJoknarX3Tj9wHAMC1nSkYhLsFsPOzqO8dOSgjwiOpZYna6E9XjI
+	ff2RUhPdPnGcHcS61RUEFvlhwPBw7ENi2SlvARplowlBdbPDviEcBguX+5cgp0aqXeTiDZqX2SpTG
+	JKj6Y4mXU9bMSEQxpxskOwJ2MrEcY7Q7EFT+BjkKUW+8gmIkhCOScodND3ayPQy2yvjafCZn7i1za
+	5GQkcsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfY9x-003XPW-NS; Wed, 27 Oct 2021 01:55:21 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1mfYQL-003Z0m-CY; Wed, 27 Oct 2021 02:12:17 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfY9u-003XOw-9r
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 01:55:20 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R441e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04423; MF=yun.wang@linux.alibaba.com;
- NM=1; PH=DS; RN=30; SR=0; TI=SMTPD_---0UtpFhNO_1635299711; 
+ id 1mfYQI-003Yyu-0Q
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 02:12:16 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R151e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04394; MF=yun.wang@linux.alibaba.com;
+ NM=1; PH=DS; RN=30; SR=0; TI=SMTPD_---0UtpxIGg_1635300725; 
 Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
- fp:SMTPD_---0UtpFhNO_1635299711) by smtp.aliyun-inc.com(127.0.0.1);
- Wed, 27 Oct 2021 09:55:13 +0800
-Subject: Re: [PATCH v5 1/2] ftrace: disable preemption when recursion locked
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Miroslav Benes <mbenes@suse.cz>, Guo Ren <guoren@kernel.org>,
+ fp:SMTPD_---0UtpxIGg_1635300725) by smtp.aliyun-inc.com(127.0.0.1);
+ Wed, 27 Oct 2021 10:12:06 +0800
+Subject: [PATCH v6] ftrace: disable preemption when recursion locked
+From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
+To: Guo Ren <guoren@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
  Ingo Molnar <mingo@redhat.com>,
  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
  Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
@@ -50,7 +50,8 @@ Cc: Miroslav Benes <mbenes@suse.cz>, Guo Ren <guoren@kernel.org>,
  Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
  x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
  Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
- Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>,
+ Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
+ Joe Lawrence <joe.lawrence@redhat.com>,
  Masami Hiramatsu <mhiramat@kernel.org>,
  "Peter Zijlstra (Intel)" <peterz@infradead.org>,
  Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
@@ -59,20 +60,16 @@ Cc: Miroslav Benes <mbenes@suse.cz>, Guo Ren <guoren@kernel.org>,
  linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
 References: <3ca92dc9-ea04-ddc2-71cd-524bfa5a5721@linux.alibaba.com>
  <333cecfe-3045-8e0a-0c08-64ff590845ab@linux.alibaba.com>
- <alpine.LSU.2.21.2110261128120.28494@pobox.suse.cz>
- <18ba2a71-e12d-33f7-63fe-2857b2db022c@linux.alibaba.com>
- <20211026080117.366137a5@gandalf.local.home>
-From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
-Message-ID: <3d897161-7b74-944a-f2a0-07311436fbd9@linux.alibaba.com>
-Date: Wed, 27 Oct 2021 09:54:13 +0800
+Message-ID: <1d876d3f-b844-4e99-6043-af0b062dc315@linux.alibaba.com>
+Date: Wed, 27 Oct 2021 10:11:07 +0800
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
  Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <20211026080117.366137a5@gandalf.local.home>
+In-Reply-To: <333cecfe-3045-8e0a-0c08-64ff590845ab@linux.alibaba.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_185518_526646_010B2118 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20211026_191214_257067_D90BBBC4 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +81,310 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIxLzEwLzI2IOS4i+WNiDg6MDEsIFN0ZXZlbiBSb3N0ZWR0IHdyb3RlOgo+IE9uIFR1
-ZSwgMjYgT2N0IDIwMjEgMTc6NDg6MTAgKzA4MDAKPiDnjovotIcgPHl1bi53YW5nQGxpbnV4LmFs
-aWJhYmEuY29tPiB3cm90ZToKPiAKPj4+IFRoZSB0d28gY29tbWVudHMgc2hvdWxkIGJlIHVwZGF0
-ZWQgdG9vIHNpbmNlIFN0ZXZlbiByZW1vdmVkIHRoZSAiYml0ID09IDAiIAo+Pj4gdHJpY2suICAK
-Pj4KPj4gQ291bGQgeW91IHBsZWFzZSBnaXZlIG1vcmUgaGludCBvbiBob3cgd2lsbCBpdCBiZSBj
-b3JyZWN0Pwo+Pgo+PiBJIGdldCB0aGUgcG9pbnQgdGhhdCBiaXQgd2lsbCBubyBsb25nZXIgYmUg
-MCwgdGhlcmUgYXJlIG9ubHkgLTEgb3IgPiAwIG5vdwo+PiBzbyB0cmFjZV90ZXN0X2FuZF9zZXRf
-cmVjdXJzaW9uKCkgd2lsbCBkaXNhYmxlIHByZWVtcHRpb24gb24gYml0ID4gMCBhbmQKPj4gdHJh
-Y2VfY2xlYXJfcmVjdXJzaW9uKCkgd2lsbCBlbmFibGVkIGl0IHNpbmNlIGl0IHNob3VsZCBvbmx5
-IGJlIGNhbGxlZCB3aGVuCj4+IGJpdCA+IDAgKEkgcmVtZW1iZXIgd2UgY291bGQgdXNlIGEgV0FS
-Tl9PTiBoZXJlIG5vdyA6LVApLgo+Pgo+Pj4gICAKPj4+PiBAQCAtMTc4LDcgKzE4Nyw3IEBAIHN0
-YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9pZCB0cmFjZV9jbGVhcl9yZWN1cnNpb24oaW50IGJpdCkK
-Pj4+PiAgICogdHJhY2luZyByZWN1cnNlZCBpbiB0aGUgc2FtZSBjb250ZXh0IChub3JtYWwgdnMg
-aW50ZXJydXB0KSwKPj4+PiAgICoKPj4+PiAgICogUmV0dXJuczogLTEgaWYgYSByZWN1cnNpb24g
-aGFwcGVuZWQuCj4+Pj4gLSAqICAgICAgICAgICA+PSAwIGlmIG5vIHJlY3Vyc2lvbgo+Pj4+ICsg
-KiAgICAgICAgICAgPiAwIGlmIG5vIHJlY3Vyc2lvbi4KPj4+PiAgICovCj4+Pj4gIHN0YXRpYyBf
-X2Fsd2F5c19pbmxpbmUgaW50IGZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl90cnlsb2NrKHVuc2lnbmVk
-IGxvbmcgaXAsCj4+Pj4gIAkJCQkJCQkgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXApICAKPj4+Cj4+
-PiBBbmQgdGhpcyBjaGFuZ2Ugd291bGQgbm90IGJlIGNvcnJlY3Qgbm93LiAgCj4+Cj4+IEkgdGhv
-dWdodCBpdCB3aWxsIG5vIGxvbmdlciByZXR1cm4gMCBzbyBJIGNoYW5nZSBpdCB0byA+IDAsIGlz
-bid0IHRoYXQgY29ycmVjdD8KPiAKPiBObyBpdCBpcyBub3QuIEkgcmVtb3ZlZCB0aGUgYml0ICsg
-MSByZXR1cm4gdmFsdWUsIHdoaWNoIG1lYW5zIGl0IHJldHVybnMgdGhlCj4gYWN0dWFsIGJpdCBu
-b3cuIFdoaWNoIGlzIDAgb3IgbW9yZS4KCkFoLCB0aGUgcmV0dXJuIGlzIGJpdCBub3QgdmFsLCBJ
-IG11c3QgYmUgZHJ1bmsuLi4KCk15IGFwb2xvZ2l6ZSBmb3IgdGhlIHN0dXBpZCBjb21tZW50cy4u
-LiBJJ2xsIHNlbmQgYSB2NiBmb3IgdGhpcyBwYXRjaApvbmx5IHRvIGZpeCB0aGF0LCBwbGVhc2Ug
-bGV0IG1lIGtub3cgaWYgdGhpcyBpcyBub3QgYSBnb29kIHdheSB0byBmaXgKZmV3IGxpbmVzIG9m
-IGNvbW1lbnRzLgoKUmVnYXJkcywKTWljaGFlbCBXYW5nCgo+IAo+IC0tIFN0ZXZlCj4gCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+As the documentation explained, ftrace_test_recursion_trylock()
+and ftrace_test_recursion_unlock() were supposed to disable and
+enable preemption properly, however currently this work is done
+outside of the function, which could be missing by mistake.
+
+And since the internal using of trace_test_and_set_recursion()
+and trace_clear_recursion() also require preemption disabled, we
+can just merge the logical.
+
+This patch will make sure the preemption has been disabled when
+trace_test_and_set_recursion() return bit >= 0, and
+trace_clear_recursion() will enable the preemption if previously
+enabled.
+
+CC: Petr Mladek <pmladek@suse.com>
+CC: Steven Rostedt <rostedt@goodmis.org>
+CC: Miroslav Benes <mbenes@suse.cz>
+Reported-by: Abaci <abaci@linux.alibaba.com>
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+Signed-off-by: Michael Wang <yun.wang@linux.alibaba.com>
+---
+ arch/csky/kernel/probes/ftrace.c     |  2 --
+ arch/parisc/kernel/ftrace.c          |  2 --
+ arch/powerpc/kernel/kprobes-ftrace.c |  2 --
+ arch/riscv/kernel/probes/ftrace.c    |  2 --
+ arch/x86/kernel/kprobes/ftrace.c     |  2 --
+ include/linux/trace_recursion.h      | 13 ++++++++++++-
+ kernel/livepatch/patch.c             | 13 +++++++------
+ kernel/trace/ftrace.c                | 15 +++++----------
+ kernel/trace/trace_functions.c       |  5 -----
+ 9 files changed, 24 insertions(+), 32 deletions(-)
+
+diff --git a/arch/csky/kernel/probes/ftrace.c b/arch/csky/kernel/probes/ftrace.c
+index b388228..834cffc 100644
+--- a/arch/csky/kernel/probes/ftrace.c
++++ b/arch/csky/kernel/probes/ftrace.c
+@@ -17,7 +17,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 		return;
+
+ 	regs = ftrace_get_regs(fregs);
+-	preempt_disable_notrace();
+ 	p = get_kprobe((kprobe_opcode_t *)ip);
+ 	if (!p) {
+ 		p = get_kprobe((kprobe_opcode_t *)(ip - MCOUNT_INSN_SIZE));
+@@ -57,7 +56,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 		__this_cpu_write(current_kprobe, NULL);
+ 	}
+ out:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+ NOKPROBE_SYMBOL(kprobe_ftrace_handler);
+diff --git a/arch/parisc/kernel/ftrace.c b/arch/parisc/kernel/ftrace.c
+index 7d14242..90c4345 100644
+--- a/arch/parisc/kernel/ftrace.c
++++ b/arch/parisc/kernel/ftrace.c
+@@ -210,7 +210,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 		return;
+
+ 	regs = ftrace_get_regs(fregs);
+-	preempt_disable_notrace();
+ 	p = get_kprobe((kprobe_opcode_t *)ip);
+ 	if (unlikely(!p) || kprobe_disabled(p))
+ 		goto out;
+@@ -239,7 +238,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 	}
+ 	__this_cpu_write(current_kprobe, NULL);
+ out:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+ NOKPROBE_SYMBOL(kprobe_ftrace_handler);
+diff --git a/arch/powerpc/kernel/kprobes-ftrace.c b/arch/powerpc/kernel/kprobes-ftrace.c
+index 7154d58..072ebe7 100644
+--- a/arch/powerpc/kernel/kprobes-ftrace.c
++++ b/arch/powerpc/kernel/kprobes-ftrace.c
+@@ -26,7 +26,6 @@ void kprobe_ftrace_handler(unsigned long nip, unsigned long parent_nip,
+ 		return;
+
+ 	regs = ftrace_get_regs(fregs);
+-	preempt_disable_notrace();
+ 	p = get_kprobe((kprobe_opcode_t *)nip);
+ 	if (unlikely(!p) || kprobe_disabled(p))
+ 		goto out;
+@@ -61,7 +60,6 @@ void kprobe_ftrace_handler(unsigned long nip, unsigned long parent_nip,
+ 		__this_cpu_write(current_kprobe, NULL);
+ 	}
+ out:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+ NOKPROBE_SYMBOL(kprobe_ftrace_handler);
+diff --git a/arch/riscv/kernel/probes/ftrace.c b/arch/riscv/kernel/probes/ftrace.c
+index aab85a8..7142ec4 100644
+--- a/arch/riscv/kernel/probes/ftrace.c
++++ b/arch/riscv/kernel/probes/ftrace.c
+@@ -15,7 +15,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 	if (bit < 0)
+ 		return;
+
+-	preempt_disable_notrace();
+ 	p = get_kprobe((kprobe_opcode_t *)ip);
+ 	if (unlikely(!p) || kprobe_disabled(p))
+ 		goto out;
+@@ -52,7 +51,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 		__this_cpu_write(current_kprobe, NULL);
+ 	}
+ out:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+ NOKPROBE_SYMBOL(kprobe_ftrace_handler);
+diff --git a/arch/x86/kernel/kprobes/ftrace.c b/arch/x86/kernel/kprobes/ftrace.c
+index 596de2f..dd2ec14 100644
+--- a/arch/x86/kernel/kprobes/ftrace.c
++++ b/arch/x86/kernel/kprobes/ftrace.c
+@@ -25,7 +25,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 	if (bit < 0)
+ 		return;
+
+-	preempt_disable_notrace();
+ 	p = get_kprobe((kprobe_opcode_t *)ip);
+ 	if (unlikely(!p) || kprobe_disabled(p))
+ 		goto out;
+@@ -59,7 +58,6 @@ void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+ 		__this_cpu_write(current_kprobe, NULL);
+ 	}
+ out:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+ NOKPROBE_SYMBOL(kprobe_ftrace_handler);
+diff --git a/include/linux/trace_recursion.h b/include/linux/trace_recursion.h
+index abe1a50..64c03ee 100644
+--- a/include/linux/trace_recursion.h
++++ b/include/linux/trace_recursion.h
+@@ -135,6 +135,9 @@ static __always_inline int trace_get_context_bit(void)
+ # define do_ftrace_record_recursion(ip, pip)	do { } while (0)
+ #endif
+
++/*
++ * Preemption is promised to be disabled when return bit >= 0.
++ */
+ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsigned long pip,
+ 							int start)
+ {
+@@ -162,11 +165,19 @@ static __always_inline int trace_test_and_set_recursion(unsigned long ip, unsign
+ 	current->trace_recursion = val;
+ 	barrier();
+
++	preempt_disable_notrace();
++
+ 	return bit;
+ }
+
++/*
++ * Preemption will be enabled (if it was previously enabled).
++ */
+ static __always_inline void trace_clear_recursion(int bit)
+ {
++	WARN_ON_ONCE(bit < 0);
++
++	preempt_enable_notrace();
+ 	barrier();
+ 	trace_recursion_clear(bit);
+ }
+@@ -178,7 +189,7 @@ static __always_inline void trace_clear_recursion(int bit)
+  * tracing recursed in the same context (normal vs interrupt),
+  *
+  * Returns: -1 if a recursion happened.
+- *           >= 0 if no recursion
++ *           >= 0 if no recursion.
+  */
+ static __always_inline int ftrace_test_recursion_trylock(unsigned long ip,
+ 							 unsigned long parent_ip)
+diff --git a/kernel/livepatch/patch.c b/kernel/livepatch/patch.c
+index e8029ae..b8d75fb 100644
+--- a/kernel/livepatch/patch.c
++++ b/kernel/livepatch/patch.c
+@@ -49,14 +49,16 @@ static void notrace klp_ftrace_handler(unsigned long ip,
+
+ 	ops = container_of(fops, struct klp_ops, fops);
+
++	/*
++	 *
++	 * The ftrace_test_recursion_trylock() will disable preemption,
++	 * which is required for the variant of synchronize_rcu() that is
++	 * used to allow patching functions where RCU is not watching.
++	 * See klp_synchronize_transition() for more details.
++	 */
+ 	bit = ftrace_test_recursion_trylock(ip, parent_ip);
+ 	if (WARN_ON_ONCE(bit < 0))
+ 		return;
+-	/*
+-	 * A variant of synchronize_rcu() is used to allow patching functions
+-	 * where RCU is not watching, see klp_synchronize_transition().
+-	 */
+-	preempt_disable_notrace();
+
+ 	func = list_first_or_null_rcu(&ops->func_stack, struct klp_func,
+ 				      stack_node);
+@@ -120,7 +122,6 @@ static void notrace klp_ftrace_handler(unsigned long ip,
+ 	klp_arch_set_pc(fregs, (unsigned long)func->new_func);
+
+ unlock:
+-	preempt_enable_notrace();
+ 	ftrace_test_recursion_unlock(bit);
+ }
+
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index b7be1df..7392bc7 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -7198,16 +7198,15 @@ void ftrace_reset_array_ops(struct trace_array *tr)
+ 	struct ftrace_ops *op;
+ 	int bit;
+
++	/*
++	 * The ftrace_test_and_set_recursion() will disable preemption,
++	 * which is required since some of the ops may be dynamically
++	 * allocated, they must be freed after a synchronize_rcu().
++	 */
+ 	bit = trace_test_and_set_recursion(ip, parent_ip, TRACE_LIST_START);
+ 	if (bit < 0)
+ 		return;
+
+-	/*
+-	 * Some of the ops may be dynamically allocated,
+-	 * they must be freed after a synchronize_rcu().
+-	 */
+-	preempt_disable_notrace();
+-
+ 	do_for_each_ftrace_op(op, ftrace_ops_list) {
+ 		/* Stub functions don't need to be called nor tested */
+ 		if (op->flags & FTRACE_OPS_FL_STUB)
+@@ -7231,7 +7230,6 @@ void ftrace_reset_array_ops(struct trace_array *tr)
+ 		}
+ 	} while_for_each_ftrace_op(op);
+ out:
+-	preempt_enable_notrace();
+ 	trace_clear_recursion(bit);
+ }
+
+@@ -7279,12 +7277,9 @@ static void ftrace_ops_assist_func(unsigned long ip, unsigned long parent_ip,
+ 	if (bit < 0)
+ 		return;
+
+-	preempt_disable_notrace();
+-
+ 	if (!(op->flags & FTRACE_OPS_FL_RCU) || rcu_is_watching())
+ 		op->func(ip, parent_ip, op, fregs);
+
+-	preempt_enable_notrace();
+ 	trace_clear_recursion(bit);
+ }
+ NOKPROBE_SYMBOL(ftrace_ops_assist_func);
+diff --git a/kernel/trace/trace_functions.c b/kernel/trace/trace_functions.c
+index 1f0e63f..9f1bfbe 100644
+--- a/kernel/trace/trace_functions.c
++++ b/kernel/trace/trace_functions.c
+@@ -186,7 +186,6 @@ static void function_trace_start(struct trace_array *tr)
+ 		return;
+
+ 	trace_ctx = tracing_gen_ctx();
+-	preempt_disable_notrace();
+
+ 	cpu = smp_processor_id();
+ 	data = per_cpu_ptr(tr->array_buffer.data, cpu);
+@@ -194,7 +193,6 @@ static void function_trace_start(struct trace_array *tr)
+ 		trace_function(tr, ip, parent_ip, trace_ctx);
+
+ 	ftrace_test_recursion_unlock(bit);
+-	preempt_enable_notrace();
+ }
+
+ #ifdef CONFIG_UNWINDER_ORC
+@@ -298,8 +296,6 @@ static inline void process_repeats(struct trace_array *tr,
+ 	if (bit < 0)
+ 		return;
+
+-	preempt_disable_notrace();
+-
+ 	cpu = smp_processor_id();
+ 	data = per_cpu_ptr(tr->array_buffer.data, cpu);
+ 	if (atomic_read(&data->disabled))
+@@ -324,7 +320,6 @@ static inline void process_repeats(struct trace_array *tr,
+
+ out:
+ 	ftrace_test_recursion_unlock(bit);
+-	preempt_enable_notrace();
+ }
+
+ static void
+-- 
+1.8.3.1
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
