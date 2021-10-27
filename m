@@ -2,65 +2,72 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E7B8C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 207AAC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:11:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 22A0E61073
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 22A0E61073
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id E328061039
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:11:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E328061039
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kftdIBKE1vQfxDghXG/Zme7ZxipTjv2fZZJCQwKbkbI=; b=h1EER7rxAY1Rdq
-	FlAmnVxohS6g+CKNmd8p2I7G8v+3E70AlTLMwevc/cm5oBqfCXoEehZuoNCABA93xYEpnV7qjYziR
-	ZxAXExYOXLuxNL4MOrhK4dDdS71y/fyRUmyssi2oG2SnzDP4GnQjhN6rSlQjtpPyh9uiy0zAu2RO0
-	Zn/abaDWFI96R2RHPveewSEGSF8FIpHc23DXL//R1g1zBmz/ZHhzgdUhXqhruqPUoZ9TRn7mbbz9Y
-	ArpoktNeFrSItN2Go+f9gNY2Y3wXZyllpQUFLRRappNpo0DkiU/bya01vFk55dxdkReCx9pUrqvIH
-	lf4/8OWju/BCNmN1PeyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kRw2AZm8N4EyLtSnIpc7dvdAmz+qz6tMo8P4rM7TmY=; b=RMDbQLdu9An7d/ueRHWp73Q0HM
+	T7GwKrgRzaBmyxmBFyGJr/O01/4kkT6jmT5+B6qpBZcA83zpUh5nsOA8Uhq/Dk25qyIK0SdoDq9AE
+	Zs32f+1q5Ni5HgEfWiOdS+en2MM6IDjZrBYHakyIyg1fg7eiBea5nqjOKR4BfdT8EB9CpzMzOFlT2
+	kwHXC8HL2HgbO9GBLCEZ3C0rro+gPo01lDolqUOW6BP/1q3SPBAhxnc84OTf1/wONcv6BDZ+XmrHG
+	Si5KXGDO16dYYLeJTIHblNXiXVMllvLHY9B2jAlJ/hb0kg4xGa21ZYdIddqcqZBYBZf6AfXIXxsSX
+	vlwqZmfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfs3f-006TO8-9l; Wed, 27 Oct 2021 23:10:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mfs4r-006TbT-75; Wed, 27 Oct 2021 23:11:25 +0000
+Received: from www62.your-server.de ([213.133.104.62])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfs3c-006TN7-BY
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 23:10:09 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id E4AE961040;
- Wed, 27 Oct 2021 23:10:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635376208;
- bh=TMOjPuBi30omm3OUP+u3FY5YEYx/Fers7Q3speDYL70=;
- h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
- b=ewjnVUVSADGqvovFoOISngvEzer+/1cRAF+JPrAc2UBw+XlZQ6k5ewnNE+OJEorrZ
- RXEPFxuWzxGKGmam8ryq8cDviPzqa52XbanzGmAocOXKT7wHF8WDu36mJQa7RhCTWR
- WaqS2L18p/ZkmiM7OuAWdtrNCAPoQeyudbIIUnH/Y7BlwtxMsFP7NkZUOOM3mPZ0bv
- pW4Ao8tElfgL4SAXIcKU4/PGgsD35EdxX0Iol5yLOQEKhr5TM6VifXE62DaVFUiSqj
- JI11+q1V3r9VKT7TQXMIrKmU7qbmG1+Ly2Sth9Ruq4CXfnh78Myyp5WXgxN8fLzmRl
- tPYednYtvvymA==
-MIME-Version: 1.0
+ id 1mfs4o-006TZi-Jg
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 23:11:24 +0000
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+ by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+ (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
+ id 1mfs4W-000F2p-5m; Thu, 28 Oct 2021 01:11:04 +0200
+Received: from [85.1.206.226] (helo=linux.home)
+ by sslproxy05.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
+ id 1mfs4V-000GPT-Q9; Thu, 28 Oct 2021 01:11:03 +0200
 Subject: Re: [PATCH bpf-next,v3] riscv, bpf: Add BPF exception tables
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <163537620786.14362.5033693418821355895.git-patchwork-notify@kernel.org>
-Date: Wed, 27 Oct 2021 23:10:07 +0000
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
+ Tong Tiangen <tongtiangen@huawei.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Luke Nelson <luke.r.nels@gmail.com>,
+ Xi Wang <xi.wang@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, Netdev <netdev@vger.kernel.org>,
+ bpf <bpf@vger.kernel.org>
 References: <20211027111822.3801679-1-tongtiangen@huawei.com>
-In-Reply-To: <20211027111822.3801679-1-tongtiangen@huawei.com>
-To: tongtiangen <tongtiangen@huawei.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, palmerdabbelt@google.com,
- aou@eecs.berkeley.edu, bjorn@kernel.org, luke.r.nels@gmail.com,
- xi.wang@gmail.com, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- kafai@fb.com, songliubraving@fb.com, yhs@fb.com, john.fastabend@gmail.com,
- kpsingh@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org
+ <CAJ+HfNhC=hfFnjVvCf=bw+n1msRjR3gGUyapAmsRDupZ5CusrQ@mail.gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <15487721-b3de-73c7-5ef3-614c6da2f8cd@iogearbox.net>
+Date: Thu, 28 Oct 2021 01:11:03 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
+MIME-Version: 1.0
+In-Reply-To: <CAJ+HfNhC=hfFnjVvCf=bw+n1msRjR3gGUyapAmsRDupZ5CusrQ@mail.gmail.com>
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.3/26335/Wed Oct 27 10:28:55 2021)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_161008_436987_33651B83 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211027_161122_675853_356D9D04 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +79,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to bpf/bpf-next.git (master)
-by Daniel Borkmann <daniel@iogearbox.net>:
-
-On Wed, 27 Oct 2021 11:18:22 +0000 you wrote:
-> When a tracing BPF program attempts to read memory without using the
-> bpf_probe_read() helper, the verifier marks the load instruction with
-> the BPF_PROBE_MEM flag. Since the riscv JIT does not currently recognize
-> this flag it falls back to the interpreter.
-> 
-> Add support for BPF_PROBE_MEM, by appending an exception table to the
-> BPF program. If the load instruction causes a data abort, the fixup
-> infrastructure finds the exception table and fixes up the fault, by
-> clearing the destination register and jumping over the faulting
-> instruction.
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf-next,v3] riscv, bpf: Add BPF exception tables
-    https://git.kernel.org/bpf/bpf-next/c/252c765bd764
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTAvMjcvMjEgNjo1NSBQTSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBPbiBXZWQsIDI3IE9j
+dCAyMDIxIGF0IDEzOjAzLCBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1YXdlaS5jb20+IHdy
+b3RlOgo+Pgo+PiBXaGVuIGEgdHJhY2luZyBCUEYgcHJvZ3JhbSBhdHRlbXB0cyB0byByZWFkIG1l
+bW9yeSB3aXRob3V0IHVzaW5nIHRoZQo+PiBicGZfcHJvYmVfcmVhZCgpIGhlbHBlciwgdGhlIHZl
+cmlmaWVyIG1hcmtzIHRoZSBsb2FkIGluc3RydWN0aW9uIHdpdGgKPj4gdGhlIEJQRl9QUk9CRV9N
+RU0gZmxhZy4gU2luY2UgdGhlIHJpc2N2IEpJVCBkb2VzIG5vdCBjdXJyZW50bHkgcmVjb2duaXpl
+Cj4+IHRoaXMgZmxhZyBpdCBmYWxscyBiYWNrIHRvIHRoZSBpbnRlcnByZXRlci4KPj4KPj4gQWRk
+IHN1cHBvcnQgZm9yIEJQRl9QUk9CRV9NRU0sIGJ5IGFwcGVuZGluZyBhbiBleGNlcHRpb24gdGFi
+bGUgdG8gdGhlCj4+IEJQRiBwcm9ncmFtLiBJZiB0aGUgbG9hZCBpbnN0cnVjdGlvbiBjYXVzZXMg
+YSBkYXRhIGFib3J0LCB0aGUgZml4dXAKPj4gaW5mcmFzdHJ1Y3R1cmUgZmluZHMgdGhlIGV4Y2Vw
+dGlvbiB0YWJsZSBhbmQgZml4ZXMgdXAgdGhlIGZhdWx0LCBieQo+PiBjbGVhcmluZyB0aGUgZGVz
+dGluYXRpb24gcmVnaXN0ZXIgYW5kIGp1bXBpbmcgb3ZlciB0aGUgZmF1bHRpbmcKPj4gaW5zdHJ1
+Y3Rpb24uCj4+Cj4+IEEgbW9yZSBnZW5lcmljIHNvbHV0aW9uIHdvdWxkIGFkZCBhICJoYW5kbGVy
+IiBmaWVsZCB0byB0aGUgdGFibGUgZW50cnksCj4+IGxpa2Ugb24geDg2IGFuZCBzMzkwLgo+Pgo+
+PiBUaGUgc2FtZSBpc3N1ZSBpbiBBUk02NCBpcyBmaXhlZCBpbjoKPj4gY29tbWl0IDgwMDgzNDI4
+NTM2MSAoImJwZiwgYXJtNjQ6IEFkZCBCUEYgZXhjZXB0aW9uIHRhYmxlcyIpCj4+Cj4+IFNpZ25l
+ZC1vZmYtYnk6IFRvbmcgVGlhbmdlbiA8dG9uZ3RpYW5nZW5AaHVhd2VpLmNvbT4KPj4gVGVzdGVk
+LWJ5OiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29tPgo+PiAtLS0KPj4gdjM6Cj4+IE1vZGlm
+eSBhY2NvcmRpbmcgdG8gQmrDtnJuJ3MgY29tbWVudHMsIG1haW5seSBjb2RlIG9wdGltaXphdGlv
+bi4KPiAKPiBUaGFuayB5b3UhCj4gCj4gSSByYW4gdGhpcyBwYXRjaCBhZ2FpbnN0IHRoZSB0ZXN0
+X2JwZi5rbywgYW5kIHNlbGZ0ZXN0cy9icGYgLS0gbm8KPiByZWdyZXNzaW9ucywgYW5kIGFmdGVy
+IHRoZSBwYXRjaCBpcyBhcHBsaWVkIG1vcmUgdGVzdHMgcGFzc2VzLiBZYXkhCj4gCj4gT24gYSBy
+ZWxhdGVkIG5vdGUuIFRoZSBSSVNDLVYgc2VsZnRlc3RzL2JwZiBpcyBpbiBhIHByZXR0eSBsb3Vz
+eQo+IHN0YXRlLiBJJ2xsIHNlbmQgYSBjbGVhbnVwIHBhdGNoIGZvciB0aGVtIHNvb25pc2guIEUu
+Zy46CgpUaGFua3MgZm9yIHRlc3RpbmchCgo+ICogUklTQy1WIGlzIG1pc3NpbmcgaW4gYnBmX3Ry
+YWNpbmcuaCAobGliYnBmKQo+ICogU29tZSBwcm9ncmFtcyBkb24ndCBjb252ZXJnZSBpbiAxNiBz
+dGVwcywgSSBoYWQgdG8gaW5jcmVhc2UgaXQgdG8gfjMyCj4gKiBUaGUgc2VsZnRlc3QvYnBmIE1h
+a2VmaWxlIG5lZWRlZCBzb21lIFJWIHNwZWNpZmljIGNoYW5nZXMKPiAqIC4uLmEgbG90IG9mIHRl
+c3RzIHN0aWxsIGRvbid0IHBhc3MsIGFuZCBuZWVkcyB0byBiZSBsb29rZWQgaW4gdG8KClNvdW5k
+cyBnb29kLCBwbGVhc2Ugc2hpcCB0aGVtLiA7KQoKPiBGZWVsIGZyZWUgdG8gYWRkOgo+IAo+IEFj
+a2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgoKQXBwbGllZCwgdGhhbmtz
+ISBUb25nLCBpZiB5b3UgaGF2ZSBhIGNoYW5jZSwgcGxlYXNlIGZvbGxvdyB1cCB3aXRoIE1hcmsn
+cwpzdWdnZXN0aW9uIHRvIGFsaWduIHRoZSBleHRhYmxlIGluZnJhIHRvIGFybTY0L3g4Ni4KClRo
+YW5rcywKRGFuaWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
