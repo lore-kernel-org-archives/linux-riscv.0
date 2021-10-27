@@ -2,79 +2,77 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B9C9C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 00:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5E84C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 01:55:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DCA5760F0F
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 00:54:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DCA5760F0F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 624D060E76
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 01:55:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 624D060E76
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zthuktp5os16MuKK5e6toRFxpyi1MKDbGhJuGU+fCaA=; b=mS4zPf7YCM6dMA
-	buBm9R6Usx6a3ShdPPKZR7psmLMhJllrx0AshAslvJxlWsW/nG7rlqUCVgI7eCAZ/9CkKq98WY9rh
-	QfYlW8VPBMoD/MJbSeQn3uG25hf+gT37+GtcrBHV1CcEVwZ+jKXS02TyL6u4WZ71Egctf6uq4VPes
-	+ydUejlwiA7W+B1SgSUjdpdTV+l6UdhH0LlBGOujrhiYUcEf6MOKRsgPomC2l+baZ6eaGGLaP/Bbi
-	joPE0er+jEZHzzwoeIFm49W/JW5JHboA2NRVnYF2bl1KBW+xN7mUeQv9Y/CXfRscNpaJpIVjGmfSG
-	6U75nhcPjcKTisSY37JA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=n9fa+R0qhNj8CfTpf4Ii+vYKtAInGf04GBezoP1kQfI=; b=AOdOwUGfWW9Xgx7gk78tnrt6ut
+	5Lif55391kHOOl15FcQbLaTbE8Po+SivFqRZUgXh5SvCAVdGQ61KTNn+OvdVyRQyh0XcqXeXQYCnH
+	ntXeCK56vCV8rY2o2ejP36Uc0Ce5tChNmTxjMERPLKlRwJdkDPj6cWfA4GQuY/mpaTp4/1mvU6knA
+	/WsQIFs6szh/RtBw2tF2d2OZvhcgmIECFoYrpDO6TA4yXVQ5oyYDwJaBzK0+1xOZwE+3/eopZfrg0
+	uJUYv2to/ARV3D04aPF8g2ZeBbkTz5E6tL1EFlNzKdohe0GRUtKgSJOJ8oLygmxk2UcfzM1lY1NiQ
+	bH1ddVvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfXCi-003RKL-LP; Wed, 27 Oct 2021 00:54:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mfY9x-003XPW-NS; Wed, 27 Oct 2021 01:55:21 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfXCf-003RJx-Tn
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 00:54:07 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 560CA60F0F;
- Wed, 27 Oct 2021 00:54:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635296045;
- bh=3wmPlMfs7SR783XTmRV7cR81LzMiYBMO+8TaAiydWkM=;
- h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=W+ESkAeCUUskZxyaPVVNJSQLz8HBAG1zufvbuDBBq9aLfbxvCgVHNRyEwDhpCaD0u
- oHHGrJIuVMsKaMJN660eES9zVI6ZuTGSw+QtEXO/3kNu3VZXMRhFWVZUkOOWNHimJi
- zwKtwSFHkDdtmvJke91XPGHWmVbRSdg9eDy3e7anPX0kaH9xI3vYQEjDhTb1at4OTz
- xu10tcE+mm6SIX4xTkKFgEdkljbuOldIgZu8uNAgyjBJvV4HzMV/nHGOmgwlG26lFQ
- f/aBZYM0FGmjzdEFKrU813jTsN8gcKRjB95RH2fdQDNMon7HF1UI4ATU4wQRmWG34j
- k9u9vXzRpknvA==
+ id 1mfY9u-003XOw-9r
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 01:55:20 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R441e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04423; MF=yun.wang@linux.alibaba.com;
+ NM=1; PH=DS; RN=30; SR=0; TI=SMTPD_---0UtpFhNO_1635299711; 
+Received: from testdeMacBook-Pro.local(mailfrom:yun.wang@linux.alibaba.com
+ fp:SMTPD_---0UtpFhNO_1635299711) by smtp.aliyun-inc.com(127.0.0.1);
+ Wed, 27 Oct 2021 09:55:13 +0800
+Subject: Re: [PATCH v5 1/2] ftrace: disable preemption when recursion locked
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Miroslav Benes <mbenes@suse.cz>, Guo Ren <guoren@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
+ Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, live-patching@vger.kernel.org
+References: <3ca92dc9-ea04-ddc2-71cd-524bfa5a5721@linux.alibaba.com>
+ <333cecfe-3045-8e0a-0c08-64ff590845ab@linux.alibaba.com>
+ <alpine.LSU.2.21.2110261128120.28494@pobox.suse.cz>
+ <18ba2a71-e12d-33f7-63fe-2857b2db022c@linux.alibaba.com>
+ <20211026080117.366137a5@gandalf.local.home>
+From: =?UTF-8?B?546L6LSH?= <yun.wang@linux.alibaba.com>
+Message-ID: <3d897161-7b74-944a-f2a0-07311436fbd9@linux.alibaba.com>
+Date: Wed, 27 Oct 2021 09:54:13 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <CANBLGcyYb3yNit=GCy4w2zf2=CRtCJP7aCisR8=9n1f7okfCSg@mail.gmail.com>
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-7-kernel@esmil.dk>
- <163527959276.15791.14765586510805526101@swboyd.mtv.corp.google.com>
- <CANBLGcyYb3yNit=GCy4w2zf2=CRtCJP7aCisR8=9n1f7okfCSg@mail.gmail.com>
-Subject: Re: [PATCH v2 06/16] clk: starfive: Add JH7100 clock generator driver
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- <linux-serial@vger.kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Rob Herring <robh+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
- Matteo Croce <mcroce
- @microsoft.com>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-To: Emil Renner Berthing <kernel@esmil.dk>
-Date: Tue, 26 Oct 2021 17:54:03 -0700
-Message-ID: <163529604399.15791.378104318036812951@swboyd.mtv.corp.google.com>
-User-Agent: alot/0.9.1
+In-Reply-To: <20211026080117.366137a5@gandalf.local.home>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211026_175406_045874_6C68D9FD 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20211026_185518_526646_010B2118 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,110 +84,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Emil Renner Berthing (2021-10-26 15:35:36)
-> On Tue, 26 Oct 2021 at 22:20, Stephen Boyd <sboyd@kernel.org> wrote:
-> > Quoting Emil Renner Berthing (2021-10-21 10:42:13)
-> > > +};
-> > > +
-> > > +struct clk_starfive_jh7100_priv {
-> > > +       /* protect registers against overlapping read-modify-write */
-> > > +       spinlock_t rmw_lock;
-> >
-> > Does overlapping mean concurrent?
-> 
-> Yes, sorry.
-> 
-> > Do different clks share the same registers?
-> 
-> No, each clock has their own register, but they use that register both
-> to gate the clock and other configuration. The Locking chapter of
-> Documentation/driver-api/clk.rst talks about the prepare lock and the
-> enable lock and then says:
-> "However, access to resources that are shared between operations of
-> the two groups needs to be protected by the drivers. An example of
-> such a resource would be a register that controls both the clock rate
-> and the clock enable/disable state."
-
-Alright got it. Maybe say "protect clk enable and set rate from
-happening at the same time".
-
-> 
-> > > +               return ERR_PTR(-EINVAL);
-> > > +       }
-> > > +
-> > > +       if (idx >= JH7100_CLK_PLL0_OUT)
-> > > +               return priv->pll[idx - JH7100_CLK_PLL0_OUT];
-> > > +
-> > > +       return &priv->reg[idx].hw;
-> > > +}
-> > > +
-> > > +static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
-> >
-> > Drop __init as this can be called after kernel init is over.
-> 
-> Oh interesting, I'd like to know when that can happen. The comment for
-> the builtin_platform_driver macro says it's just a wrapper for
-
-I thought this was using module_platform_driver() macro?
-
-> device_initcall.
-> 
-> Won't we then need to remove all the __initconst tags too since the
-> probe function walks through jh7100_clk_data which eventually
-> references all __initconst data?
-
-Yes. If it's builtin_platform_driver() it can't be a module/tristate
-Kconfig, in which case all the init markings can stay.
-
-> 
-> > > +
-> > > +               clk->hw.init = &init;
-> > > +               clk->idx = idx;
-> > > +               clk->max = jh7100_clk_data[idx].max;
-> > > +
-> > > +               ret = clk_hw_register(priv->dev, &clk->hw);
-> >
-> > Why not use devm_clk_hw_register()?
-> 
-> I probably could. Just for my understanding that's just to avoid the
-> loop on error below, because as a builtin driver the device won't
-> otherwise go away, right?
-
-Yes
-
-> 
-> > > +               if (ret)
-> > > +                       goto err;
-> > > +       }
-> > > +
-> > > +       ret = devm_of_clk_add_hw_provider(priv->dev, clk_starfive_jh7100_get, priv);
-> > > +       if (ret)
-> > > +               goto err;
-> > > +
-> > > +       return 0;
-> > > +err:
-> > > +       while (idx)
-> > > +               clk_hw_unregister(&priv->reg[--idx].hw);
-> > > +       return ret;
-> > > +}
-> > > +
-> > > +static const struct of_device_id clk_starfive_jh7100_match[] = {
-> > > +       { .compatible = "starfive,jh7100-clkgen" },
-> > > +       { /* sentinel */ }
-> > > +};
-> >
-> > Please add MODULE_DEVICE_TABLE()
-> 
-> Will do!
-
-If it's never going to be a module then don't add any module_* things.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIxLzEwLzI2IOS4i+WNiDg6MDEsIFN0ZXZlbiBSb3N0ZWR0IHdyb3RlOgo+IE9uIFR1
+ZSwgMjYgT2N0IDIwMjEgMTc6NDg6MTAgKzA4MDAKPiDnjovotIcgPHl1bi53YW5nQGxpbnV4LmFs
+aWJhYmEuY29tPiB3cm90ZToKPiAKPj4+IFRoZSB0d28gY29tbWVudHMgc2hvdWxkIGJlIHVwZGF0
+ZWQgdG9vIHNpbmNlIFN0ZXZlbiByZW1vdmVkIHRoZSAiYml0ID09IDAiIAo+Pj4gdHJpY2suICAK
+Pj4KPj4gQ291bGQgeW91IHBsZWFzZSBnaXZlIG1vcmUgaGludCBvbiBob3cgd2lsbCBpdCBiZSBj
+b3JyZWN0Pwo+Pgo+PiBJIGdldCB0aGUgcG9pbnQgdGhhdCBiaXQgd2lsbCBubyBsb25nZXIgYmUg
+MCwgdGhlcmUgYXJlIG9ubHkgLTEgb3IgPiAwIG5vdwo+PiBzbyB0cmFjZV90ZXN0X2FuZF9zZXRf
+cmVjdXJzaW9uKCkgd2lsbCBkaXNhYmxlIHByZWVtcHRpb24gb24gYml0ID4gMCBhbmQKPj4gdHJh
+Y2VfY2xlYXJfcmVjdXJzaW9uKCkgd2lsbCBlbmFibGVkIGl0IHNpbmNlIGl0IHNob3VsZCBvbmx5
+IGJlIGNhbGxlZCB3aGVuCj4+IGJpdCA+IDAgKEkgcmVtZW1iZXIgd2UgY291bGQgdXNlIGEgV0FS
+Tl9PTiBoZXJlIG5vdyA6LVApLgo+Pgo+Pj4gICAKPj4+PiBAQCAtMTc4LDcgKzE4Nyw3IEBAIHN0
+YXRpYyBfX2Fsd2F5c19pbmxpbmUgdm9pZCB0cmFjZV9jbGVhcl9yZWN1cnNpb24oaW50IGJpdCkK
+Pj4+PiAgICogdHJhY2luZyByZWN1cnNlZCBpbiB0aGUgc2FtZSBjb250ZXh0IChub3JtYWwgdnMg
+aW50ZXJydXB0KSwKPj4+PiAgICoKPj4+PiAgICogUmV0dXJuczogLTEgaWYgYSByZWN1cnNpb24g
+aGFwcGVuZWQuCj4+Pj4gLSAqICAgICAgICAgICA+PSAwIGlmIG5vIHJlY3Vyc2lvbgo+Pj4+ICsg
+KiAgICAgICAgICAgPiAwIGlmIG5vIHJlY3Vyc2lvbi4KPj4+PiAgICovCj4+Pj4gIHN0YXRpYyBf
+X2Fsd2F5c19pbmxpbmUgaW50IGZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl90cnlsb2NrKHVuc2lnbmVk
+IGxvbmcgaXAsCj4+Pj4gIAkJCQkJCQkgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXApICAKPj4+Cj4+
+PiBBbmQgdGhpcyBjaGFuZ2Ugd291bGQgbm90IGJlIGNvcnJlY3Qgbm93LiAgCj4+Cj4+IEkgdGhv
+dWdodCBpdCB3aWxsIG5vIGxvbmdlciByZXR1cm4gMCBzbyBJIGNoYW5nZSBpdCB0byA+IDAsIGlz
+bid0IHRoYXQgY29ycmVjdD8KPiAKPiBObyBpdCBpcyBub3QuIEkgcmVtb3ZlZCB0aGUgYml0ICsg
+MSByZXR1cm4gdmFsdWUsIHdoaWNoIG1lYW5zIGl0IHJldHVybnMgdGhlCj4gYWN0dWFsIGJpdCBu
+b3cuIFdoaWNoIGlzIDAgb3IgbW9yZS4KCkFoLCB0aGUgcmV0dXJuIGlzIGJpdCBub3QgdmFsLCBJ
+IG11c3QgYmUgZHJ1bmsuLi4KCk15IGFwb2xvZ2l6ZSBmb3IgdGhlIHN0dXBpZCBjb21tZW50cy4u
+LiBJJ2xsIHNlbmQgYSB2NiBmb3IgdGhpcyBwYXRjaApvbmx5IHRvIGZpeCB0aGF0LCBwbGVhc2Ug
+bGV0IG1lIGtub3cgaWYgdGhpcyBpcyBub3QgYSBnb29kIHdheSB0byBmaXgKZmV3IGxpbmVzIG9m
+IGNvbW1lbnRzLgoKUmVnYXJkcywKTWljaGFlbCBXYW5nCgo+IAo+IC0tIFN0ZXZlCj4gCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
