@@ -2,73 +2,91 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64375C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 11:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 84856C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 11:30:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7119860FBF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 11:22:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7119860FBF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
+	by mail.kernel.org (Postfix) with ESMTPS id 4557F6109E
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 11:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4557F6109E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EDQ7+v1Zp7V5DesKSmNZOZwZlcMSQQE50h/jI+1JJc4=; b=eYQFYoSEudKtzB
-	r/9K1rwPtCf/ck+pFfuq+wJEkkLjFGCuvN/2nwSUL6X9bbxGIBcrrqwy7Rb6W9TsknDtZFJrsMEd4
-	qBAZQM9nSFcNoVjZpbw5yMeTnVA0G+ToTQ+8hQPx+w3ThXbOm5HV9phO7yEC8/9Dl8XucPWeo7qg1
-	AjnlvrVYPngFVgPLcsPiolKm5hD4HLVwGcrhLWAkxtMMWbnL46NQJ6Vr/vXrHcDLA2pol9mCqzmuD
-	z6g5wz7UJmxjLKjktCCDjsjPvdIpLfJ/EndP7He78SVKJwI8G4dA83LiCtQ19aH8P2v1LQoMHS0Ob
-	DE4lfRgiKcLETeanIbTQ==;
+	List-Owner; bh=JYOITfdpL/mbzX/c5LPMy96VI+TEXnVNTMl0W/Z7onU=; b=iSyq3kM7tVtpO8
+	e037+U8NsQyDogB03mfBl957N0RDwwgYZ7IvTHB6d2qs185ksEXJlxKRZpshAfVrP6fqV3WOUW0xE
+	LCsQgUsjG8B3FG/vXW9wJL/Rsp/H1phBy2WKlKaFlWHcRU0jwPsUTRuKRJB6pdycfPS4iiscfV6Qe
+	txVW9DjdnGbUKy8Qtf0JvJyY3G8CCE3UB5q/flz5/rWwqJOny7dlKcr1cA2RXS2Vah+dqq4NYQuKK
+	xnOIap4kZIFuykMYjwWbTigI4XQuAdEGxiJidShq8GP3sFasChu3pZTkyTUwnLq97AYuGYZkgiTbh
+	nLEZk2FWdps3U2K2qwVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfh0m-004hUL-A1; Wed, 27 Oct 2021 11:22:28 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1mfh8K-004iO4-2x; Wed, 27 Oct 2021 11:30:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfh0j-004hTw-2j
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 11:22:26 +0000
-Received: from ip5f5a6e92.dynamic.kabel-deutschland.de ([95.90.110.146]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1mfh0c-0002rs-6H; Wed, 27 Oct 2021 13:22:18 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Stephen Boyd <sboyd@kernel.org>, linux-riscv@lists.infradead.org
-Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, Maximilian Luz <luzmaximilian@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>
-Subject: Re: [PATCH v2 06/16] clk: starfive: Add JH7100 clock generator driver
-Date: Wed, 27 Oct 2021 13:22:16 +0200
-Message-ID: <8431982.yxsUHB6BNW@diego>
-In-Reply-To: <CANBLGcx0Udhaa3S+uSffFcB_KFHXQiMOvn8Fd7ogj+RFxQNAfQ@mail.gmail.com>
-References: <20211021174223.43310-1-kernel@esmil.dk>
- <163529604399.15791.378104318036812951@swboyd.mtv.corp.google.com>
- <CANBLGcx0Udhaa3S+uSffFcB_KFHXQiMOvn8Fd7ogj+RFxQNAfQ@mail.gmail.com>
+ id 1mfh8H-004iMk-GO
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 11:30:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635334212;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=6755i8Ev1p/V649+fKWbCguz7hafsCtx6KF7gf1uorY=;
+ b=TX/V5o7c9HZn0ZYo1Stbn5UuRW1GQ4TLUWo1UuB7pNERiGnFNu87TCgocVolnSwZws3Ly0
+ McB8kWSV8zufJ0S2j5l9cGSYABg9A2udHCTxhp7HgKb+bsB9vhLVkYGONA5Vah5BRrPu9j
+ lvJFsPddbHDevsHwOr3pgLk5y/5Y4Gk=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-97-SCV0Ypy_PSae9_O3yFoh6Q-1; Wed, 27 Oct 2021 07:30:07 -0400
+X-MC-Unique: SCV0Ypy_PSae9_O3yFoh6Q-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B14A3100C66D;
+ Wed, 27 Oct 2021 11:30:03 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id A291C101E591;
+ Wed, 27 Oct 2021 11:29:47 +0000 (UTC)
+Message-ID: <62231cec8a62db6bf2baba24cc55e0ec2515d0b1.camel@redhat.com>
+Subject: Re: [PATCH v2 07/43] KVM: Reconcile discrepancies in halt-polling
+ stats
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Wed, 27 Oct 2021 14:29:46 +0300
+In-Reply-To: <20211009021236.4122790-8-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-8-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_042225_185313_3B8ED335 
-X-CRM114-Status: GOOD (  45.99  )
+X-CRM114-CacheID: sfid-20211027_043013_680939_A0AC0EC6 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,146 +103,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 27. Oktober 2021, 12:24:07 CEST schrieb Emil Renner Berthing:
-> On Wed, 27 Oct 2021 at 02:54, Stephen Boyd <sboyd@kernel.org> wrote:
-> > Quoting Emil Renner Berthing (2021-10-26 15:35:36)
-> > > On Tue, 26 Oct 2021 at 22:20, Stephen Boyd <sboyd@kernel.org> wrote:
-> > > > Quoting Emil Renner Berthing (2021-10-21 10:42:13)
-> > > > > +};
-> > > > > +
-> > > > > +struct clk_starfive_jh7100_priv {
-> > > > > +       /* protect registers against overlapping read-modify-write */
-> > > > > +       spinlock_t rmw_lock;
-> > > >
-> > > > Does overlapping mean concurrent?
-> > >
-> > > Yes, sorry.
-> > >
-> > > > Do different clks share the same registers?
-> > >
-> > > No, each clock has their own register, but they use that register both
-> > > to gate the clock and other configuration. The Locking chapter of
-> > > Documentation/driver-api/clk.rst talks about the prepare lock and the
-> > > enable lock and then says:
-> > > "However, access to resources that are shared between operations of
-> > > the two groups needs to be protected by the drivers. An example of
-> > > such a resource would be a register that controls both the clock rate
-> > > and the clock enable/disable state."
-> >
-> > Alright got it. Maybe say "protect clk enable and set rate from
-> > happening at the same time".
-> >
-> > >
-> > > > > +               return ERR_PTR(-EINVAL);
-> > > > > +       }
-> > > > > +
-> > > > > +       if (idx >= JH7100_CLK_PLL0_OUT)
-> > > > > +               return priv->pll[idx - JH7100_CLK_PLL0_OUT];
-> > > > > +
-> > > > > +       return &priv->reg[idx].hw;
-> > > > > +}
-> > > > > +
-> > > > > +static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
-> > > >
-> > > > Drop __init as this can be called after kernel init is over.
-> > >
-> > > Oh interesting, I'd like to know when that can happen. The comment for
-> > > the builtin_platform_driver macro says it's just a wrapper for
-> >
-> > I thought this was using module_platform_driver() macro?
-> >
-> > > device_initcall.
-> > >
-> > > Won't we then need to remove all the __initconst tags too since the
-> > > probe function walks through jh7100_clk_data which eventually
-> > > references all __initconst data?
-> >
-> > Yes. If it's builtin_platform_driver() it can't be a module/tristate
-> > Kconfig, in which case all the init markings can stay.
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Move the halt-polling "success" and histogram stats update into the
+> dedicated helper to fix a discrepancy where the success/fail "time" stats
+> consider polling successful so long as the wait is avoided, but the main
+> "success" and histogram stats consider polling successful if and only if
+> a wake event was detected by the halt-polling loop.
 > 
-> Yes, it's already bool in the Kconfig file. After looking into this I
-> think it's better to do like the rockchip drivers and use
-> builtin_platform_driver_probe to make sure the probe function only
-> called at kernel init time:
+> Move halt_attempted_poll to the helper as well so that all the stats are
+> updated in a single location.  While it's a bit odd to update the stat
+> well after the fact, practically speaking there's no meaningful advantage
+> to updating before polling.
 > 
-> static struct platform_driver clk_starfive_jh7100_driver = {
->         .driver = {
->                 .name = "clk-starfive-jh7100",
->                 .of_match_table = clk_starfive_jh7100_match,
->                 .suppress_bind_attrs = true,
->         },
-> };
-> builtin_platform_driver_probe(clk_starfive_jh7100_driver,
-> clk_starfive_jh7100_probe);
+> Note, there is a functional change in addition to the success vs. fail
+> change.  The histogram updates previously called ktime_get() instead of
+> using "cur".  But that change is desirable as it means all the stats are
+> now updated with the same polling time, and avoids the extra ktime_get(),
+> which isn't expensive but isn't free either.
 > 
-> @Andy: is the supress_bind_attrs what you were asking about?
+> Reviewed-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  virt/kvm/kvm_main.c | 35 ++++++++++++++++-------------------
+>  1 file changed, 16 insertions(+), 19 deletions(-)
 > 
-> > > > > +
-> > > > > +               clk->hw.init = &init;
-> > > > > +               clk->idx = idx;
-> > > > > +               clk->max = jh7100_clk_data[idx].max;
-> > > > > +
-> > > > > +               ret = clk_hw_register(priv->dev, &clk->hw);
-> > > >
-> > > > Why not use devm_clk_hw_register()?
-> > >
-> > > I probably could. Just for my understanding that's just to avoid the
-> > > loop on error below, because as a builtin driver the device won't
-> > > otherwise go away, right?
-> >
-> > Yes
-> >
-> > >
-> > > > > +               if (ret)
-> > > > > +                       goto err;
-> > > > > +       }
-> > > > > +
-> > > > > +       ret = devm_of_clk_add_hw_provider(priv->dev, clk_starfive_jh7100_get, priv);
-> > > > > +       if (ret)
-> > > > > +               goto err;
-> > > > > +
-> > > > > +       return 0;
-> > > > > +err:
-> > > > > +       while (idx)
-> > > > > +               clk_hw_unregister(&priv->reg[--idx].hw);
-> > > > > +       return ret;
-> > > > > +}
-> > > > > +
-> > > > > +static const struct of_device_id clk_starfive_jh7100_match[] = {
-> > > > > +       { .compatible = "starfive,jh7100-clkgen" },
-> > > > > +       { /* sentinel */ }
-> > > > > +};
-> > > >
-> > > > Please add MODULE_DEVICE_TABLE()
-> > >
-> > > Will do!
-> >
-> > If it's never going to be a module then don't add any module_* things.
-> 
-> So does that just mean no MODULE_DEVICE_TABLE or should I also remove
-> MODULE_DESCRIPTION, MODULE_AUTHOR and MODULE_LICENSE? I'm just double
-> checking because the rockchip drivers seem to have MODULE_DESCRIPTION
-> and MODULE_LICENSE lines.
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 4dfcd736b274..1292c7876d3f 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -3204,12 +3204,23 @@ static int kvm_vcpu_check_block(struct kvm_vcpu *vcpu)
+>  static inline void update_halt_poll_stats(struct kvm_vcpu *vcpu, ktime_t start,
+>  					  ktime_t end, bool success)
+>  {
+> +	struct kvm_vcpu_stat_generic *stats = &vcpu->stat.generic;
+>  	u64 poll_ns = ktime_to_ns(ktime_sub(end, start));
+>  
+> -	if (success)
+> -		vcpu->stat.generic.halt_poll_success_ns += poll_ns;
+> -	else
+> -		vcpu->stat.generic.halt_poll_fail_ns += poll_ns;
+> +	++vcpu->stat.generic.halt_attempted_poll;
+> +
+> +	if (success) {
+> +		++vcpu->stat.generic.halt_successful_poll;
+> +
+> +		if (!vcpu_valid_wakeup(vcpu))
+> +			++vcpu->stat.generic.halt_poll_invalid;
+> +
+> +		stats->halt_poll_success_ns += poll_ns;
+> +		KVM_STATS_LOG_HIST_UPDATE(stats->halt_poll_success_hist, poll_ns);
+> +	} else {
+> +		stats->halt_poll_fail_ns += poll_ns;
+> +		KVM_STATS_LOG_HIST_UPDATE(stats->halt_poll_fail_hist, poll_ns);
+> +	}
+>  }
+>  
+>  /*
+> @@ -3230,30 +3241,16 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  	if (do_halt_poll) {
+>  		ktime_t stop = ktime_add_ns(ktime_get(), vcpu->halt_poll_ns);
+>  
+> -		++vcpu->stat.generic.halt_attempted_poll;
+>  		do {
+>  			/*
+>  			 * This sets KVM_REQ_UNHALT if an interrupt
+>  			 * arrives.
+>  			 */
+> -			if (kvm_vcpu_check_block(vcpu) < 0) {
+> -				++vcpu->stat.generic.halt_successful_poll;
+> -				if (!vcpu_valid_wakeup(vcpu))
+> -					++vcpu->stat.generic.halt_poll_invalid;
+> -
+> -				KVM_STATS_LOG_HIST_UPDATE(
+> -				      vcpu->stat.generic.halt_poll_success_hist,
+> -				      ktime_to_ns(ktime_get()) -
+> -				      ktime_to_ns(start));
+> +			if (kvm_vcpu_check_block(vcpu) < 0)
+>  				goto out;
+> -			}
+>  			cpu_relax();
+>  			poll_end = cur = ktime_get();
+>  		} while (kvm_vcpu_can_poll(cur, stop));
+> -
+> -		KVM_STATS_LOG_HIST_UPDATE(
+> -				vcpu->stat.generic.halt_poll_fail_hist,
+> -				ktime_to_ns(ktime_get()) - ktime_to_ns(start));
+>  	}
+>  
+>  
 
-reading this I realized that the current implementation on the Rockchip side
-is faulty :-) .
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
-For one, there recently was a change for 5.16 that moved this to use
-module_platform_driver, while keeping the initdata, which suggest that
-the change was actually not tested at all in that context.
-
-And secondly the kconfig is wrong to actually use tristate and should instead
-use bool.
-
-Of course this is also influenced by the recent GKI discussion [0] ;-)
-
-I'm going to revert the one change and also adapt the kconfig to use bool
-again.
-
-
-Heiko
-
-[0] https://lwn.net/Articles/872209/
+Best regards,
+	Maxim Levitsky
 
 
 
