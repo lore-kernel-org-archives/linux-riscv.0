@@ -2,75 +2,91 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31947C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9007DC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:54:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F31A96103C
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:45:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F31A96103C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5247760F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:54:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5247760F21
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hPl3ZzeyN0vXmRvtxSffeXQxAULxGCSK4RoEdOacRVw=; b=3XmpkQab7Senfb
-	IrO0w5HqGT8gIeeQ3/2kj8fbiaG3wsLLu3s1ChlAYDYv09gVRrtX8shWkLyOhJJ08vspDo0GCZVD4
-	qtPlu+bYoEWPu3Jlxep8jB/fBP1ei2bKA9Ff320QlK3XEmZjkiphmQDX2RYwSY7ij1qDWquYroVO0
-	lizF0GiBWPLD+eeYD0kI1/vMg2w1SMpNpPaCkfX7KVsuvMmE2Ut5DfjW805ru1rs4dqZpuzqP/J/f
-	nCXf10ZYvAsAfPxHx1DgQqGXlwIf228BKr/P0s4W2UtqV3uT8xX9hp80T6H+d9/xkez0FvfJ4H829
-	wi1yADUdB+Iu2EInkK9Q==;
+	List-Owner; bh=p06viguoOcwgLru5o3LUDQGhVzkb6DB0Um6lnpGtk4Y=; b=yVxDI0UBzua4ZQ
+	IVhtrsOtb16shVe0vTIcGJ4IMwooCr/+EsH4GpBgnIx1eWe5IX5B0QyJep2fLuoM8E0iTKPhKN7hG
+	0/yzbqOkcHbFLDMmRzk5NPzjkSSWqFmCjGpy3XE0COsL1Afyj6HajUD7BUdmVg31L7sIy/CqPI0JI
+	+XYxKFwZN7KFuOYR2t6nbwlH/MQThzNV4ls4L5Tl+5T+/0uO6uRRjscale0KsBOTFS12u+57gn0Bw
+	b9gWEOhTRj/JlCpgLSPyrkHhMcqCBlPXyBs9ku/vKLpomMJHbdk+jBTa/zfmmBTiuU6rw6404pnUj
+	azyJGNzuNiVD6TqewyTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mffV3-004T5A-CO; Wed, 27 Oct 2021 09:45:37 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1mffdE-004V0k-2C; Wed, 27 Oct 2021 09:54:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mffV0-004T46-2e
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 09:45:35 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4HfP210Fxmz1qwxk;
- Wed, 27 Oct 2021 11:45:29 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4HfP2068n6z1qqkB;
- Wed, 27 Oct 2021 11:45:28 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id aM9GS1BKj2Zb; Wed, 27 Oct 2021 11:45:27 +0200 (CEST)
-X-Auth-Info: C2/eG4m35MkI9B3Bxg1aiLH7XdmCmAifjuwSKAmQZlq5VktfNATtjZ8fcmt6k9ZP
-Received: from igel.home (ppp-46-244-163-205.dynamic.mnet-online.de
- [46.244.163.205])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1mffdB-004UyK-ET
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 09:54:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635328440;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=OLKZI82hmPisWACp/QMd/03BQs+RHKrDBliqptWWYzE=;
+ b=QdaTAUfDJ9+mnQF8+RnK5RQMyKSX+xPPdiFHFLeKeNnMhyaOyg8DnNmqaH644PWXaIlBKq
+ 30WBuSOl/+kpAGfjUJci96z0pgGj5vmH1kHgeR0509WA/uhDoy8IOYiDuiVaRqd3qOV0Gy
+ YRzQ8mH7WsB5Iy+EAaIGqXVcumvwB6E=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-468-4gOjCQ60OwesHHSXcF-XSQ-1; Wed, 27 Oct 2021 05:51:19 -0400
+X-MC-Unique: 4gOjCQ60OwesHHSXcF-XSQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+ [10.5.11.23])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Wed, 27 Oct 2021 11:45:27 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
- id 591102C2200; Wed, 27 Oct 2021 11:45:27 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,  alex@ghiti.fr,  Paul Walmsley
- <paul.walmsley@sifive.com>,  aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,
- kernel-team@android.com,  Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: Re: [PATCH] RISC-V: Make CONFIG_RELOCATABLE user selectable
-References: <20211026212847.43108-1-palmer@dabbelt.com>
- <87mtmuaodc.fsf@igel.home>
- <CA+zEjCuRuKtZAhkS_RFyby6UhLvYmg=4BdnXEwUdaCdtbB7ZAA@mail.gmail.com>
-X-Yow: It's the land of DONNY AND MARIE as promised in TV GUIDE!
-Date: Wed, 27 Oct 2021 11:45:27 +0200
-In-Reply-To: <CA+zEjCuRuKtZAhkS_RFyby6UhLvYmg=4BdnXEwUdaCdtbB7ZAA@mail.gmail.com>
- (Alexandre Ghiti's message of "Wed, 27 Oct 2021 10:58:44 +0200")
-Message-ID: <87ee86ajig.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AD15980A5C0;
+ Wed, 27 Oct 2021 09:51:15 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 401B019D9F;
+ Wed, 27 Oct 2021 09:50:31 +0000 (UTC)
+Message-ID: <aa1656c01ea5d46dd22c66da4a5eaa27f58810a2.camel@redhat.com>
+Subject: Re: [PATCH v2 02/43] KVM: SVM: Ensure target pCPU is read once when
+ signalling AVIC doorbell
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Wed, 27 Oct 2021 12:50:30 +0300
+In-Reply-To: <20211009021236.4122790-3-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-3-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_024534_299109_F530EE4C 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20211027_025401_635938_EC3A3952 
+X-CRM114-Status: GOOD (  25.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +103,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Okt 27 2021, Alexandre Ghiti wrote:
+On Fri, 2021-10-08 at 19:11 -0700, Sean Christopherson wrote:
+> Ensure vcpu->cpu is read once when signalling the AVIC doorbell.  If the
+> compiler rereads the field and the vCPU is migrated between the check and
+> writing the doorbell, KVM would signal the wrong physical CPU.
 
-> On Wed, Oct 27, 2021 at 10:03 AM Andreas Schwab <schwab@linux-m68k.org> wrote:
->>
->> On Okt 26 2021, Palmer Dabbelt wrote:
->>
->> > +config RELOCATABLE
->> > +     bool "Build a relocatable kernel"
->> > +     depends on MMU && 64BIT && !XIP_KERNEL
->> > +     help
->> > +          This builds a kernel as a Position Independent Executable (PIE),
->> > +          which retains all relocation metadata required to relocate the
->> > +          kernel binary at runtime to a different virtual address than the
->> > +          address it was linked at.
->> > +          Since RISCV uses the RELA relocation format, this requires a
->> > +          relocation pass at runtime even if the kernel is loaded at the
->> > +          same address it was linked at.
->>
->> When in doubt, do what?
->
-> Then do not enable.
+Since vcpu->cpu can change any moment anyway, adding READ_ONCE I think can't really fix anything
+but I do agree that it makes this more readable.
 
-Please add that to the help string.
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
-Andreas.
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+
+> 
+> Functionally, signalling the wrong CPU in this case is not an issue as
+> task migration means the vCPU has exited and will pick up any pending
+> interrupts on the next VMRUN.  Add the READ_ONCE() purely to clean up the
+> code.
+> 
+> Opportunistically add a comment explaining the task migration behavior,
+> and rename cpuid=>cpu to avoid conflating the CPU number with KVM's more
+> common usage of CPUID.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/svm/avic.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+> index 8052d92069e0..208c5c71e827 100644
+> --- a/arch/x86/kvm/svm/avic.c
+> +++ b/arch/x86/kvm/svm/avic.c
+> @@ -675,10 +675,17 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
+>  	smp_mb__after_atomic();
+>  
+>  	if (avic_vcpu_is_running(vcpu)) {
+> -		int cpuid = vcpu->cpu;
+> +		int cpu = READ_ONCE(vcpu->cpu);
+>  
+> -		if (cpuid != get_cpu())
+> -			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpuid));
+> +		/*
+> +		 * Note, the vCPU could get migrated to a different pCPU at any
+> +		 * point, which could result in signalling the wrong/previous
+> +		 * pCPU.  But if that happens the vCPU is guaranteed to do a
+> +		 * VMRUN (after being migrated) and thus will process pending
+> +		 * interrupts, i.e. a doorbell is not needed (and the spurious)
+> +		 */
+> +		if (cpu != get_cpu())
+> +			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpu));
+>  		put_cpu();
+>  	} else
+>  		kvm_vcpu_wake_up(vcpu);
+
+
 
 _______________________________________________
 linux-riscv mailing list
