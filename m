@@ -2,104 +2,91 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8F40C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 551FEC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:18:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7769D604AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:07:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7769D604AC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1974C610D2
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:18:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1974C610D2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R34XqV8qsTNi8pNZpFrZoE1GBXgUHrDH98YSQiDbMKM=; b=19+YJnV4oXm3LA
-	R9Pj4XXA5/gc6gdLJO31lkwShM7Ei2zVp/rIkagtlPk/xy80+6AMSXVOUJJuP9Mx1VZg+RTXtmHQx
-	ng6yRiL3lARLPUpROdXLtAC949VWMvw0ngkPZzXk3gWU3Kr9m5+GNSoYA8oe0grIDxbbrOiY8haGt
-	WTCjikJmrlPHvQyzYIhIW77Y7ZOEV03MVgw0LDsTnC/K9rrDhBSBOvU7BCW8e/NJ3dxQ61dA6OtbQ
-	4zAxzUasOhrPf7QyN1UKjHQScuOL3VvWKkhzdZt9jGPinsvpgintOPeQ8m63s9xdzr8N43QJJ5YHo
-	sOU77keKQtUeNzHvCCMw==;
+	List-Owner; bh=Kk6BNm6NBMSZnqL1NRNhIprJRJA1fPqrAlXHlFh4zEE=; b=XS3oJC/DRm0DMp
+	u1knKGaKV4PrAE39okpkwy0vJYD2QAwdF+FXKPNxXfdCQ9C7z3mUG16UvdpCKle8TmamDMjKQPQfL
+	1HrViH5A5iJfHWRkgp0sF1uCEpIOg/9hxLddiCN71hgJX98Q4w8PC9enNdJ8PukSz/DZL7FSNk970
+	nU2TawIzxSHLL4JQkch/+9Y6/SJo82xsJ3XeD52TCNwOHTe9Yc56pqREkWQarawr01pFpgY/4sHcl
+	qeqb8PwUM4mmroBrGzLmM/OTfidDP2lPor8HpRSvKXscQeiAevTGrYFtserzx2z/gsn4d73fjnh/g
+	dxi6SDTAskwfOD6j9HLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfkWA-005EkG-CJ; Wed, 27 Oct 2021 15:07:06 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1mfkhN-005HLG-07; Wed, 27 Oct 2021 15:18:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfkW7-005Eis-7Z
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 15:07:04 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id 187so2980429pfc.10
- for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 08:07:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=O5lEF3hXOuOGQ36jWeA5WrZK+395dTI4kUNN+CFJhtE=;
- b=GJjlg8jJfw+Bt9Zd0zP4mtqcSM31wSFBYCetU17CHbzQQW4kiFtHDgsZBVvEH8887p
- yw/Js4mEDuANgaxd1QymvaNpmXbEvaNRm2HNB868WPSRynugBhM6LN65l++VZht0g2X0
- XFMEItNS+WJlFOOOZlwyo5ghqOI0eoYdx8EfG7dg89d25ghzdUn9Jr0jTft3rzInpzui
- t+nhlFj3SyV2ez0xA0qiaGWyaH3JZAU5KHIJMn2b+NEmBeF/xDfhUhjIDnEt41PMETob
- dNlEs4TAu5VbQ+MRxeaG1Cc4kLdotzXGkh/U5A20JnxHgI8kyVG06UiAaMfvZtmJbPiD
- c4pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=O5lEF3hXOuOGQ36jWeA5WrZK+395dTI4kUNN+CFJhtE=;
- b=BH7B9xhgxXxanWQXR5s1ZoT+AGPGaL3qQuMLHkEJU+xPj6VInqE6a15oeHt9H/+Zz9
- Cri1oDrD/9Cv36uWxwUV2DF4YrhS4CA7W16gFzlYX0Sw3KYp4CP9urRgduOjSFWgH52G
- Hg1ckph+ZDlhMA+bHf1mCOtvyxqIsGhHvpFZqKGLV/ulrwcV19w5w6Mbid+IHmkJH3XO
- a6Ryg4NgYY6sxt4YAqHD54jMI300UxOWDSGs/sNnne+X0QfmP2k6Gv2tgpqkxLD0aWPY
- xfa9fDr5lQQEVD3BKIITUlI5RDRKBdhDKNN5YLIDxM8t+E2ny6Y2xC8VJGAIOxopY1eQ
- 3Kcg==
-X-Gm-Message-State: AOAM531G66vO8aQuGxVt3p3+11Qi1A9ZZL0FDfqyJ3r310DAy+arNQkO
- LUYkoOxOg6fm56c0baNtTgIM7Q==
-X-Google-Smtp-Source: ABdhPJyFiG0oaOa31Ni2mfE2COsoLS8wTaHHbwW9HjhwNmX9PoY62hBCx/P2f3tKT436xIXd6QXjiA==
-X-Received: by 2002:a05:6a00:15c9:b0:44c:a998:b50d with SMTP id
- o9-20020a056a0015c900b0044ca998b50dmr33155514pfu.49.1635347221673; 
- Wed, 27 Oct 2021 08:07:01 -0700 (PDT)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id x15sm310904pfp.30.2021.10.27.08.07.00
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 08:07:00 -0700 (PDT)
-Date: Wed, 27 Oct 2021 15:06:57 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1mfkhJ-005HJg-V5
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 15:18:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635347917;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=Mqfkyc1h1IacAYuqVX+51EaEIUB4H7XAD3a00wXW0uo=;
+ b=eir2d4PSGJ/MTPo0r1eSoM9O6N4VFKXDD1hvvAQaq/OmUvOjfL3JgzcKWqZpSR40TQT7/V
+ 5yppdYlpv3eWQut0pgSUS19+d0zlLgr/xWEgnJWSREeoteqae9wbhQj0tjb/w/S8kP75vM
+ bMwmT0WYEdaqlxMXrFzgYjfbt2Mq/fw=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-129-NivpEGWfOKW2rqXDN2Iarw-1; Wed, 27 Oct 2021 11:18:33 -0400
+X-MC-Unique: NivpEGWfOKW2rqXDN2Iarw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 090521023F57;
+ Wed, 27 Oct 2021 15:18:26 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 37C0260C48;
+ Wed, 27 Oct 2021 15:18:14 +0000 (UTC)
+Message-ID: <796f9a7d553a0e13da5c44597666962620c64303.camel@redhat.com>
+Subject: Re: [PATCH v2 18/43] KVM: x86: Invoke kvm_vcpu_block() directly for
+ non-HALTED wait states
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
  Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
- Jing Zhang <jingzhangos@google.com>
-Subject: Re: [PATCH v2 35/43] KVM: SVM: Signal AVIC doorbell iff vCPU is in
- guest mode
-Message-ID: <YXlrEWmBohaDXmqL@google.com>
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Wed, 27 Oct 2021 18:18:13 +0300
+In-Reply-To: <20211009021236.4122790-19-seanjc@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-36-seanjc@google.com>
- <0333be2a-76d8-657a-6c82-3bb5c9ff2e3b@redhat.com>
+ <20211009021236.4122790-19-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0333be2a-76d8-657a-6c82-3bb5c9ff2e3b@redhat.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_080703_303430_ADE62FC9 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20211027_081838_099870_E8DAE987 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +103,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 25, 2021, Paolo Bonzini wrote:
-> On 09/10/21 04:12, Sean Christopherson wrote:
-> > +	 */
-> > +	if (vcpu->mode == IN_GUEST_MODE) {
-> >   		int cpu = READ_ONCE(vcpu->cpu);
-> >   		/*
-> > @@ -687,8 +692,13 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
-> >   		if (cpu != get_cpu())
-> >   			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpu));
-> >   		put_cpu();
-> > -	} else
-> > +	} else {
-> > +		/*
-> > +		 * Wake the vCPU if it was blocking.  KVM will then detect the
-> > +		 * pending IRQ when checking if the vCPU has a wake event.
-> > +		 */
-> >   		kvm_vcpu_wake_up(vcpu);
-> > +	}
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Call kvm_vcpu_block() directly for all wait states except HALTED so that
+> kvm_vcpu_halt() is no longer a misnomer on x86.
 > 
-> Does this still need to check the "running" flag?  That should be a strict
-> superset of vcpu->mode == IN_GUEST_MODE.
+> Functionally, this means KVM will never attempt halt-polling or adjust
+> vcpu->halt_poll_ns for INIT_RECEIVED (a.k.a. Wait-For-SIPI (WFS)) or
+> AP_RESET_HOLD; UNINITIALIZED is handled in kvm_arch_vcpu_ioctl_run(),
+> and x86 doesn't use any other "wait" states.
+> 
+> As mentioned above, the motivation of this is purely so that "halt" isn't
+> overloaded on x86, e.g. in KVM's stats.  Skipping halt-polling for WFS
+> (and RESET_HOLD) has no meaningful effect on guest performance as there
+> are typically single-digit numbers of INIT-SIPI sequences per AP vCPU,
+> per boot, versus thousands of HLTs just to boot to console.
+> 
+> Reviewed-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/x86.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index cd51f100e906..e0219acfd9cf 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -9899,7 +9899,10 @@ static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
+>  	if (!kvm_arch_vcpu_runnable(vcpu) &&
+>  	    (!kvm_x86_ops.pre_block || static_call(kvm_x86_pre_block)(vcpu) == 0)) {
+>  		srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
+> -		kvm_vcpu_halt(vcpu);
+> +		if (vcpu->arch.mp_state == KVM_MP_STATE_HALTED)
+> +			kvm_vcpu_halt(vcpu);
+> +		else
+> +			kvm_vcpu_block(vcpu);
+>  		vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
+>  
+>  		if (kvm_x86_ops.post_block)
 
-No.  Signalling the doorbell when "running" is set but the vCPU is not in the
-guest is just an expensive nop.  So even if KVM were to rework its handling of
-"running" to set the flag immediately before VMRUN and clear it immediately after,
-keying off IN_GUEST_MODE and not "running" would not be wrong, just sub-optimal.
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
-I doubt KVM will ever make the "running" flag super precise, because keeping the
-flag set when the vCPU is loaded avoids VM-Exits on other vCPUs due to undelivered
-IPIs.  But the flip side is that it means the flag has terrible granularity, and
-is arguably inaccurate when viewed from a software perspective.  Anyways, if the
-treatment of "running" were ever changed, then this code should also be changed
-to essentially revert this commit since vcpu->mode would then be redundant.
+Best regards,
+	Maxim Levitsky
 
-And IMO, it makes sense to intentionally separate KVM's delivery of interrupts
-from hardware's delivery of interrupts.  I.e. use the same core rules as
-kvm_vcpu_kick() for when to send interrupts and when to wake for the AVIC.
 
 _______________________________________________
 linux-riscv mailing list
