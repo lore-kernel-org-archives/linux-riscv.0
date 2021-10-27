@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EAB4C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 96CC0C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 23CB6610CA
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 23CB6610CA
+	by mail.kernel.org (Postfix) with ESMTPS id 6495C60231
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6495C60231
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TufUrwTq3Xesz/sP+gpENt3CorSGQiwGTzIlOcmqRBg=; b=MPD9xh8+VZ3PYg
-	ysBOZ3SBW0hVgz4N8Vjs1U70nEjtwQ5x+rEniTaYcV+ihJm7jcPa+/L/nwO3wTFiDKi370SJsKahI
-	hj2nvZ7gIRsStNTqCyqtSoILsIUda1lqq9yPbSpYosCGhoMPn7RBi6rgMHxFfhUlh/5NwiPhQRUun
-	NW1kc0n9pJcZa5aJBffCdxvp9hYtFJCAfSzdm7oYV5nyqrC5VXuReJWXt4Odzx7L2fL+N3blmZaMD
-	5UfqYOv6xbtK7krPWuBFNKzVZ+3uuIp1H/fd7oq5Hh/Y+kOh3qs96LjxGuZt0Ub/3cBt3mZvDTB7p
-	94PRqompO3loaAvAXkEg==;
+	List-Owner; bh=DyQFE4W5P8ua9ESff5RMMUN9Gu3V2X7U0GwgJ/wIJ30=; b=ETNRWBYlqwHexh
+	ZPaDF0kh9d91VVGx6QeIEUloV6RlYVKFpdS8F2P0fG2P33wl+tDifeQwCHi4SPurvzzAojTeg6Nlv
+	0wRsknGMc6jPhXpx8GrnCENmoOmq4yVmWe3x5xll1Az8//t14FMJ35OMhRsdyey6kUMd8kky/kf9J
+	mMoaMQD/6EcDXW0T96HqYmfpS2yUIbGYBhDQMRsiUbo5Suw2Jw/W+xKqfU10aH+CiHHEIJaQ0oaZl
+	47vQ5d0vHkRkuMWO9yAE6mCS2y3TSz2h+AJvrAcWu0qnaLbkwBg9C/Pp1ugcT+d9Ry/PCzOHwz34p
+	iSbT9Us9Fu2EPyxOPjTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqPE-006E9L-CR; Wed, 27 Oct 2021 21:24:20 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1mfqPU-006EHY-Hw; Wed, 27 Oct 2021 21:24:36 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqJw-006Aws-5L; Wed, 27 Oct 2021 21:18:54 +0000
-Received: by mail-lf1-x136.google.com with SMTP id f3so807154lfu.12;
- Wed, 27 Oct 2021 14:18:51 -0700 (PDT)
+ id 1mfqJy-006AyJ-2g; Wed, 27 Oct 2021 21:18:55 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id u11so9042217lfs.1;
+ Wed, 27 Oct 2021 14:18:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=MQWhTF0wBI+IugzPE3ghLHT129hypIGKpejDwrM3hyE=;
- b=RZvyurGZNweTiQS39Ean2OjgLccYrK032pC/dpD5TIetEdWActoZDZ0pbxUwZ65EB3
- f6HHqHOjaIJRkLRbNXFH+a9dD2g5xu+MxS8srOD+UoT89FXGbOpnIpBzsogwI4SrHnvI
- Xp4OXB4rFx2UJNCOe+1ontZRmKhqDl18fc0h55fLU7qhbVovqyZfQtN1oE2ZBblN4A6p
- LG+FlNBhlZ+ejJ/tR/o9Ca2I3+iU/ni7hPa9YCzdcCgi2bkMHewfSz0zfMDsoGnOZiG5
- WYH0N8y7+ABYK8jopd3eQsXttqeRRQN+xpWJ5QIjK2cUfd8tbZPE8negDAsL0a+gaJ2V
- fJ3A==
+ bh=3tizDJEeWC2iLbZdJm6My4oRtC+CKaYmiKRSIM6veO0=;
+ b=P2SMTBdUazDV2Wnt33aO9FM2Ioz84SezmWonZoC9di4gBNxmpSDTZT6tEbAs+vJh3H
+ Fl3mZiziafsNnSwbT1iMyr0r9bKbxSiHP3xJiOBIo4ewxSS3FiLigSFoEgJOcOsMECFU
+ Ealy6ndYpUfciCkbDSvwvbDJBaKQyOcr0jiZpeL2e0iKkV4AQLDVCHRPOCPCDpkazzgq
+ BERHUZw176GWVNNNOqpmpYaLAn7f4joDeIeKRo11vDGHWht2ujkzv0CrGvSNdzJe9tR3
+ GFiFAzCfeg61A5JBu27BdMdrz99RW2oVhEudj/a2XZux9KH22qJjawF87cCiFM6fKipn
+ F+kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=MQWhTF0wBI+IugzPE3ghLHT129hypIGKpejDwrM3hyE=;
- b=Hjz/t4vSG6B2H++0jJ3Yb7W24fxul2UaJ+Z7Y3q84edf1v+LY9xQbjYzlpECuhIFtG
- FnMvf3n4SHhnPB8HQJ3BrnBiQsm2LFU1ZPLbv+OMyQ+TEX3QviBt2McW424xPoXRTqRL
- Bou4HeFebME0d/yswd9t4nQNFfedp48Y1AXNVll1veXjocDmdKT24CD4tmTcOcgZbtJW
- 5tCmBgQkdcXaF2AdtIGbvY6cuvkGoLoK/ymqjo8Q51aJFRAqUk5zyNcdaWRMiZwWoImM
- irJ9KkAkx27A0+XcOIuIsI07NcIit4rt13Un/Arl/0kW9bHrgB54itR9nPFFVnpcbJPm
- a8Pg==
-X-Gm-Message-State: AOAM531aOWTIvwdKBpf+JGlfU5y2epZKd76DORsG3+sAMjUS+79HiQIn
- yLuB6yNUVC2kZVoRqf0k1+w=
-X-Google-Smtp-Source: ABdhPJyooWx5IN/z+hq1uWs5thGA811Cpi77JA6dUlt/XGnE5KIxJDhql9o1FzopBJlB1UrwswiMLg==
-X-Received: by 2002:a05:6512:3f04:: with SMTP id
- y4mr131405lfa.180.1635369530580; 
- Wed, 27 Oct 2021 14:18:50 -0700 (PDT)
+ bh=3tizDJEeWC2iLbZdJm6My4oRtC+CKaYmiKRSIM6veO0=;
+ b=hl0JtVN7jiTbTy7Yos95F0WbjSUpgTUgPJXb5RyvL0dR3yktnUd9BtVhYjAQKi1DAO
+ +T+QTJYBarWqfk6bpTsD9G31LjC1FdsnS9OLU5ezLJpp1MXAe72La6whQUO/3kdQG1S+
+ Gd2oeflFmoZjLJObv6OlZKfgvp6y/CsEr7zi+kcJhjzksnQvnqHMQA+H6cCSoOs5tZNU
+ 32d5mZWgkbQHF2y8FSg02DvDgGM/0ajKK5q05gnyB0ADO2YGSBwct2byk5ZpbTWoNqrq
+ k1tf/IPj3nEEf8xIrsFIkMtCT10QrW9PRBEegvEkNWMGxnsbT5EgDeZaQum94352/tMz
+ 65JQ==
+X-Gm-Message-State: AOAM532j8K0n/dYTaoBUsDqvl/0UHEYZ04KM/VSZUFXZmuIY2epm53JZ
+ LbPt+CWrm/u6IVVVhhz0M2I=
+X-Google-Smtp-Source: ABdhPJw7dGE4iKe+cyeyTSJFUn+l5q/Abxrr3B6KYrOVBl1p66aP04j6vH2fcBbUhHRs8nFJgDlWqw==
+X-Received: by 2002:a05:6512:1095:: with SMTP id
+ j21mr134174lfg.274.1635369532441; 
+ Wed, 27 Oct 2021 14:18:52 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.48
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.50
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:18:50 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:52 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -110,16 +110,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 31/45] mfd: axp20x: Use register_simple_power_off_handler()
-Date: Thu, 28 Oct 2021 00:17:01 +0300
-Message-Id: <20211027211715.12671-32-digetx@gmail.com>
+Subject: [PATCH v2 32/45] mfd: retu: Use
+ devm_register_simple_power_off_handler()
+Date: Thu, 28 Oct 2021 00:17:02 +0300
+Message-Id: <20211027211715.12671-33-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141852_325214_57E6E0EC 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20211027_141854_235938_BB21F8A8 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,82 +137,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use register_simple_power_off_handler() that replaces global pm_power_off
-variable and allows to register multiple power-off handlers.
+Use devm_register_simple_power_off_handler() that replaces global
+pm_power_off variable and allows to register multiple power-off handlers.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- drivers/mfd/axp20x.c       | 22 +++++++++++-----------
- include/linux/mfd/axp20x.h |  1 +
- 2 files changed, 12 insertions(+), 11 deletions(-)
+ drivers/mfd/retu-mfd.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
-index 8161a5dc68e8..db31fdb169e4 100644
---- a/drivers/mfd/axp20x.c
-+++ b/drivers/mfd/axp20x.c
-@@ -24,6 +24,7 @@
+diff --git a/drivers/mfd/retu-mfd.c b/drivers/mfd/retu-mfd.c
+index c748fd29a220..d18f05c1f095 100644
+--- a/drivers/mfd/retu-mfd.c
++++ b/drivers/mfd/retu-mfd.c
+@@ -22,6 +22,7 @@
+ #include <linux/slab.h>
+ #include <linux/mutex.h>
  #include <linux/module.h>
- #include <linux/of_device.h>
- #include <linux/pm_runtime.h>
 +#include <linux/reboot.h>
  #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
- 
-@@ -823,9 +824,10 @@ static const struct mfd_cell axp813_cells[] = {
- 	},
+ #include <linux/mfd/core.h>
+ #include <linux/mfd/retu.h>
+@@ -81,9 +82,6 @@ static struct regmap_irq_chip retu_irq_chip = {
+ 	.ack_base	= RETU_REG_IDR,
  };
  
--static struct axp20x_dev *axp20x_pm_power_off;
--static void axp20x_power_off(void)
-+static void axp20x_power_off(void *data)
- {
-+	struct axp20x_dev *axp20x_pm_power_off = data;
-+
- 	if (axp20x_pm_power_off->variant == AXP288_ID)
- 		return;
+-/* Retu device registered for the power off. */
+-static struct retu_dev *retu_pm_power_off;
+-
+ static const struct resource tahvo_usb_res[] = {
+ 	{
+ 		.name	= "tahvo-usb",
+@@ -165,12 +163,12 @@ int retu_write(struct retu_dev *rdev, u8 reg, u16 data)
+ }
+ EXPORT_SYMBOL_GPL(retu_write);
  
-@@ -1000,10 +1002,12 @@ int axp20x_device_probe(struct axp20x_dev *axp20x)
+-static void retu_power_off(void)
++static void retu_power_off(void *data)
+ {
+-	struct retu_dev *rdev = retu_pm_power_off;
++	struct retu_dev *rdev = data;
+ 	int reg;
+ 
+-	mutex_lock(&retu_pm_power_off->mutex);
++	mutex_lock(&rdev->mutex);
+ 
+ 	/* Ignore power button state */
+ 	regmap_read(rdev->regmap, RETU_REG_CC1, &reg);
+@@ -183,7 +181,7 @@ static void retu_power_off(void)
+ 	for (;;)
+ 		cpu_relax();
+ 
+-	mutex_unlock(&retu_pm_power_off->mutex);
++	mutex_unlock(&rdev->mutex);
+ }
+ 
+ static int retu_regmap_read(void *context, const void *reg, size_t reg_size,
+@@ -261,6 +259,17 @@ static int retu_probe(struct i2c_client *i2c, const struct i2c_device_id *id)
+ 		 (ret & RETU_REG_ASICR_VILMA) ? rdat->companion_name : "",
+ 		 (ret >> 4) & 0x7, ret & 0xf);
+ 
++	if (i2c->addr == 1) {
++		ret = devm_register_simple_power_off_handler(&i2c->dev,
++							     retu_power_off,
++							     rdev);
++		if (ret) {
++			dev_err(rdev->dev,
++				"could not register power-off handler: %d\n", ret);
++			return ret;
++		}
++	}
++
+ 	/* Mask all interrupts. */
+ 	ret = retu_write(rdev, rdat->irq_chip->mask_base, 0xffff);
+ 	if (ret < 0)
+@@ -279,10 +288,6 @@ static int retu_probe(struct i2c_client *i2c, const struct i2c_device_id *id)
  		return ret;
  	}
  
--	if (!pm_power_off) {
--		axp20x_pm_power_off = axp20x;
--		pm_power_off = axp20x_power_off;
+-	if (i2c->addr == 1 && !pm_power_off) {
+-		retu_pm_power_off = rdev;
+-		pm_power_off	  = retu_power_off;
 -	}
-+	axp20x->power_handler =
-+		register_simple_power_off_handler(axp20x_power_off, axp20x);
-+
-+	if (IS_ERR(axp20x->power_handler))
-+		dev_err(axp20x->dev, "failed to register power-off handler: %pe",
-+			axp20x->power_handler);
  
- 	dev_info(axp20x->dev, "AXP20X driver loaded\n");
- 
-@@ -1013,11 +1017,7 @@ EXPORT_SYMBOL(axp20x_device_probe);
- 
- void axp20x_device_remove(struct axp20x_dev *axp20x)
- {
--	if (axp20x == axp20x_pm_power_off) {
--		axp20x_pm_power_off = NULL;
--		pm_power_off = NULL;
--	}
--
-+	unregister_simple_power_off_handler(axp20x->power_handler);
- 	mfd_remove_devices(axp20x->dev);
- 	regmap_del_irq_chip(axp20x->irq, axp20x->regmap_irqc);
+ 	return 0;
  }
-diff --git a/include/linux/mfd/axp20x.h b/include/linux/mfd/axp20x.h
-index 9ab0e2fca7ea..49319a0ac369 100644
---- a/include/linux/mfd/axp20x.h
-+++ b/include/linux/mfd/axp20x.h
-@@ -643,6 +643,7 @@ struct axp20x_dev {
- 	const struct mfd_cell           *cells;
- 	const struct regmap_config	*regmap_cfg;
- 	const struct regmap_irq_chip	*regmap_irq_chip;
-+	struct power_handler		*power_handler;
- };
+@@ -291,10 +296,6 @@ static int retu_remove(struct i2c_client *i2c)
+ {
+ 	struct retu_dev *rdev = i2c_get_clientdata(i2c);
  
- /* generic helper function for reading 9-16 bit wide regs */
+-	if (retu_pm_power_off == rdev) {
+-		pm_power_off	  = NULL;
+-		retu_pm_power_off = NULL;
+-	}
+ 	mfd_remove_devices(rdev->dev);
+ 	regmap_del_irq_chip(i2c->irq, rdev->irq_data);
+ 
 -- 
 2.33.1
 
