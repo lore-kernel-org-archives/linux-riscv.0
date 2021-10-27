@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 27A1FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AC8AEC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:30:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DEA6C60E0B
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:29:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DEA6C60E0B
+	by mail.kernel.org (Postfix) with ESMTPS id 7135560E0B
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 15:30:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7135560E0B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,54 +18,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a97ylkDKd2MgG+Y87m4QVtX93j7bzQTblB60jbUrosA=; b=SmU6LLEAUU3dbV
-	RzFJDw/BxpHWO9AEgMVPx9VldDunDGlZyfAoYyxod63HFLoBNTy4d/NsGXQZRkhXHp6H9V5fYsyT0
-	6w996cCnReIey7ArOV6/+qm6Nls7mMTn5qJycqUVoknBn+5LdWbJSOu0R+TE23UEe8hQ0OiZ27TjU
-	iU2IhYl2Yu5j3ExsFAhOaTM23IeCyuFIHYhicJBjprWWtdUeZgCFRB3F0SWA0xajepnmiqF1OPsXS
-	f8rHxuSY5jRkrLF9CbtXtCYGHOH09h2QhWZ4CkjRcgxSbYM4DlZbZkE3svERLm5XURZR9OMbWmU9q
-	2PkkDG+kt1Z+ve2ZTqfw==;
+	List-Owner; bh=gq0MT2sLG9GRtGB89DCapITTcPImpnQQLHH1hEikNUg=; b=Fzg/udFdvuMhRr
+	+Y8KPxLWk4+bExlUIlR1DMzOTSKlFhJHXcN+tt97+uu2ZKqPf09m196b0quqq4qCCSmljLOy6ALKQ
+	Zv64/1jIfDjunCU17roKNwjHJR1sMpGIm+jo+fFF2/+gNK8zqKjLsASgq0Bfset5LosUk2nbzTuOi
+	rCp3QBbfGdmbuho3hjLKR09mmlMCc/hOgvt/CVGmnyXI9tKkXpqpDM8aXzw0v/d01tiKV1X0LLNSc
+	jfl3vmyep6pKp+Lmq598//dKOi7GG0ZITwqJndaTCZJGHRswG9A2aOexmOHzVPlYtyWTJmTFOTzUJ
+	SlshnalUIoccIN1g6OgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfkrD-005JcZ-2C; Wed, 27 Oct 2021 15:28:51 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1mfkt5-005K1H-Ty; Wed, 27 Oct 2021 15:30:47 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfkr0-005JZh-EA
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 15:28:40 +0000
-Received: by mail-pg1-x536.google.com with SMTP id f5so3225163pgc.12
- for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 08:28:35 -0700 (PDT)
+ id 1mfkt3-005Jyh-7U
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 15:30:46 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id s136so3271628pgs.4
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 08:30:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=jluBW5yA9LvugmQi8oyfDy8/cabbakiUXPqo4utsaB8=;
- b=IXIkAF60iwH8Ca28unKtkkjCxMxH4jsRE7rdlyRpHRKxqRH5DKvzKzXeE1xZpeP67E
- xwOJxCxtNAW/vuRZ9/cA++xLC0bu82EJesdjjIouYVg3x2VESqFJeksK7bKKBVif038n
- GNlri9Hc+F1u7CW4lPLn9JPRn52da4aBC4xsr93HTbSLq1yGzKbznkaiM+WfpWPTb1nX
- 8Hjyo7QQx66GQF0REMEMDncs7WF5cqEgNENljeKIdAyawTn2njGp/q6Q7uPOzyYDFpEX
- mqf5isD4pvLAp694w88H9zUwbgY74QXFwiejeE2dZlhZt757K0HlOnfUIVAivKet6eGr
- 4Dpg==
+ bh=8HVWDdXXt0AD/xSFizk+AYjOVZmIDbS9XwzvKXYRSt8=;
+ b=OEfG9fsgSPXFsuD00eYA/4hb/4nOJhqt3Fa3DsCVNZsfitbSN/e7Fn81m4qSyNF6U/
+ mhh/R9TUBiF7pjmngLNdEADzgfxtm/aVHY0H9J+z6ozxZ49ZZu8j36ZA8vNS+jc3P4K8
+ 39l9ZJZa9RV8xzTd4Pq6XBto9wKnNJruu9xTNPgxAnhf+lq+LyLyNX9Nl8mvXteW2N67
+ +TcMWmCTLvtk136TTAc8/TraiE87+QKjoC7eTJ2OAuWqRKMp2hqkYHzHc/UrtgHJUjNB
+ S90jgPj6NxctTlEeFg16F+/ojMD4VkEXJciV+yM/BHrhD9Juzesc0Jpe/IsL5krJCSuw
+ Hz+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=jluBW5yA9LvugmQi8oyfDy8/cabbakiUXPqo4utsaB8=;
- b=e5+iydfoOLbYHBpLgxGObTl+QwX3/u9rKmW5PGUgWuMHWgzD+688kwaLOwDJw7XbN6
- Wc5bI8NjU5/Dz6XFhkKgIjNTwT1Q67/2IR8iCVeXEH894aS+bF2jAFo4TQbOfEwrxfoa
- rpXhtit7+grW7T96Eln75cpqftBKQlEsJWPqEwXeASWES+XXVrMuCGk36SSgzAcE/U9X
- CxtumWpcGk6EpCh1qMWLKEv6I5Ka/F/VDKu5lV+Jl05X1oCuhVTe0N0p6IIN0/5djpTD
- f/PrHfVI++hIx+9/g76NbWkzBMNIStauIUcHP5bf7cePH9GLgDTONxK+ZGOm7iP7CLZD
- lKgw==
-X-Gm-Message-State: AOAM531M1zSOtbA3iEDHRFZT94Ax7Ppq21D2NnZyFVP41DzP/rCiQHlj
- xDklq2Qy45aaqZUX2mVTUjlixQ==
-X-Google-Smtp-Source: ABdhPJxibfpJFn220g32tVsxXXYwD2JThHpi8b5HJLrZMbbjn5Hu0UDQk4ZV4kEcRQbC7q9gao3DeQ==
-X-Received: by 2002:a05:6a00:2405:b0:44c:1ec3:8dbe with SMTP id
- z5-20020a056a00240500b0044c1ec38dbemr33619608pfh.33.1635348515143; 
- Wed, 27 Oct 2021 08:28:35 -0700 (PDT)
+ bh=8HVWDdXXt0AD/xSFizk+AYjOVZmIDbS9XwzvKXYRSt8=;
+ b=DPKvuvYhwEQeeUupEe7ORumH1EYgEuc/0+jS8ctmeUpBqGWRudFgHPWIs+82khA8fi
+ 45iWobPwXderpZ1uv3ASJh11JCBCoykaKKefYAP3HhDdKaRWENgECyMqJ9qXzEtR/hU4
+ QNHiXdS3DJepNUzjj7ELCbFTcpnwqy+Vp9ziF2oBcIPlluYIZrwUxWd7hC3FP+ZRGouB
+ l+1QLYLwpCY282aofaA7wuawXoToSJfR/eab8VUfCnJf8/ht51FqA/LWJEoYkgFIcYHm
+ Vw8VnRVOW/gAJGrUFxMSkZmh293wfPD/Hh9V5nqJnI/Tz+8AQtlbQRcTrj/y++oXO59z
+ hLkQ==
+X-Gm-Message-State: AOAM533nLYmZWM8uAIyaKLo7qPLu6NU5MkdJ/P1lPpv+8/uxYjru9Nhr
+ n+hEIhUcx400GxRuCK/iBuKk+Q==
+X-Google-Smtp-Source: ABdhPJxZ0e6i7j4AtLY0aYMSXG5aUrKCFCUTxCqVHzekft57NleHTTPCd6QukrG2yYLrBLX5jK+rLA==
+X-Received: by 2002:a63:698a:: with SMTP id
+ e132mr24303698pgc.434.1635348638933; 
+ Wed, 27 Oct 2021 08:30:38 -0700 (PDT)
 Received: from google.com (157.214.185.35.bc.googleusercontent.com.
  [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id y19sm340714pfn.23.2021.10.27.08.28.34
+ by smtp.gmail.com with ESMTPSA id w11sm180048pge.48.2021.10.27.08.30.38
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 08:28:34 -0700 (PDT)
-Date: Wed, 27 Oct 2021 15:28:31 +0000
+ Wed, 27 Oct 2021 08:30:38 -0700 (PDT)
+Date: Wed, 27 Oct 2021 15:30:34 +0000
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
@@ -88,18 +88,19 @@ Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
  Jing Zhang <jingzhangos@google.com>
-Subject: Re: [PATCH v2 00/43] KVM: Halt-polling and x86 APICv overhaul
-Message-ID: <YXlwH2vWILFS9QOG@google.com>
+Subject: Re: [PATCH v2 40/43] KVM: VMX: Wake vCPU when delivering posted IRQ
+ even if vCPU == this vCPU
+Message-ID: <YXlwmrrRVIoaU2kG@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <614858dd-106c-64cc-04bc-f1887b2054d1@redhat.com>
- <YXllGfrjPX1pVUx6@google.com>
- <ecec4d7d-13dd-c992-6648-3624d7c14c24@redhat.com>
+ <20211009021236.4122790-41-seanjc@google.com>
+ <a2a4e076-edb8-2cb5-5cb2-6825a1a4559a@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ecec4d7d-13dd-c992-6648-3624d7c14c24@redhat.com>
+In-Reply-To: <a2a4e076-edb8-2cb5-5cb2-6825a1a4559a@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_082838_517112_F2D64046 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20211027_083045_294665_6DCAF5C9 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +117,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 27, 2021, Paolo Bonzini wrote:
-> On 27/10/21 16:41, Sean Christopherson wrote:
-> > The other thing I don't like about having the WARN in the loop is that it suggests
-> > that something other than the vCPU can modify the NDST and SN fields, which is
-> > wrong and confusing (for me).
+On Mon, Oct 25, 2021, Paolo Bonzini wrote:
+> On 09/10/21 04:12, Sean Christopherson wrote:
+> > 
+> > Lastly, this aligns the non-nested and nested usage of triggering posted
+> > interrupts, and will allow for additional cleanups.
 > 
-> Yeah, I can agree with that.  Can you add it in a comment above the cmpxchg
-> loop, it can be as simple as
-> 
-> 	/* The processor can set ON concurrently.  */
-> 
-> when you respin patch 21 and the rest of the series?
+> It also aligns with SVM a little bit more (especially given patch 35),
+> doesn't it?
 
-I can definitely add a comment, but I think that comment is incorrect.  AIUI,
-the CPU is the one thing in the system that _doesn't_ set ON, at least not without
-IPI virtualization (haven't read that spec yet).  KVM (software) sets it when
-emulating IPIs, and the IOMMU (hardware) sets it for "real" posted interrupts,
-but the CPU (sans IPI virtualization) only clears ON when processing an IRQ on
-the notification vector.
-
-So something like this?
-
-	/* ON can be set concurrently by a different vCPU or by hardware. */
+Yes, aligning VMX and SVM APICv behavior as much as possible is definitely a goal
+of this series, though I suspect I failed to state that anywhere.
 
 _______________________________________________
 linux-riscv mailing list
