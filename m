@@ -2,15 +2,15 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D7B9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 272B9C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:09:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0A2B660F56
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:06:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0A2B660F56
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id D710561039
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:09:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D710561039
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -18,69 +18,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=29UFWj1P/G4S3Jx3GXA7lR68M9tgKznx6x/mXA2XVec=; b=QRBe6VfoRHwG+K4fE4z2LgTTwl
-	tDGcKcUCGHdGJzyz53UJ/7CZd8rz5NuKArK7QP7I3EufPkV+wcEhobcIoX+RZLmglZepSCNoaCp5R
-	I22ds2wl58pWWIdYbDHF9HRzeNT6uOsAlXBCIBj5Yd/BcZGEYgc9+yjHjOQPM3KVDAdxL5Gejhqxy
-	BxBmFG1laYvDhXwLXdrnv7hHNUEGEJ75wEvXcTRAKUxHYjFBn/ktVij7fBERtuMTeucI8q/uI/UPC
-	O4vgRtPY8e4/Y7g2kL5deM2XQbHxSLNg9N+i0AvR8WTEjlZxuh0+tE1Guo96Mv71I50pYGLP3STw3
-	cGqjqFeA==;
+	bh=F8gpDr+fUjt5XiDRTGRkdLILW74dHhEr2mFCdYvwumM=; b=S1TLpVJSaOYBxyRKkKR6+3sej+
+	S7c/j+asH75h/kVgMYQGFBCrDieWiHFxZ3n3GQ5YrlXH4bqxz+u3QxpCt1FtvA0HM4k4X8UABuqiK
+	QtG1s0GCPbsmZqqkPD24tRJqPWuxnm5xZ870ZGUtvNcV3u3NAW7QfgNbJWqkegjBYIa8vP42AfpQZ
+	moqJY/f4XWXpYAJcwCCuE6RGx2ifp/hGyrYzYhdGbrMKJ3f7hca+RSK3K0S6sYAxX7kdNZZw1UDH1
+	9z9GZfZWTyxOspLEBcbzrBl73Bv9BygJm72T6uixGDNH5MhgyfY1Bn/T3sc1Zi3ggd2QPZ6ZpW1Tf
+	KMWUnf9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfs05-006Skp-ET; Wed, 27 Oct 2021 23:06:29 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1mfs2h-006T9a-0i; Wed, 27 Oct 2021 23:09:11 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfs02-006Sk7-1f
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 23:06:27 +0000
-Received: by mail-pg1-x529.google.com with SMTP id r28so4537588pga.0
- for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 16:06:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ id 1mfs2d-006T8G-MW
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 23:09:08 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id v20so3075512plo.7
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 16:09:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=qq3Zte+b3gvW8aVUSoj11hufNXWtcNy5WKvRt4opsbo=;
- b=7y5UZL3rxbZp4tvqsYjA0PSihfwGo2dxmv9dANT4KDkwtKlsd4EoZH5BgFjkxWwrJE
- 2/gCrvWOjjaEVpOr6/JrF6H+ZzfKQox2Vg9ZHvu9PXip1qdGjyF8mUGSQEqhxy/YUnBa
- IrpRZJuZPA/8znNDIcvJBYFnlOS8M6mdo1HVcNspkw2G737P6sBVl923LGfWRi2k1/OK
- jQfkqKacsO5o+iNweytFnLyVs6V9iBR3RnJ6zjCInvvzrw4SAFPkJ2VIpeLXj1Yc5ome
- Tp6cF3kgiluFW/TayK9FlC+IsK/GJwSP9fnxFwx97BTeLHMDp1HvQAch5PPeqqY/cv6M
- ImcA==
+ bh=z53gTOEVxYIb2lgRgD1L0JMW+iobeAI2vEOAm7ftuvk=;
+ b=lV/g05Uypl1OzKYE1QMWJyYIU8xBPn8A0CXWkz0mdqne0nY/AhG62U7txhv33/8DBJ
+ L8QMapRM1yzfc2+j9bzuWXoyXiXhAbLXYxCt3WAjfpBecHdHe6WwRzd1zri9JzCqhiaW
+ pZkpAUtcH+ZPBVClrhm5qjb6xz1xV+yfzRODN62gaVcYIi7sCPobs0xde5NJ42Ox0xDu
+ Vm9O+wT3VUTdonNpQP2UTPs3G3ya+XOMxAZoqAT86EVmCLMpHKdDUxwUt3v8X0kZvmwu
+ 8F8ObOpydb6ih8EwhOpDBxicaZ5mhVmwPgQqDO25HgcULLaWmkyG/l53yLZsNfrjWZBq
+ 8cEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=qq3Zte+b3gvW8aVUSoj11hufNXWtcNy5WKvRt4opsbo=;
- b=WfH7hqTl3tN/OyDScK9xRZ8H83m0ITBleqUvhd9HFMZrxc0QKJ35F6BtwosZul7Ehe
- 2Cjkdl+v8caks0XttNeZzZXeX2o+kTpP/JV8GcVzPTZhEuhEn1oF6dRGdsdtFNgWF/A7
- bNlk2MSG3hZV2P06ooFL+HZlUQPJQ+VSIlRVdx16T/UL0izblkcpd13srLHueNpo4j5U
- tmoQEpdX+0a9AaGgVQ9tMc0ZiSucIgNp1ndeWGP+J3Po9B3yDyQ1fLJbpEQdmYQ4V4xz
- VVQviZQ5A8CQipOdKDN0XxuiWpxx4fG3wHWRFmBmHWaoWzMTJzDXzFdbsNI12qaRI46d
- UKRA==
-X-Gm-Message-State: AOAM531/mxj5ePN84vczpQm2E672v29SdjbJDGRMI2OvicYi3dhxOEfL
- n/7SkaDRqxNKfSgx2IUutlGSzw==
-X-Google-Smtp-Source: ABdhPJyEhOalg4/dY/3KpRqiR/tNPNHZi5ofV+HXu1SYzAcPhIDj9GCXCztUYI7qBkfpEe/S5DxTVQ==
-X-Received: by 2002:a63:84c6:: with SMTP id k189mr479739pgd.245.1635375984652; 
- Wed, 27 Oct 2021 16:06:24 -0700 (PDT)
+ bh=z53gTOEVxYIb2lgRgD1L0JMW+iobeAI2vEOAm7ftuvk=;
+ b=ToYuzrsxNg/Kyd+SBDd1L5DzPccYipCqfw6v8C6TsNUbsb1VJvfi9mc4WoG2M81SYc
+ WgJ3A7ABxjI5T6L3/Uetytz2cZaXnK4zixJtJ/3HodPXklKpl6eSz4IEW4BxQGVRIWV9
+ Vss9N2gAERmRolyK1eoOkcHfQw6Y89cNQ3RKCVWb1AEO+grGUJy7jxgYPteBpdONvRDs
+ Qo5t3G0P53HReW1JFn/X2/9r31kq8b/mUjpF0N8+Zy4xYHgDs9PhjEHZJ1VpoA7IWB0l
+ JJNqqwdBQjh9D9FYU87MDuio4zOEAMMQm4n947BAukd8OPVI4VhilBpQxd5KeIdBgzNT
+ S8jg==
+X-Gm-Message-State: AOAM5332b6isMQCdeSrQi97Wu+fceNNTfV8GanppU8RXDHNyCnSUDiRG
+ vhAsAD5e88XnKuTkpcSVArr4aA==
+X-Google-Smtp-Source: ABdhPJwzxaxiDrbf0kl3QEpL66IJ+PcLfivFj41ahyeu/Lr51qQFioruTUwYw2IXhembXFga6qL70Q==
+X-Received: by 2002:a17:902:e808:b0:140:55fe:1b4e with SMTP id
+ u8-20020a170902e80800b0014055fe1b4emr413929plg.87.1635376146401; 
+ Wed, 27 Oct 2021 16:09:06 -0700 (PDT)
 Received: from localhost ([2620:0:1000:5e10:60fc:a50:6d27:9fd3])
- by smtp.gmail.com with ESMTPSA id j1sm751742pgb.5.2021.10.27.16.06.23
+ by smtp.gmail.com with ESMTPSA id d21sm1000958pfl.59.2021.10.27.16.09.05
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 16:06:24 -0700 (PDT)
-Date: Wed, 27 Oct 2021 16:06:24 -0700 (PDT)
-X-Google-Original-Date: Wed, 27 Oct 2021 16:06:21 PDT (-0700)
-Subject: Re: [PATCH 1/2] riscv: Fix asan-stack clang build
-In-Reply-To: <20211027045843.1770770-1-alexandre.ghiti@canonical.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
- dvyukov@google.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, 
- alexandre.ghiti@canonical.com, nathan@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alexandre.ghiti@canonical.com
-Message-ID: <mhng-41b64d3e-5a5a-4d59-86fc-80f2148823e8@palmerdabbelt-glaptop>
+ Wed, 27 Oct 2021 16:09:05 -0700 (PDT)
+Date: Wed, 27 Oct 2021 16:09:05 -0700 (PDT)
+X-Google-Original-Date: Wed, 27 Oct 2021 16:07:37 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Make CONFIG_RELOCATABLE user selectable
+In-Reply-To: <87ee86ajig.fsf@igel.home>
+CC: alexandre.ghiti@canonical.com, alex@ghiti.fr,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel-team@android.com
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: schwab@linux-m68k.org
+Message-ID: <mhng-95082d33-c7f4-4d3e-9794-7e0534324218@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_160626_174666_D5627EBC 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20211027_160907_756799_35E0DC49 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,73 +95,34 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 26 Oct 2021 21:58:42 PDT (-0700), alexandre.ghiti@canonical.com wrote:
-> Nathan reported that because KASAN_SHADOW_OFFSET was not defined in
-> Kconfig, it prevents asan-stack from getting disabled with clang even
-> when CONFIG_KASAN_STACK is disabled: fix this by defining the
-> corresponding config.
+On Wed, 27 Oct 2021 02:45:27 PDT (-0700), schwab@linux-m68k.org wrote:
+> On Okt 27 2021, Alexandre Ghiti wrote:
 >
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> ---
->  arch/riscv/Kconfig             | 6 ++++++
->  arch/riscv/include/asm/kasan.h | 3 +--
->  arch/riscv/mm/kasan_init.c     | 3 +++
->  3 files changed, 10 insertions(+), 2 deletions(-)
+>> On Wed, Oct 27, 2021 at 10:03 AM Andreas Schwab <schwab@linux-m68k.org> wrote:
+>>>
+>>> On Okt 26 2021, Palmer Dabbelt wrote:
+>>>
+>>> > +config RELOCATABLE
+>>> > +     bool "Build a relocatable kernel"
+>>> > +     depends on MMU && 64BIT && !XIP_KERNEL
+>>> > +     help
+>>> > +          This builds a kernel as a Position Independent Executable (PIE),
+>>> > +          which retains all relocation metadata required to relocate the
+>>> > +          kernel binary at runtime to a different virtual address than the
+>>> > +          address it was linked at.
+>>> > +          Since RISCV uses the RELA relocation format, this requires a
+>>> > +          relocation pass at runtime even if the kernel is loaded at the
+>>> > +          same address it was linked at.
+>>>
+>>> When in doubt, do what?
+>>
+>> Then do not enable.
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index c1abbc876e5b..79250b1ed54e 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -162,6 +162,12 @@ config PAGE_OFFSET
->  	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
->  	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
->
-> +config KASAN_SHADOW_OFFSET
-> +	hex
-> +	depends on KASAN_GENERIC
-> +	default 0xdfffffc800000000 if 64BIT
-> +	default 0xffffffff if 32BIT
+> Please add that to the help string.
 
-I thought I posted this somewhere, but this is exactly what my first 
-guess was.  The problem is that it's hanging on boot for me.  I don't 
-really have anything exotic going on, it's just a defconfig with 
-CONFIG_KASAN=y running in QEMU.
-
-Does this boot for you?
-
-> +
->  config ARCH_FLATMEM_ENABLE
->  	def_bool !NUMA
->
-> diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
-> index a2b3d9cdbc86..b00f503ec124 100644
-> --- a/arch/riscv/include/asm/kasan.h
-> +++ b/arch/riscv/include/asm/kasan.h
-> @@ -30,8 +30,7 @@
->  #define KASAN_SHADOW_SIZE	(UL(1) << ((CONFIG_VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
->  #define KASAN_SHADOW_START	KERN_VIRT_START
->  #define KASAN_SHADOW_END	(KASAN_SHADOW_START + KASAN_SHADOW_SIZE)
-> -#define KASAN_SHADOW_OFFSET	(KASAN_SHADOW_END - (1ULL << \
-> -					(64 - KASAN_SHADOW_SCALE_SHIFT)))
-> +#define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
->
->  void kasan_init(void);
->  asmlinkage void kasan_early_init(void);
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index d7189c8714a9..8175e98b9073 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -17,6 +17,9 @@ asmlinkage void __init kasan_early_init(void)
->  	uintptr_t i;
->  	pgd_t *pgd = early_pg_dir + pgd_index(KASAN_SHADOW_START);
->
-> +	BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
-> +		KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-> +
->  	for (i = 0; i < PTRS_PER_PTE; ++i)
->  		set_pte(kasan_early_shadow_pte + i,
->  			mk_pte(virt_to_page(kasan_early_shadow_page),
+Thanks, I forgot about that.  I've added it, but this is still a bit in 
+flux so I'm not going to send a v2 right now (it's on top of Alex's 
+other patches and should probably be squashed in, anyway).
 
 _______________________________________________
 linux-riscv mailing list
