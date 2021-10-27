@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A892C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0ECCC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:23:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 07721610C7
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:23:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 07721610C7
+	by mail.kernel.org (Postfix) with ESMTPS id 934D16109E
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:23:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 934D16109E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=psZ0SIMcZofDMLY+bbIE9/d1P6LmEgAOp05i/G/o5jM=; b=wRNmvRNFREmPO7
-	Pdey/da2ysDD58BSXUa2Ta2L6phTUUItVAsS7ST+aazmbSWxMccF7B+I/cIAI69PPX4JMCMhQVLz+
-	cuBrqoc/dMjRytC8qlyXPu+HNwoM2qHaIg6dYxbIOaYS0VnCxddm1dKhJRrsPeIKbrCvIYArsHtN+
-	61rz1tU6kQwKnr9eORacaF62Ga9tXZPs6D8T5BhgLVK1vsbQmzQTM3l6uA/33cd8u4Vk64mzZ9NnS
-	1eASKC4C53Qz95Ce3xxXHonU5qCbrdSTNxRcBkUGpPWhLsGklgj51ZJR9Aome1mlSUkJqhZZYXn4y
-	RXZb3/Ag+v7qBXnk5nPg==;
+	List-Owner; bh=1Av+ulYHz5HpOWKAqvw5dJn/u0xRRZXKZwqCj4WCbRM=; b=fNA9C05E5ZO/Lh
+	2MrlmhjNPhNEsMQDFN++Or5Hru7a1VakSbfdDM8bUbYEDLtM+0CLkWuUfQHqjRLZclQ/O6wpH8kdH
+	fLo1fJtl5S5mcjgPShBYsJiD4N4h4H3bD3lsI90c8qhvony8g+3R8AHHbKw1g24H4YlIbrugjJspq
+	YyLMXjXAPFYLMJ9jO4jj31H1Cx5czUinNQX2qEfxMsjPWWbYtLBFm1t6K1jNiFdGcw6pUdRvewkVI
+	ee5BY28MVV6vdKV9Mg8iY6LzcpRAMo6NjmMFocWYSJnnamLpSIxGnctRGy5wZ1XY46vl1wdYBBLwI
+	TKgs+OUaMiPcAvWwKcPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqOP-006Dgg-Ro; Wed, 27 Oct 2021 21:23:30 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1mfqOe-006DpB-1Y; Wed, 27 Oct 2021 21:23:44 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqJq-006AsI-H8; Wed, 27 Oct 2021 21:18:48 +0000
-Received: by mail-lj1-x229.google.com with SMTP id d23so5639086ljj.10;
- Wed, 27 Oct 2021 14:18:46 -0700 (PDT)
+ id 1mfqJr-006Amw-1e; Wed, 27 Oct 2021 21:18:49 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 1so1071191ljv.2;
+ Wed, 27 Oct 2021 14:18:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=XVkgO3q8+3iXvnI8C7YHW1hpsebxqvqNvVwPho8vSws=;
- b=JvBjth71MhsyIm0JdpPylPRsS4KUFW6BneSIAqxDXDzbFjW9Bt93MWfm5UnDUVT+LY
- PN2DoVOg4LkGHqR46okUaH0xtknlZuN7sz1m2rXWFP+8ycrv0mDE2+lXOLhNQyopT3Vb
- C9HJqmEvn5NNTeFE+Yqt8PhYhqF5nNL7X6uD9nn3NzyyFpNh4ofur6IOki9Q5zCOptdK
- PNXfyjJD/8x2BE3QO9lZ5RaDpWCetJjHnzeJvzuWrsMKLwqp5dFqdwNw5X1p5tIb9H77
- X9gwILOKempj602Hj9wd8g1ui3+PA2eteBB91Roi8uzQIKwV7mQ4s5O8fFD8fUrtUyG6
- Kjfw==
+ bh=RsN03A/v4Sm7hW8tBAQNfAIwim2Ix+phU87uldQTcUU=;
+ b=aSBcb4MObsGcKwVtxhkQi6r6MrllJ5Wvhx4AXr7+3ZZIOmNeNayjB4H7wS3yJIQaI0
+ vfLkw8dEY0bAB5FpyHupYLxHHW8temP9OImGFFR4LDmE7/mvPRk5uTYf1q52vThLv1Ot
+ CBrv1hpmeU5p/gGow8523dqz9J8N1faFeN/IXFxxWyp7mhT8fq2Z7acBEZ06y9nx6CF2
+ oI6Bf+jKcKCu1O6+i0B6l4EesA9cDqHIJQrezIg8dnd+TlutJ/VurnoBCjdUW8FVuBfF
+ rgIrNrWNCUTYVjuoeGUx+HMg9DODFrvmZsdKkZzK15Dx1U5yq0D3h61n1EAZrJfufwr8
+ qWRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=XVkgO3q8+3iXvnI8C7YHW1hpsebxqvqNvVwPho8vSws=;
- b=f5q5f7VwEx8/HbC+NrS4hHwPTr+H8x1jk6ZcgpFcsT8jKi2QEDSZjScdcJpIgqB083
- Lp5n6enSsO6851rZoZR0AzcWzjRhgrxkt/+oNI/eD5QoX8HYZoy0gy5XpNuSbQVYeUIZ
- Bg8stcQBlbtZpYhzq7o2r84JB4nYVp2YU8QSVnAQGaLcEek/Aazoc1bAH0c2iLmumC3Y
- dCSmfRBV3QyZxaXjw+ckwSbtPE4KId0Fp6OONCtaxZ/WbHuJxRGNHwMCOE/tBgu7Veio
- QJ0QrqG6GCZhCx0/YHS5KfRbYIzLj29cFQEP0Q+kGZ5LQphcQ4VWBbmzesTmERmqMmyj
- oH9Q==
-X-Gm-Message-State: AOAM533btpM2srv+0t2+TwEp0iQiaxKVik1sw4n7lJwAOhKBlOGpeYVM
- /9j/qNfwdwS7sZeXG0c9Oxc=
-X-Google-Smtp-Source: ABdhPJyyXdjb3N9Ed9Jr705ZzPzIsFRHZUJ+KOYE2dHtjD39JQsr/OWSSeXdN0P7Zob21uOYhbWDdA==
-X-Received: by 2002:a2e:9b55:: with SMTP id o21mr306486ljj.141.1635369524980; 
- Wed, 27 Oct 2021 14:18:44 -0700 (PDT)
+ bh=RsN03A/v4Sm7hW8tBAQNfAIwim2Ix+phU87uldQTcUU=;
+ b=6cfKUqjwEWcfbTulxiTix22yRPgIc0ul2JNm5Ng+7AWTl3/fySajRdPXEAEiVsL8k/
+ HU0/R0yGLviWLIHd0IBwq1g+J5yj3OXhuBf5l3HcyLTAOWwtBwsc5HsVR2WmLp3k2jpg
+ R/hxPVpBVUwzYaC62sbR/+De0qTDFNaqqlu7fPpvABKYH+c8abL3kRArLcC8hKqEUbz3
+ Tv+c+4jr7U68w6oOd84rFgXdXGkqeJkNAeBstJagvCEzE+G1AL6Lyf3ZEACjtmggM0fy
+ eYQYE4NO1cPBB0QDa18rRV76ph6vRQWE44Pn0HewoG+9DKVQUH/O61kmFOZ9OGOInzul
+ 8ZqQ==
+X-Gm-Message-State: AOAM531m1gIcr04WigWIWioSBMFfwauii0wRwaJfqJEciUB1F6TZDdP0
+ 6fPDIqG+zj60pggRtxfByYM=
+X-Google-Smtp-Source: ABdhPJwvRw65HVRl6UYG4kSDngjOw+VDWoznyGC0SQFAdeVNXxGihIuJGUkpMtbqNUFYMuUZsUPclw==
+X-Received: by 2002:a2e:3e08:: with SMTP id l8mr351596lja.194.1635369517590;
+ Wed, 27 Oct 2021 14:18:37 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.43
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.35
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:18:44 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:37 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -109,16 +109,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 28/45] mfd: rn5t618: Use devm_register_power_handler()
-Date: Thu, 28 Oct 2021 00:16:58 +0300
-Message-Id: <20211027211715.12671-29-digetx@gmail.com>
+Subject: [PATCH v2 24/45] regulator: pfuze100: Use
+ devm_register_power_handler()
+Date: Thu, 28 Oct 2021 00:16:54 +0300
+Message-Id: <20211027211715.12671-25-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141846_639927_BF2B4275 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20211027_141847_142092_AB06B2FF 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,131 +136,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use devm_register_power_handler() that replaces global pm_power_off
-variable and allows to register multiple power-off handlers. It also
-provides restart-handler support, i.e. all in one API.
+Use devm_register_power_handler() that replaces global pm_power_off_prepare
+variable and allows to register multiple power-off handlers.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- drivers/mfd/rn5t618.c | 56 ++++++++++++++++---------------------------
- 1 file changed, 21 insertions(+), 35 deletions(-)
+ drivers/regulator/pfuze100-regulator.c | 39 ++++++++++----------------
+ 1 file changed, 15 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/mfd/rn5t618.c b/drivers/mfd/rn5t618.c
-index 384acb459427..12d7b2339bbe 100644
---- a/drivers/mfd/rn5t618.c
-+++ b/drivers/mfd/rn5t618.c
-@@ -84,9 +84,6 @@ static const struct regmap_irq_chip rc5t619_irq_chip = {
- 	.mask_invert = true,
+diff --git a/drivers/regulator/pfuze100-regulator.c b/drivers/regulator/pfuze100-regulator.c
+index d60d7d1b7fa2..73d5baf9d3ea 100644
+--- a/drivers/regulator/pfuze100-regulator.c
++++ b/drivers/regulator/pfuze100-regulator.c
+@@ -10,6 +10,7 @@
+ #include <linux/of_device.h>
+ #include <linux/regulator/of_regulator.h>
+ #include <linux/platform_device.h>
++#include <linux/reboot.h>
+ #include <linux/regulator/driver.h>
+ #include <linux/regulator/machine.h>
+ #include <linux/regulator/pfuze100.h>
+@@ -76,6 +77,7 @@ struct pfuze_chip {
+ 	struct pfuze_regulator regulator_descs[PFUZE100_MAX_REGULATOR];
+ 	struct regulator_dev *regulators[PFUZE100_MAX_REGULATOR];
+ 	struct pfuze_regulator *pfuze_regulators;
++	struct power_handler power_handler;
  };
  
--static struct i2c_client *rn5t618_pm_power_off;
--static struct notifier_block rn5t618_restart_handler;
+ static const int pfuze100_swbst[] = {
+@@ -569,10 +571,10 @@ static inline struct device_node *match_of_node(int index)
+ 	return pfuze_matches[index].of_node;
+ }
+ 
+-static struct pfuze_chip *syspm_pfuze_chip;
 -
- static int rn5t618_irq_init(struct rn5t618 *rn5t618)
+-static void pfuze_power_off_prepare(void)
++static void pfuze_power_off_prepare(struct power_off_prep_data *data)
  {
- 	const struct regmap_irq_chip *irq_chip = NULL;
-@@ -115,7 +112,9 @@ static int rn5t618_irq_init(struct rn5t618 *rn5t618)
- 	return ret;
- }
- 
--static void rn5t618_trigger_poweroff_sequence(bool repower)
-+static void
-+rn5t618_trigger_poweroff_sequence(struct i2c_client *rn5t618_pm_power_off,
-+				  bool repower)
- {
- 	int ret;
- 
-@@ -151,25 +150,31 @@ static void rn5t618_trigger_poweroff_sequence(bool repower)
- 	dev_alert(&rn5t618_pm_power_off->dev, "Failed to shutdown (err = %d)\n", ret);
- }
- 
--static void rn5t618_power_off(void)
-+static void rn5t618_power_off(struct power_off_data *data)
- {
--	rn5t618_trigger_poweroff_sequence(false);
-+	struct i2c_client *client = data->cb_data;
++	struct pfuze_chip *syspm_pfuze_chip = data->cb_data;
 +
-+	rn5t618_trigger_poweroff_sequence(client, false);
- }
+ 	dev_info(syspm_pfuze_chip->dev, "Configure standby mode for power off");
  
--static int rn5t618_restart(struct notifier_block *this,
--			    unsigned long mode, void *cmd)
-+static void rn5t618_restart(struct restart_data *data)
+ 	/* Switch from default mode: APS/APS to APS/Off */
+@@ -611,24 +613,24 @@ static void pfuze_power_off_prepare(void)
+ 
+ static int pfuze_power_off_prepare_init(struct pfuze_chip *pfuze_chip)
  {
--	rn5t618_trigger_poweroff_sequence(true);
-+	struct i2c_client *client = data->cb_data;
++	int err;
 +
-+	rn5t618_trigger_poweroff_sequence(client, true);
- 
- 	/*
- 	 * Re-power factor detection on PMIC side is not instant. 1ms
- 	 * proved to be enough time until reset takes effect.
- 	 */
- 	mdelay(1);
--
--	return NOTIFY_DONE;
- }
- 
-+static struct power_handler rn5t618_power_handler = {
-+	.restart_cb = rn5t618_restart,
-+	.restart_priority = RESTART_PRIO_HIGH,
-+};
-+
- static const struct of_device_id rn5t618_of_match[] = {
- 	{ .compatible = "ricoh,rn5t567", .data = (void *)RN5T567 },
- 	{ .compatible = "ricoh,rn5t618", .data = (void *)RN5T618 },
-@@ -221,38 +226,20 @@ static int rn5t618_i2c_probe(struct i2c_client *i2c)
- 		return ret;
+ 	if (pfuze_chip->chip_id != PFUZE100) {
+ 		dev_warn(pfuze_chip->dev, "Requested pm_power_off_prepare handler for not supported chip\n");
+ 		return -ENODEV;
  	}
  
--	rn5t618_pm_power_off = i2c;
--	if (of_device_is_system_power_controller(i2c->dev.of_node)) {
--		if (!pm_power_off)
--			pm_power_off = rn5t618_power_off;
--		else
--			dev_warn(&i2c->dev, "Poweroff callback already assigned\n");
+-	if (pm_power_off_prepare) {
+-		dev_warn(pfuze_chip->dev, "pm_power_off_prepare is already registered.\n");
+-		return -EBUSY;
 -	}
-+	if (of_device_is_system_power_controller(i2c->dev.of_node))
-+		rn5t618_power_handler.power_off_cb = rn5t618_power_off;
++	pfuze_chip->power_handler.power_off_prepare_cb = pfuze_power_off_prepare;
++	pfuze_chip->power_handler.cb_data = pfuze_chip;
  
--	rn5t618_restart_handler.notifier_call = rn5t618_restart;
--	rn5t618_restart_handler.priority = 192;
-+	rn5t618_power_handler.cb_data = i2c;
- 
--	ret = register_restart_handler(&rn5t618_restart_handler);
-+	ret = devm_register_power_handler(&i2c->dev, &rn5t618_power_handler);
- 	if (ret) {
--		dev_err(&i2c->dev, "cannot register restart handler, %d\n", ret);
-+		dev_err(&i2c->dev, "failed to register power handler: %d\n", ret);
- 		return ret;
+-	if (syspm_pfuze_chip) {
+-		dev_warn(pfuze_chip->dev, "syspm_pfuze_chip is already set.\n");
+-		return -EBUSY;
++	err = devm_register_power_handler(pfuze_chip->dev,
++					  &pfuze_chip->power_handler);
++	if (err) {
++		dev_err(pfuze_chip->dev,
++			"failed to register power handler: %d\n", err);
++		return err;
  	}
  
- 	return rn5t618_irq_init(priv);
+-	syspm_pfuze_chip = pfuze_chip;
+-	pm_power_off_prepare = pfuze_power_off_prepare;
+-
+ 	return 0;
  }
  
--static int rn5t618_i2c_remove(struct i2c_client *i2c)
+@@ -837,23 +839,12 @@ static int pfuze100_regulator_probe(struct i2c_client *client,
+ 	return 0;
+ }
+ 
+-static int pfuze100_regulator_remove(struct i2c_client *client)
 -{
--	if (i2c == rn5t618_pm_power_off) {
--		rn5t618_pm_power_off = NULL;
--		pm_power_off = NULL;
+-	if (syspm_pfuze_chip) {
+-		syspm_pfuze_chip = NULL;
+-		pm_power_off_prepare = NULL;
 -	}
--
--	unregister_restart_handler(&rn5t618_restart_handler);
 -
 -	return 0;
 -}
 -
- static int __maybe_unused rn5t618_i2c_suspend(struct device *dev)
- {
- 	struct rn5t618 *priv = dev_get_drvdata(dev);
-@@ -284,7 +271,6 @@ static struct i2c_driver rn5t618_i2c_driver = {
- 		.pm = &rn5t618_i2c_dev_pm_ops,
+ static struct i2c_driver pfuze_driver = {
+ 	.driver = {
+ 		.name = "pfuze100-regulator",
+ 		.of_match_table = pfuze_dt_ids,
  	},
- 	.probe_new = rn5t618_i2c_probe,
--	.remove = rn5t618_i2c_remove,
+ 	.probe = pfuze100_regulator_probe,
+-	.remove = pfuze100_regulator_remove,
  };
+ module_i2c_driver(pfuze_driver);
  
- module_i2c_driver(rn5t618_i2c_driver);
 -- 
 2.33.1
 
