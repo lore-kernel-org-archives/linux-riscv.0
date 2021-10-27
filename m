@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 561A9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EAB4C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B76560231
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1B76560231
+	by mail.kernel.org (Postfix) with ESMTPS id 23CB6610CA
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:24:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 23CB6610CA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ccCYH7iS62Wj/WA6GawK4CNETog4WHa9FczmbJhers=; b=ng9qkkYhsIqa0u
-	qK3u65nSb02ZOA9Y1soiR2d214TIO5yxUy7L93nVee6azgYcaegij4YsS5G4m/eF3emXk1JKaB9lV
-	t00GyOWn9VWcZU7b6+Z/Y1zcQT02DPjrk4Er6if8aTA8JqUHBa2dufWX8lYYTxaZU8pm3c4JldSqi
-	6kQ+GcVL0dTIjeVhzXw1KYvrYP6efqVNrvQYn+bBxIkfFNhhlb5rCSlV+NcDpUfJcW7XJJWp0LZuv
-	dAhk7Xv/kS8+skmqATN+RfKjbBwiwUYGqPXJrXdN9Zk5sglsDW4Pf5eiHZDYfedzGXctEDj+5YE90
-	dlo+eNSH6YWSGkCYV0fQ==;
+	List-Owner; bh=TufUrwTq3Xesz/sP+gpENt3CorSGQiwGTzIlOcmqRBg=; b=MPD9xh8+VZ3PYg
+	ysBOZ3SBW0hVgz4N8Vjs1U70nEjtwQ5x+rEniTaYcV+ihJm7jcPa+/L/nwO3wTFiDKi370SJsKahI
+	hj2nvZ7gIRsStNTqCyqtSoILsIUda1lqq9yPbSpYosCGhoMPn7RBi6rgMHxFfhUlh/5NwiPhQRUun
+	NW1kc0n9pJcZa5aJBffCdxvp9hYtFJCAfSzdm7oYV5nyqrC5VXuReJWXt4Odzx7L2fL+N3blmZaMD
+	5UfqYOv6xbtK7krPWuBFNKzVZ+3uuIp1H/fd7oq5Hh/Y+kOh3qs96LjxGuZt0Ub/3cBt3mZvDTB7p
+	94PRqompO3loaAvAXkEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqP0-006E1O-Kh; Wed, 27 Oct 2021 21:24:06 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1mfqPE-006E9L-CR; Wed, 27 Oct 2021 21:24:20 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqJu-006AvL-8q; Wed, 27 Oct 2021 21:18:51 +0000
-Received: by mail-lf1-x132.google.com with SMTP id f3so806990lfu.12;
- Wed, 27 Oct 2021 14:18:50 -0700 (PDT)
+ id 1mfqJw-006Aws-5L; Wed, 27 Oct 2021 21:18:54 +0000
+Received: by mail-lf1-x136.google.com with SMTP id f3so807154lfu.12;
+ Wed, 27 Oct 2021 14:18:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=umNH2+YT7M6ZKcjQGvjjohnKVEe/3rK29YQH+BDj6i4=;
- b=nj5zb43OqtwdizDOJ4YZ+fYZadM1gdDKmRqYZUCoy6YYJ9FK+h8NFV8Fm4J2Ku+dUO
- VD1iu0fINLYL61cuY7tNDYLtDDcpQWTMBS3LiXmrEVigOlROqEfbjJpsrnK8lw9w6k0A
- Q5RVvk+HURAmLxg4yngnt6lHHBxEc4oSlIcG3ZpIBx+R3YAOuuSSdjMf/vRVMuvqCw1Z
- E8uGSsJkZ6VWq/NOLfLD+OAnXKEDLZsNGIWjcaZrIrkicK6f30puV4871fbRXrX4aoDM
- yS04DJACEKWBr3KF/AjOj2De3JGJ2p+GHt74NSrUBKQDPvr858UletsNh5sICSkmVEWD
- 3KsQ==
+ bh=MQWhTF0wBI+IugzPE3ghLHT129hypIGKpejDwrM3hyE=;
+ b=RZvyurGZNweTiQS39Ean2OjgLccYrK032pC/dpD5TIetEdWActoZDZ0pbxUwZ65EB3
+ f6HHqHOjaIJRkLRbNXFH+a9dD2g5xu+MxS8srOD+UoT89FXGbOpnIpBzsogwI4SrHnvI
+ Xp4OXB4rFx2UJNCOe+1ontZRmKhqDl18fc0h55fLU7qhbVovqyZfQtN1oE2ZBblN4A6p
+ LG+FlNBhlZ+ejJ/tR/o9Ca2I3+iU/ni7hPa9YCzdcCgi2bkMHewfSz0zfMDsoGnOZiG5
+ WYH0N8y7+ABYK8jopd3eQsXttqeRRQN+xpWJ5QIjK2cUfd8tbZPE8negDAsL0a+gaJ2V
+ fJ3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=umNH2+YT7M6ZKcjQGvjjohnKVEe/3rK29YQH+BDj6i4=;
- b=aIRGT0cfFTMVXBavnQf5mYZHZDzvNflAJtXLPersvC7o0HoTId94+MiN0kU3gfCCLP
- 8kqWqcOtGjaUMEAxFZ9c0yhlD8thm9ymBbDZgbl+p8FBksWwULD3NgIIfeqx1R4eiZkh
- 0C051J3PiQAo1vsrIar1791/Gw42qqP47h2TbEiaLa8v81b/qEc8IrO3RJwFRBlTG8zu
- D4ASlmByUgINX1FzFqXrWLcnTFgnLl4xj+tcAnfgOvV2LZdJW1B/gIfymSjBZn+du7uz
- 5XeZjX4bTJRJzLeLLNshbe6ijlFSNcOfD/H21J6Z1fXL3VFPj/pBeAb6Ust1EeeW0geJ
- gkMA==
-X-Gm-Message-State: AOAM531A4p4VTAeEWVwQaWoZLeTOrEmum/OZYEMEI9LdGUE5gJy4mWd1
- YVKPbSZzubmAVfCQgqSgjn8=
-X-Google-Smtp-Source: ABdhPJyzuSZuOYHEQbprBgwtJMyx5L9tc7ERtjIIXrEKG72XHaUi8WMWlLHXLzXgCVfDIwEbrdMbVw==
-X-Received: by 2002:a05:6512:38d0:: with SMTP id
- p16mr83922lft.483.1635369528748; 
- Wed, 27 Oct 2021 14:18:48 -0700 (PDT)
+ bh=MQWhTF0wBI+IugzPE3ghLHT129hypIGKpejDwrM3hyE=;
+ b=Hjz/t4vSG6B2H++0jJ3Yb7W24fxul2UaJ+Z7Y3q84edf1v+LY9xQbjYzlpECuhIFtG
+ FnMvf3n4SHhnPB8HQJ3BrnBiQsm2LFU1ZPLbv+OMyQ+TEX3QviBt2McW424xPoXRTqRL
+ Bou4HeFebME0d/yswd9t4nQNFfedp48Y1AXNVll1veXjocDmdKT24CD4tmTcOcgZbtJW
+ 5tCmBgQkdcXaF2AdtIGbvY6cuvkGoLoK/ymqjo8Q51aJFRAqUk5zyNcdaWRMiZwWoImM
+ irJ9KkAkx27A0+XcOIuIsI07NcIit4rt13Un/Arl/0kW9bHrgB54itR9nPFFVnpcbJPm
+ a8Pg==
+X-Gm-Message-State: AOAM531aOWTIvwdKBpf+JGlfU5y2epZKd76DORsG3+sAMjUS+79HiQIn
+ yLuB6yNUVC2kZVoRqf0k1+w=
+X-Google-Smtp-Source: ABdhPJyooWx5IN/z+hq1uWs5thGA811Cpi77JA6dUlt/XGnE5KIxJDhql9o1FzopBJlB1UrwswiMLg==
+X-Received: by 2002:a05:6512:3f04:: with SMTP id
+ y4mr131405lfa.180.1635369530580; 
+ Wed, 27 Oct 2021 14:18:50 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.46
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.48
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:18:48 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:50 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -110,16 +110,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 30/45] mfd: ene-kb3930: Use devm_register_power_handler()
-Date: Thu, 28 Oct 2021 00:17:00 +0300
-Message-Id: <20211027211715.12671-31-digetx@gmail.com>
+Subject: [PATCH v2 31/45] mfd: axp20x: Use register_simple_power_off_handler()
+Date: Thu, 28 Oct 2021 00:17:01 +0300
+Message-Id: <20211027211715.12671-32-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141850_396282_034C509B 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20211027_141852_325214_57E6E0EC 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,108 +136,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use devm_register_power_handler() that replaces global pm_power_off
-variable and allows to register multiple power-off handlers. It also
-provides restart-handler support, i.e. all in one API.
+Use register_simple_power_off_handler() that replaces global pm_power_off
+variable and allows to register multiple power-off handlers.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- drivers/mfd/ene-kb3930.c | 45 ++++++++++++++--------------------------
- 1 file changed, 15 insertions(+), 30 deletions(-)
+ drivers/mfd/axp20x.c       | 22 +++++++++++-----------
+ include/linux/mfd/axp20x.h |  1 +
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/mfd/ene-kb3930.c b/drivers/mfd/ene-kb3930.c
-index 1b73318d1f1f..6a3c5f48e5e1 100644
---- a/drivers/mfd/ene-kb3930.c
-+++ b/drivers/mfd/ene-kb3930.c
-@@ -31,10 +31,9 @@ struct kb3930 {
- 	struct i2c_client *client;
- 	struct regmap *ram_regmap;
- 	struct gpio_descs *off_gpios;
-+	struct power_handler power_handler;
+diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
+index 8161a5dc68e8..db31fdb169e4 100644
+--- a/drivers/mfd/axp20x.c
++++ b/drivers/mfd/axp20x.c
+@@ -24,6 +24,7 @@
+ #include <linux/module.h>
+ #include <linux/of_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/reboot.h>
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
+ 
+@@ -823,9 +824,10 @@ static const struct mfd_cell axp813_cells[] = {
+ 	},
  };
  
--static struct kb3930 *kb3930_power_off;
--
- #define EC_GPIO_WAVE		0
- #define EC_GPIO_OFF_MODE	1
- 
-@@ -60,21 +59,19 @@ static void kb3930_off(struct kb3930 *ddata, int off_mode)
- 	}
- }
- 
--static int kb3930_restart(struct notifier_block *this,
--			  unsigned long mode, void *cmd)
-+static void kb3930_restart(struct restart_data *data)
+-static struct axp20x_dev *axp20x_pm_power_off;
+-static void axp20x_power_off(void)
++static void axp20x_power_off(void *data)
  {
--	kb3930_off(kb3930_power_off, EC_OFF_MODE_REBOOT);
--	return NOTIFY_DONE;
-+	struct kb3930 *ddata = data->cb_data;
++	struct axp20x_dev *axp20x_pm_power_off = data;
 +
-+	kb3930_off(ddata, EC_OFF_MODE_REBOOT);
- }
+ 	if (axp20x_pm_power_off->variant == AXP288_ID)
+ 		return;
  
--static void kb3930_pm_power_off(void)
-+static void kb3930_power_off(struct power_off_data *data)
- {
--	kb3930_off(kb3930_power_off, EC_OFF_MODE_POWER);
--}
-+	struct kb3930 *ddata = data->cb_data;
- 
--static struct notifier_block kb3930_restart_nb = {
--	.notifier_call = kb3930_restart,
--};
-+	kb3930_off(ddata, EC_OFF_MODE_POWER);
-+}
- 
- static const struct mfd_cell ariel_ec_cells[] = {
- 	{ .name = "dell-wyse-ariel-led", },
-@@ -131,7 +128,6 @@ static int kb3930_probe(struct i2c_client *client)
- 	if (!ddata)
- 		return -ENOMEM;
- 
--	kb3930_power_off = ddata;
- 	ddata->client = client;
- 	i2c_set_clientdata(client, ddata);
- 
-@@ -169,24 +165,14 @@ static int kb3930_probe(struct i2c_client *client)
+@@ -1000,10 +1002,12 @@ int axp20x_device_probe(struct axp20x_dev *axp20x)
+ 		return ret;
  	}
  
- 	if (ddata->off_gpios) {
--		register_restart_handler(&kb3930_restart_nb);
--		if (!pm_power_off)
--			pm_power_off = kb3930_pm_power_off;
+-	if (!pm_power_off) {
+-		axp20x_pm_power_off = axp20x;
+-		pm_power_off = axp20x_power_off;
 -	}
-+		ddata->power_handler.cb_data = ddata;
-+		ddata->power_handler.restart_cb = kb3930_restart;
-+		ddata->power_handler.power_off_cb = kb3930_power_off;
++	axp20x->power_handler =
++		register_simple_power_off_handler(axp20x_power_off, axp20x);
++
++	if (IS_ERR(axp20x->power_handler))
++		dev_err(axp20x->dev, "failed to register power-off handler: %pe",
++			axp20x->power_handler);
  
--	return 0;
--}
--
--static int kb3930_remove(struct i2c_client *client)
--{
--	struct kb3930 *ddata = i2c_get_clientdata(client);
--
--	if (ddata->off_gpios) {
--		if (pm_power_off == kb3930_pm_power_off)
--			pm_power_off = NULL;
--		unregister_restart_handler(&kb3930_restart_nb);
-+		ret = devm_register_power_handler(dev, &ddata->power_handler);
-+		if (ret)
-+			return ret;
- 	}
--	kb3930_power_off = NULL;
+ 	dev_info(axp20x->dev, "AXP20X driver loaded\n");
  
- 	return 0;
+@@ -1013,11 +1017,7 @@ EXPORT_SYMBOL(axp20x_device_probe);
+ 
+ void axp20x_device_remove(struct axp20x_dev *axp20x)
+ {
+-	if (axp20x == axp20x_pm_power_off) {
+-		axp20x_pm_power_off = NULL;
+-		pm_power_off = NULL;
+-	}
+-
++	unregister_simple_power_off_handler(axp20x->power_handler);
+ 	mfd_remove_devices(axp20x->dev);
+ 	regmap_del_irq_chip(axp20x->irq, axp20x->regmap_irqc);
  }
-@@ -199,7 +185,6 @@ MODULE_DEVICE_TABLE(of, kb3930_dt_ids);
+diff --git a/include/linux/mfd/axp20x.h b/include/linux/mfd/axp20x.h
+index 9ab0e2fca7ea..49319a0ac369 100644
+--- a/include/linux/mfd/axp20x.h
++++ b/include/linux/mfd/axp20x.h
+@@ -643,6 +643,7 @@ struct axp20x_dev {
+ 	const struct mfd_cell           *cells;
+ 	const struct regmap_config	*regmap_cfg;
+ 	const struct regmap_irq_chip	*regmap_irq_chip;
++	struct power_handler		*power_handler;
+ };
  
- static struct i2c_driver kb3930_driver = {
- 	.probe_new = kb3930_probe,
--	.remove = kb3930_remove,
- 	.driver = {
- 		.name = "ene-kb3930",
- 		.of_match_table = kb3930_dt_ids,
+ /* generic helper function for reading 9-16 bit wide regs */
 -- 
 2.33.1
 
