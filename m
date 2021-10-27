@@ -2,106 +2,122 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AA70C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 16:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8F83C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 16:15:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4DFDF60D07
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 16:08:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4DFDF60D07
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7268B60F38
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 16:15:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7268B60F38
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yqXZeCOZ/9b0UXhJ/NDLip9vxWyoY9gm7OQ/P//qkhA=; b=YZAqBogPuRk5ov
-	Ip/mXDDUKpb+CRJWSNscK27jUSDI7ixZwwDmxw8IWAgGoNCaiqg0NTHtHcLmMRngqs9+QR7ekrO04
-	sDHsxmF4sYuQPx+PLH9614wvSqYAlRseCa28bRZfwOOP54Z4G/An8N72ZjKhO4ufI1pDaYXJSWurT
-	WvtepJU3pysVnoYMFck8upj0Xz+HkMKgvclp+pQ4GejWwPdz4zWP/r/tMELt/9w039QADQd8XXPH7
-	mCdDLdwY0/tU3lmQoa5MC/QjDUpHbfRxQ2rAjExKEJ9ZDVFy+fFmU6N58mzotkvcJYGROfWj4TQpg
-	Cp15QDifa7Ar5QBTo8Eg==;
+	List-Owner; bh=BdKRAIdKUusgOfxVC8J3U36Q9uiOf+2kCfGUlL50aRI=; b=Cyh6YxURr/qRe1
+	HHY41hEwUKZYQ6nzYMAwvhjVm4cwUq/ltBUWIeYCIYl5uisJKmmqjCY9BXhs3675SEXUJEThtPP0C
+	LDwHEOKR+O6eto9Q1Vvy+ix/UqRQBvSwltF3n12Vqpcti5TFMdiXCxvvdRYQ86pWGHKI0X+9yecJ9
+	Rv6IcJicp0K5VaLTmZXOcowKkybEFi1iikpw5oBydEw3ibxtURPlLeu8AtYVtGO5nJOxuqhBhqxit
+	aZbUTmldrBGvEWz4rKtv66WUjdYpxIlYPDIRZkzeFA65B2RyJ2XvO6fSSsQDtt6CuVJBbOlEFU0De
+	DBRWzqw7is5oRvl223iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mflTS-005PKW-EH; Wed, 27 Oct 2021 16:08:22 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1mfla2-005Qu6-AI; Wed, 27 Oct 2021 16:15:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mflTP-005PIY-By
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 16:08:20 +0000
-Received: by mail-pl1-x630.google.com with SMTP id n11so2336590plf.4
- for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 09:08:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=nuCG2sDmKSazCUE8+q7TBUWWroJna3waN17Ediudyfo=;
- b=WayoYs/G9RdOkLoLrW/BVqQ6VHPjU7g6BiG68joHyMmGiaL20yIAm/sjYdgZ0AcKJs
- 34UBgRu//I/mwxBVohule4Yths3kAXuGugB26iPsHfMV54dBZzCrAdfuAma3wIvwLeK6
- 5skY2C5JFSSaU21tpOr7VxrfykS9z8ABV/qEMvBoTKNuCyH2eBt8P1cnnpOyhrcPdGo+
- 3TUr8nLyCGNKiIm+cC1pm1SLzFfEEKhREJTeZJJEMdJpd9SDcl6sMun3hCIhWgt/3aha
- W9nnj4Eu9amjlrLiAUIeygQ3FCEkFDEH7LYoF5wU+epaInjt/QY5/ndeDbqHbN0vOY3t
- ydmw==
+ id 1mflZk-005Qpf-GO
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 16:14:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635351289;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=YJ1AvjILyDHE6A0xH65m+vjqkknvkqBvDuAHk95niU8=;
+ b=NNZezK5I92wtIcPstDA/xymm972gQZ9WtIC5LNxfA9/cKxuo+jbIJpAKxG+WhoLmdVV01i
+ NfPQgaZ9mJOfSB0HBcNLWZgEKlOhbZu9FMixihVNRp0ciu5gnbRZwRTQfUaUFD0slfDuBp
+ DgWNhhGjuOT8NzyXPJVCkv+W8CekUrs=
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-190-ihc-uhQ5MrSNMVyASV3syw-1; Wed, 27 Oct 2021 12:14:48 -0400
+X-MC-Unique: ihc-uhQ5MrSNMVyASV3syw-1
+Received: by mail-ed1-f69.google.com with SMTP id
+ c25-20020a056402143900b003dc19782ea8so2849450edx.3
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 09:14:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=nuCG2sDmKSazCUE8+q7TBUWWroJna3waN17Ediudyfo=;
- b=y6UDln/aL8ApMcxAD4SCCh1TbKlRZGrvVFTMNOup0J8+IjgMXJnHSaRNJMuLZAMkZl
- I80NMvZ9V2ynY4Cu7HpsT6vu1dtOGeu3IiSEKt/5JDisWq8kj/KVJcpiiLOchw0WQHZP
- QpbLkzWCE4mhNAU1dtZ/6Vko0G/VDkMHAPds1PhzmuRlnDqSfwOem0zTZJ7qzyTFQZSq
- FoASAGHMfvjbYltnJOwMhg1pM7/S5cCvV2DV2T4ft5Vfxmpl9vXhijsB05w/OaqkSUVC
- jC+1dxNFNyu/Lbne4byU7RImMsjyKd7XASQ1RCxOuqRCH6nwS/F1ouDn6IirgeOnvmES
- lSUQ==
-X-Gm-Message-State: AOAM530m/+1g/SOvwBiNzV5J4UgVWpkp6xywblseyuJouL/azHxgzpui
- 3AeZLnMb3QmYSeutFEO+yxnXcw==
-X-Google-Smtp-Source: ABdhPJyPOfADHe2BvEKrk8mpN6Tt9+dFmmc+qUaNZEHu6/XAOEzQt/0dcBcXvuMjJIUFdj/Jqau95A==
-X-Received: by 2002:a17:90b:3ecc:: with SMTP id
- rm12mr6856073pjb.48.1635350894901; 
- Wed, 27 Oct 2021 09:08:14 -0700 (PDT)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id lb5sm205466pjb.11.2021.10.27.09.08.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 09:08:14 -0700 (PDT)
-Date: Wed, 27 Oct 2021 16:08:10 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=YJ1AvjILyDHE6A0xH65m+vjqkknvkqBvDuAHk95niU8=;
+ b=PFhMn1tZ2ULsPo1A8Qd2N2oriX+Kwb4OpWSzsKOeGMEgVM+z13fCJ6xHO/e/XYnV83
+ EQUHs+4STyhJnXVxvSG9osF6F+IeA5d3/sXVGRcf+BlT7UidVXR22IWmZdTdBc80tux4
+ uvidxzDO5AEKEFOni3IuZSAmy1/KzDdQd9cvben/JC1QoLUVOLIk8fq13WrILnO9XdlX
+ NPf5rRzGIXw2emgskZrKPKeHYzXxA78bjgOGWU70mN8dnfzMQsuxDi4G4NAXOQoah3qH
+ idToI6G+CkjZU6khsorKgjkq6jBmITTJcFRtqCbMI9LU5hVeghYwX8WMWimIQU/agYnw
+ kWNw==
+X-Gm-Message-State: AOAM530voUM9F2RfF8X79tTPo5DMWx9lFXDZlOL+PwhuPYDZ0FyEvLel
+ VcONlerwGgMGgrYiOePWp5sngb4ip8oHuRV/wt0pegwWqSihF8JbOlHAflNCdLOQsTF+xfFzfw+
+ V17HH9Y+irs2Lgfc6GQag0RTkQmg6
+X-Received: by 2002:a17:907:16a7:: with SMTP id
+ hc39mr22891329ejc.214.1635351287181; 
+ Wed, 27 Oct 2021 09:14:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzO/QgQ5GMyh0vFS/oBYQIX6qwD3vL9k6RGrSUIXFucShmCvNWLSsmfmRBNY3o+Ac+4bg3ipQ==
+X-Received: by 2002:a17:907:16a7:: with SMTP id
+ hc39mr22891269ejc.214.1635351286915; 
+ Wed, 27 Oct 2021 09:14:46 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
+ ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
+ by smtp.gmail.com with ESMTPSA id sb30sm195562ejc.45.2021.10.27.09.14.45
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 27 Oct 2021 09:14:46 -0700 (PDT)
+Message-ID: <d0746ea4-06e9-f65d-6e45-72b1b0dea29b@redhat.com>
+Date: Wed, 27 Oct 2021 18:14:44 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.1.0
+Subject: Re: [PATCH v2 35/43] KVM: SVM: Signal AVIC doorbell iff vCPU is in
+ guest mode
+To: Sean Christopherson <seanjc@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
  Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Christian Borntraeger <borntraeger@de.ibm.com>,
  Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
  Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra
+ <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
  Jing Zhang <jingzhangos@google.com>
-Subject: Re: [PATCH v2 35/43] KVM: SVM: Signal AVIC doorbell iff vCPU is in
- guest mode
-Message-ID: <YXl5anv0Lyjx1cws@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
  <20211009021236.4122790-36-seanjc@google.com>
  <0333be2a-76d8-657a-6c82-3bb5c9ff2e3b@redhat.com>
  <YXlrEWmBohaDXmqL@google.com>
  <185502d7-861e-fa5c-b225-419710fe77ed@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <185502d7-861e-fa5c-b225-419710fe77ed@redhat.com>
+ <YXl5anv0Lyjx1cws@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <YXl5anv0Lyjx1cws@google.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_090819_474613_F08D2DAA 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20211027_091452_682512_1980F298 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +129,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 27, 2021, Paolo Bonzini wrote:
-> On 27/10/21 17:06, Sean Christopherson wrote:
-> > > Does this still need to check the "running" flag?  That should be a strict
-> > > superset of vcpu->mode == IN_GUEST_MODE.
-> > 
-> > No.  Signalling the doorbell when "running" is set but the vCPU is not in the
-> > guest is just an expensive nop.  So even if KVM were to rework its handling of
-> > "running" to set the flag immediately before VMRUN and clear it immediately after,
-> > keying off IN_GUEST_MODE and not "running" would not be wrong, just sub-optimal.
-> > 
-> > I doubt KVM will ever make the "running" flag super precise, because keeping the
-> > flag set when the vCPU is loaded avoids VM-Exits on other vCPUs due to undelivered
-> > IPIs.
+On 27/10/21 18:08, Sean Christopherson wrote:
+>> Right, so should we drop the "if (running)" check in this patch, at the same
+>> time as it's adding the IN_GUEST_MODE check?
+> LOL, I think we have a Three^WTwo Stooges routine going on.  This patch does
+> remove avic_vcpu_is_running() and replaces it with the vcpu->mode check.  Or am
+> I completely misunderstanding what your referring to?
 > 
-> Right, so should we drop the "if (running)" check in this patch, at the same
-> time as it's adding the IN_GUEST_MODE check?
+> -       if (avic_vcpu_is_running(vcpu)) {
+> +       /*
+> +        * Signal the doorbell to tell hardware to inject the IRQ if the vCPU
+> +        * is in the guest.  If the vCPU is not in the guest, hardware will
+> +        * automatically process AVIC interrupts at VMRUN.
+> +        */
+> +       if (vcpu->mode == IN_GUEST_MODE) {
+>                  int cpu = READ_ONCE(vcpu->cpu);
 
-LOL, I think we have a Three^WTwo Stooges routine going on.  This patch does
-remove avic_vcpu_is_running() and replaces it with the vcpu->mode check.  Or am
-I completely misunderstanding what your referring to?
+Nevermind, I confused svm_deliver_avic_intr with avic_kick_target_vcpus, 
+which anyway you are handling in patch 36.
 
--       if (avic_vcpu_is_running(vcpu)) {
-+       /*
-+        * Signal the doorbell to tell hardware to inject the IRQ if the vCPU
-+        * is in the guest.  If the vCPU is not in the guest, hardware will
-+        * automatically process AVIC interrupts at VMRUN.
-+        */
-+       if (vcpu->mode == IN_GUEST_MODE) {
-                int cpu = READ_ONCE(vcpu->cpu);
+Paolo
+
 
 _______________________________________________
 linux-riscv mailing list
