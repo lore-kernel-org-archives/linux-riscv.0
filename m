@@ -2,71 +2,93 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96421C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 14:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 754B6C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 14:36:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 49D6B60F38
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 14:27:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 49D6B60F38
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=libc.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3B7B260720
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 14:36:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3B7B260720
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FvA5z9TdGblpN0OsJqt5IqVc4YD/RIqD+5BEcBy4iyg=; b=iddOGYyVere7Rx
-	Xxngcyol57KjhjACPW8XZSm8QPX9g5dqozJ5zEXcwM8IVzM/uZoFQl2liJy+xcev5F76hIPHgsTgo
-	1kXShxhd91tnjUiSzJTn7VrAasZSlrlJ0Myy5K9+t+L1e6xuP8fiFQB8hA2i+okkcm3PXNMQvHuav
-	FPdUjzzjY9wobWVHaWIuMSZLzMPOXuGdtiOx31suAHrUR7XP42MgZaEtqfJWDqp3mTq2fUcWBItY7
-	Jh1Mue1nw0zTzkHAePNz98QpwMW9K5bvIZ83JEJJrvFE/67hGWIKRT0IuNnZn85MKEapIElaHhiPL
-	QTfTHpg8GXZaGjjkbwGw==;
+	List-Owner; bh=wgxt7jRBSzfE2MuOu8fESd+oWoWLz+84WUqcVDXmcN4=; b=tidioBwyUaPYXW
+	ml46ABIN7Dsv7N7jctnWo/BnvI2QOymt6CmrLXv6EhxWfINfXfY8jYwl4DNW4icMhTmlCONv0f85d
+	RCLZtMUDaMijLajX0fF98KtEffGvZ5nsp36tXdguAa+Wtzb7wfWQCbqwrn98fz8YRAdVGsbxTz+r1
+	EIAPYRMXPdP103juPjkRD47Kue6gAkDyLWw+s2GjKx1dntt8VSMMQIXTAKQRov8+We3M199Uia7+N
+	b+jCaf/l98KnVXH1/GIl0TxCNp8uiQ++L5n9cjZyGWy28yS3/RFdAaLT1+UDXRDXzliGB8ptMuiOb
+	cB7oAWjCHMSqeBFDOctw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfjte-0056yi-Nq; Wed, 27 Oct 2021 14:27:18 +0000
-Received: from brightrain.aerifal.cx ([216.12.86.13])
+	id 1mfk2u-0058YA-1n; Wed, 27 Oct 2021 14:36:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfjtN-0056t9-Tm
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 14:27:03 +0000
-Date: Wed, 27 Oct 2021 10:26:54 -0400
-From: Rich Felker <dalias@libc.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, James Morse <james.morse@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1mfk2r-0058XD-DL
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 14:36:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635345408;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=0gXXVZ1M1SPzD/8mviUXXiKMlrNVIcsqsHOKxhlwRek=;
+ b=G1PA1ucuiB4g1VrcrH6nFW0KnMDWQ55BP1PKevICK+aLU4sOkU4f563k3jaurGpXP2OG4L
+ 6K61BlzVfhaiz+y+IkuTt9dVckhXsmNWNuntz7ftup5bsyHbkQW7M6U8C/3F/bGtSut2P6
+ 3SxM7xGGcUz4pfEc7kKVGTjbWmk5UxE=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-395-UU3N_ykSOO6SiL7u12Utfg-1; Wed, 27 Oct 2021 10:36:46 -0400
+X-MC-Unique: UU3N_ykSOO6SiL7u12Utfg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+ [10.5.11.16])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1095C112C391;
+ Wed, 27 Oct 2021 14:35:56 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 83585794A9;
+ Wed, 27 Oct 2021 14:35:46 +0000 (UTC)
+Message-ID: <3a0c3397302d59ea313e079435a18bf1b9a43474.camel@redhat.com>
+Subject: Re: [PATCH v2 16/43] KVM: Don't redo ktime_get() when calculating
+ halt-polling stop/deadline
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson
+ <seanjc@google.com>,  Marc Zyngier <maz@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Frank Rowand <frowand.list@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 09/12] sh: Use of_get_cpu_hwid()
-Message-ID: <20211027142651.GW7074@brightrain.aerifal.cx>
-References: <20211006164332.1981454-1-robh@kernel.org>
- <20211006164332.1981454-10-robh@kernel.org>
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Wed, 27 Oct 2021 17:35:45 +0300
+In-Reply-To: <0072221e-02e8-4d60-9b0f-80d8c423bf4e@redhat.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-17-seanjc@google.com>
+ <0072221e-02e8-4d60-9b0f-80d8c423bf4e@redhat.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211006164332.1981454-10-robh@kernel.org>
-User-Agent: Mutt/1.5.21 (2010-09-15)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_072702_686906_4EFF4B1E 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20211027_073649_569628_D7C70A2A 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +105,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 06, 2021 at 11:43:29AM -0500, Rob Herring wrote:
-> Replace open coded parsing of CPU nodes' 'reg' property with
-> of_get_cpu_hwid().
+On Mon, 2021-10-25 at 16:26 +0200, Paolo Bonzini wrote:
+> On 09/10/21 04:12, Sean Christopherson wrote:
+> > Calculate the halt-polling "stop" time using "cur" instead of redoing
+> > ktime_get().  In the happy case where hardware correctly predicts
+> > do_halt_poll, "cur" is only a few cycles old.  And if the branch is
+> > mispredicted, arguably that extra latency should count toward the
+> > halt-polling time.
+> > 
+> > In all likelihood, the numbers involved are in the noise and either
+> > approach is perfectly ok.
 > 
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: linux-sh@vger.kernel.org
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
->  arch/sh/boards/of-generic.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
+> Using "start" makes the change even more obvious, so:
 > 
-> diff --git a/arch/sh/boards/of-generic.c b/arch/sh/boards/of-generic.c
-> index 921d76fc3358..f7f3e618e85b 100644
-> --- a/arch/sh/boards/of-generic.c
-> +++ b/arch/sh/boards/of-generic.c
-> @@ -62,9 +62,8 @@ static void sh_of_smp_probe(void)
->  	init_cpu_possible(cpumask_of(0));
->  
->  	for_each_of_cpu_node(np) {
-> -		const __be32 *cell = of_get_property(np, "reg", NULL);
-> -		u64 id = -1;
-> -		if (cell) id = of_read_number(cell, of_n_addr_cells(np));
-> +		u64 id = of_get_cpu_hwid(np, 0);
-> +
->  		if (id < NR_CPUS) {
->  			if (!method)
->  				of_property_read_string(np, "enable-method", &method);
-> -- 
-> 2.30.2
+>      Calculate the halt-polling "stop" time using "start" instead of redoing
+>      ktime_get().  In practice, the numbers involved are in the noise (e.g.,
+>      in the happy case where hardware correctly predicts do_halt_poll and
+>      there are no interrupts, "start" is probably only a few cycles old)
+>      and either approach is perfectly ok.  But it's more precise to count
+>      any extra latency toward the halt-polling time.
+> 
+> Paolo
+> 
+Agreed.
 
-Acked-by: Rich Felker <dalias@libc.org>
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+
+
 
 _______________________________________________
 linux-riscv mailing list
