@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9007DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28ADEC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 10:19:09 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5247760F21
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 09:54:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5247760F21
+	by mail.kernel.org (Postfix) with ESMTPS id CEE6C60F39
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 10:19:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CEE6C60F39
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,45 +18,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p06viguoOcwgLru5o3LUDQGhVzkb6DB0Um6lnpGtk4Y=; b=yVxDI0UBzua4ZQ
-	IVhtrsOtb16shVe0vTIcGJ4IMwooCr/+EsH4GpBgnIx1eWe5IX5B0QyJep2fLuoM8E0iTKPhKN7hG
-	0/yzbqOkcHbFLDMmRzk5NPzjkSSWqFmCjGpy3XE0COsL1Afyj6HajUD7BUdmVg31L7sIy/CqPI0JI
-	+XYxKFwZN7KFuOYR2t6nbwlH/MQThzNV4ls4L5Tl+5T+/0uO6uRRjscale0KsBOTFS12u+57gn0Bw
-	b9gWEOhTRj/JlCpgLSPyrkHhMcqCBlPXyBs9ku/vKLpomMJHbdk+jBTa/zfmmBTiuU6rw6404pnUj
-	azyJGNzuNiVD6TqewyTg==;
+	List-Owner; bh=TEzWr/+d24fMT9n6CPjLT6FAOQQboaOxj9VqmoSj3PI=; b=1+c5fFzqgI8Rhq
+	moMd1Ob6dJmNShxILPUMFHxHgG4fIpUrZ6Qew/5P4zrVXY1G+Lpec9eXckdp996c25TS07gWFJFUb
+	vFTj7zQUIgnUEU7tdaC9DJrPxgg3Ruql8Nts42+qdZ/2wPwLUZzOW4x9eUpj4c/f5TUe6g9Cjzrms
+	9cgi+L0XA820zwlPS0JP8ES+TSif6/sZ+pbMi10mLEOJ/y+fH02PtHX/VDOZCLMSyTtqqnhpg66Du
+	eHWRblNw8JEDwZyqwJh6UJKxqOSJEe9EW8iDSiKLBXe3b6qMSPU+VmSmCa9xGEVxAWrZYyOLIFClQ
+	T4jG40GcbmqrppDwk/9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mffdE-004V0k-2C; Wed, 27 Oct 2021 09:54:04 +0000
+	id 1mfg1J-004Xsl-Pu; Wed, 27 Oct 2021 10:18:57 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mffdB-004UyK-ET
- for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 09:54:02 +0000
+ id 1mfg1G-004XrR-E3
+ for linux-riscv@lists.infradead.org; Wed, 27 Oct 2021 10:18:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635328440;
+ s=mimecast20190719; t=1635329933;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=OLKZI82hmPisWACp/QMd/03BQs+RHKrDBliqptWWYzE=;
- b=QdaTAUfDJ9+mnQF8+RnK5RQMyKSX+xPPdiFHFLeKeNnMhyaOyg8DnNmqaH644PWXaIlBKq
- 30WBuSOl/+kpAGfjUJci96z0pgGj5vmH1kHgeR0509WA/uhDoy8IOYiDuiVaRqd3qOV0Gy
- YRzQ8mH7WsB5Iy+EAaIGqXVcumvwB6E=
+ bh=0f27XW5ipOgXyw7srO4b+jUX50VuAlw+C7sxFBFkpEA=;
+ b=Z4xywkau7qK0Pa6XDZcZ14UI/7PrtgD9YDOHNSg5tYFg5d/88pFRakzhidvff6NyyCoF+U
+ UDZYk0YkczFVpynDIUCugpAIiwewCx6UJfWFEu3GTMfnycj77uYUuJFsVKazk/uNMNNdhc
+ FzPOv7pWxTVcTnUvnq/+cO3NTe7tYHw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-468-4gOjCQ60OwesHHSXcF-XSQ-1; Wed, 27 Oct 2021 05:51:19 -0400
-X-MC-Unique: 4gOjCQ60OwesHHSXcF-XSQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
- [10.5.11.23])
+ us-mta-578-NX_vwU-ZN9SDSZWcd7uWxg-1; Wed, 27 Oct 2021 06:18:50 -0400
+X-MC-Unique: NX_vwU-ZN9SDSZWcd7uWxg-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+ [10.5.11.13])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AD15980A5C0;
- Wed, 27 Oct 2021 09:51:15 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D2879100C661;
+ Wed, 27 Oct 2021 10:18:45 +0000 (UTC)
 Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 401B019D9F;
- Wed, 27 Oct 2021 09:50:31 +0000 (UTC)
-Message-ID: <aa1656c01ea5d46dd22c66da4a5eaa27f58810a2.camel@redhat.com>
-Subject: Re: [PATCH v2 02/43] KVM: SVM: Ensure target pCPU is read once when
- signalling AVIC doorbell
+ by smtp.corp.redhat.com (Postfix) with ESMTP id EC5315BAE0;
+ Wed, 27 Oct 2021 10:18:25 +0000 (UTC)
+Message-ID: <d13520b7a5a78b26ec994ec66d2fea6deddad40a.camel@redhat.com>
+Subject: Re: [PATCH v2 05/43] KVM: Update halt-polling stats if and only if
+ halt-polling was attempted
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
  Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
@@ -77,16 +77,16 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
  Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Wed, 27 Oct 2021 12:50:30 +0300
-In-Reply-To: <20211009021236.4122790-3-seanjc@google.com>
+Date: Wed, 27 Oct 2021 13:18:24 +0300
+In-Reply-To: <20211009021236.4122790-6-seanjc@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-3-seanjc@google.com>
+ <20211009021236.4122790-6-seanjc@google.com>
 User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_025401_635938_EC3A3952 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20211027_031854_554021_8AEF79B7 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +104,56 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, 2021-10-08 at 19:11 -0700, Sean Christopherson wrote:
-> Ensure vcpu->cpu is read once when signalling the AVIC doorbell.  If the
-> compiler rereads the field and the vCPU is migrated between the check and
-> writing the doorbell, KVM would signal the wrong physical CPU.
-
-Since vcpu->cpu can change any moment anyway, adding READ_ONCE I think can't really fix anything
-but I do agree that it makes this more readable.
-
-Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
-
-
-
+> Don't update halt-polling stats if halt-polling wasn't attempted.  This
+> is a nop as @poll_ns is guaranteed to be '0' (poll_end == start), but it
+> will allow a future patch to move the histogram stats into the helper to
+> resolve a discrepancy in what is considered a "successful" halt-poll.
 > 
-> Functionally, signalling the wrong CPU in this case is not an issue as
-> task migration means the vCPU has exited and will pick up any pending
-> interrupts on the next VMRUN.  Add the READ_ONCE() purely to clean up the
-> code.
+> No functional change intended.
 > 
-> Opportunistically add a comment explaining the task migration behavior,
-> and rename cpuid=>cpu to avoid conflating the CPU number with KVM's more
-> common usage of CPUID.
-> 
+> Reviewed-by: David Matlack <dmatlack@google.com>
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  arch/x86/kvm/svm/avic.c | 13 ++++++++++---
->  1 file changed, 10 insertions(+), 3 deletions(-)
+>  virt/kvm/kvm_main.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> index 8052d92069e0..208c5c71e827 100644
-> --- a/arch/x86/kvm/svm/avic.c
-> +++ b/arch/x86/kvm/svm/avic.c
-> @@ -675,10 +675,17 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
->  	smp_mb__after_atomic();
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 5d4a90032277..6156719bcbbc 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -3217,6 +3217,7 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  {
+>  	struct rcuwait *wait = kvm_arch_vcpu_get_wait(vcpu);
+>  	bool halt_poll_allowed = !kvm_arch_no_poll(vcpu);
+> +	bool do_halt_poll = halt_poll_allowed && vcpu->halt_poll_ns;
+>  	ktime_t start, cur, poll_end;
+>  	bool waited = false;
+>  	u64 block_ns;
+> @@ -3224,7 +3225,7 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  	kvm_arch_vcpu_blocking(vcpu);
 >  
->  	if (avic_vcpu_is_running(vcpu)) {
-> -		int cpuid = vcpu->cpu;
-> +		int cpu = READ_ONCE(vcpu->cpu);
+>  	start = cur = poll_end = ktime_get();
+> -	if (vcpu->halt_poll_ns && halt_poll_allowed) {
+> +	if (do_halt_poll) {
+>  		ktime_t stop = ktime_add_ns(ktime_get(), vcpu->halt_poll_ns);
 >  
-> -		if (cpuid != get_cpu())
-> -			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpuid));
-> +		/*
-> +		 * Note, the vCPU could get migrated to a different pCPU at any
-> +		 * point, which could result in signalling the wrong/previous
-> +		 * pCPU.  But if that happens the vCPU is guaranteed to do a
-> +		 * VMRUN (after being migrated) and thus will process pending
-> +		 * interrupts, i.e. a doorbell is not needed (and the spurious)
-> +		 */
-> +		if (cpu != get_cpu())
-> +			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpu));
->  		put_cpu();
->  	} else
->  		kvm_vcpu_wake_up(vcpu);
+>  		++vcpu->stat.generic.halt_attempted_poll;
+> @@ -3276,8 +3277,9 @@ void kvm_vcpu_block(struct kvm_vcpu *vcpu)
+>  	kvm_arch_vcpu_unblocking(vcpu);
+>  	block_ns = ktime_to_ns(cur) - ktime_to_ns(start);
+>  
+> -	update_halt_poll_stats(
+> -		vcpu, ktime_to_ns(ktime_sub(poll_end, start)), waited);
+> +	if (do_halt_poll)
+> +		update_halt_poll_stats(
+> +			vcpu, ktime_to_ns(ktime_sub(poll_end, start)), waited);
+>  
+>  	if (halt_poll_allowed) {
+>  		if (!vcpu_valid_wakeup(vcpu)) {
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
+Best regards,
+	Maxim Levitsky
 
 
 _______________________________________________
