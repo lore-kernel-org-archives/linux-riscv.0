@@ -2,14 +2,14 @@ Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D92F3C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F512C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:25:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 82EAC6109E
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:25:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 82EAC6109E
+	by mail.kernel.org (Postfix) with ESMTPS id 1203E6109E
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 21:25:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1203E6109E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tc9vs7D/KnLzhDjECYsmMxJNlbEWcETeu1Kk5/9FPp4=; b=p4nd29A1ZLVXCO
-	s+GdT5dLFc4jEaAEjgPuAZm1+jB1W83XdZls738YJl3/a/D8kH02W6HKEL2fTwlqO2XzTn8vaiYWu
-	iSgejQIZaFtmW+vuukBzuR+1RjcReG/rfcQNbVQSAWaawy/A8X+roJnm7I5BotA0Nyv0leFgZV0LT
-	AC1XS+HE/WYo5zTKZEE7e07FrnAcltnweHIy8l0I2zC4n8pVCIc6m83chwbmfp27Y/DcRm/8vBvO0
-	p+XeSOSXw3ma6F4jbGNK4E+9OwjdIzwfU0VqrVSMZ0myRL6a2bqm0wW94YGyWEJ+7j+bChXsVNr6f
-	pdaKU0k5w6K0hvPh+7OQ==;
+	List-Owner; bh=/r0wC5UsG5XkXBqMqnd3/TslIQ2u+2DUFMBUVzGiBsY=; b=Z0MmH1BB8w4OxN
+	IxClgDFS5GtsBvsfdj8l6G0j9AT7Og0ZKX/N2Na+HPYVE+X0o5Sea39Aep3OtJRQGQ5Pdif9neiJc
+	ZtACYj/cSl7Ua6dadEUK1n8mUNfVwvjGRkc0KQbyxX+oQQO7qnH2ANJ1YQI9MYIhCUZ3m95HobHg6
+	Qpl6NF0RTEqHjKDETgh28F8RpFs9BBY0Al6Tiuc+5lNskMDajeMZW8PUc+2lkkgkDY3T4alCqrZ9t
+	cx8ZvvoVu1LNQvokyCsLBS4Rs9NcclE05O0E14DYs4p30iGM2cD01d+CnG4ie21Vshs6z302I771p
+	7kgCkXD6kPguGZ8W86Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfqQ8-006Edn-PW; Wed, 27 Oct 2021 21:25:16 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1mfqQM-006ElV-Ll; Wed, 27 Oct 2021 21:25:30 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfqK3-006B2p-Qw; Wed, 27 Oct 2021 21:19:01 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id bp15so9015748lfb.4;
- Wed, 27 Oct 2021 14:18:59 -0700 (PDT)
+ id 1mfqK5-006B46-9H; Wed, 27 Oct 2021 21:19:03 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id j9so8980746lfu.7;
+ Wed, 27 Oct 2021 14:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=/Hqy/1scbv2xgSJ+Pfjnwd9vR5EU0n/d3WfB2tugTgE=;
- b=fdXEajT5ReWU0k76RL+UMQexWX6+dI9dqZX5MdJXsVZcuokskYVO71+oKjzDY4A2wc
- hJ1YtaH4eNeZaWabxSPD6IdHvppV9tDUjSfbiCZ9pzJbnyd1ILGvgPlaBo02Y2jjZnzD
- JbO/7oiPSFxLAQwFLHGGO2Gfwy8dZZlQdidry7vBInQu2wS67Np/bBN1rUC/SIaULQAp
- mZSgP8kJbrDoclvDh2sRCaJ+wiPArCAPZMKwm6/7+fwfn1T4SmuQIaJDkhw4NUU2izwl
- 4ikxIWp8MhgEKidppyJcozjOV5jYdL31Pn9EYMxWJrcs7VGZ0QCvDnuFIw51Kr2focF2
- kW1g==
+ bh=/EvvYGeTVCQImKsIJ5eG/5fF3PWyG/w2giRYqfawyD8=;
+ b=WISWhItqSg2B7RF+VMq4lOAEaPJboj2meAQ+IB5/V1NHbNJFBmj5XS0xlb4zCXSKCT
+ 6NsXWHZYq9LRGS+jBn6SfWgsJR2EyLsQBWeeDJtEZfPXB1ZJ5N3cxcINwqw5WxZcKDSN
+ DIvIUkbk9mQPYxMXhFN2I7TObVzLJ8eVxU8hzEXgYSzj8Cm7i8BXlPfHwlq3yNPgneQb
+ CHkJFZxdfY5RLlI3BGfXo88fraOgWdNEzamQkJbIJD18e+/pItOdQTQl7YVu3LpCjfDV
+ vOVdkFjMAfH4ytXgGRWsun/uVtAnjn/uKIwgKMmU3X2UQuuCd1+gugzIIN8JE0FZ4XsA
+ 8FgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=/Hqy/1scbv2xgSJ+Pfjnwd9vR5EU0n/d3WfB2tugTgE=;
- b=v9szwrjswEQYadF5Jwh3e4S3Z5pK6wCO7Be/VJSawBPb4yGIYa88tjUL+tU+o8fKX1
- 56NQNEdud46TFz5mSA3ZGbGrHKYA2akrKXt0BgmfbANhjjoGekk1PHYl9j2rYxzjXTPJ
- JmqA3qjlrI6MO4zh2QhZNc3HLV1eJjo9DxYRlkYQjvCzjSHhBvytkMdJxYAUqUWIB+C3
- jcMzu9ZRNuYFna/I4T31L3tWwHCChw+9GzcRTRBwKe6Qm4Rdr+PioeQzG/JArVmwCbDx
- /CzwI3+OZyhVI9C6kJlMFnu57Qz6xXsTG5pbCP67EESE5S7Vv6yFjbeMVXdBfb4EKSN3
- sDMA==
-X-Gm-Message-State: AOAM531505JEtPyqgpJEE/iW0fX4bcO0WZjaX1hpWCZaf3p6pBX2bGiE
- gIUx0FUy2IUkIaCMl5SrEoU=
-X-Google-Smtp-Source: ABdhPJxErOfbgWaHoJDyROU+wtxCyzAJwEEk/21TSkl3Wl7+6OTCwc5MbFi2KTtZM0ExVMRMX2XJDw==
-X-Received: by 2002:a05:6512:344a:: with SMTP id
- j10mr78084lfr.653.1635369538003; 
- Wed, 27 Oct 2021 14:18:58 -0700 (PDT)
+ bh=/EvvYGeTVCQImKsIJ5eG/5fF3PWyG/w2giRYqfawyD8=;
+ b=JAbDoqSK+NBzBBrRLlqHAmLBrx7n9Ztop1hVjne5cHzkd2S51No0MWAVoRmbf21cWV
+ ZwDVwW9X17spoGd8wDN8b7i3nw+a/SR5vYawQ0BX6AyhAAOj6UKeyGs5ZJ0frC/Rcsim
+ OACUeZ2e09ALmB+lmXzibUxNvskjZSzFvfLkz8PXUEvwyUmSIlNulmKnkV2V7SVBLN8S
+ HOr4p3HDFsSK1HpMmcWZgl2uYT24ntVHInSbgiGbhK8/Jt200xZRw/SvyQu39eCWWdTV
+ ZGqtQFNUSabG3/aTwycYfWDhqz4Z17SYBkvj98Kfp78X/6GaPjUWdCiHvA9DQ1VTQJXo
+ SYPg==
+X-Gm-Message-State: AOAM531R5ISCslKyMTZpps72kEsNBiumKKMY6e2pmpkr1I9TrOXyMVPV
+ +j5KUOR0+HjMWeYHnua0B5Y=
+X-Google-Smtp-Source: ABdhPJxRCjxAoGlWdRIW6Oj8xz2ri71YJVQnEgFasE3kMNBOfZWQ65DiEYFCvQ3qjpKPcAaJZhmXrA==
+X-Received: by 2002:ac2:4c08:: with SMTP id t8mr95028lfq.281.1635369539813;
+ Wed, 27 Oct 2021 14:18:59 -0700 (PDT)
 Received: from localhost.localdomain (46-138-41-28.dynamic.spd-mgts.ru.
  [46.138.41.28])
- by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.56
+ by smtp.gmail.com with ESMTPSA id d7sm104336ljl.18.2021.10.27.14.18.58
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 Oct 2021 14:18:57 -0700 (PDT)
+ Wed, 27 Oct 2021 14:18:59 -0700 (PDT)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
@@ -110,17 +109,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: [PATCH v2 35/45] mfd: max8907: Use
+Subject: [PATCH v2 36/45] mfd: tps6586x: Use
  devm_register_simple_power_off_handler()
-Date: Thu, 28 Oct 2021 00:17:05 +0300
-Message-Id: <20211027211715.12671-36-digetx@gmail.com>
+Date: Thu, 28 Oct 2021 00:17:06 +0300
+Message-Id: <20211027211715.12671-37-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211027211715.12671-1-digetx@gmail.com>
 References: <20211027211715.12671-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_141859_951413_05EF0FE6 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20211027_141901_377660_8362B790 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,64 +141,63 @@ pm_power_off variable and allows to register multiple power-off handlers.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- drivers/mfd/max8907.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+ drivers/mfd/tps6586x.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/mfd/max8907.c b/drivers/mfd/max8907.c
-index 41f566e6a096..58699510311b 100644
---- a/drivers/mfd/max8907.c
-+++ b/drivers/mfd/max8907.c
-@@ -16,6 +16,7 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_device.h>
+diff --git a/drivers/mfd/tps6586x.c b/drivers/mfd/tps6586x.c
+index c9303d3d6602..9033ed936d1e 100644
+--- a/drivers/mfd/tps6586x.c
++++ b/drivers/mfd/tps6586x.c
+@@ -22,6 +22,7 @@
+ #include <linux/err.h>
+ #include <linux/i2c.h>
+ #include <linux/platform_device.h>
 +#include <linux/reboot.h>
  #include <linux/regmap.h>
- #include <linux/slab.h>
+ #include <linux/of.h>
  
-@@ -174,9 +175,10 @@ static const struct regmap_irq_chip max8907_rtc_irq_chip = {
- 	.num_irqs = ARRAY_SIZE(max8907_rtc_irqs),
+@@ -461,9 +462,10 @@ static const struct regmap_config tps6586x_regmap_config = {
+ 	.cache_type = REGCACHE_RBTREE,
  };
  
--static struct max8907 *max8907_pm_off;
--static void max8907_power_off(void)
-+static void max8907_power_off(void *data)
+-static struct device *tps6586x_dev;
+-static void tps6586x_power_off(void)
++static void tps6586x_power_off(void *data)
  {
-+	struct max8907 *max8907_pm_off = data;
++	struct device *tps6586x_dev = data;
 +
- 	regmap_update_bits(max8907_pm_off->regmap_gen, MAX8907_REG_RESET_CNFG,
- 			MAX8907_MASK_POWER_OFF, MAX8907_MASK_POWER_OFF);
- }
-@@ -214,6 +216,17 @@ static int max8907_i2c_probe(struct i2c_client *i2c,
- 		goto err_regmap_gen;
+ 	if (tps6586x_clr_bits(tps6586x_dev, TPS6586X_SUPPLYENE, EXITSLREQ_BIT))
+ 		return;
+ 
+@@ -540,6 +542,16 @@ static int tps6586x_i2c_probe(struct i2c_client *client,
+ 		return ret;
  	}
  
-+	if (pm_off) {
-+		ret = devm_register_simple_power_off_handler(&i2c->dev,
-+							     max8907_power_off,
-+							     max8907);
++	if (pdata->pm_off) {
++		ret = devm_register_simple_power_off_handler(&client->dev,
++							     tps6586x_power_off,
++							     &client->dev);
 +		if (ret) {
-+			dev_err(&i2c->dev,
++			dev_err(&client->dev,
 +				"failed to register power-off handler: %d\n", ret);
 +			return ret;
 +		}
 +	}
-+
- 	max8907->i2c_rtc = i2c_new_dummy_device(i2c->adapter, MAX8907_RTC_I2C_ADDR);
- 	if (IS_ERR(max8907->i2c_rtc)) {
- 		ret = PTR_ERR(max8907->i2c_rtc);
-@@ -260,11 +273,6 @@ static int max8907_i2c_probe(struct i2c_client *i2c,
- 		goto err_add_devices;
+ 
+ 	if (client->irq) {
+ 		ret = tps6586x_irq_init(tps6586x, client->irq,
+@@ -564,11 +576,6 @@ static int tps6586x_i2c_probe(struct i2c_client *client,
+ 		goto err_add_devs;
  	}
  
--	if (pm_off && !pm_power_off) {
--		max8907_pm_off = max8907;
--		pm_power_off = max8907_power_off;
+-	if (pdata->pm_off && !pm_power_off) {
+-		tps6586x_dev = &client->dev;
+-		pm_power_off = tps6586x_power_off;
 -	}
 -
  	return 0;
  
- err_add_devices:
+ err_add_devs:
 -- 
 2.33.1
 
