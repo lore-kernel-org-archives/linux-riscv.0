@@ -2,61 +2,90 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F00CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CD03C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:17:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C37F96113B
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:16:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C37F96113B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 15D5E61037
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:17:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 15D5E61037
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JYWiyfTVNIInu2lpKNR11NRMMsW825r42fGJXgSTjk4=; b=noDT5L2ocEffy5
-	K9rJ96y7e4FKjK0TndRw9L4zZF5+D5Hje3EN+evW0k2hKxUT+jCLLwuVI8DI/iPwWt6ueEvPEmj3r
-	wIzEeWO4ES5wH1epnVr1LPsy+BRwuXJ1D7uncj+U5k8VBEtyctxJ0MsFaU+mWT3Dbz+yyxK2B7Gd0
-	sAFF8gotNCZBh5cPUtWNG32TTBDnIWO6cxDz6r1M2mEJZvPrZnV65ahArKGDuX0sqlgmoCu+pyR+U
-	KQ9cOd4lr6Re3Hxv6yg4yL3a4kpv3VZB2VTZpBDTWQWBK5QFMiRvIKpWOBw97l5x++gLVGCt8wNPm
-	0J6jIkPFhh1LWRP2pydQ==;
+	List-Owner; bh=j/r4xYrzkTGnxJSknWJMEB8LkbpZkNr7ZBbYZt72jlU=; b=M0hkWyJLmO9hRw
+	XgsTdS6Oz88t2tpYEarKik1pyE+Flw/Twm3H963Gm0Z+bpxYhXzdukgmI61QN5RHjcL/n/P4LGueE
+	R6WnsZEMoI4215hvsRNedWf1p31bp2VVyFbJIE3b8usFvonOCBmQ+CMbes5qnjrpvvJ2bVzc6HtNQ
+	8frxqIaerylevOI6gGs6LfVjMdtBzLR7cBnvvO/bDmreEZgcqric3F3608zDOFrLHlaWo0az/4ADW
+	NSGTXLz30CM77TrXgSXi3cv2tgCAlvC/sTXdiNtCapsiOyLDxF1c1qWOf7Fd4ER2I7WYIm/ycjDOc
+	H8QtR9iT2lmz67PD9WzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg78j-008NzT-2j; Thu, 28 Oct 2021 15:16:25 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mg79Z-008OCv-1r; Thu, 28 Oct 2021 15:17:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg78h-008Nyt-DK
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:16:24 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C2FFB61221;
- Thu, 28 Oct 2021 15:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635434183;
- bh=oTD0uzTuFWhkB81ERcflZ4QQgV/0+hOuDfU7dxb4yuo=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=gafaAGoWKJAXXQXi+uI01Fanlm5UylYfFf/8/8DvIg0zm+BiOBFpiIaMH+ra2wf7B
- q57qQYPFu23OTfSYIn+WKgfu4CVr04zmw4R5wHYS7fml78+HS+xPYORUFXOfuS+jR6
- W8m2RfOi1dXcW5m6+h0FRBJEDTbZttcUDlwFwIkTzJXvpMirP9jVUAQ4r+SeucE2fB
- ER6RUlj/YFGeMf1ciOgtJD3Duc84f5+LguOkMZXgmNPIEFf9WndfuAcrUT/Zxmv1h/
- W8tqqkKklcVc+tGU1RiN+e2mosQmsxLPItO3RYKyuBdg50/TKKhZ/3XiCbsQwtiFar
- KcnHt2ZGBkBdQ==
-Date: Thu, 28 Oct 2021 08:16:21 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: ast@kernel.org, daniel@iogearbox.net, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH bpf] riscv, bpf: Fix potential NULL dereference
-Message-ID: <20211028081621.1fb6bb31@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
-In-Reply-To: <20211028125115.514587-1-bjorn@kernel.org>
-References: <20211028125115.514587-1-bjorn@kernel.org>
+ id 1mg79K-008O8c-Qx
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:17:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635434221;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=DVtdqDXww3KgKAYnCusxuLMUzDOnQrWVlJbyjA+vsRU=;
+ b=gPjdPwe+/dQQApVozTccKru8Z7yTs10NqTYTLMoUaiwU/wZp/C4jVZNE5EP7qqOKGtcaav
+ ybmJ77PccO0LBblYbytt5fUNLZrfdl7QmS19gEmBsEznkLSS3uu6Y1fPZjAfdZBp23Pjdu
+ 5jeJzpb09HryIvwGV0tiqmzFviBYahw=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-252-MW_4YzIxOem6d6CcDHBrfA-1; Thu, 28 Oct 2021 11:16:52 -0400
+X-MC-Unique: MW_4YzIxOem6d6CcDHBrfA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+ [10.5.11.12])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E298B19200C1;
+ Thu, 28 Oct 2021 15:16:48 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id BF85560BF1;
+ Thu, 28 Oct 2021 15:16:37 +0000 (UTC)
+Message-ID: <ea79dbabd67c09b76ca3409d2d7d4934dc4de2c1.camel@redhat.com>
+Subject: Re: [PATCH v2 30/43] KVM: Drop unused kvm_vcpu.pre_pcpu field
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Thu, 28 Oct 2021 18:16:36 +0300
+In-Reply-To: <20211009021236.4122790-31-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-31-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_081623_493105_7F156883 
-X-CRM114-Status: UNSURE (   4.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211028_081702_971700_BC4F7D58 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,21 +97,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyOCBPY3QgMjAyMSAxNDo1MToxNSArMDIwMCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+
-IFRoZSBicGZfaml0X2JpbmFyeV9mcmVlKCkgZnVuY3Rpb24gcmVxdWlyZXMgYSBub24tTlVMTCBh
-cmd1bWVudC4gV2hlbgo+IHRoZSBSSVNDLVYgQlBGIEpJVCBmYWlscyB0byBjb252ZXJnZSBpbiBO
-Ul9KSVRfSVRFUkFUSU9OUyBzdGVwcywKPiBqaXRfZGF0YS0+aGVhZGVyIHdpbGwgYmUgTlVMTCwg
-d2hpY2ggdHJpZ2dlcnMgYSBOVUxMCj4gZGVyZWZlcmVuY2UuIEF2b2lkIHRoaXMgYnkgY2hlY2tp
-bmcgdGhlIGFyZ3VtZW50LCBwcmlvciBjYWxsaW5nIHRoZQo+IGZ1bmN0aW9uLgo+IAo+IEZpeGVz
-OiBjYTZjYjU0NDdjZWMgKCJyaXNjdiwgYnBmOiBGYWN0b3IgY29tbW9uIFJJU0MtViBKSVQgY29k
-ZSIpCj4gU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4KCkxv
-b2tzIHByZXR0eSB0cml2aWFsIHNvIGFwcGxpZWQgdG8gbmV0IHdpdGggRGFuaWVsJ3Mgb2ZmLWxp
-c3QgYmxlc3NpbmcuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Remove kvm_vcpu.pre_pcpu as it no longer has any users.  No functional
+> change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  include/linux/kvm_host.h | 1 -
+>  virt/kvm/kvm_main.c      | 1 -
+>  2 files changed, 2 deletions(-)
+> 
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 1fa38dc00b87..87996b22e681 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -304,7 +304,6 @@ struct kvm_vcpu {
+>  	u64 requests;
+>  	unsigned long guest_debug;
+>  
+> -	int pre_pcpu;
+>  	struct list_head blocked_vcpu_list;
+>  
+>  	struct mutex mutex;
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index c870cae7e776..2bbf5c9d410f 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -426,7 +426,6 @@ static void kvm_vcpu_init(struct kvm_vcpu *vcpu, struct kvm *kvm, unsigned id)
+>  #endif
+>  	kvm_async_pf_vcpu_init(vcpu);
+>  
+> -	vcpu->pre_pcpu = -1;
+>  	INIT_LIST_HEAD(&vcpu->blocked_vcpu_list);
+>  
+>  	kvm_vcpu_set_in_spin_loop(vcpu, false);
+
+
+
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+
+Best regards,
+	Maxim Levitsky
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
