@@ -2,65 +2,105 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 80C5AC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 17:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D50BC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 17:06:59 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 42CA860F56
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 17:02:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 42CA860F56
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
+	by mail.kernel.org (Postfix) with ESMTPS id 498C4610CF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 17:06:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 498C4610CF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IzCnYs6MtSZx+x0plvRgbQ+aZqFmUmwNT8Oi3+anL9U=; b=CgVahi1uIEyPv4
-	DzgJ++OtcXLeY1vbZppLlHezf9C7mKZDPYSxpMtBope8D8/7MDF/+5xXrZRR2xMVzRDxFW4T45r3o
-	vhRkAwdqurCvbgwLwlmwmabW+BtMvr0t8+CYytw7OBV5VTcy1hc+L2rwF4mKJszWE4cC/v7bmIBkq
-	zNymhA9wQA2yLUbnxV4inksLewCgGZZEmmkRnw8EYKZYedyLc3jihMghsq+/ll+FIn5xNCFuWMXzV
-	iBp91l5YHKAq1TVGbE/Qc6d3ydQoulNLKBTki6+pU3Gy9J3wikWOOk1/iU53mQ3MagzLOQ3OfbNR2
-	v4pGGsWhdTTF9vEBvtaw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s3jpPtXHXeGSutxLRMpoCQ6J0ipLaF4p3mMoxQ9qQ0Y=; b=wTCv5FyALQua+r
+	6YEd1uYPen5U8ISzbN0et5oMcd9YPa+Z5plGg3vpgkmym6+0H67ejj5JrR/JSB6OamnlXU881EhOX
+	EVmWmrVEEMUsetfMI8Id6YACw+JdF4Yj0orufVL4vflJXzfb7tJ/VeG7+AU0S6mKXZAs7Reou1UPD
+	JYXTPg+hhUpMdTC5OWST6Mbk3WXZ9cusB13/oZi5rlDv1P/W151E1f5KGs7KkmC5wS+/Z2XgNqHmX
+	teJSqDJd+itPr7u4L27kTQ3ODgT4ukPEFD2GQP/yp+68ChF+ucsvmXYkpbO2tv0VUWP8crUu1dYws
+	VxDyXc1FSQ4qIeHBAMPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg8n6-008fE8-IQ; Thu, 28 Oct 2021 17:02:12 +0000
-Received: from mga18.intel.com ([134.134.136.126])
+	id 1mg8rc-008flE-Pg; Thu, 28 Oct 2021 17:06:52 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg8n3-008fDe-W1
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 17:02:11 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10151"; a="217374202"
-X-IronPort-AV: E=Sophos;i="5.87,190,1631602800"; d="scan'208";a="217374202"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
- by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Oct 2021 10:01:56 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.87,190,1631602800"; d="scan'208";a="466197543"
-Received: from black.fi.intel.com ([10.237.72.28])
- by orsmga002.jf.intel.com with ESMTP; 28 Oct 2021 10:01:52 -0700
-Received: by black.fi.intel.com (Postfix, from userid 1003)
- id 8A112107; Thu, 28 Oct 2021 20:01:52 +0300 (EEST)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Vasily Gorbik <gor@linux.ibm.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1mg8rZ-008fkC-GW
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 17:06:51 +0000
+Received: by mail-pg1-x532.google.com with SMTP id r28so7091262pga.0
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 10:06:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=5FMOUmei9Yd20y1XWjfcdbxiSsU6/CKiTZiNSpEJsLk=;
+ b=goNQkkMJXpMPhPYFdVULDytrjQcoVu2lfwn3WuXA8ZOWfVU/JBHyZvLlEiPgcloYqE
+ Jhz0+bgiXe/YWIVtHqD9uWlRDISXdiszKG8C5B2x8qq+87xgln6oUfJqk8Pl2O4vpYUv
+ aElTLuihNiGwbXbMGeTzi+TT9xRVMesWVtGd6b3dr0Gyg3Ld7XrPFh8WgKV/HqWCqye6
+ IN651B4/j+icyywyqYjZAUlmNgSWr91NVE2zYdE4jrE7wi4kHo7ce24TfGAFy44uEg6R
+ fWLCdqwL2dJ2VgUcEM+jrTRcLtG9T2m9NM5+w4j3OENqjzp/2Dbrk6u9v0EBK753yfNN
+ PvuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=5FMOUmei9Yd20y1XWjfcdbxiSsU6/CKiTZiNSpEJsLk=;
+ b=EbCn4PHqOtRuUiV3yJEKDx8gFRCHtmw9uNbTCZzFFWMoOGbIJTJb2cfKMEElfPTp2P
+ BI75V50PKIHCvQKn/PB1Iq2uu9f/f7Z8fmUqHLQ5pfIf/HsCyRBREEN/I/ipbJPTH5zC
+ nTwaz8Ht7SI4CAJMIuSA5jUZY35/8th6PkUEwxMDBggJBKVtLfUXpQBaAtVy5qxNKsXM
+ eYGN9ZGiKZUbBCR2CoeaWUjo30cVcfUnDRkApRuYWRVlGRyLqYVrDclBqfeBEYM5SB0L
+ Q4cfSR2aIV/UL5PKQf6wwe5X7XDKmMyiLV4FQ26wSErNnqkUglHRrfGfMVU+GE3z0kgS
+ mH8Q==
+X-Gm-Message-State: AOAM532jUjFlkdPG+mV6QFmUwsN62odMr7AkGOzmp6swsA14q9Om6Zup
+ JUqTR+e9vD0Z1O9sxZwiXyWV2g==
+X-Google-Smtp-Source: ABdhPJyOg/bEAU+pflh7d3tXCNJNzQxKlLT5ImT9mzjP0dgOLJ0BibjbqbqYNusqXsDTdRjlGBu6iw==
+X-Received: by 2002:a05:6a00:181a:b0:47c:1057:52e with SMTP id
+ y26-20020a056a00181a00b0047c1057052emr5549485pfa.76.1635440808097; 
+ Thu, 28 Oct 2021 10:06:48 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id y19sm4044516pfn.23.2021.10.28.10.06.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 28 Oct 2021 10:06:47 -0700 (PDT)
+Date: Thu, 28 Oct 2021 17:06:43 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>,
  Christian Borntraeger <borntraeger@de.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>
-Subject: [PATCH v1 1/1] delay.h: fix for removed kernel.h
-Date: Thu, 28 Oct 2021 20:01:43 +0300
-Message-Id: <20211028170143.56523-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.33.0
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
+ Jing Zhang <jingzhangos@google.com>
+Subject: Re: [PATCH v2 35/43] KVM: SVM: Signal AVIC doorbell iff vCPU is in
+ guest mode
+Message-ID: <YXrYo9mtueDT0bnu@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-36-seanjc@google.com>
+ <b2ba4c4e6a9083f3fa0b9af4504f9f54e72ca24c.camel@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <b2ba4c4e6a9083f3fa0b9af4504f9f54e72ca24c.camel@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_100210_113679_DC8C92E4 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20211028_100649_586066_3610C766 
+X-CRM114-Status: GOOD (  32.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +117,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To be folded to the commit 0d280a9fbbd9 ("include/linux/delay.h:
-replace kernel.h with the necessary inclusions")
+On Thu, Oct 28, 2021, Maxim Levitsky wrote:
+> On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> > Signal the AVIC doorbell iff the vCPU is running in the guest.  If the vCPU
+> > is not IN_GUEST_MODE, it's guaranteed to pick up any pending IRQs on the
+> > next VMRUN, which unconditionally processes the vIRR.
+> > 
+> > Add comments to document the logic.
+> > 
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >  arch/x86/kvm/svm/avic.c | 14 ++++++++++++--
+> >  1 file changed, 12 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+> > index 208c5c71e827..cbf02e7e20d0 100644
+> > --- a/arch/x86/kvm/svm/avic.c
+> > +++ b/arch/x86/kvm/svm/avic.c
+> > @@ -674,7 +674,12 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
+> >  	kvm_lapic_set_irr(vec, vcpu->arch.apic);
+> >  	smp_mb__after_atomic();
+> >  
+> > -	if (avic_vcpu_is_running(vcpu)) {
+> > +	/*
+> > +	 * Signal the doorbell to tell hardware to inject the IRQ if the vCPU
+> > +	 * is in the guest.  If the vCPU is not in the guest, hardware will
+> > +	 * automatically process AVIC interrupts at VMRUN.
+> > +	 */
+> > +	if (vcpu->mode == IN_GUEST_MODE) {
+> >  		int cpu = READ_ONCE(vcpu->cpu);
+> >  
+> >  		/*
+> > @@ -687,8 +692,13 @@ int svm_deliver_avic_intr(struct kvm_vcpu *vcpu, int vec)
+> >  		if (cpu != get_cpu())
+> >  			wrmsrl(SVM_AVIC_DOORBELL, kvm_cpu_get_apicid(cpu));
+> >  		put_cpu();
+> > -	} else
+> > +	} else {
+> > +		/*
+> > +		 * Wake the vCPU if it was blocking.  KVM will then detect the
+> > +		 * pending IRQ when checking if the vCPU has a wake event.
+> > +		 */
+> >  		kvm_vcpu_wake_up(vcpu);
+> > +	}
+> >  
+> >  	return 0;
+> >  }
+> 
+> It makes sense indeed to avoid ringing the doorbell when the vCPU is not in
+> the guest mode.
+> 
+> I do wonder if we want to call kvm_vcpu_wake_up always otherwise, as the vCPU
+> might be just outside of the guest mode and not scheduled out. I don't know
+> how expensive is kvm_vcpu_wake_up in this case.
 
-Reported-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- arch/riscv/lib/delay.c           | 4 ++++
- arch/s390/include/asm/facility.h | 4 ++++
- 2 files changed, 8 insertions(+)
+IIUC, you're asking if we should do something like:
 
-diff --git a/arch/riscv/lib/delay.c b/arch/riscv/lib/delay.c
-index f51c9a03bca1..49d510ba75fd 100644
---- a/arch/riscv/lib/delay.c
-+++ b/arch/riscv/lib/delay.c
-@@ -4,10 +4,14 @@
-  */
- 
- #include <linux/delay.h>
-+#include <linux/math.h>
- #include <linux/param.h>
- #include <linux/timex.h>
-+#include <linux/types.h>
- #include <linux/export.h>
- 
-+#include <asm/processor.h>
-+
- /*
-  * This is copies from arch/arm/include/asm/delay.h
-  *
-diff --git a/arch/s390/include/asm/facility.h b/arch/s390/include/asm/facility.h
-index e3aa354ab9f4..94b6919026df 100644
---- a/arch/s390/include/asm/facility.h
-+++ b/arch/s390/include/asm/facility.h
-@@ -9,8 +9,12 @@
- #define __ASM_FACILITY_H
- 
- #include <asm/facility-defs.h>
-+
-+#include <linux/minmax.h>
- #include <linux/string.h>
-+#include <linux/types.h>
- #include <linux/preempt.h>
-+
- #include <asm/lowcore.h>
- 
- #define MAX_FACILITY_BIT (sizeof(stfle_fac_list) * 8)
--- 
-2.33.0
+	if (vcpu->mode == IN_GUEST_MODE) {
+		<signal doorbell>
+	} else if (!is_vcpu_loaded(vcpu)) {
+		kvm_vcpu_wake_up();
+	}
 
+The answer is that kvm_vcpu_wake_up(), which is effectively rcuwait_wake_up(),
+is very cheap except for specific configurations that may or may not be valid for
+production[*].  Practically speaking, is_vcpu_loaded() doesn't exist and should
+never exist because it's inherently racy.  The closest we have would be
+
+	else if (vcpu != kvm_get_running_vcpu()) {
+		kvm_vcpu_wake_up();
+	}
+
+but that's extremely unlikely to be a net win because getting the current vCPU
+requires atomics to disable/re-enable preemption, especially if rcuwait_wake_up()
+is modified to avoid the rcu lock/unlock.
+
+TL;DR: rcuwait_wake_up() is cheap, and if it's too expensive, a better optimization
+would be to make it less expensive.
+
+[*] https://lkml.kernel.org/r/20211020110638.797389-1-pbonzini@redhat.com
+ 
+> Before this patch, the avic_vcpu_is_running would only be false when the vCPU
+> is scheduled out (e.g when vcpu_put was done on it)
+> 
+> Best regards,
+> 	Maxim Levitsky
+> 
 
 _______________________________________________
 linux-riscv mailing list
