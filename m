@@ -2,61 +2,91 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E9F41C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C44A8C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:46:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B14EC610C8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:40:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B14EC610C8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 8BE3B610CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:46:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8BE3B610CA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hamEjouKC1asNSPwuOUsMrNkmfgnEk3pVt69ZD0Sn5o=; b=04rAQomgnyiXvb
-	ItqVonymkDf69r8GkmI3/pXjaiWQkhqTcYOZSF6DwvUH0LPhgCKOdit55C6kDaE4bmsflCXK3Rh7w
-	At7clSgp9H1bZVnwclSXswe7f6pXzMdW5/o7Ud6A0qwDcTZGfWtC0/YoGQBTvajgCwKqQRZBeQ1LO
-	xzzrqlA12eLUNHMFPX/LUGHqMBKTzDHAZseg1EIBFc1tOlqGSv7QmZo/W069n5FobNhP8nnEN3WN7
-	GSoweXA8prxepHyjutorYhtuCEX5rE0JPavI9kvLjOa+slZx68R1NuGHb1YrTAr+uAL5564a8SG36
-	jyBlLS3U5uu/VsuaYZCQ==;
+	List-Owner; bh=pDYyzNAWFaT7+Rd39OSV+kmOpBD+X1S0W6CSuGRUxGM=; b=vh2qF5FgUwXTtz
+	Wr8TuXRQCyjKh+t6++ZbIrNKH1w3Dy5z/h9nqetkYn6ngDFvt2Z13ehRwFuGOOY2Fm4Op5zps/Xqd
+	1qw8H0a3sn631DzllCDIs3D4E/fOv8jP5Lr3EoQOJqpZCTVHnW8t9CwzE2tUGD9HZJMgFVg0R37Xr
+	bZ8ad0k7TiuLfjYmSsM0PnZ1UMnSSUin9CVt2T1QqFVTP0OB23Z6gKh9TgfkIBSoz/W+RRvLfJorN
+	BpQ4a4R/mY4BhTXTeBuo2xi45Bcltpv+tPg/vamfqvYvwG8cOUXEJug9+x5Uwu3cpOAjy3VFq/d/9
+	PWoD2xcbU5Yg2z4+oeUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg7Vk-008RDz-CG; Thu, 28 Oct 2021 15:40:12 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mg7bj-008S9H-DO; Thu, 28 Oct 2021 15:46:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg7Vh-008RCD-DX
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:40:10 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id 4FA91610C8;
- Thu, 28 Oct 2021 15:40:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635435608;
- bh=RhNp0ZDgNabWMlYljqrqlsicwJVv4uK8mY93cUQZpvY=;
- h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
- b=K9uEFhNkUPDkUy0Vtx9CpQsvF8Mo4SmjgrJ+ilxr7B1meYGp2JudEZD28juKUxGbX
- wzTr7jNjaBP7g8KAufQwTOSpIApfngWgnn7yJhwtxBxDqO8jzxHu5Zw6QN3Yod5tHG
- TYJtOZ632qBJXT2EAhBv2MJtW9DPHKBuHcaOv7KfMsmFEUFS3wyW4+lhDtS3Pk58lz
- ICqAew/G8KIqRQnYzQ5N8zvkdubmywG8+Rdfj7lUksrfm16qDfbM1roSZ1cnvL/BdS
- ATlfGyj+3nvOtG0U82woWNCpq5rRaQmZuyORrNsvx7Q0oTM922Dn3jv2jiWis2zmM3
- YcyaBsxhtUYTQ==
+ id 1mg7bX-008S6b-Kg
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:46:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635435970;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=F4tMjT47BZ3DwbmAEWq81W0GAGbuRTe5m3IotIof8YU=;
+ b=BjqOJFROTIOhDmJkCsO6Exs79jec8AvAq0YcQV3+y6zihBb/DGdQas3lnaz5aNxZE2hqbK
+ WhObPml9ixi3GkAgkTvb2ovSasE+MsFT1a5iP4142pp+zyc0PR58hxt5QbukfE3NmyqktO
+ zLewA7VN5IUax5mM4WnTFZ7PBNDdWt8=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-192-HPiuQd71NyeJUfJbOWNqdw-1; Thu, 28 Oct 2021 11:46:07 -0400
+X-MC-Unique: HPiuQd71NyeJUfJbOWNqdw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F02CB19251A0;
+ Thu, 28 Oct 2021 15:46:02 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 9106C5DA61;
+ Thu, 28 Oct 2021 15:45:15 +0000 (UTC)
+Message-ID: <06ed37a510347fdc7c6f7ce46fd98ce5b9ff7554.camel@redhat.com>
+Subject: Re: [PATCH v2 32/43] KVM: VMX: Move preemption timer <=> hrtimer
+ dance to common x86
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Thu, 28 Oct 2021 18:45:14 +0300
+In-Reply-To: <20211009021236.4122790-33-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-33-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf] riscv, bpf: Fix potential NULL dereference
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <163543560824.29178.17218180216053026996.git-patchwork-notify@kernel.org>
-Date: Thu, 28 Oct 2021 15:40:08 +0000
-References: <20211028125115.514587-1-bjorn@kernel.org>
-In-Reply-To: <20211028125115.514587-1-bjorn@kernel.org>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@ci.codeaurora.org
-Cc: ast@kernel.org, daniel@iogearbox.net, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-riscv@lists.infradead.org
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_084009_502582_0B9E8C64 
-X-CRM114-Status: UNSURE (   6.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211028_084611_769792_E03DE8FE 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,25 +98,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIG5ldGRldi9uZXQuZ2l0IChtYXN0ZXIp
-CmJ5IEpha3ViIEtpY2luc2tpIDxrdWJhQGtlcm5lbC5vcmc+OgoKT24gVGh1LCAyOCBPY3QgMjAy
-MSAxNDo1MToxNSArMDIwMCB5b3Ugd3JvdGU6Cj4gVGhlIGJwZl9qaXRfYmluYXJ5X2ZyZWUoKSBm
-dW5jdGlvbiByZXF1aXJlcyBhIG5vbi1OVUxMIGFyZ3VtZW50LiBXaGVuCj4gdGhlIFJJU0MtViBC
-UEYgSklUIGZhaWxzIHRvIGNvbnZlcmdlIGluIE5SX0pJVF9JVEVSQVRJT05TIHN0ZXBzLAo+IGpp
-dF9kYXRhLT5oZWFkZXIgd2lsbCBiZSBOVUxMLCB3aGljaCB0cmlnZ2VycyBhIE5VTEwKPiBkZXJl
-ZmVyZW5jZS4gQXZvaWQgdGhpcyBieSBjaGVja2luZyB0aGUgYXJndW1lbnQsIHByaW9yIGNhbGxp
-bmcgdGhlCj4gZnVuY3Rpb24uCj4gCj4gRml4ZXM6IGNhNmNiNTQ0N2NlYyAoInJpc2N2LCBicGY6
-IEZhY3RvciBjb21tb24gUklTQy1WIEpJVCBjb2RlIikKPiBTaWduZWQtb2ZmLWJ5OiBCasO2cm4g
-VMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5
-IHdpdGggbGlua3M6CiAgLSBbYnBmXSByaXNjdiwgYnBmOiBGaXggcG90ZW50aWFsIE5VTEwgZGVy
-ZWZlcmVuY2UKICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvbmV0ZGV2L25ldC9jLzI3ZGU4MDlh
-M2Q4MwoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJIGFt
-IGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5odG1s
-CgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Handle the switch to/from the hypervisor/software timer when a vCPU is
+> blocking in common x86 instead of in VMX.  Even though VMX is the only
+> user of a hypervisor timer, the logic and all functions involved are
+> generic x86 (unless future CPUs do something completely different and
+> implement a hypervisor timer that runs regardless of mode).
+> 
+> Handling the switch in common x86 will allow for the elimination of the
+> pre/post_blocks hooks, and also lets KVM switch back to the hypervisor
+> timer if and only if it was in use (without additional params).  Add a
+> comment explaining why the switch cannot be deferred to kvm_sched_out()
+> or kvm_vcpu_block().
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/vmx.c |  6 +-----
+>  arch/x86/kvm/x86.c     | 21 +++++++++++++++++++++
+>  2 files changed, 22 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> index b3bb2031a7ac..a24f19874716 100644
+> --- a/arch/x86/kvm/vmx/vmx.c
+> +++ b/arch/x86/kvm/vmx/vmx.c
+> @@ -7464,16 +7464,12 @@ void vmx_update_cpu_dirty_logging(struct kvm_vcpu *vcpu)
+>  
+>  static int vmx_pre_block(struct kvm_vcpu *vcpu)
+>  {
+> -	if (kvm_lapic_hv_timer_in_use(vcpu))
+> -		kvm_lapic_switch_to_sw_timer(vcpu);
+> -
+>  	return 0;
+>  }
+>  
+>  static void vmx_post_block(struct kvm_vcpu *vcpu)
+>  {
+> -	if (kvm_x86_ops.set_hv_timer)
+> -		kvm_lapic_switch_to_hv_timer(vcpu);
+> +
+>  }
+>  
+>  static void vmx_setup_mce(struct kvm_vcpu *vcpu)
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index e0219acfd9cf..909e932a7ae7 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -9896,8 +9896,21 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
+>  
+>  static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
+>  {
+> +	bool hv_timer;
+> +
+>  	if (!kvm_arch_vcpu_runnable(vcpu) &&
+>  	    (!kvm_x86_ops.pre_block || static_call(kvm_x86_pre_block)(vcpu) == 0)) {
+> +		/*
+> +		 * Switch to the software timer before halt-polling/blocking as
+> +		 * the guest's timer may be a break event for the vCPU, and the
+> +		 * hypervisor timer runs only when the CPU is in guest mode.
+> +		 * Switch before halt-polling so that KVM recognizes an expired
+> +		 * timer before blocking.
+> +		 */
+
+I didn't knew about this until now but it all makes sense. The comment is very good.
+
+> +		hv_timer = kvm_lapic_hv_timer_in_use(vcpu);
+> +		if (hv_timer)
+> +			kvm_lapic_switch_to_sw_timer(vcpu);
+> +
+>  		srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
+>  		if (vcpu->arch.mp_state == KVM_MP_STATE_HALTED)
+>  			kvm_vcpu_halt(vcpu);
+> @@ -9905,6 +9918,9 @@ static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
+>  			kvm_vcpu_block(vcpu);
+>  		vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
+>  
+> +		if (hv_timer)
+> +			kvm_lapic_switch_to_hv_timer(vcpu);
+> +
+>  		if (kvm_x86_ops.post_block)
+>  			static_call(kvm_x86_post_block)(vcpu);
+>  
+> @@ -10136,6 +10152,11 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  			r = -EINTR;
+>  			goto out;
+>  		}
+> +		/*
+> +		 * It should be impossible for the hypervisor timer to be in
+> +		 * use before KVM has ever run the vCPU.
+> +		 */
+> +		WARN_ON_ONCE(kvm_lapic_hv_timer_in_use(vcpu));
+>  		kvm_vcpu_block(vcpu);
+>  		if (kvm_apic_accept_events(vcpu) < 0) {
+>  			r = 0;
+
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+
+Best regards,
+	Maxim Levitsky
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
