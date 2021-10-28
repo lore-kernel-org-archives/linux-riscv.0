@@ -2,77 +2,87 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F1D6C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 98FDFC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:05:20 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F068E610F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:59:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F068E610F8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 3662B61038
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:05:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3662B61038
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gpgYfw6gthbjNpz0H66REIFk8aeTeZlVkkKG4+20A0Q=; b=JKsGRqJ5gAz/xK
-	K8KoLkxBcwwLaKfn2rkVk8rV2e2EURKSBr9RgcvvVAZAe54N14K9qAdUSAFhFqipgjFdzOKKZ7c4U
-	AF6HOtmulKFoiUH0vXtgyrUWiq3CY3NixSyR8ZhTPbr9kExnrwOah7+VFwcy/dyOi02luSplql5du
-	BiiQg/LcmJBlx+XfHRw7sO1qO5R16AArbpkMw1JmJl11YGobSuO5D0jaoUFENkMVAc14x8m50eCqX
-	KEE38tybC6kK7ddgf2sQRNfTSjyQDkQVcP6dbG+XwG6nQpoYC48VsviDQ5IYpBRRRFtGsidkIbjVC
-	F2c/j8CQ3q7je+7UTtzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ZZ832SbRKl1zH6vjsnfQ14EROyhk8fttbcnfqAS7w6g=; b=b+DWGPh+qGXsiLPJATRsl4zsf8
+	3Hl0Prq+OaUEjUxruCnHFe58TzQ8RHF3p5Am+fSjj9zF7L65sCBztQwSUBGRpJaXQoSsBh40Hgdo7
+	36GRh+7X/B0EWYGL6UG5EFuxwCkG57xcshQ0WLJFuYf1Q+pDYwR8xrkkVq9A2yEBpX2uz4SIwy45v
+	2jJXYHB/fZYbBwcihzxbor/wf13ilcOh7nVlx4HOmwfqZ8DwaR54IQFBko+fEE/EMNMiIZ9huTHmc
+	ZySm7dTOmd/8ON6FZK8giWzIcjaHtusWlqWLkl+xTg5y4GO9uWWX4rOD3uER6NmxiLKM7I2Y5wMko
+	4hkcm2Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg6rq-008KIP-HF; Thu, 28 Oct 2021 14:58:58 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mg6xr-008MNl-Oc; Thu, 28 Oct 2021 15:05:11 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg6rG-008Jwz-JC
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 14:58:24 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 55D9F6112F;
- Thu, 28 Oct 2021 14:58:22 +0000 (UTC)
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1mg6rE-002ErX-DD; Thu, 28 Oct 2021 15:58:20 +0100
-Date: Thu, 28 Oct 2021 15:58:19 +0100
-Message-ID: <87sfwl9oxg.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: guoren@kernel.org, anup@brainfault.org, atish.patra@wdc.com,
- tglx@linutronix.de, palmer@dabbelt.com, heiko@sntech.de, robh@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Guo Ren
- <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V5 3/3] irqchip/sifive-plic: Fixup thead,
- c900-plic request_threaded_irq with ONESHOT
-In-Reply-To: <20211028135523.5cf4b66b@redslave.neermore.group>
-References: <20211024013303.3499461-1-guoren@kernel.org>
- <20211024013303.3499461-4-guoren@kernel.org>
- <87a6ixbcse.wl-maz@kernel.org>
- <20211028135523.5cf4b66b@redslave.neermore.group>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: nikita.shubin@maquefel.me, guoren@kernel.org,
- anup@brainfault.org, atish.patra@wdc.com, tglx@linutronix.de,
- palmer@dabbelt.com, heiko@sntech.de, robh@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- guoren@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ id 1mg6xo-008MMd-5G
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:05:10 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id
+ t5-20020a17090a4e4500b001a0a284fcc2so8164629pjl.2
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 08:05:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=4gMtHi9lx++3HO8vHpSr1p/5SUEC9v5TgkpF9eatiFk=;
+ b=K+NZNuK0NEy7CWaSV4JOiMoT1ySYl6N3psbfIWxFVz1dNkttxp8v1yfcGJYuRN1wQ2
+ qTBQdAU/viqVKYgueJn3+kUsPZyTErYkXStWjxkMnERO/TJ7TAIEJkb9uJ3NnyvedF15
+ KGXi3XJTzqFVc2DL7LV6IEeYXkcEGk137v0IxMTPxmToOcUxs0S5AlHrLaWddDVEjYZN
+ Jh/93FheIbHdWy7RcEmassxL63YQ3P5YuPUqPH0uH9S4lqAI/kG1X7xn2cGnopL49tnN
+ rqfwiTUqrN3qQ2VpvNF30j5y/hBy9Ziey8OVbNXJ+fv/M51074tMETY59y+ZI7cllj7a
+ nEDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=4gMtHi9lx++3HO8vHpSr1p/5SUEC9v5TgkpF9eatiFk=;
+ b=g6CPmTFTqYnmxwup9Qe4VddlZQy03e497KWW1V/ui28PzpKSySC5kZObFpVt45Lrd8
+ xlIUx7AqS/h4sRYQkiL9G2sibmBkaQkVBV6PKQo7Hknqik5P4Y7emLi3G3WX8xlFwaPC
+ iYXj1ewVlfbNCoMqEylDI1n1k6g6dWrnYgoeFc+PctveXvay1gK4PRiVXetGJ9LG0MlW
+ DBnZSfJl0ex9HTbITstI+ZaZ88NIjJd0sZoK5ARitJlGY+CnKbAIwFgeMEJRPHoYeKiy
+ 7oWLEj/igLdVq2ZiCT4xovtO+j/ZVqk04VwSqZgl1n0Z3ScsGjBfF84PC6EYwZVJGNaG
+ fnSA==
+X-Gm-Message-State: AOAM533THqaoVCbj6pTIjJ6uH0mA65fWVahS+pf8LyWbvvBlePLgbs63
+ YpL/S0rPjobPXezZ+c88jXZFcA==
+X-Google-Smtp-Source: ABdhPJxjB/bUKH1oax3ewBcarZQQHiVnAU8V8Q1ZM8DOQgZjlVjFf7NuLsk1V8PGZf2QWwCTX3AR1g==
+X-Received: by 2002:a17:902:ab50:b0:13f:4c70:9322 with SMTP id
+ ij16-20020a170902ab5000b0013f4c709322mr4222731plb.89.1635433507260; 
+ Thu, 28 Oct 2021 08:05:07 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id o22sm4215280pfu.50.2021.10.28.08.05.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 28 Oct 2021 08:05:06 -0700 (PDT)
+Date: Thu, 28 Oct 2021 08:05:06 -0700 (PDT)
+X-Google-Original-Date: Thu, 28 Oct 2021 08:05:03 PDT (-0700)
+Subject: Re: [PATCH 0/3] RISC-V: KVM: Few assorted changes
+In-Reply-To: <62fe1c8e-abe0-5de9-5c00-3549faae1dba@redhat.com>
+CC: Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ aou@eecs.berkeley.edu, Atish Patra <Atish.Patra@wdc.com>,
+ anup@brainfault.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: pbonzini@redhat.com
+Message-ID: <mhng-e9d8caea-eae9-45dc-8072-cde5e275833f@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_075822_713569_EDEDB278 
-X-CRM114-Status: GOOD (  31.54  )
+X-CRM114-CacheID: sfid-20211028_080508_324422_9C21AAFD 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,77 +94,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Oct 2021 11:55:23 +0100,
-Nikita Shubin <nikita.shubin@maquefel.me> wrote:
-> 
-> Hello Marc and Guo Ren!
-> 
-> On Mon, 25 Oct 2021 11:48:33 +0100
-> Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > On Sun, 24 Oct 2021 02:33:03 +0100,
-> > guoren@kernel.org wrote:
-> > > 
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > 
-> > > When using "devm_request_threaded_irq(,,,,IRQF_ONESHOT,,)" in the
-> > > driver, only the first interrupt could be handled, and continue irq
-> > > is blocked by hw. Because the thead,c900-plic couldn't complete
-> > > masked irq source which has been disabled in enable register. Add
-> > > thead_plic_chip which fix up c906-plic irq source completion
-> > > problem by unmask/mask wrapper.
-> > > 
-> > > Here is the description of Interrupt Completion in PLIC spec [1]:
-> > > 
-> > > The PLIC signals it has completed executing an interrupt handler by
-> > > writing the interrupt ID it received from the claim to the
-> > > claim/complete register. The PLIC does not check whether the
-> > > completion ID is the same as the last claim ID for that target. If
-> > > the completion ID does not match an interrupt source that is
-> > > currently enabled for the target, the ^^ ^^^^^^^^^ ^^^^^^^
-> > > completion is silently ignored.  
-> > 
-> > Given this bit of the spec...
-> > 
-> > > +static void plic_thead_irq_eoi(struct irq_data *d)
-> > > +{
-> > > +	struct plic_handler *handler =
-> > > this_cpu_ptr(&plic_handlers); +
-> > > +	if (irqd_irq_masked(d)) {
-> > > +		plic_irq_unmask(d);
-> > > +		writel(d->hwirq, handler->hart_base +
-> > > CONTEXT_CLAIM);
-> > > +		plic_irq_mask(d);
-> > > +	} else {
-> > > +		writel(d->hwirq, handler->hart_base +
-> > > CONTEXT_CLAIM);
-> > > +	}
-> > > +}
-> > > +  
-> > 
-> > ... it isn't obvious to me why this cannot happen on an SiFive PLIC.
-> 
-> This indeed happens with SiFive PLIC. I am currently tinkering with
-> da9063 RTC on SiFive Unmatched, and ALARM irq fires only once. However
-> with changes proposed by Guo Ren in plic_thead_irq_eoi, everything
-> begins to work fine.
-> 
-> May be these change should be propagated to plic_irq_eoi instead of
-> making a new function ?
+On Thu, 28 Oct 2021 07:07:33 PDT (-0700), pbonzini@redhat.com wrote:
+> On 26/10/21 19:01, Anup Patel wrote:
+>> I had a few assorted KVM RISC-V changes which I wanted to sent after
+>> KVM RISC-V was merged hence this series.
+>>
+>> These patches can also be found in riscv_kvm_assorted_v1 branch at:
+>> https://github.com/avpatel/linux.git
+>>
+>> Anup Patel (3):
+>>    RISC-V: Enable KVM in RV64 and RV32 defconfigs as a module
+>>    RISC-V: KVM: Factor-out FP virtualization into separate sources
+>>    RISC-V: KVM: Fix GPA passed to __kvm_riscv_hfence_gvma_xyz() functions
+>>
+>>   arch/riscv/configs/defconfig         |  15 ++-
+>>   arch/riscv/configs/rv32_defconfig    |   8 +-
+>>   arch/riscv/include/asm/kvm_host.h    |  10 +-
+>>   arch/riscv/include/asm/kvm_vcpu_fp.h |  59 +++++++++
+>>   arch/riscv/kvm/Makefile              |   1 +
+>>   arch/riscv/kvm/tlb.S                 |   4 +-
+>>   arch/riscv/kvm/vcpu.c                | 172 ---------------------------
+>>   arch/riscv/kvm/vcpu_fp.c             | 167 ++++++++++++++++++++++++++
+>>   8 files changed, 244 insertions(+), 192 deletions(-)
+>>   create mode 100644 arch/riscv/include/asm/kvm_vcpu_fp.h
+>>   create mode 100644 arch/riscv/kvm/vcpu_fp.c
+>>
+>
+> Queued 2+3, thanks.
 
-That's my impression too. I think the T-Head defect is pretty much
-immaterial when you consider how 'interesting' the PLIC architecture
-is. Conflating EOI and masking really is a misfeature...
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks.  I'll pick up 1, as per the thread.
 
 _______________________________________________
 linux-riscv mailing list
