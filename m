@@ -2,14 +2,14 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CD03C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46034C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 15D5E61037
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:17:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 15D5E61037
+	by mail.kernel.org (Postfix) with ESMTPS id EFF71610C8
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EFF71610C8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,44 +18,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j/r4xYrzkTGnxJSknWJMEB8LkbpZkNr7ZBbYZt72jlU=; b=M0hkWyJLmO9hRw
-	XgsTdS6Oz88t2tpYEarKik1pyE+Flw/Twm3H963Gm0Z+bpxYhXzdukgmI61QN5RHjcL/n/P4LGueE
-	R6WnsZEMoI4215hvsRNedWf1p31bp2VVyFbJIE3b8usFvonOCBmQ+CMbes5qnjrpvvJ2bVzc6HtNQ
-	8frxqIaerylevOI6gGs6LfVjMdtBzLR7cBnvvO/bDmreEZgcqric3F3608zDOFrLHlaWo0az/4ADW
-	NSGTXLz30CM77TrXgSXi3cv2tgCAlvC/sTXdiNtCapsiOyLDxF1c1qWOf7Fd4ER2I7WYIm/ycjDOc
-	H8QtR9iT2lmz67PD9WzQ==;
+	List-Owner; bh=QestwuELDpJ1nPhXEmw03Rn9emmH4l2Kk+Z3RrDb4NI=; b=WYzyj8M6xM3b9I
+	A4wQOe+y6wen/a2cm+ZO8nqmNZpl3TkkOrCh1LK2lwCVn6xI35tkKnTMuDk4r7QNnLz+s+kGjkylT
+	ZmfvaZPAtndIYRFqNE1g9AaAMHhuVKJxn/tn9BlP6zOE7VUeyj+Wx9bjG9QQ86+eTohD26q0tMP3p
+	Jvn/cnkxACanVmopAmX1miu22/EJLAH9uSpcf1Zroh+qtbS2NR9u311lhiK2fBO8qsNaZmjXFCXid
+	BSjJxE6N6nIyQ5poDoeeooTzVe9bwJCmPJbV2ys6Ro3OmYuX57By0FU8j79eMq89wUHtUdVa8TWzX
+	z6FyKC2ldvUU4je5uudQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg79Z-008OCv-1r; Thu, 28 Oct 2021 15:17:17 +0000
+	id 1mg7Pn-008PlL-8Q; Thu, 28 Oct 2021 15:34:03 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg79K-008O8c-Qx
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:17:05 +0000
+ id 1mg7Pk-008Pjy-Gt
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:34:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635434221;
+ s=mimecast20190719; t=1635435239;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=DVtdqDXww3KgKAYnCusxuLMUzDOnQrWVlJbyjA+vsRU=;
- b=gPjdPwe+/dQQApVozTccKru8Z7yTs10NqTYTLMoUaiwU/wZp/C4jVZNE5EP7qqOKGtcaav
- ybmJ77PccO0LBblYbytt5fUNLZrfdl7QmS19gEmBsEznkLSS3uu6Y1fPZjAfdZBp23Pjdu
- 5jeJzpb09HryIvwGV0tiqmzFviBYahw=
+ bh=QNmDdkecq8SKnVGFVDimL3g8xbus4hzEhU0dnSsqlkw=;
+ b=gnM2uVNPgGm3sJhy5TE11B7tZXgcElx7U4vo9js/OP8b9u2RM5ejv4MIs/PofdaZkJvn98
+ 9fcNo6NaE0jRxL2H0d1Q0d1pECmmqukOCtWEcrLvIMb04I8ZFlcFSlZqLU0RxNGHJgdXKR
+ Q9dvMmCxhZPTu1b38D2aW0X9WCZSuuY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-252-MW_4YzIxOem6d6CcDHBrfA-1; Thu, 28 Oct 2021 11:16:52 -0400
-X-MC-Unique: MW_4YzIxOem6d6CcDHBrfA-1
+ us-mta-542-ePtPTvZLPR-5P1TjiMfLTA-1; Thu, 28 Oct 2021 11:33:55 -0400
+X-MC-Unique: ePtPTvZLPR-5P1TjiMfLTA-1
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
  [10.5.11.12])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E298B19200C1;
- Thu, 28 Oct 2021 15:16:48 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 48699EC1A0;
+ Thu, 28 Oct 2021 15:33:51 +0000 (UTC)
 Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id BF85560BF1;
- Thu, 28 Oct 2021 15:16:37 +0000 (UTC)
-Message-ID: <ea79dbabd67c09b76ca3409d2d7d4934dc4de2c1.camel@redhat.com>
-Subject: Re: [PATCH v2 30/43] KVM: Drop unused kvm_vcpu.pre_pcpu field
+ by smtp.corp.redhat.com (Postfix) with ESMTP id C0A7F60BF1;
+ Thu, 28 Oct 2021 15:33:38 +0000 (UTC)
+Message-ID: <eea801ba765679e34a7a94a947ae7340a5cad796.camel@redhat.com>
+Subject: Re: [PATCH v2 31/43] KVM: Move x86 VMX's posted interrupt list_head
+ to vcpu_vmx
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
  Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
@@ -76,16 +77,16 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
  Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Thu, 28 Oct 2021 18:16:36 +0300
-In-Reply-To: <20211009021236.4122790-31-seanjc@google.com>
+Date: Thu, 28 Oct 2021 18:33:37 +0300
+In-Reply-To: <20211009021236.4122790-32-seanjc@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-31-seanjc@google.com>
+ <20211009021236.4122790-32-seanjc@google.com>
 User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_081702_971700_BC4F7D58 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20211028_083400_683586_326FD4D8 
+X-CRM114-Status: GOOD (  32.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +104,186 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> Remove kvm_vcpu.pre_pcpu as it no longer has any users.  No functional
-> change intended.
+> Move the seemingly generic block_vcpu_list from kvm_vcpu to vcpu_vmx, and
+> rename the list and all associated variables to clarify that it tracks
+> the set of vCPU that need to be poked on a posted interrupt to the wakeup
+> vector.  The list is not used to track _all_ vCPUs that are blocking, and
+> the term "blocked" can be misleading as it may refer to a blocking
+> condition in the host or the guest, where as the PI wakeup case is
+> specifically for the vCPUs that are actively blocking from within the
+> guest.
+> 
+> No functional change intended.
 > 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  include/linux/kvm_host.h | 1 -
->  virt/kvm/kvm_main.c      | 1 -
->  2 files changed, 2 deletions(-)
+>  arch/x86/kvm/vmx/posted_intr.c | 39 +++++++++++++++++-----------------
+>  arch/x86/kvm/vmx/vmx.c         |  2 ++
+>  arch/x86/kvm/vmx/vmx.h         |  3 +++
+>  include/linux/kvm_host.h       |  2 --
+>  virt/kvm/kvm_main.c            |  2 --
+>  5 files changed, 25 insertions(+), 23 deletions(-)
 > 
+> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
+> index d2b3d75c57d1..f1bcf8c32b6d 100644
+> --- a/arch/x86/kvm/vmx/posted_intr.c
+> +++ b/arch/x86/kvm/vmx/posted_intr.c
+> @@ -18,7 +18,7 @@
+>   * wake the target vCPUs.  vCPUs are removed from the list and the notification
+>   * vector is reset when the vCPU is scheduled in.
+>   */
+> -static DEFINE_PER_CPU(struct list_head, blocked_vcpu_on_cpu);
+> +static DEFINE_PER_CPU(struct list_head, wakeup_vcpus_on_cpu);
+This looks good, you can disregard my comment on this variable from previous patch
+where I nitpicked about it.
+
+>  /*
+>   * Protect the per-CPU list with a per-CPU spinlock to handle task migration.
+>   * When a blocking vCPU is awakened _and_ migrated to a different pCPU, the
+> @@ -26,7 +26,7 @@ static DEFINE_PER_CPU(struct list_head, blocked_vcpu_on_cpu);
+>   * CPU.  IRQs must be disabled when taking this lock, otherwise deadlock will
+>   * occur if a wakeup IRQ arrives and attempts to acquire the lock.
+>   */
+> -static DEFINE_PER_CPU(spinlock_t, blocked_vcpu_on_cpu_lock);
+> +static DEFINE_PER_CPU(spinlock_t, wakeup_vcpus_on_cpu_lock);
+>  
+>  static inline struct pi_desc *vcpu_to_pi_desc(struct kvm_vcpu *vcpu)
+>  {
+> @@ -36,6 +36,7 @@ static inline struct pi_desc *vcpu_to_pi_desc(struct kvm_vcpu *vcpu)
+>  void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
+>  {
+>  	struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
+> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
+>  	struct pi_desc old, new;
+>  	unsigned long flags;
+>  	unsigned int dest;
+> @@ -71,9 +72,9 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
+>  	 * current pCPU if the task was migrated.
+>  	 */
+>  	if (pi_desc->nv == POSTED_INTR_WAKEUP_VECTOR) {
+> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
+> -		list_del(&vcpu->blocked_vcpu_list);
+> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
+> +		spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
+> +		list_del(&vmx->pi_wakeup_list);
+> +		spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
+>  	}
+>  
+>  	dest = cpu_physical_id(cpu);
+> @@ -121,15 +122,16 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
+>  static void pi_enable_wakeup_handler(struct kvm_vcpu *vcpu)
+>  {
+>  	struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
+> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
+>  	struct pi_desc old, new;
+>  	unsigned long flags;
+>  
+>  	local_irq_save(flags);
+>  
+> -	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
+> -	list_add_tail(&vcpu->blocked_vcpu_list,
+> -		      &per_cpu(blocked_vcpu_on_cpu, vcpu->cpu));
+> -	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
+> +	spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
+> +	list_add_tail(&vmx->pi_wakeup_list,
+> +		      &per_cpu(wakeup_vcpus_on_cpu, vcpu->cpu));
+> +	spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
+>  
+>  	WARN(pi_desc->sn, "PI descriptor SN field set before blocking");
+>  
+> @@ -182,24 +184,23 @@ void vmx_vcpu_pi_put(struct kvm_vcpu *vcpu)
+>   */
+>  void pi_wakeup_handler(void)
+>  {
+> -	struct kvm_vcpu *vcpu;
+>  	int cpu = smp_processor_id();
+> +	struct vcpu_vmx *vmx;
+>  
+> -	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
+> -	list_for_each_entry(vcpu, &per_cpu(blocked_vcpu_on_cpu, cpu),
+> -			blocked_vcpu_list) {
+> -		struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
+> +	spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
+> +	list_for_each_entry(vmx, &per_cpu(wakeup_vcpus_on_cpu, cpu),
+> +			    pi_wakeup_list) {
+>  
+> -		if (pi_test_on(pi_desc))
+> -			kvm_vcpu_kick(vcpu);
+> +		if (pi_test_on(&vmx->pi_desc))
+> +			kvm_vcpu_kick(&vmx->vcpu);
+>  	}
+> -	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
+> +	spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
+>  }
+>  
+>  void __init pi_init_cpu(int cpu)
+>  {
+> -	INIT_LIST_HEAD(&per_cpu(blocked_vcpu_on_cpu, cpu));
+> -	spin_lock_init(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
+> +	INIT_LIST_HEAD(&per_cpu(wakeup_vcpus_on_cpu, cpu));
+> +	spin_lock_init(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
+>  }
+>  
+>  bool pi_has_pending_interrupt(struct kvm_vcpu *vcpu)
+> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> index 26ed8cd1a1f2..b3bb2031a7ac 100644
+> --- a/arch/x86/kvm/vmx/vmx.c
+> +++ b/arch/x86/kvm/vmx/vmx.c
+> @@ -6848,6 +6848,8 @@ static int vmx_create_vcpu(struct kvm_vcpu *vcpu)
+>  	BUILD_BUG_ON(offsetof(struct vcpu_vmx, vcpu) != 0);
+>  	vmx = to_vmx(vcpu);
+>  
+> +	INIT_LIST_HEAD(&vmx->pi_wakeup_list);
+> +
+>  	err = -ENOMEM;
+>  
+>  	vmx->vpid = allocate_vpid();
+> diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
+> index 592217fd7d92..d1a720be9a64 100644
+> --- a/arch/x86/kvm/vmx/vmx.h
+> +++ b/arch/x86/kvm/vmx/vmx.h
+> @@ -298,6 +298,9 @@ struct vcpu_vmx {
+>  	/* Posted interrupt descriptor */
+>  	struct pi_desc pi_desc;
+>  
+> +	/* Used if this vCPU is waiting for PI notification wakeup. */
+> +	struct list_head pi_wakeup_list;
+> +
+>  	/* Support for a guest hypervisor (nested VMX) */
+>  	struct nested_vmx nested;
+>  
 > diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 1fa38dc00b87..87996b22e681 100644
+> index 87996b22e681..c5961a361c73 100644
 > --- a/include/linux/kvm_host.h
 > +++ b/include/linux/kvm_host.h
-> @@ -304,7 +304,6 @@ struct kvm_vcpu {
+> @@ -304,8 +304,6 @@ struct kvm_vcpu {
 >  	u64 requests;
 >  	unsigned long guest_debug;
 >  
-> -	int pre_pcpu;
->  	struct list_head blocked_vcpu_list;
->  
+> -	struct list_head blocked_vcpu_list;
+> -
 >  	struct mutex mutex;
+>  	struct kvm_run *run;
+>  
 > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index c870cae7e776..2bbf5c9d410f 100644
+> index 2bbf5c9d410f..c1850b60f38b 100644
 > --- a/virt/kvm/kvm_main.c
 > +++ b/virt/kvm/kvm_main.c
-> @@ -426,7 +426,6 @@ static void kvm_vcpu_init(struct kvm_vcpu *vcpu, struct kvm *kvm, unsigned id)
+> @@ -426,8 +426,6 @@ static void kvm_vcpu_init(struct kvm_vcpu *vcpu, struct kvm *kvm, unsigned id)
 >  #endif
 >  	kvm_async_pf_vcpu_init(vcpu);
 >  
-> -	vcpu->pre_pcpu = -1;
->  	INIT_LIST_HEAD(&vcpu->blocked_vcpu_list);
->  
+> -	INIT_LIST_HEAD(&vcpu->blocked_vcpu_list);
+> -
 >  	kvm_vcpu_set_in_spin_loop(vcpu, false);
-
+>  	kvm_vcpu_set_dy_eligible(vcpu, false);
+>  	vcpu->preempted = false;
 
 
 Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
 Best regards,
 	Maxim Levitsky
-
-
 
 
 _______________________________________________
