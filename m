@@ -2,108 +2,91 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E5E2C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BB31FC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:29:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 34D59610F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:01:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 34D59610F8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
+	by mail.kernel.org (Postfix) with ESMTPS id 79CEA610F8
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:29:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 79CEA610F8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SQCUKSdD65ZGRVCYOC+RJk8kOhfafoGf02evS4TsAps=; b=VFKV6+wvOijxRD
-	z6mk9Vly37z0IcTP7CPkRxzyDy4xcHXJsMFCxkrb5ClvT8Xh4w4GgHNClrVAeBEpZx5+gZp45M67k
-	p15sGzyQ8nbjEpWnu0XCqobhERkC559Kcx0cbOo3RrgV+LWU4HOW/vEd9E2KDi3AlFKpsNFIhVs3M
-	kMgaaOug5CnERoUHXNBRN/m0e8XVolSY2Uwt8MKS8EU4cGCyPZI62qfQHDOh/UV+hfe+Kml3whhvj
-	/NDsDtyd/EzoTyiik2tokuu6BsuawfLlO23012ZVyPGyeJmq62VqOWbalfn9C7hddSElJXPEdK+3L
-	kgh7NeDFCz4aXesV+XRQ==;
+	List-Owner; bh=Iw4WGWVEuFgXXE6EXa7v87tOKZquKTrnp9+KhAbtRIg=; b=u1UKiSbMc/rjCS
+	F3s0RS9jj55JGU6LoDl+22F5Svus4HSidvLFREhlNBIhXM5bACk27env1B0rcDLg9QC/7TL1bz9jN
+	K3Z82QqwxZQgzWDevqwrPtgAx0XOFYyY+sktFGGj5GaGsH0j5XZLL0wgGmmpO93z5q0FpIbGMBX4W
+	QDm2OqVfdpMoHlMQrdlJqdz2+wrhVBXOU65DFYnF0rkCNg9YMW1o6aevUmQDhhBV6xmxsKnotuDe+
+	vV/vsoOLhFaLLE0HViQc6d6aaRWcquwffV4WOvyU0YtR1AaMdWJ1fZxWEA58yF81WJC8xTBzLpneT
+	wzW42YsJmnXRzPpjqKVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg39o-007crS-FR; Thu, 28 Oct 2021 11:01:16 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1mg3aj-007goz-2S; Thu, 28 Oct 2021 11:29:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg39k-007cpg-E1; Thu, 28 Oct 2021 11:01:13 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10150"; a="229130748"
-X-IronPort-AV: E=Sophos;i="5.87,189,1631602800"; d="scan'208";a="229130748"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Oct 2021 04:01:11 -0700
-X-IronPort-AV: E=Sophos;i="5.87,189,1631602800"; d="scan'208";a="447649034"
-Received: from smile.fi.intel.com ([10.237.72.184])
- by orsmga006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Oct 2021 04:00:54 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.95)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1mg395-001jY2-If; Thu, 28 Oct 2021 14:00:31 +0300
-Date: Thu, 28 Oct 2021 14:00:31 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Dmitry Osipenko <digetx@gmail.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1mg3aW-007gmp-SB
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 11:28:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1635420532;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=MHpIfrYfSW8Oruu5gZzONXfOs5cqhayPI05VEPrlFqI=;
+ b=ZXK1SsScmTgtnETpIVi2QXHMMs18RzTZPLNJsMQPBJZrv9133Un6zEiD04wYDmRLk8iqrN
+ iuZX4yT7S6TUZoHT9hESffo8pukWCq5lQV0yzXImlSkMPgQqKPN/CyfuhIr/OGE6dxfDS+
+ vegJ1oDUxlGxo3f0//TYGU5zmJ/np9g=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-301-eJZbxn5mNyK61ySDSBCRrA-1; Thu, 28 Oct 2021 07:28:46 -0400
+X-MC-Unique: eJZbxn5mNyK61ySDSBCRrA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CF9359F92B;
+ Thu, 28 Oct 2021 11:28:42 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 108AF5DA61;
+ Thu, 28 Oct 2021 11:28:30 +0000 (UTC)
+Message-ID: <643d9c249b5863f04290a6f047ea1a2d98bd75f9.camel@redhat.com>
+Subject: Re: [PATCH v2 27/43] KVM: VMX: Move Posted Interrupt ndst
+ computation out of write loop
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Stefano Stabellini <sstabellini@kernel.org>, Len Brown <lenb@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
- Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>,
- Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
- Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 03/45] notifier: Add
- atomic/blocking_notifier_has_unique_priority()
-Message-ID: <YXqCz/utp2DFJJ45@smile.fi.intel.com>
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-4-digetx@gmail.com>
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Thu, 28 Oct 2021 14:28:29 +0300
+In-Reply-To: <20211009021236.4122790-28-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-28-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211027211715.12671-4-digetx@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_040112_526857_7C4B6E01 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20211028_042852_995075_9B50B703 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,77 +103,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 28, 2021 at 12:16:33AM +0300, Dmitry Osipenko wrote:
-> Add atomic/blocking_notifier_has_unique_priority() helpers which return
-> true if given handler has unique priority.
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Hoist the CPU => APIC ID conversion for the Posted Interrupt descriptor
+> out of the loop to write the descriptor, preemption is disabled so the
+> CPU won't change, and if the APIC ID changes KVM has bigger problems.
+> 
+> No functional change intended.
 
-...
+Is preemption always disabled in vmx_vcpu_pi_load? vmx_vcpu_pi_load is called from vmx_vcpu_load,
+which is called indirectly from vcpu_load which is called from many ioctls,
+which userspace does. In these places I don't think that preemption is disabled.
 
-> +/**
-> + *	atomic_notifier_has_unique_priority - Checks whether notifier's priority is unique
-> + *	@nh: Pointer to head of the atomic notifier chain
-> + *	@n: Entry in notifier chain to check
-> + *
-> + *	Checks whether there is another notifier in the chain with the same priority.
-> + *	Must be called in process context.
-> + *
-> + *	Returns true if priority is unique, false otherwise.
+Best regards,
+	Maxim Levitsky
 
-Why this indentation?
-
-> + */
-> +bool atomic_notifier_has_unique_priority(struct atomic_notifier_head *nh,
-> +		struct notifier_block *n)
-> +{
-> +	struct notifier_block **nl = &nh->head;
-> +	unsigned long flags;
-> +	bool ret = true;
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/posted_intr.c | 25 +++++++++++--------------
+>  1 file changed, 11 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
+> index fea343dcc011..2b2206339174 100644
+> --- a/arch/x86/kvm/vmx/posted_intr.c
+> +++ b/arch/x86/kvm/vmx/posted_intr.c
+> @@ -51,17 +51,15 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
+>  		goto after_clear_sn;
+>  	}
+>  
+> -	/* The full case.  */
+> +	/* The full case.  Set the new destination and clear SN. */
+> +	dest = cpu_physical_id(cpu);
+> +	if (!x2apic_mode)
+> +		dest = (dest << 8) & 0xFF00;
 > +
-> +	spin_lock_irqsave(&nh->lock, flags);
+>  	do {
+>  		old.control = new.control = READ_ONCE(pi_desc->control);
+>  
+> -		dest = cpu_physical_id(cpu);
+> -
+> -		if (x2apic_mode)
+> -			new.ndst = dest;
+> -		else
+> -			new.ndst = (dest << 8) & 0xFF00;
+> -
+> +		new.ndst = dest;
+>  		new.sn = 0;
+>  	} while (cmpxchg64(&pi_desc->control, old.control,
+>  			   new.control) != old.control);
+> @@ -103,15 +101,14 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
+>  	WARN(pi_desc->nv != POSTED_INTR_WAKEUP_VECTOR,
+>  	     "Wakeup handler not enabled while the vCPU was blocking");
+>  
+> +	dest = cpu_physical_id(vcpu->cpu);
+> +	if (!x2apic_mode)
+> +		dest = (dest << 8) & 0xFF00;
 > +
-> +	while ((*nl) != NULL && (*nl)->priority >= n->priority) {
-
-' != NULL' is redundant.
-
-> +		if ((*nl)->priority == n->priority && (*nl) != n) {
-> +			ret = false;
-> +			break;
-> +		}
-> +
-> +		nl = &((*nl)->next);
-> +	}
-> +
-> +	spin_unlock_irqrestore(&nh->lock, flags);
-> +
-> +	return ret;
-> +}
-
-...
-
-> +	/*
-> +	 * This code gets used during boot-up, when task switching is
-> +	 * not yet working and interrupts must remain disabled.  At
-
-One space is enough.
-
-> +	 * such times we must not call down_write().
-> +	 */
-
-> +	while ((*nl) != NULL && (*nl)->priority >= n->priority) {
-
-' != NULL' is not needed.
-
-> +		if ((*nl)->priority == n->priority && (*nl) != n) {
-> +			ret = false;
-> +			break;
-> +		}
-> +
-> +		nl = &((*nl)->next);
-> +	}
-
--- 
-With Best Regards,
-Andy Shevchenko
+>  	do {
+>  		old.control = new.control = READ_ONCE(pi_desc->control);
+>  
+> -		dest = cpu_physical_id(vcpu->cpu);
+> -
+> -		if (x2apic_mode)
+> -			new.ndst = dest;
+> -		else
+> -			new.ndst = (dest << 8) & 0xFF00;
+> +		new.ndst = dest;
+>  
+>  		/* set 'NV' to 'notification vector' */
+>  		new.nv = POSTED_INTR_VECTOR;
 
 
 
