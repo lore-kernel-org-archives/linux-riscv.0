@@ -2,14 +2,14 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A0AE0C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ECBF7C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:11:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6432E61038
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:10:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6432E61038
+	by mail.kernel.org (Postfix) with ESMTPS id F197A61214
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:11:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F197A61214
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,68 +18,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=w5zFe53/AT1hbiyog4UesuG0mbtuxcKzVqsg/CWfR1U=; b=LR8jSKlA1kah3Qasw65xjXxASf
-	8LmFeaMO0vTPWyXO/i953bKQdo0qIhmoXQIxGqYAjis9c+WIr0+YqFjOzSDjODqrRIU5nseTpuqgl
-	QZV0vQXePG7yiqHSBedFCnbP/l5hmXpHkyhAf8OUwbUs38Ug+rnk9OH0PRcTGGaxSZgdHiapLBDQU
-	aL8KV/8wnl9lXyvJ98u2YD5Z3trz18QgVKM6DjVPaG8U5EIab6IPFLdjb8UNhTRwhbiZTs8/T3dpY
-	XDXXZx6gHIb7x3e6/Im/m0h/AQOmUUPu64sczw9tzzEWgc1Hf07SShFBe+nN34ggOSI6xRY/0a4iv
-	mmmSA1BA==;
+	bh=5+FKEFofYArE7uo8k+pyi/5YyPeVUcsQD396CVz9LCc=; b=eVopvSqFUbtO1/R7hNGvobH13O
+	FPuAcG5sVnw/z9OYvetOJuFUB3Gwfh/YkA9vY6V+Tpcr668dozv+zCAZGC1eHlomVvcITKKeutpXq
+	Eo2GVUt7twAUxsAOaqzpaOzvav7CaSWSsKlAKbi/BRPjz9zdz/6kQMipGkzLM2I9t0Ai6ufk8aWvD
+	Va2riT+EYGuteMVcDHYC4Al7NghUsMMIzsRxu7w1oFhdaYI2+gqV58AHPeOXxIN/OFlt9FFqKUDRG
+	+xjCqKWDryG2FYbAZzMNva4Gwqp830Xeq6EBjHtNyjZBRaJOPO8WuZefw7WdzSKTNnIEon0Ow4N57
+	9VOAQ6qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg72K-008N2o-PH; Thu, 28 Oct 2021 15:09:48 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1mg73l-008NJz-O5; Thu, 28 Oct 2021 15:11:17 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg72I-008N1y-2A
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:09:47 +0000
-Received: by mail-pf1-x433.google.com with SMTP id m14so6244559pfc.9
- for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 08:09:45 -0700 (PDT)
+ id 1mg73j-008NIM-5S
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:11:17 +0000
+Received: by mail-pf1-x435.google.com with SMTP id k26so6278368pfi.5
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 08:11:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=N7Lz9MlAMZ2EGF4S5jNyBSYl14bB0H20CJuEnD/geJQ=;
- b=2uuYfs53wDiP8SOJND/mT1QmnMTq1Kvus1r7zENS40yq0e8Rq2cQndpVU5VWhK3o+m
- 6JmwQXM0xnR46VZ/3ftL32FoXfce6Hi6jt7T210datbosHDW8dndLg3dBvzBb32YSyqi
- EgjgLHDrAJcCqauSzjfeAy9llX6NfTFNUwMDSWwPPQW7jr00B59kg5mfx28kAFn2nGuV
- 5i0ERVPQUlmWBxEWUnU3dseyi+V70LdAYXPGFaEfNET+d7b3OyJsww9BdxwqlD7qNlne
- uPVeahnkmGPqF2Cso2ALiepQBsSLd78TXqmrBY9NIhrazNWpzz+EFSMVk3jRid1Gn7pf
- YBTg==
+ bh=259aXqiOnA5iWuUV4ETs5uC0oUlsrJdMmweeqlD6Flw=;
+ b=FSE7WAV8W97zgFBcxdpzW8qW6M4y5zLcv98iJDuq/vvHWgDfXsqVXKXCpuHZotL7Mg
+ Ie3ZPWMKBqGUy6jF5Hg+dCQfBXlSRIWLMh9AbOrkraAM6pJDNwkDfuqlNnULGZhQeCZQ
+ JpRFu0QBrCpzg8FzzgEm5jdfVtoME+pTfxYPXjpSIuo68ZXU4Pp/uNLUjaMO7Uvk9MzO
+ VRWtxYVGNm0xrDpc1VJ3QogOPi2SNcx7ym6EQTr2dlDn7Se9TYgZkZuRBxwUB2VJ4GuM
+ HQ+LXIjfLQHWkeACsjm+70PRgXVFmfPNcEF4Hq/wtI6dEMAo77D23kG+vuNlPYCk/PAz
+ ViTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=N7Lz9MlAMZ2EGF4S5jNyBSYl14bB0H20CJuEnD/geJQ=;
- b=op54uU1L2KH2YtPTlgMcX0ZypBfpaHNs8c+MjtgUL9oejgCiV9NeHc9Hiem3FElo2I
- irN4zZ6rMp7uxMnZj/RB7+mMcZQvKFWfhj4dil+ps8KEsBW6DS6Tt1Gf11R9+Fe1Yrhr
- +eQ48EKkAngfdFv4oCwBn7PSp8si1jI/0Am0Nachzo+dGUPfQfIbBjW/89XX7fanQnm3
- xiIuFGw+m0sftGHfWSa/P+0E9Oh1Nj1SpgZfSw9NdBa1udD+D7MuW/bFFIfNWmngEM1D
- 6gGDr5V4lTrVDmiQHwnX8GEZ0vRyei9m5aAokwYEqiJWXfGGeuFD88/C/bNL4z/PqE8O
- Rx3g==
-X-Gm-Message-State: AOAM532n/9RERYYVdRh0/YTSC6EesDY/vneziUY1SWcXwlJ9BUGXrwcC
- TwsiZJmhajsPIPHXJtrxuU7Ojw==
-X-Google-Smtp-Source: ABdhPJwRRDZyKhXpNUtdLZyEV4kcEI+U8JXXFrleCFGmkM6ObKtrEsBtJfXxxHCTLi6yvm+nwByeJg==
-X-Received: by 2002:a05:6a00:158d:b0:47c:2341:264f with SMTP id
- u13-20020a056a00158d00b0047c2341264fmr4997658pfk.80.1635433784596; 
- Thu, 28 Oct 2021 08:09:44 -0700 (PDT)
+ bh=259aXqiOnA5iWuUV4ETs5uC0oUlsrJdMmweeqlD6Flw=;
+ b=kUXLOeE43ZgBU1M35rwIaqUgWPzHoEFNwoSa4FS3r2/37UE3IVDU257YBStrJX99fY
+ pHa8/sN5QykMeyO/z+L0R/0Il5GmXOdktg2OUcj2GKY3UAXmrGD0xPMKCjbUndYUqqIL
+ KmPmXeC9sbpWN3hWsfJckBBN/3hlUFX0TgZCKaSOKVMVgbmBbC6LTdG2D7fs78yUXk+o
+ rmGJo2wNmtZ/MraxR1CSQTSTEXic86IpXlY40GL6RHtwhVhYT24pZCxdeIQjzBT4I/8Z
+ S4yLDbnaKMSU+WgAFeCo+SyoNfg87I5LE69adADdC+3WLA0Z4DLJ/0J3DhKgnNam5k7+
+ 2SgA==
+X-Gm-Message-State: AOAM532oqrFe+tgbanf4C01i9IMTxJ8ZBFg89/uvDyvX+0Ey4lEu+6Ad
+ wr+Nu591M9xTxGjmRQ6E0uAJp9PcgiM23A==
+X-Google-Smtp-Source: ABdhPJwKglkHjgwMStiVm2swRxL2R5ugLP4vxahA1WyfTlvuNO3MAlOeWJ5SytvsYU+mCPBpiPv54g==
+X-Received: by 2002:a63:3446:: with SMTP id b67mr3614765pga.258.1635433871085; 
+ Thu, 28 Oct 2021 08:11:11 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y9sm3212418pjj.6.2021.10.28.08.09.43
+ by smtp.gmail.com with ESMTPSA id f14sm2956300pfv.5.2021.10.28.08.11.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 Oct 2021 08:09:44 -0700 (PDT)
-Date: Thu, 28 Oct 2021 08:09:44 -0700 (PDT)
-X-Google-Original-Date: Thu, 28 Oct 2021 08:09:41 PDT (-0700)
-Subject: Re: Out-of-bounds access when hartid >= NR_CPUS
-In-Reply-To: <CAOnJCU+MSP1QdpRRGYUpen8xZU+kn3PcSMJnZnRQw-iATs8JgQ@mail.gmail.com>
-CC: heiko@sntech.de, geert@linux-m68k.org, re@w6rz.net,
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+ Thu, 28 Oct 2021 08:11:10 -0700 (PDT)
+Date: Thu, 28 Oct 2021 08:11:10 -0700 (PDT)
+X-Google-Original-Date: Thu, 28 Oct 2021 08:11:05 PDT (-0700)
+Subject: Re: [PATCH 1/2] riscv: Fix asan-stack clang build
+In-Reply-To: <CA+zEjCv+whmnL_SFf20j06NpikaMtA7MNQ9+o8Zz7=1_nAtTqw@mail.gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, nathan@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-51188428-41ff-4962-b548-bf514a779723@palmerdabbelt-glaptop>
+To: alexandre.ghiti@canonical.com
+Message-ID: <mhng-4c43fe14-f36b-4232-a316-530a4d041d49@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_080946_135149_4B4C0A16 
-X-CRM114-Status: GOOD (  33.63  )
+X-CRM114-CacheID: sfid-20211028_081115_236185_E895828F 
+X-CRM114-Status: GOOD (  41.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,79 +92,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyNyBPY3QgMjAyMSAxNjozNDoxNSBQRFQgKC0wNzAwKSwgYXRpc2hwQGF0aXNocGF0
-cmEub3JnIHdyb3RlOgo+IE9uIFR1ZSwgT2N0IDI2LCAyMDIxIGF0IDI6MzQgQU0gSGVpa28gU3TD
-vGJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4+Cj4+IEFtIERpZW5zdGFnLCAyNi4gT2t0
-b2JlciAyMDIxLCAxMDo1NzoyNiBDRVNUIHNjaHJpZWIgR2VlcnQgVXl0dGVyaG9ldmVuOgo+PiA+
-IEhpIEhlaWtvLAo+PiA+Cj4+ID4gT24gVHVlLCBPY3QgMjYsIDIwMjEgYXQgMTA6NTMgQU0gSGVp
-a28gU3TDvGJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4+ID4gPiBBbSBEaWVuc3RhZywg
-MjYuIE9rdG9iZXIgMjAyMSwgMDg6NDQ6MzEgQ0VTVCBzY2hyaWViIEdlZXJ0IFV5dHRlcmhvZXZl
-bjoKPj4gPiA+ID4gT24gVHVlLCBPY3QgMjYsIDIwMjEgYXQgMjozNyBBTSBSb24gRWNvbm9tb3Mg
-PHJlQHc2cnoubmV0PiB3cm90ZToKPj4gPiA+ID4gPiBPbiAxMC8yNS8yMSA4OjU0IEFNLCBHZWVy
-dCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4+ID4gPiA+ID4gPiBXaGVuIGJvb3RpbmcgYSBrZXJuZWwg
-d2l0aCBDT05GSUdfTlJfQ1BVUz00IG9uIE1pY3JvY2hpcCBQb2xhckZpcmUsCj4+ID4gPiA+ID4g
-PiB0aGUgNHRoIENQVSBlaXRoZXIgZmFpbHMgdG8gY29tZSBvbmxpbmUsIG9yIHRoZSBzeXN0ZW0g
-Y3Jhc2hlcy4KPj4gPiA+ID4gPiA+Cj4+ID4gPiA+ID4gPiBUaGlzIGhhcHBlbnMgYmVjYXVzZSBQ
-b2xhckZpcmUgaGFzIDUgQ1BVIGNvcmVzOiBoYXJ0IDAgaXMgYW4gZTUxLAo+PiA+ID4gPiA+ID4g
-YW5kIGhhcnRzIDEtNCBhcmUgdTU0cywgd2l0aCB0aGUgbGF0dGVyIGJlY29taW5nIENQVXMgMC0z
-IGluIExpbnV4Ogo+PiA+ID4gPiA+ID4gICAgLSB1bnVzZWQgY29yZSBoYXMgaGFydGlkIDAgKHNp
-Zml2ZSxlNTEpLAo+PiA+ID4gPiA+ID4gICAgLSBwcm9jZXNzb3IgMCBoYXMgaGFydGlkIDEgKHNp
-Zml2ZSx1NzQtbWMpLAo+PiA+ID4gPiA+ID4gICAgLSBwcm9jZXNzb3IgMSBoYXMgaGFydGlkIDIg
-KHNpZml2ZSx1NzQtbWMpLAo+PiA+ID4gPiA+ID4gICAgLSBwcm9jZXNzb3IgMiBoYXMgaGFydGlk
-IDMgKHNpZml2ZSx1NzQtbWMpLAo+PiA+ID4gPiA+ID4gICAgLSBwcm9jZXNzb3IgMyBoYXMgaGFy
-dGlkIDQgKHNpZml2ZSx1NzQtbWMpLgo+PiA+ID4gPiA+ID4KPj4gPiA+ID4gPiA+IEkgYXNzdW1l
-IHRoZSBzYW1lIGlzc3VlIGlzIHByZXNlbnQgb24gdGhlIFNpRml2ZSBmdTU0MCBhbmQgZnU3NDAK
-Pj4gPiA+ID4gPiA+IFNvQ3MsIGJ1dCBJIGRvbid0IGhhdmUgYWNjZXNzIHRvIHRoZXNlLiAgVGhl
-IGlzc3VlIGlzIG5vdCBwcmVzZW50Cj4+ID4gPiA+ID4gPiBvbiBTdGFyRml2ZSBKSDcxMDAsIGFz
-IHByb2Nlc3NvciAwIGhhcyBoYXJ0aWQgMSwgYW5kIHByb2Nlc3NvciAxIGhhcwo+PiA+ID4gPiA+
-ID4gaGFydGlkIDAuCj4+ID4gPiA+ID4gPgo+PiA+ID4gPiA+ID4gYXJjaC9yaXNjdi9rZXJuZWwv
-Y3B1X29wcy5jIGhhczoKPj4gPiA+ID4gPiA+Cj4+ID4gPiA+ID4gPiAgICAgIHZvaWQgKl9fY3B1
-X3VwX3N0YWNrX3BvaW50ZXJbTlJfQ1BVU10gX19zZWN0aW9uKCIuZGF0YSIpOwo+PiA+ID4gPiA+
-ID4gICAgICB2b2lkICpfX2NwdV91cF90YXNrX3BvaW50ZXJbTlJfQ1BVU10gX19zZWN0aW9uKCIu
-ZGF0YSIpOwo+PiA+ID4gPiA+ID4KPj4gPiA+ID4gPiA+ICAgICAgdm9pZCBjcHVfdXBkYXRlX3Nl
-Y29uZGFyeV9ib290ZGF0YSh1bnNpZ25lZCBpbnQgY3B1aWQsCj4+ID4gPiA+ID4gPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHRhc2tfc3RydWN0ICp0aWRs
-ZSkKPj4gPiA+ID4gPiA+ICAgICAgewo+PiA+ID4gPiA+ID4gICAgICAgICAgICAgIGludCBoYXJ0
-aWQgPSBjcHVpZF90b19oYXJ0aWRfbWFwKGNwdWlkKTsKPj4gPiA+ID4gPiA+Cj4+ID4gPiA+ID4g
-PiAgICAgICAgICAgICAgLyogTWFrZSBzdXJlIHRpZGxlIGlzIHVwZGF0ZWQgKi8KPj4gPiA+ID4g
-PiA+ICAgICAgICAgICAgICBzbXBfbWIoKTsKPj4gPiA+ID4gPiA+ICAgICAgICAgICAgICBXUklU
-RV9PTkNFKF9fY3B1X3VwX3N0YWNrX3BvaW50ZXJbaGFydGlkXSwKPj4gPiA+ID4gPiA+ICAgICAg
-ICAgICAgICAgICAgICAgICAgIHRhc2tfc3RhY2tfcGFnZSh0aWRsZSkgKyBUSFJFQURfU0laRSk7
-Cj4+ID4gPiA+ID4gPiAgICAgICAgICAgICAgV1JJVEVfT05DRShfX2NwdV91cF90YXNrX3BvaW50
-ZXJbaGFydGlkXSwgdGlkbGUpOwo+PiA+ID4gPiA+ID4KPj4gPiA+ID4gPiA+IFRoZSBhYm92ZSB0
-d28gd3JpdGVzIGNhdXNlIG91dC1vZi1ib3VuZCBhY2Nlc3NlcyBiZXlvbmQKPj4gPiA+ID4gPiA+
-IF9fY3B1X3VwX3tzdGFjayxwb2ludGVyfV9wb2ludGVyW10gaWYgaGFydGlkID49IENPTkZJR19O
-Ul9DUFVTLgo+PiA+ID4gPiA+ID4KPj4gPiA+ID4gPiA+ICAgICAgfQo+PiA+Cj4+ID4gPiA+IGh0
-dHBzOi8vcmlzY3Yub3JnL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDE3LzA1L3Jpc2N2LXByaXZpbGVn
-ZWQtdjEuMTAucGRmCj4+ID4gPiA+IHNheXM6Cj4+ID4gPiA+Cj4+ID4gPiA+ICAgICBIYXJ0IElE
-cyBtaWdodCBub3QgbmVjZXNzYXJpbHkgYmUgbnVtYmVyZWQgY29udGlndW91c2x5IGluIGEKPj4g
-PiA+ID4gICAgIG11bHRpcHJvY2Vzc29yIHN5c3RlbSwgYnV0IGF0IGxlYXN0IG9uZSBoYXJ0IG11
-c3QgaGF2ZSBhIGhhcnQKPj4gPiA+ID4gICAgIElEIG9mIHplcm8uCj4+ID4gPiA+Cj4+ID4gPiA+
-IFdoaWNoIG1lYW5zIGluZGV4aW5nIGFycmF5cyBieSBoYXJ0IElEIGlzIGEgbm8tZ28/Cj4+ID4g
-Pgo+PiA+ID4gSXNuJ3QgdGhhdCBhbHNvIHNpbWlsYXIgb24gYWFyY2g2ND8KPj4gPiA+Cj4+ID4g
-PiBPbiBhIHJrMzM5OSB5b3UgZ2V0IDAtMyBhbmQgMTAwLTEwMSBhbmQgd2l0aCB0aGUgcGFyYWdy
-YXBoIGFib3ZlCj4+ID4gPiBzb21ldGhpbmcgbGlrZSB0aGlzIGNvdWxkIHZlcnkgd2VsbCBleGlz
-dCBvbiBzb21lIHJpc2N2IGNwdSB0b28gSSBndWVzcy4KPj4gPgo+PiA+IFllcywgaXQgbG9va3Mg
-bGlrZSBoYXJ0IElEcyBhcmUgc2ltaWxhciB0byBNUElEUnMgb24gQVJNLgo+Pgo+PiBhbmQgdGhl
-eSBoYXZlIHRoZSBzZXRfY3B1X2xvZ2ljYWxfbWFwIGNvbnN0cnVjdCB0byBtYXAgaHdpZHMKPj4g
-dG8gYSBjb250aW51b3VzIGxpc3Qgb2YgY3B1LWlkcy4KPj4KPj4gU28gd2l0aCBoYXJ0aWRzIG5v
-dCBiZWluZyBuZWNlc3NhcmlseSBjb250aW51b3VzIHRoaXMgbG9va3MgbGlrZQo+PiByaXNjdiB3
-b3VsZCBuZWVkIGEgc2ltaWxhciBtZWNoYW5pc20uCj4+Cj4KPiBSSVNDLVYgYWxyZWFkeSBoYXMg
-YSBzaW1pbGFyIG1lY2hhbmlzbSBjcHVpZF90b19oYXJ0aWRfbWFwLiBMb2dpY2FsCj4gY3B1IGlk
-cyBhcmUgY29udGludW91cwo+IHdoaWxlIGhhcnRpZCBjYW4gYmUgc3BhcnNlLgo+Cj4gVGhlIGlz
-c3VlIGhlcmUgaXMgdGhhdCBfX2NwdV91cF9zdGFjay90YXNrX3BvaW50ZXIgYXJlIHBlciBoYXJ0
-IGJ1dAo+IGFycmF5IHNpemUgZGVwZW5kcyBvbiB0aGUgTlJfQ1BVcwo+IHdoaWNoIHJlcHJlc2Vu
-dHMgdGhlIGxvZ2ljYWwgQ1BVLgo+Cj4gVGhhdCdzIHdoeSwgaGF2aW5nIGEgbWF4aW11bSBudW1i
-ZXIgb2YgaGFydGlkcyBkZWZpbmVkIGluIGNvbmZpZyB3aWxsCj4gYmUgaGVscGZ1bC4KCkkgZG9u
-J3QgdW5kZXJzdGFuZCB3aHkgd2UnZCBoYXZlIGJvdGg6IGlmIHdlIGNhbid0IGZpbmQgYSBDUFUg
-bnVtYmVyIGZvciAKYSBoYXJ0LCB0aGVuIGFsbCB3ZSBjYW4gZG8gaXMganVzdCBsZWF2ZSBpdCBv
-ZmZsaW5lLiAgV291bGRuJ3QgaXQgYmUgCnNpbXBsZXIgdG8ganVzdCByZWx5IG9uIE5SX0NQVVM/
-ICBXZSdsbCBuZWVkIHRvIGZpeCB0aGUgY3Jhc2hlcyBvbiAKb3ZlcmZsb3dzIGVpdGhlciB3YXku
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, 28 Oct 2021 00:13:06 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+> On Thu, Oct 28, 2021 at 8:45 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>>
+>> On Wed, 27 Oct 2021 22:34:32 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+>> > On Thu, Oct 28, 2021 at 7:30 AM Alexandre Ghiti
+>> > <alexandre.ghiti@canonical.com> wrote:
+>> >>
+>> >> On Thu, Oct 28, 2021 at 7:02 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> >> >
+>> >> > On Wed, 27 Oct 2021 21:15:28 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+>> >> > > On Thu, Oct 28, 2021 at 1:06 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> >> > >>
+>> >> > >> On Tue, 26 Oct 2021 21:58:42 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+>> >> > >> > Nathan reported that because KASAN_SHADOW_OFFSET was not defined in
+>> >> > >> > Kconfig, it prevents asan-stack from getting disabled with clang even
+>> >> > >> > when CONFIG_KASAN_STACK is disabled: fix this by defining the
+>> >> > >> > corresponding config.
+>> >> > >> >
+>> >> > >> > Reported-by: Nathan Chancellor <nathan@kernel.org>
+>> >> > >> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+>> >> > >> > ---
+>> >> > >> >  arch/riscv/Kconfig             | 6 ++++++
+>> >> > >> >  arch/riscv/include/asm/kasan.h | 3 +--
+>> >> > >> >  arch/riscv/mm/kasan_init.c     | 3 +++
+>> >> > >> >  3 files changed, 10 insertions(+), 2 deletions(-)
+>> >> > >> >
+>> >> > >> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> >> > >> > index c1abbc876e5b..79250b1ed54e 100644
+>> >> > >> > --- a/arch/riscv/Kconfig
+>> >> > >> > +++ b/arch/riscv/Kconfig
+>> >> > >> > @@ -162,6 +162,12 @@ config PAGE_OFFSET
+>> >> > >> >       default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>> >> > >> >       default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+>> >> > >> >
+>> >> > >> > +config KASAN_SHADOW_OFFSET
+>> >> > >> > +     hex
+>> >> > >> > +     depends on KASAN_GENERIC
+>> >> > >> > +     default 0xdfffffc800000000 if 64BIT
+>> >> > >> > +     default 0xffffffff if 32BIT
+>> >> > >>
+>> >> > >> I thought I posted this somewhere, but this is exactly what my first
+>> >> > >> guess was.  The problem is that it's hanging on boot for me.  I don't
+>> >> > >> really have anything exotic going on, it's just a defconfig with
+>> >> > >> CONFIG_KASAN=y running in QEMU.
+>> >> > >>
+>> >> > >> Does this boot for you?
+>> >> > >
+>> >> > > Yes with the 2nd patch of this series which fixes the issue
+>> >> > > encountered here. And that's true I copied/pasted this part of your
+>> >> > > patch which was better than what I had initially done, sorry I should
+>> >> > > have mentioned you did that, please add a Codeveloped-by or something
+>> >> > > like that.
+>>
+>> OK, those should probably be in the opposite order (though it looks like
+>> they're inter-dependent, which makes things a bit trickier).
+>>
+>> >> >
+>> >> > Not sure if I'm missing something, but it's still not booting for me.
+>> >> > I've put what I'm testing on palmer/to-test, it's these two on top of
+>> >> > fixes and merged into Linus' tree
+>> >> >
+>> >> >     *   6d7d351902ff - (HEAD -> to-test, palmer/to-test) Merge remote-tracking branch 'palmer/fixes' into to-test (7 minutes ago) <Palmer Dabbelt>
+>> >> >     |\
+>> >> >     | * 782551edf8f8 - (palmer/fixes) riscv: Fix CONFIG_KASAN_STACK build (6 hours ago) <Alexandre Ghiti>
+>> >> >     | * 47383e5b3c4f - riscv: Fix asan-stack clang build (6 hours ago) <Alexandre Ghiti>
+>> >> >     | * 64a19591a293 - (riscv/fixes) riscv: fix misalgned trap vector base address (9 hours ago) <Chen Lu>
+>> >> >     * |   1fc596a56b33 - (palmer/master, linus/master, linus/HEAD, master) Merge tag 'trace-v5.15-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace (11 hours ago) <Linus Torvalds>
+>> >> >
+>> >> > Am I missing something else?
+>> >>
+>> >> Hmm, that's weird, I have just done the same: cherry-picked both my
+>> >> commits on top of fixes (64a19591a293) and it boots fine with KASAN
+>> >> enabled. Maybe a config thing? I pushed my branch here:
+>> >> https://github.com/AlexGhiti/riscv-linux/tree/int/alex/kasan_stack_fixes_rebase
+>> >
+>> > I pushed the config I use and that boots in that branch, maybe there's
+>> > another issue somewhere.
+>>
+>> CONFIG_KASAN_VMALLOC=n is what's causing the failure.  I'm testing both
+>> polarities of that, looks like your config has =y.  I haven't looked any
+>> further as I'm pretty much cooked for tonight, but if you don't have
+>> time then I'll try to find some time tomorrow.
+>>
+>
+> Arf, that was obvious and just under my nose: without KASAN_VMALLOC,
+> kasan_populate_early_shadow is called and creates the same issue that
+> the second patch fixes.
+>
+> I'll send a v2 today and try to swap both patches to avoid having a
+> non-bootable kernel commit.
+
+Thanks.
+
+>
+> Alex
+>
+>> >
+>> >>
+>> >> >
+>> >> > >
+>> >> > > Thanks,
+>> >> > >
+>> >> > > Alex
+>> >> > >
+>> >> > >>
+>> >> > >> > +
+>> >> > >> >  config ARCH_FLATMEM_ENABLE
+>> >> > >> >       def_bool !NUMA
+>> >> > >> >
+>> >> > >> > diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+>> >> > >> > index a2b3d9cdbc86..b00f503ec124 100644
+>> >> > >> > --- a/arch/riscv/include/asm/kasan.h
+>> >> > >> > +++ b/arch/riscv/include/asm/kasan.h
+>> >> > >> > @@ -30,8 +30,7 @@
+>> >> > >> >  #define KASAN_SHADOW_SIZE    (UL(1) << ((CONFIG_VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
+>> >> > >> >  #define KASAN_SHADOW_START   KERN_VIRT_START
+>> >> > >> >  #define KASAN_SHADOW_END     (KASAN_SHADOW_START + KASAN_SHADOW_SIZE)
+>> >> > >> > -#define KASAN_SHADOW_OFFSET  (KASAN_SHADOW_END - (1ULL << \
+>> >> > >> > -                                     (64 - KASAN_SHADOW_SCALE_SHIFT)))
+>> >> > >> > +#define KASAN_SHADOW_OFFSET  _AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+>> >> > >> >
+>> >> > >> >  void kasan_init(void);
+>> >> > >> >  asmlinkage void kasan_early_init(void);
+>> >> > >> > diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+>> >> > >> > index d7189c8714a9..8175e98b9073 100644
+>> >> > >> > --- a/arch/riscv/mm/kasan_init.c
+>> >> > >> > +++ b/arch/riscv/mm/kasan_init.c
+>> >> > >> > @@ -17,6 +17,9 @@ asmlinkage void __init kasan_early_init(void)
+>> >> > >> >       uintptr_t i;
+>> >> > >> >       pgd_t *pgd = early_pg_dir + pgd_index(KASAN_SHADOW_START);
+>> >> > >> >
+>> >> > >> > +     BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
+>> >> > >> > +             KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
+>> >> > >> > +
+>> >> > >> >       for (i = 0; i < PTRS_PER_PTE; ++i)
+>> >> > >> >               set_pte(kasan_early_shadow_pte + i,
+>> >> > >> >                       mk_pte(virt_to_page(kasan_early_shadow_page),
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
