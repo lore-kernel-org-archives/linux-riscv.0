@@ -2,91 +2,104 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46034C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67583C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:40 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EFF71610C8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EFF71610C8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1FFB0610C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 15:34:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1FFB0610C7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QestwuELDpJ1nPhXEmw03Rn9emmH4l2Kk+Z3RrDb4NI=; b=WYzyj8M6xM3b9I
-	A4wQOe+y6wen/a2cm+ZO8nqmNZpl3TkkOrCh1LK2lwCVn6xI35tkKnTMuDk4r7QNnLz+s+kGjkylT
-	ZmfvaZPAtndIYRFqNE1g9AaAMHhuVKJxn/tn9BlP6zOE7VUeyj+Wx9bjG9QQ86+eTohD26q0tMP3p
-	Jvn/cnkxACanVmopAmX1miu22/EJLAH9uSpcf1Zroh+qtbS2NR9u311lhiK2fBO8qsNaZmjXFCXid
-	BSjJxE6N6nIyQ5poDoeeooTzVe9bwJCmPJbV2ys6Ro3OmYuX57By0FU8j79eMq89wUHtUdVa8TWzX
-	z6FyKC2ldvUU4je5uudQ==;
+	List-Owner; bh=mzANhvjhvG7QML8GTePBmqS6RqebL1gHVKU5VGAm2ak=; b=y+XjgKU0kqKtgz
+	nqKqkm4UtQgETmyNhEkYna3+vTPxP0zDGT2ZNs1PEXn6Ha5gqW2A81Pxc8JfBs04TXMX+wXSFwupU
+	F2r5Uh1S51tCrcOFS81gICRpxFDrC0qJUb69braQnhlsORQAg8PW/TFbkdWlGl4GMiVgLYcuJEPkS
+	QSRieyDFpmpIlkUGzGRhDGbwq0Rnzu9GgNGEy6XgdYH5wF0VsHb/KpgpXitlLyMW7Tfzl8K95l51q
+	rMAu7ckHykkQLOV57JRbY+5I6ZxuazmTOyoDZn7tmbaEVlWYN9npzF5R/3OAtwgQ5sdEiDvFWXzg/
+	nU0thxV6iu+rtwVwwTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg7Pn-008PlL-8Q; Thu, 28 Oct 2021 15:34:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1mg7QD-008PsP-IT; Thu, 28 Oct 2021 15:34:29 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg7Pk-008Pjy-Gt
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635435239;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=QNmDdkecq8SKnVGFVDimL3g8xbus4hzEhU0dnSsqlkw=;
- b=gnM2uVNPgGm3sJhy5TE11B7tZXgcElx7U4vo9js/OP8b9u2RM5ejv4MIs/PofdaZkJvn98
- 9fcNo6NaE0jRxL2H0d1Q0d1pECmmqukOCtWEcrLvIMb04I8ZFlcFSlZqLU0RxNGHJgdXKR
- Q9dvMmCxhZPTu1b38D2aW0X9WCZSuuY=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-542-ePtPTvZLPR-5P1TjiMfLTA-1; Thu, 28 Oct 2021 11:33:55 -0400
-X-MC-Unique: ePtPTvZLPR-5P1TjiMfLTA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
- [10.5.11.12])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 48699EC1A0;
- Thu, 28 Oct 2021 15:33:51 +0000 (UTC)
-Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id C0A7F60BF1;
- Thu, 28 Oct 2021 15:33:38 +0000 (UTC)
-Message-ID: <eea801ba765679e34a7a94a947ae7340a5cad796.camel@redhat.com>
-Subject: Re: [PATCH v2 31/43] KVM: Move x86 VMX's posted interrupt list_head
- to vcpu_vmx
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
- Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
- Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ id 1mg7QA-008Pq8-OJ
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 15:34:28 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id t184so6385227pfd.0
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 08:34:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=ObU0mLn8cgLGt35bHM9Ve7PBUotjGGEWKnNtAqnV8Y0=;
+ b=Dh2oRVWq7FNB4VxeeBx+DY+B7J6W36/D0YFmfA4JinPWULNj2JAyVIdGN5W95l+d90
+ 4Uu/ZwJdWUivmqUAxVTynE14t1JCgr4B8VIlvCnfQRBjV/9sZBN9FbtVQViBrcsIkfKk
+ FKX6ULIrvBdeMPobrWIP7p55k83rg/EH2wU4GD4W9e2j7rIISQUbKASJH6T77kFM7m0Z
+ Qtlmy8wjfeMDEMJrWpV2K5PFqGDN6VxYLPZtUxrtHEs4QyogxcvUebO7UVfiBHutG04k
+ U0NkfKu6Je8Pt6shzy+xbyjZteg84KZAIk3v/fR91ZfKR/MAff+MA9k1aMrDIiCOqEqs
+ s/bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ObU0mLn8cgLGt35bHM9Ve7PBUotjGGEWKnNtAqnV8Y0=;
+ b=21rXaHqLUOD0MxojpaQV32Fvxfd9/vQjLa5GsajKfkVALJNdYlS4/o6RrypEZMRqcg
+ NqvjwRBe5fbKmvhW5qot6e9HSTLpvrooFTIgtlXXpgSLIEKNOaoyhwSZoyfjCFtfiEyu
+ /fMFfMK7QAdpyXXcs505IkUEi364KIRflFaYpGdDANZXnQmSgptRvV+TrMpLH4iEbPiM
+ FzTuBmOapk6hJ4C3CUQE1xax2ElnzCVOOZ8GSgtRvAIjWkLiAdbOxGMAsUpDf0BVvR1Q
+ RN7L2Zy7fA3kexL9EQnaFpLss7LOHaV4NbprccJOt0/HTr37KVIICAfB2VrQm9lOSn7c
+ E5oQ==
+X-Gm-Message-State: AOAM530MDijonYGTFFlW1lkTj9RXmcl/JezWsz/aDzBMH7HT1FhMNqso
+ HV2D7GAkTmVpbMm3xdEBKan1rg==
+X-Google-Smtp-Source: ABdhPJz6jdrYVfnN/6E/mwaWkSEy+zhYc5xKvC8pKY4AVCJGv9Uh9d4/rKPGgqsum0tyEq6Ye9Z/qw==
+X-Received: by 2002:aa7:9427:0:b0:47c:3b8e:5253 with SMTP id
+ y7-20020aa79427000000b0047c3b8e5253mr5166508pfo.69.1635435265242; 
+ Thu, 28 Oct 2021 08:34:25 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id p12sm4586055pfh.52.2021.10.28.08.34.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 28 Oct 2021 08:34:24 -0700 (PDT)
+Date: Thu, 28 Oct 2021 15:34:21 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
- <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
  Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
- <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
- Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
- Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
- kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Thu, 28 Oct 2021 18:33:37 +0300
-In-Reply-To: <20211009021236.4122790-32-seanjc@google.com>
+ Cornelia Huck <cohuck@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
+ Jing Zhang <jingzhangos@google.com>
+Subject: Re: [PATCH v2 21/43] KVM: VMX: Clean up PI pre/post-block WARNs
+Message-ID: <YXrC/X6b+tgn6cJ9@google.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-32-seanjc@google.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ <20211009021236.4122790-22-seanjc@google.com>
+ <6b2bdfad87e268e861b6cc331d25790dade8e27b.camel@redhat.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+Content-Disposition: inline
+In-Reply-To: <6b2bdfad87e268e861b6cc331d25790dade8e27b.camel@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_083400_683586_326FD4D8 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20211028_083426_826774_298EC9DD 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,188 +116,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> Move the seemingly generic block_vcpu_list from kvm_vcpu to vcpu_vmx, and
-> rename the list and all associated variables to clarify that it tracks
-> the set of vCPU that need to be poked on a posted interrupt to the wakeup
-> vector.  The list is not used to track _all_ vCPUs that are blocking, and
-> the term "blocked" can be misleading as it may refer to a blocking
-> condition in the host or the guest, where as the PI wakeup case is
-> specifically for the vCPUs that are actively blocking from within the
-> guest.
+On Thu, Oct 28, 2021, Maxim Levitsky wrote:
+> On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> > Move the WARN sanity checks out of the PI descriptor update loop so as
+> > not to spam the kernel log if the condition is violated and the update
+> > takes multiple attempts due to another writer.  This also eliminates a
+> > few extra uops from the retry path.
+> > 
+> > Technically not checking every attempt could mean KVM will now fail to
+> > WARN in a scenario that would have failed before, but any such failure
+> > would be inherently racy as some other agent (CPU or device) would have
+> > to concurrent modify the PI descriptor.
+
+...
+
+> Don't know for sure if this is desired. I'll would just use WARN_ON_ONCE instead
+> if the warning spams the log.
 > 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/posted_intr.c | 39 +++++++++++++++++-----------------
->  arch/x86/kvm/vmx/vmx.c         |  2 ++
->  arch/x86/kvm/vmx/vmx.h         |  3 +++
->  include/linux/kvm_host.h       |  2 --
->  virt/kvm/kvm_main.c            |  2 --
->  5 files changed, 25 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
-> index d2b3d75c57d1..f1bcf8c32b6d 100644
-> --- a/arch/x86/kvm/vmx/posted_intr.c
-> +++ b/arch/x86/kvm/vmx/posted_intr.c
-> @@ -18,7 +18,7 @@
->   * wake the target vCPUs.  vCPUs are removed from the list and the notification
->   * vector is reset when the vCPU is scheduled in.
->   */
-> -static DEFINE_PER_CPU(struct list_head, blocked_vcpu_on_cpu);
-> +static DEFINE_PER_CPU(struct list_head, wakeup_vcpus_on_cpu);
-This looks good, you can disregard my comment on this variable from previous patch
-where I nitpicked about it.
+> If there is a race I would rather want to catch it even if rare.
 
->  /*
->   * Protect the per-CPU list with a per-CPU spinlock to handle task migration.
->   * When a blocking vCPU is awakened _and_ migrated to a different pCPU, the
-> @@ -26,7 +26,7 @@ static DEFINE_PER_CPU(struct list_head, blocked_vcpu_on_cpu);
->   * CPU.  IRQs must be disabled when taking this lock, otherwise deadlock will
->   * occur if a wakeup IRQ arrives and attempts to acquire the lock.
->   */
-> -static DEFINE_PER_CPU(spinlock_t, blocked_vcpu_on_cpu_lock);
-> +static DEFINE_PER_CPU(spinlock_t, wakeup_vcpus_on_cpu_lock);
->  
->  static inline struct pi_desc *vcpu_to_pi_desc(struct kvm_vcpu *vcpu)
->  {
-> @@ -36,6 +36,7 @@ static inline struct pi_desc *vcpu_to_pi_desc(struct kvm_vcpu *vcpu)
->  void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
->  {
->  	struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
-> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
->  	struct pi_desc old, new;
->  	unsigned long flags;
->  	unsigned int dest;
-> @@ -71,9 +72,9 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
->  	 * current pCPU if the task was migrated.
->  	 */
->  	if (pi_desc->nv == POSTED_INTR_WAKEUP_VECTOR) {
-> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
-> -		list_del(&vcpu->blocked_vcpu_list);
-> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
-> +		spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
-> +		list_del(&vmx->pi_wakeup_list);
-> +		spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
->  	}
->  
->  	dest = cpu_physical_id(cpu);
-> @@ -121,15 +122,16 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
->  static void pi_enable_wakeup_handler(struct kvm_vcpu *vcpu)
->  {
->  	struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
-> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
->  	struct pi_desc old, new;
->  	unsigned long flags;
->  
->  	local_irq_save(flags);
->  
-> -	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
-> -	list_add_tail(&vcpu->blocked_vcpu_list,
-> -		      &per_cpu(blocked_vcpu_on_cpu, vcpu->cpu));
-> -	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->cpu));
-> +	spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
-> +	list_add_tail(&vmx->pi_wakeup_list,
-> +		      &per_cpu(wakeup_vcpus_on_cpu, vcpu->cpu));
-> +	spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, vcpu->cpu));
->  
->  	WARN(pi_desc->sn, "PI descriptor SN field set before blocking");
->  
-> @@ -182,24 +184,23 @@ void vmx_vcpu_pi_put(struct kvm_vcpu *vcpu)
->   */
->  void pi_wakeup_handler(void)
->  {
-> -	struct kvm_vcpu *vcpu;
->  	int cpu = smp_processor_id();
-> +	struct vcpu_vmx *vmx;
->  
-> -	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
-> -	list_for_each_entry(vcpu, &per_cpu(blocked_vcpu_on_cpu, cpu),
-> -			blocked_vcpu_list) {
-> -		struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
-> +	spin_lock(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
-> +	list_for_each_entry(vmx, &per_cpu(wakeup_vcpus_on_cpu, cpu),
-> +			    pi_wakeup_list) {
->  
-> -		if (pi_test_on(pi_desc))
-> -			kvm_vcpu_kick(vcpu);
-> +		if (pi_test_on(&vmx->pi_desc))
-> +			kvm_vcpu_kick(&vmx->vcpu);
->  	}
-> -	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
-> +	spin_unlock(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
->  }
->  
->  void __init pi_init_cpu(int cpu)
->  {
-> -	INIT_LIST_HEAD(&per_cpu(blocked_vcpu_on_cpu, cpu));
-> -	spin_lock_init(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
-> +	INIT_LIST_HEAD(&per_cpu(wakeup_vcpus_on_cpu, cpu));
-> +	spin_lock_init(&per_cpu(wakeup_vcpus_on_cpu_lock, cpu));
->  }
->  
->  bool pi_has_pending_interrupt(struct kvm_vcpu *vcpu)
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 26ed8cd1a1f2..b3bb2031a7ac 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -6848,6 +6848,8 @@ static int vmx_create_vcpu(struct kvm_vcpu *vcpu)
->  	BUILD_BUG_ON(offsetof(struct vcpu_vmx, vcpu) != 0);
->  	vmx = to_vmx(vcpu);
->  
-> +	INIT_LIST_HEAD(&vmx->pi_wakeup_list);
-> +
->  	err = -ENOMEM;
->  
->  	vmx->vpid = allocate_vpid();
-> diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
-> index 592217fd7d92..d1a720be9a64 100644
-> --- a/arch/x86/kvm/vmx/vmx.h
-> +++ b/arch/x86/kvm/vmx/vmx.h
-> @@ -298,6 +298,9 @@ struct vcpu_vmx {
->  	/* Posted interrupt descriptor */
->  	struct pi_desc pi_desc;
->  
-> +	/* Used if this vCPU is waiting for PI notification wakeup. */
-> +	struct list_head pi_wakeup_list;
-> +
->  	/* Support for a guest hypervisor (nested VMX) */
->  	struct nested_vmx nested;
->  
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 87996b22e681..c5961a361c73 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -304,8 +304,6 @@ struct kvm_vcpu {
->  	u64 requests;
->  	unsigned long guest_debug;
->  
-> -	struct list_head blocked_vcpu_list;
-> -
->  	struct mutex mutex;
->  	struct kvm_run *run;
->  
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 2bbf5c9d410f..c1850b60f38b 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -426,8 +426,6 @@ static void kvm_vcpu_init(struct kvm_vcpu *vcpu, struct kvm *kvm, unsigned id)
->  #endif
->  	kvm_async_pf_vcpu_init(vcpu);
->  
-> -	INIT_LIST_HEAD(&vcpu->blocked_vcpu_list);
-> -
->  	kvm_vcpu_set_in_spin_loop(vcpu, false);
->  	kvm_vcpu_set_dy_eligible(vcpu, false);
->  	vcpu->preempted = false;
+Paolo had similar concerns[*].  I copied the most relevant part of the discussion
+below, let me know if you object to the outcome.
 
+Thanks for the reviews!
 
-Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+[*] https://lore.kernel.org/all/YXllGfrjPX1pVUx6@google.com/T/#u
 
-Best regards,
-	Maxim Levitsky
-
+On Wed, Oct 27, 2021 at 8:38 AM Paolo Bonzini <pbonzini@redhat.com> wrote:
+> On 27/10/21 17:28, Sean Christopherson wrote:
+> > On Wed, Oct 27, 2021, Paolo Bonzini wrote:
+> > > On 27/10/21 16:41, Sean Christopherson wrote:
+> > > > The other thing I don't like about having the WARN in the loop is that it suggests
+> > > > that something other than the vCPU can modify the NDST and SN fields, which is
+> > > > wrong and confusing (for me).
+> > >
+> > > Yeah, I can agree with that.  Can you add it in a comment above the cmpxchg
+> > > loop, it can be as simple as
+> > >
+> > > 	/* The processor can set ON concurrently.  */
+> > >
+> > > when you respin patch 21 and the rest of the series?
+> >
+> > I can definitely add a comment, but I think that comment is incorrect.
+>
+> It's completely backwards indeed.  I first had "the hardware" and then
+> shut down my brain for a second to replace it.
+>
+> > So something like this?
+> >
+> > 	/* ON can be set concurrently by a different vCPU or by hardware. */
+>
+> Yes, of course.
 
 _______________________________________________
 linux-riscv mailing list
