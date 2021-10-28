@@ -2,72 +2,77 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1796BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F1D6C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:59:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C4C15610F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:57:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C4C15610F8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id F068E610F8
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:59:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F068E610F8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v7hGHkyMnrX1zW7GHOkZn5fM2vZv3b3DPDX8G+8OC5E=; b=NGAMh8EleezSnp
-	7gnPSSF+OfoFXIaVsH8dPguUmRf+/oV3evW4VqberxZoDZ79ORKhZHQgMOb3KSmqtNTj1gEXlFIi6
-	g/R+ifqNiLNJZoamjTdYq2HBs8lkkHOMNfeQKDBi2Y7xrSA52jrqAWVrjssVaTSGYs0QBcFWBqSIs
-	kE//lRUyws3/E18rdbnBtlLj1ju+FJxSRwG2z0ko8AgkJychoIbdbEn++g7VXzif/0EHkCMR/s2YR
-	VFKzFAyxplsvK+azC/ywa/7sTDn0YVcMZ4ODqXrd7Bru0VPHZAyxOViY7wwWiogIhEMQ3B0Jqxv0U
-	Oj6WY3jlVsT1q4zNGa4w==;
+	List-Owner; bh=gpgYfw6gthbjNpz0H66REIFk8aeTeZlVkkKG4+20A0Q=; b=JKsGRqJ5gAz/xK
+	K8KoLkxBcwwLaKfn2rkVk8rV2e2EURKSBr9RgcvvVAZAe54N14K9qAdUSAFhFqipgjFdzOKKZ7c4U
+	AF6HOtmulKFoiUH0vXtgyrUWiq3CY3NixSyR8ZhTPbr9kExnrwOah7+VFwcy/dyOi02luSplql5du
+	BiiQg/LcmJBlx+XfHRw7sO1qO5R16AArbpkMw1JmJl11YGobSuO5D0jaoUFENkMVAc14x8m50eCqX
+	KEE38tybC6kK7ddgf2sQRNfTSjyQDkQVcP6dbG+XwG6nQpoYC48VsviDQ5IYpBRRRFtGsidkIbjVC
+	F2c/j8CQ3q7je+7UTtzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg6qk-008JZ8-B1; Thu, 28 Oct 2021 14:57:50 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1mg6rq-008KIP-HF; Thu, 28 Oct 2021 14:58:58 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg6qG-008J9t-7Y
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 14:57:22 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.53])
- by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Hg7sT2FS0z8ttS;
- Thu, 28 Oct 2021 22:55:41 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.15; Thu, 28 Oct 2021 22:57:04 +0800
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.1.2308.15; Thu, 28 Oct 2021 22:57:03 +0800
-Message-ID: <3555118a-914f-8c21-d5c9-7f3d969d357e@huawei.com>
-Date: Thu, 28 Oct 2021 22:57:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: riscv: delay.c:77:17: error: implicit declaration of function
- 'cpu_relax' [-Werror=implicit-function-declaration]
-Content-Language: en-US
-To: Naresh Kamboju <naresh.kamboju@linaro.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>,
- Linux-Next Mailing List <linux-next@vger.kernel.org>,
- <lkft-triage@lists.linaro.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, "Stephen
- Rothwell" <sfr@canb.auug.org.au>, Kefeng Wang <wangkefeng.wang@huawei.com>
-References: <CA+G9fYs6X5ce1BhynpivZLU7MvPq+vkrJCM7oSJf8GJBApCqZg@mail.gmail.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-In-Reply-To: <CA+G9fYs6X5ce1BhynpivZLU7MvPq+vkrJCM7oSJf8GJBApCqZg@mail.gmail.com>
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: dggeme707-chm.china.huawei.com (10.1.199.103) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+ id 1mg6rG-008Jwz-JC
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 14:58:24 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 55D9F6112F;
+ Thu, 28 Oct 2021 14:58:22 +0000 (UTC)
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1mg6rE-002ErX-DD; Thu, 28 Oct 2021 15:58:20 +0100
+Date: Thu, 28 Oct 2021 15:58:19 +0100
+Message-ID: <87sfwl9oxg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+Cc: guoren@kernel.org, anup@brainfault.org, atish.patra@wdc.com,
+ tglx@linutronix.de, palmer@dabbelt.com, heiko@sntech.de, robh@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Guo Ren
+ <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V5 3/3] irqchip/sifive-plic: Fixup thead,
+ c900-plic request_threaded_irq with ONESHOT
+In-Reply-To: <20211028135523.5cf4b66b@redslave.neermore.group>
+References: <20211024013303.3499461-1-guoren@kernel.org>
+ <20211024013303.3499461-4-guoren@kernel.org>
+ <87a6ixbcse.wl-maz@kernel.org>
+ <20211028135523.5cf4b66b@redslave.neermore.group>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: nikita.shubin@maquefel.me, guoren@kernel.org,
+ anup@brainfault.org, atish.patra@wdc.com, tglx@linutronix.de,
+ palmer@dabbelt.com, heiko@sntech.de, robh@kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ guoren@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_075720_655260_2B514956 
-X-CRM114-Status: UNSURE (   7.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211028_075822_713569_EDEDB278 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +84,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
- From c83a7b83ff96ba77a7c26090ccdd42aa7722788f Mon Sep 17 00:00:00 2001
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Date: Thu, 28 Oct 2021 23:03:13 +0800
-Subject: [PATCH] riscv: Fix implicit declaration of function 'cpu_relax'
+On Thu, 28 Oct 2021 11:55:23 +0100,
+Nikita Shubin <nikita.shubin@maquefel.me> wrote:
+> 
+> Hello Marc and Guo Ren!
+> 
+> On Mon, 25 Oct 2021 11:48:33 +0100
+> Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > On Sun, 24 Oct 2021 02:33:03 +0100,
+> > guoren@kernel.org wrote:
+> > > 
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > > 
+> > > When using "devm_request_threaded_irq(,,,,IRQF_ONESHOT,,)" in the
+> > > driver, only the first interrupt could be handled, and continue irq
+> > > is blocked by hw. Because the thead,c900-plic couldn't complete
+> > > masked irq source which has been disabled in enable register. Add
+> > > thead_plic_chip which fix up c906-plic irq source completion
+> > > problem by unmask/mask wrapper.
+> > > 
+> > > Here is the description of Interrupt Completion in PLIC spec [1]:
+> > > 
+> > > The PLIC signals it has completed executing an interrupt handler by
+> > > writing the interrupt ID it received from the claim to the
+> > > claim/complete register. The PLIC does not check whether the
+> > > completion ID is the same as the last claim ID for that target. If
+> > > the completion ID does not match an interrupt source that is
+> > > currently enabled for the target, the ^^ ^^^^^^^^^ ^^^^^^^
+> > > completion is silently ignored.  
+> > 
+> > Given this bit of the spec...
+> > 
+> > > +static void plic_thead_irq_eoi(struct irq_data *d)
+> > > +{
+> > > +	struct plic_handler *handler =
+> > > this_cpu_ptr(&plic_handlers); +
+> > > +	if (irqd_irq_masked(d)) {
+> > > +		plic_irq_unmask(d);
+> > > +		writel(d->hwirq, handler->hart_base +
+> > > CONTEXT_CLAIM);
+> > > +		plic_irq_mask(d);
+> > > +	} else {
+> > > +		writel(d->hwirq, handler->hart_base +
+> > > CONTEXT_CLAIM);
+> > > +	}
+> > > +}
+> > > +  
+> > 
+> > ... it isn't obvious to me why this cannot happen on an SiFive PLIC.
+> 
+> This indeed happens with SiFive PLIC. I am currently tinkering with
+> da9063 RTC on SiFive Unmatched, and ALARM irq fires only once. However
+> with changes proposed by Guo Ren in plic_thead_irq_eoi, everything
+> begins to work fine.
+> 
+> May be these change should be propagated to plic_irq_eoi instead of
+> making a new function ?
 
-Including <asm/processor.h> to fix the implicit declaration of function
-'cpu_relax'.
+That's my impression too. I think the T-Head defect is pretty much
+immaterial when you consider how 'interesting' the PLIC architecture
+is. Conflating EOI and masking really is a misfeature...
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
-After  "include/linux/delay.h: replace kernel.h with the necessary 
-inclusions", we need this include.
+	M.
 
-  arch/riscv/lib/delay.c | 2 ++
-  1 file changed, 2 insertions(+)
-
-diff --git a/arch/riscv/lib/delay.c b/arch/riscv/lib/delay.c
-index f51c9a03bca1..8148dcdee894 100644
---- a/arch/riscv/lib/delay.c
-+++ b/arch/riscv/lib/delay.c
-@@ -8,6 +8,8 @@
-  #include <linux/timex.h>
-  #include <linux/export.h>
-
-+#include <asm/processor.h>
-+
-  /*
-   * This is copies from arch/arm/include/asm/delay.h
-   *
 -- 
-2.26.2
-
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
