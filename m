@@ -2,124 +2,85 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CF76C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E3BBC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:46:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 00FD1610A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:41:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 00FD1610A0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
+	by mail.kernel.org (Postfix) with ESMTPS id F1634610C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:46:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F1634610C7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KbR5TqC4sVhJ29Dfd0PW30WWpEzrYmxQ6KqbF6R/8Xo=; b=GYXd4Z64FxH6Os
-	snNGsJRnWrhIvcQt0cLZ/JT4L61bIGg88hp7CtV7SDFGd7xEfbbI4tmQxfsUJdu2q6mX95X8rJsRG
-	qw3akGhLOt3H9Sud1ET1+dTnaq+V0mh0YN4eXLKE0oV99MtUOMgZjCc12ibcWazRAsYNXwmk5f/gc
-	jiNL5mEo1ze27h88rmfQl14vu4FARku8L0Zo4CGeEnzvEpv0iN2pXD5c7b41KEYhNKxuVnGVR+X8P
-	I1fOSFyyOfUHn3Xu1Dhcs/pizSlEPH2mdLaorhU5kndo+SbYWx/FTIB2KUitkyoV8eIID7El8ppf/
-	K5eksLoQus7qgBTlv+Kw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=87qk/sBW/d8KjVtkLAldr+C0RsPQAG9tgAyX7WOkyYU=; b=dpiFE1ZIeRYWY1RMhte/2Lz+H0
+	jJAlXjR73KzqvLt1VIcQpMqevCbtEb6M1IshOH8tJMqfZz7zq+meIXjDrFFEviTjYAUEwv3B3AjnW
+	MQTQ2/Z0SNGdoYfLalBJM2e4iJ9q1rf4/bv4giHPBCXCsfAc5rzQnTw9ljJNyTdVJdvM/3R2pdMUt
+	olpjFSP5Tcihh7ivmyIqmCR5vZgTrOaGPhsRfYUyMafIak8P20ixDfuU32Rc7MpBW+J6rh3Xli7qn
+	DjffaB0L6T1VSzjA4K+5b5pxl3fUyZpiHdjJiDnrU2cvNLJqDzqiqVajp076ESpixjAipz0s9NKAB
+	rQqsovuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfz5y-0070Ko-Ku; Thu, 28 Oct 2021 06:41:02 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1mfzAj-0070uh-OA; Thu, 28 Oct 2021 06:45:57 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfz5u-0070KA-8Y; Thu, 28 Oct 2021 06:40:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1635403130;
- bh=9epiwmWdzTgZY2j4GBWRs9N0QEWknADgKRkQPvp+Ggo=;
- h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
- b=FXhe5yXxylYP540/EC+4AzkmLOP3fNSEmO39fyo/3NOlbWcEm0ryYTd7J3Iv20szB
- cWKWEC4dZ521NZJ4gyIpkKod8spMS5RmsFlBvqxTT96Vwc/S6HyYHyyyo0FoSjpetw
- nwPjJnU+hcraQ+NzVcLrxZf8To+aYZc5aH/99quU=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.20.60] ([92.116.152.46]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M3UZ6-1mfR6019Wc-000dpr; Thu, 28
- Oct 2021 08:38:50 +0200
-Message-ID: <6470d500-a832-9e1f-e3b9-4d3972b3996e@gmx.de>
-Date: Thu, 28 Oct 2021 08:38:35 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v2 16/45] parisc: Use do_kernel_power_off()
-Content-Language: en-US
-To: Dmitry Osipenko <digetx@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Guenter Roeck
- <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
- Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-17-digetx@gmail.com>
-From: Helge Deller <deller@gmx.de>
-In-Reply-To: <20211027211715.12671-17-digetx@gmail.com>
-X-Provags-ID: V03:K1:FyRzIrUgBb05q0bHWFRS/zQ/jjhGXy+pktz0g9vMu8rSAyG2PhH
- igLh0yuSJkfQClwGAYYVp96vDjlam7EqP3CW0lWkZ155s/JTRG7aXysFtzh8fsHm3d7JOnd
- U2wPiCoWHArr/c1zeopIGDkaYwvec8wHmOgMEvIr7aPgxK9GcFiXcIhkSKruN1bnrxyn2QX
- umWMtuIv0Xa3Bg/ofbf6Q==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Nt03nam4XH8=:N7PuLhTcs13ezPdb4QL3P5
- EAsOC32SEC/CwoA2+8DjNnTsILfn+sFrb9LZytvE/YP2J2Aj7Qx7fkEO40fY8T8rIBLGw9GX+
- NIsaN0+sjNJKdkOQlJE/AFyfJG+vQ7ahzCRk2HMLrf3z5M6K/b0L71tddrkVIJCMb7IuCUzph
- ykgDP6aZxfqVXIMaikKg097ePHHG0x47b/94G1+2NvXBe71nBfFTfm04TrvRNne2czLnMB+Lg
- v+wFHtJZ2jQ9cLfCu2fzZQuGkclVf14XlYnoDKMRVnVFWWYf0adoOjwfKSRtptB20/q31drw2
- HePgYF8sylMcfQbim3Wp4ygBdzf5/6i3x4H4dnB1q/EhvkJY/KiaZgrjHxrJkHNauXcVxsg6y
- 3vvk7psmlYjcJLo6ddOdIBc9OIQs133Ce1iU2wSod2qhYwBPSJppgIk8kJCYKzZxAzsnModUK
- BgEImgsOUGiDlYZe9Muppxy4TrQaqVmfjaM9kmqq8Gvz9GaOjVqBYmFsm570hW8BuF9BI+r+S
- 0GJuN3cdiVBY0G0MhcxnoHe4O22baIwcBDk2FnckJriXO5mZE3hJQVTcEKeAb2ybK5KNuVVY6
- nww/BdElXnSWt1HhtpoHRHlgigO4KvVdiDhtBi8tFoyeYg8pvvK9qgrlLqCEJsbs8TBaWRdRr
- 7fvMB1yoKM8dWEL+Z/gHindYZd433ys7huBzX1XyE7cCnO+L/FE5ZfETDY8DSBwlBCCD940Ri
- wkqaYntrDtmIkWD9BWTD4j7K3fgZUU7IPEaJZjdl5xWo8e268I+GMSTVMrUSVDmQzI7cEG+Lb
- i0qZzTuZiztLiwLZgXQVnYgopvNIgyfo6LMbZ9e4NuBR0ff+vu+fsAwWJH4T3BJlzoZYXX193
- PLDnh+2eGZNNZJ83DOYN1ApcqeJpwMwKyPuCFuf/SxuBIQ7A6oWrcCikiPFJaPxKlXhX5RTg8
- v7QQ4c9ImeWqMCb0i29R5vmks8Ui9IG2X5j/SIZwSpXutCAWE2F/LMHO+pOK/jVtTRVpgu0WW
- MapTUMEB41Z0LdVwL6aYL1P3sWB52Pfffr4C3r7aA/3cWiJWf1QCoiwOmHCTExfYhCTFuQCe5
- +ZRYgxUKbSq514=
+ id 1mfzAe-0070sp-Tr
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 06:45:56 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id 187so5031560pfc.10
+ for <linux-riscv@lists.infradead.org>; Wed, 27 Oct 2021 23:45:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=rs7fMWgOkQnNoOUFxUJo1UP4rGXZdVB5PK/ehuT/wOs=;
+ b=moYXi3sCthKWqjd8aa1IB7s1sTlgAwpEU9pwCTB3RBgXWVVUDx9DpO87dByWToojHQ
+ cbsxhmHWVBr6x+uOIyaQxzPCYoJdRTfabdhgVGJNuFvVbAEqvloIj/YAx4iPHx7EBU7t
+ Kb+UKW6rHex2Q6TDgKTjjsd8rBD8MfB9PZOgvfZkGnNWACOTdW3Smz1nasT/9WpW7mfS
+ yW/BJKn7nRM9xYiNEQ67dhZfTgked8WIww44DvOyshLVWtqBuM86/89q/1AWhGq1qfQ5
+ sPiiv2peIDPXnVkXQ9qxDgwre8Xondj7WPevy4S1lpalGkOB3v5iZk6UaqUjtKKNsH1x
+ kB3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=rs7fMWgOkQnNoOUFxUJo1UP4rGXZdVB5PK/ehuT/wOs=;
+ b=IfR9o5IMb9xJMrVaWoL4nioxWwFbm/h4mLdabzrUFy5oxxKSPLYQo3qYEA6FoBHEJt
+ yuTGlCH1ynk1kd2EW8mBNsOnzHCUWoqb7xIoUYyv92qDDMwtpHzfOmxlU0DMu8vbLma4
+ hd2p37uk6lRqZymxtOT4vow4NVi5GlMEFTn6hmDLH/al5DAoSEUaIhDCe8QG1vgjbVWJ
+ 05uQ3KaQ8Fg1IC4XTHDcMqSu3urfsLepryyNO6JrNsZjGsSHnSJWHCr3iGZR8XsR6pxQ
+ RjFVacC7N2twbkTSH4AC9mPVsgM5QfzmZiJX4lseYmEJ9lDtIA9/MsaDJBWgpEHRrAaJ
+ BSqg==
+X-Gm-Message-State: AOAM533GOCDFuX6Fx5eg7cjGLaG8Og03o9aKbTslWAW2AtfWL40H1/Ru
+ d31SRhV5wCMP5DHNP1XApsT9Eg==
+X-Google-Smtp-Source: ABdhPJwb7hB8sIlsiK99j0jhU8ekIHeKGaRy1UlxJfMJKL+ayYtiUgpQpVTRgcy0HQmuSrqapahzhw==
+X-Received: by 2002:a63:8f4c:: with SMTP id r12mr1863151pgn.0.1635403550335;
+ Wed, 27 Oct 2021 23:45:50 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id j16sm2310979pfj.16.2021.10.27.23.45.49
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 27 Oct 2021 23:45:49 -0700 (PDT)
+Date: Wed, 27 Oct 2021 23:45:49 -0700 (PDT)
+X-Google-Original-Date: Wed, 27 Oct 2021 23:40:23 PDT (-0700)
+Subject: Re: [PATCH 1/2] riscv: Fix asan-stack clang build
+In-Reply-To: <CA+zEjCus8+jzn074GwqhJ54Y180RASr_YaC=6zdBZSzonEtjDA@mail.gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+ dvyukov@google.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, nathan@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: alexandre.ghiti@canonical.com
+Message-ID: <mhng-3ac5b2b9-c9da-42e5-bc56-d779fb4dd1dd@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_234058_605693_1AFC83DD 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20211027_234552_992952_0D87C846 
+X-CRM114-Status: GOOD (  40.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,51 +92,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/27/21 23:16, Dmitry Osipenko wrote:
-> Kernel now supports chained power-off handlers. Use do_kernel_power_off()
-> that invokes chained power-off handlers. It also invokes legacy
-> pm_power_off() for now, which will be removed once all drivers will
-> be converted to the new power-off API.
->
-> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
+On Wed, 27 Oct 2021 22:34:32 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+> On Thu, Oct 28, 2021 at 7:30 AM Alexandre Ghiti
+> <alexandre.ghiti@canonical.com> wrote:
+>>
+>> On Thu, Oct 28, 2021 at 7:02 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> >
+>> > On Wed, 27 Oct 2021 21:15:28 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+>> > > On Thu, Oct 28, 2021 at 1:06 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> > >>
+>> > >> On Tue, 26 Oct 2021 21:58:42 PDT (-0700), alexandre.ghiti@canonical.com wrote:
+>> > >> > Nathan reported that because KASAN_SHADOW_OFFSET was not defined in
+>> > >> > Kconfig, it prevents asan-stack from getting disabled with clang even
+>> > >> > when CONFIG_KASAN_STACK is disabled: fix this by defining the
+>> > >> > corresponding config.
+>> > >> >
+>> > >> > Reported-by: Nathan Chancellor <nathan@kernel.org>
+>> > >> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+>> > >> > ---
+>> > >> >  arch/riscv/Kconfig             | 6 ++++++
+>> > >> >  arch/riscv/include/asm/kasan.h | 3 +--
+>> > >> >  arch/riscv/mm/kasan_init.c     | 3 +++
+>> > >> >  3 files changed, 10 insertions(+), 2 deletions(-)
+>> > >> >
+>> > >> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> > >> > index c1abbc876e5b..79250b1ed54e 100644
+>> > >> > --- a/arch/riscv/Kconfig
+>> > >> > +++ b/arch/riscv/Kconfig
+>> > >> > @@ -162,6 +162,12 @@ config PAGE_OFFSET
+>> > >> >       default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>> > >> >       default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+>> > >> >
+>> > >> > +config KASAN_SHADOW_OFFSET
+>> > >> > +     hex
+>> > >> > +     depends on KASAN_GENERIC
+>> > >> > +     default 0xdfffffc800000000 if 64BIT
+>> > >> > +     default 0xffffffff if 32BIT
+>> > >>
+>> > >> I thought I posted this somewhere, but this is exactly what my first
+>> > >> guess was.  The problem is that it's hanging on boot for me.  I don't
+>> > >> really have anything exotic going on, it's just a defconfig with
+>> > >> CONFIG_KASAN=y running in QEMU.
+>> > >>
+>> > >> Does this boot for you?
+>> > >
+>> > > Yes with the 2nd patch of this series which fixes the issue
+>> > > encountered here. And that's true I copied/pasted this part of your
+>> > > patch which was better than what I had initially done, sorry I should
+>> > > have mentioned you did that, please add a Codeveloped-by or something
+>> > > like that.
 
-Acked-by: Helge Deller <deller@gmx.de> # parisc
+OK, those should probably be in the opposite order (though it looks like 
+they're inter-dependent, which makes things a bit trickier).
 
+>> >
+>> > Not sure if I'm missing something, but it's still not booting for me.
+>> > I've put what I'm testing on palmer/to-test, it's these two on top of
+>> > fixes and merged into Linus' tree
+>> >
+>> >     *   6d7d351902ff - (HEAD -> to-test, palmer/to-test) Merge remote-tracking branch 'palmer/fixes' into to-test (7 minutes ago) <Palmer Dabbelt>
+>> >     |\
+>> >     | * 782551edf8f8 - (palmer/fixes) riscv: Fix CONFIG_KASAN_STACK build (6 hours ago) <Alexandre Ghiti>
+>> >     | * 47383e5b3c4f - riscv: Fix asan-stack clang build (6 hours ago) <Alexandre Ghiti>
+>> >     | * 64a19591a293 - (riscv/fixes) riscv: fix misalgned trap vector base address (9 hours ago) <Chen Lu>
+>> >     * |   1fc596a56b33 - (palmer/master, linus/master, linus/HEAD, master) Merge tag 'trace-v5.15-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace (11 hours ago) <Linus Torvalds>
+>> >
+>> > Am I missing something else?
+>>
+>> Hmm, that's weird, I have just done the same: cherry-picked both my
+>> commits on top of fixes (64a19591a293) and it boots fine with KASAN
+>> enabled. Maybe a config thing? I pushed my branch here:
+>> https://github.com/AlexGhiti/riscv-linux/tree/int/alex/kasan_stack_fixes_rebase
+>
+> I pushed the config I use and that boots in that branch, maybe there's
+> another issue somewhere.
 
+CONFIG_KASAN_VMALLOC=n is what's causing the failure.  I'm testing both 
+polarities of that, looks like your config has =y.  I haven't looked any 
+further as I'm pretty much cooked for tonight, but if you don't have 
+time then I'll try to find some time tomorrow.
 
-> ---
->  arch/parisc/kernel/process.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
-> index ea3d83b6fb62..928201b1f58f 100644
-> --- a/arch/parisc/kernel/process.c
-> +++ b/arch/parisc/kernel/process.c
-> @@ -26,6 +26,7 @@
->  #include <linux/module.h>
->  #include <linux/personality.h>
->  #include <linux/ptrace.h>
-> +#include <linux/reboot.h>
->  #include <linux/sched.h>
->  #include <linux/sched/debug.h>
->  #include <linux/sched/task.h>
-> @@ -114,8 +115,7 @@ void machine_power_off(void)
->  	pdc_chassis_send_status(PDC_CHASSIS_DIRECT_SHUTDOWN);
->
->  	/* ipmi_poweroff may have been installed. */
-> -	if (pm_power_off)
-> -		pm_power_off();
-> +	do_kernel_power_off();
->
->  	/* It seems we have no way to power the system off via
->  	 * software. The user has to press the button himself. */
->
-
+>>
+>> >
+>> > >
+>> > > Thanks,
+>> > >
+>> > > Alex
+>> > >
+>> > >>
+>> > >> > +
+>> > >> >  config ARCH_FLATMEM_ENABLE
+>> > >> >       def_bool !NUMA
+>> > >> >
+>> > >> > diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+>> > >> > index a2b3d9cdbc86..b00f503ec124 100644
+>> > >> > --- a/arch/riscv/include/asm/kasan.h
+>> > >> > +++ b/arch/riscv/include/asm/kasan.h
+>> > >> > @@ -30,8 +30,7 @@
+>> > >> >  #define KASAN_SHADOW_SIZE    (UL(1) << ((CONFIG_VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
+>> > >> >  #define KASAN_SHADOW_START   KERN_VIRT_START
+>> > >> >  #define KASAN_SHADOW_END     (KASAN_SHADOW_START + KASAN_SHADOW_SIZE)
+>> > >> > -#define KASAN_SHADOW_OFFSET  (KASAN_SHADOW_END - (1ULL << \
+>> > >> > -                                     (64 - KASAN_SHADOW_SCALE_SHIFT)))
+>> > >> > +#define KASAN_SHADOW_OFFSET  _AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+>> > >> >
+>> > >> >  void kasan_init(void);
+>> > >> >  asmlinkage void kasan_early_init(void);
+>> > >> > diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+>> > >> > index d7189c8714a9..8175e98b9073 100644
+>> > >> > --- a/arch/riscv/mm/kasan_init.c
+>> > >> > +++ b/arch/riscv/mm/kasan_init.c
+>> > >> > @@ -17,6 +17,9 @@ asmlinkage void __init kasan_early_init(void)
+>> > >> >       uintptr_t i;
+>> > >> >       pgd_t *pgd = early_pg_dir + pgd_index(KASAN_SHADOW_START);
+>> > >> >
+>> > >> > +     BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
+>> > >> > +             KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
+>> > >> > +
+>> > >> >       for (i = 0; i < PTRS_PER_PTE; ++i)
+>> > >> >               set_pte(kasan_early_shadow_pte + i,
+>> > >> >                       mk_pte(virt_to_page(kasan_early_shadow_page),
 
 _______________________________________________
 linux-riscv mailing list
