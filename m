@@ -2,102 +2,91 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E94FC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9808EC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:37:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 62B8160C4B
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:08:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 62B8160C4B
+	by mail.kernel.org (Postfix) with ESMTPS id 5208760F58
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 14:37:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5208760F58
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9eycz3v1jVGxjml+uNNor7Avx1TaiJyfUI3gNeJmuHk=; b=hB+aSfxRvgM+l6
-	N3p0hMI+i7UnX9deuNJcitRZceWAs22lU9M2YZ3EMs+VN1HarYq38g3geZww9aNcBaSYcMi/hkThd
-	47sSMVzu29H/3NqCbnD8eJb5VWBFM9qdSIXGNpc9O58+xRYolG1g/0cpwnqRuODC6OKagE6mN7gC0
-	hEmFDiyLqWTomiRVpAGLQYVt+wLVHUKLqb63DAofOVH5KENehO8YGdOcxvt6Y/8VeReJhXF+uQdBW
-	8n/Oy/tyQLczgbUbFIfi3h9yHc1NndSwJzwwn8iKuRD2iz/2nZaawG+WflYJdxEFOehcSHzYSTAeW
-	474MUf+lFtueDgR6AvLA==;
+	List-Owner; bh=9xOOcFBgQyKx5SnFbSBKOy7BVPRHRTQ+GnLgaF1SBG4=; b=t1/8weY3oXcbjc
+	GKctRz69fwISxShBP1ePE2Dtxu7oC3iOAgR/HEMTUltsOMu3kpxW+qNItEYkXIE3oqRKKKjr/zCnw
+	NGlRqoddZIgxAkl1LR+IEULwbV00CG21kenvja++A8YqEIkqtt5OFVehHjIm/MOb+COwZ1ywrOcvo
+	efdpxgyMs/KaXdNFeeVSrsghifQOJIQtj7pKm8yGLTwJK6J/HOJdIev8I7m97/eI6y96WZkUQG/05
+	T45DHw+/fHMKVbKUyPrz5vleEDt0DOZiGCd1fPDgQcdMlZaAolIbQpBkYdobS/7QG+KEtLsHAR5WZ
+	0Bx+OWHI4doZSY7IOXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg64V-0084Ro-Vd; Thu, 28 Oct 2021 14:08:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1mg6We-008Csp-Kb; Thu, 28 Oct 2021 14:37:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg64P-0084Q1-1d
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 14:07:54 +0000
+ id 1mg6W2-008Cgk-QP
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 14:36:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635430072;
+ s=mimecast20190719; t=1635431785;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=w/6u/2V3kbwOw+vCIQ7D9V9KhEUDROrBvfNcLoT9zUQ=;
- b=BMu8EbPMXBS/VroAqSNTvKel/ceTWErQUAdR0+Pt3N0akc0ySIqFRaiFU+LU7FW8t6j8rE
- yocdxDrZmooo9GrtQZtXR/ccJ+zQhnFZDvUBpbgOk/WjOGrEI2jiub0UBZnQFd4Y3bC41g
- nFHjxZimUKbxCJgwcRIOI4oicMtN7xs=
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-62-YfO--hgGMAy2_BlZaqMJJg-1; Thu, 28 Oct 2021 10:07:39 -0400
-X-MC-Unique: YfO--hgGMAy2_BlZaqMJJg-1
-Received: by mail-ed1-f69.google.com with SMTP id
- s18-20020a056402521200b003dd5902f4f3so5672880edd.23
- for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 07:07:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=w/6u/2V3kbwOw+vCIQ7D9V9KhEUDROrBvfNcLoT9zUQ=;
- b=fGWAFKc8qm8F+jOSyox8GuCYQ1snzdv6PFHi2JGue4CXP0S5dwP4XFUyEnhxebK1c/
- cZwCOJ0cDt2umlPGj35cC8YSEplpff6oj/GdotZuBaTjh0Q2m75M6yO5BElkYe2icrIc
- pRtcRVlVwHVT0WEGnBWPFKYj2vLaSPzgQtH8zu/8kKAc7k7xsMAlFt8fbiTKd/FPCE6+
- 57cKU4Dl+1qZyu7HbCQGB2lHjzH33x86kB75X+3X7kCPilXVqNEsX7oiMtV/8APbsXVY
- 3ld9StJP6+EJ8Qdrqu5ZZZcv66pETlYibzhjLcxft2Z/ta3a5Fe/c1BfbwyoohTpTsNP
- TGTA==
-X-Gm-Message-State: AOAM532Ij0kpBItS+vidpR2tM2SaIVgqa26rs/lXMp4AAXYf+U5snKXI
- 0mvBh3gcWv+k74wsMve0Zb3HDZuPuXuhPsSqxnWTiiiNmzZUifFCN8yFnWj5ZWxUUNb9WFmz+AW
- JzAXi4as2Zo8tjxZgjPhQJxGhv+a9
-X-Received: by 2002:a17:906:7b42:: with SMTP id
- n2mr5716168ejo.428.1635430058053; 
- Thu, 28 Oct 2021 07:07:38 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJy5XiquuYAH7SkWh2/xFy/qGlGMMv5yBFfuta79BJff+F3uPv7LPQF5rW36lriFN8dBTGu76g==
-X-Received: by 2002:a17:906:7b42:: with SMTP id
- n2mr5716144ejo.428.1635430057860; 
- Thu, 28 Oct 2021 07:07:37 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.gmail.com with ESMTPSA id gt36sm1448349ejc.13.2021.10.28.07.07.34
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 28 Oct 2021 07:07:37 -0700 (PDT)
-Message-ID: <62fe1c8e-abe0-5de9-5c00-3549faae1dba@redhat.com>
-Date: Thu, 28 Oct 2021 16:07:33 +0200
+ bh=rIPy/P0MkwnX24RiVT8XHV56FyrWxedIt/Yy+pyq4E4=;
+ b=SMD62PWblhhSX3tgimyLNIpB0WRIOMAOHYQsaYHKx4YxY6WRgW7MgaKl5K04QM3eB+BQbI
+ k0iJmCkaKISRTbcw8khw3rq68sCs6If63Np0xpG5MhsvBTCWPutOgwQy+2Axy1UPAQeGQd
+ 42ItOmFYMlP3kboAvnX4I921aL9wImc=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-309-LuCRe9MpMnC4avaZ8uFX4w-1; Thu, 28 Oct 2021 10:36:24 -0400
+X-MC-Unique: LuCRe9MpMnC4avaZ8uFX4w-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AE73C10A8E01;
+ Thu, 28 Oct 2021 14:36:19 +0000 (UTC)
+Received: from starship (unknown [10.40.194.243])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 18EDF100EA05;
+ Thu, 28 Oct 2021 14:36:03 +0000 (UTC)
+Message-ID: <33860db1f4951386347913d126ef7c8bc1655440.camel@redhat.com>
+Subject: Re: [PATCH v2 22/43] KVM: VMX: Drop unnecessary PI logic to handle
+ impossible conditions
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Thu, 28 Oct 2021 17:36:02 +0300
+In-Reply-To: <20211009021236.4122790-23-seanjc@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-23-seanjc@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.1.0
-Subject: Re: [PATCH 0/3] RISC-V: KVM: Few assorted changes
-To: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup@brainfault.org>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20211026170136.2147619-1-anup.patel@wdc.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20211026170136.2147619-1-anup.patel@wdc.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_070753_183435_5A8EC2F1 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20211028_073626_951144_DB5BD18D 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +98,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/10/21 19:01, Anup Patel wrote:
-> I had a few assorted KVM RISC-V changes which I wanted to sent after
-> KVM RISC-V was merged hence this series.
+On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
+> Drop sanity checks on the validity of the previous pCPU when handling
+> vCPU block/unlock for posted interrupts.  Barring a code bug or memory
+> corruption, the sanity checks will never fire, and any code bug that does
+> trip the WARN is all but guaranteed to completely break posted interrupts,
+> i.e. should never get anywhere near production.
 > 
-> These patches can also be found in riscv_kvm_assorted_v1 branch at:
-> https://github.com/avpatel/linux.git
+> This is the first of several steps toward eliminating kvm_vcpu.pre_cpu.
 > 
-> Anup Patel (3):
->    RISC-V: Enable KVM in RV64 and RV32 defconfigs as a module
->    RISC-V: KVM: Factor-out FP virtualization into separate sources
->    RISC-V: KVM: Fix GPA passed to __kvm_riscv_hfence_gvma_xyz() functions
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/posted_intr.c | 24 ++++++++++--------------
+>  1 file changed, 10 insertions(+), 14 deletions(-)
 > 
->   arch/riscv/configs/defconfig         |  15 ++-
->   arch/riscv/configs/rv32_defconfig    |   8 +-
->   arch/riscv/include/asm/kvm_host.h    |  10 +-
->   arch/riscv/include/asm/kvm_vcpu_fp.h |  59 +++++++++
->   arch/riscv/kvm/Makefile              |   1 +
->   arch/riscv/kvm/tlb.S                 |   4 +-
->   arch/riscv/kvm/vcpu.c                | 172 ---------------------------
->   arch/riscv/kvm/vcpu_fp.c             | 167 ++++++++++++++++++++++++++
->   8 files changed, 244 insertions(+), 192 deletions(-)
->   create mode 100644 arch/riscv/include/asm/kvm_vcpu_fp.h
->   create mode 100644 arch/riscv/kvm/vcpu_fp.c
-> 
+> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
+> index 67cbe6ab8f66..6c2110d91b06 100644
+> --- a/arch/x86/kvm/vmx/posted_intr.c
+> +++ b/arch/x86/kvm/vmx/posted_intr.c
+> @@ -118,12 +118,10 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
+>  	} while (cmpxchg64(&pi_desc->control, old.control,
+>  			   new.control) != old.control);
+>  
+> -	if (!WARN_ON_ONCE(vcpu->pre_pcpu == -1)) {
+> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		list_del(&vcpu->blocked_vcpu_list);
+> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		vcpu->pre_pcpu = -1;
+> -	}
+> +	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	list_del(&vcpu->blocked_vcpu_list);
+> +	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	vcpu->pre_pcpu = -1;
+>  }
+>  
+>  /*
+> @@ -153,14 +151,12 @@ int pi_pre_block(struct kvm_vcpu *vcpu)
+>  
+>  	WARN_ON(irqs_disabled());
+>  	local_irq_disable();
+> -	if (!WARN_ON_ONCE(vcpu->pre_pcpu != -1)) {
+> -		vcpu->pre_pcpu = vcpu->cpu;
+> -		spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -		list_add_tail(&vcpu->blocked_vcpu_list,
+> -			      &per_cpu(blocked_vcpu_on_cpu,
+> -				       vcpu->pre_pcpu));
+> -		spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> -	}
+> +
+> +	vcpu->pre_pcpu = vcpu->cpu;
+> +	spin_lock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+> +	list_add_tail(&vcpu->blocked_vcpu_list,
+> +		      &per_cpu(blocked_vcpu_on_cpu, vcpu->pre_pcpu));
+> +	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, vcpu->pre_pcpu));
+>  
+>  	WARN(pi_desc->sn == 1,
+>  	     "Posted Interrupt Suppress Notification set before blocking");
 
-Queued 2+3, thanks.
 
-Paolo
+
+Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+
+
 
 
 _______________________________________________
