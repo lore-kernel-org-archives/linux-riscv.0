@@ -2,91 +2,124 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 417F7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CF76C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:41:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 051EC6103C
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:06:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 051EC6103C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 00FD1610A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 06:41:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 00FD1610A0
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CWkZnpepNN5xME8R+xieI8j+8c1t5MHxnINgv/qWHWU=; b=VUqdMk0LN8UO/y
-	t5ykEZ96BBof0F1x03ccCn8jY2i/5zn5L/BPHt9+0TSvyiF2WcSofgcw4ZyxQpHu4JwUOUb3IVRMa
-	6bJ/bNE13OM7G6lK+YscKDL6HSkME2UKtV6gGEjJY4oc3W8ViPid9QPBYSKK1iZ3wiVpoZ9bQ5zCW
-	JkARzqxWi9lfUriKqxO38XMHRmWIyyGI+kQZMpV5Td5IecSgFGCI0wrh+yiJ76qkzbUQb+Ql0qCpy
-	ZM7oISUPFyguchb3Gm9TjEzJB+RkTgka07YcB6y2SXQcBqHaYltKHqZEGYW5FbWpRNoB/7tM5ulR9
-	/LvFntbsZ1lAT0fl6pcA==;
+	List-Owner; bh=KbR5TqC4sVhJ29Dfd0PW30WWpEzrYmxQ6KqbF6R/8Xo=; b=GYXd4Z64FxH6Os
+	snNGsJRnWrhIvcQt0cLZ/JT4L61bIGg88hp7CtV7SDFGd7xEfbbI4tmQxfsUJdu2q6mX95X8rJsRG
+	qw3akGhLOt3H9Sud1ET1+dTnaq+V0mh0YN4eXLKE0oV99MtUOMgZjCc12ibcWazRAsYNXwmk5f/gc
+	jiNL5mEo1ze27h88rmfQl14vu4FARku8L0Zo4CGeEnzvEpv0iN2pXD5c7b41KEYhNKxuVnGVR+X8P
+	I1fOSFyyOfUHn3Xu1Dhcs/pizSlEPH2mdLaorhU5kndo+SbYWx/FTIB2KUitkyoV8eIID7El8ppf/
+	K5eksLoQus7qgBTlv+Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfyYk-006xhk-Ge; Thu, 28 Oct 2021 06:06:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mfz5y-0070Ko-Ku; Thu, 28 Oct 2021 06:41:02 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfyYY-006xfR-7H
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 06:06:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635401189;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=QW1VwJpwnVmxxU7z0qT05ZJcs1uisimu/KzjDIJrxzY=;
- b=YeUC4xU3uGU0Gli7HlwrbCjdXO3seIOYnYGWK6TKjnHilLx8jkKDozXwc1KRO8hFI8/axX
- kpAHztnPk0FrFvQZtQuj4NW+MGul4Yd9GOVLxXc7rRU6TDYSpAeFqxzO19RaRYk429arEu
- hnpzlE2SFWCnp10Zcyns6XJYMlJQig8=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-575-FpD08W43OridSh2IluPe8g-1; Thu, 28 Oct 2021 02:06:25 -0400
-X-MC-Unique: FpD08W43OridSh2IluPe8g-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
- [10.5.11.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2367679EEF;
- Thu, 28 Oct 2021 06:06:17 +0000 (UTC)
-Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 9A8DC70953;
- Thu, 28 Oct 2021 06:05:36 +0000 (UTC)
-Message-ID: <49c6c208841a85dbcb397acdc7f20b81402e71fb.camel@redhat.com>
-Subject: Re: [PATCH v2 23/43] KVM: VMX: Use boolean returns for Posted
- Interrupt "test" helpers
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
- Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
- Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
- <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
- <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
- Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
- Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
- kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Thu, 28 Oct 2021 09:05:35 +0300
-In-Reply-To: <20211009021236.4122790-24-seanjc@google.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-24-seanjc@google.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ id 1mfz5u-0070KA-8Y; Thu, 28 Oct 2021 06:40:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1635403130;
+ bh=9epiwmWdzTgZY2j4GBWRs9N0QEWknADgKRkQPvp+Ggo=;
+ h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
+ b=FXhe5yXxylYP540/EC+4AzkmLOP3fNSEmO39fyo/3NOlbWcEm0ryYTd7J3Iv20szB
+ cWKWEC4dZ521NZJ4gyIpkKod8spMS5RmsFlBvqxTT96Vwc/S6HyYHyyyo0FoSjpetw
+ nwPjJnU+hcraQ+NzVcLrxZf8To+aYZc5aH/99quU=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.20.60] ([92.116.152.46]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M3UZ6-1mfR6019Wc-000dpr; Thu, 28
+ Oct 2021 08:38:50 +0200
+Message-ID: <6470d500-a832-9e1f-e3b9-4d3972b3996e@gmx.de>
+Date: Thu, 28 Oct 2021 08:38:35 +0200
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v2 16/45] parisc: Use do_kernel_power_off()
+Content-Language: en-US
+To: Dmitry Osipenko <digetx@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Guenter Roeck
+ <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
+ <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
+ Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
+ =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
+ Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
+ Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20211027211715.12671-1-digetx@gmail.com>
+ <20211027211715.12671-17-digetx@gmail.com>
+From: Helge Deller <deller@gmx.de>
+In-Reply-To: <20211027211715.12671-17-digetx@gmail.com>
+X-Provags-ID: V03:K1:FyRzIrUgBb05q0bHWFRS/zQ/jjhGXy+pktz0g9vMu8rSAyG2PhH
+ igLh0yuSJkfQClwGAYYVp96vDjlam7EqP3CW0lWkZ155s/JTRG7aXysFtzh8fsHm3d7JOnd
+ U2wPiCoWHArr/c1zeopIGDkaYwvec8wHmOgMEvIr7aPgxK9GcFiXcIhkSKruN1bnrxyn2QX
+ umWMtuIv0Xa3Bg/ofbf6Q==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Nt03nam4XH8=:N7PuLhTcs13ezPdb4QL3P5
+ EAsOC32SEC/CwoA2+8DjNnTsILfn+sFrb9LZytvE/YP2J2Aj7Qx7fkEO40fY8T8rIBLGw9GX+
+ NIsaN0+sjNJKdkOQlJE/AFyfJG+vQ7ahzCRk2HMLrf3z5M6K/b0L71tddrkVIJCMb7IuCUzph
+ ykgDP6aZxfqVXIMaikKg097ePHHG0x47b/94G1+2NvXBe71nBfFTfm04TrvRNne2czLnMB+Lg
+ v+wFHtJZ2jQ9cLfCu2fzZQuGkclVf14XlYnoDKMRVnVFWWYf0adoOjwfKSRtptB20/q31drw2
+ HePgYF8sylMcfQbim3Wp4ygBdzf5/6i3x4H4dnB1q/EhvkJY/KiaZgrjHxrJkHNauXcVxsg6y
+ 3vvk7psmlYjcJLo6ddOdIBc9OIQs133Ce1iU2wSod2qhYwBPSJppgIk8kJCYKzZxAzsnModUK
+ BgEImgsOUGiDlYZe9Muppxy4TrQaqVmfjaM9kmqq8Gvz9GaOjVqBYmFsm570hW8BuF9BI+r+S
+ 0GJuN3cdiVBY0G0MhcxnoHe4O22baIwcBDk2FnckJriXO5mZE3hJQVTcEKeAb2ybK5KNuVVY6
+ nww/BdElXnSWt1HhtpoHRHlgigO4KvVdiDhtBi8tFoyeYg8pvvK9qgrlLqCEJsbs8TBaWRdRr
+ 7fvMB1yoKM8dWEL+Z/gHindYZd433ys7huBzX1XyE7cCnO+L/FE5ZfETDY8DSBwlBCCD940Ri
+ wkqaYntrDtmIkWD9BWTD4j7K3fgZUU7IPEaJZjdl5xWo8e268I+GMSTVMrUSVDmQzI7cEG+Lb
+ i0qZzTuZiztLiwLZgXQVnYgopvNIgyfo6LMbZ9e4NuBR0ff+vu+fsAwWJH4T3BJlzoZYXX193
+ PLDnh+2eGZNNZJ83DOYN1ApcqeJpwMwKyPuCFuf/SxuBIQ7A6oWrcCikiPFJaPxKlXhX5RTg8
+ v7QQ4c9ImeWqMCb0i29R5vmks8Ui9IG2X5j/SIZwSpXutCAWE2F/LMHO+pOK/jVtTRVpgu0WW
+ MapTUMEB41Z0LdVwL6aYL1P3sWB52Pfffr4C3r7aA/3cWiJWf1QCoiwOmHCTExfYhCTFuQCe5
+ +ZRYgxUKbSq514=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211027_230630_367259_6C939E05 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20211027_234058_605693_1AFC83DD 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +136,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> Return bools instead of ints for the posted interrupt "test" helpers.
-> The bit position of the flag being test does not matter to the callers,
-> and is in fact lost by virtue of test_bit() itself returning a bool.
-> 
-> Returning ints is potentially dangerous, e.g. "pi_test_on(pi_desc) == 1"
-> is safe-ish because ON is bit 0 and thus any sane implementation of
-> pi_test_on() will work, but for SN (bit 1), checking "== 1" would rely on
-> pi_test_on() to return 0 or 1, a.k.a. bools, as opposed to 0 or 2 (the
-> positive bit position).
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/posted_intr.c | 4 ++--
->  arch/x86/kvm/vmx/posted_intr.h | 6 +++---
->  2 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
-> index 6c2110d91b06..1688f8dc535a 100644
-> --- a/arch/x86/kvm/vmx/posted_intr.c
-> +++ b/arch/x86/kvm/vmx/posted_intr.c
-> @@ -185,7 +185,7 @@ int pi_pre_block(struct kvm_vcpu *vcpu)
->  			   new.control) != old.control);
->  
->  	/* We should not block the vCPU if an interrupt is posted for it.  */
-> -	if (pi_test_on(pi_desc) == 1)
-> +	if (pi_test_on(pi_desc))
->  		__pi_post_block(vcpu);
->  
->  	local_irq_enable();
-> @@ -216,7 +216,7 @@ void pi_wakeup_handler(void)
->  			blocked_vcpu_list) {
->  		struct pi_desc *pi_desc = vcpu_to_pi_desc(vcpu);
->  
-> -		if (pi_test_on(pi_desc) == 1)
-> +		if (pi_test_on(pi_desc))
->  			kvm_vcpu_kick(vcpu);
->  	}
->  	spin_unlock(&per_cpu(blocked_vcpu_on_cpu_lock, cpu));
-> diff --git a/arch/x86/kvm/vmx/posted_intr.h b/arch/x86/kvm/vmx/posted_intr.h
-> index 7f7b2326caf5..36ae035f14aa 100644
-> --- a/arch/x86/kvm/vmx/posted_intr.h
-> +++ b/arch/x86/kvm/vmx/posted_intr.h
-> @@ -40,7 +40,7 @@ static inline bool pi_test_and_clear_on(struct pi_desc *pi_desc)
->  			(unsigned long *)&pi_desc->control);
->  }
->  
-> -static inline int pi_test_and_set_pir(int vector, struct pi_desc *pi_desc)
-> +static inline bool pi_test_and_set_pir(int vector, struct pi_desc *pi_desc)
->  {
->  	return test_and_set_bit(vector, (unsigned long *)pi_desc->pir);
->  }
-> @@ -74,13 +74,13 @@ static inline void pi_clear_sn(struct pi_desc *pi_desc)
->  		(unsigned long *)&pi_desc->control);
->  }
->  
-> -static inline int pi_test_on(struct pi_desc *pi_desc)
-> +static inline bool pi_test_on(struct pi_desc *pi_desc)
->  {
->  	return test_bit(POSTED_INTR_ON,
->  			(unsigned long *)&pi_desc->control);
->  }
->  
-> -static inline int pi_test_sn(struct pi_desc *pi_desc)
-> +static inline bool pi_test_sn(struct pi_desc *pi_desc)
->  {
->  	return test_bit(POSTED_INTR_SN,
->  			(unsigned long *)&pi_desc->control);
-Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+On 10/27/21 23:16, Dmitry Osipenko wrote:
+> Kernel now supports chained power-off handlers. Use do_kernel_power_off()
+> that invokes chained power-off handlers. It also invokes legacy
+> pm_power_off() for now, which will be removed once all drivers will
+> be converted to the new power-off API.
+>
+> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 
-Best regards,
-	Maxim Levitsky
+Acked-by: Helge Deller <deller@gmx.de> # parisc
+
+
+
+> ---
+>  arch/parisc/kernel/process.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
+> index ea3d83b6fb62..928201b1f58f 100644
+> --- a/arch/parisc/kernel/process.c
+> +++ b/arch/parisc/kernel/process.c
+> @@ -26,6 +26,7 @@
+>  #include <linux/module.h>
+>  #include <linux/personality.h>
+>  #include <linux/ptrace.h>
+> +#include <linux/reboot.h>
+>  #include <linux/sched.h>
+>  #include <linux/sched/debug.h>
+>  #include <linux/sched/task.h>
+> @@ -114,8 +115,7 @@ void machine_power_off(void)
+>  	pdc_chassis_send_status(PDC_CHASSIS_DIRECT_SHUTDOWN);
+>
+>  	/* ipmi_poweroff may have been installed. */
+> -	if (pm_power_off)
+> -		pm_power_off();
+> +	do_kernel_power_off();
+>
+>  	/* It seems we have no way to power the system off via
+>  	 * software. The user has to press the button himself. */
+>
 
 
 _______________________________________________
