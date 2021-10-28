@@ -2,92 +2,71 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D4FFC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 16:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D291C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 16:11:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F20326058D
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 16:10:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F20326058D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id C83B76058D
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 16:11:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C83B76058D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bClDqFN4ifWByebNR4Wbjo5NZBbEfvag/s8i6Iw6fsw=; b=XXc1FxSEm0QdXO
-	5cJT/xM4jFUfSQiY2XNPM8DkgjyTEgkY7hCm1k7WwZNZEFIJcVO+fZB9Uc8nHkj4fx9qPX3hppkDi
-	nsXBaNTI30S2EdBM/IfyBwFxQ8OjyWvEz8/nROzdNZQ7F/m1kCyKOSbdWVy8fTg0oSowUA/F1FpNk
-	O4aqMOGRig7FMkwgSvRRTCocaeujXm3DGd7ppcdVmffyddI9IaxJWKyKfplmITJ3HaTtrL7hlnjRC
-	vWCaZ3Oq2NuUTfYmgOHYVe5C8QHPPV35D3szEjGoZIJ1nQVRW0A9oIIhwfGNi+psDzcwF8KZGud/y
-	us6cykS4pqDZU88vO0zQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lfHPRQxBwjOqW7OJYzuaJvA9nURJJH3m7+ybmSDi1Uk=; b=hxzM9uPog24O16
+	0VeqFylNG0Qpf+hB+SUh+/zu49bgnBuyk4J3qwS9cBfNg8brcSCc0sOiD17X+knN79m2CK9nUCjjV
+	XsTGb8xb8gjR4h1j3kJ+ZjsFwTPAT8r9RBy/adWqjSbVQkVapmPDR3zyPai7JlEXvFWr9zRVU0l3u
+	nKIjFx9QWrTKNWNeaW7eZrv2RCdh6ZPVdMN2Fta13a0Mu7E3wGwMvCw7HWygxNK+aO4HZmncvXdih
+	UbQrfsRaXw5HwEGzgoJcN0/U5UDKwNXf21LxmYNoWykP+NoOG9eSp0OnTHOiM6GtAJ+CYd8XEKk63
+	U6I9JJFhLH+caXy9l4AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg7yb-008WQl-JI; Thu, 28 Oct 2021 16:10:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1mg7zg-008WlS-Ly; Thu, 28 Oct 2021 16:11:08 +0000
+Received: from mail-lf1-f43.google.com ([209.85.167.43])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg7yZ-008WPR-3h
- for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 16:10:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635437398;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=RPIozLU8n1iGsiSzHPyPa84e4ejX/UYwSJJGhpw0Bzs=;
- b=Cavcg8kYCez3L1P7/Nryd2w594yDq1v5IjOY0wGJh60DlGqsu9s08DFBWTqcZA3VNy7aVr
- ukCGsHvefXozm+ZKZbOn2v5yjgJdxOvQb9alkA6ib/93ADvNdPtnhBT4z4xU+FyfwkJ6jv
- dTZxJztXlZPNndIg585IXCxkEr3gVds=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-46-PimS6ymnOV-UnZZtG5v5zw-1; Thu, 28 Oct 2021 12:09:56 -0400
-X-MC-Unique: PimS6ymnOV-UnZZtG5v5zw-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
- [10.5.11.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9E21580A5C0;
- Thu, 28 Oct 2021 16:09:52 +0000 (UTC)
-Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 79BD660843;
- Thu, 28 Oct 2021 16:09:42 +0000 (UTC)
-Message-ID: <5769bb700d94c3828bdef57963a3fe9422e801e7.camel@redhat.com>
-Subject: Re: [PATCH v2 27/43] KVM: VMX: Move Posted Interrupt ndst
- computation out of write loop
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
- Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
- Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
- <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
- <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
- Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
- Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
- kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Thu, 28 Oct 2021 19:09:41 +0300
-In-Reply-To: <643d9c249b5863f04290a6f047ea1a2d98bd75f9.camel@redhat.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-28-seanjc@google.com>
- <643d9c249b5863f04290a6f047ea1a2d98bd75f9.camel@redhat.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ id 1mg7zd-008Win-QN
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 16:11:07 +0000
+Received: by mail-lf1-f43.google.com with SMTP id u11so14711481lfs.1
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 09:11:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=FvbhACnEYV1022Gk5eA/3v6HqT63c7KWu84vs0/IVbY=;
+ b=5B3av27vokGEQKe0lEsBkyhWvbzxO/ixDGJTV61a1+fcHej8G3hGoo/CBEqP90bIdu
+ U53KB0uK/63/RDEKnCM5qOlSYvk3S0WkZccan2jl/Fb99pYhfgydpGKB9Ucw1BjuwJfN
+ 7DdNdwd44E0KNODKmR0Ej8/5Qy3q6+uqcnJTS612yec073Idn+i0bKB9ca5IEB34XEXN
+ Gzq2FHlrn4uczuzkTtu/k6grDiIjOgDqtVFOCDZxjZMvdd2EbEKjd8WPe9O82yymWo1M
+ vyu0L9v6MdekdLmgIl7fkTIzeE/TdhOdWGtgWoqmhAf4Nu+fTUI2W/ECxWUHCq/DhSzh
+ j6HA==
+X-Gm-Message-State: AOAM532OYTMnwmLFpJMb+323DIUB590B5cQDkt8kwAO28EYWSBxpmjMW
+ +0Gcfu+P0l4aDZhEbYUadfdPfIc5GsQ=
+X-Google-Smtp-Source: ABdhPJxzQ6+RW6xoki+y/0taUmPzC2/z2+vGdooU8FzF9JjLc2mfl3w6n/6unuLu8TcuuwjRX6K05w==
+X-Received: by 2002:ac2:4e15:: with SMTP id e21mr5274403lfr.655.1635437464097; 
+ Thu, 28 Oct 2021 09:11:04 -0700 (PDT)
+Received: from kladdkakan.. ([193.138.218.162])
+ by smtp.gmail.com with ESMTPSA id o17sm49680lfo.176.2021.10.28.09.11.03
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 28 Oct 2021 09:11:03 -0700 (PDT)
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: ast@kernel.org, daniel@iogearbox.net, netdev@vger.kernel.org,
+ bpf@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, linux-riscv@lists.infradead.org
+Subject: [PATCH bpf-next v2 0/4] Various RISC-V BPF improvements
+Date: Thu, 28 Oct 2021 18:10:53 +0200
+Message-Id: <20211028161057.520552-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_090959_264093_E8DC4E9B 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20211028_091105_879834_0CBF7CCE 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,95 +78,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2021-10-28 at 14:28 +0300, Maxim Levitsky wrote:
-> On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> > Hoist the CPU => APIC ID conversion for the Posted Interrupt descriptor
-> > out of the loop to write the descriptor, preemption is disabled so the
-> > CPU won't change, and if the APIC ID changes KVM has bigger problems.
-> > 
-> > No functional change intended.
-> 
-> Is preemption always disabled in vmx_vcpu_pi_load? vmx_vcpu_pi_load is called from vmx_vcpu_load,
-> which is called indirectly from vcpu_load which is called from many ioctls,
-> which userspace does. In these places I don't think that preemption is disabled.
-
-You can disregard this, I missed the fact that we have 'int cpu = get_cpu();'
-which disables preemption in 'vcpu_load'
-
-Thus,
-
-Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
-
-
-Best regards,
-	Maxim Levitsky
-> 
-> Best regards,
-> 	Maxim Levitsky
-> 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/vmx/posted_intr.c | 25 +++++++++++--------------
-> >  1 file changed, 11 insertions(+), 14 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
-> > index fea343dcc011..2b2206339174 100644
-> > --- a/arch/x86/kvm/vmx/posted_intr.c
-> > +++ b/arch/x86/kvm/vmx/posted_intr.c
-> > @@ -51,17 +51,15 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
-> >  		goto after_clear_sn;
-> >  	}
-> >  
-> > -	/* The full case.  */
-> > +	/* The full case.  Set the new destination and clear SN. */
-> > +	dest = cpu_physical_id(cpu);
-> > +	if (!x2apic_mode)
-> > +		dest = (dest << 8) & 0xFF00;
-> > +
-> >  	do {
-> >  		old.control = new.control = READ_ONCE(pi_desc->control);
-> >  
-> > -		dest = cpu_physical_id(cpu);
-> > -
-> > -		if (x2apic_mode)
-> > -			new.ndst = dest;
-> > -		else
-> > -			new.ndst = (dest << 8) & 0xFF00;
-> > -
-> > +		new.ndst = dest;
-> >  		new.sn = 0;
-> >  	} while (cmpxchg64(&pi_desc->control, old.control,
-> >  			   new.control) != old.control);
-> > @@ -103,15 +101,14 @@ static void __pi_post_block(struct kvm_vcpu *vcpu)
-> >  	WARN(pi_desc->nv != POSTED_INTR_WAKEUP_VECTOR,
-> >  	     "Wakeup handler not enabled while the vCPU was blocking");
-> >  
-> > +	dest = cpu_physical_id(vcpu->cpu);
-> > +	if (!x2apic_mode)
-> > +		dest = (dest << 8) & 0xFF00;
-> > +
-> >  	do {
-> >  		old.control = new.control = READ_ONCE(pi_desc->control);
-> >  
-> > -		dest = cpu_physical_id(vcpu->cpu);
-> > -
-> > -		if (x2apic_mode)
-> > -			new.ndst = dest;
-> > -		else
-> > -			new.ndst = (dest << 8) & 0xFF00;
-> > +		new.ndst = dest;
-> >  
-> >  		/* set 'NV' to 'notification vector' */
-> >  		new.nv = POSTED_INTR_VECTOR;
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VW5mb3J0dW5hdGVseSBzZWxmdGVzdC9icGYgZG9lcyBub3QgYnVpbGQgZm9yIFJWNjQuIFRoaXMg
+c2VyaWVzIGZpeGVzCnRoYXQuCgoqIEpJVCByZXF1aXJlcyBtb3JlIGl0ZXJhdGlvbnMgdG8gY29u
+dmVyZ2UKKiBTb21lIE1ha2VmaWxlIGlzc3VlcwoqIGJwZl90cmFjaW5nLmggd2FzIG1pc3Npbmcg
+UklTQy1WIG1hY3JvcyBmb3IgUFRfUkVHUwoKTW9yZSBkZXRhaWxzIGFyZSBpbiBlYWNoIGNvbW1p
+dC4KClRoZXJlIGFyZSBzdGlsbCBtYW55IGZhaWxpbmcgdGVzdHMsIGJ1dCB0aGlzIGlzIGEgc3Rh
+cnQuCgoKQ2hlZXJzLApCasO2cm4KCnYxLT52MjogQSBuZXdsaW5lIHNuZWFrZWQgaW50byB0aGUg
+TWFrZWZpbGUgZm9yIHBhdGNoIDQsIHdoaWNoIGJyb2tlIHRoZSBidWlsZC4gUmVtb3ZlZC4KCkJq
+w7ZybiBUw7ZwZWwgKDQpOgogIHJpc2N2LCBicGY6IEluY3JlYXNlIHRoZSBtYXhpbXVtIG51bWJl
+ciBvZiBpdGVyYXRpb25zCiAgdG9vbHMgYnVpbGQ6IEFkZCBSSVNDLVYgdG8gSE9TVEFSQ0ggcGFy
+c2luZwogIHJpc2N2LCBsaWJicGY6IEFkZCBSSVNDLVYgKFJWNjQpIHN1cHBvcnQgdG8gYnBmX3Ry
+YWNpbmcuaAogIHNlbGZ0ZXN0cy9icGY6IEZpeCBicm9rZW4gcmlzY3YgYnVpbGQKCiBhcmNoL3Jp
+c2N2L25ldC9icGZfaml0X2NvcmUuYyAgICAgICAgfCAgMiArLQogdG9vbHMvbGliL2JwZi9icGZf
+dHJhY2luZy5oICAgICAgICAgIHwgMzIgKysrKysrKysrKysrKysrKysrKysrKysrKysrKwogdG9v
+bHMvc2NyaXB0cy9NYWtlZmlsZS5hcmNoICAgICAgICAgIHwgIDMgKystCiB0b29scy90ZXN0aW5n
+L3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUgfCAgMiArLQogNCBmaWxlcyBjaGFuZ2VkLCAzNiBpbnNl
+cnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQoKCmJhc2UtY29tbWl0OiBiMDY2YWJiYTNlZjE2YTRh
+MDg1ZDIzN2U5NWRhMGRlM2YwYjg3NzEzCi0tIAoyLjMyLjAKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
