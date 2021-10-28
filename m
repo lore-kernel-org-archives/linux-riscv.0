@@ -2,14 +2,14 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7564BC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 09:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 616F9C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 09:59:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B76E60FF2
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 09:53:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2B76E60FF2
+	by mail.kernel.org (Postfix) with ESMTPS id 279566044F
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 09:59:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 279566044F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,44 +18,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ZDKrkYiMco2zVgqHL5tOS225wYwBld32VIebjDAscU=; b=T8cuxVYCHCg1K7
-	p9NudqWNtOCsmU/eiLiJ9Q1sNoIn6p4zCOb2YcWsMdcMP1q+C6NSNsx3FFFAeCSH70fFzCuOsJmcR
-	uqlod1sPnKgzvN1r0z3G1pgHc1HJKiZcCKtI1RIIguB84MPSkgZmD52SP1IyJMiX0Ld2cZURNAWQ1
-	KKuTgxx7LT1KxYrEF7liWnp7naX2BV4G4u3y4zpse5juu86krm67VNvhIM0buv8p/h++5TC/yWdbu
-	4ImseFGdA069KPXvPDXJbEKPR9nJ6Ctdc6QLgN8tGNhoosvUnj3/iK8HBSHAji3nD5JOkLVg2lxKn
-	VBy3rxb5BL8tbSefguHg==;
+	List-Owner; bh=T0joi9BiFDxW8Qn9lImCsdlirUs43lbq51mqrb4ExQ4=; b=ECQwGB9/9mWpEV
+	kbqpnPrUxRZfdMcinDfl/gzG4tIaob56oZJ6drsSNeFyFlue3Aa1iV9odmxPws3xovNTDKTcnonh8
+	c4F/rmGrPctlqxAxDSXiioP3Dt+HWvBqgiEkT3xs2jvcdgbjGn2UgjORYvaV/xVlBVKCZa9AnDfLG
+	v+wrqIDp0mxknVBop811QNIv5W6i2nO+jGPWKOwSbm0qNngioJcDGgaqe1xhtHEhq7Zn1bwif/mzk
+	TBoe7eorUYg3aqH0Fba195ZWvgtgNh6slGyCPMwp5cs1NVpChFxT6fUGfypLAvK2N1g8qRCMVRIip
+	ioQeaYSAv/eoICc/eJJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg26K-007S46-7K; Thu, 28 Oct 2021 09:53:36 +0000
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
+	id 1mg2CF-007SNc-7Q; Thu, 28 Oct 2021 09:59:43 +0000
+Received: from mail-ot1-f44.google.com ([209.85.210.44])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg26H-007S3g-FC; Thu, 28 Oct 2021 09:53:34 +0000
-Received: by mail-ot1-f53.google.com with SMTP id
- x27-20020a9d459b000000b0055303520cc4so7746556ote.13; 
- Thu, 28 Oct 2021 02:53:33 -0700 (PDT)
+ id 1mg2C3-007SLl-NU; Thu, 28 Oct 2021 09:59:33 +0000
+Received: by mail-ot1-f44.google.com with SMTP id
+ n13-20020a9d710d000000b005558709b70fso1339432otj.10; 
+ Thu, 28 Oct 2021 02:59:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=uz31be5RzrXoa4uAxe1xyKZoIQd0wtsVVy1gZjyOGeo=;
- b=SKr/khx5H6dO/7isGhk3JmiLa3D8FzYyPuAeCoAe4gz4Xu7RQP/0Ziayh4hYC3ttqw
- 3IBoVQdTxx6HxiqLC0YNfpUnEkmJX2XA6pGomn01EUuYgYmU4TqsLtLXekYte9QjWT3M
- CU+yf0jcAa3PgPQGI2c1X4beakNcG+IslyUWDo/tLAC6U/CCWy6PzYOZSyOpE9VHwJoV
- mJiQeWeTTAvGVK5/q0JMTNcbvYAxjMx4ko0VuiX9jTPOoINStNwXeCydjR8HIWnvjpGv
- Wcwy4eWkVF5ON2ooGUGk6cQqnL4jJWY7JCbM6h01sw8OgJk4rm+Hb1ANFgBrVK2a/ffn
- 8Jaw==
-X-Gm-Message-State: AOAM5336cJ9M644gtJUACKf+lttOE+wErGINHl2L1M2CC5BwMTUsOAgJ
- 8QFS15caGlmbU11OxLZLyrI0/Tvkjaq6rqcRJ50=
-X-Google-Smtp-Source: ABdhPJzOhFRTFEQQ+n5tEP/bBwTFb0889hJMVw20FWNyFAcerxAE3whFQ+5AhX1ip3T9ogNIhdu7wA8+/uN9VNCEoX8=
-X-Received: by 2002:a9d:65c1:: with SMTP id z1mr2411564oth.198.1635414812552; 
- Thu, 28 Oct 2021 02:53:32 -0700 (PDT)
+ bh=YApfc+rtORQHprN7aKpnZNhl8TPl/VtOJQI8beQJmCY=;
+ b=bGVTUPpgYjYausvoEpeggmQeaFjwIlGZIqTBJG2+oMhw8fI67/MhlVslia9dlt+lJc
+ 4mjyhQpekdUuBGLPf/0732aNbkIEj/InGTDum0fkfs9xQ7n0t8t5gvrC9z01pn65tvRr
+ X0N7vz+8+o0xtGz0QlnaMUSQ+4IC54VgmuL+KDujBumiFDeHNr4+7JnWYoAQuBtW//eB
+ X8rqiUAEyryXbDJu6Ai3O3mmbBBSFlPqRVH1vy/UAKjxLX8DE39pwTOy/SrEUzyW71n5
+ VidleuVECQcMWzMKz1IuKHIbOzuq+ONxoP6xldq8DaVvhE6pT4zQGn34Og/k/mN/7rxZ
+ 6ddA==
+X-Gm-Message-State: AOAM530yQSeiQACXT5lTFrAmBe7r9vFe48YN16F96CZlme3wVlrP3h6U
+ BIaIEcVu4XT5HKAM9NH9LDGx5fWQg7rLNjoSflQ=
+X-Google-Smtp-Source: ABdhPJzD4cm7tn60vkyopY5CUMxUc9huwAUhS0IgxTyGcJq7Km0Bm+8fuUNsdZomFIBYzzQsRecVralPmU+TS+34zNY=
+X-Received: by 2002:a9d:65c1:: with SMTP id z1mr2427957oth.198.1635415170827; 
+ Thu, 28 Oct 2021 02:59:30 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211027211715.12671-1-digetx@gmail.com>
  <20211027211715.12671-9-digetx@gmail.com>
 In-Reply-To: <20211027211715.12671-9-digetx@gmail.com>
 From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 28 Oct 2021 11:53:20 +0200
-Message-ID: <CAJZ5v0jMdSjmkswzu18LSxcNk+k92Oz5XFFXmu-h=W8aPP4Oig@mail.gmail.com>
+Date: Thu, 28 Oct 2021 11:59:18 +0200
+Message-ID: <CAJZ5v0gpu2ezMhWr=grg6M8aWAx58DQozbXHoZaiPqUaZxJi4Q@mail.gmail.com>
 Subject: Re: [PATCH v2 08/45] kernel: Add combined power-off+restart handler
  call chain API
 To: Dmitry Osipenko <digetx@gmail.com>
@@ -72,8 +72,7 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
  Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
  Joshua Thompson <funaho@jurai.org>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
- Vincent Chen <deanbo422@gmail.com>, 
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, 
  "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
  Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
@@ -106,8 +105,8 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
  Linux OMAP Mailing List <linux-omap@vger.kernel.org>, openbmc@lists.ozlabs.org,
  linux-tegra <linux-tegra@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_025333_540545_8CFEB3B5 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20211028_025931_795233_5E0E59B0 
+X-CRM114-Status: GOOD (  35.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,6 +191,9 @@ On Wed, Oct 27, 2021 at 11:18 PM Dmitry Osipenko <digetx@gmail.com> wrote:
 > +#define POWEROFF_PRIO_DEFAULT          128
 > +#define POWEROFF_PRIO_HIGH             192
 > +#define POWEROFF_PRIO_FIRMWARE         224
+
+Also I'm wondering why these particular numbers were chosen, here and above?
+
 > +
 > +enum poweroff_mode {
 > +       POWEROFF_NORMAL = 0,
@@ -243,12 +245,81 @@ On Wed, Oct 27, 2021 at 11:18 PM Dmitry Osipenko <digetx@gmail.com> wrote:
 > + * Fill the structure members and pass it to register_power_handler().
 > + */
 > +struct power_handler {
+> +       /**
+> +        * @cb_data:
+> +        *
+> +        * User data included in callback's argument.
+> +        */
 
-The name of this structure is too generic IMV.  There are many things
-that it might apply to in principle.
+And here I would document the structure fields in the main kerneldoc
+comment above.
 
-What about calling power_off_handler or sys_off_handler as it need not
-be about power at all?
+As is, it is a bit hard to grasp the whole definition.
+
+> +       void *cb_data;
+> +
+> +       /**
+> +        * @power_off_cb:
+> +        *
+> +        * Callback that should turn off machine.  Inactive if NULL.
+> +        */
+> +       void (*power_off_cb)(struct power_off_data *data);
+> +
+> +       /**
+> +        * @power_off_prepare_cb:
+> +        *
+> +        * Power-off preparation callback.  All power-off preparation callbacks
+> +        * are invoked before @restart_cb.  Inactive if NULL.
+> +        */
+> +       void (*power_off_prepare_cb)(struct power_off_prep_data *data);
+> +
+> +       /**
+> +        * @power_off_priority:
+> +        *
+> +        * Power-off callback priority, must be unique.  Zero value is
+> +        * reassigned to default priority.  Inactive if @power_off_cb is NULL.
+> +        */
+> +       int power_off_priority;
+> +
+> +       /**
+> +        * @power_off_chaining_allowed:
+> +        *
+> +        * False if callbacks execution should stop when @power_off_cb fails
+> +        * to power off machine.  True if further lower priority power-off
+> +        * callback should be executed.
+> +        */
+> +       bool power_off_chaining_allowed;
+> +
+> +       /**
+> +        * @restart_cb:
+> +        *
+> +        * Callback that should reboot machine.  Inactive if NULL.
+> +        */
+> +       void (*restart_cb)(struct restart_data *data);
+> +
+> +       /**
+> +        * @restart_priority:
+> +        *
+> +        * Restart callback priority, must be unique.  Zero value is reassigned
+> +        * to default priority.  Inactive if @restart_cb is NULL.
+> +        */
+> +       int restart_priority;
+> +
+> +       /**
+> +        * @reboot_prepare_cb:
+> +        *
+> +        * Reboot preparation callback.  All reboot preparation callbacks are
+> +        * invoked before @restart_cb.  Inactive if NULL.
+> +        */
+> +       void (*reboot_prepare_cb)(struct reboot_prep_data *data);
+> +
+> +       /**
+> +        * @priv:
+> +        *
+> +        * Internal data.  Shouldn't be touched.
+> +        */
+> +       const struct power_handler_private_data priv;
+> +};
 
 _______________________________________________
 linux-riscv mailing list
