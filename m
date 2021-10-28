@@ -2,54 +2,63 @@ Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84EA2C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BD6E7C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 12:09:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A2816112F
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 11:59:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1A2816112F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 719C5610CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 12:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 719C5610CA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eABTXLYYc6YkBBIcUlX/C/8e196v6v1nOkcXC9MM8XQ=; b=FuN05uioqdMy+F8q/69gKUN7My
-	o0Zu1tGvDJYQfmz8LKTSd+l2gK93FWxefnMMfCAbedhaHZDYCyOMs0k5iHePLxspD8+FK/vJhe5O/
-	bpaUsnwQoQltFIJ2OpUaym0LkLhIa4u9JfN8eb6ysmgF6prO92guPFGW11U4IfmUbLhaRqyhq88PF
-	N4Tqhxp+7eFgdiIwJk5xSGKhRHiprURuJ0dYwqIl9WwfkciaT1wem5/Ld5xqP98mx1d7Ot+Adft8O
-	C615Tr88jSCCn6Z8MIccOXgCSEdWQVpXawvY93D0kAS70q17WCwS9aaIdeNYLVEelgxK0TnGNsuoe
-	lm4BVvFg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xuNiP5rya6NAthyb0PuPoInx2765aHIMjrSd1Qv9v4c=; b=Ks/e3ZN9VayAlC
+	1D/L8qma7I8YkcoTKh5e7Ds261bu36tKF4TR3k9h/g8cGMOyNVQLSIB3stCC8xRvHJ83ZYh1Atp/N
+	BNR0VJ6wi/SLGjBxaG//lm+qahozLSVplENlFChWdDUZpPHgjyoZUUYnTgDQirObiaiSD7kLjszoO
+	kn44nZVYpYTxCRfVKqWaLTi2Gec8cAMM9CLstsnIEhdGuDK9lAJwpMnYRnjR788hX+MVz2qJbGYf7
+	YxAXKFRxieYe3q9rh7rPZdGZWm+lT/CXNnpCoq+NnexCkuvGLaZpgX3q8yMxNvGihEiwpqHXWMx37
+	kjItiAcAt7zA+t2/9zgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mg448-007kvq-Ri; Thu, 28 Oct 2021 11:59:28 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mg4D7-007lY3-7C; Thu, 28 Oct 2021 12:08:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mg445-007kvC-DK; Thu, 28 Oct 2021 11:59:26 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 17810610FC;
- Thu, 28 Oct 2021 11:59:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635422364;
- bh=6SRnBqGEu6kfrjY8F8AIxFOXpP3mk9uNLODc5pl6vYo=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=PF+p5k3fPcX4g7U/HaBJuzIJ4k5E0pNaC5AYSReMWdptL5C6nDTIJaIE7qlYNYlG6
- n1n/PwUdpeEdECCRPixbjSlqTeevDW0OntTvozcAaeZnGpyg9v14UXE0Uy+uDhiwA4
- opUKp2Rh8z49oq5/De4kzH0wt2Tq2fvNA7/+mgp+6zfuqvEwWijrNqLYLBlBZuMPRL
- 88N447RwKebi4Ez1WZLL28f9yHI1UOy8Ip53Ye3TTKmeO3nK2Kc7hLybqU9+9eT+Gw
- dD6HWh7fPMZRMI/QpI/9KZ3rirsCMx4Hs00YhSbDpBEZNMfr2ZfvOMHA6ZLmKCwWDw
- xkF14RX5nWTCw==
-Date: Thu, 28 Oct 2021 12:59:08 +0100
-From: Mark Brown <broonie@kernel.org>
+ id 1mg4D2-007lTR-1k; Thu, 28 Oct 2021 12:08:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=GpuSFsY8v1fsacTBMl7cW/OISWXGLDeNRbuCtC30aBk=; b=W1PY6v3a0gl28+75siyBir0JE7
+ Fp7YVXk4eumpI7oh5l3VshDq6gvXTJzeDqwLIA7HtdW9RkL6pMp4IcYWBdC8YBeLJ884GA1gyp1tO
+ Y7fSb5TmfSsPkAYf5+Uv0jB+TwExUCboy8NE3ZdeLiqweYYbYNBNKy/YN8LtjXB1cJCNfECPWpzHJ
+ IjYFN8VRej9HsaWGHqoXgj+EX24TVLvhRR55/YJ4ERKX12tGykSGVvtNxtRka41e0YKfTDTz73ApZ
+ VsLBAxiQuI6I69R2lbhaxUKuFHbz65ETTSdY10Txs8zIAFlVFf6QU2JAAeKgvzmhciKkq1xCECSXs
+ jbUZCbwg==;
+Received: from shell.armlinux.org.uk
+ ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55352)
+ by pandora.armlinux.org.uk with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <linux@armlinux.org.uk>)
+ id 1mg49X-0007U2-7Y; Thu, 28 Oct 2021 13:05:03 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+ (envelope-from <linux@shell.armlinux.org.uk>)
+ id 1mg49J-0000E4-10; Thu, 28 Oct 2021 13:04:49 +0100
+Date: Thu, 28 Oct 2021 13:04:49 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Dmitry Osipenko <digetx@gmail.com>
 Cc: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
+ Guenter Roeck <linux@roeck-us.net>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>,
@@ -93,17 +102,16 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
  linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
  openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
  linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 24/45] regulator: pfuze100: Use
- devm_register_power_handler()
-Message-ID: <YXqQjG+5Eshm9fl5@sirena.org.uk>
+Subject: Re: [PATCH v2 10/45] ARM: Use do_kernel_power_off()
+Message-ID: <YXqR4T31FOguMnm9@shell.armlinux.org.uk>
 References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-25-digetx@gmail.com>
+ <20211027211715.12671-11-digetx@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20211027211715.12671-25-digetx@gmail.com>
-X-Cookie: try again
+Content-Disposition: inline
+In-Reply-To: <20211027211715.12671-11-digetx@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_045925_514169_F5225F9E 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20211028_050840_104346_4190629B 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,56 +123,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8654117215896577328=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 28, 2021 at 12:16:40AM +0300, Dmitry Osipenko wrote:
+> Kernel now supports chained power-off handlers. Use do_kernel_power_off()
+> that invokes chained power-off handlers. It also invokes legacy
+> pm_power_off() for now, which will be removed once all drivers will
+> be converted to the new power-off API.
+> 
+> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 
---===============8654117215896577328==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Wle3PKA2/qG6+6Vj"
-Content-Disposition: inline
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
+Thanks!
 
---Wle3PKA2/qG6+6Vj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Oct 28, 2021 at 12:16:54AM +0300, Dmitry Osipenko wrote:
-
-> Use devm_register_power_handler() that replaces global pm_power_off_prepare
-> variable and allows to register multiple power-off handlers.
-
-Acked-by: Mark Brown <broonie@kernel.org>
-
---Wle3PKA2/qG6+6Vj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmF6kIwACgkQJNaLcl1U
-h9AyhAf+Nziuu181EjKis21sdValh/0I2qd5n6cZmpuLUeA7g6K6TyFH79y+tEkd
-Itu0nx35rsztyjl7+A8ECF9S9uJGD1N0o3cruhqU01R5Kloz9mrUDRii5R3Uh+fm
-wjXlm+iYDXdXIzRmM07WyWi8rUTpLrhHx7ogAb291MVxgxc1LqxOBAwk6hcvnDCB
-aLDZSKk0LT7/yHSU+s5sBmll+K1S09x+XUfo/7VEuf9WqctxN8t6DgnigNeg1sU1
-S3cmBREB1bkkqHuPWJhOyUeW6YyuYI8inCcpXRNtdydg4jwo5l2h16fE8e0db953
-VsD3Y2dmLQu1qKxLNZUqHCelyjTPow==
-=sNsl
------END PGP SIGNATURE-----
-
---Wle3PKA2/qG6+6Vj--
-
-
---===============8654117215896577328==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8654117215896577328==--
-
