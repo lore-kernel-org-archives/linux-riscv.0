@@ -1,70 +1,75 @@
-Return-Path: <SRS0=RxHG=PP=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=BStT=PQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDB80C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CDE68C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 01:00:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AA2E7610C7
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Oct 2021 23:56:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AA2E7610C7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 86329608FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Oct 2021 01:00:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 86329608FE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hh4qn5UgBHuVQ5rXPmyjWje3DsOQn/A+58m2vu/qLVg=; b=OPg/Aj55nzectN
-	vN5I+wkujk6s+l2ZPVmrI2ZW+Nhf3wNkpmYK4SBOIac63FlTUj8C40HwhkpYGlPshto96/Ufs0qIc
-	kuo0Zej4uFpFx2rbQUqX6CdsGh9ThX8KDEsSZEKb/hbM398K45qamhY0MInzOfwfWXKzw+ytnu2se
-	8TcnwDGInkQ6iAnvwEpOLRyl/arM6by5MeH9lsx1OQCVFvVggSiqZ/nS23MblV/HOUESpHhBmdH/z
-	G/yZC7r9cRWs+X1xzMTr+H2OdkaChqP97IX+S1iwY1VPlrPYkO0teU7eKmJQRiV3V7xCGyqEgHZVL
-	LW4wpWHca3TZbcCtdONg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rT8XH9h2iG95LVDPZ7WXTQoG0SGHt+ZTtHGUcs9AeJ8=; b=HNClakf/kDcVeQCq8rmQmrwPbJ
+	JjSHnw2jo+lrHqDANo5b0IPwv8zZQ0sjtZepWYGTAlbvwuJkdBrCvzeTlbuqcNIbsSrhvoklWJv1x
+	KB0qC5YCqKIpbgwRepCRl4PSqY5h0mcvN5Um2UyTayfuhlCRqD5VAzDH6tAN18FGwasObMucgHY4p
+	j9RpV7+h//AXTxftkPEtHJMioBLNKHTcxg5REwJ88Qy+GX3E1f99GDqll/NcTW4pK7BojWt5FAtSe
+	dKc7NBOvVtAqJk7pzfIIxUa19NCfwJQVfx78sLuXfgPtSulgrpx+zw2Sb40JT/S+0NZjS2VBXf4r8
+	NP1hIEFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mfsmE-006YAj-QF; Wed, 27 Oct 2021 23:56:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1mftm8-006b3t-6t; Thu, 28 Oct 2021 01:00:12 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfsmD-006YAW-1S
- for linux-riscv@bombadil.infradead.org; Wed, 27 Oct 2021 23:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=uaHP/5CNeknkvdQqlYux9JKbF3Os/NOVgWFL4DmxVqo=; b=BEbjQ7BsDvBQr3vY3WnmnqH21A
- voYEItu/5E9foQ4IdcOEs8DWN/51FUC4KAVDkv0YU1rFuZ/oxH75MmkNiMku5eZu+tStFy2qilxJz
- QdpET5zKnO97HCcl0ifPOTc//wKPcPs2N23guzYK7XVvunSwNWTpIpgsejdBfOw/7YswYfktvN1jq
- JLmUTtnGDdUYQd0r2aTRrWDlsu4gDQYlbNqMtYznsSm/dmpHqxmS9LStRzd8+h7Q9yA1bUXazoeoR
- w+bALvVaMlxAeijtoKZ8nHoRakaVLqmzmed6fgpMtlVfTBkkrLwNbZsZ0aBR0h4dSHKBs3a7wDiM0
- cO6S1PGg==;
-Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mfsmA-00Ce4b-1E; Wed, 27 Oct 2021 23:56:10 +0000
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
- id 69326410A1; Wed, 27 Oct 2021 20:56:06 -0300 (-03)
-Date: Wed, 27 Oct 2021 20:56:06 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Alistair Francis <alistair.francis@opensource.wdc.com>
-Cc: linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
- dvhart@infradead.org, tglx@linutronix.de,
- alexander.shishkin@linux.intel.com, jolsa@redhat.com,
- namhyung@kernel.org, mingo@redhat.com, atish.patra@wdc.com,
- linux-kernel@vger.kernel.org, arnd@arndb.de, alistair23@gmail.com,
- mark.rutland@arm.com, peterz@infradead.org, dave@stgolabs.net,
- Alistair Francis <alistair.francis@wdc.com>,
- Davidlohr Bueso <dbueso@suse.de>
-Subject: Re: [PATCH v5 1/4] perf bench futex: Call the futex syscall from a
- function
-Message-ID: <YXnnFj19AnEq4f+g@kernel.org>
-References: <20211022013343.2262938-1-alistair.francis@opensource.wdc.com>
+ id 1mftm4-006b2c-TN
+ for linux-riscv@lists.infradead.org; Thu, 28 Oct 2021 01:00:11 +0000
+Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.53])
+ by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4HfnH018nsz1DHqv;
+ Thu, 28 Oct 2021 08:58:04 +0800 (CST)
+Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
+ dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.15; Thu, 28 Oct 2021 09:00:00 +0800
+Received: from [10.174.179.234] (10.174.179.234) by
+ kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.15; Thu, 28 Oct 2021 08:59:58 +0800
+Subject: Re: [PATCH bpf-next,v3] riscv, bpf: Add BPF exception tables
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+References: <20211027111822.3801679-1-tongtiangen@huawei.com>
+ <CAJ+HfNhC=hfFnjVvCf=bw+n1msRjR3gGUyapAmsRDupZ5CusrQ@mail.gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
+ <xi.wang@gmail.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, LKML
+ <linux-kernel@vger.kernel.org>, Netdev <netdev@vger.kernel.org>, bpf
+ <bpf@vger.kernel.org>
+From: tongtiangen <tongtiangen@huawei.com>
+Message-ID: <d5c619a0-9632-6d13-c86b-46e3c2a16dcc@huawei.com>
+Date: Thu, 28 Oct 2021 08:59:58 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.7.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211022013343.2262938-1-alistair.francis@opensource.wdc.com>
-X-Url: http://acmel.wordpress.com
+In-Reply-To: <CAJ+HfNhC=hfFnjVvCf=bw+n1msRjR3gGUyapAmsRDupZ5CusrQ@mail.gmail.com>
+X-Originating-IP: [10.174.179.234]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemm600017.china.huawei.com (7.193.23.234)
+X-CFilter-Loop: Reflected
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20211027_180009_500043_9967DE66 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,155 +81,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Fri, Oct 22, 2021 at 11:33:40AM +1000, Alistair Francis escreveu:
-> From: Alistair Francis <alistair.francis@wdc.com>
-> 
-> In preparation for a more complex futex() function let's convert the
-> current macro into two functions. We need two functions to avoid
-> compiler failures as the macro is overloaded.
-> 
-> This will allow us to include pre-processor conditionals in the futex
-> syscall functions.
-
-Thanks, applied both patches.
-
-- Arnaldo
-
- 
-> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> Acked-by: Davidlohr Bueso <dbueso@suse.de>
-> ---
->  tools/perf/bench/futex.h | 43 ++++++++++++++++++++++++----------------
->  1 file changed, 26 insertions(+), 17 deletions(-)
-> 
-> diff --git a/tools/perf/bench/futex.h b/tools/perf/bench/futex.h
-> index b3853aac3021c..ebdc2b032afc1 100644
-> --- a/tools/perf/bench/futex.h
-> +++ b/tools/perf/bench/futex.h
-> @@ -28,7 +28,7 @@ struct bench_futex_parameters {
->  };
->  
->  /**
-> - * futex() - SYS_futex syscall wrapper
-> + * futex_syscall() - SYS_futex syscall wrapper
->   * @uaddr:	address of first futex
->   * @op:		futex op code
->   * @val:	typically expected value of uaddr, but varies by op
-> @@ -38,17 +38,26 @@ struct bench_futex_parameters {
->   * @val3:	varies by op
->   * @opflags:	flags to be bitwise OR'd with op, such as FUTEX_PRIVATE_FLAG
->   *
-> - * futex() is used by all the following futex op wrappers. It can also be
-> + * futex_syscall() is used by all the following futex op wrappers. It can also be
->   * used for misuse and abuse testing. Generally, the specific op wrappers
-> - * should be used instead. It is a macro instead of an static inline function as
-> - * some of the types over overloaded (timeout is used for nr_requeue for
-> - * example).
-> + * should be used instead.
->   *
->   * These argument descriptions are the defaults for all
->   * like-named arguments in the following wrappers except where noted below.
->   */
-> -#define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
-> -	syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3)
-> +static inline int
-> +futex_syscall(volatile u_int32_t *uaddr, int op, u_int32_t val, struct timespec *timeout,
-> +	      volatile u_int32_t *uaddr2, int val3, int opflags)
-> +{
-> +	return syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
-> +}
-> +
-> +static inline int
-> +futex_syscall_nr_requeue(volatile u_int32_t *uaddr, int op, u_int32_t val, int nr_requeue,
-> +			 volatile u_int32_t *uaddr2, int val3, int opflags)
-> +{
-> +	return syscall(SYS_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
-> +}
->  
->  /**
->   * futex_wait() - block on uaddr with optional timeout
-> @@ -57,7 +66,7 @@ struct bench_futex_parameters {
->  static inline int
->  futex_wait(u_int32_t *uaddr, u_int32_t val, struct timespec *timeout, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
-> +	return futex_syscall(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
->  }
->  
->  /**
-> @@ -67,7 +76,7 @@ futex_wait(u_int32_t *uaddr, u_int32_t val, struct timespec *timeout, int opflag
->  static inline int
->  futex_wake(u_int32_t *uaddr, int nr_wake, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
-> +	return futex_syscall(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
->  }
->  
->  /**
-> @@ -76,7 +85,7 @@ futex_wake(u_int32_t *uaddr, int nr_wake, int opflags)
->  static inline int
->  futex_lock_pi(u_int32_t *uaddr, struct timespec *timeout, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_LOCK_PI, 0, timeout, NULL, 0, opflags);
-> +	return futex_syscall(uaddr, FUTEX_LOCK_PI, 0, timeout, NULL, 0, opflags);
->  }
->  
->  /**
-> @@ -85,7 +94,7 @@ futex_lock_pi(u_int32_t *uaddr, struct timespec *timeout, int opflags)
->  static inline int
->  futex_unlock_pi(u_int32_t *uaddr, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
-> +	return futex_syscall(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
->  }
->  
->  /**
-> @@ -97,8 +106,8 @@ static inline int
->  futex_cmp_requeue(u_int32_t *uaddr, u_int32_t val, u_int32_t *uaddr2, int nr_wake,
->  		 int nr_requeue, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
-> -		 val, opflags);
-> +	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
-> +					val, opflags);
->  }
->  
->  /**
-> @@ -113,8 +122,8 @@ static inline int
->  futex_wait_requeue_pi(u_int32_t *uaddr, u_int32_t val, u_int32_t *uaddr2,
->  		      struct timespec *timeout, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
-> -		     opflags);
-> +	return futex_syscall(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
-> +			     opflags);
->  }
->  
->  /**
-> @@ -130,8 +139,8 @@ static inline int
->  futex_cmp_requeue_pi(u_int32_t *uaddr, u_int32_t val, u_int32_t *uaddr2,
->  		     int nr_requeue, int opflags)
->  {
-> -	return futex(uaddr, FUTEX_CMP_REQUEUE_PI, 1, nr_requeue, uaddr2,
-> -		     val, opflags);
-> +	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE_PI, 1, nr_requeue, uaddr2,
-> +					val, opflags);
->  }
->  
->  #endif /* _FUTEX_H */
-> -- 
-> 2.31.1
-
--- 
-
-- Arnaldo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIxLzEwLzI4IDA6NTUsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gT24gV2VkLCAyNyBP
+Y3QgMjAyMSBhdCAxMzowMywgVG9uZyBUaWFuZ2VuIDx0b25ndGlhbmdlbkBodWF3ZWkuY29tPiB3
+cm90ZToKPj4KPj4gV2hlbiBhIHRyYWNpbmcgQlBGIHByb2dyYW0gYXR0ZW1wdHMgdG8gcmVhZCBt
+ZW1vcnkgd2l0aG91dCB1c2luZyB0aGUKPj4gYnBmX3Byb2JlX3JlYWQoKSBoZWxwZXIsIHRoZSB2
+ZXJpZmllciBtYXJrcyB0aGUgbG9hZCBpbnN0cnVjdGlvbiB3aXRoCj4+IHRoZSBCUEZfUFJPQkVf
+TUVNIGZsYWcuIFNpbmNlIHRoZSByaXNjdiBKSVQgZG9lcyBub3QgY3VycmVudGx5IHJlY29nbml6
+ZQo+PiB0aGlzIGZsYWcgaXQgZmFsbHMgYmFjayB0byB0aGUgaW50ZXJwcmV0ZXIuCj4+Cj4+IEFk
+ZCBzdXBwb3J0IGZvciBCUEZfUFJPQkVfTUVNLCBieSBhcHBlbmRpbmcgYW4gZXhjZXB0aW9uIHRh
+YmxlIHRvIHRoZQo+PiBCUEYgcHJvZ3JhbS4gSWYgdGhlIGxvYWQgaW5zdHJ1Y3Rpb24gY2F1c2Vz
+IGEgZGF0YSBhYm9ydCwgdGhlIGZpeHVwCj4+IGluZnJhc3RydWN0dXJlIGZpbmRzIHRoZSBleGNl
+cHRpb24gdGFibGUgYW5kIGZpeGVzIHVwIHRoZSBmYXVsdCwgYnkKPj4gY2xlYXJpbmcgdGhlIGRl
+c3RpbmF0aW9uIHJlZ2lzdGVyIGFuZCBqdW1waW5nIG92ZXIgdGhlIGZhdWx0aW5nCj4+IGluc3Ry
+dWN0aW9uLgo+Pgo+PiBBIG1vcmUgZ2VuZXJpYyBzb2x1dGlvbiB3b3VsZCBhZGQgYSAiaGFuZGxl
+ciIgZmllbGQgdG8gdGhlIHRhYmxlIGVudHJ5LAo+PiBsaWtlIG9uIHg4NiBhbmQgczM5MC4KPj4K
+Pj4gVGhlIHNhbWUgaXNzdWUgaW4gQVJNNjQgaXMgZml4ZWQgaW46Cj4+IGNvbW1pdCA4MDA4MzQy
+ODUzNjEgKCJicGYsIGFybTY0OiBBZGQgQlBGIGV4Y2VwdGlvbiB0YWJsZXMiKQo+Pgo+PiBTaWdu
+ZWQtb2ZmLWJ5OiBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1YXdlaS5jb20+Cj4+IFRlc3Rl
+ZC1ieTogUHUgTGVodWkgPHB1bGVodWlAaHVhd2VpLmNvbT4KPj4gLS0tCj4+IHYzOgo+PiBNb2Rp
+ZnkgYWNjb3JkaW5nIHRvIEJqw7ZybidzIGNvbW1lbnRzLCBtYWlubHkgY29kZSBvcHRpbWl6YXRp
+b24uCj4KPiBUaGFuayB5b3UhCj4KPiBJIHJhbiB0aGlzIHBhdGNoIGFnYWluc3QgdGhlIHRlc3Rf
+YnBmLmtvLCBhbmQgc2VsZnRlc3RzL2JwZiAtLSBubwo+IHJlZ3Jlc3Npb25zLCBhbmQgYWZ0ZXIg
+dGhlIHBhdGNoIGlzIGFwcGxpZWQgbW9yZSB0ZXN0cyBwYXNzZXMuIFlheSEKCkV4Y2l0aW5nIHRl
+c3QgcmVzdWx0LCBUaGFua3MhCgo+Cj4gT24gYSByZWxhdGVkIG5vdGUuIFRoZSBSSVNDLVYgc2Vs
+ZnRlc3RzL2JwZiBpcyBpbiBhIHByZXR0eSBsb3VzeQo+IHN0YXRlLiBJJ2xsIHNlbmQgYSBjbGVh
+bnVwIHBhdGNoIGZvciB0aGVtIHNvb25pc2guIEUuZy46Cj4KPiAqIFJJU0MtViBpcyBtaXNzaW5n
+IGluIGJwZl90cmFjaW5nLmggKGxpYmJwZikKPiAqIFNvbWUgcHJvZ3JhbXMgZG9uJ3QgY29udmVy
+Z2UgaW4gMTYgc3RlcHMsIEkgaGFkIHRvIGluY3JlYXNlIGl0IHRvIH4zMgo+ICogVGhlIHNlbGZ0
+ZXN0L2JwZiBNYWtlZmlsZSBuZWVkZWQgc29tZSBSViBzcGVjaWZpYyBjaGFuZ2VzCj4gKiAuLi5h
+IGxvdCBvZiB0ZXN0cyBzdGlsbCBkb24ndCBwYXNzLCBhbmQgbmVlZHMgdG8gYmUgbG9va2VkIGlu
+IHRvCj4KPiBGZWVsIGZyZWUgdG8gYWRkOgo+Cj4gQWNrZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJq
+b3JuQGtlcm5lbC5vcmc+Cj4KPj4gdjI6Cj4+IE1vZGlmeSBhY2NvcmRpbmcgdG8gQmrDtnJuJ3Mg
+Y29tbWVudHMsIG1haW5seSByZW1vdmVzIHJlZHVuZGFudCBoZWFkIGZpbGVzCj4+IGV4dGFibGUu
+aCBhbmQgc29tZSBjb2RlIHN0eWxlIGlzc3Vlcy4KPj4KPj4gIGFyY2gvcmlzY3YvbW0vZXh0YWJs
+ZS5jICAgICAgICAgfCAgMTkgKysrLQo+PiAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5oICAgICAg
+ICB8ICAgMSArCj4+ICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jIHwgMTg1ICsrKysr
+KysrKysrKysrKysrKysrKysrKystLS0tLS0tCj4+ICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2Nv
+cmUuYyAgIHwgIDE5ICsrLS0KPj4gIDQgZmlsZXMgY2hhbmdlZCwgMTc3IGluc2VydGlvbnMoKyks
+IDQ3IGRlbGV0aW9ucygtKQo+Pgo+Cj4gWy4uLl0KPgo+IEJqw7Zybgo+IC4KPgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
