@@ -2,14 +2,14 @@ Return-Path: <SRS0=3Oe1=PR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8AE9C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 05:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0596C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 05:01:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7C18B610E8
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 05:00:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7C18B610E8
+	by mail.kernel.org (Postfix) with ESMTPS id 5C70860FF2
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 05:01:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5C70860FF2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,66 +18,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OE/z2Swv9WVrhMxNifPSELLNvmF2kDXduyos3BtIQKQ=; b=j8JA5UGoztFCdr
-	Ru5PgXGzqCbtlQFs0wzQSzzNtBoVSk6U3CD6vC6Iqa2U1N4U4lZZ48e5HooSenoIX8GN+5e3m5nN/
-	hgPFhZrePDMcw13A8rmG+2R9b930De13z141ABZRznprwUuw6LI9DfNPgOP0XW6WGDqFgQPUiehhB
-	LD84e1VlQWR/zn0JUZjVZTLyIJUM7ZL+/Sf66Ix2Pxz1MrROEZAmJKjmmF0TSMVOGpKkvoDkDGqLM
-	1bT6qHG3vHoTp6LjZ54QVGuooI5A/Iz9S3P1iYF1Uk1DEfl9Kf6ZNbi2EsPce+O6uuw5xoYMLeeTE
-	BiP2FE6DAjQdzRd3oiFw==;
+	List-Owner; bh=XqZdH9mFoRyByHR0O8zSeG37hasuJ+3UXlMJhA/4ZDo=; b=HAEu3bwwpJQW0V
+	ukbpNUc63BAn5tp+0lVcGzk3Xa95AQba1TmtP094P3ijgtniGx8p80EKCKbOql3tFCn4+IetYjvLz
+	ru8wpp/AqZUZozpsB9LY/nam+6mZggeHsUKdVmIwFPLbsp+flfvu0ZTZcSmVP4gRrefpStTgDRlyb
+	nxgrydEPeB5+u0KBoEDH4Obav2qDcX5ypT6F5CKPpJ3bVxCpc5vDMjPXPFAdvqRZDOsMDQfYzt6Cq
+	tBR0zdHAORTscIMrtHjwqlo0Om7F9w4AdfeRcy8omZ94ioyRdSWbZxYZrHNEPuqjPnvHA7mYdks8k
+	cTUM2uoN1e/4wV1sABpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mgK0S-009pYW-D6; Fri, 29 Oct 2021 05:00:44 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1mgK1I-009pep-2q; Fri, 29 Oct 2021 05:01:36 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mgK0P-009pX9-AW
- for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 05:00:43 +0000
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69])
+ id 1mgK1F-009peM-MW
+ for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 05:01:35 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6E0E33F19B
- for <linux-riscv@lists.infradead.org>; Fri, 29 Oct 2021 05:00:33 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 7322B3F179
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Oct 2021 05:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1635483633;
- bh=fVrxR6rs0QgNgX/0Rgh0R5Yk7RWIkh0KqpodnVxs5fE=;
+ s=20210705; t=1635483692;
+ bh=e3b9czu737yTY5HxipcQc4ldTFaXsWhzUIsobScJLNg=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=dYEoaswMiqXEsOsoiCYi5EMlULbWzI/D4i/+0lrsof8s0G8IhPnwxrvA//REKgHa8
- qGF1FWv/oab8LihgxthnvWu+DQJi4BW8Mi93//CfZikWVfE2iVEZgjC181fl0s75jO
- I3P1xjlI9VrNe7i286z0Y5BfHEEKrX8IHyP38rmQhoU+y9mVA9j4HOFOJLxON2rvrj
- 5gyQs1Xr0J3oH25XuwjsfjkPW7eGuAArDyQgi8DlodEc4hSjIR7gJOR0L2dOHml6C5
- X3DEX6yCiaYqpLlIESmNathapi8wF86gzxMxuMX98XmfPAotrdwe8Wcdl0e7pq9J82
- t/KgjXzTjbn7g==
-Received: by mail-wr1-f69.google.com with SMTP id
- a15-20020a056000188f00b00161068d8461so2983694wri.11
- for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 22:00:33 -0700 (PDT)
+ b=v36YWjIpshGN28LmZTMlYTchrfEpRmm8zy7WhCu9jg6STXdT8AXsobUn6iJAdoQYV
+ vhhAvKyVfCWIwbH4PAdv3Fp4BIOONErrO0dQsThVJpHRdwb4Uv8R0UzB/NfRyjTLql
+ SK0Homo8QO0fvFdLy/PcgnSECPLPu1IV1c4ZkOq4w4/k4dkWVdmBmMO90fGOFgjzaY
+ 2B8R/2t/dS3tsrY0DmDxaHsN6NC6nFdE1wz8GFKxZr9VzzqV/5VjQhNRX6Y1EwP5rX
+ w4miUWbHiVzY9OZzsY5uFz/2dYfiaLw+2K0YIG3DVPSIjeFp6XOmJvJJxmnyEw7CjV
+ 1Zs2Ko5tI9aPA==
+Received: by mail-wr1-f71.google.com with SMTP id
+ y9-20020a5d6209000000b001684625427eso2989770wru.7
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 22:01:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=fVrxR6rs0QgNgX/0Rgh0R5Yk7RWIkh0KqpodnVxs5fE=;
- b=sm0S8whBoYZF/DiKoEcg2s4MqxTQm6bd5Bnjaqhajm6fXRUtUb+xqF/zhmvVmMbOak
- V0z/fGfOiu+pcsDv/EAZMs9VxbWWccFDkyK6W2JYRtXIib07zjYtTvZ0uhjn+ZziUwcI
- qTuksP5chyIin1Dki0iDxU0UGcBlKJNDc2xTP5hMqLS7dRIkHlFROKRTUHCbRbacqgHF
- zeE4goW4ayHOimY1NjN+5m8E+JdLSgHvX+qsZjeWiXPdjSWKyKT11eeWmGgR0VE5Ddln
- 00E+GeN2e91CPMbEN2PzKbsuWydi3ooRSbDbQTpS9sa1+WWwRO/hnxrAplFSApr6g1Nc
- vxdw==
-X-Gm-Message-State: AOAM532MnSALgnVlRWFdEISWRCXWL1pr9aLyomORszfta48GDiTwqTli
- KzFX9EdUfbmXk5g+CpijtoorMdvABlLAIUG67ez2Mr9vNE6qMSJ1R6FTo4n7DM2Zn7FmuGTImHE
- ub6jjjGT5PhETZZF/Atrr4EAQVSAVffhlKlVDcTWHJj5p9w==
-X-Received: by 2002:a05:6000:186a:: with SMTP id
- d10mr11818534wri.279.1635483631174; 
- Thu, 28 Oct 2021 22:00:31 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyVcMpOtY2oarkcGRWdba9hc9bb3yVUoAEIjsLxk+hc+TjKojuTqQUEEMBKdf1WYqhz7f/cXw==
-X-Received: by 2002:a05:6000:186a:: with SMTP id
- d10mr11818509wri.279.1635483630964; 
- Thu, 28 Oct 2021 22:00:30 -0700 (PDT)
+ bh=e3b9czu737yTY5HxipcQc4ldTFaXsWhzUIsobScJLNg=;
+ b=69w334uKBVv0gi2m/Zcun2+/W9e2012qP6lj+i0sxxN/ePi4odtYjQSDQY6dl5vZeb
+ cS5RBfyX52WPZ2vGMP6a7awuuVzkdR06h9f03NKEns11VuR1kpGGwwum0FnAsxiDw8f2
+ dbKGMATdx+W/8lq6soJDZEduQ/J6ACu6zgRxLxHiH8YxhAas6yK0dAJHNQ/9cQyvU54U
+ Q1/b+A/6dBiY5m2fhGAukpSSDXTPMoIQAJjbQZtCtwEGHwMkzlIIrXbyW4Vttul54TsP
+ 2zMoTdYIaa7vUKzS8SH7t8YeHjcQrD9mq4ZR5I+PIi6jlbtT0WrX/DIomjsueesWiof3
+ C/0g==
+X-Gm-Message-State: AOAM5300aXiXLCjBneRsuoLd/yjBp2AcAUuBVKfnmQDNvFO+3vZgPW6/
+ rIr3BnnfbiQGMV7zy05V+NDaxDltDAWAADJnvvtqG6FlF6nijZajSsbKMOYAJEKDBAlL52it/MX
+ hqsj783t03UyUdcABRsHY+X6dEgPYkCcaZBfHqeuf+Xftqg==
+X-Received: by 2002:a05:6000:18c7:: with SMTP id
+ w7mr11163979wrq.411.1635483692206; 
+ Thu, 28 Oct 2021 22:01:32 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy45uLdWITkTDkf90WKQstb5F5keb7gLh0VcPQewoIS+qMfoL4pR4HNkg5Z76EZjhtB6K3l1A==
+X-Received: by 2002:a05:6000:18c7:: with SMTP id
+ w7mr11163947wrq.411.1635483692049; 
+ Thu, 28 Oct 2021 22:01:32 -0700 (PDT)
 Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
  [2.7.60.249])
- by smtp.gmail.com with ESMTPSA id d9sm712512wre.52.2021.10.28.22.00.30
+ by smtp.gmail.com with ESMTPSA id g7sm6260959wrd.81.2021.10.28.22.01.31
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 Oct 2021 22:00:30 -0700 (PDT)
+ Thu, 28 Oct 2021 22:01:31 -0700 (PDT)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -86,18 +86,18 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Andrey Konovalov <andreyknvl@gmail.com>,
  Dmitry Vyukov <dvyukov@google.com>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [PATCH v2 1/2] riscv: Do not re-populate shadow memory with
- kasan_populate_early_shadow
-Date: Fri, 29 Oct 2021 06:59:26 +0200
-Message-Id: <20211029045927.72933-2-alexandre.ghiti@canonical.com>
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH v2 2/2] riscv: Fix asan-stack clang build
+Date: Fri, 29 Oct 2021 06:59:27 +0200
+Message-Id: <20211029045927.72933-3-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20211029045927.72933-1-alexandre.ghiti@canonical.com>
 References: <20211029045927.72933-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_220041_517689_5B53E3D4 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20211028_220133_890802_4D7977E6 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,52 +114,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When calling this function, all the shadow memory is already populated
-with kasan_early_shadow_pte which has PAGE_KERNEL protection.
-kasan_populate_early_shadow write-protects the mapping of the range
-of addresses passed in argument in zero_pte_populate, which actually
-write-protects all the shadow memory mapping since kasan_early_shadow_pte
-is used for all the shadow memory at this point. And then when using
-memblock API to populate the shadow memory, the first write access to the
-kernel stack triggers a trap. This becomes visible with the next commit
-that contains a fix for asan-stack.
+Nathan reported that because KASAN_SHADOW_OFFSET was not defined in
+Kconfig, it prevents asan-stack from getting disabled with clang even
+when CONFIG_KASAN_STACK is disabled: fix this by defining the
+corresponding config.
 
-We already manually populate all the shadow memory in kasan_early_init
-and we write-protect kasan_early_shadow_pte at the end of kasan_init
-which makes the calls to kasan_populate_early_shadow superfluous so
-we can remove them.
-
+Reported-by: Nathan Chancellor <nathan@kernel.org>
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- arch/riscv/mm/kasan_init.c | 11 -----------
- 1 file changed, 11 deletions(-)
+ arch/riscv/Kconfig             | 6 ++++++
+ arch/riscv/include/asm/kasan.h | 3 +--
+ arch/riscv/mm/kasan_init.c     | 3 +++
+ 3 files changed, 10 insertions(+), 2 deletions(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c3f3fd583e04..6d5b63bd4bd9 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -163,6 +163,12 @@ config PAGE_OFFSET
+ 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+ 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+ 
++config KASAN_SHADOW_OFFSET
++	hex
++	depends on KASAN_GENERIC
++	default 0xdfffffc800000000 if 64BIT
++	default 0xffffffff if 32BIT
++
+ config ARCH_FLATMEM_ENABLE
+ 	def_bool !NUMA
+ 
+diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+index a2b3d9cdbc86..b00f503ec124 100644
+--- a/arch/riscv/include/asm/kasan.h
++++ b/arch/riscv/include/asm/kasan.h
+@@ -30,8 +30,7 @@
+ #define KASAN_SHADOW_SIZE	(UL(1) << ((CONFIG_VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
+ #define KASAN_SHADOW_START	KERN_VIRT_START
+ #define KASAN_SHADOW_END	(KASAN_SHADOW_START + KASAN_SHADOW_SIZE)
+-#define KASAN_SHADOW_OFFSET	(KASAN_SHADOW_END - (1ULL << \
+-					(64 - KASAN_SHADOW_SCALE_SHIFT)))
++#define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+ 
+ void kasan_init(void);
+ asmlinkage void kasan_early_init(void);
 diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index d7189c8714a9..89a8376ce44e 100644
+index 89a8376ce44e..54294f83513d 100644
 --- a/arch/riscv/mm/kasan_init.c
 +++ b/arch/riscv/mm/kasan_init.c
-@@ -172,21 +172,10 @@ void __init kasan_init(void)
- 	phys_addr_t p_start, p_end;
- 	u64 i;
+@@ -17,6 +17,9 @@ asmlinkage void __init kasan_early_init(void)
+ 	uintptr_t i;
+ 	pgd_t *pgd = early_pg_dir + pgd_index(KASAN_SHADOW_START);
  
--	/*
--	 * Populate all kernel virtual address space with kasan_early_shadow_page
--	 * except for the linear mapping and the modules/kernel/BPF mapping.
--	 */
--	kasan_populate_early_shadow((void *)KASAN_SHADOW_START,
--				    (void *)kasan_mem_to_shadow((void *)
--								VMEMMAP_END));
- 	if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
- 		kasan_shallow_populate(
- 			(void *)kasan_mem_to_shadow((void *)VMALLOC_START),
- 			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
--	else
--		kasan_populate_early_shadow(
--			(void *)kasan_mem_to_shadow((void *)VMALLOC_START),
--			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
- 
- 	/* Populate the linear mapping */
- 	for_each_mem_range(i, &p_start, &p_end) {
++	BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
++		KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
++
+ 	for (i = 0; i < PTRS_PER_PTE; ++i)
+ 		set_pte(kasan_early_shadow_pte + i,
+ 			mk_pte(virt_to_page(kasan_early_shadow_page),
 -- 
 2.30.2
 
