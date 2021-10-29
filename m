@@ -2,14 +2,14 @@ Return-Path: <SRS0=3Oe1=PR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E67E6C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 01:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00CA1C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 01:50:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9E13061039
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 01:50:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9E13061039
+	by mail.kernel.org (Postfix) with ESMTPS id C7C4361039
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 01:50:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C7C4361039
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,76 +18,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vzHV7tL80Zlb1WchXqds/PH3rKf7B9zKU9YPRb8jEeQ=; b=gPE5+1o2EFmuTJ
-	5VQ4vTQMiN9PvgZnsqqal9QfbNplqr4Z1u5M7p99xlAYjG/PSwrnApkZDQI9Vsr79hjYp/GMrm0qj
-	hxaB2wRmNo4hmyeL+Xt6n9g7k3bGwgKQVsSpnzFhb35IrBBUYenMULaeKQRNoBrXSwIDHVlvR+xMD
-	AsuUT/NpI4INtaUZ/I+K4oFPxpnrFtA8ojA6fS2n4Lmgl9NumTDu9qAWdanq784q7RItr/Y/2vShF
-	sRkvWvtnvHuina6ETE79ZwF/ri20zhH2uO9TIF7CHFp7Fm5YvlrLnZhyx2QC/OXZDXXH/OV/hQRDr
-	Ito8x0mBiNygFdv9ydtQ==;
+	List-Owner; bh=XJrMtL90Cdjvv5qM+7Pyxc8IYVpXSomkfErVZTJrlIU=; b=d2KoApsry+2SIC
+	gI/hg8wrpFpJhfv79dI+W0FdKGnhF7D0Z922Jww1kj9hBaq3XF6t3/XWUNoysHjBuXqvDQYTw1EHT
+	jhtP/iXNFpJ6+hDKqpSrxpaVIucB6TEHtG0zza0Bd1nIQNPcOVm8lUNWKkqlIAnAvronBQmTmCHGz
+	uVCISc1/ST7Rn9StmABfHAMEfb0iQ2ZZMdol2dVFaL/BRu6vmLKjbQPZb3xCICLfZ1gIbxJbK180K
+	UrAxfno99YqzTRTfvlWHry8iRDeXy2ZkJGk3vrFe2ChfGiBcY+f4oXsqvPFlb2JZqKEBsJXZ6vPrQ
+	7nbKx2pUk6h1scQbrWTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mgH26-009UeW-Pa; Fri, 29 Oct 2021 01:50:14 +0000
-Received: from mail-ot1-f49.google.com ([209.85.210.49])
+	id 1mgH2P-009Ukh-SE; Fri, 29 Oct 2021 01:50:33 +0000
+Received: from mail-oi1-f176.google.com ([209.85.167.176])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mgH23-009Ud0-FB
- for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 01:50:13 +0000
-Received: by mail-ot1-f49.google.com with SMTP id
- n13-20020a9d710d000000b005558709b70fso4924706otj.10
- for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 18:50:10 -0700 (PDT)
+ id 1mgH2N-009UjS-9B
+ for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 01:50:32 +0000
+Received: by mail-oi1-f176.google.com with SMTP id y207so11091476oia.11
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 18:50:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=H3UM1yNKAMv5+ROxM01H3Les+3KYJBWUhYXsGVz9HXI=;
- b=0i4OpMrY2GTW3sHFmRFQvTY/Ilnpjos6zvssQhU71ivUbVAii3qYQ/2f9Q/oWY3LF7
- mQPEbIG1ekpVhcoKzsSg7sfZKSUc7nnKPF9afDze9//EMhteXZmDDKpvC6xjKV0Urxiv
- ox1wxyU1yl5xTL4lnldpxQKktmPSPJ/qL/w5SDoMcjgIlHmiD1cny2U9pjR8dsrgYGKq
- B7duWb6YmopeNMru3v7e9rG+4syzc6B2A8edjTX4C62ocvkVFw66OHufCbMZ5x63s48H
- hI/btg3mlfNbQZEvn9FQ0mdU2Lr5Gj9U+JTReEJMKgKpVny5RQw3PKNkf899f5GCcwOJ
- +FYg==
-X-Gm-Message-State: AOAM5304p9XZfsjb+viJaPIp8rfuTT/UyneiFTsaokdIC9Wu1PQjqr7o
- FAECY7O0bp33F8oE2+D68w==
-X-Google-Smtp-Source: ABdhPJzeqA4H7YRYKsGQX2iZPlbOJOxccklzl4S8ZEB0QiJVnICczvJHMmJHSe64OxJzbHZY4doVzw==
-X-Received: by 2002:a9d:20ea:: with SMTP id x97mr643726ota.152.1635472210373; 
- Thu, 28 Oct 2021 18:50:10 -0700 (PDT)
+ bh=eT3ChWaMOp5kyHbGSPNQZqiJesN+wKA5EP84+9fXwG4=;
+ b=DmWDBpiSOdzUuu2O2UG6yHVAXLOoLTufr4xkwEAbrg/aw8SdX678SFO0PcISQovUAa
+ ixEsNMBbpEnkpyH+Y3AsNYpn2jaHCmik0CAzN+l96Yi9PP7WICUbrQMsU7WdCUIWRoli
+ Dm5uEbGmgPRl8ZM6m9+I98UxXScdw8Wfj24iz+JmJ5MXr7c4aWq/wPGGCi1aecjPpiP+
+ QUfWWbwkwS/jIEg07AjcdYStKdPo0nOSoBoj35Wowkge5htbujW9Kikb7/rvtuF2VyCc
+ Wil6XspapQ79VAV4odEG9onF/2agRhnzK9dn67+OOZcl2N0RiDXmnTAyGfIdIB0sExit
+ 6qOQ==
+X-Gm-Message-State: AOAM531Kqswm760BuZLSaZG3YATNPtnG1SbP1zi39Q5kqnv6bIDPU+5u
+ u17CC/ifxZCj1q/B2s3Wvw==
+X-Google-Smtp-Source: ABdhPJxAP9sJ1yu3Kht4JaNms+QFgt8gIGs8br4REvzieGCwOwjZwdh3OyK5GmRJ0zW8Xwq1UGGXgw==
+X-Received: by 2002:aca:ad16:: with SMTP id w22mr11487871oie.109.1635472230382; 
+ Thu, 28 Oct 2021 18:50:30 -0700 (PDT)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id q2sm1459725ooe.12.2021.10.28.18.50.08
+ by smtp.gmail.com with ESMTPSA id k22sm1582548otn.44.2021.10.28.18.50.28
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 Oct 2021 18:50:09 -0700 (PDT)
-Received: (nullmailer pid 987313 invoked by uid 1000);
- Fri, 29 Oct 2021 01:50:08 -0000
-Date: Thu, 28 Oct 2021 20:50:08 -0500
+ Thu, 28 Oct 2021 18:50:29 -0700 (PDT)
+Received: (nullmailer pid 987933 invoked by uid 1000);
+ Fri, 29 Oct 2021 01:50:28 -0000
+Date: Thu, 28 Oct 2021 20:50:28 -0500
 From: Rob Herring <robh@kernel.org>
 To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-serial@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
+Cc: linux-riscv@lists.infradead.org, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, devicetree@vger.kernel.org, 
+ Michael Zhu <michael.zhu@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>, 
+ linux-gpio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, 
+ Fu Wei <tekkamanninja@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Thomas Gleixner <tglx@linutronix.de>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>, 
+ Sagar Kadam <sagar.kadam@sifive.com>, linux-serial@vger.kernel.org, 
+ linux-clk@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Marc Zyngier <maz@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ linux-kernel@vger.kernel.org, Maximilian Luz <luzmaximilian@gmail.com>, 
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 11/16] dt-bindings: pinctrl: Add StarFive JH7100
- bindings
-Message-ID: <YXtTUGC5P41JtvoR@robh.at.kernel.org>
+ Anup Patel <anup.patel@wdc.com>, 
+ Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <drew@beagleboard.org>, 
+ Matteo Croce <mcroce@microsoft.com>
+Subject: Re: [PATCH v2 13/16] dt-bindings: serial: snps-dw-apb-uart: Add
+ JH7100 uarts
+Message-ID: <YXtTZCRUTUB88w/a@robh.at.kernel.org>
 References: <20211021174223.43310-1-kernel@esmil.dk>
- <20211021174223.43310-12-kernel@esmil.dk>
+ <20211021174223.43310-14-kernel@esmil.dk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211021174223.43310-12-kernel@esmil.dk>
+In-Reply-To: <20211021174223.43310-14-kernel@esmil.dk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_185011_555436_D9088AA6 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20211028_185031_343096_73128216 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,312 +103,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 21, 2021 at 07:42:18PM +0200, Emil Renner Berthing wrote:
-> Add bindings for the StarFive JH7100 GPIO/pin controller.
+On Thu, 21 Oct 2021 19:42:20 +0200, Emil Renner Berthing wrote:
+> Add compatibles for the StarFive JH7100 uarts.
 > 
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 > ---
->  .../pinctrl/starfive,jh7100-pinctrl.yaml      | 274 ++++++++++++++++++
->  1 file changed, 274 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
+>  .../devicetree/bindings/serial/snps-dw-apb-uart.yaml         | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..342ecd91a3b0
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
-> @@ -0,0 +1,274 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7100-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7100 Pin Controller Device Tree Bindings
-> +
-> +maintainers:
-> +  - Emil Renner Berthing <kernel@esmil.dk>
-> +  - Drew Fustini <drew@beagleboard.org>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7100-pinctrl
-> +
-> +  reg:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: "gpio"
-> +      - const: "padctl"
 
-Don't need quotes.
-
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +    description: |
-> +      Number of cells in GPIO specifier. Since the generic GPIO
-> +      binding is used, the amount of cells must be specified as 2.
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description: The GPIO parent interrupt.
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  starfive,signal-group:
-> +    description: |
-> +      The SoC has a global setting selecting one of 7 different pinmux
-> +      configurations of the pads named GPIO[0:63] and FUNC_SHARE[0:141]. After
-> +      this global setting is chosen only the 64 "GPIO" pins can be further
-> +      muxed by configuring them to be controlled by certain peripherals rather
-> +      than software.
-> +      Note that in configuration 0 none of GPIOs are routed to pads, and only
-> +      in configuration 1 are the GPIOs routed to the pads named GPIO[0:63].
-> +      If this property is not set it defaults to the configuration already
-> +      chosen by the earlier boot stages.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1, 2, 3, 4, 5, 6]
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - gpio-controller
-> +  - "#gpio-cells"
-> +  - interrupts
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +
-> +patternProperties:
-> +  '-[0-9]*$':
-
-Can you make this more specific. As-is, '-' and 'foo-' are valid.
-
-> +    type: object
-> +    patternProperties:
-> +      '-pins*$':
-
-So foo-pinsssssss is okay? Drop the '*' or use ? if you intend to 
-support 'foo-pin'.
-
-> +        type: object
-> +        description: |
-> +          A pinctrl node should contain at least one subnode representing the
-> +          pinctrl groups available on the machine. Each subnode will list the
-> +          pins it needs, and how they should be configured, with regard to
-> +          muxer configuration, bias, input enable/disable, input schmitt
-> +          trigger enable/disable, slew-rate and drive strength.
-> +        $ref: "/schemas/pinctrl/pincfg-node.yaml"
-> +
-> +        properties:
-> +          pins:
-> +            description: |
-> +              The list of pin identifiers that properties in the node apply to.
-> +              This should be set using either the PAD_GPIO or PAD_FUNC_SHARE
-> +              macro. Either this or "pinmux" has to be specified.
-> +
-> +          pinmux:
-> +            description: |
-> +              The list of GPIO identifiers and their mux settings that
-> +              properties in the node apply to. This should be set using the
-> +              GPIOMUX macro. Either this or "pins" has to be specified.
-> +
-> +          bias-disable: true
-> +
-> +          bias-pull-up:
-> +            type: boolean
-
-Already has a type. Need to reference the common schema.
-
-> +
-> +          bias-pull-down:
-> +            type: boolean
-> +
-> +          drive-strength:
-> +            enum: [ 14, 21, 28, 35, 42, 49, 56, 63 ]
-> +
-> +          input-enable: true
-> +
-> +          input-disable: true
-> +
-> +          input-schmitt-enable: true
-> +
-> +          input-schmitt-disable: true
-> +
-> +          slew-rate:
-> +            maximum: 7
-> +
-> +          starfive,strong-pull-up:
-> +            description: enable strong pull-up.
-> +            type: boolean
-> +
-> +        additionalProperties: false
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive-jh7100.h>
-> +    #include <dt-bindings/reset/starfive-jh7100.h>
-> +    #include <dt-bindings/pinctrl/pinctrl-starfive.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        gpio: pinctrl@11910000 {
-> +            compatible = "starfive,jh7100-pinctrl";
-> +            reg = <0x0 0x11910000 0x0 0x10000>,
-> +                  <0x0 0x11858000 0x0 0x1000>;
-> +            reg-names = "gpio", "padctl";
-> +            clocks = <&clkgen JH7100_CLK_GPIO_APB>;
-> +            resets = <&clkgen JH7100_RSTN_GPIO_APB>;
-> +            interrupts = <32>;
-> +            gpio-controller;
-> +            #gpio-cells = <2>;
-> +            interrupt-controller;
-> +            #interrupt-cells = <2>;
-> +            starfive,signal-group = <6>;
-> +
-> +            gmac_pins_default: gmac-0 {
-> +                gtxclk-pins {
-> +                    pins = <PAD_FUNC_SHARE(115)>;
-> +                    bias-pull-up;
-> +                    drive-strength = <35>;
-> +                    input-enable;
-> +                    input-schmitt-enable;
-> +                    slew-rate = <0>;
-> +                };
-> +                miitxclk-pins {
-> +                    pins = <PAD_FUNC_SHARE(116)>;
-> +                    bias-pull-up;
-> +                    drive-strength = <14>;
-> +                    input-enable;
-> +                    input-schmitt-disable;
-> +                    slew-rate = <0>;
-> +                };
-> +                tx-pins {
-> +                    pins = <PAD_FUNC_SHARE(117)>,
-> +                           <PAD_FUNC_SHARE(119)>,
-> +                           <PAD_FUNC_SHARE(120)>,
-> +                           <PAD_FUNC_SHARE(121)>,
-> +                           <PAD_FUNC_SHARE(122)>,
-> +                           <PAD_FUNC_SHARE(123)>,
-> +                           <PAD_FUNC_SHARE(124)>,
-> +                           <PAD_FUNC_SHARE(125)>,
-> +                           <PAD_FUNC_SHARE(126)>;
-> +                    bias-disable;
-> +                    drive-strength = <35>;
-> +                    input-disable;
-> +                    input-schmitt-disable;
-> +                    slew-rate = <0>;
-> +                };
-> +                rxclk-pins {
-> +                    pins = <PAD_FUNC_SHARE(127)>;
-> +                    bias-pull-up;
-> +                    drive-strength = <14>;
-> +                    input-enable;
-> +                    input-schmitt-disable;
-> +                    slew-rate = <6>;
-> +                };
-> +                rxer-pins {
-> +                    pins = <PAD_FUNC_SHARE(129)>;
-> +                    bias-pull-up;
-> +                    drive-strength = <14>;
-> +                    input-enable;
-> +                    input-schmitt-disable;
-> +                    slew-rate = <0>;
-> +                };
-> +                rx-pins {
-> +                    pins = <PAD_FUNC_SHARE(128)>,
-> +                           <PAD_FUNC_SHARE(130)>,
-> +                           <PAD_FUNC_SHARE(131)>,
-> +                           <PAD_FUNC_SHARE(132)>,
-> +                           <PAD_FUNC_SHARE(133)>,
-> +                           <PAD_FUNC_SHARE(134)>,
-> +                           <PAD_FUNC_SHARE(135)>,
-> +                           <PAD_FUNC_SHARE(136)>,
-> +                           <PAD_FUNC_SHARE(137)>,
-> +                           <PAD_FUNC_SHARE(138)>,
-> +                           <PAD_FUNC_SHARE(139)>,
-> +                           <PAD_FUNC_SHARE(140)>,
-> +                           <PAD_FUNC_SHARE(141)>;
-> +                    bias-pull-up;
-> +                    drive-strength = <14>;
-> +                    input-enable;
-> +                    input-schmitt-enable;
-> +                    slew-rate = <0>;
-> +                };
-> +            };
-> +
-> +            i2c0_pins_default: i2c0-0 {
-> +                i2c-pins {
-> +                    pinmux = <GPIOMUX(62, GPO_LOW,
-> +                              GPO_I2C0_PAD_SCK_OEN,
-> +                              GPI_I2C0_PAD_SCK_IN)>,
-> +                             <GPIOMUX(61, GPO_LOW,
-> +                              GPO_I2C0_PAD_SDA_OEN,
-> +                              GPI_I2C0_PAD_SDA_IN)>;
-> +                    bias-disable; /* external pull-up */
-> +                    input-enable;
-> +                    input-schmitt-enable;
-> +                };
-> +            };
-> +
-> +            uart3_pins_default: uart3-0 {
-> +                rx-pin {
-> +                    pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
-> +                              GPI_UART3_PAD_SIN)>;
-> +                    bias-pull-up;
-> +                    input-enable;
-> +                    input-schmitt-enable;
-> +                };
-> +                tx-pin {
-> +                    pinmux = <GPIOMUX(14, GPO_UART3_PAD_SOUT,
-> +                              GPO_ENABLE, GPI_NONE)>;
-> +                    bias-disable;
-> +                    input-disable;
-> +                    input-schmitt-disable;
-> +                };
-> +            };
-> +        };
-> +
-> +        gmac {
-> +            pinctrl-0 = <&gmac_pins_default>;
-> +            pinctrl-names = "default";
-> +        };
-> +
-> +        i2c0 {
-> +            pinctrl-0 = <&i2c0_pins_default>;
-> +            pinctrl-names = "default";
-> +        };
-> +
-> +        uart3 {
-> +            pinctrl-0 = <&uart3_pins_default>;
-> +            pinctrl-names = "default";
-> +        };
-> +    };
-> +
-> +...
-> -- 
-> 2.33.1
-> 
-> 
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
