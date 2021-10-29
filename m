@@ -2,86 +2,90 @@ Return-Path: <SRS0=3Oe1=PR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3618EC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 12:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7535BC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 13:00:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EB4466113E
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 12:39:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org EB4466113E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id D31A260F93
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 13:00:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D31A260F93
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YlS1kL3xVjQ5wCcjwJIW1GmqtFYuEpMcU2nS1ZBTBI8=; b=OCoCeQGpA3X1B9
-	wvxKOD3nc6IJbtPGI28fON3i8wFYAOPlGduvDmG5EitsbF20laLcgYzzYe6KpUVfwm5wtQHbLv2Df
-	qIPzOKFP/9ddvWL6UtxjnJoeY745cWoXmXPhIgbowDK+60PaCCOPIh9DCMmYXL/TiJC6/aMMuedNY
-	49yyLvqiebwiO0FQXkyVBz6pudiLRdGQLgLCx2y6YC064LyUJyKBiZeblvtt257LYXRPICr+AsXQt
-	u/J86nzJBIM07qypzSaqtzfLww4/rUwpdT23wRfswzzWzrUHazitrljREEJuRx/xj7h3jBqypoXfF
-	FGgYAVnTDYlizAe+NCnQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EBEY8/mK7H6ziZ0oXkgylS+JsjbGI2jxdqnB9PIe4C4=; b=Ml3HZLt7AH70St
+	9O4xzMAg+4uY3fcjdiiAnWoegh9XcB7cwAxj3gdgLwkPbW8VnfAxV/mavl+4604FNa/7SPtHO7g+t
+	j4A4DhAPIShJqulj3jJJl5Ni++Sfdx9KwZKbzi05HFNeoAGhG4Gg0inrwnamNNWEaXPd9f0lPxCwF
+	U/6OKvRt5+LNNh7oJiISPuhz3N2Suk8/YXWXhA3NdZFobxfLM+oKfVgrdZD2O3XyMS/yRlnacwK6E
+	BLt++4g5BiZJiHvIeprf+NVXD3xrbrG1aoZvouPKu7EvUDWEY+3mQgWVnfuxpWVhv9q/ueq5ztJpR
+	NxXdxRPoRj0knCFSdvAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mgRAe-00AwW9-2c; Fri, 29 Oct 2021 12:39:44 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1mgRUc-00AzdY-Pw; Fri, 29 Oct 2021 13:00:22 +0000
+Received: from mail-pj1-f51.google.com ([209.85.216.51])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mgRAP-00AwQH-JW
- for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 12:39:32 +0000
-Received: by mail-lf1-x129.google.com with SMTP id c28so20714437lfv.13
- for <linux-riscv@lists.infradead.org>; Fri, 29 Oct 2021 05:39:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=B2T3v4jXO25JT49qo2reiE0rneUAVuElVzG5JppoEM8=;
- b=jxD6biwTfe3xu6SqBzLET7VGwK1z+O5kXXr9D9ld+3oXexNknMqaFCW9F2LVUIXD+G
- ucuVD7vOA4sZwbtUVVm7VzO3veKFGjRJHKI0vsCgqedXMckkcCuS5RX2luse2sdk1Twa
- WBDj6uMCqZkJ/KYciN73SIqRqEBtCSDSF63zmsvalZsfnmh4tgcEAgjPi9ilrgDdWMVb
- ZEJT/Qe6glvFD7+mxzhPkUnG56DeqPTqZIJn0EwzCL6fb0mJg+J37Y3J8rVtha2bb88g
- FhnpS+0RzDdrfPrw09Zk0fIpd8IvICd3VoueJ91jfIvaJiW7UN68emvVY/bbOQyolIXI
- WutQ==
+ id 1mgRUZ-00Azcj-Vj
+ for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 13:00:21 +0000
+Received: by mail-pj1-f51.google.com with SMTP id
+ ls14-20020a17090b350e00b001a00e2251c8so7325335pjb.4
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Oct 2021 06:00:18 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=B2T3v4jXO25JT49qo2reiE0rneUAVuElVzG5JppoEM8=;
- b=EPQ/t54WdsLl59Y8/srJO9MVgqvveOxJNitwgHHKxwSItUBrl1zdSW/nQuqUObywog
- vV6bwK+t3t+ywepV58LQCOw3v3cR/5Ztal+/gJ8aGaulbfayU0jL55YuQ6PoJDYF0diw
- 86cCCfQmZQbvYDIy1XfzRK+p1iYp/x39mW5eDY1IW2ryjhSpX1eBS6crWP8p1QKb2zAQ
- Ypi9Tc7J63TowzyM2D+jVVvmCgeqOQ23Cv99IDZuhmqoJAz4CTQLnxehjrMbLcSbNsbT
- WAmH3RLPG3xsC1ZR//LJQzYc8ucFJ7bTDOtYAh741CenDawbjRT7nzbYlZvPvEdqgSRr
- zflg==
-X-Gm-Message-State: AOAM530bOl1gky55NlNWT2BS+iPGEwGHFmOYU7w+gwR5XnzD+kh6J7Ri
- O7jojo7N8en+2Lj+lrq1iTF7dw==
-X-Google-Smtp-Source: ABdhPJyTjynt3OjUbfPQGjnjOlAGOKmxPdHzyoRf35p2/vo3MySu4coNCsQpIc9on1MRDnXuPapytw==
-X-Received: by 2002:a05:6512:2309:: with SMTP id
- o9mr10050460lfu.124.1635511166794; 
- Fri, 29 Oct 2021 05:39:26 -0700 (PDT)
-Received: from localhost.localdomain (h-155-4-129-146.NA.cust.bahnhof.se.
- [155.4.129.146])
- by smtp.gmail.com with ESMTPSA id y35sm602528lfa.16.2021.10.29.05.39.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 29 Oct 2021 05:39:25 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
- "Rafael J . Wysocki" <rjw@rjwysocki.net>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, linux-pm@vger.kernel.org
-Cc: Maulik Shah <mkshah@codeaurora.org>, Anup Patel <anup.patel@wdc.com>,
- Len Brown <len.brown@intel.com>,
- Bjorn Andersson <bjorn.andersson@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2] PM: sleep: Fix runtime PM based cpuidle support
-Date: Fri, 29 Oct 2021 14:38:55 +0200
-Message-Id: <20211029123855.80344-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.25.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Vci1DyK0tNZcKwN8+74I1l8VTd7Fc9WtyWPYQLOUtNM=;
+ b=vzUojC8pWAOvMjVz7Dj2PPkUvSxb8cZPgq6y6pSf+NQh0AUq7Z2pgCLijCY++BG2iB
+ qHcMqP6iJjt3oOXON0qDJoSRFknmG6yVQGtK9hL59DcMUc5ek4QI6FGazB55B5hi7frx
+ Qaf59SGLvi+jQA3hZGWt9UEIMSi3QIyBRezXc7g8MEn4ONDEhO4UU3z3GOgS8Nlukeuj
+ UHVhN0DxsIH3v6icbcEixIg2LFLu9qyQ9WeuooRrf7P5+fQMHuyv8I4WMwDBvcOSqMoQ
+ pM3o1r7hGHvWX3ZDCMNdw8aBgkRjMK1R3QQTK+co/KpYjWgS0afn20shn93/cEnW3AEM
+ 22/A==
+X-Gm-Message-State: AOAM531ZKsZS4NfcaSX4Kbhf1w/FqerytmhGEmf85KYcdKqaha4TwCZs
+ rexTa4GgPbODCy6v/BLjdDOA0h5rCWuXo3v1h2M=
+X-Google-Smtp-Source: ABdhPJxsp4eURPFfgHBqWP+J4XlcL6ko0y3ikmW0sFVG++7P+Et7Yhh+lE5BR8RUsKI/L2xnep1G6HRqNfFSCc/WsFk=
+X-Received: by 2002:a17:903:11c5:b0:13f:ef40:e319 with SMTP id
+ q5-20020a17090311c500b0013fef40e319mr9604054plh.33.1635512418019; Fri, 29 Oct
+ 2021 06:00:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <20211021174223.43310-1-kernel@esmil.dk>
+ <20211021174223.43310-12-kernel@esmil.dk>
+ <YXtTUGC5P41JtvoR@robh.at.kernel.org>
+In-Reply-To: <YXtTUGC5P41JtvoR@robh.at.kernel.org>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Fri, 29 Oct 2021 15:00:05 +0200
+Message-ID: <CANBLGcx3L1DmqjzqRAb+vEYWZTTxeGNUVx=BUfDuw=h3q5Nkgg@mail.gmail.com>
+Subject: Re: [PATCH v2 11/16] dt-bindings: pinctrl: Add StarFive JH7100
+ bindings
+To: Rob Herring <robh@kernel.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211029_053929_675145_9E3CF666 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20211029_060020_064798_14F653C7 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +102,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the cpuidle-psci case, runtime PM in combination with the generic PM
-domain (genpd), may be used when entering/exiting a shared idlestate. More
-precisely, genpd relies on runtime PM to be enabled for the attached device
-(in this case it belongs to a CPU), to properly manage the reference
-counting of its PM domain.
+On Fri, 29 Oct 2021 at 03:50, Rob Herring <robh@kernel.org> wrote:
+> On Thu, Oct 21, 2021 at 07:42:18PM +0200, Emil Renner Berthing wrote:
+> > +patternProperties:
+> > +  '-[0-9]*$':
+>
+> Can you make this more specific. As-is, '-' and 'foo-' are valid.
+>
+> > +    type: object
+> > +    patternProperties:
+> > +      '-pins*$':
+>
+> So foo-pinsssssss is okay? Drop the '*' or use ? if you intend to
+> support 'foo-pin'.
 
-This works fine most of the time, but during system suspend in
-dpm_suspend_late(), the PM core disables runtime PM for all devices. Beyond
-this point, calls to pm_runtime_get_sync() to runtime resume a device may
-fail and therefore it could also mess up the reference counting in genpd.
+Ah, thanks. Both this and the pattern above was taken from
+pinctrl/mediatek,mt6779-pinctrl.yaml if anyone feels like fixing that
+too. I see now that '-[0-9]+$' and '-pins$' is more common. I'll just
+use that.
 
-To fix this problem, let's call wake_up_all_idle_cpus() in
-dpm_suspend_late(), prior to disabling runtime PM. In this way a device
-that belongs to a CPU, becomes runtime resumed through cpuidle-psci and
-stays like that, because the runtime PM usage count has been bumped in
-device_prepare().
+> > +        type: object
+> > +        description: |
+> > +          A pinctrl node should contain at least one subnode representing the
+> > +          pinctrl groups available on the machine. Each subnode will list the
+> > +          pins it needs, and how they should be configured, with regard to
+> > +          muxer configuration, bias, input enable/disable, input schmitt
+> > +          trigger enable/disable, slew-rate and drive strength.
+> > +        $ref: "/schemas/pinctrl/pincfg-node.yaml"
+> > +
+> > +        properties:
+> > +          pins:
+> > +            description: |
+> > +              The list of pin identifiers that properties in the node apply to.
+> > +              This should be set using either the PAD_GPIO or PAD_FUNC_SHARE
+> > +              macro. Either this or "pinmux" has to be specified.
+> > +
+> > +          pinmux:
+> > +            description: |
+> > +              The list of GPIO identifiers and their mux settings that
+> > +              properties in the node apply to. This should be set using the
+> > +              GPIOMUX macro. Either this or "pins" has to be specified.
+> > +
+> > +          bias-disable: true
+> > +
+> > +          bias-pull-up:
+> > +            type: boolean
+>
+> Already has a type. Need to reference the common schema.
 
-Diagnosed-by: Maulik Shah <mkshah@codeaurora.org>
-Suggested-by: Rafael J. Wysocki <rafael@kernel.org>
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
-
-Changes in v2:
-	- Moved away from using cpuidle_pause|resume() to solve the problem, but
-	instead just waking up idle CPUs is suffient, due to other recent merged
-	changes.
-
----
- drivers/base/power/main.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/base/power/main.c b/drivers/base/power/main.c
-index ac4dde8fdb8b..2fb08d4f1aca 100644
---- a/drivers/base/power/main.c
-+++ b/drivers/base/power/main.c
-@@ -1463,6 +1463,7 @@ int dpm_suspend_late(pm_message_t state)
- 	int error = 0;
- 
- 	trace_suspend_resume(TPS("dpm_suspend_late"), state.event, true);
-+	wake_up_all_idle_cpus();
- 	mutex_lock(&dpm_list_mtx);
- 	pm_transition = state;
- 	async_error = 0;
--- 
-2.25.1
-
+Right, but the common schema specifies one of boolean or uint32. Is
+there a way to reference that, but still say that this binding
+supports only the boolean version?
 
 _______________________________________________
 linux-riscv mailing list
