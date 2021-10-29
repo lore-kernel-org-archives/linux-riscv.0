@@ -2,87 +2,97 @@ Return-Path: <SRS0=3Oe1=PR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 459B7C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 04:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3E1DC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 04:59:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8007A60F9B
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 04:29:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8007A60F9B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 4EFA160FF2
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Oct 2021 04:59:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4EFA160FF2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=KeiSEqWrgRfA0b7KBwEY4KX1CN+J8Gwf2M/MpCHzVeE=; b=Istw542rcRi2s9zpfsgL0w7swj
-	5wpqnTM6jkhX51KcQHeDNbcNXfUfcf/s+G5vWfKf7CXwE+t85PYUMkPWGiLCvJvagLLEEcl+hBMy1
-	Uo1mr3+u/NTBsiXb2Xu5srDAssfUbrLN6ytT9PF22rW0ai2IuNRMslcmbgA0BTXJ46ZWjNg7aD78M
-	9Y9NhSw5VWkkk5A0McROj179ZVmGPUYRwmUdgu3Xh/MtrOkEmgcmX5lpL/Dz/DEXA9G3hFO0xQVYp
-	OWlVy4phIlRn+EJDWUtd/Xx99xK/9+6ntNipGcXY0U3q7ImN9m0tUs9YnfUDRRKnuNJ71YqJMB0X8
-	YbQxQW7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2JDWqorVFWjRmf9rWks2R2YB7p8xBACfg7l6cx1EQbg=; b=pMM9McT4qkA75e
+	aYGK/o7T8sD00VLr3of/D/4nHes73RsyfSEjiUur9ZD+d5soXJepyEzsoTWmvvSxmh7RJQY+PWRhi
+	AROPZmdKfC6qpzmy6j8wqUivwY7mmOIOonVi6WujLl9MLTv9uBH7Fp7zvFr2iJezCLfKViCia8jzC
+	Xu+31V/pFY6P5dKyT+WhdsRO/veIyYqNrQlWuTxISO8dpy+B9XkiHk+ZdnGwJhXvo+2bh5R6wuG4d
+	KmR41YbF+cGbBuXhVFtNChuQueqz83/b/sXke2YnAN3G/YBJF42NI31kfVIFP4OCFVHrFZafTmADc
+	9lldsPKwU+INR0oHf2Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mgJVo-009oUS-Hw; Fri, 29 Oct 2021 04:29:04 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1mgJzO-009pTN-Ja; Fri, 29 Oct 2021 04:59:38 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mgJVl-009oU4-Ey
- for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 04:29:03 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id np13so6318335pjb.4
- for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 21:28:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=1lw9CL6foQSlTHkgeMHIdtLwuJ0uzL85uTSVuDRoqTU=;
- b=4A88KEGK5lrhNn28n8g4+fu6NXvRjD7W437RHy4cNqHn8iB80kxqThDBcjcrk5mRX/
- 008A/H33D1cXAKxcegdnF3iedtK1/oC1r7FiF+kcsPkJOAcWyR+Zcdc2Avl2gGKFosNG
- lsoSAMHBroL2nKxHSuBDagm1nnhVID4undXpkHmsZekfg8OpYvz0t+WAIleBKGMefwiK
- oju4ZEdFAKWUPOQVmF+PcPrPONkvDsXLB4HNf5NakjaCcx0seDz7ECG3gOJj82UBZg7s
- YTfopF00P20zEf7K2zyDDto7ZMzGLFTaYZ5JFPRdRim5fSVjIlToesUxbojcFRZES5oX
- ETlg==
+ id 1mgJzM-009pT3-12
+ for linux-riscv@lists.infradead.org; Fri, 29 Oct 2021 04:59:37 +0000
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 367B63F174
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Oct 2021 04:59:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1635483570;
+ bh=OJg5Riv5SEPQHw6GUzsRnRLEnZCVPUrqTKYKL32qSlg=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=Ojjjrddck/GH5h+kjVnTgx3R3EttqtMURgCHtLnZFTeGZphUA2BFWcNuMXU0I5+CJ
+ pCCC3sJXwC6d1gzsmiIAwbChVh18oqxBj0KUz0O1wnqzguharDpFLCVy5/RHfaAzE5
+ PzpCLLlBfzTuTR4Y42CI3+44HYZgebC+P3y5JhyUgSG7wrJOl12k9ArGKlZ//IkU42
+ VaWZ60uSITI2U9Sb+mWgf5LMj0135zYkHtpk8DgEwKzxH88k2aRAs55ZamZR+GV6T+
+ mS20jKkQS9xsirJUWVAJ4nGwDHC41vRoxABFuTUhcnfr03cElnR3DMpRdX9TlzyQKW
+ Q3E2utzWCeNDg==
+Received: by mail-wr1-f72.google.com with SMTP id
+ u15-20020a5d514f000000b001687ebddea3so2967924wrt.8
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Oct 2021 21:59:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=1lw9CL6foQSlTHkgeMHIdtLwuJ0uzL85uTSVuDRoqTU=;
- b=KzrM+zSib+ucuQXBAL74Nkv7UJ2HgmY1uutkRtxeXtwKowqElkym+rLa9q5PxDQvul
- 3rXN4d+1fPLkVdXGjY/XEzHKxAsNEEGi+2utsXR0TwT+S3JLrdpNRfFymUimjWt06VCl
- Qdk3azm94PuErOwSBbj1774v+UQhVph3e/lwJ4PfnPrVIkC0g7OJ9auhXYS5wHb8WMuv
- 5EanaFyfhVGp5O0Po90kkcAjGoQ5X7tAXnNBH0C3PUDVnEc9OrKkDCFer344+9PFZyXc
- 1mqtNODU02HcIDt99ttCRIRoSWErnVues2XRKmzeotD/n8RtA53W6t6QMf+KpKlVVUIU
- 4oyw==
-X-Gm-Message-State: AOAM532pybAjXq9KkptogS9AnwQcFxv+FuO5js4Isfevyp3vUcfmyxKS
- u4n32VE70W2ryDUZO8rXlale0Q==
-X-Google-Smtp-Source: ABdhPJw8xG0v7xWQxIJa0aMj2CwuoZQd+hB6fK4AAtAvMU+VrzOpOVXpYcs484b4w1MuP4fR36HJ0w==
-X-Received: by 2002:a17:902:d2cf:b0:141:b347:df9d with SMTP id
- n15-20020a170902d2cf00b00141b347df9dmr291173plc.37.1635481738594; 
- Thu, 28 Oct 2021 21:28:58 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d11sm5308221pfl.173.2021.10.28.21.28.57
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=OJg5Riv5SEPQHw6GUzsRnRLEnZCVPUrqTKYKL32qSlg=;
+ b=QGebOMSgPbWZf5RPbtyvqeecF8MAcgKMRA4UDTilZzlmHVXEbgl0T/jZ9Cu5sAQDv8
+ V8AvCbh6MiOe//u/5q11LGuy6frXIapK9KwGelNOUcfdAaT8Z1VMuQE1BLJ09UYIEJtl
+ OpH/9B/qgaRlj/w3ez4ZoLDG7Hx4PNfA0Unqkr0Yo9NLcSq3lii5xMztu2Hb1lcAZxRc
+ mF7P5dhoBNBOyRHkA8cdTjQs8B4zFtXHBYUnBc510a4oZ6KlV4cg6sbINr+bUtxfFtqa
+ zSCLBKv2/xR+Zlo2gHkMUA8UjTx1VP4v4mFrE1lR/+J5V2yOI9U/H3pbbyuUXxhnqRRt
+ GqnA==
+X-Gm-Message-State: AOAM531KEJz2VFlpnhpEFe6dd3NmHbr5efXkFHSiARTXdhRjm9ShakE9
+ tSkTfuN98rbZCu+CkUDQsWy2J0RZM3w0cQW/RgcmoYT5Gt1wLNSkrsgjKEAlNnyiWFIpghqI3SX
+ ntXuotNby0Ly5qHnAQeJQQWXqjrU1EUcgh4/+DLHQTT0LtA==
+X-Received: by 2002:a7b:c441:: with SMTP id l1mr8777202wmi.69.1635483569963;
+ Thu, 28 Oct 2021 21:59:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxoSjAtlbuEhehndrjjwCsmEUDmuBiMpCGgdYwnt+96mQvDORVoOvrvS1DNJy40R3xBZiwCEA==
+X-Received: by 2002:a7b:c441:: with SMTP id l1mr8777186wmi.69.1635483569839;
+ Thu, 28 Oct 2021 21:59:29 -0700 (PDT)
+Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
+ [2.7.60.249])
+ by smtp.gmail.com with ESMTPSA id n12sm376620wmd.3.2021.10.28.21.59.29
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 Oct 2021 21:28:58 -0700 (PDT)
-Date: Thu, 28 Oct 2021 21:28:58 -0700 (PDT)
-X-Google-Original-Date: Thu, 28 Oct 2021 21:28:55 PDT (-0700)
-Subject: Re: [PATCH v1 1/1] delay.h: fix for removed kernel.h
-In-Reply-To: <20211028182303.GA711390@roeck-us.net>
-CC: andriy.shevchenko@linux.intel.com, gor@linux.ibm.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- hca@linux.ibm.com, borntraeger@de.ibm.com, 
- agordeev@linux.ibm.com, akpm@linux-foundation.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux@roeck-us.net
-Message-ID: <mhng-dd929e9e-e3e3-4d04-a6a6-2c005f8c24df@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ Thu, 28 Oct 2021 21:59:29 -0700 (PDT)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH v2 0/2] riscv asan-stack fixes
+Date: Fri, 29 Oct 2021 06:59:25 +0200
+Message-Id: <20211029045927.72933-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.30.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211028_212901_625420_ADE35FBA 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20211028_215936_360268_FE3D7BE4 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +104,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Oct 2021 11:23:03 PDT (-0700), linux@roeck-us.net wrote:
-> On Thu, Oct 28, 2021 at 08:01:43PM +0300, Andy Shevchenko wrote:
->> To be folded to the commit 0d280a9fbbd9 ("include/linux/delay.h:
->> replace kernel.h with the necessary inclusions")
+This small patchset fixes asan-stack for riscv.
 
-I can't find that in any of my trees, so I'm assuming this is targeted 
-at something else.
+Changes in v2:
+ * fix KASAN_VMALLOC=n
+ * swap both patches in order not to have a non-bootable kernel commit
 
-Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
+Alexandre Ghiti (2):
+  riscv: Do not re-populate shadow memory with
+    kasan_populate_early_shadow
+  riscv: Fix asan-stack clang build
 
-Thanks!
+ arch/riscv/Kconfig             |  6 ++++++
+ arch/riscv/include/asm/kasan.h |  3 +--
+ arch/riscv/mm/kasan_init.c     | 14 +++-----------
+ 3 files changed, 10 insertions(+), 13 deletions(-)
 
->>
->> Reported-by: Guenter Roeck <linux@roeck-us.net>
->> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
->
-> Tested-by: Guenter Roeck <linux@roeck-us.net>
-> Reviewed-by: Guenter Roeck <linux@roeck-us.net>
->
->> ---
->>  arch/riscv/lib/delay.c           | 4 ++++
->>  arch/s390/include/asm/facility.h | 4 ++++
->>  2 files changed, 8 insertions(+)
->>
->> diff --git a/arch/riscv/lib/delay.c b/arch/riscv/lib/delay.c
->> index f51c9a03bca1..49d510ba75fd 100644
->> --- a/arch/riscv/lib/delay.c
->> +++ b/arch/riscv/lib/delay.c
->> @@ -4,10 +4,14 @@
->>   */
->>
->>  #include <linux/delay.h>
->> +#include <linux/math.h>
->>  #include <linux/param.h>
->>  #include <linux/timex.h>
->> +#include <linux/types.h>
->>  #include <linux/export.h>
->>
->> +#include <asm/processor.h>
->> +
->>  /*
->>   * This is copies from arch/arm/include/asm/delay.h
->>   *
->> diff --git a/arch/s390/include/asm/facility.h b/arch/s390/include/asm/facility.h
->> index e3aa354ab9f4..94b6919026df 100644
->> --- a/arch/s390/include/asm/facility.h
->> +++ b/arch/s390/include/asm/facility.h
->> @@ -9,8 +9,12 @@
->>  #define __ASM_FACILITY_H
->>
->>  #include <asm/facility-defs.h>
->> +
->> +#include <linux/minmax.h>
->>  #include <linux/string.h>
->> +#include <linux/types.h>
->>  #include <linux/preempt.h>
->> +
->>  #include <asm/lowcore.h>
->>
->>  #define MAX_FACILITY_BIT (sizeof(stfle_fac_list) * 8)
->> --
->> 2.33.0
->>
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
