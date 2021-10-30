@@ -2,60 +2,73 @@ Return-Path: <SRS0=We8W=PS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC643C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Oct 2021 03:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 87434C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Oct 2021 03:50:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A0E0660FE7
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Oct 2021 03:17:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A0E0660FE7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 27EF2610EA
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Oct 2021 03:50:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 27EF2610EA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=xmission.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q1RUMqHOYN0o0rEIYTyWr9vLDUtKrxblOrfJDCOnzJs=; b=LnNHDLffd+krP+
-	5/xOB+Pmewb/0WI0dn9efE2AHZpsVC0dyTSRc5EUcMConRwi45419Vj+NExrDFk+tStJDwxZAV77W
-	8qWp8mwMN+08hm3nfWaeFo0UrhSN6J9kg6DT87YABSW2RITVqJIOj9bCsddvKa7zAaVXhzvRWO5nj
-	JOgDQRQHCz78Xpe8DtlOisfp/uT/VXyVP+dl2IcTN+lo6Esfd15akZX3/ZSWFDJk/xXMI5X+0jvJC
-	aGWkrqLLQH70c0WYbYOJ29oEyuJyeJrJHDoCJA7dd2ImxRc+EvFAQj/xGoyTdG72nKGaYK3u7aw1X
-	G8hCAOcOP+KwsfJDXcIQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:Message-ID:
+	In-Reply-To:Date:References:Cc:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=SQnzU16Wn2hVLj6LQIc0WNKrKHIU1esc954+O7tWNpg=; b=aoDDRnHL3/hsdSt5ZhAacobhf1
+	Ipv1/Qwjc3XswAWDFc/FsmlJqt9h+ZraK120C0FN8vqUaqK7I9Akx3hxupJc3pInsuJlh5DRDkxe6
+	ewCl5XG1Zk7LklWRVyLhKHyHyfoz63VhR6Z5J4/Z5QcetTxOaJyaESsqHEjgK3YzFKxNAH6AUEuSU
+	eizpJlnsrTZYV6z2K2mJJu0asNXA8uDtDT5FjljHUnz4+K0OjZ+/GaVEyg8eP9orliwSYFGMvK4Oy
+	vXGN7PuoKpMR+kESNbDVAtglZhQEpI11tapj6gBofjN0ZYUa7rXzaZ3ZxbHK8T7gBRDcTNexDs0PS
+	AQ/4f6Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mgerl-00Cg05-Vo; Sat, 30 Oct 2021 03:17:10 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1mgfNk-00ChCR-VH; Sat, 30 Oct 2021 03:50:13 +0000
+Received: from out01.mta.xmission.com ([166.70.13.231])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mgere-00CfvW-Km; Sat, 30 Oct 2021 03:17:04 +0000
-Received: from dggeme706-chm.china.huawei.com (unknown [172.30.72.54])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Hh4G20D8pz8vfp;
- Sat, 30 Oct 2021 11:16:42 +0800 (CST)
-Received: from huawei.com (10.67.174.53) by dggeme706-chm.china.huawei.com
- (10.1.199.102) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.15; Sat, 30
- Oct 2021 11:16:47 +0800
-From: Liao Chang <liaochang1@huawei.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
- <ebiederm@xmission.com>, <mick@ics.forth.gr>, <jszhang@kernel.org>,
- <guoren@linux.alibaba.com>, <penberg@kernel.org>, <sunnanyong@huawei.com>,
- <wangkefeng.wang@huawei.com>, <changbin.du@intel.com>, <alex@ghiti.fr>
-CC: <liaochang1@huawei.com>, <linux-riscv@lists.infradead.org>,
+ id 1mgfNg-00ChBf-0b; Sat, 30 Oct 2021 03:50:09 +0000
+Received: from in02.mta.xmission.com ([166.70.13.52]:59486)
+ by out01.mta.xmission.com with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <ebiederm@xmission.com>)
+ id 1mgfNL-002uma-RR; Fri, 29 Oct 2021 21:49:47 -0600
+Received: from ip68-227-160-95.om.om.cox.net ([68.227.160.95]:47698
+ helo=email.xmission.com)
+ by in02.mta.xmission.com with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <ebiederm@xmission.com>)
+ id 1mgfNI-005pIg-Du; Fri, 29 Oct 2021 21:49:47 -0600
+From: ebiederm@xmission.com (Eric W. Biederman)
+To: Liao Chang <liaochang1@huawei.com>
+Cc: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <mick@ics.forth.gr>, <jszhang@kernel.org>, <guoren@linux.alibaba.com>,
+ <penberg@kernel.org>, <sunnanyong@huawei.com>, <wangkefeng.wang@huawei.com>,
+ <changbin.du@intel.com>, <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
  <linux-kernel@vger.kernel.org>, <kexec@lists.infradead.org>
-Subject: [PATCH 0/3] riscv: kexec: add kexec_file_load() support
-Date: Sat, 30 Oct 2021 11:18:29 +0800
-Message-ID: <20211030031832.165457-1-liaochang1@huawei.com>
-X-Mailer: git-send-email 2.17.1
+References: <20211030031832.165457-1-liaochang1@huawei.com>
+ <20211030031832.165457-3-liaochang1@huawei.com>
+Date: Fri, 29 Oct 2021 22:49:09 -0500
+In-Reply-To: <20211030031832.165457-3-liaochang1@huawei.com> (Liao Chang's
+ message of "Sat, 30 Oct 2021 11:18:31 +0800")
+Message-ID: <87ee83goju.fsf@disp2133>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.53]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggeme706-chm.china.huawei.com (10.1.199.102)
-X-CFilter-Loop: Reflected
+X-XM-SPF: eid=1mgfNI-005pIg-Du; ; ; mid=<87ee83goju.fsf@disp2133>; ; ;
+ hst=in02.mta.xmission.com; ; ; ip=68.227.160.95; ; ; frm=ebiederm@xmission.com;
+ ; ; spf=neutral
+X-XM-AID: U2FsdGVkX18f7M3MHRYDgl23l5rWQ+6xsslUtaUkAZ0=
+X-SA-Exim-Connect-IP: 68.227.160.95
+X-SA-Exim-Mail-From: ebiederm@xmission.com
+Subject: Re: [PATCH 2/3] RISC-V: use memcpy for kexec_file mode
+X-SA-Exim-Version: 4.2.1 (built Sat, 08 Feb 2020 21:53:50 +0000)
+X-SA-Exim-Scanned: Yes (on in02.mta.xmission.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211029_201702_970793_826F7C44 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20211029_205008_084643_397A6DA8 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,95 +85,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset implement kexec_file_load() support on riscv, Most of the
-code is based on the kexec-tool-patch repo developed by Nick Kossifids.
+Liao Chang <liaochang1@huawei.com> writes:
 
-This patch series enables us to load the riscv vmlinux by specifying
-its file decriptor, instead of user-filled buffer via kexec_file_load()
-syscall.
+> The pointer to buffer loading kernel binaries is in kernel space for
+> kexec_fil mode, When copy_from_user copies data from pointer to a block
+> of memory, it checkes that the pointer is in the user space range, on
+> RISCV-V that is:
+>
+> static inline bool __access_ok(unsigned long addr, unsigned long size)
+> {
+> 	return size <= TASK_SIZE && addr <= TASK_SIZE - size;
+> }
+>
+> and TASK_SIZE is 0x4000000000 for 64-bits, which now causes
+> copy_from_user to reject the access of the field 'buf' of struct
+> kexec_segment that is in range [CONFIG_PAGE_OFFSET - VMALLOC_SIZE,
+> CONFIG_PAGE_OFFSET), is invalid user space pointer.
+>
+> This patch fixes this issue by skipping access_ok(), use mempcy() instead.
 
-Contrary to kexec_load() system call, we reuse the dt blob of the first
-kernel to the 2nd explicitly.
+I am a bit confused.
 
-To use kexec_file_load() system call, instead of kexec_load(), at kexec
-command, '-s' options must be specified. The patch for kexec_tools has
-to be apply to riscv architecture source like this:
+Why is machine_kexec ever calling copy_from_user?  That seems wrong in
+all cases.
 
-int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
-	...
-	if (info->file_mode) {
-		return prepare_kexec_file_options(info);
-	}
-	...
+Even worse then having a copy_from_user is having data that you don't
+know if you should call copy_from_user on.
 
-Add following routine to prepare cmdline_ptr, cmdline_len and initrd_fd
-for syscall kexec_file_load:
+There is most definitely a bug here.  Can someone please sort it out
+without making the kernel guess what kind of memory it is copying from.
 
-int prepare_kexec_file_options(struct kexec_info *info)
-{
-	int fd;
-	ssize_t result;
-	struct stat stats;
+Eric
 
-	if (arch_options.cmdline) {
-		info->command_line = (char *)arch_options.cmdline;
-		info->command_line_len = strlen(info->command_line) + 1;
-	}
 
-	if (!arch_options.initrd_path) {
-		info->initrd_fd = -1;
-		return 0;
-	}
 
-	fd = open(arch_options.initrd_path, O_RDONLY | _O_BINARY);
-	if (fd < 0) {
-		fprintf(stderr, "Cannot open `%s': %s\n", arch_options.initrd_path,
-				strerror(errno));
-		return -EINVAL;
-	}
-	result = fstat(fd, &stats);
-	if (result < 0) {
-		close(fd);
-		fprintf(stderr, "Cannot stat: %s: %s\n", arch_options.initrd_path,
-				strerror(errno));
-		return -EINVAL;
-	}
-	info->initrd_fd = fd;
-	return 0;
-}
-
-The basic usage of kexec_file is:
-1) Reload capture kernel image:
-$ kexec -s -l <riscv-vmlinux> --reuse-cmdline
-
-2) Startup capture kernel:
-$ kexec -e
-
-For future work:
-* Support for kdump and purgatory.
-* Support for kernel image verification.
-* Support physical address randomization.
-
-Liao Chang (3):
-  kexec_file: Fix kexec_file.c build error for riscv platform
-  RISC-V: use memcpy for kexec_file mode
-  RISC-V: Add kexec_file support
-
- arch/riscv/Kconfig                     |  11 ++
- arch/riscv/include/asm/kexec.h         |   4 +
- arch/riscv/kernel/Makefile             |   1 +
- arch/riscv/kernel/elf_kexec.c          | 189 +++++++++++++++++++++++++
- arch/riscv/kernel/machine_kexec.c      |   5 +-
- arch/riscv/kernel/machine_kexec_file.c |  14 ++
- include/linux/kexec.h                  |   2 +-
- kernel/kexec_file.c                    |   4 +-
- 8 files changed, 226 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/kernel/elf_kexec.c
- create mode 100644 arch/riscv/kernel/machine_kexec_file.c
-
--- 
-2.17.1
-
+> Signed-off-by: Liao Chang <liaochang1@huawei.com>
+> ---
+>  arch/riscv/kernel/machine_kexec.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+> index e6eca271a4d6..4a5db856919b 100644
+> --- a/arch/riscv/kernel/machine_kexec.c
+> +++ b/arch/riscv/kernel/machine_kexec.c
+> @@ -65,7 +65,9 @@ machine_kexec_prepare(struct kimage *image)
+>  		if (image->segment[i].memsz <= sizeof(fdt))
+>  			continue;
+>  
+> -		if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
+> +		if (image->file_mode)
+> +			memcpy(&fdt, image->segment[i].buf, sizeof(fdt));
+> +		else if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
+>  			continue;
+>  
+>  		if (fdt_check_header(&fdt))
 
 _______________________________________________
 linux-riscv mailing list
