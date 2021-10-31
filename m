@@ -2,14 +2,14 @@ Return-Path: <SRS0=Kirc=PT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 275B1C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Oct 2021 22:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22CF9C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Oct 2021 22:34:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C1B6B60E54
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Oct 2021 22:30:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C1B6B60E54
+	by mail.kernel.org (Postfix) with ESMTPS id DB1CC60F4C
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Oct 2021 22:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DB1CC60F4C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,53 +18,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ASC/4IgSl4sqgXPD7a7oMjP35kVVGX1z8Hl0VfsVZU=; b=CIQI0Xl5xvtdwH
-	8OGl2N4TxVuk7fZzlfUILaPp9CftDpr8gl2j9bB+BgfuH+qZmro4YIbINGsfm43wa3lXnAP8ZWct1
-	1lJm4AXrvU2h/CnuxxpdkHY/DNEdATpvCKXor7pCJCyr+gDY+G7zlxZlHXPZD3iHb8e8tXQL9rQL7
-	TSDqBD1jsWh48BA0ZmpUE2RwP6jhnn0BnMbDwFMFdrA/UvygOR0nw77Wo55rMqTsZxTdgW0vIHmgY
-	CE8OnJLi+lJb0OEqAqwyfj0zzzaAV92zHtx7G6tga2QlN8IuyA2xCYGoDcesQEEQiC0I+Fj+FfquI
-	TvDd9nhBPLS+POKP4gfg==;
+	List-Owner; bh=UXj1PSdW9Y/iqKGFMiopS2++BSrLjUsgQbmPS1aHaeA=; b=GKVfn2s4g9tWcu
+	HC5fgyIoHCdXx0QLhZbQ8WnR9FqWOinrhcyZiBfl3mJ2YjSJTnw5i6cTvsWqgx4JB13uGFyNbCC5q
+	UQ9+ZiAKcfaQcOTXLJyk15X09FK/rZCC4f4XxulhLY5sslrU+kqaK9fCbxDfZdjohsBYy3STjYfb2
+	xM2jF0Z2uaR/PrxchjoMOQOb4uACS/RSqcyDqrdD+c0JyklnwsiwW8npvNNZRJCNiBgmug4zCo2ee
+	7YGlm0Iwy8kVGWcabr793Kr6VWBCx3ZMlWDY+/iVNz9qkJJQ/tFw9y7nes3qKWCwG6Uw0OG3rXaZ5
+	rWq+08SprBxhw8cw5mPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhJLm-00Ep9H-Ax; Sun, 31 Oct 2021 22:30:50 +0000
+	id 1mhJPF-00Epga-LA; Sun, 31 Oct 2021 22:34:25 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhJLi-00Ep7j-MS
- for linux-riscv@lists.infradead.org; Sun, 31 Oct 2021 22:30:48 +0000
+ id 1mhJP2-00Epdo-J3
+ for linux-riscv@lists.infradead.org; Sun, 31 Oct 2021 22:34:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1635719445;
+ s=mimecast20190719; t=1635719651;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=vjQhiLyEbEDnD4Y2r5pZNoATO4AoPvr4JeskA/KrBlI=;
- b=Y2zPxUiePWrYoTYNkf85cU0LvFN3JXlQW9deZq2gban7dWU0w1rIOWlv35DTW1U5IHJ0eJ
- pJqKu4c9sye9V6Aufmv8dcFVzLPC0NTl9GW/WPPrdNaCgZm7FZ+0JNPDdlW9ph2xPd2Dwk
- IaF6QRXofsbs8EUZwUqFuXc09CLyLRk=
+ bh=c8n/xhA0zJkzOmAPtQLtzvCuXP3Hx32iHbMD3xWco1s=;
+ b=WqfH9IRmrLaRC+nsxZSc4B4pNPUm27BxD7rLZo5xR8aGomMZPQHyTLYYBni+ZBQchzfv++
+ j9M2kQfZdpFtsY8E8k3vvKbZ10VPtw4aodyvA3xth+lzoQZyA8+Jk3oXIVRqMnOPFzwQKX
+ yyVamc93JclZOKdZzOPXcPjBMsqNj6Y=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-240-e9ofhHeAOOizUfULmvajlw-1; Sun, 31 Oct 2021 18:30:42 -0400
-X-MC-Unique: e9ofhHeAOOizUfULmvajlw-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
- [10.5.11.16])
+ us-mta-492-IUrqtT12PAernuCzxMBHeQ-1; Sun, 31 Oct 2021 18:34:08 -0400
+X-MC-Unique: IUrqtT12PAernuCzxMBHeQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+ [10.5.11.23])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DB52D18125C0;
- Sun, 31 Oct 2021 22:30:38 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E3A2080A5C0;
+ Sun, 31 Oct 2021 22:34:04 +0000 (UTC)
 Received: from starship (unknown [10.40.194.243])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 8110517155;
- Sun, 31 Oct 2021 22:30:08 +0000 (UTC)
-Message-ID: <ffce26d0540acb7550be719255689b61210919c1.camel@redhat.com>
-Subject: Re: [PATCH v2 42/43] KVM: VMX: Fold fallback path into triggering
- posted IRQ helper
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 4CB8619C59;
+ Sun, 31 Oct 2021 22:33:42 +0000 (UTC)
+Message-ID: <c4453a4bd13dc8120664fe0bf4db5e391d4748e2.camel@redhat.com>
+Subject: Re: [PATCH v2 43/43] KVM: VMX: Don't do full kick when handling
+ posted interrupt wakeup
 From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
- Huacai Chen <chenhuacai@kernel.org>, Aleksandar Markovic
+To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson
+ <seanjc@google.com>,  Marc Zyngier <maz@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Aleksandar Markovic
  <aleksandar.qemu.devel@gmail.com>, Paul Mackerras <paulus@ozlabs.org>, Anup
- Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank
- <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+ <frankja@linux.ibm.com>
 Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
  <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
  Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
@@ -77,16 +78,17 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
  Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Mon, 01 Nov 2021 00:30:07 +0200
-In-Reply-To: <20211009021236.4122790-43-seanjc@google.com>
+Date: Mon, 01 Nov 2021 00:33:40 +0200
+In-Reply-To: <01b5edae-aaa9-e96d-daaa-197c0c3a0431@redhat.com>
 References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-43-seanjc@google.com>
+ <20211009021236.4122790-44-seanjc@google.com>
+ <01b5edae-aaa9-e96d-daaa-197c0c3a0431@redhat.com>
 User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211031_153046_850844_EC634148 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20211031_153412_712356_85EFD8F2 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,81 +105,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> Move the fallback "wake_up" path into the helper to trigger posted
-> interrupt helper now that the nested and non-nested paths are identical.
+On Mon, 2021-10-25 at 16:16 +0200, Paolo Bonzini wrote:
+> On 09/10/21 04:12, Sean Christopherson wrote:
+> > When waking vCPUs in the posted interrupt wakeup handling, do exactly
+> > that and no more.  There is no need to kick the vCPU as the wakeup
+> > handler just need to get the vCPU task running, and if it's in the guest
+> > then it's definitely running.
+> 
+> And more important, the transition from blocking to running will have 
+> gone through sync_pir_to_irr, thus checking ON and manually moving the 
+> vector from PIR to RVI.
+> 
+> Paolo
+> 
+I also think so, and maybe this can be added to the commit message.
 
-Nit: I think you refer to patch 41 here, but I think that nested and non nested paths were identical
-before as well, so this patch could be done without patch 41 as well.
-
+Anyway, last one for the series :)
 
 Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
 
+
+
 Best regards,
 	Maxim Levitsky
-
-
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/vmx.c | 18 ++++++++++--------
->  1 file changed, 10 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index f505fee3cf5c..b0d97cf18c34 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -3927,7 +3927,7 @@ static void vmx_msr_filter_changed(struct kvm_vcpu *vcpu)
->  	pt_update_intercept_for_msr(vcpu);
->  }
->  
-> -static inline bool kvm_vcpu_trigger_posted_interrupt(struct kvm_vcpu *vcpu,
-> +static inline void kvm_vcpu_trigger_posted_interrupt(struct kvm_vcpu *vcpu,
->  						     int pi_vec)
->  {
->  #ifdef CONFIG_SMP
-> @@ -3958,10 +3958,15 @@ static inline bool kvm_vcpu_trigger_posted_interrupt(struct kvm_vcpu *vcpu,
->  		 */
->  
->  		apic->send_IPI_mask(get_cpu_mask(vcpu->cpu), pi_vec);
-> -		return true;
-> +		return;
->  	}
->  #endif
-> -	return false;
-> +	/*
-> +	 * The vCPU isn't in the guest; wake the vCPU in case it is blocking,
-> +	 * otherwise do nothing as KVM will grab the highest priority pending
-> +	 * IRQ via ->sync_pir_to_irr() in vcpu_enter_guest().
-> +	 */
-> +	kvm_vcpu_wake_up(vcpu);
->  }
->  
->  static int vmx_deliver_nested_posted_interrupt(struct kvm_vcpu *vcpu,
-> @@ -3984,8 +3989,7 @@ static int vmx_deliver_nested_posted_interrupt(struct kvm_vcpu *vcpu,
->  		 */
->  		kvm_make_request(KVM_REQ_EVENT, vcpu);
->  		/* the PIR and ON have been set by L1. */
-> -		if (!kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR))
-> -			kvm_vcpu_wake_up(vcpu);
-> +		kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR);
->  		return 0;
->  	}
->  	return -1;
-> @@ -4022,9 +4026,7 @@ static int vmx_deliver_posted_interrupt(struct kvm_vcpu *vcpu, int vector)
->  	 * guaranteed to see PID.ON=1 and sync the PIR to IRR if triggering a
->  	 * posted interrupt "fails" because vcpu->mode != IN_GUEST_MODE.
->  	 */
-> -	if (!kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_VECTOR))
-> -		kvm_vcpu_wake_up(vcpu);
-> -
-> +	kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_VECTOR);
->  	return 0;
->  }
->  
-
 
 
 _______________________________________________
